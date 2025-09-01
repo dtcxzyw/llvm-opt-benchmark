@@ -1097,43 +1097,43 @@ zend_string_free.exit:                            ; preds = %449, %455, %456
 
 490:                                              ; preds = %zend_string_alloc.exit
   %491 = getelementptr inbounds nuw i8, ptr %448, i64 24
-  %492 = add nsw i32 %431, -1
-  %493 = zext nneg i32 %492 to i64
-  %494 = getelementptr inbounds nuw [1 x i8], ptr %491, i64 0, i64 %493
-  %495 = load i8, ptr %494, align 1, !tbaa !5
-  %496 = icmp eq i8 %495, 47
-  %497 = load i16, ptr %192, align 2
-  br i1 %496, label %498, label %507
+  %492 = getelementptr i8, ptr %491, i64 %432
+  %493 = getelementptr i8, ptr %492, i64 -1
+  %494 = load i8, ptr %493, align 1, !tbaa !5
+  %495 = icmp eq i8 %494, 47
+  %496 = load i16, ptr %192, align 2
+  br i1 %495, label %497, label %507
 
-498:                                              ; preds = %490
-  %499 = or i16 %497, 8
-  store i16 %499, ptr %192, align 2
+497:                                              ; preds = %490
+  %498 = or i16 %496, 8
+  store i16 %498, ptr %192, align 2
   %.not1352 = icmp eq i16 %395, 1
-  br i1 %.not1352, label %504, label %500
+  br i1 %.not1352, label %504, label %499
 
-500:                                              ; preds = %498
+499:                                              ; preds = %497
+  %500 = add nsw i32 %431, -1
   %501 = getelementptr inbounds nuw i8, ptr %448, i64 16
   %502 = load i64, ptr %501, align 8, !tbaa !55
   %503 = add i64 %502, -1
   store i64 %503, ptr %501, align 8, !tbaa !55
   br label %504
 
-504:                                              ; preds = %500, %498
-  %.01194 = phi i32 [ %492, %500 ], [ 1, %498 ]
+504:                                              ; preds = %499, %497
+  %.01194 = phi i32 [ %500, %499 ], [ 1, %497 ]
   %505 = load i32, ptr %214, align 8, !tbaa !50
   %506 = or i32 %505, 511
   store i32 %506, ptr %214, align 8, !tbaa !50
   br label %509
 
 507:                                              ; preds = %490
-  %508 = and i16 %497, -9
+  %508 = and i16 %496, -9
   store i16 %508, ptr %192, align 2
   br label %509
 
 509:                                              ; preds = %507, %504
   %.11195 = phi i32 [ %.01194, %504 ], [ %431, %507 ]
   %510 = zext nneg i32 %.11195 to i64
-  %511 = getelementptr inbounds nuw [1 x i8], ptr %491, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw i8, ptr %491, i64 %510
   store i8 0, ptr %511, align 1, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %512 = load i16, ptr %192, align 2
@@ -1386,11 +1386,11 @@ zend_string_free.exit1592:                        ; preds = %568, %574, %575
   br label %625
 
 625:                                              ; preds = %.critedge, %615
-  %storemerge1967 = phi i64 [ %624, %615 ], [ %614, %.critedge ]
+  %storemerge1968 = phi i64 [ %624, %615 ], [ %614, %.critedge ]
   %626 = phi i64 [ %620, %615 ], [ %565, %.critedge ]
   %627 = phi ptr [ %618, %615 ], [ %563, %.critedge ]
-  store i64 %storemerge1967, ptr %222, align 8, !tbaa !57
-  store i64 %storemerge1967, ptr %223, align 8, !tbaa !58
+  store i64 %storemerge1968, ptr %222, align 8, !tbaa !57
+  store i64 %storemerge1968, ptr %223, align 8, !tbaa !58
   %628 = icmp eq i64 %626, 19
   br i1 %628, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
 
@@ -4760,10 +4760,10 @@ zend_string_release_ex.exit1648:                  ; preds = %.loopexit1728, %204
   br label %.thread1687
 
 .sink.split:                                      ; preds = %zend_string_release_ex.exit1642, %zend_string_release_ex.exit1636
-  %.sink2001 = phi ptr [ %1771, %zend_string_release_ex.exit1636 ], [ %1895, %zend_string_release_ex.exit1642 ]
+  %.sink2002 = phi ptr [ %1771, %zend_string_release_ex.exit1636 ], [ %1895, %zend_string_release_ex.exit1642 ]
   %.81180.ph = phi ptr [ %1829, %zend_string_release_ex.exit1636 ], [ %1953, %zend_string_release_ex.exit1642 ]
-  %2081 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %.sink2001, i32 noundef 1) #16
-  %2082 = call ptr @php_stream_filter_remove(ptr noundef nonnull %.sink2001, i32 noundef 1) #16
+  %2081 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %.sink2002, i32 noundef 1) #16
+  %2082 = call ptr @php_stream_filter_remove(ptr noundef nonnull %.sink2002, i32 noundef 1) #16
   br label %2083
 
 2083:                                             ; preds = %.sink.split, %zend_string_release_ex.exit1646
@@ -5115,9 +5115,9 @@ zend_hash_str_find_ptr.exit1662.thread:           ; preds = %2186, %2188
   br label %2219
 
 2219:                                             ; preds = %2216, %2204
-  %.sink2002 = phi i32 [ %147, %2216 ], [ %2207, %2204 ]
+  %.sink2003 = phi i32 [ %147, %2216 ], [ %2207, %2204 ]
   %2220 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  store i32 %.sink2002, ptr %2220, align 8, !tbaa !64
+  store i32 %.sink2003, ptr %2220, align 8, !tbaa !64
   %2221 = load i16, ptr %105, align 4
   %2222 = or i16 %2221, 1
   store i16 %2222, ptr %105, align 4
@@ -6669,7 +6669,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr nound
   %38 = and i32 %35, 255
   %39 = xor i32 %38, 255
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i32], ptr @crc32tab, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !81
   %43 = xor i32 %42, 16777215
   %44 = lshr i32 %43, 8
@@ -6678,7 +6678,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_zip_changed_apply_int(ptr nound
   %.masked = and i32 %43, 255
   %47 = xor i32 %.masked, %46
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i32], ptr @crc32tab, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @crc32tab, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %52 = xor i32 %50, %44

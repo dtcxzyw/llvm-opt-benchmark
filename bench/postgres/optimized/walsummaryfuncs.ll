@@ -225,7 +225,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
 
 66:                                               ; preds = %65, %66
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   store i64 %69, ptr %37, align 16

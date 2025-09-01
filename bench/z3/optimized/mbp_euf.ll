@@ -3739,9 +3739,9 @@ _ZN7obj_mapI4exprPS0_EC2Ev.exit:                  ; preds = %.loopexit226
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %109
   %96 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %114, %109 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %109 ]
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !41
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8, !tbaa !41
   %101 = icmp eq ptr %96, null
   br i1 %101, label %108, label %102
@@ -4200,9 +4200,9 @@ _ZN7obj_mapI4exprPS0_E6insertES1_RKS1_.exit:      ; preds = %"_ZZN3mbp18euf_proj
 294:                                              ; preds = %.lr.ph246, %308
   %295 = phi ptr [ %.pre276, %.lr.ph246 ], [ %313, %308 ]
   %indvars.iv273 = phi i64 [ 0, %.lr.ph246 ], [ %indvars.iv.next274, %308 ]
-  %296 = getelementptr inbounds nuw [0 x ptr], ptr %292, i64 0, i64 %indvars.iv273
+  %296 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv273
   %297 = load ptr, ptr %296, align 8, !tbaa !41
-  %298 = getelementptr inbounds nuw [0 x ptr], ptr %293, i64 0, i64 %indvars.iv273
+  %298 = getelementptr inbounds nuw ptr, ptr %293, i64 %indvars.iv273
   %299 = load ptr, ptr %298, align 8, !tbaa !41
   %300 = icmp eq ptr %295, null
   br i1 %300, label %307, label %301

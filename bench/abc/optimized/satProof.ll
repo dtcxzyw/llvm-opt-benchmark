@@ -304,7 +304,7 @@ Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.
   %115 = phi i32 [ %112, %.lr.ph ], [ %159, %.thread ]
   %116 = phi ptr [ %98, %.lr.ph ], [ %.pre.i5468, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %117 = getelementptr inbounds nuw [0 x i32], ptr %113, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4, !tbaa !18
   %119 = and i32 %118, 1
   %.not31 = icmp eq i32 %119, 0
@@ -513,7 +513,7 @@ define void @Proof_CollectUsed_rec(ptr noundef readonly captures(none) %0, i32 n
 19:                                               ; preds = %.lr.ph, %.thread
   %20 = phi i32 [ %17, %.lr.ph ], [ %38, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %21 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !18
   %23 = and i32 %22, 1
   %.not20 = icmp eq i32 %23, 0
@@ -702,7 +702,7 @@ define i32 @Proof_MarkUsed_rec(ptr noundef readonly captures(none) %0, i32 nound
   %19 = phi i32 [ %16, %.lr.ph ], [ %39, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.029 = phi i32 [ 1, %.lr.ph ], [ %.1, %.thread ]
-  %20 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !18
   %22 = and i32 %21, 1
   %.not22 = icmp eq i32 %22, 0
@@ -1033,7 +1033,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 120:                                              ; preds = %.lr.ph, %139
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %139 ]
-  %121 = getelementptr inbounds nuw [0 x i32], ptr %117, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4, !tbaa !18
   %123 = and i32 %122, 1
   %.not96 = icmp eq i32 %123, 0
@@ -1293,7 +1293,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
 22:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.177 = phi i32 [ %.079, %.lr.ph ], [ %.2, %34 ]
-  %23 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !18
   %25 = and i32 %24, 1
   %.not61 = icmp eq i32 %25, 0
@@ -1382,7 +1382,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
   %64 = phi i32 [ %61, %.lr.ph85 ], [ %108, %107 ]
   %65 = phi ptr [ %.pre.i104, %.lr.ph85 ], [ %.pre.i107, %107 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next99, %107 ]
-  %66 = getelementptr inbounds nuw [0 x i32], ptr %62, i64 0, i64 %indvars.iv98
+  %66 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv98
   %67 = load i32, ptr %66, align 4, !tbaa !18
   %68 = and i32 %67, 1
   %.not59 = icmp eq i32 %68, 0

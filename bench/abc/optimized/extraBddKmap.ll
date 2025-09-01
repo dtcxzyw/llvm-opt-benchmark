@@ -144,7 +144,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %indvars.iv515 = phi i64 [ 0, %.lr.ph440.preheader ], [ %indvars.iv.next516, %.lr.ph440 ]
   %60 = trunc nuw nsw i64 %indvars.iv515 to i32
   %61 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %60) #5
-  %62 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv515
+  %62 = getelementptr inbounds nuw ptr, ptr @s_XVars, i64 %indvars.iv515
   store ptr %61, ptr %62, align 8, !tbaa !29
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
@@ -156,7 +156,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv510
   %66 = load i32, ptr %65, align 4, !tbaa !32
   %67 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %66) #5
-  %68 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv510
+  %68 = getelementptr inbounds nuw ptr, ptr @s_XVars, i64 %indvars.iv510
   store ptr %67, ptr %68, align 8, !tbaa !29
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
@@ -191,7 +191,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %.0312443 = phi ptr [ %85, %.lr.ph444 ], [ %72, %.preheader426 ]
   %78 = load i32, ptr %.0312443, align 8, !tbaa !34
   %79 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %1, i32 noundef %78) #5
-  %80 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv520
+  %80 = getelementptr inbounds nuw ptr, ptr @s_XVars, i64 %indvars.iv520
   store ptr %79, ptr %80, align 8, !tbaa !29
   %81 = ptrtoint ptr %.0312443 to i64
   %82 = and i64 %81, -2
@@ -212,7 +212,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %87 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !29
-  %89 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr @s_XVars, i64 %indvars.iv
   store ptr %88, ptr %89, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond509.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

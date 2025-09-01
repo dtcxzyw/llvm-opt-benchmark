@@ -9971,7 +9971,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   br i1 %79, label %"_ZN4core3ptr50drop_in_place$LT$$u5b$copilot..Completion$u5d$$GT$17hc293c5a057f24f9eE.exit.i", label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %75, i64 0, i64 %.sroa.0.0.i.i11
+  %81 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %75, i64 %.sroa.0.0.i.i11
   %82 = add i64 %.sroa.0.0.i.i11, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %81)
           to label %78 unwind label %85, !noalias !2683
@@ -9987,7 +9987,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   br label %83
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %75, i64 0, i64 %.sroa.0.1.i.i
+  %88 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %75, i64 %.sroa.0.1.i.i
   %89 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %88) #46
           to label %83 unwind label %90, !noalias !2683
@@ -21430,7 +21430,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i, i32 2
+  %112 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i, i32 2
   %113 = load i64, ptr %112, align 8, !noalias !5271, !noundef !9
   %.sroa.0.011.i = and i64 %64, %113
   %114 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.011.i
@@ -21596,7 +21596,7 @@ _ZN4core3ptr19swap_nonoverlapping17hfa9b5ad775b346dbE.exit.loopexit.i: ; preds =
 .lr.ph.i8:                                        ; preds = %176, %_ZN4core3ptr19swap_nonoverlapping17hfa9b5ad775b346dbE.exit.loopexit.i
   %.val3.i16.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17hfa9b5ad775b346dbE.exit.loopexit.i ], [ %.val3.i15.i, %176 ]
   %188 = phi ptr [ %184, %_ZN4core3ptr19swap_nonoverlapping17hfa9b5ad775b346dbE.exit.loopexit.i ], [ %173, %176 ]
-  %189 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i16.i, i32 2
+  %189 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i16.i, i32 2
   %190 = load i64, ptr %189, align 8, !noalias !5299, !noundef !9
   %.val8.i = load i64, ptr %15, align 8, !alias.scope !5281, !noundef !9
   %.sroa.0.011.i.i = and i64 %.val8.i, %190
@@ -21950,10 +21950,10 @@ define { ptr, i64 } @_ZN7copilot12copilot_chat5Model2id17h3004631323dadf62E(ptr 
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !131, !noundef !9
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7copilot12copilot_chat5Model2id17h3004631323dadf62E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7copilot12copilot_chat5Model2id17h3004631323dadf62E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7copilot12copilot_chat5Model2id17h3004631323dadf62E.82, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7copilot12copilot_chat5Model2id17h3004631323dadf62E.82, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -21965,10 +21965,10 @@ define { ptr, i64 } @_ZN7copilot12copilot_chat5Model12display_name17hb9cf443b5da
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !131, !noundef !9
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7copilot12copilot_chat5Model12display_name17hb9cf443b5da190cbE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7copilot12copilot_chat5Model12display_name17hb9cf443b5da190cbE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7copilot12copilot_chat5Model12display_name17hb9cf443b5da190cbE.83, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7copilot12copilot_chat5Model12display_name17hb9cf443b5da190cbE.83, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -21980,7 +21980,7 @@ define noundef range(i64 8192, 128001) i64 @_ZN7copilot12copilot_chat5Model15max
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !131, !noundef !9
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7copilot12copilot_chat5Model15max_token_count17h85815246d850dbacE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7copilot12copilot_chat5Model15max_token_count17h85815246d850dbacE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

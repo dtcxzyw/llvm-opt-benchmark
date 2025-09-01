@@ -1440,7 +1440,7 @@ _ZNSt3mapI13aiTextureTypejSt4lessIS0_ESaISt4pairIKS0_jEEE5clearEv.exit: ; preds 
   %383 = load ptr, ptr %3, align 8
   %384 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %381, ptr align 1 %383, i64 %384, i1 false)
-  %385 = getelementptr inbounds nuw [1024 x i8], ptr %381, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 %384
   store i8 0, ptr %385, align 1
   %386 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %17, ptr noundef nonnull @.str.15, i32 noundef 0, i32 noundef 0)
           to label %387 unwind label %468
@@ -2010,7 +2010,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %608 = load ptr, ptr %18, align 8
   %609 = zext i32 %spec.select.i189 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %423, ptr align 1 %608, i64 %609, i1 false)
-  %610 = getelementptr inbounds nuw [1024 x i8], ptr %423, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw i8, ptr %423, i64 %609
   store i8 0, ptr %610, align 1
   %611 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %26, ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef 0)
           to label %612 unwind label %613
@@ -2046,7 +2046,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %624 = load ptr, ptr %18, align 8
   %625 = zext i32 %spec.select.i191 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %422, ptr align 1 %624, i64 %625, i1 false)
-  %626 = getelementptr inbounds nuw [1024 x i8], ptr %422, i64 0, i64 %625
+  %626 = getelementptr inbounds nuw i8, ptr %422, i64 %625
   store i8 0, ptr %626, align 1
   %627 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %27, ptr noundef nonnull @.str.25, i32 noundef 6, i32 noundef 0)
           to label %628 unwind label %629
@@ -2192,7 +2192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit200: ; preds = %_Z
   store i32 %spec.select.i202, ptr %31, align 4
   %684 = zext i32 %spec.select.i202 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %421, ptr align 1 %680, i64 %684, i1 false)
-  %685 = getelementptr inbounds nuw [1024 x i8], ptr %421, i64 0, i64 %684
+  %685 = getelementptr inbounds nuw i8, ptr %421, i64 %684
   store i8 0, ptr %685, align 1
   %686 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %31, ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef 0)
           to label %687 unwind label %688
@@ -2270,7 +2270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
   store i32 %spec.select.i207, ptr %33, align 4
   %717 = zext i32 %spec.select.i207 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %418, ptr align 1 %713, i64 %717, i1 false)
-  %718 = getelementptr inbounds nuw [1024 x i8], ptr %418, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw i8, ptr %418, i64 %717
   store i8 0, ptr %718, align 1
   %719 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %33, ptr noundef nonnull @.str.25, i32 noundef 7, i32 noundef 0)
           to label %720 unwind label %721
@@ -2348,7 +2348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
   store i32 %spec.select.i212, ptr %35, align 4
   %750 = zext i32 %spec.select.i212 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %415, ptr align 1 %746, i64 %750, i1 false)
-  %751 = getelementptr inbounds nuw [1024 x i8], ptr %415, i64 0, i64 %750
+  %751 = getelementptr inbounds nuw i8, ptr %415, i64 %750
   store i8 0, ptr %751, align 1
   %752 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %35, ptr noundef nonnull @.str.25, i32 noundef 6, i32 noundef 0)
           to label %753 unwind label %754
@@ -2426,7 +2426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215: ; preds = %_Z
   store i32 %spec.select.i217, ptr %37, align 4
   %783 = zext i32 %spec.select.i217 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %412, ptr align 1 %779, i64 %783, i1 false)
-  %784 = getelementptr inbounds nuw [1024 x i8], ptr %412, i64 0, i64 %783
+  %784 = getelementptr inbounds nuw i8, ptr %412, i64 %783
   store i8 0, ptr %784, align 1
   %785 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull %37, ptr noundef nonnull @.str.25, i32 noundef 10, i32 noundef 0)
           to label %786 unwind label %787
@@ -6656,7 +6656,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit5
   %285 = load ptr, ptr %12, align 8
   %286 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %283, ptr align 1 %285, i64 %286, i1 false)
-  %287 = getelementptr inbounds nuw [1024 x i8], ptr %283, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 %286
   store i8 0, ptr %287, align 1
   %288 = load i32, ptr %11, align 4
   %289 = load i32, ptr %18, align 4
@@ -9496,7 +9496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

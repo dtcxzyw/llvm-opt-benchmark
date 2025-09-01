@@ -258,17 +258,17 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   %95 = add i32 %94, 40
   %96 = and i32 %95, 63
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [64 x i32], ptr %83, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %83, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !39
   %100 = add i32 %94, 9
   %101 = and i32 %100, 63
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [64 x i32], ptr %83, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %83, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !39
   %105 = add i32 %104, %99
   %106 = and i32 %94, 63
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [64 x i32], ptr %83, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr %83, i64 %107
   store i32 %105, ptr %108, align 4, !tbaa !39
   %109 = add i32 %94, 1
   store i32 %109, ptr %89, align 4, !tbaa !38
@@ -579,7 +579,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %24 = load i8, ptr %23, align 8, !tbaa !46
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !36
@@ -596,7 +596,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
 .preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
   %.not.i = icmp eq i8 %24, 0
   %35 = zext i1 %.not.i to i64
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr %22, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %22, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !34
   br label %.preheader.i
 
@@ -880,7 +880,7 @@ define internal void @fill_picture_rgb(ptr noundef readonly captures(none) %0, p
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load i8, ptr %6, align 8, !tbaa !46
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !36
@@ -1025,7 +1025,7 @@ define internal void @fill_picture_monoblack(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load i8, ptr %6, align 8, !tbaa !46
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !36

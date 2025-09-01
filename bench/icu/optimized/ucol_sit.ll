@@ -845,7 +845,7 @@ define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11
 
 .preheader:                                       ; preds = %12, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw [17 x %struct.ShortStringOptions], ptr @_ZL7options, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.ShortStringOptions, ptr @_ZL7options, i64 %indvars.iv.i
   %16 = load i8, ptr %15, align 8, !tbaa !30
   %17 = icmp eq i8 %13, %16
   br i1 %17, label %18, label %14
@@ -880,7 +880,7 @@ common.resume.i:                                  ; preds = %36, %31
   br label %common.resume.i
 
 _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit.i: ; preds = %18
-  %33 = getelementptr inbounds nuw [17 x %"class.icu_77::CharString"], ptr %9, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %9, i64 %indvars.iv.i
   %34 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString8copyFromERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %33, ptr noundef nonnull align 8 dereferenceable(60) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %35 unwind label %36
 
@@ -1220,7 +1220,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
 
 55:                                               ; preds = %.preheader, %79
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %79 ]
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %45, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %.not52 = icmp eq i32 %57, -1
   br i1 %.not52, label %79, label %58
@@ -1568,7 +1568,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %27
 55:                                               ; preds = %91, %.preheader.i
   %indvars.iv60.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next61.i, %91 ]
   %.04957.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %91 ]
-  %56 = getelementptr inbounds nuw [17 x %"class.icu_77::CharString"], ptr %53, i64 0, i64 %indvars.iv60.i
+  %56 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %53, i64 %indvars.iv60.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %58 = load i32, ptr %57, align 8, !tbaa !20
   %.not.i = icmp eq i32 %58, 0
@@ -1820,13 +1820,13 @@ define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecj
 
 7:                                                ; preds = %6, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw [12 x %struct.AttributeConversion], ptr @_ZL11conversions, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.AttributeConversion, ptr @_ZL11conversions, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 8, !tbaa !43
   %10 = icmp eq i8 %9, %5
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw [12 x %struct.AttributeConversion], ptr @_ZL11conversions, i64 0, i64 %indvars.iv.i, i32 1
+  %12 = getelementptr inbounds nuw %struct.AttributeConversion, ptr @_ZL11conversions, i64 %indvars.iv.i, i32 1
   %13 = load i32, ptr %12, align 4, !tbaa !45
   br label %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
 
@@ -1838,7 +1838,7 @@ _ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit: ; preds = %11, %14
   %.06.i = phi i32 [ %13, %11 ], [ -1, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
   store i32 %.06.i, ptr %17, align 4, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !22
@@ -1929,13 +1929,13 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread: ; preds = %._crit_edge.i, %15
   %.027.ph.i = phi i16 [ 0, %15 ], [ %20, %._crit_edge.i ]
   store i32 1, ptr %3, align 4, !tbaa !13
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   store i16 %.027.ph.i, ptr %27, align 2, !tbaa !18
   br label %.critedge
 
 _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
   store i16 %20, ptr %28, align 2, !tbaa !18
   %29 = icmp samesign ult i64 %indvars.iv, 31
   br i1 %29, label %8, label %.critedge, !llvm.loop !47
@@ -2047,7 +2047,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjPKcP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef %3) #1 {
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %"class.icu_77::CharString"], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %0, i64 %5
   switch i32 %1, label %.split.preheader [
     i32 5, label %.split.us
     i32 4, label %.split.us

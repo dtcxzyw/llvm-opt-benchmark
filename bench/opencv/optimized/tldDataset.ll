@@ -115,78 +115,58 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::Rect_") align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = add nsw i32 %1, -1
-  switch i32 %3, label %35 [
-    i32 0, label %.thread
-    i32 1, label %20
+  switch i32 %3, label %22 [
+    i32 0, label %.sink.split
+    i32 1, label %6
   ]
 
-.thread:                                          ; preds = %4
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [10 x ptr], ptr @_ZN2cv6detail8tracking3tld13tldFolderNameE, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds [10 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 0, i64 %6
-  %10 = load double, ptr %9, align 16, !tbaa !8
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load double, ptr %11, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %14 = load double, ptr %13, align 16, !tbaa !12
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %16 = load double, ptr %15, align 8, !tbaa !13
-  %17 = getelementptr inbounds [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
-  %18 = load i32, ptr %17, align 4, !tbaa !14
-  store i32 %18, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4, !tbaa !14
-  %19 = getelementptr inbounds [10 x i8], ptr @_ZN2cv6detail8tracking3tld10tldFlagPNGE, i64 0, i64 %6
+6:                                                ; preds = %4
   br label %.sink.split
 
-20:                                               ; preds = %4
-  %21 = sext i32 %5 to i64
-  %22 = getelementptr inbounds [60 x ptr], ptr @_ZN2cv6detail8tracking3tld13votFolderNameE, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !3
-  %24 = getelementptr inbounds [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %21
-  %25 = load double, ptr %24, align 16, !tbaa !8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load double, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %29 = load double, ptr %28, align 16, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = load double, ptr %30, align 8, !tbaa !13
-  %32 = getelementptr inbounds [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %21
-  %33 = load i32, ptr %32, align 4, !tbaa !14
-  store i32 %33, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4, !tbaa !14
-  %34 = getelementptr inbounds [60 x i8], ptr @_ZN2cv6detail8tracking3tld10votFlagPNGE, i64 0, i64 %21
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %20, %.thread
-  %.sink35.in = phi ptr [ %19, %.thread ], [ %34, %20 ]
-  %.sink = phi i8 [ 0, %.thread ], [ 1, %20 ]
-  %.129.ph = phi double [ %10, %.thread ], [ %25, %20 ]
-  %.127.ph = phi double [ %12, %.thread ], [ %27, %20 ]
-  %.125.ph = phi double [ %14, %.thread ], [ %29, %20 ]
-  %.123.ph = phi double [ %16, %.thread ], [ %31, %20 ]
-  %.1.ph = phi ptr [ %8, %.thread ], [ %23, %20 ]
-  %.sink35 = load i8, ptr %.sink35.in, align 1, !tbaa !16, !range !18, !noundef !19
-  store i8 %.sink35, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1, !tbaa !16
+.sink.split:                                      ; preds = %4, %6
+  %_ZN2cv6detail8tracking3tld13tldFolderNameE.sink = phi ptr [ @_ZN2cv6detail8tracking3tld13votFolderNameE, %6 ], [ @_ZN2cv6detail8tracking3tld13tldFolderNameE, %4 ]
+  %_ZN2cv6detail8tracking3tldL9tldInitBBE.sink = phi ptr [ @_ZN2cv6detail8tracking3tldL9votInitBBE, %6 ], [ @_ZN2cv6detail8tracking3tldL9tldInitBBE, %4 ]
+  %_ZN2cv6detail8tracking3tld14tldFrameOffsetE.sink = phi ptr [ @_ZN2cv6detail8tracking3tld14votFrameOffsetE, %6 ], [ @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, %4 ]
+  %_ZN2cv6detail8tracking3tld10tldFlagPNGE.sink = phi ptr [ @_ZN2cv6detail8tracking3tld10votFlagPNGE, %6 ], [ @_ZN2cv6detail8tracking3tld10tldFlagPNGE, %4 ]
+  %.sink = phi i8 [ 1, %6 ], [ 0, %4 ]
+  %7 = sext i32 %5 to i64
+  %8 = getelementptr inbounds ptr, ptr %_ZN2cv6detail8tracking3tld13tldFolderNameE.sink, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
+  %10 = getelementptr inbounds %"class.cv::Rect_", ptr %_ZN2cv6detail8tracking3tldL9tldInitBBE.sink, i64 %7
+  %11 = load double, ptr %10, align 16, !tbaa !8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load double, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %15 = load double, ptr %14, align 16, !tbaa !12
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %17 = load double, ptr %16, align 8, !tbaa !13
+  %18 = getelementptr inbounds i32, ptr %_ZN2cv6detail8tracking3tld14tldFrameOffsetE.sink, i64 %7
+  %19 = load i32, ptr %18, align 4, !tbaa !14
+  store i32 %19, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4, !tbaa !14
+  %20 = getelementptr inbounds i8, ptr %_ZN2cv6detail8tracking3tld10tldFlagPNGE.sink, i64 %7
+  %21 = load i8, ptr %20, align 1, !tbaa !16, !range !18, !noundef !19
+  store i8 %21, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1, !tbaa !16
   store i8 %.sink, ptr @_ZN2cv6detail8tracking3tld7flagVOTE, align 1, !tbaa !16
-  br label %35
+  br label %22
 
-35:                                               ; preds = %.sink.split, %4
-  %.129 = phi double [ 0.000000e+00, %4 ], [ %.129.ph, %.sink.split ]
-  %.127 = phi double [ 0.000000e+00, %4 ], [ %.127.ph, %.sink.split ]
-  %.125 = phi double [ 0.000000e+00, %4 ], [ %.125.ph, %.sink.split ]
-  %.123 = phi double [ 0.000000e+00, %4 ], [ %.123.ph, %.sink.split ]
-  %.1 = phi ptr [ @.str.72, %4 ], [ %.1.ph, %.sink.split ]
-  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #11
+22:                                               ; preds = %.sink.split, %4
+  %.129 = phi double [ 0.000000e+00, %4 ], [ %11, %.sink.split ]
+  %.127 = phi double [ 0.000000e+00, %4 ], [ %13, %.sink.split ]
+  %.125 = phi double [ 0.000000e+00, %4 ], [ %15, %.sink.split ]
+  %.123 = phi double [ 0.000000e+00, %4 ], [ %17, %.sink.split ]
+  %.1 = phi ptr [ @.str.72, %4 ], [ %9, %.sink.split ]
+  %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #11
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE)
   %endptr = getelementptr inbounds i8, ptr @_ZN2cv6detail8tracking3tld11tldRootPathE, i64 %strlen
   store i16 92, ptr %endptr, align 1
-  %37 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #11
+  %24 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #11
   store double %.129, ptr %0, align 8, !tbaa !8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.127, ptr %38, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.125, ptr %39, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %.123, ptr %40, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.127, ptr %25, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.125, ptr %26, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %.123, ptr %27, align 8, !tbaa !13
   ret void
 }
 

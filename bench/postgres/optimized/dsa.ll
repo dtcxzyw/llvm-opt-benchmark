@@ -151,7 +151,7 @@ dsa_minimum_size.exit:                            ; preds = %8
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %51 ]
   %52 = load ptr, ptr %45, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4288
-  %54 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %53, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %44, align 8
   tail call void @LWLockInitialize(ptr noundef nonnull %54, i32 noundef %55) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -186,17 +186,19 @@ contiguous_pages_to_segment_bin.exit.thread:      ; preds = %56
   %67 = trunc nuw nsw i64 %66 to i32
   %68 = xor i32 %67, 63
   %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 14)
-  %70 = add nuw nsw i32 %69, 1
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [16 x i64], ptr %42, i64 0, i64 %71
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i64, ptr %42, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 0, ptr %72, align 8
+  %73 = add nuw nsw i32 %69, 1
+  %74 = zext nneg i32 %73 to i64
   br label %contiguous_pages_to_segment_bin.exit80
 
 contiguous_pages_to_segment_bin.exit80:           ; preds = %contiguous_pages_to_segment_bin.exit.thread, %63
-  %.0.i79 = phi i64 [ %71, %63 ], [ 0, %contiguous_pages_to_segment_bin.exit.thread ]
-  %73 = load ptr, ptr %58, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i64 %.0.i79, ptr %74, align 8
+  %.0.i79 = phi i64 [ %74, %63 ], [ 0, %contiguous_pages_to_segment_bin.exit.thread ]
+  %75 = load ptr, ptr %58, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  store i64 %.0.i79, ptr %76, align 8
   ret ptr %45
 }
 
@@ -226,7 +228,7 @@ define dso_local void @dsa_on_dsm_detach_release_in_place(ptr readnone captures(
 12:                                               ; preds = %17, %.preheader.i
   %13 = phi i64 [ 0, %.preheader.i ], [ %19, %17 ]
   %.013.i = phi i32 [ 0, %.preheader.i ], [ %18, %17 ]
-  %14 = getelementptr inbounds [1024 x i32], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %11, i64 %13
   %15 = load i32, ptr %14, align 4
   %.not12.i = icmp eq i32 %15, 0
   br i1 %.not12.i, label %17, label %16
@@ -387,7 +389,7 @@ define dso_local void @dsa_release_in_place(ptr noundef %0) local_unnamed_addr #
 10:                                               ; preds = %.preheader, %15
   %11 = phi i64 [ 0, %.preheader ], [ %17, %15 ]
   %.013 = phi i32 [ 0, %.preheader ], [ %16, %15 ]
-  %12 = getelementptr inbounds [1024 x i32], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %.not12 = icmp eq i32 %13, 0
   br i1 %.not12, label %15, label %14
@@ -428,7 +430,7 @@ define dso_local void @dsa_on_shmem_exit_release_in_place(i32 noundef %0, i64 no
 12:                                               ; preds = %17, %.preheader.i
   %13 = phi i64 [ 0, %.preheader.i ], [ %19, %17 ]
   %.013.i = phi i32 [ 0, %.preheader.i ], [ %18, %17 ]
-  %14 = getelementptr inbounds [1024 x i32], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %11, i64 %13
   %15 = load i32, ptr %14, align 4
   %.not12.i = icmp eq i32 %15, 0
   br i1 %.not12.i, label %17, label %16
@@ -471,7 +473,7 @@ define dso_local void @dsa_pin_mapping(ptr noundef captures(none) %0) local_unna
 7:                                                ; preds = %4, %12
   %8 = phi i64 [ 0, %4 ], [ %14, %12 ]
   %.012 = phi i32 [ 0, %4 ], [ %13, %12 ]
-  %9 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.dsa_segment_map, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %12, label %11
@@ -678,7 +680,7 @@ dsa_get_address.exit:                             ; preds = %77, %97
   %104 = shl nuw nsw i64 %1, 29
   %sext = add nsw i64 %104, -536870912
   %105 = ashr i64 %sext, 32
-  %106 = getelementptr inbounds [128 x i8], ptr @dsa_size_class_map, i64 0, i64 %105
+  %106 = getelementptr inbounds i8, ptr @dsa_size_class_map, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i16
   br label %.loopexit
@@ -691,7 +693,7 @@ dsa_get_address.exit:                             ; preds = %77, %97
   %111 = add nuw nsw i32 %109, %110
   %112 = lshr i32 %111, 1
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = zext i16 %115 to i64
   %117 = icmp samesign ugt i64 %1, %116
@@ -781,7 +783,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4288
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %5, i64 %6
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #11
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
@@ -789,7 +791,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
   br i1 %.not, label %11, label %.thread77
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
+  %12 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %6
   %13 = load i16, ptr %12, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp eq i32 %1, 0
@@ -842,7 +844,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef range(i32 0
 .preheader.i70:                                   ; preds = %33, %50
   %40 = phi i64 [ %52, %50 ], [ 0, %33 ]
   %.024.i71 = phi i32 [ %51, %50 ], [ 0, %33 ]
-  %41 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %25, i64 0, i64 %40
+  %41 = getelementptr inbounds %struct.dsa_segment_map, ptr %25, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not23.i72 = icmp eq ptr %43, null
@@ -929,7 +931,7 @@ dsa_get_address.exit67:                           ; preds = %check_for_freed_seg
 .preheader.i:                                     ; preds = %80, %97
   %87 = phi i64 [ %99, %97 ], [ 0, %80 ]
   %.024.i = phi i32 [ %98, %97 ], [ 0, %80 ]
-  %88 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %25, i64 0, i64 %87
+  %88 = getelementptr inbounds %struct.dsa_segment_map, ptr %25, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %.not23.i = icmp eq ptr %90, null
@@ -1059,8 +1061,8 @@ check_for_freed_segments.exit.i49:                ; preds = %128, %121
 
 149:                                              ; preds = %145, %140, %118
   %sext.i = shl i64 %73, 32
-  %150 = ashr exact i64 %sext.i, 32
-  %151 = getelementptr inbounds [4 x i64], ptr %21, i64 0, i64 %150
+  %150 = ashr exact i64 %sext.i, 29
+  %151 = getelementptr inbounds i8, ptr %21, i64 %150
   %152 = load i64, ptr %151, align 8
   store i64 %152, ptr %66, align 8
   store i64 %.1.i84, ptr %151, align 8
@@ -1092,7 +1094,7 @@ check_for_freed_segments.exit.i49:                ; preds = %128, %121
 .preheader.i114:                                  ; preds = %160, %177
   %167 = phi i64 [ %179, %177 ], [ 0, %160 ]
   %.024.i115 = phi i32 [ %178, %177 ], [ 0, %160 ]
-  %168 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %25, i64 0, i64 %167
+  %168 = getelementptr inbounds %struct.dsa_segment_map, ptr %25, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8
   %.not23.i116 = icmp eq ptr %170, null
@@ -1299,7 +1301,7 @@ dsa_get_address.exit:                             ; preds = %261, %check_for_fre
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 %256
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
+  %267 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %6
   %268 = load i16, ptr %267, align 2
   %269 = zext i16 %268 to i64
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 46
@@ -1378,7 +1380,7 @@ dsa_get_address.exit39:                           ; preds = %290, %check_for_fre
   %.0 = phi i64 [ %.1, %307 ], [ %.1, %302 ], [ 0, %ensure_active_superblock.exit ]
   %310 = load ptr, ptr %0, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 4288
-  %312 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %311, i64 0, i64 %6
+  %312 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %311, i64 %6
   call void @LWLockRelease(ptr noundef nonnull %312) #11
   ret i64 %.0
 }
@@ -1403,7 +1405,7 @@ define internal fastcc ptr @get_best_segment(ptr noundef captures(ret: address, 
 10:                                               ; preds = %21, %.preheader.i
   %11 = phi i64 [ 0, %.preheader.i ], [ %23, %21 ]
   %.024.i = phi i32 [ 0, %.preheader.i ], [ %22, %21 ]
-  %12 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.dsa_segment_map, ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not23.i = icmp eq ptr %14, null
@@ -1458,14 +1460,14 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
   %39 = shl nuw nsw i64 1, %38
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4160
-  %42 = getelementptr inbounds nuw [16 x i64], ptr %41, i64 0, i64 %.02949
+  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %.02949
   %43 = load i64, ptr %42, align 8
   %.not47 = icmp eq i64 %43, -1
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %select.unfold
   %.03048 = phi i64 [ %79, %select.unfold ], [ %43, %37 ]
-  %44 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %34, i64 0, i64 %.03048
+  %44 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %34, i64 %.03048
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -1481,7 +1483,7 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 48:                                               ; preds = %.lr.ph
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 60
-  %51 = getelementptr inbounds nuw [1024 x i32], ptr %50, i64 0, i64 %.03048
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.03048
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %57
@@ -1586,7 +1588,7 @@ contiguous_pages_to_segment_bin.exit.i:           ; preds = %87, %85
 108:                                              ; preds = %97
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4160
-  %111 = getelementptr inbounds nuw [16 x i64], ptr %110, i64 0, i64 %95
+  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %95
   store i64 %79, ptr %111, align 8
   br label %112
 
@@ -1615,7 +1617,7 @@ unlink_segment.exit.i:                            ; preds = %116, %112
   store i64 -1, ptr %125, align 8
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4160
-  %128 = getelementptr inbounds nuw [16 x i64], ptr %127, i64 0, i64 %.0.i.i
+  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %.0.i.i
   %129 = load i64, ptr %128, align 8
   %130 = load ptr, ptr %77, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
@@ -1625,7 +1627,7 @@ unlink_segment.exit.i:                            ; preds = %116, %112
   store i64 %.0.i.i, ptr %133, align 8
   %134 = load ptr, ptr %0, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4160
-  %136 = getelementptr inbounds nuw [16 x i64], ptr %135, i64 0, i64 %.0.i.i
+  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %.0.i.i
   store i64 %.03048, ptr %136, align 8
   %137 = load ptr, ptr %77, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -1666,7 +1668,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: a
 
 5:                                                ; preds = %2, %9
   %.099122 = phi i64 [ 1, %2 ], [ %10, %9 ]
-  %6 = getelementptr inbounds nuw [1024 x i32], ptr %4, i64 0, i64 %.099122
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %.099122
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread, label %9
@@ -1744,7 +1746,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: a
   %51 = tail call i32 @dsm_segment_handle(ptr noundef nonnull %48) #11
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 60
-  %54 = getelementptr inbounds nuw [1024 x i32], ptr %53, i64 0, i64 %.099122
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %.099122
   store i32 %51, ptr %54, align 4
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 6144
@@ -1773,7 +1775,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: a
   %69 = add i64 %68, %.0101
   store i64 %69, ptr %67, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %70, i64 0, i64 %.099122
+  %71 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %70, i64 %.099122
   store ptr %48, ptr %71, align 8
   %72 = tail call ptr @dsm_segment_address(ptr noundef nonnull %48) #11
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -1829,7 +1831,7 @@ contiguous_pages_to_segment_bin.exit:             ; preds = %65, %93
   %106 = load ptr, ptr %74, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw [16 x i64], ptr %105, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i64, ptr %105, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store i64 %110, ptr %111, align 8
@@ -1841,7 +1843,7 @@ contiguous_pages_to_segment_bin.exit:             ; preds = %65, %93
   %116 = load ptr, ptr %74, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds nuw [16 x i64], ptr %115, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %115, i64 %118
   store i64 %.099122, ptr %119, align 8
   %120 = load ptr, ptr %74, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
@@ -2056,12 +2058,12 @@ dsa_get_address.exit66:                           ; preds = %dsa_get_address.exi
 
 105:                                              ; preds = %dsa_get_address.exit66
   %106 = zext i16 %85 to i64
-  %107 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = zext i16 %108 to i64
   %110 = load ptr, ptr %0, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4288
-  %112 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %111, i64 0, i64 %106
+  %112 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %111, i64 %106
   %113 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %112, i32 noundef 0) #11
   %114 = getelementptr inbounds nuw i8, ptr %.0.i, i64 46
   %115 = load i16, ptr %114, align 2
@@ -2208,7 +2210,7 @@ add_span_to_fullness_class.exit:                  ; preds = %dsa_get_address.exi
 186:                                              ; preds = %175, %182, %185, %add_span_to_fullness_class.exit
   %187 = load ptr, ptr %0, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 4288
-  %189 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %188, i64 0, i64 %106
+  %189 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %188, i64 %106
   tail call void @LWLockRelease(ptr noundef nonnull %189) #11
   ret void
 }
@@ -2262,7 +2264,7 @@ check_for_freed_segments.exit.i:                  ; preds = %13, %7
 dsa_get_address.exit:                             ; preds = %6, %26
   %.0.i = phi ptr [ %28, %26 ], [ null, %6 ]
   %29 = zext i16 %5 to i64
-  %30 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i64, ptr %32, align 8
@@ -2422,7 +2424,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %3, i64 0, i64 %1
+  %4 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %3, i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -2431,7 +2433,7 @@ define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(re
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  %11 = getelementptr inbounds nuw [1024 x i32], ptr %10, i64 0, i64 %1
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %1
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
@@ -2536,7 +2538,7 @@ contiguous_pages_to_segment_bin.exit:             ; preds = %2, %8
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4160
-  %36 = getelementptr inbounds nuw [16 x i64], ptr %35, i64 0, i64 %18
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %18
   store i64 %33, ptr %36, align 8
   br label %37
 
@@ -2570,7 +2572,7 @@ unlink_segment.exit:                              ; preds = %37, %41
   store i64 -1, ptr %55, align 8
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4160
-  %58 = getelementptr inbounds nuw [16 x i64], ptr %57, i64 0, i64 %.0.i
+  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %.0.i
   %59 = load i64, ptr %58, align 8
   %60 = load ptr, ptr %15, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -2580,7 +2582,7 @@ unlink_segment.exit:                              ; preds = %37, %41
   store i64 %.0.i, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4160
-  %66 = getelementptr inbounds nuw [16 x i64], ptr %65, i64 0, i64 %.0.i
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.0.i
   store i64 %54, ptr %66, align 8
   %67 = load ptr, ptr %15, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -2747,7 +2749,7 @@ dsa_get_address.exit30:                           ; preds = %72, %check_for_free
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw [4 x i64], ptr %77, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %77, i64 %80
   store i64 %76, ptr %81, align 8
   br label %82
 
@@ -2823,7 +2825,7 @@ dsa_get_address.exit:                             ; preds = %2, %22
 37:                                               ; preds = %48, %.preheader.i
   %38 = phi i64 [ 0, %.preheader.i ], [ %50, %48 ]
   %.024.i = phi i32 [ 0, %.preheader.i ], [ %49, %48 ]
-  %39 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds %struct.dsa_segment_map, ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not23.i = icmp eq ptr %41, null
@@ -2884,73 +2886,73 @@ check_for_freed_segments_locked.exit:             ; preds = %dsa_get_address.exi
   %75 = ptrtoint ptr %56 to i64
   %76 = ptrtoint ptr %73 to i64
   %77 = sub i64 %75, %76
-  %78 = sdiv exact i64 %77, 40
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %80 = load i64, ptr %79, align 8
-  %.not.i39 = icmp eq i64 %80, -1
-  br i1 %.not.i39, label %89, label %81
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %79 = load i64, ptr %78, align 8
+  %.not.i39 = icmp eq i64 %79, -1
+  br i1 %.not.i39, label %88, label %80
 
-81:                                               ; preds = %74
-  %82 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %80)
-  %83 = load ptr, ptr %67, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store i64 %85, ptr %88, align 8
-  br label %97
+80:                                               ; preds = %74
+  %81 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %79)
+  %82 = load ptr, ptr %67, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %84 = load i64, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  store i64 %84, ptr %87, align 8
+  br label %96
 
-89:                                               ; preds = %74
-  %90 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %91 = load i64, ptr %90, align 8
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4160
-  %94 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds nuw [16 x i64], ptr %93, i64 0, i64 %95
-  store i64 %91, ptr %96, align 8
-  br label %97
+88:                                               ; preds = %74
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %90 = load i64, ptr %89, align 8
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4160
+  %93 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i64, ptr %92, i64 %94
+  store i64 %90, ptr %95, align 8
+  br label %96
 
-97:                                               ; preds = %89, %81
-  %98 = load ptr, ptr %67, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %100 = load i64, ptr %99, align 8
-  %.not14.i = icmp eq i64 %100, -1
-  br i1 %.not14.i, label %.thread, label %101
+96:                                               ; preds = %88, %80
+  %97 = load ptr, ptr %67, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  %99 = load i64, ptr %98, align 8
+  %.not14.i = icmp eq i64 %99, -1
+  br i1 %.not14.i, label %.thread, label %100
 
-101:                                              ; preds = %97
-  %102 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %100)
-  %103 = load ptr, ptr %67, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store i64 %105, ptr %108, align 8
+100:                                              ; preds = %96
+  %101 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %99)
+  %102 = load ptr, ptr %67, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  store i64 %104, ptr %107, align 8
   %.pre = load ptr, ptr %67, align 8
   br label %.thread
 
-.thread:                                          ; preds = %101, %97
-  %109 = phi ptr [ %.pre, %101 ], [ %98, %97 ]
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  store i8 1, ptr %110, align 8
-  %111 = load ptr, ptr %67, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %113 = load i64, ptr %112, align 8
-  %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 6128
-  %116 = load i64, ptr %115, align 8
-  %117 = sub i64 %116, %113
-  store i64 %117, ptr %115, align 8
-  %118 = load ptr, ptr %56, align 8
-  %119 = tail call i32 @dsm_segment_handle(ptr noundef %118) #11
-  tail call void @dsm_unpin_segment(i32 noundef %119) #11
-  %120 = load ptr, ptr %56, align 8
-  tail call void @dsm_detach(ptr noundef %120) #11
-  %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 60
-  %123 = getelementptr inbounds nuw [1024 x i32], ptr %122, i64 0, i64 %78
+.thread:                                          ; preds = %100, %96
+  %108 = phi ptr [ %.pre, %100 ], [ %97, %96 ]
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
+  store i8 1, ptr %109, align 8
+  %110 = load ptr, ptr %67, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = load i64, ptr %111, align 8
+  %113 = load ptr, ptr %0, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 6128
+  %115 = load i64, ptr %114, align 8
+  %116 = sub i64 %115, %112
+  store i64 %116, ptr %114, align 8
+  %117 = load ptr, ptr %56, align 8
+  %118 = tail call i32 @dsm_segment_handle(ptr noundef %117) #11
+  tail call void @dsm_unpin_segment(i32 noundef %118) #11
+  %119 = load ptr, ptr %56, align 8
+  tail call void @dsm_detach(ptr noundef %119) #11
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 60
+  %122 = sdiv exact i64 %77, 10
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
   store i32 0, ptr %123, align 4
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 6160
@@ -3088,7 +3090,7 @@ define dso_local void @dsa_trim(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4288
-  %11 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %10, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %10, i64 %indvars.iv
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 0) #11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i64, ptr %13, align 8
@@ -3118,7 +3120,7 @@ define dso_local void @dsa_trim(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %19, %36
   %26 = phi i64 [ %38, %36 ], [ 0, %19 ]
   %.024.i = phi i32 [ %37, %36 ], [ 0, %19 ]
-  %27 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.dsa_segment_map, ptr %4, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not23.i = icmp eq ptr %29, null
@@ -3191,7 +3193,7 @@ dsa_get_address.exit:                             ; preds = %check_for_freed_seg
 ._crit_edge:                                      ; preds = %60, %8
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4288
-  %63 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %62, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %62, i64 %indvars.iv
   tail call void @LWLockRelease(ptr noundef nonnull %63) #11
   br label %64
 
@@ -3225,7 +3227,7 @@ define dso_local void @dsa_dump(ptr noundef captures(none) %0) local_unnamed_add
 12:                                               ; preds = %23, %.preheader.i
   %13 = phi i64 [ 0, %.preheader.i ], [ %25, %23 ]
   %.024.i = phi i32 [ 0, %.preheader.i ], [ %24, %23 ]
-  %14 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds %struct.dsa_segment_map, ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not23.i = icmp eq ptr %16, null
@@ -3294,7 +3296,7 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   %.084 = phi i64 [ 0, %check_for_freed_segments_locked.exit ], [ %122, %.loopexit80 ]
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4160
-  %63 = getelementptr inbounds nuw [16 x i64], ptr %62, i64 0, i64 %.084
+  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %.084
   %64 = load i64, ptr %63, align 8
   %.not70 = icmp eq i64 %64, -1
   br i1 %.not70, label %.loopexit80, label %65
@@ -3318,14 +3320,14 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
 75:                                               ; preds = %70, %68
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4160
-  %78 = getelementptr inbounds nuw [16 x i64], ptr %77, i64 0, i64 %.084
+  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %.084
   %.06581 = load i64, ptr %78, align 8
   %.not7182 = icmp eq i64 %.06581, -1
   br i1 %.not7182, label %.loopexit80, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75, %get_segment_by_index.exit
   %.06583 = phi i64 [ %.065, %get_segment_by_index.exit ], [ %.06581, %75 ]
-  %79 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %.06583
+  %79 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %57, i64 %.06583
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -3341,7 +3343,7 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 60
-  %86 = getelementptr inbounds nuw [1024 x i32], ptr %85, i64 0, i64 %.06583
+  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %.06583
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %92
@@ -3424,7 +3426,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_
   %.189 = phi i64 [ 0, %123 ], [ %220, %.loopexit79 ]
   %130 = load ptr, ptr %0, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4288
-  %132 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %131, i64 0, i64 %.189
+  %132 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %131, i64 %.189
   %133 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 0) #11
   %134 = load ptr, ptr %0, align 8
   %.idx68 = mul nuw nsw i64 %.189, 48
@@ -3435,7 +3437,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_
 137:                                              ; preds = %129, %137
   %.06186 = phi i1 [ false, %129 ], [ %spec.select, %137 ]
   %.06385 = phi i64 [ 0, %129 ], [ %140, %137 ]
-  %138 = getelementptr inbounds nuw [4 x i64], ptr %136, i64 0, i64 %.06385
+  %138 = getelementptr inbounds nuw i64, ptr %136, i64 %.06385
   %139 = load i64, ptr %138, align 8
   %.not69 = icmp ne i64 %139, 0
   %spec.select = select i1 %.not69, i1 true, i1 %.06186
@@ -3462,7 +3464,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_
   br label %.preheader
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw [38 x i16], ptr @dsa_size_classes, i64 0, i64 %.189
+  %149 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %.189
   %150 = load i16, ptr %149, align 2
   %151 = zext i16 %150 to i32
   %152 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %143, ptr noundef nonnull @.str.20, i64 noundef %.189, i32 noundef %151) #11
@@ -3476,7 +3478,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4304
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx68
-  %157 = getelementptr inbounds nuw [4 x i64], ptr %156, i64 0, i64 %.16488
+  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %.16488
   %158 = load i64, ptr %157, align 8
   %.not = icmp eq i64 %158, 0
   %159 = load ptr, ptr @stderr, align 8
@@ -3513,7 +3515,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph.get_segment_
 .preheader.i74:                                   ; preds = %169, %186
   %176 = phi i64 [ %188, %186 ], [ 0, %169 ]
   %.024.i75 = phi i32 [ %187, %186 ], [ 0, %169 ]
-  %177 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %57, i64 0, i64 %176
+  %177 = getelementptr inbounds %struct.dsa_segment_map, ptr %57, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %.not23.i76 = icmp eq ptr %179, null
@@ -3595,7 +3597,7 @@ dsa_get_address.exit:                             ; preds = %check_for_freed_seg
 .loopexit79:                                      ; preds = %.loopexit79.loopexit, %141
   %217 = phi ptr [ %.pre97, %.loopexit79.loopexit ], [ %134, %141 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4288
-  %219 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %218, i64 0, i64 %.189
+  %219 = getelementptr inbounds nuw %struct.dsa_area_pool, ptr %218, i64 %.189
   tail call void @LWLockRelease(ptr noundef nonnull %219) #11
   %220 = add nuw nsw i64 %.189, 1
   %exitcond92.not = icmp eq i64 %220, 38
@@ -3623,7 +3625,7 @@ define internal fastcc void @check_for_freed_segments_locked(ptr noundef capture
 9:                                                ; preds = %.preheader, %20
   %10 = phi i64 [ 0, %.preheader ], [ %22, %20 ]
   %.024 = phi i32 [ 0, %.preheader ], [ %21, %20 ]
-  %11 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.dsa_segment_map, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not23 = icmp eq ptr %13, null
@@ -3688,7 +3690,7 @@ define dso_local void @dsa_detach(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1, %9
   %5 = phi i64 [ 0, %1 ], [ %11, %9 ]
   %.010 = phi i32 [ 0, %1 ], [ %10, %9 ]
-  %6 = getelementptr inbounds [1024 x %struct.dsa_segment_map], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.dsa_segment_map, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %9, label %8
@@ -3726,7 +3728,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 define internal fastcc noundef zeroext i1 @transfer_first_span(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8
   %.not = icmp ne i64 %8, 0
   br i1 %.not, label %9, label %80
@@ -3815,7 +3817,7 @@ dsa_get_address.exit36:                           ; preds = %check_for_freed_seg
 
 52:                                               ; preds = %dsa_get_address.exit36, %dsa_get_address.exit
   %53 = zext nneg i32 %3 to i64
-  %54 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %53
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %30, align 8
   store i64 %8, ptr %54, align 8

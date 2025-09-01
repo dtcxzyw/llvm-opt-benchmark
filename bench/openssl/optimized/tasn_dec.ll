@@ -30,7 +30,7 @@ define i64 @ASN1_tag2bit(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [32 x i64], ptr @tag2bit, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i64, ptr @tag2bit, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !3
   br label %6
 
@@ -293,7 +293,7 @@ define internal fastcc i32 @asn1_item_embed_d2i(ptr noundef nonnull %0, ptr noun
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [32 x i64], ptr @tag2bit, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i64, ptr @tag2bit, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !3
   br label %ASN1_tag2bit.exit
 

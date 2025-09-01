@@ -1796,7 +1796,7 @@ define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef nonnull
 
 .preheader:                                       ; preds = %.preheader.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %15 ]
-  %13 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !73
   %.not.not.not = icmp eq i8 %14, 0
   br i1 %.not.not.not, label %16, label %15

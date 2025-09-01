@@ -256,10 +256,10 @@ define void @av_hmac_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [128 x i8], ptr %32, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !16
   %43 = xor i8 %42, 54
-  %44 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %43, ptr %44, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -334,10 +334,10 @@ define i32 @av_hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !16
   %30 = xor i8 %29, 92
-  %31 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %30, ptr %31, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -435,10 +435,10 @@ define i32 @av_hmac_calc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 45:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw [128 x i8], ptr %37, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i
   %47 = load i8, ptr %46, align 1, !tbaa !16
   %48 = xor i8 %47, 54
-  %49 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   store i8 %48, ptr %49, align 1, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -495,10 +495,10 @@ av_hmac_init.exit:                                ; preds = %.preheader.i, %.lr.
 
 76:                                               ; preds = %76, %.lr.ph.i10
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %76 ]
-  %77 = getelementptr inbounds nuw [128 x i8], ptr %68, i64 0, i64 %indvars.iv.i12
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv.i12
   %78 = load i8, ptr %77, align 1, !tbaa !16
   %79 = xor i8 %78, 92
-  %80 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 0, i64 %indvars.iv.i12
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i12
   store i8 %79, ptr %80, align 1, !tbaa !16
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i11

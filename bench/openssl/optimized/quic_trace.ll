@@ -159,7 +159,7 @@ define range(i32 0, 2) i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 
 
 switch.lookup:                                    ; preds = %28
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ossl_quic_trace, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_trace, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %packet_type.exit
 
@@ -305,7 +305,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
 
 110:                                              ; preds = %.lr.ph, %110
   %.04073 = phi i64 [ 0, %.lr.ph ], [ %115, %110 ]
-  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 0, i64 %.04073
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 %.04073
   %112 = load i8, ptr %111, align 1, !tbaa !16
   %113 = zext i8 %112 to i32
   %114 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.12, i32 noundef %113) #3
@@ -340,11 +340,11 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %130 = call i32 @ossl_quic_wire_peek_frame_header(ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef null) #3
   %.not.i = icmp eq i32 %130, 0
-  br i1 %.not.i, label %291, label %131
+  br i1 %.not.i, label %292, label %131
 
 131:                                              ; preds = %128
   %132 = load i64, ptr %14, align 8, !tbaa !23
-  switch i64 %132, label %291 [
+  switch i64 %132, label %292 [
     i64 1, label %133
     i64 0, label %136
     i64 2, label %139
@@ -353,41 +353,41 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
     i64 5, label %197
     i64 6, label %200
     i64 7, label %203
-    i64 8, label %switch.lookup80
-    i64 9, label %switch.lookup80
-    i64 10, label %switch.lookup80
-    i64 11, label %switch.lookup80
-    i64 12, label %switch.lookup80
-    i64 13, label %switch.lookup80
-    i64 14, label %switch.lookup80
-    i64 15, label %switch.lookup80
-    i64 16, label %224
-    i64 17, label %227
-    i64 18, label %230
-    i64 19, label %230
-    i64 20, label %238
-    i64 21, label %241
-    i64 22, label %244
-    i64 23, label %244
-    i64 24, label %252
-    i64 25, label %255
-    i64 26, label %258
-    i64 27, label %261
-    i64 29, label %264
-    i64 28, label %264
-    i64 30, label %285
+    i64 8, label %switch.lookup81
+    i64 9, label %switch.lookup81
+    i64 10, label %switch.lookup81
+    i64 11, label %switch.lookup81
+    i64 12, label %switch.lookup81
+    i64 13, label %switch.lookup81
+    i64 14, label %switch.lookup81
+    i64 15, label %switch.lookup81
+    i64 16, label %225
+    i64 17, label %228
+    i64 18, label %231
+    i64 19, label %231
+    i64 20, label %239
+    i64 21, label %242
+    i64 22, label %245
+    i64 23, label %245
+    i64 24, label %253
+    i64 25, label %256
+    i64 26, label %259
+    i64 27, label %262
+    i64 29, label %265
+    i64 28, label %265
+    i64 30, label %286
   ]
 
 133:                                              ; preds = %131
   %134 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.25) #3
   %135 = call i32 @ossl_quic_wire_decode_frame_ping(ptr noundef nonnull %15) #3
   %.not85.i = icmp eq i32 %135, 0
-  br i1 %.not85.i, label %291, label %288
+  br i1 %.not85.i, label %292, label %289
 
 136:                                              ; preds = %131
   %137 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.26) #3
   %138 = call i64 @ossl_quic_wire_decode_padding(ptr noundef nonnull %15) #3
-  br label %288
+  br label %289
 
 139:                                              ; preds = %131, %131
   %140 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.27) #3
@@ -467,249 +467,249 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
 frame_ack.exit.thread.i:                          ; preds = %148, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %291
+  br label %292
 
 frame_ack.exit.thread98.i:                        ; preds = %.lr.ph.i.i66, %156
   call void @CRYPTO_free(ptr noundef nonnull %150, ptr noundef nonnull @.str.51, i32 noundef 123) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %288
+  br label %289
 
 frame_ack.exit.i:                                 ; preds = %152
   call void @CRYPTO_free(ptr noundef nonnull %150, ptr noundef nonnull @.str.51, i32 noundef 123) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %291
+  br label %292
 
 194:                                              ; preds = %131
   %195 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.30) #3
   %196 = call fastcc i32 @frame_reset_stream(ptr noundef %6, ptr noundef nonnull %15)
   %.not83.i = icmp eq i32 %196, 0
-  br i1 %.not83.i, label %291, label %288
+  br i1 %.not83.i, label %292, label %289
 
 197:                                              ; preds = %131
   %198 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.31) #3
   %199 = call fastcc i32 @frame_stop_sending(ptr noundef %6, ptr noundef nonnull %15)
   %.not82.i = icmp eq i32 %199, 0
-  br i1 %.not82.i, label %291, label %288
+  br i1 %.not82.i, label %292, label %289
 
 200:                                              ; preds = %131
   %201 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.32) #3
   %202 = call fastcc i32 @frame_crypto(ptr noundef %6, ptr noundef nonnull %15)
   %.not81.i = icmp eq i32 %202, 0
-  br i1 %.not81.i, label %291, label %288
+  br i1 %.not81.i, label %292, label %289
 
 203:                                              ; preds = %131
   %204 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.33) #3
   %205 = call fastcc i32 @frame_new_token(ptr noundef %6, ptr noundef nonnull %15)
   %.not80.i = icmp eq i32 %205, 0
-  br i1 %.not80.i, label %291, label %288
+  br i1 %.not80.i, label %292, label %289
 
-switch.lookup80:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
+switch.lookup81:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %206 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.64) #3
-  %switch.tableidx81 = add nsw i64 %132, -8
-  %switch.gep82 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx81
+  %207 = getelementptr ptr, ptr @switch.table.ossl_quic_trace.2, i64 %132
+  %switch.gep82 = getelementptr i8, ptr %207, i64 -64
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
-  %207 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %switch.load83) #3
-  %208 = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %11) #3
-  %.not.i87.i = icmp eq i32 %208, 0
-  br i1 %.not.i87.i, label %frame_stream.exit.thread.i, label %209
+  %208 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %switch.load83) #3
+  %209 = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %11) #3
+  %.not.i87.i = icmp eq i32 %209, 0
+  br i1 %.not.i87.i, label %frame_stream.exit.thread.i, label %210
 
-209:                                              ; preds = %switch.lookup80
-  %210 = load i64, ptr %11, align 8, !tbaa !33
-  %211 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.58, i64 noundef %210) #3
-  %212 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %213 = load i64, ptr %212, align 8, !tbaa !35
-  %214 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.61, i64 noundef %213) #3
-  %215 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %216 = load i8, ptr %215, align 8
-  %217 = and i8 %216, 1
-  %.not15.i.i = icmp eq i8 %217, 0
-  br i1 %.not15.i.i, label %222, label %218
+210:                                              ; preds = %switch.lookup81
+  %211 = load i64, ptr %11, align 8, !tbaa !33
+  %212 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.58, i64 noundef %211) #3
+  %213 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %214 = load i64, ptr %213, align 8, !tbaa !35
+  %215 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.61, i64 noundef %214) #3
+  %216 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %217 = load i8, ptr %216, align 8
+  %218 = and i8 %217, 1
+  %.not15.i.i = icmp eq i8 %218, 0
+  br i1 %.not15.i.i, label %223, label %219
 
-218:                                              ; preds = %209
-  %219 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %220 = load i64, ptr %219, align 8, !tbaa !36
-  %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.62, i64 noundef %220) #3
+219:                                              ; preds = %210
+  %220 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %221 = load i64, ptr %220, align 8, !tbaa !36
+  %222 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.62, i64 noundef %221) #3
   br label %frame_stream.exit.i
 
-222:                                              ; preds = %209
-  %223 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.72) #3
+223:                                              ; preds = %210
+  %224 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.72) #3
   br label %frame_stream.exit.i
 
-frame_stream.exit.thread.i:                       ; preds = %switch.lookup80
+frame_stream.exit.thread.i:                       ; preds = %switch.lookup81
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %291
+  br label %292
 
-frame_stream.exit.i:                              ; preds = %222, %218
+frame_stream.exit.i:                              ; preds = %223, %219
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %288
+  br label %289
 
-224:                                              ; preds = %131
-  %225 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.34) #3
-  %226 = call fastcc i32 @frame_max_data(ptr noundef %6, ptr noundef nonnull %15)
-  %.not78.i = icmp eq i32 %226, 0
-  br i1 %.not78.i, label %291, label %288
+225:                                              ; preds = %131
+  %226 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.34) #3
+  %227 = call fastcc i32 @frame_max_data(ptr noundef %6, ptr noundef nonnull %15)
+  %.not78.i = icmp eq i32 %227, 0
+  br i1 %.not78.i, label %292, label %289
 
-227:                                              ; preds = %131
-  %228 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.35) #3
-  %229 = call fastcc i32 @frame_max_stream_data(ptr noundef %6, ptr noundef nonnull %15)
-  %.not77.i = icmp eq i32 %229, 0
-  br i1 %.not77.i, label %291, label %288
+228:                                              ; preds = %131
+  %229 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.35) #3
+  %230 = call fastcc i32 @frame_max_stream_data(ptr noundef %6, ptr noundef nonnull %15)
+  %.not77.i = icmp eq i32 %230, 0
+  br i1 %.not77.i, label %292, label %289
 
-230:                                              ; preds = %131, %131
-  %231 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.36) #3
-  %232 = load i64, ptr %14, align 8, !tbaa !23
-  %233 = icmp eq i64 %232, 18
-  %.str.37..str.38.i = select i1 %233, ptr @.str.37, ptr @.str.38
-  %234 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38.i) #3
+231:                                              ; preds = %131, %131
+  %232 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.36) #3
+  %233 = load i64, ptr %14, align 8, !tbaa !23
+  %234 = icmp eq i64 %233, 18
+  %.str.37..str.38.i = select i1 %234, ptr @.str.37, ptr @.str.38
+  %235 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38.i) #3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !23
-  %235 = call i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef nonnull %15, ptr noundef nonnull %10) #3
-  %.not.i89.i = icmp eq i32 %235, 0
+  %236 = call i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef nonnull %15, ptr noundef nonnull %10) #3
+  %.not.i89.i = icmp eq i32 %236, 0
   br i1 %.not.i89.i, label %frame_max_streams.exit.thread.i, label %frame_max_streams.exit.i
 
-frame_max_streams.exit.thread.i:                  ; preds = %230
+frame_max_streams.exit.thread.i:                  ; preds = %231
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %291
+  br label %292
 
-frame_max_streams.exit.i:                         ; preds = %230
-  %236 = load i64, ptr %10, align 8, !tbaa !23
-  %237 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.75, i64 noundef %236) #3
+frame_max_streams.exit.i:                         ; preds = %231
+  %237 = load i64, ptr %10, align 8, !tbaa !23
+  %238 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.75, i64 noundef %237) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %288
+  br label %289
 
-238:                                              ; preds = %131
-  %239 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.39) #3
-  %240 = call fastcc i32 @frame_data_blocked(ptr noundef %6, ptr noundef nonnull %15)
-  %.not75.i = icmp eq i32 %240, 0
-  br i1 %.not75.i, label %291, label %288
+239:                                              ; preds = %131
+  %240 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.39) #3
+  %241 = call fastcc i32 @frame_data_blocked(ptr noundef %6, ptr noundef nonnull %15)
+  %.not75.i = icmp eq i32 %241, 0
+  br i1 %.not75.i, label %292, label %289
 
-241:                                              ; preds = %131
-  %242 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.40) #3
-  %243 = call fastcc i32 @frame_stream_data_blocked(ptr noundef %6, ptr noundef nonnull %15)
-  %.not74.i = icmp eq i32 %243, 0
-  br i1 %.not74.i, label %291, label %288
+242:                                              ; preds = %131
+  %243 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.40) #3
+  %244 = call fastcc i32 @frame_stream_data_blocked(ptr noundef %6, ptr noundef nonnull %15)
+  %.not74.i = icmp eq i32 %244, 0
+  br i1 %.not74.i, label %292, label %289
 
-244:                                              ; preds = %131, %131
-  %245 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.41) #3
-  %246 = load i64, ptr %14, align 8, !tbaa !23
-  %247 = icmp eq i64 %246, 22
-  %.str.37..str.38113.i = select i1 %247, ptr @.str.37, ptr @.str.38
-  %248 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38113.i) #3
+245:                                              ; preds = %131, %131
+  %246 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.41) #3
+  %247 = load i64, ptr %14, align 8, !tbaa !23
+  %248 = icmp eq i64 %247, 22
+  %.str.37..str.38113.i = select i1 %248, ptr @.str.37, ptr @.str.38
+  %249 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38113.i) #3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !23
-  %249 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %15, ptr noundef nonnull %9) #3
-  %.not.i91.i = icmp eq i32 %249, 0
+  %250 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %15, ptr noundef nonnull %9) #3
+  %.not.i91.i = icmp eq i32 %250, 0
   br i1 %.not.i91.i, label %frame_streams_blocked.exit.thread.i, label %frame_streams_blocked.exit.i
 
-frame_streams_blocked.exit.thread.i:              ; preds = %244
+frame_streams_blocked.exit.thread.i:              ; preds = %245
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %291
+  br label %292
 
-frame_streams_blocked.exit.i:                     ; preds = %244
-  %250 = load i64, ptr %9, align 8, !tbaa !23
-  %251 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.73, i64 noundef %250) #3
+frame_streams_blocked.exit.i:                     ; preds = %245
+  %251 = load i64, ptr %9, align 8, !tbaa !23
+  %252 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.73, i64 noundef %251) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %288
+  br label %289
 
-252:                                              ; preds = %131
-  %253 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.42) #3
-  %254 = call fastcc i32 @frame_new_conn_id(ptr noundef %6, ptr noundef nonnull %15)
-  %.not72.i = icmp eq i32 %254, 0
-  br i1 %.not72.i, label %291, label %288
+253:                                              ; preds = %131
+  %254 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.42) #3
+  %255 = call fastcc i32 @frame_new_conn_id(ptr noundef %6, ptr noundef nonnull %15)
+  %.not72.i = icmp eq i32 %255, 0
+  br i1 %.not72.i, label %292, label %289
 
-255:                                              ; preds = %131
-  %256 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.43) #3
-  %257 = call fastcc i32 @frame_retire_conn_id(ptr noundef %6, ptr noundef nonnull %15)
-  %.not71.i = icmp eq i32 %257, 0
-  br i1 %.not71.i, label %291, label %288
+256:                                              ; preds = %131
+  %257 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.43) #3
+  %258 = call fastcc i32 @frame_retire_conn_id(ptr noundef %6, ptr noundef nonnull %15)
+  %.not71.i = icmp eq i32 %258, 0
+  br i1 %.not71.i, label %292, label %289
 
-258:                                              ; preds = %131
-  %259 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.44) #3
-  %260 = call fastcc i32 @frame_path_challenge(ptr noundef %6, ptr noundef nonnull %15)
-  %.not70.i = icmp eq i32 %260, 0
-  br i1 %.not70.i, label %291, label %288
+259:                                              ; preds = %131
+  %260 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.44) #3
+  %261 = call fastcc i32 @frame_path_challenge(ptr noundef %6, ptr noundef nonnull %15)
+  %.not70.i = icmp eq i32 %261, 0
+  br i1 %.not70.i, label %292, label %289
 
-261:                                              ; preds = %131
-  %262 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.45) #3
-  %263 = call fastcc i32 @frame_path_response(ptr noundef %6, ptr noundef nonnull %15)
-  %.not69.i = icmp eq i32 %263, 0
-  br i1 %.not69.i, label %291, label %288
+262:                                              ; preds = %131
+  %263 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.45) #3
+  %264 = call fastcc i32 @frame_path_response(ptr noundef %6, ptr noundef nonnull %15)
+  %.not69.i = icmp eq i32 %264, 0
+  br i1 %.not69.i, label %292, label %289
 
-264:                                              ; preds = %131, %131
-  %265 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.46) #3
-  %266 = load i64, ptr %14, align 8, !tbaa !23
-  %267 = icmp eq i64 %266, 29
-  %.str.47..str.48.i = select i1 %267, ptr @.str.47, ptr @.str.48
-  %268 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.47..str.48.i) #3
+265:                                              ; preds = %131, %131
+  %266 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.46) #3
+  %267 = load i64, ptr %14, align 8, !tbaa !23
+  %268 = icmp eq i64 %267, 29
+  %.str.47..str.48.i = select i1 %268, ptr @.str.47, ptr @.str.48
+  %269 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.47..str.48.i) #3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %269 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %15, ptr noundef nonnull %8) #3
-  %.not.i93.i = icmp eq i32 %269, 0
-  br i1 %.not.i93.i, label %frame_conn_closed.exit.thread.i, label %270
+  %270 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %15, ptr noundef nonnull %8) #3
+  %.not.i93.i = icmp eq i32 %270, 0
+  br i1 %.not.i93.i, label %frame_conn_closed.exit.thread.i, label %271
 
-frame_conn_closed.exit.thread.i:                  ; preds = %264
+frame_conn_closed.exit.thread.i:                  ; preds = %265
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %291
+  br label %292
 
-270:                                              ; preds = %264
-  %271 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %272 = load i64, ptr %271, align 8, !tbaa !37
-  %273 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.81, i64 noundef %272) #3
-  %274 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.82) #3
-  %275 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %276 = load ptr, ptr %275, align 8, !tbaa !39
-  %277 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %278 = load i64, ptr %277, align 8, !tbaa !40
-  %.not.i.i.i = icmp eq i64 %278, 0
+271:                                              ; preds = %265
+  %272 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %273 = load i64, ptr %272, align 8, !tbaa !37
+  %274 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.81, i64 noundef %273) #3
+  %275 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.82) #3
+  %276 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %277 = load ptr, ptr %276, align 8, !tbaa !39
+  %278 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %279 = load i64, ptr %278, align 8, !tbaa !40
+  %.not.i.i.i = icmp eq i64 %279, 0
   br i1 %.not.i.i.i, label %frame_conn_closed.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %270, %.lr.ph.i.i.i
-  %.05.i.i.i = phi i64 [ %283, %.lr.ph.i.i.i ], [ 0, %270 ]
-  %279 = getelementptr inbounds nuw i8, ptr %276, i64 %.05.i.i.i
-  %280 = load i8, ptr %279, align 1, !tbaa !16
-  %281 = sext i8 %280 to i32
-  %282 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.83, i32 noundef %281) #3
-  %283 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %283, %278
+.lr.ph.i.i.i:                                     ; preds = %271, %.lr.ph.i.i.i
+  %.05.i.i.i = phi i64 [ %284, %.lr.ph.i.i.i ], [ 0, %271 ]
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 %.05.i.i.i
+  %281 = load i8, ptr %280, align 1, !tbaa !16
+  %282 = sext i8 %281 to i32
+  %283 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.83, i32 noundef %282) #3
+  %284 = add nuw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %284, %279
   br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %.lr.ph.i.i.i, !llvm.loop !41
 
-frame_conn_closed.exit.i:                         ; preds = %.lr.ph.i.i.i, %270
-  %284 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.7) #3
+frame_conn_closed.exit.i:                         ; preds = %.lr.ph.i.i.i, %271
+  %285 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.7) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %288
+  br label %289
 
-285:                                              ; preds = %131
-  %286 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.49) #3
-  %287 = call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef nonnull %15) #3
-  %.not67.i = icmp eq i32 %287, 0
-  br i1 %.not67.i, label %291, label %288
+286:                                              ; preds = %131
+  %287 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.49) #3
+  %288 = call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef nonnull %15) #3
+  %.not67.i = icmp eq i32 %288, 0
+  br i1 %.not67.i, label %292, label %289
 
-288:                                              ; preds = %285, %frame_conn_closed.exit.i, %261, %258, %255, %252, %frame_streams_blocked.exit.i, %241, %238, %frame_max_streams.exit.i, %227, %224, %frame_stream.exit.i, %203, %200, %197, %194, %frame_ack.exit.thread98.i, %136, %133
+289:                                              ; preds = %286, %frame_conn_closed.exit.i, %262, %259, %256, %253, %frame_streams_blocked.exit.i, %242, %239, %frame_max_streams.exit.i, %228, %225, %frame_stream.exit.i, %203, %200, %197, %194, %frame_ack.exit.thread98.i, %136, %133
   %.val.i = load i64, ptr %129, align 8, !tbaa !10
   %.not86.i = icmp eq i64 %.val.i, 0
-  br i1 %.not86.i, label %trace_frame_data.exit, label %289
+  br i1 %.not86.i, label %trace_frame_data.exit, label %290
 
-289:                                              ; preds = %288
-  %290 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.50) #3
+290:                                              ; preds = %289
+  %291 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.50) #3
   br label %trace_frame_data.exit
 
-trace_frame_data.exit:                            ; preds = %288, %289
+trace_frame_data.exit:                            ; preds = %289, %290
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %PACKET_buf_init.exit63.thread
 
-291:                                              ; preds = %128, %133, %frame_ack.exit.i, %194, %197, %200, %203, %224, %227, %238, %241, %252, %255, %258, %261, %285, %131, %frame_ack.exit.thread.i, %frame_stream.exit.thread.i, %frame_max_streams.exit.thread.i, %frame_streams_blocked.exit.thread.i, %frame_conn_closed.exit.thread.i
+292:                                              ; preds = %128, %133, %frame_ack.exit.i, %194, %197, %200, %203, %225, %228, %239, %242, %253, %256, %259, %262, %286, %131, %frame_ack.exit.thread.i, %frame_stream.exit.thread.i, %frame_max_streams.exit.thread.i, %frame_streams_blocked.exit.thread.i, %frame_conn_closed.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %292 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.14) #3
+  %293 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.14) #3
   br label %PACKET_buf_init.exit63.thread
 
 .critedge:                                        ; preds = %21, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %PACKET_buf_init.exit63.thread
 
-PACKET_buf_init.exit63.thread:                    ; preds = %123, %trace_frame_data.exit, %17, %122, %7, %.critedge, %291
-  %.1 = phi i32 [ 0, %291 ], [ 0, %.critedge ], [ 0, %7 ], [ 1, %122 ], [ 1, %trace_frame_data.exit ], [ 1, %17 ], [ 0, %123 ]
+PACKET_buf_init.exit63.thread:                    ; preds = %123, %trace_frame_data.exit, %17, %122, %7, %.critedge, %292
+  %.1 = phi i32 [ 0, %292 ], [ 0, %.critedge ], [ 0, %7 ], [ 1, %122 ], [ 1, %trace_frame_data.exit ], [ 1, %17 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1
 }

@@ -17546,7 +17546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467: ; preds = %_Z
 
 1117:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit451, %_ZN2cm6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES9_TnNSt9enable_ifIXaaaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm14is_input_rangeIT0_EE5valuentsr2cm13is_unique_ptrINSB_10value_typeEEE5valuentsr2cm13is_unique_ptrINSC_10value_typeEEE5valuesr3std14is_convertibleISE_SD_EE5valueEiE4typeELi0EEEvRSB_RKSC_.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit451 ], [ %indvars.iv.next, %_ZN2cm6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES9_TnNSt9enable_ifIXaaaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm14is_input_rangeIT0_EE5valuentsr2cm13is_unique_ptrINSB_10value_typeEEE5valuentsr2cm13is_unique_ptrINSC_10value_typeEEE5valuesr3std14is_convertibleISE_SD_EE5valueEiE4typeELi0EEEvRSB_RKSC_.exit ]
-  %1118 = getelementptr inbounds nuw [12 x i8], ptr %1067, i64 0, i64 %indvars.iv
+  %1118 = getelementptr inbounds nuw i8, ptr %1067, i64 %indvars.iv
   %1119 = load i8, ptr %1118, align 1, !tbaa !52, !range !87, !noundef !88
   %1120 = trunc nuw i8 %1119 to i1
   br i1 %1120, label %1121, label %_ZN2cm6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES9_TnNSt9enable_ifIXaaaaaaaasr2cm21is_sequence_containerIT_EE5valuesr2cm14is_input_rangeIT0_EE5valuentsr2cm13is_unique_ptrINSB_10value_typeEEE5valuentsr2cm13is_unique_ptrINSC_10value_typeEEE5valuesr3std14is_convertibleISE_SD_EE5valueEiE4typeELi0EEEvRSB_RKSC_.exit
@@ -20791,7 +20791,7 @@ _ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lowe
 
 _ZNKSt3setIN7cmCTest4PartESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %_ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %12
   %.sroa.0.0.i.i = phi i8 [ 0, %_ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %17, %12 ]
-  %18 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %.sroa.0.0.i.i, ptr %18, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 12

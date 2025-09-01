@@ -1371,7 +1371,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = 
   %58 = tail call i64 @llvm.umin.i64(i64 %57, i64 1023)
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %59, ptr nonnull align 1 %1, i64 %58, i1 false)
-  %60 = getelementptr inbounds nuw [1024 x i8], ptr %59, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
   store i8 0, ptr %60, align 1
   %61 = trunc nuw nsw i64 %58 to i32
   store i32 %61, ptr %10, align 4

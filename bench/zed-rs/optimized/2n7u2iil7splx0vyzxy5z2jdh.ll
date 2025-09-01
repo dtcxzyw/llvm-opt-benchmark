@@ -2948,7 +2948,7 @@ common.resume:                                    ; preds = %36, %28, %102
   %46 = urem i64 %2, %15
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !nonnull !7, !noundef !7
-  %49 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %48, i64 0, i64 %46
+  %49 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %48, i64 %46
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h478194187c732a23E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %49)
   %50 = load i64, ptr %7, align 8, !range !34, !noundef !7
   %trunc = trunc nuw i64 %50 to i1
@@ -7601,7 +7601,7 @@ define hidden void @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$9read_with17h39
   br i1 %45, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9ed5a060c4081402E.llvm.5026109878215741006.exit", label %46
 
 46:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..project_index..WorktreeSearchResult$GT$$GT$17h04ebe21af4d26585E.exit.i.i"
-  %47 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.sroa.839.0.copyload43, i64 0, i64 %.sroa.0.0.i.i
+  %47 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.839.0.copyload43, i64 %.sroa.0.0.i.i
   %48 = add i64 %.sroa.0.0.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1477)
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -7642,7 +7642,7 @@ define hidden void @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$9read_with17h39
   br label %57
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.sroa.839.0.copyload43, i64 0, i64 %.sroa.0.1.i.i
+  %62 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.839.0.copyload43, i64 %.sroa.0.1.i.i
   %63 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..project_index..WorktreeSearchResult$GT$$GT$17h04ebe21af4d26585E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62) #51
           to label %57 unwind label %64, !noalias !1485
@@ -7846,7 +7846,7 @@ define hidden void @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$9read_with17hd7
   br i1 %45, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ab4df6ecf39938aE.llvm.5026109878215741006.exit", label %46
 
 46:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..summary_index..FileSummary$GT$$GT$17ha72087f2c2979842E.exit.i.i"
-  %47 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.sroa.839.0.copyload43, i64 0, i64 %.sroa.0.0.i.i
+  %47 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.839.0.copyload43, i64 %.sroa.0.0.i.i
   %48 = add i64 %.sroa.0.0.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1533)
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -7887,7 +7887,7 @@ define hidden void @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$9read_with17hd7
   br label %57
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %.sroa.839.0.copyload43, i64 0, i64 %.sroa.0.1.i.i
+  %62 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.839.0.copyload43, i64 %.sroa.0.1.i.i
   %63 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..summary_index..FileSummary$GT$$GT$17ha72087f2c2979842E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62) #51
           to label %57 unwind label %64, !noalias !1541

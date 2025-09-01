@@ -70,7 +70,7 @@ define internal i32 @xwd_parse(ptr noundef captures(none) initializes((40, 44)) 
   %39 = add nsw i32 %36, 1
   store i32 %39, ptr %16, align 4, !tbaa !20
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds [100 x i8], ptr %17, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %17, i64 %40
   store i8 %38, ptr %41, align 1, !tbaa !21
   %42 = load i32, ptr %16, align 4, !tbaa !20
   %43 = icmp sgt i32 %42, 99

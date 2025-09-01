@@ -526,7 +526,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i:                                       ; preds = %invoke.cont4, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont4 ]
   %k.037.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont4 ]
-  %arrayidx.i = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %conv38.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38.i
   %MinFilter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %TextureWrapU.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter.i, i8 0, i64 9, i1 false)
@@ -570,7 +570,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %entry, %for.body
   %conv38 = phi i64 [ %conv, %for.body ], [ 0, %entry ]
   %k.037 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %conv38
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38
   %MinFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %TextureWrapU = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter, i8 0, i64 9, i1 false)
@@ -726,7 +726,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i:                                       ; preds = %invoke.cont3, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont3 ]
   %k.037.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont3 ]
-  %arrayidx.i = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %conv38.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38.i
   %MinFilter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %TextureWrapU.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter.i, i8 0, i64 9, i1 false)
@@ -864,7 +864,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 32
   %19 = load ptr, ptr %vfn16, align 8
   %call17 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef zeroext %18)
-  %arrayidx = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material7, i64 0, i64 %conv35
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material7, i64 %conv35
   store ptr %call17, ptr %arrayidx, align 8, !tbaa !62
   %inc = add i32 %i.034, 1
   %conv = zext i32 %inc to i64
@@ -908,7 +908,7 @@ entry:
   %cond = zext i1 %value to i32
   %material = getelementptr inbounds nuw i8, ptr %this, i64 56
   %idxprom = zext i8 %index to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %idxprom
   %MinFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %cond, ptr %MinFilter, align 4, !tbaa !34
   %MagFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16

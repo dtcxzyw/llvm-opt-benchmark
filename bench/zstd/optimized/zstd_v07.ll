@@ -327,8 +327,8 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readStats(ptr noundef %
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %16
-  %19 = add nsw i64 %14, -242
-  %20 = getelementptr inbounds nuw [14 x i32], ptr @HUFv07_readStats.l, i64 0, i64 %19
+  %19 = getelementptr i32, ptr @HUFv07_readStats.l, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -968
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = zext i32 %21 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 1, i64 %1, i1 false)
@@ -630,7 +630,7 @@ define range(i64 -46, 1) i64 @FSEv07_buildDTable(ptr noundef captures(none) %0, 
   %.sink = phi i16 [ 1, %19 ], [ %17, %25 ]
   %.sroa.4.2 = phi i16 [ %.sroa.4.081, %19 ], [ %spec.select, %25 ]
   %.165 = phi i32 [ %21, %19 ], [ %.06482, %25 ]
-  %28 = getelementptr inbounds nuw [256 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   store i16 %.sink, ptr %28, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -702,7 +702,7 @@ define range(i64 -46, 1) i64 @FSEv07_buildDTable(ptr noundef captures(none) %0, 
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !17
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i16], ptr %5, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i16, ptr %5, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !10
   %52 = add i16 %51, 1
   store i16 %52, ptr %50, align 2, !tbaa !10
@@ -1845,7 +1845,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX2(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03843 = phi i32 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %20 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = trunc i64 %indvars.iv to i32
   %23 = add i32 %22, -1
@@ -1859,7 +1859,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX2(ptr nounde
 
 26:                                               ; preds = %.lr.ph48, %._crit_edge
   %indvars.iv54 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next55, %._crit_edge ]
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv54
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv54
   %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw i32 1, %29
@@ -1867,7 +1867,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX2(ptr nounde
   %32 = trunc i64 %indvars.iv54 to i8
   %33 = sub i8 %19, %28
   %34 = zext i8 %28 to i64
-  %35 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = add i32 %31, %36
   %38 = icmp ult i32 %36, %37
@@ -3167,7 +3167,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
   %indvars.iv101 = phi i32 [ %23, %.preheader78.preheader ], [ %indvars.iv.next102, %.preheader78 ]
   %.069 = phi i32 [ %21, %.preheader78.preheader ], [ %28, %.preheader78 ]
   %24 = zext i32 %.069 to i64
-  %25 = getelementptr inbounds nuw [17 x i32], ptr %8, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %8, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %26, 0
   %28 = add i32 %.069, -1
@@ -3188,7 +3188,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07379 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %31 = getelementptr inbounds nuw [17 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = add i32 %32, %.07379
   %34 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
@@ -3210,7 +3210,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv103 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next104, %.lr.ph84 ]
-  %36 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv103
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv103
   %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %13, i64 %38
@@ -3219,7 +3219,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
   store i32 %41, ptr %39, align 4, !tbaa !3
   %42 = trunc i64 %indvars.iv103 to i8
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw [256 x %struct.sortedSymbol_t], ptr %7, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %7, i64 %43
   store i8 %42, ptr %44, align 2, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %37, ptr %45, align 1, !tbaa !44
@@ -3240,7 +3240,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv108 = phi i64 [ 1, %.lr.ph89.preheader ], [ %indvars.iv.next109, %.lr.ph89 ]
   %.07186 = phi i32 [ 0, %.lr.ph89.preheader ], [ %53, %.lr.ph89 ]
-  %48 = getelementptr inbounds nuw [17 x i32], ptr %8, i64 0, i64 %indvars.iv108
+  %48 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv108
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = trunc nuw i64 %indvars.iv108 to i32
   %51 = add i32 %47, %50
@@ -3270,7 +3270,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
 
 .lr.ph93.us:                                      ; preds = %.lr.ph93.us.preheader, %._crit_edge94.us
   %indvars.iv122 = phi i64 [ %59, %.lr.ph93.us.preheader ], [ %indvars.iv.next123, %._crit_edge94.us ]
-  %60 = getelementptr inbounds nuw [16 x [17 x i32]], ptr %10, i64 0, i64 %indvars.iv122
+  %60 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 %indvars.iv122
   %61 = trunc nuw i64 %indvars.iv122 to i32
   br label %62
 
@@ -3313,7 +3313,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
   %74 = zext i8 %73 to i32
   %75 = sub nsw i32 %23, %74
   %76 = zext i8 %73 to i64
-  %77 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %5, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = sub nsw i32 %14, %75
   %80 = shl nuw i32 1, %79
@@ -3339,7 +3339,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
   br i1 %93, label %94, label %.loopexit.i.i
 
 94:                                               ; preds = %81
-  %95 = getelementptr inbounds nuw [17 x i32], ptr %4, i64 0, i64 %83
+  %95 = getelementptr inbounds nuw i32, ptr %4, i64 %83
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %.not.i.i = icmp eq i32 %96, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
@@ -3381,7 +3381,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr nounde
   %106 = sub nsw i32 %79, %105
   %107 = shl nuw i32 1, %106
   %108 = zext i8 %103 to i64
-  %109 = getelementptr inbounds nuw [17 x i32], ptr %4, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i32, ptr %4, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = add i32 %107, %110
   %112 = shl nuw nsw i32 %101, 8
@@ -4773,7 +4773,7 @@ define range(i32 0, 2) i32 @HUFv07_selectDecoder(i64 noundef %0, i64 noundef %1)
   %5 = lshr i64 %0, 8
   %6 = trunc i64 %5 to i32
   %7 = and i64 %4, 4294967295
-  %8 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %7
   %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !60
@@ -4824,7 +4824,7 @@ define i64 @HUFv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %18 = lshr i64 %1, 8
   %19 = trunc i64 %18 to i32
   %20 = and i64 %17, 4294967295
-  %21 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !60
@@ -4840,7 +4840,7 @@ define i64 @HUFv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %34 = add i32 %33, %32
   %35 = icmp ult i32 %34, %26
   %36 = zext i1 %35 to i64
-  %37 = getelementptr inbounds nuw [2 x ptr], ptr @HUFv07_decompress.decompress, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @HUFv07_decompress.decompress, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !61
   %39 = tail call i64 %38(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #26
   br label %40
@@ -4882,7 +4882,7 @@ define i64 @HUFv07_decompress4X_DCtx(ptr noundef %0, ptr noundef %1, i64 noundef
   %19 = lshr i64 %2, 8
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !60
@@ -4951,7 +4951,7 @@ define i64 @HUFv07_decompress4X_hufOnly(ptr noundef %0, ptr noundef %1, i64 noun
   %13 = lshr i64 %2, 8
   %14 = trunc i64 %13 to i32
   %15 = and i64 %12, 4294967295
-  %16 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !60
@@ -5035,7 +5035,7 @@ define i64 @HUFv07_decompress1X_DCtx(ptr noundef captures(none) %0, ptr noundef 
   %19 = lshr i64 %2, 8
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !60
@@ -5301,10 +5301,10 @@ define range(i64 5, 1) i64 @ZSTDv07_getFrameParams(ptr noundef writeonly capture
   %19 = and i32 %16, 32
   %.not.i = icmp ne i32 %19, 0
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr @ZSTDv07_did_fieldSize, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !78
   %23 = zext nneg i32 %18 to i64
-  %24 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr @ZSTDv07_fcs_fieldSize, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val91, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
@@ -5956,7 +5956,7 @@ default.unreachable:                              ; preds = %ZSTDv07_buildSeqTab
 296:                                              ; preds = %293, %287
   %.sink.i.i.i = phi i16 [ 1, %287 ], [ %295, %293 ]
   %.165.i.i.i = phi i32 [ %289, %287 ], [ %.06482.i.i.i, %293 ]
-  %297 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %297 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i.i.i
   store i16 %.sink.i.i.i, ptr %297, align 2, !tbaa !10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 36
@@ -6019,7 +6019,7 @@ default.unreachable:                              ; preds = %ZSTDv07_buildSeqTab
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 2
   %313 = load i8, ptr %312, align 2, !tbaa !17
   %314 = zext i8 %313 to i64
-  %315 = getelementptr inbounds nuw [256 x i16], ptr %7, i64 0, i64 %314
+  %315 = getelementptr inbounds nuw i16, ptr %7, i64 %314
   %316 = load i16, ptr %315, align 2, !tbaa !10
   %317 = add i16 %316, 1
   store i16 %317, ptr %315, align 2, !tbaa !10
@@ -6147,7 +6147,7 @@ ZSTDv07_buildSeqTable.exit.thread162.i.i:         ; preds = %ZSTDv07_buildSeqTab
 362:                                              ; preds = %359, %353
   %.sink.i.i = phi i16 [ 1, %353 ], [ %361, %359 ]
   %.165.i131.i = phi i32 [ %355, %353 ], [ %.06482.i.i, %359 ]
-  %363 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %363 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i
   store i16 %.sink.i.i, ptr %363, align 2, !tbaa !10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 29
@@ -6210,7 +6210,7 @@ ZSTDv07_buildSeqTable.exit.thread162.i.i:         ; preds = %ZSTDv07_buildSeqTab
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 2
   %379 = load i8, ptr %378, align 2, !tbaa !17
   %380 = zext i8 %379 to i64
-  %381 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %380
+  %381 = getelementptr inbounds nuw i16, ptr %6, i64 %380
   %382 = load i16, ptr %381, align 2, !tbaa !10
   %383 = add i16 %382, 1
   store i16 %383, ptr %381, align 2, !tbaa !10
@@ -6376,10 +6376,10 @@ ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread176.sink.spl
 
 437:                                              ; preds = %437, %434
   %indvars.iv.i = phi i64 [ 0, %434 ], [ %indvars.iv.next.i, %437 ]
-  %438 = getelementptr inbounds nuw [3 x i32], ptr %435, i64 0, i64 %indvars.iv.i
+  %438 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv.i
   %439 = load i32, ptr %438, align 4, !tbaa !3
   %440 = zext i32 %439 to i64
-  %441 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %indvars.iv.i
+  %441 = getelementptr inbounds nuw i64, ptr %436, i64 %indvars.iv.i
   store i64 %440, ptr %441, align 8, !tbaa !78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6806,10 +6806,10 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   %.sroa.3.0.copyload.i67.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i66.i.i, align 2, !tbaa !14, !noalias !91
   %665 = zext i8 %.sroa.3.0.copyload.i67.i.i to i32
   %666 = zext i8 %.sroa.3.0.copyload.i.i.i to i64
-  %667 = getelementptr inbounds nuw [36 x i32], ptr @LL_bits, i64 0, i64 %666
+  %667 = getelementptr inbounds nuw i32, ptr @LL_bits, i64 %666
   %668 = load i32, ptr %667, align 4, !tbaa !3, !noalias !91
   %669 = zext i8 %.sroa.3.0.copyload.i65.i.i to i64
-  %670 = getelementptr inbounds nuw [53 x i32], ptr @ML_bits, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i32, ptr @ML_bits, i64 %669
   %671 = load i32, ptr %670, align 4, !tbaa !3, !noalias !91
   %672 = add i32 %668, %665
   %673 = add i32 %672, %671
@@ -6818,7 +6818,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 
 674:                                              ; preds = %663
   %675 = zext i8 %.sroa.3.0.copyload.i67.i.i to i64
-  %676 = getelementptr inbounds nuw [29 x i32], ptr @ZSTDv07_decodeSequence.OF_base, i64 0, i64 %675
+  %676 = getelementptr inbounds nuw i32, ptr @ZSTDv07_decodeSequence.OF_base, i64 %675
   %677 = load i32, ptr %676, align 4, !tbaa !3, !noalias !91
   %678 = zext i32 %677 to i64
   %.val.i.i118.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !91
@@ -6847,7 +6847,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   br i1 %.not57.i.i, label %701, label %694
 
 694:                                              ; preds = %.thread.i123.i
-  %695 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %spec.select.i.i
+  %695 = getelementptr inbounds nuw i64, ptr %436, i64 %spec.select.i.i
   %696 = load i64, ptr %695, align 8, !tbaa !78, !noalias !91
   %.not58.i.i = icmp eq i64 %spec.select.i.i, 1
   br i1 %.not58.i.i, label %699, label %697
@@ -6878,7 +6878,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 706:                                              ; preds = %703, %701, %699
   %.val4.i69.i.i = phi i32 [ %.val4.i69.i226.i, %699 ], [ %.val4.i69.i226.i, %701 ], [ %687, %703 ]
   %.2.i.i = phi i64 [ %696, %699 ], [ %702, %701 ], [ %688, %703 ]
-  %707 = getelementptr inbounds nuw [53 x i32], ptr @ZSTDv07_decodeSequence.ML_base, i64 0, i64 %669
+  %707 = getelementptr inbounds nuw i32, ptr @ZSTDv07_decodeSequence.ML_base, i64 %669
   %708 = load i32, ptr %707, align 4, !tbaa !3, !noalias !91
   %709 = zext i32 %708 to i64
   %710 = icmp ugt i8 %.sroa.3.0.copyload.i65.i.i, 31
@@ -6901,7 +6901,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   %.val4.i71.i.i = phi i32 [ %720, %711 ], [ %.val4.i69.i.i, %706 ]
   %722 = phi i64 [ %719, %711 ], [ 0, %706 ]
   %723 = add nuw i64 %722, %709
-  %724 = getelementptr inbounds nuw [36 x i32], ptr @ZSTDv07_decodeSequence.LL_base, i64 0, i64 %666
+  %724 = getelementptr inbounds nuw i32, ptr @ZSTDv07_decodeSequence.LL_base, i64 %666
   %725 = load i32, ptr %724, align 4, !tbaa !3, !noalias !91
   %726 = zext i32 %725 to i64
   %727 = icmp ugt i8 %.sroa.3.0.copyload.i.i.i, 15
@@ -7113,7 +7113,7 @@ ZSTDv07_wildcopy.exit.i.i:                        ; preds = %.preheader117.i.i
   br i1 %847, label %848, label %869
 
 848:                                              ; preds = %.thread.i125.i
-  %849 = getelementptr inbounds nuw [8 x i32], ptr @ZSTDv07_execSequence.dec64table, i64 0, i64 %.2.i.i
+  %849 = getelementptr inbounds nuw i32, ptr @ZSTDv07_execSequence.dec64table, i64 %.2.i.i
   %850 = load i32, ptr %849, align 4, !tbaa !3
   %851 = load i8, ptr %.088.i.i, align 1, !tbaa !14
   store i8 %851, ptr %.085.i.i, align 1, !tbaa !14
@@ -7129,7 +7129,7 @@ ZSTDv07_wildcopy.exit.i.i:                        ; preds = %.preheader117.i.i
   %859 = load i8, ptr %858, align 1, !tbaa !14
   %860 = getelementptr inbounds nuw i8, ptr %.085.i.i, i64 3
   store i8 %859, ptr %860, align 1, !tbaa !14
-  %861 = getelementptr inbounds nuw [8 x i32], ptr @ZSTDv07_execSequence.dec32table, i64 0, i64 %.2.i.i
+  %861 = getelementptr inbounds nuw i32, ptr @ZSTDv07_execSequence.dec32table, i64 %.2.i.i
   %862 = load i32, ptr %861, align 4, !tbaa !3
   %863 = zext i32 %862 to i64
   %864 = getelementptr inbounds nuw i8, ptr %.088.i.i, i64 %863
@@ -7209,10 +7209,10 @@ ZSTDv07_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %890, %
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %895 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %indvars.iv213.i
+  %895 = getelementptr inbounds nuw i64, ptr %436, i64 %indvars.iv213.i
   %896 = load i64, ptr %895, align 8, !tbaa !78
   %897 = trunc i64 %896 to i32
-  %898 = getelementptr inbounds nuw [3 x i32], ptr %435, i64 0, i64 %indvars.iv213.i
+  %898 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv213.i
   store i32 %897, ptr %898, align 4, !tbaa !3
   %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
   %exitcond216.not.i = icmp eq i64 %indvars.iv.next214.i, 3
@@ -7565,10 +7565,10 @@ define internal fastcc i64 @ZSTDv07_decompressFrame(ptr noundef %0, ptr noundef 
   %14 = and i32 %11, 32
   %.not.i = icmp ne i32 %14, 0
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @ZSTDv07_did_fieldSize, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !78
   %18 = zext nneg i32 %13 to i64
-  %19 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr @ZSTDv07_fcs_fieldSize, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
@@ -7843,10 +7843,10 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   %12 = and i32 %9, 32
   %.not.i = icmp ne i32 %12, 0
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr @ZSTDv07_did_fieldSize, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !78
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @ZSTDv07_fcs_fieldSize, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val58, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
@@ -8045,10 +8045,10 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
   %33 = and i32 %30, 32
   %.not.i97 = icmp ne i32 %33, 0
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr @ZSTDv07_did_fieldSize, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !78
   %37 = zext nneg i32 %32 to i64
-  %38 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr @ZSTDv07_fcs_fieldSize, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val96, 64
   %narrow1.i = and i1 %.not10.i, %.not.i97

@@ -613,7 +613,7 @@ jpeg_core_output_dimensions.exit:                 ; preds = %303, %296, %307
   %399 = icmp ult i32 %switch.tableidx, 16
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %401 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.jpeg_calc_output_dimensions, i64 0, i64 %401
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.jpeg_calc_output_dimensions, i64 %401
   %.sink.in = select i1 %399, ptr %switch.gep, ptr %400
   %.sink = load i32, ptr %.sink.in, align 4
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -676,7 +676,7 @@ jpeg_core_output_dimensions.exit:                 ; preds = %303, %296, %307
 
 424:                                              ; preds = %422, %422, %422, %422, %422, %422, %422, %422, %422, %422, %422
   %425 = zext nneg i32 %398 to i64
-  %426 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %425
   %427 = load i32, ptr %426, align 4, !tbaa !68
   %.not55.i = icmp eq i32 %.sink, %427
   br i1 %.not55.i, label %.thread.i, label %use_merged_upsample.exit.thread
@@ -1025,7 +1025,7 @@ prepare_range_limit_table.exit.i:                 ; preds = %57, %47, %27
 94:                                               ; preds = %89, %89, %89, %89, %89, %89, %89, %89, %89, %89, %89
   %95 = load i32, ptr %64, align 8, !tbaa !62
   %96 = zext nneg i32 %91 to i64
-  %97 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !68
   %.not55.i.i = icmp eq i32 %95, %98
   br i1 %.not55.i.i, label %.thread.i.i, label %use_merged_upsample.exit.i

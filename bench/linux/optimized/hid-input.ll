@@ -239,7 +239,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = sext i32 %39 to i64
-  %45 = getelementptr [9 x %struct.anon.2], ptr @hid_hat_to_axis, i64 0, i64 %44
+  %45 = getelementptr %struct.anon.2, ptr @hid_hat_to_axis, i64 %44
   %46 = load i32, ptr %45, align 8
   tail call void @input_event(ptr noundef %16, i32 noundef %40, i32 noundef %43, i32 noundef %46) #11
   %47 = load i8, ptr %8, align 4
@@ -735,7 +735,7 @@ define dso_local ptr @hidinput_get_led_field(ptr noundef readonly captures(addre
 13:                                               ; preds = %.loopexit6, %11
   %14 = phi i32 [ 0, %11 ], [ %33, %.loopexit6 ]
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [256 x ptr], ptr %12, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8
@@ -799,7 +799,7 @@ define dso_local i32 @hidinput_count_leds(ptr noundef readonly captures(address)
   %16 = phi i32 [ 0, %13 ], [ %47, %.loopexit ]
   %17 = phi i32 [ %9, %13 ], [ %46, %.loopexit ]
   %18 = sext i32 %16 to i64
-  %19 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
@@ -946,7 +946,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %58 = phi i32 [ %53, %55 ], [ %87, %.loopexit76 ]
   %59 = phi i32 [ 0, %55 ], [ %88, %.loopexit76 ]
   %60 = sext i32 %59 to i64
-  %61 = getelementptr [256 x ptr], ptr %56, i64 0, i64 %60
+  %61 = getelementptr ptr, ptr %56, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load i32, ptr %63, align 8
@@ -1306,7 +1306,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %255 = phi i32 [ 0, %.thread198 ], [ %291, %.loopexit66 ]
   %256 = phi i32 [ 0, %.thread198 ], [ %295, %.loopexit66 ]
   %257 = sext i32 %256 to i64
-  %258 = getelementptr [256 x ptr], ptr %248, i64 0, i64 %257
+  %258 = getelementptr ptr, ptr %248, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %261 = load i32, ptr %260, align 8
@@ -1349,7 +1349,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 .preheader65:                                     ; preds = %281, %.preheader65
   %284 = phi i32 [ %289, %.preheader65 ], [ %269, %281 ]
   %285 = sext i32 %284 to i64
-  %286 = getelementptr [256 x ptr], ptr %248, i64 0, i64 %285
+  %286 = getelementptr ptr, ptr %248, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 132
   store i32 %282, ptr %288, align 4
@@ -1371,7 +1371,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %298 = phi i32 [ %317, %.loopexit64 ], [ %296, %249 ]
   %299 = phi i32 [ %318, %.loopexit64 ], [ 0, %249 ]
   %300 = sext i32 %299 to i64
-  %301 = getelementptr [256 x ptr], ptr %248, i64 0, i64 %300
+  %301 = getelementptr ptr, ptr %248, i64 %300
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load i32, ptr %303, align 8
@@ -1463,7 +1463,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %350 = phi i8 [ 0, %345 ], [ %.ph3.i, %.loopexit.i ]
   %351 = phi i8 [ 0, %345 ], [ %.ph.i, %.loopexit.i ]
   %352 = sext i32 %349 to i64
-  %353 = getelementptr [256 x ptr], ptr %346, i64 0, i64 %352
+  %353 = getelementptr ptr, ptr %346, i64 %352
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 76
   %356 = load i32, ptr %355, align 4
@@ -1573,7 +1573,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   %415 = phi i32 [ %468, %.loopexit.i41 ], [ 0, %411 ]
   %416 = phi i8 [ %.ph3.i43, %.loopexit.i41 ], [ 0, %411 ]
   %417 = sext i32 %415 to i64
-  %418 = getelementptr [256 x ptr], ptr %346, i64 0, i64 %417
+  %418 = getelementptr ptr, ptr %346, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 72
   %421 = load i32, ptr %420, align 4
@@ -1717,7 +1717,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
 507:                                              ; preds = %507, %484
   %508 = phi i64 [ 0, %484 ], [ %513, %507 ]
   %509 = phi i64 [ %488, %484 ], [ %512, %507 ]
-  %510 = getelementptr [12 x i64], ptr %489, i64 0, i64 %508
+  %510 = getelementptr i64, ptr %489, i64 %508
   %511 = load i64, ptr %510, align 8
   %512 = or i64 %511, %509
   %513 = add nuw nsw i64 %508, 1
@@ -1728,7 +1728,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   %516 = phi i1 [ true, %490 ], [ false, %515 ]
   %517 = phi i64 [ 0, %490 ], [ 1, %515 ]
   %518 = phi i64 [ %505, %490 ], [ %521, %515 ]
-  %519 = getelementptr [2 x i64], ptr %506, i64 0, i64 %517
+  %519 = getelementptr i64, ptr %506, i64 %517
   %520 = load i64, ptr %519, align 8
   %521 = or i64 %520, %518
   br i1 %516, label %515, label %522, !llvm.loop !38
@@ -1795,7 +1795,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   %556 = phi i32 [ %551, %553 ], [ %566, %565 ]
   %557 = phi i32 [ 0, %553 ], [ %567, %565 ]
   %558 = sext i32 %557 to i64
-  %559 = getelementptr [256 x ptr], ptr %554, i64 0, i64 %558
+  %559 = getelementptr ptr, ptr %554, i64 %558
   %560 = load ptr, ptr %559, align 8
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 120
   %562 = load ptr, ptr %561, align 8
@@ -1918,7 +1918,7 @@ define internal void @hidinput_led_worker(ptr noundef %0) #1 align 16 {
 14:                                               ; preds = %.loopexit, %12
   %15 = phi i32 [ 0, %12 ], [ %34, %.loopexit ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [256 x ptr], ptr %13, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8
@@ -2130,7 +2130,7 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
 21:                                               ; preds = %.loopexit, %19
   %22 = phi i32 [ 0, %19 ], [ %47, %.loopexit ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [256 x ptr], ptr %20, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8
@@ -2272,7 +2272,7 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
 
 43:                                               ; preds = %.loopexit, %40
   %44 = phi i64 [ 0, %40 ], [ %68, %.loopexit ]
-  %45 = getelementptr [256 x ptr], ptr %41, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8
@@ -2440,7 +2440,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
 30:                                               ; preds = %.loopexit17, %27
   %31 = phi i64 [ 0, %27 ], [ %60, %.loopexit17 ]
   %32 = phi i32 [ %23, %27 ], [ %59, %.loopexit17 ]
-  %33 = getelementptr [256 x ptr], ptr %28, i64 0, i64 %31
+  %33 = getelementptr ptr, ptr %28, i64 %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8
@@ -2531,7 +2531,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
 86:                                               ; preds = %.loopexit, %83
   %87 = phi i64 [ 0, %83 ], [ %117, %.loopexit ]
   %88 = phi i32 [ %79, %83 ], [ %116, %.loopexit ]
-  %89 = getelementptr [256 x ptr], ptr %84, i64 0, i64 %87
+  %89 = getelementptr ptr, ptr %84, i64 %87
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i32, ptr %91, align 8
@@ -2635,7 +2635,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 .preheader:                                       ; preds = %20, %30
   %26 = phi i64 [ %31, %30 ], [ 0, %20 ]
-  %27 = getelementptr [5 x %struct.usage_priority], ptr @hidinput_usages_priorities, i64 0, i64 %26
+  %27 = getelementptr %struct.usage_priority, ptr @hidinput_usages_priorities, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %.pre, %28
   br i1 %29, label %33, label %30
@@ -2749,7 +2749,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 81:                                               ; preds = %79
   %82 = zext nneg i32 %77 to i64
-  %83 = getelementptr [256 x i8], ptr @hid_keyboard, i64 0, i64 %82
+  %83 = getelementptr i8, ptr @hid_keyboard, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i16
   %.val = load ptr, ptr %7, align 8

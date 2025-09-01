@@ -399,7 +399,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
   %40 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds nuw [6 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %42, ptr %43, align 4
   %.pre = load i32, ptr %8, align 8
   br label %44
@@ -445,7 +445,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
   %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv43
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
-  %70 = getelementptr inbounds nuw [6 x i32], ptr %19, i64 0, i64 %indvars.iv43
+  %70 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv43
   store i32 %69, ptr %70, align 4
   %.pre46 = load i32, ptr %14, align 8
   br label %.critedge

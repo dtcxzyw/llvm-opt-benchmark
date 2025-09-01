@@ -346,35 +346,35 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %wide.trip.count.i = and i64 %122, 4294967295
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph._crit_edge.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %128, %.lr.ph._crit_edge.i ]
-  %.154.i = phi i32 [ %.030.i, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph._crit_edge.i ]
-  %123 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+.lr.ph.i:                                         ; preds = %134, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %134 ]
+  %.154.i = phi i32 [ %.030.i, %.lr.ph.preheader.i ], [ %spec.select.i, %134 ]
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %124 = load i8, ptr %123, align 1, !tbaa !38
   %125 = icmp eq i8 %124, 10
   %126 = zext i1 %125 to i32
   %spec.select.i = add nsw i32 %.154.i, %126
   %127 = icmp sgt i32 %spec.select.i, 1
   %brmerge.not.i = and i1 %125, %127
-  %128 = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %brmerge.not.i, label %129, label %.lr.ph._crit_edge.i
+  br i1 %brmerge.not.i, label %128, label %134
 
-129:                                              ; preds = %.lr.ph.i
-  %130 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %128
-  %131 = load i8, ptr %130, align 1, !tbaa !38
-  %132 = icmp eq i8 %131, 83
-  br i1 %132, label %.thread.i, label %.lr.ph._crit_edge.i
+128:                                              ; preds = %.lr.ph.i
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 1
+  %130 = load i8, ptr %129, align 1, !tbaa !38
+  %131 = icmp eq i8 %130, 83
+  br i1 %131, label %.thread.i, label %134
 
-.thread.i:                                        ; preds = %129
-  %133 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %134 = add nuw nsw i32 %133, 2
+.thread.i:                                        ; preds = %128
+  %132 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %133 = add nuw nsw i32 %132, 2
   br label %.loopexit.i
 
-.lr.ph._crit_edge.i:                              ; preds = %129, %.lr.ph.i
-  %exitcond.not.i = icmp eq i64 %128, %wide.trip.count.i
+134:                                              ; preds = %128, %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph._crit_edge.i
+._crit_edge.loopexit.i:                           ; preds = %134
   %135 = add nsw i32 %120, -1
   br label %._crit_edge.i
 
@@ -386,20 +386,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %136, label %.preheader.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.thread.i
-  %.13446.i = phi i32 [ %134, %.thread.i ], [ %.033.lcssa.i, %._crit_edge.i ]
+  %.13446.i = phi i32 [ %133, %.thread.i ], [ %.033.lcssa.i, %._crit_edge.i ]
   %.b.i = load i1, ptr @debug_flag, align 1
-  br i1 %.b.i, label %137, label %.preheader248
+  br i1 %.b.i, label %137, label %.preheader247
 
 137:                                              ; preds = %.loopexit.i
   %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58)
-  br label %.preheader248
+  br label %.preheader247
 
-.preheader248:                                    ; preds = %137, %.loopexit.i
+.preheader247:                                    ; preds = %137, %.loopexit.i
   br label %139
 
-139:                                              ; preds = %.preheader248, %165
-  %.235.i = phi i32 [ 0, %165 ], [ %.13446.i, %.preheader248 ]
-  %.0.i = phi i32 [ %167, %165 ], [ %120, %.preheader248 ]
+139:                                              ; preds = %.preheader247, %165
+  %.235.i = phi i32 [ 0, %165 ], [ %.13446.i, %.preheader247 ]
+  %.0.i = phi i32 [ %167, %165 ], [ %120, %.preheader247 ]
   %140 = add nuw nsw i32 %.235.i, 1
   %141 = icmp slt i32 %140, %.0.i
   br i1 %141, label %.lr.ph58.i, label %._crit_edge59.i
@@ -408,7 +408,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %142 = phi i32 [ %158, %154 ], [ %140, %139 ]
   %.33656.i = phi i32 [ %157, %154 ], [ %.235.i, %139 ]
   %143 = sext i32 %.33656.i to i64
-  %144 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %143
+  %144 = getelementptr inbounds i8, ptr %3, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !38
   switch i8 %145, label %146 [
     i8 83, label %154
@@ -418,7 +418,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 146:                                              ; preds = %.lr.ph58.i
   %147 = and i8 %145, 15
   %148 = sext i32 %142 to i64
-  %149 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %148
+  %149 = getelementptr inbounds i8, ptr %3, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !38
   %151 = shl i8 %150, 4
   %152 = or disjoint i8 %151, %147

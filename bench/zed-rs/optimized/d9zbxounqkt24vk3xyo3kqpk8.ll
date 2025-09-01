@@ -16676,7 +16676,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit123.i", %.lr.ph.i.i.i.i
   %.sroa.0.07.i.i.i.i = phi i64 [ %1433, %.lr.ph.i.i.i.i ], [ 0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit123.i" ]
-  %1432 = getelementptr inbounds [0 x i32], ptr %1428, i64 0, i64 %.sroa.0.07.i.i.i.i
+  %1432 = getelementptr inbounds i32, ptr %1428, i64 %.sroa.0.07.i.i.i.i
   %1433 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !5332)
   call void @llvm.experimental.noalias.scope.decl(metadata !5335)
@@ -25721,7 +25721,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
 
 .lr.ph.i.i.i:                                     ; preds = %4582, %.lr.ph.i.i.i
   %.sroa.0.07.i.i.i = phi i64 [ %4590, %.lr.ph.i.i.i ], [ 0, %4582 ]
-  %4589 = getelementptr inbounds [0 x i32], ptr %4585, i64 0, i64 %.sroa.0.07.i.i.i
+  %4589 = getelementptr inbounds i32, ptr %4585, i64 %.sroa.0.07.i.i.i
   %4590 = add nuw i64 %.sroa.0.07.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !7626)
   call void @llvm.experimental.noalias.scope.decl(metadata !7629)

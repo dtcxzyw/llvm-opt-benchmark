@@ -16658,10 +16658,10 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 switch.lookup:                                    ; preds = %50
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = zext nneg i8 %51 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E", i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E", i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   %54 = zext nneg i8 %51 to i64
-  %switch.gep62 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E.149", i64 0, i64 %54
+  %switch.gep62 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$11json_schema17h15e6cdf0b5b0ddd7E.149", i64 %54
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h688d451feb156e8cE.llvm.16403958082728167663"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load63)
           to label %56 unwind label %73

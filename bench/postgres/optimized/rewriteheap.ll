@@ -438,30 +438,29 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i16, ptr %81, align 2
   %.not59 = icmp eq i16 %82, 0
-  br i1 %.not59, label %83, label %92
+  br i1 %.not59, label %83, label %91
 
 83:                                               ; preds = %70
-  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %85 = zext i16 %65 to i64
-  %86 = add nsw i64 %85, -1
-  %87 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %84, i64 0, i64 %86
-  %.val55 = load i32, ptr %87, align 4
-  %88 = and i32 %.val55, 32767
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %91, ptr noundef nonnull align 4 dereferenceable(6) %71, i64 6, i1 false)
-  br label %92
+  %84 = zext i16 %65 to i64
+  %85 = getelementptr i8, ptr %.1, i64 20
+  %86 = getelementptr %struct.ItemIdData, ptr %85, i64 %84
+  %.val55 = load i32, ptr %86, align 4
+  %87 = and i32 %.val55, 32767
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %.1, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %90, ptr noundef nonnull align 4 dereferenceable(6) %71, i64 6, i1 false)
+  br label %91
 
-92:                                               ; preds = %83, %70
+91:                                               ; preds = %83, %70
   %.not54 = icmp eq ptr %.046, %1
-  br i1 %.not54, label %94, label %93
+  br i1 %.not54, label %93, label %92
 
-93:                                               ; preds = %92
+92:                                               ; preds = %91
   tail call void @heap_freetuple(ptr noundef nonnull %.046) #13
-  br label %94
+  br label %93
 
-94:                                               ; preds = %93, %92
+93:                                               ; preds = %92, %91
   ret void
 }
 

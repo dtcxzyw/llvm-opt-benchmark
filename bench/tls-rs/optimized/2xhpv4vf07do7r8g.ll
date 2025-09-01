@@ -1872,14 +1872,14 @@ switch.lookup:
   %5 = alloca i64, align 8
   %6 = alloca [66 x i8], align 1
   %7 = load i64, ptr %1, align 8, !range !476, !noundef !14
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = load i8, ptr %switch.load, align 1, !range !477, !noundef !14
   %9 = zext nneg i8 %8 to i64
-  %switch.gep64 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814.71, i64 0, i64 %9
+  %switch.gep64 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814.71, i64 %9
   %switch.load65 = load i64, ptr %switch.gep64, align 8
   %10 = zext nneg i8 %8 to i64
-  %switch.gep66 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814.72, i64 0, i64 %10
+  %switch.gep66 = getelementptr inbounds nuw i32, ptr @switch.table._ZN9aws_lc_rs9agreement5agree17h370115e93f5325edE.llvm.12428379203013389814.72, i64 %10
   %switch.load67 = load i32, ptr %switch.gep66, align 4
   %11 = load ptr, ptr %2, align 8, !nonnull !14, !align !29, !noundef !14
   %12 = load i8, ptr %11, align 1, !range !477, !noundef !14
@@ -4099,7 +4099,7 @@ define hidden void @_ZN6rustls12common_state11CommonState28send_cert_verify_erro
           to label %32 unwind label %35
 
 switch.lookup:                                    ; preds = %9
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN6rustls12common_state11CommonState28send_cert_verify_error_alert17h4e037ecf39881efeE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6rustls12common_state11CommonState28send_cert_verify_error_alert17h4e037ecf39881efeE, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %32
 
@@ -8333,7 +8333,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   %.sroa.6.0.i.i.i = phi i64 [ %784, %780 ], [ %775, %.noexc.i.i310 ]
   %.sroa.5.0.i.i.i = phi ptr [ %782, %780 ], [ %778, %.noexc.i.i310 ]
   %.sroa.01.0.i.i.i = phi i64 [ -9223372036854775808, %780 ], [ %777, %.noexc.i.i310 ]
-  %785 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %759, i64 0, i64 %.sroa.7.030.i.i
+  %785 = getelementptr inbounds nuw { [3 x i64] }, ptr %759, i64 %.sroa.7.030.i.i
   store i64 %.sroa.01.0.i.i.i, ptr %785, align 8, !noalias !2073
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %785, i64 8
   store ptr %.sroa.5.0.i.i.i, ptr %.sroa.07.sroa.4.0..sroa_idx.i.i, align 8, !noalias !2073
@@ -10023,7 +10023,7 @@ define internal fastcc void @_ZN6rustls6server5tls1212client_hello20emit_certifi
   %57 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %57)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.sroa.54.0.val.i, i64 %.sroa.54.0.val13.i, i1 false), !noalias !2380
-  %58 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %41, i64 0, i64 %.sroa.7.031.i
+  %58 = getelementptr inbounds nuw { [3 x i64] }, ptr %41, i64 %.sroa.7.031.i
   store i64 %55, ptr %58, align 8, !noalias !2373
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %56, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8, !noalias !2373

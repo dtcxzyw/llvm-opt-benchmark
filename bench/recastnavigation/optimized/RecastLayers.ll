@@ -260,7 +260,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
   %125 = add i16 %119, 1
   store i16 %125, ptr %118, align 2
   %126 = zext i8 %115 to i64
-  %127 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i32, ptr %6, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %127, align 4
@@ -303,7 +303,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 139:                                              ; preds = %.lr.ph830
   %140 = zext i8 %138 to i64
-  %141 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %6, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = getelementptr inbounds nuw %struct.rcLayerSweepSpan, ptr %41, i64 %indvars.iv940
   %144 = load i16, ptr %143, align 2
@@ -477,7 +477,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 204:                                              ; preds = %.lr.ph855.us, %_ZL9addUniquePhRhih.exit669.thread.us
   %indvars.iv969 = phi i64 [ %indvars.iv967, %.lr.ph855.us ], [ %indvars.iv.next970, %_ZL9addUniquePhRhih.exit669.thread.us ]
-  %205 = getelementptr inbounds nuw [63 x i8], ptr %7, i64 0, i64 %indvars.iv969
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv969
   %206 = load i8, ptr %205, align 1
   %.not627.us = icmp eq i8 %292, %206
   br i1 %.not627.us, label %_ZL9addUniquePhRhih.exit669.thread.us, label %207
@@ -586,7 +586,7 @@ _ZL9addUniquePhRhih.exit669.thread.us:            ; preds = %.lr.ph.i.i662.us, %
 245:                                              ; preds = %234
   %246 = add nsw i32 %.0556849.us, 1
   %247 = sext i32 %.0556849.us to i64
-  %248 = getelementptr inbounds [63 x i8], ptr %7, i64 0, i64 %247
+  %248 = getelementptr inbounds i8, ptr %7, i64 %247
   store i8 %232, ptr %248, align 1
   br label %249
 
@@ -609,10 +609,10 @@ _ZL9addUniquePhRhih.exit669.thread.us:            ; preds = %.lr.ph.i.i662.us, %
   br i1 %.not628.us, label %_ZL9addUniquePhRhih.exit.us, label %260
 
 260:                                              ; preds = %253
-  %261 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv960
+  %261 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv960
   %262 = load i32, ptr %261, align 4
   %263 = add nsw i32 %262, %203
-  %264 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv960
+  %264 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv960
   %265 = load i32, ptr %264, align 4
   %266 = add nsw i32 %265, %191
   %267 = load ptr, ptr %187, align 8
@@ -695,7 +695,7 @@ _ZL9addUniquePhRhih.exit.us:                      ; preds = %.lr.ph.i.i.us, %.lo
   %indvars.iv974 = phi i64 [ 0, %.lr.ph857.us.preheader ], [ %indvars.iv.next975, %.loopexit805.us ]
   %indvars.iv967 = phi i64 [ 1, %.lr.ph857.us.preheader ], [ %indvars.iv.next968, %.loopexit805.us ]
   %indvars.iv.next975 = add nuw nsw i64 %indvars.iv974, 1
-  %291 = getelementptr inbounds nuw [63 x i8], ptr %7, i64 0, i64 %indvars.iv974
+  %291 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv974
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i64
   %294 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %175, i64 %293
@@ -790,7 +790,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
 319:                                              ; preds = %.lr.ph874, %_ZL8containsPKhhh.exit
   %indvars.iv995 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next996, %_ZL8containsPKhhh.exit ]
   %.1576872 = phi i32 [ %313, %.lr.ph874 ], [ %.2577, %_ZL8containsPKhhh.exit ]
-  %320 = getelementptr inbounds nuw [16 x i8], ptr %318, i64 0, i64 %indvars.iv995
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 %indvars.iv995
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i64
   %323 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %175, i64 %322
@@ -840,7 +840,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
 345:                                              ; preds = %.loopexit801
   %346 = add nsw i32 %.1576872, 1
   %347 = sext i32 %.1576872 to i64
-  %348 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 %347
+  %348 = getelementptr inbounds i8, ptr %8, i64 %347
   store i8 %321, ptr %348, align 1
   store i8 %.0571878, ptr %324, align 2
   %349 = getelementptr inbounds nuw i8, ptr %323, i64 85
@@ -852,7 +852,7 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
   %351 = phi i8 [ %363, %.loopexit800 ], [ %350, %345 ]
   %352 = phi i8 [ %364, %.loopexit800 ], [ %327, %345 ]
   %indvars.iv992 = phi i64 [ %indvars.iv.next993, %.loopexit800 ], [ 0, %345 ]
-  %353 = getelementptr inbounds nuw [63 x i8], ptr %323, i64 0, i64 %indvars.iv992
+  %353 = getelementptr inbounds nuw i8, ptr %323, i64 %indvars.iv992
   %354 = load i8, ptr %353, align 1
   %.not.i.i671 = icmp eq i8 %352, 0
   br i1 %.not.i.i671, label %.loopexit.i678.thread, label %.lr.ph.preheader.i.i672
@@ -1057,7 +1057,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %428 = phi i8 [ %427, %.lr.ph884.preheader ], [ %440, %.loopexit794 ]
   %429 = phi i8 [ %.pre1071, %.lr.ph884.preheader ], [ %441, %.loopexit794 ]
   %indvars.iv1014 = phi i64 [ 0, %.lr.ph884.preheader ], [ %indvars.iv.next1015, %.loopexit794 ]
-  %430 = getelementptr inbounds nuw [63 x i8], ptr %420, i64 0, i64 %indvars.iv1014
+  %430 = getelementptr inbounds nuw i8, ptr %420, i64 %indvars.iv1014
   %431 = load i8, ptr %430, align 1
   %.not.i.i691 = icmp eq i8 %429, 0
   br i1 %.not.i.i691, label %.loopexit.i698.thread, label %.lr.ph.preheader.i.i692
@@ -1147,7 +1147,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %455 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %175, i64 %indvars.iv1027, i32 4
   %456 = load i8, ptr %455, align 2
   %457 = zext i8 %456 to i64
-  %458 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i8, ptr %9, i64 %457
   store i8 1, ptr %458, align 1
   %indvars.iv.next1028 = add nuw nsw i64 %indvars.iv1027, 1
   %exitcond1031.not = icmp eq i64 %indvars.iv.next1028, %wide.trip.count1030
@@ -1163,7 +1163,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
 .preheader793:                                    ; preds = %.preheader793.preheader, %.preheader793
   %indvars.iv1032 = phi i64 [ %indvars.iv.next1033, %.preheader793 ], [ 0, %.preheader793.preheader ]
   %.2573893 = phi i8 [ %.3574, %.preheader793 ], [ 0, %.preheader793.preheader ]
-  %459 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv1032
+  %459 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv1032
   %460 = load i8, ptr %459, align 1
   %.not620 = icmp ne i8 %460, 0
   %storemerge = select i1 %.not620, i8 %.2573893, i8 -1
@@ -1179,7 +1179,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   %462 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %175, i64 %indvars.iv1035, i32 4
   %463 = load i8, ptr %462, align 2
   %464 = zext i8 %463 to i64
-  %465 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %464
+  %465 = getelementptr inbounds nuw i8, ptr %9, i64 %464
   %466 = load i8, ptr %465, align 1
   store i8 %466, ptr %462, align 2
   %indvars.iv.next1036 = add nuw nsw i64 %indvars.iv1035, 1
@@ -1484,10 +1484,10 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
   br i1 %.not614.us, label %691, label %632
 
 632:                                              ; preds = %625
-  %633 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv1045
+  %633 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv1045
   %634 = load i32, ptr %633, align 4
   %635 = add nsw i32 %634, %702
-  %636 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv1045
+  %636 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv1045
   %637 = load i32, ptr %636, align 4
   %638 = add nsw i32 %637, %581
   %639 = load ptr, ptr %516, align 8

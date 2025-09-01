@@ -307,7 +307,7 @@ define noundef zeroext i1 @_ZN10StringList9GetStringEPwmi(ptr noundef nonnull al
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = getelementptr inbounds nuw [16 x i64], ptr %11, i64 0, i64 %6
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %6
   store i64 %10, ptr %12, align 8, !tbaa !18
   %13 = load i64, ptr %5, align 8, !tbaa !3
   %14 = add i64 %13, 1
@@ -358,7 +358,7 @@ _ZN10StringList9GetStringEPwm.exit.thread:        ; preds = %_ZN10StringList9Get
   %31 = add i64 %29, -1
   store i64 %31, ptr %5, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds nuw [16 x i64], ptr %32, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %31
   %34 = load i64, ptr %33, align 8, !tbaa !18
   store i64 %34, ptr %16, align 8, !tbaa !11
   br label %_ZN10StringList15RestorePositionEv.exit
@@ -378,7 +378,7 @@ define void @_ZN10StringList12SavePositionEv(ptr noundef nonnull align 8 capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %3
+  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %3
   store i64 %7, ptr %9, align 8, !tbaa !18
   %10 = load i64, ptr %2, align 8, !tbaa !3
   %11 = add i64 %10, 1
@@ -400,7 +400,7 @@ define void @_ZN10StringList15RestorePositionEv(ptr noundef nonnull align 8 capt
   %5 = add i64 %3, -1
   store i64 %5, ptr %2, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %8, ptr %9, align 8, !tbaa !11
@@ -444,7 +444,7 @@ define noundef zeroext i1 @_ZN10StringList6SearchEPKwb(ptr noundef nonnull align
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = getelementptr inbounds nuw [16 x i64], ptr %10, i64 0, i64 %5
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %5
   store i64 %9, ptr %11, align 8, !tbaa !18
   %12 = load i64, ptr %4, align 8, !tbaa !3
   %13 = add i64 %12, 1
@@ -525,7 +525,7 @@ _ZN10StringList9GetStringEPPw.exit:               ; preds = %26, %24, %_ZN10Stri
   %43 = add i64 %41, -1
   store i64 %43, ptr %4, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = getelementptr inbounds nuw [16 x i64], ptr %44, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %43
   %46 = load i64, ptr %45, align 8, !tbaa !18
   store i64 %46, ptr %15, align 8, !tbaa !11
   br label %_ZN10StringList15RestorePositionEv.exit

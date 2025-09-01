@@ -6846,7 +6846,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table._ZN8proxygen5http218getFrameTypeStringENS0_9FrameTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8proxygen5http218getFrameTypeStringENS0_9FrameTypeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

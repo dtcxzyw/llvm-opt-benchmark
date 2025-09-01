@@ -19839,7 +19839,7 @@ _ZN7testing7MessageD2Ev.exit84:                   ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %96 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN12_GLOBAL__N_130DepsLogTest_InvalidHeader_Test8TestBodyEv.kInvalidHeaders, i64 0, i64 %.038222
+  %96 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_130DepsLogTest_InvalidHeader_Test8TestBodyEv.kInvalidHeaders, i64 %.038222
   %97 = load ptr, ptr %96, align 8, !tbaa !150
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #29
   store i64 %98, ptr %8, align 8, !tbaa !10

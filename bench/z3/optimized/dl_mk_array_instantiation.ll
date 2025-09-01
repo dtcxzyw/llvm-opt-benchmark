@@ -751,7 +751,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
 
 93:                                               ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %87, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !275
   %96 = ptrtoint ptr %95 to i64
   %97 = and i64 %96, -8
@@ -818,7 +818,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 
 122:                                              ; preds = %.lr.ph166, %141
   %indvars.iv174 = phi i64 [ %90, %.lr.ph166 ], [ %indvars.iv.next175, %141 ]
-  %123 = getelementptr inbounds nuw [0 x ptr], ptr %89, i64 0, i64 %indvars.iv174
+  %123 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv174
   %124 = load ptr, ptr %123, align 8, !tbaa !275
   %125 = ptrtoint ptr %124 to i64
   %126 = and i64 %125, -8
@@ -1951,7 +1951,7 @@ define hidden void @_ZN7datalog22mk_array_instantiation11create_headEP3app(ptr d
 
 32:                                               ; preds = %.lr.ph, %427
   %indvars.iv274 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next275, %427 ]
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv274
+  %33 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv274
   %34 = load ptr, ptr %33, align 8, !tbaa !246
   %35 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %34)
           to label %36 unwind label %63
@@ -3100,7 +3100,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %17
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !246
   tail call void @_ZN7datalog22mk_array_instantiation16retrieve_selectsEP4expr(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3357,7 +3357,7 @@ define hidden void @_ZN7datalog22mk_array_instantiation16instantiate_predEP3app(
 31:                                               ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !246
   %34 = load ptr, ptr %24, align 8, !tbaa !219
   store ptr %33, ptr %9, align 8, !tbaa !291
@@ -6047,7 +6047,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %29
 46:                                               ; preds = %.lr.ph, %106
   %47 = phi ptr [ %16, %.lr.ph ], [ %107, %106 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !246
   %.not.i.i.i.i21 = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i21, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %50
@@ -6532,7 +6532,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 26:                                               ; preds = %.lr.ph, %42
   %27 = phi ptr [ %.pre.i.i, %.lr.ph ], [ %43, %42 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !246
   %.not.i.i.i.i15 = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i15, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i16, label %30

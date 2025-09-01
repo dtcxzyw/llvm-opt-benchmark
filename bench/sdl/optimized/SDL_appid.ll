@@ -27,7 +27,7 @@ define hidden ptr @SDL_GetExeName() local_unnamed_addr #0 {
 
 6:                                                ; preds = %2
   %7 = and i64 %3, 2147483647
-  %8 = getelementptr inbounds nuw [1024 x i8], ptr @SDL_GetExeName.linkfile, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @SDL_GetExeName.linkfile, i64 %7
   store i8 0, ptr %8, align 1
   %9 = tail call ptr @SDL_strrchr_REAL(ptr noundef nonnull @SDL_GetExeName.linkfile, i32 noundef 47) #3
   %.not3 = icmp eq ptr %9, null
@@ -75,7 +75,7 @@ define hidden nonnull ptr @SDL_GetAppID() local_unnamed_addr #0 {
 
 8:                                                ; preds = %4
   %9 = and i64 %5, 2147483647
-  %10 = getelementptr inbounds nuw [1024 x i8], ptr @SDL_GetExeName.linkfile, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @SDL_GetExeName.linkfile, i64 %9
   store i8 0, ptr %10, align 1
   %11 = tail call ptr @SDL_strrchr_REAL(ptr noundef nonnull @SDL_GetExeName.linkfile, i32 noundef 47) #3
   %.not3.i = icmp eq ptr %11, null

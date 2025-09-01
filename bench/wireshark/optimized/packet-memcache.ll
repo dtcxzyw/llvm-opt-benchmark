@@ -1378,7 +1378,7 @@ dissect_key.exit.i:                               ; preds = %44
   %63 = add i32 %52, %62
   %64 = sext i32 %56 to i64
   %65 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %55, i64 noundef range(i64 -2147483648, 2147483648) %64, i64 noundef 21) #9, !alias.scope !11
-  %66 = getelementptr [21 x i8], ptr %15, i64 0, i64 %64
+  %66 = getelementptr i8, ptr %15, i64 %64
   store i8 0, ptr %66, align 1
   %67 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #9
   %68 = trunc i64 %67 to i32
@@ -1399,7 +1399,7 @@ dissect_key.exit.i:                               ; preds = %44
   %80 = add i32 %63, %79
   %81 = sext i32 %73 to i64
   %82 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %72, i64 noundef range(i64 -2147483648, 2147483648) %81, i64 noundef 21) #9, !alias.scope !15
-  %83 = getelementptr [21 x i8], ptr %15, i64 0, i64 %81
+  %83 = getelementptr i8, ptr %15, i64 %81
   store i8 0, ptr %83, align 1
   %84 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #9
   %85 = trunc i64 %84 to i32
@@ -1421,7 +1421,7 @@ dissect_key.exit.i:                               ; preds = %44
 96:                                               ; preds = %95
   %97 = sext i32 %93 to i64
   %98 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef %88, i64 noundef range(i64 -2147483648, 2147483648) %97, i64 noundef 21) #9, !alias.scope !19
-  %99 = getelementptr [21 x i8], ptr %15, i64 0, i64 %97
+  %99 = getelementptr i8, ptr %15, i64 %97
   store i8 0, ptr %99, align 1
   %100 = call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #9
   %101 = load i32, ptr @hf_cas, align 4
@@ -1640,7 +1640,7 @@ sub_1.i71:                                        ; preds = %sub_0.i69
   %199 = getelementptr i8, ptr %.0..0..0..0..0.91.i, i64 1
   %200 = and i64 %193, 4294967295
   %201 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %199, i64 noundef range(i64 -2147483648, 2147483648) %200, i64 noundef 21) #9, !alias.scope !25
-  %202 = getelementptr [21 x i8], ptr %12, i64 0, i64 %200
+  %202 = getelementptr i8, ptr %12, i64 %200
   store i8 0, ptr %202, align 1
   %203 = call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #9
   %204 = trunc i64 %203 to i32
@@ -1664,7 +1664,7 @@ sub_1.i71:                                        ; preds = %sub_0.i69
 215:                                              ; preds = %210
   %216 = and i64 %212, 4294967295
   %217 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %160, i64 noundef range(i64 -2147483648, 2147483648) %216, i64 noundef 21) #9, !alias.scope !29
-  %218 = getelementptr [21 x i8], ptr %12, i64 0, i64 %216
+  %218 = getelementptr i8, ptr %12, i64 %216
   store i8 0, ptr %218, align 1
   %219 = call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #9
   %220 = trunc i64 %219 to i32
@@ -1863,7 +1863,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %33 = add i32 %20, %32
   %34 = sext i32 %26 to i64
   %35 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %25, i64 noundef range(i64 -2147483648, 2147483648) %34, i64 noundef 21) #9, !alias.scope !34
-  %36 = getelementptr [21 x i8], ptr %9, i64 0, i64 %34
+  %36 = getelementptr i8, ptr %9, i64 %34
   store i8 0, ptr %36, align 1
   %37 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %38 = trunc i64 %37 to i32
@@ -1884,7 +1884,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %50 = add i32 %33, %49
   %51 = sext i32 %43 to i64
   %52 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %42, i64 noundef range(i64 -2147483648, 2147483648) %51, i64 noundef 21) #9, !alias.scope !38
-  %53 = getelementptr [21 x i8], ptr %9, i64 0, i64 %51
+  %53 = getelementptr i8, ptr %9, i64 %51
   store i8 0, ptr %53, align 1
   %54 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %55 = trunc i64 %54 to i32
@@ -1904,7 +1904,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %66 = add i32 %50, %65
   %67 = sext i32 %59 to i64
   %68 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %58, i64 noundef range(i64 -2147483648, 2147483648) %67, i64 noundef 21) #9, !alias.scope !42
-  %69 = getelementptr [21 x i8], ptr %9, i64 0, i64 %67
+  %69 = getelementptr i8, ptr %9, i64 %67
   store i8 0, ptr %69, align 1
   %70 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %71 = trunc i64 %70 to i32
@@ -1928,7 +1928,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 84:                                               ; preds = %80
   %85 = sext i32 %81 to i64
   %86 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %74, i64 noundef range(i64 -2147483648, 2147483648) %85, i64 noundef 21) #9, !alias.scope !46
-  %87 = getelementptr [21 x i8], ptr %9, i64 0, i64 %85
+  %87 = getelementptr i8, ptr %9, i64 %85
   store i8 0, ptr %87, align 1
   %88 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %89 = load i32, ptr @hf_cas, align 4
@@ -2064,7 +2064,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 170:                                              ; preds = %164, %162
   %171 = sext i32 %158 to i64
   %172 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %153, i64 noundef range(i64 -2147483648, 2147483648) %171, i64 noundef 21) #9, !alias.scope !50
-  %173 = getelementptr [21 x i8], ptr %9, i64 0, i64 %171
+  %173 = getelementptr i8, ptr %9, i64 %171
   store i8 0, ptr %173, align 1
   %174 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %175 = trunc i64 %174 to i32
@@ -2151,7 +2151,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 226:                                              ; preds = %220, %218
   %227 = sext i32 %214 to i64
   %228 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %15, i64 noundef range(i64 -2147483648, 2147483648) %227, i64 noundef 21) #9, !alias.scope !55
-  %229 = getelementptr [21 x i8], ptr %9, i64 0, i64 %227
+  %229 = getelementptr i8, ptr %9, i64 %227
   store i8 0, ptr %229, align 1
   %230 = call i64 @strtoul(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 10) #9
   %231 = trunc i64 %230 to i32

@@ -421,7 +421,7 @@ define internal i32 @dissect_rtsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 104:                                              ; preds = %101
   %105 = zext i8 %69 to i64
-  %106 = getelementptr [256 x %struct.rtsp_interleaved_t], ptr %103, i64 0, i64 %105
+  %106 = getelementptr %struct.rtsp_interleaved_t, ptr %103, i64 %105
   %107 = load ptr, ptr %106, align 8
   %.not79.i = icmp eq ptr %107, null
   br i1 %.not79.i, label %110, label %108
@@ -640,7 +640,7 @@ dissect_rtspinterleaved.exit.thread24:            ; preds = %108, %116
 
 200:                                              ; preds = %216, %198
   %indvars.iv.i.i = phi i64 [ 0, %198 ], [ %indvars.iv.next.i.i, %216 ]
-  %201 = getelementptr [11 x ptr], ptr @rtsp_methods, i64 0, i64 %indvars.iv.i.i
+  %201 = getelementptr ptr, ptr @rtsp_methods, i64 %indvars.iv.i.i
   %202 = load ptr, ptr %201, align 8
   %203 = call i64 @strlen(ptr noundef %202) #14
   %.not.i.i = icmp ugt i64 %203, %174
@@ -908,7 +908,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 range(i64 11, 2147483648) %174, i64 255)
   %332 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef readonly %173, i64 noundef range(i64 3, 2147483648) %spec.store.select.i.i, i64 noundef 256) #16, !alias.scope !18
-  %333 = getelementptr [256 x i8], ptr %8, i64 0, i64 %spec.store.select.i.i
+  %333 = getelementptr i8, ptr %8, i64 %spec.store.select.i.i
   store i8 0, ptr %333, align 1
   %334 = load i8, ptr %40, align 2
   %.not123138.i.i = icmp eq i8 %334, 0
@@ -1154,7 +1154,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 446:                                              ; preds = %445
   %447 = load ptr, ptr @rtp_handle, align 8
   %448 = zext nneg i32 %443 to i64
-  %449 = getelementptr [256 x %struct.rtsp_interleaved_t], ptr %.0.i.i, i64 0, i64 %448
+  %449 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %448
   store ptr %447, ptr %449, align 8
   br label %450
 
@@ -1168,7 +1168,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 454:                                              ; preds = %450
   %455 = load ptr, ptr @rtcp_handle, align 8
   %456 = zext nneg i32 %452 to i64
-  %457 = getelementptr [256 x %struct.rtsp_interleaved_t], ptr %.0.i.i, i64 0, i64 %456
+  %457 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %456
   store ptr %455, ptr %457, align 8
   br label %463
 
@@ -1179,7 +1179,7 @@ process_rtsp_reply.exit.i:                        ; preds = %281, %298, %.lr.ph1
 459:                                              ; preds = %458
   %460 = load ptr, ptr @rdt_handle, align 8
   %461 = zext nneg i32 %443 to i64
-  %462 = getelementptr [256 x %struct.rtsp_interleaved_t], ptr %.0.i.i, i64 0, i64 %461
+  %462 = getelementptr %struct.rtsp_interleaved_t, ptr %.0.i.i, i64 %461
   store ptr %460, ptr %462, align 8
   br label %463
 
@@ -1318,7 +1318,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %484, %483, %479, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %spec.store.select.i313.i = call i64 @llvm.umin.i64(i64 range(i64 16, 2147483648) %174, i64 255)
   %523 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef readonly %173, i64 noundef range(i64 3, 2147483648) %spec.store.select.i313.i, i64 noundef 256) #16, !alias.scope !23
-  %524 = getelementptr [256 x i8], ptr %5, i64 0, i64 %spec.store.select.i313.i
+  %524 = getelementptr i8, ptr %5, i64 %spec.store.select.i313.i
   store i8 0, ptr %524, align 1
   %525 = load i8, ptr %37, align 1
   %.not17.i.i = icmp eq i8 %525, 0
@@ -1843,7 +1843,7 @@ define internal fastcc noundef zeroext i1 @is_rtsp_request_or_reply(ptr noundef 
 
 26:                                               ; preds = %24, %47
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %47 ]
-  %27 = getelementptr [11 x ptr], ptr @rtsp_methods, i64 0, i64 %indvars.iv
+  %27 = getelementptr ptr, ptr @rtsp_methods, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @strlen(ptr noundef %28) #14
   %.not = icmp ult i64 %1, %29

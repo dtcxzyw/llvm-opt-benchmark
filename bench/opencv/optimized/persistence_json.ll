@@ -4250,7 +4250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187: ; preds = %_Z
 230:                                              ; preds = %189, %189, %189, %195, %194, %193, %192, %191
   %.sink = phi i8 [ 12, %195 ], [ 8, %194 ], [ 9, %193 ], [ 13, %192 ], [ 10, %191 ], [ %190, %189 ], [ %190, %189 ], [ %190, %189 ]
   %231 = zext nneg i32 %.192 to i64
-  %232 = getelementptr inbounds nuw [5120 x i8], ptr %133, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %133, i64 %231
   store i8 %.sink, ptr %232, align 1, !tbaa !41
   %233 = getelementptr inbounds nuw i8, ptr %136, i64 2
   br label %.sink.split

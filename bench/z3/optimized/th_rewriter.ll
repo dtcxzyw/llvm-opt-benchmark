@@ -2082,7 +2082,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i: ; preds = %_ZNK6vect
 
 402:                                              ; preds = %398
   %403 = zext nneg i32 %400 to i64
-  %404 = getelementptr inbounds nuw [0 x ptr], ptr %397, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw ptr, ptr %397, i64 %403
   %405 = load ptr, ptr %404, align 8, !tbaa !265
   %406 = and i32 %399, -64
   %407 = add i32 %406, 64
@@ -6046,7 +6046,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE18set_new_child_flagEP4expr.
 
 _ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE13constant_foldEP3appRN13rewriter_core5frameE.exit: ; preds = %2017, %2021, %1998, %1994, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %1992
   %2157 = zext nneg i32 %1990 to i64
-  %2158 = getelementptr inbounds nuw [0 x ptr], ptr %1987, i64 0, i64 %2157
+  %2158 = getelementptr inbounds nuw ptr, ptr %1987, i64 %2157
   %2159 = load ptr, ptr %2158, align 8, !tbaa !265
   %2160 = add i32 %.mask.i, 64
   %2161 = and i32 %1989, 63
@@ -9902,7 +9902,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread-pre-split_c
   %.sroa.860.6.i = phi i1 [ %.sroa.860.2.i, %.lr.ph.i.i30.i ], [ %.sroa.860.7.i, %542 ]
   %451 = phi i32 [ %447, %.lr.ph.i.i30.i ], [ %543, %542 ]
   %452 = zext i32 %451 to i64
-  %453 = getelementptr inbounds nuw [0 x ptr], ptr %449, i64 0, i64 %452
+  %453 = getelementptr inbounds nuw ptr, ptr %449, i64 %452
   %454 = load ptr, ptr %453, align 8, !tbaa !265
   %455 = add nuw i32 %451, 1
   store i32 %455, ptr %446, align 8, !tbaa !393
@@ -14878,7 +14878,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !471
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -17263,7 +17263,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg29count_down_subt
 
 13:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !265
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !266

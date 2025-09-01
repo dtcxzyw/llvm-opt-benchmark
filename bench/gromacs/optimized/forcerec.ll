@@ -2300,7 +2300,7 @@ _ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI2
 
 switch.lookup675:                                 ; preds = %_ZN19interaction_const_tD2Ev.exit
   %397 = zext nneg i32 %386 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._Z13init_forcerecP8_IO_FILERKN3gmx8MDLoggerERKNS1_18SimulationWorkloadEP10t_forcerecRK10t_inputrecRK10gmx_mtop_tPK9t_commrecPA3_fPKcSM_NS1_8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEf, i64 0, i64 %397
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z13init_forcerecP8_IO_FILERKN3gmx8MDLoggerERKNS1_18SimulationWorkloadEP10t_forcerecRK10t_inputrecRK10gmx_mtop_tPK9t_commrecPA3_fPKcSM_NS1_8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEf, i64 %397
   %switch.load = load i32, ptr %switch.gep, align 4
   %398 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %switch.load, ptr %398, align 4, !tbaa !371
@@ -3752,7 +3752,7 @@ _ZNSt6vectorI23SimulationAtomGroupTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit1
   %.sroa.0247.0362.us.us.i = phi ptr [ %1035, %._crit_edge358.split.us.us.us.i ], [ %.sroa.0254.2.i, %.lr.ph357.us.us.preheader.i ]
   %1026 = load i32, ptr %.sroa.0247.0362.us.us.i, align 4, !tbaa !473
   %1027 = sext i32 %1026 to i64
-  %1028 = getelementptr inbounds nuw [10 x %"class.std::vector.276"], ptr %1003, i64 0, i64 %1027
+  %1028 = getelementptr inbounds nuw %"class.std::vector.276", ptr %1003, i64 %1027
   %1029 = load ptr, ptr %1028, align 8, !tbaa !472, !noalias !465
   %invariant.gep482.i = getelementptr i8, ptr %1029, i64 %1024
   br label %.lr.ph.us.us.us.i
@@ -3903,16 +3903,16 @@ _ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.n
 
 1064:                                             ; preds = %.loopexit.i, %_ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i
   %indvars.iv429.i = phi i64 [ 0, %_ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i ], [ %indvars.iv.next430.i, %.loopexit.i ]
-  %1065 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv429.i, i32 5
+  %1065 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv429.i, i32 5
   %1066 = load i32, ptr %1065, align 4, !tbaa !488, !noalias !465
   %1067 = and i32 %1066, 4
   %.not166.i = icmp eq i32 %1067, 0
   br i1 %.not166.i, label %.loopexit.i, label %1068
 
 1068:                                             ; preds = %1064
-  %1069 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv429.i, i32 2
+  %1069 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv429.i, i32 2
   %1070 = load i32, ptr %1069, align 16, !tbaa !490, !noalias !465
-  %1071 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %1061, i64 0, i64 %indvars.iv429.i
+  %1071 = getelementptr inbounds nuw %struct.InteractionList, ptr %1061, i64 %indvars.iv429.i
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 8
   %1073 = load ptr, ptr %1072, align 8, !tbaa !277
   %1074 = load ptr, ptr %1071, align 8, !tbaa !278
@@ -5118,7 +5118,7 @@ define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3
   br i1 %or.cond.i, label %23, label %.loopexit.i
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %19, i64 0, i64 %indvars.iv57.i
+  %24 = getelementptr inbounds nuw %struct.InteractionList, ptr %19, i64 %indvars.iv57.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !277
   %27 = load ptr, ptr %24, align 8, !tbaa !278
@@ -5131,7 +5131,7 @@ define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3
   br i1 %33, label %.lr.ph49.preheader.i, label %.loopexit.i
 
 .lr.ph49.preheader.i:                             ; preds = %23
-  %34 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv57.i, i32 2
+  %34 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv57.i, i32 2
   %35 = load i32, ptr %34, align 16, !tbaa !490
   %36 = add i32 %35, 1
   %37 = sext i32 %36 to i64
@@ -5291,7 +5291,7 @@ _ZSt8_DestroyIP13bondedtable_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Dest
   %106 = sub i64 %104, %105
   %107 = ashr i64 %106, 5
   %108 = icmp slt i64 %107, 1
-  %109 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %18, i32 2
+  %109 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %18, i32 2
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -5444,13 +5444,13 @@ _ZN13bondedtable_taSEOS_.exit:                    ; preds = %140
 
 163:                                              ; preds = %.split78.us
   %.not = icmp eq i32 %3, -1
-  %164 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %18, i32 1
+  %164 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %18, i32 1
   %165 = load ptr, ptr %164, align 8, !tbaa !529
   %166 = select i1 %.not, ptr @.str.53, ptr @.str.52
   br i1 %.not, label %170, label %167
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %17, i32 1
+  %168 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %17, i32 1
   %169 = load ptr, ptr %168, align 8, !tbaa !529
   br label %170
 

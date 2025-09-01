@@ -603,10 +603,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68
 
 switch.lookup:                                    ; preds = %3
   %79 = zext nneg i32 %61 to i64
-  %switch.gep = getelementptr inbounds nuw [38 x i32], ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params, i64 %79
   %switch.load = load i32, ptr %switch.gep, align 4
   %80 = zext nneg i32 %61 to i64
-  %switch.gep4732 = getelementptr inbounds nuw [38 x i32], ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params.29, i64 0, i64 %80
+  %switch.gep4732 = getelementptr inbounds nuw i32, ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params.29, i64 %80
   %switch.load4733 = load i32, ptr %switch.gep4732, align 4
   %81 = load i32, ptr %2, align 8, !tbaa !25
   %82 = icmp slt i32 %81, 1
@@ -3580,7 +3580,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 switch.lookup4736:                                ; preds = %1203
   %1210 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep4739 = getelementptr inbounds nuw [26 x i32], ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params.30, i64 0, i64 %1210
+  %switch.gep4739 = getelementptr inbounds nuw i32, ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params.30, i64 %1210
   %switch.load4740 = load i32, ptr %switch.gep4739, align 4
   %1211 = load i64, ptr %1190, align 8, !tbaa !9
   %1212 = invoke i64 @ggml_blck_size(i32 noundef %switch.load4740)

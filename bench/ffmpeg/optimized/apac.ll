@@ -43,7 +43,7 @@ define internal range(i32 -1094995529, 1) i32 @apac_init(ptr noundef captures(no
 
 16:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %17 = getelementptr inbounds nuw [2 x %struct.ChContext], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.ChContext, ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %4, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %18, ptr %19, align 4, !tbaa !32
@@ -249,7 +249,7 @@ define internal i32 @apac_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %105 = phi i32 [ %100, %.lr.ph222.preheader ], [ %289, %288 ]
   %106 = phi i32 [ %101, %.lr.ph222.preheader ], [ %289, %288 ]
   %indvars.iv258 = phi i64 [ %104, %.lr.ph222.preheader ], [ %indvars.iv.next259, %288 ]
-  %107 = getelementptr inbounds [2 x %struct.ChContext], ptr %97, i64 0, i64 %indvars.iv258
+  %107 = getelementptr inbounds %struct.ChContext, ptr %97, i64 %indvars.iv258
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %108, ptr %5, align 16, !tbaa !60

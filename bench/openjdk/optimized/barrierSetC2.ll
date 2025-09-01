@@ -502,7 +502,7 @@ define hidden void @_ZN13BarrierStubC28preserveE8Register(ptr noundef nonnull al
 16:                                               ; preds = %2
   %17 = sub i32 %13, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -534,7 +534,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %26, %30
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw i64 1, %33
   %35 = zext nneg i32 %21 to i64
-  %36 = getelementptr inbounds nuw [11 x i64], ptr %31, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %31, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = or i64 %37, %34
   store i64 %38, ptr %36, align 8
@@ -572,7 +572,7 @@ define hidden void @_ZN13BarrierStubC213dont_preserveE8Register(ptr noundef nonn
 
 19:                                               ; preds = %17
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -584,7 +584,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %15, %17, %19
   %26 = xor i64 %25, -1
   %27 = lshr i32 %.0.i, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [11 x i64], ptr %11, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %11, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, %26
   store i64 %31, ptr %29, align 8
@@ -5387,9 +5387,9 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %73, %83
 .lr.ph.i:                                         ; preds = %105, %.lr.ph.i
   %.012.i = phi i32 [ %124, %.lr.ph.i ], [ %spec.store.select, %105 ]
   %118 = zext i32 %.012.i to i64
-  %119 = getelementptr inbounds nuw [11 x i64], ptr %112, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %112, i64 %118
   %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %118
+  %121 = getelementptr inbounds nuw i64, ptr %3, i64 %118
   %122 = load i64, ptr %121, align 8
   %123 = or i64 %122, %120
   store i64 %123, ptr %121, align 8
@@ -5548,9 +5548,9 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZN10Node_Array3map
 .lr.ph.i91:                                       ; preds = %203, %.lr.ph.i91
   %.012.i92 = phi i32 [ %211, %.lr.ph.i91 ], [ %197, %203 ]
   %205 = zext i32 %.012.i92 to i64
-  %206 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i64, ptr %3, i64 %205
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds nuw [11 x i64], ptr %.09.i, i64 0, i64 %205
+  %208 = getelementptr inbounds nuw i64, ptr %.09.i, i64 %205
   %209 = load i64, ptr %208, align 8
   %210 = or i64 %209, %207
   store i64 %210, ptr %208, align 8
@@ -5585,7 +5585,7 @@ _ZN7RegMask2ORERKS_.exit94:                       ; preds = %.lr.ph.i91, %147, %
   %232 = xor i64 %231, -1
   %233 = lshr i32 %220, 6
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i64, ptr %3, i64 %234
   %236 = load i64, ptr %235, align 8
   %237 = and i64 %236, %232
   store i64 %237, ptr %235, align 8
@@ -5602,7 +5602,7 @@ _ZN7RegMask2ORERKS_.exit94:                       ; preds = %.lr.ph.i91, %147, %
   %243 = xor i64 %242, -1
   %244 = lshr i32 %227, 6
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw i64, ptr %3, i64 %245
   %247 = load i64, ptr %246, align 8
   %248 = and i64 %247, %243
   store i64 %248, ptr %246, align 8
@@ -5653,7 +5653,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %254
   %277 = zext nneg i32 %276 to i64
   %278 = shl nuw i64 1, %277
   %279 = zext nneg i32 %273 to i64
-  %280 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i64, ptr %3, i64 %279
   %281 = load i64, ptr %280, align 8
   %282 = or i64 %281, %278
   store i64 %282, ptr %280, align 8
@@ -5675,7 +5675,7 @@ _ZN7RegMask6InsertEi.exit95:                      ; preds = %283
   %288 = zext nneg i32 %287 to i64
   %289 = shl nuw i64 1, %288
   %290 = zext nneg i32 %284 to i64
-  %291 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i64, ptr %3, i64 %290
   %292 = load i64, ptr %291, align 8
   %293 = or i64 %292, %289
   store i64 %293, ptr %291, align 8
@@ -5803,9 +5803,9 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit104:      ; preds = %_ZN10Node_Array3map
 .lr.ph.i106:                                      ; preds = %357, %.lr.ph.i106
   %.012.i107 = phi i32 [ %365, %.lr.ph.i106 ], [ %351, %357 ]
   %359 = zext i32 %.012.i107 to i64
-  %360 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i64, ptr %3, i64 %359
   %361 = load i64, ptr %360, align 8
-  %362 = getelementptr inbounds nuw [11 x i64], ptr %.09.i96, i64 0, i64 %359
+  %362 = getelementptr inbounds nuw i64, ptr %.09.i96, i64 %359
   %363 = load i64, ptr %362, align 8
   %364 = or i64 %363, %361
   store i64 %364, ptr %362, align 8
@@ -5838,10 +5838,10 @@ _ZN7RegMask2ORERKS_.exit109:                      ; preds = %.lr.ph.i106, %302, 
 .lr.ph.i110:                                      ; preds = %._crit_edge150, %.lr.ph.i110
   %.010.i = phi i32 [ %383, %.lr.ph.i110 ], [ %375, %._crit_edge150 ]
   %376 = zext i32 %.010.i to i64
-  %377 = getelementptr inbounds nuw [11 x i64], ptr %100, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i64, ptr %100, i64 %376
   %378 = load i64, ptr %377, align 8
   %379 = xor i64 %378, -1
-  %380 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %376
+  %380 = getelementptr inbounds nuw i64, ptr %3, i64 %376
   %381 = load i64, ptr %380, align 8
   %382 = and i64 %381, %379
   store i64 %382, ptr %380, align 8
@@ -5864,7 +5864,7 @@ _ZN7RegMask8SUBTRACTERKS_.exit:                   ; preds = %_ZN7RegMask8SUBTRAC
   %.08.i = phi i32 [ %390, %.lr.ph.i112 ], [ %385, %_ZN7RegMask8SUBTRACTERKS_.exit ]
   %.057.i = phi i64 [ %389, %.lr.ph.i112 ], [ 0, %_ZN7RegMask8SUBTRACTERKS_.exit ]
   %386 = zext i32 %.08.i to i64
-  %387 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %3, i64 %386
   %388 = load i64, ptr %387, align 8
   %389 = or i64 %388, %.057.i
   %390 = add i32 %.08.i, 1
@@ -5900,9 +5900,9 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i112
 .lr.ph.i115:                                      ; preds = %398, %.lr.ph.i115
   %.012.i116 = phi i32 [ %406, %.lr.ph.i115 ], [ %395, %398 ]
   %400 = zext i32 %.012.i116 to i64
-  %401 = getelementptr inbounds nuw [11 x i64], ptr %3, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i64, ptr %3, i64 %400
   %402 = load i64, ptr %401, align 8
-  %403 = getelementptr inbounds nuw [11 x i64], ptr %100, i64 0, i64 %400
+  %403 = getelementptr inbounds nuw i64, ptr %100, i64 %400
   %404 = load i64, ptr %403, align 8
   %405 = or i64 %404, %402
   store i64 %405, ptr %403, align 8

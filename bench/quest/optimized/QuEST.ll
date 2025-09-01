@@ -1842,7 +1842,7 @@ define void @applyFullQFT(ptr noundef readonly byval(%struct.Qureg) align 8 capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw [100 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %6, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -269,7 +269,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
 
 .critedge18.i:                                    ; preds = %.critedge.i, %119
   %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge.i ], [ @days_in_month_leap, %119 ]
-  %123 = getelementptr inbounds [13 x i32], ptr %days_in_month.sink.i, i64 0, i64 %.111.i
+  %123 = getelementptr inbounds i32, ptr %days_in_month.sink.i, i64 %.111.i
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = sext i32 %124 to i64
   %126 = add i64 %112, %125
@@ -299,7 +299,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
 
 inc_month.exit.i:                                 ; preds = %.critedge20.i, %133
   %days_in_month.sink29.i = phi ptr [ @days_in_month, %.critedge20.i ], [ @days_in_month_leap, %133 ]
-  %137 = getelementptr inbounds [13 x i32], ptr %days_in_month.sink29.i, i64 0, i64 %.21216.i
+  %137 = getelementptr inbounds i32, ptr %days_in_month.sink29.i, i64 %.21216.i
   %138 = load i32, ptr %137, align 4, !tbaa !12
   %139 = sext i32 %138 to i64
   %140 = add i64 %130, %139
@@ -734,7 +734,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
 
 .critedge52.i:                                    ; preds = %.critedge50.i, %170
   %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge50.i ], [ @days_in_month_leap, %170 ]
-  %174 = getelementptr inbounds nuw [13 x i32], ptr %days_in_month.sink.i, i64 0, i64 %.039.i
+  %174 = getelementptr inbounds nuw i32, ptr %days_in_month.sink.i, i64 %.039.i
   %175 = load i32, ptr %174, align 4, !tbaa !12
   %176 = sext i32 %175 to i64
   %177 = add i64 %164, %176

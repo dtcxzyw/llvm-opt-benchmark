@@ -143,7 +143,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %38 = lshr i64 %1, 15
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %39
   %.sroa.02.0.copyload = load i64, ptr %40, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -152,7 +152,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %43 = extractvalue { i64, i64 } %41, 1
   %44 = lshr i64 %1, 7
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %45
   store i64 %42, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %43, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -323,7 +323,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %38 = lshr i64 %1, 15
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %39
   %.sroa.02.0.copyload = load i64, ptr %40, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -332,7 +332,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %43 = extractvalue { i64, i64 } %41, 1
   %44 = lshr i64 %1, 7
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %45
   store i64 %42, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %43, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -474,7 +474,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %40
   %.sroa.02.0.copyload = load i64, ptr %41, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -493,7 +493,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %44, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %51 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %47
   store i64 %43, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %44, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -727,7 +727,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %40
   %.sroa.02.0.copyload = load i64, ptr %41, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -746,7 +746,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %44, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %51 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %47
   store i64 %43, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %44, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -887,7 +887,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %38 = lshr i64 %1, 15
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %39
   %.sroa.02.0.copyload = load i64, ptr %40, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -896,7 +896,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %43 = extractvalue { i64, i64 } %41, 1
   %44 = lshr i64 %1, 7
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %45
   store i64 %42, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %43, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -1043,7 +1043,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %38 = lshr i64 %1, 15
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %39
   %.sroa.02.0.copyload = load i64, ptr %40, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -1052,7 +1052,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %33, %35
   %43 = extractvalue { i64, i64 } %41, 1
   %44 = lshr i64 %1, 7
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %37, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.float128_t, ptr %37, i64 %45
   store i64 %42, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %43, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -1194,7 +1194,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %40
   %.sroa.02.0.copyload = load i64, ptr %41, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -1213,7 +1213,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %44, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %51 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %47
   store i64 %43, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %44, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
@@ -1361,7 +1361,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %40
   %.sroa.02.0.copyload = load i64, ptr %41, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !28
@@ -1380,7 +1380,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %34, %36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %44, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %51 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %38, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw %struct.float128_t, ptr %38, i64 %47
   store i64 %43, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %44, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28

@@ -1105,7 +1105,7 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
 
 33:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h6a1cd82a1a3c9ba2E.exit"
   %34 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %35 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %34, i64 0, i64 %25
+  %35 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %34, i64 %25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !101, !noalias !106, !noundef !5
   %38 = load i64, ptr %35, align 8, !alias.scope !101, !noalias !106, !noundef !5
@@ -1750,7 +1750,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h7916da661c4c4ff2E.exit.thread: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h542b2a27c33f1cf1E.exit": ; preds = %29
-  %32 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i32, float }], ptr %3, i64 0, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %32 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, float }, ptr %3, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !alias.scope !194

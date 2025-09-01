@@ -2008,8 +2008,8 @@ define linkonce_odr dso_local void @_ZN26BT_BOX_BOX_TRANSFORM_CACHE19calc_from_h
 
 .preheader.i:                                     ; preds = %113, %3
   %indvars.iv12.i = phi i64 [ 0, %3 ], [ %indvars.iv.next13.i, %113 ]
-  %105 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %101, i64 0, i64 %indvars.iv12.i
-  %106 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %104, i64 0, i64 %indvars.iv12.i
+  %105 = getelementptr inbounds nuw %class.btVector3, ptr %101, i64 %indvars.iv12.i
+  %106 = getelementptr inbounds nuw %class.btVector3, ptr %104, i64 %indvars.iv12.i
   br label %107
 
 107:                                              ; preds = %107, %.preheader.i
@@ -2448,7 +2448,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
 
 61:                                               ; preds = %4, %51
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %51 ]
-  %62 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %49, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %indvars.iv
   %63 = load float, ptr %62, align 4, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !15
@@ -2465,7 +2465,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %76 = fsub float %73, %75
   %77 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !15
-  %78 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %50, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %indvars.iv
   %79 = load float, ptr %78, align 4, !tbaa !15
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = load float, ptr %80, align 4, !tbaa !15
@@ -2533,22 +2533,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %125 = load float, ptr %124, align 4, !tbaa !15
   %126 = and i64 %indvars.iv.next103, 4294967295
   %127 = select i1 %118, i64 0, i64 %126
-  %128 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %49, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %127
   %129 = getelementptr inbounds nuw float, ptr %8, i64 %127
   %130 = load float, ptr %129, align 4, !tbaa !15
   %131 = sext i32 %121 to i64
-  %132 = getelementptr inbounds [3 x %class.btVector3], ptr %49, i64 0, i64 %131
+  %132 = getelementptr inbounds %class.btVector3, ptr %49, i64 %131
   %.sroa.sel80.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.cmp, i64 4, i64 0
   %.sroa.sel80.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel80.idx.sroa.sel.idx.sroa.sel.idx
   %133 = load float, ptr %.sroa.sel80.idx.sroa.sel.idx.sroa.sel, align 4, !tbaa !15
   %134 = select i1 %122, i64 1, i64 2
-  %135 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %50, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %134
   %.sroa.sel.v = select i1 %122, i64 4, i64 8
   %.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel.v
   %136 = load float, ptr %.sroa.sel, align 4, !tbaa !15
   %137 = zext i1 %.cmp to i64
-  %138 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %50, i64 0, i64 %137
-  %139 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %50, i64 0, i64 %indvars.iv102
+  %138 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %137
+  %139 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %indvars.iv102
   br label %141
 
 140:                                              ; preds = %141

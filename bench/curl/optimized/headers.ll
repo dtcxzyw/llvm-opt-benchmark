@@ -425,7 +425,7 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 53
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %43, ptr %44, align 8, !tbaa !75
-  %45 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %23
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %23
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %45, ptr %46, align 8, !tbaa !84
   %47 = getelementptr i8, ptr %45, i64 %19
@@ -464,7 +464,7 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
 56:                                               ; preds = %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %.048, i64 %.046, i1 false)
-  %58 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %.046
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.046
   store i8 0, ptr %58, align 1, !tbaa !94
   %59 = icmp eq i8 %2, 16
   br i1 %59, label %60, label %.preheader114

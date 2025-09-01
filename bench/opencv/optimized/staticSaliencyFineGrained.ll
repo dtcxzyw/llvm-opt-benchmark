@@ -504,7 +504,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %72 unwind label %93
 
 72:                                               ; preds = %.preheader
-  %73 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw %"class.cv::Mat", ptr %4, i64 %indvars.iv
   %74 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %75 unwind label %95
 
@@ -522,7 +522,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %78 unwind label %98
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i64 %indvars.iv
   %80 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %79, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %81 unwind label %100
 
@@ -726,7 +726,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
 
 141:                                              ; preds = %140, %150
   %indvars.iv101 = phi i64 [ 0, %140 ], [ %indvars.iv.next102, %150 ]
-  %142 = getelementptr inbounds nuw [6 x i32], ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 0, i64 %indvars.iv101
+  %142 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 %indvars.iv101
   %143 = load i32, ptr %142, align 4, !tbaa !53
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %144 unwind label %.loopexit
@@ -736,12 +736,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %145 unwind label %157
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %4, i64 0, i64 %indvars.iv101
+  %146 = getelementptr inbounds nuw %"class.cv::Mat", ptr %4, i64 %indvars.iv101
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %146)
           to label %147 unwind label %159
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw [6 x %"class.cv::Mat"], ptr %5, i64 0, i64 %indvars.iv101
+  %148 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i64 %indvars.iv101
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %148)
           to label %149 unwind label %161
 

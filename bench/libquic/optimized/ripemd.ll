@@ -1733,7 +1733,7 @@ define hidden noundef i32 @RIPEMD160_Final(ptr noundef writeonly captures(none) 
   %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   store i8 -128, ptr %7, align 1, !tbaa !14
   %8 = add nuw nsw i64 %5, 1
   %9 = icmp ugt i32 %4, 55
@@ -1851,7 +1851,7 @@ RIPEMD160_Update.exit:                            ; preds = %3, %18, %.thread
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %29 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   store i8 -128, ptr %29, align 1, !tbaa !14
   %30 = add nuw nsw i64 %27, 1
   %31 = icmp ugt i32 %26, 55

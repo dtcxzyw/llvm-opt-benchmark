@@ -626,7 +626,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
 
 switch.lookup:                                    ; preds = %.critedge26
   %19 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._Z37grpc_completion_queue_create_internal23grpc_cq_completion_type20grpc_cq_polling_typeP29grpc_completion_queue_functor, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._Z37grpc_completion_queue_create_internal23grpc_cq_completion_type20grpc_cq_polling_typeP29grpc_completion_queue_functor, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
@@ -636,10 +636,10 @@ switch.lookup:                                    ; preds = %.critedge26
 23:                                               ; preds = %.critedge26, %switch.lookup
   %24 = load i32, ptr %4, align 4, !tbaa !79
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [3 x %struct.cq_vtable], ptr @_ZL11g_cq_vtable, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %struct.cq_vtable, ptr @_ZL11g_cq_vtable, i64 %25
   %27 = load i32, ptr %5, align 4, !tbaa !80
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [3 x %"struct.(anonymous namespace)::cq_poller_vtable"], ptr @_ZN12_GLOBAL__N_130g_poller_vtable_by_poller_typeE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.(anonymous namespace)::cq_poller_vtable", ptr @_ZN12_GLOBAL__N_130g_poller_vtable_by_poller_typeE, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %7, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3841,7 +3841,7 @@ _ZL24cq_finish_shutdown_pluckP21grpc_completion_queue.exit: ; preds = %.critedge
 
 148:                                              ; preds = %.lr.ph, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %147 ]
-  %149 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %122, i64 0, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %122, i64 %indvars.iv
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !156
   %152 = icmp eq ptr %151, %1
@@ -4381,7 +4381,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi68EEERS2_RAT__Kc.exit: ; pr
   %172 = getelementptr i8, ptr %170, i64 %.idx.i
   %173 = getelementptr i8, ptr %172, i64 8
   store ptr %1, ptr %173, align 8, !tbaa !156
-  %174 = getelementptr inbounds [6 x %"struct.(anonymous namespace)::plucker"], ptr %170, i64 0, i64 %171
+  %174 = getelementptr inbounds %"struct.(anonymous namespace)::plucker", ptr %170, i64 %171
   store ptr %15, ptr %174, align 8, !tbaa !159
   %175 = add nsw i32 %146, 1
   store i32 %175, ptr %145, align 4, !tbaa !152
@@ -4580,7 +4580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
 
 249:                                              ; preds = %257, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %257 ]
-  %250 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %248, i64 0, i64 %indvars.iv.i
+  %250 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %248, i64 %indvars.iv.i
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load ptr, ptr %251, align 8, !tbaa !156
   %253 = icmp eq ptr %252, %1
@@ -4634,7 +4634,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %254
   %265 = add nsw i32 %247, -1
   store i32 %265, ptr %246, align 4, !tbaa !152
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %248, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %248, i64 %266
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 8 dereferenceable(16) %267, i64 16, i1 false), !tbaa.struct !167
@@ -5816,7 +5816,7 @@ define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_
 
 8:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !156
   %12 = icmp eq ptr %11, %1
@@ -5840,7 +5840,7 @@ define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 4, !tbaa !152
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::plucker"], ptr %7, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.(anonymous namespace)::plucker", ptr %7, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !167
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !167

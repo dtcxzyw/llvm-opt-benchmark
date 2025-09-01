@@ -2166,7 +2166,7 @@ define void @Gia_IsoSimulate(ptr noundef readonly captures(none) %0, i32 noundef
   %.masked.i10.i = and i32 %58, 254
   %59 = or disjoint i32 %.masked.i10.i, %46
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !43
   %63 = mul i32 %62, %57
   br label %Gia_IsoUpdate.exit
@@ -2212,7 +2212,7 @@ Gia_IsoUpdate.exit:                               ; preds = %52, %.sink.split.i
   %.masked.i10.i112 = and i32 %89, 254
   %90 = or disjoint i32 %.masked.i10.i112, %77
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !43
   %94 = mul i32 %93, %88
   br label %Gia_IsoUpdate.exit113
@@ -2284,7 +2284,7 @@ Gia_IsoUpdate.exit113:                            ; preds = %83, %.sink.split.i1
   %.masked.i10.i117 = and i32 %130, 254
   %131 = or disjoint i32 %.masked.i10.i117, %118
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !43
   %135 = mul i32 %134, %129
   br label %Gia_IsoUpdate.exit118
@@ -2387,7 +2387,7 @@ define void @Gia_IsoSimulateBack(ptr noundef readonly captures(none) %0, i32 nou
   %.masked.i10.i.us = and i32 %26, 254
   %27 = or disjoint i32 %.masked.i10.i.us, %22
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !43
   %31 = mul i32 %30, %25
   %32 = add i32 %31, %19
@@ -2428,7 +2428,7 @@ define void @Gia_IsoSimulateBack(ptr noundef readonly captures(none) %0, i32 nou
   %.masked.i10.i = and i32 %53, 254
   %54 = or disjoint i32 %.masked.i10.i, %51
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !43
   %58 = mul i32 %57, %52
   br label %Gia_IsoUpdate.exit
@@ -2505,7 +2505,7 @@ Gia_IsoUpdate.exit:                               ; preds = %39, %.sink.split.i
   %.masked.i10.i73 = and i32 %93, 254
   %94 = or disjoint i32 %.masked.i10.i73, %82
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !43
   %98 = mul i32 %97, %92
   br label %Gia_IsoUpdate.exit74
@@ -2544,7 +2544,7 @@ Gia_IsoUpdate.exit74:                             ; preds = %87, %.sink.split.i7
   %.masked.i10.i78 = and i32 %118, 254
   %119 = or disjoint i32 %.masked.i10.i78, %107
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [256 x i32], ptr @s_256Primes, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i32, ptr @s_256Primes, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !43
   %123 = mul i32 %122, %117
   br label %Gia_IsoUpdate.exit79

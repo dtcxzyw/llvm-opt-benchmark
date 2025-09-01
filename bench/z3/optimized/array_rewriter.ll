@@ -1270,7 +1270,7 @@ _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %133, %142, %147
   %167 = load ptr, ptr %48, align 8, !tbaa !26
   %168 = load ptr, ptr %2, align 8, !tbaa !24
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  %170 = getelementptr inbounds nuw [0 x ptr], ptr %169, i64 0, i64 %indvars.iv.i78
+  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i78
   %171 = load ptr, ptr %170, align 8, !tbaa !24
   %172 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %167, ptr noundef %171)
   br i1 %172, label %160, label %"_ZZN14array_rewriter14mk_select_coreEjPKP4exprR7obj_refIS0_11ast_managerEENK3$_0clEv.exit"
@@ -1378,7 +1378,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i121: ; preds = %183, %_ZN6buff
   %211 = load ptr, ptr %2, align 8, !tbaa !24
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %213 = zext i32 %1 to i64
-  %214 = getelementptr inbounds nuw [0 x ptr], ptr %212, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %216 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1410,7 +1410,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i121: ; preds = %183, %_ZN6buff
   %228 = load ptr, ptr %2, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
-  %230 = getelementptr inbounds nuw [0 x ptr], ptr %229, i64 0, i64 %indvars.iv.next
+  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv.next
   %231 = load ptr, ptr %230, align 8, !tbaa !24
   %232 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %233 = load ptr, ptr %232, align 8, !tbaa !24
@@ -2753,9 +2753,9 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %_ZNK17array_recogni
 
 73:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %66, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = icmp eq ptr %75, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3034,7 +3034,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i315:   ; preds = %.noexc320, %._crit_
   store ptr %156, ptr %177, align 8, !tbaa !24
   %178 = add i32 %174, 1
   store i32 %178, ptr %84, align 8, !tbaa !126
-  %179 = getelementptr inbounds nuw [0 x ptr], ptr %155, i64 0, i64 %90
+  %179 = getelementptr inbounds nuw ptr, ptr %155, i64 %90
   %180 = load ptr, ptr %179, align 8, !tbaa !24
   %.not.i322 = icmp ult i32 %173, %172
   br i1 %.not.i322, label %._crit_edge.i336, label %181
@@ -6728,7 +6728,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i57:    ; preds = %.noexc62, %._crit_e
   %126 = phi i32 [ %95, %.lr.ph164 ], [ %143, %._crit_edge.i79 ]
   %127 = phi i32 [ %110, %.lr.ph164 ], [ %147, %._crit_edge.i79 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph164 ], [ %indvars.iv.next, %._crit_edge.i79 ]
-  %128 = getelementptr inbounds nuw [0 x ptr], ptr %114, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !24
   %.not.i65 = icmp ult i32 %127, %126
   br i1 %.not.i65, label %._crit_edge.i79, label %130
@@ -7207,7 +7207,7 @@ _ZN14array_rewriter12compare_argsEjPKP4exprS3_.exit.thread: ; preds = %52, %_ZNK
   %61 = phi ptr [ %.057.us, %_ZNK17array_recognizers8is_storeEP4expr.exit.us ], [ %.057, %52 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = zext i32 %1 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %69, label %_ZN11ast_manager7inc_refEP3ast.exit.i
@@ -11476,7 +11476,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   br label %.body
 
 281:                                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
-  %282 = getelementptr inbounds nuw [0 x ptr], ptr %272, i64 0, i64 %indvars.iv200
+  %282 = getelementptr inbounds nuw ptr, ptr %272, i64 %indvars.iv200
   %283 = load ptr, ptr %282, align 8, !tbaa !24
   invoke void @_ZN11var_shifterclEP4exprjjjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(156) %8, ptr noundef %283, i32 noundef 0, i32 noundef %27, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %284 unwind label %279
@@ -11654,7 +11654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit108: ; preds = %347, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
   %.0.i.i107 = phi i64 [ 0, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ 0, %347 ], [ %277, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread ]
   %356 = getelementptr inbounds nuw i8, ptr %254, i64 32
-  %357 = getelementptr inbounds nuw [0 x ptr], ptr %356, i64 0, i64 %.0.i.i107
+  %357 = getelementptr inbounds nuw ptr, ptr %356, i64 %.0.i.i107
   %358 = load ptr, ptr %357, align 8, !tbaa !24
   invoke void @_ZN11var_shifterclEP4exprjjjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(156) %8, ptr noundef %358, i32 noundef 0, i32 noundef %27, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %359 unwind label %.loopexit.split-lp

@@ -67,7 +67,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
 
 27:                                               ; preds = %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit.i.i", %.lr.ph.i.i
   %.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %29, %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit.i.i" ]
-  %28 = getelementptr inbounds [0 x { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }], ptr %22, i64 0, i64 %.09.i.i
+  %28 = getelementptr inbounds { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, ptr %22, i64 %.09.i.i
   %29 = add nuw i64 %.09.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !35), !noalias !31
   call void @llvm.experimental.noalias.scope.decl(metadata !38), !noalias !31
@@ -117,7 +117,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   br label %38
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds [0 x { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }], ptr %22, i64 0, i64 %.1.i.i
+  %43 = getelementptr inbounds { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, ptr %22, i64 %.1.i.i
   %44 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %43) #25
           to label %38 unwind label %45, !noalias !43

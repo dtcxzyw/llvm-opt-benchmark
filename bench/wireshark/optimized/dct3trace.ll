@@ -627,7 +627,7 @@ define internal fastcc noundef zeroext i1 @xml_get_int(ptr noundef %0, ptr nound
 
 30:                                               ; preds = %23
   %31 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %18, i64 noundef range(i64 -9223372036854775808, 32) %26, i64 noundef 32) #10, !alias.scope !11
-  %32 = getelementptr [32 x i8], ptr %7, i64 0, i64 %26
+  %32 = getelementptr i8, ptr %7, i64 %26
   store i8 0, ptr %32, align 1
   %33 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %0)
   br i1 %33, label %47, label %34

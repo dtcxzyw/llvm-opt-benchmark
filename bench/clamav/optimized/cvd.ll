@@ -314,7 +314,7 @@ define noalias noundef ptr @cl_cvdhead(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %6
   %12 = tail call i32 @fclose(ptr noundef nonnull %3)
   %13 = and i64 %7, 4294967295
-  %14 = getelementptr inbounds nuw [513 x i8], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %13
   store i8 0, ptr %14, align 1, !tbaa !17
   %15 = call ptr @strpbrk(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #18
   %.not22 = icmp eq ptr %15, null
@@ -335,7 +335,7 @@ define noalias noundef ptr @cl_cvdhead(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %20 = getelementptr inbounds nuw [513 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !17
   switch i8 %21, label %.critedge [
     i8 32, label %.critedge2
@@ -727,7 +727,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
 
 10:                                               ; preds = %8, %.critedge2
   %indvars.iv = phi i64 [ 511, %8 ], [ %indvars.iv.next, %.critedge2 ]
-  %11 = getelementptr inbounds nuw [513 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !17
   switch i8 %12, label %.critedge [
     i8 32, label %.critedge2

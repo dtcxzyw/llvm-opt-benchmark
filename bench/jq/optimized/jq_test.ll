@@ -433,8 +433,8 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 
 240:                                              ; preds = %checkfail.exit.i
   %241 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
-  %242 = add i64 %241, -1
-  %243 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %242
+  %242 = getelementptr i8, ptr %8, i64 %241
+  %243 = getelementptr i8, ptr %242, i64 -1
   %244 = load i8, ptr %243, align 1, !tbaa !11
   %245 = icmp eq i8 %244, 10
   br i1 %245, label %246, label %247
@@ -522,8 +522,8 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 283:                                              ; preds = %279
   %284 = add i32 %.0137264.i, 2
   %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
-  %286 = add i64 %285, -1
-  %287 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %286
+  %286 = getelementptr i8, ptr %9, i64 %285
+  %287 = getelementptr i8, ptr %286, i64 -1
   %288 = load i8, ptr %287, align 1, !tbaa !11
   %289 = icmp eq i8 %288, 10
   br i1 %289, label %290, label %291
@@ -813,8 +813,8 @@ run_jq_tests.exit:                                ; preds = %404
 
 406:                                              ; preds = %406, %run_jq_tests.exit
   %indvars.iv.i = phi i64 [ 0, %run_jq_tests.exit ], [ %indvars.iv.next.i, %406 ]
-  %407 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
-  %408 = getelementptr inbounds nuw [3 x %struct.test_pthread_data], ptr %7, i64 0, i64 %indvars.iv.i
+  %407 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
+  %408 = getelementptr inbounds nuw %struct.test_pthread_data, ptr %7, i64 %indvars.iv.i
   %409 = call i32 @pthread_create(ptr noundef nonnull %407, ptr noundef null, ptr noundef nonnull @test_pthread_run, ptr noundef nonnull %408) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i, 3
@@ -822,7 +822,7 @@ run_jq_tests.exit:                                ; preds = %404
 
 .preheader11.i:                                   ; preds = %406, %414
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %414 ], [ 0, %406 ]
-  %410 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
+  %410 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv15.i
   %411 = load i64, ptr %410, align 8, !tbaa !22
   %.not.i33 = icmp eq i64 %411, 0
   br i1 %.not.i33, label %414, label %412

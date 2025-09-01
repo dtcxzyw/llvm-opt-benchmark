@@ -6136,7 +6136,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZL17isSDKVersionTo
 
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
   %69 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4llvm9StringRefES2_NS1_5SMLocENS1_6Triple6OSTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr null, i64 0, ptr %3, i32 noundef %switch.load)
   %70 = load ptr, ptr %17, align 8, !tbaa !11
@@ -7081,7 +7081,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i: ; preds = %_ZL17isSDKVer
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i
   %switch.tableidx = add nuw nsw i64 %.sroa.30.12.i, 4294967295
   %121 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 0, i64 %121
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !15
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8, !tbaa !35

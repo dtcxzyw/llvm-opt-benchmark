@@ -97,7 +97,7 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_write_header(ptr noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.yuv4_write_header, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.yuv4_write_header, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %35
 
@@ -304,7 +304,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
 40:                                               ; preds = %.lr.ph58, %._crit_edge
   %41 = phi i8 [ %33, %.lr.ph58 ], [ %62, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %._crit_edge ]
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !53
   %44 = icmp ugt i8 %41, 2
   %45 = trunc nuw nsw i64 %indvars.iv to i32
@@ -335,7 +335,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %56
-  %61 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   br label %65
 
 ._crit_edge.loopexit:                             ; preds = %65

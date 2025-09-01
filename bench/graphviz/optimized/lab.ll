@@ -572,17 +572,17 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %24
   %31 = phi ptr [ %19, %.thread.i ], [ %25, %24 ]
   store i32 0, ptr %1, align 4, !tbaa !18
   %32 = load i64, ptr @lab_gamut_data_size, align 8, !tbaa !43
-  %.not51 = icmp eq i64 %32, 0
-  br i1 %.not51, label %._crit_edge, label %.lr.ph50
+  %.not50 = icmp eq i64 %32, 0
+  br i1 %.not50, label %._crit_edge, label %.lr.ph49
 
 ._crit_edge:                                      ; preds = %.loopexit, %gv_calloc.exit
   ret ptr %31
 
-.lr.ph50:                                         ; preds = %gv_calloc.exit, %.loopexit
-  %.promoted = phi i32 [ %.promoted53, %.loopexit ], [ 0, %gv_calloc.exit ]
-  %.03549 = phi ptr [ %.2, %.loopexit ], [ %31, %gv_calloc.exit ]
-  %.03747 = phi i64 [ %58, %.loopexit ], [ 0, %gv_calloc.exit ]
-  %33 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %.03747
+.lr.ph49:                                         ; preds = %gv_calloc.exit, %.loopexit
+  %.promoted = phi i32 [ %.promoted52, %.loopexit ], [ 0, %gv_calloc.exit ]
+  %.03548 = phi ptr [ %.2, %.loopexit ], [ %31, %gv_calloc.exit ]
+  %.03747 = phi i64 [ %55, %.loopexit ], [ 0, %gv_calloc.exit ]
+  %33 = getelementptr inbounds nuw i8, ptr @lab_gamut_data, i64 %.03747
   %34 = load i8, ptr %33, align 1, !tbaa !39
   %35 = sext i8 %34 to i32
   %.not40 = icmp sgt i32 %spec.select, %35
@@ -590,52 +590,49 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %24
   %or.cond = or i1 %.not40, %.not41
   br i1 %or.cond, label %.loopexit, label %36
 
-36:                                               ; preds = %.lr.ph50
-  %37 = or disjoint i64 %.03747, 2
-  %38 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !39
-  %40 = or disjoint i64 %.03747, 3
-  %41 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !39
-  %.not4244 = icmp sgt i8 %39, %42
+36:                                               ; preds = %.lr.ph49
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 2
+  %38 = load i8, ptr %37, align 1, !tbaa !39
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %40 = load i8, ptr %39, align 1, !tbaa !39
+  %.not4244 = icmp sgt i8 %38, %40
   br i1 %.not4244, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %43 = sext i8 %42 to i32
-  %44 = sext i8 %39 to i32
-  %45 = sitofp i8 %34 to double
-  %46 = or disjoint i64 %.03747, 1
-  %47 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !39
-  %49 = sitofp i8 %48 to double
-  br label %50
+  %41 = sext i8 %40 to i32
+  %42 = sext i8 %38 to i32
+  %43 = sitofp i8 %34 to double
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %45 = load i8, ptr %44, align 1, !tbaa !39
+  %46 = sitofp i8 %45 to double
+  br label %47
 
-50:                                               ; preds = %.lr.ph, %50
-  %51 = phi i32 [ %.promoted, %.lr.ph ], [ %56, %50 ]
-  %.046 = phi i32 [ %44, %.lr.ph ], [ %57, %50 ]
-  %.145 = phi ptr [ %.03549, %.lr.ph ], [ %55, %50 ]
-  store double %45, ptr %.145, align 8, !tbaa !26
-  %52 = getelementptr inbounds nuw i8, ptr %.145, i64 8
-  store double %49, ptr %52, align 8, !tbaa !26
-  %53 = sitofp i32 %.046 to double
-  %54 = getelementptr inbounds nuw i8, ptr %.145, i64 16
-  store double %53, ptr %54, align 8, !tbaa !26
-  %55 = getelementptr inbounds nuw i8, ptr %.145, i64 24
-  %56 = add nsw i32 %51, 1
-  %57 = add nsw i32 %.046, 1
-  %exitcond.not = icmp eq i32 %.046, %43
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %50, !llvm.loop !45
+47:                                               ; preds = %.lr.ph, %47
+  %48 = phi i32 [ %.promoted, %.lr.ph ], [ %53, %47 ]
+  %.046 = phi i32 [ %42, %.lr.ph ], [ %54, %47 ]
+  %.145 = phi ptr [ %.03548, %.lr.ph ], [ %52, %47 ]
+  store double %43, ptr %.145, align 8, !tbaa !26
+  %49 = getelementptr inbounds nuw i8, ptr %.145, i64 8
+  store double %46, ptr %49, align 8, !tbaa !26
+  %50 = sitofp i32 %.046 to double
+  %51 = getelementptr inbounds nuw i8, ptr %.145, i64 16
+  store double %50, ptr %51, align 8, !tbaa !26
+  %52 = getelementptr inbounds nuw i8, ptr %.145, i64 24
+  %53 = add nsw i32 %48, 1
+  %54 = add nsw i32 %.046, 1
+  %exitcond.not = icmp eq i32 %.046, %41
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %47, !llvm.loop !45
 
-..loopexit_crit_edge:                             ; preds = %50
-  store i32 %56, ptr %1, align 4, !tbaa !18
+..loopexit_crit_edge:                             ; preds = %47
+  store i32 %53, ptr %1, align 4, !tbaa !18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %..loopexit_crit_edge, %.lr.ph50
-  %.promoted53 = phi i32 [ %.promoted, %.lr.ph50 ], [ %56, %..loopexit_crit_edge ], [ %.promoted, %36 ]
-  %.2 = phi ptr [ %.03549, %.lr.ph50 ], [ %55, %..loopexit_crit_edge ], [ %.03549, %36 ]
-  %58 = add nuw i64 %.03747, 4
-  %59 = icmp ult i64 %58, %32
-  br i1 %59, label %.lr.ph50, label %._crit_edge, !llvm.loop !47
+.loopexit:                                        ; preds = %36, %..loopexit_crit_edge, %.lr.ph49
+  %.promoted52 = phi i32 [ %.promoted, %.lr.ph49 ], [ %53, %..loopexit_crit_edge ], [ %.promoted, %36 ]
+  %.2 = phi ptr [ %.03548, %.lr.ph49 ], [ %52, %..loopexit_crit_edge ], [ %.03548, %36 ]
+  %55 = add nuw i64 %.03747, 4
+  %56 = icmp ult i64 %55, %32
+  br i1 %56, label %.lr.ph49, label %._crit_edge, !llvm.loop !47
 }
 
 ; Function Attrs: nofree nounwind

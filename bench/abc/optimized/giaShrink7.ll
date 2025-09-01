@@ -392,7 +392,7 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
   %15 = tail call noundef range(i32 -2147483648, 21) i32 @llvm.smin.i32(i32 %14, i32 20)
   %16 = add nsw i32 %15, %.035
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds [21 x i32], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %6, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !48
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !48
@@ -416,7 +416,7 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
 
 26:                                               ; preds = %._crit_edge, %38
   %indvars.iv40 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next41, %38 ]
-  %27 = getelementptr inbounds nuw [21 x i32], ptr %6, i64 0, i64 %indvars.iv40
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv40
   %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %38
@@ -2254,27 +2254,27 @@ Vec_IntFind.exit93:                               ; preds = %106, %.critedge.thr
   %117 = getelementptr inbounds i64, ptr %.val85, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !81
   %119 = sext i32 %.07.i145 to i64
-  %120 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %119
+  %120 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !81
   %122 = and i64 %121, %118
   %123 = shl nuw i32 1, %.07.i145
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %122, %124
   %126 = or i64 %125, %122
-  %127 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %119
+  %127 = getelementptr inbounds i64, ptr @s_Truths6, i64 %119
   %128 = load i64, ptr %127, align 8, !tbaa !81
   %129 = and i64 %128, %118
   %130 = lshr i64 %129, %124
   %131 = or i64 %130, %129
   %132 = sext i32 %.07.i86 to i64
-  %133 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %132
+  %133 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !81
   %135 = and i64 %126, %134
   %136 = shl nuw i32 1, %.07.i86
   %137 = zext nneg i32 %136 to i64
   %138 = shl i64 %135, %137
   %139 = or i64 %138, %135
-  %140 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %132
+  %140 = getelementptr inbounds i64, ptr @s_Truths6, i64 %132
   %141 = load i64, ptr %140, align 8, !tbaa !81
   %142 = and i64 %141, %126
   %143 = lshr i64 %142, %137

@@ -47,10 +47,10 @@ define void @av_blowfish_init(ptr noundef captures(none) initializes((72, 4168))
   br i1 %exitcond.not, label %16, label %7, !llvm.loop !7
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw [18 x i32], ptr @orig_p, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr @orig_p, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = xor i32 %18, %13
-  %20 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next, 18
@@ -65,41 +65,39 @@ define void @av_blowfish_init(ptr noundef captures(none) initializes((72, 4168))
   %indvars.iv48 = phi i64 [ 0, %21 ], [ %indvars.iv.next49, %22 ]
   call void @av_blowfish_crypt_ecb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
   %23 = load i32, ptr %4, align 4, !tbaa !9
-  %24 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv48
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv48
   store i32 %23, ptr %24, align 4, !tbaa !9
   %25 = load i32, ptr %5, align 4, !tbaa !9
-  %26 = or disjoint i64 %indvars.iv48, 1
-  %27 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %26
-  store i32 %25, ptr %27, align 4, !tbaa !9
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 %25, ptr %26, align 4, !tbaa !9
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 2
-  %28 = icmp samesign ult i64 %indvars.iv48, 16
-  br i1 %28, label %22, label %.preheader, !llvm.loop !12
+  %27 = icmp samesign ult i64 %indvars.iv48, 16
+  br i1 %27, label %22, label %.preheader, !llvm.loop !12
 
-.preheader:                                       ; preds = %22, %37
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %37 ], [ 0, %22 ]
-  %29 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %6, i64 0, i64 %indvars.iv54
-  br label %30
+.preheader:                                       ; preds = %22, %35
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %35 ], [ 0, %22 ]
+  %28 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 %indvars.iv54
+  br label %29
 
-30:                                               ; preds = %.preheader, %30
-  %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %30 ]
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv51 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next52, %29 ]
   call void @av_blowfish_crypt_ecb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0)
-  %31 = load i32, ptr %4, align 4, !tbaa !9
-  %32 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %indvars.iv51
-  store i32 %31, ptr %32, align 4, !tbaa !9
-  %33 = load i32, ptr %5, align 4, !tbaa !9
-  %34 = or disjoint i64 %indvars.iv51, 1
-  %35 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %34
-  store i32 %33, ptr %35, align 4, !tbaa !9
+  %30 = load i32, ptr %4, align 4, !tbaa !9
+  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv51
+  store i32 %30, ptr %31, align 4, !tbaa !9
+  %32 = load i32, ptr %5, align 4, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %32, ptr %33, align 4, !tbaa !9
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 2
-  %36 = icmp samesign ult i64 %indvars.iv51, 254
-  br i1 %36, label %30, label %37, !llvm.loop !13
+  %34 = icmp samesign ult i64 %indvars.iv51, 254
+  br i1 %34, label %29, label %35, !llvm.loop !13
 
-37:                                               ; preds = %30
+35:                                               ; preds = %29
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %38, label %.preheader, !llvm.loop !14
+  br i1 %exitcond57.not, label %36, label %.preheader, !llvm.loop !14
 
-38:                                               ; preds = %37
+36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -113,7 +111,7 @@ define void @av_blowfish_crypt_ecb(ptr noundef readonly captures(none) %0, ptr n
   %5 = load i32, ptr %1, align 4, !tbaa !9
   %6 = load i32, ptr %2, align 4, !tbaa !9
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %71, label %7
+  br i1 %.not, label %70, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -128,144 +126,142 @@ define void @av_blowfish_crypt_ecb(ptr noundef readonly captures(none) %0, ptr n
 15:                                               ; preds = %7, %15
   %indvars.iv = phi i64 [ 16, %7 ], [ %indvars.iv.next, %15 ]
   %.06268 = phi i32 [ %6, %7 ], [ %40, %15 ]
-  %.06467 = phi i32 [ %10, %7 ], [ %66, %15 ]
+  %.06467 = phi i32 [ %10, %7 ], [ %65, %15 ]
   %16 = lshr i32 %.06467, 24
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %20 = lshr i32 %.06467, 16
   %21 = and i32 %20, 255
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = add i32 %24, %19
   %26 = lshr i32 %.06467, 8
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = xor i32 %25, %30
   %32 = and i32 %.06467, 255
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = add i32 %31, %35
-  %37 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !9
   %39 = xor i32 %38, %.06268
   %40 = xor i32 %39, %36
   %41 = lshr i32 %40, 24
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %11, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = lshr i32 %40, 16
   %46 = and i32 %45, 255
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %12, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !9
   %50 = add i32 %49, %44
   %51 = lshr i32 %40, 8
   %52 = and i32 %51, 255
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %13, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !9
   %56 = xor i32 %50, %55
   %57 = and i32 %40, 255
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %14, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = add i32 %56, %60
-  %62 = add nsw i64 %indvars.iv, -1
-  %63 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !9
-  %65 = xor i32 %64, %61
-  %66 = xor i32 %65, %.06467
+  %62 = getelementptr i8, ptr %37, i64 -4
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = xor i32 %63, %61
+  %65 = xor i32 %64, %.06467
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
-  %67 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %67, label %15, label %68, !llvm.loop !15
+  %66 = icmp samesign ugt i64 %indvars.iv, 2
+  br i1 %66, label %15, label %67, !llvm.loop !15
 
-68:                                               ; preds = %15
-  %69 = load i32, ptr %0, align 4, !tbaa !9
-  %70 = xor i32 %69, %40
-  br label %135
+67:                                               ; preds = %15
+  %68 = load i32, ptr %0, align 4, !tbaa !9
+  %69 = xor i32 %68, %40
+  br label %133
 
-71:                                               ; preds = %4
-  %72 = load i32, ptr %0, align 4, !tbaa !9
-  %73 = xor i32 %72, %5
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2120
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  br label %78
+70:                                               ; preds = %4
+  %71 = load i32, ptr %0, align 4, !tbaa !9
+  %72 = xor i32 %71, %5
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 3144
+  br label %77
 
-78:                                               ; preds = %71, %78
-  %indvars.iv77 = phi i64 [ 1, %71 ], [ %indvars.iv.next78, %78 ]
-  %.271 = phi i32 [ %6, %71 ], [ %103, %78 ]
-  %.26670 = phi i32 [ %73, %71 ], [ %129, %78 ]
-  %79 = lshr i32 %.26670, 24
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i32], ptr %74, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !9
-  %83 = lshr i32 %.26670, 16
-  %84 = and i32 %83, 255
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i32], ptr %75, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !9
-  %88 = add i32 %87, %82
-  %89 = lshr i32 %.26670, 8
-  %90 = and i32 %89, 255
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !9
-  %94 = xor i32 %88, %93
-  %95 = and i32 %.26670, 255
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !9
-  %99 = add i32 %94, %98
-  %100 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %indvars.iv77
-  %101 = load i32, ptr %100, align 4, !tbaa !9
-  %102 = xor i32 %101, %.271
-  %103 = xor i32 %102, %99
-  %104 = lshr i32 %103, 24
-  %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [256 x i32], ptr %74, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !9
-  %108 = lshr i32 %103, 16
-  %109 = and i32 %108, 255
-  %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [256 x i32], ptr %75, i64 0, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !9
-  %113 = add i32 %112, %107
-  %114 = lshr i32 %103, 8
-  %115 = and i32 %114, 255
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [256 x i32], ptr %76, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !9
-  %119 = xor i32 %113, %118
-  %120 = and i32 %103, 255
-  %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [256 x i32], ptr %77, i64 0, i64 %121
-  %123 = load i32, ptr %122, align 4, !tbaa !9
-  %124 = add i32 %119, %123
-  %125 = add nuw nsw i64 %indvars.iv77, 1
-  %126 = getelementptr inbounds nuw [18 x i32], ptr %0, i64 0, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !9
-  %128 = xor i32 %127, %124
-  %129 = xor i32 %128, %.26670
+77:                                               ; preds = %70, %77
+  %indvars.iv77 = phi i64 [ 1, %70 ], [ %indvars.iv.next78, %77 ]
+  %.271 = phi i32 [ %6, %70 ], [ %102, %77 ]
+  %.26670 = phi i32 [ %72, %70 ], [ %127, %77 ]
+  %78 = lshr i32 %.26670, 24
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr inbounds nuw i32, ptr %73, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !9
+  %82 = lshr i32 %.26670, 16
+  %83 = and i32 %82, 255
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds nuw i32, ptr %74, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !9
+  %87 = add i32 %86, %81
+  %88 = lshr i32 %.26670, 8
+  %89 = and i32 %88, 255
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw i32, ptr %75, i64 %90
+  %92 = load i32, ptr %91, align 4, !tbaa !9
+  %93 = xor i32 %87, %92
+  %94 = and i32 %.26670, 255
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw i32, ptr %76, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !9
+  %98 = add i32 %93, %97
+  %99 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv77
+  %100 = load i32, ptr %99, align 4, !tbaa !9
+  %101 = xor i32 %100, %.271
+  %102 = xor i32 %101, %98
+  %103 = lshr i32 %102, 24
+  %104 = zext nneg i32 %103 to i64
+  %105 = getelementptr inbounds nuw i32, ptr %73, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !9
+  %107 = lshr i32 %102, 16
+  %108 = and i32 %107, 255
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i32, ptr %74, i64 %109
+  %111 = load i32, ptr %110, align 4, !tbaa !9
+  %112 = add i32 %111, %106
+  %113 = lshr i32 %102, 8
+  %114 = and i32 %113, 255
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds nuw i32, ptr %75, i64 %115
+  %117 = load i32, ptr %116, align 4, !tbaa !9
+  %118 = xor i32 %112, %117
+  %119 = and i32 %102, 255
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds nuw i32, ptr %76, i64 %120
+  %122 = load i32, ptr %121, align 4, !tbaa !9
+  %123 = add i32 %118, %122
+  %124 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %126 = xor i32 %125, %123
+  %127 = xor i32 %126, %.26670
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 2
-  %130 = icmp samesign ult i64 %indvars.iv77, 15
-  br i1 %130, label %78, label %131, !llvm.loop !16
+  %128 = icmp samesign ult i64 %indvars.iv77, 15
+  br i1 %128, label %77, label %129, !llvm.loop !16
 
-131:                                              ; preds = %78
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %133 = load i32, ptr %132, align 4, !tbaa !9
-  %134 = xor i32 %133, %103
-  br label %135
+129:                                              ; preds = %77
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %131 = load i32, ptr %130, align 4, !tbaa !9
+  %132 = xor i32 %131, %102
+  br label %133
 
-135:                                              ; preds = %131, %68
-  %.165 = phi i32 [ %66, %68 ], [ %129, %131 ]
-  %.163 = phi i32 [ %70, %68 ], [ %134, %131 ]
+133:                                              ; preds = %129, %67
+  %.165 = phi i32 [ %65, %67 ], [ %127, %129 ]
+  %.163 = phi i32 [ %69, %67 ], [ %132, %129 ]
   store i32 %.163, ptr %1, align 4, !tbaa !9
   store i32 %.165, ptr %2, align 4, !tbaa !9
   ret void

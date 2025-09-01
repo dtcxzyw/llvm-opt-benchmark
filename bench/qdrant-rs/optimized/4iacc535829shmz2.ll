@@ -1804,7 +1804,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br label %39
 
 32:                                               ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds [0 x { i32, float, float }], ptr %4, i64 0, i64 %8, i32 1
+  %33 = getelementptr inbounds { i32, float, float }, ptr %4, i64 %8, i32 1
   %34 = load float, ptr %33, align 4, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %36 = load float, ptr %35, align 4, !noundef !10
@@ -1820,7 +1820,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %.val13 = phi ptr [ %4, %38 ], [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
   %.sroa.7.0 = phi i64 [ %8, %38 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
   %40 = icmp ult i64 %.sroa.7.0, %.val14
-  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %54, !prof !250
+  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %53, !prof !250
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i": ; preds = %39
   %41 = icmp ne ptr %.val13, null
@@ -1831,37 +1831,36 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
   %.idx.i = mul nsw i64 %.sroa.7.0, 12
   %43 = getelementptr inbounds i8, ptr %.val13, i64 %.idx.i
-  %44 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 4, !noundef !10
-  %47 = fcmp uno float %46, 0.000000e+00
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %49 = load float, ptr %48, align 4, !noundef !10
-  %50 = fcmp oge float %46, %49
-  %51 = or i1 %47, %50
-  %52 = fcmp ord float %49, 0.000000e+00
-  %53 = fcmp ult float %49, %46
-  %.not4.i.i.not.not.i.i = and i1 %52, %53
-  %switch.i.i = and i1 %51, %.not4.i.i.not.not.i.i
-  %.0.sroa.speculated.i.i = select i1 %switch.i.i, float %46, float %49
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load float, ptr %44, align 4, !noundef !10
+  %46 = fcmp uno float %45, 0.000000e+00
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %48 = load float, ptr %47, align 4, !noundef !10
+  %49 = fcmp oge float %45, %48
+  %50 = or i1 %46, %49
+  %51 = fcmp ord float %48, 0.000000e+00
+  %52 = fcmp ult float %48, %45
+  %.not4.i.i.not.not.i.i = and i1 %51, %52
+  %switch.i.i = and i1 %50, %.not4.i.i.not.not.i.i
+  %.0.sroa.speculated.i.i = select i1 %switch.i.i, float %45, float %48
   br label %.lr.ph.i
 
-54:                                               ; preds = %39
+53:                                               ; preds = %39
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.7.0, i64 noundef %.val14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.81e6ab35a181dc861ce075a8d33b6c5d.16) #32
   unreachable
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.04.i = phi float [ %60, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
-  %.sroa.4.03.i = phi ptr [ %59, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
-  store float %.04.i, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
-  %57 = load float, ptr %56, align 4, !noundef !10
-  %58 = fcmp oge float %57, %.04.i
-  %59 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
-  %60 = tail call float @llvm.maxnum.f32(float %.04.i, float %57)
-  %61 = icmp eq ptr %.val13, %59
-  %or.cond.i = select i1 %58, i1 true, i1 %61
+  %.04.i = phi float [ %59, %.lr.ph.i ], [ %.0.sroa.speculated.i.i, %.lr.ph.preheader.i ]
+  %.sroa.4.03.i = phi ptr [ %58, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+  %54 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -4
+  store float %.04.i, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -8
+  %56 = load float, ptr %55, align 4, !noundef !10
+  %57 = fcmp oge float %56, %.04.i
+  %58 = getelementptr inbounds i8, ptr %.sroa.4.03.i, i64 -12
+  %59 = tail call float @llvm.maxnum.f32(float %.04.i, float %56)
+  %60 = icmp eq ptr %.val13, %58
+  %or.cond.i = select i1 %57, i1 true, i1 %60
   br i1 %or.cond.i, label %.critedge, label %.lr.ph.i
 
 .critedge:                                        ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32
@@ -2112,7 +2111,7 @@ define noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12postin
   br label %29
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds [0 x { i32, float, float }], ptr %7, i64 0, i64 %22
+  %27 = getelementptr inbounds { i32, float, float }, ptr %7, i64 %22
   br label %29
 
 28:                                               ; preds = %21

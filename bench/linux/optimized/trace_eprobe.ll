@@ -851,7 +851,7 @@ define internal noundef i32 @eprobe_dyn_event_show(ptr noundef %0, ptr noundef r
 35:                                               ; preds = %35, %33
   %36 = phi i32 [ 0, %33 ], [ %43, %35 ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr [0 x %struct.probe_arg], ptr %34, i64 0, i64 %37
+  %38 = getelementptr %struct.probe_arg, ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1536,7 +1536,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 282:                                              ; preds = %273
-  %283 = getelementptr [0 x %struct.probe_arg], ptr %264, i64 0, i64 %274
+  %283 = getelementptr %struct.probe_arg, ptr %264, i64 %274
   %284 = call i32 @traceprobe_update_arg(ptr noundef %283) #13
   call void @traceprobe_finish_parse(ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

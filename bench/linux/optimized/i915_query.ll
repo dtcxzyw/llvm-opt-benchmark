@@ -64,7 +64,7 @@ define dso_local range(i32 -22, 1) i32 @i915_query_ioctl(ptr noundef %0, ptr nou
   %27 = add nsw i64 %22, -1
   %28 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 6, i64 %27) #11, !srcloc !7
   %29 = and i64 %28, %27
-  %30 = getelementptr [6 x ptr], ptr @i915_query_funcs, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr @i915_query_funcs, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef %0, ptr noundef nonnull %4) #11
   br label %33
@@ -514,7 +514,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %26, %12
   %15 = phi i64 [ 0, %12 ], [ %28, %26 ]
   %16 = phi i32 [ 16, %12 ], [ %27, %26 ]
-  %17 = getelementptr [7 x ptr], ptr %13, i64 0, i64 %15
+  %17 = getelementptr ptr, ptr %13, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %26, label %20
@@ -577,7 +577,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 
 52:                                               ; preds = %43, %.thread7.thread
   %53 = phi i64 [ 0, %.thread7.thread ], [ %44, %43 ]
-  %54 = getelementptr [3 x i32], ptr %42, i64 0, i64 %53
+  %54 = getelementptr i32, ptr %42, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %43, label %.thread
@@ -585,7 +585,7 @@ define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0
 57:                                               ; preds = %96, %46
   %58 = phi i64 [ 0, %46 ], [ %98, %96 ]
   %59 = phi ptr [ %8, %46 ], [ %97, %96 ]
-  %60 = getelementptr [7 x ptr], ptr %13, i64 0, i64 %58
+  %60 = getelementptr ptr, ptr %13, i64 %58
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %96, label %63

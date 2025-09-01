@@ -2002,7 +2002,7 @@ define dso_local i64 @bit_bit_count(ptr noundef readonly captures(none) %0) loca
   %12 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 1
   %13 = load i8, ptr %.01013.i, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @pg_number_of_ones, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @pg_number_of_ones, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = add i64 %.015.i, %17

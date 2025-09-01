@@ -1365,10 +1365,10 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
 
 89:                                               ; preds = %89, %88
   %indvars.iv.i = phi i64 [ 0, %88 ], [ %indvars.iv.next.i, %89 ]
-  %90 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %91 = load i32, ptr %90, align 4, !tbaa !152, !noalias !153
   %92 = sub nsw i32 0, %91
-  %93 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 %92, ptr %93, align 4, !tbaa !152, !alias.scope !153
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1884,12 +1884,12 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSch
 
 150:                                              ; preds = %150, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit54
   %indvars.iv.i = phi i64 [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit54 ], [ %indvars.iv.next.i, %150 ]
-  %151 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   %152 = load i64, ptr %151, align 8, !tbaa !198, !noalias !214
-  %153 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %154 = load i64, ptr %153, align 8, !tbaa !198, !noalias !214
   %155 = sub nsw i64 %152, %154
-  %156 = getelementptr inbounds nuw [3 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %155, ptr %156, align 8, !tbaa !198, !alias.scope !214
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1903,12 +1903,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %150
 
 157:                                              ; preds = %157, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %indvars.iv.i55 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i56, %157 ]
-  %158 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i55
+  %158 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i55
   %159 = load i64, ptr %158, align 8, !tbaa !198, !noalias !218
-  %160 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i55
+  %160 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i55
   %161 = load i64, ptr %160, align 8, !tbaa !198, !noalias !218
   %162 = sub nsw i64 %159, %161
-  %163 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %indvars.iv.i55
+  %163 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i55
   store i64 %162, ptr %163, align 8, !tbaa !198, !alias.scope !218
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 3
@@ -1958,7 +1958,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58:         ; preds = %157
 .preheader:                                       ; preds = %184, %192
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %192 ], [ 0, %184 ]
   %.01520.i = phi i64 [ %193, %192 ], [ 0, %184 ]
-  %188 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i59
+  %188 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i59
   %189 = load i64, ptr %188, align 8, !tbaa !198
   %190 = call noundef i64 @llvm.abs.i64(i64 %189, i1 true)
   %191 = xor i64 %190, 9223372036854775807
@@ -1986,10 +1986,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit:          ; preds = %192
 
 198:                                              ; preds = %198, %196
   %indvars.iv.i61 = phi i64 [ 0, %196 ], [ %indvars.iv.next.i62, %198 ]
-  %199 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i61
+  %199 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i61
   %200 = load i64, ptr %199, align 8, !tbaa !198, !noalias !226
   %201 = sdiv i64 %200, %197
-  %202 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv.i61
+  %202 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i61
   store i64 %201, ptr %202, align 8, !tbaa !198, !alias.scope !226
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
@@ -2003,7 +2003,7 @@ _ZNK5draco7VectorDIlLi3EEdvERKl.exit:             ; preds = %198
 .preheader90:                                     ; preds = %184, %207
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i67, %207 ], [ 0, %184 ]
   %.01520.i65 = phi i64 [ %208, %207 ], [ 0, %184 ]
-  %203 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i64
+  %203 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i64
   %204 = load i64, ptr %203, align 8, !tbaa !198
   %205 = call noundef i64 @llvm.abs.i64(i64 %204, i1 true)
   %206 = xor i64 %205, 9223372036854775807
@@ -2030,10 +2030,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread: ; preds = %.preheader90, %_ZNK
 
 211:                                              ; preds = %211, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread
   %indvars.iv.i71 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread ], [ %indvars.iv.next.i72, %211 ]
-  %212 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i71
+  %212 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i71
   %213 = load i64, ptr %212, align 8, !tbaa !198, !noalias !231
   %214 = sdiv i64 %213, %210
-  %215 = getelementptr inbounds nuw [3 x i64], ptr %12, i64 0, i64 %indvars.iv.i71
+  %215 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i71
   store i64 %214, ptr %215, align 8, !tbaa !198, !alias.scope !231
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, 3
@@ -3378,10 +3378,10 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
 
 89:                                               ; preds = %89, %88
   %indvars.iv.i = phi i64 [ 0, %88 ], [ %indvars.iv.next.i, %89 ]
-  %90 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %91 = load i32, ptr %90, align 4, !tbaa !152, !noalias !281
   %92 = sub nsw i32 0, %91
-  %93 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 %92, ptr %93, align 4, !tbaa !152, !alias.scope !281
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3837,12 +3837,12 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSch
 
 153:                                              ; preds = %153, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit58
   %indvars.iv.i = phi i64 [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit58 ], [ %indvars.iv.next.i, %153 ]
-  %154 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   %155 = load i64, ptr %154, align 8, !tbaa !198, !noalias !311
-  %156 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !198, !noalias !311
   %158 = sub nsw i64 %155, %157
-  %159 = getelementptr inbounds nuw [3 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %158, ptr %159, align 8, !tbaa !198, !alias.scope !311
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3856,12 +3856,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %153
 
 160:                                              ; preds = %160, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %indvars.iv.i59 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i60, %160 ]
-  %161 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i59
+  %161 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i59
   %162 = load i64, ptr %161, align 8, !tbaa !198, !noalias !314
-  %163 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i59
+  %163 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i59
   %164 = load i64, ptr %163, align 8, !tbaa !198, !noalias !314
   %165 = sub nsw i64 %162, %164
-  %166 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %indvars.iv.i59
+  %166 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i59
   store i64 %165, ptr %166, align 8, !tbaa !198, !alias.scope !314
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 3
@@ -3911,7 +3911,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62:         ; preds = %160
 .preheader:                                       ; preds = %187, %195
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i65, %195 ], [ 0, %187 ]
   %.01520.i = phi i64 [ %196, %195 ], [ 0, %187 ]
-  %191 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i63
+  %191 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i63
   %192 = load i64, ptr %191, align 8, !tbaa !198
   %193 = call noundef i64 @llvm.abs.i64(i64 %192, i1 true)
   %194 = xor i64 %193, 9223372036854775807
@@ -3939,10 +3939,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit:          ; preds = %195
 
 201:                                              ; preds = %201, %199
   %indvars.iv.i67 = phi i64 [ 0, %199 ], [ %indvars.iv.next.i68, %201 ]
-  %202 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i67
+  %202 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i67
   %203 = load i64, ptr %202, align 8, !tbaa !198, !noalias !321
   %204 = sdiv i64 %203, %200
-  %205 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv.i67
+  %205 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i67
   store i64 %204, ptr %205, align 8, !tbaa !198, !alias.scope !321
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 3
@@ -3956,7 +3956,7 @@ _ZNK5draco7VectorDIlLi3EEdvERKl.exit:             ; preds = %201
 .preheader99:                                     ; preds = %187, %210
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i73, %210 ], [ 0, %187 ]
   %.01520.i71 = phi i64 [ %211, %210 ], [ 0, %187 ]
-  %206 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i70
+  %206 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i70
   %207 = load i64, ptr %206, align 8, !tbaa !198
   %208 = call noundef i64 @llvm.abs.i64(i64 %207, i1 true)
   %209 = xor i64 %208, 9223372036854775807
@@ -3983,10 +3983,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread: ; preds = %.preheader99, %_ZNK
 
 214:                                              ; preds = %214, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread
   %indvars.iv.i77 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread ], [ %indvars.iv.next.i78, %214 ]
-  %215 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i77
+  %215 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i77
   %216 = load i64, ptr %215, align 8, !tbaa !198, !noalias !324
   %217 = sdiv i64 %216, %213
-  %218 = getelementptr inbounds nuw [3 x i64], ptr %12, i64 0, i64 %indvars.iv.i77
+  %218 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i77
   store i64 %217, ptr %218, align 8, !tbaa !198, !alias.scope !324
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 3
@@ -4808,10 +4808,10 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
 
 88:                                               ; preds = %88, %87
   %indvars.iv.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i, %88 ]
-  %89 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 4, !tbaa !152, !noalias !344
   %91 = sub nsw i32 0, %90
-  %92 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 %91, ptr %92, align 4, !tbaa !152, !alias.scope !344
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -5312,12 +5312,12 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSch
 
 150:                                              ; preds = %150, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit54
   %indvars.iv.i = phi i64 [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit54 ], [ %indvars.iv.next.i, %150 ]
-  %151 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   %152 = load i64, ptr %151, align 8, !tbaa !198, !noalias !369
-  %153 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %154 = load i64, ptr %153, align 8, !tbaa !198, !noalias !369
   %155 = sub nsw i64 %152, %154
-  %156 = getelementptr inbounds nuw [3 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %155, ptr %156, align 8, !tbaa !198, !alias.scope !369
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -5331,12 +5331,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %150
 
 157:                                              ; preds = %157, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %indvars.iv.i55 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i56, %157 ]
-  %158 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i55
+  %158 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i55
   %159 = load i64, ptr %158, align 8, !tbaa !198, !noalias !372
-  %160 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i55
+  %160 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i55
   %161 = load i64, ptr %160, align 8, !tbaa !198, !noalias !372
   %162 = sub nsw i64 %159, %161
-  %163 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %indvars.iv.i55
+  %163 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i55
   store i64 %162, ptr %163, align 8, !tbaa !198, !alias.scope !372
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 3
@@ -5386,7 +5386,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58:         ; preds = %157
 .preheader:                                       ; preds = %184, %192
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %192 ], [ 0, %184 ]
   %.01520.i = phi i64 [ %193, %192 ], [ 0, %184 ]
-  %188 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i59
+  %188 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i59
   %189 = load i64, ptr %188, align 8, !tbaa !198
   %190 = call noundef i64 @llvm.abs.i64(i64 %189, i1 true)
   %191 = xor i64 %190, 9223372036854775807
@@ -5414,10 +5414,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit:          ; preds = %192
 
 198:                                              ; preds = %198, %196
   %indvars.iv.i61 = phi i64 [ 0, %196 ], [ %indvars.iv.next.i62, %198 ]
-  %199 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i61
+  %199 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i61
   %200 = load i64, ptr %199, align 8, !tbaa !198, !noalias !379
   %201 = sdiv i64 %200, %197
-  %202 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv.i61
+  %202 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i61
   store i64 %201, ptr %202, align 8, !tbaa !198, !alias.scope !379
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
@@ -5431,7 +5431,7 @@ _ZNK5draco7VectorDIlLi3EEdvERKl.exit:             ; preds = %198
 .preheader90:                                     ; preds = %184, %207
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i67, %207 ], [ 0, %184 ]
   %.01520.i65 = phi i64 [ %208, %207 ], [ 0, %184 ]
-  %203 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i64
+  %203 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i64
   %204 = load i64, ptr %203, align 8, !tbaa !198
   %205 = call noundef i64 @llvm.abs.i64(i64 %204, i1 true)
   %206 = xor i64 %205, 9223372036854775807
@@ -5458,10 +5458,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread: ; preds = %.preheader90, %_ZNK
 
 211:                                              ; preds = %211, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread
   %indvars.iv.i71 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread ], [ %indvars.iv.next.i72, %211 ]
-  %212 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i71
+  %212 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i71
   %213 = load i64, ptr %212, align 8, !tbaa !198, !noalias !382
   %214 = sdiv i64 %213, %210
-  %215 = getelementptr inbounds nuw [3 x i64], ptr %12, i64 0, i64 %indvars.iv.i71
+  %215 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i71
   store i64 %214, ptr %215, align 8, !tbaa !198, !alias.scope !382
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, 3
@@ -6125,10 +6125,10 @@ _ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds =
 
 88:                                               ; preds = %88, %87
   %indvars.iv.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i, %88 ]
-  %89 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 4, !tbaa !152, !noalias !393
   %91 = sub nsw i32 0, %90
-  %92 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 %91, ptr %92, align 4, !tbaa !152, !alias.scope !393
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6584,12 +6584,12 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSch
 
 153:                                              ; preds = %153, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit58
   %indvars.iv.i = phi i64 [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit58 ], [ %indvars.iv.next.i, %153 ]
-  %154 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   %155 = load i64, ptr %154, align 8, !tbaa !198, !noalias !418
-  %156 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !198, !noalias !418
   %158 = sub nsw i64 %155, %157
-  %159 = getelementptr inbounds nuw [3 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   store i64 %158, ptr %159, align 8, !tbaa !198, !alias.scope !418
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6603,12 +6603,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %153
 
 160:                                              ; preds = %160, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %indvars.iv.i59 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit ], [ %indvars.iv.next.i60, %160 ]
-  %161 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i59
+  %161 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i59
   %162 = load i64, ptr %161, align 8, !tbaa !198, !noalias !421
-  %163 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv.i59
+  %163 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i59
   %164 = load i64, ptr %163, align 8, !tbaa !198, !noalias !421
   %165 = sub nsw i64 %162, %164
-  %166 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %indvars.iv.i59
+  %166 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i59
   store i64 %165, ptr %166, align 8, !tbaa !198, !alias.scope !421
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 3
@@ -6658,7 +6658,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62:         ; preds = %160
 .preheader:                                       ; preds = %187, %195
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i65, %195 ], [ 0, %187 ]
   %.01520.i = phi i64 [ %196, %195 ], [ 0, %187 ]
-  %191 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i63
+  %191 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i63
   %192 = load i64, ptr %191, align 8, !tbaa !198
   %193 = call noundef i64 @llvm.abs.i64(i64 %192, i1 true)
   %194 = xor i64 %193, 9223372036854775807
@@ -6686,10 +6686,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit:          ; preds = %195
 
 201:                                              ; preds = %201, %199
   %indvars.iv.i67 = phi i64 [ 0, %199 ], [ %indvars.iv.next.i68, %201 ]
-  %202 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i67
+  %202 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i67
   %203 = load i64, ptr %202, align 8, !tbaa !198, !noalias !428
   %204 = sdiv i64 %203, %200
-  %205 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv.i67
+  %205 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i67
   store i64 %204, ptr %205, align 8, !tbaa !198, !alias.scope !428
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 3
@@ -6703,7 +6703,7 @@ _ZNK5draco7VectorDIlLi3EEdvERKl.exit:             ; preds = %201
 .preheader99:                                     ; preds = %187, %210
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i73, %210 ], [ 0, %187 ]
   %.01520.i71 = phi i64 [ %211, %210 ], [ 0, %187 ]
-  %206 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i70
+  %206 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i70
   %207 = load i64, ptr %206, align 8, !tbaa !198
   %208 = call noundef i64 @llvm.abs.i64(i64 %207, i1 true)
   %209 = xor i64 %208, 9223372036854775807
@@ -6730,10 +6730,10 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread: ; preds = %.preheader99, %_ZNK
 
 214:                                              ; preds = %214, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread
   %indvars.iv.i77 = phi i64 [ 0, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit76.thread ], [ %indvars.iv.next.i78, %214 ]
-  %215 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i77
+  %215 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i77
   %216 = load i64, ptr %215, align 8, !tbaa !198, !noalias !431
   %217 = sdiv i64 %216, %213
-  %218 = getelementptr inbounds nuw [3 x i64], ptr %12, i64 0, i64 %indvars.iv.i77
+  %218 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i77
   store i64 %217, ptr %218, align 8, !tbaa !198, !alias.scope !431
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 3

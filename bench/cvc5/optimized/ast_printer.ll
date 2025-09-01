@@ -1493,7 +1493,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit59: ; preds = %127, %1
   %141 = icmp eq i32 %140, 2
   %spec.select.i.i = select i1 %141, i64 2, i64 1
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %143 = getelementptr inbounds nuw [0 x ptr], ptr %142, i64 0, i64 %spec.select.i.i
+  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %spec.select.i.i
   %144 = load ptr, ptr %143, align 8, !tbaa !57, !noalias !54
   store ptr %144, ptr %13, align 8, !tbaa !19
   %145 = load i64, ptr %144, align 8
@@ -1573,8 +1573,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %158, %156
   %spec.select.i.i60 = add nuw i64 %.04083, %185
   %186 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %sext = shl i64 %spec.select.i.i60, 32
-  %187 = ashr exact i64 %sext, 32
-  %188 = getelementptr inbounds [0 x ptr], ptr %186, i64 0, i64 %187
+  %187 = ashr exact i64 %sext, 29
+  %188 = getelementptr inbounds i8, ptr %186, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !57, !noalias !58
   store ptr %189, ptr %14, align 8, !tbaa !16, !alias.scope !58
   call void @_ZNK4cvc58internal7printer3ast10AstPrinter8toStreamERSoNS0_12NodeTemplateILb0EEEiPNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14, i32 noundef %119, ptr noundef %4)

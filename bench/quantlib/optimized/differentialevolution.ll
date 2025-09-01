@@ -2084,7 +2084,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body15,
   %27 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %21, %for.body15 ]
   %inc.i.i = add i64 %27, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %27
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %27
   %28 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %28, 11
   %xor.i.i = xor i64 %shr.i.i, %28
@@ -2467,7 +2467,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %.noexc20
   %9 = phi i64 [ %.pre.i.i, %.noexc206 ], [ %8, %for.body.i ]
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i4.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %9
+  %arrayidx.i4.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %9
   %10 = load i64, ptr %arrayidx.i4.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %10, 11
   %xor.i.i = xor i64 %shr.i.i, %10
@@ -2598,7 +2598,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i249: ; preds = %.noex
   %25 = phi i64 [ %.pre.i.i271, %.noexc272 ], [ %24, %for.body.i244 ]
   %inc.i.i250 = add i64 %25, 1
   store i64 %inc.i.i250, ptr %mti.i.i243, align 8, !tbaa !68
-  %arrayidx.i4.i251 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %25
+  %arrayidx.i4.i251 = getelementptr inbounds nuw i64, ptr %rng_, i64 %25
   %26 = load i64, ptr %arrayidx.i4.i251, align 8, !tbaa !24
   %shr.i.i252 = lshr i64 %26, 11
   %xor.i.i253 = xor i64 %shr.i.i252, %26
@@ -2722,7 +2722,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i316: ; preds = %.noex
   %40 = phi i64 [ %.pre.i.i338, %.noexc339 ], [ %39, %for.body.i311 ]
   %inc.i.i317 = add i64 %40, 1
   store i64 %inc.i.i317, ptr %mti.i.i310, align 8, !tbaa !68
-  %arrayidx.i4.i318 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %40
+  %arrayidx.i4.i318 = getelementptr inbounds nuw i64, ptr %rng_, i64 %40
   %41 = load i64, ptr %arrayidx.i4.i318, align 8, !tbaa !24
   %shr.i.i319 = lshr i64 %41, 11
   %xor.i.i320 = xor i64 %shr.i.i319, %41
@@ -3069,7 +3069,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i401: ; preds = %.noex
   %85 = phi i64 [ %.pre.i.i423, %.noexc424 ], [ %84, %for.body.i396 ]
   %inc.i.i402 = add i64 %85, 1
   store i64 %inc.i.i402, ptr %mti.i.i395, align 8, !tbaa !68
-  %arrayidx.i4.i403 = getelementptr inbounds nuw [624 x i64], ptr %rng_74, i64 0, i64 %85
+  %arrayidx.i4.i403 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %85
   %86 = load i64, ptr %arrayidx.i4.i403, align 8, !tbaa !24
   %shr.i.i404 = lshr i64 %86, 11
   %xor.i.i405 = xor i64 %shr.i.i404, %86
@@ -3193,7 +3193,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i468: ; preds = %.noex
   %99 = phi i64 [ %.pre.i.i490, %.noexc491 ], [ %98, %for.body.i463 ]
   %inc.i.i469 = add i64 %99, 1
   store i64 %inc.i.i469, ptr %mti.i.i462, align 8, !tbaa !68
-  %arrayidx.i4.i470 = getelementptr inbounds nuw [624 x i64], ptr %rng_74, i64 0, i64 %99
+  %arrayidx.i4.i470 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %99
   %100 = load i64, ptr %arrayidx.i4.i470, align 8, !tbaa !24
   %shr.i.i471 = lshr i64 %100, 11
   %xor.i.i472 = xor i64 %shr.i.i471, %100
@@ -3362,7 +3362,7 @@ invoke.cont116:                                   ; preds = %.noexc550, %for.bod
   %123 = phi i64 [ %.pre.i.i549, %.noexc550 ], [ %122, %for.body113 ]
   %inc.i.i536 = add i64 %123, 1
   store i64 %inc.i.i536, ptr %mti.i.i533, align 8, !tbaa !68
-  %arrayidx.i.i537 = getelementptr inbounds nuw [624 x i64], ptr %rng_74, i64 0, i64 %123
+  %arrayidx.i.i537 = getelementptr inbounds nuw i64, ptr %rng_74, i64 %123
   %124 = load i64, ptr %arrayidx.i.i537, align 8, !tbaa !24
   %shr.i.i538 = lshr i64 %124, 11
   %xor.i.i539 = xor i64 %shr.i.i538, %124
@@ -3701,7 +3701,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i659: ; preds = %.noex
   %157 = phi i64 [ %.pre.i.i681, %.noexc682 ], [ %156, %for.body.i654 ]
   %inc.i.i660 = add i64 %157, 1
   store i64 %inc.i.i660, ptr %mti.i.i653, align 8, !tbaa !68
-  %arrayidx.i4.i661 = getelementptr inbounds nuw [624 x i64], ptr %rng_184, i64 0, i64 %157
+  %arrayidx.i4.i661 = getelementptr inbounds nuw i64, ptr %rng_184, i64 %157
   %158 = load i64, ptr %arrayidx.i4.i661, align 8, !tbaa !24
   %shr.i.i662 = lshr i64 %158, 11
   %xor.i.i663 = xor i64 %shr.i.i662, %158
@@ -3832,7 +3832,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i726: ; preds = %.noex
   %173 = phi i64 [ %.pre.i.i748, %.noexc749 ], [ %172, %for.body.i721 ]
   %inc.i.i727 = add i64 %173, 1
   store i64 %inc.i.i727, ptr %mti.i.i720, align 8, !tbaa !68
-  %arrayidx.i4.i728 = getelementptr inbounds nuw [624 x i64], ptr %rng_184, i64 0, i64 %173
+  %arrayidx.i4.i728 = getelementptr inbounds nuw i64, ptr %rng_184, i64 %173
   %174 = load i64, ptr %arrayidx.i4.i728, align 8, !tbaa !24
   %shr.i.i729 = lshr i64 %174, 11
   %xor.i.i730 = xor i64 %shr.i.i729, %174
@@ -4236,7 +4236,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i854: ; preds = %.noex
   %223 = phi i64 [ %.pre.i.i876, %.noexc877 ], [ %222, %for.body.i849 ]
   %inc.i.i855 = add i64 %223, 1
   store i64 %inc.i.i855, ptr %mti.i.i848, align 8, !tbaa !68
-  %arrayidx.i4.i856 = getelementptr inbounds nuw [624 x i64], ptr %rng_273, i64 0, i64 %223
+  %arrayidx.i4.i856 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %223
   %224 = load i64, ptr %arrayidx.i4.i856, align 8, !tbaa !24
   %shr.i.i857 = lshr i64 %224, 11
   %xor.i.i858 = xor i64 %shr.i.i857, %224
@@ -4367,7 +4367,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i921: ; preds = %.noex
   %239 = phi i64 [ %.pre.i.i943, %.noexc944 ], [ %238, %for.body.i916 ]
   %inc.i.i922 = add i64 %239, 1
   store i64 %inc.i.i922, ptr %mti.i.i915, align 8, !tbaa !68
-  %arrayidx.i4.i923 = getelementptr inbounds nuw [624 x i64], ptr %rng_273, i64 0, i64 %239
+  %arrayidx.i4.i923 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %239
   %240 = load i64, ptr %arrayidx.i4.i923, align 8, !tbaa !24
   %shr.i.i924 = lshr i64 %240, 11
   %xor.i.i925 = xor i64 %shr.i.i924, %240
@@ -4491,7 +4491,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i988: ; preds = %.noex
   %254 = phi i64 [ %.pre.i.i1010, %.noexc1011 ], [ %253, %for.body.i983 ]
   %inc.i.i989 = add i64 %254, 1
   store i64 %inc.i.i989, ptr %mti.i.i982, align 8, !tbaa !68
-  %arrayidx.i4.i990 = getelementptr inbounds nuw [624 x i64], ptr %rng_273, i64 0, i64 %254
+  %arrayidx.i4.i990 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %254
   %255 = load i64, ptr %arrayidx.i4.i990, align 8, !tbaa !24
   %shr.i.i991 = lshr i64 %255, 11
   %xor.i.i992 = xor i64 %shr.i.i991, %255
@@ -4628,7 +4628,7 @@ invoke.cont328:                                   ; preds = %.noexc1050, %for.bo
   %276 = phi i64 [ %.pre.i.i1049, %.noexc1050 ], [ %274, %for.body322 ]
   %inc.i.i1033 = add i64 %276, 1
   store i64 %inc.i.i1033, ptr %mti.i.i1030, align 8, !tbaa !68
-  %arrayidx.i.i1034 = getelementptr inbounds nuw [624 x i64], ptr %rng_273, i64 0, i64 %276
+  %arrayidx.i.i1034 = getelementptr inbounds nuw i64, ptr %rng_273, i64 %276
   %277 = load i64, ptr %arrayidx.i.i1034, align 8, !tbaa !24
   %shr.i.i1035 = lshr i64 %277, 11
   %xor.i.i1036 = xor i64 %shr.i.i1035, %277
@@ -4931,7 +4931,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1139: ; preds = %.noe
   %311 = phi i64 [ %.pre.i.i1161, %.noexc1162 ], [ %310, %for.body.i1134 ]
   %inc.i.i1140 = add i64 %311, 1
   store i64 %inc.i.i1140, ptr %mti.i.i1133, align 8, !tbaa !68
-  %arrayidx.i4.i1141 = getelementptr inbounds nuw [624 x i64], ptr %rng_386, i64 0, i64 %311
+  %arrayidx.i4.i1141 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %311
   %312 = load i64, ptr %arrayidx.i4.i1141, align 8, !tbaa !24
   %shr.i.i1142 = lshr i64 %312, 11
   %xor.i.i1143 = xor i64 %shr.i.i1142, %312
@@ -5062,7 +5062,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1206: ; preds = %.noe
   %327 = phi i64 [ %.pre.i.i1228, %.noexc1229 ], [ %326, %for.body.i1201 ]
   %inc.i.i1207 = add i64 %327, 1
   store i64 %inc.i.i1207, ptr %mti.i.i1200, align 8, !tbaa !68
-  %arrayidx.i4.i1208 = getelementptr inbounds nuw [624 x i64], ptr %rng_386, i64 0, i64 %327
+  %arrayidx.i4.i1208 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %327
   %328 = load i64, ptr %arrayidx.i4.i1208, align 8, !tbaa !24
   %shr.i.i1209 = lshr i64 %328, 11
   %xor.i.i1210 = xor i64 %shr.i.i1209, %328
@@ -5186,7 +5186,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1273: ; preds = %.noe
   %342 = phi i64 [ %.pre.i.i1295, %.noexc1296 ], [ %341, %for.body.i1268 ]
   %inc.i.i1274 = add i64 %342, 1
   store i64 %inc.i.i1274, ptr %mti.i.i1267, align 8, !tbaa !68
-  %arrayidx.i4.i1275 = getelementptr inbounds nuw [624 x i64], ptr %rng_386, i64 0, i64 %342
+  %arrayidx.i4.i1275 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %342
   %343 = load i64, ptr %arrayidx.i4.i1275, align 8, !tbaa !24
   %shr.i.i1276 = lshr i64 %343, 11
   %xor.i.i1277 = xor i64 %shr.i.i1276, %343
@@ -5248,7 +5248,7 @@ invoke.cont427:                                   ; preds = %.noexc1319, %invoke
   %353 = phi i64 [ %.pre.i.i1318, %.noexc1319 ], [ %351, %invoke.cont418 ]
   %inc.i.i1302 = add i64 %353, 1
   store i64 %inc.i.i1302, ptr %mti.i.i1299, align 8, !tbaa !68
-  %arrayidx.i.i1303 = getelementptr inbounds nuw [624 x i64], ptr %rng_386, i64 0, i64 %353
+  %arrayidx.i.i1303 = getelementptr inbounds nuw i64, ptr %rng_386, i64 %353
   %354 = load i64, ptr %arrayidx.i.i1303, align 8, !tbaa !24
   %shr.i.i1304 = lshr i64 %354, 11
   %xor.i.i1305 = xor i64 %shr.i.i1304, %354
@@ -5574,7 +5574,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1413: ; preds = %.noe
   %393 = phi i64 [ %.pre.i.i1435, %.noexc1436 ], [ %392, %for.body.i1408 ]
   %inc.i.i1414 = add i64 %393, 1
   store i64 %inc.i.i1414, ptr %mti.i.i1407, align 8, !tbaa !68
-  %arrayidx.i4.i1415 = getelementptr inbounds nuw [624 x i64], ptr %rng_477, i64 0, i64 %393
+  %arrayidx.i4.i1415 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %393
   %394 = load i64, ptr %arrayidx.i4.i1415, align 8, !tbaa !24
   %shr.i.i1416 = lshr i64 %394, 11
   %xor.i.i1417 = xor i64 %shr.i.i1416, %394
@@ -5705,7 +5705,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1480: ; preds = %.noe
   %409 = phi i64 [ %.pre.i.i1502, %.noexc1503 ], [ %408, %for.body.i1475 ]
   %inc.i.i1481 = add i64 %409, 1
   store i64 %inc.i.i1481, ptr %mti.i.i1474, align 8, !tbaa !68
-  %arrayidx.i4.i1482 = getelementptr inbounds nuw [624 x i64], ptr %rng_477, i64 0, i64 %409
+  %arrayidx.i4.i1482 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %409
   %410 = load i64, ptr %arrayidx.i4.i1482, align 8, !tbaa !24
   %shr.i.i1483 = lshr i64 %410, 11
   %xor.i.i1484 = xor i64 %shr.i.i1483, %410
@@ -5829,7 +5829,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1547: ; preds = %.noe
   %424 = phi i64 [ %.pre.i.i1569, %.noexc1570 ], [ %423, %for.body.i1542 ]
   %inc.i.i1548 = add i64 %424, 1
   store i64 %inc.i.i1548, ptr %mti.i.i1541, align 8, !tbaa !68
-  %arrayidx.i4.i1549 = getelementptr inbounds nuw [624 x i64], ptr %rng_477, i64 0, i64 %424
+  %arrayidx.i4.i1549 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %424
   %425 = load i64, ptr %arrayidx.i4.i1549, align 8, !tbaa !24
   %shr.i.i1550 = lshr i64 %425, 11
   %xor.i.i1551 = xor i64 %shr.i.i1550, %425
@@ -5887,7 +5887,7 @@ invoke.cont513:                                   ; preds = %.noexc1592, %invoke
   %433 = phi i64 [ %.pre.i.i1591, %.noexc1592 ], [ %432, %invoke.cont509 ]
   %inc.i.i1575 = add i64 %433, 1
   store i64 %inc.i.i1575, ptr %mti.i.i1572, align 8, !tbaa !68
-  %arrayidx.i.i1576 = getelementptr inbounds nuw [624 x i64], ptr %rng_477, i64 0, i64 %433
+  %arrayidx.i.i1576 = getelementptr inbounds nuw i64, ptr %rng_477, i64 %433
   %434 = load i64, ptr %arrayidx.i.i1576, align 8, !tbaa !24
   %shr.i.i1577 = lshr i64 %434, 11
   %xor.i.i1578 = xor i64 %shr.i.i1577, %434
@@ -6449,7 +6449,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1754: ; preds = %.noe
   %504 = phi i64 [ %.pre.i.i1776, %.noexc1777 ], [ %503, %for.body.i1749 ]
   %inc.i.i1755 = add i64 %504, 1
   store i64 %inc.i.i1755, ptr %mti.i.i1748, align 8, !tbaa !68
-  %arrayidx.i4.i1756 = getelementptr inbounds nuw [624 x i64], ptr %rng_615, i64 0, i64 %504
+  %arrayidx.i4.i1756 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %504
   %505 = load i64, ptr %arrayidx.i4.i1756, align 8, !tbaa !24
   %shr.i.i1757 = lshr i64 %505, 11
   %xor.i.i1758 = xor i64 %shr.i.i1757, %505
@@ -6580,7 +6580,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1821: ; preds = %.noe
   %520 = phi i64 [ %.pre.i.i1843, %.noexc1844 ], [ %519, %for.body.i1816 ]
   %inc.i.i1822 = add i64 %520, 1
   store i64 %inc.i.i1822, ptr %mti.i.i1815, align 8, !tbaa !68
-  %arrayidx.i4.i1823 = getelementptr inbounds nuw [624 x i64], ptr %rng_615, i64 0, i64 %520
+  %arrayidx.i4.i1823 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %520
   %521 = load i64, ptr %arrayidx.i4.i1823, align 8, !tbaa !24
   %shr.i.i1824 = lshr i64 %521, 11
   %xor.i.i1825 = xor i64 %shr.i.i1824, %521
@@ -6704,7 +6704,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i1888: ; preds = %.noe
   %534 = phi i64 [ %.pre.i.i1910, %.noexc1911 ], [ %533, %for.body.i1883 ]
   %inc.i.i1889 = add i64 %534, 1
   store i64 %inc.i.i1889, ptr %mti.i.i1882, align 8, !tbaa !68
-  %arrayidx.i4.i1890 = getelementptr inbounds nuw [624 x i64], ptr %rng_615, i64 0, i64 %534
+  %arrayidx.i4.i1890 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %534
   %535 = load i64, ptr %arrayidx.i4.i1890, align 8, !tbaa !24
   %shr.i.i1891 = lshr i64 %535, 11
   %xor.i.i1892 = xor i64 %shr.i.i1891, %535
@@ -6879,7 +6879,7 @@ invoke.cont658:                                   ; preds = %.noexc1978, %for.bo
   %554 = phi i64 [ %.pre.i.i1977, %.noexc1978 ], [ %553, %for.body655 ]
   %inc.i.i1961 = add i64 %554, 1
   store i64 %inc.i.i1961, ptr %mti.i.i1958, align 8, !tbaa !68
-  %arrayidx.i.i1962 = getelementptr inbounds nuw [624 x i64], ptr %rng_615, i64 0, i64 %554
+  %arrayidx.i.i1962 = getelementptr inbounds nuw i64, ptr %rng_615, i64 %554
   %555 = load i64, ptr %arrayidx.i.i1962, align 8, !tbaa !24
   %shr.i.i1963 = lshr i64 %555, 11
   %xor.i.i1964 = xor i64 %shr.i.i1963, %555
@@ -6941,7 +6941,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i.i: ; preds = %.noexc
   %562 = phi i64 [ %.pre.i.i.i, %.noexc1991 ], [ %561, %for.body.i.i1987 ]
   %inc.i.i.i = add i64 %562, 1
   store i64 %inc.i.i.i, ptr %mti.i.i1958, align 8, !tbaa !68, !noalias !113
-  %arrayidx.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_615, i64 0, i64 %562
+  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng_615, i64 %562
   %563 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24, !noalias !113
   %shr.i.i.i = lshr i64 %563, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %563
@@ -9054,7 +9054,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -9085,7 +9085,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %5 = phi i64 [ %.pre.i.i22, %if.then.i.i21 ], [ %inc.i.i, %if.then ]
   %inc.i.i6 = add i64 %5, 1
   store i64 %inc.i.i6, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i7 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %5
+  %arrayidx.i.i7 = getelementptr inbounds nuw i64, ptr %rng_, i64 %5
   %6 = load i64, ptr %arrayidx.i.i7, align 8, !tbaa !24
   %shr.i.i8 = lshr i64 %6, 11
   %xor.i.i9 = xor i64 %shr.i.i8, %6
@@ -9144,7 +9144,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit.i: ; preds = %if.then.
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body.i ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -9391,7 +9391,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit.i: ; preds = %.noexc77,
   %13 = phi i64 [ %.pre.i.i.i, %.noexc77 ], [ %12, %for.body7.i ]
   %inc.i.i.i = add i64 %13, 1
   store i64 %inc.i.i.i, ptr %mti.i.i.i, align 8, !tbaa !68
-  %arrayidx.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_.i, i64 0, i64 %13
+  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng_.i, i64 %13
   %14 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24
   %shr.i.i.i = lshr i64 %14, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %14
@@ -9714,7 +9714,7 @@ invoke.cont62:                                    ; preds = %.noexc150, %if.then
   %57 = phi i64 [ %.pre.i.i, %.noexc150 ], [ %54, %if.then58 ]
   %inc.i.i = add i64 %57, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i148 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %57
+  %arrayidx.i.i148 = getelementptr inbounds nuw i64, ptr %rng_, i64 %57
   %58 = load i64, ptr %arrayidx.i.i148, align 8, !tbaa !24
   %shr.i.i = lshr i64 %58, 11
   %xor.i.i = xor i64 %shr.i.i, %58
@@ -9778,7 +9778,7 @@ invoke.cont88:                                    ; preds = %.noexc179, %if.then
   %71 = phi i64 [ %.pre.i.i178, %.noexc179 ], [ %68, %if.then83 ]
   %inc.i.i162 = add i64 %71, 1
   store i64 %inc.i.i162, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i163 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %71
+  %arrayidx.i.i163 = getelementptr inbounds nuw i64, ptr %rng_, i64 %71
   %72 = load i64, ptr %arrayidx.i.i163, align 8, !tbaa !24
   %shr.i.i164 = lshr i64 %72, 11
   %xor.i.i165 = xor i64 %shr.i.i164, %72
@@ -9946,7 +9946,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %for.body ]
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %3
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %3
   %4 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %4, 11
   %xor.i.i = xor i64 %shr.i.i, %4
@@ -9977,7 +9977,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %5 = phi i64 [ %.pre.i.i22, %if.then.i.i21 ], [ %inc.i.i, %if.then ]
   %inc.i.i6 = add i64 %5, 1
   store i64 %inc.i.i6, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i7 = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %5
+  %arrayidx.i.i7 = getelementptr inbounds nuw i64, ptr %rng_, i64 %5
   %6 = load i64, ptr %arrayidx.i.i7, align 8, !tbaa !24
   %shr.i.i8 = lshr i64 %6, 11
   %xor.i.i9 = xor i64 %shr.i.i8, %6
@@ -10390,7 +10390,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body7, 
   %8 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %7, %for.body7 ]
   %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mti.i.i, align 8, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %8
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %8
   %9 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !24
   %shr.i.i = lshr i64 %9, 11
   %xor.i.i = xor i64 %shr.i.i, %9

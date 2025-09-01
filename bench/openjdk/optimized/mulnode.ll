@@ -194,7 +194,7 @@ define hidden noundef ptr @_ZN7MulNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %38, i32 1
+  %39 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %38, i32 1
   %40 = load i8, ptr %39, align 4
   %41 = icmp eq i8 %40, 14
   %42 = icmp ugt i8 %40, 18
@@ -203,7 +203,7 @@ define hidden noundef ptr @_ZN7MulNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
 
 _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %22
   %43 = zext nneg i8 %40 to i64
-  %44 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %35, %45
   br i1 %46, label %47, label %_ZNK4Type12is_zero_typeEv.exit.thread
@@ -221,7 +221,7 @@ _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %22
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %59, i32 1
+  %60 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %59, i32 1
   %61 = load i8, ptr %60, align 4
   %62 = icmp eq i8 %61, 14
   %63 = icmp ugt i8 %61, 18
@@ -230,7 +230,7 @@ _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %22
 
 _ZNK4Type12is_zero_typeEv.exit102:                ; preds = %47
   %64 = zext nneg i8 %61 to i64
-  %65 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %56, %66
   br i1 %67, label %68, label %_ZNK4Type12is_zero_typeEv.exit.thread

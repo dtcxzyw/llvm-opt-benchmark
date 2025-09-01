@@ -19,7 +19,7 @@ define dso_local void @acpi_ut_strlwr(ptr noundef captures(address_is_null) %0) 
   %6 = phi i8 [ %15, %.preheader ], [ %4, %3 ]
   %7 = phi ptr [ %14, %.preheader ], [ %0, %3 ]
   %8 = zext i8 %6 to i64
-  %9 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_ctype, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = shl i8 %10, 5
   %12 = and i8 %11, 32
@@ -48,7 +48,7 @@ define dso_local void @acpi_ut_strupr(ptr noundef captures(address_is_null) %0) 
   %6 = phi i8 [ %16, %.preheader ], [ %4, %3 ]
   %7 = phi ptr [ %15, %.preheader ], [ %0, %3 ]
   %8 = zext i8 %6 to i64
-  %9 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_ctype, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 2
   %12 = icmp eq i8 %11, 0
@@ -73,14 +73,14 @@ define dso_local range(i32 -255, 256) i32 @acpi_ut_stricmp(ptr noundef readonly 
   %5 = phi ptr [ %1, %2 ], [ %21, %3 ]
   %6 = load i8, ptr %4, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @_ctype, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = shl i8 %9, 5
   %11 = and i8 %10, 32
   %12 = add i8 %11, %6
   %13 = load i8, ptr %5, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @_ctype, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = shl i8 %16, 5
   %18 = and i8 %17, 32

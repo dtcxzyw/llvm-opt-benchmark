@@ -49,7 +49,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %0) #0 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %3
   %5 = load ptr, ptr %4, align 16, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !12
@@ -96,7 +96,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8, !tbaa !12
   %.not = icmp eq i8 %6, 95
@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_ex_to_from(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !8
   %8 = call i32 @OPENSSL_hexstr2buf_ex(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %2, ptr noundef %7, i8 noundef signext 58) #4
   %9 = icmp ne i32 %8, 0

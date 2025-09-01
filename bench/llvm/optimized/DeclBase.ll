@@ -1340,7 +1340,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 4
   %3 = and i32 %2, 127
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x ptr], ptr @switch.table._ZNK5clang11DeclContext15getDeclKindNameEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11DeclContext15getDeclKindNameEv, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1409,7 +1409,7 @@ switch.lookup:
   %2 = load i16, ptr %1, align 8
   %3 = and i16 %2, 127
   %4 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x ptr], ptr @switch.table._ZNK5clang11DeclContext15getDeclKindNameEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11DeclContext15getDeclKindNameEv, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -11157,7 +11157,7 @@ define dso_local void @_ZN5clang4Decl3addENS0_4KindE(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x ptr], ptr @switch.table._ZN5clang4Decl3addENS0_4KindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4Decl3addENS0_4KindE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = load i32, ptr %switch.load, align 4, !tbaa !542
   %5 = add nsw i32 %4, 1
@@ -16835,7 +16835,7 @@ _ZNK5clang4Decl13getASTContextEv.exit:            ; preds = %18, %._crit_edge.i.
 define dso_local noundef range(i32 0, 8193) i32 @_ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE(i32 noundef %0) local_unnamed_addr #9 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i32], ptr @switch.table._ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang4Decl29getIdentifierNamespaceForKindENS0_4KindE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -17371,7 +17371,7 @@ switch.lookup:
   %2 = load i16, ptr %1, align 8
   %3 = and i16 %2, 127
   %4 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [61 x i64], ptr @switch.table._ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %switch.load
   ret ptr %5
@@ -17384,7 +17384,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 4
   %3 = and i32 %2, 127
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [61 x i64], ptr @switch.table._ZN5clang4Decl17castToDeclContextEPKS0_, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang4Decl17castToDeclContextEPKS0_, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %5
@@ -27236,8 +27236,8 @@ _ZSt4copyIPKN5clang15CharSourceRangeEPS1_ET0_T_S6_S5_.exit31.i.i.i: ; preds = %3
 
 44:                                               ; preds = %44, %9
   %.08.i = phi i64 [ 0, %9 ], [ %47, %44 ]
-  %45 = getelementptr inbounds nuw [10 x %"class.std::__cxx11::basic_string"], ptr %10, i64 0, i64 %.08.i
-  %46 = getelementptr inbounds nuw [10 x %"class.std::__cxx11::basic_string"], ptr %11, i64 0, i64 %.08.i
+  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.08.i
+  %46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.08.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46) #31
   %47 = add nuw nsw i64 %.08.i, 1
   %.not.i = icmp eq i64 %47, 10

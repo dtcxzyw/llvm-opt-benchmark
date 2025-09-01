@@ -2827,7 +2827,7 @@ _ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm
   br i1 %.not.i823, label %993, label %987
 
 987:                                              ; preds = %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit
-  %988 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %986
+  %988 = getelementptr inbounds nuw ptr, ptr %10, i64 %986
   %989 = load ptr, ptr %988, align 8, !tbaa !32, !noalias !108
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 32
   %.sroa.01.0.copyload.i824 = load ptr, ptr %10, align 8, !noalias !108
@@ -3059,7 +3059,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i851, label %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit858.thread, label %1057
 
 1057:                                             ; preds = %1055
-  %1058 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %1056
+  %1058 = getelementptr inbounds nuw ptr, ptr %10, i64 %1056
   %1059 = load ptr, ptr %1058, align 8, !tbaa !32, !noalias !116
   %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 32
   %1061 = getelementptr inbounds nuw i8, ptr %1059, i64 64
@@ -3110,7 +3110,7 @@ _ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm
   br i1 %.not.i859, label %1085, label %1079
 
 1079:                                             ; preds = %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit858
-  %1080 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %.pre1539
+  %1080 = getelementptr inbounds nuw ptr, ptr %10, i64 %.pre1539
   %1081 = load ptr, ptr %1080, align 8, !tbaa !32, !noalias !119
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 32
   %.sroa.01.0.copyload.i860 = load ptr, ptr %10, align 8, !noalias !119
@@ -4277,7 +4277,7 @@ _ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm
   br i1 %.not.i1001, label %1476, label %1470
 
 1470:                                             ; preds = %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit1000
-  %1471 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %1469
+  %1471 = getelementptr inbounds nuw ptr, ptr %10, i64 %1469
   %1472 = load ptr, ptr %1471, align 8, !tbaa !32, !noalias !133
   %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 32
   %.sroa.01.0.copyload.i1002 = load ptr, ptr %10, align 8, !noalias !133
@@ -4504,7 +4504,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i1037, label %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit1044.thread, label %1539
 
 1539:                                             ; preds = %1537
-  %1540 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %1538
+  %1540 = getelementptr inbounds nuw ptr, ptr %10, i64 %1538
   %1541 = load ptr, ptr %1540, align 8, !tbaa !32, !noalias !136
   %1542 = getelementptr inbounds nuw i8, ptr %1541, i64 32
   %1543 = getelementptr inbounds nuw i8, ptr %1541, i64 64
@@ -4555,7 +4555,7 @@ _ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm
   br i1 %.not.i1045, label %1567, label %1561
 
 1561:                                             ; preds = %_ZNK4entt17basic_common_viewINS_16basic_sparse_setI9my_entitySaIS2_EEELb0ELm2ELm0EE5beginEv.exit1044
-  %1562 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %.pre1543
+  %1562 = getelementptr inbounds nuw ptr, ptr %10, i64 %.pre1543
   %1563 = load ptr, ptr %1562, align 8, !tbaa !32, !noalias !139
   %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 32
   %.sroa.01.0.copyload.i1046 = load ptr, ptr %10, align 8, !noalias !139
@@ -8166,7 +8166,7 @@ define linkonce_odr hidden void @_ZNK4entt17basic_common_viewINS_16basic_sparse_
   br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -8224,7 +8224,7 @@ define linkonce_odr hidden void @_ZNK4entt17basic_common_viewINS_16basic_sparse_
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.01.0.copyload = load ptr, ptr %1, align 8

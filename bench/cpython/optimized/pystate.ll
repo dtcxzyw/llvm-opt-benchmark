@@ -1349,7 +1349,7 @@ define hidden void @_PyRuntimeState_ReInitThreads(ptr dead_on_unwind noalias wri
 
 36:                                               ; preds = %2, %36
   %.032 = phi i64 [ 0, %2 ], [ %39, %36 ]
-  %37 = getelementptr [11 x ptr], ptr %3, i64 0, i64 %.032
+  %37 = getelementptr ptr, ptr %3, i64 %.032
   %38 = load ptr, ptr %37, align 8, !tbaa !186
   store i8 0, ptr %38, align 1
   %39 = add nuw nsw i64 %.032, 1
@@ -1783,7 +1783,7 @@ Py_DECREF.exit:                                   ; preds = %46, %43, %41, %38
 
 .preheader184:                                    ; preds = %Py_DECREF.exit, %55
   %indvars.iv200 = phi i64 [ 0, %Py_DECREF.exit ], [ %indvars.iv.next201, %55 ]
-  %50 = getelementptr [8 x [19 x ptr]], ptr %49, i64 0, i64 %indvars.iv200
+  %50 = getelementptr [19 x ptr], ptr %49, i64 %indvars.iv200
   br label %56
 
 51:                                               ; preds = %55
@@ -1801,7 +1801,7 @@ Py_DECREF.exit:                                   ; preds = %46, %43, %41, %38
 
 56:                                               ; preds = %.preheader184, %Py_DECREF.exit152
   %indvars.iv = phi i64 [ 0, %.preheader184 ], [ %indvars.iv.next, %Py_DECREF.exit152 ]
-  %57 = getelementptr [19 x ptr], ptr %50, i64 0, i64 %indvars.iv
+  %57 = getelementptr ptr, ptr %50, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !211
   %.not150 = icmp eq ptr %58, null
   br i1 %.not150, label %Py_DECREF.exit152, label %59
@@ -1838,7 +1838,7 @@ Py_DECREF.exit152:                                ; preds = %64, %61, %59, %56
 
 69:                                               ; preds = %51, %Py_DECREF.exit154
   %indvars.iv204 = phi i64 [ 0, %51 ], [ %indvars.iv.next205, %Py_DECREF.exit154 ]
-  %70 = getelementptr [8 x ptr], ptr %54, i64 0, i64 %indvars.iv204
+  %70 = getelementptr ptr, ptr %54, i64 %indvars.iv204
   %71 = load ptr, ptr %70, align 8, !tbaa !211
   %.not149 = icmp eq ptr %71, null
   br i1 %.not149, label %Py_DECREF.exit154, label %72
@@ -5419,7 +5419,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %2, %_PyThreadState_
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %43 = icmp eq ptr %23, null
   %44 = zext i1 %43 to i64
-  %45 = getelementptr [1 x ptr], ptr %42, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %42, i64 %44
   %sext9 = shl i64 %1, 32
   %46 = ashr exact i64 %sext9, 29
   %47 = getelementptr i8, ptr %45, i64 %46
@@ -5449,7 +5449,7 @@ define dso_local void @_PyThreadState_PopFrame(ptr noundef captures(none) %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !314
-  %12 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %12, ptr %13, align 8, !tbaa !311
   store ptr %8, ptr %3, align 8, !tbaa !281

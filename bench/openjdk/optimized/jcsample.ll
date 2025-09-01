@@ -65,7 +65,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %31
   %37 = load i32, ptr %25, align 8
   %.not59 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw [10 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   br i1 %.not59, label %40, label %39
 
 39:                                               ; preds = %36
@@ -90,7 +90,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw [10 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr @h2v1_downsample, ptr %50, align 8
   br label %75
 
@@ -102,7 +102,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %51
   %55 = load i32, ptr %25, align 8
   %.not58 = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds nuw [10 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   br i1 %.not58, label %58, label %57
 
 57:                                               ; preds = %54
@@ -128,7 +128,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw [10 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr @int_downsample, ptr %69, align 8
   br label %75
 
@@ -206,7 +206,7 @@ define internal void @sep_downsample(ptr noundef %0, ptr noundef readonly captur
   %23 = mul i32 %22, %4
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
-  %26 = getelementptr inbounds nuw [10 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %.01819, ptr noundef %18, ptr noundef %25) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -2781,7 +2781,7 @@ define hidden void @_ZN7datalog18mk_karr_invariants11update_bodyERNS_8rule_setER
 35:                                               ; preds = %.lr.ph, %54
   %36 = phi ptr [ null, %.lr.ph ], [ %55, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !373
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, -8
@@ -2856,7 +2856,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.t
 
 67:                                               ; preds = %.lr.ph79, %_ZNK7obj_mapI9func_declP4exprE4findEPS0_RS2_.exit.thread
   %indvars.iv93 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next94, %_ZNK7obj_mapI9func_declP4exprE4findEPS0_RS2_.exit.thread ]
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv93
+  %68 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv93
   %69 = load ptr, ptr %68, align 8, !tbaa !373
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, -8
@@ -2980,7 +2980,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %._crit_edge
 114:                                              ; preds = %.lr.ph77, %128
   %indvars.iv90 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next91, %128 ]
   %115 = load ptr, ptr %12, align 8, !tbaa !217
-  %116 = getelementptr inbounds nuw [0 x ptr], ptr %107, i64 0, i64 %indvars.iv90
+  %116 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv90
   %117 = load ptr, ptr %116, align 8, !tbaa !392
   %118 = trunc nuw i64 %indvars.iv90 to i32
   %119 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %115, i32 noundef %118, ptr noundef %117)
@@ -2992,7 +2992,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %._crit_edge
   %123 = and i64 %122, -8
   %124 = inttoptr i64 %123 to ptr
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %126 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %indvars.iv90
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv90
   %127 = load ptr, ptr %126, align 8, !tbaa !363
   invoke void @_ZN17expr_safe_replace6insertEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef %119, ptr noundef %127)
           to label %128 unwind label %112

@@ -2069,7 +2069,7 @@ _ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.loopexit, %._crit_
 173:                                              ; preds = %173, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %173 ]
   %174 = getelementptr inbounds nuw %"struct.Gluco::Lit", ptr %171, i64 %indvars.iv.i.i
-  %175 = getelementptr inbounds nuw [0 x %union.anon], ptr %172, i64 0, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw %union.anon, ptr %172, i64 %indvars.iv.i.i
   %176 = load i32, ptr %174, align 4, !tbaa !48
   store i32 %176, ptr %175, align 4, !tbaa !48
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2089,7 +2089,7 @@ _ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.loopexit, %._crit_
 183:                                              ; preds = %183, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %183 ]
   %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %188, %183 ]
-  %184 = getelementptr inbounds nuw [0 x %union.anon], ptr %182, i64 0, i64 %indvars.iv.i.i.i
+  %184 = getelementptr inbounds nuw %union.anon, ptr %182, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %184, align 4, !tbaa !48
   %185 = lshr i32 %.sroa.0.0.copyload.i.i.i, 1
   %186 = and i32 %185, 31
@@ -2102,7 +2102,7 @@ _ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.loopexit, %._crit_
 _ZN5Gluco6Clause15calcAbstractionEv.exit.i.i:     ; preds = %183, %180
   %.0.lcssa.i.i.i = phi i32 [ 0, %180 ], [ %188, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %159, i64 12
-  %190 = getelementptr inbounds nuw [0 x %union.anon], ptr %189, i64 0, i64 %165
+  %190 = getelementptr inbounds nuw %union.anon, ptr %189, i64 %165
   store i32 %.0.lcssa.i.i.i, ptr %190, align 4, !tbaa !125
   br label %_ZN5Gluco15ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
 
@@ -2613,7 +2613,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 
 .lr.ph280.split.us:                               ; preds = %.lr.ph280, %225
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %225 ], [ 2, %.lr.ph280 ]
-  %217 = getelementptr inbounds nuw [0 x %union.anon], ptr %189, i64 0, i64 %indvars.iv334
+  %217 = getelementptr inbounds nuw %union.anon, ptr %189, i64 %indvars.iv334
   %.sroa.015.0.copyload.us = load i32, ptr %217, align 4, !tbaa !48
   %218 = ashr i32 %.sroa.015.0.copyload.us, 1
   %219 = sext i32 %218 to i64
@@ -2636,7 +2636,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 .lr.ph280.split:                                  ; preds = %.lr.ph280, %238
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %238 ], [ 2, %.lr.ph280 ]
   %.0127279 = phi i32 [ %.2129, %238 ], [ -1, %.lr.ph280 ]
-  %226 = getelementptr inbounds nuw [0 x %union.anon], ptr %189, i64 0, i64 %indvars.iv331
+  %226 = getelementptr inbounds nuw %union.anon, ptr %189, i64 %indvars.iv331
   %.sroa.015.0.copyload = load i32, ptr %226, align 4, !tbaa !48
   %227 = ashr i32 %.sroa.015.0.copyload, 1
   %228 = sext i32 %227 to i64
@@ -2672,7 +2672,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 .critedge4.thread:                                ; preds = %234, %.critedge4.thread.loopexit, %.critedge4
   %.1128231 = phi i32 [ %.2129, %.critedge4 ], [ %239, %.critedge4.thread.loopexit ], [ %237, %234 ]
   %240 = sext i32 %.1128231 to i64
-  %241 = getelementptr inbounds [0 x %union.anon], ptr %189, i64 0, i64 %240
+  %241 = getelementptr inbounds %union.anon, ptr %189, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %243 = load i32, ptr %241, align 4, !tbaa !48
   store i32 %243, ptr %242, align 4, !tbaa !48
@@ -2748,7 +2748,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 
 .lr.ph285:                                        ; preds = %.preheader, %277
   %indvars.iv339 = phi i64 [ %indvars.iv.next340, %277 ], [ 2, %.preheader ]
-  %278 = getelementptr inbounds nuw [0 x %union.anon], ptr %189, i64 0, i64 %indvars.iv339
+  %278 = getelementptr inbounds nuw %union.anon, ptr %189, i64 %indvars.iv339
   %.sroa.07.0.copyload = load i32, ptr %278, align 4, !tbaa !48
   %279 = ashr i32 %.sroa.07.0.copyload, 1
   %280 = sext i32 %279 to i64
@@ -2761,7 +2761,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   br i1 %.not244, label %277, label %286
 
 286:                                              ; preds = %.lr.ph285
-  %287 = getelementptr inbounds nuw [0 x %union.anon], ptr %189, i64 0, i64 %indvars.iv339
+  %287 = getelementptr inbounds nuw %union.anon, ptr %189, i64 %indvars.iv339
   %288 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store i32 %.sroa.07.0.copyload, ptr %288, align 4, !tbaa !48
   store i32 %169, ptr %287, align 4, !tbaa !48
@@ -3831,7 +3831,7 @@ define void @_ZN5Gluco6Solver12removeClauseEj(ptr noundef nonnull align 8 captur
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %11, align 8, !tbaa !69
-  %23 = getelementptr inbounds nuw [0 x %union.anon], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %union.anon, ptr %18, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %23, align 4, !tbaa !48
   %24 = ashr i32 %.sroa.02.0.copyload, 1
   %25 = add nsw i32 %24, 1
@@ -3998,7 +3998,7 @@ define noundef zeroext i1 @_ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE(ptr noundef
 
 30:                                               ; preds = %30, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [0 x %union.anon], ptr %5, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %union.anon, ptr %5, i64 %indvars.iv
   %.sroa.0.0.copyload.i14 = load i32, ptr %31, align 4, !tbaa !48
   %32 = ashr i32 %.sroa.0.0.copyload.i14, 1
   %33 = sext i32 %32 to i64
@@ -4799,7 +4799,7 @@ _ZN5Gluco3vecINS_3LitEE4pushEv.exit:              ; preds = %._ZN5Gluco3vecINS_3
   %88 = load double, ptr %44, align 8, !tbaa !73
   %89 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %90 = lshr i64 %.pre416, 32
-  %91 = getelementptr inbounds nuw [0 x %union.anon], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %union.anon, ptr %89, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !170
   %93 = fpext float %92 to double
   %94 = fadd double %88, %93
@@ -4836,7 +4836,7 @@ _ZN5Gluco3vecINS_3LitEE4pushEv.exit:              ; preds = %._ZN5Gluco3vecINS_3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %109 = load i64, ptr %107, align 4
   %110 = lshr i64 %109, 32
-  %111 = getelementptr inbounds nuw [0 x %union.anon], ptr %108, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %union.anon, ptr %108, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !170
   %113 = fmul float %112, 0x3BC79CA100000000
   store float %113, ptr %111, align 4, !tbaa !170
@@ -4896,7 +4896,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   %indvars.iv.i201 = phi i64 [ 0, %.lr.ph.i200 ], [ %indvars.iv.next.i203, %157 ]
   %.042.i = phi i32 [ 0, %.lr.ph.i200 ], [ %.1.i, %157 ]
   %.02441.i = phi i32 [ 0, %.lr.ph.i200 ], [ %.125.i, %157 ]
-  %140 = getelementptr inbounds nuw [0 x %union.anon], ptr %127, i64 0, i64 %indvars.iv.i201
+  %140 = getelementptr inbounds nuw %union.anon, ptr %127, i64 %indvars.iv.i201
   %.sroa.0.0.copyload.i.i = load i32, ptr %140, align 4, !tbaa !48
   %141 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %142 = load i32, ptr %48, align 4, !tbaa !83
@@ -4941,7 +4941,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   %163 = phi i64 [ %130, %.lr.ph45.i ], [ %176, %175 ]
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next50.i, %175 ]
   %.444.i = phi i32 [ 0, %.lr.ph45.i ], [ %.5.i, %175 ]
-  %164 = getelementptr inbounds nuw [0 x %union.anon], ptr %134, i64 0, i64 %indvars.iv49.i
+  %164 = getelementptr inbounds nuw %union.anon, ptr %134, i64 %indvars.iv49.i
   %.sroa.0.0.copyload.i34.i = load i32, ptr %164, align 4, !tbaa !48
   %165 = ashr i32 %.sroa.0.0.copyload.i34.i, 1
   %166 = sext i32 %165 to i64
@@ -5014,7 +5014,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit.thread: ; preds = %.critedge
 203:                                              ; preds = %.lr.ph, %367
   %indvars.iv = phi i64 [ %199, %.lr.ph ], [ %indvars.iv.next, %367 ]
   %.1327 = phi i32 [ %.0169, %.lr.ph ], [ %.2, %367 ]
-  %204 = getelementptr inbounds nuw [0 x %union.anon], ptr %198, i64 0, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw %union.anon, ptr %198, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4, !tbaa !48
   %206 = ashr i32 %205, 1
   %207 = load ptr, ptr %53, align 8, !tbaa !101
@@ -5559,7 +5559,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit218:       ; preds = %.lr.ph331, %._ZN5Gl
 
 482:                                              ; preds = %.lr.ph334, %492
   %indvars.iv385 = phi i64 [ %481, %.lr.ph334 ], [ %indvars.iv.next386, %492 ]
-  %483 = getelementptr inbounds nuw [0 x %union.anon], ptr %480, i64 0, i64 %indvars.iv385
+  %483 = getelementptr inbounds nuw %union.anon, ptr %480, i64 %indvars.iv385
   %.sroa.025.0.copyload = load i32, ptr %483, align 4, !tbaa !48
   %484 = ashr i32 %.sroa.025.0.copyload, 1
   %485 = sext i32 %484 to i64
@@ -6288,7 +6288,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3
 80:                                               ; preds = %.lr.ph, %168
   %81 = phi i64 [ %61, %.lr.ph ], [ %169, %168 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %168 ]
-  %82 = getelementptr inbounds nuw [0 x %union.anon], ptr %79, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw %union.anon, ptr %79, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !48
   %84 = ashr i32 %83, 1
   %85 = load ptr, ptr %42, align 8, !tbaa !101
@@ -6669,7 +6669,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit27:        ; preds = %._ZN5Gluco3vecINS_3
 107:                                              ; preds = %.lr.ph, %119
   %108 = phi i64 [ %99, %.lr.ph ], [ %120, %119 ]
   %indvars.iv = phi i64 [ %106, %.lr.ph ], [ %indvars.iv.next, %119 ]
-  %109 = getelementptr inbounds nuw [0 x %union.anon], ptr %105, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %union.anon, ptr %105, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %109, align 4, !tbaa !48
   %110 = ashr i32 %.sroa.02.0.copyload, 1
   %111 = load ptr, ptr %48, align 8, !tbaa !106
@@ -6951,7 +6951,7 @@ define void @_ZN5Gluco6Solver15removeSatisfiedERNS_3vecIjEE(ptr noundef nonnull 
 
 32:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %33 = getelementptr inbounds nuw [0 x %union.anon], ptr %17, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw %union.anon, ptr %17, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i14.i = load i32, ptr %33, align 4, !tbaa !48
   %34 = ashr i32 %.sroa.0.0.copyload.i14.i, 1
   %35 = sext i32 %34 to i64
@@ -7888,7 +7888,7 @@ _ZN5Gluco6bqueueIjE4pushEj.exit54:                ; preds = %218, %230
 291:                                              ; preds = %291, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %291 ]
   %292 = getelementptr inbounds nuw %"struct.Gluco::Lit", ptr %289, i64 %indvars.iv.i.i
-  %293 = getelementptr inbounds nuw [0 x %union.anon], ptr %290, i64 0, i64 %indvars.iv.i.i
+  %293 = getelementptr inbounds nuw %union.anon, ptr %290, i64 %indvars.iv.i.i
   %294 = load i32, ptr %292, align 4, !tbaa !48
   store i32 %294, ptr %293, align 4, !tbaa !48
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7899,7 +7899,7 @@ _ZN5Gluco6bqueueIjE4pushEj.exit54:                ; preds = %218, %230
 
 _ZN5Gluco15ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %291, %274
   %298 = getelementptr inbounds nuw i8, ptr %279, i64 12
-  %299 = getelementptr inbounds nuw [0 x %union.anon], ptr %298, i64 0, i64 %284
+  %299 = getelementptr inbounds nuw %union.anon, ptr %298, i64 %284
   store float 0.000000e+00, ptr %299, align 4, !tbaa !125
   %300 = load ptr, ptr %49, align 8, !tbaa !80
   %301 = getelementptr inbounds nuw i32, ptr %300, i64 %278
@@ -7998,7 +7998,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 12
   %355 = load i64, ptr %352, align 4
   %356 = lshr i64 %355, 32
-  %357 = getelementptr inbounds nuw [0 x %union.anon], ptr %354, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw %union.anon, ptr %354, i64 %356
   %358 = load float, ptr %357, align 4, !tbaa !170
   %359 = fpext float %358 to double
   %360 = fadd double %353, %359
@@ -8032,7 +8032,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 12
   %374 = load i64, ptr %372, align 4
   %375 = lshr i64 %374, 32
-  %376 = getelementptr inbounds nuw [0 x %union.anon], ptr %373, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw %union.anon, ptr %373, i64 %375
   %377 = load float, ptr %376, align 4, !tbaa !170
   %378 = fmul float %377, 0x3BC79CA100000000
   store float %378, ptr %376, align 4, !tbaa !170
@@ -9048,7 +9048,7 @@ define void @_ZN5Gluco6Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiEERi(ptr 
 
 34:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [0 x %union.anon], ptr %8, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %union.anon, ptr %8, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i14.i = load i32, ptr %35, align 4, !tbaa !48
   %36 = ashr i32 %.sroa.0.0.copyload.i14.i, 1
   %37 = sext i32 %36 to i64
@@ -9078,7 +9078,7 @@ define void @_ZN5Gluco6Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiEERi(ptr 
 47:                                               ; preds = %.lr.ph, %64
   %48 = phi i64 [ %44, %.lr.ph ], [ %65, %64 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %49 = getelementptr inbounds nuw [0 x %union.anon], ptr %8, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %union.anon, ptr %8, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %49, align 4, !tbaa !48
   %50 = ashr i32 %.sroa.02.0.copyload, 1
   %51 = load ptr, ptr %45, align 8, !tbaa !109
@@ -9272,7 +9272,7 @@ define void @_ZN5Gluco6Solver8toDimacsEP8_IO_FILERKNS_3vecINS_3LitEEE(ptr nounde
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us, %39
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %39 ], [ 0, %.preheader.i.us ]
-  %31 = getelementptr inbounds nuw [0 x %union.anon], ptr %27, i64 0, i64 %indvars.iv.i.us
+  %31 = getelementptr inbounds nuw %union.anon, ptr %27, i64 %indvars.iv.i.us
   %.sroa.0.0.copyload.i14.i.us = load i32, ptr %31, align 4, !tbaa !48
   %32 = ashr i32 %.sroa.0.0.copyload.i14.i.us, 1
   %33 = sext i32 %32 to i64
@@ -9396,7 +9396,7 @@ _ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE.exit.thread: ; preds = %.lr.ph.split, 
 
 94:                                               ; preds = %93, %.lr.ph.i41
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i41 ], [ %indvars.iv.next.i44, %93 ]
-  %95 = getelementptr inbounds nuw [0 x %union.anon], ptr %79, i64 0, i64 %indvars.iv.i42
+  %95 = getelementptr inbounds nuw %union.anon, ptr %79, i64 %indvars.iv.i42
   %.sroa.0.0.copyload.i14.i43 = load i32, ptr %95, align 4, !tbaa !48
   %96 = ashr i32 %.sroa.0.0.copyload.i14.i43, 1
   %97 = sext i32 %96 to i64
@@ -9435,7 +9435,7 @@ _ZNK5Gluco6Solver9satisfiedERKNS_6ClauseE.exit46.thread68: ; preds = %_ZNK5Gluco
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %_ZL6mapVariRN5Gluco3vecIiEERi.exit ], [ 0, %.lr.ph83.preheader ]
   %113 = phi ptr [ %164, %_ZL6mapVariRN5Gluco3vecIiEERi.exit ], [ %.promoted, %.lr.ph83.preheader ]
   %114 = phi i32 [ %163, %_ZL6mapVariRN5Gluco3vecIiEERi.exit ], [ %.promoted79, %.lr.ph83.preheader ]
-  %115 = getelementptr inbounds nuw [0 x %union.anon], ptr %79, i64 0, i64 %indvars.iv119
+  %115 = getelementptr inbounds nuw %union.anon, ptr %79, i64 %indvars.iv119
   %.sroa.03.0.copyload = load i32, ptr %115, align 4, !tbaa !48
   %116 = ashr i32 %.sroa.03.0.copyload, 1
   %117 = load ptr, ptr %44, align 8, !tbaa !109
@@ -10201,9 +10201,9 @@ define linkonce_odr void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef no
 
 43:                                               ; preds = %43, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw %union.anon, ptr %41, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %44, align 4, !tbaa !48
-  %45 = getelementptr inbounds nuw [0 x %union.anon], ptr %42, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw %union.anon, ptr %42, i64 %indvars.iv.i.i
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %45, align 4, !tbaa !48
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %46 = load i64, ptr %7, align 4
@@ -10217,7 +10217,7 @@ define linkonce_odr void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef no
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %52 = lshr i64 %32, 32
-  %53 = getelementptr inbounds nuw [0 x %union.anon], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %union.anon, ptr %51, i64 %52
   store float 0.000000e+00, ptr %53, align 4, !tbaa !125
   br label %_ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit
 
@@ -10234,7 +10234,7 @@ define linkonce_odr void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef no
 59:                                               ; preds = %59, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %59 ]
   %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %64, %59 ]
-  %60 = getelementptr inbounds nuw [0 x %union.anon], ptr %58, i64 0, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw %union.anon, ptr %58, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i10.i.i = load i32, ptr %60, align 4, !tbaa !48
   %61 = lshr i32 %.sroa.0.0.copyload.i10.i.i, 1
   %62 = and i32 %61, 31
@@ -10247,7 +10247,7 @@ define linkonce_odr void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef no
 _ZN5Gluco6Clause15calcAbstractionEv.exit.i.i:     ; preds = %59, %54
   %.0.lcssa.i.i.i = phi i32 [ 0, %54 ], [ %64, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %66 = getelementptr inbounds nuw [0 x %union.anon], ptr %65, i64 0, i64 %55
+  %66 = getelementptr inbounds nuw %union.anon, ptr %65, i64 %55
   store i32 %.0.lcssa.i.i.i, ptr %66, align 4, !tbaa !125
   br label %_ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit
 
@@ -10279,11 +10279,11 @@ _ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_edg
 84:                                               ; preds = %_ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit
   %85 = load i64, ptr %7, align 4
   %86 = lshr i64 %85, 32
-  %87 = getelementptr inbounds nuw [0 x %union.anon], ptr %69, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw %union.anon, ptr %69, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !170
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %90 = lshr i64 %82, 32
-  %91 = getelementptr inbounds nuw [0 x %union.anon], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw %union.anon, ptr %89, i64 %90
   store float %88, ptr %91, align 4, !tbaa !170
   %92 = load i64, ptr %7, align 4
   %93 = and i64 %92, 2147483616
@@ -10328,7 +10328,7 @@ _ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_edg
 119:                                              ; preds = %119, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %119 ]
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %124, %119 ]
-  %120 = getelementptr inbounds nuw [0 x %union.anon], ptr %118, i64 0, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw %union.anon, ptr %118, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %120, align 4, !tbaa !48
   %121 = lshr i32 %.sroa.0.0.copyload.i, 1
   %122 = and i32 %121, 31
@@ -10341,7 +10341,7 @@ _ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_edg
 _ZN5Gluco6Clause15calcAbstractionEv.exit:         ; preds = %119, %114
   %.0.lcssa.i = phi i32 [ 0, %114 ], [ %124, %119 ]
   %125 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  %126 = getelementptr inbounds nuw [0 x %union.anon], ptr %125, i64 0, i64 %115
+  %126 = getelementptr inbounds nuw %union.anon, ptr %125, i64 %115
   store i32 %.0.lcssa.i, ptr %126, align 4, !tbaa !125
   br label %127
 
@@ -12083,10 +12083,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 _ZN11reduceDB_ltclEjj.exit.i:                     ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %42 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %18
+  %42 = getelementptr inbounds nuw %union.anon, ptr %41, i64 %18
   %43 = load float, ptr %42, align 4, !tbaa !170
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %45 = getelementptr inbounds nuw [0 x %union.anon], ptr %44, i64 0, i64 %25
+  %45 = getelementptr inbounds nuw %union.anon, ptr %44, i64 %25
   %46 = load float, ptr %45, align 4, !tbaa !170
   %.fr.i = freeze float %43
   %.fr29.i = freeze float %46
@@ -12143,7 +12143,7 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
   %70 = trunc i64 %.fr92 to i32
   %71 = lshr i32 %70, 5
   %72 = and i32 %71, 67108863
-  %73 = getelementptr inbounds nuw [0 x %union.anon], ptr %62, i64 0, i64 %66
+  %73 = getelementptr inbounds nuw %union.anon, ptr %62, i64 %66
   %sext = shl i64 %.0, 32
   %74 = ashr exact i64 %sext, 32
   br i1 %68, label %.split.us, label %.split
@@ -12182,7 +12182,7 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  %92 = getelementptr inbounds nuw [0 x %union.anon], ptr %91, i64 0, i64 %80
+  %92 = getelementptr inbounds nuw %union.anon, ptr %91, i64 %80
   %93 = load float, ptr %92, align 4, !tbaa !170
   %94 = load float, ptr %73, align 4, !tbaa !170
   %95 = fcmp olt float %93, %94
@@ -12223,7 +12223,7 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  %113 = getelementptr inbounds nuw [0 x %union.anon], ptr %112, i64 0, i64 %101
+  %113 = getelementptr inbounds nuw %union.anon, ptr %112, i64 %101
   %114 = load float, ptr %113, align 4, !tbaa !170
   %115 = load float, ptr %73, align 4, !tbaa !170
   %116 = fcmp olt float %114, %115
@@ -12280,7 +12280,7 @@ _ZN11reduceDB_ltclEjj.exit.thread.i:              ; preds = %_ZN11reduceDB_ltclE
 138:                                              ; preds = %136
   %139 = load float, ptr %73, align 4, !tbaa !170
   %140 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  %141 = getelementptr inbounds nuw [0 x %union.anon], ptr %140, i64 0, i64 %126
+  %141 = getelementptr inbounds nuw %union.anon, ptr %140, i64 %126
   %142 = load float, ptr %141, align 4, !tbaa !170
   %143 = fcmp olt float %139, %142
   br i1 %143, label %.backedge.backedge, label %_ZN11reduceDB_ltclEjj.exit46.thread

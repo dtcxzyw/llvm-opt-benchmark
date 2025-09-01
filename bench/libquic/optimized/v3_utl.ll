@@ -938,13 +938,13 @@ define hidden noalias noundef ptr @hex_to_string(ptr noundef readonly captures(a
   %11 = load i8, ptr %.01724, align 1, !tbaa !18
   %12 = lshr i8 %11, 4
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw [17 x i8], ptr @hex_to_string.hexdig, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @hex_to_string.hexdig, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %.01823, i64 1
   store i8 %15, ptr %.01823, align 1, !tbaa !18
   %17 = and i8 %11, 15
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @hex_to_string.hexdig, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @hex_to_string.hexdig, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %.01823, i64 2
   store i8 %20, ptr %16, align 1, !tbaa !18

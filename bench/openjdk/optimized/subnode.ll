@@ -4839,19 +4839,19 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr noundef nonnull read
 .critedge98:                                      ; preds = %112, %85, %181
   %182 = load i32, ptr %8, align 8
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %183
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %186
   %188 = load i32, ptr %4, align 8
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %189
   %191 = load i32, ptr %190, align 4
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw [6 x i32], ptr %187, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %187, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %195
   %197 = load i32, ptr %196, align 4
   switch i32 %197, label %198 [
     i32 5, label %.critedge96
@@ -5777,7 +5777,7 @@ declare noundef ptr @_ZN7TypeInt4makeEi(i32 noundef) local_unnamed_addr #2
 define hidden void @_ZNK8BoolTest7dump_onEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [8 x ptr], ptr @__const._ZNK8BoolTest7dump_onEP12outputStream.msg, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @__const._ZNK8BoolTest7dump_onEP12outputStream.msg, i64 %4
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, ptr noundef %6) #10
   ret void
@@ -5789,9 +5789,9 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define hidden noundef i32 @_ZNK8BoolTest5mergeES_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [10 x [10 x i32]], ptr @__const._ZNK8BoolTest5mergeES_.res, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZNK8BoolTest5mergeES_.res, i64 %4
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [10 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }
@@ -6441,7 +6441,7 @@ define hidden noundef ptr @_ZN8BoolNode5IdealEP8PhaseGVNb(ptr noundef nonnull re
 80:                                               ; preds = %.loopexit568
   %81 = load i32, ptr %30, align 4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [10 x i8], ptr @.str.14, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i32
   %86 = add nsw i32 %85, -48
@@ -8014,7 +8014,7 @@ thread-pre-split510:                              ; preds = %.thread491, %.threa
 1001:                                             ; preds = %995
   %1002 = load i32, ptr %30, align 4
   %1003 = zext i32 %1002 to i64
-  %1004 = getelementptr inbounds nuw [10 x i8], ptr @.str.14, i64 0, i64 %1003
+  %1004 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %1003
   %1005 = load i8, ptr %1004, align 1
   %1006 = sext i8 %1005 to i32
   %1007 = add nsw i32 %1006, -48
@@ -8484,7 +8484,7 @@ define hidden noundef ptr @_ZN7AbsNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %28, i32 1
+  %29 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %28, i32 1
   %30 = load i8, ptr %29, align 4
   %31 = icmp eq i8 %30, 14
   %32 = icmp ugt i8 %30, 18
@@ -8493,7 +8493,7 @@ define hidden noundef ptr @_ZN7AbsNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
 
 _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %12
   %33 = zext nneg i8 %30 to i64
-  %34 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %25, %35
   br i1 %36, label %37, label %_ZNK4Type12is_zero_typeEv.exit.thread

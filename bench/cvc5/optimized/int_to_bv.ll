@@ -700,7 +700,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i.i:  ; preds = %255, %249, %246
   %300 = icmp eq i32 %298, 2
   %301 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 24
   %302 = zext i1 %300 to i64
-  %303 = getelementptr inbounds nuw [0 x ptr], ptr %301, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw ptr, ptr %301, i64 %302
   %304 = load ptr, ptr %303, align 8, !tbaa !260, !noalias !261
   store ptr %304, ptr %38, align 8, !tbaa !256, !noalias !247
   %305 = load i64, ptr %304, align 8, !noalias !247
@@ -886,8 +886,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.i: ; preds = %358, %352, %_ZN4cvc
   %spec.select.i.i.i = add nuw nsw i64 %indvars.iv1034, %401
   %402 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %sext1178 = shl nuw i64 %spec.select.i.i.i, 32
-  %403 = ashr exact i64 %sext1178, 32
-  %404 = getelementptr inbounds [0 x ptr], ptr %402, i64 0, i64 %403
+  %403 = ashr exact i64 %sext1178, 29
+  %404 = getelementptr inbounds i8, ptr %402, i64 %403
   %405 = load ptr, ptr %404, align 8, !tbaa !260, !noalias !264
   store ptr %405, ptr %39, align 8, !tbaa !256, !noalias !247
   %406 = load i64, ptr %405, align 8, !noalias !247
@@ -935,8 +935,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit104.i: ; preds = %419,
   %spec.select.i.i105.i = add nuw nsw i64 %indvars.iv1034, %431
   %432 = getelementptr inbounds nuw i8, ptr %421, i64 24
   %sext1179 = shl nuw i64 %spec.select.i.i105.i, 32
-  %433 = ashr exact i64 %sext1179, 32
-  %434 = getelementptr inbounds [0 x ptr], ptr %432, i64 0, i64 %433
+  %433 = ashr exact i64 %sext1179, 29
+  %434 = getelementptr inbounds i8, ptr %432, i64 %433
   %435 = load ptr, ptr %434, align 8, !tbaa !260, !noalias !267
   store ptr %435, ptr %41, align 8, !tbaa !256, !noalias !247
   %436 = load i64, ptr %435, align 8, !noalias !247
@@ -1421,8 +1421,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit137.i: ; preds = %606, %600, %596
   %spec.select.i.i140.i = add nuw nsw i64 %indvars.iv, %651
   %652 = getelementptr inbounds nuw i8, ptr %641, i64 24
   %sext = shl nuw i64 %spec.select.i.i140.i, 32
-  %653 = ashr exact i64 %sext, 32
-  %654 = getelementptr inbounds [0 x ptr], ptr %652, i64 0, i64 %653
+  %653 = ashr exact i64 %sext, 29
+  %654 = getelementptr inbounds i8, ptr %652, i64 %653
   %655 = load ptr, ptr %654, align 8, !tbaa !260, !noalias !279
   store ptr %655, ptr %47, align 8, !tbaa !256, !noalias !247
   %656 = load i64, ptr %655, align 8, !noalias !247

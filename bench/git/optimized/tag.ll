@@ -1302,7 +1302,7 @@ sub_0:                                            ; preds = %502
 
 549:                                              ; preds = %551, %545
   %.0811.i.i = phi i64 [ 0, %545 ], [ %552, %551 ]
-  %550 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %550 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %548, %550
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %551
 

@@ -589,7 +589,7 @@ define hidden noundef i32 @_ZN2os12set_priorityEP6Thread14ThreadPriority(ptr nou
 
 11:                                               ; preds = %2, %6
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN2os19java_to_os_priorityE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = tail call noundef i32 @_ZN2os19set_native_priorityEP6Threadi(ptr noundef %0, i32 noundef %14) #28
   br label %16
@@ -618,7 +618,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 .preheader:                                       ; preds = %5, %14
   %.01318 = phi i32 [ %15, %14 ], [ 10, %5 ]
   %10 = zext nneg i32 %.01318 to i64
-  %11 = getelementptr inbounds nuw [12 x i32], ptr @_ZN2os19java_to_os_priorityE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, %9
   br i1 %13, label %14, label %.critedge
@@ -631,7 +631,7 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
 .preheader15:                                     ; preds = %5, %21
   %.217 = phi i32 [ %22, %21 ], [ 10, %5 ]
   %17 = zext nneg i32 %.217 to i64
-  %18 = getelementptr inbounds nuw [12 x i32], ptr @_ZN2os19java_to_os_priorityE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZN2os19java_to_os_priorityE, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %19, %9
   br i1 %20, label %21, label %.critedge
@@ -1546,7 +1546,7 @@ define hidden noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 nound
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = urem i64 %15, 8191
-  %17 = getelementptr inbounds nuw [8191 x ptr], ptr %12, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
   store ptr %7, ptr %17, align 8
@@ -1586,13 +1586,13 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
 
 39:                                               ; preds = %25
   %40 = zext i8 %1 to i64
-  %41 = getelementptr inbounds nuw [28 x %struct.malloclimit], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %40
   %42 = load i64, ptr %41, align 8
   %.not19.i.i.i = icmp eq i64 %42, 0
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %40
+  %44 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %40
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load volatile i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -1734,13 +1734,13 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
 
 42:                                               ; preds = %28
   %43 = zext i8 %2 to i64
-  %44 = getelementptr inbounds nuw [28 x %struct.malloclimit], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %43
   %45 = load i64, ptr %44, align 8
   %.not19.i.i.i = icmp eq i64 %45, 0
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %43
+  %47 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load volatile i64, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -1836,7 +1836,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i: ; preds = %13, %8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, 8191
-  %19 = getelementptr inbounds nuw [8191 x ptr], ptr %14, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %10, align 8
   store ptr %10, ptr %19, align 8
@@ -1859,7 +1859,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit.i: ; preds = %13, %8
   %28 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %29 = ptrtoint ptr %1 to i64
   %30 = urem i64 %29, 8191
-  %31 = getelementptr inbounds nuw [8191 x ptr], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %34, %27
@@ -1893,7 +1893,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit: ; preds = %_ZN10NMTPre
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = urem i64 %45, 8191
-  %47 = getelementptr inbounds nuw [8191 x ptr], ptr %42, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %38, align 8
   store ptr %38, ptr %47, align 8
@@ -1908,7 +1908,7 @@ _ZN10NMTPreInit10add_to_mapEP20NMTPreInitAllocation.exit: ; preds = %_ZN10NMTPre
   %53 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %54 = ptrtoint ptr %1 to i64
   %55 = urem i64 %54, 8191
-  %56 = getelementptr inbounds nuw [8191 x ptr], ptr %53, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
   br label %57
 
 57:                                               ; preds = %59, %52
@@ -1958,7 +1958,7 @@ define hidden void @_ZN2os4freeEPv(ptr noundef %0) local_unnamed_addr #3 align 2
   %6 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %7 = ptrtoint ptr %0 to i64
   %8 = urem i64 %7, 8191
-  %9 = getelementptr inbounds nuw [8191 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   br label %10
 
 10:                                               ; preds = %12, %5
@@ -1986,7 +1986,7 @@ _ZN10NMTPreInit22find_and_remove_in_mapEPv.exit.i: ; preds = %12, %10
   %19 = load ptr, ptr @_ZN10NMTPreInit6_tableE, align 8
   %20 = ptrtoint ptr %0 to i64
   %21 = urem i64 %20, 8191
-  %22 = getelementptr inbounds nuw [8191 x ptr], ptr %19, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %25, %18
@@ -2301,7 +2301,7 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %58 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = call i32 @isprint(i32 noundef %60) #29
@@ -3711,7 +3711,7 @@ define hidden noundef ptr @_ZN2os8strerrorEi(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [80 x %struct.anon.9], ptr @_ZZL15errno_to_stringibE5table, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, -1
   %.not8.i = icmp eq i32 %4, %0
@@ -3731,7 +3731,7 @@ define hidden noundef ptr @_ZN2os10errno_nameEi(i32 noundef %0) local_unnamed_ad
 
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [80 x %struct.anon.9], ptr @_ZZL15errno_to_stringibE5table, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %struct.anon.9, ptr @_ZZL15errno_to_stringibE5table, i64 %indvars.iv.i
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, -1
   %.not8.i = icmp eq i32 %4, %0
@@ -4383,7 +4383,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %72 = trunc nuw nsw i64 %indvars.iv109 to i32
   %73 = mul i32 %53, %72
   %74 = add i32 %71, %73
-  %75 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv109
+  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv109
   store i32 %74, ptr %75, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %76 = icmp samesign ult i64 %indvars.iv.next110, %55
@@ -4391,7 +4391,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 .split:                                           ; preds = %52, %.split
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.split ], [ 0, %52 ]
-  %77 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv106
+  %77 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv106
   %78 = trunc nuw nsw i64 %indvars.iv106 to i32
   %79 = mul nuw nsw i32 %53, %78
   store i32 %79, ptr %77, align 4
@@ -4422,7 +4422,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %indvars.iv = phi i64 [ 0, %84 ], [ %indvars.iv.next, %87 ]
   %88 = trunc nuw nsw i64 %indvars.iv to i32
   %89 = mul i32 %85, %88
-  %90 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %89, ptr %90, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = icmp samesign ult i64 %indvars.iv.next, %86
@@ -4442,7 +4442,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %indvars.iv112 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next113, %105 ]
-  %95 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv112
+  %95 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv112
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
   %98 = mul i64 %19, %97

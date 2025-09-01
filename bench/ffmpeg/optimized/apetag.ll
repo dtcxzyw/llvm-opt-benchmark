@@ -123,14 +123,14 @@ define range(i64 -4294967263, -9223372036854775808) i64 @ff_ape_parse_tag(ptr no
 
 51:                                               ; preds = %48
   %52 = trunc nuw nsw i32 %49 to i8
-  %53 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   store i8 %52, ptr %53, align 1, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1023
   br i1 %exitcond.not.i, label %.thread.i, label %48, !llvm.loop !25
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   store i8 0, ptr %55, align 1, !tbaa !24
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %56, label %.loopexit51

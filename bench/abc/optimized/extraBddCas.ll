@@ -160,19 +160,19 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   store i32 %15, ptr @s_BackTracks, align 4, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %17 = zext nneg i32 %6 to i64
-  %18 = getelementptr inbounds nuw [32 x i32], ptr @s_VarOrderCur, i64 0, i64 %17
-  %19 = getelementptr inbounds nuw [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @s_VarOrderCur, i64 %17
+  %19 = getelementptr inbounds nuw [256 x ptr], ptr @s_Field, i64 %17
   %20 = add nsw i32 %3, -1
   %21 = zext nneg i32 %4 to i64
-  %22 = getelementptr inbounds nuw [8 x [256 x ptr]], ptr @s_Field, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [256 x ptr], ptr @s_Field, i64 %21
   %23 = icmp sgt i32 %3, 1
   %24 = add nsw i32 %2, -1
   %25 = add nuw nsw i32 %4, 1
   %26 = shl nuw nsw i64 %21, 2
   br label %27
 
-27:                                               ; preds = %.lr.ph91, %81
-  %.06989 = phi ptr [ %1, %.lr.ph91 ], [ %83, %81 ]
+27:                                               ; preds = %.lr.ph91, %77
+  %.06989 = phi ptr [ %1, %.lr.ph91 ], [ %79, %77 ]
   %28 = load ptr, ptr %16, align 8, !tbaa !31
   %29 = load i32, ptr %.06989, align 8, !tbaa !28
   %30 = zext i32 %29 to i64
@@ -186,7 +186,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 
 36:                                               ; preds = %27, %60
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %60 ]
-  %37 = getelementptr inbounds nuw [256 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %38, ptr noundef %35) #11
   tail call void @Cudd_Ref(ptr noundef %39) #11
@@ -201,7 +201,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   %45 = uitofp i32 %44 to double
   %46 = tail call double @Extra_Power2(i32 noundef %20) #11
   %47 = fcmp olt double %46, %45
-  br i1 %47, label %.loopexit128, label %48
+  br i1 %47, label %.loopexit129, label %48
 
 48:                                               ; preds = %36
   %49 = load ptr, ptr %37, align 8, !tbaa !24
@@ -222,25 +222,24 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 
 59:                                               ; preds = %48
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %39) #11
-  br label %.loopexit128
+  br label %.loopexit129
 
 60:                                               ; preds = %48
-  %61 = shl nuw nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds nuw [256 x ptr], ptr %22, i64 0, i64 %61
-  store ptr %39, ptr %62, align 16, !tbaa !24
-  %63 = or disjoint i64 %61, 1
-  %64 = getelementptr inbounds nuw [256 x ptr], ptr %22, i64 0, i64 %63
-  store ptr %50, ptr %64, align 8, !tbaa !24
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  store ptr %39, ptr %61, align 16, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %50, ptr %62, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = trunc nuw i64 %indvars.iv.next to i32
-  %.0.highbits = lshr i32 %65, %6
+  %63 = trunc nuw i64 %indvars.iv.next to i32
+  %.0.highbits = lshr i32 %63, %6
   %.not76 = icmp eq i32 %.0.highbits, 0
   br i1 %.not76, label %36, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %60
-  %66 = load i32, ptr @s_nVarsBest, align 4, !tbaa !29
-  %67 = icmp slt i32 %66, %4
-  br i1 %67, label %.loopexit.loopexit, label %.loopexit
+  %64 = load i32, ptr @s_nVarsBest, align 4, !tbaa !29
+  %65 = icmp slt i32 %64, %4
+  br i1 %65, label %.loopexit.loopexit, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.critedge
   store i32 %4, ptr @s_nVarsBest, align 4, !tbaa !29
@@ -248,57 +247,56 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
-  br i1 %23, label %68, label %.lr.ph.preheader
+  br i1 %23, label %66, label %.lr.ph.preheader
 
-68:                                               ; preds = %.loopexit
-  %69 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %32) #11
-  tail call void @Cudd_Ref(ptr noundef %69) #11
-  tail call fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %69, i32 noundef %24, i32 noundef %20, i32 noundef %25)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %69) #11
+66:                                               ; preds = %.loopexit
+  %67 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %1, ptr noundef %32) #11
+  tail call void @Cudd_Ref(ptr noundef %67) #11
+  tail call fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %67, i32 noundef %24, i32 noundef %20, i32 noundef %25)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %67) #11
   br label %.lr.ph.preheader
 
-.loopexit128:                                     ; preds = %36, %59
+.loopexit129:                                     ; preds = %36, %59
   %.lcssa.sink = phi ptr [ %50, %59 ], [ %39, %36 ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.lcssa.sink) #11
-  %70 = and i64 %indvars.iv, 4294967295
-  %.not93 = icmp eq i64 %70, 0
+  %68 = and i64 %indvars.iv, 4294967295
+  %.not93 = icmp eq i64 %68, 0
   br i1 %.not93, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %68, %.loopexit, %.loopexit128
-  %.082113 = phi i64 [ %indvars.iv, %.loopexit128 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %68 ]
-  %wide.trip.count = and i64 %.082113, 4294967295
+.lr.ph.preheader:                                 ; preds = %66, %.loopexit, %.loopexit129
+  %.082114 = phi i64 [ %indvars.iv, %.loopexit129 ], [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.next, %66 ]
+  %wide.trip.count = and i64 %.082114, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv105 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next106, %.lr.ph ]
-  %71 = shl nuw nsw i64 %indvars.iv105, 1
-  %72 = getelementptr inbounds nuw [256 x ptr], ptr %22, i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 16, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %73) #11
-  %74 = or disjoint i64 %71, 1
-  %75 = getelementptr inbounds nuw [256 x ptr], ptr %22, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #11
+  %.idx111 = shl nuw nsw i64 %indvars.iv105, 4
+  %69 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx111
+  %70 = load ptr, ptr %69, align 16, !tbaa !24
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %70) #11
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !24
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %72) #11
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit128
-  %77 = load i32, ptr @s_nVarsBest, align 4, !tbaa !29
-  %78 = icmp eq i32 %77, 5
-  %79 = load i32, ptr @s_MultiStart, align 4
-  %80 = icmp eq i32 %77, %79
-  %or.cond = select i1 %78, i1 true, i1 %80
-  br i1 %or.cond, label %.loopexit79, label %81
+._crit_edge:                                      ; preds = %.lr.ph, %.loopexit129
+  %73 = load i32, ptr @s_nVarsBest, align 4, !tbaa !29
+  %74 = icmp eq i32 %73, 5
+  %75 = load i32, ptr @s_MultiStart, align 4
+  %76 = icmp eq i32 %73, %75
+  %or.cond = select i1 %74, i1 true, i1 %76
+  br i1 %or.cond, label %.loopexit79, label %77
 
-81:                                               ; preds = %._crit_edge
-  %82 = getelementptr inbounds nuw i8, ptr %.06989, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !34
-  %84 = load ptr, ptr %9, align 8, !tbaa !3
-  %.not = icmp eq ptr %83, %84
+77:                                               ; preds = %._crit_edge
+  %78 = getelementptr inbounds nuw i8, ptr %.06989, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !34
+  %80 = load ptr, ptr %9, align 8, !tbaa !3
+  %.not = icmp eq ptr %79, %80
   br i1 %.not, label %.loopexit79, label %27, !llvm.loop !35
 
-.loopexit79:                                      ; preds = %._crit_edge, %81, %12, %8, %5
+.loopexit79:                                      ; preds = %._crit_edge, %77, %12, %8, %5
   ret void
 }
 
@@ -415,7 +413,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %49 = load ptr, ptr %48, align 8, !tbaa !31
   %50 = sext i32 %2 to i64
-  %51 = getelementptr inbounds [32 x i32], ptr @s_VarOrderBest, i64 0, i64 %50
+  %51 = getelementptr inbounds i32, ptr @s_VarOrderBest, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !29
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %49, i64 %53
@@ -1164,7 +1162,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = add i64 %10, %9
   %12 = urem i64 %11, 51113
   %13 = trunc nuw nsw i64 %12 to i32
-  %14 = getelementptr inbounds nuw [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %12
   %15 = load i32, ptr %14, align 16, !tbaa !46
   %16 = icmp eq i32 %15, %8
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -1172,7 +1170,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph:                                           ; preds = %4, %21
   %17 = phi i64 [ %24, %21 ], [ %12, %4 ]
   %.083118 = phi i32 [ %23, %21 ], [ %13, %4 ]
-  %18 = getelementptr inbounds nuw [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %17, i32 1
+  %18 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %17, i32 1
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %.loopexit, label %21
@@ -1181,7 +1179,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = add nuw nsw i32 %.083118, 1
   %23 = urem i32 %22, 51113
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %24
   %26 = load i32, ptr %25, align 16, !tbaa !46
   %27 = icmp eq i32 %26, %8
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !60
@@ -1348,7 +1346,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %.085 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.186, %114 ]
   %121 = load i32, ptr @s_Signature, align 4, !tbaa !29
   %122 = zext nneg i32 %.083.lcssa to i64
-  %123 = getelementptr inbounds nuw [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %122
   %124 = load i32, ptr %123, align 16, !tbaa !46
   %125 = icmp eq i32 %124, %121
   br i1 %125, label %.lr.ph122, label %._crit_edge123
@@ -1358,7 +1356,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %126 = add nuw nsw i32 %.184120, 1
   %127 = urem i32 %126, 51113
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %128
   %130 = load i32, ptr %129, align 16, !tbaa !46
   %131 = icmp eq i32 %130, %121
   br i1 %131, label %.lr.ph122, label %._crit_edge123, !llvm.loop !61
@@ -1409,7 +1407,7 @@ common.ret25:                                     ; preds = %29, %13, %32, %5
   %19 = mul nuw nsw i64 %18, 12582917
   %20 = add i64 %19, %3
   %21 = urem i64 %20, 15113
-  %22 = getelementptr inbounds nuw [15113 x %struct._HashEntry_mint], ptr @HHTable2, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct._HashEntry_mint, ptr @HHTable2, i64 %21
   %23 = load ptr, ptr %22, align 16, !tbaa !62
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %25, label %32

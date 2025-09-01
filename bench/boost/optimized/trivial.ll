@@ -223,7 +223,7 @@ $_ZGVZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_7sources3aux16logger_sing
 define weak_odr noundef ptr @_ZN5boost3log11v2_mt_posix7trivial9to_stringIcEEPKT_NS2_14severity_levelE(i32 noundef %0) local_unnamed_addr #0 comdat {
   %2 = icmp ult i32 %0, 6
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [6 x [8 x i8]], ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 %3
   %.0 = select i1 %2, ptr %4, ptr null, !prof !3
   ret ptr %.0
 }
@@ -374,7 +374,7 @@ declare i32 @__gxx_personality_v0(...)
 define weak_odr noundef ptr @_ZN5boost3log11v2_mt_posix7trivial9to_stringIwEEPKT_NS2_14severity_levelE(i32 noundef %0) local_unnamed_addr #0 comdat {
   %2 = icmp ult i32 %0, 6
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [6 x [8 x i32]], ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i32], ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 %3
   %.0 = select i1 %2, ptr %4, ptr null, !prof !3
   ret ptr %.0
 }

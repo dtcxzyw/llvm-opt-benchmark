@@ -1753,7 +1753,7 @@ define dso_local i64 @pg_get_object_address(ptr noundef %0) local_unnamed_addr #
 
 28:                                               ; preds = %27, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds nuw [59 x %struct.object_type_map], ptr @ObjectTypeMap, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw %struct.object_type_map, ptr @ObjectTypeMap, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 16
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %18) #12
   %32 = icmp eq i32 %31, 0
@@ -2276,7 +2276,7 @@ define dso_local i32 @read_objtype_from_string(ptr noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [59 x %struct.object_type_map], ptr @ObjectTypeMap, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.object_type_map, ptr @ObjectTypeMap, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #12
   %7 = icmp eq i32 %6, 0
@@ -2674,7 +2674,7 @@ define dso_local i32 @get_object_namespace(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %2
@@ -2755,7 +2755,7 @@ define dso_local ptr @get_object_class_descr(i32 noundef %0) local_unnamed_addr 
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -2800,7 +2800,7 @@ define dso_local i32 @get_object_oid_index(i32 noundef %0) local_unnamed_addr #0
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -2846,7 +2846,7 @@ define dso_local i32 @get_object_catcache_oid(i32 noundef %0) local_unnamed_addr
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -2892,7 +2892,7 @@ define dso_local i32 @get_object_catcache_name(i32 noundef %0) local_unnamed_add
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -2938,7 +2938,7 @@ define dso_local signext i16 @get_object_attnum_oid(i32 noundef %0) local_unname
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -2984,7 +2984,7 @@ define dso_local signext i16 @get_object_attnum_name(i32 noundef %0) local_unnam
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -3030,7 +3030,7 @@ define dso_local signext i16 @get_object_attnum_namespace(i32 noundef %0) local_
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -3076,7 +3076,7 @@ define dso_local signext i16 @get_object_attnum_owner(i32 noundef %0) local_unna
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -3122,7 +3122,7 @@ define dso_local signext i16 @get_object_attnum_acl(i32 noundef %0) local_unname
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -3168,7 +3168,7 @@ define dso_local i32 @get_object_type(i32 noundef %0, i32 noundef %1) local_unna
 
 9:                                                ; preds = %.preheader, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %0
@@ -3278,7 +3278,7 @@ define dso_local zeroext i1 @get_object_namensp_unique(i32 noundef %0) local_unn
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
@@ -3309,7 +3309,7 @@ define dso_local zeroext i1 @is_objectclass_supported(i32 noundef %0) local_unna
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv, i32 1
+  %3 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv, i32 1
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3352,7 +3352,7 @@ define dso_local ptr @get_catalog_object_by_oid_extended(ptr noundef %0, i16 nou
 
 14:                                               ; preds = %.preheader, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %7
@@ -5336,7 +5336,7 @@ define dso_local i64 @pg_identify_object(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %1 ]
-  %22 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i, i32 1
+  %22 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i, i32 1
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5369,7 +5369,7 @@ is_objectclass_supported.exit:                    ; preds = %.preheader
 
 33:                                               ; preds = %.preheader105, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %.preheader105 ]
-  %34 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %9
@@ -5416,7 +5416,7 @@ get_object_attnum_oid.exit:                       ; preds = %28, %38
 
 52:                                               ; preds = %.preheader102, %51
   %indvars.iv.i.i42 = phi i64 [ %indvars.iv.next.i.i43, %51 ], [ 0, %.preheader102 ]
-  %53 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i42
+  %53 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i42
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, %9
@@ -5481,7 +5481,7 @@ get_object_attnum_namespace.exit:                 ; preds = %47, %57
 
 81:                                               ; preds = %80, %79
   %indvars.iv.i.i47 = phi i64 [ 0, %79 ], [ %indvars.iv.next.i.i48, %80 ]
-  %82 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i47
+  %82 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i47
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, %9
@@ -5615,7 +5615,7 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #6 {
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %71
+  br i1 %5, label %6, label %72
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5638,28 +5638,28 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %.val.val.i = load i16, ptr %17, align 4
   %18 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %18, 0
-  %19 = add nsw i32 %1, -1
-  br i1 %.not.i.i, label %20, label %58
+  br i1 %.not.i.i, label %19, label %58
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %21, i64 0, i64 %22
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %21 = zext nneg i32 %1 to i64
+  %22 = getelementptr %struct.CompactAttribute, ptr %20, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -16
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %56
 
-26:                                               ; preds = %20
+26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %29
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
+  %33 = getelementptr i8, ptr %22, i64 -10
   %34 = load i8, ptr %33, align 2, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %36 = getelementptr i8, ptr %22, i64 -12
   %37 = load i16, ptr %36, align 4
   br i1 %35, label %38, label %54
 
@@ -5702,37 +5702,38 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %55 = ptrtoint ptr %32 to i64
   br label %fastgetattr.exit
 
-56:                                               ; preds = %20
+56:                                               ; preds = %19
   %57 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #10
   br label %fastgetattr.exit
 
 58:                                               ; preds = %16
-  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %60 = lshr i32 %19, 3
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = and i32 %19, 7
-  %66 = shl nuw nsw i32 1, %65
-  %67 = and i32 %66, %64
-  %.not.i20.i = icmp eq i32 %67, 0
-  br i1 %.not.i20.i, label %68, label %69
+  %59 = add nsw i32 %1, -1
+  %60 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %61 = lshr i32 %59, 3
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = and i32 %59, 7
+  %67 = shl nuw nsw i32 1, %66
+  %68 = and i32 %67, %65
+  %.not.i20.i = icmp eq i32 %68, 0
+  br i1 %.not.i20.i, label %69, label %70
 
-68:                                               ; preds = %58
+69:                                               ; preds = %58
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-69:                                               ; preds = %58
-  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #10
+70:                                               ; preds = %58
+  %71 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #10
   br label %fastgetattr.exit
 
-71:                                               ; preds = %4
-  %72 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #10
+72:                                               ; preds = %4
+  %73 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #10
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, %48, %45, %42, %39, %71, %14
-  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
+fastgetattr.exit:                                 ; preds = %70, %69, %56, %54, %48, %45, %42, %39, %72, %14
+  %.0 = phi i64 [ %15, %14 ], [ %73, %72 ], [ 0, %69 ], [ %71, %70 ], [ %57, %56 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -8122,7 +8123,7 @@ define dso_local i64 @pg_get_acl(ptr noundef captures(none) %0) local_unnamed_ad
 
 22:                                               ; preds = %.preheader74, %21
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %21 ], [ 0, %.preheader74 ]
-  %23 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %15
@@ -8186,7 +8187,7 @@ get_object_attnum_acl.exit:                       ; preds = %17, %27
 
 52:                                               ; preds = %.preheader, %51
   %indvars.iv.i.i49 = phi i64 [ %indvars.iv.next.i.i50, %51 ], [ 0, %.preheader ]
-  %53 = getelementptr inbounds nuw [37 x %struct.ObjectPropertyType], ptr @ObjectProperty, i64 0, i64 %indvars.iv.i.i49
+  %53 = getelementptr inbounds nuw %struct.ObjectPropertyType, ptr @ObjectProperty, i64 %indvars.iv.i.i49
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, %15

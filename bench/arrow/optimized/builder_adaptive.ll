@@ -4187,10 +4187,10 @@ define linkonce_odr void @_ZN5arrow8internal22AdaptiveIntBuilderBase10AppendNull
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9392
   %5 = load i32, ptr %4, align 8, !tbaa !59
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [1024 x i64], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds i64, ptr %3, i64 %6
   store i64 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 170
-  %9 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 %6
+  %9 = getelementptr inbounds i8, ptr %8, i64 %6
   store i8 0, ptr %9, align 1, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 9396
   store i8 1, ptr %10, align 4, !tbaa !60
@@ -4313,10 +4313,10 @@ define linkonce_odr void @_ZN5arrow8internal22AdaptiveIntBuilderBase16AppendEmpt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 9392
   %5 = load i32, ptr %4, align 8, !tbaa !59
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [1024 x i64], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds i64, ptr %3, i64 %6
   store i64 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 170
-  %9 = getelementptr inbounds [1024 x i8], ptr %8, i64 0, i64 %6
+  %9 = getelementptr inbounds i8, ptr %8, i64 %6
   store i8 1, ptr %9, align 1, !tbaa !66
   %10 = load i32, ptr %4, align 8, !tbaa !59
   %11 = add nsw i32 %10, 1
@@ -5683,14 +5683,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !66
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !66
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !178
@@ -5804,7 +5804,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %94 = add nsw i64 %93, %92
   store i64 %94, ptr %58, align 8, !tbaa !181
   %95 = zext i1 %90 to i8
-  %96 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %95, ptr %96, align 1, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

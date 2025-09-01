@@ -10394,7 +10394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %_Z
 
 572:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307, %623
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307 ], [ %indvars.iv.next, %623 ]
-  %573 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %27, i64 0, i64 %indvars.iv
+  %573 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv
   %574 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %573, ptr noundef nonnull @.str.17) #17
   %575 = icmp eq i32 %574, 0
   br i1 %575, label %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %576
@@ -10417,9 +10417,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %_Z
 
 _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %582, %579, %576, %572
   %.0.i = phi i32 [ 0, %572 ], [ 1, %576 ], [ 2, %579 ], [ %..i, %582 ]
-  %585 = getelementptr inbounds nuw [3 x i32], ptr %513, i64 0, i64 %indvars.iv
+  %585 = getelementptr inbounds nuw i32, ptr %513, i64 %indvars.iv
   store i32 %.0.i, ptr %585, align 4, !tbaa !57
-  %586 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %26, i64 0, i64 %indvars.iv
+  %586 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %indvars.iv
   %587 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %586, ptr noundef nonnull @.str.37) #17
   %588 = icmp eq i32 %587, 0
   br i1 %588, label %.sink.split, label %591
@@ -10441,7 +10441,7 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
 
 .invoke:                                          ; preds = %594, %591
   %.sink = phi i32 [ 1, %591 ], [ 2, %594 ]
-  %597 = getelementptr inbounds nuw [3 x i32], ptr %514, i64 0, i64 %indvars.iv
+  %597 = getelementptr inbounds nuw i32, ptr %514, i64 %indvars.iv
   store i32 %.sink, ptr %597, align 4, !tbaa !63
   %598 = load i32, ptr %585, align 4, !tbaa !57
   store i32 %598, ptr %413, align 4, !tbaa !62
@@ -10486,7 +10486,7 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
 
 .sink.split:                                      ; preds = %619, %616, %613, %610, %607, %604, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.sink493 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %604 ], [ 4, %607 ], [ 5, %610 ], [ 6, %613 ], [ 7, %616 ], [ 8, %619 ]
-  %622 = getelementptr inbounds nuw [3 x i32], ptr %514, i64 0, i64 %indvars.iv
+  %622 = getelementptr inbounds nuw i32, ptr %514, i64 %indvars.iv
   store i32 %.sink493, ptr %622, align 4, !tbaa !63
   br label %623
 
@@ -10701,7 +10701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350: ; preds = %_Z
   %712 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %713 = load i32, ptr %409, align 8, !tbaa !61
   %714 = sext i32 %713 to i64
-  %715 = getelementptr inbounds [3 x i32], ptr %712, i64 0, i64 %714
+  %715 = getelementptr inbounds i32, ptr %712, i64 %714
   %716 = load i32, ptr %715, align 4, !tbaa !63
   %717 = icmp ult i32 %716, 9
   br i1 %717, label %switch.lookup, label %730
@@ -10738,7 +10738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350
   %728 = zext nneg i32 %716 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN5Ipopt19Ma97SolverInterface14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %728
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5Ipopt19Ma97SolverInterface14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 %728
   %switch.load = load i8, ptr %switch.gep, align 1
   %729 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 %switch.load, ptr %729, align 1, !tbaa !71
@@ -11489,7 +11489,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
 
 218:                                              ; preds = %.lr.ph, %255
   %indvars.iv = phi i64 [ %215, %.lr.ph ], [ %indvars.iv.next, %255 ]
-  %219 = getelementptr inbounds [3 x i32], ptr %210, i64 0, i64 %indvars.iv
+  %219 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv
   %220 = load i32, ptr %219, align 4, !tbaa !63
   switch i32 %220, label %255 [
     i32 7, label %.thread53
@@ -11553,7 +11553,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
 247:                                              ; preds = %239
   %248 = trunc nsw i64 %indvars.iv to i32
   store i32 %248, ptr %207, align 8, !tbaa !61
-  %249 = getelementptr inbounds [3 x i32], ptr %213, i64 0, i64 %indvars.iv
+  %249 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4, !tbaa !57
   store i32 %250, ptr %214, align 4, !tbaa !62
   %251 = load ptr, ptr %145, align 8, !tbaa !36
@@ -11797,7 +11797,7 @@ define noundef zeroext i1 @_ZN5Ipopt19Ma97SolverInterface15IncreaseQualityEv(ptr
 
 16:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %17 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !63
   switch i32 %18, label %27 [
     i32 3, label %19
@@ -11810,7 +11810,7 @@ define noundef zeroext i1 @_ZN5Ipopt19Ma97SolverInterface15IncreaseQualityEv(ptr
   store i8 1, ptr %6, align 1, !tbaa !71
   %20 = trunc nsw i64 %indvars.iv to i32
   store i32 %20, ptr %2, align 8, !tbaa !61
-  %21 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !57
   store i32 %22, ptr %8, align 4, !tbaa !62
   %23 = load ptr, ptr %9, align 8, !tbaa !36

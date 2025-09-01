@@ -2183,7 +2183,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 87:                                               ; preds = %77
   %88 = sdiv i32 %84, 64
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [10 x i64], ptr %72, i64 0, i64 %89
+  %90 = getelementptr inbounds i64, ptr %72, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = srem i32 %84, 64
   %93 = zext nneg i32 %92 to i64
@@ -2194,7 +2194,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 
 96:                                               ; preds = %87
   %97 = sext i32 %84 to i64
-  %98 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -2378,7 +2378,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 87:                                               ; preds = %77
   %88 = sdiv i32 %84, 64
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [10 x i64], ptr %72, i64 0, i64 %89
+  %90 = getelementptr inbounds i64, ptr %72, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = srem i32 %84, 64
   %93 = zext nneg i32 %92 to i64
@@ -2389,7 +2389,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 
 96:                                               ; preds = %87
   %97 = sext i32 %84 to i64
-  %98 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -2656,7 +2656,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 87:                                               ; preds = %77
   %88 = sdiv i32 %84, 64
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [10 x i64], ptr %72, i64 0, i64 %89
+  %90 = getelementptr inbounds i64, ptr %72, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = srem i32 %84, 64
   %93 = zext nneg i32 %92 to i64
@@ -2667,7 +2667,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 
 96:                                               ; preds = %87
   %97 = sext i32 %84 to i64
-  %98 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -2853,7 +2853,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 87:                                               ; preds = %77
   %88 = sdiv i32 %84, 64
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [10 x i64], ptr %72, i64 0, i64 %89
+  %90 = getelementptr inbounds i64, ptr %72, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = srem i32 %84, 64
   %93 = zext nneg i32 %92 to i64
@@ -2864,7 +2864,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %73, %_ZN12OopMapStr
 
 96:                                               ; preds = %87
   %97 = sext i32 %84 to i64
-  %98 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -3162,7 +3162,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 56:                                               ; preds = %46
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [10 x i64], ptr %41, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %41, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = srem i32 %53, 64
   %62 = zext nneg i32 %61 to i64
@@ -3173,7 +3173,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 
 65:                                               ; preds = %56
   %66 = sext i32 %53 to i64
-  %67 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -3300,7 +3300,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 56:                                               ; preds = %46
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [10 x i64], ptr %41, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %41, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = srem i32 %53, 64
   %62 = zext nneg i32 %61 to i64
@@ -3311,7 +3311,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 
 65:                                               ; preds = %56
   %66 = sext i32 %53 to i64
-  %67 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -3488,7 +3488,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 56:                                               ; preds = %46
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [10 x i64], ptr %41, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %41, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = srem i32 %53, 64
   %62 = zext nneg i32 %61 to i64
@@ -3499,7 +3499,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 
 65:                                               ; preds = %56
   %66 = sext i32 %53 to i64
-  %67 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -3628,7 +3628,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 56:                                               ; preds = %46
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [10 x i64], ptr %41, i64 0, i64 %58
+  %59 = getelementptr inbounds i64, ptr %41, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = srem i32 %53, 64
   %62 = zext nneg i32 %61 to i64
@@ -3639,7 +3639,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %42, %_ZN12OopMapStr
 
 65:                                               ; preds = %56
   %66 = sext i32 %53 to i64
-  %67 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -5496,7 +5496,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.10.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.10, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.10.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.10.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #9
@@ -5810,7 +5810,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -5824,7 +5824,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -5890,7 +5890,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -8513,7 +8513,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStr
 73:                                               ; preds = %63
   %74 = sdiv i32 %70, 64
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [10 x i64], ptr %58, i64 0, i64 %75
+  %76 = getelementptr inbounds i64, ptr %58, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = srem i32 %70, 64
   %79 = zext nneg i32 %78 to i64
@@ -8524,7 +8524,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStr
 
 82:                                               ; preds = %73
   %83 = sext i32 %70 to i64
-  %84 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %83
+  %84 = getelementptr inbounds ptr, ptr %2, i64 %83
   %85 = load ptr, ptr %84, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -8556,7 +8556,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMR
 102:                                              ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
   %103 = sdiv i32 %99, 64
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [10 x i64], ptr %58, i64 0, i64 %104
+  %105 = getelementptr inbounds i64, ptr %58, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = srem i32 %99, 64
   %108 = zext nneg i32 %107 to i64
@@ -8567,7 +8567,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMR
 
 111:                                              ; preds = %102
   %112 = sext i32 %99 to i64
-  %113 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %112
+  %113 = getelementptr inbounds ptr, ptr %2, i64 %112
   %114 = load ptr, ptr %113, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit21
 
@@ -8916,7 +8916,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %47, %_ZN12OopMapStr
 61:                                               ; preds = %51
   %62 = sdiv i32 %58, 64
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [10 x i64], ptr %46, i64 0, i64 %63
+  %64 = getelementptr inbounds i64, ptr %46, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = srem i32 %58, 64
   %67 = zext nneg i32 %66 to i64
@@ -8927,7 +8927,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %47, %_ZN12OopMapStr
 
 70:                                               ; preds = %61
   %71 = sext i32 %58 to i64
-  %72 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %71
+  %72 = getelementptr inbounds ptr, ptr %2, i64 %71
   %73 = load ptr, ptr %72, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -8959,7 +8959,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMR
 90:                                               ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
   %91 = sdiv i32 %87, 64
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [10 x i64], ptr %46, i64 0, i64 %92
+  %93 = getelementptr inbounds i64, ptr %46, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = srem i32 %87, 64
   %96 = zext nneg i32 %95 to i64
@@ -8970,7 +8970,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMR
 
 99:                                               ; preds = %90
   %100 = sext i32 %87 to i64
-  %101 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %100
+  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
   %102 = load ptr, ptr %101, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit16
 
@@ -9814,7 +9814,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %9 = tail call noundef ptr %switch.load(ptr noundef %0) #9
@@ -9991,7 +9991,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286788EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.11.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.11, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.11.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.11.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #9
@@ -10207,7 +10207,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm286822EP
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr @_ZN14AccessInternal15RuntimeDispatchILm286822EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
   tail call void %switch.load(ptr noundef %0, ptr noundef %1) #9
@@ -10548,7 +10548,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm286788EP
 _ZN14AccessInternal15BarrierResolverILm286788EPFvPvP7oopDescELNS_11BarrierTypeE0EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_.12.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_.12, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_.12.sink, i64 0, i64 %15
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE10store_initEPvS2_.12.sink, i64 %15
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   store ptr %switch.load7, ptr @_ZN14AccessInternal15RuntimeDispatchILm286788EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
   tail call void %switch.load7(ptr noundef %0, ptr noundef %1) #9
@@ -10641,7 +10641,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %4 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %5 = lshr i64 %4, 12
   %6 = and i64 %5, 15
-  %7 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %3, %9
@@ -10804,7 +10804,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEP
   %.not.i.i.i = icmp eq i64 %14, 0
   %15 = lshr i64 %3, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %3, %19
@@ -10865,7 +10865,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %50 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %49, %55
@@ -10903,7 +10903,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i.i13 = icmp eq i64 %73, 0
   %74 = lshr i64 %3, 12
   %75 = and i64 %74, 15
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %3, %78
@@ -11055,7 +11055,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %4 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %5 = lshr i64 %4, 12
   %6 = and i64 %5, 15
-  %7 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %3, %9
@@ -11347,7 +11347,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStr
 32:                                               ; preds = %22
   %33 = sdiv i32 %29, 64
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [10 x i64], ptr %17, i64 0, i64 %34
+  %35 = getelementptr inbounds i64, ptr %17, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = srem i32 %29, 64
   %38 = zext nneg i32 %37 to i64
@@ -11358,7 +11358,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStr
 
 41:                                               ; preds = %32
   %42 = sext i32 %29 to i64
-  %43 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %2, i64 %42
   %44 = load ptr, ptr %43, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
@@ -11453,7 +11453,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 90:                                               ; preds = %82
   %91 = sdiv i32 %87, 64
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [10 x i64], ptr %17, i64 0, i64 %92
+  %93 = getelementptr inbounds i64, ptr %17, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = srem i32 %87, 64
   %96 = zext nneg i32 %95 to i64
@@ -11464,7 +11464,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 
 99:                                               ; preds = %90
   %100 = sext i32 %87 to i64
-  %101 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %100
+  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
   %102 = load ptr, ptr %101, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
@@ -11610,7 +11610,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
 169:                                              ; preds = %159
   %170 = sdiv i32 %166, 64
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [10 x i64], ptr %154, i64 0, i64 %171
+  %172 = getelementptr inbounds i64, ptr %154, i64 %171
   %173 = load i64, ptr %172, align 8
   %174 = srem i32 %166, 64
   %175 = zext nneg i32 %174 to i64
@@ -11621,7 +11621,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
 
 178:                                              ; preds = %169
   %179 = sext i32 %166 to i64
-  %180 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %179
+  %180 = getelementptr inbounds ptr, ptr %2, i64 %179
   %181 = load ptr, ptr %180, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 
@@ -11785,7 +11785,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStr
 32:                                               ; preds = %22
   %33 = sdiv i32 %29, 64
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [10 x i64], ptr %17, i64 0, i64 %34
+  %35 = getelementptr inbounds i64, ptr %17, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = srem i32 %29, 64
   %38 = zext nneg i32 %37 to i64
@@ -11796,7 +11796,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStr
 
 41:                                               ; preds = %32
   %42 = sext i32 %29 to i64
-  %43 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %2, i64 %42
   %44 = load ptr, ptr %43, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
@@ -11891,7 +11891,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 90:                                               ; preds = %82
   %91 = sdiv i32 %87, 64
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [10 x i64], ptr %17, i64 0, i64 %92
+  %93 = getelementptr inbounds i64, ptr %17, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = srem i32 %87, 64
   %96 = zext nneg i32 %95 to i64
@@ -11902,7 +11902,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 
 99:                                               ; preds = %90
   %100 = sext i32 %87 to i64
-  %101 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %100
+  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
   %102 = load ptr, ptr %101, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
@@ -12048,7 +12048,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
 169:                                              ; preds = %159
   %170 = sdiv i32 %166, 64
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [10 x i64], ptr %154, i64 0, i64 %171
+  %172 = getelementptr inbounds i64, ptr %154, i64 %171
   %173 = load i64, ptr %172, align 8
   %174 = srem i32 %166, 64
   %175 = zext nneg i32 %174 to i64
@@ -12059,7 +12059,7 @@ _ZN12OopMapStream7is_doneEv.exit52.thread:        ; preds = %155, %_ZN12OopMapSt
 
 178:                                              ; preds = %169
   %179 = sext i32 %166 to i64
-  %180 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %179
+  %180 = getelementptr inbounds ptr, ptr %2, i64 %179
   %181 = load ptr, ptr %180, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit66
 

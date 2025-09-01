@@ -2248,9 +2248,9 @@ default.unreachable135:                           ; preds = %241, %.noexc14.i
 switch.lookup:                                    ; preds = %299
   %371 = load i8, ptr %303, align 8, !range !483, !noundef !4
   %372 = zext nneg i8 %371 to i64
-  %switch.gep = getelementptr inbounds nuw [81 x i64], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE", i64 0, i64 %372
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE", i64 %372
   %373 = zext nneg i8 %371 to i64
-  %switch.gep140 = getelementptr inbounds nuw [81 x ptr], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 0, i64 %373
+  %switch.gep140 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 %373
   br label %377
 
 374:                                              ; preds = %299

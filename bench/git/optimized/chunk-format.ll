@@ -641,7 +641,7 @@ define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone cap
 
 2:                                                ; preds = %4, %1
   %.0811.i = phi i64 [ 0, %1 ], [ %5, %4 ]
-  %3 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %0, %3
   br i1 %.not.i, label %hash_algo_by_ptr.exit, label %4
 

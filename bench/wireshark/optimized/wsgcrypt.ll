@@ -463,7 +463,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   %43 = add i32 %38, 1
   store i32 %43, ptr %31, align 8
   %44 = sext i32 %38 to i64
-  %45 = getelementptr [1 x i8], ptr %42, i64 0, i64 %44
+  %45 = getelementptr i8, ptr %42, i64 %44
   store i8 %41, ptr %45, align 1
   %46 = load ptr, ptr %9, align 8
   %47 = call ptr @gcry_md_read(ptr noundef %46, i32 noundef %0)
@@ -509,9 +509,9 @@ switch.lookup:                                    ; preds = %8
   %16 = call i32 @gcry_md_setkey(ptr noundef %14, ptr noundef %1, i64 noundef %15)
   %.not18 = icmp eq i32 %16, 0
   %17 = load ptr, ptr %9, align 8
-  br i1 %.not18, label %switch.lookup21, label %.sink.split
+  br i1 %.not18, label %switch.lookup22, label %.sink.split
 
-switch.lookup21:                                  ; preds = %13
+switch.lookup22:                                  ; preds = %13
   call void @gcry_md_write(ptr noundef %17, ptr noundef nonnull @.str.8, i64 noundef 7)
   %18 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %18, ptr noundef %3, i64 noundef 10)
@@ -523,17 +523,17 @@ switch.lookup21:                                  ; preds = %13
   call void @gcry_md_write(ptr noundef %21, ptr noundef %5, i64 noundef %22)
   %23 = load ptr, ptr %9, align 8
   %24 = call ptr @gcry_md_read(ptr noundef %23, i32 noundef 0)
-  %switch.tableidx22 = add nsw i16 %0, -1
-  %switch.idx.cast23 = zext i16 %switch.tableidx22 to i64
+  %switch.tableidx21 = add nsw i16 %0, -1
+  %switch.idx.cast23 = zext i16 %switch.tableidx21 to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast23, 4
   %switch.offset24 = add nuw nsw i64 %switch.idx.mult, 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %7, ptr noundef align 1 %24, i64 noundef range(i64 0, 4294967296) %switch.offset24, i1 noundef false) #10
   %25 = load ptr, ptr %9, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %switch.lookup21
-  %.sink = phi ptr [ %25, %switch.lookup21 ], [ %17, %13 ]
-  %.015.ph = phi i32 [ 0, %switch.lookup21 ], [ %16, %13 ]
+.sink.split:                                      ; preds = %13, %switch.lookup22
+  %.sink = phi ptr [ %25, %switch.lookup22 ], [ %17, %13 ]
+  %.015.ph = phi i32 [ 0, %switch.lookup22 ], [ %16, %13 ]
   call void @gcry_md_close(ptr noundef %.sink)
   br label %26
 
@@ -679,11 +679,11 @@ switch.lookup:                                    ; preds = %7
   %17 = call i64 @strlen(ptr noundef %3) #11
   %18 = trunc i64 %17 to i32
   %19 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef %3, i32 noundef %18)
-  %switch.tableidx31 = add nsw i16 %0, -1
-  %switch.idx.cast32 = zext i16 %switch.tableidx31 to i32
+  %switch.tableidx30 = add nsw i16 %0, -1
+  %switch.idx.cast32 = zext i16 %switch.tableidx30 to i32
   %switch.idx.mult = shl nuw nsw i32 %switch.idx.cast32, 5
   %switch.offset33 = add nuw nsw i32 %switch.idx.mult, 65
-  %switch.idx.cast34 = zext i16 %switch.tableidx31 to i32
+  %switch.idx.cast34 = zext i16 %switch.tableidx30 to i32
   %switch.idx.mult35 = shl nuw nsw i32 %switch.idx.cast34, 4
   %switch.offset36 = add nuw nsw i32 %switch.idx.mult35, 32
   %20 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef %4, i32 noundef %switch.offset33)

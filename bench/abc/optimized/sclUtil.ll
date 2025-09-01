@@ -433,14 +433,14 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds i32, ptr %4, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !39
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !39
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %42 = load float, ptr %41, align 8, !tbaa !51
   %43 = fpext float %42 to double
-  %44 = getelementptr inbounds [64 x double], ptr %5, i64 0, i64 %37
+  %44 = getelementptr inbounds double, ptr %5, i64 %37
   %45 = load double, ptr %44, align 8, !tbaa !52
   %46 = fadd double %45, %43
   store double %46, ptr %44, align 8, !tbaa !52
@@ -464,7 +464,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
 
 52:                                               ; preds = %.critedge, %70
   %indvars.iv51 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next52, %70 ]
-  %53 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv51
+  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv51
   %54 = load i32, ptr %53, align 4, !tbaa !39
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %70, label %56
@@ -477,7 +477,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %22, %Abc_ObjIsBarBu
   %61 = fmul double %60, 1.000000e+02
   %62 = fdiv double %61, %51
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %62)
-  %64 = getelementptr inbounds nuw [64 x double], ptr %5, i64 0, i64 %indvars.iv51
+  %64 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv51
   %65 = load double, ptr %64, align 8, !tbaa !52
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %65)
   %67 = fmul double %65, 1.000000e+02

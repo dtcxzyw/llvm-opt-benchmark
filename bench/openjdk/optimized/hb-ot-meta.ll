@@ -718,7 +718,7 @@ _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitiz
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %79 = phi i32 [ %61, %.lr.ph.preheader ], [ %128, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %78 ]
-  %80 = getelementptr inbounds nuw [1 x %"struct.OT::DataMap"], ptr %3, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %3, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %82, %7

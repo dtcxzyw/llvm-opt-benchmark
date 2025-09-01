@@ -6405,7 +6405,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit71.i: ; preds = %238, %_ZNSt6vecto
   %305 = ptrtoint ptr %293 to i64
   %306 = sub i64 %304, %305
   %307 = sdiv exact i64 %306, 40
-  %308 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr %30, i64 %307
   store i8 %303, ptr %308, align 1
   %309 = add nsw i64 %307, 128
   %.not.i.i69.i.i = icmp ult i64 %309, 256
@@ -7112,7 +7112,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
 
 552:                                              ; preds = %546
   %553 = zext nneg i32 %550 to i64
-  %554 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw i8, ptr %25, i64 %553
   %555 = load i8, ptr %554, align 1
   %556 = and i8 %555, %543
   store i8 %556, ptr %554, align 1
@@ -7138,7 +7138,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %565 = phi i8 [ %568, %.preheader.i.i ], [ %.ph, %.preheader.i.i.preheader ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 1, %.preheader.i.i.preheader ]
-  %566 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %indvars.iv.i.i
+  %566 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i.i
   %567 = load i8, ptr %566, align 1
   %568 = and i8 %567, %565
   store i8 %568, ptr %566, align 1
@@ -18676,10 +18676,10 @@ _ZN3ue2L12makeRoleMaskERKSt6vectorINS_9LookEntryESaIS1_EERNS_11RoseProgramE.exit
   %159 = sub nsw i32 %158, %.pre-phi107
   %160 = load i8, ptr %22, align 1
   %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %20, i64 %161
   store i8 %160, ptr %162, align 1
   %163 = load i8, ptr %23, align 1
-  %164 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %161
+  %164 = getelementptr inbounds nuw i8, ptr %21, i64 %161
   store i8 %163, ptr %164, align 1
   %165 = load i8, ptr %24, align 1
   %.not22.i = icmp eq i8 %165, 0
@@ -18802,10 +18802,10 @@ _ZN3ue2L14makeRoleMask32ERKSt6vectorINS_9LookEntryESaIS1_EERNS_11RoseProgramE.ex
   %207 = sub nsw i32 %206, %199
   %208 = load i8, ptr %16, align 1
   %209 = zext i32 %207 to i64
-  %210 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr %14, i64 %209
   store i8 %208, ptr %210, align 1
   %211 = load i8, ptr %17, align 1
-  %212 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 0, i64 %209
+  %212 = getelementptr inbounds nuw i8, ptr %15, i64 %209
   store i8 %211, ptr %212, align 1
   %213 = load i8, ptr %18, align 1
   %.not23.i53 = icmp eq i8 %213, 0
@@ -20101,7 +20101,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14getShuftiMasksERKSt6vectorI
 
 64:                                               ; preds = %67, %.noexc52
   %.0710.i.i = phi i64 [ 0, %.noexc52 ], [ %68, %67 ]
-  %65 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.0710.i.i
+  %65 = getelementptr inbounds nuw i64, ptr %9, i64 %.0710.i.i
   %66 = load i64, ptr %65, align 8
   %.not.i.i65 = icmp eq i64 %66, 0
   br i1 %.not.i.i65, label %67, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -20150,7 +20150,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
   br label %89
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %80
+  %83 = getelementptr inbounds nuw i64, ptr %9, i64 %80
   %84 = load i64, ptr %83, align 8
   %85 = shl nsw i64 -2, %81
   %86 = and i64 %84, %85
@@ -20168,7 +20168,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
 
 91:                                               ; preds = %89
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %92 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.0.i.i
+  %92 = getelementptr inbounds nuw i64, ptr %9, i64 %.0.i.i
   %93 = load i64, ptr %92, align 8
   %.not22.i.i = icmp eq i64 %93, 0
   br i1 %.not22.i.i, label %89, label %94, !llvm.loop !589
@@ -21105,8 +21105,8 @@ _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit: ; preds = %_ZN3u
   br i1 %.not12.i63.us, label %507, label %502
 
 502:                                              ; preds = %.lr.ph298.split.us
-  %503 = add nuw nsw i64 %indvars.iv334, 16
-  %504 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %503
+  %503 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv334
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %505 = load i8, ptr %504, align 1
   %506 = or i8 %505, %500
   store i8 %506, ptr %504, align 1
@@ -21126,7 +21126,7 @@ _ZN3ue2L9nibUpdateERSt3mapIjtSt4lessIjESaISt4pairIKjtEEEj.exit: ; preds = %_ZN3u
   br i1 %.not12.i63, label %514, label %510
 
 510:                                              ; preds = %.lr.ph298.split
-  %511 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %511 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %512 = load i8, ptr %511, align 1
   %513 = or i8 %512, %497
   store i8 %513, ptr %511, align 1
@@ -21163,8 +21163,8 @@ _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64: ; preds = %514, %507, %_ZN3u
   br i1 %.not12.i.us, label %531, label %526
 
 526:                                              ; preds = %.lr.ph303.split.us
-  %527 = add nuw nsw i64 %indvars.iv340, 16
-  %528 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %527
+  %527 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv340
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 16
   %529 = load i8, ptr %528, align 1
   %530 = or i8 %529, %524
   store i8 %530, ptr %528, align 1
@@ -21184,7 +21184,7 @@ _ZN3ue2L13nibMaskUpdateERSt5arrayIhLm32EEjh.exit64: ; preds = %514, %507, %_ZN3u
   br i1 %.not12.i, label %538, label %534
 
 534:                                              ; preds = %.lr.ph303.split
-  %535 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv337
+  %535 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv337
   %536 = load i8, ptr %535, align 1
   %537 = or i8 %536, %521
   store i8 %537, ptr %535, align 1

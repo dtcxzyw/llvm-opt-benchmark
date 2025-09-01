@@ -260,7 +260,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
   br i1 %69, label %switch.hole_check, label %70
 
 70:                                               ; preds = %switch.hole_check, %67
-  %71 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv29
+  %71 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv29
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 switch.hole_check:                                ; preds = %67
@@ -272,7 +272,7 @@ switch.hole_check:                                ; preds = %67
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %73 = and i64 %indvars.iv29, 31
-  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 %73
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
@@ -593,19 +593,19 @@ define internal fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 no
 .lr.ph:                                           ; preds = %3, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %3 ]
   %7 = phi i8 [ %14, %12 ], [ %6, %3 ]
-  %8 = phi ptr [ %13, %12 ], [ %4, %3 ]
-  %9 = sext i8 %7 to i32
-  %10 = call i32 @isalnum(i32 noundef %9) #14
-  %.not7 = icmp eq i32 %10, 0
-  br i1 %.not7, label %11, label %12
+  %8 = sext i8 %7 to i32
+  %9 = call i32 @isalnum(i32 noundef %8) #14
+  %.not7 = icmp eq i32 %9, 0
+  br i1 %.not7, label %10, label %12
 
-11:                                               ; preds = %.lr.ph
-  store i8 45, ptr %8, align 1
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  store i8 45, ptr %11, align 1
   br label %12
 
-12:                                               ; preds = %.lr.ph, %11
+12:                                               ; preds = %.lr.ph, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13

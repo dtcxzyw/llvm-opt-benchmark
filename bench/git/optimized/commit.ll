@@ -619,7 +619,7 @@ define dso_local ptr @read_graft_line(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %19, ptr %2, align 8, !tbaa !54
   %20 = load i8, ptr %18, align 1, !tbaa !11
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %24 = and i8 %23, 1
   %.not26.us = icmp eq i8 %24, 0
@@ -644,14 +644,14 @@ define dso_local ptr @read_graft_line(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %32, ptr %2, align 8, !tbaa !54
   %33 = load i8, ptr %31, align 1, !tbaa !11
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !11
   %37 = and i8 %36, 1
   %.not26 = icmp eq i8 %37, 0
   br i1 %.not26, label %.loopexit, label %38
 
 38:                                               ; preds = %.lr.ph.split
-  %39 = getelementptr inbounds nuw [0 x %struct.object_id], ptr %17, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.object_id, ptr %17, i64 %indvars.iv
   %40 = call i32 @parse_oid_hex(ptr noundef nonnull %32, ptr noundef nonnull %39, ptr noundef nonnull %2) #24
   %.not27 = icmp eq i32 %40, 0
   br i1 %.not27, label %41, label %.loopexit
@@ -1653,7 +1653,7 @@ free_commit_list.exit:                            ; preds = %pop_commit.exit.i, 
 115:                                              ; preds = %.lr.ph127, %127
   %indvars.iv = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next, %127 ]
   %.278125 = phi ptr [ %.076.lcssa150, %.lr.ph127 ], [ %130, %127 ]
-  %116 = getelementptr inbounds nuw [0 x %struct.object_id], ptr %114, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %struct.object_id, ptr %114, i64 %indvars.iv
   %117 = call ptr @lookup_object(ptr noundef %0, ptr noundef nonnull %116) #24
   %.not.i105 = icmp eq ptr %117, null
   br i1 %.not.i105, label %118, label %121
@@ -1794,7 +1794,7 @@ define internal fastcc i64 @parse_commit_date(ptr noundef %0, ptr noundef %1) un
   %.148 = phi ptr [ %28, %27 ], [ %.031, %.preheader ]
   %22 = load i8, ptr %.148, align 1, !tbaa !11
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = and i8 %25, 1
   %.not43 = icmp eq i8 %26, 0
@@ -1809,7 +1809,7 @@ define internal fastcc i64 @parse_commit_date(ptr noundef %0, ptr noundef %1) un
   %.1.lcssa = phi ptr [ %.031, %.preheader ], [ %15, %27 ], [ %.148, %.lr.ph ]
   %29 = load i8, ptr %.1.lcssa, align 1, !tbaa !11
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = and i8 %32, 2
   %.not44 = icmp ne i8 %33, 0
@@ -2368,7 +2368,7 @@ define dso_local void @commit_list_sort_by_date(ptr noundef captures(none) %0) l
   br i1 %.not28.us.i, label %34, label %8
 
 8:                                                ; preds = %.split.us.i
-  %9 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv20.i
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv20.i
   %10 = load ptr, ptr %9, align 8, !tbaa !90
   %11 = load ptr, ptr %10, align 8, !tbaa !89
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -2432,7 +2432,7 @@ commit_list_sort__merge.exit.us.i:                ; preds = %20
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %commit_list_sort__merge.exit.i ]
   %.113.i = phi ptr [ %.0.i10, %.lr.ph.preheader.i ], [ %spec.select35.i.i, %commit_list_sort__merge.exit.i ]
   %.02012.i = phi i64 [ %.023.i9, %.lr.ph.preheader.i ], [ %63, %commit_list_sort__merge.exit.i ]
-  %38 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !90
   %40 = load ptr, ptr %39, align 8, !tbaa !89
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -2493,7 +2493,7 @@ commit_list_sort__merge.exit.i:                   ; preds = %48
   %.021.lcssa9.i = phi i64 [ 0, %.split.i ], [ %65, %._crit_edge.loopexit.i ]
   %.1.lcssa8.i = phi ptr [ %.0.i10, %.split.i ], [ %spec.select35.i.i, %._crit_edge.loopexit.i ]
   %66 = add i64 %.023.i9, 1
-  %67 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %.021.lcssa9.i
+  %67 = getelementptr inbounds nuw ptr, ptr %2, i64 %.021.lcssa9.i
   store ptr %.1.lcssa8.i, ptr %67, align 8, !tbaa !90
   %68 = getelementptr i8, ptr %.0.val.i11, i64 8
   %.0.val.i = load ptr, ptr %68, align 8, !tbaa !48
@@ -3939,7 +3939,7 @@ define dso_local noundef i32 @add_header_signature(ptr noundef %0, ptr noundef r
 
 4:                                                ; preds = %6, %3
   %.0811.i = phi i64 [ 0, %3 ], [ %7, %6 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %5 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %2, %5
   br i1 %.not.i, label %hash_algo_by_ptr.exit, label %6
 
@@ -3950,7 +3950,7 @@ define dso_local noundef i32 @add_header_signature(ptr noundef %0, ptr noundef r
 
 hash_algo_by_ptr.exit:                            ; preds = %6, %4
   %.2.i = phi i64 [ %.0811.i, %4 ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr @gpg_sig_headers, i64 0, i64 %.2.i
+  %8 = getelementptr inbounds nuw ptr, ptr @gpg_sig_headers, i64 %.2.i
   %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %11 = trunc i64 %10 to i32
@@ -4093,7 +4093,7 @@ define dso_local range(i32 0, 2) i32 @parse_buffer_signed_by_header(ptr noundef 
 
 6:                                                ; preds = %8, %5
   %.0811.i = phi i64 [ 0, %5 ], [ %9, %8 ]
-  %7 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %7 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %4, %7
   br i1 %.not.i, label %hash_algo_by_ptr.exit, label %8
 
@@ -4104,7 +4104,7 @@ define dso_local range(i32 0, 2) i32 @parse_buffer_signed_by_header(ptr noundef 
 
 hash_algo_by_ptr.exit:                            ; preds = %8, %6
   %.2.i = phi i64 [ %.0811.i, %6 ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @gpg_sig_headers, i64 0, i64 %.2.i
+  %10 = getelementptr inbounds nuw ptr, ptr @gpg_sig_headers, i64 %.2.i
   %11 = load ptr, ptr %10, align 8, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not77 = icmp eq i64 %1, 0
@@ -4274,7 +4274,7 @@ define dso_local range(i32 0, 2) i32 @remove_signature(ptr noundef %0) local_unn
   %exitcond.not = phi i1 [ false, %.preheader60 ], [ true, %skip_prefix.exit ]
   %indvars.iv = phi i64 [ 1, %.preheader60 ], [ 2, %skip_prefix.exit ]
   %.24562 = phi i32 [ %.04364, %.preheader60 ], [ %.3, %skip_prefix.exit ]
-  %26 = getelementptr inbounds nuw [3 x ptr], ptr @gpg_sig_headers, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr @gpg_sig_headers, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !54
   br label %28
 
@@ -4327,7 +4327,7 @@ skip_prefix.exit:                                 ; preds = %30, %38, %35
 
 45:                                               ; preds = %.preheader, %55
   %indvars.iv71 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next72, %55 ]
-  %46 = getelementptr inbounds nuw [2 x %struct.sigbuf], ptr %2, i64 0, i64 %indvars.iv71
+  %46 = getelementptr inbounds nuw %struct.sigbuf, ptr %2, i64 %indvars.iv71
   %47 = load ptr, ptr %46, align 16, !tbaa !153
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %55, label %48
@@ -5266,7 +5266,7 @@ sign_commit_to_strbuf.exit:                       ; preds = %45, %47
 
 .preheader:                                       ; preds = %105, %113
   %.0811.i = phi i64 [ %114, %113 ], [ 0, %105 ]
-  %112 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %112 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i103 = icmp eq ptr %107, %112
   br i1 %.not.i103, label %.split.loop.exit9.i, label %113
 
@@ -5285,7 +5285,7 @@ hash_algo_by_ptr.exit:                            ; preds = %113, %.split.loop.e
 
 116:                                              ; preds = %118, %hash_algo_by_ptr.exit
   %.0811.i105 = phi i64 [ 0, %hash_algo_by_ptr.exit ], [ %119, %118 ]
-  %117 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i105
+  %117 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i105
   %.not.i106 = icmp eq ptr %111, %117
   br i1 %.not.i106, label %.split.loop.exit9.i109, label %118
 
@@ -5639,17 +5639,17 @@ define internal fastcc range(i32 0, 2) i32 @verify_utf8(ptr noundef nonnull %0) 
 22:                                               ; preds = %._crit_edge.i
   %23 = and i32 %20, 62
   %24 = lshr i32 %23, %19
-  %25 = zext nneg i32 %.05286.i to i64
-  %26 = getelementptr inbounds nuw [4 x i32], ptr @find_invalid_utf8.max_codepoint, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !9
-  %28 = add i32 %27, 1
-  %29 = zext nneg i32 %19 to i64
-  %30 = getelementptr inbounds nuw [4 x i32], ptr @find_invalid_utf8.max_codepoint, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !9
-  %32 = add nsw i32 %19, %15
-  %33 = sub nsw i32 %14, %19
+  %25 = zext nneg i32 %19 to i64
+  %26 = getelementptr i32, ptr @find_invalid_utf8.max_codepoint, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 -4
+  %28 = load i32, ptr %27, align 4, !tbaa !9
+  %29 = add i32 %28, 1
+  %30 = load i32, ptr %26, align 4, !tbaa !9
+  %31 = add nsw i32 %19, %15
+  %32 = sub nsw i32 %14, %19
   %scevgep.i = getelementptr i8, ptr %.04691.i, i64 2
-  %scevgep106.i = getelementptr i8, ptr %scevgep.i, i64 %25
+  %33 = zext nneg i32 %.05286.i to i64
+  %scevgep106.i = getelementptr i8, ptr %scevgep.i, i64 %33
   br label %34
 
 34:                                               ; preds = %38, %22
@@ -5672,8 +5672,8 @@ define internal fastcc range(i32 0, 2) i32 @verify_utf8(ptr noundef nonnull %0) 
   br i1 %.not64.i, label %44, label %34, !llvm.loop !202
 
 44:                                               ; preds = %38
-  %45 = icmp ult i32 %42, %28
-  %46 = icmp ugt i32 %42, %31
+  %45 = icmp ult i32 %42, %29
+  %46 = icmp ugt i32 %42, %30
   %or.cond65.i = select i1 %45, i1 true, i1 %46
   %47 = and i32 %.049.i, 32736
   %48 = icmp eq i32 %47, 864
@@ -5687,8 +5687,8 @@ define internal fastcc range(i32 0, 2) i32 @verify_utf8(ptr noundef nonnull %0) 
   br i1 %or.cond76.i, label %find_invalid_utf8.exit, label %53
 
 53:                                               ; preds = %44, %.lr.ph93.i
-  %.156.i = phi i32 [ %15, %.lr.ph93.i ], [ %32, %44 ]
-  %.151.i = phi i32 [ %14, %.lr.ph93.i ], [ %33, %44 ]
+  %.156.i = phi i32 [ %15, %.lr.ph93.i ], [ %31, %44 ]
+  %.151.i = phi i32 [ %14, %.lr.ph93.i ], [ %32, %44 ]
   %.147.i = phi ptr [ %12, %.lr.ph93.i ], [ %scevgep106.i, %44 ]
   %.not.i = icmp eq i32 %.151.i, 0
   br i1 %.not.i, label %find_invalid_utf8.exit.thread, label %.lr.ph93.i

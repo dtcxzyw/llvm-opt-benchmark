@@ -101,7 +101,7 @@ define void @ff_big_div(ptr noundef captures(none) %0, i8 noundef zeroext %1, pt
 
 8:                                                ; preds = %5, %3
   store i8 0, ptr %2, align 1, !tbaa !9
-  br label %42
+  br label %43
 
 9:                                                ; preds = %5
   %10 = icmp eq i8 %1, 0
@@ -129,7 +129,7 @@ define void @ff_big_div(ptr noundef captures(none) %0, i8 noundef zeroext %1, pt
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %11
   %.031.lcssa = phi ptr [ %13, %11 ], [ %scevgep47, %.lr.ph.preheader ]
   store i8 0, ptr %.031.lcssa, align 1, !tbaa !9
-  br label %42
+  br label %43
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -159,18 +159,19 @@ define void @ff_big_div(ptr noundef captures(none) %0, i8 noundef zeroext %1, pt
   %34 = trunc nuw i16 %31 to i8
   store i8 %34, ptr %2, align 1, !tbaa !9
   %35 = load i32, ptr %0, align 4, !tbaa !4
-  %36 = add nsw i32 %35, -1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [546 x i8], ptr %20, i64 0, i64 %37
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr i8, ptr %20, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -1
   %39 = load i8, ptr %38, align 1, !tbaa !9
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %43
 
 41:                                               ; preds = %33
-  store i32 %36, ptr %0, align 4, !tbaa !4
-  br label %42
+  %42 = add nsw i32 %35, -1
+  store i32 %42, ptr %0, align 4, !tbaa !4
+  br label %43
 
-42:                                               ; preds = %33, %41, %._crit_edge, %8
+43:                                               ; preds = %33, %41, %._crit_edge, %8
   ret void
 }
 
@@ -385,7 +386,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 56:                                               ; preds = %46
   %57 = ashr i32 %.us-phi, 3
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [8 x i8], ptr @g_20, i64 0, i64 %58
+  %59 = getelementptr inbounds i8, ptr @g_20, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !9
   %61 = zext i8 %60 to i32
   %62 = and i32 %.us-phi, 7
@@ -418,7 +419,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 78:                                               ; preds = %70
   %79 = ashr i32 %.us-phi, 3
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [4 x i8], ptr @g_11, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr @g_11, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !9
   %83 = zext i8 %82 to i32
   %84 = and i32 %.us-phi, 7
@@ -435,7 +436,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 92:                                               ; preds = %70
   %93 = ashr i32 %.us-phi, 3
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [64 x i8], ptr @g_10, i64 0, i64 %94
+  %95 = getelementptr inbounds i8, ptr @g_10, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !9
   %97 = zext i8 %96 to i32
   %98 = and i32 %.us-phi, 7
@@ -468,7 +469,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 114:                                              ; preds = %106
   %115 = ashr i32 %.us-phi, 3
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [8 x i8], ptr @g_41, i64 0, i64 %116
+  %117 = getelementptr inbounds i8, ptr @g_41, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !9
   %119 = zext i8 %118 to i32
   %120 = and i32 %.us-phi, 7
@@ -485,7 +486,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 128:                                              ; preds = %106
   %129 = ashr i32 %.us-phi, 3
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds [128 x i8], ptr @g_40, i64 0, i64 %130
+  %131 = getelementptr inbounds i8, ptr @g_40, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !9
   %133 = zext i8 %132 to i32
   %134 = and i32 %.us-phi, 7
@@ -520,7 +521,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 152:                                              ; preds = %142
   %153 = ashr i32 %.us-phi, 3
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds [16 x i8], ptr @g_01, i64 0, i64 %154
+  %155 = getelementptr inbounds i8, ptr @g_01, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !9
   %157 = zext i8 %156 to i32
   %158 = and i32 %.us-phi, 7
@@ -537,7 +538,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 166:                                              ; preds = %142
   %167 = ashr i32 %.us-phi, 3
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds [512 x i8], ptr @g_00, i64 0, i64 %168
+  %169 = getelementptr inbounds i8, ptr @g_00, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !9
   %171 = zext i8 %170 to i32
   %172 = and i32 %.us-phi, 7

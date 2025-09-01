@@ -2978,7 +2978,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %73, %83
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load i32, ptr %187, align 8
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %189, i32 1
+  %190 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %189, i32 1
   %191 = load i8, ptr %190, align 4
   %192 = load ptr, ptr %139, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
@@ -3484,7 +3484,7 @@ define hidden void @_ZN8VPointer18maybe_add_to_invarEP4Nodeb(ptr noundef nonnull
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %15, i32 1
+  %16 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %15, i32 1
   %17 = load i8, ptr %16, align 4
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %18, align 8
@@ -3494,7 +3494,7 @@ define hidden void @_ZN8VPointer18maybe_add_to_invarEP4Nodeb(ptr noundef nonnull
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %25, i32 1
+  %26 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %25, i32 1
   %27 = load i8, ptr %26, align 4
   %28 = icmp eq i8 %17, 11
   %29 = icmp eq i8 %27, 11
@@ -3799,7 +3799,7 @@ define hidden noundef ptr @_ZN8VPointer18maybe_negate_invarEbP4Node(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8

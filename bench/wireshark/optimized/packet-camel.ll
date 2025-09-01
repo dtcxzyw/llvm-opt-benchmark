@@ -2929,10 +2929,10 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   %.0 = phi i32 [ %4, %17 ], [ 3, %19 ], [ 4, %30 ], [ 5, %41 ], [ 3, %48 ], [ %.mux, %57 ], [ %spec.select, %62 ], [ 3, %52 ]
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %69 = zext nneg i32 %.0 to i64
-  %70 = getelementptr [10 x i8], ptr %68, i64 0, i64 %69
+  %70 = getelementptr i8, ptr %68, i64 %69
   store i8 1, ptr %70, align 1
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %72 = getelementptr [10 x %struct.camelsrt_category_t], ptr %71, i64 0, i64 %69
+  %72 = getelementptr %struct.camelsrt_category_t, ptr %71, i64 %69
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 0
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3114,10 +3114,10 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   %.0 = phi i32 [ %4, %18 ], [ 3, %23 ], [ 4, %30 ], [ 3, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %37 = zext nneg i32 %.0 to i64
-  %38 = getelementptr [10 x i8], ptr %36, i64 0, i64 %37
+  %38 = getelementptr i8, ptr %36, i64 %37
   store i8 1, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %40 = getelementptr [10 x %struct.camelsrt_category_t], ptr %39, i64 0, i64 %37
+  %40 = getelementptr %struct.camelsrt_category_t, ptr %39, i64 %37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
@@ -3192,7 +3192,7 @@ proto_item_set_hidden.exit:                       ; preds = %65, %62, %59, %51, 
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i8 1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %78 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %77, i64 0, i64 %37
+  %78 = getelementptr %struct.camelsrt_msginfo_t, ptr %77, i64 %37
   store i8 1, ptr %78, align 8
   %79 = load i8, ptr @gcamel_DisplaySRT, align 1, !range !6, !noundef !7
   %80 = trunc nuw i8 %79 to i1
@@ -3344,7 +3344,7 @@ define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
   store i32 %spec.store.select, ptr @camelsrt_global_current, align 4
   %4 = sext i32 %spec.store.select to i64
   %.idx = mul nsw i64 %4, 432
-  %5 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %4
+  %5 = getelementptr %struct.camelsrt_info_t, ptr @camelsrt_global_info, i64 %4
   %6 = tail call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx)
   %7 = tail call ptr @__memset_chk(ptr noundef %5, i32 noundef 0, i64 noundef 432, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3795,13 +3795,13 @@ define internal noundef i32 @camelstat_packet(ptr noundef readonly captures(none
 
 8:                                                ; preds = %5, %29
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %29 ]
-  %9 = getelementptr [10 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr i8, ptr %6, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr %struct.camelsrt_msginfo_t, ptr %7, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i8, ptr %13, align 2, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
@@ -3871,7 +3871,7 @@ define internal void @camelsrt_tcap_matching(ptr readnone captures(none) %0, ptr
   store i32 %spec.store.select.i, ptr @camelsrt_global_current, align 4
   %10 = sext i32 %spec.store.select.i to i64
   %.idx.i = mul nsw i64 %10, 432
-  %11 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %10
+  %11 = getelementptr %struct.camelsrt_info_t, ptr @camelsrt_global_info, i64 %10
   %12 = tail call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx.i)
   %13 = tail call ptr @__memset_chk(ptr noundef %11, i32 noundef 0, i64 noundef 432, i64 noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4036,7 +4036,7 @@ define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, pt
   store i32 %spec.store.select.i, ptr @camelsrt_global_current, align 4
   %20 = sext i32 %spec.store.select.i to i64
   %.idx.i = mul nsw i64 %20, 432
-  %21 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %20
+  %21 = getelementptr %struct.camelsrt_info_t, ptr @camelsrt_global_info, i64 %20
   %22 = call i64 @llvm.usub.sat.i64(i64 4320, i64 %.idx.i)
   %23 = call ptr @__memset_chk(ptr noundef %21, i32 noundef 0, i64 noundef 432, i64 noundef %22) #13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -5870,15 +5870,15 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %20 = or disjoint i8 %19, 48
   %21 = add nuw nsw i8 %19, 55
   %.0.i = select i1 %18, i8 %20, i8 %21
-  %22 = getelementptr [20 x i8], ptr %8, i64 0, i64 %indvars.iv25
+  %22 = getelementptr i8, ptr %8, i64 %indvars.iv25
   store i8 %.0.i, ptr %22, align 2
-  %23 = or disjoint i64 %indvars.iv25, 1
-  %24 = icmp ult i8 %10, -96
-  %25 = trunc nuw nsw i32 %16 to i8
-  %26 = or disjoint i8 %25, 48
-  %27 = add nuw nsw i8 %25, 55
-  %.0.i22 = select i1 %24, i8 %26, i8 %27
-  %28 = getelementptr [20 x i8], ptr %8, i64 0, i64 %23
+  %23 = icmp ult i8 %10, -96
+  %24 = trunc nuw nsw i32 %16 to i8
+  %25 = or disjoint i8 %24, 48
+  %26 = add nuw nsw i8 %24, 55
+  %.0.i22 = select i1 %23, i8 %25, i8 %26
+  %27 = getelementptr i8, ptr %8, i64 %indvars.iv25
+  %28 = getelementptr i8, ptr %27, i64 1
   store i8 %.0.i22, ptr %28, align 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1

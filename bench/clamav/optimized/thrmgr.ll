@@ -105,7 +105,7 @@ define dso_local noundef i32 @thrmgr_printstats(i32 noundef %0, i8 noundef signe
 
 switch.lookup:                                    ; preds = %13
   %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.thrmgr_printstats, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.thrmgr_printstats, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 

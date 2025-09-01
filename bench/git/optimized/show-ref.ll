@@ -401,7 +401,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
 173:                                              ; preds = %169
   %174 = add i64 %170, 4294967295
   %175 = and i64 %174, 4294967295
-  %176 = getelementptr inbounds nuw [1024 x i8], ptr %12, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !28
   %178 = icmp eq i8 %177, 10
   br i1 %178, label %179, label %183
@@ -409,7 +409,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
 179:                                              ; preds = %173
   %180 = add nsw i32 %171, -1
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [1024 x i8], ptr %12, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %12, i64 %181
   store i8 0, ptr %182, align 1, !tbaa !28
   br label %183
 
@@ -429,7 +429,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
 190:                                              ; preds = %185
   %191 = add nsw i32 %.025.i, -3
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw [1024 x i8], ptr %12, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr %12, i64 %192
   store i8 0, ptr %193, align 1, !tbaa !28
   br label %.thread.i
 
@@ -448,7 +448,7 @@ define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %0, ptr noundef %
   %199 = getelementptr inbounds i8, ptr %.024.i, i64 -1
   %200 = load i8, ptr %199, align 1, !tbaa !28
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !28
   %204 = and i8 %203, 1
   %.not33.i = icmp eq i8 %204, 0

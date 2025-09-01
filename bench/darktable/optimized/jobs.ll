@@ -379,7 +379,7 @@ define range(i32 0, 2) i32 @dt_control_add_job_res(ptr noundef %0, ptr noundef %
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10048
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %30, label %14
@@ -462,7 +462,7 @@ _control_job_set_state.exit31:                    ; preds = %_control_job_print.
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %42) #16
   store ptr %1, ptr %12, align 8, !tbaa !59
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 10072
-  %50 = getelementptr inbounds nuw [3 x i8], ptr %49, i64 0, i64 %11
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %11
   store i8 1, ptr %50, align 1, !tbaa !64
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 9800
@@ -512,9 +512,9 @@ define range(i32 0, 2) i32 @dt_control_add_job(ptr noundef %0, i32 noundef %1, p
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 9928
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw [5 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 9968
-  %22 = getelementptr inbounds nuw [5 x i64], ptr %21, i64 0, i64 %19
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %19
   %23 = load i64, ptr %22, align 8, !tbaa !65
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
   %25 = and i32 %24, 2
@@ -1252,16 +1252,16 @@ define void @dt_control_jobs_init(ptr noundef initializes((9888, 9892), (9896, 9
 31:                                               ; preds = %._crit_edge, %31
   %indvars.iv46 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next47, %31 ]
   %.143 = phi i32 [ %13, %._crit_edge ], [ %39, %31 ]
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv46
+  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv46
   store ptr null, ptr %32, align 8, !tbaa !59
-  %33 = getelementptr inbounds nuw [3 x i8], ptr %15, i64 0, i64 %indvars.iv46
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv46
   store i8 0, ptr %33, align 1, !tbaa !64
   %34 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
   store ptr %0, ptr %34, align 8, !tbaa !89
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = trunc nuw nsw i64 %indvars.iv46 to i32
   store i32 %36, ptr %35, align 8, !tbaa !91
-  %37 = getelementptr inbounds nuw [3 x i64], ptr %16, i64 0, i64 %indvars.iv46
+  %37 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv46
   %38 = tail call i32 @dt_pthread_create(ptr noundef nonnull %37, ptr noundef nonnull @_control_work_res, ptr noundef nonnull %34) #16
   %39 = or i32 %38, %.143
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1320,7 +1320,7 @@ define internal noalias noundef ptr @_control_work(ptr noundef captures(none) %0
   %.03953.i.i = phi ptr [ null, %16 ], [ %.1.i.i, %34 ]
   %.04151.i.i = phi i32 [ -1, %16 ], [ %.142.i.i, %34 ]
   %.04450.i.i = phi i32 [ 5, %16 ], [ %.145.i.i, %34 ]
-  %20 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !82
   %22 = icmp eq ptr %21, null
   br i1 %22, label %34, label %23
@@ -1354,11 +1354,11 @@ define internal noalias noundef ptr @_control_work(ptr noundef captures(none) %0
 
 35:                                               ; preds = %18
   %36 = sext i32 %.145.i.i to i64
-  %37 = getelementptr inbounds [5 x ptr], ptr %10, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %10, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !82
   %39 = call ptr @g_list_delete_link(ptr noundef %38, ptr noundef %38) #16
   store ptr %39, ptr %37, align 8, !tbaa !82
-  %40 = getelementptr inbounds [5 x i64], ptr %12, i64 0, i64 %36
+  %40 = getelementptr inbounds i64, ptr %12, i64 %36
   %41 = load i64, ptr %40, align 8, !tbaa !65
   %42 = add i64 %41, -1
   store i64 %42, ptr %40, align 8, !tbaa !65
@@ -1395,7 +1395,7 @@ dt_control_get_threadid.exit.i.i:                 ; preds = %49, %45
   br i1 %57, label %67, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %indvars.iv56.i.i
+  %59 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv56.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !82
   %61 = icmp eq ptr %60, null
   br i1 %61, label %67, label %62
@@ -1531,9 +1531,9 @@ define internal noalias noundef ptr @_control_work_res(ptr noundef captures(none
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 10008
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10072
   %16 = zext nneg i32 %..i to i64
-  %17 = getelementptr inbounds nuw [3 x i8], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 10048
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr %18, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 9800
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 9840
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split

@@ -160,7 +160,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16400
   %82 = add nsw i32 %57, -128
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw [128 x i8], ptr %81, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !4
   %.not156 = icmp eq i8 %85, 0
   br i1 %.not156, label %92, label %86
@@ -172,7 +172,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %90 = getelementptr inbounds nuw [128 x [128 x i8]], ptr %89, i64 0, i64 %83
+  %90 = getelementptr inbounds nuw [128 x i8], ptr %89, i64 %83
   %bcmp = tail call i32 @bcmp(ptr nonnull %68, ptr nonnull %90, i64 %77)
   %.not158 = icmp eq i32 %bcmp, 0
   br i1 %.not158, label %create_default_qtables.exit, label %91
@@ -187,7 +187,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %96 = getelementptr inbounds nuw [128 x [128 x i8]], ptr %95, i64 0, i64 %83
+  %96 = getelementptr inbounds nuw [128 x i8], ptr %95, i64 %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull align 1 %68, i64 %77, i1 false)
   %97 = trunc nuw i16 %67 to i8
   store i8 %97, ptr %84, align 1, !tbaa !4
@@ -205,7 +205,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 16400
   %103 = add nsw i32 %57, -128
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw [128 x i8], ptr %102, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %.not154 = icmp eq i8 %106, 0
   br i1 %.not154, label %107, label %108
@@ -216,7 +216,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %110 = getelementptr inbounds nuw [128 x [128 x i8]], ptr %109, i64 0, i64 %104
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %109, i64 %104
   %111 = zext i8 %106 to i16
   br label %create_default_qtables.exit
 
@@ -251,7 +251,7 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
 
 124:                                              ; preds = %124, %123
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %124 ]
-  %125 = getelementptr inbounds nuw [128 x i8], ptr @default_quantizers, i64 0, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw i8, ptr @default_quantizers, i64 %indvars.iv.i
   %126 = load i8, ptr %125, align 1, !tbaa !4
   %127 = zext i8 %126 to i32
   %128 = mul nuw nsw i32 %.0.i, %127

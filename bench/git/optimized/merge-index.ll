@@ -291,7 +291,7 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   unreachable
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
-  %23 = phi ptr [ %18, %.preheader.preheader ], [ %49, %29 ]
+  %23 = phi ptr [ %18, %.preheader.preheader ], [ %47, %29 ]
   %indvars.iv = phi i64 [ %21, %.preheader.preheader ], [ %indvars.iv.next, %29 ]
   %.021 = phi i32 [ 0, %.preheader.preheader ], [ %34, %29 ]
   %24 = load ptr, ptr %23, align 8, !tbaa !44
@@ -300,7 +300,7 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 108
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #10
   %.not25 = icmp eq i32 %28, 0
-  br i1 %.not25, label %29, label %54
+  br i1 %.not25, label %29, label %52
 
 29:                                               ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -309,68 +309,66 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %33 = and i32 %32, 3
   %34 = add nuw nsw i32 %.021, 1
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw [4 x [65 x i8]], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [65 x i8], ptr %4, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %38 = call ptr @oid_to_hex_r(ptr noundef nonnull %36, ptr noundef nonnull %37) #8
-  %39 = getelementptr inbounds nuw [4 x [60 x i8]], ptr %5, i64 0, i64 %35
+  %39 = getelementptr inbounds nuw [60 x i8], ptr %5, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !47
   %42 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %39, i64 noundef 60, ptr noundef nonnull @.str.8, i32 noundef %41) #8
-  %43 = getelementptr inbounds nuw [9 x ptr], ptr %3, i64 0, i64 %35
+  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %35
   store ptr %36, ptr %43, align 8, !tbaa !30
-  %44 = or disjoint i32 %33, 4
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [9 x ptr], ptr %3, i64 0, i64 %45
-  store ptr %39, ptr %46, align 8, !tbaa !30
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  store ptr %39, ptr %44, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 384
-  %49 = load ptr, ptr %48, align 8, !tbaa !9
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !32
-  %52 = trunc nsw i64 %indvars.iv.next to i32
-  %53 = icmp ugt i32 %51, %52
-  br i1 %53, label %.preheader, label %.thread33, !llvm.loop !51
+  %45 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 384
+  %47 = load ptr, ptr %46, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %49 = load i32, ptr %48, align 4, !tbaa !32
+  %50 = trunc nsw i64 %indvars.iv.next to i32
+  %51 = icmp ugt i32 %49, %50
+  br i1 %51, label %.preheader, label %.thread33, !llvm.loop !51
 
-54:                                               ; preds = %.preheader
+52:                                               ; preds = %.preheader
   %.not26 = icmp eq i32 %.021, 0
-  br i1 %.not26, label %55, label %.thread33
+  br i1 %.not26, label %53, label %.thread33
 
-55:                                               ; preds = %54
+53:                                               ; preds = %52
   call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #9
   unreachable
 
-.thread33:                                        ; preds = %29, %54
-  %.13136 = phi i32 [ %.021, %54 ], [ %34, %29 ]
+.thread33:                                        ; preds = %29, %52
+  %.13136 = phi i32 [ %.021, %52 ], [ %34, %29 ]
   call void @strvec_pushv(ptr noundef nonnull %6, ptr noundef nonnull %3) #8
-  %56 = call i32 @run_command(ptr noundef nonnull %6) #8
-  %.not27 = icmp eq i32 %56, 0
-  br i1 %.not27, label %65, label %57
+  %54 = call i32 @run_command(ptr noundef nonnull %6) #8
+  %.not27 = icmp eq i32 %54, 0
+  br i1 %.not27, label %63, label %55
 
-57:                                               ; preds = %.thread33
+55:                                               ; preds = %.thread33
   %.b = load i1, ptr @one_shot, align 4
-  br i1 %.b, label %58, label %61
+  br i1 %.b, label %56, label %59
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr @err, align 4, !tbaa !47
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr @err, align 4, !tbaa !47
-  br label %65
+56:                                               ; preds = %55
+  %57 = load i32, ptr @err, align 4, !tbaa !47
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr @err, align 4, !tbaa !47
+  br label %63
 
-61:                                               ; preds = %57
+59:                                               ; preds = %55
   %.b24 = load i1, ptr @quiet, align 4
-  br i1 %.b24, label %63, label %62
+  br i1 %.b24, label %61, label %60
 
-62:                                               ; preds = %61
+60:                                               ; preds = %59
   call void (ptr, ...) @die(ptr noundef nonnull @.str.5) #9
   unreachable
 
-63:                                               ; preds = %61
-  %64 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 47, i32 noundef 1) #8
-  call void @exit(i32 noundef %64) #9
+61:                                               ; preds = %59
+  %62 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 47, i32 noundef 1) #8
+  call void @exit(i32 noundef %62) #9
   unreachable
 
-65:                                               ; preds = %58, %.thread33
+63:                                               ; preds = %56, %.thread33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

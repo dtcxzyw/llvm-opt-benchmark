@@ -115,9 +115,9 @@ define void @Min_SopMinimize(ptr noundef captures(none) %0) local_unnamed_addr #
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %.065.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.04364.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.144.i.i, %.loopexit.i.i ]
-  %46 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !21
-  %48 = getelementptr inbounds nuw [1 x i32], ptr %44, i64 0, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4, !tbaa !21
   %50 = xor i32 %49, %47
   %51 = icmp eq i32 %47, %49
@@ -250,9 +250,9 @@ Min_CubesDistTwo.exit.i:                          ; preds = %58, %52, %71, %.thr
   %indvars.iv.i257.i = phi i64 [ 0, %.lr.ph.i255.i ], [ %indvars.iv.next.i272.i, %.loopexit.i269.i ]
   %.065.i258.i = phi i32 [ -1, %.lr.ph.i255.i ], [ %.1.i271.i, %.loopexit.i269.i ]
   %.04364.i259.i = phi i32 [ -1, %.lr.ph.i255.i ], [ %.144.i270.i, %.loopexit.i269.i ]
-  %101 = getelementptr inbounds nuw [1 x i32], ptr %94, i64 0, i64 %indvars.iv.i257.i
+  %101 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i257.i
   %102 = load i32, ptr %101, align 4, !tbaa !21
-  %103 = getelementptr inbounds nuw [1 x i32], ptr %99, i64 0, i64 %indvars.iv.i257.i
+  %103 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.i257.i
   %104 = load i32, ptr %103, align 4, !tbaa !21
   %105 = xor i32 %104, %102
   %106 = icmp eq i32 %102, %104
@@ -392,7 +392,7 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %113, %107, %126, %.
   %163 = shl nuw nsw i32 %.3418448.i, 1
   %164 = lshr i32 %.3418448.i, 4
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw [1 x i32], ptr %162, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i32, ptr %162, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !21
   %168 = and i32 %163, 30
   %169 = lshr i32 %167, %168
@@ -400,17 +400,17 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %113, %107, %126, %.
   %171 = shl nuw nsw i32 %.3414449.i, 1
   %172 = lshr i32 %.3414449.i, 4
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [1 x i32], ptr %162, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr %162, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !21
   %176 = and i32 %171, 30
   %177 = lshr i32 %175, %176
   %178 = and i32 %177, 3
   %179 = getelementptr inbounds nuw i8, ptr %.1228451.i, i64 12
-  %180 = getelementptr inbounds nuw [1 x i32], ptr %179, i64 0, i64 %165
+  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %165
   %181 = load i32, ptr %180, align 4, !tbaa !21
   %182 = lshr i32 %181, %168
   %183 = and i32 %182, 3
-  %184 = getelementptr inbounds nuw [1 x i32], ptr %179, i64 0, i64 %173
+  %184 = getelementptr inbounds nuw i32, ptr %179, i64 %173
   %185 = load i32, ptr %184, align 4, !tbaa !21
   %186 = lshr i32 %185, %176
   %187 = and i32 %186, 3
@@ -470,9 +470,9 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %113, %107, %126, %.
 
 210:                                              ; preds = %209, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %209 ]
-  %211 = getelementptr inbounds nuw [1 x i32], ptr %204, i64 0, i64 %indvars.iv.i.i.i
+  %211 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i.i.i
   %212 = load i32, ptr %211, align 4, !tbaa !21
-  %213 = getelementptr inbounds nuw [1 x i32], ptr %162, i64 0, i64 %indvars.iv.i.i.i
+  %213 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i.i.i
   %214 = load i32, ptr %213, align 4, !tbaa !21
   %215 = and i32 %214, %212
   %.not.i.i.i = icmp eq i32 %215, %214
@@ -534,9 +534,9 @@ Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i,
 
 231:                                              ; preds = %230, %.lr.ph.i.i296.i
   %indvars.iv.i.i298.i = phi i64 [ 0, %.lr.ph.i.i296.i ], [ %indvars.iv.next.i.i307.i, %230 ]
-  %232 = getelementptr inbounds nuw [1 x i32], ptr %225, i64 0, i64 %indvars.iv.i.i298.i
+  %232 = getelementptr inbounds nuw i32, ptr %225, i64 %indvars.iv.i.i298.i
   %233 = load i32, ptr %232, align 4, !tbaa !21
-  %234 = getelementptr inbounds nuw [1 x i32], ptr %162, i64 0, i64 %indvars.iv.i.i298.i
+  %234 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i.i298.i
   %235 = load i32, ptr %234, align 4, !tbaa !21
   %236 = and i32 %235, %233
   %.not.i.i299.i = icmp eq i32 %236, %235
@@ -706,7 +706,7 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
 307:                                              ; preds = %305
   %308 = shl nuw i32 %.1222.i, %.pre-phi59
   %309 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
-  %310 = getelementptr inbounds nuw [1 x i32], ptr %309, i64 0, i64 %.pre-phi
+  %310 = getelementptr inbounds nuw i32, ptr %309, i64 %.pre-phi
   %311 = load i32, ptr %310, align 4, !tbaa !21
   %312 = xor i32 %311, %308
   store i32 %312, ptr %310, align 4, !tbaa !21
@@ -715,7 +715,7 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
   %315 = shl nuw i32 3, %314
   %316 = lshr i32 %.5.i, 4
   %317 = zext nneg i32 %316 to i64
-  %318 = getelementptr inbounds nuw [1 x i32], ptr %309, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw i32, ptr %309, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !21
   %320 = xor i32 %319, %315
   store i32 %320, ptr %318, align 4, !tbaa !21
@@ -768,9 +768,9 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
 
 341:                                              ; preds = %340, %.lr.ph.i.i331.i
   %indvars.iv.i.i333.i = phi i64 [ 0, %.lr.ph.i.i331.i ], [ %indvars.iv.next.i.i342.i, %340 ]
-  %342 = getelementptr inbounds nuw [1 x i32], ptr %335, i64 0, i64 %indvars.iv.i.i333.i
+  %342 = getelementptr inbounds nuw i32, ptr %335, i64 %indvars.iv.i.i333.i
   %343 = load i32, ptr %342, align 4, !tbaa !21
-  %344 = getelementptr inbounds nuw [1 x i32], ptr %309, i64 0, i64 %indvars.iv.i.i333.i
+  %344 = getelementptr inbounds nuw i32, ptr %309, i64 %indvars.iv.i.i333.i
   %345 = load i32, ptr %344, align 4, !tbaa !21
   %346 = and i32 %345, %343
   %.not.i.i334.i = icmp eq i32 %346, %345
@@ -864,7 +864,7 @@ Min_SopAddCube.exit348.i:                         ; preds = %369
   store i32 %387, ptr %321, align 8
   %388 = shl nuw i32 %.1224.i, %314
   %389 = getelementptr inbounds nuw i8, ptr %.3.i, i64 12
-  %390 = getelementptr inbounds nuw [1 x i32], ptr %389, i64 0, i64 %317
+  %390 = getelementptr inbounds nuw i32, ptr %389, i64 %317
   %391 = load i32, ptr %390, align 4, !tbaa !21
   %392 = xor i32 %391, %388
   store i32 %392, ptr %390, align 4, !tbaa !21
@@ -890,7 +890,7 @@ Min_SopAddCube.exit352.i:                         ; preds = %399, %Min_SopAddCub
 402:                                              ; preds = %305
   %403 = shl nuw i32 3, %.pre-phi59
   %404 = getelementptr inbounds nuw i8, ptr %.3.i, i64 12
-  %405 = getelementptr inbounds nuw [1 x i32], ptr %404, i64 0, i64 %.pre-phi
+  %405 = getelementptr inbounds nuw i32, ptr %404, i64 %.pre-phi
   %406 = load i32, ptr %405, align 4, !tbaa !21
   %407 = xor i32 %406, %403
   store i32 %407, ptr %405, align 4, !tbaa !21
@@ -938,9 +938,9 @@ Min_SopAddCube.exit352.i:                         ; preds = %399, %Min_SopAddCub
 
 424:                                              ; preds = %423, %.lr.ph.i.i363.i
   %indvars.iv.i.i365.i = phi i64 [ 0, %.lr.ph.i.i363.i ], [ %indvars.iv.next.i.i374.i, %423 ]
-  %425 = getelementptr inbounds nuw [1 x i32], ptr %418, i64 0, i64 %indvars.iv.i.i365.i
+  %425 = getelementptr inbounds nuw i32, ptr %418, i64 %indvars.iv.i.i365.i
   %426 = load i32, ptr %425, align 4, !tbaa !21
-  %427 = getelementptr inbounds nuw [1 x i32], ptr %404, i64 0, i64 %indvars.iv.i.i365.i
+  %427 = getelementptr inbounds nuw i32, ptr %404, i64 %indvars.iv.i.i365.i
   %428 = load i32, ptr %427, align 4, !tbaa !21
   %429 = and i32 %428, %426
   %.not.i.i366.i = icmp eq i32 %429, %428
@@ -967,7 +967,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   %434 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
   %435 = lshr i32 %.5.i, 4
   %436 = zext nneg i32 %435 to i64
-  %437 = getelementptr inbounds nuw [1 x i32], ptr %434, i64 0, i64 %436
+  %437 = getelementptr inbounds nuw i32, ptr %434, i64 %436
   %438 = load i32, ptr %437, align 4, !tbaa !21
   %439 = xor i32 %438, %433
   store i32 %439, ptr %437, align 4, !tbaa !21
@@ -989,7 +989,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   store i32 %406, ptr %405, align 4, !tbaa !21
   %449 = shl nuw i32 %.1222.i, %.pre-phi59
   %450 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
-  %451 = getelementptr inbounds nuw [1 x i32], ptr %450, i64 0, i64 %.pre-phi
+  %451 = getelementptr inbounds nuw i32, ptr %450, i64 %.pre-phi
   %452 = load i32, ptr %451, align 4, !tbaa !21
   %453 = xor i32 %452, %449
   store i32 %453, ptr %451, align 4, !tbaa !21
@@ -1006,7 +1006,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   %463 = shl nuw i32 %460, %462
   %464 = lshr i32 %.5.i, 4
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr inbounds nuw [1 x i32], ptr %404, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw i32, ptr %404, i64 %465
   %467 = load i32, ptr %466, align 4, !tbaa !21
   %468 = xor i32 %467, %463
   store i32 %468, ptr %466, align 4, !tbaa !21
@@ -1089,9 +1089,9 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw [1 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !21
-  %20 = getelementptr inbounds nuw [1 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !21
   %.not.i = icmp eq i32 %19, %21
   br i1 %.not.i, label %16, label %Min_CubesAreEqual.exit.loopexit
@@ -1149,9 +1149,9 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %17
 
 37:                                               ; preds = %36, %.lr.ph.i93
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i97, %36 ]
-  %38 = getelementptr inbounds nuw [1 x i32], ptr %31, i64 0, i64 %indvars.iv.i95
+  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i95
   %39 = load i32, ptr %38, align 4, !tbaa !21
-  %40 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 0, i64 %indvars.iv.i95
+  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i95
   %41 = load i32, ptr %40, align 4, !tbaa !21
   %42 = and i32 %41, %39
   %.not.i96 = icmp eq i32 %42, %41
@@ -1186,9 +1186,9 @@ Min_CubeIsContained.exit:                         ; preds = %37, %29
 
 45:                                               ; preds = %58, %.outer.i
   %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i103, %58 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %46 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %indvars.iv.i102
+  %46 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i102
   %47 = load i32, ptr %46, align 4, !tbaa !21
-  %48 = getelementptr inbounds nuw [1 x i32], ptr %44, i64 0, i64 %indvars.iv.i102
+  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i102
   %49 = load i32, ptr %48, align 4, !tbaa !21
   %50 = icmp eq i32 %47, %49
   br i1 %50, label %58, label %51
@@ -1252,9 +1252,9 @@ Min_CubesDistOne.exit:                            ; preds = %51, %52
 
 66:                                               ; preds = %66, %.lr.ph.i106
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i106 ], [ %indvars.iv.next.i109, %66 ]
-  %67 = getelementptr inbounds nuw [1 x i32], ptr %65, i64 0, i64 %indvars.iv.i108
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i108
   %68 = load i32, ptr %67, align 4, !tbaa !21
-  %69 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %indvars.iv.i108
+  %69 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i108
   %70 = load i32, ptr %69, align 4, !tbaa !21
   %71 = or i32 %70, %68
   store i32 %71, ptr %69, align 4, !tbaa !21
@@ -1339,9 +1339,9 @@ Min_CubesTransformOr.exit:                        ; preds = %66, %.loopexit131
 
 103:                                              ; preds = %102, %.lr.ph.i113
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i113 ], [ %indvars.iv.next.i119, %102 ]
-  %104 = getelementptr inbounds nuw [1 x i32], ptr %82, i64 0, i64 %indvars.iv.i115
+  %104 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i115
   %105 = load i32, ptr %104, align 4, !tbaa !21
-  %106 = getelementptr inbounds nuw [1 x i32], ptr %101, i64 0, i64 %indvars.iv.i115
+  %106 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.i115
   %107 = load i32, ptr %106, align 4, !tbaa !21
   %108 = and i32 %107, %105
   %.not.i116 = icmp eq i32 %108, %107
@@ -1464,9 +1464,9 @@ define void @Min_SopContain(ptr noundef captures(none) %0) local_unnamed_addr #0
 
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr inbounds nuw [1 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4, !tbaa !21
-  %22 = getelementptr inbounds nuw [1 x i32], ptr %17, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %.not.i = icmp eq i32 %21, %23
   br i1 %.not.i, label %18, label %Min_CubesAreEqual.exit
@@ -1532,9 +1532,9 @@ Min_CubesAreEqual.exit:                           ; preds = %19, %.loopexit58
 
 38:                                               ; preds = %37, %.lr.ph.i48
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i52, %37 ]
-  %39 = getelementptr inbounds nuw [1 x i32], ptr inttoptr (i64 12 to ptr), i64 0, i64 %indvars.iv.i50
+  %39 = getelementptr inbounds nuw i32, ptr inttoptr (i64 12 to ptr), i64 %indvars.iv.i50
   %40 = load i32, ptr %39, align 4, !tbaa !21
-  %41 = getelementptr inbounds nuw [1 x i32], ptr %36, i64 0, i64 %indvars.iv.i50
+  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i50
   %42 = load i32, ptr %41, align 4, !tbaa !21
   %43 = and i32 %42, %40
   %.not.i51 = icmp eq i32 %43, %42
@@ -1634,9 +1634,9 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
 
 21:                                               ; preds = %34, %.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %22 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !21
-  %24 = getelementptr inbounds nuw [1 x i32], ptr %20, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !21
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %34, label %27
@@ -1706,12 +1706,12 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
 
 55:                                               ; preds = %55, %.lr.ph.i26
   %indvars.iv.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %indvars.iv.next.i28, %55 ]
-  %56 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 0, i64 %indvars.iv.i27
+  %56 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i27
   %57 = load i32, ptr %56, align 4, !tbaa !21
-  %58 = getelementptr inbounds nuw [1 x i32], ptr %54, i64 0, i64 %indvars.iv.i27
+  %58 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i27
   %59 = load i32, ptr %58, align 4, !tbaa !21
   %60 = xor i32 %59, %57
-  %61 = getelementptr inbounds nuw [1 x i32], ptr %48, i64 0, i64 %indvars.iv.i27
+  %61 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i27
   store i32 %60, ptr %61, align 4, !tbaa !21
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
   %62 = load i32, ptr %6, align 4, !tbaa !49
@@ -1731,7 +1731,7 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
 66:                                               ; preds = %76, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %76 ]
   %.01316.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %76 ]
-  %67 = getelementptr inbounds nuw [1 x i32], ptr %48, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !21
   %69 = lshr i32 %68, 1
   %70 = xor i32 %69, %68
@@ -1866,9 +1866,9 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
 
 34:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [1 x i32], ptr %28, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !21
-  %37 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4, !tbaa !21
   %39 = and i32 %38, %36
   %40 = lshr i32 %39, 1
@@ -1890,10 +1890,10 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
   %.pre.i.i83 = phi ptr [ %.pre.i.i84, %.loopexit.i ], [ %.pre.i.i77, %.loopexit ]
   %46 = phi i32 [ %90, %.loopexit.i ], [ %44, %.loopexit ]
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i55, %.loopexit.i ], [ 0, %.loopexit ]
-  %47 = getelementptr inbounds nuw [1 x i32], ptr %28, i64 0, i64 %indvars.iv.i53
+  %47 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i53
   %48 = load i32, ptr %47, align 4, !tbaa !21
   %49 = lshr i32 %48, 1
-  %50 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %indvars.iv.i53
+  %50 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i53
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = lshr i32 %51, 1
   %53 = xor i32 %52, %51
@@ -2011,7 +2011,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %102 = getelementptr inbounds nuw i8, ptr %.04670, i64 12
   %103 = ashr i32 %98, 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [1 x i32], ptr %102, i64 0, i64 %104
+  %105 = getelementptr inbounds i32, ptr %102, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !21
   %107 = xor i32 %101, %106
   store i32 %107, ptr %105, align 4, !tbaa !21
@@ -2028,7 +2028,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %112 = shl nsw i32 %111, 1
   %113 = ashr i32 %111, 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [1 x i32], ptr %109, i64 0, i64 %114
+  %115 = getelementptr inbounds i32, ptr %109, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !21
   %117 = and i32 %112, 30
   %118 = lshr i32 %116, %117
@@ -2069,7 +2069,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %146 = shl nuw i32 %143, %145
   %147 = ashr i32 %142, 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [1 x i32], ptr %131, i64 0, i64 %148
+  %149 = getelementptr inbounds i32, ptr %131, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !21
   %151 = xor i32 %146, %150
   store i32 %151, ptr %149, align 4, !tbaa !21
@@ -2083,7 +2083,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %157 = getelementptr inbounds nuw i8, ptr %121, i64 12
   %158 = ashr i32 %153, 4
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds [1 x i32], ptr %157, i64 0, i64 %159
+  %160 = getelementptr inbounds i32, ptr %157, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !21
   %162 = xor i32 %156, %161
   store i32 %162, ptr %160, align 4, !tbaa !21
@@ -2183,9 +2183,9 @@ Min_CubesAreEqual.exit.loopexit.i:                ; preds = %188
 
 188:                                              ; preds = %187, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %187 ]
-  %189 = getelementptr inbounds nuw [1 x i32], ptr %183, i64 0, i64 %indvars.iv.i.i
+  %189 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv.i.i
   %190 = load i32, ptr %189, align 4, !tbaa !21
-  %191 = getelementptr inbounds nuw [1 x i32], ptr %186, i64 0, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.i.i
   %192 = load i32, ptr %191, align 4, !tbaa !21
   %.not.i.i = icmp eq i32 %190, %192
   br i1 %.not.i.i, label %187, label %Min_CubesAreEqual.exit.loopexit.i
@@ -2295,9 +2295,9 @@ define range(i32 0, 2) i32 @Min_SopCheck(ptr noundef readonly captures(none) %0)
 
 38:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %39 = getelementptr inbounds nuw [1 x i32], ptr %32, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !21
-  %41 = getelementptr inbounds nuw [1 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !21
   %43 = and i32 %42, %40
   %.not.i = icmp eq i32 %43, %42

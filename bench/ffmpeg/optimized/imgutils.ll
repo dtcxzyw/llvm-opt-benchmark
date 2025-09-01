@@ -35,7 +35,7 @@ define void @av_image_fill_max_pixsteps(ptr noundef captures(none) initializes((
 
 .split.us:                                        ; preds = %.split.us.preheader, %15
   %indvars.iv23 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next24, %15 ]
-  %6 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %5, i64 0, i64 %indvars.iv23
+  %6 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %5, i64 %indvars.iv23
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = load i32, ptr %6, align 4, !tbaa !9
@@ -56,7 +56,7 @@ define void @av_image_fill_max_pixsteps(ptr noundef captures(none) initializes((
 
 .split:                                           ; preds = %.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %29 ]
-  %16 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %4, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = load i32, ptr %16, align 4, !tbaa !9
@@ -112,7 +112,7 @@ define i32 @av_image_get_linesize(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 .split.i:                                         ; preds = %24, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %12, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %12, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = load i32, ptr %13, align 4, !tbaa !9
@@ -136,13 +136,13 @@ define i32 @av_image_get_linesize(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 av_image_fill_max_pixsteps.exit:                  ; preds = %24
   %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !10
   %28 = icmp slt i32 %1, 0
   br i1 %28, label %image_get_linesize.exit, label %29
 
 29:                                               ; preds = %av_image_fill_max_pixsteps.exit
-  %30 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %25
+  %30 = getelementptr inbounds i32, ptr %5, i64 %25
   %31 = load i32, ptr %30, align 4, !tbaa !10
   %32 = add i32 %31, -1
   %or.cond.i = icmp ult i32 %32, 2
@@ -213,7 +213,7 @@ define range(i32 -2147483648, 1) i32 @av_image_fill_linesizes(ptr noundef writeo
 
 .split.i:                                         ; preds = %24, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %12, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %12, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = load i32, ptr %13, align 4, !tbaa !9
@@ -248,9 +248,9 @@ av_image_fill_max_pixsteps.exit.preheader.split:  ; preds = %av_image_fill_max_p
 
 av_image_fill_max_pixsteps.exit.preheader.split.split.us: ; preds = %av_image_fill_max_pixsteps.exit.preheader.split, %av_image_fill_max_pixsteps.exit.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %av_image_fill_max_pixsteps.exit.us ], [ 0, %av_image_fill_max_pixsteps.exit.preheader.split ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv27
+  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv27
   %30 = load i32, ptr %29, align 4, !tbaa !10
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv27
+  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv27
   %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = add i32 %32, -1
   %or.cond.i.us = icmp ult i32 %33, 2
@@ -288,9 +288,9 @@ av_image_fill_max_pixsteps.exit.us:               ; preds = %image_get_linesize.
 
 av_image_fill_max_pixsteps.exit.preheader.split.split: ; preds = %av_image_fill_max_pixsteps.exit.preheader.split, %av_image_fill_max_pixsteps.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_image_fill_max_pixsteps.exit ], [ 0, %av_image_fill_max_pixsteps.exit.preheader.split ]
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !10
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = add i32 %51, -1
   %or.cond.i = icmp ult i32 %52, 2
@@ -383,10 +383,10 @@ define range(i32 -22, 1) i32 @av_image_fill_plane_sizes(ptr noundef writeonly ca
 
 23:                                               ; preds = %.preheader47, %23
   %indvars.iv = phi i64 [ 0, %.preheader47 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !9
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %5, i64 %26
   store i32 1, ptr %27, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -394,7 +394,7 @@ define range(i32 -22, 1) i32 @av_image_fill_plane_sizes(ptr noundef writeonly ca
 
 28:                                               ; preds = %.preheader, %43
   %indvars.iv51 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next52, %43 ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv51
+  %29 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv51
   %30 = load i32, ptr %29, align 4, !tbaa !10
   %.not42 = icmp eq i32 %30, 0
   br i1 %.not42, label %.critedge, label %31
@@ -449,7 +449,7 @@ define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initiali
   %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %12, ptr %13, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -500,10 +500,10 @@ define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initiali
 
 31:                                               ; preds = %31, %.preheader47.i
   %indvars.iv.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %26, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %26, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !9
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %34
+  %35 = getelementptr inbounds i32, ptr %6, i64 %34
   store i32 1, ptr %35, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -511,7 +511,7 @@ define i32 @av_image_fill_pointers(ptr noundef writeonly captures(none) initiali
 
 36:                                               ; preds = %51, %.preheader.i
   %indvars.iv51.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next52.i, %51 ]
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv51.i
+  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv51.i
   %38 = load i32, ptr %37, align 4, !tbaa !10
   %.not42.i = icmp eq i32 %38, 0
   br i1 %.not42.i, label %av_image_fill_plane_sizes.exit, label %39
@@ -556,7 +556,7 @@ av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
 54:                                               ; preds = %av_image_fill_plane_sizes.exit, %60
   %indvars.iv44 = phi i64 [ 0, %av_image_fill_plane_sizes.exit ], [ %indvars.iv.next45, %60 ]
   %.040 = phi i32 [ 0, %av_image_fill_plane_sizes.exit ], [ %62, %60 ]
-  %55 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv44
+  %55 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv44
   %56 = load i64, ptr %55, align 8, !tbaa !20
   %57 = sub nsw i32 2147483647, %.040
   %58 = zext nneg i32 %57 to i64
@@ -581,14 +581,14 @@ av_image_fill_plane_sizes.exit:                   ; preds = %36, %51, %27
 65:                                               ; preds = %64, %69
   %66 = phi ptr [ %3, %64 ], [ %73, %69 ]
   %indvars.iv48 = phi i64 [ 1, %64 ], [ %indvars.iv.next49, %69 ]
-  %67 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv48
+  %67 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv48
   %68 = load i64, ptr %67, align 8, !tbaa !20
   %.not34 = icmp eq i64 %68, 0
   br i1 %.not34, label %.critedge, label %69
 
 69:                                               ; preds = %65
-  %70 = add nsw i64 %indvars.iv48, -1
-  %71 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %70
+  %70 = getelementptr i64, ptr %8, i64 %indvars.iv48
+  %71 = getelementptr i8, ptr %70, i64 -8
   %72 = load i64, ptr %71, align 8, !tbaa !20
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 %72
   %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv48
@@ -746,7 +746,7 @@ define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(n
   %27 = and i32 %26, %22
   store i32 %27, ptr %24, align 4, !tbaa !10
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -797,10 +797,10 @@ define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(n
 
 47:                                               ; preds = %47, %.preheader47.i
   %indvars.iv.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next.i, %47 ]
-  %48 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %42, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %42, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !9
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %50
+  %51 = getelementptr inbounds i32, ptr %7, i64 %50
   store i32 1, ptr %51, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -808,7 +808,7 @@ define i32 @av_image_alloc(ptr noundef captures(none) %0, ptr noundef captures(n
 
 52:                                               ; preds = %67, %.preheader.i
   %indvars.iv51.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next52.i, %67 ]
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv51.i
+  %53 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv51.i
   %54 = load i32, ptr %53, align 4, !tbaa !10
   %.not42.i = icmp eq i32 %54, 0
   br i1 %.not42.i, label %.loopexit77, label %55
@@ -854,7 +854,7 @@ av_image_fill_plane_sizes.exit.thread:            ; preds = %59, %32, %30, %36
 71:                                               ; preds = %.loopexit77, %76
   %indvars.iv83 = phi i64 [ 0, %.loopexit77 ], [ %indvars.iv.next84, %76 ]
   %.06081 = phi i64 [ %70, %.loopexit77 ], [ %77, %76 ]
-  %72 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv83
+  %72 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv83
   %73 = load i64, ptr %72, align 8, !tbaa !20
   %74 = xor i64 %73, -1
   %75 = icmp ugt i64 %.06081, %74
@@ -982,7 +982,7 @@ define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %
 
 .split.i.i:                                       ; preds = %31, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %31 ]
-  %20 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %19, i64 %indvars.iv.i.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = load i32, ptr %20, align 4, !tbaa !9
@@ -1298,12 +1298,12 @@ define void @av_image_copy(ptr noundef readonly captures(none) %0, ptr noundef r
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !10
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   store i64 %13, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1396,7 +1396,7 @@ define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %.05671 = phi i32 [ 0, %.lr.ph ], [ %.056., %41 ]
-  %42 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %20, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %20, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = add nsw i32 %43, 1
   %.056. = tail call i32 @llvm.smax.i32(i32 %.05671, i32 %44)
@@ -1427,7 +1427,7 @@ define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, 
 
 .split.i.i:                                       ; preds = %64, %51
   %indvars.iv.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i, %64 ]
-  %53 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %52, i64 0, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %52, i64 %indvars.iv.i.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = load i32, ptr %53, align 4, !tbaa !9
@@ -1450,12 +1450,12 @@ define internal fastcc void @image_copy(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not.i.i, label %av_image_fill_max_pixsteps.exit.i, label %.split.i.i, !llvm.loop !11
 
 av_image_fill_max_pixsteps.exit.i:                ; preds = %64
-  %65 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv77
+  %65 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv77
   %66 = load i32, ptr %65, align 4, !tbaa !10
   br i1 %37, label %av_image_get_linesize.exit.thread, label %67
 
 67:                                               ; preds = %av_image_fill_max_pixsteps.exit.i
-  %68 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv77
+  %68 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv77
   %69 = load i32, ptr %68, align 4, !tbaa !10
   %70 = add i32 %69, -1
   %or.cond.i.i = icmp ult i32 %70, 2
@@ -1606,12 +1606,12 @@ define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef
 
 18:                                               ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = add i32 %16, %20
   %22 = and i32 %21, %17
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %23, ptr %24, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1662,10 +1662,10 @@ define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef
 
 42:                                               ; preds = %42, %.preheader47.i
   %indvars.iv.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %37, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %37, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %45
+  %46 = getelementptr inbounds i32, ptr %5, i64 %45
   store i32 1, ptr %46, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1673,7 +1673,7 @@ define i32 @av_image_get_buffer_size(i32 noundef %0, i32 noundef %1, i32 noundef
 
 47:                                               ; preds = %62, %.preheader.i
   %indvars.iv51.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next52.i, %62 ]
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv51.i
+  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv51.i
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %.not42.i = icmp eq i32 %49, 0
   br i1 %.not42.i, label %av_image_fill_plane_sizes.exit, label %50
@@ -1718,7 +1718,7 @@ av_image_fill_plane_sizes.exit:                   ; preds = %47, %62, %38
 65:                                               ; preds = %av_image_fill_plane_sizes.exit, %71
   %indvars.iv38 = phi i64 [ 0, %av_image_fill_plane_sizes.exit ], [ %indvars.iv.next39, %71 ]
   %.02835 = phi i32 [ 0, %av_image_fill_plane_sizes.exit ], [ %73, %71 ]
-  %66 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv38
+  %66 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv38
   %67 = load i64, ptr %66, align 8, !tbaa !20
   %68 = sub nsw i32 2147483647, %.02835
   %69 = zext nneg i32 %68 to i64
@@ -1767,7 +1767,7 @@ define range(i32 -22, -2147483648) i32 @av_image_copy_to_buffer(ptr noundef writ
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.06573 = phi i32 [ 0, %.lr.ph ], [ %..065, %18 ]
-  %19 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %17, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %17, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !9
   %..065 = tail call i32 @llvm.smax.i32(i32 %20, i32 %.06573)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1821,7 +1821,7 @@ define range(i32 -22, -2147483648) i32 @av_image_copy_to_buffer(ptr noundef writ
 .lr.ph79:                                         ; preds = %36
   %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv92
   %43 = load ptr, ptr %42, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv92
+  %44 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv92
   %45 = load i32, ptr %44, align 4, !tbaa !10
   %46 = sext i32 %45 to i64
   %47 = add i32 %27, %45
@@ -1940,12 +1940,12 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 33:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %34 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %29, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %29, i64 %indvars.iv
   %.sroa.023.0.copyload = load i32, ptr %34, align 4, !tbaa !10
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !10
   %35 = sext i32 %.sroa.023.0.copyload to i64
-  %36 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %35
+  %36 = getelementptr inbounds i32, ptr %11, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !10
   %..sroa.7.0.copyload = tail call i32 @llvm.smax.i32(i32 %37, i32 %.sroa.7.0.copyload)
   store i32 %..sroa.7.0.copyload, ptr %36, align 4, !tbaa !10
@@ -1986,7 +1986,7 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 .split.i.i.us:                                    ; preds = %60, %47
   %indvars.iv.i.i.us = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i.us, %60 ]
-  %49 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %48, i64 0, i64 %indvars.iv.i.i.us
+  %49 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %48, i64 %indvars.iv.i.i.us
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = load i32, ptr %49, align 4, !tbaa !9
@@ -2010,14 +2010,14 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 61:                                               ; preds = %.lr.ph108, %.critedge
   %indvars.iv142 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next143, %.critedge ]
-  %62 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %31, i64 0, i64 %indvars.iv142
+  %62 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %31, i64 %indvars.iv142
   %.sroa.0.0.copyload = load i32, ptr %62, align 4, !tbaa !10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !10
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
   %.sroa.522.0.copyload = load i32, ptr %.sroa.522.0..sroa_idx, align 4, !tbaa !10
   %63 = sext i32 %.sroa.0.0.copyload to i64
-  %64 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %63
+  %64 = getelementptr inbounds i32, ptr %11, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = shl i32 %65, %32
   %67 = sdiv i32 %66, %.sroa.4.0.copyload
@@ -2038,7 +2038,7 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 72:                                               ; preds = %.preheader98, %72
   %indvars.iv133 = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next134, %72 ]
-  %73 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 0, i64 %indvars.iv133
+  %73 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv133
   store i32 %71, ptr %73, align 4, !tbaa !10
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
@@ -2046,8 +2046,8 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 .preheader97:                                     ; preds = %72, %.preheader97
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.preheader97 ], [ 0, %72 ]
-  %74 = getelementptr inbounds nuw [4 x [32 x i8]], ptr %10, i64 0, i64 %indvars.iv138
-  %75 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %indvars.iv138
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv138
+  %75 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv138
   store ptr %74, ptr %75, align 8, !tbaa !26
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 4
@@ -2094,7 +2094,7 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
 
 .split.i.i:                                       ; preds = %99, %86
   %indvars.iv.i.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i.i, %99 ]
-  %88 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %87, i64 0, i64 %indvars.iv.i.i
+  %88 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %87, i64 %indvars.iv.i.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !4
   %91 = load i32, ptr %88, align 4, !tbaa !9
@@ -2117,9 +2117,9 @@ define range(i32 -22, 1) i32 @av_image_fill_color(ptr noundef readonly captures(
   br i1 %exitcond.not.i.i, label %av_image_fill_max_pixsteps.exit.i, label %.split.i.i, !llvm.loop !11
 
 av_image_fill_max_pixsteps.exit.i:                ; preds = %99
-  %100 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv145
+  %100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv145
   %101 = load i32, ptr %100, align 4, !tbaa !10
-  %102 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv145
+  %102 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv145
   %103 = load i32, ptr %102, align 4, !tbaa !10
   %104 = add i32 %103, -1
   %or.cond.i.i = icmp ult i32 %104, 2
@@ -2159,7 +2159,7 @@ av_image_get_linesize.exit:                       ; preds = %109, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %121 = sext i32 %.0.i.i to i64
-  %122 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %indvars.iv145
+  %122 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv145
   store i64 %121, ptr %122, align 8, !tbaa !20
   %123 = icmp slt i32 %.0.i.i, 0
   br i1 %123, label %.loopexit, label %124
@@ -2181,7 +2181,7 @@ av_image_get_linesize.exit:                       ; preds = %109, %114
 
 127:                                              ; preds = %.lr.ph120, %._crit_edge115
   %indvars.iv150 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next151, %._crit_edge115 ]
-  %128 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %indvars.iv150
+  %128 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv150
   %129 = load i64, ptr %128, align 8, !tbaa !20
   %130 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv150
   %131 = load ptr, ptr %130, align 8, !tbaa !26
@@ -2204,8 +2204,8 @@ av_image_get_linesize.exit:                       ; preds = %109, %114
   br i1 %142, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %137
-  %143 = getelementptr inbounds nuw [4 x [32 x i8]], ptr %10, i64 0, i64 %indvars.iv150
-  %144 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv150
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv150
+  %144 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv150
   %145 = load i32, ptr %144, align 4, !tbaa !10
   %.fr125 = freeze i32 %145
   %146 = sext i32 %.fr125 to i64
@@ -2334,7 +2334,7 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
   br i1 %29, label %.loopexit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv151
+  %30 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv151
   store i32 1, ptr %30, align 4, !tbaa !10
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
@@ -2413,7 +2413,7 @@ switch.early.test.us:                             ; preds = %49
 
 .critedge.us118:                                  ; preds = %.critedge109.us, %50, %.critedge111.us, %42, %36
   %.0.us119 = phi i32 [ %52, %50 ], [ %54, %.critedge109.us ], [ 0, %36 ], [ %44, %42 ], [ %46, %.critedge111.us ]
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %.0.us119, ptr %55, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count154
@@ -2488,7 +2488,7 @@ switch.early.test104.us129:                       ; preds = %64
 
 .critedge.us131:                                  ; preds = %75, %72, %.critedge111.us130, %65, %59
   %.0.us132 = phi i32 [ %74, %72 ], [ %78, %75 ], [ 0, %59 ], [ %67, %65 ], [ %69, %.critedge111.us130 ]
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv141
+  %79 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv141
   store i32 %.0.us132, ptr %79, align 4, !tbaa !10
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count154
   br i1 %exitcond145.not, label %.critedge106, label %.lr.ph.split.split.split.us, !llvm.loop !58
@@ -2588,7 +2588,7 @@ switch.early.test104:                             ; preds = %108
 
 .critedge:                                        ; preds = %88, %85, %103, %.critedge111, %109, %98, %.critedge109
   %.0 = phi i32 [ %87, %85 ], [ %91, %88 ], [ %100, %98 ], [ %102, %.critedge109 ], [ 0, %103 ], [ %111, %109 ], [ %113, %.critedge111 ]
-  %114 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv146
+  %114 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv146
   store i32 %.0, ptr %114, align 4, !tbaa !10
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count154
   br i1 %exitcond150.not, label %.critedge106, label %.lr.ph.split.split.split, !llvm.loop !58

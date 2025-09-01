@@ -85,7 +85,7 @@ define hidden noundef i32 @mi_version() local_unnamed_addr #0 {
 define hidden void @_mi_options_init() local_unnamed_addr #1 {
   %1 = atomicrmw add ptr @out_len, i64 1 acq_rel, align 8
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 16384)
-  %2 = getelementptr inbounds nuw [16385 x i8], ptr @out_buf, i64 0, i64 %spec.store.select.i.i
+  %2 = getelementptr inbounds nuw i8, ptr @out_buf, i64 %spec.store.select.i.i
   store i8 0, ptr %2, align 1, !tbaa !3
   %3 = load i8, ptr @out_buf, align 16, !tbaa !3
   %.not3.i.i = icmp eq i8 %3, 0
@@ -127,7 +127,7 @@ mi_option_get.exit7:                              ; preds = %mi_option_get.exit,
 
 14:                                               ; preds = %mi_add_stderr_output.exit, %mi_option_get.exit8
   %indvars.iv = phi i64 [ 0, %mi_add_stderr_output.exit ], [ %indvars.iv.next, %mi_option_get.exit8 ]
-  %15 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !8
   %18 = icmp eq i32 %17, 0
@@ -158,7 +158,7 @@ define hidden i64 @mi_option_get(i32 noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !8
   %8 = icmp eq i32 %7, 0
@@ -235,7 +235,7 @@ mi_vfprintf.exit:                                 ; preds = %8, %10, %12, %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i64 @_mi_option_get_fast(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %2
   %4 = load i64, ptr %3, align 16, !tbaa !14
   ret i64 %4
 }
@@ -279,7 +279,7 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %19 = getelementptr inbounds nuw [65 x i8], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !3
   %20 = load i8, ptr %3, align 16, !tbaa !3
   %21 = icmp eq i8 %20, 0
@@ -287,10 +287,10 @@ define internal fastcc void @mi_option_init(ptr noundef captures(none) %0) unnam
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.03342 = phi i64 [ %26, %.lr.ph ], [ 0, %17 ]
-  %22 = getelementptr inbounds nuw [65 x i8], ptr %2, i64 0, i64 %.03342
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.03342
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = call signext i8 @_mi_toupper(i8 noundef signext %23) #16
-  %25 = getelementptr inbounds nuw [65 x i8], ptr %3, i64 0, i64 %.03342
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.03342
   store i8 %24, ptr %25, align 1, !tbaa !3
   %26 = add nuw i64 %.03342, 1
   %exitcond.not = icmp eq i64 %26, %18
@@ -415,7 +415,7 @@ thread-pre-split:                                 ; preds = %39, %46, %49, %43
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.i.backedge
   %.tr14.i = phi i32 [ %.tr14.i.be, %.lr.ph.i.backedge ], [ %38, %70 ]
   %72 = zext nneg i32 %.tr14.i to i64
-  %73 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %72
   store i64 %.032, ptr %73, align 16, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 2, ptr %74, align 8, !tbaa !8
@@ -489,7 +489,7 @@ define hidden i64 @mi_option_get_clamp(i32 noundef %0, i64 noundef %1, i64 nound
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !8
   %10 = icmp eq i32 %9, 0
@@ -518,7 +518,7 @@ define hidden range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %0) local_
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !8
   %8 = icmp eq i32 %7, 0
@@ -551,7 +551,7 @@ define hidden void @mi_option_set(i32 noundef %0, i64 noundef %1) local_unnamed_
 .lr.ph:                                           ; preds = %2, %.lr.ph.backedge
   %.tr14 = phi i32 [ %.tr14.be, %.lr.ph.backedge ], [ %0, %2 ]
   %4 = zext nneg i32 %.tr14 to i64
-  %5 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %4
   store i64 %1, ptr %5, align 16, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2, ptr %6, align 8, !tbaa !8
@@ -587,7 +587,7 @@ define hidden void @mi_option_set_default(i32 noundef %0, i64 noundef %1) local_
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !8
   %.not = icmp eq i32 %8, 2
@@ -608,7 +608,7 @@ define hidden zeroext i1 @mi_option_is_enabled(i32 noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !8
   %8 = icmp eq i32 %7, 0
@@ -637,7 +637,7 @@ define hidden void @mi_option_set_enabled(i32 noundef %0, i1 noundef zeroext %1)
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i.backedge
   %.tr14.i = phi i32 [ %.tr14.i.be, %.lr.ph.i.backedge ], [ %0, %2 ]
   %5 = zext nneg i32 %.tr14.i to i64
-  %6 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %5
   store i64 %3, ptr %6, align 16, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %7, align 8, !tbaa !8
@@ -674,7 +674,7 @@ define hidden void @mi_option_set_enabled_default(i32 noundef %0, i1 noundef zer
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !8
   %.not.i = icmp eq i32 %9, 2
@@ -696,7 +696,7 @@ define hidden void @mi_option_enable(i32 noundef %0) local_unnamed_addr #3 {
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i.backedge
   %.tr14.i.i = phi i32 [ %.tr14.i.i.be, %.lr.ph.i.i.backedge ], [ %0, %1 ]
   %3 = zext nneg i32 %.tr14.i.i to i64
-  %4 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %3
   store i64 1, ptr %4, align 16, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8, !tbaa !8
@@ -733,7 +733,7 @@ define hidden void @mi_option_disable(i32 noundef %0) local_unnamed_addr #3 {
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i.backedge
   %.tr14.i.i = phi i32 [ %.tr14.i.i.be, %.lr.ph.i.i.backedge ], [ %0, %1 ]
   %3 = zext nneg i32 %.tr14.i.i to i64
-  %4 = getelementptr inbounds nuw [36 x %struct.mi_option_desc_s], ptr @options, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.mi_option_desc_s, ptr @options, i64 %3
   store i64 0, ptr %4, align 16, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8, !tbaa !8
@@ -774,7 +774,7 @@ define hidden void @mi_register_output(ptr noundef %0, ptr noundef %1) local_unn
 mi_out_buf_flush.exit:                            ; preds = %2
   %6 = atomicrmw add ptr @out_len, i64 16384 acq_rel, align 8
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %6, i64 16384)
-  %7 = getelementptr inbounds nuw [16385 x i8], ptr @out_buf, i64 0, i64 %spec.store.select.i
+  %7 = getelementptr inbounds nuw i8, ptr @out_buf, i64 %spec.store.select.i
   store i8 0, ptr %7, align 1, !tbaa !3
   tail call void %0(ptr noundef nonnull @out_buf, ptr noundef %1) #16
   br label %8
@@ -1188,7 +1188,7 @@ define internal void @mi_out_buf_stderr(ptr noundef %0, ptr readnone captures(no
   %17 = icmp ugt i64 %16, 16383
   %18 = sub nuw nsw i64 16383, %13
   %spec.select.i = select i1 %17, i64 %18, i64 %10
-  %19 = getelementptr inbounds nuw [16385 x i8], ptr @out_buf, i64 0, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr @out_buf, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %0, i64 %spec.select.i, i1 false)
   br label %mi_out_buf.exit
 
@@ -1221,7 +1221,7 @@ define internal void @mi_out_buf(ptr noundef %0, ptr readnone captures(none) %1)
   %15 = icmp ugt i64 %14, 16383
   %16 = sub nuw nsw i64 16383, %11
   %spec.select = select i1 %15, i64 %16, i64 %8
-  %17 = getelementptr inbounds nuw [16385 x i8], ptr @out_buf, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr @out_buf, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %0, i64 %spec.select, i1 false)
   br label %18
 

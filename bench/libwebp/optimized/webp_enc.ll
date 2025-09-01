@@ -631,24 +631,24 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
 
 11:                                               ; preds = %.preheader, %21
   %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %21 ]
-  %12 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv36
+  %12 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %6, i64 %indvars.iv36
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
   %14 = load i32, ptr %13, align 4, !tbaa !87
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv36
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv36
   store i32 %14, ptr %15, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 680
   %17 = load i32, ptr %16, align 8, !tbaa !90
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv36
+  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv36
   store i32 %17, ptr %18, align 4, !tbaa !12
-  %invariant.gep = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv36
-  %invariant.gep30 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv36
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv36
+  %invariant.gep30 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv36
   br label %19
 
 19:                                               ; preds = %11, %19
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %19 ]
-  %gep = getelementptr inbounds nuw [3 x [4 x i32]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i32], ptr %invariant.gep, i64 %indvars.iv
   %20 = load i32, ptr %gep, align 4, !tbaa !12
-  %gep31 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %invariant.gep30, i64 0, i64 %indvars.iv
+  %gep31 = getelementptr inbounds nuw [4 x i32], ptr %invariant.gep30, i64 %indvars.iv
   store i32 %20, ptr %gep31, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -777,9 +777,9 @@ FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %
 
 100:                                              ; preds = %FinalizePSNR.exit, %100
   %indvars.iv40 = phi i64 [ 0, %FinalizePSNR.exit ], [ %indvars.iv.next41, %100 ]
-  %101 = getelementptr inbounds nuw [3 x i32], ptr %98, i64 0, i64 %indvars.iv40
+  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv40
   %102 = load i32, ptr %101, align 4, !tbaa !12
-  %103 = getelementptr inbounds nuw [3 x i32], ptr %99, i64 0, i64 %indvars.iv40
+  %103 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv40
   store i32 %102, ptr %103, align 4, !tbaa !12
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3

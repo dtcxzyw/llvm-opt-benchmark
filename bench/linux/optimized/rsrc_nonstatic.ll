@@ -162,7 +162,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
 39:                                               ; preds = %.thread14, %11
   %40 = phi i1 [ true, %11 ], [ false, %.thread14 ]
   %41 = phi i64 [ 0, %11 ], [ 1, %.thread14 ]
-  %42 = getelementptr [2 x %struct.io_window_t], ptr %8, i64 0, i64 %41
+  %42 = getelementptr %struct.io_window_t, ptr %8, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -517,7 +517,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %29 = getelementptr [4 x ptr], ptr %28, i64 0, i64 %23
+  %29 = getelementptr ptr, ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %adjust_memory.exit.thread, label %32

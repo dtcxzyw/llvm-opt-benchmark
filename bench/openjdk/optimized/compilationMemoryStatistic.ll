@@ -481,7 +481,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 79:                                               ; preds = %75
   %80 = zext nneg i8 %21 to i64
-  %81 = getelementptr inbounds nuw [4 x ptr], ptr @compilertype2name_tab, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr @compilertype2name_tab, i64 %80
   %82 = load ptr, ptr %81, align 8
   br label %_Z17compilertype2name12CompilerType.exit
 
@@ -777,7 +777,7 @@ define hidden void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i
 
 66:                                               ; preds = %64
   %67 = zext nneg i8 %.033 to i64
-  %68 = getelementptr inbounds nuw [4 x ptr], ptr @compilertype2name_tab, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr @compilertype2name_tab, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %_Z17compilertype2name12CompilerType.exit
 
@@ -1333,7 +1333,7 @@ _Z25proper_unit_for_byte_sizem.exit69:            ; preds = %.thread89, %_Z24byt
 
 78:                                               ; preds = %70
   %79 = zext nneg i8 %76 to i64
-  %80 = getelementptr inbounds nuw [4 x ptr], ptr @compilertype2name_tab, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr @compilertype2name_tab, i64 %79
   %81 = load ptr, ptr %80, align 8
   br label %_Z17compilertype2name12CompilerType.exit
 

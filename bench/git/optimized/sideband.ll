@@ -44,7 +44,7 @@ define dso_local void @list_config_color_sideband_slots(ptr noundef %0, ptr noun
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [4 x %struct.keyword_entry], ptr @keywords, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.keyword_entry, ptr @keywords, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %1, ptr noundef %5) #10
   %7 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %6) #10
@@ -415,7 +415,7 @@ define internal fastcc void @maybe_colorize_sideband(ptr noundef %0, ptr noundef
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %21, %19
-  %22 = getelementptr inbounds nuw [4 x %struct.keyword_entry], ptr @keywords, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw %struct.keyword_entry, ptr @keywords, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef %23) #10
   %24 = load ptr, ptr %18, align 8, !tbaa !18
@@ -462,7 +462,7 @@ use_sideband_colors.exit:                         ; preds = %3, %32
   %.03556 = phi i32 [ %2, %.lr.ph ], [ %54, %strbuf_addch.exit ]
   %39 = load i8, ptr %.057, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
   %43 = and i8 %42, 1
   %.not43 = icmp eq i8 %43, 0
@@ -530,7 +530,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %68 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %63
   %69 = load i8, ptr %68, align 1, !tbaa !16
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !16
   %73 = and i8 %72, 6
   %.not45 = icmp eq i8 %73, 0

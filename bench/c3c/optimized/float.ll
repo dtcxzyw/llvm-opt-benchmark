@@ -210,7 +210,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
 
 switch.lookup:                                    ; preds = %.critedge12
   %60 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.float_from_hex, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
@@ -293,7 +293,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
 
 7:                                                ; preds = %.critedge77
   %8 = zext i8 %6 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.critedge, label %.critedge2
@@ -326,7 +326,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
 
 14:                                               ; preds = %.critedge78
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %15
   %17 = load i8, ptr %16, align 1
   %.not88 = icmp eq i8 %17, 0
   br i1 %.not88, label %.critedge4, label %.critedge78.sink.split, !llvm.loop !13
@@ -422,7 +422,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %.critedge12
   %54 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.float_from_hex, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 

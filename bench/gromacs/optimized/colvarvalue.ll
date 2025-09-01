@@ -1087,7 +1087,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:
 
 switch.lookup:                                    ; preds = %17
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11colvarvalue14num_dimensionsENS_4TypeE.exit
 
@@ -1741,7 +1741,7 @@ define noundef range(i64 0, 5) i64 @_ZN11colvarvalue14num_dimensionsENS_4TypeE(i
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -3000,7 +3000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %27
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11colvarvalue8add_elemERKS_, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11colvarvalue14num_dimensionsENS_4TypeE.exit
 

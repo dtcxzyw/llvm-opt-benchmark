@@ -4873,9 +4873,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread.i: ; preds = %3
 
 357:                                              ; preds = %357, %355
   %indvars.iv.i.i.i.i = phi i64 [ 0, %355 ], [ %indvars.iv.next.i.i.i.i, %357 ]
-  %358 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %indvars.iv.i.i.i.i
+  %358 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.i.i.i
   %359 = load i64, ptr %358, align 8, !tbaa !65, !noalias !133
-  %360 = getelementptr inbounds nuw [5 x i64], ptr %15, i64 0, i64 %indvars.iv.i.i.i.i
+  %360 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i.i.i
   %361 = load i64, ptr %360, align 8, !tbaa !65, !alias.scope !133
   %362 = and i64 %361, %359
   store i64 %362, ptr %360, align 8, !tbaa !65, !alias.scope !133
@@ -5138,9 +5138,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit137.thread.i: ; preds =
 
 452:                                              ; preds = %452, %450
   %indvars.iv.i.i.i131.i = phi i64 [ 0, %450 ], [ %indvars.iv.next.i.i.i132.i, %452 ]
-  %453 = getelementptr inbounds nuw [5 x i64], ptr %13, i64 0, i64 %indvars.iv.i.i.i131.i
+  %453 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i.i131.i
   %454 = load i64, ptr %453, align 8, !tbaa !65, !noalias !147
-  %455 = getelementptr inbounds nuw [5 x i64], ptr %12, i64 0, i64 %indvars.iv.i.i.i131.i
+  %455 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i.i131.i
   %456 = load i64, ptr %455, align 8, !tbaa !65, !alias.scope !147
   %457 = and i64 %456, %454
   store i64 %457, ptr %455, align 8, !tbaa !65, !alias.scope !147
@@ -5403,9 +5403,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit169.thread.i: ; preds =
 
 547:                                              ; preds = %547, %545
   %indvars.iv.i.i.i163.i = phi i64 [ 0, %545 ], [ %indvars.iv.next.i.i.i164.i, %547 ]
-  %548 = getelementptr inbounds nuw [5 x i64], ptr %10, i64 0, i64 %indvars.iv.i.i.i163.i
+  %548 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i.i.i163.i
   %549 = load i64, ptr %548, align 8, !tbaa !65, !noalias !156
-  %550 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i.i163.i
+  %550 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i163.i
   %551 = load i64, ptr %550, align 8, !tbaa !65, !alias.scope !156
   %552 = and i64 %551, %549
   store i64 %552, ptr %550, align 8, !tbaa !65, !alias.scope !156
@@ -5555,9 +5555,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit190.thread.i: ; preds =
 
 600:                                              ; preds = %600, %598
   %indvars.iv.i.i.i184.i = phi i64 [ 0, %598 ], [ %indvars.iv.next.i.i.i185.i, %600 ]
-  %601 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i184.i
+  %601 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i184.i
   %602 = load i64, ptr %601, align 8, !tbaa !65, !noalias !159
-  %603 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i184.i
+  %603 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i.i184.i
   %604 = load i64, ptr %603, align 8, !tbaa !65, !alias.scope !159
   %605 = and i64 %604, %602
   store i64 %605, ptr %603, align 8, !tbaa !65, !alias.scope !159
@@ -11112,7 +11112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit739: ; preds = %_Z
   %1377 = shl nuw i64 1, %1376
   %1378 = lshr i32 %.04121019, 6
   %1379 = zext nneg i32 %1378 to i64
-  %1380 = getelementptr inbounds nuw [5 x i64], ptr %25, i64 0, i64 %1379
+  %1380 = getelementptr inbounds nuw i64, ptr %25, i64 %1379
   %1381 = load i64, ptr %1380, align 8, !tbaa !65
   %1382 = and i64 %1381, %1377
   %.not1008 = icmp eq i64 %1382, 0
@@ -11134,7 +11134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %138
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   %1389 = zext nneg i32 %.04121019 to i64
-  %switch.gep = getelementptr inbounds nuw [148 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116AArch64AsmParser23matchAndEmitInstructionEN4llvm5SMLocERjRNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerERmb, i64 0, i64 %1389
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_116AArch64AsmParser23matchAndEmitInstructionEN4llvm5SMLocERjRNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEERNS1_10MCStreamerERmb, i64 %1389
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL23getSubtargetFeatureNamem.exit
 
@@ -11943,7 +11943,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm17MCTargetAsmParser25checkTarget
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116AArch64AsmParser26convertToMapAndConstraintsEjRKN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [2456 x [15 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !64
   %.not1149 = icmp eq i8 %6, 0
   br i1 %.not1149, label %._crit_edge, label %.lr.ph
@@ -15680,30 +15680,30 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !64
-  %switch.tableidx781 = add i8 %11, -48
-  %12 = icmp ult i8 %switch.tableidx781, 10
-  br i1 %12, label %switch.lookup780, label %789
+  %switch.tableidx780 = add i8 %11, -48
+  %12 = icmp ult i8 %switch.tableidx780, 10
+  br i1 %12, label %switch.lookup781, label %789
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !64
-  %switch.tableidx785 = add i8 %15, -48
-  %16 = icmp ult i8 %switch.tableidx785, 10
-  br i1 %16, label %switch.lookup784, label %789
+  %switch.tableidx784 = add i8 %15, -48
+  %16 = icmp ult i8 %switch.tableidx784, 10
+  br i1 %16, label %switch.lookup785, label %789
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !64
-  %switch.tableidx789 = add i8 %19, -48
-  %20 = icmp ult i8 %switch.tableidx789, 10
-  br i1 %20, label %switch.lookup788, label %789
+  %switch.tableidx788 = add i8 %19, -48
+  %20 = icmp ult i8 %switch.tableidx788, 10
+  br i1 %20, label %switch.lookup789, label %789
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !64
-  %switch.tableidx793 = add i8 %23, -48
-  %24 = icmp ult i8 %switch.tableidx793, 10
-  br i1 %24, label %switch.lookup792, label %789
+  %switch.tableidx792 = add i8 %23, -48
+  %24 = icmp ult i8 %switch.tableidx792, 10
+  br i1 %24, label %switch.lookup793, label %789
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -15761,16 +15761,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 41:                                               ; preds = %3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !64
-  %switch.tableidx797 = add i8 %43, -48
-  %44 = icmp ult i8 %switch.tableidx797, 10
-  br i1 %44, label %switch.lookup796, label %789
+  %switch.tableidx796 = add i8 %43, -48
+  %44 = icmp ult i8 %switch.tableidx796, 10
+  br i1 %44, label %switch.lookup797, label %789
 
 45:                                               ; preds = %3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !64
-  %switch.tableidx801 = add i8 %47, -48
-  %48 = icmp ult i8 %switch.tableidx801, 10
-  br i1 %48, label %switch.lookup800, label %789
+  %switch.tableidx800 = add i8 %47, -48
+  %48 = icmp ult i8 %switch.tableidx800, 10
+  br i1 %48, label %switch.lookup801, label %789
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -15846,16 +15846,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %69 = load i8, ptr %68, align 1, !tbaa !64
-  %switch.tableidx805 = add i8 %69, -48
-  %70 = icmp ult i8 %switch.tableidx805, 10
-  br i1 %70, label %switch.lookup804, label %789
+  %switch.tableidx804 = add i8 %69, -48
+  %70 = icmp ult i8 %switch.tableidx804, 10
+  br i1 %70, label %switch.lookup805, label %789
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %73 = load i8, ptr %72, align 1, !tbaa !64
-  %switch.tableidx809 = add i8 %73, -48
-  %74 = icmp ult i8 %switch.tableidx809, 10
-  br i1 %74, label %switch.lookup808, label %789
+  %switch.tableidx808 = add i8 %73, -48
+  %74 = icmp ult i8 %switch.tableidx808, 10
+  br i1 %74, label %switch.lookup809, label %789
 
 75:                                               ; preds = %64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -15878,16 +15878,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %83 = load i8, ptr %82, align 1, !tbaa !64
-  %switch.tableidx813 = add i8 %83, -48
-  %84 = icmp ult i8 %switch.tableidx813, 10
-  br i1 %84, label %switch.lookup812, label %789
+  %switch.tableidx812 = add i8 %83, -48
+  %84 = icmp ult i8 %switch.tableidx812, 10
+  br i1 %84, label %switch.lookup813, label %789
 
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %87 = load i8, ptr %86, align 1, !tbaa !64
-  %switch.tableidx817 = add i8 %87, -48
-  %88 = icmp ult i8 %switch.tableidx817, 10
-  br i1 %88, label %switch.lookup816, label %789
+  %switch.tableidx816 = add i8 %87, -48
+  %88 = icmp ult i8 %switch.tableidx816, 10
+  br i1 %88, label %switch.lookup817, label %789
 
 89:                                               ; preds = %78
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -15916,16 +15916,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %99 = load i8, ptr %98, align 1, !tbaa !64
-  %switch.tableidx821 = add i8 %99, -48
-  %100 = icmp ult i8 %switch.tableidx821, 10
-  br i1 %100, label %switch.lookup820, label %789
+  %switch.tableidx820 = add i8 %99, -48
+  %100 = icmp ult i8 %switch.tableidx820, 10
+  br i1 %100, label %switch.lookup821, label %789
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %103 = load i8, ptr %102, align 1, !tbaa !64
-  %switch.tableidx825 = add i8 %103, -48
-  %104 = icmp ult i8 %switch.tableidx825, 10
-  br i1 %104, label %switch.lookup824, label %789
+  %switch.tableidx824 = add i8 %103, -48
+  %104 = icmp ult i8 %switch.tableidx824, 10
+  br i1 %104, label %switch.lookup825, label %789
 
 105:                                              ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -15947,16 +15947,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %113 = load i8, ptr %112, align 1, !tbaa !64
-  %switch.tableidx829 = add i8 %113, -48
-  %114 = icmp ult i8 %switch.tableidx829, 6
-  br i1 %114, label %switch.lookup828, label %789
+  %switch.tableidx828 = add i8 %113, -48
+  %114 = icmp ult i8 %switch.tableidx828, 6
+  br i1 %114, label %switch.lookup829, label %789
 
 115:                                              ; preds = %108
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !64
-  %switch.tableidx833 = add i8 %117, -48
-  %118 = icmp ult i8 %switch.tableidx833, 10
-  br i1 %118, label %switch.lookup832, label %789
+  %switch.tableidx832 = add i8 %117, -48
+  %118 = icmp ult i8 %switch.tableidx832, 10
+  br i1 %118, label %switch.lookup833, label %789
 
 119:                                              ; preds = %62
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -15970,16 +15970,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %124 = load i8, ptr %123, align 1, !tbaa !64
-  %switch.tableidx837 = add i8 %124, -48
-  %125 = icmp ult i8 %switch.tableidx837, 10
-  br i1 %125, label %switch.lookup836, label %789
+  %switch.tableidx836 = add i8 %124, -48
+  %125 = icmp ult i8 %switch.tableidx836, 10
+  br i1 %125, label %switch.lookup837, label %789
 
 126:                                              ; preds = %119
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %128 = load i8, ptr %127, align 1, !tbaa !64
-  %switch.tableidx841 = add i8 %128, -48
-  %129 = icmp ult i8 %switch.tableidx841, 10
-  br i1 %129, label %switch.lookup840, label %789
+  %switch.tableidx840 = add i8 %128, -48
+  %129 = icmp ult i8 %switch.tableidx840, 10
+  br i1 %129, label %switch.lookup841, label %789
 
 130:                                              ; preds = %119
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -16002,16 +16002,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %138 = load i8, ptr %137, align 1, !tbaa !64
-  %switch.tableidx845 = add i8 %138, -48
-  %139 = icmp ult i8 %switch.tableidx845, 10
-  br i1 %139, label %switch.lookup844, label %789
+  %switch.tableidx844 = add i8 %138, -48
+  %139 = icmp ult i8 %switch.tableidx844, 10
+  br i1 %139, label %switch.lookup845, label %789
 
 140:                                              ; preds = %133
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %142 = load i8, ptr %141, align 1, !tbaa !64
-  %switch.tableidx849 = add i8 %142, -48
-  %143 = icmp ult i8 %switch.tableidx849, 10
-  br i1 %143, label %switch.lookup848, label %789
+  %switch.tableidx848 = add i8 %142, -48
+  %143 = icmp ult i8 %switch.tableidx848, 10
+  br i1 %143, label %switch.lookup849, label %789
 
 144:                                              ; preds = %133
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -16036,16 +16036,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %152 = load i8, ptr %151, align 1, !tbaa !64
-  %switch.tableidx853 = add i8 %152, -48
-  %153 = icmp ult i8 %switch.tableidx853, 10
-  br i1 %153, label %switch.lookup852, label %789
+  %switch.tableidx852 = add i8 %152, -48
+  %153 = icmp ult i8 %switch.tableidx852, 10
+  br i1 %153, label %switch.lookup853, label %789
 
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %156 = load i8, ptr %155, align 1, !tbaa !64
-  %switch.tableidx857 = add i8 %156, -48
-  %157 = icmp ult i8 %switch.tableidx857, 10
-  br i1 %157, label %switch.lookup856, label %789
+  %switch.tableidx856 = add i8 %156, -48
+  %157 = icmp ult i8 %switch.tableidx856, 10
+  br i1 %157, label %switch.lookup857, label %789
 
 158:                                              ; preds = %147
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -16078,16 +16078,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %172 = load i8, ptr %171, align 1, !tbaa !64
-  %switch.tableidx861 = add i8 %172, -48
-  %173 = icmp ult i8 %switch.tableidx861, 10
-  br i1 %173, label %switch.lookup860, label %789
+  %switch.tableidx860 = add i8 %172, -48
+  %173 = icmp ult i8 %switch.tableidx860, 10
+  br i1 %173, label %switch.lookup861, label %789
 
 174:                                              ; preds = %167
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %176 = load i8, ptr %175, align 1, !tbaa !64
-  %switch.tableidx865 = add i8 %176, -48
-  %177 = icmp ult i8 %switch.tableidx865, 10
-  br i1 %177, label %switch.lookup864, label %789
+  %switch.tableidx864 = add i8 %176, -48
+  %177 = icmp ult i8 %switch.tableidx864, 10
+  br i1 %177, label %switch.lookup865, label %789
 
 178:                                              ; preds = %167
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -16114,16 +16114,16 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 187:                                              ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %189 = load i8, ptr %188, align 1, !tbaa !64
-  %switch.tableidx867 = add i8 %189, -48
-  %190 = icmp ult i8 %switch.tableidx867, 10
-  br i1 %190, label %switch.lookup866, label %789
+  %switch.tableidx866 = add i8 %189, -48
+  %190 = icmp ult i8 %switch.tableidx866, 10
+  br i1 %190, label %switch.lookup867, label %789
 
 191:                                              ; preds = %184
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %193 = load i8, ptr %192, align 1, !tbaa !64
-  %switch.tableidx871 = add i8 %193, -48
-  %194 = icmp ult i8 %switch.tableidx871, 10
-  br i1 %194, label %switch.lookup870, label %789
+  %switch.tableidx870 = add i8 %193, -48
+  %194 = icmp ult i8 %switch.tableidx870, 10
+  br i1 %194, label %switch.lookup871, label %789
 
 195:                                              ; preds = %184
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -16196,9 +16196,9 @@ define internal fastcc range(i32 0, 523) i32 @_ZL17MatchRegisterNameN4llvm9Strin
 222:                                              ; preds = %220
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %224 = load i8, ptr %223, align 1, !tbaa !64
-  %switch.tableidx875 = add i8 %224, -48
-  %225 = icmp ult i8 %switch.tableidx875, 6
-  br i1 %225, label %switch.lookup874, label %789
+  %switch.tableidx874 = add i8 %224, -48
+  %225 = icmp ult i8 %switch.tableidx874, 6
+  br i1 %225, label %switch.lookup875, label %789
 
 226:                                              ; preds = %2
   %227 = load i8, ptr %0, align 1, !tbaa !64
@@ -18018,134 +18018,134 @@ switch.lookup:                                    ; preds = %5
   %switch.offset = zext nneg i8 %790 to i32
   br label %798
 
-switch.lookup780:                                 ; preds = %9
-  %791 = or disjoint i8 %switch.tableidx781, 48
+switch.lookup781:                                 ; preds = %9
+  %791 = or disjoint i8 %switch.tableidx780, 48
   %switch.offset783 = zext nneg i8 %791 to i32
   br label %798
 
-switch.lookup784:                                 ; preds = %13
-  %792 = or disjoint i8 %switch.tableidx785, 80
+switch.lookup785:                                 ; preds = %13
+  %792 = or disjoint i8 %switch.tableidx784, 80
   %switch.offset787 = zext nneg i8 %792 to i32
   br label %798
 
-switch.lookup788:                                 ; preds = %17
-  %793 = or disjoint i8 %switch.tableidx789, 112
+switch.lookup789:                                 ; preds = %17
+  %793 = or disjoint i8 %switch.tableidx788, 112
   %switch.offset791 = zext nneg i8 %793 to i32
   br label %798
 
-switch.lookup792:                                 ; preds = %21
-  %794 = or disjoint i8 %switch.tableidx793, -112
+switch.lookup793:                                 ; preds = %21
+  %794 = or disjoint i8 %switch.tableidx792, -112
   %switch.offset795 = zext i8 %794 to i32
   br label %798
 
-switch.lookup796:                                 ; preds = %41
-  %795 = or disjoint i8 %switch.tableidx797, -48
+switch.lookup797:                                 ; preds = %41
+  %795 = or disjoint i8 %switch.tableidx796, -48
   %switch.offset799 = zext i8 %795 to i32
   br label %798
 
-switch.lookup800:                                 ; preds = %45
+switch.lookup801:                                 ; preds = %45
   %narrow891 = add nuw nsw i8 %47, -65
   %switch.offset803 = zext i8 %narrow891 to i32
   br label %798
 
-switch.lookup804:                                 ; preds = %67
+switch.lookup805:                                 ; preds = %67
   %narrow890 = add nsw i8 %69, -22
   %switch.offset807 = zext nneg i8 %narrow890 to i32
   br label %798
 
-switch.lookup808:                                 ; preds = %71
+switch.lookup809:                                 ; preds = %71
   %narrow889 = add nsw i8 %73, -12
   %switch.offset811 = zext nneg i8 %narrow889 to i32
   br label %798
 
-switch.lookup812:                                 ; preds = %81
+switch.lookup813:                                 ; preds = %81
   %narrow888 = add nuw nsw i8 %83, 10
   %switch.offset815 = zext nneg i8 %narrow888 to i32
   br label %798
 
-switch.lookup816:                                 ; preds = %85
+switch.lookup817:                                 ; preds = %85
   %narrow887 = add nuw nsw i8 %87, 20
   %switch.offset819 = zext nneg i8 %narrow887 to i32
   br label %798
 
-switch.lookup820:                                 ; preds = %97
+switch.lookup821:                                 ; preds = %97
   %narrow886 = add nuw nsw i8 %99, 42
   %switch.offset823 = zext nneg i8 %narrow886 to i32
   br label %798
 
-switch.lookup824:                                 ; preds = %101
+switch.lookup825:                                 ; preds = %101
   %narrow885 = add nuw nsw i8 %103, 52
   %switch.offset827 = zext nneg i8 %narrow885 to i32
   br label %798
 
-switch.lookup828:                                 ; preds = %111
+switch.lookup829:                                 ; preds = %111
   %narrow884 = add nuw i8 %113, 74
   %switch.offset831 = zext i8 %narrow884 to i32
   br label %798
 
-switch.lookup832:                                 ; preds = %115
-  %796 = or disjoint i8 %switch.tableidx833, -128
+switch.lookup833:                                 ; preds = %115
+  %796 = or disjoint i8 %switch.tableidx832, -128
   %switch.offset835 = zext i8 %796 to i32
   br label %798
 
-switch.lookup836:                                 ; preds = %122
+switch.lookup837:                                 ; preds = %122
   %narrow883 = add nuw i8 %124, 106
   %switch.offset839 = zext i8 %narrow883 to i32
   br label %798
 
-switch.lookup840:                                 ; preds = %126
+switch.lookup841:                                 ; preds = %126
   %narrow882 = add nuw i8 %128, 116
   %switch.offset843 = zext i8 %narrow882 to i32
   br label %798
 
-switch.lookup844:                                 ; preds = %136
+switch.lookup845:                                 ; preds = %136
   %narrow881 = add nuw nsw i8 %138, -118
   %switch.offset847 = zext i8 %narrow881 to i32
   br label %798
 
-switch.lookup848:                                 ; preds = %140
+switch.lookup849:                                 ; preds = %140
   %narrow880 = add nuw nsw i8 %142, -108
   %switch.offset851 = zext i8 %narrow880 to i32
   br label %798
 
-switch.lookup852:                                 ; preds = %150
+switch.lookup853:                                 ; preds = %150
   %narrow879 = add nuw nsw i8 %152, -86
   %switch.offset855 = zext i8 %narrow879 to i32
   br label %798
 
-switch.lookup856:                                 ; preds = %154
+switch.lookup857:                                 ; preds = %154
   %narrow878 = add nuw nsw i8 %156, -76
   %switch.offset859 = zext i8 %narrow878 to i32
   br label %798
 
-switch.lookup860:                                 ; preds = %170
-  %switch.idx.cast862 = zext nneg i8 %switch.tableidx861 to i32
+switch.lookup861:                                 ; preds = %170
+  %switch.idx.cast862 = zext nneg i8 %switch.tableidx860 to i32
   %switch.offset863 = add nuw nsw i32 %switch.idx.cast862, 249
   br label %798
 
-switch.lookup864:                                 ; preds = %174
-  %797 = zext nneg i8 %switch.tableidx865 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE, i64 0, i64 %797
+switch.lookup865:                                 ; preds = %174
+  %797 = zext nneg i8 %switch.tableidx864 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL17MatchRegisterNameN4llvm9StringRefE, i64 %797
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %798
 
-switch.lookup866:                                 ; preds = %187
-  %switch.idx.cast868 = zext nneg i8 %switch.tableidx867 to i32
+switch.lookup867:                                 ; preds = %187
+  %switch.idx.cast868 = zext nneg i8 %switch.tableidx866 to i32
   %switch.offset869 = add nuw nsw i32 %switch.idx.cast868, 278
   br label %798
 
-switch.lookup870:                                 ; preds = %191
-  %switch.idx.cast872 = zext nneg i8 %switch.tableidx871 to i32
+switch.lookup871:                                 ; preds = %191
+  %switch.idx.cast872 = zext nneg i8 %switch.tableidx870 to i32
   %switch.offset873 = or disjoint i32 %switch.idx.cast872, 288
   br label %798
 
-switch.lookup874:                                 ; preds = %222
+switch.lookup875:                                 ; preds = %222
   %narrow = add nuw i8 %224, 90
   %switch.offset877 = zext i8 %narrow to i32
   br label %798
 
-798:                                              ; preds = %switch.lookup874, %switch.lookup870, %switch.lookup866, %switch.lookup864, %switch.lookup860, %switch.lookup856, %switch.lookup852, %switch.lookup848, %switch.lookup844, %switch.lookup840, %switch.lookup836, %switch.lookup832, %switch.lookup828, %switch.lookup824, %switch.lookup820, %switch.lookup816, %switch.lookup812, %switch.lookup808, %switch.lookup804, %switch.lookup800, %switch.lookup796, %switch.lookup792, %switch.lookup788, %switch.lookup784, %switch.lookup780, %switch.lookup, %428, %422, %416, %410, %195, %144, %130, %105, %89, %75, %787, %785, %783, %781, %779, %777, %770, %768, %766, %764, %762, %760, %758, %756, %754, %752, %750, %748, %746, %741, %739, %737, %735, %733, %731, %729, %727, %725, %723, %715, %713, %708, %706, %704, %702, %700, %698, %696, %694, %692, %690, %685, %683, %681, %679, %677, %675, %673, %671, %669, %667, %659, %657, %652, %650, %648, %646, %644, %642, %640, %638, %636, %634, %629, %627, %625, %623, %621, %619, %617, %615, %613, %611, %603, %601, %596, %594, %592, %590, %588, %586, %584, %582, %580, %578, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %547, %545, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %491, %489, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %433, %431, %402, %394, %385, %375, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %218, %215, %212, %209, %198, %181, %178, %164, %161, %158, %92, %49, %38, %25, %789, %406, %405, %398, %397, %390, %389, %388, %381, %380, %379, %378, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28
-  %.sroa.0741.0 = phi i32 [ 0, %789 ], [ 177, %28 ], [ 178, %29 ], [ 179, %30 ], [ 180, %31 ], [ 181, %32 ], [ 182, %33 ], [ 183, %34 ], [ 184, %35 ], [ 185, %36 ], [ 8, %37 ], [ 269, %52 ], [ 270, %53 ], [ 271, %54 ], [ 272, %55 ], [ 273, %56 ], [ 274, %57 ], [ 275, %58 ], [ 276, %59 ], [ 277, %60 ], [ 15, %61 ], [ 301, %378 ], [ 309, %379 ], [ 311, %380 ], [ 327, %381 ], [ 310, %388 ], [ 312, %389 ], [ 328, %390 ], [ 313, %397 ], [ 329, %398 ], [ 314, %405 ], [ 330, %406 ], [ 176, %25 ], [ 9, %38 ], [ 268, %49 ], [ 1, %92 ], [ 238, %158 ], [ 10, %161 ], [ 12, %164 ], [ 6, %178 ], [ 14, %181 ], [ 331, %198 ], [ 3, %209 ], [ 4, %212 ], [ 5, %215 ], [ 7, %218 ], [ 332, %231 ], [ 333, %233 ], [ 334, %235 ], [ 335, %237 ], [ 336, %239 ], [ 337, %241 ], [ 338, %243 ], [ 339, %245 ], [ 340, %247 ], [ 341, %249 ], [ 364, %254 ], [ 365, %256 ], [ 366, %258 ], [ 367, %260 ], [ 368, %262 ], [ 369, %264 ], [ 370, %266 ], [ 371, %268 ], [ 372, %270 ], [ 373, %272 ], [ 396, %277 ], [ 397, %279 ], [ 398, %281 ], [ 399, %283 ], [ 400, %285 ], [ 401, %287 ], [ 402, %289 ], [ 403, %291 ], [ 404, %293 ], [ 405, %295 ], [ 428, %300 ], [ 429, %302 ], [ 430, %304 ], [ 431, %306 ], [ 432, %308 ], [ 433, %310 ], [ 434, %312 ], [ 435, %314 ], [ 436, %316 ], [ 437, %318 ], [ 460, %323 ], [ 461, %325 ], [ 462, %327 ], [ 463, %329 ], [ 464, %331 ], [ 465, %333 ], [ 466, %335 ], [ 467, %337 ], [ 468, %339 ], [ 469, %341 ], [ 492, %346 ], [ 493, %348 ], [ 494, %350 ], [ 495, %352 ], [ 496, %354 ], [ 497, %356 ], [ 498, %358 ], [ 499, %360 ], [ 500, %362 ], [ 501, %364 ], [ 300, %375 ], [ 302, %385 ], [ 303, %394 ], [ 304, %402 ], [ 319, %431 ], [ 320, %433 ], [ 342, %443 ], [ 343, %445 ], [ 344, %447 ], [ 345, %449 ], [ 346, %451 ], [ 347, %453 ], [ 348, %455 ], [ 349, %457 ], [ 350, %459 ], [ 351, %461 ], [ 352, %466 ], [ 353, %468 ], [ 354, %470 ], [ 355, %472 ], [ 356, %474 ], [ 357, %476 ], [ 358, %478 ], [ 359, %480 ], [ 360, %482 ], [ 361, %484 ], [ 362, %489 ], [ 363, %491 ], [ 374, %499 ], [ 375, %501 ], [ 376, %503 ], [ 377, %505 ], [ 378, %507 ], [ 379, %509 ], [ 380, %511 ], [ 381, %513 ], [ 382, %515 ], [ 383, %517 ], [ 384, %522 ], [ 385, %524 ], [ 386, %526 ], [ 387, %528 ], [ 388, %530 ], [ 389, %532 ], [ 390, %534 ], [ 391, %536 ], [ 392, %538 ], [ 393, %540 ], [ 394, %545 ], [ 395, %547 ], [ 406, %555 ], [ 407, %557 ], [ 408, %559 ], [ 409, %561 ], [ 410, %563 ], [ 411, %565 ], [ 412, %567 ], [ 413, %569 ], [ 414, %571 ], [ 415, %573 ], [ 416, %578 ], [ 417, %580 ], [ 418, %582 ], [ 419, %584 ], [ 420, %586 ], [ 421, %588 ], [ 422, %590 ], [ 423, %592 ], [ 424, %594 ], [ 425, %596 ], [ 426, %601 ], [ 427, %603 ], [ 438, %611 ], [ 439, %613 ], [ 440, %615 ], [ 441, %617 ], [ 442, %619 ], [ 443, %621 ], [ 444, %623 ], [ 445, %625 ], [ 446, %627 ], [ 447, %629 ], [ 448, %634 ], [ 449, %636 ], [ 450, %638 ], [ 451, %640 ], [ 452, %642 ], [ 453, %644 ], [ 454, %646 ], [ 455, %648 ], [ 456, %650 ], [ 457, %652 ], [ 458, %657 ], [ 459, %659 ], [ 470, %667 ], [ 471, %669 ], [ 472, %671 ], [ 473, %673 ], [ 474, %675 ], [ 475, %677 ], [ 476, %679 ], [ 477, %681 ], [ 478, %683 ], [ 479, %685 ], [ 480, %690 ], [ 481, %692 ], [ 482, %694 ], [ 483, %696 ], [ 484, %698 ], [ 485, %700 ], [ 486, %702 ], [ 487, %704 ], [ 488, %706 ], [ 489, %708 ], [ 490, %713 ], [ 491, %715 ], [ 502, %723 ], [ 503, %725 ], [ 504, %727 ], [ 505, %729 ], [ 506, %731 ], [ 507, %733 ], [ 508, %735 ], [ 509, %737 ], [ 510, %739 ], [ 511, %741 ], [ 512, %746 ], [ 513, %748 ], [ 514, %750 ], [ 515, %752 ], [ 516, %754 ], [ 517, %756 ], [ 518, %758 ], [ 519, %760 ], [ 520, %762 ], [ 521, %764 ], [ 522, %766 ], [ 11, %768 ], [ 13, %770 ], [ 321, %777 ], [ 322, %779 ], [ 323, %781 ], [ 324, %783 ], [ 325, %785 ], [ 326, %787 ], [ %switch.select743, %75 ], [ %switch.select747, %89 ], [ %switch.select751, %105 ], [ %switch.select755, %130 ], [ %switch.select759, %144 ], [ %switch.select763, %195 ], [ %switch.select767, %410 ], [ %switch.select771, %416 ], [ %switch.select775, %422 ], [ %switch.select779, %428 ], [ %switch.offset, %switch.lookup ], [ %switch.offset783, %switch.lookup780 ], [ %switch.offset787, %switch.lookup784 ], [ %switch.offset791, %switch.lookup788 ], [ %switch.offset795, %switch.lookup792 ], [ %switch.offset799, %switch.lookup796 ], [ %switch.offset803, %switch.lookup800 ], [ %switch.offset807, %switch.lookup804 ], [ %switch.offset811, %switch.lookup808 ], [ %switch.offset815, %switch.lookup812 ], [ %switch.offset819, %switch.lookup816 ], [ %switch.offset823, %switch.lookup820 ], [ %switch.offset827, %switch.lookup824 ], [ %switch.offset831, %switch.lookup828 ], [ %switch.offset835, %switch.lookup832 ], [ %switch.offset839, %switch.lookup836 ], [ %switch.offset843, %switch.lookup840 ], [ %switch.offset847, %switch.lookup844 ], [ %switch.offset851, %switch.lookup848 ], [ %switch.offset855, %switch.lookup852 ], [ %switch.offset859, %switch.lookup856 ], [ %switch.offset863, %switch.lookup860 ], [ %switch.load, %switch.lookup864 ], [ %switch.offset869, %switch.lookup866 ], [ %switch.offset873, %switch.lookup870 ], [ %switch.offset877, %switch.lookup874 ]
+798:                                              ; preds = %switch.lookup875, %switch.lookup871, %switch.lookup867, %switch.lookup865, %switch.lookup861, %switch.lookup857, %switch.lookup853, %switch.lookup849, %switch.lookup845, %switch.lookup841, %switch.lookup837, %switch.lookup833, %switch.lookup829, %switch.lookup825, %switch.lookup821, %switch.lookup817, %switch.lookup813, %switch.lookup809, %switch.lookup805, %switch.lookup801, %switch.lookup797, %switch.lookup793, %switch.lookup789, %switch.lookup785, %switch.lookup781, %switch.lookup, %428, %422, %416, %410, %195, %144, %130, %105, %89, %75, %787, %785, %783, %781, %779, %777, %770, %768, %766, %764, %762, %760, %758, %756, %754, %752, %750, %748, %746, %741, %739, %737, %735, %733, %731, %729, %727, %725, %723, %715, %713, %708, %706, %704, %702, %700, %698, %696, %694, %692, %690, %685, %683, %681, %679, %677, %675, %673, %671, %669, %667, %659, %657, %652, %650, %648, %646, %644, %642, %640, %638, %636, %634, %629, %627, %625, %623, %621, %619, %617, %615, %613, %611, %603, %601, %596, %594, %592, %590, %588, %586, %584, %582, %580, %578, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %547, %545, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %491, %489, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %433, %431, %402, %394, %385, %375, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %218, %215, %212, %209, %198, %181, %178, %164, %161, %158, %92, %49, %38, %25, %789, %406, %405, %398, %397, %390, %389, %388, %381, %380, %379, %378, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28
+  %.sroa.0741.0 = phi i32 [ 0, %789 ], [ 177, %28 ], [ 178, %29 ], [ 179, %30 ], [ 180, %31 ], [ 181, %32 ], [ 182, %33 ], [ 183, %34 ], [ 184, %35 ], [ 185, %36 ], [ 8, %37 ], [ 269, %52 ], [ 270, %53 ], [ 271, %54 ], [ 272, %55 ], [ 273, %56 ], [ 274, %57 ], [ 275, %58 ], [ 276, %59 ], [ 277, %60 ], [ 15, %61 ], [ 301, %378 ], [ 309, %379 ], [ 311, %380 ], [ 327, %381 ], [ 310, %388 ], [ 312, %389 ], [ 328, %390 ], [ 313, %397 ], [ 329, %398 ], [ 314, %405 ], [ 330, %406 ], [ 176, %25 ], [ 9, %38 ], [ 268, %49 ], [ 1, %92 ], [ 238, %158 ], [ 10, %161 ], [ 12, %164 ], [ 6, %178 ], [ 14, %181 ], [ 331, %198 ], [ 3, %209 ], [ 4, %212 ], [ 5, %215 ], [ 7, %218 ], [ 332, %231 ], [ 333, %233 ], [ 334, %235 ], [ 335, %237 ], [ 336, %239 ], [ 337, %241 ], [ 338, %243 ], [ 339, %245 ], [ 340, %247 ], [ 341, %249 ], [ 364, %254 ], [ 365, %256 ], [ 366, %258 ], [ 367, %260 ], [ 368, %262 ], [ 369, %264 ], [ 370, %266 ], [ 371, %268 ], [ 372, %270 ], [ 373, %272 ], [ 396, %277 ], [ 397, %279 ], [ 398, %281 ], [ 399, %283 ], [ 400, %285 ], [ 401, %287 ], [ 402, %289 ], [ 403, %291 ], [ 404, %293 ], [ 405, %295 ], [ 428, %300 ], [ 429, %302 ], [ 430, %304 ], [ 431, %306 ], [ 432, %308 ], [ 433, %310 ], [ 434, %312 ], [ 435, %314 ], [ 436, %316 ], [ 437, %318 ], [ 460, %323 ], [ 461, %325 ], [ 462, %327 ], [ 463, %329 ], [ 464, %331 ], [ 465, %333 ], [ 466, %335 ], [ 467, %337 ], [ 468, %339 ], [ 469, %341 ], [ 492, %346 ], [ 493, %348 ], [ 494, %350 ], [ 495, %352 ], [ 496, %354 ], [ 497, %356 ], [ 498, %358 ], [ 499, %360 ], [ 500, %362 ], [ 501, %364 ], [ 300, %375 ], [ 302, %385 ], [ 303, %394 ], [ 304, %402 ], [ 319, %431 ], [ 320, %433 ], [ 342, %443 ], [ 343, %445 ], [ 344, %447 ], [ 345, %449 ], [ 346, %451 ], [ 347, %453 ], [ 348, %455 ], [ 349, %457 ], [ 350, %459 ], [ 351, %461 ], [ 352, %466 ], [ 353, %468 ], [ 354, %470 ], [ 355, %472 ], [ 356, %474 ], [ 357, %476 ], [ 358, %478 ], [ 359, %480 ], [ 360, %482 ], [ 361, %484 ], [ 362, %489 ], [ 363, %491 ], [ 374, %499 ], [ 375, %501 ], [ 376, %503 ], [ 377, %505 ], [ 378, %507 ], [ 379, %509 ], [ 380, %511 ], [ 381, %513 ], [ 382, %515 ], [ 383, %517 ], [ 384, %522 ], [ 385, %524 ], [ 386, %526 ], [ 387, %528 ], [ 388, %530 ], [ 389, %532 ], [ 390, %534 ], [ 391, %536 ], [ 392, %538 ], [ 393, %540 ], [ 394, %545 ], [ 395, %547 ], [ 406, %555 ], [ 407, %557 ], [ 408, %559 ], [ 409, %561 ], [ 410, %563 ], [ 411, %565 ], [ 412, %567 ], [ 413, %569 ], [ 414, %571 ], [ 415, %573 ], [ 416, %578 ], [ 417, %580 ], [ 418, %582 ], [ 419, %584 ], [ 420, %586 ], [ 421, %588 ], [ 422, %590 ], [ 423, %592 ], [ 424, %594 ], [ 425, %596 ], [ 426, %601 ], [ 427, %603 ], [ 438, %611 ], [ 439, %613 ], [ 440, %615 ], [ 441, %617 ], [ 442, %619 ], [ 443, %621 ], [ 444, %623 ], [ 445, %625 ], [ 446, %627 ], [ 447, %629 ], [ 448, %634 ], [ 449, %636 ], [ 450, %638 ], [ 451, %640 ], [ 452, %642 ], [ 453, %644 ], [ 454, %646 ], [ 455, %648 ], [ 456, %650 ], [ 457, %652 ], [ 458, %657 ], [ 459, %659 ], [ 470, %667 ], [ 471, %669 ], [ 472, %671 ], [ 473, %673 ], [ 474, %675 ], [ 475, %677 ], [ 476, %679 ], [ 477, %681 ], [ 478, %683 ], [ 479, %685 ], [ 480, %690 ], [ 481, %692 ], [ 482, %694 ], [ 483, %696 ], [ 484, %698 ], [ 485, %700 ], [ 486, %702 ], [ 487, %704 ], [ 488, %706 ], [ 489, %708 ], [ 490, %713 ], [ 491, %715 ], [ 502, %723 ], [ 503, %725 ], [ 504, %727 ], [ 505, %729 ], [ 506, %731 ], [ 507, %733 ], [ 508, %735 ], [ 509, %737 ], [ 510, %739 ], [ 511, %741 ], [ 512, %746 ], [ 513, %748 ], [ 514, %750 ], [ 515, %752 ], [ 516, %754 ], [ 517, %756 ], [ 518, %758 ], [ 519, %760 ], [ 520, %762 ], [ 521, %764 ], [ 522, %766 ], [ 11, %768 ], [ 13, %770 ], [ 321, %777 ], [ 322, %779 ], [ 323, %781 ], [ 324, %783 ], [ 325, %785 ], [ 326, %787 ], [ %switch.select743, %75 ], [ %switch.select747, %89 ], [ %switch.select751, %105 ], [ %switch.select755, %130 ], [ %switch.select759, %144 ], [ %switch.select763, %195 ], [ %switch.select767, %410 ], [ %switch.select771, %416 ], [ %switch.select775, %422 ], [ %switch.select779, %428 ], [ %switch.offset, %switch.lookup ], [ %switch.offset783, %switch.lookup781 ], [ %switch.offset787, %switch.lookup785 ], [ %switch.offset791, %switch.lookup789 ], [ %switch.offset795, %switch.lookup793 ], [ %switch.offset799, %switch.lookup797 ], [ %switch.offset803, %switch.lookup801 ], [ %switch.offset807, %switch.lookup805 ], [ %switch.offset811, %switch.lookup809 ], [ %switch.offset815, %switch.lookup813 ], [ %switch.offset819, %switch.lookup817 ], [ %switch.offset823, %switch.lookup821 ], [ %switch.offset827, %switch.lookup825 ], [ %switch.offset831, %switch.lookup829 ], [ %switch.offset835, %switch.lookup833 ], [ %switch.offset839, %switch.lookup837 ], [ %switch.offset843, %switch.lookup841 ], [ %switch.offset847, %switch.lookup845 ], [ %switch.offset851, %switch.lookup849 ], [ %switch.offset855, %switch.lookup853 ], [ %switch.offset859, %switch.lookup857 ], [ %switch.offset863, %switch.lookup861 ], [ %switch.load, %switch.lookup865 ], [ %switch.offset869, %switch.lookup867 ], [ %switch.offset873, %switch.lookup871 ], [ %switch.offset877, %switch.lookup875 ]
   ret i32 %.sroa.0741.0
 }
 
@@ -18381,9 +18381,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 106:                                              ; preds = %106, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %106 ]
-  %107 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %107 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.i
   %108 = load i64, ptr %107, align 8, !tbaa !65, !noalias !569
-  %109 = getelementptr inbounds nuw [5 x i64], ptr %15, i64 0, i64 %indvars.iv.i.i
+  %109 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i
   %110 = load i64, ptr %109, align 8
   %111 = or i64 %110, %108
   store i64 %111, ptr %109, align 8
@@ -18425,9 +18425,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %_ZN
 
 121:                                              ; preds = %121, %120
   %indvars.iv.i.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i.i, %121 ]
-  %122 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i.i
+  %122 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i
   %123 = load i64, ptr %122, align 8, !tbaa !65, !noalias !573
-  %124 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %124 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i
   %125 = load i64, ptr %124, align 8, !tbaa !65, !alias.scope !573
   %126 = and i64 %125, %123
   store i64 %126, ptr %124, align 8, !tbaa !65, !alias.scope !573
@@ -21955,9 +21955,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit33: ; preds = %5
 
 123:                                              ; preds = %123, %121
   %indvars.iv.i.i = phi i64 [ 0, %121 ], [ %indvars.iv.next.i.i, %123 ]
-  %124 = getelementptr inbounds nuw [5 x i64], ptr %122, i64 0, i64 %indvars.iv.i.i
+  %124 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv.i.i
   %125 = load i64, ptr %124, align 8, !tbaa !65, !noalias !699
-  %126 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %126 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i
   %127 = load i64, ptr %126, align 8, !tbaa !65, !alias.scope !699
   %128 = and i64 %127, %125
   store i64 %128, ptr %126, align 8, !tbaa !65, !alias.scope !699
@@ -25027,7 +25027,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit240:              ; preds = %630, %632
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.i241
   %.0.i242 = load i32, ptr %637, align 8, !tbaa !64
   %638 = zext nneg i32 %.0.i242 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_114AArch64Operand5printERN4llvm11raw_ostreamE, i64 0, i64 %638
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK12_GLOBAL__N_114AArch64Operand5printERN4llvm11raw_ostreamE, i64 %638
   %switch.load = load ptr, ptr %switch.gep, align 8
   %639 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #26
   %640 = getelementptr inbounds nuw i8, ptr %.0.i.i239, i64 24
@@ -31709,9 +31709,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread.i: ; preds = %2
 
 2209:                                             ; preds = %2209, %2207
   %indvars.iv.i.i.i.i = phi i64 [ 0, %2207 ], [ %indvars.iv.next.i.i.i.i, %2209 ]
-  %2210 = getelementptr inbounds nuw [5 x i64], ptr %101, i64 0, i64 %indvars.iv.i.i.i.i
+  %2210 = getelementptr inbounds nuw i64, ptr %101, i64 %indvars.iv.i.i.i.i
   %2211 = load i64, ptr %2210, align 8, !tbaa !65, !noalias !1007
-  %2212 = getelementptr inbounds nuw [5 x i64], ptr %100, i64 0, i64 %indvars.iv.i.i.i.i
+  %2212 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv.i.i.i.i
   %2213 = load i64, ptr %2212, align 8, !tbaa !65, !alias.scope !1007
   %2214 = and i64 %2213, %2211
   store i64 %2214, ptr %2212, align 8, !tbaa !65, !alias.scope !1007
@@ -37081,9 +37081,9 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread: ;
 
 26:                                               ; preds = %26, %24
   %indvars.iv.i.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !65, !noalias !1182
-  %29 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i.i
   %30 = load i64, ptr %29, align 8, !tbaa !65, !alias.scope !1182
   %31 = and i64 %30, %28
   store i64 %31, ptr %29, align 8, !tbaa !65, !alias.scope !1182
@@ -37160,9 +37160,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %51
 
 58:                                               ; preds = %58, %56
   %indvars.iv.i.i.i59 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i.i60, %58 ]
-  %59 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.i.i.i59
+  %59 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i59
   %60 = load i64, ptr %59, align 8, !tbaa !65, !noalias !1189
-  %61 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i.i59
+  %61 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i.i59
   %62 = load i64, ptr %61, align 8, !tbaa !65, !alias.scope !1189
   %63 = and i64 %62, %60
   store i64 %63, ptr %61, align 8, !tbaa !65, !alias.scope !1189
@@ -37208,9 +37208,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit77.thread: ; preds = %6
 
 73:                                               ; preds = %73, %71
   %indvars.iv.i.i.i71 = phi i64 [ 0, %71 ], [ %indvars.iv.next.i.i.i72, %73 ]
-  %74 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i71
+  %74 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i71
   %75 = load i64, ptr %74, align 8, !tbaa !65, !noalias !1192
-  %76 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %indvars.iv.i.i.i71
+  %76 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i71
   %77 = load i64, ptr %76, align 8, !tbaa !65, !alias.scope !1192
   %78 = and i64 %77, %75
   store i64 %78, ptr %76, align 8, !tbaa !65, !alias.scope !1192
@@ -49294,7 +49294,7 @@ _ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcod
   %169 = getelementptr inbounds nuw i8, ptr %.0133277, i64 6
   %170 = load i8, ptr %169, align 2, !tbaa !1528
   %171 = zext i8 %170 to i64
-  %172 = getelementptr inbounds nuw [141 x %"class.llvm::FeatureBitset"], ptr @_ZL14FeatureBitsets, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw %"class.llvm::FeatureBitset", ptr @_ZL14FeatureBitsets, i64 %171
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1529)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !63
@@ -49302,9 +49302,9 @@ _ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcod
 
 173:                                              ; preds = %173, %168
   %indvars.iv.i.i = phi i64 [ 0, %168 ], [ %indvars.iv.next.i.i, %173 ]
-  %174 = getelementptr inbounds nuw [5 x i64], ptr %172, i64 0, i64 %indvars.iv.i.i
+  %174 = getelementptr inbounds nuw i64, ptr %172, i64 %indvars.iv.i.i
   %175 = load i64, ptr %174, align 8, !tbaa !65, !noalias !1529
-  %176 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %176 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i.i
   %177 = load i64, ptr %176, align 8, !tbaa !65, !alias.scope !1529
   %178 = and i64 %177, %175
   store i64 %178, ptr %176, align 8, !tbaa !65, !alias.scope !1529
@@ -49322,7 +49322,7 @@ _ZNK4llvm13FeatureBitsetanERKS0_.exit:            ; preds = %173
 180:                                              ; preds = %_ZNK4llvm13FeatureBitsetanERKS0_.exit, %.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm13FeatureBitsetanERKS0_.exit ], [ %indvars.iv.next, %.thread ]
   %.0115276 = phi i32 [ 1, %_ZNK4llvm13FeatureBitsetanERKS0_.exit ], [ %.1116211, %.thread ]
-  %181 = getelementptr inbounds nuw [14 x i16], ptr %179, i64 0, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw i16, ptr %179, i64 %indvars.iv
   %182 = load i16, ptr %181, align 2, !tbaa !624
   %183 = zext i16 %182 to i32
   %184 = zext i32 %.0115276 to i64
@@ -49338,7 +49338,7 @@ _ZNK4llvm13FeatureBitsetanERKS0_.exit:            ; preds = %173
 
 187:                                              ; preds = %186
   %188 = zext i16 %182 to i64
-  %189 = getelementptr inbounds nuw [1025 x %struct.anon.469], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw %struct.anon.469, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i16, ptr %190, align 4, !tbaa !1532
   %192 = zext i16 %191 to i32
@@ -49354,7 +49354,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit: ; preds = %187
   %198 = add i32 %197, %193
   %199 = lshr i32 %198, 3
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw [10477 x i8], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !64
   %203 = zext i8 %202 to i32
   %204 = and i32 %198, 7
@@ -49401,7 +49401,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit: ; preds = %187
 
 226:                                              ; preds = %224
   %227 = zext i16 %182 to i64
-  %228 = getelementptr inbounds nuw [1025 x %struct.anon.469], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw %struct.anon.469, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %230 = load i16, ptr %229, align 4, !tbaa !1532
   %231 = zext i16 %230 to i32
@@ -49417,7 +49417,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit168: ; preds = %226
   %237 = add i32 %236, %232
   %238 = lshr i32 %237, 3
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [10477 x i8], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !64
   %242 = zext i8 %241 to i32
   %243 = and i32 %237, 7
@@ -49478,9 +49478,9 @@ _ZNK4llvm13FeatureBitsetcoEv.exit:                ; preds = %255
 
 258:                                              ; preds = %258, %_ZNK4llvm13FeatureBitsetcoEv.exit
   %indvars.iv.i.i170 = phi i64 [ 0, %_ZNK4llvm13FeatureBitsetcoEv.exit ], [ %indvars.iv.next.i.i171, %258 ]
-  %259 = getelementptr inbounds nuw [5 x i64], ptr %10, i64 0, i64 %indvars.iv.i.i170
+  %259 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i.i170
   %260 = load i64, ptr %259, align 8, !tbaa !65, !noalias !1540
-  %261 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i170
+  %261 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i170
   %262 = load i64, ptr %261, align 8, !tbaa !65, !alias.scope !1540
   %263 = and i64 %262, %260
   store i64 %263, ptr %261, align 8, !tbaa !65, !alias.scope !1540
@@ -49557,7 +49557,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit180:         ; preds = %_ZNK4llvm13FeatureB
   tail call void %290(ptr noundef nonnull align 8 dereferenceable(410) %0, i32 noundef %285, ptr noundef nonnull align 8 dereferenceable(16) %1) #26
   %291 = load i16, ptr %287, align 2, !tbaa !1544
   %292 = zext i16 %291 to i64
-  %293 = getelementptr inbounds nuw [2456 x [15 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %292
   %294 = load i8, ptr %293, align 1, !tbaa !64
   %.not39.i = icmp eq i8 %294, 0
   br i1 %.not39.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i
@@ -49572,7 +49572,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit180:         ; preds = %_ZNK4llvm13FeatureB
   %297 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 1
   %298 = load i8, ptr %297, align 1, !tbaa !64
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds nuw [15 x [3 x i8]], ptr @_ZL19TiedAsmOperandTable, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 1
   %302 = load i8, ptr %301, align 1, !tbaa !64
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 2
@@ -49619,7 +49619,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit180:         ; preds = %_ZNK4llvm13FeatureB
   %328 = getelementptr inbounds nuw i8, ptr %.0133277, i64 4
   %329 = load i16, ptr %328, align 2, !tbaa !1544
   %330 = zext i16 %329 to i64
-  %331 = getelementptr inbounds nuw [2456 x [15 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %330
   %332 = load i8, ptr %331, align 1, !tbaa !64
   %.not39.i182 = icmp eq i8 %332, 0
   br i1 %.not39.i182, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.thread, label %.lr.ph.i183
@@ -49634,7 +49634,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit180:         ; preds = %_ZNK4llvm13FeatureB
   %335 = getelementptr inbounds nuw i8, ptr %.02540.i184, i64 1
   %336 = load i8, ptr %335, align 1, !tbaa !64
   %337 = zext i8 %336 to i64
-  %338 = getelementptr inbounds nuw [15 x [3 x i8]], ptr @_ZL19TiedAsmOperandTable, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 1
   %340 = load i8, ptr %339, align 1, !tbaa !64
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 2
@@ -54432,23 +54432,23 @@ define internal fastcc noundef range(i32 0, 239) i32 @_ZL20validateOperandClassR
 63:                                               ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !64
-  %switch.tableidx4477 = add i8 %65, -48
-  %66 = icmp ult i8 %switch.tableidx4477, 7
-  br i1 %66, label %switch.lookup4476, label %151
+  %switch.tableidx4476 = add i8 %65, -48
+  %66 = icmp ult i8 %switch.tableidx4476, 7
+  br i1 %66, label %switch.lookup4477, label %151
 
 67:                                               ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %69 = load i8, ptr %68, align 1, !tbaa !64
-  %switch.tableidx4481 = add i8 %69, -52
-  %70 = icmp ult i8 %switch.tableidx4481, 6
-  br i1 %70, label %switch.lookup4480, label %151
+  %switch.tableidx4480 = add i8 %69, -52
+  %70 = icmp ult i8 %switch.tableidx4480, 6
+  br i1 %70, label %switch.lookup4481, label %151
 
 71:                                               ; preds = %57
   %72 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %73 = load i8, ptr %72, align 1, !tbaa !64
-  %switch.tableidx4483 = add i8 %73, -48
-  %74 = icmp ult i8 %switch.tableidx4483, 10
-  br i1 %74, label %switch.lookup4482, label %151
+  %switch.tableidx4482 = add i8 %73, -48
+  %74 = icmp ult i8 %switch.tableidx4482, 10
+  br i1 %74, label %switch.lookup4483, label %151
 
 75:                                               ; preds = %57
   %76 = getelementptr inbounds nuw i8, ptr %.val, i64 2
@@ -54602,9 +54602,9 @@ define internal fastcc noundef range(i32 0, 239) i32 @_ZL20validateOperandClassR
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %125 = load i8, ptr %124, align 1, !tbaa !64
-  %switch.tableidx4487 = add i8 %125, -48
-  %126 = icmp ult i8 %switch.tableidx4487, 4
-  br i1 %126, label %switch.lookup4486, label %151
+  %switch.tableidx4486 = add i8 %125, -48
+  %126 = icmp ult i8 %switch.tableidx4486, 4
+  br i1 %126, label %switch.lookup4487, label %151
 
 127:                                              ; preds = %14
   %128 = load i8, ptr %.val, align 1, !tbaa !64
@@ -54688,40 +54688,40 @@ define internal fastcc noundef range(i32 0, 239) i32 @_ZL20validateOperandClassR
 
 switch.lookup:                                    ; preds = %29
   %152 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE, i64 0, i64 %152
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE, i64 %152
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup4476:                                ; preds = %63
-  %153 = zext nneg i8 %switch.tableidx4477 to i64
-  %switch.gep4478 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.311, i64 0, i64 %153
+switch.lookup4477:                                ; preds = %63
+  %153 = zext nneg i8 %switch.tableidx4476 to i64
+  %switch.gep4478 = getelementptr inbounds nuw i32, ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.311, i64 %153
   %switch.load4479 = load i32, ptr %switch.gep4478, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup4480:                                ; preds = %67
+switch.lookup4481:                                ; preds = %67
   %narrow = add nsw i8 %69, -19
   %switch.offset = zext nneg i8 %narrow to i32
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup4482:                                ; preds = %71
-  %154 = zext nneg i8 %switch.tableidx4483 to i64
-  %switch.gep4484 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.312, i64 0, i64 %154
+switch.lookup4483:                                ; preds = %71
+  %154 = zext nneg i8 %switch.tableidx4482 to i64
+  %switch.gep4484 = getelementptr inbounds nuw i32, ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.312, i64 %154
   %switch.load4485 = load i32, ptr %switch.gep4484, align 4
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-switch.lookup4486:                                ; preds = %123
-  %155 = or disjoint i8 %switch.tableidx4487, 84
+switch.lookup4487:                                ; preds = %123
+  %155 = or disjoint i8 %switch.tableidx4486, 84
   %switch.offset4489 = zext nneg i8 %155 to i32
   br label %_ZL16matchTokenStringN4llvm9StringRefE.exit
 
-_ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup4486, %switch.lookup4482, %switch.lookup4480, %switch.lookup4476, %switch.lookup, %17, %19, %20, %21, %22, %23, %24, %25, %26, %33, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %49, %52, %60, %75, %78, %84, %87, %88, %89, %90, %93, %94, %95, %96, %97, %98, %99, %100, %103, %104, %105, %106, %107, %108, %111, %112, %113, %114, %116, %118, %129, %133, %136, %138, %142, %147, %149, %151
-  %.0.i = phi i32 [ 0, %151 ], [ 51, %19 ], [ 70, %20 ], [ 71, %21 ], [ 72, %22 ], [ 76, %23 ], [ 82, %24 ], [ 88, %25 ], [ 89, %26 ], [ 14, %36 ], [ 15, %37 ], [ 16, %38 ], [ 17, %39 ], [ 18, %40 ], [ 65, %41 ], [ 66, %42 ], [ 67, %43 ], [ 68, %44 ], [ 69, %45 ], [ 4, %87 ], [ 54, %88 ], [ 55, %89 ], [ 6, %93 ], [ 7, %94 ], [ 8, %95 ], [ 56, %96 ], [ 57, %97 ], [ 58, %98 ], [ 59, %99 ], [ 10, %103 ], [ 11, %104 ], [ 60, %105 ], [ 61, %106 ], [ 62, %107 ], [ 13, %111 ], [ 63, %112 ], [ 64, %113 ], [ 22, %17 ], [ 52, %33 ], [ 78, %46 ], [ 81, %49 ], [ 83, %52 ], [ %switch.select25.i, %60 ], [ %switch.select29.i, %75 ], [ 48, %78 ], [ 3, %84 ], [ 5, %90 ], [ 9, %100 ], [ 12, %108 ], [ 21, %114 ], [ 75, %116 ], [ 77, %118 ], [ 23, %129 ], [ %switch.select33.i, %133 ], [ 20, %136 ], [ 74, %138 ], [ %switch.select37.i, %142 ], [ 19, %147 ], [ 73, %149 ], [ %switch.load, %switch.lookup ], [ %switch.load4479, %switch.lookup4476 ], [ %switch.offset, %switch.lookup4480 ], [ %switch.load4485, %switch.lookup4482 ], [ %switch.offset4489, %switch.lookup4486 ]
+_ZL16matchTokenStringN4llvm9StringRefE.exit:      ; preds = %switch.lookup4487, %switch.lookup4483, %switch.lookup4481, %switch.lookup4477, %switch.lookup, %17, %19, %20, %21, %22, %23, %24, %25, %26, %33, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %49, %52, %60, %75, %78, %84, %87, %88, %89, %90, %93, %94, %95, %96, %97, %98, %99, %100, %103, %104, %105, %106, %107, %108, %111, %112, %113, %114, %116, %118, %129, %133, %136, %138, %142, %147, %149, %151
+  %.0.i = phi i32 [ 0, %151 ], [ 51, %19 ], [ 70, %20 ], [ 71, %21 ], [ 72, %22 ], [ 76, %23 ], [ 82, %24 ], [ 88, %25 ], [ 89, %26 ], [ 14, %36 ], [ 15, %37 ], [ 16, %38 ], [ 17, %39 ], [ 18, %40 ], [ 65, %41 ], [ 66, %42 ], [ 67, %43 ], [ 68, %44 ], [ 69, %45 ], [ 4, %87 ], [ 54, %88 ], [ 55, %89 ], [ 6, %93 ], [ 7, %94 ], [ 8, %95 ], [ 56, %96 ], [ 57, %97 ], [ 58, %98 ], [ 59, %99 ], [ 10, %103 ], [ 11, %104 ], [ 60, %105 ], [ 61, %106 ], [ 62, %107 ], [ 13, %111 ], [ 63, %112 ], [ 64, %113 ], [ 22, %17 ], [ 52, %33 ], [ 78, %46 ], [ 81, %49 ], [ 83, %52 ], [ %switch.select25.i, %60 ], [ %switch.select29.i, %75 ], [ 48, %78 ], [ 3, %84 ], [ 5, %90 ], [ 9, %100 ], [ 12, %108 ], [ 21, %114 ], [ 75, %116 ], [ 77, %118 ], [ 23, %129 ], [ %switch.select33.i, %133 ], [ 20, %136 ], [ 74, %138 ], [ %switch.select37.i, %142 ], [ 19, %147 ], [ 73, %149 ], [ %switch.load, %switch.lookup ], [ %switch.load4479, %switch.lookup4477 ], [ %switch.offset, %switch.lookup4481 ], [ %switch.load4485, %switch.lookup4483 ], [ %switch.offset4489, %switch.lookup4487 ]
   %156 = icmp eq i32 %.0.i, %1
   br i1 %156, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread, label %157
 
 157:                                              ; preds = %_ZL16matchTokenStringN4llvm9StringRefE.exit
   %158 = zext nneg i32 %.0.i to i64
-  %159 = getelementptr inbounds nuw [1025 x %struct.anon.469], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw %struct.anon.469, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = load i16, ptr %160, align 4, !tbaa !1532
   %162 = zext i16 %161 to i32
@@ -54737,7 +54737,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit: ; preds = %157
   %168 = add i32 %167, %163
   %169 = lshr i32 %168, 3
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds nuw [10477 x i8], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !64
   %.fr4299 = freeze i8 %172
   %173 = zext i8 %.fr4299 to i32
@@ -55355,9 +55355,9 @@ _ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i: ; preds = %262, %262, %262
   br i1 %265, label %266, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 266:                                              ; preds = %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i
-  %switch.tableidx4491 = add i32 %.0.i.i.i, -5
-  %267 = icmp ult i32 %switch.tableidx4491, 7
-  br i1 %267, label %switch.lookup4490, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
+  %switch.tableidx4490 = add i32 %.0.i.i.i, -5
+  %267 = icmp ult i32 %switch.tableidx4490, 7
+  br i1 %267, label %switch.lookup4491, label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
 268:                                              ; preds = %177
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -58753,7 +58753,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit.thread: ;
 
 1674:                                             ; preds = %1667
   %1675 = zext nneg i32 %1671 to i64
-  %1676 = getelementptr inbounds nuw [895 x i16], ptr @_ZZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindEE5Table, i64 0, i64 %1675
+  %1676 = getelementptr inbounds nuw i16, ptr @_ZZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindEE5Table, i64 %1675
   %1677 = load i16, ptr %1676, align 2, !tbaa !624
   %1678 = zext i16 %1677 to i32
   br label %1679
@@ -58765,7 +58765,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit.thread: ;
 
 1682:                                             ; preds = %1679
   %1683 = zext nneg i32 %1680 to i64
-  %1684 = getelementptr inbounds nuw [1025 x %struct.anon.469], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 0, i64 %1683
+  %1684 = getelementptr inbounds nuw %struct.anon.469, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E5Table, i64 %1683
   %1685 = getelementptr inbounds nuw i8, ptr %1684, i64 4
   %1686 = load i16, ptr %1685, align 4, !tbaa !1532
   %1687 = zext i16 %1686 to i32
@@ -58781,7 +58781,7 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695: ; preds = %1682
   %1693 = add i32 %1692, %1688
   %1694 = lshr i32 %1693, 3
   %1695 = zext nneg i32 %1694 to i64
-  %1696 = getelementptr inbounds nuw [10477 x i8], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 0, i64 %1695
+  %1696 = getelementptr inbounds nuw i8, ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 %1695
   %1697 = load i8, ptr %1696, align 1, !tbaa !64
   %1698 = zext i8 %1697 to i32
   %1699 = and i32 %1693, 7
@@ -59325,14 +59325,14 @@ _ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.spli
 _ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4471: ; preds = %1661
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-switch.lookup4490:                                ; preds = %266
-  %1711 = zext nneg i32 %switch.tableidx4491 to i64
-  %switch.gep4492 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.313, i64 0, i64 %1711
+switch.lookup4491:                                ; preds = %266
+  %1711 = zext nneg i32 %switch.tableidx4490 to i64
+  %switch.gep4492 = getelementptr inbounds nuw i32, ptr @switch.table._ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.313, i64 %1711
   %switch.load4493 = load i32, ptr %switch.gep4492, align 4
   br label %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit
 
-_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %switch.lookup4490, %266, %1661, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4471, %1659, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4470, %1657, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4469, %1597, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4468, %1592, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4467, %1590, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4466, %1588, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4465, %1586, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4464, %1584, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4463, %1582, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4462, %1580, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4461, %1578, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4460, %1576, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4459, %1574, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4458, %1572, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4457, %1570, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4456, %1568, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4455, %1566, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4454, %1564, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4453, %1562, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4452, %1560, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4451, %1558, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4450, %1556, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4449, %1554, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4448, %1552, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4447, %1550, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4446, %1548, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4445, %1546, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4444, %1544, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4443, %1542, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4442, %1540, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4441, %1538, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4440, %1536, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4439, %1534, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4438, %1532, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4437, %1530, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4436, %1528, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4435, %1526, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4434, %1524, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4433, %1522, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4432, %1520, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4431, %1518, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4430, %1516, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4429, %1514, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4428, %1512, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4427, %1510, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4426, %1508, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4425, %1506, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4424, %1504, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4423, %1452, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4422, %1450, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4421, %1448, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4420, %1446, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4419, %1444, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4418, %1406, %1392, %1378, %1343, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4411, %1341, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4410, %1339, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4409, %1337, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4408, %1335, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4407, %1333, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4406, %1331, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4405, %1329, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4404, %1327, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4403, %1325, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4402, %1323, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4401, %1321, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4400, %1319, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4399, %1317, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4398, %1315, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4397, %1313, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4396, %1311, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4395, %1309, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4394, %1307, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4393, %1305, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4392, %1303, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4391, %1301, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4390, %1299, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4389, %1297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4388, %1295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4387, %1293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4386, %1291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4385, %1289, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4384, %1287, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4383, %1285, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4382, %1283, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4381, %1281, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4380, %1279, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4379, %1277, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4378, %1275, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4377, %1273, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4376, %1271, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4375, %1269, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4374, %1267, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4373, %1265, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4372, %1263, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4371, %1261, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4370, %1259, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4369, %1257, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4368, %1255, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4367, %1253, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4366, %1251, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4365, %1249, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4364, %1247, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4363, %923, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4362, %921, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4361, %919, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4360, %917, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4359, %915, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4358, %880, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4357, %878, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4356, %876, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4355, %874, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4354, %872, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4353, %870, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4352, %868, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4351, %866, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4350, %864, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4349, %852, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4348, %850, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4347, %696, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4346, %694, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4345, %692, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4344, %690, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4343, %688, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4342, %686, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4341, %684, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4340, %682, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4339, %662, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4338, %660, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4337, %658, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4336, %656, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4335, %650, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4334, %648, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4333, %646, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4332, %644, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4331, %642, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4330, %640, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4329, %638, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4328, %625, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4327, %623, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4326, %621, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4325, %619, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4324, %617, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4323, %615, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4322, %613, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4321, %611, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4320, %609, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4319, %607, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4318, %605, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4317, %603, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4316, %601, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4315, %599, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4314, %597, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4313, %595, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4312, %593, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4311, %591, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4310, %309, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4309, %307, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4308, %305, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4307, %303, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4306, %301, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4305, %297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4304, %295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4303, %293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4302, %291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4301, %289, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split, %1655, %1653, %1651, %1640, %1638, %1636, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit, %862, %860, %858, %856, %854, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit, %678, %676, %664, %654, %652, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %515, %510, %508, %506, %504, %502, %283, %249, %180, %178, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %1679, %1364, %1350, %1221, %1215, %1209, %1203, %1196, %1189, %745, %739, %733, %727, %721, %580, %567, %554, %241, %228, %200, %187, %157, %1710, %1709, %1708, %1707, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695.thread4084, %1702, %1703, %1704, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485.thread, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit.thread3466, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread3461, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread3456, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i2223, %275, %268, %271, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i, %259, %262, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread3382, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread3377, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread3372, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread3367, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit, %1705, %2, %210, %213, %218, %287, %299, %311, %313, %497, %540, %542, %544, %546, %588, %627, %630, %633, %636, %666, %668, %670, %672, %674, %708, %725, %731, %737, %743, %749, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit, %806, %810, %813, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit2462, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit, %938, %940, %942, %944, %946, %948, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit2498, %963, %965, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb1EEEbv.exit, %983, %985, %987, %989, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit, %1004, %1006, %1008, %1010, %1012, %1014, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit2520, %1029, %1031, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb1EEEbv.exit, %1049, %1051, %1053, %1055, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit, %1070, %1072, %1074, %1076, %1078, %1080, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit2543, %1095, %1097, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb1EEEbv.exit, %1115, %1117, %1119, %1121, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit, %1136, %1138, %1140, %1142, %1144, %1146, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit2566, %1161, %1163, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb1EEEbv.exit, %1181, %1183, %1185, %1187, %1194, %1201, %1207, %1213, %1219, %1225, %1227, %1229, %1235, %1241, %1243, %1245, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit, %1357, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit, %1412, %1414, %1416, %1418, %1420, %1422, %1424, %1426, %1428, %1430, %1432, %1434, %1436, %1438, %1440, %1442, %1454, %1456, %1458, %1460, %1462, %1464, %1466, %1468, %1470, %1472, %1474, %1476, %1478, %1480, %1482, %1484, %1486, %1488, %1490, %1492, %1494, %1496, %1498, %1500, %1502, %1594, %1642, %1645, %1648
-  %.0 = phi i32 [ 4, %210 ], [ 4, %213 ], [ 4, %218 ], [ 4, %287 ], [ 4, %299 ], [ 4, %311 ], [ 4, %313 ], [ 4, %497 ], [ 4, %540 ], [ 4, %542 ], [ 4, %544 ], [ 4, %546 ], [ 4, %588 ], [ 4, %627 ], [ 4, %630 ], [ 4, %633 ], [ 4, %636 ], [ 4, %666 ], [ 4, %668 ], [ 4, %670 ], [ 4, %672 ], [ 4, %674 ], [ 4, %708 ], [ 137, %725 ], [ 138, %731 ], [ 136, %737 ], [ 135, %743 ], [ 134, %749 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 4, %806 ], [ 4, %810 ], [ 4, %813 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit2462 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit ], [ 4, %938 ], [ 4, %940 ], [ 4, %942 ], [ 4, %944 ], [ 4, %946 ], [ 4, %948 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit2498 ], [ 4, %963 ], [ 4, %965 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb1EEEbv.exit ], [ 4, %983 ], [ 4, %985 ], [ 4, %987 ], [ 4, %989 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit ], [ 4, %1004 ], [ 4, %1006 ], [ 4, %1008 ], [ 4, %1010 ], [ 4, %1012 ], [ 4, %1014 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit2520 ], [ 4, %1029 ], [ 4, %1031 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb1EEEbv.exit ], [ 4, %1049 ], [ 4, %1051 ], [ 4, %1053 ], [ 4, %1055 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit ], [ 4, %1070 ], [ 4, %1072 ], [ 4, %1074 ], [ 4, %1076 ], [ 4, %1078 ], [ 4, %1080 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit2543 ], [ 4, %1095 ], [ 4, %1097 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb1EEEbv.exit ], [ 4, %1115 ], [ 4, %1117 ], [ 4, %1119 ], [ 4, %1121 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit ], [ 4, %1136 ], [ 4, %1138 ], [ 4, %1140 ], [ 4, %1142 ], [ 4, %1144 ], [ 4, %1146 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit2566 ], [ 4, %1161 ], [ 4, %1163 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb1EEEbv.exit ], [ 4, %1181 ], [ 4, %1183 ], [ 4, %1185 ], [ 4, %1187 ], [ 45, %1194 ], [ 50, %1201 ], [ 47, %1207 ], [ 46, %1213 ], [ 49, %1219 ], [ 48, %1225 ], [ 4, %1227 ], [ 4, %1229 ], [ 4, %1235 ], [ 4, %1241 ], [ 4, %1243 ], [ 4, %1245 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit ], [ 4, %1357 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit ], [ 4, %1412 ], [ 4, %1414 ], [ 4, %1416 ], [ 4, %1418 ], [ 4, %1420 ], [ 4, %1422 ], [ 4, %1424 ], [ 4, %1426 ], [ 4, %1428 ], [ 4, %1430 ], [ 4, %1432 ], [ 4, %1434 ], [ 4, %1436 ], [ 4, %1438 ], [ 4, %1440 ], [ 4, %1442 ], [ 4, %1454 ], [ 4, %1456 ], [ 4, %1458 ], [ 4, %1460 ], [ 4, %1462 ], [ 4, %1464 ], [ 4, %1466 ], [ 4, %1468 ], [ 4, %1470 ], [ 4, %1472 ], [ 4, %1474 ], [ 4, %1476 ], [ 4, %1478 ], [ 4, %1480 ], [ 4, %1482 ], [ 4, %1484 ], [ 4, %1486 ], [ 4, %1488 ], [ 4, %1490 ], [ 4, %1492 ], [ 4, %1494 ], [ 4, %1496 ], [ 4, %1498 ], [ 4, %1500 ], [ 4, %1502 ], [ 4, %1594 ], [ 4, %1642 ], [ 4, %1645 ], [ 4, %1648 ], [ 0, %2 ], [ 0, %1705 ], [ 4, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread3367 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread3372 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread3377 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread3382 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit ], [ 7, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread ], [ 9, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i ], [ 9, %259 ], [ 9, %262 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i2223 ], [ 8, %275 ], [ 8, %268 ], [ 8, %271 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit ], [ 27, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit ], [ 29, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit ], [ 30, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit ], [ 28, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit ], [ 31, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit ], [ 33, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit ], [ 32, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit ], [ 36, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit ], [ 38, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit ], [ 37, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit ], [ 40, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit ], [ 39, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit ], [ 42, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit ], [ 43, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread3456 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread3461 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit.thread3466 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit ], [ 120, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit ], [ 121, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476 ], [ 44, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485 ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit ], [ 35, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread ], [ 4, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695 ], [ 0, %1704 ], [ 58, %1702 ], [ 59, %1703 ], [ 52, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695.thread4084 ], [ 0, %1710 ], [ 58, %1708 ], [ 59, %1709 ], [ 52, %1707 ], [ 0, %157 ], [ 4, %187 ], [ 4, %200 ], [ 4, %228 ], [ 4, %241 ], [ 9, %266 ], [ 4, %289 ], [ 4, %291 ], [ 4, %293 ], [ 4, %295 ], [ 4, %297 ], [ 4, %301 ], [ 4, %303 ], [ 4, %305 ], [ 4, %307 ], [ 4, %309 ], [ 4, %554 ], [ 4, %567 ], [ 4, %580 ], [ 4, %591 ], [ 4, %593 ], [ 4, %595 ], [ 4, %597 ], [ 4, %599 ], [ 4, %601 ], [ 4, %603 ], [ 4, %605 ], [ 4, %607 ], [ 4, %609 ], [ 4, %611 ], [ 4, %613 ], [ 4, %615 ], [ 4, %617 ], [ 4, %619 ], [ 4, %621 ], [ 4, %623 ], [ 4, %625 ], [ 4, %638 ], [ 4, %640 ], [ 4, %642 ], [ 4, %644 ], [ 4, %646 ], [ 4, %648 ], [ 4, %650 ], [ 4, %656 ], [ 4, %658 ], [ 4, %660 ], [ 4, %662 ], [ 4, %682 ], [ 4, %684 ], [ 4, %686 ], [ 4, %688 ], [ 4, %690 ], [ 4, %692 ], [ 4, %694 ], [ 4, %696 ], [ 4, %721 ], [ 4, %727 ], [ 4, %733 ], [ 4, %739 ], [ 4, %745 ], [ 4, %850 ], [ 4, %852 ], [ 4, %864 ], [ 4, %866 ], [ 4, %868 ], [ 4, %870 ], [ 4, %872 ], [ 4, %874 ], [ 4, %876 ], [ 4, %878 ], [ 4, %880 ], [ 4, %915 ], [ 4, %917 ], [ 4, %919 ], [ 4, %921 ], [ 4, %923 ], [ 4, %1189 ], [ 4, %1196 ], [ 4, %1203 ], [ 4, %1209 ], [ 4, %1215 ], [ 4, %1221 ], [ 4, %1247 ], [ 4, %1249 ], [ 4, %1251 ], [ 4, %1253 ], [ 4, %1255 ], [ 4, %1257 ], [ 4, %1259 ], [ 4, %1261 ], [ 4, %1263 ], [ 4, %1265 ], [ 4, %1267 ], [ 4, %1269 ], [ 4, %1271 ], [ 4, %1273 ], [ 4, %1275 ], [ 4, %1277 ], [ 4, %1279 ], [ 4, %1281 ], [ 4, %1283 ], [ 4, %1285 ], [ 4, %1287 ], [ 4, %1289 ], [ 4, %1291 ], [ 4, %1293 ], [ 4, %1295 ], [ 4, %1297 ], [ 4, %1299 ], [ 4, %1301 ], [ 4, %1303 ], [ 4, %1305 ], [ 4, %1307 ], [ 4, %1309 ], [ 4, %1311 ], [ 4, %1313 ], [ 4, %1315 ], [ 4, %1317 ], [ 4, %1319 ], [ 4, %1321 ], [ 4, %1323 ], [ 4, %1325 ], [ 4, %1327 ], [ 4, %1329 ], [ 4, %1331 ], [ 4, %1333 ], [ 4, %1335 ], [ 4, %1337 ], [ 4, %1339 ], [ 4, %1341 ], [ 4, %1343 ], [ 4, %1350 ], [ 4, %1364 ], [ 4, %1444 ], [ 4, %1446 ], [ 4, %1448 ], [ 4, %1450 ], [ 4, %1452 ], [ 4, %1504 ], [ 4, %1506 ], [ 4, %1508 ], [ 4, %1510 ], [ 4, %1512 ], [ 4, %1514 ], [ 4, %1516 ], [ 4, %1518 ], [ 4, %1520 ], [ 4, %1522 ], [ 4, %1524 ], [ 4, %1526 ], [ 4, %1528 ], [ 4, %1530 ], [ 4, %1532 ], [ 4, %1534 ], [ 4, %1536 ], [ 4, %1538 ], [ 4, %1540 ], [ 4, %1542 ], [ 4, %1544 ], [ 4, %1546 ], [ 4, %1548 ], [ 4, %1550 ], [ 4, %1552 ], [ 4, %1554 ], [ 4, %1556 ], [ 4, %1558 ], [ 4, %1560 ], [ 4, %1562 ], [ 4, %1564 ], [ 4, %1566 ], [ 4, %1568 ], [ 4, %1570 ], [ 4, %1572 ], [ 4, %1574 ], [ 4, %1576 ], [ 4, %1578 ], [ 4, %1580 ], [ 4, %1582 ], [ 4, %1584 ], [ 4, %1586 ], [ 4, %1588 ], [ 4, %1590 ], [ 4, %1592 ], [ 4, %1597 ], [ 4, %1657 ], [ 4, %1659 ], [ 4, %1661 ], [ 4, %1679 ], [ %spec.select, %178 ], [ %spec.select4086, %180 ], [ %spec.select4087, %249 ], [ %spec.select4088, %283 ], [ %spec.select4089, %502 ], [ %spec.select4090, %504 ], [ %spec.select4091, %506 ], [ %spec.select4092, %508 ], [ %spec.select4093, %510 ], [ %spec.select4094, %515 ], [ %spec.select4095, %520 ], [ %spec.select4096, %522 ], [ %spec.select4097, %524 ], [ %spec.select4098, %526 ], [ %spec.select4099, %528 ], [ %spec.select4100, %530 ], [ %spec.select4101, %532 ], [ %spec.select4102, %534 ], [ %spec.select4103, %536 ], [ %spec.select4104, %538 ], [ %spec.select4105, %652 ], [ %spec.select4106, %654 ], [ %spec.select4107, %664 ], [ %spec.select4108, %676 ], [ %spec.select4109, %678 ], [ %spec.select4110, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit ], [ %spec.select4111, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ %spec.select4112, %854 ], [ %spec.select4113, %856 ], [ %spec.select4114, %858 ], [ %spec.select4115, %860 ], [ %spec.select4116, %862 ], [ %spec.select4117, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select4118, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select4119, %1636 ], [ %spec.select4120, %1638 ], [ %spec.select4121, %1640 ], [ %spec.select4122, %1651 ], [ %spec.select4123, %1653 ], [ %spec.select4124, %1655 ], [ 17, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split ], [ 18, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4301 ], [ 19, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4302 ], [ 20, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4303 ], [ 21, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4304 ], [ 22, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4305 ], [ 23, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4306 ], [ 24, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4307 ], [ 25, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4308 ], [ 26, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4309 ], [ 140, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4310 ], [ 145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4311 ], [ 146, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4312 ], [ 147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4313 ], [ 148, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4314 ], [ 143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4315 ], [ 144, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4316 ], [ 141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4317 ], [ 142, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4318 ], [ 139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4319 ], [ 156, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4320 ], [ 161, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4321 ], [ 152, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4322 ], [ 155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4323 ], [ 154, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4324 ], [ 153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4325 ], [ 150, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4326 ], [ 149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4327 ], [ 94, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4328 ], [ 75, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4329 ], [ 79, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4330 ], [ 83, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4331 ], [ 86, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4332 ], [ 87, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4333 ], [ 89, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4334 ], [ 80, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4335 ], [ 76, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4336 ], [ 90, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4337 ], [ 95, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4338 ], [ 123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4339 ], [ 124, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4340 ], [ 125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4341 ], [ 126, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4342 ], [ 127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4343 ], [ 128, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4344 ], [ 129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4345 ], [ 130, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4346 ], [ 99, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4347 ], [ 103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4348 ], [ 100, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4349 ], [ 104, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4350 ], [ 101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4351 ], [ 105, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4352 ], [ 102, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4353 ], [ 96, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4354 ], [ 84, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4355 ], [ 91, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4356 ], [ 97, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4357 ], [ 78, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4358 ], [ 81, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4359 ], [ 85, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4360 ], [ 92, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4361 ], [ 98, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4362 ], [ 194, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4363 ], [ 195, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4364 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4365 ], [ 197, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4366 ], [ 198, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4367 ], [ 199, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4368 ], [ 200, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4369 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4370 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4371 ], [ 202, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4372 ], [ 203, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4373 ], [ 204, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4374 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4375 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4376 ], [ 207, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4377 ], [ 208, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4378 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4379 ], [ 210, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4380 ], [ 211, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4381 ], [ 212, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4382 ], [ 213, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4383 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4384 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4385 ], [ 215, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4386 ], [ 216, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4387 ], [ 217, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4388 ], [ 218, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4389 ], [ 218, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4390 ], [ 191, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4391 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4392 ], [ 193, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4393 ], [ 228, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4394 ], [ 229, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4395 ], [ 230, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4396 ], [ 231, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4397 ], [ 232, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4398 ], [ 233, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4399 ], [ 234, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4400 ], [ 206, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4401 ], [ 219, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4402 ], [ 190, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4403 ], [ 220, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4404 ], [ 224, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4405 ], [ 221, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4406 ], [ 225, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4407 ], [ 222, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4408 ], [ 226, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4409 ], [ 223, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4410 ], [ 227, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4411 ], [ 4, %1378 ], [ 4, %1392 ], [ 4, %1406 ], [ 160, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4418 ], [ 157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4419 ], [ 158, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4420 ], [ 159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4421 ], [ 235, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4422 ], [ 163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4423 ], [ 174, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4424 ], [ 165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4425 ], [ 168, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4426 ], [ 171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4427 ], [ 164, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4428 ], [ 181, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4429 ], [ 178, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4430 ], [ 179, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4431 ], [ 180, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4432 ], [ 177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4433 ], [ 176, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4434 ], [ 167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4435 ], [ 170, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4436 ], [ 173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4437 ], [ 175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4438 ], [ 166, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4439 ], [ 169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4440 ], [ 172, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4441 ], [ 185, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4442 ], [ 182, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4443 ], [ 183, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4444 ], [ 184, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4445 ], [ 189, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4446 ], [ 186, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4447 ], [ 187, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4448 ], [ 188, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4449 ], [ 60, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4450 ], [ 61, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4451 ], [ 62, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4452 ], [ 67, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4453 ], [ 64, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4454 ], [ 65, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4455 ], [ 66, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4456 ], [ 63, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4457 ], [ 72, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4458 ], [ 69, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4459 ], [ 70, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4460 ], [ 71, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4461 ], [ 68, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4462 ], [ 53, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4463 ], [ 57, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4464 ], [ 54, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4465 ], [ 55, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4466 ], [ 56, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4467 ], [ 77, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4468 ], [ 131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4469 ], [ 132, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4470 ], [ 133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4471 ], [ %switch.load4493, %switch.lookup4490 ]
+_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit: ; preds = %switch.lookup4491, %266, %1661, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4471, %1659, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4470, %1657, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4469, %1597, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4468, %1592, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4467, %1590, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4466, %1588, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4465, %1586, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4464, %1584, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4463, %1582, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4462, %1580, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4461, %1578, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4460, %1576, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4459, %1574, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4458, %1572, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4457, %1570, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4456, %1568, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4455, %1566, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4454, %1564, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4453, %1562, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4452, %1560, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4451, %1558, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4450, %1556, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4449, %1554, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4448, %1552, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4447, %1550, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4446, %1548, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4445, %1546, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4444, %1544, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4443, %1542, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4442, %1540, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4441, %1538, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4440, %1536, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4439, %1534, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4438, %1532, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4437, %1530, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4436, %1528, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4435, %1526, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4434, %1524, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4433, %1522, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4432, %1520, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4431, %1518, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4430, %1516, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4429, %1514, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4428, %1512, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4427, %1510, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4426, %1508, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4425, %1506, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4424, %1504, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4423, %1452, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4422, %1450, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4421, %1448, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4420, %1446, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4419, %1444, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4418, %1406, %1392, %1378, %1343, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4411, %1341, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4410, %1339, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4409, %1337, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4408, %1335, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4407, %1333, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4406, %1331, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4405, %1329, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4404, %1327, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4403, %1325, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4402, %1323, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4401, %1321, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4400, %1319, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4399, %1317, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4398, %1315, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4397, %1313, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4396, %1311, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4395, %1309, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4394, %1307, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4393, %1305, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4392, %1303, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4391, %1301, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4390, %1299, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4389, %1297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4388, %1295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4387, %1293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4386, %1291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4385, %1289, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4384, %1287, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4383, %1285, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4382, %1283, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4381, %1281, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4380, %1279, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4379, %1277, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4378, %1275, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4377, %1273, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4376, %1271, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4375, %1269, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4374, %1267, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4373, %1265, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4372, %1263, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4371, %1261, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4370, %1259, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4369, %1257, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4368, %1255, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4367, %1253, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4366, %1251, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4365, %1249, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4364, %1247, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4363, %923, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4362, %921, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4361, %919, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4360, %917, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4359, %915, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4358, %880, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4357, %878, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4356, %876, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4355, %874, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4354, %872, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4353, %870, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4352, %868, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4351, %866, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4350, %864, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4349, %852, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4348, %850, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4347, %696, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4346, %694, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4345, %692, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4344, %690, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4343, %688, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4342, %686, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4341, %684, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4340, %682, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4339, %662, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4338, %660, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4337, %658, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4336, %656, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4335, %650, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4334, %648, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4333, %646, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4332, %644, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4331, %642, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4330, %640, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4329, %638, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4328, %625, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4327, %623, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4326, %621, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4325, %619, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4324, %617, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4323, %615, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4322, %613, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4321, %611, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4320, %609, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4319, %607, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4318, %605, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4317, %603, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4316, %601, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4315, %599, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4314, %597, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4313, %595, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4312, %593, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4311, %591, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4310, %309, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4309, %307, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4308, %305, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4307, %303, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4306, %301, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4305, %297, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4304, %295, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4303, %293, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4302, %291, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4301, %289, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split, %1655, %1653, %1651, %1640, %1638, %1636, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit, %862, %860, %858, %856, %854, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit, %678, %676, %664, %654, %652, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %515, %510, %508, %506, %504, %502, %283, %249, %180, %178, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit, %1679, %1364, %1350, %1221, %1215, %1209, %1203, %1196, %1189, %745, %739, %733, %727, %721, %580, %567, %554, %241, %228, %200, %187, %157, %1710, %1709, %1708, %1707, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695.thread4084, %1702, %1703, %1704, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485.thread, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit.thread3466, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread3461, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread3456, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i2223, %275, %268, %271, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i, %259, %262, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread3382, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread3377, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread3372, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread3367, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit, %1705, %2, %210, %213, %218, %287, %299, %311, %313, %497, %540, %542, %544, %546, %588, %627, %630, %633, %636, %666, %668, %670, %672, %674, %708, %725, %731, %737, %743, %749, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit, %806, %810, %813, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit2462, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit, %938, %940, %942, %944, %946, %948, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit2498, %963, %965, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb1EEEbv.exit, %983, %985, %987, %989, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit, %1004, %1006, %1008, %1010, %1012, %1014, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit2520, %1029, %1031, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb1EEEbv.exit, %1049, %1051, %1053, %1055, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit, %1070, %1072, %1074, %1076, %1078, %1080, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit2543, %1095, %1097, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb1EEEbv.exit, %1115, %1117, %1119, %1121, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit, %1136, %1138, %1140, %1142, %1144, %1146, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit2566, %1161, %1163, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb1EEEbv.exit, %1181, %1183, %1185, %1187, %1194, %1201, %1207, %1213, %1219, %1225, %1227, %1229, %1235, %1241, %1243, %1245, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit, %1357, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit, %1412, %1414, %1416, %1418, %1420, %1422, %1424, %1426, %1428, %1430, %1432, %1434, %1436, %1438, %1440, %1442, %1454, %1456, %1458, %1460, %1462, %1464, %1466, %1468, %1470, %1472, %1474, %1476, %1478, %1480, %1482, %1484, %1486, %1488, %1490, %1492, %1494, %1496, %1498, %1500, %1502, %1594, %1642, %1645, %1648
+  %.0 = phi i32 [ 4, %210 ], [ 4, %213 ], [ 4, %218 ], [ 4, %287 ], [ 4, %299 ], [ 4, %311 ], [ 4, %313 ], [ 4, %497 ], [ 4, %540 ], [ 4, %542 ], [ 4, %544 ], [ 4, %546 ], [ 4, %588 ], [ 4, %627 ], [ 4, %630 ], [ 4, %633 ], [ 4, %636 ], [ 4, %666 ], [ 4, %668 ], [ 4, %670 ], [ 4, %672 ], [ 4, %674 ], [ 4, %708 ], [ 137, %725 ], [ 138, %731 ], [ 136, %737 ], [ 135, %743 ], [ 134, %749 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isLogicalVecHalfWordShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isLogicalVecShifterEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ 4, %806 ], [ 4, %810 ], [ 4, %813 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand30isSystemPStateFieldWithImm0_15Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand29isSystemPStateFieldWithImm0_1Ev.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit2462 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit ], [ 4, %938 ], [ 4, %940 ], [ 4, %942 ], [ 4, %944 ], [ 4, %946 ], [ 4, %948 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb0EEEbv.exit2498 ], [ 4, %963 ], [ 4, %965 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj4ELb1EEEbv.exit ], [ 4, %983 ], [ 4, %985 ], [ 4, %987 ], [ 4, %989 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit ], [ 4, %1004 ], [ 4, %1006 ], [ 4, %1008 ], [ 4, %1010 ], [ 4, %1012 ], [ 4, %1014 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb0EEEbv.exit2520 ], [ 4, %1029 ], [ 4, %1031 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj1ELb1EEEbv.exit ], [ 4, %1049 ], [ 4, %1051 ], [ 4, %1053 ], [ 4, %1055 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit ], [ 4, %1070 ], [ 4, %1072 ], [ 4, %1074 ], [ 4, %1076 ], [ 4, %1078 ], [ 4, %1080 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb0EEEbv.exit2543 ], [ 4, %1095 ], [ 4, %1097 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj3ELb1EEEbv.exit ], [ 4, %1115 ], [ 4, %1117 ], [ 4, %1119 ], [ 4, %1121 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit ], [ 4, %1136 ], [ 4, %1138 ], [ 4, %1140 ], [ 4, %1142 ], [ 4, %1144 ], [ 4, %1146 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb0EEEbv.exit2566 ], [ 4, %1161 ], [ 4, %1163 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand27isImplicitlyTypedVectorListILNS_7RegKindE1ELj2ELb1EEEbv.exit ], [ 4, %1181 ], [ 4, %1183 ], [ 4, %1185 ], [ 4, %1187 ], [ 45, %1194 ], [ 50, %1201 ], [ 47, %1207 ], [ 46, %1213 ], [ 49, %1219 ], [ 48, %1225 ], [ 4, %1227 ], [ 4, %1229 ], [ 4, %1235 ], [ 4, %1241 ], [ 4, %1243 ], [ 4, %1245 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi32ELi0EEEbv.exit ], [ 4, %1357 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isMOVZMovAliasILi64ELi0EEEbv.exit ], [ 4, %1412 ], [ 4, %1414 ], [ 4, %1416 ], [ 4, %1418 ], [ 4, %1420 ], [ 4, %1422 ], [ 4, %1424 ], [ 4, %1426 ], [ 4, %1428 ], [ 4, %1430 ], [ 4, %1432 ], [ 4, %1434 ], [ 4, %1436 ], [ 4, %1438 ], [ 4, %1440 ], [ 4, %1442 ], [ 4, %1454 ], [ 4, %1456 ], [ 4, %1458 ], [ 4, %1460 ], [ 4, %1462 ], [ 4, %1464 ], [ 4, %1466 ], [ 4, %1468 ], [ 4, %1470 ], [ 4, %1472 ], [ 4, %1474 ], [ 4, %1476 ], [ 4, %1478 ], [ 4, %1480 ], [ 4, %1482 ], [ 4, %1484 ], [ 4, %1486 ], [ 4, %1488 ], [ 4, %1490 ], [ 4, %1492 ], [ 4, %1494 ], [ 4, %1496 ], [ 4, %1498 ], [ 4, %1500 ], [ 4, %1502 ], [ 4, %1594 ], [ 4, %1642 ], [ 4, %1645 ], [ 4, %1648 ], [ 0, %2 ], [ 0, %1705 ], [ 4, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread ], [ 0, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand10isAdrLabelEv.exit.thread3367 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand11isAdrpLabelEv.exit.thread3372 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi14EEEbv.exit.thread3377 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi26EEEbv.exit.thread3382 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit ], [ 7, %_ZNK12_GLOBAL__N_114AArch64Operand14isLSLImm3ShiftEv.exit.thread ], [ 9, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i ], [ 9, %259 ], [ 9, %262 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand13isExtendLSL64Ev.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.i2223 ], [ 8, %275 ], [ 8, %268 ], [ 8, %271 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit ], [ 8, %_ZNK12_GLOBAL__N_114AArch64Operand8isExtendEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit ], [ 27, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi0EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit ], [ 29, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi127EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit ], [ 30, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi15EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit ], [ 28, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit ], [ 31, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi255EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit ], [ 33, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi31EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit ], [ 32, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit ], [ 36, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit ], [ 38, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi16EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit ], [ 37, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi1EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit ], [ 40, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit ], [ 39, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi3EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit ], [ 42, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi7EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit ], [ 43, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi1ELi8EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand26isPAuthPCRelLabel16OperandEv.exit.thread3456 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi19EEEbv.exit.thread3461 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit ], [ 51, %_ZNK12_GLOBAL__N_114AArch64Operand14isBranchTargetILi9EEEbv.exit.thread3466 ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand19isArithmeticShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit ], [ 10, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj32EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit ], [ 11, %_ZNK12_GLOBAL__N_114AArch64Operand16isLogicalShifterILj64EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit ], [ 120, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm32ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit ], [ 121, %_ZNK12_GLOBAL__N_114AArch64Operand17isMovImm64ShifterEv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi32ELi63EEEbv.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476 ], [ 44, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2476.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit ], [ 34, %_ZNK12_GLOBAL__N_114AArch64Operand7isUImm6Ev.exit.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485 ], [ 41, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi63EEEbv.exit2485.thread ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit ], [ 35, %_ZNK12_GLOBAL__N_114AArch64Operand12isImmInRangeILi0ELi65535EEEbv.exit.thread ], [ 4, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695 ], [ 0, %1704 ], [ 58, %1702 ], [ 59, %1703 ], [ 52, %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit2695.thread4084 ], [ 0, %1710 ], [ 58, %1708 ], [ 59, %1709 ], [ 52, %1707 ], [ 0, %157 ], [ 4, %187 ], [ 4, %200 ], [ 4, %228 ], [ 4, %241 ], [ 9, %266 ], [ 4, %289 ], [ 4, %291 ], [ 4, %293 ], [ 4, %295 ], [ 4, %297 ], [ 4, %301 ], [ 4, %303 ], [ 4, %305 ], [ 4, %307 ], [ 4, %309 ], [ 4, %554 ], [ 4, %567 ], [ 4, %580 ], [ 4, %591 ], [ 4, %593 ], [ 4, %595 ], [ 4, %597 ], [ 4, %599 ], [ 4, %601 ], [ 4, %603 ], [ 4, %605 ], [ 4, %607 ], [ 4, %609 ], [ 4, %611 ], [ 4, %613 ], [ 4, %615 ], [ 4, %617 ], [ 4, %619 ], [ 4, %621 ], [ 4, %623 ], [ 4, %625 ], [ 4, %638 ], [ 4, %640 ], [ 4, %642 ], [ 4, %644 ], [ 4, %646 ], [ 4, %648 ], [ 4, %650 ], [ 4, %656 ], [ 4, %658 ], [ 4, %660 ], [ 4, %662 ], [ 4, %682 ], [ 4, %684 ], [ 4, %686 ], [ 4, %688 ], [ 4, %690 ], [ 4, %692 ], [ 4, %694 ], [ 4, %696 ], [ 4, %721 ], [ 4, %727 ], [ 4, %733 ], [ 4, %739 ], [ 4, %745 ], [ 4, %850 ], [ 4, %852 ], [ 4, %864 ], [ 4, %866 ], [ 4, %868 ], [ 4, %870 ], [ 4, %872 ], [ 4, %874 ], [ 4, %876 ], [ 4, %878 ], [ 4, %880 ], [ 4, %915 ], [ 4, %917 ], [ 4, %919 ], [ 4, %921 ], [ 4, %923 ], [ 4, %1189 ], [ 4, %1196 ], [ 4, %1203 ], [ 4, %1209 ], [ 4, %1215 ], [ 4, %1221 ], [ 4, %1247 ], [ 4, %1249 ], [ 4, %1251 ], [ 4, %1253 ], [ 4, %1255 ], [ 4, %1257 ], [ 4, %1259 ], [ 4, %1261 ], [ 4, %1263 ], [ 4, %1265 ], [ 4, %1267 ], [ 4, %1269 ], [ 4, %1271 ], [ 4, %1273 ], [ 4, %1275 ], [ 4, %1277 ], [ 4, %1279 ], [ 4, %1281 ], [ 4, %1283 ], [ 4, %1285 ], [ 4, %1287 ], [ 4, %1289 ], [ 4, %1291 ], [ 4, %1293 ], [ 4, %1295 ], [ 4, %1297 ], [ 4, %1299 ], [ 4, %1301 ], [ 4, %1303 ], [ 4, %1305 ], [ 4, %1307 ], [ 4, %1309 ], [ 4, %1311 ], [ 4, %1313 ], [ 4, %1315 ], [ 4, %1317 ], [ 4, %1319 ], [ 4, %1321 ], [ 4, %1323 ], [ 4, %1325 ], [ 4, %1327 ], [ 4, %1329 ], [ 4, %1331 ], [ 4, %1333 ], [ 4, %1335 ], [ 4, %1337 ], [ 4, %1339 ], [ 4, %1341 ], [ 4, %1343 ], [ 4, %1350 ], [ 4, %1364 ], [ 4, %1444 ], [ 4, %1446 ], [ 4, %1448 ], [ 4, %1450 ], [ 4, %1452 ], [ 4, %1504 ], [ 4, %1506 ], [ 4, %1508 ], [ 4, %1510 ], [ 4, %1512 ], [ 4, %1514 ], [ 4, %1516 ], [ 4, %1518 ], [ 4, %1520 ], [ 4, %1522 ], [ 4, %1524 ], [ 4, %1526 ], [ 4, %1528 ], [ 4, %1530 ], [ 4, %1532 ], [ 4, %1534 ], [ 4, %1536 ], [ 4, %1538 ], [ 4, %1540 ], [ 4, %1542 ], [ 4, %1544 ], [ 4, %1546 ], [ 4, %1548 ], [ 4, %1550 ], [ 4, %1552 ], [ 4, %1554 ], [ 4, %1556 ], [ 4, %1558 ], [ 4, %1560 ], [ 4, %1562 ], [ 4, %1564 ], [ 4, %1566 ], [ 4, %1568 ], [ 4, %1570 ], [ 4, %1572 ], [ 4, %1574 ], [ 4, %1576 ], [ 4, %1578 ], [ 4, %1580 ], [ 4, %1582 ], [ 4, %1584 ], [ 4, %1586 ], [ 4, %1588 ], [ 4, %1590 ], [ 4, %1592 ], [ 4, %1597 ], [ 4, %1657 ], [ 4, %1659 ], [ 4, %1661 ], [ 4, %1679 ], [ %spec.select, %178 ], [ %spec.select4086, %180 ], [ %spec.select4087, %249 ], [ %spec.select4088, %283 ], [ %spec.select4089, %502 ], [ %spec.select4090, %504 ], [ %spec.select4091, %506 ], [ %spec.select4092, %508 ], [ %spec.select4093, %510 ], [ %spec.select4094, %515 ], [ %spec.select4095, %520 ], [ %spec.select4096, %522 ], [ %spec.select4097, %524 ], [ %spec.select4098, %526 ], [ %spec.select4099, %528 ], [ %spec.select4100, %530 ], [ %spec.select4101, %532 ], [ %spec.select4102, %534 ], [ %spec.select4103, %536 ], [ %spec.select4104, %538 ], [ %spec.select4105, %652 ], [ %spec.select4106, %654 ], [ %spec.select4107, %664 ], [ %spec.select4108, %676 ], [ %spec.select4109, %678 ], [ %spec.select4110, %_ZNK12_GLOBAL__N_114AArch64Operand12isSVEPatternEv.exit ], [ %spec.select4111, %_ZNK12_GLOBAL__N_114AArch64Operand20isSVEVecLenSpecifierEv.exit ], [ 4, %_ZNK12_GLOBAL__N_114AArch64Operand16isMoveVecShifterEv.exit ], [ %spec.select4112, %854 ], [ %spec.select4113, %856 ], [ %spec.select4114, %858 ], [ %spec.select4115, %860 ], [ %spec.select4116, %862 ], [ %spec.select4117, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl90ELl0EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select4118, %_ZNK12_GLOBAL__N_114AArch64Operand17isComplexRotationILl180ELl90EEEN4llvm19DiagnosticPredicateEv.exit ], [ %spec.select4119, %1636 ], [ %spec.select4120, %1638 ], [ %spec.select4121, %1640 ], [ %spec.select4122, %1651 ], [ %spec.select4123, %1653 ], [ %spec.select4124, %1655 ], [ 17, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split ], [ 18, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4301 ], [ 19, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4302 ], [ 20, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4303 ], [ 21, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4304 ], [ 22, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4305 ], [ 23, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4306 ], [ 24, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4307 ], [ 25, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4308 ], [ 26, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4309 ], [ 140, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4310 ], [ 145, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4311 ], [ 146, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4312 ], [ 147, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4313 ], [ 148, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4314 ], [ 143, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4315 ], [ 144, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4316 ], [ 141, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4317 ], [ 142, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4318 ], [ 139, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4319 ], [ 156, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4320 ], [ 161, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4321 ], [ 152, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4322 ], [ 155, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4323 ], [ 154, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4324 ], [ 153, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4325 ], [ 150, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4326 ], [ 149, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4327 ], [ 94, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4328 ], [ 75, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4329 ], [ 79, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4330 ], [ 83, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4331 ], [ 86, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4332 ], [ 87, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4333 ], [ 89, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4334 ], [ 80, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4335 ], [ 76, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4336 ], [ 90, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4337 ], [ 95, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4338 ], [ 123, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4339 ], [ 124, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4340 ], [ 125, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4341 ], [ 126, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4342 ], [ 127, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4343 ], [ 128, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4344 ], [ 129, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4345 ], [ 130, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4346 ], [ 99, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4347 ], [ 103, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4348 ], [ 100, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4349 ], [ 104, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4350 ], [ 101, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4351 ], [ 105, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4352 ], [ 102, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4353 ], [ 96, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4354 ], [ 84, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4355 ], [ 91, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4356 ], [ 97, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4357 ], [ 78, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4358 ], [ 81, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4359 ], [ 85, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4360 ], [ 92, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4361 ], [ 98, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4362 ], [ 194, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4363 ], [ 195, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4364 ], [ 196, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4365 ], [ 197, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4366 ], [ 198, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4367 ], [ 199, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4368 ], [ 200, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4369 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4370 ], [ 201, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4371 ], [ 202, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4372 ], [ 203, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4373 ], [ 204, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4374 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4375 ], [ 205, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4376 ], [ 207, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4377 ], [ 208, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4378 ], [ 209, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4379 ], [ 210, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4380 ], [ 211, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4381 ], [ 212, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4382 ], [ 213, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4383 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4384 ], [ 214, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4385 ], [ 215, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4386 ], [ 216, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4387 ], [ 217, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4388 ], [ 218, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4389 ], [ 218, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4390 ], [ 191, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4391 ], [ 192, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4392 ], [ 193, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4393 ], [ 228, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4394 ], [ 229, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4395 ], [ 230, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4396 ], [ 231, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4397 ], [ 232, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4398 ], [ 233, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4399 ], [ 234, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4400 ], [ 206, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4401 ], [ 219, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4402 ], [ 190, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4403 ], [ 220, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4404 ], [ 224, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4405 ], [ 221, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4406 ], [ 225, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4407 ], [ 222, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4408 ], [ 226, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4409 ], [ 223, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4410 ], [ 227, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4411 ], [ 4, %1378 ], [ 4, %1392 ], [ 4, %1406 ], [ 160, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4418 ], [ 157, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4419 ], [ 158, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4420 ], [ 159, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4421 ], [ 235, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4422 ], [ 163, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4423 ], [ 174, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4424 ], [ 165, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4425 ], [ 168, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4426 ], [ 171, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4427 ], [ 164, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4428 ], [ 181, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4429 ], [ 178, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4430 ], [ 179, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4431 ], [ 180, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4432 ], [ 177, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4433 ], [ 176, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4434 ], [ 167, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4435 ], [ 170, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4436 ], [ 173, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4437 ], [ 175, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4438 ], [ 166, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4439 ], [ 169, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4440 ], [ 172, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4441 ], [ 185, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4442 ], [ 182, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4443 ], [ 183, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4444 ], [ 184, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4445 ], [ 189, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4446 ], [ 186, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4447 ], [ 187, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4448 ], [ 188, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4449 ], [ 60, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4450 ], [ 61, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4451 ], [ 62, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4452 ], [ 67, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4453 ], [ 64, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4454 ], [ 65, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4455 ], [ 66, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4456 ], [ 63, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4457 ], [ 72, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4458 ], [ 69, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4459 ], [ 70, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4460 ], [ 71, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4461 ], [ 68, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4462 ], [ 53, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4463 ], [ 57, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4464 ], [ 54, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4465 ], [ 55, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4466 ], [ 56, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4467 ], [ 77, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4468 ], [ 131, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4469 ], [ 132, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4470 ], [ 133, %_ZL28getDiagKindFromRegisterClassN12_GLOBAL__N_114MatchClassKindE.exit.fold.split4471 ], [ %switch.load4493, %switch.lookup4491 ]
   ret i32 %.0
 }
 
@@ -59342,7 +59342,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser15convertToMCIns
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APFloat", align 8
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [2456 x [15 x i8]], ptr @_ZL15ConversionTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [15 x i8], ptr @_ZL15ConversionTable, i64 %8
   store i32 %2, ptr %1, align 8, !tbaa !396
   %10 = load i8, ptr %9, align 1, !tbaa !64
   %.not3 = icmp eq i8 %10, 0
@@ -59382,7 +59382,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser15convertToMCIns
     i8 14, label %405
     i8 15, label %423
     i8 16, label %switch.lookup
-    i8 17, label %switch.lookup361
+    i8 17, label %switch.lookup362
     i8 18, label %500
     i8 19, label %517
     i8 20, label %523
@@ -59552,7 +59552,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand14addRegOperandsERN4llvm6MCInstEj.exit: ; pred
 
 42:                                               ; preds = %17
   %43 = zext i8 %20 to i64
-  %44 = getelementptr inbounds nuw [15 x [3 x i8]], ptr @_ZL19TiedAsmOperandTable, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [3 x i8], ptr @_ZL19TiedAsmOperandTable, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !64
   %.not444 = icmp eq i8 %45, -1
   br i1 %.not444, label %_ZNK12_GLOBAL__N_114AArch64Operand31addImmWithOptionalShiftOperandsILi12EEEvRN4llvm6MCInstEj.exit, label %46
@@ -60389,7 +60389,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand17addExtendOperandsERN4llvm6MCInstEj.exit: ; p
   store i32 %473, ptr %12, align 8, !tbaa !89
   br label %_ZNK12_GLOBAL__N_114AArch64Operand31addImmWithOptionalShiftOperandsILi12EEEvRN4llvm6MCInstEj.exit
 
-switch.lookup361:                                 ; preds = %17
+switch.lookup362:                                 ; preds = %17
   %474 = zext i8 %20 to i64
   %475 = load ptr, ptr %3, align 8, !tbaa !87
   %476 = getelementptr inbounds nuw %"class.std::unique_ptr.192", ptr %475, i64 %474
@@ -60412,15 +60412,15 @@ switch.lookup361:                                 ; preds = %17
   %.not.i.i.not.i.i.i627 = icmp ult i32 %486, %487
   br i1 %.not.i.i.not.i.i.i627, label %_ZNK12_GLOBAL__N_114AArch64Operand19addExtend64OperandsERN4llvm6MCInstEj.exit, label %488, !prof !130
 
-488:                                              ; preds = %switch.lookup361
+488:                                              ; preds = %switch.lookup362
   %489 = zext i32 %486 to i64
   %490 = add nuw nsw i64 %489, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i64 noundef %490, i64 noundef 16) #26
   %.pre.i.i.i628 = load i32, ptr %12, align 8, !tbaa !89
   br label %_ZNK12_GLOBAL__N_114AArch64Operand19addExtend64OperandsERN4llvm6MCInstEj.exit
 
-_ZNK12_GLOBAL__N_114AArch64Operand19addExtend64OperandsERN4llvm6MCInstEj.exit: ; preds = %switch.lookup361, %488
-  %491 = phi i32 [ %486, %switch.lookup361 ], [ %.pre.i.i.i628, %488 ]
+_ZNK12_GLOBAL__N_114AArch64Operand19addExtend64OperandsERN4llvm6MCInstEj.exit: ; preds = %switch.lookup362, %488
+  %491 = phi i32 [ %486, %switch.lookup362 ], [ %.pre.i.i.i628, %488 ]
   %492 = and i32 %.0.i5.i624, 7
   %493 = or disjoint i32 %switch.idx.mult363, %492
   %494 = zext nneg i32 %493 to i64
@@ -81889,7 +81889,7 @@ define internal fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringR
   %19 = getelementptr inbounds nuw i8, ptr %.020.ptr87, i64 6
   %20 = load i8, ptr %19, align 2, !tbaa !1528
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [141 x %"class.llvm::FeatureBitset"], ptr @_ZL14FeatureBitsets, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %"class.llvm::FeatureBitset", ptr @_ZL14FeatureBitsets, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !63
@@ -81897,9 +81897,9 @@ define internal fastcc void @_ZL25AArch64MnemonicSpellCheckB5cxx11N4llvm9StringR
 
 23:                                               ; preds = %23, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !65, !noalias !1778
-  %26 = getelementptr inbounds nuw [5 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !65, !alias.scope !1778
   %28 = and i64 %27, %25
   store i64 %28, ptr %26, align 8, !tbaa !65, !alias.scope !1778

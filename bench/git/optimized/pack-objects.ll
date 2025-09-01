@@ -2953,7 +2953,7 @@ read_object_list_from_stdin.exit:                 ; preds = %1043
   %1095 = shl i64 %1092, 32
   %sext.i = add i64 %1095, -4294967296
   %1096 = ashr exact i64 %sext.i, 32
-  %1097 = getelementptr inbounds [1000 x i8], ptr %39, i64 0, i64 %1096
+  %1097 = getelementptr inbounds i8, ptr %39, i64 %1096
   %1098 = load i8, ptr %1097, align 1, !tbaa !29
   %1099 = icmp eq i8 %1098, 10
   br i1 %1099, label %1100, label %.critedge.i119
@@ -2961,7 +2961,7 @@ read_object_list_from_stdin.exit:                 ; preds = %1043
 1100:                                             ; preds = %1094
   %1101 = add nsw i32 %1093, -1
   %1102 = sext i32 %1101 to i64
-  %1103 = getelementptr inbounds [1000 x i8], ptr %39, i64 0, i64 %1102
+  %1103 = getelementptr inbounds i8, ptr %39, i64 %1102
   store i8 0, ptr %1103, align 1, !tbaa !29
   %1104 = icmp eq i32 %1101, 0
   br i1 %1104, label %.critedge41.thread.i, label %.critedge.i119
@@ -3430,7 +3430,7 @@ get_object_list.exit:                             ; preds = %get_object_list_fro
 
 .preheader.i135:                                  ; preds = %.preheader.i135.preheader, %1287
   %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i138, %1287 ], [ 0, %.preheader.i135.preheader ]
-  %1282 = getelementptr inbounds nuw [256 x ptr], ptr @pbase_tree_cache, i64 0, i64 %indvars.iv.i136
+  %1282 = getelementptr inbounds nuw ptr, ptr @pbase_tree_cache, i64 %indvars.iv.i136
   %1283 = load ptr, ptr %1282, align 8, !tbaa !153
   %.not13.i137 = icmp eq ptr %1283, null
   br i1 %.not13.i137, label %1287, label %1284
@@ -3733,7 +3733,7 @@ oe_set_size.exit.i.i.i:                           ; preds = %.oe_set_size.exit_c
 
 1415:                                             ; preds = %.preheader, %1417
   %.0811.i.i.i.i.i = phi i64 [ %1418, %1417 ], [ 0, %.preheader ]
-  %1416 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i.i
+  %1416 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %1407, %1416
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %1417
 
@@ -6278,7 +6278,7 @@ find_reused_offset.exit84.i.i.i:                  ; preds = %._crit_edge.i72.i.i
   %2562 = or i8 %2561, -128
   %2563 = add i32 %.056105.i.i.i, -1
   %2564 = zext i32 %2563 to i64
-  %2565 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %2564
+  %2565 = getelementptr inbounds nuw i8, ptr %13, i64 %2564
   store i8 %2562, ptr %2565, align 1, !tbaa !29
   %.not63.i.i.i = icmp ult i64 %2560, 128
   br i1 %.not63.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i60.i.i, !llvm.loop !253
@@ -7684,7 +7684,7 @@ define internal fastcc void @add_preferred_base_object(ptr noundef %0) unnamed_a
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %7 = zext i8 %4 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !29
   %10 = and i8 %9, 1
   %.not11.i = icmp eq i8 %10, 0
@@ -7933,7 +7933,7 @@ _.exit:                                           ; preds = %30, %32
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %40 = zext i8 %37 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !29
   %43 = and i8 %42, 1
   %.not11.i19 = icmp eq i8 %43, 0
@@ -8060,7 +8060,7 @@ define internal fastcc void @add_pbase_object(ptr noundef nonnull %0, ptr nounde
   %.04084.i = phi i32 [ %35, %33 ], [ %55, %.thread58.i ]
   %.04283.i = phi i32 [ 0, %33 ], [ %56, %.thread58.i ]
   %37 = zext nneg i32 %.04084.i to i64
-  %38 = getelementptr inbounds nuw [256 x ptr], ptr @pbase_tree_cache, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @pbase_tree_cache, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !153
   %.not76.i = icmp eq ptr %39, null
   br i1 %.not76.i, label %.thread.i, label %40
@@ -8098,7 +8098,7 @@ define internal fastcc void @add_pbase_object(ptr noundef nonnull %0, ptr nounde
 
 .thread72.i:                                      ; preds = %.thread.i
   %51 = zext nneg i32 %.085.i to i64
-  %52 = getelementptr inbounds nuw [256 x ptr], ptr @pbase_tree_cache, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr @pbase_tree_cache, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !153
   %.not50.i = icmp eq ptr %53, null
   br i1 %.not50.i, label %.thread61.i, label %.thread55.thread.i
@@ -8137,7 +8137,7 @@ define internal fastcc void @add_pbase_object(ptr noundef nonnull %0, ptr nounde
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %.1.i to i64
-  %66 = getelementptr inbounds nuw [256 x ptr], ptr @pbase_tree_cache, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr @pbase_tree_cache, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !153
   %.not53.i = icmp eq ptr %67, null
   br i1 %.not53.i, label %.thread63.i, label %70
@@ -8178,7 +8178,7 @@ define internal fastcc void @add_pbase_object(ptr noundef nonnull %0, ptr nounde
 
 81:                                               ; preds = %73
   %82 = zext nneg i32 %.14167.i to i64
-  %83 = getelementptr inbounds nuw [256 x ptr], ptr @pbase_tree_cache, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr @pbase_tree_cache, i64 %82
   store ptr %.044.i, ptr %83, align 8, !tbaa !153
   br label %84
 
@@ -9001,7 +9001,7 @@ pack_name_hash.exit.thread:                       ; preds = %6
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %12 = zext i8 %9 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !29
   %15 = and i8 %14, 1
   %.not11.i = icmp eq i8 %15, 0
@@ -9182,7 +9182,7 @@ define internal fastcc void @add_cruft_object_entry(ptr noundef %0, i32 noundef 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %19 = zext i8 %16 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !29
   %22 = and i8 %21, 1
   %.not11.i = icmp eq i8 %22, 0
@@ -9262,7 +9262,7 @@ no_try_delta.exit:                                ; preds = %pack_name_hash.exit
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %.07.i31, i64 1
   %60 = zext i8 %57 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !29
   %63 = and i8 %62, 1
   %.not11.i33 = icmp eq i8 %63, 0
@@ -11965,7 +11965,7 @@ oe_delta.exit126.i:                               ; preds = %182
   %203 = or i8 %202, -128
   %204 = add i32 %.0142.i, -1
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw [10 x i8], ptr %10, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 %205
   store i8 %203, ptr %206, align 1, !tbaa !29
   %.not106.i = icmp ult i64 %201, 128
   br i1 %.not106.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !350
@@ -12551,7 +12551,7 @@ oe_delta.exit126:                                 ; preds = %168
   %193 = or i8 %192, -128
   %194 = add i32 %.076168, -1
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [10 x i8], ptr %15, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %15, i64 %195
   store i8 %193, ptr %196, align 1, !tbaa !29
   %.not107 = icmp ult i64 %191, 128
   br i1 %.not107, label %._crit_edge, label %.lr.ph, !llvm.loop !352

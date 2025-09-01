@@ -69156,7 +69156,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_PrettyPrinter_Parenthesizer_inte
   br label %lean_dec.exit112
 
 lean_dec.exit112:                                 ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.074208
+  %32 = getelementptr inbounds nuw ptr, ptr %11, i64 %.074208
   %33 = load ptr, ptr %32, align 8, !tbaa !4
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1

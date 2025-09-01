@@ -2325,7 +2325,7 @@ generate_json_true.exit:                          ; preds = %38, %45
   %.0.i.idx.i.i = phi i64 [ 19, %59 ], [ %.0.i.add.i.i, %61 ]
   %.0.i.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %.0.i.idx.i.i
   %62 = urem i64 %.111.i.i.i, 10
-  %63 = getelementptr inbounds nuw [11 x i8], ptr @fltoa.digits, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @fltoa.digits, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !59
   %.0.i.add.i.i = add nsw i64 %.0.i.idx.i.i, -1
   store i8 %64, ptr %.0.i.ptr.i.i, align 1, !tbaa !59
@@ -3311,7 +3311,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %fbuffer_append_char
   %65 = phi ptr [ %86, %85 ], [ %64, %.lr.ph.preheader.i.i ]
   %66 = load i8, ptr %65, align 1, !tbaa !59
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @escape_table_basic, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @escape_table_basic, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !59
   %.not.i.i = icmp eq i8 %69, 0
   br i1 %.not.i.i, label %85, label %70, !prof !68
@@ -4865,7 +4865,7 @@ define internal fastcc void @convert_UTF8_to_script_safe_JSON(ptr noundef nonnul
   %8 = phi ptr [ %47, %46 ], [ %.promoted.i14, %.lr.ph.i.preheader ]
   %9 = load i8, ptr %8, align 1, !tbaa !59
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @script_safe_escape_table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @script_safe_escape_table, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !59
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %46, label %13, !prof !68
@@ -5520,7 +5520,7 @@ define internal void @generate_json_integer(ptr noundef captures(none) %0, ptr r
   %.0.i.idx.i.i = phi i64 [ 19, %9 ], [ %.0.i.add.i.i, %11 ]
   %.0.i.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %.0.i.idx.i.i
   %12 = urem i64 %.111.i.i.i, 10
-  %13 = getelementptr inbounds nuw [11 x i8], ptr @fltoa.digits, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @fltoa.digits, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !59
   %.0.i.add.i.i = add nsw i64 %.0.i.idx.i.i, -1
   store i8 %14, ptr %.0.i.ptr.i.i, align 1, !tbaa !59

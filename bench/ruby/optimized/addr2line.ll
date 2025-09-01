@@ -75,7 +75,7 @@ define hidden void @rb_dump_backtrace_with_lines(i32 noundef %0, ptr noundef rea
   br i1 %13, label %main_exe_path.exit.thread, label %main_exe_path.exit
 
 main_exe_path.exit:                               ; preds = %3
-  %14 = getelementptr [4097 x i8], ptr @binary_filename, i64 0, i64 %12
+  %14 = getelementptr i8, ptr @binary_filename, i64 %12
   store i8 0, ptr %14, align 1, !tbaa !12
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %main_exe_path.exit.thread, label %append_obj.exit
@@ -421,7 +421,7 @@ print_line.exit:                                  ; preds = %print_line0.exit.i
   store ptr %161, ptr %151, align 16, !tbaa !41
   store ptr %162, ptr %152, align 8, !tbaa !41
   store ptr %163, ptr %153, align 16, !tbaa !41
-  %165 = getelementptr [9 x ptr], ptr %4, i64 0, i64 %indvars.iv143
+  %165 = getelementptr ptr, ptr %4, i64 %indvars.iv143
   %166 = load ptr, ptr %165, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
@@ -652,10 +652,10 @@ define internal fastcc i64 @fill_lines(i32 noundef %0, ptr noundef readonly capt
   store ptr %74, ptr %73, align 16, !tbaa !41
   store ptr %76, ptr %75, align 8, !tbaa !41
   store ptr %78, ptr %77, align 16, !tbaa !41
-  %98 = getelementptr [9 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %98 = getelementptr ptr, ptr %21, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %100 = getelementptr [9 x ptr], ptr @__const.fill_lines.debug_section_names, i64 0, i64 %indvars.iv
+  %100 = getelementptr ptr, ptr @__const.fill_lines.debug_section_names, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8, !tbaa !62
   %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %101) #17
   %.not256 = icmp eq i32 %102, 0
@@ -1063,7 +1063,7 @@ uleb128.exit.i.i:                                 ; preds = %._crit_edge.loopexi
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %289
-  %292 = getelementptr [256 x ptr], ptr %200, i64 0, i64 %.117.i.i.i
+  %292 = getelementptr ptr, ptr %200, i64 %.117.i.i.i
   store ptr %.2.i.i, ptr %292, align 8, !tbaa !62
   br label %293
 
@@ -2715,13 +2715,13 @@ define internal fastcc void @follow_debuglink_build_id(ptr noundef readonly capt
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 4
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr [17 x i8], ptr @follow_debuglink_build_id.tbl, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @follow_debuglink_build_id.tbl, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = getelementptr i8, ptr %.027, i64 1
   store i8 %18, ptr %.027, align 1, !tbaa !12
   %20 = and i32 %14, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [17 x i8], ptr @follow_debuglink_build_id.tbl, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @follow_debuglink_build_id.tbl, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = getelementptr i8, ptr %.027, i64 2
   store i8 %23, ptr %19, align 1, !tbaa !12
@@ -3250,7 +3250,7 @@ uleb128.exit:                                     ; preds = %3, %._crit_edge.loo
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %31 = getelementptr [256 x ptr], ptr %30, i64 0, i64 %.117.i
+  %31 = getelementptr ptr, ptr %30, i64 %.117.i
   %32 = load ptr, ptr %31, align 8, !tbaa !62
   br label %di_find_abbrev.exit
 

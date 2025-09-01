@@ -295,7 +295,7 @@ define hidden void @ByteIndexedToUshortGrayConvert(ptr noundef %0, ptr noundef %
   %31 = add nuw nsw i32 %30, %27
   %32 = lshr i32 %31, 8
   %33 = trunc nuw i32 %32 to i16
-  %34 = getelementptr inbounds nuw [256 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
   store i16 %33, ptr %34, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.042
@@ -325,7 +325,7 @@ define hidden void @ByteIndexedToUshortGrayConvert(ptr noundef %0, ptr noundef %
   %.0 = phi i32 [ %2, %45 ], [ %57, %46 ]
   %47 = load i8, ptr %.140, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i16], ptr %9, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i16, ptr %9, i64 %48
   %50 = load i16, ptr %49, align 2
   store i16 %50, ptr %.1, align 2
   %51 = ptrtoint ptr %.140 to i64
@@ -636,7 +636,7 @@ define hidden void @ByteIndexedToUshortGrayScaleConvert(ptr noundef %0, ptr noun
   %36 = add nuw nsw i32 %35, %32
   %37 = lshr i32 %36, 8
   %38 = trunc nuw i32 %37 to i16
-  %39 = getelementptr inbounds nuw [256 x i16], ptr %14, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
   store i16 %38, ptr %39, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.048
@@ -674,7 +674,7 @@ define hidden void @ByteIndexedToUshortGrayScaleConvert(ptr noundef %0, ptr noun
   %59 = getelementptr inbounds i8, ptr %55, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i16], ptr %14, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i16, ptr %14, i64 %61
   %63 = load i16, ptr %62, align 2
   store i16 %63, ptr %.1, align 2
   %64 = ptrtoint ptr %.1 to i64
@@ -744,7 +744,7 @@ define hidden void @ByteIndexedBmToUshortGrayXparOver(ptr noundef %0, ptr nounde
 
 35:                                               ; preds = %19, %23
   %.sink = phi i32 [ %34, %23 ], [ -1, %19 ]
-  %36 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %.sink, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.043
@@ -774,7 +774,7 @@ define hidden void @ByteIndexedBmToUshortGrayXparOver(ptr noundef %0, ptr nounde
   %.039 = phi i32 [ %2, %47 ], [ %63, %56 ]
   %49 = load i8, ptr %.142, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %9, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %56, label %54
@@ -855,7 +855,7 @@ define hidden void @ByteIndexedBmToUshortGrayScaleXparOver(ptr noundef %0, ptr n
 
 40:                                               ; preds = %24, %28
   %.sink = phi i32 [ %39, %28 ], [ -1, %24 ]
-  %41 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   store i32 %.sink, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.048
@@ -893,7 +893,7 @@ define hidden void @ByteIndexedBmToUshortGrayScaleXparOver(ptr noundef %0, ptr n
   %61 = getelementptr inbounds i8, ptr %57, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %14, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %69, label %67
@@ -1051,7 +1051,7 @@ define hidden void @ByteIndexedBmToUshortGrayXparBgCopy(ptr noundef %0, ptr noun
 
 38:                                               ; preds = %22, %26
   %.sink = phi i32 [ %37, %26 ], [ %4, %22 ]
-  %39 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %.sink, ptr %39, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.044
@@ -1081,7 +1081,7 @@ define hidden void @ByteIndexedBmToUshortGrayXparBgCopy(ptr noundef %0, ptr noun
   %.040 = phi i32 [ %2, %50 ], [ %63, %51 ]
   %52 = load i8, ptr %.143, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %10, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = trunc i32 %55 to i16
   store i16 %56, ptr %.1, align 2
@@ -1512,7 +1512,7 @@ define hidden void @UshortGrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   %.0109 = phi i32 [ %28, %26 ], [ %24, %10 ]
   %30 = load i32, ptr %9, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %31
+  %32 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
@@ -1903,7 +1903,7 @@ define hidden void @IntArgbToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noundef
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2428,7 +2428,7 @@ define hidden void @IntArgbPreToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noun
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2683,7 +2683,7 @@ define hidden void @IntRgbToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32

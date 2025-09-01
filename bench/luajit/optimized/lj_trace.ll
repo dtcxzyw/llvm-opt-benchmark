@@ -1251,7 +1251,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %343 = ptrtoint ptr %342 to i64
   %344 = lshr i64 %343, 2
   %345 = and i64 %344, 63
-  %346 = getelementptr inbounds nuw [64 x i16], ptr %24, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i16, ptr %24, i64 %345
   store i16 1, ptr %346, align 2, !tbaa !103
   br label %406
 
@@ -1262,7 +1262,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
 
 350:                                              ; preds = %381, %347
   %indvars.iv.i = phi i64 [ 0, %347 ], [ %indvars.iv.next.i, %381 ]
-  %351 = getelementptr inbounds nuw [64 x %struct.HotPenalty], ptr %21, i64 0, i64 %indvars.iv.i
+  %351 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %indvars.iv.i
   %352 = load i64, ptr %351, align 8, !tbaa !130
   %353 = icmp eq i64 %338, %352
   br i1 %353, label %354, label %381
@@ -1321,14 +1321,14 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %385 = and i32 %384, 63
   store i32 %385, ptr %22, align 8, !tbaa !134
   %386 = zext i32 %383 to i64
-  %387 = getelementptr inbounds nuw [64 x %struct.HotPenalty], ptr %21, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %386
   store i64 %338, ptr %387, align 8, !tbaa !130
   br label %388
 
 388:                                              ; preds = %382, %._crit_edge.i90
   %.pre-phi.i = phi i64 [ %.pre.i91, %._crit_edge.i90 ], [ %386, %382 ]
   %.0.i89 = phi i16 [ %363, %._crit_edge.i90 ], [ 72, %382 ]
-  %389 = getelementptr inbounds nuw [64 x %struct.HotPenalty], ptr %21, i64 0, i64 %.pre-phi.i
+  %389 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %.pre-phi.i
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i16 %.0.i89, ptr %390, align 8, !tbaa !132
   %391 = trunc i32 %.089100.i to i16
@@ -1338,7 +1338,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %394 = ptrtoint ptr %393 to i64
   %395 = lshr i64 %394, 2
   %396 = and i64 %395, 63
-  %397 = getelementptr inbounds nuw [64 x i16], ptr %24, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i16, ptr %24, i64 %396
   store i16 %.0.i89, ptr %397, align 2, !tbaa !103
   br label %penalty_pc.exit
 
@@ -1613,7 +1613,7 @@ define hidden void @lj_trace_hot(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %9 = ptrtoint ptr %1 to i64
   %10 = lshr i64 %9, 2
   %11 = and i64 %10, 63
-  %12 = getelementptr inbounds nuw [64 x i16], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr %8, i64 %11
   store i16 %7, ptr %12, align 2, !tbaa !103
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %14 = load i32, ptr %13, align 4, !tbaa !87
@@ -1852,7 +1852,7 @@ lj_state_checkstack.exit:                         ; preds = %39, %47
 
 62:                                               ; preds = %62, %lj_state_checkstack.exit
   %indvars.iv.i = phi i64 [ 0, %lj_state_checkstack.exit ], [ %indvars.iv.next.i, %62 ]
-  %63 = getelementptr inbounds nuw [16 x i64], ptr %61, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
   %64 = load i64, ptr %63, align 8, !tbaa !145
   %65 = sitofp i64 %64 to double
   %66 = load ptr, ptr %42, align 8, !tbaa !28
@@ -1870,7 +1870,7 @@ lj_state_checkstack.exit:                         ; preds = %39, %47
 .preheader.i:                                     ; preds = %75, %.preheader.preheader.i
   %68 = phi ptr [ %.pre.i, %.preheader.preheader.i ], [ %77, %75 ]
   %indvars.iv18.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next19.i, %75 ]
-  %69 = getelementptr inbounds nuw [16 x double], ptr %1, i64 0, i64 %indvars.iv18.i
+  %69 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv18.i
   %70 = load double, ptr %69, align 8, !tbaa !147
   store double %70, ptr %68, align 8, !tbaa !4
   %71 = load ptr, ptr %42, align 8, !tbaa !28

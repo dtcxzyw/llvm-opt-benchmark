@@ -1254,7 +1254,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %13 = shl nuw i32 1, %12
   %14 = lshr i32 %10, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr [8 x i32], ptr %11, i64 0, i64 %15
+  %16 = getelementptr i32, ptr %11, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %13, %17
   store i32 %18, ptr %16, align 4
@@ -1263,7 +1263,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %21 = shl nuw i32 1, %20
   %22 = lshr i32 %1, 5
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [8 x i32], ptr %19, i64 0, i64 %23
+  %24 = getelementptr i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, %21
   store i32 %26, ptr %24, align 4
@@ -1289,7 +1289,7 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
 .preheader:                                       ; preds = %3, %10
   %5 = phi i64 [ %6, %10 ], [ 0, %3 ]
   %6 = add nuw nsw i64 %5, 1
-  %7 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %6
+  %7 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i64 %6, 12
   br i1 %9, label %19, label %10, !llvm.loop !19
@@ -1366,7 +1366,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
 .preheader:                                       ; preds = %4, %11
   %6 = phi i64 [ %7, %11 ], [ 0, %4 ]
   %7 = add nuw nsw i64 %6, 1
-  %8 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %7
+  %8 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %7, 12
   br i1 %10, label %21, label %11, !llvm.loop !19
@@ -1475,7 +1475,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %19, i32 1
+  %26 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %19, i32 1
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, %20
   br label %29
@@ -1700,7 +1700,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 
 10:                                               ; preds = %20, %8
   %11 = phi i64 [ 0, %8 ], [ %21, %20 ]
-  %12 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %11, i32 2
+  %12 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %11, i32 2
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %9
   br i1 %14, label %15, label %20

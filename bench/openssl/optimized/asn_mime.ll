@@ -387,7 +387,7 @@ define range(i32 0, 2) i32 @SMIME_write_ASN1_ex(ptr noundef %0, ptr noundef %1, 
 
 .preheader:                                       ; preds = %20, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw [33 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !6
   %25 = and i8 %24, 15
   %26 = icmp samesign ult i8 %25, 10

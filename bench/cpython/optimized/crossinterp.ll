@@ -6675,7 +6675,7 @@ _PyXIData_New.exit.thread:                        ; preds = %30
   br label %62
 
 _PyXIData_New.exit:                               ; preds = %30
-  %34 = getelementptr [1 x ptr], ptr %26, i64 0, i64 %.03650
+  %34 = getelementptr ptr, ptr %26, i64 %.03650
   %35 = load ptr, ptr %34, align 8, !tbaa !94
   %36 = load i32, ptr %27, align 4, !tbaa !283
   %37 = add i32 %36, -1
@@ -6911,7 +6911,7 @@ define internal ptr @_new_tuple_object(ptr noundef readonly captures(none) %0) #
   br label %Py_DECREF.exit.thread
 
 22:                                               ; preds = %9
-  %23 = getelementptr [1 x ptr], ptr %8, i64 0, i64 %.01724
+  %23 = getelementptr ptr, ptr %8, i64 %.01724
   store ptr %15, ptr %23, align 8, !tbaa !94
   %24 = add nuw nsw i64 %.01724, 1
   %25 = load i64, ptr %2, align 8, !tbaa !279

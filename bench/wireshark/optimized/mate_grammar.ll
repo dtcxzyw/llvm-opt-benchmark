@@ -171,22 +171,22 @@ define hidden void @MateParser(ptr noundef captures(address) initializes((16, 24
 
 14:                                               ; preds = %12
   %15 = zext nneg i16 %.037 to i64
-  %16 = getelementptr [183 x i16], ptr @yy_shift_ofst, i64 0, i64 %15
+  %16 = getelementptr i16, ptr @yy_shift_ofst, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i64
   %19 = add nuw nsw i64 %18, %10
-  %20 = getelementptr [371 x i8], ptr @yy_lookahead, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @yy_lookahead, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, %9
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr [183 x i16], ptr @yy_default, i64 0, i64 %15
+  %23 = getelementptr i16, ptr @yy_default, i64 %15
   %24 = load i16, ptr %23, align 2
   br label %yy_find_shift_action.exit
 
 25:                                               ; preds = %14
-  %26 = getelementptr [309 x i16], ptr @yy_action, i64 0, i64 %19
+  %26 = getelementptr i16, ptr @yy_action, i64 %19
   %27 = load i16, ptr %26, align 2
   br label %yy_find_shift_action.exit
 
@@ -199,7 +199,7 @@ yy_find_shift_action.exit:                        ; preds = %12, %22, %25
   %30 = zext i16 %.0.i to i64
   %31 = add nuw nsw i64 %30, 4294966857
   %32 = and i64 %31, 4294967295
-  %33 = getelementptr [149 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %._crit_edge
@@ -2005,18 +2005,18 @@ recolonize.exit:                                  ; preds = %934, %900
   br label %991
 
 991:                                              ; preds = %982, %973, %964, %955, %946, %941, %recolonize.exit, %896, %892, %884, %874, %870, %861, %860, %850, %836, %829, %826, %816, %809, %806, %799, %796, %789, %785, %769, %765, %760, %757, %754, %751, %747, %743, %736, %708, %694, %690, %681, %678, %675, %672, %669, %666, %659, %652, %648, %641, %637, %630, %626, %619, %612, %610, %603, %599, %543, %524, %510, %499, %495, %488, %484, %477, %473, %466, %452, %448, %440, %437, %434, %432, %418, %416, %409, %407, %._crit_edge9.i, %320, %317, %314, %311, %308, %305, %303, %296, %290, %284, %275, %256, %252, %239, %._crit_edge15.thread.i, %210, %202, %194, %186, %178, %170, %162, %154, %146, %138, %130, %118, %106, %94, %84, %81, %66, %51
-  %992 = getelementptr [149 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %32
+  %992 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %32
   %993 = load i8, ptr %992, align 1
   %994 = sext i8 %34 to i64
   %995 = getelementptr %struct.yyStackEntry, ptr %52, i64 %994
   %996 = load i16, ptr %995, align 8
   %997 = zext i16 %996 to i64
-  %998 = getelementptr [98 x i16], ptr @yy_reduce_ofst, i64 0, i64 %997
+  %998 = getelementptr i16, ptr @yy_reduce_ofst, i64 %997
   %999 = load i16, ptr %998, align 2
   %1000 = sext i16 %999 to i64
   %1001 = zext i8 %993 to i64
-  %1002 = add nsw i64 %1000, %1001
-  %1003 = getelementptr [309 x i16], ptr @yy_action, i64 0, i64 %1002
+  %1002 = getelementptr i16, ptr @yy_action, i64 %1000
+  %1003 = getelementptr i16, ptr %1002, i64 %1001
   %1004 = load i16, ptr %1003, align 2
   %1005 = getelementptr i8, ptr %995, i64 16
   store ptr %1005, ptr %0, align 8

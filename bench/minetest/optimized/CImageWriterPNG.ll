@@ -316,7 +316,7 @@ sw.bb64:                                          ; preds = %sw.epilog33
 
 sw.default70:                                     ; preds = %sw.epilog33
   %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8, !tbaa !19
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.7, ptr noundef %13, i32 noundef 2) #14
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #14

@@ -3288,7 +3288,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %276, %267, %270
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit142 ]
   %.052377 = phi i1 [ false, %.lr.ph ], [ %.153, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit142 ]
   %.sroa.10302.2376 = phi ptr [ %.sroa.10302.0387, %.lr.ph ], [ %.sroa.10302.4316, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit142 ]
-  %279 = getelementptr inbounds nuw [0 x ptr], ptr %277, i64 0, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv
   %280 = load ptr, ptr %279, align 8, !tbaa !377
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 12
   %282 = load i32, ptr %281, align 4, !tbaa !384
@@ -3522,7 +3522,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit1
   %368 = phi ptr [ null, %.lr.ph385 ], [ %469, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit187 ]
   %indvars.iv406 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next407, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit187 ]
   %.357382 = phi i32 [ %.054388, %.lr.ph385 ], [ %.458, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit187 ]
-  %369 = getelementptr inbounds nuw [0 x ptr], ptr %366, i64 0, i64 %indvars.iv406
+  %369 = getelementptr inbounds nuw ptr, ptr %366, i64 %indvars.iv406
   %370 = load ptr, ptr %369, align 8, !tbaa !377
   %371 = icmp eq ptr %368, null
   br i1 %371, label %372, label %455

@@ -149,7 +149,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 71:                                               ; preds = %.preheader126, %71
   %indvars.iv145 = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next146, %71 ]
   %72 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %indvars.iv145
+  %73 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv145
   store i32 %72, ptr %73, align 4, !tbaa !79
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 4
@@ -158,7 +158,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 74:                                               ; preds = %.preheader124, %74
   %indvars.iv149 = phi i64 [ 0, %.preheader124 ], [ %indvars.iv.next150, %74 ]
   %75 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %70, i64 0, i64 %indvars.iv149
+  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv149
   store i32 %75, ptr %76, align 4, !tbaa !79
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 4
@@ -234,7 +234,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 113:                                              ; preds = %.preheader127, %113
   %indvars.iv = phi i64 [ 0, %.preheader127 ], [ %indvars.iv.next, %113 ]
   %114 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %115 = getelementptr inbounds nuw [11 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   store i32 %114, ptr %115, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -258,7 +258,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv181 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next182, %122 ]
   %123 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %124 = getelementptr inbounds nuw [11 x i32], ptr %120, i64 0, i64 %indvars.iv181
+  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv181
   %125 = load i32, ptr %124, align 4, !tbaa !79
   %126 = sub i32 %123, %125
   %127 = uitofp i32 %126 to float
@@ -266,7 +266,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %129 = lshr i32 %128, 1
   %130 = xor i32 %129, %128
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [4 x float], ptr %121, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw float, ptr %121, i64 %131
   store float %127, ptr %132, align 4, !tbaa !87
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 4
@@ -299,15 +299,15 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 141:                                              ; preds = %.preheader121, %141
   %indvars.iv161 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next162, %141 ]
   %142 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %143 = or disjoint i64 %indvars.iv161, 4
-  %144 = getelementptr inbounds nuw [11 x i32], ptr %139, i64 0, i64 %143
+  %143 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv161
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load i32, ptr %144, align 4, !tbaa !79
   %146 = sub i32 %142, %145
   %147 = trunc nuw nsw i64 %indvars.iv161 to i32
   %148 = lshr i32 %147, 1
   %149 = xor i32 %148, %147
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [4 x i32], ptr %140, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i32, ptr %140, i64 %150
   store i32 %146, ptr %151, align 4, !tbaa !79
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
@@ -333,17 +333,17 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 163:                                              ; preds = %.preheader122, %163
   %indvars.iv157 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next158, %163 ]
   %164 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %165 = getelementptr inbounds nuw [4 x i16], ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 0, i64 %indvars.iv157
+  %165 = getelementptr inbounds nuw i16, ptr @__const._ZN6LibRaw22parseSamsungMakernotesEijjjj.ki, i64 %indvars.iv157
   %166 = load i16, ptr %165, align 2, !tbaa !90
   %167 = zext i16 %166 to i64
-  %168 = getelementptr inbounds nuw [11 x i32], ptr %137, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr %137, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !79
   %170 = sub i32 %164, %169
   %171 = trunc nuw nsw i64 %indvars.iv157 to i32
   %172 = lshr i32 %171, 1
   %173 = xor i32 %172, %171
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [4 x i32], ptr %138, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr %138, i64 %174
   store i32 %170, ptr %175, align 4, !tbaa !79
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
@@ -370,14 +370,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %indvars.iv153 = phi i64 [ 0, %.preheader123 ], [ %indvars.iv.next154, %187 ]
   %188 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %189 = getelementptr inbounds nuw [11 x i32], ptr %135, i64 0, i64 %indvars.iv.next154
+  %189 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.next154
   %190 = load i32, ptr %189, align 4, !tbaa !79
   %191 = sub i32 %188, %190
   %192 = trunc nuw nsw i64 %indvars.iv153 to i32
   %193 = lshr i32 %192, 1
   %194 = xor i32 %193, %192
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw [4 x i32], ptr %136, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i32, ptr %136, i64 %195
   store i32 %191, ptr %196, align 4, !tbaa !79
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 4
   br i1 %exitcond156.not, label %197, label %187, !llvm.loop !92
@@ -432,14 +432,14 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 224:                                              ; preds = %.preheader116, %224
   %indvars.iv177 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next178, %224 ]
   %225 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %226 = getelementptr inbounds nuw [11 x i32], ptr %222, i64 0, i64 %indvars.iv177
+  %226 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv177
   %227 = load i32, ptr %226, align 4, !tbaa !79
   %228 = sub i32 %225, %227
   %229 = trunc nuw nsw i64 %indvars.iv177 to i32
   %230 = lshr i32 %229, 1
   %231 = xor i32 %230, %229
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw [4104 x i32], ptr %223, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i32, ptr %223, i64 %232
   store i32 %228, ptr %233, align 4, !tbaa !79
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 4
@@ -449,73 +449,73 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %235 = icmp eq i32 %2, 41008
   %236 = icmp eq i32 %4, 9
   %or.cond11 = and i1 %235, %236
-  br i1 %or.cond11, label %.preheader119, label %253
+  br i1 %or.cond11, label %.preheader119, label %250
 
 .preheader119:                                    ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 153256
   br label %.preheader118
 
-.preheader118:                                    ; preds = %.preheader119, %252
-  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %252 ]
-  %239 = mul nuw nsw i64 %indvars.iv173, 3
-  %240 = getelementptr inbounds nuw [3 x [4 x float]], ptr %238, i64 0, i64 %indvars.iv173
-  br label %241
+.preheader118:                                    ; preds = %.preheader119, %249
+  %indvars.iv173 = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next174, %249 ]
+  %239 = getelementptr inbounds nuw [4 x float], ptr %238, i64 %indvars.iv173
+  %.idx = mul nuw nsw i64 %indvars.iv173, 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %237, i64 %.idx
+  br label %240
 
-241:                                              ; preds = %.preheader118, %241
-  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %241 ]
-  %242 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %243 = add nuw nsw i64 %indvars.iv169, %239
-  %244 = getelementptr inbounds nuw [11 x i32], ptr %237, i64 0, i64 %243
-  %245 = load i32, ptr %244, align 4, !tbaa !79
-  %246 = add i32 %245, %242
-  %247 = trunc i32 %246 to i16
-  %248 = sitofp i16 %247 to double
-  %249 = fmul reassoc nsz arcp contract afn double %248, 3.906250e-03
-  %250 = fptrunc reassoc nsz arcp contract afn double %249 to float
-  %251 = getelementptr inbounds nuw [4 x float], ptr %240, i64 0, i64 %indvars.iv169
-  store float %250, ptr %251, align 4, !tbaa !87
+240:                                              ; preds = %.preheader118, %240
+  %indvars.iv169 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next170, %240 ]
+  %241 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv169
+  %242 = load i32, ptr %gep, align 4, !tbaa !79
+  %243 = add i32 %242, %241
+  %244 = trunc i32 %243 to i16
+  %245 = sitofp i16 %244 to double
+  %246 = fmul reassoc nsz arcp contract afn double %245, 3.906250e-03
+  %247 = fptrunc reassoc nsz arcp contract afn double %246 to float
+  %248 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv169
+  store float %247, ptr %248, align 4, !tbaa !87
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond172.not, label %252, label %241, !llvm.loop !95
+  br i1 %exitcond172.not, label %249, label %240, !llvm.loop !95
 
-252:                                              ; preds = %241
+249:                                              ; preds = %240
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 3
   br i1 %exitcond176.not, label %.loopexit, label %.preheader118, !llvm.loop !96
 
-253:                                              ; preds = %234
-  %254 = icmp eq i32 %2, 41010
-  %or.cond13 = and i1 %254, %236
+250:                                              ; preds = %234
+  %251 = icmp eq i32 %2, 41010
+  %or.cond13 = and i1 %251, %236
   %or.cond15 = and i1 %or.cond13, %134
-  br i1 %or.cond15, label %255, label %.loopexit
+  br i1 %or.cond15, label %252, label %.loopexit
 
-255:                                              ; preds = %253
+252:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 4600
-  br label %257
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 4600
+  br label %254
 
-257:                                              ; preds = %255, %257
-  %indvars.iv165 = phi i64 [ 0, %255 ], [ %indvars.iv.next166, %257 ]
-  %258 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %259 = getelementptr inbounds nuw [11 x i32], ptr %256, i64 0, i64 %indvars.iv165
-  %260 = load i32, ptr %259, align 4, !tbaa !79
-  %261 = add i32 %260, %258
-  %262 = trunc i32 %261 to i16
-  %263 = sitofp i16 %262 to double
-  %264 = fmul reassoc nsz arcp contract afn double %263, 3.906250e-03
-  %265 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
-  store double %264, ptr %265, align 8, !tbaa !97
+254:                                              ; preds = %252, %254
+  %indvars.iv165 = phi i64 [ 0, %252 ], [ %indvars.iv.next166, %254 ]
+  %255 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %256 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv165
+  %257 = load i32, ptr %256, align 4, !tbaa !79
+  %258 = add i32 %257, %255
+  %259 = trunc i32 %258 to i16
+  %260 = sitofp i16 %259 to double
+  %261 = fmul reassoc nsz arcp contract afn double %260, 3.906250e-03
+  %262 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
+  store double %261, ptr %262, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 9
-  br i1 %exitcond168.not, label %266, label %257, !llvm.loop !98
+  br i1 %exitcond168.not, label %263, label %254, !llvm.loop !98
 
-266:                                              ; preds = %257
+263:                                              ; preds = %254
   call void @_ZN6LibRaw10aRGB_coeffEPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %113, %74, %252, %224, %122, %214, %216, %176, %182, %22, %40, %56, %90, %158, %152, %203, %197, %253, %266, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
+.loopexit:                                        ; preds = %113, %74, %249, %224, %122, %214, %216, %176, %182, %22, %40, %56, %90, %158, %152, %203, %197, %250, %263, %99, %111, %80, %86, %63, %50, %54, %27, %34, %29, %12, %20, %18
   ret void
 }
 

@@ -111,7 +111,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [3 x [3 x i32]], ptr @query_formats.sample_fmts, i64 0, i64 %8
+  %9 = getelementptr inbounds [3 x i32], ptr @query_formats.sample_fmts, i64 %8
   %10 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9) #10
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   ret i32 %.

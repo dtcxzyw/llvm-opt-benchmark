@@ -1702,7 +1702,7 @@ define noundef ptr @_ZN6icu_776NFRule19extractSubstitutionEPKNS_9NFRuleSetEPKS0_
 9:                                                ; preds = %9, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %9 ]
   %.014.i = phi i32 [ -1, %4 ], [ %.1.i, %9 ]
-  %10 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6icu_77L13RULE_PREFIXESE, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L13RULE_PREFIXESE, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = load i16, ptr %11, align 2, !tbaa !26
   %13 = load i16, ptr %7, align 8, !tbaa !23
@@ -1881,7 +1881,7 @@ define noundef i32 @_ZNK6icu_776NFRule20indexOfAnyRulePrefixEv(ptr noundef nonnu
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %.014 = phi i32 [ -1, %1 ], [ %.1, %6 ]
-  %7 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6icu_77L13RULE_PREFIXESE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L13RULE_PREFIXESE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = load i16, ptr %8, align 2, !tbaa !26
   %10 = load i16, ptr %3, align 8, !tbaa !23

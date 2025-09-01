@@ -79,7 +79,7 @@ define hidden void @jIUpsampler(ptr noundef %0) local_unnamed_addr #0 {
   %50 = sdiv i32 %49, %45
   %51 = load i32, ptr %31, align 8
   %52 = load i32, ptr %32, align 4
-  %53 = getelementptr inbounds nuw [10 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   store i32 %50, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %.08391, i64 48
   %55 = load i32, ptr %54, align 8
@@ -108,12 +108,12 @@ define hidden void @jIUpsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw [10 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr @h2v1_fancy_upsample, ptr %68, align 8
   br label %102
 
 69:                                               ; preds = %63, %62
-  %70 = getelementptr inbounds nuw [10 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr @h2v1_upsample, ptr %70, align 8
   br label %102
 
@@ -133,13 +133,13 @@ define hidden void @jIUpsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw [10 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr @h2v2_fancy_upsample, ptr %80, align 8
   store i32 1, ptr %8, align 8
   br label %102
 
 81:                                               ; preds = %75, %74
-  %82 = getelementptr inbounds nuw [10 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr @h2v2_upsample, ptr %82, align 8
   br label %102
 
@@ -156,13 +156,13 @@ define hidden void @jIUpsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw [10 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr @int_upsample, ptr %92, align 8
   %93 = trunc i32 %85 to i8
-  %94 = getelementptr inbounds nuw [10 x i8], ptr %35, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   store i8 %93, ptr %94, align 1
   %95 = trunc i32 %89 to i8
-  %96 = getelementptr inbounds nuw [10 x i8], ptr %36, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv
   store i8 %95, ptr %96, align 1
   br label %102
 
@@ -192,7 +192,7 @@ define hidden void @jIUpsampler(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %56, %39, %102
   %.sink94 = phi ptr [ %38, %102 ], [ %34, %39 ], [ %34, %56 ]
   %fullsize_upsample.sink = phi ptr [ %113, %102 ], [ @noop_upsample, %39 ], [ @fullsize_upsample, %56 ]
-  %114 = getelementptr inbounds nuw [10 x ptr], ptr %.sink94, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw ptr, ptr %.sink94, i64 %indvars.iv
   store ptr %fullsize_upsample.sink, ptr %114, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = getelementptr inbounds nuw i8, ptr %.08391, i64 96
@@ -248,12 +248,12 @@ define internal void @sep_upsample(ptr noundef %0, ptr noundef readonly captures
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.04552 = phi ptr [ %19, %.lr.ph ], [ %35, %23 ]
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %2, align 4
-  %29 = getelementptr inbounds nuw [10 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = mul i32 %30, %28
   %32 = zext i32 %31 to i64
@@ -673,12 +673,12 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [10 x i8], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = load i8, ptr %12, align 1
   %.fr50 = freeze i8 %13
   %14 = zext i8 %.fr50 to i64
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 242
-  %16 = getelementptr inbounds [10 x i8], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i8, ptr %16, align 1
   %.fr = freeze i8 %17
   %18 = zext i8 %.fr to i32

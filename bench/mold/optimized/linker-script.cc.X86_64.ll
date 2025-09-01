@@ -3480,49 +3480,47 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %41, %.lr.ph.i11 ], [ %3, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %52, %.lr.ph.i11 ], [ %38, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %51, %.lr.ph.i11 ], [ %38, %.lr.ph.preheader.i ]
   %39 = urem i64 %.020.i, 100
   %40 = shl nuw nsw i64 %39, 1
   %41 = udiv i64 %.020.i, 100
-  %42 = or disjoint i64 %40, 1
-  %43 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %42
+  %42 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !42
   %45 = zext i32 %.01819.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 %45
   store i8 %44, ptr %46, align 1, !tbaa !42
-  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %40
-  %48 = load i8, ptr %47, align 2, !tbaa !42
-  %49 = add i32 %.01819.i, -1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 %50
-  store i8 %48, ptr %51, align 1, !tbaa !42
-  %52 = add i32 %.01819.i, -2
-  %53 = icmp ugt i64 %.020.i, 9999
-  br i1 %53, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !144
+  %47 = load i8, ptr %42, align 2, !tbaa !42
+  %48 = add i32 %.01819.i, -1
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 %49
+  store i8 %47, ptr %50, align 1, !tbaa !42
+  %51 = add i32 %.01819.i, -2
+  %52 = icmp ugt i64 %.020.i, 9999
+  br i1 %52, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !144
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %.0.lcssa.i = phi i64 [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %41, %.lr.ph.i11 ]
-  %54 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %54, label %55, label %63
+  %53 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %53, label %54, label %61
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %57 = or disjoint i64 %56, 1
-  %58 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !42
-  %60 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store i8 %59, ptr %60, align 1, !tbaa !42
-  %61 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %56
-  %62 = load i8, ptr %61, align 2, !tbaa !42
+54:                                               ; preds = %._crit_edge.i
+  %55 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %56 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %58 = load i8, ptr %57, align 1, !tbaa !42
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 %58, ptr %59, align 1, !tbaa !42
+  %60 = load i8, ptr %56, align 2, !tbaa !42
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-63:                                               ; preds = %._crit_edge.i
-  %64 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %65 = or disjoint i8 %64, 48
+61:                                               ; preds = %._crit_edge.i
+  %62 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %63 = or disjoint i8 %62, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %55, %63
-  %storemerge.i = phi i8 [ %65, %63 ], [ %62, %55 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %54, %61
+  %storemerge.i = phi i8 [ %63, %61 ], [ %60, %54 ]
   store i8 %storemerge.i, ptr %36, align 1, !tbaa !42
   ret void
 }
@@ -6904,7 +6902,7 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold10MappedFileESt14default_d
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.01098 = phi i64 [ %52, %.lr.ph99 ], [ 1, %.preheader ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.std::atomic.154"], ptr %31, i64 0, i64 %.01098
+  %51 = getelementptr inbounds nuw %"struct.std::atomic.154", ptr %31, i64 %.01098
   store atomic i64 %27, ptr %51 release, align 8
   %52 = add nuw nsw i64 %.01098, 1
   %exitcond103.not = icmp eq i64 %52, %invariant.umin

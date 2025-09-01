@@ -7080,14 +7080,14 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds = %.noexc83.i
 
 1595:                                             ; preds = %1595, %_ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i
   %indvars.iv191.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i ], [ %indvars.iv.next192.i.i.i, %1595 ]
-  %1596 = getelementptr inbounds nuw [257 x i16], ptr %1590, i64 0, i64 %indvars.iv191.i.i.i
+  %1596 = getelementptr inbounds nuw i16, ptr %1590, i64 %indvars.iv191.i.i.i
   %1597 = load i16, ptr %1596, align 2
   %1598 = zext i16 %1597 to i64
   %1599 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %.sroa.0115.0.i.i.i, i64 %1598
   %1600 = and i64 %indvars.iv191.i.i.i, 63
   %1601 = shl nuw i64 1, %1600
   %1602 = lshr i64 %indvars.iv191.i.i.i, 6
-  %1603 = getelementptr inbounds nuw [4 x i64], ptr %1599, i64 0, i64 %1602
+  %1603 = getelementptr inbounds nuw i64, ptr %1599, i64 %1602
   %1604 = load i64, ptr %1603, align 8
   %1605 = or i64 %1604, %1601
   store i64 %1605, ptr %1603, align 8
@@ -7128,7 +7128,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds = %.noexc83.i
 
 1611:                                             ; preds = %1614, %.preheader.i.i.i
   %.0710.i.i.i.i.i = phi i64 [ %1615, %1614 ], [ 0, %.preheader.i.i.i ]
-  %1612 = getelementptr inbounds nuw [4 x i64], ptr %45, i64 0, i64 %.0710.i.i.i.i.i
+  %1612 = getelementptr inbounds nuw i64, ptr %45, i64 %.0710.i.i.i.i.i
   %1613 = load i64, ptr %1612, align 8
   %.not.i.i85.i.i.i = icmp eq i64 %1613, 0
   br i1 %.not.i.i85.i.i.i, label %1614, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
@@ -7189,7 +7189,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1611
 1644:                                             ; preds = %1640
   %1645 = lshr i64 %.039173.i.i.i, 6
   %1646 = and i64 %1645, 3
-  %1647 = getelementptr inbounds nuw [4 x i64], ptr %45, i64 0, i64 %1646
+  %1647 = getelementptr inbounds nuw i64, ptr %45, i64 %1646
   %1648 = load i64, ptr %1647, align 8
   %1649 = and i64 %.039173.i.i.i, 31
   %1650 = shl nuw i64 4294967296, %1649
@@ -7206,7 +7206,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1611
   %1656 = add i64 %.039173.i.i.i, 224
   %1657 = lshr i64 %1656, 6
   %1658 = and i64 %1657, 3
-  %1659 = getelementptr inbounds nuw [4 x i64], ptr %45, i64 0, i64 %1658
+  %1659 = getelementptr inbounds nuw i64, ptr %45, i64 %1658
   %1660 = load i64, ptr %1659, align 8
   %1661 = and i64 %1656, 63
   %1662 = shl nuw i64 1, %1661
@@ -7526,7 +7526,7 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i.i:              ; preds = %_ZNKSt7__cxx1112bas
   br label %1783
 
 1776:                                             ; preds = %1773
-  %1777 = getelementptr inbounds nuw [4 x i64], ptr %45, i64 0, i64 %1774
+  %1777 = getelementptr inbounds nuw i64, ptr %45, i64 %1774
   %1778 = load i64, ptr %1777, align 8
   %1779 = shl nsw i64 -2, %1775
   %1780 = and i64 %1778, %1779
@@ -7544,7 +7544,7 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i.i:              ; preds = %_ZNKSt7__cxx1112bas
 
 1785:                                             ; preds = %1783
   %.0.i.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i.i, 1
-  %1786 = getelementptr inbounds nuw [4 x i64], ptr %45, i64 0, i64 %.0.i.i.i.i.i
+  %1786 = getelementptr inbounds nuw i64, ptr %45, i64 %.0.i.i.i.i.i
   %1787 = load i64, ptr %1786, align 8
   %.not22.i.i.i.i.i = icmp eq i64 %1787, 0
   br i1 %.not22.i.i.i.i.i, label %1783, label %1788, !llvm.loop !689

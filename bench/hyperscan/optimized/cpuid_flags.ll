@@ -96,7 +96,7 @@ define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
 
 .split.us:                                        ; preds = %14, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %14 ]
-  %15 = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.family_id, ptr @known_microarch, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %.not17.us = icmp eq i32 %.015, %17

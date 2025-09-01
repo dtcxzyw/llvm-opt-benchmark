@@ -1631,7 +1631,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
   %37 = icmp slt i32 %36, 0
   %38 = select i1 %37, i32 %17, i32 0
   %spec.select = add nsw i32 %38, %36
-  %39 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %spec.select, ptr %39, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1682,7 +1682,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us145:                            ; preds = %.lr.ph144.split.us145.preheader, %.thread132.us147
   %indvars.iv169 = phi i64 [ 0, %.lr.ph144.split.us145.preheader ], [ %indvars.iv.next170, %.thread132.us147 ]
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv169
+  %47 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv169
   %48 = load i32, ptr %47, align 4, !tbaa !51
   %49 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv169
   %50 = load i32, ptr %49, align 4, !tbaa !51
@@ -1712,7 +1712,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us148:                            ; preds = %.lr.ph144.split.us148.preheader, %.thread132.us150
   %indvars.iv164 = phi i64 [ 0, %.lr.ph144.split.us148.preheader ], [ %indvars.iv.next165, %.thread132.us150 ]
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv164
   %56 = load i32, ptr %55, align 4, !tbaa !51
   %57 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv164
   %58 = load i32, ptr %57, align 4, !tbaa !51
@@ -1746,7 +1746,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us151:                            ; preds = %.lr.ph144.split.us151.preheader, %.thread132.us153
   %indvars.iv159 = phi i64 [ 0, %.lr.ph144.split.us151.preheader ], [ %indvars.iv.next160, %.thread132.us153 ]
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv159
+  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv159
   %65 = load i32, ptr %64, align 4, !tbaa !51
   %66 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv159
   %67 = load i32, ptr %66, align 4, !tbaa !51

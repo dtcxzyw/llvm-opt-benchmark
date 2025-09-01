@@ -242,7 +242,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %106 = and i32 %.06494, 1
   %107 = zext nneg i32 %106 to i64
   %108 = select i1 %75, i64 %107, i64 0
-  %109 = getelementptr inbounds nuw [2 x i16], ptr %76, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i16, ptr %76, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %.193, i64 2
   %111 = load i16, ptr %.193, align 2, !tbaa !33
   %112 = sext i16 %111 to i32
@@ -260,9 +260,9 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %119
-  %122 = add nuw nsw i32 %117, 1
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %123
+  %122 = zext nneg i32 %117 to i64
+  %123 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
   %125 = load i8, ptr %124, align 1, !tbaa !47
   %126 = zext i8 %125 to i32
   %127 = add nsw i32 %126, -1
@@ -275,7 +275,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %.41.i = select i1 %130, i8 2, i8 1
   %131 = lshr i32 %117, %..i
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !47
   %135 = lshr i8 %134, %.41.i
   %.022.i.i = zext nneg i8 %135 to i32

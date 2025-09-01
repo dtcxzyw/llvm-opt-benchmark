@@ -37,7 +37,7 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
 
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.ss_lru_item_t, ptr %6, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -47,16 +47,15 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 -1, ptr %14, align 4
   %.not = icmp eq i64 %indvars.iv, 0
-  %15 = add nsw i64 %indvars.iv, -1
-  %16 = getelementptr inbounds nuw [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %15
-  %17 = select i1 %.not, ptr null, ptr %16
-  store ptr %17, ptr %10, align 8
+  %15 = getelementptr i8, ptr %10, i64 -32
+  %16 = select i1 %.not, ptr null, ptr %15
+  store ptr %16, ptr %10, align 8
   %.not12 = icmp eq i64 %indvars.iv, 19
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %18 = select i1 %.not12, ptr null, ptr %17
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv.next
-  %19 = select i1 %.not12, ptr null, ptr %18
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %19, ptr %20, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !6
 

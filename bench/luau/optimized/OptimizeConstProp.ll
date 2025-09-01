@@ -1483,9 +1483,9 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 
 318:                                              ; preds = %318, %314
   %.05.i.i.i = phi i64 [ 0, %314 ], [ %324, %318 ]
-  %319 = getelementptr inbounds nuw [4 x i64], ptr %317, i64 0, i64 %.05.i.i.i
+  %319 = getelementptr inbounds nuw i64, ptr %317, i64 %.05.i.i.i
   %320 = load i64, ptr %319, align 8, !tbaa !116
-  %321 = getelementptr inbounds nuw [4 x i64], ptr %277, i64 0, i64 %.05.i.i.i
+  %321 = getelementptr inbounds nuw i64, ptr %277, i64 %.05.i.i.i
   %322 = load i64, ptr %321, align 8, !tbaa !116
   %323 = or i64 %322, %320
   store i64 %323, ptr %321, align 8, !tbaa !116
@@ -1714,7 +1714,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState5clearEv(ptr
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %4, i64 %indvars.iv
   store i8 -1, ptr %8, align 4, !tbaa !22
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2339,7 +2339,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i, ptr %124, align 4, !tbaa !124
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %127 = zext nneg i32 %123 to i64
-  %128 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %126, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %126, i64 %127
   store i8 -1, ptr %128, align 4, !tbaa !9
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 4, !tbaa !138
@@ -2392,7 +2392,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1083, ptr %154, align 4, !tbaa !124
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %157 = zext nneg i32 %153 to i64
-  %158 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %156, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %156, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i32 0, ptr %159, align 4, !tbaa !22
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 12
@@ -2490,7 +2490,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1084, ptr %212, align 4, !tbaa !124
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %215 = zext nneg i32 %211 to i64
-  %216 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %214, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %214, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 0, ptr %217, align 4, !tbaa !22
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 12
@@ -2543,7 +2543,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1085, ptr %242, align 4, !tbaa !124
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %245 = zext nneg i32 %241 to i64
-  %246 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %244, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %244, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
   store i32 0, ptr %247, align 4, !tbaa !22
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 12
@@ -2569,7 +2569,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1086, ptr %257, align 4, !tbaa !124
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %260 = zext nneg i32 %256 to i64
-  %261 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %259, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %259, i64 %260
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
   store i32 0, ptr %262, align 4, !tbaa !22
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 12
@@ -2625,7 +2625,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1087, ptr %287, align 4, !tbaa !124
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %290 = zext nneg i32 %286 to i64
-  %291 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %289, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %289, i64 %290
   store i8 -1, ptr %291, align 4, !tbaa !9
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 4
   store i32 0, ptr %292, align 4, !tbaa !22
@@ -2889,7 +2889,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %80
   store i32 %spec.select.i1091, ptr %422, align 4, !tbaa !124
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %425 = zext nneg i32 %421 to i64
-  %426 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %424, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %424, i64 %425
   store i8 -1, ptr %426, align 4, !tbaa !9
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
   store i32 0, ptr %427, align 4, !tbaa !22
@@ -3552,7 +3552,7 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit1138: ; preds = %693, %6
   store i32 %spec.select.i1139, ptr %774, align 4, !tbaa !124
   %776 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %777 = zext nneg i32 %773 to i64
-  %778 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %776, i64 0, i64 %777
+  %778 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %776, i64 %777
   store i8 -1, ptr %778, align 4, !tbaa !9
   %779 = getelementptr inbounds nuw i8, ptr %778, i64 4
   store i32 0, ptr %779, align 4, !tbaa !22
@@ -5045,7 +5045,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1178, ptr %1583, align 4, !tbaa !124
   %1585 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1586 = zext nneg i32 %1582 to i64
-  %1587 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1585, i64 0, i64 %1586
+  %1587 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1585, i64 %1586
   store i8 -1, ptr %1587, align 4, !tbaa !9
   %1588 = getelementptr inbounds nuw i8, ptr %1587, i64 4
   store i32 0, ptr %1588, align 4, !tbaa !22
@@ -5072,7 +5072,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1179, ptr %1598, align 4, !tbaa !124
   %1600 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1601 = zext nneg i32 %1597 to i64
-  %1602 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1600, i64 0, i64 %1601
+  %1602 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1600, i64 %1601
   store i8 -1, ptr %1602, align 4, !tbaa !9
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 4
   store i32 0, ptr %1603, align 4, !tbaa !22
@@ -5101,7 +5101,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1180, ptr %1613, align 4, !tbaa !124
   %1615 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1616 = zext nneg i32 %1612 to i64
-  %1617 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1615, i64 0, i64 %1616
+  %1617 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1615, i64 %1616
   store i8 -1, ptr %1617, align 4, !tbaa !9
   %1618 = getelementptr inbounds nuw i8, ptr %1617, i64 4
   store i32 0, ptr %1618, align 4, !tbaa !22
@@ -5132,7 +5132,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1181, ptr %1629, align 4, !tbaa !124
   %1631 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1632 = zext nneg i32 %1628 to i64
-  %1633 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1631, i64 0, i64 %1632
+  %1633 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1631, i64 %1632
   store i8 -1, ptr %1633, align 4, !tbaa !9
   %1634 = getelementptr inbounds nuw i8, ptr %1633, i64 4
   store i32 0, ptr %1634, align 4, !tbaa !22
@@ -5249,7 +5249,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1184, ptr %1687, align 4, !tbaa !124
   %1689 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1690 = zext nneg i32 %1686 to i64
-  %1691 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1689, i64 0, i64 %1690
+  %1691 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1689, i64 %1690
   store i8 -1, ptr %1691, align 4, !tbaa !9
   %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 4
   store i32 0, ptr %1692, align 4, !tbaa !22
@@ -5280,7 +5280,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1185, ptr %1703, align 4, !tbaa !124
   %1705 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1706 = zext nneg i32 %1702 to i64
-  %1707 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1705, i64 0, i64 %1706
+  %1707 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1705, i64 %1706
   store i8 -1, ptr %1707, align 4, !tbaa !9
   %1708 = getelementptr inbounds nuw i8, ptr %1707, i64 4
   store i32 0, ptr %1708, align 4, !tbaa !22
@@ -5311,7 +5311,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1186, ptr %1720, align 4, !tbaa !124
   %1722 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1723 = zext nneg i32 %1719 to i64
-  %1724 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1722, i64 0, i64 %1723
+  %1724 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1722, i64 %1723
   store i8 -1, ptr %1724, align 4, !tbaa !9
   %1725 = getelementptr inbounds nuw i8, ptr %1724, i64 4
   store i32 0, ptr %1725, align 4, !tbaa !22
@@ -5331,7 +5331,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   %1735 = tail call i32 @llvm.umax.i32(i32 %1734, i32 %spec.select.i1186)
   store i32 %1735, ptr %1720, align 4, !tbaa !124
   %1736 = zext nneg i32 %1734 to i64
-  %1737 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1722, i64 0, i64 %1736
+  %1737 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1722, i64 %1736
   store i8 -1, ptr %1737, align 4, !tbaa !9
   %1738 = getelementptr inbounds nuw i8, ptr %1737, i64 4
   store i32 0, ptr %1738, align 4, !tbaa !22
@@ -5373,7 +5373,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1188, ptr %1758, align 4, !tbaa !124
   %1760 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1761 = zext nneg i32 %1757 to i64
-  %1762 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1760, i64 0, i64 %1761
+  %1762 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1760, i64 %1761
   store i8 -1, ptr %1762, align 4, !tbaa !9
   %1763 = getelementptr inbounds nuw i8, ptr %1762, i64 4
   store i32 0, ptr %1763, align 4, !tbaa !22
@@ -5399,7 +5399,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   store i32 %spec.select.i1189, ptr %1774, align 4, !tbaa !124
   %1776 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1777 = zext nneg i32 %1773 to i64
-  %1778 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1776, i64 0, i64 %1777
+  %1778 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1776, i64 %1777
   store i8 -1, ptr %1778, align 4, !tbaa !9
   %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 4
   store i32 0, ptr %1779, align 4, !tbaa !22
@@ -5419,7 +5419,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   %1789 = tail call i32 @llvm.umax.i32(i32 %1788, i32 %spec.select.i1189)
   store i32 %1789, ptr %1774, align 4, !tbaa !124
   %1790 = zext nneg i32 %1788 to i64
-  %1791 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1776, i64 0, i64 %1790
+  %1791 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1776, i64 %1790
   store i8 -1, ptr %1791, align 4, !tbaa !9
   %1792 = getelementptr inbounds nuw i8, ptr %1791, i64 4
   store i32 0, ptr %1792, align 4, !tbaa !22
@@ -5439,7 +5439,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1174: ; preds = %1406
   %1802 = tail call i32 @llvm.umax.i32(i32 %1801, i32 %1789)
   store i32 %1802, ptr %1774, align 4, !tbaa !124
   %1803 = zext nneg i32 %1801 to i64
-  %1804 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %1776, i64 0, i64 %1803
+  %1804 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %1776, i64 %1803
   store i8 -1, ptr %1804, align 4, !tbaa !9
   %1805 = getelementptr inbounds nuw i8, ptr %1804, i64 4
   store i32 0, ptr %1805, align 4, !tbaa !22
@@ -5476,7 +5476,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZN4Luau7CodeGen14ConstPropSta
   store i32 %spec.select.i, ptr %6, align 4, !tbaa !124
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %8, i64 %9
   br label %53
 
 11:                                               ; preds = %2
@@ -5541,7 +5541,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %..i = tail call i32 @llvm.smax.i32(i32 %50, i32 %48)
   store i32 %..i, ptr %49, align 4, !tbaa !124
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %52 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %51, i64 0, i64 %42
+  %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %51, i64 %42
   br label %53
 
 53:                                               ; preds = %4, %47
@@ -5582,7 +5582,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %7
   %13 = load ptr, ptr %0, align 8, !tbaa !159
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 576
   %15 = lshr i64 %10, 6
-  %16 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !116
   %18 = and i64 %10, 63
   %19 = shl nuw i64 1, %18
@@ -5744,7 +5744,7 @@ define linkonce_odr dso_local i32 @_ZN4Luau7CodeGen14ConstPropState11tryGetValue
   store i32 %spec.select.i, ptr %6, align 4, !tbaa !124
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %8, i64 %9
   br label %53
 
 11:                                               ; preds = %2
@@ -5809,7 +5809,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %..i = tail call i32 @llvm.smax.i32(i32 %50, i32 %48)
   store i32 %..i, ptr %49, align 4, !tbaa !124
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %52 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %51, i64 0, i64 %42
+  %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %51, i64 %42
   br label %53
 
 53:                                               ; preds = %4, %47
@@ -5847,7 +5847,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %10
   %15 = load ptr, ptr %0, align 8, !tbaa !159
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 576
   %17 = lshr i64 %12, 6
-  %18 = getelementptr inbounds nuw [4 x i64], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !116
   %20 = and i64 %12, 63
   %21 = shl nuw i64 1, %20
@@ -6026,7 +6026,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState7saveTagENS0
   store i32 %spec.select.i, ptr %7, align 4, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %9, i64 %10
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 12:                                               ; preds = %3
@@ -6091,7 +6091,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %..i = tail call i32 @llvm.smax.i32(i32 %51, i32 %49)
   store i32 %..i, ptr %50, align 4, !tbaa !124
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %53 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %52, i64 0, i64 %43
+  %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %52, i64 %43
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = %48, %5
@@ -6162,7 +6162,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %8
   %14 = load ptr, ptr %0, align 8, !tbaa !159
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 576
   %16 = lshr i64 %11, 6
-  %17 = getelementptr inbounds nuw [4 x i64], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !116
   %19 = and i64 %11, 63
   %20 = shl nuw i64 1, %19
@@ -6238,7 +6238,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau7CodeGen14ConstPropState18try
   store i32 %spec.select, ptr %6, align 4, !tbaa !124
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %8, i64 %9
   br label %select.unfold
 
 11:                                               ; preds = %2
@@ -6303,7 +6303,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %. = tail call i32 @llvm.smax.i32(i32 %50, i32 %48)
   store i32 %., ptr %49, align 4, !tbaa !124
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %52 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %51, i64 0, i64 %42
+  %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %51, i64 %42
   br label %select.unfold
 
 select.unfold:                                    ; preds = %34, %32, %2, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i, %47, %11, %17, %4
@@ -6327,7 +6327,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState9saveValueEN
   store i32 %spec.select.i, ptr %7, align 4, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %9, i64 %10
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 12:                                               ; preds = %3
@@ -6392,7 +6392,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %..i = tail call i32 @llvm.smax.i32(i32 %51, i32 %49)
   store i32 %..i, ptr %50, align 4, !tbaa !124
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %53 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %52, i64 0, i64 %43
+  %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %52, i64 %43
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = %48, %5
@@ -6563,7 +6563,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState9updateTagEN
   store i32 %spec.select.i, ptr %7, align 4, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %9, i64 %10
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 12:                                               ; preds = %3
@@ -6628,7 +6628,7 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %..i = tail call i32 @llvm.smax.i32(i32 %51, i32 %49)
   store i32 %..i, ptr %50, align 4, !tbaa !124
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %53 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %52, i64 0, i64 %43
+  %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %52, i64 %43
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = %48, %5
@@ -6796,7 +6796,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit5.i.i:           ; preds = %30, %_ZNSt6vectorIj
 
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %5, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %5, i64 %indvars.iv.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i8 0, ptr %38, align 4, !tbaa !142
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 13
@@ -6884,7 +6884,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit5.i.i17:         ; preds = %67, %_ZNSt6vectorIj
 
 73:                                               ; preds = %73, %.lr.ph.i6
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i9, %73 ]
-  %74 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %42, i64 0, i64 %indvars.iv.i8
+  %74 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %42, i64 %indvars.iv.i8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store i8 0, ptr %75, align 4, !tbaa !142
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 13
@@ -6972,7 +6972,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit5.i.i33:         ; preds = %104, %_ZNSt6vectorI
 
 110:                                              ; preds = %110, %.lr.ph.i22
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i25, %110 ]
-  %111 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %79, i64 0, i64 %indvars.iv.i24
+  %111 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %79, i64 %indvars.iv.i24
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i8 0, ptr %112, align 4, !tbaa !142
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 13
@@ -6995,7 +6995,7 @@ _ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit20: ; preds = %3, %109, %
 
 118:                                              ; preds = %118, %.lr.ph.i37
   %indvars.iv.i38 = phi i64 [ %116, %.lr.ph.i37 ], [ %indvars.iv.next.i39, %118 ]
-  %119 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %115, i64 0, i64 %indvars.iv.i38
+  %119 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %115, i64 %indvars.iv.i38
   store i8 -1, ptr %119, align 4, !tbaa !9
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 0, ptr %120, align 4, !tbaa !22
@@ -7579,7 +7579,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit5.i.i:           ; preds = %29, %_ZNSt6vectorIj
 
 35:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %4, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %4, i64 %indvars.iv.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i8 0, ptr %37, align 4, !tbaa !142
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 13
@@ -7612,7 +7612,7 @@ _ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit: ; preds = %_ZNSt6vector
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %44
   %46 = lshr i64 %indvars.iv.i3, 6
-  %47 = getelementptr inbounds nuw [4 x i64], ptr %41, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !116
   %49 = and i64 %indvars.iv.i3, 63
   %50 = shl nuw i64 1, %49
@@ -7621,7 +7621,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %44
   br i1 %.not4.i, label %61, label %52
 
 52:                                               ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i
-  %53 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %42, i64 0, i64 %indvars.iv.i3
+  %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %42, i64 %indvars.iv.i3
   store i8 -1, ptr %53, align 4, !tbaa !9
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 0, ptr %54, align 4, !tbaa !22
@@ -7772,7 +7772,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidate
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %14, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %14, i64 %indvars.iv.i
   store i8 -1, ptr %18, align 4, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !22
@@ -7793,7 +7793,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidate
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %9, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %9, i64 %indvars.iv
   store i8 -1, ptr %27, align 4, !tbaa !9
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %28, align 4, !tbaa !22
@@ -7839,7 +7839,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState23invalidate
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [256 x %"struct.Luau::CodeGen::RegisterInfo"], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %5, i64 %indvars.iv
   store i8 -1, ptr %9, align 4, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %10, align 4, !tbaa !22

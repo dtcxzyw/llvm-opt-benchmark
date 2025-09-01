@@ -127,14 +127,14 @@ switch.lookup:
   %13 = alloca [24 x i8], align 8
   %14 = alloca [8 x i8], align 8
   %15 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not = icmp ugt i64 %2, %switch.load
   br i1 %.not, label %switch.lookup180, label %24
 
 switch.lookup180:                                 ; preds = %switch.lookup
   %16 = zext nneg i8 %3 to i64
-  %switch.gep181 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %16
+  %switch.gep181 = getelementptr inbounds nuw i64, ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 %16
   %switch.load182 = load i64, ptr %switch.gep181, align 8
   %17 = add i64 %switch.load182, %2
   %18 = icmp eq i64 %17, 0
@@ -613,7 +613,7 @@ define void @_ZN24uv_distribution_filename11source_dist18SourceDistFilename26par
 switch.lookup:                                    ; preds = %3
   %16 = extractvalue { i1, i8 } %14, 1
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not = icmp ugt i64 %2, %switch.load
   br i1 %.not, label %switch.lookup139, label %35
@@ -650,7 +650,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup139:                                 ; preds = %switch.lookup
   %27 = zext nneg i8 %16 to i64
-  %switch.gep140 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %27
+  %switch.gep140 = getelementptr inbounds nuw i64, ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 %27
   %switch.load141 = load i64, ptr %switch.gep140, align 8
   %28 = add i64 %switch.load141, %2
   %29 = icmp eq i64 %28, 0

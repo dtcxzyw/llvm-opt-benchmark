@@ -849,7 +849,7 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   br i1 %61, label %53, label %_ZN3sat4prob8pick_varEv.exit, !llvm.loop !86
 
 _ZN3sat4prob8pick_varEv.exit:                     ; preds = %53
-  %62 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %21, i64 0, i64 %55
+  %62 = getelementptr inbounds nuw %"class.sat::literal", ptr %21, i64 %55
   %63 = load i32, ptr %62, align 4, !tbaa !87
   %64 = lshr i32 %63, 1
   tail call void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferenceable(816) %0, i32 noundef %64)
@@ -964,7 +964,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   br i1 %61, label %53, label %62, !llvm.loop !86
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %21, i64 0, i64 %55
+  %63 = getelementptr inbounds nuw %"class.sat::literal", ptr %21, i64 %55
   %64 = load i32, ptr %63, align 4, !tbaa !87
   %65 = lshr i32 %64, 1
   ret i32 %65
@@ -2666,7 +2666,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %1
 
 switch.lookup:                                    ; preds = %._crit_edge
   %15 = zext nneg i32 %.sroa.speculated29 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x double], ptr @switch.table._ZN3sat4prob11auto_configEv, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN3sat4prob11auto_configEv, i64 %15
   %switch.load = load double, ptr %switch.gep, align 8
   br label %._crit_edge.thread
 
@@ -3210,7 +3210,7 @@ _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %15, %.lr.ph.i
 
 17:                                               ; preds = %_ZN6vectorIPvLb0EjE5resetEv.exit.i, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i ], [ %indvars.iv.next.i, %_ZN6vectorIPvLb0EjE5resetEv.exit.i ]
-  %18 = getelementptr inbounds nuw [65 x %class.ptr_vector.3], ptr %12, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %class.ptr_vector.3, ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !247
   %.not.i11.i = icmp eq ptr %19, null
   br i1 %.not.i11.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit.i, label %20

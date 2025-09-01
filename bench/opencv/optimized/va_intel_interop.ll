@@ -507,7 +507,7 @@ _ZN2vaL15openDeviceIntelEv.exit.thread.preheader: ; preds = %_ZN2vaL11findAdapte
 _ZN2vaL15openDeviceIntelEv.exit.thread:           ; preds = %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader, %148
   %138 = phi i1 [ false, %148 ], [ true, %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader ]
   %indvars.iv.i2 = phi i64 [ 1, %148 ], [ 0, %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader ]
-  %139 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN2vaL17openDeviceGenericEvE12device_paths, i64 0, i64 %indvars.iv.i2
+  %139 = getelementptr inbounds nuw ptr, ptr @_ZZN2vaL17openDeviceGenericEvE12device_paths, i64 %indvars.iv.i2
   %140 = load ptr, ptr %139, align 8, !tbaa !33
   %141 = call i32 (ptr, i32, ...) @open(ptr noundef %140, i32 noundef 2)
   store i32 %141, ptr @_ZN2va5drmfdE, align 4, !tbaa !10
@@ -669,7 +669,7 @@ sub_1.i:                                          ; preds = %30
 43:                                               ; preds = %41
   %44 = add nsw i32 %.016.i, 1
   %45 = sext i32 %.016.i to i64
-  %46 = getelementptr inbounds [3 x ptr], ptr %27, i64 0, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %27, i64 %45
   store ptr %33, ptr %46, align 8, !tbaa !33
   br label %.tail.thread.i
 
@@ -806,7 +806,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc53
 
 .lr.ph.i21:                                       ; preds = %93, %.lr.ph.preheader.i
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i23, %93 ]
-  %90 = getelementptr inbounds nuw [5 x i32], ptr %21, i64 0, i64 %indvars.iv.i22
+  %90 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i22
   %91 = load i32, ptr %90, align 4, !tbaa !66
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %._crit_edge.loopexit.i25, label %93
@@ -1615,14 +1615,14 @@ define linkonce_odr hidden void @_ZN2va8NodeInfoC2Ei(ptr noundef nonnull align 8
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %8 ], [ %.sroa.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %8 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @__const.NodeInfo.names, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr @__const.NodeInfo.names, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !10
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef %17, i32 noundef %18)
           to label %19 unwind label %56
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %0, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22

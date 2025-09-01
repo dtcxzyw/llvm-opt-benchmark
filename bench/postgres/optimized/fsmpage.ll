@@ -16,7 +16,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
   %4 = add i32 %1, 4095
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds [0 x i8], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, %2
   br i1 %9, label %10, label %12
@@ -35,17 +35,17 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
   %14 = add i32 %.035, -1
   %15 = sdiv i32 %14, 2
   %16 = shl nsw i32 %15, 1
-  %17 = or disjoint i32 %16, 1
-  %18 = add i32 %16, 2
-  %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds [0 x i8], ptr %5, i64 0, i64 %19
+  %17 = add i32 %16, 2
+  %18 = sext i32 %16 to i64
+  %19 = getelementptr i8, ptr %5, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1
-  %22 = icmp ult i32 %18, 8164
+  %22 = icmp ult i32 %17, 8164
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %13
-  %24 = zext nneg i32 %18 to i64
-  %25 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %24
+  %24 = zext nneg i32 %17 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = load i8, ptr %25, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %21, i8 %26)
   br label %27
@@ -53,7 +53,7 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
 27:                                               ; preds = %23, %13
   %.036 = phi i8 [ %., %23 ], [ %21, %13 ]
   %28 = sext i32 %15 to i64
-  %29 = getelementptr inbounds [0 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %5, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, %.036
   br i1 %31, label %.thread, label %32
@@ -68,44 +68,43 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
   %35 = icmp ugt i8 %2, %34
   br i1 %35, label %.preheader, label %fsm_rebuild_page.exit
 
-.preheader:                                       ; preds = %.thread, %49
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %49 ], [ 4094, %.thread ]
-  %36 = shl nuw i64 %indvars.iv.i, 1
-  %37 = add nuw nsw i64 %36, 2
-  %38 = icmp samesign ult i64 %indvars.iv.i, 4082
-  br i1 %38, label %39, label %.thread.i
+.preheader:                                       ; preds = %.thread, %48
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 4094, %.thread ]
+  %36 = icmp samesign ult i64 %indvars.iv.i, 4082
+  br i1 %36, label %37, label %.thread.i
 
-39:                                               ; preds = %.preheader
-  %40 = or disjoint i64 %36, 1
-  %41 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
+37:                                               ; preds = %.preheader
+  %38 = shl nuw nsw i64 %indvars.iv.i, 1
+  %39 = getelementptr i8, ptr %5, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1
   %.not33.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not33.i, label %.thread.i, label %43
+  br i1 %.not33.i, label %.thread.i, label %42
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %37
-  %45 = load i8, ptr %44, align 1
-  %.0..i = tail call i8 @llvm.umax.i8(i8 %42, i8 %45)
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  %44 = load i8, ptr %43, align 1
+  %.0..i = tail call i8 @llvm.umax.i8(i8 %41, i8 %44)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %43, %39, %.preheader
-  %.1.i = phi i8 [ %.0..i, %43 ], [ %42, %39 ], [ 0, %.preheader ]
-  %46 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %47 = load i8, ptr %46, align 1
-  %.not.i = icmp eq i8 %47, %.1.i
-  br i1 %.not.i, label %49, label %48
+.thread.i:                                        ; preds = %42, %37, %.preheader
+  %.1.i = phi i8 [ %.0..i, %42 ], [ %41, %37 ], [ 0, %.preheader ]
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
+  %46 = load i8, ptr %45, align 1
+  %.not.i = icmp eq i8 %46, %.1.i
+  br i1 %.not.i, label %48, label %47
 
-48:                                               ; preds = %.thread.i
-  store i8 %.1.i, ptr %46, align 1
-  br label %49
+47:                                               ; preds = %.thread.i
+  store i8 %.1.i, ptr %45, align 1
+  br label %48
 
-49:                                               ; preds = %48, %.thread.i
+48:                                               ; preds = %47, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not31.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not31.i, label %fsm_rebuild_page.exit, label %.preheader, !llvm.loop !6
 
-fsm_rebuild_page.exit:                            ; preds = %49, %.thread, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %.thread ], [ true, %49 ]
+fsm_rebuild_page.exit:                            ; preds = %48, %.thread, %10
+  %.0 = phi i1 [ false, %10 ], [ true, %.thread ], [ true, %48 ]
   ret i1 %.0
 }
 
@@ -118,26 +117,26 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef captures(none) %0) loc
   %indvars.iv = phi i64 [ 4094, %1 ], [ %indvars.iv.next, %17 ]
   %.02129 = phi i1 [ false, %1 ], [ %.122, %17 ]
   %4 = shl nuw i64 %indvars.iv, 1
-  %5 = add nuw nsw i64 %4, 2
-  %6 = icmp samesign ult i64 %indvars.iv, 4082
-  br i1 %6, label %7, label %.thread
+  %5 = icmp samesign ult i64 %indvars.iv, 4082
+  br i1 %5, label %6, label %.thread
 
-7:                                                ; preds = %3
-  %8 = or disjoint i64 %4, 1
-  %9 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
+6:                                                ; preds = %3
+  %7 = getelementptr i8, ptr %2, i64 %4
+  %8 = getelementptr i8, ptr %7, i64 1
+  %9 = load i8, ptr %8, align 1
   %.not33 = icmp eq i64 %indvars.iv, 4081
-  br i1 %.not33, label %.thread, label %11
+  br i1 %.not33, label %.thread, label %10
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %5
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i8, ptr %12, align 1
-  %.0. = tail call i8 @llvm.umax.i8(i8 %10, i8 %13)
+  %.0. = tail call i8 @llvm.umax.i8(i8 %9, i8 %13)
   br label %.thread
 
-.thread:                                          ; preds = %3, %11, %7
-  %.1 = phi i8 [ %.0., %11 ], [ %10, %7 ], [ 0, %3 ]
-  %14 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %indvars.iv
+.thread:                                          ; preds = %3, %10, %6
+  %.1 = phi i8 [ %.0., %10 ], [ %9, %6 ], [ 0, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, %.1
   br i1 %.not, label %17, label %16
@@ -161,7 +160,7 @@ define dso_local zeroext i8 @fsm_get_avail(ptr noundef readonly captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = add i32 %1, 4095
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = load i8, ptr %6, align 1
   ret i8 %7
 }
@@ -210,7 +209,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %29
 
-.loopexit:                                        ; preds = %85
+.loopexit:                                        ; preds = %84
   call void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext false) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -231,7 +230,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 .lr.ph:                                           ; preds = %29, %select.unfold
   %.04353 = phi i32 [ %44, %select.unfold ], [ %spec.select, %29 ]
   %34 = zext nneg i32 %.04353 to i64
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 %34
   %36 = load i8, ptr %35, align 1
   %.not = icmp ult i8 %36, %1
   br i1 %.not, label %select.unfold, label %._crit_edge
@@ -253,8 +252,8 @@ select.unfold:                                    ; preds = %.lr.ph
   %46 = icmp slt i32 %.043.lcssa, 4095
   br i1 %46, label %.lr.ph69, label %._crit_edge._crit_edge
 
-.lr.ph69:                                         ; preds = %._crit_edge, %86
-  %.14468 = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
+.lr.ph69:                                         ; preds = %._crit_edge, %85
+  %.14468 = phi i32 [ %.245, %85 ], [ %.043.lcssa, %._crit_edge ]
   %47 = shl i32 %.14468, 1
   %48 = icmp ult i32 %47, 8164
   br i1 %48, label %49, label %54
@@ -262,10 +261,10 @@ select.unfold:                                    ; preds = %.lr.ph
 49:                                               ; preds = %.lr.ph69
   %50 = or disjoint i32 %47, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not49 = icmp ult i8 %53, %1
-  br i1 %.not49, label %54, label %86, !llvm.loop !8
+  br i1 %.not49, label %54, label %85, !llvm.loop !8
 
 54:                                               ; preds = %49, %.lr.ph69
   %55 = add i32 %47, 2
@@ -274,10 +273,10 @@ select.unfold:                                    ; preds = %.lr.ph
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 %58
   %60 = load i8, ptr %59, align 1
   %.not50 = icmp ult i8 %60, %1
-  br i1 %.not50, label %61, label %86
+  br i1 %.not50, label %61, label %85
 
 61:                                               ; preds = %57, %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -307,58 +306,57 @@ select.unfold:                                    ; preds = %.lr.ph
 .preheader:                                       ; preds = %70, %69
   br label %71
 
-71:                                               ; preds = %.preheader, %85
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %85 ], [ 4094, %.preheader ]
-  %72 = shl nuw i64 %indvars.iv.i, 1
-  %73 = add nuw nsw i64 %72, 2
-  %74 = icmp samesign ult i64 %indvars.iv.i, 4082
-  br i1 %74, label %75, label %.thread.i
+71:                                               ; preds = %.preheader, %84
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %84 ], [ 4094, %.preheader ]
+  %72 = icmp samesign ult i64 %indvars.iv.i, 4082
+  br i1 %72, label %73, label %.thread.i
 
-75:                                               ; preds = %71
-  %76 = or disjoint i64 %72, 1
-  %77 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
+73:                                               ; preds = %71
+  %74 = shl nuw nsw i64 %indvars.iv.i, 1
+  %75 = getelementptr i8, ptr %22, i64 %74
+  %76 = getelementptr i8, ptr %75, i64 1
+  %77 = load i8, ptr %76, align 1
   %.not33.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not33.i, label %.thread.i, label %79
+  br i1 %.not33.i, label %.thread.i, label %78
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %73
-  %81 = load i8, ptr %80, align 1
-  %.0..i = call i8 @llvm.umax.i8(i8 %78, i8 %81)
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 2
+  %80 = load i8, ptr %79, align 1
+  %.0..i = call i8 @llvm.umax.i8(i8 %77, i8 %80)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %79, %75, %71
-  %.1.i = phi i8 [ %.0..i, %79 ], [ %78, %75 ], [ 0, %71 ]
-  %82 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %indvars.iv.i
-  %83 = load i8, ptr %82, align 1
-  %.not.i = icmp eq i8 %83, %.1.i
-  br i1 %.not.i, label %85, label %84
+.thread.i:                                        ; preds = %78, %73, %71
+  %.1.i = phi i8 [ %.0..i, %78 ], [ %77, %73 ], [ 0, %71 ]
+  %81 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
+  %82 = load i8, ptr %81, align 1
+  %.not.i = icmp eq i8 %82, %.1.i
+  br i1 %.not.i, label %84, label %83
 
-84:                                               ; preds = %.thread.i
-  store i8 %.1.i, ptr %82, align 1
-  br label %85
+83:                                               ; preds = %.thread.i
+  store i8 %.1.i, ptr %81, align 1
+  br label %84
 
-85:                                               ; preds = %84, %.thread.i
+84:                                               ; preds = %83, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not31.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not31.i, label %.loopexit, label %71, !llvm.loop !6
 
-86:                                               ; preds = %57, %49
+85:                                               ; preds = %57, %49
   %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
-  %87 = icmp slt i32 %.245, 4095
-  br i1 %87, label %.lr.ph69, label %._crit_edge._crit_edge
+  %86 = icmp slt i32 %.245, 4095
+  br i1 %86, label %.lr.ph69, label %._crit_edge._crit_edge
 
-._crit_edge._crit_edge:                           ; preds = %._crit_edge, %86
-  %.144.lcssa = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
-  %88 = add nuw i32 %.144.lcssa, 61441
-  %89 = and i32 %88, 65535
-  %90 = zext i1 %2 to i32
-  %91 = add nuw nsw i32 %89, %90
-  store i32 %91, ptr %21, align 4
+._crit_edge._crit_edge:                           ; preds = %._crit_edge, %85
+  %.144.lcssa = phi i32 [ %.245, %85 ], [ %.043.lcssa, %._crit_edge ]
+  %87 = add nuw i32 %.144.lcssa, 61441
+  %88 = and i32 %87, 65535
+  %89 = zext i1 %2 to i32
+  %90 = add nuw nsw i32 %88, %89
+  store i32 %90, ptr %21, align 4
   br label %.loopexit51
 
 .loopexit51:                                      ; preds = %.loopexit, %BufferGetPage.exit, %._crit_edge._crit_edge
-  %.041 = phi i32 [ %89, %._crit_edge._crit_edge ], [ -1, %BufferGetPage.exit ], [ -1, %.loopexit ]
+  %.041 = phi i32 [ %88, %._crit_edge._crit_edge ], [ -1, %BufferGetPage.exit ], [ -1, %.loopexit ]
   ret i32 %.041
 }
 
@@ -405,44 +403,43 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %10
 
-10:                                               ; preds = %24, %8
-  %indvars.iv.i = phi i64 [ 4094, %8 ], [ %indvars.iv.next.i, %24 ]
-  %11 = shl nuw i64 %indvars.iv.i, 1
-  %12 = add nuw nsw i64 %11, 2
-  %13 = icmp samesign ult i64 %indvars.iv.i, 4082
-  br i1 %13, label %14, label %.thread.i
+10:                                               ; preds = %23, %8
+  %indvars.iv.i = phi i64 [ 4094, %8 ], [ %indvars.iv.next.i, %23 ]
+  %11 = icmp samesign ult i64 %indvars.iv.i, 4082
+  br i1 %11, label %12, label %.thread.i
 
-14:                                               ; preds = %10
-  %15 = or disjoint i64 %11, 1
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
+12:                                               ; preds = %10
+  %13 = shl nuw nsw i64 %indvars.iv.i, 1
+  %14 = getelementptr i8, ptr %9, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 1
+  %16 = load i8, ptr %15, align 1
   %.not33.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not33.i, label %.thread.i, label %18
+  br i1 %.not33.i, label %.thread.i, label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %12
-  %20 = load i8, ptr %19, align 1
-  %.0..i = tail call i8 @llvm.umax.i8(i8 %17, i8 %20)
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %19 = load i8, ptr %18, align 1
+  %.0..i = tail call i8 @llvm.umax.i8(i8 %16, i8 %19)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %18, %14, %10
-  %.1.i = phi i8 [ %.0..i, %18 ], [ %17, %14 ], [ 0, %10 ]
-  %21 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %indvars.iv.i
-  %22 = load i8, ptr %21, align 1
-  %.not.i = icmp eq i8 %22, %.1.i
-  br i1 %.not.i, label %24, label %23
+.thread.i:                                        ; preds = %17, %12, %10
+  %.1.i = phi i8 [ %.0..i, %17 ], [ %16, %12 ], [ 0, %10 ]
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
+  %21 = load i8, ptr %20, align 1
+  %.not.i = icmp eq i8 %21, %.1.i
+  br i1 %.not.i, label %23, label %22
 
-23:                                               ; preds = %.thread.i
-  store i8 %.1.i, ptr %21, align 1
-  br label %24
+22:                                               ; preds = %.thread.i
+  store i8 %.1.i, ptr %20, align 1
+  br label %23
 
-24:                                               ; preds = %23, %.thread.i
+23:                                               ; preds = %22, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not31.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not31.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !6
 
-fsm_rebuild_page.exit:                            ; preds = %24, %2, %._crit_edge
-  %.0.lcssa16 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %24 ]
+fsm_rebuild_page.exit:                            ; preds = %23, %2, %._crit_edge
+  %.0.lcssa16 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %23 ]
   ret i1 %.0.lcssa16
 }
 

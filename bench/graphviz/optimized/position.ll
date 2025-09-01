@@ -316,7 +316,7 @@ allocate_aux_edges.exit.i:                        ; preds = %allocate_aux_edges.
 
 .lr.ph230.i.i:                                    ; preds = %.lr.ph235.i.i
   %148 = and i64 %indvars.iv240.i.i, 1
-  %149 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i32, ptr %2, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !79
   %151 = sitofp i32 %150 to double
   br label %155

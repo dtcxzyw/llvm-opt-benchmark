@@ -1073,8 +1073,8 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
   %512 = sub nsw i32 %511, %510
   %513 = add nuw nsw i32 %510, 1
   %514 = zext nneg i32 %.sink.i268.i to i64
-  %515 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %514
-  %516 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %514
+  %515 = getelementptr inbounds nuw i8, ptr %7, i64 %514
+  %516 = getelementptr inbounds nuw i8, ptr %8, i64 %514
   br label %517
 
 517:                                              ; preds = %635, %get_max_component_diff.exit.i
@@ -1168,9 +1168,9 @@ leastsquares.exit.i:                              ; preds = %._crit_edge93.i.i, 
   %553 = lshr i32 %550, %552
   %554 = trunc i32 %553 to i8
   %555 = and i8 %554, 31
-  %556 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %556 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %555, ptr %556, align 1, !tbaa !43
-  %557 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %557 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   store i8 %555, ptr %557, align 1, !tbaa !43
   br label %635
 
@@ -1312,9 +1312,9 @@ calc_lsq_max_fit_error.exit.thread.i:             ; preds = %559
 
 calc_lsq_max_fit_error.exit311.i:                 ; preds = %._crit_edge.us.i309.i, %calc_lsq_max_fit_error.exit.thread.i, %calc_lsq_max_fit_error.exit.i, %.preheader.lr.ph.i287.i
   %632 = phi i32 [ %.0164210.i, %calc_lsq_max_fit_error.exit.i ], [ %spec.select.i46, %calc_lsq_max_fit_error.exit.thread.i ], [ %.0164210.i, %.preheader.lr.ph.i287.i ], [ %.3.us.i306.i, %._crit_edge.us.i309.i ]
-  %633 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %633 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %.0.i.i, ptr %633, align 1, !tbaa !43
-  %634 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %634 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   store i8 %.0.i197.i, ptr %634, align 1, !tbaa !43
   br label %635
 
@@ -1797,7 +1797,7 @@ put_bits.exit60.us.i.i:                           ; preds = %850, %842, %841
   %864 = lshr i32 %860, %863
   %865 = trunc i32 %864 to i8
   %866 = and i8 %865, 31
-  %867 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i.us.i.i
+  %867 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.us.i.i
   store i8 %866, ptr %867, align 1, !tbaa !43
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, 3

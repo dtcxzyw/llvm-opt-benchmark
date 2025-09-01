@@ -1181,7 +1181,7 @@ define dso_local void @_ZNK4llvm3pdb13GlobalsStream17findRecordsByNameENS_9Strin
   %22 = and i32 %21, 4095
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %25 = getelementptr inbounds nuw [4097 x i32], ptr %24, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !21
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %176, label %28

@@ -1216,7 +1216,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 15
   %43 = and i64 %40, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %44 = lshr i64 %16, 59
   %45 = and i64 %44, 1
@@ -2138,7 +2138,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %71 = trunc nuw nsw i64 %70 to i32
   %72 = and i32 %71, 15
   %73 = and i64 %70, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %73
   %switch.load = load i64, ptr %switch.gep, align 8
   %74 = lshr i64 %47, 59
   %75 = and i64 %74, 1
@@ -2528,7 +2528,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %79 = trunc nuw nsw i64 %78 to i32
   %80 = and i32 %79, 15
   %81 = and i64 %78, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %81
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %81
   %switch.load = load i64, ptr %switch.gep, align 8
   %82 = lshr i64 %54, 59
   %83 = and i64 %82, 1
@@ -2763,7 +2763,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = and i32 %52, 15
   %54 = and i64 %51, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %54
   %switch.load = load i64, ptr %switch.gep, align 8
   %55 = lshr i64 %28, 59
   %56 = and i64 %55, 1
@@ -4089,7 +4089,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 15
   %43 = and i64 %40, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %44 = lshr i64 %17, 59
   %45 = and i64 %44, 1
@@ -4420,7 +4420,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %82 = trunc nuw nsw i64 %81 to i32
   %83 = and i32 %82, 15
   %84 = and i64 %81, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   %85 = lshr i64 %51, 59
   %86 = and i64 %85, 1
@@ -7929,7 +7929,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule19ReturnTyp
 
 switch.lookup:                                    ; preds = %13
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19ReturnTypeUsesFPRetENS_8QualTypeE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19ReturnTypeUsesFPRetENS_8QualTypeE, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %20 = load ptr, ptr %19, align 8, !tbaa !1288
@@ -9763,10 +9763,10 @@ define internal fastcc void @_ZL35getTrivialDefaultFunctionAttributesN4llvm9Stri
 switch.lookup:                                    ; preds = %60
   %switch.tableidx = add nsw i32 %65, -1
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE, i64 %66
   %switch.load = load i64, ptr %switch.gep, align 8
   %67 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep273 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE.136, i64 0, i64 %67
+  %switch.gep273 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL35getTrivialDefaultFunctionAttributesN4llvm9StringRefEbRKN5clang14CodeGenOptionsERKNS1_11LangOptionsEbRNS_11AttrBuilderE.136, i64 %67
   %switch.load274 = load ptr, ptr %switch.gep273, align 8
   %68 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr nonnull @.str.56, i64 13, ptr nonnull %switch.load274, i64 %switch.load) #25
   br label %69
@@ -10301,10 +10301,10 @@ define linkonce_odr hidden void @_ZNK4llvm12DenormalMode3strB5cxx11Ev(ptr dead_o
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.138, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.138, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.139, i64 0, i64 %14
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.139, i64 %14
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !1451
@@ -10355,10 +10355,10 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %34, %32
 
 switch.lookup4:                                   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i
   %39 = zext nneg i8 %37 to i64
-  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.138, i64 0, i64 %39
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.138, i64 %39
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %40 = zext nneg i8 %37 to i64
-  %switch.gep7 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.139, i64 0, i64 %40
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm12DenormalMode3strB5cxx11Ev.139, i64 %40
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i5.i, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !1451
@@ -32657,7 +32657,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
@@ -36785,7 +36785,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !2178
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !2179
   br label %49
 
@@ -39584,7 +39584,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !2178
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !2179
   store i8 0, ptr %30, align 8, !tbaa !2247
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -39643,7 +39643,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %49, align 8, !tbaa !2247
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [10 x i8], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
   store i8 %50, ptr %54, align 1, !tbaa !37
   %55 = load ptr, ptr %0, align 8, !tbaa !2080
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -39651,7 +39651,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %58 = add i8 %57, 1
   store i8 %58, ptr %55, align 8, !tbaa !2247
   %59 = zext i8 %57 to i64
-  %60 = getelementptr inbounds nuw [10 x i64], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   store i64 %1, ptr %60, align 8, !tbaa !44
   ret void
 }

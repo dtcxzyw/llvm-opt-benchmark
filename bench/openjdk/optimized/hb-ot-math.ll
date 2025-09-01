@@ -199,7 +199,7 @@ define hidden i32 @hb_ot_math_get_glyph_italics_correction(ptr noundef %0, i32 n
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i2, i64 4
   %54 = zext nneg i32 %43 to i64
-  %55 = getelementptr inbounds nuw [1 x %"struct.OT::MathValueRecord"], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %53, i64 %54
   br label %_ZNK2OT13MathGlyphInfo22get_italics_correctionEjP9hb_font_t.exit
 
 _ZNK2OT13MathGlyphInfo22get_italics_correctionEjP9hb_font_t.exit: ; preds = %2, %52
@@ -378,7 +378,7 @@ define hidden noundef i32 @hb_ot_math_get_glyph_kerning(ptr noundef %0, i32 noun
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 4
   %57 = zext nneg i32 %46 to i64
-  %58 = getelementptr inbounds nuw [1 x %"struct.OT::MathKernInfoRecord"], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.OT::MathKernInfoRecord", ptr %56, i64 %57
   br label %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %55, %4
@@ -388,7 +388,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; pre
 
 60:                                               ; preds = %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i
   %61 = zext nneg i32 %2 to i64
-  %62 = getelementptr inbounds nuw [4 x %"struct.OT::OffsetTo.185"], ptr %.0.i.i4.i, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.OT::OffsetTo.185", ptr %.0.i.i4.i, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %65 = load i8, ptr %64, align 1
@@ -471,7 +471,7 @@ define hidden noundef i32 @hb_ot_math_get_glyph_kernings(ptr noundef %0, i32 nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 4
   %59 = zext nneg i32 %48 to i64
-  %60 = getelementptr inbounds nuw [1 x %"struct.OT::MathKernInfoRecord"], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.OT::MathKernInfoRecord", ptr %58, i64 %59
   br label %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; preds = %57, %6
@@ -481,7 +481,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i: ; pre
 
 62:                                               ; preds = %_ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEEixEi.exit.i.i
   %63 = zext nneg i32 %2 to i64
-  %64 = getelementptr inbounds nuw [4 x %"struct.OT::OffsetTo.185"], ptr %.0.i.i6.i, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.OT::OffsetTo.185", ptr %.0.i.i6.i, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %67 = load i8, ptr %66, align 1
@@ -588,7 +588,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT12MathVariants18get_glyph_variant
   %.0.i = phi i32 [ %31, %32 ], [ %41, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %44 = zext nneg i32 %.0.i to i64
-  %45 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.154"], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %"struct.OT::OffsetTo.154", ptr %43, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
   %48 = load i8, ptr %47, align 1
@@ -821,7 +821,7 @@ define hidden noundef i32 @hb_ot_math_get_glyph_assembly(ptr noundef %0, i32 nou
   %.0.i.i = phi i32 [ %51, %52 ], [ %61, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 10
   %64 = zext nneg i32 %.0.i.i to i64
-  %65 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.154"], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %"struct.OT::OffsetTo.154", ptr %63, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %68 = load i8, ptr %67, align 1
@@ -915,7 +915,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
 
 4:                                                ; preds = %3, %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [2 x %"struct.OT::IntType.155"], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.OT::IntType.155", ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw i16 %8, 8
@@ -928,13 +928,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
 
 15:                                               ; preds = %3, %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = add nsw i32 %1, -2
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [2 x %"struct.OT::IntType"], ptr %16, i64 0, i64 %18
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr %"struct.OT::IntType", ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i16
   %22 = shl nuw i16 %21, 8
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %23 = getelementptr i8, ptr %18, i64 -3
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = or disjoint i16 %22, %25
@@ -949,13 +949,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
 
 34:                                               ; preds = %3, %3, %3, %3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = add nsw i32 %1, -4
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [51 x %"struct.OT::MathValueRecord"], ptr %35, i64 0, i64 %37
+  %36 = zext nneg i32 %1 to i64
+  %37 = getelementptr %"struct.OT::MathValueRecord", ptr %35, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -16
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i16
   %41 = shl nuw i16 %40, 8
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %42 = getelementptr i8, ptr %37, i64 -15
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i16
   %45 = or disjoint i16 %41, %44
@@ -966,9 +966,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
   %50 = add nsw i64 %49, 32768
   %51 = lshr i64 %50, 16
   %52 = trunc i64 %51 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  %53 = getelementptr i8, ptr %37, i64 -14
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %38, i64 3
+  %55 = getelementptr i8, ptr %37, i64 -13
   %56 = load i8, ptr %55, align 1
   %57 = or i8 %56, %54
   %58 = icmp eq i8 %57, 0
@@ -984,13 +984,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
 
 66:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = add nsw i32 %1, -4
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [51 x %"struct.OT::MathValueRecord"], ptr %67, i64 0, i64 %69
+  %68 = zext nneg i32 %1 to i64
+  %69 = getelementptr %"struct.OT::MathValueRecord", ptr %67, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 -16
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i16
   %73 = shl nuw i16 %72, 8
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  %74 = getelementptr i8, ptr %69, i64 -15
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i16
   %77 = or disjoint i16 %73, %76
@@ -1001,9 +1001,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT13MathConstants9get_valueE21hb_ot
   %82 = add nsw i64 %81, 32768
   %83 = lshr i64 %82, 16
   %84 = trunc i64 %83 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %70, i64 2
+  %85 = getelementptr i8, ptr %69, i64 -14
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %70, i64 3
+  %87 = getelementptr i8, ptr %69, i64 -13
   %88 = load i8, ptr %87, align 1
   %89 = or i8 %88, %86
   %90 = icmp eq i8 %89, 0
@@ -1092,7 +1092,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %40 = sub nuw nsw i32 4, %12
   %41 = lshr i32 %38, %40
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
@@ -1162,7 +1162,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
-  %96 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.163"], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.163", ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %99 = load i8, ptr %98, align 1
@@ -1305,7 +1305,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %81, %.lr.ph.split ]
   %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
-  %53 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %48, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %48, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
@@ -1356,7 +1356,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv82 = phi i64 [ %52, %.lr.ph65 ], [ %indvars.iv.next83, %86 ]
   %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %105, %86 ]
   %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %96, %86 ]
-  %87 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %51, i64 0, i64 %indvars.iv82
+  %87 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %51, i64 %indvars.iv82
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -1383,7 +1383,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %indvars.iv87 = phi i64 [ %84, %.lr.ph72 ], [ %indvars.iv.next88, %106 ]
   %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %116, %106 ]
   %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %119, %106 ]
-  %107 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %83, i64 0, i64 %indvars.iv87
+  %107 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %83, i64 %indvars.iv87
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 8
@@ -1612,7 +1612,7 @@ _ZNK2OT13HintingDevice16get_delta_pixelsEj.exit.i.i: ; preds = %28
   %40 = sub nuw nsw i32 4, %12
   %41 = lshr i32 %38, %40
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %39, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
@@ -1682,7 +1682,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = zext nneg i32 %73 to i64
-  %96 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.163"], ptr %94, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw %"struct.OT::OffsetTo.163", ptr %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %99 = load i8, ptr %98, align 1
@@ -1974,7 +1974,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %16, %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = zext nneg i32 %14 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::MathValueRecord"], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %41, i64 %42
   br label %_ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEEixEi.exit
 
 _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEEixEi.exit: ; preds = %31, %40
@@ -2729,7 +2729,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4MATH8sanitizeEP21hb_sanit
 
 41:                                               ; preds = %41, %39
   %indvars.iv.i.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [51 x %"struct.OT::MathValueRecord"], ptr %40, i64 0, i64 %indvars.iv.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %40, i64 %indvars.iv.i.i.i.i
   %43 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %42, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(214) %35)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.next.i.i.i.i, 51
@@ -3440,7 +3440,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %109 = getelementptr inbounds nuw [1 x %"struct.OT::MathValueRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %3, i64 %indvars.iv
   %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -3631,7 +3631,7 @@ _ZNK2OT7ArrayOfINS_15MathValueRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP21h
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %109 = getelementptr inbounds nuw [1 x %"struct.OT::MathValueRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %3, i64 %indvars.iv
   %110 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -3822,7 +3822,7 @@ _ZNK2OT7ArrayOfINS_18MathKernInfoRecordENS_7IntTypeItLj2EEEE16sanitize_shallowEP
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %109 = getelementptr inbounds nuw [1 x %"struct.OT::MathKernInfoRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %"struct.OT::MathKernInfoRecord", ptr %3, i64 %indvars.iv
   %110 = tail call noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -3846,7 +3846,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanit
 
 10:                                               ; preds = %3, %.thread
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread ]
-  %11 = getelementptr inbounds nuw [4 x %"struct.OT::OffsetTo.185"], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"struct.OT::OffsetTo.185", ptr %0, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load ptr, ptr %4, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -3913,7 +3913,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i
 
 59:                                               ; preds = %59, %51
   %indvars.iv.i.i.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i.i.i, %59 ]
-  %60 = getelementptr inbounds nuw [1 x %"struct.OT::MathValueRecord"], ptr %31, i64 0, i64 %indvars.iv.i.i.i.i
+  %60 = getelementptr inbounds nuw %"struct.OT::MathValueRecord", ptr %31, i64 %indvars.iv.i.i.i.i
   %61 = tail call noundef zeroext i1 @_ZNK2OT15MathValueRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(6) %30)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.i.i.i.i = icmp ne i64 %indvars.iv.i.i.i.i, %58
@@ -4266,7 +4266,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructi
 
 201:                                              ; preds = %.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %202 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.154"], ptr %3, i64 0, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw %"struct.OT::OffsetTo.154", ptr %3, i64 %indvars.iv.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 2
   %204 = load ptr, ptr %4, align 8
   %205 = ptrtoint ptr %203 to i64

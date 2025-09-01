@@ -1560,7 +1560,7 @@ define hidden range(i32 -1, 1) i32 @_Py_WriteIndent(i32 noundef %0, ptr noundef 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr [11 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr i8, ptr %3, i64 %indvars.iv
   store i8 0, ptr %10, align 1, !tbaa !35
   br label %11
 
@@ -2403,7 +2403,7 @@ Py_DECREF.exit124:                                ; preds = %_PyUnicode_DATA.exi
   br i1 %303, label %304, label %306
 
 304:                                              ; preds = %.lr.ph.i199
-  %305 = getelementptr [11 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %305 = getelementptr i8, ptr %7, i64 %indvars.iv.i
   store i8 0, ptr %305, align 1, !tbaa !35
   br label %306
 

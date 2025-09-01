@@ -134,7 +134,7 @@ sub_045:                                          ; preds = %.tail.thread
 
 29:                                               ; preds = %26
   %30 = zext i8 %strcmpload to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !10
   %33 = and i8 %32, 2
   %.not38 = icmp eq i8 %33, 0

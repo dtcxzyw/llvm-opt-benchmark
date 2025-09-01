@@ -358,9 +358,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader:                                       ; preds = %12, %.preheader
   %.0116143 = phi i64 [ %37, %.preheader ], [ 0, %12 ]
-  %35 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0116143
+  %35 = getelementptr inbounds nuw float, ptr %7, i64 %.0116143
   store float 0x47EFFFFFE0000000, ptr %35, align 4, !tbaa !71
-  %36 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.0116143
+  %36 = getelementptr inbounds nuw float, ptr %8, i64 %.0116143
   store float 0xC7EFFFFFE0000000, ptr %36, align 4, !tbaa !71
   %37 = add nuw nsw i64 %.0116143, 1
   %exitcond.not = icmp eq i64 %37, 4
@@ -446,7 +446,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %narrow = call i32 @llvm.smax.i32(i32 %78, i32 0)
   %79 = call i32 @llvm.umin.i32(i32 %narrow, i32 65535)
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [65536 x float], ptr %59, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw float, ptr %59, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !71
   br label %91
 
@@ -472,7 +472,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %narrow139 = call i32 @llvm.smax.i32(i32 %96, i32 0)
   %97 = call i32 @llvm.umin.i32(i32 %narrow139, i32 65535)
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [65536 x float], ptr %63, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw float, ptr %63, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !71
   br label %109
 
@@ -595,7 +595,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %36 = fadd reassoc nsz arcp contract afn float %35, -5.000000e+01
   %37 = fmul reassoc nsz arcp contract afn float %36, %14
   %38 = fadd reassoc nsz arcp contract afn float %37, 5.000000e+01
-  %39 = getelementptr inbounds nuw [65536 x float], ptr %31, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   store float %38, ptr %39, align 4, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -800,9 +800,9 @@ define void @init_pipe(ptr noundef readnone captures(none) %0, ptr noundef readn
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = uitofp nneg i32 %10 to float
   %12 = fmul reassoc nsz arcp contract afn float %11, 0x3F59000000000000
-  %13 = getelementptr inbounds nuw [65536 x float], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !71
-  %14 = getelementptr inbounds nuw [65536 x float], ptr %7, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   store float %12, ptr %14, align 4, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -954,7 +954,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [9 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9

@@ -538,7 +538,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %3
 
 28:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %29 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !18
   %31 = and i32 %30, 1
   %32 = lshr i32 %30, 1
@@ -609,7 +609,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %3
 
 58:                                               ; preds = %.lr.ph183, %84
   %indvars.iv217 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next218, %84 ]
-  %59 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %indvars.iv217
+  %59 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv217
   %60 = load i32, ptr %59, align 4, !tbaa !18
   %61 = and i32 %60, 1
   %62 = lshr i32 %60, 1
@@ -825,7 +825,7 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
   %indvars.iv222 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next223, %159 ]
   %.0120189 = phi i32 [ 0, %.lr.ph191 ], [ %.2122.ph, %159 ]
   %.sroa.0146.0188 = phi i32 [ -2, %.lr.ph191 ], [ %.sroa.0146.1.ph, %159 ]
-  %144 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %indvars.iv222
+  %144 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %indvars.iv222
   %145 = load i32, ptr %144, align 4, !tbaa !18
   %146 = xor i32 %145, %.sroa.0146.0188
   %147 = icmp eq i32 %146, 1
@@ -847,7 +847,7 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
 
 155:                                              ; preds = %150
   %156 = zext i32 %.0120189 to i64
-  %157 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %26, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"class.sat::literal", ptr %26, i64 %156
   store i32 %145, ptr %157, align 4, !tbaa !18
   %158 = add i32 %.0120189, 1
   br label %159

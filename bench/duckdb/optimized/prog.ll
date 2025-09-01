@@ -1238,7 +1238,7 @@ define hidden void @_ZN10duckdb_re24Prog11DumpByteMapB5cxx11Ev(ptr dead_on_unwin
 9:                                                ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.01626 = phi i32 [ 0, %2 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %10 = sext i32 %.01626 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds i8, ptr %6, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i32
   br label %14
@@ -1250,7 +1250,7 @@ define hidden void @_ZN10duckdb_re24Prog11DumpByteMapB5cxx11Ev(ptr dead_on_unwin
 
 16:                                               ; preds = %14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = icmp eq i8 %18, %12
   br i1 %19, label %14, label %.critedge.split.loop.exit31, !llvm.loop !88
@@ -1999,7 +1999,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit24:  ; preds = %_ZNSt6vectorISt4pai
 21:                                               ; preds = %15
   %22 = lshr i32 %17, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !113
   %26 = and i32 %17, 63
   %27 = zext nneg i32 %26 to i64
@@ -2013,17 +2013,17 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit24:  ; preds = %_ZNSt6vectorISt4pai
   store i64 %31, ptr %24, align 8, !tbaa !113
   %32 = tail call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %16)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %33
+  %34 = getelementptr inbounds i32, ptr %6, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !76
   %36 = zext nneg i32 %17 to i64
-  %37 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %36
   store i32 %35, ptr %37, align 4, !tbaa !76
   br label %38
 
 38:                                               ; preds = %30, %21, %15
   %39 = sdiv i32 %19, 64
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %40
+  %41 = getelementptr inbounds i64, ptr %0, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !113
   %43 = srem i32 %19, 64
   %44 = zext nneg i32 %43 to i64
@@ -2038,10 +2038,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit24:  ; preds = %_ZNSt6vectorISt4pai
   %49 = add nsw i32 %19, 1
   %50 = tail call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %49)
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr %6, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !76
   %54 = sext i32 %19 to i64
-  %55 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %54
+  %55 = getelementptr inbounds i32, ptr %6, i64 %54
   store i32 %53, ptr %55, align 4, !tbaa !76
   br label %.preheader
 
@@ -2056,7 +2056,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit24:  ; preds = %_ZNSt6vectorISt4pai
 58:                                               ; preds = %56
   %59 = tail call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.020)
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %60
+  %61 = getelementptr inbounds i32, ptr %6, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !76
   %63 = tail call noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef nonnull align 8 dereferenceable(1112) %0, i32 noundef %62)
   store i32 %63, ptr %61, align 4, !tbaa !76
@@ -2307,7 +2307,7 @@ define hidden void @_ZN10duckdb_re214ByteMapBuilder5BuildEPhPi(ptr noundef nonnu
   %.012 = phi i32 [ 0, %3 ], [ %.1.lcssa, %.loopexit ]
   %8 = tail call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.012)
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !76
   %12 = tail call noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef nonnull align 8 dereferenceable(1112) %0, i32 noundef %11)
   %.not10 = icmp sgt i32 %.012, %8
@@ -2376,7 +2376,7 @@ define hidden void @_ZN10duckdb_re24Prog14ComputeByteMapEv(ptr noundef nonnull a
 
 .noexc:                                           ; preds = %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [256 x i32], ptr %18, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %18, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !76
   %25 = invoke noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef nonnull align 8 dereferenceable(1112) %2, i32 noundef %24)
           to label %.noexc85 unwind label %281
@@ -2811,7 +2811,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit.i:  ; preds = %173, %._crit_edge.i
 181:                                              ; preds = %.lr.ph.i
   %182 = lshr i32 %177, 6
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i64, ptr %2, i64 %183
   %185 = load i64, ptr %184, align 8, !tbaa !113
   %186 = and i32 %177, 63
   %187 = zext nneg i32 %186 to i64
@@ -2828,17 +2828,17 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit.i:  ; preds = %173, %._crit_edge.i
 
 .noexc121:                                        ; preds = %190
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [256 x i32], ptr %14, i64 0, i64 %193
+  %194 = getelementptr inbounds i32, ptr %14, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !76
   %196 = zext nneg i32 %177 to i64
-  %197 = getelementptr inbounds nuw [256 x i32], ptr %14, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i32, ptr %14, i64 %196
   store i32 %195, ptr %197, align 4, !tbaa !76
   br label %198
 
 198:                                              ; preds = %.noexc121, %181, %.lr.ph.i
   %199 = sdiv i32 %179, 64
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [4 x i64], ptr %2, i64 0, i64 %200
+  %201 = getelementptr inbounds i64, ptr %2, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !113
   %203 = srem i32 %179, 64
   %204 = zext nneg i32 %203 to i64
@@ -2856,10 +2856,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit.i:  ; preds = %173, %._crit_edge.i
 
 .noexc122:                                        ; preds = %207
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds [256 x i32], ptr %14, i64 0, i64 %211
+  %212 = getelementptr inbounds i32, ptr %14, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !76
   %214 = sext i32 %179 to i64
-  %215 = getelementptr inbounds [256 x i32], ptr %14, i64 0, i64 %214
+  %215 = getelementptr inbounds i32, ptr %14, i64 %214
   store i32 %213, ptr %215, align 4, !tbaa !76
   br label %.preheader225
 
@@ -2877,7 +2877,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit.i:  ; preds = %173, %._crit_edge.i
 
 .noexc123:                                        ; preds = %218
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [256 x i32], ptr %14, i64 0, i64 %220
+  %221 = getelementptr inbounds i32, ptr %14, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !76
   %223 = invoke noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef nonnull align 8 dereferenceable(1112) %2, i32 noundef %222)
           to label %.noexc124 unwind label %.loopexit
@@ -3727,7 +3727,7 @@ _ZNSt6vectorIN10duckdb_re24Prog4InstESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12
 
 246:                                              ; preds = %237, %233
   %.pre-phi = phi i64 [ %245, %237 ], [ 1, %233 ]
-  %247 = getelementptr inbounds nuw [8 x i32], ptr %191, i64 0, i64 %.pre-phi
+  %247 = getelementptr inbounds nuw i32, ptr %191, i64 %.pre-phi
   %248 = load i32, ptr %247, align 4, !tbaa !76
   %249 = add nsw i32 %248, 1
   store i32 %249, ptr %247, align 4, !tbaa !76
@@ -5744,7 +5744,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
 34:                                               ; preds = %26
   %35 = lshr i32 %33, 6
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %5, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !113
   %39 = and i32 %33, 63
   %40 = zext nneg i32 %39 to i64
@@ -5758,17 +5758,17 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   store i64 %44, ptr %37, align 8, !tbaa !113
   %45 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %29)
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr %6, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !76
   %49 = zext nneg i32 %33 to i64
-  %50 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %6, i64 %49
   store i32 %48, ptr %50, align 4, !tbaa !76
   br label %51
 
 51:                                               ; preds = %43, %34, %26
   %52 = lshr i8 %31, 6
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !113
   %56 = and i8 %31, 63
   %57 = zext nneg i8 %56 to i64
@@ -5783,10 +5783,10 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   %62 = add nuw nsw i32 %32, 1
   %63 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %62)
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %64
+  %65 = getelementptr inbounds i32, ptr %6, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !76
   %67 = zext i8 %31 to i64
-  %68 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %6, i64 %67
   store i32 %66, ptr %68, align 4, !tbaa !76
   br label %69
 
@@ -5803,7 +5803,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
 73:                                               ; preds = %71
   %74 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %.021.i)
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %75
+  %76 = getelementptr inbounds i32, ptr %6, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !76
   %78 = call i32 @llvm.smin.i32(i32 %77, i32 %.164)
   store i32 %70, ptr %76, align 4, !tbaa !76
@@ -5846,10 +5846,10 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   store i64 %99, ptr %12, align 8, !tbaa !113
   %100 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %90)
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %101
+  %102 = getelementptr inbounds i32, ptr %6, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !76
   %104 = zext nneg i32 %92 to i64
-  %105 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %6, i64 %104
   store i32 %103, ptr %105, align 4, !tbaa !76
   br label %106
 
@@ -5868,10 +5868,10 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
   %114 = add nsw i32 %88, -31
   %115 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %114)
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %116
+  %117 = getelementptr inbounds i32, ptr %6, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !76
   %119 = zext nneg i32 %91 to i64
-  %120 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %119
   store i32 %118, ptr %120, align 4, !tbaa !76
   br label %121
 
@@ -5888,7 +5888,7 @@ define hidden void @_ZN10duckdb_re24Prog12ComputeHintsEPSt6vectorINS0_4InstESaIS
 125:                                              ; preds = %123
   %126 = call noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %.021.i39)
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %127
+  %128 = getelementptr inbounds i32, ptr %6, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !76
   %130 = call i32 @llvm.smin.i32(i32 %129, i32 %.3)
   store i32 %122, ptr %128, align 4, !tbaa !76
@@ -6048,7 +6048,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   %23 = trunc i64 %22 to i32
   %24 = shl nuw i32 1, %23
   %25 = zext i8 %21 to i64
-  %26 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i16, ptr %4, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !182
   %28 = trunc i32 %24 to i16
   %29 = or i16 %27, %28
@@ -6064,7 +6064,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
 
 .preheader70.i:                                   ; preds = %.preheader70.i.preheader, %.preheader70.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader70.i ], [ 0, %.preheader70.i.preheader ]
-  %31 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i
   %32 = load i16, ptr %31, align 2, !tbaa !182
   %33 = or i16 %32, 1
   store i16 %33, ptr %31, align 2, !tbaa !182
@@ -6204,10 +6204,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   %.05674.i = phi i64 [ %88, %.lr.ph75.i ], [ 0, %30 ]
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 %.05674.i
   %79 = load i8, ptr %78, align 1, !tbaa !8
-  %80 = getelementptr inbounds nuw [10 x i16], ptr %5, i64 0, i64 %.05674.i
+  %80 = getelementptr inbounds nuw i16, ptr %5, i64 %.05674.i
   %81 = load i16, ptr %80, align 2, !tbaa !182
   %82 = zext i8 %79 to i64
-  %83 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i16, ptr %4, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !182
   %85 = shl i16 %81, 1
   %86 = or disjoint i16 %85, 1
@@ -6215,13 +6215,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   %88 = add nuw i64 %.05674.i, 1
   %89 = icmp eq i64 %88, %12
   %spec.store.select.i = select i1 %89, i64 9, i64 %88
-  %90 = getelementptr inbounds nuw [10 x i16], ptr %5, i64 0, i64 %spec.store.select.i
+  %90 = getelementptr inbounds nuw i16, ptr %5, i64 %spec.store.select.i
   store i16 %87, ptr %90, align 2, !tbaa !182
   br i1 %89, label %34, label %.lr.ph75.i, !llvm.loop !213
 
 .lr.ph79.i:                                       ; preds = %.lr.ph82.i, %._crit_edge80.i
   %.05781.i = phi i64 [ %96, %._crit_edge80.i ], [ 0, %.lr.ph82.i ]
-  %91 = getelementptr inbounds nuw [10 x i16], ptr %5, i64 0, i64 %.05781.i
+  %91 = getelementptr inbounds nuw i16, ptr %5, i64 %.05781.i
   %92 = load i16, ptr %91, align 2, !tbaa !182
   %93 = shl i16 %92, 1
   %94 = or disjoint i16 %93, 1
@@ -6237,14 +6237,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
   %.sroa.061.077.i = phi ptr [ %74, %.lr.ph79.i ], [ %119, %118 ]
   %98 = load i8, ptr %.sroa.061.077.i, align 1, !tbaa !8
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw [256 x i16], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i16, ptr %4, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !182
   %102 = and i16 %101, %94
   br label %103
 
 103:                                              ; preds = %103, %97
   %.053.i = phi i64 [ 0, %97 ], [ %106, %103 ]
-  %104 = getelementptr inbounds nuw [10 x i16], ptr %5, i64 0, i64 %.053.i
+  %104 = getelementptr inbounds nuw i16, ptr %5, i64 %.053.i
   %105 = load i16, ptr %104, align 2, !tbaa !182
   %.not.i = icmp eq i16 %105, %102
   %106 = add i64 %.053.i, 1

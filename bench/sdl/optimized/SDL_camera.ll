@@ -46,7 +46,7 @@ define hidden ptr @SDL_GetCameraDriver_REAL(i32 noundef %0) local_unnamed_addr #
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   br label %9
@@ -1104,7 +1104,7 @@ define internal fastcc void @ClosePhysicalCamera(ptr noundef %0) unnamed_addr #1
 
 45:                                               ; preds = %.loopexit, %45
   %indvars.iv = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %35, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.SurfaceList, ptr %35, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   tail call void @SDL_DestroySurface_REAL(ptr noundef %47) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1920,7 +1920,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
 87:                                               ; preds = %82, %87
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv.next
+  %88 = getelementptr inbounds nuw %struct.SurfaceList, ptr %83, i64 %indvars.iv.next
   %89 = mul nuw nsw i64 %indvars.iv, 24
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -1961,7 +1961,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
 108:                                              ; preds = %107
   %109 = load i32, ptr %62, align 4
   %110 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %109) #11
-  %111 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv131
+  %111 = getelementptr inbounds nuw %struct.SurfaceList, ptr %83, i64 %indvars.iv131
   store ptr %.096, ptr %111, align 8
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 8
@@ -1998,7 +1998,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
 
 119:                                              ; preds = %116, %123
   %indvars.iv135 = phi i64 [ 0, %116 ], [ %indvars.iv.next136, %123 ]
-  %120 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %117, i64 0, i64 %indvars.iv135
+  %120 = getelementptr inbounds nuw %struct.SurfaceList, ptr %117, i64 %indvars.iv135
   %121 = load ptr, ptr %120, align 8
   %.not116 = icmp eq ptr %121, null
   br i1 %.not116, label %123, label %122
@@ -3032,7 +3032,7 @@ select.unfold.preheader:                          ; preds = %13, %select.unfold
 22:                                               ; preds = %.preheader, %21
   %.not81 = phi i1 [ true, %21 ], [ false, %.preheader ]
   %indvars.iv = phi i64 [ 1, %21 ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef %25, ptr noundef nonnull %.051109) #11
@@ -3076,7 +3076,7 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
 38:                                               ; preds = %37, %51
   %.4110136 = phi i1 [ false, %37 ], [ %.5, %51 ]
   %indvars.iv116135 = phi i64 [ 0, %37 ], [ %indvars.iv.next117, %51 ]
-  %39 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv116135
+  %39 = getelementptr inbounds nuw ptr, ptr @bootstrap, i64 %indvars.iv116135
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i8, ptr %41, align 8, !range !7, !noundef !8

@@ -79,15 +79,15 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 15:                                               ; preds = %1, %25
   %indvars.iv28 = phi i64 [ 0, %1 ], [ %indvars.iv.next29, %25 ]
-  %16 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %4, i64 0, i64 %indvars.iv28
+  %16 = getelementptr inbounds nuw %struct.IPlane, ptr %4, i64 %indvars.iv28
   tail call void @av_freep(ptr noundef nonnull %16) #14
-  %17 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %5, i64 0, i64 %indvars.iv28
+  %17 = getelementptr inbounds nuw %struct.IPlane, ptr %5, i64 %indvars.iv28
   tail call void @av_freep(ptr noundef nonnull %17) #14
-  %18 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %6, i64 0, i64 %indvars.iv28
+  %18 = getelementptr inbounds nuw %struct.IPlane, ptr %6, i64 %indvars.iv28
   tail call void @av_freep(ptr noundef nonnull %18) #14
-  %19 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %7, i64 0, i64 %indvars.iv28
+  %19 = getelementptr inbounds nuw %struct.IPlane, ptr %7, i64 %indvars.iv28
   tail call void @av_freep(ptr noundef nonnull %19) #14
-  %20 = getelementptr inbounds nuw [4 x %struct.chord_set], ptr %8, i64 0, i64 %indvars.iv28
+  %20 = getelementptr inbounds nuw %struct.chord_set, ptr %8, i64 %indvars.iv28
   tail call void @av_freep(ptr noundef nonnull %20) #14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %21, align 8, !tbaa !20
@@ -106,11 +106,11 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 26:                                               ; preds = %15, %26
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [64 x [2 x [4 x %struct.LUT]]], ptr %9, i64 0, i64 %indvars.iv
-  %28 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %27, i64 0, i64 %indvars.iv28
+  %27 = getelementptr inbounds nuw [2 x [4 x %struct.LUT]], ptr %9, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.LUT, ptr %27, i64 %indvars.iv28
   tail call fastcc void @free_lut(ptr noundef nonnull %28)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 160
-  %30 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %29, i64 0, i64 %indvars.iv28
+  %30 = getelementptr inbounds nuw %struct.LUT, ptr %29, i64 %indvars.iv28
   tail call fastcc void @free_lut(ptr noundef nonnull %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -417,34 +417,34 @@ define internal i32 @do_morpho(ptr noundef %0) #0 {
 48:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %49 = load ptr, ptr %3, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %49, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !68
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !54
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !54
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !54
   %59 = load ptr, ptr %2, align 8, !tbaa !67
-  %60 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !68
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %62, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !54
   %65 = load ptr, ptr %5, align 8, !tbaa !67
-  %66 = getelementptr inbounds nuw [8 x ptr], ptr %65, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !68
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %68, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !54
-  %71 = getelementptr inbounds nuw [4 x i32], ptr %35, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !54
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !54
   %75 = load i32, ptr %37, align 4, !tbaa !41
   %76 = load i32, ptr %38, align 8, !tbaa !48
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !54
   %.not146 = icmp eq i32 %78, 0
   br i1 %.not146, label %81, label %79
@@ -455,7 +455,7 @@ define internal i32 @do_morpho(ptr noundef %0) #0 {
   br i1 %.not147, label %345, label %81
 
 81:                                               ; preds = %79, %48
-  %82 = getelementptr inbounds nuw [4 x %struct.chord_set], ptr %41, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw %struct.chord_set, ptr %41, i64 %indvars.iv
   call void @av_freep(ptr noundef nonnull %82) #14
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 0, ptr %83, align 8, !tbaa !20
@@ -465,7 +465,7 @@ define internal i32 @do_morpho(ptr noundef %0) #0 {
   call void @av_freep(ptr noundef nonnull %85) #14
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i32 0, ptr %86, align 8, !tbaa !25
-  %87 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %42, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw %struct.IPlane, ptr %42, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !70
   %.not.i = icmp eq ptr %88, null
   br i1 %.not.i, label %89, label %.thread.i
@@ -1043,7 +1043,7 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
   br label %345
 
 345:                                              ; preds = %.loopexit245, %79
-  %346 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %43, i64 0, i64 %indvars.iv
+  %346 = getelementptr inbounds nuw %struct.IPlane, ptr %43, i64 %indvars.iv
   %347 = load ptr, ptr %346, align 8, !tbaa !70
   %.not.i163 = icmp eq ptr %347, null
   br i1 %.not.i163, label %348, label %.thread.i164
@@ -1105,7 +1105,7 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
   br i1 %exitcond.not.i171, label %.loopexit244, label %.lr.ph.i168, !llvm.loop !84
 
 .loopexit244:                                     ; preds = %.lr.ph.i168, %.thread.i164
-  %375 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %44, i64 0, i64 %indvars.iv
+  %375 = getelementptr inbounds nuw %struct.IPlane, ptr %44, i64 %indvars.iv
   %376 = load ptr, ptr %375, align 8, !tbaa !70
   %.not.i174 = icmp eq ptr %376, null
   br i1 %.not.i174, label %377, label %.thread.i175
@@ -1165,12 +1165,12 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
   br i1 %switch, label %397, label %.loopexit
 
 397:                                              ; preds = %.loopexit243
-  %398 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %46, i64 0, i64 %indvars.iv
+  %398 = getelementptr inbounds nuw %struct.IPlane, ptr %46, i64 %indvars.iv
   %399 = load ptr, ptr %47, align 8, !tbaa !62
-  %400 = getelementptr inbounds nuw [8 x ptr], ptr %399, i64 0, i64 %indvars.iv
+  %400 = getelementptr inbounds nuw ptr, ptr %399, i64 %indvars.iv
   %401 = load ptr, ptr %400, align 8, !tbaa !68
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 64
-  %403 = getelementptr inbounds nuw [8 x i32], ptr %402, i64 0, i64 %indvars.iv
+  %403 = getelementptr inbounds nuw i32, ptr %402, i64 %indvars.iv
   %404 = load i32, ptr %403, align 4, !tbaa !54
   %405 = load ptr, ptr %398, align 8, !tbaa !70
   %.not.i185 = icmp eq ptr %405, null
@@ -1343,7 +1343,7 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 936
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 1576
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds [64 x [2 x [4 x %struct.LUT]]], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds [2 x [4 x %struct.LUT]], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 616
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1351,9 +1351,9 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
 
 28:                                               ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !54
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = mul nsw i32 %32, %2
   %34 = sdiv i32 %33, %3
@@ -1373,16 +1373,16 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
   br i1 %.not100, label %44, label %63
 
 44:                                               ; preds = %63, %68, %72, %76, %28, %39
-  %45 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !68
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !54
   %49 = mul nsw i32 %48, %34
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %46, i64 %50
-  %52 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !68
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !54
   %56 = mul nsw i32 %55, %34
   %57 = sext i32 %56 to i64
@@ -1395,7 +1395,7 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
   br label %105
 
 63:                                               ; preds = %39
-  %64 = getelementptr inbounds nuw [4 x %struct.chord_set], ptr %18, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw %struct.chord_set, ptr %18, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %66 = load i32, ptr %65, align 4, !tbaa !87
   %67 = icmp eq i32 %66, 32767
@@ -1432,30 +1432,30 @@ define internal range(i32 -12, 1) i32 @morpho_slice(ptr noundef readonly capture
   ]
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %25, i64 0, i64 %indvars.iv
-  %84 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %21, i64 0, i64 %indvars.iv
-  %85 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %24, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.IPlane, ptr %25, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %struct.IPlane, ptr %21, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw %struct.LUT, ptr %24, i64 %indvars.iv
   %86 = tail call fastcc i32 @erode(ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %64, ptr noundef nonnull %85, i32 noundef %34, i32 noundef %36)
   br label %103
 
 87:                                               ; preds = %80, %80
-  %88 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %25, i64 0, i64 %indvars.iv
-  %89 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %21, i64 0, i64 %indvars.iv
-  %90 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %24, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %struct.IPlane, ptr %25, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw %struct.IPlane, ptr %21, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %struct.LUT, ptr %24, i64 %indvars.iv
   %91 = tail call fastcc i32 @dilate(ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %64, ptr noundef nonnull %90, i32 noundef %34, i32 noundef %36)
   br label %103
 
 92:                                               ; preds = %80, %80
-  %93 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %20, i64 0, i64 %indvars.iv
-  %94 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %21, i64 0, i64 %indvars.iv
-  %95 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %24, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.IPlane, ptr %21, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw %struct.LUT, ptr %24, i64 %indvars.iv
   %96 = tail call fastcc i32 @erode(ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %64, ptr noundef nonnull %95, i32 noundef %34, i32 noundef %36)
   br label %103
 
 97:                                               ; preds = %80, %80
-  %98 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %20, i64 0, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %21, i64 0, i64 %indvars.iv
-  %100 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %24, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw %struct.IPlane, ptr %21, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw %struct.LUT, ptr %24, i64 %indvars.iv
   %101 = tail call fastcc i32 @dilate(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %64, ptr noundef nonnull %100, i32 noundef %34, i32 noundef %36)
   br label %103
 
@@ -1513,7 +1513,7 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %difference.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %difference.exit.thread ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !54
   %25 = mul nsw i32 %24, %2
   %26 = sdiv i32 %25, %3
@@ -1532,7 +1532,7 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   br i1 %.not114, label %difference.exit.thread, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw [4 x %struct.chord_set], ptr %13, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.chord_set, ptr %13, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %38 = load i32, ptr %37, align 4, !tbaa !87
   %39 = icmp eq i32 %38, 32767
@@ -1567,29 +1567,29 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   ]
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %15, i64 0, i64 %indvars.iv
-  %56 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %16, i64 0, i64 %indvars.iv
-  %57 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %19, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct.IPlane, ptr %16, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %58 = tail call fastcc i32 @dilate(ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %36, ptr noundef %57, i32 noundef %26, i32 noundef %28)
   br label %difference.exit
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %15, i64 0, i64 %indvars.iv
-  %61 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %16, i64 0, i64 %indvars.iv
-  %62 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %19, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %struct.IPlane, ptr %16, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %63 = tail call fastcc i32 @erode(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %36, ptr noundef %62, i32 noundef %26, i32 noundef %28)
   br label %difference.exit
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %16, i64 0, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %20, i64 0, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %19, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %struct.IPlane, ptr %16, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %68 = tail call fastcc i32 @erode(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %36, ptr noundef %67, i32 noundef %26, i32 noundef %28)
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %difference.exit.thread138, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %15, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
   %72 = icmp slt i32 %26, %28
   br i1 %72, label %.lr.ph.i, label %difference.exit.thread
 
@@ -1616,15 +1616,15 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   br i1 %exitcond.not.i, label %difference.exit.thread, label %76, !llvm.loop !118
 
 85:                                               ; preds = %52
-  %86 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %15, i64 0, i64 %indvars.iv
-  %87 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %16, i64 0, i64 %indvars.iv
-  %88 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %19, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw %struct.IPlane, ptr %16, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %89 = tail call fastcc i32 @dilate(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %36, ptr noundef %88, i32 noundef %26, i32 noundef %28)
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %difference.exit.thread138, label %91
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %20, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
   %93 = icmp slt i32 %26, %28
   br i1 %93, label %.lr.ph.i120, label %difference.exit.thread
 
@@ -1651,15 +1651,15 @@ define internal range(i32 -12, 1) i32 @morpho_sliceX(ptr noundef readonly captur
   br i1 %exitcond.not.i124, label %difference.exit.thread, label %97, !llvm.loop !119
 
 106:                                              ; preds = %52
-  %107 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %15, i64 0, i64 %indvars.iv
-  %108 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %16, i64 0, i64 %indvars.iv
-  %109 = getelementptr inbounds nuw [4 x %struct.LUT], ptr %19, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw %struct.IPlane, ptr %15, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw %struct.IPlane, ptr %16, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct.LUT, ptr %19, i64 %indvars.iv
   %110 = tail call fastcc i32 @erode(ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef nonnull %36, ptr noundef %109, i32 noundef %26, i32 noundef %28)
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %difference.exit.thread138, label %112
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw [4 x %struct.IPlane], ptr %20, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %struct.IPlane, ptr %20, i64 %indvars.iv
   %114 = icmp slt i32 %26, %28
   br i1 %114, label %.lr.ph.i125, label %difference.exit.thread
 

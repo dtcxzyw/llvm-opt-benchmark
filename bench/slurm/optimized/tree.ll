@@ -530,14 +530,14 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 152:                                              ; preds = %.outer._crit_edge
   %153 = zext nneg i16 %rev.i to i32
   %154 = zext nneg i16 %rev.i to i64
-  %155 = getelementptr inbounds nuw [10 x ptr], ptr @tree_cmd_names, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr @tree_cmd_names, i64 %154
   %156 = load ptr, ptr %155, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_tree_cmd, i32 noundef %153, ptr noundef %156) #7
   br label %157
 
 157:                                              ; preds = %.outer._crit_edge._crit_edge, %152
   %.pre-phi = phi i64 [ %.pre, %.outer._crit_edge._crit_edge ], [ %154, %152 ]
-  %158 = getelementptr inbounds nuw [10 x ptr], ptr @tree_cmd_handlers, i64 0, i64 %.pre-phi
+  %158 = getelementptr inbounds nuw ptr, ptr @tree_cmd_handlers, i64 %.pre-phi
   %159 = load ptr, ptr %158, align 8
   %160 = tail call i32 %159(i32 noundef %0, ptr noundef %149) #7
   %.not81 = icmp eq ptr %149, null

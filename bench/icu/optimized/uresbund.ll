@@ -5723,7 +5723,7 @@ ures_getKey_77.exit:                              ; preds = %.preheader63, %.thr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [512 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !38
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %27) #27
   %.not58 = icmp eq i32 %42, 0
@@ -5751,10 +5751,10 @@ ures_getKey_77.exit:                              ; preds = %.preheader63, %.thr
   %53 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %27) #23
   %54 = add nsw i32 %.24467, 1
   %55 = sext i32 %.24467 to i64
-  %56 = getelementptr inbounds [512 x ptr], ptr %5, i64 0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr %5, i64 %55
   store ptr %52, ptr %56, align 8, !tbaa !38
   %57 = sext i32 %46 to i64
-  %58 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %57
+  %58 = getelementptr inbounds i8, ptr %4, i64 %57
   store i8 0, ptr %58, align 1, !tbaa !32
   br label %.thread
 
@@ -5786,7 +5786,7 @@ ures_getKey_77.exit:                              ; preds = %.preheader63, %.thr
   %.041.lcssa = phi i32 [ 0, %14 ], [ %.1, %.split ]
   %63 = add nsw i32 %.041.lcssa, 1
   %64 = sext i32 %.041.lcssa to i64
-  %65 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %4, i64 %64
   store i8 0, ptr %65, align 1, !tbaa !32
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %7, i8 noundef signext 1)
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %8, i8 noundef signext 1)

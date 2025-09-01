@@ -74,9 +74,9 @@ define dso_local ptr @form_request_name(i32 noundef %0) local_unnamed_addr #0 {
   br label %10
 
 5:                                                ; preds = %1
-  %6 = add nsw i32 %0, -512
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [57 x ptr], ptr @request_names, i64 0, i64 %7
+  %6 = zext nneg i32 %0 to i64
+  %7 = getelementptr ptr, ptr @request_names, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -4096
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   br label %10
 
@@ -101,7 +101,7 @@ define dso_local range(i32 -9, 576) i32 @form_request_by_name(ptr noundef readon
 
 5:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
-  %6 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !11
   %.not26 = icmp eq i8 %7, 0
   br i1 %.not26, label %.critedge.preheader, label %8
@@ -123,7 +123,7 @@ define dso_local range(i32 -9, 576) i32 @form_request_by_name(ptr noundef readon
 
 .critedge:                                        ; preds = %.critedge.preheader, %21
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %21 ], [ 0, %.critedge.preheader ]
-  %14 = getelementptr inbounds nuw [57 x ptr], ptr @request_names, i64 0, i64 %indvars.iv32
+  %14 = getelementptr inbounds nuw ptr, ptr @request_names, i64 %indvars.iv32
   %15 = load ptr, ptr %14, align 8, !tbaa !8
   %16 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16) #8
   %17 = icmp eq i32 %16, 0

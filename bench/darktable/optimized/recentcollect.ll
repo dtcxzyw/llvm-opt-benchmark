@@ -438,7 +438,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 44:                                               ; preds = %47, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 1, !tbaa !68
   switch i8 %46, label %47 [
     i8 36, label %48
@@ -450,7 +450,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
   br label %44
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   store i8 0, ptr %49, align 1, !tbaa !68
   br label %.loopexit.i
 

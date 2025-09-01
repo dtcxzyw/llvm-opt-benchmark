@@ -4828,7 +4828,7 @@ define ptr @H5T__create(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %.thread88
 
 switch.lookup:                                    ; preds = %58
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.H5T__create, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5T__create, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.055 = load i64, ptr %switch.load, align 8, !tbaa !10
   %64 = tail call ptr @H5T__alloc()
@@ -7964,9 +7964,9 @@ define i32 @H5T_cmp(ptr noundef readonly captures(address) %0, ptr noundef reado
 
 356:                                              ; preds = %.lr.ph, %355
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %355 ]
-  %357 = getelementptr inbounds nuw [32 x i64], ptr %353, i64 0, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw i64, ptr %353, i64 %indvars.iv
   %358 = load i64, ptr %357, align 8, !tbaa !27
-  %359 = getelementptr inbounds nuw [32 x i64], ptr %354, i64 0, i64 %indvars.iv
+  %359 = getelementptr inbounds nuw i64, ptr %354, i64 %indvars.iv
   %360 = load i64, ptr %359, align 8, !tbaa !27
   %361 = icmp ult i64 %358, %360
   br i1 %361, label %.thread536, label %362
@@ -15688,7 +15688,7 @@ define range(i32 -1, 1) i32 @H5T_set_version(ptr noundef %0, ptr noundef %1) loc
 19:                                               ; preds = %16
   %20 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #16
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [7 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr @H5O_dtype_ver_bounds, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !12
@@ -15738,7 +15738,7 @@ H5T__upgrade_version.exit.thread:                 ; preds = %.H5T__upgrade_versi
   %47 = phi i32 [ %.pre14, %H5T__upgrade_version.exit.thread ], [ %27, %19 ]
   %48 = call i32 @H5F_get_high_bound(ptr noundef %0) #16
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [7 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr @H5O_dtype_ver_bounds, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !46
   %52 = icmp ugt i32 %47, %51
   br i1 %52, label %53, label %57

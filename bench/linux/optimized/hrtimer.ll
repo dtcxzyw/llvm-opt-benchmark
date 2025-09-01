@@ -186,7 +186,7 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #4 align
 
 23:                                               ; preds = %19
   %24 = and i64 %20, 63
-  %25 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %24
+  %25 = getelementptr i64, ptr @__per_cpu_offset, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, ptrtoint (ptr @hrtimer_bases to i64)
   %28 = inttoptr i64 %27 to ptr
@@ -242,7 +242,7 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #4 align
   %64 = xor i32 %63, -1
   %65 = and i32 %59, %64
   %66 = and i64 %61, 4294967295
-  %67 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %53, i64 0, i64 %66
+  %67 = getelementptr %struct.hrtimer_clock_base, ptr %53, i64 %66
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.thread5, label %69
 
@@ -271,7 +271,7 @@ define dso_local void @clock_was_set(i32 noundef %0) local_unnamed_addr #4 align
   %85 = xor i32 %84, -1
   %86 = and i32 %80, %85
   %87 = and i64 %82, 4294967295
-  %88 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %53, i64 0, i64 %87
+  %88 = getelementptr %struct.hrtimer_clock_base, ptr %53, i64 %87
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.thread5, label %90
 
@@ -617,7 +617,7 @@ define dso_local void @hrtimer_start_range_ns(ptr noundef %0, i64 noundef %1, i6
 71:                                               ; preds = %69
   %72 = tail call i32 @get_nohz_timer_target() #13
   %73 = sext i32 %72 to i64
-  %74 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %73
+  %74 = getelementptr i64, ptr @__per_cpu_offset, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, ptrtoint (ptr @hrtimer_bases to i64)
   %77 = inttoptr i64 %76 to ptr
@@ -631,7 +631,7 @@ define dso_local void @hrtimer_start_range_ns(ptr noundef %0, i64 noundef %1, i6
 80:                                               ; preds = %.backedge, %.thread
   %81 = phi ptr [ %78, %.thread ], [ %68, %.backedge ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
-  %83 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %82, i64 0, i64 %79
+  %83 = getelementptr %struct.hrtimer_clock_base, ptr %82, i64 %79
   %84 = icmp eq ptr %83, %15
   br i1 %84, label %106, label %85
 
@@ -1170,7 +1170,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   %28 = xor i32 %27, -1
   %29 = and i32 %21, %28
   %30 = and i64 %25, 4294967295
-  %31 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %15, i64 0, i64 %30
+  %31 = getelementptr %struct.hrtimer_clock_base, ptr %15, i64 %30
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread.i, label %33
 
@@ -1243,7 +1243,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_get_next_event(
   %76 = xor i32 %75, -1
   %77 = and i32 %69, %76
   %78 = and i64 %73, 4294967295
-  %79 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %63, i64 0, i64 %78
+  %79 = getelementptr %struct.hrtimer_clock_base, ptr %63, i64 %78
   %80 = icmp eq ptr %79, null
   br i1 %80, label %__hrtimer_get_next_event.exit, label %81
 
@@ -1333,7 +1333,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   %27 = xor i32 %26, -1
   %28 = and i32 %20, %27
   %29 = and i64 %24, 4294967295
-  %30 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %16, i64 0, i64 %29
+  %30 = getelementptr %struct.hrtimer_clock_base, ptr %16, i64 %29
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %32
 
@@ -1376,7 +1376,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   %57 = xor i32 %56, -1
   %58 = and i32 %50, %57
   %59 = and i64 %54, 4294967295
-  %60 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %16, i64 0, i64 %59
+  %60 = getelementptr %struct.hrtimer_clock_base, ptr %16, i64 %59
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %62
 
@@ -1447,7 +1447,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   %100 = xor i32 %99, -1
   %101 = and i32 %93, %100
   %102 = and i64 %97, 4294967295
-  %103 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %89, i64 0, i64 %102
+  %103 = getelementptr %struct.hrtimer_clock_base, ptr %89, i64 %102
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread13, label %105
 
@@ -1490,7 +1490,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   %130 = xor i32 %129, -1
   %131 = and i32 %123, %130
   %132 = and i64 %127, 4294967295
-  %133 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %89, i64 0, i64 %132
+  %133 = getelementptr %struct.hrtimer_clock_base, ptr %89, i64 %132
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread13, label %135
 
@@ -1592,7 +1592,7 @@ define dso_local void @hrtimer_init(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 30:                                               ; preds = %24
   %31 = sext i32 %28 to i64
-  %32 = getelementptr [16 x i32], ptr @hrtimer_clock_to_base_table, i64 0, i64 %31
+  %32 = getelementptr i32, ptr @hrtimer_clock_to_base_table, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i64 %31, 4611686018427387903
   %35 = shl nuw i64 1, %34
@@ -1625,7 +1625,7 @@ define dso_local void @hrtimer_init(ptr noundef %0, i32 noundef %1, i32 noundef 
   store i8 %49, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %52 = sext i32 %45 to i64
-  %53 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %51, i64 0, i64 %52
+  %53 = getelementptr %struct.hrtimer_clock_base, ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %53, ptr %54, align 8
   %55 = ptrtoint ptr %0 to i64
@@ -1786,7 +1786,7 @@ define internal fastcc void @__hrtimer_run_queues(ptr noundef %0, i64 noundef %1
   %16 = xor i32 %15, -1
   %17 = and i32 %11, %16
   %18 = and i64 %13, 4294967295
-  %19 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %9, i64 0, i64 %18
+  %19 = getelementptr %struct.hrtimer_clock_base, ptr %9, i64 %18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
@@ -2115,7 +2115,7 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_ne
   %24 = xor i32 %23, -1
   %25 = and i32 %17, %24
   %26 = and i64 %21, 4294967295
-  %27 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %11, i64 0, i64 %26
+  %27 = getelementptr %struct.hrtimer_clock_base, ptr %11, i64 %26
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 
@@ -2188,7 +2188,7 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @hrtimer_update_ne
   %71 = xor i32 %70, -1
   %72 = and i32 %64, %71
   %73 = and i64 %68, 4294967295
-  %74 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %58, i64 0, i64 %73
+  %74 = getelementptr %struct.hrtimer_clock_base, ptr %58, i64 %73
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread14, label %76
 
@@ -2392,7 +2392,7 @@ define dso_local void @hrtimer_init_sleeper(ptr noundef %0, i32 noundef %1, i32 
 
 30:                                               ; preds = %24
   %31 = sext i32 %28 to i64
-  %32 = getelementptr [16 x i32], ptr @hrtimer_clock_to_base_table, i64 0, i64 %31
+  %32 = getelementptr i32, ptr @hrtimer_clock_to_base_table, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i64 %31, 4611686018427387903
   %35 = shl nuw i64 1, %34
@@ -2425,7 +2425,7 @@ define dso_local void @hrtimer_init_sleeper(ptr noundef %0, i32 noundef %1, i32 
   store i8 %49, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %52 = sext i32 %45 to i64
-  %53 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %51, i64 0, i64 %52
+  %53 = getelementptr %struct.hrtimer_clock_base, ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %53, ptr %54, align 8
   %55 = ptrtoint ptr %0 to i64
@@ -3091,7 +3091,7 @@ define dso_local noundef range(i64 -516, 1) i64 @__ia32_sys_nanosleep_time32(ptr
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @hrtimers_prepare_cpu(i32 noundef %0) local_unnamed_addr #9 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @hrtimer_bases to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -3100,7 +3100,7 @@ define dso_local noundef i32 @hrtimers_prepare_cpu(i32 noundef %0) local_unnamed
 
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %13, %8 ]
-  %10 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %7, i64 0, i64 %9
+  %10 = getelementptr %struct.hrtimer_clock_base, ptr %7, i64 %9
   store ptr %6, ptr %10, align 64
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %11, align 16
@@ -3147,8 +3147,8 @@ define dso_local noundef i32 @hrtimers_cpu_dying(i32 noundef %0) local_unnamed_a
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @hrtimer_bases) #14, !srcloc !100
   %9 = inttoptr i64 %8 to ptr
   %10 = shl i64 %7, 32
-  %11 = ashr exact i64 %10, 32
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %11 = ashr exact i64 %10, 29
+  %12 = getelementptr i8, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @hrtimer_bases to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -3160,8 +3160,8 @@ define dso_local noundef i32 @hrtimers_cpu_dying(i32 noundef %0) local_unnamed_a
 
 18:                                               ; preds = %.loopexit, %6
   %19 = phi i64 [ 0, %6 ], [ %111, %.loopexit ]
-  %20 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %16, i64 0, i64 %19
-  %21 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %17, i64 0, i64 %19
+  %20 = getelementptr %struct.hrtimer_clock_base, ptr %16, i64 %19
+  %21 = getelementptr %struct.hrtimer_clock_base, ptr %17, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = load ptr, ptr %23, align 8
@@ -3360,7 +3360,7 @@ enqueue_hrtimer.exit:                             ; preds = %95, %101
   %135 = xor i32 %134, -1
   %136 = and i32 %128, %135
   %137 = and i64 %132, 4294967295
-  %138 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %17, i64 0, i64 %137
+  %138 = getelementptr %struct.hrtimer_clock_base, ptr %17, i64 %137
   %139 = icmp eq ptr %138, null
   br i1 %139, label %.thread, label %140
 
@@ -3484,7 +3484,7 @@ define internal void @hrtimer_run_softirq(ptr readnone captures(none) %0) #4 ali
   %36 = xor i32 %35, -1
   %37 = and i32 %29, %36
   %38 = and i64 %33, 4294967295
-  %39 = getelementptr [8 x %struct.hrtimer_clock_base], ptr %23, i64 0, i64 %38
+  %39 = getelementptr %struct.hrtimer_clock_base, ptr %23, i64 %38
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41
 

@@ -2407,7 +2407,7 @@ vector.body:                                      ; preds = %entry, %vector.body
   %1 = and <16 x i64> %vec.ind, splat (i64 1)
   %2 = icmp eq <16 x i64> %1, zeroinitializer
   %3 = select <16 x i1> %2, <16 x i8> splat (i8 26), <16 x i8> splat (i8 -95)
-  %4 = getelementptr inbounds nuw [576 x i8], ptr @_ZZN13TLSTestThread3runEvE3foo, i64 0, i64 %index
+  %4 = getelementptr inbounds nuw i8, ptr @_ZZN13TLSTestThread3runEvE3foo, i64 %index
   store <16 x i8> %3, ptr %4, align 1, !tbaa !20
   %index.next = add nuw nsw i64 %index, 16
   %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 16)
@@ -2444,7 +2444,7 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds nuw [576 x i8], ptr %this, i64 0, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw i8, ptr %this, i64 %indvars.iv.next
   %0 = load i8, ptr %arrayidx.1, align 1, !tbaa !20
   %conv2.1 = zext i8 %0 to i32
   %conv3.1 = select i1 %tobool.not, i32 161, i32 26
@@ -2453,7 +2453,7 @@ for.cond:                                         ; preds = %for.body
 
 for.cond.1:                                       ; preds = %for.cond
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
-  %arrayidx.2 = getelementptr inbounds nuw [576 x i8], ptr %this, i64 0, i64 %indvars.iv.next.1
+  %arrayidx.2 = getelementptr inbounds nuw i8, ptr %this, i64 %indvars.iv.next.1
   %1 = load i8, ptr %arrayidx.2, align 1, !tbaa !20
   %cmp4.not.2 = icmp eq i8 %2, %1
   br i1 %cmp4.not.2, label %for.cond.2, label %if.then
@@ -2467,7 +2467,7 @@ for.body:                                         ; preds = %for.cond.2, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next.2, %for.cond.2 ]
   %rem49 = and i64 %indvars.iv, 1
   %tobool.not = icmp eq i64 %rem49, 0
-  %arrayidx = getelementptr inbounds nuw [576 x i8], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1, !tbaa !20
   %conv2 = zext i8 %2 to i32
   %conv3 = select i1 %tobool.not, i32 26, i32 161
@@ -2477,7 +2477,7 @@ for.body:                                         ; preds = %for.cond.2, %entry
 if.then:                                          ; preds = %for.body, %for.cond.1, %for.cond
   %indvars.iv.lcssa = phi i64 [ %indvars.iv, %for.body ], [ %indvars.iv.next, %for.cond ], [ %indvars.iv.next.1, %for.cond.1 ]
   %conv3.lcssa = phi i32 [ %conv3, %for.body ], [ %conv3.1, %for.cond ], [ %conv2, %for.cond.1 ]
-  %arrayidx.le = getelementptr inbounds [576 x i8], ptr %this, i64 0, i64 %indvars.iv.lcssa
+  %arrayidx.le = getelementptr inbounds i8, ptr %this, i64 %indvars.iv.lcssa
   %call1.i30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.23, i64 noundef 10)
           to label %invoke.cont unwind label %terminate.lpad
 

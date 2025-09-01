@@ -636,7 +636,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
 
 98:                                               ; preds = %95, %head_match_p.exit1060.thread
   %indvars.iv2222 = phi i64 [ 0, %95 ], [ %indvars.iv.next2223, %head_match_p.exit1060.thread ]
-  %99 = getelementptr inbounds nuw [7 x ptr], ptr @day_names, i64 0, i64 %indvars.iv2222
+  %99 = getelementptr inbounds nuw ptr, ptr @day_names, i64 %indvars.iv2222
   %100 = load ptr, ptr %99, align 8, !tbaa !22
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #12
   %.not.i1058 = icmp ult i64 %96, %101
@@ -706,7 +706,7 @@ head_match_p.exit1060.thread:                     ; preds = %head_match_p.exit.t
 
 118:                                              ; preds = %115, %head_match_p.exit1076.thread
   %indvars.iv2218 = phi i64 [ 0, %115 ], [ %indvars.iv.next2219, %head_match_p.exit1076.thread ]
-  %119 = getelementptr inbounds nuw [12 x ptr], ptr @month_names, i64 0, i64 %indvars.iv2218
+  %119 = getelementptr inbounds nuw ptr, ptr @month_names, i64 %indvars.iv2218
   %120 = load ptr, ptr %119, align 8, !tbaa !22
   %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %120) #12
   %.not.i1073 = icmp ult i64 %116, %121

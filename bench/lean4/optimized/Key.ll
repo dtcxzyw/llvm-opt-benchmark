@@ -104,7 +104,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lake_DSL_Key_0__Lake_DSL_expan
   %.02144 = phi i64 [ %32, %48 ], [ %1, %3 ]
   %.02343 = phi ptr [ %.0.i.i31, %48 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02343, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02144
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02144
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -236,7 +236,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_DSL_Ke
 12:                                               ; preds = %.lr.ph, %99
   %.04788 = phi i64 [ %2, %.lr.ph ], [ %103, %99 ]
   %.04987 = phi ptr [ %4, %.lr.ph ], [ %102, %99 ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.04788
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %.04788
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
@@ -2128,7 +2128,7 @@ lean_alloc_ctor.exit:                             ; preds = %._crit_edge
   %.02966 = phi i64 [ %70, %lean_dec.exit37 ], [ %1, %3 ]
   %.03265 = phi ptr [ %.0.i.i50, %lean_dec.exit37 ], [ %2, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %.03265, i64 24
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.02966
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02966
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

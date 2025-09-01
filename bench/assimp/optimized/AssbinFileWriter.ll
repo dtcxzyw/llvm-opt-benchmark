@@ -2186,7 +2186,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEP
 49:                                               ; preds = %47, %52
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %52 ]
   %.2276 = phi i32 [ %.1247, %47 ], [ %55, %52 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %.not124 = icmp eq ptr %51, null
   br i1 %.not124, label %56, label %52
@@ -2207,7 +2207,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryMeshEP
 58:                                               ; preds = %56, %61
   %indvars.iv309 = phi i64 [ 0, %56 ], [ %indvars.iv.next310, %61 ]
   %.3278 = phi i32 [ %.2.lcssa, %56 ], [ %64, %61 ]
-  %59 = getelementptr inbounds nuw [8 x ptr], ptr %57, i64 0, i64 %indvars.iv309
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv309
   %60 = load ptr, ptr %59, align 8
   %.not125 = icmp eq ptr %60, null
   br i1 %.not125, label %65, label %61
@@ -2477,7 +2477,7 @@ _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader: 
 
 _ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185: ; preds = %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader, %_ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %_ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit ], [ 0, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit185.preheader ]
-  %165 = getelementptr inbounds nuw [8 x ptr], ptr %57, i64 0, i64 %indvars.iv313
+  %165 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv313
   %166 = load ptr, ptr %165, align 8
   %.not130 = icmp eq ptr %166, null
   br i1 %.not130, label %194, label %167
@@ -2559,13 +2559,13 @@ _ZN6Assimp10WriteArrayI9aiColor4tIfEEEmPNS_8IOStreamEPKT_j.exit: ; preds = %.noe
 
 196:                                              ; preds = %194, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213
   %indvars.iv317 = phi i64 [ 0, %194 ], [ %indvars.iv.next318, %_ZN6Assimp10WriteArrayI10aiVector3tIfEEEmPNS_8IOStreamEPKT_j.exit213 ]
-  %197 = getelementptr inbounds nuw [8 x ptr], ptr %48, i64 0, i64 %indvars.iv317
+  %197 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv317
   %198 = load ptr, ptr %197, align 8
   %.not131 = icmp eq ptr %198, null
   br i1 %.not131, label %229, label %199
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds nuw [8 x i32], ptr %195, i64 0, i64 %indvars.iv317
+  %200 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv317
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %201 = load i32, ptr %200, align 4
   store i32 %201, ptr %6, align 4

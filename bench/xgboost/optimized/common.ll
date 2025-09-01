@@ -68,17 +68,17 @@ define noundef nonnull align 8 dereferenceable(5000) ptr @_ZN7xgboost6common12Gl
   br label %4
 
 4:                                                ; preds = %4, %3
-  %5 = phi i64 [ 5489, %3 ], [ %10, %4 ]
-  %.011.i.i.i.i.i = phi i64 [ 1, %3 ], [ %12, %4 ]
-  %6 = lshr i64 %5, 30
-  %7 = xor i64 %6, %5
+  %store_forwarded = phi i64 [ 5489, %3 ], [ %10, %4 ]
+  %.011.i.i.i.i.i = phi i64 [ 1, %3 ], [ %11, %4 ]
+  %5 = getelementptr i64, ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 %.011.i.i.i.i.i
+  %6 = lshr i64 %store_forwarded, 30
+  %7 = xor i64 %6, %store_forwarded
   %8 = mul nuw nsw i64 %7, 1812433253
   %9 = add nuw i64 %8, %.011.i.i.i.i.i
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds nuw [624 x i64], ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 0, i64 %.011.i.i.i.i.i
-  store i64 %10, ptr %11, align 8, !tbaa !4
-  %12 = add nuw nsw i64 %.011.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %12, 624
+  store i64 %10, ptr %5, align 8, !tbaa !4
+  %11 = add nuw nsw i64 %.011.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %11, 624
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i, label %4, !llvm.loop !8
 
 _ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i: ; preds = %4
@@ -87,8 +87,8 @@ _ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i: ; preds = %4
   br label %_ZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEv.exit
 
 _ZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEv.exit: ; preds = %0, %_ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i
-  %13 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst)
-  ret ptr %13
+  %12 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst)
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable

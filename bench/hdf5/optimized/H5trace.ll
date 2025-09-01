@@ -790,7 +790,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 94:                                               ; preds = %91
   %95 = zext nneg i32 %.11424 to i64
-  %96 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %3, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !3
   %98 = icmp sgt i64 %97, -1
   br i1 %98, label %99, label %H5_trace_args_close_degree.exit1640
@@ -837,7 +837,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 118:                                              ; preds = %112
   %119 = zext nneg i32 %.11424 to i64
-  %120 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i64, ptr %3, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !3
   %122 = icmp sgt i64 %121, -1
   br i1 %122, label %123, label %H5_trace_args_close_degree.exit1640
@@ -877,7 +877,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 137:                                              ; preds = %135
   %138 = zext nneg i32 %.11424 to i64
-  %139 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i64, ptr %3, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !3
   %141 = icmp sgt i64 %140, -1
   br i1 %141, label %142, label %H5_trace_args_close_degree.exit1640
@@ -908,7 +908,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 152:                                              ; preds = %150
   %153 = zext nneg i32 %.11424 to i64
-  %154 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i64, ptr %3, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !3
   %156 = icmp sgt i64 %155, -1
   br i1 %156, label %157, label %H5_trace_args_close_degree.exit1640
@@ -960,7 +960,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 176:                                              ; preds = %174
   %177 = zext nneg i32 %.11424 to i64
-  %178 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i64, ptr %3, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !3
   %180 = icmp sgt i64 %179, -1
   br i1 %180, label %181, label %H5_trace_args_close_degree.exit1640
@@ -991,7 +991,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 191:                                              ; preds = %189
   %192 = zext nneg i32 %.11424 to i64
-  %193 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i64, ptr %3, i64 %192
   %194 = load i64, ptr %193, align 8, !tbaa !3
   %195 = icmp sgt i64 %194, -1
   br i1 %195, label %196, label %H5_trace_args_close_degree.exit1640
@@ -1023,7 +1023,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 207:                                              ; preds = %204
   %208 = zext nneg i32 %.11424 to i64
-  %209 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i64, ptr %3, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !3
   %211 = icmp sgt i64 %210, -1
   br i1 %211, label %212, label %H5_trace_args_close_degree.exit1640
@@ -1066,7 +1066,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 227:                                              ; preds = %224
   %228 = zext nneg i32 %.11424 to i64
-  %229 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw i64, ptr %3, i64 %228
   %230 = load i64, ptr %229, align 8, !tbaa !3
   %231 = icmp sgt i64 %230, -1
   br i1 %231, label %232, label %H5_trace_args_close_degree.exit1640
@@ -1102,7 +1102,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 246:                                              ; preds = %240
   %247 = zext nneg i32 %.11424 to i64
-  %248 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr %3, i64 %247
   %249 = load i64, ptr %248, align 8, !tbaa !3
   %250 = icmp sgt i64 %249, -1
   br i1 %250, label %251, label %H5_trace_args_close_degree.exit1640
@@ -3477,7 +3477,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 1441:                                             ; preds = %1435
   %1442 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef %1437) #10
-  %1443 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %1443 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %1437, ptr %1443, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -3537,7 +3537,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %1474 = phi ptr [ %1468, %1465 ], [ %1471, %1470 ]
   %1475 = load i64, ptr %1474, align 8, !tbaa !3
   %1476 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %1475) #10
-  %1477 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %1477 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %1475, ptr %1477, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4127,7 +4127,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 1792:                                             ; preds = %1789
   %1793 = call i32 @H5S_get_simple_extent_ndims(ptr noundef nonnull %1788) #10
   %1794 = sext i32 %1793 to i64
-  %1795 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %1795 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %1794, ptr %1795, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4432,7 +4432,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %1952 = load i32, ptr %1951, align 4, !tbaa !16
   %1953 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.259, i32 noundef %1952) #10
   %1954 = sext i32 %1952 to i64
-  %1955 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %1955 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %1954, ptr %1955, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4610,7 +4610,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %2039 = load i32, ptr %2038, align 4, !tbaa !16
   %2040 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.279, i32 noundef %2039) #10
   %2041 = zext i32 %2039 to i64
-  %2042 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %2042 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %2041, ptr %2042, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -4646,7 +4646,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
 
 2059:                                             ; preds = %2057, %2059
   %indvars.iv = phi i64 [ 0, %2057 ], [ %indvars.iv.next, %2059 ]
-  %2060 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %2060 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %2061 = load i8, ptr %2060, align 1, !tbaa !7
   %2062 = zext i8 %2061 to i32
   %2063 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.281, i32 noundef %2062) #10
@@ -6408,7 +6408,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %2964 = phi ptr [ %2958, %2955 ], [ %2961, %2960 ]
   %2965 = load i64, ptr %2964, align 8, !tbaa !3
   %2966 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef %2965) #10
-  %2967 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %2967 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %2965, ptr %2967, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -6435,7 +6435,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %2980 = phi ptr [ %2974, %2971 ], [ %2977, %2976 ]
   %2981 = load i64, ptr %2980, align 8, !tbaa !21
   %2982 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.376, i64 noundef %2981) #10
-  %2983 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %2983 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %2981, ptr %2983, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -8068,7 +8068,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %3788 = phi ptr [ %3782, %3779 ], [ %3785, %3784 ]
   %3789 = load i64, ptr %3788, align 8, !tbaa !3
   %3790 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.509, i64 noundef %3789) #10
-  %3791 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %3791 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %3789, ptr %3791, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 
@@ -8307,7 +8307,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1138, %1140, %1142,
   %3912 = phi ptr [ %3906, %3903 ], [ %3909, %3908 ]
   %3913 = load i64, ptr %3912, align 8, !tbaa !3
   %3914 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.522, i64 noundef %3913) #10
-  %3915 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1847
+  %3915 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv1847
   store i64 %3913, ptr %3915, align 8, !tbaa !3
   br label %H5_trace_args_close_degree.exit1640
 

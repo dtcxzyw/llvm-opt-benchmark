@@ -17,7 +17,7 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %6
@@ -31,7 +31,7 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader ], [ 89, %3 ]
-  %10 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv34
   %11 = load i16, ptr %10, align 2, !tbaa !4
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %12
@@ -73,7 +73,7 @@ define hidden void @lj_dispatch_init(ptr noundef captures(none) %0) local_unname
 
 35:                                               ; preds = %15, %35
   %indvars.iv38 = phi i64 [ 0, %15 ], [ %indvars.iv.next39, %35 ]
-  %36 = getelementptr inbounds nuw [57 x i32], ptr %34, i64 0, i64 %indvars.iv38
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv38
   %37 = trunc i64 %indvars.iv38 to i32
   %38 = add i32 %37, 97
   store i32 %38, ptr %36, align 4, !tbaa !44
@@ -289,7 +289,7 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
 
 .preheader:                                       ; preds = %94, %.preheader
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.preheader ], [ 89, %94 ]
-  %95 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %indvars.iv126
+  %95 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv126
   %96 = load i16, ptr %95, align 2, !tbaa !4
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %97
@@ -1427,7 +1427,7 @@ callhook.exit:                                    ; preds = %._crit_edge, %85, %
   %.034 = phi i32 [ %136, %135 ], [ %127, %134 ], [ %127, %131 ]
   store i32 %5, ptr %4, align 4, !tbaa !44
   %138 = zext nneg i32 %.034 to i64
-  %139 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !4
   %141 = zext i16 %140 to i64
   %142 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %141

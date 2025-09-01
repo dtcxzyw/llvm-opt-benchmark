@@ -21890,7 +21890,7 @@ _ZNSt6vectorIN2cv11RotatedRectESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx1
 
 .preheader:                                       ; preds = %354, %.preheader
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.preheader ], [ 0, %354 ]
-  %358 = getelementptr inbounds nuw [4 x %"class.cv::Point_"], ptr %13, i64 0, i64 %indvars.iv331
+  %358 = getelementptr inbounds nuw %"class.cv::Point_", ptr %13, i64 %indvars.iv331
   %359 = load float, ptr %358, align 8, !tbaa !439
   %360 = fmul float %250, %359
   store float %360, ptr %358, align 8, !tbaa !439
@@ -23336,7 +23336,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
 239:                                              ; preds = %234, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
   %240 = phi ptr [ null, %234 ], [ %269, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit ]
   %indvars.iv = phi i64 [ 0, %234 ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit ]
-  %241 = getelementptr inbounds nuw [4 x %"class.cv::Point_"], ptr %21, i64 0, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw %"class.cv::Point_", ptr %21, i64 %indvars.iv
   %242 = load ptr, ptr %111, align 8, !tbaa !196
   %.not.i95 = icmp eq ptr %240, %242
   br i1 %.not.i95, label %247, label %243

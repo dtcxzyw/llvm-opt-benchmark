@@ -523,7 +523,7 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
 
 71:                                               ; preds = %66, %90
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %90 ]
-  %72 = getelementptr inbounds nuw [4 x %struct.CDSFileMapRegion], ptr %70, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %70, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %.not64 = icmp eq i32 %74, 0

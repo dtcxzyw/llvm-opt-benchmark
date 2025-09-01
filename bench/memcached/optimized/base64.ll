@@ -33,7 +33,7 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   %17 = load i8, ptr %.055, align 1, !tbaa !4
   %18 = lshr i8 %17, 2
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %.04554, i64 1
   store i8 %21, ptr %.04554, align 1, !tbaa !4
@@ -45,7 +45,7 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   %28 = lshr i8 %27, 4
   %29 = or disjoint i8 %25, %28
   %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.04554, i64 2
   store i8 %32, ptr %22, align 1, !tbaa !4
@@ -57,14 +57,14 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   %39 = lshr i8 %38, 6
   %40 = or disjoint i8 %36, %39
   %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %.04554, i64 3
   store i8 %43, ptr %33, align 1, !tbaa !4
   %45 = load i8, ptr %37, align 1, !tbaa !4
   %46 = and i8 %45, 63
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !4
   %50 = getelementptr inbounds nuw i8, ptr %.04554, i64 4
   store i8 %49, ptr %44, align 1, !tbaa !4
@@ -85,7 +85,7 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   %56 = load i8, ptr %.0.lcssa, align 1, !tbaa !4
   %57 = lshr i8 %56, 2
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %.045.lcssa, i64 1
   store i8 %60, ptr %.045.lcssa, align 1, !tbaa !4
@@ -97,7 +97,7 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
 
 66:                                               ; preds = %55
   %67 = zext nneg i8 %65 to i64
-  %68 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %67
   %69 = load i8, ptr %68, align 16, !tbaa !4
   store i8 %69, ptr %61, align 1, !tbaa !4
   br label %84
@@ -108,14 +108,14 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   %73 = lshr i8 %72, 4
   %74 = or disjoint i8 %65, %73
   %75 = zext nneg i8 %74 to i64
-  %76 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !4
   store i8 %77, ptr %61, align 1, !tbaa !4
   %78 = load i8, ptr %71, align 1, !tbaa !4
   %79 = shl i8 %78, 2
   %80 = and i8 %79, 60
   %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds nuw [65 x i8], ptr @base64_table, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @base64_table, i64 %81
   %83 = load i8, ptr %82, align 4, !tbaa !4
   br label %84
 
@@ -154,7 +154,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.04054
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @dtable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @dtable, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %.not49 = icmp ne i8 %10, -128
   %11 = zext i1 %.not49 to i64
@@ -192,7 +192,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.14160
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @dtable, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @dtable, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = icmp eq i8 %28, -128
   br i1 %29, label %54, label %30
@@ -201,7 +201,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   %31 = icmp eq i8 %25, 61
   %32 = zext i1 %31 to i32
   %spec.select50 = add nsw i32 %.062, %32
-  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.23961
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %.23961
   store i8 %28, ptr %33, align 1, !tbaa !4
   %34 = add i64 %.23961, 1
   %35 = icmp eq i64 %34, 4

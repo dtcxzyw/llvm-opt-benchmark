@@ -1099,7 +1099,7 @@ define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly capture
 
 7:                                                ; preds = %4, %6
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = load i32, ptr %10, align 8, !tbaa !20
@@ -1207,7 +1207,7 @@ define i32 @uprv_convertToLCID_77(ptr noundef readonly captures(address_is_null)
 
 17:                                               ; preds = %.preheader
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1335,7 +1335,7 @@ _ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph
 70:                                               ; preds = %68, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
   %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ]
   %.03495 = phi i32 [ -1, %68 ], [ %.1, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ]
-  %71 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixMap", ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 %indvars.iv
   %72 = load i32, ptr %71, align 16, !tbaa !22
   %.not.i49 = icmp eq i32 %72, 0
   br i1 %.not.i49, label %._crit_edge.i67, label %.lr.ph.i50

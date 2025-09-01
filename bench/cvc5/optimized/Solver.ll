@@ -2916,7 +2916,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %44 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %41, i64 %indvars.iv.i
-  %45 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %42, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %union.anon.431, ptr %42, i64 %indvars.iv.i
   %46 = load i32, ptr %44, align 4, !tbaa !66
   store i32 %46, ptr %45, align 4, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2930,8 +2930,8 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %53 = lshr exact i64 %33, 5
-  %54 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %52, i64 0, i64 %53
+  %53 = lshr exact i64 %33, 3
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
   store float 0.000000e+00, ptr %54, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat6ClauseC2INS1_3vecINS1_3LitEEEEERKT_bbi.exit
 
@@ -2947,7 +2947,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
 58:                                               ; preds = %58, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %58 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %63, %58 ]
-  %59 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %57, i64 0, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw %union.anon.431, ptr %57, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %59, align 4, !tbaa !66
   %60 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %61 = and i32 %60, 31
@@ -2958,11 +2958,11 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
   br i1 %exitcond.not.i.i, label %_ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i, label %58, !llvm.loop !369
 
 _ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i: ; preds = %58, %55
-  %.pre-phi.i = phi i64 [ 0, %55 ], [ %56, %58 ]
   %.0.lcssa.i.i = phi i32 [ 0, %55 ], [ %63, %58 ]
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %65 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %64, i64 0, i64 %.pre-phi.i
-  store i32 %.0.lcssa.i.i, ptr %65, align 4, !tbaa !91
+  %65 = lshr exact i64 %33, 3
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
+  store i32 %.0.lcssa.i.i, ptr %66, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat6ClauseC2INS1_3vecINS1_3LitEEEEERKT_bbi.exit
 
 _ZN4cvc58internal7Minisat6ClauseC2INS1_3vecINS1_3LitEEEEERKT_bbi.exit: ; preds = %._crit_edge.i, %51, %_ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i
@@ -4776,7 +4776,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %26
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = load ptr, ptr %27, align 8, !tbaa !87
-  %41 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %7, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %union.anon.431, ptr %7, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %41, align 4, !tbaa !66
   tail call void @_ZN4cvc58internal4prop15SatProofManager17addResolutionStepENS0_7Minisat3LitEb(ptr noundef nonnull align 8 dereferenceable(1240) %40, i32 %.sroa.02.0.copyload, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4836,7 +4836,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Minisat6Solver9satisfiedERK
 
 9:                                                ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %union.anon.431, ptr %3, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %10, align 4, !tbaa !66
   %11 = ashr i32 %.sroa.0.0.copyload.i, 1
   %12 = sext i32 %11 to i64
@@ -5535,7 +5535,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread: ; preds = %_ZN4cvc58i
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %79 = lshr i64 %72, 5
   %80 = and i64 %79, 134217727
-  %81 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %union.anon.431, ptr %78, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !405
   %83 = fpext float %82 to double
   %84 = fadd double %77, %83
@@ -5571,7 +5571,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread: ; preds = %_ZN4cvc58i
   %98 = load i64, ptr %96, align 4
   %99 = lshr i64 %98, 5
   %100 = and i64 %99, 134217727
-  %101 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %97, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %union.anon.431, ptr %97, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !405
   %103 = fpext float %102 to double
   %104 = fmul double %103, 0x3BC79CA10C924223
@@ -5610,7 +5610,7 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread: ; preds = %_ZN4cvc58i
   %117 = load ptr, ptr %54, align 8, !tbaa !105
   %118 = getelementptr inbounds nuw i32, ptr %117, i64 %70
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %119, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw %union.anon.431, ptr %119, i64 %indvars.iv
   %121 = load i32, ptr %120, align 4, !tbaa !66
   %122 = ashr i32 %121, 1
   %123 = load ptr, ptr %58, align 8, !tbaa !100
@@ -6294,7 +6294,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit: ; preds = %._ZN4cvc58i
   %62 = load ptr, ptr %40, align 8, !tbaa !105
   %63 = getelementptr inbounds nuw i32, ptr %62, i64 %55
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %64, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %union.anon.431, ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !66
   %67 = ashr i32 %66, 1
   %68 = load ptr, ptr %41, align 8, !tbaa !100
@@ -6687,7 +6687,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit26: ; preds = %._ZN4cvc5
 105:                                              ; preds = %.lr.ph, %117
   %106 = phi i64 [ %102, %.lr.ph ], [ %118, %117 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %117 ]
-  %107 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %104, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw %union.anon.431, ptr %104, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %107, align 4, !tbaa !66
   %108 = ashr i32 %.sroa.02.0.copyload, 1
   %109 = load ptr, ptr %50, align 8, !tbaa !93
@@ -7893,7 +7893,7 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %128
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %128 ]
-  %129 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %105, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw %union.anon.431, ptr %105, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %129, align 4, !tbaa !66
   %130 = ashr i32 %.sroa.03.0.copyload, 1
   %131 = sext i32 %130 to i64
@@ -7906,7 +7906,7 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
   br i1 %.not140, label %128, label %137
 
 137:                                              ; preds = %.lr.ph
-  %138 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %105, i64 0, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw %union.anon.431, ptr %105, i64 %indvars.iv
   %139 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i32 %.sroa.03.0.copyload, ptr %139, align 4, !tbaa !66
   store i32 %85, ptr %138, align 4, !tbaa !66
@@ -8168,7 +8168,7 @@ _ZNK4cvc58internal7Minisat6Solver6lockedERKNS1_6ClauseE.exit.thread: ; preds = %
 44:                                               ; preds = %_ZNK4cvc58internal7Minisat6Solver6lockedERKNS1_6ClauseE.exit.thread
   %45 = lshr i64 %23, 5
   %46 = and i64 %45, 134217727
-  %47 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %27, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %union.anon.431, ptr %27, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !405
   %49 = fpext float %48 to double
   %50 = fcmp ogt double %8, %49
@@ -8268,7 +8268,7 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver15removeSatisfiedERNS1_3vecI
 
 21:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %22 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %15, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw %union.anon.431, ptr %15, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4, !tbaa !66
   %23 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %24 = sext i32 %23 to i64
@@ -8966,7 +8966,7 @@ _ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE.exit.thread: ;
 
 66:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %67 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw %union.anon.431, ptr %60, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %67, align 4, !tbaa !66
   %68 = ashr i32 %.sroa.0.0.copyload.i.i.i, 1
   %69 = sext i32 %68 to i64
@@ -9554,7 +9554,7 @@ _ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread: ; preds = %
   %238 = load i64, ptr %235, align 4
   %239 = lshr i64 %238, 5
   %240 = and i64 %239, 134217727
-  %241 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %237, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw %union.anon.431, ptr %237, i64 %240
   %242 = load float, ptr %241, align 4, !tbaa !405
   %243 = fpext float %242 to double
   %244 = fadd double %236, %243
@@ -9589,7 +9589,7 @@ _ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread: ; preds = %
   %258 = load i64, ptr %256, align 4
   %259 = lshr i64 %258, 5
   %260 = and i64 %259, 134217727
-  %261 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %257, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw %union.anon.431, ptr %257, i64 %260
   %262 = load float, ptr %261, align 4, !tbaa !405
   %263 = fpext float %262 to double
   %264 = fmul double %263, 0x3BC79CA10C924223
@@ -10721,7 +10721,7 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERNS1_6Cl
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %7, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %union.anon.431, ptr %7, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 4, !tbaa !66
   %16 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %17 = sext i32 %16 to i64
@@ -10744,7 +10744,7 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERNS1_6Cl
 26:                                               ; preds = %.lr.ph, %52
   %27 = phi i64 [ %8, %.lr.ph ], [ %53, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %28 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %7, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %union.anon.431, ptr %7, i64 %indvars.iv
   %.sroa.02.0.copyload = load i32, ptr %28, align 4, !tbaa !66
   %29 = ashr i32 %.sroa.02.0.copyload, 1
   %30 = load ptr, ptr %23, align 8, !tbaa !90
@@ -10901,7 +10901,7 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERKNS1_3v
 
 36:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %37 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %31, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw %union.anon.431, ptr %31, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %37, align 4, !tbaa !66
   %38 = ashr i32 %.sroa.0.0.copyload.i.i, 1
   %39 = sext i32 %38 to i64
@@ -10968,7 +10968,7 @@ _ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit.thread: ; preds 
 
 70:                                               ; preds = %69, %.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i55, %69 ]
-  %71 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %64, i64 0, i64 %indvars.iv.i53
+  %71 = getelementptr inbounds nuw %union.anon.431, ptr %64, i64 %indvars.iv.i53
   %.sroa.0.0.copyload.i.i54 = load i32, ptr %71, align 4, !tbaa !66
   %72 = ashr i32 %.sroa.0.0.copyload.i.i54, 1
   %73 = sext i32 %72 to i64
@@ -10989,7 +10989,7 @@ _ZNK4cvc58internal7Minisat6Solver9satisfiedERKNS1_6ClauseE.exit.thread: ; preds 
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %_ZN4cvc58internal7MinisatL6mapVarEiRNS1_3vecIiEERi.exit ], [ 0, %69 ]
   %82 = phi ptr [ %134, %_ZN4cvc58internal7MinisatL6mapVarEiRNS1_3vecIiEERi.exit ], [ %57, %69 ]
   %83 = phi i32 [ %135, %_ZN4cvc58internal7MinisatL6mapVarEiRNS1_3vecIiEERi.exit ], [ %.lcssa97100, %69 ]
-  %84 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %64, i64 0, i64 %indvars.iv124
+  %84 = getelementptr inbounds nuw %union.anon.431, ptr %64, i64 %indvars.iv124
   %.sroa.09.0.copyload = load i32, ptr %84, align 4, !tbaa !66
   %85 = ashr i32 %.sroa.09.0.copyload, 1
   %86 = load ptr, ptr %23, align 8, !tbaa !90
@@ -11531,9 +11531,9 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit.i: ; preds = %_ZN4cvc
 
 152:                                              ; preds = %152, %.lr.ph.i.i41
   %indvars.iv.i.i42 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %indvars.iv.next.i.i43, %152 ]
-  %153 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %150, i64 0, i64 %indvars.iv.i.i42
+  %153 = getelementptr inbounds nuw %union.anon.431, ptr %150, i64 %indvars.iv.i.i42
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %153, align 4, !tbaa !66
-  %154 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %151, i64 0, i64 %indvars.iv.i.i42
+  %154 = getelementptr inbounds nuw %union.anon.431, ptr %151, i64 %indvars.iv.i.i42
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %154, align 4, !tbaa !66
   %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i42, 1
   %155 = load i64, ptr %89, align 4
@@ -11549,7 +11549,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit.i: ; preds = %_ZN4cvc
   %161 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %162 = lshr i64 %143, 5
   %163 = and i64 %162, 134217727
-  %164 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %161, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw %union.anon.431, ptr %161, i64 %163
   store float 0.000000e+00, ptr %164, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_6ClauseEEEjiRKT_b.exit
 
@@ -11566,7 +11566,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit.i: ; preds = %_ZN4cvc
 168:                                              ; preds = %168, %.lr.ph.i.i.i45
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i45 ], [ %indvars.iv.next.i.i.i, %168 ]
   %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i45 ], [ %173, %168 ]
-  %169 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %167, i64 0, i64 %indvars.iv.i.i.i
+  %169 = getelementptr inbounds nuw %union.anon.431, ptr %167, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i11.i.i = load i32, ptr %169, align 4, !tbaa !66
   %170 = lshr i32 %.sroa.0.0.copyload.i11.i.i, 1
   %171 = and i32 %170, 31
@@ -11580,7 +11580,7 @@ _ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i.i: ; preds = %168, %1
   %.pre-phi15.i.i = phi i64 [ 0, %165 ], [ %wide.trip.count.i.i.i, %168 ]
   %.0.lcssa.i.i.i = phi i32 [ 0, %165 ], [ %173, %168 ]
   %174 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %175 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %174, i64 0, i64 %.pre-phi15.i.i
+  %175 = getelementptr inbounds nuw %union.anon.431, ptr %174, i64 %.pre-phi15.i.i
   store i32 %.0.lcssa.i.i.i, ptr %175, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_6ClauseEEEjiRKT_b.exit
 
@@ -11613,12 +11613,12 @@ _ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_6ClauseEEEjiRKT_b.exit: ; p
   %194 = load i64, ptr %89, align 4
   %195 = lshr i64 %194, 5
   %196 = and i64 %195, 134217727
-  %197 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %178, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw %union.anon.431, ptr %178, i64 %196
   %198 = load float, ptr %197, align 4, !tbaa !405
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %200 = lshr i64 %191, 5
   %201 = and i64 %200, 134217727
-  %202 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %199, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw %union.anon.431, ptr %199, i64 %201
   store float %198, ptr %202, align 4, !tbaa !405
   br label %_ZN4cvc58internal7Minisat15ClauseAllocator5relocERjRS2_.exit
 
@@ -11641,7 +11641,7 @@ _ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_6ClauseEEEjiRKT_b.exit: ; p
 209:                                              ; preds = %209, %.lr.ph.i37.i
   %indvars.iv.i.i35 = phi i64 [ 0, %.lr.ph.i37.i ], [ %indvars.iv.next.i.i37, %209 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i37.i ], [ %214, %209 ]
-  %210 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %208, i64 0, i64 %indvars.iv.i.i35
+  %210 = getelementptr inbounds nuw %union.anon.431, ptr %208, i64 %indvars.iv.i.i35
   %.sroa.0.0.copyload.i.i36 = load i32, ptr %210, align 4, !tbaa !66
   %211 = lshr i32 %.sroa.0.0.copyload.i.i36, 1
   %212 = and i32 %211, 31
@@ -11655,7 +11655,7 @@ _ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i: ; preds = %209, %205
   %.pre-phi49.i = phi i64 [ 0, %205 ], [ %wide.trip.count.i.i, %209 ]
   %.0.lcssa.i.i = phi i32 [ 0, %205 ], [ %214, %209 ]
   %215 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %216 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %215, i64 0, i64 %.pre-phi49.i
+  %216 = getelementptr inbounds nuw %union.anon.431, ptr %215, i64 %.pre-phi49.i
   store i32 %.0.lcssa.i.i, ptr %216, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat15ClauseAllocator5relocERjRS2_.exit
 
@@ -11835,12 +11835,12 @@ define hidden void @_ZN4cvc58internal7Minisat15ClauseAllocator5relocERjRS2_(ptr 
   %39 = load i64, ptr %9, align 4
   %40 = lshr i64 %39, 5
   %41 = and i64 %40, 134217727
-  %42 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %23, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %union.anon.431, ptr %23, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !405
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %45 = lshr i64 %36, 5
   %46 = and i64 %45, 134217727
-  %47 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %44, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %union.anon.431, ptr %44, i64 %46
   store float %43, ptr %47, align 4, !tbaa !405
   br label %62
 
@@ -11863,7 +11863,7 @@ define hidden void @_ZN4cvc58internal7Minisat15ClauseAllocator5relocERjRS2_(ptr 
 54:                                               ; preds = %54, %.lr.ph.i37
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i, %54 ]
   %.07.i = phi i32 [ 0, %.lr.ph.i37 ], [ %59, %54 ]
-  %55 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %53, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw %union.anon.431, ptr %53, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4, !tbaa !66
   %56 = lshr i32 %.sroa.0.0.copyload.i, 1
   %57 = and i32 %56, 31
@@ -11877,7 +11877,7 @@ _ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit: ; preds = %54, %50
   %.pre-phi49 = phi i64 [ 0, %50 ], [ %wide.trip.count.i, %54 ]
   %.0.lcssa.i = phi i32 [ 0, %50 ], [ %59, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %61 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %60, i64 0, i64 %.pre-phi49
+  %61 = getelementptr inbounds nuw %union.anon.431, ptr %60, i64 %.pre-phi49
   store i32 %.0.lcssa.i, ptr %61, align 4, !tbaa !91
   br label %62
 
@@ -12335,9 +12335,9 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
 
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %41, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw %union.anon.431, ptr %41, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %44, align 4, !tbaa !66
-  %45 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %42, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %union.anon.431, ptr %42, i64 %indvars.iv.i
   store i32 %.sroa.0.0.copyload.i.i, ptr %45, align 4, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i64, ptr %2, align 4
@@ -12353,7 +12353,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %53 = lshr i64 %32, 5
   %54 = and i64 %53, 134217727
-  %55 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %union.anon.431, ptr %52, i64 %54
   store float 0.000000e+00, ptr %55, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat6ClauseC2IS2_EERKT_bbi.exit
 
@@ -12370,7 +12370,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
 59:                                               ; preds = %59, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %59 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %64, %59 ]
-  %60 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %58, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw %union.anon.431, ptr %58, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i11.i = load i32, ptr %60, align 4, !tbaa !66
   %61 = lshr i32 %.sroa.0.0.copyload.i11.i, 1
   %62 = and i32 %61, 31
@@ -12384,7 +12384,7 @@ _ZN4cvc58internal7Minisat6Clause15calcAbstractionEv.exit.i: ; preds = %59, %56
   %.pre-phi15.i = phi i64 [ 0, %56 ], [ %wide.trip.count.i.i, %59 ]
   %.0.lcssa.i.i = phi i32 [ 0, %56 ], [ %64, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %66 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %65, i64 0, i64 %.pre-phi15.i
+  %66 = getelementptr inbounds nuw %union.anon.431, ptr %65, i64 %.pre-phi15.i
   store i32 %.0.lcssa.i.i, ptr %66, align 4, !tbaa !91
   br label %_ZN4cvc58internal7Minisat6ClauseC2IS2_EERKT_bbi.exit
 
@@ -14363,12 +14363,12 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit.i: ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = lshr i64 %14, 5
   %27 = and i64 %26, 134217727
-  %28 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %union.anon.431, ptr %25, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !405
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %31 = lshr i64 %23, 5
   %32 = and i64 %31, 134217727
-  %33 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %union.anon.431, ptr %30, i64 %32
   %34 = load float, ptr %33, align 4, !tbaa !405
   %.fr.i = freeze float %29
   %.fr26.i = freeze float %34
@@ -14446,12 +14446,12 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit.backedge.us: ; preds = %.lr.ph,
 .lr.ph.split:                                     ; preds = %.lr.ph
   %69 = lshr i64 %.pre, 5
   %70 = and i64 %69, 134217727
-  %71 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %50, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %union.anon.431, ptr %50, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !405
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %74 = lshr i64 %58, 5
   %75 = and i64 %74, 134217727
-  %76 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %73, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw %union.anon.431, ptr %73, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !405
   %78 = fcmp olt float %77, %72
   br i1 %78, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit.backedge, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader
@@ -14460,7 +14460,7 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit.backedge.us: ; preds = %.lr.ph,
   %80 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %81 = lshr i64 %90, 5
   %82 = and i64 %81, 134217727
-  %83 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %80, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw %union.anon.431, ptr %80, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !405
   %85 = fcmp olt float %84, %72
   br i1 %85, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit.backedge, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader.loopexit105, !llvm.loop !542
@@ -14501,7 +14501,7 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader: ; preds = %_ZN4cvc
 .lr.ph67:                                         ; preds = %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader
   %102 = lshr i64 %.pre, 5
   %103 = and i64 %102, 134217727
-  %104 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %50, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %union.anon.431, ptr %50, i64 %103
   br label %105
 
 105:                                              ; preds = %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.backedge.us, %.lr.ph67
@@ -14519,7 +14519,7 @@ _ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.preheader: ; preds = %_ZN4cvc
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %114 = lshr i64 %109, 5
   %115 = and i64 %114, 134217727
-  %116 = getelementptr inbounds nuw [0 x %union.anon.431], ptr %113, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %union.anon.431, ptr %113, i64 %115
   %117 = load float, ptr %116, align 4, !tbaa !405
   %118 = fcmp olt float %112, %117
   br i1 %118, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.backedge.us, label %_ZN4cvc58internal7Minisat11reduceDB_ltclEjj.exit40.thread.loopexit

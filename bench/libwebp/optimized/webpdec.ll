@@ -46,7 +46,7 @@ define hidden void @PrintWebPError(ptr noundef %0, i32 noundef %1) local_unnamed
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !4
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [8 x ptr], ptr @kStatusMessages, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @kStatusMessages, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef %11) #6
   br label %13

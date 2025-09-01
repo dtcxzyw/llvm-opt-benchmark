@@ -68,7 +68,7 @@ define ptr @test_get_argument(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %14, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw [100 x i32], ptr @used, i64 0, i64 %0
+  %11 = getelementptr inbounds nuw i32, ptr @used, i64 %0
   store i32 1, ptr %11, align 4, !tbaa !5
   %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %0
   %13 = load ptr, ptr %12, align 8, !tbaa !9
@@ -98,7 +98,7 @@ define void @opt_check_usage() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %4 = getelementptr inbounds nuw [100 x i32], ptr @used, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @used, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12

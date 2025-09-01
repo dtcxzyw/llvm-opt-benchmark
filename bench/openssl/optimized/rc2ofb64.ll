@@ -92,7 +92,7 @@ define void @RC2_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   %62 = getelementptr inbounds nuw i8, ptr %.08085, i64 1
   %63 = load i8, ptr %.08085, align 1, !tbaa !7
   %64 = sext i32 %.07986 to i64
-  %65 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %7, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !7
   %67 = xor i8 %66, %63
   %68 = getelementptr inbounds nuw i8, ptr %.08184, i64 1

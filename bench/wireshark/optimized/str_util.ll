@@ -550,7 +550,7 @@ define range(i32 -1, 16) i32 @ws_xton(i8 noundef signext %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table.ws_xton, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ws_xton, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1048,134 +1048,130 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 13:                                               ; preds = %8, %4
   %14 = and i16 %3, 2
   %.not = icmp eq i16 %14, 0
-  %spec.select = select i1 %.not, i32 0, i32 4
+  %spec.select = select i1 %.not, i64 0, i64 4
   %spec.select70 = select i1 %.not, i64 1000, i64 1024
   %15 = sdiv i64 %1, %spec.select70
   %16 = sdiv i64 %15, %spec.select70
   %17 = sdiv i64 %16, %spec.select70
   %18 = sdiv i64 %17, %spec.select70
   %19 = icmp sgt i64 %18, 9
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %24
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %21, i64 noundef %18)
-  %22 = zext nneg i32 %spec.select to i64
-  %23 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %24)
-  br label %50
+  %22 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %23 = load ptr, ptr %22, align 16
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %23)
+  br label %46
 
-25:                                               ; preds = %13
-  %26 = icmp sgt i64 %17, 9
-  br i1 %26, label %27, label %33
+24:                                               ; preds = %13
+  %25 = icmp sgt i64 %17, 9
+  br i1 %25, label %26, label %31
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %28, i64 noundef %17)
-  %29 = or disjoint i32 %spec.select, 1
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %32)
-  br label %50
+26:                                               ; preds = %24
+  %27 = load ptr, ptr @thousands_grouping_fmt, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %27, i64 noundef %17)
+  %28 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %29 = getelementptr i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %30)
+  br label %46
 
-33:                                               ; preds = %25
-  %34 = icmp sgt i64 %16, 9
-  br i1 %34, label %35, label %41
+31:                                               ; preds = %24
+  %32 = icmp sgt i64 %16, 9
+  br i1 %32, label %33, label %38
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %36, i64 noundef %16)
-  %37 = or disjoint i32 %spec.select, 2
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %38
-  %40 = load ptr, ptr %39, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %40)
-  br label %50
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @thousands_grouping_fmt, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %34, i64 noundef %16)
+  %35 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %36 = getelementptr i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 16
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %37)
+  br label %46
 
-41:                                               ; preds = %33
-  %42 = icmp sgt i64 %15, 9
-  %43 = load ptr, ptr @thousands_grouping_fmt, align 8
-  br i1 %42, label %44, label %49
+38:                                               ; preds = %31
+  %39 = icmp sgt i64 %15, 9
+  %40 = load ptr, ptr @thousands_grouping_fmt, align 8
+  br i1 %39, label %41, label %45
 
-44:                                               ; preds = %41
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %43, i64 noundef %15)
-  %45 = or disjoint i32 %spec.select, 3
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %48)
-  br label %50
+41:                                               ; preds = %38
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %40, i64 noundef %15)
+  %42 = getelementptr ptr, ptr @format_size_wmem.prefix, i64 %spec.select
+  %43 = getelementptr i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %44)
+  br label %46
 
-49:                                               ; preds = %41
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %43, i64 noundef %1)
-  br label %50
+45:                                               ; preds = %38
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %40, i64 noundef %1)
+  br label %46
 
-50:                                               ; preds = %27, %44, %49, %35, %20
-  %.064 = phi i1 [ false, %20 ], [ false, %27 ], [ false, %35 ], [ false, %44 ], [ true, %49 ]
-  switch i32 %2, label %69 [
-    i32 0, label %70
-    i32 1, label %51
-    i32 2, label %53
-    i32 3, label %55
-    i32 4, label %57
-    i32 5, label %59
-    i32 6, label %61
-    i32 9, label %63
-    i32 10, label %65
-    i32 11, label %67
+46:                                               ; preds = %26, %41, %45, %33, %20
+  %.064 = phi i1 [ false, %20 ], [ false, %26 ], [ false, %33 ], [ false, %41 ], [ true, %45 ]
+  switch i32 %2, label %65 [
+    i32 0, label %66
+    i32 1, label %47
+    i32 2, label %49
+    i32 3, label %51
+    i32 4, label %53
+    i32 5, label %55
+    i32 6, label %57
+    i32 9, label %59
+    i32 10, label %61
+    i32 11, label %63
   ]
 
-51:                                               ; preds = %50
-  %52 = select i1 %.064, ptr @.str.46, ptr @.str.23
+47:                                               ; preds = %46
+  %48 = select i1 %.064, ptr @.str.46, ptr @.str.23
   br label %.sink.split
 
-53:                                               ; preds = %50
-  %54 = select i1 %.064, ptr @.str.47, ptr @.str.25
+49:                                               ; preds = %46
+  %50 = select i1 %.064, ptr @.str.47, ptr @.str.25
   br label %.sink.split
 
-55:                                               ; preds = %50
-  %56 = select i1 %.064, ptr @.str.48, ptr @.str.27
+51:                                               ; preds = %46
+  %52 = select i1 %.064, ptr @.str.48, ptr @.str.27
   br label %.sink.split
 
-57:                                               ; preds = %50
-  %58 = select i1 %.064, ptr @.str.49, ptr @.str.29
+53:                                               ; preds = %46
+  %54 = select i1 %.064, ptr @.str.49, ptr @.str.29
   br label %.sink.split
 
-59:                                               ; preds = %50
-  %60 = select i1 %.064, ptr @.str.50, ptr @.str.30
+55:                                               ; preds = %46
+  %56 = select i1 %.064, ptr @.str.50, ptr @.str.30
   br label %.sink.split
 
-61:                                               ; preds = %50
-  %62 = select i1 %.064, ptr @.str.51, ptr @.str.32
+57:                                               ; preds = %46
+  %58 = select i1 %.064, ptr @.str.51, ptr @.str.32
   br label %.sink.split
 
-63:                                               ; preds = %50
-  %64 = select i1 %.064, ptr @.str.52, ptr @.str.38
+59:                                               ; preds = %46
+  %60 = select i1 %.064, ptr @.str.52, ptr @.str.38
   br label %.sink.split
 
-65:                                               ; preds = %50
-  %66 = select i1 %.064, ptr @.str.53, ptr @.str.41
+61:                                               ; preds = %46
+  %62 = select i1 %.064, ptr @.str.53, ptr @.str.41
   br label %.sink.split
 
-67:                                               ; preds = %50
-  %68 = select i1 %.064, ptr @.str.54, ptr @.str.43
+63:                                               ; preds = %46
+  %64 = select i1 %.064, ptr @.str.54, ptr @.str.43
   br label %.sink.split
 
-69:                                               ; preds = %50
+65:                                               ; preds = %46
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.44, i64 noundef 664, ptr noundef nonnull @__func__.format_size_wmem, ptr noundef nonnull @.str.45) #27
   unreachable
 
-.sink.split:                                      ; preds = %51, %53, %55, %57, %59, %61, %63, %65, %67
-  %.sink = phi ptr [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ]
+.sink.split:                                      ; preds = %47, %49, %51, %53, %55, %57, %59, %61, %63
+  %.sink = phi ptr [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ]
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef nonnull %.sink)
-  br label %70
+  br label %66
 
-70:                                               ; preds = %.sink.split, %50
-  %71 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5)
-  %72 = tail call ptr @g_strchomp(ptr noundef %71)
-  ret ptr %72
+66:                                               ; preds = %.sink.split, %46
+  %67 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5)
+  %68 = tail call ptr @g_strchomp(ptr noundef %67)
+  ret ptr %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2289,7 +2285,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %225 = add i32 %.0275368, 2
   %226 = lshr i32 %.2338, 12
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %227
+  %228 = getelementptr i8, ptr @hex, i64 %227
   %229 = load i8, ptr %228, align 1
   %230 = zext i32 %225 to i64
   %231 = getelementptr i8, ptr %.11293, i64 %230
@@ -2298,7 +2294,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %233 = lshr i32 %.2338, 8
   %234 = and i32 %233, 15
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %235
+  %236 = getelementptr i8, ptr @hex, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i32 %232 to i64
   %239 = getelementptr i8, ptr %.11293, i64 %238
@@ -2307,7 +2303,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %241 = lshr i32 %.2338, 4
   %242 = and i32 %241, 15
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %243
+  %244 = getelementptr i8, ptr @hex, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i32 %240 to i64
   %247 = getelementptr i8, ptr %.11293, i64 %246
@@ -2315,7 +2311,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %248 = add i32 %.0275368, 5
   %249 = and i32 %.2338, 15
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %250
+  %251 = getelementptr i8, ptr @hex, i64 %250
   %252 = load i8, ptr %251, align 1
   br label %325
 
@@ -2343,7 +2339,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %265 = add i32 %.0275368, 2
   %266 = lshr i32 %.2338, 28
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %267
+  %268 = getelementptr i8, ptr @hex, i64 %267
   %269 = load i8, ptr %268, align 1
   %270 = zext i32 %265 to i64
   %271 = getelementptr i8, ptr %.12294, i64 %270
@@ -2352,7 +2348,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %273 = lshr i32 %.2338, 24
   %274 = and i32 %273, 15
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %275
+  %276 = getelementptr i8, ptr @hex, i64 %275
   %277 = load i8, ptr %276, align 1
   %278 = zext i32 %272 to i64
   %279 = getelementptr i8, ptr %.12294, i64 %278
@@ -2361,7 +2357,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %281 = lshr i32 %.2338, 20
   %282 = and i32 %281, 15
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %283
+  %284 = getelementptr i8, ptr @hex, i64 %283
   %285 = load i8, ptr %284, align 1
   %286 = zext i32 %280 to i64
   %287 = getelementptr i8, ptr %.12294, i64 %286
@@ -2370,7 +2366,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %289 = lshr i32 %.2338, 16
   %290 = and i32 %289, 15
   %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %291
+  %292 = getelementptr i8, ptr @hex, i64 %291
   %293 = load i8, ptr %292, align 1
   %294 = zext i32 %288 to i64
   %295 = getelementptr i8, ptr %.12294, i64 %294
@@ -2379,7 +2375,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %297 = lshr i32 %.2338, 12
   %298 = and i32 %297, 15
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %299
+  %300 = getelementptr i8, ptr @hex, i64 %299
   %301 = load i8, ptr %300, align 1
   %302 = zext i32 %296 to i64
   %303 = getelementptr i8, ptr %.12294, i64 %302
@@ -2388,7 +2384,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %305 = lshr i32 %.2338, 8
   %306 = and i32 %305, 15
   %307 = zext nneg i32 %306 to i64
-  %308 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %307
+  %308 = getelementptr i8, ptr @hex, i64 %307
   %309 = load i8, ptr %308, align 1
   %310 = zext i32 %304 to i64
   %311 = getelementptr i8, ptr %.12294, i64 %310
@@ -2397,7 +2393,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %313 = lshr i32 %.2338, 4
   %314 = and i32 %313, 15
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %315
+  %316 = getelementptr i8, ptr @hex, i64 %315
   %317 = load i8, ptr %316, align 1
   %318 = zext i32 %312 to i64
   %319 = getelementptr i8, ptr %.12294, i64 %318
@@ -2405,7 +2401,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %320 = add i32 %.0275368, 9
   %321 = and i32 %.2338, 15
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %322
+  %323 = getelementptr i8, ptr @hex, i64 %322
   %324 = load i8, ptr %323, align 1
   br label %325
 
@@ -2562,13 +2558,13 @@ escape_char.exit:                                 ; preds = %11
   %26 = zext i8 %1 to i32
   %27 = lshr i32 %26, 4
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %28
+  %29 = getelementptr i8, ptr @hex, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr i8, ptr %24, i64 2
   store i8 %30, ptr %31, align 1
   %32 = and i32 %26, 15
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %33
+  %34 = getelementptr i8, ptr @hex, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr i8, ptr %24, i64 3
   store i8 %35, ptr %36, align 1
@@ -2618,7 +2614,7 @@ define void @EBCDIC_to_ASCII(ptr noundef captures(none) %0, i32 noundef %1) loca
   %.067 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
   %3 = load i8, ptr %.08, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [256 x i8], ptr @EBCDIC_translate_ASCII, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @EBCDIC_translate_ASCII, i64 %4
   %6 = load i8, ptr %5, align 1
   store i8 %6, ptr %.08, align 1
   %7 = add nuw i32 %.067, 1
@@ -2633,7 +2629,7 @@ define void @EBCDIC_to_ASCII(ptr noundef captures(none) %0, i32 noundef %1) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define zeroext i8 @EBCDIC_to_ASCII1(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr [256 x i8], ptr @EBCDIC_translate_ASCII, i64 0, i64 %2
+  %3 = getelementptr i8, ptr @EBCDIC_translate_ASCII, i64 %2
   %4 = load i8, ptr %3, align 1
   ret i8 %4
 }
@@ -2692,10 +2688,10 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %21 = lshr i32 %.05270, %20
   %22 = and i32 %21, 15
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [16 x i8], ptr @hex_dump_buffer.binhex, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @hex_dump_buffer.binhex, i64 %23
   %25 = load i8, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr [79 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %7, i64 %indvars.iv
   store i8 %25, ptr %26, align 1
   %.not60 = icmp eq i32 %19, 0
   br i1 %.not60, label %27, label %.preheader, !llvm.loop !35
@@ -2704,11 +2700,11 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = add nuw i64 %indvars.iv, 2
   %30 = and i64 %indvars.iv.next, 4294967295
-  %31 = getelementptr [79 x i8], ptr %7, i64 0, i64 %30
+  %31 = getelementptr i8, ptr %7, i64 %30
   store i8 32, ptr %31, align 1
   %32 = add i32 %28, 3
   %33 = and i64 %29, 4294967295
-  %34 = getelementptr [79 x i8], ptr %7, i64 0, i64 %33
+  %34 = getelementptr i8, ptr %7, i64 %33
   store i8 32, ptr %34, align 1
   %35 = zext i32 %32 to i64
   %36 = getelementptr i8, ptr %7, i64 %35
@@ -2724,7 +2720,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
 43:                                               ; preds = %27
   %44 = add i32 %28, 54
   %45 = zext i32 %42 to i64
-  %46 = getelementptr [79 x i8], ptr %7, i64 0, i64 %45
+  %46 = getelementptr i8, ptr %7, i64 %45
   store i8 124, ptr %46, align 1
   br label %47
 
@@ -2737,17 +2733,17 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %50 = zext i8 %49 to i32
   %51 = lshr i32 %50, 4
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr [16 x i8], ptr @hex_dump_buffer.binhex, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @hex_dump_buffer.binhex, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = add i32 %.149, 1
-  %56 = getelementptr [79 x i8], ptr %7, i64 0, i64 %.pre-phi
+  %56 = getelementptr i8, ptr %7, i64 %.pre-phi
   store i8 %54, ptr %56, align 1
   %57 = and i32 %50, 15
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr [16 x i8], ptr @hex_dump_buffer.binhex, i64 0, i64 %58
+  %59 = getelementptr i8, ptr @hex_dump_buffer.binhex, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i32 %55 to i64
-  %62 = getelementptr [79 x i8], ptr %7, i64 0, i64 %61
+  %62 = getelementptr i8, ptr %7, i64 %61
   store i8 %60, ptr %62, align 1
   %63 = add i32 %.149, 3
   br i1 %.not61, label %.thread, label %64
@@ -2757,7 +2753,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
 
 65:                                               ; preds = %64
   %66 = zext i8 %49 to i64
-  %67 = getelementptr [256 x i8], ptr @EBCDIC_translate_ASCII, i64 0, i64 %66
+  %67 = getelementptr i8, ptr @EBCDIC_translate_ASCII, i64 %66
   %68 = load i8, ptr %67, align 1
   br label %69
 
@@ -2768,7 +2764,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %narrow = select i1 %or.cond, i8 %.045, i8 46
   %71 = add i32 %.1, 1
   %72 = zext i32 %.1 to i64
-  %73 = getelementptr [79 x i8], ptr %7, i64 0, i64 %72
+  %73 = getelementptr i8, ptr %7, i64 %72
   store i8 %narrow, ptr %73, align 1
   %74 = add nuw i32 %.05171, 1
   %75 = and i32 %74, 15
@@ -2791,7 +2787,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
 83:                                               ; preds = %82
   %84 = add i32 %.1, 2
   %85 = zext i32 %71 to i64
-  %86 = getelementptr [79 x i8], ptr %7, i64 0, i64 %85
+  %86 = getelementptr i8, ptr %7, i64 %85
   store i8 124, ptr %86, align 1
   br label %.thread66
 
@@ -2799,7 +2795,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %87 = phi i32 [ %74, %83 ], [ %74, %82 ], [ %78, %.thread ]
   %.4 = phi i32 [ %84, %83 ], [ %71, %82 ], [ %.1, %.thread ]
   %88 = zext i32 %.4 to i64
-  %89 = getelementptr [79 x i8], ptr %7, i64 0, i64 %88
+  %89 = getelementptr i8, ptr %7, i64 %88
   store i8 0, ptr %89, align 1
   %90 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7)
   br i1 %90, label %91, label %._crit_edge

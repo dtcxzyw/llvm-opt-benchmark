@@ -102,8 +102,8 @@ define noundef zeroext i1 @"_ZN63_$LT$span..ast_id..AstIdMap$u20$as$u20$core..cm
 
 7:                                                ; preds = %.preheader.split.i.i
   %8 = add i64 %.sroa.01.0.i.i, 1
-  %9 = getelementptr inbounds [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %.val, i64 0, i64 %.sroa.01.0.i.i
-  %10 = getelementptr inbounds [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %.val2, i64 0, i64 %.sroa.01.0.i.i
+  %9 = getelementptr inbounds { { i32, i32 }, i16, [1 x i16] }, ptr %.val, i64 %.sroa.01.0.i.i
+  %10 = getelementptr inbounds { { i32, i32 }, i16, [1 x i16] }, ptr %.val2, i64 %.sroa.01.0.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -574,7 +574,7 @@ define void @_ZN4span6ast_id8AstIdMap10get_erased17hd1bf73930c09f0ceE(ptr noalia
 "_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h31509ae99574f843E.exit": ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !137, !noalias !140, !nonnull !11, !noundef !11
-  %11 = getelementptr inbounds nuw [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %10, i64 0, i64 %4
+  %11 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
   ret void
 }
@@ -689,7 +689,7 @@ define noundef i32 @_ZN4span6ast_id8AstIdMap13erased_ast_id17h3015ab7973a5f57fE(
   unreachable
 
 "_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h31509ae99574f843E.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i
-  %61 = getelementptr inbounds nuw [0 x { { i32, i32 }, i16, [1 x i16] }], ptr %41, i64 0, i64 %58
+  %61 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %41, i64 %58
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.val.i.i.i.i.i.i.i = load i16, ptr %62, align 2, !range !32, !alias.scope !186, !noalias !189, !noundef !11
   %63 = icmp eq i16 %.val.i.i.i.i.i.i.i, %10

@@ -2572,7 +2572,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %_ZN6Assimp10JS
 1048:                                             ; preds = %1048, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i ], [ %indvars.iv.next.i.i, %1048 ]
   %.056.i.i = phi i32 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i ], [ %spec.select.i.i, %1048 ]
-  %1049 = getelementptr inbounds nuw [8 x ptr], ptr %1047, i64 0, i64 %indvars.iv.i.i
+  %1049 = getelementptr inbounds nuw ptr, ptr %1047, i64 %indvars.iv.i.i
   %1050 = load ptr, ptr %1049, align 8
   %.not.i287.i = icmp ne ptr %1050, null
   %1051 = zext i1 %.not.i287.i to i32
@@ -2658,7 +2658,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit297.i:   ; preds = %1072, %_ZNKSt7__cxx
 1079:                                             ; preds = %1079, %1078
   %indvars.iv.i298.i = phi i64 [ 0, %1078 ], [ %indvars.iv.next.i302.i, %1079 ]
   %.056.i299.i = phi i32 [ 0, %1078 ], [ %spec.select.i301.i, %1079 ]
-  %1080 = getelementptr inbounds nuw [8 x ptr], ptr %1047, i64 0, i64 %indvars.iv.i298.i
+  %1080 = getelementptr inbounds nuw ptr, ptr %1047, i64 %indvars.iv.i298.i
   %1081 = load ptr, ptr %1080, align 8
   %.not.i300.i = icmp ne ptr %1081, null
   %1082 = zext i1 %.not.i300.i to i32
@@ -2725,7 +2725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313.i: ; preds = %
   br label %common.resume
 
 1106:                                             ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit304.i
-  %1107 = getelementptr inbounds nuw [8 x i32], ptr %1077, i64 0, i64 %indvars.iv520.i
+  %1107 = getelementptr inbounds nuw i32, ptr %1077, i64 %indvars.iv520.i
   %1108 = load i32, ptr %214, align 4
   %1109 = and i32 %1108, 5
   %or.cond.i.i373 = icmp eq i32 %1109, 0
@@ -2846,7 +2846,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit319.i:   ; preds = %1157, %_ZNKSt7__cxx
 1163:                                             ; preds = %1163, %1162
   %indvars.iv.i320.i = phi i64 [ 0, %1162 ], [ %indvars.iv.next.i324.i, %1163 ]
   %.056.i321.i = phi i32 [ 0, %1162 ], [ %spec.select.i323.i, %1163 ]
-  %1164 = getelementptr inbounds nuw [8 x ptr], ptr %1047, i64 0, i64 %indvars.iv.i320.i
+  %1164 = getelementptr inbounds nuw ptr, ptr %1047, i64 %indvars.iv.i320.i
   %1165 = load ptr, ptr %1164, align 8
   %.not.i322.i = icmp ne ptr %1165, null
   %1166 = zext i1 %.not.i322.i to i32
@@ -2907,7 +2907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit331.i: ; preds = %
   br label %common.resume
 
 1190:                                             ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit326.i
-  %1191 = getelementptr inbounds nuw [8 x i32], ptr %1077, i64 0, i64 %indvars.iv526.i
+  %1191 = getelementptr inbounds nuw i32, ptr %1077, i64 %indvars.iv526.i
   %1192 = load i32, ptr %1191, align 4
   %.not207.i = icmp eq i32 %1192, 0
   %spec.select.i = select i1 %.not207.i, i32 2, i32 %1192
@@ -2992,7 +2992,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit372:     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not504.i, label %._crit_edge489.i, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit372
-  %1232 = getelementptr inbounds nuw [8 x ptr], ptr %1047, i64 0, i64 %indvars.iv526.i
+  %1232 = getelementptr inbounds nuw ptr, ptr %1047, i64 %indvars.iv526.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %1245, %.preheader.lr.ph.i
@@ -3113,7 +3113,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %1275, %_ZStlsISt11c
 
 1288:                                             ; preds = %1291, %1286
   %indvars.iv.i335.i = phi i64 [ 0, %1286 ], [ %indvars.iv.next.i337.i, %1291 ]
-  %1289 = getelementptr inbounds nuw [8 x ptr], ptr %1287, i64 0, i64 %indvars.iv.i335.i
+  %1289 = getelementptr inbounds nuw ptr, ptr %1287, i64 %indvars.iv.i335.i
   %1290 = load ptr, ptr %1289, align 8
   %.not.i336.i = icmp eq ptr %1290, null
   br i1 %.not.i336.i, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit.i, label %1291
@@ -3198,7 +3198,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit348.i:   ; preds = %1312, %_ZNKSt7__cxx
 
 1318:                                             ; preds = %1321, %1317
   %indvars.iv.i349.i = phi i64 [ 0, %1317 ], [ %indvars.iv.next.i351.i, %1321 ]
-  %1319 = getelementptr inbounds nuw [8 x ptr], ptr %1287, i64 0, i64 %indvars.iv.i349.i
+  %1319 = getelementptr inbounds nuw ptr, ptr %1287, i64 %indvars.iv.i349.i
   %1320 = load ptr, ptr %1319, align 8
   %.not.i350.i = icmp eq ptr %1320, null
   br i1 %.not.i350.i, label %.critedge.split.loop.exit6.i354.i, label %1321
@@ -3345,7 +3345,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit365:     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not505.i, label %._crit_edge493.i, label %.lr.ph492.i
 
 .lr.ph492.i:                                      ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit365
-  %1385 = getelementptr inbounds nuw [8 x ptr], ptr %1287, i64 0, i64 %indvars.iv532.i
+  %1385 = getelementptr inbounds nuw ptr, ptr %1287, i64 %indvars.iv532.i
   br label %1398
 
 ._crit_edge493.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit384.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit365
@@ -9977,7 +9977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74.i320: ; preds =
   %4464 = load ptr, ptr %33, align 8
   %4465 = zext i32 %spec.select.i.i322 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4383, ptr align 1 %4464, i64 %4465, i1 false)
-  %4466 = getelementptr inbounds nuw [1024 x i8], ptr %4383, i64 0, i64 %4465
+  %4466 = getelementptr inbounds nuw i8, ptr %4383, i64 %4465
   store i8 0, ptr %4466, align 1
   %4467 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(128) %4384, ptr noundef nonnull align 4 dereferenceable(1028) %32)
           to label %.noexc79.i unwind label %4517
@@ -12108,7 +12108,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN
 
 15:                                               ; preds = %.lr.ph, %47
   %.031 = phi i64 [ 0, %.lr.ph ], [ %52, %47 ]
-  %16 = getelementptr inbounds nuw [1024 x i8], ptr %10, i64 0, i64 %.031
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %.031
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %35 [
     i8 92, label %18

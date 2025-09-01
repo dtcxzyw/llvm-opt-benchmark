@@ -15358,7 +15358,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %64
 
 81:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %77, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !375
   %84 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %85 unwind label %86

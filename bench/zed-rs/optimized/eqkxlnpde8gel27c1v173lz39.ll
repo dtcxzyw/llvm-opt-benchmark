@@ -272,7 +272,7 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %89
   %.sroa.01.05.i.i.i = phi i64 [ %90, %89 ], [ 0, %.preheader.i.i.i ]
-  %86 = getelementptr inbounds nuw [0 x i8], ptr %84, i64 0, i64 %.sroa.01.05.i.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %.sroa.01.05.i.i.i
   %87 = load i8, ptr %86, align 1, !alias.scope !77, !noalias !80, !noundef !12
   %88 = icmp eq i8 %87, 10
   br i1 %88, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i, label %89

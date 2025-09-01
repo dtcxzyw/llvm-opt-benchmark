@@ -9049,7 +9049,7 @@ declare void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableArrayIP
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -6, -2147483648) i32 @_ZN13CodeInstaller13map_jvmci_bciEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(225) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = icmp slt i32 %1, 0
-  br i1 %3, label %4, label %9
+  br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, -7
@@ -9062,13 +9062,13 @@ define hidden noundef range(i32 -6, -2147483648) i32 @_ZN13CodeInstaller13map_jv
   unreachable
 
 switch.lookup:                                    ; preds = %4
-  %switch.tableidx = add nsw i32 %1, 6
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13CodeInstaller13map_jvmci_bciEi, i64 0, i64 %8
+  %8 = sext i32 %1 to i64
+  %9 = getelementptr i32, ptr @switch.table._ZN13CodeInstaller13map_jvmci_bciEi, i64 %8
+  %switch.gep = getelementptr i8, ptr %9, i64 24
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %9
+  br label %10
 
-9:                                                ; preds = %switch.lookup, %2
+10:                                               ; preds = %switch.lookup, %2
   %.0 = phi i32 [ %1, %2 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
@@ -9085,7 +9085,7 @@ define hidden void @_ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStre
   tail call void @_ZN13CodeInstaller20read_virtual_objectsEP25HotSpotCompiledCodeStreamP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %2, ptr noundef %7)
   %11 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %214
+  br i1 %.not, label %12, label %215
 
 12:                                               ; preds = %10, %8
   %13 = and i8 %3, 4
@@ -9160,8 +9160,8 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit:  ; preds = %19, %45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %54
 
-54:                                               ; preds = %.lr.ph, %209
-  %.063 = phi i32 [ 0, %.lr.ph ], [ %211, %209 ]
+54:                                               ; preds = %.lr.ph, %210
+  %.063 = phi i32 [ 0, %.lr.ph ], [ %212, %210 ]
   %55 = load ptr, ptr %51, align 8
   %56 = load i8, ptr %15, align 8
   %57 = trunc i8 %56 to i1
@@ -9326,143 +9326,143 @@ _ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit:  ; preds = %113, %137
   unreachable
 
 switch.lookup:                                    ; preds = %143
-  %switch.tableidx = add nsw i32 %140, 6
-  %147 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv, i64 0, i64 %147
+  %147 = sext i32 %140 to i64
+  %148 = getelementptr i32, ptr @switch.table._ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStreamhbbbP8JVMCIEnv, i64 %147
+  %switch.gep = getelementptr i8, ptr %148, i64 24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN13CodeInstaller13map_jvmci_bciEi.exit
 
 _ZN13CodeInstaller13map_jvmci_bciEi.exit:         ; preds = %switch.lookup, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit
-  %148 = phi i32 [ %140, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %switch.load, %switch.lookup ]
-  %149 = load i64, ptr @JVMCITraceLevel, align 8
-  %150 = icmp slt i64 %149, 2
-  %151 = load i64, ptr @JVMCIEventLogLevel, align 8
-  %152 = icmp slt i64 %151, 2
-  %or.cond = select i1 %150, i1 %152, i1 false
-  br i1 %or.cond, label %156, label %153
+  %149 = phi i32 [ %140, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %switch.load, %switch.lookup ]
+  %150 = load i64, ptr @JVMCITraceLevel, align 8
+  %151 = icmp slt i64 %150, 2
+  %152 = load i64, ptr @JVMCIEventLogLevel, align 8
+  %153 = icmp slt i64 %152, 2
+  %or.cond = select i1 %151, i1 %153, i1 false
+  br i1 %or.cond, label %157, label %154
 
-153:                                              ; preds = %_ZN13CodeInstaller13map_jvmci_bciEi.exit
-  %154 = load ptr, ptr %9, align 8
-  %155 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %154) #11
-  call void (ptr, ...) @_ZN5JVMCI6event2EPKcz(ptr noundef nonnull @.str.121, i32 noundef %1, i32 noundef %148, ptr noundef %155) #11
-  br label %156
+154:                                              ; preds = %_ZN13CodeInstaller13map_jvmci_bciEi.exit
+  %155 = load ptr, ptr %9, align 8
+  %156 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %155) #11
+  call void (ptr, ...) @_ZN5JVMCI6event2EPKcz(ptr noundef nonnull @.str.121, i32 noundef %1, i32 noundef %149, ptr noundef %156) #11
+  br label %157
 
-156:                                              ; preds = %_ZN13CodeInstaller13map_jvmci_bciEi.exit, %153
-  br i1 %4, label %157, label %209
+157:                                              ; preds = %_ZN13CodeInstaller13map_jvmci_bciEi.exit, %154
+  br i1 %4, label %158, label %210
 
-157:                                              ; preds = %156
-  %158 = load i8, ptr %15, align 8
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %161
+158:                                              ; preds = %157
+  %159 = load i8, ptr %15, align 8
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %162
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   call void @_ZN25HotSpotCompiledCodeStream10check_dataEtPKc(ptr noundef nonnull align 8 dereferenceable(64) %2, i16 noundef zeroext 1, ptr noundef nonnull @.str.122)
-  br label %161
+  br label %162
 
-161:                                              ; preds = %160, %157
-  %162 = load ptr, ptr %20, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1
-  %164 = load ptr, ptr %23, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 12
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %167 = load i32, ptr %166, align 8
-  %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %168
-  %170 = icmp ugt ptr %163, %169
-  br i1 %170, label %171, label %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit
+162:                                              ; preds = %161, %158
+  %163 = load ptr, ptr %20, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
+  %165 = load ptr, ptr %23, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 12
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %168 = load i32, ptr %167, align 8
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 %169
+  %171 = icmp ugt ptr %164, %170
+  br i1 %171, label %172, label %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit
 
-171:                                              ; preds = %161
-  %172 = load ptr, ptr %164, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %178, label %174
+172:                                              ; preds = %162
+  %173 = load ptr, ptr %165, align 8
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %179, label %175
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %176 = load i32, ptr %175, align 8
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %185
+175:                                              ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %177 = load i32, ptr %176, align 8
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %186
 
-178:                                              ; preds = %174, %171
-  %179 = load ptr, ptr @tty, align 8
-  call void @_ZNK25HotSpotCompiledCodeStream11dump_bufferEP12outputStream(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %179)
-  %180 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %180, align 1
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr %20, align 8
-  %184 = ptrtoint ptr %183 to i64
-  call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @.str.17, ptr noundef %182, i32 noundef 1, i64 noundef %184) #12
+179:                                              ; preds = %175, %172
+  %180 = load ptr, ptr @tty, align 8
+  call void @_ZNK25HotSpotCompiledCodeStream11dump_bufferEP12outputStream(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %180)
+  %181 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %181, align 1
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %183 = load ptr, ptr %182, align 8
+  %184 = load ptr, ptr %20, align 8
+  %185 = ptrtoint ptr %184 to i64
+  call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @.str.17, ptr noundef %183, i32 noundef 1, i64 noundef %185) #12
   unreachable
 
-185:                                              ; preds = %174
-  store ptr %172, ptr %23, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  store ptr %186, ptr %20, align 8
+186:                                              ; preds = %175
+  store ptr %173, ptr %23, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %173, i64 12
+  store ptr %187, ptr %20, align 8
   br label %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit
 
-_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %161, %185
-  %187 = phi ptr [ %162, %161 ], [ %186, %185 ]
-  %188 = load i8, ptr %187, align 1
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 1
-  store ptr %189, ptr %20, align 8
-  %190 = and i8 %188, 16
-  %191 = icmp ne i8 %190, 0
-  %192 = icmp sgt i32 %148, -1
-  %193 = and i8 %188, 8
-  %.not62 = icmp eq i8 %193, 0
-  %.1 = and i1 %192, %.not62
-  %194 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %188, i1 noundef zeroext true, ptr noundef %7)
-  %195 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
-  %.not54 = icmp eq i8 %195, 0
-  br i1 %.not54, label %196, label %.thread
+_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %162, %186
+  %188 = phi ptr [ %163, %162 ], [ %187, %186 ]
+  %189 = load i8, ptr %188, align 1
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 1
+  store ptr %190, ptr %20, align 8
+  %191 = and i8 %189, 16
+  %192 = icmp ne i8 %191, 0
+  %193 = icmp sgt i32 %149, -1
+  %194 = and i8 %189, 8
+  %.not62 = icmp eq i8 %194, 0
+  %.1 = and i1 %193, %.not62
+  %195 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %189, i1 noundef zeroext true, ptr noundef %7)
+  %196 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
+  %.not54 = icmp eq i8 %196, 0
+  br i1 %.not54, label %197, label %.thread
 
-196:                                              ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit
-  %197 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %188, i1 noundef zeroext false, ptr noundef nonnull %7)
-  %198 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
-  %.not55 = icmp eq i8 %198, 0
-  br i1 %.not55, label %199, label %.thread
+197:                                              ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit
+  %198 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %189, i1 noundef zeroext false, ptr noundef nonnull %7)
+  %199 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
+  %.not55 = icmp eq i8 %199, 0
+  br i1 %.not55, label %200, label %.thread
 
-199:                                              ; preds = %196
-  %200 = call noundef ptr @_ZN13CodeInstaller19read_monitor_valuesEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %188, ptr noundef nonnull %7)
-  %201 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
-  %.not56 = icmp eq i8 %201, 0
-  br i1 %.not56, label %202, label %.thread
+200:                                              ; preds = %197
+  %201 = call noundef ptr @_ZN13CodeInstaller19read_monitor_valuesEP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %189, ptr noundef nonnull %7)
+  %202 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
+  %.not56 = icmp eq i8 %202, 0
+  br i1 %.not56, label %203, label %.thread
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr %53, align 8
-  %204 = call noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %203, ptr noundef %194) #11
-  %205 = load ptr, ptr %53, align 8
-  %206 = call noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %205, ptr noundef %197) #11
-  %207 = load ptr, ptr %53, align 8
-  %208 = call noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesEP13GrowableArrayIP12MonitorValueE(ptr noundef nonnull align 8 dereferenceable(76) %207, ptr noundef %200) #11
-  br label %209
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %53, align 8
+  %205 = call noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %204, ptr noundef %195) #11
+  %206 = load ptr, ptr %53, align 8
+  %207 = call noundef ptr @_ZN24DebugInformationRecorder19create_scope_valuesEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %206, ptr noundef %198) #11
+  %208 = load ptr, ptr %53, align 8
+  %209 = call noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesEP13GrowableArrayIP12MonitorValueE(ptr noundef nonnull align 8 dereferenceable(76) %208, ptr noundef %201) #11
+  br label %210
 
-.thread:                                          ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit, %196, %199
+.thread:                                          ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit, %197, %200
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  br label %214
+  br label %215
 
-209:                                              ; preds = %202, %156
-  %.053 = phi ptr [ %208, %202 ], [ null, %156 ]
-  %.052 = phi ptr [ %206, %202 ], [ null, %156 ]
-  %.051 = phi ptr [ %204, %202 ], [ null, %156 ]
-  %.049 = phi i1 [ %191, %202 ], [ false, %156 ]
-  %.048 = phi i1 [ %.1, %202 ], [ false, %156 ]
-  %210 = load ptr, ptr %53, align 8
-  call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %210, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, i32 noundef %148, i1 noundef zeroext %.048, i1 noundef zeroext %.049, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %.051, ptr noundef %.052, ptr noundef %.053) #11
+210:                                              ; preds = %203, %157
+  %.053 = phi ptr [ %209, %203 ], [ null, %157 ]
+  %.052 = phi ptr [ %207, %203 ], [ null, %157 ]
+  %.051 = phi ptr [ %205, %203 ], [ null, %157 ]
+  %.049 = phi i1 [ %192, %203 ], [ false, %157 ]
+  %.048 = phi i1 [ %.1, %203 ], [ false, %157 ]
+  %211 = load ptr, ptr %53, align 8
+  call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %211, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, i32 noundef %149, i1 noundef zeroext %.048, i1 noundef zeroext %.049, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %.051, ptr noundef %.052, ptr noundef %.053) #11
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  %211 = add nuw nsw i32 %.063, 1
-  %exitcond.not = icmp eq i32 %211, %50
+  %212 = add nuw nsw i32 %.063, 1
+  %exitcond.not = icmp eq i32 %212, %50
   br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !50
 
-.loopexit:                                        ; preds = %209, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit, %12
-  br i1 %4, label %212, label %214
+.loopexit:                                        ; preds = %210, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit, %12
+  br i1 %4, label %213, label %215
 
-212:                                              ; preds = %.loopexit
-  %213 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr null, ptr %213, align 8
-  br label %214
+213:                                              ; preds = %.loopexit
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store ptr null, ptr %214, align 8
+  br label %215
 
-214:                                              ; preds = %.thread, %10, %212, %.loopexit
+215:                                              ; preds = %.thread, %10, %213, %.loopexit
   ret void
 }
 
@@ -9665,7 +9665,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #11
@@ -9973,7 +9973,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -9987,7 +9987,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -10053,7 +10053,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -10233,7 +10233,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #11
@@ -10517,7 +10517,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -10534,7 +10534,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -10612,7 +10612,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -10658,7 +10658,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -10675,7 +10675,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -10753,7 +10753,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -11086,7 +11086,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.3.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #11

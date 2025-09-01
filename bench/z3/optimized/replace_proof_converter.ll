@@ -228,7 +228,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i22:          ; preds = %47
   %64 = add i32 %63, -1
   %65 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !32
   %69 = invoke noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef %68)
           to label %70 unwind label %32
@@ -969,7 +969,7 @@ _ZN11replace_mapclEP3var.exit:                    ; preds = %46
 56:                                               ; preds = %.lr.ph, %_ZN11replace_mapclEP3var.exit64
   %57 = phi i32 [ %53, %.lr.ph ], [ %132, %_ZN11replace_mapclEP3var.exit64 ]
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !32
   %61 = add nuw i32 %57, 1
   store i32 %61, ptr %52, align 8, !tbaa !73

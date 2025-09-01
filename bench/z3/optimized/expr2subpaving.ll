@@ -1895,7 +1895,7 @@ define linkonce_odr hidden noundef i32 @_ZN14expr2subpaving3imp11process_addEP3a
 
 57:                                               ; preds = %.lr.ph, %_ZN22_scoped_numeral_bufferI11mpz_managerILb0EELj16EE9push_backERK3mpz.exit69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN22_scoped_numeral_bufferI11mpz_managerILb0EELj16EE9push_backERK3mpz.exit69 ]
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !72
   %60 = invoke noundef i32 @_ZN14expr2subpaving3imp7processEP4exprjR3mpzS4_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %59, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %44)
           to label %61 unwind label %67

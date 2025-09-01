@@ -1104,7 +1104,7 @@ _ZN3mapI6symbolN12smt_renaming5sym_bE16symbol_hash_proc14symbol_eq_procEC2ERKS3_
 23:                                               ; preds = %14, %28
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw [21 x [8 x i8]], ptr @_ZL14m_predef_names, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZL14m_predef_names, i64 %indvars.iv
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %24)
           to label %25 unwind label %29
 
@@ -2124,7 +2124,7 @@ define linkonce_odr hidden void @_ZN11smt_printerclEP4expr(ptr noundef nonnull a
 16:                                               ; preds = %.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit
   %17 = phi ptr [ %.pre, %.lr.ph ], [ %28, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !94
   %20 = icmp eq ptr %17, null
   br i1 %20, label %27, label %21
@@ -2836,7 +2836,7 @@ define linkonce_odr hidden void @_ZN11smt_printerclEP9func_decl(ptr noundef nonn
   br label %20
 
 20:                                               ; preds = %17, %16
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !204
   tail call void @_ZN11smt_printer10visit_sortEP4sortb(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %22, i1 noundef zeroext true)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5059,7 +5059,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %2, %7
 
 16:                                               ; preds = %.lr.ph, %_ZN11smt_printer7is_unitEP4expr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11smt_printer7is_unitEP4expr.exit.thread ]
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !94
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !97
@@ -5589,7 +5589,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11smt_printer8is_smallEP4exprR
 49:                                               ; preds = %46
   %50 = add nuw nsw i32 %47, 1
   store i32 %50, ptr %2, align 4, !tbaa !93
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !94
   %53 = tail call noundef zeroext i1 @_ZN11smt_printer8is_smallEP4exprRj(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br i1 %53, label %42, label %.critedge
@@ -5656,7 +5656,7 @@ _ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit: ; preds = %10, %16
 
 switch.lookup:                                    ; preds = %_ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit
   %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11smt_printer16visit_quantifierEP10quantifier, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11smt_printer16visit_quantifierEP10quantifier, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = load ptr, ptr %0, align 8, !tbaa !186
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %switch.load, i64 noundef 7)
@@ -5889,7 +5889,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 149:                                              ; preds = %.lr.ph52, %_ZN11smt_printer13print_no_letsEP4expr.exit
   %indvars.iv62 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next63, %_ZN11smt_printer13print_no_letsEP4expr.exit ]
-  %150 = getelementptr inbounds nuw [0 x ptr], ptr %146, i64 0, i64 %indvars.iv62
+  %150 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv62
   %151 = load ptr, ptr %150, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %152 = load ptr, ptr %0, align 8, !tbaa !186
@@ -7355,7 +7355,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit233: ; preds = %_ZNK
 
 581:                                              ; preds = %.lr.ph297, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit239
   %indvars.iv310 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next311, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit239 ]
-  %582 = getelementptr inbounds nuw [0 x ptr], ptr %576, i64 0, i64 %indvars.iv310
+  %582 = getelementptr inbounds nuw ptr, ptr %576, i64 %indvars.iv310
   %583 = load ptr, ptr %582, align 8, !tbaa !94
   invoke void @_ZN11smt_printer14pp_marked_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %583)
           to label %_ZN11smt_printer6pp_argEP4exprP3app.exit237 unwind label %588

@@ -1967,7 +1967,7 @@ _ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit:       ; preds = %.lr.ph.i.i.i81, %25
 265:                                              ; preds = %264, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %264 ]
   %.01731.i = phi i64 [ 1, %.lr.ph.i ], [ %275, %264 ]
-  %266 = getelementptr inbounds nuw [0 x ptr], ptr %262, i64 0, i64 %indvars.iv.i
+  %266 = getelementptr inbounds nuw ptr, ptr %262, i64 %indvars.iv.i
   %267 = load ptr, ptr %266, align 8, !tbaa !100
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load ptr, ptr %268, align 8, !tbaa !88
@@ -2456,7 +2456,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i:          ; preds = %.preheader.i
   %428 = phi ptr [ %417, %.lr.ph.i96 ], [ %505, %504 ]
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i101, %504 ]
   %.02529.i = phi i32 [ %.0214, %.lr.ph.i96 ], [ %.1.i, %504 ]
-  %429 = getelementptr inbounds nuw [0 x ptr], ptr %420, i64 0, i64 %indvars.iv.i98
+  %429 = getelementptr inbounds nuw ptr, ptr %420, i64 %indvars.iv.i98
   %430 = load ptr, ptr %429, align 8, !tbaa !100
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
   %432 = load ptr, ptr %431, align 8, !tbaa !88
@@ -2709,7 +2709,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 539:                                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit118.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %540 = load ptr, ptr %121, align 8, !tbaa !160
-  %541 = getelementptr inbounds nuw [0 x ptr], ptr %532, i64 0, i64 %indvars.iv
+  %541 = getelementptr inbounds nuw ptr, ptr %532, i64 %indvars.iv
   %542 = load ptr, ptr %541, align 8, !tbaa !100
   %543 = load ptr, ptr %119, align 8, !tbaa !109
   %544 = getelementptr inbounds nuw i32, ptr %543, i64 %indvars.iv

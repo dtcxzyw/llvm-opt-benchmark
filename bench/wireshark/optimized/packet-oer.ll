@@ -906,7 +906,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
   %103 = lshr exact i32 -2147483648, %102
   %104 = lshr i32 %.1128215, 5
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr [4 x i32], ptr %10, i64 0, i64 %105
+  %106 = getelementptr i32, ptr %10, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, %103
   store i32 %108, ptr %106, align 4
@@ -957,7 +957,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
   %126 = lshr exact i32 -2147483648, %125
   %127 = lshr i32 %.0136223, 5
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr [4 x i32], ptr %10, i64 0, i64 %128
+  %129 = getelementptr i32, ptr %10, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, %126
   %.not158 = icmp eq i32 %131, 0
@@ -1140,7 +1140,7 @@ dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.
   %indvars.iv = phi i64 [ 0, %.lr.ph244 ], [ %indvars.iv.next, %213 ]
   %.3242 = phi i32 [ %.036.i, %.lr.ph244 ], [ %.5, %213 ]
   %.1132240 = phi i32 [ %.0131.lcssa, %.lr.ph244 ], [ %spec.select164, %213 ]
-  %210 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %210 = getelementptr i8, ptr %12, i64 %indvars.iv
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   br label %214

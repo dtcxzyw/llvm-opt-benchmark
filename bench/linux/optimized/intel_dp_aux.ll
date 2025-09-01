@@ -1319,7 +1319,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
 
 19:                                               ; preds = %19, %6
   %20 = phi i64 [ 0, %6 ], [ %25, %19 ]
-  %21 = getelementptr [5 x %struct.i915_reg_t], ptr %8, i64 0, i64 %20
+  %21 = getelementptr %struct.i915_reg_t, ptr %8, i64 %20
   %22 = load ptr, ptr %18, align 8
   %23 = trunc i64 %20 to i32
   %24 = tail call i32 %22(ptr noundef %0, i32 noundef %23) #15
@@ -1481,7 +1481,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
   %114 = trunc nuw nsw i64 %indvars.iv to i32
   %115 = ashr exact i32 %114, 2
   %116 = sext i32 %115 to i64
-  %117 = getelementptr [5 x %struct.i915_reg_t], ptr %8, i64 0, i64 %116
+  %117 = getelementptr %struct.i915_reg_t, ptr %8, i64 %116
   %118 = getelementptr i8, ptr %1, i64 %indvars.iv
   %119 = sub nsw i64 %100, %indvars.iv
   %120 = icmp sgt i64 %119, 0
@@ -1673,64 +1673,63 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
   br label %228
 
 228:                                              ; preds = %.loopexit, %226
-  %229 = phi i64 [ 0, %226 ], [ %252, %.loopexit ]
-  %230 = lshr exact i64 %229, 2
-  %231 = getelementptr [5 x %struct.i915_reg_t], ptr %8, i64 0, i64 %230
-  %232 = load i32, ptr %231, align 4
-  %233 = load ptr, ptr %37, align 8
-  %234 = call i32 %233(ptr noundef nonnull %36, i32 %232, i1 noundef zeroext true) #15
-  %235 = getelementptr i8, ptr %3, i64 %229
-  %236 = sub nsw i64 %227, %229
-  %237 = icmp sgt i64 %236, 0
-  br i1 %237, label %238, label %.loopexit
+  %229 = phi i64 [ 0, %226 ], [ %251, %.loopexit ]
+  %230 = getelementptr i8, ptr %8, i64 %229
+  %231 = load i32, ptr %230, align 4
+  %232 = load ptr, ptr %37, align 8
+  %233 = call i32 %232(ptr noundef nonnull %36, i32 %231, i1 noundef zeroext true) #15
+  %234 = getelementptr i8, ptr %3, i64 %229
+  %235 = sub nsw i64 %227, %229
+  %236 = icmp sgt i64 %235, 0
+  br i1 %236, label %237, label %.loopexit
 
-238:                                              ; preds = %228
-  %239 = trunc i64 %236 to i32
-  %240 = call i32 @llvm.smin.i32(i32 %239, i32 4)
-  %241 = zext nneg i32 %240 to i64
-  br label %242
+237:                                              ; preds = %228
+  %238 = trunc i64 %235 to i32
+  %239 = call i32 @llvm.smin.i32(i32 %238, i32 4)
+  %240 = zext nneg i32 %239 to i64
+  br label %241
 
-242:                                              ; preds = %242, %238
-  %243 = phi i64 [ 0, %238 ], [ %250, %242 ]
-  %244 = trunc i64 %243 to i32
-  %245 = shl i32 %244, 3
-  %246 = sub i32 24, %245
-  %247 = lshr i32 %234, %246
-  %248 = trunc i32 %247 to i8
-  %249 = getelementptr i8, ptr %235, i64 %243
-  store i8 %248, ptr %249, align 1
-  %250 = add nuw nsw i64 %243, 1
-  %251 = icmp eq i64 %250, %241
-  br i1 %251, label %.loopexit, label %242, !llvm.loop !106
+241:                                              ; preds = %241, %237
+  %242 = phi i64 [ 0, %237 ], [ %249, %241 ]
+  %243 = trunc i64 %242 to i32
+  %244 = shl i32 %243, 3
+  %245 = sub i32 24, %244
+  %246 = lshr i32 %233, %245
+  %247 = trunc i32 %246 to i8
+  %248 = getelementptr i8, ptr %234, i64 %242
+  store i8 %247, ptr %248, align 1
+  %249 = add nuw nsw i64 %242, 1
+  %250 = icmp eq i64 %249, %240
+  br i1 %250, label %.loopexit, label %241, !llvm.loop !106
 
-.loopexit:                                        ; preds = %242, %228
-  %252 = add nuw nsw i64 %229, 4
-  %253 = icmp samesign ult i64 %252, %227
-  br i1 %253, label %228, label %.loopexit19, !llvm.loop !107
+.loopexit:                                        ; preds = %241, %228
+  %251 = add nuw nsw i64 %229, 4
+  %252 = icmp samesign ult i64 %251, %227
+  br i1 %252, label %228, label %.loopexit19, !llvm.loop !107
 
 .loopexit19:                                      ; preds = %.loopexit, %224, %220, %206, %194, %182, %87, %71
-  %254 = phi i32 [ -5, %194 ], [ -110, %206 ], [ -16, %220 ], [ -16, %182 ], [ -16, %87 ], [ -16, %71 ], [ 0, %224 ], [ %225, %.loopexit ]
+  %253 = phi i32 [ -5, %194 ], [ -110, %206 ], [ -16, %220 ], [ -16, %182 ], [ -16, %87 ], [ -16, %71 ], [ 0, %224 ], [ %225, %.loopexit ]
   call void @cpu_latency_qos_update_request(ptr noundef nonnull %35, i32 noundef -1) #15
-  br i1 %34, label %255, label %256
+  br i1 %34, label %254, label %255
 
-255:                                              ; preds = %.loopexit19
+254:                                              ; preds = %.loopexit19
   call void @intel_pps_vdd_off_unlocked(ptr noundef %0, i1 noundef zeroext false) #15
-  br label %256
+  br label %255
 
-256:                                              ; preds = %.loopexit19, %255
-  %257 = call i64 @intel_pps_unlock(ptr noundef %0, i64 noundef %33) #15
+255:                                              ; preds = %.loopexit19, %254
+  %256 = call i64 @intel_pps_unlock(ptr noundef %0, i64 noundef %33) #15
   call void @__intel_display_power_put_async(ptr noundef %10, i32 noundef %31, i64 noundef -1, i32 noundef -1) #15
-  br i1 %14, label %.thread18, label %259
+  br i1 %14, label %.thread18, label %258
 
-.thread18:                                        ; preds = %28, %256
-  %258 = phi i32 [ %254, %256 ], [ -6, %28 ]
+.thread18:                                        ; preds = %28, %255
+  %257 = phi i32 [ %253, %255 ], [ -6, %28 ]
   call void @intel_tc_port_unlock(ptr noundef %9) #15
-  br label %259
+  br label %258
 
-259:                                              ; preds = %.thread18, %256
-  %260 = phi i32 [ %258, %.thread18 ], [ %254, %256 ]
+258:                                              ; preds = %.thread18, %255
+  %259 = phi i32 [ %257, %.thread18 ], [ %253, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %260
+  ret i32 %259
 }
 
 ; Function Attrs: null_pointer_is_valid

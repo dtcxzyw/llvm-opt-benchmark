@@ -747,7 +747,7 @@ define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   %5 = tail call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %1)
   %6 = tail call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %2)
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr @luaT_eventname, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @luaT_eventname, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = icmp eq ptr %5, %6
@@ -1570,7 +1570,7 @@ define dso_local noundef nonnull ptr @_Z14lua_debugtraceP9lua_State(ptr noundef 
 
 ._crit_edge:                                      ; preds = %78, %1
   %.016.lcssa = phi i64 [ 0, %1 ], [ %.4, %78 ]
-  %21 = getelementptr inbounds nuw [4096 x i8], ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 0, i64 %.016.lcssa
+  %21 = getelementptr inbounds nuw i8, ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 %.016.lcssa
   store i8 0, ptr %21, align 1, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr @_ZZ14lua_debugtraceP9lua_StateE3buf

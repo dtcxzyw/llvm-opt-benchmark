@@ -1732,7 +1732,7 @@ lean_dec.exit128:                                 ; preds = %138, %137, %135, %l
   br label %lean_dec.exit127
 
 lean_dec.exit127:                                 ; preds = %151, %150, %148, %142
-  %152 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %.088285
+  %152 = getelementptr inbounds nuw ptr, ptr %19, i64 %.088285
   %153 = load ptr, ptr %152, align 8, !tbaa !9
   %154 = ptrtoint ptr %153 to i64
   %155 = and i64 %154, 1
@@ -8590,7 +8590,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -8724,7 +8724,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_
   %.01942 = phi i64 [ %33, %49 ], [ %1, %3 ]
   %.02141 = phi ptr [ %.0.i.i29, %49 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.02141, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.01942
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01942
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1

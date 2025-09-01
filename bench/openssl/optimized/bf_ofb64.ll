@@ -114,7 +114,7 @@ define void @BF_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %78 = getelementptr inbounds nuw i8, ptr %.08085, i64 1
   %79 = load i8, ptr %.08085, align 1, !tbaa !7
   %80 = sext i32 %.07986 to i64
-  %81 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr %7, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %83 = xor i8 %82, %79
   %84 = getelementptr inbounds nuw i8, ptr %.08184, i64 1

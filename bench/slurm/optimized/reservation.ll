@@ -3041,7 +3041,7 @@ define internal fastcc i32 @_select_nodes(ptr noundef %0, ptr noundef captures(n
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %67 ]
   %68 = load ptr, ptr %50, align 16
   %69 = call ptr @bit_copy(ptr noundef %68) #19
-  %70 = getelementptr inbounds nuw [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw %struct.resv_select_t, ptr %5, i64 %indvars.iv
   store ptr %69, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3299,7 +3299,7 @@ _free_resv_select_members.exit134:                ; preds = %131, %133
 
 158:                                              ; preds = %157, %155
   %159 = zext nneg i32 %.1 to i64
-  %160 = getelementptr inbounds nuw [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw %struct.resv_select_t, ptr %5, i64 %159
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %2, align 8
   store ptr null, ptr %160, align 8
@@ -3459,7 +3459,7 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %209, %210, %213, %2
 221:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %222 = zext nneg i32 %.1 to i64
-  %223 = getelementptr inbounds nuw [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %222, i32 2
+  %223 = getelementptr inbounds nuw %struct.resv_select_t, ptr %5, i64 %222, i32 2
   %224 = load ptr, ptr %223, align 8
   %225 = call ptr @bit_copy(ptr noundef %224) #19
   store ptr %225, ptr %7, align 8
@@ -3492,7 +3492,7 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %209, %210, %213, %2
 
 237:                                              ; preds = %.thread145, %240
   %.083150 = phi i64 [ 0, %.thread145 ], [ %241, %240 ]
-  %238 = getelementptr inbounds nuw [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %.083150, i32 2
+  %238 = getelementptr inbounds nuw %struct.resv_select_t, ptr %5, i64 %.083150, i32 2
   %239 = load ptr, ptr %238, align 8
   %.not112 = icmp eq ptr %239, null
   br i1 %.not112, label %.critedge, label %240
@@ -3549,7 +3549,7 @@ _pick_nodes_by_feature_node_cnt.exit:             ; preds = %209, %210, %213, %2
 
 256:                                              ; preds = %249, %_free_resv_select_members.exit139
   %.0151 = phi i64 [ 0, %249 ], [ %268, %_free_resv_select_members.exit139 ]
-  %257 = getelementptr inbounds nuw [6 x %struct.resv_select_t], ptr %5, i64 0, i64 %.0151
+  %257 = getelementptr inbounds nuw %struct.resv_select_t, ptr %5, i64 %.0151
   %258 = load ptr, ptr %257, align 8
   %.not.i136 = icmp eq ptr %258, null
   br i1 %.not.i136, label %260, label %259

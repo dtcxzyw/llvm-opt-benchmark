@@ -11928,7 +11928,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17hf6ca4
   %21 = phi i64 [ %11, %.lr.ph ], [ %48, %45 ]
   %.sroa.02.028 = phi i64 [ %5, %.lr.ph ], [ %.sroa.02.1, %45 ]
   %22 = load ptr, ptr %17, align 16, !nonnull !11, !align !12, !noundef !11
-  %23 = getelementptr inbounds [0 x { { i64 }, { { [7 x i64] } } }], ptr %22, i64 0, i64 %21
+  %23 = getelementptr inbounds { { i64 }, { { [7 x i64] } } }, ptr %22, i64 %21
   %24 = load atomic i64, ptr %23 acquire, align 8
   %25 = add i64 %.sroa.02.028, 1
   %26 = icmp eq i64 %25, %24

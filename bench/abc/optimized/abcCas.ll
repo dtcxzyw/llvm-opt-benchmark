@@ -806,7 +806,7 @@ define noalias noundef ptr @Abc_LutBddToTruth(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
-  %13 = getelementptr inbounds nuw [256 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = icmp eq ptr %14, %11
   br i1 %15, label %._crit_edge.loopexit, label %16
@@ -829,7 +829,7 @@ define noalias noundef ptr @Abc_LutBddToTruth(ptr noundef readonly captures(none
   %.020.lcssa40 = phi i32 [ %.020.lcssa, %._crit_edge ], [ %.029, %16 ]
   %19 = add nsw i32 %.029, 1
   %20 = sext i32 %.029 to i64
-  %21 = getelementptr inbounds [256 x ptr], ptr %2, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr %2, i64 %20
   store ptr %11, ptr %21, align 8, !tbaa !10
   br label %22
 
@@ -889,7 +889,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeData() local_unnamed_addr #6 {
   br i1 %.not, label %._crit_edge, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %.pre52
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre52
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = shl nuw i32 1, %15
   %17 = or i32 %16, %.034
@@ -898,7 +898,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeData() local_unnamed_addr #6 {
 ._crit_edge:                                      ; preds = %10, %13
   %.1 = phi i32 [ %17, %13 ], [ %.034, %10 ]
   %18 = add nuw nsw i32 %.03233, 1
-  %19 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %.pre52
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre52
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !18
@@ -994,7 +994,7 @@ define range(i32 -2147483647, -2147483648) i32 @Abc_NtkDecPatCount(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !43
   %22 = icmp eq i8 %21, %17
   br i1 %22, label %.loopexit, label %19
@@ -1006,7 +1006,7 @@ define range(i32 -2147483647, -2147483648) i32 @Abc_NtkDecPatCount(i32 noundef %
 24:                                               ; preds = %.critedge
   %25 = add nsw i32 %.02539, 1
   %26 = sext i32 %.02539 to i64
-  %27 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %6, i64 %26
   store i8 %17, ptr %27, align 1, !tbaa !43
   br label %.loopexit
 
@@ -1114,7 +1114,7 @@ select.unfold.us.us:                              ; preds = %._crit_edge.split.u
 
 .lr.ph.i.us.us.us:                                ; preds = %46, %.lr.ph.preheader.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.preheader.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %46 ]
-  %43 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv.i.us.us.us
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.us.us.us
   %44 = load i8, ptr %43, align 1, !tbaa !43
   %45 = icmp eq i8 %44, %41
   br i1 %45, label %.loopexit.i.us.us.us, label %46
@@ -1131,7 +1131,7 @@ select.unfold.us.us:                              ; preds = %._crit_edge.split.u
 48:                                               ; preds = %.critedge.i.us.us.us
   %49 = add nsw i32 %.02539.i.us.us.us, 1
   %50 = sext i32 %.02539.i.us.us.us to i64
-  %51 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds i8, ptr %9, i64 %50
   store i8 %41, ptr %51, align 1, !tbaa !43
   br label %.loopexit.i.us.us.us
 
@@ -1265,7 +1265,7 @@ Abc_NtkDecPatCount.exit.thread:                   ; preds = %4
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %22 ]
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1, !tbaa !43
   %25 = icmp eq i8 %24, %20
   br i1 %25, label %.loopexit.i, label %22
@@ -1281,7 +1281,7 @@ Abc_NtkDecPatCount.exit.thread23:                 ; preds = %.critedge.i
 .critedge.i.thread:                               ; preds = %.lr.ph40.i, %.critedge.i
   %27 = add i32 %.02539.i, 1
   %28 = sext i32 %.02539.i to i64
-  %29 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %5, i64 %28
   store i8 %20, ptr %29, align 1, !tbaa !43
   br label %.loopexit.i
 
@@ -2400,7 +2400,7 @@ define noalias noundef ptr @Abc_NtkLutCascade(ptr noundef %0, i32 noundef %1, i3
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %28 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = icmp eq ptr %29, %26
   br i1 %30, label %._crit_edge.loopexit.i.i, label %31
@@ -2422,7 +2422,7 @@ define noalias noundef ptr @Abc_NtkLutCascade(ptr noundef %0, i32 noundef %1, i3
 ._crit_edge.thread.i.i:                           ; preds = %31, %._crit_edge.i.i
   %34 = add nsw i32 %.029.i.i, 1
   %35 = sext i32 %.029.i.i to i64
-  %36 = getelementptr inbounds [256 x ptr], ptr %8, i64 0, i64 %35
+  %36 = getelementptr inbounds ptr, ptr %8, i64 %35
   store ptr %26, ptr %36, align 8, !tbaa !10
   br label %37
 
@@ -2485,7 +2485,7 @@ Abc_NtkDecPatCount.exit.thread.i.i:               ; preds = %Abc_LutBddToTruth.e
 
 .lr.ph.i.i.i:                                     ; preds = %57, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %57 ]
-  %58 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i.i
   %59 = load i8, ptr %58, align 1, !tbaa !43
   %60 = icmp eq i8 %59, %55
   br i1 %60, label %.loopexit.i.i.i, label %57
@@ -2501,7 +2501,7 @@ Abc_NtkDecPatCount.exit.thread23.i.i:             ; preds = %.critedge.i.i.i
 .critedge.i.thread.i.i:                           ; preds = %.critedge.i.i.i, %.lr.ph40.i.i.i
   %62 = add i32 %.02539.i.i.i, 1
   %63 = sext i32 %.02539.i.i.i to i64
-  %64 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %63
+  %64 = getelementptr inbounds i8, ptr %7, i64 %63
   store i8 %55, ptr %64, align 1, !tbaa !43
   br label %.loopexit.i.i.i
 

@@ -588,7 +588,7 @@ default.unreachable11:                            ; preds = %3
   %.fca.1.extract.i3 = extractvalue { i64, i32 } %61, 1
   %62 = ptrtoint ptr %60 to i64
   %63 = urem i64 %62, 67
-  %64 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.not.i.i = icmp eq i64 %65, 1
   br i1 %.not.i.i, label %70, label %66
@@ -768,7 +768,7 @@ default.unreachable11:                            ; preds = %3
   %.fca.1.extract.i3 = extractvalue { i64, i32 } %61, 1
   %62 = ptrtoint ptr %60 to i64
   %63 = urem i64 %62, 67
-  %64 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.not.i.i = icmp eq i64 %65, 1
   br i1 %.not.i.i, label %70, label %66
@@ -1259,7 +1259,7 @@ default.unreachable3:                             ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = ptrtoint ptr %12 to i64
   %14 = urem i64 %13, 67
-  %15 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %14
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.not.i = icmp eq i64 %16, 1
   br i1 %.not.i, label %21, label %17
@@ -1365,7 +1365,7 @@ default.unreachable3:                             ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = ptrtoint ptr %12 to i64
   %14 = urem i64 %13, 67
-  %15 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %14
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.not.i = icmp eq i64 %16, 1
   br i1 %.not.i, label %21, label %17
@@ -1544,7 +1544,7 @@ default.unreachable11:                            ; preds = %1
   %.fca.1.extract.i4 = extractvalue { i64, i32 } %57, 1
   %58 = ptrtoint ptr %56 to i64
   %59 = urem i64 %58, 67
-  %60 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %59
   %61 = load atomic i64, ptr %60 acquire, align 8
   %.not.i.i = icmp eq i64 %61, 1
   br i1 %.not.i.i, label %66, label %62
@@ -1720,7 +1720,7 @@ default.unreachable11:                            ; preds = %1
   %.fca.1.extract.i4 = extractvalue { i64, i32 } %57, 1
   %58 = ptrtoint ptr %56 to i64
   %59 = urem i64 %58, 67
-  %60 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %59
   %61 = load atomic i64, ptr %60 acquire, align 8
   %.not.i.i = icmp eq i64 %61, 1
   br i1 %.not.i.i, label %66, label %62
@@ -1900,7 +1900,7 @@ default.unreachable11:                            ; preds = %3
   %.fca.1.extract.i3 = extractvalue { i64, i32 } %61, 1
   %62 = ptrtoint ptr %60 to i64
   %63 = urem i64 %62, 67
-  %64 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.not.i.i = icmp eq i64 %65, 1
   br i1 %.not.i.i, label %70, label %66
@@ -2080,7 +2080,7 @@ default.unreachable11:                            ; preds = %3
   %.fca.1.extract.i3 = extractvalue { i64, i32 } %61, 1
   %62 = ptrtoint ptr %60 to i64
   %63 = urem i64 %62, 67
-  %64 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %63
   %65 = load atomic i64, ptr %64 acquire, align 8
   %.not.i.i = icmp eq i64 %65, 1
   br i1 %.not.i.i, label %70, label %66
@@ -2158,7 +2158,7 @@ _ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7682092217504716512(ptr noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -3525,7 +3525,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   %.fca.1.extract.i5 = extractvalue { i64, i32 } %.fr, 1
   %82 = ptrtoint ptr %80 to i64
   %83 = urem i64 %82, 67
-  %84 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %83
   %85 = load atomic i64, ptr %84 acquire, align 8
   %.not.i.i = icmp eq i64 %85, 1
   br i1 %.not.i.i, label %90, label %86
@@ -3746,7 +3746,7 @@ _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.7682
   %.fca.1.extract.i5 = extractvalue { i64, i32 } %.fr, 1
   %82 = ptrtoint ptr %80 to i64
   %83 = urem i64 %82, 67
-  %84 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %83
   %85 = load atomic i64, ptr %84 acquire, align 8
   %.not.i.i = icmp eq i64 %85, 1
   br i1 %.not.i.i, label %90, label %86
@@ -4652,7 +4652,7 @@ define hidden noundef zeroext i1 @_ZN17crossbeam_channel7flavors4tick7Channel8is
   %.fca.1.extract = extractvalue { i64, i32 } %2, 1
   %3 = ptrtoint ptr %0 to i64
   %4 = urem i64 %3, 67
-  %5 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %4
   %6 = load atomic i64, ptr %5 acquire, align 8
   %.not.i = icmp eq i64 %6, 1
   br i1 %.not.i, label %11, label %7
@@ -4730,7 +4730,7 @@ _ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h3a2b091c22da1ed4E.llvm.7
 define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.llvm.7682092217504716512(ptr noalias noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = ptrtoint ptr %1 to i64
   %4 = urem i64 %3, 67
-  %5 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %4
   %6 = getelementptr i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24

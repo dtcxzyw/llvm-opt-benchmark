@@ -2949,9 +2949,9 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__
   br label %14
 
 10:                                               ; preds = %6
-  %11 = add nsw i32 %1, -128
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x %"struct.llvm::MCFixupKindInfo"], ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 0, i64 %12
+  %11 = zext nneg i32 %1 to i64
+  %12 = getelementptr %"struct.llvm::MCFixupKindInfo", ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -3072
   br label %14
 
 14:                                               ; preds = %10, %8, %4

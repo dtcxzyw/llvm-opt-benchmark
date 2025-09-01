@@ -66,10 +66,10 @@ define internal range(i32 12, 0) i32 @tqi_decode_frame(ptr noundef %0, ptr nound
 
 30:                                               ; preds = %30, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %30 ]
-  %31 = getelementptr inbounds nuw [64 x i16], ptr @ff_inv_aanscales, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i16, ptr @ff_inv_aanscales, i64 %indvars.iv.i
   %32 = load i16, ptr %31, align 2, !tbaa !39
   %33 = zext i16 %32 to i32
-  %34 = getelementptr inbounds nuw [0 x i16], ptr @ff_mpeg1_default_intra_matrix, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv.i
   %35 = load i16, ptr %34, align 2, !tbaa !39
   %36 = zext i16 %35 to i32
   %37 = mul nsw i32 %29, %33
@@ -77,7 +77,7 @@ define internal range(i32 12, 0) i32 @tqi_decode_frame(ptr noundef %0, ptr nound
   %39 = add i32 %38, 32
   %40 = lshr i32 %39, 14
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds nuw [64 x i16], ptr %28, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv.i
   store i16 %41, ptr %42, align 2, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64

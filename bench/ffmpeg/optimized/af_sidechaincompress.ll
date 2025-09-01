@@ -302,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %.loopexit
 
 75:                                               ; preds = %.preheader
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %57, i64 0, i64 %indvars.iv92
+  %76 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv92
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   %78 = call i32 @av_audio_fifo_read(ptr noundef %77, ptr noundef nonnull %73, i32 noundef %64) #10
   br i1 %69, label %.preheader, label %79, !llvm.loop !68

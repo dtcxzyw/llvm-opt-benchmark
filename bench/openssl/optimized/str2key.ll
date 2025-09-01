@@ -41,7 +41,7 @@ define void @DES_string_to_key(ptr noundef %0, ptr noundef initializes((0, 8)) %
 15:                                               ; preds = %13, %11
   %.sink31 = phi i64 [ %14, %13 ], [ %10, %11 ]
   %rev.sink = phi i8 [ %rev, %13 ], [ %12, %11 ]
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 0, i64 %.sink31
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink31
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = xor i8 %17, %rev.sink
   store i8 %18, ptr %16, align 1, !tbaa !3
@@ -104,14 +104,14 @@ define void @DES_string_to_2keys(ptr noundef %0, ptr noundef initializes((0, 8))
   br i1 %.not.not47, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 0, i64 %12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %19 = xor i8 %18, %15
   store i8 %19, ptr %17, align 1, !tbaa !3
   br label %35
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %12
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = xor i8 %22, %15
   store i8 %23, ptr %21, align 1, !tbaa !3
@@ -125,14 +125,14 @@ define void @DES_string_to_2keys(ptr noundef %0, ptr noundef initializes((0, 8))
   br i1 %.not.not46, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = xor i8 %29, %rev
   store i8 %30, ptr %28, align 1, !tbaa !3
   br label %35
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %26
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = xor i8 %33, %rev
   store i8 %34, ptr %32, align 1, !tbaa !3

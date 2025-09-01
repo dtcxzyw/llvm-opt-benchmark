@@ -2633,7 +2633,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
 22:                                               ; preds = %.lr.ph.i
   %23 = icmp ule i64 %.010.i, %8
   call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %.010.i
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i
   %25 = load i8, ptr %24, align 1, !noundef !9
   %.lobit = ashr i8 %25, 7
   %26 = sext i8 %.lobit to i64
@@ -3118,10 +3118,10 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !range !362, !noundef !9
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE.12", i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE.12", i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %6

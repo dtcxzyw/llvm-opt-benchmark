@@ -252,7 +252,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load i8, ptr %26, align 8, !tbaa !3
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !17
   store i32 %31, ptr %5, align 4, !tbaa !21
@@ -432,7 +432,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
 .preheader:                                       ; preds = %17, %21
   %22 = phi i1 [ false, %21 ], [ true, %17 ]
   %indvars.iv.i = phi i64 [ 1, %21 ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %indvars.iv.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2, ptr noundef nonnull readonly dereferenceable(4) %23, i64 4)
   %24 = icmp eq i32 %bcmp.i, 0
   br i1 %24, label %ssl_ticket_select_key.exit, label %21

@@ -89,7 +89,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef captures(add
   %.promoted44.us52.i.i = select i1 %48, i32 %45, i32 %.promoted44.us53.i.i
   %49 = tail call i32 @llvm.smax.i32(i32 %41, i32 %45)
   %50 = zext i8 %44 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %50
   store i8 1, ptr %51, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %27
@@ -110,7 +110,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef captures(add
   %56 = phi i32 [ %54, %._crit_edge47.i.i ], [ %66, %65 ]
   %indvars.iv60.i.i = phi i64 [ 0, %._crit_edge47.i.i ], [ %indvars.iv.next61.i.i, %65 ]
   %.03855.i.i = phi i32 [ -1, %._crit_edge47.i.i ], [ %.139.i.i, %65 ]
-  %57 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv60.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv60.i.i
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %.not.i.i = icmp eq i8 %58, 0
   br i1 %.not.i.i, label %65, label %59

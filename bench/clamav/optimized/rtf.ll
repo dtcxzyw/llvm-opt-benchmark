@@ -100,7 +100,7 @@ define i32 @cli_scanrtf(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %23, %21
   %25 = phi i1 [ true, %21 ], [ false, %23 ]
   %.06.i = phi i64 [ 0, %21 ], [ 1, %23 ]
-  %26 = getelementptr inbounds nuw [2 x %struct.rtf_action_mapping], ptr @rtf_action_mapping, i64 0, i64 %.06.i
+  %26 = getelementptr inbounds nuw %struct.rtf_action_mapping, ptr @rtf_action_mapping, i64 %.06.i
   %27 = load ptr, ptr %26, align 16, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !33
@@ -396,7 +396,7 @@ push_state.exit:                                  ; preds = %85
   %159 = getelementptr inbounds nuw i8, ptr %.0127242, i64 %.0130239
   %160 = load i8, ptr %159, align 1, !tbaa !3
   %161 = zext i8 %160 to i64
-  %162 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !3
   %.not182 = icmp eq i8 %163, 0
   br i1 %.not182, label %164, label %._crit_edge
@@ -647,7 +647,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
   %262 = getelementptr inbounds nuw i8, ptr %.0127242, i64 1
   %263 = add i64 %249, 1
   store i64 %263, ptr %41, align 8, !tbaa !60
-  %264 = getelementptr inbounds nuw [33 x i8], ptr %46, i64 0, i64 %249
+  %264 = getelementptr inbounds nuw i8, ptr %46, i64 %249
   store i8 %255, ptr %264, align 1, !tbaa !3
   br label %pop_state.exit
 
@@ -660,7 +660,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
   %268 = getelementptr inbounds nuw i8, ptr %.0127242, i64 1
   %269 = add i64 %249, 1
   store i64 %269, ptr %41, align 8, !tbaa !60
-  %270 = getelementptr inbounds nuw [33 x i8], ptr %46, i64 0, i64 %249
+  %270 = getelementptr inbounds nuw i8, ptr %46, i64 %249
   store i8 %255, ptr %270, align 1, !tbaa !3
   store i32 5, ptr %40, align 8, !tbaa !58
   br label %pop_state.exit
@@ -752,7 +752,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
 
 311:                                              ; preds = %63
   %312 = load i64, ptr %41, align 8, !tbaa !60
-  %313 = getelementptr inbounds nuw [33 x i8], ptr %46, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr %46, i64 %312
   store i8 0, ptr %313, align 1, !tbaa !3
   %314 = call i32 @tableFind(ptr noundef %22, ptr noundef nonnull %46) #10
   %.not171 = icmp eq i32 %314, -1
@@ -1041,7 +1041,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !80
   %26 = add nuw i64 %.0215288, 1
-  %27 = getelementptr inbounds nuw [256 x i16], ptr @hextable, i64 0, i64 %18
+  %27 = getelementptr inbounds nuw i16, ptr @hextable, i64 %18
   %28 = load i16, ptr %27, align 2, !tbaa !73
   %29 = zext i16 %28 to i32
   %30 = or i32 %25, %29
@@ -1074,7 +1074,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br i1 %.not243, label %71, label %43
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw [256 x i16], ptr @hextable, i64 0, i64 %39
+  %44 = getelementptr inbounds nuw i16, ptr @hextable, i64 %39
   %45 = load i16, ptr %44, align 2, !tbaa !73
   %46 = trunc i16 %45 to i8
   %47 = shl i8 %46, 4
@@ -1108,12 +1108,12 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.3218.lcssa
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i16], ptr @hextable, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i16, ptr @hextable, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !73
   %64 = trunc i16 %63 to i8
   %65 = or i8 %47, %64
   %66 = add i64 %.1204290, 1
-  %67 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %.1204290
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.1204290
   store i8 %65, ptr %67, align 1, !tbaa !3
   br label %71
 
@@ -1171,7 +1171,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br i1 %86, label %87, label %.critedge7
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw [8 x i8], ptr @rtf_data_magic, i64 0, i64 %85
+  %88 = getelementptr inbounds nuw i8, ptr @rtf_data_magic, i64 %85
   %89 = load i8, ptr %88, align 1, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.5220295
   %91 = load i8, ptr %90, align 1, !tbaa !3
@@ -1180,7 +1180,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 
 92:                                               ; preds = %87
   %93 = zext i8 %91 to i32
-  %94 = getelementptr inbounds nuw [8 x i8], ptr @rtf_data_magic, i64 0, i64 %.5220295
+  %94 = getelementptr inbounds nuw i8, ptr @rtf_data_magic, i64 %.5220295
   %95 = load i8, ptr %94, align 1, !tbaa !3
   %96 = zext i8 %95 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %96, i32 noundef %93, i64 noundef %85) #10

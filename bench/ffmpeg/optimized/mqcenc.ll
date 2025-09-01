@@ -32,7 +32,7 @@ declare void @ff_mqc_init_contexts(ptr noundef) local_unnamed_addr #1
 define void @ff_mqc_encode(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !14
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [94 x i16], ptr @ff_mqc_qe, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -68,7 +68,7 @@ define void @ff_mqc_encode(ptr noundef captures(none) %0, ptr noundef captures(n
 25:                                               ; preds = %21, %20
   %26 = load i8, ptr %1, align 1, !tbaa !14
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [94 x i8], ptr @ff_mqc_nmps, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @ff_mqc_nmps, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !14
   store i8 %29, ptr %1, align 1, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -177,7 +177,7 @@ byteout.exit.i:                                   ; preds = %58, %._crit_edge.i.
 80:                                               ; preds = %79, %75
   %81 = load i8, ptr %1, align 1, !tbaa !14
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [94 x i8], ptr @ff_mqc_nlps, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @ff_mqc_nlps, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !14
   store i8 %84, ptr %1, align 1, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 20

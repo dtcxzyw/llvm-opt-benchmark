@@ -707,7 +707,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i: ; preds = %.lr.ph.sp
 
 .lr.ph.i.us.i:                                    ; preds = %.preheader.i.us.i, %29
   %.sroa.01.05.i.us.i = phi i64 [ %30, %29 ], [ 0, %.preheader.i.us.i ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.sroa.01.05.i.us.i
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.05.i.us.i
   %27 = load i8, ptr %26, align 1, !alias.scope !147, !noalias !146, !noundef !9
   %28 = icmp eq i8 %27, %.pre92.i
   br i1 %28, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i, label %29
@@ -744,7 +744,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %42
   %.sroa.01.05.i.i = phi i64 [ %43, %42 ], [ 0, %.preheader.i.i ]
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %37, i64 0, i64 %.sroa.01.05.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.01.05.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !147, !noalias !146, !noundef !9
   %41 = icmp eq i8 %40, %.pre92.i
   br i1 %41, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i, label %42
@@ -1095,9 +1095,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1bb538e
   unreachable
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %50
+  %61 = getelementptr inbounds i8, ptr %4, i64 %50
   %62 = load i8, ptr %61, align 1, !noundef !9
-  %63 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %57
+  %63 = getelementptr inbounds i8, ptr %2, i64 %57
   %64 = load i8, ptr %63, align 1, !noundef !9
   %.not = icmp eq i8 %62, %64
   br i1 %.not, label %45, label %66
@@ -1113,9 +1113,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1bb538e
 
 68:                                               ; preds = %42
   %69 = add nuw i64 %.sroa.04.0, 1
-  %70 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %70 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %71 = load i8, ptr %70, align 1, !noundef !9
-  %72 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %43
+  %72 = getelementptr inbounds i8, ptr %2, i64 %43
   %73 = load i8, ptr %72, align 1, !noundef !9
   %.not24 = icmp eq i8 %71, %73
   br i1 %.not24, label %39, label %76

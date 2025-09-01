@@ -302,7 +302,7 @@ define dso_local ptr @raxAddChild(ptr noundef %0, i8 noundef zeroext %1, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
-  %45 = getelementptr inbounds nuw [0 x i8], ptr %41, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !15
   %47 = icmp ugt i8 %46, %1
   br i1 %47, label %._crit_edge.loopexit.split.loop.exit, label %48
@@ -943,7 +943,7 @@ raxNewNode.exit:                                  ; preds = %144, %167
 
 188:                                              ; preds = %184
   %189 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 4
-  %190 = getelementptr inbounds [0 x i8], ptr %189, i64 0, i64 %158
+  %190 = getelementptr inbounds i8, ptr %189, i64 %158
   %191 = load i8, ptr %190, align 1, !tbaa !15
   %192 = getelementptr inbounds nuw i8, ptr %165, i64 4
   store i8 %191, ptr %192, align 4, !tbaa !15
@@ -3336,7 +3336,7 @@ raxStackPop.exit:                                 ; preds = %122
 169:                                              ; preds = %161, %173
   %indvars.iv = phi i64 [ 0, %161 ], [ %indvars.iv.next, %173 ]
   %.086187 = phi ptr [ %168, %161 ], [ %174, %173 ]
-  %170 = getelementptr inbounds nuw [0 x i8], ptr %162, i64 0, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw i8, ptr %162, i64 %indvars.iv
   %171 = load i8, ptr %170, align 1, !tbaa !15
   %172 = icmp ugt i8 %171, %148
   br i1 %172, label %175, label %173
@@ -3914,7 +3914,7 @@ raxStackPop.exit:                                 ; preds = %39, %47
   %.060118 = phi ptr [ %86, %68 ], [ %94, %93 ]
   %.0119 = add nsw i32 %.0119.in, -1
   %89 = zext nneg i32 %.0119 to i64
-  %90 = getelementptr inbounds nuw [0 x i8], ptr %87, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !15
   %92 = icmp ult i8 %91, %54
   br i1 %92, label %.thread89, label %93
@@ -3925,7 +3925,7 @@ raxStackPop.exit:                                 ; preds = %39, %47
   br i1 %95, label %88, label %.loopexit, !llvm.loop !45
 
 .thread89:                                        ; preds = %88
-  %96 = getelementptr inbounds nuw [0 x i8], ptr %87, i64 0, i64 %89
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 %89
   %97 = load i64, ptr %20, align 8, !tbaa !39
   %98 = add i64 %61, 1
   %99 = icmp ult i64 %97, %98
@@ -4331,7 +4331,7 @@ raxGetData.exit145:                               ; preds = %76, %80
 
 122:                                              ; preds = %104
   %123 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %124 = getelementptr inbounds [0 x i8], ptr %123, i64 0, i64 %101
+  %124 = getelementptr inbounds i8, ptr %123, i64 %101
   %125 = load i8, ptr %124, align 1, !tbaa !15
   %126 = getelementptr inbounds nuw i8, ptr %.tr173, i64 %61
   %127 = load i8, ptr %126, align 1, !tbaa !15
@@ -5141,7 +5141,7 @@ raxGetData.exit:                                  ; preds = %13, %15
   br i1 %exitcond55.not, label %._crit_edge.us.us, label %50, !llvm.loop !50
 
 ._crit_edge.us.us:                                ; preds = %50
-  %54 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %indvars.iv56
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv56
   %55 = load i8, ptr %54, align 1, !tbaa !15
   %56 = zext i8 %55 to i32
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %56)
@@ -5157,7 +5157,7 @@ raxGetData.exit:                                  ; preds = %13, %15
   %.03744.us = phi ptr [ %65, %.lr.ph47.split.us.split ], [ %45, %.lr.ph47.split.us ]
   %59 = load ptr, ptr @stdout, align 8, !tbaa !48
   %60 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %59)
-  %61 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = zext i8 %62 to i32
   %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %63)
@@ -5338,7 +5338,7 @@ raxGetData.exit:                                  ; preds = %.raxGetData.exit_cr
   br i1 %26, label %.split.us, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %17, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = zext i8 %29 to i64
   %31 = add i64 %.133.us, %30

@@ -2397,7 +2397,7 @@ get_event.exit:                                   ; preds = %3
 
 switch.lookup:                                    ; preds = %41
   %46 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.cli_event_debug, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cli_event_debug, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %evtype.exit
 

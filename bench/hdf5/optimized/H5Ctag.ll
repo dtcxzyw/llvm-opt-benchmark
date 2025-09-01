@@ -1486,14 +1486,14 @@ define internal range(i32 -1, 1) i32 @H5C__flush_tagged_entries_cb(ptr noundef %
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load i32, ptr %39, align 8, !tbaa !122
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [6 x i32], ptr %38, i64 0, i64 %41
+  %42 = getelementptr inbounds i32, ptr %38, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !123
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !123
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 524664
   %46 = load i32, ptr %39, align 8, !tbaa !122
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [6 x i64], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds i64, ptr %45, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !45
   %50 = add i64 %49, %34
   store i64 %50, ptr %48, align 8, !tbaa !45

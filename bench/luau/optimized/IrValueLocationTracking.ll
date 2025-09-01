@@ -83,7 +83,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking18beforeInstLowe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = lshr i32 %.sroa.020.0.copyload, 4
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %.not.i = icmp eq i32 %13, -1
   br i1 %.not.i, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %14
@@ -154,7 +154,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i: ; preds = %42,
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = lshr i32 %.sroa.019.0.copyload, 4
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i32], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !13
   %.not.i42 = icmp eq i32 %56, -1
   br i1 %.not.i42, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %57
@@ -221,7 +221,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i46: ; preds = %8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = lshr i32 %.sroa.018.0.copyload, 4
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i32], ptr %91, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %91, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !13
   %.not.i48 = icmp eq i32 %95, -1
   br i1 %.not.i48, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %96
@@ -297,7 +297,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i52: ; preds = %1
   %.013.i = phi i32 [ %127, %.lr.ph.i ], [ %165, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i ]
   %134 = and i32 %.013.i, 255
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw [256 x i32], ptr %130, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i32, ptr %130, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !13
   %.not.i.i54 = icmp eq i32 %137, -1
   br i1 %.not.i.i54, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i, label %138
@@ -388,7 +388,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %.013.i58 = phi i32 [ %168, %.lr.ph.i57 ], [ %217, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65 ]
   %186 = and i32 %.013.i58, 255
   %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw [256 x i32], ptr %182, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i32, ptr %182, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !13
   %.not.i.i59 = icmp eq i32 %189, -1
   br i1 %.not.i.i59, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, label %190
@@ -481,7 +481,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %.013.i74 = phi i32 [ %229, %.lr.ph.i73 ], [ %268, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81 ]
   %237 = and i32 %.013.i74, 255
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw [256 x i32], ptr %233, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i32, ptr %233, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !13
   %.not.i.i75 = icmp eq i32 %240, -1
   br i1 %.not.i.i75, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, label %241
@@ -551,7 +551,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %275 = lshr i32 %.sroa.011.0.copyload, 4
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw [256 x i32], ptr %274, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i32, ptr %274, i64 %276
   %278 = load i32, ptr %277, align 4, !tbaa !13
   %.not.i87 = icmp eq i32 %278, -1
   br i1 %.not.i87, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %279
@@ -639,7 +639,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %3
   %.013.i96 = phi i32 [ %310, %.lr.ph.i95 ], [ %359, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103 ]
   %328 = and i32 %.013.i96, 255
   %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw [256 x i32], ptr %324, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i32, ptr %324, i64 %329
   %331 = load i32, ptr %330, align 4, !tbaa !13
   %.not.i.i97 = icmp eq i32 %331, -1
   br i1 %.not.i.i97, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, label %332
@@ -709,7 +709,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %366 = lshr i32 %.sroa.08.0.copyload, 4
   %367 = zext nneg i32 %366 to i64
-  %368 = getelementptr inbounds nuw [256 x i32], ptr %365, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw i32, ptr %365, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !13
   %.not.i109 = icmp eq i32 %369, -1
   br i1 %.not.i109, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %370
@@ -785,7 +785,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113: ; preds = %
   %.013.i118 = phi i32 [ %401, %.lr.ph.i117 ], [ %439, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125 ]
   %408 = and i32 %.013.i118, 255
   %409 = zext nneg i32 %408 to i64
-  %410 = getelementptr inbounds nuw [256 x i32], ptr %404, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw i32, ptr %404, i64 %409
   %411 = load i32, ptr %410, align 4, !tbaa !13
   %.not.i.i119 = icmp eq i32 %411, -1
   br i1 %.not.i.i119, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, label %412
@@ -865,7 +865,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %.013.i134 = phi i32 [ %443, %.lr.ph.i133 ], [ %481, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141 ]
   %450 = and i32 %.013.i134, 255
   %451 = zext nneg i32 %450 to i64
-  %452 = getelementptr inbounds nuw [256 x i32], ptr %446, i64 0, i64 %451
+  %452 = getelementptr inbounds nuw i32, ptr %446, i64 %451
   %453 = load i32, ptr %452, align 4, !tbaa !13
   %.not.i.i135 = icmp eq i32 %453, -1
   br i1 %.not.i.i135, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, label %454
@@ -935,7 +935,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %488 = lshr i32 %.sroa.05.0.copyload, 4
   %489 = zext nneg i32 %488 to i64
-  %490 = getelementptr inbounds nuw [256 x i32], ptr %487, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i32, ptr %487, i64 %489
   %491 = load i32, ptr %490, align 4, !tbaa !13
   %.not.i147 = icmp eq i32 %491, -1
   br i1 %.not.i147, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %492
@@ -1012,7 +1012,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151: ; preds = %
   %.013.i156 = phi i32 [ %523, %.lr.ph.i155 ], [ %562, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163 ]
   %531 = and i32 %.013.i156, 255
   %532 = zext nneg i32 %531 to i64
-  %533 = getelementptr inbounds nuw [256 x i32], ptr %527, i64 0, i64 %532
+  %533 = getelementptr inbounds nuw i32, ptr %527, i64 %532
   %534 = load i32, ptr %533, align 4, !tbaa !13
   %.not.i.i157 = icmp eq i32 %534, -1
   br i1 %.not.i.i157, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, label %535
@@ -1103,7 +1103,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %.013.i172 = phi i32 [ %565, %.lr.ph.i171 ], [ %614, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179 ]
   %583 = and i32 %.013.i172, 255
   %584 = zext nneg i32 %583 to i64
-  %585 = getelementptr inbounds nuw [256 x i32], ptr %579, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw i32, ptr %579, i64 %584
   %586 = load i32, ptr %585, align 4, !tbaa !13
   %.not.i.i173 = icmp eq i32 %586, -1
   br i1 %.not.i.i173, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, label %587
@@ -1173,7 +1173,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %621 = lshr i32 %.sroa.01.0.copyload, 4
   %622 = zext nneg i32 %621 to i64
-  %623 = getelementptr inbounds nuw [256 x i32], ptr %620, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw i32, ptr %620, i64 %622
   %624 = load i32, ptr %623, align 4, !tbaa !13
   %.not.i185 = icmp eq i32 %624, -1
   br i1 %.not.i185, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %625
@@ -1250,7 +1250,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189: ; preds = %
   %.013.i194 = phi i32 [ %656, %.lr.ph.i193 ], [ %695, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201 ]
   %664 = and i32 %.013.i194, 255
   %665 = zext nneg i32 %664 to i64
-  %666 = getelementptr inbounds nuw [256 x i32], ptr %660, i64 0, i64 %665
+  %666 = getelementptr inbounds nuw i32, ptr %660, i64 %665
   %667 = load i32, ptr %666, align 4, !tbaa !13
   %.not.i.i195 = icmp eq i32 %667, -1
   br i1 %.not.i.i195, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, label %668
@@ -1323,7 +1323,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRest
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = lshr i32 %1, 4
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !13
   %.not = icmp eq i32 %11, -1
   br i1 %.not, label %46, label %12
@@ -1414,7 +1414,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking23invalidateRest
   %.013 = phi i32 [ %1, %.lr.ph ], [ %44, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit ]
   %13 = and i32 %.013, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %.not.i = icmp eq i32 %16, -1
   br i1 %.not.i, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %17
@@ -1500,7 +1500,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking17afterInstLower
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = lshr i32 %7, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %.not.i = icmp eq i32 %15, -1
   br i1 %.not.i, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %16
@@ -1622,7 +1622,7 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking15recordRestoreO
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 576
   %17 = lshr i64 %13, 6
-  %18 = getelementptr inbounds nuw [4 x i64], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !45
   %20 = and i64 %13, 63
   %21 = shl nuw i64 1, %20
@@ -1658,7 +1658,7 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit: ; preds = %23, %
 
 38:                                               ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit, %_ZNKSt6bitsetILm256EE4testEm.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = getelementptr inbounds nuw [256 x i32], ptr %39, i64 0, i64 %13
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %13
   store i32 %1, ptr %40, align 4, !tbaa !13
   br label %57
 

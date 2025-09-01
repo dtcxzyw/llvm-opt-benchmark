@@ -734,7 +734,7 @@ define internal fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$1
 19:                                               ; preds = %.lr.ph, %tailrecurse.backedge
   %.tr2950 = phi i32 [ %3, %.lr.ph ], [ %69, %tailrecurse.backedge ]
   %.tr2749 = phi i64 [ %1, %.lr.ph ], [ %.tr27.be, %tailrecurse.backedge ]
-  %20 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %6, i64 0, i64 %.tr2749
+  %20 = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %.tr2749
   %21 = load i32, ptr %20, align 8, !range !85, !noundef !4
   %trunc = trunc nuw i32 %21 to i1
   br i1 %trunc, label %37, label %22
@@ -821,9 +821,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   unreachable
 
 tailrecurse.backedge:                             ; preds = %63
-  %.sroa.07.0.in = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %6, i64 0, i64 %61, i32 1
+  %.sroa.07.0.in = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %61, i32 1
   %.sroa.07.0 = load i32, ptr %.sroa.07.0.in, align 4, !noundef !4
-  %.sroa.08.0.in = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %6, i64 0, i64 %65, i32 1
+  %.sroa.08.0.in = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %65, i32 1
   %.sroa.08.0 = load i32, ptr %.sroa.08.0.in, align 4, !noundef !4
   %68 = icmp ugt i32 %.sroa.07.0, %.sroa.08.0
   %spec.select = select i1 %68, i64 %61, i64 %65
@@ -868,10 +868,10 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %24, i64 0, i64 %7
+  %25 = getelementptr inbounds { i32, [9 x i32] }, ptr %24, i64 %7
   %26 = load i32, ptr %25, align 8, !range !85, !noundef !4
-  %trunc42284 = trunc nuw i32 %26 to i1
-  br i1 %trunc42284, label %.lr.ph287, label %._crit_edge288
+  %trunc42285 = trunc nuw i32 %26 to i1
+  br i1 %trunc42285, label %.lr.ph288, label %._crit_edge289
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -906,21 +906,21 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
 
 40:                                               ; preds = %81
   %41 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %41, i64 0, i64 %.250
+  %42 = getelementptr inbounds { i32, [9 x i32] }, ptr %41, i64 %.251
   %43 = load i32, ptr %42, align 8, !range !85, !noundef !4
   %trunc42 = trunc nuw i32 %43 to i1
-  br i1 %trunc42, label %.lr.ph287, label %._crit_edge288
+  br i1 %trunc42, label %.lr.ph288, label %._crit_edge289
 
 ._crit_edge:                                      ; preds = %81, %5
-  %.sroa.08.0.lcssa = phi i64 [ %7, %5 ], [ %.250, %81 ]
-  %.lcssa133 = phi i64 [ %10, %5 ], [ %129, %81 ]
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.08.0.lcssa, i64 noundef %.lcssa133, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.23) #31
+  %.sroa.08.0.lcssa = phi i64 [ %7, %5 ], [ %.251, %81 ]
+  %.lcssa134 = phi i64 [ %10, %5 ], [ %129, %81 ]
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.08.0.lcssa, i64 noundef %.lcssa134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.23) #31
   unreachable
 
-.lr.ph287:                                        ; preds = %.lr.ph, %40
+.lr.ph288:                                        ; preds = %.lr.ph, %40
   %44 = phi ptr [ %42, %40 ], [ %25, %.lr.ph ]
-  %.sroa.017.0164286 = phi i32 [ %128, %40 ], [ 0, %.lr.ph ]
-  %.sroa.08.0165285 = phi i64 [ %.250, %40 ], [ %7, %.lr.ph ]
+  %.sroa.017.0165287 = phi i32 [ %128, %40 ], [ 0, %.lr.ph ]
+  %.sroa.08.0166286 = phi i64 [ %.251, %40 ], [ %7, %.lr.ph ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -966,14 +966,14 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %71 = icmp eq i64 %69, %70
   br i1 %71, label %72, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit"
 
-72:                                               ; preds = %.lr.ph287
+72:                                               ; preds = %.lr.ph288
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h612397cbc0427267E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit": ; preds = %.lr.ph287, %72
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h41c68a15850421d4E.exit": ; preds = %.lr.ph288, %72
   %73 = load ptr, ptr %23, align 8, !alias.scope !166, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds i64, ptr %73, i64 %69
-  store i64 %.sroa.08.0165285, ptr %74, align 8
+  store i64 %.sroa.08.0166286, ptr %74, align 8
   %75 = add i64 %69, 1
   store i64 %75, ptr %22, align 8, !alias.scope !166
   %76 = load i64, ptr %9, align 8, !noundef !4
@@ -990,7 +990,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %83 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %82, i64 0, i64 %46
+  %83 = getelementptr inbounds { i32, [9 x i32] }, ptr %82, i64 %46
   %84 = load i32, ptr %83, align 8, !range !85, !noundef !4
   %trunc47 = trunc nuw i32 %84 to i1
   %.sroa.06.0.v = select i1 %trunc47, i64 24, i64 8
@@ -1027,7 +1027,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.sroa.01.0.i.i78 = select i1 %switch.i6.i.i77, float %14, float %95
   %103 = fsub float %.sroa.01.0.i5.i80, %.sroa.01.0.i.i78
   %104 = fadd float %93, %103
-  %105 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %82, i64 0, i64 %48
+  %105 = getelementptr inbounds { i32, [9 x i32] }, ptr %82, i64 %48
   %106 = load i32, ptr %105, align 8, !range !85, !noundef !4
   %trunc48 = trunc nuw i32 %106 to i1
   %.sroa.07.0.v = select i1 %trunc48, i64 24, i64 8
@@ -1066,35 +1066,35 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %126 = fadd float %124, %125
   %127 = fcmp olt float %104, %126
   %. = select i1 %127, i64 %48, i64 %46
-  %.250 = select i1 %127, i64 %46, i64 %48
-  %128 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %., ptr noalias noundef readonly align 4 dereferenceable(16) %1, i32 noundef %.sroa.017.0164286)
+  %.251 = select i1 %127, i64 %46, i64 %48
+  %128 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %., ptr noalias noundef readonly align 4 dereferenceable(16) %1, i32 noundef %.sroa.017.0165287)
   %129 = load i64, ptr %9, align 8, !noundef !4
-  %130 = icmp ult i64 %.250, %129
+  %130 = icmp ult i64 %.251, %129
   br i1 %130, label %40, label %._crit_edge
 
 131:                                              ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %48, i64 noundef %76, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.25) #31
   unreachable
 
-._crit_edge288:                                   ; preds = %40, %.lr.ph
-  %.lcssa270 = phi i64 [ %10, %.lr.ph ], [ %129, %40 ]
-  %.sroa.08.0165.lcssa = phi i64 [ %7, %.lr.ph ], [ %.250, %40 ]
-  %.sroa.017.0164.lcssa = phi i32 [ 0, %.lr.ph ], [ %128, %40 ]
-  %.lcssa260 = phi ptr [ %24, %.lr.ph ], [ %41, %40 ]
-  %.lcssa256 = phi ptr [ %25, %.lr.ph ], [ %42, %40 ]
+._crit_edge289:                                   ; preds = %40, %.lr.ph
+  %.lcssa271 = phi i64 [ %10, %.lr.ph ], [ %129, %40 ]
+  %.sroa.08.0166.lcssa = phi i64 [ %7, %.lr.ph ], [ %.251, %40 ]
+  %.sroa.017.0165.lcssa = phi i32 [ 0, %.lr.ph ], [ %128, %40 ]
+  %.lcssa261 = phi ptr [ %24, %.lr.ph ], [ %41, %40 ]
+  %.lcssa257 = phi ptr [ %25, %.lr.ph ], [ %42, %40 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %133 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.lcssa257, i64 8
   %134 = load float, ptr %133, align 4, !alias.scope !245, !noalias !252, !noundef !4
   %135 = fcmp olt float %134, %17
   br i1 %135, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit": ; preds = %._crit_edge288
-  %136 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 12
+"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit": ; preds = %._crit_edge289
+  %136 = getelementptr inbounds nuw i8, ptr %.lcssa257, i64 12
   %137 = load float, ptr %136, align 4, !alias.scope !254, !noalias !252, !noundef !4
-  %138 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %.lcssa257, i64 20
   %139 = load float, ptr %138, align 4, !alias.scope !257, !noalias !252, !noundef !4
   %140 = fadd float %137, %139
-  %141 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.lcssa257, i64 16
   %142 = load float, ptr %141, align 4, !alias.scope !260, !noalias !252, !noundef !4
   %143 = fadd float %134, %142
   %144 = fcmp ogt float %143, %12
@@ -1105,16 +1105,16 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   br i1 %spec.select.i, label %147, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
 147:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
-  %148 = getelementptr inbounds nuw i8, ptr %.lcssa256, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %.lcssa257, i64 4
   %149 = load i32, ptr %148, align 4, !noundef !4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.017.0164.lcssa, i32 %149)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.017.0165.lcssa, i32 %149)
   br label %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread": ; preds = %._crit_edge288, %147, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
-  %.sroa.017.2 = phi i32 [ %.sroa.017.0164.lcssa, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit" ], [ %.sroa.0.0.sroa.speculated.i, %147 ], [ %.sroa.017.0164.lcssa, %._crit_edge288 ]
+"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread": ; preds = %._crit_edge289, %147, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit"
+  %.sroa.017.2 = phi i32 [ %.sroa.017.0165.lcssa, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit" ], [ %.sroa.0.0.sroa.speculated.i, %147 ], [ %.sroa.017.0165.lcssa, %._crit_edge289 ]
   %150 = add i32 %.sroa.017.2, 1
   %151 = load i64, ptr %132, align 8, !alias.scope !263, !noalias !266, !noundef !4
-  %152 = icmp eq i64 %.lcssa270, %151
+  %152 = icmp eq i64 %.lcssa271, %151
   br i1 %152, label %153, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
 
 153:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread"
@@ -1123,27 +1123,27 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread", %153
-  %154 = phi ptr [ %.lcssa260, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread" ], [ %.pre, %153 ]
-  %155 = getelementptr inbounds { i32, [9 x i32] }, ptr %154, i64 %.lcssa270
+  %154 = phi ptr [ %.lcssa261, %"_ZN4gpui8geometry15Bounds$LT$T$GT$10intersects17h572a120002fd16e2E.exit.thread" ], [ %.pre, %153 ]
+  %155 = getelementptr inbounds { i32, [9 x i32] }, ptr %154, i64 %.lcssa271
   store i32 0, ptr %155, align 8
   %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 %150, ptr %.sroa.4115.0..sroa_idx, align 4
   %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5116.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %156 = add i64 %.lcssa270, 1
+  %156 = add i64 %.lcssa271, 1
   store i64 %156, ptr %9, align 8, !alias.scope !263, !noalias !266
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  %157 = icmp ult i64 %.sroa.08.0165.lcssa, %156
+  %157 = icmp ult i64 %.sroa.08.0166.lcssa, %156
   br i1 %157, label %159, label %158
 
 158:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.08.0165.lcssa, i64 noundef %156, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.17) #31, !noalias !268
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.08.0166.lcssa, i64 noundef %156, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.17) #31, !noalias !268
   unreachable
 
 159:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit93"
   %160 = load ptr, ptr %8, align 8, !alias.scope !268, !nonnull !4, !noundef !4
-  %161 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %160, i64 0, i64 %.sroa.08.0165.lcssa
-  %162 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %160, i64 0, i64 %.lcssa270
+  %161 = getelementptr inbounds { i32, [9 x i32] }, ptr %160, i64 %.sroa.08.0166.lcssa
+  %162 = getelementptr inbounds { i32, [9 x i32] }, ptr %160, i64 %.lcssa271
   %163 = load i32, ptr %161, align 8, !range !85, !noalias !268, !noundef !4
   %trunc.i = trunc nuw i32 %163 to i1
   %.sroa.0.0.v.i = select i1 %trunc.i, i64 24, i64 8
@@ -1229,9 +1229,9 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 4
   store i32 %.sroa.0.0.sroa.speculated.i.i, ptr %.sroa.415.0..sroa_idx.i, align 4
   %.sroa.516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store i64 %.sroa.08.0165.lcssa, ptr %.sroa.516.0..sroa_idx.i, align 8
+  store i64 %.sroa.08.0166.lcssa, ptr %.sroa.516.0..sroa_idx.i, align 8
   %.sroa.617.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 16
-  store i64 %.lcssa270, ptr %.sroa.617.0..sroa_idx.i, align 8
+  store i64 %.lcssa271, ptr %.sroa.617.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 24
   store float %..i.i.i, ptr %.sroa.7.0..sroa_idx.i, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 28
@@ -1240,17 +1240,19 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   store float %196, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %197, i64 36
   store float %189, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx.i, align 4
-  %198 = add i64 %.lcssa270, 2
+  %198 = add i64 %.lcssa271, 2
   store i64 %198, ptr %9, align 8, !alias.scope !338, !noalias !341
   %199 = load i64, ptr %22, align 8, !noundef !4
   %.not = icmp eq i64 %199, 0
-  br i1 %.not, label %206, label %200
+  %200 = load ptr, ptr %23, align 8, !nonnull !4
+  %201 = getelementptr i64, ptr %200, i64 %199
+  %202 = getelementptr i8, ptr %201, i64 -8
+  %.not129130 = icmp eq ptr %202, null
+  %.not129 = select i1 %.not, i1 true, i1 %.not129130
+  br i1 %.not129, label %206, label %203
 
-200:                                              ; preds = %"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$13push_internal17h37bc526e39c57d5cE.exit"
-  %201 = load ptr, ptr %23, align 8, !nonnull !4
-  %202 = add i64 %199, -1
-  %203 = getelementptr inbounds [0 x i64], ptr %201, i64 0, i64 %202
-  %204 = load i64, ptr %203, align 8, !noundef !4
+203:                                              ; preds = %"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$13push_internal17h37bc526e39c57d5cE.exit"
+  %204 = load i64, ptr %202, align 8, !noundef !4
   %205 = icmp ult i64 %204, %198
   br i1 %205, label %207, label %211
 
@@ -1259,21 +1261,21 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   store i64 %156, ptr %6, align 8
   br label %220
 
-207:                                              ; preds = %200
+207:                                              ; preds = %203
   %208 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %209 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %208, i64 0, i64 %204
+  %209 = getelementptr inbounds { i32, [9 x i32] }, ptr %208, i64 %204
   %210 = load i32, ptr %209, align 8, !range !85, !noundef !4
   %trunc44 = trunc nuw i32 %210 to i1
   br i1 %trunc44, label %212, label %216
 
-211:                                              ; preds = %200
+211:                                              ; preds = %203
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %204, i64 noundef %198, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.27) #31
   unreachable
 
 212:                                              ; preds = %207
   %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %214 = load i64, ptr %213, align 8, !noundef !4
-  %215 = icmp eq i64 %214, %.sroa.08.0165.lcssa
+  %215 = icmp eq i64 %214, %.sroa.08.0166.lcssa
   br i1 %215, label %219, label %217
 
 216:                                              ; preds = %207
@@ -1311,7 +1313,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %227, ptr %.sroa.5109.0..sroa_idx, align 8
   %229 = icmp eq i64 %223, %224
-  br i1 %229, label %._crit_edge169, label %.lr.ph168
+  br i1 %229, label %._crit_edge170, label %.lr.ph169
 
 230:                                              ; preds = %243, %242
   %231 = landingpad { ptr, i32 }
@@ -1319,12 +1321,12 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   invoke void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h330c242bb8fed6b5E.llvm.5515369594646907350"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
           to label %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..drain..Drain$LT$usize$GT$$GT$17h2287d754ae8018e6E.exit" unwind label %250
 
-._crit_edge169:                                   ; preds = %244, %220
+._crit_edge170:                                   ; preds = %244, %220
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h330c242bb8fed6b5E.llvm.5515369594646907350"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %237
 
-.lr.ph168:                                        ; preds = %220, %244
+.lr.ph169:                                        ; preds = %220, %244
   %232 = phi ptr [ %248, %244 ], [ %226, %220 ]
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store ptr %233, ptr %3, align 8, !alias.scope !349
@@ -1333,18 +1335,18 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %236 = icmp ult i64 %234, %235
   br i1 %236, label %238, label %242
 
-237:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit", %._crit_edge169
-  %.sroa.0.0 = phi i32 [ %150, %._crit_edge169 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit" ]
+237:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit", %._crit_edge170
+  %.sroa.0.0 = phi i32 [ %150, %._crit_edge170 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17fa986f2bd1078dE.exit" ]
   ret i32 %.sroa.0.0
 
-238:                                              ; preds = %.lr.ph168
+238:                                              ; preds = %.lr.ph169
   %239 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %240 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %239, i64 0, i64 %234
+  %240 = getelementptr inbounds { i32, [9 x i32] }, ptr %239, i64 %234
   %241 = load i32, ptr %240, align 8, !range !85, !noundef !4
   %trunc46 = trunc nuw i32 %241 to i1
   br i1 %trunc46, label %244, label %243
 
-242:                                              ; preds = %.lr.ph168
+242:                                              ; preds = %.lr.ph169
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %234, i64 noundef %235, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.30) #31
           to label %39 unwind label %230
 
@@ -1360,7 +1362,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %247 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !349, !nonnull !4, !noundef !4
   %248 = load ptr, ptr %3, align 8, !alias.scope !349, !nonnull !4, !noundef !4
   %249 = icmp eq ptr %248, %247
-  br i1 %249, label %._crit_edge169, label %.lr.ph168
+  br i1 %249, label %._crit_edge170, label %.lr.ph169
 
 250:                                              ; preds = %230
   %251 = landingpad { ptr, i32 }

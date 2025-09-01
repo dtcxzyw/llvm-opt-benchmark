@@ -1752,7 +1752,7 @@ _.exit:                                           ; preds = %34, %36
 
 67:                                               ; preds = %64
   %68 = zext nneg i32 %62 to i64
-  %69 = getelementptr inbounds nuw [2 x [75 x i8]], ptr @push_colors, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [75 x i8], ptr @push_colors, i64 %68
   %70 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %69) #14
   br label %78
 

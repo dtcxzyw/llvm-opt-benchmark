@@ -590,7 +590,7 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %210 = and i32 %209, 3
   store i32 2, ptr %67, align 8, !tbaa !4
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw [4 x i32], ptr @rv20_decode_picture_header.pict_types, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i32, ptr @rv20_decode_picture_header.pict_types, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !79
   store i32 %213, ptr %71, align 8, !tbaa !77
   %214 = getelementptr inbounds nuw i8, ptr %55, i64 4104
@@ -711,7 +711,7 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 279:                                              ; preds = %267
   %280 = zext nneg i8 %277 to i64
-  %281 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %280
   %282 = load i8, ptr %281, align 1, !tbaa !13
   %283 = zext i8 %282 to i32
   %284 = add nuw nsw i32 %283, 1
@@ -1593,7 +1593,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %14 = add i16 %.0272, -1
   %15 = and i16 %.0272, 255
   %16 = zext i32 %.13 to i64
-  %17 = getelementptr inbounds nuw [1023 x i16], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %4, i64 %16
   store i16 %15, ptr %17, align 2, !tbaa !125
   %18 = add i32 %.13, 1
   %.not = icmp ugt i32 %18, %11

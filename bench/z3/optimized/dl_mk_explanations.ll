@@ -3450,7 +3450,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %.048118.in = phi i32 [ %35, %.lr.ph ], [ %.048118, %101 ]
   %.048118 = add i32 %.048118.in, 1
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, -8
@@ -3554,7 +3554,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
 113:                                              ; preds = %.lr.ph121, %154
   %114 = phi ptr [ %52, %.lr.ph121 ], [ %155, %154 ]
   %indvars.iv129 = phi i64 [ %57, %.lr.ph121 ], [ %indvars.iv.next130, %154 ]
-  %115 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %indvars.iv129
+  %115 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv129
   %116 = load ptr, ptr %115, align 8, !tbaa !38
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %117, -8
@@ -3696,7 +3696,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %183 = add i32 %182, -1
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %185 = zext i32 %183 to i64
-  %186 = getelementptr inbounds nuw [0 x ptr], ptr %184, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !78
   %.not.i.i.i.i81 = icmp eq ptr %187, null
   br i1 %.not.i.i.i.i81, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %188
@@ -4458,7 +4458,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   %67 = phi ptr [ %39, %.lr.ph72 ], [ %132, %130 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %130 ]
   %68 = load ptr, ptr %21, align 8, !tbaa !296
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !322
   %71 = trunc nuw i64 %indvars.iv to i32
   %72 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %68, i32 noundef %71, ptr noundef %70)

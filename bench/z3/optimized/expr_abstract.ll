@@ -327,7 +327,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %114, %116
   %.061181 = phi i1 [ false, %.lr.ph185 ], [ %.162, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
   %.3180 = phi ptr [ %.1189, %.lr.ph185 ], [ %.5, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit ]
   %123 = trunc nuw i8 %.058184 to i1
-  %124 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %indvars.iv210
+  %124 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv210
   %125 = load ptr, ptr %124, align 8, !tbaa !19
   br i1 %123, label %126, label %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread
 

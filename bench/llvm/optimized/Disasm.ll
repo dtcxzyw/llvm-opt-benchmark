@@ -20394,10 +20394,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.17, i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.17, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5spellENS_12RoundingModeE.exit
 
@@ -21360,7 +21360,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit144:              ; preds = %330, %332
   %339 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %340 = load i32, ptr %339, align 4, !tbaa !205
   %341 = zext nneg i32 %340 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE, i64 0, i64 %341
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE, i64 %341
   %switch.load = load ptr, ptr %switch.gep, align 8
   %342 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #18
   %343 = load ptr, ptr %12, align 8, !tbaa !19

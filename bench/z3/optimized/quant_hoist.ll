@@ -1630,7 +1630,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %43
 
 66:                                               ; preds = %.lr.ph, %84
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !35
   invoke void @_ZN18quantifier_hoister4impl15pull_quantifierEP4exprRNS0_15quantifier_typeER10ref_vectorI3app11ast_managerER7obj_refIS1_S7_Ebb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext %5, i1 noundef zeroext %6)
           to label %69 unwind label %91
@@ -1766,7 +1766,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6i
 
 123:                                              ; preds = %.lr.ph194, %141
   %indvars.iv199 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next200, %141 ]
-  %124 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %indvars.iv199
+  %124 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv199
   %125 = load ptr, ptr %124, align 8, !tbaa !35
   invoke void @_ZN18quantifier_hoister4impl15pull_quantifierEP4exprRNS0_15quantifier_typeER10ref_vectorI3app11ast_managerER7obj_refIS1_S7_Ebb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %125, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext %5, i1 noundef zeroext %6)
           to label %126 unwind label %148

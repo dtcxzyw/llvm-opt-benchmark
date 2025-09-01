@@ -743,7 +743,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   %230 = phi i1 [ true, %227 ], [ false, %229 ]
   %.014.i = phi i64 [ 0, %227 ], [ 1, %229 ]
   %.01113.i = phi i1 [ false, %227 ], [ %spec.select.i, %229 ]
-  %231 = getelementptr inbounds nuw [2 x i8], ptr @.str.5, i64 0, i64 %.014.i
+  %231 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %.014.i
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %228, %232
   %spec.select.i = select i1 %233, i1 true, i1 %.01113.i
@@ -809,7 +809,7 @@ _ZN7mitsuba7advanceILb0ELm2EEEvPPKcS2_RAT0__S1_.exit: ; preds = %234
 
 245:                                              ; preds = %241, %_ZN7mitsuba7advanceILb0ELm2EEEvPPKcS2_RAT0__S1_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %27, ptr align 1 %.0374719, i64 %239, i1 false)
-  %246 = getelementptr inbounds [1025 x i8], ptr %27, i64 0, i64 %239
+  %246 = getelementptr inbounds i8, ptr %27, i64 %239
   store i8 0, ptr %246, align 1
   br label %247
 
@@ -821,7 +821,7 @@ _ZN7mitsuba7advanceILb0ELm2EEEvPPKcS2_RAT0__S1_.exit: ; preds = %234
 249:                                              ; preds = %249, %247
   %.014.i462 = phi i64 [ 0, %247 ], [ %253, %249 ]
   %.01113.i463 = phi i8 [ 0, %247 ], [ %spec.select.i464, %249 ]
-  %250 = getelementptr inbounds nuw [4 x i8], ptr @.str.7, i64 0, i64 %.014.i462
+  %250 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %.014.i462
   %251 = load i8, ptr %250, align 1
   %252 = icmp eq i8 %248, %251
   %spec.select.i464 = select i1 %252, i8 1, i8 %.01113.i463
@@ -1257,7 +1257,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 
 443:                                              ; preds = %.lr.ph
   %444 = trunc i64 %.in to i32
-  %445 = getelementptr inbounds nuw [3 x i32], ptr %31, i64 0, i64 %.0390706
+  %445 = getelementptr inbounds nuw i32, ptr %31, i64 %.0390706
   store i32 %444, ptr %445, align 4
   br label %446
 
@@ -1370,7 +1370,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   br i1 %491, label %492, label %494
 
 492:                                              ; preds = %490
-  %493 = getelementptr inbounds nuw [3 x i32], ptr %32, i64 0, i64 %.0393705
+  %493 = getelementptr inbounds nuw i32, ptr %32, i64 %.0393705
   store i32 %.0385, ptr %493, align 4
   br label %496
 

@@ -549,14 +549,14 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 
 ._crit_edge59.thread:                             ; preds = %9
   %13 = fdiv reassoc nsz arcp double %12, %.049
-  %14 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv77
+  %14 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv77
   store double %13, ptr %14, align 8, !tbaa !18
   br label %41
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %.05055 = phi double [ %21, %.lr.ph ], [ %12, %9 ]
-  %15 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !18
   %17 = sub nuw nsw i64 %indvars.iv77, %indvars.iv
   %18 = getelementptr inbounds nuw double, ptr %0, i64 %17
@@ -569,7 +569,7 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = fdiv reassoc nsz arcp double %21, %.049
-  %23 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv77
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv77
   store double %22, ptr %23, align 8, !tbaa !18
   %.not63 = icmp eq i64 %indvars.iv77, 1
   br i1 %.not63, label %._crit_edge59.thread86, label %.lr.ph58.preheader
@@ -581,12 +581,12 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv67 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next68, %.lr.ph58 ]
-  %26 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv67
+  %26 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv67
   %27 = load double, ptr %26, align 8, !tbaa !18
   %28 = xor i64 %indvars.iv67, -1
   %29 = add nsw i64 %indvars.iv77, %28
   %30 = and i64 %29, 4294967295
-  %31 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw double, ptr %5, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !18
   %33 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %22, double %32, double %27)
   store double %33, ptr %26, align 8, !tbaa !18
@@ -604,7 +604,7 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 
 ._crit_edge59.thread86:                           ; preds = %._crit_edge, %._crit_edge59
   %.1.lcssa89 = phi i64 [ %indvars.iv.next68, %._crit_edge59 ], [ 0, %._crit_edge ]
-  %38 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %.1.lcssa89
+  %38 = getelementptr inbounds nuw double, ptr %5, i64 %.1.lcssa89
   %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %39, double %22, double %39)
   store double %40, ptr %38, align 8, !tbaa !18
@@ -618,11 +618,11 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 
 44:                                               ; preds = %41, %44
   %indvars.iv70 = phi i64 [ 0, %41 ], [ %indvars.iv.next71, %44 ]
-  %45 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv70
+  %45 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv70
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fptrunc reassoc nsz arcp double %46 to float
   %48 = fneg reassoc nsz arcp float %47
-  %49 = getelementptr inbounds nuw [32 x float], ptr %43, i64 0, i64 %indvars.iv70
+  %49 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv70
   store float %48, ptr %49, align 4, !tbaa !7
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond76 = icmp eq i64 %indvars.iv.next71, %wide.trip.count75

@@ -1101,10 +1101,10 @@ define hidden void @b2StoreOverflowImpulses(ptr noundef readonly captures(none) 
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [2 x %struct.b2ContactConstraintPoint], ptr %16, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %16, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load float, ptr %23, align 4, !tbaa !121
-  %25 = getelementptr inbounds nuw [2 x %struct.b2ManifoldPoint], ptr %17, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %17, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store float %24, ptr %26, align 4, !tbaa !119
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 28
@@ -1229,9 +1229,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   %65 = load i32, ptr %64, align 4, !tbaa !87
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !90
-  %68 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   store i32 %65, ptr %68, align 4, !tbaa !157
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   store i32 %67, ptr %69, align 4, !tbaa !157
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %71 = load float, ptr %70, align 4, !tbaa !105
@@ -1532,9 +1532,9 @@ define hidden void @b2PrepareContactsTask(i32 noundef %0, i32 noundef %1, ptr no
   br label %312
 
 273:                                              ; preds = %60
-  %274 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %274 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   store i32 -1, ptr %274, align 4, !tbaa !157
-  %275 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %275 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   store i32 -1, ptr %275, align 4, !tbaa !157
   %276 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   store float 0.000000e+00, ptr %276, align 4, !tbaa !24
@@ -1626,7 +1626,7 @@ define hidden void @b2WarmStartContactsTask(i32 noundef %0, i32 noundef %1, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [12 x %struct.b2GraphColor], ptr %8, i64 0, i64 %9, i32 3
+  %10 = getelementptr inbounds %struct.b2GraphColor, ptr %8, i64 %9, i32 3
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = icmp slt i32 %0, %1
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
@@ -1966,7 +1966,7 @@ define hidden void @b2SolveContactsTask(i32 noundef %0, i32 noundef %1, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [12 x %struct.b2GraphColor], ptr %9, i64 0, i64 %10, i32 3
+  %11 = getelementptr inbounds %struct.b2GraphColor, ptr %9, i64 %10, i32 3
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = load float, ptr %13, align 4, !tbaa !141
@@ -2591,7 +2591,7 @@ define hidden void @b2ApplyRestitutionTask(i32 noundef %0, i32 noundef %1, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [12 x %struct.b2GraphColor], ptr %8, i64 0, i64 %9, i32 3
+  %10 = getelementptr inbounds %struct.b2GraphColor, ptr %8, i64 %9, i32 3
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !3

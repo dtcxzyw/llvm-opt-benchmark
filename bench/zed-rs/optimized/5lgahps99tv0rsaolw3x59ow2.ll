@@ -1013,7 +1013,7 @@ default.unreachable:                              ; preds = %26, %7
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %21 = load ptr, ptr %20, align 8, !noalias !70, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds [0 x float], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds float, ptr %21, i64 %14
   %23 = load float, ptr %22, align 4, !noalias !70, !noundef !4
   %24 = add nuw i64 %14, 1
   store i64 %24, ptr %8, align 8, !alias.scope !70
@@ -1053,7 +1053,7 @@ default.unreachable:                              ; preds = %26, %7
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %41 = load ptr, ptr %40, align 8, !noalias !74, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds [0 x float], ptr %41, i64 0, i64 %34
+  %42 = getelementptr inbounds float, ptr %41, i64 %34
   %43 = load float, ptr %42, align 4, !noalias !74, !noundef !4
   %44 = add nuw i64 %34, 1
   store i64 %44, ptr %28, align 8, !alias.scope !74

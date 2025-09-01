@@ -9539,7 +9539,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %2 = load double, ptr %arrayidx, align 8
   %cmp5 = fcmp ogt double %2, 1.000000e-02
   %cmp8 = fcmp olt double %2, 0x3FEFAE147AE147AE
@@ -10379,7 +10379,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %cmp5 = fcmp ogt double %0, 1.000000e-02
   %cmp8 = fcmp olt double %0, 0x3FEFAE147AE147AE
@@ -11033,7 +11033,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %cmp5 = fcmp ogt double %0, 1.000000e-02
   %cmp8 = fcmp olt double %0, 0x3FEFAE147AE147AE
@@ -11672,7 +11672,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %cmp5 = fcmp ogt double %0, 1.000000e-02
   %cmp8 = fcmp olt double %0, 0x3FEFAE147AE147AE
@@ -12224,7 +12224,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %t, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %cmp5 = fcmp ogt double %0, 1.000000e-02
   %cmp8 = fcmp olt double %0, 0x3FEFAE147AE147AE

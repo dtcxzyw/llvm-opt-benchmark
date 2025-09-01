@@ -4377,18 +4377,18 @@ sw.bb1:                                           ; preds = %entry
   %15 = lshr i8 %14, 3
   %16 = and i8 %15, 3
   %17 = load ptr, ptr %writer, align 8
-  %switch.tableidx = add nsw i8 %16, -1
-  %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tE13fwrite_streamJ6personEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_, i64 0, i64 %18
+  %18 = zext nneg i8 %16 to i64
+  %19 = getelementptr i64, ptr @switch.table._ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tE13fwrite_streamJ6personEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_, i64 %18
+  %switch.gep = getelementptr i8, ptr %19, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i10 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %call.i10.i.i = call i64 @fwrite(ptr noundef nonnull %size2.i.i, i64 noundef %switch.load, i64 noundef 1, ptr noundef %17)
-  %19 = load ptr, ptr %name.i.i10, align 8
-  %20 = load i64, ptr %_M_string_length.i.i.i9, align 8
-  %cmp.i.i.i11 = icmp ult i64 %20, 9223372036854775807
+  %20 = load ptr, ptr %name.i.i10, align 8
+  %21 = load i64, ptr %_M_string_length.i.i.i9, align 8
+  %cmp.i.i.i11 = icmp ult i64 %21, 9223372036854775807
   tail call void @llvm.assume(i1 %cmp.i.i.i11)
-  %21 = load ptr, ptr %writer, align 8
-  %call.i14.i.i = tail call i64 @fwrite(ptr noundef %19, i64 noundef %20, i64 noundef 1, ptr noundef %21)
+  %22 = load ptr, ptr %writer, align 8
+  %call.i14.i.i = tail call i64 @fwrite(ptr noundef %20, i64 noundef %21, i64 noundef 1, ptr noundef %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %size2.i.i)
   br label %sw.epilog
 

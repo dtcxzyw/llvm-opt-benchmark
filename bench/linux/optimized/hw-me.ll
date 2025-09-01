@@ -1911,7 +1911,7 @@ define dso_local ptr @mei_me_get_cfg(i64 noundef %0) #5 align 16 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr [17 x ptr], ptr @mei_cfg_list, i64 0, i64 %0
+  %4 = getelementptr ptr, ptr @mei_cfg_list, i64 %0
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -1933,7 +1933,7 @@ define dso_local noundef ptr @mei_me_dev_init(ptr noundef %0, ptr noundef %1, i1
 
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %14, %9 ]
-  %11 = getelementptr [3 x i64], ptr %7, i64 0, i64 %10
+  %11 = getelementptr i64, ptr %7, i64 %10
   %12 = load i64, ptr %11, align 8
   %.idx = mul nuw nsw i64 %10, 24
   %13 = getelementptr i8, ptr %8, i64 %.idx
@@ -3379,9 +3379,9 @@ define internal i32 @mei_me_fw_status(ptr noundef %0, ptr noundef %1) #0 align 1
 23:                                               ; preds = %16, %13
   %24 = phi i64 [ 0, %13 ], [ %17, %16 ]
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr [6 x i32], ptr %14, i64 0, i64 %24
+  %26 = getelementptr i32, ptr %14, i64 %24
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr [6 x i32], ptr %15, i64 0, i64 %24
+  %28 = getelementptr i32, ptr %15, i64 %24
   %29 = tail call i32 %25(ptr noundef %0, i32 noundef %27, ptr noundef %28) #16
   %30 = load ptr, ptr %0, align 8
   %31 = load i32, ptr %26, align 4

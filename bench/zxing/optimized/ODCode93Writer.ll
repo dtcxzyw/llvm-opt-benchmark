@@ -990,7 +990,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_
   %382 = sub i32 %381, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
   %383 = sext i32 %382 to i64
   %384 = select i1 %.not.i56, i64 -1, i64 %383
-  %385 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %384
+  %385 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %384
   %386 = load i32, ptr %385, align 4, !tbaa !35
   br label %387
 
@@ -1037,7 +1037,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66: ; preds = %_ZNSt14_B
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %.lr.ph.i51
   %406 = srem i32 %373, 47
   %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %407
+  %408 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %407
   %409 = load i32, ptr %408, align 4, !tbaa !35
   %410 = and i64 %indvars.iv.next, 4294967295
   br label %411
@@ -1078,7 +1078,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i72:               ; preds = %425, %422
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i72
   %429 = add nuw i64 %indvars.iv, 18
-  %430 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %407
+  %430 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %407
   %431 = load i8, ptr %430, align 1, !tbaa !19
   %432 = add nuw nsw i64 %.pre, 1
   %433 = icmp eq ptr %363, %13
@@ -1150,7 +1150,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i77: ; 
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit91: ; preds = %._crit_edge.loopexit.i90, %439
   %.011.lcssa.i79 = phi i64 [ 0, %439 ], [ %448, %._crit_edge.loopexit.i90 ]
-  %460 = getelementptr inbounds [48 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %.011.lcssa.i79
+  %460 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.011.lcssa.i79
   %461 = load i32, ptr %460, align 4, !tbaa !35
   %462 = and i64 %429, 4294967295
   br label %463

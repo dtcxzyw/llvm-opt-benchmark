@@ -1287,7 +1287,7 @@ common.resume:                                    ; preds = %.body, %97, %26
   %59 = load float, ptr %58, align 4, !alias.scope !264, !noalias !267, !noundef !12
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 8
   %61 = load float, ptr %60, align 4, !alias.scope !264, !noalias !267, !noundef !12
-  %62 = getelementptr inbounds nuw [0 x { [3 x i32] }], ptr %49, i64 0, i64 %.sroa.7.028.i
+  %62 = getelementptr inbounds nuw { [3 x i32] }, ptr %49, i64 %.sroa.7.028.i
   store i32 %57, ptr %62, align 4, !noalias !270
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float %59, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 4, !noalias !270
@@ -1760,7 +1760,7 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %12, align 8, !nonnull !12, !noundef !12
-  %45 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %44, i64 0, i64 %32
+  %45 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %44, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !335
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %.noexc31 unwind label %.thread

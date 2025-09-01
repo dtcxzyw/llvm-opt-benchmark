@@ -58,9 +58,9 @@ define range(i32 0, 1044481) i32 @ff_aac_ac_map_process(ptr noundef captures(non
   %21 = fmul nsz float %13, %20
   %22 = fptosi float %21 to i32
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %4, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !10
-  %26 = getelementptr inbounds nuw [513 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -100,9 +100,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define range(i32 0, 1114352) i32 @ff_aac_ac_get_context(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %6 = load i16, ptr %5, align 4, !tbaa !13
-  %7 = add nsw i32 %2, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [513 x i8], ptr %0, i64 0, i64 %8
+  %7 = sext i32 %2 to i64
+  %8 = getelementptr i8, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !10
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 12
@@ -149,7 +149,7 @@ define range(i32 0, 256) i32 @ff_aac_ac_get_pk(i32 noundef %0) local_unnamed_add
   %4 = lshr i32 %3, 1
   %5 = add nsw i32 %4, %.01622
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [742 x i32], ptr @ff_aac_ac_hash_m, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr @ff_aac_ac_hash_m, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = ashr i32 %8, 8
   %10 = icmp ult i32 %0, %9
@@ -172,7 +172,7 @@ define range(i32 0, 256) i32 @ff_aac_ac_get_pk(i32 noundef %0) local_unnamed_add
 
 18:                                               ; preds = %15
   %19 = sext i32 %.1 to i64
-  %20 = getelementptr inbounds [742 x i8], ptr @ff_aac_ac_lookup_m, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr @ff_aac_ac_lookup_m, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !10
   %22 = zext i8 %21 to i32
   br label %23
@@ -200,7 +200,7 @@ define void @ff_aac_ac_update_context(ptr noundef captures(none) initializes((52
   store i8 %14, ptr %10, align 2, !tbaa !10
   store i8 %spec.select, ptr %13, align 1, !tbaa !10
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds [513 x i8], ptr %0, i64 0, i64 %15
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
   store i8 %spec.select, ptr %16, align 1, !tbaa !10
   ret void
 }

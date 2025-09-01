@@ -426,7 +426,7 @@ define internal void @prescan_quantize(ptr noundef readonly captures(none) %0, p
   %26 = load i8, ptr %25, align 1, !tbaa !34
   %27 = lshr i8 %26, 3
   %28 = zext nneg i8 %27 to i64
-  %29 = getelementptr inbounds nuw [32 x i16], ptr %24, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i16, ptr %24, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !75
   %31 = add i16 %30, 1
   %32 = icmp eq i16 %31, 0
@@ -562,26 +562,26 @@ find_biggest_color_pop.exit.i.i:                  ; preds = %32, %.lr.ph.i84.i.i
   %58 = shl i32 %57, 3
   %59 = load i32, ptr %21, align 8, !tbaa !49
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !66
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %63
+  %64 = getelementptr inbounds i32, ptr @c_scales, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !66
   %66 = mul nsw i32 %65, %58
   %67 = sub nsw i32 %45, %52
   %68 = shl i32 %67, 2
-  %69 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %60
+  %69 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %60
   %70 = load i32, ptr %69, align 4, !tbaa !66
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %71
+  %72 = getelementptr inbounds i32, ptr @c_scales, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !66
   %74 = mul nsw i32 %73, %68
   %75 = sub nsw i32 %48, %55
   %76 = shl i32 %75, 3
-  %77 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %60
+  %77 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %60
   %78 = load i32, ptr %77, align 4, !tbaa !66
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr @c_scales, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !66
   %82 = mul nsw i32 %81, %76
   %83 = shl nuw i64 1, %60
@@ -716,7 +716,7 @@ median_cut.exit.i:                                ; preds = %102, %find_biggest_
   %.05897.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %.361.i.i, %._crit_edge87.split.i.i ]
   %129 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv131.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !55
-  %invariant.gep.i.i = getelementptr [32 x i16], ptr %130, i64 0, i64 %121
+  %invariant.gep.i.i = getelementptr i16, ptr %130, i64 %121
   %131 = trunc nsw i64 %indvars.iv131.i.i to i32
   %132 = shl i32 %131, 3
   %133 = or disjoint i32 %132, 4
@@ -1000,7 +1000,7 @@ define internal void @pass2_fs_dither(ptr noundef readonly captures(none) %0, pt
   %106 = getelementptr inbounds nuw [32 x i16], ptr %103, i64 %105
   %107 = lshr i32 %99, 3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw [32 x i16], ptr %106, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i16, ptr %106, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !75
   %111 = icmp eq i16 %110, 0
   br i1 %111, label %112, label %113
@@ -1119,7 +1119,7 @@ define internal void @pass2_no_dither(ptr noundef readonly captures(none) %0, pt
   %29 = zext nneg i8 %22 to i64
   %30 = getelementptr inbounds nuw [32 x i16], ptr %28, i64 %29
   %31 = zext nneg i8 %25 to i64
-  %32 = getelementptr inbounds nuw [32 x i16], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !75
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %35, label %39
@@ -1197,7 +1197,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %indvars.iv400 = phi i64 [ %22, %.preheader259.preheader ], [ %indvars.iv.next401, %._crit_edge274.split ]
   %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv400
   %25 = load ptr, ptr %24, align 8, !tbaa !55
-  %invariant.gep = getelementptr [32 x i16], ptr %25, i64 0, i64 %19
+  %invariant.gep = getelementptr i16, ptr %25, i64 %19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader259, %._crit_edge
@@ -1258,7 +1258,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %indvars.iv411 = phi i64 [ %37, %.preheader256.preheader ], [ %indvars.iv.next412, %._crit_edge289.split ]
   %39 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv411
   %40 = load ptr, ptr %39, align 8, !tbaa !55
-  %invariant.gep290 = getelementptr [32 x i16], ptr %40, i64 0, i64 %34
+  %invariant.gep290 = getelementptr i16, ptr %40, i64 %34
   br label %.lr.ph284
 
 .lr.ph284:                                        ; preds = %.preheader256, %._crit_edge285
@@ -1324,7 +1324,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %54 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv415
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %56 = getelementptr inbounds [32 x i16], ptr %55, i64 %indvars.iv420
-  %57 = getelementptr inbounds [32 x i16], ptr %56, i64 0, i64 %49
+  %57 = getelementptr inbounds i16, ptr %56, i64 %49
   br label %58
 
 58:                                               ; preds = %.lr.ph301, %62
@@ -1385,7 +1385,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %71 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv427
   %72 = load ptr, ptr %71, align 8, !tbaa !55
   %73 = getelementptr inbounds [32 x i16], ptr %72, i64 %indvars.iv432
-  %74 = getelementptr inbounds [32 x i16], ptr %73, i64 0, i64 %66
+  %74 = getelementptr inbounds i16, ptr %73, i64 %66
   br label %75
 
 75:                                               ; preds = %.lr.ph316, %79
@@ -1446,7 +1446,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %88 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv436
   %89 = load ptr, ptr %88, align 8, !tbaa !55
   %90 = getelementptr inbounds [32 x i16], ptr %89, i64 %83
-  %91 = getelementptr inbounds [32 x i16], ptr %90, i64 0, i64 %indvars.iv441
+  %91 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv441
   br label %92
 
 92:                                               ; preds = %.lr.ph331, %96
@@ -1507,7 +1507,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %105 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv448
   %106 = load ptr, ptr %105, align 8, !tbaa !55
   %107 = getelementptr inbounds [32 x i16], ptr %106, i64 %100
-  %108 = getelementptr inbounds [32 x i16], ptr %107, i64 0, i64 %indvars.iv453
+  %108 = getelementptr inbounds i16, ptr %107, i64 %indvars.iv453
   br label %109
 
 109:                                              ; preds = %.lr.ph346, %113
@@ -1546,28 +1546,28 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %119 = load i32, ptr %118, align 8, !tbaa !49
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !66
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %123
+  %124 = getelementptr inbounds i32, ptr @c_scales, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !66
   %126 = mul nsw i32 %117, %125
   %127 = sext i32 %126 to i64
   %128 = sub nsw i32 %.0192, %.0193
   %129 = shl i32 %128, 2
-  %130 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %120
+  %130 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %120
   %131 = load i32, ptr %130, align 4, !tbaa !66
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %132
+  %133 = getelementptr inbounds i32, ptr @c_scales, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = mul nsw i32 %129, %134
   %136 = sext i32 %135 to i64
   %137 = sub nsw i32 %.0190, %.0191
   %138 = shl i32 %137, 3
-  %139 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %120
+  %139 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %120
   %140 = load i32, ptr %139, align 4, !tbaa !66
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %141
+  %142 = getelementptr inbounds i32, ptr @c_scales, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !66
   %144 = mul nsw i32 %138, %143
   %145 = sext i32 %144 to i64
@@ -1599,7 +1599,7 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.0374 = phi i64 [ 0, %.preheader.preheader ], [ %.us-phi, %._crit_edge368 ]
   %157 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv462
   %158 = load ptr, ptr %157, align 8, !tbaa !55
-  %invariant.gep370 = getelementptr [32 x i16], ptr %158, i64 0, i64 %152
+  %invariant.gep370 = getelementptr i16, ptr %158, i64 %152
   br i1 %.not243357, label %._crit_edge368, label %.lr.ph362
 
 .lr.ph362:                                        ; preds = %.preheader, %._crit_edge363
@@ -1689,20 +1689,20 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %wide.trip.count.i = zext nneg i32 %23 to i64
   %42 = load i32, ptr %37, align 8, !tbaa !49
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !66
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @c_scales, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !66
-  %49 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %43
+  %49 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %43
   %50 = load i32, ptr %49, align 4, !tbaa !66
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr @c_scales, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !66
-  %54 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %43
+  %54 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %43
   %55 = load i32, ptr %54, align 4, !tbaa !66
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %56
+  %57 = getelementptr inbounds i32, ptr @c_scales, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !66
   br label %59
 
@@ -1823,7 +1823,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   %128 = sext i32 %127 to i64
   %129 = mul nsw i64 %128, %128
   %.2.i = add nuw nsw i64 %.1.i, %129
-  %130 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   store i64 %.2154.i, ptr %130, align 8, !tbaa !123
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.2.i, i64 %.0155185.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1833,7 +1833,7 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 .lr.ph188.i:                                      ; preds = %125, %138
   %indvars.iv191.i = phi i64 [ %indvars.iv.next192.i, %138 ], [ 0, %125 ]
   %.0157187.i = phi i32 [ %.1158.i, %138 ], [ 0, %125 ]
-  %131 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %indvars.iv191.i
+  %131 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv191.i
   %132 = load i64, ptr %131, align 8, !tbaa !123
   %.not.i = icmp sgt i64 %132, %spec.select.i
   br i1 %.not.i, label %138, label %133
@@ -1868,10 +1868,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %wide.trip.count.i39 = zext nneg i32 %.0157.lcssa.i to i64
   %.pre.i = load i32, ptr %141, align 8, !tbaa !49
   %.phi.trans.insert.i = zext i32 %.pre.i to i64
-  %.phi.trans.insert110.i = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %.phi.trans.insert.i
+  %.phi.trans.insert110.i = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %.phi.trans.insert.i
   %.pre111.i = load i32, ptr %.phi.trans.insert110.i, align 4, !tbaa !66
   %.phi.trans.insert112.i = sext i32 %.pre111.i to i64
-  %.phi.trans.insert113.i = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %.phi.trans.insert112.i
+  %.phi.trans.insert113.i = getelementptr inbounds i32, ptr @c_scales, i64 %.phi.trans.insert112.i
   %.pre114.i = load i32, ptr %.phi.trans.insert113.i, align 4, !tbaa !66
   br label %145
 
@@ -1907,10 +1907,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %164 = load i8, ptr %163, align 1, !tbaa !34
   %165 = zext i8 %164 to i32
   %166 = sub nsw i32 %18, %165
-  %167 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %157
+  %167 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %157
   %168 = load i32, ptr %167, align 4, !tbaa !66
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %169
+  %170 = getelementptr inbounds i32, ptr @c_scales, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !66
   %172 = mul nsw i32 %166, %171
   %173 = sext i32 %172 to i64
@@ -1922,10 +1922,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %179 = load i8, ptr %178, align 1, !tbaa !34
   %180 = zext i8 %179 to i32
   %181 = sub nsw i32 %21, %180
-  %182 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %157
+  %182 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %157
   %183 = load i32, ptr %182, align 4, !tbaa !66
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %184
+  %185 = getelementptr inbounds i32, ptr @c_scales, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !66
   %187 = mul nsw i32 %181, %186
   %188 = sext i32 %187 to i64
@@ -1998,10 +1998,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
   %225 = phi i32 [ %.pre115.i, %221 ], [ %218, %215 ]
   %226 = add nsw i64 %.07795.i, %.07496.i
   %227 = zext i32 %225 to i64
-  %228 = getelementptr inbounds nuw [17 x i32], ptr @rgb_blue, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr @rgb_blue, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !66
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %230
+  %231 = getelementptr inbounds i32, ptr @c_scales, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !66
   %233 = shl i32 %232, 7
   %234 = mul i32 %233, %232
@@ -2016,10 +2016,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
 240:                                              ; preds = %222
   %241 = add nsw i64 %.078100.i, %.075101.i
   %242 = zext i32 %224 to i64
-  %243 = getelementptr inbounds nuw [17 x i32], ptr @rgb_green, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i32, ptr @rgb_green, i64 %242
   %244 = load i32, ptr %243, align 4, !tbaa !66
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %245
+  %246 = getelementptr inbounds i32, ptr @c_scales, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !66
   %248 = shl i32 %247, 5
   %249 = mul i32 %248, %247
@@ -2032,10 +2032,10 @@ find_nearby_colors.exit:                          ; preds = %138, %4
 253:                                              ; preds = %240
   %254 = add nsw i64 %.079104.i, %.076105.i
   %255 = zext i32 %223 to i64
-  %256 = getelementptr inbounds nuw [17 x i32], ptr @rgb_red, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i32, ptr @rgb_red, i64 %255
   %257 = load i32, ptr %256, align 4, !tbaa !66
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds [3 x i32], ptr @c_scales, i64 0, i64 %258
+  %259 = getelementptr inbounds i32, ptr @c_scales, i64 %258
   %260 = load i32, ptr %259, align 4, !tbaa !66
   %261 = shl i32 %260, 7
   %262 = mul i32 %261, %260
@@ -2066,7 +2066,7 @@ find_best_colors.exit:                            ; preds = %266, %.preheader89.
   %.03354 = phi ptr [ %8, %find_best_colors.exit ], [ %276, %282 ]
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep90, i64 %indvars.iv62
   %273 = load ptr, ptr %gep, align 8, !tbaa !55
-  %invariant.gep = getelementptr inbounds nuw [32 x i16], ptr %273, i64 0, i64 %270
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %273, i64 %270
   %invariant.gep88 = getelementptr inbounds nuw [32 x i16], ptr %invariant.gep, i64 %271
   br label %274
 

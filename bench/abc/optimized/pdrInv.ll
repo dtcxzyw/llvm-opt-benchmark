@@ -464,7 +464,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [0 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = ashr i32 %33, 1
   %35 = sext i32 %34 to i64
@@ -765,7 +765,7 @@ Vec_IntStart.exit.i:                              ; preds = %29, %Vec_IntAlloc.e
 
 46:                                               ; preds = %46, %.lr.ph.i6
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i8, %46 ]
-  %47 = getelementptr inbounds nuw [0 x i32], ptr %45, i64 0, i64 %indvars.iv.i7
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i7
   %48 = load i32, ptr %47, align 4, !tbaa !40
   %49 = ashr i32 %48, 1
   %50 = sext i32 %49 to i64
@@ -897,7 +897,7 @@ Vec_IntStart.exit.i:                              ; preds = %24, %32, %Vec_IntAl
 
 52:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds nuw [0 x i32], ptr %49, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !40
   %55 = ashr i32 %54, 1
   %56 = sext i32 %55 to i64
@@ -1056,7 +1056,7 @@ define void @Pdr_SetPrintOne(ptr noundef readonly captures(none) %0) local_unnam
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
@@ -1181,7 +1181,7 @@ Abc_UtilStrsav.exit88:                            ; preds = %Abc_UtilStrsav.exit
   %indvars.iv108 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next109, %54 ]
   %.06595 = phi ptr [ %.val78, %.lr.ph97 ], [ %68, %54 ]
   %.val79 = load i32, ptr %32, align 4, !tbaa !88
-  %55 = getelementptr inbounds nuw [0 x i32], ptr %53, i64 0, i64 %indvars.iv108
+  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv108
   %56 = load i32, ptr %55, align 4, !tbaa !40
   %57 = ashr i32 %56, 1
   %58 = add nsw i32 %57, %.val79
@@ -1573,7 +1573,7 @@ Vec_IntStart.exit.i:                              ; preds = %74, %Vec_IntAlloc.e
 
 89:                                               ; preds = %89, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i84, %89 ]
-  %90 = getelementptr inbounds nuw [0 x i32], ptr %88, i64 0, i64 %indvars.iv.i83
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i83
   %91 = load i32, ptr %90, align 4, !tbaa !40
   %92 = ashr i32 %91, 1
   %93 = sext i32 %92 to i64
@@ -1961,7 +1961,7 @@ Vec_IntStart.exit.i:                              ; preds = %65, %Vec_IntAlloc.e
 
 81:                                               ; preds = %81, %.lr.ph.i23
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i25, %81 ]
-  %82 = getelementptr inbounds nuw [0 x i32], ptr %80, i64 0, i64 %indvars.iv.i24
+  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i24
   %83 = load i32, ptr %82, align 4, !tbaa !40
   %84 = ashr i32 %83, 1
   %85 = sext i32 %84 to i64
@@ -2596,7 +2596,7 @@ Vec_IntPush.exit38:                               ; preds = %Vec_IntPush.exit38.
 52:                                               ; preds = %.lr.ph, %Vec_IntPush.exit45
   %53 = phi ptr [ %.pre.i4166, %.lr.ph ], [ %.pre.i4170, %Vec_IntPush.exit45 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit45 ]
-  %54 = getelementptr inbounds nuw [0 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !40
   %56 = load i32, ptr %21, align 4, !tbaa !37
   %57 = load i32, ptr %20, align 8, !tbaa !65

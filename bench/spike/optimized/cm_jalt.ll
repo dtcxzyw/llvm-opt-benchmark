@@ -151,14 +151,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_cm_jaltP11
   %32 = lshr i64 %31, 12
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 37008
   %34 = and i64 %32, 255
-  %35 = getelementptr inbounds nuw [256 x i64], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = icmp eq i64 %36, %32
   br i1 %37, label %38, label %41, !prof !141
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 32912
-  %40 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %39, i64 %34
   %.sroa.0.0.copyload.i25 = load ptr, ptr %40, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -278,14 +278,14 @@ define noundef range(i64 0, -1) i64 @_Z18fast_rv64i_cm_jaltP11processor_t6insn_t
   %30 = lshr i64 %29, 12
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 37008
   %32 = and i64 %30, 255
-  %33 = getelementptr inbounds nuw [256 x i64], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = icmp eq i64 %34, %30
   br i1 %35, label %36, label %39, !prof !141
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32912
-  %38 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %37, i64 %32
   %.sroa.0.0.copyload.i25 = load ptr, ptr %38, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -397,14 +397,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_cm_jaltP
   %33 = lshr i64 %32, 12
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 37008
   %35 = and i64 %33, 255
-  %36 = getelementptr inbounds nuw [256 x i64], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !3
   %38 = icmp eq i64 %37, %33
   br i1 %38, label %39, label %42, !prof !141
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 32912
-  %41 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %40, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %40, i64 %35
   %.sroa.0.0.copyload.i28 = load ptr, ptr %41, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -609,14 +609,14 @@ define noundef range(i64 0, -1) i64 @_Z20logged_rv64i_cm_jaltP11processor_t6insn
   %31 = lshr i64 %30, 12
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 37008
   %33 = and i64 %31, 255
-  %34 = getelementptr inbounds nuw [256 x i64], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = icmp eq i64 %35, %31
   br i1 %36, label %37, label %40, !prof !141
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32912
-  %39 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %38, i64 0, i64 %33
+  %39 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %38, i64 %33
   %.sroa.0.0.copyload.i28 = load ptr, ptr %39, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -735,14 +735,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_cm_jaltP11
   %32 = lshr i64 %31, 12
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 37008
   %34 = and i64 %32, 255
-  %35 = getelementptr inbounds nuw [256 x i64], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = icmp eq i64 %36, %32
   br i1 %37, label %38, label %41, !prof !141
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 32912
-  %40 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %39, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %39, i64 %34
   %.sroa.0.0.copyload.i25 = load ptr, ptr %40, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -852,14 +852,14 @@ define noundef range(i64 0, -1) i64 @_Z18fast_rv64e_cm_jaltP11processor_t6insn_t
   %30 = lshr i64 %29, 12
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 37008
   %32 = and i64 %30, 255
-  %33 = getelementptr inbounds nuw [256 x i64], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = icmp eq i64 %34, %30
   br i1 %35, label %36, label %39, !prof !141
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 32912
-  %38 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %37, i64 %32
   %.sroa.0.0.copyload.i25 = load ptr, ptr %38, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -971,14 +971,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_cm_jaltP
   %33 = lshr i64 %32, 12
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 37008
   %35 = and i64 %33, 255
-  %36 = getelementptr inbounds nuw [256 x i64], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !3
   %38 = icmp eq i64 %37, %33
   br i1 %38, label %39, label %42, !prof !141
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 32912
-  %41 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %40, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %40, i64 %35
   %.sroa.0.0.copyload.i28 = load ptr, ptr %41, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 
@@ -1097,14 +1097,14 @@ define noundef range(i64 0, -1) i64 @_Z20logged_rv64e_cm_jaltP11processor_t6insn
   %31 = lshr i64 %30, 12
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 37008
   %33 = and i64 %31, 255
-  %34 = getelementptr inbounds nuw [256 x i64], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = icmp eq i64 %35, %31
   br i1 %36, label %37, label %40, !prof !141
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32912
-  %39 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %38, i64 0, i64 %33
+  %39 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %38, i64 %33
   %.sroa.0.0.copyload.i28 = load ptr, ptr %39, align 8, !tbaa !142
   br label %_ZN5mmu_t19translate_insn_addrEm.exit
 

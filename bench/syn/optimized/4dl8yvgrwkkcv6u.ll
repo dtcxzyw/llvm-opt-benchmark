@@ -2341,7 +2341,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !289
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, { i32, i32 } } }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, { i32, i32 } } }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -2385,7 +2385,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN81_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3f2da6dea75f7606E.llvm.11864023271123110445.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, { i32, i32 } } }], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, { i32, i32 } } }, ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -3768,11 +3768,11 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %32, %34
 
 75:                                               ; preds = %160
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %76 = getelementptr inbounds [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0..0..0..pr
+  %76 = getelementptr inbounds i64, ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 %.0..0..0..0..0..0..pr
   %77 = load i64, ptr %76, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %14, i64 %77, i1 false)
   %.0..0..0..0. = load i64, ptr %12, align 8
-  %78 = getelementptr inbounds [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %.0..0..0..0.
+  %78 = getelementptr inbounds i64, ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 %.0..0..0..0.
   %79 = load i64, ptr %78, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %12, i64 %79, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3967,7 +3967,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit: ; preds = %150
   br label %164
 
 160:                                              ; preds = %"_ZN3syn4expr7parsing63_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..expr..Expr$GT$5parse17h8767ced0dce096f9E.exit"
-  %161 = getelementptr inbounds nuw [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %156
+  %161 = getelementptr inbounds nuw i64, ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 %156
   %162 = load i64, ptr %161, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %13, i64 %162, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %14, align 8
@@ -3989,7 +3989,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit: ; preds = %150
   %.sroa.023.176..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.023.176..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %168 = load i64, ptr %18, align 8, !range !124, !noundef !7
-  %169 = getelementptr inbounds nuw [39 x i64], ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i64, ptr @anon.cb776e29a3edfb21b922828375758a83.9, i64 %168
   %170 = load i64, ptr %169, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.023, ptr nonnull align 8 %18, i64 %170, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.023, i64 224, i1 false)

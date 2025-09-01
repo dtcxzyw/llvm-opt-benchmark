@@ -4081,8 +4081,8 @@ define internal fastcc { i64, ptr } @_ZN5prost8encoding13decode_varint17h31a04c1
   br label %144
 
 134:                                              ; preds = %19
-  %135 = add nsw i64 %.val1.i, -1
-  %136 = getelementptr inbounds nuw [0 x i8], ptr %.val.i, i64 0, i64 %135
+  %135 = getelementptr i8, ptr %.val.i, i64 %.val1.i
+  %136 = getelementptr i8, ptr %135, i64 -1
   %137 = load i8, ptr %136, align 1, !noundef !4
   %138 = icmp sgt i8 %137, -1
   br i1 %138, label %24, label %139

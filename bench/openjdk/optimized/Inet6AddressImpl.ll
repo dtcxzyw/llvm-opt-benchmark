@@ -158,9 +158,9 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 45:                                               ; preds = %44, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %.not176.us = icmp eq i8 %47, %49
   br i1 %.not176.us, label %44, label %.backedge.us
@@ -208,9 +208,9 @@ define ptr @Java_java_net_Inet6AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 71:                                               ; preds = %64, %70
   %indvars.iv240 = phi i64 [ 0, %64 ], [ %indvars.iv.next241, %70 ]
-  %72 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 0, i64 %indvars.iv240
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv240
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 0, i64 %indvars.iv240
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv240
   %75 = load i8, ptr %74, align 1
   %.not176 = icmp eq i8 %73, %75
   br i1 %.not176, label %70, label %.backedge

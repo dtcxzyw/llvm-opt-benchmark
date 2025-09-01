@@ -3601,7 +3601,7 @@ _ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit: ; preds 
 
 switch.lookup:                                    ; preds = %_ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit
   %16 = zext nneg i16 %14 to i64
-  %switch.gep = getelementptr inbounds nuw [430 x ptr], ptr @switch.table._ZN5clang14TextNodeDumper5VisitEPKNS_4AttrE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14TextNodeDumper5VisitEPKNS_4AttrE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = load ptr, ptr %3, align 8, !tbaa !414
   %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull %switch.load)
@@ -12715,7 +12715,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %28, %_ZN4llvm11raw_
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #4 comdat {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17109,10 +17109,10 @@ switch.lookup:                                    ; preds = %57, %55
   %61 = lshr i8 %60, 3
   %62 = and i8 %61, 7
   %63 = zext nneg i8 %62 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = zext nneg i8 %62 to i64
-  %switch.gep99 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE.228, i64 0, i64 %64
+  %switch.gep99 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE.228, i64 %64
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !419
@@ -31010,7 +31010,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 15
   %63 = and i64 %60, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = lshr i64 %31, 59
   %65 = and i64 %64, 1
@@ -31084,7 +31084,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep9 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %105
+  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
@@ -31107,7 +31107,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep11 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %121
+  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load12
   %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
@@ -43328,10 +43328,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %2 = load i32, ptr %1, align 4, !tbaa !1144
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [89 x i64], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [89 x ptr], ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang10AtomicExpr13getOpAsStringEv.231, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -46535,7 +46535,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1

@@ -3844,11 +3844,11 @@ define dso_local noundef zeroext i1 @zend_is_valid_class_name(ptr noundef readon
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.01112 = phi i64 [ %16, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw [1 x i8], ptr %2, i64 0, i64 %.01112
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.01112
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = lshr i8 %7, 5
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @valid_chars, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @valid_chars, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !100
   %12 = and i8 %7, 31
   %13 = zext nneg i8 %12 to i32
@@ -4180,7 +4180,7 @@ zend_string_alloc.exit:                           ; preds = %147
   store i64 %154, ptr %160, align 8, !tbaa !152
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %161, ptr nonnull align 1 %151, i64 %154, i1 false)
-  %162 = getelementptr inbounds nuw [1 x i8], ptr %161, i64 0, i64 %154
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %154
   store i8 0, ptr %162, align 1, !tbaa !4
   br label %zend_string_copy.exit
 
@@ -4420,7 +4420,7 @@ zend_string_alloc.exit:                           ; preds = %4
   store i64 %1, ptr %14, align 8, !tbaa !152
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %0, i64 %1, i1 false)
-  %16 = getelementptr inbounds nuw [1 x i8], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %1
   store i8 0, ptr %16, align 1, !tbaa !4
   br label %17
 

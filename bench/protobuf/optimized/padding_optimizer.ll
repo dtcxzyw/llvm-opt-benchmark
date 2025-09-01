@@ -450,7 +450,7 @@ invoke.cont20:                                    ; preds = %.noexc, %call1.i.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
   %12 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %12 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %13 = load i32, ptr %arrayidx.i, align 4
   %cmp22 = icmp eq i32 %13, 9
   br i1 %cmp22, label %if.end40, label %if.else24
@@ -494,7 +494,7 @@ if.then5.i.i.i.i97:                               ; preds = %.noexc100
 invoke.cont25:                                    ; preds = %.noexc100, %call1.i.i.i.i.noexc98, %if.then.i.i87, %if.else24, %if.then5.i.i.i.i97
   %19 = load i8, ptr %type_.i.i, align 2
   %idxprom.i93 = zext i8 %19 to i64
-  %arrayidx.i94 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i93
+  %arrayidx.i94 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i93
   %20 = load i32, ptr %arrayidx.i94, align 4
   %cmp27 = icmp eq i32 %20, 10
   br i1 %cmp27, label %if.then28, label %if.else33
@@ -541,7 +541,7 @@ invoke.cont46:                                    ; preds = %sw.bb
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %5, ptr %call5.i.i.i.i2.i.i1.i103, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %arrayidx = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_1, i64 0, i64 %f.0
+  %arrayidx = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_1, i64 %f.0
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont48 unwind label %lpad47
 
@@ -573,7 +573,7 @@ invoke.cont54:                                    ; preds = %sw.bb49
   store ptr %add.ptr.i.i.i.i110, ptr %_M_end_of_storage.i.i.i.i111, align 8
   store ptr %5, ptr %call5.i.i.i.i2.i.i1.i112, align 8
   store ptr %add.ptr.i.i.i.i110, ptr %_M_finish.i.i.i.i109, align 8
-  %arrayidx51 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_4, i64 0, i64 %f.0
+  %arrayidx51 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_4, i64 %f.0
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -605,7 +605,7 @@ invoke.cont62:                                    ; preds = %sw.bb57
   store ptr %add.ptr.i.i.i.i122, ptr %_M_end_of_storage.i.i.i.i123, align 8
   store ptr %5, ptr %call5.i.i.i.i2.i.i1.i124, align 8
   store ptr %add.ptr.i.i.i.i122, ptr %_M_finish.i.i.i.i121, align 8
-  %arrayidx59 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_8, i64 0, i64 %f.0
+  %arrayidx59 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_8, i64 %f.0
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60)
           to label %invoke.cont64 unwind label %lpad63
 
@@ -687,7 +687,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 
 for.cond91.preheader:                             ; preds = %for.cond87.preheader, %for.end183
   %indvars.iv629 = phi i64 [ 0, %for.cond87.preheader ], [ %indvars.iv.next630, %for.end183 ]
-  %arrayidx94 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_1, i64 0, i64 %indvars.iv629
+  %arrayidx94 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_1, i64 %indvars.iv629
   %arrayidx94.val = load ptr, ptr %arrayidx94, align 8
   %29 = getelementptr i8, ptr %arrayidx94, i64 8
   %arrayidx94.val62 = load ptr, ptr %29, align 8
@@ -699,7 +699,7 @@ for.cond91.preheader:                             ; preds = %for.cond87.preheade
   br i1 %cmp96546.not, label %for.end122, label %for.body97.lr.ph
 
 for.body97.lr.ph:                                 ; preds = %for.cond91.preheader
-  %arrayidx118 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_4, i64 0, i64 %indvars.iv629
+  %arrayidx118 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_4, i64 %indvars.iv629
   %30 = add nsw i64 %sub.ptr.div.i140, -1
   br label %for.body97
 
@@ -867,7 +867,7 @@ _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit154: ; preds 
   br i1 %cmp96, label %for.body97, label %for.end122, !llvm.loop !7
 
 for.end122:                                       ; preds = %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit154, %for.cond91.preheader
-  %arrayidx124 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_4, i64 0, i64 %indvars.iv629
+  %arrayidx124 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_4, i64 %indvars.iv629
   %arrayidx124.val72 = load ptr, ptr %arrayidx124, align 8
   %41 = getelementptr i8, ptr %arrayidx124, i64 8
   %arrayidx124.val = load ptr, ptr %41, align 8
@@ -882,7 +882,7 @@ for.end122:                                       ; preds = %_ZN6google8protobuf
 for.body141.lr.ph:                                ; preds = %for.end122
   %sub = add nsw i64 %sub.ptr.div.i158, -1
   %cmp171 = icmp eq i64 %indvars.iv629, 5
-  %arrayidx179 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_8, i64 0, i64 %indvars.iv629
+  %arrayidx179 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_8, i64 %indvars.iv629
   %. = select i1 %cmp171, double -1.000000e+00, double 0x41BFFFFFFF000000
   br label %for.body141
 
@@ -1053,7 +1053,7 @@ _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196: ; preds 
   br i1 %cmp140, label %for.body141, label %for.end183, !llvm.loop !9
 
 for.end183:                                       ; preds = %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196, %for.end122
-  %arrayidx186 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_8, i64 0, i64 %indvars.iv629
+  %arrayidx186 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_8, i64 %indvars.iv629
   %arrayidx186.val73 = load ptr, ptr %arrayidx186, align 8
   %53 = getelementptr i8, ptr %arrayidx186, i64 8
   %arrayidx186.val = load ptr, ptr %53, align 8
@@ -1080,7 +1080,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit: ; preds
 for.cond205.preheader:                            ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit, %for.inc243
   %57 = phi ptr [ %56, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit ], [ %66, %for.inc243 ]
   %indvars.iv637 = phi i64 [ 0, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit ], [ %indvars.iv.next638, %for.inc243 ]
-  %arrayidx208 = getelementptr inbounds nuw [6 x %"class.std::vector.14"], ptr %aligned_to_8, i64 0, i64 %indvars.iv637
+  %arrayidx208 = getelementptr inbounds nuw %"class.std::vector.14", ptr %aligned_to_8, i64 %indvars.iv637
   %arrayidx208.val = load ptr, ptr %arrayidx208, align 8
   %58 = getelementptr i8, ptr %arrayidx208, i64 8
   %arrayidx208.val71 = load ptr, ptr %58, align 8

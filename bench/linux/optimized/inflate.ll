@@ -740,10 +740,10 @@ thread-pre-split113:                              ; preds = %346, %310
   %353 = add nuw nsw i64 %329, 1
   %354 = trunc nuw i64 %353 to i32
   store i32 %354, ptr %44, align 4
-  %355 = getelementptr [19 x i16], ptr @zlib_inflate.order, i64 0, i64 %329
+  %355 = getelementptr i16, ptr @zlib_inflate.order, i64 %329
   %356 = load i16, ptr %355, align 2
   %357 = zext i16 %356 to i64
-  %358 = getelementptr [320 x i16], ptr %45, i64 0, i64 %357
+  %358 = getelementptr i16, ptr %45, i64 %357
   store i16 %352, ptr %358, align 2
   %359 = lshr i64 %349, 3
   %360 = add i32 %350, -3
@@ -753,10 +753,10 @@ thread-pre-split113:                              ; preds = %346, %310
 .preheader131:                                    ; preds = %.preheader131.preheader, %.preheader131
   %indvars.iv = phi i64 [ %327, %.preheader131.preheader ], [ %indvars.iv.next, %.preheader131 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %362 = getelementptr [19 x i16], ptr @zlib_inflate.order, i64 0, i64 %indvars.iv
+  %362 = getelementptr i16, ptr @zlib_inflate.order, i64 %indvars.iv
   %363 = load i16, ptr %362, align 2
   %364 = zext i16 %363 to i64
-  %365 = getelementptr [320 x i16], ptr %45, i64 0, i64 %364
+  %365 = getelementptr i16, ptr %45, i64 %364
   store i16 0, ptr %365, align 2
   %366 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %366, 19
@@ -909,7 +909,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %465 = add i32 %390, 1
   store i32 %465, ptr %44, align 4
   %466 = zext i32 %390 to i64
-  %467 = getelementptr [320 x i16], ptr %45, i64 0, i64 %466
+  %467 = getelementptr i16, ptr %45, i64 %466
   store i16 %433, ptr %467, align 2
   br label %598
 
@@ -986,7 +986,7 @@ thread-pre-split113:                              ; preds = %346, %310
 513:                                              ; preds = %504
   %514 = add i32 %390, -1
   %515 = zext i32 %514 to i64
-  %516 = getelementptr [320 x i16], ptr %45, i64 0, i64 %515
+  %516 = getelementptr i16, ptr %45, i64 %515
   %517 = load i16, ptr %516, align 2
   %518 = trunc i64 %510 to i32
   %519 = and i32 %518, 3
@@ -1088,7 +1088,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %592 = add nsw i32 %590, -1
   %593 = add i32 %591, 1
   %594 = zext i32 %591 to i64
-  %595 = getelementptr [320 x i16], ptr %45, i64 0, i64 %594
+  %595 = getelementptr i16, ptr %45, i64 %594
   store i16 %587, ptr %595, align 2
   %596 = icmp eq i32 %592, 0
   br i1 %596, label %597, label %.preheader, !llvm.loop !18

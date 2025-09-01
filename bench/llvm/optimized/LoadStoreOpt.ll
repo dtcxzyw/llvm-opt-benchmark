@@ -1590,7 +1590,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %94
   %102 = load ptr, ptr %58, align 8, !tbaa !190
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 104
   %104 = zext i16 %80 to i64
-  %105 = getelementptr inbounds nuw [234 x ptr], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !277
   %.not100 = icmp eq ptr %106, null
   br i1 %.not100, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit._crit_edge

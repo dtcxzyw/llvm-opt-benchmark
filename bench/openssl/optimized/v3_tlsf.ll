@@ -57,7 +57,7 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
 9:                                                ; preds = %.lr.ph, %14
   %10 = phi i1 [ true, %.lr.ph ], [ false, %14 ]
   %.01214 = phi i64 [ 0, %.lr.ph ], [ 1, %14 ]
-  %11 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.01214
+  %11 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01214
   %12 = load i64, ptr %11, align 16, !tbaa !8
   %13 = icmp eq i64 %8, %12
   br i1 %13, label %15, label %14
@@ -66,7 +66,7 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
   br i1 %10, label %9, label %.critedge, !llvm.loop !12
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.01214, i32 1
+  %16 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01214, i32 1
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = call i32 @X509V3_add_value(ptr noundef null, ptr noundef %17, ptr noundef nonnull %4) #5
   br label %20
@@ -135,7 +135,7 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
 21:                                               ; preds = %20, %27
   %22 = phi i1 [ true, %20 ], [ false, %27 ]
   %.03046 = phi i64 [ 0, %20 ], [ 1, %27 ]
-  %23 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.03046, i32 1
+  %23 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046, i32 1
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.034, ptr noundef %24) #5
   %26 = icmp eq i32 %25, 0
@@ -145,7 +145,7 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
   br i1 %22, label %21, label %.critedge, !llvm.loop !20
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.03046
+  %29 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046
   %30 = load i64, ptr %29, align 16, !tbaa !8
   br label %42
 

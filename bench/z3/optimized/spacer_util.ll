@@ -5278,7 +5278,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorIP9func_
   br i1 %356, label %357, label %360
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds nuw [0 x ptr], ptr %335, i64 0, i64 %indvars.iv
+  %358 = getelementptr inbounds nuw ptr, ptr %335, i64 %indvars.iv
   %359 = load ptr, ptr %358, align 8, !tbaa !32
   br label %_ZN6spacerL14apply_accessorER11ast_managerRK10ptr_vectorI9func_declEjPS3_P4expr.exit
 
@@ -5296,7 +5296,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorIP9func_
 
 _ZN6spacerL14apply_accessorER11ast_managerRK10ptr_vectorI9func_declEjPS3_P4expr.exit: ; preds = %.noexc138, %357
   %.0.i137 = phi ptr [ %359, %357 ], [ %363, %.noexc138 ]
-  %364 = getelementptr inbounds nuw [0 x ptr], ptr %336, i64 0, i64 %indvars.iv
+  %364 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv
   %365 = load ptr, ptr %364, align 8, !tbaa !32
   %366 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef 0, i32 noundef 2, ptr noundef %.0.i137, ptr noundef %365)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit unwind label %348
@@ -24409,7 +24409,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !543
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -28728,7 +28728,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 58:                                               ; preds = %.lr.ph, %_ZN6spacer17index_term_finderclEP3app.exit
   %59 = phi i32 [ %55, %.lr.ph ], [ %128, %_ZN6spacer17index_term_finderclEP3app.exit ]
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !32
   %63 = add nuw i32 %59, 1
   store i32 %63, ptr %54, align 8, !tbaa !634
@@ -29550,7 +29550,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 53:                                               ; preds = %.lr.ph, %_ZN6spacer12check_selectclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %135, %_ZN6spacer12check_selectclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !634
@@ -30179,7 +30179,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 54:                                               ; preds = %.lr.ph, %.backedge
   %55 = phi i32 [ %51, %.lr.ph ], [ %124, %.backedge ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !32
   %59 = add nuw i32 %55, 1
   store i32 %59, ptr %50, align 8, !tbaa !634
@@ -30430,7 +30430,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.i103: ; preds = %132
 146:                                              ; preds = %174, %.lr.ph.i105
   %147 = phi i32 [ %143, %.lr.ph.i105 ], [ %175, %174 ]
   %indvars.iv.i106 = phi i64 [ 1, %.lr.ph.i105 ], [ %indvars.iv.next.i107, %174 ]
-  %148 = getelementptr inbounds nuw [0 x ptr], ptr %145, i64 0, i64 %indvars.iv.i106
+  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.i106
   %149 = load ptr, ptr %148, align 8, !tbaa !32
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4
@@ -30841,7 +30841,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 62:                                               ; preds = %.lr.ph, %_ZN6spacer13collect_declsclEP3app.exit
   %63 = phi i32 [ %59, %.lr.ph ], [ %228, %_ZN6spacer13collect_declsclEP3app.exit ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !634
@@ -31767,7 +31767,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 53:                                               ; preds = %.lr.ph, %_ZN6spacer26collect_uninterp_consts_ns4procclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %150, %_ZN6spacer26collect_uninterp_consts_ns4procclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !634
@@ -32446,7 +32446,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 54:                                               ; preds = %.lr.ph, %.backedge
   %55 = phi i32 [ %51, %.lr.ph ], [ %124, %.backedge ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !32
   %59 = add nuw i32 %55, 1
   store i32 %59, ptr %50, align 8, !tbaa !634
@@ -33123,7 +33123,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 53:                                               ; preds = %.lr.ph, %_ZN6spacer15contains_mod_ns17contains_mod_procclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %134, %_ZN6spacer15contains_mod_ns17contains_mod_procclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !634
@@ -33749,7 +33749,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 53:                                               ; preds = %.lr.ph, %_ZN6spacer16contains_real_ns18contains_real_procclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %133, %_ZN6spacer16contains_real_ns18contains_real_procclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !634
@@ -36839,7 +36839,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgE
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -39824,7 +39824,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgE
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -44274,7 +44274,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppE
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -47210,7 +47210,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppE
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

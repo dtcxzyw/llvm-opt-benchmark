@@ -1860,14 +1860,14 @@ define void @Abc_NtkAddDummyBoxNames(ptr noundef readonly captures(none) %0) loc
   %43 = add nuw nsw i64 %42, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, i8 108, i64 %43, i1 false), !tbaa !34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %2, i8 108, i64 %43, i1 false), !tbaa !34
-  %44 = getelementptr inbounds nuw [100 x i8], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
   store i8 105, ptr %44, align 1, !tbaa !34
-  %45 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   store i8 111, ptr %45, align 1, !tbaa !34
   %46 = add nuw nsw i64 %42, 2
-  %47 = getelementptr inbounds nuw [100 x i8], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %46
   store i8 0, ptr %47, align 1, !tbaa !34
-  %48 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %46
   store i8 0, ptr %48, align 1, !tbaa !34
   %49 = getelementptr i8, ptr %0, i64 128
   %.val78 = load i32, ptr %49, align 8, !tbaa !38

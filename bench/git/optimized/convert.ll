@@ -284,7 +284,7 @@ gather_convert_stats.exit:                        ; preds = %gather_stats.exit.i
 
 switch.lookup:                                    ; preds = %57
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.gather_convert_stats_ascii, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gather_convert_stats_ascii, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
@@ -1388,7 +1388,7 @@ define dso_local noundef nonnull ptr @get_convert_attr_ascii(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.get_convert_attr_ascii, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_convert_attr_ascii, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -1542,14 +1542,14 @@ skip_iprefix.exit.preheader.i:                    ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
   %24 = load i8, ptr %.06.i.i, align 1, !tbaa !8
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !8
   %28 = shl i8 %27, 3
   %29 = and i8 %28, 32
   %spec.select.i1.i.i = or i8 %29, %24
   %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
   %30 = zext i8 %22 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = shl i8 %32, 3
   %34 = and i8 %33, 32
@@ -3713,7 +3713,7 @@ define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef nonnull 
   %11 = getelementptr inbounds i8, ptr %4, i64 -1
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   %16 = and i8 %15, 1
   %.not23 = icmp ne i8 %16, 0
@@ -3735,7 +3735,7 @@ define internal fastcc range(i32 0, 2) i32 @check_roundtrip(ptr noundef nonnull 
 24:                                               ; preds = %22
   %25 = load i8, ptr %7, align 1, !tbaa !8
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = and i8 %28, 1
   %.not24 = icmp eq i8 %29, 0
@@ -4146,7 +4146,7 @@ skip_prefix.exit.preheader.i:                     ; preds = %60
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %skip_prefix.exit.i ], [ 0, %skip_prefix.exit.preheader.i ]
   %67 = phi i8 [ %77, %skip_prefix.exit.i ], [ %61, %skip_prefix.exit.preheader.i ]
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !8
   %71 = and i8 %70, 1
   %.not7.i = icmp eq i8 %71, 0
@@ -4196,7 +4196,7 @@ strbuf_setlen.exit:                               ; preds = %81, %82
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %.pre137 to i64
-  %89 = getelementptr inbounds nuw [4 x i8], ptr @ident_filter_fn.head, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @ident_filter_fn.head, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !8
   %91 = icmp eq i8 %90, %46
   br i1 %91, label %92, label %94

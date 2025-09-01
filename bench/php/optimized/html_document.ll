@@ -338,7 +338,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
-  br label %191
+  br label %192
 
 24:                                               ; preds = %2
   %25 = load i64, ptr %9, align 8, !tbaa !13
@@ -351,7 +351,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
-  br label %191
+  br label %192
 
 30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -461,7 +461,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %69
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
-  br label %190
+  br label %191
 
 76:                                               ; preds = %lxb_encoding_data_by_name.exit
   store ptr %73, ptr %50, align 8, !tbaa !87
@@ -629,7 +629,7 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %136, %132
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %151, ptr noundef nonnull %152) #10
   %.not47 = icmp eq i32 %149, 0
-  br i1 %.not47, label %159, label %153, !prof !101
+  br i1 %.not47, label %160, label %153, !prof !101
 
 153:                                              ; preds = %143
   call void @php_dom_private_data_destroy(ptr noundef %144) #10
@@ -637,80 +637,80 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %136, %132
   br i1 %154, label %switch.lookup, label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
 switch.lookup:                                    ; preds = %153
-  %switch.tableidx = add nsw i32 %149, -1
-  %155 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 0, i64 %155
+  %155 = zext nneg i32 %149 to i64
+  %156 = getelementptr ptr, ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 %155
+  %switch.gep = getelementptr i8, ptr %156, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
 dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %153, %switch.lookup
   %.0.i55 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.74, %153 ]
-  %156 = load ptr, ptr %10, align 8, !tbaa !68
-  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i55, ptr noundef %156) #10
-  %157 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %158, align 8, !tbaa !4
-  br label %190
+  %157 = load ptr, ptr %10, align 8, !tbaa !68
+  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i55, ptr noundef %157) #10
+  %158 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %159, align 8, !tbaa !4
+  br label %191
 
-159:                                              ; preds = %143
-  %160 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
-  %161 = load ptr, ptr %16, align 8, !tbaa !131
-  %162 = load i64, ptr %9, align 8, !tbaa !13
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %161, i64 noundef %162, ptr noundef %152)
-  %163 = load ptr, ptr %50, align 8, !tbaa !87
-  %.not48 = icmp eq ptr %163, null
-  br i1 %.not48, label %167, label %164
+160:                                              ; preds = %143
+  %161 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
+  %162 = load ptr, ptr %16, align 8, !tbaa !131
+  %163 = load i64, ptr %9, align 8, !tbaa !13
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %162, i64 noundef %163, ptr noundef %152)
+  %164 = load ptr, ptr %50, align 8, !tbaa !87
+  %.not48 = icmp eq ptr %164, null
+  br i1 %.not48, label %168, label %165
 
-164:                                              ; preds = %159
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 40
-  %166 = load ptr, ptr %165, align 8, !tbaa !132
-  br label %167
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 40
+  %167 = load ptr, ptr %166, align 8, !tbaa !132
+  br label %168
 
-167:                                              ; preds = %159, %164
-  %.str.sink = phi ptr [ %166, %164 ], [ @.str, %159 ]
-  %168 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
-  %169 = load ptr, ptr %16, align 8, !tbaa !131
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 112
-  store ptr %168, ptr %170, align 8, !tbaa !49
-  %171 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !56
-  %172 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %171, ptr noundef nonnull %169, ptr noundef null) #10
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %174 = load ptr, ptr %173, align 8, !tbaa !57
-  call void @dom_set_xml_class(ptr noundef %174) #10
-  %175 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %176 = load i32, ptr %175, align 4, !tbaa !133
-  %177 = load ptr, ptr %173, align 8, !tbaa !57
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 44
-  %179 = trunc i32 %176 to i16
-  %180 = load i16, ptr %178, align 4
-  %181 = shl i16 %179, 8
-  %182 = and i16 %180, 255
-  %183 = or disjoint i16 %182, %181
-  store i16 %183, ptr %178, align 4
-  %184 = call ptr @php_dom_libxml_private_data_header(ptr noundef %144) #10
-  %185 = load ptr, ptr %173, align 8, !tbaa !57
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  store ptr %184, ptr %186, align 8, !tbaa !62
-  br label %190
+168:                                              ; preds = %160, %165
+  %.str.sink = phi ptr [ %167, %165 ], [ @.str, %160 ]
+  %169 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
+  %170 = load ptr, ptr %16, align 8, !tbaa !131
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 112
+  store ptr %169, ptr %171, align 8, !tbaa !49
+  %172 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !56
+  %173 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %172, ptr noundef nonnull %170, ptr noundef null) #10
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !57
+  call void @dom_set_xml_class(ptr noundef %175) #10
+  %176 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %177 = load i32, ptr %176, align 4, !tbaa !133
+  %178 = load ptr, ptr %174, align 8, !tbaa !57
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 44
+  %180 = trunc i32 %177 to i16
+  %181 = load i16, ptr %179, align 4
+  %182 = shl i16 %180, 8
+  %183 = and i16 %181, 255
+  %184 = or disjoint i16 %183, %182
+  store i16 %184, ptr %179, align 4
+  %185 = call ptr @php_dom_libxml_private_data_header(ptr noundef %144) #10
+  %186 = load ptr, ptr %174, align 8, !tbaa !57
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
+  store ptr %185, ptr %187, align 8, !tbaa !62
+  br label %191
 
 dom_parse_decode_encode_finish.exit:              ; preds = %93, %139, %141, %86, %83
-  %187 = call ptr @lxb_html_document_destroy(ptr noundef %84) #10
+  %188 = call ptr @lxb_html_document_destroy(ptr noundef %84) #10
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %189 = icmp ne ptr %188, null
-  call void @llvm.assume(i1 %189)
-  br label %190
+  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
+  %190 = icmp ne ptr %189, null
+  call void @llvm.assume(i1 %190)
+  br label %191
 
-190:                                              ; preds = %.thread, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %167, %dom_parse_decode_encode_finish.exit
+191:                                              ; preds = %.thread, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %168, %dom_parse_decode_encode_finish.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %191
+  br label %192
 
-191:                                              ; preds = %190, %27, %21
+192:                                              ; preds = %191, %27, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -801,7 +801,7 @@ dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %26, %.pr
 
 switch.lookup:                                    ; preds = %dom_find_line_and_column_using_cache.exit
   %36 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [49 x ptr], ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tokenizer_error_reporter, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_tokenizer_error_code_to_string.exit
 
@@ -843,7 +843,7 @@ define internal void @dom_lexbor_libxml2_bridge_tree_error_reporter(ptr noundef 
 
 switch.lookup:                                    ; preds = %21
   %22 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x ptr], ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_tree_error_code_to_string.exit
 
@@ -857,7 +857,7 @@ dom_lexbor_tree_error_code_to_string.exit:        ; preds = %21, %switch.lookup
 
 switch.lookup22:                                  ; preds = %23
   %24 = zext nneg i32 %19 to i64
-  %switch.gep23 = getelementptr inbounds nuw [36 x ptr], ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 0, i64 %24
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table.dom_lexbor_libxml2_bridge_tree_error_reporter.6, i64 %24
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   br label %dom_lexbor_tree_error_code_to_string.exit21
 
@@ -2629,7 +2629,7 @@ smart_str_0.exit:                                 ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = load i64, ptr %59, align 8, !tbaa !162
-  %61 = getelementptr inbounds nuw [1 x i8], ptr %58, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %60
   store i8 0, ptr %61, align 1, !tbaa !4
   %62 = load ptr, ptr %4, align 8, !tbaa !208
   %.not.i25 = icmp eq ptr %62, null
@@ -3359,7 +3359,7 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !162
-  %32 = getelementptr inbounds nuw [1 x i8], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   store i8 0, ptr %32, align 1, !tbaa !4
   %33 = load ptr, ptr %2, align 8, !tbaa !208
   %.not.i11 = icmp eq ptr %33, null

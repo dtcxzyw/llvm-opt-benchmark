@@ -1954,7 +1954,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaIt
   %108 = phi ptr [ null, %.lr.ph.preheader ], [ %135, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %109 = phi ptr [ null, %.lr.ph.preheader ], [ %136, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %110 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !45
   %112 = trunc i32 %111 to i16
   %.not.i.i86 = icmp eq ptr %109, %108
@@ -5440,7 +5440,7 @@ _ZNSt6vectorI17PendingDescriptorSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx1
   %indvars.iv1148 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next1149, %685 ]
   %.02481019 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %685 ]
   %.02491018 = phi i8 [ 0, %.lr.ph.preheader ], [ %680, %685 ]
-  %665 = getelementptr inbounds nuw [20 x i32], ptr %12, i64 0, i64 %indvars.iv1148
+  %665 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv1148
   %666 = load i32, ptr %665, align 4, !tbaa !13
   %667 = icmp eq i32 %666, 837
   br i1 %667, label %668, label %671

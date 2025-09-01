@@ -1320,7 +1320,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %88 = phi i32 [ %103, %102 ], [ %75, %86 ]
   %89 = phi i32 [ %104, %102 ], [ %75, %86 ]
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %102 ], [ 0, %86 ]
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %indvars.iv.i159
+  %90 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.i159
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %91, i64 80
   %.val.i = load ptr, ptr %92, align 8
@@ -1361,7 +1361,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 
 111:                                              ; preds = %.lr.ph195, %130
   %indvars.iv203 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next204, %130 ]
-  %112 = getelementptr inbounds nuw [0 x ptr], ptr %82, i64 0, i64 %indvars.iv203
+  %112 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv203
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr i8, ptr %113, i64 80
   %.val157 = load ptr, ptr %114, align 8
@@ -2594,7 +2594,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 
 69:                                               ; preds = %97, %.lr.ph.i61
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %97 ]
-  %70 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv.i62
+  %70 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i62
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 80
   %.val.i = load ptr, ptr %72, align 8
@@ -2669,7 +2669,7 @@ plan_single_revoke.exit.thread:                   ; preds = %88, %94, %92, %plan
   br i1 %107, label %131, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %112 = icmp eq i32 %106, 4
@@ -4145,7 +4145,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = getelementptr inbounds [0 x ptr], ptr %12, i64 0, i64 %6
+  %13 = getelementptr inbounds ptr, ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 80
   %.val50 = load ptr, ptr %15, align 8
@@ -4196,7 +4196,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 39:                                               ; preds = %53, %.lr.ph61.split.us
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %53 ], [ 0, %.lr.ph61.split.us ]
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv68
+  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv68
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 80
   %.val.us = load ptr, ptr %42, align 8
@@ -4222,7 +4222,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 55:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 80
   %.val49 = load ptr, ptr %58, align 8
@@ -4255,7 +4255,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %96
   %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph61 ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %96 ], [ 0, %.lr.ph61 ]
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv65
+  %76 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv65
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 80
   %.val = load ptr, ptr %78, align 8

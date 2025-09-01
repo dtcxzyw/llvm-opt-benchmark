@@ -877,10 +877,10 @@ switch.lookup:
   %trunc = trunc nuw i32 %2 to i8
   %switch.tableidx = xor i8 %trunc, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E.9", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E.9", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6760,7 +6760,7 @@ define { ptr, ptr } @_ZN6uu_env20apply_unset_env_vars17h11ce58d782b1ed7cE(ptr no
 
 .lr.ph.i.i:                                       ; preds = %34, %38
   %.05.i.i = phi i64 [ %39, %38 ], [ 0, %34 ]
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i.i, i64 0, i64 %.05.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.pn3.i.i, i64 %.05.i.i
   %36 = load i8, ptr %35, align 1, !alias.scope !1538, !noalias !1541, !noundef !5
   %37 = icmp eq i8 %29, %36
   br i1 %37, label %.loopexit, label %38
@@ -6828,7 +6828,7 @@ _ZN6uu_env14native_int_str9NativeStr8contains17hf8d5c30969619803E.exit.thread: ;
 
 .lr.ph.i.i21:                                     ; preds = %49, %53
   %.05.i.i22 = phi i64 [ %54, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i.i19, i64 0, i64 %.05.i.i22
+  %50 = getelementptr inbounds nuw i8, ptr %.pn3.i.i19, i64 %.05.i.i22
   %51 = load i8, ptr %50, align 1, !alias.scope !1553, !noalias !1556, !noundef !5
   %52 = icmp eq i8 %44, %51
   br i1 %52, label %.loopexit, label %53

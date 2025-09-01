@@ -223,7 +223,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_ro
   %23 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %24 = shl nuw i64 1, %23
   %25 = xor i64 %24, %.0810.i.i.i.i.i
-  %26 = getelementptr inbounds nuw [64 x ptr], ptr %20, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
   %27 = load ptr, ptr %2, align 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull %26) #8
@@ -325,7 +325,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
   %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
   %36 = shl nuw i64 1, %35
   %37 = xor i64 %36, %.0810.i.i.i.i.i.i
-  %38 = getelementptr inbounds nuw [64 x ptr], ptr %32, i64 0, i64 %35
+  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
   %39 = load ptr, ptr %2, align 8
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull %38) #8

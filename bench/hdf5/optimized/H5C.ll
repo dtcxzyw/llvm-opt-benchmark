@@ -265,7 +265,7 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
 
 90:                                               ; preds = %.preheader, %90
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [10 x %struct.H5C_cache_entry_t], ptr %89, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw %struct.H5C_cache_entry_t, ptr %89, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %indvars.iv, ptr %92, align 8, !tbaa !68
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 40
@@ -856,13 +856,13 @@ define range(i32 -1, 1) i32 @H5C_set_slist_enabled(ptr noundef captures(address_
   %68 = getelementptr inbounds nuw i8, ptr %.03543, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !139
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [6 x i32], ptr %42, i64 0, i64 %70
+  %71 = getelementptr inbounds i32, ptr %42, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !140
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !140
   %74 = load i32, ptr %68, align 8, !tbaa !139
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [6 x i64], ptr %43, i64 0, i64 %75
+  %76 = getelementptr inbounds i64, ptr %43, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !11
   %78 = add i64 %77, %65
   store i64 %78, ptr %76, align 8, !tbaa !11

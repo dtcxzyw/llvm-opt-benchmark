@@ -1151,7 +1151,7 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0123 = phi ptr [ %22, %4 ], [ %25, %23 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0123, i64 24
   %67 = zext i1 %11 to i64
-  %68 = getelementptr [2 x %struct.ssh_peer_data], ptr %66, i64 0, i64 %67
+  %68 = getelementptr %struct.ssh_peer_data, ptr %66, i64 %67
   %69 = load i32, ptr @proto_ssh, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %71 = load i32, ptr @ett_ssh, align 4
@@ -1162,7 +1162,7 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %65
   %75 = zext nneg i32 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_ssh, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ssh, i64 %75
   %switch.load = load ptr, ptr %switch.gep, align 8
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8
@@ -3306,7 +3306,7 @@ ssh_decrypt_chacha20.exit243.i:                   ; preds = %77
 .preheader.i:                                     ; preds = %129, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 12, %129 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %152 = getelementptr [12 x i8], ptr %148, i64 0, i64 %indvars.iv.next.i
+  %152 = getelementptr i8, ptr %148, i64 %indvars.iv.next.i
   %153 = load i8, ptr %152, align 1
   %154 = add i8 %153, 1
   store i8 %154, ptr %152, align 1
@@ -4569,10 +4569,10 @@ ssh_decryption_set_mac_id.exit37:                 ; preds = %ssh_decryption_set_
 26:                                               ; preds = %1, %94
   %27 = phi i1 [ true, %1 ], [ false, %94 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %94 ]
-  %28 = getelementptr [2 x %struct.ssh_peer_data], ptr %3, i64 0, i64 %indvars.iv
-  %29 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %28 = getelementptr %struct.ssh_peer_data, ptr %3, i64 %indvars.iv
+  %29 = getelementptr ptr, ptr %4, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %31 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 80
   call fastcc void @ssh_choose_algo(ptr noundef %30, ptr noundef %32, ptr noundef nonnull %33)
@@ -4616,9 +4616,9 @@ ssh_decryption_set_mac_id.exit37:                 ; preds = %ssh_decryption_set_
   br label %94
 
 .thread:                                          ; preds = %26, %47
-  %55 = getelementptr [2 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %55 = getelementptr ptr, ptr %6, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %57 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 48
   call fastcc void @ssh_choose_algo(ptr noundef %56, ptr noundef %58, ptr noundef nonnull %59)
@@ -4704,9 +4704,9 @@ ssh_set_mac_length.exit:                          ; preds = %.thread, %93
   br label %94
 
 94:                                               ; preds = %50, %ssh_set_mac_length.exit, %41
-  %95 = getelementptr [2 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %95 = getelementptr ptr, ptr %8, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr [2 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %97 = getelementptr ptr, ptr %9, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %28, i64 104
   call fastcc void @ssh_choose_algo(ptr noundef %96, ptr noundef %98, ptr noundef nonnull %99)
@@ -4806,7 +4806,7 @@ ssh_keylog_reset.exit20.i:                        ; preds = %28, %27
 .lr.ph.i:                                         ; preds = %.lr.ph30.i, %.critedge2.i
   %.026.i = phi i64 [ %32, %.critedge2.i ], [ %31, %.lr.ph30.i ]
   %32 = add i64 %.026.i, -1
-  %33 = getelementptr [512 x i8], ptr %3, i64 0, i64 %32
+  %33 = getelementptr i8, ptr %3, i64 %32
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %._crit_edge.i [
     i8 13, label %.critedge2.i
@@ -5454,7 +5454,7 @@ switch.early.test:                                ; preds = %364
   %415 = phi i1 [ true, %410 ], [ false, %ssh_debug_flush.exit70.i ]
   %indvars.iv.i = phi i64 [ 0, %410 ], [ 1, %ssh_debug_flush.exit70.i ]
   %.06472.i = phi i32 [ 0, %410 ], [ %spec.select.i, %ssh_debug_flush.exit70.i ]
-  %416 = getelementptr [2 x %struct.ssh_peer_data], ptr %411, i64 0, i64 %indvars.iv.i
+  %416 = getelementptr %struct.ssh_peer_data, ptr %411, i64 %indvars.iv.i
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 116
   %418 = load i32, ptr %417, align 4
   switch i32 %418, label %422 [
@@ -5514,7 +5514,7 @@ ssh_debug_flush.exit70.i:                         ; preds = %431, %429, %ssh_deb
   %indvars.iv78.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next79.i, %531 ]
   %434 = trunc i64 %indvars.iv78.i to i8
   %435 = add nuw nsw i8 %434, 65
-  %436 = getelementptr [6 x %struct.ssh_bignum], ptr %412, i64 0, i64 %indvars.iv78.i
+  %436 = getelementptr %struct.ssh_bignum, ptr %412, i64 %indvars.iv78.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %437 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %437, null
@@ -5608,7 +5608,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
   %489 = add i32 %487, 1
   store i32 %489, ptr %480, align 8
   %490 = sext i32 %487 to i64
-  %491 = getelementptr [1 x i8], ptr %488, i64 0, i64 %490
+  %491 = getelementptr i8, ptr %488, i64 %490
   store i8 %435, ptr %491, align 1
   %492 = load ptr, ptr %2, align 8
   %493 = load ptr, ptr %406, align 8
@@ -5677,7 +5677,7 @@ ssh_derive_symmetric_key.exit.i:                  ; preds = %526, %500
   br i1 %529, label %switch.lookup, label %531
 
 switch.lookup:                                    ; preds = %ssh_derive_symmetric_key.exit.i
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ssh_keylog_hash_write_secret, i64 0, i64 %indvars.iv78.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ssh_keylog_hash_write_secret, i64 %indvars.iv78.i
   %switch.load = load ptr, ptr %switch.gep, align 8
   %530 = load ptr, ptr %436, align 8
   call fastcc void @ssh_print_data(ptr noundef nonnull %switch.load, ptr noundef %530, i64 noundef %413)

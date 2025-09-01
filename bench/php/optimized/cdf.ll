@@ -132,7 +132,7 @@ define hidden void @cdf_unpack_header(ptr noundef writeonly captures(none) initi
 48:                                               ; preds = %2, %48
   %.072 = phi i64 [ 76, %2 ], [ %52, %48 ]
   %.07071 = phi i64 [ 0, %2 ], [ %53, %48 ]
-  %49 = getelementptr inbounds nuw [109 x i32], ptr %47, i64 0, i64 %.07071
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.07071
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.072
   %51 = load i32, ptr %50, align 1
   store i32 %51, ptr %49, align 4
@@ -473,7 +473,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr noundef readonly captures(n
 
 12:                                               ; preds = %3, %16
   %.074135 = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [109 x i32], ptr %11, i64 0, i64 %.074135
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %.074135
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %18, label %16
@@ -533,7 +533,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr noundef readonly captures(n
 
 42:                                               ; preds = %.preheader121, %73
   %.1136 = phi i64 [ 0, %.preheader121 ], [ %74, %73 ]
-  %43 = getelementptr inbounds nuw [109 x i32], ptr %11, i64 0, i64 %.1136
+  %43 = getelementptr inbounds nuw i32, ptr %11, i64 %.1136
   %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %75, label %46
@@ -2368,7 +2368,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   %.0127171 = phi i64 [ 0, %.lr.ph172 ], [ %60, %56 ]
   %57 = getelementptr inbounds nuw i16, ptr %40, i64 %.0127171
   %58 = load i16, ptr %57, align 2, !tbaa !43
-  %59 = getelementptr inbounds nuw [256 x i16], ptr %55, i64 0, i64 %.0127171
+  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %.0127171
   store i16 %58, ptr %59, align 2, !tbaa !43
   %60 = add nuw nsw i64 %.0127171, 1
   %61 = icmp samesign ult i64 %60, %52
@@ -2376,7 +2376,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
 
 ._crit_edge173:                                   ; preds = %56, %.preheader
   %62 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %63 = getelementptr inbounds nuw [256 x i16], ptr %62, i64 0, i64 %52
+  %63 = getelementptr inbounds nuw i16, ptr %62, i64 %52
   store i16 0, ptr %63, align 2, !tbaa !43
   %64 = add nuw i64 %.0125176, 1
   br label %65
@@ -2453,7 +2453,7 @@ define hidden i32 @cdf_print_property_name(ptr noundef %0, i64 noundef %1, i32 n
 
 6:                                                ; preds = %3, %4
   %.011 = phi i64 [ 0, %3 ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw [20 x %struct.anon.1], ptr @vn, i64 0, i64 %.011
+  %7 = getelementptr inbounds nuw %struct.anon.1, ptr @vn, i64 %.011
   %8 = load i32, ptr %7, align 16, !tbaa !67
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %10, label %4

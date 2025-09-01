@@ -5148,30 +5148,30 @@ print_str.exit21:                                 ; preds = %47, %print_str.exit
   br i1 %75, label %switch.lookup, label %print_str.exit24
 
 switch.lookup:                                    ; preds = %print_str.exit21
-  %switch.tableidx = add nsw i8 %1, -97
-  %76 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table.demangle_const_uint, i64 0, i64 %76
+  %76 = sext i8 %1 to i64
+  %77 = getelementptr ptr, ptr @switch.table.demangle_const_uint, i64 %76
+  %switch.gep = getelementptr i8, ptr %77, i64 -776
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #11
-  %78 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %print_str.exit24, label %80
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #11
+  %79 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %print_str.exit24, label %81
 
-80:                                               ; preds = %switch.lookup
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %82 = load i8, ptr %81, align 1, !tbaa !16, !range !24, !noundef !25
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %print_str.exit24, label %84
+81:                                               ; preds = %switch.lookup
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %83 = load i8, ptr %82, align 1, !tbaa !16, !range !24, !noundef !25
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %print_str.exit24, label %85
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !13
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !12
-  call void %86(ptr noundef nonnull %switch.load, i64 noundef %77, ptr noundef %88) #12
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !12
+  call void %87(ptr noundef nonnull %switch.load, i64 noundef %78, ptr noundef %89) #12
   br label %print_str.exit24
 
-print_str.exit24:                                 ; preds = %84, %80, %switch.lookup, %.loopexit, %print_str.exit21, %7
+print_str.exit24:                                 ; preds = %85, %81, %switch.lookup, %.loopexit, %print_str.exit21, %7
   ret void
 }
 

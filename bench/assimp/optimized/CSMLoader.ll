@@ -1634,7 +1634,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EED2Ev.exit:      ; preds = %434, %458, %456, %4
   %503 = getelementptr inbounds nuw i8, ptr %498, i64 4
   %504 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %502, ptr nonnull align 4 %503, i64 %504, i1 false)
-  %505 = getelementptr inbounds nuw [1024 x i8], ptr %502, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw i8, ptr %502, i64 %504
   store i8 0, ptr %505, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -2076,7 +2076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

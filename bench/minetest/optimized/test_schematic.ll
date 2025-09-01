@@ -620,7 +620,7 @@ lpad12:                                           ; preds = %if.end, %for.body22
 
 for.body:                                         ; preds = %for.body, %invoke.cont15
   %i.0993 = phi i64 [ 0, %invoke.cont15 ], [ %inc.2, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [168 x i16], ptr @_ZN13TestSchematic16test_schem1_dataE, i64 0, i64 %i.0993
+  %arrayidx = getelementptr inbounds nuw i16, ptr @_ZN13TestSchematic16test_schem1_dataE, i64 %i.0993
   %23 = load i16, ptr %arrayidx, align 2, !tbaa !67
   %24 = load ptr, ptr %schemdata.i, align 8, !tbaa !68
   %arrayidx18 = getelementptr inbounds nuw %struct.MapNode, ptr %24, i64 %i.0993
@@ -628,7 +628,7 @@ for.body:                                         ; preds = %for.body, %invoke.c
   %ref.tmp.sroa.0.0.insert.insert = or disjoint i32 %ref.tmp.sroa.0.0.insert.ext, 8323072
   store i32 %ref.tmp.sroa.0.0.insert.insert, ptr %arrayidx18, align 4, !tbaa.struct !70
   %inc = add nuw nsw i64 %i.0993, 1
-  %arrayidx.1 = getelementptr inbounds nuw [168 x i16], ptr @_ZN13TestSchematic16test_schem1_dataE, i64 0, i64 %inc
+  %arrayidx.1 = getelementptr inbounds nuw i16, ptr @_ZN13TestSchematic16test_schem1_dataE, i64 %inc
   %25 = load i16, ptr %arrayidx.1, align 2, !tbaa !67
   %26 = load ptr, ptr %schemdata.i, align 8, !tbaa !68
   %arrayidx18.1 = getelementptr inbounds nuw %struct.MapNode, ptr %26, i64 %inc
@@ -636,7 +636,7 @@ for.body:                                         ; preds = %for.body, %invoke.c
   %ref.tmp.sroa.0.0.insert.insert.1 = or disjoint i32 %ref.tmp.sroa.0.0.insert.ext.1, 8323072
   store i32 %ref.tmp.sroa.0.0.insert.insert.1, ptr %arrayidx18.1, align 4, !tbaa.struct !70
   %inc.1 = add nuw nsw i64 %i.0993, 2
-  %arrayidx.2 = getelementptr inbounds nuw [168 x i16], ptr @_ZN13TestSchematic16test_schem1_dataE, i64 0, i64 %inc.1
+  %arrayidx.2 = getelementptr inbounds nuw i16, ptr @_ZN13TestSchematic16test_schem1_dataE, i64 %inc.1
   %27 = load i16, ptr %arrayidx.2, align 2, !tbaa !67
   %28 = load ptr, ptr %schemdata.i, align 8, !tbaa !68
   %arrayidx18.2 = getelementptr inbounds nuw %struct.MapNode, ptr %28, i64 %inc.1
@@ -3762,10 +3762,10 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 
 for.body153:                                      ; preds = %for.cond150, %for.cond150.preheader
   %i149.0335 = phi i64 [ 0, %for.cond150.preheader ], [ %inc182, %for.cond150 ]
-  %arrayidx155 = getelementptr inbounds nuw [27 x i16], ptr @_ZN13TestSchematic16test_schem2_dataE, i64 0, i64 %i149.0335
+  %arrayidx155 = getelementptr inbounds nuw i16, ptr @_ZN13TestSchematic16test_schem2_dataE, i64 %i149.0335
   %87 = load i16, ptr %arrayidx155, align 2, !tbaa !67
   %idxprom156 = zext i16 %87 to i64
-  %arrayidx157 = getelementptr inbounds nuw [3 x i16], ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 0, i64 %idxprom156
+  %arrayidx157 = getelementptr inbounds nuw i16, ptr @_ZZN13TestSchematic28testFileSerializeDeserializeEPK14NodeDefManagerE12content_map2, i64 %idxprom156
   %88 = load i16, ptr %arrayidx157, align 2, !tbaa !67
   %arrayidx159 = getelementptr inbounds nuw %struct.MapNode, ptr %67, i64 %i149.0335
   %89 = load i16, ptr %arrayidx159, align 4, !tbaa !76
@@ -3773,7 +3773,7 @@ for.body153:                                      ; preds = %for.cond150, %for.c
   br i1 %cmp.i293, label %land.lhs.true.i294, label %if.then163
 
 land.lhs.true.i294:                               ; preds = %for.body153
-  %arrayidx161 = getelementptr inbounds nuw [27 x i8], ptr @_ZN13TestSchematic16test_schem2_probE, i64 0, i64 %i149.0335
+  %arrayidx161 = getelementptr inbounds nuw i8, ptr @_ZN13TestSchematic16test_schem2_probE, i64 %i149.0335
   %90 = load i8, ptr %arrayidx161, align 1, !tbaa !46
   %param1.i295 = getelementptr inbounds nuw i8, ptr %arrayidx159, i64 2
   %91 = load i8, ptr %param1.i295, align 2, !tbaa !78

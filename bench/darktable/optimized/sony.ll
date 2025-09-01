@@ -76,7 +76,7 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
   %.013 = phi i32 [ %4, %6 ], [ %13, %11 ]
   %12 = mul i32 %.013, 48828125
   %13 = add i32 %12, 1
-  %14 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %13, ptr %14, align 4, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -100,22 +100,22 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
 
 23:                                               ; preds = %15, %23
   %indvars.iv25 = phi i64 [ 4, %15 ], [ %indvars.iv.next26, %23 ]
-  %24 = add nsw i64 %indvars.iv25, -4
-  %25 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %24
+  %24 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load i32, ptr %25, align 4, !tbaa !71
-  %27 = add nsw i64 %indvars.iv25, -2
-  %28 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %27
+  %27 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !71
   %30 = xor i32 %29, %26
-  %31 = add nsw i64 %indvars.iv25, -3
-  %32 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %31
+  %31 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %32 = getelementptr i8, ptr %31, i64 -12
   %33 = load i32, ptr %32, align 4, !tbaa !71
-  %34 = add nsw i64 %indvars.iv25, -1
-  %35 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %34
+  %34 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !71
   %37 = xor i32 %36, %33
   %38 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %37, i32 1)
-  %39 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %indvars.iv25
+  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv25
   store i32 %38, ptr %39, align 4, !tbaa !71
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %40 = trunc nuw nsw i64 %indvars.iv.next26 to i32
@@ -125,7 +125,7 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
 
 41:                                               ; preds = %.preheader, %41
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %41 ]
-  %42 = getelementptr inbounds nuw [128 x i32], ptr %10, i64 0, i64 %indvars.iv29
+  %42 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv29
   %43 = load i32, ptr %42, align 4, !tbaa !71
   %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
   store i32 %44, ptr %42, align 4, !tbaa !71
@@ -157,17 +157,17 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
   %53 = add i32 %51, 1
   %54 = and i32 %53, 127
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [128 x i32], ptr %48, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %48, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !71
   %58 = add i32 %51, 65
   %59 = and i32 %58, 127
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [128 x i32], ptr %48, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %48, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !71
   %63 = xor i32 %62, %57
   %64 = and i32 %51, 127
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [128 x i32], ptr %48, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %48, i64 %65
   store i32 %63, ptr %66, align 4, !tbaa !71
   %67 = getelementptr inbounds nuw i8, ptr %.0422, i64 4
   %68 = load i32, ptr %.0422, align 4, !tbaa !71
@@ -213,7 +213,7 @@ define void @_ZN6LibRaw19setSonyBodyFeaturesEy(ptr noundef nonnull align 8 deref
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw [99 x %struct.anon.4], ptr @_ZZN6LibRaw19setSonyBodyFeaturesEyE15SonyCamFeatures, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.anon.4, ptr @_ZZN6LibRaw19setSonyBodyFeaturesEyE15SonyCamFeatures, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !91
   %15 = zext i16 %14 to i64
   %16 = icmp eq i64 %1, %15
@@ -1018,7 +1018,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
 
 22:                                               ; preds = %15
   %23 = zext i8 %18 to i64
-  %24 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !101
   %26 = uitofp i8 %25 to float
   br label %.fold.split.sink.split
@@ -1054,13 +1054,13 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !101
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !101
   store i8 %44, ptr %4, align 1, !tbaa !101
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !101
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !101
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %49, ptr %50, align 1, !tbaa !101
@@ -1096,7 +1096,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !101
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !101
   %73 = zext i8 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 5004
@@ -1105,7 +1105,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !101
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !101
   %81 = zext i8 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 5010
@@ -1123,7 +1123,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !101
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !101
   %94 = zext i8 %93 to i16
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 5000
@@ -1177,7 +1177,7 @@ define void @_ZN6LibRaw19process_Sony_0x9050EPhty(ptr noundef nonnull align 8 de
 
 _ZL9my_roundff.exit:                              ; preds = %18
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !101
   %23 = uitofp i8 %22 to double
   %24 = fmul reassoc nsz arcp contract afn double %23, 6.250000e-02
@@ -1206,7 +1206,7 @@ _ZL9my_roundff.exit:                              ; preds = %18
 
 _ZL9my_roundff.exit156:                           ; preds = %36
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !101
   %42 = uitofp i8 %41 to double
   %43 = fmul reassoc nsz arcp contract afn double %42, 6.250000e-02
@@ -1248,38 +1248,38 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !101
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !101
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !101
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !101
   %73 = zext i8 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %75 = load i8, ptr %74, align 1, !tbaa !101
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !101
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %62, i64 3
   %81 = load i8, ptr %80, align 1, !tbaa !101
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !101
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %87 = load i8, ptr %86, align 1, !tbaa !101
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !101
   %91 = zext i8 %90 to i64
   %92 = zext nneg i32 %59 to i64
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !101
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !101
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 5078
@@ -1304,37 +1304,37 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %115 = load i8, ptr %114, align 1, !tbaa !101
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !101
   %119 = zext i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 57
   %121 = load i8, ptr %120, align 1, !tbaa !101
   %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !101
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %127 = load i8, ptr %126, align 1, !tbaa !101
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !101
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 59
   %133 = load i8, ptr %132, align 1, !tbaa !101
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !101
   %137 = zext i8 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %139 = load i8, ptr %138, align 1, !tbaa !101
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !101
   %143 = zext i8 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 61
   %145 = load i8, ptr %144, align 1, !tbaa !101
   %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !101
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 5078
@@ -1365,25 +1365,25 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %169 = load i8, ptr %168, align 1, !tbaa !101
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !101
   %173 = zext i8 %172 to i32
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 125
   %175 = load i8, ptr %174, align 1, !tbaa !101
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !101
   %179 = zext i8 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %181 = load i8, ptr %180, align 1, !tbaa !101
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !101
   %185 = zext i8 %184 to i32
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 127
   %187 = load i8, ptr %186, align 1, !tbaa !101
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !101
   %191 = zext i8 %190 to i32
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 5078
@@ -1408,31 +1408,31 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %206 = load i8, ptr %205, align 1, !tbaa !101
   %207 = zext i8 %206 to i64
-  %208 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !101
   %210 = zext i8 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 241
   %212 = load i8, ptr %211, align 1, !tbaa !101
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %213
   %215 = load i8, ptr %214, align 1, !tbaa !101
   %216 = zext i8 %215 to i64
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 242
   %218 = load i8, ptr %217, align 1, !tbaa !101
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %219
   %221 = load i8, ptr %220, align 1, !tbaa !101
   %222 = zext i8 %221 to i64
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 243
   %224 = load i8, ptr %223, align 1, !tbaa !101
   %225 = zext i8 %224 to i64
-  %226 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !101
   %228 = zext i8 %227 to i64
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 244
   %230 = load i8, ptr %229, align 1, !tbaa !101
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !101
   %234 = zext i8 %233 to i64
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 5078
@@ -1467,12 +1467,12 @@ _ZL9my_roundff.exit156:                           ; preds = %36
 
 255:                                              ; preds = %249
   %256 = zext i8 %251 to i64
-  %257 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %256
   %258 = load i8, ptr %257, align 1, !tbaa !101
   %259 = zext i8 %258 to i16
   %260 = shl nuw i16 %259, 8
   %261 = zext i8 %253 to i64
-  %262 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %261
   %263 = load i8, ptr %262, align 1, !tbaa !101
   %264 = zext i8 %263 to i16
   %265 = or disjoint i16 %260, %264
@@ -1503,7 +1503,7 @@ _ZL9my_roundff.exit156:                           ; preds = %36
 
 278:                                              ; preds = %275
   %279 = zext i8 %274 to i64
-  %280 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !101
   switch i8 %281, label %283 [
     i8 1, label %.sink.split
@@ -1526,7 +1526,7 @@ _ZL9my_roundff.exit156:                           ; preds = %36
 
 286:                                              ; preds = %283
   %287 = zext i8 %285 to i64
-  %288 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %287
   %289 = load i8, ptr %288, align 1, !tbaa !101
   switch i8 %289, label %292 [
     i8 1, label %.sink.split172
@@ -1555,12 +1555,12 @@ _ZL9my_roundff.exit156:                           ; preds = %36
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %299 = load i8, ptr %298, align 1, !tbaa !101
   %300 = zext i8 %299 to i64
-  %301 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %300
   %302 = load i8, ptr %301, align 1, !tbaa !101
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 263
   %304 = load i8, ptr %303, align 1, !tbaa !101
   %305 = zext i8 %304 to i64
-  %306 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !101
   tail call void @_ZN6LibRaw18parseSonyLensType2Ehh(ptr noundef nonnull align 8 dereferenceable(767680) %0, i8 noundef zeroext %302, i8 noundef zeroext %307)
   br label %308
@@ -1589,13 +1589,13 @@ _ZL9my_roundff.exit156:                           ; preds = %36
 
 322:                                              ; preds = %316
   %323 = zext i8 %318 to i64
-  %324 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %323
   %325 = load i8, ptr %324, align 1, !tbaa !101
   %.fr = freeze i8 %325
   %326 = zext i8 %.fr to i64
   %327 = shl nuw nsw i64 %326, 8
   %328 = zext i8 %320 to i64
-  %329 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %328
   %330 = load i8, ptr %329, align 1, !tbaa !101
   %.fr163 = freeze i8 %330
   %331 = zext i8 %.fr163 to i64
@@ -1659,12 +1659,12 @@ switch.early.test:                                ; preds = %339
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink187
   %353 = load i8, ptr %352, align 1, !tbaa !101
   %354 = zext i8 %353 to i64
-  %355 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %354
   %356 = load i8, ptr %355, align 1, !tbaa !101
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink182
   %358 = load i8, ptr %357, align 1, !tbaa !101
   %359 = zext i8 %358 to i64
-  %360 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %359
   %361 = load i8, ptr %360, align 1, !tbaa !101
   tail call void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 dereferenceable(767680) %0, i8 noundef zeroext %356, i8 noundef zeroext %361)
   br label %362
@@ -1689,9 +1689,9 @@ switch.early.test:                                ; preds = %339
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %368 = load i8, ptr %gep, align 1, !tbaa !101
   %369 = zext i8 %368 to i64
-  %370 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %369
   %371 = load i8, ptr %370, align 1, !tbaa !101
-  %372 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %372 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %371, ptr %372, align 1, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1737,7 +1737,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %16 = load i8, ptr %15, align 1, !tbaa !101
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !101
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 3515
   store i8 %19, ptr %20, align 1, !tbaa !115
@@ -1753,9 +1753,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %25 = load i8, ptr %24, align 1, !tbaa !101
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !101
-  %29 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv103
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv103
   store i8 %28, ptr %29, align 1, !tbaa !101
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
@@ -1769,7 +1769,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %34 = load i8, ptr %33, align 1, !tbaa !101
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !101
   %38 = zext i8 %37 to i32
   br label %39
@@ -1786,9 +1786,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 18
   %44 = load i8, ptr %43, align 1, !tbaa !101
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !101
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv107
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv107
   store i8 %47, ptr %48, align 1, !tbaa !101
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 4
@@ -1801,7 +1801,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %53 = load i8, ptr %52, align 1, !tbaa !101
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !101
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 3520
   store i8 %56, ptr %57, align 8, !tbaa !120
@@ -1813,9 +1813,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 26
   %61 = load i8, ptr %60, align 1, !tbaa !101
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !101
-  %65 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv111
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv111
   store i8 %64, ptr %65, align 1, !tbaa !101
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4
@@ -1843,9 +1843,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i8, ptr %75, align 1, !tbaa !101
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !101
-  %80 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv95
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv95
   store i8 %79, ptr %80, align 1, !tbaa !101
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 4
@@ -1863,9 +1863,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i8, ptr %86, align 1, !tbaa !101
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !101
-  %91 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv99
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv99
   store i8 %90, ptr %91, align 1, !tbaa !101
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 4
@@ -1878,7 +1878,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = load i8, ptr %95, align 1, !tbaa !101
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !101
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 3515
   store i8 %99, ptr %100, align 1, !tbaa !115
@@ -1901,9 +1901,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i8, ptr %108, align 1, !tbaa !101
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !101
-  %113 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %112, ptr %113, align 1, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1921,9 +1921,9 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 12
   %120 = load i8, ptr %119, align 1, !tbaa !101
   %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !101
-  %124 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv91
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv91
   store i8 %123, ptr %124, align 1, !tbaa !101
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 4
@@ -1936,7 +1936,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %129 = load i8, ptr %128, align 1, !tbaa !101
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !101
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 3515
   store i8 %132, ptr %133, align 1, !tbaa !115
@@ -1948,7 +1948,7 @@ define void @_ZN6LibRaw19process_Sony_0x9400EPhty(ptr noundef nonnull align 8 de
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink123
   %135 = load i8, ptr %134, align 1, !tbaa !101
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !101
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink118
   store i8 %138, ptr %139, align 8, !tbaa !101
@@ -1989,7 +1989,7 @@ define void @_ZN6LibRaw19process_Sony_0x9402EPht(ptr noundef nonnull align 8 cap
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i8, ptr %15, align 1, !tbaa !101
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !101
   %20 = uitofp i8 %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4720
@@ -2006,7 +2006,7 @@ define void @_ZN6LibRaw19process_Sony_0x9402EPht(ptr noundef nonnull align 8 cap
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %28 = load i8, ptr %27, align 1, !tbaa !101
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !101
   %32 = and i8 %31, 127
   %33 = zext nneg i8 %32 to i16
@@ -2021,7 +2021,7 @@ define void @_ZN6LibRaw19process_Sony_0x9402EPht(ptr noundef nonnull align 8 cap
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %37 = load i8, ptr %36, align 1, !tbaa !101
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !101
   %41 = zext i8 %40 to i16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3530
@@ -2035,7 +2035,7 @@ define void @_ZN6LibRaw19process_Sony_0x9402EPht(ptr noundef nonnull align 8 cap
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %46 = load i8, ptr %45, align 1, !tbaa !101
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !101
   %50 = zext i8 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 3560
@@ -2067,7 +2067,7 @@ define void @_ZN6LibRaw19process_Sony_0x9403EPht(ptr noundef nonnull align 8 cap
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %13 = load i8, ptr %12, align 1, !tbaa !101
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !101
   %17 = uitofp i8 %16 to float
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4708
@@ -2103,7 +2103,7 @@ define void @_ZN6LibRaw19process_Sony_0x9406EPht(ptr noundef nonnull writeonly a
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %12 = load i8, ptr %11, align 1, !tbaa !101
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !101
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -32
@@ -2147,7 +2147,7 @@ define void @_ZN6LibRaw19process_Sony_0x940cEPht(ptr noundef nonnull align 8 cap
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 1, !tbaa !101
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !101
   switch i8 %19, label %21 [
     i8 1, label %.thread.sink.split
@@ -2171,14 +2171,14 @@ define void @_ZN6LibRaw19process_Sony_0x940cEPht(ptr noundef nonnull align 8 cap
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %23 = load i8, ptr %22, align 1, !tbaa !101
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !101
   %27 = zext i8 %26 to i16
   %28 = shl nuw i16 %27, 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %30 = load i8, ptr %29, align 1, !tbaa !101
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !101
   %34 = zext i8 %33 to i16
   %35 = or disjoint i16 %28, %34
@@ -2250,7 +2250,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !101
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3551
   store i8 %21, ptr %22, align 1, !tbaa !132
@@ -2262,7 +2262,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds [4 x %struct.libraw_afinfo_item_t], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %27, i64 %28
   store i32 37902, ptr %29, align 8, !tbaa !134
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %31 = load i16, ptr %30, align 8, !tbaa !136
@@ -2291,7 +2291,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !101
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !101
   %.idx47 = mul nsw i64 %44, 24
   %50 = getelementptr i8, ptr %27, i64 %.idx47
@@ -2330,7 +2330,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %69 = load i8, ptr %68, align 1, !tbaa !101
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !101
   %73 = zext i8 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 5002
@@ -2346,9 +2346,9 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i8, ptr %79, align 1, !tbaa !101
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !101
-  %84 = getelementptr inbounds nuw [10 x i8], ptr %76, i64 0, i64 %indvars.iv54
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv54
   store i8 %83, ptr %84, align 1, !tbaa !101
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 10
@@ -2358,7 +2358,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %87 = load i8, ptr %86, align 1, !tbaa !101
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !101
   %91 = zext i8 %90 to i16
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3530
@@ -2366,7 +2366,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %94 = load i8, ptr %93, align 1, !tbaa !101
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !101
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 3562
   store i8 %97, ptr %98, align 2, !tbaa !143
@@ -2390,7 +2390,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %107 = load i8, ptr %106, align 1, !tbaa !101
   %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !101
   %111 = zext i8 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3530
@@ -2398,7 +2398,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %114 = load i8, ptr %113, align 1, !tbaa !101
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !101
   %118 = zext i8 %117 to i16
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 5002
@@ -2414,9 +2414,9 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 366
   %125 = load i8, ptr %124, align 1, !tbaa !101
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !101
-  %129 = getelementptr inbounds nuw [10 x i8], ptr %121, i64 0, i64 %indvars.iv51
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv51
   store i8 %128, ptr %129, align 1, !tbaa !101
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, 4
@@ -2426,7 +2426,7 @@ define void @_ZN6LibRaw19process_Sony_0x940eEPhty(ptr noundef nonnull align 8 de
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 381
   %132 = load i8, ptr %131, align 1, !tbaa !101
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !101
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 3562
   store i8 %135, ptr %136, align 2, !tbaa !143
@@ -2588,7 +2588,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit:        ; preds = %41, %44
   %85 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %86 = load i8, ptr %85, align 1, !tbaa !101
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !101
   %90 = uitofp i8 %89 to float
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 4720
@@ -2605,7 +2605,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit:        ; preds = %41, %44
   %97 = getelementptr inbounds nuw i8, ptr %73, i64 22
   %98 = load i8, ptr %97, align 1, !tbaa !101
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !101
   %102 = and i8 %101, 127
   %103 = zext nneg i8 %102 to i16
@@ -2620,7 +2620,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit:        ; preds = %41, %44
   %106 = getelementptr inbounds nuw i8, ptr %73, i64 23
   %107 = load i8, ptr %106, align 1, !tbaa !101
   %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !101
   %111 = zext i8 %110 to i16
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3530
@@ -2634,7 +2634,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit:        ; preds = %41, %44
   %115 = getelementptr inbounds nuw i8, ptr %73, i64 45
   %116 = load i8, ptr %115, align 1, !tbaa !101
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !101
   %120 = zext i8 %119 to i16
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 3560
@@ -2671,7 +2671,7 @@ _ZN6LibRaw19process_Sony_0x9402EPht.exit:         ; preds = %72, %75, %75, %78, 
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 5
   %134 = load i8, ptr %133, align 1, !tbaa !101
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !101
   %138 = uitofp i8 %137 to float
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 4708
@@ -2713,7 +2713,7 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit:         ; preds = %124, %129, %129, %1
   %151 = getelementptr inbounds nuw i8, ptr %143, i64 5
   %152 = load i8, ptr %151, align 1, !tbaa !101
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !101
   %156 = zext i8 %155 to i32
   %157 = add nsw i32 %156, -32
@@ -2936,7 +2936,7 @@ _ZN6LibRaw19process_Sony_0x9406EPht.exit:         ; preds = %142, %145, %147, %1
 
 switch.lookup:                                    ; preds = %281
   %299 = zext nneg i16 %trunc822 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_, i64 0, i64 %299
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_, i64 %299
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %300
 
@@ -3000,7 +3000,7 @@ switch.lookup:                                    ; preds = %281
 333:                                              ; preds = %321
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %335 = sext i32 %331 to i64
-  %336 = getelementptr inbounds [4 x %struct.libraw_afinfo_item_t], ptr %334, i64 0, i64 %335
+  %336 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %334, i64 %335
   store i32 16, ptr %336, align 8, !tbaa !134
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %338 = load i16, ptr %337, align 8, !tbaa !136
@@ -4001,7 +4001,7 @@ _ZL7bcd2dech.exit871:                             ; preds = %585, %589, %592
 
 switch.lookup1016:                                ; preds = %863
   %890 = zext nneg i16 %trunc820 to i64
-  %switch.gep1017 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.1, i64 0, i64 %890
+  %switch.gep1017 = getelementptr inbounds nuw i16, ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.1, i64 %890
   %switch.load1018 = load i16, ptr %switch.gep1017, align 2
   br label %891
 
@@ -4070,7 +4070,7 @@ switch.lookup1016:                                ; preds = %863
 
 switch.lookup1019:                                ; preds = %919
   %936 = zext nneg i16 %trunc to i64
-  %switch.gep1020 = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.2, i64 0, i64 %936
+  %switch.gep1020 = getelementptr inbounds nuw i16, ptr @switch.table._ZN6LibRaw19parseSonyMakernotesEijjjjRPhRtS1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_S1_S2_.2, i64 %936
   %switch.load1021 = load i16, ptr %switch.gep1020, align 2
   %switch.cast = zext i8 %933 to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
@@ -4197,9 +4197,9 @@ switch.lookup1019:                                ; preds = %919
   %1004 = or disjoint i16 %1000, %1003
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 5002
-  %switch.tableidx1028 = add i16 %1004, -1
-  %1007 = icmp ult i16 %switch.tableidx1028, 4
-  %1008 = shl nuw nsw i16 %switch.tableidx1028, 4
+  %switch.tableidx1027 = add i16 %1004, -1
+  %1007 = icmp ult i16 %switch.tableidx1027, 4
+  %1008 = shl nuw nsw i16 %switch.tableidx1027, 4
   %switch.shiftamt1030 = zext nneg i16 %1008 to i64
   %switch.downshift1031 = lshr i64 1688867040329730, %switch.shiftamt1030
   %switch.masked1032 = trunc i64 %switch.downshift1031 to i16
@@ -4328,7 +4328,7 @@ switch.lookup1019:                                ; preds = %919
   %1070 = getelementptr inbounds nuw i8, ptr %1060, i64 %indvars.iv919
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 6
   %1072 = load i8, ptr %1071, align 1, !tbaa !101
-  %1073 = getelementptr inbounds nuw [20 x i8], ptr %1068, i64 0, i64 %indvars.iv919
+  %1073 = getelementptr inbounds nuw i8, ptr %1068, i64 %indvars.iv919
   store i8 %1072, ptr %1073, align 1, !tbaa !101
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
   %exitcond922.not = icmp eq i64 %indvars.iv.next920, 20
@@ -4600,7 +4600,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
 1211:                                             ; preds = %1207
   %1212 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %1213 = sext i32 %1209 to i64
-  %1214 = getelementptr inbounds [4 x %struct.libraw_afinfo_item_t], ptr %1212, i64 0, i64 %1213
+  %1214 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %1212, i64 %1213
   store i32 8224, ptr %1214, align 8, !tbaa !134
   %1215 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %1216 = getelementptr inbounds nuw i8, ptr %0, i64 381552
@@ -4680,7 +4680,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
 1267:                                             ; preds = %1263
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %1269 = sext i32 %1265 to i64
-  %1270 = getelementptr inbounds [4 x %struct.libraw_afinfo_item_t], ptr %1268, i64 0, i64 %1269
+  %1270 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %1268, i64 %1269
   store i32 8226, ptr %1270, align 8, !tbaa !134
   %1271 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %1272 = getelementptr inbounds nuw i8, ptr %0, i64 381552
@@ -4717,7 +4717,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
 1294:                                             ; preds = %.preheader910, %1294
   %indvars.iv = phi i64 [ 0, %.preheader910 ], [ %indvars.iv.next, %1294 ]
   %1295 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %1296 = getelementptr inbounds nuw [4 x i16], ptr %1190, i64 0, i64 %indvars.iv
+  %1296 = getelementptr inbounds nuw i16, ptr %1190, i64 %indvars.iv
   store i16 %1295, ptr %1296, align 2, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond918.not = icmp eq i64 %indvars.iv.next, 4
@@ -4755,7 +4755,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
 1312:                                             ; preds = %1308
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %1314 = sext i32 %1310 to i64
-  %1315 = getelementptr inbounds [4 x %struct.libraw_afinfo_item_t], ptr %1313, i64 0, i64 %1314
+  %1315 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %1313, i64 %1314
   store i32 8234, ptr %1315, align 8, !tbaa !134
   %1316 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %1317 = getelementptr inbounds nuw i8, ptr %0, i64 381552
@@ -4974,7 +4974,7 @@ _ZN6LibRaw19process_Sony_0x0116EPhty.exit878:     ; preds = %1102, %1105
   %1456 = getelementptr inbounds nuw i8, ptr %1446, i64 5
   %1457 = load i8, ptr %1456, align 1, !tbaa !101
   %1458 = zext i8 %1457 to i64
-  %1459 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1458
+  %1459 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1458
   %1460 = load i8, ptr %1459, align 1, !tbaa !101
   %1461 = uitofp i8 %1460 to float
   %1462 = getelementptr inbounds nuw i8, ptr %0, i64 4708
@@ -5024,13 +5024,13 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1482 = getelementptr inbounds nuw i8, ptr %1469, i64 4
   %1483 = load i8, ptr %1482, align 1, !tbaa !101
   %1484 = zext i8 %1483 to i64
-  %1485 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1484
+  %1485 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1484
   %1486 = load i8, ptr %1485, align 1, !tbaa !101
   store i8 %1486, ptr %25, align 1, !tbaa !101
   %1487 = getelementptr inbounds nuw i8, ptr %1469, i64 5
   %1488 = load i8, ptr %1487, align 1, !tbaa !101
   %1489 = zext i8 %1488 to i64
-  %1490 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1489
+  %1490 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1489
   %1491 = load i8, ptr %1490, align 1, !tbaa !101
   %1492 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %1491, ptr %1492, align 1, !tbaa !101
@@ -5093,7 +5093,7 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1523 = getelementptr inbounds nuw i8, ptr %1507, i64 32
   %1524 = load i8, ptr %1523, align 1, !tbaa !101
   %1525 = zext i8 %1524 to i64
-  %1526 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1525
+  %1526 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1525
   %1527 = load i8, ptr %1526, align 1, !tbaa !101
   %1528 = zext i8 %1527 to i16
   %1529 = getelementptr inbounds nuw i8, ptr %0, i64 3560
@@ -5222,13 +5222,13 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1602 = getelementptr inbounds nuw i8, ptr %1591, i64 4
   %1603 = load i8, ptr %1602, align 1, !tbaa !101
   %1604 = zext i8 %1603 to i64
-  %1605 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1604
+  %1605 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1604
   %1606 = load i8, ptr %1605, align 1, !tbaa !101
   store i8 %1606, ptr %25, align 1, !tbaa !101
   %1607 = getelementptr inbounds nuw i8, ptr %1591, i64 5
   %1608 = load i8, ptr %1607, align 1, !tbaa !101
   %1609 = zext i8 %1608 to i64
-  %1610 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1609
+  %1610 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1609
   %1611 = load i8, ptr %1610, align 1, !tbaa !101
   %1612 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %1611, ptr %1612, align 1, !tbaa !101
@@ -5248,7 +5248,7 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1621 = getelementptr inbounds nuw i8, ptr %1591, i64 53
   %1622 = load i8, ptr %1621, align 1, !tbaa !101
   %1623 = zext i8 %1622 to i64
-  %1624 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1623
+  %1624 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1623
   %1625 = load i8, ptr %1624, align 1, !tbaa !101
   %1626 = zext i8 %1625 to i16
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 5010
@@ -5264,26 +5264,26 @@ _ZN6LibRaw19process_Sony_0x9403EPht.exit880:      ; preds = %1445, %1452, %1452,
   %1631 = getelementptr inbounds nuw i8, ptr %1591, i64 72
   %1632 = load i8, ptr %1631, align 1, !tbaa !101
   %1633 = zext i8 %1632 to i64
-  %1634 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1633
+  %1634 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1633
   %1635 = load i8, ptr %1634, align 1, !tbaa !101
-  %switch.tableidx1034 = add i8 %1635, -1
-  %1636 = icmp ult i8 %switch.tableidx1034, 3
-  br i1 %1636, label %switch.lookup1033, label %1638
+  %switch.tableidx1033 = add i8 %1635, -1
+  %1636 = icmp ult i8 %switch.tableidx1033, 3
+  br i1 %1636, label %switch.lookup1034, label %1638
 
-switch.lookup1033:                                ; preds = %1630
-  %1637 = shl nuw nsw i8 %switch.tableidx1034, 4
+switch.lookup1034:                                ; preds = %1630
+  %1637 = shl nuw nsw i8 %switch.tableidx1033, 4
   %switch.shiftamt1036 = zext nneg i8 %1637 to i48
   %switch.downshift1037 = lshr i48 107376803865, %switch.shiftamt1036
   %switch.masked1038 = trunc i48 %switch.downshift1037 to i16
   store i16 %switch.masked1038, ptr %1628, align 2, !tbaa !85
   br label %1638
 
-1638:                                             ; preds = %1630, %switch.lookup1033, %1620, %1620
-  %1639 = phi i16 [ %1629, %1620 ], [ %1629, %1620 ], [ %1629, %1630 ], [ %switch.masked1038, %switch.lookup1033 ]
+1638:                                             ; preds = %1630, %switch.lookup1034, %1620, %1620
+  %1639 = phi i16 [ %1629, %1620 ], [ %1629, %1620 ], [ %1629, %1630 ], [ %switch.masked1038, %switch.lookup1034 ]
   %1640 = getelementptr inbounds nuw i8, ptr %1591, i64 73
   %1641 = load i8, ptr %1640, align 1, !tbaa !101
   %1642 = zext i8 %1641 to i64
-  %1643 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1642
+  %1643 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1642
   %1644 = load i8, ptr %1643, align 1, !tbaa !101
   switch i8 %1644, label %1647 [
     i8 1, label %.sink.split1006
@@ -5307,12 +5307,12 @@ switch.lookup1033:                                ; preds = %1630
   %1650 = getelementptr inbounds nuw i8, ptr %1591, i64 76
   %1651 = load i8, ptr %1650, align 1, !tbaa !101
   %1652 = zext i8 %1651 to i64
-  %1653 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1652
+  %1653 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1652
   %1654 = load i8, ptr %1653, align 1, !tbaa !101
   %1655 = getelementptr inbounds nuw i8, ptr %1591, i64 75
   %1656 = load i8, ptr %1655, align 1, !tbaa !101
   %1657 = zext i8 %1656 to i64
-  %1658 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %1657
+  %1658 = getelementptr inbounds nuw i8, ptr @_ZL16SonySubstitution, i64 %1657
   %1659 = load i8, ptr %1658, align 1, !tbaa !101
   call void @_ZN6LibRaw18parseSonyLensType2Ehh(ptr noundef nonnull align 8 dereferenceable(767680) %0, i8 noundef zeroext %1654, i8 noundef zeroext %1659)
   br label %1660
@@ -5878,7 +5878,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 
 67:                                               ; preds = %.preheader227
   %68 = zext i16 %66 to i32
-  %69 = getelementptr inbounds nuw [4104 x i32], ptr %42, i64 0, i64 %indvars.iv306
+  %69 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv306
   store i32 %68, ptr %69, align 4, !tbaa !71
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next307, 4
@@ -5900,7 +5900,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
   %79 = xor i32 %.1126265, %78
   %80 = xor i32 %79, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [4 x float], ptr %41, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw float, ptr %41, i64 %81
   store float %77, ptr %82, align 4, !tbaa !194
   %83 = add nuw nsw i32 %.1126265, 1
   %exitcond305.not = icmp eq i32 %83, 4
@@ -5921,7 +5921,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
   %92 = lshr i32 %.2127261, 1
   %93 = xor i32 %92, %.2127261
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [4104 x i32], ptr %42, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %42, i64 %94
   store i32 %91, ptr %95, align 4, !tbaa !71
   %96 = add nuw nsw i32 %.2127261, 1
   %exitcond296.not = icmp eq i32 %96, 4
@@ -5934,7 +5934,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 99:                                               ; preds = %97, %99
   %indvars.iv297 = phi i64 [ 0, %97 ], [ %indvars.iv.next298, %99 ]
   %.0120263 = phi i32 [ %98, %97 ], [ %spec.select, %99 ]
-  %100 = getelementptr inbounds nuw [4104 x i32], ptr %42, i64 0, i64 %indvars.iv297
+  %100 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv297
   %101 = load i32, ptr %100, align 4, !tbaa !71
   %spec.select = call i32 @llvm.smin.i32(i32 %.0120263, i32 %101)
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
@@ -5943,7 +5943,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 
 .preheader236:                                    ; preds = %99, %.preheader236
   %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.preheader236 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw [4104 x i32], ptr %42, i64 0, i64 %indvars.iv301
+  %102 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv301
   %103 = load i32, ptr %102, align 4, !tbaa !71
   %104 = sub i32 %103, %spec.select
   store i32 %104, ptr %102, align 4, !tbaa !71
@@ -5970,7 +5970,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
   %114 = lshr i32 %.5260, 1
   %115 = xor i32 %114, %.5260
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [4 x float], ptr %41, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw float, ptr %41, i64 %116
   store float %113, ptr %117, align 4, !tbaa !194
   %118 = add nuw nsw i32 %.5260, 1
   %exitcond295.not = icmp eq i32 %118, 4
@@ -6027,7 +6027,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 .preheader203:                                    ; preds = %59, %.loopexit
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.loopexit ], [ 0, %59 ]
   %147 = mul nuw nsw i64 %indvars.iv291, 3
-  %148 = getelementptr inbounds nuw [3 x [4 x float]], ptr %36, i64 0, i64 %indvars.iv291
+  %148 = getelementptr inbounds nuw [4 x float], ptr %36, i64 %indvars.iv291
   br label %149
 
 149:                                              ; preds = %.preheader203, %158
@@ -6045,7 +6045,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 
 158:                                              ; preds = %149
   %159 = sitofp i16 %157 to float
-  %160 = getelementptr inbounds nuw [4 x float], ptr %148, i64 0, i64 %indvars.iv283
+  %160 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv283
   store float %159, ptr %160, align 4, !tbaa !194
   %161 = fadd reassoc nsz arcp contract afn float %.0122257, %159
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
@@ -6063,7 +6063,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.preheader ], [ 0, %.preheader.preheader ]
-  %166 = getelementptr inbounds nuw [4 x float], ptr %148, i64 0, i64 %indvars.iv287
+  %166 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv287
   %167 = load float, ptr %166, align 4, !tbaa !194
   %168 = fmul reassoc nsz arcp contract afn float %167, %165
   store float %168, ptr %166, align 4, !tbaa !194
@@ -6096,7 +6096,7 @@ define void @_ZN6LibRaw12parseSonySR2EPhjjj(ptr noundef nonnull align 8 derefere
 
 178:                                              ; preds = %.preheader247
   %179 = zext i16 %177 to i64
-  %180 = getelementptr inbounds nuw [4 x i64], ptr %32, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
   store i64 %179, ptr %180, align 8, !tbaa !204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -6180,7 +6180,7 @@ _ZNK21libraw_static_table_tixEj.exit141:          ; preds = %205, %209, %210
   %.0.i140 = phi i32 [ %208, %205 ], [ %211, %210 ], [ 0, %209 ]
   %212 = sitofp i32 %.0.i140 to float
   %213 = sext i32 %.0119275 to i64
-  %214 = getelementptr inbounds [64 x [5 x float]], ptr %48, i64 0, i64 %213
+  %214 = getelementptr inbounds [5 x float], ptr %48, i64 %213
   store float %212, ptr %214, align 4, !tbaa !194
   br label %215
 
@@ -6198,7 +6198,7 @@ _ZNK21libraw_static_table_tixEj.exit141:          ; preds = %205, %209, %210
 223:                                              ; preds = %215
   %224 = uitofp i16 %222 to float
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
-  %225 = getelementptr inbounds nuw [5 x float], ptr %214, i64 0, i64 %indvars.iv.next329
+  %225 = getelementptr inbounds nuw float, ptr %214, i64 %indvars.iv.next329
   store float %224, ptr %225, align 4, !tbaa !194
   %exitcond331.not = icmp eq i64 %indvars.iv.next329, 3
   br i1 %exitcond331.not, label %226, label %215, !llvm.loop !209
@@ -6253,8 +6253,8 @@ _ZNK21libraw_static_table_tixEj.exit141:          ; preds = %205, %209, %210
 _ZNK21libraw_static_table_tixEj.exit145:          ; preds = %244, %248, %249, %251
   %.0.i144 = phi i32 [ %247, %244 ], [ %252, %251 ], [ 0, %249 ], [ 0, %248 ]
   %253 = sext i32 %.0.i144 to i64
-  %254 = getelementptr inbounds [256 x [4 x i32]], ptr %46, i64 0, i64 %253
-  %255 = getelementptr inbounds nuw [4 x i32], ptr %254, i64 0, i64 %indvars.iv324
+  %254 = getelementptr inbounds [4 x i32], ptr %46, i64 %253
+  %255 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv324
   store i32 %241, ptr %255, align 4, !tbaa !71
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next325, 3
@@ -6362,7 +6362,7 @@ _ZNK21libraw_static_table_tixEj.exit161:          ; preds = %295, %299, %300
   %.0.i160 = phi i32 [ %298, %295 ], [ %301, %300 ], [ 0, %299 ]
   %302 = sitofp i32 %.0.i160 to float
   %303 = sext i32 %.0119275 to i64
-  %304 = getelementptr inbounds [64 x [5 x float]], ptr %48, i64 0, i64 %303
+  %304 = getelementptr inbounds [5 x float], ptr %48, i64 %303
   store float %302, ptr %304, align 4, !tbaa !194
   br label %305
 
@@ -6380,7 +6380,7 @@ _ZNK21libraw_static_table_tixEj.exit161:          ; preds = %295, %299, %300
 313:                                              ; preds = %305
   %314 = uitofp i16 %312 to float
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
-  %315 = getelementptr inbounds nuw [5 x float], ptr %304, i64 0, i64 %indvars.iv.next317
+  %315 = getelementptr inbounds nuw float, ptr %304, i64 %indvars.iv.next317
   store float %314, ptr %315, align 4, !tbaa !194
   %exitcond319.not = icmp eq i64 %indvars.iv.next317, 3
   br i1 %exitcond319.not, label %316, label %305, !llvm.loop !211
@@ -6416,10 +6416,10 @@ _ZNK21libraw_static_table_tixEj.exit165:          ; preds = %326, %322
 .preheader211:                                    ; preds = %_ZNK21libraw_static_table_tixEj.exit165, %.preheader211
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.preheader211 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit165 ]
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %329 = getelementptr inbounds nuw [5 x float], ptr %304, i64 0, i64 %indvars.iv.next321
+  %329 = getelementptr inbounds nuw float, ptr %304, i64 %indvars.iv.next321
   %330 = load float, ptr %329, align 4, !tbaa !194
   %331 = fptosi float %330 to i32
-  %332 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %indvars.iv320
+  %332 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv320
   store i32 %331, ptr %332, align 4, !tbaa !71
   %exitcond323.not = icmp eq i64 %indvars.iv.next321, 3
   br i1 %exitcond323.not, label %333, label %.preheader211, !llvm.loop !212
@@ -6472,8 +6472,8 @@ _ZNK21libraw_static_table_tixEj.exit165.thread:   ; preds = %326, %_ZNK21libraw_
 _ZNK21libraw_static_table_tixEj.exit169:          ; preds = %348, %352, %353, %355
   %.0.i168 = phi i32 [ %351, %348 ], [ %356, %355 ], [ 0, %353 ], [ 0, %352 ]
   %357 = sext i32 %.0.i168 to i64
-  %358 = getelementptr inbounds [256 x [4 x i32]], ptr %46, i64 0, i64 %357
-  %359 = getelementptr inbounds nuw [4 x i32], ptr %358, i64 0, i64 %indvars.iv312
+  %358 = getelementptr inbounds [4 x i32], ptr %46, i64 %357
+  %359 = getelementptr inbounds nuw i32, ptr %358, i64 %indvars.iv312
   store i32 %345, ptr %359, align 4, !tbaa !71
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next313, 3
@@ -6544,7 +6544,7 @@ _ZNK21libraw_static_table_tixEj.exit177:          ; preds = %363, %364, %366, %3
   %392 = xor i32 %.14268, %391
   %393 = xor i32 %392, 1
   %394 = zext nneg i32 %393 to i64
-  %395 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw i32, ptr %45, i64 %394
   store i32 %390, ptr %395, align 4, !tbaa !71
   %396 = add nuw nsw i32 %.14268, 1
   %exitcond311.not = icmp eq i32 %396, 4
@@ -6565,7 +6565,7 @@ _ZNK21libraw_static_table_tixEj.exit177:          ; preds = %363, %364, %366, %3
   %405 = lshr i32 %.15267, 1
   %406 = xor i32 %405, %.15267
   %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw i32, ptr %45, i64 %407
   store i32 %404, ptr %408, align 4, !tbaa !71
   %409 = add nuw nsw i32 %.15267, 1
   %exitcond310.not = icmp eq i32 %409, 4
@@ -6638,7 +6638,7 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
   %9 = alloca %class.checked_buffer_t, align 8
   %10 = add i32 %1, -1048576
   %or.cond = icmp ult i32 %10, -1048575
-  br i1 %or.cond, label %323, label %11
+  br i1 %or.cond, label %319, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 381416
@@ -6652,7 +6652,7 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
   %20 = icmp sgt i64 %18, %19
   %21 = icmp sgt i64 %17, 200896
   %or.cond3 = or i1 %21, %20
-  br i1 %or.cond3, label %323, label %22
+  br i1 %or.cond3, label %319, label %22
 
 22:                                               ; preds = %11
   %23 = lshr i64 %18, 2
@@ -6729,17 +6729,17 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
           catch ptr null
   br label %_ZN16checked_buffer_tD2Ev.exit
 
-.loopexit104:                                     ; preds = %204, %212, %260, %271, %278, %285, %292
+.loopexit104:                                     ; preds = %200, %208, %256, %267, %274, %281, %288
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %170, %166, %158
+.loopexit.split-lp.loopexit:                      ; preds = %166, %162, %154
   %lpad.loopexit105 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %185, %._crit_edge, %_ZN6LibRaw12sony_decryptEPjiii.exit, %76, %52, %49, %46, %43, %37, %34, %26
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %181, %._crit_edge, %_ZN6LibRaw12sony_decryptEPjiii.exit, %76, %52, %49, %46, %43, %37, %34, %26
   %lpad.loopexit.split-lp106 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
@@ -6790,7 +6790,7 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
   %.013.i = phi i32 [ %62, %87 ], [ %94, %92 ]
   %93 = mul i32 %.013.i, 48828125
   %94 = add i32 %93, 1
-  %95 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.i
   store i32 %94, ptr %95, align 4, !tbaa !71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -6811,393 +6811,389 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
 
 .preheader.i:                                     ; preds = %105
   store i32 0, ptr %97, align 8, !tbaa !74
-  br label %123
+  br label %119
 
 105:                                              ; preds = %105, %96
   %indvars.iv25.i = phi i64 [ 4, %96 ], [ %indvars.iv.next26.i, %105 ]
-  %106 = add nsw i64 %indvars.iv25.i, -4
-  %107 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %106
+  %106 = getelementptr i32, ptr %91, i64 %indvars.iv25.i
+  %107 = getelementptr i8, ptr %106, i64 -16
   %108 = load i32, ptr %107, align 4, !tbaa !71
-  %109 = add nsw i64 %indvars.iv25.i, -2
-  %110 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !71
-  %112 = xor i32 %111, %108
-  %113 = add nsw i64 %indvars.iv25.i, -3
-  %114 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %113
+  %109 = getelementptr i8, ptr %106, i64 -8
+  %110 = load i32, ptr %109, align 4, !tbaa !71
+  %111 = xor i32 %110, %108
+  %112 = getelementptr i8, ptr %106, i64 -12
+  %113 = load i32, ptr %112, align 4, !tbaa !71
+  %114 = getelementptr i8, ptr %106, i64 -4
   %115 = load i32, ptr %114, align 4, !tbaa !71
-  %116 = add nsw i64 %indvars.iv25.i, -1
-  %117 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !71
-  %119 = xor i32 %118, %115
-  %120 = call i32 @llvm.fshl.i32(i32 %112, i32 %119, i32 1)
-  %121 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %indvars.iv25.i
-  store i32 %120, ptr %121, align 4, !tbaa !71
+  %116 = xor i32 %115, %113
+  %117 = call i32 @llvm.fshl.i32(i32 %111, i32 %116, i32 1)
+  store i32 %117, ptr %106, align 4, !tbaa !71
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %122 = trunc nuw nsw i64 %indvars.iv.next26.i to i32
-  store i32 %122, ptr %97, align 8, !tbaa !74
+  %118 = trunc nuw nsw i64 %indvars.iv.next26.i to i32
+  store i32 %118, ptr %97, align 8, !tbaa !74
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 127
   br i1 %exitcond28.not.i, label %.preheader.i, label %105, !llvm.loop !81
 
-123:                                              ; preds = %123, %.preheader.i
-  %indvars.iv29.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next30.i, %123 ]
-  %124 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %indvars.iv29.i
-  %125 = load i32, ptr %124, align 4, !tbaa !71
-  %126 = call noundef i32 @llvm.bswap.i32(i32 %125)
-  store i32 %126, ptr %124, align 4, !tbaa !71
+119:                                              ; preds = %119, %.preheader.i
+  %indvars.iv29.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next30.i, %119 ]
+  %120 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv29.i
+  %121 = load i32, ptr %120, align 4, !tbaa !71
+  %122 = call noundef i32 @llvm.bswap.i32(i32 %121)
+  store i32 %122, ptr %120, align 4, !tbaa !71
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 127
-  br i1 %exitcond32.not.i, label %.loopexit.i, label %123, !llvm.loop !82
+  br i1 %exitcond32.not.i, label %.loopexit.i, label %119, !llvm.loop !82
 
-.loopexit.i:                                      ; preds = %123
+.loopexit.i:                                      ; preds = %119
   store i32 127, ptr %97, align 8, !tbaa !74
   %.not920.i = icmp eq i64 %23, %85
   br i1 %.not920.i, label %_ZN6LibRaw12sony_decryptEPjiii.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.loopexit.i
-  %127 = sub nuw nsw i64 %23, %85
-  %128 = trunc nsw i64 %127 to i32
-  %129 = getelementptr inbounds nuw i8, ptr %88, i64 %82
+  %123 = sub nuw nsw i64 %23, %85
+  %124 = trunc nsw i64 %123 to i32
+  %125 = getelementptr inbounds nuw i8, ptr %88, i64 %82
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %130 = phi i32 [ %150, %.lr.ph.i ], [ 127, %.lr.ph.i.preheader ]
-  %.0422.i = phi ptr [ %146, %.lr.ph.i ], [ %129, %.lr.ph.i.preheader ]
-  %.0521.i = phi i32 [ %131, %.lr.ph.i ], [ %128, %.lr.ph.i.preheader ]
-  %131 = add nsw i32 %.0521.i, -1
-  %132 = add i32 %130, 1
-  %133 = and i32 %132, 127
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !71
-  %137 = add i32 %130, 65
-  %138 = and i32 %137, 127
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !71
-  %142 = xor i32 %141, %136
-  %143 = and i32 %130, 127
-  %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [128 x i32], ptr %91, i64 0, i64 %144
-  store i32 %142, ptr %145, align 4, !tbaa !71
-  %146 = getelementptr inbounds nuw i8, ptr %.0422.i, i64 4
-  %147 = load i32, ptr %.0422.i, align 4, !tbaa !71
-  %148 = xor i32 %147, %142
-  store i32 %148, ptr %.0422.i, align 4, !tbaa !71
-  %149 = load i32, ptr %97, align 8, !tbaa !74
-  %150 = add i32 %149, 1
-  store i32 %150, ptr %97, align 8, !tbaa !74
-  %.not9.i = icmp eq i32 %131, 0
+  %126 = phi i32 [ %146, %.lr.ph.i ], [ 127, %.lr.ph.i.preheader ]
+  %.0422.i = phi ptr [ %142, %.lr.ph.i ], [ %125, %.lr.ph.i.preheader ]
+  %.0521.i = phi i32 [ %127, %.lr.ph.i ], [ %124, %.lr.ph.i.preheader ]
+  %127 = add nsw i32 %.0521.i, -1
+  %128 = add i32 %126, 1
+  %129 = and i32 %128, 127
+  %130 = zext nneg i32 %129 to i64
+  %131 = getelementptr inbounds nuw i32, ptr %91, i64 %130
+  %132 = load i32, ptr %131, align 4, !tbaa !71
+  %133 = add i32 %126, 65
+  %134 = and i32 %133, 127
+  %135 = zext nneg i32 %134 to i64
+  %136 = getelementptr inbounds nuw i32, ptr %91, i64 %135
+  %137 = load i32, ptr %136, align 4, !tbaa !71
+  %138 = xor i32 %137, %132
+  %139 = and i32 %126, 127
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i32, ptr %91, i64 %140
+  store i32 %138, ptr %141, align 4, !tbaa !71
+  %142 = getelementptr inbounds nuw i8, ptr %.0422.i, i64 4
+  %143 = load i32, ptr %.0422.i, align 4, !tbaa !71
+  %144 = xor i32 %143, %138
+  store i32 %144, ptr %.0422.i, align 4, !tbaa !71
+  %145 = load i32, ptr %97, align 8, !tbaa !74
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %97, align 8, !tbaa !74
+  %.not9.i = icmp eq i32 %127, 0
   br i1 %.not9.i, label %_ZN6LibRaw12sony_decryptEPjiii.exit, label %.lr.ph.i, !llvm.loop !83
 
 _ZN6LibRaw12sony_decryptEPjiii.exit:              ; preds = %.lr.ph.i, %.loopexit.i
-  %151 = trunc i64 %82 to i32
-  %152 = invoke noundef zeroext i16 @_ZN16checked_buffer_t5sget2Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %151)
-          to label %153 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %147 = trunc i64 %82 to i32
+  %148 = invoke noundef zeroext i16 @_ZN16checked_buffer_t5sget2Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %147)
+          to label %149 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-153:                                              ; preds = %_ZN6LibRaw12sony_decryptEPjiii.exit
-  %154 = icmp ugt i16 %152, 1000
-  br i1 %154, label %.loopexit, label %155
+149:                                              ; preds = %_ZN6LibRaw12sony_decryptEPjiii.exit
+  %150 = icmp ugt i16 %148, 1000
+  br i1 %150, label %.loopexit, label %151
 
-155:                                              ; preds = %153
-  %156 = add nuw nsw i64 %82, 2
-  store i64 %156, ptr %3, align 8, !tbaa !192
-  %.not111 = icmp eq i16 %152, 0
+151:                                              ; preds = %149
+  %152 = add nuw nsw i64 %82, 2
+  store i64 %152, ptr %3, align 8, !tbaa !192
+  %.not111 = icmp eq i16 %148, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %155
-  %157 = trunc i64 %17 to i32
-  br label %158
+.lr.ph:                                           ; preds = %151
+  %153 = trunc i64 %17 to i32
+  br label %154
 
-158:                                              ; preds = %.lr.ph, %174
-  %.in117 = phi i16 [ %152, %.lr.ph ], [ %159, %174 ]
-  %.072112 = phi i32 [ 0, %.lr.ph ], [ %.173, %174 ]
-  %159 = add nsw i16 %.in117, -1
-  %160 = load ptr, ptr %28, align 8, !tbaa !217
-  %161 = invoke noundef signext i16 @_ZN6LibRaw9tiff_sgetEjPhjPxPjS2_S1_S2_Pi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %157, ptr noundef %160, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
-          to label %162 unwind label %.loopexit.split-lp.loopexit
+154:                                              ; preds = %.lr.ph, %170
+  %.in117 = phi i16 [ %148, %.lr.ph ], [ %155, %170 ]
+  %.072112 = phi i32 [ 0, %.lr.ph ], [ %.173, %170 ]
+  %155 = add nsw i16 %.in117, -1
+  %156 = load ptr, ptr %28, align 8, !tbaa !217
+  %157 = invoke noundef signext i16 @_ZN6LibRaw9tiff_sgetEjPhjPxPjS2_S1_S2_Pi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %153, ptr noundef %156, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
+          to label %158 unwind label %.loopexit.split-lp.loopexit
 
-162:                                              ; preds = %158
-  %163 = icmp eq i16 %161, 0
-  br i1 %163, label %164, label %.loopexit
+158:                                              ; preds = %154
+  %159 = icmp eq i16 %157, 0
+  br i1 %159, label %160, label %.loopexit
 
-164:                                              ; preds = %162
-  %165 = load i32, ptr %6, align 4, !tbaa !71
-  switch i32 %165, label %174 [
-    i32 0, label %166
-    i32 1, label %170
+160:                                              ; preds = %158
+  %161 = load i32, ptr %6, align 4, !tbaa !71
+  switch i32 %161, label %170 [
+    i32 0, label %162
+    i32 1, label %166
   ]
 
-166:                                              ; preds = %164
+162:                                              ; preds = %160
+  %163 = load i64, ptr %4, align 8, !tbaa !192
+  %164 = trunc i64 %163 to i32
+  %165 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %164)
+          to label %170 unwind label %.loopexit.split-lp.loopexit
+
+166:                                              ; preds = %160
   %167 = load i64, ptr %4, align 8, !tbaa !192
   %168 = trunc i64 %167 to i32
   %169 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %168)
-          to label %174 unwind label %.loopexit.split-lp.loopexit
+          to label %170 unwind label %.loopexit.split-lp.loopexit
 
-170:                                              ; preds = %164
-  %171 = load i64, ptr %4, align 8, !tbaa !192
-  %172 = trunc i64 %171 to i32
-  %173 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %172)
-          to label %174 unwind label %.loopexit.split-lp.loopexit
+170:                                              ; preds = %160, %162, %166
+  %.173 = phi i32 [ %.072112, %166 ], [ %165, %162 ], [ %.072112, %160 ]
+  %.not = icmp eq i16 %155, 0
+  br i1 %.not, label %._crit_edge.loopexit, label %154, !llvm.loop !222
 
-174:                                              ; preds = %164, %166, %170
-  %.173 = phi i32 [ %.072112, %170 ], [ %169, %166 ], [ %.072112, %164 ]
-  %.not = icmp eq i16 %159, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %158, !llvm.loop !222
-
-._crit_edge.loopexit:                             ; preds = %174
+._crit_edge.loopexit:                             ; preds = %170
   %.pre = load i64, ptr %3, align 8, !tbaa !192
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %155
-  %175 = phi i64 [ %156, %155 ], [ %.pre, %._crit_edge.loopexit ]
-  %.072.lcssa = phi i32 [ 0, %155 ], [ %.173, %._crit_edge.loopexit ]
-  %176 = trunc i64 %175 to i32
-  %177 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %176)
-          to label %178 unwind label %.loopexit.split-lp.loopexit.split-lp
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %151
+  %171 = phi i64 [ %152, %151 ], [ %.pre, %._crit_edge.loopexit ]
+  %.072.lcssa = phi i32 [ 0, %151 ], [ %.173, %._crit_edge.loopexit ]
+  %172 = trunc i64 %171 to i32
+  %173 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %172)
+          to label %174 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-178:                                              ; preds = %._crit_edge
-  %179 = zext i32 %177 to i64
-  %180 = sub nsw i64 %179, %17
-  %181 = icmp slt i64 %180, 0
-  br i1 %181, label %.loopexit, label %182
+174:                                              ; preds = %._crit_edge
+  %175 = zext i32 %173 to i64
+  %176 = sub nsw i64 %175, %17
+  %177 = icmp slt i64 %176, 0
+  br i1 %177, label %.loopexit, label %178
 
-182:                                              ; preds = %178
-  %183 = lshr i64 %180, 2
-  %184 = icmp samesign ult i64 %23, %183
-  br i1 %184, label %.loopexit, label %185
+178:                                              ; preds = %174
+  %179 = lshr i64 %176, 2
+  %180 = icmp samesign ult i64 %23, %179
+  br i1 %180, label %.loopexit, label %181
 
-185:                                              ; preds = %182
-  %186 = load ptr, ptr %28, align 8, !tbaa !217
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %180
-  %188 = sub nuw nsw i64 %23, %183
-  %189 = trunc nsw i64 %188 to i32
-  call void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %187, i32 noundef %189, i32 noundef 1, i32 noundef %.072.lcssa)
-  %190 = trunc i64 %180 to i32
-  %191 = invoke noundef zeroext i16 @_ZN16checked_buffer_t5sget2Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %190)
-          to label %192 unwind label %.loopexit.split-lp.loopexit.split-lp
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %28, align 8, !tbaa !217
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %176
+  %184 = sub nuw nsw i64 %23, %179
+  %185 = trunc nsw i64 %184 to i32
+  call void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %183, i32 noundef %185, i32 noundef 1, i32 noundef %.072.lcssa)
+  %186 = trunc i64 %176 to i32
+  %187 = invoke noundef zeroext i16 @_ZN16checked_buffer_t5sget2Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %186)
+          to label %188 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-192:                                              ; preds = %185
-  %193 = icmp ugt i16 %191, 1000
-  br i1 %193, label %.loopexit, label %194
+188:                                              ; preds = %181
+  %189 = icmp ugt i16 %187, 1000
+  br i1 %189, label %.loopexit, label %190
 
-194:                                              ; preds = %192
-  %195 = add nuw nsw i64 %180, 2
-  store i64 %195, ptr %3, align 8, !tbaa !192
-  %.not85113 = icmp eq i16 %191, 0
+190:                                              ; preds = %188
+  %191 = add nuw nsw i64 %176, 2
+  store i64 %191, ptr %3, align 8, !tbaa !192
+  %.not85113 = icmp eq i16 %187, 0
   br i1 %.not85113, label %.loopexit, label %.lr.ph115
 
-.lr.ph115:                                        ; preds = %194
-  %196 = trunc i64 %17 to i32
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1460
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1468
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 153176
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 153188
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 187092
-  br label %204
+.lr.ph115:                                        ; preds = %190
+  %192 = trunc i64 %17 to i32
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 1460
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 1468
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 153176
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 153188
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 187092
+  br label %200
 
-204:                                              ; preds = %.lr.ph115, %299
-  %.in118 = phi i16 [ %191, %.lr.ph115 ], [ %205, %299 ]
-  %205 = add nsw i16 %.in118, -1
-  %206 = invoke noundef i32 @_ZN16checked_buffer_t9tiff_sgetEjPxPjS1_S0_S1_Pi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %196, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
-          to label %207 unwind label %.loopexit104
+200:                                              ; preds = %.lr.ph115, %295
+  %.in118 = phi i16 [ %187, %.lr.ph115 ], [ %201, %295 ]
+  %201 = add nsw i16 %.in118, -1
+  %202 = invoke noundef i32 @_ZN16checked_buffer_t9tiff_sgetEjPxPjS1_S0_S1_Pi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %192, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5)
+          to label %203 unwind label %.loopexit104
 
-207:                                              ; preds = %204
-  %208 = icmp eq i32 %206, 0
-  br i1 %208, label %209, label %.loopexit
+203:                                              ; preds = %200
+  %204 = icmp eq i32 %202, 0
+  br i1 %204, label %205, label %.loopexit
 
-209:                                              ; preds = %207
-  %210 = load i32, ptr %6, align 4, !tbaa !71
-  %211 = add i32 %210, -192
-  %or.cond5 = icmp ult i32 %211, 15
-  br i1 %or.cond5, label %212, label %258
+205:                                              ; preds = %203
+  %206 = load i32, ptr %6, align 4, !tbaa !71
+  %207 = add i32 %206, -192
+  %or.cond5 = icmp ult i32 %207, 15
+  br i1 %or.cond5, label %208, label %254
 
-212:                                              ; preds = %209
-  %.lhs.trunc = trunc nuw nsw i32 %211 to i8
-  %213 = udiv i8 %.lhs.trunc, 3
-  %214 = urem i8 %.lhs.trunc, 3
-  %.zext = zext nneg i8 %213 to i32
-  %215 = load i64, ptr %4, align 8, !tbaa !192
-  %216 = trunc i64 %215 to i32
-  %217 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %216)
-          to label %218 unwind label %.loopexit104
+208:                                              ; preds = %205
+  %.lhs.trunc = trunc nuw nsw i32 %207 to i8
+  %209 = udiv i8 %.lhs.trunc, 3
+  %210 = urem i8 %.lhs.trunc, 3
+  %.zext = zext nneg i8 %209 to i32
+  %211 = load i64, ptr %4, align 8, !tbaa !192
+  %212 = trunc i64 %211 to i32
+  %213 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %212)
+          to label %214 unwind label %.loopexit104
 
-218:                                              ; preds = %212
-  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, i64 8), align 8, !tbaa !206
-  %220 = icmp ugt i32 %219, %.zext
-  br i1 %220, label %221, label %226
+214:                                              ; preds = %208
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, i64 8), align 8, !tbaa !206
+  %216 = icmp ugt i32 %215, %.zext
+  br i1 %216, label %217, label %222
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
-  %223 = zext nneg i8 %213 to i64
-  %224 = getelementptr inbounds nuw i32, ptr %222, i64 %223
-  %225 = load i32, ptr %224, align 4, !tbaa !71
+217:                                              ; preds = %214
+  %218 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
+  %219 = zext nneg i8 %209 to i64
+  %220 = getelementptr inbounds nuw i32, ptr %218, i64 %219
+  %221 = load i32, ptr %220, align 4, !tbaa !71
   br label %_ZNK21libraw_static_table_tixEj.exit
 
-226:                                              ; preds = %218
-  %.not.i = icmp eq i32 %219, 0
-  br i1 %.not.i, label %_ZNK21libraw_static_table_tixEj.exit, label %227
+222:                                              ; preds = %214
+  %.not.i = icmp eq i32 %215, 0
+  br i1 %.not.i, label %_ZNK21libraw_static_table_tixEj.exit, label %223
 
-227:                                              ; preds = %226
-  %228 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
-  %.not6.i = icmp eq ptr %228, null
-  br i1 %.not6.i, label %_ZNK21libraw_static_table_tixEj.exit, label %229
+223:                                              ; preds = %222
+  %224 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
+  %.not6.i = icmp eq ptr %224, null
+  br i1 %.not6.i, label %_ZNK21libraw_static_table_tixEj.exit, label %225
 
-229:                                              ; preds = %227
-  %230 = load i32, ptr %228, align 4, !tbaa !71
+225:                                              ; preds = %223
+  %226 = load i32, ptr %224, align 4, !tbaa !71
   br label %_ZNK21libraw_static_table_tixEj.exit
 
-_ZNK21libraw_static_table_tixEj.exit:             ; preds = %221, %226, %227, %229
-  %.0.i = phi i32 [ %225, %221 ], [ %230, %229 ], [ 0, %227 ], [ 0, %226 ]
-  %231 = sext i32 %.0.i to i64
-  %232 = getelementptr inbounds [256 x [4 x i32]], ptr %203, i64 0, i64 %231
-  %233 = zext nneg i8 %214 to i64
-  %234 = getelementptr inbounds nuw [4 x i32], ptr %232, i64 0, i64 %233
-  store i32 %217, ptr %234, align 4, !tbaa !71
-  %235 = icmp eq i8 %214, 1
-  br i1 %235, label %236, label %299
+_ZNK21libraw_static_table_tixEj.exit:             ; preds = %217, %222, %223, %225
+  %.0.i = phi i32 [ %221, %217 ], [ %226, %225 ], [ 0, %223 ], [ 0, %222 ]
+  %227 = sext i32 %.0.i to i64
+  %228 = getelementptr inbounds [4 x i32], ptr %199, i64 %227
+  %229 = zext nneg i8 %210 to i64
+  %230 = getelementptr inbounds nuw i32, ptr %228, i64 %229
+  store i32 %213, ptr %230, align 4, !tbaa !71
+  %231 = icmp eq i8 %210, 1
+  br i1 %231, label %232, label %295
 
-236:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit
-  %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, i64 8), align 8, !tbaa !206
-  %238 = icmp ugt i32 %237, %.zext
-  br i1 %238, label %242, label %239
+232:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit
+  %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, i64 8), align 8, !tbaa !206
+  %234 = icmp ugt i32 %233, %.zext
+  br i1 %234, label %238, label %235
 
-239:                                              ; preds = %236
-  %.not.i86 = icmp eq i32 %237, 0
-  br i1 %.not.i86, label %_ZNK21libraw_static_table_tixEj.exit93, label %240
+235:                                              ; preds = %232
+  %.not.i86 = icmp eq i32 %233, 0
+  br i1 %.not.i86, label %_ZNK21libraw_static_table_tixEj.exit93, label %236
 
-240:                                              ; preds = %239
-  %241 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
-  %.not6.i87 = icmp eq ptr %241, null
-  br i1 %.not6.i87, label %_ZNK21libraw_static_table_tixEj.exit93, label %249
+236:                                              ; preds = %235
+  %237 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
+  %.not6.i87 = icmp eq ptr %237, null
+  br i1 %.not6.i87, label %_ZNK21libraw_static_table_tixEj.exit93, label %245
 
-242:                                              ; preds = %236
-  %243 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
-  %244 = zext nneg i8 %213 to i64
-  %245 = getelementptr inbounds nuw i32, ptr %243, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !71
+238:                                              ; preds = %232
+  %239 = load ptr, ptr @_ZN6LibRaw16Sony_SRF_wb_listE, align 8, !tbaa !208
+  %240 = zext nneg i8 %209 to i64
+  %241 = getelementptr inbounds nuw i32, ptr %239, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !71
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [4 x i32], ptr %199, i64 %243
+  br label %_ZNK21libraw_static_table_tixEj.exit93
+
+245:                                              ; preds = %236
+  %246 = load i32, ptr %237, align 4, !tbaa !71
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds [256 x [4 x i32]], ptr %203, i64 0, i64 %247
+  %248 = getelementptr inbounds [4 x i32], ptr %199, i64 %247
   br label %_ZNK21libraw_static_table_tixEj.exit93
 
-249:                                              ; preds = %240
-  %250 = load i32, ptr %241, align 4, !tbaa !71
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds [256 x [4 x i32]], ptr %203, i64 0, i64 %251
-  br label %_ZNK21libraw_static_table_tixEj.exit93
+_ZNK21libraw_static_table_tixEj.exit93:           ; preds = %235, %236, %238, %245
+  %.sink = phi ptr [ %244, %238 ], [ %248, %245 ], [ %199, %236 ], [ %199, %235 ]
+  %.0.i92 = phi i32 [ %242, %238 ], [ %246, %245 ], [ 0, %236 ], [ 0, %235 ]
+  %249 = getelementptr inbounds nuw i32, ptr %.sink, i64 %229
+  %250 = load i32, ptr %249, align 4, !tbaa !71
+  %251 = sext i32 %.0.i92 to i64
+  %.idx = shl nsw i64 %251, 4
+  %252 = getelementptr i8, ptr %199, i64 %.idx
+  %253 = getelementptr i8, ptr %252, i64 12
+  store i32 %250, ptr %253, align 8, !tbaa !71
+  br label %295
 
-_ZNK21libraw_static_table_tixEj.exit93:           ; preds = %239, %240, %242, %249
-  %.sink = phi ptr [ %248, %242 ], [ %252, %249 ], [ %203, %240 ], [ %203, %239 ]
-  %.0.i92 = phi i32 [ %246, %242 ], [ %250, %249 ], [ 0, %240 ], [ 0, %239 ]
-  %253 = getelementptr inbounds nuw [4 x i32], ptr %.sink, i64 0, i64 %233
-  %254 = load i32, ptr %253, align 4, !tbaa !71
-  %255 = sext i32 %.0.i92 to i64
-  %.idx = shl nsw i64 %255, 4
-  %256 = getelementptr i8, ptr %203, i64 %.idx
-  %257 = getelementptr i8, ptr %256, i64 12
-  store i32 %254, ptr %257, align 8, !tbaa !71
-  br label %299
+254:                                              ; preds = %205
+  %255 = add i32 %206, -208
+  %or.cond7 = icmp ult i32 %255, 3
+  br i1 %or.cond7, label %256, label %266
 
-258:                                              ; preds = %209
-  %259 = add i32 %210, -208
-  %or.cond7 = icmp ult i32 %259, 3
-  br i1 %or.cond7, label %260, label %270
+256:                                              ; preds = %254
+  %257 = load i64, ptr %4, align 8, !tbaa !192
+  %258 = trunc i64 %257 to i32
+  %259 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %258)
+          to label %260 unwind label %.loopexit104
 
-260:                                              ; preds = %258
-  %261 = load i64, ptr %4, align 8, !tbaa !192
-  %262 = trunc i64 %261 to i32
-  %263 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %262)
-          to label %264 unwind label %.loopexit104
+260:                                              ; preds = %256
+  %261 = uitofp i32 %259 to float
+  %262 = zext nneg i32 %255 to i64
+  %263 = getelementptr inbounds nuw float, ptr %197, i64 %262
+  store float %261, ptr %263, align 4, !tbaa !194
+  %264 = icmp eq i32 %255, 1
+  br i1 %264, label %265, label %295
 
-264:                                              ; preds = %260
-  %265 = uitofp i32 %263 to float
-  %266 = zext nneg i32 %259 to i64
-  %267 = getelementptr inbounds nuw [4 x float], ptr %201, i64 0, i64 %266
-  store float %265, ptr %267, align 4, !tbaa !194
-  %268 = icmp eq i32 %259, 1
-  br i1 %268, label %269, label %299
+265:                                              ; preds = %260
+  store float %261, ptr %198, align 4, !tbaa !194
+  br label %295
 
-269:                                              ; preds = %264
-  store float %265, ptr %202, align 4, !tbaa !194
-  br label %299
-
-270:                                              ; preds = %258
-  switch i32 %210, label %299 [
-    i32 67, label %271
-    i32 68, label %278
-    i32 69, label %285
-    i32 70, label %292
+266:                                              ; preds = %254
+  switch i32 %206, label %295 [
+    i32 67, label %267
+    i32 68, label %274
+    i32 69, label %281
+    i32 70, label %288
   ]
 
-271:                                              ; preds = %270
-  %272 = load i32, ptr %7, align 4, !tbaa !71
-  %273 = load i64, ptr %4, align 8, !tbaa !192
-  %274 = trunc i64 %273 to i32
-  %275 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %272, i32 noundef %274)
-          to label %276 unwind label %.loopexit104
+267:                                              ; preds = %266
+  %268 = load i32, ptr %7, align 4, !tbaa !71
+  %269 = load i64, ptr %4, align 8, !tbaa !192
+  %270 = trunc i64 %269 to i32
+  %271 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %268, i32 noundef %270)
+          to label %272 unwind label %.loopexit104
 
-276:                                              ; preds = %271
-  %277 = fptrunc reassoc nsz arcp contract afn double %275 to float
-  store float %277, ptr %200, align 4, !tbaa !162
-  br label %299
+272:                                              ; preds = %267
+  %273 = fptrunc reassoc nsz arcp contract afn double %271 to float
+  store float %273, ptr %196, align 4, !tbaa !162
+  br label %295
 
-278:                                              ; preds = %270
-  %279 = load i32, ptr %7, align 4, !tbaa !71
-  %280 = load i64, ptr %4, align 8, !tbaa !192
-  %281 = trunc i64 %280 to i32
-  %282 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %279, i32 noundef %281)
-          to label %283 unwind label %.loopexit104
+274:                                              ; preds = %266
+  %275 = load i32, ptr %7, align 4, !tbaa !71
+  %276 = load i64, ptr %4, align 8, !tbaa !192
+  %277 = trunc i64 %276 to i32
+  %278 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %275, i32 noundef %277)
+          to label %279 unwind label %.loopexit104
 
-283:                                              ; preds = %278
-  %284 = fptrunc reassoc nsz arcp contract afn double %282 to float
-  store float %284, ptr %199, align 8, !tbaa !161
-  br label %299
+279:                                              ; preds = %274
+  %280 = fptrunc reassoc nsz arcp contract afn double %278 to float
+  store float %280, ptr %195, align 8, !tbaa !161
+  br label %295
 
-285:                                              ; preds = %270
-  %286 = load i32, ptr %7, align 4, !tbaa !71
-  %287 = load i64, ptr %4, align 8, !tbaa !192
-  %288 = trunc i64 %287 to i32
-  %289 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %286, i32 noundef %288)
-          to label %290 unwind label %.loopexit104
+281:                                              ; preds = %266
+  %282 = load i32, ptr %7, align 4, !tbaa !71
+  %283 = load i64, ptr %4, align 8, !tbaa !192
+  %284 = trunc i64 %283 to i32
+  %285 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %282, i32 noundef %284)
+          to label %286 unwind label %.loopexit104
 
-290:                                              ; preds = %285
-  %291 = fptrunc reassoc nsz arcp contract afn double %289 to float
-  store float %291, ptr %198, align 8, !tbaa !159
-  br label %299
+286:                                              ; preds = %281
+  %287 = fptrunc reassoc nsz arcp contract afn double %285 to float
+  store float %287, ptr %194, align 8, !tbaa !159
+  br label %295
 
-292:                                              ; preds = %270
-  %293 = load i32, ptr %7, align 4, !tbaa !71
-  %294 = load i64, ptr %4, align 8, !tbaa !192
-  %295 = trunc i64 %294 to i32
-  %296 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %293, i32 noundef %295)
-          to label %297 unwind label %.loopexit104
+288:                                              ; preds = %266
+  %289 = load i32, ptr %7, align 4, !tbaa !71
+  %290 = load i64, ptr %4, align 8, !tbaa !192
+  %291 = trunc i64 %290 to i32
+  %292 = invoke noundef double @_ZN16checked_buffer_t8sgetrealEii(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %289, i32 noundef %291)
+          to label %293 unwind label %.loopexit104
 
-297:                                              ; preds = %292
-  %298 = fptrunc reassoc nsz arcp contract afn double %296 to float
-  store float %298, ptr %197, align 4, !tbaa !160
-  br label %299
+293:                                              ; preds = %288
+  %294 = fptrunc reassoc nsz arcp contract afn double %292 to float
+  store float %294, ptr %193, align 4, !tbaa !160
+  br label %295
 
-299:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit93, %_ZNK21libraw_static_table_tixEj.exit, %270, %276, %283, %290, %297, %264, %269
-  %.not85 = icmp eq i16 %205, 0
-  br i1 %.not85, label %.loopexit, label %204, !llvm.loop !223
+295:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit93, %_ZNK21libraw_static_table_tixEj.exit, %266, %272, %279, %286, %293, %260, %265
+  %.not85 = icmp eq i16 %201, 0
+  br i1 %.not85, label %.loopexit, label %200, !llvm.loop !223
 
-.loopexit:                                        ; preds = %162, %207, %299, %194, %192, %178, %182, %153, %80, %84, %64
-  %300 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %301 = load ptr, ptr %300, align 8, !tbaa !189
-  %.not.i.i.i.i94 = icmp eq ptr %301, null
-  br i1 %.not.i.i.i.i94, label %_ZN16checked_buffer_tD2Ev.exit95, label %302
+.loopexit:                                        ; preds = %158, %203, %295, %190, %188, %174, %178, %149, %80, %84, %64
+  %296 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %297 = load ptr, ptr %296, align 8, !tbaa !189
+  %.not.i.i.i.i94 = icmp eq ptr %297, null
+  br i1 %.not.i.i.i.i94, label %_ZN16checked_buffer_tD2Ev.exit95, label %298
 
-302:                                              ; preds = %.loopexit
-  %303 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %304 = load ptr, ptr %303, align 8, !tbaa !191
-  %305 = ptrtoint ptr %304 to i64
-  %306 = ptrtoint ptr %301 to i64
-  %307 = sub i64 %305, %306
-  call void @_ZdlPvm(ptr noundef nonnull %301, i64 noundef %307) #21
+298:                                              ; preds = %.loopexit
+  %299 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %300 = load ptr, ptr %299, align 8, !tbaa !191
+  %301 = ptrtoint ptr %300 to i64
+  %302 = ptrtoint ptr %297 to i64
+  %303 = sub i64 %301, %302
+  call void @_ZdlPvm(ptr noundef nonnull %297, i64 noundef %303) #21
   br label %_ZN16checked_buffer_tD2Ev.exit95
 
-_ZN16checked_buffer_tD2Ev.exit95:                 ; preds = %.loopexit, %302
+_ZN16checked_buffer_tD2Ev.exit95:                 ; preds = %.loopexit, %298
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7205,12 +7201,12 @@ _ZN16checked_buffer_tD2Ev.exit95:                 ; preds = %.loopexit, %302
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %308 = load ptr, ptr %12, align 8, !tbaa !150
-  %309 = load ptr, ptr %308, align 8, !tbaa !151
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
-  %311 = load ptr, ptr %310, align 8
-  %312 = call noundef i32 %311(ptr noundef nonnull align 8 dereferenceable(8) %308, i64 noundef %17, i32 noundef 0)
-  br label %323
+  %304 = load ptr, ptr %12, align 8, !tbaa !150
+  %305 = load ptr, ptr %304, align 8, !tbaa !151
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 32
+  %307 = load ptr, ptr %306, align 8
+  %308 = call noundef i32 %307(ptr noundef nonnull align 8 dereferenceable(8) %304, i64 noundef %17, i32 noundef 0)
+  br label %319
 
 _ZN16checked_buffer_tD2Ev.exit:                   ; preds = %70, %.loopexit.split-lp, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %70 ]
@@ -7222,35 +7218,35 @@ _ZN16checked_buffer_tD2Ev.exit:                   ; preds = %70, %.loopexit.spli
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %313 = call ptr @__cxa_begin_catch(ptr %.0) #20
-  %314 = load ptr, ptr %12, align 8, !tbaa !150
-  %315 = load ptr, ptr %314, align 8, !tbaa !151
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 32
-  %317 = load ptr, ptr %316, align 8
-  %318 = invoke noundef i32 %317(ptr noundef nonnull align 8 dereferenceable(8) %314, i64 noundef %17, i32 noundef 0)
-          to label %319 unwind label %320
+  %309 = call ptr @__cxa_begin_catch(ptr %.0) #20
+  %310 = load ptr, ptr %12, align 8, !tbaa !150
+  %311 = load ptr, ptr %310, align 8, !tbaa !151
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 32
+  %313 = load ptr, ptr %312, align 8
+  %314 = invoke noundef i32 %313(ptr noundef nonnull align 8 dereferenceable(8) %310, i64 noundef %17, i32 noundef 0)
+          to label %315 unwind label %316
 
-319:                                              ; preds = %_ZN16checked_buffer_tD2Ev.exit
+315:                                              ; preds = %_ZN16checked_buffer_tD2Ev.exit
   call void @__cxa_end_catch()
-  br label %323
+  br label %319
 
-320:                                              ; preds = %_ZN16checked_buffer_tD2Ev.exit
-  %321 = landingpad { ptr, i32 }
+316:                                              ; preds = %_ZN16checked_buffer_tD2Ev.exit
+  %317 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %322 unwind label %324
+          to label %318 unwind label %320
 
-322:                                              ; preds = %320
-  resume { ptr, i32 } %321
+318:                                              ; preds = %316
+  resume { ptr, i32 } %317
 
-323:                                              ; preds = %319, %_ZN16checked_buffer_tD2Ev.exit95, %11, %2
+319:                                              ; preds = %315, %_ZN16checked_buffer_tD2Ev.exit95, %11, %2
   ret void
 
-324:                                              ; preds = %320
-  %325 = landingpad { ptr, i32 }
+320:                                              ; preds = %316
+  %321 = landingpad { ptr, i32 }
           catch ptr null
-  %326 = extractvalue { ptr, i32 } %325, 0
-  call void @__clang_call_terminate(ptr %326) #22
+  %322 = extractvalue { ptr, i32 } %321, 0
+  call void @__clang_call_terminate(ptr %322) #22
   unreachable
 }
 

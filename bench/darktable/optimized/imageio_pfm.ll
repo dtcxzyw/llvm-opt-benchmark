@@ -205,7 +205,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 95:                                               ; preds = %91, %88
   %.sroa.0.0 = phi nsz float [ %94, %91 ], [ %90, %88 ]
-  %96 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0122150
+  %96 = getelementptr inbounds nuw float, ptr %9, i64 %.0122150
   store float %.sroa.0.0, ptr %96, align 4, !tbaa !34
   %97 = add nuw nsw i64 %.0122150, 1
   %exitcond161.not = icmp eq i64 %97, 3

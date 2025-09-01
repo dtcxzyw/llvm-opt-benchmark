@@ -295,12 +295,12 @@ align_position.exit:                              ; preds = %64, %61, %56, %find
 100:                                              ; preds = %.lr.ph103, %set_language.exit
   %101 = phi i32 [ %87, %.lr.ph103 ], [ %127, %set_language.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next, %set_language.exit ]
-  %102 = getelementptr inbounds nuw [128 x ptr], ptr %90, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !45
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 22
   %105 = load i16, ptr %104, align 2, !tbaa !47
   %106 = sext i16 %105 to i64
-  %107 = getelementptr inbounds [128 x %struct.ASFStreamData], ptr %89, i64 0, i64 %106
+  %107 = getelementptr inbounds %struct.ASFStreamData, ptr %89, i64 %106
   %108 = load ptr, ptr %91, align 8, !tbaa !51
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !52
@@ -365,7 +365,7 @@ set_language.exit:                                ; preds = %100, %126
 
 136:                                              ; preds = %135, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %135 ]
-  %137 = getelementptr inbounds nuw [128 x ptr], ptr %134, i64 0, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i
   %138 = load ptr, ptr %137, align 8, !tbaa !45
   %139 = load i8, ptr %138, align 8, !tbaa !57
   %140 = zext i8 %139 to i64
@@ -384,7 +384,7 @@ find_stream.exit:                                 ; preds = %136
 
 148:                                              ; preds = %find_stream.exit
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 80
-  %150 = getelementptr inbounds nuw [128 x %struct.ASFStreamData], ptr %95, i64 0, i64 %indvars.iv113
+  %150 = getelementptr inbounds nuw %struct.ASFStreamData, ptr %95, i64 %indvars.iv113
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %152 = load ptr, ptr %151, align 8, !tbaa !58
   %153 = call i32 @av_dict_copy(ptr noundef nonnull %149, ptr noundef %152, i32 noundef 2) #12
@@ -430,7 +430,7 @@ find_stream.exit.thread:                          ; preds = %135, %.preheader.sp
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds nuw [128 x ptr], ptr %167, i64 0, i64 %indvars.iv.i85
+  %174 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv.i85
   %175 = load ptr, ptr %174, align 8, !tbaa !45
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
   call void @av_packet_free(ptr noundef nonnull %176) #12
@@ -688,7 +688,7 @@ asf_read_packet_header.exit:                      ; preds = %80, %87
 
 114:                                              ; preds = %113, %.lr.ph144.i
   %indvars.iv150.i = phi i64 [ 0, %.lr.ph144.i ], [ %indvars.iv.next151.i, %113 ]
-  %115 = getelementptr inbounds nuw [128 x ptr], ptr %112, i64 0, i64 %indvars.iv150.i
+  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv150.i
   %116 = load ptr, ptr %115, align 8, !tbaa !45
   %117 = load i8, ptr %116, align 8, !tbaa !57
   %118 = zext i8 %117 to i32
@@ -1154,7 +1154,7 @@ asf_read_single_payload.exit.i:                   ; preds = %365, %363
 
 374:                                              ; preds = %380, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %380 ]
-  %375 = getelementptr inbounds nuw [128 x ptr], ptr %103, i64 0, i64 %indvars.iv.i
+  %375 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.i
   %376 = load ptr, ptr %375, align 8, !tbaa !45
   %377 = load i8, ptr %376, align 8, !tbaa !57
   %378 = zext i8 %377 to i32
@@ -1174,7 +1174,7 @@ asf_read_single_payload.exit.i:                   ; preds = %365, %363
   %385 = load i64, ptr %384, align 8, !tbaa !93
   store i64 %385, ptr %23, align 8, !tbaa !102
   %386 = and i64 %indvars.iv.i, 4294967295
-  %387 = getelementptr inbounds nuw [128 x ptr], ptr %103, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw ptr, ptr %103, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !45
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 4
   %390 = load i32, ptr %389, align 4, !tbaa !52
@@ -1331,7 +1331,7 @@ asf_read_payload.exit:                            ; preds = %198, %211, %255, %2
 
 465:                                              ; preds = %.lr.ph, %547
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %547 ]
-  %466 = getelementptr inbounds nuw [128 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %466 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %467 = load ptr, ptr %466, align 8, !tbaa !45
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 56
   %469 = load i32, ptr %468, align 8, !tbaa !91
@@ -1345,7 +1345,7 @@ asf_read_payload.exit:                            ; preds = %198, %211, %255, %2
   br i1 %.not106, label %547, label %473
 
 473:                                              ; preds = %470
-  %474 = getelementptr inbounds nuw [128 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %474 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %475 = getelementptr inbounds nuw i8, ptr %467, i64 48
   %476 = getelementptr inbounds nuw i8, ptr %467, i64 24
   %477 = getelementptr inbounds nuw i8, ptr %467, i64 16
@@ -1363,7 +1363,7 @@ asf_read_payload.exit:                            ; preds = %198, %211, %255, %2
   %.val109 = load ptr, ptr %3, align 8, !tbaa !11
   %485 = getelementptr inbounds nuw i8, ptr %.val109, i64 120
   %486 = and i64 %indvars.iv, 4294967295
-  %487 = getelementptr inbounds nuw [128 x ptr], ptr %485, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw ptr, ptr %485, i64 %486
   %488 = load ptr, ptr %487, align 8, !tbaa !45
   %489 = load ptr, ptr %476, align 8, !tbaa !94
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
@@ -1519,7 +1519,7 @@ define internal noundef i32 @asf_read_close(ptr noundef readonly captures(none) 
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw [128 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @av_packet_free(ptr noundef nonnull %15) #12
@@ -1625,7 +1625,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_seek(ptr noundef %0, i32
 
 55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %56 = getelementptr inbounds nuw [128 x ptr], ptr %54, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 44
@@ -1728,7 +1728,7 @@ define internal i64 @asf_read_timestamp(ptr noundef %0, i32 noundef %1, ptr noun
 
 57:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw [128 x ptr], ptr %56, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !45
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 44
@@ -1787,7 +1787,7 @@ reset_packet_state.exit:                          ; preds = %57, %10
   %88 = phi i32 [ %107, %106 ], [ %87, %83 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 0, %83 ]
   %.35991 = phi i64 [ %.6.ph, %106 ], [ %.05698, %83 ]
-  %89 = getelementptr inbounds nuw [128 x ptr], ptr %72, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !45
   %91 = load i32, ptr %73, align 8, !tbaa !96
   %92 = and i32 %91, 1
@@ -1991,7 +1991,7 @@ define internal i32 @asf_read_simple_index(ptr noundef %0, ptr readnone captures
 
 13:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %14 = getelementptr inbounds nuw [128 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !106
@@ -2127,11 +2127,11 @@ define internal range(i32 -12, 1) i32 @asf_read_content_desc(ptr noundef %0, ptr
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
   %13 = tail call i32 @avio_rl16(ptr noundef %9) #12
   %14 = trunc i32 %13 to i16
-  %15 = getelementptr inbounds nuw [5 x i16], ptr %3, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !144
   %16 = shl i16 %14, 1
   %17 = or disjoint i16 %16, 1
-  %18 = getelementptr inbounds nuw [5 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %17, ptr %18, align 2, !tbaa !144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -2139,7 +2139,7 @@ define internal range(i32 -12, 1) i32 @asf_read_content_desc(ptr noundef %0, ptr
 
 19:                                               ; preds = %.preheader, %asf_read_metadata.exit
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %asf_read_metadata.exit ]
-  %20 = getelementptr inbounds nuw [5 x i16], ptr %4, i64 0, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv25
   %21 = load i16, ptr %20, align 2, !tbaa !144
   %22 = zext i16 %21 to i64
   %23 = call noalias ptr @av_malloc(i64 noundef %22) #12
@@ -2148,9 +2148,9 @@ define internal range(i32 -12, 1) i32 @asf_read_content_desc(ptr noundef %0, ptr
   br i1 %.not, label %align_position.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw [5 x ptr], ptr @asf_read_content_desc.titles, i64 0, i64 %indvars.iv25
+  %25 = getelementptr inbounds nuw ptr, ptr @asf_read_content_desc.titles, i64 %indvars.iv25
   %26 = load ptr, ptr %25, align 8, !tbaa !146
-  %27 = getelementptr inbounds nuw [5 x i16], ptr %3, i64 0, i64 %indvars.iv25
+  %27 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv25
   %28 = load i16, ptr %27, align 2, !tbaa !144
   %29 = load ptr, ptr %8, align 8, !tbaa !26
   %30 = zext i16 %28 to i32
@@ -2613,7 +2613,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_stream_properties(ptr no
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %31 = getelementptr inbounds nuw [128 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !45
   %33 = load i8, ptr %32, align 8, !tbaa !57
   %34 = zext i8 %33 to i32
@@ -2648,7 +2648,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_stream_properties(ptr no
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %50 = load i32, ptr %8, align 8, !tbaa !44
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [128 x ptr], ptr %49, i64 0, i64 %51
+  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8, !tbaa !45
   %.not93 = icmp eq ptr %48, null
   br i1 %.not93, label %.critedge, label %53
@@ -2888,7 +2888,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_language_list(ptr nounde
   %14 = tail call i32 @avio_r8(ptr noundef %6) #12
   %.not = icmp eq i32 %14, 0
   %narrow = select i1 %.not, i32 6, i32 %14
-  %15 = getelementptr inbounds nuw [128 x %struct.ASFStreamData], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.ASFStreamData, ptr %11, i64 %indvars.iv
   %16 = tail call fastcc i32 @get_asf_string(ptr noundef %6, i32 noundef %narrow, ptr noundef nonnull %15, i32 noundef 32)
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %12, label %align_position.exit
@@ -2958,7 +2958,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_ext_stream_properties(pt
 
 24:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %25 = getelementptr inbounds nuw [128 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !45
   %27 = load i8, ptr %26, align 8, !tbaa !57
   %28 = zext i8 %27 to i32
@@ -3568,7 +3568,7 @@ define internal fastcc i32 @get_asf_string(ptr noundef %0, i32 noundef %1, ptr n
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %36
   %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %37
   %38 = zext nneg i32 %.110.i to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !33
   %41 = zext i8 %40 to i16
   %42 = add nuw nsw i16 %41, 4
@@ -3789,7 +3789,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_read_subpayload(ptr no
 
 35:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %36 = getelementptr inbounds nuw [128 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !45
   %38 = load i8, ptr %37, align 8, !tbaa !57
   %39 = zext i8 %38 to i32

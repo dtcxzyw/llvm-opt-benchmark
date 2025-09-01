@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %84 = load ptr, ptr %28, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = sext i32 %77 to i64
-  %87 = getelementptr [0 x %struct.kgid_t], ptr %85, i64 0, i64 %86
+  %87 = getelementptr %struct.kgid_t, ptr %85, i64 %86
   store i32 %81, ptr %87, align 4
   %88 = add nuw i32 %77, 1
   %89 = icmp eq i32 %88, %67

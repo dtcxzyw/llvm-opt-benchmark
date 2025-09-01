@@ -113,14 +113,14 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1, !tbaa !27
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !27
   %59 = zext i8 %58 to i64
   %60 = shl nuw i64 %59, 56
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %62 = load i8, ptr %61, align 1, !tbaa !27
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !27
   %66 = zext i8 %65 to i64
   %67 = shl nuw nsw i64 %66, 48
@@ -128,7 +128,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %70 = load i8, ptr %69, align 1, !tbaa !27
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !27
   %74 = zext i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 40
@@ -136,7 +136,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %77 = getelementptr inbounds nuw i8, ptr %54, i64 3
   %78 = load i8, ptr %77, align 1, !tbaa !27
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !27
   %82 = zext i8 %81 to i64
   %83 = shl nuw nsw i64 %82, 32
@@ -144,7 +144,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %85 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %86 = load i8, ptr %85, align 1, !tbaa !27
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !27
   %90 = zext i8 %89 to i64
   %91 = shl nuw nsw i64 %90, 24
@@ -152,7 +152,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %93 = getelementptr inbounds nuw i8, ptr %54, i64 5
   %94 = load i8, ptr %93, align 1, !tbaa !27
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !27
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %98, 16
@@ -160,7 +160,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %101 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %102 = load i8, ptr %101, align 1, !tbaa !27
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !27
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 8
@@ -168,7 +168,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
   %109 = getelementptr inbounds nuw i8, ptr %54, i64 7
   %110 = load i8, ptr %109, align 1, !tbaa !27
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !27
   %114 = zext i8 %113 to i64
   %115 = or i64 %108, %114
@@ -212,14 +212,14 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !27
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !27
   %10 = zext i8 %9 to i64
   %11 = shl nuw i64 %10, 56
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !27
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !27
   %17 = zext i8 %16 to i64
   %18 = shl nuw nsw i64 %17, 48
@@ -227,7 +227,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !27
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !27
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 40
@@ -235,7 +235,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !27
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !27
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 32
@@ -243,7 +243,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %37 = load i8, ptr %36, align 1, !tbaa !27
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !27
   %41 = zext i8 %40 to i64
   %42 = shl nuw nsw i64 %41, 24
@@ -251,7 +251,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !27
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !27
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 16
@@ -259,7 +259,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !27
   %57 = zext i8 %56 to i64
   %58 = shl nuw nsw i64 %57, 8
@@ -267,7 +267,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %61 = load i8, ptr %60, align 1, !tbaa !27
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12_bitRevTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !27
   %65 = zext i8 %64 to i64
   %66 = or i64 %59, %65
@@ -320,18 +320,18 @@ define void @_ZN6LibRaw20panasonicC8_load_rawEv(ptr noundef nonnull align 8 dere
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.127 = phi i32 [ %spec.select, %.lr.ph ], [ %.3, %40 ]
   %.01826 = phi i32 [ 0, %.lr.ph ], [ %44, %40 ]
-  %24 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !94
   %.not22 = icmp ne i16 %25, %16
   %26 = zext i1 %.not22 to i32
   %spec.select24 = add nsw i32 %.127, %26
-  %27 = getelementptr inbounds nuw [5 x i64], ptr %17, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !95
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [5 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !96
   %33 = add i32 %32, 7
   %34 = lshr i32 %33, 3
@@ -346,7 +346,7 @@ define void @_ZN6LibRaw20panasonicC8_load_rawEv(ptr noundef nonnull align 8 dere
 
 40:                                               ; preds = %38, %30
   %.3 = phi i32 [ %39, %38 ], [ %spec.select24, %30 ]
-  %41 = getelementptr inbounds nuw [5 x i16], ptr %19, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2, !tbaa !94
   %43 = zext i16 %42 to i32
   %44 = add i32 %.01826, %43
@@ -497,14 +497,14 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 381948
   %14 = zext nneg i32 %2 to i64
-  %15 = getelementptr inbounds nuw [5 x i32], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !96
   %17 = add i32 %16, 7
   %18 = lshr i32 %17, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = load ptr, ptr %12, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 381896
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %20, i64 0, i64 %14
+  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %14
   %22 = load i64, ptr %21, align 8, !tbaa !95
   %23 = tail call noalias noundef nonnull dereferenceable(819200) ptr @_Znwm(i64 noundef 819200) #17
   store ptr %23, ptr %4, align 8, !tbaa !24
@@ -523,15 +523,15 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store i32 %18, ptr %30, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 381968
-  %32 = getelementptr inbounds nuw [5 x i16], ptr %31, i64 0, i64 %14
+  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %14
   %33 = load i16, ptr %32, align 2, !tbaa !94
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 381978
-  %36 = getelementptr inbounds nuw [5 x i16], ptr %35, i64 0, i64 %14
+  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %14
   %37 = load i16, ptr %36, align 2, !tbaa !94
   %38 = zext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 381936
-  %40 = getelementptr inbounds nuw [5 x i16], ptr %39, i64 0, i64 %14
+  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %14
   %41 = load i16, ptr %40, align 2, !tbaa !94
   %42 = invoke noundef zeroext i1 @_ZN13pana8_param_t8DecodeC8ER13pana8_bufio_tjjP6LibRawt(ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull align 8 dereferenceable(60) %4, i32 noundef %34, i32 noundef %38, ptr noundef nonnull %0, i16 noundef zeroext %41)
           to label %43 unwind label %52
@@ -637,10 +637,10 @@ define noundef zeroext i1 @_ZN13pana8_param_t8DecodeC8ER13pana8_bufio_tjjP6LibRa
 
 48:                                               ; preds = %17, %48
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = and i32 %50, 65535
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -892,10 +892,10 @@ _ZN13pana8_bufio_t8getQWordEj.exit293:            ; preds = %.sink.split.i290, %
 
 .preheader448:                                    ; preds = %150, %162
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %162 ], [ 0, %150 ]
-  %156 = getelementptr inbounds nuw [17 x i64], ptr %68, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !28
   %158 = and i64 %157, %.5237
-  %159 = getelementptr inbounds nuw [17 x i64], ptr %69, i64 0, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i
   %160 = load i64, ptr %159, align 8, !tbaa !28
   %161 = icmp eq i64 %158, %160
   br i1 %161, label %.loopexit.loopexit.i, label %162
@@ -927,7 +927,7 @@ _ZN13pana8_param_t7GetDBitEm.exit:                ; preds = %163, %.loopexit.loo
   %.0238 = phi i32 [ %155, %151 ], [ %.1.i, %_ZN13pana8_param_t7GetDBitEm.exit ]
   %.4203 = phi i32 [ %.1200423, %151 ], [ %171, %_ZN13pana8_param_t7GetDBitEm.exit ]
   %173 = sext i32 %.0238 to i64
-  %174 = getelementptr inbounds [17 x i32], ptr %72, i64 0, i64 %173
+  %174 = getelementptr inbounds i32, ptr %72, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !96
   %176 = lshr i32 %175, 24
   %177 = and i32 %176, 31
@@ -1218,10 +1218,10 @@ define noundef range(i32 0, 18) i32 @_ZN13pana8_param_t7GetDBitEm(ptr noundef no
 
 5:                                                ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
-  %6 = getelementptr inbounds nuw [17 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = and i64 %7, %1
-  %9 = getelementptr inbounds nuw [17 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %.loopexit.loopexit, label %12
@@ -1286,14 +1286,14 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 21:                                               ; preds = %2, %21
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [6 x i16], ptr %14, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !94
   %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !96
-  %26 = getelementptr inbounds nuw [6 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !96
-  %28 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1307,10 +1307,10 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 32:                                               ; preds = %15, %32
   %indvars.iv110 = phi i64 [ 0, %15 ], [ %indvars.iv.next111, %32 ]
-  %33 = getelementptr inbounds nuw [4 x i16], ptr %20, i64 0, i64 %indvars.iv110
+  %33 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv110
   %34 = load i16, ptr %33, align 2, !tbaa !94
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv110
+  %36 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv110
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 4
@@ -1323,20 +1323,20 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 39:                                               ; preds = %.preheader94, %39
   %indvars.iv114 = phi i64 [ 0, %.preheader94 ], [ %indvars.iv.next115, %39 ]
-  %40 = getelementptr inbounds nuw [17 x i16], ptr %29, i64 0, i64 %indvars.iv114
+  %40 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv114
   %41 = load i16, ptr %40, align 2, !tbaa !94
   %42 = zext i16 %41 to i32
   %43 = shl i32 %42, 24
-  %44 = getelementptr inbounds nuw [17 x i16], ptr %30, i64 0, i64 %indvars.iv114
+  %44 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv114
   %45 = load i16, ptr %44, align 2, !tbaa !94
   %46 = zext i16 %45 to i32
   %47 = shl nuw i32 %46, 16
   %48 = or i32 %47, %43
-  %49 = getelementptr inbounds nuw [17 x i16], ptr %31, i64 0, i64 %indvars.iv114
+  %49 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv114
   %50 = load i16, ptr %49, align 2, !tbaa !94
   %51 = zext i16 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 0, i64 %indvars.iv114
+  %53 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv114
   store i32 %52, ptr %53, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 17
@@ -1401,7 +1401,7 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 76:                                               ; preds = %.preheader138, %99
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %99 ], [ 0, %.preheader138 ]
   %.075103 = phi i32 [ %spec.select, %99 ], [ 0, %.preheader138 ]
-  %77 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 0, i64 %indvars.iv122
+  %77 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv122
   %78 = load i32, ptr %77, align 4, !tbaa !96
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 31
@@ -1458,12 +1458,12 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
   %100 = sub nuw nsw i32 64, %80
   %101 = zext nneg i32 %100 to i64
   %102 = shl i64 65535, %101
-  %103 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %indvars.iv122
+  %103 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv122
   store i64 %102, ptr %103, align 8, !tbaa !28
   %104 = and i32 %78, %.067
   %105 = zext nneg i32 %104 to i64
   %106 = shl i64 %105, %101
-  %107 = getelementptr inbounds nuw [17 x i64], ptr %11, i64 0, i64 %indvars.iv122
+  %107 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv122
   store i64 %106, ptr %107, align 8, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 17
@@ -1500,10 +1500,10 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 122:                                              ; preds = %.preheader, %129
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %129 ], [ 0, %.preheader ]
-  %123 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
   %124 = load i64, ptr %123, align 8, !tbaa !28
   %125 = and i64 %124, %.063105
-  %126 = getelementptr inbounds nuw [17 x i64], ptr %11, i64 0, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
   %127 = load i64, ptr %126, align 8, !tbaa !28
   %128 = icmp eq i64 %125, %127
   br i1 %128, label %.loopexit.loopexit.i, label %129
@@ -1659,67 +1659,65 @@ define noundef i32 @_ZN13pana8_param_t10gammaCurveEj(ptr noundef nonnull readonl
 37:                                               ; preds = %15, %23, %27, %19, %2
   %.040 = phi i32 [ %36, %27 ], [ 3, %23 ], [ 2, %19 ], [ 1, %15 ], [ 0, %2 ]
   %38 = zext nneg i32 %.040 to i64
-  %39 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %11, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !96
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds nuw [6 x i32], ptr %41, i64 0, i64 %38
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %38
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = and i32 %40, 65535
   %45 = sub nsw i32 %10, %44
   %46 = and i32 %43, 31
   %47 = icmp eq i32 %46, 31
-  br i1 %47, label %48, label %56
+  br i1 %47, label %48, label %54
 
 48:                                               ; preds = %37
   %49 = icmp eq i32 %.040, 5
-  br i1 %49, label %73, label %50
+  br i1 %49, label %71, label %50
 
 50:                                               ; preds = %48
-  %51 = add nuw nsw i32 %.040, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !96
-  %55 = lshr i32 %54, 16
-  br label %73
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !96
+  %53 = lshr i32 %52, 16
+  br label %71
 
-56:                                               ; preds = %37
-  %57 = and i32 %43, 16
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %67
+54:                                               ; preds = %37
+  %55 = and i32 %43, 16
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %65
 
-59:                                               ; preds = %56
-  switch i32 %46, label %62 [
-    i32 15, label %60
-    i32 0, label %70
+57:                                               ; preds = %54
+  switch i32 %46, label %60 [
+    i32 15, label %58
+    i32 0, label %68
   ]
 
-60:                                               ; preds = %59
-  %61 = lshr i32 %40, 16
-  br label %73
+58:                                               ; preds = %57
+  %59 = lshr i32 %40, 16
+  br label %71
 
-62:                                               ; preds = %59
-  %63 = add nsw i32 %46, -1
-  %64 = shl nuw nsw i32 1, %63
-  %65 = add nsw i32 %64, %45
-  %66 = lshr i32 %65, %46
-  br label %70
+60:                                               ; preds = %57
+  %61 = add nsw i32 %46, -1
+  %62 = shl nuw nsw i32 1, %61
+  %63 = add nsw i32 %62, %45
+  %64 = lshr i32 %63, %46
+  br label %68
 
-67:                                               ; preds = %56
-  %68 = and i32 %43, 15
-  %69 = shl nsw i32 %45, %68
-  br label %70
+65:                                               ; preds = %54
+  %66 = and i32 %43, 15
+  %67 = shl nsw i32 %45, %66
+  br label %68
 
-70:                                               ; preds = %59, %62, %67
-  %.038 = phi i32 [ %66, %62 ], [ %69, %67 ], [ %45, %59 ]
-  %71 = lshr i32 %40, 16
-  %72 = add i32 %.038, %71
-  br label %73
+68:                                               ; preds = %57, %60, %65
+  %.038 = phi i32 [ %64, %60 ], [ %67, %65 ], [ %45, %57 ]
+  %69 = lshr i32 %40, 16
+  %70 = add i32 %.038, %69
+  br label %71
 
-73:                                               ; preds = %50, %48, %70, %60
-  %.sink = phi i32 [ %72, %70 ], [ %61, %60 ], [ %55, %50 ], [ 65535, %48 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load i32, ptr %74, align 8, !tbaa !127
-  %.53 = tail call i32 @llvm.umin.i32(i32 %.sink, i32 %75)
+71:                                               ; preds = %50, %48, %68, %58
+  %.sink = phi i32 [ %70, %68 ], [ %59, %58 ], [ %53, %50 ], [ 65535, %48 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %73 = load i32, ptr %72, align 8, !tbaa !127
+  %.53 = tail call i32 @llvm.umin.i32(i32 %.sink, i32 %73)
   ret i32 %.53
 }
 

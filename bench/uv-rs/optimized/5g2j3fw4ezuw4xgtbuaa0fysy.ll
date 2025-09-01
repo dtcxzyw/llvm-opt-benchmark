@@ -618,10 +618,10 @@ define hidden void @_ZN3std4path4Path4join17hb2b04108f9f91377E(ptr dead_on_unwin
 define hidden void @_ZN3std4path4Path4join17he37e492f4a501489E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef range(i8 0, 6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.lookup:
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E.11, i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN3std4path4Path4join17he37e492f4a501489E.11, i64 %5
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load2)
   ret void

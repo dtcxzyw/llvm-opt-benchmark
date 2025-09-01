@@ -55,10 +55,10 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %7 = load i32, ptr %6, align 8, !tbaa !19
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [2 x %struct.CodedBitstreamFragment], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.CodedBitstreamFragment, ptr %5, i64 %8
   %.not = icmp eq i32 %7, 0
   %10 = zext i1 %.not to i64
-  %11 = getelementptr inbounds nuw [2 x %struct.CodedBitstreamFragment], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.CodedBitstreamFragment, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -229,7 +229,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 96:                                               ; preds = %95, %94
   %97 = load i32, ptr %6, align 8, !tbaa !19
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [2 x %struct.CodedBitstreamFragment], ptr %5, i64 0, i64 %98
+  %99 = getelementptr inbounds %struct.CodedBitstreamFragment, ptr %5, i64 %98
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %99) #2
   br label %.loopexit77
 

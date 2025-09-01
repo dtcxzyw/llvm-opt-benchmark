@@ -37,7 +37,7 @@ define noalias noundef ptr @Extra_FileReaderAlloc(ptr noundef %0, ptr noundef re
   %14 = phi i8 [ %18, %.lr.ph ], [ %12, %9 ]
   %.05162 = phi ptr [ %17, %.lr.ph ], [ %1, %9 ]
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %.05162, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !14
@@ -53,7 +53,7 @@ define noalias noundef ptr @Extra_FileReaderAlloc(ptr noundef %0, ptr noundef re
   %20 = phi i8 [ %24, %.lr.ph65 ], [ %13, %.preheader60 ]
   %.164 = phi ptr [ %23, %.lr.ph65 ], [ %2, %.preheader60 ]
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 %21
   store i8 2, ptr %22, align 1, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %.164, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !14
@@ -64,7 +64,7 @@ define noalias noundef ptr @Extra_FileReaderAlloc(ptr noundef %0, ptr noundef re
   %25 = phi i8 [ %29, %.lr.ph68 ], [ %19, %.preheader ]
   %.267 = phi ptr [ %28, %.lr.ph68 ], [ %3, %.preheader ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
   store i8 3, ptr %27, align 1, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %.267, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !14
@@ -344,7 +344,7 @@ define ptr @Extra_FileReaderGetTokens(ptr noundef captures(none) %0) local_unnam
 60:                                               ; preds = %57, %.lr.ph.i
   %61 = phi i8 [ %.pr.i, %57 ], [ %55, %.lr.ph.i ]
   %62 = sext i8 %61 to i64
-  %63 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %14, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !14
   switch i8 %64, label %148 [
     i8 0, label %65

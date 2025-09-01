@@ -1937,7 +1937,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i72 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   %12 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %12 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %idxprom.i
@@ -2645,7 +2645,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i19 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %9 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %10 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %idxprom.i
@@ -3506,7 +3506,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i70 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i71 = and i32 %sub.i70, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   %12 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %12 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %idxprom.i
@@ -3556,7 +3556,7 @@ while.body.i120:                                  ; preds = %while.cond.i111
   %sub.i92 = add nsw i32 %hits.i92.sroa.0.0, -1
   %and.i93 = and i32 %sub.i92, %hits.i92.sroa.0.0
   %conv9.i122 = zext nneg i32 %20 to i64
-  %arrayidx.i.i.i.i95 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i94, i64 0, i64 %conv9.i122
+  %arrayidx.i.i.i.i95 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i94, i64 %conv9.i122
   %21 = load i32, ptr %arrayidx.i.i.i.i95, align 4
   %cmp.i96 = icmp eq i32 %12, %21
   br i1 %cmp.i96, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit.loopexit, label %while.cond.i111, !llvm.loop !62
@@ -3572,7 +3572,7 @@ if.end20.i116:                                    ; preds = %while.end.i113
   br i1 %exitcond137.not, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit, label %for.body.i101, !llvm.loop !63
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit.loopexit: ; preds = %while.body.i120
-  %arrayidx.i.i.i.i95.le = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i94, i64 0, i64 %conv9.i122
+  %arrayidx.i.i.i.i95.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i94, i64 %conv9.i122
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit: ; preds = %if.end20.i116, %while.end.i113, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit.loopexit
@@ -11131,7 +11131,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i28 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   %11 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %11 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %idxprom.i
@@ -11154,7 +11154,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %if.end9, label %for.body.i, !llvm.loop !22
 
 if.then8:                                         ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   br label %return
 
 if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry
@@ -11222,7 +11222,7 @@ if.end24:                                         ; preds = %do.end, %if.end9
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 4095
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv26 = zext nneg i16 %31 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %chunk.0, i64 0, i64 %conv26
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %chunk.0, i64 %conv26
   %32 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i40 = icmp eq i8 %32, 0
   br i1 %cmp.i40, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %if.then.i41
@@ -11235,7 +11235,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.end24
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i, align 1
   %rawItems_.i.i.i42 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 16
-  %arrayidx.i.i.i.i.i43 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i42, i64 0, i64 %conv26
+  %arrayidx.i.i.i.i.i43 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i42, i64 %conv26
   %33 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   store i32 %33, ptr %arrayidx.i.i.i.i.i43, align 4
   %34 = load ptr, ptr %this, align 8, !nonnull !44, !noundef !44
@@ -11474,13 +11474,13 @@ while.cond.preheader:                             ; preds = %if.else
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %srcI.0135 = phi i64 [ 0, %while.cond.preheader ], [ %inc22, %if.end ]
   %dstI.0134 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0135
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %srcI.0135
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i33.not = icmp eq i8 %4, 0
   br i1 %cmp.i33.not, label %if.end, label %if.then15
 
 if.then15:                                        ; preds = %while.body
-  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i7.i, i64 0, i64 %dstI.0134
+  %arrayidx.i.i.i35 = getelementptr inbounds i8, ptr %call5.i.i2.i.i7.i, i64 %dstI.0134
   %5 = load i8, ptr %arrayidx.i.i.i35, align 1
   %cmp.i36 = icmp eq i8 %5, 0
   br i1 %cmp.i36, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %if.then.i37
@@ -11491,8 +11491,8 @@ if.then.i37:                                      ; preds = %if.then15
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.then15
   store i8 %4, ptr %arrayidx.i.i.i35, align 1
-  %arrayidx.i.i.i38 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0134
-  %arrayidx.i.i.i.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0135
+  %arrayidx.i.i.i38 = getelementptr inbounds %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i, i64 %dstI.0134
+  %arrayidx.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %srcI.0135
   %6 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %6, ptr %arrayidx.i.i.i38, align 4
   %inc = add nuw i64 %dstI.0134, 1
@@ -11570,7 +11570,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %piter.sroa.0.1 = lshr i32 %piter.sroa.0.0125, %add5.i.pn
   %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
   %conv49 = zext i32 %piter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i51 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv49
+  %arrayidx.i.i.i.i51 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i50, i64 %conv49
   %14 = load i32, ptr %arrayidx.i.i.i.i51, align 4
   %idxprom.i = zext i32 %14 to i64
   %arrayidx.i52 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %idxprom.i
@@ -11593,7 +11593,7 @@ while.body55:                                     ; preds = %for.body, %invoke.c
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0127, %add5.i66.pn
   %conv59 = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i71 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv59
+  %arrayidx.i.i.i.i71 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i50, i64 %conv59
   %16 = load ptr, ptr %this, align 8
   %17 = load i32, ptr %arrayidx.i.i.i.i71, align 4
   %idxprom.i72 = zext i32 %17 to i64
@@ -11613,7 +11613,7 @@ while.body55:                                     ; preds = %for.body, %invoke.c
   %21 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %mul6.i.i.i.i)
   %shr.i74 = lshr i64 %21, 24
   %or.i = or i64 %shr.i74, 128
-  %arrayidx.i.i.i76 = getelementptr inbounds nuw [14 x i8], ptr %srcChunk37.0133, i64 0, i64 %conv59
+  %arrayidx.i.i.i76 = getelementptr inbounds nuw i8, ptr %srcChunk37.0133, i64 %conv59
   %22 = load i8, ptr %arrayidx.i.i.i76, align 1
   %conv.i77 = zext i8 %22 to i64
   %cmp69 = icmp eq i64 %or.i, %conv.i77
@@ -11675,7 +11675,7 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %inc.i86 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i86, ptr %arrayidx.le.i, align 1
   %conv6.i = zext nneg i8 %.lcssa.i to i64
-  %arrayidx.i.i.i.i87 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 %conv6.i
   %32 = load i8, ptr %arrayidx.i.i.i.i87, align 1
   %cmp.i.i88 = icmp eq i8 %32, 0
   br i1 %cmp.i.i88, label %invoke.cont73, label %if.then.i12.i
@@ -11692,7 +11692,7 @@ invoke.cont73:                                    ; preds = %while.end.i
   %add.i13.i = add i8 %33, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i89, align 2
   %rawItems_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i.i, i64 %conv6.i
   %34 = load i32, ptr %arrayidx.i.i.i.i71, align 4
   store i32 %34, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp.i54.not = icmp eq i32 %iter.sroa.0.1, 0
@@ -12183,7 +12183,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i27 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %14 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   %15 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i28 = icmp eq i32 %2, %15
   br i1 %cmp.i28, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit, label %while.cond.i, !llvm.loop !62
@@ -12196,7 +12196,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %for.cond.i, !llvm.loop !63
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache15RawFileCacheKeyEPNS6_19AsyncDataCacheEntryEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit: ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
   %cmp11 = icmp ne ptr %0, null
   call void @llvm.assume(i1 %cmp11)
@@ -12249,7 +12249,7 @@ if.end:                                           ; preds = %if.then, %entry
   %9 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4
   %dec.i.i = add i32 %9, -1
   store i32 %dec.i.i, ptr %sizeAndPackedBegin_.i.i, align 4
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i, i64 0, i64 %pos.coerce1
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i, i64 %pos.coerce1
   %10 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.not.i.i.i = icmp sgt i8 %10, -1
   br i1 %cmp.not.i.i.i, label %if.then.i.i.i, label %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i
@@ -19378,7 +19378,7 @@ for.body.lr.ph:                                   ; preds = %_ZN5folly29core_cac
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0126 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds [64 x %"class.std::shared_ptr.310"], ptr %this, i64 0, i64 %i.0126
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr.310", ptr %this, i64 %i.0126
   store ptr null, ptr %arrayidx.i.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -19482,7 +19482,7 @@ cond.false.i.i:                                   ; preds = %if.then
 
 _ZN5folly16getCoreAllocatorISt10shared_ptrIN8facebook5velox17BaseStatsReporterEELm64EEENS_19CxxAllocatorAdaptorIT_NS_16CoreRawAllocatorIXT0_EE9AllocatorELb0EEEm.exit: ; preds = %if.then, %cond.false.i.i
   %cond.i.i = phi ptr [ %call2.i.i, %cond.false.i.i ], [ %atomic-temp.i.0.i.i, %if.then ]
-  %arrayidx.i.i11 = getelementptr inbounds [64 x %"class.folly::CoreRawAllocator<64>::Allocator"], ptr %cond.i.i, i64 0, i64 %i.0126
+  %arrayidx.i.i11 = getelementptr inbounds %"class.folly::CoreRawAllocator<64>::Allocator", ptr %cond.i.i, i64 %i.0126
   call void @llvm.lifetime.start.p0(ptr nonnull %__a2.i.i.i.i), !noalias !353
   call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i.i.i.i), !noalias !353
   store ptr %arrayidx.i.i11, ptr %__a2.i.i.i.i, align 8, !noalias !353
@@ -19789,8 +19789,8 @@ _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit:
 
 for.body:                                         ; preds = %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit, %_ZNSt8weak_ptrIN8facebook5velox17BaseStatsReporterEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit
   %i.06 = phi i64 [ %inc, %_ZNSt8weak_ptrIN8facebook5velox17BaseStatsReporterEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS3_E4typeESF_.exit ], [ 0, %_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit ]
-  %arrayidx.i.i = getelementptr inbounds [64 x %"class.std::shared_ptr.310"], ptr %p, i64 0, i64 %i.06
-  %arrayidx.i.i4 = getelementptr inbounds [64 x %"class.std::weak_ptr.313"], ptr %this, i64 0, i64 %i.06
+  %arrayidx.i.i = getelementptr inbounds %"class.std::shared_ptr.310", ptr %p, i64 %i.06
+  %arrayidx.i.i4 = getelementptr inbounds %"class.std::weak_ptr.313", ptr %this, i64 %i.06
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr %6, ptr %arrayidx.i.i4, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
@@ -21224,7 +21224,7 @@ while.cond2.i:                                    ; preds = %while.body6.i, %whi
   %slot.1.i = phi i32 [ %slot.0.i, %while.body.i ], [ %inc.i35, %while.body6.i ]
   %mul.i.i = shl i32 %slot.1.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic.12"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::atomic.12", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i.i
   %18 = load atomic i64, ptr %arrayidx.i.i acquire, align 32
   %and.i.i = and i64 %18, -2
   %cmp.i.i = icmp eq i64 %and.i.i, %17
@@ -21387,7 +21387,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %slot.addr.4 = phi i32 [ %inc, %while.body ], [ %slot.addr.253, %while.cond.preheader ]
   %mul.i = shl i32 %slot.addr.4, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic.12"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.std::atomic.12", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -21416,7 +21416,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %movedSlotCount.059 = phi i32 [ 0, %for.body26.lr.ph ], [ %movedSlotCount.1, %for.inc35 ]
   %mul.i46 = shl i64 %indvars.iv, 2
   %idxprom.i47 = and i64 %mul.i46, 4294967292
-  %arrayidx.i48 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.12"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i47
+  %arrayidx.i48 = getelementptr inbounds nuw %"struct.std::atomic.12", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 %idxprom.i47
   %4 = load atomic i64, ptr %arrayidx.i48 acquire, align 32
   %and.i49 = and i64 %4, -2
   %cmp.i50 = icmp eq i64 %and.i49, %1

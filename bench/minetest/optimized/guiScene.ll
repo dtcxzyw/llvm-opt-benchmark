@@ -2553,7 +2553,7 @@ arrayinit.body.i.i.i:                             ; preds = %invoke.cont.i.i.i, 
   %.idx.i.i = shl nsw i64 %arrayinit.index.i.i.i, 5
   %properties.add.i.i = add nuw nsw i64 %.idx.i.i, 32
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %style, i64 %properties.add.i.i
-  %arrayidx.i.i.i1 = getelementptr inbounds nuw [25 x %"class.std::__cxx11::basic_string.6"], ptr %properties3.i.i, i64 0, i64 %arrayinit.index.i.i.i
+  %arrayidx.i.i.i1 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.6", ptr %properties3.i.i, i64 %arrayinit.index.i.i.i
   %0 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
   store ptr %0, ptr %.ptr.i.i, align 8, !tbaa !55, !alias.scope !110
   %1 = load ptr, ptr %arrayidx.i.i.i1, align 8, !tbaa !69, !noalias !110
@@ -3864,7 +3864,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !63
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [27 x ptr], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !67
   ret ptr %1
 }

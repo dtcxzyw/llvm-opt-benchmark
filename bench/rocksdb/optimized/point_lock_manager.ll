@@ -4243,7 +4243,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i.i:  ; preds = %124, %120
 ._crit_edge:                                      ; preds = %224, %130
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %145 = and i64 %40, 127
-  %146 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector"], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw %"class.rocksdb::autovector", ptr %144, i64 %145
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %147 = load i64, ptr %146, align 8, !tbaa !82, !noalias !318
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -4332,7 +4332,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
   %.0.i.i = select i1 %175, ptr %177, ptr %180
   %181 = load i64, ptr %.0.i.i, align 8, !tbaa !183
   %182 = and i64 %181, 127
-  %183 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector"], ptr %140, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw %"class.rocksdb::autovector", ptr %140, i64 %182
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %184 = load i64, ptr %183, align 8, !tbaa !82, !noalias !324
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 32
@@ -4574,7 +4574,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
   %305 = getelementptr inbounds nuw i64, ptr %.sroa.0289.0, i64 %304
   %306 = load i64, ptr %305, align 8, !tbaa !183
   %307 = and i64 %306, 127
-  %308 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector.17"], ptr %60, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"class.rocksdb::autovector.17", ptr %60, i64 %307
   %309 = load i64, ptr %308, align 8, !tbaa !90, !noalias !347
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 168
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 176
@@ -5419,7 +5419,7 @@ _ZNSt6vectorIN7rocksdb12DeadlockInfoESaIS1_EED2Ev.exit215: ; preds = %_ZSt8_Dest
 
 617:                                              ; preds = %280
   %618 = and i64 %282, 127
-  %619 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector.17"], ptr %60, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw %"class.rocksdb::autovector.17", ptr %60, i64 %618
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %620 = load i64, ptr %619, align 8, !tbaa !90, !noalias !366
   %621 = getelementptr inbounds nuw i8, ptr %619, i64 168
@@ -5874,7 +5874,7 @@ define void @_ZN7rocksdb16PointLockManager20DecrementWaitersImplEPKNS_22Pessimis
   %.0.i.i = select i1 %34, ptr %36, ptr %39
   %40 = load i64, ptr %.0.i.i, align 8, !tbaa !183
   %41 = and i64 %40, 127
-  %42 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector"], ptr %29, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"class.rocksdb::autovector", ptr %29, i64 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = load i64, ptr %42, align 8, !tbaa !82, !noalias !386
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -6034,7 +6034,7 @@ define linkonce_odr void @_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE6Delet
   %4 = alloca %"class.rocksdb::autovector<std::pair<unsigned long, rocksdb::TrackedTrxInfo>, 1>::iterator_impl", align 8
   %5 = alloca %"class.rocksdb::autovector<std::pair<unsigned long, rocksdb::TrackedTrxInfo>, 1>::iterator_impl", align 8
   %6 = and i64 %1, 127
-  %7 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector.17"], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.rocksdb::autovector.17", ptr %0, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load i64, ptr %7, align 8, !tbaa !90, !noalias !407
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -6155,7 +6155,7 @@ _ZNSt4pairImN7rocksdb14TrackedTrxInfoEEaSERKS2_.exit: ; preds = %_ZN7rocksdb14Tr
 define linkonce_odr void @_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE6InsertEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24576) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.314", align 8
   %5 = and i64 %1, 127
-  %6 = getelementptr inbounds nuw [128 x %"class.rocksdb::autovector.17"], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.rocksdb::autovector.17", ptr %0, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8, !tbaa !355
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8

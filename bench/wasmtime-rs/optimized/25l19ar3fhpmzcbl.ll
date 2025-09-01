@@ -578,7 +578,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %201, label %256, label %267
 
 202:                                              ; preds = %.critedge.i.i
-  %203 = getelementptr inbounds [0 x i64], ptr %189, i64 0, i64 %198
+  %203 = getelementptr inbounds i64, ptr %189, i64 %198
   %204 = load i64, ptr %203, align 8, !noundef !3
   %205 = icmp ult i64 %204, %69
   br i1 %205, label %210, label %213, !prof !7
@@ -598,7 +598,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   unreachable
 
 210:                                              ; preds = %202
-  %211 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %67, i64 0, i64 %204
+  %211 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %67, i64 %204
   %212 = invoke align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8type_var17h570939bbb99aa11dE(ptr nonnull align 8 %211)
           to label %214 unwind label %207
 

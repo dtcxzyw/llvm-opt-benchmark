@@ -1041,7 +1041,7 @@ getSystemContentScale.exit:                       ; preds = %216, %230, %247
 .preheader.i:                                     ; preds = %getSystemContentScale.exit, %251
   %.not21.i = phi i1 [ false, %251 ], [ true, %getSystemContentScale.exit ]
   %indvars.iv.i = phi i64 [ 1, %251 ], [ 0, %getSystemContentScale.exit ]
-  %252 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140920), i64 0, i64 %indvars.iv.i
+  %252 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140920), i64 %indvars.iv.i
   %253 = load i32, ptr %252, align 4, !tbaa !114
   %254 = call i32 (i32, i32, ...) @fcntl(i32 noundef %253, i32 noundef 3, i32 noundef 0) #13
   %255 = load i32, ptr %252, align 4, !tbaa !114
@@ -1531,7 +1531,7 @@ thread-pre-split40.i:                             ; preds = %431
 
 502:                                              ; preds = %501, %.preheader50.us.i.i
   %indvars.iv86.i.i = phi i64 [ %indvars.iv.next87.i.i, %501 ], [ 0, %.preheader50.us.i.i ]
-  %503 = getelementptr inbounds nuw [121 x %struct.anon.32], ptr @__const.createKeyTables.keymap, i64 0, i64 %indvars.iv86.i.i
+  %503 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv86.i.i
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %505 = load ptr, ptr %504, align 8, !tbaa !228
   %506 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %500, ptr noundef nonnull dereferenceable(1) %505, i64 noundef 4) #14
@@ -1545,7 +1545,7 @@ thread-pre-split40.i:                             ; preds = %431
 
 .loopexit51.us.i.i:                               ; preds = %501, %508
   %.043.us.i.i = phi i16 [ %510, %508 ], [ -1, %501 ]
-  %511 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 0, i64 %indvars.iv90.i.i
+  %511 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv90.i.i
   store i16 %.043.us.i.i, ptr %511, align 2, !tbaa !318
   %indvars.iv.next91.i.i = add nuw nsw i64 %indvars.iv90.i.i, 1
   %exitcond94.not.i.i = icmp eq i64 %indvars.iv.next91.i.i, %wide.trip.count93.i.i
@@ -1570,7 +1570,7 @@ thread-pre-split40.i:                             ; preds = %431
 
 516:                                              ; preds = %515, %.preheader50.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader50.i.i ], [ %indvars.iv.next.i.i, %515 ]
-  %517 = getelementptr inbounds nuw [121 x %struct.anon.32], ptr @__const.createKeyTables.keymap, i64 0, i64 %indvars.iv.i.i
+  %517 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv.i.i
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   %519 = load ptr, ptr %518, align 8, !tbaa !228
   %520 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %512, ptr noundef nonnull dereferenceable(1) %519, i64 noundef 4) #14
@@ -1604,7 +1604,7 @@ thread-pre-split40.i:                             ; preds = %431
 
 529:                                              ; preds = %528, %.preheader.i.i
   %indvars.iv75.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next76.i.i, %528 ]
-  %530 = getelementptr inbounds nuw [121 x %struct.anon.32], ptr @__const.createKeyTables.keymap, i64 0, i64 %indvars.iv75.i.i
+  %530 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv75.i.i
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %532 = load ptr, ptr %531, align 8, !tbaa !228
   %533 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %527, ptr noundef nonnull dereferenceable(1) %532, i64 noundef 4) #14
@@ -1626,7 +1626,7 @@ thread-pre-split40.i:                             ; preds = %431
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %.loopexit51.i.i
   %.1.lcssa.i.i = phi i32 [ %522, %.loopexit51.i.i ], [ %.2.i.i, %.loopexit.i.i ]
   %538 = trunc i32 %.1.lcssa.i.i to i16
-  %539 = getelementptr inbounds nuw [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 0, i64 %indvars.iv82.i.i
+  %539 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv82.i.i
   store i16 %538, ptr %539, align 2, !tbaa !318
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond85.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count.i.i
@@ -1664,7 +1664,7 @@ thread-pre-split40.i:                             ; preds = %431
 
 558:                                              ; preds = %708, %.lr.ph64.i.i
   %indvars.iv95.i.i = phi i64 [ %555, %.lr.ph64.i.i ], [ %indvars.iv.next96.i.i, %708 ]
-  %559 = getelementptr inbounds [256 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 0, i64 %indvars.iv95.i.i
+  %559 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv95.i.i
   %560 = load i16, ptr %559, align 2, !tbaa !318
   %561 = icmp slt i16 %560, 0
   br i1 %561, label %562, label %701
@@ -2225,7 +2225,7 @@ translateKeySyms.exit.i.i:                        ; preds = %700, %699, %698, %6
 704:                                              ; preds = %701
   %705 = trunc i64 %indvars.iv95.i.i to i16
   %706 = zext nneg i16 %702 to i64
-  %707 = getelementptr inbounds nuw [349 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 0, i64 %706
+  %707 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %706
   store i16 %705, ptr %707, align 2, !tbaa !318
   br label %708
 

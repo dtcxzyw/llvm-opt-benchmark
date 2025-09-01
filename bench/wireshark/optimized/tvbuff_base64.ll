@@ -96,7 +96,7 @@ define hidden noundef ptr @base64uri_tvb_to_new_tvb(ptr noundef %0, i32 noundef 
   %17 = getelementptr i8, ptr %.04979.i.i, i64 1
   %18 = load i8, ptr %.04979.i.i, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [256 x i8], ptr @mime_base64uri_rank, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @mime_base64uri_rank, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not71.i.i = icmp eq i8 %21, -1
   br i1 %.not71.i.i, label %40, label %22

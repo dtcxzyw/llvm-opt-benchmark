@@ -1392,7 +1392,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i55:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit60
 
 _ZN7QStringD2Ev.exit60:                           ; preds = %_ZN7QStringD2Ev.exit54, %_ZN9QtPrivate8RefCount5derefEv.exit.i56, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i55
-  %87 = getelementptr inbounds nuw [9 x ptr], ptr %52, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %89 unwind label %133
@@ -1553,7 +1553,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %108, %_ZN9QtPrivate
 
 138:                                              ; preds = %.lr.ph78, %141
   %indvars.iv80 = phi i64 [ %56, %.lr.ph78 ], [ %indvars.iv.next81, %141 ]
-  %139 = getelementptr inbounds [9 x ptr], ptr %55, i64 0, i64 %indvars.iv80
+  %139 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv80
   %140 = load ptr, ptr %139, align 8
   invoke void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %140, i1 noundef zeroext false)
           to label %141 unwind label %.loopexit
@@ -2163,7 +2163,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i47:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit52
 
 _ZN7QStringD2Ev.exit52:                           ; preds = %_ZN7QStringD2Ev.exit46, %_ZN9QtPrivate8RefCount5derefEv.exit.i48, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i47
-  %64 = getelementptr inbounds nuw [9 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %66 unwind label %108
@@ -2318,7 +2318,7 @@ _ZN7QStringD2Ev.exit61:                           ; preds = %85, %_ZN9QtPrivate8
 
 113:                                              ; preds = %.lr.ph70, %116
   %indvars.iv72 = phi i64 [ %33, %.lr.ph70 ], [ %indvars.iv.next73, %116 ]
-  %114 = getelementptr inbounds [9 x ptr], ptr %32, i64 0, i64 %indvars.iv72
+  %114 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv72
   %115 = load ptr, ptr %114, align 8
   invoke void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %115, i1 noundef zeroext false)
           to label %116 unwind label %.loopexit
@@ -7506,9 +7506,9 @@ _ZNSt16allocator_traitsISaIN3vcg20GLMeshAttributesInfo16InternalRendAttsEEE8allo
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw [9 x i8], ptr %.sroa.08.012.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds nuw [9 x i8], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %26 = and i8 %24, 1
   store i8 %26, ptr %25, align 1
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -7935,9 +7935,9 @@ _ZNSt12_Vector_baseIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE11_M_a
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i.i ]
-  %22 = getelementptr inbounds nuw [9 x i8], ptr %.sroa.08.012.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds nuw [9 x i8], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %25 = and i8 %23, 1
   store i8 %25, ptr %24, align 1
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -7989,9 +7989,9 @@ _ZNSt12_Vector_baseIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE13_M_d
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i25
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i25 ], [ %indvars.iv.next.i.i.i.i.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i ]
-  %38 = getelementptr inbounds nuw [9 x i8], ptr %.0910.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds nuw [9 x i8], ptr %.0811.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   %41 = and i8 %39, 1
   store i8 %41, ptr %40, align 1
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
@@ -8022,9 +8022,9 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSERKS1_.exit.i.i.i.i.i: ; preds 
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32, %.lr.ph.i.i.i.i.i28
   %indvars.iv.i.i.i.i.i.i.i33 = phi i64 [ 0, %.lr.ph.i.i.i.i.i28 ], [ %indvars.iv.next.i.i.i.i.i.i.i34, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i32 ]
-  %49 = getelementptr inbounds nuw [9 x i8], ptr %.0910.i.i.i.i.i31, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i33
+  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i33
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds nuw [9 x i8], ptr %.0811.i.i.i.i.i30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i33
+  %51 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i33
   %52 = and i8 %50, 1
   store i8 %52, ptr %51, align 1
   %indvars.iv.next.i.i.i.i.i.i.i34 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i33, 1
@@ -8065,9 +8065,9 @@ _ZSt4copyIPN3vcg20GLMeshAttributesInfo16InternalRendAttsES3_ET0_T_S5_S4_.exit: ;
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i38 = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i.i39, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i.i.i.i37 ]
-  %61 = getelementptr inbounds nuw [9 x i8], ptr %.01214.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i38
+  %61 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i38
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds nuw [9 x i8], ptr %.015.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i38
+  %63 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i38
   %64 = and i8 %62, 1
   store i8 %64, ptr %63, align 1
   %indvars.iv.next.i.i.i.i.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i38, 1
@@ -20526,9 +20526,9 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttrib
 
 184:                                              ; preds = %184, %182
   %indvars.iv.i.i = phi i64 [ 0, %182 ], [ %indvars.iv.next.i.i, %184 ]
-  %185 = getelementptr inbounds nuw [9 x i8], ptr %183, i64 0, i64 %indvars.iv.i.i
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv.i.i
   %186 = load i8, ptr %185, align 1, !noalias !232
-  %187 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %187 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %188 = and i8 %186, 1
   store i8 %188, ptr %187, align 1, !alias.scope !232
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -20541,9 +20541,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %189 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i8.i
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i8.i
   %190 = load i8, ptr %189, align 1
-  %191 = getelementptr inbounds nuw [7 x i8], ptr %10, i64 0, i64 %indvars.iv.i8.i
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i8.i
   %192 = and i8 %190, 1
   store i8 %192, ptr %191, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -20829,9 +20829,9 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc159,
 
 336:                                              ; preds = %336, %334
   %indvars.iv.i.i161 = phi i64 [ 0, %334 ], [ %indvars.iv.next.i.i162, %336 ]
-  %337 = getelementptr inbounds nuw [9 x i8], ptr %335, i64 0, i64 %indvars.iv.i.i161
+  %337 = getelementptr inbounds nuw i8, ptr %335, i64 %indvars.iv.i.i161
   %338 = load i8, ptr %337, align 1, !noalias !237
-  %339 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i161
+  %339 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i161
   %340 = and i8 %338, 1
   store i8 %340, ptr %339, align 1, !alias.scope !237
   %indvars.iv.next.i.i162 = add nuw nsw i64 %indvars.iv.i.i161, 1
@@ -20844,9 +20844,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i165: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i165, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i164
   %indvars.iv.i8.i166 = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i164 ], [ %indvars.iv.next.i9.i167, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i165 ]
-  %341 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i8.i166
+  %341 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i8.i166
   %342 = load i8, ptr %341, align 1
-  %343 = getelementptr inbounds nuw [7 x i8], ptr %12, i64 0, i64 %indvars.iv.i8.i166
+  %343 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i8.i166
   %344 = and i8 %342, 1
   store i8 %344, ptr %343, align 1
   %indvars.iv.next.i9.i167 = add nuw nsw i64 %indvars.iv.i8.i166, 1
@@ -22206,7 +22206,7 @@ _ZN3vcg3tri15ResizeAttributeI6CMeshOSt3setINS_18PointerToAttributeESt4lessIS4_ES
 
 207:                                              ; preds = %.preheader142, %207
   %indvars.iv = phi i64 [ 0, %.preheader142 ], [ %indvars.iv.next, %207 ]
-  %208 = getelementptr inbounds nuw [3 x ptr], ptr %206, i64 0, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr %167, align 8
   %211 = ptrtoint ptr %209 to i64
@@ -24584,7 +24584,7 @@ _ZN3vcg3tri15ResizeAttributeI6CMeshOSt3setINS_18PointerToAttributeESt4lessIS4_ES
 185:                                              ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CEdgeOE6UpdateERS6_.exit139
   %186 = phi i1 [ true, %.preheader ], [ false, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CEdgeOE6UpdateERS6_.exit139 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CEdgeOE6UpdateERS6_.exit139 ]
-  %187 = getelementptr inbounds nuw [2 x ptr], ptr %184, i64 0, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv
   %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr %139, align 8
   %190 = icmp ult ptr %188, %189
@@ -24891,10 +24891,10 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %28, %30, %32, %34
   %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %109 ]
   %110 = load ptr, ptr %8, align 8
   %111 = getelementptr inbounds %class.CFaceO, ptr %110, i64 %.0130192, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %112 = getelementptr inbounds nuw [3 x ptr], ptr %111, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds %class.CFaceO, ptr %110, i64 %.0193, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %115 = getelementptr inbounds nuw [3 x ptr], ptr %114, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
   store ptr %113, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -24921,7 +24921,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %28, %30, %32, %34
   %130 = sdiv exact i64 %129, 48
   %131 = load ptr, ptr %125, align 8
   %132 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %131, i64 %130, i32 1
-  %133 = getelementptr inbounds nuw [3 x i8], ptr %132, i64 0, i64 %indvars.iv207
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv207
   %134 = load i8, ptr %133, align 1
   %.not180 = icmp eq i8 %134, -1
   br i1 %.not180, label %177, label %135
@@ -24934,7 +24934,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %28, %30, %32, %34
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %131, i64 %130
-  %141 = getelementptr inbounds nuw [3 x ptr], ptr %140, i64 0, i64 %indvars.iv207
+  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv207
   %142 = load ptr, ptr %141, align 8
   br label %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit
 
@@ -24950,7 +24950,7 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %150 = sdiv exact i64 %149, 48
   %151 = load ptr, ptr %145, align 8
   %152 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %151, i64 %150
-  %153 = getelementptr inbounds nuw [3 x ptr], ptr %152, i64 0, i64 %indvars.iv207
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv207
   store ptr %.0.i, ptr %153, align 8
   %154 = load ptr, ptr %8, align 8
   %155 = getelementptr inbounds %class.CFaceO, ptr %154, i64 %.0130192
@@ -24963,7 +24963,7 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %162 = sdiv exact i64 %161, 48
   %163 = load ptr, ptr %157, align 8
   %164 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %163, i64 %162, i32 1
-  %165 = getelementptr inbounds nuw [3 x i8], ptr %164, i64 0, i64 %indvars.iv207
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %indvars.iv207
   %166 = load i8, ptr %165, align 1
   %167 = getelementptr inbounds %class.CFaceO, ptr %154, i64 %.0193
   %168 = load ptr, ptr %167, align 8
@@ -24988,14 +24988,14 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %185 = sdiv exact i64 %184, 48
   %186 = load ptr, ptr %180, align 8
   %187 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %186, i64 %185, i32 1
-  %188 = getelementptr inbounds nuw [3 x i8], ptr %187, i64 0, i64 %indvars.iv207
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv207
   %189 = load i8, ptr %188, align 1
   %.not.i = icmp eq i8 %189, -1
   br i1 %.not.i, label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit, label %190
 
 190:                                              ; preds = %177
   %191 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %186, i64 %185
-  %192 = getelementptr inbounds nuw [3 x ptr], ptr %191, i64 0, i64 %indvars.iv207
+  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv207
   store ptr null, ptr %192, align 8
   %193 = load ptr, ptr %178, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 216
@@ -25010,7 +25010,7 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
 _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split: ; preds = %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit, %190
   %.sink251 = phi ptr [ %200, %190 ], [ %176, %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit ]
   %.sink = phi i8 [ -1, %190 ], [ %166, %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit ]
-  %201 = getelementptr inbounds nuw [3 x i8], ptr %.sink251, i64 0, i64 %indvars.iv207
+  %201 = getelementptr inbounds nuw i8, ptr %.sink251, i64 %indvars.iv207
   store i8 %.sink, ptr %201, align 1
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit
 
@@ -25043,7 +25043,7 @@ _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit: ; pr
   %216 = sdiv exact i64 %215, 48
   %217 = load ptr, ptr %211, align 8
   %218 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %217, i64 %216
-  %219 = getelementptr inbounds nuw [3 x ptr], ptr %218, i64 0, i64 %indvars.iv211
+  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %indvars.iv211
   %220 = load ptr, ptr %219, align 8
   br label %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit
 
@@ -25059,7 +25059,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %228 = sdiv exact i64 %227, 48
   %229 = load ptr, ptr %223, align 8
   %230 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %229, i64 %228
-  %231 = getelementptr inbounds nuw [3 x ptr], ptr %230, i64 0, i64 %indvars.iv211
+  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv211
   store ptr %.0.i139, ptr %231, align 8
   %232 = load ptr, ptr %8, align 8
   %233 = getelementptr inbounds %class.CFaceO, ptr %232, i64 %.0130192
@@ -25072,7 +25072,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %240 = sdiv exact i64 %239, 48
   %241 = load ptr, ptr %235, align 8
   %242 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %241, i64 %240, i32 1
-  %243 = getelementptr inbounds nuw [3 x i8], ptr %242, i64 0, i64 %indvars.iv211
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 %indvars.iv211
   %244 = load i8, ptr %243, align 1
   %245 = getelementptr inbounds %class.CFaceO, ptr %232, i64 %.0193
   %246 = load ptr, ptr %245, align 8
@@ -25084,7 +25084,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %252 = sdiv exact i64 %251, 48
   %253 = load ptr, ptr %247, align 8
   %254 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %253, i64 %252, i32 1
-  %255 = getelementptr inbounds nuw [3 x i8], ptr %254, i64 0, i64 %indvars.iv211
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 %indvars.iv211
   store i8 %244, ptr %255, align 1
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, 3
@@ -25347,14 +25347,14 @@ _ZN3vcg3tri15ResizeAttributeI6CMeshOSt3setINS_18PointerToAttributeESt4lessIS4_ES
   %384 = sdiv exact i64 %383, 48
   %385 = load ptr, ptr %380, align 8
   %386 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %385, i64 %384, i32 1
-  %387 = getelementptr inbounds nuw [3 x i8], ptr %386, i64 0, i64 %indvars.iv215
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 %indvars.iv215
   %388 = load i8, ptr %387, align 1
   %.not176 = icmp eq i8 %388, -1
   br i1 %.not176, label %401, label %389
 
 389:                                              ; preds = %378
   %390 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %385, i64 %384
-  %391 = getelementptr inbounds nuw [3 x ptr], ptr %390, i64 0, i64 %indvars.iv215
+  %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv215
   %392 = load ptr, ptr %391, align 8
   %.not136 = icmp eq ptr %392, null
   br i1 %.not136, label %401, label %393
@@ -25404,7 +25404,7 @@ _ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   %417 = sdiv exact i64 %416, 48
   %418 = load ptr, ptr %413, align 8
   %419 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %418, i64 %417
-  %420 = getelementptr inbounds nuw [3 x ptr], ptr %419, i64 0, i64 %indvars.iv219
+  %420 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv219
   %421 = load ptr, ptr %420, align 8
   %.not = icmp eq ptr %421, null
   br i1 %.not, label %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit149.thread, label %422
@@ -26614,7 +26614,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNor
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i, %.preheader.i.i.preheader.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %.preheader.i.i.preheader.i.i.i ]
-  %19 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %19 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i, i64 %indvars.iv.i.i.i.i.i
   store float 0.000000e+00, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %20, align 4
@@ -26658,7 +26658,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE12_M_
 
 .preheader.i.i.i.i.i33:                           ; preds = %.preheader.i.i.i.i.i33, %.preheader.i.i.preheader.i.i.i30
   %indvars.iv.i.i.i.i.i34 = phi i64 [ %indvars.iv.next.i.i.i.i.i35, %.preheader.i.i.i.i.i33 ], [ 0, %.preheader.i.i.preheader.i.i.i30 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %.013.i.i.i31, i64 0, i64 %indvars.iv.i.i.i.i.i34
+  %32 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.013.i.i.i31, i64 %indvars.iv.i.i.i.i.i34
   store float 0.000000e+00, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float 0.000000e+00, ptr %33, align 4
@@ -40966,12 +40966,12 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %23, i8 noundef signext 45, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %24 unwind label %56
+          to label %24 unwind label %54
 
 24:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   %25 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.lobit)
-          to label %26 unwind label %58
+          to label %26 unwind label %56
 
 26:                                               ; preds = %24
   %27 = icmp ugt i64 %4, 99
@@ -40983,66 +40983,64 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %31, %.lr.ph.i15 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %42, %.lr.ph.i15 ], [ %28, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %41, %.lr.ph.i15 ], [ %28, %.lr.ph.preheader.i ]
   %29 = urem i64 %.020.i, 100
   %30 = shl nuw nsw i64 %29, 1
   %31 = udiv i64 %.020.i, 100
-  %32 = or disjoint i64 %30, 1
-  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 0, i64 %32
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i32 %.01819.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %34, ptr %36, align 1
-  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 0, i64 %30
-  %38 = load i8, ptr %37, align 2
-  %39 = add i32 %.01819.i, -1
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %25, i64 %40
-  store i8 %38, ptr %41, align 1
-  %42 = add i32 %.01819.i, -2
-  %43 = icmp ugt i64 %.020.i, 9999
-  br i1 %43, label %.lr.ph.i15, label %._crit_edge.i, !llvm.loop !430
+  %37 = load i8, ptr %32, align 2
+  %38 = add i32 %.01819.i, -1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
+  store i8 %37, ptr %40, align 1
+  %41 = add i32 %.01819.i, -2
+  %42 = icmp ugt i64 %.020.i, 9999
+  br i1 %42, label %.lr.ph.i15, label %._crit_edge.i, !llvm.loop !430
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i15, %26
   %.0.lcssa.i = phi i64 [ %4, %26 ], [ %31, %.lr.ph.i15 ]
-  %44 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %44, label %45, label %53
+  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %43, label %44, label %51
 
-45:                                               ; preds = %._crit_edge.i
-  %46 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %47 = or disjoint i64 %46, 1
-  %48 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %49, ptr %50, align 1
-  %51 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 0, i64 %46
-  %52 = load i8, ptr %51, align 2
+44:                                               ; preds = %._crit_edge.i
+  %45 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %46 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits.const, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %48, ptr %49, align 1
+  %50 = load i8, ptr %46, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-53:                                               ; preds = %._crit_edge.i
-  %54 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %55 = or disjoint i8 %54, 48
+51:                                               ; preds = %._crit_edge.i
+  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %45, %53
-  %storemerge.i = phi i8 [ %55, %53 ], [ %52, %45 ]
+_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %44, %51
+  %storemerge.i = phi i8 [ %53, %51 ], [ %50, %44 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 
-56:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
-  %57 = landingpad { ptr, i32 }
+54:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
-  br label %60
+  br label %58
 
-58:                                               ; preds = %24
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %24
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
-  br label %60
+  br label %58
 
-60:                                               ; preds = %58, %56
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
+58:                                               ; preds = %56, %54
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn
 }
 

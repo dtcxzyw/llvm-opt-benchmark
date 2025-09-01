@@ -1640,7 +1640,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %.critedge32
   %.02934 = phi i64 [ 0, %0 ], [ %29, %.critedge32 ]
-  %2 = getelementptr inbounds nuw [3 x %struct.native_int_table_t], ptr @H5T__init_native_internal.table_table, i64 0, i64 %.02934
+  %2 = getelementptr inbounds nuw %struct.native_int_table_t, ptr @H5T__init_native_internal.table_table, i64 %.02934
   %3 = load ptr, ptr %2, align 16, !tbaa !41
   br label %6
 

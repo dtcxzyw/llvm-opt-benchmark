@@ -997,7 +997,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit:          ; preds = %36
 
 45:                                               ; preds = %43
   %46 = zext nneg i8 %.0.copyload.i.i.i.i.i.i to i64
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %13, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !55
   %.not38 = icmp eq ptr %48, null
   br i1 %.not38, label %50, label %49
@@ -1672,7 +1672,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit51:        ; preds = %79
   %.0.copyload.i.i.i.i.i.i50 = load i8, ptr %81, align 1
   %82 = add nuw nsw i64 %indvars.iv89, 1
   %83 = zext i8 %.0.copyload.i.i.i.i.i.i50 to i32
-  %84 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %2, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %2, i64 %indvars.iv
   store i32 %83, ptr %84, align 4, !tbaa !211
   %.not.i.not.i.i.i.i.i52 = icmp samesign ult i64 %82, %19
   br i1 %.not.i.not.i.i.i.i.i52, label %_ZN8rawspeed10ByteStream7getByteEv.exit54, label %85
@@ -1687,7 +1687,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit54:        ; preds = %_ZN8rawspeed10ByteS
   %87 = add nuw nsw i64 %indvars.iv89, 2
   %88 = zext i8 %.0.copyload.i.i.i.i.i.i53 to i32
   %89 = and i32 %88, 15
-  %90 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %71, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %71, i64 %indvars.iv
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
   store i32 %89, ptr %91, align 4, !tbaa !212
   %92 = lshr i32 %88, 4
@@ -1865,7 +1865,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit31:        ; preds = %_ZN8rawspeed10ByteS
 
 48:                                               ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit31
   %49 = zext nneg i8 %46 to i64
-  %50 = getelementptr inbounds nuw [4 x ptr], ptr %27, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %27, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %.not22 = icmp eq ptr %51, null
   br i1 %.not22, label %52, label %.preheader
@@ -1881,7 +1881,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit31:        ; preds = %_ZN8rawspeed10ByteS
 .preheader:                                       ; preds = %48, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %48 ]
   %.01539 = phi i32 [ %spec.select, %.preheader ], [ -1, %48 ]
-  %55 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %3, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %3, i64 %indvars.iv
   %56 = load i32, ptr %55, align 8, !tbaa !211
   %57 = icmp eq i32 %56, %43
   %58 = trunc nuw i64 %indvars.iv to i32

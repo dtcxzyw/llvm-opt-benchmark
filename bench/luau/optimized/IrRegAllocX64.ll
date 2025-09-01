@@ -83,7 +83,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
 
 10:                                               ; preds = %.lr.ph, %14
   %.065 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.065
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.065
   %12 = load i8, ptr %11, align 1, !tbaa !59, !range !61, !noundef !62
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %16, label %14
@@ -94,10 +94,10 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
   br i1 %exitcond.not, label %.thread, label %10, !llvm.loop !63
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.065
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %.065
   store i8 0, ptr %17, align 1, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %19 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %.065
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.065
   store i32 %2, ptr %19, align 4, !tbaa !60
   %20 = trunc nuw i64 %.065 to i8
   %21 = shl i8 %20, 3
@@ -115,16 +115,16 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX648allocRegENS1_7SizeX64Ej
   %.sroa.05.0.copyload = load i8, ptr %.038.ptr, align 1, !tbaa !65
   %25 = lshr i8 %.sroa.05.0.copyload, 3
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !59, !range !61, !noundef !62
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %23
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %26
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   store i8 0, ptr %31, align 1, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %26
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %26
   store i32 %2, ptr %33, align 4, !tbaa !60
   %34 = and i8 %1, 7
   %35 = and i8 %.sroa.05.0.copyload, -8
@@ -195,14 +195,14 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5ar
 
 67:                                               ; preds = %55
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %66
   %70 = load i8, ptr %69, align 1, !tbaa !59, !range !61, !noundef !62
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %78, label %72
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %74 = getelementptr inbounds nuw [16 x i32], ptr %73, i64 0, i64 %66
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %66
   %75 = load i32, ptr %74, align 4, !tbaa !60
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %76
@@ -215,14 +215,14 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5ar
 
 79:                                               ; preds = %55
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 0, i64 %66
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %66
   %82 = load i8, ptr %81, align 1, !tbaa !59, !range !61, !noundef !62
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %90, label %84
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %86 = getelementptr inbounds nuw [16 x i32], ptr %85, i64 0, i64 %66
+  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %66
   %87 = load i32, ptr %86, align 4, !tbaa !60
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %59, i64 %88
@@ -236,7 +236,7 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6434findInstructionWithFurthestNextUseERKSt5ar
 _ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = %78, %90
   %.sink.i = phi i64 [ 44, %90 ], [ 124, %78 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %92 = getelementptr inbounds nuw [16 x i32], ptr %91, i64 0, i64 %66
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %66
   store i32 %2, ptr %92, align 4, !tbaa !60
   br label %93
 
@@ -304,7 +304,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %7
   %11 = load i8, ptr %10, align 1, !tbaa !59, !range !61, !noundef !62
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %23, label %13
@@ -314,7 +314,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
   %15 = load ptr, ptr %14, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %18 = getelementptr inbounds nuw [16 x i32], ptr %17, i64 0, i64 %7
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %7
   %19 = load i32, ptr %18, align 4, !tbaa !60
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %16, align 8, !tbaa !67
@@ -328,7 +328,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %7
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %7
   %27 = load i8, ptr %26, align 1, !tbaa !59, !range !61, !noundef !62
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %39, label %29
@@ -338,7 +338,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
   %31 = load ptr, ptr %30, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %7
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %7
   %35 = load i32, ptr %34, align 4, !tbaa !60
   %36 = zext i32 %35 to i64
   %37 = load ptr, ptr %32, align 8, !tbaa !67
@@ -353,7 +353,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
 40:                                               ; preds = %39, %23
   %.sink = phi i64 [ 44, %39 ], [ 124, %23 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %42 = getelementptr inbounds nuw [16 x i32], ptr %41, i64 0, i64 %7
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %7
   store i32 %2, ptr %42, align 4, !tbaa !60
   ret i8 %1
 }
@@ -423,7 +423,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7S
   %42 = zext nneg i8 %41 to i64
   %. = select i1 %10, i64 124, i64 44
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %44 = getelementptr inbounds nuw [16 x i32], ptr %43, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %42
   store i32 %2, ptr %44, align 4, !tbaa !60
   %45 = and i8 %1, 7
   %46 = load i8, ptr %40, align 2
@@ -532,7 +532,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.us.i:           ; preds = %_ZNK4Luau7CodeGen3X
   %.0914.us.i = phi i32 [ %74, %73 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread ]
   %58 = zext nneg i32 %.0914.us.i to i64
   %59 = lshr i64 %58, 6
-  %60 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !97
   %62 = and i64 %58, 63
   %63 = shl nuw i64 1, %62
@@ -544,7 +544,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us.i:         ; preds = %_ZNKSt6bitsetILm256
   %65 = add nuw nsw i32 %.0914.us.i, 1
   %66 = zext nneg i32 %65 to i64
   %67 = lshr i64 %66, 6
-  %68 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %56, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !97
   %70 = and i64 %66, 63
   %71 = shl nuw i64 1, %70
@@ -561,7 +561,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us.i:         ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i:              ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread, %82
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412hasRestoreOpERKNS0_6IrInstE.exit.thread ]
   %76 = lshr i64 %indvars.iv.i, 6
-  %77 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %56, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !97
   %79 = and i64 %indvars.iv.i, 63
   %80 = shl nuw i64 1, %79
@@ -656,7 +656,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit:                 ; preds = %102
   %106 = and i64 %103, 63
   %107 = shl nuw i64 1, %106
   %108 = lshr i64 %103, 6
-  %109 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i64, ptr %56, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !97
   %111 = or i64 %110, %107
   store i64 %111, ptr %109, align 8, !tbaa !97
@@ -687,7 +687,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit54:               ; preds = %118
   %122 = and i64 %119, 63
   %123 = shl nuw i64 1, %122
   %124 = lshr i64 %119, 6
-  %125 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %56, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !97
   %127 = or i64 %126, %123
   store i64 %127, ptr %125, align 8, !tbaa !97
@@ -826,10 +826,10 @@ _ZNSt6vectorIN4Luau7CodeGen3X6410IrSpillX64ESaIS3_EE9push_backERKS3_.exit: ; pre
   %..i = select i1 %178, i64 108, i64 28
   %.9.i = select i1 %178, i64 124, i64 44
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
-  %182 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 0, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 %180
   store i8 1, ptr %182, align 1, !tbaa !59
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i
-  %184 = getelementptr inbounds nuw [16 x i32], ptr %183, i64 0, i64 %180
+  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %180
   store i32 -1, ptr %184, align 4, !tbaa !60
   store i8 -128, ptr %17, align 2, !tbaa !65
   ret void
@@ -843,7 +843,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6410canTa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %6 = lshr i8 %1, 3
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !59, !range !61, !noundef !62
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %16, label %11
@@ -851,7 +851,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6410canTa
 11:                                               ; preds = %2
   %.v6 = select i1 %4, i64 124, i64 44
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.v6
-  %13 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4, !tbaa !60
   %15 = icmp ne i32 %14, -1
   br label %16
@@ -870,10 +870,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX647freeRegENS1_11Registe
   %. = select i1 %4, i64 108, i64 28
   %.9 = select i1 %4, i64 124, i64 44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
   store i8 1, ptr %8, align 1, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.9
-  %10 = getelementptr inbounds nuw [16 x i32], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
   store i32 -1, ptr %10, align 4, !tbaa !60
   ret void
 }
@@ -903,10 +903,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6414freeLastUseRegERNS0_
   %..i = select i1 %16, i64 108, i64 28
   %.9.i = select i1 %16, i64 124, i64 44
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
-  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 1, ptr %20, align 1, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %21, i64 0, i64 %18
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %18
   store i32 -1, ptr %22, align 4, !tbaa !60
   store i8 -128, ptr %11, align 2, !tbaa !65
   br label %23
@@ -967,10 +967,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i = select i1 %27, i64 108, i64 28
   %.9.i.i.i = select i1 %27, i64 124, i64 44
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i
-  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store i8 1, ptr %31, align 1, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %32, i64 0, i64 %29
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %29
   store i32 -1, ptr %33, align 4, !tbaa !60
   store i8 -128, ptr %22, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
@@ -1013,10 +1013,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i28 = select i1 %57, i64 108, i64 28
   %.9.i.i.i29 = select i1 %57, i64 124, i64 44
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i28
-  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   store i8 1, ptr %61, align 1, !tbaa !59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i29
-  %63 = getelementptr inbounds nuw [16 x i32], ptr %62, i64 0, i64 %59
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %59
   store i32 -1, ptr %63, align 4, !tbaa !60
   store i8 -128, ptr %52, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit30"
@@ -1059,10 +1059,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i32 = select i1 %87, i64 108, i64 28
   %.9.i.i.i33 = select i1 %87, i64 124, i64 44
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i32
-  %91 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
   store i8 1, ptr %91, align 1, !tbaa !59
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i33
-  %93 = getelementptr inbounds nuw [16 x i32], ptr %92, i64 0, i64 %89
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %89
   store i32 -1, ptr %93, align 4, !tbaa !60
   store i8 -128, ptr %82, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit34"
@@ -1105,10 +1105,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i36 = select i1 %117, i64 108, i64 28
   %.9.i.i.i37 = select i1 %117, i64 124, i64 44
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i36
-  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 0, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
   store i8 1, ptr %121, align 1, !tbaa !59
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i37
-  %123 = getelementptr inbounds nuw [16 x i32], ptr %122, i64 0, i64 %119
+  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %119
   store i32 -1, ptr %123, align 4, !tbaa !60
   store i8 -128, ptr %112, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38"
@@ -1151,10 +1151,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i40 = select i1 %147, i64 108, i64 28
   %.9.i.i.i41 = select i1 %147, i64 124, i64 44
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i40
-  %151 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 0, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %149
   store i8 1, ptr %151, align 1, !tbaa !59
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i41
-  %153 = getelementptr inbounds nuw [16 x i32], ptr %152, i64 0, i64 %149
+  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %149
   store i32 -1, ptr %153, align 4, !tbaa !60
   store i8 -128, ptr %142, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
@@ -1197,10 +1197,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i44 = select i1 %177, i64 108, i64 28
   %.9.i.i.i45 = select i1 %177, i64 124, i64 44
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i44
-  %181 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 0, i64 %179
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %179
   store i8 1, ptr %181, align 1, !tbaa !59
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i45
-  %183 = getelementptr inbounds nuw [16 x i32], ptr %182, i64 0, i64 %179
+  %183 = getelementptr inbounds nuw i32, ptr %182, i64 %179
   store i32 -1, ptr %183, align 4, !tbaa !60
   store i8 -128, ptr %172, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46"
@@ -1243,10 +1243,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS
   %..i.i.i48 = select i1 %207, i64 108, i64 28
   %.9.i.i.i49 = select i1 %207, i64 124, i64 44
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 %..i.i.i48
-  %211 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 0, i64 %209
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %209
   store i8 1, ptr %211, align 1, !tbaa !59
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 %.9.i.i.i49
-  %213 = getelementptr inbounds nuw [16 x i32], ptr %212, i64 0, i64 %209
+  %213 = getelementptr inbounds nuw i32, ptr %212, i64 %209
   store i32 -1, ptr %213, align 4, !tbaa !60
   store i8 -128, ptr %202, align 2, !tbaa !65
   br label %"_ZZN4Luau7CodeGen3X6413IrRegAllocX6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50"
@@ -1335,7 +1335,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.us:             ; preds = %2, %20
   %.0914.us = phi i32 [ %21, %20 ], [ 0, %2 ]
   %5 = zext nneg i32 %.0914.us to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !97
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9
@@ -1347,7 +1347,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us:           ; preds = %_ZNKSt6bitsetILm256
   %12 = add nuw nsw i32 %.0914.us, 1
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %3, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !97
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
@@ -1364,7 +1364,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit12.us:           ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %2, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %2 ]
   %23 = lshr i64 %indvars.iv, 6
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !97
   %26 = and i64 %indvars.iv, 63
   %27 = shl nuw i64 1, %26
@@ -1438,14 +1438,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstE
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   %34 = load i8, ptr %33, align 1, !tbaa !59, !range !61, !noundef !62
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %38 = getelementptr inbounds nuw [16 x i32], ptr %37, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %30
   %39 = load i32, ptr %38, align 4, !tbaa !60
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %40
@@ -1458,14 +1458,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstE
 
 43:                                               ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 0, i64 %30
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %30
   %46 = load i8, ptr %45, align 1, !tbaa !59, !range !61, !noundef !62
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %50 = getelementptr inbounds nuw [16 x i32], ptr %49, i64 0, i64 %30
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %30
   %51 = load i32, ptr %50, align 4, !tbaa !60
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %52
@@ -1479,7 +1479,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstE
 _ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = %42, %54
   %.sink.i = phi i64 [ 44, %54 ], [ 124, %42 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %56 = getelementptr inbounds nuw [16 x i32], ptr %55, i64 0, i64 %30
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %30
   store i32 %12, ptr %56, align 4, !tbaa !60
   br label %59
 
@@ -1509,7 +1509,7 @@ _ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = 
   %71 = shl nuw i64 1, %70
   %72 = xor i64 %71, -1
   %73 = lshr i64 %65, 6
-  %74 = getelementptr inbounds nuw [4 x i64], ptr %69, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %69, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !97
   %76 = and i64 %75, %72
   store i64 %76, ptr %74, align 8, !tbaa !97
@@ -1524,7 +1524,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit:                 ; preds = %64
   %82 = shl nuw i64 1, %81
   %83 = xor i64 %82, -1
   %84 = lshr i64 %80, 6
-  %85 = getelementptr inbounds nuw [4 x i64], ptr %69, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %69, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !97
   %87 = and i64 %86, %83
   store i64 %87, ptr %85, align 8, !tbaa !97
@@ -1903,10 +1903,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX64D2Ev(ptr noundef nonnul
   %..i = select i1 %7, i64 108, i64 28
   %.9.i = select i1 %7, i64 124, i64 44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %..i
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   store i8 1, ptr %11, align 1, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.9.i
-  %13 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
   store i32 -1, ptr %13, align 4, !tbaa !60
   br label %14
 
@@ -1937,7 +1937,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644takeENS1_11RegisterX64
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %7
   %11 = load i8, ptr %10, align 1, !tbaa !59, !range !61, !noundef !62
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %23, label %13
@@ -1947,7 +1947,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644takeENS1_11RegisterX64
   %15 = load ptr, ptr %14, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 124
-  %18 = getelementptr inbounds nuw [16 x i32], ptr %17, i64 0, i64 %7
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %7
   %19 = load i32, ptr %18, align 4, !tbaa !60
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %16, align 8, !tbaa !67
@@ -1961,7 +1961,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644takeENS1_11RegisterX64
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %7
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %7
   %27 = load i8, ptr %26, align 1, !tbaa !59, !range !61, !noundef !62
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %39, label %29
@@ -1971,7 +1971,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644takeENS1_11RegisterX64
   %31 = load ptr, ptr %30, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %7
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %7
   %35 = load i32, ptr %34, align 4, !tbaa !60
   %36 = zext i32 %35 to i64
   %37 = load ptr, ptr %32, align 8, !tbaa !67
@@ -1986,7 +1986,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644takeENS1_11RegisterX64
 _ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX64Ej.exit: ; preds = %23, %39
   %.sink.i = phi i64 [ 44, %39 ], [ 124, %23 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %40, i64 0, i64 %7
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %7
   store i32 -1, ptr %41, align 4, !tbaa !60
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %1, ptr %42, align 8, !tbaa !65
@@ -2005,10 +2005,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6412ScopedRegX644freeEv(ptr noundef non
   %..i = select i1 %5, i64 108, i64 28
   %.9.i = select i1 %5, i64 124, i64 44
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %..i
-  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   store i8 1, ptr %9, align 1, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.9.i
-  %11 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %7
   store i32 -1, ptr %11, align 4, !tbaa !60
   store i8 -128, ptr %3, align 8, !tbaa !65
   ret void

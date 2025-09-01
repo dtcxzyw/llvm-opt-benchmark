@@ -9885,7 +9885,7 @@ default.unreachable93:                            ; preds = %2
   %110 = load i8, ptr %109, align 1, !tbaa !69
   %111 = xor i8 %110, %108
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !69
   %115 = zext i8 %114 to i32
   %116 = add nsw i32 %.7, %115
@@ -9899,7 +9899,7 @@ default.unreachable93:                            ; preds = %2
   %121 = load i8, ptr %120, align 1, !tbaa !69
   %122 = xor i8 %121, %119
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !69
   %126 = zext i8 %125 to i32
   %127 = add nsw i32 %.9, %126
@@ -9913,7 +9913,7 @@ default.unreachable93:                            ; preds = %2
   %132 = load i8, ptr %131, align 1, !tbaa !69
   %133 = xor i8 %132, %130
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !69
   %137 = zext i8 %136 to i32
   %138 = add nsw i32 %.10, %137
@@ -9927,7 +9927,7 @@ default.unreachable93:                            ; preds = %2
   %143 = load i8, ptr %142, align 1, !tbaa !69
   %144 = xor i8 %143, %141
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !69
   %148 = zext i8 %147 to i32
   %149 = add nsw i32 %.11, %148
@@ -9941,7 +9941,7 @@ default.unreachable93:                            ; preds = %2
   %154 = load i8, ptr %153, align 1, !tbaa !69
   %155 = xor i8 %154, %152
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !69
   %159 = zext i8 %158 to i32
   %160 = add nsw i32 %.12, %159
@@ -9955,7 +9955,7 @@ default.unreachable93:                            ; preds = %2
   %165 = load i8, ptr %164, align 1, !tbaa !69
   %166 = xor i8 %165, %163
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !69
   %170 = zext i8 %169 to i32
   %171 = add nsw i32 %.13, %170
@@ -9967,7 +9967,7 @@ default.unreachable93:                            ; preds = %2
   %174 = load i8, ptr %105, align 1, !tbaa !69
   %175 = xor i8 %174, %173
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !69
   %179 = zext i8 %178 to i32
   %180 = add nsw i32 %.14, %179
@@ -10385,16 +10385,16 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i: ; preds = %_ZN5faiss13Inve
   %199 = mul nsw i64 %198, %138
   %200 = getelementptr inbounds nuw i8, ptr %3, i64 %199
   %201 = load i32, ptr %200, align 4, !tbaa !124, !alias.scope !453, !noalias !454
-  %202 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %50, i64 0, i64 %.019.i.i.i
+  %202 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %50, i64 %.019.i.i.i
   store i32 %201, ptr %202, align 4, !tbaa !124, !noalias !455
   %203 = getelementptr inbounds i32, ptr %6, i64 %198
-  %204 = getelementptr inbounds nuw [4 x ptr], ptr %146, i64 0, i64 %.019.i.i.i
+  %204 = getelementptr inbounds nuw ptr, ptr %146, i64 %.019.i.i.i
   store ptr %203, ptr %204, align 8, !tbaa !120, !noalias !455
   %205 = getelementptr inbounds i64, ptr %7, i64 %198
-  %206 = getelementptr inbounds nuw [4 x ptr], ptr %147, i64 0, i64 %.019.i.i.i
+  %206 = getelementptr inbounds nuw ptr, ptr %147, i64 %.019.i.i.i
   store ptr %205, ptr %206, align 8, !tbaa !119, !noalias !455
   %207 = load i32, ptr %203, align 4, !tbaa !124, !alias.scope !456, !noalias !457
-  %208 = getelementptr inbounds nuw [4 x i32], ptr %148, i64 0, i64 %.019.i.i.i
+  %208 = getelementptr inbounds nuw i32, ptr %148, i64 %.019.i.i.i
   store i32 %207, ptr %208, align 4, !tbaa !124, !noalias !455
   %209 = add nuw nsw i64 %.019.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %209, 4
@@ -10438,20 +10438,20 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPi
 
 224:                                              ; preds = %238, %.lr.ph74.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph74.i.i ], [ %indvars.iv.next.i.i.i, %238 ]
-  %225 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %50, i64 0, i64 %indvars.iv.i.i.i
+  %225 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %50, i64 %indvars.iv.i.i.i
   %226 = load i32, ptr %221, align 4, !tbaa !124, !noalias !438
   %227 = load i32, ptr %225, align 4, !tbaa !354, !noalias !437
   %228 = xor i32 %227, %226
   %229 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %228)
-  %230 = getelementptr inbounds nuw [4 x i32], ptr %148, i64 0, i64 %indvars.iv.i.i.i
+  %230 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i.i.i
   %231 = load i32, ptr %230, align 4, !tbaa !124, !noalias !437
   %232 = icmp slt i32 %229, %231
   br i1 %232, label %233, label %238
 
 233:                                              ; preds = %224
-  %234 = getelementptr inbounds nuw [4 x ptr], ptr %146, i64 0, i64 %indvars.iv.i.i.i
+  %234 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.i.i.i
   %235 = load ptr, ptr %234, align 8, !tbaa !120, !noalias !437
-  %236 = getelementptr inbounds nuw [4 x ptr], ptr %147, i64 0, i64 %indvars.iv.i.i.i
+  %236 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv.i.i.i
   %237 = load ptr, ptr %236, align 8, !tbaa !119, !noalias !437
   store i32 %229, ptr %235, align 4, !tbaa !124, !noalias !438
   store i64 %223, ptr %237, align 8, !tbaa !72, !noalias !438
@@ -10486,17 +10486,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEP
   %247 = mul nsw i64 %246, %138
   %248 = getelementptr inbounds nuw i8, ptr %3, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !124, !alias.scope !471, !noalias !472
-  %250 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %51, i64 0, i64 %.019.i240.i.i
+  %250 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %51, i64 %.019.i240.i.i
   store i32 %249, ptr %250, align 4, !tbaa !124, !noalias !473
   %251 = shl nsw i64 %246, 1
   %252 = getelementptr inbounds i32, ptr %6, i64 %251
-  %253 = getelementptr inbounds nuw [4 x ptr], ptr %143, i64 0, i64 %.019.i240.i.i
+  %253 = getelementptr inbounds nuw ptr, ptr %143, i64 %.019.i240.i.i
   store ptr %252, ptr %253, align 8, !tbaa !120, !noalias !473
   %254 = getelementptr inbounds i64, ptr %7, i64 %251
-  %255 = getelementptr inbounds nuw [4 x ptr], ptr %144, i64 0, i64 %.019.i240.i.i
+  %255 = getelementptr inbounds nuw ptr, ptr %144, i64 %.019.i240.i.i
   store ptr %254, ptr %255, align 8, !tbaa !119, !noalias !473
   %256 = load i32, ptr %252, align 4, !tbaa !124, !alias.scope !474, !noalias !475
-  %257 = getelementptr inbounds nuw [4 x i32], ptr %145, i64 0, i64 %.019.i240.i.i
+  %257 = getelementptr inbounds nuw i32, ptr %145, i64 %.019.i240.i.i
   store i32 %256, ptr %257, align 4, !tbaa !124, !noalias !473
   %258 = add nuw nsw i64 %.019.i240.i.i, 1
   %exitcond.not.i241.i.i = icmp eq i64 %258, 4
@@ -10521,20 +10521,20 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EEC2EmPKhPKiPi
 
 264:                                              ; preds = %289, %.lr.ph68.i.i
   %indvars.iv.i242.i.i = phi i64 [ 0, %.lr.ph68.i.i ], [ %indvars.iv.next.i243.i.i, %289 ]
-  %265 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %51, i64 0, i64 %indvars.iv.i242.i.i
+  %265 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %51, i64 %indvars.iv.i242.i.i
   %266 = load i32, ptr %261, align 4, !tbaa !124, !noalias !438
   %267 = load i32, ptr %265, align 4, !tbaa !354, !noalias !437
   %268 = xor i32 %267, %266
   %269 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %268)
-  %270 = getelementptr inbounds nuw [4 x i32], ptr %145, i64 0, i64 %indvars.iv.i242.i.i
+  %270 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i242.i.i
   %271 = load i32, ptr %270, align 4, !tbaa !124, !noalias !437
   %272 = icmp slt i32 %269, %271
   br i1 %272, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i, label %289
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i: ; preds = %264
-  %273 = getelementptr inbounds nuw [4 x ptr], ptr %143, i64 0, i64 %indvars.iv.i242.i.i
+  %273 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i242.i.i
   %274 = load ptr, ptr %273, align 8, !tbaa !120, !noalias !437
-  %275 = getelementptr inbounds nuw [4 x ptr], ptr %144, i64 0, i64 %indvars.iv.i242.i.i
+  %275 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i242.i.i
   %276 = load ptr, ptr %275, align 8, !tbaa !119, !noalias !437
   %277 = getelementptr inbounds i8, ptr %274, i64 -4
   %278 = getelementptr inbounds i8, ptr %276, i64 -8
@@ -10594,17 +10594,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEP
   %298 = mul nsw i64 %297, %138
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !124, !alias.scope !489, !noalias !490
-  %301 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %52, i64 0, i64 %.019.i245.i.i
+  %301 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %52, i64 %.019.i245.i.i
   store i32 %300, ptr %301, align 4, !tbaa !124, !noalias !491
   %302 = shl nsw i64 %297, 2
   %303 = getelementptr inbounds i32, ptr %6, i64 %302
-  %304 = getelementptr inbounds nuw [4 x ptr], ptr %140, i64 0, i64 %.019.i245.i.i
+  %304 = getelementptr inbounds nuw ptr, ptr %140, i64 %.019.i245.i.i
   store ptr %303, ptr %304, align 8, !tbaa !120, !noalias !491
   %305 = getelementptr inbounds i64, ptr %7, i64 %302
-  %306 = getelementptr inbounds nuw [4 x ptr], ptr %141, i64 0, i64 %.019.i245.i.i
+  %306 = getelementptr inbounds nuw ptr, ptr %141, i64 %.019.i245.i.i
   store ptr %305, ptr %306, align 8, !tbaa !119, !noalias !491
   %307 = load i32, ptr %303, align 4, !tbaa !124, !alias.scope !492, !noalias !493
-  %308 = getelementptr inbounds nuw [4 x i32], ptr %142, i64 0, i64 %.019.i245.i.i
+  %308 = getelementptr inbounds nuw i32, ptr %142, i64 %.019.i245.i.i
   store i32 %307, ptr %308, align 4, !tbaa !124, !noalias !491
   %309 = add nuw nsw i64 %.019.i245.i.i, 1
   %exitcond.not.i246.i.i = icmp eq i64 %309, 4
@@ -10629,20 +10629,20 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EEC2EmPKhPKiPi
 
 315:                                              ; preds = %368, %.lr.ph63.i.i
   %indvars.iv.i247.i.i = phi i64 [ 0, %.lr.ph63.i.i ], [ %indvars.iv.next.i248.i.i, %368 ]
-  %316 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %52, i64 0, i64 %indvars.iv.i247.i.i
+  %316 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %52, i64 %indvars.iv.i247.i.i
   %317 = load i32, ptr %312, align 4, !tbaa !124, !noalias !438
   %318 = load i32, ptr %316, align 4, !tbaa !354, !noalias !437
   %319 = xor i32 %318, %317
   %320 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %319)
-  %321 = getelementptr inbounds nuw [4 x i32], ptr %142, i64 0, i64 %indvars.iv.i247.i.i
+  %321 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.i247.i.i
   %322 = load i32, ptr %321, align 4, !tbaa !124, !noalias !437
   %323 = icmp slt i32 %320, %322
   br i1 %323, label %324, label %368
 
 324:                                              ; preds = %315
-  %325 = getelementptr inbounds nuw [4 x ptr], ptr %140, i64 0, i64 %indvars.iv.i247.i.i
+  %325 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i247.i.i
   %326 = load ptr, ptr %325, align 8, !tbaa !120, !noalias !437
-  %327 = getelementptr inbounds nuw [4 x ptr], ptr %141, i64 0, i64 %indvars.iv.i247.i.i
+  %327 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv.i247.i.i
   %328 = load ptr, ptr %327, align 8, !tbaa !119, !noalias !437
   %329 = getelementptr inbounds i8, ptr %326, i64 -4
   %330 = getelementptr inbounds i8, ptr %328, i64 -8
@@ -10752,17 +10752,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEP
   %377 = mul nsw i64 %376, %138
   %378 = getelementptr inbounds nuw i8, ptr %3, i64 %377
   %379 = load i32, ptr %378, align 4, !tbaa !124, !alias.scope !507, !noalias !508
-  %380 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %.ptr21.i.i.i, i64 0, i64 %.022.i.i.i
+  %380 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %.ptr21.i.i.i, i64 %.022.i.i.i
   store i32 %379, ptr %380, align 4, !tbaa !124, !noalias !509
   %381 = mul nsw i64 %149, %376
   %382 = getelementptr inbounds i32, ptr %6, i64 %381
-  %383 = getelementptr inbounds nuw [4 x ptr], ptr %150, i64 0, i64 %.022.i.i.i
+  %383 = getelementptr inbounds nuw ptr, ptr %150, i64 %.022.i.i.i
   store ptr %382, ptr %383, align 8, !tbaa !120, !noalias !509
   %384 = getelementptr inbounds i64, ptr %7, i64 %381
-  %385 = getelementptr inbounds nuw [4 x ptr], ptr %151, i64 0, i64 %.022.i.i.i
+  %385 = getelementptr inbounds nuw ptr, ptr %151, i64 %.022.i.i.i
   store ptr %384, ptr %385, align 8, !tbaa !119, !noalias !509
   %386 = load i32, ptr %382, align 4, !tbaa !124, !alias.scope !510, !noalias !511
-  %387 = getelementptr inbounds nuw [4 x i32], ptr %152, i64 0, i64 %.022.i.i.i
+  %387 = getelementptr inbounds nuw i32, ptr %152, i64 %.022.i.i.i
   store i32 %386, ptr %387, align 4, !tbaa !124, !noalias !509
   %388 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i256.i.i = icmp eq i64 %388, 4
@@ -10784,20 +10784,20 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EEC2EmiPK
 
 393:                                              ; preds = %406, %.split.us.us.i.i
   %indvars.iv.i257.us.us.i.i = phi i64 [ 0, %.split.us.us.i.i ], [ %indvars.iv.next.i258.us.us.i.i, %406 ]
-  %394 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %.ptr21.i.i.i, i64 0, i64 %indvars.iv.i257.us.us.i.i
+  %394 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %.ptr21.i.i.i, i64 %indvars.iv.i257.us.us.i.i
   %395 = load i32, ptr %390, align 4, !tbaa !124, !noalias !438
   %396 = load i32, ptr %394, align 4, !tbaa !354, !noalias !437
   %397 = xor i32 %396, %395
   %398 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %397)
-  %399 = getelementptr inbounds nuw [4 x i32], ptr %152, i64 0, i64 %indvars.iv.i257.us.us.i.i
+  %399 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i257.us.us.i.i
   %400 = load i32, ptr %399, align 4, !tbaa !124, !noalias !437
   %401 = icmp slt i32 %398, %400
   br i1 %401, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i268.us.us.i.i, label %406
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i268.us.us.i.i: ; preds = %393
-  %402 = getelementptr inbounds nuw [4 x ptr], ptr %150, i64 0, i64 %indvars.iv.i257.us.us.i.i
+  %402 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i257.us.us.i.i
   %403 = load ptr, ptr %402, align 8, !tbaa !120, !noalias !437
-  %404 = getelementptr inbounds nuw [4 x ptr], ptr %151, i64 0, i64 %indvars.iv.i257.us.us.i.i
+  %404 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i257.us.us.i.i
   %405 = load ptr, ptr %404, align 8, !tbaa !119, !noalias !437
   store i32 %398, ptr %403, align 4, !tbaa !124, !noalias !438
   store i64 %392, ptr %405, align 8, !tbaa !72, !noalias !438
@@ -10830,20 +10830,20 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EEC2EmiPK
 
 413:                                              ; preds = %465, %.split.i.i
   %indvars.iv.i257.i.i = phi i64 [ 0, %.split.i.i ], [ %indvars.iv.next.i258.i.i, %465 ]
-  %414 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer4"], ptr %.ptr21.i.i.i, i64 0, i64 %indvars.iv.i257.i.i
+  %414 = getelementptr inbounds nuw %"struct.faiss::HammingComputer4", ptr %.ptr21.i.i.i, i64 %indvars.iv.i257.i.i
   %415 = load i32, ptr %410, align 4, !tbaa !124, !noalias !438
   %416 = load i32, ptr %414, align 4, !tbaa !354, !noalias !437
   %417 = xor i32 %416, %415
   %418 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %417)
-  %419 = getelementptr inbounds nuw [4 x i32], ptr %152, i64 0, i64 %indvars.iv.i257.i.i
+  %419 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i257.i.i
   %420 = load i32, ptr %419, align 4, !tbaa !124, !noalias !437
   %421 = icmp slt i32 %418, %420
   br i1 %421, label %.lr.ph.preheader.i.i.i.i, label %465
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %413
-  %422 = getelementptr inbounds nuw [4 x ptr], ptr %150, i64 0, i64 %indvars.iv.i257.i.i
+  %422 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i257.i.i
   %423 = load ptr, ptr %422, align 8, !tbaa !120, !noalias !437
-  %424 = getelementptr inbounds nuw [4 x ptr], ptr %151, i64 0, i64 %indvars.iv.i257.i.i
+  %424 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i257.i.i
   %425 = load ptr, ptr %424, align 8, !tbaa !119, !noalias !437
   %426 = getelementptr inbounds i8, ptr %423, i64 -4
   %427 = getelementptr inbounds i8, ptr %425, i64 -8
@@ -11678,16 +11678,16 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i134: ; preds = %_ZN5faiss13I
   %791 = mul nsw i64 %790, %730
   %792 = getelementptr inbounds nuw i8, ptr %3, i64 %791
   %793 = load i64, ptr %792, align 8, !tbaa !72, !alias.scope !548, !noalias !549
-  %794 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %44, i64 0, i64 %.019.i.i.i186
+  %794 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %44, i64 %.019.i.i.i186
   store i64 %793, ptr %794, align 8, !tbaa !72, !noalias !550
   %795 = getelementptr inbounds i32, ptr %6, i64 %790
-  %796 = getelementptr inbounds nuw [4 x ptr], ptr %738, i64 0, i64 %.019.i.i.i186
+  %796 = getelementptr inbounds nuw ptr, ptr %738, i64 %.019.i.i.i186
   store ptr %795, ptr %796, align 8, !tbaa !120, !noalias !550
   %797 = getelementptr inbounds i64, ptr %7, i64 %790
-  %798 = getelementptr inbounds nuw [4 x ptr], ptr %739, i64 0, i64 %.019.i.i.i186
+  %798 = getelementptr inbounds nuw ptr, ptr %739, i64 %.019.i.i.i186
   store ptr %797, ptr %798, align 8, !tbaa !119, !noalias !550
   %799 = load i32, ptr %795, align 4, !tbaa !124, !alias.scope !551, !noalias !552
-  %800 = getelementptr inbounds nuw [4 x i32], ptr %740, i64 0, i64 %.019.i.i.i186
+  %800 = getelementptr inbounds nuw i32, ptr %740, i64 %.019.i.i.i186
   store i32 %799, ptr %800, align 4, !tbaa !124, !noalias !550
   %801 = add nuw nsw i64 %.019.i.i.i186, 1
   %exitcond.not.i.i.i187 = icmp eq i64 %801, 4
@@ -11731,21 +11731,21 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPi
 
 816:                                              ; preds = %831, %.lr.ph74.i.i188
   %indvars.iv.i.i.i189 = phi i64 [ 0, %.lr.ph74.i.i188 ], [ %indvars.iv.next.i.i.i190, %831 ]
-  %817 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %44, i64 0, i64 %indvars.iv.i.i.i189
+  %817 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %44, i64 %indvars.iv.i.i.i189
   %818 = load i64, ptr %813, align 8, !tbaa !72, !noalias !534
   %819 = load i64, ptr %817, align 8, !tbaa !364, !noalias !533
   %820 = xor i64 %819, %818
   %821 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %820)
   %822 = trunc nuw nsw i64 %821 to i32
-  %823 = getelementptr inbounds nuw [4 x i32], ptr %740, i64 0, i64 %indvars.iv.i.i.i189
+  %823 = getelementptr inbounds nuw i32, ptr %740, i64 %indvars.iv.i.i.i189
   %824 = load i32, ptr %823, align 4, !tbaa !124, !noalias !533
   %825 = icmp sgt i32 %824, %822
   br i1 %825, label %826, label %831
 
 826:                                              ; preds = %816
-  %827 = getelementptr inbounds nuw [4 x ptr], ptr %738, i64 0, i64 %indvars.iv.i.i.i189
+  %827 = getelementptr inbounds nuw ptr, ptr %738, i64 %indvars.iv.i.i.i189
   %828 = load ptr, ptr %827, align 8, !tbaa !120, !noalias !533
-  %829 = getelementptr inbounds nuw [4 x ptr], ptr %739, i64 0, i64 %indvars.iv.i.i.i189
+  %829 = getelementptr inbounds nuw ptr, ptr %739, i64 %indvars.iv.i.i.i189
   %830 = load ptr, ptr %829, align 8, !tbaa !119, !noalias !533
   store i32 %822, ptr %828, align 4, !tbaa !124, !noalias !534
   store i64 %815, ptr %830, align 8, !tbaa !72, !noalias !534
@@ -11780,17 +11780,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEP
   %840 = mul nsw i64 %839, %730
   %841 = getelementptr inbounds nuw i8, ptr %3, i64 %840
   %842 = load i64, ptr %841, align 8, !tbaa !72, !alias.scope !566, !noalias !567
-  %843 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %45, i64 0, i64 %.019.i237.i.i
+  %843 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %45, i64 %.019.i237.i.i
   store i64 %842, ptr %843, align 8, !tbaa !72, !noalias !568
   %844 = shl nsw i64 %839, 1
   %845 = getelementptr inbounds i32, ptr %6, i64 %844
-  %846 = getelementptr inbounds nuw [4 x ptr], ptr %735, i64 0, i64 %.019.i237.i.i
+  %846 = getelementptr inbounds nuw ptr, ptr %735, i64 %.019.i237.i.i
   store ptr %845, ptr %846, align 8, !tbaa !120, !noalias !568
   %847 = getelementptr inbounds i64, ptr %7, i64 %844
-  %848 = getelementptr inbounds nuw [4 x ptr], ptr %736, i64 0, i64 %.019.i237.i.i
+  %848 = getelementptr inbounds nuw ptr, ptr %736, i64 %.019.i237.i.i
   store ptr %847, ptr %848, align 8, !tbaa !119, !noalias !568
   %849 = load i32, ptr %845, align 4, !tbaa !124, !alias.scope !569, !noalias !570
-  %850 = getelementptr inbounds nuw [4 x i32], ptr %737, i64 0, i64 %.019.i237.i.i
+  %850 = getelementptr inbounds nuw i32, ptr %737, i64 %.019.i237.i.i
   store i32 %849, ptr %850, align 4, !tbaa !124, !noalias !568
   %851 = add nuw nsw i64 %.019.i237.i.i, 1
   %exitcond.not.i238.i.i = icmp eq i64 %851, 4
@@ -11815,21 +11815,21 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EEC2EmPKhPKiPi
 
 857:                                              ; preds = %883, %.lr.ph68.i.i175
   %indvars.iv.i239.i.i = phi i64 [ 0, %.lr.ph68.i.i175 ], [ %indvars.iv.next.i240.i.i, %883 ]
-  %858 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %45, i64 0, i64 %indvars.iv.i239.i.i
+  %858 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %45, i64 %indvars.iv.i239.i.i
   %859 = load i64, ptr %854, align 8, !tbaa !72, !noalias !534
   %860 = load i64, ptr %858, align 8, !tbaa !364, !noalias !533
   %861 = xor i64 %860, %859
   %862 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %861)
   %863 = trunc nuw nsw i64 %862 to i32
-  %864 = getelementptr inbounds nuw [4 x i32], ptr %737, i64 0, i64 %indvars.iv.i239.i.i
+  %864 = getelementptr inbounds nuw i32, ptr %737, i64 %indvars.iv.i239.i.i
   %865 = load i32, ptr %864, align 4, !tbaa !124, !noalias !533
   %866 = icmp sgt i32 %865, %863
   br i1 %866, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i178, label %883
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i178: ; preds = %857
-  %867 = getelementptr inbounds nuw [4 x ptr], ptr %735, i64 0, i64 %indvars.iv.i239.i.i
+  %867 = getelementptr inbounds nuw ptr, ptr %735, i64 %indvars.iv.i239.i.i
   %868 = load ptr, ptr %867, align 8, !tbaa !120, !noalias !533
-  %869 = getelementptr inbounds nuw [4 x ptr], ptr %736, i64 0, i64 %indvars.iv.i239.i.i
+  %869 = getelementptr inbounds nuw ptr, ptr %736, i64 %indvars.iv.i239.i.i
   %870 = load ptr, ptr %869, align 8, !tbaa !119, !noalias !533
   %871 = getelementptr inbounds i8, ptr %868, i64 -4
   %872 = getelementptr inbounds i8, ptr %870, i64 -8
@@ -11889,17 +11889,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEP
   %892 = mul nsw i64 %891, %730
   %893 = getelementptr inbounds nuw i8, ptr %3, i64 %892
   %894 = load i64, ptr %893, align 8, !tbaa !72, !alias.scope !584, !noalias !585
-  %895 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %46, i64 0, i64 %.019.i242.i.i
+  %895 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %46, i64 %.019.i242.i.i
   store i64 %894, ptr %895, align 8, !tbaa !72, !noalias !586
   %896 = shl nsw i64 %891, 2
   %897 = getelementptr inbounds i32, ptr %6, i64 %896
-  %898 = getelementptr inbounds nuw [4 x ptr], ptr %732, i64 0, i64 %.019.i242.i.i
+  %898 = getelementptr inbounds nuw ptr, ptr %732, i64 %.019.i242.i.i
   store ptr %897, ptr %898, align 8, !tbaa !120, !noalias !586
   %899 = getelementptr inbounds i64, ptr %7, i64 %896
-  %900 = getelementptr inbounds nuw [4 x ptr], ptr %733, i64 0, i64 %.019.i242.i.i
+  %900 = getelementptr inbounds nuw ptr, ptr %733, i64 %.019.i242.i.i
   store ptr %899, ptr %900, align 8, !tbaa !119, !noalias !586
   %901 = load i32, ptr %897, align 4, !tbaa !124, !alias.scope !587, !noalias !588
-  %902 = getelementptr inbounds nuw [4 x i32], ptr %734, i64 0, i64 %.019.i242.i.i
+  %902 = getelementptr inbounds nuw i32, ptr %734, i64 %.019.i242.i.i
   store i32 %901, ptr %902, align 4, !tbaa !124, !noalias !586
   %903 = add nuw nsw i64 %.019.i242.i.i, 1
   %exitcond.not.i243.i.i = icmp eq i64 %903, 4
@@ -11924,21 +11924,21 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EEC2EmPKhPKiPi
 
 909:                                              ; preds = %963, %.lr.ph63.i.i162
   %indvars.iv.i244.i.i = phi i64 [ 0, %.lr.ph63.i.i162 ], [ %indvars.iv.next.i245.i.i, %963 ]
-  %910 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %46, i64 0, i64 %indvars.iv.i244.i.i
+  %910 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %46, i64 %indvars.iv.i244.i.i
   %911 = load i64, ptr %906, align 8, !tbaa !72, !noalias !534
   %912 = load i64, ptr %910, align 8, !tbaa !364, !noalias !533
   %913 = xor i64 %912, %911
   %914 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %913)
   %915 = trunc nuw nsw i64 %914 to i32
-  %916 = getelementptr inbounds nuw [4 x i32], ptr %734, i64 0, i64 %indvars.iv.i244.i.i
+  %916 = getelementptr inbounds nuw i32, ptr %734, i64 %indvars.iv.i244.i.i
   %917 = load i32, ptr %916, align 4, !tbaa !124, !noalias !533
   %918 = icmp sgt i32 %917, %915
   br i1 %918, label %919, label %963
 
 919:                                              ; preds = %909
-  %920 = getelementptr inbounds nuw [4 x ptr], ptr %732, i64 0, i64 %indvars.iv.i244.i.i
+  %920 = getelementptr inbounds nuw ptr, ptr %732, i64 %indvars.iv.i244.i.i
   %921 = load ptr, ptr %920, align 8, !tbaa !120, !noalias !533
-  %922 = getelementptr inbounds nuw [4 x ptr], ptr %733, i64 0, i64 %indvars.iv.i244.i.i
+  %922 = getelementptr inbounds nuw ptr, ptr %733, i64 %indvars.iv.i244.i.i
   %923 = load ptr, ptr %922, align 8, !tbaa !119, !noalias !533
   %924 = getelementptr inbounds i8, ptr %921, i64 -4
   %925 = getelementptr inbounds i8, ptr %923, i64 -8
@@ -12048,17 +12048,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEP
   %972 = mul nsw i64 %971, %730
   %973 = getelementptr inbounds nuw i8, ptr %3, i64 %972
   %974 = load i64, ptr %973, align 8, !tbaa !72, !alias.scope !602, !noalias !603
-  %975 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %.ptr21.i.i.i102, i64 0, i64 %.022.i.i.i194
+  %975 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %.ptr21.i.i.i102, i64 %.022.i.i.i194
   store i64 %974, ptr %975, align 8, !tbaa !72, !noalias !604
   %976 = mul nsw i64 %741, %971
   %977 = getelementptr inbounds i32, ptr %6, i64 %976
-  %978 = getelementptr inbounds nuw [4 x ptr], ptr %742, i64 0, i64 %.022.i.i.i194
+  %978 = getelementptr inbounds nuw ptr, ptr %742, i64 %.022.i.i.i194
   store ptr %977, ptr %978, align 8, !tbaa !120, !noalias !604
   %979 = getelementptr inbounds i64, ptr %7, i64 %976
-  %980 = getelementptr inbounds nuw [4 x ptr], ptr %743, i64 0, i64 %.022.i.i.i194
+  %980 = getelementptr inbounds nuw ptr, ptr %743, i64 %.022.i.i.i194
   store ptr %979, ptr %980, align 8, !tbaa !119, !noalias !604
   %981 = load i32, ptr %977, align 4, !tbaa !124, !alias.scope !605, !noalias !606
-  %982 = getelementptr inbounds nuw [4 x i32], ptr %744, i64 0, i64 %.022.i.i.i194
+  %982 = getelementptr inbounds nuw i32, ptr %744, i64 %.022.i.i.i194
   store i32 %981, ptr %982, align 4, !tbaa !124, !noalias !604
   %983 = add nuw nsw i64 %.022.i.i.i194, 1
   %exitcond.not.i253.i.i = icmp eq i64 %983, 4
@@ -12080,21 +12080,21 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EEC2EmiPK
 
 988:                                              ; preds = %1002, %.split.us.us.i.i200
   %indvars.iv.i254.us.us.i.i = phi i64 [ 0, %.split.us.us.i.i200 ], [ %indvars.iv.next.i255.us.us.i.i, %1002 ]
-  %989 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %.ptr21.i.i.i102, i64 0, i64 %indvars.iv.i254.us.us.i.i
+  %989 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %.ptr21.i.i.i102, i64 %indvars.iv.i254.us.us.i.i
   %990 = load i64, ptr %985, align 8, !tbaa !72, !noalias !534
   %991 = load i64, ptr %989, align 8, !tbaa !364, !noalias !533
   %992 = xor i64 %991, %990
   %993 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %992)
   %994 = trunc nuw nsw i64 %993 to i32
-  %995 = getelementptr inbounds nuw [4 x i32], ptr %744, i64 0, i64 %indvars.iv.i254.us.us.i.i
+  %995 = getelementptr inbounds nuw i32, ptr %744, i64 %indvars.iv.i254.us.us.i.i
   %996 = load i32, ptr %995, align 4, !tbaa !124, !noalias !533
   %997 = icmp sgt i32 %996, %994
   br i1 %997, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i265.us.us.i.i, label %1002
 
 _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i265.us.us.i.i: ; preds = %988
-  %998 = getelementptr inbounds nuw [4 x ptr], ptr %742, i64 0, i64 %indvars.iv.i254.us.us.i.i
+  %998 = getelementptr inbounds nuw ptr, ptr %742, i64 %indvars.iv.i254.us.us.i.i
   %999 = load ptr, ptr %998, align 8, !tbaa !120, !noalias !533
-  %1000 = getelementptr inbounds nuw [4 x ptr], ptr %743, i64 0, i64 %indvars.iv.i254.us.us.i.i
+  %1000 = getelementptr inbounds nuw ptr, ptr %743, i64 %indvars.iv.i254.us.us.i.i
   %1001 = load ptr, ptr %1000, align 8, !tbaa !119, !noalias !533
   store i32 %994, ptr %999, align 4, !tbaa !124, !noalias !534
   store i64 %987, ptr %1001, align 8, !tbaa !72, !noalias !534
@@ -12127,21 +12127,21 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EEC2EmiPK
 
 1009:                                             ; preds = %1062, %.split.i.i196
   %indvars.iv.i254.i.i = phi i64 [ 0, %.split.i.i196 ], [ %indvars.iv.next.i255.i.i, %1062 ]
-  %1010 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer8"], ptr %.ptr21.i.i.i102, i64 0, i64 %indvars.iv.i254.i.i
+  %1010 = getelementptr inbounds nuw %"struct.faiss::HammingComputer8", ptr %.ptr21.i.i.i102, i64 %indvars.iv.i254.i.i
   %1011 = load i64, ptr %1006, align 8, !tbaa !72, !noalias !534
   %1012 = load i64, ptr %1010, align 8, !tbaa !364, !noalias !533
   %1013 = xor i64 %1012, %1011
   %1014 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1013)
   %1015 = trunc nuw nsw i64 %1014 to i32
-  %1016 = getelementptr inbounds nuw [4 x i32], ptr %744, i64 0, i64 %indvars.iv.i254.i.i
+  %1016 = getelementptr inbounds nuw i32, ptr %744, i64 %indvars.iv.i254.i.i
   %1017 = load i32, ptr %1016, align 4, !tbaa !124, !noalias !533
   %1018 = icmp sgt i32 %1017, %1015
   br i1 %1018, label %.lr.ph.preheader.i.i.i.i199, label %1062
 
 .lr.ph.preheader.i.i.i.i199:                      ; preds = %1009
-  %1019 = getelementptr inbounds nuw [4 x ptr], ptr %742, i64 0, i64 %indvars.iv.i254.i.i
+  %1019 = getelementptr inbounds nuw ptr, ptr %742, i64 %indvars.iv.i254.i.i
   %1020 = load ptr, ptr %1019, align 8, !tbaa !120, !noalias !533
-  %1021 = getelementptr inbounds nuw [4 x ptr], ptr %743, i64 0, i64 %indvars.iv.i254.i.i
+  %1021 = getelementptr inbounds nuw ptr, ptr %743, i64 %indvars.iv.i254.i.i
   %1022 = load ptr, ptr %1021, align 8, !tbaa !119, !noalias !533
   %1023 = getelementptr inbounds i8, ptr %1020, i64 -4
   %1024 = getelementptr inbounds i8, ptr %1022, i64 -8
@@ -12976,18 +12976,18 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i283: ; preds = %_ZN5faiss13I
   %1392 = load i64, ptr %1391, align 8, !tbaa !72, !alias.scope !640, !noalias !641
   %1393 = getelementptr inbounds nuw i8, ptr %1391, i64 8
   %1394 = load i64, ptr %1393, align 8, !tbaa !72, !alias.scope !640, !noalias !641
-  %1395 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %38, i64 0, i64 %.019.i.i.i341
+  %1395 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %38, i64 %.019.i.i.i341
   store i64 %1392, ptr %1395, align 8, !tbaa !72, !noalias !642
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1395, i64 8
   store i64 %1394, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !72, !noalias !642
   %1396 = getelementptr inbounds i32, ptr %6, i64 %1389
-  %1397 = getelementptr inbounds nuw [4 x ptr], ptr %1337, i64 0, i64 %.019.i.i.i341
+  %1397 = getelementptr inbounds nuw ptr, ptr %1337, i64 %.019.i.i.i341
   store ptr %1396, ptr %1397, align 8, !tbaa !120, !noalias !642
   %1398 = getelementptr inbounds i64, ptr %7, i64 %1389
-  %1399 = getelementptr inbounds nuw [4 x ptr], ptr %1338, i64 0, i64 %.019.i.i.i341
+  %1399 = getelementptr inbounds nuw ptr, ptr %1338, i64 %.019.i.i.i341
   store ptr %1398, ptr %1399, align 8, !tbaa !119, !noalias !642
   %1400 = load i32, ptr %1396, align 4, !tbaa !124, !alias.scope !643, !noalias !644
-  %1401 = getelementptr inbounds nuw [4 x i32], ptr %1339, i64 0, i64 %.019.i.i.i341
+  %1401 = getelementptr inbounds nuw i32, ptr %1339, i64 %.019.i.i.i341
   store i32 %1400, ptr %1401, align 4, !tbaa !124, !noalias !642
   %1402 = add nuw nsw i64 %.019.i.i.i341, 1
   %exitcond.not.i.i.i342 = icmp eq i64 %1402, 4
@@ -13032,7 +13032,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiP
 
 1418:                                             ; preds = %1440, %.lr.ph74.i.i344
   %indvars.iv.i.i.i346 = phi i64 [ 0, %.lr.ph74.i.i344 ], [ %indvars.iv.next.i.i.i347, %1440 ]
-  %1419 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %38, i64 0, i64 %indvars.iv.i.i.i346
+  %1419 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %38, i64 %indvars.iv.i.i.i346
   %1420 = load i64, ptr %1414, align 8, !tbaa !72, !noalias !626
   %1421 = load i64, ptr %1419, align 8, !tbaa !372, !noalias !625
   %1422 = xor i64 %1421, %1420
@@ -13045,15 +13045,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiP
   %1429 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1428)
   %1430 = trunc nuw nsw i64 %1429 to i32
   %1431 = add nuw nsw i32 %1430, %1424
-  %1432 = getelementptr inbounds nuw [4 x i32], ptr %1339, i64 0, i64 %indvars.iv.i.i.i346
+  %1432 = getelementptr inbounds nuw i32, ptr %1339, i64 %indvars.iv.i.i.i346
   %1433 = load i32, ptr %1432, align 4, !tbaa !124, !noalias !625
   %1434 = icmp slt i32 %1431, %1433
   br i1 %1434, label %1435, label %1440
 
 1435:                                             ; preds = %1418
-  %1436 = getelementptr inbounds nuw [4 x ptr], ptr %1337, i64 0, i64 %indvars.iv.i.i.i346
+  %1436 = getelementptr inbounds nuw ptr, ptr %1337, i64 %indvars.iv.i.i.i346
   %1437 = load ptr, ptr %1436, align 8, !tbaa !120, !noalias !625
-  %1438 = getelementptr inbounds nuw [4 x ptr], ptr %1338, i64 0, i64 %indvars.iv.i.i.i346
+  %1438 = getelementptr inbounds nuw ptr, ptr %1338, i64 %indvars.iv.i.i.i346
   %1439 = load ptr, ptr %1438, align 8, !tbaa !119, !noalias !625
   store i32 %1431, ptr %1437, align 4, !tbaa !124, !noalias !626
   store i64 %1416, ptr %1439, align 8, !tbaa !72, !noalias !626
@@ -13090,19 +13090,19 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeE
   %1451 = load i64, ptr %1450, align 8, !tbaa !72, !alias.scope !658, !noalias !659
   %1452 = getelementptr inbounds nuw i8, ptr %1450, i64 8
   %1453 = load i64, ptr %1452, align 8, !tbaa !72, !alias.scope !658, !noalias !659
-  %1454 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %39, i64 0, i64 %.019.i237.i.i327
+  %1454 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %39, i64 %.019.i237.i.i327
   store i64 %1451, ptr %1454, align 8, !tbaa !72, !noalias !660
   %.sroa.4.0..sroa_idx.i238.i.i = getelementptr inbounds nuw i8, ptr %1454, i64 8
   store i64 %1453, ptr %.sroa.4.0..sroa_idx.i238.i.i, align 8, !tbaa !72, !noalias !660
   %1455 = shl nsw i64 %1448, 1
   %1456 = getelementptr inbounds i32, ptr %6, i64 %1455
-  %1457 = getelementptr inbounds nuw [4 x ptr], ptr %1334, i64 0, i64 %.019.i237.i.i327
+  %1457 = getelementptr inbounds nuw ptr, ptr %1334, i64 %.019.i237.i.i327
   store ptr %1456, ptr %1457, align 8, !tbaa !120, !noalias !660
   %1458 = getelementptr inbounds i64, ptr %7, i64 %1455
-  %1459 = getelementptr inbounds nuw [4 x ptr], ptr %1335, i64 0, i64 %.019.i237.i.i327
+  %1459 = getelementptr inbounds nuw ptr, ptr %1335, i64 %.019.i237.i.i327
   store ptr %1458, ptr %1459, align 8, !tbaa !119, !noalias !660
   %1460 = load i32, ptr %1456, align 4, !tbaa !124, !alias.scope !661, !noalias !662
-  %1461 = getelementptr inbounds nuw [4 x i32], ptr %1336, i64 0, i64 %.019.i237.i.i327
+  %1461 = getelementptr inbounds nuw i32, ptr %1336, i64 %.019.i237.i.i327
   store i32 %1460, ptr %1461, align 4, !tbaa !124, !noalias !660
   %1462 = add nuw nsw i64 %.019.i237.i.i327, 1
   %exitcond.not.i239.i.i328 = icmp eq i64 %1462, 4
@@ -13128,7 +13128,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiP
 
 1469:                                             ; preds = %1502, %.lr.ph68.i.i330
   %indvars.iv.i240.i.i = phi i64 [ 0, %.lr.ph68.i.i330 ], [ %indvars.iv.next.i241.i.i, %1502 ]
-  %1470 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %39, i64 0, i64 %indvars.iv.i240.i.i
+  %1470 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %39, i64 %indvars.iv.i240.i.i
   %1471 = load i64, ptr %1465, align 8, !tbaa !72, !noalias !626
   %1472 = load i64, ptr %1470, align 8, !tbaa !372, !noalias !625
   %1473 = xor i64 %1472, %1471
@@ -13141,15 +13141,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiP
   %1480 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1479)
   %1481 = trunc nuw nsw i64 %1480 to i32
   %1482 = add nuw nsw i32 %1481, %1475
-  %1483 = getelementptr inbounds nuw [4 x i32], ptr %1336, i64 0, i64 %indvars.iv.i240.i.i
+  %1483 = getelementptr inbounds nuw i32, ptr %1336, i64 %indvars.iv.i240.i.i
   %1484 = load i32, ptr %1483, align 4, !tbaa !124, !noalias !625
   %1485 = icmp slt i32 %1482, %1484
   br i1 %1485, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i332, label %1502
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i332: ; preds = %1469
-  %1486 = getelementptr inbounds nuw [4 x ptr], ptr %1334, i64 0, i64 %indvars.iv.i240.i.i
+  %1486 = getelementptr inbounds nuw ptr, ptr %1334, i64 %indvars.iv.i240.i.i
   %1487 = load ptr, ptr %1486, align 8, !tbaa !120, !noalias !625
-  %1488 = getelementptr inbounds nuw [4 x ptr], ptr %1335, i64 0, i64 %indvars.iv.i240.i.i
+  %1488 = getelementptr inbounds nuw ptr, ptr %1335, i64 %indvars.iv.i240.i.i
   %1489 = load ptr, ptr %1488, align 8, !tbaa !119, !noalias !625
   %1490 = getelementptr inbounds i8, ptr %1487, i64 -4
   %1491 = getelementptr inbounds i8, ptr %1489, i64 -8
@@ -13211,19 +13211,19 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeE
   %1513 = load i64, ptr %1512, align 8, !tbaa !72, !alias.scope !676, !noalias !677
   %1514 = getelementptr inbounds nuw i8, ptr %1512, i64 8
   %1515 = load i64, ptr %1514, align 8, !tbaa !72, !alias.scope !676, !noalias !677
-  %1516 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %40, i64 0, i64 %.019.i243.i.i
+  %1516 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %40, i64 %.019.i243.i.i
   store i64 %1513, ptr %1516, align 8, !tbaa !72, !noalias !678
   %.sroa.4.0..sroa_idx.i244.i.i = getelementptr inbounds nuw i8, ptr %1516, i64 8
   store i64 %1515, ptr %.sroa.4.0..sroa_idx.i244.i.i, align 8, !tbaa !72, !noalias !678
   %1517 = shl nsw i64 %1510, 2
   %1518 = getelementptr inbounds i32, ptr %6, i64 %1517
-  %1519 = getelementptr inbounds nuw [4 x ptr], ptr %1331, i64 0, i64 %.019.i243.i.i
+  %1519 = getelementptr inbounds nuw ptr, ptr %1331, i64 %.019.i243.i.i
   store ptr %1518, ptr %1519, align 8, !tbaa !120, !noalias !678
   %1520 = getelementptr inbounds i64, ptr %7, i64 %1517
-  %1521 = getelementptr inbounds nuw [4 x ptr], ptr %1332, i64 0, i64 %.019.i243.i.i
+  %1521 = getelementptr inbounds nuw ptr, ptr %1332, i64 %.019.i243.i.i
   store ptr %1520, ptr %1521, align 8, !tbaa !119, !noalias !678
   %1522 = load i32, ptr %1518, align 4, !tbaa !124, !alias.scope !679, !noalias !680
-  %1523 = getelementptr inbounds nuw [4 x i32], ptr %1333, i64 0, i64 %.019.i243.i.i
+  %1523 = getelementptr inbounds nuw i32, ptr %1333, i64 %.019.i243.i.i
   store i32 %1522, ptr %1523, align 4, !tbaa !124, !noalias !678
   %1524 = add nuw nsw i64 %.019.i243.i.i, 1
   %exitcond.not.i245.i.i = icmp eq i64 %1524, 4
@@ -13249,7 +13249,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiP
 
 1531:                                             ; preds = %1592, %.lr.ph63.i.i314
   %indvars.iv.i246.i.i = phi i64 [ 0, %.lr.ph63.i.i314 ], [ %indvars.iv.next.i247.i.i, %1592 ]
-  %1532 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %40, i64 0, i64 %indvars.iv.i246.i.i
+  %1532 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %40, i64 %indvars.iv.i246.i.i
   %1533 = load i64, ptr %1527, align 8, !tbaa !72, !noalias !626
   %1534 = load i64, ptr %1532, align 8, !tbaa !372, !noalias !625
   %1535 = xor i64 %1534, %1533
@@ -13262,15 +13262,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiP
   %1542 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1541)
   %1543 = trunc nuw nsw i64 %1542 to i32
   %1544 = add nuw nsw i32 %1543, %1537
-  %1545 = getelementptr inbounds nuw [4 x i32], ptr %1333, i64 0, i64 %indvars.iv.i246.i.i
+  %1545 = getelementptr inbounds nuw i32, ptr %1333, i64 %indvars.iv.i246.i.i
   %1546 = load i32, ptr %1545, align 4, !tbaa !124, !noalias !625
   %1547 = icmp slt i32 %1544, %1546
   br i1 %1547, label %1548, label %1592
 
 1548:                                             ; preds = %1531
-  %1549 = getelementptr inbounds nuw [4 x ptr], ptr %1331, i64 0, i64 %indvars.iv.i246.i.i
+  %1549 = getelementptr inbounds nuw ptr, ptr %1331, i64 %indvars.iv.i246.i.i
   %1550 = load ptr, ptr %1549, align 8, !tbaa !120, !noalias !625
-  %1551 = getelementptr inbounds nuw [4 x ptr], ptr %1332, i64 0, i64 %indvars.iv.i246.i.i
+  %1551 = getelementptr inbounds nuw ptr, ptr %1332, i64 %indvars.iv.i246.i.i
   %1552 = load ptr, ptr %1551, align 8, !tbaa !119, !noalias !625
   %1553 = getelementptr inbounds i8, ptr %1550, i64 -4
   %1554 = getelementptr inbounds i8, ptr %1552, i64 -8
@@ -13382,19 +13382,19 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeE
   %1603 = load i64, ptr %1602, align 8, !tbaa !72, !alias.scope !694, !noalias !695
   %1604 = getelementptr inbounds nuw i8, ptr %1602, i64 8
   %1605 = load i64, ptr %1604, align 8, !tbaa !72, !alias.scope !694, !noalias !695
-  %1606 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %.ptr21.i.i.i237, i64 0, i64 %.022.i.i.i353
+  %1606 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %.ptr21.i.i.i237, i64 %.022.i.i.i353
   store i64 %1603, ptr %1606, align 8, !tbaa !72, !noalias !696
   %.sroa.4.0..sroa_idx.i255.i.i = getelementptr inbounds nuw i8, ptr %1606, i64 8
   store i64 %1605, ptr %.sroa.4.0..sroa_idx.i255.i.i, align 8, !tbaa !72, !noalias !696
   %1607 = mul nsw i64 %1340, %1600
   %1608 = getelementptr inbounds i32, ptr %6, i64 %1607
-  %1609 = getelementptr inbounds nuw [4 x ptr], ptr %1341, i64 0, i64 %.022.i.i.i353
+  %1609 = getelementptr inbounds nuw ptr, ptr %1341, i64 %.022.i.i.i353
   store ptr %1608, ptr %1609, align 8, !tbaa !120, !noalias !696
   %1610 = getelementptr inbounds i64, ptr %7, i64 %1607
-  %1611 = getelementptr inbounds nuw [4 x ptr], ptr %1342, i64 0, i64 %.022.i.i.i353
+  %1611 = getelementptr inbounds nuw ptr, ptr %1342, i64 %.022.i.i.i353
   store ptr %1610, ptr %1611, align 8, !tbaa !119, !noalias !696
   %1612 = load i32, ptr %1608, align 4, !tbaa !124, !alias.scope !697, !noalias !698
-  %1613 = getelementptr inbounds nuw [4 x i32], ptr %1343, i64 0, i64 %.022.i.i.i353
+  %1613 = getelementptr inbounds nuw i32, ptr %1343, i64 %.022.i.i.i353
   store i32 %1612, ptr %1613, align 4, !tbaa !124, !noalias !696
   %1614 = add nuw nsw i64 %.022.i.i.i353, 1
   %exitcond.not.i256.i.i354 = icmp eq i64 %1614, 4
@@ -13420,7 +13420,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiP
 
 1621:                                             ; preds = %1682, %.lr.ph80.i.i356
   %indvars.iv.i257.i.i358 = phi i64 [ 0, %.lr.ph80.i.i356 ], [ %indvars.iv.next.i258.i.i359, %1682 ]
-  %1622 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer16"], ptr %.ptr21.i.i.i237, i64 0, i64 %indvars.iv.i257.i.i358
+  %1622 = getelementptr inbounds nuw %"struct.faiss::HammingComputer16", ptr %.ptr21.i.i.i237, i64 %indvars.iv.i257.i.i358
   %1623 = load i64, ptr %1617, align 8, !tbaa !72, !noalias !626
   %1624 = load i64, ptr %1622, align 8, !tbaa !372, !noalias !625
   %1625 = xor i64 %1624, %1623
@@ -13433,15 +13433,15 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiP
   %1632 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1631)
   %1633 = trunc nuw nsw i64 %1632 to i32
   %1634 = add nuw nsw i32 %1633, %1627
-  %1635 = getelementptr inbounds nuw [4 x i32], ptr %1343, i64 0, i64 %indvars.iv.i257.i.i358
+  %1635 = getelementptr inbounds nuw i32, ptr %1343, i64 %indvars.iv.i257.i.i358
   %1636 = load i32, ptr %1635, align 4, !tbaa !124, !noalias !625
   %1637 = icmp slt i32 %1634, %1636
   br i1 %1637, label %1638, label %1682
 
 1638:                                             ; preds = %1621
-  %1639 = getelementptr inbounds nuw [4 x ptr], ptr %1341, i64 0, i64 %indvars.iv.i257.i.i358
+  %1639 = getelementptr inbounds nuw ptr, ptr %1341, i64 %indvars.iv.i257.i.i358
   %1640 = load ptr, ptr %1639, align 8, !tbaa !120, !noalias !625
-  %1641 = getelementptr inbounds nuw [4 x ptr], ptr %1342, i64 0, i64 %indvars.iv.i257.i.i358
+  %1641 = getelementptr inbounds nuw ptr, ptr %1342, i64 %indvars.iv.i257.i.i358
   %1642 = load ptr, ptr %1641, align 8, !tbaa !119, !noalias !625
   %1643 = getelementptr inbounds i8, ptr %1640, i64 -4
   %1644 = getelementptr inbounds i8, ptr %1642, i64 -8
@@ -14264,20 +14264,20 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i446: ; preds = %_ZN5faiss13I
   %2012 = load i64, ptr %2011, align 8, !tbaa !72, !alias.scope !732, !noalias !733
   %2013 = getelementptr inbounds nuw i8, ptr %2009, i64 16
   %2014 = load i32, ptr %2013, align 8, !tbaa !124, !alias.scope !732, !noalias !733
-  %2015 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %32, i64 0, i64 %.019.i.i.i508
+  %2015 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %32, i64 %.019.i.i.i508
   store i64 %2010, ptr %2015, align 8, !tbaa !72, !noalias !734
   %.sroa.4.0..sroa_idx.i.i.i509 = getelementptr inbounds nuw i8, ptr %2015, i64 8
   store i64 %2012, ptr %.sroa.4.0..sroa_idx.i.i.i509, align 8, !tbaa !72, !noalias !734
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2015, i64 16
   store i32 %2014, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !tbaa !124, !noalias !734
   %2016 = getelementptr inbounds i32, ptr %6, i64 %2007
-  %2017 = getelementptr inbounds nuw [4 x ptr], ptr %1955, i64 0, i64 %.019.i.i.i508
+  %2017 = getelementptr inbounds nuw ptr, ptr %1955, i64 %.019.i.i.i508
   store ptr %2016, ptr %2017, align 8, !tbaa !120, !noalias !734
   %2018 = getelementptr inbounds i64, ptr %7, i64 %2007
-  %2019 = getelementptr inbounds nuw [4 x ptr], ptr %1956, i64 0, i64 %.019.i.i.i508
+  %2019 = getelementptr inbounds nuw ptr, ptr %1956, i64 %.019.i.i.i508
   store ptr %2018, ptr %2019, align 8, !tbaa !119, !noalias !734
   %2020 = load i32, ptr %2016, align 4, !tbaa !124, !alias.scope !735, !noalias !736
-  %2021 = getelementptr inbounds nuw [4 x i32], ptr %1957, i64 0, i64 %.019.i.i.i508
+  %2021 = getelementptr inbounds nuw i32, ptr %1957, i64 %.019.i.i.i508
   store i32 %2020, ptr %2021, align 4, !tbaa !124, !noalias !734
   %2022 = add nuw nsw i64 %.019.i.i.i508, 1
   %exitcond.not.i.i.i510 = icmp eq i64 %2022, 4
@@ -14323,7 +14323,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiP
 
 2039:                                             ; preds = %2067, %.lr.ph74.i.i512
   %indvars.iv.i.i.i514 = phi i64 [ 0, %.lr.ph74.i.i512 ], [ %indvars.iv.next.i.i.i515, %2067 ]
-  %2040 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %32, i64 0, i64 %indvars.iv.i.i.i514
+  %2040 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %32, i64 %indvars.iv.i.i.i514
   %2041 = load i64, ptr %2034, align 8, !tbaa !72, !noalias !718
   %2042 = load i64, ptr %2040, align 8, !tbaa !381, !noalias !717
   %2043 = xor i64 %2042, %2041
@@ -14342,15 +14342,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiP
   %2056 = xor i32 %2055, %2053
   %2057 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2056)
   %2058 = add nuw nsw i32 %2052, %2057
-  %2059 = getelementptr inbounds nuw [4 x i32], ptr %1957, i64 0, i64 %indvars.iv.i.i.i514
+  %2059 = getelementptr inbounds nuw i32, ptr %1957, i64 %indvars.iv.i.i.i514
   %2060 = load i32, ptr %2059, align 4, !tbaa !124, !noalias !717
   %2061 = icmp slt i32 %2058, %2060
   br i1 %2061, label %2062, label %2067
 
 2062:                                             ; preds = %2039
-  %2063 = getelementptr inbounds nuw [4 x ptr], ptr %1955, i64 0, i64 %indvars.iv.i.i.i514
+  %2063 = getelementptr inbounds nuw ptr, ptr %1955, i64 %indvars.iv.i.i.i514
   %2064 = load ptr, ptr %2063, align 8, !tbaa !120, !noalias !717
-  %2065 = getelementptr inbounds nuw [4 x ptr], ptr %1956, i64 0, i64 %indvars.iv.i.i.i514
+  %2065 = getelementptr inbounds nuw ptr, ptr %1956, i64 %indvars.iv.i.i.i514
   %2066 = load ptr, ptr %2065, align 8, !tbaa !119, !noalias !717
   store i32 %2058, ptr %2064, align 4, !tbaa !124, !noalias !718
   store i64 %2036, ptr %2066, align 8, !tbaa !72, !noalias !718
@@ -14389,7 +14389,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeE
   %2080 = load i64, ptr %2079, align 8, !tbaa !72, !alias.scope !750, !noalias !751
   %2081 = getelementptr inbounds nuw i8, ptr %2077, i64 16
   %2082 = load i32, ptr %2081, align 8, !tbaa !124, !alias.scope !750, !noalias !751
-  %2083 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %33, i64 0, i64 %.019.i237.i.i492
+  %2083 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %33, i64 %.019.i237.i.i492
   store i64 %2078, ptr %2083, align 8, !tbaa !72, !noalias !752
   %.sroa.4.0..sroa_idx.i238.i.i493 = getelementptr inbounds nuw i8, ptr %2083, i64 8
   store i64 %2080, ptr %.sroa.4.0..sroa_idx.i238.i.i493, align 8, !tbaa !72, !noalias !752
@@ -14397,13 +14397,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeE
   store i32 %2082, ptr %.sroa.5.0..sroa_idx.i239.i.i, align 8, !tbaa !124, !noalias !752
   %2084 = shl nsw i64 %2075, 1
   %2085 = getelementptr inbounds i32, ptr %6, i64 %2084
-  %2086 = getelementptr inbounds nuw [4 x ptr], ptr %1952, i64 0, i64 %.019.i237.i.i492
+  %2086 = getelementptr inbounds nuw ptr, ptr %1952, i64 %.019.i237.i.i492
   store ptr %2085, ptr %2086, align 8, !tbaa !120, !noalias !752
   %2087 = getelementptr inbounds i64, ptr %7, i64 %2084
-  %2088 = getelementptr inbounds nuw [4 x ptr], ptr %1953, i64 0, i64 %.019.i237.i.i492
+  %2088 = getelementptr inbounds nuw ptr, ptr %1953, i64 %.019.i237.i.i492
   store ptr %2087, ptr %2088, align 8, !tbaa !119, !noalias !752
   %2089 = load i32, ptr %2085, align 4, !tbaa !124, !alias.scope !753, !noalias !754
-  %2090 = getelementptr inbounds nuw [4 x i32], ptr %1954, i64 0, i64 %.019.i237.i.i492
+  %2090 = getelementptr inbounds nuw i32, ptr %1954, i64 %.019.i237.i.i492
   store i32 %2089, ptr %2090, align 4, !tbaa !124, !noalias !752
   %2091 = add nuw nsw i64 %.019.i237.i.i492, 1
   %exitcond.not.i240.i.i = icmp eq i64 %2091, 4
@@ -14430,7 +14430,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiP
 
 2099:                                             ; preds = %2138, %.lr.ph68.i.i495
   %indvars.iv.i241.i.i = phi i64 [ 0, %.lr.ph68.i.i495 ], [ %indvars.iv.next.i242.i.i, %2138 ]
-  %2100 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %33, i64 0, i64 %indvars.iv.i241.i.i
+  %2100 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %33, i64 %indvars.iv.i241.i.i
   %2101 = load i64, ptr %2094, align 8, !tbaa !72, !noalias !718
   %2102 = load i64, ptr %2100, align 8, !tbaa !381, !noalias !717
   %2103 = xor i64 %2102, %2101
@@ -14449,15 +14449,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiP
   %2116 = xor i32 %2115, %2113
   %2117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2116)
   %2118 = add nuw nsw i32 %2112, %2117
-  %2119 = getelementptr inbounds nuw [4 x i32], ptr %1954, i64 0, i64 %indvars.iv.i241.i.i
+  %2119 = getelementptr inbounds nuw i32, ptr %1954, i64 %indvars.iv.i241.i.i
   %2120 = load i32, ptr %2119, align 4, !tbaa !124, !noalias !717
   %2121 = icmp slt i32 %2118, %2120
   br i1 %2121, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i499, label %2138
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i499: ; preds = %2099
-  %2122 = getelementptr inbounds nuw [4 x ptr], ptr %1952, i64 0, i64 %indvars.iv.i241.i.i
+  %2122 = getelementptr inbounds nuw ptr, ptr %1952, i64 %indvars.iv.i241.i.i
   %2123 = load ptr, ptr %2122, align 8, !tbaa !120, !noalias !717
-  %2124 = getelementptr inbounds nuw [4 x ptr], ptr %1953, i64 0, i64 %indvars.iv.i241.i.i
+  %2124 = getelementptr inbounds nuw ptr, ptr %1953, i64 %indvars.iv.i241.i.i
   %2125 = load ptr, ptr %2124, align 8, !tbaa !119, !noalias !717
   %2126 = getelementptr inbounds i8, ptr %2123, i64 -4
   %2127 = getelementptr inbounds i8, ptr %2125, i64 -8
@@ -14521,7 +14521,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeE
   %2151 = load i64, ptr %2150, align 8, !tbaa !72, !alias.scope !768, !noalias !769
   %2152 = getelementptr inbounds nuw i8, ptr %2148, i64 16
   %2153 = load i32, ptr %2152, align 8, !tbaa !124, !alias.scope !768, !noalias !769
-  %2154 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %34, i64 0, i64 %.019.i244.i.i
+  %2154 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %34, i64 %.019.i244.i.i
   store i64 %2149, ptr %2154, align 8, !tbaa !72, !noalias !770
   %.sroa.4.0..sroa_idx.i245.i.i = getelementptr inbounds nuw i8, ptr %2154, i64 8
   store i64 %2151, ptr %.sroa.4.0..sroa_idx.i245.i.i, align 8, !tbaa !72, !noalias !770
@@ -14529,13 +14529,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeE
   store i32 %2153, ptr %.sroa.5.0..sroa_idx.i246.i.i, align 8, !tbaa !124, !noalias !770
   %2155 = shl nsw i64 %2146, 2
   %2156 = getelementptr inbounds i32, ptr %6, i64 %2155
-  %2157 = getelementptr inbounds nuw [4 x ptr], ptr %1949, i64 0, i64 %.019.i244.i.i
+  %2157 = getelementptr inbounds nuw ptr, ptr %1949, i64 %.019.i244.i.i
   store ptr %2156, ptr %2157, align 8, !tbaa !120, !noalias !770
   %2158 = getelementptr inbounds i64, ptr %7, i64 %2155
-  %2159 = getelementptr inbounds nuw [4 x ptr], ptr %1950, i64 0, i64 %.019.i244.i.i
+  %2159 = getelementptr inbounds nuw ptr, ptr %1950, i64 %.019.i244.i.i
   store ptr %2158, ptr %2159, align 8, !tbaa !119, !noalias !770
   %2160 = load i32, ptr %2156, align 4, !tbaa !124, !alias.scope !771, !noalias !772
-  %2161 = getelementptr inbounds nuw [4 x i32], ptr %1951, i64 0, i64 %.019.i244.i.i
+  %2161 = getelementptr inbounds nuw i32, ptr %1951, i64 %.019.i244.i.i
   store i32 %2160, ptr %2161, align 4, !tbaa !124, !noalias !770
   %2162 = add nuw nsw i64 %.019.i244.i.i, 1
   %exitcond.not.i247.i.i = icmp eq i64 %2162, 4
@@ -14562,7 +14562,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiP
 
 2170:                                             ; preds = %2237, %.lr.ph63.i.i478
   %indvars.iv.i248.i.i = phi i64 [ 0, %.lr.ph63.i.i478 ], [ %indvars.iv.next.i249.i.i, %2237 ]
-  %2171 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %34, i64 0, i64 %indvars.iv.i248.i.i
+  %2171 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %34, i64 %indvars.iv.i248.i.i
   %2172 = load i64, ptr %2165, align 8, !tbaa !72, !noalias !718
   %2173 = load i64, ptr %2171, align 8, !tbaa !381, !noalias !717
   %2174 = xor i64 %2173, %2172
@@ -14581,15 +14581,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiP
   %2187 = xor i32 %2186, %2184
   %2188 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2187)
   %2189 = add nuw nsw i32 %2183, %2188
-  %2190 = getelementptr inbounds nuw [4 x i32], ptr %1951, i64 0, i64 %indvars.iv.i248.i.i
+  %2190 = getelementptr inbounds nuw i32, ptr %1951, i64 %indvars.iv.i248.i.i
   %2191 = load i32, ptr %2190, align 4, !tbaa !124, !noalias !717
   %2192 = icmp slt i32 %2189, %2191
   br i1 %2192, label %2193, label %2237
 
 2193:                                             ; preds = %2170
-  %2194 = getelementptr inbounds nuw [4 x ptr], ptr %1949, i64 0, i64 %indvars.iv.i248.i.i
+  %2194 = getelementptr inbounds nuw ptr, ptr %1949, i64 %indvars.iv.i248.i.i
   %2195 = load ptr, ptr %2194, align 8, !tbaa !120, !noalias !717
-  %2196 = getelementptr inbounds nuw [4 x ptr], ptr %1950, i64 0, i64 %indvars.iv.i248.i.i
+  %2196 = getelementptr inbounds nuw ptr, ptr %1950, i64 %indvars.iv.i248.i.i
   %2197 = load ptr, ptr %2196, align 8, !tbaa !119, !noalias !717
   %2198 = getelementptr inbounds i8, ptr %2195, i64 -4
   %2199 = getelementptr inbounds i8, ptr %2197, i64 -8
@@ -14703,7 +14703,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeE
   %2250 = load i64, ptr %2249, align 8, !tbaa !72, !alias.scope !786, !noalias !787
   %2251 = getelementptr inbounds nuw i8, ptr %2247, i64 16
   %2252 = load i32, ptr %2251, align 8, !tbaa !124, !alias.scope !786, !noalias !787
-  %2253 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %.ptr21.i.i.i412, i64 0, i64 %.022.i.i.i521
+  %2253 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %.ptr21.i.i.i412, i64 %.022.i.i.i521
   store i64 %2248, ptr %2253, align 8, !tbaa !72, !noalias !788
   %.sroa.4.0..sroa_idx.i257.i.i = getelementptr inbounds nuw i8, ptr %2253, i64 8
   store i64 %2250, ptr %.sroa.4.0..sroa_idx.i257.i.i, align 8, !tbaa !72, !noalias !788
@@ -14711,13 +14711,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeE
   store i32 %2252, ptr %.sroa.5.0..sroa_idx.i258.i.i, align 8, !tbaa !124, !noalias !788
   %2254 = mul nsw i64 %1958, %2245
   %2255 = getelementptr inbounds i32, ptr %6, i64 %2254
-  %2256 = getelementptr inbounds nuw [4 x ptr], ptr %1959, i64 0, i64 %.022.i.i.i521
+  %2256 = getelementptr inbounds nuw ptr, ptr %1959, i64 %.022.i.i.i521
   store ptr %2255, ptr %2256, align 8, !tbaa !120, !noalias !788
   %2257 = getelementptr inbounds i64, ptr %7, i64 %2254
-  %2258 = getelementptr inbounds nuw [4 x ptr], ptr %1960, i64 0, i64 %.022.i.i.i521
+  %2258 = getelementptr inbounds nuw ptr, ptr %1960, i64 %.022.i.i.i521
   store ptr %2257, ptr %2258, align 8, !tbaa !119, !noalias !788
   %2259 = load i32, ptr %2255, align 4, !tbaa !124, !alias.scope !789, !noalias !790
-  %2260 = getelementptr inbounds nuw [4 x i32], ptr %1961, i64 0, i64 %.022.i.i.i521
+  %2260 = getelementptr inbounds nuw i32, ptr %1961, i64 %.022.i.i.i521
   store i32 %2259, ptr %2260, align 4, !tbaa !124, !noalias !788
   %2261 = add nuw nsw i64 %.022.i.i.i521, 1
   %exitcond.not.i259.i.i522 = icmp eq i64 %2261, 4
@@ -14744,7 +14744,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiP
 
 2269:                                             ; preds = %2336, %.lr.ph80.i.i524
   %indvars.iv.i260.i.i = phi i64 [ 0, %.lr.ph80.i.i524 ], [ %indvars.iv.next.i261.i.i, %2336 ]
-  %2270 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer20"], ptr %.ptr21.i.i.i412, i64 0, i64 %indvars.iv.i260.i.i
+  %2270 = getelementptr inbounds nuw %"struct.faiss::HammingComputer20", ptr %.ptr21.i.i.i412, i64 %indvars.iv.i260.i.i
   %2271 = load i64, ptr %2264, align 8, !tbaa !72, !noalias !718
   %2272 = load i64, ptr %2270, align 8, !tbaa !381, !noalias !717
   %2273 = xor i64 %2272, %2271
@@ -14763,15 +14763,15 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiP
   %2286 = xor i32 %2285, %2283
   %2287 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2286)
   %2288 = add nuw nsw i32 %2282, %2287
-  %2289 = getelementptr inbounds nuw [4 x i32], ptr %1961, i64 0, i64 %indvars.iv.i260.i.i
+  %2289 = getelementptr inbounds nuw i32, ptr %1961, i64 %indvars.iv.i260.i.i
   %2290 = load i32, ptr %2289, align 4, !tbaa !124, !noalias !717
   %2291 = icmp slt i32 %2288, %2290
   br i1 %2291, label %2292, label %2336
 
 2292:                                             ; preds = %2269
-  %2293 = getelementptr inbounds nuw [4 x ptr], ptr %1959, i64 0, i64 %indvars.iv.i260.i.i
+  %2293 = getelementptr inbounds nuw ptr, ptr %1959, i64 %indvars.iv.i260.i.i
   %2294 = load ptr, ptr %2293, align 8, !tbaa !120, !noalias !717
-  %2295 = getelementptr inbounds nuw [4 x ptr], ptr %1960, i64 0, i64 %indvars.iv.i260.i.i
+  %2295 = getelementptr inbounds nuw ptr, ptr %1960, i64 %indvars.iv.i260.i.i
   %2296 = load ptr, ptr %2295, align 8, !tbaa !119, !noalias !717
   %2297 = getelementptr inbounds i8, ptr %2294, i64 -4
   %2298 = getelementptr inbounds i8, ptr %2296, i64 -8
@@ -15603,7 +15603,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i599: ; preds = %_ZN5faiss13I
   %2675 = load i64, ptr %2674, align 8, !tbaa !72, !alias.scope !824, !noalias !825
   %2676 = getelementptr inbounds nuw i8, ptr %2670, i64 24
   %2677 = load i64, ptr %2676, align 8, !tbaa !72, !alias.scope !824, !noalias !825
-  %2678 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %26, i64 0, i64 %.019.i.i.i667
+  %2678 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %26, i64 %.019.i.i.i667
   store i64 %2671, ptr %2678, align 8, !tbaa !72, !noalias !826
   %.sroa.4.0..sroa_idx.i.i.i668 = getelementptr inbounds nuw i8, ptr %2678, i64 8
   store i64 %2673, ptr %.sroa.4.0..sroa_idx.i.i.i668, align 8, !tbaa !72, !noalias !826
@@ -15612,13 +15612,13 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i599: ; preds = %_ZN5faiss13I
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2678, i64 24
   store i64 %2677, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !72, !noalias !826
   %2679 = getelementptr inbounds i32, ptr %6, i64 %2668
-  %2680 = getelementptr inbounds nuw [4 x ptr], ptr %2616, i64 0, i64 %.019.i.i.i667
+  %2680 = getelementptr inbounds nuw ptr, ptr %2616, i64 %.019.i.i.i667
   store ptr %2679, ptr %2680, align 8, !tbaa !120, !noalias !826
   %2681 = getelementptr inbounds i64, ptr %7, i64 %2668
-  %2682 = getelementptr inbounds nuw [4 x ptr], ptr %2617, i64 0, i64 %.019.i.i.i667
+  %2682 = getelementptr inbounds nuw ptr, ptr %2617, i64 %.019.i.i.i667
   store ptr %2681, ptr %2682, align 8, !tbaa !119, !noalias !826
   %2683 = load i32, ptr %2679, align 4, !tbaa !124, !alias.scope !827, !noalias !828
-  %2684 = getelementptr inbounds nuw [4 x i32], ptr %2618, i64 0, i64 %.019.i.i.i667
+  %2684 = getelementptr inbounds nuw i32, ptr %2618, i64 %.019.i.i.i667
   store i32 %2683, ptr %2684, align 4, !tbaa !124, !noalias !826
   %2685 = add nuw nsw i64 %.019.i.i.i667, 1
   %exitcond.not.i.i.i670 = icmp eq i64 %2685, 4
@@ -15665,7 +15665,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiP
 
 2703:                                             ; preds = %2739, %.lr.ph74.i.i672
   %indvars.iv.i.i.i674 = phi i64 [ 0, %.lr.ph74.i.i672 ], [ %indvars.iv.next.i.i.i675, %2739 ]
-  %2704 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %26, i64 0, i64 %indvars.iv.i.i.i674
+  %2704 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %26, i64 %indvars.iv.i.i.i674
   %2705 = load i64, ptr %2697, align 8, !tbaa !72, !noalias !810
   %2706 = load i64, ptr %2704, align 8, !tbaa !391, !noalias !809
   %2707 = xor i64 %2706, %2705
@@ -15692,15 +15692,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiP
   %2728 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2727)
   %2729 = trunc nuw nsw i64 %2728 to i32
   %2730 = add nuw nsw i32 %2723, %2729
-  %2731 = getelementptr inbounds nuw [4 x i32], ptr %2618, i64 0, i64 %indvars.iv.i.i.i674
+  %2731 = getelementptr inbounds nuw i32, ptr %2618, i64 %indvars.iv.i.i.i674
   %2732 = load i32, ptr %2731, align 4, !tbaa !124, !noalias !809
   %2733 = icmp slt i32 %2730, %2732
   br i1 %2733, label %2734, label %2739
 
 2734:                                             ; preds = %2703
-  %2735 = getelementptr inbounds nuw [4 x ptr], ptr %2616, i64 0, i64 %indvars.iv.i.i.i674
+  %2735 = getelementptr inbounds nuw ptr, ptr %2616, i64 %indvars.iv.i.i.i674
   %2736 = load ptr, ptr %2735, align 8, !tbaa !120, !noalias !809
-  %2737 = getelementptr inbounds nuw [4 x ptr], ptr %2617, i64 0, i64 %indvars.iv.i.i.i674
+  %2737 = getelementptr inbounds nuw ptr, ptr %2617, i64 %indvars.iv.i.i.i674
   %2738 = load ptr, ptr %2737, align 8, !tbaa !119, !noalias !809
   store i32 %2730, ptr %2736, align 4, !tbaa !124, !noalias !810
   store i64 %2699, ptr %2738, align 8, !tbaa !72, !noalias !810
@@ -15741,7 +15741,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeE
   %2754 = load i64, ptr %2753, align 8, !tbaa !72, !alias.scope !842, !noalias !843
   %2755 = getelementptr inbounds nuw i8, ptr %2749, i64 24
   %2756 = load i64, ptr %2755, align 8, !tbaa !72, !alias.scope !842, !noalias !843
-  %2757 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %27, i64 0, i64 %.019.i237.i.i647
+  %2757 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %27, i64 %.019.i237.i.i647
   store i64 %2750, ptr %2757, align 8, !tbaa !72, !noalias !844
   %.sroa.4.0..sroa_idx.i238.i.i648 = getelementptr inbounds nuw i8, ptr %2757, i64 8
   store i64 %2752, ptr %.sroa.4.0..sroa_idx.i238.i.i648, align 8, !tbaa !72, !noalias !844
@@ -15751,13 +15751,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeE
   store i64 %2756, ptr %.sroa.6.0..sroa_idx.i240.i.i, align 8, !tbaa !72, !noalias !844
   %2758 = shl nsw i64 %2747, 1
   %2759 = getelementptr inbounds i32, ptr %6, i64 %2758
-  %2760 = getelementptr inbounds nuw [4 x ptr], ptr %2613, i64 0, i64 %.019.i237.i.i647
+  %2760 = getelementptr inbounds nuw ptr, ptr %2613, i64 %.019.i237.i.i647
   store ptr %2759, ptr %2760, align 8, !tbaa !120, !noalias !844
   %2761 = getelementptr inbounds i64, ptr %7, i64 %2758
-  %2762 = getelementptr inbounds nuw [4 x ptr], ptr %2614, i64 0, i64 %.019.i237.i.i647
+  %2762 = getelementptr inbounds nuw ptr, ptr %2614, i64 %.019.i237.i.i647
   store ptr %2761, ptr %2762, align 8, !tbaa !119, !noalias !844
   %2763 = load i32, ptr %2759, align 4, !tbaa !124, !alias.scope !845, !noalias !846
-  %2764 = getelementptr inbounds nuw [4 x i32], ptr %2615, i64 0, i64 %.019.i237.i.i647
+  %2764 = getelementptr inbounds nuw i32, ptr %2615, i64 %.019.i237.i.i647
   store i32 %2763, ptr %2764, align 4, !tbaa !124, !noalias !844
   %2765 = add nuw nsw i64 %.019.i237.i.i647, 1
   %exitcond.not.i241.i.i650 = icmp eq i64 %2765, 4
@@ -15785,7 +15785,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiP
 
 2774:                                             ; preds = %2821, %.lr.ph68.i.i652
   %indvars.iv.i242.i.i654 = phi i64 [ 0, %.lr.ph68.i.i652 ], [ %indvars.iv.next.i243.i.i655, %2821 ]
-  %2775 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %27, i64 0, i64 %indvars.iv.i242.i.i654
+  %2775 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %27, i64 %indvars.iv.i242.i.i654
   %2776 = load i64, ptr %2768, align 8, !tbaa !72, !noalias !810
   %2777 = load i64, ptr %2775, align 8, !tbaa !391, !noalias !809
   %2778 = xor i64 %2777, %2776
@@ -15812,15 +15812,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiP
   %2799 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2798)
   %2800 = trunc nuw nsw i64 %2799 to i32
   %2801 = add nuw nsw i32 %2794, %2800
-  %2802 = getelementptr inbounds nuw [4 x i32], ptr %2615, i64 0, i64 %indvars.iv.i242.i.i654
+  %2802 = getelementptr inbounds nuw i32, ptr %2615, i64 %indvars.iv.i242.i.i654
   %2803 = load i32, ptr %2802, align 4, !tbaa !124, !noalias !809
   %2804 = icmp slt i32 %2801, %2803
   br i1 %2804, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i658, label %2821
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i658: ; preds = %2774
-  %2805 = getelementptr inbounds nuw [4 x ptr], ptr %2613, i64 0, i64 %indvars.iv.i242.i.i654
+  %2805 = getelementptr inbounds nuw ptr, ptr %2613, i64 %indvars.iv.i242.i.i654
   %2806 = load ptr, ptr %2805, align 8, !tbaa !120, !noalias !809
-  %2807 = getelementptr inbounds nuw [4 x ptr], ptr %2614, i64 0, i64 %indvars.iv.i242.i.i654
+  %2807 = getelementptr inbounds nuw ptr, ptr %2614, i64 %indvars.iv.i242.i.i654
   %2808 = load ptr, ptr %2807, align 8, !tbaa !119, !noalias !809
   %2809 = getelementptr inbounds i8, ptr %2806, i64 -4
   %2810 = getelementptr inbounds i8, ptr %2808, i64 -8
@@ -15886,7 +15886,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeE
   %2836 = load i64, ptr %2835, align 8, !tbaa !72, !alias.scope !860, !noalias !861
   %2837 = getelementptr inbounds nuw i8, ptr %2831, i64 24
   %2838 = load i64, ptr %2837, align 8, !tbaa !72, !alias.scope !860, !noalias !861
-  %2839 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %28, i64 0, i64 %.019.i245.i.i604
+  %2839 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %28, i64 %.019.i245.i.i604
   store i64 %2832, ptr %2839, align 8, !tbaa !72, !noalias !862
   %.sroa.4.0..sroa_idx.i246.i.i = getelementptr inbounds nuw i8, ptr %2839, i64 8
   store i64 %2834, ptr %.sroa.4.0..sroa_idx.i246.i.i, align 8, !tbaa !72, !noalias !862
@@ -15896,13 +15896,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeE
   store i64 %2838, ptr %.sroa.6.0..sroa_idx.i248.i.i, align 8, !tbaa !72, !noalias !862
   %2840 = shl nsw i64 %2829, 2
   %2841 = getelementptr inbounds i32, ptr %6, i64 %2840
-  %2842 = getelementptr inbounds nuw [4 x ptr], ptr %2610, i64 0, i64 %.019.i245.i.i604
+  %2842 = getelementptr inbounds nuw ptr, ptr %2610, i64 %.019.i245.i.i604
   store ptr %2841, ptr %2842, align 8, !tbaa !120, !noalias !862
   %2843 = getelementptr inbounds i64, ptr %7, i64 %2840
-  %2844 = getelementptr inbounds nuw [4 x ptr], ptr %2611, i64 0, i64 %.019.i245.i.i604
+  %2844 = getelementptr inbounds nuw ptr, ptr %2611, i64 %.019.i245.i.i604
   store ptr %2843, ptr %2844, align 8, !tbaa !119, !noalias !862
   %2845 = load i32, ptr %2841, align 4, !tbaa !124, !alias.scope !863, !noalias !864
-  %2846 = getelementptr inbounds nuw [4 x i32], ptr %2612, i64 0, i64 %.019.i245.i.i604
+  %2846 = getelementptr inbounds nuw i32, ptr %2612, i64 %.019.i245.i.i604
   store i32 %2845, ptr %2846, align 4, !tbaa !124, !noalias !862
   %2847 = add nuw nsw i64 %.019.i245.i.i604, 1
   %exitcond.not.i249.i.i605 = icmp eq i64 %2847, 4
@@ -15930,7 +15930,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiP
 
 2856:                                             ; preds = %2931, %.lr.ph63.i.i633
   %indvars.iv.i250.i.i = phi i64 [ 0, %.lr.ph63.i.i633 ], [ %indvars.iv.next.i251.i.i, %2931 ]
-  %2857 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %28, i64 0, i64 %indvars.iv.i250.i.i
+  %2857 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %28, i64 %indvars.iv.i250.i.i
   %2858 = load i64, ptr %2850, align 8, !tbaa !72, !noalias !810
   %2859 = load i64, ptr %2857, align 8, !tbaa !391, !noalias !809
   %2860 = xor i64 %2859, %2858
@@ -15957,15 +15957,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiP
   %2881 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2880)
   %2882 = trunc nuw nsw i64 %2881 to i32
   %2883 = add nuw nsw i32 %2876, %2882
-  %2884 = getelementptr inbounds nuw [4 x i32], ptr %2612, i64 0, i64 %indvars.iv.i250.i.i
+  %2884 = getelementptr inbounds nuw i32, ptr %2612, i64 %indvars.iv.i250.i.i
   %2885 = load i32, ptr %2884, align 4, !tbaa !124, !noalias !809
   %2886 = icmp slt i32 %2883, %2885
   br i1 %2886, label %2887, label %2931
 
 2887:                                             ; preds = %2856
-  %2888 = getelementptr inbounds nuw [4 x ptr], ptr %2610, i64 0, i64 %indvars.iv.i250.i.i
+  %2888 = getelementptr inbounds nuw ptr, ptr %2610, i64 %indvars.iv.i250.i.i
   %2889 = load ptr, ptr %2888, align 8, !tbaa !120, !noalias !809
-  %2890 = getelementptr inbounds nuw [4 x ptr], ptr %2611, i64 0, i64 %indvars.iv.i250.i.i
+  %2890 = getelementptr inbounds nuw ptr, ptr %2611, i64 %indvars.iv.i250.i.i
   %2891 = load ptr, ptr %2890, align 8, !tbaa !119, !noalias !809
   %2892 = getelementptr inbounds i8, ptr %2889, i64 -4
   %2893 = getelementptr inbounds i8, ptr %2891, i64 -8
@@ -16081,7 +16081,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeE
   %2946 = load i64, ptr %2945, align 8, !tbaa !72, !alias.scope !878, !noalias !879
   %2947 = getelementptr inbounds nuw i8, ptr %2941, i64 24
   %2948 = load i64, ptr %2947, align 8, !tbaa !72, !alias.scope !878, !noalias !879
-  %2949 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %.ptr21.i.i.i565, i64 0, i64 %.022.i.i.i681
+  %2949 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %.ptr21.i.i.i565, i64 %.022.i.i.i681
   store i64 %2942, ptr %2949, align 8, !tbaa !72, !noalias !880
   %.sroa.4.0..sroa_idx.i259.i.i = getelementptr inbounds nuw i8, ptr %2949, i64 8
   store i64 %2944, ptr %.sroa.4.0..sroa_idx.i259.i.i, align 8, !tbaa !72, !noalias !880
@@ -16091,13 +16091,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeE
   store i64 %2948, ptr %.sroa.6.0..sroa_idx.i261.i.i, align 8, !tbaa !72, !noalias !880
   %2950 = mul nsw i64 %2619, %2939
   %2951 = getelementptr inbounds i32, ptr %6, i64 %2950
-  %2952 = getelementptr inbounds nuw [4 x ptr], ptr %2620, i64 0, i64 %.022.i.i.i681
+  %2952 = getelementptr inbounds nuw ptr, ptr %2620, i64 %.022.i.i.i681
   store ptr %2951, ptr %2952, align 8, !tbaa !120, !noalias !880
   %2953 = getelementptr inbounds i64, ptr %7, i64 %2950
-  %2954 = getelementptr inbounds nuw [4 x ptr], ptr %2621, i64 0, i64 %.022.i.i.i681
+  %2954 = getelementptr inbounds nuw ptr, ptr %2621, i64 %.022.i.i.i681
   store ptr %2953, ptr %2954, align 8, !tbaa !119, !noalias !880
   %2955 = load i32, ptr %2951, align 4, !tbaa !124, !alias.scope !881, !noalias !882
-  %2956 = getelementptr inbounds nuw [4 x i32], ptr %2622, i64 0, i64 %.022.i.i.i681
+  %2956 = getelementptr inbounds nuw i32, ptr %2622, i64 %.022.i.i.i681
   store i32 %2955, ptr %2956, align 4, !tbaa !124, !noalias !880
   %2957 = add nuw nsw i64 %.022.i.i.i681, 1
   %exitcond.not.i262.i.i682 = icmp eq i64 %2957, 4
@@ -16125,7 +16125,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiP
 
 2966:                                             ; preds = %3041, %.lr.ph80.i.i684
   %indvars.iv.i263.i.i = phi i64 [ 0, %.lr.ph80.i.i684 ], [ %indvars.iv.next.i264.i.i, %3041 ]
-  %2967 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer32"], ptr %.ptr21.i.i.i565, i64 0, i64 %indvars.iv.i263.i.i
+  %2967 = getelementptr inbounds nuw %"struct.faiss::HammingComputer32", ptr %.ptr21.i.i.i565, i64 %indvars.iv.i263.i.i
   %2968 = load i64, ptr %2960, align 8, !tbaa !72, !noalias !810
   %2969 = load i64, ptr %2967, align 8, !tbaa !391, !noalias !809
   %2970 = xor i64 %2969, %2968
@@ -16152,15 +16152,15 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiP
   %2991 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2990)
   %2992 = trunc nuw nsw i64 %2991 to i32
   %2993 = add nuw nsw i32 %2986, %2992
-  %2994 = getelementptr inbounds nuw [4 x i32], ptr %2622, i64 0, i64 %indvars.iv.i263.i.i
+  %2994 = getelementptr inbounds nuw i32, ptr %2622, i64 %indvars.iv.i263.i.i
   %2995 = load i32, ptr %2994, align 4, !tbaa !124, !noalias !809
   %2996 = icmp slt i32 %2993, %2995
   br i1 %2996, label %2997, label %3041
 
 2997:                                             ; preds = %2966
-  %2998 = getelementptr inbounds nuw [4 x ptr], ptr %2620, i64 0, i64 %indvars.iv.i263.i.i
+  %2998 = getelementptr inbounds nuw ptr, ptr %2620, i64 %indvars.iv.i263.i.i
   %2999 = load ptr, ptr %2998, align 8, !tbaa !120, !noalias !809
-  %3000 = getelementptr inbounds nuw [4 x ptr], ptr %2621, i64 0, i64 %indvars.iv.i263.i.i
+  %3000 = getelementptr inbounds nuw ptr, ptr %2621, i64 %indvars.iv.i263.i.i
   %3001 = load ptr, ptr %3000, align 8, !tbaa !119, !noalias !809
   %3002 = getelementptr inbounds i8, ptr %2999, i64 -4
   %3003 = getelementptr inbounds i8, ptr %3001, i64 -8
@@ -17009,7 +17009,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i753: ; preds = %_ZN5faiss13I
   %3397 = load i64, ptr %3396, align 8, !tbaa !72, !alias.scope !916, !noalias !917
   %3398 = getelementptr inbounds nuw i8, ptr %3384, i64 56
   %3399 = load i64, ptr %3398, align 8, !tbaa !72, !alias.scope !916, !noalias !917
-  %3400 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %20, i64 0, i64 %.019.i.i.i799
+  %3400 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %20, i64 %.019.i.i.i799
   store i64 %3385, ptr %3400, align 8, !tbaa !72, !noalias !918
   %.sroa.4.0..sroa_idx.i.i.i800 = getelementptr inbounds nuw i8, ptr %3400, i64 8
   store i64 %3387, ptr %.sroa.4.0..sroa_idx.i.i.i800, align 8, !tbaa !72, !noalias !918
@@ -17026,13 +17026,13 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i753: ; preds = %_ZN5faiss13I
   %.sroa.10.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3400, i64 56
   store i64 %3399, ptr %.sroa.10.0..sroa_idx.i.i.i, align 8, !tbaa !72, !noalias !918
   %3401 = getelementptr inbounds i32, ptr %6, i64 %3382
-  %3402 = getelementptr inbounds nuw [4 x ptr], ptr %3330, i64 0, i64 %.019.i.i.i799
+  %3402 = getelementptr inbounds nuw ptr, ptr %3330, i64 %.019.i.i.i799
   store ptr %3401, ptr %3402, align 8, !tbaa !120, !noalias !918
   %3403 = getelementptr inbounds i64, ptr %7, i64 %3382
-  %3404 = getelementptr inbounds nuw [4 x ptr], ptr %3331, i64 0, i64 %.019.i.i.i799
+  %3404 = getelementptr inbounds nuw ptr, ptr %3331, i64 %.019.i.i.i799
   store ptr %3403, ptr %3404, align 8, !tbaa !119, !noalias !918
   %3405 = load i32, ptr %3401, align 4, !tbaa !124, !alias.scope !919, !noalias !920
-  %3406 = getelementptr inbounds nuw [4 x i32], ptr %3332, i64 0, i64 %.019.i.i.i799
+  %3406 = getelementptr inbounds nuw i32, ptr %3332, i64 %.019.i.i.i799
   store i32 %3405, ptr %3406, align 4, !tbaa !124, !noalias !918
   %3407 = add nuw nsw i64 %.019.i.i.i799, 1
   %exitcond.not.i.i.i803 = icmp eq i64 %3407, 4
@@ -17083,7 +17083,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiP
 
 3429:                                             ; preds = %3493, %.lr.ph75.i.i
   %indvars.iv.i.i.i805 = phi i64 [ 0, %.lr.ph75.i.i ], [ %indvars.iv.next.i.i.i806, %3493 ]
-  %3430 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %20, i64 0, i64 %indvars.iv.i.i.i805
+  %3430 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %20, i64 %indvars.iv.i.i.i805
   %3431 = load i64, ptr %3419, align 8, !tbaa !72, !noalias !902
   %3432 = load i64, ptr %3430, align 8, !tbaa !402, !noalias !901
   %3433 = xor i64 %3432, %3431
@@ -17138,15 +17138,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiP
   %3482 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3481)
   %3483 = trunc nuw nsw i64 %3482 to i32
   %3484 = add nuw nsw i32 %3477, %3483
-  %3485 = getelementptr inbounds nuw [4 x i32], ptr %3332, i64 0, i64 %indvars.iv.i.i.i805
+  %3485 = getelementptr inbounds nuw i32, ptr %3332, i64 %indvars.iv.i.i.i805
   %3486 = load i32, ptr %3485, align 4, !tbaa !124, !noalias !901
   %3487 = icmp slt i32 %3484, %3486
   br i1 %3487, label %3488, label %3493
 
 3488:                                             ; preds = %3429
-  %3489 = getelementptr inbounds nuw [4 x ptr], ptr %3330, i64 0, i64 %indvars.iv.i.i.i805
+  %3489 = getelementptr inbounds nuw ptr, ptr %3330, i64 %indvars.iv.i.i.i805
   %3490 = load ptr, ptr %3489, align 8, !tbaa !120, !noalias !901
-  %3491 = getelementptr inbounds nuw [4 x ptr], ptr %3331, i64 0, i64 %indvars.iv.i.i.i805
+  %3491 = getelementptr inbounds nuw ptr, ptr %3331, i64 %indvars.iv.i.i.i805
   %3492 = load ptr, ptr %3491, align 8, !tbaa !119, !noalias !901
   store i32 %3484, ptr %3490, align 4, !tbaa !124, !noalias !902
   store i64 %3421, ptr %3492, align 8, !tbaa !72, !noalias !902
@@ -17195,7 +17195,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeE
   %3516 = load i64, ptr %3515, align 8, !tbaa !72, !alias.scope !934, !noalias !935
   %3517 = getelementptr inbounds nuw i8, ptr %3503, i64 56
   %3518 = load i64, ptr %3517, align 8, !tbaa !72, !alias.scope !934, !noalias !935
-  %3519 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %21, i64 0, i64 %.019.i237.i.i783
+  %3519 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %21, i64 %.019.i237.i.i783
   store i64 %3504, ptr %3519, align 8, !tbaa !72, !noalias !936
   %.sroa.4.0..sroa_idx.i238.i.i784 = getelementptr inbounds nuw i8, ptr %3519, i64 8
   store i64 %3506, ptr %.sroa.4.0..sroa_idx.i238.i.i784, align 8, !tbaa !72, !noalias !936
@@ -17213,13 +17213,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeE
   store i64 %3518, ptr %.sroa.10.0..sroa_idx.i244.i.i, align 8, !tbaa !72, !noalias !936
   %3520 = shl nsw i64 %3501, 1
   %3521 = getelementptr inbounds i32, ptr %6, i64 %3520
-  %3522 = getelementptr inbounds nuw [4 x ptr], ptr %3327, i64 0, i64 %.019.i237.i.i783
+  %3522 = getelementptr inbounds nuw ptr, ptr %3327, i64 %.019.i237.i.i783
   store ptr %3521, ptr %3522, align 8, !tbaa !120, !noalias !936
   %3523 = getelementptr inbounds i64, ptr %7, i64 %3520
-  %3524 = getelementptr inbounds nuw [4 x ptr], ptr %3328, i64 0, i64 %.019.i237.i.i783
+  %3524 = getelementptr inbounds nuw ptr, ptr %3328, i64 %.019.i237.i.i783
   store ptr %3523, ptr %3524, align 8, !tbaa !119, !noalias !936
   %3525 = load i32, ptr %3521, align 4, !tbaa !124, !alias.scope !937, !noalias !938
-  %3526 = getelementptr inbounds nuw [4 x i32], ptr %3329, i64 0, i64 %.019.i237.i.i783
+  %3526 = getelementptr inbounds nuw i32, ptr %3329, i64 %.019.i237.i.i783
   store i32 %3525, ptr %3526, align 4, !tbaa !124, !noalias !936
   %3527 = add nuw nsw i64 %.019.i237.i.i783, 1
   %exitcond.not.i245.i.i787 = icmp eq i64 %3527, 4
@@ -17251,7 +17251,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiP
 
 3540:                                             ; preds = %3615, %.lr.ph69.i.i
   %indvars.iv.i246.i.i789 = phi i64 [ 0, %.lr.ph69.i.i ], [ %indvars.iv.next.i247.i.i790, %3615 ]
-  %3541 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %21, i64 0, i64 %indvars.iv.i246.i.i789
+  %3541 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %21, i64 %indvars.iv.i246.i.i789
   %3542 = load i64, ptr %3530, align 8, !tbaa !72, !noalias !902
   %3543 = load i64, ptr %3541, align 8, !tbaa !402, !noalias !901
   %3544 = xor i64 %3543, %3542
@@ -17306,15 +17306,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiP
   %3593 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3592)
   %3594 = trunc nuw nsw i64 %3593 to i32
   %3595 = add nuw nsw i32 %3588, %3594
-  %3596 = getelementptr inbounds nuw [4 x i32], ptr %3329, i64 0, i64 %indvars.iv.i246.i.i789
+  %3596 = getelementptr inbounds nuw i32, ptr %3329, i64 %indvars.iv.i246.i.i789
   %3597 = load i32, ptr %3596, align 4, !tbaa !124, !noalias !901
   %3598 = icmp slt i32 %3595, %3597
   br i1 %3598, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i793, label %3615
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i793: ; preds = %3540
-  %3599 = getelementptr inbounds nuw [4 x ptr], ptr %3327, i64 0, i64 %indvars.iv.i246.i.i789
+  %3599 = getelementptr inbounds nuw ptr, ptr %3327, i64 %indvars.iv.i246.i.i789
   %3600 = load ptr, ptr %3599, align 8, !tbaa !120, !noalias !901
-  %3601 = getelementptr inbounds nuw [4 x ptr], ptr %3328, i64 0, i64 %indvars.iv.i246.i.i789
+  %3601 = getelementptr inbounds nuw ptr, ptr %3328, i64 %indvars.iv.i246.i.i789
   %3602 = load ptr, ptr %3601, align 8, !tbaa !119, !noalias !901
   %3603 = getelementptr inbounds i8, ptr %3600, i64 -4
   %3604 = getelementptr inbounds i8, ptr %3602, i64 -8
@@ -17388,7 +17388,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeE
   %3638 = load i64, ptr %3637, align 8, !tbaa !72, !alias.scope !952, !noalias !953
   %3639 = getelementptr inbounds nuw i8, ptr %3625, i64 56
   %3640 = load i64, ptr %3639, align 8, !tbaa !72, !alias.scope !952, !noalias !953
-  %3641 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %22, i64 0, i64 %.019.i249.i.i
+  %3641 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %22, i64 %.019.i249.i.i
   store i64 %3626, ptr %3641, align 8, !tbaa !72, !noalias !954
   %.sroa.4.0..sroa_idx.i250.i.i = getelementptr inbounds nuw i8, ptr %3641, i64 8
   store i64 %3628, ptr %.sroa.4.0..sroa_idx.i250.i.i, align 8, !tbaa !72, !noalias !954
@@ -17406,13 +17406,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeE
   store i64 %3640, ptr %.sroa.10.0..sroa_idx.i256.i.i, align 8, !tbaa !72, !noalias !954
   %3642 = shl nsw i64 %3623, 2
   %3643 = getelementptr inbounds i32, ptr %6, i64 %3642
-  %3644 = getelementptr inbounds nuw [4 x ptr], ptr %3324, i64 0, i64 %.019.i249.i.i
+  %3644 = getelementptr inbounds nuw ptr, ptr %3324, i64 %.019.i249.i.i
   store ptr %3643, ptr %3644, align 8, !tbaa !120, !noalias !954
   %3645 = getelementptr inbounds i64, ptr %7, i64 %3642
-  %3646 = getelementptr inbounds nuw [4 x ptr], ptr %3325, i64 0, i64 %.019.i249.i.i
+  %3646 = getelementptr inbounds nuw ptr, ptr %3325, i64 %.019.i249.i.i
   store ptr %3645, ptr %3646, align 8, !tbaa !119, !noalias !954
   %3647 = load i32, ptr %3643, align 4, !tbaa !124, !alias.scope !955, !noalias !956
-  %3648 = getelementptr inbounds nuw [4 x i32], ptr %3326, i64 0, i64 %.019.i249.i.i
+  %3648 = getelementptr inbounds nuw i32, ptr %3326, i64 %.019.i249.i.i
   store i32 %3647, ptr %3648, align 4, !tbaa !124, !noalias !954
   %3649 = add nuw nsw i64 %.019.i249.i.i, 1
   %exitcond.not.i257.i.i = icmp eq i64 %3649, 4
@@ -17444,7 +17444,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiP
 
 3662:                                             ; preds = %3765, %.lr.ph64.i.i
   %indvars.iv.i258.i.i = phi i64 [ 0, %.lr.ph64.i.i ], [ %indvars.iv.next.i259.i.i, %3765 ]
-  %3663 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %22, i64 0, i64 %indvars.iv.i258.i.i
+  %3663 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %22, i64 %indvars.iv.i258.i.i
   %3664 = load i64, ptr %3652, align 8, !tbaa !72, !noalias !902
   %3665 = load i64, ptr %3663, align 8, !tbaa !402, !noalias !901
   %3666 = xor i64 %3665, %3664
@@ -17499,15 +17499,15 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiP
   %3715 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3714)
   %3716 = trunc nuw nsw i64 %3715 to i32
   %3717 = add nuw nsw i32 %3710, %3716
-  %3718 = getelementptr inbounds nuw [4 x i32], ptr %3326, i64 0, i64 %indvars.iv.i258.i.i
+  %3718 = getelementptr inbounds nuw i32, ptr %3326, i64 %indvars.iv.i258.i.i
   %3719 = load i32, ptr %3718, align 4, !tbaa !124, !noalias !901
   %3720 = icmp slt i32 %3717, %3719
   br i1 %3720, label %3721, label %3765
 
 3721:                                             ; preds = %3662
-  %3722 = getelementptr inbounds nuw [4 x ptr], ptr %3324, i64 0, i64 %indvars.iv.i258.i.i
+  %3722 = getelementptr inbounds nuw ptr, ptr %3324, i64 %indvars.iv.i258.i.i
   %3723 = load ptr, ptr %3722, align 8, !tbaa !120, !noalias !901
-  %3724 = getelementptr inbounds nuw [4 x ptr], ptr %3325, i64 0, i64 %indvars.iv.i258.i.i
+  %3724 = getelementptr inbounds nuw ptr, ptr %3325, i64 %indvars.iv.i258.i.i
   %3725 = load ptr, ptr %3724, align 8, !tbaa !119, !noalias !901
   %3726 = getelementptr inbounds i8, ptr %3723, i64 -4
   %3727 = getelementptr inbounds i8, ptr %3725, i64 -8
@@ -17631,7 +17631,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeE
   %3788 = load i64, ptr %3787, align 8, !tbaa !72, !alias.scope !970, !noalias !971
   %3789 = getelementptr inbounds nuw i8, ptr %3775, i64 56
   %3790 = load i64, ptr %3789, align 8, !tbaa !72, !alias.scope !970, !noalias !971
-  %3791 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %.ptr21.i.i.i722, i64 0, i64 %.022.i.i.i809
+  %3791 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %.ptr21.i.i.i722, i64 %.022.i.i.i809
   store i64 %3776, ptr %3791, align 8, !tbaa !72, !noalias !972
   %.sroa.4.0..sroa_idx.i267.i.i = getelementptr inbounds nuw i8, ptr %3791, i64 8
   store i64 %3778, ptr %.sroa.4.0..sroa_idx.i267.i.i, align 8, !tbaa !72, !noalias !972
@@ -17649,13 +17649,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeE
   store i64 %3790, ptr %.sroa.10.0..sroa_idx.i273.i.i, align 8, !tbaa !72, !noalias !972
   %3792 = mul nsw i64 %3333, %3773
   %3793 = getelementptr inbounds i32, ptr %6, i64 %3792
-  %3794 = getelementptr inbounds nuw [4 x ptr], ptr %3334, i64 0, i64 %.022.i.i.i809
+  %3794 = getelementptr inbounds nuw ptr, ptr %3334, i64 %.022.i.i.i809
   store ptr %3793, ptr %3794, align 8, !tbaa !120, !noalias !972
   %3795 = getelementptr inbounds i64, ptr %7, i64 %3792
-  %3796 = getelementptr inbounds nuw [4 x ptr], ptr %3335, i64 0, i64 %.022.i.i.i809
+  %3796 = getelementptr inbounds nuw ptr, ptr %3335, i64 %.022.i.i.i809
   store ptr %3795, ptr %3796, align 8, !tbaa !119, !noalias !972
   %3797 = load i32, ptr %3793, align 4, !tbaa !124, !alias.scope !973, !noalias !974
-  %3798 = getelementptr inbounds nuw [4 x i32], ptr %3336, i64 0, i64 %.022.i.i.i809
+  %3798 = getelementptr inbounds nuw i32, ptr %3336, i64 %.022.i.i.i809
   store i32 %3797, ptr %3798, align 4, !tbaa !124, !noalias !972
   %3799 = add nuw nsw i64 %.022.i.i.i809, 1
   %exitcond.not.i274.i.i = icmp eq i64 %3799, 4
@@ -17687,7 +17687,7 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiP
 
 3812:                                             ; preds = %3915, %.lr.ph81.i.i
   %indvars.iv.i275.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %indvars.iv.next.i276.i.i, %3915 ]
-  %3813 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputer64"], ptr %.ptr21.i.i.i722, i64 0, i64 %indvars.iv.i275.i.i
+  %3813 = getelementptr inbounds nuw %"struct.faiss::HammingComputer64", ptr %.ptr21.i.i.i722, i64 %indvars.iv.i275.i.i
   %3814 = load i64, ptr %3802, align 8, !tbaa !72, !noalias !902
   %3815 = load i64, ptr %3813, align 8, !tbaa !402, !noalias !901
   %3816 = xor i64 %3815, %3814
@@ -17742,15 +17742,15 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiP
   %3865 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3864)
   %3866 = trunc nuw nsw i64 %3865 to i32
   %3867 = add nuw nsw i32 %3860, %3866
-  %3868 = getelementptr inbounds nuw [4 x i32], ptr %3336, i64 0, i64 %indvars.iv.i275.i.i
+  %3868 = getelementptr inbounds nuw i32, ptr %3336, i64 %indvars.iv.i275.i.i
   %3869 = load i32, ptr %3868, align 4, !tbaa !124, !noalias !901
   %3870 = icmp slt i32 %3867, %3869
   br i1 %3870, label %3871, label %3915
 
 3871:                                             ; preds = %3812
-  %3872 = getelementptr inbounds nuw [4 x ptr], ptr %3334, i64 0, i64 %indvars.iv.i275.i.i
+  %3872 = getelementptr inbounds nuw ptr, ptr %3334, i64 %indvars.iv.i275.i.i
   %3873 = load ptr, ptr %3872, align 8, !tbaa !120, !noalias !901
-  %3874 = getelementptr inbounds nuw [4 x ptr], ptr %3335, i64 0, i64 %indvars.iv.i275.i.i
+  %3874 = getelementptr inbounds nuw ptr, ptr %3335, i64 %indvars.iv.i275.i.i
   %3875 = load ptr, ptr %3874, align 8, !tbaa !119, !noalias !901
   %3876 = getelementptr inbounds i8, ptr %3873, i64 -4
   %3877 = getelementptr inbounds i8, ptr %3875, i64 -8
@@ -18617,20 +18617,20 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i897: ; preds = %_ZN5faiss13I
   %4291 = sext i32 %4290 to i64
   %4292 = mul nsw i64 %4291, %4228
   %4293 = getelementptr inbounds nuw i8, ptr %3, i64 %4292
-  %4294 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %13, i64 0, i64 %.019.i.i.i961
+  %4294 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %13, i64 %.019.i.i.i961
   store ptr %4293, ptr %4294, align 8, !tbaa !118, !noalias !1005
   %.sroa.4.0..sroa_idx.i.i.i962 = getelementptr inbounds nuw i8, ptr %4294, i64 8
   store i32 %4231, ptr %.sroa.4.0..sroa_idx.i.i.i962, align 8, !tbaa !124, !noalias !1005
   %.sroa.5.0..sroa_idx.i.i.i963 = getelementptr inbounds nuw i8, ptr %4294, i64 12
   store i32 %4232, ptr %.sroa.5.0..sroa_idx.i.i.i963, align 4, !tbaa !124, !noalias !1005
   %4295 = getelementptr inbounds i32, ptr %6, i64 %4291
-  %4296 = getelementptr inbounds nuw [4 x ptr], ptr %4238, i64 0, i64 %.019.i.i.i961
+  %4296 = getelementptr inbounds nuw ptr, ptr %4238, i64 %.019.i.i.i961
   store ptr %4295, ptr %4296, align 8, !tbaa !120, !noalias !1005
   %4297 = getelementptr inbounds i64, ptr %7, i64 %4291
-  %4298 = getelementptr inbounds nuw [4 x ptr], ptr %4239, i64 0, i64 %.019.i.i.i961
+  %4298 = getelementptr inbounds nuw ptr, ptr %4239, i64 %.019.i.i.i961
   store ptr %4297, ptr %4298, align 8, !tbaa !119, !noalias !1005
   %4299 = load i32, ptr %4295, align 4, !tbaa !124, !alias.scope !1006, !noalias !1007
-  %4300 = getelementptr inbounds nuw [4 x i32], ptr %4240, i64 0, i64 %.019.i.i.i961
+  %4300 = getelementptr inbounds nuw i32, ptr %4240, i64 %.019.i.i.i961
   store i32 %4299, ptr %4300, align 4, !tbaa !124, !noalias !1005
   %4301 = add nuw nsw i64 %.019.i.i.i961, 1
   %exitcond.not.i.i.i964 = icmp eq i64 %4301, 4
@@ -18674,17 +18674,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPK
 
 4316:                                             ; preds = %4327, %.lr.ph73.i.i
   %indvars.iv.i.i.i966 = phi i64 [ 0, %.lr.ph73.i.i ], [ %indvars.iv.next.i.i.i967, %4327 ]
-  %4317 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %13, i64 0, i64 %indvars.iv.i.i.i966
+  %4317 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %13, i64 %indvars.iv.i.i.i966
   %4318 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4317, ptr noundef %4313), !noalias !984
-  %4319 = getelementptr inbounds nuw [4 x i32], ptr %4240, i64 0, i64 %indvars.iv.i.i.i966
+  %4319 = getelementptr inbounds nuw i32, ptr %4240, i64 %indvars.iv.i.i.i966
   %4320 = load i32, ptr %4319, align 4, !tbaa !124, !noalias !991
   %4321 = icmp slt i32 %4318, %4320
   br i1 %4321, label %4322, label %4327
 
 4322:                                             ; preds = %4316
-  %4323 = getelementptr inbounds nuw [4 x ptr], ptr %4238, i64 0, i64 %indvars.iv.i.i.i966
+  %4323 = getelementptr inbounds nuw ptr, ptr %4238, i64 %indvars.iv.i.i.i966
   %4324 = load ptr, ptr %4323, align 8, !tbaa !120, !noalias !991
-  %4325 = getelementptr inbounds nuw [4 x ptr], ptr %4239, i64 0, i64 %indvars.iv.i.i.i966
+  %4325 = getelementptr inbounds nuw ptr, ptr %4239, i64 %indvars.iv.i.i.i966
   %4326 = load ptr, ptr %4325, align 8, !tbaa !119, !noalias !991
   store i32 %4318, ptr %4324, align 4, !tbaa !124, !noalias !984
   store i64 %4315, ptr %4326, align 8, !tbaa !72, !noalias !984
@@ -18717,7 +18717,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_b
   %4335 = sext i32 %4334 to i64
   %4336 = mul nsw i64 %4335, %4228
   %4337 = getelementptr inbounds nuw i8, ptr %3, i64 %4336
-  %4338 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %14, i64 0, i64 %.019.i237.i.i944
+  %4338 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %14, i64 %.019.i237.i.i944
   store ptr %4337, ptr %4338, align 8, !tbaa !118, !noalias !1020
   %.sroa.4.0..sroa_idx.i238.i.i945 = getelementptr inbounds nuw i8, ptr %4338, i64 8
   store i32 %4231, ptr %.sroa.4.0..sroa_idx.i238.i.i945, align 8, !tbaa !124, !noalias !1020
@@ -18725,13 +18725,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_b
   store i32 %4232, ptr %.sroa.5.0..sroa_idx.i239.i.i946, align 4, !tbaa !124, !noalias !1020
   %4339 = shl nsw i64 %4335, 1
   %4340 = getelementptr inbounds i32, ptr %6, i64 %4339
-  %4341 = getelementptr inbounds nuw [4 x ptr], ptr %4235, i64 0, i64 %.019.i237.i.i944
+  %4341 = getelementptr inbounds nuw ptr, ptr %4235, i64 %.019.i237.i.i944
   store ptr %4340, ptr %4341, align 8, !tbaa !120, !noalias !1020
   %4342 = getelementptr inbounds i64, ptr %7, i64 %4339
-  %4343 = getelementptr inbounds nuw [4 x ptr], ptr %4236, i64 0, i64 %.019.i237.i.i944
+  %4343 = getelementptr inbounds nuw ptr, ptr %4236, i64 %.019.i237.i.i944
   store ptr %4342, ptr %4343, align 8, !tbaa !119, !noalias !1020
   %4344 = load i32, ptr %4340, align 4, !tbaa !124, !alias.scope !1021, !noalias !1022
-  %4345 = getelementptr inbounds nuw [4 x i32], ptr %4237, i64 0, i64 %.019.i237.i.i944
+  %4345 = getelementptr inbounds nuw i32, ptr %4237, i64 %.019.i237.i.i944
   store i32 %4344, ptr %4345, align 4, !tbaa !124, !noalias !1020
   %4346 = add nuw nsw i64 %.019.i237.i.i944, 1
   %exitcond.not.i240.i.i947 = icmp eq i64 %4346, 4
@@ -18756,17 +18756,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EEC2EmPK
 
 4352:                                             ; preds = %4374, %.lr.ph67.i.i949
   %indvars.iv.i241.i.i950 = phi i64 [ 0, %.lr.ph67.i.i949 ], [ %indvars.iv.next.i242.i.i951, %4374 ]
-  %4353 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %14, i64 0, i64 %indvars.iv.i241.i.i950
+  %4353 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %14, i64 %indvars.iv.i241.i.i950
   %4354 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4353, ptr noundef %4349), !noalias !984
-  %4355 = getelementptr inbounds nuw [4 x i32], ptr %4237, i64 0, i64 %indvars.iv.i241.i.i950
+  %4355 = getelementptr inbounds nuw i32, ptr %4237, i64 %indvars.iv.i241.i.i950
   %4356 = load i32, ptr %4355, align 4, !tbaa !124, !noalias !991
   %4357 = icmp slt i32 %4354, %4356
   br i1 %4357, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i954, label %4374
 
 _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.i.i.i.i954: ; preds = %4352
-  %4358 = getelementptr inbounds nuw [4 x ptr], ptr %4235, i64 0, i64 %indvars.iv.i241.i.i950
+  %4358 = getelementptr inbounds nuw ptr, ptr %4235, i64 %indvars.iv.i241.i.i950
   %4359 = load ptr, ptr %4358, align 8, !tbaa !120, !noalias !991
-  %4360 = getelementptr inbounds nuw [4 x ptr], ptr %4236, i64 0, i64 %indvars.iv.i241.i.i950
+  %4360 = getelementptr inbounds nuw ptr, ptr %4236, i64 %indvars.iv.i241.i.i950
   %4361 = load ptr, ptr %4360, align 8, !tbaa !119, !noalias !991
   %4362 = getelementptr inbounds i8, ptr %4359, i64 -4
   %4363 = getelementptr inbounds i8, ptr %4361, i64 -8
@@ -18824,7 +18824,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_b
   %4382 = sext i32 %4381 to i64
   %4383 = mul nsw i64 %4382, %4228
   %4384 = getelementptr inbounds nuw i8, ptr %3, i64 %4383
-  %4385 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %15, i64 0, i64 %.019.i244.i.i899
+  %4385 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %15, i64 %.019.i244.i.i899
   store ptr %4384, ptr %4385, align 8, !tbaa !118, !noalias !1035
   %.sroa.4.0..sroa_idx.i245.i.i900 = getelementptr inbounds nuw i8, ptr %4385, i64 8
   store i32 %4231, ptr %.sroa.4.0..sroa_idx.i245.i.i900, align 8, !tbaa !124, !noalias !1035
@@ -18832,13 +18832,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_b
   store i32 %4232, ptr %.sroa.5.0..sroa_idx.i246.i.i901, align 4, !tbaa !124, !noalias !1035
   %4386 = shl nsw i64 %4382, 2
   %4387 = getelementptr inbounds i32, ptr %6, i64 %4386
-  %4388 = getelementptr inbounds nuw [4 x ptr], ptr %4230, i64 0, i64 %.019.i244.i.i899
+  %4388 = getelementptr inbounds nuw ptr, ptr %4230, i64 %.019.i244.i.i899
   store ptr %4387, ptr %4388, align 8, !tbaa !120, !noalias !1035
   %4389 = getelementptr inbounds i64, ptr %7, i64 %4386
-  %4390 = getelementptr inbounds nuw [4 x ptr], ptr %4233, i64 0, i64 %.019.i244.i.i899
+  %4390 = getelementptr inbounds nuw ptr, ptr %4233, i64 %.019.i244.i.i899
   store ptr %4389, ptr %4390, align 8, !tbaa !119, !noalias !1035
   %4391 = load i32, ptr %4387, align 4, !tbaa !124, !alias.scope !1036, !noalias !1037
-  %4392 = getelementptr inbounds nuw [4 x i32], ptr %4234, i64 0, i64 %.019.i244.i.i899
+  %4392 = getelementptr inbounds nuw i32, ptr %4234, i64 %.019.i244.i.i899
   store i32 %4391, ptr %4392, align 4, !tbaa !124, !noalias !1035
   %4393 = add nuw nsw i64 %.019.i244.i.i899, 1
   %exitcond.not.i247.i.i902 = icmp eq i64 %4393, 4
@@ -18863,17 +18863,17 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EEC2EmPK
 
 4399:                                             ; preds = %4449, %.lr.ph62.i.i
   %indvars.iv.i248.i.i925 = phi i64 [ 0, %.lr.ph62.i.i ], [ %indvars.iv.next.i249.i.i926, %4449 ]
-  %4400 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %15, i64 0, i64 %indvars.iv.i248.i.i925
+  %4400 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %15, i64 %indvars.iv.i248.i.i925
   %4401 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4400, ptr noundef %4396), !noalias !984
-  %4402 = getelementptr inbounds nuw [4 x i32], ptr %4234, i64 0, i64 %indvars.iv.i248.i.i925
+  %4402 = getelementptr inbounds nuw i32, ptr %4234, i64 %indvars.iv.i248.i.i925
   %4403 = load i32, ptr %4402, align 4, !tbaa !124, !noalias !991
   %4404 = icmp slt i32 %4401, %4403
   br i1 %4404, label %4405, label %4449
 
 4405:                                             ; preds = %4399
-  %4406 = getelementptr inbounds nuw [4 x ptr], ptr %4230, i64 0, i64 %indvars.iv.i248.i.i925
+  %4406 = getelementptr inbounds nuw ptr, ptr %4230, i64 %indvars.iv.i248.i.i925
   %4407 = load ptr, ptr %4406, align 8, !tbaa !120, !noalias !991
-  %4408 = getelementptr inbounds nuw [4 x ptr], ptr %4233, i64 0, i64 %indvars.iv.i248.i.i925
+  %4408 = getelementptr inbounds nuw ptr, ptr %4233, i64 %indvars.iv.i248.i.i925
   %4409 = load ptr, ptr %4408, align 8, !tbaa !119, !noalias !991
   %4410 = getelementptr inbounds i8, ptr %4407, i64 -4
   %4411 = getelementptr inbounds i8, ptr %4409, i64 -8
@@ -18982,7 +18982,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_b
   %4457 = sext i32 %4456 to i64
   %4458 = mul nsw i64 %4457, %4228
   %4459 = getelementptr inbounds nuw i8, ptr %3, i64 %4458
-  %4460 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %.ptr21.i.i.i851, i64 0, i64 %.022.i.i.i970
+  %4460 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %.ptr21.i.i.i851, i64 %.022.i.i.i970
   store ptr %4459, ptr %4460, align 8, !tbaa !118, !noalias !1049
   %.sroa.4.0..sroa_idx.i257.i.i971 = getelementptr inbounds nuw i8, ptr %4460, i64 8
   store i32 %4231, ptr %.sroa.4.0..sroa_idx.i257.i.i971, align 8, !tbaa !124, !noalias !1049
@@ -18990,13 +18990,13 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_b
   store i32 %4232, ptr %.sroa.5.0..sroa_idx.i258.i.i972, align 4, !tbaa !124, !noalias !1049
   %4461 = mul nsw i64 %4242, %4457
   %4462 = getelementptr inbounds i32, ptr %6, i64 %4461
-  %4463 = getelementptr inbounds nuw [4 x ptr], ptr %4243, i64 0, i64 %.022.i.i.i970
+  %4463 = getelementptr inbounds nuw ptr, ptr %4243, i64 %.022.i.i.i970
   store ptr %4462, ptr %4463, align 8, !tbaa !120, !noalias !1049
   %4464 = getelementptr inbounds i64, ptr %7, i64 %4461
-  %4465 = getelementptr inbounds nuw [4 x ptr], ptr %4244, i64 0, i64 %.022.i.i.i970
+  %4465 = getelementptr inbounds nuw ptr, ptr %4244, i64 %.022.i.i.i970
   store ptr %4464, ptr %4465, align 8, !tbaa !119, !noalias !1049
   %4466 = load i32, ptr %4462, align 4, !tbaa !124, !alias.scope !1053, !noalias !1054
-  %4467 = getelementptr inbounds nuw [4 x i32], ptr %4245, i64 0, i64 %.022.i.i.i970
+  %4467 = getelementptr inbounds nuw i32, ptr %4245, i64 %.022.i.i.i970
   store i32 %4466, ptr %4467, align 4, !tbaa !124, !noalias !1049
   %4468 = add nuw nsw i64 %.022.i.i.i970, 1
   %exitcond.not.i259.i.i973 = icmp eq i64 %4468, 4
@@ -19021,9 +19021,9 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC
 
 4474:                                             ; preds = %4527, %.lr.ph79.i.i
   %indvars.iv.i260.i.i975 = phi i64 [ 0, %.lr.ph79.i.i ], [ %indvars.iv.next.i261.i.i976, %4527 ]
-  %4475 = getelementptr inbounds nuw [4 x %"struct.faiss::HammingComputerDefault"], ptr %.ptr21.i.i.i851, i64 0, i64 %indvars.iv.i260.i.i975
+  %4475 = getelementptr inbounds nuw %"struct.faiss::HammingComputerDefault", ptr %.ptr21.i.i.i851, i64 %indvars.iv.i260.i.i975
   %4476 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %4475, ptr noundef %4471), !noalias !984
-  %4477 = getelementptr inbounds nuw [4 x i32], ptr %4245, i64 0, i64 %indvars.iv.i260.i.i975
+  %4477 = getelementptr inbounds nuw i32, ptr %4245, i64 %indvars.iv.i260.i.i975
   %4478 = load i32, ptr %4477, align 4, !tbaa !124, !noalias !991
   %4479 = icmp slt i32 %4476, %4478
   br i1 %4479, label %4480, label %4527
@@ -19031,9 +19031,9 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC
 4480:                                             ; preds = %4474
   %4481 = load i32, ptr %16, align 8, !tbaa !1047, !noalias !991
   %4482 = sext i32 %4481 to i64
-  %4483 = getelementptr inbounds nuw [4 x ptr], ptr %4243, i64 0, i64 %indvars.iv.i260.i.i975
+  %4483 = getelementptr inbounds nuw ptr, ptr %4243, i64 %indvars.iv.i260.i.i975
   %4484 = load ptr, ptr %4483, align 8, !tbaa !120, !noalias !991
-  %4485 = getelementptr inbounds nuw [4 x ptr], ptr %4244, i64 0, i64 %indvars.iv.i260.i.i975
+  %4485 = getelementptr inbounds nuw ptr, ptr %4244, i64 %indvars.iv.i260.i.i975
   %4486 = load ptr, ptr %4485, align 8, !tbaa !119, !noalias !991
   %4487 = getelementptr inbounds i8, ptr %4484, i64 -4
   %4488 = getelementptr inbounds i8, ptr %4486, i64 -8

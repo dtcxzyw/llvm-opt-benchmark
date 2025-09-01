@@ -539,13 +539,13 @@ vaapi_av1_get_bit_depth_idx.exit:                 ; preds = %36
   %428 = getelementptr inbounds nuw i8, ptr %11, i64 776
   %429 = load i8, ptr %428, align 4, !tbaa !79
   %430 = zext i8 %429 to i64
-  %431 = getelementptr inbounds nuw [4 x i8], ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw i8, ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 %430
   %432 = load i8, ptr %431, align 1, !tbaa !79
   %433 = and i8 %432, 3
   %434 = getelementptr inbounds nuw i8, ptr %11, i64 777
   %435 = load i8, ptr %434, align 1, !tbaa !79
   %436 = zext i8 %435 to i64
-  %437 = getelementptr inbounds nuw [4 x i8], ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 0, i64 %436
+  %437 = getelementptr inbounds nuw i8, ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 %436
   %438 = load i8, ptr %437, align 1, !tbaa !79
   %439 = shl i8 %438, 2
   %440 = and i8 %439, 12
@@ -553,7 +553,7 @@ vaapi_av1_get_bit_depth_idx.exit:                 ; preds = %36
   %442 = getelementptr inbounds nuw i8, ptr %11, i64 778
   %443 = load i8, ptr %442, align 2, !tbaa !79
   %444 = zext i8 %443 to i64
-  %445 = getelementptr inbounds nuw [4 x i8], ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 0, i64 %444
+  %445 = getelementptr inbounds nuw i8, ptr @__const.vaapi_av1_start_frame.remap_lr_type, i64 %444
   %446 = load i8, ptr %445, align 1, !tbaa !79
   %447 = shl i8 %446, 4
   %448 = getelementptr inbounds nuw i8, ptr %11, i64 779
@@ -713,7 +713,7 @@ vaapi_av1_get_bit_depth_idx.exit:                 ; preds = %36
   br i1 %.not443, label %471, label %vaapi_av1_surface_id.exit
 
 471:                                              ; preds = %469, %465
-  %472 = getelementptr inbounds nuw [8 x %struct.VAAPIAV1FrameRef], ptr %461, i64 0, i64 %indvars.iv
+  %472 = getelementptr inbounds nuw %struct.VAAPIAV1FrameRef, ptr %461, i64 %indvars.iv
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %474 = load i32, ptr %473, align 8, !tbaa !175
   %.not444 = icmp eq i32 %474, 0
@@ -724,7 +724,7 @@ vaapi_av1_get_bit_depth_idx.exit:                 ; preds = %36
   br label %vaapi_av1_surface_id.exit.sink.split
 
 477:                                              ; preds = %471
-  %478 = getelementptr inbounds nuw [8 x %struct.AV1Frame], ptr %462, i64 0, i64 %indvars.iv
+  %478 = getelementptr inbounds nuw %struct.AV1Frame, ptr %462, i64 %indvars.iv
   %.val450 = load ptr, ptr %478, align 8, !tbaa !79
   %.not.i451 = icmp eq ptr %.val450, null
   br i1 %.not.i451, label %vaapi_av1_surface_id.exit, label %vaapi_av1_surface_id.exit.sink.split
@@ -739,7 +739,7 @@ vaapi_av1_surface_id.exit.sink.split:             ; preds = %477, %475
 
 vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_surface_id.exit.sink.split, %469
   %.sink = phi i32 [ -1, %469 ], [ -1, %477 ], [ %481, %vaapi_av1_surface_id.exit.sink.split ]
-  %482 = getelementptr inbounds nuw [8 x i32], ptr %460, i64 0, i64 %indvars.iv
+  %482 = getelementptr inbounds nuw i32, ptr %460, i64 %indvars.iv
   store i32 %.sink, ptr %482, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -751,9 +751,9 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 484:                                              ; preds = %.preheader467, %484
   %indvars.iv496 = phi i64 [ 0, %.preheader467 ], [ %indvars.iv.next497, %484 ]
-  %485 = getelementptr inbounds nuw [7 x i8], ptr %463, i64 0, i64 %indvars.iv496
+  %485 = getelementptr inbounds nuw i8, ptr %463, i64 %indvars.iv496
   %486 = load i8, ptr %485, align 1, !tbaa !79
-  %487 = getelementptr inbounds nuw [7 x i8], ptr %464, i64 0, i64 %indvars.iv496
+  %487 = getelementptr inbounds nuw i8, ptr %464, i64 %indvars.iv496
   store i8 %486, ptr %487, align 1, !tbaa !79
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next497, 7
@@ -774,9 +774,9 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 495:                                              ; preds = %.preheader466, %495
   %indvars.iv500 = phi i64 [ 0, %.preheader466 ], [ %indvars.iv.next501, %495 ]
-  %496 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 0, i64 %indvars.iv500
+  %496 = getelementptr inbounds nuw i8, ptr %483, i64 %indvars.iv500
   %497 = load i8, ptr %496, align 1, !tbaa !79
-  %498 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.123.0..sroa_idx, i64 0, i64 %indvars.iv500
+  %498 = getelementptr inbounds nuw i8, ptr %.sroa.123.0..sroa_idx, i64 %indvars.iv500
   store i8 %497, ptr %498, align 1, !tbaa !79
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond503.not = icmp eq i64 %indvars.iv.next501, 8
@@ -801,21 +801,21 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 506:                                              ; preds = %.lr.ph, %506
   %indvars.iv507 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next508, %506 ]
-  %507 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 0, i64 %indvars.iv507
+  %507 = getelementptr inbounds nuw i8, ptr %499, i64 %indvars.iv507
   %508 = load i8, ptr %507, align 1, !tbaa !79
   %509 = shl i8 %508, 2
-  %510 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 0, i64 %indvars.iv507
+  %510 = getelementptr inbounds nuw i8, ptr %500, i64 %indvars.iv507
   %511 = load i8, ptr %510, align 1, !tbaa !79
   %512 = add i8 %509, %511
-  %513 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.157.0..sroa_idx, i64 0, i64 %indvars.iv507
+  %513 = getelementptr inbounds nuw i8, ptr %.sroa.157.0..sroa_idx, i64 %indvars.iv507
   store i8 %512, ptr %513, align 1, !tbaa !79
-  %514 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 0, i64 %indvars.iv507
+  %514 = getelementptr inbounds nuw i8, ptr %501, i64 %indvars.iv507
   %515 = load i8, ptr %514, align 1, !tbaa !79
   %516 = shl i8 %515, 2
-  %517 = getelementptr inbounds nuw [8 x i8], ptr %502, i64 0, i64 %indvars.iv507
+  %517 = getelementptr inbounds nuw i8, ptr %502, i64 %indvars.iv507
   %518 = load i8, ptr %517, align 1, !tbaa !79
   %519 = add i8 %516, %518
-  %520 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 0, i64 %indvars.iv507
+  %520 = getelementptr inbounds nuw i8, ptr %503, i64 %indvars.iv507
   store i8 %519, ptr %520, align 1, !tbaa !79
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %521 = load i8, ptr %426, align 1, !tbaa !170
@@ -837,10 +837,10 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 529:                                              ; preds = %.lr.ph474, %529
   %indvars.iv510 = phi i64 [ 0, %.lr.ph474 ], [ %indvars.iv.next511, %529 ]
-  %530 = getelementptr inbounds nuw [64 x i8], ptr %505, i64 0, i64 %indvars.iv510
+  %530 = getelementptr inbounds nuw i8, ptr %505, i64 %indvars.iv510
   %531 = load i8, ptr %530, align 1, !tbaa !79
   %532 = zext i8 %531 to i16
-  %533 = getelementptr inbounds nuw [63 x i16], ptr %.sroa.80.0..sroa_idx, i64 0, i64 %indvars.iv510
+  %533 = getelementptr inbounds nuw i16, ptr %.sroa.80.0..sroa_idx, i64 %indvars.iv510
   store i16 %532, ptr %533, align 2, !tbaa !174
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %534 = load i16, ptr %233, align 2, !tbaa !127
@@ -856,10 +856,10 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 540:                                              ; preds = %.lr.ph476, %540
   %indvars.iv513 = phi i64 [ 0, %.lr.ph476 ], [ %indvars.iv.next514, %540 ]
-  %541 = getelementptr inbounds nuw [64 x i8], ptr %527, i64 0, i64 %indvars.iv513
+  %541 = getelementptr inbounds nuw i8, ptr %527, i64 %indvars.iv513
   %542 = load i8, ptr %541, align 1, !tbaa !79
   %543 = zext i8 %542 to i16
-  %544 = getelementptr inbounds nuw [63 x i16], ptr %528, i64 0, i64 %indvars.iv513
+  %544 = getelementptr inbounds nuw i16, ptr %528, i64 %indvars.iv513
   store i16 %543, ptr %544, align 2, !tbaa !174
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %545 = load i16, ptr %236, align 4, !tbaa !128
@@ -875,18 +875,18 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 551:                                              ; preds = %.preheader461, %562
   %indvars.iv521 = phi i64 [ 1, %.preheader461 ], [ %indvars.iv.next522, %562 ]
-  %552 = getelementptr inbounds nuw [8 x i8], ptr %537, i64 0, i64 %indvars.iv521
+  %552 = getelementptr inbounds nuw i8, ptr %537, i64 %indvars.iv521
   %553 = load i8, ptr %552, align 1, !tbaa !79
-  %554 = add nsw i64 %indvars.iv521, -1
-  %555 = getelementptr inbounds nuw [7 x %struct._VAWarpedMotionParamsAV1], ptr %.sroa.167.0..sroa_idx, i64 0, i64 %554
-  %556 = getelementptr inbounds nuw i8, ptr %555, i64 36
+  %554 = getelementptr %struct._VAWarpedMotionParamsAV1, ptr %.sroa.167.0..sroa_idx, i64 %indvars.iv521
+  %555 = getelementptr i8, ptr %554, i64 -56
+  %556 = getelementptr i8, ptr %554, i64 -20
   store i8 %553, ptr %556, align 8, !tbaa !185
-  %557 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 0, i64 %indvars.iv521
+  %557 = getelementptr inbounds nuw i8, ptr %538, i64 %indvars.iv521
   %558 = load i8, ptr %557, align 1, !tbaa !79
   %559 = zext i8 %558 to i32
   store i32 %559, ptr %555, align 4, !tbaa !187
-  %560 = getelementptr inbounds nuw [8 x [6 x i32]], ptr %539, i64 0, i64 %indvars.iv521
-  %561 = getelementptr inbounds nuw i8, ptr %555, i64 4
+  %560 = getelementptr inbounds nuw [6 x i32], ptr %539, i64 %indvars.iv521
+  %561 = getelementptr i8, ptr %554, i64 -52
   br label %563
 
 562:                                              ; preds = %563
@@ -896,9 +896,9 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 563:                                              ; preds = %551, %563
   %indvars.iv517 = phi i64 [ 0, %551 ], [ %indvars.iv.next518, %563 ]
-  %564 = getelementptr inbounds nuw [6 x i32], ptr %560, i64 0, i64 %indvars.iv517
+  %564 = getelementptr inbounds nuw i32, ptr %560, i64 %indvars.iv517
   %565 = load i32, ptr %564, align 4, !tbaa !173
-  %566 = getelementptr inbounds nuw [8 x i32], ptr %561, i64 0, i64 %indvars.iv517
+  %566 = getelementptr inbounds nuw i32, ptr %561, i64 %indvars.iv517
   store i32 %565, ptr %566, align 4, !tbaa !173
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next518, 6
@@ -906,10 +906,10 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 .preheader459:                                    ; preds = %.preheader460, %576
   %indvars.iv529 = phi i64 [ 0, %.preheader460 ], [ %indvars.iv.next530, %576 ]
-  %567 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %548, i64 0, i64 %indvars.iv529
-  %568 = getelementptr inbounds nuw [8 x i8], ptr %549, i64 0, i64 %indvars.iv529
-  %569 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %550, i64 0, i64 %indvars.iv529
-  %570 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %.sroa.52.0..sroa_idx, i64 0, i64 %indvars.iv529
+  %567 = getelementptr inbounds nuw [8 x i8], ptr %548, i64 %indvars.iv529
+  %568 = getelementptr inbounds nuw i8, ptr %549, i64 %indvars.iv529
+  %569 = getelementptr inbounds nuw [8 x i16], ptr %550, i64 %indvars.iv529
+  %570 = getelementptr inbounds nuw [8 x i16], ptr %.sroa.52.0..sroa_idx, i64 %indvars.iv529
   br label %577
 
 571:                                              ; preds = %576
@@ -933,7 +933,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 577:                                              ; preds = %.preheader459, %602
   %indvars.iv525 = phi i64 [ 0, %.preheader459 ], [ %indvars.iv.next526, %602 ]
-  %578 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 0, i64 %indvars.iv525
+  %578 = getelementptr inbounds nuw i8, ptr %567, i64 %indvars.iv525
   %579 = load i8, ptr %578, align 1, !tbaa !79
   %580 = zext i8 %579 to i32
   %581 = trunc nuw nsw i64 %indvars.iv525 to i32
@@ -945,10 +945,10 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   %586 = trunc i64 %indvars.iv525 to i32
   %587 = add i32 %586, -5
   %.not442 = icmp ult i32 %587, 3
-  %588 = getelementptr inbounds nuw [8 x i16], ptr %569, i64 0, i64 %indvars.iv525
+  %588 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv525
   %589 = load i16, ptr %588, align 2, !tbaa !174
   %590 = sext i16 %589 to i32
-  %591 = getelementptr inbounds nuw [8 x i8], ptr @__const.vaapi_av1_start_frame.segmentation_feature_max, i64 0, i64 %indvars.iv525
+  %591 = getelementptr inbounds nuw i8, ptr @__const.vaapi_av1_start_frame.segmentation_feature_max, i64 %indvars.iv525
   %592 = load i8, ptr %591, align 1, !tbaa !79
   %593 = zext i8 %592 to i32
   br i1 %.not442, label %598, label %594
@@ -970,7 +970,7 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 602:                                              ; preds = %594, %598
   %.sink553 = phi i16 [ %597, %594 ], [ %601, %598 ]
-  %603 = getelementptr inbounds nuw [8 x i16], ptr %570, i64 0, i64 %indvars.iv525
+  %603 = getelementptr inbounds nuw i16, ptr %570, i64 %indvars.iv525
   store i16 %.sink553, ptr %603, align 2, !tbaa !174
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next526, 8
@@ -989,13 +989,13 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 608:                                              ; preds = %.lr.ph482, %608
   %indvars.iv533 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next534, %608 ]
-  %609 = getelementptr inbounds nuw [14 x i8], ptr %573, i64 0, i64 %indvars.iv533
+  %609 = getelementptr inbounds nuw i8, ptr %573, i64 %indvars.iv533
   %610 = load i8, ptr %609, align 1, !tbaa !79
-  %611 = getelementptr inbounds nuw [14 x i8], ptr %.sroa.70.0..sroa_idx, i64 0, i64 %indvars.iv533
+  %611 = getelementptr inbounds nuw i8, ptr %.sroa.70.0..sroa_idx, i64 %indvars.iv533
   store i8 %610, ptr %611, align 1, !tbaa !79
-  %612 = getelementptr inbounds nuw [14 x i8], ptr %574, i64 0, i64 %indvars.iv533
+  %612 = getelementptr inbounds nuw i8, ptr %574, i64 %indvars.iv533
   %613 = load i8, ptr %612, align 1, !tbaa !79
-  %614 = getelementptr inbounds nuw [14 x i8], ptr %575, i64 0, i64 %indvars.iv533
+  %614 = getelementptr inbounds nuw i8, ptr %575, i64 %indvars.iv533
   store i8 %613, ptr %614, align 1, !tbaa !79
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
   %615 = load i8, ptr %215, align 2, !tbaa !118
@@ -1016,13 +1016,13 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 622:                                              ; preds = %.lr.ph484, %622
   %indvars.iv536 = phi i64 [ 0, %.lr.ph484 ], [ %indvars.iv.next537, %622 ]
-  %623 = getelementptr inbounds nuw [10 x i8], ptr %605, i64 0, i64 %indvars.iv536
+  %623 = getelementptr inbounds nuw i8, ptr %605, i64 %indvars.iv536
   %624 = load i8, ptr %623, align 1, !tbaa !79
-  %625 = getelementptr inbounds nuw [10 x i8], ptr %.sroa.71.0..sroa_idx, i64 0, i64 %indvars.iv536
+  %625 = getelementptr inbounds nuw i8, ptr %.sroa.71.0..sroa_idx, i64 %indvars.iv536
   store i8 %624, ptr %625, align 1, !tbaa !79
-  %626 = getelementptr inbounds nuw [10 x i8], ptr %606, i64 0, i64 %indvars.iv536
+  %626 = getelementptr inbounds nuw i8, ptr %606, i64 %indvars.iv536
   %627 = load i8, ptr %626, align 1, !tbaa !79
-  %628 = getelementptr inbounds nuw [10 x i8], ptr %607, i64 0, i64 %indvars.iv536
+  %628 = getelementptr inbounds nuw i8, ptr %607, i64 %indvars.iv536
   store i8 %627, ptr %628, align 1, !tbaa !79
   %indvars.iv.next537 = add nuw nsw i64 %indvars.iv536, 1
   %629 = load i8, ptr %217, align 2, !tbaa !119
@@ -1037,13 +1037,13 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 634:                                              ; preds = %.lr.ph486, %634
   %indvars.iv539 = phi i64 [ 0, %.lr.ph486 ], [ %indvars.iv.next540, %634 ]
-  %635 = getelementptr inbounds nuw [10 x i8], ptr %619, i64 0, i64 %indvars.iv539
+  %635 = getelementptr inbounds nuw i8, ptr %619, i64 %indvars.iv539
   %636 = load i8, ptr %635, align 1, !tbaa !79
-  %637 = getelementptr inbounds nuw [10 x i8], ptr %.sroa.72.0..sroa_idx, i64 0, i64 %indvars.iv539
+  %637 = getelementptr inbounds nuw i8, ptr %.sroa.72.0..sroa_idx, i64 %indvars.iv539
   store i8 %636, ptr %637, align 1, !tbaa !79
-  %638 = getelementptr inbounds nuw [10 x i8], ptr %620, i64 0, i64 %indvars.iv539
+  %638 = getelementptr inbounds nuw i8, ptr %620, i64 %indvars.iv539
   %639 = load i8, ptr %638, align 1, !tbaa !79
-  %640 = getelementptr inbounds nuw [10 x i8], ptr %621, i64 0, i64 %indvars.iv539
+  %640 = getelementptr inbounds nuw i8, ptr %621, i64 %indvars.iv539
   store i8 %639, ptr %640, align 1, !tbaa !79
   %indvars.iv.next540 = add nuw nsw i64 %indvars.iv539, 1
   %641 = load i8, ptr %219, align 1, !tbaa !120
@@ -1060,10 +1060,10 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 648:                                              ; preds = %.preheader455, %648
   %indvars.iv542 = phi i64 [ 0, %.preheader455 ], [ %indvars.iv.next543, %648 ]
-  %649 = getelementptr inbounds nuw [24 x i8], ptr %632, i64 0, i64 %indvars.iv542
+  %649 = getelementptr inbounds nuw i8, ptr %632, i64 %indvars.iv542
   %650 = load i8, ptr %649, align 1, !tbaa !79
   %651 = xor i8 %650, -128
-  %652 = getelementptr inbounds nuw [24 x i8], ptr %633, i64 0, i64 %indvars.iv542
+  %652 = getelementptr inbounds nuw i8, ptr %633, i64 %indvars.iv542
   store i8 %651, ptr %652, align 1, !tbaa !79
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next543, 24
@@ -1071,15 +1071,15 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
 
 653:                                              ; preds = %.preheader, %653
   %indvars.iv546 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next547, %653 ]
-  %654 = getelementptr inbounds nuw [25 x i8], ptr %644, i64 0, i64 %indvars.iv546
+  %654 = getelementptr inbounds nuw i8, ptr %644, i64 %indvars.iv546
   %655 = load i8, ptr %654, align 1, !tbaa !79
   %656 = xor i8 %655, -128
-  %657 = getelementptr inbounds nuw [25 x i8], ptr %645, i64 0, i64 %indvars.iv546
+  %657 = getelementptr inbounds nuw i8, ptr %645, i64 %indvars.iv546
   store i8 %656, ptr %657, align 1, !tbaa !79
-  %658 = getelementptr inbounds nuw [25 x i8], ptr %646, i64 0, i64 %indvars.iv546
+  %658 = getelementptr inbounds nuw i8, ptr %646, i64 %indvars.iv546
   %659 = load i8, ptr %658, align 1, !tbaa !79
   %660 = xor i8 %659, -128
-  %661 = getelementptr inbounds nuw [25 x i8], ptr %647, i64 0, i64 %indvars.iv546
+  %661 = getelementptr inbounds nuw i8, ptr %647, i64 %indvars.iv546
   store i8 %660, ptr %661, align 1, !tbaa !79
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next547, 25
@@ -1269,7 +1269,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
   br i1 %.not34.us, label %46, label %33
 
 33:                                               ; preds = %.preheader.split.us
-  %34 = getelementptr inbounds nuw [8 x %struct.VAAPIAV1FrameRef], ptr %24, i64 0, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw %struct.VAAPIAV1FrameRef, ptr %24, i64 %indvars.iv40
   %35 = load ptr, ptr %34, align 8, !tbaa !177
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8, !tbaa !78
@@ -1309,7 +1309,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
   br i1 %.not34, label %60, label %52
 
 52:                                               ; preds = %.preheader.split
-  %53 = getelementptr inbounds nuw [8 x %struct.VAAPIAV1FrameRef], ptr %27, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %struct.VAAPIAV1FrameRef, ptr %27, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !177
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   %56 = load ptr, ptr %55, align 8, !tbaa !78
@@ -1354,7 +1354,7 @@ define internal i32 @vaapi_av1_decode_init(ptr noundef %0) #1 {
 9:                                                ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %10 = tail call ptr @av_frame_alloc() #6
-  %11 = getelementptr inbounds nuw [8 x %struct.VAAPIAV1FrameRef], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.VAAPIAV1FrameRef, ptr %8, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !177
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %.loopexit, label %12
@@ -1394,7 +1394,7 @@ define internal i32 @vaapi_av1_decode_uninit(ptr noundef %0) #1 {
 
 11:                                               ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [8 x %struct.VAAPIAV1FrameRef], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.VAAPIAV1FrameRef, ptr %7, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

@@ -1207,7 +1207,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %293, %287, %269, 
   %spec.select.i.i = add nuw nsw i32 %.039238, %525
   %526 = getelementptr inbounds nuw i8, ptr %515, i64 24
   %527 = sext i32 %spec.select.i.i to i64
-  %528 = getelementptr inbounds [0 x ptr], ptr %526, i64 0, i64 %527
+  %528 = getelementptr inbounds ptr, ptr %526, i64 %527
   %529 = load ptr, ptr %528, align 8, !tbaa !57, !noalias !54
   store ptr %529, ptr %27, align 8, !tbaa !3, !alias.scope !54
   invoke void @_ZN4cvc58internal13preprocessing6passes11NlExtPurify13purifyNlTermsENS0_12NodeTemplateILb0EEERSt13unordered_mapINS4_ILb1EEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEESH_RSt6vectorIS7_SaIS7_EEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %26, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %494)
@@ -1233,7 +1233,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %293, %287, %269, 
   %spec.select.i.i164 = add nuw nsw i32 %.039238, %542
   %543 = getelementptr inbounds nuw i8, ptr %532, i64 24
   %544 = sext i32 %spec.select.i.i164 to i64
-  %545 = getelementptr inbounds [0 x ptr], ptr %543, i64 0, i64 %544
+  %545 = getelementptr inbounds ptr, ptr %543, i64 %544
   %546 = load ptr, ptr %545, align 8, !tbaa !57, !noalias !58
   %547 = load ptr, ptr %26, align 8, !tbaa !9
   %548 = icmp ne ptr %547, %546

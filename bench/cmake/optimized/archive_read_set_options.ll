@@ -28,7 +28,7 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
 .split.us:                                        ; preds = %4, %18
   %.02945.us = phi i32 [ %.130.ph.us, %18 ], [ -20, %4 ]
   %.03244.us = phi i64 [ %19, %18 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.03244.us
+  %7 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %5, i64 %.03244.us
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = icmp eq ptr %9, null
@@ -62,7 +62,7 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   %.02646 = phi i32 [ %.127.ph, %34 ], [ 0, %4 ]
   %.02945 = phi i32 [ %.130.ph, %34 ], [ -20, %4 ]
   %.03244 = phi i64 [ %35, %34 ], [ 0, %4 ]
-  %20 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.03244
+  %20 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %5, i64 %.03244
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = icmp eq ptr %22, null

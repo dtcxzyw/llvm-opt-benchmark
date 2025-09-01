@@ -195,7 +195,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp19CalcTangentsProcess11ProcessMeshEP
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not257 = icmp eq ptr %28, null
   br i1 %.not257, label %29, label %31
@@ -264,7 +264,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %35, %31
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %21, align 4
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [8 x ptr], ptr %25, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %25, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load i32, ptr %62, align 8

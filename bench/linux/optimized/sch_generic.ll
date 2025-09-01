@@ -1110,11 +1110,11 @@ define internal noundef range(i32 0, 2) i32 @pfifo_fast_enqueue(ptr noundef %0, 
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 15
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [16 x i8], ptr @sch_default_prio2band, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @sch_default_prio2band, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %11 = zext i8 %9 to i64
-  %12 = getelementptr [3 x %struct.skb_array], ptr %10, i64 0, i64 %11
+  %12 = getelementptr %struct.skb_array, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1222,7 +1222,7 @@ define internal ptr @pfifo_fast_dequeue(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %55, %4
   %7 = phi i64 [ 0, %4 ], [ %56, %55 ]
-  %8 = getelementptr [3 x %struct.skb_array], ptr %2, i64 0, i64 %7
+  %8 = getelementptr %struct.skb_array, ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load i32, ptr %9, align 64
   %11 = icmp eq i32 %10, 0
@@ -1402,7 +1402,7 @@ define internal ptr @pfifo_fast_peek(ptr noundef readonly captures(none) %0) #3 
 
 3:                                                ; preds = %17, %1
   %4 = phi i64 [ 0, %1 ], [ %19, %17 ]
-  %5 = getelementptr [3 x %struct.skb_array], ptr %2, i64 0, i64 %4
+  %5 = getelementptr %struct.skb_array, ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load i32, ptr %6, align 64
   %8 = icmp eq i32 %7, 0
@@ -1456,7 +1456,7 @@ define internal noundef range(i32 -22, 1) i32 @pfifo_fast_init(ptr noundef captu
 
 .split:                                           ; preds = %11, %23
   %18 = phi i64 [ %30, %23 ], [ 0, %11 ]
-  %19 = getelementptr [3 x %struct.skb_array], ptr %9, i64 0, i64 %18
+  %19 = getelementptr %struct.skb_array, ptr %9, i64 %18
   %20 = tail call noalias ptr @kvmalloc_node(i64 noundef %14, i32 noundef 3520, i32 noundef -1) #23
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store ptr %20, ptr %21, align 8
@@ -1500,7 +1500,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %.thread, %1
   %4 = phi i64 [ 0, %1 ], [ %45, %.thread ]
-  %5 = getelementptr [3 x %struct.skb_array], ptr %2, i64 0, i64 %4
+  %5 = getelementptr %struct.skb_array, ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -1604,7 +1604,7 @@ define internal void @pfifo_fast_reset(ptr noundef %0) #0 align 16 {
   %65 = load ptr, ptr %53, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %61, 63
-  %68 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %67
+  %68 = getelementptr i64, ptr @__per_cpu_offset, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %66
   %71 = inttoptr i64 %70 to ptr
@@ -1656,8 +1656,8 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
 
 5:                                                ; preds = %5, %2
   %6 = phi i64 [ 0, %2 ], [ %9, %5 ]
-  %7 = getelementptr [3 x %struct.skb_array], ptr %4, i64 0, i64 %6
-  %8 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr %struct.skb_array, ptr %4, i64 %6
+  %8 = getelementptr ptr, ptr %3, i64 %6
   store ptr %7, ptr %8, align 8
   %9 = add nuw nsw i64 %6, 1
   %10 = icmp eq i64 %9, 3
@@ -4297,7 +4297,7 @@ define internal fastcc ptr @xfrm_offload(ptr noundef nonnull readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %24 = add i32 %17, -1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr [1 x %struct.xfrm_offload], ptr %23, i64 0, i64 %25
+  %26 = getelementptr %struct.xfrm_offload, ptr %23, i64 %25
   br label %.thread
 
 .thread:                                          ; preds = %1, %22, %19, %15, %6

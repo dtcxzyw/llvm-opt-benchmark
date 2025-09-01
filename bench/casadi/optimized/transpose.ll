@@ -1778,10 +1778,10 @@ define void @_ZNK6casadi9Transpose11eval_linearERKSt6vectorISt5arrayINS_2MXELm3E
   %.07 = phi i64 [ 0, %3 ], [ %12, %_ZN6casadi2MXaSERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !78
-  %8 = getelementptr inbounds nuw [3 x %"class.casadi::MX"], ptr %7, i64 0, i64 %.07
+  %8 = getelementptr inbounds nuw %"class.casadi::MX", ptr %7, i64 %.07
   call void @_ZNK6casadi2MX1TEv(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %9 = load ptr, ptr %2, align 8, !tbaa !78
-  %10 = getelementptr inbounds nuw [3 x %"class.casadi::MX"], ptr %9, i64 0, i64 %.07
+  %10 = getelementptr inbounds nuw %"class.casadi::MX", ptr %9, i64 %.07
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %13
 

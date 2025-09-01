@@ -3022,7 +3022,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$$u5b$rustls_pki_types..Certi
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit"
   %.08 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit" ]
-  %8 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %0, i64 0, i64 %.08
+  %8 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %0, i64 %.08
   %9 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !948)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !951)
@@ -3070,7 +3070,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$$u5b$rustls_pki_types..Certi
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %0, i64 0, i64 %.1
+  %23 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %0, i64 %.1
   %24 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #49
           to label %18 unwind label %26
@@ -3188,7 +3188,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_place_drop..I
 
 13:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit.i.i", %.lr.ph.i.i
   %.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %15, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit.i.i" ]
-  %14 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %3, i64 0, i64 %.08.i.i
+  %14 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %3, i64 %.08.i.i
   %15 = add nuw i64 %.08.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1013)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1016)
@@ -3233,7 +3233,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..in_place_drop..I
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %3, i64 0, i64 %.1.i.i
+  %29 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %3, i64 %.1.i.i
   %30 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #49
           to label %24 unwind label %32, !noalias !1004
@@ -4458,7 +4458,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
 
 13:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit.i", %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE.exit.i" ]
-  %14 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %3, i64 0, i64 %.08.i
+  %14 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %3, i64 %.08.i
   %15 = add nuw i64 %.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1469)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1472)
@@ -4503,7 +4503,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds [0 x { { { i64, [2 x i64] } } }], ptr %3, i64 0, i64 %.1.i
+  %29 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %3, i64 %.1.i
   %30 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17h94f73b377003bf5dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #49
           to label %24 unwind label %32
@@ -9125,7 +9125,7 @@ define { ptr, ptr } @"_ZN101_$LT$rustls..crypto..aws_lc_rs..sign..RsaSigningKey$
 
 switch.lookup:                                    ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc0a041fc6591426dE.exit"
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN101_$LT$rustls..crypto..aws_lc_rs..sign..RsaSigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$13choose_scheme17h9217b9648f7c2987E", i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$rustls..crypto..aws_lc_rs..sign..RsaSigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$13choose_scheme17h9217b9648f7c2987E", i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.val, ptr %3, align 8
@@ -9592,7 +9592,7 @@ define { i8, i8 } @"_ZN103_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigningKey$
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit
 
@@ -9617,7 +9617,7 @@ define noundef zeroext i1 @"_ZN85_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSign
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i16 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN103_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h6e9fb202cb62eeecE.exit"
 
@@ -9791,7 +9791,7 @@ switch.lookup:                                    ; preds = %55
   %70 = load ptr, ptr %56, align 8, !noalias !3091, !nonnull !4, !align !394, !noundef !4
   %.val.i = load i8, ptr %70, align 1, !range !3107, !noalias !3091, !noundef !4
   %71 = zext nneg i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigner$u20$as$u20$rustls..crypto..signer..Signer$GT$4sign17h7fa95ef85f6eb805E", i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$rustls..crypto..aws_lc_rs..sign..EcdsaSigner$u20$as$u20$rustls..crypto..signer..Signer$GT$4sign17h7fa95ef85f6eb805E", i64 %71
   %switch.load = load i64, ptr %switch.gep, align 8
   %72 = invoke noundef ptr @"\01aws_lc_0_13_2_ECDSA_SIG_from_bytes"(ptr noundef nonnull readonly align 1 %45, i64 noundef %51)
           to label %.noexc31.i unwind label %53, !noalias !3091
@@ -10266,7 +10266,7 @@ define { i8, i8 } @"_ZN105_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKe
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit
 
@@ -10291,7 +10291,7 @@ define noundef zeroext i1 @"_ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519Si
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i16 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN87_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$core..fmt..Debug$GT$3fmt17hf18ad68e9cd2dd5fE", i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN105_$LT$rustls..crypto..aws_lc_rs..sign..Ed25519SigningKey$u20$as$u20$rustls..crypto..signer..SigningKey$GT$9algorithm17h16a41c8558cf22e8E.exit"
 

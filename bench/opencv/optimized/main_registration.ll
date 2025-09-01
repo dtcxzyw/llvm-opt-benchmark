@@ -3161,7 +3161,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1010: ; preds = %.noexc1013,
 1108:                                             ; preds = %1105
   %1109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @registration, i64 8), align 8, !tbaa !108
   %1110 = sext i32 %1109 to i64
-  %1111 = getelementptr inbounds [8 x i32], ptr @_ZL3pts, i64 0, i64 %1110
+  %1111 = getelementptr inbounds i32, ptr @_ZL3pts, i64 %1110
   %1112 = load i32, ptr %1111, align 4, !tbaa !59
   %1113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mesh, i64 16), align 8, !tbaa !97
   %1114 = sext i32 %1112 to i64
@@ -6146,7 +6146,7 @@ define internal void @_ZL24onMouseModelRegistrationiiiiPv(i32 noundef %0, i32 no
 
 13:                                               ; preds = %9
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds [8 x i32], ptr @_ZL3pts, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr @_ZL3pts, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = sitofp i32 %1 to float

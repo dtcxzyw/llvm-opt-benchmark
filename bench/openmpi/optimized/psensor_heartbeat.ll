@@ -80,7 +80,7 @@ define internal range(i32 -1366, 1) i32 @heartbeat_start(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %20
@@ -925,7 +925,7 @@ define internal void @check_heartbeat(i32 %0, i16 signext %1, ptr noundef %2) #0
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %21
@@ -966,7 +966,7 @@ define internal void @check_heartbeat(i32 %0, i16 signext %1, ptr noundef %2) #0
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %.pre33 to i64
-  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4, !tbaa !18
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %45
@@ -1061,7 +1061,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_strncpy.exit
 
 84:                                               ; preds = %82
   %85 = zext nneg i32 %83 to i64
-  %86 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %85, i32 2
+  %86 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %85, i32 2
   %87 = load i32, ptr %86, align 4, !tbaa !18
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %99

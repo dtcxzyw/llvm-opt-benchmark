@@ -8597,7 +8597,7 @@ default.unreachable154:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h604aa3884b8f2ef7E.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17h26d914c9cfcdb48dE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -9455,7 +9455,7 @@ default.unreachable152:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h518062717660303cE.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17he133270be9479ecfE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -10308,7 +10308,7 @@ default.unreachable151:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h89924ecb5ef4b544E.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17h695f0c6f25680e4bE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -11159,7 +11159,7 @@ default.unreachable154:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h604aa3884b8f2ef7E.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17h26d914c9cfcdb48dE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -12015,7 +12015,7 @@ default.unreachable157:                           ; preds = %2
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h0fef7f115854204bE.exit.i.i: ; preds = %.noexc
-  %67 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %6, i64 0, i64 %64
+  %67 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i64 %64
   invoke void @_ZN4core3ptr4swap17h919aa41ca45d6c15E.llvm.3227829919183848626(ptr noundef nonnull %62, ptr noundef nonnull %67)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -12865,7 +12865,7 @@ default.unreachable151:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h89924ecb5ef4b544E.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17h695f0c6f25680e4bE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -13717,7 +13717,7 @@ default.unreachable151:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h9528a219a7a2a343E.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17h0c2f9c2758a4323aE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -14568,7 +14568,7 @@ default.unreachable152:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h518062717660303cE.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17he133270be9479ecfE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 
@@ -15420,7 +15420,7 @@ default.unreachable152:                           ; preds = %3
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h518062717660303cE.exit.i.i: ; preds = %.noexc
-  %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %8, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i64 %66
   invoke void @_ZN4core3ptr4swap17he133270be9479ecfE.llvm.3227829919183848626(ptr noundef nonnull %64, ptr noundef nonnull %69)
           to label %.outer.i.i unwind label %.loopexit.split-lp
 

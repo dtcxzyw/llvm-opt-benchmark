@@ -495,7 +495,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %149, %148
   %221 = lshr i32 %216, %220
   %222 = and i32 %221, 3
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i16, ptr %5, i64 %223
   %225 = load i16, ptr %224, align 2, !tbaa !47
   %226 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv320.i
   store i16 %225, ptr %226, align 2, !tbaa !47

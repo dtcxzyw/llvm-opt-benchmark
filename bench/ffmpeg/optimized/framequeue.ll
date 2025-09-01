@@ -324,7 +324,7 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %58 ]
   %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv43
   %60 = load ptr, ptr %59, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw [8 x ptr], ptr %.pre48, i64 0, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
   store ptr %60, ptr %61, align 8, !tbaa !42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46

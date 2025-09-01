@@ -1316,7 +1316,7 @@ define internal i64 @sg_write(ptr noundef readonly captures(none) %0, ptr nounde
 
 74:                                               ; preds = %68
   %75 = lshr i64 %62, 5
-  %76 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %75
+  %76 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = and i64 %62, 192
   %79 = icmp eq i64 %78, 192

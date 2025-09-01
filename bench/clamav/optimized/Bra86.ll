@@ -60,7 +60,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
 
 33:                                               ; preds = %28
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @kMaskToBitNumber, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !7
   %37 = zext i8 %36 to i64
   %38 = sub nsw i64 4, %37
@@ -116,7 +116,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
 
 .lr.ph138:                                        ; preds = %52
   %73 = zext nneg i32 %.293 to i64
-  %74 = getelementptr inbounds nuw [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @kMaskToBitNumber, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !7
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 3

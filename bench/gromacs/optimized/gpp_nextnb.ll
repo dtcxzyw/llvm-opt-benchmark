@@ -195,7 +195,7 @@ define void @_Z7gen_nnbP8t_nextnbN3gmx8ArrayRefI18InteractionsOfTypeEE(ptr nound
 8:                                                ; preds = %3, %_ZL11IS_CHEMBONDi.exit.thread
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZL11IS_CHEMBONDi.exit.thread ]
   %.01438 = phi i32 [ 0, %3 ], [ %.1, %_ZL11IS_CHEMBONDi.exit.thread ]
-  %9 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 16, !tbaa !26
   %12 = icmp eq i32 %11, 2
@@ -235,7 +235,7 @@ _ZL11IS_CHEMBONDi.exit.thread:                    ; preds = %8, %_ZL11IS_CHEMBON
 29:                                               ; preds = %5, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit
   %indvars.iv55 = phi i64 [ 0, %5 ], [ %indvars.iv.next56, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit ]
   %.02640 = phi i32 [ 0, %5 ], [ %.127, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit ]
-  %30 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv55
+  %30 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv55
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 16, !tbaa !26
   %33 = icmp eq i32 %32, 2

@@ -297,7 +297,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal1
 34:                                               ; preds = %32
   %35 = load i8, ptr %33, align 1, !tbaa !12
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %36
   %.sroa.0.0.copyload.i = load i8, ptr %37, align 1, !tbaa !12
   %38 = icmp sgt i8 %.sroa.0.0.copyload.i, -1
   br i1 %38, label %39, label %46
@@ -495,7 +495,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl19str_format_internal16ParsedForma
 
 switch.lookup:                                    ; preds = %56
   %61 = zext nneg i8 %59 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i8], ptr @switch.table._ZNK4absl19str_format_internal16ParsedFormatBase18MatchesConversionsEbSt16initializer_listINS_23FormatConversionCharSetEE, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK4absl19str_format_internal16ParsedFormatBase18MatchesConversionsEbSt16initializer_listINS_23FormatConversionCharSetEE, i64 %61
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit
 
@@ -692,7 +692,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   %.1225 = phi ptr [ %28, %.lr.ph ], [ %44, %43 ]
   %.1155224 = phi i8 [ %29, %.lr.ph ], [ %45, %43 ]
   %34 = zext i8 %.1155224 to i64
-  %35 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %34
   %.sroa.0.0.copyload.i = load i8, ptr %35, align 1, !tbaa !12
   %36 = and i8 %.sroa.0.0.copyload.i, -32
   %37 = icmp eq i8 %36, -64
@@ -975,7 +975,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %.0154 = phi i8 [ %.9163, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit98 ], [ %153, %151 ], [ %106, %154 ], [ %.4158, %97 ], [ %29, %27 ], [ %.1155.lcssa, %._crit_edge ]
   %.0152 = phi ptr [ %.10, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit98 ], [ %152, %151 ], [ %105, %154 ], [ %.4, %97 ], [ %28, %27 ], [ %.1.lcssa, %._crit_edge ]
   %156 = zext i8 %.0154 to i64
-  %157 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %156
   %.sroa.0.0.copyload.i108 = load i8, ptr %157, align 1, !tbaa !12
   %158 = icmp eq i8 %.0154, 118
   br i1 %158, label %159, label %.critedge
@@ -1045,7 +1045,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit107: ; preds = %.lr.ph.
   %.5159 = phi i8 [ %178, %176 ], [ %187, %185 ], [ %170, %188 ]
   %.6 = phi ptr [ %177, %176 ], [ %186, %185 ], [ %169, %188 ]
   %192 = zext i8 %.5159 to i64
-  %193 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %192
   %.sroa.0.0.copyload.i109 = load i8, ptr %193, align 1, !tbaa !12
   %194 = icmp ne i8 %.5159, 118
   %195 = icmp sgt i8 %.sroa.0.0.copyload.i109, -1
@@ -1100,7 +1100,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl19str_format_internal17Consum
   %.1112187 = phi ptr [ %8, %.lr.ph ], [ %24, %23 ]
   %.1118186 = phi i8 [ %9, %.lr.ph ], [ %25, %23 ]
   %14 = zext i8 %.1118186 to i64
-  %15 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %14
   %.sroa.0.0.copyload.i = load i8, ptr %15, align 1, !tbaa !12
   %16 = and i8 %.sroa.0.0.copyload.i, -32
   %17 = icmp eq i8 %16, -64
@@ -1204,7 +1204,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit: ; preds = %.lr.ph.i
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.011.lcssa.i.ph, ptr %54, align 4, !tbaa !35
   %55 = zext nneg i8 %.6123.ph to i64
-  %56 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %55
   %.sroa.0.0.copyload.i81169 = load i8, ptr %56, align 1, !tbaa !12
   br label %.critedge
 
@@ -1319,7 +1319,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   %.0117 = phi i8 [ %.7124, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80 ], [ %101, %99 ], [ %77, %106 ], [ %.4121, %68 ], [ %9, %7 ], [ %.1118.lcssa, %._crit_edge ]
   %.0111 = phi ptr [ %.9, %_ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80 ], [ %100, %99 ], [ %76, %106 ], [ %.4, %68 ], [ %8, %7 ], [ %.1112.lcssa, %._crit_edge ]
   %108 = zext i8 %.0117 to i64
-  %109 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %108
   %.sroa.0.0.copyload.i81 = load i8, ptr %109, align 1, !tbaa !12
   %110 = icmp eq i8 %.0117, 118
   br i1 %110, label %111, label %.critedge
@@ -1391,7 +1391,7 @@ _ZN4absl19str_format_internal11ParseDigitsERcRPKcS3_.exit80: ; preds = %.lr.ph.i
   %.5122 = phi i8 [ %130, %128 ], [ %139, %137 ], [ %122, %140 ]
   %.7115 = phi ptr [ %129, %128 ], [ %138, %137 ], [ %121, %140 ]
   %144 = zext i8 %.5122 to i64
-  %145 = getelementptr inbounds nuw [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw %"class.absl::str_format_internal::ConvTag", ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 %144
   %.sroa.0.0.copyload.i82 = load i8, ptr %145, align 1, !tbaa !12
   %146 = icmp ne i8 %.5122, 118
   %147 = icmp sgt i8 %.sroa.0.0.copyload.i82, -1

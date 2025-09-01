@@ -2696,7 +2696,7 @@ define dso_local ptr @drm_create_scaling_filter_prop(ptr noundef %0, i32 noundef
 .preheader:                                       ; preds = %9, %30
   %13 = phi i1 [ false, %30 ], [ true, %9 ]
   %14 = phi i64 [ 1, %30 ], [ 0, %9 ]
-  %15 = getelementptr [2 x %struct.drm_prop_enum_list], ptr @drm_create_scaling_filter_prop.props, i64 0, i64 %14
+  %15 = getelementptr %struct.drm_prop_enum_list, ptr @drm_create_scaling_filter_prop.props, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
@@ -2760,7 +2760,7 @@ define dso_local i32 @drm_plane_create_scaling_filter_property(ptr noundef %0, i
 .preheader.i:                                     ; preds = %10, %31
   %14 = phi i1 [ false, %31 ], [ true, %10 ]
   %15 = phi i64 [ 1, %31 ], [ 0, %10 ]
-  %16 = getelementptr [2 x %struct.drm_prop_enum_list], ptr @drm_create_scaling_filter_prop.props, i64 0, i64 %15
+  %16 = getelementptr %struct.drm_prop_enum_list, ptr @drm_create_scaling_filter_prop.props, i64 %15
   %17 = load i32, ptr %16, align 16
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18

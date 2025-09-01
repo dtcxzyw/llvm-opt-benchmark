@@ -155,7 +155,7 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   %71 = add i8 %70, 1
   store i8 %71, ptr %5, align 8
   %72 = zext i8 %70 to i64
-  %73 = getelementptr [15 x ptr], ptr %29, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr %29, i64 %72
   store ptr %62, ptr %73, align 8
   %74 = icmp eq i8 %71, 15
   br i1 %74, label %75, label %77

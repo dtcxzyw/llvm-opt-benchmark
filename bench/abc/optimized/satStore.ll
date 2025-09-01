@@ -448,7 +448,7 @@ define void @Sto_ManDumpClauses(ptr noundef readonly captures(none) %0, ptr noun
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = and i32 %23, 1
   %.not.i = icmp eq i32 %24, 0

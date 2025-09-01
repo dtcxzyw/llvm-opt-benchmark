@@ -1245,7 +1245,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 
 .preheader328:                                    ; preds = %124, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %124 ]
-  %127 = getelementptr inbounds nuw [9 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4
   %129 = call zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef nonnull %1, i32 noundef %128) #4
   br i1 %129, label %126, label %.thread310

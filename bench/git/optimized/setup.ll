@@ -631,7 +631,7 @@ define dso_local void @verify_filename(ptr noundef %0, ptr noundef %1, i32 nound
 
 8:                                                ; preds = %.lr.ph.i
   %9 = zext i8 %7 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = and i8 %11, 8
   %.not12.i = icmp eq i8 %12, 0
@@ -686,7 +686,7 @@ define internal fastcc void @die_verify_filename(ptr noundef %0, ptr noundef %1,
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = and i8 %15, 6
   %.not7 = icmp eq i8 %16, 0
@@ -1046,7 +1046,7 @@ strbuf_complete.exit:                             ; preds = %1, %9, %strbuf_addc
   br i1 %42, label %validate_headref.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %40
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %40
   store i8 0, ptr %44, align 1, !tbaa !4
   %scevgep.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %45
@@ -1070,7 +1070,7 @@ skip_prefix.exit.i:                               ; preds = %45, %skip_prefix.ex
   %.014.i = phi ptr [ %56, %skip_prefix.exit.i ], [ %scevgep.i, %45 ]
   %51 = load i8, ptr %.014.i, align 1, !tbaa !4
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = and i8 %54, 1
   %.not.i9 = icmp eq i8 %55, 0
@@ -2036,7 +2036,7 @@ _.exit58.i:                                       ; preds = %77, %75
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %80 = load i32, ptr %79, align 8, !tbaa !49
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %81
+  %82 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %81
   %83 = load ptr, ptr %82, align 16, !tbaa !50
   %84 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i57.i, ptr noundef nonnull @.str.108, ptr noundef %83) #25
   br label %read_worktree_config.exit
@@ -4384,7 +4384,7 @@ define dso_local range(i32 -438, 437) i32 @git_config_perm(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %22
   %31 = and i64 %15, 3
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.git_config_perm, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.git_config_perm, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %32
 
@@ -4819,7 +4819,7 @@ define dso_local void @initialize_repository_version(i32 noundef %0, i32 noundef
 
 9:                                                ; preds = %3
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %10
   %12 = load ptr, ptr %11, align 16, !tbaa !50
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !9
   tail call void @repo_config_set(ptr noundef %13, ptr noundef nonnull @.str.75, ptr noundef %12) #25

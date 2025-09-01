@@ -2574,7 +2574,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef 1)
   br label %_ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE.exit
@@ -2604,7 +2604,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3euf9ac_plugin14display_statusERSoNS0_9eq_statusE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef 1)
   br label %7

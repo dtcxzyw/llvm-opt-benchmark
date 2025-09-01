@@ -797,7 +797,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %58, %62
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
 switch.lookup:                                    ; preds = %96
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE, i64 0, i64 %102
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE, i64 %102
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 

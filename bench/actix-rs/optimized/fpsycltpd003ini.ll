@@ -45,7 +45,7 @@ define void @_ZN12actix_router6quoter6Quoter3new17h7ae370efd2a02222E(ptr writeon
 _ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit: ; preds = %.lr.ph
   %21 = and i8 %16, 7
   %22 = shl nuw i8 1, %21
-  %23 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   %24 = load i8, ptr %23, align 1, !noundef !3
   %25 = or i8 %24, %22
   store i8 %25, ptr %23, align 1
@@ -322,7 +322,7 @@ define hidden zeroext i1 @_ZN12actix_router6quoter11AsciiBitmap6bit_at17h27be25e
   br i1 %5, label %6, label %13, !prof !4
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %8 = load i8, ptr %7, align 1, !noundef !3
   %9 = and i8 %1, 7
   %10 = shl nuw i8 1, %9

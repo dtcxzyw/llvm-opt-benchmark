@@ -266,7 +266,7 @@ define dso_local i64 @__scsi_format_command(ptr noundef %0, i64 noundef %1, ptr 
 15:                                               ; preds = %7
   %16 = lshr i8 %8, 5
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   br label %21
@@ -583,7 +583,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
   %90 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %88, i64 noundef %89, ptr noundef nonnull @.str.7, i32 noundef %69) #10
   %91 = sext i32 %90 to i64
   %92 = add nsw i64 %84, %91
-  %93 = getelementptr [32 x i8], ptr %50, i64 0, i64 %66
+  %93 = getelementptr i8, ptr %50, i64 %66
   %94 = getelementptr i8, ptr %3, i64 %92
   %95 = sub nsw i64 128, %92
   %96 = tail call i32 @hex_dump_to_buffer(ptr noundef %93, i64 noundef %72, i32 noundef 16, i32 noundef 1, ptr noundef %94, i64 noundef %95, i1 noundef zeroext false) #10

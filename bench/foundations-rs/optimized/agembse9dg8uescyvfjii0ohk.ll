@@ -16440,9 +16440,9 @@ _ZN9trackable9Trackable5track17h6bcfc5a8fdee53caE.exit.thread: ; preds = %180
 
 switch.lookup:                                    ; preds = %175
   %.sroa.0.0.copyload = load i64, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !2157
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN95_$LT$thrift_codec..data..data_inner..DataRef$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17he64e6cd014c2dd79E", i64 0, i64 %176
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$thrift_codec..data..data_inner..DataRef$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17he64e6cd014c2dd79E", i64 %176
   %switch.load = load i8, ptr %switch.gep, align 1
-  %switch.gep243 = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN95_$LT$thrift_codec..data..data_inner..DataRef$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17he64e6cd014c2dd79E.127", i64 0, i64 %.sroa.0.0.copyload
+  %switch.gep243 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN95_$LT$thrift_codec..data..data_inner..DataRef$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17he64e6cd014c2dd79E.127", i64 %.sroa.0.0.copyload
   %switch.load244 = load i8, ptr %switch.gep243, align 1
   %190 = or disjoint i8 %switch.load244, %switch.load
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2216

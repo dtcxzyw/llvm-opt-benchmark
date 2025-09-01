@@ -558,7 +558,7 @@ _ZNSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS1_EED2Ev.exit12: ; preds
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE9push_backERKS2_.exit ]
   %49 = load ptr, ptr %0, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = getelementptr inbounds nuw [5 x %"class.std::vector.46"], ptr %50, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"class.std::vector.46", ptr %50, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -771,8 +771,8 @@ define void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind noalias writable 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit ]
   %9 = load ptr, ptr %1, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = getelementptr inbounds nuw [5 x %"class.std::vector.46"], ptr %10, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [5 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.std::vector.46", ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !33
   %13 = load ptr, ptr %11, align 8, !tbaa !68
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8

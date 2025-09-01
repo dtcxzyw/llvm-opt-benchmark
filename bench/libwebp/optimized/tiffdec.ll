@@ -364,7 +364,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 .critedge.i:                                      ; preds = %179, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %185 = getelementptr inbounds nuw [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.i
+  %185 = getelementptr inbounds nuw %struct.anon, ptr @kTIFFMetadataMap, i64 %indvars.iv.i
   %186 = load i32, ptr %185, align 16, !tbaa !34
   br i1 %exitcond.i, label %187, label %173, !llvm.loop !35
 

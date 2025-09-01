@@ -2340,7 +2340,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(784) ptr @_Znwm(i64 noundef 784) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2350,7 +2350,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2391,7 +2391,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2401,7 +2401,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2443,7 +2443,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 ._crit_edge.i.i:                                  ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %4, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(1768) ptr @_Znwm(i64 noundef 1768) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2458,7 +2458,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 15:                                               ; preds = %._crit_edge.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = getelementptr inbounds nuw [14 x ptr], ptr %16, i64 0, i64 %8
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %8
   store ptr %10, ptr %17, align 8, !tbaa !575
   %18 = load ptr, ptr %3, align 8, !tbaa !482
   %19 = icmp eq ptr %18, %13
@@ -2533,7 +2533,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(11256) ptr @_Znwm(i64 noundef 11256) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2543,7 +2543,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2585,7 +2585,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 ._crit_edge.i.i:                                  ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %4, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(3920) ptr @_Znwm(i64 noundef 3920) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2600,7 +2600,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 15:                                               ; preds = %._crit_edge.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = getelementptr inbounds nuw [14 x ptr], ptr %16, i64 0, i64 %8
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %8
   store ptr %10, ptr %17, align 8, !tbaa !575
   %18 = load ptr, ptr %3, align 8, !tbaa !482
   %19 = icmp eq ptr %18, %13
@@ -2675,7 +2675,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(768) ptr @_Znwm(i64 noundef 768) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2685,7 +2685,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2726,7 +2726,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(10192) ptr @_Znwm(i64 noundef 10192) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2736,7 +2736,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2779,7 +2779,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 .noexc.i:                                         ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [14 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   store ptr %5, ptr %10, align 8, !tbaa !573
   %11 = tail call noalias noundef nonnull dereferenceable(6200) ptr @_Znwm(i64 noundef 6200) #27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2807,7 +2807,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 20:                                               ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds nuw [14 x ptr], ptr %21, i64 0, i64 %9
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %9
   store ptr %11, ptr %22, align 8, !tbaa !575
   %23 = load ptr, ptr %4, align 8, !tbaa !482
   %24 = icmp eq ptr %23, %14
@@ -2888,7 +2888,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(2000) ptr @_Znwm(i64 noundef 2000) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2898,7 +2898,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2939,7 +2939,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(1824) ptr @_Znwm(i64 noundef 1824) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2949,7 +2949,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -2990,7 +2990,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(2360) ptr @_Znwm(i64 noundef 2360) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3000,7 +3000,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -3041,7 +3041,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3051,7 +3051,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -3092,7 +3092,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(6168) ptr @_Znwm(i64 noundef 6168) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3102,7 +3102,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575
@@ -3143,7 +3143,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [14 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   store ptr %3, ptr %9, align 8, !tbaa !573
   %10 = tail call noalias noundef nonnull dereferenceable(1824) ptr @_Znwm(i64 noundef 1824) #27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3153,7 +3153,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal12TheoryEngine9addTheoryINS0_6
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %8
   store ptr %10, ptr %15, align 8, !tbaa !575
   %16 = tail call noundef ptr @_ZN4cvc58internal12TheoryEngine11getRewriterEv(ptr noundef nonnull align 8 dereferenceable(1480) %0)
   %17 = load ptr, ptr %15, align 8, !tbaa !575

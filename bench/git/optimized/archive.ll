@@ -1658,9 +1658,9 @@ define internal fastcc range(i32 -1, 1) i32 @write_directory(ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !4
-  %9 = add nsw i32 %8, -1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x i8], ptr %6, i64 0, i64 %10
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr i8, ptr %6, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -1
   store i8 0, ptr %11, align 1, !tbaa !29
   %12 = tail call fastcc i32 @write_directory(ptr noundef nonnull %0)
   %.not17 = icmp eq i32 %12, 0

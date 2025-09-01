@@ -2631,7 +2631,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr noundef cap
   %34 = load ptr, ptr %19, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = sext i32 %28 to i64
-  %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
+  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %35
   %40 = inttoptr i64 %39 to ptr
@@ -4394,7 +4394,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
   %26 = phi i32 [ %27, %.thread ], [ %24, %23 ]
   %27 = add i32 %26, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %3, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load volatile i32, ptr %31, align 8
@@ -4450,7 +4450,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
 .loopexit29:                                      ; preds = %.thread, %23
   %58 = load i64, ptr %12, align 8
   %59 = srem i64 %58, 1024
-  %60 = getelementptr [1024 x %struct.spinlock], ptr @nf_conntrack_locks, i64 0, i64 %59
+  %60 = getelementptr %struct.spinlock, ptr @nf_conntrack_locks, i64 %59
   tail call void @nf_conntrack_lock(ptr noundef %60) #16
   %61 = load i64, ptr %12, align 8
   %62 = load i32, ptr @nf_conntrack_htable_size, align 4
@@ -4526,7 +4526,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
 
 107:                                              ; preds = %105
   %108 = add nuw nsw i32 %73, 1
-  %109 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %87
+  %109 = getelementptr ptr, ptr %3, i64 %87
   store ptr %79, ptr %109, align 8
   br label %189
 
@@ -4725,7 +4725,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(n
   %220 = phi i32 [ %221, %.thread24 ], [ %206, %.thread22 ]
   %221 = add i32 %220, -1
   %222 = sext i32 %221 to i64
-  %223 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %222
+  %223 = getelementptr ptr, ptr %3, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load volatile i32, ptr %225, align 8
@@ -6087,7 +6087,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr noundef capt
   %41 = load ptr, ptr %26, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sext i32 %35 to i64
-  %44 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %43
+  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %42
   %47 = inttoptr i64 %46 to ptr

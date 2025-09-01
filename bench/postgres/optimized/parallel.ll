@@ -961,7 +961,7 @@ IsEveryWorkerIdle.exit:                           ; preds = %IsEveryWorkerIdle.e
   %25 = shl nuw i64 1, %24
   %26 = sdiv i32 %22, 64
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %27
+  %28 = getelementptr inbounds i64, ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %25, %29
   store i64 %30, ptr %28, align 8
@@ -1041,7 +1041,7 @@ select_loop.exit.i.i:                             ; preds = %37, %34
   %55 = load i32, ptr %54, align 8
   %56 = sdiv i32 %55, 64
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %57
+  %58 = getelementptr inbounds i64, ptr %8, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = srem i32 %55, 64
   %61 = zext nneg i32 %60 to i64

@@ -3387,7 +3387,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40: ; preds = %_
   %63 = load i8, ptr %62, align 1, !tbaa !15
   %64 = and i8 %63, 3
   %65 = zext nneg i8 %64 to i64
-  %66 = getelementptr inbounds nuw [4 x i64], ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !7
   %68 = lshr i8 %63, 2
   %69 = zext nneg i8 %68 to i64
@@ -3395,7 +3395,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40: ; preds = %_
   %71 = and i64 %70, %67
   %.not31.i.i.i.i = icmp eq i64 %71, 0
   %72 = sext i1 %.not31.i.i.i.i to i8
-  %73 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i.i
   store i8 %72, ptr %73, align 1, !tbaa !15
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -3421,7 +3421,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit40: ; preds = %_
   %82 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !15
   %83 = and i8 %82, 3
   %84 = zext nneg i8 %83 to i64
-  %85 = getelementptr inbounds nuw [4 x i64], ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !7
   %87 = lshr i8 %82, 2
   %88 = zext nneg i8 %87 to i64
@@ -3501,7 +3501,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   %110 = load i8, ptr %109, align 1, !tbaa !15
   %111 = and i8 %110, 3
   %112 = zext nneg i8 %111 to i64
-  %113 = getelementptr inbounds nuw [4 x i64], ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !7
   %115 = lshr i8 %110, 2
   %116 = zext nneg i8 %115 to i64
@@ -3509,7 +3509,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   %118 = and i64 %117, %114
   %.not31.i.i.i.i55 = icmp eq i64 %118, 0
   %119 = sext i1 %.not31.i.i.i.i55 to i8
-  %120 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i54
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i54
   store i8 %119, ptr %120, align 1, !tbaa !15
   %indvars.iv.next.i.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i.i54, 1
   %exitcond.not.i.i.i.i57 = icmp eq i64 %indvars.iv.next.i.i.i.i56, 16
@@ -3535,7 +3535,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   %129 = load i8, ptr %.22336.i.i.i.i48, align 1, !tbaa !15
   %130 = and i8 %129, 3
   %131 = zext nneg i8 %130 to i64
-  %132 = getelementptr inbounds nuw [4 x i64], ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr @_ZZNK5boost4urls6detail22scheme_template_rule_t5parseERPKcS4_E12scheme_chars, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !7
   %134 = lshr i8 %129, 2
   %135 = zext nneg i8 %134 to i64
@@ -3624,7 +3624,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = and i8 %18, 3
   %20 = zext nneg i8 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !7
   %23 = lshr i8 %18, 2
   %24 = zext nneg i8 %23 to i64
@@ -3632,7 +3632,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %26 = and i64 %25, %22
   %.not31.i.i.i.i = icmp eq i64 %26, 0
   %27 = sext i1 %.not31.i.i.i.i to i8
-  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %27, ptr %28, align 1, !tbaa !15
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -3658,7 +3658,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %37 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !15
   %38 = and i8 %37, 3
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %3, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !7
   %42 = lshr i8 %37, 2
   %43 = zext nneg i8 %42 to i64
@@ -4233,7 +4233,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %20 = load i8, ptr %19, align 1, !tbaa !15
   %21 = and i8 %20, 3
   %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !7
   %25 = lshr i8 %20, 2
   %26 = zext nneg i8 %25 to i64
@@ -4241,7 +4241,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %28 = and i64 %27, %24
   %.not31.i.i.i.i.i.i.i = icmp eq i64 %28, 0
   %29 = sext i1 %.not31.i.i.i.i.i.i.i to i8
-  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 16
@@ -4267,7 +4267,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %39 = load i8, ptr %.22336.i.i.i.i.i.i.i, align 1, !tbaa !15
   %40 = and i8 %39, 3
   %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = lshr i8 %39, 2
   %45 = zext nneg i8 %44 to i64
@@ -4895,7 +4895,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %30 = add i8 %29, -58
   %31 = icmp ult i8 %30, -10
   %32 = sext i1 %31 to i8
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %32, ptr %33, align 1, !tbaa !15
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16

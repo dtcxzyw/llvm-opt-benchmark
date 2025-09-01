@@ -355,7 +355,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %68 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 119)
   %69 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
   %70 = and <16 x i1> %68, %69
-  %71 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.022.047.i.i
+  %71 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.022.047.i.i
   store <16 x i1> %70, ptr %71, align 2, !noalias !35
   %exitcond.not.i.i = icmp eq i64 %64, 4
   br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %63
@@ -373,7 +373,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %.sroa.028.049.i.i = phi i64 [ %77, %81 ], [ 0, %63 ]
   %.248.i.i = phi i8 [ %.3.i.i, %81 ], [ 0, %63 ]
   %77 = add nuw nsw i64 %.sroa.028.049.i.i, 1
-  %78 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.028.049.i.i
+  %78 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.049.i.i
   %79 = load i16, ptr %78, align 2, !noalias !35, !noundef !4
   %80 = icmp eq i16 %79, 0
   br i1 %80, label %81, label %82
@@ -786,7 +786,7 @@ define internal fastcc { ptr, i64 } @"_ZN16actix_web_actors2ws24handshake_with_p
 
 .lr.ph.i.i.i.i.i.us:                              ; preds = %14, %18
   %.05.i.i.i.i.i.us = phi i64 [ %19, %18 ], [ 0, %14 ]
-  %15 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %.05.i.i.i.i.i.us
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.05.i.i.i.i.i.us
   %16 = load i8, ptr %15, align 1, !alias.scope !120, !noalias !110, !noundef !4
   %17 = icmp eq i8 %16, 44
   br i1 %17, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.us, label %18
@@ -860,7 +860,7 @@ select.unfold.i.us:                               ; preds = %"_ZN73_$LT$$u5b$A$u
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %42, %46
   %.05.i.i.i.i.i = phi i64 [ %47, %46 ], [ 0, %42 ]
-  %43 = getelementptr inbounds nuw [0 x i8], ptr %38, i64 0, i64 %.05.i.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %.05.i.i.i.i.i
   %44 = load i8, ptr %43, align 1, !alias.scope !120, !noalias !110, !noundef !4
   %45 = icmp eq i8 %44, 44
   br i1 %45, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i, label %46

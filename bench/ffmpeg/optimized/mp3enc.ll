@@ -452,7 +452,7 @@ id3v1_set_string.exit58.i:                        ; preds = %72, %69
 93:                                               ; preds = %99, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %99 ]
   %94 = load ptr, ptr %92, align 8, !tbaa !53
-  %95 = getelementptr inbounds nuw [192 x ptr], ptr @ff_id3v1_genre_str, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw ptr, ptr @ff_id3v1_genre_str, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8, !tbaa !55
   %97 = call i32 @av_strcasecmp(ptr noundef %94, ptr noundef %96) #12
   %.not52.i = icmp eq i32 %97, 0
@@ -542,7 +542,7 @@ id3v1_create_tag.exit:                            ; preds = %99, %88
   %149 = mul i32 %147, %148
   %150 = udiv i32 %149, 100
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [400 x i64], ptr %145, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %145, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !63
   %154 = shl i64 %153, 8
   %155 = load i32, ptr %131, align 8, !tbaa !61
@@ -931,7 +931,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 
 29:                                               ; preds = %.preheader139, %40
   %indvars.iv = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next, %40 ]
-  %30 = getelementptr inbounds nuw [3 x i16], ptr @ff_mpa_freq_tab, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i16, ptr @ff_mpa_freq_tab, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2, !tbaa !95
   %32 = zext i16 %31 to i32
   %33 = icmp eq i32 %28, %32
@@ -976,7 +976,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
 
 47:                                               ; preds = %.thread125, %45
   %.0104 = phi i32 [ 0, %45 ], [ 192, %.thread125 ]
-  %48 = getelementptr inbounds nuw [2 x [3 x [15 x i16]]], ptr @ff_mpa_bitrate_tab, i64 0, i64 %.ph, i64 2
+  %48 = getelementptr inbounds nuw [3 x [15 x i16]], ptr @ff_mpa_bitrate_tab, i64 %.ph, i64 2
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %50 = load i64, ptr %49, align 8, !tbaa !99
   br label %51
@@ -985,7 +985,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv157 = phi i64 [ 1, %47 ], [ %indvars.iv.next158, %51 ]
   %.098147 = phi i32 [ 2147483647, %47 ], [ %.199, %51 ]
   %.0100146 = phi i32 [ -1, %47 ], [ %.1101, %51 ]
-  %52 = getelementptr inbounds nuw [15 x i16], ptr %48, i64 0, i64 %indvars.iv157
+  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv157
   %53 = load i16, ptr %52, align 2, !tbaa !95
   %54 = zext i16 %53 to i64
   %55 = mul nuw nsw i64 %54, 1000
@@ -1041,11 +1041,11 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   %79 = load i32, ptr %68, align 4, !tbaa !101
   %80 = icmp eq i32 %79, 1
   %81 = zext i1 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @xing_offtbl, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr @xing_offtbl, i64 %81
   %83 = load i32, ptr %69, align 4, !tbaa !103
   %84 = icmp eq i32 %83, 1
   %85 = zext i1 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !51
   %88 = zext i8 %87 to i32
   %89 = add nuw nsw i32 %88, 4
@@ -1327,7 +1327,7 @@ define internal fastcc i32 @mp3_write_audio_packet(ptr noundef %0, ptr noundef %
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %48 = load i32, ptr %47, align 4, !tbaa !62
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [400 x i64], ptr %46, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %46, i64 %49
   store i64 %45, ptr %50, align 8, !tbaa !63
   %51 = add i32 %48, 1
   store i32 %51, ptr %47, align 4, !tbaa !62
@@ -1336,10 +1336,10 @@ define internal fastcc i32 @mp3_write_audio_packet(ptr noundef %0, ptr noundef %
 
 .preheader.i:                                     ; preds = %44, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 1, %44 ]
-  %53 = getelementptr inbounds nuw [400 x i64], ptr %46, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv.i
   %54 = load i64, ptr %53, align 8, !tbaa !63
   %55 = lshr i64 %indvars.iv.i, 1
-  %56 = getelementptr inbounds nuw [400 x i64], ptr %46, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %46, i64 %55
   store i64 %54, ptr %56, align 8, !tbaa !63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %57 = icmp samesign ult i64 %indvars.iv.i, 398

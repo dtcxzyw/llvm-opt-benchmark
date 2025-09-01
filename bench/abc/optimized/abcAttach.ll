@@ -530,7 +530,7 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
   %221 = load ptr, ptr %220, align 8, !tbaa !38
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load i32, ptr %222, align 8, !tbaa !56
-  %224 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv.i130
+  %224 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i130
   store i32 %223, ptr %224, align 4, !tbaa !3
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i
@@ -538,9 +538,9 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
 
 .critedge.i:                                      ; preds = %216, %.critedge.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.critedge.i ], [ 0, %216 ]
-  %225 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv49.i
+  %225 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49.i
   %226 = load i32, ptr %225, align 4, !tbaa !3
-  %227 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv49.i
+  %227 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv49.i
   %228 = load i32, ptr %227, align 4, !tbaa !3
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i32, ptr %.val26.i, i64 %229

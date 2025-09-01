@@ -744,7 +744,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %0, ptr noundef read
 
 58:                                               ; preds = %53, %58
   %indvars.iv = phi i64 [ 0, %53 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !11
   %61 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !11

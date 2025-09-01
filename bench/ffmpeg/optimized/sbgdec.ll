@@ -4532,7 +4532,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_interval(ptr noun
   %indvars.iv.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i, %95 ]
   %.0304.i = phi i64 [ %3, %68 ], [ %..i, %95 ]
   %.0313.i = phi i32 [ %71, %68 ], [ %103, %95 ]
-  %97 = getelementptr inbounds nuw [7 x [2 x i32]], ptr %9, i64 0, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %indvars.iv.i
   %98 = load i32, ptr %97, align 8, !tbaa !45
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %99, %92

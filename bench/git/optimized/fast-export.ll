@@ -1059,7 +1059,7 @@ strbuf_setlen.exit.i.i.preheader:                 ; preds = %401, %399
 
 strbuf_setlen.exit.i.i:                           ; preds = %strbuf_setlen.exit.i.i.preheader, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %strbuf_setlen.exit.i.i.preheader ]
-  %402 = getelementptr inbounds nuw [4 x ptr], ptr @anonymize_refname.prefixes, i64 0, i64 %indvars.iv.i.i
+  %402 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
   %403 = load ptr, ptr %402, align 8, !tbaa !4
   br label %404
 
@@ -1269,7 +1269,7 @@ anonymize_refname.exit.i:                         ; preds = %skip_prefix.exit.i.
 
 505:                                              ; preds = %507, %494
   %.0811.i.i.i.i = phi i64 [ 0, %494 ], [ %508, %507 ]
-  %506 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %506 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %504, %506
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %507
 
@@ -2208,7 +2208,7 @@ strbuf_setlen.exit.i.i.preheader:                 ; preds = %66, %64
 
 strbuf_setlen.exit.i.i:                           ; preds = %strbuf_setlen.exit.i.i.preheader, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %strbuf_setlen.exit.i.i.preheader ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr @anonymize_refname.prefixes, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   br label %69
 
@@ -2535,7 +2535,7 @@ strbuf_setlen.exit.i.preheader:                   ; preds = %200, %198
 
 strbuf_setlen.exit.i:                             ; preds = %strbuf_setlen.exit.i.preheader, %skip_prefix.exit.i28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %skip_prefix.exit.i28 ], [ 0, %strbuf_setlen.exit.i.preheader ]
-  %201 = getelementptr inbounds nuw [4 x ptr], ptr @anonymize_refname.prefixes, i64 0, i64 %indvars.iv.i
+  %201 = getelementptr inbounds nuw ptr, ptr @anonymize_refname.prefixes, i64 %indvars.iv.i
   %202 = load ptr, ptr %201, align 8, !tbaa !4
   br label %203
 
@@ -3195,7 +3195,7 @@ define internal fastcc ptr @anonymize_oid(ptr noundef %0) unnamed_addr #0 {
 
 23:                                               ; preds = %25, %12
   %.0811.i.i.i = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %24 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %25
 
@@ -3395,7 +3395,7 @@ define internal fastcc void @anonymize_ident_line(ptr noundef nonnull captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @anonymize_ident_line.which_buffer, align 4, !tbaa !79
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [2 x %struct.strbuf], ptr @anonymize_ident_line.buffers, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.strbuf, ptr @anonymize_ident_line.buffers, i64 %7
   %9 = and i32 %6, 1
   %10 = xor i32 %9, 1
   store i32 %10, ptr @anonymize_ident_line.which_buffer, align 4, !tbaa !79

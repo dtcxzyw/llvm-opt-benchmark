@@ -1787,7 +1787,7 @@ expand_flags.exit:                                ; preds = %expand_flags.exit.l
 
 94:                                               ; preds = %92, %.lr.ph.i79
   %.01116.i = phi i64 [ 0, %.lr.ph.i79 ], [ %93, %92 ]
-  %95 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i
+  %95 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i
   %96 = load ptr, ptr %95, align 8, !tbaa !13
   %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #18
   %.not.not24.i.not.not.not.not.not = icmp ne i32 %97, 0
@@ -1889,7 +1889,7 @@ expand_flags.exit86:                              ; preds = %expand_flags.exit86
 
 141:                                              ; preds = %139, %.lr.ph.i87
   %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %140, %139 ]
-  %142 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116.i89
+  %142 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i89
   %143 = load ptr, ptr %142, align 8, !tbaa !13
   %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %143) #18
   %.not.not24.i90.not.not.not.not.not = icmp ne i32 %144, 0
@@ -2309,7 +2309,7 @@ define internal fastcc void @filter_flags(ptr noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph, %11
   %.01116 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw [4 x ptr], ptr @filtered_args, i64 0, i64 %.01116
+  %14 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %15) #18
   %.not.not24.not.not = icmp ne i32 %16, 0

@@ -762,7 +762,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveE
 
 14:                                               ; preds = %.lr.ph.i
   %15 = zext nneg i8 %12 to i64
-  %16 = getelementptr inbounds nuw [160 x i8], ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !50
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
@@ -1033,7 +1033,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveE
 
 15:                                               ; preds = %.lr.ph.i
   %16 = zext nneg i8 %13 to i64
-  %17 = getelementptr inbounds nuw [160 x i8], ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @__const._ZNK5boost7archive6detail8XML_nameIKcEclEc.lookup_table, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !50
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i

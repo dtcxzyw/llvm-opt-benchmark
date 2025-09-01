@@ -1478,7 +1478,7 @@ _ZN5QListISt4pairI7QStringS1_EElsERKS2_.exit:     ; preds = %98
 
 switch.lookup:                                    ; preds = %109
   %114 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12SimpleDialog21displayQueuedMessagesEP7QWidget, i64 0, i64 %114
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12SimpleDialog21displayQueuedMessagesEP7QWidget, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.invoke
 
@@ -1852,7 +1852,7 @@ define void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %0) 
 
 switch.lookup:                                    ; preds = %17
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12SimpleDialog21displayQueuedMessagesEP7QWidget, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12SimpleDialog21displayQueuedMessagesEP7QWidget, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.invoke
 

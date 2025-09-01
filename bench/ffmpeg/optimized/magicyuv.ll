@@ -99,7 +99,7 @@ switch.hole_check:                                ; preds = %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i32], ptr @switch.table.magy_decode_frame, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.magy_decode_frame, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %31, align 8, !tbaa !31
@@ -265,8 +265,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv267 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next268, %120 ]
   %.0180253 = phi i32 [ undef, %.lr.ph254 ], [ %spec.select, %120 ]
   %.sroa.0.0251 = phi ptr [ %94, %.lr.ph254 ], [ %.sroa.0.1.lcssa, %120 ]
-  %126 = getelementptr inbounds nuw [4 x ptr], ptr %118, i64 0, i64 %indvars.iv267
-  %127 = getelementptr inbounds nuw [4 x i32], ptr %119, i64 0, i64 %indvars.iv267
+  %126 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv267
+  %127 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv267
   %128 = sext i32 %125 to i64
   %129 = shl nsw i64 %128, 3
   tail call void @av_fast_malloc(ptr noundef nonnull %126, ptr noundef nonnull %127, i64 noundef %129) #7
@@ -449,13 +449,13 @@ define internal noundef i32 @magy_decode_end(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 0, ptr %10, align 4, !tbaa !39
-  %11 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.VLC, ptr %6, i64 %indvars.iv
   tail call void @ff_vlc_free(ptr noundef nonnull %11) #7
-  %12 = getelementptr inbounds nuw [4 x %struct.VLC_MULTI], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.VLC_MULTI, ptr %7, i64 %indvars.iv
   tail call void @ff_vlc_free_multi(ptr noundef nonnull %12) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -510,7 +510,7 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice(ptr noundef %0,
   %indvars.iv475 = phi i64 [ 0, %.lr.ph452 ], [ %indvars.iv.next476, %.loopexit393 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv475
+  %31 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv475
   %32 = load i32, ptr %31, align 4, !tbaa !39
   %33 = load i32, ptr %16, align 8, !tbaa !51
   %34 = load i32, ptr %17, align 4, !tbaa !52
@@ -521,28 +521,28 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice(ptr noundef %0,
   %38 = ashr i32 %37, %32
   %39 = sub nsw i32 0, %38
   %40 = load i32, ptr %19, align 8, !tbaa !50
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv475
+  %41 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv475
   %42 = load i32, ptr %41, align 4, !tbaa !39
   %43 = sub nsw i32 0, %40
   %44 = ashr i32 %43, %42
   %45 = sub nsw i32 0, %44
   %46 = sub nsw i32 0, %33
   %47 = ashr i32 %46, %32
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %indvars.iv475
+  %48 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv475
   %49 = load i32, ptr %48, align 4, !tbaa !39
   %50 = mul nsw i32 %49, %21
   %51 = sext i32 %50 to i64
   %52 = sext i32 %49 to i64
   %53 = load ptr, ptr %22, align 8, !tbaa !62
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %23, i64 0, i64 %indvars.iv475
+  %54 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv475
   %55 = load ptr, ptr %54, align 8, !tbaa !56
   %56 = getelementptr inbounds %struct.Slice, ptr %55, i64 %24
   %57 = load i32, ptr %56, align 4, !tbaa !58
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
-  %60 = getelementptr inbounds nuw [4 x %struct.VLC_MULTI], ptr %25, i64 0, i64 %indvars.iv475
+  %60 = getelementptr inbounds nuw %struct.VLC_MULTI, ptr %25, i64 %indvars.iv475
   %61 = load ptr, ptr %60, align 8, !tbaa !73
-  %62 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %26, i64 0, i64 %indvars.iv475
+  %62 = getelementptr inbounds nuw %struct.VLC, ptr %26, i64 %indvars.iv475
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !76
   %65 = load i32, ptr %62, align 8, !tbaa !79
@@ -551,7 +551,7 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice(ptr noundef %0,
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %69 = load i8, ptr %66, align 1, !tbaa !30
   %70 = zext i8 %69 to i32
-  %71 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv475
+  %71 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv475
   %72 = load ptr, ptr %71, align 8, !tbaa !65
   %73 = mul i32 %47, %2
   %74 = sub i32 0, %73
@@ -1290,7 +1290,7 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice10(ptr noundef %
 
 35:                                               ; preds = %.lr.ph515, %.loopexit
   %indvars.iv549 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next550, %.loopexit ]
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv549
+  %36 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv549
   %37 = load i32, ptr %36, align 4, !tbaa !39
   %38 = load i32, ptr %19, align 8, !tbaa !51
   %39 = load i32, ptr %20, align 4, !tbaa !52
@@ -1301,27 +1301,27 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice10(ptr noundef %
   %43 = ashr i32 %42, %37
   %44 = sub nsw i32 0, %43
   %45 = load i32, ptr %22, align 8, !tbaa !50
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv549
+  %46 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv549
   %47 = load i32, ptr %46, align 4, !tbaa !39
   %48 = sub nsw i32 0, %45
   %49 = ashr i32 %48, %47
   %50 = sub nsw i32 0, %49
   %51 = sub nsw i32 0, %38
   %52 = ashr i32 %51, %37
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %indvars.iv549
+  %53 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv549
   %54 = load i32, ptr %53, align 4, !tbaa !39
   %55 = sdiv i32 %54, 2
   %56 = mul nsw i32 %55, %24
   %57 = sext i32 %56 to i64
   %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds nuw [4 x %struct.VLC_MULTI], ptr %25, i64 0, i64 %indvars.iv549
+  %59 = getelementptr inbounds nuw %struct.VLC_MULTI, ptr %25, i64 %indvars.iv549
   %60 = load ptr, ptr %59, align 8, !tbaa !73
-  %61 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %26, i64 0, i64 %indvars.iv549
+  %61 = getelementptr inbounds nuw %struct.VLC, ptr %26, i64 %indvars.iv549
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !76
   %64 = load i32, ptr %61, align 8, !tbaa !79
   %65 = load ptr, ptr %27, align 8, !tbaa !62
-  %66 = getelementptr inbounds nuw [4 x ptr], ptr %28, i64 0, i64 %indvars.iv549
+  %66 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv549
   %67 = load ptr, ptr %66, align 8, !tbaa !56
   %68 = getelementptr inbounds %struct.Slice, ptr %67, i64 %29
   %69 = load i32, ptr %68, align 4, !tbaa !58
@@ -1359,7 +1359,7 @@ bits_read_nz_be.exit319:                          ; preds = %75, %bits_read_nz_b
   %86 = lshr i64 %.sroa.0.10, 56
   %87 = shl i64 %.sroa.0.10, 8
   %88 = trunc nuw nsw i64 %86 to i32
-  %89 = getelementptr inbounds nuw [8 x ptr], ptr %12, i64 0, i64 %indvars.iv549
+  %89 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv549
   %90 = load ptr, ptr %89, align 8, !tbaa !65
   %91 = mul i32 %52, %2
   %92 = sub i32 0, %91
@@ -2191,7 +2191,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_huffman(ptr noundef 
 
 34:                                               ; preds = %29
   %35 = zext nneg i8 %18 to i64
-  %36 = getelementptr inbounds nuw [33 x i16], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %4, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !97
   %38 = trunc nuw nsw i32 %.042 to i16
   %39 = add i16 %37, %38
@@ -2263,8 +2263,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @build_huffman(ptr noundef 
 
 huff_build.exit:                                  ; preds = %.preheader.i
   %69 = sext i32 %.04476 to i64
-  %70 = getelementptr inbounds [4 x %struct.VLC], ptr %11, i64 0, i64 %69
-  %71 = getelementptr inbounds [4 x %struct.VLC_MULTI], ptr %12, i64 0, i64 %69
+  %70 = getelementptr inbounds %struct.VLC, ptr %11, i64 %69
+  %71 = getelementptr inbounds %struct.VLC_MULTI, ptr %12, i64 %69
   tail call void @ff_vlc_free(ptr noundef nonnull %70) #7
   tail call void @ff_vlc_free_multi(ptr noundef nonnull %71) #7
   %72 = load i8, ptr %58, align 2, !tbaa !116

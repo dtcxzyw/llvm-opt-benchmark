@@ -463,7 +463,7 @@ define hidden i32 @SDL_GetKeymapKeycode(ptr noundef readonly captures(address_is
 
 42:                                               ; preds = %28
   %43 = icmp samesign ult i32 %1, 57
-  br i1 %43, label %44, label %57
+  br i1 %43, label %44, label %58
 
 44:                                               ; preds = %42
   %45 = zext i16 %2 to i32
@@ -474,33 +474,34 @@ define hidden i32 @SDL_GetKeymapKeycode(ptr noundef readonly captures(address_is
 47:                                               ; preds = %44
   %48 = and i32 %45, 3
   %.not.i8 = icmp eq i32 %48, 0
-  %49 = add nsw i32 %1, -30
-  %50 = zext nneg i32 %49 to i64
-  br i1 %.not.i8, label %51, label %54
+  %49 = zext nneg i32 %1 to i64
+  br i1 %.not.i8, label %50, label %54
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw [27 x i32], ptr @normal_default_symbols, i64 0, i64 %50
+50:                                               ; preds = %47
+  %51 = getelementptr i32, ptr @normal_default_symbols, i64 %49
+  %52 = getelementptr i8, ptr %51, i64 -120
   %53 = load i32, ptr %52, align 4
   br label %SDL_GetDefaultKeyFromScancode.exit
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw [27 x i32], ptr @shifted_default_symbols, i64 0, i64 %50
-  %56 = load i32, ptr %55, align 4
+  %55 = getelementptr i32, ptr @shifted_default_symbols, i64 %49
+  %56 = getelementptr i8, ptr %55, i64 -120
+  %57 = load i32, ptr %56, align 4
   br label %SDL_GetDefaultKeyFromScancode.exit
 
-57:                                               ; preds = %42
+58:                                               ; preds = %42
   %switch.tableidx = add nsw i32 %1, -57
-  %58 = icmp ult i32 %switch.tableidx, 234
-  br i1 %58, label %switch.lookup, label %SDL_GetDefaultKeyFromScancode.exit
+  %59 = icmp ult i32 %switch.tableidx, 234
+  br i1 %59, label %switch.lookup, label %SDL_GetDefaultKeyFromScancode.exit
 
-switch.lookup:                                    ; preds = %57
-  %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [234 x i32], ptr @switch.table.SDL_GetKeymapKeycode, i64 0, i64 %59
+switch.lookup:                                    ; preds = %58
+  %60 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetKeymapKeycode, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_GetDefaultKeyFromScancode.exit
 
-SDL_GetDefaultKeyFromScancode.exit:               ; preds = %57, %switch.lookup, %54, %51, %44, %40, %38, %30, %26, %24, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %24 ], [ 0, %26 ], [ %41, %40 ], [ %39, %38 ], [ 0, %30 ], [ %56, %54 ], [ %53, %51 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %57 ]
+SDL_GetDefaultKeyFromScancode.exit:               ; preds = %58, %switch.lookup, %54, %50, %44, %40, %38, %30, %26, %24, %18
+  %.0 = phi i32 [ %21, %18 ], [ 0, %24 ], [ 0, %26 ], [ %41, %40 ], [ %39, %38 ], [ 0, %30 ], [ %57, %54 ], [ %53, %50 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -558,13 +559,13 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 
 .preheader67.i:                                   ; preds = %23, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %23 ]
-  %26 = getelementptr inbounds nuw [5 x %struct.anon], ptr @extended_default_symbols, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw %struct.anon, ptr @extended_default_symbols, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %29, label %25
 
 29:                                               ; preds = %.preheader67.i
-  %30 = getelementptr inbounds nuw [5 x %struct.anon], ptr @extended_default_symbols, i64 0, i64 %indvars.iv.i, i32 1
+  %30 = getelementptr inbounds nuw %struct.anon, ptr @extended_default_symbols, i64 %indvars.iv.i, i32 1
   %31 = load i32, ptr %30, align 4
   br label %SDL_GetDefaultScancodeFromKey.exit
 
@@ -604,7 +605,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 
 .preheader66.i:                                   ; preds = %40, %51
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %51 ], [ 0, %40 ]
-  %46 = getelementptr inbounds nuw [27 x i32], ptr @normal_default_symbols, i64 0, i64 %indvars.iv78.i
+  %46 = getelementptr inbounds nuw i32, ptr @normal_default_symbols, i64 %indvars.iv78.i
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %1, %47
   br i1 %48, label %.thread.i, label %51
@@ -621,7 +622,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 
 .preheader.i:                                     ; preds = %51, %58
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %58 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [27 x i32], ptr @shifted_default_symbols, i64 0, i64 %indvars.iv82.i
+  %52 = getelementptr inbounds nuw i32, ptr @shifted_default_symbols, i64 %indvars.iv82.i
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %1, %53
   br i1 %54, label %55, label %58
@@ -669,7 +670,7 @@ define hidden zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef %0, ptr noundef %
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [512 x ptr], ptr @SDL_scancode_names, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %7
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -691,7 +692,7 @@ define hidden nonnull ptr @SDL_GetScancodeName_REAL(i32 noundef %0) local_unname
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [512 x ptr], ptr @SDL_scancode_names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %spec.store.select = select i1 %.not, ptr @.str.2, ptr %8
@@ -718,7 +719,7 @@ define hidden range(i32 0, 512) i32 @SDL_GetScancodeFromName_REAL(ptr noundef %0
 
 .preheader:                                       ; preds = %2, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [512 x ptr], ptr @SDL_scancode_names, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %11, label %8
@@ -768,7 +769,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw [512 x ptr], ptr @SDL_scancode_names, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   %spec.store.select.i = select i1 %.not.i, ptr @.str.2, ptr %13
@@ -777,113 +778,114 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %1
   %15 = and i32 %0, 536870912
   %.not32 = icmp eq i32 %15, 0
-  br i1 %.not32, label %25, label %16
+  br i1 %.not32, label %26, label %16
 
 16:                                               ; preds = %14
   %17 = and i32 %0, -1610612737
   %18 = add i32 %17, -1
   %or.cond36 = icmp ult i32 %18, 7
-  br i1 %or.cond36, label %19, label %23
+  br i1 %or.cond36, label %19, label %24
 
 19:                                               ; preds = %16
-  %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw [7 x ptr], ptr @SDL_extended_key_names, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
+  %20 = zext nneg i32 %17 to i64
+  %21 = getelementptr ptr, ptr @SDL_extended_key_names, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8
   br label %SDL_GetScancodeName_REAL.exit
 
-23:                                               ; preds = %16
-  %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #5
+24:                                               ; preds = %16
+  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #5
   br label %SDL_GetScancodeName_REAL.exit
 
-25:                                               ; preds = %14
-  switch i32 %0, label %38 [
-    i32 13, label %26
-    i32 27, label %28
-    i32 8, label %30
-    i32 9, label %32
-    i32 32, label %34
-    i32 127, label %36
+26:                                               ; preds = %14
+  switch i32 %0, label %39 [
+    i32 13, label %27
+    i32 27, label %29
+    i32 8, label %31
+    i32 9, label %33
+    i32 32, label %35
+    i32 127, label %37
   ]
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 320), align 16
-  %.not.i39 = icmp eq ptr %27, null
-  %spec.store.select.i40 = select i1 %.not.i39, ptr @.str.2, ptr %27
+27:                                               ; preds = %26
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 320), align 16
+  %.not.i39 = icmp eq ptr %28, null
+  %spec.store.select.i40 = select i1 %.not.i39, ptr @.str.2, ptr %28
   br label %SDL_GetScancodeName_REAL.exit
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 328), align 8
-  %.not.i42 = icmp eq ptr %29, null
-  %spec.store.select.i43 = select i1 %.not.i42, ptr @.str.2, ptr %29
+29:                                               ; preds = %26
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 328), align 8
+  %.not.i42 = icmp eq ptr %30, null
+  %spec.store.select.i43 = select i1 %.not.i42, ptr @.str.2, ptr %30
   br label %SDL_GetScancodeName_REAL.exit
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 336), align 16
-  %.not.i45 = icmp eq ptr %31, null
-  %spec.store.select.i46 = select i1 %.not.i45, ptr @.str.2, ptr %31
+31:                                               ; preds = %26
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 336), align 16
+  %.not.i45 = icmp eq ptr %32, null
+  %spec.store.select.i46 = select i1 %.not.i45, ptr @.str.2, ptr %32
   br label %SDL_GetScancodeName_REAL.exit
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 344), align 8
-  %.not.i48 = icmp eq ptr %33, null
-  %spec.store.select.i49 = select i1 %.not.i48, ptr @.str.2, ptr %33
+33:                                               ; preds = %26
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 344), align 8
+  %.not.i48 = icmp eq ptr %34, null
+  %spec.store.select.i49 = select i1 %.not.i48, ptr @.str.2, ptr %34
   br label %SDL_GetScancodeName_REAL.exit
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 352), align 16
-  %.not.i51 = icmp eq ptr %35, null
-  %spec.store.select.i52 = select i1 %.not.i51, ptr @.str.2, ptr %35
+35:                                               ; preds = %26
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 352), align 16
+  %.not.i51 = icmp eq ptr %36, null
+  %spec.store.select.i52 = select i1 %.not.i51, ptr @.str.2, ptr %36
   br label %SDL_GetScancodeName_REAL.exit
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 608), align 16
-  %.not.i54 = icmp eq ptr %37, null
-  %spec.store.select.i55 = select i1 %.not.i54, ptr @.str.2, ptr %37
+37:                                               ; preds = %26
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_scancode_names, i64 608), align 16
+  %.not.i54 = icmp eq ptr %38, null
+  %spec.store.select.i55 = select i1 %.not.i54, ptr @.str.2, ptr %38
   br label %SDL_GetScancodeName_REAL.exit
 
-38:                                               ; preds = %25
-  %39 = icmp ugt i32 %0, 127
-  %40 = add nsw i32 %0, -97
-  %or.cond = icmp ult i32 %40, 26
-  %or.cond37 = select i1 %39, i1 true, i1 %or.cond
-  br i1 %or.cond37, label %41, label %52
+39:                                               ; preds = %26
+  %40 = icmp ugt i32 %0, 127
+  %41 = add nsw i32 %0, -97
+  %or.cond = icmp ult i32 %41, 26
+  %or.cond37 = select i1 %40, i1 true, i1 %or.cond
+  br i1 %or.cond37, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = tail call ptr @SDL_GetCurrentKeymap() #5
+42:                                               ; preds = %39
+  %43 = tail call ptr @SDL_GetCurrentKeymap() #5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %43 = call i32 @SDL_GetKeymapScancode(ptr noundef %42, i32 noundef %0, ptr noundef nonnull %3)
-  %.not33 = icmp eq i32 %43, 0
-  br i1 %.not33, label %51, label %44
+  %44 = call i32 @SDL_GetKeymapScancode(ptr noundef %43, i32 noundef %0, ptr noundef nonnull %3)
+  %.not33 = icmp eq i32 %44, 0
+  br i1 %.not33, label %52, label %45
 
-44:                                               ; preds = %41
-  %45 = load i16, ptr %3, align 2
-  %46 = and i16 %45, 3
-  %.not34 = icmp eq i16 %46, 0
-  br i1 %.not34, label %47, label %51
+45:                                               ; preds = %42
+  %46 = load i16, ptr %3, align 2
+  %47 = and i16 %46, 3
+  %.not34 = icmp eq i16 %47, 0
+  br i1 %.not34, label %48, label %52
 
-47:                                               ; preds = %44
-  %48 = call i32 @SDL_GetKeymapKeycode(ptr noundef %42, i32 noundef %43, i16 noundef zeroext 3)
-  %49 = icmp ugt i32 %48, 127
-  %50 = add nsw i32 %48, -65
-  %or.cond3 = icmp ult i32 %50, 26
-  %or.cond38 = select i1 %49, i1 true, i1 %or.cond3
-  %.2 = select i1 %or.cond38, i32 %48, i32 %0
-  br label %51
-
-51:                                               ; preds = %47, %44, %41
-  %.126 = phi i32 [ %0, %44 ], [ %.2, %47 ], [ %0, %41 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+48:                                               ; preds = %45
+  %49 = call i32 @SDL_GetKeymapKeycode(ptr noundef %43, i32 noundef %44, i16 noundef zeroext 3)
+  %50 = icmp ugt i32 %49, 127
+  %51 = add nsw i32 %49, -65
+  %or.cond3 = icmp ult i32 %51, 26
+  %or.cond38 = select i1 %50, i1 true, i1 %or.cond3
+  %.2 = select i1 %or.cond38, i32 %49, i32 %0
   br label %52
 
-52:                                               ; preds = %38, %51
-  %.025 = phi i32 [ %.126, %51 ], [ %0, %38 ]
-  %53 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.025, ptr noundef nonnull %2) #5
-  store i8 0, ptr %53, align 1
-  %54 = call ptr @SDL_GetPersistentString(ptr noundef nonnull %2) #5
+52:                                               ; preds = %48, %45, %42
+  %.126 = phi i32 [ %0, %45 ], [ %.2, %48 ], [ %0, %42 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %53
+
+53:                                               ; preds = %39, %52
+  %.025 = phi i32 [ %.126, %52 ], [ %0, %39 ]
+  %54 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.025, ptr noundef nonnull %2) #5
+  store i8 0, ptr %54, align 1
+  %55 = call ptr @SDL_GetPersistentString(ptr noundef nonnull %2) #5
   br label %SDL_GetScancodeName_REAL.exit
 
-SDL_GetScancodeName_REAL.exit:                    ; preds = %10, %8, %19, %23, %52, %36, %34, %32, %30, %28, %26
-  %.0 = phi ptr [ %54, %52 ], [ %spec.store.select.i40, %26 ], [ %spec.store.select.i43, %28 ], [ %spec.store.select.i46, %30 ], [ %spec.store.select.i49, %32 ], [ %spec.store.select.i52, %34 ], [ %spec.store.select.i55, %36 ], [ %22, %19 ], [ @.str.2, %23 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
+SDL_GetScancodeName_REAL.exit:                    ; preds = %10, %8, %19, %24, %53, %37, %35, %33, %31, %29, %27
+  %.0 = phi ptr [ %55, %53 ], [ %spec.store.select.i40, %27 ], [ %spec.store.select.i43, %29 ], [ %spec.store.select.i46, %31 ], [ %spec.store.select.i49, %33 ], [ %spec.store.select.i52, %35 ], [ %spec.store.select.i55, %37 ], [ %23, %19 ], [ @.str.2, %24 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1035,7 +1037,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
 
 .preheader66.i.i:                                 ; preds = %77, %86
   %indvars.iv78.i.i = phi i64 [ %indvars.iv.next79.i.i, %86 ], [ 0, %77 ]
-  %81 = getelementptr inbounds nuw [27 x i32], ptr @normal_default_symbols, i64 0, i64 %indvars.iv78.i.i
+  %81 = getelementptr inbounds nuw i32, ptr @normal_default_symbols, i64 %indvars.iv78.i.i
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %.048, %82
   br i1 %83, label %.thread.i.i, label %86
@@ -1052,7 +1054,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
 
 .preheader.i.i:                                   ; preds = %86, %93
   %indvars.iv82.i.i = phi i64 [ %indvars.iv.next83.i.i, %93 ], [ 0, %86 ]
-  %87 = getelementptr inbounds nuw [27 x i32], ptr @shifted_default_symbols, i64 0, i64 %indvars.iv82.i.i
+  %87 = getelementptr inbounds nuw i32, ptr @shifted_default_symbols, i64 %indvars.iv82.i.i
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %.048, %88
   br i1 %89, label %90, label %93
@@ -1094,7 +1096,7 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
 
 .preheader:                                       ; preds = %.preheader.preheader, %104
   %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.preheader.preheader ]
-  %100 = getelementptr inbounds nuw [7 x ptr], ptr @SDL_extended_key_names, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw ptr, ptr @SDL_extended_key_names, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %0, ptr noundef %101) #5
   %103 = icmp eq i32 %102, 0
@@ -1121,7 +1123,7 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
 
 .preheader.i:                                     ; preds = %108, %117
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %117 ], [ 0, %108 ]
-  %112 = getelementptr inbounds nuw [512 x ptr], ptr @SDL_scancode_names, i64 0, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw ptr, ptr @SDL_scancode_names, i64 %indvars.iv.i
   %113 = load ptr, ptr %112, align 8
   %.not13.i = icmp eq ptr %113, null
   br i1 %.not13.i, label %117, label %114

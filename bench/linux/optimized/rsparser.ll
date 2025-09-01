@@ -1347,7 +1347,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
 10:                                               ; preds = %18, %8
   %11 = phi i8 [ %6, %8 ], [ %19, %18 ]
   %12 = phi i64 [ 0, %8 ], [ %20, %18 ]
-  %13 = getelementptr [0 x i8], ptr %9, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %9, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %18, label %16
@@ -1396,7 +1396,7 @@ define internal fastcc void @pnpacpi_parse_dma_option(ptr noundef %0, i32 nounde
 10:                                               ; preds = %10, %7
   %11 = phi i64 [ 0, %7 ], [ %19, %10 ]
   %12 = phi i8 [ 0, %7 ], [ %18, %10 ]
-  %13 = getelementptr [0 x i8], ptr %8, i64 0, i64 %11
+  %13 = getelementptr i8, ptr %8, i64 %11
   %14 = load i8, ptr %13, align 1
   %15 = zext nneg i8 %14 to i32
   %16 = shl nuw i32 1, %15
@@ -1595,7 +1595,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
 
 10:                                               ; preds = %20, %8
   %11 = phi i64 [ 0, %8 ], [ %21, %20 ]
-  %12 = getelementptr [0 x i32], ptr %9, i64 0, i64 %11
+  %12 = getelementptr i32, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15

@@ -968,7 +968,7 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
 
 .preheader.i:                                     ; preds = %63, %68
   %.02742.i = phi i64 [ %69, %68 ], [ 0, %63 ]
-  %70 = getelementptr inbounds nuw [9 x %struct.hwp3_docsummary_entry], ptr @hwp3_docsummary_fields, i64 0, i64 %.02742.i
+  %70 = getelementptr inbounds nuw %struct.hwp3_docsummary_entry, ptr @hwp3_docsummary_fields, i64 %.02742.i
   %71 = load i64, ptr %70, align 16, !tbaa !68
   %72 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 113) #10
   %.not.i.i29 = icmp eq ptr %72, null

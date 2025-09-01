@@ -860,7 +860,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hab5ed6b
 
 .lr.ph.i.us.i.i.i:                                ; preds = %41, %45
   %.05.i.us.i.i.i = phi i64 [ %46, %45 ], [ 0, %41 ]
-  %42 = getelementptr inbounds nuw [0 x i8], ptr %35, i64 0, i64 %.05.i.us.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %.05.i.us.i.i.i
   %43 = load i8, ptr %42, align 1, !alias.scope !162, !noalias !161, !noundef !4
   %44 = icmp eq i8 %43, %37
   br i1 %44, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us.i.i.i, label %45
@@ -917,7 +917,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us.i.i.i: ; preds =
 
 .lr.ph.i.i.i.i:                                   ; preds = %65, %69
   %.05.i.i.i.i = phi i64 [ %70, %69 ], [ 0, %65 ]
-  %66 = getelementptr inbounds nuw [0 x i8], ptr %59, i64 0, i64 %.05.i.i.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 %.05.i.i.i.i
   %67 = load i8, ptr %66, align 1, !alias.scope !162, !noalias !161, !noundef !4
   %68 = icmp eq i8 %67, %61
   br i1 %68, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i, label %69

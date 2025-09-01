@@ -2098,13 +2098,13 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %44
 
 ._crit_edge:                                      ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit", %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit"
   %.175.lcssa = phi i8 [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ], [ %spec.select87, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ]
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %wide.trip.count
+  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %wide.trip.count
   br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split"
 
 "_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit", %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit"
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ], [ 1, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ]
   %.17591 = phi i8 [ %spec.select87, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ], [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ]
-  %62 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !85
   %64 = getelementptr i8, ptr %63, i64 64
   %.val55 = load ptr, ptr %64, align 8, !tbaa !207
@@ -2141,7 +2141,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %_ZNK17array_recogni
 "_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader", %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62"
   %indvars.iv105 = phi i64 [ 1, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader" ], [ %indvars.iv.next106, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
   %.37794 = phi i8 [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
-  %78 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %indvars.iv105
+  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv105
   %79 = load ptr, ptr %78, align 8, !tbaa !85
   %80 = getelementptr i8, ptr %79, i64 64
   %.val58 = load ptr, ptr %80, align 8, !tbaa !207

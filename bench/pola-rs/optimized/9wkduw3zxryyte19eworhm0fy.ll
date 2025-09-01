@@ -39624,7 +39624,7 @@ _ZN9hashbrown3map9make_hash17h7fb002a0c8bed204E.exit: ; preds = %20, %24, %50
 define internal noundef range(i8 5, 51) i8 @_ZN9sqlparser7dialect7Dialect10prec_value17ha393686c1e3310beE(ptr noalias nonnull readonly align 1 captures(none) %0, i8 noundef range(i8 0, 16) %1) unnamed_addr #7 {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN9sqlparser7dialect7Dialect10prec_value17ha393686c1e3310beE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN9sqlparser7dialect7Dialect10prec_value17ha393686c1e3310beE, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -49980,7 +49980,7 @@ _ZN11compact_str13CompactString7try_new17h2c6eedffb6e2b2f3E.exit180: ; preds = %
           to label %641 unwind label %.loopexit.split-lp373
 
 switch.lookup:                                    ; preds = %282
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN10polars_sql7context10SQLContext22execute_from_statement17h3d673a95edeba4a4E, i64 0, i64 %286
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10polars_sql7context10SQLContext22execute_from_statement17h3d673a95edeba4a4E, i64 %286
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %129, align 16
   call void @llvm.experimental.noalias.scope.decl(metadata !4019)

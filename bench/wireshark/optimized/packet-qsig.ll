@@ -3785,7 +3785,7 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
 21:                                               ; preds = %19, %16
   %.06.i = phi i32 [ 121, %16 ], [ %20, %19 ]
   %22 = zext nneg i32 %.06.i to i64
-  %23 = getelementptr [122 x %struct._qsig_op_t], ptr @qsig_op_tab, i64 0, i64 %22
+  %23 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %18
   br i1 %25, label %get_op.exit, label %19
@@ -3814,7 +3814,7 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
 37:                                               ; preds = %35, %33
   %.06.i75 = phi i32 [ 121, %33 ], [ %36, %35 ]
   %38 = zext nneg i32 %.06.i75 to i64
-  %39 = getelementptr [122 x %struct._qsig_op_t], ptr @qsig_op_tab, i64 0, i64 %38
+  %39 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %38
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %34
   br i1 %41, label %get_op.exit78, label %35
@@ -3835,7 +3835,7 @@ get_op.exit.thread84:                             ; preds = %get_op.exit78, %get
 
 43:                                               ; preds = %get_op.exit.thread84
   %44 = zext nneg i32 %.05989 to i64
-  %45 = getelementptr [121 x i32], ptr @op2srv_tab, i64 0, i64 %44
+  %45 = getelementptr i32, ptr @op2srv_tab, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %get_service.exit
 
@@ -3881,7 +3881,7 @@ get_service.exit:                                 ; preds = %get_op.exit.thread8
   br label %70
 
 70:                                               ; preds = %69, %65
-  %71 = getelementptr [122 x %struct._qsig_op_t], ptr @qsig_op_tab, i64 0, i64 %42, i32 1
+  %71 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %42, i32 1
   %72 = load ptr, ptr %71, align 8
   %.not74 = icmp eq ptr %72, null
   br i1 %.not74, label %75, label %73
@@ -3945,7 +3945,7 @@ define internal i32 @dissect_qsig_res(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 121, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr [122 x %struct._qsig_op_t], ptr @qsig_op_tab, i64 0, i64 %21
+  %22 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_op.exit, label %18
@@ -3960,7 +3960,7 @@ get_op.exit:                                      ; preds = %20
 
 26:                                               ; preds = %25
   %27 = zext nneg i32 %17 to i64
-  %28 = getelementptr [121 x i32], ptr @op2srv_tab, i64 0, i64 %27
+  %28 = getelementptr i32, ptr @op2srv_tab, i64 %27
   %29 = load i32, ptr %28, align 4
   br label %get_service.exit
 
@@ -4069,7 +4069,7 @@ define internal i32 @dissect_qsig_err(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 90, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr [91 x %struct._qsig_err_t], ptr @qsig_err_tab, i64 0, i64 %21
+  %22 = getelementptr %struct._qsig_err_t, ptr @qsig_err_tab, i64 %21
   %23 = load i32, ptr %22, align 16
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_err.exit, label %18
@@ -4160,7 +4160,7 @@ define hidden void @proto_reg_handoff_qsig() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0, %5
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr [122 x %struct._qsig_op_t], ptr @qsig_op_tab, i64 0, i64 %indvars.iv
+  %6 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr @qsig_arg_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1452, i32 noundef %7, ptr noundef %8)
@@ -4178,7 +4178,7 @@ define hidden void @proto_reg_handoff_qsig() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %5, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr [91 x %struct._qsig_err_t], ptr @qsig_err_tab, i64 0, i64 %indvars.iv14
+  %13 = getelementptr %struct._qsig_err_t, ptr @qsig_err_tab, i64 %indvars.iv14
   %14 = load i32, ptr %13, align 16
   %15 = load ptr, ptr @qsig_err_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.1457, i32 noundef %14, ptr noundef %15)
@@ -4387,11 +4387,11 @@ proto_item_set_hidden.exit:                       ; preds = %3, %6, %9
   %15 = load i32, ptr @ett_qsig_ie, align 4
   %16 = zext i8 %13 to i32
   %17 = zext nneg i32 %2 to i64
-  %18 = getelementptr [8 x ptr], ptr @qsig_str_ie_type, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @qsig_str_ie_type, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef %19, ptr noundef nonnull @.str.2074)
   %21 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %15, ptr noundef null, ptr noundef %20)
-  %22 = getelementptr [8 x ptr], ptr @hf_qsig_ie_type_arr, i64 0, i64 %17
+  %22 = getelementptr ptr, ptr @hf_qsig_ie_type_arr, i64 %17
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)

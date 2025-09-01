@@ -3766,30 +3766,29 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 22:                                               ; preds = %19
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %23 = udiv i16 %.lhs.trunc.i.i, 100
-  %.zext.i.i = zext nneg i16 %23 to i64
-  %24 = add nuw nsw i64 %.zext.i.i, 4294967295
-  %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i64 %28 to i32
-  %.not.i.i = icmp slt i32 %20, %29
-  br i1 %.not.i.i, label %32, label %30
+  %24 = zext nneg i16 %23 to i64
+  %25 = getelementptr %struct.response_class, ptr @response_classes, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -16
+  %27 = load i64, ptr %26, align 8
+  %28 = trunc i64 %27 to i32
+  %.not.i.i = icmp slt i32 %20, %28
+  br i1 %.not.i.i, label %32, label %29
 
-30:                                               ; preds = %22
-  %31 = load ptr, ptr %26, align 8
+29:                                               ; preds = %22
+  %30 = getelementptr i8, ptr %25, i64 -24
+  %31 = load ptr, ptr %30, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %33 = getelementptr i8, ptr %25, i64 -8
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %20 to i64
   %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
-evhttp_response_phrase_internal.exit.i:           ; preds = %32, %30, %19, %17
-  %.0.i = phi ptr [ %2, %17 ], [ %31, %30 ], [ %37, %32 ], [ @.str.105, %19 ]
+evhttp_response_phrase_internal.exit.i:           ; preds = %32, %29, %19, %17
+  %.0.i = phi ptr [ %2, %17 ], [ %31, %29 ], [ %37, %32 ], [ @.str.105, %19 ]
   %38 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
   store ptr %38, ptr %14, align 8
   %39 = icmp eq ptr %38, null
@@ -3821,30 +3820,29 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
 52:                                               ; preds = %49
   %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %53 = udiv i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %53 to i64
-  %54 = add nuw nsw i64 %.zext.i, 4294967295
-  %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load i64, ptr %57, align 8
-  %59 = trunc i64 %58 to i32
-  %.not.i26 = icmp slt i32 %50, %59
-  br i1 %.not.i26, label %62, label %60
+  %54 = zext nneg i16 %53 to i64
+  %55 = getelementptr %struct.response_class, ptr @response_classes, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -16
+  %57 = load i64, ptr %56, align 8
+  %58 = trunc i64 %57 to i32
+  %.not.i26 = icmp slt i32 %50, %58
+  br i1 %.not.i26, label %62, label %59
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr %56, align 8
+59:                                               ; preds = %52
+  %60 = getelementptr i8, ptr %55, i64 -24
+  %61 = load ptr, ptr %60, align 8
   br label %evhttp_response_phrase_internal.exit
 
 62:                                               ; preds = %52
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %63 = getelementptr i8, ptr %55, i64 -8
   %64 = load ptr, ptr %63, align 8
   %65 = zext nneg i32 %50 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %evhttp_response_phrase_internal.exit
 
-evhttp_response_phrase_internal.exit:             ; preds = %49, %60, %62
-  %.0.i27 = phi ptr [ %61, %60 ], [ %67, %62 ], [ @.str.105, %49 ]
+evhttp_response_phrase_internal.exit:             ; preds = %49, %59, %62
+  %.0.i27 = phi ptr [ %61, %59 ], [ %67, %62 ], [ @.str.105, %49 ]
   %68 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #18
   %69 = tail call i32 @evbuffer_drain(ptr noundef nonnull %4, i64 noundef %68) #18
   %70 = select i1 %18, ptr @.str.14, ptr %2
@@ -3890,30 +3888,29 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
 14:                                               ; preds = %11
   %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %15 to i64
-  %16 = add nuw nsw i64 %.zext.i, 4294967295
-  %17 = and i64 %16, 4294967295
-  %18 = getelementptr inbounds nuw [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = trunc i64 %20 to i32
-  %.not.i = icmp slt i32 %12, %21
-  br i1 %.not.i, label %24, label %22
+  %16 = zext nneg i16 %15 to i64
+  %17 = getelementptr %struct.response_class, ptr @response_classes, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -16
+  %19 = load i64, ptr %18, align 8
+  %20 = trunc i64 %19 to i32
+  %.not.i = icmp slt i32 %12, %20
+  br i1 %.not.i, label %24, label %21
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %18, align 8
+21:                                               ; preds = %14
+  %22 = getelementptr i8, ptr %17, i64 -24
+  %23 = load ptr, ptr %22, align 8
   br label %evhttp_response_phrase_internal.exit
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %25 = getelementptr i8, ptr %17, i64 -8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %12 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %evhttp_response_phrase_internal.exit
 
-evhttp_response_phrase_internal.exit:             ; preds = %24, %22, %11, %9
-  %.0 = phi ptr [ %2, %9 ], [ %23, %22 ], [ %29, %24 ], [ @.str.105, %11 ]
+evhttp_response_phrase_internal.exit:             ; preds = %24, %21, %11, %9
+  %.0 = phi ptr [ %2, %9 ], [ %23, %21 ], [ %29, %24 ], [ @.str.105, %11 ]
   %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0) #18
   store ptr %30, ptr %6, align 8
   %31 = icmp eq ptr %30, null
@@ -4109,30 +4106,29 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
 15:                                               ; preds = %12
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %16 = udiv i16 %.lhs.trunc.i.i, 100
-  %.zext.i.i = zext nneg i16 %16 to i64
-  %17 = add nuw nsw i64 %.zext.i.i, 4294967295
-  %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = trunc i64 %21 to i32
-  %.not.i.i = icmp slt i32 %13, %22
-  br i1 %.not.i.i, label %25, label %23
+  %17 = zext nneg i16 %16 to i64
+  %18 = getelementptr %struct.response_class, ptr @response_classes, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -16
+  %20 = load i64, ptr %19, align 8
+  %21 = trunc i64 %20 to i32
+  %.not.i.i = icmp slt i32 %13, %21
+  br i1 %.not.i.i, label %25, label %22
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %19, align 8
+22:                                               ; preds = %15
+  %23 = getelementptr i8, ptr %18, i64 -24
+  %24 = load ptr, ptr %23, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %26 = getelementptr i8, ptr %18, i64 -8
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %13 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
-evhttp_response_phrase_internal.exit.i:           ; preds = %25, %23, %12, %10
-  %.0.i = phi ptr [ %2, %10 ], [ %24, %23 ], [ %30, %25 ], [ @.str.105, %12 ]
+evhttp_response_phrase_internal.exit.i:           ; preds = %25, %22, %12, %10
+  %.0.i = phi ptr [ %2, %10 ], [ %24, %22 ], [ %30, %25 ], [ @.str.105, %12 ]
   %31 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
   store ptr %31, ptr %7, align 8
   %32 = icmp eq ptr %31, null
@@ -4220,30 +4216,29 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
 14:                                               ; preds = %11
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i.i, 100
-  %.zext.i.i = zext nneg i16 %15 to i64
-  %16 = add nuw nsw i64 %.zext.i.i, 4294967295
-  %17 = and i64 %16, 4294967295
-  %18 = getelementptr inbounds nuw [5 x %struct.response_class], ptr @response_classes, i64 0, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = trunc i64 %20 to i32
-  %.not.i.i = icmp slt i32 %12, %21
-  br i1 %.not.i.i, label %24, label %22
+  %16 = zext nneg i16 %15 to i64
+  %17 = getelementptr %struct.response_class, ptr @response_classes, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -16
+  %19 = load i64, ptr %18, align 8
+  %20 = trunc i64 %19 to i32
+  %.not.i.i = icmp slt i32 %12, %20
+  br i1 %.not.i.i, label %24, label %21
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %18, align 8
+21:                                               ; preds = %14
+  %22 = getelementptr i8, ptr %17, i64 -24
+  %23 = load ptr, ptr %22, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %25 = getelementptr i8, ptr %17, i64 -8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %12 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
-evhttp_response_phrase_internal.exit.i:           ; preds = %24, %22, %11, %9
-  %.0.i = phi ptr [ %2, %9 ], [ %23, %22 ], [ %29, %24 ], [ @.str.105, %11 ]
+evhttp_response_phrase_internal.exit.i:           ; preds = %24, %21, %11, %9
+  %.0.i = phi ptr [ %2, %9 ], [ %23, %21 ], [ %29, %24 ], [ @.str.105, %11 ]
   %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
   store ptr %30, ptr %6, align 8
   %31 = icmp eq ptr %30, null
@@ -5405,7 +5400,7 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %.04054.us = phi ptr [ %21, %20 ], [ %0, %.lr.ph ]
   %11 = load i8, ptr %.04054.us, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not50.us = icmp eq i8 %14, 0
   br i1 %.not50.us, label %17, label %15
@@ -5428,7 +5423,7 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %.04054 = phi ptr [ %37, %36 ], [ %0, %.lr.ph ]
   %23 = load i8, ptr %.04054, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %24
   %26 = load i8, ptr %25, align 1
   %.not50 = icmp eq i8 %26, 0
   br i1 %.not50, label %29, label %27
@@ -8166,7 +8161,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr noundef nonnull
   %.01221.i = phi ptr [ %37, %36 ], [ %1, %14 ]
   %16 = load i8, ptr %.01221.i, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not.i = icmp eq i8 %19, 0
   br i1 %.not.i, label %20, label %36
@@ -8347,7 +8342,7 @@ parse_port.exit.thread:                           ; preds = %69, %.lr.ph.i87
   %.01015.i = phi ptr [ %113, %112 ], [ %.065, %93 ]
   %95 = load i8, ptr %.01015.i, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %96
   %98 = load i8, ptr %97, align 1
   %.not.i92 = icmp eq i8 %98, 0
   br i1 %.not.i92, label %99, label %112
@@ -8451,7 +8446,7 @@ define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly cap
   %.fr59.us = phi i8 [ %.fr.us, %20 ], [ %.fr56, %.lr.ph ]
   %.358.us = phi ptr [ %21, %20 ], [ %0, %.lr.ph ]
   %6 = zext i8 %.fr59.us to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %6
   %8 = load i8, ptr %7, align 1
   %.not37.us = icmp eq i8 %8, 0
   br i1 %.not37.us, label %9, label %20
@@ -8539,7 +8534,7 @@ default.unreachable69:                            ; preds = %23
   %.fr59 = phi i8 [ %.fr, %50 ], [ %.fr56, %.lr.ph ]
   %.358 = phi ptr [ %51, %50 ], [ %0, %.lr.ph ]
   %33 = zext i8 %.fr59 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %33
   %35 = load i8, ptr %34, align 1
   %.not37 = icmp eq i8 %35, 0
   br i1 %.not37, label %36, label %50
@@ -8899,7 +8894,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_userinfo(ptr noundef captures(none) 
   %.01221.i = phi ptr [ %27, %26 ], [ %1, %3 ]
   %6 = load i8, ptr %.01221.i, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %10, label %26
@@ -9003,7 +8998,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
   %11 = phi i8 [ %.pr, %.lr.ph.ithread-pre-split ], [ %5, %10 ]
   %.01015.i = phi ptr [ %29, %.lr.ph.ithread-pre-split ], [ %1, %10 ]
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not.i = icmp eq i8 %14, 0
   br i1 %.not.i, label %15, label %28
@@ -9198,7 +9193,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
   %.12847 = phi ptr [ %.128, %.critedge40 ], [ %.12846, %.lr.ph48.preheader ]
   %30 = load i8, ptr %.12847, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @uri_chars, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @uri_chars, i64 %31
   %33 = load i8, ptr %32, align 1
   %.not35 = icmp eq i8 %33, 0
   br i1 %.not35, label %34, label %.critedge40
@@ -9228,7 +9223,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
 41:                                               ; preds = %38
   %42 = add nsw i64 %39, -2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %15, i64 %42, i1 false)
-  %43 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %5, i64 %42
   store i8 0, ptr %43, align 1
   %44 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
   %45 = icmp eq i32 %44, 1

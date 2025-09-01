@@ -643,7 +643,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 20:                                               ; preds = %0, %._crit_edge183
   %.0186 = phi i32 [ 1, %0 ], [ %.1.lcssa, %._crit_edge183 ]
   %.0137185 = phi i64 [ 0, %0 ], [ %164, %._crit_edge183 ]
-  %21 = getelementptr inbounds nuw [4 x i32], ptr @hpke_mode_list, i64 0, i64 %.0137185
+  %21 = getelementptr inbounds nuw i32, ptr @hpke_mode_list, i64 %.0137185
   %22 = load i32, ptr %21, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -698,7 +698,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 
 .lr.ph182:                                        ; preds = %34
   %or.cond3.not = icmp samesign ult i64 %.0137185, 2
-  %36 = getelementptr inbounds nuw [4 x ptr], ptr @mode_str_list, i64 0, i64 %.0137185
+  %36 = getelementptr inbounds nuw ptr, ptr @mode_str_list, i64 %.0137185
   %37 = trunc nuw nsw i64 %.0137185 to i32
   br label %38
 
@@ -706,7 +706,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.0138180 = phi i64 [ 0, %.lr.ph182 ], [ %160, %._crit_edge ]
   %.sroa.9.0179 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.9.1.lcssa, %._crit_edge ]
   %.sroa.10.0178 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.10.1.lcssa, %._crit_edge ]
-  %39 = getelementptr inbounds nuw [5 x i16], ptr @hpke_kem_list, i64 0, i64 %.0138180
+  %39 = getelementptr inbounds nuw i16, ptr @hpke_kem_list, i64 %.0138180
   %40 = load i16, ptr %39, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 512, ptr %7, align 8, !tbaa !11
@@ -739,24 +739,24 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.0143191 = phi ptr [ null, %.thread ], [ %8, %41 ]
   %.sroa.0.0.insert.ext47 = zext i16 %40 to i48
   %47 = icmp eq i64 %.0138180, 0
-  %48 = getelementptr inbounds nuw [15 x ptr], ptr @kem_str_list, i64 0, i64 %.0138180
+  %48 = getelementptr inbounds nuw ptr, ptr @kem_str_list, i64 %.0138180
   %49 = zext i16 %40 to i32
   br label %50
 
 50:                                               ; preds = %.lr.ph, %155
   %.0139175 = phi i64 [ 0, %.lr.ph ], [ %156, %155 ]
-  %51 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %.0139175
+  %51 = getelementptr inbounds nuw i16, ptr @hpke_aead_list, i64 %.0139175
   %52 = load i16, ptr %51, align 2, !tbaa !18
   %.sroa.9.0.insert.ext57 = zext i16 %52 to i48
   %.sroa.9.0.insert.shift58 = shl nuw nsw i48 %.sroa.9.0.insert.ext57, 16
   %.sroa.9.0.insert.insert60 = or disjoint i48 %.sroa.9.0.insert.shift58, %.sroa.0.0.insert.ext47
-  %53 = getelementptr inbounds nuw [12 x ptr], ptr @kdf_str_list, i64 0, i64 %.0139175
+  %53 = getelementptr inbounds nuw ptr, ptr @kdf_str_list, i64 %.0139175
   %54 = zext i16 %52 to i32
   br label %55
 
 55:                                               ; preds = %50, %150
   %.0140174 = phi i64 [ 0, %50 ], [ %151, %150 ]
-  %56 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %.0140174
+  %56 = getelementptr inbounds nuw i16, ptr @hpke_aead_list, i64 %.0140174
   %57 = load i16, ptr %56, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 512, ptr %10, align 8, !tbaa !11
@@ -924,7 +924,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %144 = load ptr, ptr %36, align 8, !tbaa !20
   %145 = load ptr, ptr %48, align 8, !tbaa !20
   %146 = load ptr, ptr %53, align 8, !tbaa !20
-  %147 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %.0140174
+  %147 = getelementptr inbounds nuw ptr, ptr @aead_str_list, i64 %.0140174
   %148 = load ptr, ptr %147, align 8, !tbaa !20
   %149 = zext i16 %57 to i32
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.101, ptr noundef nonnull %143, ptr noundef %144, i32 noundef %37, ptr noundef %145, i32 noundef %49, ptr noundef %146, i32 noundef %54, ptr noundef %148, i32 noundef %149) #7
@@ -995,21 +995,21 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
 .preheader35:                                     ; preds = %0, %20
   %indvars.iv48 = phi i64 [ 0, %0 ], [ %indvars.iv.next49, %20 ]
   %.01940 = phi i32 [ 1, %0 ], [ %.3, %20 ]
-  %4 = getelementptr inbounds nuw [15 x ptr], ptr @kem_str_list, i64 0, i64 %indvars.iv48
+  %4 = getelementptr inbounds nuw ptr, ptr @kem_str_list, i64 %indvars.iv48
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   br label %.preheader34
 
 .preheader34:                                     ; preds = %.preheader35, %19
   %indvars.iv45 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next46, %19 ]
   %.138 = phi i32 [ %.01940, %.preheader35 ], [ %.3, %19 ]
-  %6 = getelementptr inbounds nuw [12 x ptr], ptr @kdf_str_list, i64 0, i64 %indvars.iv45
+  %6 = getelementptr inbounds nuw ptr, ptr @kdf_str_list, i64 %indvars.iv45
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   br label %8
 
 8:                                                ; preds = %.preheader34, %18
   %indvars.iv = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next, %18 ]
   %.236 = phi i32 [ %.138, %.preheader34 ], [ %.3, %18 ]
-  %9 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @aead_str_list, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %1, i64 noundef 128, ptr noundef nonnull @.str.139, ptr noundef %5, ptr noundef %7, ptr noundef %10) #7
   %12 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
@@ -1046,7 +1046,7 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
 .preheader:                                       ; preds = %20, %30
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %30 ], [ 0, %20 ]
   %.442 = phi i32 [ %.5, %30 ], [ %.3, %20 ]
-  %21 = getelementptr inbounds nuw [35 x ptr], ptr @bogus_suite_strs, i64 0, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw ptr, ptr @bogus_suite_strs, i64 %indvars.iv51
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = call i32 @OSSL_HPKE_str2suite(ptr noundef %22, ptr noundef nonnull %2) #7
   %24 = icmp ne i32 %23, 0

@@ -247,7 +247,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 .thread.i:                                        ; preds = %57, %53
   %60 = add nsw i32 %.02881256.i, 1
   %61 = sext i32 %.02881256.i to i64
-  %62 = getelementptr inbounds [24 x i32], ptr %20, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr %20, i64 %61
   store i32 %.02771257.i, ptr %62, align 4, !tbaa !20
   br label %.thread514.i
 
@@ -279,7 +279,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 75:                                               ; preds = %69
   %76 = add nsw i32 %.02881256.i, 1
   %77 = sext i32 %.02881256.i to i64
-  %78 = getelementptr inbounds [24 x i32], ptr %20, i64 0, i64 %77
+  %78 = getelementptr inbounds i32, ptr %20, i64 %77
   store i32 %.02771257.i, ptr %78, align 4, !tbaa !20
   %79 = icmp eq i64 %58, 2
   %80 = getelementptr inbounds nuw i8, ptr %56, i64 1
@@ -530,7 +530,7 @@ CheckAlias.exit469.thread.i:                      ; preds = %CheckAlias.exit469.
 175:                                              ; preds = %169
   %176 = add nsw i32 %.22901229.i, 1
   %177 = sext i32 %.22901229.i to i64
-  %178 = getelementptr inbounds [24 x i32], ptr %20, i64 0, i64 %177
+  %178 = getelementptr inbounds i32, ptr %20, i64 %177
   store i32 %163, ptr %178, align 4, !tbaa !20
   switch i8 %87, label %289 [
     i8 111, label %179
@@ -2636,7 +2636,7 @@ define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %.promoted63 = load i32, ptr %10, align 4, !tbaa !69
   %11 = sext i32 %.promoted63 to i64
-  %12 = getelementptr inbounds [24 x i32], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = icmp eq i32 %4, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -2662,7 +2662,7 @@ define internal fastcc range(i32 0, 2) i32 @NextFile(ptr noundef nonnull capture
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %24 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %24, ptr %10, align 4, !tbaa !69
-  %25 = getelementptr inbounds [24 x i32], ptr %9, i64 0, i64 %indvars.iv.next
+  %25 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
   %26 = load i32, ptr %25, align 4, !tbaa !20
   %27 = icmp eq i32 %23, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !70
@@ -3273,7 +3273,7 @@ define internal void @OnMetadataChunk(ptr noundef captures(none) %0, ptr noundef
 14:                                               ; preds = %12
   %15 = add nuw i64 %13, 1
   store i64 %15, ptr %.phi.trans.insert, align 8, !tbaa !82
-  %16 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %17 = load i8, ptr %16, align 1, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.01621
   %19 = load i8, ptr %18, align 1, !tbaa !27

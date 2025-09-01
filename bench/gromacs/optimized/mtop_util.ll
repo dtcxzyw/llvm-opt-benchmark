@@ -317,7 +317,7 @@ define noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %2
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %12, i32 2
   br label %14
 
 ._crit_edge:                                      ; preds = %14, %2
@@ -332,7 +332,7 @@ define noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull 
   store ptr %6, ptr %7, align 8
   %15 = call noundef i32 @_ZNK10IListProxy4nmolEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %16 = call noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %17 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %16, i64 0, i64 %12
+  %17 = getelementptr inbounds nuw %struct.InteractionList, ptr %16, i64 %12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !91
   %20 = load ptr, ptr %17, align 8, !tbaa !92
@@ -437,7 +437,7 @@ define noundef i32 @_Z26gmx_mtop_interaction_countRK10gmx_mtop_tj(ptr noundef no
 15:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.115 = phi i32 [ %.01419, %.lr.ph ], [ %.2, %38 ]
-  %16 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %16 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
   %17 = load i32, ptr %16, align 4, !tbaa !96
   %18 = and i32 %17, %1
   %19 = icmp eq i32 %18, %1
@@ -446,7 +446,7 @@ define noundef i32 @_Z26gmx_mtop_interaction_countRK10gmx_mtop_tj(ptr noundef no
 20:                                               ; preds = %15
   %21 = call noundef i32 @_ZNK10IListProxy4nmolEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %22 = call noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %23 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %22, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.InteractionList, ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !91
   %26 = load ptr, ptr %23, align 8, !tbaa !92
@@ -456,7 +456,7 @@ define noundef i32 @_Z26gmx_mtop_interaction_countRK10gmx_mtop_tj(ptr noundef no
   %30 = lshr exact i64 %29, 2
   %31 = trunc i64 %30 to i32
   %32 = mul nsw i32 %21, %31
-  %33 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %33 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
   %34 = load i32, ptr %33, align 16, !tbaa !93
   %35 = add nsw i32 %34, 1
   %36 = sdiv i32 %32, %35
@@ -516,7 +516,7 @@ define void @_Z27gmx_mtop_particletype_countRK10gmx_mtop_t(ptr dead_on_unwind no
   %22 = getelementptr inbounds nuw %struct.t_atom, ptr %19, i64 %indvars.iv, i32 6
   %23 = load i32, ptr %22, align 4, !tbaa !98
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !83
   %27 = add nsw i32 %26, %17
   store i32 %27, ptr %25, align 4, !tbaa !83
@@ -1408,9 +1408,9 @@ _ZL8ilistcatiP15InteractionListRKS_iii.exit108.i.i: ; preds = %.loopexit.us.i80.
 
 246:                                              ; preds = %73, %._crit_edge257.i.i
   %247 = phi i32 [ %.pre258.i.i, %._crit_edge257.i.i ], [ %.pre259.i.i, %73 ]
-  %248 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %18, i64 0, i64 %indvars.iv.i.i
-  %249 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %61, i64 0, i64 %indvars.iv.i.i
-  %250 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i.i, i32 2
+  %248 = getelementptr inbounds nuw %struct.InteractionList, ptr %18, i64 %indvars.iv.i.i
+  %249 = getelementptr inbounds nuw %struct.InteractionList, ptr %61, i64 %indvars.iv.i.i
+  %250 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i, i32 2
   %251 = load i32, ptr %250, align 16, !tbaa !93
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %253 = load ptr, ptr %252, align 8, !tbaa !91
@@ -1973,10 +1973,10 @@ _ZL19set_fbposres_paramsI22InteractionDefinitionsEvPT_PK14gmx_molblock_tii.exit.
 
 514:                                              ; preds = %_ZL8ilistcatiP15InteractionListRKS_iii.exit198.i.i, %.preheader.i.i
   %indvars.iv251.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next252.i.i, %_ZL8ilistcatiP15InteractionListRKS_iii.exit198.i.i ]
-  %515 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %33, i64 0, i64 %indvars.iv251.i.i
+  %515 = getelementptr inbounds nuw %struct.InteractionList, ptr %33, i64 %indvars.iv251.i.i
   %516 = load ptr, ptr %34, align 8, !tbaa !159
-  %517 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %516, i64 0, i64 %indvars.iv251.i.i
-  %518 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv251.i.i, i32 2
+  %517 = getelementptr inbounds nuw %struct.InteractionList, ptr %516, i64 %indvars.iv251.i.i
+  %518 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv251.i.i, i32 2
   %519 = load i32, ptr %518, align 16, !tbaa !93
   %520 = getelementptr inbounds nuw i8, ptr %515, i64 8
   %521 = load ptr, ptr %520, align 8, !tbaa !91
@@ -4106,10 +4106,10 @@ _ZL24copyFFParametersFromMtopRK10gmx_mtop_tP6t_idef.exit.i: ; preds = %55, %51, 
 
 91:                                               ; preds = %_ZL8ilistcatiP7t_ilistRK15InteractionListiii.exit.i.i, %75
   %indvars.iv.i.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i.i, %_ZL8ilistcatiP7t_ilistRK15InteractionListiii.exit.i.i ]
-  %92 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv.i.i
-  %93 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %86, i64 0, i64 %indvars.iv.i.i
+  %92 = getelementptr inbounds nuw %struct.t_ilist, ptr %10, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw %struct.InteractionList, ptr %86, i64 %indvars.iv.i.i
   %94 = load i32, ptr %87, align 4, !tbaa !82
-  %95 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i.i, i32 2
+  %95 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i, i32 2
   %96 = load i32, ptr %95, align 16, !tbaa !93
   %97 = load i32, ptr %92, align 8, !tbaa !240
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -4505,10 +4505,10 @@ _ZL19set_fbposres_paramsI6t_idefEvPT_PK14gmx_molblock_tii.exit.i.i: ; preds = %2
 
 277:                                              ; preds = %_ZL8ilistcatiP7t_ilistRK15InteractionListiii.exit113.i.i, %.preheader.i.i
   %indvars.iv127.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next128.i.i, %_ZL8ilistcatiP7t_ilistRK15InteractionListiii.exit113.i.i ]
-  %278 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv127.i.i
+  %278 = getelementptr inbounds nuw %struct.t_ilist, ptr %10, i64 %indvars.iv127.i.i
   %279 = load ptr, ptr %74, align 8, !tbaa !159
-  %280 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %279, i64 0, i64 %indvars.iv127.i.i
-  %281 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv127.i.i, i32 2
+  %280 = getelementptr inbounds nuw %struct.InteractionList, ptr %279, i64 %indvars.iv127.i.i
+  %281 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv127.i.i, i32 2
   %282 = load i32, ptr %281, align 16, !tbaa !93
   %283 = load i32, ptr %278, align 8, !tbaa !240
   %284 = getelementptr inbounds nuw i8, ptr %280, i64 8
@@ -4690,7 +4690,7 @@ _Z22gmx_mtop_num_moleculesRK10gmx_mtop_t.exit.i.i: ; preds = %.lr.ph.i.i22.i, %_
 
 359:                                              ; preds = %359, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %359 ]
-  %360 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv.i
+  %360 = getelementptr inbounds nuw %struct.t_ilist, ptr %10, i64 %indvars.iv.i
   store i32 0, ptr %360, align 8, !tbaa !240
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   store i32 0, ptr %361, align 8, !tbaa !242
@@ -5349,7 +5349,7 @@ define linkonce_odr void @_ZN13gmx_moltype_tC2ERKS_(ptr noundef nonnull align 8 
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add7 = add nuw nsw i64 %.idx.i, 80
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 %.add7
-  %6 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !91
   %9 = load ptr, ptr %6, align 8, !tbaa !92

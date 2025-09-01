@@ -31,7 +31,7 @@ define noundef zeroext i1 @_Z15ExtractHardlinkP11CommandDataPwS1_m(ptr noundef r
 
 12:                                               ; preds = %12, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %13 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
   store ptr @.str.3, ptr %13, align 8, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -52,7 +52,7 @@ _Z5uiMsgIJRPwEEv14UIMESSAGE_CODEDpOT_.exit:       ; preds = %12
 
 17:                                               ; preds = %17, %_Z5uiMsgIJRPwEEv14UIMESSAGE_CODEDpOT_.exit
   %indvars.iv.i.i5 = phi i64 [ 0, %_Z5uiMsgIJRPwEEv14UIMESSAGE_CODEDpOT_.exit ], [ %indvars.iv.next.i.i6, %17 ]
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i5
+  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i5
   store ptr @.str.3, ptr %18, align 8, !tbaa !3
   %indvars.iv.next.i.i6 = add nuw nsw i64 %indvars.iv.i.i5, 1
   %exitcond.not.i.i7 = icmp eq i64 %indvars.iv.next.i.i6, 8
@@ -87,7 +87,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %17
 
 31:                                               ; preds = %31, %30
   %indvars.iv.i.i8 = phi i64 [ 0, %30 ], [ %indvars.iv.next.i.i9, %31 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i8
+  %32 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i8
   store ptr @.str.3, ptr %32, align 8, !tbaa !3
   %indvars.iv.next.i.i9 = add nuw nsw i64 %indvars.iv.i.i8, 1
   %exitcond.not.i.i10 = icmp eq i64 %indvars.iv.next.i.i9, 8
@@ -155,7 +155,7 @@ define void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull readonly alig
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = tail call i64 @llvm.umin.i64(i64 %8, i64 8191)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %6, i64 %19, i1 false)
-  %20 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !81
   %21 = call noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -200,7 +200,7 @@ define void @_Z18ExtractUnixOwner30R7ArchivePKw(ptr noundef nonnull align 8 dere
   %sext20 = shl i64 %19, 32
   %21 = ashr exact i64 %sext20, 32
   %22 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef nonnull %20, i64 noundef %21) #13
-  %23 = getelementptr inbounds [2048 x i8], ptr %7, i64 0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %7, i64 %21
   store i8 0, ptr %23, align 1, !tbaa !81
   %24 = call ptr @getpwnam(ptr noundef nonnull %10)
   %25 = icmp eq ptr %24, null
@@ -213,7 +213,7 @@ define void @_Z18ExtractUnixOwner30R7ArchivePKw(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %28, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %28 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.3, ptr %29, align 8, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -249,7 +249,7 @@ _Z5uiMsgIJRA2048_wPKwEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %28
 
 42:                                               ; preds = %42, %40
   %indvars.iv.i.i21 = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i22, %42 ]
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i21
+  %43 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i21
   store ptr @.str.3, ptr %43, align 8, !tbaa !3
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %exitcond.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i22, 8
@@ -285,7 +285,7 @@ _Z5uiMsgIJRA2048_wPKwEEv14UIMESSAGE_CODEDpOT_.exit24: ; preds = %42
 
 55:                                               ; preds = %55, %54
   %indvars.iv.i.i25 = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.i26, %55 ]
-  %56 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i25
+  %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i25
   store ptr @.str.3, ptr %56, align 8, !tbaa !3
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 8
@@ -374,7 +374,7 @@ define void @_Z12SetUnixOwnerR7ArchivePKw(ptr noundef nonnull align 8 dereferenc
 
 18:                                               ; preds = %18, %.critedge
   %indvars.iv.i.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.3, ptr %19, align 8, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -426,7 +426,7 @@ _Z5uiMsgIJRA2048_wPKwEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %18
 
 40:                                               ; preds = %40, %.critedge25
   %indvars.iv.i.i26 = phi i64 [ 0, %.critedge25 ], [ %indvars.iv.next.i.i27, %40 ]
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i26
+  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i26
   store ptr @.str.3, ptr %41, align 8, !tbaa !3
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i26, 1
   %exitcond.not.i.i28 = icmp eq i64 %indvars.iv.next.i.i27, 8
@@ -469,7 +469,7 @@ _Z5uiMsgIJRA2048_wPKwEEv14UIMESSAGE_CODEDpOT_.exit29: ; preds = %40
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.i30 = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i31, %58 ]
-  %59 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i30
+  %59 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i30
   store ptr @.str.3, ptr %59, align 8, !tbaa !3
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 8
@@ -877,7 +877,7 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
   br i1 %.not.i, label %31, label %_ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw [2048 x i8], ptr %8, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %26
   store i8 0, ptr %32, align 1, !tbaa !81
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 22288
@@ -1148,7 +1148,7 @@ define internal fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP
 
 20:                                               ; preds = %20, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
   store ptr @.str.3, ptr %21, align 8, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -1172,7 +1172,7 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %20
 
 26:                                               ; preds = %26, %25
   %indvars.iv.i.i9 = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i10, %26 ]
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i9
+  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i9
   store ptr @.str.3, ptr %27, align 8, !tbaa !3
   %indvars.iv.next.i.i10 = add nuw nsw i64 %indvars.iv.i.i9, 1
   %exitcond.not.i.i11 = icmp eq i64 %indvars.iv.next.i.i10, 8

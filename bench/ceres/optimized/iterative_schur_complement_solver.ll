@@ -1147,7 +1147,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %_ZNK5ceres8internal23ImplicitSchurComplement8num_colsEv.exit unwind label %.loopexit
 
 _ZNK5ceres8internal23ImplicitSchurComplement8num_colsEv.exit: ; preds = %.preheader
-  %258 = getelementptr inbounds nuw [4 x %"class.Eigen::Matrix"], ptr %15, i64 0, i64 %indvars.iv
+  %258 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %15, i64 %indvars.iv
   %259 = sext i32 %257 to i64
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %261 = load i64, ptr %260, align 8, !tbaa !59

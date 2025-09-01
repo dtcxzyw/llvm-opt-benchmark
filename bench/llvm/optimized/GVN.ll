@@ -10927,8 +10927,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit196:    ; preds = %_ZN4llvm10BasicBloc
   %.fca.0.extract.i = extractvalue { ptr, i64 } %328, 0
   %329 = getelementptr inbounds i8, ptr %.fca.0.extract.i, i64 -24
   %330 = load i8, ptr %329, align 8, !tbaa !84
-  %switch.tableidx520 = add i8 %330, -39
-  %331 = icmp ult i8 %switch.tableidx520, 57
+  %switch.tableidx519 = add i8 %330, -39
+  %331 = icmp ult i8 %switch.tableidx519, 57
   br i1 %331, label %switch.hole_check521, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit
 
 _ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %switch.hole_check521, %327
@@ -11657,7 +11657,7 @@ switch.hole_check:                                ; preds = %_ZN4llvm10BasicBloc
   br i1 %switch.lobit, label %_ZNK4llvm11Instruction7isEHPadEv.exit.thread, label %_ZNK4llvm11Instruction7isEHPadEv.exit
 
 switch.hole_check521:                             ; preds = %327
-  %switch.maskindex523 = zext nneg i8 %switch.tableidx520 to i64
+  %switch.maskindex523 = zext nneg i8 %switch.tableidx519 to i64
   %switch.shifted524 = lshr i64 72064191107694593, %switch.maskindex523
   %switch.lobit525 = trunc i64 %switch.shifted524 to i1
   br i1 %switch.lobit525, label %_ZNK4llvm11Instruction7isEHPadEv.exit.thread, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit

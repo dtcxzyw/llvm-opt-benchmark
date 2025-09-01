@@ -1743,7 +1743,7 @@ show_esp_sequence_info.exit:                      ; preds = %115, %112, %107, %c
   ]
 
 191:                                              ; preds = %.preheader.i.i
-  %192 = getelementptr [11 x i8], ptr %5, i64 0, i64 %188
+  %192 = getelementptr i8, ptr %5, i64 %188
   %193 = load i8, ptr %192, align 1
   %.not25.i.i = icmp eq i8 %190, %193
   br i1 %.not25.i.i, label %194, label %.critedge.i.i
@@ -1805,7 +1805,7 @@ get_esp_sa.exit:                                  ; preds = %199
 
 switch.lookup:                                    ; preds = %get_esp_sa.exit
   %227 = zext nneg i8 %203 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.dissect_esp, i64 0, i64 %227
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp, i64 %227
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %228
 
@@ -1817,7 +1817,7 @@ switch.lookup:                                    ; preds = %get_esp_sa.exit
 
 switch.lookup856:                                 ; preds = %228
   %230 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep857 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_esp.1, i64 0, i64 %230
+  %switch.gep857 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp.1, i64 %230
   %switch.load858 = load i32, ptr %switch.gep857, align 4
   br label %231
 
@@ -1870,13 +1870,13 @@ switch.lookup856:                                 ; preds = %228
 
 256:                                              ; preds = %253, %249, %238, %244, %234
   %.1577 = phi i32 [ %217, %238 ], [ %217, %244 ], [ %217, %234 ], [ %spec.select704, %249 ], [ %spec.select705, %253 ]
-  %switch.tableidx860 = add i8 %203, -1
-  %257 = icmp ult i8 %switch.tableidx860, 7
-  br i1 %257, label %switch.lookup859, label %.critedge
+  %switch.tableidx859 = add i8 %203, -1
+  %257 = icmp ult i8 %switch.tableidx859, 7
+  br i1 %257, label %switch.lookup860, label %.critedge
 
-switch.lookup859:                                 ; preds = %256
-  %258 = zext nneg i8 %switch.tableidx860 to i64
-  %switch.gep861 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_esp.2, i64 0, i64 %258
+switch.lookup860:                                 ; preds = %256
+  %258 = zext nneg i8 %switch.tableidx859 to i64
+  %switch.gep861 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_esp.2, i64 %258
   %switch.load862 = load i32, ptr %switch.gep861, align 4
   %259 = load ptr, ptr %130, align 8
   %260 = sub i32 %118, %.2423
@@ -1886,7 +1886,7 @@ switch.lookup859:                                 ; preds = %256
   %.not471 = icmp eq i32 %263, 0
   br i1 %.not471, label %268, label %264
 
-264:                                              ; preds = %switch.lookup859
+264:                                              ; preds = %switch.lookup860
   %265 = load ptr, ptr %7, align 8
   call void @gcry_md_close(ptr noundef %265)
   %266 = call ptr @gcry_md_algo_name(i32 noundef %switch.load862) #21
@@ -1894,7 +1894,7 @@ switch.lookup859:                                 ; preds = %256
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef %266, ptr noundef %267) #20
   unreachable
 
-268:                                              ; preds = %switch.lookup859
+268:                                              ; preds = %switch.lookup860
   %269 = call i32 @gcry_md_get_algo_dlen(i32 noundef %switch.load862)
   %270 = icmp slt i32 %269, 1
   %271 = icmp slt i32 %269, %.2423
@@ -1956,13 +1956,13 @@ switch.lookup859:                                 ; preds = %256
 
 301:                                              ; preds = %300, %293
   %302 = phi i32 [ %.pre770, %300 ], [ %296, %293 ]
-  %303 = getelementptr [4 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %303 = getelementptr i8, ptr %11, i64 %indvars.iv
   %304 = load i8, ptr %303, align 1
   %305 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %306 = add i32 %302, 1
   store i32 %306, ptr %295, align 8
   %307 = sext i32 %302 to i64
-  %308 = getelementptr [1 x i8], ptr %305, i64 0, i64 %307
+  %308 = getelementptr i8, ptr %305, i64 %307
   store i8 %304, ptr %308, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2234,7 +2234,7 @@ switch.lookup859:                                 ; preds = %256
   %414 = load i32, ptr @hf_esp_encrypted_data, align 4
   %415 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %414, ptr noundef %0, i32 noundef %.1431, i32 noundef %403, i32 noundef 0)
   %416 = zext nneg i32 %.0607 to i64
-  %417 = getelementptr [16 x %struct._value_string], ptr @esp_encryption_type_vals, i64 0, i64 %416, i32 1
+  %417 = getelementptr %struct._value_string, ptr @esp_encryption_type_vals, i64 %416, i32 1
   %418 = load ptr, ptr %417, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %415, ptr noundef nonnull @.str.196, i32 noundef %403, ptr noundef %418)
   %419 = load ptr, ptr %130, align 8
@@ -2274,7 +2274,7 @@ switch.lookup859:                                 ; preds = %256
 
 434:                                              ; preds = %431
   %435 = zext i8 %203 to i64
-  %436 = getelementptr [14 x %struct._value_string], ptr @esp_authentication_type_vals, i64 0, i64 %435, i32 1
+  %436 = getelementptr %struct._value_string, ptr @esp_authentication_type_vals, i64 %435, i32 1
   %437 = load ptr, ptr %436, align 8
   br label %438
 
@@ -2872,7 +2872,7 @@ export_ipsec_pdu.exit.i:                          ; preds = %742, %739
 
 764:                                              ; preds = %738, %726, %708, %704
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %765 = getelementptr [5 x i32], ptr @esp_null_heur.icv_lengths, i64 0, i64 %indvars.iv.next.i
+  %765 = getelementptr i32, ptr @esp_null_heur.icv_lengths, i64 %indvars.iv.next.i
   %766 = load i32, ptr %765, align 4
   %.not.i507 = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %.not.i507, label %esp_null_heur.exit, label %704, !llvm.loop !43
@@ -3728,13 +3728,13 @@ define internal fastcc noundef zeroext i1 @filter_address_match(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %30 = getelementptr [33 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %30 = getelementptr i8, ptr %5, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %.not28 = icmp eq i8 %31, 42
   br i1 %.not28, label %35, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr [33 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %33 = getelementptr i8, ptr %4, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %.not29 = icmp eq i8 %31, %34
   br i1 %.not29, label %35, label %.loopexit
@@ -3818,7 +3818,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
 
 28:                                               ; preds = %25
   %29 = zext i32 %.086130194 to i64
-  %30 = getelementptr [4 x i8], ptr %3, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %3, i64 %29
   store i8 0, ptr %30, align 1
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %32 = icmp eq i64 %31, 1
@@ -3854,7 +3854,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   %47 = phi i64 [ %54, %.lr.ph125 ], [ 0, %42 ]
   %.3124 = phi i32 [ %52, %.lr.ph125 ], [ %.083131193, %42 ]
   %.292123 = phi i32 [ %53, %.lr.ph125 ], [ 0, %42 ]
-  %48 = getelementptr [4 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr i8, ptr %4, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = zext i32 %.3124 to i64
   %51 = getelementptr i8, ptr %0, i64 %50
@@ -3873,7 +3873,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
 
 60:                                               ; preds = %56
   %61 = zext i32 %.086130194 to i64
-  %62 = getelementptr [4 x i8], ptr %3, i64 0, i64 %61
+  %62 = getelementptr i8, ptr %3, i64 %61
   store i8 0, ptr %62, align 1
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %64 = icmp eq i64 %63, 1
@@ -3909,7 +3909,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   %79 = phi i64 [ %86, %.lr.ph ], [ 0, %74 ]
   %.7120 = phi i32 [ %84, %.lr.ph ], [ %.083131193, %74 ]
   %.494119 = phi i32 [ %85, %.lr.ph ], [ 0, %74 ]
-  %80 = getelementptr [4 x i8], ptr %4, i64 0, i64 %79
+  %80 = getelementptr i8, ptr %4, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = zext i32 %.7120 to i64
   %83 = getelementptr i8, ptr %0, i64 %82
@@ -3930,7 +3930,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
 
 91:                                               ; preds = %88
   %92 = zext nneg i32 %.086130194 to i64
-  %93 = getelementptr [4 x i8], ptr %3, i64 0, i64 %92
+  %93 = getelementptr i8, ptr %3, i64 %92
   store i8 %58, ptr %93, align 1
   %94 = add nuw nsw i32 %.086130194, 1
   br label %.loopexit111
@@ -4242,7 +4242,7 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   %.24958 = phi i32 [ %21, %.lr.ph ], [ %.14861, %.lr.ph.preheader ]
   %18 = sub i32 31, %.24958
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [33 x i8], ptr %3, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %3, i64 %19
   store i8 48, ptr %20, align 1
   %21 = add i32 %.24958, 1
   %exitcond.not = icmp eq i32 %21, %17
@@ -4273,7 +4273,7 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   %34 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %13) #25
   %35 = sub i32 31, %.14861
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [33 x i8], ptr %3, i64 0, i64 %36
+  %37 = getelementptr i8, ptr %3, i64 %36
   store i8 %34, ptr %37, align 1
   %38 = add i32 %.04562, 1
   %39 = add nsw i32 %.14861, 1
@@ -4303,7 +4303,7 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   %.464 = phi i32 [ %48, %.lr.ph66 ], [ %.148.lcssa, %.critedge ]
   %45 = sub i32 31, %.464
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [33 x i8], ptr %3, i64 0, i64 %46
+  %47 = getelementptr i8, ptr %3, i64 %46
   store i8 48, ptr %47, align 1
   %48 = add i32 %.464, 1
   %49 = add i32 %.14465, 1
@@ -4325,9 +4325,9 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   %53 = sub i32 %52, %.047
   %54 = add i32 %53, 32
   %55 = sext i32 %54 to i64
-  %56 = getelementptr [33 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr i8, ptr %3, i64 %55
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr [33 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %58 = getelementptr i8, ptr %3, i64 %indvars.iv
   store i8 %57, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4337,7 +4337,7 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   %.05085 = phi i32 [ %.151.lcssa, %.loopexit ], [ 0, %2 ], [ %.151.lcssa, %51 ]
   %.2.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %2 ], [ %.047, %51 ]
   %59 = zext nneg i32 %.2.lcssa to i64
-  %60 = getelementptr [33 x i8], ptr %3, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %3, i64 %59
   store i8 0, ptr %60, align 1
   %61 = add nuw i32 %.2.lcssa, 1
   %62 = sext i32 %61 to i64

@@ -258,7 +258,7 @@ tls_is_multiblock_capable.exit.i:                 ; preds = %43
   %.0.i = phi i32 [ %98, %.preheader.i ], [ 6, %90 ]
   %98 = add nsw i32 %.0.i, -1
   %99 = zext nneg i32 %.0.i to i64
-  %100 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %60, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !36
   %102 = add i8 %101, 1
   store i8 %102, ptr %100, align 1, !tbaa !36

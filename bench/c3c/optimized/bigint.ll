@@ -132,7 +132,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %.sroa.3.0.i = phi i64 [ %.sroa.8.1, %24 ], [ %56, %i128_ucomp.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %61 = getelementptr inbounds [16 x i8], ptr @i128_to_string.digits, i64 0, i64 %.sroa.3.0.i
+  %61 = getelementptr inbounds i8, ptr @i128_to_string.digits, i64 %.sroa.3.0.i
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   store i8 %62, ptr %.026, align 1
@@ -682,7 +682,7 @@ define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly captures(a
   %6 = shl i64 %.sroa.4.012, 4
   %7 = sext i8 %4 to i64
   %8 = and i64 %7, 4294967295
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i64
   %12 = add i64 %6, -1

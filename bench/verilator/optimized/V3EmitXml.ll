@@ -2993,7 +2993,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit27: ; preds = %_ZStl
 
 52:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit27
   %53 = zext i8 %51 to i64
-  %54 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !183
   %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #24
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %55, i64 noundef %56)
@@ -3365,7 +3365,7 @@ define linkonce_odr dso_local void @_ZN9V3OutFile10putcOutputEc(ptr noundef nonn
   unreachable
 
 _ZNSt5arrayIcLm131072EE2atEm.exit:                ; preds = %2
-  %10 = getelementptr inbounds nuw [131072 x i8], ptr %4, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   store i8 %1, ptr %10, align 1, !tbaa !14
   %11 = load i64, ptr %5, align 8, !tbaa !186
   %12 = icmp ugt i64 %11, 131071
@@ -11866,7 +11866,7 @@ define linkonce_odr dso_local void @_ZN18EmitXmlFileVisitor5visitEP16AstModportV
   %.sroa.0.0.copyload.i = load i8, ptr %8, align 8, !tbaa !374
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %9 = zext i8 %.sroa.0.0.copyload.i to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZNK10VDirection6xmlKwdB5cxx11EvE5names, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VDirection6xmlKwdB5cxx11EvE5names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !183, !noalias !376
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %4, align 8, !tbaa !18, !alias.scope !376
@@ -13366,7 +13366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %28 = zext i8 %26 to i64
-  %29 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZNK10VDirection6xmlKwdB5cxx11EvE5names, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VDirection6xmlKwdB5cxx11EvE5names, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !183, !noalias !394
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %31, ptr %6, align 8, !tbaa !18, !alias.scope !394
@@ -13985,7 +13985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i = load i8, ptr %17, align 8, !tbaa !410
   %18 = zext i8 %.sroa.0.0.copyload.i to i64
-  %19 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZNK9VEdgeType5asciiEvE5names, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @_ZZNK9VEdgeType5asciiEvE5names, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !183
   store ptr %20, ptr %6, align 8, !tbaa !183
   call void @_Z8cvtToStrIPKcENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -18022,7 +18022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %40, align 8, !tbaa !265
   %41 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %42 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !183
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %44, ptr %9, align 8, !tbaa !18
@@ -19130,7 +19130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %32, align 8, !tbaa !265
   %33 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %34 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !183
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %36, ptr %8, align 8, !tbaa !18
@@ -19695,7 +19695,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !265
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !183
   ret ptr %5
 }
@@ -20083,7 +20083,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef non
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !284
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !183
   ret ptr %5
 }
@@ -20719,7 +20719,7 @@ define linkonce_odr dso_local void @_ZNK10AstDisplay10verilogKwdB5cxx11Ev(ptr de
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload.i = load i8, ptr %11, align 8, !tbaa !481
   %16 = zext i8 %.sroa.0.0.copyload.i to i64
-  %17 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !183
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %19, ptr %6, align 8, !tbaa !18
@@ -20778,7 +20778,7 @@ define linkonce_odr dso_local void @_ZNK10AstDisplay10verilogKwdB5cxx11Ev(ptr de
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.0.0.copyload.i78 = load i8, ptr %11, align 8, !tbaa !481
   %37 = zext i8 %.sroa.0.0.copyload.i78 to i64
-  %38 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !183
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %40, ptr %8, align 8, !tbaa !18
@@ -21029,7 +21029,7 @@ define linkonce_odr dso_local void @_ZNK14AstElabDisplay10verilogKwdB5cxx11Ev(pt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i = load i8, ptr %9, align 8, !tbaa !481
   %10 = zext i8 %.sroa.0.0.copyload.i to i64
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZZNK12VDisplayType5asciiEvE5names, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !183
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %5, align 8, !tbaa !18

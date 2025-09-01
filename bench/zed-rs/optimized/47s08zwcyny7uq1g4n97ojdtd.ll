@@ -65,7 +65,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i: ; preds = %.lr.p
 
 .lr.ph.i.us.i.i.i:                                ; preds = %.preheader.i.us.i.i.i, %31
   %.sroa.01.05.i.us.i.i.i = phi i64 [ %32, %31 ], [ 0, %.preheader.i.us.i.i.i ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %.sroa.01.05.i.us.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.01.05.i.us.i.i.i
   %29 = load i8, ptr %28, align 1, !alias.scope !21, !noalias !20, !noundef !12
   %30 = icmp eq i8 %29, %.pre92.i.i.i
   br i1 %30, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i, label %31
@@ -102,7 +102,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i: ; preds
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %44
   %.sroa.01.05.i.i.i.i = phi i64 [ %45, %44 ], [ 0, %.preheader.i.i.i.i ]
-  %41 = getelementptr inbounds nuw [0 x i8], ptr %39, i64 0, i64 %.sroa.01.05.i.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.sroa.01.05.i.i.i.i
   %42 = load i8, ptr %41, align 1, !alias.scope !21, !noalias !20, !noundef !12
   %43 = icmp eq i8 %42, %.pre92.i.i.i
   br i1 %43, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %44
@@ -548,7 +548,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !61
-  %81 = getelementptr inbounds nuw [0 x { [5 x i64] }], ptr %13, i64 0, i64 %.sroa.7.019
+  %81 = getelementptr inbounds nuw { [5 x i64] }, ptr %13, i64 %.sroa.7.019
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %82 = icmp eq i64 %24, 0
   br i1 %82, label %.thread, label %23

@@ -4027,7 +4027,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
 24:                                               ; preds = %8
   %25 = add nuw i32 %23, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [59 x %struct._value_string], ptr @base_event_name_vals, i64 0, i64 %26
+  %27 = getelementptr %struct._value_string, ptr @base_event_name_vals, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not151170 = icmp eq ptr %29, null
@@ -4052,7 +4052,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
 36:                                               ; preds = %31
   %37 = add i32 %storemerge171, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [59 x %struct._value_string], ptr @base_event_name_vals, i64 0, i64 %38
+  %39 = getelementptr %struct._value_string, ptr @base_event_name_vals, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not151 = icmp eq ptr %41, null
@@ -4083,7 +4083,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
   %indvars.iv = phi i64 [ %26, %.lr.ph178.preheader ], [ %indvars.iv.next, %.lr.ph178 ]
   %.0177 = phi i32 [ 0, %.lr.ph178.preheader ], [ %62, %.lr.ph178 ]
-  %54 = getelementptr [59 x %struct._value_string], ptr @base_event_name_vals, i64 0, i64 %indvars.iv
+  %54 = getelementptr %struct._value_string, ptr @base_event_name_vals, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %.0177 to i64
@@ -4114,7 +4114,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %69 = load i32, ptr %3, align 4
   %70 = add i32 %69, 1
   %71 = sext i32 %70 to i64
-  %72 = getelementptr [46 x %struct._value_string], ptr @base_signal_name_vals, i64 0, i64 %71
+  %72 = getelementptr %struct._value_string, ptr @base_signal_name_vals, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not154180 = icmp eq ptr %74, null
@@ -4139,7 +4139,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
 81:                                               ; preds = %76
   %82 = add i32 %storemerge153181, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr [46 x %struct._value_string], ptr @base_signal_name_vals, i64 0, i64 %83
+  %84 = getelementptr %struct._value_string, ptr @base_signal_name_vals, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not154 = icmp eq ptr %86, null
@@ -4170,7 +4170,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %indvars.iv196 = phi i64 [ %71, %.lr.ph192.preheader ], [ %indvars.iv.next197, %.lr.ph192 ]
   %.1190 = phi i32 [ 0, %.lr.ph192.preheader ], [ %107, %.lr.ph192 ]
-  %99 = getelementptr [46 x %struct._value_string], ptr @base_signal_name_vals, i64 0, i64 %indvars.iv196
+  %99 = getelementptr %struct._value_string, ptr @base_signal_name_vals, i64 %indvars.iv196
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = sext i32 %.1190 to i64
@@ -4201,7 +4201,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   call void @wmem_tree_insert32(ptr noundef %113, i32 noundef %114, ptr noundef %111)
   %115 = add i32 %.0127194, 1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr [281 x %struct._value_string], ptr @base_package_name_vals, i64 0, i64 %116
+  %117 = getelementptr %struct._value_string, ptr @base_package_name_vals, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not149 = icmp eq ptr %119, null

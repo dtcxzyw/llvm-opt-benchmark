@@ -2805,13 +2805,13 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
   %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %615 ], [ 0, %599 ]
   %607 = phi i32 [ %616, %615 ], [ %.lcssa3154.us.i, %599 ]
   %608 = phi i32 [ %617, %615 ], [ %.lcssa334044.us.i, %599 ]
-  %609 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv92.i
+  %609 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv92.i
   %610 = load i32, ptr %609, align 4, !tbaa !18
   %611 = icmp eq i32 %604, %610
   br i1 %611, label %612, label %615
 
 612:                                              ; preds = %.lr.ph28.us.i
-  %613 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv92.i
+  %613 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv92.i
   %614 = load i32, ptr %613, align 4, !tbaa !18
   br label %615
 
@@ -2832,13 +2832,13 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
   %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %626 ], [ 0, %.loopexit23.us.i ]
   %618 = phi i32 [ %627, %626 ], [ %.lcssa3152.us.i, %.loopexit23.us.i ]
   %619 = phi i32 [ %628, %626 ], [ %.lcssa3342.us.i, %.loopexit23.us.i ]
-  %620 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv97.i
+  %620 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv97.i
   %621 = load i32, ptr %620, align 4, !tbaa !18
   %622 = icmp eq i32 %606, %621
   br i1 %622, label %623, label %626
 
 623:                                              ; preds = %.preheader20.us.i
-  %624 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv97.i
+  %624 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv97.i
   %625 = load i32, ptr %624, align 4, !tbaa !18
   br label %626
 
@@ -2876,9 +2876,9 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
 
 639:                                              ; preds = %631
   %640 = sext i32 %.026.i to i64
-  %641 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %640
+  %641 = getelementptr inbounds i32, ptr %12, i64 %640
   store i32 %630, ptr %641, align 4, !tbaa !18
-  %642 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %640
+  %642 = getelementptr inbounds i32, ptr %13, i64 %640
   store i32 %636, ptr %642, align 4, !tbaa !18
   %643 = add nsw i32 %.026.i, 1
   br label %644
@@ -2890,9 +2890,9 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
 
 645:                                              ; preds = %644
   %646 = sext i32 %.2.i to i64
-  %647 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %646
+  %647 = getelementptr inbounds i32, ptr %12, i64 %646
   store i32 %630, ptr %647, align 4, !tbaa !18
-  %648 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %646
+  %648 = getelementptr inbounds i32, ptr %13, i64 %646
   store i32 %638, ptr %648, align 4, !tbaa !18
   %649 = add nsw i32 %.2.i, 1
   br label %650
@@ -3467,7 +3467,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit.i: ; preds = %899, %897, %895
   %935 = load i64, ptr %10, align 8
   %936 = inttoptr i64 %935 to ptr
   %937 = getelementptr inbounds %"struct.std::array.252", ptr %936, i64 %934
-  %938 = getelementptr inbounds nuw [2 x i64], ptr %937, i64 0, i64 %929
+  %938 = getelementptr inbounds nuw i64, ptr %937, i64 %929
   %939 = load i64, ptr %938, align 8, !tbaa !217
   %940 = or i64 %939, %927
   store i64 %940, ptr %938, align 8, !tbaa !217
@@ -3477,7 +3477,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit.i: ; preds = %899, %897, %895
   %944 = load i64, ptr %10, align 8
   %945 = inttoptr i64 %944 to ptr
   %946 = getelementptr inbounds %"struct.std::array.252", ptr %945, i64 %943
-  %947 = getelementptr inbounds nuw [2 x i64], ptr %946, i64 0, i64 %929
+  %947 = getelementptr inbounds nuw i64, ptr %946, i64 %929
   %948 = load i64, ptr %947, align 8, !tbaa !217
   %949 = or i64 %948, %927
   store i64 %949, ptr %947, align 8, !tbaa !217
@@ -3574,7 +3574,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %967, %._crit_edge10
   %985 = load i64, ptr %10, align 8
   %986 = inttoptr i64 %985 to ptr
   %987 = getelementptr inbounds %"struct.std::array.252", ptr %986, i64 %984
-  %988 = getelementptr inbounds nuw [2 x i64], ptr %987, i64 0, i64 %978
+  %988 = getelementptr inbounds nuw i64, ptr %987, i64 %978
   %989 = load i64, ptr %988, align 8, !tbaa !217
   %990 = or i64 %989, %976
   store i64 %990, ptr %988, align 8, !tbaa !217
@@ -3584,7 +3584,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %967, %._crit_edge10
   %994 = load i64, ptr %10, align 8
   %995 = inttoptr i64 %994 to ptr
   %996 = getelementptr inbounds %"struct.std::array.252", ptr %995, i64 %993
-  %997 = getelementptr inbounds nuw [2 x i64], ptr %996, i64 0, i64 %978
+  %997 = getelementptr inbounds nuw i64, ptr %996, i64 %978
   %998 = load i64, ptr %997, align 8, !tbaa !217
   %999 = or i64 %998, %976
   store i64 %999, ptr %997, align 8, !tbaa !217
@@ -5945,7 +5945,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined(ptr
   %notmask.i = shl nsw i64 -1, %31
   %32 = xor i64 %notmask.i, -1
   %33 = sext i32 %27 to i64
-  %34 = getelementptr [2 x i64], ptr %9, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %33
   store i64 %32, ptr %34, align 8, !tbaa !217
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = sub nsw i32 8, %28
@@ -6376,7 +6376,7 @@ define internal void @_ZN3gmxL18lincs_thread_setupEPNS_5LincsEi.omp_outlined.20(
   %notmask.i = shl nsw i64 -1, %31
   %32 = xor i64 %notmask.i, -1
   %33 = sext i32 %27 to i64
-  %34 = getelementptr [2 x i64], ptr %9, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %33
   store i64 %32, ptr %34, align 8, !tbaa !217
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = sub nsw i32 8, %28
@@ -8670,7 +8670,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
 
 179:                                              ; preds = %179, %.noexc
   %indvars.iv.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i, %179 ]
-  %180 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %180 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
   %181 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %181, ptr %180, align 4, !tbaa !18, !noalias !419
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -8952,11 +8952,11 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %indvars.iv154.i.i = phi i64 [ 0, %182 ], [ %indvars.iv.next155.i.i, %430 ]
   %gep.i.i = getelementptr %"struct.(anonymous namespace)::AtomPair", ptr %invariant.gep.i.i, i64 %indvars.iv154.i.i
   %431 = load i32, ptr %gep.i.i, align 4, !tbaa !202, !noalias !419
-  %432 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv154.i.i
+  %432 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv154.i.i
   store i32 %431, ptr %432, align 4, !tbaa !18, !noalias !419
   %433 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 4
   %434 = load i32, ptr %433, align 4, !tbaa !204, !noalias !419
-  %435 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv154.i.i
+  %435 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv154.i.i
   store i32 %434, ptr %435, align 4, !tbaa !18, !noalias !419
   %indvars.iv.next155.i.i = add nuw nsw i64 %indvars.iv154.i.i, 1
   %exitcond157.not.i.i = icmp eq i64 %indvars.iv.next155.i.i, 8
@@ -9353,11 +9353,11 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   %indvars.iv.i209.i = phi i64 [ 0, %527 ], [ %indvars.iv.next.i211.i, %678 ]
   %gep.i210.i = getelementptr %"struct.(anonymous namespace)::AtomPair", ptr %invariant.gep.i208.i, i64 %indvars.iv.i209.i
   %679 = load i32, ptr %gep.i210.i, align 4, !tbaa !202, !noalias !446
-  %680 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv.i209.i
+  %680 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i209.i
   store i32 %679, ptr %680, align 4, !tbaa !18, !noalias !446
   %681 = getelementptr inbounds nuw i8, ptr %gep.i210.i, i64 4
   %682 = load i32, ptr %681, align 4, !tbaa !204, !noalias !446
-  %683 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv.i209.i
+  %683 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i209.i
   store i32 %682, ptr %683, align 4, !tbaa !18, !noalias !446
   %indvars.iv.next.i211.i = add nuw nsw i64 %indvars.iv.i209.i, 1
   %exitcond.not.i212.i = icmp eq i64 %indvars.iv.next.i211.i, 8
@@ -9523,7 +9523,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
 
 737:                                              ; preds = %743, %.lr.ph127.i
   %indvars.iv156.i = phi i64 [ 0, %.lr.ph127.i ], [ %indvars.iv.next157.i, %743 ]
-  %738 = getelementptr inbounds nuw [3 x float], ptr %735, i64 0, i64 %indvars.iv156.i
+  %738 = getelementptr inbounds nuw float, ptr %735, i64 %indvars.iv156.i
   %739 = load float, ptr %738, align 4, !tbaa !201
   %740 = getelementptr inbounds nuw [3 x float], ptr %62, i64 %indvars.iv156.i
   %741 = fneg float %739
@@ -9537,9 +9537,9 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
 
 744:                                              ; preds = %744, %737
   %indvars.iv152.i = phi i64 [ 0, %737 ], [ %indvars.iv.next153.i, %744 ]
-  %745 = getelementptr inbounds nuw [3 x float], ptr %735, i64 0, i64 %indvars.iv152.i
+  %745 = getelementptr inbounds nuw float, ptr %735, i64 %indvars.iv152.i
   %746 = load float, ptr %745, align 4, !tbaa !201
-  %747 = getelementptr inbounds nuw [3 x float], ptr %740, i64 0, i64 %indvars.iv152.i
+  %747 = getelementptr inbounds nuw float, ptr %740, i64 %indvars.iv152.i
   %748 = load float, ptr %747, align 4, !tbaa !201
   %749 = call float @llvm.fmuladd.f32(float %742, float %746, float %748)
   store float %749, ptr %747, align 4, !tbaa !201
@@ -9954,7 +9954,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
 
 141:                                              ; preds = %141, %.noexc
   %indvars.iv.i.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i.i, %141 ]
-  %142 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %indvars.iv.i.i
+  %142 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i
   %143 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %143, ptr %142, align 4, !tbaa !18, !noalias !478
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -10215,11 +10215,11 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %indvars.iv123.i.i = phi i64 [ 0, %144 ], [ %indvars.iv.next124.i.i, %372 ]
   %gep.i.i = getelementptr %"struct.(anonymous namespace)::AtomPair", ptr %invariant.gep.i.i, i64 %indvars.iv123.i.i
   %373 = load i32, ptr %gep.i.i, align 4, !tbaa !202, !noalias !478
-  %374 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv123.i.i
+  %374 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv123.i.i
   store i32 %373, ptr %374, align 4, !tbaa !18, !noalias !478
   %375 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 4
   %376 = load i32, ptr %375, align 4, !tbaa !204, !noalias !478
-  %377 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv123.i.i
+  %377 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv123.i.i
   store i32 %376, ptr %377, align 4, !tbaa !18, !noalias !478
   %indvars.iv.next124.i.i = add nuw nsw i64 %indvars.iv123.i.i, 1
   %exitcond126.not.i.i = icmp eq i64 %indvars.iv.next124.i.i, 8
@@ -10421,7 +10421,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 
 459:                                              ; preds = %464, %451
   %indvars.iv102.i = phi i64 [ 0, %451 ], [ %indvars.iv.next103.i, %464 ]
-  %460 = getelementptr inbounds nuw [3 x float], ptr %457, i64 0, i64 %indvars.iv102.i
+  %460 = getelementptr inbounds nuw float, ptr %457, i64 %indvars.iv102.i
   %461 = load float, ptr %460, align 4, !tbaa !201
   %462 = fmul float %456, %461
   %463 = getelementptr inbounds nuw [3 x float], ptr %45, i64 %indvars.iv102.i
@@ -10434,9 +10434,9 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 
 465:                                              ; preds = %465, %459
   %indvars.iv98.i = phi i64 [ 0, %459 ], [ %indvars.iv.next99.i, %465 ]
-  %466 = getelementptr inbounds nuw [3 x float], ptr %457, i64 0, i64 %indvars.iv98.i
+  %466 = getelementptr inbounds nuw float, ptr %457, i64 %indvars.iv98.i
   %467 = load float, ptr %466, align 4, !tbaa !201
-  %468 = getelementptr inbounds nuw [3 x float], ptr %463, i64 0, i64 %indvars.iv98.i
+  %468 = getelementptr inbounds nuw float, ptr %463, i64 %indvars.iv98.i
   %469 = load float, ptr %468, align 4, !tbaa !201
   %470 = call float @llvm.fmuladd.f32(float %462, float %467, float %469)
   store float %470, ptr %468, align 4, !tbaa !201

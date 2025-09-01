@@ -383,7 +383,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 
 136:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %136
   %indvars.iv = phi i64 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %indvars.iv.next, %136 ]
-  %137 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   store float 1.000000e+00, ptr %137, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2846,8 +2846,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit476: ; preds = %_Z
 
 1310:                                             ; preds = %.preheader, %1310
   %indvars.iv708 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next709, %1310 ]
-  %1311 = getelementptr inbounds nuw [3 x [3 x float]], ptr %17, i64 0, i64 %indvars.iv708
-  %1312 = getelementptr inbounds nuw [3 x [3 x float]], ptr %20, i64 0, i64 %indvars.iv708
+  %1311 = getelementptr inbounds nuw [3 x float], ptr %17, i64 %indvars.iv708
+  %1312 = getelementptr inbounds nuw [3 x float], ptr %20, i64 %indvars.iv708
   %1313 = load float, ptr %1311, align 4, !tbaa !31
   %1314 = getelementptr inbounds nuw i8, ptr %1311, i64 4
   %1315 = load float, ptr %1314, align 4, !tbaa !31
@@ -2867,8 +2867,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit476: ; preds = %_Z
   %1327 = call float @llvm.fmuladd.f32(float %1309, float %1319, float %1326)
   %1328 = getelementptr inbounds nuw i8, ptr %1312, i64 8
   store float %1327, ptr %1328, align 4, !tbaa !31
-  %1329 = getelementptr inbounds nuw [3 x [3 x float]], ptr %18, i64 0, i64 %indvars.iv708
-  %1330 = getelementptr inbounds nuw [3 x [3 x float]], ptr %21, i64 0, i64 %indvars.iv708
+  %1329 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv708
+  %1330 = getelementptr inbounds nuw [3 x float], ptr %21, i64 %indvars.iv708
   %1331 = load float, ptr %1329, align 4, !tbaa !31
   %1332 = getelementptr inbounds nuw i8, ptr %1329, i64 4
   %1333 = load float, ptr %1332, align 4, !tbaa !31

@@ -3481,7 +3481,7 @@ _ZN12_GLOBAL__N_128AArch64OutgoingValueAssignerC2EPFbjN4llvm3MVTES2_NS1_11CCValA
 71:                                               ; preds = %77, %67
   %.0813.i.i.i = phi i64 [ 0, %67 ], [ %78, %77 ]
   %.0912.i.i.i = phi i64 [ 3, %67 ], [ %.1.i.i.i, %77 ]
-  %72 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 %.0813.i.i.i
   %73 = load i8, ptr %72, align 1, !tbaa !636, !range !91, !noundef !92
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %77
@@ -6222,10 +6222,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64CallLowering26isTypeIsVal
 
 7:                                                ; preds = %3
   %8 = zext i16 %1 to i64
-  %9 = add nsw i64 %8, -1
-  %10 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %9
+  %9 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %9, i64 -8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.fca.0.insert.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i, i8 %.sroa.2.0.copyload.i.i, 1

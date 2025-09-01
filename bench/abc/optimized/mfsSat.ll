@@ -75,7 +75,7 @@ define range(i32 -1, 2) i32 @Abc_NtkMfsSolveSat_iter(ptr noundef captures(none) 
   %32 = getelementptr inbounds nuw i32, ptr %.val38, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !42
   %34 = shl nsw i32 %33, 1
-  %35 = getelementptr inbounds nuw [12 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !42
   %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds i32, ptr %.val39, i64 %36

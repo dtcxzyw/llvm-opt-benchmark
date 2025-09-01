@@ -35,15 +35,15 @@ define noundef nonnull ptr @_ZN6duckdb24utf8proc_unicode_versionEv() local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN6duckdb15utf8proc_errmsgEl(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, -6
-  br i1 %2, label %switch.lookup, label %3
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
-  %switch.tableidx = add i64 %0, 5
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN6duckdb15utf8proc_errmsgEl, i64 0, i64 %switch.tableidx
+  %3 = getelementptr ptr, ptr @switch.table._ZN6duckdb15utf8proc_errmsgEl, i64 %0
+  %switch.gep = getelementptr i8, ptr %3, i64 40
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %3
+  br label %4
 
-3:                                                ; preds = %1, %switch.lookup
+4:                                                ; preds = %1, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %1 ]
   ret ptr %.0
 }
@@ -295,13 +295,13 @@ define noundef nonnull ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef %0) 
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -320,13 +320,13 @@ define noundef zeroext i1 @_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi(i32
 4:                                                ; preds = %3
   %5 = lshr i32 %0, 8
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !8
   %9 = zext i16 %8 to i32
   %10 = and i32 %0, 255
   %11 = add nuw nsw i32 %10, %9
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !8
   %15 = zext i16 %14 to i64
   %16 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %15
@@ -340,13 +340,13 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit:         ; preds = %3, %4
 18:                                               ; preds = %_ZN6duckdb21utf8proc_get_propertyEi.exit
   %19 = lshr i32 %1, 8
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !8
   %23 = zext i16 %22 to i32
   %24 = and i32 %1, 255
   %25 = add nuw nsw i32 %24, %23
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !8
   %29 = zext i16 %28 to i64
   %30 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %29
@@ -587,13 +587,13 @@ define noundef zeroext i1 @_ZN6duckdb23utf8proc_grapheme_breakEii(i32 noundef %0
 3:                                                ; preds = %2
   %4 = lshr i32 %0, 8
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !8
   %8 = zext i16 %7 to i32
   %9 = and i32 %0, 255
   %10 = add nuw nsw i32 %9, %8
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !8
   %14 = zext i16 %13 to i64
   %15 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %14
@@ -607,13 +607,13 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit.i:       ; preds = %3, %2
 17:                                               ; preds = %_ZN6duckdb21utf8proc_get_propertyEi.exit.i
   %18 = lshr i32 %1, 8
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = zext i16 %21 to i32
   %23 = and i32 %1, 255
   %24 = add nuw nsw i32 %23, %22
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !8
   %28 = zext i16 %27 to i64
   %29 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %28
@@ -710,13 +710,13 @@ define noundef i32 @_ZN6duckdb16utf8proc_tolowerEi(i32 noundef %0) local_unnamed
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -731,7 +731,7 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit:         ; preds = %1, %2
 
 18:                                               ; preds = %_ZN6duckdb21utf8proc_get_propertyEi.exit
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw [12682 x i16], ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 63488
@@ -762,13 +762,13 @@ define noundef i32 @_ZN6duckdb16utf8proc_toupperEi(i32 noundef %0) local_unnamed
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -783,7 +783,7 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit:         ; preds = %1, %2
 
 18:                                               ; preds = %_ZN6duckdb21utf8proc_get_propertyEi.exit
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw [12682 x i16], ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 63488
@@ -814,13 +814,13 @@ define noundef i32 @_ZN6duckdb16utf8proc_totitleEi(i32 noundef %0) local_unnamed
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -835,7 +835,7 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit:         ; preds = %1, %2
 
 18:                                               ; preds = %_ZN6duckdb21utf8proc_get_propertyEi.exit
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw [12682 x i16], ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 63488
@@ -866,13 +866,13 @@ define noundef range(i32 0, 2) i32 @_ZN6duckdb16utf8proc_islowerEi(i32 noundef %
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -899,13 +899,13 @@ define noundef range(i32 0, 2) i32 @_ZN6duckdb16utf8proc_isupperEi(i32 noundef %
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -941,13 +941,13 @@ define noundef range(i32 0, 4) i32 @_ZN6duckdb18utf8proc_charwidthEi(i32 noundef
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -971,13 +971,13 @@ define noundef range(i32 -32768, 32768) i32 @_ZN6duckdb17utf8proc_categoryEi(i32
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -998,13 +998,13 @@ define noundef nonnull ptr @_ZN6duckdb24utf8proc_category_stringEi(i32 noundef %
 2:                                                ; preds = %1
   %3 = lshr i32 %0, 8
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !8
   %7 = zext i16 %6 to i32
   %8 = and i32 %0, 255
   %9 = add nuw nsw i32 %8, %7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %13
@@ -1015,7 +1015,7 @@ _ZN6duckdb17utf8proc_categoryEi.exit:             ; preds = %1, %2
   %16 = load i16, ptr %15, align 4, !tbaa !14
   %17 = sext i16 %16 to i64
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds nuw [30 x [3 x i8]], ptr @_ZZN6duckdb24utf8proc_category_stringEiE1s, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [3 x i8], ptr @_ZZN6duckdb24utf8proc_category_stringEiE1s, i64 %18
   ret ptr %19
 }
 
@@ -1037,7 +1037,7 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
   %8 = and i32 %0, 255
   %9 = lshr i32 %0, 8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %8, %13
@@ -1095,7 +1095,7 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
   %.tr243303 = phi i32 [ %0, %.lr.ph305 ], [ %.tr.be, %tailrecurse.backedge ]
   %.tr230244302 = phi i32 [ %3, %.lr.ph305 ], [ %.tr230.be, %tailrecurse.backedge ]
   %.pn306 = zext i32 %.pn306.in to i64
-  %.pn.in.in = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %.pn306
+  %.pn.in.in = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %.pn306
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !8
   %.pn = zext i16 %.pn.in to i64
   %35 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %.pn
@@ -1311,7 +1311,7 @@ define internal fastcc noundef range(i64 -2, -9223372036854775808) i64 @_ZN6duck
   %6 = zext i16 %0 to i32
   %7 = and i32 %6, 16383
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [12682 x i16], ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL18utf8proc_sequencesE, i64 %8
   %10 = lshr i32 %6, 14
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %16
@@ -1576,24 +1576,24 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
   %83 = load i32, ptr %82, align 4, !tbaa !3
   %84 = ashr i32 %80, 8
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %85
+  %86 = getelementptr inbounds i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !8
   %88 = zext i16 %87 to i32
   %89 = and i32 %80, 255
   %90 = add nuw nsw i32 %89, %88
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !8
   %94 = zext i16 %93 to i64
   %95 = ashr i32 %83, 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %96
+  %97 = getelementptr inbounds i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !8
   %99 = zext i16 %98 to i32
   %100 = and i32 %83, 255
   %101 = add nuw nsw i32 %100, %99
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !8
   %105 = zext i16 %104 to i64
   %106 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %94, i32 1
@@ -1892,23 +1892,23 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %.not161 = icmp eq i32 %101, 0
   br label %102
 
-102:                                              ; preds = %.lr.ph229, %207
-  %.0129228 = phi ptr [ null, %.lr.ph229 ], [ %.1130, %207 ]
-  %.0132227 = phi ptr [ null, %.lr.ph229 ], [ %.10, %207 ]
-  %.0137226 = phi i64 [ 0, %.lr.ph229 ], [ %.1138, %207 ]
-  %.0139225 = phi i64 [ 0, %.lr.ph229 ], [ %208, %207 ]
-  %.0140224 = phi i16 [ -1, %.lr.ph229 ], [ %.1141, %207 ]
+102:                                              ; preds = %.lr.ph229, %202
+  %.0129228 = phi ptr [ null, %.lr.ph229 ], [ %.1130, %202 ]
+  %.0132227 = phi ptr [ null, %.lr.ph229 ], [ %.10, %202 ]
+  %.0137226 = phi i64 [ 0, %.lr.ph229 ], [ %.1138, %202 ]
+  %.0139225 = phi i64 [ 0, %.lr.ph229 ], [ %203, %202 ]
+  %.0140224 = phi i16 [ -1, %.lr.ph229 ], [ %.1141, %202 ]
   %103 = getelementptr inbounds nuw i32, ptr %0, i64 %.0139225
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = ashr i32 %104, 8
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %106
+  %107 = getelementptr inbounds i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !8
   %109 = zext i16 %108 to i32
   %110 = and i32 %104, 255
   %111 = add nuw nsw i32 %110, %109
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !8
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %115
@@ -1934,7 +1934,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %125 = mul nuw nsw i32 %124, 28
   %126 = add nsw i32 %125, -2639516
   store i32 %126, ptr %.0129228, align 4, !tbaa !3
-  br label %207
+  br label %202
 
 .thread177:                                       ; preds = %118
   %127 = add i32 %119, -44032
@@ -1954,7 +1954,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %133 = add nsw i32 %104, -4519
   %134 = add nuw nsw i32 %133, %119
   store i32 %134, ptr %.0129228, align 4, !tbaa !3
-  br label %207
+  br label %202
 
 .thread180:                                       ; preds = %128, %.thread177
   %.not156 = icmp eq ptr %.0132227, null
@@ -1963,13 +1963,13 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
 135:                                              ; preds = %.thread180
   %136 = ashr i32 %119, 8
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %137
+  %138 = getelementptr inbounds i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !8
   %140 = zext i16 %139 to i32
   %141 = and i32 %119, 255
   %142 = add nuw nsw i32 %141, %140
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !8
   %146 = zext i16 %145 to i64
   %147 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %146
@@ -1979,110 +1979,106 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %.7 = phi ptr [ %.0132227, %.thread180 ], [ %147, %135 ]
   %149 = getelementptr inbounds nuw i8, ptr %.7, i64 18
   %150 = load i16, ptr %149, align 2, !tbaa !24
-  %151 = zext i16 %150 to i32
-  %152 = icmp sgt i16 %150, -1
-  br i1 %152, label %153, label %.thread190
+  %151 = icmp sgt i16 %150, -1
+  br i1 %151, label %152, label %.thread190
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds nuw i8, ptr %116, i64 18
-  %155 = load i16, ptr %154, align 2, !tbaa !24
-  %156 = zext i16 %155 to i32
-  %or.cond171 = icmp slt i16 %155, -1
-  br i1 %or.cond171, label %157, label %.thread190
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds nuw i8, ptr %116, i64 18
+  %154 = load i16, ptr %153, align 2, !tbaa !24
+  %155 = zext i16 %154 to i32
+  %or.cond171 = icmp slt i16 %154, -1
+  br i1 %or.cond171, label %156, label %.thread190
 
-157:                                              ; preds = %153
-  %158 = and i32 %156, 16383
-  %159 = zext nneg i16 %150 to i64
-  %160 = getelementptr inbounds nuw [5414 x i16], ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 0, i64 %159
-  %161 = load i16, ptr %160, align 2, !tbaa !8
-  %162 = zext i16 %161 to i32
-  %.not158 = icmp samesign ult i32 %158, %162
-  br i1 %.not158, label %.thread190, label %163
+156:                                              ; preds = %152
+  %157 = and i32 %155, 16383
+  %158 = zext nneg i16 %150 to i64
+  %159 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 %158
+  %160 = load i16, ptr %159, align 2, !tbaa !8
+  %161 = zext i16 %160 to i32
+  %.not158 = icmp samesign ult i32 %157, %161
+  br i1 %.not158, label %.thread190, label %162
 
-163:                                              ; preds = %157
-  %164 = add nuw nsw i32 %151, 1
-  %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw [5414 x i16], ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 0, i64 %165
-  %167 = load i16, ptr %166, align 2, !tbaa !8
-  %168 = zext i16 %167 to i32
-  %.not159 = icmp samesign ugt i32 %158, %168
-  br i1 %.not159, label %.thread190, label %169
+162:                                              ; preds = %156
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 2
+  %164 = load i16, ptr %163, align 2, !tbaa !8
+  %165 = zext i16 %164 to i32
+  %.not159 = icmp samesign ugt i32 %157, %165
+  br i1 %.not159, label %.thread190, label %166
 
-169:                                              ; preds = %163
-  %170 = add nuw nsw i32 %151, 2
-  %171 = add nuw nsw i32 %170, %158
-  %172 = sub nsw i32 %171, %162
-  %173 = and i32 %156, 16384
-  %.not160 = icmp eq i32 %173, 0
-  %174 = sext i32 %172 to i64
-  %175 = getelementptr inbounds [5414 x i16], ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 0, i64 %174
-  %176 = load i16, ptr %175, align 2, !tbaa !8
-  %177 = zext i16 %176 to i32
-  br i1 %.not160, label %186, label %178
+166:                                              ; preds = %162
+  %narrow = add nuw i16 %150, 2
+  %167 = zext i16 %narrow to i32
+  %168 = sub nsw i32 %167, %161
+  %169 = add nsw i32 %168, %157
+  %170 = and i32 %155, 16384
+  %.not160 = icmp eq i32 %170, 0
+  %171 = sext i32 %169 to i64
+  %172 = getelementptr inbounds i16, ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 %171
+  %173 = load i16, ptr %172, align 2, !tbaa !8
+  %174 = zext i16 %173 to i32
+  br i1 %.not160, label %181, label %175
 
-178:                                              ; preds = %169
-  %179 = shl nuw i32 %177, 16
-  %180 = add nsw i32 %172, 1
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [5414 x i16], ptr @_ZN6duckdbL21utf8proc_combinationsE, i64 0, i64 %181
-  %183 = load i16, ptr %182, align 2, !tbaa !8
-  %184 = zext i16 %183 to i32
-  %185 = or disjoint i32 %179, %184
-  br label %186
+175:                                              ; preds = %166
+  %176 = shl nuw i32 %174, 16
+  %177 = getelementptr i8, ptr %172, i64 2
+  %178 = load i16, ptr %177, align 2, !tbaa !8
+  %179 = zext i16 %178 to i32
+  %180 = or disjoint i32 %176, %179
+  br label %181
 
-186:                                              ; preds = %169, %178
-  %.0136 = phi i32 [ %185, %178 ], [ %177, %169 ]
-  %187 = icmp sgt i32 %.0136, 0
-  br i1 %187, label %188, label %.thread190
+181:                                              ; preds = %166, %175
+  %.0136 = phi i32 [ %180, %175 ], [ %174, %166 ]
+  %182 = icmp sgt i32 %.0136, 0
+  br i1 %182, label %183, label %.thread190
 
-188:                                              ; preds = %186
-  br i1 %.not161, label %204, label %189
+183:                                              ; preds = %181
+  br i1 %.not161, label %199, label %184
 
-189:                                              ; preds = %188
-  %190 = lshr i32 %.0136, 8
-  %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw [4352 x i16], ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 0, i64 %191
-  %193 = load i16, ptr %192, align 2, !tbaa !8
-  %194 = zext i16 %193 to i32
-  %195 = and i32 %.0136, 255
-  %196 = add nuw nsw i32 %195, %194
-  %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %197
-  %199 = load i16, ptr %198, align 2, !tbaa !8
-  %200 = zext i16 %199 to i64
-  %201 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %200, i32 10
-  %202 = load i16, ptr %201, align 4
-  %203 = and i16 %202, 2
-  %.not162 = icmp eq i16 %203, 0
-  br i1 %.not162, label %204, label %.thread190
+184:                                              ; preds = %183
+  %185 = lshr i32 %.0136, 8
+  %186 = zext nneg i32 %185 to i64
+  %187 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage1tableE, i64 %186
+  %188 = load i16, ptr %187, align 2, !tbaa !8
+  %189 = zext i16 %188 to i32
+  %190 = and i32 %.0136, 255
+  %191 = add nuw nsw i32 %190, %189
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw i16, ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 %192
+  %194 = load i16, ptr %193, align 2, !tbaa !8
+  %195 = zext i16 %194 to i64
+  %196 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %195, i32 10
+  %197 = load i16, ptr %196, align 4
+  %198 = and i16 %197, 2
+  %.not162 = icmp eq i16 %198, 0
+  br i1 %.not162, label %199, label %.thread190
 
-204:                                              ; preds = %188, %189
+199:                                              ; preds = %183, %184
   store i32 %.0136, ptr %.0129228, align 4, !tbaa !3
-  br label %207
+  br label %202
 
-.thread190:                                       ; preds = %102, %157, %163, %189, %186, %148, %153
-  %.1133 = phi ptr [ %.7, %153 ], [ %.7, %148 ], [ %.7, %186 ], [ %.7, %189 ], [ %.7, %163 ], [ %.7, %157 ], [ %.0132227, %102 ]
-  %205 = getelementptr inbounds i32, ptr %0, i64 %.0137226
-  store i32 %104, ptr %205, align 4, !tbaa !3
+.thread190:                                       ; preds = %102, %156, %162, %184, %181, %148, %152
+  %.1133 = phi ptr [ %.7, %152 ], [ %.7, %148 ], [ %.7, %181 ], [ %.7, %184 ], [ %.7, %162 ], [ %.7, %156 ], [ %.0132227, %102 ]
+  %200 = getelementptr inbounds i32, ptr %0, i64 %.0137226
+  store i32 %104, ptr %200, align 4, !tbaa !3
   %.not163 = icmp eq i16 %.pre, 0
   %spec.select172 = tail call i16 @llvm.smax.i16(i16 %.pre, i16 %.0140224)
   %.2142 = select i1 %.not163, i16 -1, i16 %spec.select172
   %.11 = select i1 %.not163, ptr null, ptr %.1133
-  %.2131 = select i1 %.not163, ptr %205, ptr %.0129228
-  %206 = add nsw i64 %.0137226, 1
-  br label %207
+  %.2131 = select i1 %.not163, ptr %200, ptr %.0129228
+  %201 = add nsw i64 %.0137226, 1
+  br label %202
 
-207:                                              ; preds = %122, %132, %204, %.thread190
-  %.1141 = phi i16 [ %.2142, %.thread190 ], [ %.0140224, %204 ], [ %.0140224, %132 ], [ %.0140224, %122 ]
-  %.1138 = phi i64 [ %206, %.thread190 ], [ %.0137226, %204 ], [ %.0137226, %132 ], [ %.0137226, %122 ]
-  %.10 = phi ptr [ %.11, %.thread190 ], [ null, %204 ], [ null, %132 ], [ null, %122 ]
-  %.1130 = phi ptr [ %.2131, %.thread190 ], [ %.0129228, %204 ], [ %.0129228, %132 ], [ %.0129228, %122 ]
-  %208 = add nuw nsw i64 %.0139225, 1
-  %exitcond.not = icmp eq i64 %208, %.0
+202:                                              ; preds = %122, %132, %199, %.thread190
+  %.1141 = phi i16 [ %.2142, %.thread190 ], [ %.0140224, %199 ], [ %.0140224, %132 ], [ %.0140224, %122 ]
+  %.1138 = phi i64 [ %201, %.thread190 ], [ %.0137226, %199 ], [ %.0137226, %132 ], [ %.0137226, %122 ]
+  %.10 = phi ptr [ %.11, %.thread190 ], [ null, %199 ], [ null, %132 ], [ null, %122 ]
+  %.1130 = phi ptr [ %.2131, %.thread190 ], [ %.0129228, %199 ], [ %.0129228, %132 ], [ %.0129228, %122 ]
+  %203 = add nuw nsw i64 %.0139225, 1
+  %exitcond.not = icmp eq i64 %203, %.0
   br i1 %exitcond.not, label %.loopexit, label %102, !llvm.loop !25
 
-.loopexit:                                        ; preds = %207, %.preheader196, %.preheader, %.loopexit197
-  %.1 = phi i64 [ %.0, %.loopexit197 ], [ 0, %.preheader ], [ 0, %.preheader196 ], [ %.1138, %207 ]
+.loopexit:                                        ; preds = %202, %.preheader196, %.preheader, %.loopexit197
+  %.1 = phi i64 [ %.0, %.loopexit197 ], [ 0, %.preheader ], [ 0, %.preheader196 ], [ %.1138, %202 ]
   ret i64 %.1
 }
 

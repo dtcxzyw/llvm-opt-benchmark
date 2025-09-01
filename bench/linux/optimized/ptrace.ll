@@ -415,7 +415,7 @@ define internal fastcc i64 @ptrace_get_debugreg(ptr noundef readonly captures(no
   %8 = and i32 %1, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2872
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %25, label %14
@@ -636,7 +636,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2872
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr [4 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %48
@@ -787,7 +787,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
   %103 = trunc nuw nsw i64 %101 to i32
   %104 = call i32 @decode_dr7(i64 noundef %99, i32 noundef %103, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %105 = icmp eq i32 %104, 0
-  %106 = getelementptr [4 x ptr], ptr %57, i64 0, i64 %101
+  %106 = getelementptr ptr, ptr %57, i64 %101
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %131
@@ -1163,7 +1163,7 @@ define internal void @ptrace_triggered(ptr noundef readnone captures(address) %0
 
 7:                                                ; preds = %12, %3
   %8 = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %9 = getelementptr [4 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %15, label %12
@@ -1433,7 +1433,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
   %126 = and i32 %120, %125
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 2872
   %128 = zext nneg i32 %126 to i64
-  %129 = getelementptr [4 x ptr], ptr %127, i64 0, i64 %128
+  %129 = getelementptr ptr, ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %143, label %132

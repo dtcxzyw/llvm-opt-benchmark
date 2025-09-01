@@ -1043,10 +1043,10 @@ define hidden void @_ZN8rawspeed10DngOpcodes3MapEj(ptr dead_on_unwind noalias wr
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN8rawspeed10DngOpcodes3MapEj, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8rawspeed10DngOpcodes3MapEj, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep42 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN8rawspeed10DngOpcodes3MapEj.4, i64 0, i64 %5
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8rawspeed10DngOpcodes3MapEj.4, i64 %5
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   store ptr %switch.load, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

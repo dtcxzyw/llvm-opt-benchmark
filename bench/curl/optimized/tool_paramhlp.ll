@@ -283,7 +283,7 @@ define dso_local range(i32 0, 22) i32 @file2memory_range(ptr noundef writeonly c
 
 24:                                               ; preds = %21
   %25 = sub i64 %16, %.148
-  %26 = getelementptr inbounds [4096 x i8], ptr %7, i64 0, i64 %.148
+  %26 = getelementptr inbounds i8, ptr %7, i64 %.148
   %27 = add nsw i64 %.148, %.150
   %.not71 = icmp eq i64 %25, 0
   br i1 %.not71, label %36, label %.thread79
@@ -1340,7 +1340,7 @@ define dso_local range(i32 0, 5) i32 @str2tls_max(ptr noundef writeonly captures
 
 .preheader:                                       ; preds = %2, %3
   %.010 = phi i64 [ %4, %3 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw [5 x %struct.s_tls_max], ptr @str2tls_max.tls_max_array, i64 0, i64 %.010
+  %5 = getelementptr inbounds nuw %struct.s_tls_max, ptr @str2tls_max.tls_max_array, i64 %.010
   %6 = load ptr, ptr %5, align 16, !tbaa !63
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #20
   %.not9 = icmp eq i32 %7, 0

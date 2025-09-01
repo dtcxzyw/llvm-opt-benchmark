@@ -13439,7 +13439,7 @@ define linkonce_odr void @_ZNK10QMultiHashIjP10tab_info_tE6valuesERKj(ptr dead_o
   %29 = lshr i64 %26, 7
   %30 = and i64 %26, 127
   %31 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %29
-  %32 = getelementptr [128 x i8], ptr %31, i64 0, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, -1
   br i1 %34, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE8findNodeERKj.exit.thread, label %.lr.ph.i.i
@@ -13463,7 +13463,7 @@ define linkonce_odr void @_ZNK10QMultiHashIjP10tab_info_tE6valuesERKj(ptr dead_o
   %46 = lshr i64 %spec.store.select.i.i.i, 7
   %47 = and i64 %spec.store.select.i.i.i, 127
   %48 = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %46
-  %49 = getelementptr [128 x i8], ptr %48, i64 0, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 %47
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, -1
   br i1 %51, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !76
@@ -13472,7 +13472,7 @@ _ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit.i: ; preds
   %.pre7.i = and i64 %.01827.i.i, 127
   %.pre.i = lshr i64 %.01827.i.i, 7
   %.phi.trans.insert = getelementptr %"struct.QHashPrivate::Span", ptr %28, i64 %.pre.i
-  %.phi.trans.insert23 = getelementptr [128 x i8], ptr %.phi.trans.insert, i64 0, i64 %.pre7.i
+  %.phi.trans.insert23 = getelementptr i8, ptr %.phi.trans.insert, i64 %.pre7.i
   %.pre = load i8, ptr %.phi.trans.insert23, align 1
   %.not.i.i = icmp eq i8 %.pre, -1
   br i1 %.not.i.i, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE8findNodeERKj.exit.thread, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE8findNodeERKj.exit
@@ -18143,7 +18143,7 @@ define linkonce_odr noundef i64 @_ZN10QMultiHashIjP10tab_info_tE6removeERKjRKS1_
   %27 = lshr i64 %24, 7
   %28 = and i64 %24, 127
   %29 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %27
-  %30 = getelementptr [128 x i8], ptr %29, i64 0, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 %28
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i
@@ -18167,7 +18167,7 @@ define linkonce_odr noundef i64 @_ZN10QMultiHashIjP10tab_info_tE6removeERKjRKS1_
   %44 = lshr i64 %spec.store.select.i.i, 7
   %45 = and i64 %spec.store.select.i.i, 127
   %46 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %44
-  %47 = getelementptr [128 x i8], ptr %46, i64 0, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 %45
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, -1
   br i1 %49, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !76
@@ -18196,7 +18196,7 @@ _ZN10QMultiHashIjP10tab_info_tE6detachEv.exit:    ; preds = %50, %53
   %58 = lshr i64 %.018.lcssa.i, 7
   %59 = getelementptr %"struct.QHashPrivate::Span", ptr %55, i64 %58
   %60 = and i64 %.018.lcssa.i, 127
-  %61 = getelementptr [128 x i8], ptr %59, i64 0, i64 %60
+  %61 = getelementptr i8, ptr %59, i64 %60
   %62 = load i8, ptr %61, align 1
   %.not.i26 = icmp eq i8 %62, -1
   br i1 %.not.i26, label %85, label %63
@@ -18239,7 +18239,7 @@ _ZN10QMultiHashIjP10tab_info_tE6detachEv.exit:    ; preds = %50, %53
   %.phi.trans.insert37 = getelementptr %"struct.QHashPrivate::Span", ptr %.pre36, i64 %58
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert37, i64 128
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
-  %.phi.trans.insert40 = getelementptr [128 x i8], ptr %.phi.trans.insert37, i64 0, i64 %60
+  %.phi.trans.insert40 = getelementptr i8, ptr %.phi.trans.insert37, i64 %60
   %.pre41 = load i8, ptr %.phi.trans.insert40, align 1
   %.phi.trans.insert42 = zext i8 %.pre41 to i64
   %.phi.trans.insert43 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %.pre39, i64 %.phi.trans.insert42, i32 0, i32 0, i64 8
@@ -26306,7 +26306,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP10tab_i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr %"struct.QHashPrivate::Span", ptr %7, i64 %4
-  %9 = getelementptr [128 x i8], ptr %8, i64 0, i64 %5
+  %9 = getelementptr i8, ptr %8, i64 %5
   %10 = load i8, ptr %9, align 1
   store i8 -1, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -26349,7 +26349,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %30 = and i64 %spec.store.select.i53, 127
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr %"struct.QHashPrivate::Span", ptr %31, i64 %29
-  %33 = getelementptr [128 x i8], ptr %32, i64 0, i64 %30
+  %33 = getelementptr i8, ptr %32, i64 %30
   %34 = load i8, ptr %33, align 1
   %.not54 = icmp eq i8 %34, -1
   br i1 %.not54, label %._crit_edge, label %.lr.ph57
@@ -26401,8 +26401,8 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
 
 67:                                               ; preds = %63
   %68 = getelementptr %"struct.QHashPrivate::Span", ptr %39, i64 %41
-  %69 = getelementptr [128 x i8], ptr %68, i64 0, i64 %40
-  %70 = getelementptr [128 x i8], ptr %68, i64 0, i64 %65
+  %69 = getelementptr i8, ptr %68, i64 %40
+  %70 = getelementptr i8, ptr %68, i64 %65
   store i8 %37, ptr %70, align 1
   store i8 -1, ptr %69, align 1
   br label %.loopexit
@@ -26429,7 +26429,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %81 = and i64 %spec.store.select.i, 127
   %82 = load ptr, ptr %6, align 8
   %83 = getelementptr %"struct.QHashPrivate::Span", ptr %82, i64 %80
-  %84 = getelementptr [128 x i8], ptr %83, i64 0, i64 %81
+  %84 = getelementptr i8, ptr %83, i64 %81
   %85 = load i8, ptr %84, align 1
   %.not = icmp eq i8 %85, -1
   br i1 %.not, label %._crit_edge, label %36
@@ -26443,7 +26443,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
 
 90:                                               ; preds = %._crit_edge
   %91 = getelementptr %"struct.QHashPrivate::Span", ptr %86, i64 %4
-  %92 = getelementptr [128 x i8], ptr %91, i64 0, i64 %5
+  %92 = getelementptr i8, ptr %91, i64 %5
   %93 = load i8, ptr %92, align 1
   %.not50 = icmp eq i8 %93, -1
   br i1 %.not50, label %94, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit
@@ -26465,7 +26465,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %104 = lshr i64 %100, 7
   %105 = getelementptr %"struct.QHashPrivate::Span", ptr %103, i64 %104
   %106 = and i64 %100, 127
-  %107 = getelementptr [128 x i8], ptr %105, i64 0, i64 %106
+  %107 = getelementptr i8, ptr %105, i64 %106
   %108 = load i8, ptr %107, align 1
   %.not.i.i45 = icmp eq i8 %108, -1
   br i1 %.not.i.i45, label %98, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit, !llvm.loop !131
@@ -26782,7 +26782,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 
 61:                                               ; preds = %54, %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit
   %.02335 = phi i64 [ 0, %54 ], [ %150, %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit ]
-  %62 = getelementptr [128 x i8], ptr %56, i64 0, i64 %.02335
+  %62 = getelementptr i8, ptr %56, i64 %.02335
   %63 = load i8, ptr %62, align 1
   %.not34 = icmp eq i8 %63, -1
   br i1 %.not34, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit, label %64
@@ -26813,7 +26813,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %85 = lshr i64 %83, 7
   %86 = and i64 %83, 127
   %87 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %85
-  %88 = getelementptr [128 x i8], ptr %87, i64 0, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 %86
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i
@@ -26837,7 +26837,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %102 = lshr i64 %spec.store.select.i.i, 7
   %103 = and i64 %spec.store.select.i.i, 127
   %104 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %102
-  %105 = getelementptr [128 x i8], ptr %104, i64 0, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 %103
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, -1
   br i1 %107, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !76
@@ -26917,7 +26917,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit: ; preds = 
   %142 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %139, i64 %141
   %143 = load i8, ptr %142, align 1
   store i8 %143, ptr %114, align 1
-  %144 = getelementptr [128 x i8], ptr %112, i64 0, i64 %113
+  %144 = getelementptr i8, ptr %112, i64 %113
   store i8 %140, ptr %144, align 1
   %145 = load i32, ptr %67, align 8
   store i32 %145, ptr %142, align 8
@@ -27018,7 +27018,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE10addStorageEv.exit: ; pre
 
 30:                                               ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE10addStorageEv.exit, %4
   %31 = phi i8 [ %.pre, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE10addStorageEv.exit ], [ %6, %4 ]
-  %32 = getelementptr [128 x i8], ptr %0, i64 0, i64 %3
+  %32 = getelementptr i8, ptr %0, i64 %3
   store i8 %31, ptr %32, align 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8
@@ -27027,7 +27027,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE10addStorageEv.exit: ; pre
   %37 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1
   store i8 %38, ptr %5, align 1
-  %39 = getelementptr [128 x i8], ptr %1, i64 0, i64 %2
+  %39 = getelementptr i8, ptr %1, i64 %2
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   store i8 -1, ptr %39, align 1
@@ -27159,7 +27159,7 @@ define linkonce_odr void @_ZN10QMultiHashIjP10tab_info_tE14emplace_helperIJS1_EE
   %17 = and i64 %14, 127
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr [128 x i8], ptr %16, i64 0, i64 %17
+  %20 = getelementptr i8, ptr %16, i64 %17
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   br i1 %9, label %30, label %23
@@ -27212,7 +27212,7 @@ define linkonce_odr void @_ZN10QMultiHashIjP10tab_info_tE14emplace_helperIJS1_EE
   %46 = and i64 %.sroa.2.0.copyload, 127
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr [128 x i8], ptr %45, i64 0, i64 %46
+  %49 = getelementptr i8, ptr %45, i64 %46
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %48, i64 %51, i32 0, i32 0, i64 8
@@ -27243,7 +27243,7 @@ define linkonce_odr void @_ZN10QMultiHashIjP10tab_info_tE14emplace_helperIJRKS1_
   %17 = and i64 %14, 127
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr [128 x i8], ptr %16, i64 0, i64 %17
+  %20 = getelementptr i8, ptr %16, i64 %17
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   br i1 %9, label %30, label %23
@@ -27296,7 +27296,7 @@ define linkonce_odr void @_ZN10QMultiHashIjP10tab_info_tE14emplace_helperIJRKS1_
   %46 = and i64 %.sroa.2.0.copyload, 127
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr [128 x i8], ptr %45, i64 0, i64 %46
+  %49 = getelementptr i8, ptr %45, i64 %46
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %48, i64 %51, i32 0, i32 0, i64 8
@@ -27336,7 +27336,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE
   %24 = lshr i64 %21, 7
   %25 = and i64 %21, 127
   %26 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %24
-  %27 = getelementptr [128 x i8], ptr %26, i64 0, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i
@@ -27365,7 +27365,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE
   %41 = lshr i64 %spec.store.select.i.i, 7
   %42 = and i64 %spec.store.select.i.i, 127
   %43 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %41
-  %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !76
@@ -27375,7 +27375,7 @@ _ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit: ; preds =
   %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit.loopexit_crit_edge ], [ %42, %38 ]
   %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %.pre-phi
+  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
   %49 = load i8, ptr %48, align 1
   %.not.i = icmp eq i8 %49, -1
   br i1 %.not.i, label %50, label %136
@@ -27421,7 +27421,7 @@ _ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit: ; preds =
   %75 = lshr i64 %72, 7
   %76 = and i64 %72, 127
   %77 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %75
-  %78 = getelementptr [128 x i8], ptr %77, i64 0, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 %76
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, -1
   br i1 %80, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit11, label %.lr.ph.i5
@@ -27445,7 +27445,7 @@ _ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit: ; preds =
   %92 = lshr i64 %spec.store.select.i.i7, 7
   %93 = and i64 %spec.store.select.i.i7, 127
   %94 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %92
-  %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit11, label %.lr.ph.i5, !llvm.loop !76
@@ -27524,7 +27524,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE10addStorageEv.exit.i: ; p
   %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %128, i64 %130
   %132 = load i8, ptr %131, align 1
   store i8 %132, ptr %102, align 1
-  %133 = getelementptr [128 x i8], ptr %100, i64 0, i64 %101
+  %133 = getelementptr i8, ptr %100, i64 %101
   store i8 %129, ptr %133, align 1
   %134 = load i64, ptr %51, align 8
   %135 = add i64 %134, 1
@@ -27692,7 +27692,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit: ; preds 
 
 68:                                               ; preds = %48, %150
   %.02334 = phi i64 [ 0, %48 ], [ %151, %150 ]
-  %69 = getelementptr [128 x i8], ptr %49, i64 0, i64 %.02334
+  %69 = getelementptr i8, ptr %49, i64 %.02334
   %70 = load i8, ptr %69, align 1
   %.not = icmp eq i8 %70, -1
   br i1 %.not, label %150, label %71
@@ -27720,7 +27720,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit: ; preds 
   %91 = lshr i64 %89, 7
   %92 = and i64 %89, 127
   %93 = getelementptr %"struct.QHashPrivate::Span", ptr %90, i64 %91
-  %94 = getelementptr [128 x i8], ptr %93, i64 0, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 %92
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, -1
   br i1 %96, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i
@@ -27749,7 +27749,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit: ; preds 
   %108 = lshr i64 %spec.store.select.i.i, 7
   %109 = and i64 %spec.store.select.i.i, 127
   %110 = getelementptr %"struct.QHashPrivate::Span", ptr %90, i64 %108
-  %111 = getelementptr [128 x i8], ptr %110, i64 0, i64 %109
+  %111 = getelementptr i8, ptr %110, i64 %109
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, -1
   br i1 %113, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !76
@@ -27822,7 +27822,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit: ; preds = 
   %143 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, tab_info_t *>>::Entry", ptr %140, i64 %142
   %144 = load i8, ptr %143, align 1
   store i8 %144, ptr %115, align 1
-  %145 = getelementptr [128 x i8], ptr %114, i64 0, i64 %.pre-phi39
+  %145 = getelementptr i8, ptr %114, i64 %.pre-phi39
   store i8 %141, ptr %145, align 1
   %146 = load i32, ptr %74, align 8
   store i32 %146, ptr %143, align 8

@@ -9324,7 +9324,7 @@ _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %while.end22, %
   %growth_.i = getelementptr inbounds nuw i8, ptr %appender, i64 32
   store i64 64, ptr %growth_.i, align 8
   %conv = zext i8 %streamType to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [2 x i64], ptr @_ZZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS0_22WebTransportStreamTypeEmE11streamTypes, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr @_ZZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS0_22WebTransportStreamTypeEmE11streamTypes, i64 %conv
   %6 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i4 = icmp ult i64 %6, 64
   br i1 %cmp.i4, label %if.then.i, label %if.else.i

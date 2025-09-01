@@ -1836,7 +1836,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 switch.lookup:                                    ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   %374 = zext nneg i32 %372 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 0, i64 %374
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 %374
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK3g2o11CommandArgs8type2strEi.exit
 
@@ -2578,7 +2578,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 switch.lookup655:                                 ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit169
   %606 = zext nneg i32 %604 to i64
-  %switch.gep656 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 0, i64 %606
+  %switch.gep656 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 %606
   %switch.load657 = load ptr, ptr %switch.gep656, align 8
   br label %_ZNK3g2o11CommandArgs8type2strEi.exit171
 
@@ -6064,7 +6064,7 @@ define noundef nonnull ptr @_ZNK3g2o11CommandArgs8type2strEi(ptr noundef nonnull
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK3g2o11CommandArgs8type2strEi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

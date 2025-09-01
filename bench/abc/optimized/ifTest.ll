@@ -1164,7 +1164,7 @@ Vec_IntSum.exit.thread:                           ; preds = %Vec_IntPush.exit106
   %104 = phi ptr [ %125, %123 ], [ %99, %.critedge2.us.preheader ]
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %123 ], [ 0, %.critedge2.us.preheader ]
   %.1134.us = phi i32 [ %.2.us, %123 ], [ %.0.us, %.critedge2.us.preheader ]
-  %105 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %5, i64 0, i64 %indvars.iv153
+  %105 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %5, i64 %indvars.iv153
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4, !tbaa !58
   %.not88.us = icmp eq i32 %107, 0
@@ -1338,7 +1338,7 @@ Vec_IntPush.exit117.us:                           ; preds = %Vec_IntPush.exit117
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %.lr.ph127
   %indvars.iv150 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next151, %.lr.ph127 ]
-  %185 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %5, i64 0, i64 %indvars.iv150
+  %185 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %5, i64 %indvars.iv150
   store ptr %0, ptr %185, align 16, !tbaa !57
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i32 -1, ptr %186, align 8, !tbaa !54
@@ -1379,7 +1379,7 @@ Vec_IntPush.exit117.us:                           ; preds = %Vec_IntPush.exit117
 
 .critedge6.us:                                    ; preds = %.critedge6.us.backedge, %.critedge6.us.preheader
   %indvars.iv163 = phi i64 [ 0, %.critedge6.us.preheader ], [ %indvars.iv163.be, %.critedge6.us.backedge ]
-  %194 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %5, i64 0, i64 %indvars.iv163, i32 2
+  %194 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %5, i64 %indvars.iv163, i32 2
   %195 = load i32, ptr %194, align 4, !tbaa !58
   %.not.us = icmp eq i32 %195, 0
   br i1 %.not.us, label %198, label %._crit_edge.us
@@ -1431,7 +1431,7 @@ Vec_IntPush.exit117.us:                           ; preds = %Vec_IntPush.exit117
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %.lr.ph146
   %indvars.iv168 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next169, %.lr.ph146 ]
-  %208 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %5, i64 0, i64 %indvars.iv168
+  %208 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %5, i64 %indvars.iv168
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 -1, ptr %209, align 8, !tbaa !54
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 12

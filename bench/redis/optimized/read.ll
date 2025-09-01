@@ -691,7 +691,7 @@ __redisReaderSetErrorProtocolByte.exit:           ; preds = %chrtos.exit.i, %88,
   %96 = call i64 @llvm.umin.i64(i64 %95, i64 127)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %97, ptr nonnull readonly align 16 %4, i64 %96, i1 false)
-  %98 = getelementptr inbounds nuw [128 x i8], ptr %97, i64 0, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %96
   store i8 0, ptr %98, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -979,7 +979,7 @@ __redisReaderSetError.exit137.i.i:                ; preds = %188, %185, %183, %1
 192:                                              ; preds = %179
   %193 = and i64 %121, 511
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %103, i64 %193, i1 false)
-  %194 = getelementptr inbounds nuw [326 x i8], ptr %5, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 %193
   store i8 0, ptr %194, align 1, !tbaa !31
   switch i32 %125, label %.thread184.i.i [
     i32 3, label %195
@@ -2357,7 +2357,7 @@ define internal fastcc void @__redisReaderSetError(ptr noundef captures(none) in
   %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 127)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull align 1 %2, i64 %18, i1 false)
-  %20 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 0, ptr %20, align 1, !tbaa !31
   ret void
 }

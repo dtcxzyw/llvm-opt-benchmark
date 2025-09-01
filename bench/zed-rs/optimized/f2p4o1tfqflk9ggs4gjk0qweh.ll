@@ -1224,7 +1224,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
 
 21:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit.i.i.i", %.lr.ph.i.i.i
   %.sroa.0.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %23, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit.i.i.i" ]
-  %22 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } } } }], ptr %17, i64 0, i64 %.sroa.0.07.i.i.i
+  %22 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %17, i64 %.sroa.0.07.i.i.i
   %23 = add nuw i64 %.sroa.0.07.i.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !195
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0c9d54c506a0d971E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
@@ -1261,7 +1261,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   br label %32
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } } } }], ptr %17, i64 0, i64 %.sroa.0.1.i.i.i
+  %37 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %17, i64 %.sroa.0.1.i.i.i
   %38 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #24
           to label %32 unwind label %39

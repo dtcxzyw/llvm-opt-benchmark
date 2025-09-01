@@ -97,7 +97,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
   %.not = icmp eq i32 %62, 0
@@ -141,7 +141,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   br label %85
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i18
@@ -191,7 +191,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %109 = add i32 %102, -1
   store i32 %109, ptr %66, align 8
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %110
   store i32 0, ptr %111, align 8
   %.idx109.i = mul nuw nsw i64 %110, 24
   %112 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx109.i
@@ -210,7 +210,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   br i1 %.not107.i, label %119, label %145
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %103
+  %120 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %103
   %121 = load i32, ptr %120, align 8
   switch i32 %121, label %143 [
     i32 2, label %122
@@ -363,7 +363,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #13
   %.not = icmp eq i32 %61, 0
@@ -407,7 +407,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   br label %84
 
 79:                                               ; preds = %64
-  %80 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %67
+  %80 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %67
   store i32 %66, ptr %65, align 8
   store i32 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i18
@@ -456,7 +456,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %108 = add i32 %101, -1
   store i32 %108, ptr %65, align 8
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %109
   store i32 0, ptr %110, align 8
   %.idx109.i = mul nuw nsw i64 %109, 24
   %111 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx109.i
@@ -475,7 +475,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   br i1 %.not107.i, label %118, label %.backedge
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %72, i64 0, i64 %102
+  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %102
   %120 = load i32, ptr %119, align 8
   switch i32 %120, label %138 [
     i32 2, label %121
@@ -599,7 +599,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw [0 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %48, ptr noundef %7) #13
   %50 = icmp eq i32 %49, 0
@@ -684,7 +684,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %45, ptr noundef %7) #13
   %47 = icmp eq i32 %46, 0
@@ -738,7 +738,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef re
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %mcshengHasAccept.exit, label %20
@@ -801,7 +801,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef r
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw [0 x i32], ptr %18, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %mcshengHasAccept.exit, label %20
@@ -917,7 +917,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
   %.not = icmp eq i32 %62, 0
@@ -961,7 +961,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   br label %85
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i18
@@ -996,7 +996,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %100 = add i32 %98, -1
   store i32 %100, ptr %66, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %101
   store i32 0, ptr %102, align 8
   %103 = load ptr, ptr %5, align 8
   %104 = ptrtoint ptr %103 to i64
@@ -1026,7 +1026,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %119 = add i32 %98, -1
   store i32 %119, ptr %66, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %120
   store i32 0, ptr %121, align 8
   %.idx109.i = mul nuw nsw i64 %120, 24
   %122 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx109.i
@@ -1045,7 +1045,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   br i1 %.not107.i, label %129, label %155
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %113
+  %130 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %113
   %131 = load i32, ptr %130, align 8
   switch i32 %131, label %153 [
     i32 2, label %132
@@ -1199,7 +1199,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
   %.not = icmp eq i32 %62, 0
@@ -1243,7 +1243,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   br label %85
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %68
+  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i18
@@ -1278,7 +1278,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %100 = add i32 %98, -1
   store i32 %100, ptr %66, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %101
   store i32 0, ptr %102, align 8
   %103 = load ptr, ptr %5, align 8
   %104 = ptrtoint ptr %103 to i64
@@ -1308,7 +1308,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %119 = add i32 %98, -1
   store i32 %119, ptr %66, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %120
   store i32 0, ptr %121, align 8
   %.idx109.i = mul nuw nsw i64 %120, 24
   %122 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx109.i
@@ -1327,7 +1327,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   br i1 %.not107.i, label %129, label %151
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %73, i64 0, i64 %113
+  %130 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %113
   %131 = load i32, ptr %130, align 8
   switch i32 %131, label %149 [
     i32 2, label %132
@@ -1476,7 +1476,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #13
   %.not = icmp eq i32 %62, 0
@@ -1546,7 +1546,7 @@ nfaExecMcSheng8_Q2i.exit.thread34:                ; preds = %112, %65
 
 92:                                               ; preds = %.lr.ph59
   %93 = zext i32 %.pre.pre to i64
-  %94 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %75, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %93
   %95 = load i32, ptr %94, align 8
   switch i32 %95, label %110 [
     i32 2, label %96
@@ -1647,7 +1647,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %92
 
 .lr.ph.i.i:                                       ; preds = %143, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %143 ]
-  %144 = getelementptr inbounds nuw [0 x i32], ptr %141, i64 0, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i.i
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %2
   br i1 %146, label %nfaExecMcSheng8_inAccept.exit, label %143
@@ -1749,7 +1749,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #13
   %.not = icmp eq i32 %61, 0
@@ -1817,7 +1817,7 @@ nfaExecMcSheng16_Q2i.exit.thread34:               ; preds = %107, %64
 
 91:                                               ; preds = %.lr.ph59
   %92 = zext i32 %.pre.pre to i64
-  %93 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %74, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %92
   %94 = load i32, ptr %93, align 8
   switch i32 %94, label %105 [
     i32 2, label %95
@@ -1910,7 +1910,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %91
 
 .lr.ph.i.i:                                       ; preds = %138, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %138 ]
-  %139 = getelementptr inbounds nuw [0 x i32], ptr %136, i64 0, i64 %indvars.iv.i.i
+  %139 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv.i.i
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, %2
   br i1 %141, label %nfaExecMcSheng16_inAccept.exit, label %138
@@ -1995,7 +1995,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %24, ptr noundef %5) #13
   %26 = icmp eq i32 %25, 0
@@ -2040,7 +2040,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %24, ptr noundef %5) #13
   %26 = icmp eq i32 %25, 0
@@ -2478,7 +2478,7 @@ doSheng.exit65:                                   ; preds = %107, %104, %156, %1
 252:                                              ; preds = %248
   %253 = load i8, ptr %.030.i68, align 1
   %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr %31, i64 %254
   %256 = load i8, ptr %255, align 1
   %257 = shl i32 %.029.i69, %243
   %258 = zext i8 %256 to i32
@@ -2554,7 +2554,7 @@ doNormal8.exit75:                                 ; preds = %252, %248, %doSheng
 
 297:                                              ; preds = %.lr.ph272, %296
   %indvars.iv = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next, %296 ]
-  %298 = getelementptr inbounds nuw [0 x i32], ptr %290, i64 0, i64 %indvars.iv
+  %298 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv
   %299 = load i32, ptr %298, align 4
   %300 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %299, ptr noundef %6) #13
   %301 = icmp eq i32 %300, 0
@@ -2959,7 +2959,7 @@ doSheng.exit:                                     ; preds = %408, %405, %457, %4
 566:                                              ; preds = %562
   %567 = load i8, ptr %.030.i, align 1
   %568 = zext i8 %567 to i64
-  %569 = getelementptr inbounds nuw [256 x i8], ptr %309, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw i8, ptr %309, i64 %568
   %570 = load i8, ptr %569, align 1
   %571 = shl i32 %.029.i, %557
   %572 = zext i8 %570 to i32
@@ -3035,7 +3035,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
 
 611:                                              ; preds = %.lr.ph289, %610
   %indvars.iv360 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next361, %610 ]
-  %612 = getelementptr inbounds nuw [0 x i32], ptr %604, i64 0, i64 %indvars.iv360
+  %612 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv360
   %613 = load i32, ptr %612, align 4
   %614 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %613, ptr noundef %6) #13
   %615 = icmp eq i32 %614, 0
@@ -3415,7 +3415,7 @@ doSheng.exit61:                                   ; preds = %99, %96, %148, %158
 244:                                              ; preds = %240
   %245 = load i8, ptr %.030.i64, align 1
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw i8, ptr %26, i64 %246
   %248 = load i8, ptr %247, align 1
   %249 = shl i32 %.029.i65, %235
   %250 = zext i8 %248 to i32
@@ -3829,7 +3829,7 @@ doSheng.exit:                                     ; preds = %367, %364, %416, %4
 523:                                              ; preds = %519
   %524 = load i8, ptr %.030.i, align 1
   %525 = zext i8 %524 to i64
-  %526 = getelementptr inbounds nuw [256 x i8], ptr %272, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw i8, ptr %272, i64 %525
   %527 = load i8, ptr %526, align 1
   %528 = shl i32 %.029.i, %514
   %529 = zext i8 %527 to i32
@@ -4225,7 +4225,7 @@ doSheng.exit60:                                   ; preds = %97, %94, %146, %156
   %.030.i6377 = phi ptr [ %251, %.lr.ph ], [ %.115, %228 ]
   %240 = load i8, ptr %.030.i6377, align 1
   %241 = zext i8 %240 to i64
-  %242 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr %24, i64 %241
   %243 = load i8, ptr %242, align 1
   %244 = shl i32 %.029.i6478, %232
   %245 = zext i8 %243 to i32
@@ -4631,7 +4631,7 @@ doSheng.exit:                                     ; preds = %361, %358, %410, %4
 517:                                              ; preds = %513
   %518 = load i8, ptr %.030.i, align 1
   %519 = zext i8 %518 to i64
-  %520 = getelementptr inbounds nuw [256 x i8], ptr %266, i64 0, i64 %519
+  %520 = getelementptr inbounds nuw i8, ptr %266, i64 %519
   %521 = load i8, ptr %520, align 1
   %522 = shl i32 %.029.i, %508
   %523 = zext i8 %521 to i32
@@ -5045,7 +5045,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
 250:                                              ; preds = %246
   %251 = load i8, ptr %.041.i14, align 1
   %252 = zext i8 %251 to i64
-  %253 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %30, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = icmp samesign ult i32 %.040.i15, %236
   br i1 %255, label %256, label %262
@@ -5197,7 +5197,7 @@ doNormal16.exit27:                                ; preds = %doSherman16.exit, %
 
 340:                                              ; preds = %.lr.ph226, %339
   %indvars.iv = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next, %339 ]
-  %341 = getelementptr inbounds nuw [0 x i32], ptr %333, i64 0, i64 %indvars.iv
+  %341 = getelementptr inbounds nuw i32, ptr %333, i64 %indvars.iv
   %342 = load i32, ptr %341, align 4
   %343 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %342, ptr noundef %6) #13
   %344 = icmp eq i32 %343, 0
@@ -5596,7 +5596,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
 611:                                              ; preds = %607
   %612 = load i8, ptr %.041.i, align 1
   %613 = zext i8 %612 to i64
-  %614 = getelementptr inbounds nuw [256 x i8], ptr %354, i64 0, i64 %613
+  %614 = getelementptr inbounds nuw i8, ptr %354, i64 %613
   %615 = load i8, ptr %614, align 1
   %616 = icmp samesign ult i32 %.040.i, %597
   br i1 %616, label %617, label %623
@@ -5755,7 +5755,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit35
 
 704:                                              ; preds = %.lr.ph243, %703
   %indvars.iv308 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next309, %703 ]
-  %705 = getelementptr inbounds nuw [0 x i32], ptr %697, i64 0, i64 %indvars.iv308
+  %705 = getelementptr inbounds nuw i32, ptr %697, i64 %indvars.iv308
   %706 = load i32, ptr %705, align 4
   %707 = tail call i32 %5(i64 noundef 0, i64 noundef %675, i32 noundef %706, ptr noundef %6) #13
   %708 = icmp eq i32 %707, 0
@@ -6137,7 +6137,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
 246:                                              ; preds = %242
   %247 = load i8, ptr %.041.i13, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw [256 x i8], ptr %28, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr %28, i64 %248
   %250 = load i8, ptr %249, align 1
   %251 = icmp samesign ult i32 %.040.i14, %232
   br i1 %251, label %252, label %258
@@ -6623,7 +6623,7 @@ doNormal16.exit26.thread:                         ; preds = %242, %.thread
 572:                                              ; preds = %568
   %573 = load i8, ptr %.041.i, align 1
   %574 = zext i8 %573 to i64
-  %575 = getelementptr inbounds nuw [256 x i8], ptr %318, i64 0, i64 %574
+  %575 = getelementptr inbounds nuw i8, ptr %318, i64 %574
   %576 = load i8, ptr %575, align 1
   %577 = icmp samesign ult i32 %.040.i, %558
   br i1 %577, label %578, label %584
@@ -7110,7 +7110,7 @@ doSheng.exit198.i:                                ; preds = %99, %96, %148, %158
   %.041.i1386 = phi ptr [ %294, %doSherman16.exit ], [ %.115, %230 ]
   %247 = load i8, ptr %.041.i1386, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr %26, i64 %248
   %250 = load i8, ptr %249, align 1
   %251 = icmp samesign ult i32 %.040.i1487, %234
   br i1 %251, label %252, label %258
@@ -7583,7 +7583,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %454, %4
 568:                                              ; preds = %564
   %569 = load i8, ptr %.041.i, align 1
   %570 = zext i8 %569 to i64
-  %571 = getelementptr inbounds nuw [256 x i8], ptr %310, i64 0, i64 %570
+  %571 = getelementptr inbounds nuw i8, ptr %310, i64 %570
   %572 = load i8, ptr %571, align 1
   %573 = icmp samesign ult i32 %.040.i, %554
   br i1 %573, label %574, label %580

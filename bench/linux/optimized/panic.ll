@@ -272,8 +272,8 @@ define dso_local void @panic(ptr noundef %0, ...) #3 align 16 {
 
 19:                                               ; preds = %.thread
   %20 = sext i32 %17 to i64
-  %21 = add nsw i64 %20, -1
-  %22 = getelementptr [1024 x i8], ptr @panic.buf, i64 0, i64 %21
+  %21 = getelementptr i8, ptr @panic.buf, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 10
   br i1 %24, label %25, label %26
@@ -609,7 +609,7 @@ define dso_local noundef nonnull ptr @print_tainted() local_unnamed_addr #2 alig
 4:                                                ; preds = %4, %3
   %5 = phi i64 [ 0, %3 ], [ %15, %4 ]
   %6 = phi ptr [ getelementptr inbounds nuw (i8, ptr @print_tainted.buf, i64 9), %3 ], [ %14, %4 ]
-  %7 = getelementptr [19 x %struct.taint_flag], ptr @taint_flags, i64 0, i64 %5
+  %7 = getelementptr %struct.taint_flag, ptr @taint_flags, i64 %5
   %8 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tainted_mask, i64 %5) #18, !srcloc !26
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)

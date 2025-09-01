@@ -305,7 +305,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
   %.45140 = phi ptr [ %.05136, %13 ], [ %41, %39 ]
   %.45134 = phi ptr [ %.05130, %13 ], [ %28, %39 ]
   %46 = sext i32 %.05113 to i64
-  %47 = getelementptr inbounds [3623 x i32], ptr @_ZN17duckdb_libpgqueryL6yypactE, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @_ZN17duckdb_libpgqueryL6yypactE, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !7
   %49 = icmp eq i32 %48, -3148
   br i1 %49, label %85, label %50
@@ -329,7 +329,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
 
 58:                                               ; preds = %56
   %59 = zext nneg i32 %.4 to i64
-  %60 = getelementptr inbounds nuw [762 x i16], ptr @_ZN17duckdb_libpgqueryL11yytranslateE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL11yytranslateE, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !3
   %62 = zext i16 %61 to i32
   br label %63
@@ -343,14 +343,14 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
 
 65:                                               ; preds = %63
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !3
   %69 = sext i16 %68 to i32
   %.not5226 = icmp eq i32 %.45125, %69
   br i1 %.not5226, label %70, label %85
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 0, i64 %66
+  %71 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 %66
   %72 = load i16, ptr %71, align 2, !tbaa !3
   %73 = sext i16 %72 to i32
   %74 = icmp slt i16 %72, 1
@@ -384,7 +384,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
 
 85:                                               ; preds = %63, %65, %.thread5351
   %.3 = phi i32 [ %.05109, %.thread5351 ], [ %.5, %63 ], [ %.5, %65 ]
-  %86 = getelementptr inbounds [3623 x i16], ptr @_ZN17duckdb_libpgqueryL8yydefactE, i64 0, i64 %46
+  %86 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL8yydefactE, i64 %46
   %87 = load i16, ptr %86, align 2, !tbaa !3
   %88 = zext i16 %87 to i32
   %89 = icmp eq i16 %87, 0
@@ -394,7 +394,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
   %.05116 = phi i32 [ %88, %85 ], [ %77, %76 ]
   %.7 = phi i32 [ %.3, %85 ], [ %.5, %76 ]
   %91 = zext nneg i32 %.05116 to i64
-  %92 = getelementptr inbounds nuw [2178 x i8], ptr @_ZN17duckdb_libpgqueryL4yyr2E, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN17duckdb_libpgqueryL4yyr2E, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !9
   %94 = zext i8 %93 to i64
   %95 = sub nsw i64 1, %94
@@ -15649,11 +15649,11 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
   store ptr %.sroa.0.0, ptr %8736, align 8, !tbaa !9
   %8737 = getelementptr inbounds nuw i8, ptr %8735, i64 4
   store i32 %.15175, ptr %8737, align 4, !tbaa !7
-  %8738 = getelementptr inbounds nuw [2178 x i16], ptr @_ZN17duckdb_libpgqueryL4yyr1E, i64 0, i64 %91
+  %8738 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL4yyr1E, i64 %91
   %8739 = load i16, ptr %8738, align 2, !tbaa !3
   %8740 = zext i16 %8739 to i64
   %8741 = add nsw i64 %8740, -529
-  %8742 = getelementptr inbounds [483 x i16], ptr @_ZN17duckdb_libpgqueryL7yypgotoE, i64 0, i64 %8741
+  %8742 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL7yypgotoE, i64 %8741
   %8743 = load i16, ptr %8742, align 2, !tbaa !3
   %8744 = sext i16 %8743 to i32
   %8745 = load i16, ptr %8734, align 2, !tbaa !3
@@ -15664,19 +15664,19 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
 
 8749:                                             ; preds = %._crit_edge5401
   %8750 = zext nneg i32 %8747 to i64
-  %8751 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 0, i64 %8750
+  %8751 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 %8750
   %8752 = load i16, ptr %8751, align 2, !tbaa !3
   %8753 = icmp eq i16 %8752, %8745
   br i1 %8753, label %8754, label %8758
 
 8754:                                             ; preds = %8749
-  %8755 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 0, i64 %8750
+  %8755 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 %8750
   %8756 = load i16, ptr %8755, align 2, !tbaa !3
   %8757 = sext i16 %8756 to i32
   br label %11
 
 8758:                                             ; preds = %8749, %._crit_edge5401
-  %8759 = getelementptr inbounds [483 x i16], ptr @_ZN17duckdb_libpgqueryL9yydefgotoE, i64 0, i64 %8741
+  %8759 = getelementptr inbounds i16, ptr @_ZN17duckdb_libpgqueryL9yydefgotoE, i64 %8741
   %8760 = load i16, ptr %8759, align 2, !tbaa !3
   %8761 = sext i16 %8760 to i32
   br label %11
@@ -15721,13 +15721,13 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
 
 8776:                                             ; preds = %8773
   %8777 = zext nneg i32 %8775 to i64
-  %8778 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 0, i64 %8777
+  %8778 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yycheckE, i64 %8777
   %8779 = load i16, ptr %8778, align 2, !tbaa !3
   %8780 = icmp eq i16 %8779, 1
   br i1 %8780, label %8781, label %8785
 
 8781:                                             ; preds = %8776
-  %8782 = getelementptr inbounds nuw [74527 x i16], ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 0, i64 %8777
+  %8782 = getelementptr inbounds nuw i16, ptr @_ZN17duckdb_libpgqueryL7yytableE, i64 %8777
   %8783 = load i16, ptr %8782, align 2, !tbaa !3
   %8784 = icmp sgt i16 %8783, 0
   br i1 %8784, label %8793, label %8785
@@ -15743,7 +15743,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
   %8791 = getelementptr inbounds i8, ptr %.65168, i64 -4
   %8792 = load i16, ptr %8790, align 2, !tbaa !3
   %.phi.trans.insert = sext i16 %8792 to i64
-  %.phi.trans.insert5426 = getelementptr inbounds [3623 x i32], ptr @_ZN17duckdb_libpgqueryL6yypactE, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert5426 = getelementptr inbounds i32, ptr @_ZN17duckdb_libpgqueryL6yypactE, i64 %.phi.trans.insert
   %.pre5427 = load i32, ptr %.phi.trans.insert5426, align 4, !tbaa !7
   br label %8773, !llvm.loop !585
 

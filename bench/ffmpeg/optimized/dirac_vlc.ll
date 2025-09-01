@@ -11,122 +11,188 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds i16, ptr %2, i64 %7
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  br label %9
+  %7 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %6
+  %8 = sext i32 %3 to i64
+  %9 = getelementptr inbounds i16, ptr %2, i64 %8
+  %.0105142 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sroa.0.0143 = load i16, ptr %7, align 16, !tbaa !7
+  %.sroa.7.0.in144 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %.sroa.7.0145 = load i16, ptr %.sroa.7.0.in144, align 2, !tbaa !7
+  %.sroa.9.0.in146 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sroa.9.0147 = load i16, ptr %.sroa.9.0.in146, align 4, !tbaa !7
+  %.sroa.11.0.in148 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %.sroa.11.0149 = load i16, ptr %.sroa.11.0.in148, align 2, !tbaa !7
+  %.sroa.13.0.in150 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.13.0151 = load i16, ptr %.sroa.13.0.in150, align 8, !tbaa !7
+  %.sroa.15.0.in152 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %.sroa.15.0153 = load i8, ptr %.sroa.15.0.in152, align 2, !tbaa !4
+  %.sroa.17.0.in154 = getelementptr inbounds nuw i8, ptr %7, i64 11
+  %.sroa.17.0155 = load i8, ptr %.sroa.17.0.in154, align 1, !tbaa !4
+  %.sroa.19.0.in156 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.19.0157 = load i8, ptr %.sroa.19.0.in156, align 4, !tbaa !4
+  %.sroa.23.0.in158 = getelementptr inbounds nuw i8, ptr %7, i64 13
+  %.sroa.23.0159 = load i8, ptr %.sroa.23.0.in158, align 1, !tbaa !4
+  %.sroa.25.0.in160 = getelementptr inbounds nuw i8, ptr %7, i64 14
+  %.sroa.25.0161 = load i16, ptr %.sroa.25.0.in160, align 2, !tbaa !7
+  %.not121162 = icmp sgt i32 %1, 1
+  br i1 %.not121162, label %.lr.ph, label %._crit_edge
 
-9:                                                ; preds = %29, %4
-  %.pn = phi ptr [ %0, %4 ], [ %.0105, %29 ]
-  %10 = phi i64 [ %6, %4 ], [ %34, %29 ]
-  %.0102 = phi ptr [ %2, %4 ], [ %28, %29 ]
-  %.099 = phi i16 [ 0, %4 ], [ %spec.select, %29 ]
-  %.098 = phi i32 [ 1, %4 ], [ %35, %29 ]
-  %.0105 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %.sroa.0.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10
-  %.sroa.0.0 = load i16, ptr %.sroa.0.0.in, align 16, !tbaa !7
-  %.sroa.7.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 1
-  %.sroa.7.0 = load i16, ptr %.sroa.7.0.in, align 2, !tbaa !7
-  %.sroa.9.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 2
-  %.sroa.9.0 = load i16, ptr %.sroa.9.0.in, align 4, !tbaa !7
-  %.sroa.11.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 3
-  %.sroa.11.0 = load i16, ptr %.sroa.11.0.in, align 2, !tbaa !7
-  %.sroa.13.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 4
-  %.sroa.13.0 = load i16, ptr %.sroa.13.0.in, align 8, !tbaa !7
-  %.sroa.15.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 5
-  %.sroa.15.0 = load i8, ptr %.sroa.15.0.in, align 2, !tbaa !4
-  %.sroa.17.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 6
-  %.sroa.17.0 = load i8, ptr %.sroa.17.0.in, align 1, !tbaa !4
-  %.sroa.19.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 7
-  %.sroa.19.0 = load i8, ptr %.sroa.19.0.in, align 4, !tbaa !4
-  %.sroa.23.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 8
-  %.sroa.23.0 = load i8, ptr %.sroa.23.0.in, align 1, !tbaa !4
-  %.sroa.25.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 9
-  %.sroa.25.0 = load i16, ptr %.sroa.25.0.in, align 2, !tbaa !7
-  %exitcond.not = icmp eq i32 %.098, %smax
-  %11 = zext nneg i8 %.sroa.15.0 to i32
-  %12 = zext i16 %.099 to i32
-  %13 = shl i32 %12, %11
-  %14 = trunc i32 %13 to i16
-  %15 = or i16 %.sroa.0.0, %14
-  %16 = add i16 %15, -1
-  %17 = sext i8 %.sroa.17.0 to i16
-  %18 = mul i16 %16, %17
-  store i16 %18, ptr %.0102, align 2, !tbaa !7
-  %19 = getelementptr inbounds nuw i8, ptr %.0102, i64 2
-  store i16 %.sroa.7.0, ptr %19, align 2, !tbaa !7
-  %20 = getelementptr inbounds nuw i8, ptr %.0102, i64 4
-  store i16 %.sroa.9.0, ptr %20, align 2, !tbaa !7
-  %21 = getelementptr inbounds nuw i8, ptr %.0102, i64 6
-  store i16 %.sroa.11.0, ptr %21, align 2, !tbaa !7
-  %22 = getelementptr inbounds nuw i8, ptr %.0102, i64 8
-  store i16 %.sroa.13.0, ptr %22, align 2, !tbaa !7
-  %23 = getelementptr inbounds nuw i8, ptr %.0102, i64 10
+.lr.ph:                                           ; preds = %4, %27
+  %.sroa.25.0176 = phi i16 [ %.sroa.25.0, %27 ], [ %.sroa.25.0161, %4 ]
+  %.sroa.23.0175 = phi i8 [ %.sroa.23.0, %27 ], [ %.sroa.23.0159, %4 ]
+  %.sroa.19.0174 = phi i8 [ %.sroa.19.0, %27 ], [ %.sroa.19.0157, %4 ]
+  %.sroa.17.0173 = phi i8 [ %.sroa.17.0, %27 ], [ %.sroa.17.0155, %4 ]
+  %.sroa.15.0172 = phi i8 [ %.sroa.15.0, %27 ], [ %.sroa.15.0153, %4 ]
+  %.sroa.13.0171 = phi i16 [ %.sroa.13.0, %27 ], [ %.sroa.13.0151, %4 ]
+  %.sroa.11.0170 = phi i16 [ %.sroa.11.0, %27 ], [ %.sroa.11.0149, %4 ]
+  %.sroa.9.0169 = phi i16 [ %.sroa.9.0, %27 ], [ %.sroa.9.0147, %4 ]
+  %.sroa.7.0168 = phi i16 [ %.sroa.7.0, %27 ], [ %.sroa.7.0145, %4 ]
+  %.sroa.0.0167 = phi i16 [ %.sroa.0.0, %27 ], [ %.sroa.0.0143, %4 ]
+  %.0105166 = phi ptr [ %.0105, %27 ], [ %.0105142, %4 ]
+  %.098165 = phi i32 [ %34, %27 ], [ 1, %4 ]
+  %.099164 = phi i16 [ %spec.select, %27 ], [ 0, %4 ]
+  %.0102163 = phi ptr [ %26, %27 ], [ %2, %4 ]
+  %10 = zext nneg i8 %.sroa.15.0172 to i32
+  %11 = zext i16 %.099164 to i32
+  %12 = shl i32 %11, %10
+  %13 = trunc i32 %12 to i16
+  %14 = or i16 %.sroa.0.0167, %13
+  %15 = add i16 %14, -1
+  %16 = sext i8 %.sroa.17.0173 to i16
+  %17 = mul i16 %15, %16
+  store i16 %17, ptr %.0102163, align 2, !tbaa !7
+  %18 = getelementptr inbounds nuw i8, ptr %.0102163, i64 2
+  store i16 %.sroa.7.0168, ptr %18, align 2, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.0102163, i64 4
+  store i16 %.sroa.9.0169, ptr %19, align 2, !tbaa !7
+  %20 = getelementptr inbounds nuw i8, ptr %.0102163, i64 6
+  store i16 %.sroa.11.0170, ptr %20, align 2, !tbaa !7
+  %21 = getelementptr inbounds nuw i8, ptr %.0102163, i64 8
+  store i16 %.sroa.13.0171, ptr %21, align 2, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %.0102163, i64 10
+  store i16 0, ptr %22, align 2, !tbaa !7
+  %23 = getelementptr inbounds nuw i8, ptr %.0102163, i64 12
   store i16 0, ptr %23, align 2, !tbaa !7
-  %24 = getelementptr inbounds nuw i8, ptr %.0102, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.0102163, i64 14
   store i16 0, ptr %24, align 2, !tbaa !7
-  %25 = getelementptr inbounds nuw i8, ptr %.0102, i64 14
-  store i16 0, ptr %25, align 2, !tbaa !7
-  br i1 %exitcond.not, label %36, label %26
+  %25 = sext i8 %.sroa.19.0174 to i64
+  %26 = getelementptr inbounds i16, ptr %.0102163, i64 %25
+  %.not119 = icmp ult ptr %26, %9
+  br i1 %.not119, label %27, label %.thread
 
-26:                                               ; preds = %9
-  %27 = sext i8 %.sroa.19.0 to i64
-  %28 = getelementptr inbounds i16, ptr %.0102, i64 %27
-  %.not111 = icmp ult ptr %28, %8
-  br i1 %.not111, label %29, label %.thread
+27:                                               ; preds = %.lr.ph
+  %.not = icmp eq i8 %.sroa.19.0174, 0
+  %28 = zext i8 %.sroa.23.0175 to i16
+  %spec.select = select i1 %.not, i16 %14, i16 %28
+  %29 = zext i16 %.sroa.25.0176 to i64
+  %30 = load i8, ptr %.0105166, align 1, !tbaa !4
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %29
+  %33 = getelementptr inbounds nuw %struct.LUTState, ptr %32, i64 %31
+  %34 = add nuw nsw i32 %.098165, 1
+  %.0105 = getelementptr inbounds nuw i8, ptr %.0105166, i64 1
+  %.sroa.0.0 = load i16, ptr %33, align 16, !tbaa !7
+  %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %33, i64 2
+  %.sroa.7.0 = load i16, ptr %.sroa.7.0.in, align 2, !tbaa !7
+  %.sroa.9.0.in = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %.sroa.9.0 = load i16, ptr %.sroa.9.0.in, align 4, !tbaa !7
+  %.sroa.11.0.in = getelementptr inbounds nuw i8, ptr %33, i64 6
+  %.sroa.11.0 = load i16, ptr %.sroa.11.0.in, align 2, !tbaa !7
+  %.sroa.13.0.in = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.13.0 = load i16, ptr %.sroa.13.0.in, align 8, !tbaa !7
+  %.sroa.15.0.in = getelementptr inbounds nuw i8, ptr %33, i64 10
+  %.sroa.15.0 = load i8, ptr %.sroa.15.0.in, align 2, !tbaa !4
+  %.sroa.17.0.in = getelementptr inbounds nuw i8, ptr %33, i64 11
+  %.sroa.17.0 = load i8, ptr %.sroa.17.0.in, align 1, !tbaa !4
+  %.sroa.19.0.in = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %.sroa.19.0 = load i8, ptr %.sroa.19.0.in, align 4, !tbaa !4
+  %.sroa.23.0.in = getelementptr inbounds nuw i8, ptr %33, i64 13
+  %.sroa.23.0 = load i8, ptr %.sroa.23.0.in, align 1, !tbaa !4
+  %.sroa.25.0.in = getelementptr inbounds nuw i8, ptr %33, i64 14
+  %.sroa.25.0 = load i16, ptr %.sroa.25.0.in, align 2, !tbaa !7
+  %exitcond.not = icmp eq i32 %34, %1
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
-29:                                               ; preds = %26
-  %.not = icmp eq i8 %.sroa.19.0, 0
-  %30 = zext i8 %.sroa.23.0 to i16
-  %spec.select = select i1 %.not, i16 %15, i16 %30
-  %31 = zext i16 %.sroa.25.0 to i64
-  %32 = load i8, ptr %.0105, align 1, !tbaa !4
-  %33 = zext i8 %32 to i64
-  %34 = add nuw nsw i64 %33, %31
-  %35 = add nuw i32 %.098, 1
-  br label %9, !llvm.loop !9
+._crit_edge.loopexit:                             ; preds = %27
+  %35 = zext i16 %spec.select to i32
+  br label %._crit_edge
 
-36:                                               ; preds = %9
-  %.not113 = icmp eq i8 %.sroa.19.0, 0
-  %37 = zext i8 %.sroa.23.0 to i16
-  %spec.select117 = select i1 %.not113, i16 %15, i16 %37
-  %38 = sext i8 %.sroa.19.0 to i64
-  %39 = getelementptr inbounds i16, ptr %.0102, i64 %38
-  %.not114 = icmp ult ptr %39, %8
-  br i1 %.not114, label %40, label %.thread
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.0102.lcssa = phi ptr [ %2, %4 ], [ %26, %._crit_edge.loopexit ]
+  %.099.lcssa = phi i32 [ 0, %4 ], [ %35, %._crit_edge.loopexit ]
+  %.0105.lcssa = phi ptr [ %.0105142, %4 ], [ %.0105, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi i16 [ %.sroa.0.0143, %4 ], [ %.sroa.0.0, %._crit_edge.loopexit ]
+  %.sroa.7.0.lcssa = phi i16 [ %.sroa.7.0145, %4 ], [ %.sroa.7.0, %._crit_edge.loopexit ]
+  %.sroa.9.0.lcssa = phi i16 [ %.sroa.9.0147, %4 ], [ %.sroa.9.0, %._crit_edge.loopexit ]
+  %.sroa.11.0.lcssa = phi i16 [ %.sroa.11.0149, %4 ], [ %.sroa.11.0, %._crit_edge.loopexit ]
+  %.sroa.13.0.lcssa = phi i16 [ %.sroa.13.0151, %4 ], [ %.sroa.13.0, %._crit_edge.loopexit ]
+  %.sroa.15.0.lcssa = phi i8 [ %.sroa.15.0153, %4 ], [ %.sroa.15.0, %._crit_edge.loopexit ]
+  %.sroa.17.0.lcssa = phi i8 [ %.sroa.17.0155, %4 ], [ %.sroa.17.0, %._crit_edge.loopexit ]
+  %.sroa.19.0.lcssa = phi i8 [ %.sroa.19.0157, %4 ], [ %.sroa.19.0, %._crit_edge.loopexit ]
+  %.sroa.23.0.lcssa = phi i8 [ %.sroa.23.0159, %4 ], [ %.sroa.23.0, %._crit_edge.loopexit ]
+  %.sroa.25.0.lcssa = phi i16 [ %.sroa.25.0161, %4 ], [ %.sroa.25.0, %._crit_edge.loopexit ]
+  %36 = zext nneg i8 %.sroa.15.0.lcssa to i32
+  %37 = shl i32 %.099.lcssa, %36
+  %38 = trunc i32 %37 to i16
+  %39 = or i16 %.sroa.0.0.lcssa, %38
+  %40 = add i16 %39, -1
+  %41 = sext i8 %.sroa.17.0.lcssa to i16
+  %42 = mul i16 %40, %41
+  store i16 %42, ptr %.0102.lcssa, align 2, !tbaa !7
+  %43 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 2
+  store i16 %.sroa.7.0.lcssa, ptr %43, align 2, !tbaa !7
+  %44 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 4
+  store i16 %.sroa.9.0.lcssa, ptr %44, align 2, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 6
+  store i16 %.sroa.11.0.lcssa, ptr %45, align 2, !tbaa !7
+  %46 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 8
+  store i16 %.sroa.13.0.lcssa, ptr %46, align 2, !tbaa !7
+  %47 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 10
+  store i16 0, ptr %47, align 2, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 12
+  store i16 0, ptr %48, align 2, !tbaa !7
+  %49 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 14
+  store i16 0, ptr %49, align 2, !tbaa !7
+  %.not122 = icmp eq i8 %.sroa.19.0.lcssa, 0
+  %50 = zext i8 %.sroa.23.0.lcssa to i16
+  %spec.select126 = select i1 %.not122, i16 %39, i16 %50
+  %51 = sext i8 %.sroa.19.0.lcssa to i64
+  %52 = getelementptr inbounds i16, ptr %.0102.lcssa, i64 %51
+  %.not123 = icmp ult ptr %52, %9
+  br i1 %.not123, label %53, label %.thread
 
-40:                                               ; preds = %36
-  %41 = zext i16 %.sroa.25.0 to i64
-  %42 = load i8, ptr %.0105, align 1, !tbaa !4
-  %43 = zext i8 %42 to i64
-  %44 = add nuw nsw i64 %43, %41
-  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %44, i32 9
+53:                                               ; preds = %._crit_edge
+  %54 = zext i16 %.sroa.25.0.lcssa to i64
+  %55 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
+  %56 = zext i8 %55 to i64
+  %57 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %54
+  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw %struct.LUTState, ptr %57, i64 %56, i32 9
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
-  %.not115 = icmp eq i16 %.sroa.25.0.copyload84, 0
-  br i1 %.not115, label %51, label %45
+  %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0
+  br i1 %.not124, label %64, label %58
 
-45:                                               ; preds = %40
-  %.not116 = icmp eq i16 %.sroa.25.0.copyload84, 768
-  %46 = shl i16 %spec.select117, 1
-  %47 = or disjoint i16 %46, 1
-  %48 = select i1 %.not116, i16 %spec.select117, i16 %47
-  %49 = sub i16 1, %48
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  store i16 %49, ptr %39, align 2, !tbaa !7
-  br label %51
+58:                                               ; preds = %53
+  %.not125 = icmp eq i16 %.sroa.25.0.copyload84, 768
+  %59 = shl i16 %spec.select126, 1
+  %60 = or disjoint i16 %59, 1
+  %61 = select i1 %.not125, i16 %spec.select126, i16 %60
+  %62 = sub i16 1, %61
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  store i16 %62, ptr %52, align 2, !tbaa !7
+  br label %64
 
-51:                                               ; preds = %45, %40
-  %.2104 = phi ptr [ %50, %45 ], [ %39, %40 ]
-  %52 = ptrtoint ptr %8 to i64
-  %53 = ptrtoint ptr %.2104 to i64
-  %54 = sub i64 %52, %53
-  %55 = lshr exact i64 %54, 1
-  %56 = trunc i64 %55 to i32
-  %57 = sub nsw i32 %3, %56
+64:                                               ; preds = %58, %53
+  %.2104 = phi ptr [ %63, %58 ], [ %52, %53 ]
+  %65 = ptrtoint ptr %9 to i64
+  %66 = ptrtoint ptr %.2104 to i64
+  %67 = sub i64 %65, %66
+  %68 = lshr exact i64 %67, 1
+  %69 = trunc i64 %68 to i32
+  %70 = sub nsw i32 %3, %69
   br label %.thread
 
-.thread:                                          ; preds = %26, %36, %51
-  %.1101 = phi i32 [ %57, %51 ], [ %3, %36 ], [ %3, %26 ]
+.thread:                                          ; preds = %.lr.ph, %._crit_edge, %64
+  %.1101 = phi i32 [ %70, %64 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 
@@ -134,133 +200,195 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
 define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  br label %9
+  %7 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %6
+  %8 = sext i32 %3 to i64
+  %9 = getelementptr inbounds i32, ptr %2, i64 %8
+  %.0105142 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sroa.0.0143 = load i16, ptr %7, align 16, !tbaa !7
+  %.sroa.7.0.in144 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %.sroa.7.0145 = load i16, ptr %.sroa.7.0.in144, align 2, !tbaa !7
+  %.sroa.9.0.in146 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sroa.9.0147 = load i16, ptr %.sroa.9.0.in146, align 4, !tbaa !7
+  %.sroa.11.0.in148 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %.sroa.11.0149 = load i16, ptr %.sroa.11.0.in148, align 2, !tbaa !7
+  %.sroa.13.0.in150 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.13.0151 = load i16, ptr %.sroa.13.0.in150, align 8, !tbaa !7
+  %.sroa.15.0.in152 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %.sroa.15.0153 = load i8, ptr %.sroa.15.0.in152, align 2, !tbaa !4
+  %.sroa.17.0.in154 = getelementptr inbounds nuw i8, ptr %7, i64 11
+  %.sroa.17.0155 = load i8, ptr %.sroa.17.0.in154, align 1, !tbaa !4
+  %.sroa.19.0.in156 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.19.0157 = load i8, ptr %.sroa.19.0.in156, align 4, !tbaa !4
+  %.sroa.23.0.in158 = getelementptr inbounds nuw i8, ptr %7, i64 13
+  %.sroa.23.0159 = load i8, ptr %.sroa.23.0.in158, align 1, !tbaa !4
+  %.sroa.25.0.in160 = getelementptr inbounds nuw i8, ptr %7, i64 14
+  %.sroa.25.0161 = load i16, ptr %.sroa.25.0.in160, align 2, !tbaa !7
+  %.not121162 = icmp sgt i32 %1, 1
+  br i1 %.not121162, label %.lr.ph, label %._crit_edge
 
-9:                                                ; preds = %32, %4
-  %.pn = phi ptr [ %0, %4 ], [ %.0105, %32 ]
-  %10 = phi i64 [ %6, %4 ], [ %37, %32 ]
-  %.0102 = phi ptr [ %2, %4 ], [ %31, %32 ]
-  %.099 = phi i32 [ 0, %4 ], [ %spec.select, %32 ]
-  %.098 = phi i32 [ 1, %4 ], [ %38, %32 ]
-  %.0105 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %.sroa.0.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10
-  %.sroa.0.0 = load i16, ptr %.sroa.0.0.in, align 16, !tbaa !7
-  %.sroa.7.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 1
-  %.sroa.7.0 = load i16, ptr %.sroa.7.0.in, align 2, !tbaa !7
-  %.sroa.9.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 2
-  %.sroa.9.0 = load i16, ptr %.sroa.9.0.in, align 4, !tbaa !7
-  %.sroa.11.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 3
-  %.sroa.11.0 = load i16, ptr %.sroa.11.0.in, align 2, !tbaa !7
-  %.sroa.13.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 4
-  %.sroa.13.0 = load i16, ptr %.sroa.13.0.in, align 8, !tbaa !7
-  %.sroa.15.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 5
-  %.sroa.15.0 = load i8, ptr %.sroa.15.0.in, align 2, !tbaa !4
-  %.sroa.17.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 6
-  %.sroa.17.0 = load i8, ptr %.sroa.17.0.in, align 1, !tbaa !4
-  %.sroa.19.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 7
-  %.sroa.19.0 = load i8, ptr %.sroa.19.0.in, align 4, !tbaa !4
-  %.sroa.23.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 8
-  %.sroa.23.0 = load i8, ptr %.sroa.23.0.in, align 1, !tbaa !4
-  %.sroa.25.0.in = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %10, i32 9
-  %.sroa.25.0 = load i16, ptr %.sroa.25.0.in, align 2, !tbaa !7
-  %exitcond.not = icmp eq i32 %.098, %smax
-  %11 = zext nneg i8 %.sroa.15.0 to i32
-  %12 = shl i32 %.099, %11
-  %13 = sext i16 %.sroa.0.0 to i32
-  %14 = or i32 %12, %13
-  %15 = add i32 %14, -1
-  %16 = sext i8 %.sroa.17.0 to i32
-  %17 = mul i32 %15, %16
-  store i32 %17, ptr %.0102, align 4, !tbaa !11
-  %18 = sext i16 %.sroa.7.0 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %.0102, i64 4
-  store i32 %18, ptr %19, align 4, !tbaa !11
-  %20 = sext i16 %.sroa.9.0 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %.0102, i64 8
-  store i32 %20, ptr %21, align 4, !tbaa !11
-  %22 = sext i16 %.sroa.11.0 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %.0102, i64 12
-  store i32 %22, ptr %23, align 4, !tbaa !11
-  %24 = sext i16 %.sroa.13.0 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %.0102, i64 16
-  store i32 %24, ptr %25, align 4, !tbaa !11
-  %26 = getelementptr inbounds nuw i8, ptr %.0102, i64 20
+.lr.ph:                                           ; preds = %4, %30
+  %.sroa.25.0176 = phi i16 [ %.sroa.25.0, %30 ], [ %.sroa.25.0161, %4 ]
+  %.sroa.23.0175 = phi i8 [ %.sroa.23.0, %30 ], [ %.sroa.23.0159, %4 ]
+  %.sroa.19.0174 = phi i8 [ %.sroa.19.0, %30 ], [ %.sroa.19.0157, %4 ]
+  %.sroa.17.0173 = phi i8 [ %.sroa.17.0, %30 ], [ %.sroa.17.0155, %4 ]
+  %.sroa.15.0172 = phi i8 [ %.sroa.15.0, %30 ], [ %.sroa.15.0153, %4 ]
+  %.sroa.13.0171 = phi i16 [ %.sroa.13.0, %30 ], [ %.sroa.13.0151, %4 ]
+  %.sroa.11.0170 = phi i16 [ %.sroa.11.0, %30 ], [ %.sroa.11.0149, %4 ]
+  %.sroa.9.0169 = phi i16 [ %.sroa.9.0, %30 ], [ %.sroa.9.0147, %4 ]
+  %.sroa.7.0168 = phi i16 [ %.sroa.7.0, %30 ], [ %.sroa.7.0145, %4 ]
+  %.sroa.0.0167 = phi i16 [ %.sroa.0.0, %30 ], [ %.sroa.0.0143, %4 ]
+  %.0105166 = phi ptr [ %.0105, %30 ], [ %.0105142, %4 ]
+  %.098165 = phi i32 [ %37, %30 ], [ 1, %4 ]
+  %.099164 = phi i32 [ %spec.select, %30 ], [ 0, %4 ]
+  %.0102163 = phi ptr [ %29, %30 ], [ %2, %4 ]
+  %10 = zext nneg i8 %.sroa.15.0172 to i32
+  %11 = shl i32 %.099164, %10
+  %12 = sext i16 %.sroa.0.0167 to i32
+  %13 = or i32 %11, %12
+  %14 = add i32 %13, -1
+  %15 = sext i8 %.sroa.17.0173 to i32
+  %16 = mul i32 %14, %15
+  store i32 %16, ptr %.0102163, align 4, !tbaa !11
+  %17 = sext i16 %.sroa.7.0168 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %.0102163, i64 4
+  store i32 %17, ptr %18, align 4, !tbaa !11
+  %19 = sext i16 %.sroa.9.0169 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %.0102163, i64 8
+  store i32 %19, ptr %20, align 4, !tbaa !11
+  %21 = sext i16 %.sroa.11.0170 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %.0102163, i64 12
+  store i32 %21, ptr %22, align 4, !tbaa !11
+  %23 = sext i16 %.sroa.13.0171 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %.0102163, i64 16
+  store i32 %23, ptr %24, align 4, !tbaa !11
+  %25 = getelementptr inbounds nuw i8, ptr %.0102163, i64 20
+  store i32 0, ptr %25, align 4, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %.0102163, i64 24
   store i32 0, ptr %26, align 4, !tbaa !11
-  %27 = getelementptr inbounds nuw i8, ptr %.0102, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0102163, i64 28
   store i32 0, ptr %27, align 4, !tbaa !11
-  %28 = getelementptr inbounds nuw i8, ptr %.0102, i64 28
-  store i32 0, ptr %28, align 4, !tbaa !11
-  br i1 %exitcond.not, label %39, label %29
+  %28 = sext i8 %.sroa.19.0174 to i64
+  %29 = getelementptr inbounds i32, ptr %.0102163, i64 %28
+  %.not119 = icmp ult ptr %29, %9
+  br i1 %.not119, label %30, label %.thread
 
-29:                                               ; preds = %9
-  %30 = sext i8 %.sroa.19.0 to i64
-  %31 = getelementptr inbounds i32, ptr %.0102, i64 %30
-  %.not111 = icmp ult ptr %31, %8
-  br i1 %.not111, label %32, label %.thread
+30:                                               ; preds = %.lr.ph
+  %.not = icmp eq i8 %.sroa.19.0174, 0
+  %31 = zext i8 %.sroa.23.0175 to i32
+  %spec.select = select i1 %.not, i32 %13, i32 %31
+  %32 = zext i16 %.sroa.25.0176 to i64
+  %33 = load i8, ptr %.0105166, align 1, !tbaa !4
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %32
+  %36 = getelementptr inbounds nuw %struct.LUTState, ptr %35, i64 %34
+  %37 = add nuw nsw i32 %.098165, 1
+  %.0105 = getelementptr inbounds nuw i8, ptr %.0105166, i64 1
+  %.sroa.0.0 = load i16, ptr %36, align 16, !tbaa !7
+  %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %36, i64 2
+  %.sroa.7.0 = load i16, ptr %.sroa.7.0.in, align 2, !tbaa !7
+  %.sroa.9.0.in = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %.sroa.9.0 = load i16, ptr %.sroa.9.0.in, align 4, !tbaa !7
+  %.sroa.11.0.in = getelementptr inbounds nuw i8, ptr %36, i64 6
+  %.sroa.11.0 = load i16, ptr %.sroa.11.0.in, align 2, !tbaa !7
+  %.sroa.13.0.in = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.13.0 = load i16, ptr %.sroa.13.0.in, align 8, !tbaa !7
+  %.sroa.15.0.in = getelementptr inbounds nuw i8, ptr %36, i64 10
+  %.sroa.15.0 = load i8, ptr %.sroa.15.0.in, align 2, !tbaa !4
+  %.sroa.17.0.in = getelementptr inbounds nuw i8, ptr %36, i64 11
+  %.sroa.17.0 = load i8, ptr %.sroa.17.0.in, align 1, !tbaa !4
+  %.sroa.19.0.in = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %.sroa.19.0 = load i8, ptr %.sroa.19.0.in, align 4, !tbaa !4
+  %.sroa.23.0.in = getelementptr inbounds nuw i8, ptr %36, i64 13
+  %.sroa.23.0 = load i8, ptr %.sroa.23.0.in, align 1, !tbaa !4
+  %.sroa.25.0.in = getelementptr inbounds nuw i8, ptr %36, i64 14
+  %.sroa.25.0 = load i16, ptr %.sroa.25.0.in, align 2, !tbaa !7
+  %exitcond.not = icmp eq i32 %37, %1
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-32:                                               ; preds = %29
-  %.not = icmp eq i8 %.sroa.19.0, 0
-  %33 = zext i8 %.sroa.23.0 to i32
-  %spec.select = select i1 %.not, i32 %14, i32 %33
-  %34 = zext i16 %.sroa.25.0 to i64
-  %35 = load i8, ptr %.0105, align 1, !tbaa !4
-  %36 = zext i8 %35 to i64
-  %37 = add nuw nsw i64 %36, %34
-  %38 = add nuw i32 %.098, 1
-  br label %9, !llvm.loop !13
+._crit_edge:                                      ; preds = %30, %4
+  %.0102.lcssa = phi ptr [ %2, %4 ], [ %29, %30 ]
+  %.099.lcssa = phi i32 [ 0, %4 ], [ %spec.select, %30 ]
+  %.0105.lcssa = phi ptr [ %.0105142, %4 ], [ %.0105, %30 ]
+  %.sroa.0.0.lcssa = phi i16 [ %.sroa.0.0143, %4 ], [ %.sroa.0.0, %30 ]
+  %.sroa.7.0.lcssa = phi i16 [ %.sroa.7.0145, %4 ], [ %.sroa.7.0, %30 ]
+  %.sroa.9.0.lcssa = phi i16 [ %.sroa.9.0147, %4 ], [ %.sroa.9.0, %30 ]
+  %.sroa.11.0.lcssa = phi i16 [ %.sroa.11.0149, %4 ], [ %.sroa.11.0, %30 ]
+  %.sroa.13.0.lcssa = phi i16 [ %.sroa.13.0151, %4 ], [ %.sroa.13.0, %30 ]
+  %.sroa.15.0.lcssa = phi i8 [ %.sroa.15.0153, %4 ], [ %.sroa.15.0, %30 ]
+  %.sroa.17.0.lcssa = phi i8 [ %.sroa.17.0155, %4 ], [ %.sroa.17.0, %30 ]
+  %.sroa.19.0.lcssa = phi i8 [ %.sroa.19.0157, %4 ], [ %.sroa.19.0, %30 ]
+  %.sroa.23.0.lcssa = phi i8 [ %.sroa.23.0159, %4 ], [ %.sroa.23.0, %30 ]
+  %.sroa.25.0.lcssa = phi i16 [ %.sroa.25.0161, %4 ], [ %.sroa.25.0, %30 ]
+  %38 = zext nneg i8 %.sroa.15.0.lcssa to i32
+  %39 = shl i32 %.099.lcssa, %38
+  %40 = sext i16 %.sroa.0.0.lcssa to i32
+  %41 = or i32 %39, %40
+  %42 = add i32 %41, -1
+  %43 = sext i8 %.sroa.17.0.lcssa to i32
+  %44 = mul i32 %42, %43
+  store i32 %44, ptr %.0102.lcssa, align 4, !tbaa !11
+  %45 = sext i16 %.sroa.7.0.lcssa to i32
+  %46 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 4
+  store i32 %45, ptr %46, align 4, !tbaa !11
+  %47 = sext i16 %.sroa.9.0.lcssa to i32
+  %48 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 8
+  store i32 %47, ptr %48, align 4, !tbaa !11
+  %49 = sext i16 %.sroa.11.0.lcssa to i32
+  %50 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 12
+  store i32 %49, ptr %50, align 4, !tbaa !11
+  %51 = sext i16 %.sroa.13.0.lcssa to i32
+  %52 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 16
+  store i32 %51, ptr %52, align 4, !tbaa !11
+  %53 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 20
+  store i32 0, ptr %53, align 4, !tbaa !11
+  %54 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 24
+  store i32 0, ptr %54, align 4, !tbaa !11
+  %55 = getelementptr inbounds nuw i8, ptr %.0102.lcssa, i64 28
+  store i32 0, ptr %55, align 4, !tbaa !11
+  %.not122 = icmp eq i8 %.sroa.19.0.lcssa, 0
+  %56 = zext i8 %.sroa.23.0.lcssa to i32
+  %spec.select126 = select i1 %.not122, i32 %41, i32 %56
+  %57 = sext i8 %.sroa.19.0.lcssa to i64
+  %58 = getelementptr inbounds i32, ptr %.0102.lcssa, i64 %57
+  %.not123 = icmp ult ptr %58, %9
+  br i1 %.not123, label %59, label %.thread
 
-39:                                               ; preds = %9
-  %.not113 = icmp eq i8 %.sroa.19.0, 0
-  %40 = zext i8 %.sroa.23.0 to i32
-  %spec.select117 = select i1 %.not113, i32 %14, i32 %40
-  %41 = sext i8 %.sroa.19.0 to i64
-  %42 = getelementptr inbounds i32, ptr %.0102, i64 %41
-  %.not114 = icmp ult ptr %42, %8
-  br i1 %.not114, label %43, label %.thread
-
-43:                                               ; preds = %39
-  %44 = zext i16 %.sroa.25.0 to i64
-  %45 = load i8, ptr %.0105, align 1, !tbaa !4
-  %46 = zext i8 %45 to i64
-  %47 = add nuw nsw i64 %46, %44
-  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw [1024 x %struct.LUTState], ptr @dirac_golomb_lut, i64 0, i64 %47, i32 9
+59:                                               ; preds = %._crit_edge
+  %60 = zext i16 %.sroa.25.0.lcssa to i64
+  %61 = load i8, ptr %.0105.lcssa, align 1, !tbaa !4
+  %62 = zext i8 %61 to i64
+  %63 = getelementptr inbounds nuw %struct.LUTState, ptr @dirac_golomb_lut, i64 %60
+  %.sroa.25.0..sroa_idx83 = getelementptr inbounds nuw %struct.LUTState, ptr %63, i64 %62, i32 9
   %.sroa.25.0.copyload84 = load i16, ptr %.sroa.25.0..sroa_idx83, align 2, !tbaa !7
-  %.not115 = icmp eq i16 %.sroa.25.0.copyload84, 0
-  br i1 %.not115, label %54, label %48
+  %.not124 = icmp eq i16 %.sroa.25.0.copyload84, 0
+  br i1 %.not124, label %70, label %64
 
-48:                                               ; preds = %43
-  %.not116 = icmp eq i16 %.sroa.25.0.copyload84, 768
-  %49 = shl i32 %spec.select117, 1
-  %50 = or disjoint i32 %49, 1
-  %51 = select i1 %.not116, i32 %spec.select117, i32 %50
-  %52 = sub i32 1, %51
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 %52, ptr %42, align 4, !tbaa !11
-  br label %54
+64:                                               ; preds = %59
+  %.not125 = icmp eq i16 %.sroa.25.0.copyload84, 768
+  %65 = shl i32 %spec.select126, 1
+  %66 = or disjoint i32 %65, 1
+  %67 = select i1 %.not125, i32 %spec.select126, i32 %66
+  %68 = sub i32 1, %67
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 %68, ptr %58, align 4, !tbaa !11
+  br label %70
 
-54:                                               ; preds = %48, %43
-  %.2104 = phi ptr [ %53, %48 ], [ %42, %43 ]
-  %55 = ptrtoint ptr %8 to i64
-  %56 = ptrtoint ptr %.2104 to i64
-  %57 = sub i64 %55, %56
-  %58 = lshr exact i64 %57, 2
-  %59 = trunc i64 %58 to i32
-  %60 = sub nsw i32 %3, %59
+70:                                               ; preds = %64, %59
+  %.2104 = phi ptr [ %69, %64 ], [ %58, %59 ]
+  %71 = ptrtoint ptr %9 to i64
+  %72 = ptrtoint ptr %.2104 to i64
+  %73 = sub i64 %71, %72
+  %74 = lshr exact i64 %73, 2
+  %75 = trunc i64 %74 to i32
+  %76 = sub nsw i32 %3, %75
   br label %.thread
 
-.thread:                                          ; preds = %29, %39, %54
-  %.1101 = phi i32 [ %60, %54 ], [ %3, %39 ], [ %3, %29 ]
+.thread:                                          ; preds = %.lr.ph, %._crit_edge, %70
+  %.1101 = phi i32 [ %76, %70 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #1
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -264,7 +264,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsaddu_vxP
   %113 = call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 61)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %115 = and i64 %111, 31
-  %116 = getelementptr inbounds nuw [32 x i64], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %122
 
@@ -669,7 +669,7 @@ define noundef i64 @_Z20fast_rv64i_vsaddu_vxP11processor_t6insn_tm(ptr noundef %
   %113 = call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 61)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %115 = and i64 %111, 31
-  %116 = getelementptr inbounds nuw [32 x i64], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %120
 
@@ -956,7 +956,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsaddu_v
   %113 = call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 61)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %115 = and i64 %111, 31
-  %116 = getelementptr inbounds nuw [32 x i64], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %122
 
@@ -1245,7 +1245,7 @@ define noundef i64 @_Z22logged_rv64i_vsaddu_vxP11processor_t6insn_tm(ptr noundef
   %113 = call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 61)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %115 = and i64 %111, 31
-  %116 = getelementptr inbounds nuw [32 x i64], ptr %114, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %120
 
@@ -1533,7 +1533,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsaddu_vxP
   %114 = and i64 %111, 31
   %115 = icmp samesign ugt i64 %114, 15
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %117 = getelementptr inbounds nuw [32 x i64], ptr %116, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %123
 
@@ -1883,7 +1883,7 @@ define noundef i64 @_Z20fast_rv64e_vsaddu_vxP11processor_t6insn_tm(ptr noundef %
   %114 = and i64 %111, 31
   %115 = icmp samesign ugt i64 %114, 15
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %117 = getelementptr inbounds nuw [32 x i64], ptr %116, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %121
 
@@ -2231,7 +2231,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsaddu_v
   %114 = and i64 %111, 31
   %115 = icmp samesign ugt i64 %114, 15
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %117 = getelementptr inbounds nuw [32 x i64], ptr %116, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %123
 
@@ -2581,7 +2581,7 @@ define noundef i64 @_Z22logged_rv64e_vsaddu_vxP11processor_t6insn_tm(ptr noundef
   %114 = and i64 %111, 31
   %115 = icmp samesign ugt i64 %114, 15
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %117 = getelementptr inbounds nuw [32 x i64], ptr %116, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   br label %121
 

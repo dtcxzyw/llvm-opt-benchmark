@@ -87,12 +87,12 @@ define noundef i32 @ff_lpc_calc_ref_coefs(ptr noundef readonly captures(none) %0
 40:                                               ; preds = %.lr.ph50.us.i, %40
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph50.us.i ], [ %indvars.iv.next66.i, %40 ]
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %41 = getelementptr inbounds nuw [32 x double], ptr %6, i64 0, i64 %indvars.iv.next66.i
+  %41 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next66.i
   %42 = load double, ptr %41, align 8, !tbaa !14
-  %43 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv65.i
+  %43 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv65.i
   %44 = load double, ptr %43, align 8, !tbaa !14
   %45 = call nsz double @llvm.fmuladd.f64(double %50, double %44, double %42)
-  %46 = getelementptr inbounds nuw [32 x double], ptr %6, i64 0, i64 %indvars.iv65.i
+  %46 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv65.i
   store double %45, ptr %46, align 8, !tbaa !14
   %47 = call nsz double @llvm.fmuladd.f64(double %42, double %50, double %44)
   store double %47, ptr %43, align 8, !tbaa !14
@@ -242,12 +242,12 @@ define double @ff_lpc_calc_ref_coefs_f(ptr noundef readonly captures(none) %0, p
 64:                                               ; preds = %64, %.lr.ph50.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.i ], [ %indvars.iv.next.i, %64 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %65 = getelementptr inbounds nuw [32 x double], ptr %7, i64 0, i64 %indvars.iv.next.i
+  %65 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i
   %66 = load double, ptr %65, align 8, !tbaa !14
-  %67 = getelementptr inbounds nuw [32 x double], ptr %6, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
   %68 = load double, ptr %67, align 8, !tbaa !14
   %69 = call nsz double @llvm.fmuladd.f64(double %55, double %68, double %66)
-  %70 = getelementptr inbounds nuw [32 x double], ptr %7, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   store double %69, ptr %70, align 8, !tbaa !14
   %71 = call nsz double @llvm.fmuladd.f64(double %66, double %55, double %68)
   store double %71, ptr %67, align 8, !tbaa !14
@@ -266,7 +266,7 @@ compute_ref_coefs.exit:                           ; preds = %._crit_edge51.i, %.
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %.lr.ph35
   %indvars.iv38 = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next39, %.lr.ph35 ]
   %.03033 = phi double [ 0.000000e+00, %.lr.ph35.preheader ], [ %75, %.lr.ph35 ]
-  %72 = getelementptr inbounds nuw [33 x double], ptr %9, i64 0, i64 %indvars.iv38
+  %72 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv38
   %73 = load double, ptr %72, align 8, !tbaa !14
   %74 = fadd nsz double %.03033, %73
   %75 = fmul nsz double %74, 5.000000e-01
@@ -436,11 +436,11 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv264 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next265, %.lr.ph ]
-  %77 = getelementptr inbounds nuw [32 x [32 x double]], ptr %17, i64 0, i64 %indvars.iv264
-  %78 = getelementptr inbounds nuw [32 x double], ptr %77, i64 0, i64 %indvars.iv264
+  %77 = getelementptr inbounds nuw [32 x double], ptr %17, i64 %indvars.iv264
+  %78 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv264
   %79 = load double, ptr %78, align 8, !tbaa !14
   %80 = call nsz double @llvm.fabs.f64(double %79)
-  %81 = getelementptr inbounds nuw [32 x double], ptr %16, i64 0, i64 %indvars.iv264
+  %81 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv264
   store double %80, ptr %81, align 8, !tbaa !14
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count
@@ -461,18 +461,18 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 .lr.ph228:                                        ; preds = %.thread
   %84 = add nsw i32 %4, -1
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [32 x [32 x double]], ptr %17, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [32 x double], ptr %17, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 10416
-  %88 = getelementptr inbounds nuw [32 x [32 x double]], ptr %87, i64 0, i64 %85
+  %88 = getelementptr inbounds nuw [32 x double], ptr %87, i64 %85
   %wide.trip.count271 = zext nneg i32 %4 to i64
   br label %89
 
 89:                                               ; preds = %.lr.ph228, %89
   %indvars.iv268 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next269, %89 ]
-  %90 = getelementptr inbounds nuw [32 x double], ptr %86, i64 0, i64 %indvars.iv268
+  %90 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv268
   %91 = load double, ptr %90, align 8, !tbaa !14
   %92 = fneg nsz double %91
-  %93 = getelementptr inbounds nuw [32 x double], ptr %88, i64 0, i64 %indvars.iv268
+  %93 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv268
   store double %92, ptr %93, align 8, !tbaa !14
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
@@ -626,8 +626,8 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 .lr.ph247:                                        ; preds = %._crit_edge248, %.preheader218.lr.ph
   %indvars.iv304 = phi i64 [ 0, %.preheader218.lr.ph ], [ %indvars.iv.next305, %._crit_edge248 ]
-  %146 = getelementptr inbounds nuw [32 x [32 x double]], ptr %104, i64 0, i64 %indvars.iv304
-  %147 = getelementptr inbounds nuw [32 x [32 x double]], ptr %17, i64 0, i64 %indvars.iv304
+  %146 = getelementptr inbounds nuw [32 x double], ptr %104, i64 %indvars.iv304
+  %147 = getelementptr inbounds nuw [32 x double], ptr %17, i64 %indvars.iv304
   br label %149
 
 .preheader:                                       ; preds = %._crit_edge248
@@ -640,23 +640,23 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 149:                                              ; preds = %.lr.ph247, %149
   %indvars.iv299 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next300, %149 ]
-  %150 = getelementptr inbounds nuw [32 x double], ptr %146, i64 0, i64 %indvars.iv299
+  %150 = getelementptr inbounds nuw double, ptr %146, i64 %indvars.iv299
   %151 = load double, ptr %150, align 8, !tbaa !14
   %152 = fneg nsz double %151
-  %153 = getelementptr inbounds nuw [32 x double], ptr %147, i64 0, i64 %indvars.iv299
+  %153 = getelementptr inbounds nuw double, ptr %147, i64 %indvars.iv299
   store double %152, ptr %153, align 8, !tbaa !14
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count307
   br i1 %exitcond303.not, label %._crit_edge248, label %149, !llvm.loop !38
 
 ._crit_edge248:                                   ; preds = %149
-  %154 = getelementptr inbounds nuw [32 x double], ptr %105, i64 0, i64 %indvars.iv304
+  %154 = getelementptr inbounds nuw double, ptr %105, i64 %indvars.iv304
   %155 = load double, ptr %154, align 8, !tbaa !14
   %156 = fdiv nsz double %155, %.0153.lcssa
   %157 = call nsz double @llvm.sqrt.f64(double %156)
   %158 = fmul nsz double %157, %107
   %159 = fdiv nsz double %158, 4.000000e+03
-  %160 = getelementptr inbounds nuw [32 x double], ptr %16, i64 0, i64 %indvars.iv304
+  %160 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv304
   store double %159, ptr %160, align 8, !tbaa !14
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
@@ -665,10 +665,10 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 .lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.lr.ph251
   %indvars.iv309 = phi i64 [ %148, %.lr.ph251.preheader ], [ %indvars.iv.next310, %.lr.ph251 ]
   %indvars.iv.next310 = add nsw i64 %indvars.iv309, -1
-  %161 = add nsw i64 %indvars.iv309, -2
-  %162 = getelementptr inbounds nuw [32 x double], ptr %16, i64 0, i64 %161
+  %161 = getelementptr double, ptr %16, i64 %indvars.iv309
+  %162 = getelementptr i8, ptr %161, i64 -16
   %163 = load double, ptr %162, align 8, !tbaa !14
-  %164 = getelementptr inbounds nuw [32 x double], ptr %16, i64 0, i64 %indvars.iv.next310
+  %164 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.next310
   %165 = load double, ptr %164, align 8, !tbaa !14
   %166 = fsub nsz double %163, %165
   store double %166, ptr %164, align 8, !tbaa !14
@@ -708,7 +708,7 @@ estimate_best_order.exit:                         ; preds = %173, %.split.loop.e
   %.0.i = phi i32 [ %178, %.split.loop.exit.i ], [ %3, %173 ]
   %179 = add nsw i32 %.0.i, -1
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds [32 x [32 x double]], ptr %17, i64 0, i64 %180
+  %181 = getelementptr inbounds [32 x double], ptr %17, i64 %180
   %182 = getelementptr inbounds [32 x i32], ptr %6, i64 %180
   %183 = getelementptr inbounds i32, ptr %7, i64 %180
   %184 = add nsw i32 %5, -1
@@ -842,7 +842,7 @@ estimate_best_order.exit:                         ; preds = %173, %.split.loop.e
 
 233:                                              ; preds = %.lr.ph255, %quantize_lpc_coefs.exit215
   %indvars.iv312 = phi i64 [ %232, %.lr.ph255 ], [ %indvars.iv.next313, %quantize_lpc_coefs.exit215 ]
-  %234 = getelementptr inbounds [32 x [32 x double]], ptr %17, i64 0, i64 %indvars.iv312
+  %234 = getelementptr inbounds [32 x double], ptr %17, i64 %indvars.iv312
   %indvars.iv.next313 = add nsw i64 %indvars.iv312, 1
   %235 = getelementptr inbounds [32 x i32], ptr %6, i64 %indvars.iv312
   %236 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv312

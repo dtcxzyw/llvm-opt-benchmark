@@ -124,9 +124,9 @@ define hidden void @proto_register_mcpe() local_unnamed_addr #0 {
 
 1:                                                ; preds = %1, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %1 ]
-  %2 = getelementptr [3 x %struct.mcpe_handler_entry], ptr @mcpe_packet_handlers, i64 0, i64 %indvars.iv.i
+  %2 = getelementptr %struct.mcpe_handler_entry, ptr @mcpe_packet_handlers, i64 %indvars.iv.i
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr [4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr %struct._value_string, ptr @mcpe_packet_names, i64 %indvars.iv.i
   store i32 %3, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -253,7 +253,7 @@ define hidden void @proto_reg_handoff_mcpe() #0 {
 
 .preheader:                                       ; preds = %0, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %0 ]
-  %4 = getelementptr [3 x %struct.mcpe_handler_entry], ptr @mcpe_packet_handlers, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct.mcpe_handler_entry, ptr @mcpe_packet_handlers, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8

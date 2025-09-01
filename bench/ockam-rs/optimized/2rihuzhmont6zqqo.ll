@@ -414,7 +414,7 @@ define void @"_ZN89_$LT$ockam_multiaddr..iter..StrIter$u20$as$u20$core..iter..tr
 
 .lr.ph.i.i.i:                                     ; preds = %17, %21
   %.05.i.i.i = phi i64 [ %22, %21 ], [ 0, %17 ]
-  %18 = getelementptr inbounds nuw [0 x i8], ptr %13, i64 0, i64 %.05.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %.05.i.i.i
   %19 = load i8, ptr %18, align 1, !alias.scope !58, !noalias !52, !noundef !7
   %20 = icmp eq i8 %19, 47
   br i1 %20, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %21
@@ -524,7 +524,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %21,
 
 .lr.ph.i.i.i44:                                   ; preds = %61, %65
   %.05.i.i.i45 = phi i64 [ %66, %65 ], [ 0, %61 ]
-  %62 = getelementptr inbounds nuw [0 x i8], ptr %57, i64 0, i64 %.05.i.i.i45
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %.05.i.i.i45
   %63 = load i8, ptr %62, align 1, !alias.scope !90, !noalias !84, !noundef !7
   %64 = icmp eq i8 %63, 47
   br i1 %64, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i47, label %65

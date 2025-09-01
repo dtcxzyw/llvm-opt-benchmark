@@ -1950,12 +1950,12 @@ define internal void @h2v2_merged_upsample_565D(ptr noundef readonly captures(no
   %18 = load i32, ptr %17, align 8, !tbaa !76
   %19 = and i32 %18, 3
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !60
   %23 = add i32 %18, 1
   %24 = and i32 %23, 3
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !60
   %28 = load ptr, ptr %1, align 8, !tbaa !68
   %29 = shl i32 %2, 1
@@ -3685,7 +3685,7 @@ define internal void @h2v1_merged_upsample_565D(ptr noundef readonly captures(no
   %18 = load i32, ptr %17, align 8, !tbaa !76
   %19 = and i32 %18, 3
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !60
   %23 = load ptr, ptr %1, align 8, !tbaa !68
   %24 = zext i32 %2 to i64

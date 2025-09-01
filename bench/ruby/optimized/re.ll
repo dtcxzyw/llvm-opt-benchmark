@@ -181,13 +181,13 @@ define dso_local range(i32 -255, 256) i32 @rb_memcicmp(ptr noundef readonly capt
   %7 = getelementptr i8, ptr %.07, i64 1
   %8 = load i8, ptr %.07, align 1, !tbaa !7
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [256 x i8], ptr @casetable, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @casetable, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !7
   %12 = sext i8 %11 to i32
   %13 = getelementptr i8, ptr %.06, i64 1
   %14 = load i8, ptr %.06, align 1, !tbaa !7
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr @casetable, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @casetable, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !7
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %12, %18
@@ -289,7 +289,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
 
 47:                                               ; preds = %47, %42
   %.035.i = phi i64 [ 0, %42 ], [ %49, %47 ]
-  %48 = getelementptr [256 x i64], ptr %6, i64 0, i64 %.035.i
+  %48 = getelementptr i64, ptr %6, i64 %.035.i
   store i64 %43, ptr %48, align 8, !tbaa !18
   %49 = add nuw nsw i64 %.035.i, 1
   %exitcond.not.i = icmp eq i64 %49, 256
@@ -311,7 +311,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
   %55 = sub i64 %46, %54
   %56 = load i8, ptr %.03036.i, align 1, !tbaa !7
   %57 = zext i8 %56 to i64
-  %58 = getelementptr [256 x i64], ptr %6, i64 0, i64 %57
+  %58 = getelementptr i64, ptr %6, i64 %57
   store i64 %55, ptr %58, align 8, !tbaa !18
   %59 = getelementptr i8, ptr %.03036.i, i64 1
   %exitcond41.not.i = icmp eq ptr %59, %44
@@ -378,7 +378,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
 
 10:                                               ; preds = %4, %10
   %.038 = phi i64 [ 0, %4 ], [ %12, %10 ]
-  %11 = getelementptr [512 x i64], ptr %5, i64 0, i64 %.038
+  %11 = getelementptr i64, ptr %5, i64 %.038
   store i64 %6, ptr %11, align 8, !tbaa !18
   %12 = add nuw nsw i64 %.038, 1
   %exitcond.not = icmp eq i64 %12, 512
@@ -464,7 +464,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
 rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
   %.026.i = phi i32 [ %23, %22 ], [ %60, %59 ], [ %58, %57 ]
   %61 = zext nneg i32 %.026.i to i64
-  %62 = getelementptr [512 x i64], ptr %5, i64 0, i64 %61
+  %62 = getelementptr i64, ptr %5, i64 %61
   store i64 %18, ptr %62, align 8, !tbaa !18
   %63 = getelementptr i8, ptr %.03039, i64 1
   %exitcond45.not = icmp eq ptr %63, %7
@@ -555,7 +555,7 @@ rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
 rb_memsearch_qs_utf8_hash.exit35:                 ; preds = %78, %113, %115
   %.026.i33 = phi i32 [ %79, %78 ], [ %116, %115 ], [ %114, %113 ]
   %117 = zext nneg i32 %.026.i33 to i64
-  %118 = getelementptr [512 x i64], ptr %5, i64 0, i64 %117
+  %118 = getelementptr i64, ptr %5, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !18
   %120 = getelementptr i8, ptr %.02842, i64 %119
   %121 = getelementptr i8, ptr %120, i64 %1

@@ -1313,7 +1313,7 @@ sub_1939:                                         ; preds = %sub_0938
 
 513:                                              ; preds = %.lr.ph, %524
   %.04911253 = phi i64 [ 0, %.lr.ph ], [ %525, %524 ]
-  %514 = getelementptr inbounds nuw [5 x %struct.anon], ptr @main.kTokens, i64 0, i64 %.04911253
+  %514 = getelementptr inbounds nuw %struct.anon, ptr @main.kTokens, i64 %.04911253
   %515 = load ptr, ptr %514, align 16, !tbaa !49
   %516 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %515) #15
   %517 = icmp eq i64 %512, %516
@@ -2080,7 +2080,7 @@ sub_0952:                                         ; preds = %699, %.thread862, %
   %872 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %873 = load i32, ptr %872, align 8, !tbaa !77
   %874 = zext i32 %873 to i64
-  %875 = getelementptr inbounds nuw [11 x ptr], ptr @kErrorMessages, i64 0, i64 %874
+  %875 = getelementptr inbounds nuw ptr, ptr @kErrorMessages, i64 %874
   %876 = load ptr, ptr %875, align 8, !tbaa !11
   %877 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %871, ptr noundef nonnull @.str.95, i32 noundef %873, ptr noundef %876) #16
   br label %1208
@@ -2142,7 +2142,7 @@ sub_0952:                                         ; preds = %699, %.thread862, %
   %908 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %909 = load i32, ptr %908, align 8, !tbaa !77
   %910 = zext i32 %909 to i64
-  %911 = getelementptr inbounds nuw [11 x ptr], ptr @kErrorMessages, i64 0, i64 %910
+  %911 = getelementptr inbounds nuw ptr, ptr @kErrorMessages, i64 %910
   %912 = load ptr, ptr %911, align 8, !tbaa !11
   %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %907, ptr noundef nonnull @.str.95, i32 noundef %909, ptr noundef %912) #16
   br label %1208
@@ -2439,7 +2439,7 @@ UpdateFlagsAndSize.exit98.i:                      ; preds = %1033, %1030, %Updat
   %indvars.iv.i.i.i = phi i64 [ 0, %1052 ], [ %indvars.iv.next.i.i.i, %1056 ]
   %.079.i.i.i = phi i32 [ %1055, %1052 ], [ %1059, %1056 ]
   %1057 = trunc i32 %.079.i.i.i to i8
-  %1058 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %1058 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i
   store i8 %1057, ptr %1058, align 1, !tbaa !88
   %1059 = lshr i32 %.079.i.i.i, 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2513,7 +2513,7 @@ WriteLE32.exit.i:                                 ; preds = %1056
   %indvars.iv.i.i99.i = phi i64 [ 0, %.critedge86.i ], [ %indvars.iv.next.i.i101.i, %1091 ]
   %.079.i.i100.i = phi i32 [ %.3.i, %.critedge86.i ], [ %1094, %1091 ]
   %1092 = trunc i32 %.079.i.i100.i to i8
-  %1093 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i99.i
+  %1093 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i99.i
   store i8 %1092, ptr %1093, align 1, !tbaa !88
   %1094 = lshr i32 %.079.i.i100.i, 8
   %indvars.iv.next.i.i101.i = add nuw nsw i64 %indvars.iv.i.i99.i, 1
@@ -2536,7 +2536,7 @@ WriteLE32.exit103.i:                              ; preds = %1091
   %indvars.iv.i.i104.i = phi i64 [ 0, %.critedge87.i ], [ %indvars.iv.next.i.i106.i, %1099 ]
   %.079.i.i105.i = phi i32 [ %1098, %.critedge87.i ], [ %1102, %1099 ]
   %1100 = trunc i32 %.079.i.i105.i to i8
-  %1101 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i104.i
+  %1101 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i104.i
   store i8 %1100, ptr %1101, align 1, !tbaa !88
   %1102 = lshr i32 %.079.i.i105.i, 8
   %indvars.iv.next.i.i106.i = add nuw nsw i64 %indvars.iv.i.i104.i, 1
@@ -2749,7 +2749,7 @@ UpdateFlagsAndSize.exit.thread:                   ; preds = %1153, %.lr.ph1319, 
 
 1175:                                             ; preds = %1174
   %1176 = zext nneg i32 %.05201058 to i64
-  %1177 = getelementptr inbounds nuw [3 x ptr], ptr @main.distortion_names, i64 0, i64 %1176
+  %1177 = getelementptr inbounds nuw ptr, ptr @main.distortion_names, i64 %1176
   %1178 = load ptr, ptr %1177, align 8, !tbaa !11
   %1179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1173, ptr noundef nonnull @.str.105, ptr noundef %1178) #16
   %1180 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -3299,7 +3299,7 @@ define internal fastcc void @PrintMapInfo(ptr noundef nonnull readonly captures(
   %24 = load i8, ptr %23, align 1, !tbaa !88
   %25 = load ptr, ptr @stderr, align 8, !tbaa !4
   %26 = zext i8 %24 to i64
-  %27 = getelementptr inbounds nuw [3 x i8], ptr @.str.239, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @.str.239, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !88
   %29 = sext i8 %28 to i32
   %fputc28.us.us.us = tail call i32 @fputc(i32 %29, ptr %25)
@@ -3327,7 +3327,7 @@ define internal fastcc void @PrintMapInfo(ptr noundef nonnull readonly captures(
   %36 = load i8, ptr %35, align 1, !tbaa !88
   %37 = load ptr, ptr @stderr, align 8, !tbaa !4
   %38 = zext i8 %36 to i64
-  %39 = getelementptr inbounds nuw [5 x i8], ptr @.str.240, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @.str.240, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !88
   %41 = sext i8 %40 to i32
   %fputc27.us.us.us = tail call i32 @fputc(i32 %41, ptr %37)
@@ -3530,7 +3530,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteLE24(ptr noundef nonnull captur
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.079.i = phi i32 [ %1, %2 ], [ %7, %4 ]
   %5 = trunc i32 %.079.i to i8
-  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %5, ptr %6, align 1, !tbaa !88
   %7 = lshr i32 %.079.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3568,7 +3568,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMetadataChunk(ptr noundef nonnu
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %14 ]
   %.079.i.i = phi i32 [ %13, %11 ], [ %17, %14 ]
   %15 = trunc i32 %.079.i.i to i8
-  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %15, ptr %16, align 1, !tbaa !88
   %17 = lshr i32 %.079.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

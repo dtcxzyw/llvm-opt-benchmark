@@ -784,9 +784,9 @@ define noundef zeroext i1 @_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg
 
 18:                                               ; preds = %18, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr inbounds nuw [9 x i8], ptr %17, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i.i
   %20 = load i8, ptr %19, align 1, !noalias !10
-  %21 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i
   %22 = and i8 %20, 1
   store i8 %22, ptr %21, align 1, !alias.scope !10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -799,9 +799,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i ], [ %indvars.iv.next.i9.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i ]
-  %23 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i8.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i8.i
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i8.i
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i8.i
   %26 = and i8 %24, 1
   store i8 %26, ptr %25, align 1
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -830,7 +830,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
 
 30:                                               ; preds = %.loopexit
   %31 = zext nneg i32 %2 to i64
-  %32 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   ret i1 %34
@@ -3344,9 +3344,9 @@ define noundef zeroext i1 @_ZNK30MLRenderingPerFaceNormalAction22isRenderingData
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i.i
   %17 = load i8, ptr %16, align 1, !noalias !15
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i.i
   %19 = and i8 %17, 1
   store i8 %19, ptr %18, align 1, !alias.scope !15
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3359,9 +3359,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
   %indvars.iv.i8.i.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i ], [ %indvars.iv.next.i9.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i8.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i8.i.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i8.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i8.i.i
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 1
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
@@ -4182,9 +4182,9 @@ define noundef zeroext i1 @_ZNK34MLRenderingPerWedgeTextCoordAction22isRendering
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i.i
   %17 = load i8, ptr %16, align 1, !noalias !18
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i.i
   %19 = and i8 %17, 1
   store i8 %19, ptr %18, align 1, !alias.scope !18
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4197,9 +4197,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
   %indvars.iv.i8.i.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i ], [ %indvars.iv.next.i9.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i8.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i8.i.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i8.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i8.i.i
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 1
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
@@ -7637,9 +7637,9 @@ define noundef zeroext i1 @_ZNK29MLRenderingPerFaceColorAction22isRenderingDataE
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw [9 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i.i
   %17 = load i8, ptr %16, align 1, !noalias !21
-  %18 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i.i
   %19 = and i8 %17, 1
   store i8 %19, ptr %18, align 1, !alias.scope !21
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -7652,9 +7652,9 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
   %indvars.iv.i8.i.i = phi i64 [ 0, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i ], [ %indvars.iv.next.i9.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i.i ]
-  %20 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i8.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i8.i.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i8.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i8.i.i
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 1
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
@@ -8336,7 +8336,7 @@ define void @_ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDat
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDataRN3vcg6Color4IhEE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDataRN3vcg6Color4IhEE, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %12 = load i32, ptr %11, align 1

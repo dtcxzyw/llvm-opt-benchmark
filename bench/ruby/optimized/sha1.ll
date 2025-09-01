@@ -1087,7 +1087,7 @@ define void @rb_Digest_SHA1_Update(ptr noundef %0, ptr noundef readonly captures
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %19
   %25 = sub nuw nsw i32 64, %18
   %26 = zext nneg i32 %25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %26, i1 noundef false) #7
@@ -1116,7 +1116,7 @@ define void @rb_Digest_SHA1_Update(ptr noundef %0, ptr noundef readonly captures
   %.1 = phi i64 [ 0, %16 ], [ %.pre, %._crit_edge.loopexit ], [ %26, %22 ]
   %.0 = phi i64 [ %19, %16 ], [ 0, %._crit_edge.loopexit ], [ 0, %22 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %37 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 0, i64 %.0
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.0
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %39 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %37, ptr noundef nonnull align 1 %38, i64 noundef %39, i1 noundef false) #7
@@ -1134,7 +1134,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   %.033 = phi i64 [ 0, %2 ], [ %16, %5 ]
   %6 = icmp samesign ult i64 %.033, 4
   %7 = zext i1 %6 to i64
-  %8 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
   %.0.tr = trunc nuw nsw i64 %.033 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
@@ -1142,7 +1142,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   %12 = xor i32 %11, 24
   %13 = lshr i32 %9, %12
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.033
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.033
   store i8 %14, ptr %15, align 1, !tbaa !12
   %16 = add nuw nsw i64 %.033, 1
   %exitcond.not = icmp eq i64 %16, 8
@@ -1171,7 +1171,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %32 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 0, i64 %28
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %28
   store i8 -128, ptr %32, align 1
   tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
   br label %rb_Digest_SHA1_Update.exit
@@ -1180,7 +1180,7 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
   %.1.i = phi i64 [ 0, %25 ], [ 1, %30 ]
   %.0.i = phi i64 [ %28, %25 ], [ 0, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.0.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.i
   %35 = getelementptr inbounds nuw i8, ptr @.str, i64 %.1.i
   %36 = xor i64 %.1.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %34, ptr noundef nonnull readonly align 1 %35, i64 noundef %36, i1 noundef false) #7
@@ -1214,7 +1214,7 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
   br i1 %51, label %52, label %rb_Digest_SHA1_Update.exit25
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %50
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 %50
   store i8 0, ptr %53, align 1
   tail call void @rb_Digest_SHA1_Transform(ptr noundef nonnull %0, ptr noundef nonnull %33)
   br label %rb_Digest_SHA1_Update.exit25
@@ -1222,7 +1222,7 @@ rb_Digest_SHA1_Update.exit:                       ; preds = %30, %25
 rb_Digest_SHA1_Update.exit25:                     ; preds = %52, %47
   %.1.i19 = phi i64 [ 0, %47 ], [ 1, %52 ]
   %.0.i20 = phi i64 [ %50, %47 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.0.i20
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.i20
   %55 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.1.i19
   %56 = xor i64 %.1.i19, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %54, ptr noundef nonnull readonly align 1 %55, i64 noundef %56, i1 noundef false) #7
@@ -1256,7 +1256,7 @@ rb_Digest_SHA1_Update.exit32:                     ; preds = %._crit_edge, %61
 .preheader:                                       ; preds = %rb_Digest_SHA1_Update.exit32, %.preheader
   %.135 = phi i64 [ %76, %.preheader ], [ 0, %rb_Digest_SHA1_Update.exit32 ]
   %67 = lshr i64 %.135, 2
-  %68 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !6
   %.1.tr = trunc nuw nsw i64 %.135 to i32
   %70 = shl nuw nsw i32 %.1.tr, 3

@@ -494,7 +494,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h9cc0afff644bf853E.exit.i.i.i.i.i.i.i": ; preds = %78
   %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 %80
   %82 = load i8, ptr %81, align 1, !alias.scope !80, !noalias !81, !noundef !5
   %.not.i.not.i.i.i.i.i.i.i = icmp eq i8 %82, %62
   br i1 %.not.i.not.i.i.i.i.i.i.i, label %78, label %83
@@ -558,7 +558,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %106 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %93
   %107 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %94
   %108 = and <16 x i1> %106, %107
-  %109 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0142.i.i.i.i.i.i
+  %109 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0142.i.i.i.i.i.i
   store <16 x i1> %108, ptr %109, align 2, !noalias !89
   %exitcond.not.i38.i.i.i.i.i = icmp eq i64 %102, 4
   br i1 %exitcond.not.i38.i.i.i.i.i, label %.preheader138.i.i.i.i.i.i, label %101
@@ -576,7 +576,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %.sroa.028.0144.i.i.i.i.i.i = phi i64 [ %115, %119 ], [ 0, %101 ]
   %.2143.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %119 ], [ 0, %101 ]
   %115 = add nuw nsw i64 %.sroa.028.0144.i.i.i.i.i.i, 1
-  %116 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0144.i.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0144.i.i.i.i.i.i
   %117 = load i16, ptr %116, align 2, !noalias !89, !noundef !5
   %118 = icmp eq i16 %117, 0
   br i1 %118, label %119, label %120
@@ -881,9 +881,9 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
   unreachable
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds [0 x i8], ptr %229, i64 0, i64 %257
+  %263 = getelementptr inbounds i8, ptr %229, i64 %257
   %264 = load i8, ptr %263, align 1, !alias.scope !136, !noalias !142, !noundef !5
-  %265 = getelementptr inbounds [0 x i8], ptr %227, i64 0, i64 %260
+  %265 = getelementptr inbounds i8, ptr %227, i64 %260
   %266 = load i8, ptr %265, align 1, !alias.scope !134, !noalias !140, !noundef !5
   %.not28.i.i.i.i.i.i = icmp eq i8 %264, %266
   br i1 %.not28.i.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %267
@@ -903,9 +903,9 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
 
 272:                                              ; preds = %269
   %273 = add nuw i64 %.sroa.04.0.i.i.i.i.i.i, 1
-  %274 = getelementptr inbounds [0 x i8], ptr %229, i64 0, i64 %.sroa.04.0.i.i.i.i.i.i
+  %274 = getelementptr inbounds i8, ptr %229, i64 %.sroa.04.0.i.i.i.i.i.i
   %275 = load i8, ptr %274, align 1, !alias.scope !136, !noalias !142, !noundef !5
-  %276 = getelementptr inbounds [0 x i8], ptr %227, i64 0, i64 %270
+  %276 = getelementptr inbounds i8, ptr %227, i64 %270
   %277 = load i8, ptr %276, align 1, !alias.scope !134, !noalias !140, !noundef !5
   %.not.i45.i.i.i.i.i = icmp eq i8 %275, %277
   br i1 %.not.i45.i.i.i.i.i, label %253, label %279
@@ -982,9 +982,9 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
   br i1 %307, label %308, label %.noexc16.split.us, !prof !141
 
 308:                                              ; preds = %304
-  %309 = getelementptr inbounds [0 x i8], ptr %229, i64 0, i64 %305
+  %309 = getelementptr inbounds i8, ptr %229, i64 %305
   %310 = load i8, ptr %309, align 1, !alias.scope !148, !noalias !153, !noundef !5
-  %311 = getelementptr inbounds [0 x i8], ptr %227, i64 0, i64 %306
+  %311 = getelementptr inbounds i8, ptr %227, i64 %306
   %312 = load i8, ptr %311, align 1, !alias.scope !146, !noalias !152, !noundef !5
   %.not28.i.i.us = icmp eq i8 %310, %312
   br i1 %.not28.i.i.us, label %.preheader.i.us, label %.split.us
@@ -1012,9 +1012,9 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
 
 317:                                              ; preds = %314
   %318 = add nuw i64 %.sroa.04.0.i.i, 1
-  %319 = getelementptr inbounds [0 x i8], ptr %229, i64 0, i64 %.sroa.04.0.i.i
+  %319 = getelementptr inbounds i8, ptr %229, i64 %.sroa.04.0.i.i
   %320 = load i8, ptr %319, align 1, !alias.scope !148, !noalias !153, !noundef !5
-  %321 = getelementptr inbounds [0 x i8], ptr %227, i64 0, i64 %315
+  %321 = getelementptr inbounds i8, ptr %227, i64 %315
   %322 = load i8, ptr %321, align 1, !alias.scope !146, !noalias !152, !noundef !5
   %.not.i.i = icmp eq i8 %320, %322
   br i1 %.not.i.i, label %.preheader17.i, label %324
@@ -1060,7 +1060,7 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %331, %335
   %.05.i.i.i.i.i = phi i64 [ %336, %335 ], [ 0, %331 ]
-  %332 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.05.i.i.i.i.i
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 %.05.i.i.i.i.i
   %333 = load i8, ptr %332, align 1, !alias.scope !154, !noalias !50, !noundef !5
   %334 = icmp eq i8 %333, %330
   br i1 %334, label %.loopexit, label %335

@@ -181,7 +181,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #2 {
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [64 x %struct.Lowpass], ptr %17, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.Lowpass, ptr %17, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = trunc i64 %indvars.iv.next to i32
   %26 = mul i32 %19, %25
@@ -322,7 +322,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
   %37 = and i1 %10, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = zext i32 %32 to i64
-  %40 = getelementptr inbounds nuw [64 x %struct.Lowpass], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.Lowpass, ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -722,7 +722,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %33 = and i1 %10, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = zext i32 %28 to i64
-  %36 = getelementptr inbounds nuw [64 x %struct.Lowpass], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.Lowpass, ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 56

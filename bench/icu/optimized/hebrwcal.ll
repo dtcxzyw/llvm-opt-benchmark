@@ -399,9 +399,9 @@ define void @_ZN6icu_7714HebrewCalendar4rollENS_8Calendar11EDateFieldsEiR10UErro
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7714HebrewCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL6LIMITS, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL6LIMITS, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   ret i32 %8
 }
@@ -491,15 +491,15 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %._crit_ed
   %switch.selectcmp13.i = icmp eq i32 %spec.select.i, 353
   %switch.select14.i = select i1 %switch.selectcmp13.i, i64 0, i64 %switch.select.i
   %37 = zext nneg i32 %.117.lcssa to i64
-  %38 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %37
-  %39 = getelementptr inbounds nuw [3 x i8], ptr %38, i64 0, i64 %switch.select14.i
+  %38 = getelementptr inbounds nuw [3 x i8], ptr @_ZL12MONTH_LENGTH, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %switch.select14.i
   %40 = load i8, ptr %39, align 1, !tbaa !16
   %41 = sext i8 %40 to i32
   br label %_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit
 
 42:                                               ; preds = %._crit_edge
   %43 = zext nneg i32 %.117.lcssa to i64
-  %44 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [3 x i8], ptr @_ZL12MONTH_LENGTH, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !16
   %46 = sext i8 %45 to i32
   br label %_ZN6icu_7712_GLOBAL__N_18yearTypeEiR10UErrorCode.exit
@@ -665,128 +665,111 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %39 = icmp slt i64 %38, 0
   %40 = select i1 %39, i64 -7, i64 12
   %.not = icmp slt i64 %38, %40
-  %invariant.gep = getelementptr [3 x i16], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %switch.select14.i
-  %invariant.gep79 = getelementptr [3 x i16], ptr @_ZL11MONTH_START, i64 0, i64 %switch.select14.i
-  br i1 %.not, label %.split.us, label %.split
+  %.in.v.v = select i1 %.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
+  %invariant.gep = getelementptr i16, ptr %.in.v.v, i64 %switch.select14.i
+  br label %41
 
-.split.us:                                        ; preds = %31, %44
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %44 ], [ 0, %31 ]
-  %gep80.us = getelementptr [14 x [3 x i16]], ptr %invariant.gep79, i64 0, i64 %indvars.iv89
-  %41 = load i16, ptr %gep80.us, align 2, !tbaa !18
-  %42 = sext i16 %41 to i32
-  %43 = icmp sgt i32 %.062, %42
-  br i1 %43, label %44, label %.critedge
+41:                                               ; preds = %31, %45
+  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %45 ]
+  %gep = getelementptr [3 x i16], ptr %invariant.gep, i64 %indvars.iv
+  %42 = load i16, ptr %gep, align 2, !tbaa !18
+  %43 = sext i16 %42 to i32
+  %44 = icmp sgt i32 %.062, %43
+  br i1 %44, label %45, label %.critedge
 
-44:                                               ; preds = %.split.us
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 14
-  br i1 %exitcond92.not, label %.critedge.thread, label %.split.us, !llvm.loop !20
-
-.split:                                           ; preds = %31, %48
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %31 ]
-  %gep = getelementptr [14 x [3 x i16]], ptr %invariant.gep, i64 0, i64 %indvars.iv
-  %45 = load i16, ptr %gep, align 2, !tbaa !18
-  %46 = sext i16 %45 to i32
-  %47 = icmp sgt i32 %.062, %46
-  br i1 %47, label %48, label %.critedge
-
-48:                                               ; preds = %.split
+45:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.critedge.thread, label %.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge.thread, label %41, !llvm.loop !20
 
-.critedge:                                        ; preds = %.split, %.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv89, %.split.us ], [ %indvars.iv, %.split ]
-  %.us-phi = trunc i64 %.us-phi.in to i32
-  %or.cond = icmp eq i32 %.us-phi, 0
-  br i1 %or.cond, label %.critedge.thread, label %49
+.critedge:                                        ; preds = %41
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
+  %or.cond = icmp eq i64 %indvars.iv, 0
+  br i1 %or.cond, label %.critedge.thread, label %47
 
-.critedge.thread:                                 ; preds = %48, %44, %.critedge
+.critedge.thread:                                 ; preds = %45, %.critedge
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %.loopexit
 
-49:                                               ; preds = %.critedge
-  %50 = add nsw i32 %.us-phi, -1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %51
-  %53 = getelementptr inbounds nuw [3 x i16], ptr %52, i64 0, i64 %switch.select14.i
-  %54 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %51
-  %55 = getelementptr inbounds nuw [3 x i16], ptr %54, i64 0, i64 %switch.select14.i
-  %.in71 = select i1 %.not, ptr %55, ptr %53
-  %56 = load i16, ptr %.in71, align 2, !tbaa !18
-  %57 = sext i16 %56 to i32
-  %58 = sub nsw i32 %.062, %57
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %59, align 8, !tbaa !9
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 1, ptr %60, align 8, !tbaa !16
-  %61 = load ptr, ptr %0, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 296
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef 0)
-  %65 = icmp slt i32 %.061, %64
-  br i1 %65, label %66, label %69
+47:                                               ; preds = %.critedge
+  %48 = add nsw i32 %46, -1
+  %49 = zext nneg i32 %48 to i64
+  %.in71.v = getelementptr inbounds nuw [3 x i16], ptr %.in.v.v, i64 %49
+  %.in71 = getelementptr inbounds nuw i16, ptr %.in71.v, i64 %switch.select14.i
+  %50 = load i16, ptr %.in71, align 2, !tbaa !18
+  %51 = sext i16 %50 to i32
+  %52 = sub nsw i32 %.062, %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %53, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 1, ptr %54, align 8, !tbaa !16
+  %55 = load ptr, ptr %0, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 296
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef 0)
+  %59 = icmp slt i32 %.061, %58
+  br i1 %59, label %60, label %63
 
-66:                                               ; preds = %49
-  %67 = tail call noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %.not72 = icmp eq i8 %67, 0
-  br i1 %.not72, label %68, label %69
+60:                                               ; preds = %47
+  %61 = tail call noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %.not72 = icmp eq i8 %61, 0
+  br i1 %.not72, label %62, label %63
 
-68:                                               ; preds = %66
+62:                                               ; preds = %60
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %.loopexit
 
-69:                                               ; preds = %66, %49
-  %.1 = phi i32 [ %.061, %49 ], [ %64, %66 ]
-  %70 = load ptr, ptr %0, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 296
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef 3)
-  %74 = icmp slt i32 %73, %.1
-  br i1 %74, label %75, label %78
+63:                                               ; preds = %60, %47
+  %.1 = phi i32 [ %.061, %47 ], [ %58, %60 ]
+  %64 = load ptr, ptr %0, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 296
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef 3)
+  %68 = icmp slt i32 %67, %.1
+  br i1 %68, label %69, label %72
 
-75:                                               ; preds = %69
-  %76 = tail call noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %.not73 = icmp eq i8 %76, 0
-  br i1 %.not73, label %77, label %78
+69:                                               ; preds = %63
+  %70 = tail call noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %.not73 = icmp eq i8 %70, 0
+  br i1 %.not73, label %71, label %72
 
-77:                                               ; preds = %75
+71:                                               ; preds = %69
   store i32 1, ptr %2, align 4, !tbaa !6
   br label %.loopexit
 
-78:                                               ; preds = %75, %69
-  %.2 = phi i32 [ %.1, %69 ], [ %73, %75 ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.2, ptr %79, align 4, !tbaa !9
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 105
+72:                                               ; preds = %69, %63
+  %.2 = phi i32 [ %.1, %63 ], [ %67, %69 ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.2, ptr %73, align 4, !tbaa !9
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  store i8 1, ptr %74, align 1, !tbaa !16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %.2, ptr %75, align 4, !tbaa !9
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  store i8 1, ptr %76, align 1, !tbaa !16
+  %77 = icmp samesign ugt i64 %indvars.iv, 6
+  %or.cond3 = select i1 %.not, i1 %77, i1 false
+  %78 = add nsw i32 %46, -2
+  %spec.select = select i1 %or.cond3, i32 %78, i32 %48
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %spec.select, ptr %79, align 4, !tbaa !9
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 127
   store i8 1, ptr %80, align 1, !tbaa !16
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %.2, ptr %81, align 4, !tbaa !9
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  store i8 1, ptr %82, align 1, !tbaa !16
-  %83 = icmp samesign ugt i32 %.us-phi, 6
-  %or.cond3 = select i1 %.not, i1 %83, i1 false
-  %84 = add nsw i32 %.us-phi, -2
-  %spec.select = select i1 %or.cond3, i32 %84, i32 %50
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %spec.select, ptr %85, align 4, !tbaa !9
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 127
-  store i8 1, ptr %86, align 1, !tbaa !16
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %50, ptr %87, align 8, !tbaa !9
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 106
-  store i8 1, ptr %88, align 2, !tbaa !16
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %58, ptr %89, align 4, !tbaa !9
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 109
-  store i8 1, ptr %90, align 1, !tbaa !16
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.062, ptr %91, align 8, !tbaa !9
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 110
-  store i8 1, ptr %92, align 2, !tbaa !16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %48, ptr %81, align 8, !tbaa !9
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  store i8 1, ptr %82, align 2, !tbaa !16
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %52, ptr %83, align 4, !tbaa !9
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 109
+  store i8 1, ptr %84, align 1, !tbaa !16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.062, ptr %85, align 8, !tbaa !9
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 110
+  store i8 1, ptr %86, align 2, !tbaa !16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, %6, %68, %78, %77, %.critedge.thread, %3
+.loopexit:                                        ; preds = %21, %_ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i, %6, %62, %72, %71, %.critedge.thread, %3
   ret void
 }
 
@@ -1037,7 +1020,7 @@ thread-pre-split:                                 ; preds = %48
 57:                                               ; preds = %._crit_edge
   %58 = load i32, ptr %7, align 4, !tbaa !9
   %.not22 = icmp eq i32 %58, 0
-  br i1 %.not22, label %79, label %59
+  br i1 %.not22, label %75, label %59
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %6, align 4, !tbaa !9
@@ -1057,24 +1040,22 @@ thread-pre-split:                                 ; preds = %48
   %.not = icmp slt i64 %69, %71
   %72 = load i32, ptr %7, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %73
-  %75 = zext nneg i32 %61 to i64
-  %76 = getelementptr inbounds nuw [3 x i16], ptr %74, i64 0, i64 %75
-  %77 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %73
-  %78 = getelementptr inbounds nuw [3 x i16], ptr %77, i64 0, i64 %75
-  %.pn.in.in = select i1 %.not, ptr %78, ptr %76
+  %74 = zext nneg i32 %61 to i64
+  %.pn.in.in.v.v = select i1 %.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
+  %.pn.in.in.v = getelementptr inbounds [3 x i16], ptr %.pn.in.in.v.v, i64 %73
+  %.pn.in.in = getelementptr inbounds nuw i16, ptr %.pn.in.in.v, i64 %74
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !18
   %.pn = sext i16 %.pn.in to i64
   %.218 = add nsw i64 %.pn, %54
-  br label %79
+  br label %75
 
-79:                                               ; preds = %64, %57
+75:                                               ; preds = %64, %57
   %.016 = phi i64 [ %.218, %64 ], [ %54, %57 ]
-  %80 = add nsw i64 %.016, 347997
+  %76 = add nsw i64 %.016, 347997
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %._crit_edge, %59, %5, %51, %37, %17
-  %.0 = phi i64 [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ %80, %79 ], [ 0, %._crit_edge ], [ 0, %59 ]
+.critedge:                                        ; preds = %75, %._crit_edge, %59, %5, %51, %37, %17
+  %.0 = phi i64 [ 0, %17 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ %76, %75 ], [ 0, %._crit_edge ], [ 0, %59 ]
   ret i64 %.0
 }
 
@@ -1254,7 +1235,7 @@ define noundef ptr @_ZNK6icu_7714HebrewCalendar20getTemporalMonthCodeER10UErrorC
 
 6:                                                ; preds = %2
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [14 x ptr], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   br label %10
 
@@ -1278,7 +1259,7 @@ define void @_ZN6icu_7714HebrewCalendar20setTemporalMonthCodeEPKcR10UErrorCode(p
 
 .preheader:                                       ; preds = %6, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = icmp eq i32 %12, 0

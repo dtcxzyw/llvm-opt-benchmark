@@ -509,7 +509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
 
 106:                                              ; preds = %103, %99
   %.sink.i.us = phi i8 [ %105, %103 ], [ 0, %99 ]
-  %107 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %.017.i.us
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 %.017.i.us
   store i8 %.sink.i.us, ptr %107, align 1, !tbaa !11
   %108 = add nuw nsw i64 %.017.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %108, 32
@@ -526,19 +526,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
 
 .preheader.us:                                    ; preds = %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, %.preheader.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader.us ], [ 0, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ]
-  %113 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv87
+  %113 = getelementptr inbounds nuw i8, ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 %indvars.iv87
   %114 = load i8, ptr %113, align 1, !tbaa !11
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !11
   %118 = add nuw nsw i64 %115, 16
-  %119 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %12, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !11
   %121 = shl i8 %120, 4
   %122 = or i8 %121, %117
-  %123 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %115
+  %123 = getelementptr inbounds nuw i8, ptr %13, i64 %115
   %124 = load i8, ptr %123, align 1, !tbaa !11
-  %125 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %118
+  %125 = getelementptr inbounds nuw i8, ptr %13, i64 %118
   %126 = load i8, ptr %125, align 1, !tbaa !11
   %127 = shl i8 %126, 4
   %128 = or i8 %127, %124
@@ -552,13 +552,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
 
 _ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us: ; preds = %106, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ], [ 0, %106 ]
-  %131 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %132 = load i8, ptr %131, align 1, !tbaa !11
   %133 = and i8 %132, 15
-  %134 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %133, ptr %134, align 1, !tbaa !11
   %135 = lshr i8 %132, 4
-  %136 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 %135, ptr %136, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -700,7 +700,7 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr noundef readonly cap
 
 35:                                               ; preds = %32, %28
   %.sink.i.us = phi i8 [ %34, %32 ], [ 0, %28 ]
-  %36 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %.017.i.us
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 %.017.i.us
   store i8 %.sink.i.us, ptr %36, align 1, !tbaa !11
   %37 = add nuw nsw i64 %.017.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %37, 32
@@ -717,19 +717,19 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr noundef readonly cap
 
 .preheader.us:                                    ; preds = %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, %.preheader.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader.us ], [ 0, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ]
-  %42 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv63
+  %42 = getelementptr inbounds nuw i8, ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 %indvars.iv63
   %43 = load i8, ptr %42, align 1, !tbaa !11
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = add nuw nsw i64 %44, 16
-  %48 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !11
   %50 = shl i8 %49, 4
   %51 = or i8 %50, %46
-  %52 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %44
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 %44
   %53 = load i8, ptr %52, align 1, !tbaa !11
-  %54 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 %47
   %55 = load i8, ptr %54, align 1, !tbaa !11
   %56 = shl i8 %55, 4
   %57 = or i8 %56, %53
@@ -747,13 +747,13 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr noundef readonly cap
 
 _ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us: ; preds = %35, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ], [ 0, %35 ]
-  %64 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !11
   %66 = and i8 %65, 15
-  %67 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %66, ptr %67, align 1, !tbaa !11
   %68 = lshr i8 %65, 4
-  %69 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %68, ptr %69, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

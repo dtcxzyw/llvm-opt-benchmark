@@ -144,7 +144,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @_ZN5clang6driver5types11getTypeNameENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   ret ptr %5
 }
@@ -153,7 +153,7 @@ define dso_local noundef ptr @_ZN5clang6driver5types11getTypeNameENS1_2IDE(i32 n
 define dso_local noundef i32 @_ZN5clang6driver5types19getPreprocessedTypeENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3, i32 2
   %5 = load i32, ptr %4, align 8, !tbaa !12
   ret i32 %5
 }
@@ -172,7 +172,7 @@ define dso_local noundef range(i32 0, 58) i32 @_ZN5clang6driver5types18getPrecom
 6:                                                ; preds = %4
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %8, i32 3
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 3
   %10 = load i32, ptr %9, align 4, !tbaa !13
   %11 = and i32 %10, 2
   %12 = icmp ne i32 %11, 0
@@ -191,7 +191,7 @@ define dso_local noundef range(i32 0, 58) i32 @_ZN5clang6driver5types18getPrecom
 define dso_local noundef zeroext i1 @_ZN5clang6driver5types18onlyPrecompileTypeENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %3, i32 3
+  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3, i32 3
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = and i32 %5, 2
   %7 = icmp ne i32 %6, 0
@@ -222,7 +222,7 @@ define dso_local noundef ptr @_ZN5clang6driver5types17getTypeTempSuffixENS1_2IDE
 6:                                                ; preds = %3, %2
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %8, i32 1
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 1
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   br label %11
 
@@ -438,7 +438,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6driver5types9isSrcFileENS1_2IDE(i
 2:                                                ; preds = %1
   %3 = add i32 %0, -1
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %4, i32 2
   %6 = load i32, ptr %5, align 8, !tbaa !12
   %7 = icmp ne i32 %6, 0
   br label %8
@@ -849,7 +849,7 @@ _ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit: ; preds = %3
   br i1 %.not.i, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread
 
 _ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15: ; preds = %19, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit
-  %22 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %23) #8
   %25 = icmp eq i32 %24, 0
@@ -903,7 +903,7 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_
 .lr.ph:                                           ; preds = %3
   %7 = add i32 %1, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %8, i32 3
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 3
   %10 = load i32, ptr %9, align 4, !tbaa !13
   br label %11
 
@@ -964,7 +964,7 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesERKNS0_6Drive
 .lr.ph.i:                                         ; preds = %4
   %9 = add i32 %3, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %10, i32 3
+  %11 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %10, i32 3
   %12 = load i32, ptr %11, align 4, !tbaa !13, !noalias !25
   br label %13
 

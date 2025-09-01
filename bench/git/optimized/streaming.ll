@@ -281,7 +281,7 @@ define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %0, ptr nou
 
 .preheader:                                       ; preds = %.lr.ph.split, %28
   %.03357 = phi i64 [ %29, %28 ], [ 0, %.lr.ph.split ]
-  %26 = getelementptr inbounds nuw [16384 x i8], ptr %7, i64 0, i64 %.03357
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %.03357
   %27 = load i8, ptr %26, align 1, !tbaa !56
   %.not43 = icmp eq i8 %27, 0
   br i1 %.not43, label %28, label %.thread

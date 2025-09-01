@@ -578,7 +578,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 
 .lr.ph.i:                                         ; preds = %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i, %25
   %.017.i = phi i64 [ %.0.i, %25 ], [ %.016.i, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.i ]
-  %23 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %.017.i
+  %23 = getelementptr inbounds i8, ptr %12, i64 %.017.i
   %24 = load i8, ptr %23, align 1, !alias.scope !89, !noalias !97, !noundef !13
   switch i8 %24, label %.loopexit [
     i8 32, label %25

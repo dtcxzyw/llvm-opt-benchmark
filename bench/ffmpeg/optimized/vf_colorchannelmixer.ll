@@ -139,7 +139,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store ptr %.0, ptr %26, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 296
   %28 = zext i1 %14 to i64
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !39
@@ -215,13 +215,13 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
 .preheader:                                       ; preds = %.preheader130, %27
   %indvars.iv138 = phi i64 [ 0, %.preheader130 ], [ %indvars.iv.next139, %27 ]
   %.0134 = phi ptr [ %20, %.preheader130 ], [ %26, %27 ]
-  %23 = getelementptr inbounds nuw [4 x [4 x ptr]], ptr %21, i64 0, i64 %indvars.iv138
+  %23 = getelementptr inbounds nuw [4 x ptr], ptr %21, i64 %indvars.iv138
   br label %24
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
   %.1132 = phi ptr [ %.0134, %.preheader ], [ %26, %24 ]
-  %25 = getelementptr inbounds nuw [4 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   store ptr %.1132, ptr %25, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = getelementptr inbounds i32, ptr %.1132, i64 %22

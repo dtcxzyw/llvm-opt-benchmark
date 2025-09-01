@@ -3528,7 +3528,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %16, %17, %.thread.i
 
 39:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit
   %.036 = phi i64 [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %75, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit ]
-  %40 = getelementptr inbounds nuw [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %0, i64 0, i64 %.036
+  %40 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %.036
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !339
   %43 = load i32, ptr %38, align 8, !tbaa !242
@@ -3658,7 +3658,7 @@ _ZN9grpc_core5SliceD2Ev.exit32:                   ; preds = %_ZN9grpc_core5Slice
   %.sroa.0.sroa.0.0.insert.ext = zext i24 %.sroa.0.sroa.0.0.copyload to i32
   %104 = urem i32 %102, 5
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %0, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %105
   store i32 %.sroa.0.sroa.0.0.insert.ext, ptr %106, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %77, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !100

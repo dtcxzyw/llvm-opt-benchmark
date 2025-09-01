@@ -2235,7 +2235,7 @@ define internal fastcc void @luaH_newkey(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = trunc nuw i64 %19 to i32
   %24 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %23) #13
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !23
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !23
@@ -2283,7 +2283,7 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   %55 = trunc nuw i64 %51 to i32
   %56 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %55) #13
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %13, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !23
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !23
@@ -2355,7 +2355,7 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %74
   %.2.lcssa.i.i = phi i32 [ %.02849.i.i, %74 ], [ %85, %._crit_edge.i.loopexit.i ]
   %.026.lcssa.i.i = phi i32 [ 0, %74 ], [ %spec.select.i.i, %._crit_edge.i.loopexit.i ]
-  %86 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i15.i
+  %86 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i15.i
   %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = add i32 %87, %.026.lcssa.i.i
   store i32 %88, ptr %86, align 4, !tbaa !23
@@ -2384,7 +2384,7 @@ numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %7
   br i1 %.not22.i.i, label %rehash.exit, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i17.i
+  %98 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i17.i
   %99 = load i32, ptr %98, align 4, !tbaa !23
   %100 = add i32 %99, %.01927.i.i
   %.not23.i.i = icmp eq i32 %99, 0

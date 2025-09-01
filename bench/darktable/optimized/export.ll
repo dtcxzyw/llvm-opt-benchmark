@@ -1933,7 +1933,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
 14:                                               ; preds = %12
   %15 = add nsw i32 %.03752, 1
   %16 = sext i32 %.03752 to i64
-  %17 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr %3, i64 %16
   store i8 49, ptr %17, align 1, !tbaa !91
   br label %45
 
@@ -1949,7 +1949,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
 22:                                               ; preds = %21, %18
   %23 = add nsw i32 %.03752, 1
   %24 = sext i32 %.03752 to i64
-  %25 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr %3, i64 %24
   store i8 47, ptr %25, align 1, !tbaa !91
   br label %45
 
@@ -1971,7 +1971,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
   %or.cond = select i1 %31, i1 true, i1 %33
   %34 = add nsw i32 %.03752, 1
   %35 = sext i32 %.03752 to i64
-  %36 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %3, i64 %35
   br i1 %or.cond, label %37, label %38
 
 37:                                               ; preds = %30
@@ -1989,7 +1989,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr readnone captures(none)
 41:                                               ; preds = %39
   %42 = add nsw i32 %.03752, 1
   %43 = sext i32 %.03752 to i64
-  %44 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds i8, ptr %3, i64 %43
   store i8 %7, ptr %44, align 1, !tbaa !91
   br label %45
 

@@ -1666,9 +1666,9 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
   %212 = load ptr, ptr %.val52, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i32, ptr %213, align 4
-  %switch.tableidx538 = add i32 %214, -1
-  %215 = icmp ult i32 %switch.tableidx538, 4
-  br i1 %215, label %switch.lookup537, label %switch.lookup533
+  %switch.tableidx537 = add i32 %214, -1
+  %215 = icmp ult i32 %switch.tableidx537, 4
+  br i1 %215, label %switch.lookup538, label %switch.lookup533
 
 216:                                              ; preds = %204
   %217 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
@@ -1707,39 +1707,39 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
 
 switch.lookup:                                    ; preds = %4
   %227 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.CreateCommandTag, i64 0, i64 %227
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag, i64 %227
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup533
 
 switch.lookup527:                                 ; preds = %34
   %228 = zext nneg i32 %36 to i64
-  %switch.gep528 = getelementptr inbounds nuw [52 x i32], ptr @switch.table.CreateCommandTag.3, i64 0, i64 %228
+  %switch.gep528 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.3, i64 %228
   %switch.load529 = load i32, ptr %switch.gep528, align 4
   br label %switch.lookup533
 
 switch.lookup530:                                 ; preds = %138
   %229 = zext nneg i32 %140 to i64
-  %switch.gep531 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.CreateCommandTag.4, i64 0, i64 %229
+  %switch.gep531 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.4, i64 %229
   %switch.load532 = load i32, ptr %switch.gep531, align 4
   br label %switch.lookup533
 
 switch.lookup534:                                 ; preds = %192
   %230 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep535 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.CreateCommandTag.6, i64 0, i64 %230
+  %switch.gep535 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.6, i64 %230
   %switch.load536 = load i32, ptr %switch.gep535, align 4
   br label %switch.lookup533
 
-switch.lookup537:                                 ; preds = %210
-  %231 = zext nneg i32 %switch.tableidx538 to i64
-  %switch.gep539 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.CreateCommandTag.6, i64 0, i64 %231
+switch.lookup538:                                 ; preds = %210
+  %231 = zext nneg i32 %switch.tableidx537 to i64
+  %switch.gep539 = getelementptr inbounds nuw i32, ptr @switch.table.CreateCommandTag.6, i64 %231
   %switch.load540 = load i32, ptr %switch.gep539, align 4
   br label %switch.lookup533
 
 switch.lookup533.loopexit:                        ; preds = %tailrecurse, %tailrecurse
   br label %switch.lookup533
 
-switch.lookup533:                                 ; preds = %204, %186, %tailrecurse, %switch.lookup533.loopexit, %143, %210, %switch.lookup537, %192, %switch.lookup534, %138, %switch.lookup530, %34, %switch.lookup527, %4, %switch.lookup, %.loopexit417, %.loopexit297, %.loopexit179, %.loopexit, %222, %224, %207, %218, %216, %189, %200, %198, %128, %131, %123, %105, %90, %73, %135, %93, %94, %95, %96, %97, %98, %99, %100, %101, %76, %77, %78, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %142, %137, %136, %127, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %104, %103, %102, %89, %84, %79, %72, %68, %64, %60, %56, %52, %49, %41, %40, %39, %38, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %8
-  %.0 = phi i32 [ %., %8 ], [ %16, %12 ], [ 65, %17 ], [ 83, %18 ], [ 88, %19 ], [ 90, %20 ], [ 142, %21 ], [ 35, %22 ], [ 67, %23 ], [ 11, %24 ], [ 68, %25 ], [ 12, %26 ], [ 85, %27 ], [ 30, %28 ], [ 98, %29 ], [ 43, %30 ], [ 150, %31 ], [ 69, %32 ], [ 157, %33 ], [ 189, %38 ], [ 53, %39 ], [ 178, %40 ], [ 56, %41 ], [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ 9, %72 ], [ 0, %78 ], [ 23, %76 ], [ 26, %77 ], [ %83, %79 ], [ %88, %84 ], [ 8, %89 ], [ 0, %101 ], [ 74, %93 ], [ 97, %94 ], [ 93, %95 ], [ 92, %96 ], [ 94, %97 ], [ 91, %98 ], [ 61, %99 ], [ 58, %100 ], [ 97, %102 ], [ 42, %103 ], [ 99, %104 ], [ 71, %109 ], [ 82, %110 ], [ 84, %111 ], [ 29, %112 ], [ 109, %113 ], [ 64, %114 ], [ 7, %115 ], [ 116, %116 ], [ 165, %117 ], [ 159, %118 ], [ 190, %119 ], [ 160, %120 ], [ 47, %121 ], [ 52, %122 ], [ 153, %127 ], [ 0, %135 ], [ 169, %136 ], [ 33, %137 ], [ 187, %142 ], [ 95, %147 ], [ 96, %148 ], [ 66, %149 ], [ 10, %150 ], [ 72, %151 ], [ 80, %152 ], [ 25, %153 ], [ 133, %154 ], [ 129, %155 ], [ 168, %156 ], [ 161, %157 ], [ 186, %158 ], [ 48, %159 ], [ 170, %160 ], [ 63, %161 ], [ 60, %162 ], [ 75, %163 ], [ 76, %164 ], [ 21, %165 ], [ 19, %166 ], [ 37, %167 ], [ 36, %168 ], [ 77, %169 ], [ 22, %170 ], [ 58, %171 ], [ 79, %172 ], [ 24, %173 ], [ 87, %174 ], [ 32, %175 ], [ 140, %176 ], [ 4, %177 ], [ 166, %178 ], [ 152, %179 ], [ 86, %180 ], [ 31, %181 ], [ %.51, %182 ], [ 14, %73 ], [ 59, %90 ], [ %.48, %105 ], [ %.49, %123 ], [ %.50, %131 ], [ 73, %128 ], [ 179, %189 ], [ 0, %200 ], [ 0, %198 ], [ 179, %207 ], [ 0, %218 ], [ 0, %216 ], [ 0, %224 ], [ 0, %222 ], [ %.0.ph180, %.loopexit179 ], [ %.0.ph298, %.loopexit297 ], [ 163, %.loopexit417 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load529, %switch.lookup527 ], [ 0, %34 ], [ %switch.load532, %switch.lookup530 ], [ 0, %138 ], [ %switch.load536, %switch.lookup534 ], [ 179, %192 ], [ %switch.load540, %switch.lookup537 ], [ 0, %210 ], [ %spec.select, %143 ], [ 179, %switch.lookup533.loopexit ], [ 102, %tailrecurse ], [ 191, %204 ], [ 191, %186 ], [ 158, %.loopexit ]
+switch.lookup533:                                 ; preds = %204, %186, %tailrecurse, %switch.lookup533.loopexit, %143, %210, %switch.lookup538, %192, %switch.lookup534, %138, %switch.lookup530, %34, %switch.lookup527, %4, %switch.lookup, %.loopexit417, %.loopexit297, %.loopexit179, %.loopexit, %222, %224, %207, %218, %216, %189, %200, %198, %128, %131, %123, %105, %90, %73, %135, %93, %94, %95, %96, %97, %98, %99, %100, %101, %76, %77, %78, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %142, %137, %136, %127, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %104, %103, %102, %89, %84, %79, %72, %68, %64, %60, %56, %52, %49, %41, %40, %39, %38, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %8
+  %.0 = phi i32 [ %., %8 ], [ %16, %12 ], [ 65, %17 ], [ 83, %18 ], [ 88, %19 ], [ 90, %20 ], [ 142, %21 ], [ 35, %22 ], [ 67, %23 ], [ 11, %24 ], [ 68, %25 ], [ 12, %26 ], [ 85, %27 ], [ 30, %28 ], [ 98, %29 ], [ 43, %30 ], [ 150, %31 ], [ 69, %32 ], [ 157, %33 ], [ 189, %38 ], [ 53, %39 ], [ 178, %40 ], [ 56, %41 ], [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ 9, %72 ], [ 0, %78 ], [ 23, %76 ], [ 26, %77 ], [ %83, %79 ], [ %88, %84 ], [ 8, %89 ], [ 0, %101 ], [ 74, %93 ], [ 97, %94 ], [ 93, %95 ], [ 92, %96 ], [ 94, %97 ], [ 91, %98 ], [ 61, %99 ], [ 58, %100 ], [ 97, %102 ], [ 42, %103 ], [ 99, %104 ], [ 71, %109 ], [ 82, %110 ], [ 84, %111 ], [ 29, %112 ], [ 109, %113 ], [ 64, %114 ], [ 7, %115 ], [ 116, %116 ], [ 165, %117 ], [ 159, %118 ], [ 190, %119 ], [ 160, %120 ], [ 47, %121 ], [ 52, %122 ], [ 153, %127 ], [ 0, %135 ], [ 169, %136 ], [ 33, %137 ], [ 187, %142 ], [ 95, %147 ], [ 96, %148 ], [ 66, %149 ], [ 10, %150 ], [ 72, %151 ], [ 80, %152 ], [ 25, %153 ], [ 133, %154 ], [ 129, %155 ], [ 168, %156 ], [ 161, %157 ], [ 186, %158 ], [ 48, %159 ], [ 170, %160 ], [ 63, %161 ], [ 60, %162 ], [ 75, %163 ], [ 76, %164 ], [ 21, %165 ], [ 19, %166 ], [ 37, %167 ], [ 36, %168 ], [ 77, %169 ], [ 22, %170 ], [ 58, %171 ], [ 79, %172 ], [ 24, %173 ], [ 87, %174 ], [ 32, %175 ], [ 140, %176 ], [ 4, %177 ], [ 166, %178 ], [ 152, %179 ], [ 86, %180 ], [ 31, %181 ], [ %.51, %182 ], [ 14, %73 ], [ 59, %90 ], [ %.48, %105 ], [ %.49, %123 ], [ %.50, %131 ], [ 73, %128 ], [ 179, %189 ], [ 0, %200 ], [ 0, %198 ], [ 179, %207 ], [ 0, %218 ], [ 0, %216 ], [ 0, %224 ], [ 0, %222 ], [ %.0.ph180, %.loopexit179 ], [ %.0.ph298, %.loopexit297 ], [ 163, %.loopexit417 ], [ %switch.load, %switch.lookup ], [ 0, %4 ], [ %switch.load529, %switch.lookup527 ], [ 0, %34 ], [ %switch.load532, %switch.lookup530 ], [ 0, %138 ], [ %switch.load536, %switch.lookup534 ], [ 179, %192 ], [ %switch.load540, %switch.lookup538 ], [ 0, %210 ], [ %spec.select, %143 ], [ 179, %switch.lookup533.loopexit ], [ 102, %tailrecurse ], [ 191, %204 ], [ 191, %186 ], [ 158, %.loopexit ]
   ret i32 %.0
 }
 
@@ -3135,7 +3135,7 @@ define internal fastcc range(i32 0, 45) i32 @AlterObjectTypeCommandTag(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [51 x i32], ptr @switch.table.AlterObjectTypeCommandTag, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.AlterObjectTypeCommandTag, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

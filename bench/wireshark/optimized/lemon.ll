@@ -2014,7 +2014,7 @@ define hidden void @Configlist_sortbasis() local_unnamed_addr #8 {
 5:                                                ; preds = %merge.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %merge.exit.i ]
   %.02858.i = phi ptr [ %.03161.i, %.lr.ph.i ], [ %.038.i.i, %merge.exit.i ]
-  %6 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %.not35.i = icmp eq ptr %7, null
   br i1 %.not35.i, label %.critedge.i, label %8
@@ -2128,7 +2128,7 @@ merge.exit.i:                                     ; preds = %56, %30
   %.028.lcssa.i = phi ptr [ %.038.i.i, %merge.exit.i ], [ %.02858.i, %5 ]
   %.1.lcssa.i = phi i64 [ 29, %merge.exit.i ], [ %indvars.iv.i, %5 ]
   %61 = and i64 %.1.lcssa.i, 4294967295
-  %62 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %61
+  %62 = getelementptr ptr, ptr %1, i64 %61
   store ptr %.028.lcssa.i, ptr %62, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !45
@@ -2139,7 +2139,7 @@ merge.exit.i:                                     ; preds = %56, %30
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %merge.exit53.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %merge.exit53.i ], [ 0, %.preheader.i.preheader ]
   %.12962.i = phi ptr [ %.230.i, %merge.exit53.i ], [ null, %.preheader.i.preheader ]
-  %63 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %indvars.iv67.i
+  %63 = getelementptr ptr, ptr %1, i64 %indvars.iv67.i
   %64 = load ptr, ptr %63, align 8
   %.not34.i = icmp eq ptr %64, null
   br i1 %.not34.i, label %merge.exit53.i, label %65
@@ -2962,7 +2962,7 @@ define hidden void @Configlist_sort() local_unnamed_addr #8 {
 5:                                                ; preds = %merge.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %merge.exit.i ]
   %.02858.i = phi ptr [ %.03161.i, %.lr.ph.i ], [ %.038.i.i, %merge.exit.i ]
-  %6 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %.not35.i = icmp eq ptr %7, null
   br i1 %.not35.i, label %.critedge.i, label %8
@@ -3076,7 +3076,7 @@ merge.exit.i:                                     ; preds = %56, %30
   %.028.lcssa.i = phi ptr [ %.038.i.i, %merge.exit.i ], [ %.02858.i, %5 ]
   %.1.lcssa.i = phi i64 [ 29, %merge.exit.i ], [ %indvars.iv.i, %5 ]
   %61 = and i64 %.1.lcssa.i, 4294967295
-  %62 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %61
+  %62 = getelementptr ptr, ptr %1, i64 %61
   store ptr %.028.lcssa.i, ptr %62, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !45
@@ -3087,7 +3087,7 @@ merge.exit.i:                                     ; preds = %56, %30
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %merge.exit53.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %merge.exit53.i ], [ 0, %.preheader.i.preheader ]
   %.12962.i = phi ptr [ %.230.i, %merge.exit53.i ], [ null, %.preheader.i.preheader ]
-  %63 = getelementptr [30 x ptr], ptr %1, i64 0, i64 %indvars.iv67.i
+  %63 = getelementptr ptr, ptr %1, i64 %indvars.iv67.i
   %64 = load ptr, ptr %63, align 8
   %.not34.i = icmp eq ptr %64, null
   br i1 %.not34.i, label %merge.exit53.i, label %65
@@ -4885,7 +4885,7 @@ define internal fastcc ptr @Action_sort(ptr noundef %0) unnamed_addr #8 {
 5:                                                ; preds = %merge.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %merge.exit.i ]
   %.02858.i = phi ptr [ %.03161.i, %.lr.ph.i ], [ %.038.i.i, %merge.exit.i ]
-  %6 = getelementptr [30 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr ptr, ptr %2, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %.not35.i = icmp eq ptr %7, null
   br i1 %.not35.i, label %.critedge.i, label %8
@@ -5055,7 +5055,7 @@ merge.exit.i:                                     ; preds = %92, %48
   %.028.lcssa.i = phi ptr [ %.038.i.i, %merge.exit.i ], [ %.02858.i, %5 ]
   %.1.lcssa.i = phi i64 [ 29, %merge.exit.i ], [ %indvars.iv.i, %5 ]
   %97 = and i64 %.1.lcssa.i, 4294967295
-  %98 = getelementptr [30 x ptr], ptr %2, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr %2, i64 %97
   store ptr %.028.lcssa.i, ptr %98, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !45
@@ -5066,7 +5066,7 @@ merge.exit.i:                                     ; preds = %92, %48
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %merge.exit53.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %merge.exit53.i ], [ 0, %.preheader.i.preheader ]
   %.12962.i = phi ptr [ %.230.i, %merge.exit53.i ], [ null, %.preheader.i.preheader ]
-  %99 = getelementptr [30 x ptr], ptr %2, i64 0, i64 %indvars.iv67.i
+  %99 = getelementptr ptr, ptr %2, i64 %indvars.iv67.i
   %100 = load ptr, ptr %99, align 8
   %.not34.i = icmp eq ptr %100, null
   br i1 %.not34.i, label %merge.exit53.i, label %101
@@ -6309,7 +6309,7 @@ Symbol_arrayof.exit.._crit_edge_crit_edge:        ; preds = %Symbol_arrayof.exit
 240:                                              ; preds = %Rule_merge.exit.thread.i, %.lr.ph.i67
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.i67 ], [ %indvars.iv.next.i71, %Rule_merge.exit.thread.i ]
   %.148.i = phi ptr [ %.050.i, %.lr.ph.i67 ], [ %.0..0..0..0..0..0..0..0..i.i, %Rule_merge.exit.thread.i ]
-  %241 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.i68
+  %241 = getelementptr ptr, ptr %5, i64 %indvars.iv.i68
   %242 = load ptr, ptr %241, align 8
   %.not21.i = icmp eq ptr %242, null
   br i1 %.not21.i, label %.critedge.i, label %243
@@ -6371,7 +6371,7 @@ Rule_merge.exit.thread.i:                         ; preds = %Rule_merge.exit.i, 
 .critedge.i:                                      ; preds = %Rule_merge.exit.thread.i, %240
   %.1.lcssa.i = phi ptr [ %.0..0..0..0..0..0..0..0..i.i, %Rule_merge.exit.thread.i ], [ %.148.i, %240 ]
   %.lcssa46.i = phi i64 [ 31, %Rule_merge.exit.thread.i ], [ %indvars.iv.i68, %240 ]
-  %260 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %.lcssa46.i
+  %260 = getelementptr ptr, ptr %5, i64 %.lcssa46.i
   store ptr %.1.lcssa.i, ptr %260, align 8
   %.not.i73 = icmp eq ptr %239, null
   br i1 %.not.i73, label %.preheader.i74.preheader, label %.lr.ph.i67, !llvm.loop !101
@@ -6382,7 +6382,7 @@ Rule_merge.exit.thread.i:                         ; preds = %Rule_merge.exit.i, 
 .preheader.i74:                                   ; preds = %.preheader.i74.preheader, %Rule_merge.exit35.i
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %Rule_merge.exit35.i ], [ 0, %.preheader.i74.preheader ]
   %.252.i = phi ptr [ %.0..0..0..0..0..0..0..0..i27.i, %Rule_merge.exit35.i ], [ null, %.preheader.i74.preheader ]
-  %261 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv55.i
+  %261 = getelementptr ptr, ptr %5, i64 %indvars.iv55.i
   %262 = load ptr, ptr %261, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -8706,12 +8706,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 .lr.ph.i215:                                      ; preds = %505, %529
   %indvars.iv.i216 = phi i64 [ %indvars.iv.next.i217, %529 ], [ 0, %505 ]
-  %513 = getelementptr [1000 x ptr], ptr %175, i64 0, i64 %indvars.iv.i216
+  %513 = getelementptr ptr, ptr %175, i64 %indvars.iv.i216
   %514 = load ptr, ptr %513, align 8
   %515 = load ptr, ptr %509, align 8
   %516 = getelementptr ptr, ptr %515, i64 %indvars.iv.i216
   store ptr %514, ptr %516, align 8
-  %517 = getelementptr [1000 x ptr], ptr %173, i64 0, i64 %indvars.iv.i216
+  %517 = getelementptr ptr, ptr %173, i64 %indvars.iv.i216
   %518 = load ptr, ptr %517, align 8
   %519 = load ptr, ptr %511, align 8
   %520 = getelementptr ptr, ptr %519, i64 %indvars.iv.i216
@@ -8816,11 +8816,11 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %572 = call ptr @Symbol_new(ptr noundef %333)
   %573 = load i32, ptr %174, align 8
   %574 = sext i32 %573 to i64
-  %575 = getelementptr [1000 x ptr], ptr %175, i64 0, i64 %574
+  %575 = getelementptr ptr, ptr %175, i64 %574
   store ptr %572, ptr %575, align 8
   %576 = load i32, ptr %174, align 8
   %577 = sext i32 %576 to i64
-  %578 = getelementptr [1000 x ptr], ptr %173, i64 0, i64 %577
+  %578 = getelementptr ptr, ptr %173, i64 %577
   store ptr null, ptr %578, align 8
   %579 = load i32, ptr %174, align 8
   %580 = add i32 %579, 1
@@ -8850,9 +8850,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %.not577.i, label %.thread604.i, label %592
 
 592:                                              ; preds = %585
-  %593 = add nsw i32 %583, -1
-  %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr [1000 x ptr], ptr %175, i64 0, i64 %594
+  %593 = zext nneg i32 %583 to i64
+  %594 = getelementptr ptr, ptr %175, i64 %593
+  %595 = getelementptr i8, ptr %594, i64 -8
   %596 = load ptr, ptr %595, align 8
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 12
   %598 = load i32, ptr %597, align 4
@@ -8963,7 +8963,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %657 = load i32, ptr %174, align 8
   %658 = add i32 %657, -1
   %659 = sext i32 %658 to i64
-  %660 = getelementptr [1000 x ptr], ptr %173, i64 0, i64 %659
+  %660 = getelementptr ptr, ptr %173, i64 %659
   store ptr %333, ptr %660, align 8
   store i32 11, ptr %9, align 8
   br label %parseonetoken.exit
@@ -8974,7 +8974,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %664 = load i32, ptr %174, align 8
   %665 = add i32 %664, -1
   %666 = sext i32 %665 to i64
-  %667 = getelementptr [1000 x ptr], ptr %175, i64 0, i64 %666
+  %667 = getelementptr ptr, ptr %175, i64 %666
   %668 = load ptr, ptr %667, align 8
   %669 = load ptr, ptr %668, align 8
   call void (ptr, i32, ptr, ...) @ErrorMsg(ptr noundef %662, i32 noundef %663, ptr noundef nonnull @.str.295, ptr noundef %333, ptr noundef %669)
@@ -15070,14 +15070,14 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %141 = or disjoint i8 %140, 48
   %142 = sext i32 %138 to i64
   %143 = sub nsw i64 50, %142
-  %144 = getelementptr [50 x i8], ptr %3, i64 0, i64 %143
+  %144 = getelementptr i8, ptr %3, i64 %143
   store i8 %141, ptr %144, align 1
   %145 = udiv i32 %.1265.i, 10
   %.not.i = icmp samesign ult i32 %.1265.i, 10
   br i1 %.not.i, label %._crit_edge268.i, label %.lr.ph267.i, !llvm.loop !212
 
 ._crit_edge268.i:                                 ; preds = %.lr.ph267.i
-  %146 = getelementptr [50 x i8], ptr %3, i64 0, i64 %143
+  %146 = getelementptr i8, ptr %3, i64 %143
   %147 = icmp slt i32 %138, 0
   br i1 %147, label %.preheader.i124.i, label %.loopexit.i113.i
 
@@ -15681,7 +15681,7 @@ define hidden void @tplt_xfer(ptr noundef %0, ptr noundef captures(none) %1, ptr
 
 27:                                               ; preds = %25
   %28 = sext i32 %.020 to i64
-  %29 = getelementptr [1000 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr i8, ptr %5, i64 %28
   %30 = call i32 @strncmp(ptr noundef %29, ptr noundef nonnull dereferenceable(6) @.str.127, i64 noundef 5) #45
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %56
@@ -15695,7 +15695,7 @@ define hidden void @tplt_xfer(ptr noundef %0, ptr noundef captures(none) %1, ptr
   %36 = load ptr, ptr %35, align 8
   %37 = add i32 %.020, -1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [1000 x i8], ptr %5, i64 0, i64 %38
+  %39 = getelementptr i8, ptr %5, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = getelementptr i16, ptr %36, i64 %41
@@ -15711,7 +15711,7 @@ define hidden void @tplt_xfer(ptr noundef %0, ptr noundef captures(none) %1, ptr
 47:                                               ; preds = %45
   %48 = sub i32 %.020, %.1
   %49 = sext i32 %.1 to i64
-  %50 = getelementptr [1000 x i8], ptr %5, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %5, i64 %49
   %51 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.128, i32 noundef %48, ptr noundef %50)
   br label %52
 
@@ -15726,13 +15726,13 @@ define hidden void @tplt_xfer(ptr noundef %0, ptr noundef captures(none) %1, ptr
   %.2 = phi i32 [ %55, %52 ], [ %.1, %34 ], [ %.1, %27 ], [ %.1, %25 ]
   %57 = add i32 %.121, 1
   %.phi.trans.insert = sext i32 %57 to i64
-  %.phi.trans.insert30 = getelementptr [1000 x i8], ptr %5, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert30 = getelementptr i8, ptr %5, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert30, align 1
   br label %25, !llvm.loop !215
 
 .loopexit:                                        ; preds = %25
   %58 = sext i32 %.1 to i64
-  %59 = getelementptr [1000 x i8], ptr %5, i64 0, i64 %58
+  %59 = getelementptr i8, ptr %5, i64 %58
   %60 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.84, ptr noundef %59)
   %61 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef %1)
   %.not = icmp eq ptr %61, null
@@ -16747,7 +16747,7 @@ append_str.exit222:                               ; preds = %97, %102
   br label %195
 
 195:                                              ; preds = %176, %191, %164
-  %196 = getelementptr [1000 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %196 = getelementptr i8, ptr %3, i64 %indvars.iv
   store i8 1, ptr %196, align 1
   br label %.loopexit260
 
@@ -16934,7 +16934,7 @@ append_str.exit228:                               ; preds = %append_str.exit225,
   br i1 %exitcond304.not, label %.loopexit, label %264, !llvm.loop !223
 
 .loopexit:                                        ; preds = %276, %271, %247
-  %277 = getelementptr [1000 x i8], ptr %3, i64 0, i64 %indvars.iv305
+  %277 = getelementptr i8, ptr %3, i64 %indvars.iv305
   %278 = load i8, ptr %277, align 1
   %.not205 = icmp eq i8 %278, 0
   br i1 %.not205, label %279, label %309

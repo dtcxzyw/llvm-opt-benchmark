@@ -206,7 +206,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @lean_array_uget(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds nuw [0 x ptr], ptr %3, i64 0, i64 %1
+  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %1
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1
@@ -15821,7 +15821,7 @@ lean_inc.exit293:                                 ; preds = %33, %32, %30, %21
 
 lean_dec.exit312:                                 ; preds = %42, %41, %39, %lean_inc.exit293
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %23
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %23
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
@@ -16733,7 +16733,7 @@ lean_inc.exit278:                                 ; preds = %379, %378, %376, %l
 
 lean_dec.exit300:                                 ; preds = %386, %385, %383, %lean_inc.exit278
   %387 = getelementptr inbounds nuw i8, ptr %371, i64 24
-  %388 = getelementptr inbounds nuw [0 x ptr], ptr %387, i64 0, i64 %369
+  %388 = getelementptr inbounds nuw ptr, ptr %387, i64 %369
   %389 = load ptr, ptr %388, align 8, !tbaa !4
   %390 = ptrtoint ptr %389 to i64
   %391 = and i64 %390, 1
@@ -17851,7 +17851,7 @@ lean_dec.exit1043:                                ; preds = %lean_inc.exit985, %
   %81 = add nsw i64 %75, -1
   %82 = and i64 %80, %81
   %83 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %84 = getelementptr inbounds nuw [0 x ptr], ptr %83, i64 0, i64 %82
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !4
   %86 = ptrtoint ptr %85 to i64
   %87 = and i64 %86, 1
@@ -20999,7 +20999,7 @@ lean_dec.exit1001:                                ; preds = %lean_inc.exit946, %
   %1333 = add nsw i64 %1327, -1
   %1334 = and i64 %1332, %1333
   %1335 = getelementptr inbounds nuw i8, ptr %1310, i64 24
-  %1336 = getelementptr inbounds nuw [0 x ptr], ptr %1335, i64 0, i64 %1334
+  %1336 = getelementptr inbounds nuw ptr, ptr %1335, i64 %1334
   %1337 = load ptr, ptr %1336, align 8, !tbaa !4
   %1338 = ptrtoint ptr %1337 to i64
   %1339 = and i64 %1338, 1
@@ -21334,7 +21334,7 @@ lean_dec.exit997:                                 ; preds = %1450, %1453, %1455,
   %1459 = add nsw i64 %1458, -1
   %1460 = and i64 %1459, %1332
   %1461 = getelementptr inbounds nuw i8, ptr %1440, i64 24
-  %1462 = getelementptr inbounds nuw [0 x ptr], ptr %1461, i64 0, i64 %1460
+  %1462 = getelementptr inbounds nuw ptr, ptr %1461, i64 %1460
   %1463 = load ptr, ptr %1462, align 8, !tbaa !4
   %1464 = ptrtoint ptr %1463 to i64
   %1465 = and i64 %1464, 1
@@ -35827,7 +35827,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_Deriving_Inhabited_0
   %.01740 = phi i64 [ %31, %47 ], [ %2, %4 ]
   %.01939 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01740
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01740
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -51926,7 +51926,7 @@ lean_inc.exit490:                                 ; preds = %116, %115, %113, %l
 
 lean_dec.exit562:                                 ; preds = %125, %124, %122, %lean_inc.exit490
   %126 = lshr i64 %34, 1
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw ptr, ptr %19, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !4
   %129 = ptrtoint ptr %128 to i64
   %130 = and i64 %129, 1
@@ -69902,7 +69902,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_mkInhabitedInstanceHandler_
   br label %lean_dec.exit68
 
 lean_dec.exit68:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.046126
+  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %.046126
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1
@@ -70511,7 +70511,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_mkInhabitedInstanceHandler___s
 8:                                                ; preds = %.lr.ph, %105
   %.04595 = phi i64 [ %1, %.lr.ph ], [ %106, %105 ]
   %.04894 = phi ptr [ %5, %.lr.ph ], [ %81, %105 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.04595
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04595
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1

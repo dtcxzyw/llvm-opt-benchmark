@@ -1708,7 +1708,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_TokenizeTo
   %6 = phi i8 [ %10, %.lr.ph ], [ %5, %3 ]
   %.030 = phi ptr [ %9, %.lr.ph ], [ %1, %3 ]
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   store i8 1, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %10 = load i8, ptr %9, align 1
@@ -1775,7 +1775,7 @@ _ZNSt6vectorISt4pairIPKcS2_ESaIS3_EE7reserveEm.exit: ; preds = %._crit_edge, %_Z
   %storemerge31 = phi ptr [ %31, %.lr.ph32 ], [ %75, %74 ]
   %35 = load i8, ptr %storemerge31, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   %38 = load i8, ptr %37, align 1
   %.not16 = icmp eq i8 %38, 0
   br i1 %.not16, label %39, label %74
@@ -1864,7 +1864,7 @@ _ZNSt6vectorISt4pairIPKcS2_ESaIS3_EE9push_backEOS3_.exit: ; preds = %42, %_ZNSt6
 67:                                               ; preds = %66
   %68 = load i8, ptr %storemerge17, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %69
   %71 = load i8, ptr %70, align 1
   %.not19 = icmp eq i8 %71, 0
   br i1 %.not19, label %66, label %72, !llvm.loop !31

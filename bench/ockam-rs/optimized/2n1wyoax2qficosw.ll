@@ -6060,7 +6060,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .lr.ph.i.i:                                       ; preds = %79, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529.exit.i.i"
   %.07.i.i = phi i64 [ %86, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529.exit.i.i" ], [ 0, %79 ]
-  %85 = getelementptr inbounds [0 x { ptr, ptr }], ptr %82, i64 0, i64 %.07.i.i
+  %85 = getelementptr inbounds { ptr, ptr }, ptr %82, i64 %.07.i.i
   %86 = add nuw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1560)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1563)
@@ -6089,7 +6089,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %92
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds [0 x { ptr, ptr }], ptr %82, i64 0, i64 %.1.i.i
+  %97 = getelementptr inbounds { ptr, ptr }, ptr %82, i64 %.1.i.i
   %98 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529"(ptr noalias noundef nonnull align 8 dereferenceable(16) %97) #33
           to label %92 unwind label %99, !noalias !1544
@@ -6109,7 +6109,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
 
 .lr.ph.i13.i:                                     ; preds = %101, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529.exit.i15.i"
   %.07.i14.i = phi i64 [ %107, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529.exit.i15.i" ], [ 0, %101 ]
-  %106 = getelementptr inbounds [0 x { ptr, ptr }], ptr %104, i64 0, i64 %.07.i14.i
+  %106 = getelementptr inbounds { ptr, ptr }, ptr %104, i64 %.07.i14.i
   %107 = add nuw i64 %.07.i14.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1570)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
@@ -6138,7 +6138,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10re
   br label %113
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds [0 x { ptr, ptr }], ptr %104, i64 0, i64 %.1.i16.i
+  %118 = getelementptr inbounds { ptr, ptr }, ptr %104, i64 %.1.i16.i
   %119 = add i64 %.1.i16.i, 1
   invoke void @"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.3062767651664570529"(ptr noalias noundef nonnull align 8 dereferenceable(16) %118) #33
           to label %113 unwind label %120, !noalias !1544
@@ -6172,7 +6172,7 @@ common.resume.i:                                  ; preds = %132, %113, %.body.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr176drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17h9d29e4bd183606b6E.exit.i", %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.8848114157358331746.exit.i.i.i.i"
   %.07.i.i.i.i = phi i64 [ %126, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.8848114157358331746.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr176drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17h9d29e4bd183606b6E.exit.i" ]
-  %125 = getelementptr inbounds [0 x { ptr, ptr }], ptr %122, i64 0, i64 %.07.i.i.i.i
+  %125 = getelementptr inbounds { ptr, ptr }, ptr %122, i64 %.07.i.i.i.i
   %126 = add nuw i64 %.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1587)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1590)
@@ -6201,7 +6201,7 @@ common.resume.i:                                  ; preds = %132, %113, %.body.i
   br label %132
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds [0 x { ptr, ptr }], ptr %122, i64 0, i64 %.1.i.i.i.i
+  %137 = getelementptr inbounds { ptr, ptr }, ptr %122, i64 %.1.i.i.i.i
   %138 = add i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h1cbe4d117d12aeb3E.llvm.8848114157358331746"(ptr noalias noundef nonnull align 8 dereferenceable(16) %137) #33
           to label %132 unwind label %139, !noalias !1596
@@ -7394,7 +7394,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
 
 .lr.ph.i:                                         ; preds = %27, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529.exit.i"
   %.07.i = phi i64 [ %34, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529.exit.i" ], [ 0, %27 ]
-  %33 = getelementptr inbounds [0 x { ptr, ptr }], ptr %30, i64 0, i64 %.07.i
+  %33 = getelementptr inbounds { ptr, ptr }, ptr %30, i64 %.07.i
   %34 = add nuw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1679)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1682)
@@ -7423,7 +7423,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
   br label %40
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds [0 x { ptr, ptr }], ptr %30, i64 0, i64 %.1.i
+  %45 = getelementptr inbounds { ptr, ptr }, ptr %30, i64 %.1.i
   %46 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529"(ptr noalias noundef nonnull align 8 dereferenceable(16) %45) #33
           to label %40 unwind label %47
@@ -7443,7 +7443,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
 
 .lr.ph.i13:                                       ; preds = %49, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529.exit.i15"
   %.07.i14 = phi i64 [ %55, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529.exit.i15" ], [ 0, %49 ]
-  %54 = getelementptr inbounds [0 x { ptr, ptr }], ptr %52, i64 0, i64 %.07.i14
+  %54 = getelementptr inbounds { ptr, ptr }, ptr %52, i64 %.07.i14
   %55 = add nuw i64 %.07.i14, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1689)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1692)
@@ -7472,7 +7472,7 @@ define internal fastcc void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$
   br label %61
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds [0 x { ptr, ptr }], ptr %52, i64 0, i64 %.1.i16
+  %66 = getelementptr inbounds { ptr, ptr }, ptr %52, i64 %.1.i16
   %67 = add i64 %.1.i16, 1
   invoke void @"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.3062767651664570529"(ptr noalias noundef nonnull align 8 dereferenceable(16) %66) #33
           to label %61 unwind label %68
@@ -7506,7 +7506,7 @@ common.resume:                                    ; preds = %80, %61, %.body
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr256drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17h757def45358ddb65E.exit", %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.8848114157358331746.exit.i.i.i"
   %.07.i.i.i = phi i64 [ %74, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.8848114157358331746.exit.i.i.i" ], [ 0, %"_ZN4core3ptr256drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17h757def45358ddb65E.exit" ]
-  %73 = getelementptr inbounds [0 x { ptr, ptr }], ptr %70, i64 0, i64 %.07.i.i.i
+  %73 = getelementptr inbounds { ptr, ptr }, ptr %70, i64 %.07.i.i.i
   %74 = add nuw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1709)
@@ -7535,7 +7535,7 @@ common.resume:                                    ; preds = %80, %61, %.body
   br label %80
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds [0 x { ptr, ptr }], ptr %70, i64 0, i64 %.1.i.i.i
+  %85 = getelementptr inbounds { ptr, ptr }, ptr %70, i64 %.1.i.i.i
   %86 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h5d1757281f3cf6ceE.llvm.8848114157358331746"(ptr noalias noundef nonnull align 8 dereferenceable(16) %85) #33
           to label %80 unwind label %87, !noalias !1699
@@ -8897,7 +8897,7 @@ _ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.3062767651664570529.exit: 
   unreachable
 
 _ZN6chrono5naive4date9NaiveDate5month17h6dfa64ec228a616bE.exit: ; preds = %_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.3062767651664570529.exit
-  %64 = getelementptr inbounds nuw [733 x i8], ptr @anon.6cc55d8e417fc23aecc80a8df6016d01.73, i64 0, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr @anon.6cc55d8e417fc23aecc80a8df6016d01.73, i64 %61
   %65 = load i8, ptr %64, align 1, !noundef !5
   %66 = zext i8 %65 to i32
   %67 = add nuw nsw i32 %60, %66

@@ -239,7 +239,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %127 = tail call i32 @llvm.umin.i32(i32 %6, i32 %126)
   store i32 %127, ptr %3, align 8, !tbaa !9
   %128 = zext nneg i32 %125 to i64
-  %129 = getelementptr inbounds nuw [4 x i8], ptr @center_levels, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @center_levels, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !4
   %131 = zext i8 %130 to i32
   store i32 %131, ptr %42, align 8, !tbaa !23
@@ -263,7 +263,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %144 = tail call i32 @llvm.umin.i32(i32 %6, i32 %143)
   store i32 %144, ptr %3, align 8, !tbaa !9
   %145 = zext nneg i32 %142 to i64
-  %146 = getelementptr inbounds nuw [4 x i8], ptr @surround_levels, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @surround_levels, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !4
   %148 = zext i8 %147 to i32
   store i32 %148, ptr %43, align 4, !tbaa !24
@@ -290,7 +290,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 %spec.select, ptr %163, align 4, !tbaa !31
   %164 = zext nneg i32 %56 to i64
-  %165 = getelementptr inbounds nuw [0 x i32], ptr @ff_ac3_sample_rate_tab, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr @ff_ac3_sample_rate_tab, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !32
   %167 = zext nneg i8 %spec.select to i32
   %168 = ashr i32 %166, %167
@@ -298,7 +298,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i16 %169, ptr %170, align 2, !tbaa !33
   %171 = zext nneg i32 %75 to i64
-  %172 = getelementptr inbounds nuw [19 x i16], ptr @ff_ac3_bitrate_tab, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i16, ptr @ff_ac3_bitrate_tab, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !34
   %174 = zext i16 %173 to i32
   %175 = mul nuw nsw i32 %174, 1000
@@ -306,14 +306,14 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %176, ptr %177, align 8, !tbaa !35
   %178 = zext nneg i32 %98 to i64
-  %179 = getelementptr inbounds nuw [8 x i8], ptr @ff_ac3_channels_tab, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr @ff_ac3_channels_tab, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !4
   %181 = add i8 %180, %161
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i8 %181, ptr %182, align 4, !tbaa !36
   %183 = zext nneg i32 %70 to i64
-  %184 = getelementptr inbounds nuw [38 x [3 x i16]], ptr @ff_ac3_frame_size_tab, i64 0, i64 %183
-  %185 = getelementptr inbounds nuw [3 x i16], ptr %184, i64 0, i64 %164
+  %184 = getelementptr inbounds nuw [3 x i16], ptr @ff_ac3_frame_size_tab, i64 %183
+  %185 = getelementptr inbounds nuw i16, ptr %184, i64 %164
   %186 = load i16, ptr %185, align 2, !tbaa !34
   %187 = shl i16 %186, 1
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 46
@@ -408,7 +408,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
 
 252:                                              ; preds = %251
   %253 = zext nneg i32 %248 to i64
-  %254 = getelementptr inbounds nuw [0 x i32], ptr @ff_ac3_sample_rate_tab, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i32, ptr @ff_ac3_sample_rate_tab, i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !32
   %256 = sdiv i32 %255, 2
   %257 = trunc i32 %256 to i16
@@ -420,12 +420,12 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
 
 260:                                              ; preds = %227
   %261 = zext nneg i32 %248 to i64
-  %262 = getelementptr inbounds nuw [4 x i8], ptr @eac3_blocks, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr @eac3_blocks, i64 %261
   %263 = load i8, ptr %262, align 1, !tbaa !4
   %264 = zext i8 %263 to i32
   store i32 %264, ptr %40, align 4, !tbaa !21
   %265 = zext nneg i32 %235 to i64
-  %266 = getelementptr inbounds nuw [0 x i32], ptr @ff_ac3_sample_rate_tab, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i32, ptr @ff_ac3_sample_rate_tab, i64 %265
   %267 = load i32, ptr %266, align 4, !tbaa !32
   %268 = trunc i32 %267 to i16
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 38
@@ -475,7 +475,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %302, ptr %303, align 8, !tbaa !35
   %304 = zext nneg i32 %282 to i64
-  %305 = getelementptr inbounds nuw [8 x i8], ptr @ff_ac3_channels_tab, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw i8, ptr @ff_ac3_channels_tab, i64 %304
   %306 = load i8, ptr %305, align 1, !tbaa !4
   %307 = add i8 %306, %297
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -486,7 +486,7 @@ define range(i32 -84085770, 1) i32 @ff_ac3_parse_header(ptr noundef captures(non
   %310 = phi i8 [ %297, %272 ], [ %161, %149 ]
   %311 = phi i8 [ %285, %272 ], [ %101, %149 ]
   %312 = zext nneg i8 %311 to i64
-  %313 = getelementptr inbounds nuw [8 x i16], ptr @ff_ac3_channel_layout_tab, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i16, ptr @ff_ac3_channel_layout_tab, i64 %312
   %314 = load i16, ptr %313, align 2, !tbaa !34
   %315 = zext i16 %314 to i64
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 48

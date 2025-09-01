@@ -294,7 +294,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit8:      ; preds = %39, %45, %48
 
 57:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %56, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %56, i64 %indvars.iv.i
   %59 = load double, ptr %58, align 8
   %60 = fneg double %59
   store double %60, ptr %58, align 8
@@ -335,11 +335,11 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit8:      ; preds = %39, %45, %48
 
 71:                                               ; preds = %71, %67
   %indvars.iv36.i = phi i64 [ 0, %67 ], [ %indvars.iv.next37.i, %71 ]
-  %72 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %69, i64 0, i64 %indvars.iv36.i
+  %72 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %69, i64 %indvars.iv36.i
   %73 = load double, ptr %72, align 8
   %74 = fadd double %66, %73
   store double %74, ptr %72, align 8
-  %75 = getelementptr inbounds nuw [3 x ptr], ptr %70, i64 0, i64 %indvars.iv36.i
+  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv36.i
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store double %74, ptr %77, align 8
@@ -1287,7 +1287,7 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE11lower_boundERS3_.exit.i: ; preds = %21
 
 257:                                              ; preds = %253, %257
   %indvars.iv = phi i64 [ 0, %253 ], [ %indvars.iv.next, %257 ]
-  %258 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %255, i64 0, i64 %indvars.iv
+  %258 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %255, i64 %indvars.iv
   %259 = load double, ptr %258, align 8
   %260 = call noundef double @sin(double noundef %245) #21
   %261 = call noundef double @cos(double noundef %245) #21
@@ -1301,7 +1301,7 @@ _ZNKSt3mapIibSt4lessIiESaISt4pairIKibEEE11lower_boundERS3_.exit.i: ; preds = %21
   %268 = fmul double %261, %264
   %269 = call double @llvm.fmuladd.f64(double %259, double %260, double %268)
   store double %269, ptr %263, align 8
-  %270 = getelementptr inbounds nuw [3 x ptr], ptr %256, i64 0, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false)
@@ -3146,7 +3146,7 @@ define void @_Z11TrimTextureR4MeshRSt6vectorI11TextureSizeSaIS2_EEb(ptr noundef 
   %.sroa.25.1161 = phi double [ %.sroa.25.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %.sroa.25.0168, %.preheader156.preheader ]
   %.sroa.13.1160 = phi double [ %.sroa.13.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %.sroa.13.0167, %.preheader156.preheader ]
   %.sroa.0123.1159 = phi double [ %.sroa.0123.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %.sroa.0123.0166, %.preheader156.preheader ]
-  %35 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %12, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %12, i64 %indvars.iv
   %36 = fcmp ogt double %.sroa.0123.1159, %.sroa.25.1161
   %37 = fcmp ogt double %.sroa.13.1160, %.sroa.39.1162
   %38 = select i1 %36, i1 true, i1 %37
@@ -3337,7 +3337,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
 
 132:                                              ; preds = %.preheader154, %132
   %indvars.iv201 = phi i64 [ 0, %.preheader154 ], [ %indvars.iv.next202, %132 ]
-  %133 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %108, i64 0, i64 %indvars.iv201
+  %133 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %108, i64 %indvars.iv201
   %134 = load double, ptr %133, align 8
   %135 = fsub double %134, %105
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -3347,7 +3347,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   store double %139, ptr %133, align 8
   %140 = fmul double %104, %138
   store double %140, ptr %136, align 8
-  %141 = getelementptr inbounds nuw [3 x ptr], ptr %131, i64 0, i64 %indvars.iv201
+  %141 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv201
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %133, i64 16, i1 false)
@@ -3414,7 +3414,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %.sroa.5.1181 = phi double [ %.sroa.5.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.5.0187, %.preheader.preheader ]
   %.sroa.9.1180 = phi double [ %.sroa.9.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.9.0186, %.preheader.preheader ]
   %.sroa.15.1179 = phi double [ %.sroa.15.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.15.0185, %.preheader.preheader ]
-  %169 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %146, i64 0, i64 %indvars.iv205
+  %169 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %146, i64 %indvars.iv205
   %170 = fcmp ogt double %.sroa.090.1182, %.sroa.9.1180
   %171 = fcmp ogt double %.sroa.5.1181, %.sroa.15.1179
   %172 = select i1 %170, i1 true, i1 %171

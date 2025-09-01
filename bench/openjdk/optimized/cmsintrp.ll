@@ -255,10 +255,10 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw [15 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %24 = add i32 %22, -1
-  %25 = getelementptr inbounds nuw [15 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -281,7 +281,7 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef readonl
   %30 = getelementptr inbounds nuw i32, ptr %1, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = mul i32 %31, %28
-  %33 = getelementptr inbounds nuw [15 x i32], ptr %26, i64 0, i64 %indvars.iv57
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv57
   store i32 %32, ptr %33, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %27
@@ -315,7 +315,7 @@ define hidden ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %1, i32 n
 
 8:                                                ; preds = %6, %8
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [15 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %1, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1902,9 +1902,9 @@ define internal void @Eval4InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -2137,7 +2137,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %169 = lshr i32 %168, 16
   %170 = trunc nuw i32 %169 to i16
   %171 = add i16 %98, %170
-  %172 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv506
+  %172 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv506
   store i16 %171, ptr %172, align 2
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %exitcond510.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count509
@@ -2181,7 +2181,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %206 = lshr i32 %205, 16
   %207 = trunc nuw i32 %206 to i16
   %208 = add i16 %177, %207
-  %209 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv501
+  %209 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv501
   store i16 %208, ptr %209, align 2
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count509
@@ -2225,7 +2225,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %243 = lshr i32 %242, 16
   %244 = trunc nuw i32 %243 to i16
   %245 = add i16 %214, %244
-  %246 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv496
+  %246 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv496
   store i16 %245, ptr %246, align 2
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count509
@@ -2269,7 +2269,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %280 = lshr i32 %279, 16
   %281 = trunc nuw i32 %280 to i16
   %282 = add i16 %251, %281
-  %283 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %283 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %282, ptr %283, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2476,7 +2476,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %437 = lshr i32 %436, 16
   %438 = trunc nuw i32 %437 to i16
   %439 = add i16 %306, %438
-  %440 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv511
+  %440 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv511
   store i16 %439, ptr %440, align 2
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %exitcond515.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count514
@@ -2484,10 +2484,10 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph487:                                        ; preds = %427, %.lr.ph487
   %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph487 ], [ 0, %427 ]
-  %441 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv516
+  %441 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv516
   %442 = load i16, ptr %441, align 2
   %443 = zext i16 %442 to i32
-  %444 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv516
+  %444 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv516
   %445 = load i16, ptr %444, align 2
   %446 = zext i16 %445 to i32
   %447 = sub nsw i32 %446, %443
@@ -2611,9 +2611,9 @@ define internal void @Eval5InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -2670,9 +2670,9 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -2690,9 +2690,9 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -2753,10 +2753,10 @@ define internal void @Eval5Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -2826,9 +2826,9 @@ define internal void @Eval6InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -2939,10 +2939,10 @@ define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -3004,10 +3004,10 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -3030,10 +3030,10 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -3157,9 +3157,9 @@ define internal void @Eval7InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -3216,9 +3216,9 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -3236,9 +3236,9 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -3299,10 +3299,10 @@ define internal void @Eval7Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -3372,9 +3372,9 @@ define internal void @Eval8InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -3485,10 +3485,10 @@ define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -3550,10 +3550,10 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -3576,10 +3576,10 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -3703,9 +3703,9 @@ define internal void @Eval9InputsFloat(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -3762,9 +3762,9 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -3782,9 +3782,9 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -3845,10 +3845,10 @@ define internal void @Eval9Inputs(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -3918,9 +3918,9 @@ define internal void @Eval10InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -4031,10 +4031,10 @@ define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -4096,10 +4096,10 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -4122,10 +4122,10 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -4249,9 +4249,9 @@ define internal void @Eval11InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -4308,9 +4308,9 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -4328,9 +4328,9 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -4391,10 +4391,10 @@ define internal void @Eval11Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -4464,9 +4464,9 @@ define internal void @Eval12InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -4577,10 +4577,10 @@ define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -4642,10 +4642,10 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -4668,10 +4668,10 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -4795,9 +4795,9 @@ define internal void @Eval13InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -4854,9 +4854,9 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -4874,9 +4874,9 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -4937,10 +4937,10 @@ define internal void @Eval13Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -5010,9 +5010,9 @@ define internal void @Eval14InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
@@ -5124,10 +5124,10 @@ define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -5189,10 +5189,10 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -5215,10 +5215,10 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -5342,9 +5342,9 @@ define internal void @Eval15InputsFloat(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
@@ -5401,9 +5401,9 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
@@ -5421,9 +5421,9 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
@@ -5484,10 +5484,10 @@ define internal void @Eval15Inputs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37

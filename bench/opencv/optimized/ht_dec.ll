@@ -573,7 +573,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %265 = and i32 %263, 127
   %266 = or disjoint i32 %265, %264
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw [1024 x i16], ptr @vlc_tbl0, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i16, ptr @vlc_tbl0, i64 %267
   %269 = load i16, ptr %268, align 2, !tbaa !45
   %270 = zext i16 %269 to i32
   %271 = icmp eq i32 %.014251865, 0
@@ -623,7 +623,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %304 = and i32 %291, 127
   %305 = or disjoint i32 %304, %303
   %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw [1024 x i16], ptr @vlc_tbl0, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i16, ptr @vlc_tbl0, i64 %306
   %308 = load i16, ptr %307, align 2, !tbaa !45
   %309 = zext i16 %308 to i32
   %310 = icmp eq i32 %284, 0
@@ -1179,7 +1179,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %646 = and i32 %644, 127
   %647 = or disjoint i32 %645, %646
   %648 = zext nneg i32 %647 to i64
-  %649 = getelementptr inbounds nuw [1024 x i16], ptr @vlc_tbl1, i64 0, i64 %648
+  %649 = getelementptr inbounds nuw i16, ptr @vlc_tbl1, i64 %648
   %650 = load i16, ptr %649, align 2, !tbaa !45
   %651 = zext i16 %650 to i32
   %652 = icmp eq i32 %643, 0
@@ -1238,7 +1238,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %694 = and i32 %672, 127
   %695 = or disjoint i32 %693, %694
   %696 = zext nneg i32 %695 to i64
-  %697 = getelementptr inbounds nuw [1024 x i16], ptr @vlc_tbl1, i64 0, i64 %696
+  %697 = getelementptr inbounds nuw i16, ptr @vlc_tbl1, i64 %696
   %698 = load i16, ptr %697, align 2, !tbaa !45
   %699 = zext i16 %698 to i32
   %700 = icmp eq i32 %692, 0
@@ -1302,7 +1302,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
 737:                                              ; preds = %718
   %738 = and i32 %.11395, 7
   %739 = zext nneg i32 %738 to i64
-  %740 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %739
   %741 = load i8, ptr %740, align 1, !tbaa !44
   %742 = zext i8 %741 to i32
   %743 = and i32 %742, 3
@@ -1324,14 +1324,14 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
 756:                                              ; preds = %718
   %757 = and i32 %.11395, 7
   %758 = zext nneg i32 %757 to i64
-  %759 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %758
   %760 = load i8, ptr %759, align 1, !tbaa !44
   %761 = zext i8 %760 to i32
   %762 = and i32 %761, 3
   %763 = lshr i32 %.11395, %762
   %764 = and i32 %763, 7
   %765 = zext nneg i32 %764 to i64
-  %766 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %765
+  %766 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %765
   %767 = load i8, ptr %766, align 1, !tbaa !44
   %768 = zext i8 %767 to i32
   %769 = and i32 %768, 3
@@ -2740,7 +2740,7 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
 
 switch.lookup:                                    ; preds = %1525
   %1564 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_t1_ht_decode_cblk, i64 0, i64 %1564
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.opj_t1_ht_decode_cblk, i64 %1564
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread1813
 
@@ -3861,7 +3861,7 @@ define internal fastcc range(i32 0, 128) i32 @mel_get_run(ptr noundef nonnull ca
   %87 = phi i32 [ %.promoted52.i, %.lr.ph.i ], [ %.sink.i, %109 ]
   %indvars.iv16 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next, %109 ]
   %88 = sext i32 %spec.select.sink.i20 to i64
-  %89 = getelementptr inbounds [13 x i32], ptr @mel_decode.mel_exp, i64 0, i64 %88
+  %89 = getelementptr inbounds i32, ptr @mel_decode.mel_exp, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !51
   %.not.i = icmp sgt i64 %.sink42.i22, -1
   br i1 %.not.i, label %96, label %91
@@ -4151,7 +4151,7 @@ define internal fastcc range(i32 0, 21) i32 @decode_init_uvlc(i32 noundef %0, i3
 9:                                                ; preds = %7
   %10 = and i32 %0, 7
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !44
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 3
@@ -4177,7 +4177,7 @@ define internal fastcc range(i32 0, 21) i32 @decode_init_uvlc(i32 noundef %0, i3
   %30 = icmp eq i32 %1, 3
   %31 = and i32 %0, 7
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !44
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 3
@@ -4209,7 +4209,7 @@ define internal fastcc range(i32 0, 21) i32 @decode_init_uvlc(i32 noundef %0, i3
 53:                                               ; preds = %38
   %54 = and i32 %37, 7
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !44
   %58 = zext i8 %57 to i32
   %59 = and i32 %58, 3
@@ -4242,7 +4242,7 @@ define internal fastcc range(i32 0, 21) i32 @decode_init_uvlc(i32 noundef %0, i3
 80:                                               ; preds = %29
   %81 = and i32 %37, 7
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw [8 x i8], ptr @decode_noninit_uvlc.dec, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @decode_noninit_uvlc.dec, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !44
   %85 = zext i8 %84 to i32
   %86 = and i32 %85, 3

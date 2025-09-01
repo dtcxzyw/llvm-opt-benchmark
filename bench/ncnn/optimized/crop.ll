@@ -5000,7 +5000,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
   %51 = icmp slt i32 %50, 0
   %52 = select i1 %51, i32 %21, i32 0
   %spec.select = add nsw i32 %52, %50
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 %spec.select, ptr %53, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5061,7 +5061,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us451:                            ; preds = %.lr.ph450.split.us451.preheader, %.thread385.us453
   %indvars.iv475 = phi i64 [ 0, %.lr.ph450.split.us451.preheader ], [ %indvars.iv.next476, %.thread385.us453 ]
-  %68 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv475
+  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv475
   %69 = load i32, ptr %68, align 4, !tbaa !55
   %70 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv475
   %71 = load i32, ptr %70, align 4, !tbaa !55
@@ -5102,7 +5102,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us454:                            ; preds = %.lr.ph450.split.us454.preheader, %.thread385.us456
   %indvars.iv470 = phi i64 [ 0, %.lr.ph450.split.us454.preheader ], [ %indvars.iv.next471, %.thread385.us456 ]
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv470
+  %83 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv470
   %84 = load i32, ptr %83, align 4, !tbaa !55
   %85 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv470
   %86 = load i32, ptr %85, align 4, !tbaa !55
@@ -5147,7 +5147,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us457:                            ; preds = %.lr.ph450.split.us457.preheader, %.thread385.us459
   %indvars.iv465 = phi i64 [ 0, %.lr.ph450.split.us457.preheader ], [ %indvars.iv.next466, %.thread385.us459 ]
-  %99 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv465
+  %99 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv465
   %100 = load i32, ptr %99, align 4, !tbaa !55
   %101 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv465
   %102 = load i32, ptr %101, align 4, !tbaa !55

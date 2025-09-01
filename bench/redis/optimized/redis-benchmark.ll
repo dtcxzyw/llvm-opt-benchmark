@@ -1057,11 +1057,11 @@ define dso_local range(i32 0, 2) i32 @test_is_selected(ptr noundef readonly capt
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %0, i64 %8, i1 false)
   %sext5 = add i64 %sext, 4294967296
   %9 = ashr exact i64 %sext5, 32
-  %10 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr %2, i64 %9
   store i8 44, ptr %10, align 1, !tbaa !35
   %sext6 = add i64 %sext, 8589934592
   %11 = ashr exact i64 %sext6, 32
-  %12 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %2, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !35
   %13 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %2) #21
   %14 = icmp ne ptr %13, null
@@ -2124,7 +2124,7 @@ startBenchmarkThreads.exit:                       ; preds = %.lr.ph11.i, %.prehe
 494:                                              ; preds = %._crit_edge435
   %495 = load ptr, ptr @stderr, align 8, !tbaa !26
   %496 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 22, i64 1, ptr %495) #23
-  br label %839
+  br label %838
 
 497:                                              ; preds = %._crit_edge435
   %498 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 248), align 8, !tbaa !29
@@ -2258,7 +2258,7 @@ freeRedisConfig.exit:                             ; preds = %545, %548
 
 549:                                              ; preds = %freeRedisConfig.exit, %540
   call void @zfree(ptr noundef %508) #20
-  br label %839
+  br label %838
 
 550:                                              ; preds = %483
   %551 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 164), align 4, !tbaa !61
@@ -2360,7 +2360,7 @@ freeRedisConfig.exit:                             ; preds = %545, %548
   %647 = getelementptr inbounds nuw i8, ptr %3, i64 6
   br label %648
 
-648:                                              ; preds = %828, %550
+648:                                              ; preds = %827, %550
   %649 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 164), align 4, !tbaa !61
   %.not3.i = icmp eq i32 %649, 0
   br i1 %.not3.i, label %genBenchmarkRandomData.exit, label %.lr.ph.preheader.i
@@ -3105,98 +3105,97 @@ test_is_selected.exit343:                         ; preds = %.thread563, %798
 
 808:                                              ; preds = %805, %808
   %indvars.iv455 = phi i64 [ 1, %805 ], [ %indvars.iv.next456, %808 ]
-  %809 = getelementptr inbounds nuw [21 x ptr], ptr %36, i64 0, i64 %indvars.iv455
+  %809 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv455
   store ptr %807, ptr %809, align 8, !tbaa !5
-  %810 = add nuw nsw i64 %indvars.iv455, 1
-  %811 = getelementptr inbounds nuw [21 x ptr], ptr %36, i64 0, i64 %810
-  store ptr %554, ptr %811, align 8, !tbaa !5
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 8
+  store ptr %554, ptr %810, align 8, !tbaa !5
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 2
-  %812 = icmp samesign ult i64 %indvars.iv455, 19
-  br i1 %812, label %808, label %813, !llvm.loop !122
+  %811 = icmp samesign ult i64 %indvars.iv455, 19
+  br i1 %811, label %808, label %812, !llvm.loop !122
 
-813:                                              ; preds = %808
-  %814 = call i64 @redisFormatCommandArgv(ptr noundef nonnull %35, i32 noundef 21, ptr noundef nonnull %36, ptr noundef null) #20
-  %815 = trunc i64 %814 to i32
+812:                                              ; preds = %808
+  %813 = call i64 @redisFormatCommandArgv(ptr noundef nonnull %35, i32 noundef 21, ptr noundef nonnull %36, ptr noundef null) #20
+  %814 = trunc i64 %813 to i32
+  %815 = load ptr, ptr %35, align 8, !tbaa !5
+  call fastcc void @benchmark(ptr noundef nonnull @.str.125, ptr noundef %815, i32 noundef %814)
   %816 = load ptr, ptr %35, align 8, !tbaa !5
-  call fastcc void @benchmark(ptr noundef nonnull @.str.125, ptr noundef %816, i32 noundef %815)
-  %817 = load ptr, ptr %35, align 8, !tbaa !5
-  call void @free(ptr noundef %817) #20
+  call void @free(ptr noundef %816) #20
   call void @hi_sdsfree(ptr noundef %807) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 240), align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %818 = icmp eq ptr %.pre477, null
-  br i1 %818, label %test_is_selected.exit348.thread, label %test_is_selected.exit348
+  %817 = icmp eq ptr %.pre477, null
+  br i1 %817, label %test_is_selected.exit348.thread, label %test_is_selected.exit348
 
-test_is_selected.exit348.thread:                  ; preds = %813
+test_is_selected.exit348.thread:                  ; preds = %812
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %821
+  br label %820
 
-test_is_selected.exit348:                         ; preds = %.thread564, %813
-  %819 = phi ptr [ %803, %.thread564 ], [ %.pre477, %813 ]
+test_is_selected.exit348:                         ; preds = %.thread564, %812
+  %818 = phi ptr [ %803, %.thread564 ], [ %.pre477, %812 ]
   store i8 44, ptr %3, align 16, !tbaa !35
   store i32 1684300152, ptr %645, align 1
   store i8 44, ptr %646, align 1, !tbaa !35
   store i8 0, ptr %647, align 2, !tbaa !35
-  %820 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %819, ptr noundef nonnull dereferenceable(1) %3) #21
-  %.not424 = icmp eq ptr %820, null
+  %819 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %818, ptr noundef nonnull dereferenceable(1) %3) #21
+  %.not424 = icmp eq ptr %819, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not424, label %825, label %821
+  br i1 %.not424, label %824, label %820
 
-821:                                              ; preds = %test_is_selected.exit348.thread, %test_is_selected.exit348
-  %822 = call i32 (ptr, ptr, ...) @redisFormatCommand(ptr noundef nonnull %35, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0129, ptr noundef nonnull %554) #20
+820:                                              ; preds = %test_is_selected.exit348.thread, %test_is_selected.exit348
+  %821 = call i32 (ptr, ptr, ...) @redisFormatCommand(ptr noundef nonnull %35, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0129, ptr noundef nonnull %554) #20
+  %822 = load ptr, ptr %35, align 8, !tbaa !5
+  call fastcc void @benchmark(ptr noundef nonnull @.str.128, ptr noundef %822, i32 noundef %821)
   %823 = load ptr, ptr %35, align 8, !tbaa !5
-  call fastcc void @benchmark(ptr noundef nonnull @.str.128, ptr noundef %823, i32 noundef %822)
-  %824 = load ptr, ptr %35, align 8, !tbaa !5
-  call void @free(ptr noundef %824) #20
-  br label %825
+  call void @free(ptr noundef %823) #20
+  br label %824
 
-825:                                              ; preds = %821, %test_is_selected.exit348
-  %826 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 220), align 4, !tbaa !38
-  %.not177 = icmp eq i32 %826, 0
-  br i1 %.not177, label %827, label %828
+824:                                              ; preds = %820, %test_is_selected.exit348
+  %825 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 220), align 4, !tbaa !38
+  %.not177 = icmp eq i32 %825, 0
+  br i1 %.not177, label %826, label %827
 
-827:                                              ; preds = %825
+826:                                              ; preds = %824
   %putchar178 = call i32 @putchar(i32 10)
-  br label %828
+  br label %827
 
-828:                                              ; preds = %825, %827
-  %829 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 224), align 8, !tbaa !39
-  %.not179 = icmp eq i32 %829, 0
-  br i1 %.not179, label %830, label %648, !llvm.loop !123
+827:                                              ; preds = %824, %826
+  %828 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 224), align 8, !tbaa !39
+  %.not179 = icmp eq i32 %828, 0
+  br i1 %.not179, label %829, label %648, !llvm.loop !123
 
-830:                                              ; preds = %828
+829:                                              ; preds = %827
   call void @zfree(ptr noundef %554) #20
   call void @freeCliConnInfo(ptr noundef nonnull byval(%struct.cliConnInfo) align 8 getelementptr inbounds nuw (i8, ptr @config, i64 8)) #20
-  %831 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 288), align 8, !tbaa !107
-  %.not180 = icmp eq ptr %831, null
-  br i1 %.not180, label %839, label %832
+  %830 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 288), align 8, !tbaa !107
+  %.not180 = icmp eq ptr %830, null
+  br i1 %.not180, label %838, label %831
 
-832:                                              ; preds = %830
-  %833 = load ptr, ptr %831, align 8, !tbaa !102
-  %.not.i349 = icmp eq ptr %833, null
-  br i1 %.not.i349, label %835, label %834
+831:                                              ; preds = %829
+  %832 = load ptr, ptr %830, align 8, !tbaa !102
+  %.not.i349 = icmp eq ptr %832, null
+  br i1 %.not.i349, label %834, label %833
 
-834:                                              ; preds = %832
-  call void @hi_sdsfree(ptr noundef nonnull %833) #20
-  br label %835
+833:                                              ; preds = %831
+  call void @hi_sdsfree(ptr noundef nonnull %832) #20
+  br label %834
 
-835:                                              ; preds = %834, %832
-  %836 = getelementptr inbounds nuw i8, ptr %831, i64 8
-  %837 = load ptr, ptr %836, align 8, !tbaa !104
-  %.not6.i350 = icmp eq ptr %837, null
-  br i1 %.not6.i350, label %freeRedisConfig.exit351, label %838
+834:                                              ; preds = %833, %831
+  %835 = getelementptr inbounds nuw i8, ptr %830, i64 8
+  %836 = load ptr, ptr %835, align 8, !tbaa !104
+  %.not6.i350 = icmp eq ptr %836, null
+  br i1 %.not6.i350, label %freeRedisConfig.exit351, label %837
 
-838:                                              ; preds = %835
-  call void @hi_sdsfree(ptr noundef nonnull %837) #20
+837:                                              ; preds = %834
+  call void @hi_sdsfree(ptr noundef nonnull %836) #20
   br label %freeRedisConfig.exit351
 
-freeRedisConfig.exit351:                          ; preds = %835, %838
-  call void @zfree(ptr noundef nonnull %831) #20
-  br label %839
+freeRedisConfig.exit351:                          ; preds = %834, %837
+  call void @zfree(ptr noundef nonnull %830) #20
+  br label %838
 
-839:                                              ; preds = %830, %freeRedisConfig.exit351, %494, %549
-  %.1 = phi i32 [ 0, %549 ], [ 1, %494 ], [ 0, %freeRedisConfig.exit351 ], [ 0, %830 ]
+838:                                              ; preds = %829, %freeRedisConfig.exit351, %494, %549
+  %.1 = phi i32 [ 0, %549 ], [ 1, %494 ], [ 0, %freeRedisConfig.exit351 ], [ 0, %829 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   ret i32 %.1
 }
@@ -5033,7 +5032,7 @@ updateClusterSlotsConfiguration.exit.i:           ; preds = %65, %49
   %81 = getelementptr inbounds i32, ptr %74, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !92
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [16384 x [4 x i8]], ptr @crc16_slot_table, i64 0, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr @crc16_slot_table, i64 %83
   %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #21
   %86 = trunc i64 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 40

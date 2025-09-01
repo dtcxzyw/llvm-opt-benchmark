@@ -2415,7 +2415,7 @@ define hidden void @_ZN10duckdb_re212RegexpStatus8CodeTextB5cxx11ENS_16RegexpSta
   %4 = icmp ugt i32 %1, 14
   %spec.store.select = select i1 %4, i32 1, i32 %1
   %5 = zext nneg i32 %spec.store.select to i64
-  %6 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !68
@@ -2476,7 +2476,7 @@ define hidden void @_ZNK10duckdb_re212RegexpStatus4TextB5cxx11Ev(ptr dead_on_unw
   %12 = icmp ugt i32 %11, 14
   %spec.store.select.i = select i1 %12, i32 1, i32 %11
   %13 = zext nneg i32 %spec.store.select.i to i64
-  %14 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !67, !noalias !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !68, !alias.scope !76
@@ -2531,7 +2531,7 @@ _ZN10duckdb_re212RegexpStatus8CodeTextB5cxx11ENS_16RegexpStatusCodeE.exit: ; pre
   %33 = icmp ugt i32 %32, 14
   %spec.store.select.i8 = select i1 %33, i32 1, i32 %32
   %34 = zext nneg i32 %spec.store.select.i8 to i64
-  %35 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZN10duckdb_re2L13kErrorStringsE, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !67, !noalias !79
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %37, ptr %5, align 8, !tbaa !68, !alias.scope !79

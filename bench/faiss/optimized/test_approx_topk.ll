@@ -5071,7 +5071,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
 
 .preheader95:                                     ; preds = %14, %18
   %indvar = phi i64 [ 0, %14 ], [ %indvar.next, %18 ]
-  %15 = getelementptr inbounds nuw [3 x [8 x float]], ptr %7, i64 0, i64 %indvar
+  %15 = getelementptr inbounds nuw [8 x float], ptr %7, i64 %indvar
   br label %19
 
 16:                                               ; preds = %18
@@ -5088,7 +5088,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
 
 19:                                               ; preds = %.preheader95, %19
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [8 x float], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %20, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5104,17 +5104,17 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
 .preheader.us:                                    ; preds = %.split.us.us, %.preheader97.split.us
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.split.us.us ], [ 0, %.preheader97.split.us ]
   %.promoted.us111 = phi float [ %.promoted.us109, %.split.us.us ], [ %.promoted, %.preheader97.split.us ]
-  %21 = getelementptr inbounds nuw [3 x [8 x float]], ptr %7, i64 0, i64 %indvars.iv143
-  %22 = getelementptr inbounds nuw [3 x [8 x i32]], ptr %8, i64 0, i64 %indvars.iv143
+  %21 = getelementptr inbounds nuw [8 x float], ptr %7, i64 %indvars.iv143
+  %22 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv143
   br label %23
 
 23:                                               ; preds = %34, %.preheader.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %34 ], [ 0, %.preheader.us ]
   %.promoted.us110 = phi float [ %.promoted.us109, %34 ], [ %.promoted.us111, %.preheader.us ]
   %24 = phi float [ %35, %34 ], [ %.promoted.us111, %.preheader.us ]
-  %25 = getelementptr inbounds nuw [8 x float], ptr %21, i64 0, i64 %indvars.iv139
+  %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv139
   %26 = load float, ptr %25, align 4, !tbaa !25
-  %27 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv139
+  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv139
   %28 = load i32, ptr %27, align 4, !tbaa !7
   %29 = fcmp ogt float %24, %26
   br i1 %29, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
@@ -5160,8 +5160,8 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds float, ptr %2, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !25
-  %invariant.gep = getelementptr inbounds nuw [8 x float], ptr %7, i64 0, i64 %indvars.iv127
-  %invariant.gep100 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv127
+  %invariant.gep = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv127
+  %invariant.gep100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv127
   br label %47
 
 46:                                               ; preds = %52
@@ -5173,14 +5173,14 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %indvars.iv123 = phi i64 [ 0, %39 ], [ %indvars.iv.next124, %52 ]
   %.091103 = phi float [ %45, %39 ], [ %.1, %52 ]
   %.092102 = phi i32 [ %42, %39 ], [ %.193, %52 ]
-  %gep = getelementptr inbounds nuw [3 x [8 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv123
+  %gep = getelementptr inbounds nuw [8 x float], ptr %invariant.gep, i64 %indvars.iv123
   %48 = load float, ptr %gep, align 4, !tbaa !25
   %49 = fcmp olt float %.091103, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
   store float %.091103, ptr %gep, align 4, !tbaa !25
-  %gep101 = getelementptr inbounds nuw [3 x [8 x i32]], ptr %invariant.gep100, i64 0, i64 %indvars.iv123
+  %gep101 = getelementptr inbounds nuw [8 x i32], ptr %invariant.gep100, i64 %indvars.iv123
   %51 = load i32, ptr %gep101, align 4, !tbaa !7
   store i32 %.092102, ptr %gep101, align 4, !tbaa !7
   br label %52
@@ -5201,8 +5201,8 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 
 .preheader:                                       ; preds = %.preheader97, %.split
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.split ], [ 0, %.preheader97 ]
-  %54 = getelementptr inbounds nuw [3 x [8 x float]], ptr %7, i64 0, i64 %indvars.iv135
-  %55 = getelementptr inbounds nuw [3 x [8 x i32]], ptr %8, i64 0, i64 %indvars.iv135
+  %54 = getelementptr inbounds nuw [8 x float], ptr %7, i64 %indvars.iv135
+  %55 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv135
   br label %56
 
 .split:                                           ; preds = %103
@@ -5213,9 +5213,9 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 56:                                               ; preds = %.preheader, %103
   %indvars.iv131 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next132, %103 ]
   %57 = load float, ptr %4, align 4, !tbaa !25
-  %58 = getelementptr inbounds nuw [8 x float], ptr %54, i64 0, i64 %indvars.iv131
+  %58 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv131
   %59 = load float, ptr %58, align 4, !tbaa !25
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %55, i64 0, i64 %indvars.iv131
+  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv131
   %61 = load i32, ptr %60, align 4, !tbaa !7
   %62 = fcmp ogt float %57, %59
   br i1 %62, label %.lr.ph.i.preheader, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit
@@ -5926,8 +5926,8 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
   %.not = icmp eq i32 %0, 0
   %indvars.iv133.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 32
   %indvars.iv140.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %indvar.sroa.gep174 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %indvars.iv133.sroa.gep176 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %indvars.iv133.sroa.gep175 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %indvar.sroa.gep177 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %indvars.iv140.sroa.gep179 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not, label %._crit_edge116, label %.lr.ph115
 
@@ -5954,7 +5954,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
 
 .preheader95:                                     ; preds = %14, %18
   %15 = phi i1 [ true, %14 ], [ false, %18 ]
-  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep174, %18 ]
+  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep177, %18 ]
   br label %19
 
 16:                                               ; preds = %18
@@ -5969,7 +5969,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
 
 19:                                               ; preds = %.preheader95, %19
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [8 x float], ptr %indvar.sroa.phi, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %indvar.sroa.phi, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %20, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5993,9 +5993,9 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8E
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
   %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
   %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %24 = getelementptr inbounds nuw [8 x float], ptr %indvars.iv140.sroa.phi178, i64 0, i64 %indvars.iv136
+  %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !25
-  %26 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv140.sroa.phi, i64 0, i64 %indvars.iv136
+  %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = fcmp ogt float %23, %25
   br i1 %28, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
@@ -6039,8 +6039,8 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds float, ptr %2, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !25
-  %invariant.gep = getelementptr inbounds nuw [8 x float], ptr %7, i64 0, i64 %indvars.iv125
-  %invariant.gep100 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv125
+  %invariant.gep = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv125
+  %invariant.gep100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv125
   br label %46
 
 45:                                               ; preds = %52
@@ -6053,14 +6053,14 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %indvars.iv122 = phi i64 [ 0, %38 ], [ 1, %52 ]
   %.091103 = phi float [ %44, %38 ], [ %.1, %52 ]
   %.092102 = phi i32 [ %41, %38 ], [ %.193, %52 ]
-  %gep = getelementptr inbounds nuw [2 x [8 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv122
+  %gep = getelementptr inbounds nuw [8 x float], ptr %invariant.gep, i64 %indvars.iv122
   %48 = load float, ptr %gep, align 4, !tbaa !25
   %49 = fcmp olt float %.091103, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
   store float %.091103, ptr %gep, align 4, !tbaa !25
-  %gep101 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %invariant.gep100, i64 0, i64 %indvars.iv122
+  %gep101 = getelementptr inbounds nuw [8 x i32], ptr %invariant.gep100, i64 %indvars.iv122
   %51 = load i32, ptr %gep101, align 4, !tbaa !7
   store i32 %.092102, ptr %gep101, align 4, !tbaa !7
   br label %52
@@ -6080,7 +6080,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 .preheader:                                       ; preds = %.preheader97, %.split
   %54 = phi i1 [ false, %.split ], [ true, %.preheader97 ]
   %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %.split ], [ %8, %.preheader97 ]
-  %indvars.iv133.sroa.phi175 = phi ptr [ %indvars.iv133.sroa.gep176, %.split ], [ %7, %.preheader97 ]
+  %indvars.iv133.sroa.phi174 = phi ptr [ %indvars.iv133.sroa.gep175, %.split ], [ %7, %.preheader97 ]
   br label %55
 
 .split:                                           ; preds = %102
@@ -6089,9 +6089,9 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 55:                                               ; preds = %.preheader, %102
   %indvars.iv129 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next130, %102 ]
   %56 = load float, ptr %4, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw [8 x float], ptr %indvars.iv133.sroa.phi175, i64 0, i64 %indvars.iv129
+  %57 = getelementptr inbounds nuw float, ptr %indvars.iv133.sroa.phi174, i64 %indvars.iv129
   %58 = load float, ptr %57, align 4, !tbaa !25
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv133.sroa.phi, i64 0, i64 %indvars.iv129
+  %59 = getelementptr inbounds nuw i32, ptr %indvars.iv133.sroa.phi, i64 %indvars.iv129
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = fcmp ogt float %56, %58
   br i1 %61, label %.lr.ph.i.preheader, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit
@@ -6290,8 +6290,8 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16
   %.not = icmp eq i32 %0, 0
   %indvars.iv133.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 64
   %indvars.iv140.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %indvar.sroa.gep174 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %indvars.iv133.sroa.gep176 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %indvars.iv133.sroa.gep175 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %indvar.sroa.gep177 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %indvars.iv140.sroa.gep179 = getelementptr inbounds nuw i8, ptr %7, i64 64
   br i1 %.not, label %._crit_edge116, label %.lr.ph115
 
@@ -6318,7 +6318,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16
 
 .preheader95:                                     ; preds = %14, %18
   %15 = phi i1 [ true, %14 ], [ false, %18 ]
-  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep174, %18 ]
+  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep177, %18 ]
   br label %19
 
 16:                                               ; preds = %18
@@ -6333,7 +6333,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16
 
 19:                                               ; preds = %.preheader95, %19
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [16 x float], ptr %indvar.sroa.phi, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %indvar.sroa.phi, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %20, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -6357,9 +6357,9 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
   %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
   %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %24 = getelementptr inbounds nuw [16 x float], ptr %indvars.iv140.sroa.phi178, i64 0, i64 %indvars.iv136
+  %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !25
-  %26 = getelementptr inbounds nuw [16 x i32], ptr %indvars.iv140.sroa.phi, i64 0, i64 %indvars.iv136
+  %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = fcmp ogt float %23, %25
   br i1 %28, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
@@ -6403,8 +6403,8 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds float, ptr %2, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !25
-  %invariant.gep = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %indvars.iv125
-  %invariant.gep100 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv125
+  %invariant.gep = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv125
+  %invariant.gep100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv125
   br label %46
 
 45:                                               ; preds = %52
@@ -6417,14 +6417,14 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %indvars.iv122 = phi i64 [ 0, %38 ], [ 1, %52 ]
   %.091103 = phi float [ %44, %38 ], [ %.1, %52 ]
   %.092102 = phi i32 [ %41, %38 ], [ %.193, %52 ]
-  %gep = getelementptr inbounds nuw [2 x [16 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv122
+  %gep = getelementptr inbounds nuw [16 x float], ptr %invariant.gep, i64 %indvars.iv122
   %48 = load float, ptr %gep, align 4, !tbaa !25
   %49 = fcmp olt float %.091103, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
   store float %.091103, ptr %gep, align 4, !tbaa !25
-  %gep101 = getelementptr inbounds nuw [2 x [16 x i32]], ptr %invariant.gep100, i64 0, i64 %indvars.iv122
+  %gep101 = getelementptr inbounds nuw [16 x i32], ptr %invariant.gep100, i64 %indvars.iv122
   %51 = load i32, ptr %gep101, align 4, !tbaa !7
   store i32 %.092102, ptr %gep101, align 4, !tbaa !7
   br label %52
@@ -6444,7 +6444,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 .preheader:                                       ; preds = %.preheader97, %.split
   %54 = phi i1 [ false, %.split ], [ true, %.preheader97 ]
   %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %.split ], [ %8, %.preheader97 ]
-  %indvars.iv133.sroa.phi175 = phi ptr [ %indvars.iv133.sroa.gep176, %.split ], [ %7, %.preheader97 ]
+  %indvars.iv133.sroa.phi174 = phi ptr [ %indvars.iv133.sroa.gep175, %.split ], [ %7, %.preheader97 ]
   br label %55
 
 .split:                                           ; preds = %102
@@ -6453,9 +6453,9 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 55:                                               ; preds = %.preheader, %102
   %indvars.iv129 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next130, %102 ]
   %56 = load float, ptr %4, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw [16 x float], ptr %indvars.iv133.sroa.phi175, i64 0, i64 %indvars.iv129
+  %57 = getelementptr inbounds nuw float, ptr %indvars.iv133.sroa.phi174, i64 %indvars.iv129
   %58 = load float, ptr %57, align 4, !tbaa !25
-  %59 = getelementptr inbounds nuw [16 x i32], ptr %indvars.iv133.sroa.phi, i64 0, i64 %indvars.iv129
+  %59 = getelementptr inbounds nuw i32, ptr %indvars.iv133.sroa.phi, i64 %indvars.iv129
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = fcmp ogt float %56, %58
   br i1 %61, label %.lr.ph.i.preheader, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit
@@ -6654,8 +6654,8 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32
   %.not = icmp eq i32 %0, 0
   %indvars.iv133.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
   %indvars.iv140.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %indvar.sroa.gep174 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %indvars.iv133.sroa.gep176 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %indvars.iv133.sroa.gep175 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %indvar.sroa.gep177 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %indvars.iv140.sroa.gep179 = getelementptr inbounds nuw i8, ptr %7, i64 128
   br i1 %.not, label %._crit_edge116, label %.lr.ph115
 
@@ -6682,7 +6682,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32
 
 .preheader95:                                     ; preds = %14, %18
   %15 = phi i1 [ true, %14 ], [ false, %18 ]
-  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep174, %18 ]
+  %indvar.sroa.phi = phi ptr [ %7, %14 ], [ %indvar.sroa.gep177, %18 ]
   br label %19
 
 16:                                               ; preds = %18
@@ -6697,7 +6697,7 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32
 
 19:                                               ; preds = %.preheader95, %19
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [32 x float], ptr %indvar.sroa.phi, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %indvar.sroa.phi, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %20, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -6721,9 +6721,9 @@ define linkonce_odr dso_local void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %33 ], [ 0, %.preheader.us ]
   %.promoted.us110 = phi float [ %.promoted.us109, %33 ], [ %.promoted.us111, %.preheader.us ]
   %23 = phi float [ %34, %33 ], [ %.promoted.us111, %.preheader.us ]
-  %24 = getelementptr inbounds nuw [32 x float], ptr %indvars.iv140.sroa.phi178, i64 0, i64 %indvars.iv136
+  %24 = getelementptr inbounds nuw float, ptr %indvars.iv140.sroa.phi178, i64 %indvars.iv136
   %25 = load float, ptr %24, align 4, !tbaa !25
-  %26 = getelementptr inbounds nuw [32 x i32], ptr %indvars.iv140.sroa.phi, i64 0, i64 %indvars.iv136
+  %26 = getelementptr inbounds nuw i32, ptr %indvars.iv140.sroa.phi, i64 %indvars.iv136
   %27 = load i32, ptr %26, align 4, !tbaa !7
   %28 = fcmp ogt float %23, %25
   br i1 %28, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.us.us
@@ -6767,8 +6767,8 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds float, ptr %2, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !25
-  %invariant.gep = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %indvars.iv125
-  %invariant.gep100 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv125
+  %invariant.gep = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv125
+  %invariant.gep100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv125
   br label %46
 
 45:                                               ; preds = %52
@@ -6781,14 +6781,14 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
   %indvars.iv122 = phi i64 [ 0, %38 ], [ 1, %52 ]
   %.091103 = phi float [ %44, %38 ], [ %.1, %52 ]
   %.092102 = phi i32 [ %41, %38 ], [ %.193, %52 ]
-  %gep = getelementptr inbounds nuw [2 x [32 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv122
+  %gep = getelementptr inbounds nuw [32 x float], ptr %invariant.gep, i64 %indvars.iv122
   %48 = load float, ptr %gep, align 4, !tbaa !25
   %49 = fcmp olt float %.091103, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
   store float %.091103, ptr %gep, align 4, !tbaa !25
-  %gep101 = getelementptr inbounds nuw [2 x [32 x i32]], ptr %invariant.gep100, i64 0, i64 %indvars.iv122
+  %gep101 = getelementptr inbounds nuw [32 x i32], ptr %invariant.gep100, i64 %indvars.iv122
   %51 = load i32, ptr %gep101, align 4, !tbaa !7
   store i32 %.092102, ptr %gep101, align 4, !tbaa !7
   br label %52
@@ -6808,7 +6808,7 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 .preheader:                                       ; preds = %.preheader97, %.split
   %54 = phi i1 [ false, %.split ], [ true, %.preheader97 ]
   %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %.split ], [ %8, %.preheader97 ]
-  %indvars.iv133.sroa.phi175 = phi ptr [ %indvars.iv133.sroa.gep176, %.split ], [ %7, %.preheader97 ]
+  %indvars.iv133.sroa.phi174 = phi ptr [ %indvars.iv133.sroa.gep175, %.split ], [ %7, %.preheader97 ]
   br label %55
 
 .split:                                           ; preds = %102
@@ -6817,9 +6817,9 @@ _ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.us.us:   ; preds = %_ZN5faiss4CMaxIfiE4
 55:                                               ; preds = %.preheader, %102
   %indvars.iv129 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next130, %102 ]
   %56 = load float, ptr %4, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw [32 x float], ptr %indvars.iv133.sroa.phi175, i64 0, i64 %indvars.iv129
+  %57 = getelementptr inbounds nuw float, ptr %indvars.iv133.sroa.phi174, i64 %indvars.iv129
   %58 = load float, ptr %57, align 4, !tbaa !25
-  %59 = getelementptr inbounds nuw [32 x i32], ptr %indvars.iv133.sroa.phi, i64 0, i64 %indvars.iv129
+  %59 = getelementptr inbounds nuw i32, ptr %indvars.iv133.sroa.phi, i64 %indvars.iv129
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = fcmp ogt float %56, %58
   br i1 %61, label %.lr.ph.i.preheader, label %_ZN5faiss4CMaxIfiE4cmp2Effii.exit

@@ -7731,37 +7731,37 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14COFFObjectFile21getRelocationTy
 
 switch.lookup:                                    ; preds = %7
   %31 = zext nneg i16 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
   %32 = zext nneg i16 %1 to i64
-  %switch.gep5 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.23, i64 0, i64 %32
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.23, i64 %32
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   br label %39
 
 switch.lookup7:                                   ; preds = %9
   %33 = zext nneg i16 %1 to i64
-  %switch.gep8 = getelementptr inbounds nuw [23 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.24, i64 0, i64 %33
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.24, i64 %33
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %34 = zext nneg i16 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.25, i64 0, i64 %34
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.25, i64 %34
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   br label %39
 
 switch.lookup12:                                  ; preds = %11
   %35 = zext nneg i16 %1 to i64
-  %switch.gep13 = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.26, i64 0, i64 %35
+  %switch.gep13 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.26, i64 %35
   %switch.load14 = load i64, ptr %switch.gep13, align 8
   %36 = zext nneg i16 %1 to i64
-  %switch.gep15 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.27, i64 0, i64 %36
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.27, i64 %36
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   br label %39
 
 switch.lookup17:                                  ; preds = %13
   %37 = zext nneg i16 %1 to i64
-  %switch.gep18 = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.28, i64 0, i64 %37
+  %switch.gep18 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.28, i64 %37
   %switch.load19 = load i64, ptr %switch.gep18, align 8
   %38 = zext nneg i16 %1 to i64
-  %switch.gep20 = getelementptr inbounds nuw [21 x ptr], ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.29, i64 0, i64 %38
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14COFFObjectFile21getRelocationTypeNameEt.29, i64 %38
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   br label %39
 

@@ -16327,7 +16327,7 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getCo
 
 switch.lookup:                                    ; preds = %78
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %82
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 %82
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit
 
@@ -16465,7 +16465,7 @@ _ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit: ; preds = 
 
 switch.lookup143:                                 ; preds = %_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE.exit
   %146 = zext nneg i32 %144 to i64
-  %switch.gep144 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 0, i64 %146
+  %switch.gep144 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 %146
   %switch.load145 = load i32, ptr %switch.gep144, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit61
 
@@ -20284,7 +20284,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %100
   %135 = add i32 %134, 1
   store i32 %135, ptr %116, align 4, !tbaa !692
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i32, ptr %6, i64 %136
   store i32 %133, ptr %137, align 4, !tbaa !4
   %138 = add nuw i64 %.0136220, 1
   %139 = load i64, ptr %9, align 8, !tbaa !681
@@ -20878,7 +20878,7 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getCo
 
 switch.lookup:                                    ; preds = %57
   %61 = zext nneg i32 %59 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit
 
@@ -21102,7 +21102,7 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit135: ; preds = %.noexc133
 
 switch.lookup205:                                 ; preds = %172
   %176 = zext nneg i32 %174 to i64
-  %switch.gep206 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 0, i64 %176
+  %switch.gep206 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.2, i64 %176
   %switch.load207 = load i32, ptr %switch.gep206, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137
 
@@ -21147,7 +21147,7 @@ _ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit137: ; preds = %
 
 switch.lookup208:                                 ; preds = %191
   %195 = zext nneg i32 %193 to i64
-  %switch.gep209 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 0, i64 %195
+  %switch.gep209 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau8Compiler17compileExprBinaryEPNS_13AstExprBinaryEhb.3, i64 %195
   %switch.load210 = load i32, ptr %switch.gep209, align 4
   br label %_ZN4Luau8Compiler16getBinaryOpArithENS_13AstExprBinary2OpEb.exit139
 
@@ -25704,7 +25704,7 @@ _ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHas
   br i1 %exitcond87.not, label %.critedge, label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.us
 
 _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.us: ; preds = %.lr.ph.split.us
-  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %.04577.us
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 %.04577.us
   store i8 0, ptr %81, align 1, !tbaa !431
   %82 = add nuw nsw i64 %.04577.us, 1
   %exitcond88.not = icmp eq i64 %82, %69
@@ -25762,7 +25762,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.us: ; preds = %.lr.ph.split.us
 
 _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit: ; preds = %98, %100, %84, %103
   %108 = phi i8 [ %107, %103 ], [ 0, %84 ], [ 0, %100 ], [ 0, %98 ]
-  %109 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %.04577
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 %.04577
   store i8 %108, ptr %109, align 1, !tbaa !431
   %110 = add nuw nsw i64 %.04577, 1
   %exitcond86.not = icmp eq i64 %110, %69
@@ -26039,8 +26039,8 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler20compileExprFastcallNEPNS_
   br i1 %16, label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread, label %17
 
 17:                                               ; preds = %15
-  %.not98 = icmp eq i64 %13, 2
-  br i1 %.not98, label %18, label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
+  %.not100 = icmp eq i64 %13, 2
+  br i1 %.not100, label %18, label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %11, align 8, !tbaa !569
@@ -26092,7 +26092,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit: ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !419
   %.not82 = icmp ne i32 %49, 0
-  %spec.select97 = select i1 %.not82, i32 75, i32 74
+  %spec.select99 = select i1 %.not82, i32 75, i32 74
   br label %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
 
 _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread: ; preds = %18, %26, %9
@@ -26104,14 +26104,14 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread: ; preds = %18, %
 _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread: ; preds = %45, %43, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit, %17, %15
   %50 = phi i1 [ false, %15 ], [ true, %17 ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ false, %43 ], [ false, %45 ]
   %51 = phi i1 [ true, %15 ], [ false, %17 ], [ %.not82, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ false, %43 ], [ false, %45 ]
-  %.067 = phi i32 [ 75, %15 ], [ 60, %17 ], [ %spec.select97, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 74, %43 ], [ 74, %45 ]
+  %.067 = phi i32 [ 75, %15 ], [ 60, %17 ], [ %spec.select99, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 74, %43 ], [ 74, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
-  %.not99 = icmp eq i64 %13, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.not101 = icmp eq i64 %13, 0
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
-  %.067130 = phi i32 [ %.067.ph, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread ], [ %.067, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
+  %.067132 = phi i32 [ %.067.ph, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread ], [ %.067, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %52 = phi i1 [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread ], [ %51, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %53 = phi i1 [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread.thread ], [ %50, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -26128,7 +26128,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread: ; preds = %45, %43, %_Z
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread
-  %.067131 = phi i32 [ %.067130, %._crit_edge.loopexit ], [ %.067, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
+  %.067133 = phi i32 [ %.067132, %._crit_edge.loopexit ], [ %.067, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %61 = phi i1 [ %52, %._crit_edge.loopexit ], [ %51, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %62 = phi i1 [ %53, %._crit_edge.loopexit ], [ %50, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
   %63 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ]
@@ -26137,7 +26137,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread: ; preds = %45, %43, %_Z
   %66 = load ptr, ptr %0, align 8, !tbaa !232
   %67 = trunc i32 %7 to i8
   %68 = trunc i32 %63 to i8
-  tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %66, i32 noundef %.067131, i8 noundef zeroext %67, i8 noundef zeroext %68, i8 noundef zeroext 0)
+  tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %66, i32 noundef %.067133, i8 noundef zeroext %67, i8 noundef zeroext %68, i8 noundef zeroext 0)
   br i1 %62, label %140, label %148
 
 69:                                               ; preds = %.lr.ph, %136
@@ -26160,7 +26160,7 @@ _ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread: ; preds = %45, %43, %_Z
   unreachable
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.06990
+  %80 = getelementptr inbounds nuw i32, ptr %10, i64 %.06990
   store i32 %75, ptr %80, align 4, !tbaa !4
   br label %136
 
@@ -26248,7 +26248,7 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit: ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %124 = load i8, ptr %123, align 4, !tbaa !434
   %125 = zext i8 %124 to i32
-  %126 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.06990
+  %126 = getelementptr inbounds nuw i32, ptr %10, i64 %.06990
   store i32 %125, ptr %126, align 4, !tbaa !4
   br label %136
 
@@ -26257,7 +26257,7 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit.thread: ; preds = %88, %11
   %128 = trunc i64 %127 to i8
   %129 = trunc i64 %127 to i32
   %130 = and i32 %129, 255
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.06990
+  %131 = getelementptr inbounds nuw i32, ptr %10, i64 %.06990
   store i32 %130, ptr %131, align 4, !tbaa !4
   %132 = add nuw nsw i32 %130, 1
   %133 = load i32, ptr %60, align 4, !tbaa !195
@@ -26306,45 +26306,45 @@ _ZN4Luau8Compiler18compileExprTempTopEPNS_7AstExprEh.exit: ; preds = %_ZN4Luau8C
 
 155:                                              ; preds = %148, %149, %140
   %156 = load i64, ptr %12, align 8, !tbaa !512
-  %.not100 = icmp eq i64 %156, 0
-  br i1 %.not100, label %._crit_edge94, label %.lr.ph93
+  %.not102 = icmp eq i64 %156, 0
+  br i1 %.not102, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph93:                                         ; preds = %155
+.lr.ph95:                                         ; preds = %155
   %157 = zext i8 %6 to i64
   %158 = add nuw nsw i64 %157, 1
-  br i1 %61, label %.lr.ph93.split.preheader, label %.lr.ph93.split.us
+  br i1 %61, label %.lr.ph95.split.preheader, label %.lr.ph95.split.us
 
-.lr.ph93.split.preheader:                         ; preds = %.lr.ph93
+.lr.ph95.split.preheader:                         ; preds = %.lr.ph95
   %159 = zext i32 %63 to i64
   %.not = icmp eq i64 %158, %159
   %160 = trunc i64 %158 to i8
-  br label %.lr.ph93.split
+  br label %.lr.ph95.split
 
-.lr.ph93.split.us:                                ; preds = %.lr.ph93, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us
-  %161 = phi i64 [ %170, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ %156, %.lr.ph93 ]
-  %.06891.us = phi i64 [ %171, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ 0, %.lr.ph93 ]
-  %162 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.06891.us
+.lr.ph95.split.us:                                ; preds = %.lr.ph95, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us
+  %161 = phi i64 [ %170, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ %156, %.lr.ph95 ]
+  %.06893.us = phi i64 [ %171, %_ZN4Luau8Compiler9emitLoadKEhi.exit.us ], [ 0, %.lr.ph95 ]
+  %162 = getelementptr inbounds nuw i32, ptr %10, i64 %.06893.us
   %163 = load i32, ptr %162, align 4, !tbaa !4
   %164 = zext i32 %163 to i64
-  %165 = add i64 %158, %.06891.us
+  %165 = add i64 %158, %.06893.us
   %.not.us = icmp eq i64 %165, %164
   br i1 %.not.us, label %_ZN4Luau8Compiler9emitLoadKEhi.exit.us, label %166
 
-166:                                              ; preds = %.lr.ph93.split.us
+166:                                              ; preds = %.lr.ph95.split.us
   %167 = load ptr, ptr %0, align 8, !tbaa !232
   %168 = trunc i64 %165 to i8
   %169 = trunc i32 %163 to i8
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %167, i32 noundef 6, i8 noundef zeroext %168, i8 noundef zeroext %169, i8 noundef zeroext 0)
-  %.pre109 = load i64, ptr %12, align 8, !tbaa !512
+  %.pre111 = load i64, ptr %12, align 8, !tbaa !512
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit.us
 
-_ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %166, %.lr.ph93.split.us
-  %170 = phi i64 [ %.pre109, %166 ], [ %161, %.lr.ph93.split.us ]
-  %171 = add nuw i64 %.06891.us, 1
+_ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %166, %.lr.ph95.split.us
+  %170 = phi i64 [ %.pre111, %166 ], [ %161, %.lr.ph95.split.us ]
+  %171 = add nuw i64 %.06893.us, 1
   %172 = icmp ult i64 %171, %170
-  br i1 %172, label %.lr.ph93.split.us, label %._crit_edge94, !llvm.loop !775
+  br i1 %172, label %.lr.ph95.split.us, label %._crit_edge96, !llvm.loop !775
 
-._crit_edge94:                                    ; preds = %_ZN4Luau8Compiler9emitLoadKEhi.exit.us, %_ZN4Luau8Compiler9emitLoadKEhi.exit, %155
+._crit_edge96:                                    ; preds = %_ZN4Luau8Compiler9emitLoadKEhi.exit.us, %_ZN4Luau8Compiler9emitLoadKEhi.exit, %155
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %174 = load ptr, ptr %173, align 8, !tbaa !507
   tail call void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %174, i8 noundef zeroext %6, i1 noundef zeroext true)
@@ -26354,15 +26354,15 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %166, %.lr.ph93.spli
   %178 = tail call noundef zeroext i1 @_ZN4Luau15BytecodeBuilder10patchSkipCEmm(ptr noundef nonnull align 8 dereferenceable(840) %177, i64 noundef %65, i64 noundef %176)
   br i1 %178, label %199, label %196
 
-.lr.ph93.split:                                   ; preds = %.lr.ph93.split.preheader, %_ZN4Luau8Compiler9emitLoadKEhi.exit
-  %.06891 = phi i64 [ %193, %_ZN4Luau8Compiler9emitLoadKEhi.exit ], [ 0, %.lr.ph93.split.preheader ]
-  %.not101 = icmp eq i64 %.06891, 0
-  br i1 %.not101, label %190, label %179
+.lr.ph95.split:                                   ; preds = %.lr.ph95.split.preheader, %_ZN4Luau8Compiler9emitLoadKEhi.exit
+  %.06893 = phi i64 [ %193, %_ZN4Luau8Compiler9emitLoadKEhi.exit ], [ 0, %.lr.ph95.split.preheader ]
+  %.not103 = icmp eq i64 %.06893, 0
+  br i1 %.not103, label %190, label %179
 
-179:                                              ; preds = %.lr.ph93.split
-  %180 = add i64 %158, %.06891
+179:                                              ; preds = %.lr.ph95.split
+  %180 = add i64 %158, %.06893
   %181 = trunc i64 %180 to i8
-  %182 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.06891
+  %182 = getelementptr inbounds nuw i32, ptr %10, i64 %.06893
   %183 = load i32, ptr %182, align 4, !tbaa !4
   %184 = icmp slt i32 %183, 32768
   %185 = load ptr, ptr %0, align 8, !tbaa !232
@@ -26379,7 +26379,7 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %166, %.lr.ph93.spli
   tail call void @_ZN4Luau15BytecodeBuilder7emitAuxEj(ptr noundef nonnull align 8 dereferenceable(840) %189, i32 noundef %183)
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
-190:                                              ; preds = %.lr.ph93.split
+190:                                              ; preds = %.lr.ph95.split
   br i1 %.not, label %_ZN4Luau8Compiler9emitLoadKEhi.exit, label %191
 
 191:                                              ; preds = %190
@@ -26388,18 +26388,18 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit.us:           ; preds = %166, %.lr.ph93.spli
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
 _ZN4Luau8Compiler9emitLoadKEhi.exit:              ; preds = %188, %186, %191, %190
-  %193 = add nuw i64 %.06891, 1
+  %193 = add nuw i64 %.06893, 1
   %194 = load i64, ptr %12, align 8, !tbaa !512
   %195 = icmp ult i64 %193, %194
-  br i1 %195, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !775
+  br i1 %195, label %.lr.ph95.split, label %._crit_edge96, !llvm.loop !775
 
-196:                                              ; preds = %._crit_edge94
+196:                                              ; preds = %._crit_edge96
   %197 = load ptr, ptr %173, align 8, !tbaa !507
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 12
   tail call void (ptr, ptr, ...) @_ZN4Luau12CompileError5raiseERKNS_8LocationEPKcz(ptr noundef nonnull align 4 dereferenceable(16) %198, ptr noundef nonnull @.str.116) #29
   unreachable
 
-199:                                              ; preds = %._crit_edge94
+199:                                              ; preds = %._crit_edge96
   %200 = load ptr, ptr %0, align 8, !tbaa !232
   %201 = load i64, ptr %12, align 8, !tbaa !512
   %202 = trunc i64 %201 to i8
@@ -26411,21 +26411,21 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit:              ; preds = %188, %186, %191, %1
 
 .preheader:                                       ; preds = %199
   %206 = zext i8 %3 to i64
-  %.not102 = icmp eq i8 %3, 0
-  br i1 %.not102, label %.loopexit, label %.lr.ph96
+  %.not104 = icmp eq i8 %3, 0
+  br i1 %.not104, label %.loopexit, label %.lr.ph98
 
-.lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
-  %.095 = phi i64 [ %211, %.lr.ph96 ], [ 0, %.preheader ]
+.lr.ph98:                                         ; preds = %.preheader, %.lr.ph98
+  %.097 = phi i64 [ %211, %.lr.ph98 ], [ 0, %.preheader ]
   %207 = load ptr, ptr %0, align 8, !tbaa !232
-  %208 = trunc nuw i64 %.095 to i8
+  %208 = trunc nuw i64 %.097 to i8
   %209 = add i8 %2, %208
   %210 = add i8 %6, %208
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %207, i32 noundef 6, i8 noundef zeroext %209, i8 noundef zeroext %210, i8 noundef zeroext 0)
-  %211 = add nuw nsw i64 %.095, 1
+  %211 = add nuw nsw i64 %.097, 1
   %exitcond.not = icmp eq i64 %211, %206
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph96, !llvm.loop !776
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph98, !llvm.loop !776
 
-.loopexit:                                        ; preds = %.lr.ph96, %.preheader, %199
+.loopexit:                                        ; preds = %.lr.ph98, %.preheader, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
@@ -29456,7 +29456,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   %33 = load i8, ptr %32, align 4, !tbaa !618
   %34 = zext i8 %33 to i64
   %35 = lshr i64 %34, 6
-  %36 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %12, i64 %35
   %37 = and i64 %34, 63
   %38 = shl nuw i64 1, %37
   %39 = load i64, ptr %36, align 8, !tbaa !19
@@ -29567,7 +29567,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   %93 = load i8, ptr %92, align 4, !tbaa !618
   %94 = zext i8 %93 to i64
   %95 = lshr i64 %94, 6
-  %96 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %79, i64 %95
   %97 = and i64 %94, 63
   %98 = load i64, ptr %96, align 8, !tbaa !19
   %99 = shl nuw i64 1, %97
@@ -29576,7 +29576,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   br i1 %.not99, label %105, label %101
 
 101:                                              ; preds = %.critedge
-  %102 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %95
+  %102 = getelementptr inbounds nuw i64, ptr %7, i64 %95
   %103 = load i64, ptr %102, align 8, !tbaa !19
   %104 = or i64 %99, %103
   store i64 %104, ptr %102, align 8, !tbaa !19
@@ -29591,7 +29591,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   %108 = load i8, ptr %107, align 2, !tbaa !703
   %109 = zext i8 %108 to i64
   %110 = lshr i64 %109, 6
-  %111 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %79, i64 %110
   %112 = and i64 %109, 63
   %113 = load i64, ptr %111, align 8, !tbaa !19
   %114 = shl nuw i64 1, %112
@@ -29600,7 +29600,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   br i1 %.not100, label %.critedge70.thread, label %116
 
 116:                                              ; preds = %.critedge70
-  %117 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %110
+  %117 = getelementptr inbounds nuw i64, ptr %7, i64 %110
   %118 = load i64, ptr %117, align 8, !tbaa !19
   %119 = or i64 %114, %118
   store i64 %119, ptr %117, align 8, !tbaa !19
@@ -29628,7 +29628,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler22resolveAssignConflictsEPN
   %127 = load i8, ptr %126, align 4, !tbaa !618
   %128 = zext i8 %127 to i64
   %129 = lshr i64 %128, 6
-  %130 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i64, ptr %7, i64 %129
   %131 = and i64 %128, 63
   %132 = load i64, ptr %130, align 8, !tbaa !19
   %133 = shl nuw i64 1, %131
@@ -29729,7 +29729,7 @@ _ZN4Luau8Compiler11getLocalRegEPNS_8AstLocalE.exit: ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = zext i8 %38 to i64
   %41 = lshr i64 %40, 6
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %41
   %43 = and i64 %40, 63
   %44 = load i64, ptr %42, align 8, !tbaa !19
   %45 = shl nuw i64 1, %43
@@ -29739,7 +29739,7 @@ _ZN4Luau8Compiler11getLocalRegEPNS_8AstLocalE.exit: ; preds = %33
 
 47:                                               ; preds = %_ZN4Luau8Compiler11getLocalRegEPNS_8AstLocalE.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = getelementptr inbounds nuw [4 x i64], ptr %48, i64 0, i64 %41
+  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %41
   %50 = load i64, ptr %49, align 8, !tbaa !19
   %51 = or i64 %50, %45
   store i64 %51, ptr %49, align 8, !tbaa !19

@@ -546,9 +546,9 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv609 = phi i64 [ 2, %.lr.ph548.preheader ], [ %indvars.iv.next610, %.lr.ph548 ]
   %290 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv609
   %291 = load i32, ptr %290, align 4, !tbaa !3
-  %292 = add nsw i32 %291, -1
-  %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds [4 x i32], ptr %25, i64 0, i64 %293
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr i32, ptr %25, i64 %292
+  %294 = getelementptr i8, ptr %293, i64 -4
   %295 = load i32, ptr %294, align 4, !tbaa !3
   %296 = add nsw i32 %295, 1
   store i32 %296, ptr %294, align 4, !tbaa !3
@@ -594,9 +594,9 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %309 = sext i32 %308 to i64
   %310 = getelementptr inbounds i32, ptr %51, i64 %309
   %311 = load i32, ptr %310, align 4, !tbaa !3
-  %312 = add nsw i32 %311, -1
-  %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [4 x i32], ptr %31, i64 0, i64 %313
+  %312 = sext i32 %311 to i64
+  %313 = getelementptr i32, ptr %31, i64 %312
+  %314 = getelementptr i8, ptr %313, i64 -4
   %315 = load i32, ptr %314, align 4, !tbaa !3
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds i32, ptr %49, i64 %316

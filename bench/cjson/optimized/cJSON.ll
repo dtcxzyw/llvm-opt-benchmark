@@ -677,7 +677,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
 
 64:                                               ; preds = %63, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60
   %.sink.i = phi i8 [ %51, %63 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ], [ %62, %60 ]
-  %65 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.033.i
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %.033.i
   store i8 %.sink.i, ptr %65, align 1, !tbaa !34
   %66 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %66, 63
@@ -685,7 +685,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
 
 .critedge.i:                                      ; preds = %64, %60, %57
   %.0.lcssa.i = phi i64 [ %.033.i, %57 ], [ 63, %64 ], [ %.033.i, %60 ]
-  %67 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.0.lcssa.i
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa.i
   store i8 0, ptr %67, align 1, !tbaa !34
   %68 = call double @strtod(ptr noundef nonnull %4, ptr noundef nonnull %3) #32
   %69 = load ptr, ptr %3, align 8, !tbaa !35
@@ -1474,7 +1474,7 @@ ensure.exit59:                                    ; preds = %156, %120
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.03648.i = phi i64 [ %197, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %193 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %.03648.i
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 %.03648.i
   %194 = load i8, ptr %193, align 1, !tbaa !34
   %195 = icmp eq i8 %194, %164
   %spec.select.i = select i1 %195, i8 46, i8 %194

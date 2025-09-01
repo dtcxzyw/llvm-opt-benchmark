@@ -450,7 +450,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 127:                                              ; preds = %123
   %128 = zext nneg i32 %124 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr %71, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %71, i64 %128
   store i8 1, ptr %129, align 1
   store i8 1, ptr %54, align 1
   br label %.thread152
@@ -474,7 +474,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 141:                                              ; preds = %130
   %142 = sext i32 %137 to i64
-  %143 = getelementptr inbounds [256 x i8], ptr %71, i64 0, i64 %142
+  %143 = getelementptr inbounds i8, ptr %71, i64 %142
   store i8 1, ptr %143, align 1
   store i8 1, ptr %54, align 1
   %144 = icmp sgt i32 %137, 21
@@ -1008,7 +1008,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %399 = getelementptr inbounds nuw i8, ptr %387, i64 17
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i64
-  %402 = getelementptr inbounds nuw [256 x i8], ptr %71, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i8, ptr %71, i64 %401
   %403 = load i8, ptr %402, align 1, !range !8, !noundef !9
   %404 = trunc nuw i8 %403 to i1
   br i1 %404, label %405, label %.backedge
@@ -1064,7 +1064,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 432:                                              ; preds = %441, %.lr.ph.i
   %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %442, %441 ]
   %433 = sext i32 %.011.i to i64
-  %434 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %431, i64 0, i64 %433
+  %434 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %431, i64 %433
   %435 = load i8, ptr %434, align 8, !range !8, !noundef !9
   %436 = trunc nuw i8 %435 to i1
   br i1 %436, label %437, label %441
@@ -1985,7 +1985,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = sext i32 %.033 to i64
-  %21 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 8, !range !8, !noundef !9
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %61
@@ -2016,7 +2016,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
 
 37:                                               ; preds = %34
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr @forkNames, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr @forkNames, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.115, ptr noundef %40) #16
   %42 = load i32, ptr %13, align 8
@@ -2107,7 +2107,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   br i1 %or.cond108, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %6, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %.fr = freeze i64 %12
   %13 = add i64 %.fr, %.087114
@@ -2166,13 +2166,13 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   br i1 %46, label %.preheader, label %79
 
 .preheader:                                       ; preds = %42
-  %47 = getelementptr inbounds nuw [256 x [16 x %struct.XLogRecStats]], ptr %38, i64 0, i64 %indvars.iv128
+  %47 = getelementptr inbounds nuw [16 x %struct.XLogRecStats], ptr %38, i64 %indvars.iv128
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   br i1 %.not.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %78
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %78 ], [ 0, %.preheader ]
-  %49 = getelementptr inbounds nuw [16 x %struct.XLogRecStats], ptr %47, i64 0, i64 %indvars.iv124
+  %49 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %47, i64 %indvars.iv124
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8
@@ -2220,7 +2220,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   br i1 %exitcond127.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 79:                                               ; preds = %42
-  %80 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv128
+  %80 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %6, i64 %indvars.iv128
   %81 = load i64, ptr %80, align 8
   %82 = icmp samesign ugt i64 %indvars.iv128, 127
   %83 = icmp eq i64 %81, 0
@@ -2255,7 +2255,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 
 .preheader.split:                                 ; preds = %.preheader, %136
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %136 ], [ 0, %.preheader ]
-  %104 = getelementptr inbounds nuw [16 x %struct.XLogRecStats], ptr %47, i64 0, i64 %indvars.iv120
+  %104 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %47, i64 %indvars.iv120
   %105 = load i64, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load i64, ptr %106, align 8

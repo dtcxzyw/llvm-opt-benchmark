@@ -1614,8 +1614,8 @@ define internal fastcc noundef zeroext i1 @_ZL23CC_AArch64_Custom_BlockRjRN4llvm
 
 _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   %29 = zext nneg i16 %23 to i64
-  %30 = add nsw i64 %29, -1
-  %31 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %30
+  %30 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %31, align 16
   switch i64 %.sroa.0.0.copyload.i.i.i, label %.thread58 [
     i64 32, label %32
@@ -10789,7 +10789,7 @@ define internal fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11
 
 19:                                               ; preds = %10, %_ZN4llvm7CCState11AllocateRegEt.exit
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %_ZN4llvm7CCState11AllocateRegEt.exit ]
-  %20 = getelementptr inbounds nuw [8 x i16], ptr @_ZL8ZRegList, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i16, ptr @_ZL8ZRegList, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !95
   %22 = zext i16 %21 to i32
   %23 = lshr i32 %22, 5
@@ -10801,7 +10801,7 @@ define internal fastcc void @_ZL16finishStackBlockRN4llvm15SmallVectorImplINS_11
   %29 = shl nuw i32 1, %28
   %30 = and i32 %29, %27
   %31 = icmp ne i32 %30, 0
-  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %33 = zext i1 %31 to i8
   store i8 %33, ptr %32, align 1, !tbaa !599
   %.not.i = icmp eq i32 %30, 0
@@ -10838,7 +10838,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %19, %34
 
 47:                                               ; preds = %18, %_ZN4llvm7CCState11AllocateRegEt.exit69
   %indvars.iv83 = phi i64 [ 0, %18 ], [ %indvars.iv.next84, %_ZN4llvm7CCState11AllocateRegEt.exit69 ]
-  %48 = getelementptr inbounds nuw [4 x i16], ptr @_ZZN4llvm19RetCC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE9RegList10, i64 0, i64 %indvars.iv83
+  %48 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19RetCC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE9RegList10, i64 %indvars.iv83
   %49 = load i16, ptr %48, align 2, !tbaa !95
   %50 = zext i16 %49 to i32
   %51 = lshr i32 %50, 5
@@ -10850,7 +10850,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %19, %34
   %57 = shl nuw i32 1, %56
   %58 = and i32 %57, %55
   %59 = icmp ne i32 %58, 0
-  %60 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv83
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv83
   %61 = zext i1 %59 to i8
   store i8 %61, ptr %60, align 1, !tbaa !599
   %.not.i67 = icmp eq i32 %58, 0
@@ -10867,13 +10867,13 @@ _ZN4llvm7CCState11AllocateRegEt.exit69:           ; preds = %47, %62
 
 63:                                               ; preds = %35, %70
   %indvars.iv87 = phi i64 [ 0, %35 ], [ %indvars.iv.next88, %70 ]
-  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv87
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv87
   %65 = load i8, ptr %64, align 1, !tbaa !599, !range !93, !noundef !94
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw [8 x i16], ptr @_ZL8ZRegList, i64 0, i64 %indvars.iv87
+  %68 = getelementptr inbounds nuw i16, ptr @_ZL8ZRegList, i64 %indvars.iv87
   %69 = load i16, ptr %68, align 2, !tbaa !95
   tail call void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull align 8 dereferenceable(420) %3, i16 noundef zeroext %69) #6
   br label %70
@@ -10892,13 +10892,13 @@ _ZN4llvm7CCState11AllocateRegEt.exit69:           ; preds = %47, %62
 
 .preheader:                                       ; preds = %70, %79
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %79 ], [ 0, %70 ]
-  %73 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv91
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv91
   %74 = load i8, ptr %73, align 1, !tbaa !599, !range !93, !noundef !94
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %.preheader
-  %77 = getelementptr inbounds nuw [4 x i16], ptr @_ZZN4llvm19RetCC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE9RegList10, i64 0, i64 %indvars.iv91
+  %77 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19RetCC_AArch64_AAPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE9RegList10, i64 %indvars.iv91
   %78 = load i16, ptr %77, align 2, !tbaa !95
   tail call void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull align 8 dereferenceable(420) %3, i16 noundef zeroext %78) #6
   br label %79
@@ -10911,10 +10911,10 @@ _ZN4llvm7CCState11AllocateRegEt.exit69:           ; preds = %47, %62
 80:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = zext i16 %1 to i64
-  %82 = add nsw i64 %81, -1
-  %83 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %82
+  %82 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %81
+  %83 = getelementptr i8, ptr %82, i64 -16
   %.sroa.0.0.copyload.i70 = load i64, ptr %83, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %82, i64 -8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i70, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8

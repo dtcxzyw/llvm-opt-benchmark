@@ -248,7 +248,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %thread-pre-split
   %39 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pr, %thread-pre-split ]
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [14 x ptr], ptr %25, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %25, i64 %40
   store ptr null, ptr %41, align 8, !tbaa !23
   %42 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %thread-pre-split unwind label %43, !llvm.loop !25
@@ -693,7 +693,7 @@ thread-pre-split:                                 ; preds = %_ZN4cvc58internal11
   %70 = load ptr, ptr %63, align 8, !tbaa !74
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = zext i32 %69 to i64
-  %73 = getelementptr inbounds nuw [14 x ptr], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !75
   %75 = icmp eq ptr %74, null
   br i1 %75, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, label %78
@@ -1139,7 +1139,7 @@ _ZNSt13unordered_setIN4cvc58internal6theory8TheoryIdESt4hashIS3_ESt8equal_toIS3_
   %.pre-phi = phi i64 [ %.pre, %_ZNSt13unordered_setIN4cvc58internal6theory8TheoryIdESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit.loopexit ], [ %218, %224 ], [ %218, %229 ]
   %239 = load ptr, ptr %63, align 8, !tbaa !74
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  %241 = getelementptr inbounds nuw [14 x ptr], ptr %240, i64 0, i64 %.pre-phi
+  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %.pre-phi
   %242 = load ptr, ptr %241, align 8, !tbaa !75
   %243 = load ptr, ptr %52, align 8, !tbaa !39
   %.not10.i.i.i.i204 = icmp eq ptr %243, null
@@ -1204,7 +1204,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit232: ; preds = %252
   %261 = load ptr, ptr %253, align 8, !tbaa !46
   %262 = load i32, ptr %17, align 4, !tbaa !21
   %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds nuw [14 x ptr], ptr %186, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw ptr, ptr %186, i64 %263
   store ptr %261, ptr %264, align 8, !tbaa !23
   %265 = invoke noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %266 unwind label %.loopexit

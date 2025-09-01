@@ -608,7 +608,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = zext nneg i32 %14 to i64
-  %33 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
@@ -633,7 +633,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 43:                                               ; preds = %30
   %44 = load i32, ptr %13, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %45
+  %46 = getelementptr inbounds %"class.std::unique_ptr", ptr %31, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -641,7 +641,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(60) %47, i64 noundef %1)
   %51 = load i32, ptr %13, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %52
+  %53 = getelementptr inbounds %"class.std::unique_ptr", ptr %31, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 88
@@ -652,7 +652,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 59:                                               ; preds = %43
   %60 = load i32, ptr %13, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %61
+  %62 = getelementptr inbounds %"class.std::unique_ptr", ptr %31, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 100
   %65 = load i32, ptr %64, align 4
@@ -661,7 +661,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 
 67:                                               ; preds = %59
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %69 = getelementptr inbounds [9 x i32], ptr %68, i64 0, i64 %61
+  %69 = getelementptr inbounds i32, ptr %68, i64 %61
   store i32 0, ptr %69, align 4
   br label %76
 
@@ -670,7 +670,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %73 = load i32, ptr %13, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [9 x i32], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds i32, ptr %72, i64 %74
   store i32 %71, ptr %75, align 4
   br label %76
 
@@ -757,7 +757,7 @@ _ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminal
 112:                                              ; preds = %"_ZSt6any_ofIPKSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEZNKS1_20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEvE3$_0EbT_SB_T0_.exit.loopexit.i", %_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminalEv.exit
   %113 = load i32, ptr %13, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %114
+  %115 = getelementptr inbounds %"class.std::unique_ptr", ptr %31, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 88
@@ -779,7 +779,7 @@ _ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState22AllLocalStatesTerminal
 
 127:                                              ; preds = %122
   %128 = zext nneg i32 %125 to i64
-  %129 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %31, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %31, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   store i32 %124, ptr %131, align 8
@@ -997,7 +997,7 @@ define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState12LegalActi
 16:                                               ; preds = %12, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
   %17 = phi ptr [ null, %12 ], [ %57, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %18 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %13, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
@@ -1111,7 +1111,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 58:                                               ; preds = %8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = zext nneg i32 %10 to i64
-  %61 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
@@ -1186,7 +1186,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load i32, ptr %12, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [9 x %"class.std::unique_ptr"], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds %"class.std::unique_ptr", ptr %34, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
@@ -1361,7 +1361,7 @@ _ZSt4fillIPN10open_spiel11tic_tac_toe9CellStateES2_EvT_S4_RKT0_.exit.preheader: 
           to label %65 unwind label %77
 
 65:                                               ; preds = %_ZSt4fillIPN10open_spiel11tic_tac_toe9CellStateES2_EvT_S4_RKT0_.exit.preheader
-  %66 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %59, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %59, i64 %indvars.iv
   %67 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
   %68 = load ptr, ptr %66, align 8
@@ -1715,12 +1715,12 @@ define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState8ToStringB5
 
 42:                                               ; preds = %35
   %43 = zext nneg i32 %28 to i64
-  %44 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %15, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %15, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 60
   %47 = add nuw nsw i32 %22, %.zext34
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [9 x i32], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %48
   %50 = load i32, ptr %49, align 4
   invoke void @_ZN10open_spiel11tic_tac_toe13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, i32 noundef %50)
           to label %51 unwind label %.loopexit.loopexit
@@ -2429,7 +2429,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 
 .preheader:                                       ; preds = %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit, %67
   %indvars.iv23 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.exit ], [ %indvars.iv.next24, %67 ]
-  %48 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %45, i64 0, i64 %indvars.iv23
+  %48 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %45, i64 %indvars.iv23
   %49 = trunc nuw nsw i64 %indvars.iv23 to i32
   br label %50
 
@@ -2437,7 +2437,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit ]
   %51 = load ptr, ptr %48, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 60
-  %53 = getelementptr inbounds nuw [9 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %18, align 4
   store i32 %49, ptr %46, align 4
@@ -2448,10 +2448,10 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 56:                                               ; preds = %56, %50
   %indvars.iv.i.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i, %56 ]
   %.078.i.i = phi i32 [ 0, %50 ], [ %62, %56 ]
-  %57 = getelementptr inbounds nuw [3 x i32], ptr %34, i64 0, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 4
   %59 = mul nsw i32 %58, %.078.i.i
-  %60 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %59, %61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2521,11 +2521,11 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTStateC2ERKS1_(ptr
 
 20:                                               ; preds = %2, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
-  %21 = getelementptr inbounds nuw [9 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw [9 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %19, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %19, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 192
@@ -2534,7 +2534,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTStateC2ERKS1_(ptr
           to label %29 unwind label %39
 
 29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw [9 x %"class.std::unique_ptr"], ptr %13, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %13, i64 %indvars.iv
   %31 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %32 = load ptr, ptr %30, align 8

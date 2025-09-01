@@ -587,7 +587,7 @@ _ZN3std2io7BufRead10read_until17hc67a4fb78302d52fE.exit: ; preds = %2
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %22
+  %25 = getelementptr inbounds i8, ptr %24, i64 %22
   %26 = load i8, ptr %25, align 1, !noundef !4
   %27 = load i8, ptr %8, align 8, !noundef !4
   %28 = icmp eq i8 %26, %27
@@ -709,7 +709,7 @@ _ZN3std2io7BufRead10read_until17he33ee54bbe44ce27E.exit: ; preds = %2
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %22
+  %25 = getelementptr inbounds i8, ptr %24, i64 %22
   %26 = load i8, ptr %25, align 1, !noundef !4
   %27 = load i8, ptr %8, align 8, !noundef !4
   %28 = icmp eq i8 %26, %27

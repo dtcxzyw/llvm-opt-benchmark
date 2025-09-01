@@ -789,7 +789,7 @@ define dso_local range(i32 -30, 2) i32 @onig_get_callout_data_dont_clear_old(ptr
   %12 = getelementptr %struct.CalloutData, ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -120
   %14 = sext i32 %3 to i64
-  %15 = getelementptr inbounds [5 x %struct.anon], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %struct.anon, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !53
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %17
@@ -837,7 +837,7 @@ define dso_local range(i32 -2147483648, 2) i32 @onig_get_callout_data_by_tag_don
   %16 = getelementptr %struct.CalloutData, ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -120
   %18 = sext i32 %4 to i64
-  %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !53
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %22, label %21
@@ -885,7 +885,7 @@ define dso_local range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args_se
   %16 = getelementptr %struct.CalloutData, ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -120
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !53
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %21
@@ -939,7 +939,7 @@ define dso_local range(i32 -30, 2) i32 @onig_get_callout_data(ptr noundef readno
 19:                                               ; preds = %17, %8
   %20 = getelementptr i8, ptr %12, i64 -120
   %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds [5 x %struct.anon], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds %struct.anon, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !53
   %.not21 = icmp eq ptr %4, null
   br i1 %.not21, label %25, label %24
@@ -998,7 +998,7 @@ define dso_local range(i32 -2147483648, 2) i32 @onig_get_callout_data_by_tag(ptr
 23:                                               ; preds = %21, %12
   %24 = getelementptr i8, ptr %16, i64 -120
   %25 = sext i32 %4 to i64
-  %26 = getelementptr inbounds [5 x %struct.anon], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.anon, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8, !tbaa !53
   %.not21.i = icmp eq ptr %5, null
   br i1 %.not21.i, label %29, label %28
@@ -1056,7 +1056,7 @@ define dso_local range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args(pt
 22:                                               ; preds = %20, %7
   %23 = getelementptr i8, ptr %15, i64 -120
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds [5 x %struct.anon], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds %struct.anon, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8, !tbaa !53
   %.not21.i = icmp eq ptr %3, null
   br i1 %.not21.i, label %28, label %27
@@ -1116,7 +1116,7 @@ define dso_local range(i32 -30, 2) i32 @onig_get_callout_data_by_callout_args_se
 23:                                               ; preds = %21, %8
   %24 = getelementptr i8, ptr %16, i64 -120
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds [5 x %struct.anon], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.anon, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8, !tbaa !53
   %.not21.i = icmp eq ptr %2, null
   br i1 %.not21.i, label %29, label %28
@@ -1157,7 +1157,7 @@ define dso_local range(i32 -30, 1) i32 @onig_set_callout_data(ptr noundef readno
   %13 = getelementptr i8, ptr %12, i64 -128
   %14 = getelementptr i8, ptr %12, i64 -120
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds [5 x %struct.anon], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.anon, ptr %14, i64 %15
   store i32 %4, ptr %16, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !55
@@ -1189,7 +1189,7 @@ onig_set_callout_data.exit:                       ; preds = %10
   %16 = getelementptr i8, ptr %15, i64 -128
   %17 = getelementptr i8, ptr %15, i64 -120
   %18 = sext i32 %4 to i64
-  %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
   store i32 %5, ptr %19, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !55
@@ -1220,7 +1220,7 @@ define dso_local range(i32 -30, 1) i32 @onig_set_callout_data_by_callout_args(pt
   %16 = getelementptr i8, ptr %15, i64 -128
   %17 = getelementptr i8, ptr %15, i64 -120
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds [5 x %struct.anon], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
   store i32 %3, ptr %19, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !55
@@ -1253,7 +1253,7 @@ define dso_local range(i32 -30, 1) i32 @onig_set_callout_data_by_callout_args_se
   %17 = getelementptr i8, ptr %16, i64 -128
   %18 = getelementptr i8, ptr %16, i64 -120
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [5 x %struct.anon], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds %struct.anon, ptr %18, i64 %19
   store i32 %2, ptr %20, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !55
@@ -2019,7 +2019,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv2412
   %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [84 x ptr], ptr @match_at.opcode_to_label, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @match_at.opcode_to_label, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !20
   store ptr %39, ptr %.015202296, align 8, !tbaa !101
   %40 = getelementptr inbounds nuw i8, ptr %.015202296, i64 24
@@ -10059,7 +10059,7 @@ define dso_local noundef i32 @onig_init_for_match_at(ptr noundef readonly captur
   %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv2412.i
   %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [84 x ptr], ptr @match_at.opcode_to_label, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @match_at.opcode_to_label, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   store ptr %12, ptr %.015202296.i, align 8, !tbaa !101
   %13 = getelementptr inbounds nuw i8, ptr %.015202296.i, i64 24
@@ -10244,7 +10244,7 @@ define dso_local range(i32 -30, 1) i32 @onig_get_arg_by_callout_args(ptr noundef
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [4 x i32], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !56
   store i32 %20, ptr %2, align 4, !tbaa !24
   br label %21
@@ -10256,7 +10256,7 @@ define dso_local range(i32 -30, 1) i32 @onig_get_arg_by_callout_args(ptr noundef
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds [4 x %union.OnigValue], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds %union.OnigValue, ptr %23, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !55
   br label %26
 
@@ -10591,7 +10591,7 @@ onig_get_callout_data_by_callout_args_self_dont_clear_old.exit43: ; preds = %38
   %49 = zext nneg i32 %42 to i64
   %50 = getelementptr %struct.CalloutData, ptr %48, i64 %49
   %51 = getelementptr i8, ptr %50, i64 -120
-  %52 = getelementptr inbounds nuw [5 x %struct.anon], ptr %51, i64 0, i64 %.029
+  %52 = getelementptr inbounds nuw %struct.anon, ptr %51, i64 %.029
   %53 = load i32, ptr %52, align 8, !tbaa !53
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.046.0.copyload51 = load i64, ptr %54, align 8
@@ -11236,14 +11236,14 @@ define internal range(i32 -30, 1) i32 @onig_builtin_monitor(ptr noundef readonly
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !56
-  %46 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %45, ptr %46, align 1, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
-  %47 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %spec.store.select
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.store.select
   store i8 0, ptr %47, align 1, !tbaa !56
   br label %48
 
@@ -12144,7 +12144,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search(ptr noundef readonly 
   %94 = getelementptr inbounds i8, ptr %.038.i, i64 %80
   %95 = load i8, ptr %94, align 1, !tbaa !56
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr %28, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %28, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !56
   %99 = zext i8 %98 to i64
   %100 = sub i64 %81, %91
@@ -12207,7 +12207,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search(ptr noundef readonly 
 131:                                              ; preds = %._crit_edge.i119
   %132 = load i8, ptr %130, align 1, !tbaa !56
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw [256 x i8], ptr %28, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %28, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !56
   %136 = zext i8 %135 to i64
   %137 = getelementptr inbounds nuw i8, ptr %.03748.i, i64 %136

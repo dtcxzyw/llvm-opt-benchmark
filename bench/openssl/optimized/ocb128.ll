@@ -306,7 +306,7 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr noundef captures(none) %0, 
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %1, i64 %2, i1 false)
   %19 = sub nuw nsw i64 15, %2
-  %20 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = or i8 %21, 1
   store i8 %22, ptr %20, align 1, !tbaa !17
@@ -556,7 +556,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   store i64 %86, ptr %82, align 8, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %.049.lcssa, i64 %75, i1 false)
-  %87 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %75
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 %75
   store i8 -128, ptr %87, align 1, !tbaa !17
   %88 = load i64, ptr %4, align 8, !tbaa !17
   %89 = xor i64 %88, %81
@@ -896,7 +896,7 @@ ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, 
 ocb_block_xor.exit:                               ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 1 %.078, i64 %131, i1 false)
-  %154 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %131
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 %131
   store i8 -128, ptr %154, align 1, !tbaa !17
   %155 = load i64, ptr %6, align 8, !tbaa !17
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1247,7 +1247,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
 ocb_block_xor.exit:                               ; preds = %149
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 1 %.085, i64 %134, i1 false)
-  %157 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %134
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 %134
   store i8 -128, ptr %157, align 1, !tbaa !17
   %158 = load i64, ptr %6, align 8, !tbaa !17
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 160

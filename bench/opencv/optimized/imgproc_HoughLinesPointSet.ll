@@ -45,7 +45,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 9:                                                ; preds = %0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
   %10 = phi ptr [ null, %0 ], [ %40, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
-  %11 = getelementptr inbounds nuw [20 x [2 x float]], ptr @_ZZ4mainE6Points, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x float], ptr @_ZZ4mainE6Points, i64 %indvars.iv
   %12 = load float, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load float, ptr %13, align 4, !tbaa !4

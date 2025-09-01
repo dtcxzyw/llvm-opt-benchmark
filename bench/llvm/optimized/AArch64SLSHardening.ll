@@ -986,7 +986,7 @@ _ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %313, i32 31, i32 %312
   %.0.i.i.i.i.i.i.i.i = select i1 %311, i32 29, i32 %spec.select.i.i.i.i.i.i.i.i
   %314 = zext i32 %.0.i.i.i.i.i.i.i.i to i64
-  %315 = getelementptr inbounds nuw [32 x i32], ptr %117, i64 0, i64 %314
+  %315 = getelementptr inbounds nuw i32, ptr %117, i64 %314
   br label %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 316:                                              ; preds = %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i
@@ -996,7 +996,7 @@ _ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i
   %spec.select.i5.i.i.i.i.i.i.i = select i1 %319, i32 31, i32 %318
   %.0.i6.i.i.i.i.i.i.i = select i1 %317, i32 29, i32 %spec.select.i5.i.i.i.i.i.i.i
   %320 = zext i32 %.0.i6.i.i.i.i.i.i.i to i64
-  %321 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i32, ptr %116, i64 %320
   br label %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 322:                                              ; preds = %_ZL15createThunkNameRKN12_GLOBAL__N_19ThunkKindEN4llvm8RegisterES4_.exit.i.i.i.i.i
@@ -1037,7 +1037,7 @@ _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.e
   %spec.select.i.i.i66.i.i.i.i.i = select i1 %337, i32 31, i32 %336
   %.0.i.i.i67.i.i.i.i.i = select i1 %335, i32 29, i32 %spec.select.i.i.i66.i.i.i.i.i
   %338 = zext i32 %.0.i.i.i67.i.i.i.i.i to i64
-  %339 = getelementptr inbounds nuw [32 x i32], ptr %117, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw i32, ptr %117, i64 %338
   br label %_ZN12_GLOBAL__N_19ThunksSet3setENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 340:                                              ; preds = %328
@@ -1047,7 +1047,7 @@ _ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.e
   %spec.select.i5.i.i63.i.i.i.i.i = select i1 %343, i32 31, i32 %342
   %.0.i6.i.i64.i.i.i.i.i = select i1 %341, i32 29, i32 %spec.select.i5.i.i63.i.i.i.i.i
   %344 = zext i32 %.0.i6.i.i64.i.i.i.i.i to i64
-  %345 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw i32, ptr %116, i64 %344
   br label %_ZN12_GLOBAL__N_19ThunksSet3setENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
 
 346:                                              ; preds = %328
@@ -1473,9 +1473,9 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfo
 
 485:                                              ; preds = %485, %_ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionENS_9ThunksSetE.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionENS_9ThunksSetE.exit.i.i ], [ %indvars.iv.next.i.i.i, %485 ]
-  %486 = getelementptr inbounds nuw [32 x i32], ptr %481, i64 0, i64 %indvars.iv.i.i.i
+  %486 = getelementptr inbounds nuw i32, ptr %481, i64 %indvars.iv.i.i.i
   %487 = load i32, ptr %486, align 4, !tbaa !379
-  %488 = getelementptr inbounds nuw [32 x i32], ptr %482, i64 0, i64 %indvars.iv.i.i.i
+  %488 = getelementptr inbounds nuw i32, ptr %482, i64 %indvars.iv.i.i.i
   %489 = load i32, ptr %488, align 4, !tbaa !379
   %490 = or i32 %489, %487
   store i32 %490, ptr %488, align 4, !tbaa !379
@@ -1485,9 +1485,9 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfo
 
 491:                                              ; preds = %491, %.preheader.i.i.i
   %indvars.iv17.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next18.i.i.i, %491 ]
-  %492 = getelementptr inbounds nuw [32 x i32], ptr %483, i64 0, i64 %indvars.iv17.i.i.i
+  %492 = getelementptr inbounds nuw i32, ptr %483, i64 %indvars.iv17.i.i.i
   %493 = load i32, ptr %492, align 4, !tbaa !379
-  %494 = getelementptr inbounds nuw [32 x i32], ptr %484, i64 0, i64 %indvars.iv17.i.i.i
+  %494 = getelementptr inbounds nuw i32, ptr %484, i64 %indvars.iv17.i.i.i
   %495 = load i32, ptr %494, align 4, !tbaa !379
   %496 = or i32 %495, %493
   store i32 %496, ptr %494, align 4, !tbaa !379

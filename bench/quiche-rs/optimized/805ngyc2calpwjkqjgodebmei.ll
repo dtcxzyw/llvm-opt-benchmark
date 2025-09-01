@@ -1744,7 +1744,7 @@ switch.lookup:
   %4 = icmp ne i64 %2, 11
   tail call void @llvm.assume(i1 %4)
   %5 = select i1 %3, i64 %2, i64 11
-  %switch.gep = getelementptr inbounds nuw [20 x i64], ptr @switch.table._ZN6quiche2h35Error7to_wire17h3ff00adf3d6e21ddE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6quiche2h35Error7to_wire17h3ff00adf3d6e21ddE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

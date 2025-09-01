@@ -32,7 +32,7 @@ define hidden i32 @gnu_debuglink_crc32(i32 noundef %0, ptr noundef readonly capt
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds nuw [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr @gnu_debuglink_crc32.crc32_table, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11
@@ -749,7 +749,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr nound
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %15, %.0.tr.i
   %16 = zext i8 %.narrow.i to i64
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @gnu_debuglink_crc32.crc32_table, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = lshr i32 %.011.i, 8
   %20 = xor i32 %18, %19

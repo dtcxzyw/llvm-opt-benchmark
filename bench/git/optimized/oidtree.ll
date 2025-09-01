@@ -112,7 +112,7 @@ define dso_local void @oidtree_each(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %17 = load i8, ptr %16, align 1, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i8 %17, ptr %18, align 4, !tbaa !18
@@ -155,7 +155,7 @@ define internal i32 @iter(ptr noundef readonly captures(none) %0, ptr noundef re
 
 12:                                               ; preds = %9
   %13 = load i64, ptr %11, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i8, ptr %16, align 4, !tbaa !18

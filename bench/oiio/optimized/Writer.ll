@@ -401,7 +401,7 @@ _ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit: ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %17, i64 %18
   store i32 %8, ptr %19, align 4, !tbaa !38
   %narrow.i = mul nuw nsw i32 %1, 72
   %20 = zext nneg i32 %narrow.i to i64

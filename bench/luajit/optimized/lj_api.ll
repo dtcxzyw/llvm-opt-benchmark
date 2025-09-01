@@ -541,7 +541,7 @@ define internal fastcc void @copy_slot(ptr noundef %0, ptr noundef readonly capt
   %100 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %101 = sub nsw i32 -10003, %2
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [1 x %union.TValue], ptr %100, i64 0, i64 %102
+  %103 = getelementptr inbounds %union.TValue, ptr %100, i64 %102
   br label %index2adr.exit
 
 104:                                              ; preds = %94
@@ -694,7 +694,7 @@ define dso_local void @lua_copy(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -801,7 +801,7 @@ define internal fastcc ptr @index2adr(ptr noundef readonly captures(none) %0, i3
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %70
 
 65:                                               ; preds = %55
@@ -905,7 +905,7 @@ define dso_local void @lua_pushvalue(ptr noundef %0, i32 noundef %1) local_unnam
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %60 = sub nsw i32 -10003, %1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [1 x %union.TValue], ptr %59, i64 0, i64 %61
+  %62 = getelementptr inbounds %union.TValue, ptr %59, i64 %61
   br label %index2adr.exit
 
 63:                                               ; preds = %53
@@ -1029,7 +1029,7 @@ define dso_local range(i32 -1, 16) i32 @lua_type(ptr noundef readonly captures(n
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -1159,7 +1159,7 @@ define dso_local void @luaL_checktype(ptr noundef %0, i32 noundef %1, i32 nounde
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit.i
 
 66:                                               ; preds = %56
@@ -1300,7 +1300,7 @@ define dso_local void @luaL_checkany(ptr noundef %0, i32 noundef %1) local_unnam
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -1332,9 +1332,9 @@ declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @lua_typename(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = add nsw i32 %1, 1
-  %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %4
+  %3 = sext i32 %1 to i64
+  %4 = getelementptr ptr, ptr @lj_obj_typename, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   ret ptr %6
 }
@@ -1430,7 +1430,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef readonly captu
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -1553,7 +1553,7 @@ define dso_local range(i32 0, 2) i32 @lua_isnumber(ptr noundef readonly captures
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -1682,7 +1682,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef readonly captures
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -1794,7 +1794,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef readonly captur
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -1906,7 +1906,7 @@ define dso_local i32 @lua_rawequal(ptr noundef readonly captures(none) %0, i32 n
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -2007,7 +2007,7 @@ index2adr.exit:                                   ; preds = %5, %14, %21, %27, %
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %130 = sub nsw i32 -10003, %2
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [1 x %union.TValue], ptr %129, i64 0, i64 %131
+  %132 = getelementptr inbounds %union.TValue, ptr %129, i64 %131
   br label %index2adr.exit13
 
 133:                                              ; preds = %123
@@ -2130,7 +2130,7 @@ define dso_local range(i32 0, 2) i32 @lua_equal(ptr noundef %0, i32 noundef %1, 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -2231,7 +2231,7 @@ index2adr.exit:                                   ; preds = %5, %14, %21, %27, %
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %130 = sub nsw i32 -10003, %2
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [1 x %union.TValue], ptr %129, i64 0, i64 %131
+  %132 = getelementptr inbounds %union.TValue, ptr %129, i64 %131
   br label %index2adr.exit37thread-pre-split
 
 133:                                              ; preds = %123
@@ -2419,7 +2419,7 @@ define dso_local range(i32 0, 2) i32 @lua_lessthan(ptr noundef %0, i32 noundef %
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -2520,7 +2520,7 @@ index2adr.exit:                                   ; preds = %5, %14, %21, %27, %
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %130 = sub nsw i32 -10003, %2
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [1 x %union.TValue], ptr %129, i64 0, i64 %131
+  %132 = getelementptr inbounds %union.TValue, ptr %129, i64 %131
   br label %index2adr.exit29
 
 133:                                              ; preds = %123
@@ -2681,7 +2681,7 @@ define dso_local double @lua_tonumber(ptr noundef readonly captures(none) %0, i3
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -2816,7 +2816,7 @@ define dso_local double @lua_tonumberx(ptr noundef readonly captures(none) %0, i
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -2973,7 +2973,7 @@ define dso_local double @luaL_checknumber(ptr noundef %0, i32 noundef %1) local_
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -3109,7 +3109,7 @@ define dso_local double @luaL_optnumber(ptr noundef %0, i32 noundef %1, double n
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -3252,7 +3252,7 @@ define dso_local i64 @lua_tointeger(ptr noundef readonly captures(none) %0, i32 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -3389,7 +3389,7 @@ define dso_local i64 @lua_tointegerx(ptr noundef readonly captures(none) %0, i32
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -3542,7 +3542,7 @@ define dso_local i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %1) local_un
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -3679,7 +3679,7 @@ define dso_local i64 @luaL_optinteger(ptr noundef %0, i32 noundef %1, i64 nounde
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -3823,7 +3823,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef readonly capture
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -3932,7 +3932,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -4105,7 +4105,7 @@ define dso_local nonnull ptr @luaL_checklstring(ptr noundef %0, i32 noundef %1, 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -4266,7 +4266,7 @@ define dso_local ptr @luaL_optlstring(ptr noundef %0, i32 noundef %1, ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exitthread-pre-split
 
 67:                                               ; preds = %57
@@ -4508,7 +4508,7 @@ define dso_local range(i64 0, 4294967296) i64 @lua_objlen(ptr noundef %0, i32 no
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -4660,7 +4660,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef readonly captures(none) %0, i3
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -4790,7 +4790,7 @@ define dso_local ptr @lua_touserdata(ptr noundef readonly captures(none) %0, i32
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -4933,7 +4933,7 @@ define dso_local ptr @lua_tothread(ptr noundef readonly captures(none) %0, i32 n
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -5034,7 +5034,7 @@ define dso_local ptr @lua_topointer(ptr noundef readonly captures(none) %0, i32 
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %52 = sub nsw i32 -10003, %1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [1 x %union.TValue], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds %union.TValue, ptr %51, i64 %53
   br label %index2adr.exit
 
 55:                                               ; preds = %45
@@ -5329,7 +5329,7 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %35 = getelementptr inbounds [1 x %union.TValue], ptr %33, i64 0, i64 %indvars.iv.next
+  %35 = getelementptr inbounds %union.TValue, ptr %33, i64 %indvars.iv.next
   %36 = load ptr, ptr %28, align 8, !tbaa !14
   %37 = getelementptr inbounds %union.TValue, ptr %36, i64 %indvars.iv.next
   %38 = load i64, ptr %37, align 8, !tbaa !17
@@ -5833,7 +5833,7 @@ define dso_local void @lua_gettable(ptr noundef %0, i32 noundef %1) local_unname
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -5966,7 +5966,7 @@ define dso_local void @lua_getfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -6115,7 +6115,7 @@ define dso_local void @lua_rawget(ptr noundef %0, i32 noundef %1) local_unnamed_
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -6232,7 +6232,7 @@ define dso_local void @lua_rawgeti(ptr noundef %0, i32 noundef %1, i32 noundef %
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -6389,7 +6389,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef %0, i32 nound
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -6428,7 +6428,7 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   %85 = icmp ult i64 %71, -13
   %86 = sub nsw i64 21, %71
   %spec.select = select i1 %85, i64 35, i64 %86
-  %87 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %84, i64 0, i64 %spec.select
+  %87 = getelementptr inbounds nuw %struct.GCRef, ptr %84, i64 %spec.select
   br label %88
 
 88:                                               ; preds = %76, %80, %72
@@ -6594,7 +6594,7 @@ define dso_local void @lua_getfenv(ptr noundef %0, i32 noundef %1) local_unnamed
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -6740,7 +6740,7 @@ define dso_local range(i32 0, -2147483648) i32 @lua_next(ptr noundef %0, i32 nou
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -6891,7 +6891,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %65 = sub nsw i32 -10003, %1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [1 x %union.TValue], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds %union.TValue, ptr %64, i64 %66
   br label %index2adr.exit
 
 68:                                               ; preds = %58
@@ -7026,7 +7026,7 @@ define dso_local ptr @lua_upvalueid(ptr noundef readonly captures(none) %0, i32 
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -7050,14 +7050,14 @@ index2adr.exit:                                   ; preds = %5, %14, %21, %27, %
 
 79:                                               ; preds = %index2adr.exit
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %81 = getelementptr inbounds [1 x %struct.GCRef], ptr %80, i64 0, i64 %78
+  %81 = getelementptr inbounds %struct.GCRef, ptr %80, i64 %78
   %82 = load i64, ptr %81, align 8, !tbaa !17
   %83 = inttoptr i64 %82 to ptr
   br label %87
 
 84:                                               ; preds = %index2adr.exit
   %85 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %86 = getelementptr inbounds [1 x %union.TValue], ptr %85, i64 0, i64 %78
+  %86 = getelementptr inbounds %union.TValue, ptr %85, i64 %78
   br label %87
 
 87:                                               ; preds = %84, %79
@@ -7156,7 +7156,7 @@ define dso_local void @lua_upvaluejoin(ptr noundef readonly captures(none) %0, i
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %65 = sub nsw i32 -10003, %1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [1 x %union.TValue], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds %union.TValue, ptr %64, i64 %66
   br label %index2adr.exit
 
 68:                                               ; preds = %58
@@ -7260,7 +7260,7 @@ index2adr.exit:                                   ; preds = %7, %16, %23, %29, %
   %134 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %135 = sub nsw i32 -10003, %3
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [1 x %union.TValue], ptr %134, i64 0, i64 %136
+  %137 = getelementptr inbounds %union.TValue, ptr %134, i64 %136
   br label %index2adr.exit19
 
 138:                                              ; preds = %128
@@ -7275,17 +7275,17 @@ index2adr.exit19:                                 ; preds = %77, %86, %93, %99, 
   %143 = load i64, ptr %.0.i17, align 8, !tbaa !17
   %144 = and i64 %143, 140737488355327
   %145 = inttoptr i64 %144 to ptr
-  %146 = add nsw i32 %2, -1
-  %147 = add nsw i32 %4, -1
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds [1 x %struct.GCRef], ptr %148, i64 0, i64 %149
-  %151 = load i64, ptr %150, align 8, !tbaa !17
-  %152 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %153 = sext i32 %146 to i64
-  %154 = getelementptr inbounds [1 x %struct.GCRef], ptr %152, i64 0, i64 %153
-  store i64 %151, ptr %154, align 8, !tbaa !17
-  %155 = inttoptr i64 %151 to ptr
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
+  %147 = sext i32 %4 to i64
+  %148 = getelementptr %struct.GCRef, ptr %146, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 -8
+  %150 = load i64, ptr %149, align 8, !tbaa !17
+  %151 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %152 = sext i32 %2 to i64
+  %153 = getelementptr %struct.GCRef, ptr %151, i64 %152
+  %154 = getelementptr i8, ptr %153, i64 -8
+  store i64 %150, ptr %154, align 8, !tbaa !17
+  %155 = inttoptr i64 %150 to ptr
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i8, ptr %156, align 8, !tbaa !17
   %158 = and i8 %157, 3
@@ -7403,7 +7403,7 @@ define dso_local ptr @luaL_testudata(ptr noundef %0, i32 noundef %1, ptr noundef
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -7566,7 +7566,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -7706,7 +7706,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %64 = sub nsw i32 -10003, %1
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [1 x %union.TValue], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds %union.TValue, ptr %63, i64 %65
   br label %index2adr.exit
 
 67:                                               ; preds = %57
@@ -7845,7 +7845,7 @@ define dso_local void @lua_rawset(ptr noundef %0, i32 noundef %1) local_unnamed_
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -7984,7 +7984,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i32 noundef %
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %63 = sub nsw i32 -10003, %1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [1 x %union.TValue], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds %union.TValue, ptr %62, i64 %64
   br label %index2adr.exit
 
 66:                                               ; preds = %56
@@ -8156,7 +8156,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -8348,7 +8348,7 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   %179 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %180 = sub nsw i32 -10003, %1
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [1 x %union.TValue], ptr %179, i64 0, i64 %181
+  %182 = getelementptr inbounds %union.TValue, ptr %179, i64 %181
   br label %index2adr.exit47
 
 183:                                              ; preds = %173
@@ -8378,7 +8378,7 @@ index2adr.exit47:                                 ; preds = %128, %136, %142, %1
   %195 = icmp ult i64 %188, -13
   %196 = sub nsw i64 21, %188
   %spec.select = select i1 %195, i64 35, i64 %196
-  %197 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %194, i64 0, i64 %spec.select
+  %197 = getelementptr inbounds nuw %struct.GCRef, ptr %194, i64 %spec.select
   store i64 %189, ptr %197, align 8, !tbaa !56
   br label %198
 
@@ -8538,7 +8538,7 @@ define dso_local range(i32 0, 2) i32 @lua_setfenv(ptr noundef captures(none) %0,
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %62 = sub nsw i32 -10003, %1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1 x %union.TValue], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %union.TValue, ptr %61, i64 %63
   br label %index2adr.exit
 
 65:                                               ; preds = %55
@@ -8701,7 +8701,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef captures(none) %0, i32 noundef 
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %65 = sub nsw i32 -10003, %1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [1 x %union.TValue], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds %union.TValue, ptr %64, i64 %66
   br label %index2adr.exit
 
 68:                                               ; preds = %58
@@ -9078,7 +9078,7 @@ define dso_local range(i32 0, 2) i32 @luaL_callmeta(ptr noundef %0, i32 noundef 
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %84 = sub nsw i32 -10003, %1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [1 x %union.TValue], ptr %83, i64 0, i64 %85
+  %86 = getelementptr inbounds %union.TValue, ptr %83, i64 %85
   br label %index2adr.exit
 
 87:                                               ; preds = %77

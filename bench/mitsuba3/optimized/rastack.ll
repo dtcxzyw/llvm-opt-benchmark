@@ -451,7 +451,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 244:                                              ; preds = %250, %241
   %245 = phi i64 [ %251, %250 ], [ %243, %241 ]
-  %246 = getelementptr inbounds nuw [6 x %"class.asmjit::_abi_1_10::ZoneVector.0"], ptr %3, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::ZoneVector.0", ptr %3, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load i32, ptr %247, align 8, !tbaa !9
   %249 = icmp eq i32 %248, 0
@@ -507,7 +507,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 282:                                              ; preds = %.preheader
   %283 = zext nneg i32 %278 to i64
-  %284 = getelementptr inbounds nuw [6 x %"class.asmjit::_abi_1_10::ZoneVector.0"], ptr %3, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::ZoneVector.0", ptr %3, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load i32, ptr %285, align 8, !tbaa !9
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 12

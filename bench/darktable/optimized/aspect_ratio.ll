@@ -158,11 +158,11 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
 
 89:                                               ; preds = %89, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph.us.us ]
-  %90 = getelementptr inbounds nuw [4 x i16], ptr %86, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv
   %91 = load i16, ptr %90, align 2, !tbaa !81
   %92 = uitofp i16 %91 to float
   %93 = fmul reassoc nsz arcp contract afn float %87, %92
-  %94 = getelementptr inbounds nuw [4 x i16], ptr %88, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv
   %95 = load i16, ptr %94, align 2, !tbaa !81
   %96 = uitofp i16 %95 to float
   %97 = fmul reassoc nsz arcp contract afn float %81, %96
@@ -170,12 +170,12 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %99 = load i16, ptr %47, align 2, !tbaa !80
   %100 = zext i16 %99 to i64
   %101 = getelementptr inbounds nuw [4 x i16], ptr %86, i64 %100
-  %102 = getelementptr inbounds nuw [4 x i16], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw i16, ptr %101, i64 %indvars.iv
   %103 = load i16, ptr %102, align 2, !tbaa !81
   %104 = uitofp i16 %103 to float
   %105 = fmul reassoc nsz arcp contract afn float %87, %104
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %107 = getelementptr inbounds nuw [4 x i16], ptr %106, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i16, ptr %106, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !81
   %109 = uitofp i16 %108 to float
   %110 = fmul reassoc nsz arcp contract afn float %81, %109
@@ -184,7 +184,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %113 = fmul reassoc nsz arcp contract afn float %112, %79
   %114 = fadd reassoc nsz arcp contract afn float %113, %98
   %115 = fptoui float %114 to i16
-  %116 = getelementptr inbounds nuw [4 x i16], ptr %gep, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i16, ptr %gep, i64 %indvars.iv
   store i16 %115, ptr %116, align 2, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -358,7 +358,7 @@ define void @_ZN6LibRaw7stretchEv(ptr noundef nonnull align 8 dereferenceable(76
   %68 = add nuw nsw i32 %67, %.063100.us.us
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [4 x i16], ptr %30, i64 %69
-  %71 = getelementptr inbounds nuw [4 x i16], ptr %70, i64 0, i64 %indvars.iv136
+  %71 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv136
   store i16 %64, ptr %71, align 2, !tbaa !81
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
@@ -462,7 +462,7 @@ define void @_ZN6LibRaw7stretchEv(ptr noundef nonnull align 8 dereferenceable(76
   %121 = fadd reassoc nsz arcp contract afn double %115, 5.000000e-01
   %122 = fadd reassoc nsz arcp contract afn double %121, %120
   %123 = fptoui double %122 to i16
-  %124 = getelementptr inbounds nuw [4 x i16], ptr %gep, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i16, ptr %gep, i64 %indvars.iv
   store i16 %123, ptr %124, align 2, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

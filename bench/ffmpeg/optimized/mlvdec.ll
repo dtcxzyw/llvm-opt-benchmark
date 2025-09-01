@@ -299,7 +299,7 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %102, i64 noundef 3, ptr noundef nonnull @.str.8, i32 noundef %103) #11
   %105 = load ptr, ptr %98, align 8, !tbaa !47
-  %106 = getelementptr inbounds nuw [101 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %107 = call i32 %105(ptr noundef nonnull %0, ptr noundef %106, ptr noundef nonnull %97, i32 noundef 1, ptr noundef null) #11
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %129, label %109
@@ -479,7 +479,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   %30 = load i32, ptr %29, align 8
   %31 = ashr i32 %30, 2
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [101 x ptr], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds ptr, ptr %4, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !45
   %.not72 = icmp eq ptr %34, null
   br i1 %.not72, label %._crit_edge, label %35
@@ -530,7 +530,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !29
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [2 x i32], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds i32, ptr %62, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !28
   %68 = and i32 %67, 192
   %.not73 = icmp eq i32 %68, 0
@@ -616,7 +616,7 @@ define internal noundef i32 @read_close(ptr noundef %0) #1 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [101 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %6 = tail call i32 @ff_format_io_close(ptr noundef nonnull %0, ptr noundef %5) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
@@ -680,7 +680,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @scan_file(ptr noundef %0, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [101 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = tail call i32 @avio_feof(ptr noundef %12) #11
   %.not309 = icmp eq i32 %13, 0
@@ -782,7 +782,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @scan_file(ptr noundef %0, 
 72:                                               ; preds = %70, %72
   %indvars.iv = phi i64 [ 0, %70 ], [ %indvars.iv.next, %72 ]
   %73 = call i32 @avio_rl32(ptr noundef %12) #11
-  %74 = getelementptr inbounds nuw [9 x [2 x i32]], ptr %35, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [2 x i32], ptr %35, i64 %indvars.iv
   store i32 %73, ptr %74, align 8, !tbaa !28
   %75 = call i32 @avio_rl32(ptr noundef %12) #11
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -1562,7 +1562,7 @@ bytestream2_put_le32.exit79:                      ; preds = %6
   br i1 %or.cond, label %136, label %bytestream2_put_le32.exit83
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw [9 x [2 x i32]], ptr %122, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [2 x i32], ptr %122, i64 %indvars.iv
   %138 = load i32, ptr %137, align 8, !tbaa !28
   store i32 %138, ptr %.sroa.0.45418, align 1, !tbaa !11
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.45418, i64 4

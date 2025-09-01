@@ -2061,7 +2061,7 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %6
   %73 = load ptr, ptr %72, align 8, !tbaa !86
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %75 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %74, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw %"class.sat::literal", ptr %74, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !19
   %77 = lshr i32 %76, 1
   %78 = load ptr, ptr %59, align 8, !tbaa !95
@@ -2111,7 +2111,7 @@ _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread: ; preds
   %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %6
   %102 = load ptr, ptr %101, align 8, !tbaa !86
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %104 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %103, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw %"class.sat::literal", ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !19
   %106 = xor i32 %105, 1
   %107 = load ptr, ptr %60, align 8, !tbaa !104
@@ -2183,7 +2183,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
   %13 = load ptr, ptr %12, align 8, !tbaa !86
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"class.sat::literal", ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
@@ -2343,7 +2343,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
   %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = and i32 %21, 1
   %.not = icmp eq i32 %22, 0
@@ -3089,7 +3089,7 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 22:                                               ; preds = %.critedge.us, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us ], [ 1, %.lr.ph.split.us ]
   %.07291.us = phi i32 [ %.2.us, %.critedge.us ], [ %.0.i62, %.lr.ph.split.us ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !111
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -8
@@ -3154,9 +3154,9 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
   br label %.sink.split.i.us
 
 43:                                               ; preds = %38
-  %switch.tableidx108 = add i32 %.07291.us, -1
-  %44 = icmp ult i32 %switch.tableidx108, 5
-  %switch.maskindex111 = trunc i32 %switch.tableidx108 to i8
+  %switch.tableidx107 = add i32 %.07291.us, -1
+  %44 = icmp ult i32 %switch.tableidx107, 5
+  %switch.maskindex111 = trunc i32 %switch.tableidx107 to i8
   %switch.shifted112 = lshr i8 27, %switch.maskindex111
   %switch.lobit113 = trunc i8 %switch.shifted112 to i1
   %or.cond116 = select i1 %44, i1 %switch.lobit113, i1 false
@@ -3164,13 +3164,13 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 
 switch.lookup:                                    ; preds = %39
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i.us
 
 switch.lookup110:                                 ; preds = %43
-  %46 = zext nneg i32 %switch.tableidx108 to i64
-  %switch.gep114 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 0, i64 %46
+  %46 = zext nneg i32 %switch.tableidx107 to i64
+  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 %46
   %switch.load115 = load i32, ptr %switch.gep114, align 4
   br label %.sink.split.i.us
 
@@ -3195,7 +3195,7 @@ _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; pre
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
   %indvars.iv96 = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next97, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ]
   %.07291 = phi i32 [ %.0.i62, %.lr.ph.split.preheader ], [ %.278, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv96
+  %48 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv96
   %49 = load ptr, ptr %48, align 8, !tbaa !111
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -8
@@ -3242,18 +3242,18 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
   ]
 
 64:                                               ; preds = %63
-  %switch.tableidx123 = add i32 %.07291, -1
-  %65 = icmp ult i32 %switch.tableidx123, 5
-  %switch.maskindex126 = trunc i32 %switch.tableidx123 to i8
+  %switch.tableidx122 = add i32 %.07291, -1
+  %65 = icmp ult i32 %switch.tableidx122, 5
+  %switch.maskindex126 = trunc i32 %switch.tableidx122 to i8
   %switch.shifted127 = lshr i8 27, %switch.maskindex126
   %switch.lobit128 = trunc i8 %switch.shifted127 to i1
   %or.cond140 = select i1 %65, i1 %switch.lobit128, i1 false
   br i1 %or.cond140, label %switch.lookup125, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
 66:                                               ; preds = %63
-  %switch.tableidx132 = add i32 %.07291, -1
-  %67 = icmp ult i32 %switch.tableidx132, 5
-  %switch.maskindex135 = trunc i32 %switch.tableidx132 to i8
+  %switch.tableidx131 = add i32 %.07291, -1
+  %67 = icmp ult i32 %switch.tableidx131, 5
+  %switch.maskindex135 = trunc i32 %switch.tableidx131 to i8
   %switch.shifted136 = lshr i8 27, %switch.maskindex135
   %switch.lobit137 = trunc i8 %switch.shifted136 to i1
   %or.cond141 = select i1 %67, i1 %switch.lobit137, i1 false
@@ -3269,14 +3269,14 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
   br label %.sink.split.i
 
 switch.lookup125:                                 ; preds = %64
-  %70 = zext nneg i32 %switch.tableidx123 to i64
-  %switch.gep129 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 0, i64 %70
+  %70 = zext nneg i32 %switch.tableidx122 to i64
+  %switch.gep129 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 %70
   %switch.load130 = load i32, ptr %switch.gep129, align 4
   br label %.sink.split.i
 
 switch.lookup134:                                 ; preds = %66
-  %71 = zext nneg i32 %switch.tableidx132 to i64
-  %switch.gep138 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 0, i64 %71
+  %71 = zext nneg i32 %switch.tableidx131 to i64
+  %switch.gep138 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 %71
   %switch.load139 = load i32, ptr %switch.gep138, align 4
   br label %.sink.split.i
 

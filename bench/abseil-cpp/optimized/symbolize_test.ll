@@ -5531,9 +5531,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .preheader:                                       ; preds = %.critedge73, %225
   %221 = phi i1 [ true, %.critedge73 ], [ false, %225 ]
   %indvars.iv = phi i64 [ 0, %.critedge73 ], [ 1, %225 ]
-  %222 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.ptrs, i64 0, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw ptr, ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.ptrs, i64 %indvars.iv
   %223 = load ptr, ptr %222, align 8, !tbaa !10
-  %224 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.expected, i64 0, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw ptr, ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.expected, i64 %indvars.iv
   br label %226
 
 225:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145

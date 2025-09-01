@@ -1498,7 +1498,7 @@ define dso_local ptr @ewah_pool_new() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = add i64 %1, -1
   store i64 %3, ptr @bitmap_pool_size, align 8, !tbaa !12
-  %4 = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @bitmap_pool, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   br label %13
 
@@ -1561,7 +1561,7 @@ ewah_free.exit:                                   ; preds = %6, %7, %8
   store ptr %12, ptr %14, align 8, !tbaa !11
   %15 = add i64 %3, 1
   store i64 %15, ptr @bitmap_pool_size, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %3
+  %16 = getelementptr inbounds nuw ptr, ptr @bitmap_pool, i64 %3
   store ptr %0, ptr %16, align 8, !tbaa !43
   br label %17
 

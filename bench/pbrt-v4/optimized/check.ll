@@ -205,7 +205,7 @@ define dso_local void @_ZN4pbrt15PrintStackTraceEv() local_unnamed_addr #3 {
   %35 = load i32, ptr %5, align 4, !tbaa !4
   %36 = icmp eq i32 %35, 0
   %37 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw [32 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   br i1 %36, label %40, label %42
 

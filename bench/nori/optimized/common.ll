@@ -1286,7 +1286,7 @@ define hidden void @_ZN4nori9memStringB5cxx11Emb(ptr dead_on_unwind noalias writ
           to label %24 unwind label %30
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN4nori9memStringB5cxx11Emb.suffixes, i64 0, i64 %.010.lcssa18
+  %25 = getelementptr inbounds nuw ptr, ptr @__const._ZN4nori9memStringB5cxx11Emb.suffixes, i64 %.010.lcssa18
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %26)
           to label %28 unwind label %30

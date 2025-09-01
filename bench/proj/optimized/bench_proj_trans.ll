@@ -318,7 +318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.unreachable180:
   %128 = call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #15
   %129 = add nsw i32 %.0118246, 1
   %130 = sext i32 %.0118246 to i64
-  %131 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %130
+  %131 = getelementptr inbounds double, ptr %6, i64 %130
   store double %128, ptr %131, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 

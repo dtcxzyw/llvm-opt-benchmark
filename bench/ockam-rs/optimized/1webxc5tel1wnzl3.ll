@@ -6494,7 +6494,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !20, !noundef !4
-  %29 = getelementptr inbounds nuw [256 x ptr], ptr %28, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 

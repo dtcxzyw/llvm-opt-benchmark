@@ -713,7 +713,7 @@ zend_string_alloc.exit:                           ; preds = %12, %26, %24
   store i64 %.048, ptr %38, align 8, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %.1, i64 %.048, i1 false)
-  %40 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %.048
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.048
   store i8 0, ptr %40, align 1, !tbaa !12
   %41 = call ptr @zend_hash_find(ptr noundef nonnull %.053, ptr noundef nonnull %35) #15
   %.not.i63 = icmp eq ptr %41, null
@@ -3406,7 +3406,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
   %49 = tail call noalias ptr @_estrdup(ptr noundef %48) #15
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #16
   %51 = zext nneg i8 %41 to i64
-  %52 = getelementptr inbounds nuw [11 x %struct._zend_array], ptr @phpdbg_globals, i64 0, i64 %51, i32 5
+  %52 = getelementptr inbounds nuw %struct._zend_array, ptr @phpdbg_globals, i64 %51, i32 5
   %53 = load i32, ptr %52, align 4, !tbaa !19
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %.thread
@@ -3486,7 +3486,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
 
 91:                                               ; preds = %90
   %92 = zext nneg i8 %41 to i64
-  %93 = getelementptr inbounds nuw [11 x %struct._zend_array], ptr @phpdbg_globals, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %struct._zend_array, ptr @phpdbg_globals, i64 %92
   %94 = tail call i32 @zend_hash_str_del(ptr noundef nonnull %93, ptr noundef nonnull %.01841, i64 noundef %.042) #15
   tail call void @_efree(ptr noundef nonnull %.01841) #15
   br label %95
@@ -4385,7 +4385,7 @@ define dso_local void @phpdbg_print_breakpoints(i64 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %189
   %194 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.phpdbg_print_breakpoints, i64 0, i64 %194
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.phpdbg_print_breakpoints, i64 %194
   %switch.load = load ptr, ptr %switch.gep, align 8
   %195 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !20
   %196 = load i32, ptr %190, align 8, !tbaa !127

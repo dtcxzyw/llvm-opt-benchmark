@@ -3553,7 +3553,7 @@ define noundef ptr @ossl_quic_frame_type_to_string(i64 noundef %0) local_unnamed
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [31 x ptr], ptr @switch.table.ossl_quic_frame_type_to_string, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_frame_type_to_string, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 
@@ -3568,7 +3568,7 @@ define noundef ptr @ossl_quic_err_to_string(i64 noundef %0) local_unnamed_addr #
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.ossl_quic_err_to_string, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_err_to_string, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %3
 

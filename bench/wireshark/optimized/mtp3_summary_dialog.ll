@@ -4223,7 +4223,7 @@ _ZN7QStringC2ERKS_.exit872.thread:                ; preds = %1151
 
 _ZN7QStringC2ERKS_.exit874:                       ; preds = %_ZN7QStringC2ERKS_.exit872.thread, %1152
   %1156 = load i64, ptr @_ZL13mtp3_num_used, align 8
-  %invariant.gep = getelementptr [9 x %struct._mtp3_stat_si_code_t], ptr @_ZL9mtp3_stat, i64 0, i64 %.0491594
+  %invariant.gep = getelementptr %struct._mtp3_stat_si_code_t, ptr @_ZL9mtp3_stat, i64 %.0491594
   %.not1595 = icmp eq i64 %1156, 0
   br i1 %.not1595, label %._crit_edge, label %.lr.ph
 
@@ -4238,7 +4238,7 @@ _ZN7QStringC2ERKS_.exit874:                       ; preds = %_ZN7QStringC2ERKS_.
   %.01590 = phi i64 [ %1164, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
   %.0471589 = phi i32 [ %1163, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
   %.0481588 = phi i32 [ %1160, %.lr.ph ], [ 0, %_ZN7QStringC2ERKS_.exit874 ]
-  %gep = getelementptr [50 x %struct._mtp3_stat_t], ptr %invariant.gep, i64 0, i64 %.01590, i32 2
+  %gep = getelementptr %struct._mtp3_stat_t, ptr %invariant.gep, i64 %.01590, i32 2
   %1159 = load i32, ptr %gep, align 8
   %1160 = add i32 %1159, %.0481588
   %1161 = getelementptr inbounds nuw i8, ptr %gep, i64 4
@@ -4494,7 +4494,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit934:           ; preds = %1234, %_ZN17QArrayD
 1238:                                             ; preds = %1236
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
-  %1239 = getelementptr [0 x %struct._value_string], ptr @mtp3_service_indicator_code_short_vals, i64 0, i64 %.0491594, i32 1
+  %1239 = getelementptr %struct._value_string, ptr @mtp3_service_indicator_code_short_vals, i64 %.0491594, i32 1
   %1240 = load ptr, ptr %1239, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i935 = icmp eq ptr %1240, null
@@ -6843,7 +6843,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.028 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %11 = getelementptr [50 x %struct._mtp3_stat_t], ptr %0, i64 0, i64 %.028
+  %11 = getelementptr %struct._mtp3_stat_t, ptr %0, i64 %.028
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(12) %3, ptr noundef dereferenceable(12) %11, i64 12)
   %12 = icmp eq i32 %bcmp, 0
   br i1 %12, label %13, label %16
@@ -6876,14 +6876,14 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 
 22:                                               ; preds = %20, %._crit_edge
   %.0.lcssa35 = phi i64 [ %.0.lcssa36, %20 ], [ %.0.lcssa, %._crit_edge ]
-  %23 = getelementptr [50 x %struct._mtp3_stat_t], ptr %0, i64 0, i64 %.0.lcssa35
+  %23 = getelementptr %struct._mtp3_stat_t, ptr %0, i64 %.0.lcssa35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %23, ptr noundef align 4 dereferenceable(12) %3, i64 12, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i8, ptr %6, align 4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr [9 x %struct._mtp3_stat_si_code_t], ptr %25, i64 0, i64 %27
+  %28 = getelementptr %struct._mtp3_stat_si_code_t, ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4

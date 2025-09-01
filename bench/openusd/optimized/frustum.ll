@@ -573,9 +573,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %26 = fcmp ogt double %25, 1.000000e+00
   %27 = select i1 %23, i1 %26, i1 false
   %28 = zext i1 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x double], ptr %16, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr %16, i64 %28
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds nuw [2 x double], ptr %17, i64 0, i64 %28
+  %31 = getelementptr inbounds nuw double, ptr %17, i64 %28
   %32 = load double, ptr %31, align 8
   %33 = fcmp ogt double %30, 0.000000e+00
   br i1 %33, label %39, label %34
@@ -4368,7 +4368,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_Se
   br i1 %30, label %57, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds nuw [6 x %"class.pxrInternal_v0_24__pxrReserved__::GfPlane"], ptr %21, i64 0, i64 %.03643
+  %32 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfPlane", ptr %21, i64 %.03643
   %33 = load double, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load double, ptr %34, align 8
@@ -4598,7 +4598,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %164, label %191, label %165
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds nuw [6 x %"class.pxrInternal_v0_24__pxrReserved__::GfPlane"], ptr %155, i64 0, i64 %.03643.i
+  %166 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfPlane", ptr %155, i64 %.03643.i
   %167 = load double, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %169 = load double, ptr %168, align 8
@@ -4886,7 +4886,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %219, label %246, label %220
 
 220:                                              ; preds = %214
-  %221 = getelementptr inbounds nuw [6 x %"class.pxrInternal_v0_24__pxrReserved__::GfPlane"], ptr %210, i64 0, i64 %.03643.i
+  %221 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfPlane", ptr %210, i64 %.03643.i
   %222 = load double, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %224 = load double, ptr %223, align 8
@@ -4967,7 +4967,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %266, label %293, label %267
 
 267:                                              ; preds = %261
-  %268 = getelementptr inbounds nuw [6 x %"class.pxrInternal_v0_24__pxrReserved__::GfPlane"], ptr %257, i64 0, i64 %.03643.i75
+  %268 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfPlane", ptr %257, i64 %.03643.i75
   %269 = load double, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %271 = load double, ptr %270, align 8
@@ -5048,7 +5048,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %313, label %340, label %314
 
 314:                                              ; preds = %308
-  %315 = getelementptr inbounds nuw [6 x %"class.pxrInternal_v0_24__pxrReserved__::GfPlane"], ptr %304, i64 0, i64 %.03643.i93
+  %315 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfPlane", ptr %304, i64 %.03643.i93
   %316 = load double, ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %318 = load double, ptr %317, align 8
@@ -5126,9 +5126,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %358, label %switch.lookup, label %359
 
 switch.lookup:                                    ; preds = %357
-  %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_, i64 0, i64 %.0109
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_, i64 %.0109
   %switch.load = load double, ptr %switch.gep, align 8
-  %switch.gep132 = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_.5, i64 0, i64 %.0109
+  %switch.gep132 = getelementptr inbounds nuw double, ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_.5, i64 %.0109
   %switch.load133 = load double, ptr %switch.gep132, align 8
   br label %359
 
@@ -5321,7 +5321,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum20Inte
 56:                                               ; preds = %2, %56
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %56 ]
   %.079 = phi i32 [ 0, %2 ], [ %101, %56 ]
-  %57 = getelementptr inbounds nuw [8 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d"], ptr %3, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %3, i64 %indvars.iv
   %58 = load double, ptr %57, align 16, !noalias !202
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load double, ptr %59, align 8, !noalias !202

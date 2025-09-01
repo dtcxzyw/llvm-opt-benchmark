@@ -83,7 +83,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %9 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
 
@@ -113,7 +113,7 @@ if.else:                                          ; preds = %_ZN3irr5video6IImag
 
 switch.lookup27:                                  ; preds = %if.else
   %13 = zext nneg i32 %format to i64
-  %switch.gep28 = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %13
+  %switch.gep28 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %13
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -171,7 +171,7 @@ entry:
 
 _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; preds = %entry
   %6 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %Pitch.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %BytesPerPixel.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -455,7 +455,7 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
 
 switch.lookup:                                    ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
   %43 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -643,7 +643,7 @@ _ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit: ; 
 
 switch.lookup:                                    ; preds = %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit.thread1, %_ZN3irr5video6IImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEb.exit
   %5 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -1287,7 +1287,7 @@ if.end11:                                         ; preds = %lor.lhs.false7
 
 switch.lookup:                                    ; preds = %if.end11
   %3 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
@@ -1403,7 +1403,7 @@ if.end11:                                         ; preds = %lor.lhs.false7
 
 switch.lookup:                                    ; preds = %if.end11
   %3 = zext nneg i32 %format to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
@@ -1783,7 +1783,7 @@ sw.bb12:                                          ; preds = %if.end
 
 switch.lookup:                                    ; preds = %sw.bb12
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i32], ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK3irr5video6IImage23getImageDataSizeInBytesEv.exit
 

@@ -1712,10 +1712,10 @@ define internal void @put_rv40_chroma_mc8_c(ptr noundef writeonly captures(none)
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x [4 x i32]], ptr @rv40_bias, i64 0, i64 %14
+  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %191, label %.preheader
@@ -2050,10 +2050,10 @@ define internal void @put_rv40_chroma_mc4_c(ptr noundef writeonly captures(none)
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x [4 x i32]], ptr @rv40_bias, i64 0, i64 %14
+  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %107, label %.preheader
@@ -2244,10 +2244,10 @@ define internal void @avg_rv40_chroma_mc8_c(ptr noundef captures(none) %0, ptr n
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x [4 x i32]], ptr @rv40_bias, i64 0, i64 %14
+  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %440, label %.preheader
@@ -3065,10 +3065,10 @@ define internal void @avg_rv40_chroma_mc4_c(ptr noundef captures(none) %0, ptr n
   %12 = mul nsw i32 %5, %4
   %13 = ashr i32 %5, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x [4 x i32]], ptr @rv40_bias, i64 0, i64 %14
+  %15 = getelementptr inbounds [4 x i32], ptr @rv40_bias, i64 %14
   %16 = ashr i32 %4, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %232, label %.preheader
@@ -3980,7 +3980,7 @@ define internal void @rv40_h_strong_loop_filter(ptr noundef captures(none) %0, i
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
   %39 = add nsw i64 %indvars.iv, %16
-  %40 = getelementptr inbounds [16 x i8], ptr @rv40_dither_l, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @rv40_dither_l, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %reass.add = add nuw nsw i32 %38, %31
@@ -3995,7 +3995,7 @@ define internal void @rv40_h_strong_loop_filter(ptr noundef captures(none) %0, i
   %50 = getelementptr inbounds i8, ptr %.0.i24, i64 %13
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds [16 x i8], ptr @rv40_dither_r, i64 0, i64 %39
+  %53 = getelementptr inbounds i8, ptr @rv40_dither_r, i64 %39
   %54 = load i8, ptr %53, align 1, !tbaa !8
   %55 = zext i8 %54 to i32
   %reass.add9 = add nuw nsw i32 %52, %34
@@ -4158,7 +4158,7 @@ define internal void @rv40_v_strong_loop_filter(ptr noundef captures(none) %0, i
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i32
   %30 = add nsw i64 %indvars.iv, %7
-  %31 = getelementptr inbounds [16 x i8], ptr @rv40_dither_l, i64 0, i64 %30
+  %31 = getelementptr inbounds i8, ptr @rv40_dither_l, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = zext i8 %32 to i32
   %reass.add = add nuw nsw i32 %29, %22
@@ -4173,7 +4173,7 @@ define internal void @rv40_v_strong_loop_filter(ptr noundef captures(none) %0, i
   %41 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds [16 x i8], ptr @rv40_dither_r, i64 0, i64 %30
+  %44 = getelementptr inbounds i8, ptr @rv40_dither_r, i64 %30
   %45 = load i8, ptr %44, align 1, !tbaa !8
   %46 = zext i8 %45 to i32
   %reass.add5 = add nuw nsw i32 %43, %25

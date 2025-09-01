@@ -125,11 +125,11 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = lshr i64 %1, 20
   %17 = and i64 %16, 31
-  %18 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %20 = lshr i64 %19, 24
   %21 = and i64 %20, 255
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 1
@@ -148,11 +148,11 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %35 = xor i32 %32, %34
   %36 = lshr i64 %1, 15
   %37 = and i64 %36, 31
-  %38 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %15, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !14
   %40 = lshr i64 %39, 32
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !16
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 1
@@ -171,7 +171,7 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %55 = xor i32 %52, %54
   %56 = lshr i64 %39, 8
   %57 = and i64 %56, 255
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !16
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 1
@@ -190,7 +190,7 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %71 = xor i32 %68, %70
   %72 = lshr i64 %19, 48
   %73 = and i64 %72, 255
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !16
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 1
@@ -257,24 +257,24 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %135 = shl nuw i64 %134, 32
   %136 = lshr i64 %19, 16
   %137 = and i64 %136, 255
-  %138 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !16
   %140 = zext i8 %139 to i32
   %141 = shl nuw nsw i32 %140, 16
   %142 = lshr i64 %39, 56
-  %143 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !16
   %145 = zext i8 %144 to i32
   %146 = shl nuw i32 %145, 24
   %147 = or disjoint i32 %146, %141
   %148 = lshr i64 %19, 40
   %149 = and i64 %148, 255
-  %150 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %149
   %151 = load i8, ptr %150, align 1, !tbaa !16
   %152 = zext i8 %151 to i32
   %153 = shl nuw nsw i32 %152, 8
   %154 = and i64 %39, 255
-  %155 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !16
   %157 = zext i8 %156 to i32
   %158 = or disjoint i32 %153, %157
@@ -388,7 +388,7 @@ define noundef i64 @_Z19fast_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %254 = or disjoint i32 %243, %253
   %255 = zext i32 %254 to i64
   %256 = or disjoint i64 %135, %255
-  %257 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %13
+  %257 = getelementptr inbounds nuw i64, ptr %15, i64 %13
   store i64 %256, ptr %257, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -439,54 +439,54 @@ define noundef i64 @_Z21logged_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = lshr i64 %1, 20
   %15 = and i64 %14, 31
-  %16 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !14
   %22 = lshr i64 %21, 32
   %23 = and i64 %21, 255
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = zext i8 %25 to i32
   %27 = lshr i64 %17, 40
   %28 = and i64 %27, 255
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 8
   %33 = or disjoint i32 %32, %26
   %34 = lshr i64 %17, 16
   %35 = and i64 %34, 255
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !16
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = lshr i64 %21, 56
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, 24
   %45 = or disjoint i32 %44, %39
   %46 = or disjoint i32 %33, %45
   %47 = and i64 %22, 255
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !16
   %50 = zext i8 %49 to i32
   %51 = lshr i64 %21, 8
   %52 = and i64 %51, 255
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !16
   %55 = zext i8 %54 to i32
   %56 = lshr i64 %17, 48
   %57 = and i64 %56, 255
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !16
   %60 = zext i8 %59 to i32
   %61 = lshr i64 %17, 24
   %62 = and i64 %61, 255
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !16
   %65 = zext i8 %64 to i32
   %66 = lshr exact i32 %45, 16
@@ -717,7 +717,7 @@ define noundef i64 @_Z21logged_rv64i_aes64dsmP11processor_t6insn_tm(ptr noundef 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %260
 
 260:                                              ; preds = %12
-  %261 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %257
+  %261 = getelementptr inbounds nuw i64, ptr %13, i64 %257
   store i64 %254, ptr %261, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -906,11 +906,11 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %13
+  %41 = getelementptr inbounds nuw i64, ptr %21, i64 %13
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = lshr i64 %42, 24
   %44 = and i64 %43, 255
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !16
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 1
@@ -927,11 +927,11 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %.not451 = icmp eq i32 %56, 0
   %57 = select i1 %.not451, i32 0, i32 27
   %58 = xor i32 %55, %57
-  %59 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %23
+  %59 = getelementptr inbounds nuw i64, ptr %21, i64 %23
   %60 = load i64, ptr %59, align 8, !tbaa !14
   %61 = lshr i64 %60, 32
   %62 = and i64 %61, 255
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !16
   %65 = zext i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 1
@@ -950,7 +950,7 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %76 = xor i32 %73, %75
   %77 = lshr i64 %60, 8
   %78 = and i64 %77, 255
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !16
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 1
@@ -969,7 +969,7 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %92 = xor i32 %89, %91
   %93 = lshr i64 %42, 48
   %94 = and i64 %93, 255
-  %95 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !16
   %97 = zext i8 %96 to i32
   %98 = shl nuw nsw i32 %97, 1
@@ -1036,24 +1036,24 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %156 = shl nuw i64 %155, 32
   %157 = lshr i64 %42, 16
   %158 = and i64 %157, 255
-  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %158
   %160 = load i8, ptr %159, align 1, !tbaa !16
   %161 = zext i8 %160 to i32
   %162 = shl nuw nsw i32 %161, 16
   %163 = lshr i64 %60, 56
-  %164 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !16
   %166 = zext i8 %165 to i32
   %167 = shl nuw i32 %166, 24
   %168 = or disjoint i32 %167, %162
   %169 = lshr i64 %42, 40
   %170 = and i64 %169, 255
-  %171 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !16
   %173 = zext i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 8
   %175 = and i64 %60, 255
-  %176 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !16
   %178 = zext i8 %177 to i32
   %179 = or disjoint i32 %174, %178
@@ -1167,7 +1167,7 @@ define noundef i64 @_Z19fast_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef ca
   %275 = or disjoint i32 %264, %274
   %276 = zext i32 %275 to i64
   %277 = or disjoint i64 %156, %276
-  %278 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %32
+  %278 = getelementptr inbounds nuw i64, ptr %21, i64 %32
   store i64 %277, ptr %278, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1267,39 +1267,39 @@ define noundef i64 @_Z21logged_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef 
   unreachable
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %14
+  %41 = getelementptr inbounds nuw i64, ptr %22, i64 %14
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = lshr i64 %42, 24
   %44 = and i64 %43, 255
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !16
   %47 = lshr i64 %42, 48
   %48 = and i64 %47, 255
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !16
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %24
+  %51 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %52 = load i64, ptr %51, align 8, !tbaa !14
   %53 = lshr i64 %52, 8
   %54 = and i64 %53, 255
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !16
   %57 = lshr i64 %52, 32
   %58 = and i64 %57, 255
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !16
   %61 = lshr i64 %52, 56
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !16
   %64 = lshr i64 %42, 16
   %65 = and i64 %64, 255
-  %66 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !16
   %68 = lshr i64 %42, 40
   %69 = and i64 %68, 255
-  %70 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !16
   %72 = and i64 %52, 255
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZZ21logged_rv64e_aes64dsmP11processor_t6insn_tmE12AES_DEC_SBOX, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !16
   %75 = zext i8 %46 to i32
   %76 = shl nuw nsw i32 %75, 1
@@ -1541,7 +1541,7 @@ define noundef i64 @_Z21logged_rv64e_aes64dsmP11processor_t6insn_tm(ptr noundef 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %281
 
 281:                                              ; preds = %40
-  %282 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %33
+  %282 = getelementptr inbounds nuw i64, ptr %22, i64 %33
   store i64 %277, ptr %282, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

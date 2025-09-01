@@ -971,10 +971,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline12cvtBGRtoGrayEPKhmPhmiiiib(ptr noun
 
 27:                                               ; preds = %27, %24
   %indvars.iv.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw [3 x i32], ptr @__const.RGB2Gray.coeffs0.31, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !86
   %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds nuw [3 x i16], ptr %25, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv.i
   store i16 %30, ptr %31, align 2, !tbaa !84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1105,10 +1105,10 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIhEC2EiiPKi.exit: ; preds = %36
 
 75:                                               ; preds = %75, %72
   %indvars.iv.i33 = phi i64 [ 0, %72 ], [ %indvars.iv.next.i34, %75 ]
-  %76 = getelementptr inbounds nuw [3 x i32], ptr @__const.RGB2Gray.coeffs0.31, i64 0, i64 %indvars.iv.i33
+  %76 = getelementptr inbounds nuw i32, ptr @__const.RGB2Gray.coeffs0.31, i64 %indvars.iv.i33
   %77 = load i32, ptr %76, align 4, !tbaa !86
   %78 = trunc i32 %77 to i16
-  %79 = getelementptr inbounds nuw [3 x i16], ptr %73, i64 0, i64 %indvars.iv.i33
+  %79 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv.i33
   store i16 %78, ptr %79, align 2, !tbaa !84
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3

@@ -202,7 +202,7 @@ skip_prefix.exit:                                 ; preds = %9, %skip_prefix.exi
   %.016 = phi ptr [ %20, %skip_prefix.exit ], [ %scevgep, %9 ]
   %15 = load i8, ptr %.016, align 1, !tbaa !4
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = and i8 %18, 1
   %.not13 = icmp eq i8 %19, 0
@@ -242,7 +242,7 @@ strbuf_setlen.exit:                               ; preds = %21, %25
 
 34:                                               ; preds = %31
   %35 = zext i8 %33 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = and i8 %37, 1
   %.not11 = icmp eq i8 %38, 0
@@ -4858,7 +4858,7 @@ strbuf_setlen.exit:                               ; preds = %59, %57, %ends_with
 
 65:                                               ; preds = %75, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %66 = getelementptr inbounds nuw [3 x ptr], ptr @__const.add_per_worktree_entries_to_dir.prefixes, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw ptr, ptr @__const.add_per_worktree_entries_to_dir.prefixes, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #18
   %sext.i = shl i64 %68, 32
@@ -4912,7 +4912,7 @@ define internal fastcc void @loose_fill_ref_dir_regular_file(ptr noundef %0, ptr
 
 12:                                               ; preds = %14, %7
   %.0811.i.i = phi i64 [ 0, %7 ], [ %15, %14 ]
-  %13 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %13 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %14
 
@@ -4970,7 +4970,7 @@ oidclr.exit:                                      ; preds = %14, %.split.loop.ex
 
 31:                                               ; preds = %33, %26
   %.0811.i.i15 = phi i64 [ 0, %26 ], [ %34, %33 ]
-  %32 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i15
+  %32 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i15
   %.not.i.i16 = icmp eq ptr %30, %32
   br i1 %.not.i.i16, label %.split.loop.exit9.i.i19, label %33
 
@@ -5477,7 +5477,7 @@ files_assert_main_repository.exit:                ; preds = %3
 
 33:                                               ; preds = %35, %28
   %.0811.i.i = phi i64 [ 0, %28 ], [ %36, %35 ]
-  %34 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %32, %34
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %35
 
@@ -6060,7 +6060,7 @@ skip_prefix.exit.i:                               ; preds = %100, %skip_prefix.e
   %.016.i = phi ptr [ %111, %skip_prefix.exit.i ], [ %scevgep.i, %100 ]
   %106 = load i8, ptr %.016.i, align 1, !tbaa !4
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %110 = and i8 %109, 1
   %.not13.i = icmp eq i8 %110, 0
@@ -6097,7 +6097,7 @@ strbuf_setlen.exit.i:                             ; preds = %116, %112
 
 123:                                              ; preds = %120
   %124 = zext i8 %122 to i64
-  %125 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !4
   %127 = and i8 %126, 1
   %.not11.i58 = icmp eq i8 %127, 0
@@ -6367,7 +6367,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 2
   %.not29 = icmp eq i8 %53, 0
@@ -6377,7 +6377,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 3
   %56 = load i8, ptr %55, align 1, !tbaa !4
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !4
   %60 = and i8 %59, 2
   %.not30 = icmp eq i8 %60, 0
@@ -6387,7 +6387,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !4
   %67 = and i8 %66, 2
   %.not31 = icmp eq i8 %67, 0
@@ -6397,7 +6397,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 5
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = and i8 %73, 2
   %.not32 = icmp eq i8 %74, 0
@@ -6708,7 +6708,7 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
   %.016.i = phi ptr [ %88, %skip_prefix.exit.i ], [ %scevgep.i, %77 ]
   %83 = load i8, ptr %.016.i, align 1, !tbaa !4
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !4
   %87 = and i8 %86, 1
   %.not13.i = icmp eq i8 %87, 0
@@ -6740,7 +6740,7 @@ skip_prefix.exit.i:                               ; preds = %77, %skip_prefix.ex
 
 99:                                               ; preds = %96
   %100 = zext i8 %98 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !4
   %103 = and i8 %102, 1
   %.not11.i = icmp eq i8 %103, 0

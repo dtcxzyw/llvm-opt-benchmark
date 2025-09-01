@@ -100,7 +100,7 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 
 9:                                                ; preds = %.preheader21, %17
   %indvars.iv = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next, %17 ]
-  %10 = getelementptr inbounds nuw [349 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !50
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %17
@@ -119,7 +119,7 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 
 18:                                               ; preds = %.preheader, %24
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %24 ]
-  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv25
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv25
   %20 = load i8, ptr %19, align 1, !tbaa !50
   %21 = icmp eq i8 %20, 1
   br i1 %21, label %22, label %24

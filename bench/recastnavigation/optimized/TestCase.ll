@@ -626,9 +626,9 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
 
 153:                                              ; preds = %147
   store float 0.000000e+00, ptr %13, align 4
-  %154 = add nsw i32 %151, -1
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %155
+  %154 = zext nneg i32 %151 to i64
+  %155 = getelementptr i32, ptr %4, i64 %154
+  %156 = getelementptr i8, ptr %155, i64 -4
   %157 = load i32, ptr %156, align 4
   %158 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %157, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %159 = load float, ptr %13, align 4

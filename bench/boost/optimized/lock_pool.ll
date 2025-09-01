@@ -48,7 +48,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
-  %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %.critedge.i.i, %1
@@ -116,7 +116,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
-  %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %1
@@ -877,7 +877,7 @@ define internal void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_
 
 2:                                                ; preds = %0, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit
   %.012 = phi i64 [ 0, %0 ], [ %66, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit ]
-  %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %.012
+  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %.012
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %2

@@ -149,7 +149,7 @@ define hidden range(i32 -134, 1) i32 @mbedtls_cipher_values_from_psa(i32 noundef
 
 switch.lookup:                                    ; preds = %39
   %43 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.mbedtls_cipher_values_from_psa, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_cipher_values_from_psa, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %mbedtls_cipher_validate_values.exit
 
@@ -441,7 +441,7 @@ mbedtls_cipher_info_get_block_size.exit.i:        ; preds = %28, %24
   %38 = sub i64 %.0.i.i, %36
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %38)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 0, i64 %36
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %1, i64 %spec.select.i, i1 false)
   %41 = sub i64 %2, %spec.select.i
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.i
@@ -502,7 +502,7 @@ mbedtls_cipher_info_get_block_size.exit.i:        ; preds = %28, %24
 63:                                               ; preds = %._crit_edge.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load i64, ptr %35, align 8, !tbaa !24
-  %66 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %.155.lcssa.i, i64 %.160.lcssa.i, i1 false)
   %67 = load i64, ptr %35, align 8, !tbaa !24
   %68 = add i64 %67, %.160.lcssa.i

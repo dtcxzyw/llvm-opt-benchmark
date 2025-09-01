@@ -190,7 +190,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   %49 = zext nneg i32 %31 to i64
-  %50 = getelementptr [2 x %struct.ata_device], ptr %48, i64 0, i64 %49
+  %50 = getelementptr %struct.ata_device, ptr %48, i64 %49
   br label %60
 
 51:                                               ; preds = %25
@@ -376,7 +376,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 9408
   %64 = zext nneg i32 %46 to i64
-  %65 = getelementptr [2 x %struct.ata_device], ptr %63, i64 0, i64 %64
+  %65 = getelementptr %struct.ata_device, ptr %63, i64 %64
   br label %75
 
 66:                                               ; preds = %40
@@ -432,7 +432,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %97 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr [2 x i32], ptr %96, i64 0, i64 %99
+  %100 = getelementptr i32, ptr %96, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, 32
   store i32 %102, ptr %100, align 4
@@ -606,7 +606,7 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %47 = zext nneg i32 %29 to i64
-  %48 = getelementptr [2 x %struct.ata_device], ptr %46, i64 0, i64 %47
+  %48 = getelementptr %struct.ata_device, ptr %46, i64 %47
   br label %58
 
 49:                                               ; preds = %23
@@ -733,7 +733,7 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   %42 = zext nneg i32 %24 to i64
-  %43 = getelementptr [2 x %struct.ata_device], ptr %41, i64 0, i64 %42
+  %43 = getelementptr %struct.ata_device, ptr %41, i64 %42
   br label %53
 
 44:                                               ; preds = %18
@@ -1290,7 +1290,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   %112 = zext nneg i32 %94 to i64
-  %113 = getelementptr [2 x %struct.ata_device], ptr %111, i64 0, i64 %112
+  %113 = getelementptr %struct.ata_device, ptr %111, i64 %112
   br label %123
 
 114:                                              ; preds = %88
@@ -1750,7 +1750,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %44 = zext nneg i32 %26 to i64
-  %45 = getelementptr [2 x %struct.ata_device], ptr %43, i64 0, i64 %44
+  %45 = getelementptr %struct.ata_device, ptr %43, i64 %44
   br label %55
 
 46:                                               ; preds = %20
@@ -1853,7 +1853,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   %49 = zext nneg i32 %31 to i64
-  %50 = getelementptr [2 x %struct.ata_device], ptr %48, i64 0, i64 %49
+  %50 = getelementptr %struct.ata_device, ptr %48, i64 %49
   br label %60
 
 51:                                               ; preds = %25
@@ -1945,7 +1945,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
 28:                                               ; preds = %23
   %29 = lshr i8 %6, 5
   %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %30
+  %31 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i16
   %34 = icmp ult i16 %13, %33
@@ -2079,7 +2079,7 @@ ata_get_xlat_func.exit.thread:                    ; preds = %35, %56, %51, %69, 
   %92 = icmp ult i32 %91, 33
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %94 = zext i32 %91 to i64
-  %95 = getelementptr [33 x %struct.ata_queued_cmd], ptr %93, i64 0, i64 %94
+  %95 = getelementptr %struct.ata_queued_cmd, ptr %93, i64 %94
   %96 = select i1 %92, ptr %95, ptr null
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 92
   store i32 %91, ptr %97, align 4
@@ -3123,7 +3123,7 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 9408
   %48 = zext nneg i32 %30 to i64
-  %49 = getelementptr [2 x %struct.ata_device], ptr %47, i64 0, i64 %48
+  %49 = getelementptr %struct.ata_device, ptr %47, i64 %48
   br label %59
 
 50:                                               ; preds = %24
@@ -3327,7 +3327,7 @@ define internal noundef i32 @ata_scsiop_inq_00(ptr noundef readonly captures(non
 3:                                                ; preds = %20, %2
   %4 = phi i64 [ 0, %2 ], [ %22, %20 ]
   %5 = phi i32 [ 0, %2 ], [ %21, %20 ]
-  %6 = getelementptr [9 x i8], ptr @ata_scsiop_inq_00.pages, i64 0, i64 %4
+  %6 = getelementptr i8, ptr @ata_scsiop_inq_00.pages, i64 %4
   %7 = icmp eq i64 %4, 7
   br i1 %7, label %8, label %14
 
@@ -3698,7 +3698,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr noundef readonly captures(non
 18:                                               ; preds = %18, %15
   %19 = phi i64 [ 0, %15 ], [ %34, %18 ]
   %20 = phi ptr [ %16, %15 ], [ %35, %18 ]
-  %21 = getelementptr [0 x %struct.ata_cpr], ptr %17, i64 0, i64 %19
+  %21 = getelementptr %struct.ata_cpr, ptr %17, i64 %19
   %22 = load i8, ptr %21, align 8
   store i8 %22, ptr %20, align 1
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -3995,7 +3995,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0,
   %indvars.iv = phi i32 [ %indvars.iv.next, %41 ], [ -1, %6 ]
   %9 = phi i32 [ %42, %41 ], [ 0, %6 ]
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @scsi_host_alloc(ptr noundef %1, i32 noundef 8) #19
   %14 = icmp eq ptr %13, null
@@ -4054,7 +4054,7 @@ define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0,
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv8 = phi i64 [ %40, %.preheader.preheader ], [ %indvars.iv.next9, %.preheader ]
-  %45 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %indvars.iv8
+  %45 = getelementptr ptr, ptr %7, i64 %indvars.iv8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 64
   tail call void @scsi_remove_host(ptr noundef %47) #19
@@ -4508,7 +4508,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 9408
   %58 = zext nneg i32 %20 to i64
-  %59 = getelementptr [2 x %struct.ata_device], ptr %57, i64 0, i64 %58
+  %59 = getelementptr %struct.ata_device, ptr %57, i64 %58
   br label %67
 
 60:                                               ; preds = %37
@@ -6839,8 +6839,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr no
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %30
-  %34 = add nuw nsw i64 %31, 2
-  %35 = getelementptr [20 x i8], ptr %5, i64 0, i64 %34
+  %34 = getelementptr i8, ptr %5, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr i8, ptr %1, i64 %31
   %38 = load i8, ptr %37, align 1
@@ -6910,8 +6910,8 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr no
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %17
-  %21 = add nuw nsw i64 %18, 2
-  %22 = getelementptr [12 x i8], ptr @def_control_mpage, i64 0, i64 %21
+  %21 = getelementptr i8, ptr @def_control_mpage, i64 %18
+  %22 = getelementptr i8, ptr %21, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = getelementptr i8, ptr %2, i64 %18
   %25 = load i8, ptr %24, align 1
@@ -7264,7 +7264,7 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
 
 52:                                               ; preds = %.preheader
   %53 = add nuw nsw i64 %57, 1
-  %54 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %53
+  %54 = getelementptr [4 x i8], ptr @ata_to_sense_error.sense_table, i64 %53
   %55 = load i8, ptr %54, align 4
   %56 = icmp eq i64 %53, 13
   br i1 %56, label %.loopexit3.preheader, label %.preheader, !llvm.loop !57
@@ -7277,12 +7277,12 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
   br i1 %60, label %61, label %52
 
 61:                                               ; preds = %.preheader
-  %62 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %57
+  %62 = getelementptr [4 x i8], ptr @ata_to_sense_error.sense_table, i64 %57
   br label %74
 
 63:                                               ; preds = %.loopexit3
   %64 = add nuw nsw i64 %68, 1
-  %65 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %64
+  %65 = getelementptr [4 x i8], ptr @ata_to_sense_error.stat_table, i64 %64
   %66 = load i8, ptr %65, align 4
   %67 = icmp eq i64 %64, 5
   br i1 %67, label %.loopexit, label %.loopexit3, !llvm.loop !58
@@ -7295,7 +7295,7 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
   br i1 %71, label %63, label %72
 
 72:                                               ; preds = %.loopexit3
-  %73 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %68
+  %73 = getelementptr [4 x i8], ptr @ata_to_sense_error.stat_table, i64 %68
   br label %74
 
 74:                                               ; preds = %72, %61
@@ -7393,7 +7393,7 @@ define internal fastcc void @ata_gen_passthru_sense(ptr noundef readonly capture
 
 20:                                               ; preds = %.preheader
   %21 = add nuw nsw i64 %25, 1
-  %22 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %21
+  %22 = getelementptr [4 x i8], ptr @ata_to_sense_error.sense_table, i64 %21
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i64 %21, 13
   br i1 %24, label %.loopexit4.preheader, label %.preheader, !llvm.loop !57
@@ -7406,12 +7406,12 @@ define internal fastcc void @ata_gen_passthru_sense(ptr noundef readonly capture
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr [14 x [4 x i8]], ptr @ata_to_sense_error.sense_table, i64 0, i64 %25
+  %30 = getelementptr [4 x i8], ptr @ata_to_sense_error.sense_table, i64 %25
   br label %42
 
 31:                                               ; preds = %.loopexit4
   %32 = add nuw nsw i64 %36, 1
-  %33 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %32
+  %33 = getelementptr [4 x i8], ptr @ata_to_sense_error.stat_table, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i64 %32, 5
   br i1 %35, label %.loopexit, label %.loopexit4, !llvm.loop !58
@@ -7424,7 +7424,7 @@ define internal fastcc void @ata_gen_passthru_sense(ptr noundef readonly capture
   br i1 %39, label %31, label %40
 
 40:                                               ; preds = %.loopexit4
-  %41 = getelementptr [6 x [4 x i8]], ptr @ata_to_sense_error.stat_table, i64 0, i64 %36
+  %41 = getelementptr [4 x i8], ptr @ata_to_sense_error.stat_table, i64 %36
   br label %42
 
 42:                                               ; preds = %40, %29

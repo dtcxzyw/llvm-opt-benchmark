@@ -1078,7 +1078,7 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
 
 15:                                               ; preds = %12, %21
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %21 ]
-  %16 = getelementptr inbounds nuw [20 x float], ptr @_aspect_ratios, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr @_aspect_ratios, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !10
   %18 = fsub reassoc nsz arcp contract afn float %14, %17
   %19 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %18)
@@ -1114,7 +1114,7 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
 
 31:                                               ; preds = %28, %37
   %indvars.iv39 = phi i64 [ 0, %28 ], [ %indvars.iv.next40, %37 ]
-  %32 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %indvars.iv39
+  %32 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %indvars.iv39
   %33 = load float, ptr %32, align 4, !tbaa !10
   %34 = fsub reassoc nsz arcp contract afn float %30, %33
   %35 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %34)
@@ -1150,7 +1150,7 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
 
 47:                                               ; preds = %44, %53
   %indvars.iv43 = phi i64 [ 0, %44 ], [ %indvars.iv.next44, %53 ]
-  %48 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %indvars.iv43
+  %48 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %indvars.iv43
   %49 = load float, ptr %48, align 4, !tbaa !10
   %50 = fsub reassoc nsz arcp contract afn float %46, %49
   %51 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %50)
@@ -1193,7 +1193,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 10:                                               ; preds = %16, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %16 ]
-  %11 = getelementptr inbounds nuw [20 x float], ptr @_aspect_ratios, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw float, ptr @_aspect_ratios, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !10
   %13 = fsub reassoc nsz arcp contract afn float %9, %12
   %14 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %13)
@@ -1220,7 +1220,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 22:                                               ; preds = %28, %.split.loop.exit.i
   %indvars.iv39.i = phi i64 [ 0, %.split.loop.exit.i ], [ %indvars.iv.next40.i, %28 ]
-  %23 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %indvars.iv39.i
+  %23 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %indvars.iv39.i
   %24 = load float, ptr %23, align 4, !tbaa !10
   %25 = fsub reassoc nsz arcp contract afn float %21, %24
   %26 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %25)
@@ -1247,7 +1247,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 34:                                               ; preds = %40, %.split.loop.exit49.i
   %indvars.iv43.i = phi i64 [ 0, %.split.loop.exit49.i ], [ %indvars.iv.next44.i, %40 ]
-  %35 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %indvars.iv43.i
+  %35 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %indvars.iv43.i
   %36 = load float, ptr %35, align 4, !tbaa !10
   %37 = fsub reassoc nsz arcp contract afn float %33, %36
   %38 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %37)
@@ -1561,7 +1561,7 @@ define internal void @_aspect_changed(ptr noundef %0, ptr noundef %1) #5 {
 
 9:                                                ; preds = %2
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [20 x float], ptr @_aspect_ratios, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw float, ptr @_aspect_ratios, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %12, ptr %13, align 4, !tbaa !59
@@ -1604,7 +1604,7 @@ define internal void @_position_h_changed(ptr noundef %0, ptr noundef %1) #5 {
 
 9:                                                ; preds = %2
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store float %12, ptr %13, align 4, !tbaa !49
@@ -1642,7 +1642,7 @@ define internal void @_position_v_changed(ptr noundef %0, ptr noundef %1) #5 {
 
 9:                                                ; preds = %2
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [5 x float], ptr @_pos_v_ratios, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw float, ptr @_pos_v_ratios, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store float %12, ptr %13, align 4, !tbaa !47
@@ -1797,7 +1797,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [21 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21

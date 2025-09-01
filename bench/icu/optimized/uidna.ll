@@ -271,7 +271,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %54
   %or.cond.i.i = icmp ult i16 %86, 26
   %87 = or disjoint i16 %85, 32
   %.0.i.i = select i1 %or.cond.i.i, i16 %87, i16 %85
-  %88 = getelementptr inbounds nuw [4 x i16], ptr @_ZL10ACE_PREFIX, i64 0, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw i16, ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
   %89 = load i16, ptr %88, align 2, !tbaa !7
   %.not.i = icmp eq i16 %.0.i.i, %89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -523,7 +523,7 @@ define internal fastcc noundef i32 @_ZL19_internal_toUnicodePKDsiPDsiiP18UString
   %or.cond.i.i = icmp ult i16 %44, 26
   %45 = or disjoint i16 %43, 32
   %.0.i.i = select i1 %or.cond.i.i, i16 %45, i16 %43
-  %46 = getelementptr inbounds nuw [4 x i16], ptr @_ZL10ACE_PREFIX, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i16, ptr @_ZL10ACE_PREFIX, i64 %indvars.iv.i
   %47 = load i16, ptr %46, align 2, !tbaa !7
   %.not.i = icmp eq i16 %.0.i.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

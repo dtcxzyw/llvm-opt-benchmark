@@ -146,22 +146,22 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
 
 51:                                               ; preds = %49
   %52 = zext nneg i16 %.033.i to i64
-  %53 = getelementptr [132 x i8], ptr @yy_shift_ofst, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @yy_shift_ofst, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = add nuw nsw i64 %55, %48
-  %57 = getelementptr [200 x i8], ptr @yy_lookahead, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @yy_lookahead, i64 %56
   %58 = load i8, ptr %57, align 1
   %.not.i.i = icmp eq i8 %58, %47
   br i1 %.not.i.i, label %62, label %59
 
 59:                                               ; preds = %51
-  %60 = getelementptr [132 x i16], ptr @yy_default, i64 0, i64 %52
+  %60 = getelementptr i16, ptr @yy_default, i64 %52
   %61 = load i16, ptr %60, align 2
   br label %yy_find_shift_action.exit.i
 
 62:                                               ; preds = %51
-  %63 = getelementptr [180 x i16], ptr @yy_action, i64 0, i64 %56
+  %63 = getelementptr i16, ptr @yy_action, i64 %56
   %64 = load i16, ptr %63, align 2
   br label %yy_find_shift_action.exit.i
 
@@ -630,20 +630,20 @@ yy_find_shift_action.exit.i:                      ; preds = %62, %59, %49
 
 yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %313, %289, %274, %259, %244, %229, %214, %199, %184, %169, %158, %143, %141, %109, %75, %71, %66
   %365 = and i64 %68, 4294967295
-  %366 = getelementptr [51 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %365
+  %366 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %365
   %367 = load i8, ptr %366, align 1
-  %368 = getelementptr [51 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %365
+  %368 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %365
   %369 = load i8, ptr %368, align 1
   %370 = sext i8 %369 to i64
   %371 = getelementptr %struct.yyStackEntry, ptr %70, i64 %370
   %372 = load i16, ptr %371, align 4
   %373 = zext i16 %372 to i64
-  %374 = getelementptr [83 x i8], ptr @yy_reduce_ofst, i64 0, i64 %373
+  %374 = getelementptr i8, ptr @yy_reduce_ofst, i64 %373
   %375 = load i8, ptr %374, align 1
   %376 = sext i8 %375 to i64
   %377 = zext i8 %367 to i64
-  %378 = add nsw i64 %376, %377
-  %379 = getelementptr [180 x i16], ptr @yy_action, i64 0, i64 %378
+  %378 = getelementptr i16, ptr @yy_action, i64 %376
+  %379 = getelementptr i16, ptr %378, i64 %377
   %380 = load i16, ptr %379, align 2
   %381 = getelementptr i8, ptr %371, i64 80
   store ptr %381, ptr %24, align 8

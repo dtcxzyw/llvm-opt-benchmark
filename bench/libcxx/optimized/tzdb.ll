@@ -1874,7 +1874,7 @@ _ZNSt3__16chronoL13__parse_rulesB8ne210000ERNS_13basic_istreamIcNS_11char_traits
   %513 = phi i64 [ 2, %.noexc42.i.i.i ], [ 1, %_ZNSt3__16chronoL12__parse_saveB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit17.i.i.i.i ], [ 1, %_ZNSt3__16chronoL12__parse_saveB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit.i.i.i.i ], [ 0, %493 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !54
   store ptr %122, ptr %19, align 8, !tbaa !92, !noalias !54
-  %514 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_12__assignmentINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE16__generic_assignB8ne210000INS0_17__move_assignmentISG_LNS0_6_TraitE1EEEEEvOT_EUlRSM_OT0_E_JRSH_SL_EEEDcmSN_DpOT0_.__fdiagonal, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_12__assignmentINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE16__generic_assignB8ne210000INS0_17__move_assignmentISG_LNS0_6_TraitE1EEEEEvOT_EUlRSM_OT0_E_JRSH_SL_EEEDcmSN_DpOT0_.__fdiagonal, i64 %513
   %515 = load ptr, ptr %514, align 8, !tbaa !95, !noalias !54
   invoke void %515(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEaSB8ne210000EOSB_.exit.i.i.i unwind label %516
@@ -1895,7 +1895,7 @@ _ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11
 520:                                              ; preds = %_ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEaSB8ne210000EOSB_.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !54
   %521 = zext i32 %.pr.pre.i.i.i to i64
-  %522 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %521
   %523 = load ptr, ptr %522, align 8, !tbaa !95, !noalias !54
   invoke void %523(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %524
@@ -2224,7 +2224,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i41.i.i
 599:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i41.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %600 = zext i32 %597 to i64
-  %601 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %600
   %602 = load ptr, ptr %601, align 8, !tbaa !95
   invoke void %602(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i42.i.i unwind label %603
@@ -2260,7 +2260,7 @@ _ZNSt3__16chronoL20__parse_continuationB8ne210000ERNS_6vectorINS_4pairINS_12basi
   %615 = zext i32 %612 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %610, ptr %17, align 8, !tbaa !100
-  %616 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %615
   %617 = load ptr, ptr %616, align 8, !tbaa !95
   invoke void %617(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %618
@@ -2348,7 +2348,7 @@ _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC
   %650 = zext i32 %647 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %645, ptr %10, align 8, !tbaa !100
-  %651 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 0, i64 %650
+  %651 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %650
   %652 = load ptr, ptr %651, align 8, !tbaa !95
   invoke void %652(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %653
@@ -2403,7 +2403,7 @@ _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC
   %670 = zext i32 %666 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %663, ptr %9, align 8, !tbaa !100
-  %671 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 0, i64 %670
+  %671 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %670
   %672 = load ptr, ptr %671, align 8, !tbaa !95
   invoke void %672(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %669)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i69.i unwind label %673
@@ -2459,7 +2459,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %695 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %696 = zext i32 %692 to i64
-  %697 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %696
+  %697 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %696
   %698 = load ptr, ptr %697, align 8, !tbaa !95
   invoke void %698(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(32) %695)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i unwind label %699
@@ -2523,7 +2523,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i27.i.i
 718:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i27.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %719 = zext i32 %716 to i64
-  %720 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %719
+  %720 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %719
   %721 = load ptr, ptr %720, align 8, !tbaa !95
   invoke void %721(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i28.i.i unwind label %722
@@ -7990,7 +7990,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   invoke void %18(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i unwind label %19
@@ -8191,7 +8191,7 @@ define linkonce_odr hidden void @_ZNSt3__116__variant_detail12__visitation6__bas
 8:                                                ; preds = %3
   %9 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !95
   invoke void %11(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %12
@@ -8233,7 +8233,7 @@ define linkonce_odr hidden void @_ZNSt3__116__variant_detail12__visitation6__bas
 9:                                                ; preds = %3
   %10 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !95
   invoke void %12(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %13
@@ -8294,7 +8294,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne210000EOS5_
 17:                                               ; preds = %3
   %18 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   invoke void %20(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %21
@@ -8372,7 +8372,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !95
   invoke void %27(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i unwind label %28
@@ -9778,7 +9778,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !95
   invoke void %44(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %45
@@ -9976,7 +9976,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !95
   invoke void %44(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %45

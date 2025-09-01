@@ -456,16 +456,16 @@ define void @ff_rtjpeg_decode_init(ptr noundef captures(none) %0, i32 noundef %1
 
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = zext i8 %11 to i64
-  %15 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
   store i32 %13, ptr %15, align 4, !tbaa !14
   %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
-  %18 = getelementptr inbounds nuw [64 x i32], ptr %8, i64 0, i64 %14
+  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %14
   store i32 %17, ptr %18, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -488,7 +488,7 @@ define void @ff_rtjpeg_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !25
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
@@ -496,9 +496,9 @@ define void @ff_rtjpeg_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.masked = and i32 %10, 56
   %12 = or i32 %.masked, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !25
-  %16 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %15, ptr %16, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

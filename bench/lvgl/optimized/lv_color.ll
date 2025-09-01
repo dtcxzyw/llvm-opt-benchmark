@@ -43,7 +43,7 @@ define zeroext range(i8 0, 33) i8 @lv_color_format_get_bpp(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [33 x i8], ptr @switch.table.lv_color_format_get_bpp, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.lv_color_format_get_bpp, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -403,7 +403,7 @@ define zeroext range(i8 0, 5) i8 @lv_color_format_get_size(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [33 x i8], ptr @switch.table.lv_color_format_get_size, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.lv_color_format_get_size, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %lv_color_format_get_bpp.exit
 

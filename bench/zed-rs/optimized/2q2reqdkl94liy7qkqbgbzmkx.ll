@@ -177,7 +177,7 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %44
   %.sroa.01.05.i = phi i64 [ %45, %44 ], [ 0, %.preheader.i ]
-  %41 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.10.sroa.0.0.copyload, i64 0, i64 %.sroa.01.05.i
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.10.sroa.0.0.copyload, i64 %.sroa.01.05.i
   %42 = load i8, ptr %41, align 1, !alias.scope !55, !noundef !12
   %43 = icmp eq i8 %42, 58
   br i1 %43, label %.thread35, label %44

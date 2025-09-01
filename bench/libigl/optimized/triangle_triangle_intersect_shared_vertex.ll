@@ -545,7 +545,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %361 = load double, ptr %360, align 8, !tbaa !20
   store double %361, ptr %359, align 16, !tbaa !20
   %362 = sext i32 %4 to i64
-  %363 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %362
+  %363 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %362
   %364 = load ptr, ptr %5, align 8, !tbaa !23
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %366 = load ptr, ptr %365, align 8, !tbaa !27
@@ -1444,7 +1444,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %348 = load double, ptr %347, align 8, !tbaa !20
   store double %348, ptr %346, align 16, !tbaa !20
   %349 = sext i32 %4 to i64
-  %350 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %349
+  %350 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %349
   %351 = load ptr, ptr %5, align 8, !tbaa !67
   %352 = load <2 x double>, ptr %351, align 16, !tbaa !30
   store <2 x double> %352, ptr %350, align 8, !tbaa !30
@@ -2350,7 +2350,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %361 = load double, ptr %360, align 8, !tbaa !20
   store double %361, ptr %359, align 16, !tbaa !20
   %362 = sext i32 %4 to i64
-  %363 = getelementptr inbounds [3 x %"class.Eigen::Matrix"], ptr %21, i64 0, i64 %362
+  %363 = getelementptr inbounds %"class.Eigen::Matrix", ptr %21, i64 %362
   %364 = load ptr, ptr %5, align 8, !tbaa !99
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %366 = load ptr, ptr %365, align 8, !tbaa !101

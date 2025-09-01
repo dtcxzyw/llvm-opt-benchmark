@@ -4797,7 +4797,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit9
 
 switch.lookup:                                    ; preds = %190
   %192 = zext nneg i32 %189 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %192
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %192
   %switch.load = load i64, ptr %switch.gep, align 8
   %193 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 16), i64 %switch.load
   %194 = load ptr, ptr %193, align 8
@@ -4814,7 +4814,7 @@ _ZN7nlarith4util3imp11apply_substERNS1_6isubstENS_4compERK10ref_vectorI3app11ast
 
 switch.lookup351:                                 ; preds = %195
   %197 = zext nneg i32 %189 to i64
-  %switch.gep352 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %197
+  %switch.gep352 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %197
   %switch.load353 = load i64, ptr %switch.gep352, align 8
   %198 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 16), i64 %switch.load353
   %199 = load ptr, ptr %198, align 8
@@ -5561,7 +5561,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 
 switch.lookup354:                                 ; preds = %502
   %504 = zext nneg i32 %501 to i64
-  %switch.gep355 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %504
+  %switch.gep355 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %504
   %switch.load356 = load i64, ptr %switch.gep355, align 8
   %505 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 16), i64 %switch.load356
   %506 = load ptr, ptr %505, align 8
@@ -5578,7 +5578,7 @@ _ZN7nlarith4util3imp11apply_substERNS1_6isubstENS_4compERK10ref_vectorI3app11ast
 
 switch.lookup357:                                 ; preds = %507
   %509 = zext nneg i32 %501 to i64
-  %switch.gep358 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %509
+  %switch.gep358 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %509
   %switch.load359 = load i64, ptr %switch.gep358, align 8
   %510 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 16), i64 %switch.load359
   %511 = load ptr, ptr %510, align 8
@@ -6784,7 +6784,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit1
 
 switch.lookup:                                    ; preds = %256
   %258 = zext nneg i32 %255 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %258
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %258
   %switch.load = load i64, ptr %switch.gep, align 8
   %259 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 16), i64 %switch.load
   %260 = load ptr, ptr %259, align 8
@@ -6801,7 +6801,7 @@ _ZN7nlarith4util3imp11apply_substERNS1_6isubstENS_4compERK10ref_vectorI3app11ast
 
 switch.lookup579:                                 ; preds = %261
   %263 = zext nneg i32 %255 to i64
-  %switch.gep580 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %263
+  %switch.gep580 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %263
   %switch.load581 = load i64, ptr %switch.gep580, align 8
   %264 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 16), i64 %switch.load581
   %265 = load ptr, ptr %264, align 8
@@ -7700,7 +7700,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit2
 
 switch.lookup582:                                 ; preds = %624
   %626 = zext nneg i32 %623 to i64
-  %switch.gep583 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %626
+  %switch.gep583 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %626
   %switch.load584 = load i64, ptr %switch.gep583, align 8
   %627 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 16), i64 %switch.load584
   %628 = load ptr, ptr %627, align 8
@@ -7717,7 +7717,7 @@ _ZN7nlarith4util3imp11apply_substERNS1_6isubstENS_4compERK10ref_vectorI3app11ast
 
 switch.lookup585:                                 ; preds = %629
   %631 = zext nneg i32 %623 to i64
-  %switch.gep586 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %631
+  %switch.gep586 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %631
   %switch.load587 = load i64, ptr %switch.gep586, align 8
   %632 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 16), i64 %switch.load587
   %633 = load ptr, ptr %632, align 8
@@ -8202,7 +8202,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit3
 
 switch.lookup588:                                 ; preds = %829
   %831 = zext nneg i32 %828 to i64
-  %switch.gep589 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %831
+  %switch.gep589 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %831
   %switch.load590 = load i64, ptr %switch.gep589, align 8
   %832 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 16), i64 %switch.load590
   %833 = load ptr, ptr %832, align 8
@@ -8219,7 +8219,7 @@ _ZN7nlarith4util3imp11apply_substERNS1_6isubstENS_4compERK10ref_vectorI3app11ast
 
 switch.lookup591:                                 ; preds = %834
   %836 = zext nneg i32 %828 to i64
-  %switch.gep592 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %836
+  %switch.gep592 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %836
   %switch.load593 = load i64, ptr %switch.gep592, align 8
   %837 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 16), i64 %switch.load593
   %838 = load ptr, ptr %837, align 8
@@ -9043,7 +9043,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 switch.lookup:                                    ; preds = %29
   %34 = getelementptr inbounds nuw %class.ref_vector.39, ptr %18, i64 %indvars.iv
   %35 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, i64 %35
   %switch.load = load i64, ptr %switch.gep, align 8
   %36 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7nlarith4util3imp15minus_inf_substE, i64 16), i64 %switch.load
   %37 = load ptr, ptr %36, align 8
@@ -9908,7 +9908,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %93
 
 .lr.ph113:                                        ; preds = %.preheader, %122
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %122 ], [ 1, %.preheader ]
-  %115 = getelementptr inbounds nuw [0 x ptr], ptr %109, i64 0, i64 %indvars.iv125
+  %115 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv125
   %116 = load ptr, ptr %115, align 8, !tbaa !105
   %117 = invoke noundef zeroext i1 @_ZN7nlarith4util3imp17get_decompositionEP4exprR12contains_appR10ref_vectorI3app11ast_managerE(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %118 unwind label %119
@@ -9949,7 +9949,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %93
 
 .lr.ph107:                                        ; preds = %.preheader95, %139
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %139 ], [ 1, %.preheader95 ]
-  %132 = getelementptr inbounds nuw [0 x ptr], ptr %126, i64 0, i64 %indvars.iv122
+  %132 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv122
   %133 = load ptr, ptr %132, align 8, !tbaa !105
   %134 = invoke noundef zeroext i1 @_ZN7nlarith4util3imp17get_decompositionEP4exprR12contains_appR10ref_vectorI3app11ast_managerE(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %135 unwind label %136
@@ -9990,7 +9990,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %93
 
 .lr.ph:                                           ; preds = %.preheader98, %156
   %indvars.iv = phi i64 [ %indvars.iv.next, %156 ], [ 1, %.preheader98 ]
-  %149 = getelementptr inbounds nuw [0 x ptr], ptr %143, i64 0, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv
   %150 = load ptr, ptr %149, align 8, !tbaa !105
   %151 = invoke noundef zeroext i1 @_ZN7nlarith4util3imp17get_decompositionEP4exprR12contains_appR10ref_vectorI3app11ast_managerE(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %150, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %152 unwind label %153
@@ -12956,7 +12956,7 @@ _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %_ZNK4decl13get_fami
 
 47:                                               ; preds = %.lr.ph95, %_ZN8rationalD2Ev.exit
   %indvars.iv107 = phi i64 [ 1, %.lr.ph95 ], [ %indvars.iv.next108, %_ZN8rationalD2Ev.exit ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv107
+  %48 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv107
   %49 = load ptr, ptr %48, align 8, !tbaa !105
   %50 = invoke noundef zeroext i1 @_ZNK7nlarith4util3imp10is_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %51 unwind label %52
@@ -13070,7 +13070,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 
 105:                                              ; preds = %.lr.ph89, %_ZN8rationalD2Ev.exit71
   %indvars.iv104 = phi i64 [ 1, %.lr.ph89 ], [ %indvars.iv.next105, %_ZN8rationalD2Ev.exit71 ]
-  %106 = getelementptr inbounds nuw [0 x ptr], ptr %89, i64 0, i64 %indvars.iv104
+  %106 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv104
   %107 = load ptr, ptr %106, align 8, !tbaa !105
   %108 = invoke noundef zeroext i1 @_ZNK7nlarith4util3imp10is_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %109 unwind label %110
@@ -13184,7 +13184,7 @@ _ZN8rationalD2Ev.exit71:                          ; preds = %.noexc.i70
 
 163:                                              ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit73
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit73 ]
-  %164 = getelementptr inbounds nuw [0 x ptr], ptr %147, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8, !tbaa !105
   %166 = invoke noundef zeroext i1 @_ZNK7nlarith4util3imp10is_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %165, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %167 unwind label %168
@@ -18971,7 +18971,7 @@ select.unfold.preheader.i:                        ; preds = %_ZNK17arith_recogni
   br i1 %exitcond.not.not.i.not.not, label %73, label %_ZN7nlarith4util3imp12is_nonlinearEP3app.exit
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !105
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
@@ -19038,7 +19038,7 @@ _ZN7nlarith4util3imp15is_arithmeticalEP3app.exit: ; preds = %_ZN7nlarith4util3im
 
 106:                                              ; preds = %.lr.ph, %139
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %139 ]
-  %107 = getelementptr inbounds nuw [0 x ptr], ptr %103, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !105
   %109 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %108)
           to label %110 unwind label %135
@@ -19202,7 +19202,7 @@ _ZN6vectorIP3appLb0EjE9push_backERKS1_.exit:      ; preds = %169, %.noexc56
 
 182:                                              ; preds = %.lr.ph91, %215
   %indvars.iv103 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next104, %215 ]
-  %183 = getelementptr inbounds nuw [0 x ptr], ptr %164, i64 0, i64 %indvars.iv103
+  %183 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv103
   %184 = load ptr, ptr %183, align 8, !tbaa !105
   %185 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %184)
           to label %186 unwind label %211
@@ -24271,7 +24271,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6i
   %46 = phi ptr [ %11, %.lr.ph ], [ %95, %94 ]
   %47 = phi ptr [ %11, %.lr.ph ], [ %96, %94 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !105
   %50 = getelementptr inbounds i8, ptr %47, i64 -8
   %51 = load i32, ptr %50, align 4, !tbaa !104

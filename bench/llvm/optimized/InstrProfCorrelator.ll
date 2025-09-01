@@ -1639,7 +1639,7 @@ _ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit.i: ; preds = %.sink.sp
   %19 = zext i8 %18 to i32
   %20 = lshr i32 %19, 4
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !17
   %24 = or i8 %23, %15
   %25 = shl i64 %.013.i, 1
@@ -1648,7 +1648,7 @@ _ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit.i: ; preds = %.sink.sp
   store i8 %24, ptr %27, align 1, !tbaa !17
   %28 = and i32 %19, 15
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !17
   %32 = or i8 %31, %15
   %33 = load ptr, ptr %6, align 8, !tbaa !151

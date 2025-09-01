@@ -5766,7 +5766,7 @@ print_data.exit.thread:                           ; preds = %.lr.ph893, %print_d
 .lr.ph884:                                        ; preds = %202, %.lr.ph884
   %.5882 = phi i64 [ %217, %.lr.ph884 ], [ 0, %202 ]
   %213 = phi i64 [ %216, %.lr.ph884 ], [ 1, %202 ]
-  %214 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %.5882
+  %214 = getelementptr inbounds nuw i64, ptr %12, i64 %.5882
   %215 = load i64, ptr %214, align 8, !tbaa !15
   %216 = mul i64 %213, %215
   %217 = add nuw nsw i64 %.5882, 1
@@ -7962,7 +7962,7 @@ print_header.exit:                                ; preds = %25, %26
 
 60:                                               ; preds = %44
   %61 = mul i64 %56, %.06498
-  %62 = getelementptr inbounds [32 x i64], ptr %42, i64 0, i64 %46
+  %62 = getelementptr inbounds i64, ptr %42, i64 %46
   %63 = load i64, ptr %62, align 8, !tbaa !15
   %64 = mul i64 %63, %.06498
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7999,9 +7999,9 @@ print_header.exit:                                ; preds = %25, %26
 
 76:                                               ; preds = %.lr.ph105, %76
   %indvars.iv114 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next115, %76 ]
-  %77 = getelementptr inbounds nuw [32 x i64], ptr %75, i64 0, i64 %indvars.iv114
+  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv114
   %78 = load i64, ptr %77, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw [32 x i64], ptr %71, i64 0, i64 %indvars.iv114
+  %79 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv114
   %80 = load i64, ptr %79, align 8, !tbaa !15
   %81 = add i64 %80, %78
   store i64 %81, ptr %79, align 8, !tbaa !15

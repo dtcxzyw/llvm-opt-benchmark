@@ -926,7 +926,7 @@ define dso_local void @dasm_setup(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = shl i32 %21, 24
-  %23 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.dasm_Section, ptr %6, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i32 %22, ptr %24, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1517,7 +1517,7 @@ default.unreachable364:                           ; preds = %180, %159, %75
   %.1191310 = phi i32 [ %315, %.lr.ph ], [ %307, %306 ]
   %309 = lshr i32 %.1191310, 24
   %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %56, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw %struct.dasm_Section, ptr %56, i64 %310
   %312 = load ptr, ptr %311, align 8, !tbaa !37
   %313 = zext nneg i32 %.1191310 to i64
   %314 = getelementptr inbounds nuw i32, ptr %312, i64 %313
@@ -1584,7 +1584,7 @@ default.unreachable364:                           ; preds = %180, %159, %75
 
 354:                                              ; preds = %339
   %355 = zext i8 %340 to i64
-  %356 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %56, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw %struct.dasm_Section, ptr %56, i64 %355
   store ptr %356, ptr %9, align 8, !tbaa !35
   br label %.loopexit
 
@@ -1685,7 +1685,7 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
   %.0118135 = phi i32 [ %34, %.lr.ph136 ], [ %45, %38 ]
   %39 = lshr i32 %.0118135, 24
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %15, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %struct.dasm_Section, ptr %15, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = zext nneg i32 %.0118135 to i64
   %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
@@ -1795,7 +1795,7 @@ define dso_local i32 @dasm_link(ptr noundef readonly captures(none) %0, ptr noun
 78:                                               ; preds = %74
   %79 = lshr i32 %76, 24
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %30, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %struct.dasm_Section, ptr %30, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = zext nneg i32 %76 to i64
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
@@ -2276,7 +2276,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %158 = getelementptr inbounds nuw i8, ptr %.2167, i64 4
   %159 = ashr i32 %41, 24
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [1 x %struct.dasm_Section], ptr %8, i64 0, i64 %160
+  %161 = getelementptr inbounds %struct.dasm_Section, ptr %8, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !37
   %163 = sext i32 %41 to i64
   %164 = getelementptr inbounds i32, ptr %162, i64 %163
@@ -2334,7 +2334,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %.2175 = phi ptr [ %180, %179 ], [ %34, %40 ]
   %191 = ashr i32 %41, 24
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [1 x %struct.dasm_Section], ptr %8, i64 0, i64 %192
+  %193 = getelementptr inbounds %struct.dasm_Section, ptr %8, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !37
   %195 = sext i32 %41 to i64
   %196 = getelementptr inbounds i32, ptr %194, i64 %195
@@ -2437,7 +2437,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %252 = getelementptr inbounds nuw i8, ptr %.0173, i64 2
   %253 = load i8, ptr %252, align 1, !tbaa !44
   %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds nuw [60 x i32], ptr @relocmap, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw i32, ptr @relocmap, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !43
   %257 = icmp slt i32 %256, 0
   br i1 %257, label %258, label %collect_reloc.exit
@@ -2445,7 +2445,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
 258:                                              ; preds = %251
   %259 = load i32, ptr %11, align 8, !tbaa !59
   store i32 %259, ptr %255, align 4, !tbaa !43
-  %260 = getelementptr inbounds nuw [61 x ptr], ptr @extnames, i64 0, i64 %254
+  %260 = getelementptr inbounds nuw ptr, ptr @extnames, i64 %254
   %261 = load ptr, ptr %260, align 8, !tbaa !60
   %.val.i = load i32, ptr %12, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2485,7 +2485,7 @@ collect_reloc.exit:                               ; preds = %251, %sym_decorate.
   %280 = sub i64 %.2291, %279
   %281 = trunc i64 %280 to i32
   %282 = sext i32 %277 to i64
-  %283 = getelementptr inbounds [200 x %struct.BuildReloc], ptr %15, i64 0, i64 %282
+  %283 = getelementptr inbounds %struct.BuildReloc, ptr %15, i64 %282
   store i32 %281, ptr %283, align 4, !tbaa !64
   %.idx.i = mul nsw i64 %282, 12
   %284 = getelementptr i8, ptr %15, i64 %.idx.i
@@ -2565,7 +2565,7 @@ define dso_local i32 @dasm_getpclabel(ptr noundef readonly captures(none) %0, i3
   %16 = sub nsw i32 0, %13
   %17 = lshr i32 %16, 24
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.dasm_Section, ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   %21 = zext nneg i32 %16 to i64
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
@@ -2622,7 +2622,7 @@ define dso_local i32 @dasm_checkstep(ptr noundef readonly captures(none) %0, i32
   %18 = load ptr, ptr %17, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.dasm_Section, ptr %19, i64 %20
   %.not = icmp eq ptr %18, %21
   br i1 %.not, label %.loopexit.thread, label %22
 
@@ -2738,7 +2738,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .preheader.i:                                     ; preds = %25, %33
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ 0, %25 ]
-  %30 = getelementptr inbounds nuw [12 x ptr], ptr @modenames, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr @modenames, i64 %indvars.iv.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !60
   %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %31) #28
   %.not7.i.i = icmp eq i32 %32, 0
@@ -2865,7 +2865,7 @@ parseargs.exit:                                   ; preds = %.loopexit.i
   %indvars.iv.i.i32 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i33, %.lr.ph.i.i ]
   %80 = trunc nuw nsw i64 %indvars.iv.i.i32 to i32
   %81 = shl i32 %80, 24
-  %82 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %72, i64 0, i64 %indvars.iv.i.i32
+  %82 = getelementptr inbounds nuw %struct.dasm_Section, ptr %72, i64 %indvars.iv.i.i32
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i32 %81, ptr %83, align 8, !tbaa !36
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -3001,7 +3001,7 @@ dasm_getpclabel.exit.i:                           ; preds = %143
   %150 = sub nsw i32 0, %147
   %151 = lshr i32 %150, 24
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [1 x %struct.dasm_Section], ptr %149, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw %struct.dasm_Section, ptr %149, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !37
   %155 = zext nneg i32 %150 to i64
   %156 = getelementptr inbounds nuw i32, ptr %154, i64 %155
@@ -3018,7 +3018,7 @@ dasm_getpclabel.exit.thread.i:                    ; preds = %dasm_getpclabel.exi
   %162 = load ptr, ptr %134, align 8, !tbaa !86
   %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i
   store i32 %157, ptr %163, align 4, !tbaa !43
-  %164 = getelementptr inbounds nuw [0 x ptr], ptr @bc_names, i64 0, i64 %indvars.iv.i
+  %164 = getelementptr inbounds nuw ptr, ptr @bc_names, i64 %indvars.iv.i
   %165 = load ptr, ptr %164, align 8, !tbaa !60
   call fastcc void @sym_insert(ptr noundef nonnull %5, i32 noundef %157, ptr noundef nonnull @.str.428, ptr noundef %165)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3030,7 +3030,7 @@ dasm_getpclabel.exit.thread.i:                    ; preds = %dasm_getpclabel.exi
 .lr.ph105.i:                                      ; preds = %.preheader.i35, %200
   %169 = phi i32 [ %201, %200 ], [ %136, %.preheader.i35 ]
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %200 ], [ 0, %.preheader.i35 ]
-  %170 = getelementptr inbounds nuw [159 x ptr], ptr @globnames, i64 0, i64 %indvars.iv111.i
+  %170 = getelementptr inbounds nuw ptr, ptr @globnames, i64 %indvars.iv111.i
   %171 = load ptr, ptr %170, align 8, !tbaa !60
   %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #28
   %173 = load ptr, ptr %58, align 8, !tbaa !76
@@ -3377,7 +3377,7 @@ emit_bcdef.exit:                                  ; preds = %347, %337
 
 365:                                              ; preds = %365, %356
   %indvars.iv.i49 = phi i64 [ 0, %356 ], [ %indvars.iv.next.i50, %365 ]
-  %366 = getelementptr inbounds nuw [98 x ptr], ptr @bc_names, i64 0, i64 %indvars.iv.i49
+  %366 = getelementptr inbounds nuw ptr, ptr @bc_names, i64 %indvars.iv.i49
   %367 = load ptr, ptr %366, align 8, !tbaa !60
   %368 = load ptr, ptr %357, align 8, !tbaa !70
   %369 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %368, ptr noundef nonnull @.str.614, ptr noundef %367) #25
@@ -3394,7 +3394,7 @@ emit_bcdef.exit:                                  ; preds = %347, %337
 
 375:                                              ; preds = %375, %370
   %indvars.iv71.i = phi i64 [ 0, %370 ], [ %indvars.iv.next72.i, %375 ]
-  %376 = getelementptr inbounds nuw [102 x ptr], ptr @ir_names, i64 0, i64 %indvars.iv71.i
+  %376 = getelementptr inbounds nuw ptr, ptr @ir_names, i64 %indvars.iv71.i
   %377 = load ptr, ptr %376, align 8, !tbaa !60
   %378 = load ptr, ptr %357, align 8, !tbaa !70
   %379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.614, ptr noundef %377) #25
@@ -3411,7 +3411,7 @@ emit_bcdef.exit:                                  ; preds = %347, %337
 
 385:                                              ; preds = %lower.exit.i, %380
   %indvars.iv74.i = phi i64 [ 0, %380 ], [ %indvars.iv.next75.i, %lower.exit.i ]
-  %386 = getelementptr inbounds nuw [8 x ptr], ptr @irfpm_names, i64 0, i64 %indvars.iv74.i
+  %386 = getelementptr inbounds nuw ptr, ptr @irfpm_names, i64 %indvars.iv74.i
   %387 = load ptr, ptr %386, align 8, !tbaa !60
   %388 = load ptr, ptr %357, align 8, !tbaa !70
   %389 = load i8, ptr %387, align 1, !tbaa !44
@@ -3450,7 +3450,7 @@ lower.exit.i:                                     ; preds = %.lr.ph.i.i52, %385
 
 402:                                              ; preds = %414, %397
   %indvars.iv77.i = phi i64 [ 0, %397 ], [ %indvars.iv.next78.i, %414 ]
-  %403 = getelementptr inbounds nuw [26 x ptr], ptr @irfield_names, i64 0, i64 %indvars.iv77.i
+  %403 = getelementptr inbounds nuw ptr, ptr @irfield_names, i64 %indvars.iv77.i
   %404 = load ptr, ptr %403, align 8, !tbaa !60
   %405 = load i8, ptr %404, align 1, !tbaa !44
   %.not13.i53.i = icmp eq i8 %405, 0
@@ -3498,7 +3498,7 @@ lower.exit61.i:                                   ; preds = %.lr.ph.i54.i, %402
 
 422:                                              ; preds = %422, %417
   %indvars.iv80.i = phi i64 [ 0, %417 ], [ %indvars.iv.next81.i, %422 ]
-  %423 = getelementptr inbounds nuw [114 x ptr], ptr @ircall_names, i64 0, i64 %indvars.iv80.i
+  %423 = getelementptr inbounds nuw ptr, ptr @ircall_names, i64 %indvars.iv80.i
   %424 = load ptr, ptr %423, align 8, !tbaa !60
   %425 = load ptr, ptr %357, align 8, !tbaa !70
   %426 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %425, ptr noundef nonnull @.str.622, ptr noundef %424) #25
@@ -3515,7 +3515,7 @@ lower.exit61.i:                                   ; preds = %.lr.ph.i54.i, %402
 
 432:                                              ; preds = %432, %427
   %indvars.iv83.i = phi i64 [ 0, %427 ], [ %indvars.iv.next84.i, %432 ]
-  %433 = getelementptr inbounds nuw [36 x ptr], ptr @trace_errors, i64 0, i64 %indvars.iv83.i
+  %433 = getelementptr inbounds nuw ptr, ptr @trace_errors, i64 %indvars.iv83.i
   %434 = load ptr, ptr %433, align 8, !tbaa !60
   %435 = load ptr, ptr %357, align 8, !tbaa !70
   %436 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str.622, ptr noundef %434) #25
@@ -3620,7 +3620,7 @@ define internal fastcc void @usage() unnamed_addr #17 {
 11:                                               ; preds = %0, %11
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr @stderr, align 8, !tbaa !58
-  %13 = getelementptr inbounds nuw [12 x ptr], ptr @modenames, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr @modenames, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !60
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.424, ptr noundef %14) #31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3877,7 +3877,7 @@ dasm_growpc.exit:                                 ; preds = %._crit_edge.i, %16
 switch.lookup:                                    ; preds = %21, %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 9765, i32 noundef -14, i32 noundef -14)
   %22 = zext nneg i32 %.07 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.build_backend, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.build_backend, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef %switch.load)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 9846, i32 noundef -131072)

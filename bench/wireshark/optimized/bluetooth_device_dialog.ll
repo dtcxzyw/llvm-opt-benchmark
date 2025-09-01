@@ -2925,7 +2925,7 @@ define noundef i32 @_ZN21BluetoothDeviceDialog9tapPacketEPvP12_packet_infoP12epa
   store ptr null, ptr %18, align 8
   store ptr @.str.8, ptr %116, align 8
   store i64 3, ptr %117, align 8
-  %121 = getelementptr [6 x i8], ptr %118, i64 0, i64 %indvars.iv
+  %121 = getelementptr i8, ptr %118, i64 %indvars.iv
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable_or_null(24) %18, i64 noundef %123, i32 noundef 2, i32 noundef 16, i16 48)

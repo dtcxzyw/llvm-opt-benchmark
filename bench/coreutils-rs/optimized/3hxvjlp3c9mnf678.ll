@@ -431,7 +431,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter6trai
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %2, i64 0, i64 %8, i32 2
+  %13 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %2, i64 %8, i32 2
   %14 = load i64, ptr %13, align 8, !noalias !73, !noundef !16
   %15 = tail call { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3fada96517ba0a4eE.llvm.2093655606052473966"(ptr noundef nonnull %12, ptr noundef nonnull %1, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3), !noalias !74
   %16 = extractvalue { i64, ptr } %15, 1
@@ -1111,7 +1111,7 @@ define hidden void @_ZN6uu_fmt9linebreak15build_best_path17h8cd13a26ab3d5883E(pt
 
 _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876384978452292205.exit: ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %1, i64 0, i64 %10, i32 2
+  %14 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %10, i32 2
   %15 = load i64, ptr %14, align 8, !alias.scope !176, !noalias !197, !noundef !16
   %16 = tail call { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3fada96517ba0a4eE.llvm.2093655606052473966"(ptr noundef nonnull %13, ptr noundef nonnull %7, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2), !noalias !198
   %17 = extractvalue { i64, ptr } %16, 1
@@ -1134,7 +1134,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876
 .lr.ph.i:                                         ; preds = %19, %37
   %24 = phi i64 [ %43, %37 ], [ 0, %19 ]
   %.09.i = phi i64 [ %44, %37 ], [ %20, %19 ]
-  %25 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %1, i64 0, i64 %.09.i
+  %25 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %.09.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !201, !noalias !210, !noundef !16
   %28 = icmp eq ptr %27, null
@@ -1243,7 +1243,7 @@ define hidden void @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u
 .lr.ph:                                           ; preds = %4, %24
   %10 = phi i64 [ %30, %24 ], [ 0, %4 ]
   %.09 = phi i64 [ %31, %24 ], [ %6, %4 ]
-  %11 = getelementptr inbounds [0 x { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }], ptr %1, i64 0, i64 %.09
+  %11 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %.09
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !noundef !16
   %14 = icmp eq ptr %13, null

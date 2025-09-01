@@ -1709,7 +1709,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %41 = shl nuw i64 1, %40
   %42 = lshr i32 %18, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = add nuw i32 %18, 1
   %47 = and i32 %1, 1

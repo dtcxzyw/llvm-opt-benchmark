@@ -361,7 +361,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %41, %46
   %90 = getelementptr inbounds nuw i8, ptr %76, i64 240
   %91 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %90, ptr nonnull align 4 %57, i64 %91, i1 false)
-  %92 = getelementptr inbounds nuw [1024 x i8], ptr %90, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
   store i8 0, ptr %92, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -562,7 +562,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %_ZNK6aiMesh15HasVer
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split.preheader, %.loopexit319
   %indvars.iv = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split.preheader ], [ %indvars.iv.next, %.loopexit319 ]
-  %178 = getelementptr inbounds nuw [8 x ptr], ptr %64, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
   %179 = load ptr, ptr %178, align 8
   %.not.i163.not = icmp eq ptr %179, null
   br i1 %.not.i163.not, label %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split, label %182
@@ -584,7 +584,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMes
   br label %.loopexit319
 
 .loopexit319:                                     ; preds = %.loopexit319.loopexit, %184
-  %185 = getelementptr inbounds nuw [8 x ptr], ptr %170, i64 0, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv
   store ptr %183, ptr %185, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
@@ -592,7 +592,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.split: ; preds = %_ZNK6aiMes
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader, %_ZNK6aiMesh15HasVertexColorsEj.exit
   %indvars.iv365 = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader ], [ %indvars.iv.next366, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %186 = getelementptr inbounds nuw [8 x ptr], ptr %65, i64 0, i64 %indvars.iv365
+  %186 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv365
   %187 = load ptr, ptr %186, align 8
   %.not.i164.not = icmp eq ptr %187, null
   br i1 %.not.i164.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split, label %196
@@ -616,9 +616,9 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split: ; preds = %_ZNK6aiMesh16HasTe
   br label %539
 
 196:                                              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %197 = getelementptr inbounds nuw [8 x i32], ptr %66, i64 0, i64 %indvars.iv365
+  %197 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv365
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds nuw [8 x i32], ptr %171, i64 0, i64 %indvars.iv365
+  %199 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv365
   store i32 %198, ptr %199, align 4
   %200 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %172) #15
           to label %201 unwind label %194
@@ -631,7 +631,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.loopexit:     ; preds = %201
   br label %_ZNK6aiMesh15HasVertexColorsEj.exit
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.loopexit, %201
-  %202 = getelementptr inbounds nuw [8 x ptr], ptr %173, i64 0, i64 %indvars.iv365
+  %202 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv365
   store ptr %200, ptr %202, align 8
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %exitcond368 = icmp eq i64 %indvars.iv.next366, 8
@@ -733,7 +733,7 @@ _ZNSt6vectorI6aiFaceSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; preds = %._ZNSt
 
 switch.lookup:                                    ; preds = %238
   %247 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12MeshSplitter9SplitMeshEjP6aiMeshRSt6vectorISt4pairIS1_jESaIS4_EE, i64 0, i64 %247
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12MeshSplitter9SplitMeshEjP6aiMeshRSt6vectorISt4pairIS1_jESaIS4_EE, i64 %247
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %248
 
@@ -827,7 +827,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit175.preheader: ; preds = %281, %285, %_ZNK6a
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit175:          ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit175.preheader, %309
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %309 ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit175.preheader ]
-  %297 = getelementptr inbounds nuw [8 x ptr], ptr %65, i64 0, i64 %indvars.iv373
+  %297 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv373
   %298 = load ptr, ptr %297, align 8
   %.not.i173 = icmp ne ptr %298, null
   %299 = load i32, ptr %8, align 4
@@ -837,7 +837,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit175:          ; preds = %_ZNK6aiMesh16HasTex
 
 302:                                              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit175
   %303 = getelementptr inbounds nuw %class.aiVector3t, ptr %298, i64 %257
-  %304 = getelementptr inbounds nuw [8 x ptr], ptr %193, i64 0, i64 %indvars.iv373
+  %304 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv373
   %305 = load ptr, ptr %304, align 8
   %306 = load i32, ptr %78, align 4
   %307 = zext i32 %306 to i64
@@ -859,7 +859,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit175:          ; preds = %_ZNK6aiMesh16HasTex
 
 _ZNK6aiMesh15HasVertexColorsEj.exit178:           ; preds = %309, %326
   %indvars.iv377 = phi i64 [ %indvars.iv.next378, %326 ], [ 0, %309 ]
-  %314 = getelementptr inbounds nuw [8 x ptr], ptr %64, i64 0, i64 %indvars.iv377
+  %314 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv377
   %315 = load ptr, ptr %314, align 8
   %.not.i176 = icmp ne ptr %315, null
   %316 = load i32, ptr %8, align 4
@@ -869,7 +869,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit178:           ; preds = %309, %326
 
 319:                                              ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit178
   %320 = getelementptr inbounds nuw %class.aiColor4t, ptr %315, i64 %257
-  %321 = getelementptr inbounds nuw [8 x ptr], ptr %188, i64 0, i64 %indvars.iv377
+  %321 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv377
   %322 = load ptr, ptr %321, align 8
   %323 = load i32, ptr %78, align 4
   %324 = zext i32 %323 to i64
@@ -1096,12 +1096,12 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vect
   %411 = getelementptr inbounds nuw i8, ptr %399, i64 4
   %412 = zext nneg i32 %spec.select.i184 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull align 4 %411, i64 %412, i1 false)
-  %413 = getelementptr inbounds nuw [1024 x i8], ptr %71, i64 0, i64 %412
+  %413 = getelementptr inbounds nuw i8, ptr %71, i64 %412
   store i8 0, ptr %413, align 1
   store i32 %spec.select.i184, ptr %400, align 4
   %414 = getelementptr inbounds nuw i8, ptr %400, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %414, ptr nonnull align 4 %71, i64 %412, i1 false)
-  %415 = getelementptr inbounds nuw [1024 x i8], ptr %414, i64 0, i64 %412
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 %412
   store i8 0, ptr %415, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %416 = getelementptr inbounds nuw i8, ptr %399, i64 1056
@@ -2098,7 +2098,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -2150,7 +2150,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -2438,7 +2438,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -2457,7 +2457,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

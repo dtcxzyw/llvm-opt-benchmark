@@ -137,7 +137,7 @@ define noundef ptr @duckdb_je_base_new(ptr noundef %0, i32 noundef %1, ptr nound
 
 52:                                               ; preds = %29, %52
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw [232 x %struct.edata_heap_t], ptr %36, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %36, i64 %indvars.iv
   call void @duckdb_je_edata_heap_new(ptr noundef nonnull %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 232
@@ -225,7 +225,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
   %37 = icmp ult i32 %36, 198
   %spec.select = select i1 %37, i32 %36, i32 %35
   %38 = zext i32 %spec.select to i64
-  %39 = getelementptr inbounds nuw [200 x i64], ptr @duckdb_je_sz_pind2sz_tab, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = add i64 %40, 2097151
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i53, i64 %41)
@@ -878,7 +878,7 @@ define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %0, ptr nou
 10:                                               ; preds = %7
   %11 = add nsw i64 %.val, 8
   %12 = lshr i64 %11, 3
-  %13 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   br label %base_edata_heap_insert.exit
@@ -906,7 +906,7 @@ base_edata_heap_insert.exit:                      ; preds = %10, %16, %18
   %29 = add nuw nsw i64 %.0.i.i, 4294967295
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = and i64 %29, 4294967295
-  %32 = getelementptr inbounds nuw [232 x %struct.edata_heap_t], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %30, i64 %31
   tail call void @duckdb_je_edata_heap_insert(ptr noundef nonnull %32, ptr noundef nonnull %1) #10
   br label %35
 
@@ -1065,7 +1065,7 @@ malloc_mutex_lock.exit:                           ; preds = %20, %26
 31:                                               ; preds = %malloc_mutex_lock.exit
   %32 = add nsw i64 %13, -9
   %33 = lshr i64 %32, 3
-  %34 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i32
   br label %sz_size2index.exit
@@ -1108,7 +1108,7 @@ sz_size2index.exit:                               ; preds = %39, %31
 
 57:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %55, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %58 = getelementptr inbounds nuw [232 x %struct.edata_heap_t], ptr %54, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %54, i64 %indvars.iv
   %59 = tail call ptr @duckdb_je_edata_heap_remove_first(ptr noundef nonnull %58) #10
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %56, label %.loopexit
@@ -1386,10 +1386,10 @@ base_alloc_base_edata.exit:                       ; preds = %26
 44:                                               ; preds = %41
   %45 = add nsw i64 %1, 23
   %46 = lshr i64 %45, 3
-  %47 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !15
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !10
   br label %sz_s2u.exit
 
@@ -1495,7 +1495,7 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
 25:                                               ; preds = %malloc_mutex_lock.exit
   %26 = add nsw i64 %.val.i, 8
   %27 = lshr i64 %26, 3
-  %28 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = zext i8 %29 to i64
   br label %base_edata_heap_insert.exit
@@ -1523,7 +1523,7 @@ base_edata_heap_insert.exit:                      ; preds = %25, %31, %33
   %44 = add nuw nsw i64 %.0.i.i, 4294967295
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %46 = and i64 %44, 4294967295
-  %47 = getelementptr inbounds nuw [232 x %struct.edata_heap_t], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %45, i64 %46
   tail call void @duckdb_je_edata_heap_insert(ptr noundef nonnull %47, ptr noundef nonnull %4) #10
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store atomic i8 0, ptr %48 monotonic, align 1

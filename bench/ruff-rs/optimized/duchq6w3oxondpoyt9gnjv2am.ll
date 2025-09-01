@@ -231,10 +231,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %3 = load i8, ptr %2, align 1, !range !31, !alias.scope !28, !noalias !32, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E.14", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E.14", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !28
   ret i1 %6
@@ -246,10 +246,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !34, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb901ab6dd0323d9eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb901ab6dd0323d9eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb901ab6dd0323d9eE.13", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb901ab6dd0323d9eE.13", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1080,10 +1080,10 @@ define internal noundef zeroext i1 @"_ZN106_$LT$ruff_annotate_snippets..renderer
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !31, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E.14", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplayAnnotationType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf001e80332f3a37E.14", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

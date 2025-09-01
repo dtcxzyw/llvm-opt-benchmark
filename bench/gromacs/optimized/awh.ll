@@ -1290,7 +1290,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx9D
   %.not.i.i.i.i.i = phi i1 [ true, %.lr.ph ], [ false, %18 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %.lr.ph ], [ 1, %18 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %.lr.ph ], [ %.1.i.i.i.i.i, %18 ]
-  %13 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i
   %14 = load i8, ptr %13, align 1, !tbaa !31, !range !108, !noundef !109
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %18
@@ -1318,7 +1318,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i16 = phi i1 [ true, %21 ], [ false, %30 ]
   %.0813.i.i.i.i.i17 = phi i64 [ 0, %21 ], [ 1, %30 ]
   %.0912.i.i.i.i.i18 = phi i64 [ 2, %21 ], [ %.1.i.i.i.i.i19, %30 ]
-  %25 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i17
+  %25 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i17
   %26 = load i8, ptr %25, align 1, !tbaa !31, !range !108, !noundef !109
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
@@ -1346,7 +1346,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i22 = phi i1 [ true, %33 ], [ false, %42 ]
   %.0813.i.i.i.i.i23 = phi i64 [ 0, %33 ], [ 1, %42 ]
   %.0912.i.i.i.i.i24 = phi i64 [ 2, %33 ], [ %.1.i.i.i.i.i25, %42 ]
-  %37 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i23
+  %37 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i23
   %38 = load i8, ptr %37, align 1, !tbaa !31, !range !108, !noundef !109
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %42
@@ -1374,7 +1374,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i28 = phi i1 [ true, %45 ], [ false, %54 ]
   %.0813.i.i.i.i.i29 = phi i64 [ 0, %45 ], [ 1, %54 ]
   %.0912.i.i.i.i.i30 = phi i64 [ 2, %45 ], [ %.1.i.i.i.i.i31, %54 ]
-  %49 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i29
+  %49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i29
   %50 = load i8, ptr %49, align 1, !tbaa !31, !range !108, !noundef !109
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %54
@@ -1423,7 +1423,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i34 = phi i1 [ true, %62 ], [ false, %71 ]
   %.0813.i.i.i.i.i35 = phi i64 [ 0, %62 ], [ 1, %71 ]
   %.0912.i.i.i.i.i36 = phi i64 [ 2, %62 ], [ %.1.i.i.i.i.i37, %71 ]
-  %66 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i35
+  %66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i35
   %67 = load i8, ptr %66, align 1, !tbaa !31, !range !108, !noundef !109
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %71
@@ -1456,7 +1456,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i40 = phi i1 [ true, %76 ], [ false, %85 ]
   %.0813.i.i.i.i.i41 = phi i64 [ 0, %76 ], [ 1, %85 ]
   %.0912.i.i.i.i.i42 = phi i64 [ 2, %76 ], [ %.1.i.i.i.i.i43, %85 ]
-  %80 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i41
+  %80 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i41
   %81 = load i8, ptr %80, align 1, !tbaa !31, !range !108, !noundef !109
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %85
@@ -1489,7 +1489,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx4Bias21hasFepLambdaDimensionEvEUlRKT_E_Ec
   %.not.i.i.i.i.i46 = phi i1 [ true, %90 ], [ false, %99 ]
   %.0813.i.i.i.i.i47 = phi i64 [ 0, %90 ], [ 1, %99 ]
   %.0912.i.i.i.i.i48 = phi i64 [ 2, %90 ], [ %.1.i.i.i.i.i49, %99 ]
-  %94 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i47
+  %94 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams12FepDimParamsEJNS1_13PullDimParamsES2_EEmv.__found, i64 %.0813.i.i.i.i.i47
   %95 = load i8, ptr %94, align 1, !tbaa !31, !range !108, !noundef !109
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %99
@@ -5034,7 +5034,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %83, %94, %
   %.not.i.i.i = phi i1 [ true, %137 ], [ false, %148 ]
   %.0813.i.i.i = phi i64 [ 0, %137 ], [ 1, %148 ]
   %.0912.i.i.i = phi i64 [ 2, %137 ], [ %.1.i.i.i, %148 ]
-  %143 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %143 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 %.0813.i.i.i
   %144 = load i8, ptr %143, align 1, !tbaa !31, !range !108, !noundef !109
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %146, label %148
@@ -5077,7 +5077,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %146, %148
   %166 = phi ptr [ %.pre, %151 ], [ %139, %160 ]
   %.sink = phi double [ %159, %151 ], [ %162, %160 ]
   %.1 = phi i32 [ %.04165, %151 ], [ %163, %160 ]
-  %167 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   store double %.sink, ptr %167, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = ptrtoint ptr %166 to i64
@@ -5113,7 +5113,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %._crit_edge71
   %.not.i.i.i44 = phi i1 [ true, %179 ], [ false, %190 ]
   %.0813.i.i.i45 = phi i64 [ 0, %179 ], [ 1, %190 ]
   %.0912.i.i.i46 = phi i64 [ 2, %179 ], [ %.1.i.i.i47, %190 ]
-  %185 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 0, i64 %.0813.i.i.i45
+  %185 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 %.0813.i.i.i45
   %186 = load i8, ptr %185, align 1, !tbaa !31, !range !108, !noundef !109
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %188, label %190
@@ -5152,7 +5152,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %188, %190
   %205 = sext i32 %204 to i64
   %206 = load ptr, ptr %135, align 8, !tbaa !134
   %207 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %206, i64 %205
-  %208 = getelementptr inbounds nuw [4 x double], ptr %207, i64 0, i64 %indvars.iv78
+  %208 = getelementptr inbounds nuw double, ptr %207, i64 %indvars.iv78
   %209 = load double, ptr %208, align 8, !tbaa !23
   %210 = fptosi double %209 to i32
   store i32 %210, ptr %56, align 4, !tbaa !197

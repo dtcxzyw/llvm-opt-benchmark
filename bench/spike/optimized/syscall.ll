@@ -6142,49 +6142,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %6, %10, %14
 
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %42, %.lr.ph.i4 ], [ %1, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %53, %.lr.ph.i4 ], [ %39, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %52, %.lr.ph.i4 ], [ %39, %.lr.ph.preheader.i ]
   %40 = urem i64 %.020.i, 100
   %41 = shl nuw nsw i64 %40, 1
   %42 = udiv i64 %.020.i, 100
-  %43 = or disjoint i64 %41, 1
-  %44 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %43
+  %43 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %41
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !45
   %46 = zext i32 %.01819.i to i64
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 %46
   store i8 %45, ptr %47, align 1, !tbaa !45
-  %48 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %41
-  %49 = load i8, ptr %48, align 2, !tbaa !45
-  %50 = add i32 %.01819.i, -1
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %35, i64 %51
-  store i8 %49, ptr %52, align 1, !tbaa !45
-  %53 = add i32 %.01819.i, -2
-  %54 = icmp ugt i64 %.020.i, 9999
-  br i1 %54, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !166
+  %48 = load i8, ptr %43, align 2, !tbaa !45
+  %49 = add i32 %.01819.i, -1
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 %50
+  store i8 %48, ptr %51, align 1, !tbaa !45
+  %52 = add i32 %.01819.i, -2
+  %53 = icmp ugt i64 %.020.i, 9999
+  br i1 %53, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !166
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %30
   %.0.lcssa.i = phi i64 [ %1, %30 ], [ %42, %.lr.ph.i4 ]
-  %55 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %55, label %56, label %64
+  %54 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %54, label %55, label %62
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %58 = or disjoint i64 %57, 1
-  %59 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !45
-  %61 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store i8 %60, ptr %61, align 1, !tbaa !45
-  %62 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %57
-  %63 = load i8, ptr %62, align 2, !tbaa !45
+55:                                               ; preds = %._crit_edge.i
+  %56 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %57 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !45
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 %59, ptr %60, align 1, !tbaa !45
+  %61 = load i8, ptr %57, align 2, !tbaa !45
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-64:                                               ; preds = %._crit_edge.i
-  %65 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %66 = or disjoint i8 %65, 48
+62:                                               ; preds = %._crit_edge.i
+  %63 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %64 = or disjoint i8 %63, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %56, %64
-  %storemerge.i = phi i8 [ %66, %64 ], [ %63, %56 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %55, %62
+  %storemerge.i = phi i8 [ %64, %62 ], [ %61, %55 ]
   store i8 %storemerge.i, ptr %35, align 1, !tbaa !45
   ret void
 }

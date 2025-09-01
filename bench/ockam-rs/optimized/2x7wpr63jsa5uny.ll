@@ -17364,9 +17364,9 @@ switch.lookup:                                    ; preds = %1067
   %1069 = add nsw i64 %.sroa.3.0.i.i.i, -3
   %1070 = icmp ult i64 %1069, 12
   %1071 = select i1 %1070, i64 %1069, i64 10
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637", i64 0, i64 %1071
+  %switch.gep = getelementptr inbounds i8, ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637", i64 %1071
   %switch.load = load i8, ptr %switch.gep, align 1
-  %switch.gep185 = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637.43", i64 0, i64 %1071
+  %switch.gep185 = getelementptr inbounds i8, ptr @"switch.table._ZN201_$LT$ockam_transport_websocket..workers..sender..WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$ockam_core..worker..Worker$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdf7b37629ee1d71dE.llvm.15437290029453857637.43", i64 %1071
   %switch.load186 = load i8, ptr %switch.gep185, align 1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %59)
           to label %1074 unwind label %1065

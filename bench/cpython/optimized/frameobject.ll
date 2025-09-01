@@ -1265,7 +1265,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %62, %_Py_XNewRef.ex
 
 .lr.ph.i.i:                                       ; preds = %_Py_NewRef.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_Py_NewRef.exit.i.i ]
-  %84 = getelementptr [1 x %union._PyStackRef], ptr %72, i64 0, i64 %indvars.iv.i.i
+  %84 = getelementptr %union._PyStackRef, ptr %72, i64 %indvars.iv.i.i
   store i64 0, ptr %84, align 8, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %85 = load i32, ptr %73, align 8, !tbaa !62
@@ -1570,12 +1570,12 @@ define dso_local ptr @PyFrame_GetVar(ptr noundef readonly captures(none) %0, ptr
 
 41:                                               ; preds = %_Py_NewRef.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_Py_NewRef.exit.i ]
-  %42 = getelementptr [1 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr ptr, ptr %38, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %45 = add i32 %34, %44
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [1 x %union._PyStackRef], ptr %39, i64 0, i64 %46
+  %47 = getelementptr %union._PyStackRef, ptr %39, i64 %46
   %48 = load i32, ptr %43, align 8, !tbaa !9
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %_Py_NewRef.exit.i, label %50
@@ -1616,7 +1616,7 @@ frame_init_get_vars.exit:                         ; preds = %11, %22, %25, %._cr
   %indvars.iv = phi i64 [ 0, %.thread.lr.ph ], [ %indvars.iv.next, %60 ]
   %64 = load ptr, ptr %59, align 8, !tbaa !166
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = getelementptr [1 x ptr], ptr %65, i64 0, i64 %indvars.iv
+  %66 = getelementptr ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %68 = tail call i32 @_PyUnicode_Equal(ptr noundef %67, ptr noundef %1) #11
   %.not24 = icmp eq i32 %68, 0
@@ -2616,7 +2616,7 @@ define internal fastcc i32 @framelocalsproxy_getkeyindex(ptr noundef readonly ca
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %framelocalsproxy_getval.exit.thread.us
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %framelocalsproxy_getval.exit.thread.us ], [ 0, %.lr.ph ]
   %.05092.us = phi i1 [ %.252.us, %framelocalsproxy_getval.exit.thread.us ], [ false, %.lr.ph ]
-  %15 = getelementptr [1 x ptr], ptr %13, i64 0, i64 %indvars.iv117
+  %15 = getelementptr ptr, ptr %13, i64 %indvars.iv117
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %framelocalsproxy_getval.exit.thread.us
@@ -2656,7 +2656,7 @@ framelocalsproxy_getval.exit.thread.us:           ; preds = %framelocalsproxy_ge
 .lr.ph.split:                                     ; preds = %.lr.ph, %framelocalsproxy_getval.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %framelocalsproxy_getval.exit.thread ], [ 0, %.lr.ph ]
   %.05092 = phi i1 [ %.252, %framelocalsproxy_getval.exit.thread ], [ false, %.lr.ph ]
-  %33 = getelementptr [1 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %33 = getelementptr ptr, ptr %13, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = icmp eq ptr %34, %1
   br i1 %35, label %36, label %framelocalsproxy_getval.exit.thread
@@ -2689,7 +2689,7 @@ framelocalsproxy_getval.exit.thread:              ; preds = %36, %.lr.ph.split
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %framelocalsproxy_getval.exit71.thread.us ], [ 0, %.preheader ]
   %44 = load ptr, ptr %43, align 8, !tbaa !166
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = getelementptr [1 x ptr], ptr %45, i64 0, i64 %indvars.iv124
+  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv124
   %47 = load ptr, ptr %46, align 8, !tbaa !28
   %48 = tail call i64 @PyObject_Hash(ptr noundef %47) #11
   %.not60.us = icmp eq i64 %48, %7
@@ -2741,7 +2741,7 @@ framelocalsproxy_getval.exit71.thread.us:         ; preds = %framelocalsproxy_ge
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %framelocalsproxy_getval.exit71.thread ], [ 0, %.preheader ]
   %70 = load ptr, ptr %43, align 8, !tbaa !166
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = getelementptr [1 x ptr], ptr %71, i64 0, i64 %indvars.iv121
+  %72 = getelementptr ptr, ptr %71, i64 %indvars.iv121
   %73 = load ptr, ptr %72, align 8, !tbaa !28
   %74 = tail call i64 @PyObject_Hash(ptr noundef %73) #11
   %.not60 = icmp eq i64 %74, %7
@@ -3082,7 +3082,7 @@ framelocalsproxy_getval.exit:                     ; preds = %25
 .critedge:                                        ; preds = %25, %framelocalsproxy_getval.exit
   %33 = load ptr, ptr %16, align 8, !tbaa !166
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %35 = getelementptr ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = tail call i32 @PyList_Append(ptr noundef nonnull %11, ptr noundef %36) #11
   %38 = icmp sgt i32 %37, -1
@@ -3468,7 +3468,7 @@ define internal ptr @framelocalsproxy_items(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge53 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !166
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = getelementptr [1 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = load ptr, ptr %8, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -4435,7 +4435,7 @@ explain_incompatible_stack.exit:                  ; preds = %115, %114, %113, %1
 119:                                              ; preds = %.lr.ph167, %119
   %indvars.iv179 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next180, %119 ]
   %.0114165 = phi i32 [ 0, %.lr.ph167 ], [ %124, %119 ]
-  %120 = getelementptr [1 x %union._PyStackRef], ptr %84, i64 0, i64 %indvars.iv179
+  %120 = getelementptr %union._PyStackRef, ptr %84, i64 %indvars.iv179
   %121 = load i64, ptr %120, align 8, !tbaa !9
   %122 = icmp eq i64 %121, 0
   %123 = zext i1 %122 to i32
@@ -4462,7 +4462,7 @@ explain_incompatible_stack.exit:                  ; preds = %115, %114, %113, %1
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %139 ], [ 0, %.preheader ]
   %133 = load ptr, ptr %5, align 8, !tbaa !33
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 80
-  %135 = getelementptr [1 x %union._PyStackRef], ptr %134, i64 0, i64 %indvars.iv184
+  %135 = getelementptr %union._PyStackRef, ptr %134, i64 %indvars.iv184
   %136 = load i64, ptr %135, align 8, !tbaa !9
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %138, label %139
@@ -4946,7 +4946,7 @@ define internal fastcc ptr @mark_stacks(ptr noundef %0, i32 noundef %1) unnamed_
   %39 = zext nneg i16 %.sroa.6.0.in.lcssa to i32
   %40 = or disjoint i32 %.0176.lcssa, %39
   %41 = zext nneg i16 %.0175.in.lcssa240 to i64
-  %42 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %41
+  %42 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !9
   %44 = zext i8 %43 to i32
   %45 = add i32 %.1169.lcssa, 1

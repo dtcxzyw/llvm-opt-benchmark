@@ -141,7 +141,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr noundef readonl
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [0 x %struct.WordEntry], ptr %58, i64 0, i64 %61
+  %62 = getelementptr inbounds %struct.WordEntry, ptr %58, i64 %61
   %63 = icmp sgt i32 %60, 0
   br i1 %63, label %.lr.ph, label %._crit_edge
 

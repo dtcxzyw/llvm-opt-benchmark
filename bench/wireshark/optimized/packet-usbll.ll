@@ -2186,7 +2186,7 @@ usbll_is_stalled_data_from_host.exit.i:           ; preds = %630, %usbll_is_data
   store ptr %765, ptr %777, align 8
   %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet = select i1 %.not.i112, ptr @switch.table.dissect_usbll_packet.6, ptr @switch.table.dissect_usbll_packet
   %778 = zext nneg i32 %772 to i64
-  %switch.gep232 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet, i64 0, i64 %778
+  %switch.gep232 = getelementptr inbounds nuw i32, ptr %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet, i64 %778
   %switch.load233 = load i32, ptr %switch.gep232, align 4
   store i32 %switch.load233, ptr %.0.ph230, align 8
   br label %dissect_usbll_token.exit

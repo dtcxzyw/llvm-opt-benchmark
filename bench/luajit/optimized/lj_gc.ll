@@ -547,7 +547,7 @@ define internal fastcc noundef ptr @gc_sweep(ptr noundef %0, ptr noundef capture
   %37 = zext i8 %36 to i64
   %38 = add nuw nsw i64 %37, 4294967292
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds nuw [9 x ptr], ptr @gc_freefunc, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr @gc_freefunc, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   tail call void %41(ptr noundef nonnull %0, ptr noundef nonnull %11) #8
   br label %42
@@ -722,7 +722,7 @@ define internal fastcc range(i64 0, 140737488355329) i64 @gc_onestep(ptr noundef
 
 41:                                               ; preds = %50, %39
   %.010.i.i = phi i64 [ 0, %39 ], [ %51, %50 ]
-  %42 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %40, i64 0, i64 %.010.i.i
+  %42 = getelementptr inbounds nuw %struct.GCRef, ptr %40, i64 %.010.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !22
   %44 = inttoptr i64 %43 to ptr
   %.not.i.i = icmp eq i64 %43, 0
@@ -850,7 +850,7 @@ gc_propagate_gray.exit.i:                         ; preds = %.lr.ph.i32.i, %gc_m
 
 98:                                               ; preds = %107, %95
   %.010.i.i70 = phi i64 [ 0, %95 ], [ %108, %107 ]
-  %99 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %97, i64 0, i64 %.010.i.i70
+  %99 = getelementptr inbounds nuw %struct.GCRef, ptr %97, i64 %.010.i.i70
   %100 = load i64, ptr %99, align 8, !tbaa !22
   %101 = inttoptr i64 %100 to ptr
   %.not.i34.i = icmp eq i64 %100, 0
@@ -2628,7 +2628,7 @@ define internal fastcc void @gc_traverse_func(ptr noundef %0, ptr noundef readon
 30:                                               ; preds = %.lr.ph31, %39
   %31 = phi i8 [ %28, %.lr.ph31 ], [ %40, %39 ]
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next37, %39 ]
-  %32 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %29, i64 0, i64 %indvars.iv36
+  %32 = getelementptr inbounds nuw %struct.GCRef, ptr %29, i64 %indvars.iv36
   %33 = load i64, ptr %32, align 8, !tbaa !23
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -2652,7 +2652,7 @@ define internal fastcc void @gc_traverse_func(ptr noundef %0, ptr noundef readon
 43:                                               ; preds = %.lr.ph, %58
   %44 = phi i8 [ %15, %.lr.ph ], [ %59, %58 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %45 = getelementptr inbounds nuw [1 x %union.TValue], ptr %16, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !23
   %47 = ashr i64 %46, 47
   %48 = trunc nsw i64 %47 to i32

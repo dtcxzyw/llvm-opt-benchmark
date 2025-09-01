@@ -309,10 +309,10 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 184:                                              ; preds = %150, %184
   %indvars.iv1153 = phi i64 [ 1, %150 ], [ %indvars.iv.next1154, %184 ]
   %.08451103 = phi i32 [ 0, %150 ], [ %.1846, %184 ]
-  %185 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %indvars.iv1153, i64 1
+  %185 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %indvars.iv1153, i64 1
   %186 = load double, ptr %185, align 8
   %187 = zext nneg i32 %.08451103 to i64
-  %188 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %187, i64 1
+  %188 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %187, i64 1
   %189 = load double, ptr %188, align 8
   %190 = fcmp olt double %186, %189
   %191 = trunc nuw nsw i64 %indvars.iv1153 to i32
@@ -323,7 +323,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 192:                                              ; preds = %184
   %193 = zext nneg i32 %.1846 to i64
-  %194 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load double, ptr %195, align 8
   %.inv = fcmp oge double %196, 0x41DFFFFFFFC00000
@@ -348,7 +348,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %205 = add nuw nsw i32 %.1846, 1
   %206 = and i32 %205, 3
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load double, ptr %209, align 8
   %211 = fcmp oeq double %196, %210
@@ -368,7 +368,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %219 = add nuw nsw i32 %.1846, 3
   %220 = and i32 %219, 3
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load double, ptr %223, align 8
   %225 = fcmp oeq double %196, %224
@@ -422,14 +422,14 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %249 = sub nsw i32 %.1846, %.48561109
   %250 = and i32 %249, 3
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load double, ptr %253, align 8
   %255 = load double, ptr %252, align 16
   %256 = add i32 %249, 3
   %257 = and i32 %256, 3
   %258 = zext nneg i32 %257 to i64
-  %259 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %261 = load double, ptr %260, align 8
   %262 = fcmp oeq double %254, %261
@@ -505,14 +505,14 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %290 = add nuw nsw i32 %.58571115, %.1846
   %291 = and i32 %290, 3
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %295 = load double, ptr %294, align 8
   %296 = load double, ptr %293, align 16
   %297 = add nuw nsw i32 %290, 1
   %298 = and i32 %297, 3
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw [4 x [2 x double]], ptr %14, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load double, ptr %301, align 8
   %303 = fcmp oeq double %295, %302

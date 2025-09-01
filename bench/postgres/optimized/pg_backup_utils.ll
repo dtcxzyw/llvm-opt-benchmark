@@ -73,7 +73,7 @@ define dso_local void @exit_nicely(i32 noundef %0) local_unnamed_addr #3 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw [20 x %struct.anon], ptr @on_exit_nicely_list, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @on_exit_nicely_list, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -100,9 +100,9 @@ define dso_local void @on_exit_nicely(ptr noundef %0, ptr noundef %1) local_unna
 
 6:                                                ; preds = %2
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [20 x %struct.anon], ptr @on_exit_nicely_list, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon, ptr @on_exit_nicely_list, i64 %7
   store ptr %0, ptr %8, align 16
-  %9 = getelementptr inbounds [20 x %struct.anon], ptr @on_exit_nicely_list, i64 0, i64 %7, i32 1
+  %9 = getelementptr inbounds %struct.anon, ptr @on_exit_nicely_list, i64 %7, i32 1
   store ptr %1, ptr %9, align 8
   %10 = add nsw i32 %3, 1
   store i32 %10, ptr @on_exit_nicely_index, align 4

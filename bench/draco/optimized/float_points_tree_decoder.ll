@@ -3252,9 +3252,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %118, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %118 ]
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %131 = load i32, ptr %130, align 4, !tbaa !29
-  %132 = getelementptr inbounds nuw [3 x i32], ptr %127, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %132 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %131, ptr %132, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -3431,9 +3431,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i127:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i127
   %indvars.iv.i.i.i.i.i.i.i128 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i129, %.preheader.i.i.i.i127 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %223 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i128
   %224 = load i32, ptr %223, align 4, !tbaa !29
-  %225 = getelementptr inbounds nuw [3 x i32], ptr %220, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %225 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i.i.i.i.i.i.i128
   store i32 %224, ptr %225, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i129 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i128, 1
   %exitcond.not.i.i.i.i.i.i.i130 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i129, 3
@@ -4246,9 +4246,9 @@ _ZNKSt6vectorIN5draco7VectorDIjLi3EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds =
 
 22:                                               ; preds = %22, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %22 ], [ 0, %.preheader.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw [3 x i32], ptr %.01214.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !29
-  %25 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %24, ptr %25, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -4273,9 +4273,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5draco7VectorDIjLi3EEES3_SaIS2_EET0_T
 
 29:                                               ; preds = %29, %.preheader.i.i.i.i.i29
   %indvars.iv.i.i.i.i.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i33, %29 ], [ 0, %.preheader.i.i.i.i.i29 ]
-  %30 = getelementptr inbounds nuw [3 x i32], ptr %.01214.i.i.i.i.i31, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i32
+  %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i32
   %31 = load i32, ptr %30, align 4, !tbaa !29
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i32
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i32
   store i32 %31, ptr %32, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i33, 3
@@ -4713,9 +4713,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %118, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %118 ]
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %131 = load i32, ptr %130, align 4, !tbaa !29
-  %132 = getelementptr inbounds nuw [3 x i32], ptr %127, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %132 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %131, ptr %132, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -4892,9 +4892,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i124:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i124
   %indvars.iv.i.i.i.i.i.i.i125 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i126, %.preheader.i.i.i.i124 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i125
+  %223 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i125
   %224 = load i32, ptr %223, align 4, !tbaa !29
-  %225 = getelementptr inbounds nuw [3 x i32], ptr %220, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i125
+  %225 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i.i.i.i.i.i.i125
   store i32 %224, ptr %225, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i126 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i125, 1
   %exitcond.not.i.i.i.i.i.i.i127 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i126, 3
@@ -5961,9 +5961,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %117, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %117 ]
-  %129 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %130 = load i32, ptr %129, align 4, !tbaa !29
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %126, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %131 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %130, ptr %131, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -6140,9 +6140,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i130:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i130
   %indvars.iv.i.i.i.i.i.i.i131 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i132, %.preheader.i.i.i.i130 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %222 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %222 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i131
   %223 = load i32, ptr %222, align 4, !tbaa !29
-  %224 = getelementptr inbounds nuw [3 x i32], ptr %219, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %224 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i.i.i.i.i.i.i131
   store i32 %223, ptr %224, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i131, 1
   %exitcond.not.i.i.i.i.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i132, 3
@@ -7174,9 +7174,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %117, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %117 ]
-  %129 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %130 = load i32, ptr %129, align 4, !tbaa !29
-  %131 = getelementptr inbounds nuw [3 x i32], ptr %126, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %131 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %130, ptr %131, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -7353,9 +7353,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i127:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i127
   %indvars.iv.i.i.i.i.i.i.i128 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i129, %.preheader.i.i.i.i127 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %222 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %222 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i128
   %223 = load i32, ptr %222, align 4, !tbaa !29
-  %224 = getelementptr inbounds nuw [3 x i32], ptr %219, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %224 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i.i.i.i.i.i.i128
   store i32 %223, ptr %224, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i129 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i128, 1
   %exitcond.not.i.i.i.i.i.i.i130 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i129, 3
@@ -8112,7 +8112,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -8401,9 +8401,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %116, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %116 ]
-  %128 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %128 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %129 = load i32, ptr %128, align 4, !tbaa !29
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %125, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %129, ptr %130, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -8580,9 +8580,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i130:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i130
   %indvars.iv.i.i.i.i.i.i.i131 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i132, %.preheader.i.i.i.i130 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %221 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %221 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i131
   %222 = load i32, ptr %221, align 4, !tbaa !29
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %218, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %223 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i131
   store i32 %222, ptr %223, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i131, 1
   %exitcond.not.i.i.i.i.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i132, 3
@@ -8644,7 +8644,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 .lr.ph.i.i:                                       ; preds = %.noexc137, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc137 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %257, %.noexc137 ]
-  %253 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %62, i64 0, i64 %indvars.iv.i.i
+  %253 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %62, i64 %indvars.iv.i.i
   %254 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %253)
           to label %.noexc137 unwind label %262
 
@@ -9343,7 +9343,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -9627,9 +9627,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %116, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %116 ]
-  %128 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %128 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %129 = load i32, ptr %128, align 4, !tbaa !29
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %125, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %129, ptr %130, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -9806,9 +9806,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i127:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i127
   %indvars.iv.i.i.i.i.i.i.i128 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i129, %.preheader.i.i.i.i127 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %221 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %221 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i128
   %222 = load i32, ptr %221, align 4, !tbaa !29
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %218, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i128
+  %223 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i128
   store i32 %222, ptr %223, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i129 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i128, 1
   %exitcond.not.i.i.i.i.i.i.i130 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i129, 3
@@ -9869,7 +9869,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 .lr.ph.i.i:                                       ; preds = %.noexc134, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc134 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %256, %.noexc134 ]
-  %252 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %62, i64 0, i64 %indvars.iv.i.i
+  %252 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %62, i64 %indvars.iv.i.i
   %253 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %252)
           to label %.noexc134 unwind label %261
 
@@ -10564,7 +10564,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -10853,9 +10853,9 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5
 
 .preheader.i.i.i.i:                               ; preds = %116, %.preheader.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %116 ]
-  %128 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %128 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   %129 = load i32, ptr %128, align 4, !tbaa !29
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %125, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i.i.i.i.i.i.i
   store i32 %129, ptr %130, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 3
@@ -11032,9 +11032,9 @@ _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %.
 
 .preheader.i.i.i.i130:                            ; preds = %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit, %.preheader.i.i.i.i130
   %indvars.iv.i.i.i.i.i.i.i131 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i132, %.preheader.i.i.i.i130 ], [ 0, %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit ]
-  %221 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %221 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i.i.i.i.i.i131
   %222 = load i32, ptr %221, align 4, !tbaa !29
-  %223 = getelementptr inbounds nuw [3 x i32], ptr %218, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i131
+  %223 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i131
   store i32 %222, ptr %223, align 4, !tbaa !29
   %indvars.iv.next.i.i.i.i.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i131, 1
   %exitcond.not.i.i.i.i.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i132, 3
@@ -11096,7 +11096,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
 .lr.ph.i.i:                                       ; preds = %.noexc137, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc137 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %257, %.noexc137 ]
-  %253 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %62, i64 0, i64 %indvars.iv.i.i
+  %253 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %62, i64 %indvars.iv.i.i
   %254 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %253)
           to label %.noexc137 unwind label %262
 

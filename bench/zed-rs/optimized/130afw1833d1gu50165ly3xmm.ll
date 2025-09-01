@@ -914,8 +914,8 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
 65:                                               ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %67 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %68 = add i64 %53, -1
-  %69 = getelementptr inbounds [0 x i32], ptr %67, i64 0, i64 %68
+  %68 = getelementptr i32, ptr %67, i64 %53
+  %69 = getelementptr i8, ptr %68, i64 -4
   %70 = load i32, ptr %69, align 4, !noundef !4
   br label %72
 
@@ -7181,9 +7181,9 @@ switch.lookup:                                    ; preds = %.noexc17.i
   %1354 = xor i64 %.pr.i.i145, -9223372036854775808
   %1355 = icmp ult i64 %1354, 6
   %1356 = select i1 %1355, i64 %1354, i64 4
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E", i64 0, i64 %1356
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E", i64 %1356
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep307 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E.46", i64 0, i64 %1356
+  %switch.gep307 = getelementptr inbounds ptr, ptr @"switch.table._ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render17h44abe7d45fe913c4E.46", i64 %1356
   %switch.load308 = load ptr, ptr %switch.gep307, align 8
   %1357 = icmp sgt i64 %.pr.i.i145, -9223372036854775803
   %cond1.i.i.i.i = icmp eq i64 %.pr.i.i145, -9223372036854775804

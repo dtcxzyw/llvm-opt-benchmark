@@ -1300,7 +1300,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8
   %4 = lshr i64 %0, 1
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   %7 = load i8, ptr %6, align 1, !noundef !7
   %8 = zext i8 %7 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7129,10 +7129,10 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$wasi_common..snapshots..preview_0..
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !219, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [77 x i64], ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [77 x ptr], ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767.3", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767.3", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -7201,10 +7201,10 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$wasi_common..snapshots..preview_1..
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !219, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [77 x i64], ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [77 x ptr], ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767.3", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$wasi_common..snapshots..preview_1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h28388792cba644b5E.llvm.5331966815222788767.3", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

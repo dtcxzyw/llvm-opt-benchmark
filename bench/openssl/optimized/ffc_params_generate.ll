@@ -1296,8 +1296,8 @@ default_mdname.exit:                              ; preds = %27
 .preheader:                                       ; preds = %98
   %101 = trunc nuw i64 %45 to i32
   %102 = icmp sgt i32 %101, 0
-  %103 = add nsw i64 %45, -1
-  %104 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %103
+  %103 = getelementptr i8, ptr %10, i64 %45
+  %104 = getelementptr i8, ptr %103, i64 -1
   %105 = udiv i64 %72, 160
   %106 = trunc i64 %105 to i32
   %.tr = trunc i64 %54 to i32
@@ -1370,9 +1370,9 @@ default_mdname.exit:                              ; preds = %27
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv4.i = phi i64 [ %indvars.iv.next5.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %135 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv4.i
+  %135 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv4.i
   %136 = load i8, ptr %135, align 1, !tbaa !23
-  %137 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv4.i
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv4.i
   %138 = load i8, ptr %137, align 1, !tbaa !23
   %139 = xor i8 %138, %136
   store i8 %139, ptr %137, align 1, !tbaa !23

@@ -472,7 +472,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %4, %11
 
 22:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %.loopexit76
   %indvars.iv106 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %indvars.iv.next107, %.loopexit76 ]
-  %23 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv106, i32 5
+  %23 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv106, i32 5
   %24 = load i32, ptr %23, align 4, !tbaa !67
   %25 = and i32 %24, 2
   %.not60 = icmp eq i32 %25, 0
@@ -492,7 +492,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %4, %11
   br i1 %36, label %.lr.ph84, label %.loopexit76
 
 .lr.ph84:                                         ; preds = %26
-  %37 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv106, i32 2
+  %37 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv106, i32 2
   %38 = load i32, ptr %37, align 16, !tbaa !70
   %.not6180 = icmp slt i32 %38, 1
   br i1 %.not6180, label %.loopexit76, label %.lr.ph.preheader
@@ -772,7 +772,7 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %63, %_ZN3gmx9Hashed
 
 161:                                              ; preds = %18, %.loopexit
   %indvars.iv118 = phi i64 [ 0, %18 ], [ %indvars.iv.next119, %.loopexit ]
-  %162 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv118, i32 5
+  %162 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv118, i32 5
   %163 = load i32, ptr %162, align 4, !tbaa !67
   %164 = and i32 %163, 2
   %.not = icmp eq i32 %164, 0
@@ -792,7 +792,7 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %63, %_ZN3gmx9Hashed
   br i1 %175, label %.lr.ph95, label %.loopexit
 
 .lr.ph95:                                         ; preds = %165
-  %176 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv118, i32 2
+  %176 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv118, i32 2
   %177 = load i32, ptr %176, align 16, !tbaa !70
   %.not5988 = icmp slt i32 %177, 1
   br i1 %.not5988, label %.loopexit, label %.lr.ph91.preheader

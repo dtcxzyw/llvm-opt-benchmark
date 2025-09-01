@@ -1034,7 +1034,7 @@ Bac_ObjNameStr.exit134:                           ; preds = %.lr.ph156
 
 switch.lookup:                                    ; preds = %.critedge6
   %125 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.Bac_ManWriteBlifLines, i64 0, i64 %125
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Bac_ManWriteBlifLines, i64 %125
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Ptr_TypeToSop.exit
 

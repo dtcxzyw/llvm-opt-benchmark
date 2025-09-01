@@ -4214,7 +4214,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
 
 25:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %0, i64 %.041, i1 false)
-  %26 = getelementptr inbounds nuw [65 x i8], ptr %8, i64 0, i64 %.041
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.041
   store i8 0, ptr %26, align 1, !tbaa !11
   %27 = tail call ptr @__ctype_b_loc() #35
   %28 = load ptr, ptr %27, align 8, !tbaa !115

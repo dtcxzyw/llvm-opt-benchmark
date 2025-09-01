@@ -972,7 +972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %95 = getelementptr inbounds nuw double, ptr @fitEllipseColor, i64 %indvars.iv.i.i.i.i.i.i
   %96 = load double, ptr %95, align 8, !tbaa !86
-  %97 = getelementptr inbounds nuw [4 x double], ptr %92, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %97 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i.i.i.i.i
   store double %96, ptr %97, align 8, !tbaa !86
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -1115,7 +1115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
   %indvars.iv.i.i.i.i.i.i108 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i109, %.preheader.i107 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ]
   %141 = getelementptr inbounds nuw double, ptr @fitEllipseAMSColor, i64 %indvars.iv.i.i.i.i.i.i108
   %142 = load double, ptr %141, align 8, !tbaa !86
-  %143 = getelementptr inbounds nuw [4 x double], ptr %138, i64 0, i64 %indvars.iv.i.i.i.i.i.i108
+  %143 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv.i.i.i.i.i.i108
   store double %142, ptr %143, align 8, !tbaa !86
   %indvars.iv.next.i.i.i.i.i.i109 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i108, 1
   %exitcond.not.i.i.i.i.i.i110 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i109, 4
@@ -1230,7 +1230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
   %indvars.iv.i.i.i.i.i.i131 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i132, %.preheader.i130 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ]
   %177 = getelementptr inbounds nuw double, ptr @fitEllipseDirectColor, i64 %indvars.iv.i.i.i.i.i.i131
   %178 = load double, ptr %177, align 8, !tbaa !86
-  %179 = getelementptr inbounds nuw [4 x double], ptr %174, i64 0, i64 %indvars.iv.i.i.i.i.i.i131
+  %179 = getelementptr inbounds nuw double, ptr %174, i64 %indvars.iv.i.i.i.i.i.i131
   store double %178, ptr %179, align 8, !tbaa !86
   %indvars.iv.next.i.i.i.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i131, 1
   %exitcond.not.i.i.i.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i132, 4
@@ -1367,7 +1367,7 @@ _ZNSt16allocator_traitsISaIN2cv7Scalar_IdEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %222 ], [ 0, %.preheader.i.i.i.i.i ]
   %223 = getelementptr inbounds nuw double, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %224 = load double, ptr %223, align 8, !tbaa !86
-  %225 = getelementptr inbounds nuw [4 x double], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds nuw double, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %224, ptr %225, align 8, !tbaa !86
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -2892,7 +2892,7 @@ define linkonce_odr hidden void @_ZN6canvas18drawEllipseWithBoxEN2cv11RotatedRec
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %14 ]
   %.sroa.015.022.i = phi <2 x float> [ %.sroa.015.0.copyload.i, %13 ], [ %.sroa.015.2.i, %14 ]
   %.sroa.011.021.i = phi <2 x float> [ %.sroa.015.0.copyload.i, %13 ], [ %.sroa.011.2.i, %14 ]
-  %15 = getelementptr inbounds nuw [4 x %"class.cv::Point_"], ptr %5, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %indvars.iv.i
   %.sroa.02.0.copyload.i = load float, ptr %15, align 8, !tbaa !127
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.7.0.copyload.i = load float, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !127
@@ -3010,7 +3010,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %_ZN6canvas7stretchE
   store i64 0, ptr %66, align 8
   store i32 50397184, ptr %10, align 8, !tbaa !50
   store ptr %11, ptr %65, align 8, !tbaa !52
-  %69 = getelementptr inbounds nuw [4 x %"class.cv::Point_"], ptr %9, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %indvars.iv
   %70 = load float, ptr %69, align 8, !tbaa !154
   %71 = insertelement <4 x float> poison, float %70, i64 0
   %72 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %71)
@@ -3024,7 +3024,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %_ZN6canvas7stretchE
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = and i64 %indvars.iv.next, 3
-  %78 = getelementptr inbounds nuw [4 x %"class.cv::Point_"], ptr %9, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %77
   %79 = load float, ptr %78, align 8, !tbaa !154
   %80 = insertelement <4 x float> poison, float %79, i64 0
   %81 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %80)

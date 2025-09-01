@@ -64,7 +64,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_8MethodIdE(i32
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -80,7 +80,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_8MethodIdE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8MethodIdE.exit
 

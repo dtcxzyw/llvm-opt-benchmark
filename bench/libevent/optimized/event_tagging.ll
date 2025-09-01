@@ -156,7 +156,7 @@ define range(i32 -2147483647, -2147483648) i32 @evtag_encode_tag(ptr noundef %0,
   %masksel = select i1 %.not, i8 0, i8 -128
   %.0 = or disjoint i8 %6, %masksel
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %.0, ptr %8, align 1
   br i1 %.not, label %9, label %4, !llvm.loop !6
 
@@ -254,7 +254,7 @@ define void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
   %.0.i = or disjoint i8 %9, %masksel.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %.0.i, ptr %11, align 1
   br i1 %.not.i, label %12, label %7, !llvm.loop !6
 
@@ -349,7 +349,7 @@ define void @evtag_marshal_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %masksel.i = select i1 %.not.i, i8 0, i8 -128
   %.0.i = or disjoint i8 %8, %masksel.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %10, align 1
   br i1 %.not.i, label %11, label %6, !llvm.loop !6
 
@@ -504,7 +504,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   %masksel.i = select i1 %.not.i6, i8 0, i8 -128
   %.0.i = or disjoint i8 %33, %masksel.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
   br i1 %.not.i6, label %36, label %31, !llvm.loop !6
 
@@ -649,7 +649,7 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   %masksel.i = select i1 %.not.i6, i8 0, i8 -128
   %.0.i = or disjoint i8 %33, %masksel.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
   br i1 %.not.i6, label %36, label %31, !llvm.loop !6
 

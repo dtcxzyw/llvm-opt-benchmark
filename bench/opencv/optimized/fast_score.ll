@@ -136,135 +136,118 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %12 = load i8, ptr %11, align 1, !tbaa !17
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !20
 
-.preheader:                                       ; preds = %7, %55
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %55 ], [ 0, %7 ]
-  %.0181190 = phi i32 [ %.1182, %55 ], [ %2, %7 ]
-  %16 = or disjoint i64 %indvars.iv195, 1
-  %17 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %16
+.preheader:                                       ; preds = %7, %47
+  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %47 ], [ 0, %7 ]
+  %.0181190 = phi i32 [ %.1182, %47 ], [ %2, %7 ]
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv195
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 2
-  %19 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv.next196
+  %19 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next196
   %20 = load i16, ptr %19, align 4, !tbaa !18
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
-  %22 = add nuw nsw i64 %indvars.iv195, 3
-  %23 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !18
-  %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
-  %.sroa.speculated146 = sext i16 %25 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 6
+  %23 = load i16, ptr %22, align 2, !tbaa !18
+  %24 = tail call i16 @llvm.smin.i16(i16 %23, i16 %21)
+  %.sroa.speculated146 = sext i16 %24 to i32
   %.not33 = icmp slt i32 %.0181190, %.sroa.speculated146
-  br i1 %.not33, label %26, label %55
+  br i1 %.not33, label %25, label %47
 
-26:                                               ; preds = %.preheader
-  %27 = add nuw nsw i64 %indvars.iv195, 4
-  %28 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !18
-  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %25)
-  %31 = add nuw nsw i64 %indvars.iv195, 5
-  %32 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !18
-  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
-  %35 = add nuw nsw i64 %indvars.iv195, 6
-  %36 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 4, !tbaa !18
-  %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
-  %39 = add nuw nsw i64 %indvars.iv195, 7
-  %40 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !18
-  %42 = tail call i16 @llvm.smin.i16(i16 %41, i16 %38)
-  %43 = add nuw nsw i64 %indvars.iv195, 8
-  %44 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 4, !tbaa !18
-  %46 = tail call i16 @llvm.smin.i16(i16 %45, i16 %42)
-  %47 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv195
-  %48 = load i16, ptr %47, align 4, !tbaa !18
-  %49 = tail call i16 @llvm.smin.i16(i16 %48, i16 %46)
-  %50 = sext i16 %49 to i32
-  %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181190, i32 %50)
-  %51 = add nuw nsw i64 %indvars.iv195, 9
-  %52 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !18
-  %.v = tail call i16 @llvm.smin.i16(i16 %53, i16 %46)
-  %54 = sext i16 %.v to i32
-  %.sroa.speculated171 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated174, i32 %54)
-  br label %55
+25:                                               ; preds = %.preheader
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %27 = load i16, ptr %26, align 4, !tbaa !18
+  %28 = tail call i16 @llvm.smin.i16(i16 %27, i16 %24)
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %30 = load i16, ptr %29, align 2, !tbaa !18
+  %31 = tail call i16 @llvm.smin.i16(i16 %30, i16 %28)
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %33 = load i16, ptr %32, align 4, !tbaa !18
+  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %31)
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %36 = load i16, ptr %35, align 2, !tbaa !18
+  %37 = tail call i16 @llvm.smin.i16(i16 %36, i16 %34)
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %39 = load i16, ptr %38, align 4, !tbaa !18
+  %40 = tail call i16 @llvm.smin.i16(i16 %39, i16 %37)
+  %41 = load i16, ptr %16, align 4, !tbaa !18
+  %42 = tail call i16 @llvm.smin.i16(i16 %41, i16 %40)
+  %43 = sext i16 %42 to i32
+  %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181190, i32 %43)
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 18
+  %45 = load i16, ptr %44, align 2, !tbaa !18
+  %.v = tail call i16 @llvm.smin.i16(i16 %45, i16 %40)
+  %46 = sext i16 %.v to i32
+  %.sroa.speculated171 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated174, i32 %46)
+  br label %47
 
-55:                                               ; preds = %.preheader, %26
-  %.1182 = phi i32 [ %.sroa.speculated171, %26 ], [ %.0181190, %.preheader ]
-  %56 = icmp samesign ult i64 %indvars.iv195, 14
-  br i1 %56, label %.preheader, label %57, !llvm.loop !21
+47:                                               ; preds = %.preheader, %25
+  %.1182 = phi i32 [ %.sroa.speculated171, %25 ], [ %.0181190, %.preheader ]
+  %48 = icmp samesign ult i64 %indvars.iv195, 14
+  br i1 %48, label %.preheader, label %49, !llvm.loop !21
 
-57:                                               ; preds = %55
-  %58 = sub nsw i32 0, %.1182
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !18
-  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %.pre203 = load i16, ptr %.phi.trans.insert202, align 2, !tbaa !18
-  br label %59
+49:                                               ; preds = %47
+  %50 = sub nsw i32 0, %.1182
+  br label %51
 
-59:                                               ; preds = %57, %96
-  %60 = phi i16 [ %.pre203, %57 ], [ %73, %96 ]
-  %61 = phi i16 [ %.pre, %57 ], [ %69, %96 ]
-  %indvars.iv198 = phi i64 [ 0, %57 ], [ %indvars.iv.next199, %96 ]
-  %.0183192 = phi i32 [ %58, %57 ], [ %.1184, %96 ]
-  %62 = or disjoint i64 %indvars.iv198, 1
-  %63 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !18
+51:                                               ; preds = %49, %83
+  %indvars.iv198 = phi i64 [ 0, %49 ], [ %indvars.iv.next199, %83 ]
+  %.0183192 = phi i32 [ %50, %49 ], [ %.1184, %83 ]
+  %52 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv198
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %54 = load i16, ptr %53, align 2, !tbaa !18
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 2
-  %65 = tail call i16 @llvm.smax.i16(i16 %64, i16 %61)
-  %66 = tail call i16 @llvm.smax.i16(i16 %65, i16 %60)
-  %67 = add nuw nsw i64 %indvars.iv198, 4
-  %68 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %67
+  %55 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next199
+  %56 = load i16, ptr %55, align 4, !tbaa !18
+  %57 = tail call i16 @llvm.smax.i16(i16 %54, i16 %56)
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 6
+  %59 = load i16, ptr %58, align 2, !tbaa !18
+  %60 = tail call i16 @llvm.smax.i16(i16 %57, i16 %59)
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %62 = load i16, ptr %61, align 4, !tbaa !18
+  %63 = tail call i16 @llvm.smax.i16(i16 %60, i16 %62)
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 10
+  %65 = load i16, ptr %64, align 2, !tbaa !18
+  %66 = tail call i16 @llvm.smax.i16(i16 %63, i16 %65)
+  %.sroa.speculated70 = sext i16 %66 to i32
+  %.not = icmp sgt i32 %.0183192, %.sroa.speculated70
+  br i1 %.not, label %67, label %83
+
+67:                                               ; preds = %51
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %69 = load i16, ptr %68, align 4, !tbaa !18
   %70 = tail call i16 @llvm.smax.i16(i16 %66, i16 %69)
-  %71 = add nuw nsw i64 %indvars.iv198, 5
-  %72 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !18
-  %74 = tail call i16 @llvm.smax.i16(i16 %70, i16 %73)
-  %.sroa.speculated70 = sext i16 %74 to i32
-  %.not = icmp sgt i32 %.0183192, %.sroa.speculated70
-  br i1 %.not, label %75, label %96
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 14
+  %72 = load i16, ptr %71, align 2, !tbaa !18
+  %73 = tail call i16 @llvm.smax.i16(i16 %70, i16 %72)
+  %74 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %75 = load i16, ptr %74, align 4, !tbaa !18
+  %76 = tail call i16 @llvm.smax.i16(i16 %73, i16 %75)
+  %77 = load i16, ptr %52, align 4, !tbaa !18
+  %78 = tail call i16 @llvm.smax.i16(i16 %76, i16 %77)
+  %79 = sext i16 %78 to i32
+  %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %.0183192, i32 %79)
+  %80 = getelementptr inbounds nuw i8, ptr %52, i64 18
+  %81 = load i16, ptr %80, align 2, !tbaa !18
+  %.v202 = tail call i16 @llvm.smax.i16(i16 %76, i16 %81)
+  %82 = sext i16 %.v202 to i32
+  %.sroa.speculated102 = tail call i32 @llvm.smin.i32(i32 %82, i32 %.sroa.speculated105)
+  br label %83
 
-75:                                               ; preds = %59
-  %76 = add nuw nsw i64 %indvars.iv198, 6
-  %77 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 4, !tbaa !18
-  %79 = tail call i16 @llvm.smax.i16(i16 %74, i16 %78)
-  %80 = add nuw nsw i64 %indvars.iv198, 7
-  %81 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !18
-  %83 = tail call i16 @llvm.smax.i16(i16 %79, i16 %82)
-  %84 = add nuw nsw i64 %indvars.iv198, 8
-  %85 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 4, !tbaa !18
-  %87 = tail call i16 @llvm.smax.i16(i16 %83, i16 %86)
-  %88 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv198
-  %89 = load i16, ptr %88, align 4, !tbaa !18
-  %90 = tail call i16 @llvm.smax.i16(i16 %87, i16 %89)
-  %91 = sext i16 %90 to i32
-  %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %91, i32 %.0183192)
-  %92 = add nuw nsw i64 %indvars.iv198, 9
-  %93 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !18
-  %.v204 = tail call i16 @llvm.smax.i16(i16 %87, i16 %94)
-  %95 = sext i16 %.v204 to i32
-  %.sroa.speculated102 = tail call i32 @llvm.smin.i32(i32 %95, i32 %.sroa.speculated105)
-  br label %96
+83:                                               ; preds = %51, %67
+  %.1184 = phi i32 [ %.sroa.speculated102, %67 ], [ %.0183192, %51 ]
+  %84 = icmp samesign ult i64 %indvars.iv198, 14
+  br i1 %84, label %51, label %85, !llvm.loop !22
 
-96:                                               ; preds = %59, %75
-  %.1184 = phi i32 [ %.sroa.speculated102, %75 ], [ %.0183192, %59 ]
-  %97 = icmp samesign ult i64 %indvars.iv198, 14
-  br i1 %97, label %59, label %98, !llvm.loop !22
-
-98:                                               ; preds = %96
-  %99 = xor i32 %.1184, -1
+85:                                               ; preds = %83
+  %86 = xor i32 %.1184, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %99
+  ret i32 %86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -284,119 +267,106 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %12 = load i8, ptr %11, align 1, !tbaa !17
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !23
 
-.preheader:                                       ; preds = %7, %47
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %47 ], [ 0, %7 ]
-  %.0147156 = phi i32 [ %.1148, %47 ], [ %2, %7 ]
-  %16 = or disjoint i64 %indvars.iv161, 1
-  %17 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %16
+.preheader:                                       ; preds = %7, %41
+  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %41 ], [ 0, %7 ]
+  %.0147156 = phi i32 [ %.1148, %41 ], [ %2, %7 ]
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv161
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 2
-  %19 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv.next162
+  %19 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next162
   %20 = load i16, ptr %19, align 4, !tbaa !18
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated120 = sext i16 %21 to i32
   %.not29 = icmp slt i32 %.0147156, %.sroa.speculated120
-  br i1 %.not29, label %22, label %47
+  br i1 %.not29, label %22, label %41
 
 22:                                               ; preds = %.preheader
-  %23 = add nuw nsw i64 %indvars.iv161, 3
-  %24 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !18
-  %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
-  %27 = add nuw nsw i64 %indvars.iv161, 4
-  %28 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !18
-  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
-  %31 = add nuw nsw i64 %indvars.iv161, 5
-  %32 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !18
-  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
-  %35 = add nuw nsw i64 %indvars.iv161, 6
-  %36 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 4, !tbaa !18
-  %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
-  %39 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv161
-  %40 = load i16, ptr %39, align 4, !tbaa !18
-  %41 = tail call i16 @llvm.smin.i16(i16 %40, i16 %38)
-  %42 = sext i16 %41 to i32
-  %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147156, i32 %42)
-  %43 = add nuw nsw i64 %indvars.iv161, 7
-  %44 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !18
-  %.v = tail call i16 @llvm.smin.i16(i16 %45, i16 %38)
-  %46 = sext i16 %.v to i32
-  %.sroa.speculated137 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated140, i32 %46)
-  br label %47
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
+  %24 = load i16, ptr %23, align 2, !tbaa !18
+  %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %27 = load i16, ptr %26, align 4, !tbaa !18
+  %28 = tail call i16 @llvm.smin.i16(i16 %27, i16 %25)
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %30 = load i16, ptr %29, align 2, !tbaa !18
+  %31 = tail call i16 @llvm.smin.i16(i16 %30, i16 %28)
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %33 = load i16, ptr %32, align 4, !tbaa !18
+  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %31)
+  %35 = load i16, ptr %16, align 4, !tbaa !18
+  %36 = tail call i16 @llvm.smin.i16(i16 %35, i16 %34)
+  %37 = sext i16 %36 to i32
+  %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147156, i32 %37)
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %39 = load i16, ptr %38, align 2, !tbaa !18
+  %.v = tail call i16 @llvm.smin.i16(i16 %39, i16 %34)
+  %40 = sext i16 %.v to i32
+  %.sroa.speculated137 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated140, i32 %40)
+  br label %41
 
-47:                                               ; preds = %.preheader, %22
+41:                                               ; preds = %.preheader, %22
   %.1148 = phi i32 [ %.sroa.speculated137, %22 ], [ %.0147156, %.preheader ]
-  %48 = icmp samesign ult i64 %indvars.iv161, 10
-  br i1 %48, label %.preheader, label %49, !llvm.loop !24
+  %42 = icmp samesign ult i64 %indvars.iv161, 10
+  br i1 %42, label %.preheader, label %43, !llvm.loop !24
 
-49:                                               ; preds = %47
-  %50 = sub nsw i32 0, %.1148
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !18
-  br label %51
+43:                                               ; preds = %41
+  %44 = sub nsw i32 0, %.1148
+  br label %45
 
-51:                                               ; preds = %49, %82
-  %52 = phi i16 [ %.pre, %49 ], [ %63, %82 ]
-  %indvars.iv164 = phi i64 [ 0, %49 ], [ %indvars.iv.next165, %82 ]
-  %.0149158 = phi i32 [ %50, %49 ], [ %.1150, %82 ]
-  %53 = or disjoint i64 %indvars.iv164, 1
-  %54 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !18
+45:                                               ; preds = %43, %71
+  %indvars.iv164 = phi i64 [ 0, %43 ], [ %indvars.iv.next165, %71 ]
+  %.0149158 = phi i32 [ %44, %43 ], [ %.1150, %71 ]
+  %46 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv164
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
+  %48 = load i16, ptr %47, align 2, !tbaa !18
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %56 = tail call i16 @llvm.smax.i16(i16 %55, i16 %52)
-  %57 = add nuw nsw i64 %indvars.iv164, 3
-  %58 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !18
-  %60 = tail call i16 @llvm.smax.i16(i16 %56, i16 %59)
-  %61 = add nuw nsw i64 %indvars.iv164, 4
-  %62 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 4, !tbaa !18
-  %64 = tail call i16 @llvm.smax.i16(i16 %60, i16 %63)
-  %.sroa.speculated57 = sext i16 %64 to i32
+  %49 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next165
+  %50 = load i16, ptr %49, align 4, !tbaa !18
+  %51 = tail call i16 @llvm.smax.i16(i16 %48, i16 %50)
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 6
+  %53 = load i16, ptr %52, align 2, !tbaa !18
+  %54 = tail call i16 @llvm.smax.i16(i16 %51, i16 %53)
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %56 = load i16, ptr %55, align 4, !tbaa !18
+  %57 = tail call i16 @llvm.smax.i16(i16 %54, i16 %56)
+  %.sroa.speculated57 = sext i16 %57 to i32
   %.not = icmp sgt i32 %.0149158, %.sroa.speculated57
-  br i1 %.not, label %65, label %82
+  br i1 %.not, label %58, label %71
 
-65:                                               ; preds = %51
-  %66 = add nuw nsw i64 %indvars.iv164, 5
-  %67 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %66
-  %68 = load i16, ptr %67, align 2, !tbaa !18
-  %69 = tail call i16 @llvm.smax.i16(i16 %64, i16 %68)
-  %70 = add nuw nsw i64 %indvars.iv164, 6
-  %71 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 4, !tbaa !18
-  %73 = tail call i16 @llvm.smax.i16(i16 %69, i16 %72)
-  %74 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv164
-  %75 = load i16, ptr %74, align 4, !tbaa !18
-  %76 = tail call i16 @llvm.smax.i16(i16 %73, i16 %75)
-  %77 = sext i16 %76 to i32
-  %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %77, i32 %.0149158)
-  %78 = add nuw nsw i64 %indvars.iv164, 7
-  %79 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !18
-  %.v168 = tail call i16 @llvm.smax.i16(i16 %73, i16 %80)
-  %81 = sext i16 %.v168 to i32
-  %.sroa.speculated82 = tail call i32 @llvm.smin.i32(i32 %81, i32 %.sroa.speculated85)
-  br label %82
+58:                                               ; preds = %45
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 10
+  %60 = load i16, ptr %59, align 2, !tbaa !18
+  %61 = tail call i16 @llvm.smax.i16(i16 %57, i16 %60)
+  %62 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %63 = load i16, ptr %62, align 4, !tbaa !18
+  %64 = tail call i16 @llvm.smax.i16(i16 %61, i16 %63)
+  %65 = load i16, ptr %46, align 4, !tbaa !18
+  %66 = tail call i16 @llvm.smax.i16(i16 %64, i16 %65)
+  %67 = sext i16 %66 to i32
+  %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %.0149158, i32 %67)
+  %68 = getelementptr inbounds nuw i8, ptr %46, i64 14
+  %69 = load i16, ptr %68, align 2, !tbaa !18
+  %.v168 = tail call i16 @llvm.smax.i16(i16 %64, i16 %69)
+  %70 = sext i16 %.v168 to i32
+  %.sroa.speculated82 = tail call i32 @llvm.smin.i32(i32 %70, i32 %.sroa.speculated85)
+  br label %71
 
-82:                                               ; preds = %51, %65
-  %.1150 = phi i32 [ %.sroa.speculated82, %65 ], [ %.0149158, %51 ]
-  %83 = icmp samesign ult i64 %indvars.iv164, 10
-  br i1 %83, label %51, label %84, !llvm.loop !25
+71:                                               ; preds = %45, %58
+  %.1150 = phi i32 [ %.sroa.speculated82, %58 ], [ %.0149158, %45 ]
+  %72 = icmp samesign ult i64 %indvars.iv164, 10
+  br i1 %72, label %45, label %73, !llvm.loop !25
 
-84:                                               ; preds = %82
-  %85 = xor i32 %.1150, -1
+73:                                               ; preds = %71
+  %74 = xor i32 %.1150, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %85
+  ret i32 %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -416,102 +386,94 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
   %12 = load i8, ptr %11, align 1, !tbaa !17
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !26
 
-.preheader:                                       ; preds = %7, %39
-  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %39 ], [ 0, %7 ]
-  %.0113122 = phi i32 [ %.1114, %39 ], [ %2, %7 ]
-  %16 = or disjoint i64 %indvars.iv127, 1
-  %17 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %16
+.preheader:                                       ; preds = %7, %35
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %35 ], [ 0, %7 ]
+  %.0113122 = phi i32 [ %.1114, %35 ], [ %2, %7 ]
+  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv127
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !18
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 2
-  %19 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next128
+  %19 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next128
   %20 = load i16, ptr %19, align 4, !tbaa !18
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated88 = sext i16 %21 to i32
   %.not25 = icmp slt i32 %.0113122, %.sroa.speculated88
-  br i1 %.not25, label %22, label %39
+  br i1 %.not25, label %22, label %35
 
 22:                                               ; preds = %.preheader
-  %23 = add nuw nsw i64 %indvars.iv127, 3
-  %24 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !18
-  %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
-  %27 = add nuw nsw i64 %indvars.iv127, 4
-  %28 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 4, !tbaa !18
-  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
-  %31 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv127
-  %32 = load i16, ptr %31, align 4, !tbaa !18
-  %33 = tail call i16 @llvm.smin.i16(i16 %32, i16 %30)
-  %34 = sext i16 %33 to i32
-  %.sroa.speculated106 = tail call i32 @llvm.smax.i32(i32 %.0113122, i32 %34)
-  %35 = add nuw nsw i64 %indvars.iv127, 5
-  %36 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !18
-  %.v = tail call i16 @llvm.smin.i16(i16 %37, i16 %30)
-  %38 = sext i16 %.v to i32
-  %.sroa.speculated103 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated106, i32 %38)
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
+  %24 = load i16, ptr %23, align 2, !tbaa !18
+  %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %27 = load i16, ptr %26, align 4, !tbaa !18
+  %28 = tail call i16 @llvm.smin.i16(i16 %27, i16 %25)
+  %29 = load i16, ptr %16, align 4, !tbaa !18
+  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %28)
+  %31 = sext i16 %30 to i32
+  %.sroa.speculated106 = tail call i32 @llvm.smax.i32(i32 %.0113122, i32 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %33 = load i16, ptr %32, align 2, !tbaa !18
+  %.v = tail call i16 @llvm.smin.i16(i16 %33, i16 %28)
+  %34 = sext i16 %.v to i32
+  %.sroa.speculated103 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated106, i32 %34)
+  br label %35
+
+35:                                               ; preds = %.preheader, %22
+  %.1114 = phi i32 [ %.sroa.speculated103, %22 ], [ %.0113122, %.preheader ]
+  %36 = icmp samesign ult i64 %indvars.iv127, 6
+  br i1 %36, label %.preheader, label %37, !llvm.loop !27
+
+37:                                               ; preds = %35
+  %38 = sub nsw i32 0, %.1114
   br label %39
 
-39:                                               ; preds = %.preheader, %22
-  %.1114 = phi i32 [ %.sroa.speculated103, %22 ], [ %.0113122, %.preheader ]
-  %40 = icmp samesign ult i64 %indvars.iv127, 6
-  br i1 %40, label %.preheader, label %41, !llvm.loop !27
-
-41:                                               ; preds = %39
-  %42 = sub nsw i32 0, %.1114
-  br label %43
-
-43:                                               ; preds = %41, %67
-  %indvars.iv130 = phi i64 [ 0, %41 ], [ %indvars.iv.next131, %67 ]
-  %.0115124 = phi i32 [ %42, %41 ], [ %.1116, %67 ]
-  %44 = or disjoint i64 %indvars.iv130, 1
-  %45 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !18
+39:                                               ; preds = %37, %59
+  %indvars.iv130 = phi i64 [ 0, %37 ], [ %indvars.iv.next131, %59 ]
+  %.0115124 = phi i32 [ %38, %37 ], [ %.1116, %59 ]
+  %40 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv130
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %42 = load i16, ptr %41, align 2, !tbaa !18
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 2
-  %47 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next131
-  %48 = load i16, ptr %47, align 4, !tbaa !18
-  %49 = tail call i16 @llvm.smax.i16(i16 %46, i16 %48)
-  %50 = add nuw nsw i64 %indvars.iv130, 3
-  %51 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !18
-  %53 = tail call i16 @llvm.smax.i16(i16 %49, i16 %52)
-  %.sroa.speculated44 = sext i16 %53 to i32
+  %43 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.next131
+  %44 = load i16, ptr %43, align 4, !tbaa !18
+  %45 = tail call i16 @llvm.smax.i16(i16 %42, i16 %44)
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 6
+  %47 = load i16, ptr %46, align 2, !tbaa !18
+  %48 = tail call i16 @llvm.smax.i16(i16 %45, i16 %47)
+  %.sroa.speculated44 = sext i16 %48 to i32
   %.not = icmp sgt i32 %.0115124, %.sroa.speculated44
-  br i1 %.not, label %54, label %67
+  br i1 %.not, label %49, label %59
 
-54:                                               ; preds = %43
-  %55 = add nuw nsw i64 %indvars.iv130, 4
-  %56 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 4, !tbaa !18
-  %58 = tail call i16 @llvm.smax.i16(i16 %53, i16 %57)
-  %59 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv130
-  %60 = load i16, ptr %59, align 4, !tbaa !18
-  %61 = tail call i16 @llvm.smax.i16(i16 %58, i16 %60)
-  %62 = sext i16 %61 to i32
-  %.sroa.speculated65 = tail call i32 @llvm.smin.i32(i32 %62, i32 %.0115124)
-  %63 = add nuw nsw i64 %indvars.iv130, 5
-  %64 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !18
-  %.v134 = tail call i16 @llvm.smax.i16(i16 %58, i16 %65)
-  %66 = sext i16 %.v134 to i32
-  %.sroa.speculated62 = tail call i32 @llvm.smin.i32(i32 %66, i32 %.sroa.speculated65)
-  br label %67
+49:                                               ; preds = %39
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %51 = load i16, ptr %50, align 4, !tbaa !18
+  %52 = tail call i16 @llvm.smax.i16(i16 %48, i16 %51)
+  %53 = load i16, ptr %40, align 4, !tbaa !18
+  %54 = tail call i16 @llvm.smax.i16(i16 %52, i16 %53)
+  %55 = sext i16 %54 to i32
+  %.sroa.speculated65 = tail call i32 @llvm.smin.i32(i32 %.0115124, i32 %55)
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 10
+  %57 = load i16, ptr %56, align 2, !tbaa !18
+  %.v134 = tail call i16 @llvm.smax.i16(i16 %52, i16 %57)
+  %58 = sext i16 %.v134 to i32
+  %.sroa.speculated62 = tail call i32 @llvm.smin.i32(i32 %58, i32 %.sroa.speculated65)
+  br label %59
 
-67:                                               ; preds = %43, %54
-  %.1116 = phi i32 [ %.sroa.speculated62, %54 ], [ %.0115124, %43 ]
-  %68 = icmp samesign ult i64 %indvars.iv130, 6
-  br i1 %68, label %43, label %69, !llvm.loop !28
+59:                                               ; preds = %39, %49
+  %.1116 = phi i32 [ %.sroa.speculated62, %49 ], [ %.0115124, %39 ]
+  %60 = icmp samesign ult i64 %indvars.iv130, 6
+  br i1 %60, label %39, label %61, !llvm.loop !28
 
-69:                                               ; preds = %67
-  %70 = xor i32 %.1116, -1
+61:                                               ; preds = %59
+  %62 = xor i32 %.1116, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %70
+  ret i32 %62
 }
 
 ; Function Attrs: nobuiltin nounwind

@@ -61,7 +61,7 @@ define internal fastcc range(i32 -2, 2) i32 @dowild(ptr noundef %0, ptr noundef 
 
 18:                                               ; preds = %16
   %19 = zext nneg i8 %13 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = shl i8 %21, 3
   %23 = and i8 %22, 32
@@ -77,7 +77,7 @@ sane_iscase.exit.thread:                          ; preds = %18, %16
 
 25:                                               ; preds = %sane_iscase.exit.thread
   %26 = zext nneg i8 %12 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = shl i8 %28, 3
   %30 = and i8 %29, 32
@@ -202,7 +202,7 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 
 .lr.ph563:                                        ; preds = %.preheader
   %73 = zext i8 %71 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !4
   %76 = and i8 %75, 8
   %.not346 = icmp eq i8 %76, 0
@@ -237,7 +237,7 @@ sane_iscase.exit408.thread:                       ; preds = %25, %sane_iscase.ex
 
 87:                                               ; preds = %.lr.ph553.split.us579
   %88 = zext nneg i8 %85 to i64
-  %89 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %91 = shl i8 %90, 3
   %92 = and i8 %91, 32
@@ -368,8 +368,8 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %139 = icmp eq i8 %.0277.fr, 91
   %140 = icmp sgt i8 %.0277.fr, -1
   %141 = zext nneg i8 %.0277.fr to i64
-  %142 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %141
-  %143 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %141
   %144 = and i8 %.0277.fr, 32
   %.not325469.not = icmp eq i8 %144, 0
   %145 = add i8 %.0277.fr, -32

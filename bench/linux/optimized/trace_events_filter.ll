@@ -2357,7 +2357,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %19 = phi i8 [ %53, %52 ], [ 0, %4 ]
   %20 = zext i8 %12 to i32
   %21 = zext i8 %12 to i64
-  %22 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @_ctype, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 32
   %25 = icmp eq i8 %24, 0
@@ -2575,7 +2575,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %136 = phi ptr [ %1, %126 ], [ %.ph92, %691 ]
   %137 = getelementptr i8, ptr %136, i64 1
   %138 = zext i8 %131 to i64
-  %139 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %138
+  %139 = getelementptr i8, ptr @_ctype, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = and i8 %140, 32
   %142 = icmp eq i8 %141, 0
@@ -2649,7 +2649,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %171 = getelementptr i8, ptr %136, i64 %170
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %173
+  %174 = getelementptr i8, ptr @_ctype, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = and i8 %175, 32
   %177 = icmp eq i8 %176, 0
@@ -2666,7 +2666,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %184 = getelementptr i8, ptr %136, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i64
-  %187 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %186
+  %187 = getelementptr i8, ptr @_ctype, i64 %186
   %188 = load i8, ptr %187, align 1
   %189 = and i8 %188, 7
   %190 = icmp ne i8 %189, 0
@@ -2722,7 +2722,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %225 = getelementptr i8, ptr %136, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i64
-  %228 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %227
+  %228 = getelementptr i8, ptr @_ctype, i64 %227
   %229 = load i8, ptr %228, align 1
   %230 = and i8 %229, 32
   %231 = icmp eq i8 %230, 0
@@ -2735,7 +2735,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %235, label %.loopexit114, label %.preheader112
 
 236:                                              ; preds = %.preheader112
-  %237 = getelementptr [9 x ptr], ptr @ops, i64 0, i64 %243
+  %237 = getelementptr ptr, ptr @ops, i64 %243
   %238 = load ptr, ptr %237, align 8
   %239 = call i64 @strlen(ptr noundef %238) #17
   %240 = call i32 @strncmp(ptr noundef %234, ptr noundef %238, i64 noundef %239) #17
@@ -2765,7 +2765,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %253 = getelementptr i8, ptr %136, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i64
-  %256 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %255
+  %256 = getelementptr i8, ptr @_ctype, i64 %255
   %257 = load i8, ptr %256, align 1
   %258 = and i8 %257, 32
   %259 = icmp eq i8 %258, 0
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %287 = getelementptr i8, ptr %136, i64 %286
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i64
-  %290 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %289
+  %290 = getelementptr i8, ptr @_ctype, i64 %289
   %291 = load i8, ptr %290, align 1
   %292 = and i8 %291, 7
   %293 = icmp eq i8 %292, 0
@@ -2832,7 +2832,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
 298:                                              ; preds = %295
   %299 = zext nneg i32 %296 to i64
   %300 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %262, i64 noundef %299) #17
-  %301 = getelementptr [24 x i8], ptr %8, i64 0, i64 %299
+  %301 = getelementptr i8, ptr %8, i64 %299
   store i8 0, ptr %301, align 1
   %302 = call i32 @kstrtoull(ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #17
   %303 = icmp eq i32 %302, 0
@@ -2846,7 +2846,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %304 = phi i8 [ %315, %311 ], [ %280, %283 ]
   %305 = phi i32 [ %312, %311 ], [ %251, %283 ]
   %306 = zext i8 %304 to i64
-  %307 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %306
+  %307 = getelementptr i8, ptr @_ctype, i64 %306
   %308 = load i8, ptr %307, align 1
   %309 = and i8 %308, 32
   %310 = icmp eq i8 %309, 0
@@ -2984,7 +2984,7 @@ sub_1:                                            ; preds = %sub_0
   %389 = getelementptr i8, ptr %136, i64 %388
   %390 = zext nneg i32 %380 to i64
   %391 = call ptr @strncpy(ptr noundef nonnull %384, ptr noundef %389, i64 noundef %390) #17
-  %392 = getelementptr [256 x i8], ptr %384, i64 0, i64 %390
+  %392 = getelementptr i8, ptr %384, i64 %390
   store i8 0, ptr %392, align 1
   br label %.thread71
 
@@ -3251,7 +3251,7 @@ sub_1:                                            ; preds = %sub_0
   %516 = getelementptr i8, ptr %136, i64 %515
   %517 = zext nneg i32 %507 to i64
   %518 = call ptr @strncpy(ptr noundef nonnull %511, ptr noundef %516, i64 noundef %517) #17
-  %519 = getelementptr [256 x i8], ptr %511, i64 0, i64 %517
+  %519 = getelementptr i8, ptr %511, i64 %517
   store i8 0, ptr %519, align 1
   call fastcc void @filter_build_regex(ptr noundef nonnull %264)
   %520 = load i32, ptr %494, align 8
@@ -3343,7 +3343,7 @@ sub_1:                                            ; preds = %sub_0
   %559 = getelementptr i8, ptr %136, i64 %558
   %560 = load i8, ptr %559, align 1
   %561 = zext i8 %560 to i64
-  %562 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %561
+  %562 = getelementptr i8, ptr @_ctype, i64 %561
   %563 = load i8, ptr %562, align 1
   %564 = and i8 %563, 7
   %565 = icmp eq i8 %564, 0
@@ -3358,7 +3358,7 @@ sub_1:                                            ; preds = %sub_0
 570:                                              ; preds = %567
   %571 = zext nneg i32 %568 to i64
   %572 = call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %262, i64 noundef %571) #17
-  %573 = getelementptr [24 x i8], ptr %8, i64 0, i64 %571
+  %573 = getelementptr i8, ptr %8, i64 %571
   store i8 0, ptr %573, align 1
   %574 = getelementptr inbounds nuw i8, ptr %204, i64 44
   %575 = load i32, ptr %574, align 4
@@ -3482,7 +3482,7 @@ sub_1:                                            ; preds = %sub_0
   %627 = getelementptr i8, ptr %626, i64 1
   %628 = load i8, ptr %626, align 1
   %629 = zext i8 %628 to i64
-  %630 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %629
+  %630 = getelementptr i8, ptr @_ctype, i64 %629
   %631 = load i8, ptr %630, align 1
   %632 = and i8 %631, 32
   %633 = icmp eq i8 %632, 0
@@ -3846,7 +3846,7 @@ define internal fastcc void @append_filter_err(ptr noundef %0, ptr noundef reado
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, i32 noundef %26, ptr noundef nonnull @.str.26) #17
   %27 = load i32, ptr %1, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [22 x ptr], ptr @err_text, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr @err_text, i64 %28
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.27, ptr noundef %30) #17
   %31 = load ptr, ptr %6, align 8

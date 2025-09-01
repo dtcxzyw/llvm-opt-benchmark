@@ -412,10 +412,10 @@ define void @_ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE(
 
 switch.lookup:                                    ; preds = %._crit_edge.i.i
   %11 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %7 to i64
-  %switch.gep54 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE.1, i64 0, i64 %12
+  %switch.gep54 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5Ipopt16RegisteredOption17OutputDescriptionERKNS_10JournalistE.1, i64 %12
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 7, ptr noundef nonnull %switch.load, i64 noundef %switch.load55)
           to label %14 unwind label %9

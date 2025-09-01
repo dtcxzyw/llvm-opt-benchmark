@@ -1908,10 +1908,10 @@ _ZN4llvh9StringRefC2EPKc.exit745:                 ; preds = %if.then8, %if.then6
 
 switch.lookup:                                    ; preds = %sw.bb1.i142
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep294 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %37
+  %switch.gep294 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 %37
   %switch.load295 = load ptr, ptr %switch.gep294, align 8
   br label %return
 

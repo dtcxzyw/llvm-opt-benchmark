@@ -58,7 +58,7 @@ define hidden void @av1_free_ref_frame_buffers(ptr noundef %0) local_unnamed_add
 
 5:                                                ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %6 = getelementptr inbounds nuw [16 x %struct.RefCntBuffer], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %16
@@ -112,7 +112,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %4, i64 %indvars.iv
   %7 = icmp ne i64 %indvars.iv, 0
   %8 = zext i1 %7 to i32
   tail call void @av1_alloc_restoration_struct(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %8) #4
@@ -288,7 +288,7 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [3 x %struct.RestorationInfo], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %2, i64 %indvars.iv
   tail call void @av1_free_restoration_struct(ptr noundef nonnull %4) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -353,7 +353,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 
 10:                                               ; preds = %.preheader35.us, %10
   %indvars.iv41 = phi i64 [ 0, %.preheader35.us ], [ %indvars.iv.next42, %10 ]
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv41
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv41
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv44
   %14 = load ptr, ptr %13, align 8
@@ -419,7 +419,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %45 ]
-  %46 = getelementptr inbounds nuw [3 x ptr], ptr %44, i64 0, i64 %indvars.iv47
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv47
   %47 = load ptr, ptr %46, align 8
   tail call void @aom_free(ptr noundef %47) #4
   store ptr null, ptr %46, align 8
@@ -476,7 +476,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %15 = tail call ptr @aom_calloc(i64 noundef %11, i64 noundef 8) #4
-  %16 = getelementptr inbounds nuw [3 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %.not52 = icmp eq ptr %15, null
   br i1 %.not52, label %.loopexit, label %13
@@ -531,7 +531,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 32:                                               ; preds = %.preheader.us, %24
   %indvars.iv77 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next78, %24 ]
   %33 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
-  %34 = getelementptr inbounds nuw [3 x ptr], ptr %23, i64 0, i64 %indvars.iv77
+  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv77
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv82
   store ptr %33, ptr %36, align 8
@@ -608,7 +608,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_context_buffers(ptr noundef %0, i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @mi_size_wide, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1100

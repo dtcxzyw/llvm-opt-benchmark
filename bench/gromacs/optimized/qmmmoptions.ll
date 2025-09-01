@@ -2271,7 +2271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %188 = load i32, ptr %187, align 8, !tbaa !132
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL19c_qmmmQMMethodNamesE, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !133
   %192 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %192, ptr %18, align 8, !tbaa !17
@@ -19934,7 +19934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %_Z
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, %743
   %indvars.iv349 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251 ], [ %indvars.iv.next350, %743 ]
-  %648 = getelementptr inbounds nuw [3 x [3 x float]], ptr %645, i64 0, i64 %indvars.iv349
+  %648 = getelementptr inbounds nuw [3 x float], ptr %645, i64 %indvars.iv349
   br label %744
 
 649:                                              ; preds = %743
@@ -20210,7 +20210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %_Z
 
 744:                                              ; preds = %.preheader, %_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd.exit ]
-  %745 = getelementptr inbounds nuw [3 x float], ptr %648, i64 0, i64 %indvars.iv
+  %745 = getelementptr inbounds nuw float, ptr %648, i64 %indvars.iv
   %746 = load float, ptr %745, align 4, !tbaa !404
   %747 = fpext float %746 to double
   %748 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32, !noalias !486
@@ -20424,7 +20424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298: ; preds = %_Z
 815:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292, %815
   %indvars.iv353 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292 ], [ %indvars.iv.next354, %815 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %816 = getelementptr inbounds nuw [3 x float], ptr %797, i64 0, i64 %indvars.iv353
+  %816 = getelementptr inbounds nuw float, ptr %797, i64 %indvars.iv353
   %817 = load float, ptr %816, align 4, !tbaa !404
   %818 = fpext float %817 to double
   store double %818, ptr %34, align 8, !tbaa !506
@@ -26682,7 +26682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1055: ; preds = %_
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1055, %1957
   %indvars.iv1379 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1055 ], [ %indvars.iv.next1380, %1957 ]
-  %1911 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1910, i64 0, i64 %indvars.iv1379
+  %1911 = getelementptr inbounds nuw [3 x float], ptr %1910, i64 %indvars.iv1379
   %.idx = mul nuw nsw i64 %indvars.iv1379, 24
   br label %1958
 
@@ -26874,7 +26874,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %1972
   %1982 = getelementptr inbounds nuw i8, ptr %1981, i64 8
   %1983 = load double, ptr %1982, align 8, !tbaa !506
   %1984 = fptrunc double %1983 to float
-  %1985 = getelementptr inbounds nuw [3 x float], ptr %1911, i64 0, i64 %indvars.iv
+  %1985 = getelementptr inbounds nuw float, ptr %1911, i64 %indvars.iv
   store float %1984, ptr %1985, align 4, !tbaa !404
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1378.not = icmp eq i64 %indvars.iv.next, 3
@@ -27574,7 +27574,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i1188:         ; preds = %2208
   %2218 = getelementptr inbounds nuw i8, ptr %2217, i64 8
   %2219 = load double, ptr %2218, align 8, !tbaa !506
   %2220 = fptrunc double %2219 to float
-  %2221 = getelementptr inbounds nuw [3 x float], ptr %2142, i64 0, i64 %indvars.iv1383
+  %2221 = getelementptr inbounds nuw float, ptr %2142, i64 %indvars.iv1383
   store float %2220, ptr %2221, align 4, !tbaa !404
   %indvars.iv.next1384 = add nuw nsw i64 %indvars.iv1383, 1
   %exitcond1386.not = icmp eq i64 %indvars.iv.next1384, 3

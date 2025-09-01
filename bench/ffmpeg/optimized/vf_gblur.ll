@@ -193,15 +193,15 @@ set_params.exit153:                               ; preds = %71, %73
 
 96:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv210 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next211, %.loopexit ]
-  %97 = getelementptr inbounds nuw [4 x i32], ptr %88, i64 0, i64 %indvars.iv210
+  %97 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv210
   %98 = load i32, ptr %97, align 4, !tbaa !44
-  %99 = getelementptr inbounds nuw [4 x i32], ptr %89, i64 0, i64 %indvars.iv210
+  %99 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv210
   %100 = load i32, ptr %99, align 4, !tbaa !44
   %101 = load ptr, ptr %90, align 8, !tbaa !45
   %102 = load ptr, ptr %4, align 8, !tbaa !20
-  %103 = getelementptr inbounds nuw [8 x ptr], ptr %102, i64 0, i64 %indvars.iv210
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv210
   %104 = load ptr, ptr %103, align 8, !tbaa !46
-  %105 = getelementptr inbounds nuw [8 x ptr], ptr %.0139, i64 0, i64 %indvars.iv210
+  %105 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv210
   %106 = load ptr, ptr %105, align 8, !tbaa !46
   %107 = load i32, ptr %91, align 4, !tbaa !47
   %108 = trunc nuw nsw i64 %indvars.iv210 to i32
@@ -215,10 +215,10 @@ set_params.exit153:                               ; preds = %71, %73
   br i1 %.not150, label %.loopexit, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %95, i64 0, i64 %indvars.iv210
+  %113 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv210
   %114 = load i32, ptr %113, align 4, !tbaa !44
   %115 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %116 = getelementptr inbounds nuw [8 x i32], ptr %115, i64 0, i64 %indvars.iv210
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv210
   %117 = load i32, ptr %116, align 4, !tbaa !44
   %118 = load i32, ptr %93, align 4, !tbaa !48
   %119 = add nsw i32 %118, 7
@@ -235,7 +235,7 @@ set_params.exit153:                               ; preds = %71, %73
 124:                                              ; preds = %122
   %125 = shl i32 %100, 2
   %126 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %126, i64 0, i64 %indvars.iv210
+  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv210
   %128 = load i32, ptr %127, align 4, !tbaa !44
   call void @av_image_copy_plane(ptr noundef %101, i32 noundef %125, ptr noundef %104, i32 noundef %128, i32 noundef %125, i32 noundef %98) #8
   br label %.loopexit161
@@ -253,7 +253,7 @@ set_params.exit153:                               ; preds = %71, %73
   %133 = icmp sgt i32 %100, 0
   %134 = sext i32 %100 to i64
   %135 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %135, i64 0, i64 %indvars.iv210
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv210
   %137 = load i32, ptr %136, align 4, !tbaa !44
   %138 = sdiv i32 %137, 2
   %139 = sext i32 %138 to i64
@@ -294,7 +294,7 @@ set_params.exit153:                               ; preds = %71, %73
   %148 = icmp sgt i32 %100, 0
   %149 = sext i32 %100 to i64
   %150 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %151 = getelementptr inbounds nuw [8 x i32], ptr %150, i64 0, i64 %indvars.iv210
+  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv210
   %152 = load i32, ptr %151, align 4, !tbaa !44
   %153 = sext i32 %152 to i64
   br i1 %148, label %.preheader155.us.preheader, label %.loopexit161
@@ -330,10 +330,10 @@ set_params.exit153:                               ; preds = %71, %73
 .loopexit161:                                     ; preds = %._crit_edge.us, %._crit_edge.us172, %.preheader155.lr.ph, %.preheader156.lr.ph, %.preheader162, %.preheader160, %124
   %162 = load ptr, ptr %7, align 8, !tbaa !4
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 36
-  %164 = getelementptr inbounds nuw [4 x i32], ptr %163, i64 0, i64 %indvars.iv210
+  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv210
   %165 = load i32, ptr %164, align 4, !tbaa !44
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 52
-  %167 = getelementptr inbounds nuw [4 x i32], ptr %166, i64 0, i64 %indvars.iv210
+  %167 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv210
   %168 = load i32, ptr %167, align 4, !tbaa !44
   %169 = call i32 @ff_filter_get_nb_threads(ptr noundef %6) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -369,7 +369,7 @@ gaussianiir2d.exit:                               ; preds = %.loopexit161, %173,
 
 187:                                              ; preds = %gaussianiir2d.exit
   %188 = load ptr, ptr %105, align 8, !tbaa !46
-  %189 = getelementptr inbounds nuw [8 x i32], ptr %95, i64 0, i64 %indvars.iv210
+  %189 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv210
   %190 = load i32, ptr %189, align 4, !tbaa !44
   %191 = shl i32 %100, 2
   call void @av_image_copy_plane(ptr noundef %188, i32 noundef %190, ptr noundef %185, i32 noundef %191, i32 noundef %191, i32 noundef %98) #8
@@ -387,7 +387,7 @@ gaussianiir2d.exit:                               ; preds = %.loopexit161, %173,
 .preheader154.lr.ph:                              ; preds = %.preheader158
   %196 = icmp sgt i32 %100, 0
   %197 = sext i32 %100 to i64
-  %198 = getelementptr inbounds nuw [8 x i32], ptr %95, i64 0, i64 %indvars.iv210
+  %198 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv210
   %199 = load i32, ptr %198, align 4, !tbaa !44
   %200 = sdiv i32 %199, 2
   %201 = sext i32 %200 to i64
@@ -428,7 +428,7 @@ gaussianiir2d.exit:                               ; preds = %.loopexit161, %173,
 .preheader.lr.ph:                                 ; preds = %.preheader157
   %211 = icmp sgt i32 %100, 0
   %212 = sext i32 %100 to i64
-  %213 = getelementptr inbounds nuw [8 x i32], ptr %95, i64 0, i64 %indvars.iv210
+  %213 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv210
   br i1 %211, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph

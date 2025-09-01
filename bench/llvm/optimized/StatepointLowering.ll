@@ -1187,10 +1187,10 @@ define dso_local { ptr, i32 } @_ZN4llvm23StatepointLoweringState17allocateStackS
 
 14:                                               ; preds = %4
   %15 = zext i16 %1 to i64
-  %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %16
+  %16 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %17, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %16, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.2.0.copyload.i.i.i, 1
@@ -7699,10 +7699,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
 
 239:                                              ; preds = %233
   %240 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %241 = add nsw i64 %240, -1
-  %242 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %241
+  %241 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %240
+  %242 = getelementptr i8, ptr %241, i64 -16
   %.sroa.0.0.copyload.i.i115 = load i64, ptr %242, align 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %241, i64 -8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.fca.0.insert.i.i116 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i115, 0
   %.fca.1.insert.i.i117 = insertvalue { i64, i8 } %.fca.0.insert.i.i116, i8 %.sroa.2.0.copyload.i.i, 1
@@ -8322,10 +8322,10 @@ _ZNK4llvm8SmallSetINS_7SDValueELj8ESt4lessIS1_EE5countERKS1_.exit.thread.i: ; pr
 
 85:                                               ; preds = %83
   %86 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %87 = add nsw i64 %86, -1
-  %88 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %87
+  %87 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 -16
   %.sroa.0.0.copyload.i.i3.i.i = load i64, ptr %88, align 16
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %87, i64 -8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.fca.0.insert.i.i4.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i3.i.i, 0
   %.fca.1.insert.i.i5.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i4.i.i, i8 %.sroa.2.0.copyload.i.i.i.i, 1
@@ -8395,7 +8395,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL23lowerStatepointMetaArgsRN4llvm
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %14 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %15 = getelementptr inbounds nuw [234 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !773
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %17
@@ -8553,10 +8553,10 @@ define internal fastcc void @_ZL32reservePreviousStackSlotForValuePKN4llvm5Value
 
 15:                                               ; preds = %9
   %16 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %17
+  %17 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %18, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %17, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i4.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i3.i, 0
   %.fca.1.insert.i.i5.i = insertvalue { i64, i8 } %.fca.0.insert.i.i4.i, i8 %.sroa.2.0.copyload.i.i.i, 1
@@ -8895,10 +8895,10 @@ define internal fastcc void @_ZL28lowerIncomingStatepointValueN4llvm7SDValueEbRN
 
 27:                                               ; preds = %21
   %28 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %29
+  %29 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -16
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %30, align 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr i8, ptr %29, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i4.i = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload.i.i3.i, 0
   %.fca.1.insert.i.i5.i = insertvalue { i64, i8 } %.fca.0.insert.i.i4.i, i8 %.sroa.2.0.copyload.i.i.i, 1

@@ -3459,11 +3459,11 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN5clang8CallExpr1
   %84 = call noundef nonnull align 8 dereferenceable(23216) ptr %83(ptr noundef nonnull align 8 dereferenceable(8) %80) #23
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 17344
   %86 = load ptr, ptr %85, align 8, !tbaa !477
-  %87 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN12_GLOBAL__N_17WalkAST25checkUncheckedReturnValueEPN5clang8CallExprEE11identifiers, i64 0, i64 %.02968.i
+  %87 = getelementptr inbounds nuw ptr, ptr @_ZZN12_GLOBAL__N_17WalkAST25checkUncheckedReturnValueEPN5clang8CallExprEE11identifiers, i64 %.02968.i
   %88 = load ptr, ptr %87, align 8, !tbaa !10
   %89 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #23
   %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %86, ptr nonnull %88, i64 %89)
-  %91 = getelementptr inbounds nuw [6 x ptr], ptr %20, i64 0, i64 %.02968.i
+  %91 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02968.i
   store ptr %90, ptr %91, align 8, !tbaa !475
   %92 = add nuw nsw i64 %.02968.i, 1
   %exitcond.not.i = icmp eq i64 %92, 6
@@ -3481,7 +3481,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN5clang8CallExpr1
 
 99:                                               ; preds = %103, %.loopexit.i
   %.03069.i = phi i64 [ 0, %.loopexit.i ], [ %104, %103 ]
-  %100 = getelementptr inbounds nuw [6 x ptr], ptr %20, i64 0, i64 %.03069.i
+  %100 = getelementptr inbounds nuw ptr, ptr %20, i64 %.03069.i
   %101 = load ptr, ptr %100, align 8, !tbaa !475
   %102 = icmp eq ptr %.0.i.i.i, %101
   br i1 %102, label %105, label %103

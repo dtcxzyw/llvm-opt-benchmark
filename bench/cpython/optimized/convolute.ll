@@ -15,7 +15,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %10
+  %11 = getelementptr i64, ptr @mpd_moduli, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = add i64 %12, -2
   %14 = tail call fastcc i64 @x64_powmod(i64 noundef %2, i64 noundef %13, i64 noundef %12)
@@ -703,7 +703,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @mpd_moduli, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %11, -2
   %13 = tail call fastcc i64 @x64_powmod(i64 noundef %1, i64 noundef %12, i64 noundef %11)

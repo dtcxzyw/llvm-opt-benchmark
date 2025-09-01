@@ -259,7 +259,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618
+  %23 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %.01618
   br label %24
 
 24:                                               ; preds = %.preheader, %25
@@ -271,7 +271,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   %26 = getelementptr inbounds nuw double, ptr %18, i64 %.017
   %27 = load double, ptr %26, align 8
   %28 = fptrunc double %27 to float
-  %29 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.017
+  %29 = getelementptr inbounds nuw float, ptr %23, i64 %.017
   store float %28, ptr %29, align 4
   %30 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %30, 4
@@ -382,7 +382,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
-  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618
+  %23 = getelementptr inbounds nuw [4 x float], ptr %3, i64 %.01618
   br label %24
 
 24:                                               ; preds = %.preheader, %25
@@ -393,7 +393,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw float, ptr %18, i64 %.017
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.017
+  %28 = getelementptr inbounds nuw float, ptr %23, i64 %.017
   store float %27, ptr %28, align 4
   %29 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %29, 4
@@ -499,7 +499,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIdSa
   %22 = getelementptr inbounds nuw double, ptr %15, i64 %.03637
   %23 = load double, ptr %22, align 8
   %24 = fptrunc double %23 to float
-  %25 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.03637
+  %25 = getelementptr inbounds nuw float, ptr %6, i64 %.03637
   store float %24, ptr %25, align 4
   %26 = add nuw nsw i64 %.03637, 1
   %exitcond41.not = icmp eq i64 %26, 4
@@ -524,7 +524,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIdSa
   %36 = getelementptr inbounds nuw double, ptr %29, i64 %.03538
   %37 = load double, ptr %36, align 8
   %38 = fptrunc double %37 to float
-  %39 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.03538
+  %39 = getelementptr inbounds nuw float, ptr %7, i64 %.03538
   store float %38, ptr %39, align 4
   %40 = add nuw nsw i64 %.03538, 1
   %exitcond43.not = icmp eq i64 %40, 4
@@ -549,7 +549,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIdSa
   %50 = getelementptr inbounds nuw double, ptr %43, i64 %.03439
   %51 = load double, ptr %50, align 8
   %52 = fptrunc double %51 to float
-  %53 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.03439
+  %53 = getelementptr inbounds nuw float, ptr %9, i64 %.03439
   store float %52, ptr %53, align 4
   %54 = add nuw nsw i64 %.03439, 1
   %exitcond45.not = icmp eq i64 %54, 4
@@ -574,7 +574,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIdSa
   %64 = getelementptr inbounds nuw double, ptr %57, i64 %.040
   %65 = load double, ptr %64, align 8
   %66 = fptrunc double %65 to float
-  %67 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.040
+  %67 = getelementptr inbounds nuw float, ptr %11, i64 %.040
   store float %66, ptr %67, align 4
   %68 = add nuw nsw i64 %.040, 1
   %exitcond47.not = icmp eq i64 %68, 4
@@ -671,7 +671,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIfSa
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw float, ptr %15, i64 %.03637
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.03637
+  %24 = getelementptr inbounds nuw float, ptr %6, i64 %.03637
   store float %23, ptr %24, align 4
   %25 = add nuw nsw i64 %.03637, 1
   %exitcond41.not = icmp eq i64 %25, 4
@@ -695,7 +695,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIfSa
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw float, ptr %28, i64 %.03538
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.03538
+  %37 = getelementptr inbounds nuw float, ptr %7, i64 %.03538
   store float %36, ptr %37, align 4
   %38 = add nuw nsw i64 %.03538, 1
   %exitcond43.not = icmp eq i64 %38, 4
@@ -719,7 +719,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIfSa
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw float, ptr %41, i64 %.03439
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.03439
+  %50 = getelementptr inbounds nuw float, ptr %9, i64 %.03439
   store float %49, ptr %50, align 4
   %51 = add nuw nsw i64 %.03439, 1
   %exitcond45.not = icmp eq i64 %51, 4
@@ -743,7 +743,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIfSa
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw float, ptr %54, i64 %.040
   %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.040
+  %63 = getelementptr inbounds nuw float, ptr %11, i64 %.040
   store float %62, ptr %63, align 4
   %64 = add nuw nsw i64 %.040, 1
   %exitcond47.not = icmp eq i64 %64, 4
@@ -3682,7 +3682,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f6Fa
   store double 0.000000e+00, ptr %39, align 8
   %40 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv44
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv44
+  %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv44
   store float %41, ptr %42, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
@@ -3746,7 +3746,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f6Fa
 
 80:                                               ; preds = %43, %86
   %indvars.iv48 = phi i64 [ 0, %43 ], [ %indvars.iv.next49, %86 ]
-  %81 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv48
+  %81 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv48
   %82 = load double, ptr %81, align 8
   %83 = fcmp olt double %82, %48
   br i1 %83, label %86, label %84
@@ -3759,7 +3759,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f6Fa
   %.pn = phi double [ %85, %84 ], [ %48, %80 ]
   %.sink.in = fmul double %47, %.pn
   %.sink = fptrunc double %.sink.in to float
-  %87 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv48
+  %87 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv48
   store float %.sink, ptr %87, align 4
   %88 = fpext float %.sink to double
   %89 = fdiv double 1.000000e+00, %88
@@ -3885,8 +3885,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
 .lr.ph210:                                        ; preds = %34
   %.idx248 = shl nuw nsw i64 %indvars.iv237, 4
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx248
-  %37 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv237
-  %38 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv237
+  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv237
+  %38 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv237
   %39 = icmp eq i64 %indvars.iv237, 1
   br label %40
 
@@ -3907,7 +3907,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv233
+  %52 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv233
   %53 = load double, ptr %52, align 8
   %54 = tail call noundef double @llvm.fabs.f64(double %53)
   %55 = fadd double %45, %54
@@ -3923,7 +3923,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv233
+  %61 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv233
   %62 = load double, ptr %61, align 8
   %63 = load double, ptr %37, align 8
   %64 = fsub double %62, %63
@@ -3966,7 +3966,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
   %89 = load double, ptr %38, align 8
   %90 = fsub double %89, %88
   store double %90, ptr %38, align 8
-  %91 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv233
+  %91 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv233
   %92 = load double, ptr %91, align 8
   %93 = fadd double %88, %92
   store double %93, ptr %91, align 8
@@ -4064,9 +4064,9 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
 140:                                              ; preds = %.preheader, %140
   %indvars.iv229 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next230, %140 ]
   %141 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %2, i64 %indvars.iv229
-  %142 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv237
+  %142 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv237
   %143 = load double, ptr %142, align 8
-  %144 = getelementptr inbounds nuw [3 x double], ptr %141, i64 0, i64 %indvars.iv233
+  %144 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv233
   %145 = load double, ptr %144, align 8
   %146 = tail call double @llvm.fmuladd.f64(double %143, double %87, double %145)
   %147 = tail call double @llvm.fmuladd.f64(double %.pre-phi247, double %146, double %143)
@@ -4086,13 +4086,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f8_Jacobi3EPNS_7Gf
 
 .preheader195:                                    ; preds = %.loopexit193, %.preheader195
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %.preheader195 ], [ 0, %.loopexit193 ]
-  %151 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv241
+  %151 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv241
   %152 = load double, ptr %151, align 8
-  %153 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv241
+  %153 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv241
   %154 = load double, ptr %153, align 8
   %155 = fadd double %152, %154
   store double %155, ptr %153, align 8
-  %156 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv241
+  %156 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv241
   store double %155, ptr %156, align 8
   store double 0.000000e+00, ptr %151, align 8
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
@@ -4246,7 +4246,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %75 = fadd float %72, %74
   %76 = tail call noundef float @sqrtf(float noundef %75) #23
   %77 = fmul float %76, 5.000000e-01
-  %78 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %16
+  %78 = getelementptr inbounds nuw float, ptr %2, i64 %16
   store float %77, ptr %78, align 4
   %79 = getelementptr inbounds nuw float, ptr %15, i64 %62
   %80 = load float, ptr %79, align 4
@@ -4255,7 +4255,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %83 = fadd float %80, %82
   %84 = fmul float %77, 4.000000e+00
   %85 = fdiv float %83, %84
-  %86 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %62
+  %86 = getelementptr inbounds nuw float, ptr %2, i64 %62
   store float %85, ptr %86, align 4
   %87 = getelementptr inbounds nuw float, ptr %68, i64 %16
   %88 = load float, ptr %87, align 4
@@ -4263,7 +4263,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %90 = load float, ptr %89, align 4
   %91 = fadd float %88, %90
   %92 = fdiv float %91, %84
-  %93 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %69
+  %93 = getelementptr inbounds nuw float, ptr %2, i64 %69
   store float %92, ptr %93, align 4
   %94 = getelementptr inbounds nuw float, ptr %61, i64 %69
   %95 = load float, ptr %94, align 4

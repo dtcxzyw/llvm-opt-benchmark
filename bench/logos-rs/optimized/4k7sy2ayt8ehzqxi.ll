@@ -344,7 +344,7 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
           to label %84 unwind label %.thread49.loopexit
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw [0 x { { ptr, i64 }, ptr }], ptr @anon.0d4f455794be986747178006f459c304.19, i64 0, i64 %70, i32 1
+  %76 = getelementptr inbounds nuw { { ptr, i64 }, ptr }, ptr @anon.0d4f455794be986747178006f459c304.19, i64 %70, i32 1
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %46, align 8
   %79 = icmp eq i8 %78, 2

@@ -19811,7 +19811,7 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
 .critedge39.i.i:                                  ; preds = %22, %.lr.ph.i.i, %.preheader.i.i
   %.2.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.i.i ], [ %indvars.iv.next67.i.i, %22 ], [ %indvars.iv66.i.i, %.lr.ph.i.i ]
   %.lcssa51.i.i = phi i64 [ %14, %.preheader.i.i ], [ %indvars.iv.next67.i.i, %22 ], [ %indvars.iv66.i.i, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 0, i64 %indvars.iv69.i.i
+  %27 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 %indvars.iv69.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !118
   %.not37.i.i = icmp eq i32 %.0.val, %28
   br i1 %.not37.i.i, label %29, label %4

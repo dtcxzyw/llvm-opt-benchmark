@@ -1524,7 +1524,7 @@ _ZN10duckdb_hll6hllTauEd.exit.preheader:          ; preds = %_ZN10duckdb_hll16hl
 _ZN10duckdb_hll6hllTauEd.exit:                    ; preds = %_ZN10duckdb_hll6hllTauEd.exit.preheader, %_ZN10duckdb_hll6hllTauEd.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10duckdb_hll6hllTauEd.exit ], [ 52, %_ZN10duckdb_hll6hllTauEd.exit.preheader ]
   %.040 = phi double [ %165, %_ZN10duckdb_hll6hllTauEd.exit ], [ %.040.ph, %_ZN10duckdb_hll6hllTauEd.exit.preheader ]
-  %161 = getelementptr inbounds nuw [54 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %162 = load i32, ptr %161, align 4, !tbaa !11
   %163 = sitofp i32 %162 to double
   %164 = fadd double %.040, %163
@@ -1946,7 +1946,7 @@ _ZN10duckdb_hll11hll_destroyEPNS_4robjE.exit:     ; preds = %22
 
 26:                                               ; preds = %.preheader, %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit
   %.13143 = phi i64 [ %70, %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %.13143
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.13143
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit, label %30

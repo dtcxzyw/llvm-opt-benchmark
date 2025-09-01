@@ -54,7 +54,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
 
 .lr.ph.i.i.i:                                     ; preds = %12, %16
   %.05.i.i.i = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %.05.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.05.i.i.i
   %14 = load i8, ptr %13, align 1, !alias.scope !8, !noalias !4, !noundef !13
   %15 = icmp eq i8 %14, 47
   br i1 %15, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %16

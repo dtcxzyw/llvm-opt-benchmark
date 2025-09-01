@@ -230,14 +230,14 @@ _ZNK3smt5enode12get_num_argsEv.exit24:            ; preds = %_ZNK3smt5enode12get
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us ], [ 0, %.lr.ph ]
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %indvars.iv47
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv47
   %73 = load ptr, ptr %72, align 8, !tbaa !48
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = load ptr, ptr %2, align 8, !tbaa !51
   %76 = zext i32 %74 to i64
   %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !52
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %indvars.iv47
+  %79 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv47
   store ptr %78, ptr %79, align 8, !tbaa !52
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !24
@@ -285,14 +285,14 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.us: ; preds = %96, %90
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %103 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !48
   %105 = load i32, ptr %104, align 4, !tbaa !50
   %106 = load ptr, ptr %2, align 8, !tbaa !51
   %107 = zext i32 %105 to i64
   %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !52
-  %110 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   store ptr %109, ptr %110, align 8, !tbaa !52
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !24
@@ -371,7 +371,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !24
@@ -942,11 +942,11 @@ _ZNK3smt5enode12get_num_argsEv.exit36:            ; preds = %_ZNK3smt5enode12get
 
 51:                                               ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !24

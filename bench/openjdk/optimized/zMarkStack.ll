@@ -76,7 +76,7 @@ define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 derefer
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.2, align 8
   store i64 %1, ptr %.sroa.36, align 64
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.4, align 8
-  %8 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %.ptr5, i64 0, i64 %.07
+  %8 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %.ptr5, i64 %.07
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload = load volatile i64, ptr %.sroa.0, align 64
   store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload, ptr %8, align 64
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -147,7 +147,7 @@ define hidden noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef no
 
 5:                                                ; preds = %1, %3
   %.05 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %2, i64 0, i64 %.05
+  %6 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %2, i64 %.05
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
@@ -205,7 +205,7 @@ define hidden noundef nonnull ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr
 21:                                               ; preds = %13, %11
   %.0 = phi i64 [ %12, %11 ], [ %20, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %22, i64 0, i64 %.0
+  %23 = getelementptr inbounds %class.ZMarkStripe, ptr %22, i64 %.0
   ret ptr %23
 }
 
@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @_ZNK22ZMarkThreadLocalStacks8is_emptyEPK14ZMar
 
 4:                                                ; preds = %4, %2
   %.056 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %5 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %.056
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.056
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = add nuw nsw i64 %.056, 1
@@ -256,7 +256,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread: ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = add i64 %10, -1
   store i64 %12, ptr %9, align 8
-  %13 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -296,7 +296,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread: ; preds = %.
   %7 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %8 = add i64 %5, 1
   store i64 %8, ptr %.pr, align 8
-  %9 = getelementptr inbounds [15 x ptr], ptr %7, i64 0, i64 %5
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %5
   store ptr %2, ptr %9, align 8
   br label %10
 
@@ -347,7 +347,7 @@ _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit: ; preds
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = add i64 %19, -1
   store i64 %21, ptr %18, align 8
-  %22 = getelementptr inbounds [15 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %3, align 8
   %24 = icmp eq ptr %23, null
@@ -363,7 +363,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread: ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %28 = add i64 %26, 1
   store i64 %28, ptr %.1, align 8
-  %29 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %27, i64 0, i64 %26
+  %29 = getelementptr inbounds %class.ZMarkStackEntry, ptr %27, i64 %26
   store i64 %5, ptr %29, align 8
   br label %.loopexit
 
@@ -618,7 +618,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread: ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %67 = add i64 %65, -1
   store i64 %67, ptr %.1, align 8
-  %68 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds %class.ZMarkStackEntry, ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8
   store i64 %69, ptr %4, align 8
   br label %76
@@ -646,7 +646,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %73 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %74 = add i64 %71, 1
   store i64 %74, ptr %.pr.i, align 8
-  %75 = getelementptr inbounds [15 x ptr], ptr %73, i64 0, i64 %71
+  %75 = getelementptr inbounds ptr, ptr %73, i64 %71
   store ptr %.1, ptr %75, align 8
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
@@ -672,8 +672,8 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks5flushEP19ZMarkStac
 11:                                               ; preds = %4, %65
   %.018 = phi i1 [ false, %4 ], [ %.1, %65 ]
   %.01517 = phi i64 [ 0, %4 ], [ %66, %65 ]
-  %12 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %5, i64 0, i64 %.01517
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %.01517
+  %12 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %5, i64 %.01517
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01517
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %65, label %16
@@ -706,7 +706,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %23 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %24 = add i64 %21, 1
   store i64 %24, ptr %.pr.i, align 8
-  %25 = getelementptr inbounds [15 x ptr], ptr %23, i64 0, i64 %21
+  %25 = getelementptr inbounds ptr, ptr %23, i64 %21
   store ptr %14, ptr %25, align 8
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 

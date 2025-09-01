@@ -292,14 +292,14 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   %51 = phi ptr [ null, %47 ], [ %88, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i ]
   %52 = phi ptr [ null, %47 ], [ %89, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i ]
   %.024.i.i.i = phi i64 [ 0, %47 ], [ %90, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i ]
-  %53 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i.i, i32 5
+  %53 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i.i, i32 5
   %54 = load i32, ptr %53, align 4, !tbaa !23, !noalias !26
   %55 = and i32 %54, 2
   %.not.i.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %48, i64 0, i64 %.024.i.i.i
+  %57 = getelementptr inbounds nuw %struct.InteractionList, ptr %48, i64 %.024.i.i.i
   %58 = load ptr, ptr %57, align 8, !tbaa !29, !noalias !26
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !29, !noalias !26
@@ -429,7 +429,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader.i.i: ; pred
 .lr.ph.i.i:                                       ; preds = %92
   %102 = icmp eq i32 %91, 66
   %103 = zext nneg i32 %91 to i64
-  %104 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %103, i32 2
+  %104 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %103, i32 2
   br i1 %102, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %112
@@ -514,14 +514,14 @@ _ZN3gmxL21hasIncompatibleVsitesERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit
   %144 = phi ptr [ null, %141 ], [ %181, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i30.i ]
   %145 = phi ptr [ null, %141 ], [ %182, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i30.i ]
   %.024.i.i26.i = phi i64 [ 0, %141 ], [ %183, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i30.i ]
-  %146 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i26.i, i32 5
+  %146 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i26.i, i32 5
   %147 = load i32, ptr %146, align 4, !tbaa !23, !noalias !49
   %148 = and i32 %147, 4
   %.not.i.i27.i = icmp eq i32 %148, 0
   br i1 %.not.i.i27.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i30.i, label %149
 
 149:                                              ; preds = %142
-  %150 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %48, i64 0, i64 %.024.i.i26.i
+  %150 = getelementptr inbounds nuw %struct.InteractionList, ptr %48, i64 %.024.i.i26.i
   %151 = load ptr, ptr %150, align 8, !tbaa !29, !noalias !49
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !29, !noalias !49
@@ -1265,7 +1265,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %440 = phi ptr [ %415, %413 ], [ %433, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i119.i.i ]
   %.val.i.i = load i32, ptr %.sroa.0136.0165.i.i, align 8, !tbaa !36, !noalias !20
   %441 = sext i32 %.val.i.i to i64
-  %442 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %441, i32 2
+  %442 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %441, i32 2
   %443 = load i32, ptr %442, align 16, !tbaa !42, !noalias !54
   %444 = add nsw i32 %443, 1
   %445 = sext i32 %444 to i64
@@ -1321,7 +1321,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 454:                                              ; preds = %.lr.ph166.i.i
   %455 = sext i32 %188 to i64
-  %456 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %455, i32 2
+  %456 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %455, i32 2
   %457 = load i32, ptr %456, align 16, !tbaa !42, !noalias !54
   %458 = icmp eq i32 %457, 2
   br i1 %458, label %460, label %459
@@ -1469,14 +1469,14 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i:         ; preds = %.noexc.i, %.lr.ph.i
   %516 = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i ], [ %553, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
   %517 = phi ptr [ null, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i ], [ %554, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
   %.024.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i ], [ %555, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i ]
-  %518 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i.i.i, i32 5
+  %518 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i.i.i, i32 5
   %519 = load i32, ptr %518, align 4, !tbaa !23, !noalias !75
   %520 = and i32 %519, 2
   %.not.i.i.i58.i = icmp eq i32 %520, 0
   br i1 %.not.i.i.i58.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i, label %521
 
 521:                                              ; preds = %514
-  %522 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %48, i64 0, i64 %.024.i.i.i.i
+  %522 = getelementptr inbounds nuw %struct.InteractionList, ptr %48, i64 %.024.i.i.i.i
   %523 = load ptr, ptr %522, align 8, !tbaa !29, !noalias !75
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %525 = load ptr, ptr %524, align 8, !tbaa !29, !noalias !75
@@ -1598,7 +1598,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader.i.i.i: ; pr
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %.val.i.i.i = load i32, ptr %.sroa.027.043.i.i.i, align 8, !tbaa !36, !noalias !72
   %565 = sext i32 %.val.i.i.i to i64
-  %566 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %565, i32 2
+  %566 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %565, i32 2
   %567 = load i32, ptr %566, align 16, !tbaa !42, !noalias !72
   %568 = add nsw i32 %567, 1
   %569 = sext i32 %568 to i64
@@ -1897,7 +1897,7 @@ common.resume.sink.split.i.i:                     ; preds = %680, %672, %625, %.
   %.not.i.i66.i = phi i1 [ true, %690 ], [ false, %697 ]
   %.0813.i.i.i = phi i64 [ 0, %690 ], [ 1, %697 ]
   %.0912.i.i.i = phi i64 [ 2, %690 ], [ %.1.i.i.i, %697 ]
-  %692 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEmv.__found, i64 0, i64 %.0813.i.i.i
+  %692 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEmv.__found, i64 %.0813.i.i.i
   %693 = load i8, ptr %692, align 1, !tbaa !82, !range !83, !noalias !20, !noundef !84
   %694 = trunc nuw i8 %693 to i1
   br i1 %694, label %695, label %697
@@ -2186,7 +2186,7 @@ _ZN3gmxL34makeUpdateGroupingsPerMoleculeTypeERK13gmx_moltype_tNS_8ArrayRefIK9t_i
   %.not.i.i14 = phi i1 [ true, %_ZN3gmxL34makeUpdateGroupingsPerMoleculeTypeERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit ], [ false, %785 ]
   %.0813.i.i = phi i64 [ 0, %_ZN3gmxL34makeUpdateGroupingsPerMoleculeTypeERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit ], [ 1, %785 ]
   %.0912.i.i = phi i64 [ 2, %_ZN3gmxL34makeUpdateGroupingsPerMoleculeTypeERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit ], [ %.1.i.i15, %785 ]
-  %780 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEmv.__found, i64 0, i64 %.0813.i.i
+  %780 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEmv.__found, i64 %.0813.i.i
   %781 = load i8, ptr %780, align 1, !tbaa !82, !range !83, !noundef !84
   %782 = trunc nuw i8 %781 to i1
   br i1 %782, label %783, label %785
@@ -2229,7 +2229,7 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES
 _ZSt3getIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %788
   %791 = load i32, ptr %8, align 8, !tbaa !98
   %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_ZN3gmxL13reasonStringsB5cxx11E, i64 0, i64 %792
+  %793 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN3gmxL13reasonStringsB5cxx11E, i64 %792
   store ptr %29, ptr %0, align 8, !tbaa !99
   %794 = load ptr, ptr %793, align 8, !tbaa !4
   %795 = getelementptr inbounds nuw i8, ptr %793, i64 8
@@ -2555,14 +2555,14 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL22hasFlexibleConstraintsERK13
   %6 = phi ptr [ null, %2 ], [ %43, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
   %7 = phi ptr [ null, %2 ], [ %44, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
   %.024.i = phi i64 [ 0, %2 ], [ %45, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
-  %8 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i, i32 5
+  %8 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i, i32 5
   %9 = load i32, ptr %8, align 4, !tbaa !23, !noalias !111
   %10 = and i32 %9, 4
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %.024.i
+  %12 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %.024.i
   %13 = load ptr, ptr %12, align 8, !tbaa !29, !noalias !111
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !29, !noalias !111
@@ -2691,7 +2691,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader: ; preds = 
 
 .lr.ph:                                           ; preds = %.preheader
   %56 = sext i32 %46 to i64
-  %57 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %56, i32 2
+  %57 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %56, i32 2
   br label %58
 
 58:                                               ; preds = %.lr.ph, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit.thread
@@ -2967,14 +2967,14 @@ define internal fastcc i64 @_ZN3gmxL19vsiteConstructRangeEiRK13gmx_moltype_t(i32
   %6 = phi ptr [ null, %2 ], [ %43, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
   %7 = phi ptr [ null, %2 ], [ %44, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
   %.024.i = phi i64 [ 0, %2 ], [ %45, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i ]
-  %8 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i, i32 5
+  %8 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i, i32 5
   %9 = load i32, ptr %8, align 4, !tbaa !23, !noalias !115
   %10 = and i32 %9, 2
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %.024.i
+  %12 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %.024.i
   %13 = load ptr, ptr %12, align 8, !tbaa !29, !noalias !115
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !29, !noalias !115
@@ -3110,7 +3110,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader: ; preds = 
   %62 = add i64 %.03072, 3
   %.val33 = load i32, ptr %.sroa.039.074, align 8, !tbaa !36
   %63 = sext i32 %.val33 to i64
-  %64 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %63, i32 2
+  %64 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %63, i32 2
   %65 = load i32, ptr %64, align 16, !tbaa !42
   %66 = add nsw i32 %65, 1
   %67 = sext i32 %66 to i64
@@ -3133,7 +3133,7 @@ _ZL13extractIListsRKSt5arrayI15InteractionListLm95EEi.exit.preheader: ; preds = 
 73:                                               ; preds = %.lr.ph
   %.val = load i32, ptr %.sroa.039.074, align 8, !tbaa !36
   %74 = sext i32 %.val to i64
-  %75 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %74, i32 2
+  %75 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %74, i32 2
   %76 = load i32, ptr %75, align 16, !tbaa !42
   %77 = add nsw i32 %76, 1
   %78 = sext i32 %77 to i64
@@ -4460,7 +4460,7 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
   %474 = load i32, ptr %473, align 4, !tbaa !31
   %475 = icmp eq i32 %472, %spec.select.i
   %476 = select i1 %475, i32 %474, i32 %472
-  %477 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i145.i
+  %477 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i145.i
   store i32 %476, ptr %477, align 4, !tbaa !31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i145.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -4625,13 +4625,13 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
 
 534:                                              ; preds = %542, %.preheader20.i175.i
   %.09633.i.i = phi i64 [ 0, %.preheader20.i175.i ], [ %543, %542 ]
-  %535 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %.09633.i.i
+  %535 = getelementptr inbounds nuw i32, ptr %5, i64 %.09633.i.i
   %536 = load i32, ptr %535, align 4, !tbaa !31
   %537 = icmp eq i32 %528, %536
   br i1 %537, label %538, label %542
 
 538:                                              ; preds = %534
-  %539 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %.09633.i.i
+  %539 = getelementptr inbounds nuw i32, ptr %6, i64 %.09633.i.i
   %540 = load i32, ptr %539, align 4, !tbaa !31
   %541 = add nsw i32 %540, 1
   store i32 %541, ptr %539, align 4, !tbaa !31
@@ -4656,7 +4656,7 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
 547:                                              ; preds = %547, %.preheader.i156.i
   %indvars.iv56.i157.i = phi i64 [ 0, %.preheader.i156.i ], [ %indvars.iv.next57.i.i, %547 ]
   %.09741.i.i = phi i1 [ %.087.lcssa.i.i, %.preheader.i156.i ], [ %spec.select109.i.i, %547 ]
-  %548 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv56.i157.i
+  %548 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv56.i157.i
   %549 = load i32, ptr %548, align 4, !tbaa !31
   %.not104.i.i = icmp eq i32 %549, 2
   %spec.select109.i.i = select i1 %.not104.i.i, i1 %.09741.i.i, i1 false
@@ -5073,14 +5073,14 @@ define noundef zeroext i1 @_ZN3gmx28systemHasConstraintsOrVsitesERK10gmx_mtop_t(
   %21 = phi ptr [ null, %17 ], [ %58, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i.i.i.i.i ]
   %22 = phi ptr [ null, %17 ], [ %59, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i.i.i.i.i ]
   %.024.i.i.i.i.i.i.i.i = phi i64 [ 0, %17 ], [ %60, %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %.024.i.i.i.i.i.i.i.i, i32 5
+  %23 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %.024.i.i.i.i.i.i.i.i, i32 5
   %24 = load i32, ptr %23, align 4, !tbaa !23, !noalias !183
   %25 = and i32 %24, 6
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i.i.i.i.i, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %18, i64 0, i64 %.024.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw %struct.InteractionList, ptr %18, i64 %.024.i.i.i.i.i.i.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !29, !noalias !183
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !29, !noalias !183

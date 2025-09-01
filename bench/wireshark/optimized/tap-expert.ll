@@ -108,7 +108,7 @@ define internal void @expert_stat_init(ptr noundef %0, ptr readnone captures(non
 30:                                               ; preds = %.thread46, %30
   %indvars.iv = phi i64 [ 0, %.thread46 ], [ %indvars.iv.next, %30 ]
   %31 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 24, i32 noundef 1000)
-  %32 = getelementptr [5 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %32 = getelementptr ptr, ptr %27, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -160,7 +160,7 @@ define internal void @expert_stat_reset(ptr noundef captures(none) %0) #0 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr [5 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_array_set_size(ptr noundef %7, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -192,7 +192,7 @@ define internal noundef i32 @expert_stat_packet(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %5
   %13 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.expert_stat_packet, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.expert_stat_packet, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load i32, ptr @lowest_report_level, align 4
   %15 = icmp ult i32 %switch.load, %14
@@ -200,7 +200,7 @@ switch.lookup:                                    ; preds = %5
 
 .preheader:                                       ; preds = %switch.lookup
   %16 = zext nneg i32 %switch.load to i64
-  %17 = getelementptr [5 x ptr], ptr %0, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
@@ -308,7 +308,7 @@ define internal void @expert_tapdata_free(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr [5 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_array_free(ptr noundef %7, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

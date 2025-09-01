@@ -1472,7 +1472,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
   %.02528.i = phi i32 [ %.126.i, %55 ], [ 0, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %45 = getelementptr inbounds nuw [0 x %struct.CheckpointerRequest], ptr %44, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.CheckpointerRequest, ptr %44, i64 %indvars.iv.i
   %46 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %45, i32 noundef 1, ptr noundef nonnull %4) #13
   %47 = load i8, ptr %4, align 1, !range !10, !noundef !11
   %48 = trunc nuw i8 %47 to i1
@@ -1529,8 +1529,8 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly cap
 74:                                               ; preds = %69
   %75 = add i32 %.02330.i, 1
   %76 = sext i32 %.02330.i to i64
-  %77 = getelementptr inbounds [0 x %struct.CheckpointerRequest], ptr %68, i64 0, i64 %76
-  %78 = getelementptr inbounds nuw [0 x %struct.CheckpointerRequest], ptr %68, i64 0, i64 %indvars.iv36.i
+  %77 = getelementptr inbounds %struct.CheckpointerRequest, ptr %68, i64 %76
+  %78 = getelementptr inbounds nuw %struct.CheckpointerRequest, ptr %68, i64 %indvars.iv36.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   %.pre.i = load i32, ptr %65, align 8
   br label %79
@@ -1589,7 +1589,7 @@ CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge33.i, %8
   %99 = add i32 %95, 1
   store i32 %99, ptr %98, align 8
   %100 = sext i32 %95 to i64
-  %101 = getelementptr inbounds [0 x %struct.CheckpointerRequest], ptr %97, i64 0, i64 %100
+  %101 = getelementptr inbounds %struct.CheckpointerRequest, ptr %97, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i32 %1, ptr %101, align 8

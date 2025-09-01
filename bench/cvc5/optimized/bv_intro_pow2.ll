@@ -834,7 +834,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %126, %132, %134
   %spec.select.i.i = add nuw nsw i32 %.031128, %172
   %173 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %174 = sext i32 %spec.select.i.i to i64
-  %175 = getelementptr inbounds [0 x ptr], ptr %173, i64 0, i64 %174
+  %175 = getelementptr inbounds ptr, ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !46, !noalias !50
   store ptr %176, ptr %10, align 8, !tbaa !33, !alias.scope !50
   %177 = load i64, ptr %176, align 8, !noalias !50
@@ -1296,7 +1296,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %364 = icmp eq i32 %363, 2
   %365 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %366 = zext i1 %364 to i64
-  %367 = getelementptr inbounds nuw [0 x ptr], ptr %365, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw ptr, ptr %365, i64 %366
   %368 = load ptr, ptr %367, align 8, !tbaa !46, !noalias !63
   store ptr %368, ptr %15, align 8, !tbaa !33, !alias.scope !63
   %369 = load i64, ptr %368, align 8, !noalias !63
@@ -1902,7 +1902,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %21 = icmp eq i32 %20, 2
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !46, !noalias !71
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
@@ -1922,7 +1922,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %37 = icmp eq i32 %36, 2
   %spec.select.i.i = select i1 %37, i64 2, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %spec.select.i.i
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %spec.select.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !46, !noalias !74
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
@@ -1943,7 +1943,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %52 = icmp eq i32 %51, 2
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !46, !noalias !77
   store ptr %56, ptr %6, align 8, !tbaa !59, !alias.scope !77
   %57 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %6)
@@ -1962,7 +1962,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %67 = icmp eq i32 %66, 2
   %spec.select.i.i49 = select i1 %67, i64 2, i64 1
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %spec.select.i.i49
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %spec.select.i.i49
   %70 = load ptr, ptr %69, align 8, !tbaa !46, !noalias !80
   store ptr %70, ptr %7, align 8, !tbaa !59, !alias.scope !80
   %71 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %7)
@@ -1981,7 +1981,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %80 = icmp eq i32 %79, 2
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %82 = zext i1 %80 to i64
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !46, !noalias !83
   store ptr %84, ptr %8, align 8, !tbaa !59, !alias.scope !83
   %85 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %8)
@@ -1996,10 +1996,10 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %94 = icmp eq i32 %93, 2
   %spec.select.i.i54 = select i1 %94, i64 2, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %96 = getelementptr inbounds nuw [0 x ptr], ptr %95, i64 0, i64 %spec.select.i.i54
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %spec.select.i.i54
   %97 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %98 = zext i1 %94 to i64
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
   %.sroa.066.0.in = select i1 %85, ptr %96, ptr %99
   %.sroa.066.0 = load ptr, ptr %.sroa.066.0.in, align 8, !tbaa !46, !noalias !86
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.066.0, i64 8
@@ -2028,7 +2028,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %120 = icmp eq i32 %119, 2
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.066.0, i64 24
   %122 = zext i1 %120 to i64
-  %123 = getelementptr inbounds nuw [0 x ptr], ptr %121, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw ptr, ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !46, !noalias !87
   %125 = load i64, ptr %100, align 8, !noalias !90
   %126 = trunc i64 %125 to i32
@@ -2038,7 +2038,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal13preprocessing6passes11BvInt
   %130 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %129)
   %131 = icmp eq i32 %130, 2
   %spec.select.i.i58 = select i1 %131, i64 2, i64 1
-  %132 = getelementptr inbounds nuw [0 x ptr], ptr %121, i64 0, i64 %spec.select.i.i58
+  %132 = getelementptr inbounds nuw ptr, ptr %121, i64 %spec.select.i.i58
   %133 = load ptr, ptr %132, align 8, !tbaa !46, !noalias !90
   store ptr %.sroa.066.0, ptr %9, align 8, !tbaa !59
   %134 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %9)
@@ -2284,7 +2284,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes11BvIntroPow217rewrit
   %30 = icmp eq i32 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %32 = zext i1 %30 to i64
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !46, !noalias !100
   store ptr %34, ptr %13, align 8, !tbaa !59, !alias.scope !100
   %35 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %13)
@@ -2299,10 +2299,10 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes11BvIntroPow217rewrit
   %44 = icmp eq i32 %43, 2
   %spec.select.i.i = select i1 %44, i64 2, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %spec.select.i.i
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %spec.select.i.i
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %48 = zext i1 %44 to i64
-  %49 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %.sroa.059.0.in = select i1 %35, ptr %46, ptr %49
   %.sroa.059.0 = load ptr, ptr %.sroa.059.0.in, align 8, !tbaa !46, !noalias !86
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.059.0, i64 8
@@ -2315,7 +2315,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes11BvIntroPow217rewrit
   %57 = icmp eq i32 %56, 2
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.059.0, i64 24
   %59 = zext i1 %57 to i64
-  %60 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !46, !noalias !103
   %62 = load i64, ptr %50, align 8, !noalias !106
   %63 = trunc i64 %62 to i32
@@ -2325,7 +2325,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes11BvIntroPow217rewrit
   %67 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %66)
   %68 = icmp eq i32 %67, 2
   %spec.select.i.i28 = select i1 %68, i64 2, i64 1
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %spec.select.i.i28
+  %69 = getelementptr inbounds nuw ptr, ptr %58, i64 %spec.select.i.i28
   %70 = load ptr, ptr %69, align 8, !tbaa !46, !noalias !106
   store ptr %.sroa.059.0, ptr %14, align 8, !tbaa !59
   %71 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %14)

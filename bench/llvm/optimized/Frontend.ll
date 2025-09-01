@@ -1914,10 +1914,10 @@ switch.lookup:                                    ; preds = %._crit_edge
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %150 = load i32, ptr %149, align 4, !tbaa !382
   %151 = zext nneg i32 %150 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE, i64 0, i64 %151
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE, i64 %151
   %switch.load = load i64, ptr %switch.gep, align 8
   %152 = zext nneg i32 %150 to i64
-  %switch.gep73 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.2, i64 0, i64 %152
+  %switch.gep73 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.2, i64 %152
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   store ptr %switch.load74, ptr %148, align 8
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -1927,10 +1927,10 @@ switch.lookup:                                    ; preds = %._crit_edge
   %156 = load i8, ptr %155, align 8, !tbaa !383
   %switch.tableidx = add nsw i8 %156, -4
   %157 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep76 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.3, i64 0, i64 %157
+  %switch.gep76 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.3, i64 %157
   %switch.load77 = load i64, ptr %switch.gep76, align 8
   %158 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep78 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.4, i64 0, i64 %158
+  %switch.gep78 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.4, i64 %158
   %switch.load79 = load ptr, ptr %switch.gep78, align 8
   store ptr %switch.load79, ptr %154, align 8
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 72

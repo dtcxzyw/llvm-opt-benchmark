@@ -397,26 +397,26 @@ define dso_local void @set_packet_header(ptr noundef writeonly captures(none) in
   %3 = lshr i32 %1, 12
   %4 = and i32 %3, 15
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !11
   store i8 %7, ptr %0, align 1, !tbaa !11
   %8 = lshr i32 %1, 8
   %9 = and i32 %8, 15
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %12, ptr %13, align 1, !tbaa !11
   %14 = lshr i32 %1, 4
   %15 = and i32 %14, 15
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %18, ptr %19, align 1, !tbaa !11
   %20 = and i32 %1, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %23, ptr %24, align 1, !tbaa !11
@@ -559,26 +559,26 @@ _.exit:                                           ; preds = %7, %9
   %14 = add nuw nsw i32 %13, 4
   %15 = lshr i32 %14, 12
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
   store i8 %18, ptr %5, align 1, !tbaa !11
   %19 = lshr i32 %14, 8
   %20 = and i32 %19, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %23, ptr %24, align 1, !tbaa !11
   %25 = lshr i32 %14, 4
   %26 = and i32 %25, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %29, ptr %30, align 1, !tbaa !11
   %31 = and i32 %14, 15
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %34, ptr %35, align 1, !tbaa !11
@@ -635,26 +635,26 @@ define dso_local void @packet_fwrite(ptr noundef %0, ptr noundef %1, i64 noundef
   %10 = add nuw nsw i32 %9, 4
   %11 = lshr i32 %10, 12
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !11
   store i8 %14, ptr %4, align 1, !tbaa !11
   %15 = lshr i32 %10, 8
   %16 = and i32 %15, 15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %19, ptr %20, align 1, !tbaa !11
   %21 = lshr i32 %10, 4
   %22 = and i32 %21, 15
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %25, ptr %26, align 1, !tbaa !11
   %27 = and i32 %10, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %30, ptr %31, align 1, !tbaa !11
@@ -714,23 +714,23 @@ define internal fastcc void @format_packet(ptr noundef %0, ptr noundef %1, ptr n
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %6
   %17 = trunc nuw nsw i64 %9 to i32
   %18 = lshr i64 %9, 12
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !11
   store i8 %20, ptr %16, align 1, !tbaa !11
   %21 = lshr i64 %9, 8
   %22 = and i64 %21, 15
-  %23 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 %24, ptr %25, align 1, !tbaa !11
   %26 = lshr i64 %9, 4
   %27 = and i64 %26, 15
-  %28 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store i8 %29, ptr %30, align 1, !tbaa !11
   %31 = and i64 %9, 15
-  %32 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @set_packet_header.hexchar, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 3
   store i8 %33, ptr %34, align 1, !tbaa !11
@@ -905,14 +905,14 @@ define dso_local i32 @packet_length(ptr noundef readonly captures(none) %0, i64 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1, !tbaa !11
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = sext i8 %9 to i32
   %11 = shl nsw i32 %10, 12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = sext i8 %16 to i32
   %18 = shl nsw i32 %17, 8
@@ -920,7 +920,7 @@ define dso_local i32 @packet_length(ptr noundef readonly captures(none) %0, i64 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = sext i8 %24 to i32
   %26 = shl nsw i32 %25, 4
@@ -928,7 +928,7 @@ define dso_local i32 @packet_length(ptr noundef readonly captures(none) %0, i64 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = sext i8 %32 to i32
   %34 = or i32 %27, %33
@@ -954,14 +954,14 @@ define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %0, p
 13:                                               ; preds = %7
   %14 = load i8, ptr %8, align 1, !tbaa !11
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = sext i8 %17 to i32
   %19 = shl nsw i32 %18, 12
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = sext i8 %24 to i32
   %26 = shl nsw i32 %25, 8
@@ -969,7 +969,7 @@ define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %0, p
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %29 = load i8, ptr %28, align 1, !tbaa !11
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = sext i8 %32 to i32
   %34 = shl nsw i32 %33, 4
@@ -977,7 +977,7 @@ define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %0, p
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %37 = load i8, ptr %36, align 1, !tbaa !11
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = sext i8 %40 to i32
   %42 = or i32 %35, %41

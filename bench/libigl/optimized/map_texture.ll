@@ -122,7 +122,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw11map_textu
 
 switch.lookup:                                    ; preds = %11
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN3igl6opengl4glfw11map_textureIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEbRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EEPKhiiiRSt6vectorIhSaIhEERiSQ_SQ_, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3igl6opengl4glfw11map_textureIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEbRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EEPKhiiiRSt6vectorIhSaIhEERiSQ_SQ_, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.noexc.i
 
@@ -976,7 +976,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw11map_textureIN
 
 switch.lookup:                                    ; preds = %11
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN3igl6opengl4glfw11map_textureIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEbRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EEPKhiiiRSt6vectorIhSaIhEERiSQ_SQ_, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3igl6opengl4glfw11map_textureIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_EEbRKNS3_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EEPKhiiiRSt6vectorIhSaIhEERiSQ_SQ_, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.noexc.i
 

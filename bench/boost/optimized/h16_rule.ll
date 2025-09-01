@@ -94,7 +94,7 @@ switch.hole_check:                                ; preds = %16
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %25
   %switch.load = load i16, ptr %switch.gep, align 2
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %26, ptr %2, align 8, !tbaa !3
@@ -103,19 +103,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 28:                                               ; preds = %switch.lookup
   %29 = load i8, ptr %26, align 1, !tbaa !18
-  %switch.tableidx80 = add i8 %29, -48
-  %30 = icmp ult i8 %switch.tableidx80, 55
+  %switch.tableidx79 = add i8 %29, -48
+  %30 = icmp ult i8 %switch.tableidx79, 55
   br i1 %30, label %switch.hole_check81, label %53
 
 switch.hole_check81:                              ; preds = %28
-  %switch.maskindex83 = zext nneg i8 %switch.tableidx80 to i64
+  %switch.maskindex83 = zext nneg i8 %switch.tableidx79 to i64
   %switch.shifted84 = lshr i64 35465847073801215, %switch.maskindex83
   %switch.lobit85 = trunc i64 %switch.shifted84 to i1
   br i1 %switch.lobit85, label %switch.lookup82, label %53
 
 switch.lookup82:                                  ; preds = %switch.hole_check81
-  %31 = zext nneg i8 %switch.tableidx80 to i64
-  %switch.gep86 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %31
+  %31 = zext nneg i8 %switch.tableidx79 to i64
+  %switch.gep86 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %31
   %switch.load87 = load i16, ptr %switch.gep86, align 2
   %32 = shl nuw nsw i16 %switch.load, 4
   %33 = or disjoint i16 %switch.load87, %32
@@ -126,19 +126,19 @@ switch.lookup82:                                  ; preds = %switch.hole_check81
 
 36:                                               ; preds = %switch.lookup82
   %37 = load i8, ptr %34, align 1, !tbaa !18
-  %switch.tableidx89 = add i8 %37, -48
-  %38 = icmp ult i8 %switch.tableidx89, 55
+  %switch.tableidx88 = add i8 %37, -48
+  %38 = icmp ult i8 %switch.tableidx88, 55
   br i1 %38, label %switch.hole_check90, label %53
 
 switch.hole_check90:                              ; preds = %36
-  %switch.maskindex92 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.maskindex92 = zext nneg i8 %switch.tableidx88 to i64
   %switch.shifted93 = lshr i64 35465847073801215, %switch.maskindex92
   %switch.lobit94 = trunc i64 %switch.shifted93 to i1
   br i1 %switch.lobit94, label %switch.lookup91, label %53
 
 switch.lookup91:                                  ; preds = %switch.hole_check90
-  %39 = zext nneg i8 %switch.tableidx89 to i64
-  %switch.gep95 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %39
+  %39 = zext nneg i8 %switch.tableidx88 to i64
+  %switch.gep95 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %39
   %switch.load96 = load i16, ptr %switch.gep95, align 2
   %40 = shl nuw nsw i16 %33, 4
   %41 = or disjoint i16 %switch.load96, %40
@@ -149,19 +149,19 @@ switch.lookup91:                                  ; preds = %switch.hole_check90
 
 44:                                               ; preds = %switch.lookup91
   %45 = load i8, ptr %42, align 1, !tbaa !18
-  %switch.tableidx98 = add i8 %45, -48
-  %46 = icmp ult i8 %switch.tableidx98, 55
+  %switch.tableidx97 = add i8 %45, -48
+  %46 = icmp ult i8 %switch.tableidx97, 55
   br i1 %46, label %switch.hole_check99, label %53
 
 switch.hole_check99:                              ; preds = %44
-  %switch.maskindex101 = zext nneg i8 %switch.tableidx98 to i64
+  %switch.maskindex101 = zext nneg i8 %switch.tableidx97 to i64
   %switch.shifted102 = lshr i64 35465847073801215, %switch.maskindex101
   %switch.lobit103 = trunc i64 %switch.shifted102 to i1
   br i1 %switch.lobit103, label %switch.lookup100, label %53
 
 switch.lookup100:                                 ; preds = %switch.hole_check99
-  %47 = zext nneg i8 %switch.tableidx98 to i64
-  %switch.gep104 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %47
+  %47 = zext nneg i8 %switch.tableidx97 to i64
+  %switch.gep104 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %47
   %switch.load105 = load i16, ptr %switch.gep104, align 2
   %48 = shl nuw i16 %41, 4
   %49 = or disjoint i16 %switch.load105, %48

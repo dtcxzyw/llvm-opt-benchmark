@@ -111,9 +111,9 @@ define void @_ZN6icu_7715PersianCalendarD0Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7715PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL22kPersianCalendarLimits, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL22kPersianCalendarLimits, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   ret i32 %8
 }
@@ -279,8 +279,8 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7715PersianCalendar20handleGet
 _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %11
   %14 = load i32, ptr %5, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %15
-  br label %35
+  %16 = getelementptr inbounds i8, ptr @_ZL19kPersianMonthLength, i64 %15
+  br label %33
 
 17:                                               ; preds = %11
   %.pre.i.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
@@ -298,8 +298,8 @@ _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %11
 _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %19
   %23 = load i32, ptr %5, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %24
-  br label %35
+  %25 = getelementptr inbounds i8, ptr @_ZL23kPersianLeapMonthLength, i64 %24
+  br label %33
 
 _ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %9, %17, %19
   %26 = sext i32 %.0 to i64
@@ -309,16 +309,15 @@ _ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %9, %17, %19
   %30 = icmp sgt i64 %29, 7
   %31 = load i32, ptr %5, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %32
-  %34 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %32
-  %spec.select = select i1 %30, ptr %34, ptr %33
-  br label %35
+  %spec.select.v = select i1 %30, ptr @_ZL19kPersianMonthLength, ptr @_ZL23kPersianLeapMonthLength
+  %spec.select = getelementptr inbounds i8, ptr %spec.select.v, i64 %32
+  br label %33
 
-35:                                               ; preds = %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
-  %36 = phi ptr [ %25, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6 ], [ %16, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ]
-  %37 = load i8, ptr %36, align 1, !tbaa !14
-  %38 = sext i8 %37 to i32
-  ret i32 %38
+33:                                               ; preds = %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+  %34 = phi ptr [ %25, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6 ], [ %16, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ]
+  %35 = load i8, ptr %34, align 1, !tbaa !14
+  %36 = sext i8 %35 to i32
+  ret i32 %36
 }
 
 declare noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -431,7 +430,7 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %15, %27
 
 34:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %35
+  %36 = getelementptr inbounds i16, ptr @_ZL15kPersianNumDays, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !9
   %38 = sext i16 %37 to i64
   %39 = add nsw i64 %32, %38
@@ -567,7 +566,7 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %12, %20
   %.0 = phi i32 [ %38, %.thread ], [ %36, %.thread38 ]
   %40 = add nsw i32 %.02636, 1
   %41 = sext i32 %.0 to i64
-  %42 = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %41
+  %42 = getelementptr inbounds i16, ptr @_ZL15kPersianNumDays, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !9
   %44 = sext i16 %43 to i32
   %45 = sub nsw i32 %40, %44

@@ -414,8 +414,8 @@ define internal i64 @fun_so_cp50220_encoder(ptr noundef captures(none) %0, ptr n
 11:                                               ; preds = %8
   %12 = and i8 %10, 127
   %13 = zext nneg i8 %12 to i64
-  %14 = add nsw i64 %13, -33
-  %15 = getelementptr inbounds [63 x [2 x i8]], ptr @tbl0208, i64 0, i64 %14
+  %14 = getelementptr [2 x i8], ptr @tbl0208, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 -66
   store i8 0, ptr %9, align 1, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !6
@@ -434,7 +434,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr noundef captures(none) %0, ptr n
 iso2022jp_put_state.exit:                         ; preds = %11, %18
   %.0.i = phi ptr [ %.1.i, %18 ], [ %3, %11 ]
   store i8 2, ptr %0, align 1, !tbaa !6
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  %21 = getelementptr i8, ptr %14, i64 -65
   %22 = load i8, ptr %15, align 2, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %22, ptr %.0.i, align 1, !tbaa !6
@@ -586,8 +586,8 @@ fun_so_cp5022x_encoder.exit99:                    ; preds = %71, %.split78
 
 87:                                               ; preds = %81
   %88 = zext i8 %83 to i64
-  %89 = add nsw i64 %88, -161
-  %90 = getelementptr inbounds [63 x [2 x i8]], ptr @tbl0208, i64 0, i64 %89
+  %89 = getelementptr [2 x i8], ptr @tbl0208, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 -322
   %91 = load i8, ptr %0, align 1, !tbaa !6
   %.not.i100 = icmp eq i8 %91, 2
   br i1 %.not.i100, label %iso2022jp_put_state.exit103, label %92
@@ -604,7 +604,7 @@ fun_so_cp5022x_encoder.exit99:                    ; preds = %71, %.split78
 
 iso2022jp_put_state.exit103:                      ; preds = %87, %92
   %.0.i102 = phi ptr [ %.1.i101, %92 ], [ %.076, %87 ]
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %95 = getelementptr i8, ptr %89, i64 -321
   %96 = load i8, ptr %90, align 2, !tbaa !6
   %97 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 1
   store i8 %96, ptr %.0.i102, align 1, !tbaa !6
@@ -685,8 +685,8 @@ define internal i64 @finish_cp50220_encoder(ptr noundef captures(none) %0, ptr n
 8:                                                ; preds = %5
   %9 = and i8 %7, 127
   %10 = zext nneg i8 %9 to i64
-  %11 = add nsw i64 %10, -33
-  %12 = getelementptr inbounds [63 x [2 x i8]], ptr @tbl0208, i64 0, i64 %11
+  %11 = getelementptr [2 x i8], ptr @tbl0208, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -66
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !6
   %.not.i = icmp eq i8 %14, 2
@@ -704,7 +704,7 @@ define internal i64 @finish_cp50220_encoder(ptr noundef captures(none) %0, ptr n
 iso2022jp_put_state.exit:                         ; preds = %8, %15
   %.0.i = phi ptr [ %.1.i, %15 ], [ %1, %8 ]
   store i8 2, ptr %0, align 1, !tbaa !6
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %18 = getelementptr i8, ptr %11, i64 -65
   %19 = load i8, ptr %12, align 2, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %19, ptr %.0.i, align 1, !tbaa !6

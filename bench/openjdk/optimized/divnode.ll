@@ -4020,7 +4020,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 88:                                               ; preds = %85
   %89 = zext nneg i32 %86 to i64
-  %90 = getelementptr inbounds nuw [17 x i32], ptr @_ZZN8ModINode5IdealEP8PhaseGVNbE13unroll_factor, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @_ZZN8ModINode5IdealEP8PhaseGVNbE13unroll_factor, i64 %89
   %91 = load i32, ptr %90, align 4
   br label %92
 
@@ -4931,7 +4931,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw [33 x i32], ptr @_ZZN8ModLNode5IdealEP8PhaseGVNbE13unroll_factor, i64 0, i64 %86
+  %90 = getelementptr inbounds nuw i32, ptr @_ZZN8ModLNode5IdealEP8PhaseGVNbE13unroll_factor, i64 %86
   %91 = load i32, ptr %90, align 4
   br label %92
 

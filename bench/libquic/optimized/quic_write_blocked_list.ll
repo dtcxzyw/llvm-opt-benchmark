@@ -703,7 +703,7 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i8, ptr %55, align 4, !tbaa !54
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %56, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %56, i64 %58
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !55, !noalias !56
@@ -1139,7 +1139,7 @@ _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %55, %57
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = zext i8 %62 to i64
-  %71 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %69, i64 %70
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !55, !noalias !87
@@ -1211,7 +1211,7 @@ _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %55, %57
 _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit: ; preds = %68, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %107 = zext i8 %61 to i64
-  %108 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %69, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %69, i64 %107
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %54, ptr %11, align 8, !tbaa !65
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
@@ -1518,7 +1518,7 @@ define linkonce_odr void @_ZN3net22PriorityWriteSchedulerIjE31PopNextReadyStream
 
 .critedge:                                        ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %4, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %7, align 8, !tbaa !55
@@ -1725,7 +1725,7 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %46, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %46, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load ptr, ptr %50, align 8, !tbaa !55
@@ -1736,7 +1736,7 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
 .critedge20:                                      ; preds = %47, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit
   %.pre-phi = phi i64 [ 0, %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit ], [ %wide.trip.count, %47 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %56 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %55, i64 0, i64 %.pre-phi
+  %56 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %55, i64 %.pre-phi
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load ptr, ptr %57, align 8, !tbaa !55
@@ -1866,7 +1866,7 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i8, ptr %47, align 4, !tbaa !54
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %52, i64 %54
   br i1 %2, label %56, label %57
 
 56:                                               ; preds = %51
@@ -2027,7 +2027,7 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i8, ptr %54, align 4, !tbaa !54
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %55, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !55, !noalias !125

@@ -451,8 +451,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %27 = add i64 %19, -1
-  %28 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %27
+  %27 = getelementptr i8, ptr %4, i64 %19
+  %28 = getelementptr i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1, !tbaa !30
   %30 = icmp eq i8 %29, 10
   br i1 %30, label %.thread, label %16

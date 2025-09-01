@@ -1369,7 +1369,7 @@ dissect_cops_object.exit.thread:                  ; preds = %49
 
 switch.lookup:                                    ; preds = %67
   %78 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %78
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cops_pdu.1, i64 %78
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %cops_c_type_to_str.exit.i
 
@@ -1408,9 +1408,9 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
   br label %cops_c_type_to_str.exit75.i
 
 89:                                               ; preds = %cops_c_type_to_str.exit.i, %cops_c_type_to_str.exit.i
-  %switch.tableidx332 = add i8 %60, -1
-  %90 = icmp ult i8 %switch.tableidx332, 5
-  br i1 %90, label %switch.lookup331, label %99
+  %switch.tableidx331 = add i8 %60, -1
+  %90 = icmp ult i8 %switch.tableidx331, 5
+  br i1 %90, label %switch.lookup332, label %99
 
 91:                                               ; preds = %cops_c_type_to_str.exit.i
   %switch.selectcmp22.i67.i = icmp eq i8 %60, 2
@@ -1441,14 +1441,14 @@ cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77,
 99:                                               ; preds = %89, %97, %95, %92, %86, %cops_c_type_to_str.exit.i
   br label %cops_c_type_to_str.exit75.i
 
-switch.lookup331:                                 ; preds = %89
-  %100 = zext nneg i8 %switch.tableidx332 to i64
-  %switch.gep333 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_cops_pdu.1, i64 0, i64 %100
+switch.lookup332:                                 ; preds = %89
+  %100 = zext nneg i8 %switch.tableidx331 to i64
+  %switch.gep333 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cops_pdu.1, i64 %100
   %switch.load334 = load ptr, ptr %switch.gep333, align 8
   br label %cops_c_type_to_str.exit75.i
 
-cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup331, %99, %97, %95, %94, %92, %91, %88, %86
-  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.670, %86 ], [ @.str.680, %92 ], [ @.str.683, %95 ], [ @.str.684, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load334, %switch.lookup331 ]
+cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup332, %99, %97, %95, %94, %92, %91, %88, %86
+  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.670, %86 ], [ @.str.680, %92 ], [ @.str.683, %95 ], [ @.str.684, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load334, %switch.lookup332 ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1

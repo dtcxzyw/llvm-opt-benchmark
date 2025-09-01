@@ -96,7 +96,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %25
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.decode_init, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decode_init, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %34, align 8, !tbaa !35
@@ -792,7 +792,7 @@ loco_update_rice_param.exit39:                    ; preds = %31, %39
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %58
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %59
   %60 = zext nneg i32 %.110.i.i to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !32
   %63 = zext i8 %62 to i32
   %64 = add nuw nsw i32 %.1.i.i, %63
@@ -980,7 +980,7 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull captures(no
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %16
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %17
   %18 = zext nneg i32 %.110.i to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !32
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %.1.i, %21

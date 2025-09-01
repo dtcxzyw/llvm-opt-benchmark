@@ -191,7 +191,7 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %23 = zext i8 %1 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 64

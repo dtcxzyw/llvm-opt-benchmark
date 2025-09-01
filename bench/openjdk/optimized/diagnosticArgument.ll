@@ -627,7 +627,7 @@ define hidden void @_ZN12DCmdArgumentI16NanoTimeArgumentE11parse_valueEPKcmP10Ja
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa
   %33 = tail call ptr @strncpy(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef %26) #15
-  %34 = getelementptr inbounds nuw [3 x i8], ptr %31, i64 0, i64 %26
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %26
   store i8 0, ptr %34, align 1
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %31, ptr noundef nonnull dereferenceable(3) @.str.22, i64 3)
   %35 = icmp eq i32 %bcmp, 0

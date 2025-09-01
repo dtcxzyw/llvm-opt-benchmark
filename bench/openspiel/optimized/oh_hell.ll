@@ -5029,7 +5029,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %_Z
 12:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
   %13 = srem i32 %8, %9
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %14
   %16 = load i8, ptr %15, align 1, !noalias !47
   store i8 %16, ptr %3, align 1, !noalias !47
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -5040,7 +5040,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %_Z
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %12, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i
   %20 = phi ptr [ %17, %12 ], [ %11, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
   %.0.i4.i = phi i64 [ %19, %12 ], [ -1, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
-  %21 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %21 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %.0.i4.i
   %22 = load i8, ptr %21, align 1, !noalias !47
   store i8 %22, ptr %20, align 1, !noalias !47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !47
@@ -5345,7 +5345,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge66, %83
 95:                                               ; preds = %.lr.ph
   %96 = srem i32 %92, %93
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %97
+  %98 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %97
   %99 = load i8, ptr %98, align 1, !noalias !57
   store i8 %99, ptr %3, align 1, !noalias !57
   %100 = sdiv i32 %92, %93
@@ -5354,7 +5354,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge66, %83
 
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %.lr.ph, %95
   %.0.i4.i = phi i64 [ %101, %95 ], [ -1, %.lr.ph ]
-  %102 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %102 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %.0.i4.i
   %103 = load i8, ptr %102, align 1, !noalias !57
   store i8 %103, ptr %52, align 1, !noalias !57
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25, !noalias !57
@@ -5727,7 +5727,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %14
   %20 = trunc i64 %3 to i32
   %21 = srem i32 %20, %16
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %22
+  %23 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %22
   %24 = load i8, ptr %23, align 1, !noalias !66
   store i8 %24, ptr %6, align 1, !noalias !66
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -5738,7 +5738,7 @@ _ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i: ; preds = %14
 _ZNK10open_spiel7oh_hell14DeckProperties8CardRankEi.exit.i: ; preds = %19, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i
   %28 = phi ptr [ %25, %19 ], [ %18, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
   %.0.i4.i = phi i64 [ %27, %19 ], [ -1, %_ZNK10open_spiel7oh_hell14DeckProperties8CardSuitEi.exit.thread.i ]
-  %29 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %.0.i4.i
+  %29 = getelementptr inbounds i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %.0.i4.i
   %30 = load i8, ptr %29, align 1, !noalias !66
   store i8 %30, ptr %28, align 1, !noalias !66
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25, !noalias !66
@@ -5885,7 +5885,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16: ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph, %64
   %indvars.iv40 = phi i64 [ 0, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph ], [ %indvars.iv.next41, %64 ]
-  %33 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 0, i64 %indvars.iv40
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %indvars.iv40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i.i.i.i20 = load i8, ptr %33, align 1
   %.sroa.0.0.insert.ext.i.i.i.i21 = zext i8 %.sroa.0.0.copyload.i.i.i.i20 to i64
@@ -5924,7 +5924,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 0, i64 %indvars.iv.next
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %indvars.iv.next
   store ptr %54, ptr %5, align 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %5)

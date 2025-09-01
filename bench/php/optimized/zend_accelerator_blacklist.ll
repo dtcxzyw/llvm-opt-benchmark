@@ -216,7 +216,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 39:                                               ; preds = %35
   %40 = add i64 %36, 4294967295
   %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !27
   %44 = icmp eq i8 %43, 10
   br i1 %44, label %45, label %59
@@ -224,7 +224,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 45:                                               ; preds = %39
   %46 = add nsw i32 %37, -1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 %47
   store i8 0, ptr %48, align 1, !tbaa !27
   %.not61.i = icmp eq i32 %37, 1
   br i1 %.not61.i, label %59, label %49
@@ -232,7 +232,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 49:                                               ; preds = %45
   %50 = add i64 %36, 4294967294
   %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = icmp eq i8 %53, 13
   br i1 %54, label %55, label %59
@@ -240,7 +240,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 55:                                               ; preds = %49
   %56 = add nsw i32 %37, -2
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 %57
   store i8 0, ptr %58, align 1, !tbaa !27
   br label %59
 

@@ -1250,9 +1250,9 @@ define hidden void @_ZN3euf8ackerman6add_ccEP4exprS2_(ptr noundef nonnull readon
 
 14:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !56
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %.not = icmp eq ptr %16, %18
   br i1 %.not, label %59, label %19

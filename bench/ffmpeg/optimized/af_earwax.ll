@@ -76,7 +76,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 17:                                               ; preds = %2, %29
   %.not129 = phi i1 [ true, %2 ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %29 ]
-  %18 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
@@ -609,17 +609,16 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %9 = shl nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw [64 x i8], ptr @filt, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @filt, i64 %9
   %11 = load i8, ptr %10, align 2, !tbaa !48
   %12 = sext i8 %11 to i16
-  %13 = getelementptr inbounds nuw [32 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   store i16 %12, ptr %13, align 2, !tbaa !43
-  %14 = or disjoint i64 %9, 1
-  %15 = getelementptr inbounds nuw [64 x i8], ptr @filt, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !48
-  %17 = sext i8 %16 to i16
-  %18 = getelementptr inbounds nuw [32 x i16], ptr %6, i64 0, i64 %indvars.iv
-  store i16 %17, ptr %18, align 2, !tbaa !43
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %15 = load i8, ptr %14, align 1, !tbaa !48
+  %16 = sext i8 %15 to i16
+  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  store i16 %16, ptr %17, align 2, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %7, label %8, !llvm.loop !49

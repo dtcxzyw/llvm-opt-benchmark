@@ -2969,7 +2969,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 91:                                               ; preds = %80
   %92 = sdiv i32 %88, 64
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [10 x i64], ptr %11, i64 0, i64 %93
+  %94 = getelementptr inbounds i64, ptr %11, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = srem i32 %88, 64
   %97 = zext nneg i32 %96 to i64
@@ -2980,7 +2980,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 
 100:                                              ; preds = %91
   %101 = sext i32 %88 to i64
-  %102 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %101
+  %102 = getelementptr inbounds ptr, ptr %2, i64 %101
   %103 = load ptr, ptr %102, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i
 
@@ -3048,13 +3048,13 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %138 = sdiv i32 %137, 64
   %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %139
+  %140 = getelementptr inbounds ptr, ptr %2, i64 %139
   store ptr %.0.i.i, ptr %140, align 8
   %141 = srem i32 %137, 64
   %142 = zext nneg i32 %141 to i64
   %143 = shl nuw i64 1, %142
   %144 = sext i32 %138 to i64
-  %145 = getelementptr inbounds [10 x i64], ptr %11, i64 0, i64 %144
+  %145 = getelementptr inbounds i64, ptr %11, i64 %144
   %146 = load i64, ptr %145, align 8
   %147 = or i64 %146, %143
   store i64 %147, ptr %145, align 8
@@ -5338,7 +5338,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 92:                                               ; preds = %83
   %93 = sdiv i32 %89, 64
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [10 x i64], ptr %15, i64 0, i64 %94
+  %95 = getelementptr inbounds i64, ptr %15, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = srem i32 %89, 64
   %98 = zext nneg i32 %97 to i64
@@ -5349,7 +5349,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 
 101:                                              ; preds = %92
   %102 = sext i32 %89 to i64
-  %103 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %102
+  %103 = getelementptr inbounds ptr, ptr %2, i64 %102
   %104 = load ptr, ptr %103, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
@@ -5447,7 +5447,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 149:                                              ; preds = %141
   %150 = sdiv i32 %146, 64
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds [10 x i64], ptr %15, i64 0, i64 %151
+  %152 = getelementptr inbounds i64, ptr %15, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = srem i32 %146, 64
   %155 = zext nneg i32 %154 to i64
@@ -5458,7 +5458,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 
 158:                                              ; preds = %149
   %159 = sext i32 %146 to i64
-  %160 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %159
+  %160 = getelementptr inbounds ptr, ptr %2, i64 %159
   %161 = load ptr, ptr %160, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
@@ -5806,7 +5806,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 339:                                              ; preds = %330
   %340 = sdiv i32 %336, 64
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds [10 x i64], ptr %278, i64 0, i64 %341
+  %342 = getelementptr inbounds i64, ptr %278, i64 %341
   %343 = load i64, ptr %342, align 8
   %344 = srem i32 %336, 64
   %345 = zext nneg i32 %344 to i64
@@ -5817,7 +5817,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 
 348:                                              ; preds = %339
   %349 = sext i32 %336 to i64
-  %350 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %349
+  %350 = getelementptr inbounds ptr, ptr %2, i64 %349
   %351 = load ptr, ptr %350, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit69
 

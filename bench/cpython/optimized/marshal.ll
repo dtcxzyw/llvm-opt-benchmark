@@ -3536,7 +3536,7 @@ _PyUnicode_DATA.exit485:                          ; preds = %285, %287
 
 376:                                              ; preds = %.lr.ph532, %376
   %.0530 = phi i64 [ 0, %.lr.ph532 ], [ %379, %376 ]
-  %377 = getelementptr [1 x ptr], ptr %375, i64 0, i64 %.0530
+  %377 = getelementptr ptr, ptr %375, i64 %.0530
   %378 = load ptr, ptr %377, align 8, !tbaa !29
   tail call fastcc void @w_object(ptr noundef %378, ptr noundef %2)
   %379 = add nuw nsw i64 %.0530, 1
@@ -6038,7 +6038,7 @@ r_long.exit479.thread:                            ; preds = %192, %r_long.exit47
 262:                                              ; preds = %.lr.ph507
   %263 = load ptr, ptr %2, align 8, !tbaa !29
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
-  %265 = getelementptr [1 x ptr], ptr %264, i64 0, i64 %.0308506
+  %265 = getelementptr ptr, ptr %264, i64 %.0308506
   store ptr %249, ptr %265, align 8, !tbaa !29
   %266 = add nuw nsw i64 %.0308506, 1
   %exitcond515.not = icmp eq i64 %266, %.1310
@@ -7193,7 +7193,7 @@ define internal fastcc double @r_float_str(ptr noundef nonnull captures(none) %0
 
 27:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %25, i64 %24, i1 false)
-  %28 = getelementptr [256 x i8], ptr %2, i64 0, i64 %24
+  %28 = getelementptr i8, ptr %2, i64 %24
   store i8 0, ptr %28, align 1, !tbaa !25
   %29 = call double @PyOS_string_to_double(ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #11
   br label %r_byte.exit

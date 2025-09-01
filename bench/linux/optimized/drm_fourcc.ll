@@ -174,7 +174,7 @@ define dso_local noundef ptr @__drm_format_info(i32 noundef %0) local_unnamed_ad
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr [118 x %struct.drm_format_info], ptr @__drm_format_info.formats, i64 0, i64 %6
+  %7 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -195,7 +195,7 @@ define dso_local noundef ptr @drm_format_info(i32 noundef %0) #3 align 16 {
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr [118 x %struct.drm_format_info], ptr @__drm_format_info.formats, i64 0, i64 %6
+  %7 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -241,7 +241,7 @@ define dso_local ptr @drm_get_format_info(ptr noundef readonly captures(none) %0
 
 16:                                               ; preds = %13, %.thread
   %17 = phi i64 [ 0, %.thread ], [ %14, %13 ]
-  %18 = getelementptr [118 x %struct.drm_format_info], ptr @__drm_format_info.formats, i64 0, i64 %17
+  %18 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %12
   br i1 %20, label %21, label %13
@@ -278,7 +278,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = tail call i8 @llvm.umax.i8(i8 %15, i8 1)
   %17 = zext i8 %16 to i32
@@ -306,7 +306,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = tail call i8 @llvm.umax.i8(i8 %15, i8 1)
   %17 = zext i8 %16 to i32
@@ -334,17 +334,17 @@ define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonl
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %.lhs.trunc = shl nuw nsw i16 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %18 = getelementptr [4 x i8], ptr %17, i64 0, i64 %13
+  %18 = getelementptr i8, ptr %17, i64 %13
   %19 = load i8, ptr %18, align 1
   %20 = tail call i8 @llvm.umax.i8(i8 %19, i8 1)
   %21 = zext i8 %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %23 = getelementptr [4 x i8], ptr %22, i64 0, i64 %13
+  %23 = getelementptr i8, ptr %22, i64 %13
   %24 = load i8, ptr %23, align 1
   %25 = tail call i8 @llvm.umax.i8(i8 %24, i8 1)
   %26 = zext i8 %25 to i16
@@ -376,17 +376,17 @@ define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr 
   %13 = zext i32 %2 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr [4 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %14, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
   %19 = mul nuw nsw i64 %18, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %21 = getelementptr [4 x i8], ptr %20, i64 0, i64 %15
+  %21 = getelementptr i8, ptr %20, i64 %15
   %22 = load i8, ptr %21, align 1
   %23 = tail call i8 @llvm.umax.i8(i8 %22, i8 1)
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %26 = getelementptr [4 x i8], ptr %25, i64 0, i64 %15
+  %26 = getelementptr i8, ptr %25, i64 %15
   %27 = load i8, ptr %26, align 1
   %28 = tail call i8 @llvm.umax.i8(i8 %27, i8 1)
   %29 = zext i8 %28 to i64

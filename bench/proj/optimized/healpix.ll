@@ -1596,7 +1596,7 @@ _ZL16get_rotate_indexi.exit:                      ; preds = %121, %120, %119, %1
   %123 = phi double [ 0x3FF921FB54442D18, %99 ], [ 0x3FF921FB54442D18, %94 ], [ 0x3FF921FB54442D18, %95 ], [ 0x3FF921FB54442D18, %96 ], [ 0x3FF921FB54442D18, %97 ], [ 0x3FF921FB54442D18, %98 ], [ 0x3FF921FB54442D18, %92 ], [ 0xBFF921FB54442D18, %106 ], [ 0xBFF921FB54442D18, %101 ], [ 0xBFF921FB54442D18, %102 ], [ 0xBFF921FB54442D18, %103 ], [ 0xBFF921FB54442D18, %104 ], [ 0xBFF921FB54442D18, %105 ], [ 0xBFF921FB54442D18, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.30.0.ph78 = phi double [ %.0.i, %99 ], [ %.0.i, %94 ], [ %.0.i, %95 ], [ %.0.i, %96 ], [ %.0.i, %97 ], [ %.0.i, %98 ], [ %.0.i, %92 ], [ %.0.i, %106 ], [ %.0.i, %101 ], [ %.0.i, %102 ], [ %.0.i, %103 ], [ %.0.i, %104 ], [ %.0.i, %105 ], [ %.0.i, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.2144.0.ph76 = phi double [ %.sroa.2144.0.ph, %99 ], [ %.sroa.2144.0.ph, %94 ], [ %.sroa.2144.0.ph, %95 ], [ %.sroa.2144.0.ph, %96 ], [ %.sroa.2144.0.ph, %97 ], [ %.sroa.2144.0.ph, %98 ], [ %.sroa.2144.0.ph, %92 ], [ %.sroa.2144.0.ph, %106 ], [ %.sroa.2144.0.ph, %101 ], [ %.sroa.2144.0.ph, %102 ], [ %.sroa.2144.0.ph, %103 ], [ %.sroa.2144.0.ph, %104 ], [ %.sroa.2144.0.ph, %105 ], [ %.sroa.2144.0.ph, %100 ], [ %25, %113 ], [ %25, %108 ], [ %25, %109 ], [ %25, %110 ], [ %25, %111 ], [ %25, %112 ], [ %25, %107 ], [ %59, %121 ], [ %59, %116 ], [ %59, %117 ], [ %59, %118 ], [ %59, %119 ], [ %59, %120 ], [ %59, %114 ]
-  %124 = getelementptr inbounds nuw [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink
+  %124 = getelementptr inbounds nuw [2 x [2 x double]], ptr @_ZL3rot, i64 %.0.i23.sink
   %125 = fsub double %0, %.sroa.2144.0.ph76
   %126 = fsub double %1, %.sroa.30.0.ph78
   br label %_ZL10vector_subPKdS0_Pd.exit
@@ -1613,7 +1613,7 @@ _ZL10vector_subPKdS0_Pd.exit:                     ; preds = %_ZL16get_rotate_ind
   %indvars.iv.i27.sroa.phi.sroa.speculated = phi double [ %125, %_ZL10vector_subPKdS0_Pd.exit ], [ %126, %129 ]
   %indvars.iv.i27 = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit ], [ 1, %129 ]
   %131 = phi double [ 0.000000e+00, %_ZL10vector_subPKdS0_Pd.exit ], [ %134, %129 ]
-  %132 = getelementptr inbounds nuw [2 x double], ptr %128, i64 0, i64 %indvars.iv.i27
+  %132 = getelementptr inbounds nuw double, ptr %128, i64 %indvars.iv.i27
   %133 = load double, ptr %132, align 8, !tbaa !56
   %134 = tail call double @llvm.fmuladd.f64(double %133, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %131)
   br i1 %130, label %129, label %135, !llvm.loop !63

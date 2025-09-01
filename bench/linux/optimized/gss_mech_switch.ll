@@ -803,7 +803,7 @@ define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
   %15 = or i32 %5, 256
-  %16 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %14, i64 5
+  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14, i64 5
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %15, i64 noundef 24) #16
   store ptr %18, ptr %3, align 8

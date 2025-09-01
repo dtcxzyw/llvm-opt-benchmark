@@ -180,7 +180,7 @@ mmbit_get_flat_block.exit63:                      ; preds = %74, %77, %80, %88
 99:                                               ; preds = %23
   %100 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, -1) %21, i1 true)
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   br label %.backedge116
@@ -194,7 +194,7 @@ mmbit_get_flat_block.exit63:                      ; preds = %74, %77, %80, %88
 
 106:                                              ; preds = %.backedge116
   %107 = zext i32 %.1.i46 to i64
-  %108 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 3
@@ -261,7 +261,7 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   %146 = sub nuw nsw i64 64, %145
   %147 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, -1) %21, i1 true)
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %148
   %150 = zext nneg i32 %135 to i64
   br label %151
 
@@ -556,7 +556,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %261, %264, %267, %2
 
 292:                                              ; preds = %.backedge
   %293 = zext i32 %.1.i40 to i64
-  %294 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = zext i32 %295 to i64
   %297 = shl nuw nsw i64 %296, 3
@@ -778,7 +778,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %74, %77, %80, %88
 99:                                               ; preds = %23
   %100 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, -1) %21, i1 true)
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   br label %.backedge114
@@ -792,7 +792,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %74, %77, %80, %88
 
 106:                                              ; preds = %.backedge114
   %107 = zext i32 %.1.i37 to i64
-  %108 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 3
@@ -857,7 +857,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   %144 = sub nuw nsw i64 64, %143
   %145 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, -1) %21, i1 true)
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @mmbit_maxlevel_direct_lut, i64 %146
   %148 = icmp ugt i32 %.fr143, 256
   br i1 %148, label %.lr.ph125.split.split.us, label %.lr.ph125.split.split
 
@@ -918,7 +918,7 @@ loadSomValue.exit.us129:                          ; preds = %162, %158, %154
 
 173:                                              ; preds = %.backedge.us
   %174 = zext i32 %.1.i44.us to i64
-  %175 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 3

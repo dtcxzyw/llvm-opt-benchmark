@@ -187,7 +187,7 @@ define hidden noundef ptr @_ZN9CMoveNode4makeEP4NodeS1_S1_S1_PK4Type(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %8, i32 1
+  %9 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %8, i32 1
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %222 [
     i8 10, label %11
@@ -1206,13 +1206,13 @@ define hidden noundef ptr @_ZN10CMoveFNode5IdealEP8PhaseGVNb(ptr noundef nonnull
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep50 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
+  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 %19
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep52 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
+  %switch.gep52 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 %20
   %switch.load53 = load i32, ptr %switch.gep52, align 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -1362,13 +1362,13 @@ define hidden noundef ptr @_ZN10CMoveDNode5IdealEP8PhaseGVNb(ptr noundef nonnull
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep50 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 0, i64 %19
+  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.3, i64 %19
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep52 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 0, i64 %20
+  %switch.gep52 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb.4, i64 %20
   %switch.load53 = load i32, ptr %switch.gep52, align 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load ptr, ptr %21, align 8

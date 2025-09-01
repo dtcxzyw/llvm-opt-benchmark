@@ -1570,7 +1570,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
   %143 = lshr i16 %129, 7
   %144 = and i16 %143, 7
   %145 = zext nneg i16 %144 to i64
-  %146 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %145, i64 1
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %145, i64 1
   %147 = load i8, ptr %146, align 1, !tbaa !221, !range !54, !noundef !55
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %179
@@ -1594,7 +1594,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
   %156 = lshr i16 %155, 7
   %157 = and i16 %156, 7
   %158 = zext nneg i16 %157 to i64
-  %159 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %158
   %160 = load i8, ptr %159, align 8, !tbaa !221, !range !54, !noundef !55
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %"_ZZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsEENK3$_0clESC_NS_14AtomicOrderingE.exit.thread", label %175
@@ -1604,7 +1604,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
   %164 = lshr i16 %163, 7
   %165 = and i16 %164, 7
   %166 = zext nneg i16 %165 to i64
-  %167 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %166
   %168 = load i8, ptr %167, align 8, !tbaa !221, !range !54, !noundef !55
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %"_ZZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsEENK3$_0clESC_NS_14AtomicOrderingE.exit.thread", label %175
@@ -1729,7 +1729,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
   %223 = lshr i16 %222, 7
   %224 = and i16 %223, 7
   %225 = zext nneg i16 %224 to i64
-  %226 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %225, i64 1
+  %226 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %225, i64 1
   %227 = load i8, ptr %226, align 1, !tbaa !221, !range !54, !noundef !55
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %"_ZZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsEENK3$_0clESC_NS_14AtomicOrderingE.exit126.thread", label %242
@@ -1739,7 +1739,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit122: ; preds 
   %231 = lshr i16 %230, 7
   %232 = and i16 %231, 7
   %233 = zext nneg i16 %232 to i64
-  %234 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %233, i64 1
+  %234 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %233, i64 1
   %235 = load i8, ptr %234, align 1, !tbaa !221, !range !54, !noundef !55
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %"_ZZN4llvm23MemoryDependenceResults30getSimplePointerDependencyFromERKNS_14MemoryLocationEbNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPS8_PS7_PjRNS_14BatchAAResultsEENK3$_0clESC_NS_14AtomicOrderingE.exit126.thread", label %242

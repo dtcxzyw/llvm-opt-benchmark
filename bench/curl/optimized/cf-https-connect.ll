@@ -87,7 +87,7 @@ thread-pre-split:                                 ; preds = %21, %16, %12, %5, %
 25:                                               ; preds = %cf_hc_baller_reset.exit.i, %.lr.ph.i
   %26 = phi i64 [ %23, %.lr.ph.i ], [ %31, %cf_hc_baller_reset.exit.i ]
   %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %34, %cf_hc_baller_reset.exit.i ]
-  %27 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %24, i64 0, i64 %.01.i
+  %27 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %24, i64 %.01.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !86
   %.not.i.i = icmp eq ptr %29, null
@@ -826,7 +826,7 @@ define internal void @cf_hc_close(ptr noundef %0, ptr noundef %1) #0 {
 27:                                               ; preds = %cf_hc_baller_reset.exit.i, %.lr.ph.i
   %28 = phi i64 [ %25, %.lr.ph.i ], [ %33, %cf_hc_baller_reset.exit.i ]
   %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %cf_hc_baller_reset.exit.i ]
-  %29 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %26, i64 0, i64 %.01.i
+  %29 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %26, i64 %.01.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !86
   %.not.i.i = icmp eq ptr %31, null
@@ -915,7 +915,7 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 14:                                               ; preds = %.lr.ph, %cf_hc_baller_is_active.exit.thread
   %.04660 = phi i64 [ 0, %.lr.ph ], [ %35, %cf_hc_baller_is_active.exit.thread ]
-  %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %12, i64 0, i64 %.04660
+  %15 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %12, i64 %.04660
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !98
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1083,7 +1083,7 @@ define internal void @cf_hc_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
 13:                                               ; preds = %.lr.ph, %cf_hc_baller_is_active.exit.thread
   %14 = phi i64 [ %11, %.lr.ph ], [ %21, %cf_hc_baller_is_active.exit.thread ]
   %.025 = phi i64 [ 0, %.lr.ph ], [ %22, %cf_hc_baller_is_active.exit.thread ]
-  %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %12, i64 0, i64 %.025
+  %15 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %12, i64 %.025
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !86
   %.not.i = icmp eq ptr %17, null
@@ -1218,7 +1218,7 @@ define internal zeroext i1 @cf_hc_data_pending(ptr noundef %0, ptr noundef %1) #
 37:                                               ; preds = %.lr.ph, %cf_hc_baller_data_pending.exit.thread
   %38 = phi i64 [ %35, %.lr.ph ], [ %49, %cf_hc_baller_data_pending.exit.thread ]
   %.026 = phi i64 [ 0, %.lr.ph ], [ %50, %cf_hc_baller_data_pending.exit.thread ]
-  %39 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %36, i64 0, i64 %.026
+  %39 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %36, i64 %.026
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !86
   %.not.i = icmp eq ptr %41, null
@@ -1278,7 +1278,7 @@ define internal range(i32 82, 81) i32 @cf_hc_cntrl(ptr noundef readonly captures
 
 14:                                               ; preds = %.lr.ph, %cf_hc_baller_cntrl.exit.thread
   %.017 = phi i64 [ 0, %.lr.ph ], [ %22, %cf_hc_baller_cntrl.exit.thread ]
-  %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %13, i64 0, i64 %.017
+  %15 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %13, i64 %.017
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !86
   %.not.i = icmp eq ptr %17, null
@@ -1476,7 +1476,7 @@ cf_get_max_baller_time.exit49:                    ; preds = %65, %43
 69:                                               ; preds = %.lr.ph, %cf_hc_baller_needs_flush.exit.thread
   %70 = phi i64 [ %15, %.lr.ph ], [ %79, %cf_hc_baller_needs_flush.exit.thread ]
   %.02851 = phi i64 [ 0, %.lr.ph ], [ %80, %cf_hc_baller_needs_flush.exit.thread ]
-  %71 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %16, i64 0, i64 %.02851
+  %71 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %16, i64 %.02851
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !86
   %.not.i50 = icmp eq ptr %73, null
@@ -1616,7 +1616,7 @@ define hidden i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 nound
 
 33:                                               ; preds = %cf_hc_baller_assign.exit.i.i, %28
   %.060.i.i = phi i64 [ 0, %28 ], [ %43, %cf_hc_baller_assign.exit.i.i ]
-  %34 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %30, i64 0, i64 %.060.i.i
+  %34 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %30, i64 %.060.i.i
   %35 = getelementptr inbounds nuw i32, ptr %6, i64 %.060.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !101
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 44
@@ -1720,7 +1720,7 @@ cf_hc_baller_assign.exit.i.i:                     ; preds = %41, %40, %39, %38
 75:                                               ; preds = %cf_hc_baller_reset.exit.i.i.i, %.lr.ph.i.i.i
   %76 = phi i64 [ %73, %.lr.ph.i.i.i ], [ %81, %cf_hc_baller_reset.exit.i.i.i ]
   %.01.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %84, %cf_hc_baller_reset.exit.i.i.i ]
-  %77 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %74, i64 0, i64 %.01.i.i.i
+  %77 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %74, i64 %.01.i.i.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !86
   %.not.i.i.i.i = icmp eq ptr %79, null
@@ -1807,7 +1807,7 @@ define internal fastcc void @baller_connected(ptr noundef %0, ptr noundef %1, pt
   %.pre60 = phi i64 [ %7, %.lr.ph ], [ %.pre61, %18 ]
   %10 = phi i64 [ %7, %.lr.ph ], [ %19, %18 ]
   %.058 = phi i64 [ 0, %.lr.ph ], [ %20, %18 ]
-  %11 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %8, i64 0, i64 %.058
+  %11 = getelementptr inbounds nuw %struct.cf_hc_baller, ptr %8, i64 %.058
   %.not56 = icmp eq ptr %2, %11
   br i1 %.not56, label %18, label %12
 

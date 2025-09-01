@@ -64,7 +64,7 @@ define hidden noundef zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef 
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 176
@@ -189,7 +189,7 @@ define hidden zeroext i1 @mi_arena_memid_indices(ptr noundef readonly byval(%str
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @mi_arena_from_index(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %0
+  %2 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %0
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   ret ptr %4
@@ -220,7 +220,7 @@ define hidden void @_mi_arena_segment_mark_abandoned(ptr noundef %0) local_unnam
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -432,7 +432,7 @@ define hidden ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef captures(n
 
 18:                                               ; preds = %16, %14
   %19 = phi i64 [ %17, %16 ], [ %15, %14 ]
-  %20 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 8
   %22 = inttoptr i64 %21 to ptr
   %.not73.i = icmp eq i64 %21, 0
@@ -778,7 +778,7 @@ _mi_arena_field_cursor_init.exit:                 ; preds = %22, %24
   %35 = add nsw i32 %.sroa.4.0.copyload.i, -1
   %36 = select i1 %34, i32 132, i32 %35
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 8
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -891,7 +891,7 @@ mi_arena_static_zalloc.exit:                      ; preds = %12
   store i8 1, ptr %18, align 2, !tbaa !48
   %19 = add i64 %13, 15
   %20 = and i64 %19, -16
-  %21 = getelementptr inbounds nuw [4096 x i8], ptr @mi_arena_static, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @mi_arena_static, i64 %20
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %21, i8 0, i64 %0, i1 false)
   br label %30
@@ -1159,7 +1159,7 @@ define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %0, i1 noundef 
   %12 = add nsw i32 %0, -1
   %13 = select i1 %11, i32 132, i32 %12
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %14
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = icmp eq i64 %16, 0
@@ -1250,7 +1250,7 @@ define hidden ptr @mi_arena_area(i32 noundef %0, ptr noundef writeonly captures(
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = icmp eq i64 %12, 0
@@ -1316,7 +1316,7 @@ define hidden void @_mi_arena_free(ptr noundef %0, i64 noundef %1, i64 noundef %
   %21 = add nsw i32 %.sroa.4.0.copyload, -1
   %22 = select i1 %20, i32 132, i32 %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %23
   %25 = load atomic i64, ptr %24 acquire, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = add i64 %1, 4194303
@@ -1477,7 +1477,7 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
 26:                                               ; preds = %20, %mi_arena_try_purge.exit.thread
   %.03151 = phi i64 [ %21, %20 ], [ %.2.ph, %mi_arena_try_purge.exit.thread ]
   %.03350 = phi i64 [ 0, %20 ], [ %128, %mi_arena_try_purge.exit.thread ]
-  %27 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.03350
+  %27 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.03350
   %28 = load atomic i64, ptr %27 acquire, align 8
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %mi_arena_try_purge.exit.thread, label %29
@@ -1734,7 +1734,7 @@ define hidden void @_mi_arena_unsafe_destroy_all() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %_mi_arena_meta_free.exit.i
   %.028.i = phi i64 [ %.1.i, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
   %.02226.i = phi i64 [ %27, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.02226.i
+  %2 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.02226.i
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   %.not.i = icmp eq i64 %3, 0
@@ -1801,7 +1801,7 @@ define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captur
 
 .lr.ph:                                           ; preds = %1, %.critedge
   %.01525 = phi i64 [ %16, %.critedge ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.01525
+  %3 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.01525
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   %.not = icmp eq i64 %4, 0
@@ -1871,7 +1871,7 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
 
 14:                                               ; preds = %12
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.20, ptr noundef %0, i64 noundef %1) #20
-  br label %119
+  br label %116
 
 15:                                               ; preds = %12
   %16 = ptrtoint ptr %0 to i64
@@ -1892,7 +1892,7 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
 
 26:                                               ; preds = %19
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.21, ptr noundef %0, i64 noundef %1) #20
-  br label %119
+  br label %116
 
 .thread:                                          ; preds = %19, %15
   %.077 = phi i64 [ %1, %15 ], [ %24, %19 ]
@@ -1943,7 +1943,7 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
   store i8 1, ptr %52, align 2, !tbaa !48
   %53 = add i64 %47, 15
   %54 = and i64 %53, -16
-  %55 = getelementptr inbounds nuw [4096 x i8], ptr @mi_arena_static, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @mi_arena_static, i64 %54
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 8) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %55, i8 0, i64 %36, i1 false)
   br label %64
@@ -1993,84 +1993,84 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
   %77 = call i32 @pthread_mutex_init(ptr noundef nonnull %76, ptr noundef null) #20
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 184
-  %79 = getelementptr inbounds nuw [1 x i64], ptr %78, i64 0, i64 %29
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %29
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 152
   store ptr %79, ptr %80, align 8, !tbaa !81
-  %81 = shl nuw nsw i64 %29, 1
-  %82 = getelementptr inbounds nuw [1 x i64], ptr %78, i64 0, i64 %81
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 176
-  store ptr %82, ptr %83, align 8, !tbaa !15
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 24
-  %85 = load i8, ptr %84, align 8, !tbaa !57, !range !26, !noundef !27
-  %86 = trunc nuw i8 %85 to i1
-  %87 = mul nuw nsw i64 %29, 3
-  %88 = getelementptr inbounds nuw [1 x i64], ptr %78, i64 0, i64 %87
-  %89 = select i1 %86, ptr null, ptr %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 160
-  store ptr %89, ptr %90, align 8, !tbaa !58
-  %91 = shl nuw nsw i64 %29, 2
-  %92 = getelementptr inbounds nuw [1 x i64], ptr %78, i64 0, i64 %91
-  %93 = select i1 %86, ptr null, ptr %92
-  %94 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 168
-  store ptr %93, ptr %94, align 8, !tbaa !59
-  br i1 %86, label %100, label %95
+  %.idx = shl nuw nsw i64 %29, 4
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 176
+  store ptr %81, ptr %82, align 8, !tbaa !15
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 24
+  %84 = load i8, ptr %83, align 8, !tbaa !57, !range !26, !noundef !27
+  %85 = trunc nuw i8 %84 to i1
+  %.idx88 = mul nuw nsw i64 %29, 24
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx88
+  %87 = select i1 %85, ptr null, ptr %86
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 160
+  store ptr %87, ptr %88, align 8, !tbaa !58
+  %.idx89 = shl nuw nsw i64 %29, 5
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx89
+  %90 = select i1 %85, ptr null, ptr %89
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 168
+  store ptr %90, ptr %91, align 8, !tbaa !59
+  br i1 %85, label %97, label %92
 
-95:                                               ; preds = %64
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 25
-  %97 = load i8, ptr %96, align 1, !tbaa !82, !range !26, !noundef !27
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %100
+92:                                               ; preds = %64
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 25
+  %94 = load i8, ptr %93, align 1, !tbaa !82, !range !26, !noundef !27
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %96, label %97
 
-99:                                               ; preds = %95
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %88, i8 -1, i64 %34, i1 false)
-  br label %100
+96:                                               ; preds = %92
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 -1, i64 %34, i1 false)
+  br label %97
 
-100:                                              ; preds = %99, %95, %64
-  %101 = and i64 %28, 8796093022144
-  %102 = sub nsw i64 %101, %27
-  %103 = icmp sgt i64 %102, 0
-  br i1 %103, label %104, label %106
+97:                                               ; preds = %96, %92, %64
+  %98 = and i64 %28, 8796093022144
+  %99 = sub nsw i64 %98, %27
+  %100 = icmp sgt i64 %99, 0
+  br i1 %100, label %101, label %103
 
-104:                                              ; preds = %100
-  %105 = call zeroext i1 @_mi_bitmap_claim(ptr noundef nonnull %78, i64 noundef %29, i64 noundef %102, i64 noundef %27, ptr noundef null) #20
-  br label %106
+101:                                              ; preds = %97
+  %102 = call zeroext i1 @_mi_bitmap_claim(ptr noundef nonnull %78, i64 noundef %29, i64 noundef %99, i64 noundef %27, ptr noundef null) #20
+  br label %103
 
-106:                                              ; preds = %104, %100
-  br i1 %.not, label %108, label %107
+103:                                              ; preds = %101, %97
+  br i1 %.not, label %105, label %104
 
-107:                                              ; preds = %106
+104:                                              ; preds = %103
   store i32 -1, ptr %6, align 4, !tbaa !47
-  br label %108
+  br label %105
 
-108:                                              ; preds = %107, %106
-  %109 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %110 = icmp ult i64 %109, 132
-  br i1 %110, label %113, label %111
+105:                                              ; preds = %104, %103
+  %106 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %107 = icmp ult i64 %106, 132
+  br i1 %107, label %110, label %108
 
-111:                                              ; preds = %108
-  %112 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
+108:                                              ; preds = %105
+  %109 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
   br label %_mi_arena_meta_zalloc.exit
 
-113:                                              ; preds = %108
+110:                                              ; preds = %105
   call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 624), i64 noundef 1) #20
-  %114 = trunc nuw nsw i64 %109 to i32
-  %115 = add nuw nsw i32 %114, 1
-  store i32 %115, ptr %.0.i.ph, align 8, !tbaa !53
-  %116 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %109
-  %117 = ptrtoint ptr %.0.i.ph to i64
-  store atomic i64 %117, ptr %116 release, align 8
-  br i1 %.not, label %_mi_arena_meta_zalloc.exit, label %118
+  %111 = trunc nuw nsw i64 %106 to i32
+  %112 = add nuw nsw i32 %111, 1
+  store i32 %112, ptr %.0.i.ph, align 8, !tbaa !53
+  %113 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %106
+  %114 = ptrtoint ptr %.0.i.ph to i64
+  store atomic i64 %114, ptr %113 release, align 8
+  br i1 %.not, label %_mi_arena_meta_zalloc.exit, label %115
 
-118:                                              ; preds = %113
-  store i32 %115, ptr %6, align 4, !tbaa !47
+115:                                              ; preds = %110
+  store i32 %112, ptr %6, align 4, !tbaa !47
   br label %_mi_arena_meta_zalloc.exit
 
-_mi_arena_meta_zalloc.exit:                       ; preds = %118, %113, %111, %56
-  %.2 = phi i1 [ false, %56 ], [ false, %111 ], [ true, %113 ], [ true, %118 ]
+_mi_arena_meta_zalloc.exit:                       ; preds = %115, %110, %108, %56
+  %.2 = phi i1 [ false, %56 ], [ false, %108 ], [ true, %110 ], [ true, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %119
+  br label %116
 
-119:                                              ; preds = %26, %_mi_arena_meta_zalloc.exit, %14
+116:                                              ; preds = %26, %_mi_arena_meta_zalloc.exit, %14
   %.0 = phi i1 [ false, %14 ], [ %.2, %_mi_arena_meta_zalloc.exit ], [ false, %26 ]
   ret i1 %.0
 }
@@ -2165,7 +2165,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %58
   %.044 = phi i64 [ 0, %.lr.ph ], [ %37, %58 ]
   %.02043 = phi i64 [ 0, %.lr.ph ], [ %59, %58 ]
-  %7 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.02043
+  %7 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.02043
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.not24 = icmp eq i64 %8, 0
   br i1 %.not24, label %.thread, label %9
@@ -2225,7 +2225,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
 33:                                               ; preds = %29, %27
   %.sink.i = phi i8 [ %spec.select.i, %29 ], [ 32, %27 ]
   %.3.i = phi i64 [ %spec.select27.i, %29 ], [ %.1251.i, %27 ]
-  %34 = getelementptr inbounds nuw [65 x i8], ptr %2, i64 0, i64 %.0232.i
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.0232.i
   store i8 %.sink.i, ptr %34, align 1, !tbaa !24
   %35 = add nuw nsw i64 %.0232.i, 1
   %36 = add i64 %.13.i, 1
@@ -2285,7 +2285,7 @@ mi_debug_show_bitmap.exit:                        ; preds = %24, %9
 54:                                               ; preds = %50, %48
   %.sink.i33 = phi i8 [ %spec.select.i39, %50 ], [ 32, %48 ]
   %.3.i34 = phi i64 [ %spec.select27.i40, %50 ], [ %.1251.i32, %48 ]
-  %55 = getelementptr inbounds nuw [65 x i8], ptr %1, i64 0, i64 %.0232.i31
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.0232.i31
   store i8 %.sink.i33, ptr %55, align 1, !tbaa !24
   %56 = add nuw nsw i64 %.0232.i31, 1
   %57 = add i64 %.13.i30, 1

@@ -198,7 +198,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 -100, ptr %14, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -211,7 +211,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %20 = getelementptr inbounds nuw [16 x ptr], ptr %19, i64 0, i64 %8
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %8
   %21 = load ptr, ptr %20, align 8, !tbaa !63
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %22
@@ -238,7 +238,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr
 If_CutTruthWR.exit.i.i:                           ; preds = %22, %._crit_edge
   %39 = phi ptr [ %38, %22 ], [ null, %._crit_edge ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %40, i64 0, i64 %8
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %8
   %42 = load i32, ptr %41, align 4, !tbaa !44
   %43 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %43, 0
@@ -303,7 +303,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %67
   %indvars.iv40 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next41, %67 ]
   %.02332 = phi i8 [ 0, %.lr.ph34.preheader ], [ %.124, %67 ]
-  %60 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv40
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40
   %61 = load i32, ptr %60, align 4, !tbaa !44
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %67
@@ -357,7 +357,7 @@ define internal i32 @Abc_NtkRenodeEvalSop(ptr noundef readonly captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %16 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %6
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !63
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %18
@@ -384,7 +384,7 @@ define internal i32 @Abc_NtkRenodeEvalSop(ptr noundef readonly captures(none) %0
 If_CutTruthWR.exit.i.i:                           ; preds = %18, %._crit_edge
   %35 = phi ptr [ %34, %18 ], [ null, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %6
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %6
   %38 = load i32, ptr %37, align 4, !tbaa !44
   %39 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %39, 0
@@ -471,7 +471,7 @@ define internal i32 @Abc_NtkRenodeEvalCnf(ptr noundef readonly captures(none) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %16 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %6
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !63
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %18
@@ -498,7 +498,7 @@ define internal i32 @Abc_NtkRenodeEvalCnf(ptr noundef readonly captures(none) %0
 If_CutTruthWR.exit.i.i:                           ; preds = %18, %._crit_edge
   %35 = phi ptr [ %34, %18 ], [ null, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %6
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %6
   %38 = load i32, ptr %37, align 4, !tbaa !44
   %39 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %39, 0
@@ -558,7 +558,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %56 = load ptr, ptr %13, align 8, !tbaa !49
   %57 = lshr i64 %.val29, 24
   %58 = and i64 %57, 255
-  %59 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %15, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !63
   %.not.i.i.i45 = icmp eq ptr %60, null
   br i1 %.not.i.i.i45, label %If_CutTruthWR.exit.i.i46, label %61
@@ -584,7 +584,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 
 If_CutTruthWR.exit.i.i46:                         ; preds = %61, %53
   %78 = phi ptr [ %77, %61 ], [ null, %53 ]
-  %79 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %58
+  %79 = getelementptr inbounds nuw i32, ptr %36, i64 %58
   %80 = load i32, ptr %79, align 4, !tbaa !44
   %81 = and i32 %.val28, 1
   %.not.i7.i.i47 = icmp eq i32 %81, 0
@@ -630,7 +630,7 @@ If_CutTruth.exit62:                               ; preds = %.lr.ph.i.i.i51, %.l
   %.val31 = load i64, ptr %3, align 4
   %90 = lshr i64 %.val31, 24
   %91 = and i64 %90, 255
-  %92 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %15, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !63
   %.not.i.i.i63 = icmp eq ptr %93, null
   br i1 %.not.i.i.i63, label %If_CutTruthWR.exit.i.i64, label %94
@@ -656,7 +656,7 @@ If_CutTruth.exit62:                               ; preds = %.lr.ph.i.i.i51, %.l
 
 If_CutTruthWR.exit.i.i64:                         ; preds = %94, %If_CutTruth.exit62
   %111 = phi ptr [ %110, %94 ], [ null, %If_CutTruth.exit62 ]
-  %112 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %91
+  %112 = getelementptr inbounds nuw i32, ptr %36, i64 %91
   %113 = load i32, ptr %112, align 4, !tbaa !44
   %114 = icmp sgt i32 %113, 0
   br i1 %.not.i7.i.i47, label %.preheader.i.i.i73, label %.preheader14.i.i.i66
@@ -731,7 +731,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %.val32 = phi i32 [ %.val32.pre, %Kit_TruthNot.exit.loopexit ], [ %.val28, %If_CutTruth.exit80 ]
   %133 = lshr i64 %.val33, 24
   %134 = and i64 %133, 255
-  %135 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw ptr, ptr %15, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !63
   %.not.i.i.i81 = icmp eq ptr %136, null
   br i1 %.not.i.i.i81, label %If_CutTruthWR.exit.i.i82, label %137
@@ -757,7 +757,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
 
 If_CutTruthWR.exit.i.i82:                         ; preds = %137, %Kit_TruthNot.exit
   %154 = phi ptr [ %153, %137 ], [ null, %Kit_TruthNot.exit ]
-  %155 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %134
+  %155 = getelementptr inbounds nuw i32, ptr %36, i64 %134
   %156 = load i32, ptr %155, align 4, !tbaa !44
   %157 = and i32 %.val32, 1
   %.not.i7.i.i83 = icmp eq i32 %157, 0
@@ -809,7 +809,7 @@ If_CutTruth.exit98:                               ; preds = %.lr.ph.i.i.i87, %.l
   %169 = load ptr, ptr %13, align 8, !tbaa !49
   %170 = lshr i64 %.val35, 24
   %171 = and i64 %170, 255
-  %172 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %15, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !63
   %.not.i.i.i99 = icmp eq ptr %173, null
   br i1 %.not.i.i.i99, label %If_CutTruthWR.exit.i.i100, label %174
@@ -835,7 +835,7 @@ If_CutTruth.exit98:                               ; preds = %.lr.ph.i.i.i87, %.l
 
 If_CutTruthWR.exit.i.i100:                        ; preds = %174, %If_CutTruth.exit98
   %191 = phi ptr [ %190, %174 ], [ null, %If_CutTruth.exit98 ]
-  %192 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %171
+  %192 = getelementptr inbounds nuw i32, ptr %36, i64 %171
   %193 = load i32, ptr %192, align 4, !tbaa !44
   %194 = and i32 %.val34, 1
   %.not.i7.i.i101 = icmp eq i32 %194, 0
@@ -881,7 +881,7 @@ If_CutTruth.exit116:                              ; preds = %.lr.ph.i.i.i105, %.
   %.val37 = load i64, ptr %3, align 4
   %203 = lshr i64 %.val37, 24
   %204 = and i64 %203, 255
-  %205 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw ptr, ptr %15, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !63
   %.not.i.i.i117 = icmp eq ptr %206, null
   br i1 %.not.i.i.i117, label %If_CutTruthWR.exit.i.i118, label %207
@@ -907,7 +907,7 @@ If_CutTruth.exit116:                              ; preds = %.lr.ph.i.i.i105, %.
 
 If_CutTruthWR.exit.i.i118:                        ; preds = %207, %If_CutTruth.exit116
   %224 = phi ptr [ %223, %207 ], [ null, %If_CutTruth.exit116 ]
-  %225 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %204
+  %225 = getelementptr inbounds nuw i32, ptr %36, i64 %204
   %226 = load i32, ptr %225, align 4, !tbaa !44
   %227 = icmp sgt i32 %226, 0
   br i1 %.not.i7.i.i101, label %.preheader.i.i.i127, label %.preheader14.i.i.i120
@@ -1013,7 +1013,7 @@ define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %16 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %6
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !63
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %18
@@ -1040,7 +1040,7 @@ define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr nounde
 If_CutTruthWR.exit.i.i:                           ; preds = %18, %._crit_edge
   %35 = phi ptr [ %34, %18 ], [ null, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %6
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %6
   %38 = load i32, ptr %37, align 4, !tbaa !44
   %39 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %39, 0
@@ -1097,7 +1097,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %54 = load ptr, ptr %13, align 8, !tbaa !49
   %55 = lshr i64 %.val31, 24
   %56 = and i64 %55, 255
-  %57 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %15, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !63
   %.not.i.i.i46 = icmp eq ptr %58, null
   br i1 %.not.i.i.i46, label %If_CutTruthWR.exit.i.i47, label %59
@@ -1123,7 +1123,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 
 If_CutTruthWR.exit.i.i47:                         ; preds = %59, %53
   %76 = phi ptr [ %75, %59 ], [ null, %53 ]
-  %77 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %56
+  %77 = getelementptr inbounds nuw i32, ptr %36, i64 %56
   %78 = load i32, ptr %77, align 4, !tbaa !44
   %79 = and i32 %.val30, 1
   %.not.i7.i.i48 = icmp eq i32 %79, 0
@@ -1169,7 +1169,7 @@ If_CutTruth.exit63:                               ; preds = %.lr.ph.i.i.i52, %.l
   %.val33 = load i64, ptr %3, align 4
   %88 = lshr i64 %.val33, 24
   %89 = and i64 %88, 255
-  %90 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %15, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !63
   %.not.i.i.i64 = icmp eq ptr %91, null
   br i1 %.not.i.i.i64, label %If_CutTruthWR.exit.i.i65, label %92
@@ -1195,7 +1195,7 @@ If_CutTruth.exit63:                               ; preds = %.lr.ph.i.i.i52, %.l
 
 If_CutTruthWR.exit.i.i65:                         ; preds = %92, %If_CutTruth.exit63
   %109 = phi ptr [ %108, %92 ], [ null, %If_CutTruth.exit63 ]
-  %110 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %89
+  %110 = getelementptr inbounds nuw i32, ptr %36, i64 %89
   %111 = load i32, ptr %110, align 4, !tbaa !44
   %112 = icmp sgt i32 %111, 0
   br i1 %.not.i7.i.i48, label %.preheader.i.i.i74, label %.preheader14.i.i.i67
@@ -1270,7 +1270,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %.val34 = phi i32 [ %.val34.pre, %Kit_TruthNot.exit.loopexit ], [ %.val30, %If_CutTruth.exit81 ]
   %131 = lshr i64 %.val35, 24
   %132 = and i64 %131, 255
-  %133 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr %15, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !63
   %.not.i.i.i82 = icmp eq ptr %134, null
   br i1 %.not.i.i.i82, label %If_CutTruthWR.exit.i.i83, label %135
@@ -1296,7 +1296,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
 
 If_CutTruthWR.exit.i.i83:                         ; preds = %135, %Kit_TruthNot.exit
   %152 = phi ptr [ %151, %135 ], [ null, %Kit_TruthNot.exit ]
-  %153 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %132
+  %153 = getelementptr inbounds nuw i32, ptr %36, i64 %132
   %154 = load i32, ptr %153, align 4, !tbaa !44
   %155 = and i32 %.val34, 1
   %.not.i7.i.i84 = icmp eq i32 %155, 0
@@ -1349,7 +1349,7 @@ If_CutTruth.exit99:                               ; preds = %.lr.ph.i.i.i88, %.l
   %168 = load ptr, ptr %13, align 8, !tbaa !49
   %169 = lshr i64 %.val37, 24
   %170 = and i64 %169, 255
-  %171 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw ptr, ptr %15, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !63
   %.not.i.i.i100 = icmp eq ptr %172, null
   br i1 %.not.i.i.i100, label %If_CutTruthWR.exit.i.i101, label %173
@@ -1375,7 +1375,7 @@ If_CutTruth.exit99:                               ; preds = %.lr.ph.i.i.i88, %.l
 
 If_CutTruthWR.exit.i.i101:                        ; preds = %173, %If_CutTruth.exit99
   %190 = phi ptr [ %189, %173 ], [ null, %If_CutTruth.exit99 ]
-  %191 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %170
+  %191 = getelementptr inbounds nuw i32, ptr %36, i64 %170
   %192 = load i32, ptr %191, align 4, !tbaa !44
   %193 = and i32 %.val36, 1
   %.not.i7.i.i102 = icmp eq i32 %193, 0
@@ -1421,7 +1421,7 @@ If_CutTruth.exit117:                              ; preds = %.lr.ph.i.i.i106, %.
   %.val39 = load i64, ptr %3, align 4
   %202 = lshr i64 %.val39, 24
   %203 = and i64 %202, 255
-  %204 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw ptr, ptr %15, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !63
   %.not.i.i.i118 = icmp eq ptr %205, null
   br i1 %.not.i.i.i118, label %If_CutTruthWR.exit.i.i119, label %206
@@ -1447,7 +1447,7 @@ If_CutTruth.exit117:                              ; preds = %.lr.ph.i.i.i106, %.
 
 If_CutTruthWR.exit.i.i119:                        ; preds = %206, %If_CutTruth.exit117
   %223 = phi ptr [ %222, %206 ], [ null, %If_CutTruth.exit117 ]
-  %224 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %203
+  %224 = getelementptr inbounds nuw i32, ptr %36, i64 %203
   %225 = load i32, ptr %224, align 4, !tbaa !44
   %226 = icmp sgt i32 %225, 0
   br i1 %.not.i7.i.i102, label %.preheader.i.i.i128, label %.preheader14.i.i.i121
@@ -1544,7 +1544,7 @@ define internal i32 @Abc_NtkRenodeEvalAig(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
   %14 = load ptr, ptr %13, align 8, !tbaa !63
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %15
@@ -1571,7 +1571,7 @@ define internal i32 @Abc_NtkRenodeEvalAig(ptr noundef readonly captures(none) %0
 If_CutTruthWR.exit.i.i:                           ; preds = %15, %2
   %32 = phi ptr [ %31, %15 ], [ null, %2 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %34 = getelementptr inbounds nuw [16 x i32], ptr %33, i64 0, i64 %7
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %7
   %35 = load i32, ptr %34, align 4, !tbaa !44
   %36 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %36, 0

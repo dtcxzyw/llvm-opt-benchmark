@@ -270,7 +270,7 @@ dtls_unbuffer_record.exit:                        ; preds = %66, %61, %57, %.out
 
 78:                                               ; preds = %106, %77
   %79 = phi i64 [ %107, %106 ], [ 0, %77 ]
-  %80 = getelementptr inbounds nuw [32 x %struct.tls_record_st], ptr %39, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw %struct.tls_record_st, ptr %39, i64 %79
   %81 = load ptr, ptr %40, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !96
@@ -316,7 +316,7 @@ dtls_unbuffer_record.exit:                        ; preds = %66, %61, %57, %.out
 
 .critedge:                                        ; preds = %.critedge.loopexit, %74
   %109 = phi i64 [ %.pre, %.critedge.loopexit ], [ %75, %74 ]
-  %110 = getelementptr inbounds nuw [32 x %struct.tls_record_st], ptr %39, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %struct.tls_record_st, ptr %39, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %112 = load i8, ptr %111, align 4, !tbaa !102
   %.not234 = icmp eq i8 %112, 21

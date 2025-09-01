@@ -508,7 +508,7 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %175
   %241 = lshr i32 %238, 1
   %242 = and i32 %241, 32640
   %243 = or disjoint i32 %242, %240
-  %244 = getelementptr inbounds nuw [6 x [12 x i8]], ptr %227, i64 0, i64 %indvars.iv246.i
+  %244 = getelementptr inbounds nuw [12 x i8], ptr %227, i64 %indvars.iv246.i
   br label %245
 
 245:                                              ; preds = %253, %237
@@ -522,7 +522,7 @@ av_iamf_param_definition_get_subblock.exit.i:     ; preds = %175
 249:                                              ; preds = %245
   %250 = call i32 @avio_r8(ptr noundef nonnull %7) #7
   %251 = trunc i32 %250 to i8
-  %252 = getelementptr inbounds nuw [12 x i8], ptr %244, i64 0, i64 %indvars.iv.i
+  %252 = getelementptr inbounds nuw i8, ptr %244, i64 %indvars.iv.i
   store i8 %251, ptr %252, align 1, !tbaa !37
   br label %253
 

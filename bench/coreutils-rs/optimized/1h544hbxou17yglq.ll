@@ -3094,7 +3094,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.6.0.val.i.i.i = load ptr, ptr %.sroa.016.029.i.i.i, align 8, !alias.scope !732, !noalias !735, !nonnull !4, !align !311, !noundef !4
   %41 = getelementptr i8, ptr %.sroa.016.029.i.i.i, i64 8
   %.sroa.6.0.val15.i.i.i = load i64, ptr %41, align 8, !alias.scope !732, !noalias !735, !noundef !4
-  %42 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %33, i64 0, i64 %.sroa.7.028.i.i.i
+  %42 = getelementptr inbounds nuw { [2 x i64] }, ptr %33, i64 %.sroa.7.028.i.i.i
   store ptr %.sroa.6.0.val.i.i.i, ptr %42, align 8, !noalias !737
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %.sroa.6.0.val15.i.i.i, ptr %43, align 8, !noalias !737
@@ -3119,7 +3119,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !725
-  %51 = getelementptr inbounds nuw [0 x { [9 x i64] }], ptr %8, i64 0, i64 %.sroa.7.036
+  %51 = getelementptr inbounds nuw { [9 x i64] }, ptr %8, i64 %.sroa.7.036
   store i64 %32, ptr %51, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %33, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -3184,7 +3184,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.6.0.val = load ptr, ptr %.sroa.016.029, align 8, !nonnull !4, !align !311, !noundef !4
   %14 = getelementptr i8, ptr %.sroa.016.029, i64 8
   %.sroa.6.0.val15 = load i64, ptr %14, align 8, !noundef !4
-  %15 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %6, i64 0, i64 %.sroa.7.028
+  %15 = getelementptr inbounds nuw { [2 x i64] }, ptr %6, i64 %.sroa.7.028
   store ptr %.sroa.6.0.val, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.6.0.val15, ptr %16, align 8
@@ -4003,7 +4003,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.sroa.6.0.val.i = load ptr, ptr %.sroa.016.029.i, align 8, !alias.scope !906, !noalias !911, !nonnull !4, !align !311, !noundef !4
   %17 = getelementptr i8, ptr %.sroa.016.029.i, i64 8
   %.sroa.6.0.val15.i = load i64, ptr %17, align 8, !alias.scope !906, !noalias !911, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x { [2 x i64] }], ptr %9, i64 0, i64 %.sroa.7.028.i
+  %18 = getelementptr inbounds nuw { [2 x i64] }, ptr %9, i64 %.sroa.7.028.i
   store ptr %.sroa.6.0.val.i, ptr %18, align 8, !noalias !909
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.6.0.val15.i, ptr %19, align 8, !noalias !909
@@ -4383,14 +4383,14 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitWhitespace
 70:                                               ; preds = %62
   %71 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %72
   %74 = load i8, ptr %73, align 1, !noalias !945, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6d333a98da5bd339E.exit.i.i.i.i.i"
 
 75:                                               ; preds = %62
   %76 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %77
   %79 = load i8, ptr %78, align 1, !noalias !945, !noundef !4
   %80 = lshr i8 %79, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6d333a98da5bd339E.exit.i.i.i.i.i"

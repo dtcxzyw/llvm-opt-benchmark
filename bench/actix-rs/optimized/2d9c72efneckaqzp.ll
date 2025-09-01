@@ -3729,10 +3729,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..proto..error..Initiator$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !9, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h3e66b447e0ed6728E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h3e66b447e0ed6728E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h3e66b447e0ed6728E.33", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h3e66b447e0ed6728E.33", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -5312,7 +5312,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit284
 307:                                              ; preds = %302
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %308 = zext nneg i8 %300 to i64
-  %309 = getelementptr inbounds nuw [9 x i64], ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw i64, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 %308
   %310 = load i64, ptr %309, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %34, i64 %310, i1 false)
   %311 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
@@ -5489,7 +5489,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %372 = load i8, ptr %31, align 8, !range !202, !noundef !4
   %373 = zext nneg i8 %372 to i64
-  %374 = getelementptr inbounds nuw [9 x i64], ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i64, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 %373
   %375 = load i64, ptr %374, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %31, i64 %375, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %16, i64 296, i1 false)
@@ -6541,7 +6541,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit284
 307:                                              ; preds = %302
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %308 = zext nneg i8 %300 to i64
-  %309 = getelementptr inbounds nuw [9 x i64], ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw i64, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 %308
   %310 = load i64, ptr %309, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %34, i64 %310, i1 false)
   %311 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
@@ -6718,7 +6718,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit309
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %372 = load i8, ptr %31, align 8, !range !202, !noundef !4
   %373 = zext nneg i8 %372 to i64
-  %374 = getelementptr inbounds nuw [9 x i64], ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i64, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.120, i64 %373
   %375 = load i64, ptr %374, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %31, i64 %375, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %16, i64 296, i1 false)

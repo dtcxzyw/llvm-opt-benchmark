@@ -832,7 +832,7 @@ define dso_local void @rcu_preempt_deferred_qs(ptr noundef %0) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @rcu_dynticks_zero_in_eqs(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @context_tracking to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -999,7 +999,7 @@ define dso_local void @rcu_request_urgent_qs_task(ptr noundef %0) local_unnamed_
 6:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !40
   %7 = sext i32 %3 to i64
-  %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %7
+  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @rcu_data, i64 277) to i64)
   %11 = inttoptr i64 %10 to ptr
@@ -2260,7 +2260,7 @@ define dso_local void @kvfree_call_rcu(ptr noundef %0, ptr noundef %1) #1 align 
   %16 = call zeroext i1 @is_vmalloc_addr(ptr noundef %1) #29
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %18 = zext i1 %16 to i64
-  %19 = getelementptr [2 x %struct.list_head], ptr %17, i64 0, i64 %18
+  %19 = getelementptr %struct.list_head, ptr %17, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
   %22 = icmp eq ptr %20, null
@@ -2326,7 +2326,7 @@ define dso_local void @kvfree_call_rcu(ptr noundef %0, ptr noundef %1) #1 align 
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = add i64 %54, 1
   store i64 %59, ptr %58, align 8
-  %60 = getelementptr [0 x ptr], ptr %57, i64 0, i64 %54
+  %60 = getelementptr ptr, ptr %57, i64 %54
   store ptr %1, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !109
@@ -2342,7 +2342,7 @@ define dso_local void @kvfree_call_rcu(ptr noundef %0, ptr noundef %1) #1 align 
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %70 = getelementptr [2 x %struct.atomic_t], ptr %69, i64 0, i64 %18
+  %70 = getelementptr %struct.atomic_t, ptr %69, i64 %18
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, ptr elementtype(i32) %70) #29, !srcloc !111
   br label %103
 
@@ -2419,7 +2419,7 @@ define dso_local void @kvfree_call_rcu(ptr noundef %0, ptr noundef %1) #1 align 
   %112 = phi i1 [ true, %107 ], [ false, %111 ]
   %113 = phi i64 [ 0, %107 ], [ 1, %111 ]
   %114 = phi i32 [ %109, %107 ], [ %117, %111 ]
-  %115 = getelementptr [2 x %struct.atomic_t], ptr %110, i64 0, i64 %113
+  %115 = getelementptr %struct.atomic_t, ptr %110, i64 %113
   %116 = load volatile i32, ptr %115, align 4
   %117 = add i32 %116, %114
   br i1 %112, label %111, label %118, !llvm.loop !113
@@ -2675,7 +2675,7 @@ define dso_local void @kfree_rcu_scheduler_running() local_unnamed_addr #8 secti
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @krc to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -2688,7 +2688,7 @@ define dso_local void @kfree_rcu_scheduler_running() local_unnamed_addr #8 secti
 19:                                               ; preds = %18, %11
   %20 = phi i1 [ true, %11 ], [ false, %18 ]
   %21 = phi i64 [ 0, %11 ], [ 1, %18 ]
-  %22 = getelementptr [2 x %struct.list_head], ptr %17, i64 0, i64 %21
+  %22 = getelementptr %struct.list_head, ptr %17, i64 %21
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %22
   br i1 %24, label %18, label %.loopexit
@@ -2708,7 +2708,7 @@ define dso_local void @kfree_rcu_scheduler_running() local_unnamed_addr #8 secti
   %32 = phi i1 [ true, %.loopexit ], [ false, %31 ]
   %33 = phi i64 [ 0, %.loopexit ], [ 1, %31 ]
   %34 = phi i32 [ %29, %.loopexit ], [ %37, %31 ]
-  %35 = getelementptr [2 x %struct.atomic_t], ptr %30, i64 0, i64 %33
+  %35 = getelementptr %struct.atomic_t, ptr %30, i64 %33
   %36 = load volatile i32, ptr %35, align 4
   %37 = add i32 %36, %34
   br i1 %32, label %31, label %38, !llvm.loop !113
@@ -2955,7 +2955,7 @@ define dso_local void @synchronize_rcu_expedited() #1 align 16 {
 95:                                               ; preds = %92, %88, %75, %69
   %96 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !139
   %97 = sext i32 %96 to i64
-  %98 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %97
+  %98 = getelementptr i64, ptr @__per_cpu_offset, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, ptrtoint (ptr @rcu_data to i64)
   %101 = inttoptr i64 %100 to ptr
@@ -3157,7 +3157,7 @@ define dso_local void @synchronize_rcu_expedited() #1 align 16 {
   %212 = getelementptr inbounds nuw i8, ptr %119, i64 400
   %213 = lshr i64 %71, 2
   %214 = and i64 %213, 3
-  %215 = getelementptr [4 x %struct.wait_queue_head], ptr %212, i64 0, i64 %214
+  %215 = getelementptr %struct.wait_queue_head, ptr %212, i64 %214
   %216 = call i64 @prepare_to_wait_event(ptr noundef %215, ptr noundef nonnull %1, i32 noundef 2) #29
   %217 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3512), align 8
   %218 = sub i64 %217, %72
@@ -4005,7 +4005,7 @@ define dso_local void @rcu_barrier() #1 align 16 {
   br i1 %98, label %99, label %.thread
 
 99:                                               ; preds = %96
-  %100 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %97
+  %100 = getelementptr i64, ptr @__per_cpu_offset, i64 %97
   %101 = load i64, ptr %100, align 8
   %102 = add i64 %101, ptrtoint (ptr @rcu_data to i64)
   %103 = inttoptr i64 %102 to ptr
@@ -4307,7 +4307,7 @@ define dso_local void @rcu_barrier() #1 align 16 {
   br i1 %264, label %265, label %.thread15
 
 265:                                              ; preds = %262
-  %266 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %263
+  %266 = getelementptr i64, ptr @__per_cpu_offset, i64 %263
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, ptrtoint (ptr @rcu_data to i64)
   %269 = inttoptr i64 %268 to ptr
@@ -4458,7 +4458,7 @@ declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rcu_barrier_handler(ptr noundef %0) #1 align 16 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4505,7 +4505,7 @@ declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define dso_local zeroext i1 @rcu_cpu_online(i32 noundef %0) local_unnamed_addr #12 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4523,7 +4523,7 @@ define dso_local zeroext i1 @rcu_cpu_online(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @rcutree_prepare_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @context_tracking to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4669,7 +4669,7 @@ define internal void @rcu_iw_handler(ptr noundef captures(none) %0) #1 align 16 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @rcu_cpu_beenfullyonline(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4683,7 +4683,7 @@ define dso_local noundef zeroext i1 @rcu_cpu_beenfullyonline(i32 noundef %0) loc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @rcutree_online_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4704,7 +4704,7 @@ define dso_local noundef i32 @rcutree_online_cpu(i32 noundef %0) local_unnamed_a
 define dso_local void @rcutree_report_cpu_starting(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @rcu_data to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -5132,7 +5132,7 @@ define dso_local void @rcutree_report_cpu_dead() local_unnamed_addr #1 align 16 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rcutree_migrate_callbacks(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -5328,7 +5328,7 @@ define dso_local noundef i32 @rcutree_dead_cpu(i32 noundef %0) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @rcutree_dying_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -5392,7 +5392,7 @@ define dso_local noundef i32 @rcutree_dying_cpu(i32 noundef %0) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @rcutree_offline_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -5511,7 +5511,7 @@ define dso_local void @rcu_scheduler_starting() local_unnamed_addr #1 align 16 {
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !23
   %11 = load i32, ptr @rcu_num_nodes, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %12
+  %13 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %12
   %14 = icmp ugt ptr %13, @rcu_state
   br i1 %14, label %.preheader, label %.loopexit
 
@@ -5653,7 +5653,7 @@ define dso_local void @rcu_init_geometry() local_unnamed_addr #1 align 16 {
   %53 = phi i32 [ %60, %.preheader ], [ 1, %47 ]
   %54 = phi i32 [ %59, %.preheader ], [ 0, %47 ]
   %55 = sext i32 %54 to i64
-  %56 = getelementptr [2 x i32], ptr %1, i64 0, i64 %55
+  %56 = getelementptr i32, ptr %1, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp ugt i32 %50, %57
   %59 = add i32 %54, 1
@@ -5675,11 +5675,11 @@ define dso_local void @rcu_init_geometry() local_unnamed_addr #1 align 16 {
   %68 = trunc i64 %67 to i32
   %69 = sub i32 %54, %68
   %70 = sext i32 %69 to i64
-  %71 = getelementptr [2 x i32], ptr %1, i64 0, i64 %70
+  %71 = getelementptr i32, ptr %1, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %64, %72
   %74 = udiv i32 %73, %72
-  %75 = getelementptr [2 x i32], ptr @num_rcu_lvl, i64 0, i64 %67
+  %75 = getelementptr i32, ptr @num_rcu_lvl, i64 %67
   store i32 %74, ptr %75, align 4
   %76 = add nuw nsw i64 %67, 1
   %77 = icmp eq i64 %76, %65
@@ -5688,7 +5688,7 @@ define dso_local void @rcu_init_geometry() local_unnamed_addr #1 align 16 {
 .preheader15:                                     ; preds = %66, %.preheader15
   %78 = phi i64 [ %83, %.preheader15 ], [ 0, %66 ]
   %79 = phi i32 [ %82, %.preheader15 ], [ 0, %66 ]
-  %80 = getelementptr [2 x i32], ptr @num_rcu_lvl, i64 0, i64 %78
+  %80 = getelementptr i32, ptr @num_rcu_lvl, i64 %78
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, %79
   %83 = add nuw nsw i64 %78, 1
@@ -5824,7 +5824,7 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #8 section ".in
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @krc to i64)
   %22 = inttoptr i64 %21 to ptr
@@ -5870,7 +5870,7 @@ define internal fastcc void @kfree_rcu_batch_init() unnamed_addr #8 section ".in
 .critedge:                                        ; preds = %.critedge, %17
   %42 = phi i1 [ true, %17 ], [ false, %.critedge ]
   %43 = phi i64 [ 0, %17 ], [ 1, %.critedge ]
-  %44 = getelementptr [2 x %struct.kfree_rcu_cpu_work], ptr %23, i64 0, i64 %43
+  %44 = getelementptr %struct.kfree_rcu_cpu_work, ptr %23, i64 %43
   store i64 68719476704, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store volatile ptr %45, ptr %45, align 8
@@ -6016,10 +6016,10 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   %40 = phi i64 [ %.pre-phi, %.loopexit7 ], [ %38, %.loopexit ]
   %41 = phi i64 [ %35, %.loopexit7 ], [ %36, %.loopexit ]
   %42 = phi i32 [ 1, %.loopexit7 ], [ %45, %.loopexit ]
-  %43 = getelementptr [2 x i32], ptr %1, i64 0, i64 %41
+  %43 = getelementptr i32, ptr %1, i64 %41
   %44 = load i32, ptr %43, align 4
   %45 = mul i32 %44, %42
-  %46 = getelementptr [2 x i32], ptr @num_rcu_lvl, i64 0, i64 %41
+  %46 = getelementptr i32, ptr @num_rcu_lvl, i64 %41
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %.loopexit
@@ -6030,7 +6030,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   %52 = icmp eq i64 %41, 0
   %53 = add nsw i64 %40, 4294967294
   %54 = and i64 %53, 4294967295
-  %55 = getelementptr [2 x i32], ptr %1, i64 0, i64 %54
+  %55 = getelementptr i32, ptr %1, i64 %54
   %56 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %54
   %57 = trunc i64 %41 to i8
   br label %58
@@ -6171,7 +6171,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
 
 139:                                              ; preds = %.preheader
   %140 = and i64 %131, 63
-  %141 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %140
+  %141 = getelementptr i64, ptr @__per_cpu_offset, i64 %140
   %142 = load i64, ptr %141, align 8
   %143 = add i64 %142, ptrtoint (ptr @rcu_data to i64)
   %144 = inttoptr i64 %143 to ptr
@@ -6194,7 +6194,7 @@ define internal fastcc void @rcu_dump_rcu_node_tree() unnamed_addr #8 section ".
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.190) #32
   %3 = load i32, ptr @rcu_num_nodes, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %4
+  %5 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %4
   %6 = icmp ugt ptr %5, @rcu_state
   br i1 %6, label %.preheader, label %.loopexit
 
@@ -6227,7 +6227,7 @@ define internal fastcc void @rcu_dump_rcu_node_tree() unnamed_addr #8 section ".
   %28 = getelementptr i8, ptr %8, i64 640
   %29 = load i32, ptr @rcu_num_nodes, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %30
+  %31 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %30
   %32 = icmp ult ptr %28, %31
   br i1 %32, label %.preheader, label %.loopexit, !llvm.loop !262
 
@@ -6283,7 +6283,7 @@ define dso_local range(i64 0, -3) i64 @start_poll_synchronize_rcu_expedited() #1
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !110
   %4 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !263
   %5 = sext i32 %4 to i64
-  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @rcu_data to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -6502,7 +6502,7 @@ define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly 
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @rcu_num_nodes, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %9
+  %10 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %9
   %11 = icmp ult ptr %7, %10
   br i1 %11, label %12, label %.loopexit10
 
@@ -6628,7 +6628,7 @@ define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly 
   %87 = getelementptr i8, ptr %27, i64 640
   %88 = load i32, ptr @rcu_num_nodes, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %89
+  %90 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %89
   %91 = icmp ult ptr %87, %90
   br i1 %91, label %.split, label %.split18.us, !llvm.loop !266
 
@@ -6661,7 +6661,7 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
 
 14:                                               ; preds = %0
   %15 = zext nneg i16 %12 to i64
-  %16 = getelementptr [9 x ptr], ptr @gp_state_names, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @gp_state_names, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -6691,7 +6691,7 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef %11, ptr noundef %19, i32 noundef %21, i32 noundef %28, i32 noundef %29, i64 noundef %8, i64 noundef %4, i64 noundef %6, i64 noundef %10, i64 noundef %30, i64 noundef %31, i64 noundef %32, i64 noundef %33, i32 noundef %35) #32
   %37 = load i32, ptr @rcu_num_nodes, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %38
+  %39 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %38
   %40 = icmp ugt ptr %39, @rcu_state
   br i1 %40, label %.preheader12, label %.loopexit13
 
@@ -6746,28 +6746,28 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %75 = load volatile ptr, ptr %74, align 8
   %76 = icmp ne ptr %75, null
   %77 = zext i1 %76 to i64
-  %78 = getelementptr [3 x i8], ptr @.str.30, i64 0, i64 %77
+  %78 = getelementptr i8, ptr @.str.30, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp ne ptr %82, null
   %84 = zext i1 %83 to i64
-  %85 = getelementptr [3 x i8], ptr @.str.31, i64 0, i64 %84
+  %85 = getelementptr i8, ptr @.str.31, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %42, i64 160
   %89 = load volatile ptr, ptr %88, align 32
   %90 = icmp ne ptr %89, null
   %91 = zext i1 %90 to i64
-  %92 = getelementptr [3 x i8], ptr @.str.32, i64 0, i64 %91
+  %92 = getelementptr i8, ptr @.str.32, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %96 = load volatile ptr, ptr %95, align 8
   %97 = icmp ne ptr %96, null
   %98 = zext i1 %97 to i64
-  %99 = getelementptr [3 x i8], ptr @.str.33, i64 0, i64 %98
+  %99 = getelementptr i8, ptr @.str.33, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %42, i64 264
@@ -6809,8 +6809,8 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %127 = phi i32 [ %160, %158 ], [ %124, %122 ]
   %128 = phi i64 [ %159, %158 ], [ %123, %122 ]
   %129 = shl i64 %128, 32
-  %130 = ashr exact i64 %129, 32
-  %131 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %130
+  %130 = ashr exact i64 %129, 29
+  %131 = getelementptr i8, ptr @__per_cpu_offset, i64 %130
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, ptrtoint (ptr @rcu_data to i64)
   %134 = inttoptr i64 %133 to ptr
@@ -6860,7 +6860,7 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
   %163 = getelementptr i8, ptr %42, i64 640
   %164 = load i32, ptr @rcu_num_nodes, align 4
   %165 = sext i32 %164 to i64
-  %166 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %165
+  %166 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %165
   %167 = icmp ult ptr %163, %166
   br i1 %167, label %.preheader12, label %.loopexit13, !llvm.loop !272
 
@@ -6880,7 +6880,7 @@ define dso_local void @show_rcu_gp_kthreads() #1 align 16 {
 
 178:                                              ; preds = %174
   %179 = and i64 %175, 63
-  %180 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %179
+  %180 = getelementptr i64, ptr @__per_cpu_offset, i64 %179
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, ptrtoint (ptr @rcu_data to i64)
   %183 = inttoptr i64 %182 to ptr
@@ -6959,7 +6959,7 @@ define dso_local void @rcu_fwd_progress_check(i64 %0) #16 align 16 {
 
 34:                                               ; preds = %30
   %35 = and i64 %31, 63
-  %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
+  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @rcu_data to i64)
   %39 = inttoptr i64 %38 to ptr
@@ -7098,7 +7098,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %36 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %.pre to i64
-  %39 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %38
+  %39 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %38
   %40 = icmp ult ptr %37, %39
   br i1 %40, label %.preheader70, label %.loopexit71
 
@@ -7145,13 +7145,13 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %62 = getelementptr i8, ptr %41, i64 640
   %63 = load i32, ptr @rcu_num_nodes, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %64
+  %65 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %64
   %66 = icmp ult ptr %62, %65
   br i1 %66, label %.preheader70, label %.loopexit71, !llvm.loop !281
 
 .loopexit71:                                      ; preds = %.loopexit69, %..loopexit71_crit_edge, %32
   %.pre-phi87 = phi i64 [ %.pre86, %..loopexit71_crit_edge ], [ %38, %32 ], [ %64, %.loopexit69 ]
-  %67 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %.pre-phi87
+  %67 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %.pre-phi87
   %68 = icmp ugt ptr %67, @rcu_state
   br i1 %68, label %.preheader66, label %.loopexit67
 
@@ -7177,7 +7177,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %78 = getelementptr i8, ptr %69, i64 640
   %79 = load i32, ptr @rcu_num_nodes, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %80
+  %81 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %80
   %82 = icmp ult ptr %78, %81
   br i1 %82, label %.preheader66, label %.loopexit67, !llvm.loop !285
 
@@ -7234,7 +7234,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr @rcu_num_nodes, align 4
   %115 = sext i32 %114 to i64
-  %116 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %115
+  %116 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %115
   %117 = icmp ult ptr %113, %116
   br i1 %117, label %.preheader64, label %.loopexit65
 
@@ -7259,7 +7259,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
 130:                                              ; preds = %124
   %131 = add i32 %118, -1
   %132 = sext i32 %131 to i64
-  %133 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %132
+  %133 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %132
   %134 = icmp eq ptr %119, %133
   br i1 %134, label %135, label %137
 
@@ -7293,7 +7293,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %152 = getelementptr i8, ptr %119, i64 640
   %153 = load i32, ptr @rcu_num_nodes, align 4
   %154 = sext i32 %153 to i64
-  %155 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %154
+  %155 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %154
   %156 = icmp ult ptr %152, %155
   br i1 %156, label %.preheader64, label %.loopexit65.loopexit, !llvm.loop !286
 
@@ -7309,7 +7309,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %157 = phi i32 [ %153, %.loopexit65.loopexit ], [ %114, %108 ]
   %158 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %.pre-phi84
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %.pre-phi85
+  %160 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %.pre-phi85
   %161 = icmp ult ptr %159, %160
   br i1 %161, label %.preheader62, label %.loopexit63
 
@@ -7331,7 +7331,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %171 = phi i32 [ %.pre79, %167 ], [ %162, %.preheader62 ]
   %172 = getelementptr i8, ptr %163, i64 640
   %173 = sext i32 %171 to i64
-  %174 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %173
+  %174 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %173
   %175 = icmp ult ptr %172, %174
   br i1 %175, label %.preheader62, label %.loopexit63, !llvm.loop !287
 
@@ -7596,7 +7596,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %323 = load ptr, ptr %322, align 8
   %324 = load i32, ptr @rcu_num_nodes, align 4
   %325 = sext i32 %324 to i64
-  %326 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %325
+  %326 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %325
   %327 = icmp ult ptr %323, %326
   br i1 %327, label %.preheader60, label %.critedge
 
@@ -7694,8 +7694,8 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
 390:                                              ; preds = %379
   %391 = add i32 %382, 1
   %392 = shl i64 %381, 32
-  %393 = ashr exact i64 %392, 32
-  %394 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %393
+  %393 = ashr exact i64 %392, 29
+  %394 = getelementptr i8, ptr @__per_cpu_offset, i64 %393
   %395 = load i64, ptr %394, align 8
   %396 = add i64 %395, ptrtoint (ptr @rcu_data to i64)
   %397 = inttoptr i64 %396 to ptr
@@ -7704,7 +7704,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %400 = icmp ult i8 %399, 2
   call void @llvm.assume(i1 %400)
   %401 = zext nneg i8 %399 to i64
-  %402 = getelementptr [3 x i8], ptr @.str.81, i64 0, i64 %401
+  %402 = getelementptr i8, ptr @.str.81, i64 %401
   %403 = load i8, ptr %402, align 1
   %404 = zext i8 %403 to i32
   %405 = getelementptr inbounds nuw i8, ptr %397, i64 32
@@ -7713,21 +7713,21 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %408 = and i64 %407, %406
   %409 = icmp ne i64 %408, 0
   %410 = zext i1 %409 to i64
-  %411 = getelementptr [3 x i8], ptr @.str.82, i64 0, i64 %410
+  %411 = getelementptr i8, ptr @.str.82, i64 %410
   %412 = load i8, ptr %411, align 1
   %413 = zext i8 %412 to i32
   %414 = load i64, ptr %378, align 16
   %415 = and i64 %414, %406
   %416 = icmp ne i64 %415, 0
   %417 = zext i1 %416 to i64
-  %418 = getelementptr [3 x i8], ptr @.str.83, i64 0, i64 %417
+  %418 = getelementptr i8, ptr @.str.83, i64 %417
   %419 = load i8, ptr %418, align 1
   %420 = zext i8 %419 to i32
   %421 = getelementptr inbounds nuw i8, ptr %397, i64 17
   %422 = load i8, ptr %421, align 1
   %423 = icmp ne i8 %422, 0
   %424 = zext i1 %423 to i64
-  %425 = getelementptr [3 x i8], ptr @.str.221, i64 0, i64 %424
+  %425 = getelementptr i8, ptr @.str.221, i64 %424
   %426 = load i8, ptr %425, align 1
   %427 = zext i8 %426 to i32
   %428 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.220, i32 noundef %380, i32 noundef %404, i32 noundef %413, i32 noundef %420, i32 noundef %427) #32
@@ -7763,7 +7763,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %447 = getelementptr i8, ptr %329, i64 640
   %448 = load i32, ptr @rcu_num_nodes, align 4
   %449 = sext i32 %448 to i64
-  %450 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %449
+  %450 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %449
   %451 = icmp ult ptr %447, %450
   br i1 %451, label %.preheader60, label %.loopexit61.loopexit, !llvm.loop !301
 
@@ -7774,7 +7774,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %455 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 160), align 32
   %456 = icmp ne ptr %455, null
   %457 = zext i1 %456 to i64
-  %458 = getelementptr [3 x i8], ptr @.str.223, i64 0, i64 %457
+  %458 = getelementptr i8, ptr @.str.223, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i32
   %461 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.222, i64 noundef %293, i64 noundef %453, i64 noundef %454, i32 noundef %460) #32
@@ -7784,7 +7784,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %463 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.224) #32
   %464 = load i32, ptr @rcu_num_nodes, align 4
   %465 = sext i32 %464 to i64
-  %466 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %465
+  %466 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %465
   %467 = icmp ugt ptr %466, @rcu_state
   br i1 %467, label %.preheader58, label %.loopexit59
 
@@ -7824,7 +7824,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %490 = load ptr, ptr %472, align 32
   %491 = icmp ne ptr %490, null
   %492 = zext i1 %491 to i64
-  %493 = getelementptr [3 x i8], ptr @.str.223, i64 0, i64 %492
+  %493 = getelementptr i8, ptr @.str.223, i64 %492
   %494 = load i8, ptr %493, align 1
   %495 = zext i8 %494 to i32
   %496 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.225, i32 noundef %483, i32 noundef %485, i32 noundef %487, i64 noundef %489, i32 noundef %495) #32
@@ -7834,7 +7834,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %498 = getelementptr i8, ptr %468, i64 640
   %499 = load i32, ptr @rcu_num_nodes, align 4
   %500 = sext i32 %499 to i64
-  %501 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %500
+  %501 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %500
   %502 = icmp ult ptr %498, %501
   br i1 %502, label %.preheader58, label %.loopexit59, !llvm.loop !302
 
@@ -7848,7 +7848,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 160), align 32
   %507 = icmp ne ptr %506, null
   %508 = zext i1 %507 to i64
-  %509 = getelementptr [3 x i8], ptr @.str.223, i64 0, i64 %508
+  %509 = getelementptr i8, ptr @.str.223, i64 %508
   %510 = load i8, ptr %509, align 1
   %511 = zext i8 %510 to i32
   %512 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.222, i64 noundef %293, i64 noundef %504, i64 noundef %505, i32 noundef %511) #32
@@ -7862,7 +7862,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %518 = load ptr, ptr %517, align 8
   %519 = load i32, ptr @rcu_num_nodes, align 4
   %520 = sext i32 %519 to i64
-  %521 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %520
+  %521 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %520
   %522 = icmp ult ptr %518, %521
   br i1 %522, label %.preheader56, label %.loopexit57
 
@@ -8000,7 +8000,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %601 = getelementptr i8, ptr %523, i64 640
   %602 = load i32, ptr @rcu_num_nodes, align 4
   %603 = sext i32 %602 to i64
-  %604 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %603
+  %604 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %603
   %605 = icmp ult ptr %601, %604
   br i1 %605, label %.preheader56, label %.loopexit57, !llvm.loop !311
 
@@ -8191,7 +8191,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
 705:                                              ; preds = %702, %698, %685, %679
   %706 = load i32, ptr @rcu_num_nodes, align 4
   %707 = sext i32 %706 to i64
-  %708 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %707
+  %708 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %707
   %709 = icmp ugt ptr %708, @rcu_state
   br i1 %709, label %710, label %.loopexit
 
@@ -8227,12 +8227,12 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
 726:                                              ; preds = %725, %713
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !313
   %727 = getelementptr inbounds nuw i8, ptr %714, i64 400
-  %728 = getelementptr [4 x %struct.wait_queue_head], ptr %727, i64 0, i64 %712
+  %728 = getelementptr %struct.wait_queue_head, ptr %727, i64 %712
   %729 = call i32 @__wake_up(ptr noundef %728, i32 noundef 3, i32 noundef 0, ptr noundef null) #29
   %730 = getelementptr i8, ptr %714, i64 640
   %731 = load i32, ptr @rcu_num_nodes, align 4
   %732 = sext i32 %731 to i64
-  %733 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %732
+  %733 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %732
   %734 = icmp ult ptr %730, %733
   br i1 %734, label %713, label %.loopexit, !llvm.loop !314
 
@@ -8316,7 +8316,7 @@ define dso_local void @start_poll_synchronize_rcu_expedited_full(ptr noundef wri
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !110
   %12 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #29, !srcloc !263
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @rcu_data to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -10088,7 +10088,7 @@ define internal fastcc noundef zeroext i1 @__note_gp_changes(ptr noundef %0, ptr
   store i64 0, ptr %105, align 8
   %106 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #28, !srcloc !383
   %107 = sext i32 %106 to i64
-  %108 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %107
+  %108 = getelementptr i64, ptr @__per_cpu_offset, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, ptrtoint (ptr @kstat to i64)
   %111 = inttoptr i64 %110 to ptr
@@ -11021,7 +11021,7 @@ define internal fastcc void @print_cpu_stall(i64 noundef %0) unnamed_addr #1 ali
 
 56:                                               ; preds = %52
   %57 = and i64 %53, 63
-  %58 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %57
+  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, ptrtoint (ptr @rcu_data to i64)
   %61 = inttoptr i64 %60 to ptr
@@ -11086,7 +11086,7 @@ define internal fastcc void @print_cpu_stall(i64 noundef %0) unnamed_addr #1 ali
   %105 = load volatile i32, ptr %104, align 8
   %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %98, i64 noundef %100, i64 noundef %101, i32 noundef %103, ptr noundef nonnull @.str.199, i32 noundef 5, i32 noundef %105) #32
   %107 = sext i32 %97 to i64
-  %108 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %107
+  %108 = getelementptr i64, ptr @__per_cpu_offset, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, ptrtoint (ptr @kstat to i64)
   %111 = inttoptr i64 %110 to ptr
@@ -11229,7 +11229,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @rcu_num_nodes, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %47
+  %48 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %47
   %49 = icmp ult ptr %45, %48
   br i1 %49, label %50, label %57
 
@@ -11398,7 +11398,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
 
 155:                                              ; preds = %153, %149
   %156 = add nuw nsw i64 %140, 1
-  %157 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %140
+  %157 = getelementptr ptr, ptr %4, i64 %140
   store ptr %145, ptr %157, align 8
   %158 = icmp eq i64 %156, 8
   br i1 %158, label %.thread, label %139, !llvm.loop !403
@@ -11421,7 +11421,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
 165:                                              ; preds = %.thread23, %162
   %166 = phi i64 [ %164, %162 ], [ %167, %.thread23 ]
   %167 = add nsw i64 %166, -1
-  %168 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %167
+  %168 = getelementptr ptr, ptr %4, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = call i32 @task_call_func(ptr noundef %169, ptr noundef nonnull @check_slow_task, ptr noundef nonnull %3) #29
   %171 = icmp eq i32 %170, 0
@@ -11437,22 +11437,22 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %177 = load i32, ptr %3, align 4
   %178 = load i8, ptr %51, align 4
   %179 = zext i8 %178 to i64
-  %180 = getelementptr [3 x i8], ptr @.str.30, i64 0, i64 %179
+  %180 = getelementptr i8, ptr @.str.30, i64 %179
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = load i8, ptr %52, align 1
   %184 = zext i8 %183 to i64
-  %185 = getelementptr [3 x i8], ptr @.str.107, i64 0, i64 %184
+  %185 = getelementptr i8, ptr @.str.107, i64 %184
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
   %188 = load i8, ptr %53, align 2
   %189 = zext i8 %188 to i64
-  %190 = getelementptr [3 x i8], ptr @.str.108, i64 0, i64 %189
+  %190 = getelementptr i8, ptr @.str.108, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
   %193 = load i8, ptr %54, align 4, !range !53, !noundef !54
   %194 = zext nneg i8 %193 to i64
-  %195 = getelementptr [3 x i8], ptr @.str.109, i64 0, i64 %194
+  %195 = getelementptr i8, ptr @.str.109, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.106, i32 noundef %173, i32 noundef %177, i32 noundef %182, i32 noundef %187, i32 noundef %192, i32 noundef %197) #32
@@ -11494,7 +11494,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %213 = getelementptr i8, ptr %62, i64 640
   %214 = load i32, ptr @rcu_num_nodes, align 4
   %215 = sext i32 %214 to i64
-  %216 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %215
+  %216 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %215
   %217 = icmp ult ptr %213, %216
   br i1 %217, label %60, label %55, !llvm.loop !407
 
@@ -11514,7 +11514,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
 
 228:                                              ; preds = %224
   %229 = and i64 %225, 63
-  %230 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %229
+  %230 = getelementptr i64, ptr @__per_cpu_offset, i64 %229
   %231 = load i64, ptr %230, align 8
   %232 = add i64 %231, ptrtoint (ptr @rcu_data to i64)
   %233 = inttoptr i64 %232 to ptr
@@ -11556,7 +11556,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr @rcu_num_nodes, align 4
   %260 = sext i32 %259 to i64
-  %261 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %260
+  %261 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %260
   %262 = icmp ult ptr %258, %261
   br i1 %262, label %.preheader26, label %.loopexit27
 
@@ -11589,7 +11589,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %278 = getelementptr i8, ptr %263, i64 640
   %279 = load i32, ptr @rcu_num_nodes, align 4
   %280 = sext i32 %279 to i64
-  %281 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %280
+  %281 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %280
   %282 = icmp ult ptr %278, %281
   br i1 %282, label %.preheader26, label %.loopexit27, !llvm.loop !411
 
@@ -11679,7 +11679,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %340 = load volatile i32, ptr %339, align 8
   %341 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %333, i64 noundef %335, i64 noundef %336, i32 noundef %338, ptr noundef nonnull @.str.199, i32 noundef 5, i32 noundef %340) #32
   %342 = sext i32 %332 to i64
-  %343 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %342
+  %343 = getelementptr i64, ptr @__per_cpu_offset, i64 %342
   %344 = load i64, ptr %343, align 8
   %345 = add i64 %344, ptrtoint (ptr @kstat to i64)
   %346 = inttoptr i64 %345 to ptr
@@ -11725,7 +11725,7 @@ declare dso_local zeroext i1 @rcu_inkernel_boot_has_ended() local_unnamed_addr #
 define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @rcu_data to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -11813,7 +11813,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %65 = icmp ult i8 %64, 2
   tail call void @llvm.assume(i1 %65)
   %66 = zext nneg i8 %64 to i64
-  %67 = getelementptr [3 x i8], ptr @.str.81, i64 0, i64 %66
+  %67 = getelementptr i8, ptr @.str.81, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %70 = load i64, ptr %69, align 8
@@ -11823,14 +11823,14 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %74 = and i64 %73, %70
   %75 = icmp ne i64 %74, 0
   %76 = zext i1 %75 to i64
-  %77 = getelementptr [3 x i8], ptr @.str.82, i64 0, i64 %76
+  %77 = getelementptr i8, ptr @.str.82, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, %70
   %82 = icmp ne i64 %81, 0
   %83 = zext i1 %82 to i64
-  %84 = getelementptr [3 x i8], ptr @.str.83, i64 0, i64 %83
+  %84 = getelementptr i8, ptr @.str.83, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 376
   %87 = load i8, ptr %86, align 8, !range !53, !noundef !54
@@ -11846,7 +11846,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
 93:                                               ; preds = %.thread
   %94 = icmp ult i64 %25, 4
   %95 = zext i1 %94 to i64
-  %96 = getelementptr [3 x i8], ptr @.str.84, i64 0, i64 %95
+  %96 = getelementptr i8, ptr @.str.84, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   br label %99
@@ -11904,7 +11904,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %143 = getelementptr i8, ptr %128, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.87) #32
-  %146 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %63
+  %146 = getelementptr i64, ptr @__per_cpu_offset, i64 %63
   %147 = load i64, ptr %146, align 8
   %148 = add i64 %147, ptrtoint (ptr @kstat to i64)
   %149 = inttoptr i64 %148 to ptr
@@ -11920,7 +11920,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
 157:                                              ; preds = %157, %138
   %158 = phi i64 [ 0, %138 ], [ %163, %157 ]
   %159 = phi i32 [ 0, %138 ], [ %162, %157 ]
-  %160 = getelementptr [10 x i32], ptr %156, i64 0, i64 %158
+  %160 = getelementptr i32, ptr %156, i64 %158
   %161 = load i32, ptr %160, align 4
   %162 = add i32 %161, %159
   %163 = add nuw nsw i64 %158, 1
@@ -11992,7 +11992,7 @@ define internal fastcc void @rcu_check_gp_kthread_starvation() unnamed_addr #1 a
 
 19:                                               ; preds = %11
   %20 = zext nneg i16 %17 to i64
-  %21 = getelementptr [9 x ptr], ptr @gp_state_names, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @gp_state_names, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -12007,7 +12007,7 @@ define internal fastcc void @rcu_check_gp_kthread_starvation() unnamed_addr #1 a
   %29 = load volatile i32, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.92, ptr noundef %13, i64 noundef %4, i64 noundef %14, i32 noundef %16, ptr noundef %24, i32 noundef %26, i32 noundef %29, i32 noundef %12) #32
   %31 = sext i32 %12 to i64
-  %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
+  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3648), align 64
   %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.93, ptr noundef %34) #32
@@ -12063,7 +12063,7 @@ define internal fastcc void @rcu_dump_cpu_stacks() unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @rcu_num_nodes, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %7
+  %8 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %7
   %9 = icmp ult ptr %5, %8
   br i1 %9, label %.preheader, label %.loopexit8
 
@@ -12171,7 +12171,7 @@ define internal fastcc void @rcu_dump_cpu_stacks() unnamed_addr #1 align 16 {
   %73 = getelementptr i8, ptr %10, i64 640
   %74 = load i32, ptr @rcu_num_nodes, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %75
+  %76 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %75
   %77 = icmp ult ptr %73, %76
   br i1 %77, label %.preheader, label %.loopexit8, !llvm.loop !419
 
@@ -12688,7 +12688,7 @@ define internal noundef i32 @rcu_gp_kthread(ptr readnone captures(none) %0) #21 
   %118 = load ptr, ptr %117, align 8
   %119 = load i32, ptr @rcu_num_nodes, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %120
+  %121 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %120
   %122 = icmp ult ptr %118, %121
   br i1 %122, label %.preheader16.i, label %.loopexit17.i
 
@@ -12941,7 +12941,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %242 = getelementptr i8, ptr %123, i64 640
   %243 = load i32, ptr @rcu_num_nodes, align 4
   %244 = sext i32 %243 to i64
-  %245 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %244
+  %245 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %244
   %246 = icmp ult ptr %242, %245
   br i1 %246, label %.preheader16.i, label %.loopexit17.i, !llvm.loop !440
 
@@ -12983,7 +12983,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %270 = phi i32 [ %.pre19.i, %266 ], [ %247, %258 ], [ %247, %254 ]
   store volatile i16 4, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3314), align 2
   %271 = sext i32 %270 to i64
-  %272 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %271
+  %272 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %271
   %273 = icmp ugt ptr %272, @rcu_state
   br i1 %273, label %.preheader.i, label %.loopexit
 
@@ -13233,7 +13233,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %419 = getelementptr i8, ptr %275, i64 640
   %420 = load i32, ptr @rcu_num_nodes, align 4
   %421 = sext i32 %420 to i64
-  %422 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %421
+  %422 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %421
   %423 = icmp ult ptr %419, %422
   br i1 %423, label %.preheader.i, label %.loopexit, !llvm.loop !452
 
@@ -13612,7 +13612,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %629 = load ptr, ptr %628, align 8
   %630 = load i32, ptr @rcu_num_nodes, align 4
   %631 = sext i32 %630 to i64
-  %632 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %631
+  %632 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %631
   %633 = icmp ult ptr %629, %632
   br i1 %633, label %634, label %force_qs_rnp.exit.i
 
@@ -13700,7 +13700,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %686 = phi i64 [ %707, %722 ], [ 0, %677 ]
   %687 = phi i64 [ %708, %722 ], [ 0, %677 ]
   %688 = sext i32 %685 to i64
-  %689 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %688
+  %689 = getelementptr i64, ptr @__per_cpu_offset, i64 %688
   %690 = load i64, ptr %689, align 8
   %691 = add i64 %690, ptrtoint (ptr @rcu_data to i64)
   %692 = inttoptr i64 %691 to ptr
@@ -13836,7 +13836,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %770 = getelementptr i8, ptr %639, i64 640
   %771 = load i32, ptr @rcu_num_nodes, align 4
   %772 = sext i32 %771 to i64
-  %773 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %772
+  %773 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %772
   %774 = icmp ult ptr %770, %773
   br i1 %774, label %638, label %force_qs_rnp.exit.i, !llvm.loop !469
 
@@ -14078,7 +14078,7 @@ rcu_gp_fqs_loop.exit:                             ; preds = %564
   store volatile i64 %898, ptr %2, align 8
   %899 = load i32, ptr @rcu_num_nodes, align 4
   %900 = sext i32 %899 to i64
-  %901 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %900
+  %901 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %900
   %902 = icmp ugt ptr %901, @rcu_state
   br i1 %902, label %.preheader.i5, label %.loopexit18.i
 
@@ -14266,7 +14266,7 @@ rcu_gp_fqs_loop.exit:                             ; preds = %564
   %1010 = phi i64 [ %1025, %1036 ], [ %983, %993 ]
   %1011 = phi i32 [ %1038, %1036 ], [ %990, %993 ]
   %1012 = sext i32 %1011 to i64
-  %1013 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %1012
+  %1013 = getelementptr i64, ptr @__per_cpu_offset, i64 %1012
   %1014 = load i64, ptr %1013, align 8
   %1015 = add i64 %1014, ptrtoint (ptr @rcu_data to i64)
   %1016 = inttoptr i64 %1015 to ptr
@@ -14357,7 +14357,7 @@ rcu_gp_fqs_loop.exit:                             ; preds = %564
   %1071 = phi i32 [ %.pre20.i7, %1067 ], [ %.pre21.i6, %1059 ], [ %.pre21.i6, %1055 ]
   %1072 = getelementptr i8, ptr %904, i64 640
   %1073 = sext i32 %1071 to i64
-  %1074 = getelementptr [5 x %struct.rcu_node], ptr @rcu_state, i64 0, i64 %1073
+  %1074 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %1073
   %1075 = icmp ult ptr %1072, %1074
   br i1 %1075, label %.preheader.i5, label %.loopexit18.loopexit.i, !llvm.loop !484
 
@@ -14580,7 +14580,7 @@ define internal fastcc void @rcu_spawn_core_kthreads() unnamed_addr #8 section "
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @rcu_data, i64 324) to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -14698,7 +14698,7 @@ define internal fastcc void @dump_blkd_tasks(ptr noundef %0) unnamed_addr #16 al
 .preheader:                                       ; preds = %48, %.preheader
   %53 = phi i32 [ %82, %.preheader ], [ %50, %48 ]
   %54 = sext i32 %53 to i64
-  %55 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %54
+  %55 = getelementptr i64, ptr @__per_cpu_offset, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, ptrtoint (ptr @rcu_data to i64)
   %58 = inttoptr i64 %57 to ptr
@@ -14711,7 +14711,7 @@ define internal fastcc void @dump_blkd_tasks(ptr noundef %0) unnamed_addr #16 al
   %65 = and i64 %64, %60
   %66 = icmp ne i64 %65, 0
   %67 = zext i1 %66 to i64
-  %68 = getelementptr [3 x i8], ptr @.str.132, i64 0, i64 %67
+  %68 = getelementptr i8, ptr @.str.132, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 408
@@ -14752,7 +14752,7 @@ define internal noundef range(i32 0, 2) i32 @dyntick_save_progress_counter(ptr n
   %3 = load i32, ptr %2, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !412
   %4 = sext i32 %3 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @context_tracking to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -14855,7 +14855,7 @@ define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr nound
   %7 = load i32, ptr %6, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !412
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, ptrtoint (ptr @context_tracking to i64)
   %12 = inttoptr i64 %11 to ptr
@@ -14996,7 +14996,7 @@ define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr nound
   %103 = and i64 %102, %99
   %104 = icmp ne i64 %103, 0
   %105 = zext i1 %104 to i64
-  %106 = getelementptr [3 x i8], ptr @.str.132, i64 0, i64 %105
+  %106 = getelementptr i8, ptr @.str.132, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -15123,7 +15123,7 @@ define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr nound
 191:                                              ; preds = %186
   %192 = load i32, ptr %6, align 8
   %193 = sext i32 %192 to i64
-  %194 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %193
+  %194 = getelementptr i64, ptr @__per_cpu_offset, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, ptrtoint (ptr @kernel_cpustat to i64)
   %197 = inttoptr i64 %196 to ptr
@@ -15140,7 +15140,7 @@ define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr nound
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i64 %205, ptr %206, align 8
   %207 = zext i32 %192 to i64
-  %208 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %207
+  %208 = getelementptr i64, ptr @__per_cpu_offset, i64 %207
   %209 = load i64, ptr %208, align 8
   %210 = add i64 %209, ptrtoint (ptr @kstat to i64)
   %211 = inttoptr i64 %210 to ptr
@@ -15156,7 +15156,7 @@ define internal noundef range(i32 -1, 2) i32 @rcu_implicit_dynticks_qs(ptr nound
 218:                                              ; preds = %218, %191
   %219 = phi i64 [ 0, %191 ], [ %224, %218 ]
   %220 = phi i32 [ 0, %191 ], [ %223, %218 ]
-  %221 = getelementptr [10 x i32], ptr %217, i64 0, i64 %219
+  %221 = getelementptr i32, ptr %217, i64 %219
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, %220
   %224 = add nuw nsw i64 %219, 1
@@ -15423,7 +15423,7 @@ define internal void @rcu_cpu_kthread(i32 %0) #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define internal void @rcu_cpu_kthread_setup(i32 noundef %0) #23 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @rcu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -15436,7 +15436,7 @@ define internal void @rcu_cpu_kthread_setup(i32 noundef %0) #23 align 16 {
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: write, inaccessiblemem: none)
 define internal void @rcu_cpu_kthread_park(i32 noundef %0) #24 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @rcu_data, i64 320) to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -16460,7 +16460,7 @@ define internal void @kfree_rcu_work(ptr noundef %0) #1 align 16 {
   %9 = phi i1 [ true, %1 ], [ false, %8 ]
   %.sroa.phi = phi ptr [ %2, %1 ], [ %.sroa.gep5, %8 ]
   %10 = phi i64 [ 0, %1 ], [ 1, %8 ]
-  %11 = getelementptr [2 x %struct.list_head], ptr %7, i64 0, i64 %10
+  %11 = getelementptr %struct.list_head, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %.sroa.phi, align 16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -16561,14 +16561,14 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
   store volatile ptr %.sroa.phi, ptr %.sroa.phi, align 16
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
   store volatile ptr %.sroa.phi, ptr %10, align 8
-  %11 = getelementptr [2 x %struct.list_head], ptr %5, i64 0, i64 %9
+  %11 = getelementptr %struct.list_head, ptr %5, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %11
   br i1 %14, label %.loopexit14, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr [2 x %struct.atomic_t], ptr %6, i64 0, i64 %9
+  %16 = getelementptr %struct.atomic_t, ptr %6, i64 %9
   br label %17
 
 17:                                               ; preds = %36, %15
@@ -16689,7 +16689,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
 78:                                               ; preds = %.loopexit12, %74
   %79 = phi i1 [ true, %74 ], [ false, %.loopexit12 ]
   %80 = phi i64 [ 0, %74 ], [ 1, %.loopexit12 ]
-  %81 = getelementptr [2 x %struct.kfree_rcu_cpu_work], ptr %76, i64 0, i64 %80
+  %81 = getelementptr %struct.kfree_rcu_cpu_work, ptr %76, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   br label %84
 
@@ -16699,7 +16699,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
 84:                                               ; preds = %83, %78
   %85 = phi i1 [ true, %78 ], [ false, %83 ]
   %86 = phi i64 [ 0, %78 ], [ 1, %83 ]
-  %87 = getelementptr [2 x %struct.list_head], ptr %82, i64 0, i64 %86
+  %87 = getelementptr %struct.list_head, ptr %82, i64 %86
   %88 = load volatile ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %87
   br i1 %89, label %83, label %.loopexit12
@@ -16716,7 +16716,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
 .preheader:                                       ; preds = %90, %94
   %95 = phi i1 [ false, %94 ], [ true, %90 ]
   %96 = phi i64 [ 1, %94 ], [ 0, %90 ]
-  %97 = getelementptr [2 x %struct.list_head], ptr %5, i64 0, i64 %96
+  %97 = getelementptr %struct.list_head, ptr %5, i64 %96
   %98 = load volatile ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %97
   br i1 %99, label %94, label %.loopexit11.preheader
@@ -16732,15 +16732,15 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
 .loopexit11:                                      ; preds = %.loopexit11.preheader, %116
   %103 = phi i1 [ false, %116 ], [ true, %.loopexit11.preheader ]
   %104 = phi i64 [ 1, %116 ], [ 0, %.loopexit11.preheader ]
-  %105 = getelementptr [2 x %struct.list_head], ptr %82, i64 0, i64 %104
+  %105 = getelementptr %struct.list_head, ptr %82, i64 %104
   %106 = load volatile ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, %105
   br i1 %107, label %108, label %116
 
 108:                                              ; preds = %.loopexit11
-  %109 = getelementptr [2 x %struct.atomic_t], ptr %6, i64 0, i64 %104
+  %109 = getelementptr %struct.atomic_t, ptr %6, i64 %104
   store volatile i32 0, ptr %109, align 4
-  %110 = getelementptr [2 x %struct.list_head], ptr %5, i64 0, i64 %104
+  %110 = getelementptr %struct.list_head, ptr %5, i64 %104
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %105, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -16800,7 +16800,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
 135:                                              ; preds = %134, %133
   %136 = phi i1 [ true, %133 ], [ false, %134 ]
   %137 = phi i64 [ 0, %133 ], [ 1, %134 ]
-  %138 = getelementptr [2 x %struct.list_head], ptr %5, i64 0, i64 %137
+  %138 = getelementptr %struct.list_head, ptr %5, i64 %137
   %139 = load volatile ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, %138
   br i1 %140, label %134, label %.loopexit
@@ -16818,7 +16818,7 @@ define internal void @kfree_rcu_monitor(ptr noundef %0) #1 align 16 {
   %146 = phi i1 [ true, %.loopexit ], [ false, %145 ]
   %147 = phi i64 [ 0, %.loopexit ], [ 1, %145 ]
   %148 = phi i32 [ %144, %.loopexit ], [ %151, %145 ]
-  %149 = getelementptr [2 x %struct.atomic_t], ptr %6, i64 0, i64 %147
+  %149 = getelementptr %struct.atomic_t, ptr %6, i64 %147
   %150 = load volatile i32, ptr %149, align 4
   %151 = add i32 %150, %148
   br i1 %146, label %145, label %152, !llvm.loop !113
@@ -16936,7 +16936,7 @@ define internal i64 @kfree_rcu_shrink_count(ptr readnone captures(none) %0, ptr 
 
 14:                                               ; preds = %10
   %15 = and i64 %11, 63
-  %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
+  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @krc to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -16949,7 +16949,7 @@ define internal i64 @kfree_rcu_shrink_count(ptr readnone captures(none) %0, ptr 
   %24 = phi i1 [ true, %14 ], [ false, %23 ]
   %25 = phi i64 [ 0, %14 ], [ 1, %23 ]
   %26 = phi i32 [ %21, %14 ], [ %29, %23 ]
-  %27 = getelementptr [2 x %struct.atomic_t], ptr %22, i64 0, i64 %25
+  %27 = getelementptr %struct.atomic_t, ptr %22, i64 %25
   %28 = load volatile i32, ptr %27, align 4
   %29 = add i32 %28, %26
   br i1 %24, label %23, label %30, !llvm.loop !113
@@ -17002,7 +17002,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @kfree_rcu_shrink_scan(pt
 
 18:                                               ; preds = %14
   %19 = and i64 %15, 63
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @krc to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -17015,7 +17015,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @kfree_rcu_shrink_scan(pt
   %28 = phi i1 [ true, %18 ], [ false, %27 ]
   %29 = phi i64 [ 0, %18 ], [ 1, %27 ]
   %30 = phi i32 [ %25, %18 ], [ %33, %27 ]
-  %31 = getelementptr [2 x %struct.atomic_t], ptr %26, i64 0, i64 %29
+  %31 = getelementptr %struct.atomic_t, ptr %26, i64 %29
   %32 = load volatile i32, ptr %31, align 4
   %33 = add i32 %32, %30
   br i1 %28, label %27, label %34, !llvm.loop !113
@@ -17171,7 +17171,7 @@ define internal fastcc void @kvfree_rcu_bulk(ptr noundef %0, ptr noundef %1, i32
   %56 = phi i64 [ 0, %25 ], [ %84, %81 ]
   %57 = phi i32 [ 0, %25 ], [ %83, %81 ]
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3648), align 64
-  %59 = getelementptr [0 x ptr], ptr %26, i64 0, i64 %56
+  %59 = getelementptr ptr, ptr %26, i64 %56
   %60 = load ptr, ptr %59, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rcu_invoke_kvfree_callback, i64 8), i32 2) #29
           to label %81 [label %61], !srcloc !8
@@ -17448,7 +17448,7 @@ define internal fastcc void @rcu_boot_init_percpu_data(i32 noundef %0) unnamed_a
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @context_tracking) #28, !srcloc !594
   %3 = inttoptr i64 %2 to ptr
   %4 = sext i32 %0 to i64
-  %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
+  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @rcu_data to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -17639,7 +17639,7 @@ define internal void @sync_rcu_exp_select_node_cpus(ptr noundef %0) #1 align 16 
   %29 = phi i32 [ %22, %26 ], [ %75, %73 ]
   %30 = phi i64 [ 0, %26 ], [ %59, %73 ]
   %31 = sext i32 %29 to i64
-  %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
+  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, ptrtoint (ptr @rcu_data to i64)
   %35 = inttoptr i64 %34 to ptr
@@ -17767,7 +17767,7 @@ define internal void @sync_rcu_exp_select_node_cpus(ptr noundef %0) #1 align 16 
   %108 = phi i32 [ %102, %105 ], [ %212, %210 ]
   %109 = phi i64 [ %79, %105 ], [ %197, %210 ]
   %110 = sext i32 %108 to i64
-  %111 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %110
+  %111 = getelementptr i64, ptr @__per_cpu_offset, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = add i64 %112, ptrtoint (ptr @rcu_data to i64)
   %114 = inttoptr i64 %113 to ptr
@@ -17779,7 +17779,7 @@ define internal void @sync_rcu_exp_select_node_cpus(ptr noundef %0) #1 align 16 
   %120 = load i32, ptr %118, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !412
   %121 = sext i32 %120 to i64
-  %122 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %121
+  %122 = getelementptr i64, ptr @__per_cpu_offset, i64 %121
   %123 = load i64, ptr %122, align 8
   %124 = add i64 %123, ptrtoint (ptr @context_tracking to i64)
   %125 = inttoptr i64 %124 to ptr
@@ -17903,7 +17903,7 @@ define internal void @sync_rcu_exp_select_node_cpus(ptr noundef %0) #1 align 16 
   %187 = load i32, ptr %118, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !412
   %188 = sext i32 %187 to i64
-  %189 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %188
+  %189 = getelementptr i64, ptr @__per_cpu_offset, i64 %188
   %190 = load i64, ptr %189, align 8
   %191 = add i64 %190, ptrtoint (ptr @context_tracking to i64)
   %192 = inttoptr i64 %191 to ptr

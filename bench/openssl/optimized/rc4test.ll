@@ -42,19 +42,19 @@ define internal i32 @test_rc4_encrypt(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [6 x [30 x i8]], ptr @keys, i64 0, i64 %4
+  %5 = getelementptr inbounds [30 x i8], ptr @keys, i64 %4
   %6 = load i8, ptr %5, align 2, !tbaa !4
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @RC4_set_key(ptr noundef nonnull %3, i32 noundef %7, ptr noundef nonnull %8) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %2, i8 0, i64 512, i1 false)
-  %9 = getelementptr inbounds [6 x i8], ptr @data_len, i64 0, i64 %4
+  %9 = getelementptr inbounds i8, ptr @data_len, i64 %4
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [6 x [30 x i8]], ptr @data, i64 0, i64 %4
+  %12 = getelementptr inbounds [30 x i8], ptr @data, i64 %4
   call void @RC4(ptr noundef nonnull %3, i64 noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %2) #4
   %13 = add nuw nsw i64 %11, 1
-  %14 = getelementptr inbounds [6 x [30 x i8]], ptr @output, i64 0, i64 %4
+  %14 = getelementptr inbounds [30 x i8], ptr @output, i64 %4
   %15 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 72, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i64 noundef %13, ptr noundef nonnull %14, i64 noundef %13) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -78,7 +78,7 @@ define internal i32 @test_rc4_end_processing(i32 noundef %0) #0 {
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %6
+  %9 = getelementptr inbounds i8, ptr %2, i64 %6
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i8 noundef zeroext %10, i8 noundef zeroext 0) #4
   br label %12
@@ -104,8 +104,8 @@ define internal i32 @test_rc4_multi_call(i32 noundef %0) #0 {
   call void @RC4(ptr noundef nonnull %3, i64 noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @data, i64 90), ptr noundef nonnull %2) #4
   %7 = sub nsw i32 20, %0
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [30 x i8], ptr getelementptr inbounds nuw (i8, ptr @data, i64 90), i64 0, i64 %6
-  %10 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %6
+  %9 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @data, i64 90), i64 %6
+  %10 = getelementptr inbounds i8, ptr %2, i64 %6
   call void @RC4(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
   %11 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %2, i64 noundef 21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @output, i64 90), i64 noundef 21) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

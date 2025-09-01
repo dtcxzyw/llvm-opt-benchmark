@@ -247,7 +247,7 @@ define internal fastcc void @dumpFunction(ptr noundef nonnull %0, ptr noundef re
   %32 = or i8 %31, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %33 = sub nsw i64 9, %indvars.iv.i.i
-  %34 = getelementptr inbounds nuw [10 x i8], ptr %23, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %33
   store i8 %32, ptr %34, align 1, !tbaa !14
   %.not.i.i = icmp ult i64 %.069.i.i, 16384
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
@@ -305,7 +305,7 @@ dumpInt.exit:                                     ; preds = %._crit_edge.i.i, %3
   %61 = or i8 %60, -128
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i26, 1
   %62 = sub nsw i64 9, %indvars.iv.i.i26
-  %63 = getelementptr inbounds nuw [10 x i8], ptr %22, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %22, i64 %62
   store i8 %61, ptr %63, align 1, !tbaa !14
   %.not.i.i29 = icmp ult i64 %.069.i.i27, 16384
   br i1 %.not.i.i29, label %._crit_edge.loopexit.i.i30, label %.lr.ph.i.i25
@@ -435,7 +435,7 @@ dumpByte.exit35:                                  ; preds = %dumpByte.exit34.thr
   %121 = or i8 %120, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %122 = sub nsw i64 9, %indvars.iv.i.i.i
-  %123 = getelementptr inbounds nuw [10 x i8], ptr %18, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 %122
   store i8 %121, ptr %123, align 1, !tbaa !14
   %.not.i.i.i = icmp ult i64 %.069.i.i.i, 16384
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i
@@ -548,7 +548,7 @@ dumpCode.exit:                                    ; preds = %143, %dumpAlign.exi
   %182 = or i8 %181, -128
   %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
   %183 = sub nsw i64 9, %indvars.iv.i.i.i40
-  %184 = getelementptr inbounds nuw [10 x i8], ptr %17, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %17, i64 %183
   store i8 %182, ptr %184, align 1, !tbaa !14
   %.not.i.i.i43 = icmp ult i64 %.069.i.i.i41, 16384
   br i1 %.not.i.i.i43, label %._crit_edge.loopexit.i.i.i44, label %.lr.ph.i.i.i39
@@ -699,7 +699,7 @@ dumpConstants.exit:                               ; preds = %239, %dumpInt.exit.
   %248 = or i8 %247, -128
   %indvars.iv.next.i.i.i53 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
   %249 = sub nsw i64 9, %indvars.iv.i.i.i51
-  %250 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr %13, i64 %249
   store i8 %248, ptr %250, align 1, !tbaa !14
   %.not.i.i.i54 = icmp ult i64 %.069.i.i.i52, 16384
   br i1 %.not.i.i.i54, label %._crit_edge.loopexit.i.i.i55, label %.lr.ph.i.i.i50
@@ -843,7 +843,7 @@ dumpUpvalues.exit:                                ; preds = %dumpByte.exit15.i, 
   %311 = or i8 %310, -128
   %indvars.iv.next.i.i91 = add nuw nsw i64 %indvars.iv.i.i89, 1
   %312 = sub nsw i64 9, %indvars.iv.i.i89
-  %313 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr %3, i64 %312
   store i8 %311, ptr %313, align 1, !tbaa !14
   %.not.i.i92 = icmp ult i64 %.069.i.i90, 16384
   br i1 %.not.i.i92, label %._crit_edge.loopexit.i.i93, label %.lr.ph.i.i88
@@ -940,7 +940,7 @@ dumpProtos.exit:                                  ; preds = %330, %dumpInt.exit9
   %352 = or i8 %351, -128
   %indvars.iv.next.i.i.i83 = add nuw nsw i64 %indvars.iv.i.i.i81, 1
   %353 = sub nsw i64 9, %indvars.iv.i.i.i81
-  %354 = getelementptr inbounds nuw [10 x i8], ptr %9, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw i8, ptr %9, i64 %353
   store i8 %352, ptr %354, align 1, !tbaa !14
   %.not.i.i.i84 = icmp ult i64 %.069.i.i.i82, 16384
   br i1 %.not.i.i.i84, label %._crit_edge.loopexit.i.i.i85, label %.lr.ph.i.i.i80
@@ -1029,7 +1029,7 @@ dumpBlock.exit.i:                                 ; preds = %dumpInt.exit.i68.th
   %393 = or i8 %392, -128
   %indvars.iv.next.i.i53.i = add nuw nsw i64 %indvars.iv.i.i51.i, 1
   %394 = sub nsw i64 9, %indvars.iv.i.i51.i
-  %395 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw i8, ptr %8, i64 %394
   store i8 %393, ptr %395, align 1, !tbaa !14
   %.not.i.i54.i = icmp ult i64 %.069.i.i52.i, 16384
   br i1 %.not.i.i54.i, label %._crit_edge.loopexit.i.i55.i, label %.lr.ph.i.i50.i
@@ -1149,7 +1149,7 @@ dumpBlock.exit59.i:                               ; preds = %431, %dumpAlign.exi
   %456 = or i8 %455, -128
   %indvars.iv.next.i.i65.i = add nuw nsw i64 %indvars.iv.i.i63.i, 1
   %457 = sub nsw i64 9, %indvars.iv.i.i63.i
-  %458 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i8, ptr %7, i64 %457
   store i8 %456, ptr %458, align 1, !tbaa !14
   %.not.i.i66.i = icmp ult i64 %.069.i.i64.i, 16384
   br i1 %.not.i.i66.i, label %._crit_edge.loopexit.i.i67.i, label %.lr.ph.i.i62.i
@@ -1225,7 +1225,7 @@ dumpInt.exit70.i:                                 ; preds = %462, %._crit_edge.i
   %495 = or i8 %494, -128
   %indvars.iv.next.i.i76.i = add nuw nsw i64 %indvars.iv.i.i74.i, 1
   %496 = sub nsw i64 9, %indvars.iv.i.i74.i
-  %497 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw i8, ptr %6, i64 %496
   store i8 %495, ptr %497, align 1, !tbaa !14
   %.not.i.i77.i = icmp ult i64 %.069.i.i75.i, 16384
   br i1 %.not.i.i77.i, label %._crit_edge.loopexit.i.i78.i, label %.lr.ph.i.i73.i
@@ -1279,7 +1279,7 @@ dumpInt.exit81.i:                                 ; preds = %501, %._crit_edge.i
   %519 = or i8 %518, -128
   %indvars.iv.next.i.i87.i = add nuw nsw i64 %indvars.iv.i.i85.i, 1
   %520 = sub nsw i64 9, %indvars.iv.i.i85.i
-  %521 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw i8, ptr %5, i64 %520
   store i8 %519, ptr %521, align 1, !tbaa !14
   %.not.i.i88.i = icmp ult i64 %.069.i.i86.i, 16384
   br i1 %.not.i.i88.i, label %._crit_edge.loopexit.i.i89.i, label %.lr.ph.i.i84.i
@@ -1347,7 +1347,7 @@ dumpInt.exit92.i:                                 ; preds = %524, %._crit_edge.i
   %545 = or i8 %544, -128
   %indvars.iv.next.i.i98.i = add nuw nsw i64 %indvars.iv.i.i96.i, 1
   %546 = sub nsw i64 9, %indvars.iv.i.i96.i
-  %547 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %546
+  %547 = getelementptr inbounds nuw i8, ptr %4, i64 %546
   store i8 %545, ptr %547, align 1, !tbaa !14
   %.not.i.i99.i = icmp ult i64 %.069.i.i97.i, 16384
   br i1 %.not.i.i99.i, label %._crit_edge.loopexit.i.i100.i, label %.lr.ph.i.i95.i
@@ -1494,7 +1494,7 @@ dumpSize.exit28:                                  ; preds = %32, %37
   %55 = or i8 %54, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %56 = sub nsw i64 9, %indvars.iv.i.i
-  %57 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 %56
   store i8 %55, ptr %57, align 1, !tbaa !14
   %.not.i.i = icmp ult i64 %.069.i.i, 16384
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
@@ -1568,7 +1568,7 @@ dumpSize.exit29:                                  ; preds = %._crit_edge.i.i, %5
   %92 = or i8 %91, -128
   %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i32, 1
   %93 = sub nsw i64 9, %indvars.iv.i.i32
-  %94 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 %93
   store i8 %92, ptr %94, align 1, !tbaa !14
   %.not.i.i35 = icmp ult i64 %.069.i.i33, 16384
   br i1 %.not.i.i35, label %._crit_edge.loopexit.i.i36, label %.lr.ph.i.i31

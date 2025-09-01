@@ -437,7 +437,7 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef captures(addres
 
 22:                                               ; preds = %20, %14
   %23 = zext nneg i32 %.2 to i64
-  %24 = getelementptr inbounds nuw [32 x i32], ptr @linearGradPrograms, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @linearGradPrograms, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
@@ -543,7 +543,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
   %33 = load float, ptr %32, align 4
   %34 = fsub float %33, %31
   %35 = fdiv float 1.000000e+00, %34
-  %36 = getelementptr inbounds nuw [11 x float], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   store float %35, ptr %36, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
@@ -601,7 +601,7 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef captures(addres
 
 26:                                               ; preds = %24, %18
   %27 = zext nneg i32 %.2 to i64
-  %28 = getelementptr inbounds nuw [32 x i32], ptr @radialGradPrograms, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @radialGradPrograms, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %34

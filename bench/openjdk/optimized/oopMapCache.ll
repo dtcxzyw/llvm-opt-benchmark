@@ -1142,7 +1142,7 @@ define hidden void @_ZN11OopMapCacheC2Ev(ptr noundef nonnull align 8 dereference
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store volatile ptr null, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1158,7 +1158,7 @@ define hidden void @_ZN11OopMapCacheD2Ev(ptr noundef nonnull align 8 dereference
 
 2:                                                ; preds = %17, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %17 ]
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %4 = load volatile ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %17, label %5
@@ -1208,7 +1208,7 @@ define hidden void @_ZN11OopMapCache5flushEv(ptr noundef nonnull align 8 derefer
 
 2:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -1256,7 +1256,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %5, %9, %12
 define hidden noundef ptr @_ZNK11OopMapCache8entry_atEi(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 32
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr %0, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   ret ptr %6
@@ -1266,7 +1266,7 @@ define hidden noundef ptr @_ZNK11OopMapCache8entry_atEi(ptr noundef nonnull alig
 define hidden noundef zeroext i1 @_ZN11OopMapCache6put_atEiP16OopMapCacheEntryS1_(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = srem i32 %1, 32
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
   %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr nonnull %7) #17, !srcloc !16
   %9 = icmp eq ptr %8, %3
   ret i1 %9
@@ -1279,7 +1279,7 @@ define hidden void @_ZN11OopMapCache22flush_obsolete_entriesEv(ptr noundef nonnu
 
 3:                                                ; preds = %1, %70
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %70 ]
-  %4 = getelementptr inbounds nuw [32 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %5 = load volatile ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %70, label %6
@@ -1509,7 +1509,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
   %57 = add nsw i32 %.061, %22
   %58 = srem i32 %57, 32
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %59
+  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %.not = icmp eq ptr %61, null
@@ -1698,7 +1698,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   %165 = add nsw i32 %.04262, %22
   %166 = srem i32 %165, 32
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %167
+  %168 = getelementptr inbounds ptr, ptr %0, i64 %167
   %169 = load volatile ptr, ptr %168, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %170 = icmp eq ptr %169, null
@@ -1726,7 +1726,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
 179:                                              ; preds = %176, %178
   %180 = srem i32 %22, 32
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %181
+  %182 = getelementptr inbounds ptr, ptr %0, i64 %181
   %183 = load volatile ptr, ptr %182, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %184 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr %183, ptr nonnull %182) #17, !srcloc !16

@@ -7844,7 +7844,7 @@ define hidden void @_ZN5arith6solver12assert_boundEbRN6lp_api5boundIN3sat7litera
   %4 = alloca %class.inf_rational, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %6 = zext i1 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !280
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %10 = load ptr, ptr %9, align 8, !tbaa !193
@@ -27502,7 +27502,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %22, %28
 36:                                               ; preds = %.preheader, %105
   %37 = phi i1 [ true, %.preheader ], [ false, %105 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %105 ]
-  %38 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !557
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1073741824

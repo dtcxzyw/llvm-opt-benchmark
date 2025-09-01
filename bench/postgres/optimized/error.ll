@@ -439,7 +439,7 @@ define void @sqlprint() local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %5, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [150 x i8], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr %6, i64 %8
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %10, ptr noundef nonnull @.str.39, ptr noundef nonnull %6) #5

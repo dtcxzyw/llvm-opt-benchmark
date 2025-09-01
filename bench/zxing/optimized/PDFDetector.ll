@@ -1405,11 +1405,11 @@ _ZNSt5arrayIN5ZXing8NullableINS0_11ResultPointEEELm8EEC2Ev.exit.i: ; preds = %_Z
 
 .noexc:                                           ; preds = %_ZNSt5arrayIN5ZXing8NullableINS0_11ResultPointEEELm8EEC2Ev.exit.i, %.noexc
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.noexc ], [ 0, %_ZNSt5arrayIN5ZXing8NullableINS0_11ResultPointEEELm8EEC2Ev.exit.i ]
-  %47 = getelementptr inbounds nuw [4 x %"class.ZXing::Nullable"], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw %"class.ZXing::Nullable", ptr %4, i64 %indvars.iv.i.i
   %48 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6Pdf417L21INDEXES_START_PATTERNE, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4, !tbaa !63, !noalias !77
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"class.ZXing::Nullable", ptr %5, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull readonly align 8 dereferenceable(24) %47, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -1432,11 +1432,11 @@ _ZN5ZXing6Pdf417L12CopyToResultERSt5arrayINS_8NullableINS_11ResultPointEEELm8EER
 
 .noexc17:                                         ; preds = %54, %.noexc17
   %indvars.iv.i22.i = phi i64 [ %indvars.iv.next.i23.i, %.noexc17 ], [ 0, %54 ]
-  %62 = getelementptr inbounds nuw [4 x %"class.ZXing::Nullable"], ptr %4, i64 0, i64 %indvars.iv.i22.i
+  %62 = getelementptr inbounds nuw %"class.ZXing::Nullable", ptr %4, i64 %indvars.iv.i22.i
   %63 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6Pdf417L20INDEXES_STOP_PATTERNE, i64 %indvars.iv.i22.i
   %64 = load i32, ptr %63, align 4, !tbaa !63, !noalias !77
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %5, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %"class.ZXing::Nullable", ptr %5, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull readonly align 8 dereferenceable(24) %62, i64 24, i1 false)
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %exitcond.not.i24.i = icmp eq i64 %indvars.iv.next.i23.i, 4
@@ -2455,7 +2455,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %31 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i.i
   %32 = load i16, ptr %31, align 2, !tbaa !17
   %33 = uitofp i16 %32 to double
-  %34 = getelementptr inbounds nuw [8 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
   %35 = load i16, ptr %34, align 2, !tbaa !17
   %36 = uitofp i16 %35 to double
   %37 = fneg double %36
@@ -2528,7 +2528,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.u
   %63 = getelementptr inbounds nuw i16, ptr %.sroa.0.044.us, i64 %indvars.iv.i.i14.us
   %64 = load i16, ptr %63, align 2, !tbaa !17
   %65 = uitofp i16 %64 to double
-  %66 = getelementptr inbounds nuw [8 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14.us
+  %66 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14.us
   %67 = load i16, ptr %66, align 2, !tbaa !17
   %68 = uitofp i16 %67 to double
   %69 = fneg double %68
@@ -2585,7 +2585,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13:         ; preds = %.lr.ph.i.i.i.i.i7
   %85 = getelementptr inbounds nuw i16, ptr %.sroa.0.044, i64 %indvars.iv.i.i14
   %86 = load i16, ptr %85, align 2, !tbaa !17
   %87 = uitofp i16 %86 to double
-  %88 = getelementptr inbounds nuw [8 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14
+  %88 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14
   %89 = load i16, ptr %88, align 2, !tbaa !17
   %90 = uitofp i16 %89 to double
   %91 = fneg double %90

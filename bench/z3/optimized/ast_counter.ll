@@ -720,7 +720,7 @@ define hidden void @_ZN11var_counter10count_varsEPK3appi(ptr noundef nonnull ali
 
 13:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %.critedge ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv53
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv53
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   tail call void @_ZN14expr_free_varsclEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %15)
   %16 = load ptr, ptr %8, align 8, !tbaa !44
@@ -1188,7 +1188,7 @@ _ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i:   ; preds = %.noexc42, %._crit_e
 78:                                               ; preds = %.lr.ph, %134
   %79 = phi ptr [ %.pre, %.lr.ph ], [ %135, %134 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !42
   %82 = icmp eq ptr %79, null
   br i1 %82, label %89, label %83

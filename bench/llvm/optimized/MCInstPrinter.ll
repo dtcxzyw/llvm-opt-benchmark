@@ -97,7 +97,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %12, %7
   %16 = zext i8 %8 to i32
   %17 = lshr i32 %16, 4
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm9dumpBytesENS_8ArrayRefIhEERNS_11raw_ostreamEE7hex_rep, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm9dumpBytesENS_8ArrayRefIhEERNS_11raw_ostreamEE7hex_rep, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = load ptr, ptr %5, align 8, !tbaa !6
   %22 = load ptr, ptr %6, align 8, !tbaa !13
@@ -117,7 +117,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %12, %7
 _ZN4llvm11raw_ostreamlsEc.exit14:                 ; preds = %23, %25
   %27 = and i32 %16, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm9dumpBytesENS_8ArrayRefIhEERNS_11raw_ostreamEE7hex_rep, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm9dumpBytesENS_8ArrayRefIhEERNS_11raw_ostreamEE7hex_rep, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = load ptr, ptr %5, align 8, !tbaa !6
   %32 = load ptr, ptr %6, align 8, !tbaa !13
@@ -763,7 +763,7 @@ define dso_local void @_ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostre
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostreamENS0_6MarkupEbb, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13MCInstPrinter10WithMarkupC2ERS0_RNS_11raw_ostreamENS0_6MarkupEbb, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
@@ -1031,7 +1031,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %26 = shl nuw i64 1, %25
   %27 = lshr i32 %23, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [5 x i64], ptr %21, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %21, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !41
   %31 = and i64 %26, %30
   %32 = icmp ne i64 %31, 0
@@ -1046,7 +1046,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %39 = shl nuw i64 1, %38
   %40 = lshr i32 %36, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [5 x i64], ptr %34, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %34, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !41
   %44 = and i64 %39, %43
   %.not.i.i = icmp eq i64 %44, 0
@@ -1060,7 +1060,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %50 = zext nneg i32 %49 to i64
   %51 = lshr i32 %48, 6
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [5 x i64], ptr %46, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !41
   %55 = load i8, ptr %15, align 1, !tbaa !77, !range !117, !noundef !118
   %56 = lshr i64 %54, %50
@@ -1078,7 +1078,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %65 = zext nneg i32 %64 to i64
   %66 = lshr i32 %63, 6
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [5 x i64], ptr %61, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %61, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !41
   %70 = load i8, ptr %15, align 1, !tbaa !77, !range !117, !noundef !118
   %71 = xor i64 %69, -1

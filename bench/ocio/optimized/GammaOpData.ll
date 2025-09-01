@@ -516,7 +516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %40
 
 switch.lookup:                                    ; preds = %1
   %53 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData20ConvertStyleToStringENS0_5StyleE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData20ConvertStyleToStringENS0_5StyleE, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 
@@ -683,7 +683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %40
 
 switch.lookup:                                    ; preds = %1
   %53 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12ConvertStyleENS0_5StyleE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12ConvertStyleENS0_5StyleE, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -1675,7 +1675,7 @@ _ZNK19OpenColorIO_v2_5dev11GammaOpData5cloneEv.exit: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev11GammaOpData5cloneEv.exit
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv.exit
 
@@ -1694,7 +1694,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv(ptr noundef n
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -4360,7 +4360,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_5dev11GammaOpDat
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -4379,7 +4379,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18Tra
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_5dev11GammaOpData12getDirectionEv.exit
 
@@ -4394,7 +4394,7 @@ _ZNK19OpenColorIO_v2_5dev11GammaOpData12getDirectionEv.exit: ; preds = %2, %swit
 
 switch.lookup2:                                   ; preds = %7
   %9 = zext nneg i32 %4 to i64
-  %switch.gep3 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 0, i64 %9
+  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %9
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv.exit
 

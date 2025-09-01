@@ -574,7 +574,7 @@ define hidden void @_ZN17duckdb_libpgquery12keyword_listEv(ptr dead_on_unwind no
   store ptr %4, ptr %3, align 8, !tbaa !18
   store i64 0, ptr %5, align 8, !tbaa !20
   store i8 0, ptr %4, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw [480 x %"struct.duckdb_libpgquery::PGScanKeyword"], ptr @_ZN17duckdb_libpgqueryL12ScanKeywordsE, i64 0, i64 %.011
+  %10 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGScanKeyword", ptr @_ZN17duckdb_libpgqueryL12ScanKeywordsE, i64 %.011
   %11 = load ptr, ptr %10, align 16, !tbaa !23
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #15
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %12)

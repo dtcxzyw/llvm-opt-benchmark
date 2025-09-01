@@ -1246,7 +1246,7 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   store i64 %6, ptr %4, align 8
   switch i32 %1, label %.thread [
     i32 0, label %7
-    i32 1, label %101
+    i32 1, label %95
   ]
 
 7:                                                ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
@@ -1264,7 +1264,7 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %.sroa.speculated40 = tail call i64 @llvm.umin.i64(i64 %18, i64 %15)
+  %.sroa.speculated46 = tail call i64 @llvm.umin.i64(i64 %18, i64 %15)
   invoke void @glPushAttrib(i32 noundef 1048575)
           to label %19 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1311,366 +1311,366 @@ _ZN11QReadLockerC2EP14QReadWriteLock.exit:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %30, i64 64, i1 false)
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %40, %28
-  %indvars.iv15.i.i.i = phi i64 [ 1, %28 ], [ %indvars.iv.next16.i.i.i, %40 ]
-  %31 = shl nuw nsw i64 %indvars.iv15.i.i.i, 2
-  br label %32
+.preheader.i.i.i:                                 ; preds = %34, %28
+  %indvars.iv15.i.i.i = phi i64 [ 1, %28 ], [ %indvars.iv.next16.i.i.i, %34 ]
+  %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
+  %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
+  %invariant.gep20.i.i.i = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i
+  br label %31
 
-32:                                               ; preds = %32, %.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
-  %33 = add nuw nsw i64 %indvars.iv.i.i.i, %31
-  %34 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %33
-  %35 = shl i64 %indvars.iv.i.i.i, 2
-  %36 = add nuw nsw i64 %35, %indvars.iv15.i.i.i
-  %37 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %36
-  %38 = load float, ptr %34, align 4, !alias.scope !12
-  %39 = load float, ptr %37, align 4, !alias.scope !12
-  store float %39, ptr %34, align 4, !alias.scope !12
-  store float %38, ptr %37, align 4, !alias.scope !12
+31:                                               ; preds = %31, %.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %31 ]
+  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
+  %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
+  %32 = load float, ptr %gep.i.i.i, align 4, !alias.scope !12
+  %33 = load float, ptr %gep21.i.i.i, align 4, !alias.scope !12
+  store float %33, ptr %gep.i.i.i, align 4, !alias.scope !12
+  store float %32, ptr %gep21.i.i.i, align 4, !alias.scope !12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %40, label %32, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %34, label %31, !llvm.loop !15
 
-40:                                               ; preds = %32
+34:                                               ; preds = %31
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
   br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !16
 
-_ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %40
+_ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %34
   invoke void @glMultMatrixf(ptr noundef nonnull %3)
-          to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %35 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-41:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i
+35:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %43 = load float, ptr %42, align 8
-  %44 = fcmp ogt float %43, 0.000000e+00
-  br i1 %44, label %45, label %46
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load float, ptr %36, align 8
+  %38 = fcmp ogt float %37, 0.000000e+00
+  br i1 %38, label %39, label %40
 
-45:                                               ; preds = %41
-  invoke void @glPointSize(float noundef %43)
-          to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp
+39:                                               ; preds = %35
+  invoke void @glPointSize(float noundef %37)
+          to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit:                                        ; preds = %142, %147, %148, %149, %170, %172, %179, %180
+.loopexit:                                        ; preds = %130, %135, %136, %137, %158, %160, %167, %168
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %88, %87, %81, %80, %60, %59, %58, %53
-  %lpad.loopexit45 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %82, %81, %75, %74, %54, %53, %52, %47
+  %lpad.loopexit51 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge51.invoke, %.invoke, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i35, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %121, %120, %119, %118, %117, %116, %115, %114, %113, %106, %45, %27, %26, %25, %24, %23, %22, %21, %20, %19, %12
-  %lpad.loopexit.split-lp46 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge57.invoke, %.invoke, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i41, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %115, %114, %113, %112, %111, %110, %109, %108, %107, %100, %39, %27, %26, %25, %24, %23, %22, %21, %20, %19, %12
+  %lpad.loopexit.split-lp52 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit45, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit51, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN11QReadLockerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   resume { ptr, i32 } %lpad.phi
 
-46:                                               ; preds = %45, %41
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %48, align 8
-  %.not53 = icmp eq ptr %50, %51
-  br i1 %.not53, label %._crit_edge51.invoke, label %.lr.ph
+40:                                               ; preds = %39, %35
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %42, align 8
+  %.not59 = icmp eq ptr %44, %45
+  br i1 %.not59, label %._crit_edge57.invoke, label %.lr.ph
 
-.lr.ph:                                           ; preds = %46
-  %52 = trunc nuw i64 %.sroa.speculated40 to i32
-  br label %53
+.lr.ph:                                           ; preds = %40
+  %46 = trunc nuw i64 %.sroa.speculated46 to i32
+  br label %47
 
-53:                                               ; preds = %.lr.ph, %90
-  %54 = phi ptr [ %51, %.lr.ph ], [ %95, %90 ]
-  %.02348 = phi i64 [ 0, %.lr.ph ], [ %91, %90 ]
-  %55 = load ptr, ptr @__glewBindBuffer, align 8
-  %56 = getelementptr inbounds i32, ptr %54, i64 %.02348
-  %57 = load i32, ptr %56, align 4
-  invoke void %55(i32 noundef 34962, i32 noundef %57)
-          to label %58 unwind label %.loopexit.split-lp.loopexit
+47:                                               ; preds = %.lr.ph, %84
+  %48 = phi ptr [ %45, %.lr.ph ], [ %89, %84 ]
+  %.02354 = phi i64 [ 0, %.lr.ph ], [ %85, %84 ]
+  %49 = load ptr, ptr @__glewBindBuffer, align 8
+  %50 = getelementptr inbounds i32, ptr %48, i64 %.02354
+  %51 = load i32, ptr %50, align 4
+  invoke void %49(i32 noundef 34962, i32 noundef %51)
+          to label %52 unwind label %.loopexit.split-lp.loopexit
 
-58:                                               ; preds = %53
+52:                                               ; preds = %47
   invoke void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 0, ptr noundef null)
-          to label %59 unwind label %.loopexit.split-lp.loopexit
+          to label %53 unwind label %.loopexit.split-lp.loopexit
 
-59:                                               ; preds = %58
+53:                                               ; preds = %52
   invoke void @glEnableClientState(i32 noundef 32884)
-          to label %60 unwind label %.loopexit.split-lp.loopexit
+          to label %54 unwind label %.loopexit.split-lp.loopexit
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %61(i32 noundef 34962, i32 noundef 0)
-          to label %62 unwind label %.loopexit.split-lp.loopexit
+54:                                               ; preds = %53
+  %55 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %55(i32 noundef 34962, i32 noundef 0)
+          to label %56 unwind label %.loopexit.split-lp.loopexit
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %47, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %63, align 8
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 2
-  %71 = add nsw i64 %70, -1
-  %72 = icmp eq i64 %.02348, %71
-  br i1 %72, label %73, label %80
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %41, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %57, align 8
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = ashr exact i64 %63, 2
+  %65 = add nsw i64 %64, -1
+  %66 = icmp eq i64 %.02354, %65
+  br i1 %66, label %67, label %74
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1120
-  %76 = load i32, ptr %75, align 8
-  %77 = mul i64 %.02348, %.sroa.speculated40
-  %78 = trunc i64 %77 to i32
-  %79 = sub i32 %76, %78
-  br label %80
+67:                                               ; preds = %56
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1120
+  %70 = load i32, ptr %69, align 8
+  %71 = mul i64 %.02354, %.sroa.speculated46
+  %72 = trunc i64 %71 to i32
+  %73 = sub i32 %70, %72
+  br label %74
 
-80:                                               ; preds = %73, %62
-  %.024 = phi i32 [ %79, %73 ], [ %52, %62 ]
+74:                                               ; preds = %67, %56
+  %.024 = phi i32 [ %73, %67 ], [ %46, %56 ]
   invoke void @glDrawArrays(i32 noundef 0, i32 noundef 0, i32 noundef %.024)
+          to label %75 unwind label %.loopexit.split-lp.loopexit
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr @__glewBindBuffer, align 8
+  %77 = load ptr, ptr %41, align 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i32, ptr %78, i64 %.02354
+  %80 = load i32, ptr %79, align 4
+  invoke void %76(i32 noundef 34962, i32 noundef %80)
           to label %81 unwind label %.loopexit.split-lp.loopexit
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr @__glewBindBuffer, align 8
-  %83 = load ptr, ptr %47, align 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i32, ptr %84, i64 %.02348
-  %86 = load i32, ptr %85, align 4
-  invoke void %82(i32 noundef 34962, i32 noundef %86)
-          to label %87 unwind label %.loopexit.split-lp.loopexit
-
-87:                                               ; preds = %81
+81:                                               ; preds = %75
   invoke void @glDisableClientState(i32 noundef 32884)
-          to label %88 unwind label %.loopexit.split-lp.loopexit
+          to label %82 unwind label %.loopexit.split-lp.loopexit
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %89(i32 noundef 34962, i32 noundef 0)
-          to label %90 unwind label %.loopexit.split-lp.loopexit
+82:                                               ; preds = %81
+  %83 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %83(i32 noundef 34962, i32 noundef 0)
+          to label %84 unwind label %.loopexit.split-lp.loopexit
 
-90:                                               ; preds = %88
-  %91 = add nuw i64 %.02348, 1
-  %92 = load ptr, ptr %47, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %92, align 8
-  %96 = ptrtoint ptr %94 to i64
-  %97 = ptrtoint ptr %95 to i64
-  %98 = sub i64 %96, %97
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp ult i64 %91, %99
-  br i1 %100, label %53, label %._crit_edge51.invoke, !llvm.loop !17
+84:                                               ; preds = %82
+  %85 = add nuw i64 %.02354, 1
+  %86 = load ptr, ptr %41, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %86, align 8
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = ashr exact i64 %92, 2
+  %94 = icmp ult i64 %85, %93
+  br i1 %94, label %47, label %._crit_edge57.invoke, !llvm.loop !17
 
-101:                                              ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1116
-  %105 = load i32, ptr %104, align 4
-  %.not26 = icmp eq i32 %105, 0
-  br i1 %.not26, label %.thread, label %106
+95:                                               ; preds = %_ZN11QReadLockerC2EP14QReadWriteLock.exit
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1116
+  %99 = load i32, ptr %98, align 4
+  %.not26 = icmp eq i32 %99, 0
+  br i1 %.not26, label %.thread, label %100
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 584
-  %108 = load i32, ptr %107, align 8
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %111 = load i32, ptr %110, align 8
-  %112 = zext i32 %111 to i64
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %112, i64 %109)
+100:                                              ; preds = %95
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 584
+  %102 = load i32, ptr %101, align 8
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load i32, ptr %104, align 8
+  %106 = zext i32 %105 to i64
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %106, i64 %103)
   invoke void @glPushAttrib(i32 noundef 1048575)
+          to label %107 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+107:                                              ; preds = %100
+  invoke void @glEnable(i32 noundef 32823)
+          to label %108 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+108:                                              ; preds = %107
+  invoke void @glDisable(i32 noundef 2896)
+          to label %109 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+109:                                              ; preds = %108
+  invoke void @glDisable(i32 noundef 3553)
+          to label %110 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+110:                                              ; preds = %109
+  invoke void @glEnable(i32 noundef 3042)
+          to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+111:                                              ; preds = %110
+  invoke void @glDepthMask(i8 noundef zeroext 0)
+          to label %112 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+112:                                              ; preds = %111
+  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
           to label %113 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-113:                                              ; preds = %106
-  invoke void @glEnable(i32 noundef 32823)
+113:                                              ; preds = %112
+  invoke void @glColor4f(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0x3FD3333340000000)
           to label %114 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 114:                                              ; preds = %113
-  invoke void @glDisable(i32 noundef 2896)
+  invoke void @glPolygonOffset(float noundef -1.000000e+00, float noundef -1.000000e+00)
           to label %115 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 115:                                              ; preds = %114
-  invoke void @glDisable(i32 noundef 3553)
+  invoke void @glPushMatrix()
           to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 116:                                              ; preds = %115
-  invoke void @glEnable(i32 noundef 3042)
-          to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-117:                                              ; preds = %116
-  invoke void @glDepthMask(i8 noundef zeroext 0)
-          to label %118 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-118:                                              ; preds = %117
-  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
-          to label %119 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-119:                                              ; preds = %118
-  invoke void @glColor4f(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0x3FD3333340000000)
-          to label %120 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-120:                                              ; preds = %119
-  invoke void @glPolygonOffset(float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-121:                                              ; preds = %120
-  invoke void @glPushMatrix()
-          to label %122 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-122:                                              ; preds = %121
-  %123 = load ptr, ptr %102, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1132
+  %117 = load ptr, ptr %96, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1132
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %124, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %118, i64 64, i1 false)
   br label %.preheader.i.i.i28
 
-.preheader.i.i.i28:                               ; preds = %134, %122
-  %indvars.iv15.i.i.i29 = phi i64 [ 1, %122 ], [ %indvars.iv.next16.i.i.i33, %134 ]
-  %125 = shl nuw nsw i64 %indvars.iv15.i.i.i29, 2
-  br label %126
+.preheader.i.i.i28:                               ; preds = %122, %116
+  %indvars.iv15.i.i.i29 = phi i64 [ 1, %116 ], [ %indvars.iv.next16.i.i.i39, %122 ]
+  %.idx.i.i.i30 = shl nuw nsw i64 %indvars.iv15.i.i.i29, 4
+  %invariant.gep.i.i.i31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i30
+  %invariant.gep20.i.i.i32 = getelementptr float, ptr %2, i64 %indvars.iv15.i.i.i29
+  br label %119
 
-126:                                              ; preds = %126, %.preheader.i.i.i28
-  %indvars.iv.i.i.i30 = phi i64 [ 0, %.preheader.i.i.i28 ], [ %indvars.iv.next.i.i.i31, %126 ]
-  %127 = add nuw nsw i64 %indvars.iv.i.i.i30, %125
-  %128 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %127
-  %129 = shl i64 %indvars.iv.i.i.i30, 2
-  %130 = add nuw nsw i64 %129, %indvars.iv15.i.i.i29
-  %131 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %130
-  %132 = load float, ptr %128, align 4, !alias.scope !18
-  %133 = load float, ptr %131, align 4, !alias.scope !18
-  store float %133, ptr %128, align 4, !alias.scope !18
-  store float %132, ptr %131, align 4, !alias.scope !18
-  %indvars.iv.next.i.i.i31 = add nuw nsw i64 %indvars.iv.i.i.i30, 1
-  %exitcond.not.i.i.i32 = icmp eq i64 %indvars.iv.next.i.i.i31, %indvars.iv15.i.i.i29
-  br i1 %exitcond.not.i.i.i32, label %134, label %126, !llvm.loop !15
+119:                                              ; preds = %119, %.preheader.i.i.i28
+  %indvars.iv.i.i.i33 = phi i64 [ 0, %.preheader.i.i.i28 ], [ %indvars.iv.next.i.i.i37, %119 ]
+  %gep.i.i.i34 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i31, i64 %indvars.iv.i.i.i33
+  %.idx19.i.i.i35 = shl i64 %indvars.iv.i.i.i33, 4
+  %gep21.i.i.i36 = getelementptr i8, ptr %invariant.gep20.i.i.i32, i64 %.idx19.i.i.i35
+  %120 = load float, ptr %gep.i.i.i34, align 4, !alias.scope !18
+  %121 = load float, ptr %gep21.i.i.i36, align 4, !alias.scope !18
+  store float %121, ptr %gep.i.i.i34, align 4, !alias.scope !18
+  store float %120, ptr %gep21.i.i.i36, align 4, !alias.scope !18
+  %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i33, 1
+  %exitcond.not.i.i.i38 = icmp eq i64 %indvars.iv.next.i.i.i37, %indvars.iv15.i.i.i29
+  br i1 %exitcond.not.i.i.i38, label %122, label %119, !llvm.loop !15
 
-134:                                              ; preds = %126
-  %indvars.iv.next16.i.i.i33 = add nuw nsw i64 %indvars.iv15.i.i.i29, 1
-  %exitcond18.not.i.i.i34 = icmp eq i64 %indvars.iv.next16.i.i.i33, 4
-  br i1 %exitcond18.not.i.i.i34, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i35, label %.preheader.i.i.i28, !llvm.loop !16
+122:                                              ; preds = %119
+  %indvars.iv.next16.i.i.i39 = add nuw nsw i64 %indvars.iv15.i.i.i29, 1
+  %exitcond18.not.i.i.i40 = icmp eq i64 %indvars.iv.next16.i.i.i39, 4
+  br i1 %exitcond18.not.i.i.i40, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i41, label %.preheader.i.i.i28, !llvm.loop !16
 
-_ZNK3vcg8Matrix44IfE9transposeEv.exit.i35:        ; preds = %134
+_ZNK3vcg8Matrix44IfE9transposeEv.exit.i41:        ; preds = %122
   invoke void @glMultMatrixf(ptr noundef nonnull %2)
-          to label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36:  ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i35
+_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42:  ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %137, align 8
-  %.not52 = icmp eq ptr %139, %140
-  br i1 %.not52, label %._crit_edge51.invoke, label %.lr.ph50
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %125, align 8
+  %.not58 = icmp eq ptr %127, %128
+  br i1 %.not58, label %._crit_edge57.invoke, label %.lr.ph56
 
-.lr.ph50:                                         ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36
-  %141 = trunc nuw i64 %.sroa.speculated to i32
-  br label %142
+.lr.ph56:                                         ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42
+  %129 = trunc nuw i64 %.sroa.speculated to i32
+  br label %130
 
-142:                                              ; preds = %.lr.ph50, %182
-  %143 = phi ptr [ %140, %.lr.ph50 ], [ %188, %182 ]
-  %.02249 = phi i64 [ 0, %.lr.ph50 ], [ %183, %182 ]
-  %144 = load ptr, ptr @__glewBindBuffer, align 8
-  %145 = getelementptr inbounds i32, ptr %143, i64 %.02249
-  %146 = load i32, ptr %145, align 4
-  invoke void %144(i32 noundef 34962, i32 noundef %146)
-          to label %147 unwind label %.loopexit
+130:                                              ; preds = %.lr.ph56, %170
+  %131 = phi ptr [ %128, %.lr.ph56 ], [ %176, %170 ]
+  %.02255 = phi i64 [ 0, %.lr.ph56 ], [ %171, %170 ]
+  %132 = load ptr, ptr @__glewBindBuffer, align 8
+  %133 = getelementptr inbounds i32, ptr %131, i64 %.02255
+  %134 = load i32, ptr %133, align 4
+  invoke void %132(i32 noundef 34962, i32 noundef %134)
+          to label %135 unwind label %.loopexit
 
-147:                                              ; preds = %142
+135:                                              ; preds = %130
   invoke void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 0, ptr noundef null)
-          to label %148 unwind label %.loopexit
+          to label %136 unwind label %.loopexit
 
-148:                                              ; preds = %147
+136:                                              ; preds = %135
   invoke void @glEnableClientState(i32 noundef 32884)
-          to label %149 unwind label %.loopexit
+          to label %137 unwind label %.loopexit
 
-149:                                              ; preds = %148
-  %150 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %150(i32 noundef 34962, i32 noundef 0)
-          to label %151 unwind label %.loopexit
+137:                                              ; preds = %136
+  %138 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %138(i32 noundef 34962, i32 noundef 0)
+          to label %139 unwind label %.loopexit
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr %135, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %153, align 8
-  %157 = ptrtoint ptr %155 to i64
-  %158 = ptrtoint ptr %156 to i64
-  %159 = sub i64 %157, %158
-  %160 = ashr exact i64 %159, 2
-  %161 = add nsw i64 %160, -1
-  %162 = icmp eq i64 %.02249, %161
-  br i1 %162, label %163, label %170
+139:                                              ; preds = %137
+  %140 = load ptr, ptr %123, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %141, align 8
+  %145 = ptrtoint ptr %143 to i64
+  %146 = ptrtoint ptr %144 to i64
+  %147 = sub i64 %145, %146
+  %148 = ashr exact i64 %147, 2
+  %149 = add nsw i64 %148, -1
+  %150 = icmp eq i64 %.02255, %149
+  br i1 %150, label %151, label %158
 
-163:                                              ; preds = %151
-  %164 = load ptr, ptr %102, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1116
+151:                                              ; preds = %139
+  %152 = load ptr, ptr %96, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 1116
+  %154 = load i32, ptr %153, align 4
+  %155 = mul i64 %.02255, %.sroa.speculated
+  %156 = trunc i64 %155 to i32
+  %157 = sub i32 %154, %156
+  br label %158
+
+158:                                              ; preds = %151, %139
+  %.0 = phi i32 [ %157, %151 ], [ %129, %139 ]
+  %159 = mul i32 %.0, 3
+  invoke void @glDrawArrays(i32 noundef 4, i32 noundef 0, i32 noundef %159)
+          to label %160 unwind label %.loopexit
+
+160:                                              ; preds = %158
+  %161 = load ptr, ptr @__glewBindBuffer, align 8
+  %162 = load ptr, ptr %123, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i32, ptr %164, i64 %.02255
   %166 = load i32, ptr %165, align 4
-  %167 = mul i64 %.02249, %.sroa.speculated
-  %168 = trunc i64 %167 to i32
-  %169 = sub i32 %166, %168
-  br label %170
+  invoke void %161(i32 noundef 34962, i32 noundef %166)
+          to label %167 unwind label %.loopexit
 
-170:                                              ; preds = %163, %151
-  %.0 = phi i32 [ %169, %163 ], [ %141, %151 ]
-  %171 = mul i32 %.0, 3
-  invoke void @glDrawArrays(i32 noundef 4, i32 noundef 0, i32 noundef %171)
-          to label %172 unwind label %.loopexit
-
-172:                                              ; preds = %170
-  %173 = load ptr, ptr @__glewBindBuffer, align 8
-  %174 = load ptr, ptr %135, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %.02249
-  %178 = load i32, ptr %177, align 4
-  invoke void %173(i32 noundef 34962, i32 noundef %178)
-          to label %179 unwind label %.loopexit
-
-179:                                              ; preds = %172
+167:                                              ; preds = %160
   invoke void @glDisableClientState(i32 noundef 32884)
-          to label %180 unwind label %.loopexit
+          to label %168 unwind label %.loopexit
 
-180:                                              ; preds = %179
-  %181 = load ptr, ptr @__glewBindBuffer, align 8
-  invoke void %181(i32 noundef 34962, i32 noundef 0)
-          to label %182 unwind label %.loopexit
+168:                                              ; preds = %167
+  %169 = load ptr, ptr @__glewBindBuffer, align 8
+  invoke void %169(i32 noundef 34962, i32 noundef 0)
+          to label %170 unwind label %.loopexit
 
-182:                                              ; preds = %180
-  %183 = add nuw i64 %.02249, 1
-  %184 = load ptr, ptr %135, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %186 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %185, align 8
-  %189 = ptrtoint ptr %187 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %192 = ashr exact i64 %191, 2
-  %193 = icmp ult i64 %183, %192
-  br i1 %193, label %142, label %._crit_edge51.invoke, !llvm.loop !21
+170:                                              ; preds = %168
+  %171 = add nuw i64 %.02255, 1
+  %172 = load ptr, ptr %123, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 32
+  %175 = load ptr, ptr %174, align 8
+  %176 = load ptr, ptr %173, align 8
+  %177 = ptrtoint ptr %175 to i64
+  %178 = ptrtoint ptr %176 to i64
+  %179 = sub i64 %177, %178
+  %180 = ashr exact i64 %179, 2
+  %181 = icmp ult i64 %171, %180
+  br i1 %181, label %130, label %._crit_edge57.invoke, !llvm.loop !21
 
-._crit_edge51.invoke:                             ; preds = %182, %90, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit36, %46
+._crit_edge57.invoke:                             ; preds = %170, %84, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit42, %40
   invoke void @glPopMatrix()
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.invoke:                                          ; preds = %._crit_edge51.invoke
+.invoke:                                          ; preds = %._crit_edge57.invoke
   invoke void @glPopAttrib()
           to label %.thread unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.thread:                                          ; preds = %.invoke, %101, %_ZN11QReadLockerC2EP14QReadWriteLock.exit, %7
+.thread:                                          ; preds = %.invoke, %95, %_ZN11QReadLockerC2EP14QReadWriteLock.exit, %7
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN11QReadLockerD2Ev.exit unwind label %194
+          to label %_ZN11QReadLockerD2Ev.exit unwind label %182
 
-194:                                              ; preds = %.thread
-  %195 = landingpad { ptr, i32 }
+182:                                              ; preds = %.thread
+  %183 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #20
+  %184 = extractvalue { ptr, i32 } %183, 0
+  call void @__clang_call_terminate(ptr %184) #20
   unreachable
 
 _ZN11QReadLockerD2Ev.exit:                        ; preds = %.thread

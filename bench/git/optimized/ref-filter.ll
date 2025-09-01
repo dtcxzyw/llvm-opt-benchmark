@@ -597,7 +597,7 @@ _.exit:                                           ; preds = %8, %10
 
 .preheader:                                       ; preds = %.preheader.preheader, %45
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %45 ], [ 0, %.preheader.preheader ]
-  %38 = getelementptr inbounds nuw [47 x %struct.anon.11], ptr @valid_atom, i64 0, i64 %indvars.iv124
+  %38 = getelementptr inbounds nuw %struct.anon.11, ptr @valid_atom, i64 %indvars.iv124
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #25
   %41 = trunc i64 %40 to i32
@@ -2733,7 +2733,7 @@ define internal fastcc void @append_literal(ptr noundef readonly captures(addres
 
 16:                                               ; preds = %12
   %17 = zext i8 %14 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !15
   %20 = sext i8 %19 to i32
   %.not.i = icmp ult i8 %19, 16
@@ -2744,7 +2744,7 @@ define internal fastcc void @append_literal(ptr noundef readonly captures(addres
   %23 = getelementptr inbounds nuw i8, ptr %.0165, i64 2
   %24 = load i8, ptr %23, align 1, !tbaa !15
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = sext i8 %27 to i32
   %29 = or i32 %22, %28
@@ -3617,7 +3617,7 @@ new_ref_array_item.exit:                          ; preds = %st_add.exit.i
 
 .preheader.i:                                     ; preds = %new_ref_array_item.exit, %19
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %new_ref_array_item.exit ]
-  %20 = getelementptr inbounds nuw [3 x %struct.anon.14], ptr @ref_kind_from_refname.ref_kind, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %struct.anon.14, ptr @ref_kind_from_refname.ref_kind, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 16, !tbaa !187
   %22 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef %21) #24
   %.not12.i = icmp eq i32 %22, 0
@@ -6250,7 +6250,7 @@ _.exit70:                                         ; preds = %13, %15
 
 .preheader.i.i:                                   ; preds = %19, %21
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %21 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw [3 x %struct.anon.14], ptr @ref_kind_from_refname.ref_kind, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw %struct.anon.14, ptr @ref_kind_from_refname.ref_kind, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 16, !tbaa !187
   %24 = tail call i32 @starts_with(ptr noundef nonnull %0, ptr noundef %23) #24
   %.not12.i.i = icmp eq i32 %24, 0
@@ -6759,7 +6759,7 @@ define internal range(i32 -255, 256) i32 @memcasecmp(ptr noundef readonly captur
   %.01520 = phi ptr [ %20, %18 ], [ %1, %3 ]
   %5 = load i8, ptr %.01421, align 1, !tbaa !15
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !15
   %9 = shl i8 %8, 3
   %10 = and i8 %9, 32
@@ -6767,7 +6767,7 @@ define internal range(i32 -255, 256) i32 @memcasecmp(ptr noundef readonly captur
   %spec.select.i = zext i8 %spec.select.i18 to i32
   %11 = load i8, ptr %.01520, align 1, !tbaa !15
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = shl i8 %14, 3
   %16 = and i8 %15, 32
@@ -7303,7 +7303,7 @@ _.exit51:                                         ; preds = %25, %27
   %.02.i = phi ptr [ %52, %51 ], [ %.val45, %.lr.ph.i.preheader ]
   %53 = load i8, ptr %.02.i, align 1, !tbaa !15
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = and i8 %56, 1
   %.not9.i = icmp eq i8 %57, 0

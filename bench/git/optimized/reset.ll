@@ -677,7 +677,7 @@ _.exit:                                           ; preds = %261, %263
   %266 = call fastcc ptr @_(ptr noundef nonnull @.str.39)
   %267 = load i32, ptr %12, align 4, !tbaa !4
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [6 x ptr], ptr @reset_type_names, i64 0, i64 %268
+  %269 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !8
   %271 = call fastcc ptr @_(ptr noundef %270)
   call void (ptr, ...) @die(ptr noundef %266, ptr noundef %271) #14
@@ -704,7 +704,7 @@ _.exit:                                           ; preds = %261, %263
 
 278:                                              ; preds = %274
   %279 = sext i32 %275 to i64
-  %280 = getelementptr inbounds [6 x ptr], ptr @reset_type_names, i64 0, i64 %279
+  %280 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !8
   call void @trace2_cmd_mode_fl(ptr noundef nonnull @.str.36, i32 noundef 448, ptr noundef %281) #13
   br label %282
@@ -745,7 +745,7 @@ _.exit:                                           ; preds = %261, %263
   %294 = call fastcc ptr @_(ptr noundef nonnull @.str.41)
   %295 = load i32, ptr %12, align 4, !tbaa !4
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds [6 x ptr], ptr @reset_type_names, i64 0, i64 %296
+  %297 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !8
   %299 = call fastcc ptr @_(ptr noundef %298)
   call void (ptr, ...) @die(ptr noundef %294, ptr noundef %299) #14
@@ -803,7 +803,7 @@ _.exit:                                           ; preds = %261, %263
 324:                                              ; preds = %319, %315
   %325 = call fastcc ptr @_(ptr noundef nonnull @.str.58)
   %326 = zext nneg i32 %314 to i64
-  %327 = getelementptr inbounds nuw [6 x ptr], ptr @reset_type_names, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw ptr, ptr @reset_type_names, i64 %326
   %328 = load ptr, ptr %327, align 8, !tbaa !8
   %329 = call fastcc ptr @_(ptr noundef %328)
   call void (ptr, ...) @die(ptr noundef %325, ptr noundef %329) #14
@@ -1463,7 +1463,7 @@ _.exit44:                                         ; preds = %60, %62
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %73 = getelementptr inbounds nuw [2 x %struct.tree_desc], ptr %5, i64 0, i64 %indvars.iv, i32 1
+  %73 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv, i32 1
   %74 = load ptr, ptr %73, align 8, !tbaa !100
   call void @free(ptr noundef %74) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

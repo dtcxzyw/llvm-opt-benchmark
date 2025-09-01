@@ -13794,7 +13794,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %107
   %121 = add i32 %103, -1
   store i32 %121, ptr %102, align 8, !tbaa !1511
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw [16 x ptr], ptr %120, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw ptr, ptr %120, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !1524
   store i8 0, ptr %124, align 8, !tbaa !1512
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 424
@@ -13852,7 +13852,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %144 = load i8, ptr %142, align 8, !tbaa !1512
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw [10 x i8], ptr %143, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 %145
   store i8 10, ptr %146, align 1, !tbaa !383
   %147 = load ptr, ptr %18, align 8, !tbaa !1506
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
@@ -13860,7 +13860,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %150 = add i8 %149, 1
   store i8 %150, ptr %147, align 8, !tbaa !1512
   %151 = zext i8 %149 to i64
-  %152 = getelementptr inbounds nuw [10 x i64], ptr %148, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %148, i64 %151
   store i64 %97, ptr %152, align 8, !tbaa !412
   %153 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -15127,7 +15127,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
   %26 = add i32 %8, -1
   store i32 %26, ptr %7, align 8, !tbaa !1511
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !1524
   store i8 0, ptr %29, align 8, !tbaa !1512
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 424
@@ -15231,7 +15231,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !1511
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !1524
   br label %49
 

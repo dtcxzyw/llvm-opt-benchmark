@@ -853,14 +853,14 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i39: ; preds
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 switch.lookup:                                    ; preds = %31
-  %101 = lshr exact i64 %34, 9
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 0, i64 %101
+  %101 = lshr exact i64 %34, 6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %101
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 switch.lookup45:                                  ; preds = %85
-  %102 = lshr exact i64 %87, 9
-  %switch.gep46 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 0, i64 %102
+  %102 = lshr exact i64 %87, 6
+  %switch.gep46 = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %102
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
@@ -964,8 +964,8 @@ define dso_local void @_ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv(p
   br label %_ZL17getCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 switch.lookup:                                    ; preds = %26
-  %32 = lshr exact i64 %28, 9
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 0, i64 %32
+  %32 = lshr exact i64 %28, 6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL17getCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
@@ -11270,7 +11270,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !1377
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !1378
   br label %49
 
@@ -14321,7 +14321,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
   %26 = add i32 %8, -1
   store i32 %26, ptr %7, align 8, !tbaa !1377
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !1378
   store i8 0, ptr %29, align 8, !tbaa !1451
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 424

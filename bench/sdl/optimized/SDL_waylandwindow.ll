@@ -7238,7 +7238,7 @@ define internal void @handle_xdg_toplevel_wm_capabilities(ptr noundef writeonly 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.handle_xdg_toplevel_wm_capabilities, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.handle_xdg_toplevel_wm_capabilities, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = or i32 %8, %switch.load
   store i32 %12, ptr %4, align 8

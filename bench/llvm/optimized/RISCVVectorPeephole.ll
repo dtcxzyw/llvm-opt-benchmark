@@ -1497,12 +1497,12 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole13isAllOnesMaskEPKN4llvm12MachineInstrE.e
 _ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit: ; preds = %_ZNK12_GLOBAL__N_119RISCVVectorPeephole22convertToWholeRegisterERN4llvm12MachineInstrE.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i73, %630, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole13isAllOnesMaskEPKN4llvm12MachineInstrE.exit.i78, %636, %650
   %.0.i76 = phi i8 [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole13isAllOnesMaskEPKN4llvm12MachineInstrE.exit.i78 ], [ 1, %650 ], [ 1, %636 ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole22convertToWholeRegisterERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i73 ], [ 0, %630 ]
   %.val48.i = load i16, ptr %257, align 4, !tbaa !392
-  %switch.tableidx353 = add i16 %.val48.i, -6402
-  %653 = icmp ult i16 %switch.tableidx353, 7
-  br i1 %653, label %switch.lookup352, label %_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit
+  %switch.tableidx352 = add i16 %.val48.i, -6402
+  %653 = icmp ult i16 %switch.tableidx352, 7
+  br i1 %653, label %switch.lookup353, label %_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit
 
-switch.lookup352:                                 ; preds = %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit
-  %switch.idx.cast354 = zext nneg i16 %switch.tableidx353 to i64
+switch.lookup353:                                 ; preds = %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit
+  %switch.idx.cast354 = zext nneg i16 %switch.tableidx352 to i64
   %switch.offset356 = sub nuw nsw i64 -7215, %switch.idx.cast354
   %654 = load ptr, ptr %23, align 8, !tbaa !284
   %655 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0229, i64 32
@@ -1513,7 +1513,7 @@ switch.lookup352:                                 ; preds = %_ZNK12_GLOBAL__N_11
   %.not39.i = icmp eq ptr %659, null
   br i1 %.not39.i, label %_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit, label %660
 
-660:                                              ; preds = %switch.lookup352
+660:                                              ; preds = %switch.lookup353
   %661 = getelementptr inbounds nuw i8, ptr %659, i64 24
   %662 = load ptr, ptr %661, align 8, !tbaa !395
   %663 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0229, i64 24
@@ -1788,8 +1788,8 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i
   %827 = call noundef zeroext i1 @_ZN4llvm19MachineRegisterInfo17recomputeRegClassENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %826, i32 %824) #14
   br label %_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit
 
-_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit: ; preds = %.preheader.i.i.i.i, %786, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit, %766, %switch.lookup352, %660, %665, %670, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i54.i, %765, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, %812, %825
-  %.0.i83 = phi i8 [ 0, %670 ], [ 0, %665 ], [ 0, %660 ], [ 0, %switch.lookup352 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i54.i ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ 0, %765 ], [ 1, %825 ], [ 1, %812 ], [ 0, %766 ], [ 0, %786 ], [ 0, %.preheader.i.i.i.i ]
+_ZN12_GLOBAL__N_119RISCVVectorPeephole26convertSameMaskVMergeToVMvERN4llvm12MachineInstrE.exit: ; preds = %.preheader.i.i.i.i, %786, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit, %766, %switch.lookup353, %660, %665, %670, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i54.i, %765, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, %812, %825
+  %.0.i83 = phi i8 [ 0, %670 ], [ 0, %665 ], [ 0, %660 ], [ 0, %switch.lookup353 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i54.i ], [ 0, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole25convertAllOnesVMergeToVMvERN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ 0, %765 ], [ 1, %825 ], [ 1, %812 ], [ 0, %766 ], [ 0, %786 ], [ 0, %.preheader.i.i.i.i ]
   %828 = load i16, ptr %257, align 4, !tbaa !392
   %829 = zext i16 %828 to i32
   %830 = call noundef i32 @_ZN4llvm5RISCV14getRVVMCOpcodeEj(i32 noundef %829) #14

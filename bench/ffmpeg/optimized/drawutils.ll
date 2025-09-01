@@ -111,7 +111,7 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.05495 = phi i32 [ 0, %.lr.ph ], [ %53, %50 ]
   %.06193 = phi i32 [ 0, %.lr.ph ], [ %45, %50 ]
-  %41 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %18, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %18, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = add nsw i32 %43, 7
@@ -311,7 +311,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.088128 = phi i32 [ 0, %.lr.ph ], [ %.zext, %61 ]
   %.090127 = phi i32 [ 0, %.lr.ph ], [ %.090., %61 ]
-  %32 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %30, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %30, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 4, !tbaa !16
   %35 = add i32 %34, -17
@@ -358,7 +358,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
 
 54:                                               ; preds = %52
   %55 = sext i32 %37 to i64
-  %56 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %55
+  %56 = getelementptr inbounds i32, ptr %6, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !22
   %.not115 = icmp eq i32 %57, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -478,11 +478,11 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
 
 16:                                               ; preds = %9, %16
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = uitofp i8 %18 to double
   %20 = fdiv nsz double %19, 2.550000e+02
-  %21 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -519,7 +519,7 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
 
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.split.us.split.us ], [ 0, %.split.us ]
-  %34 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv70
+  %34 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv70
   %35 = load double, ptr %34, align 8, !tbaa !37
   %36 = fmul nsz double %35, 0x3FEB7B7B7B7B7B7B
   %37 = fadd nsz double %36, 0x3FB0101010101010
@@ -532,7 +532,7 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.split.us.split ], [ 0, %.split.us ]
   %.not60 = icmp eq i64 %indvars.iv74, 0
   %unswitched.select = select i1 %.not60, double 0x3FEB7B7B7B7B7B7B, double 0x3FEC1C1C1C1C1C1C
-  %38 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv74
+  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv74
   %39 = load double, ptr %38, align 8, !tbaa !37
   %40 = fmul nsz double %unswitched.select, %39
   %41 = select i1 %.not60, double 0x3FB0101010101010, double 0x3FE0101010101010
@@ -557,7 +557,7 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   br i1 %.not59, label %50, label %46
 
 46:                                               ; preds = %.split.split
-  %47 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv66
+  %47 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv66
   %48 = load double, ptr %47, align 8, !tbaa !37
   %49 = fadd nsz double %48, 5.000000e-01
   store double %49, ptr %47, align 8, !tbaa !37
@@ -586,11 +586,11 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
 
 55:                                               ; preds = %.lr.ph, %88
   %indvars.iv78 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next79, %88 ]
-  %56 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv78
+  %56 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv78
   %57 = load double, ptr %56, align 8, !tbaa !37
   %58 = load ptr, ptr %0, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %59, i64 0, i64 %indvars.iv78
+  %60 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %59, i64 %indvars.iv78
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 4, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 12
@@ -601,13 +601,13 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   %67 = uitofp nneg i32 %66 to double
   %68 = call nsz double @llvm.fmuladd.f64(double %57, double %67, double 5.000000e-01)
   %69 = fptoui double %68 to i32
-  %70 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %54, i64 0, i64 %indvars.iv78
+  %70 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %54, i64 %indvars.iv78
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %73 = icmp sgt i32 %72, 8
   %74 = load i32, ptr %70, align 4, !tbaa !12
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [4 x %union.anon], ptr %10, i64 0, i64 %75
+  %76 = getelementptr inbounds %union.anon, ptr %10, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %78 = load i32, ptr %77, align 4, !tbaa !17
   br i1 %73, label %79, label %84
@@ -616,14 +616,14 @@ define void @ff_draw_color(ptr noundef %0, ptr noundef captures(address) %1, ptr
   %80 = trunc i32 %69 to i16
   %81 = sdiv i32 %78, 2
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [8 x i16], ptr %76, i64 0, i64 %82
+  %83 = getelementptr inbounds i16, ptr %76, i64 %82
   store i16 %80, ptr %83, align 2, !tbaa !15
   br label %88
 
 84:                                               ; preds = %55
   %85 = trunc i32 %69 to i8
   %86 = sext i32 %78 to i64
-  %87 = getelementptr inbounds [16 x i8], ptr %76, i64 0, i64 %86
+  %87 = getelementptr inbounds i8, ptr %76, i64 %86
   store i8 %85, ptr %87, align 1, !tbaa !15
   br label %88
 
@@ -661,7 +661,7 @@ define void @ff_copy_rectangle2(ptr noundef readonly captures(none) %0, ptr noun
 19:                                               ; preds = %.lr.ph56, %._crit_edge
   %20 = phi i32 [ %13, %.lr.ph56 ], [ %60, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %._crit_edge ]
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
@@ -672,11 +672,11 @@ define void @ff_copy_rectangle2(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = zext i8 %30 to i32
   %32 = ashr i32 %17, %31
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !22
   %35 = mul i32 %32, %34
   %36 = sub i32 0, %35
@@ -755,7 +755,7 @@ define void @ff_fill_rectangle(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %._crit_edge69 ]
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !42
-  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = zext i8 %22 to i32
   %24 = ashr i32 %5, %23
@@ -764,11 +764,11 @@ define void @ff_fill_rectangle(ptr noundef readonly captures(none) %0, ptr nound
   %27 = mul nsw i32 %24, %26
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %20, i64 %28
-  %30 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = zext i8 %31 to i32
   %33 = ashr i32 %4, %32
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = mul nsw i32 %33, %35
   %37 = sext i32 %36 to i64
@@ -785,7 +785,7 @@ define void @ff_fill_rectangle(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %44 = getelementptr inbounds nuw [4 x %union.anon], ptr %17, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %union.anon, ptr %17, i64 %indvars.iv
   br label %52
 
 ._crit_edge:                                      ; preds = %52, %.preheader
@@ -936,7 +936,7 @@ clip_interval.exit:                               ; preds = %18, %10
   %66 = sext i32 %.0113241.us to i64
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !42
-  %69 = getelementptr inbounds [4 x i8], ptr %55, i64 0, i64 %66
+  %69 = getelementptr inbounds i8, ptr %55, i64 %66
   %70 = load i8, ptr %69, align 1, !tbaa !15
   %71 = zext nneg i8 %70 to i32
   %72 = lshr i32 %.0220, %71
@@ -945,17 +945,17 @@ clip_interval.exit:                               ; preds = %18, %10
   %75 = mul nsw i32 %72, %74
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %68, i64 %76
-  %78 = getelementptr inbounds [4 x i8], ptr %56, i64 0, i64 %66
+  %78 = getelementptr inbounds i8, ptr %56, i64 %66
   %79 = load i8, ptr %78, align 1, !tbaa !15
   %80 = zext nneg i8 %79 to i32
   %81 = lshr i32 %.0219, %80
-  %82 = getelementptr inbounds [4 x i32], ptr %57, i64 0, i64 %66
+  %82 = getelementptr inbounds i32, ptr %57, i64 %66
   %83 = load i32, ptr %82, align 4, !tbaa !22
   %84 = mul nsw i32 %81, %83
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %77, i64 %85
   %87 = zext i32 %.0113241.us to i64
-  %88 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %56, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !15
   %90 = zext i8 %89 to i32
   %notmask.i.us = shl nsw i32 -1, %90
@@ -965,7 +965,7 @@ clip_interval.exit:                               ; preds = %18, %10
   %93 = sub nsw i32 %.1222, %..i.us
   %94 = and i32 %93, %91
   %95 = ashr i32 %93, %90
-  %96 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 0, i64 %87
+  %96 = getelementptr inbounds nuw i8, ptr %55, i64 %87
   %97 = load i8, ptr %96, align 1, !tbaa !15
   %98 = zext i8 %97 to i32
   %notmask.i124.us = shl nsw i32 -1, %98
@@ -976,8 +976,8 @@ clip_interval.exit:                               ; preds = %18, %10
   %102 = and i32 %101, %99
   %103 = ashr i32 %101, %98
   %.not121.us = icmp eq i32 %..i125.us, 0
-  %104 = getelementptr inbounds nuw [4 x %union.anon], ptr %60, i64 0, i64 %87
-  %105 = getelementptr inbounds nuw [4 x i32], ptr %57, i64 0, i64 %87
+  %104 = getelementptr inbounds nuw %union.anon, ptr %60, i64 %87
+  %105 = getelementptr inbounds nuw i32, ptr %57, i64 %87
   %.not.i126.us = icmp eq i32 %..i.us, 0
   %106 = mul i32 %..i.us, %61
   %107 = icmp sgt i32 %95, 0
@@ -994,7 +994,7 @@ clip_interval.exit:                               ; preds = %18, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph240.us ], [ %indvars.iv.next, %blend_line.exit161.us ]
   %114 = load ptr, ptr %0, align 8, !tbaa !25
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %116 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %115, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %115, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i32, ptr %117, align 4, !tbaa !16
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -1020,7 +1020,7 @@ clip_interval.exit:                               ; preds = %18, %10
   br i1 %129, label %172, label %134
 
 134:                                              ; preds = %128
-  %135 = getelementptr inbounds [8 x i16], ptr %104, i64 0, i64 %130
+  %135 = getelementptr inbounds i16, ptr %104, i64 %130
   %136 = load i16, ptr %135, align 2, !tbaa !15
   %137 = zext i16 %136 to i32
   %138 = mul i32 %61, %137
@@ -1082,7 +1082,7 @@ clip_interval.exit:                               ; preds = %18, %10
   br label %blend_line.exit.us
 
 172:                                              ; preds = %128
-  %173 = getelementptr inbounds [16 x i8], ptr %104, i64 0, i64 %130
+  %173 = getelementptr inbounds i8, ptr %104, i64 %130
   %174 = load i8, ptr %173, align 1, !tbaa !15
   %175 = zext i8 %174 to i32
   %176 = mul nuw nsw i32 %61, %175
@@ -1244,7 +1244,7 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
 .thread:                                          ; preds = %.loopexit.us.thread, %259
   %.2.us267269 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread ]
   %260 = sext i32 %123 to i64
-  %261 = getelementptr inbounds [8 x i16], ptr %104, i64 0, i64 %260
+  %261 = getelementptr inbounds i16, ptr %104, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !15
   %263 = zext i16 %262 to i32
   %264 = load i32, ptr %105, align 4, !tbaa !22
@@ -1311,7 +1311,7 @@ blend_line16.exit151.us:                          ; preds = %245, %._crit_edge.i
 .thread272:                                       ; preds = %.loopexit.us.thread270, %259
   %.2.us267274 = phi ptr [ %.2.us, %259 ], [ %.0111.us, %.loopexit.us.thread270 ]
   %301 = sext i32 %123 to i64
-  %302 = getelementptr inbounds [16 x i8], ptr %104, i64 0, i64 %301
+  %302 = getelementptr inbounds i8, ptr %104, i64 %301
   %303 = load i8, ptr %302, align 1, !tbaa !15
   %304 = zext i8 %303 to i32
   %305 = load i32, ptr %105, align 4, !tbaa !22
@@ -1462,12 +1462,12 @@ blend_line.exit141.us:                            ; preds = %372, %._crit_edge.i
 
 .lr.ph.us:                                        ; preds = %.preheader225.us
   %386 = sext i32 %123 to i64
-  %387 = getelementptr inbounds [8 x i16], ptr %104, i64 0, i64 %386
+  %387 = getelementptr inbounds i16, ptr %104, i64 %386
   br label %215
 
 .lr.ph237.us:                                     ; preds = %.preheader.us
   %388 = sext i32 %123 to i64
-  %389 = getelementptr inbounds [16 x i8], ptr %104, i64 0, i64 %388
+  %389 = getelementptr inbounds i8, ptr %104, i64 %388
   br label %342
 
 ._crit_edge.us:                                   ; preds = %blend_line.exit161.us
@@ -1591,7 +1591,7 @@ clip_interval.exit:                               ; preds = %22, %14
   %81 = sext i32 %.0160265.us to i64
   %82 = getelementptr inbounds ptr, ptr %2, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !42
-  %84 = getelementptr inbounds [4 x i8], ptr %70, i64 0, i64 %81
+  %84 = getelementptr inbounds i8, ptr %70, i64 %81
   %85 = load i8, ptr %84, align 1, !tbaa !15
   %86 = zext nneg i8 %85 to i32
   %87 = lshr i32 %.0242, %86
@@ -1600,17 +1600,17 @@ clip_interval.exit:                               ; preds = %22, %14
   %90 = mul nsw i32 %87, %89
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %83, i64 %91
-  %93 = getelementptr inbounds [4 x i8], ptr %71, i64 0, i64 %81
+  %93 = getelementptr inbounds i8, ptr %71, i64 %81
   %94 = load i8, ptr %93, align 1, !tbaa !15
   %95 = zext nneg i8 %94 to i32
   %96 = lshr i32 %.0241, %95
-  %97 = getelementptr inbounds [4 x i32], ptr %72, i64 0, i64 %81
+  %97 = getelementptr inbounds i32, ptr %72, i64 %81
   %98 = load i32, ptr %97, align 4, !tbaa !22
   %99 = mul nsw i32 %96, %98
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %92, i64 %100
   %102 = zext i32 %.0160265.us to i64
-  %103 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %71, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !15
   %105 = zext i8 %104 to i32
   %notmask.i.us = shl nsw i32 -1, %105
@@ -1620,7 +1620,7 @@ clip_interval.exit:                               ; preds = %22, %14
   %108 = sub nsw i32 %spec.select, %..i.us
   %109 = and i32 %108, %106
   %110 = ashr i32 %108, %105
-  %111 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 0, i64 %102
+  %111 = getelementptr inbounds nuw i8, ptr %70, i64 %102
   %112 = load i8, ptr %111, align 1, !tbaa !15
   %113 = zext i8 %112 to i32
   %notmask.i178.us = shl nsw i32 -1, %113
@@ -1631,8 +1631,8 @@ clip_interval.exit:                               ; preds = %22, %14
   %117 = and i32 %116, %114
   %118 = ashr i32 %116, %113
   %.not174.us = icmp eq i32 %..i179.us, 0
-  %119 = getelementptr inbounds nuw [4 x i32], ptr %72, i64 0, i64 %102
-  %120 = getelementptr inbounds nuw [4 x %union.anon], ptr %75, i64 0, i64 %102
+  %119 = getelementptr inbounds nuw i32, ptr %72, i64 %102
+  %120 = getelementptr inbounds nuw %union.anon, ptr %75, i64 %102
   %121 = getelementptr inbounds nuw i32, ptr %3, i64 %102
   %122 = mul nsw i32 %..i179.us, %7
   %123 = sext i32 %122 to i64
@@ -1649,7 +1649,7 @@ clip_interval.exit:                               ; preds = %22, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph264.us ], [ %indvars.iv.next, %300 ]
   %129 = load ptr, ptr %0, align 8, !tbaa !25
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %131 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %130, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %130, i64 %indvars.iv
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i32, ptr %132, align 4, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -1677,14 +1677,14 @@ clip_interval.exit:                               ; preds = %22, %14
   br i1 %144, label %155, label %151
 
 151:                                              ; preds = %143
-  %152 = getelementptr inbounds [8 x i16], ptr %120, i64 0, i64 %146
+  %152 = getelementptr inbounds i16, ptr %120, i64 %146
   %153 = load i16, ptr %152, align 2, !tbaa !15
   %154 = zext i16 %153 to i32
   tail call fastcc void @blend_line_hv16(ptr noundef %142, i32 noundef %145, i32 noundef %154, i32 noundef %.0157, ptr noundef %43, i32 noundef %7, i32 noundef %10, i32 noundef %110, i32 noundef %148, i32 noundef %150, i32 noundef %.0244, i32 noundef %..i.us, i32 noundef %109, i32 noundef %..i179.us)
   br label %159
 
 155:                                              ; preds = %143
-  %156 = getelementptr inbounds [16 x i8], ptr %120, i64 0, i64 %146
+  %156 = getelementptr inbounds i8, ptr %120, i64 %146
   %157 = load i8, ptr %156, align 1, !tbaa !15
   %158 = zext i8 %157 to i32
   tail call fastcc void @blend_line_hv(ptr noundef %142, i32 noundef %145, i32 noundef %158, i32 noundef %.0157, ptr noundef %43, i32 noundef %7, i32 noundef %10, i32 noundef %110, i32 noundef %148, i32 noundef %150, i32 noundef %.0244, i32 noundef %..i.us, i32 noundef %109, i32 noundef %..i179.us)
@@ -1925,7 +1925,7 @@ blend_line_hv16.exit.us:                          ; preds = %blend_pixel16.exit8
   %.2.us300303 = phi ptr [ %.2.us, %280 ], [ %.0159.us, %.loopexit.us.thread ]
   %281 = load i32, ptr %119, align 4, !tbaa !22
   %282 = sext i32 %138 to i64
-  %283 = getelementptr inbounds [8 x i16], ptr %120, i64 0, i64 %282
+  %283 = getelementptr inbounds i16, ptr %120, i64 %282
   %284 = load i16, ptr %283, align 2, !tbaa !15
   %285 = zext i16 %284 to i32
   %286 = load i8, ptr %103, align 1, !tbaa !15
@@ -1938,7 +1938,7 @@ blend_line_hv16.exit.us:                          ; preds = %blend_pixel16.exit8
 290:                                              ; preds = %280
   %291 = load i32, ptr %119, align 4, !tbaa !22
   %292 = sext i32 %138 to i64
-  %293 = getelementptr inbounds [16 x i8], ptr %120, i64 0, i64 %292
+  %293 = getelementptr inbounds i8, ptr %120, i64 %292
   %294 = load i8, ptr %293, align 1, !tbaa !15
   %295 = zext i8 %294 to i32
   %296 = load i8, ptr %103, align 1, !tbaa !15
@@ -1986,13 +1986,13 @@ blend_line_hv16.exit.us:                          ; preds = %blend_pixel16.exit8
 
 .lr.ph.us:                                        ; preds = %.preheader246.us
   %319 = sext i32 %138 to i64
-  %320 = getelementptr inbounds [8 x i16], ptr %120, i64 0, i64 %319
+  %320 = getelementptr inbounds i16, ptr %120, i64 %319
   %.pre = load i8, ptr %111, align 1, !tbaa !15
   br label %165
 
 .lr.ph260.us:                                     ; preds = %.preheader.us
   %321 = sext i32 %138 to i64
-  %322 = getelementptr inbounds [16 x i8], ptr %120, i64 0, i64 %321
+  %322 = getelementptr inbounds i8, ptr %120, i64 %321
   %.pre284 = load i8, ptr %111, align 1, !tbaa !15
   br label %301
 

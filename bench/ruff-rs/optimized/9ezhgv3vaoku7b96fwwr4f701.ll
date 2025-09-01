@@ -2000,10 +2000,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !21, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !250, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0340caa33da7db3bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0340caa33da7db3bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0340caa33da7db3bE.900", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0340caa33da7db3bE.900", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2104,10 +2104,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !21, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !274, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h14c7c4d683749322E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h14c7c4d683749322E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h14c7c4d683749322E.901", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h14c7c4d683749322E.901", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3226,10 +3226,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
   %3 = load i8, ptr %2, align 1, !range !569, !alias.scope !566, !noalias !570, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE.932", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE.932", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !566
   ret i1 %6
@@ -31791,7 +31791,7 @@ switch.lookup:
   %1 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %2 = load i32, ptr %1, align 8, !range !703, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.idx.cast = zext nneg i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
@@ -31989,7 +31989,7 @@ define { i64, ptr } @_ZN15ruff_python_ast10expression10StringLike17as_expression
 switch.lookup:
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression136_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17he885091344806c22E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression136_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17he885091344806c22E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
@@ -32018,7 +32018,7 @@ define { i64, ptr } @"_ZN130_$LT$ruff_python_ast..expression..StringLike$u20$as$
 define { i64, ptr } @"_ZN15ruff_python_ast10expression136_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17he885091344806c22E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #20 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !398, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression136_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17he885091344806c22E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression136_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17he885091344806c22E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0 = load ptr, ptr %.sroa.4.0.in, align 8, !nonnull !3, !align !135, !noundef !3
@@ -32030,7 +32030,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define { i64, ptr } @"_ZN15ruff_python_ast10expression135_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hcd89622127d81b24E"(i64 noundef range(i64 0, 3) %0, ptr noundef %1) unnamed_addr #22 {
 switch.lookup:
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hed0b90612ff5f650E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hed0b90612ff5f650E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
@@ -32043,7 +32043,7 @@ switch.lookup:
 define { i64, ptr } @"_ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hed0b90612ff5f650E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #20 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !398, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hed0b90612ff5f650E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$$RF$ruff_python_ast..expression..StringLike$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17hed0b90612ff5f650E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0 = load ptr, ptr %.sroa.4.0.in, align 8, !nonnull !3, !align !135, !noundef !3
@@ -32088,7 +32088,7 @@ define { i64, ptr } @"_ZN128_$LT$ruff_python_ast..expression..StringLike$u20$as$
   br i1 %3, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN128_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..generated..AnyNodeRef$GT$$GT$8try_from17ha43a6420f506ce93E", i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN128_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..generated..AnyNodeRef$GT$$GT$8try_from17ha43a6420f506ce93E", i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -32107,9 +32107,9 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !135, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f9eebaea20d80c2E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f9eebaea20d80c2E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep8 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f9eebaea20d80c2E.903", i64 0, i64 %1
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h7f9eebaea20d80c2E.903", i64 %1
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load9
@@ -32397,7 +32397,7 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..expression..StringLikePart$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17h293b7e0f368d72b6E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..expression..StringLikePart$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17h293b7e0f368d72b6E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %5 = insertvalue { i64, ptr } %4, ptr %3, 1
@@ -32409,7 +32409,7 @@ define { i64, ptr } @"_ZN15ruff_python_ast10expression139_$LT$impl$u20$core..con
 switch.lookup:
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..expression..StringLikePart$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17h293b7e0f368d72b6E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN15ruff_python_ast10expression139_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..expression..StringLikePart$GT$$u20$for$u20$ruff_python_ast..generated..AnyNodeRef$GT$4from17h293b7e0f368d72b6E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
@@ -32834,9 +32834,9 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775784
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @"switch.table._ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep7 = getelementptr inbounds [25 x i64], ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 0, i64 %4
+  %switch.gep7 = getelementptr inbounds i64, ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 %4
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load8
@@ -33112,10 +33112,10 @@ define { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff
 switch.lookup:
   %1 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %1 to i64
-  %switch.gep8 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 0, i64 %3
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 %3
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load9
@@ -33241,9 +33241,9 @@ switch.lookup:
   %2 = xor i64 %1, -9223372036854775808
   %3 = icmp ult i64 %2, 8
   %4 = select i1 %3, i64 %2, i64 3
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN86_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hde68fc6ff5312d18E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hde68fc6ff5312d18E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep7 = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN86_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hde68fc6ff5312d18E.906", i64 0, i64 %4
+  %switch.gep7 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN86_$LT$ruff_python_ast..generated..Pattern$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hde68fc6ff5312d18E.906", i64 %4
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load8
@@ -34742,7 +34742,7 @@ define { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..ExprRef$u20$as$u20$
 switch.lookup:
   %1 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.idx.cast = zext nneg i32 %1 to i64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -35562,7 +35562,7 @@ define { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u
 switch.lookup:
   %1 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %narrow = add nuw nsw i32 %1, 27
   %switch.offset = zext nneg i32 %narrow to i64
@@ -46228,7 +46228,7 @@ switch.lookup:
   %18 = alloca [24 x i8], align 8
   %19 = load i32, ptr %1, align 8, !range !703, !noundef !3
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %.pn5.i = load i32, ptr %21, align 4, !noundef !3
@@ -46248,7 +46248,7 @@ switch.lookup106:                                 ; preds = %switch.lookup
   %switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.907.sink = phi ptr [ @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", %switch.lookup106 ], [ @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", %switch.lookup ]
   %.sink = phi ptr [ %23, %switch.lookup106 ], [ %1, %switch.lookup ]
   %25 = zext nneg i32 %.sink113 to i64
-  %switch.gep107 = getelementptr inbounds nuw [32 x i64], ptr %switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.907.sink, i64 0, i64 %25
+  %switch.gep107 = getelementptr inbounds nuw i64, ptr %switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.907.sink, i64 %25
   %switch.load108 = load i64, ptr %switch.gep107, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.sink, i64 %switch.load108
   %.sroa.02.0.i = load i32, ptr %26, align 4, !noundef !3
@@ -46286,7 +46286,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %"_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %35 = load i32, ptr %1, align 8, !range !703, !noundef !3
   %36 = zext nneg i32 %35 to i64
-  %switch.gep115 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %36
+  %switch.gep115 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %36
   %switch.load116 = load i64, ptr %switch.gep115, align 8
   %switch.idx.cast = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load116
@@ -46318,10 +46318,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %"_Z
 switch.lookup117:                                 ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h562ce20bc7e26c24E.exit"
   %41 = load i32, ptr %1, align 8, !range !703, !noundef !3
   %42 = zext nneg i32 %41 to i64
-  %switch.gep118 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %42
+  %switch.gep118 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %42
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   %43 = zext nneg i32 %41 to i64
-  %switch.gep120 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 0, i64 %43
+  %switch.gep120 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 %43
   %switch.load121 = load i64, ptr %switch.gep120, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load119
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load121
@@ -46442,10 +46442,10 @@ switch.lookup122:                                 ; preds = %.lr.ph, %"_ZN132_$L
   %91 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %.sroa.8.085
   %92 = load i8, ptr %90, align 1, !range !250, !noundef !3
   %93 = zext nneg i8 %92 to i64
-  %switch.gep123 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.912, i64 0, i64 %93
+  %switch.gep123 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.912, i64 %93
   %switch.load124 = load i64, ptr %switch.gep123, align 8
   %94 = zext nneg i8 %92 to i64
-  %switch.gep125 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.913, i64 0, i64 %94
+  %switch.gep125 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast7helpers19generate_comparison17h9ce52f0f439cc776E.913, i64 %94
   %switch.load126 = load ptr, ptr %switch.gep125, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6669)
   call void @llvm.experimental.noalias.scope.decl(metadata !6672)
@@ -46479,7 +46479,7 @@ switch.lookup127:                                 ; preds = %.noexc37, %switch.l
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %104 = load i32, ptr %91, align 8, !range !703, !noundef !3
   %105 = zext nneg i32 %104 to i64
-  %switch.gep128 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %105
+  %switch.gep128 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %105
   %switch.load129 = load i64, ptr %switch.gep128, align 8
   %switch.idx.cast130 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 %switch.load129
@@ -46489,10 +46489,10 @@ switch.lookup127:                                 ; preds = %.noexc37, %switch.l
 switch.lookup131:                                 ; preds = %switch.lookup127
   %107 = load i32, ptr %91, align 8, !range !703, !noundef !3
   %108 = zext nneg i32 %107 to i64
-  %switch.gep132 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %108
+  %switch.gep132 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %108
   %switch.load133 = load i64, ptr %switch.gep132, align 8
   %109 = zext nneg i32 %107 to i64
-  %switch.gep134 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 0, i64 %109
+  %switch.gep134 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 %109
   %switch.load135 = load i64, ptr %switch.gep134, align 8
   %110 = getelementptr inbounds nuw i8, ptr %91, i64 %switch.load133
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 %switch.load135
@@ -47326,9 +47326,9 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775784
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @"switch.table._ZN92_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_python_ast..identifier..Identifier$GT$10identifier17h602b9e652452d9dfE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN92_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_python_ast..identifier..Identifier$GT$10identifier17h602b9e652452d9dfE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep4 = getelementptr inbounds [25 x i64], ptr @"switch.table._ZN92_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_python_ast..identifier..Identifier$GT$10identifier17h602b9e652452d9dfE.917", i64 0, i64 %4
+  %switch.gep4 = getelementptr inbounds i64, ptr @"switch.table._ZN92_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_python_ast..identifier..Identifier$GT$10identifier17h602b9e652452d9dfE.917", i64 %4
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load5
@@ -47523,7 +47523,7 @@ switch.lookup:                                    ; preds = %18
   %28 = icmp slt i64 %27, -9223372036854775784
   %29 = add i64 %27, -9223372036854775807
   %30 = select i1 %28, i64 %29, i64 0
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %switch.load
   %.pn3.i = load i32, ptr %31, align 4, !alias.scope !6790, !noundef !3
@@ -52884,7 +52884,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.idx.cast = zext nneg i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -52917,7 +52917,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 8, !range !1195, !noundef !3
   %3 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   switch i32 %2, label %default.unreachable [
@@ -52989,7 +52989,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbb940c2944938dd5E.exit.i: ; preds = %sw
   %.sroa.02.0.i.in = phi ptr [ %13, %_ZN4core3ops8function6FnOnce9call_once17hbb940c2944938dd5E.exit.i ], [ %5, %switch.lookup ]
   %.sroa.02.0.i = load i32, ptr %.sroa.02.0.i.in, align 4, !noundef !3
   %14 = zext nneg i32 %3 to i64
-  %switch.gep12 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 0, i64 %14
+  %switch.gep12 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 %14
   %switch.load13 = load i64, ptr %switch.gep12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load13
   %.pn3.i5 = load i32, ptr %15, align 4, !noundef !3
@@ -56472,10 +56472,10 @@ define { ptr, i64 } @_ZN15ruff_python_ast5nodes8Operator6as_str17h7587bdc48d22b3
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4338, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE.923", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE.923", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -56486,10 +56486,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN15ruff_python_ast5nodes8Operator6dunder17h19418b3823cf6dd1E(i8 noundef range(i8 0, 13) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator6dunder17h19418b3823cf6dd1E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator6dunder17h19418b3823cf6dd1E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator6dunder17h19418b3823cf6dd1E.920, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator6dunder17h19418b3823cf6dd1E.920, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -56500,10 +56500,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN15ruff_python_ast5nodes8Operator15in_place_dunder17h96a61018a8a1aeb2E(i8 noundef range(i8 0, 13) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator15in_place_dunder17h96a61018a8a1aeb2E.921, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator15in_place_dunder17h96a61018a8a1aeb2E.921, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -56514,10 +56514,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E(i8 noundef range(i8 0, 13) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E.922, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast5nodes8Operator16reflected_dunder17h2adae44882c2a545E.922, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -56529,10 +56529,10 @@ define noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4338, !alias.scope !7807, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE.923", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Display$GT$3fmt17hc2bfc2082241a84aE.923", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -56543,10 +56543,10 @@ define { ptr, i64 } @_ZN15ruff_python_ast5nodes7UnaryOp6as_str17h9719bf0c3920871
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !569, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E.925", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E.925", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -56558,10 +56558,10 @@ define noundef zeroext i1 @"_ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !569, !alias.scope !7810, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E.925", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha459ff68d42caef9E.925", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -56572,10 +56572,10 @@ define { ptr, i64 } @_ZN15ruff_python_ast5nodes5CmpOp6as_str17h1f7d1a39d72df48aE
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !250, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E.927", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E.927", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -56587,7 +56587,7 @@ define noundef range(i8 0, 10) i8 @_ZN15ruff_python_ast5nodes5CmpOp6negate17h1f1
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !250, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN15ruff_python_ast5nodes5CmpOp6negate17h1f15333371804a08E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN15ruff_python_ast5nodes5CmpOp6negate17h1f15333371804a08E, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -56597,10 +56597,10 @@ define noundef zeroext i1 @"_ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$c
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !250, !alias.scope !7813, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E.927", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h194ac9cb63ee3d97E.927", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -57619,10 +57619,10 @@ define { i32, i32 } @"_ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$
 switch.lookup:                                    ; preds = %1
   %6 = load i32, ptr %5, align 8, !range !703, !noundef !3
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i32 %6 to i64
-  %switch.gep6 = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 0, i64 %8
+  %switch.gep6 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE.928", i64 %8
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   br label %"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE.exit"
 
@@ -58222,10 +58222,10 @@ define noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..nodes..IpyEscapeKind$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4337, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E.930, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E.930, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -58249,10 +58249,10 @@ define noundef zeroext i1 @_ZN15ruff_python_ast5nodes13IpyEscapeKind8is_magic17h
 define { ptr, i64 } @_ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E(i8 noundef range(i8 0, 9) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E.930, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15ruff_python_ast5nodes13IpyEscapeKind6as_str17ha142adae93321692E.930, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -58359,7 +58359,7 @@ switch.lookup:                                    ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i8, ptr %10, align 8, !range !4338, !noundef !3
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E", i64 %12
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
@@ -58411,7 +58411,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.idx.cast = zext nneg i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -58436,7 +58436,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr %0, align 8, !range !703, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN140_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h61409c48ce645b99E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.idx.cast = zext nneg i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -58458,7 +58458,7 @@ define noundef range(i8 0, 21) i8 @"_ZN143_$LT$ruff_python_ast..operator_precede
 define noundef range(i8 10, 18) i8 @"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E"(i8 noundef range(i8 0, 13) %0) unnamed_addr #18 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -58499,7 +58499,7 @@ define void @_ZN15ruff_python_ast12parenthesize20parentheses_iterator17h2526d7f1
 switch.lookup:                                    ; preds = %8
   %17 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %17)
-  %switch.gep = getelementptr inbounds nuw [32 x i64], ptr @switch.table._ZN15ruff_python_ast12parenthesize20parentheses_iterator17h2526d7f17f250a70E.931, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast12parenthesize20parentheses_iterator17h2526d7f17f250a70E.931, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %.pn3.i = load i32, ptr %18, align 4, !noalias !8118, !noundef !3
@@ -58518,7 +58518,7 @@ switch.lookup31:                                  ; preds = %12, %19
   %.sroa.02.0 = phi i32 [ %21, %19 ], [ %16, %12 ]
   %22 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %22)
-  %switch.gep32 = getelementptr inbounds nuw [32 x i64], ptr @switch.table._ZN15ruff_python_ast12parenthesize20parentheses_iterator17h2526d7f17f250a70E.931, i64 0, i64 %1
+  %switch.gep32 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ruff_python_ast12parenthesize20parentheses_iterator17h2526d7f17f250a70E.931, i64 %1
   %switch.load33 = load i64, ptr %switch.gep32, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load33
   %.pn3.i8 = load i32, ptr %23, align 4, !noalias !8121, !noundef !3
@@ -61539,7 +61539,7 @@ switch.lookup:                                    ; preds = %2
   %15 = icmp slt i64 %14, -9223372036854775784
   %16 = add i64 %14, -9223372036854775807
   %17 = select i1 %15, i64 %16, i64 0
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load
   %.pn3.i = load i32, ptr %18, align 4, !alias.scope !8552, !noundef !3
@@ -63934,7 +63934,7 @@ switch.lookup:
   %10 = icmp slt i64 %9, -9223372036854775784
   %11 = add i64 %9, -9223372036854775807
   %12 = select i1 %10, i64 %11, i64 0
-  %switch.gep = getelementptr inbounds [25 x i64], ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN15ruff_python_ast10whitespace18trailing_lines_end17hd1f784a8841a70aeE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.pn3.i = load i32, ptr %13, align 4, !alias.scope !8931, !noundef !3
@@ -74681,10 +74681,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$ruff_python_ast..nodes..ExprConte
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !569, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE.932", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ruff_python_ast..nodes..ExprContext$u20$as$u20$core..fmt..Debug$GT$3fmt17h0185fc66c0d0029cE.932", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -74705,10 +74705,10 @@ define internal noundef zeroext i1 @"_ZN69_$LT$ruff_python_ast..nodes..Operator$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4338, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN69_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hb9d5aeac19bebc43E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN69_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hb9d5aeac19bebc43E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN69_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hb9d5aeac19bebc43E.933", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN69_$LT$ruff_python_ast..nodes..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17hb9d5aeac19bebc43E.933", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -74719,10 +74719,10 @@ define internal noundef zeroext i1 @"_ZN68_$LT$ruff_python_ast..nodes..UnaryOp$u
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !569, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h12189e4e223c1a52E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h12189e4e223c1a52E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h12189e4e223c1a52E.934", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ruff_python_ast..nodes..UnaryOp$u20$as$u20$core..fmt..Debug$GT$3fmt17h12189e4e223c1a52E.934", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -74831,10 +74831,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$ruff_python_ast..nodes..IpyEscape
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4337, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN74_$LT$ruff_python_ast..nodes..IpyEscapeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h918b4231aabcb979E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$ruff_python_ast..nodes..IpyEscapeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h918b4231aabcb979E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN74_$LT$ruff_python_ast..nodes..IpyEscapeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h918b4231aabcb979E.935", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$ruff_python_ast..nodes..IpyEscapeKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h918b4231aabcb979E.935", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

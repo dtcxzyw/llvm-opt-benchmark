@@ -1872,7 +1872,7 @@ is_request_magic.exit.i56:                        ; preds = %220, %dissect_frame
 
 301:                                              ; preds = %300, %298
   %302 = phi ptr [ @.str.769, %300 ], [ @.str.770, %298 ]
-  %303 = getelementptr [8 x ptr], ptr @__const.dissect_client_extras.tap_connect_flags, i64 0, i64 %indvars.iv.i.i
+  %303 = getelementptr ptr, ptr @__const.dissect_client_extras.tap_connect_flags, i64 %indvars.iv.i.i
   %304 = load ptr, ptr %303, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %292, ptr noundef nonnull @.str.768, ptr noundef nonnull %302, ptr noundef %304)
   br label %305

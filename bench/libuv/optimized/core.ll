@@ -1362,7 +1362,7 @@ define dso_local range(i32 -22, 1) i32 @uv_fileno(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %7, align 8
@@ -3082,7 +3082,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__getsockpeername(ptr n
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0.i = load i32, ptr %10, align 8

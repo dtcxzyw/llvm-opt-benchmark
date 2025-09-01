@@ -181,7 +181,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
 71:                                               ; preds = %69
   %72 = add nsw i32 %.0118, 1
   %73 = sext i32 %.0118 to i64
-  %74 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %73
+  %74 = getelementptr inbounds i32, ptr %5, i64 %73
   store i32 %15, ptr %74, align 4, !tbaa !21
   br label %.thread
 
@@ -214,7 +214,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
   %83 = tail call i32 @rand() #19
   %84 = srem i32 %83, %.1103
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr %5, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !21
   %88 = load i32, ptr %6, align 4, !tbaa !3
   %89 = icmp sgt i32 %88, 0
@@ -3026,9 +3026,9 @@ define range(i32 0, 2) i32 @Ivy_NodeCutFindOrAdd(ptr noundef captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %23 = getelementptr inbounds nuw [6 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !21
-  %25 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !21
   %.not = icmp eq i32 %24, %26
   br i1 %.not, label %27, label %._crit_edge.loopexit
@@ -3115,9 +3115,9 @@ define range(i32 0, 2) i32 @Ivy_NodeCutFindOrAddFilter(ptr noundef captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [6 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !21
-  %27 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !21
   %.not44 = icmp eq i32 %26, %28
   br i1 %.not44, label %29, label %._crit_edge
@@ -3157,13 +3157,13 @@ define range(i32 0, 2) i32 @Ivy_NodeCutFindOrAddFilter(ptr noundef captures(none
 
 .preheader.us.i:                                  ; preds = %52, %.preheader.lr.ph.i
   %indvars.iv27.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next28.i, %52 ]
-  %43 = getelementptr inbounds nuw [6 x i32], ptr %41, i64 0, i64 %indvars.iv27.i
+  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv27.i
   %44 = load i32, ptr %43, align 4, !tbaa !21
   br label %45
 
 45:                                               ; preds = %49, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %49 ]
-  %46 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4, !tbaa !21
   %48 = icmp eq i32 %44, %47
   br i1 %48, label %._crit_edge.us.i, label %49
@@ -3200,13 +3200,13 @@ define range(i32 0, 2) i32 @Ivy_NodeCutFindOrAddFilter(ptr noundef captures(none
 
 .preheader.us.i52:                                ; preds = %67, %.preheader.lr.ph.i47
   %indvars.iv27.i53 = phi i64 [ 0, %.preheader.lr.ph.i47 ], [ %indvars.iv.next28.i58, %67 ]
-  %58 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv27.i53
+  %58 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv27.i53
   %59 = load i32, ptr %58, align 4, !tbaa !21
   br label %60
 
 60:                                               ; preds = %64, %.preheader.us.i52
   %indvars.iv.i54 = phi i64 [ 0, %.preheader.us.i52 ], [ %indvars.iv.next.i55, %64 ]
-  %61 = getelementptr inbounds nuw [6 x i32], ptr %57, i64 0, i64 %indvars.iv.i54
+  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i54
   %62 = load i32, ptr %61, align 4, !tbaa !21
   %63 = icmp eq i32 %59, %62
   br i1 %63, label %._crit_edge.us.i57, label %64
@@ -3272,7 +3272,7 @@ define void @Ivy_NodeCompactCuts(ptr noundef captures(none) %0) local_unnamed_ad
 11:                                               ; preds = %5
   %12 = add nsw i32 %.012, 1
   %13 = sext i32 %.012 to i64
-  %14 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr %4, i64 0, i64 %13
+  %14 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr %4, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %14, ptr noundef nonnull align 4 dereferenceable(36) %7, i64 36, i1 false), !tbaa.struct !56
   %.pre = load i32, ptr %0, align 4, !tbaa !48
   br label %15
@@ -3307,7 +3307,7 @@ define void @Ivy_NodePrintCut(ptr noundef readonly captures(none) %0) local_unna
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !21
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3348,7 +3348,7 @@ define void @Ivy_NodePrintCuts(ptr noundef readonly captures(none) %0) local_unn
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [6 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3416,7 +3416,7 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr noundef readonly captures(no
   %24 = phi i32 [ %14, %.lr.ph ], [ %228, %Ivy_NodeCutPrescreen.exit.thread ]
   %25 = phi i32 [ %14, %.lr.ph ], [ %229, %Ivy_NodeCutPrescreen.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ivy_NodeCutPrescreen.exit.thread ]
-  %26 = getelementptr inbounds nuw [6 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !21
   %.val = load ptr, ptr %12, align 8, !tbaa !11
   %28 = getelementptr i8, ptr %.val, i64 8
@@ -3506,7 +3506,7 @@ Ivy_ObjRealFanin.exit62:                          ; preds = %tailrecurse.i57, %I
 
 63:                                               ; preds = %62, %.lr.ph.i64
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %62 ]
-  %64 = getelementptr inbounds nuw [6 x i32], ptr %20, i64 0, i64 %indvars.iv.i66
+  %64 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i66
   %65 = load i32, ptr %64, align 4, !tbaa !21
   %66 = icmp eq i32 %65, %.val43
   %67 = icmp eq i32 %65, %.val44
@@ -3531,7 +3531,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.05172.i = phi i32 [ 0, %.lr.ph.i72 ], [ %.152.i, %102 ]
   %.05971.i = phi i32 [ %.val43, %.lr.ph.i72 ], [ %.160.i, %102 ]
   %.06270.i = phi i32 [ %.val44, %.lr.ph.i72 ], [ %.163.i, %102 ]
-  %72 = getelementptr inbounds nuw [6 x i32], ptr %20, i64 0, i64 %indvars.iv.i74
+  %72 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i74
   %73 = load i32, ptr %72, align 4, !tbaa !21
   %74 = icmp eq i32 %73, %27
   br i1 %74, label %102, label %75
@@ -3547,7 +3547,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 78:                                               ; preds = %76
   %79 = add nsw i32 %.074.i, 1
   %80 = sext i32 %.074.i to i64
-  %81 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %80
+  %81 = getelementptr inbounds i32, ptr %9, i64 %80
   store i32 %.06270.i, ptr %81, align 4, !tbaa !21
   %82 = srem i32 %.06270.i, 31
   %83 = shl nuw nsw i32 1, %82
@@ -3568,7 +3568,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 88:                                               ; preds = %86
   %89 = add nsw i32 %.2.i, 1
   %90 = sext i32 %.2.i to i64
-  %91 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %90
+  %91 = getelementptr inbounds i32, ptr %9, i64 %90
   store i32 %.05971.i, ptr %91, align 4, !tbaa !21
   %92 = srem i32 %.05971.i, 31
   %93 = shl nuw nsw i32 1, %92
@@ -3581,7 +3581,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.4.i = phi i32 [ %.2.i, %85 ], [ %89, %88 ], [ %.2.i, %86 ]
   %96 = add nsw i32 %.4.i, 1
   %97 = sext i32 %.4.i to i64
-  %98 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %97
+  %98 = getelementptr inbounds i32, ptr %9, i64 %97
   store i32 %73, ptr %98, align 4, !tbaa !21
   %99 = srem i32 %73, 31
   %100 = shl nuw nsw i32 1, %99
@@ -3608,7 +3608,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.062.lcssa.i135 = phi i32 [ %.163.i, %._crit_edge.i69 ], [ %.val44, %70 ]
   %103 = add nsw i32 %.0.lcssa.i70139, 1
   %104 = sext i32 %.0.lcssa.i70139 to i64
-  %105 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %104
+  %105 = getelementptr inbounds i32, ptr %9, i64 %104
   store i32 %.062.lcssa.i135, ptr %105, align 4, !tbaa !21
   %106 = srem i32 %.062.lcssa.i135, 31
   %107 = shl nuw nsw i32 1, %106
@@ -3625,7 +3625,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 110:                                              ; preds = %109
   %111 = add nsw i32 %.6.i, 1
   %112 = sext i32 %.6.i to i64
-  %113 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %112
+  %113 = getelementptr inbounds i32, ptr %9, i64 %112
   store i32 %.059.lcssa.i137, ptr %113, align 4, !tbaa !21
   %114 = srem i32 %.059.lcssa.i137, 31
   %115 = shl nuw nsw i32 1, %114
@@ -3645,7 +3645,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.05172.i92 = phi i32 [ 0, %.lr.ph.i88 ], [ %.152.i105, %149 ]
   %.05971.i93 = phi i32 [ %.val44, %.lr.ph.i88 ], [ %.160.i104, %149 ]
   %.06270.i94 = phi i32 [ %.val43, %.lr.ph.i88 ], [ %.163.i103, %149 ]
-  %119 = getelementptr inbounds nuw [6 x i32], ptr %20, i64 0, i64 %indvars.iv.i90
+  %119 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i90
   %120 = load i32, ptr %119, align 4, !tbaa !21
   %121 = icmp eq i32 %120, %27
   br i1 %121, label %149, label %122
@@ -3661,7 +3661,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 125:                                              ; preds = %123
   %126 = add nsw i32 %.074.i91, 1
   %127 = sext i32 %.074.i91 to i64
-  %128 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %127
+  %128 = getelementptr inbounds i32, ptr %9, i64 %127
   store i32 %.06270.i94, ptr %128, align 4, !tbaa !21
   %129 = srem i32 %.06270.i94, 31
   %130 = shl nuw nsw i32 1, %129
@@ -3682,7 +3682,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 135:                                              ; preds = %133
   %136 = add nsw i32 %.2.i98, 1
   %137 = sext i32 %.2.i98 to i64
-  %138 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %137
+  %138 = getelementptr inbounds i32, ptr %9, i64 %137
   store i32 %.05971.i93, ptr %138, align 4, !tbaa !21
   %139 = srem i32 %.05971.i93, 31
   %140 = shl nuw nsw i32 1, %139
@@ -3695,7 +3695,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.4.i102 = phi i32 [ %.2.i98, %132 ], [ %136, %135 ], [ %.2.i98, %133 ]
   %143 = add nsw i32 %.4.i102, 1
   %144 = sext i32 %.4.i102 to i64
-  %145 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %144
+  %145 = getelementptr inbounds i32, ptr %9, i64 %144
   store i32 %120, ptr %145, align 4, !tbaa !21
   %146 = srem i32 %120, 31
   %147 = shl nuw nsw i32 1, %146
@@ -3722,7 +3722,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 150:                                              ; preds = %._crit_edge.i77
   %151 = add nsw i32 %.0.lcssa.i81, 1
   %152 = sext i32 %.0.lcssa.i81 to i64
-  %153 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %152
+  %153 = getelementptr inbounds i32, ptr %9, i64 %152
   store i32 %.062.lcssa.i78, ptr %153, align 4, !tbaa !21
   %154 = srem i32 %.062.lcssa.i78, 31
   %155 = shl nuw nsw i32 1, %154
@@ -3738,7 +3738,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
 158:                                              ; preds = %157
   %159 = add nsw i32 %.6.i84, 1
   %160 = sext i32 %.6.i84 to i64
-  %161 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %160
+  %161 = getelementptr inbounds i32, ptr %9, i64 %160
   store i32 %.059.lcssa.i79, ptr %161, align 4, !tbaa !21
   %162 = srem i32 %.059.lcssa.i79, 31
   %163 = shl nuw nsw i32 1, %162
@@ -3787,9 +3787,9 @@ Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %1
 
 .lr.ph.i116:                                      ; preds = %.preheader.i113, %185
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i119, %185 ], [ 0, %.preheader.i113 ]
-  %181 = getelementptr inbounds nuw [6 x i32], ptr %180, i64 0, i64 %indvars.iv.i117
+  %181 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i117
   %182 = load i32, ptr %181, align 4, !tbaa !21
-  %183 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i117
+  %183 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i117
   %184 = load i32, ptr %183, align 4, !tbaa !21
   %.not44.i = icmp eq i32 %182, %184
   br i1 %.not44.i, label %185, label %._crit_edge.i118
@@ -3826,13 +3826,13 @@ Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %1
 
 .preheader.us.i.i:                                ; preds = %206, %.preheader.lr.ph.i.i
   %indvars.iv27.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next28.i.i, %206 ]
-  %197 = getelementptr inbounds nuw [6 x i32], ptr %196, i64 0, i64 %indvars.iv27.i.i
+  %197 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv27.i.i
   %198 = load i32, ptr %197, align 4, !tbaa !21
   br label %199
 
 199:                                              ; preds = %203, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %203 ]
-  %200 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %200 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
   %201 = load i32, ptr %200, align 4, !tbaa !21
   %202 = icmp eq i32 %198, %201
   br i1 %202, label %._crit_edge.us.i.i, label %203
@@ -3867,13 +3867,13 @@ Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %1
 
 .preheader.us.i52.i:                              ; preds = %220, %.preheader.lr.ph.i47.i
   %indvars.iv27.i53.i = phi i64 [ 0, %.preheader.lr.ph.i47.i ], [ %indvars.iv.next28.i58.i, %220 ]
-  %211 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv27.i53.i
+  %211 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv27.i53.i
   %212 = load i32, ptr %211, align 4, !tbaa !21
   br label %213
 
 213:                                              ; preds = %217, %.preheader.us.i52.i
   %indvars.iv.i54.i = phi i64 [ 0, %.preheader.us.i52.i ], [ %indvars.iv.next.i55.i, %217 ]
-  %214 = getelementptr inbounds nuw [6 x i32], ptr %210, i64 0, i64 %indvars.iv.i54.i
+  %214 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv.i54.i
   %215 = load i32, ptr %214, align 4, !tbaa !21
   %216 = icmp eq i32 %212, %215
   br i1 %216, label %._crit_edge.us.i57.i, label %217
@@ -3965,7 +3965,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
 244:                                              ; preds = %.lr.ph.i123
   %245 = add nsw i32 %.012.i, 1
   %246 = sext i32 %.012.i to i64
-  %247 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 0, i64 %246
+  %247 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %246
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %247, ptr noundef nonnull align 4 dereferenceable(36) %240, i64 36, i1 false), !tbaa.struct !56
   %.pre.i125 = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4, !tbaa !48
   br label %248

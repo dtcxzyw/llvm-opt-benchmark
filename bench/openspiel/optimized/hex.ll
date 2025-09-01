@@ -3345,7 +3345,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %56, %.lr.ph ], [ %57, %58 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph ], [ 1, %58 ]
   %.078.i.i = phi i32 [ 0, %.lr.ph ], [ %63, %58 ]
-  %60 = getelementptr inbounds nuw [2 x i32], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i.i
   %61 = load i32, ptr %60, align 4
   %62 = mul nsw i32 %61, %.078.i.i
   %63 = add nsw i32 %62, %indvars.iv.i.i.sroa.phi.sroa.speculated

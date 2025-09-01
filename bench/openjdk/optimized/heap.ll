@@ -80,7 +80,7 @@ define hidden void @_ZN8CodeHeap20init_segmap_templateEv() local_unnamed_addr #2
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = trunc i64 %indvars.iv to i8
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 %indvars.iv
   store i8 %2, ptr %3, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -481,7 +481,7 @@ _ZN8CodeHeap5clearEv.exit.preheader:              ; preds = %_ZN10MemTracker26re
 _ZN8CodeHeap5clearEv.exit:                        ; preds = %_ZN8CodeHeap5clearEv.exit.preheader, %_ZN8CodeHeap5clearEv.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN8CodeHeap5clearEv.exit ], [ 0, %_ZN8CodeHeap5clearEv.exit.preheader ]
   %68 = trunc i64 %indvars.iv.i to i8
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw i8, ptr @_ZN8CodeHeap15segmap_templateE, i64 %indvars.iv.i
   store i8 %68, ptr %69, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256

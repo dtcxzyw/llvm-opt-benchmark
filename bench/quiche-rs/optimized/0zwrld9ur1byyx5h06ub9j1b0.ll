@@ -269,10 +269,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !23, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !24, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h25a7df06aa6bf892E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h25a7df06aa6bf892E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h25a7df06aa6bf892E.159", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h25a7df06aa6bf892E.159", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -8587,7 +8587,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$quiche..recovery..gcongestio
   br i1 %7, label %switch.lookup, label %"_ZN4core3ptr68drop_in_place$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$GT$17h78f6d04616ed8931E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   tail call void @"_ZN4core3ptr92drop_in_place$LT$quiche..recovery..gcongestion..bbr..bandwidth_sampler..BandwidthSampler$GT$17h8f7ea87cf5c8ee9fE"(ptr noalias noundef nonnull align 8 dereferenceable(440) %8)
@@ -8847,7 +8847,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$quiche..recovery..g
   br i1 %8, label %switch.lookup, label %"_ZN4core3ptr62drop_in_place$LT$quiche..recovery..gcongestion..Congestion$GT$17hffb83f60924aef39E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   tail call void @"_ZN4core3ptr92drop_in_place$LT$quiche..recovery..gcongestion..bbr..bandwidth_sampler..BandwidthSampler$GT$17h8f7ea87cf5c8ee9fE"(ptr noalias noundef nonnull align 8 dereferenceable(440) %9)
@@ -9384,7 +9384,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$quiche..recovery..gcongest
   br i1 %7, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   tail call void @"_ZN4core3ptr92drop_in_place$LT$quiche..recovery..gcongestion..bbr..bandwidth_sampler..BandwidthSampler$GT$17h8f7ea87cf5c8ee9fE"(ptr noalias noundef nonnull align 8 dereferenceable(440) %8)
@@ -9835,7 +9835,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestio
   br i1 %44, label %switch.lookup, label %"_ZN4core3ptr64drop_in_place$LT$quiche..recovery..gcongestion..pacer..Pacer$GT$17hc692f4aae1f82a59E.exit"
 
 switch.lookup:                                    ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$quiche..recovery..gcongestion..Lost$GT$$GT$17hebce93e7f3d90d0bE.exit5"
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN4core3ptr71drop_in_place$LT$quiche..recovery..gcongestion..recovery..GRecovery$GT$17h0215cbe79a3e56eeE", i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 %switch.load
   tail call void @"_ZN4core3ptr92drop_in_place$LT$quiche..recovery..gcongestion..bbr..bandwidth_sampler..BandwidthSampler$GT$17h8f7ea87cf5c8ee9fE"(ptr noalias noundef nonnull align 8 dereferenceable(440) %45)
@@ -13837,7 +13837,7 @@ switch.lookup:
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %9 = load i32, ptr %8, align 8, !range !2101, !noundef !7
   %10 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN146_$LT$$RF$quiche..recovery..congestion..CongestionControlOps$u20$as$u20$core..convert..From$LT$quiche..recovery..CongestionControlAlgorithm$GT$$GT$4from17h7360c48d9a002c09E", i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN146_$LT$$RF$quiche..recovery..congestion..CongestionControlOps$u20$as$u20$core..convert..From$LT$quiche..recovery..CongestionControlAlgorithm$GT$$GT$4from17h7360c48d9a002c09E", i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = mul i64 %7, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -14099,7 +14099,7 @@ define hidden { i64, i32 } @_ZN6quiche8recovery10congestion10Congestion20get_pac
 define noundef nonnull align 8 dereferenceable(64) ptr @"_ZN146_$LT$$RF$quiche..recovery..congestion..CongestionControlOps$u20$as$u20$core..convert..From$LT$quiche..recovery..CongestionControlAlgorithm$GT$$GT$4from17h7360c48d9a002c09E"(i32 noundef range(i32 0, 5) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN146_$LT$$RF$quiche..recovery..congestion..CongestionControlOps$u20$as$u20$core..convert..From$LT$quiche..recovery..CongestionControlAlgorithm$GT$$GT$4from17h7360c48d9a002c09E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN146_$LT$$RF$quiche..recovery..congestion..CongestionControlOps$u20$as$u20$core..convert..From$LT$quiche..recovery..CongestionControlAlgorithm$GT$$GT$4from17h7360c48d9a002c09E", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

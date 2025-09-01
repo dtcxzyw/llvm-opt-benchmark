@@ -18561,7 +18561,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br i1 %191, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dc3abdd28758b82E.llvm.13849796333714922635.exit.i", label %192
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds [0 x { i64, [16 x i64] }], ptr %187, i64 0, i64 %.sroa.0.0.i.i22
+  %193 = getelementptr inbounds { i64, [16 x i64] }, ptr %187, i64 %.sroa.0.0.i.i22
   %194 = add i64 %.sroa.0.0.i.i22, 1
   invoke void @"_ZN4core3ptr79drop_in_place$LT$markdown_preview..markdown_elements..ParsedMarkdownElement$GT$17h3ea125924ee60bf2E.llvm.13849796333714922635"(ptr noalias noundef nonnull align 8 dereferenceable(136) %193) #40
           to label %190 unwind label %197, !noalias !3476
@@ -18577,7 +18577,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   br label %195
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds [0 x { i64, [16 x i64] }], ptr %187, i64 0, i64 %.sroa.0.1.i.i
+  %200 = getelementptr inbounds { i64, [16 x i64] }, ptr %187, i64 %.sroa.0.1.i.i
   %201 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr79drop_in_place$LT$markdown_preview..markdown_elements..ParsedMarkdownElement$GT$17h3ea125924ee60bf2E.llvm.13849796333714922635"(ptr noalias noundef nonnull align 8 dereferenceable(136) %200) #42
           to label %195 unwind label %202, !noalias !3476
@@ -18890,7 +18890,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
 25:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h6f812fea72994444E.exit"
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !12, !noundef !12
-  %28 = getelementptr inbounds nuw [0 x { i32, [5 x i32] }], ptr %27, i64 0, i64 %22
+  %28 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %27, i64 %22
   %29 = load i32, ptr %28, align 8, !range !1355, !noundef !12
   %trunc = trunc nuw i32 %29 to i1
   br i1 %trunc, label %46, label %32
@@ -22573,7 +22573,7 @@ default.unreachable40:                            ; preds = %62, %30, %3
   br i1 %162, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf28d4a2331077520E.llvm.13849796333714922635.exit.i.i", label %163
 
 163:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$$LP$pulldown_cmark..Event$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$17hd983dd81d042369fE.llvm.13849796333714922635.exit.i.i.i.i"
-  %164 = getelementptr inbounds [0 x { { i8, [79 x i8] }, { i64, i64 } }], ptr %159, i64 0, i64 %.sroa.0.0.i.i.i.i
+  %164 = getelementptr inbounds { { i8, [79 x i8] }, { i64, i64 } }, ptr %159, i64 %.sroa.0.0.i.i.i.i
   %165 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$pulldown_cmark..Event$GT$17h2d5811fc939f0968E.llvm.13849796333714922635"(ptr noalias noundef nonnull align 8 dereferenceable(96) %164)
           to label %"_ZN4core3ptr89drop_in_place$LT$$LP$pulldown_cmark..Event$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$17hd983dd81d042369fE.llvm.13849796333714922635.exit.i.i.i.i" unwind label %167, !noalias !4402
@@ -22589,7 +22589,7 @@ default.unreachable40:                            ; preds = %62, %30, %3
   br label %"_ZN4core3ptr89drop_in_place$LT$$LP$pulldown_cmark..Event$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$17hd983dd81d042369fE.llvm.13849796333714922635.exit7.i.i.i.i"
 
 169:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$$LP$pulldown_cmark..Event$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$17hd983dd81d042369fE.llvm.13849796333714922635.exit7.i.i.i.i"
-  %170 = getelementptr inbounds [0 x { { i8, [79 x i8] }, { i64, i64 } }], ptr %159, i64 0, i64 %.sroa.0.1.i.i.i.i
+  %170 = getelementptr inbounds { { i8, [79 x i8] }, { i64, i64 } }, ptr %159, i64 %.sroa.0.1.i.i.i.i
   %171 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$pulldown_cmark..Event$GT$17h2d5811fc939f0968E.llvm.13849796333714922635"(ptr noalias noundef nonnull align 8 dereferenceable(96) %170)
           to label %"_ZN4core3ptr89drop_in_place$LT$$LP$pulldown_cmark..Event$C$core..ops..range..Range$LT$usize$GT$$RP$$GT$17hd983dd81d042369fE.llvm.13849796333714922635.exit7.i.i.i.i" unwind label %172, !noalias !4402

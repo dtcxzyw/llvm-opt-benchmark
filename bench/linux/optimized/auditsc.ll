@@ -201,7 +201,7 @@ define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef captures(
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 31
-  %17 = getelementptr [32 x %struct.list_head], ptr @audit_inode_hash, i64 0, i64 %16
+  %17 = getelementptr %struct.list_head, ptr @audit_inode_hash, i64 %16
   %18 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
@@ -226,7 +226,7 @@ define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef captures(
 .split:                                           ; preds = %21, %.critedge
   %30 = phi ptr [ %43, %.critedge ], [ %19, %21 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = getelementptr [64 x i32], ptr %31, i64 0, i64 %23
+  %32 = getelementptr i32, ptr %31, i64 %23
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, %25
   %35 = icmp eq i32 %34, 0
@@ -465,7 +465,7 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
 .split.i:                                         ; preds = %32, %.critedge.i
   %41 = phi ptr [ %54, %.critedge.i ], [ %30, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %43 = getelementptr [64 x i32], ptr %42, i64 0, i64 %34
+  %43 = getelementptr i32, ptr %42, i64 %34
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %36
   %46 = icmp eq i32 %45, 0
@@ -536,7 +536,7 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
 .split.i3:                                        ; preds = %68, %.critedge.i5
   %77 = phi ptr [ %90, %.critedge.i5 ], [ %66, %68 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %79 = getelementptr [64 x i32], ptr %78, i64 0, i64 %70
+  %79 = getelementptr i32, ptr %78, i64 %70
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, %72
   %82 = icmp eq i32 %81, 0
@@ -921,7 +921,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 
 153:                                              ; preds = %153, %150
   %154 = phi i64 [ 0, %150 ], [ %158, %153 ]
-  %155 = getelementptr [6 x i64], ptr %151, i64 0, i64 %154
+  %155 = getelementptr i64, ptr %151, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = trunc i64 %154 to i32
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %142, ptr noundef nonnull @.str.40, i32 noundef %157, i64 noundef %156) #12
@@ -1282,7 +1282,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 
 379:                                              ; preds = %376, %374
   %380 = phi i64 [ %378, %376 ], [ 0, %374 ]
-  %381 = getelementptr [96 x i8], ptr %7, i64 0, i64 %380
+  %381 = getelementptr i8, ptr %7, i64 %380
   %382 = sub nsw i64 96, %380
   %383 = add i32 %298, 1
   %384 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %381, i64 noundef %382, ptr noundef nonnull @.str.61, i32 noundef %299, i32 noundef %298) #12
@@ -1395,7 +1395,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 .preheader71:                                     ; preds = %441, %463
   %445 = phi ptr [ %464, %463 ], [ %142, %441 ]
   %446 = phi i64 [ %465, %463 ], [ 0, %441 ]
-  %447 = getelementptr [6 x %struct.audit_ntp_val], ptr %442, i64 0, i64 %446
+  %447 = getelementptr %struct.audit_ntp_val, ptr %442, i64 %446
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %449 = load i64, ptr %448, align 8
   %450 = load i64, ptr %447, align 8
@@ -1420,7 +1420,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %458 = phi i64 [ %.pre89, %._crit_edge ], [ %449, %452 ]
   %459 = phi i64 [ %.pre, %._crit_edge ], [ %450, %452 ]
   %460 = phi ptr [ %455, %._crit_edge ], [ %445, %452 ]
-  %461 = getelementptr [6 x ptr], ptr @audit_log_time.ntp_name, i64 0, i64 %446
+  %461 = getelementptr ptr, ptr @audit_log_time.ntp_name, i64 %446
   %462 = load ptr, ptr %461, align 8
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %460, ptr noundef nonnull @.str.70, ptr noundef %462, i64 noundef %459, i64 noundef %458) #12
   tail call void @audit_log_end(ptr noundef nonnull %460) #12
@@ -1544,15 +1544,15 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 528:                                              ; preds = %audit_log_pid_context.exit.thread, %521
   %529 = phi i64 [ 0, %521 ], [ %554, %audit_log_pid_context.exit.thread ]
   %530 = phi i32 [ %517, %521 ], [ %553, %audit_log_pid_context.exit.thread ]
-  %531 = getelementptr [16 x i32], ptr %522, i64 0, i64 %529
+  %531 = getelementptr i32, ptr %522, i64 %529
   %532 = load i32, ptr %531, align 4
-  %533 = getelementptr [16 x %struct.kuid_t], ptr %523, i64 0, i64 %529
-  %534 = getelementptr [16 x %struct.kuid_t], ptr %524, i64 0, i64 %529
-  %535 = getelementptr [16 x i32], ptr %525, i64 0, i64 %529
+  %533 = getelementptr %struct.kuid_t, ptr %523, i64 %529
+  %534 = getelementptr %struct.kuid_t, ptr %524, i64 %529
+  %535 = getelementptr i32, ptr %525, i64 %529
   %536 = load i32, ptr %535, align 4
-  %537 = getelementptr [16 x i32], ptr %526, i64 0, i64 %529
+  %537 = getelementptr i32, ptr %526, i64 %529
   %538 = load i32, ptr %537, align 4
-  %539 = getelementptr [16 x [16 x i8]], ptr %527, i64 0, i64 %529
+  %539 = getelementptr [16 x i8], ptr %527, i64 %529
   %540 = load i32, ptr %533, align 4
   %541 = load i32, ptr %534, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1954,7 +1954,7 @@ audit_log_pid_context.exit.thread:                ; preds = %audit_log_pid_conte
 734:                                              ; preds = %730
   %735 = load i8, ptr %732, align 1
   %736 = zext i8 %735 to i64
-  %737 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %736
+  %737 = getelementptr i8, ptr @_ctype, i64 %736
   %738 = load i8, ptr %737, align 1
   %739 = and i8 %738, -105
   %740 = icmp eq i8 %739, 0
@@ -1971,7 +1971,7 @@ audit_log_pid_context.exit.thread:                ; preds = %audit_log_pid_conte
   %749 = getelementptr i8, ptr %721, i64 %748
   %750 = load i8, ptr %749, align 1
   %751 = zext i8 %750 to i64
-  %752 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %751
+  %752 = getelementptr i8, ptr @_ctype, i64 %751
   %753 = load i8, ptr %752, align 1
   %754 = and i8 %753, -105
   %755 = icmp eq i8 %754, 0
@@ -2224,7 +2224,7 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
 .split.i:                                         ; preds = %40, %.critedge.i
   %49 = phi ptr [ %62, %.critedge.i ], [ %38, %40 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = getelementptr [64 x i32], ptr %50, i64 0, i64 %42
+  %51 = getelementptr i32, ptr %50, i64 %42
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %44
   %54 = icmp eq i32 %53, 0
@@ -2290,7 +2290,7 @@ audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
 .split.i1:                                        ; preds = %75, %.critedge.i3
   %84 = phi ptr [ %96, %.critedge.i3 ], [ %73, %75 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = getelementptr [64 x i32], ptr %85, i64 0, i64 %77
+  %86 = getelementptr i32, ptr %85, i64 %77
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, %79
   %89 = icmp eq i32 %88, 0
@@ -2369,7 +2369,7 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
 .split.i5:                                        ; preds = %114, %.critedge.i7
   %123 = phi ptr [ %136, %.critedge.i7 ], [ %112, %114 ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
-  %125 = getelementptr [64 x i32], ptr %124, i64 0, i64 %116
+  %125 = getelementptr i32, ptr %124, i64 %116
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, %118
   %128 = icmp eq i32 %127, 0
@@ -2419,14 +2419,14 @@ audit_filter_uring.exit9:                         ; preds = %106, %.loopexit.i6
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %110, label %3
+  br i1 %2, label %106, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %110
+  br i1 %6, label %7, label %106
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2450,9 +2450,9 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit14, label %.preheader13
+  br i1 %21, label %.loopexit15, label %.preheader14
 
-.preheader13:                                     ; preds = %7, %36
+.preheader14:                                     ; preds = %7, %36
   %22 = phi ptr [ %23, %36 ], [ %20, %7 ]
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2467,11 +2467,11 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   %29 = icmp eq ptr %28, null
   br i1 %29, label %31, label %30
 
-30:                                               ; preds = %.preheader13
+30:                                               ; preds = %.preheader14
   tail call void @putname(ptr noundef nonnull %28) #12
   br label %31
 
-31:                                               ; preds = %30, %.preheader13
+31:                                               ; preds = %30, %.preheader14
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 109
   %33 = load i8, ptr %32, align 1, !range !10, !noundef !11
   %34 = icmp eq i8 %33, 0
@@ -2483,9 +2483,9 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
 
 36:                                               ; preds = %35, %31
   %37 = icmp eq ptr %23, %19
-  br i1 %37, label %.loopexit14, label %.preheader13, !llvm.loop !32
+  br i1 %37, label %.loopexit15, label %.preheader14, !llvm.loop !32
 
-.loopexit14:                                      ; preds = %36, %7
+.loopexit15:                                      ; preds = %36, %7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i32 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -2495,45 +2495,45 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   %41 = icmp eq i32 %40, 2
   br i1 %41, label %45, label %42
 
-42:                                               ; preds = %.loopexit14
+42:                                               ; preds = %.loopexit15
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %44 = load ptr, ptr %43, align 8
   tail call void @kfree(ptr noundef %44) #12
   store ptr null, ptr %43, align 8
   br label %45
 
-45:                                               ; preds = %42, %.loopexit14
+45:                                               ; preds = %42, %.loopexit15
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit12, label %.preheader11
+  br i1 %48, label %.loopexit13, label %.preheader12
 
-.preheader11:                                     ; preds = %45, %.preheader11
-  %49 = phi ptr [ %51, %.preheader11 ], [ %47, %45 ]
+.preheader12:                                     ; preds = %45, %.preheader12
+  %49 = phi ptr [ %51, %.preheader12 ], [ %47, %45 ]
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %46, align 8
   tail call void @kfree(ptr noundef nonnull %49) #12
   %51 = load ptr, ptr %46, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit12, label %.preheader11, !llvm.loop !33
+  br i1 %52, label %.loopexit13, label %.preheader12, !llvm.loop !33
 
-.loopexit12:                                      ; preds = %.preheader11, %45
+.loopexit13:                                      ; preds = %.preheader12, %45
   store ptr null, ptr %46, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit10, label %.preheader9
+  br i1 %55, label %.loopexit11, label %.preheader10
 
-.preheader9:                                      ; preds = %.loopexit12, %.preheader9
-  %56 = phi ptr [ %58, %.preheader9 ], [ %54, %.loopexit12 ]
+.preheader10:                                     ; preds = %.loopexit13, %.preheader10
+  %56 = phi ptr [ %58, %.preheader10 ], [ %54, %.loopexit13 ]
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %53, align 8
   tail call void @kfree(ptr noundef nonnull %56) #12
   %58 = load ptr, ptr %53, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.loopexit10, label %.preheader9, !llvm.loop !34
+  br i1 %59, label %.loopexit11, label %.preheader10, !llvm.loop !34
 
-.loopexit10:                                      ; preds = %.preheader9, %.loopexit12
+.loopexit11:                                      ; preds = %.preheader10, %.loopexit13
   store ptr null, ptr %53, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %61 = load ptr, ptr %60, align 8
@@ -2544,95 +2544,90 @@ define internal fastcc void @audit_reset_context(ptr noundef %0) unnamed_addr #0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %62, i8 0, i64 33, i1 false)
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %96, label %66
+  br i1 %65, label %92, label %66
 
-66:                                               ; preds = %.loopexit10
+66:                                               ; preds = %.loopexit11
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %64, %68
-  br i1 %69, label %.loopexit8, label %.preheader
+  br i1 %69, label %.loopexit9, label %.preheader8
 
-.preheader:                                       ; preds = %66, %84
-  %70 = phi ptr [ %85, %84 ], [ %64, %66 ]
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  br label %78
+.preheader8:                                      ; preds = %66, %81
+  %70 = phi ptr [ %82, %81 ], [ %64, %66 ]
+  br label %75
 
-.loopexit8:                                       ; preds = %84, %66
-  %72 = phi ptr [ %64, %66 ], [ %85, %84 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp slt i32 %74, 31
-  br i1 %75, label %76, label %.loopexit
+.loopexit9:                                       ; preds = %81, %66
+  %71 = phi ptr [ %64, %66 ], [ %82, %81 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp slt i32 %73, 31
+  br i1 %74, label %.preheader, label %.loopexit
 
-76:                                               ; preds = %.loopexit8
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  br label %88
+75:                                               ; preds = %75, %.preheader8
+  %76 = phi i64 [ %77, %75 ], [ 31, %.preheader8 ]
+  %77 = add nsw i64 %76, -1
+  %78 = getelementptr ptr, ptr %70, i64 %76
+  %79 = load ptr, ptr %78, align 8
+  tail call void @audit_put_chunk(ptr noundef %79) #12
+  store ptr null, ptr %78, align 8
+  %80 = icmp eq i64 %77, 0
+  br i1 %80, label %81, label %75, !llvm.loop !35
 
-78:                                               ; preds = %78, %.preheader
-  %79 = phi i64 [ %80, %78 ], [ 31, %.preheader ]
-  %80 = add nsw i64 %79, -1
-  %81 = getelementptr [31 x ptr], ptr %71, i64 0, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  tail call void @audit_put_chunk(ptr noundef %82) #12
-  store ptr null, ptr %81, align 8
-  %83 = icmp eq i64 %80, 0
-  br i1 %83, label %84, label %78, !llvm.loop !35
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %70, align 8
+  %83 = load ptr, ptr %67, align 8
+  %84 = icmp eq ptr %82, %83
+  br i1 %84, label %.loopexit9, label %.preheader8, !llvm.loop !36
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %70, align 8
-  %86 = load ptr, ptr %67, align 8
-  %87 = icmp eq ptr %85, %86
-  br i1 %87, label %.loopexit8, label %.preheader, !llvm.loop !36
+.preheader:                                       ; preds = %.loopexit9, %.preheader
+  %85 = phi i64 [ %86, %.preheader ], [ 31, %.loopexit9 ]
+  %86 = add nsw i64 %85, -1
+  %87 = getelementptr ptr, ptr %71, i64 %85
+  %88 = load ptr, ptr %87, align 8
+  tail call void @audit_put_chunk(ptr noundef %88) #12
+  store ptr null, ptr %87, align 8
+  %89 = load i32, ptr %72, align 8
+  %90 = sext i32 %89 to i64
+  %91 = icmp sgt i64 %86, %90
+  br i1 %91, label %.preheader, label %.loopexit, !llvm.loop !37
 
-88:                                               ; preds = %88, %76
-  %89 = phi i64 [ %90, %88 ], [ 31, %76 ]
-  %90 = add nsw i64 %89, -1
-  %91 = getelementptr [31 x ptr], ptr %77, i64 0, i64 %90
-  %92 = load ptr, ptr %91, align 8
-  tail call void @audit_put_chunk(ptr noundef %92) #12
-  store ptr null, ptr %91, align 8
-  %93 = load i32, ptr %73, align 8
-  %94 = sext i32 %93 to i64
-  %95 = icmp sgt i64 %90, %94
-  br i1 %95, label %88, label %.loopexit, !llvm.loop !37
-
-.loopexit:                                        ; preds = %88, %.loopexit8
+.loopexit:                                        ; preds = %.preheader, %.loopexit9
   store ptr %64, ptr %67, align 8
-  store i32 31, ptr %73, align 8
-  br label %96
+  store i32 31, ptr %72, align 8
+  br label %92
 
-96:                                               ; preds = %.loopexit, %.loopexit10
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %98 = load volatile ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %97
-  br i1 %99, label %101, label %100, !prof !12
+92:                                               ; preds = %.loopexit, %.loopexit11
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %94 = load volatile ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %93
+  br i1 %95, label %97, label %96, !prof !12
 
-100:                                              ; preds = %96
+96:                                               ; preds = %92
   tail call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #12, !srcloc !38
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1023, i32 2305, i64 12) #12, !srcloc !39
   tail call void asm sideeffect "494: nop\0A\09.pushsection .discard.instr_end\0A\09.long 494b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 494) #12, !srcloc !40
-  br label %101
+  br label %97
 
-101:                                              ; preds = %100, %96
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 868
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 1330
-  br i1 %104, label %105, label %108
+97:                                               ; preds = %96, %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 868
+  %99 = load i32, ptr %98, align 4
+  %100 = icmp eq i32 %99, 1330
+  br i1 %100, label %101, label %104
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %107 = load ptr, ptr %106, align 8
-  tail call void @kfree(ptr noundef %107) #12
-  store ptr null, ptr %106, align 8
-  br label %108
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %103 = load ptr, ptr %102, align 8
+  tail call void @kfree(ptr noundef %103) #12
+  store ptr null, ptr %102, align 8
+  br label %104
 
-108:                                              ; preds = %105, %101
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store i32 -1, ptr %109, align 8
-  store i32 0, ptr %102, align 4
-  br label %110
+104:                                              ; preds = %101, %97
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  store i32 -1, ptr %105, align 8
+  store i32 0, ptr %98, align 4
+  br label %106
 
-110:                                              ; preds = %108, %3, %1
+106:                                              ; preds = %104, %3, %1
   ret void
 }
 
@@ -2824,7 +2819,7 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
 .split.i:                                         ; preds = %41, %.critedge.i
   %50 = phi ptr [ %63, %.critedge.i ], [ %39, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = getelementptr [64 x i32], ptr %51, i64 0, i64 %43
+  %52 = getelementptr i32, ptr %51, i64 %43
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, %45
   %55 = icmp eq i32 %54, 0
@@ -2929,7 +2924,7 @@ define dso_local void @__audit_getname(ptr noundef %0) local_unnamed_addr #0 ali
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %15 = sext i32 %11 to i64
-  %16 = getelementptr [5 x %struct.audit_names], ptr %14, i64 0, i64 %15
+  %16 = getelementptr %struct.audit_names, ptr %14, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %16, i8 0, i64 112, i1 false)
   br label %23
 
@@ -3256,7 +3251,7 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
 160:                                              ; preds = %.loopexit29
   %161 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %162 = sext i32 %158 to i64
-  %163 = getelementptr [5 x %struct.audit_names], ptr %161, i64 0, i64 %162
+  %163 = getelementptr %struct.audit_names, ptr %161, i64 %162
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %163, i8 0, i64 112, i1 false)
   br label %170
 
@@ -3413,7 +3408,7 @@ audit_alloc_name.exit:                            ; preds = %170, %183
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %247 = add i32 %243, -1
   %248 = sext i32 %247 to i64
-  %249 = getelementptr [31 x ptr], ptr %246, i64 0, i64 %248
+  %249 = getelementptr ptr, ptr %246, i64 %248
   store ptr %239, ptr %249, align 8
   br label %257
 
@@ -3687,7 +3682,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %75 = add i32 %71, -1
   %76 = sext i32 %75 to i64
-  %77 = getelementptr [31 x ptr], ptr %74, i64 0, i64 %76
+  %77 = getelementptr ptr, ptr %74, i64 %76
   store ptr %67, ptr %77, align 8
   store i32 %75, ptr %65, align 8
   br label %112
@@ -3741,7 +3736,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %102 = add i32 %98, -1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr [31 x ptr], ptr %101, i64 0, i64 %103
+  %104 = getelementptr ptr, ptr %101, i64 %103
   store ptr %67, ptr %104, align 8
   store i32 %102, ptr %65, align 8
   br label %112
@@ -3931,7 +3926,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
 214:                                              ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %216 = sext i32 %212 to i64
-  %217 = getelementptr [5 x %struct.audit_names], ptr %215, i64 0, i64 %216
+  %217 = getelementptr %struct.audit_names, ptr %215, i64 %216
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %217, i8 0, i64 112, i1 false)
   br label %224
 
@@ -4025,7 +4020,7 @@ audit_alloc_name.exit:                            ; preds = %224, %236
 269:                                              ; preds = %265
   %270 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %271 = sext i32 %267 to i64
-  %272 = getelementptr [5 x %struct.audit_names], ptr %270, i64 0, i64 %271
+  %272 = getelementptr %struct.audit_names, ptr %270, i64 %271
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %272, i8 0, i64 112, i1 false)
   br label %279
 
@@ -4596,36 +4591,36 @@ define dso_local noundef range(i32 -12, 1) i32 @audit_signal_info_syscall(ptr no
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %60 = sext i32 %51 to i64
-  %61 = getelementptr [16 x i32], ptr %59, i64 0, i64 %60
+  %61 = getelementptr i32, ptr %59, i64 %60
   store i32 %58, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %63 = load i32, ptr %56, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr [16 x %struct.kuid_t], ptr %62, i64 0, i64 %64
+  %65 = getelementptr %struct.kuid_t, ptr %62, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1984
   %67 = load i32, ptr %66, align 64
   store i32 %67, ptr %65, align 4
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 144
   %69 = load i32, ptr %56, align 8
   %70 = sext i32 %69 to i64
-  %71 = getelementptr [16 x %struct.kuid_t], ptr %68, i64 0, i64 %70
+  %71 = getelementptr %struct.kuid_t, ptr %68, i64 %70
   store i32 %9, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1988
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %52, i64 208
   %75 = load i32, ptr %56, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr [16 x i32], ptr %74, i64 0, i64 %76
+  %77 = getelementptr i32, ptr %74, i64 %76
   store i32 %73, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %52, i64 272
   %79 = load i32, ptr %56, align 8
   %80 = sext i32 %79 to i64
-  %81 = getelementptr [16 x i32], ptr %78, i64 0, i64 %80
+  %81 = getelementptr i32, ptr %78, i64 %80
   tail call void @security_task_getsecid_obj(ptr noundef %0, ptr noundef %81) #12
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 336
   %83 = load i32, ptr %56, align 8
   %84 = sext i32 %83 to i64
-  %85 = getelementptr [16 x [16 x i8]], ptr %82, i64 0, i64 %84
+  %85 = getelementptr [16 x i8], ptr %82, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, i64 16, i1 false)
   %87 = load i32, ptr %56, align 8
@@ -4892,7 +4887,7 @@ define dso_local void @__audit_ntp_log(ptr noundef readonly captures(none) %0) l
 
 9:                                                ; preds = %6, %1
   %10 = phi i64 [ 0, %1 ], [ %7, %6 ]
-  %11 = getelementptr [6 x %struct.audit_ntp_val], ptr %0, i64 0, i64 %10
+  %11 = getelementptr %struct.audit_ntp_val, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %11, align 8
@@ -4926,7 +4921,7 @@ define dso_local void @__audit_log_nfcfg(ptr noundef %0, i8 noundef zeroext %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
   %14 = zext i8 %1 to i32
   %15 = zext i32 %3 to i64
-  %16 = getelementptr [22 x %struct.audit_nfcfgop_tab], ptr @audit_nfcfgs, i64 0, i64 %15, i32 1
+  %16 = getelementptr %struct.audit_nfcfgop_tab, ptr @audit_nfcfgs, i64 %15, i32 1
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %17) #12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1320
@@ -5772,7 +5767,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 
 431:                                              ; preds = %428, %.preheader
   %432 = phi i64 [ 0, %.preheader ], [ %429, %428 ]
-  %433 = getelementptr [31 x ptr], ptr %427, i64 0, i64 %432
+  %433 = getelementptr ptr, ptr %427, i64 %432
   %434 = load ptr, ptr %433, align 8
   %435 = call zeroext i1 @audit_tree_match(ptr noundef %434, ptr noundef nonnull %416) #12
   br i1 %435, label %.loopexit, label %428
@@ -5800,7 +5795,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 
 448:                                              ; preds = %444, %441
   %449 = phi i64 [ %443, %441 ], [ %445, %444 ]
-  %450 = getelementptr [31 x ptr], ptr %442, i64 0, i64 %449
+  %450 = getelementptr ptr, ptr %442, i64 %449
   %451 = load ptr, ptr %450, align 8
   %452 = call zeroext i1 @audit_tree_match(ptr noundef %451, ptr noundef nonnull %416) #12
   br i1 %452, label %.loopexit, label %444
@@ -5941,9 +5936,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   br i1 %7, label %.thread44, label %541
 
 541:                                              ; preds = %540
-  %542 = add nsw i32 %73, -200
-  %543 = zext nneg i32 %542 to i64
-  %544 = getelementptr [4 x i64], ptr %38, i64 0, i64 %543
+  %542 = zext nneg i32 %73 to i64
+  %543 = getelementptr i64, ptr %38, i64 %542
+  %544 = getelementptr i8, ptr %543, i64 -1600
   %545 = load i64, ptr %544, align 8
   %546 = trunc i64 %545 to i32
   %547 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -6041,7 +6036,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 597:                                              ; preds = %555
   %598 = load i64, ptr %40, align 8
   %599 = and i64 %598, 3
-  %600 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %599
+  %600 = getelementptr i8, ptr @.str.12, i64 %599
   %601 = load i8, ptr %600, align 1
   %602 = zext i8 %601 to i32
   %603 = and i32 %554, %602
@@ -6050,7 +6045,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 604:                                              ; preds = %555
   %605 = load i64, ptr %39, align 8
   %606 = and i64 %605, 3
-  %607 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %606
+  %607 = getelementptr i8, ptr @.str.12, i64 %606
   %608 = load i8, ptr %607, align 1
   %609 = zext i8 %608 to i32
   %610 = and i32 %554, %609
@@ -6074,7 +6069,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 620:                                              ; preds = %555
   %621 = load i64, ptr %37, align 8
   %622 = and i64 %621, 3
-  %623 = getelementptr [5 x i8], ptr @.str.12, i64 0, i64 %622
+  %623 = getelementptr i8, ptr @.str.12, i64 %622
   %624 = load i8, ptr %623, align 1
   %625 = zext i8 %624 to i32
   %626 = and i32 %554, %625
@@ -6750,7 +6745,7 @@ define internal fastcc void @unroll_tree_refs(ptr noundef captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %45, label %9
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %5, %3
   %10 = phi ptr [ %1, %3 ], [ %7, %5 ]
@@ -6761,18 +6756,18 @@ define internal fastcc void @unroll_tree_refs(ptr noundef captures(none) %0, ptr
   br i1 %14, label %.loopexit8, label %.preheader
 
 .preheader:                                       ; preds = %9, %.loopexit7
-  %15 = phi ptr [ %36, %.loopexit7 ], [ %13, %9 ]
+  %15 = phi ptr [ %35, %.loopexit7 ], [ %13, %9 ]
   %16 = phi i32 [ 31, %.loopexit7 ], [ %11, %9 ]
-  %17 = phi ptr [ %37, %.loopexit7 ], [ %10, %9 ]
+  %17 = phi ptr [ %36, %.loopexit7 ], [ %10, %9 ]
   %18 = icmp eq i32 %16, 0
   br i1 %18, label %.loopexit7, label %19
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %29
+  br label %28
 
 .loopexit8:                                       ; preds = %.loopexit7, %9
-  %21 = phi ptr [ %10, %9 ], [ %37, %.loopexit7 ]
+  %21 = phi ptr [ %10, %9 ], [ %36, %.loopexit7 ]
   %22 = phi i32 [ %11, %9 ], [ 31, %.loopexit7 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %24 = load i32, ptr %23, align 8
@@ -6780,49 +6775,48 @@ define internal fastcc void @unroll_tree_refs(ptr noundef captures(none) %0, ptr
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %.loopexit8
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = sext i32 %22 to i64
-  br label %39
+  %27 = sext i32 %22 to i64
+  br label %38
 
-29:                                               ; preds = %29, %19
-  %30 = phi i32 [ %16, %19 ], [ %31, %29 ]
-  %31 = add i32 %30, -1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr [31 x ptr], ptr %20, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  tail call void @audit_put_chunk(ptr noundef %34) #12
-  store ptr null, ptr %33, align 8
-  %35 = icmp eq i32 %31, 0
-  br i1 %35, label %.loopexit7.loopexit, label %29, !llvm.loop !35
+28:                                               ; preds = %28, %19
+  %29 = phi i32 [ %16, %19 ], [ %30, %28 ]
+  %30 = add i32 %29, -1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr ptr, ptr %20, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  tail call void @audit_put_chunk(ptr noundef %33) #12
+  store ptr null, ptr %32, align 8
+  %34 = icmp eq i32 %30, 0
+  br i1 %34, label %.loopexit7.loopexit, label %28, !llvm.loop !35
 
-.loopexit7.loopexit:                              ; preds = %29
+.loopexit7.loopexit:                              ; preds = %28
   %.pre = load ptr, ptr %12, align 8
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.loopexit7.loopexit, %.preheader
-  %36 = phi ptr [ %.pre, %.loopexit7.loopexit ], [ %15, %.preheader ]
-  %37 = load ptr, ptr %17, align 8
-  %38 = icmp eq ptr %37, %36
-  br i1 %38, label %.loopexit8, label %.preheader, !llvm.loop !36
+  %35 = phi ptr [ %.pre, %.loopexit7.loopexit ], [ %15, %.preheader ]
+  %36 = load ptr, ptr %17, align 8
+  %37 = icmp eq ptr %36, %35
+  br i1 %37, label %.loopexit8, label %.preheader, !llvm.loop !36
 
-39:                                               ; preds = %39, %26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %28, %26 ]
+38:                                               ; preds = %38, %26
+  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %27, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr [31 x ptr], ptr %27, i64 0, i64 %indvars.iv.next
-  %41 = load ptr, ptr %40, align 8
-  tail call void @audit_put_chunk(ptr noundef %41) #12
-  store ptr null, ptr %40, align 8
-  %42 = load i32, ptr %23, align 8
-  %43 = sext i32 %42 to i64
-  %44 = icmp sgt i64 %indvars.iv.next, %43
-  br i1 %44, label %39, label %.loopexit, !llvm.loop !37
+  %39 = getelementptr ptr, ptr %21, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8
+  tail call void @audit_put_chunk(ptr noundef %40) #12
+  store ptr null, ptr %39, align 8
+  %41 = load i32, ptr %23, align 8
+  %42 = sext i32 %41 to i64
+  %43 = icmp sgt i64 %indvars.iv.next, %42
+  br i1 %43, label %38, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %39, %.loopexit8
+.loopexit:                                        ; preds = %38, %.loopexit8
   store ptr %10, ptr %12, align 8
   store i32 %11, ptr %23, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %5
+44:                                               ; preds = %.loopexit, %5
   ret void
 }
 

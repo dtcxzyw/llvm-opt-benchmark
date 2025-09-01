@@ -7179,7 +7179,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz426LZ4_compress_
 
 23:                                               ; preds = %23, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %25, i32 %22)
   store i32 %storemerge.i, ptr %24, align 4
@@ -11308,7 +11308,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz425LZ4_compress_
 
 16:                                               ; preds = %16, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 %11)
   store i32 %storemerge.i, ptr %17, align 4
@@ -13059,14 +13059,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %128 = load i8, ptr %127, align 1
   %129 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %128, ptr %129, align 1
-  %130 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %70
+  %130 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %70
   %131 = load i32, ptr %130, align 4
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %73, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %135 = load i32, ptr %133, align 1
   store i32 %135, ptr %134, align 1
-  %136 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %70
+  %136 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %70
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = sub nsw i64 0, %138
@@ -13335,14 +13335,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %258 = load i8, ptr %257, align 1
   %259 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %258, ptr %259, align 1
-  %260 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0486
+  %260 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0486
   %261 = load i32, ptr %260, align 4
   %262 = zext i32 %261 to i64
   %263 = getelementptr inbounds nuw i8, ptr %.0480, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %265 = load i32, ptr %263, align 1
   store i32 %265, ptr %264, align 1
-  %266 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0486
+  %266 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0486
   %267 = load i32, ptr %266, align 4
   %268 = sext i32 %267 to i64
   %269 = sub nsw i64 0, %268
@@ -13674,14 +13674,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %121 = load i8, ptr %120, align 1
   %122 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %121, ptr %122, align 1
-  %123 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %63
+  %123 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %63
   %124 = load i32, ptr %123, align 4
   %125 = zext i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %66, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %128 = load i32, ptr %126, align 1
   store i32 %128, ptr %127, align 1
-  %129 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %63
+  %129 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %63
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
   %132 = sub nsw i64 0, %131
@@ -14007,14 +14007,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %274 = load i8, ptr %273, align 1
   %275 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %274, ptr %275, align 1
-  %276 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0490
+  %276 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0490
   %277 = load i32, ptr %276, align 4
   %278 = zext i32 %277 to i64
   %279 = getelementptr inbounds nuw i8, ptr %.0483, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %281 = load i32, ptr %279, align 1
   store i32 %281, ptr %280, align 1
-  %282 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0490
+  %282 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0490
   %283 = load i32, ptr %282, align 4
   %284 = sext i32 %283 to i64
   %285 = sub nsw i64 0, %284
@@ -14281,14 +14281,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %102 = load i8, ptr %101, align 1
   %103 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %102, ptr %103, align 1
-  %104 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %57
+  %104 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %57
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %60, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %109 = load i32, ptr %107, align 1
   store i32 %109, ptr %108, align 1
-  %110 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %57
+  %110 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %57
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = sub nsw i64 0, %112
@@ -14523,14 +14523,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit627: 
   %214 = load i8, ptr %213, align 1
   %215 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %214, ptr %215, align 1
-  %216 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0485
+  %216 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0485
   %217 = load i32, ptr %216, align 4
   %218 = zext i32 %217 to i64
   %219 = getelementptr inbounds nuw i8, ptr %.0479, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %221 = load i32, ptr %219, align 1
   store i32 %221, ptr %220, align 1
-  %222 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0485
+  %222 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0485
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
   %225 = sub nsw i64 0, %224
@@ -14886,14 +14886,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %120 = load i8, ptr %119, align 1
   %121 = getelementptr inbounds nuw i8, ptr %.3.ptr.ptr, i64 3
   store i8 %120, ptr %121, align 1
-  %122 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %68
+  %122 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %68
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
   %125 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %.3.ptr.ptr, i64 4
   %127 = load i32, ptr %125, align 1
   store i32 %127, ptr %126, align 1
-  %128 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %68
+  %128 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %68
   %129 = load i32, ptr %128, align 4
   %130 = sext i32 %129 to i64
   %131 = sub nsw i64 0, %130
@@ -15169,14 +15169,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %243 = load i8, ptr %242, align 1
   %244 = getelementptr inbounds nuw i8, ptr %.4.ptr, i64 3
   store i8 %243, ptr %244, align 1
-  %245 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0486
+  %245 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0486
   %246 = load i32, ptr %245, align 4
   %247 = zext i32 %246 to i64
   %248 = getelementptr inbounds nuw i8, ptr %.0480.ptr, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %.4.ptr, i64 4
   %250 = load i32, ptr %248, align 1
   store i32 %250, ptr %249, align 1
-  %251 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0486
+  %251 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0486
   %252 = load i32, ptr %251, align 4
   %253 = sext i32 %252 to i64
   %254 = sub nsw i64 0, %253
@@ -15590,14 +15590,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %160 = load i8, ptr %159, align 1
   %161 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %160, ptr %161, align 1
-  %162 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %77
+  %162 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %77
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
   %165 = getelementptr inbounds nuw i8, ptr %80, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %167 = load i32, ptr %165, align 1
   store i32 %167, ptr %166, align 1
-  %168 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %77
+  %168 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %77
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = sub nsw i64 0, %170
@@ -15918,14 +15918,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %315 = load i8, ptr %314, align 1
   %316 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %315, ptr %316, align 1
-  %317 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0487
+  %317 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0487
   %318 = load i32, ptr %317, align 4
   %319 = zext i32 %318 to i64
   %320 = getelementptr inbounds nuw i8, ptr %.0481, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %322 = load i32, ptr %320, align 1
   store i32 %322, ptr %321, align 1
-  %323 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0487
+  %323 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0487
   %324 = load i32, ptr %323, align 4
   %325 = sext i32 %324 to i64
   %326 = sub nsw i64 0, %325
@@ -16655,14 +16655,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %303 = load i8, ptr %302, align 1
   %304 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %303, ptr %304, align 1
-  %305 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0549
+  %305 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0549
   %306 = load i32, ptr %305, align 4
   %307 = zext i32 %306 to i64
   %308 = getelementptr inbounds nuw i8, ptr %.0543, i64 %307
   %309 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %310 = load i32, ptr %308, align 1
   store i32 %310, ptr %309, align 1
-  %311 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0549
+  %311 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0549
   %312 = load i32, ptr %311, align 4
   %313 = sext i32 %312 to i64
   %314 = sub nsw i64 0, %313
@@ -17046,14 +17046,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %131 = load i8, ptr %130, align 1
   %132 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %131, ptr %132, align 1
-  %133 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %73
+  %133 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %73
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %76, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %138 = load i32, ptr %136, align 1
   store i32 %138, ptr %137, align 1
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %73
+  %139 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %73
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = sub nsw i64 0, %141
@@ -17322,14 +17322,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %261 = load i8, ptr %260, align 1
   %262 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %261, ptr %262, align 1
-  %263 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0487
+  %263 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0487
   %264 = load i32, ptr %263, align 4
   %265 = zext i32 %264 to i64
   %266 = getelementptr inbounds nuw i8, ptr %.0480, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %268 = load i32, ptr %266, align 1
   store i32 %268, ptr %267, align 1
-  %269 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0487
+  %269 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0487
   %270 = load i32, ptr %269, align 4
   %271 = sext i32 %270 to i64
   %272 = sub nsw i64 0, %271
@@ -17735,14 +17735,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %161 = load i8, ptr %160, align 1
   %162 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %161, ptr %162, align 1
-  %163 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %88
+  %163 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %88
   %164 = load i32, ptr %163, align 4
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %91, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %168 = load i32, ptr %166, align 1
   store i32 %168, ptr %167, align 1
-  %169 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %88
+  %169 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %88
   %170 = load i32, ptr %169, align 4
   %171 = sext i32 %170 to i64
   %172 = sub nsw i64 0, %171
@@ -18030,14 +18030,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit695: 
   %298 = load i8, ptr %297, align 1
   %299 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %298, ptr %299, align 1
-  %300 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0539
+  %300 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0539
   %301 = load i32, ptr %300, align 4
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %.0533, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %305 = load i32, ptr %303, align 1
   store i32 %305, ptr %304, align 1
-  %306 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0539
+  %306 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0539
   %307 = load i32, ptr %306, align 4
   %308 = sext i32 %307 to i64
   %309 = sub nsw i64 0, %308
@@ -18441,14 +18441,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %137 = load i8, ptr %136, align 1
   %138 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 %137, ptr %138, align 1
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %64
+  %139 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %64
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %140 to i64
   %142 = getelementptr inbounds nuw i8, ptr %67, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %144 = load i32, ptr %142, align 1
   store i32 %144, ptr %143, align 1
-  %145 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %64
+  %145 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %64
   %146 = load i32, ptr %145, align 4
   %147 = sext i32 %146 to i64
   %148 = sub nsw i64 0, %147
@@ -18735,14 +18735,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
   %273 = load i8, ptr %272, align 1
   %274 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %273, ptr %274, align 1
-  %275 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %.0487
+  %275 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %.0487
   %276 = load i32, ptr %275, align 4
   %277 = zext i32 %276 to i64
   %278 = getelementptr inbounds nuw i8, ptr %.0480, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %280 = load i32, ptr %278, align 1
   store i32 %280, ptr %279, align 1
-  %281 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %.0487
+  %281 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %.0487
   %282 = load i32, ptr %281, align 4
   %283 = sext i32 %282 to i64
   %284 = sub nsw i64 0, %283
@@ -19073,14 +19073,14 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4
   %21 = load i8, ptr %20, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %21, ptr %22, align 1
-  %23 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 0, i64 %3
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10inc32tableE, i64 %3
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %26, align 1
   store i32 %28, ptr %27, align 1
-  %29 = getelementptr inbounds nuw [8 x i32], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 0, i64 %3
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L10dec64tableE, i64 %3
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = sub nsw i64 0, %31

@@ -2380,7 +2380,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_14RecordStreamer5Stat
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @"switch.table._ZN4llvm12function_refIFvRNS_14RecordStreamerEEE11callback_fnIZNS_17ModuleSymbolTable17CollectAsmSymbolsERKNS_6ModuleENS0_IFvNS_9StringRefENS_6object14BasicSymbolRef5FlagsEEEEE3$_0EEvlS2_", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN4llvm12function_refIFvRNS_14RecordStreamerEEE11callback_fnIZNS_17ModuleSymbolTable17CollectAsmSymbolsERKNS_6ModuleENS0_IFvNS_9StringRefENS_6object14BasicSymbolRef5FlagsEEEEE3$_0EEvlS2_", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %13
 

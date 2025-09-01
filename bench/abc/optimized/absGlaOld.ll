@@ -120,7 +120,7 @@ Gla_ManObj.exit:                                  ; preds = %.lr.ph67, %.critedg
   %24 = phi i32 [ %21, %.lr.ph ], [ %61, %60 ]
   %25 = phi ptr [ %.pre.i86, %.lr.ph ], [ %.pre.i89, %60 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !22
   %.not.i57 = icmp eq i32 %27, 0
   br i1 %.not.i57, label %Gla_ManObj.exit58, label %28
@@ -1061,7 +1061,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
 109:                                              ; preds = %.lr.ph, %156
   %110 = phi i32 [ %107, %.lr.ph ], [ %157, %156 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %156 ]
-  %111 = getelementptr inbounds nuw [4 x i32], ptr %108, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4, !tbaa !22
   %.not.i121 = icmp eq i32 %112, 0
   br i1 %.not.i121, label %Gla_ManObj.exit122, label %113
@@ -8079,7 +8079,7 @@ Gia_ObjIsPi.exit313.thread:                       ; preds = %331, %Gia_ObjIsPi.e
   %372 = or disjoint i32 %370, %371
   store i32 %372, ptr %266, align 4
   %373 = zext nneg i32 %368 to i64
-  %374 = getelementptr inbounds nuw [4 x i32], ptr %359, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i32, ptr %359, i64 %373
   store i32 %367, ptr %374, align 4, !tbaa !22
   br label %375
 
@@ -9486,7 +9486,7 @@ Gla_ManObj.exit79.lr.ph:                          ; preds = %Gia_ObjIsRo.exit.th
 
 Gla_ManObj.exit79:                                ; preds = %Gla_ManObj.exit79.lr.ph, %Gla_ManObj.exit79
   %indvars.iv = phi i64 [ 0, %Gla_ManObj.exit79.lr.ph ], [ %indvars.iv.next, %Gla_ManObj.exit79 ]
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !22
   %.not.i78 = icmp ne i32 %58, 0
   tail call void @llvm.assume(i1 %.not.i78)
@@ -9681,7 +9681,7 @@ Gla_ManObj.exit36:                                ; preds = %Gla_ManObj.exit36.l
   %21 = phi i32 [ %19, %Gla_ManObj.exit36.lr.ph ], [ %53, %52 ]
   %22 = phi ptr [ %.pre.i9, %Gla_ManObj.exit36.lr.ph ], [ %.pre.i12, %52 ]
   %indvars.iv = phi i64 [ 0, %Gla_ManObj.exit36.lr.ph ], [ %indvars.iv.next, %52 ]
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !22
   %.not.i35 = icmp ne i32 %24, 0
   tail call void @llvm.assume(i1 %.not.i35)
@@ -9913,7 +9913,7 @@ Gla_ManObj.exit.us:                               ; preds = %15, %.lr.ph.split.u
 Gla_ManObj.exit31.us:                             ; preds = %Gla_ManObj.exit31.lr.ph.us, %Gla_ManObj.exit31.us
   %indvars.iv = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %indvars.iv.next, %Gla_ManObj.exit31.us ]
   %.033.us = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %40, %Gla_ManObj.exit31.us ]
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %.not.i30.us = icmp ne i32 %35, 0
   tail call void @llvm.assume(i1 %.not.i30.us)
@@ -9957,7 +9957,7 @@ Gla_ManObj.exit31.lr.ph:                          ; preds = %.lr.ph.split
 Gla_ManObj.exit31:                                ; preds = %Gla_ManObj.exit31.lr.ph, %Gla_ManObj.exit31
   %indvars.iv46 = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %indvars.iv.next47, %Gla_ManObj.exit31 ]
   %.033 = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %58, %Gla_ManObj.exit31 ]
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %51, i64 0, i64 %indvars.iv46
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv46
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %.not.i30 = icmp ne i32 %53, 0
   tail call void @llvm.assume(i1 %.not.i30)

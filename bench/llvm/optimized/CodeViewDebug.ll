@@ -1888,7 +1888,7 @@ _ZNK4llvm6DIFile11getChecksumEv.exit12:           ; preds = %21
 43:                                               ; preds = %36
   %44 = load i8, ptr %.sroa.319.035, align 1, !tbaa !198, !noalias !241
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !243, !noalias !241
   %.not42.i.i = icmp eq i16 %47, -1
   br i1 %.not42.i.i, label %_ZN4llvm7fromHexB5cxx11ENS_9StringRefE.exit, label %48
@@ -1917,10 +1917,10 @@ _ZNK4llvm6DIFile11getChecksumEv.exit12:           ; preds = %21
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !198, !noalias !241
   %60 = zext i8 %57 to i64
-  %61 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !243, !noalias !241
   %63 = zext i8 %59 to i64
-  %64 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !243, !noalias !241
   %66 = icmp ne i16 %62, -1
   %67 = icmp ne i16 %65, -1
@@ -5377,7 +5377,7 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %_ZN4llvm6TripleD2Ev.exit
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [35 x i8], ptr @switch.table._ZN4llvm13CodeViewDebug11beginModuleEPNS_6ModuleE, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm13CodeViewDebug11beginModuleEPNS_6ModuleE, i64 %43
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZL17MapDWLangToCVLangj.exit
 
@@ -6982,7 +6982,7 @@ _ZNK4llvm13DICompileUnit11getProducerEv.exit:     ; preds = %_ZNK4llvm6DINode12g
 
 99:                                               ; preds = %.lr.ph.i
   %100 = sext i32 %.027.i to i64
-  %101 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %100
+  %101 = getelementptr inbounds i32, ptr %2, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !582
   %103 = mul nsw i32 %102, 10
   %104 = add nsw i32 %103, %isdigittmp.i
@@ -12878,7 +12878,7 @@ define hidden void @_ZN4llvm13CodeViewDebug30collectVariableInfoFromMFTableERNS_
   %.not.i.i.i.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i.i.i.i ], [ false, %40 ]
   %.0813.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ 1, %40 ]
   %.0912.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i.i, %40 ]
-  %35 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i.i.i.i
   %36 = load i8, ptr %35, align 1, !tbaa !356, !range !224, !noalias !1117, !noundef !225
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -13556,7 +13556,7 @@ _ZN4llvm13CodeViewDebug13LocalVariableD2Ev.exit:  ; preds = %_ZN4llvm23SmallVect
   %.not.i.i.i.i.i.i44 = phi i1 [ true, %.lr.ph.i.i ], [ false, %339 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %339 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %.1.i.i.i.i.i.i, %339 ]
-  %334 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %334 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %335 = load i8, ptr %334, align 1, !tbaa !356, !range !224, !noundef !225
   %336 = trunc nuw i8 %335 to i1
   br i1 %336, label %337, label %339
@@ -16546,9 +16546,9 @@ define hidden range(i32 0, 125) i32 @_ZN4llvm13CodeViewDebug14lowerTypeBasicEPKN
   br label %.thread162
 
 28:                                               ; preds = %2
-  %switch.tableidx195 = add i32 %8, -1
-  %29 = icmp ult i32 %switch.tableidx195, 4
-  br i1 %29, label %switch.lookup194, label %.thread162
+  %switch.tableidx194 = add i32 %8, -1
+  %29 = icmp ult i32 %switch.tableidx194, 4
+  br i1 %29, label %switch.lookup195, label %.thread162
 
 30:                                               ; preds = %2
   %31 = icmp eq i32 %8, 1
@@ -16835,24 +16835,24 @@ _ZN4llvmeqENS_9StringRefES0_.exit115:             ; preds = %_ZNK4llvm6DIType7ge
 
 switch.lookup:                                    ; preds = %15
   %160 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE, i64 0, i64 %160
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE, i64 %160
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread162
 
 switch.lookup191:                                 ; preds = %19
   %161 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep192 = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.39, i64 0, i64 %161
+  %switch.gep192 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.39, i64 %161
   %switch.load193 = load i32, ptr %switch.gep192, align 4
   br label %.thread162
 
-switch.lookup194:                                 ; preds = %28
-  %162 = zext nneg i32 %switch.tableidx195 to i64
-  %switch.gep196 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.40, i64 0, i64 %162
+switch.lookup195:                                 ; preds = %28
+  %162 = zext nneg i32 %switch.tableidx194 to i64
+  %switch.gep196 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm13CodeViewDebug14lowerTypeBasicEPKNS_11DIBasicTypeE.40, i64 %162
   %switch.load197 = load i32, ptr %switch.gep196, align 4
   br label %.thread162
 
-.thread162:                                       ; preds = %switch.lookup194, %28, %switch.lookup191, %19, %switch.lookup, %15, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit115, %2, %9, %10, %11, %12, %13, %14, %21, %22, %23, %24, %25, %26, %27, %30, %32, %_ZNK4llvm6DIType7getNameEv.exit72, %_ZNK4llvm6DIType7getNameEv.exit46, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit50, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit76, %_ZNK4llvm6DIType7getNameEv.exit111, %_ZNK4llvm6DIType7getNameEv.exit98, %_ZN4llvmeqENS_9StringRefES0_.exit102, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread
-  %.4 = phi i32 [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit102 ], [ 113, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread ], [ 33, %_ZNK4llvm6DIType7getNameEv.exit98 ], [ %.3, %_ZNK4llvm6DIType7getNameEv.exit111 ], [ 0, %2 ], [ 0, %9 ], [ 48, %10 ], [ 49, %11 ], [ 50, %12 ], [ 51, %13 ], [ 52, %14 ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ], [ 17, %22 ], [ 19, %23 ], [ 20, %24 ], [ 0, %25 ], [ 35, %26 ], [ 36, %27 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ], [ 117, %_ZNK4llvm6DIType7getNameEv.exit72 ], [ 116, %_ZNK4llvm6DIType7getNameEv.exit46 ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 116, %_ZN4llvmeqENS_9StringRefES0_.exit50 ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread ], [ 117, %_ZN4llvmeqENS_9StringRefES0_.exit76 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit115 ], [ 116, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ], [ 117, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65 ], [ 33, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91 ], [ %.3, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104 ], [ %switch.load, %switch.lookup ], [ %switch.load193, %switch.lookup191 ], [ %switch.load197, %switch.lookup194 ]
+.thread162:                                       ; preds = %switch.lookup195, %28, %switch.lookup191, %19, %switch.lookup, %15, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit115, %2, %9, %10, %11, %12, %13, %14, %21, %22, %23, %24, %25, %26, %27, %30, %32, %_ZNK4llvm6DIType7getNameEv.exit72, %_ZNK4llvm6DIType7getNameEv.exit46, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit50, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit76, %_ZNK4llvm6DIType7getNameEv.exit111, %_ZNK4llvm6DIType7getNameEv.exit98, %_ZN4llvmeqENS_9StringRefES0_.exit102, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread
+  %.4 = phi i32 [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit102 ], [ 113, %_ZN4llvmeqENS_9StringRefES0_.exit89.thread ], [ 33, %_ZNK4llvm6DIType7getNameEv.exit98 ], [ %.3, %_ZNK4llvm6DIType7getNameEv.exit111 ], [ 0, %2 ], [ 0, %9 ], [ 48, %10 ], [ 49, %11 ], [ 50, %12 ], [ 51, %13 ], [ 52, %14 ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ], [ 17, %22 ], [ 19, %23 ], [ 20, %24 ], [ 0, %25 ], [ 35, %26 ], [ 36, %27 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ], [ 117, %_ZNK4llvm6DIType7getNameEv.exit72 ], [ 116, %_ZNK4llvm6DIType7getNameEv.exit46 ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 116, %_ZN4llvmeqENS_9StringRefES0_.exit50 ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread ], [ 117, %_ZN4llvmeqENS_9StringRefES0_.exit76 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit115 ], [ 116, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i39 ], [ 117, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i65 ], [ 33, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i91 ], [ %.3, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i104 ], [ %switch.load, %switch.lookup ], [ %switch.load193, %switch.lookup191 ], [ %switch.load197, %switch.lookup195 ]
   ret i32 %.4
 }
 

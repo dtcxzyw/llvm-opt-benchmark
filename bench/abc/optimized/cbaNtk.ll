@@ -1538,13 +1538,13 @@ Cba_NtkPrintDistribAddOne.exit:                   ; preds = %176, %Vec_WrdPush.e
   %861 = load ptr, ptr %860, align 8, !tbaa !9
   %862 = load ptr, ptr %0, align 8, !tbaa !36
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 832
-  %864 = getelementptr inbounds nuw [90 x i32], ptr %863, i64 0, i64 %indvars.iv616
+  %864 = getelementptr inbounds nuw i32, ptr %863, i64 %indvars.iv616
   %865 = load i32, ptr %864, align 4, !tbaa !33
   %866 = icmp eq i32 %865, 0
   br i1 %866, label %964, label %867
 
 867:                                              ; preds = %857
-  %868 = getelementptr inbounds nuw [90 x ptr], ptr %2, i64 0, i64 %indvars.iv616
+  %868 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv616
   %869 = load ptr, ptr %868, align 8, !tbaa !40
   %870 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv616
   %871 = load i32, ptr %870, align 4, !tbaa !33
@@ -2214,7 +2214,7 @@ define void @Cba_NtkPrintNodes(ptr noundef captures(none) %0, i32 noundef %1) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @Cba_ManCreatePrimMap(ptr noundef nonnull %3) #25
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [90 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %6)
   %8 = getelementptr i8, ptr %0, i64 92
@@ -2799,7 +2799,7 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv = phi i64 [ 1, %191 ], [ %indvars.iv.next, %217 ]
   %193 = load ptr, ptr %0, align 8, !tbaa !36
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 832
-  %195 = getelementptr inbounds nuw [90 x i32], ptr %194, i64 0, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %indvars.iv
   %196 = load i32, ptr %195, align 4, !tbaa !33
   %.not31 = icmp eq i32 %196, 0
   br i1 %.not31, label %217, label %197
@@ -2811,13 +2811,13 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not32, label %212, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw [90 x i32], ptr %198, i64 0, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv
   %202 = load i32, ptr %201, align 4, !tbaa !33
   %.not33 = icmp eq i32 %202, 0
   br i1 %.not33, label %212, label %203
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds nuw [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %205 = load ptr, ptr %204, align 8, !tbaa !40
   %206 = sitofp i32 %202 to double
   %207 = fmul double %206, 1.000000e+02
@@ -2828,7 +2828,7 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %217
 
 212:                                              ; preds = %200, %197
-  %213 = getelementptr inbounds nuw [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %214 = load ptr, ptr %213, align 8, !tbaa !40
   %215 = trunc nuw nsw i64 %indvars.iv to i32
   %216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %215, ptr noundef %214, i32 noundef %196)
@@ -3034,7 +3034,7 @@ Cba_NtkBoxPrimNum.exit:                           ; preds = %9, %3
 19:                                               ; preds = %16
   %.val22 = load ptr, ptr %0, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %.val22, i64 112
-  %21 = getelementptr inbounds nuw [90 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !40
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %22, i32 noundef %18)
   br label %24
@@ -3184,7 +3184,7 @@ Cba_ManRoot.exit:                                 ; preds = %3, %Cba_ManNtkIsOk.
 17:                                               ; preds = %14
   %.val22 = load ptr, ptr %13, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %.val22, i64 112
-  %19 = getelementptr inbounds nuw [90 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !40
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %20, i32 noundef %16)
   br label %22
@@ -3608,7 +3608,7 @@ define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures
   %.val39 = load ptr, ptr %0, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %.val39, i64 112
   %25 = zext i8 %23 to i64
-  %26 = getelementptr inbounds nuw [90 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   br i1 %.not, label %33, label %28
 

@@ -45,7 +45,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   %20 = phi i32 [ %14, %.preheader16 ], [ %31, %17 ]
   %21 = xor i32 %19, 3
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [4 x i8], ptr %5, i64 0, i64 %22
+  %23 = getelementptr i8, ptr %5, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp ne i8 %18, 0
   %26 = icmp ne i8 %24, 95
@@ -161,7 +161,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly captu
   %87 = phi i32 [ %81, %80 ], [ %105, %104 ]
   %88 = xor i32 %86, 3
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr [4 x i8], ptr %3, i64 0, i64 %89
+  %90 = getelementptr i8, ptr %3, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = icmp ne i8 %85, 0
   %93 = icmp ne i8 %91, 95
@@ -373,7 +373,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly capture
   %29 = phi i32 [ %23, %22 ], [ %47, %46 ]
   %30 = xor i32 %28, 3
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [4 x i8], ptr %5, i64 0, i64 %31
+  %32 = getelementptr i8, ptr %5, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = icmp ne i8 %27, 0
   %35 = icmp ne i8 %33, 95
@@ -528,7 +528,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %21 = phi i32 [ %15, %.preheader16 ], [ %32, %18 ]
   %22 = xor i32 %20, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [4 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %19, 0
   %27 = icmp ne i8 %25, 95
@@ -633,7 +633,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %86 = phi i32 [ %80, %79 ], [ %104, %103 ]
   %87 = xor i32 %85, 3
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr [4 x i8], ptr %4, i64 0, i64 %88
+  %89 = getelementptr i8, ptr %4, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = icmp ne i8 %84, 0
   %92 = icmp ne i8 %90, 95

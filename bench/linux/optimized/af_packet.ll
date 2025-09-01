@@ -405,7 +405,7 @@ define internal fastcc void @__unregister_prot_hook(ptr noundef %0, i1 noundef z
 
 16:                                               ; preds = %.preheader
   %17 = sext i32 %22 to i64
-  %18 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %13, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %24, label %.preheader, !llvm.loop !12
@@ -427,10 +427,10 @@ define internal fastcc void @__unregister_prot_hook(ptr noundef %0, i1 noundef z
 
 .thread:                                          ; preds = %12, %24
   %26 = phi i64 [ %17, %24 ], [ 0, %12 ]
-  %27 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %13, i64 %26
   %28 = add i32 %10, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %29
+  %30 = getelementptr ptr, ptr %13, i64 %29
   %31 = load ptr, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !16
   store volatile ptr %31, ptr %27, align 8
@@ -612,7 +612,7 @@ define internal fastcc void @__register_prot_hook(ptr noundef %0) unnamed_addr #
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr [0 x ptr], ptr %12, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %12, i64 %15
   store volatile ptr %0, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !20
   %17 = load i32, ptr %13, align 8
@@ -669,7 +669,7 @@ define internal fastcc void @__fanout_link(ptr noundef %0, ptr %.744.val) unname
   %4 = getelementptr inbounds nuw i8, ptr %.744.val, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr [0 x ptr], ptr %3, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %3, i64 %6
   store volatile ptr %0, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !20
   %8 = load i32, ptr %4, align 8
@@ -982,7 +982,7 @@ define internal noundef range(i32 -105, 1) i32 @packet_create(ptr noundef %0, pt
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_proto, i64 208), align 8
   %80 = zext i32 %79 to i64
-  %81 = getelementptr [64 x i32], ptr %78, i64 0, i64 %80
+  %81 = getelementptr i32, ptr %78, i64 %80
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #19, !srcloc !30
   br label %83
 
@@ -1625,7 +1625,7 @@ define internal noundef i32 @packet_release(ptr noundef captures(none) %0) #2 al
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 208
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr [64 x i32], ptr %33, i64 0, i64 %36
+  %37 = getelementptr i32, ptr %33, i64 %36
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, ptr elementtype(i32) %37) #19, !srcloc !46
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1172
   tail call void @_raw_spin_lock(ptr noundef nonnull %38) #19
@@ -3430,7 +3430,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 188:                                              ; preds = %184
   %189 = and i64 %185, 63
-  %190 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %189
+  %190 = getelementptr i64, ptr @__per_cpu_offset, i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = add i64 %191, %177
   %193 = inttoptr i64 %192 to ptr
@@ -3935,7 +3935,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %532 = getelementptr i8, ptr %529, i64 %531
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 48
   %534 = zext nneg i8 %477 to i64
-  %535 = getelementptr [17 x %struct.bio_vec], ptr %533, i64 0, i64 %534
+  %535 = getelementptr %struct.bio_vec, ptr %533, i64 %534
   store ptr %499, ptr %535, align 8
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 12
   store i32 %470, ptr %536, align 4
@@ -5434,7 +5434,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
+  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %24
   %40 = inttoptr i64 %39 to ptr
@@ -9210,7 +9210,7 @@ define internal i32 @packet_rcv_fanout(ptr noundef %0, ptr noundef %1, ptr nound
 57:                                               ; preds = %84, %49
   %58 = phi i32 [ %56, %49 ], [ %87, %84 ]
   %59 = zext i32 %58 to i64
-  %60 = getelementptr [0 x ptr], ptr %50, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr %50, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %84, label %63
@@ -9347,7 +9347,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 131:                                              ; preds = %fanout_demux_rollover.exit
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %133 = zext i32 %127 to i64
-  %134 = getelementptr [0 x ptr], ptr %132, i64 0, i64 %133
+  %134 = getelementptr ptr, ptr %132, i64 %133
   %135 = load volatile ptr, ptr %134, align 8
   %136 = tail call fastcc i32 @__packet_rcv_has_room(ptr noundef %135, ptr noundef %24), !range !52
   %137 = icmp ne i32 %136, 2
@@ -9435,7 +9435,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 185:                                              ; preds = %215, %178
   %186 = phi i32 [ %184, %178 ], [ %218, %215 ]
   %187 = zext i32 %186 to i64
-  %188 = getelementptr [0 x ptr], ptr %132, i64 0, i64 %187
+  %188 = getelementptr ptr, ptr %132, i64 %187
   %189 = load volatile ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, %135
   br i1 %190, label %215, label %191
@@ -9508,7 +9508,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 fanout_demux_rollover.exit7:                      ; preds = %fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge, %220, %212, %209, %176, %145, %.thread.i
   %.pre-phi = phi i64 [ %.pre, %fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge ], [ %133, %220 ], [ %187, %212 ], [ %187, %209 ], [ %133, %176 ], [ %133, %145 ], [ %133, %.thread.i ]
   %223 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %224 = getelementptr [0 x ptr], ptr %223, i64 0, i64 %.pre-phi
+  %224 = getelementptr ptr, ptr %223, i64 %.pre-phi
   %225 = load volatile ptr, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 1344
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 1360
@@ -10111,7 +10111,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
 
 92:                                               ; preds = %88
   %93 = and i64 %89, 63
-  %94 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %93
+  %94 = getelementptr i64, ptr @__per_cpu_offset, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %81
   %97 = inttoptr i64 %96 to ptr

@@ -54443,7 +54443,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
-  %50 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %17, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %17, i64 %49
   %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !13
   %51 = load i32, ptr %11, align 4, !tbaa !34
   %.not.i.i.not.i = icmp ult i32 %48, %51
@@ -57182,7 +57182,7 @@ _ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8D
 61:                                               ; preds = %61, %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEC2EOSB_.exit
   %62 = phi i64 [ 0, %_ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEC2EOSB_.exit ], [ %77, %61 ]
   %63 = getelementptr inbounds nuw %"class.llvm::DenseMap.251", ptr %59, i64 %62
-  %64 = getelementptr inbounds nuw [18 x %"class.llvm::DenseMap.251"], ptr %60, i64 0, i64 %62
+  %64 = getelementptr inbounds nuw %"class.llvm::DenseMap.251", ptr %60, i64 %62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %65 = load ptr, ptr %64, align 8, !tbaa !2589
   store ptr %65, ptr %63, align 8, !tbaa !2589

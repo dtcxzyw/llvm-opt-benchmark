@@ -372,7 +372,7 @@ define void @_ZN8grep_cli7pattern15pattern_from_os17hfdb218031bf42c68E(ptr noali
 
 .lr.ph.i.i.i.i:                                   ; preds = %21, %25
   %.05.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw [0 x i8], ptr %17, i64 0, i64 %.05.i.i.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.05.i.i.i.i
   %23 = load i8, ptr %22, align 1, !alias.scope !69, !noalias !72, !noundef !4
   %24 = icmp eq i8 %23, -67
   br i1 %24, label %_ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.exit.i.i.i, label %25

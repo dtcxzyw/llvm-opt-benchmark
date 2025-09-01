@@ -3242,7 +3242,7 @@ _ZN12dt2bv_tactic8check_fdclEP3var.exit:          ; preds = %.noexc65, %.noexc63
 74:                                               ; preds = %.lr.ph, %_ZN12dt2bv_tactic8check_fdclEP3var.exit91
   %75 = phi i32 [ %71, %.lr.ph ], [ %163, %_ZN12dt2bv_tactic8check_fdclEP3var.exit91 ]
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !93
   %79 = add nuw i32 %75, 1
   store i32 %79, ptr %70, align 8, !tbaa !171
@@ -6236,7 +6236,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !99
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

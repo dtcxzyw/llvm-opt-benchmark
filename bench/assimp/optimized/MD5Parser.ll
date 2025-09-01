@@ -2149,7 +2149,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD58BoneDescESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
   %110 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 4
   %111 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %109, ptr nonnull align 4 %110, i64 %111, i1 false)
-  %112 = getelementptr inbounds nuw [1024 x i8], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %111
   store i8 0, ptr %112, align 1
   %113 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 1028
   %114 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 1028
@@ -2311,7 +2311,7 @@ _Z32AI_MD5_PARSE_STRING_IN_QUOTATIONPPKcS0_R8aiString.exit: ; preds = %157, %164
   %176 = getelementptr inbounds i8, ptr %152, i64 -1200
   %177 = load i32, ptr %153, align 4
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds nuw [1024 x i8], ptr %176, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 %178
   store i8 0, ptr %179, align 1
   %180 = load ptr, ptr %155, align 8
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0453.0511, i64 16
@@ -2644,7 +2644,7 @@ _Z18AI_MD5_SKIP_SPACESPPKcS0_i.exit153:           ; preds = %.noexc152, %.crited
 _Z32AI_MD5_PARSE_STRING_IN_QUOTATIONPPKcS0_R8aiString.exit160: ; preds = %279, %286, %.critedge2.thread.i157
   %297 = load i32, ptr %248, align 4
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw [1024 x i8], ptr %249, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr %249, i64 %298
   store i8 0, ptr %299, align 1
   br label %_ZNSt6vectorIN6Assimp3MD510VertexDescESaIS2_EE6resizeEm.exit
 
@@ -4747,7 +4747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -4978,7 +4978,7 @@ _ZNKSt6vectorIN6Assimp3MD512AnimBoneDescESaIS2_EE12_M_check_lenEmPKc.exit.i: ; p
   %63 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i166, i64 4
   %64 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i.i167 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %62, ptr nonnull align 4 %63, i64 %64, i1 false)
-  %65 = getelementptr inbounds nuw [1024 x i8], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
   store i8 0, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i165, i64 1028
   %67 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i166, i64 1028
@@ -5081,7 +5081,7 @@ _Z32AI_MD5_PARSE_STRING_IN_QUOTATIONPPKcS0_R8aiString.exit: ; preds = %85, %92, 
   %105 = phi i64 [ %104, %.critedge2.thread.i ], [ 0, %92 ], [ 0, %85 ]
   %.1 = phi ptr [ %97, %.critedge2.thread.i ], [ %storemerge.i, %92 ], [ %.0212, %85 ]
   %106 = getelementptr inbounds i8, ptr %77, i64 -1036
-  %107 = getelementptr inbounds nuw [1024 x i8], ptr %106, i64 0, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %105
   store i8 0, ptr %107, align 1
   %108 = load ptr, ptr %81, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.0187.0268, i64 16
@@ -5976,7 +5976,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD512AnimBoneDescESaIS2_EE11_M_allocateEm.exit.i.i:
   %437 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 4
   %438 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %436, ptr nonnull align 4 %437, i64 %438, i1 false)
-  %439 = getelementptr inbounds nuw [1024 x i8], ptr %436, i64 0, i64 %438
+  %439 = getelementptr inbounds nuw i8, ptr %436, i64 %438
   store i8 0, ptr %439, align 1
   %440 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 1028
   %441 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 1028
@@ -6083,7 +6083,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD512AnimBoneDescESaIS2_EE11_M_allocateEm.exit.i.i1
   %487 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i152, i64 4
   %488 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i.i153 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %486, ptr nonnull align 4 %487, i64 %488, i1 false)
-  %489 = getelementptr inbounds nuw [1024 x i8], ptr %486, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw i8, ptr %486, i64 %488
   store i8 0, ptr %489, align 1
   %490 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i151, i64 1028
   %491 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i152, i64 1028
@@ -9075,7 +9075,7 @@ _ZNSt16allocator_traitsISaI6aiFaceEE8allocateERS1_m.exit.i.i.i.i: ; preds = %49
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %73 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull align 4 %72, i64 %73, i1 false)
-  %74 = getelementptr inbounds nuw [1024 x i8], ptr %71, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %73
   store i8 0, ptr %74, align 1
   ret void
 
@@ -9290,7 +9290,7 @@ _ZNKSt6vectorIN6Assimp3MD58BoneDescESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   %38 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %39 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %37, ptr nonnull align 4 %38, i64 %39, i1 false)
-  %40 = getelementptr inbounds nuw [1024 x i8], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store i8 0, ptr %40, align 1
   %41 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 1028
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 1028
@@ -9321,7 +9321,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3MD58BoneDescES3_SaIS2_EET0_T_
   %51 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i30, i64 4
   %52 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i.i31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %50, ptr nonnull align 4 %51, i64 %52, i1 false)
-  %53 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
   store i8 0, ptr %53, align 1
   %54 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i29, i64 1028
   %55 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i30, i64 1028

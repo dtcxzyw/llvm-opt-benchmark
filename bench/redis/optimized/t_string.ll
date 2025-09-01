@@ -112,7 +112,7 @@ getExpireMillisecondsOrReply.exit.thread:         ; preds = %23, %thread-pre-spl
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !30
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %37
+  %38 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %34, ptr noundef %39) #11
   %41 = icmp eq ptr %40, null
@@ -156,7 +156,7 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %58 = load i32, ptr %57, align 4, !tbaa !30
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %59
+  %60 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !29
   br label %62
 
@@ -315,7 +315,7 @@ define dso_local range(i32 -1, 1) i32 @getGenericCommand(ptr noundef %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %10) #11
   %12 = icmp eq ptr %11, null
@@ -858,7 +858,7 @@ define dso_local void @getCommand(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %10) #11
   %12 = icmp eq ptr %11, null
@@ -901,7 +901,7 @@ define dso_local void @getexCommand(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4, !tbaa !30
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %11, ptr noundef %16) #11
   %18 = icmp eq ptr %17, null
@@ -1126,7 +1126,7 @@ define dso_local void @getdelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %10) #11
   %12 = icmp eq ptr %11, null
@@ -1189,7 +1189,7 @@ define dso_local void @getsetCommand(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %5, ptr noundef %10) #11
   %12 = icmp eq ptr %11, null

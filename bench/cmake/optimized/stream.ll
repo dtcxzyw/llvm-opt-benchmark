@@ -525,7 +525,7 @@ uv__stream_queue_fd.exit.thread.i.i:              ; preds = %220, %208, %206
   %225 = add i32 %222, 1
   store i32 %225, ptr %224, align 4, !tbaa !77
   %226 = zext i32 %222 to i64
-  %227 = getelementptr inbounds nuw [1 x i32], ptr %223, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %223, i64 %226
   store i32 %199, ptr %227, align 4, !tbaa !36
   br label %234
 
@@ -2139,7 +2139,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw [1 x i32], ptr %56, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !36
   %60 = tail call i32 @uv__close(i32 noundef %59) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

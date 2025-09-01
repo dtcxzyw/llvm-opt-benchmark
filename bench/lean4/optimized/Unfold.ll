@@ -3048,7 +3048,7 @@ lean_dec.exit487:                                 ; preds = %106, %105, %103, %l
   br label %lean_dec.exit486
 
 lean_dec.exit486:                                 ; preds = %119, %118, %116, %110
-  %120 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %.0360999
+  %120 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0360999
   %121 = load ptr, ptr %120, align 8, !tbaa !4
   %122 = ptrtoint ptr %121 to i64
   %123 = and i64 %122, 1

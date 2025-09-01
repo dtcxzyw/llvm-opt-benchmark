@@ -156,9 +156,9 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 64:                                               ; preds = %64, %.lr.ph65.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph65.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %63, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i
   %66 = load i64, ptr %65, align 8, !tbaa !28
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %60, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i
   store i64 %66, ptr %67, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -193,10 +193,10 @@ aux_find_obj.exit.i:                              ; preds = %26, %22
 
 81:                                               ; preds = %81, %.lr.ph67.i
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph67.i ], [ %indvars.iv.next79.i, %81 ]
-  %82 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %80, i64 0, i64 %indvars.iv78.i
+  %82 = getelementptr inbounds nuw %struct.filter_info_t, ptr %80, i64 %indvars.iv78.i
   %83 = load ptr, ptr %20, align 8, !tbaa !18
   %84 = getelementptr inbounds nuw %struct.pack_info_t, ptr %83, i64 %indvars.iv.i.i, i32 1
-  %85 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %84, i64 0, i64 %indvars.iv78.i
+  %85 = getelementptr inbounds nuw %struct.filter_info_t, ptr %84, i64 %indvars.iv78.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %82, ptr noundef nonnull align 8 dereferenceable(96) %85, i64 96, i1 false), !tbaa.struct !32
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %86 = load i32, ptr %78, align 8, !tbaa !31
@@ -382,7 +382,7 @@ aux_assign_obj.exit:                              ; preds = %81, %70, %74, %.loo
 
 179:                                              ; preds = %178, %.lr.ph.i
   %indvars.iv.i261 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i262, %178 ]
-  %180 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %161, i64 0, i64 %indvars.iv.i261
+  %180 = getelementptr inbounds nuw %struct.filter_info_t, ptr %161, i64 %indvars.iv.i261
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 88
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 8
@@ -696,7 +696,7 @@ aux_copy_obj.exit:                                ; preds = %223, %245, %.lr.ph5
   %346 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
   %347 = load i64, ptr %346, align 8, !tbaa !28
   %.spec.store.select = call i64 @llvm.umin.i64(i64 %347, i64 %spec.store.select)
-  %348 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv.next
+  %348 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next
   store i64 %.spec.store.select, ptr %348, align 8, !tbaa !28
   %349 = mul i64 %.spec.store.select, %.0154296
   %350 = icmp sgt i64 %indvars.iv, 1
@@ -722,7 +722,7 @@ aux_copy_obj.exit:                                ; preds = %223, %245, %.lr.ph5
 
 357:                                              ; preds = %.lr.ph302, %667
   %indvars.iv317 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next318, %667 ]
-  %358 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %354, i64 0, i64 %indvars.iv317
+  %358 = getelementptr inbounds nuw %struct.filter_info_t, ptr %354, i64 %indvars.iv317
   %359 = load i32, ptr %358, align 8, !tbaa !39
   %360 = icmp slt i32 %359, 0
   br i1 %360, label %361, label %377
@@ -1247,7 +1247,7 @@ aux_copy_obj.exit:                                ; preds = %223, %245, %.lr.ph5
 
 679:                                              ; preds = %.lr.ph304, %675
   %indvars.iv320 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next321, %675 ]
-  %680 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %674, i64 0, i64 %indvars.iv320
+  %680 = getelementptr inbounds nuw %struct.filter_info_t, ptr %674, i64 %indvars.iv320
   %681 = load i32, ptr %680, align 8, !tbaa !39
   %682 = icmp slt i32 %681, 0
   br i1 %682, label %683, label %699

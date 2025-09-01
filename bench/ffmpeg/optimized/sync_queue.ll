@@ -1659,7 +1659,7 @@ define internal fastcc void @offset_audio(ptr noundef captures(none) %0, i32 nou
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %52, ptr %55, align 8, !tbaa !66
   br label %56
 

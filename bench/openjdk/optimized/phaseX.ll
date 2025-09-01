@@ -1826,11 +1826,11 @@ define hidden noundef ptr @_ZN11PhaseValues14find_long_typeEP4Node(ptr noundef n
 define hidden noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %48 [
+  switch i32 %4, label %50 [
     i32 5, label %5
     i32 2, label %5
     i32 3, label %10
-    i32 4, label %30
+    i32 4, label %32
   ]
 
 5:                                                ; preds = %2, %2
@@ -1845,108 +1845,110 @@ define hidden noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull 
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 8
   %or.cond.i = icmp ult i32 %13, 137
-  br i1 %or.cond.i, label %14, label %23
+  br i1 %or.cond.i, label %14, label %24
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw [137 x ptr], ptr %15, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %23, label %19
+  %16 = sext i32 %12 to i64
+  %17 = getelementptr ptr, ptr %15, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %24, label %20
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
-  %.not18.i = icmp eq ptr %22, null
-  br i1 %.not18.i, label %23, label %_ZN11PhaseValues6intconEi.exit
+  %23 = load ptr, ptr %22, align 8
+  %.not18.i = icmp eq ptr %23, null
+  br i1 %.not18.i, label %24, label %_ZN11PhaseValues6intconEi.exit
 
-23:                                               ; preds = %19, %14, %10
-  %24 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %12) #16
-  %25 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %24)
-  br i1 %or.cond.i, label %26, label %_ZN11PhaseValues6intconEi.exit
+24:                                               ; preds = %20, %14, %10
+  %25 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %12) #16
+  %26 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %25)
+  br i1 %or.cond.i, label %27, label %_ZN11PhaseValues6intconEi.exit
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = zext nneg i32 %13 to i64
-  %29 = getelementptr inbounds nuw [137 x ptr], ptr %27, i64 0, i64 %28
-  store ptr %25, ptr %29, align 8
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = sext i32 %12 to i64
+  %30 = getelementptr ptr, ptr %28, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 64
+  store ptr %26, ptr %31, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
-30:                                               ; preds = %2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = add i64 %32, 8
-  %or.cond.i8 = icmp ult i64 %33, 137
-  br i1 %or.cond.i8, label %34, label %42
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, 8
+  %or.cond.i8 = icmp ult i64 %35, 137
+  br i1 %or.cond.i8, label %36, label %44
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %36 = getelementptr inbounds nuw [137 x ptr], ptr %35, i64 0, i64 %33
-  %37 = load ptr, ptr %36, align 8
-  %.not.i10 = icmp eq ptr %37, null
-  br i1 %.not.i10, label %42, label %38
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %38 = getelementptr ptr, ptr %37, i64 %34
+  %39 = load ptr, ptr %38, align 8
+  %.not.i10 = icmp eq ptr %39, null
+  br i1 %.not.i10, label %44, label %40
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %40, align 8
-  %.not18.i11 = icmp eq ptr %41, null
-  br i1 %.not18.i11, label %42, label %_ZN11PhaseValues6intconEi.exit
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %42, align 8
+  %.not18.i11 = icmp eq ptr %43, null
+  br i1 %.not18.i11, label %44, label %_ZN11PhaseValues6intconEi.exit
 
-42:                                               ; preds = %38, %34, %30
-  %43 = tail call noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %32) #16
-  %44 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %43)
-  br i1 %or.cond.i8, label %45, label %_ZN11PhaseValues6intconEi.exit
+44:                                               ; preds = %40, %36, %32
+  %45 = tail call noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %34) #16
+  %46 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %45)
+  br i1 %or.cond.i8, label %47, label %_ZN11PhaseValues6intconEi.exit
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %47 = getelementptr inbounds nuw [137 x ptr], ptr %46, i64 0, i64 %33
-  store ptr %44, ptr %47, align 8
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %49 = getelementptr ptr, ptr %48, i64 %34
+  store ptr %46, ptr %49, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
-48:                                               ; preds = %2
-  %49 = zext i32 %4 to i64
-  %50 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %49, i32 1
-  %51 = load i8, ptr %50, align 4
-  %52 = icmp eq i8 %51, 14
-  %53 = icmp ugt i8 %51, 18
-  %or.cond.i12 = or i1 %52, %53
+50:                                               ; preds = %2
+  %51 = zext i32 %4 to i64
+  %52 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %51, i32 1
+  %53 = load i8, ptr %52, align 4
+  %54 = icmp eq i8 %53, 14
+  %55 = icmp ugt i8 %53, 18
+  %or.cond.i12 = or i1 %54, %55
   br i1 %or.cond.i12, label %_ZNK4Type12is_zero_typeEv.exit.thread, label %_ZNK4Type12is_zero_typeEv.exit
 
-_ZNK4Type12is_zero_typeEv.exit:                   ; preds = %48
-  %54 = zext nneg i8 %51 to i64
-  %55 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %1, %56
-  br i1 %57, label %58, label %_ZNK4Type12is_zero_typeEv.exit.thread
+_ZNK4Type12is_zero_typeEv.exit:                   ; preds = %50
+  %56 = zext nneg i8 %53 to i64
+  %57 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %1, %58
+  br i1 %59, label %60, label %_ZNK4Type12is_zero_typeEv.exit.thread
 
-58:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2240
-  %60 = getelementptr inbounds nuw [20 x ptr], ptr %59, i64 0, i64 %54
-  %61 = load ptr, ptr %60, align 8
-  %.not.i14 = icmp eq ptr %61, null
-  br i1 %.not.i14, label %66, label %62
+60:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2240
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %56
+  %63 = load ptr, ptr %62, align 8
+  %.not.i14 = icmp eq ptr %63, null
+  br i1 %.not.i14, label %68, label %64
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %64, align 8
-  %.not10.i = icmp eq ptr %65, null
-  br i1 %.not10.i, label %66, label %_ZN11PhaseValues6intconEi.exit
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %66, align 8
+  %.not10.i = icmp eq ptr %67, null
+  br i1 %.not10.i, label %68, label %_ZN11PhaseValues6intconEi.exit
 
-66:                                               ; preds = %62, %58
-  %67 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %56)
-  store ptr %67, ptr %60, align 8
+68:                                               ; preds = %64, %60
+  %69 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %58)
+  store ptr %69, ptr %62, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
-_ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %48, %_ZNK4Type12is_zero_typeEv.exit
-  %68 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull %1)
+_ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %50, %_ZNK4Type12is_zero_typeEv.exit
+  %70 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull %1)
   br label %_ZN11PhaseValues6intconEi.exit
 
-_ZN11PhaseValues6intconEi.exit:                   ; preds = %66, %62, %45, %42, %38, %26, %23, %19, %_ZNK4Type12is_zero_typeEv.exit.thread, %5
-  %.0 = phi ptr [ %68, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %18, %19 ], [ %25, %26 ], [ %25, %23 ], [ %37, %38 ], [ %44, %45 ], [ %44, %42 ], [ %67, %66 ], [ %61, %62 ]
+_ZN11PhaseValues6intconEi.exit:                   ; preds = %68, %64, %47, %44, %40, %27, %24, %20, %_ZNK4Type12is_zero_typeEv.exit.thread, %5
+  %.0 = phi ptr [ %70, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %19, %20 ], [ %26, %27 ], [ %26, %24 ], [ %39, %40 ], [ %46, %47 ], [ %46, %44 ], [ %69, %68 ], [ %63, %64 ]
   ret ptr %.0
 }
 
@@ -1954,37 +1956,39 @@ _ZN11PhaseValues6intconEi.exit:                   ; preds = %66, %62, %45, %42, 
 define hidden noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = add i32 %1, 8
   %or.cond = icmp ult i32 %3, 137
-  br i1 %or.cond, label %4, label %13
+  br i1 %or.cond, label %4, label %14
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw [137 x ptr], ptr %5, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %13, label %9
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr ptr, ptr %5, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 64
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %14, label %10
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not18 = icmp eq ptr %12, null
-  br i1 %.not18, label %13, label %20
+  %13 = load ptr, ptr %12, align 8
+  %.not18 = icmp eq ptr %13, null
+  br i1 %.not18, label %14, label %22
 
-13:                                               ; preds = %4, %9, %2
-  %14 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %1) #16
-  %15 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %14)
-  br i1 %or.cond, label %16, label %20
+14:                                               ; preds = %4, %10, %2
+  %15 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %1) #16
+  %16 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %15)
+  br i1 %or.cond, label %17, label %22
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = zext nneg i32 %3 to i64
-  %19 = getelementptr inbounds nuw [137 x ptr], ptr %17, i64 0, i64 %18
-  store ptr %15, ptr %19, align 8
-  br label %20
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = sext i32 %1 to i64
+  %20 = getelementptr ptr, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 64
+  store ptr %16, ptr %21, align 8
+  br label %22
 
-20:                                               ; preds = %13, %16, %9
-  %.0 = phi ptr [ %8, %9 ], [ %15, %16 ], [ %15, %13 ]
+22:                                               ; preds = %14, %17, %10
+  %.0 = phi ptr [ %9, %10 ], [ %16, %17 ], [ %16, %14 ]
   ret ptr %.0
 }
 
@@ -1995,8 +1999,8 @@ define hidden noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 
   br i1 %or.cond, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %6 = getelementptr inbounds nuw [137 x ptr], ptr %5, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %6 = getelementptr ptr, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -2014,8 +2018,8 @@ define hidden noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 
   br i1 %or.cond, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %17 = getelementptr inbounds nuw [137 x ptr], ptr %16, i64 0, i64 %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %17 = getelementptr ptr, ptr %16, i64 %1
   store ptr %14, ptr %17, align 8
   br label %18
 
@@ -2028,7 +2032,7 @@ define hidden noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 
 define hidden noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [20 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -2041,7 +2045,7 @@ define hidden noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnu
   br i1 %.not10, label %11, label %15
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type10_zero_typeE, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %4
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %13)
   store ptr %14, ptr %5, align 8
@@ -2190,73 +2194,77 @@ declare noundef ptr @_ZN8TypeLong4makeEl(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11PhaseValues10integerconEl9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i8 %2, 10
-  br i1 %4, label %5, label %24
+  br i1 %4, label %5, label %26
 
 5:                                                ; preds = %3
   %6 = trunc i64 %1 to i32
   %7 = add i32 %6, 8
   %or.cond.i = icmp ult i32 %7, 137
-  br i1 %or.cond.i, label %8, label %17
+  br i1 %or.cond.i, label %8, label %18
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw [137 x ptr], ptr %9, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %17, label %13
+  %sext = shl i64 %1, 32
+  %10 = ashr exact i64 %sext, 29
+  %11 = getelementptr i8, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %18, label %14
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not18.i = icmp eq ptr %16, null
-  br i1 %.not18.i, label %17, label %_ZN11PhaseValues6intconEi.exit
+  %17 = load ptr, ptr %16, align 8
+  %.not18.i = icmp eq ptr %17, null
+  br i1 %.not18.i, label %18, label %_ZN11PhaseValues6intconEi.exit
 
-17:                                               ; preds = %13, %8, %5
-  %18 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %6) #16
-  %19 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %18)
-  br i1 %or.cond.i, label %20, label %_ZN11PhaseValues6intconEi.exit
+18:                                               ; preds = %14, %8, %5
+  %19 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %6) #16
+  %20 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %19)
+  br i1 %or.cond.i, label %21, label %_ZN11PhaseValues6intconEi.exit
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = zext nneg i32 %7 to i64
-  %23 = getelementptr inbounds nuw [137 x ptr], ptr %21, i64 0, i64 %22
-  store ptr %19, ptr %23, align 8
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %sext8 = shl i64 %1, 32
+  %23 = ashr exact i64 %sext8, 29
+  %24 = getelementptr i8, ptr %22, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 64
+  store ptr %20, ptr %25, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
-24:                                               ; preds = %3
-  %25 = add i64 %1, 8
-  %or.cond.i4 = icmp ult i64 %25, 137
-  br i1 %or.cond.i4, label %26, label %34
+26:                                               ; preds = %3
+  %27 = add i64 %1, 8
+  %or.cond.i4 = icmp ult i64 %27, 137
+  br i1 %or.cond.i4, label %28, label %36
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %28 = getelementptr inbounds nuw [137 x ptr], ptr %27, i64 0, i64 %25
-  %29 = load ptr, ptr %28, align 8
-  %.not.i6 = icmp eq ptr %29, null
-  br i1 %.not.i6, label %34, label %30
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %30 = getelementptr ptr, ptr %29, i64 %1
+  %31 = load ptr, ptr %30, align 8
+  %.not.i6 = icmp eq ptr %31, null
+  br i1 %.not.i6, label %36, label %32
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %.not18.i7 = icmp eq ptr %33, null
-  br i1 %.not18.i7, label %34, label %_ZN11PhaseValues6intconEi.exit
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %34, align 8
+  %.not18.i7 = icmp eq ptr %35, null
+  br i1 %.not18.i7, label %36, label %_ZN11PhaseValues6intconEi.exit
 
-34:                                               ; preds = %30, %26, %24
-  %35 = tail call noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %1) #16
-  %36 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %35)
-  br i1 %or.cond.i4, label %37, label %_ZN11PhaseValues6intconEi.exit
+36:                                               ; preds = %32, %28, %26
+  %37 = tail call noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %1) #16
+  %38 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %37)
+  br i1 %or.cond.i4, label %39, label %_ZN11PhaseValues6intconEi.exit
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %39 = getelementptr inbounds nuw [137 x ptr], ptr %38, i64 0, i64 %25
-  store ptr %36, ptr %39, align 8
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %41 = getelementptr ptr, ptr %40, i64 %1
+  store ptr %38, ptr %41, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
-_ZN11PhaseValues6intconEi.exit:                   ; preds = %37, %34, %30, %20, %17, %13
-  %.0 = phi ptr [ %12, %13 ], [ %19, %20 ], [ %19, %17 ], [ %29, %30 ], [ %36, %37 ], [ %36, %34 ]
+_ZN11PhaseValues6intconEi.exit:                   ; preds = %39, %36, %32, %21, %18, %14
+  %.0 = phi ptr [ %13, %14 ], [ %20, %21 ], [ %20, %18 ], [ %31, %32 ], [ %38, %39 ], [ %38, %36 ]
   ret ptr %.0
 }
 

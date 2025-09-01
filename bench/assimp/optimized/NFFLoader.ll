@@ -2476,7 +2476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -6840,7 +6840,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12emplace_backIJNS1_9PatchTy
   %1429 = load ptr, ptr %27, align 8
   %1430 = call ptr @strncpy(ptr noundef nonnull %1428, ptr noundef %1429, i64 noundef %1426) #33
   %1431 = load i64, ptr %221, align 8
-  %1432 = getelementptr inbounds nuw [128 x i8], ptr %1428, i64 0, i64 %1431
+  %1432 = getelementptr inbounds nuw i8, ptr %1428, i64 %1431
   %1433 = add i32 %.06703961, 1
   %1434 = icmp slt i32 %.06703961, 0
   br i1 %1434, label %1435, label %.lr.ph.i1357.preheader
@@ -14999,7 +14999,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4262 = getelementptr inbounds nuw i8, ptr %4249, i64 4
   %4263 = zext nneg i32 %spec.select.i2410 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4262, ptr nonnull align 4 %4246, i64 %4263, i1 false)
-  %4264 = getelementptr inbounds nuw [1024 x i8], ptr %4262, i64 0, i64 %4263
+  %4264 = getelementptr inbounds nuw i8, ptr %4262, i64 %4263
   store i8 0, ptr %4264, align 1
   br label %4265
 
@@ -15203,7 +15203,7 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE7reserveEm.exit: ; preds = %
   %4378 = getelementptr inbounds nuw i8, ptr %4368, i64 4
   %4379 = sext i32 %spec.store.select.i2412 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4378, ptr nonnull align 1 %4363, i64 %4379, i1 false)
-  %4380 = getelementptr inbounds [1024 x i8], ptr %4378, i64 0, i64 %4379
+  %4380 = getelementptr inbounds i8, ptr %4378, i64 %4379
   store i8 0, ptr %4380, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store float 0.000000e+00, ptr %77, align 4
@@ -15629,7 +15629,7 @@ _ZN10aiMaterial11AddPropertyEPKfjPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   store i32 %4575, ptr %78, align 4
   %4576 = load ptr, ptr %4569, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4322, ptr align 1 %4576, i64 %4571, i1 false)
-  %4577 = getelementptr inbounds nuw [1024 x i8], ptr %4322, i64 0, i64 %4571
+  %4577 = getelementptr inbounds nuw i8, ptr %4322, i64 %4571
   store i8 0, ptr %4577, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -15702,7 +15702,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   store i32 %4602, ptr %78, align 4
   %4603 = load ptr, ptr %4569, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4322, ptr align 1 %4603, i64 %4599, i1 false)
-  %4604 = getelementptr inbounds nuw [1024 x i8], ptr %4322, i64 0, i64 %4599
+  %4604 = getelementptr inbounds nuw i8, ptr %4322, i64 %4599
   store i8 0, ptr %4604, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2425
 

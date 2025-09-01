@@ -5480,7 +5480,7 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.thread.i:    ; preds = %_ZNK4llvm6APSInt11g
   br i1 %592, label %593, label %607
 
 593:                                              ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.thread.i
-  %594 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %587
+  %594 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %587
   %595 = load i16, ptr %594, align 2, !tbaa !162
   %596 = and i16 %595, 1004
   %.not84.i = icmp eq i16 %596, 0

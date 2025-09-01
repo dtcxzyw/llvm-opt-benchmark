@@ -39,7 +39,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %17 = lshr i8 %16, 6
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr inbounds nuw [4 x i8], ptr @pcm_bluray_parse_header.bits_per_samples, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @pcm_bluray_parse_header.bits_per_samples, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !16
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -95,7 +95,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 352
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %40) #4
   %41 = zext nneg i8 %14 to i64
-  %42 = getelementptr inbounds nuw [16 x %struct.AVChannelLayout], ptr @pcm_bluray_parse_header.channel_layouts, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr @pcm_bluray_parse_header.channel_layouts, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %44 = load i32, ptr %43, align 4, !tbaa !37

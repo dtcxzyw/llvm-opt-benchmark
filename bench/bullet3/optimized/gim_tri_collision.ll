@@ -530,7 +530,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
 
 337:                                              ; preds = %334
   %338 = zext i32 %313 to i64
-  %339 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw i32, ptr %12, i64 %338
   %340 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %340, ptr %339, align 4, !tbaa !24
   %341 = add i32 %313, 1
@@ -551,11 +551,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN30GIM_TRIANGLE_CALCULATION_
 
 345:                                              ; preds = %345, %.lr.ph22.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.lr.ph22.i.i ], [ %indvars.iv.next26.i.i, %345 ]
-  %346 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv25.i.i
+  %346 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv25.i.i
   %347 = load i32, ptr %346, align 4, !tbaa !24
   %348 = zext i32 %347 to i64
   %349 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %348
-  %350 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %310, i64 0, i64 %indvars.iv25.i.i
+  %350 = getelementptr inbounds nuw %class.btVector3, ptr %310, i64 %indvars.iv25.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %350, ptr noundef nonnull align 4 dereferenceable(16) %349, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond29.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, %wide.trip.count28.i.i
@@ -629,7 +629,7 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
 
 384:                                              ; preds = %381
   %385 = zext i32 %360 to i64
-  %386 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw i32, ptr %11, i64 %385
   %387 = trunc nuw i64 %indvars.iv.i.i133 to i32
   store i32 %387, ptr %386, align 4, !tbaa !24
   %388 = add i32 %360, 1
@@ -650,11 +650,11 @@ _ZN25GIM_TRIANGLE_CONTACT_DATA12merge_pointsERK9btVector4fPK9btVector3j.exit: ; 
 
 392:                                              ; preds = %392, %.lr.ph22.i.i141
   %indvars.iv25.i.i143 = phi i64 [ 0, %.lr.ph22.i.i141 ], [ %indvars.iv.next26.i.i144, %392 ]
-  %393 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %indvars.iv25.i.i143
+  %393 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv25.i.i143
   %394 = load i32, ptr %393, align 4, !tbaa !24
   %395 = zext i32 %394 to i64
   %396 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %395
-  %397 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %357, i64 0, i64 %indvars.iv25.i.i143
+  %397 = getelementptr inbounds nuw %class.btVector3, ptr %357, i64 %indvars.iv25.i.i143
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %397, ptr noundef nonnull align 4 dereferenceable(16) %396, i64 16, i1 false), !tbaa.struct !13
   %indvars.iv.next26.i.i144 = add nuw nsw i64 %indvars.iv25.i.i143, 1
   %exitcond29.not.i.i145 = icmp eq i64 %indvars.iv.next26.i.i144, %wide.trip.count28.i.i142

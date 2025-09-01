@@ -617,7 +617,7 @@ read_byte.exit:                                   ; preds = %12
 
 read_byte.exit16:                                 ; preds = %34, %38
   %43 = trunc i32 %36 to i8
-  %44 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   store i8 %43, ptr %44, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %28, align 4, !tbaa !46
@@ -660,7 +660,7 @@ define internal void @read_non_rle_pixel(ptr noundef captures(none) %0) #0 {
 
 read_byte.exit:                                   ; preds = %8, %12
   %17 = trunc i32 %10 to i8
-  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %17, ptr %18, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %2, align 4, !tbaa !46
@@ -765,21 +765,21 @@ define internal noundef i32 @get_16bit_row(ptr noundef readonly captures(none) %
   %18 = or disjoint i32 %17, %14
   %19 = and i32 %14, 31
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [32 x i8], ptr @c5to8bits, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @c5to8bits, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %.01820, i64 2
   store i8 %22, ptr %23, align 1, !tbaa !30
   %24 = lshr i32 %18, 5
   %25 = and i32 %24, 31
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [32 x i8], ptr @c5to8bits, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @c5to8bits, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %.01820, i64 1
   store i8 %28, ptr %29, align 1, !tbaa !30
   %30 = lshr i32 %16, 2
   %31 = and i32 %30, 31
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [32 x i8], ptr @c5to8bits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @c5to8bits, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !30
   store i8 %34, ptr %.01820, align 1, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %.01820, i64 3

@@ -613,7 +613,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 40:                                               ; preds = %.thread105
   %41 = lshr i32 %.0.i, 8
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %42
+  %43 = getelementptr %struct.unim_index, ptr @jisxcommon_encmap, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !52
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %59, label %45
@@ -784,7 +784,7 @@ define internal range(i64 -4, 2) i64 @shift_jis_decode(ptr readnone captures(non
 49:                                               ; preds = %31
   %50 = add i8 %39, 33
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0208_decmap, i64 0, i64 %51
+  %52 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %51
   %53 = load ptr, ptr %52, align 16, !tbaa !58
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %.thread, label %54
@@ -921,7 +921,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 51:                                               ; preds = %49
   %52 = lshr i32 %.0.i, 8
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [256 x %struct.unim_index], ptr @cp932ext_encmap, i64 0, i64 %53
+  %54 = getelementptr %struct.unim_index, ptr @cp932ext_encmap, i64 %53
   %55 = load ptr, ptr %54, align 16, !tbaa !52
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %75, label %56
@@ -958,7 +958,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br label %121
 
 75:                                               ; preds = %65, %61, %56, %51
-  %76 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %53
+  %76 = getelementptr %struct.unim_index, ptr @jisxcommon_encmap, i64 %53
   %77 = load ptr, ptr %76, align 16, !tbaa !52
   %.not102 = icmp eq ptr %77, null
   br i1 %.not102, label %111, label %78
@@ -1119,7 +1119,7 @@ define internal range(i64 -4, 2) i64 @cp932_decode(ptr readnone captures(none) %
   %34 = getelementptr i8, ptr %7, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %36 = zext i8 %8 to i64
-  %37 = getelementptr [256 x %struct.dbcs_index], ptr @cp932ext_decmap, i64 0, i64 %36
+  %37 = getelementptr %struct.dbcs_index, ptr @cp932ext_decmap, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !58
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %55, label %39
@@ -1183,7 +1183,7 @@ define internal range(i64 -4, 2) i64 @cp932_decode(ptr readnone captures(none) %
   %69 = add i8 %66, 33
   %70 = add i8 %69, %68
   %71 = zext i8 %70 to i64
-  %72 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0208_decmap, i64 0, i64 %71
+  %72 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %71
   %73 = load ptr, ptr %72, align 16, !tbaa !58
   %.not117 = icmp eq ptr %73, null
   br i1 %.not117, label %.thread, label %74
@@ -1310,7 +1310,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 32:                                               ; preds = %30
   %33 = lshr i32 %.0.i, 8
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %34
+  %35 = getelementptr %struct.unim_index, ptr @jisxcommon_encmap, i64 %34
   %36 = load ptr, ptr %35, align 16, !tbaa !52
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %51, label %37
@@ -1497,7 +1497,7 @@ define internal range(i64 -4, 2) i64 @euc_jp_decode(ptr readnone captures(none) 
   %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = xor i8 %30, -128
   %32 = zext i8 %31 to i64
-  %33 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0212_decmap, i64 0, i64 %32
+  %33 = getelementptr %struct.dbcs_index, ptr @jisx0212_decmap, i64 %32
   %34 = load ptr, ptr %33, align 16, !tbaa !58
   %.not84 = icmp eq ptr %34, null
   br i1 %.not84, label %.thread102, label %35
@@ -1552,7 +1552,7 @@ define internal range(i64 -4, 2) i64 @euc_jp_decode(ptr readnone captures(none) 
 64:                                               ; preds = %56
   %65 = and i32 %9, 127
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0208_decmap, i64 0, i64 %66
+  %67 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %66
   %68 = load ptr, ptr %67, align 16, !tbaa !58
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %.thread102, label %69
@@ -1733,7 +1733,7 @@ switch.early.test:                                ; preds = %PyUnicode_READ.exit
 .thread199:                                       ; preds = %49, %53
   %55 = lshr i32 %.0.i.fr, 8
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr [256 x %struct.unim_index], ptr @jisx0213_bmp_encmap, i64 0, i64 %56
+  %57 = getelementptr %struct.unim_index, ptr @jisx0213_bmp_encmap, i64 %56
   %58 = load ptr, ptr %57, align 16, !tbaa !52
   %.not175 = icmp eq ptr %58, null
   br i1 %.not175, label %100, label %59
@@ -1815,7 +1815,7 @@ PyUnicode_READ.exit191:                           ; preds = %83, %87, %91
   br i1 %.not236, label %.thread230, label %.thread201
 
 100:                                              ; preds = %68, %64, %59, %.thread199
-  %101 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %56
+  %101 = getelementptr %struct.unim_index, ptr @jisxcommon_encmap, i64 %56
   %102 = load ptr, ptr %101, align 16, !tbaa !52
   %.not179 = icmp eq ptr %102, null
   br i1 %.not179, label %.thread230, label %103
@@ -1866,7 +1866,7 @@ PyUnicode_READ.exit191:                           ; preds = %83, %87, %91
   %128 = lshr i32 %.0.i.fr, 8
   %129 = and i32 %128, 255
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr [256 x %struct.unim_index], ptr @jisx0213_emp_encmap, i64 0, i64 %130
+  %131 = getelementptr %struct.unim_index, ptr @jisx0213_emp_encmap, i64 %130
   %132 = load ptr, ptr %131, align 16, !tbaa !52
   %.not = icmp eq ptr %132, null
   br i1 %.not, label %.thread230, label %133
@@ -2138,7 +2138,7 @@ define internal range(i64 -4, 3) i64 @shift_jis_2004_decode(ptr readnone capture
 
 85:                                               ; preds = %82, %67
   %86 = zext nneg i8 %narrow to i64
-  %87 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0208_decmap, i64 0, i64 %86
+  %87 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %86
   %88 = load ptr, ptr %87, align 16, !tbaa !58
   %.not261 = icmp eq ptr %88, null
   br i1 %.not261, label %105, label %89
@@ -2171,7 +2171,7 @@ define internal range(i64 -4, 3) i64 @shift_jis_2004_decode(ptr readnone capture
   br i1 %104, label %.thread287, label %251, !llvm.loop !68
 
 105:                                              ; preds = %97, %94, %89, %85
-  %106 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_1_bmp_decmap, i64 0, i64 %86
+  %106 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_bmp_decmap, i64 %86
   %107 = load ptr, ptr %106, align 16, !tbaa !58
   %.not265 = icmp eq ptr %107, null
   br i1 %.not265, label %124, label %108
@@ -2204,7 +2204,7 @@ define internal range(i64 -4, 3) i64 @shift_jis_2004_decode(ptr readnone capture
   br i1 %123, label %.thread287, label %251, !llvm.loop !68
 
 124:                                              ; preds = %116, %113, %108, %105
-  %125 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_1_emp_decmap, i64 0, i64 %86
+  %125 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_emp_decmap, i64 %86
   %126 = load ptr, ptr %125, align 16, !tbaa !58
   %.not269 = icmp eq ptr %126, null
   br i1 %.not269, label %144, label %127
@@ -2238,7 +2238,7 @@ define internal range(i64 -4, 3) i64 @shift_jis_2004_decode(ptr readnone capture
   br i1 %143, label %.thread287, label %251, !llvm.loop !68
 
 144:                                              ; preds = %135, %132, %127, %124
-  %145 = getelementptr [256 x %struct.widedbcs_index], ptr @jisx0213_pair_decmap, i64 0, i64 %86
+  %145 = getelementptr %struct.widedbcs_index, ptr @jisx0213_pair_decmap, i64 %86
   %146 = load ptr, ptr %145, align 16, !tbaa !69
   %.not273 = icmp eq ptr %146, null
   br i1 %.not273, label %.thread287, label %147
@@ -2374,7 +2374,7 @@ PyUnicode_WRITE.exit:                             ; preds = %175, %178, %181
 
 211:                                              ; preds = %198
   %212 = zext i8 %202 to i64
-  %213 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_2_bmp_decmap, i64 0, i64 %212
+  %213 = getelementptr %struct.dbcs_index, ptr @jisx0213_2_bmp_decmap, i64 %212
   %214 = load ptr, ptr %213, align 16, !tbaa !58
   %.not = icmp eq ptr %214, null
   br i1 %.not, label %231, label %215
@@ -2407,7 +2407,7 @@ PyUnicode_WRITE.exit:                             ; preds = %175, %178, %181
   br i1 %230, label %.thread287, label %251, !llvm.loop !68
 
 231:                                              ; preds = %222, %219, %215, %211
-  %232 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_2_emp_decmap, i64 0, i64 %212
+  %232 = getelementptr %struct.dbcs_index, ptr @jisx0213_2_emp_decmap, i64 %212
   %233 = load ptr, ptr %232, align 16, !tbaa !58
   %.not257 = icmp eq ptr %233, null
   br i1 %.not257, label %.thread287, label %234
@@ -2538,7 +2538,7 @@ PyUnicode_READ.exit:                              ; preds = %16, %20, %24
 .thread:                                          ; preds = %35, %39
   %41 = lshr i32 %.0.i, 8
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [256 x %struct.unim_index], ptr @jisx0213_bmp_encmap, i64 0, i64 %42
+  %43 = getelementptr %struct.unim_index, ptr @jisx0213_bmp_encmap, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !52
   %.not153 = icmp eq ptr %44, null
   br i1 %.not153, label %104, label %45
@@ -2662,7 +2662,7 @@ find_pairencmap.exit.thread:                      ; preds = %95, %find_pairencma
   br i1 %.not197, label %.thread191, label %.thread169
 
 104:                                              ; preds = %54, %50, %45, %.thread
-  %105 = getelementptr [256 x %struct.unim_index], ptr @jisxcommon_encmap, i64 0, i64 %42
+  %105 = getelementptr %struct.unim_index, ptr @jisxcommon_encmap, i64 %42
   %106 = load ptr, ptr %105, align 16, !tbaa !52
   %.not157 = icmp eq ptr %106, null
   br i1 %.not157, label %121, label %107
@@ -2735,7 +2735,7 @@ find_pairencmap.exit.thread:                      ; preds = %95, %find_pairencma
   %140 = lshr i32 %.0.i, 8
   %141 = and i32 %140, 255
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr [256 x %struct.unim_index], ptr @jisx0213_emp_encmap, i64 0, i64 %142
+  %143 = getelementptr %struct.unim_index, ptr @jisx0213_emp_encmap, i64 %142
   %144 = load ptr, ptr %143, align 16, !tbaa !52
   %.not = icmp eq ptr %144, null
   br i1 %.not, label %.thread191, label %145
@@ -2907,7 +2907,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
 49:                                               ; preds = %35
   %50 = xor i8 %37, -128
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_2_bmp_decmap, i64 0, i64 %51
+  %52 = getelementptr %struct.dbcs_index, ptr @jisx0213_2_bmp_decmap, i64 %51
   %53 = load ptr, ptr %52, align 16, !tbaa !58
   %.not265 = icmp eq ptr %53, null
   br i1 %.not265, label %70, label %54
@@ -2940,7 +2940,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br i1 %69, label %.thread302, label %.thread287
 
 70:                                               ; preds = %61, %58, %54, %49
-  %71 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_2_emp_decmap, i64 0, i64 %51
+  %71 = getelementptr %struct.dbcs_index, ptr @jisx0213_2_emp_decmap, i64 %51
   %72 = load ptr, ptr %71, align 16, !tbaa !58
   %.not269 = icmp eq ptr %72, null
   br i1 %.not269, label %90, label %73
@@ -2974,7 +2974,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br i1 %89, label %.thread302, label %.thread287, !llvm.loop !85
 
 90:                                               ; preds = %80, %77, %73, %70
-  %91 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0212_decmap, i64 0, i64 %51
+  %91 = getelementptr %struct.dbcs_index, ptr @jisx0212_decmap, i64 %51
   %92 = load ptr, ptr %91, align 16, !tbaa !58
   %.not273 = icmp eq ptr %92, null
   br i1 %.not273, label %.thread302, label %93
@@ -3079,7 +3079,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
 
 151:                                              ; preds = %145
   %152 = zext nneg i8 %112 to i64
-  %153 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0208_decmap, i64 0, i64 %152
+  %153 = getelementptr %struct.dbcs_index, ptr @jisx0208_decmap, i64 %152
   %154 = load ptr, ptr %153, align 16, !tbaa !58
   %.not = icmp eq ptr %154, null
   br i1 %.not, label %171, label %155
@@ -3112,7 +3112,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br i1 %170, label %.thread302, label %.thread287
 
 171:                                              ; preds = %162, %159, %155, %151
-  %172 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_1_bmp_decmap, i64 0, i64 %152
+  %172 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_bmp_decmap, i64 %152
   %173 = load ptr, ptr %172, align 16, !tbaa !58
   %.not252 = icmp eq ptr %173, null
   br i1 %.not252, label %190, label %174
@@ -3145,7 +3145,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br i1 %189, label %.thread302, label %.thread287
 
 190:                                              ; preds = %181, %178, %174, %171
-  %191 = getelementptr [256 x %struct.dbcs_index], ptr @jisx0213_1_emp_decmap, i64 0, i64 %152
+  %191 = getelementptr %struct.dbcs_index, ptr @jisx0213_1_emp_decmap, i64 %152
   %192 = load ptr, ptr %191, align 16, !tbaa !58
   %.not256 = icmp eq ptr %192, null
   br i1 %.not256, label %210, label %193
@@ -3179,7 +3179,7 @@ define internal range(i64 -4, 3) i64 @euc_jis_2004_decode(ptr readnone captures(
   br i1 %209, label %.thread302, label %.thread287, !llvm.loop !85
 
 210:                                              ; preds = %200, %197, %193, %190
-  %211 = getelementptr [256 x %struct.widedbcs_index], ptr @jisx0213_pair_decmap, i64 0, i64 %152
+  %211 = getelementptr %struct.widedbcs_index, ptr @jisx0213_pair_decmap, i64 %152
   %212 = load ptr, ptr %211, align 16, !tbaa !69
   %.not260 = icmp eq ptr %212, null
   br i1 %.not260, label %.thread302, label %213

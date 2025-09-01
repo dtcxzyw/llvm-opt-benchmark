@@ -108,7 +108,7 @@ define internal fastcc void @do_unexpected_cp(ptr noundef readonly captures(none
   %11 = and i64 %1, 32766
   %12 = icmp samesign ugt i64 %11, 5
   %13 = select i1 %12, i64 0, i64 %10
-  %14 = getelementptr [6 x [10 x i8]], ptr @cp_err, i64 0, i64 %13
+  %14 = getelementptr [10 x i8], ptr @cp_err, i64 %13
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %9, ptr noundef %14) #6
   tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #6, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 41, i32 2313, i64 12) #6, !srcloc !11
@@ -141,7 +141,7 @@ define internal fastcc void @do_kernel_cp_fault(ptr noundef %0, i64 noundef %1) 
   %13 = and i64 %1, 32766
   %14 = icmp samesign ugt i64 %13, 5
   %15 = select i1 %14, i64 0, i64 %3
-  %16 = getelementptr [6 x [10 x i8]], ptr @cp_err, i64 0, i64 %15
+  %16 = getelementptr [10 x i8], ptr @cp_err, i64 %15
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef %16) #6
   tail call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #6, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 41, i32 2313, i64 12) #6, !srcloc !11

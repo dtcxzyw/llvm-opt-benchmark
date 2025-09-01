@@ -4748,9 +4748,9 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
 
 89:                                               ; preds = %89, %87
   %indvars.iv.i.i.us.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i.i.us.i, %89 ]
-  %90 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 0, i64 %indvars.iv.i.i.us.i
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i.us.i
   %91 = load i8, ptr %90, align 1
-  %92 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 0, i64 %indvars.iv.i.i.us.i
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i.i.us.i
   %93 = load i8, ptr %92, align 1
   %.not.i.i.us.i = icmp eq i8 %91, %93
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
@@ -4995,7 +4995,7 @@ check_hba.exit:                                   ; preds = %185, %.critedge.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @hba_authname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [15 x ptr], ptr @UserAuthName, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @UserAuthName, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

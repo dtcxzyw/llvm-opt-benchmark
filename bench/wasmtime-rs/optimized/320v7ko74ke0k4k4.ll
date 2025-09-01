@@ -185,7 +185,7 @@ define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file1
 switch.lookup:                                    ; preds = %15
   %19 = lshr exact i32 %17, 12
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN14cap_primitives6rustix2fs13file_type_ext15ImplFileTypeExt8from_std17h186ea5f7624c877aE.exit
 
@@ -9034,7 +9034,7 @@ switch.lookup:                                    ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load i8, ptr %18, align 8, !range !1486, !noundef !5
   %20 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143", i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143", i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 272
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1487

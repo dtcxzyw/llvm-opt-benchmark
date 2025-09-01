@@ -7856,7 +7856,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %3 = load i32, ptr %0, align 8
   %4 = icmp ne i32 %3, 0
   %or.cond.not = select i1 %2, i1 %4, i1 false
-  br i1 %or.cond.not, label %5, label %27
+  br i1 %or.cond.not, label %5, label %28
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7866,25 +7866,25 @@ define dso_local noundef zeroext i1 @_ZNK3ozz8geometry11SkinningJob3RunEv(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 5)
-  %narrow = add nsw i32 %12, -1
-  %13 = sext i32 %narrow to i64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %15 = load i64, ptr %14, align 8, !tbaa !22
-  %16 = icmp ne i64 %15, 0
-  %17 = zext i1 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %19 = load i64, ptr %18, align 8, !tbaa !22
-  %20 = icmp ne i64 %19, 0
-  %21 = zext i1 %20 to i64
-  %22 = add nuw nsw i64 %21, %17
-  %23 = getelementptr inbounds nuw [2 x [5 x [3 x ptr]]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 0, i64 %9
-  %24 = getelementptr inbounds nuw [5 x [3 x ptr]], ptr %23, i64 0, i64 %13
-  %25 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %22
-  %26 = load ptr, ptr %25, align 8, !tbaa !578
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(232) %0)
-  br label %27
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %14 = load i64, ptr %13, align 8, !tbaa !22
+  %15 = icmp ne i64 %14, 0
+  %16 = zext i1 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %18 = load i64, ptr %17, align 8, !tbaa !22
+  %19 = icmp ne i64 %18, 0
+  %20 = zext i1 %19 to i64
+  %21 = getelementptr inbounds nuw [5 x [3 x ptr]], ptr @_ZN3ozz8geometryL12kSkinningFctE, i64 %9
+  %22 = zext nneg i32 %12 to i64
+  %23 = getelementptr [3 x ptr], ptr %21, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -24
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %16
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %20
+  %27 = load ptr, ptr %26, align 8, !tbaa !578
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(232) %0)
+  br label %28
 
-27:                                               ; preds = %1, %5
+28:                                               ; preds = %1, %5
   ret i1 %2
 }
 

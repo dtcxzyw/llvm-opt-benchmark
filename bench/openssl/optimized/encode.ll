@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds [80 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = zext nneg i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %3, i64 %20, i1 false)
   %21 = load i32, ptr %0, align 4, !tbaa !3
@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @EVP_EncodeUpdate(ptr noundef captures(none) %0, ptr 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = sext i32 %13 to i64
-  %27 = getelementptr inbounds [80 x i8], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %28 = sext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %3, i64 %28, i1 false)
   %29 = getelementptr inbounds i8, ptr %3, i64 %28

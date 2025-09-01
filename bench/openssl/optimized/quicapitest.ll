@@ -1254,7 +1254,7 @@ define internal range(i32 0, 2) i32 @test_ciphersuites() #1 {
   %.b = phi i1 [ %.b.pre33, %18 ], [ %.b34, %32 ]
   %.032 = phi i64 [ 0, %18 ], [ %.1, %32 ]
   %.02031 = phi i64 [ 0, %18 ], [ %33, %32 ]
-  %21 = getelementptr inbounds nuw [3 x i32], ptr @__const.test_ciphersuites.cipherids, i64 0, i64 %.02031
+  %21 = getelementptr inbounds nuw i32, ptr @__const.test_ciphersuites.cipherids, i64 %.02031
   %22 = icmp eq i64 %.02031, 1
   %or.cond = select i1 %22, i1 %.b, i1 false
   br i1 %or.cond, label %32, label %23
@@ -1319,7 +1319,7 @@ define internal range(i32 0, 2) i32 @test_cipher_find() #1 {
 
 .preheader:                                       ; preds = %5, %17
   %.01218 = phi i64 [ %18, %17 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw [7 x %struct.anon], ptr @__const.test_cipher_find.testciphers, i64 0, i64 %.01218
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @__const.test_cipher_find.testciphers, i64 %.01218
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !26
   %.not15 = icmp eq i32 %10, 0
@@ -1628,13 +1628,13 @@ strip_line_ends.exit34.i:                         ; preds = %.critedge2.i31.i, %
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %88
   %.037.i = phi i64 [ %89, %88 ], [ 0, %.preheader.i ]
-  %83 = getelementptr inbounds nuw [512 x i8], ptr %1, i64 0, i64 %.037.i
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 %.037.i
   %84 = load i8, ptr %83, align 1, !tbaa !31
   %85 = icmp eq i8 %84, 63
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %.lr.ph.i
-  %87 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.037.i
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 %.037.i
   store i8 63, ptr %87, align 1, !tbaa !31
   br label %88
 
@@ -3625,7 +3625,7 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   store ptr null, ptr %4, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [75 x %struct.tparam_test], ptr @tparam_tests, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.tparam_test, ptr @tparam_tests, i64 %7
   store ptr %8, ptr %5, align 8, !tbaa !51
   %9 = load ptr, ptr @libctx, align 8, !tbaa !4
   %10 = tail call ptr @OSSL_QUIC_client_method() #10

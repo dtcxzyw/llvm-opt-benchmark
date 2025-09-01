@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct._GdkRGBA = type { double, double, double, double }
 
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
 @.str = private unnamed_addr constant [2 x i8] c"/\00", align 1
@@ -2233,7 +2232,7 @@ _has_prefix.exit655:                              ; preds = %35
   %406 = tail call fastcc ptr @_variables_get_longitude(ptr noundef nonnull %0)
   %407 = add nuw nsw i32 %.0402, 1
   %408 = zext nneg i32 %.0402 to i64
-  %409 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw ptr, ptr %5, i64 %408
   store ptr %406, ptr %409, align 8, !tbaa !6
   %.pre670 = load ptr, ptr %14, align 8, !tbaa !11
   br label %410
@@ -2250,7 +2249,7 @@ _has_prefix.exit655:                              ; preds = %35
   %415 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.98, double noundef %413) #16
   %416 = add nuw nsw i32 %.1, 1
   %417 = zext nneg i32 %.1 to i64
-  %418 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw ptr, ptr %5, i64 %417
   store ptr %415, ptr %418, align 8, !tbaa !6
   %419 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.112, ptr noundef nonnull %5) #16
   store ptr %419, ptr %3, align 8, !tbaa !6
@@ -2273,7 +2272,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %422 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %422 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %423 = load ptr, ptr %422, align 8, !tbaa !6
   call void @g_free(ptr noundef %423) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2985,8 +2984,8 @@ _has_prefix.exit655:                              ; preds = %35
   %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !147
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 944
   %sext = shl i64 %758, 32
-  %761 = ashr exact i64 %sext, 32
-  %762 = getelementptr inbounds [5 x %struct._GdkRGBA], ptr %760, i64 0, i64 %761
+  %761 = ashr exact i64 %sext, 27
+  %762 = getelementptr inbounds i8, ptr %760, i64 %761
   %.sroa.0.0.copyload = load double, ptr %762, align 8, !tbaa !148
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %762, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !148

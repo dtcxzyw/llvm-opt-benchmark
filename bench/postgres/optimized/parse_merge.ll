@@ -127,13 +127,13 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
 
 switch.lookup:                                    ; preds = %34
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.transformMergeStmt, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.transformMergeStmt, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
   %57 = or i64 %.0141190196, %switch.load
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   %62 = load i8, ptr %61, align 1, !range !4, !noundef !5
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %.split194, label %67

@@ -47,7 +47,7 @@ define void @_ZN13duckdb_brotli33BrotliEstimateBitCostsForLiteralsEmmmPKhPmPf(i6
 
 _ZL12UTF8Positionmmm.exit.i.i:                    ; preds = %19, %17, %.lr.ph.i.i
   %.0.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i, %19 ], [ 1, %17 ]
-  %21 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !tbaa !6
@@ -93,7 +93,7 @@ _ZL12UTF8Positionmmm.exit.i.i:                    ; preds = %19, %17, %.lr.ph.i.
   %41 = load i64, ptr %40, align 8, !tbaa !6
   %42 = add i64 %41, 1
   store i64 %42, ptr %40, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0111133.i
+  %43 = getelementptr inbounds nuw i64, ptr %8, i64 %.0111133.i
   %44 = load i64, ptr %43, align 8, !tbaa !6
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !6
@@ -164,7 +164,7 @@ _ZL12UTF8Positionmmm.exit123.i:                   ; preds = %71, %69, %54
   %80 = load i64, ptr %79, align 8, !tbaa !6
   %81 = add i64 %80, -1
   store i64 %81, ptr %79, align 8, !tbaa !6
-  %82 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i122.i
+  %82 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i122.i
   %83 = load i64, ptr %82, align 8, !tbaa !6
   %84 = add i64 %83, -1
   store i64 %84, ptr %82, align 8, !tbaa !6
@@ -210,7 +210,7 @@ _ZL12UTF8Positionmmm.exit126.i:                   ; preds = %102, %100, %88
   %110 = load i64, ptr %109, align 8, !tbaa !6
   %111 = add i64 %110, 1
   store i64 %111, ptr %109, align 8, !tbaa !6
-  %112 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i125.i
+  %112 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i125.i
   %113 = load i64, ptr %112, align 8, !tbaa !6
   %114 = add i64 %113, 1
   store i64 %114, ptr %112, align 8, !tbaa !6
@@ -259,13 +259,13 @@ _ZL12UTF8Positionmmm.exit129.i:                   ; preds = %132, %130, %115
   %140 = getelementptr inbounds nuw i64, ptr %139, i64 %138
   %141 = load i64, ptr %140, align 8, !tbaa !6
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
-  %142 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %.0.i128.i
+  %142 = getelementptr inbounds nuw i64, ptr %8, i64 %.0.i128.i
   %143 = load i64, ptr %142, align 8, !tbaa !6
   %144 = icmp ult i64 %143, 256
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %_ZL12UTF8Positionmmm.exit129.i
-  %146 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %143
+  %146 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %143
   %147 = load double, ptr %146, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
@@ -280,7 +280,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %148, %145
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit.i
-  %153 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %spec.store.select.i
+  %153 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %spec.store.select.i
   %154 = load double, ptr %153, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit119.i
 
@@ -398,7 +398,7 @@ _ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit: ; preds = %170, %.preheader
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %212
-  %222 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %.2
+  %222 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %.2
   %223 = load double, ptr %222, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
@@ -413,7 +413,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %221, %224
   br i1 %227, label %228, label %231
 
 228:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit
-  %229 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %spec.store.select
+  %229 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %spec.store.select
   %230 = load double, ptr %229, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 

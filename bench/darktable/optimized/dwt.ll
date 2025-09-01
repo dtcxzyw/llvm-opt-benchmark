@@ -307,10 +307,10 @@ dwt_get_max_scale.exit:                           ; preds = %39, %44, %.preheade
   %79 = and i32 %.097.i, 1
   %80 = xor i32 %79, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %6, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !22
   %84 = zext nneg i32 %.07296.i to i64
-  %85 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr %6, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !22
   %87 = load ptr, ptr %3, align 8, !tbaa !22
   %.val.i = load i32, ptr %24, align 4, !tbaa !15
@@ -838,7 +838,7 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   br i1 %.not.i, label %378, label %374
 
 374:                                              ; preds = %._crit_edge.thread.i
-  %375 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
+  %375 = getelementptr inbounds nuw ptr, ptr %6, i64 %.072.lcssa136.i
   %376 = load ptr, ptr %375, align 8, !tbaa !22
   %377 = add nsw i32 %373, 1
   call void %1(ptr noundef %376, ptr noundef nonnull %0, i32 noundef %377) #15
@@ -853,7 +853,7 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   br i1 %382, label %383, label %397
 
 383:                                              ; preds = %378
-  %384 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
+  %384 = getelementptr inbounds nuw ptr, ptr %6, i64 %.072.lcssa136.i
   %385 = load ptr, ptr %384, align 8, !tbaa !22
   %386 = load ptr, ptr %0, align 8, !tbaa !6
   %.not.i85.i = icmp eq ptr %386, %385
@@ -900,7 +900,7 @@ dwt_get_image_layer.exit.i:                       ; preds = %356, %336, %334
   %411 = phi i32 [ %.pre110.i, %402 ], [ %.pre111.i, %399 ]
   %412 = phi i32 [ %.pre108.i, %402 ], [ %.pre109.i, %399 ]
   %413 = load ptr, ptr %4, align 8, !tbaa !22
-  %414 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %.072.lcssa136.i
+  %414 = getelementptr inbounds nuw ptr, ptr %6, i64 %.072.lcssa136.i
   %415 = load ptr, ptr %414, align 8, !tbaa !22
   %416 = sext i32 %412 to i64
   %417 = sext i32 %411 to i64

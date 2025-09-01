@@ -242,7 +242,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br label %.lr.ph.us.i
 
 .lr.ph77.us.loopexit.i:                           ; preds = %.lr.ph.us.i
-  %91 = getelementptr inbounds nuw [0 x %struct.SortSupportData], ptr %88, i64 0, i64 %indvars.iv108.i
+  %91 = getelementptr inbounds nuw %struct.SortSupportData, ptr %88, i64 %indvars.iv108.i
   %.pre.i95 = load ptr, ptr %90, align 8
   call void @qsort_interruptible(ptr noundef %.pre.i95, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %91) #13
   %92 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv108.i
@@ -384,7 +384,7 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %121, %sort_item_com
   %167 = load ptr, ptr %159, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store i32 %166, ptr %168, align 8
-  %169 = getelementptr inbounds nuw [0 x %struct.SortSupportData], ptr %88, i64 0, i64 %indvars.iv95.i
+  %169 = getelementptr inbounds nuw %struct.SortSupportData, ptr %88, i64 %indvars.iv95.i
   %170 = getelementptr inbounds nuw i8, ptr %.06880.us84.i, i64 %44
   %171 = load ptr, ptr %159, align 8
   call void @qsort_interruptible(ptr noundef %171, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %169) #13
@@ -399,7 +399,7 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %121, %sort_item_com
 .lr.ph82.split.split.i:                           ; preds = %.lr.ph82.split.i, %.lr.ph82.split.split.i
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.lr.ph82.split.split.i ], [ 0, %.lr.ph82.split.i ]
   %.06880.i = phi ptr [ %178, %.lr.ph82.split.split.i ], [ %86, %.lr.ph82.split.i ]
-  %176 = getelementptr inbounds nuw [0 x %struct.SortSupportData], ptr %88, i64 0, i64 %indvars.iv.i93
+  %176 = getelementptr inbounds nuw %struct.SortSupportData, ptr %88, i64 %indvars.iv.i93
   %177 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i93
   store ptr %.06880.i, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.06880.i, i64 %44
@@ -461,7 +461,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %208 = load i32, ptr %207, align 4
-  %209 = getelementptr inbounds nuw [8 x i32], ptr %195, i64 0, i64 %indvars.iv115
+  %209 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv115
   store i32 %208, ptr %209, align 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -469,7 +469,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 
 210:                                              ; preds = %.lr.ph108, %._crit_edge
   %indvars.iv125 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next126, %._crit_edge ]
-  %211 = getelementptr inbounds nuw [0 x %struct.MCVItem], ptr %198, i64 0, i64 %indvars.iv125
+  %211 = getelementptr inbounds nuw %struct.MCVItem, ptr %198, i64 %indvars.iv125
   %212 = call ptr @palloc(i64 noundef %199) #13
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 24
   store ptr %212, ptr %213, align 8
@@ -496,7 +496,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 .lr.ph106:                                        ; preds = %210, %.lr.ph106
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph106 ], [ 0, %210 ]
   store i32 1, ptr %74, align 8
-  %227 = getelementptr inbounds nuw [0 x %struct.SortSupportData], ptr %201, i64 0, i64 %indvars.iv120
+  %227 = getelementptr inbounds nuw %struct.SortSupportData, ptr %201, i64 %indvars.iv120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %200, ptr noundef nonnull align 8 dereferenceable(64) %227, i64 64, i1 false)
   %228 = load ptr, ptr %217, align 8
   %229 = getelementptr inbounds nuw i64, ptr %228, i64 %indvars.iv120
@@ -1037,7 +1037,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %.0268381.us = phi ptr [ %227, %.lr.ph376.us.preheader ], [ %255, %._crit_edge377.us ]
   %.0269380.us = phi ptr [ %226, %.lr.ph376.us.preheader ], [ %254, %._crit_edge377.us ]
   %.6379.us = phi ptr [ %.2278, %.lr.ph376.us.preheader ], [ %240, %._crit_edge377.us ]
-  %230 = getelementptr inbounds nuw [0 x %struct.MCVItem], ptr %229, i64 0, i64 %indvars.iv434
+  %230 = getelementptr inbounds nuw %struct.MCVItem, ptr %229, i64 %indvars.iv434
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   store ptr %.0269380.us, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
@@ -1378,7 +1378,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %49 = phi i32 [ %46, %.lr.ph ], [ %69, %68 ]
   %.0332 = phi i32 [ 0, %.lr.ph ], [ %70, %68 ]
   %50 = sext i32 %.0332 to i64
-  %51 = getelementptr inbounds [0 x %struct.MCVItem], ptr %20, i64 0, i64 %50
+  %51 = getelementptr inbounds %struct.MCVItem, ptr %20, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv387
@@ -1709,7 +1709,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %.6370.us = phi i32 [ %263, %._crit_edge367.us ], [ 0, %.lr.ph371 ]
   %.3312369.us = phi ptr [ %262, %._crit_edge367.us ], [ %.1310.lcssa, %.lr.ph371 ]
   %229 = sext i32 %.6370.us to i64
-  %230 = getelementptr inbounds [0 x %struct.MCVItem], ptr %228, i64 0, i64 %229
+  %230 = getelementptr inbounds %struct.MCVItem, ptr %228, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3312369.us, ptr align 1 %232, i64 %7, i1 false)
@@ -1919,7 +1919,7 @@ store_att_byval.exit:                             ; preds = %274, %276, %278, %2
   %.6370 = phi i32 [ %348, %.lr.ph371.split ], [ 0, %.lr.ph371.thread ]
   %.3312369 = phi ptr [ %347, %.lr.ph371.split ], [ %218, %.lr.ph371.thread ]
   %338 = sext i32 %.6370 to i64
-  %339 = getelementptr inbounds [0 x %struct.MCVItem], ptr %227, i64 0, i64 %338
+  %339 = getelementptr inbounds %struct.MCVItem, ptr %227, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %341 = load ptr, ptr %340, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3312369, ptr align 1 %341, i64 %7, i1 false)
@@ -2035,7 +2035,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = getelementptr inbounds nuw [0 x %struct.MCVItem], ptr %48, i64 0, i64 %41
+  %49 = getelementptr inbounds nuw %struct.MCVItem, ptr %48, i64 %41
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %51 = load i16, ptr %50, align 4
   %52 = icmp sgt i16 %51, 0
@@ -2067,7 +2067,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %54, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   call void @getTypeOutputInfo(i32 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %5) #13
   %70 = load i32, ptr %6, align 4
@@ -2297,7 +2297,7 @@ define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly capture
   %.027 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
   %.02526 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %47 ]
   %32 = sext i32 %.027 to i64
-  %33 = getelementptr inbounds [0 x %struct.MCVItem], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds %struct.MCVItem, ptr %30, i64 %32
   %34 = load double, ptr %33, align 8
   %35 = load double, ptr %8, align 8
   %36 = fadd double %34, %35
@@ -2440,7 +2440,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph89, %is_opcla
 61:                                               ; preds = %.lr.ph, %116
   %.023326 = phi i32 [ 0, %.lr.ph ], [ %117, %116 ]
   %62 = sext i32 %.023326 to i64
-  %63 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %62
+  %63 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 %59
@@ -2635,7 +2635,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %163 = load i8, ptr %159, align 4, !range !9, !noundef !10
   %164 = xor i8 %163, 1
   %165 = sext i32 %.023538 to i64
-  %166 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %165
+  %166 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 %160
@@ -2780,7 +2780,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
 251:                                              ; preds = %.lr.ph29, %266
   %.023927 = phi i32 [ 0, %.lr.ph29 ], [ %274, %266 ]
   %252 = sext i32 %.023927 to i64
-  %253 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %252
+  %253 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %252
   %254 = load i32, ptr %249, align 8
   switch i32 %254, label %266 [
     i32 0, label %255
@@ -2938,7 +2938,7 @@ is_orclause.exit252:                              ; preds = %is_orclause.exit, %
 326:                                              ; preds = %.lr.ph53, %348
   %.023251 = phi i32 [ 0, %.lr.ph53 ], [ %351, %348 ]
   %327 = sext i32 %.023251 to i64
-  %328 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %327
+  %328 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 %325
@@ -2992,7 +2992,7 @@ is_orclause.exit252:                              ; preds = %is_orclause.exit, %
 357:                                              ; preds = %.lr.ph50, %380
   %.022849 = phi i32 [ 0, %.lr.ph50 ], [ %383, %380 ]
   %358 = sext i32 %.022849 to i64
-  %359 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %358
+  %359 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %358
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %361 = load ptr, ptr %360, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 %356
@@ -3079,7 +3079,7 @@ define dso_local double @mcv_clause_selectivity_or(ptr noundef readnone captures
   %.043 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %61 ]
   %.04142 = phi i32 [ 0, %.lr.ph ], [ %63, %61 ]
   %28 = sext i32 %.04142 to i64
-  %29 = getelementptr inbounds [0 x %struct.MCVItem], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds %struct.MCVItem, ptr %26, i64 %28
   %30 = load double, ptr %29, align 8
   %31 = load double, ptr %8, align 8
   %32 = fadd double %30, %31

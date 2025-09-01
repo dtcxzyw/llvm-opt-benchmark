@@ -2326,10 +2326,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   %3 = load i8, ptr %2, align 1, !range !419, !alias.scope !520, !noalias !523, !noundef !15
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E.162", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E.162", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !520
   ret i1 %6
@@ -2370,9 +2370,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
   %6 = load i64, ptr %5, align 8, !range !516, !alias.scope !539, !noalias !542, !noundef !15
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE.161", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE.161", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !544
   br label %"_ZN93_$LT$uv_resolver..resolver..availability..UnavailableReason$u20$as$u20$core..fmt..Display$GT$3fmt17hcf3fb187f7773ba4E.exit"
@@ -2443,9 +2443,9 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !15, !align !52, !noundef !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !560)
   %3 = load i64, ptr %2, align 8, !range !516, !alias.scope !563, !noalias !566, !noundef !15
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE.161", i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd471a963e1b8045bE.161", i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !560
   ret i1 %4
@@ -21045,10 +21045,10 @@ define internal noundef zeroext i1 @"_ZN78_$LT$uv_pypi_types..simple_json..HashA
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !419, !noundef !15
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E.162", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$uv_pypi_types..simple_json..HashAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17h652bfb62bbcfda43E.162", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -547,9 +547,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body90:                                       ; preds = %for.body, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.inc ]
   %newIntersectionCount.0259 = phi i32 [ 0, %for.body ], [ %newIntersectionCount.1, %for.inc ]
-  %arrayidx91 = getelementptr inbounds nuw [3 x float], ptr %lv, i64 0, i64 %indvars.iv
+  %arrayidx91 = getelementptr inbounds nuw float, ptr %lv, i64 %indvars.iv
   %33 = load float, ptr %arrayidx91, align 4
-  %arrayidx93 = getelementptr inbounds nuw [3 x float], ptr %rv, i64 0, i64 %indvars.iv
+  %arrayidx93 = getelementptr inbounds nuw float, ptr %rv, i64 %indvars.iv
   %34 = load float, ptr %arrayidx93, align 4
   %cmp94 = fcmp une float %33, %34
   br i1 %cmp94, label %if.then95, label %for.inc
@@ -587,7 +587,7 @@ invoke.cont123:                                   ; preds = %if.then95
   %cond.i6.i200 = select i1 %cmp.i5.i199, float %conv3.i194, float %cond.i4.i198
   %cmp.i7.i201 = fcmp olt float %cond.i.i196, %cond.i6.i200
   %cond.i8.i202 = select i1 %cmp.i7.i201, float %cond.i6.i200, float %cond.i.i196
-  %arrayidx126 = getelementptr inbounds nuw [3 x float], ptr %v, i64 0, i64 %indvars.iv
+  %arrayidx126 = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %38 = load float, ptr %arrayidx126, align 4
   %cmp127 = fcmp oeq float %cond.i8.i202, %38
   br i1 %cmp127, label %if.then128, label %for.inc
@@ -600,7 +600,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0259 to i64
-  %arrayidx135 = getelementptr inbounds [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i203 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i204 = zext i1 %cmp.i203 to i32
@@ -672,7 +672,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %46 = phi ptr [ %21, %for.body195.preheader ], [ %54, %for.inc212 ]
   %indvars.iv272 = phi i64 [ 0, %for.body195.preheader ], [ %indvars.iv.next273, %for.inc212 ]
   %inside.1262 = phi i8 [ %inside.0265, %for.body195.preheader ], [ %inside.2, %for.inc212 ]
-  %arrayidx197 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %indvars.iv272
+  %arrayidx197 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %indvars.iv272
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0
@@ -1061,9 +1061,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body90:                                       ; preds = %for.body, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.inc ]
   %newIntersectionCount.0259 = phi i32 [ 0, %for.body ], [ %newIntersectionCount.1, %for.inc ]
-  %arrayidx91 = getelementptr inbounds nuw [3 x float], ptr %lv, i64 0, i64 %indvars.iv
+  %arrayidx91 = getelementptr inbounds nuw float, ptr %lv, i64 %indvars.iv
   %33 = load float, ptr %arrayidx91, align 4
-  %arrayidx93 = getelementptr inbounds nuw [3 x float], ptr %rv, i64 0, i64 %indvars.iv
+  %arrayidx93 = getelementptr inbounds nuw float, ptr %rv, i64 %indvars.iv
   %34 = load float, ptr %arrayidx93, align 4
   %cmp94 = fcmp une float %33, %34
   br i1 %cmp94, label %if.then95, label %for.inc
@@ -1101,7 +1101,7 @@ invoke.cont123:                                   ; preds = %if.then95
   %cond.i6.i200 = select i1 %cmp.i5.i199, float %conv3.i194, float %cond.i4.i198
   %cmp.i7.i201 = fcmp olt float %cond.i.i196, %cond.i6.i200
   %cond.i8.i202 = select i1 %cmp.i7.i201, float %cond.i6.i200, float %cond.i.i196
-  %arrayidx126 = getelementptr inbounds nuw [3 x float], ptr %v, i64 0, i64 %indvars.iv
+  %arrayidx126 = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %38 = load float, ptr %arrayidx126, align 4
   %cmp127 = fcmp oeq float %cond.i8.i202, %38
   br i1 %cmp127, label %if.then128, label %for.inc
@@ -1114,7 +1114,7 @@ if.then128:                                       ; preds = %invoke.cont123
 
 invoke.cont132:                                   ; preds = %if.then128
   %idxprom134 = sext i32 %newIntersectionCount.0259 to i64
-  %arrayidx135 = getelementptr inbounds [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %idxprom134
   store double %call133, ptr %arrayidx135, align 16
   %cmp.i203 = fcmp ogt float %sub104, 0.000000e+00
   %conv.i204 = zext i1 %cmp.i203 to i32
@@ -1186,7 +1186,7 @@ for.body195:                                      ; preds = %for.body195.prehead
   %46 = phi ptr [ %21, %for.body195.preheader ], [ %54, %for.inc212 ]
   %indvars.iv272 = phi i64 [ 0, %for.body195.preheader ], [ %indvars.iv.next273, %for.inc212 ]
   %inside.1262 = phi i8 [ %inside.0265, %for.body195.preheader ], [ %inside.2, %for.inc212 ]
-  %arrayidx197 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Scanline::Intersection"], ptr %newIntersections, i64 0, i64 %indvars.iv272
+  %arrayidx197 = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %newIntersections, i64 %indvars.iv272
   %direction198 = getelementptr inbounds nuw i8, ptr %arrayidx197, i64 8
   %47 = load i32, ptr %direction198, align 8
   %cmp199 = icmp sgt i32 %47, 0

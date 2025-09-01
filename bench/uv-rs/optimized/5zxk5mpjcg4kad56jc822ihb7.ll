@@ -8202,7 +8202,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %54 = icmp slt i64 %53, -9223372036854775804
   %55 = add i64 %53, -9223372036854775807
   %56 = select i1 %54, i64 %55, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load
   %58 = load ptr, ptr %57, align 8, !alias.scope !1781, !noundef !6
@@ -8211,7 +8211,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %61 = icmp slt i64 %60, -9223372036854775804
   %62 = add i64 %60, -9223372036854775807
   %63 = select i1 %61, i64 %62, i64 0
-  %switch.gep129 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 0, i64 %63
+  %switch.gep129 = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 %63
   %switch.load130 = load i64, ptr %switch.gep129, align 8
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load130
   %65 = load ptr, ptr %64, align 8, !alias.scope !1784, !noundef !6
@@ -8260,12 +8260,12 @@ switch.lookup:                                    ; preds = %.lr.ph
   br i1 %82, label %switch.lookup122, label %.backedge
 
 switch.lookup122:                                 ; preds = %72, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", %73
-  %switch.gep123 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %56
+  %switch.gep123 = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 %56
   %switch.load124 = load i64, ptr %switch.gep123, align 8
   %83 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load124
   %84 = load ptr, ptr %83, align 8, !alias.scope !1791, !noundef !6
   %85 = icmp eq ptr %84, null
-  %switch.gep132 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %63
+  %switch.gep132 = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 %63
   %switch.load133 = load i64, ptr %switch.gep132, align 8
   %86 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load133
   %87 = load ptr, ptr %86, align 8, !alias.scope !1794, !noundef !6
@@ -8298,11 +8298,11 @@ switch.lookup122:                                 ; preds = %72, %"_ZN64_$LT$arc
   br i1 %100, label %switch.lookup125, label %.backedge
 
 switch.lookup125:                                 ; preds = %90, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit66", %91
-  %switch.gep126 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %56
+  %switch.gep126 = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 %56
   %switch.load127 = load i64, ptr %switch.gep126, align 8
   %101 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load127
   %.sroa.0.0.i67 = load i64, ptr %101, align 8, !alias.scope !1801, !noundef !6
-  %switch.gep135 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %63
+  %switch.gep135 = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 %63
   %switch.load136 = load i64, ptr %switch.gep135, align 8
   %102 = getelementptr inbounds nuw i8, ptr %47, i64 %switch.load136
   %.sroa.0.0.i69 = load i64, ptr %102, align 8, !alias.scope !1804, !noundef !6
@@ -11076,7 +11076,7 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775804
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source6marker17hecdfbc0869da7f09E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0 = load i64, ptr %5, align 8, !noundef !6
@@ -11090,7 +11090,7 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775804
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5extra17hfd422ab9a267a67dE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = load ptr, ptr %5, align 8, !noundef !6
@@ -11106,7 +11106,7 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775804
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN12uv_workspace9pyproject6Source5group17h38fc1015d610440bE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = load ptr, ptr %5, align 8, !noundef !6

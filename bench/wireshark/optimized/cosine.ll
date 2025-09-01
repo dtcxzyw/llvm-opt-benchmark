@@ -543,7 +543,7 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %empty_line.exit
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i80 ]
-  %154 = getelementptr [16 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr i32, ptr %6, i64 %indvars.iv.i
   %155 = load i32, ptr %154, align 4
   %156 = trunc i32 %155 to i8
   %157 = trunc nuw nsw i64 %indvars.iv.i to i32

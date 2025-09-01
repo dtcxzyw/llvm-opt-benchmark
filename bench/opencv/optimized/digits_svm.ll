@@ -1715,8 +1715,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit160.i.thread:        ; preds = %_ZNK2cv3MatclERKNS_
 
 628:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %.noexc.i100
   %indvars.iv289.i = phi i64 [ 0, %.noexc.i100 ], [ %indvars.iv.next290.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i ]
-  %629 = getelementptr inbounds nuw [4 x %"class.cv::Mat"], ptr %28, i64 0, i64 %indvars.iv289.i
-  %630 = getelementptr inbounds nuw [4 x %"class.cv::Mat"], ptr %33, i64 0, i64 %indvars.iv289.i
+  %629 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %indvars.iv289.i
+  %630 = getelementptr inbounds nuw %"class.cv::Mat", ptr %33, i64 %indvars.iv289.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store double 0.000000e+00, ptr %12, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4055,12 +4055,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %97 = getelementptr inbounds nuw i32, ptr %61, i64 %.047108
   %98 = load i32, ptr %97, align 4, !tbaa !65
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [10 x [10 x i32]], ptr %6, i64 0, i64 %99
+  %100 = getelementptr inbounds [10 x i32], ptr %6, i64 %99
   %101 = getelementptr inbounds nuw float, ptr %66, i64 %.047108
   %102 = load float, ptr %101, align 4, !tbaa !86
   %103 = fptosi float %102 to i32
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [10 x i32], ptr %100, i64 0, i64 %104
+  %105 = getelementptr inbounds i32, ptr %100, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !65
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %105, align 4, !tbaa !65
@@ -4070,7 +4070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 .preheader103:                                    ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit89, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101
   %indvars.iv129 = phi i64 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit89 ], [ %indvars.iv.next130, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101 ]
-  %109 = getelementptr inbounds nuw [10 x [10 x i32]], ptr %6, i64 0, i64 %indvars.iv129
+  %109 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 %indvars.iv129
   br label %164
 
 110:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101
@@ -4176,7 +4176,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit101: ; preds = %1
 164:                                              ; preds = %.preheader103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
   %indvars.iv = phi i64 [ 0, %.preheader103 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %165 = getelementptr inbounds nuw [10 x i32], ptr %109, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4, !tbaa !65
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.18, i32 noundef %166)
   %167 = load ptr, ptr %7, align 8, !tbaa !40

@@ -215,7 +215,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %.preheader, %._crit
 67:                                               ; preds = %.lr.ph, %123
   %68 = phi ptr [ %.pre, %.lr.ph ], [ %124, %123 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !14
   %71 = icmp eq ptr %68, null
   br i1 %71, label %78, label %72

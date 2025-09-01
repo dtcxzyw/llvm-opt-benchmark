@@ -6244,7 +6244,7 @@ _ZN4llvm16TargetPassConfig25hasLimitedCodeGenPipelineEv.exit.thread: ; preds = %
 15:                                               ; preds = %_ZN4llvm16TargetPassConfig25hasLimitedCodeGenPipelineEv.exit.thread, %36
   %indvars.iv = phi i64 [ 0, %_ZN4llvm16TargetPassConfig25hasLimitedCodeGenPipelineEv.exit.thread ], [ %indvars.iv.next, %36 ]
   %.057 = phi i1 [ true, %_ZN4llvm16TargetPassConfig25hasLimitedCodeGenPipelineEv.exit.thread ], [ %.1, %36 ]
-  %16 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN4llvm16TargetPassConfig31getLimitedCodeGenPipelineReasonB5cxx11EvE9PassNamesB5cxx11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm16TargetPassConfig31getLimitedCodeGenPipelineReasonB5cxx11EvE9PassNamesB5cxx11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !453
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load i64, ptr %18, align 8, !tbaa !90
@@ -6271,7 +6271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %22
 
 27:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %21
   %28 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %.pre9, %21 ]
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN4llvm16TargetPassConfig31getLimitedCodeGenPipelineReasonB5cxx11EvE8OptNames, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm16TargetPassConfig31getLimitedCodeGenPipelineReasonB5cxx11EvE8OptNames, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #26
   %32 = sub i64 4611686018427387903, %28

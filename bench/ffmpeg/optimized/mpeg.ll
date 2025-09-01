@@ -552,7 +552,7 @@ define internal range(i32 -2147483648, 1) i32 @mpegps_read_packet(ptr noundef %0
 ._crit_edge:                                      ; preds = %53, %50
   %60 = and i32 %23, 255
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %16, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !12
   %.off = add i8 %63, -1
   %switch = icmp ult i8 %.off, 2
@@ -1077,7 +1077,7 @@ sub_2:                                            ; preds = %sub_1
 
 69:                                               ; preds = %66
   %70 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.24) #14
-  %71 = getelementptr inbounds nuw [2048 x i8], ptr %7, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 %70
   store i8 0, ptr %71, align 1, !tbaa !12
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %7, ptr noundef nonnull dereferenceable(3) @.str.25, i64 3)
   %.not146 = icmp eq i32 %bcmp, 0
@@ -1183,7 +1183,7 @@ sub_2:                                            ; preds = %sub_1
   %111 = load i32, ptr %65, align 4, !tbaa !39
   %112 = add i32 %111, -1
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [32 x %struct.FFDemuxSubtitlesQueue], ptr %64, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %struct.FFDemuxSubtitlesQueue, ptr %64, i64 %113
   %115 = call ptr @ff_subtitles_queue_insert(ptr noundef nonnull %114, ptr noundef nonnull @.str.37, i64 noundef 0, i32 noundef 0) #13
   %.not155 = icmp eq ptr %115, null
   br i1 %.not155, label %.thread172, label %116
@@ -1377,7 +1377,7 @@ sub_2:                                            ; preds = %sub_1
 
 193:                                              ; preds = %.lr.ph205, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next, %193 ]
-  %194 = getelementptr inbounds nuw [32 x %struct.FFDemuxSubtitlesQueue], ptr %192, i64 0, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw %struct.FFDemuxSubtitlesQueue, ptr %192, i64 %indvars.iv
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 20
   store i32 1, ptr %195, align 4, !tbaa !87
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 24
@@ -1476,7 +1476,7 @@ define internal range(i32 -2147483648, 1) i32 @vobsub_read_packet(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.071110 = phi i64 [ 9223372036854775807, %.lr.ph ], [ %.172, %32 ]
   %.075109 = phi i32 [ 0, %.lr.ph ], [ %.176, %32 ]
-  %16 = getelementptr inbounds nuw [32 x %struct.FFDemuxSubtitlesQueue], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.FFDemuxSubtitlesQueue, ptr %14, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !98
   %.not91 = icmp eq i32 %18, 0
@@ -1520,7 +1520,7 @@ define internal range(i32 -2147483648, 1) i32 @vobsub_read_packet(ptr noundef re
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.075.lcssa = phi i64 [ 0, %2 ], [ %33, %._crit_edge.loopexit ]
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %35 = getelementptr inbounds [32 x %struct.FFDemuxSubtitlesQueue], ptr %34, i64 0, i64 %.075.lcssa
+  %35 = getelementptr inbounds %struct.FFDemuxSubtitlesQueue, ptr %34, i64 %.075.lcssa
   %36 = tail call i32 @ff_subtitles_queue_read_packet(ptr noundef nonnull %35, ptr noundef %1) #13
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.loopexit, label %38
@@ -1664,7 +1664,7 @@ define internal noundef i32 @vobsub_read_close(ptr noundef readonly captures(non
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [32 x %struct.FFDemuxSubtitlesQueue], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.FFDemuxSubtitlesQueue, ptr %6, i64 %indvars.iv
   tail call void @ff_subtitles_queue_clean(ptr noundef nonnull %8) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %4, align 4, !tbaa !39
@@ -1714,7 +1714,7 @@ define internal i32 @vobsub_read_seek(ptr noundef %0, i32 noundef %1, i64 nounde
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.03439 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %25 ]
-  %26 = getelementptr inbounds nuw [32 x %struct.FFDemuxSubtitlesQueue], ptr %24, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.FFDemuxSubtitlesQueue, ptr %24, i64 %indvars.iv
   %27 = tail call i32 @ff_subtitles_queue_seek(ptr noundef nonnull %26, ptr noundef nonnull %0, i32 noundef -1, i64 noundef %22, i64 noundef %18, i64 noundef %23, i32 noundef %5) #13
   %28 = icmp slt i32 %27, 0
   %spec.select = select i1 %28, i32 %27, i32 %.03439
@@ -1728,7 +1728,7 @@ define internal i32 @vobsub_read_seek(ptr noundef %0, i32 noundef %1, i64 nounde
   %spec.store.select = phi i32 [ 0, %10 ], [ %1, %6 ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = sext i32 %spec.store.select to i64
-  %35 = getelementptr inbounds [32 x %struct.FFDemuxSubtitlesQueue], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds %struct.FFDemuxSubtitlesQueue, ptr %33, i64 %34
   %36 = tail call i32 @ff_subtitles_queue_seek(ptr noundef nonnull %35, ptr noundef nonnull %0, i32 noundef %spec.store.select, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #13
   br label %.loopexit
 
@@ -2050,7 +2050,7 @@ find_next_start_code.exit:                        ; preds = %.lr.ph.i, %29, %26
   %192 = call i32 @avio_rb16(ptr noundef %178) #13
   %193 = and i32 %191, 255
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr %12, i64 %194
   store i8 %190, ptr %195, align 1, !tbaa !12
   %.mask.i = and i32 %192, 65535
   %196 = zext nneg i32 %.mask.i to i64

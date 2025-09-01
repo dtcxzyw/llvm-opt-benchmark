@@ -213,16 +213,16 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
 98:                                               ; preds = %97, %.split.us
   %.0.us = phi i32 [ 6, %97 ], [ 5, %.split.us ]
   %99 = zext nneg i32 %.0.us to i64
-  %100 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %4, i64 %99
   store ptr @.str.7, ptr %100, align 8
   %101 = load ptr, ptr @progname, align 8
   %102 = add nuw nsw i32 %.0.us, 1
-  %103 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %99
+  %103 = getelementptr inbounds nuw ptr, ptr %5, i64 %99
   store ptr %101, ptr %103, align 8
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %4, i64 %104
   store ptr null, ptr %105, align 8
-  %106 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %104
+  %106 = getelementptr inbounds nuw ptr, ptr %5, i64 %104
   store ptr null, ptr %106, align 8
   %107 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #11
   store ptr %107, ptr %6, align 8
@@ -269,16 +269,16 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly capt
 120:                                              ; preds = %119, %.split
   %.0 = phi i32 [ 6, %119 ], [ 5, %.split ]
   %121 = zext nneg i32 %.0 to i64
-  %122 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %4, i64 %121
   store ptr @.str.7, ptr %122, align 8
   %123 = load ptr, ptr @progname, align 8
   %124 = add nuw nsw i32 %.0, 1
-  %125 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %121
+  %125 = getelementptr inbounds nuw ptr, ptr %5, i64 %121
   store ptr %123, ptr %125, align 8
   %126 = zext nneg i32 %124 to i64
-  %127 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw ptr, ptr %4, i64 %126
   store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %126
+  %128 = getelementptr inbounds nuw ptr, ptr %5, i64 %126
   store ptr null, ptr %128, align 8
   %129 = call ptr @PQconnectdbParams(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1) #11
   store ptr %129, ptr %6, align 8

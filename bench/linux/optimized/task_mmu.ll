@@ -1933,7 +1933,7 @@ define internal noundef i32 @show_smap(ptr noundef initializes((32, 40)) %0, ptr
 
 46:                                               ; preds = %59, %45
   %47 = phi i64 [ 0, %45 ], [ %60, %59 ]
-  %48 = getelementptr [64 x [2 x i8]], ptr @show_smap_vma_flags.mnemonics, i64 0, i64 %47
+  %48 = getelementptr [2 x i8], ptr @show_smap_vma_flags.mnemonics, i64 %47
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %59, label %51
@@ -6165,7 +6165,7 @@ define internal noundef i32 @show_numa_map(ptr noundef %0, ptr noundef %1) #0 al
 125:                                              ; preds = %141, %123
   %126 = phi i32 [ %121, %123 ], [ %143, %141 ]
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr [64 x i64], ptr %124, i64 0, i64 %127
+  %128 = getelementptr i64, ptr %124, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %132, label %131
@@ -6733,7 +6733,7 @@ define internal fastcc void @gather_stats(ptr noundef %0, ptr noundef captures(n
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %261 = load i64, ptr %0, align 16
   %262 = lshr i64 %261, 58
-  %263 = getelementptr [64 x i64], ptr %260, i64 0, i64 %262
+  %263 = getelementptr i64, ptr %260, i64 %262
   %264 = load i64, ptr %263, align 8
   %265 = add i64 %264, 1
   store i64 %265, ptr %263, align 8

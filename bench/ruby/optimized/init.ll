@@ -1197,7 +1197,7 @@ rb_num2int_inline.exit.i:                         ; preds = %38, %36
 
 switch.lookup:                                    ; preds = %26
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.rsock_connect, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rsock_connect, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i
 

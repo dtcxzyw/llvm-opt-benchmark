@@ -4157,7 +4157,7 @@ cip_get_attribute.exit.thread.us:                 ; preds = %.lr.ph, %cip_get_at
 
 .split.us.split.i:                                ; preds = %._crit_edge.split.split.us34.i, %35
   %.02732.us.i = phi i64 [ %40, %._crit_edge.split.split.us34.i ], [ 0, %35 ]
-  %38 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i
+  %38 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i
   %39 = load i64, ptr %38, align 16
   %.not46.i = icmp eq i64 %39, 0
   br i1 %.not46.i, label %._crit_edge.split.split.us34.i, label %.lr.ph.us.i
@@ -4245,7 +4245,7 @@ define hidden ptr @cip_get_attribute(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .split.us.split.us:                               ; preds = %3, %._crit_edge.split.split.us.us.us
   %.02732.us.us = phi i64 [ %6, %._crit_edge.split.split.us.us.us ], [ 0, %3 ]
-  %4 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us
+  %4 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us
   %5 = load i64, ptr %4, align 16
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge.split.split.us.us.us, label %.lr.ph.us.us
@@ -4286,7 +4286,7 @@ define hidden ptr @cip_get_attribute(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .split.us.split:                                  ; preds = %3, %._crit_edge.split.split.us34
   %.02732.us = phi i64 [ %25, %._crit_edge.split.split.us34 ], [ 0, %3 ]
-  %23 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us
+  %23 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us
   %24 = load i64, ptr %23, align 16
   %.not46 = icmp eq i64 %24, 0
   br i1 %.not46, label %._crit_edge.split.split.us34, label %.lr.ph.us
@@ -4336,7 +4336,7 @@ define hidden ptr @cip_get_attribute(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .preheader:                                       ; preds = %.split39.us, %43
   %.144 = phi i64 [ %44, %43 ], [ 0, %.split39.us ]
-  %45 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144
+  %45 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %2
@@ -7650,7 +7650,7 @@ define hidden range(i32 0, 131073) i32 @dissect_cip_get_attribute_list_req(ptr n
 
 .split.us.split.us.i:                             ; preds = %26, %._crit_edge.split.split.us.us.us.i
   %.02732.us.us.i = phi i64 [ %35, %._crit_edge.split.split.us.us.us.i ], [ 0, %26 ]
-  %33 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i
+  %33 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i
   %34 = load i64, ptr %33, align 16
   %.not.i = icmp eq i64 %34, 0
   br i1 %.not.i, label %._crit_edge.split.split.us.us.us.i, label %.lr.ph.us.us.i
@@ -7691,7 +7691,7 @@ define hidden range(i32 0, 131073) i32 @dissect_cip_get_attribute_list_req(ptr n
 
 .split.us.split.i:                                ; preds = %26, %._crit_edge.split.split.us34.i
   %.02732.us.i = phi i64 [ %54, %._crit_edge.split.split.us34.i ], [ 0, %26 ]
-  %52 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i
+  %52 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i
   %53 = load i64, ptr %52, align 16
   %.not46.i = icmp eq i64 %53, 0
   br i1 %.not46.i, label %._crit_edge.split.split.us34.i, label %.lr.ph.us.i
@@ -7741,7 +7741,7 @@ define hidden range(i32 0, 131073) i32 @dissect_cip_get_attribute_list_req(ptr n
 
 .preheader.i:                                     ; preds = %.split39.us.i, %72
   %.144.i = phi i64 [ %73, %72 ], [ 0, %.split39.us.i ]
-  %74 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i
+  %74 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, %28
@@ -7838,7 +7838,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_req(ptr noundef %0, pt
 
 .split.us.split.us.i:                             ; preds = %26, %._crit_edge.split.split.us.us.us.i
   %.02732.us.us.i = phi i64 [ %38, %._crit_edge.split.split.us.us.us.i ], [ 0, %26 ]
-  %36 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i
+  %36 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i
   %37 = load i64, ptr %36, align 16
   %.not.i = icmp eq i64 %37, 0
   br i1 %.not.i, label %._crit_edge.split.split.us.us.us.i, label %.lr.ph.us.us.i
@@ -7879,7 +7879,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_req(ptr noundef %0, pt
 
 .split.us.split.i:                                ; preds = %26, %._crit_edge.split.split.us34.i
   %.02732.us.i = phi i64 [ %57, %._crit_edge.split.split.us34.i ], [ 0, %26 ]
-  %55 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i
+  %55 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i
   %56 = load i64, ptr %55, align 16
   %.not46.i = icmp eq i64 %56, 0
   br i1 %.not46.i, label %._crit_edge.split.split.us34.i, label %.lr.ph.us.i
@@ -7929,7 +7929,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_req(ptr noundef %0, pt
 
 .preheader.i:                                     ; preds = %.split39.us.i, %75
   %.144.i = phi i64 [ %76, %75 ], [ 0, %.split39.us.i ]
-  %77 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i
+  %77 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, %28
@@ -8725,7 +8725,7 @@ cip_get_service.exit208:                          ; preds = %208, %213, %cip_get
 
 .split.us.split.us.i.i:                           ; preds = %262, %._crit_edge.split.split.us.us.us.i.i
   %.02732.us.us.i.i = phi i64 [ %271, %._crit_edge.split.split.us.us.us.i.i ], [ 0, %262 ]
-  %269 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i.i
+  %269 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i.i
   %270 = load i64, ptr %269, align 16
   %.not.i.i210 = icmp eq i64 %270, 0
   br i1 %.not.i.i210, label %._crit_edge.split.split.us.us.us.i.i, label %.lr.ph.us.us.i.i
@@ -8766,7 +8766,7 @@ cip_get_service.exit208:                          ; preds = %208, %213, %cip_get
 
 .split.us.split.i.i:                              ; preds = %262, %._crit_edge.split.split.us34.i.i
   %.02732.us.i.i = phi i64 [ %290, %._crit_edge.split.split.us34.i.i ], [ 0, %262 ]
-  %288 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i.i
+  %288 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i.i
   %289 = load i64, ptr %288, align 16
   %.not46.i.i = icmp eq i64 %289, 0
   br i1 %.not46.i.i, label %._crit_edge.split.split.us34.i.i, label %.lr.ph.us.i.i
@@ -8816,7 +8816,7 @@ cip_get_service.exit208:                          ; preds = %208, %213, %cip_get
 
 .preheader.i.i:                                   ; preds = %.split39.us.i.i, %308
   %.144.i.i = phi i64 [ %309, %308 ], [ 0, %.split39.us.i.i ]
-  %310 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i.i
+  %310 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i.i
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load i32, ptr %311, align 8
   %313 = icmp eq i32 %312, %268
@@ -9024,7 +9024,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_rsp(ptr noundef %0, pt
 
 .split.us.split.us.i:                             ; preds = %26, %._crit_edge.split.split.us.us.us.i
   %.02732.us.us.i = phi i64 [ %40, %._crit_edge.split.split.us.us.us.i ], [ 0, %26 ]
-  %38 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i
+  %38 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i
   %39 = load i64, ptr %38, align 16
   %.not.i = icmp eq i64 %39, 0
   br i1 %.not.i, label %._crit_edge.split.split.us.us.us.i, label %.lr.ph.us.us.i
@@ -9065,7 +9065,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_rsp(ptr noundef %0, pt
 
 .split.us.split.i:                                ; preds = %26, %._crit_edge.split.split.us34.i
   %.02732.us.i = phi i64 [ %59, %._crit_edge.split.split.us34.i ], [ 0, %26 ]
-  %57 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i
+  %57 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i
   %58 = load i64, ptr %57, align 16
   %.not46.i = icmp eq i64 %58, 0
   br i1 %.not46.i, label %._crit_edge.split.split.us34.i, label %.lr.ph.us.i
@@ -9115,7 +9115,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_rsp(ptr noundef %0, pt
 
 .preheader.i:                                     ; preds = %.split39.us.i, %77
   %.144.i = phi i64 [ %78, %77 ], [ 0, %.split39.us.i ]
-  %79 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i
+  %79 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, %28
@@ -9338,7 +9338,7 @@ switch.early.test:                                ; preds = %load_cip_request_da
 
 .split.us.split.us.i.i:                           ; preds = %60, %._crit_edge.split.split.us.us.us.i.i
   %.02732.us.us.i.i = phi i64 [ %73, %._crit_edge.split.split.us.us.us.i.i ], [ 0, %60 ]
-  %71 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i.i
+  %71 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i.i
   %72 = load i64, ptr %71, align 16
   %.not.i.i = icmp eq i64 %72, 0
   br i1 %.not.i.i, label %._crit_edge.split.split.us.us.us.i.i, label %.lr.ph.us.us.i.i
@@ -9379,7 +9379,7 @@ switch.early.test:                                ; preds = %load_cip_request_da
 
 .split.us.split.i.i:                              ; preds = %60, %._crit_edge.split.split.us34.i.i
   %.02732.us.i.i = phi i64 [ %92, %._crit_edge.split.split.us34.i.i ], [ 0, %60 ]
-  %90 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i.i
+  %90 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i.i
   %91 = load i64, ptr %90, align 16
   %.not46.i.i = icmp eq i64 %91, 0
   br i1 %.not46.i.i, label %._crit_edge.split.split.us34.i.i, label %.lr.ph.us.i.i
@@ -9428,7 +9428,7 @@ switch.early.test:                                ; preds = %load_cip_request_da
 
 .preheader.i.i:                                   ; preds = %.split39.us.i.i, %109
   %.144.i.i = phi i64 [ %110, %109 ], [ 0, %.split39.us.i.i ]
-  %111 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i.i
+  %111 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i.i
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %113, %62
@@ -9522,7 +9522,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
 
 .split.us.split.us.i.i63:                         ; preds = %148, %._crit_edge.split.split.us.us.us.i.i69
   %.02732.us.us.i.i64 = phi i64 [ %159, %._crit_edge.split.split.us.us.us.i.i69 ], [ 0, %148 ]
-  %157 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.us.i.i64
+  %157 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.us.i.i64
   %158 = load i64, ptr %157, align 16
   %.not.i.i65 = icmp eq i64 %158, 0
   br i1 %.not.i.i65, label %._crit_edge.split.split.us.us.us.i.i69, label %.lr.ph.us.us.i.i66
@@ -9563,7 +9563,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
 
 .split.us.split.i.i79:                            ; preds = %148, %._crit_edge.split.split.us34.i.i85
   %.02732.us.i.i80 = phi i64 [ %178, %._crit_edge.split.split.us34.i.i85 ], [ 0, %148 ]
-  %176 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02732.us.i.i80
+  %176 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02732.us.i.i80
   %177 = load i64, ptr %176, align 16
   %.not46.i.i81 = icmp eq i64 %177, 0
   br i1 %.not46.i.i81, label %._crit_edge.split.split.us34.i.i85, label %.lr.ph.us.i.i82
@@ -9613,7 +9613,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
 
 .preheader.i.i73:                                 ; preds = %.split39.us.i.i71, %196
   %.144.i.i74 = phi i64 [ %197, %196 ], [ 0, %.split39.us.i.i71 ]
-  %198 = getelementptr [7 x %struct.attribute_info], ptr @cip_get_attribute.class_attribute_vals, i64 0, i64 %.144.i.i74
+  %198 = getelementptr %struct.attribute_info, ptr @cip_get_attribute.class_attribute_vals, i64 %.144.i.i74
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = icmp eq i32 %200, %156
@@ -9771,7 +9771,7 @@ define hidden range(i32 0, 9) i32 @dissect_concurrent_connection_packet(ptr noun
   %34 = and i32 %.010.i, 255
   %35 = xor i32 %34, %33
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [256 x i32], ptr @crc32_cc_table, i64 0, i64 %36
+  %37 = getelementptr i32, ptr @crc32_cc_table, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = lshr i32 %.010.i, 8
   %40 = xor i32 %38, %39
@@ -10338,7 +10338,7 @@ define hidden void @proto_register_cip() local_unnamed_addr #3 {
 34:                                               ; preds = %._crit_edge.i, %0
   %.027.i = phi i32 [ -1, %0 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.02026.i = phi i64 [ 0, %0 ], [ %66, %._crit_edge.i ]
-  %35 = getelementptr [4 x %struct.attribute_val_array], ptr @all_attribute_vals, i64 0, i64 %.02026.i
+  %35 = getelementptr %struct.attribute_val_array, ptr @all_attribute_vals, i64 %.02026.i
   %36 = load i64, ptr %35, align 16
   %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -14419,7 +14419,7 @@ proto_item_set_hidden.exit128:                    ; preds = %proto_item_set_hidd
 
 switch.lookup:                                    ; preds = %83
   %89 = zext nneg i32 %87 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.dissect_cip_cm_fwd_open_req, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cip_cm_fwd_open_req, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_connection_timeout_multiplier.exit
 
@@ -14874,7 +14874,7 @@ proto_item_set_generated.exit49.i:                ; preds = %339, %335, %332, %3
 
 switch.lookup220:                                 ; preds = %345
   %349 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep221 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_cip_cm_fwd_open_req.2, i64 0, i64 %349
+  %switch.gep221 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cip_cm_fwd_open_req.2, i64 %349
   %switch.load222 = load ptr, ptr %switch.gep221, align 8
   %350 = call ptr @expert_add_info(ptr noundef %6, ptr noundef %342, ptr noundef nonnull %switch.load222)
   br label %351

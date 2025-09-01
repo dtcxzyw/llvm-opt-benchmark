@@ -1917,7 +1917,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %10 = add nsw i32 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 %6, ptr %13, align 1, !tbaa !186
   %14 = icmp ult i32 %10, 3
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_NS4_INS5_IdLi6ELi6ELi0ELi6ELi6EEELi0ES8_EEEEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_NS4_INS5_IdLi6ELi6ELi0ELi6ELi6EEELi0ES8_EEEEEEvOT_RT0_i.exit

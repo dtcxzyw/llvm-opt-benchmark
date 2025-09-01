@@ -229,7 +229,7 @@ zval_get_long.exit:                               ; preds = %19, %17
 
 68:                                               ; preds = %80, %.preheader.i.i.i
   %.02128.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %82, %80 ]
-  %69 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %.02128.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 %.02128.i.i.i
   %70 = load i8, ptr %69, align 1, !tbaa !8
   switch i8 %70, label %79 [
     i8 43, label %80
@@ -336,7 +336,7 @@ php_password_salt_to64.exit.i.i:                  ; preds = %90, %89, %83
   store i8 0, ptr %110, align 1, !tbaa !8
   %111 = sext i32 %27 to i64
   %112 = load i64, ptr %48, align 8, !tbaa !9
-  %113 = getelementptr inbounds nuw [1 x i8], ptr %50, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %50, i64 %112
   store i8 0, ptr %113, align 1, !tbaa !8
   %114 = call ptr @zend_string_concat2(ptr noundef nonnull %3, i64 noundef %111, ptr noundef nonnull %50, i64 noundef %112) #12
   %115 = load i32, ptr %46, align 4, !tbaa !8
@@ -720,7 +720,7 @@ zend_string_alloc.exit:                           ; preds = %6
   store i64 %11, ptr %17, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %7, i64 %11, i1 false)
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %18, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
   store i8 0, ptr %19, align 1, !tbaa !8
   br label %20
 
@@ -765,7 +765,7 @@ php_password_algo_extract_ident.exit:             ; preds = %7
   store i64 %12, ptr %18, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %8, i64 %12, i1 false)
-  %20 = getelementptr inbounds nuw [1 x i8], ptr %19, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %12
   store i8 0, ptr %20, align 1, !tbaa !8
   %21 = tail call ptr @zend_hash_find(ptr noundef nonnull @php_password_algos, ptr noundef nonnull %15) #12
   %.not8.i = icmp eq ptr %21, null
@@ -913,7 +913,7 @@ php_password_algo_extract_ident.exit:             ; preds = %24
   store i64 %29, ptr %35, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %25, i64 %29, i1 false)
-  %37 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %29
   store i8 0, ptr %37, align 1, !tbaa !8
   %38 = call ptr @zend_hash_find(ptr noundef nonnull @php_password_algos, ptr noundef nonnull %32) #12
   %.not8.i = icmp eq ptr %38, null
@@ -1008,7 +1008,7 @@ zend_string_alloc.exit.i79:                       ; preds = %66
   store i64 %71, ptr %77, align 8, !tbaa !9
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull align 1 %67, i64 %71, i1 false)
-  %79 = getelementptr inbounds nuw [1 x i8], ptr %78, i64 0, i64 %71
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %71
   store i8 0, ptr %79, align 1, !tbaa !8
   br label %php_password_algo_extract_ident.exit81
 

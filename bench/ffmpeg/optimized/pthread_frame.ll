@@ -841,7 +841,7 @@ define void @ff_thread_report_progress(ptr noundef readonly captures(none) %0, i
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
@@ -890,7 +890,7 @@ define void @ff_thread_await_progress(ptr noundef readonly captures(none) %0, i3
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %7
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4

@@ -257,12 +257,12 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %97 ]
   %74 = load ptr, ptr %66, align 8, !tbaa !54
   %75 = call i32 @av_dict_copy(ptr noundef nonnull %5, ptr noundef %74, i32 noundef 0) #8
-  %76 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %67, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [1024 x i8], ptr %67, i64 %indvars.iv
   %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %76, i64 noundef 1024, ptr noundef nonnull @.str.29, ptr noundef nonnull %4) #8
-  %78 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %68, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %indvars.iv
   %79 = call i64 @av_strlcpy(ptr noundef nonnull %78, ptr noundef nonnull %4, i64 noundef 1024) #8
   %80 = load ptr, ptr %69, align 8, !tbaa !55
-  %81 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %82 = load i32, ptr %70, align 8, !tbaa !56
   %.not135 = icmp eq i32 %82, 0
   %83 = select i1 %.not135, ptr %4, ptr %76
@@ -299,11 +299,11 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br i1 %.not138, label %97, label %103
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw [5 x i8], ptr @.str.32, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i8, ptr @.str.32, i64 %indvars.iv
   %99 = load i8, ptr %98, align 1, !tbaa !57
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
-  %101 = add i64 %100, -1
-  %102 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %101
+  %101 = getelementptr i8, ptr %4, i64 %100
+  %102 = getelementptr i8, ptr %101, i64 -1
   store i8 %99, ptr %102, align 1, !tbaa !57
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %103, label %73, !llvm.loop !58
@@ -445,8 +445,8 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 
 181:                                              ; preds = %.lr.ph, %180
   %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %180 ]
-  %182 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %67, i64 0, i64 %indvars.iv163
-  %183 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr %68, i64 0, i64 %indvars.iv163
+  %182 = getelementptr inbounds nuw [1024 x i8], ptr %67, i64 %indvars.iv163
+  %183 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %indvars.iv163
   %184 = call i32 @ff_rename(ptr noundef nonnull %182, ptr noundef nonnull %183, ptr noundef nonnull %0) #8
   %185 = icmp sgt i32 %184, -1
   br i1 %185, label %180, label %.loopexit
@@ -465,7 +465,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 
 189:                                              ; preds = %.thread, %194
   %indvars.iv167 = phi i64 [ 0, %.thread ], [ %indvars.iv.next168, %194 ]
-  %190 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv167
+  %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv167
   %191 = load ptr, ptr %190, align 8, !tbaa !67
   %.not143 = icmp eq ptr %191, null
   br i1 %.not143, label %194, label %192
@@ -495,7 +495,7 @@ define internal range(i32 0, 2) i32 @query_codec(i32 noundef %0, i32 noundef %1)
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw [0 x %struct.IdStrMap], ptr @ff_img_tags, i64 0, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw %struct.IdStrMap, ptr @ff_img_tags, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !71
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73

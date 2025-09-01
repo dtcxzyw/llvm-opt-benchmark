@@ -4190,7 +4190,7 @@ _ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11Instru
   %1046 = lshr i16 %1045, 7
   %1047 = and i16 %1046, 7
   %1048 = zext nneg i16 %1047 to i64
-  %1049 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1048, i64 2
+  %1049 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1048, i64 2
   %1050 = load i8, ptr %1049, align 2, !tbaa !54, !range !55, !noundef !56
   %1051 = trunc nuw i8 %1050 to i1
   br i1 %1051, label %.critedge.i.i.i, label %_ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit.thread.i.i
@@ -9036,7 +9036,7 @@ _ZN12_GLOBAL__N_18DSEState27isInvisibleToCallerOnUnwindEPKN4llvm5ValueE.exit.i17
   %460 = lshr i16 %459, 7
   %461 = and i16 %460, 7
   %462 = zext nneg i16 %461 to i64
-  %463 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %462, i64 2
+  %463 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %462, i64 2
   %464 = load i8, ptr %463, align 2, !tbaa !54, !range !55, !noundef !56
   %465 = trunc nuw i8 %464 to i1
   br i1 %465, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %.thread21.i77
@@ -9047,7 +9047,7 @@ _ZN12_GLOBAL__N_18DSEState27isInvisibleToCallerOnUnwindEPKN4llvm5ValueE.exit.i17
   %469 = lshr i16 %468, 7
   %470 = and i16 %469, 7
   %471 = zext nneg i16 %470 to i64
-  %472 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %471, i64 2
+  %472 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %471, i64 2
   %473 = load i8, ptr %472, align 2, !tbaa !54, !range !55, !noundef !56
   %474 = trunc nuw i8 %473 to i1
   br i1 %474, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %_ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit84
@@ -9058,7 +9058,7 @@ _ZN12_GLOBAL__N_18DSEState27isInvisibleToCallerOnUnwindEPKN4llvm5ValueE.exit.i17
   %478 = lshr i16 %477, 1
   %479 = and i16 %478, 7
   %480 = zext nneg i16 %479 to i64
-  %481 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %480, i64 2
+  %481 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %480, i64 2
   %482 = load i8, ptr %481, align 2, !tbaa !54, !range !55, !noundef !56
   %483 = trunc nuw i8 %482 to i1
   br i1 %483, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %.thread21.i77
@@ -9071,7 +9071,7 @@ _ZN12_GLOBAL__N_18DSEState27isInvisibleToCallerOnUnwindEPKN4llvm5ValueE.exit.i17
   %487 = lshr i16 %486, 2
   %488 = and i16 %487, 7
   %489 = zext nneg i16 %488 to i64
-  %490 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %489, i64 2
+  %490 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %489, i64 2
   %491 = load i8, ptr %490, align 2, !tbaa !54, !range !55, !noundef !56
   %492 = trunc nuw i8 %491 to i1
   br i1 %492, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %_ZN12_GLOBAL__N_18DSEState12isDSEBarrierEPKN4llvm5ValueEPNS1_11InstructionE.exit.i.i
@@ -9080,7 +9080,7 @@ _ZN12_GLOBAL__N_18DSEState12isDSEBarrierEPKN4llvm5ValueEPNS1_11InstructionE.exit
   %493 = lshr i16 %486, 5
   %494 = and i16 %493, 7
   %495 = zext nneg i16 %494 to i64
-  %496 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %495, i64 2
+  %496 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %495, i64 2
   %497 = load i8, ptr %496, align 2, !tbaa !54, !range !55, !noundef !56
   %498 = trunc nuw i8 %497 to i1
   br i1 %498, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %.thread21.i77
@@ -9184,7 +9184,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i79: ; pred
 
 _ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit84: ; preds = %_ZN12_GLOBAL__N_18DSEState12isDSEBarrierEPKN4llvm5ValueEPNS1_11InstructionE.exit.thread448.i.i._ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit84_crit_edge, %466
   %.pre-phi217 = phi i64 [ %.pre216, %_ZN12_GLOBAL__N_18DSEState12isDSEBarrierEPKN4llvm5ValueEPNS1_11InstructionE.exit.thread448.i.i._ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit84_crit_edge ], [ %471, %466 ]
-  %531 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %.pre-phi217, i64 2
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %.pre-phi217, i64 2
   %532 = load i8, ptr %531, align 2, !tbaa !54, !range !55, !noundef !56
   %533 = trunc nuw i8 %532 to i1
   br i1 %533, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %_ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11InstructionE.exit84.thread
@@ -9287,7 +9287,7 @@ _ZN12_GLOBAL__N_18DSEState13isReadClobberERKN4llvm14MemoryLocationEPNS1_11Instru
   %569 = lshr i16 %568, 7
   %570 = and i16 %569, 7
   %571 = zext nneg i16 %570 to i64
-  %572 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %571, i64 2
+  %572 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %571, i64 2
   %573 = load i8, ptr %572, align 2, !tbaa !54, !range !55, !noundef !56
   %574 = trunc nuw i8 %573 to i1
   br i1 %574, label %_ZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS1_12MemoryAccessERKNS1_14MemoryLocationEPKNS1_5ValueERjSC_bSC_b.exit.thread232.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_18DSEState15getDomMemoryDefEPN4llvm9MemoryDefEPNS4_12MemoryAccessERKNS4_14MemoryLocationEPKNS4_5ValueERjSF_bSF_bEUlRNS4_3UseEE_EclINSC_17use_iterator_implISG_EEEEbT_.exit.thread.i.i.i.i.i.i.i.i
@@ -12811,7 +12811,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_
   %2052 = getelementptr inbounds nuw i8, ptr %2050, i64 8
   %2053 = zext i32 %2051 to i64
   %2054 = lshr i64 %2053, 6
-  %2055 = getelementptr inbounds nuw [9 x i64], ptr %2052, i64 0, i64 %2054
+  %2055 = getelementptr inbounds nuw i64, ptr %2052, i64 %2054
   %2056 = load i64, ptr %2055, align 8, !tbaa !9
   %2057 = and i64 %2053, 63
   %2058 = shl nuw i64 1, %2057
@@ -12823,7 +12823,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %2049
   %2060 = load ptr, ptr %2050, align 8, !tbaa !670
   %2061 = lshr i32 %2051, 2
   %2062 = zext nneg i32 %2061 to i64
-  %2063 = getelementptr inbounds nuw [131 x i8], ptr %2060, i64 0, i64 %2062
+  %2063 = getelementptr inbounds nuw i8, ptr %2060, i64 %2062
   %2064 = load i8, ptr %2063, align 1, !tbaa !13
   %2065 = zext i8 %2064 to i32
   %2066 = shl i32 %2051, 1
@@ -17691,7 +17691,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.i: ; 
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = zext i32 %39 to i64
   %42 = lshr i64 %41, 6
-  %43 = getelementptr inbounds nuw [9 x i64], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %40, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !9
   %45 = and i64 %41, 63
   %46 = shl nuw i64 1, %45
@@ -17703,7 +17703,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %37
   %48 = load ptr, ptr %38, align 8, !tbaa !670
   %49 = lshr i32 %39, 2
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [131 x i8], ptr %48, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !13
   %53 = zext i8 %52 to i32
   %54 = shl i32 %39, 1
@@ -18754,7 +18754,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %24 = lshr i16 %23, 7
   %25 = and i16 %24, 7
   %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %26, i64 2
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %26, i64 2
   %28 = load i8, ptr %27, align 2, !tbaa !54, !range !55, !noundef !56
   %29 = trunc nuw i8 %28 to i1
   br label %_ZN12_GLOBAL__N_115isNoopIntrinsicEPN4llvm11InstructionE.exit

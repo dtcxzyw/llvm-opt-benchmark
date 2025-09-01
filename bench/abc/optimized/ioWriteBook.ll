@@ -285,7 +285,7 @@ define void @Io_WriteBook(ptr noundef captures(address) %0, ptr noundef %1) loca
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.65, i32 noundef 1) #15
   %99 = and i32 %.023.i.i, 1
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [2 x ptr], ptr @__const.Io_NtkWriteScl.rowOrients, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr @__const.Io_NtkWriteScl.rowOrients, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !39
   %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.66, ptr noundef %102) #15
   %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.67, i32 noundef 89) #15

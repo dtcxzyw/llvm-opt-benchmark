@@ -94,7 +94,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.0129188 = phi i32 [ 0, %.lr.ph191 ], [ %.2131, %134 ]
   %.0132187 = phi i32 [ 0, %.lr.ph191 ], [ %.2134, %134 ]
   %.0136186 = phi i32 [ 0, %.lr.ph191 ], [ %.4140, %134 ]
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %30, i64 0, i64 %indvars.iv210
+  %41 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv210
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 80
   %.val169 = load ptr, ptr %43, align 8
@@ -307,7 +307,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 142:                                              ; preds = %.lr.ph194, %195
   %indvars.iv212 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next213, %195 ]
   %.6193 = phi i1 [ %.0.lcssa, %.lr.ph194 ], [ %.9, %195 ]
-  %143 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %indvars.iv212
+  %143 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv212
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr i8, ptr %144, i64 80
   %.val170 = load ptr, ptr %145, align 8

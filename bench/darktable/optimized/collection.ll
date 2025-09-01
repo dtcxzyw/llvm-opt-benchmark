@@ -950,7 +950,7 @@ and_operator.exit59:                              ; preds = %and_operator.exit57
 ._crit_edge:                                      ; preds = %105, %.thread70, %44
   %48 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.27) #19
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %38, i64 %49
   store i32 1, ptr %50, align 4, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !20
@@ -1091,7 +1091,7 @@ _dt_collection_set_selq_pre_sort.exit:            ; preds = %._crit_edge, %93, %
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 200, ptr noundef nonnull @.str.26, i32 noundef %.066) #19
   %107 = call i32 @dt_conf_get_int(ptr noundef nonnull %12) #19
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %108
+  %109 = getelementptr inbounds i32, ptr %38, i64 %108
   store i32 1, ptr %109, align 4, !tbaa !81
   %110 = add nuw nsw i32 %.066, 1
   %exitcond.not = icmp eq i32 %110, %47
@@ -2305,7 +2305,7 @@ define ptr @dt_collection_name_untranslated(i32 noundef %0) local_unnamed_addr #
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [43 x ptr], ptr @switch.table.dt_collection_name_untranslated, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_collection_name_untranslated, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -5582,7 +5582,7 @@ get_query_string.exit:                            ; preds = %720, %722
 
 733:                                              ; preds = %730
   %734 = sext i32 %2 to i64
-  %735 = getelementptr inbounds [3 x ptr], ptr @__const._get_query_part.conj, i64 0, i64 %734
+  %735 = getelementptr inbounds ptr, ptr @__const._get_query_part.conj, i64 %734
   %736 = load ptr, ptr %735, align 8, !tbaa !69
   %737 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, ptr noundef %736, ptr noundef %724) #19
   br label %738

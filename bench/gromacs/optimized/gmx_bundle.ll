@@ -2274,7 +2274,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.i:                                     ; preds = %._crit_edge151.i, %.preheader.lr.ph.i
   %indvars.iv189.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next190.i, %._crit_edge151.i ]
-  %842 = getelementptr inbounds nuw [3 x ptr], ptr %201, i64 0, i64 %indvars.iv189.i
+  %842 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv189.i
   %843 = load ptr, ptr %842, align 8, !tbaa !35
   br label %844
 
@@ -2321,9 +2321,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
 
 866:                                              ; preds = %866, %855
   %indvars.iv175.i = phi i64 [ 0, %855 ], [ %indvars.iv.next176.i, %866 ]
-  %867 = getelementptr inbounds nuw [3 x float], ptr %861, i64 0, i64 %indvars.iv175.i
+  %867 = getelementptr inbounds nuw float, ptr %861, i64 %indvars.iv175.i
   %868 = load float, ptr %867, align 4, !tbaa !81
-  %869 = getelementptr inbounds nuw [3 x float], ptr %865, i64 0, i64 %indvars.iv175.i
+  %869 = getelementptr inbounds nuw float, ptr %865, i64 %indvars.iv175.i
   %870 = load float, ptr %869, align 4, !tbaa !81
   %871 = call float @llvm.fmuladd.f32(float %860, float %868, float %870)
   store float %871, ptr %869, align 4, !tbaa !81
@@ -2371,7 +2371,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
   br i1 %exitcond188.not.i, label %._crit_edge151.i, label %._crit_edge147.i, !llvm.loop !87
 
 ._crit_edge151.i:                                 ; preds = %._crit_edge147.i
-  %894 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv189.i
+  %894 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv189.i
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 4
   %896 = getelementptr inbounds nuw i8, ptr %894, i64 8
   %897 = fmul float %891, %826
@@ -2405,7 +2405,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
 
 .lr.ph161.us.i:                                   ; preds = %._crit_edge162.us.i, %.lr.ph165.i
   %indvars.iv204.i = phi i64 [ 0, %.lr.ph165.i ], [ %indvars.iv.next205.i, %._crit_edge162.us.i ]
-  %906 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv204.i
+  %906 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv204.i
   %907 = load float, ptr %906, align 4, !tbaa !81
   %908 = fsub float %907, %903
   %909 = getelementptr inbounds nuw i8, ptr %906, i64 4
@@ -2417,7 +2417,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
   store float %908, ptr %906, align 4, !tbaa !81
   store float %911, ptr %909, align 4, !tbaa !81
   store float %914, ptr %912, align 4, !tbaa !81
-  %915 = getelementptr inbounds nuw [3 x ptr], ptr %201, i64 0, i64 %indvars.iv204.i
+  %915 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv204.i
   %916 = load ptr, ptr %915, align 8, !tbaa !35
   br label %917
 
@@ -2462,7 +2462,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.i.i
   %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %._crit_edge.us.i.i ], [ 0, %.preheader.lr.ph.i.i ]
-  %936 = getelementptr inbounds nuw [3 x ptr], ptr %201, i64 0, i64 %indvars.iv46.i.i
+  %936 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv46.i.i
   %937 = load ptr, ptr %936, align 8, !tbaa !35
   br label %938
 
@@ -2507,7 +2507,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.us.i106.i:                             ; preds = %._crit_edge.us.i111.i, %.preheader.lr.ph.i102.i
   %indvars.iv46.i107.i = phi i64 [ %indvars.iv.next47.i112.i, %._crit_edge.us.i111.i ], [ 0, %.preheader.lr.ph.i102.i ]
-  %961 = getelementptr inbounds nuw [3 x ptr], ptr %201, i64 0, i64 %indvars.iv46.i107.i
+  %961 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv46.i107.i
   %962 = load ptr, ptr %961, align 8, !tbaa !35
   br label %963
 

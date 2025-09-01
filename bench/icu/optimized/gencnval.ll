@@ -359,9 +359,9 @@ chomp.exit.i:                                     ; preds = %83, %.loopexit.i.i
   br i1 %.b19.i, label %139, label %129
 
 129:                                              ; preds = %128
-  %130 = add nsw i32 %.11744.i, -1
-  %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [32767 x i8], ptr %3, i64 0, i64 %131
+  %130 = zext nneg i32 %.11744.i to i64
+  %131 = getelementptr i8, ptr %3, i64 %130
+  %132 = getelementptr i8, ptr %131, i64 -1
   %133 = load i8, ptr %132, align 1, !tbaa !16
   %.not23.i = icmp eq i8 %133, 125
   br i1 %.not23.i, label %139, label %134
@@ -481,7 +481,7 @@ allocString.exit.i:                               ; preds = %188
   %200 = add i16 %199, 1
   store i16 %200, ptr @tagCount, align 2, !tbaa !19
   %201 = zext i16 %199 to i64
-  %202 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %201
   store i16 %198, ptr %202, align 8, !tbaa !28
   %203 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @addOfficialTaggedStandards.WHITESPACE) #16
   %.not.i.i = icmp eq ptr %203, null
@@ -545,7 +545,7 @@ addOfficialTaggedStandards.exit.i:                ; preds = %allocString.exit.i,
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %226
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %226 ], [ 0, %.preheader.i.i.i ]
-  %230 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv.i.i.i
+  %230 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv.i.i.i
   %231 = load i16, ptr %230, align 4, !tbaa !33
   %232 = zext i16 %231 to i64
   %233 = shl nuw nsw i64 %232, 1
@@ -569,9 +569,9 @@ addConverter.exit.i.i:                            ; preds = %226, %.preheader.i.
   %244 = lshr i64 %243, 1
   %245 = trunc i64 %244 to i16
   %246 = zext i16 %.lcssa.i.i.i to i64
-  %247 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %246
   store i16 %245, ptr %247, align 4, !tbaa !33
-  %248 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %246, i32 1
+  %248 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %246, i32 1
   store i16 0, ptr %248, align 2, !tbaa !35
   %249 = add i16 %.lcssa.i.i.i, 1
   store i16 %249, ptr @converterCount, align 2, !tbaa !19
@@ -580,7 +580,7 @@ addConverter.exit.i.i:                            ; preds = %226, %.preheader.i.
   br i1 %.not110139152.i.i, label %parseLine.exit.i, label %.lr.ph141.lr.ph.i.i
 
 .lr.ph141.lr.ph.i.i:                              ; preds = %addConverter.exit.i.i
-  %251 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %246
+  %251 = getelementptr inbounds nuw %struct.AliasList, ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 %246
   br label %.lr.ph141.i.i
 
 .lr.ph141.i.i:                                    ; preds = %362, %.lr.ph141.lr.ph.i.i
@@ -678,7 +678,7 @@ addToKnownAliases.exit.i.i:                       ; preds = %286
   %298 = add nuw i16 %287, 1
   store i16 %298, ptr @knownAliasesCount, align 2, !tbaa !19
   %299 = zext i16 %287 to i64
-  %300 = getelementptr inbounds nuw [65535 x i16], ptr @knownAliases, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw i16, ptr @knownAliases, i64 %299
   store i16 %297, ptr %300, align 2, !tbaa !19
   %301 = load i8, ptr %279, align 1, !tbaa !16
   %.not115143.i.i = icmp eq i8 %301, 0
@@ -906,7 +906,7 @@ parseFile.exit:                                   ; preds = %374, %.thread122.i
 
 .preheader47.us.i.i.i:                            ; preds = %._crit_edge53.us.i.i.i, %.preheader47.us.preheader.i.i.i
   %indvars.iv73.i.i.i = phi i64 [ 2, %.preheader47.us.preheader.i.i.i ], [ %indvars.iv.next74.i.i.i, %._crit_edge53.us.i.i.i ]
-  %414 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv73.i.i.i, i32 2
+  %414 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv73.i.i.i, i32 2
   br label %.preheader46.us.i.i.i
 
 415:                                              ; preds = %.critedge.us.i.i.i
@@ -928,7 +928,7 @@ parseFile.exit:                                   ; preds = %374, %.thread122.i
 
 .preheader46.us.i.i.i:                            ; preds = %._crit_edge.us.i.i.i, %.preheader47.us.i.i.i
   %indvars.iv68.i.i.i = phi i64 [ 0, %.preheader47.us.i.i.i ], [ %indvars.iv.next69.i.i.i, %._crit_edge.us.i.i.i ]
-  %418 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %414, i64 0, i64 %indvars.iv68.i.i.i
+  %418 = getelementptr inbounds nuw %struct.AliasList, ptr %414, i64 %indvars.iv68.i.i.i
   %419 = load i16, ptr %418, align 8, !tbaa !41
   %.not60.i.i.i = icmp eq i16 %419, 0
   br i1 %.not60.i.i.i, label %._crit_edge.us.i.i.i, label %.critedge.lr.ph.us.i.i.i
@@ -959,7 +959,7 @@ parseFile.exit:                                   ; preds = %374, %.thread122.i
 
 .preheader.i.i.i51:                               ; preds = %._crit_edge.i.i.i, %.preheader.preheader.i.i.i
   %indvars.iv83.i.i.i = phi i64 [ 0, %.preheader.preheader.i.i.i ], [ %indvars.iv.next84.i.i.i, %._crit_edge.i.i.i ]
-  %424 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv83.i.i.i
+  %424 = getelementptr inbounds nuw %struct.AliasList, ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 %indvars.iv83.i.i.i
   %425 = load i16, ptr %424, align 8, !tbaa !41
   %.not62.i.i.i = icmp eq i16 %425, 0
   br i1 %.not62.i.i.i, label %._crit_edge.i.i.i, label %.critedge44.lr.ph.i.i.i
@@ -1025,7 +1025,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
   %.042122.i.i = phi i16 [ %.0107.i.i, %.lr.ph.preheader.i.i ], [ %.143.i.i, %548 ]
   %.146120.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i ], [ %.2.i.i, %548 ]
   %.0109119.i.i = phi i16 [ %.3.i.i54, %.lr.ph.preheader.i.i ], [ %.2111.i.i, %548 ]
-  %446 = getelementptr inbounds nuw [65535 x i16], ptr @knownAliases, i64 0, i64 %indvars.iv.i.i
+  %446 = getelementptr inbounds nuw i16, ptr @knownAliases, i64 %indvars.iv.i.i
   %447 = load i16, ptr %446, align 2, !tbaa !19
   %448 = load i16, ptr @tagCount, align 2, !tbaa !19
   %449 = icmp ugt i16 %448, 2
@@ -1043,7 +1043,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
 
 .preheader47.us.i77.i.i:                          ; preds = %._crit_edge53.us.i92.i.i, %.preheader47.us.preheader.i74.i.i
   %indvars.iv73.i78.i.i = phi i64 [ 2, %.preheader47.us.preheader.i74.i.i ], [ %indvars.iv.next74.i93.i.i, %._crit_edge53.us.i92.i.i ]
-  %450 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv73.i78.i.i, i32 2
+  %450 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv73.i78.i.i, i32 2
   br label %.preheader46.us.i79.i.i
 
 451:                                              ; preds = %.critedge.us.i84.i.i
@@ -1065,7 +1065,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
 
 .preheader46.us.i79.i.i:                          ; preds = %._crit_edge.us.i89.i.i, %.preheader47.us.i77.i.i
   %indvars.iv68.i80.i.i = phi i64 [ 0, %.preheader47.us.i77.i.i ], [ %indvars.iv.next69.i90.i.i, %._crit_edge.us.i89.i.i ]
-  %454 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %450, i64 0, i64 %indvars.iv68.i80.i.i
+  %454 = getelementptr inbounds nuw %struct.AliasList, ptr %450, i64 %indvars.iv68.i80.i.i
   %455 = load i16, ptr %454, align 8, !tbaa !41
   %.not60.i81.i.i = icmp eq i16 %455, 0
   br i1 %.not60.i81.i.i, label %._crit_edge.us.i89.i.i, label %.critedge.lr.ph.us.i82.i.i
@@ -1096,7 +1096,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
 
 .preheader.i58.i.i:                               ; preds = %._crit_edge.i68.i.i, %.preheader.preheader.i56.i.i
   %indvars.iv83.i59.i.i = phi i64 [ 0, %.preheader.preheader.i56.i.i ], [ %indvars.iv.next84.i69.i.i, %._crit_edge.i68.i.i ]
-  %460 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv83.i59.i.i
+  %460 = getelementptr inbounds nuw %struct.AliasList, ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 %indvars.iv83.i59.i.i
   %461 = load i16, ptr %460, align 8, !tbaa !41
   %.not62.i60.i.i = icmp eq i16 %461, 0
   br i1 %.not62.i60.i.i, label %._crit_edge.i68.i.i, label %.critedge44.lr.ph.i61.i.i
@@ -1174,7 +1174,7 @@ resolveAliasToConverter.exit96.i.i:               ; preds = %._crit_edge58.i71.i
   %494 = shl nuw nsw i64 %493, 1
   %495 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %494
   %496 = zext i16 %.1108.i.i to i64
-  %497 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %496
   %498 = load i16, ptr %497, align 4, !tbaa !33
   %499 = zext i16 %498 to i64
   %500 = shl nuw nsw i64 %499, 1
@@ -1193,7 +1193,7 @@ resolveAliasToConverter.exit96.i.i:               ; preds = %._crit_edge58.i71.i
   %507 = shl nuw nsw i64 %506, 1
   %508 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %507
   %509 = zext i16 %.042122.i.i to i64
-  %510 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %509
   %511 = load i16, ptr %510, align 4, !tbaa !33
   %512 = zext i16 %511 to i64
   %513 = shl nuw nsw i64 %512, 1
@@ -1246,7 +1246,7 @@ resolveAliasToConverter.exit96.i.i:               ; preds = %._crit_edge58.i71.i
   %.143.i.i = phi i16 [ %.042122.i.i, %517 ], [ %.042122.i.i, %518 ], [ %.1108.i.i, %524 ]
   %.1.i.i = phi ptr [ %.0123.i.i, %517 ], [ %.0123.i.i, %518 ], [ %533, %524 ]
   %535 = zext i16 %.1108.i.i to i64
-  %536 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %535
   %537 = load i16, ptr %536, align 4, !tbaa !33
   %538 = zext i16 %537 to i64
   %539 = shl nuw nsw i64 %538, 1
@@ -1294,7 +1294,7 @@ resolveAliases.exit.i:                            ; preds = %548, %resolveAliasT
   br i1 %.not92.i, label %._crit_edge.i57, label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %.preheader71.i
-  %558 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv106.i
+  %558 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv106.i
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 8
   %560 = icmp eq i64 %indvars.iv106.i, 0
   br i1 %560, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -1308,7 +1308,7 @@ resolveAliases.exit.i:                            ; preds = %548, %resolveAliasT
   %aliasListsSize.promoted121.i = phi i16 [ %aliasListsSize.promoted122.i, %createOneAliasList.exit.us.i ], [ %aliasListsSize.promoted.i, %.lr.ph.split.us.i ]
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %createOneAliasList.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.lcssa72.us81.i = phi i16 [ %.lcssa72.us80.i, %createOneAliasList.exit.us.i ], [ %aliasListsSize.promoted.i, %.lr.ph.split.us.i ]
-  %563 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %559, i64 0, i64 %indvars.iv103.i
+  %563 = getelementptr inbounds nuw %struct.AliasList, ptr %559, i64 %indvars.iv103.i
   %564 = load i16, ptr %563, align 8, !tbaa !41
   %565 = icmp eq i16 %564, 0
   br i1 %565, label %583, label %.lr.ph.i59.us.i
@@ -1317,7 +1317,7 @@ resolveAliases.exit.i:                            ; preds = %548, %resolveAliasT
   %566 = add i16 %.lcssa72.us81.i, 1
   store i16 %566, ptr @aliasListsSize, align 2, !tbaa !19
   %567 = zext i16 %.lcssa72.us81.i to i64
-  %568 = getelementptr inbounds nuw [65535 x i16], ptr @aliasLists, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i16, ptr @aliasLists, i64 %567
   store i16 %564, ptr %568, align 2, !tbaa !19
   %569 = getelementptr inbounds nuw i16, ptr %398, i64 %indvars.iv103.i
   store i16 %566, ptr %569, align 2, !tbaa !19
@@ -1336,7 +1336,7 @@ resolveAliases.exit.i:                            ; preds = %548, %resolveAliasT
   %.0.us.i.us.i = select i1 %.not.us.i.us.i, i16 0, i16 %577
   %578 = add i16 %574, 1
   %579 = zext i16 %574 to i64
-  %580 = getelementptr inbounds nuw [65535 x i16], ptr @aliasLists, i64 0, i64 %579
+  %580 = getelementptr inbounds nuw i16, ptr @aliasLists, i64 %579
   store i16 %.0.us.i.us.i, ptr %580, align 2, !tbaa !19
   %581 = icmp eq i16 %578, -1
   br i1 %581, label %.split.us.i.i, label %582
@@ -1369,7 +1369,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %587 = phi i16 [ %639, %createOneAliasList.exit.i ], [ %556, %.lr.ph.i55 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %createOneAliasList.exit.i ], [ 0, %.lr.ph.i55 ]
   %.in.i = phi i16 [ %638, %createOneAliasList.exit.i ], [ %557, %.lr.ph.i55 ]
-  %588 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %559, i64 0, i64 %indvars.iv.i
+  %588 = getelementptr inbounds nuw %struct.AliasList, ptr %559, i64 %indvars.iv.i
   %589 = load i16, ptr %588, align 8, !tbaa !41
   %590 = icmp eq i16 %589, 0
   br i1 %590, label %591, label %.lr.ph.i59.i
@@ -1386,7 +1386,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %596 = add i16 %587, 1
   store i16 %596, ptr @aliasListsSize, align 2, !tbaa !19
   %597 = zext i16 %587 to i64
-  %598 = getelementptr inbounds nuw [65535 x i16], ptr @aliasLists, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw i16, ptr @aliasLists, i64 %597
   store i16 %589, ptr %598, align 2, !tbaa !19
   %599 = zext i16 %.in.i to i64
   %600 = mul nuw i64 %indvars.iv106.i, %599
@@ -1394,7 +1394,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %602 = getelementptr inbounds nuw i16, ptr %601, i64 %indvars.iv.i
   store i16 %596, ptr %602, align 2, !tbaa !19
   %603 = getelementptr inbounds nuw i8, ptr %588, i64 8
-  %604 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv.i
+  %604 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv.i
   br label %.lr.ph.split.i.i
 
 .split.us.i.i:                                    ; preds = %573
@@ -1446,7 +1446,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %630 = add i16 %629, 1
   store i16 %630, ptr @aliasListsSize, align 2, !tbaa !19
   %631 = zext i16 %629 to i64
-  %632 = getelementptr inbounds nuw [65535 x i16], ptr @aliasLists, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i16, ptr @aliasLists, i64 %631
   store i16 %.0.i.i56, ptr %632, align 2, !tbaa !19
   %633 = icmp eq i16 %630, -1
   br i1 %633, label %.split.i.i, label %605
@@ -1541,7 +1541,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
 
 .lr.ph87.i:                                       ; preds = %673, %.lr.ph87.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.i, %.lr.ph87.i ], [ 0, %673 ]
-  %677 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv109.i
+  %677 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv109.i
   %678 = load i16, ptr %677, align 4, !tbaa !33
   %679 = add i16 %678, %391
   call void @udata_write16(ptr noundef %380, i16 noundef zeroext %679) #16
@@ -1553,7 +1553,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
 
 .lr.ph89.i:                                       ; preds = %.preheader.i59, %.lr.ph89.i
   %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.lr.ph89.i ], [ 2, %.preheader.i59 ]
-  %683 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv112.i
+  %683 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv112.i
   %684 = load i16, ptr %683, align 8, !tbaa !28
   call void @udata_write16(ptr noundef %380, i16 noundef zeroext %684) #16
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
@@ -1732,12 +1732,12 @@ writeAliasTable.exit:                             ; preds = %._crit_edge90.i, %c
 
 .preheader:                                       ; preds = %writeAliasTable.exit, %791
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %791 ], [ 0, %writeAliasTable.exit ]
-  %785 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv155, i32 2
+  %785 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv155, i32 2
   br label %786
 
 786:                                              ; preds = %.preheader, %790
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %790 ]
-  %787 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %785, i64 0, i64 %indvars.iv, i32 1
+  %787 = getelementptr inbounds nuw %struct.AliasList, ptr %785, i64 %indvars.iv, i32 1
   %788 = load ptr, ptr %787, align 8, !tbaa !46
   %.not49 = icmp eq ptr %788, null
   br i1 %.not49, label %790, label %789
@@ -1839,7 +1839,7 @@ define internal fastcc zeroext i16 @getTagNumber(ptr noundef %0, i16 noundef zer
 22:                                               ; preds = %.lr.ph, %32
   %.pr41 = phi i16 [ %12, %.lr.ph ], [ %.pr, %32 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %23 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %indvars.iv
   %24 = load i16, ptr %23, align 8, !tbaa !28
   %25 = zext i16 %24 to i64
   %26 = shl nuw nsw i64 %25, 1
@@ -1913,7 +1913,7 @@ define internal fastcc zeroext i16 @getTagNumber(ptr noundef %0, i16 noundef zer
   %60 = trunc i64 %59 to i16
   %61 = load i16, ptr @tagCount, align 2, !tbaa !19
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %62
   store i16 %60, ptr %63, align 8, !tbaa !28
   %64 = add i16 %61, 1
   store i16 %64, ptr @tagCount, align 2, !tbaa !19
@@ -2038,10 +2038,10 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
 
 18:                                               ; preds = %11
   %19 = zext nneg i16 %1 to i64
-  %20 = getelementptr inbounds nuw [63 x %struct.Tag], ptr @tags, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.Tag, ptr @tags, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = zext nneg i16 %2 to i64
-  %23 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.AliasList, ptr %21, i64 %22
   %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 125) #18
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %30, label %25
@@ -2062,7 +2062,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %34 = load ptr, ptr @stderr, align 8, !tbaa !12
   %35 = load ptr, ptr @path, align 8, !tbaa !14
   %36 = load i32, ptr @lineNum, align 4, !tbaa !4
-  %37 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %22
+  %37 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22
   %38 = load i16, ptr %37, align 4, !tbaa !33
   %39 = zext i16 %38 to i64
   %40 = shl nuw nsw i64 %39, 1
@@ -2081,12 +2081,12 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   br i1 %.not85, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader79
-  %45 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %22
+  %45 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22
   %46 = zext nneg i16 %2 to i64
   br label %.preheader
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %22
+  %48 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22
   %49 = load i16, ptr %48, align 4, !tbaa !33
   %50 = zext i16 %49 to i64
   %51 = shl nuw nsw i64 %50, 1
@@ -2118,7 +2118,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
   %indvars.iv88 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next89, %.thread ]
-  %65 = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr %21, i64 0, i64 %indvars.iv88
+  %65 = getelementptr inbounds nuw %struct.AliasList, ptr %21, i64 %indvars.iv88
   %66 = load i16, ptr %65, align 8, !tbaa !41
   %.not86 = icmp eq i16 %66, 0
   br i1 %.not86, label %.thread, label %.lr.ph
@@ -2188,7 +2188,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %107 = zext i16 %106 to i64
   %108 = shl nuw nsw i64 %107, 1
   %109 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %108
-  %110 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv88
+  %110 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv88
   %111 = load i16, ptr %110, align 4, !tbaa !33
   %112 = zext i16 %111 to i64
   %113 = shl nuw nsw i64 %112, 1
@@ -2254,7 +2254,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %145 = zext i16 %144 to i64
   %146 = shl nuw nsw i64 %145, 1
   %147 = getelementptr inbounds nuw i8, ptr @tagStore, i64 %146
-  %148 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %22
+  %148 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22
   %149 = load i16, ptr %148, align 4, !tbaa !33
   %150 = zext i16 %149 to i64
   %151 = shl nuw nsw i64 %150, 1
@@ -2285,7 +2285,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   br label %168
 
 168:                                              ; preds = %159, %154
-  %169 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %22, i32 1
+  %169 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22, i32 1
   %170 = load i16, ptr %169, align 2, !tbaa !35
   %171 = add i16 %170, 1
   store i16 %171, ptr %169, align 2, !tbaa !35

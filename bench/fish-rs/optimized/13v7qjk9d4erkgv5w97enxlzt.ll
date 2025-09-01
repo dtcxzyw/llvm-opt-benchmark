@@ -5022,7 +5022,7 @@ define internal fastcc void @_ZN4fish5wutil8dir_iter8DirEntry7do_stat17h25c903fc
 switch.lookup:                                    ; preds = %20
   %36 = lshr exact i32 %28, 12
   %37 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN4fish5wutil8dir_iter8DirEntry7do_stat17h25c903fc1306d06dE, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4fish5wutil8dir_iter8DirEntry7do_stat17h25c903fc1306d06dE, i64 %37
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit
 
@@ -28340,10 +28340,10 @@ switch.lookup:
   tail call void @llvm.assume(i1 %20)
   %narrow = select i1 %19, i8 %18, i8 3
   %21 = zext nneg i8 %narrow to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN4fish6parser5Block11description17h5287ef509a84de42E, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4fish6parser5Block11description17h5287ef509a84de42E, i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
   %22 = zext nneg i8 %narrow to i64
-  %switch.gep22 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN4fish6parser5Block11description17h5287ef509a84de42E.173, i64 0, i64 %22
+  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4fish6parser5Block11description17h5287ef509a84de42E.173, i64 %22
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2286
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h63d6a0ac2772e3afE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef %switch.load, i1 noundef zeroext false, i64 noundef 4, i64 noundef 4), !noalias !2286

@@ -106,7 +106,7 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN19LogFileStreamOutput17
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw [12 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %9, ptr noundef nonnull %3, i64 noundef 256) #10
   %17 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, i64 noundef %15, ptr noundef %16) #10
@@ -216,7 +216,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecor
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds nuw [12 x i64], ptr %10, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %20 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %13, ptr noundef nonnull %4, i64 noundef 256) #10
   %21 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef %19, ptr noundef %20) #10

@@ -210,7 +210,7 @@ define weak_odr void @_ZN7mitsuba12CheckerboardIfN5drjit6MatrixINS_8SpectrumIfLm
 
 13:                                               ; preds = %13, %2
   %.017.i.i = phi i64 [ 0, %2 ], [ %16, %13 ]
-  %14 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %12, i64 0, i64 %.017.i.i
+  %14 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %12, i64 %.017.i.i
   %15 = getelementptr inbounds nuw float, ptr %14, i64 %.017.i.i
   store float 1.000000e+00, ptr %15, align 4, !alias.scope !9
   %16 = add nuw nsw i64 %.017.i.i, 1
@@ -224,7 +224,7 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 18:                                               ; preds = %18, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i
   %.017.i1.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %17, i64 0, i64 %.017.i1.i
+  %19 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %17, i64 %.017.i1.i
   %20 = getelementptr inbounds nuw float, ptr %19, i64 %.017.i1.i
   store float 1.000000e+00, ptr %20, align 4, !alias.scope !17
   %21 = add nuw nsw i64 %.017.i1.i, 1
@@ -315,7 +315,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 34:                                               ; preds = %34, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit15
   %.017.i.i16 = phi i64 [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit15 ], [ %37, %34 ]
-  %35 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %9, i64 0, i64 %.017.i.i16
+  %35 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %9, i64 %.017.i.i16
   %36 = getelementptr inbounds nuw float, ptr %35, i64 %.017.i.i16
   store float 1.000000e+00, ptr %36, align 4, !alias.scope !18
   %37 = add nuw nsw i64 %.017.i.i16, 1
@@ -329,7 +329,7 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 39:                                               ; preds = %39, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i18
   %.017.i1.i19 = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i18 ], [ %42, %39 ]
-  %40 = getelementptr inbounds nuw [3 x %"struct.drjit::Array"], ptr %38, i64 0, i64 %.017.i1.i19
+  %40 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %38, i64 %.017.i1.i19
   %41 = getelementptr inbounds nuw float, ptr %40, i64 %.017.i1.i19
   store float 1.000000e+00, ptr %41, align 4, !alias.scope !26
   %42 = add nuw nsw i64 %.017.i1.i19, 1
@@ -3616,7 +3616,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
   %.014 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr [3 x %"struct.drjit::Array"], ptr %invariant.gep, i64 0, i64 %.014
+  %gep = getelementptr %"struct.drjit::Array", ptr %invariant.gep, i64 %.014
   %28 = load float, ptr %gep, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.22, double noundef %29)

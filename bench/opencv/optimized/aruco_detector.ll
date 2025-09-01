@@ -24042,7 +24042,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEC2IN9__gnu_cxx17__normal_iteratorIPNS1_IiEES
 
 83:                                               ; preds = %124
   %84 = zext nneg i32 %.268.i.i.i.i to i64
-  %85 = getelementptr inbounds nuw [5 x %"class.std::vector.28"], ptr %15, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %"class.std::vector.28", ptr %15, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !153
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -24134,7 +24134,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i.i.i
+  %122 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i.i.i
   store i32 %.069192.i.i.i.i, ptr %122, align 4, !tbaa !33
   %123 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   br label %124
@@ -24179,7 +24179,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i: ; preds = %_Z
   br i1 %138, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %135
-  %139 = getelementptr inbounds nuw [5 x %"class.std::vector.28"], ptr %15, i64 0, i64 %.066.lcssa.i.i.i.i
+  %139 = getelementptr inbounds nuw %"class.std::vector.28", ptr %15, i64 %.066.lcssa.i.i.i.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.promoted.i.i.i.i = load ptr, ptr %141, align 8, !tbaa !154
@@ -24188,7 +24188,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i: ; preds = %_Z
 
 142:                                              ; preds = %134, %.preheader170.i.i.i.i
   %indvars.iv220.i.i.i.i = phi i64 [ 0, %.preheader170.i.i.i.i ], [ %indvars.iv.next221.i.i.i.i, %134 ]
-  %143 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv220.i.i.i.i
+  %143 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv220.i.i.i.i
   %144 = load i32, ptr %143, align 4, !tbaa !33
   %.not.i.i.i.i = icmp eq i32 %144, -1
   br i1 %.not.i.i.i.i, label %145, label %134
@@ -24372,11 +24372,11 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i: ; preds = %160, %158,
 
 .preheader.split.us.i.i.i.i:                      ; preds = %.preheader.i.i.i.i, %_ZNK2cv4MatxIfLi2ELi2EE5solveILi1EEENS0_IfLi2EXT_EEERKS3_i.exit.i.us.i.i.i.i
   %indvars.iv232.i.i.i.i = phi i64 [ %indvars.iv.next233.i.i.i.i, %_ZNK2cv4MatxIfLi2ELi2EE5solveILi1EEENS0_IfLi2EXT_EEERKS3_i.exit.i.us.i.i.i.i ], [ 0, %.preheader.i.i.i.i ]
-  %211 = getelementptr inbounds nuw [4 x %"class.cv::Point3_"], ptr %19, i64 0, i64 %indvars.iv232.i.i.i.i
+  %211 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %19, i64 %indvars.iv232.i.i.i.i
   %.sroa.014.0.copyload.us.i.i.i.i = load <2 x float>, ptr %211, align 4
   %indvars.iv.next233.i.i.i.i = add nuw nsw i64 %indvars.iv232.i.i.i.i, 1
   %212 = and i64 %indvars.iv.next233.i.i.i.i, 3
-  %213 = getelementptr inbounds nuw [4 x %"class.cv::Point3_"], ptr %19, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %19, i64 %212
   %.sroa.012.0.copyload.us.i.i.i.i = load <2 x float>, ptr %213, align 4
   %.sroa.04.0.vec.extract.i.us.i.i.i.i = extractelement <2 x float> %.sroa.014.0.copyload.us.i.i.i.i, i64 0
   %.sroa.04.4.vec.extract.i.us.i.i.i.i = extractelement <2 x float> %.sroa.014.0.copyload.us.i.i.i.i, i64 1
@@ -24416,7 +24416,7 @@ _ZNK2cv4MatxIfLi2ELi2EE5solveILi1EEENS0_IfLi2EXT_EEERKS3_i.exit.i.us.i.i.i.i: ; 
 
 230:                                              ; preds = %350, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i
   %indvars.iv224.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i ], [ %indvars.iv.next225.i.i.i.i, %350 ]
-  %231 = getelementptr inbounds nuw [5 x %"class.std::vector.28"], ptr %15, i64 0, i64 %indvars.iv224.i.i.i.i
+  %231 = getelementptr inbounds nuw %"class.std::vector.28", ptr %15, i64 %indvars.iv224.i.i.i.i
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !153
   %234 = load ptr, ptr %231, align 8, !tbaa !127
@@ -24715,7 +24715,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i.i.i.i.i:       ; preds = %.noexc124.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %351 = getelementptr inbounds nuw [4 x %"class.cv::Point3_"], ptr %19, i64 0, i64 %indvars.iv224.i.i.i.i
+  %351 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %19, i64 %indvars.iv224.i.i.i.i
   store <2 x float> %.sroa.0.0.i.i.i.i.i, ptr %351, align 4
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
   store float %.sroa.5.0.i.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 4, !tbaa !36
@@ -24735,11 +24735,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i.i.i.i.i:       ; preds = %.noexc124.i.i.i.i
 
 .preheader.split.i.i.i.i:                         ; preds = %.preheader.i.i.i.i, %_ZNK2cv4MatxIfLi2ELi2EE5solveILi1EEENS0_IfLi2EXT_EEERKS3_i.exit.i139.i.i.i.i
   %indvars.iv228.i.i.i.i = phi i64 [ %indvars.iv.next229.i.i.i.i, %_ZNK2cv4MatxIfLi2ELi2EE5solveILi1EEENS0_IfLi2EXT_EEERKS3_i.exit.i139.i.i.i.i ], [ 0, %.preheader.i.i.i.i ]
-  %354 = getelementptr inbounds nuw [4 x %"class.cv::Point3_"], ptr %19, i64 0, i64 %indvars.iv228.i.i.i.i
+  %354 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %19, i64 %indvars.iv228.i.i.i.i
   %.sroa.05.0.copyload.i.i.i.i = load <2 x float>, ptr %354, align 4
   %355 = add nuw nsw i64 %indvars.iv228.i.i.i.i, 3
   %356 = and i64 %355, 3
-  %357 = getelementptr inbounds nuw [4 x %"class.cv::Point3_"], ptr %19, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %19, i64 %356
   %.sroa.03.0.copyload.i.i.i.i = load <2 x float>, ptr %357, align 4
   %.sroa.04.0.vec.extract.i130.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i.i.i, i64 0
   %.sroa.04.4.vec.extract.i131.i.i.i.i = extractelement <2 x float> %.sroa.05.0.copyload.i.i.i.i, i64 1

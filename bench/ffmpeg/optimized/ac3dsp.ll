@@ -858,7 +858,7 @@ define internal void @ac3_bit_alloc_calc_bap_c(ptr noundef readonly captures(non
 
 11:                                               ; preds = %8
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds [253 x i8], ptr @ff_ac3_bin_to_band_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr @ff_ac3_bin_to_band_tab, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !45
   %15 = add i32 %5, %4
   %16 = zext i8 %14 to i64
@@ -868,7 +868,7 @@ define internal void @ac3_bit_alloc_calc_bap_c(ptr noundef readonly captures(non
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %._crit_edge ], [ %16, %11 ]
   %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %2, %11 ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %18 = getelementptr inbounds nuw [51 x i8], ptr @ff_ac3_band_start_tab, i64 0, i64 %indvars.iv.next39
+  %18 = getelementptr inbounds nuw i8, ptr @ff_ac3_band_start_tab, i64 %indvars.iv.next39
   %19 = load i8, ptr %18, align 1, !tbaa !45
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @llvm.smin.i32(i32 %3, i32 %20)
@@ -974,10 +974,10 @@ define internal range(i32 0, -2147483648) i32 @ac3_compute_mantissa_size_c(ptr n
 24:                                               ; preds = %2, %24
   %indvars.iv = phi i64 [ 5, %2 ], [ %indvars.iv.next, %24 ]
   %.123 = phi i32 [ %23, %2 ], [ %32, %24 ]
-  %25 = getelementptr inbounds nuw [16 x i16], ptr %3, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds nuw [16 x i16], ptr @ff_ac3_bap_bits, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i16, ptr @ff_ac3_bap_bits, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   %31 = mul nuw nsw i32 %30, %27
@@ -1023,7 +1023,7 @@ define internal void @ac3_extract_exponents_c(ptr noundef writeonly captures(non
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %10
   %.1.i.neg12 = select i1 %.not11.i, i8 %spec.select12.i.neg, i8 %.neg11
   %11 = zext nneg i32 %.110.i to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !45
   %.neg9 = add nsw i8 %.1.i.neg12, 23
   %14 = sub i8 %.neg9, %13

@@ -345,7 +345,7 @@ define hidden ptr @lexbor_str_append_lowercase(ptr noundef captures(none) %0, pt
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.02832
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.02832
   store i8 %26, ptr %27, align 1, !tbaa !12
@@ -878,12 +878,12 @@ define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef readonly captures(
 
 7:                                                ; preds = %.lr.ph
   %8 = zext i8 %5 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.018
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %.not = icmp eq i8 %10, %15
   br i1 %.not, label %16, label %.loopexit
@@ -920,12 +920,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !12
   %.not7 = icmp eq i8 %11, %16
   br i1 %.not7, label %4, label %17
@@ -958,12 +958,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef r
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.0810.i
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %.not.i = icmp eq i8 %13, %18
   br i1 %.not.i, label %7, label %lexbor_str_data_ncasecmp.exit
@@ -989,12 +989,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef readonly 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.0810
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.0810
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !12
   %.not = icmp eq i8 %9, %14
   %15 = add nuw i64 %.0810, 1
@@ -1019,7 +1019,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.0810
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %.not = icmp eq i8 %6, %11
   %12 = add nuw i64 %.0810, 1
@@ -1044,7 +1044,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef reado
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.0810
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_uppercase, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %.not = icmp eq i8 %6, %11
   %12 = add nuw i64 %.0810, 1
@@ -1061,11 +1061,11 @@ define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef reado
 define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1, !tbaa !12
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = load i8, ptr %1, align 1, !tbaa !12
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %.not9 = icmp eq i8 %6, %10
   %11 = icmp ne i8 %3, 0
@@ -1079,11 +1079,11 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %14 = load i8, ptr %12, align 1, !tbaa !12
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = load i8, ptr %13, align 1, !tbaa !12
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %.not = icmp eq i8 %17, %21
   %22 = icmp ne i8 %14, 0
@@ -1217,7 +1217,7 @@ define hidden void @lexbor_str_data_to_lowercase(ptr noundef writeonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1, !tbaa !12
@@ -1239,7 +1239,7 @@ define hidden void @lexbor_str_data_to_uppercase(ptr noundef writeonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_uppercase, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1, !tbaa !12
@@ -1264,7 +1264,7 @@ define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !12
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_lowercase, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = icmp eq i8 %7, %10
   br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3
@@ -1292,7 +1292,7 @@ define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !12
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @lexbor_str_res_map_uppercase, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = icmp eq i8 %7, %10
   br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3

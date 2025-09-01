@@ -1982,7 +1982,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit87: ; preds = %19
 
 .preheader130:                                    ; preds = %32
   %34 = zext nneg i32 %.0 to i64
-  %35 = getelementptr inbounds nuw [25 x %"struct.(anonymous namespace)::KeywordStruct"], ptr %7, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %34
   br label %36
 
 36:                                               ; preds = %.preheader130, %44
@@ -1997,7 +1997,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit87: ; preds = %19
   %40 = tail call signext i8 @uprv_asciitolower_77(i8 noundef signext %38)
   %41 = add nsw i32 %.068136, 1
   %42 = sext i32 %.068136 to i64
-  %43 = getelementptr inbounds [25 x i8], ptr %35, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %35, i64 %42
   store i8 %40, ptr %43, align 1, !tbaa !20
   br label %44
 
@@ -2009,7 +2009,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit87: ; preds = %19
 
 45:                                               ; preds = %44
   %46 = sext i32 %.169 to i64
-  %47 = getelementptr inbounds [25 x i8], ptr %35, i64 0, i64 %46
+  %47 = getelementptr inbounds i8, ptr %35, i64 %46
   store i8 0, ptr %47, align 1, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 %.169, ptr %48, align 4, !tbaa !24
@@ -2077,7 +2077,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph138:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread, %71
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %71 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread ]
-  %72 = getelementptr inbounds nuw [25 x %"struct.(anonymous namespace)::KeywordStruct"], ptr %7, i64 0, i64 %indvars.iv150
+  %72 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv150
   %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %35) #23
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %._crit_edge139, label %71
@@ -2110,7 +2110,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph145.split.us:                               ; preds = %.lr.ph145.split.us.preheader, %102
   %indvars.iv159 = phi i64 [ 0, %.lr.ph145.split.us.preheader ], [ %indvars.iv.next160, %102 ]
-  %81 = getelementptr inbounds nuw [25 x %"struct.(anonymous namespace)::KeywordStruct"], ptr %7, i64 0, i64 %indvars.iv159
+  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv159
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4, !tbaa !24
   %84 = load ptr, ptr %3, align 8, !tbaa !32
@@ -2146,7 +2146,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145.split.preheader, %.lr.ph145.split
   %indvars.iv154 = phi i64 [ 0, %.lr.ph145.split.preheader ], [ %indvars.iv.next155, %.lr.ph145.split ]
-  %103 = getelementptr inbounds nuw [25 x %"struct.(anonymous namespace)::KeywordStruct"], ptr %7, i64 0, i64 %indvars.iv154
+  %103 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv154
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %105 = load i32, ptr %104, align 4, !tbaa !24
   %106 = load ptr, ptr %3, align 8, !tbaa !32
@@ -3662,8 +3662,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   %9 = lshr i32 %8, 3
   %10 = zext nneg i32 %9 to i64
   %sext = shl i64 %10, 48
-  %11 = ashr exact i64 %sext, 48
-  %12 = getelementptr inbounds [18 x ptr], ptr @_ZN12_GLOBAL__N_121REPLACEMENT_COUNTRIESE, i64 0, i64 %11
+  %11 = ashr exact i64 %sext, 45
+  %12 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_121REPLACEMENT_COUNTRIESE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   br label %.critedge
 
@@ -3708,8 +3708,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   %9 = lshr i32 %8, 3
   %10 = zext nneg i32 %9 to i64
   %sext = shl i64 %10, 48
-  %11 = ashr exact i64 %sext, 48
-  %12 = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_121REPLACEMENT_LANGUAGESE, i64 0, i64 %11
+  %11 = ashr exact i64 %sext, 45
+  %12 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_121REPLACEMENT_LANGUAGESE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   br label %.critedge
 
@@ -4351,8 +4351,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i:    ; preds = %.lr.ph.i.i
   %92 = lshr i32 %91, 3
   %93 = zext nneg i32 %92 to i64
   %sext.i = shl i64 %93, 48
-  %94 = ashr exact i64 %sext.i, 48
-  %95 = getelementptr inbounds [611 x ptr], ptr @_ZN12_GLOBAL__N_19LANGUAGESE, i64 0, i64 %94
+  %94 = ashr exact i64 %sext.i, 45
+  %95 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_19LANGUAGESE, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !56
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #23
   %98 = trunc i64 %97 to i32
@@ -4865,8 +4865,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   %37 = lshr i32 %36, 3
   %38 = zext nneg i32 %37 to i64
   %sext = shl i64 %38, 48
-  %39 = ashr exact i64 %sext, 48
-  %40 = getelementptr inbounds [266 x ptr], ptr @_ZN12_GLOBAL__N_19COUNTRIESE, i64 0, i64 %39
+  %39 = ashr exact i64 %sext, 45
+  %40 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_19COUNTRIESE, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !56
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #23
   br label %.critedge32
@@ -6860,7 +6860,7 @@ _ZN12_GLOBAL__N_111_getVariantESt17basic_string_viewIcSt11char_traitsIcEEcPN6icu
 239:                                              ; preds = %238, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307
   %indvars.iv = phi i64 [ 0, %238 ], [ %indvars.iv.next, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %240 = getelementptr inbounds nuw [10 x %"struct.(anonymous namespace)::CanonicalizationMap"], ptr @_ZN12_GLOBAL__N_116CANONICALIZE_MAPE, i64 0, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CanonicalizationMap", ptr @_ZN12_GLOBAL__N_116CANONICALIZE_MAPE, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 16, !tbaa !107
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef %241)
           to label %242 unwind label %.loopexit
@@ -7362,8 +7362,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   %29 = lshr i32 %28, 3
   %30 = zext nneg i32 %29 to i64
   %sext = shl i64 %30, 48
-  %31 = ashr exact i64 %sext, 48
-  %32 = getelementptr inbounds [611 x ptr], ptr @_ZN12_GLOBAL__N_111LANGUAGES_3E, i64 0, i64 %31
+  %31 = ashr exact i64 %sext, 45
+  %32 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111LANGUAGES_3E, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !56
   br label %.critedge
 
@@ -7468,8 +7468,8 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit:      ; preds = %.lr.ph.i
   %29 = lshr i32 %28, 3
   %30 = zext nneg i32 %29 to i64
   %sext = shl i64 %30, 48
-  %31 = ashr exact i64 %sext, 48
-  %32 = getelementptr inbounds [266 x ptr], ptr @_ZN12_GLOBAL__N_111COUNTRIES_3E, i64 0, i64 %31
+  %31 = ashr exact i64 %sext, 45
+  %32 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111COUNTRIES_3E, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !56
   br label %.critedge
 

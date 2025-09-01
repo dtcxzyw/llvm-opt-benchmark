@@ -353,7 +353,7 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit.thread: 
 
 45:                                               ; preds = %43, %49
   %.1227 = phi i64 [ 0, %43 ], [ %50, %49 ]
-  %46 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3gmxL11nstlist_tryE, i64 0, i64 %.1227
+  %46 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL11nstlist_tryE, i64 %.1227
   %47 = load i32, ptr %46, align 4, !tbaa !114
   %48 = mul nsw i32 %47, %19
   %.not186 = icmp slt i32 %44, %48
@@ -564,7 +564,7 @@ _ZN3gmxL41supportsDynamicPairlistGenerationIntervalERK10t_inputrec.exit203.threa
   br label %151
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3gmxL11nstlist_tryE, i64 0, i64 %.2
+  %148 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL11nstlist_tryE, i64 %.2
   %149 = load i32, ptr %148, align 4, !tbaa !114
   %150 = mul nsw i32 %149, %19
   store i32 %150, ptr %110, align 8, !tbaa !110
@@ -1601,14 +1601,14 @@ define void @_ZN3gmx27setupDynamicPairlistPruningERKNS_8MDLoggerERK10t_inputrecR
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %37 = load i32, ptr %5, align 4, !tbaa !176
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !114
   store i32 %40, ptr %10, align 4, !tbaa !177
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %42 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 0, i64 %38
+  %42 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 %38
   %43 = load i32, ptr %42, align 4, !tbaa !114
   store i32 %43, ptr %41, align 4, !tbaa !179
-  %44 = getelementptr inbounds nuw [5 x i8], ptr @_ZN3gmxL20sc_isGpuPairListTypeE, i64 0, i64 %38
+  %44 = getelementptr inbounds nuw i8, ptr @_ZN3gmxL20sc_isGpuPairListTypeE, i64 %38
   %45 = load i8, ptr %44, align 1, !tbaa !180, !range !181, !noundef !182
   %46 = trunc nuw i8 %45 to i1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -3940,11 +3940,11 @@ define void @_ZN3gmx23printNbnxmPressureErrorERKNS_8MDLoggerERK10t_inputrecRK10g
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load i32, ptr %4, align 4, !tbaa !176
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23IClusterSizePerListTypeE, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !114
   store i32 %12, ptr %6, align 4, !tbaa !177
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %14 = getelementptr inbounds nuw [5 x i32], ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i32, ptr @_ZN3gmxL23JClusterSizePerListTypeE, i64 %10
   %15 = load i32, ptr %14, align 4, !tbaa !114
   store i32 %15, ptr %13, align 4, !tbaa !179
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3960,7 +3960,7 @@ define void @_ZN3gmx23printNbnxmPressureErrorERKNS_8MDLoggerERK10t_inputrecRK10g
 24:                                               ; preds = %5
   %25 = load i32, ptr %4, align 4, !tbaa !176
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [5 x i8], ptr @_ZN3gmxL20sc_isGpuPairListTypeE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN3gmxL20sc_isGpuPairListTypeE, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !180, !range !181, !noundef !182
   %29 = trunc nuw i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24

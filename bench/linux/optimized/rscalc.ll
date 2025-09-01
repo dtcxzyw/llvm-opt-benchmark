@@ -31,7 +31,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %8 to i64
-  %16 = getelementptr [0 x i8], ptr @acpi_gbl_aml_resource_sizes, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @acpi_gbl_aml_resource_sizes, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i16
   switch i32 %8, label %171 [
@@ -193,7 +193,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr [0 x i8], ptr @acpi_gbl_aml_resource_serial_bus_sizes, i64 0, i64 %119
+  %120 = getelementptr i8, ptr @acpi_gbl_aml_resource_serial_bus_sizes, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i16
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 19
@@ -292,7 +292,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %12 = call zeroext i16 @acpi_ut_get_resource_length(ptr noundef %8) #4
   %13 = load i8, ptr %4, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [0 x i8], ptr @acpi_gbl_resource_aml_sizes, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @acpi_gbl_resource_aml_sizes, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = call zeroext i8 @acpi_ut_get_resource_header_length(ptr noundef %8) #4
   %18 = zext i8 %17 to i64
@@ -459,7 +459,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
-  %124 = getelementptr [0 x i8], ptr @acpi_gbl_resource_aml_serial_bus_sizes, i64 0, i64 %123
+  %124 = getelementptr i8, ptr @acpi_gbl_resource_aml_serial_bus_sizes, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = zext i16 %120 to i32
   %127 = zext i8 %125 to i32
@@ -557,7 +557,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %202 = select i1 %199, ptr @acpi_gbl_resource_struct_serial_bus_sizes, ptr @acpi_gbl_resource_struct_sizes
   %203 = load i8, ptr %201, align 1
   %204 = zext i8 %203 to i64
-  %205 = getelementptr [0 x i8], ptr %202, i64 0, i64 %204
+  %205 = getelementptr i8, ptr %202, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = add i32 %197, 7

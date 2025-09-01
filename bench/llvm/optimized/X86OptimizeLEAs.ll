@@ -3741,9 +3741,9 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_
 
 .preheader:                                       ; preds = %2, %_ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL13isIdenticalOpRKN4llvm14MachineOperandES2_.exit.thread.i ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !244
-  %15 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !244
   %17 = tail call noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   br i1 %17, label %18, label %_ZNK12_GLOBAL__N_18MemOpKeyeqERKS0_.exit

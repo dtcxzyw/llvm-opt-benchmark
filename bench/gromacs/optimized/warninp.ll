@@ -261,10 +261,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not = icmp eq i32 %46, -1
   %47 = load ptr, ptr @stderr, align 8, !tbaa !37
   %48 = sext i32 %3 to i64
-  %49 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !39
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %52 = getelementptr inbounds nuw [3 x i32], ptr %51, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %48
   %53 = load i32, ptr %52, align 4, !tbaa !35
   br i1 %.not, label %93, label %54
 
@@ -469,10 +469,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 121:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %122 = load ptr, ptr @stderr, align 8, !tbaa !37
   %123 = sext i32 %3 to i64
-  %124 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw ptr, ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !39
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %127 = getelementptr inbounds nuw [3 x i32], ptr %126, i64 0, i64 %123
+  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %123
   %128 = load i32, ptr %127, align 4, !tbaa !35
   %129 = load ptr, ptr %10, align 8, !tbaa !27
   %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.3, ptr noundef %125, i32 noundef %128, ptr noundef %129) #16

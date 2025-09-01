@@ -125,7 +125,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_set_pages_ar
 define dso_local void @update_page_count(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #11
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [5 x i64], ptr @direct_pages_count, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @direct_pages_count, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %1
   store i64 %6, ptr %4, align 8
@@ -2246,7 +2246,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 
 496:                                              ; preds = %487
   %497 = sext i32 %339 to i64
-  %498 = getelementptr [5 x i64], ptr @direct_pages_count, i64 0, i64 %497
+  %498 = getelementptr i64, ptr @direct_pages_count, i64 %497
   %499 = load i64, ptr %498, align 8
   %500 = icmp eq i64 %499, 0
   br i1 %500, label %514, label %501
@@ -2275,7 +2275,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 508:                                              ; preds = %507, %506, %505, %501
   %509 = add i32 %339, -1
   %510 = sext i32 %509 to i64
-  %511 = getelementptr [5 x i64], ptr @direct_pages_count, i64 0, i64 %510
+  %511 = getelementptr i64, ptr @direct_pages_count, i64 %510
   %512 = load i64, ptr %511, align 8
   %513 = add i64 %512, 512
   store i64 %513, ptr %511, align 8
@@ -3195,7 +3195,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 20:                                               ; preds = %10
   %21 = zext nneg i32 %5 to i64
-  %22 = getelementptr [3 x ptr], ptr @check_conflict.lvltxt, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %23, ptr noundef nonnull @.str.8, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %17) #12
   br label %25
@@ -3243,7 +3243,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 54:                                               ; preds = %50
   %55 = zext nneg i32 %5 to i64
-  %56 = getelementptr [3 x ptr], ptr @check_conflict.lvltxt, i64 0, i64 %55
+  %56 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %57, ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %51) #12
   br label %59
@@ -3283,7 +3283,7 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 82:                                               ; preds = %78
   %83 = zext nneg i32 %5 to i64
-  %84 = getelementptr [3 x ptr], ptr @check_conflict.lvltxt, i64 0, i64 %83
+  %84 = getelementptr ptr, ptr @check_conflict.lvltxt, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %85, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %13, i64 noundef %2, i64 noundef %0, i64 noundef %79) #12
   br label %87

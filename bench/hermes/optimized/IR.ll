@@ -3683,10 +3683,10 @@ entry:
   %0 = load i8, ptr %this, align 8
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [255 x i64], ptr @switch.table._ZNK6hermes5Value10getKindStrEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6hermes5Value10getKindStrEv, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep217 = getelementptr inbounds nuw [255 x ptr], ptr @switch.table._ZNK6hermes5Value10getKindStrEv.4, i64 0, i64 %2
+  %switch.gep217 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK6hermes5Value10getKindStrEv.4, i64 %2
   %switch.load218 = load ptr, ptr %switch.gep217, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load218, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -6188,21 +6188,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i3 = udiv i64 %__val.addr.016.i, 100
-  %add.i4 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i4
-  %0 = load i8, ptr %arrayidx.i, align 1
+  %0 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom.i
-  store i8 %0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %1 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %1, ptr %arrayidx1.i, align 1
+  %2 = load i8, ptr %0, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom4.i
-  store i8 %1, ptr %arrayidx5.i, align 1
+  store i8 %2, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i5 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i5, label %while.body.i, label %while.end.i, !llvm.loop !23
+  %cmp.i4 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !23
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
@@ -6211,22 +6210,21 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %2 = load i8, ptr %arrayidx11.i, align 1
+  %3 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %4 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call1, i64 1
-  store i8 %2, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %3 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %4, ptr %arrayidx12.i, align 1
+  %5 = load i8, ptr %3, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %4, 48
+  %6 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %3, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %5, %if.then.i ]
   store i8 %storemerge.i, ptr %call1, align 1
   ret void
 }
@@ -7317,10 +7315,10 @@ entry:
   %0 = load i8, ptr %add.ptr, align 8
   %switch.tableidx = add nsw i8 %0, -4
   %1 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [104 x i64], ptr @switch.table._ZN6hermes11Instruction7getNameEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6hermes11Instruction7getNameEv, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep173 = getelementptr inbounds nuw [104 x ptr], ptr @switch.table._ZN6hermes11Instruction7getNameEv.5, i64 0, i64 %2
+  %switch.gep173 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6hermes11Instruction7getNameEv.5, i64 %2
   %switch.load174 = load ptr, ptr %switch.gep173, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load174, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -7475,9 +7473,9 @@ define hidden range(i32 0, 32) i32 @_ZN6hermes11Instruction18getChangedOperandsE
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8
-  %switch.tableidx = add nsw i8 %0, -4
-  %1 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [104 x i32], ptr @switch.table._ZN6hermes11Instruction18getChangedOperandsEv, i64 0, i64 %1
+  %1 = sext i8 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZN6hermes11Instruction18getChangedOperandsEv, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -16
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -10322,7 +10320,7 @@ if.then4.i.i:                                     ; preds = %if.then6
 
 if.end8:                                          ; preds = %if.then4.i.i, %if.then.i.i, %if.then4
   %3 = phi ptr [ %add.ptr.i.i, %if.then4.i.i ], [ %.pre11, %if.then.i.i ], [ %.pre12, %if.then4 ]
-  %arrayidx.i = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK6hermes4Type10getKindStrENS0_8TypeKindEE5names, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZZNK6hermes4Type10getKindStrENS0_8TypeKindEE5names, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call.i.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #27
   %5 = load ptr, ptr %OutBufEnd.i5.i, align 8

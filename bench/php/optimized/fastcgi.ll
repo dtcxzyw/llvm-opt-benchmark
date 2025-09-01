@@ -237,7 +237,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   store i64 %1, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %0, i64 %1, i1 false)
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %12, i64 0, i64 %1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %1
   store i8 0, ptr %13, align 1, !tbaa !22
   %14 = and i64 %3, -8
   %15 = add i64 %14, 32
@@ -251,7 +251,7 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i6
   store i64 %3, ptr %19, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %2, i64 %3, i1 false)
-  %21 = getelementptr inbounds nuw [1 x i8], ptr %20, i64 0, i64 %3
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %3
   store i8 0, ptr %21, align 1, !tbaa !22
   store ptr %16, ptr %5, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -399,7 +399,7 @@ is_port_number.exit.thread:                       ; preds = %.loopexit118
 
 is_port_number.exit:                              ; preds = %12
   %27 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %15) #33
-  %28 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %15
+  %28 = getelementptr inbounds i8, ptr %5, i64 %15
   store i8 0, ptr %28, align 1, !tbaa !22
   %.pre = load i8, ptr %5, align 16, !tbaa !22
   %.077 = trunc i64 %11 to i16
@@ -3201,7 +3201,7 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly captures(address_is_null) %0
   %25 = phi i32 [ %23, %7 ], [ %2, %4 ]
   %26 = and i32 %25, 127
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [128 x ptr], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %27
   %.018.i = load ptr, ptr %28, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3250,7 +3250,7 @@ define hidden ptr @fcgi_quick_getenv(ptr noundef readonly captures(none) %0, ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = and i32 %3, 127
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [128 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %.018.i = load ptr, ptr %8, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3331,7 +3331,7 @@ define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr nou
   %28 = phi i32 [ %26, %10 ], [ %2, %9 ]
   %29 = and i32 %28, 127
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [128 x ptr], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %32, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i
@@ -3414,7 +3414,7 @@ fcgi_hash_del.exit:                               ; preds = %51, %46, %27, %4, %
 define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #21 {
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [128 x ptr], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
   %.05359 = load ptr, ptr %9, align 8, !tbaa !79
   %.not60 = icmp eq ptr %.05359, null
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !prof !90
@@ -3582,7 +3582,7 @@ define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef 
 8:                                                ; preds = %5
   %9 = and i32 %3, 127
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [128 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %12, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i

@@ -1894,7 +1894,7 @@ invoke.cont169:                                   ; preds = %_ZN3irr5video9SMate
   store i16 %bf.set11.i729, ptr %TextureWrapU.i.i.i677, align 8, !alias.scope !129
   %bf.clear13.i730 = or disjoint i16 %bf.clear21.i.i728, 1028
   store i16 %bf.clear13.i730, ptr %Wireframe.i.i726, align 8, !alias.scope !129
-  %arrayidx171 = getelementptr inbounds nuw [12 x %"class.irr::video::SMaterial"], ptr %m_materials.ptr, i64 0, i64 %indvars.iv
+  %arrayidx171 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %m_materials.ptr, i64 %indvars.iv
   %call174 = invoke noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSEOS1_(ptr noundef nonnull align 8 dereferenceable(178) %arrayidx171, ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp167)
           to label %invoke.cont173 unwind label %lpad172
 
@@ -4916,7 +4916,7 @@ invoke.cont182:                                   ; preds = %_ZN3irr5video9SMate
   store i16 %bf.set11.i746, ptr %TextureWrapU.i.i.i694, align 8, !alias.scope !183
   %bf.clear13.i747 = or disjoint i16 %bf.clear21.i.i745, 1028
   store i16 %bf.clear13.i747, ptr %Wireframe.i.i743, align 8, !alias.scope !183
-  %arrayidx184 = getelementptr inbounds nuw [12 x %"class.irr::video::SMaterial"], ptr %m_materials.ptr, i64 0, i64 %indvars.iv
+  %arrayidx184 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %m_materials.ptr, i64 %indvars.iv
   %call187 = invoke noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSEOS1_(ptr noundef nonnull align 8 dereferenceable(178) %arrayidx184, ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp180)
           to label %invoke.cont186 unwind label %lpad185
 
@@ -10364,7 +10364,6 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add = add nsw i32 %material_id, 5
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 2648
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !90
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 2656
@@ -10494,51 +10493,52 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   store i16 34, ptr %TextureWrapU.i.i.i, align 8, !alias.scope !279
   store i16 1028, ptr %Wireframe.i.i, align 8, !alias.scope !279
   %m_materials = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [12 x %"class.irr::video::SMaterial"], ptr %m_materials, i64 0, i64 %idxprom
+  %12 = sext i32 %material_id to i64
+  %13 = getelementptr %"class.irr::video::SMaterial", ptr %m_materials, i64 %12
+  %arrayidx = getelementptr i8, ptr %13, i64 920
   %call4 = invoke noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSEOS1_(ptr noundef nonnull align 8 dereferenceable(178) %arrayidx, ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
-  %12 = load ptr, ptr %TextureMatrix.i.3.i.i, align 8, !tbaa !34
-  %tobool.not.i.i = icmp eq ptr %12, null
+  %14 = load ptr, ptr %TextureMatrix.i.3.i.i, align 8, !tbaa !34
+  %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %12) #30
+  call void @_ZdlPv(ptr noundef nonnull %14) #30
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.i:         ; preds = %delete.notnull.i.i, %invoke.cont
-  %13 = load ptr, ptr %TextureMatrix.i.2.i.i, align 8, !tbaa !34
-  %tobool.not.i.1.i = icmp eq ptr %13, null
+  %15 = load ptr, ptr %TextureMatrix.i.2.i.i, align 8, !tbaa !34
+  %tobool.not.i.1.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.1.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i, label %delete.notnull.i.1.i
 
 delete.notnull.i.1.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %13) #30
+  call void @_ZdlPv(ptr noundef nonnull %15) #30
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1.i:       ; preds = %delete.notnull.i.1.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.i
-  %14 = load ptr, ptr %TextureMatrix.i.1.i.i, align 8, !tbaa !34
-  %tobool.not.i.2.i = icmp eq ptr %14, null
+  %16 = load ptr, ptr %TextureMatrix.i.1.i.i, align 8, !tbaa !34
+  %tobool.not.i.2.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.2.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i, label %delete.notnull.i.2.i
 
 delete.notnull.i.2.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  call void @_ZdlPv(ptr noundef nonnull %14) #30
+  call void @_ZdlPv(ptr noundef nonnull %16) #30
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2.i:       ; preds = %delete.notnull.i.2.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1.i
-  %15 = load ptr, ptr %TextureMatrix.i.i.i, align 8, !tbaa !34
-  %tobool.not.i.3.i = icmp eq ptr %15, null
+  %17 = load ptr, ptr %TextureMatrix.i.i.i, align 8, !tbaa !34
+  %tobool.not.i.3.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.3.i, label %_ZN3irr5video9SMaterialD2Ev.exit, label %delete.notnull.i.3.i
 
 delete.notnull.i.3.i:                             ; preds = %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #30
+  call void @_ZdlPv(ptr noundef nonnull %17) #30
   br label %_ZN3irr5video9SMaterialD2Ev.exit
 
 _ZN3irr5video9SMaterialD2Ev.exit:                 ; preds = %delete.notnull.i.3.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   store ptr %call2, ptr %arrayidx, align 8, !tbaa !26
-  %MaterialType = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
+  %MaterialType = getelementptr i8, ptr %13, i64 1048
   store i32 0, ptr %MaterialType, align 8, !tbaa !121
   br label %return
 
@@ -10546,11 +10546,11 @@ return:                                           ; preds = %_ZN3irr5video9SMate
   ret void
 
 lpad:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %ref.tmp) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11759,7 +11759,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(178) ptr @
 entry:
   %m_materials = getelementptr inbounds nuw i8, ptr %this, i64 248
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw [12 x %"class.irr::video::SMaterial"], ptr %m_materials, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %m_materials, i64 %idxprom
   ret ptr %arrayidx
 }
 

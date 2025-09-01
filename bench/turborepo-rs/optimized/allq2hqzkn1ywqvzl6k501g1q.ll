@@ -2432,8 +2432,8 @@ _RINvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB6_8VecDequeNtNtNtCse
   br i1 %exitcond.not.i, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit, label %54
 
 54:                                               ; preds = %.preheader.split.i
-  %55 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %28, i64 0, i64 %.sroa.01.0.i
-  %56 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %48, i64 0, i64 %.sroa.01.0.i
+  %55 = getelementptr inbounds { i64, [3 x i64] }, ptr %28, i64 %.sroa.01.0.i
+  %56 = getelementptr inbounds { i64, [3 x i64] }, ptr %48, i64 %.sroa.01.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
@@ -2489,8 +2489,8 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
   br i1 %exitcond.not.i42, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit46, label %77
 
 77:                                               ; preds = %.preheader.split.i40
-  %78 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %28, i64 0, i64 %.sroa.01.0.i41
-  %79 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %48, i64 0, i64 %.sroa.01.0.i41
+  %78 = getelementptr inbounds { i64, [3 x i64] }, ptr %28, i64 %.sroa.01.0.i41
+  %79 = getelementptr inbounds { i64, [3 x i64] }, ptr %48, i64 %.sroa.01.0.i41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !559)
@@ -2518,8 +2518,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   br i1 %exitcond.not.i51, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit55, label %86
 
 86:                                               ; preds = %.preheader.split.i49
-  %87 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %65, i64 0, i64 %.sroa.01.0.i50
-  %88 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %47, i64 0, i64 %.sroa.01.0.i50
+  %87 = getelementptr inbounds { i64, [3 x i64] }, ptr %65, i64 %.sroa.01.0.i50
+  %88 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %.sroa.01.0.i50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
@@ -2548,8 +2548,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   br i1 %exitcond.not.i60, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64, label %95
 
 95:                                               ; preds = %.preheader.split.i58
-  %96 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %27, i64 0, i64 %.sroa.01.0.i59
-  %97 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %75, i64 0, i64 %.sroa.01.0.i59
+  %96 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.sroa.01.0.i59
+  %97 = getelementptr inbounds { i64, [3 x i64] }, ptr %75, i64 %.sroa.01.0.i59
   tail call void @llvm.experimental.noalias.scope.decl(metadata !588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
@@ -2593,8 +2593,8 @@ _RNvYNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtCs1LoaDTb72WA
   br i1 %exitcond.not.i69, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit73, label %112
 
 112:                                              ; preds = %.preheader.split.i67
-  %113 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %28, i64 0, i64 %.sroa.01.0.i68
-  %114 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %48, i64 0, i64 %.sroa.01.0.i68
+  %113 = getelementptr inbounds { i64, [3 x i64] }, ptr %28, i64 %.sroa.01.0.i68
+  %114 = getelementptr inbounds { i64, [3 x i64] }, ptr %48, i64 %.sroa.01.0.i68
   tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
@@ -2622,8 +2622,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   br i1 %exitcond.not.i78, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit82, label %121
 
 121:                                              ; preds = %.preheader.split.i76
-  %122 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %27, i64 0, i64 %.sroa.01.0.i77
-  %123 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %68, i64 0, i64 %.sroa.01.0.i77
+  %122 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.sroa.01.0.i77
+  %123 = getelementptr inbounds { i64, [3 x i64] }, ptr %68, i64 %.sroa.01.0.i77
   tail call void @llvm.experimental.noalias.scope.decl(metadata !622)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
@@ -2652,8 +2652,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   br i1 %exitcond.not.i87, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64, label %130
 
 130:                                              ; preds = %.preheader.split.i85
-  %131 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %110, i64 0, i64 %.sroa.01.0.i86
-  %132 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %47, i64 0, i64 %.sroa.01.0.i86
+  %131 = getelementptr inbounds { i64, [3 x i64] }, ptr %110, i64 %.sroa.01.0.i86
+  %132 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %.sroa.01.0.i86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !639)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !642)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !644)
@@ -2682,8 +2682,8 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8varianc
   br i1 %exitcond.not.i96, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice3cmpSNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentINtB5_14SlicePartialEqBD_E5equalBJ_.exit64, label %139
 
 139:                                              ; preds = %.preheader.split.i94
-  %140 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %27, i64 0, i64 %.sroa.01.0.i95
-  %141 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %47, i64 0, i64 %.sroa.01.0.i95
+  %140 = getelementptr inbounds { i64, [3 x i64] }, ptr %27, i64 %.sroa.01.0.i95
+  %141 = getelementptr inbounds { i64, [3 x i64] }, ptr %47, i64 %.sroa.01.0.i95
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !661)

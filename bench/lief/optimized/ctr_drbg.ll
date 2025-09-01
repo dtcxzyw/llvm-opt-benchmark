@@ -225,7 +225,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr noundef 
 17:                                               ; preds = %10, %17
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %17 ]
   %18 = trunc i64 %indvars.iv to i8
-  %19 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %18, ptr %19, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

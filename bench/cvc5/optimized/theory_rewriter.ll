@@ -1744,10 +1744,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %12
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE.1, i64 0, i64 %19
+  %switch.gep35 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE.1, i64 %19
   %switch.load36 = load i64, ptr %switch.gep35, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %switch.load, i64 noundef %switch.load36)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 unwind label %16

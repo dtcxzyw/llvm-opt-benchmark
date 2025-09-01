@@ -146,7 +146,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 66:                                               ; preds = %66, %.lr.ph.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %66 ]
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %65, i64 0, i64 %indvars.iv.i.us.us.us
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i.us.us.us
   %68 = load i32, ptr %67, align 4, !tbaa !23
   %69 = and i32 %68, 1
   %.not12.i.us.us.us = icmp eq i32 %69, 0
@@ -197,7 +197,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 96:                                               ; preds = %96, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %96 ]
-  %97 = getelementptr inbounds nuw [0 x i32], ptr %95, i64 0, i64 %indvars.iv.i.us.us
+  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i.us.us
   %98 = load i32, ptr %97, align 4, !tbaa !23
   %99 = and i32 %98, 1
   %.not12.i.us.us = icmp eq i32 %99, 0
@@ -282,7 +282,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 142:                                              ; preds = %142, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %142 ]
-  %143 = getelementptr inbounds nuw [0 x i32], ptr %141, i64 0, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i
   %144 = load i32, ptr %143, align 4, !tbaa !23
   %145 = and i32 %144, 1
   %.not12.i = icmp eq i32 %145, 0
@@ -526,7 +526,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 61:                                               ; preds = %61, %.lr.ph.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %61 ]
-  %62 = getelementptr inbounds nuw [0 x i32], ptr %60, i64 0, i64 %indvars.iv.i.us.us.us
+  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i.us.us.us
   %63 = load i32, ptr %62, align 4, !tbaa !23
   %64 = and i32 %63, 1
   %.not12.i.us.us.us = icmp eq i32 %64, 0
@@ -575,7 +575,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 89:                                               ; preds = %89, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %89 ]
-  %90 = getelementptr inbounds nuw [0 x i32], ptr %88, i64 0, i64 %indvars.iv.i.us.us
+  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i.us.us
   %91 = load i32, ptr %90, align 4, !tbaa !23
   %92 = and i32 %91, 1
   %.not12.i.us.us = icmp eq i32 %92, 0
@@ -658,7 +658,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 133:                                              ; preds = %133, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %133 ]
-  %134 = getelementptr inbounds nuw [0 x i32], ptr %132, i64 0, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv.i
   %135 = load i32, ptr %134, align 4, !tbaa !23
   %136 = and i32 %135, 1
   %.not12.i = icmp eq i32 %136, 0

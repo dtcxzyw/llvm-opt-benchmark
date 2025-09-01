@@ -22,7 +22,7 @@ define hidden void @VP8IteratorSetRow(ptr noundef captures(none) initializes((0,
   %9 = add nsw i32 %8, -1
   %10 = and i32 %9, %1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [8 x %struct.VP8BitWriter], ptr %6, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.VP8BitWriter, ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 23656
@@ -1286,7 +1286,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr noundef captures(none) %0
   %16 = add nsw i32 %15, -1
   %17 = and i32 %16, %12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [8 x %struct.VP8BitWriter], ptr %13, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.VP8BitWriter, ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 23656
@@ -1511,7 +1511,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %12 = sub nsw i64 15, %indvars.iv
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !44
-  %15 = getelementptr inbounds nuw [37 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %14, ptr %15, align 1, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
@@ -1522,8 +1522,8 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %17 = load ptr, ptr %9, align 8, !tbaa !40
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv38
   %19 = load i8, ptr %18, align 1, !tbaa !44
-  %20 = add nuw nsw i64 %indvars.iv38, 17
-  %21 = getelementptr inbounds nuw [37 x i8], ptr %5, i64 0, i64 %20
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv38
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 17
   store i8 %19, ptr %21, align 1, !tbaa !44
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 16
@@ -1547,8 +1547,8 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
   %29 = load ptr, ptr %9, align 8, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv46
   %31 = load i8, ptr %30, align 1, !tbaa !44
-  %32 = add nuw nsw i64 %indvars.iv46, 17
-  %33 = getelementptr inbounds nuw [37 x i8], ptr %5, i64 0, i64 %32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv46
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   store i8 %31, ptr %33, align 1, !tbaa !44
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 20
@@ -1556,8 +1556,8 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
 
 34:                                               ; preds = %.preheader29, %34
   %indvars.iv42 = phi i64 [ 16, %.preheader29 ], [ %indvars.iv.next43, %34 ]
-  %35 = add nuw nsw i64 %indvars.iv42, 17
-  %36 = getelementptr inbounds nuw [37 x i8], ptr %5, i64 0, i64 %35
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 17
   store i8 %.pre, ptr %36, align 1, !tbaa !44
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 20
@@ -1645,7 +1645,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8, !tbaa !87
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [16 x i16], ptr @VP8Scan, i64 0, i64 %5
+  %6 = getelementptr inbounds i16, ptr @VP8Scan, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !93
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
@@ -1699,7 +1699,7 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nound
 30:                                               ; preds = %.loopexit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds [16 x i8], ptr @VP8TopLeftI4, i64 0, i64 %32
+  %33 = getelementptr inbounds i8, ptr @VP8TopLeftI4, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !44
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35

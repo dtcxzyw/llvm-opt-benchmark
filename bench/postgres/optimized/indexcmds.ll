@@ -692,7 +692,7 @@ define internal fastcc void @ComputeIndexAttrs(ptr noundef captures(none) %0, pt
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 74
   %84 = load i16, ptr %83, align 2
-  %85 = getelementptr inbounds nuw [32 x i16], ptr %49, i64 0, i64 %indvars.iv345
+  %85 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv345
   store i16 %84, ptr %85, align 2
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 68
   %87 = load i32, ptr %86, align 4
@@ -740,12 +740,12 @@ define internal fastcc void @ComputeIndexAttrs(ptr noundef captures(none) %0, pt
   br i1 %.not195, label %.loopexit, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw [32 x i16], ptr %49, i64 0, i64 %indvars.iv345
+  %109 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv345
   store i16 %107, ptr %109, align 2
   br label %118
 
 .loopexit:                                        ; preds = %100, %105
-  %110 = getelementptr inbounds nuw [32 x i16], ptr %49, i64 0, i64 %indvars.iv345
+  %110 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv345
   store i16 0, ptr %110, align 2
   %111 = load ptr, ptr %50, align 8
   %112 = call ptr @lappend(ptr noundef %111, ptr noundef nonnull %.0172) #11
@@ -1827,7 +1827,7 @@ ChooseRelationName.exit.i:                        ; preds = %230
 250:                                              ; preds = %.lr.ph23.i.i
   %251 = add nuw nsw i32 %.01821.i.i, 1
   %252 = zext nneg i32 %.01821.i.i to i64
-  %253 = getelementptr inbounds nuw [128 x i8], ptr %16, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %16, i64 %252
   store i8 95, ptr %253, align 1
   br label %254
 
@@ -1905,7 +1905,7 @@ ChooseRelationName.exit17.i:                      ; preds = %265
 284:                                              ; preds = %.lr.ph23.i20.i
   %285 = add nuw nsw i32 %.01821.i22.i, 1
   %286 = zext nneg i32 %.01821.i22.i to i64
-  %287 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr %14, i64 %286
   store i8 95, ptr %287, align 1
   br label %288
 
@@ -1978,7 +1978,7 @@ ChooseRelationName.exit29.i:                      ; preds = %299
 316:                                              ; preds = %.lr.ph23.i32.i
   %317 = add nuw nsw i32 %.01821.i34.i, 1
   %318 = zext nneg i32 %.01821.i34.i to i64
-  %319 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw i8, ptr %12, i64 %318
   store i8 95, ptr %319, align 1
   br label %320
 
@@ -2346,7 +2346,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
   %531 = load ptr, ptr %486, align 8
   %532 = getelementptr inbounds nuw i16, ptr %531, i64 %indvars.iv680
   %533 = load i16, ptr %532, align 2
-  %534 = getelementptr inbounds nuw [32 x i16], ptr %488, i64 0, i64 %indvars.iv678
+  %534 = getelementptr inbounds nuw i16, ptr %488, i64 %indvars.iv678
   %535 = load i16, ptr %534, align 2
   %536 = icmp eq i16 %533, %535
   br i1 %536, label %537, label %562
@@ -2427,7 +2427,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
   %571 = load ptr, ptr %486, align 8
   %572 = getelementptr inbounds nuw i16, ptr %571, i64 %indvars.iv680
   %573 = load i16, ptr %572, align 2
-  %574 = getelementptr inbounds nuw [32 x i16], ptr %488, i64 0, i64 %indvars.iv
+  %574 = getelementptr inbounds nuw i16, ptr %488, i64 %indvars.iv
   %575 = load i16, ptr %574, align 2
   %576 = icmp eq i16 %573, %575
   br i1 %576, label %577, label %616
@@ -2569,7 +2569,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
 
 644:                                              ; preds = %.lr.ph625, %641
   %indvars.iv683 = phi i64 [ 0, %.lr.ph625 ], [ %indvars.iv.next684, %641 ]
-  %645 = getelementptr inbounds nuw [32 x i16], ptr %639, i64 0, i64 %indvars.iv683
+  %645 = getelementptr inbounds nuw i16, ptr %639, i64 %indvars.iv683
   %646 = load i16, ptr %645, align 2
   %647 = icmp slt i16 %646, 0
   br i1 %647, label %648, label %652

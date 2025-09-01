@@ -11750,7 +11750,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   %.5 = phi ptr [ %.7, %163 ], [ %.7, %165 ], [ %.4265, %123 ]
   %170 = load i8, ptr %.5, align 1, !tbaa !13
   %171 = zext i8 %170 to i64
-  %172 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %171
+  %172 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !13
   %174 = icmp sgt i8 %173, -1
   %175 = sext i8 %173 to i32
@@ -11925,7 +11925,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 240:                                              ; preds = %235
   %241 = zext i8 %237 to i64
-  %242 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %241
+  %242 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !13
   %244 = icmp sgt i8 %243, -1
   %245 = sext i8 %243 to i32
@@ -12034,7 +12034,7 @@ str2big_scan_digits.exit:                         ; preds = %.thread9.i, %229
 
 285:                                              ; preds = %276
   %286 = zext nneg i32 %122 to i64
-  %287 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %286
+  %287 = getelementptr i32, ptr @maxpow64_exp, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !18
   %289 = sext i32 %288 to i64
   %290 = add nsw i64 %289, -1
@@ -12278,7 +12278,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %43, %45
   %49 = getelementptr i8, ptr %.02735, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !13
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %51
+  %52 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !13
   %54 = icmp slt i8 %53, 0
   br i1 %54, label %67, label %55
@@ -12355,7 +12355,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %6
   %.02637 = phi ptr [ %30, %29 ], [ %1, %19 ]
   %22 = load i8, ptr %.02637, align 1, !tbaa !13
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = icmp slt i8 %25, 0
   br i1 %26, label %29, label %27
@@ -12566,7 +12566,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %35, %37
   %.03043 = phi ptr [ %1, %.lr.ph45 ], [ %63, %.loopexit ]
   %44 = load i8, ptr %.03043, align 1, !tbaa !13
   %45 = zext i8 %44 to i64
-  %46 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %45
+  %46 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !13
   %48 = icmp slt i8 %47, 0
   br i1 %48, label %.loopexit, label %49
@@ -12651,15 +12651,15 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %18
   %26 = getelementptr i32, ptr %25, i64 %4
   %27 = add i32 %6, -2
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [35 x [65 x i64]], ptr @base36_power_cache, i64 0, i64 %28
+  %29 = getelementptr [65 x i64], ptr @base36_power_cache, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !7
   %.not.i = icmp eq i64 %30, 0
   br i1 %.not.i, label %31, label %power_cache_get_power.exit
 
 31:                                               ; preds = %24
-  %32 = getelementptr [35 x i64], ptr @maxpow64_num, i64 0, i64 %28
+  %32 = getelementptr i64, ptr @maxpow64_num, i64 %28
   %33 = load i64, ptr %32, align 8, !tbaa !7
-  %34 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %28
+  %34 = getelementptr i32, ptr @maxpow64_exp, i64 %28
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = load i64, ptr @rb_cInteger, align 8, !tbaa !7
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -12707,7 +12707,7 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %53, %31
   %56 = sext i32 %35 to i64
   %57 = call i64 @rb_obj_hide(i64 noundef %39) #26
   store i64 %39, ptr %29, align 8, !tbaa !7
-  %58 = getelementptr [35 x [65 x i64]], ptr @base36_numdigits_cache, i64 0, i64 %28
+  %58 = getelementptr [65 x i64], ptr @base36_numdigits_cache, i64 %28
   store i64 %56, ptr %58, align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %39) #26
   br label %power_cache_get_power.exit
@@ -12738,7 +12738,7 @@ power_cache_get_power.exit:                       ; preds = %24, %BIGNUM_DIGITS.
   %64 = getelementptr i8, ptr %.0110225, i64 -1
   %65 = load i8, ptr %64, align 1, !tbaa !13
   %66 = zext i8 %65 to i64
-  %67 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %66
+  %67 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !13
   %69 = icmp slt i8 %68, 0
   br i1 %69, label %81, label %70
@@ -13360,7 +13360,7 @@ define dso_local i64 @rb_str2big_poweroftwo(i64 noundef %0, i32 noundef %1, i32 
 
 31:                                               ; preds = %26
   %32 = zext i8 %28 to i64
-  %33 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !13
   %35 = sext i8 %34 to i32
   %or.cond71.i = icmp ugt i32 %1, %35
@@ -13641,7 +13641,7 @@ define dso_local i64 @rb_str2big_normal(i64 noundef %0, i32 noundef %1, i32 noun
 
 33:                                               ; preds = %28
   %34 = zext i8 %30 to i64
-  %35 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !13
   %37 = sext i8 %36 to i32
   %or.cond71.i = icmp ugt i32 %1, %37
@@ -13726,7 +13726,7 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %.1 = phi i64 [ %61, %.thread9.i ], [ -1, %22 ]
   %62 = getelementptr i8, ptr %.01733, i64 %.126
   %63 = zext nneg i32 %6 to i64
-  %64 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %63
+  %64 = getelementptr i32, ptr @maxpow64_exp, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !18
   %66 = sext i32 %65 to i64
   %67 = add i64 %.1, %66
@@ -13929,7 +13929,7 @@ define dso_local i64 @rb_str2big_karatsuba(i64 noundef %0, i32 noundef %1, i32 n
 
 33:                                               ; preds = %28
   %34 = zext i8 %30 to i64
-  %35 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !13
   %37 = sext i8 %36 to i32
   %or.cond71.i = icmp ugt i32 %1, %37
@@ -14013,7 +14013,7 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %.1 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %22 ]
   %61 = getelementptr i8, ptr %.01733, i64 %.126
   %62 = zext nneg i32 %6 to i64
-  %63 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %62
+  %63 = getelementptr i32, ptr @maxpow64_exp, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !18
   %65 = sext i32 %64 to i64
   %66 = add i64 %.1, -1
@@ -14215,7 +14215,7 @@ define dso_local i64 @rb_str2big_gmp(i64 noundef %0, i32 noundef %1, i32 noundef
 
 33:                                               ; preds = %28
   %34 = zext i8 %30 to i64
-  %35 = getelementptr [0 x i8], ptr @ruby_digit36_to_number_table, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @ruby_digit36_to_number_table, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !13
   %37 = sext i8 %36 to i32
   %or.cond71.i = icmp ugt i32 %1, %37
@@ -14299,7 +14299,7 @@ str2big_scan_digits.exit:                         ; preds = %22, %.thread9.i
   %.1 = phi i64 [ %.146615.i, %.thread9.i ], [ 0, %22 ]
   %61 = getelementptr i8, ptr %.01733, i64 %.126
   %62 = zext nneg i32 %6 to i64
-  %63 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %62
+  %63 = getelementptr i32, ptr @maxpow64_exp, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !18
   %65 = sext i32 %64 to i64
   %66 = add i64 %.1, -1
@@ -14954,7 +14954,7 @@ rb_integer_pack.exit.i:                           ; preds = %BIGNUM_LEN.exit.loo
   %.02437.i = phi i64 [ %73, %.lr.ph.i ], [ %8, %rb_integer_pack.exit.i ]
   %68 = load i8, ptr %.138.i, align 1, !tbaa !13
   %69 = zext i8 %68 to i64
-  %70 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %69
+  %70 = getelementptr i8, ptr @ruby_digitmap, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !13
   store i8 %71, ptr %.138.i, align 1, !tbaa !13
   %72 = getelementptr i8, ptr %.138.i, i64 1
@@ -15046,15 +15046,15 @@ BIGNUM_LEN.exit:                                  ; preds = %14, %19
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %30 to i64
-  %39 = getelementptr [35 x [65 x i64]], ptr @base36_power_cache, i64 0, i64 %38
+  %39 = getelementptr [65 x i64], ptr @base36_power_cache, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !7
   %.not.i54 = icmp eq i64 %40, 0
   br i1 %.not.i54, label %41, label %power_cache_get_power.exit
 
 41:                                               ; preds = %37
-  %42 = getelementptr [35 x i64], ptr @maxpow64_num, i64 0, i64 %38
+  %42 = getelementptr i64, ptr @maxpow64_num, i64 %38
   %43 = load i64, ptr %42, align 8, !tbaa !7
-  %44 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %38
+  %44 = getelementptr i32, ptr @maxpow64_exp, i64 %38
   %45 = load i32, ptr %44, align 4, !tbaa !18
   %46 = load i64, ptr @rb_cInteger, align 8, !tbaa !7
   %47 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -15102,7 +15102,7 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %63, %41
   %66 = sext i32 %45 to i64
   %67 = call i64 @rb_obj_hide(i64 noundef %49) #26
   store i64 %49, ptr %39, align 8, !tbaa !7
-  %68 = getelementptr [35 x [65 x i64]], ptr @base36_numdigits_cache, i64 0, i64 %38
+  %68 = getelementptr [65 x i64], ptr @base36_numdigits_cache, i64 %38
   store i64 %66, ptr %68, align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %49) #26
   br label %power_cache_get_power.exit
@@ -15179,9 +15179,9 @@ BIGNUM_LEN.exit61:                                ; preds = %86, %89
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %96, align 4, !tbaa !157
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %98 = getelementptr [35 x i64], ptr @maxpow64_num, i64 0, i64 %38
+  %98 = getelementptr i64, ptr @maxpow64_num, i64 %38
   %99 = load i64, ptr %98, align 8, !tbaa !7
-  %100 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %38
+  %100 = getelementptr i32, ptr @maxpow64_exp, i64 %38
   %101 = load i32, ptr %100, align 4, !tbaa !18
   store i32 %101, ptr %97, align 8, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -15223,7 +15223,7 @@ bary2bdigitdbl.exit.i:                            ; preds = %107, %109
   %.0.i65 = phi i64 [ %119, %114 ], [ 64, %.preheader.i ]
   %115 = urem i64 %.032.i, %113
   %116 = udiv i64 %.032.i, %113
-  %117 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %115
+  %117 = getelementptr i8, ptr @ruby_digitmap, i64 %115
   %118 = load i8, ptr %117, align 1, !tbaa !13
   %119 = add i64 %.0.i65, -1
   %120 = getelementptr i8, ptr %3, i64 %119
@@ -15774,7 +15774,7 @@ rb_integer_pack.exit.i.i:                         ; preds = %BIGNUM_LEN.exit.loo
   %.02437.i.i = phi i64 [ %132, %.lr.ph.i.i ], [ %68, %rb_integer_pack.exit.i.i ]
   %127 = load i8, ptr %.138.i.i, align 1, !tbaa !13
   %128 = zext i8 %127 to i64
-  %129 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %128
+  %129 = getelementptr i8, ptr @ruby_digitmap, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !13
   store i8 %130, ptr %.138.i.i, align 1, !tbaa !13
   %131 = getelementptr i8, ptr %.138.i.i, i64 1
@@ -17746,7 +17746,7 @@ default.unreachable28:                            ; preds = %29
 
 switch.lookup:                                    ; preds = %RB_FLOAT_TYPE_P.exit, %16
   %25 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.big_op, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.big_op, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
   %26 = tail call i64 @rb_num_coerce_relop(i64 noundef %0, i64 noundef %1, i64 noundef %switch.load) #26
   br label %44
@@ -30182,9 +30182,9 @@ define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1
 9:                                                ; preds = %3
   %10 = add i32 %0, -2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [35 x [65 x i64]], ptr @base36_power_cache, i64 0, i64 %11
+  %12 = getelementptr [65 x i64], ptr @base36_power_cache, i64 %11
   %13 = sext i32 %1 to i64
-  %14 = getelementptr [65 x i64], ptr %12, i64 0, i64 %13
+  %14 = getelementptr i64, ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !7
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %16, label %79
@@ -30195,9 +30195,9 @@ define internal fastcc i64 @power_cache_get_power(i32 noundef %0, i32 noundef %1
   br i1 %17, label %18, label %44
 
 18:                                               ; preds = %16
-  %19 = getelementptr [35 x i64], ptr @maxpow64_num, i64 0, i64 %11
+  %19 = getelementptr i64, ptr @maxpow64_num, i64 %11
   %20 = load i64, ptr %19, align 8, !tbaa !7
-  %21 = getelementptr [35 x i32], ptr @maxpow64_exp, i64 0, i64 %11
+  %21 = getelementptr i32, ptr @maxpow64_exp, i64 %11
   %22 = load i32, ptr %21, align 4, !tbaa !18
   %23 = load i64, ptr @rb_cInteger, align 8, !tbaa !7
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -30318,8 +30318,8 @@ bigtrunc.exit:                                    ; preds = %BIGNUM_DIGITS.exit.
   %.1 = phi i64 [ %47, %bigtrunc.exit ], [ %26, %BIGNUM_DIGITS.exit ]
   %76 = call i64 @rb_obj_hide(i64 noundef %.1) #26
   store i64 %.1, ptr %14, align 8, !tbaa !7
-  %77 = getelementptr [35 x [65 x i64]], ptr @base36_numdigits_cache, i64 0, i64 %11
-  %78 = getelementptr [65 x i64], ptr %77, i64 0, i64 %13
+  %77 = getelementptr [65 x i64], ptr @base36_numdigits_cache, i64 %11
+  %78 = getelementptr i64, ptr %77, i64 %13
   store i64 %storemerge, ptr %78, align 8, !tbaa !7
   call void @rb_vm_register_global_object(i64 noundef %.1) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -30331,8 +30331,8 @@ bigtrunc.exit:                                    ; preds = %BIGNUM_DIGITS.exit.
   br i1 %.not27, label %84, label %80
 
 80:                                               ; preds = %79
-  %81 = getelementptr [35 x [65 x i64]], ptr @base36_numdigits_cache, i64 0, i64 %11
-  %82 = getelementptr [65 x i64], ptr %81, i64 0, i64 %13
+  %81 = getelementptr [65 x i64], ptr @base36_numdigits_cache, i64 %11
+  %82 = getelementptr i64, ptr %81, i64 %13
   %83 = load i64, ptr %82, align 8, !tbaa !7
   store i64 %83, ptr %2, align 8, !tbaa !7
   br label %84
@@ -30657,7 +30657,7 @@ bary2bdigitdbl.exit.thread.i:                     ; preds = %28
   %.0.i136 = phi i64 [ %46, %41 ], [ 64, %.preheader.i135 ]
   %42 = urem i64 %.032.i, %40
   %43 = udiv i64 %.032.i, %40
-  %44 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %42
+  %44 = getelementptr i8, ptr @ruby_digitmap, i64 %42
   %45 = load i8, ptr %44, align 1, !tbaa !13
   %46 = add i64 %.0.i136, -1
   %47 = getelementptr i8, ptr %8, i64 %46
@@ -30730,7 +30730,7 @@ big2str_alloc.exit.i:                             ; preds = %65, %RSTRING_PTR.ex
   %76 = sext i32 %75 to i64
   %77 = urem i64 %.133.i, %76
   %78 = udiv i64 %.133.i, %76
-  %79 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %77
+  %79 = getelementptr i8, ptr @ruby_digitmap, i64 %77
   %80 = load i8, ptr %79, align 1, !tbaa !13
   %81 = add i64 %.1.i, -1
   %82 = getelementptr i8, ptr %30, i64 %81
@@ -30981,7 +30981,7 @@ bary2bdigitdbl.exit.thread.i171:                  ; preds = %177
   %.0.i162 = phi i64 [ %193, %188 ], [ 64, %.preheader.i160 ]
   %189 = urem i64 %.032.i161, %187
   %190 = udiv i64 %.032.i161, %187
-  %191 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %189
+  %191 = getelementptr i8, ptr @ruby_digitmap, i64 %189
   %192 = load i8, ptr %191, align 1, !tbaa !13
   %193 = add i64 %.0.i162, -1
   %194 = getelementptr i8, ptr %7, i64 %193
@@ -31053,7 +31053,7 @@ big2str_alloc.exit.i169:                          ; preds = %212, %RSTRING_PTR.e
   %222 = sext i32 %221 to i64
   %223 = urem i64 %.133.i155, %222
   %224 = udiv i64 %.133.i155, %222
-  %225 = getelementptr [37 x i8], ptr @ruby_digitmap, i64 0, i64 %223
+  %225 = getelementptr i8, ptr @ruby_digitmap, i64 %223
   %226 = load i8, ptr %225, align 1, !tbaa !13
   %227 = add i64 %.1.i156, -1
   %228 = getelementptr i8, ptr %178, i64 %227

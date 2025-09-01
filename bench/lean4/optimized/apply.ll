@@ -8286,14 +8286,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1630, %1629, %1627,
 _ZL12lean_dec_refP11lean_object.exit547:          ; preds = %1637, %1639, %1640
   %1641 = sub nsw i32 %32, %29
   %1642 = zext i32 %1619 to i64
-  %1643 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %1642
+  %1643 = getelementptr inbounds nuw ptr, ptr %4, i64 %1642
   %1644 = call ptr @lean_apply_n(ptr noundef %1634, i32 noundef %1641, ptr noundef nonnull %1643)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph1153:                                       ; preds = %.lr.ph1153.preheader, %.lr.ph1153
   %indvars.iv1162 = phi i64 [ 0, %.lr.ph1153.preheader ], [ %indvars.iv.next1163, %.lr.ph1153 ]
-  %1645 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv1162
+  %1645 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv1162
   %1646 = load ptr, ptr %1645, align 8, !tbaa !15
   %1647 = trunc nuw i64 %indvars.iv1162 to i32
   %1648 = add i32 %1647, %31
@@ -12026,14 +12026,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1447, %1446, %1444,
 _ZL12lean_dec_refP11lean_object.exit530:          ; preds = %1454, %1456, %1457
   %1458 = sub nsw i32 %42, %39
   %1459 = zext i32 %1436 to i64
-  %1460 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %1459
+  %1460 = getelementptr inbounds nuw ptr, ptr %5, i64 %1459
   %1461 = call ptr @lean_apply_n(ptr noundef %1451, i32 noundef %1458, ptr noundef nonnull %1460)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph1063:                                       ; preds = %.lr.ph1063.preheader, %.lr.ph1063
   %indvars.iv1072 = phi i64 [ 0, %.lr.ph1063.preheader ], [ %indvars.iv.next1073, %.lr.ph1063 ]
-  %1462 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv1072
+  %1462 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv1072
   %1463 = load ptr, ptr %1462, align 8, !tbaa !15
   %1464 = trunc nuw i64 %indvars.iv1072 to i32
   %1465 = add i32 %1464, %41
@@ -15025,14 +15025,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1277, %1276, %1274,
 _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   %1288 = sub nsw i32 %52, %49
   %1289 = zext i32 %1266 to i64
-  %1290 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %1289
+  %1290 = getelementptr inbounds nuw ptr, ptr %6, i64 %1289
   %1291 = call ptr @lean_apply_n(ptr noundef %1281, i32 noundef %1288, ptr noundef nonnull %1290)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph977:                                        ; preds = %.lr.ph977.preheader, %.lr.ph977
   %indvars.iv986 = phi i64 [ 0, %.lr.ph977.preheader ], [ %indvars.iv.next987, %.lr.ph977 ]
-  %1292 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv986
+  %1292 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv986
   %1293 = load ptr, ptr %1292, align 8, !tbaa !15
   %1294 = trunc nuw i64 %indvars.iv986 to i32
   %1295 = add i32 %1294, %51
@@ -17675,14 +17675,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1120, %1119, %1117,
 _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   %1131 = sub nsw i32 %62, %59
   %1132 = zext i32 %1109 to i64
-  %1133 = getelementptr inbounds nuw [5 x ptr], ptr %7, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw ptr, ptr %7, i64 %1132
   %1134 = call ptr @lean_apply_n(ptr noundef %1124, i32 noundef %1131, ptr noundef nonnull %1133)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
   %indvars.iv904 = phi i64 [ 0, %.lr.ph895.preheader ], [ %indvars.iv.next905, %.lr.ph895 ]
-  %1135 = getelementptr inbounds nuw [5 x ptr], ptr %7, i64 0, i64 %indvars.iv904
+  %1135 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv904
   %1136 = load ptr, ptr %1135, align 8, !tbaa !15
   %1137 = trunc nuw i64 %indvars.iv904 to i32
   %1138 = add i32 %1137, %61
@@ -20005,14 +20005,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %976, %975, %973, %9
 _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   %987 = sub nsw i32 %72, %69
   %988 = zext i32 %965 to i64
-  %989 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %988
+  %989 = getelementptr inbounds nuw ptr, ptr %8, i64 %988
   %990 = call ptr @lean_apply_n(ptr noundef %980, i32 noundef %987, ptr noundef nonnull %989)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %.lr.ph817
   %indvars.iv826 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next827, %.lr.ph817 ]
-  %991 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %indvars.iv826
+  %991 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv826
   %992 = load ptr, ptr %991, align 8, !tbaa !15
   %993 = trunc nuw i64 %indvars.iv826 to i32
   %994 = add i32 %993, %71
@@ -22044,14 +22044,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %845, %844, %842, %8
 _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   %856 = sub nsw i32 %82, %79
   %857 = zext i32 %834 to i64
-  %858 = getelementptr inbounds nuw [7 x ptr], ptr %9, i64 0, i64 %857
+  %858 = getelementptr inbounds nuw ptr, ptr %9, i64 %857
   %859 = call ptr @lean_apply_n(ptr noundef %849, i32 noundef %856, ptr noundef nonnull %858)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph743:                                        ; preds = %.lr.ph743.preheader, %.lr.ph743
   %indvars.iv752 = phi i64 [ 0, %.lr.ph743.preheader ], [ %indvars.iv.next753, %.lr.ph743 ]
-  %860 = getelementptr inbounds nuw [7 x ptr], ptr %9, i64 0, i64 %indvars.iv752
+  %860 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv752
   %861 = load ptr, ptr %860, align 8, !tbaa !15
   %862 = trunc nuw i64 %indvars.iv752 to i32
   %863 = add i32 %862, %81
@@ -23821,14 +23821,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %727, %726, %724, %7
 _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   %738 = sub nsw i32 %92, %89
   %739 = zext i32 %716 to i64
-  %740 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw ptr, ptr %10, i64 %739
   %741 = call ptr @lean_apply_n(ptr noundef %731, i32 noundef %738, ptr noundef nonnull %740)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph673:                                        ; preds = %.lr.ph673.preheader, %.lr.ph673
   %indvars.iv682 = phi i64 [ 0, %.lr.ph673.preheader ], [ %indvars.iv.next683, %.lr.ph673 ]
-  %742 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv682
+  %742 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv682
   %743 = load ptr, ptr %742, align 8, !tbaa !15
   %744 = trunc nuw i64 %indvars.iv682 to i32
   %745 = add i32 %744, %91
@@ -25365,14 +25365,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %622, %621, %619, %6
 _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   %633 = sub nsw i32 %102, %99
   %634 = zext i32 %611 to i64
-  %635 = getelementptr inbounds nuw [9 x ptr], ptr %11, i64 0, i64 %634
+  %635 = getelementptr inbounds nuw ptr, ptr %11, i64 %634
   %636 = call ptr @lean_apply_n(ptr noundef %626, i32 noundef %633, ptr noundef nonnull %635)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph607:                                        ; preds = %.lr.ph607.preheader, %.lr.ph607
   %indvars.iv616 = phi i64 [ 0, %.lr.ph607.preheader ], [ %indvars.iv.next617, %.lr.ph607 ]
-  %637 = getelementptr inbounds nuw [9 x ptr], ptr %11, i64 0, i64 %indvars.iv616
+  %637 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv616
   %638 = load ptr, ptr %637, align 8, !tbaa !15
   %639 = trunc nuw i64 %indvars.iv616 to i32
   %640 = add i32 %639, %101
@@ -26705,14 +26705,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %530, %529, %527, %5
 _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   %541 = sub nsw i32 %112, %109
   %542 = zext i32 %519 to i64
-  %543 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw ptr, ptr %12, i64 %542
   %544 = call ptr @lean_apply_n(ptr noundef %534, i32 noundef %541, ptr noundef nonnull %543)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph545:                                        ; preds = %.lr.ph545.preheader, %.lr.ph545
   %indvars.iv554 = phi i64 [ 0, %.lr.ph545.preheader ], [ %indvars.iv.next555, %.lr.ph545 ]
-  %545 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv554
+  %545 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv554
   %546 = load ptr, ptr %545, align 8, !tbaa !15
   %547 = trunc nuw i64 %indvars.iv554 to i32
   %548 = add i32 %547, %111
@@ -27870,14 +27870,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %451, %450, %448, %4
 _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   %462 = sub nsw i32 %122, %119
   %463 = zext i32 %440 to i64
-  %464 = getelementptr inbounds nuw [11 x ptr], ptr %13, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw ptr, ptr %13, i64 %463
   %465 = call ptr @lean_apply_n(ptr noundef %455, i32 noundef %462, ptr noundef nonnull %464)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph487:                                        ; preds = %.lr.ph487.preheader, %.lr.ph487
   %indvars.iv496 = phi i64 [ 0, %.lr.ph487.preheader ], [ %indvars.iv.next497, %.lr.ph487 ]
-  %466 = getelementptr inbounds nuw [11 x ptr], ptr %13, i64 0, i64 %indvars.iv496
+  %466 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv496
   %467 = load ptr, ptr %466, align 8, !tbaa !15
   %468 = trunc nuw i64 %indvars.iv496 to i32
   %469 = add i32 %468, %121
@@ -28889,14 +28889,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %385, %384, %382, %3
 _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   %396 = sub nsw i32 %132, %129
   %397 = zext i32 %374 to i64
-  %398 = getelementptr inbounds nuw [12 x ptr], ptr %14, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw ptr, ptr %14, i64 %397
   %399 = call ptr @lean_apply_n(ptr noundef %389, i32 noundef %396, ptr noundef nonnull %398)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph433:                                        ; preds = %.lr.ph433.preheader, %.lr.ph433
   %indvars.iv442 = phi i64 [ 0, %.lr.ph433.preheader ], [ %indvars.iv.next443, %.lr.ph433 ]
-  %400 = getelementptr inbounds nuw [12 x ptr], ptr %14, i64 0, i64 %indvars.iv442
+  %400 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv442
   %401 = load ptr, ptr %400, align 8, !tbaa !15
   %402 = trunc nuw i64 %indvars.iv442 to i32
   %403 = add i32 %402, %131
@@ -29791,14 +29791,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %332, %331, %329, %3
 _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   %343 = sub nsw i32 %142, %139
   %344 = zext i32 %321 to i64
-  %345 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw ptr, ptr %15, i64 %344
   %346 = call ptr @lean_apply_n(ptr noundef %336, i32 noundef %343, ptr noundef nonnull %345)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph383:                                        ; preds = %.lr.ph383.preheader, %.lr.ph383
   %indvars.iv392 = phi i64 [ 0, %.lr.ph383.preheader ], [ %indvars.iv.next393, %.lr.ph383 ]
-  %347 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %indvars.iv392
+  %347 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv392
   %348 = load ptr, ptr %347, align 8, !tbaa !15
   %349 = trunc nuw i64 %indvars.iv392 to i32
   %350 = add i32 %349, %141
@@ -30605,14 +30605,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %292, %291, %289, %2
 _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   %303 = sub nsw i32 %152, %149
   %304 = zext i32 %281 to i64
-  %305 = getelementptr inbounds nuw [14 x ptr], ptr %16, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw ptr, ptr %16, i64 %304
   %306 = call ptr @lean_apply_n(ptr noundef %296, i32 noundef %303, ptr noundef nonnull %305)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
   %indvars.iv346 = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next347, %.lr.ph337 ]
-  %307 = getelementptr inbounds nuw [14 x ptr], ptr %16, i64 0, i64 %indvars.iv346
+  %307 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv346
   %308 = load ptr, ptr %307, align 8, !tbaa !15
   %309 = trunc nuw i64 %indvars.iv346 to i32
   %310 = add i32 %309, %151
@@ -31360,14 +31360,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %265, %264, %262, %2
 _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   %276 = sub nsw i32 %162, %159
   %277 = zext i32 %254 to i64
-  %278 = getelementptr inbounds nuw [15 x ptr], ptr %17, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw ptr, ptr %17, i64 %277
   %279 = call ptr @lean_apply_n(ptr noundef %269, i32 noundef %276, ptr noundef nonnull %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph295:                                        ; preds = %.lr.ph295.preheader, %.lr.ph295
   %indvars.iv304 = phi i64 [ 0, %.lr.ph295.preheader ], [ %indvars.iv.next305, %.lr.ph295 ]
-  %280 = getelementptr inbounds nuw [15 x ptr], ptr %17, i64 0, i64 %indvars.iv304
+  %280 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv304
   %281 = load ptr, ptr %280, align 8, !tbaa !15
   %282 = trunc nuw i64 %indvars.iv304 to i32
   %283 = add i32 %282, %161
@@ -32080,14 +32080,14 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %250, %249, %247, %2
 _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   %261 = sub nsw i32 %172, %169
   %262 = zext i32 %239 to i64
-  %263 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw ptr, ptr %18, i64 %262
   %264 = call ptr @lean_apply_n(ptr noundef %254, i32 noundef %261, ptr noundef nonnull %263)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph256:                                        ; preds = %.lr.ph256.preheader, %.lr.ph256
   %indvars.iv265 = phi i64 [ 0, %.lr.ph256.preheader ], [ %indvars.iv.next266, %.lr.ph256 ]
-  %265 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %indvars.iv265
+  %265 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv265
   %266 = load ptr, ptr %265, align 8, !tbaa !15
   %267 = trunc nuw i64 %indvars.iv265 to i32
   %268 = add i32 %267, %171

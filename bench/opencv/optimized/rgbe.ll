@@ -1120,8 +1120,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 38:                                               ; preds = %34, %46
   %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %46 ]
-  %39 = add nuw nsw i64 %indvars.iv, 2
-  %40 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i8, ptr %40, align 1, !tbaa !17
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %.thread, label %43
@@ -1133,7 +1133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %.not, label %46, label %.thread
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   store i8 %41, ptr %47, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1142,7 +1142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 .thread:                                          ; preds = %46, %43, %38
   %.033.lcssa = phi i64 [ %indvars.iv, %38 ], [ %indvars.iv, %43 ], [ 15, %46 ]
   %48 = and i64 %.033.lcssa, 4294967295
-  %49 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 %48
   store i8 0, ptr %49, align 1, !tbaa !17
   br label %.outer.preheader
 

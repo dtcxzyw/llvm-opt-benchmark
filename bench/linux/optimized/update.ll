@@ -4238,7 +4238,7 @@ define dso_local void @call_rcu_tasks(ptr noundef initializes((0, 16)) %0, ptr n
   %23 = phi i64 [ 64, %2 ], [ %21, %18 ], [ 64, %12 ]
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 176), align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   %29 = inttoptr i64 %28 to ptr
@@ -4494,7 +4494,7 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 176), align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %22, 63
-  %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
+  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %30
   %35 = inttoptr i64 %34 to ptr
@@ -4586,7 +4586,7 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
 
 20:                                               ; preds = %16
   %21 = and i64 %17, 63
-  %22 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %21
+  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %4
   %25 = inttoptr i64 %24 to ptr
@@ -4623,7 +4623,7 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
 
 49:                                               ; preds = %.thread
   %50 = zext nneg i32 %.0..0..0..0. to i64
-  %51 = getelementptr [12 x ptr], ptr @rcu_tasks_gp_state_names, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr @rcu_tasks_gp_state_names, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -4639,19 +4639,19 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 104), align 8
   %62 = icmp ne ptr %61, null
   %63 = zext i1 %62 to i64
-  %64 = getelementptr [3 x i8], ptr @.str.91, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @.str.91, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = zext nneg i8 %45 to i64
-  %68 = getelementptr [3 x i8], ptr @.str.92, i64 0, i64 %67
+  %68 = getelementptr i8, ptr @.str.92, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = zext nneg i8 %44 to i64
-  %72 = getelementptr [3 x i8], ptr @.str.93, i64 0, i64 %71
+  %72 = getelementptr i8, ptr @.str.93, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = zext nneg i8 %43 to i64
-  %76 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %75
+  %76 = getelementptr i8, ptr @.str.94, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 112), align 8
@@ -4771,7 +4771,7 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #5 section "
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 176), align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %26, 63
-  %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
+  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %31
   %36 = inttoptr i64 %35 to ptr
@@ -5908,7 +5908,7 @@ define internal fastcc void @rcu_tasks_one_gp(ptr noundef %0, i1 noundef zeroext
   %32 = phi i32 [ 0, %26 ], [ %78, %77 ]
   %33 = load ptr, ptr %13, align 8
   %34 = ptrtoint ptr %33 to i64
-  %35 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %29
+  %35 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %34
   %38 = inttoptr i64 %37 to ptr
@@ -6065,7 +6065,7 @@ define internal fastcc void @rcu_tasks_one_gp(ptr noundef %0, i1 noundef zeroext
   %136 = load ptr, ptr %13, align 8
   %137 = ptrtoint ptr %136 to i64
   %138 = sext i32 %135 to i64
-  %139 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %138
+  %139 = getelementptr i64, ptr @__per_cpu_offset, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = add i64 %140, %137
   %142 = inttoptr i64 %141 to ptr
@@ -6206,7 +6206,7 @@ define internal fastcc void @rcu_tasks_invoke_cbs(ptr noundef %0, ptr noundef %1
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sext i32 %9 to i64
-  %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
+  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   %21 = inttoptr i64 %20 to ptr
@@ -6225,7 +6225,7 @@ define internal fastcc void @rcu_tasks_invoke_cbs(ptr noundef %0, ptr noundef %1
   %31 = load ptr, ptr %14, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = sext i32 %27 to i64
-  %34 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %33
+  %34 = getelementptr i64, ptr @__per_cpu_offset, i64 %33
   %35 = load i64, ptr %34, align 16
   %36 = add i64 %35, %32
   %37 = inttoptr i64 %36 to ptr
@@ -6554,7 +6554,7 @@ define internal void @check_all_holdout_tasks(ptr noundef readonly captures(addr
   %55 = lshr i32 %54, 1
   %56 = and i32 %55, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [3 x i8], ptr @.str.113, i64 0, i64 %57
+  %58 = getelementptr i8, ptr @.str.113, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = load i64, ptr %13, align 8
@@ -6658,7 +6658,7 @@ define internal void @tasks_rcu_exit_srcu_stall(ptr readnone captures(none) %0) 
 
 8:                                                ; preds = %1
   %9 = zext nneg i32 %.0..0..0..0. to i64
-  %10 = getelementptr [12 x ptr], ptr @rcu_tasks_gp_state_names, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr @rcu_tasks_gp_state_names, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -6716,7 +6716,7 @@ define internal noundef i32 @rcu_tasks_kthread(ptr noundef %0) #13 align 16 {
   %14 = load ptr, ptr %2, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %10, 63
-  %17 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
+  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   %20 = inttoptr i64 %19 to ptr

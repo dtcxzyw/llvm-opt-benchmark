@@ -124,7 +124,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %.neg.i = add nsw i32 %spec.select.i.i, -16411
   %.neg18.i = select i1 %.not.i.i, i32 -1, i32 %.neg.i
   %39 = zext nneg i32 %spec.select.i.i to i64
-  %40 = getelementptr inbounds nuw [16411 x %struct.Code], ptr %19, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.Code, ptr %19, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !27
   %.not19.i = icmp eq i32 %41, -2
   br i1 %.not19.i, label %findCode.exit, label %.lr.ph.i
@@ -148,7 +148,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
   %52 = add nsw i32 %50, 16411
   %spec.select.i17.i = select i1 %51, i32 %52, i32 %50
   %53 = sext i32 %spec.select.i17.i to i64
-  %54 = getelementptr inbounds [16411 x %struct.Code], ptr %19, i64 0, i64 %53
+  %54 = getelementptr inbounds %struct.Code, ptr %19, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !27
   %.not.i = icmp eq i32 %55, -2
   br i1 %.not.i, label %findCode.exit, label %.lr.ph.i, !llvm.loop !30
@@ -156,7 +156,7 @@ define i32 @ff_lzw_encode(ptr noundef captures(none) %0, ptr noundef readonly ca
 findCode.exit:                                    ; preds = %.lr.ph.i, %49, %29
   %.016.lcssa.i = phi i32 [ %spec.select.i.i, %29 ], [ %.01620.i, %.lr.ph.i ], [ %spec.select.i17.i, %49 ]
   %56 = sext i32 %.016.lcssa.i to i64
-  %57 = getelementptr inbounds [16411 x %struct.Code], ptr %19, i64 0, i64 %56
+  %57 = getelementptr inbounds %struct.Code, ptr %19, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = icmp eq i32 %58, -2
   br i1 %59, label %60, label %findCode.exit.addCode.exit_crit_edge
@@ -433,7 +433,7 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
 
 59:                                               ; preds = %writeCode.exit, %59
   %indvars.iv = phi i64 [ 0, %writeCode.exit ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [16411 x %struct.Code], ptr %58, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.Code, ptr %58, i64 %indvars.iv
   store i32 -2, ptr %60, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16411
@@ -441,22 +441,22 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
 
 .preheader:                                       ; preds = %59, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %59 ]
-  %61 = shl nuw nsw i64 %indvars.iv21, 6
-  %62 = getelementptr inbounds nuw [16411 x %struct.Code], ptr %58, i64 0, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = trunc nuw nsw i64 %indvars.iv21 to i32
-  store i32 %64, ptr %63, align 4, !tbaa !33
-  %65 = trunc i64 %indvars.iv21 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i8 %65, ptr %66, align 4, !tbaa !29
-  store i32 -1, ptr %62, align 4, !tbaa !27
+  %.idx = mul nuw nsw i64 %indvars.iv21, 768
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = trunc nuw nsw i64 %indvars.iv21 to i32
+  store i32 %63, ptr %62, align 4, !tbaa !33
+  %64 = trunc i64 %indvars.iv21 to i8
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i8 %64, ptr %65, align 4, !tbaa !29
+  store i32 -1, ptr %61, align 4, !tbaa !27
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 256
-  br i1 %exitcond24.not, label %67, label %.preheader, !llvm.loop !36
+  br i1 %exitcond24.not, label %66, label %.preheader, !llvm.loop !36
 
-67:                                               ; preds = %.preheader
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 196940
-  store i32 258, ptr %68, align 4, !tbaa !32
+66:                                               ; preds = %.preheader
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 196940
+  store i32 258, ptr %67, align 4, !tbaa !32
   ret void
 }
 

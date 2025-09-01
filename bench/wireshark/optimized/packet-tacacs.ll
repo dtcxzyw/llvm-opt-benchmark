@@ -974,7 +974,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %144
 
 144:                                              ; preds = %143
-  %145 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %145 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i
   %146 = load i8, ptr %145, align 1
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %147 = load i8, ptr %gep.i.i, align 1

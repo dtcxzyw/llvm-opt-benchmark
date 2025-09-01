@@ -637,7 +637,7 @@ define float @Abc_NtkGetArea(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr i8, ptr %15, i64 28
   %.val20 = load i32, ptr %21, align 4, !tbaa !60
   %22 = sext i32 %.val20 to i64
-  %23 = getelementptr inbounds [33 x float], ptr %12, i64 0, i64 %22
+  %23 = getelementptr inbounds float, ptr %12, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !56
   %25 = fadd float %.122, %24
   br label %26
@@ -1145,7 +1145,7 @@ tailrecurse:                                      ; preds = %167, %11
   %143 = getelementptr i8, ptr %137, i64 28
   %.val20.i = load i32, ptr %143, align 4, !tbaa !60
   %144 = sext i32 %.val20.i to i64
-  %145 = getelementptr inbounds [33 x float], ptr %134, i64 0, i64 %144
+  %145 = getelementptr inbounds float, ptr %134, i64 %144
   %146 = load float, ptr %145, align 4, !tbaa !56
   %147 = fadd float %.122.i, %146
   br label %148
@@ -1844,8 +1844,8 @@ define void @Abc_NtkPrintLatch(ptr noundef captures(none) %0, ptr noundef readon
   %.val60 = load ptr, ptr %19, align 8, !tbaa !47
   %20 = ptrtoint ptr %.val60 to i64
   %sext = shl i64 %20, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %21
+  %21 = ashr exact i64 %sext, 30
+  %22 = getelementptr inbounds i8, ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !27
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !27
@@ -9319,7 +9319,7 @@ define void @Abc_Show6VarFunc(i64 noundef %0, i64 noundef %1) local_unnamed_addr
 
 .preheader62:                                     ; preds = %5, %14
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %14 ]
-  %6 = getelementptr inbounds nuw [8 x i32], ptr @__const.Abc_Show6VarFunc.Cells, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr @__const.Abc_Show6VarFunc.Cells, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !27
   br label %8
 
@@ -9377,7 +9377,7 @@ define void @Abc_Show6VarFunc(i64 noundef %0, i64 noundef %1) local_unnamed_addr
 
 .preheader60:                                     ; preds = %23, %56
   %indvars.iv89 = phi i64 [ 0, %23 ], [ %indvars.iv.next90, %56 ]
-  %24 = getelementptr inbounds nuw [8 x i32], ptr @__const.Abc_Show6VarFunc.Cells, i64 0, i64 %indvars.iv89
+  %24 = getelementptr inbounds nuw i32, ptr @__const.Abc_Show6VarFunc.Cells, i64 %indvars.iv89
   %25 = load i32, ptr %24, align 4, !tbaa !27
   br label %26
 
@@ -9399,7 +9399,7 @@ define void @Abc_Show6VarFunc(i64 noundef %0, i64 noundef %1) local_unnamed_addr
 35:                                               ; preds = %32, %35
   %indvars.iv82 = phi i64 [ 0, %32 ], [ %indvars.iv.next83, %35 ]
   %putchar50 = tail call i32 @putchar(i32 32)
-  %36 = getelementptr inbounds nuw [8 x i32], ptr @__const.Abc_Show6VarFunc.Cells, i64 0, i64 %indvars.iv82
+  %36 = getelementptr inbounds nuw i32, ptr @__const.Abc_Show6VarFunc.Cells, i64 %indvars.iv82
   %37 = load i32, ptr %36, align 4, !tbaa !27
   %38 = add nsw i32 %34, %37
   %39 = zext nneg i32 %38 to i64

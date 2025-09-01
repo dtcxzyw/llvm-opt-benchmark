@@ -467,7 +467,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 34:                                               ; preds = %32
   %35 = lshr i32 %.0.i, 8
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %36
+  %37 = getelementptr %struct.unim_index, ptr @cp949_encmap, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !52
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.thread, label %39
@@ -528,7 +528,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   store i8 -92, ptr %72, align 1, !tbaa !34
   %73 = udiv i32 %70, 588
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr [19 x i8], ptr @u2cgk_choseong, i64 0, i64 %74
+  %75 = getelementptr i8, ptr @u2cgk_choseong, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !34
   %77 = load ptr, ptr %6, align 8, !tbaa !37
   %78 = getelementptr i8, ptr %77, i64 3
@@ -540,7 +540,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %81 = udiv i32 %70, 28
   %82 = urem i32 %81, 21
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr [21 x i8], ptr @u2cgk_jungseong, i64 0, i64 %83
+  %84 = getelementptr i8, ptr @u2cgk_jungseong, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !34
   %86 = load ptr, ptr %6, align 8, !tbaa !37
   %87 = getelementptr i8, ptr %86, i64 1
@@ -550,7 +550,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   store i8 -92, ptr %89, align 1, !tbaa !34
   %90 = urem i32 %70, 28
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr [28 x i8], ptr @u2cgk_jongseong, i64 0, i64 %91
+  %92 = getelementptr i8, ptr @u2cgk_jongseong, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !34
   %94 = load ptr, ptr %6, align 8, !tbaa !37
   %95 = getelementptr i8, ptr %94, i64 3
@@ -644,7 +644,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
   %38 = zext i8 %35 to i64
   %39 = add nuw nsw i64 %38, 4294967135
   %40 = and i64 %39, 4294967295
-  %41 = getelementptr [30 x i8], ptr @cgk2u_choseong, i64 0, i64 %40
+  %41 = getelementptr i8, ptr @cgk2u_choseong, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !34
   %43 = zext i8 %42 to i32
   br label %44
@@ -671,7 +671,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 56:                                               ; preds = %54
   %57 = add nuw nsw i64 %52, 4294967135
   %58 = and i64 %57, 4294967295
-  %59 = getelementptr [30 x i8], ptr @cgk2u_jongseong, i64 0, i64 %58
+  %59 = getelementptr i8, ptr @cgk2u_jongseong, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !34
   %61 = zext i8 %60 to i32
   br label %62
@@ -700,7 +700,7 @@ define internal range(i64 -4, 2) i64 @euc_kr_decode(ptr readnone captures(none) 
 76:                                               ; preds = %18, %16
   %77 = and i32 %9, 127
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %78
+  %79 = getelementptr %struct.dbcs_index, ptr @ksx1001_decmap, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !58
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %.thread95, label %81
@@ -807,7 +807,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 34:                                               ; preds = %32
   %35 = lshr i32 %.0.i, 8
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %36
+  %37 = getelementptr %struct.unim_index, ptr @cp949_encmap, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !52
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.thread, label %39
@@ -897,7 +897,7 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 16:                                               ; preds = %14
   %17 = and i32 %9, 127
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %18
+  %19 = getelementptr %struct.dbcs_index, ptr @ksx1001_decmap, i64 %18
   %20 = load ptr, ptr %19, align 16, !tbaa !58
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %40, label %21
@@ -934,7 +934,7 @@ define internal range(i64 -4, 2) i64 @cp949_decode(ptr readnone captures(none) %
 
 40:                                               ; preds = %32, %29, %21, %16
   %41 = zext i8 %8 to i64
-  %42 = getelementptr [256 x %struct.dbcs_index], ptr @cp949ext_decmap, i64 0, i64 %41
+  %42 = getelementptr %struct.dbcs_index, ptr @cp949ext_decmap, i64 %41
   %43 = load ptr, ptr %42, align 16, !tbaa !58
   %.not47 = icmp eq ptr %43, null
   br i1 %.not47, label %.thread, label %44
@@ -989,9 +989,9 @@ define internal range(i64 -1, 2) i64 @johab_encode(ptr readnone captures(none) %
   %11 = icmp slt i64 %10, %5
   br i1 %11, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %9, %116
-  %12 = phi i64 [ %118, %116 ], [ %10, %9 ]
-  %.074107 = phi i64 [ %121, %116 ], [ %7, %9 ]
+.lr.ph:                                           ; preds = %9, %117
+  %12 = phi i64 [ %119, %117 ], [ %10, %9 ]
+  %.074107 = phi i64 [ %122, %117 ], [ %7, %9 ]
   switch i32 %2, label %21 [
     i32 1, label %13
     i32 2, label %17
@@ -1027,7 +1027,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %28 = trunc nuw nsw i32 %.0.i to i8
   %29 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %28, ptr %29, align 1, !tbaa !34
-  br label %116, !llvm.loop !64
+  br label %117, !llvm.loop !64
 
 30:                                               ; preds = %PyUnicode_READ.exit
   %31 = icmp ugt i32 %.0.i, 65535
@@ -1046,144 +1046,145 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %.lhs.trunc = trunc nuw nsw i32 %35 to i16
   %37 = udiv i16 %.lhs.trunc, 588
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr [32 x i8], ptr @u2johabidx_choseong, i64 0, i64 %38
+  %39 = getelementptr i8, ptr @u2johabidx_choseong, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !34
   %41 = zext i8 %40 to i16
   %42 = shl i16 %41, 10
   %43 = udiv i16 %.lhs.trunc, 28
   %44 = urem i16 %43, 21
   %45 = zext nneg i16 %44 to i64
-  %46 = getelementptr [32 x i8], ptr @u2johabidx_jungseong, i64 0, i64 %45
+  %46 = getelementptr i8, ptr @u2johabidx_jungseong, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !34
   %48 = zext i8 %47 to i16
   %49 = shl nuw nsw i16 %48, 5
   %50 = urem i16 %.lhs.trunc, 28
   %51 = zext nneg i16 %50 to i64
-  %52 = getelementptr [32 x i8], ptr @u2johabidx_jongseong, i64 0, i64 %51
+  %52 = getelementptr i8, ptr @u2johabidx_jongseong, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !34
   %54 = zext i8 %53 to i16
   %55 = or i16 %42, %49
   %56 = or i16 %55, %54
   %57 = or i16 %56, -32768
-  br label %109
+  br label %110
 
 58:                                               ; preds = %34
   %59 = add nsw i32 %.0.i, -12593
   %or.cond3 = icmp ult i32 %59, 51
-  br i1 %or.cond3, label %60, label %64
+  br i1 %or.cond3, label %60, label %65
 
 60:                                               ; preds = %58
-  %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr [51 x i16], ptr @u2johabjamo, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !49
-  br label %109
+  %61 = zext nneg i32 %.0.i to i64
+  %62 = getelementptr i16, ptr @u2johabjamo, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 -25186
+  %64 = load i16, ptr %63, align 2, !tbaa !49
+  br label %110
 
-64:                                               ; preds = %58
-  %65 = lshr i32 %.0.i, 8
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [256 x %struct.unim_index], ptr @cp949_encmap, i64 0, i64 %66
-  %68 = load ptr, ptr %67, align 16, !tbaa !52
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %.thread, label %69
+65:                                               ; preds = %58
+  %66 = lshr i32 %.0.i, 8
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr %struct.unim_index, ptr @cp949_encmap, i64 %67
+  %69 = load ptr, ptr %68, align 16, !tbaa !52
+  %.not = icmp eq ptr %69, null
+  br i1 %.not, label %.thread, label %70
 
-69:                                               ; preds = %64
-  %70 = and i32 %.0.i, 255
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !55
-  %73 = zext i8 %72 to i32
-  %.not90 = icmp samesign ult i32 %70, %73
-  br i1 %.not90, label %.thread, label %74
+70:                                               ; preds = %65
+  %71 = and i32 %.0.i, 255
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %73 = load i8, ptr %72, align 8, !tbaa !55
+  %74 = zext i8 %73 to i32
+  %.not90 = icmp samesign ult i32 %71, %74
+  br i1 %.not90, label %.thread, label %75
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !56
-  %77 = zext i8 %76 to i32
-  %.not91 = icmp samesign ugt i32 %70, %77
-  br i1 %.not91, label %.thread, label %78
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 9
+  %77 = load i8, ptr %76, align 1, !tbaa !56
+  %78 = zext i8 %77 to i32
+  %.not91 = icmp samesign ugt i32 %71, %78
+  br i1 %.not91, label %.thread, label %79
 
-78:                                               ; preds = %74
-  %79 = sub nsw i32 %70, %73
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr i16, ptr %68, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !49
-  %.not92 = icmp eq i16 %82, -1
-  br i1 %.not92, label %.thread, label %83
+79:                                               ; preds = %75
+  %80 = sub nsw i32 %71, %74
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr i16, ptr %69, i64 %81
+  %83 = load i16, ptr %82, align 2, !tbaa !49
+  %.not92 = icmp eq i16 %83, -1
+  br i1 %.not92, label %.thread, label %84
 
-83:                                               ; preds = %78
-  %84 = lshr i16 %82, 8
-  %85 = add i16 %82, -8448
-  %or.cond6 = icmp ult i16 %85, 3072
-  br i1 %or.cond6, label %89, label %86
+84:                                               ; preds = %79
+  %85 = lshr i16 %83, 8
+  %86 = add i16 %83, -8448
+  %or.cond6 = icmp ult i16 %86, 3072
+  br i1 %or.cond6, label %90, label %87
 
-86:                                               ; preds = %83
-  %87 = add i16 %82, -18944
-  %or.cond9 = icmp ult i16 %87, 13312
-  %.mask = and i16 %82, 255
-  %88 = icmp samesign ugt i16 %.mask, 32
-  %or.cond12 = select i1 %or.cond9, i1 %88, i1 false
-  br i1 %or.cond12, label %90, label %.thread
+87:                                               ; preds = %84
+  %88 = add i16 %83, -18944
+  %or.cond9 = icmp ult i16 %88, 13312
+  %.mask = and i16 %83, 255
+  %89 = icmp samesign ugt i16 %.mask, 32
+  %or.cond12 = select i1 %or.cond9, i1 %89, i1 false
+  br i1 %or.cond12, label %91, label %.thread
 
-89:                                               ; preds = %83
-  %.mask93 = and i16 %82, 255
+90:                                               ; preds = %84
+  %.mask93 = and i16 %83, 255
   %.old11 = icmp samesign ugt i16 %.mask93, 32
-  br i1 %.old11, label %90, label %.thread
+  br i1 %.old11, label %91, label %.thread
 
-90:                                               ; preds = %86, %89
-  %.pre-phi = phi i16 [ %.mask, %86 ], [ %.mask93, %89 ]
-  %91 = icmp samesign ult i16 %.pre-phi, 127
-  br i1 %91, label %92, label %.thread
+91:                                               ; preds = %87, %90
+  %.pre-phi = phi i16 [ %.mask, %87 ], [ %.mask93, %90 ]
+  %92 = icmp samesign ult i16 %.pre-phi, 127
+  br i1 %92, label %93, label %.thread
 
-92:                                               ; preds = %90
-  %93 = zext nneg i16 %82 to i32
-  %94 = icmp samesign ult i16 %82, 18944
-  %.v106 = select i1 %94, i16 401, i16 374
-  %95 = add nuw nsw i16 %.v106, %84
-  %96 = and i16 %95, 1
-  %.not94 = icmp eq i16 %96, 0
-  %97 = select i1 %.not94, i32 0, i32 94
-  %98 = add nuw nsw i32 %93, 223
-  %99 = add nuw nsw i32 %98, %97
-  %100 = lshr i16 %95, 1
-  %101 = trunc i16 %100 to i8
-  %102 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %101, ptr %102, align 1, !tbaa !34
-  %103 = and i32 %99, 254
-  %104 = icmp samesign ult i32 %103, 78
-  %.v = select i1 %104, i32 49, i32 67
-  %105 = add nuw nsw i32 %.v, %99
-  %106 = trunc i32 %105 to i8
-  %107 = load ptr, ptr %6, align 8, !tbaa !37
-  %108 = getelementptr i8, ptr %107, i64 1
-  store i8 %106, ptr %108, align 1, !tbaa !34
-  br label %116, !llvm.loop !64
+93:                                               ; preds = %91
+  %94 = zext nneg i16 %83 to i32
+  %95 = icmp samesign ult i16 %83, 18944
+  %.v106 = select i1 %95, i16 401, i16 374
+  %96 = add nuw nsw i16 %.v106, %85
+  %97 = and i16 %96, 1
+  %.not94 = icmp eq i16 %97, 0
+  %98 = select i1 %.not94, i32 0, i32 94
+  %99 = add nuw nsw i32 %94, 223
+  %100 = add nuw nsw i32 %99, %98
+  %101 = lshr i16 %96, 1
+  %102 = trunc i16 %101 to i8
+  %103 = load ptr, ptr %6, align 8, !tbaa !37
+  store i8 %102, ptr %103, align 1, !tbaa !34
+  %104 = and i32 %100, 254
+  %105 = icmp samesign ult i32 %104, 78
+  %.v = select i1 %105, i32 49, i32 67
+  %106 = add nuw nsw i32 %.v, %100
+  %107 = trunc i32 %106 to i8
+  %108 = load ptr, ptr %6, align 8, !tbaa !37
+  %109 = getelementptr i8, ptr %108, i64 1
+  store i8 %107, ptr %109, align 1, !tbaa !34
+  br label %117, !llvm.loop !64
 
-109:                                              ; preds = %36, %60
-  %.077 = phi i16 [ %57, %36 ], [ %63, %60 ]
-  %110 = lshr i16 %.077, 8
-  %111 = trunc nuw i16 %110 to i8
-  %112 = load ptr, ptr %6, align 8, !tbaa !37
-  store i8 %111, ptr %112, align 1, !tbaa !34
-  %113 = trunc i16 %.077 to i8
-  %114 = load ptr, ptr %6, align 8, !tbaa !37
-  %115 = getelementptr i8, ptr %114, i64 1
-  store i8 %113, ptr %115, align 1, !tbaa !34
-  br label %116
+110:                                              ; preds = %36, %60
+  %.077 = phi i16 [ %57, %36 ], [ %64, %60 ]
+  %111 = lshr i16 %.077, 8
+  %112 = trunc nuw i16 %111 to i8
+  %113 = load ptr, ptr %6, align 8, !tbaa !37
+  store i8 %112, ptr %113, align 1, !tbaa !34
+  %114 = trunc i16 %.077 to i8
+  %115 = load ptr, ptr %6, align 8, !tbaa !37
+  %116 = getelementptr i8, ptr %115, i64 1
+  store i8 %114, ptr %116, align 1, !tbaa !34
+  br label %117
 
-116:                                              ; preds = %92, %109, %27
-  %.sink138 = phi i64 [ 2, %92 ], [ 2, %109 ], [ 1, %27 ]
-  %.sink = phi i64 [ -2, %92 ], [ -2, %109 ], [ -1, %27 ]
-  %117 = load i64, ptr %4, align 8, !tbaa !48
-  %118 = add i64 %117, 1
-  store i64 %118, ptr %4, align 8, !tbaa !48
-  %119 = load ptr, ptr %6, align 8, !tbaa !37
-  %120 = getelementptr i8, ptr %119, i64 %.sink138
-  store ptr %120, ptr %6, align 8, !tbaa !37
-  %121 = add nsw i64 %.074107, %.sink
-  %122 = icmp slt i64 %118, %5
-  br i1 %122, label %.lr.ph, label %.thread
+117:                                              ; preds = %93, %110, %27
+  %.sink137 = phi i64 [ 2, %93 ], [ 2, %110 ], [ 1, %27 ]
+  %.sink = phi i64 [ -2, %93 ], [ -2, %110 ], [ -1, %27 ]
+  %118 = load i64, ptr %4, align 8, !tbaa !48
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %4, align 8, !tbaa !48
+  %120 = load ptr, ptr %6, align 8, !tbaa !37
+  %121 = getelementptr i8, ptr %120, i64 %.sink137
+  store ptr %121, ptr %6, align 8, !tbaa !37
+  %122 = add nsw i64 %.074107, %.sink
+  %123 = icmp slt i64 %119, %5
+  br i1 %123, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %116, %25, %30, %32, %90, %89, %86, %78, %74, %69, %64, %9
-  %.3 = phi i64 [ 0, %9 ], [ 1, %64 ], [ 1, %69 ], [ 1, %74 ], [ 1, %78 ], [ 1, %86 ], [ 1, %89 ], [ 1, %90 ], [ -1, %32 ], [ 1, %30 ], [ -1, %25 ], [ 0, %116 ]
+.thread:                                          ; preds = %117, %25, %30, %32, %91, %90, %87, %79, %75, %70, %65, %9
+  %.3 = phi i64 [ 0, %9 ], [ 1, %65 ], [ 1, %70 ], [ 1, %75 ], [ 1, %79 ], [ 1, %87 ], [ 1, %90 ], [ 1, %91 ], [ -1, %32 ], [ 1, %30 ], [ -1, %25 ], [ 0, %117 ]
   ret i64 %.3
 }
 
@@ -1229,13 +1230,13 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %25 = or disjoint i8 %24, %.masked
   %26 = and i8 %.fr, 31
   %27 = zext nneg i8 %22 to i64
-  %28 = getelementptr [32 x i8], ptr @johabidx_choseong, i64 0, i64 %27
+  %28 = getelementptr i8, ptr @johabidx_choseong, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !34
   %30 = zext nneg i8 %25 to i64
-  %31 = getelementptr [32 x i8], ptr @johabidx_jungseong, i64 0, i64 %30
+  %31 = getelementptr i8, ptr @johabidx_jungseong, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !34
   %33 = zext nneg i8 %26 to i64
-  %34 = getelementptr [32 x i8], ptr @johabidx_jongseong, i64 0, i64 %33
+  %34 = getelementptr i8, ptr @johabidx_jongseong, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %36 = zext i8 %29 to i32
   %37 = add nsw i8 %22, -21
@@ -1269,7 +1270,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   br i1 %54, label %.thread128, label %131
 
 55:                                               ; preds = %51
-  %56 = getelementptr [32 x i8], ptr @johabjamo_jongseong, i64 0, i64 %33
+  %56 = getelementptr i8, ptr @johabjamo_jongseong, i64 %33
   %57 = load i8, ptr %56, align 1, !tbaa !34
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %58, 12544
@@ -1281,7 +1282,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   br i1 %50, label %63, label %.thread128
 
 63:                                               ; preds = %62
-  %64 = getelementptr [32 x i8], ptr @johabjamo_jungseong, i64 0, i64 %30
+  %64 = getelementptr i8, ptr @johabjamo_jungseong, i64 %30
   %65 = load i8, ptr %64, align 1, !tbaa !34
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %66, 12544
@@ -1297,7 +1298,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   br i1 %72, label %73, label %.thread128
 
 73:                                               ; preds = %71
-  %74 = getelementptr [32 x i8], ptr @johabjamo_choseong, i64 0, i64 %27
+  %74 = getelementptr i8, ptr @johabjamo_choseong, i64 %27
   %75 = load i8, ptr %74, align 1, !tbaa !34
   %76 = zext i8 %75 to i32
   %77 = or disjoint i32 %76, 12544
@@ -1352,32 +1353,32 @@ switch.early.test:                                ; preds = %90
   %101 = icmp samesign ult i8 %8, -32
   %102 = shl nsw i8 %8, 1
   %.v134 = select i1 %101, i8 78, i8 105
+  %103 = add nsw i8 %.v134, %102
   %.v = select i1 %93, i8 -49, i8 -67
-  %103 = add i8 %.v, %.fr
-  %104 = icmp ugt i8 %103, 93
-  %105 = zext i1 %104 to i8
-  %106 = add nsw i8 %102, 33
-  %107 = add nsw i8 %106, %.v134
-  %108 = add nuw nsw i8 %107, %105
-  %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr [256 x %struct.dbcs_index], ptr @ksx1001_decmap, i64 0, i64 %109
+  %104 = add i8 %.v, %.fr
+  %105 = icmp ugt i8 %104, 93
+  %106 = zext i1 %105 to i8
+  %107 = add nsw i8 %103, %106
+  %108 = sext i8 %107 to i64
+  %109 = getelementptr %struct.dbcs_index, ptr @ksx1001_decmap, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 528
   %111 = load ptr, ptr %110, align 16, !tbaa !58
   %.not = icmp eq ptr %111, null
   br i1 %.not, label %.thread128, label %112
 
 112:                                              ; preds = %100
-  %113 = add i8 %103, -94
-  %114 = select i1 %104, i8 %113, i8 %103
+  %113 = add i8 %104, -94
+  %114 = select i1 %105, i8 %113, i8 %104
   %115 = add nuw nsw i8 %114, 33
   %116 = zext nneg i8 %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %117 = getelementptr i8, ptr %109, i64 536
   %118 = load i8, ptr %117, align 8, !tbaa !60
   %119 = zext i8 %118 to i64
   %.not114 = icmp ult i8 %115, %118
   br i1 %.not114, label %.thread128, label %120
 
 120:                                              ; preds = %112
-  %121 = getelementptr inbounds nuw i8, ptr %110, i64 9
+  %121 = getelementptr i8, ptr %109, i64 537
   %122 = load i8, ptr %121, align 1, !tbaa !61
   %.not115 = icmp ugt i8 %115, %122
   br i1 %.not115, label %.thread128, label %123

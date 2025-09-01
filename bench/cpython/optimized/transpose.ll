@@ -354,7 +354,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   %18 = getelementptr i64, ptr %11, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = and i64 %.068101.us, 63
-  %21 = getelementptr [0 x i64], ptr @mpd_bits, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @mpd_bits, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = and i64 %22, %19
   %.not72.us = icmp eq i64 %23, 0
@@ -388,7 +388,7 @@ define internal fastcc range(i32 0, 2) i32 @swap_halfrows_pow2(ptr noundef captu
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.18490.us, ptr align 8 %gep, i64 %29, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %.191.us, i64 %29, i1 false)
   %33 = and i64 %.092.us, 63
-  %34 = getelementptr [0 x i64], ptr @mpd_bits, i64 0, i64 %33
+  %34 = getelementptr i64, ptr @mpd_bits, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = lshr i64 %.092.us, 6
   %37 = getelementptr i64, ptr %11, i64 %36

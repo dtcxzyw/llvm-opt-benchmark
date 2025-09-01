@@ -898,7 +898,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0e
   %19 = add i64 %.sroa.8.0, 1
   %20 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 %21
   %23 = load i8, ptr %22, align 1, !noundef !4
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %13, label %37
@@ -1008,9 +1008,9 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0e
   %62 = zext nneg i8 %61 to i64
   %63 = lshr i8 %20, 4
   %64 = zext nneg i8 %63 to i64
-  %65 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 %64
   %66 = load i8, ptr %65, align 1, !noundef !4
-  %67 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %62
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 %62
   %68 = load i8, ptr %67, align 1, !noundef !4
   store i8 92, ptr %5, align 1
   store i8 117, ptr %7, align 1
@@ -1078,7 +1078,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86
   %19 = add i64 %.sroa.8.0, 1
   %20 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 %21
   %23 = load i8, ptr %22, align 1, !noundef !4
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %13, label %37
@@ -1188,9 +1188,9 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86
   %62 = zext nneg i8 %61 to i64
   %63 = lshr i8 %20, 4
   %64 = zext nneg i8 %63 to i64
-  %65 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 %64
   %66 = load i8, ptr %65, align 1, !noundef !4
-  %67 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %62
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 %62
   %68 = load i8, ptr %67, align 1, !noundef !4
   store i8 92, ptr %5, align 1
   store i8 117, ptr %7, align 1

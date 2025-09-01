@@ -767,8 +767,8 @@ checkformat.exit139:                              ; preds = %get2digits.exit18.i
 
 259:                                              ; preds = %checkformat.exit139
   %260 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %261 = add i64 %260, -1
-  %262 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %261
+  %261 = getelementptr i8, ptr %6, i64 %260
+  %262 = getelementptr i8, ptr %261, i64 -1
   store i8 115, ptr %262, align 1, !tbaa !9
   br label %263
 
@@ -1438,7 +1438,7 @@ push_onecapture.exit.i:                           ; preds = %get_onecapture.exit
 
 106:                                              ; preds = %97
   %107 = sext i32 %99 to i64
-  %108 = getelementptr inbounds [32 x %struct.anon], ptr %30, i64 0, i64 %107
+  %108 = getelementptr inbounds %struct.anon, ptr %30, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !38
   %111 = load ptr, ptr %108, align 8, !tbaa !40
@@ -3201,7 +3201,7 @@ define internal fastcc ptr @match(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 36:                                               ; preds = %33, %29
   %37 = sext i32 %31 to i64
-  %38 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %37
+  %38 = getelementptr inbounds %struct.anon, ptr %17, i64 %37
   store ptr %.0.ph.ph, ptr %38, align 8, !tbaa !40
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 -2, ptr %39, align 8, !tbaa !38
@@ -3229,7 +3229,7 @@ define internal fastcc ptr @match(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 52:                                               ; preds = %49, %46
   %53 = sext i32 %47 to i64
-  %54 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %53
+  %54 = getelementptr inbounds %struct.anon, ptr %17, i64 %53
   store ptr %.0.ph.ph, ptr %54, align 8, !tbaa !40
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 -1, ptr %55, align 8, !tbaa !38
@@ -3276,7 +3276,7 @@ define internal fastcc ptr @match(ptr noundef %0, ptr noundef %1, ptr noundef %2
 capture_to_close.exit:                            ; preds = %73, %.loopexit.loopexit.i
   %.08.i = phi i32 [ %75, %73 ], [ %76, %.loopexit.loopexit.i ]
   %77 = sext i32 %.08.i to i64
-  %78 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %77
+  %78 = getelementptr inbounds %struct.anon, ptr %17, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !40
   %80 = ptrtoint ptr %.0.ph.ph to i64
   %81 = ptrtoint ptr %79 to i64
@@ -3610,7 +3610,7 @@ matchbracketclass.exit122:                        ; preds = %208, %217, %219, %2
 check_capture.exit.i:                             ; preds = %.critedge.i.i, %230
   %.0.i.i = phi i32 [ %237, %.critedge.i.i ], [ %226, %230 ]
   %238 = sext i32 %.0.i.i to i64
-  %239 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %238
+  %239 = getelementptr inbounds %struct.anon, ptr %17, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load i64, ptr %240, align 8, !tbaa !38
   %242 = load ptr, ptr %18, align 8, !tbaa !31
@@ -4112,7 +4112,7 @@ define internal fastcc noundef i32 @push_captures(ptr noundef readonly captures(
   br label %push_onecapture.exit.us
 
 23:                                               ; preds = %.lr.ph.split.us
-  %24 = getelementptr inbounds nuw [32 x %struct.anon], ptr %14, i64 0, i64 %indvars.iv19
+  %24 = getelementptr inbounds nuw %struct.anon, ptr %14, i64 %indvars.iv19
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !38
   %27 = load ptr, ptr %24, align 8, !tbaa !40
@@ -4165,7 +4165,7 @@ push_onecapture.exit.us:                          ; preds = %17, %18, %get_oneca
   br label %get_onecapture.exit.thread.i
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw [32 x %struct.anon], ptr %14, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.anon, ptr %14, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !38
   %51 = load ptr, ptr %48, align 8, !tbaa !40

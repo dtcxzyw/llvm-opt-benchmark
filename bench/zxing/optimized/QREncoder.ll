@@ -297,7 +297,7 @@ _ZN5ZXing6QRCodeL10ChooseModeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaI
 
 87:                                               ; preds = %85
   %88 = sext i32 %83 to i64
-  %89 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !22
   %.not.not.not.i = icmp eq i32 %90, -1
   br i1 %.not.not.not.i, label %_ZN5ZXing6QRCodeL10ChooseModeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE.exit, label %.thread.i
@@ -608,7 +608,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit34.i.i:     ; preds = %.noexc109, %.noexc1
 
 _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.i.i: ; preds = %.lr.ph.i17.i
   %187 = sext i32 %185 to i64
-  %188 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !22
   %190 = icmp eq i32 %189, -1
   br i1 %190, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.thread.i.i, label %195
@@ -644,7 +644,7 @@ _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit.thread.i.i: ; preds = %_ZN5ZXing6Q
 
 _ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.i.i: ; preds = %198
   %202 = sext i32 %200 to i64
-  %203 = getelementptr inbounds nuw [96 x i32], ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6QRCodeL18ALPHANUMERIC_TABLEE, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !22
   %205 = icmp eq i32 %204, -1
   br i1 %205, label %_ZN5ZXing6QRCodeL19GetAlphanumericCodeEi.exit28.thread.i.i, label %209
@@ -1074,7 +1074,7 @@ _ZN5ZXing6QRCodeL11AppendBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESa
   %365 = load i32, ptr %364, align 8, !tbaa !31
   %366 = getelementptr inbounds nuw i8, ptr %347, i64 32
   %367 = sext i32 %2 to i64
-  %368 = getelementptr inbounds nuw [4 x %"struct.ZXing::QRCode::ECBlocks"], ptr %366, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %366, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !40
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 4
   %371 = load i32, ptr %370, align 4, !tbaa !43
@@ -1359,7 +1359,7 @@ _ZN5ZXing6QRCodeL16AppendLengthInfoEiRKNS0_7VersionENS0_9CodecModeERNS_8BitArray
 476:                                              ; preds = %_ZN5ZXing6QRCodeL16AppendLengthInfoEiRKNS0_7VersionENS0_9CodecModeERNS_8BitArrayE.exit
   %477 = getelementptr inbounds nuw i8, ptr %.064, i64 32
   %478 = sext i32 %2 to i64
-  %479 = getelementptr inbounds nuw [4 x %"struct.ZXing::QRCode::ECBlocks"], ptr %477, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %477, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %.064, i64 112
   %481 = load i32, ptr %480, align 8, !tbaa !31
   %482 = load i32, ptr %479, align 4, !tbaa !40
@@ -3636,53 +3636,49 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.020 = phi i32 [ %8, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.01819 = phi i32 [ %21, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.01819 = phi i32 [ %19, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %6 = urem i32 %.020, 100
   %7 = shl nuw nsw i32 %6, 1
   %8 = udiv i32 %.020, 100
-  %9 = or disjoint i32 %7, 1
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %10
+  %9 = zext nneg i32 %7 to i64
+  %10 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i32 %.01819 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   store i8 %12, ptr %14, align 1, !tbaa !12
-  %15 = zext nneg i32 %7 to i64
-  %16 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 2, !tbaa !12
-  %18 = add i32 %.01819, -1
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
-  store i8 %17, ptr %20, align 1, !tbaa !12
-  %21 = add i32 %.01819, -2
-  %22 = icmp ugt i32 %.020, 9999
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !101
+  %15 = load i8, ptr %10, align 2, !tbaa !12
+  %16 = add i32 %.01819, -1
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  store i8 %15, ptr %18, align 1, !tbaa !12
+  %19 = add i32 %.01819, -2
+  %20 = icmp ugt i32 %.020, 9999
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %8, %.lr.ph ]
-  %23 = icmp samesign ugt i32 %.0.lcssa, 9
-  br i1 %23, label %24, label %34
+  %21 = icmp samesign ugt i32 %.0.lcssa, 9
+  br i1 %21, label %22, label %30
 
-24:                                               ; preds = %._crit_edge
-  %25 = shl nuw nsw i32 %.0.lcssa, 1
-  %26 = or disjoint i32 %25, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %29, ptr %30, align 1, !tbaa !12
-  %31 = zext nneg i32 %25 to i64
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 2, !tbaa !12
-  br label %37
+22:                                               ; preds = %._crit_edge
+  %23 = shl nuw nsw i32 %.0.lcssa, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %27, ptr %28, align 1, !tbaa !12
+  %29 = load i8, ptr %25, align 2, !tbaa !12
+  br label %33
 
-34:                                               ; preds = %._crit_edge
-  %35 = trunc nuw nsw i32 %.0.lcssa to i8
-  %36 = or disjoint i8 %35, 48
-  br label %37
+30:                                               ; preds = %._crit_edge
+  %31 = trunc nuw nsw i32 %.0.lcssa to i8
+  %32 = or disjoint i8 %31, 48
+  br label %33
 
-37:                                               ; preds = %34, %24
-  %storemerge = phi i8 [ %36, %34 ], [ %33, %24 ]
+33:                                               ; preds = %30, %22
+  %storemerge = phi i8 [ %32, %30 ], [ %29, %22 ]
   store i8 %storemerge, ptr %0, align 1, !tbaa !12
   ret void
 }
@@ -3751,7 +3747,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN5ZXi
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = getelementptr inbounds nuw [4 x %"struct.ZXing::QRCode::ECBlocks"], ptr %12, i64 0, i64 %3
+  %13 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %12, i64 %3
   %14 = load i32, ptr %13, align 4, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !43
@@ -4567,7 +4563,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34: ; preds = %_ZNSt6vectorIh
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %1, label %28 [
+  switch i32 %1, label %29 [
     i32 0, label %3
     i32 1, label %9
     i32 2, label %15
@@ -4577,48 +4573,49 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 3:                                                ; preds = %2
   %4 = add i32 %0, -1
   %5 = icmp ult i32 %4, 32
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
   %7 = shl nuw nsw i32 %0, 2
   %8 = add nuw nsw i32 %7, 17
-  br label %28
+  br label %29
 
 9:                                                ; preds = %2
   %10 = add i32 %0, -1
   %11 = icmp ult i32 %10, 40
-  br i1 %11, label %12, label %28
+  br i1 %11, label %12, label %29
 
 12:                                               ; preds = %9
   %13 = shl nuw nsw i32 %0, 2
   %14 = add nuw nsw i32 %13, 17
-  br label %28
+  br label %29
 
 15:                                               ; preds = %2
   %16 = add i32 %0, -1
   %17 = icmp ult i32 %16, 4
-  br i1 %17, label %18, label %28
+  br i1 %17, label %18, label %29
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i32 %0, 1
   %20 = add nuw nsw i32 %19, 9
-  br label %28
+  br label %29
 
 21:                                               ; preds = %2
   %22 = add i32 %0, -1
   %23 = icmp ult i32 %22, 32
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %25
-  %27 = load i64, ptr %26, align 4
-  %.sroa.014.0.extract.trunc17 = trunc i64 %27 to i32
-  %.sroa.15.0.extract.shift22 = lshr i64 %27, 32
+  %25 = zext nneg i32 %0 to i64
+  %26 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 -8
+  %28 = load i64, ptr %27, align 4
+  %.sroa.014.0.extract.trunc17 = trunc i64 %28 to i32
+  %.sroa.15.0.extract.shift22 = lshr i64 %28, 32
   %.sroa.15.0.extract.trunc23 = trunc nuw i64 %.sroa.15.0.extract.shift22 to i32
-  br label %28
+  br label %29
 
-28:                                               ; preds = %2, %21, %15, %9, %3, %24, %18, %12, %6
+29:                                               ; preds = %2, %21, %15, %9, %3, %24, %18, %12, %6
   %.sroa.014.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.014.0.extract.trunc17, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
   %.sroa.15.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.15.0.extract.trunc23, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
   %.sroa.15.0.insert.ext = zext i32 %.sroa.15.0 to i64

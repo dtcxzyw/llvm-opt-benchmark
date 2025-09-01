@@ -678,57 +678,60 @@ define internal fastcc noundef ptr @read_to_eol(ptr noundef %0) unnamed_addr #1 
 
 4:                                                ; preds = %1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @read_to_eol.buf) #11
-  %6 = shl i64 %5, 32
-  %sext = add i64 %6, -4294967296
-  %7 = ashr exact i64 %sext, 32
-  %8 = getelementptr inbounds [4096 x i8], ptr @read_to_eol.buf, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !9
-  %.not = icmp eq i8 %9, 10
-  br i1 %.not, label %.preheader, label %14
+  %6 = trunc i64 %5 to i32
+  %7 = shl i64 %5, 32
+  %sext = add i64 %7, -4294967296
+  %8 = ashr exact i64 %sext, 32
+  %9 = getelementptr inbounds i8, ptr @read_to_eol.buf, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !9
+  %.not = icmp eq i8 %10, 10
+  br i1 %.not, label %.preheader, label %13
 
 .preheader:                                       ; preds = %4
-  %10 = trunc i64 %5 to i32
-  %11 = icmp sgt i32 %10, 0
+  %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = tail call ptr @__ctype_b_loc() #10
-  %13 = and i64 %5, 2147483647
-  br label %18
+  br label %17
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   %.mask = and i64 %5, 4294967295
-  %15 = icmp eq i64 %.mask, 4095
-  br i1 %15, label %16, label %17
+  %14 = icmp eq i64 %.mask, 4095
+  br i1 %14, label %15, label %16
 
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 161, ptr noundef nonnull @.str.42) #9
   br label %.critedge
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 163, ptr noundef nonnull @.str.43) #9
   br label %.critedge
 
-18:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %19 = load ptr, ptr %12, align 8, !tbaa !14
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds nuw [4096 x i8], ptr @read_to_eol.buf, i64 0, i64 %indvars.iv.next
-  %21 = load i8, ptr %20, align 1, !tbaa !9
-  %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %19, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !16
-  %25 = and i16 %24, 8192
-  %.not7 = icmp eq i16 %25, 0
-  br i1 %.not7, label %.critedge, label %26
+17:                                               ; preds = %.lr.ph, %27
+  %.09 = phi i32 [ %6, %.lr.ph ], [ %28, %27 ]
+  %18 = load ptr, ptr %12, align 8, !tbaa !14
+  %19 = zext nneg i32 %.09 to i64
+  %20 = getelementptr i8, ptr @read_to_eol.buf, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -1
+  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %23 = zext i8 %22 to i64
+  %24 = getelementptr inbounds nuw i16, ptr %18, i64 %23
+  %25 = load i16, ptr %24, align 2, !tbaa !16
+  %26 = and i16 %25, 8192
+  %.not7 = icmp eq i16 %26, 0
+  br i1 %.not7, label %.critedge, label %27
 
-26:                                               ; preds = %18
-  store i8 0, ptr %20, align 1, !tbaa !9
-  %27 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %27, label %18, label %.critedge, !llvm.loop !29
+27:                                               ; preds = %17
+  %28 = add nsw i32 %.09, -1
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr @read_to_eol.buf, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !9
+  %31 = icmp sgt i32 %.09, 1
+  br i1 %31, label %17, label %.critedge, !llvm.loop !29
 
-.critedge:                                        ; preds = %26, %18, %.preheader, %16, %17, %1
-  %.06 = phi ptr [ null, %1 ], [ null, %17 ], [ null, %16 ], [ @read_to_eol.buf, %.preheader ], [ @read_to_eol.buf, %18 ], [ @read_to_eol.buf, %26 ]
+.critedge:                                        ; preds = %27, %17, %.preheader, %15, %16, %1
+  %.06 = phi ptr [ null, %1 ], [ null, %16 ], [ null, %15 ], [ @read_to_eol.buf, %.preheader ], [ @read_to_eol.buf, %17 ], [ @read_to_eol.buf, %27 ]
   ret ptr %.06
 }
 

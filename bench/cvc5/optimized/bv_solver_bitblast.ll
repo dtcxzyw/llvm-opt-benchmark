@@ -2265,7 +2265,7 @@ _ZN4cvc57context7CDQueueINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS
   %384 = icmp eq i32 %383, 2
   %385 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %386 = zext i1 %384 to i64
-  %387 = getelementptr inbounds nuw [0 x ptr], ptr %385, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw ptr, ptr %385, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !399, !noalias !396
   store ptr %388, ptr %13, align 8, !tbaa !352, !alias.scope !396
   %389 = load i64, ptr %388, align 8, !noalias !396
@@ -3443,7 +3443,7 @@ define hidden void @_ZN4cvc58internal6theory2bv16BVSolverBitblast15handleEagerAt
   %24 = icmp eq i32 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = zext i1 %24 to i64
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !399, !noalias !406
   store ptr %28, ptr %7, align 8, !tbaa !389, !alias.scope !406
   call void @_ZN4cvc58internal4prop9CnfStream16convertAndAssertENS0_12NodeTemplateILb0EEEbb(ptr noundef nonnull align 8 dereferenceable(352) %14, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -3462,7 +3462,7 @@ define hidden void @_ZN4cvc58internal6theory2bv16BVSolverBitblast15handleEagerAt
   %38 = icmp eq i32 %37, 2
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %40 = zext i1 %38 to i64
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !399, !noalias !409
   store ptr %42, ptr %8, align 8, !tbaa !389, !alias.scope !409
   call void @_ZN4cvc58internal4prop9CnfStream13ensureLiteralENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(352) %14, ptr noundef nonnull %8)
@@ -6236,7 +6236,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   %56 = icmp eq i32 %55, 2
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %58 = zext i1 %56 to i64
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !399, !noalias !455
   store ptr %60, ptr %6, align 8, !tbaa !352, !alias.scope !455
   %61 = load i64, ptr %60, align 8, !noalias !455

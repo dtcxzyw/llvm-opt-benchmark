@@ -73,7 +73,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %14 = load ptr, ptr %0, align 8, !tbaa !41
   %15 = load ptr, ptr %9, align 8, !tbaa !42
   %16 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %2)
-  %17 = getelementptr inbounds nuw [3 x %struct.anon], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %indvars.iv
   store i64 %16, ptr %17, align 8, !tbaa !43
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 10, ptr noundef nonnull @.str.2, i32 noundef %12) #9
   %19 = load ptr, ptr %0, align 8, !tbaa !41
@@ -103,9 +103,9 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %33 = load ptr, ptr %0, align 8, !tbaa !41
   %34 = and i64 %indvars.iv.next103, 4294967295
   %35 = select i1 %32, i64 0, i64 %34
-  %36 = getelementptr inbounds nuw [3 x %struct.anon], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %35
   %37 = load double, ptr %36, align 8, !tbaa !43
-  %38 = getelementptr inbounds nuw [3 x %struct.anon], ptr %3, i64 0, i64 %indvars.iv102
+  %38 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %indvars.iv102
   %39 = load double, ptr %38, align 8, !tbaa !43
   %40 = fsub double %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -289,7 +289,7 @@ define internal { double, double } @_ZL15chamb_s_forward5PJ_LPP8PJconsts(double 
 9:                                                ; preds = %3, %_ZL4vectP6pj_ctxdddddd.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZL4vectP6pj_ctxdddddd.exit ]
   %10 = load ptr, ptr %2, align 8, !tbaa !41
-  %11 = getelementptr inbounds nuw [3 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !43
   %13 = fsub double %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -335,7 +335,7 @@ define internal { double, double } @_ZL15chamb_s_forward5PJ_LPP8PJconsts(double 
   br i1 %45, label %_ZL4vectP6pj_ctxdddddd.exit, label %_ZL4vectP6pj_ctxdddddd.exit.thread
 
 _ZL4vectP6pj_ctxdddddd.exit.thread:               ; preds = %43
-  %46 = getelementptr inbounds nuw [3 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv, i32 5
+  %46 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv, i32 5
   %.sroa.055.0.copyload = load double, ptr %46, align 8, !tbaa !54
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !54
@@ -349,7 +349,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %51 = fmul double %49, %50
   %52 = tail call double @llvm.fmuladd.f64(double %15, double %7, double %51)
   %53 = tail call double @atan2(double noundef %48, double noundef %52) #9, !tbaa !49
-  %54 = getelementptr inbounds nuw [3 x %struct.VECT], ptr %4, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv
   store double %.sroa.0.0.i, ptr %54, align 16, !tbaa !54
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -377,13 +377,13 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %63 = icmp eq i64 %indvars.iv77, 2
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %64 = load ptr, ptr %2, align 8, !tbaa !41
-  %65 = getelementptr inbounds nuw [3 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv77, i32 4
+  %65 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv77, i32 4
   %66 = load double, ptr %65, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw [3 x %struct.VECT], ptr %4, i64 0, i64 %indvars.iv77
+  %67 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv77
   %68 = load double, ptr %67, align 16, !tbaa !70
   %69 = and i64 %indvars.iv.next78, 4294967295
   %70 = select i1 %63, i64 0, i64 %69
-  %71 = getelementptr inbounds nuw [3 x %struct.VECT], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %70
   %72 = load double, ptr %71, align 16, !tbaa !70
   %73 = fmul double %68, %68
   %74 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %73)

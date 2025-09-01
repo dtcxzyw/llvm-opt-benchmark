@@ -1616,8 +1616,8 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 .preheader.i.i.i:                                 ; preds = %254, %231
   %indvars.iv121.i.i.i = phi i64 [ 0, %231 ], [ %indvars.iv.next122.i.i.i, %254 ]
-  %252 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %161, i64 0, i64 %indvars.iv121.i.i.i
-  %253 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %162, i64 0, i64 %indvars.iv121.i.i.i
+  %252 = getelementptr inbounds nuw %"struct.std::array.101", ptr %161, i64 %indvars.iv121.i.i.i
+  %253 = getelementptr inbounds nuw %"struct.std::array.101", ptr %162, i64 %indvars.iv121.i.i.i
   br label %255
 
 254:                                              ; preds = %255
@@ -1627,11 +1627,11 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 255:                                              ; preds = %255, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %255 ]
-  %256 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %252, i64 0, i64 %indvars.iv.i.i.i
+  %256 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %252, i64 %indvars.iv.i.i.i
   store i32 %234, ptr %256, align 8, !tbaa !222
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store i32 1, ptr %257, align 4, !tbaa !224
-  %258 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %253, i64 0, i64 %indvars.iv.i.i.i
+  %258 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %253, i64 %indvars.iv.i.i.i
   store i32 %234, ptr %258, align 8, !tbaa !222
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   store i32 1, ptr %259, align 4, !tbaa !224
@@ -1732,19 +1732,19 @@ switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 1
   %304 = load i8, ptr %303, align 1, !tbaa !111
   %305 = zext nneg i8 %302 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 0, i64 %305
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %305
   %switch.load = load i32, ptr %switch.gep, align 4
   %306 = zext nneg i8 %302 to i64
-  %307 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i32, ptr %7, i64 %306
   %308 = load i32, ptr %307, align 4, !tbaa !93
   %309 = add nsw i32 %308, %switch.load
   %310 = add nsw i32 %308, 1
   store i32 %310, ptr %307, align 4, !tbaa !93
   %311 = zext nneg i8 %304 to i64
-  %switch.gep305 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 0, i64 %311
+  %switch.gep305 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %311
   %switch.load306 = load i32, ptr %switch.gep305, align 4
   %312 = zext nneg i8 %304 to i64
-  %313 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i32, ptr %7, i64 %312
   %314 = load i32, ptr %313, align 4, !tbaa !93
   %315 = add nsw i32 %314, %switch.load306
   %316 = add nsw i32 %314, 1
@@ -1759,11 +1759,11 @@ switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1
   store i32 0, ptr %.sroa.693.i.i.i.i, align 4, !tbaa !93
   %317 = urem i32 %.0.i119.i.i.i.i, 3
   %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %161, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw %"struct.std::array.101", ptr %161, i64 %318
   %320 = add nsw i32 %.0.i119.i.i.i.i, -1
   %or.cond4.i.i.i.i.i.i = icmp ult i32 %320, 2
   %321 = icmp eq i32 %.0.i119.i.i.i.i, 5
-  %322 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %162, i64 0, i64 %318
+  %322 = getelementptr inbounds nuw %"struct.std::array.101", ptr %162, i64 %318
   %323 = load ptr, ptr %148, align 8, !nonnull !132
   %324 = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %325 = icmp sgt i32 %324, -1
@@ -2116,7 +2116,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 538:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
   %539 = zext nneg i32 %491 to i64
-  %540 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %319, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %319, i64 %539
   %541 = load i32, ptr %540, align 8, !tbaa !222
   %542 = getelementptr inbounds nuw i8, ptr %540, i64 4
   %543 = load i32, ptr %542, align 4, !tbaa !224
@@ -2227,7 +2227,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i.i.i.i = xor i32 %594, %sext.i.i.i.i.i.i
   %596 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i.i, i1 true)
   %597 = zext nneg i32 %491 to i64
-  %598 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %319, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %319, i64 %597
   %599 = load i32, ptr %598, align 8, !tbaa !222
   %600 = add nsw i32 %599, %596
   store i32 %600, ptr %598, align 8, !tbaa !222
@@ -2502,7 +2502,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 750:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
   %751 = zext nneg i32 %701 to i64
-  %752 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %322, i64 0, i64 %751
+  %752 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %322, i64 %751
   %753 = load i32, ptr %752, align 8, !tbaa !222
   %754 = getelementptr inbounds nuw i8, ptr %752, i64 4
   %755 = load i32, ptr %754, align 4, !tbaa !224
@@ -2619,7 +2619,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i.i.i = xor i32 %809, %sext.i.i.i.i.i
   %811 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i, i1 true)
   %812 = zext nneg i32 %701 to i64
-  %813 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %322, i64 0, i64 %812
+  %813 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %322, i64 %812
   %814 = load i32, ptr %813, align 8, !tbaa !222
   %815 = add nsw i32 %814, %811
   store i32 %815, ptr %813, align 8, !tbaa !222
@@ -2861,19 +2861,19 @@ switch.lookup299:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   %931 = getelementptr inbounds nuw i8, ptr %929, i64 1
   %932 = load i8, ptr %931, align 1, !tbaa !111
   %933 = zext nneg i8 %930 to i64
-  %switch.gep300 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 0, i64 %933
+  %switch.gep300 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %933
   %switch.load301 = load i32, ptr %switch.gep300, align 4
   %934 = zext nneg i8 %930 to i64
-  %935 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %934
+  %935 = getelementptr inbounds nuw i32, ptr %5, i64 %934
   %936 = load i32, ptr %935, align 4, !tbaa !93
   %937 = add nsw i32 %936, %switch.load301
   %938 = add nsw i32 %936, 1
   store i32 %938, ptr %935, align 4, !tbaa !93
   %939 = zext nneg i8 %932 to i64
-  %switch.gep308 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 0, i64 %939
+  %switch.gep308 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %939
   %switch.load309 = load i32, ptr %switch.gep308, align 4
   %940 = zext nneg i8 %932 to i64
-  %941 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %940
+  %941 = getelementptr inbounds nuw i32, ptr %5, i64 %940
   %942 = load i32, ptr %941, align 4, !tbaa !93
   %943 = add nsw i32 %942, %switch.load309
   %944 = add nsw i32 %942, 1
@@ -2888,8 +2888,8 @@ switch.lookup299:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   store i32 0, ptr %.sroa.693.i52.i.i.i, align 4, !tbaa !93
   %945 = urem i32 %.0.i141.i.i.i.i, 3
   %946 = zext nneg i32 %945 to i64
-  %947 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %161, i64 0, i64 %946
-  %948 = getelementptr inbounds nuw [3 x %"struct.std::array.101"], ptr %162, i64 0, i64 %946
+  %947 = getelementptr inbounds nuw %"struct.std::array.101", ptr %161, i64 %946
+  %948 = getelementptr inbounds nuw %"struct.std::array.101", ptr %162, i64 %946
   %.promoted.i60.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %.promoted122.i.i.i.i = load i32, ptr %.sroa.842.0..sroa_idx.i.i, align 8
   %949 = load ptr, ptr %148, align 8, !nonnull !132
@@ -3108,7 +3108,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 1080:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i119.i.i.i
   %1081 = zext nneg i32 %1035 to i64
-  %1082 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %947, i64 0, i64 %1081
+  %1082 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %947, i64 %1081
   %1083 = load i32, ptr %1082, align 8, !tbaa !222
   %1084 = getelementptr inbounds nuw i8, ptr %1082, i64 4
   %1085 = load i32, ptr %1084, align 4, !tbaa !224
@@ -3220,7 +3220,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i126.i.i.i = xor i32 %1133, %sext.i.i.i125.i.i.i
   %1135 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i126.i.i.i, i1 true)
   %1136 = zext nneg i32 %1035 to i64
-  %1137 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %947, i64 0, i64 %1136
+  %1137 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %947, i64 %1136
   %1138 = load i32, ptr %1137, align 8, !tbaa !222
   %1139 = add nsw i32 %1138, %1135
   store i32 %1139, ptr %1137, align 8, !tbaa !222
@@ -3485,7 +3485,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 1286:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i85.i.i.i
   %1287 = zext nneg i32 %1237 to i64
-  %1288 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %948, i64 0, i64 %1287
+  %1288 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %948, i64 %1287
   %1289 = load i32, ptr %1288, align 8, !tbaa !222
   %1290 = getelementptr inbounds nuw i8, ptr %1288, i64 4
   %1291 = load i32, ptr %1290, align 4, !tbaa !224
@@ -3617,7 +3617,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i93.i.i.i = xor i32 %1344, %sext.i.i92.i.i.i
   %1346 = call i32 @llvm.abs.i32(i32 %.1.i.i.i93.i.i.i, i1 true)
   %1347 = zext nneg i32 %1237 to i64
-  %1348 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %948, i64 0, i64 %1347
+  %1348 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %948, i64 %1347
   %1349 = load i32, ptr %1348, align 8, !tbaa !222
   %1350 = add nsw i32 %1349, %1346
   store i32 %1350, ptr %1348, align 8, !tbaa !222

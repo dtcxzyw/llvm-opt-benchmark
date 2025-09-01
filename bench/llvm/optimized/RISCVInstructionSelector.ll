@@ -1920,9 +1920,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %177, %17
 
 202:                                              ; preds = %202, %197
   %indvars.iv.i.i.i.i = phi i64 [ 0, %197 ], [ %indvars.iv.next.i.i.i.i, %202 ]
-  %203 = getelementptr inbounds nuw [2 x i64], ptr %201, i64 0, i64 %indvars.iv.i.i.i.i
+  %203 = getelementptr inbounds nuw i64, ptr %201, i64 %indvars.iv.i.i.i.i
   %204 = load i64, ptr %203, align 8, !tbaa !393
-  %205 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
+  %205 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i.i
   %206 = load i64, ptr %205, align 8, !tbaa !393
   %207 = or i64 %206, %204
   store i64 %207, ptr %205, align 8, !tbaa !393
@@ -11800,9 +11800,9 @@ thread-pre-split:                                 ; preds = %11
 
 thread-pre-split30:                               ; preds = %24, %24, %24, %24, %24, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %.thread29
   %36 = phi i32 [ %34, %.thread29 ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ]
-  %switch.tableidx = add nsw i32 %36, -32
-  %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL20getOperandsForBranchN4llvm8RegisterERNS_7RISCVCC8CondCodeERS0_S4_RNS_19MachineRegisterInfoE, i64 0, i64 %37
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr i32, ptr @switch.table._ZL20getOperandsForBranchN4llvm8RegisterERNS_7RISCVCC8CondCodeERS0_S4_RNS_19MachineRegisterInfoE, i64 %37
+  %switch.gep = getelementptr i8, ptr %38, i64 -128
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL18getRISCVCCFromICmpN4llvm7CmpInst9PredicateE.exit
 
@@ -13181,9 +13181,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 
 246:                                              ; preds = %246, %241
   %indvars.iv.i.i = phi i64 [ 0, %241 ], [ %indvars.iv.next.i.i, %246 ]
-  %247 = getelementptr inbounds nuw [2 x i64], ptr %245, i64 0, i64 %indvars.iv.i.i
+  %247 = getelementptr inbounds nuw i64, ptr %245, i64 %indvars.iv.i.i
   %248 = load i64, ptr %247, align 8, !tbaa !393
-  %249 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %indvars.iv.i.i
+  %249 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i.i
   %250 = load i64, ptr %249, align 8, !tbaa !393
   %251 = and i64 %250, %248
   store i64 %251, ptr %249, align 8, !tbaa !393
@@ -14482,9 +14482,9 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
 
 1028:                                             ; preds = %1025
   %1029 = zext nneg i16 %1021 to i64
-  %1030 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1029
+  %1030 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1029
   %1031 = zext nneg i16 %1022 to i64
-  %1032 = getelementptr inbounds nuw [8 x i8], ptr %1030, i64 0, i64 %1031
+  %1032 = getelementptr inbounds nuw i8, ptr %1030, i64 %1031
   %1033 = load i8, ptr %1032, align 1, !tbaa !916, !range !189, !noundef !190
   %1034 = trunc nuw i8 %1033 to i1
   %.v.i = select i1 %1034, i16 %1021, i16 %1022
@@ -14637,7 +14637,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1527:  ; preds = %.thread3875
   %.sroa.0.0.i15233889 = phi ptr [ %1094, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1527.thread3883 ], [ %1099, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1527 ]
   %.promoted3437 = load i32, ptr %36, align 8
   %1105 = zext i8 %1067 to i64
-  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1105
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1105
   %1106 = load ptr, ptr %25, align 8
   br label %1107
 
@@ -14664,9 +14664,9 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1527:  ; preds = %.thread3875
 
 1120:                                             ; preds = %1117
   %1121 = zext nneg i16 %1113 to i64
-  %1122 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1121
+  %1122 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1121
   %1123 = zext nneg i16 %1114 to i64
-  %1124 = getelementptr inbounds nuw [8 x i8], ptr %1122, i64 0, i64 %1123
+  %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 %1123
   %1125 = load i8, ptr %1124, align 1, !tbaa !916, !range !189, !noundef !190
   %1126 = trunc nuw i8 %1125 to i1
   %.v.i1530 = select i1 %1126, i16 %1113, i16 %1114
@@ -14675,7 +14675,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1527:  ; preds = %.thread3875
 
 _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit1532: ; preds = %1107, %1117, %1120
   %.0.i.i1531 = phi i64 [ %1127, %1120 ], [ 6, %1117 ], [ 6, %1107 ]
-  %gep = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep, i64 0, i64 %.0.i.i1531
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %.0.i.i1531
   %1128 = load i8, ptr %gep, align 1, !tbaa !916, !range !189, !noundef !190
   %1129 = trunc nuw i8 %1128 to i1
   br i1 %1129, label %1136, label %1130
@@ -14821,7 +14821,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1550:  ; preds = %.thread3890
   %.sroa.0.0.i15463904 = phi ptr [ %1188, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1550.thread3898 ], [ %1193, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1550 ]
   %.promoted = load i32, ptr %36, align 8
   %1199 = zext i8 %1161 to i64
-  %1200 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1199
+  %1200 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1199
   %1201 = load ptr, ptr %25, align 8
   br label %1202
 
@@ -14848,9 +14848,9 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1550:  ; preds = %.thread3890
 
 1215:                                             ; preds = %1212
   %1216 = zext nneg i16 %1208 to i64
-  %1217 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %1216
+  %1217 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %1216
   %1218 = zext nneg i16 %1209 to i64
-  %1219 = getelementptr inbounds nuw [8 x i8], ptr %1217, i64 0, i64 %1218
+  %1219 = getelementptr inbounds nuw i8, ptr %1217, i64 %1218
   %1220 = load i8, ptr %1219, align 1, !tbaa !916, !range !189, !noundef !190
   %1221 = trunc nuw i8 %1220 to i1
   %.v.i1553 = select i1 %1221, i16 %1208, i16 %1209
@@ -14859,7 +14859,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1550:  ; preds = %.thread3890
 
 _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit1555: ; preds = %1202, %1212, %1215
   %.0.i.i1554 = phi i64 [ %1222, %1215 ], [ 6, %1212 ], [ 6, %1202 ]
-  %1223 = getelementptr inbounds nuw [8 x i8], ptr %1200, i64 0, i64 %.0.i.i1554
+  %1223 = getelementptr inbounds nuw i8, ptr %1200, i64 %.0.i.i1554
   %1224 = load i8, ptr %1223, align 1, !tbaa !916, !range !189, !noundef !190
   %1225 = trunc nuw i8 %1224 to i1
   br i1 %1225, label %1232, label %1226
@@ -16309,7 +16309,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_124RISCVInstr
   %2034 = load ptr, ptr %2033, align 8, !tbaa !453
   %2035 = and i64 %.0.i.i1764, 4294967295
   %2036 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2034, i64 %2035
-  %2037 = getelementptr inbounds nuw [3 x ptr], ptr %100, i64 0, i64 %.0.i.i1769
+  %2037 = getelementptr inbounds nuw ptr, ptr %100, i64 %.0.i.i1769
   store ptr %2036, ptr %2037, align 8, !tbaa !450
   br label %.critedge49
 

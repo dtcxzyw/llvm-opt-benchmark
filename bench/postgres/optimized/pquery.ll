@@ -2105,7 +2105,7 @@ define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %23
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ProcessQuery, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ProcessQuery, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 

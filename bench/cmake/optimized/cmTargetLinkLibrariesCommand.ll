@@ -2090,7 +2090,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 733:                                              ; preds = %730
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %734 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 0, i64 %.0160.lcssa
+  %734 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 %.0160.lcssa
   invoke void @_Z8cmStrCatIRA6_KcRPS0_JRA42_S0_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull align 1 dereferenceable(6) @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %734, ptr noundef nonnull align 1 dereferenceable(42) @.str.23)
           to label %735 unwind label %745
 
@@ -2420,9 +2420,9 @@ define internal fastcc void @_ZL31LinkLibraryTypeSpecifierWarningR10cmMakefileii
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 %6
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !132
   store i64 29, ptr %4, align 8, !tbaa !12, !alias.scope !135, !noalias !132
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8

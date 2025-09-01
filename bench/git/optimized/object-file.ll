@@ -307,7 +307,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_name(ptr noundef readonly cap
 .preheader:                                       ; preds = %1, %5
   %exitcond.not = phi i1 [ true, %5 ], [ false, %1 ]
   %indvars.iv = phi i64 [ 2, %5 ], [ 1, %1 ]
-  %2 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 16, !tbaa !36
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #28
   %.not8 = icmp eq i32 %4, 0
@@ -335,7 +335,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_id(i32 noundef %0) local_unna
 2:                                                ; preds = %1, %6
   %exitcond.not = phi i1 [ false, %1 ], [ true, %6 ]
   %indvars.iv = phi i64 [ 1, %1 ], [ 2, %6 ]
-  %3 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv, i32 1
+  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv, i32 1
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i32 %0, %4
   br i1 %5, label %.split.loop.exit9, label %6
@@ -360,7 +360,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_length(i32 noundef %0) local_
 3:                                                ; preds = %1, %7
   %exitcond.not = phi i1 [ false, %1 ], [ true, %7 ]
   %indvars.iv = phi i64 [ 1, %1 ], [ 2, %7 ]
-  %4 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv, i32 2
+  %4 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv, i32 2
   %5 = load i64, ptr %4, align 16, !tbaa !41
   %6 = icmp eq i64 %5, %2
   br i1 %6, label %.split.loop.exit9, label %7
@@ -823,12 +823,12 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 .lr.ph.i:                                         ; preds = %strbuf_addch.exit, %60
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %60 ], [ 0, %strbuf_addch.exit ]
-  %24 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1, !tbaa !51
   %26 = zext i8 %25 to i32
   %27 = lshr i32 %26, 4
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @fill_loose_path.hex, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @fill_loose_path.hex, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !51
   %31 = load i64, ptr %1, align 8, !tbaa !72
   %.not.i.i.i = icmp eq i64 %31, 0
@@ -859,7 +859,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   store i8 0, ptr %38, align 1, !tbaa !51
   %39 = and i32 %26, 15
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [17 x i8], ptr @fill_loose_path.hex, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @fill_loose_path.hex, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !51
   %43 = load i64, ptr %1, align 8, !tbaa !72
   %.not.i.i10.i = icmp eq i64 %43, 0
@@ -2241,7 +2241,7 @@ define dso_local range(i32 -1, 1) i32 @check_object_signature(ptr noundef readon
 
 11:                                               ; preds = %5
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %12
+  %13 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %12
   br label %17
 
 14:                                               ; preds = %5
@@ -2824,7 +2824,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 
 17:                                               ; preds = %19, %14
   %.0811.i = phi i64 [ 0, %14 ], [ %20, %19 ]
-  %18 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %18 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %16, %18
   br i1 %.not.i, label %.split.loop.exit9.i, label %19
 
@@ -2840,7 +2840,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 
 .critedge:                                        ; preds = %19, %.split.loop.exit9.i
   %23 = sext i32 %13 to i64
-  %24 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %23
+  %24 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %23
   %25 = and i32 %3, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
@@ -3253,7 +3253,7 @@ select.unfold:                                    ; preds = %._crit_edge.i, %35
 
 79:                                               ; preds = %81, %75
   %.0811.i.i = phi i64 [ 0, %75 ], [ %82, %81 ]
-  %80 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %80 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %78, %80
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %81
 
@@ -3333,7 +3333,7 @@ find_cached_object.exit:                          ; preds = %find_cached_object.
 
 111:                                              ; preds = %113, %107
   %.0811.i.i.i = phi i64 [ 0, %107 ], [ %114, %113 ]
-  %112 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %112 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %110, %112
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %113
 
@@ -6299,7 +6299,7 @@ strbuf_setlen.exit77:                             ; preds = %65, %67
 
 85:                                               ; preds = %87, %81
   %.0811.i.i = phi i64 [ 0, %81 ], [ %88, %87 ]
-  %86 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %86 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i78 = icmp eq ptr %84, %86
   br i1 %.not.i.i78, label %.split.loop.exit9.i.i, label %87
 
@@ -6529,7 +6529,7 @@ define dso_local ptr @odb_loose_cache(ptr noundef captures(none) %0, ptr noundef
   %8 = shl nuw nsw i64 1, %7
   %9 = lshr i64 %6, 5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !44
   %13 = zext i32 %12 to i64
   %14 = and i64 %8, %13

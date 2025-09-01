@@ -198,7 +198,7 @@ define dso_local void @list_config_fsck_msg_ids(ptr noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv, i32 2
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv, i32 2
   %5 = load ptr, ptr %4, align 16, !tbaa !4
   %6 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %5) #16
   %7 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %6) #16
@@ -218,7 +218,7 @@ define internal fastcc void @prepare_msg_ids() unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 16, !tbaa !14
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %sext = shl i64 %4, 32
@@ -239,7 +239,7 @@ define internal fastcc void @prepare_msg_ids() unnamed_addr #0 {
 
 10:                                               ; preds = %8
   %11 = zext i8 %9 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !15
   %14 = shl i8 %13, 3
   %15 = and i8 %14, 32
@@ -287,7 +287,7 @@ define internal fastcc void @prepare_msg_ids() unnamed_addr #0 {
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %.228, i64 1
   %31 = zext i8 %23 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = shl i8 %33, 3
   %35 = and i8 %34, 32
@@ -318,7 +318,7 @@ define dso_local range(i32 0, 2) i32 @is_valid_msg_type(ptr noundef readonly cap
 
 3:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %4 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv.i, i32 1
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i, i32 1
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #17
   %.not.i = icmp eq i32 %6, 0
@@ -369,7 +369,7 @@ define dso_local void @fsck_set_msg_type_from_ids(ptr noundef captures(none) %0,
 
 fsck_msg_type.exit.us:                            ; preds = %6, %fsck_msg_type.exit.us
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %fsck_msg_type.exit.us ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv16, i32 3
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16, i32 3
   %11 = load i32, ptr %10, align 8, !tbaa !27
   %12 = load i32, ptr %9, align 8, !tbaa !28
   %13 = icmp ne i32 %12, 0
@@ -413,7 +413,7 @@ define dso_local void @fsck_set_msg_type(ptr noundef captures(none) %0, ptr noun
 
 4:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %5 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv.i, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i, i32 1
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #17
   %.not.i = icmp eq i32 %7, 0
@@ -487,7 +487,7 @@ parse_msg_id.exit:                                ; preds = %4
 
 fsck_msg_type.exit.us.i:                          ; preds = %29, %fsck_msg_type.exit.us.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %fsck_msg_type.exit.us.i ], [ 0, %29 ]
-  %33 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv16.i, i32 3
+  %33 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i, i32 3
   %34 = load i32, ptr %33, align 8, !tbaa !27
   %35 = load i32, ptr %32, align 8, !tbaa !28
   %36 = icmp ne i32 %35, 0
@@ -524,7 +524,7 @@ fsck_set_msg_type_from_ids.exit:                  ; preds = %.split, %.split13.u
 45:                                               ; preds = %22, %24
   %.0.i.ph = phi i32 [ 0, %24 ], [ 4, %22 ]
   %46 = and i64 %indvars.iv.i, 4294967295
-  %47 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %46, i32 3
+  %47 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %46, i32 3
   %48 = load i32, ptr %47, align 8, !tbaa !27
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %67, label %.split22
@@ -544,7 +544,7 @@ fsck_set_msg_type_from_ids.exit:                  ; preds = %.split, %.split13.u
 
 fsck_msg_type.exit.us.i40:                        ; preds = %52, %fsck_msg_type.exit.us.i40
   %indvars.iv16.i41 = phi i64 [ %indvars.iv.next17.i44, %fsck_msg_type.exit.us.i40 ], [ 0, %52 ]
-  %56 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %indvars.iv16.i41, i32 3
+  %56 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i41, i32 3
   %57 = load i32, ptr %56, align 8, !tbaa !27
   %58 = load i32, ptr %55, align 8, !tbaa !28
   %59 = icmp ne i32 %58, 0
@@ -637,7 +637,7 @@ define dso_local void @fsck_set_msg_types(ptr noundef %0, ptr noundef %1) local_
 
 15:                                               ; preds = %.lr.ph
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = shl i8 %18, 3
   %20 = and i8 %19, 32
@@ -738,7 +738,7 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not.i, label %10, label %17
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %9, i32 3
+  %11 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9, i32 3
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !28
@@ -769,7 +769,7 @@ fsck_msg_type.exit:                               ; preds = %10, %17
 .thread:                                          ; preds = %fsck_msg_type.exit, %.thread.fold.split, %10, %20
   %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %20 ], [ 3, %10 ], [ %.0.i, %.thread.fold.split ]
   tail call fastcc void @prepare_msg_ids()
-  %21 = getelementptr inbounds nuw [67 x %struct.anon], ptr @msg_id_info, i64 0, i64 %9, i32 2
+  %21 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9, i32 2
   %22 = load ptr, ptr %21, align 16, !tbaa !4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.107, ptr noundef %22) #16
   call void @strbuf_vaddf(ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull %4) #16
@@ -1857,7 +1857,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   %185 = getelementptr i8, ptr %184, i64 -1
   %186 = load i8, ptr %185, align 1, !tbaa !15
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %187
   %189 = load i8, ptr %188, align 1, !tbaa !15
   %190 = and i8 %189, 2
   %.not85.i = icmp eq i8 %190, 0
@@ -2538,7 +2538,7 @@ define internal fastcc i32 @fsck_ident(ptr noundef nonnull captures(none) %0, pt
 
 47:                                               ; preds = %44
   %48 = zext i8 %45 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !15
   %51 = and i8 %50, 2
   %.not75 = icmp eq i8 %51, 0
@@ -2598,7 +2598,7 @@ define internal fastcc i32 @fsck_ident(ptr noundef nonnull captures(none) %0, pt
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !15
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !15
   %82 = and i8 %81, 2
   %.not81 = icmp eq i8 %82, 0
@@ -2608,7 +2608,7 @@ define internal fastcc i32 @fsck_ident(ptr noundef nonnull captures(none) %0, pt
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 3
   %85 = load i8, ptr %84, align 1, !tbaa !15
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !15
   %89 = and i8 %88, 2
   %.not82 = icmp eq i8 %89, 0
@@ -2618,7 +2618,7 @@ define internal fastcc i32 @fsck_ident(ptr noundef nonnull captures(none) %0, pt
   %91 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %92 = load i8, ptr %91, align 1, !tbaa !15
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !15
   %96 = and i8 %95, 2
   %.not83 = icmp eq i8 %96, 0
@@ -2628,7 +2628,7 @@ define internal fastcc i32 @fsck_ident(ptr noundef nonnull captures(none) %0, pt
   %98 = getelementptr inbounds nuw i8, ptr %67, i64 5
   %99 = load i8, ptr %98, align 1, !tbaa !15
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !15
   %103 = and i8 %102, 2
   %.not84 = icmp eq i8 %103, 0

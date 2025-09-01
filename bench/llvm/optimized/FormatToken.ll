@@ -249,7 +249,7 @@ define dso_local noundef ptr @_ZN5clang6format16getTokenTypeNameENS0_9TokenTypeE
   %2 = icmp ult i8 %0, -91
   tail call void @llvm.assume(i1 %2)
   %3 = zext i8 %0 to i64
-  %4 = getelementptr inbounds nuw [166 x ptr], ptr @_ZZN5clang6format16getTokenTypeNameENS0_9TokenTypeEE8TokNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZN5clang6format16getTokenTypeNameENS0_9TokenTypeEE8TokNames, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   ret ptr %5
 }

@@ -405,7 +405,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
 
 10:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %11 = getelementptr inbounds nuw [9 x %struct.ObsoleteOption], ptr @_ZL16OBSOLETE_OPTIONS, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %struct.ObsoleteOption, ptr @_ZL16OBSOLETE_OPTIONS, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 16
   %12 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i) #19
   %.not21.i = icmp eq ptr %12, null

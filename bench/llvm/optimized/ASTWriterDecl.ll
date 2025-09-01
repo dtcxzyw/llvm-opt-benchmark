@@ -14997,7 +14997,7 @@ _ZNK5clang34FunctionTemplateSpecializationInfo27getMemberSpecializationInfoEv.ex
   %122 = load ptr, ptr %0, align 8, !tbaa !335
   %123 = tail call noundef i32 @_ZNK5clang12FunctionDecl16getTemplatedKindEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
   %124 = zext nneg i32 %123 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr %switch.table._ZN5clang13ASTDeclWriter18VisitCXXMethodDeclEPNS_13CXXMethodDeclE.sink, i64 0, i64 %124
+  %switch.gep = getelementptr inbounds nuw i64, ptr %switch.table._ZN5clang13ASTDeclWriter18VisitCXXMethodDeclEPNS_13CXXMethodDeclE.sink, i64 %124
   %switch.load = load i64, ptr %switch.gep, align 8
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %switch.load
   %.0.i54.sink = load i32, ptr %125, align 4, !tbaa !363

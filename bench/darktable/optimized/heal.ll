@@ -897,9 +897,9 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %57 = load float, ptr %56, align 4, !tbaa !11
   %58 = getelementptr inbounds nuw float, ptr %gep, i64 %.0112138
   %59 = load float, ptr %58, align 4, !tbaa !11
-  %60 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.0112138
+  %60 = getelementptr inbounds nuw float, ptr %10, i64 %.0112138
   %61 = load float, ptr %60, align 4, !tbaa !11
-  %62 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0112138
+  %62 = getelementptr inbounds nuw float, ptr %11, i64 %.0112138
   %63 = load float, ptr %62, align 4, !tbaa !11
   %64 = fadd reassoc nsz arcp contract afn float %57, %59
   %65 = fadd reassoc nsz arcp contract afn float %64, %61
@@ -909,7 +909,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %69 = fsub reassoc nsz arcp contract afn float %54, %68
   store float %69, ptr %53, align 4, !tbaa !11
   %70 = fmul reassoc nsz arcp contract afn float %68, %68
-  %71 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0112138
+  %71 = getelementptr inbounds nuw float, ptr %9, i64 %.0112138
   %72 = load float, ptr %71, align 4, !tbaa !11
   %73 = fadd reassoc nsz arcp contract afn float %70, %72
   store float %73, ptr %71, align 4, !tbaa !11
@@ -959,7 +959,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %97 = load float, ptr %96, align 4, !tbaa !11
   %98 = getelementptr inbounds nuw float, ptr %87, i64 %.0134
   %99 = load float, ptr %98, align 4, !tbaa !11
-  %100 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.0134
+  %100 = getelementptr inbounds nuw float, ptr %12, i64 %.0134
   %101 = load float, ptr %100, align 4, !tbaa !11
   %102 = fadd reassoc nsz arcp contract afn float %92, %97
   %103 = fadd reassoc nsz arcp contract afn float %102, %99
@@ -969,7 +969,7 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %107 = fsub reassoc nsz arcp contract afn float %94, %106
   store float %107, ptr %93, align 4, !tbaa !11
   %108 = fmul reassoc nsz arcp contract afn float %106, %106
-  %109 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0134
+  %109 = getelementptr inbounds nuw float, ptr %9, i64 %.0134
   %110 = load float, ptr %109, align 4, !tbaa !11
   %111 = fadd reassoc nsz arcp contract afn float %108, %110
   store float %111, ptr %109, align 4, !tbaa !11

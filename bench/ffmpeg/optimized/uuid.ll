@@ -169,13 +169,13 @@ define void @av_uuid_unparse(ptr noundef readonly captures(none) %0, ptr noundef
   %12 = zext i8 %11 to i32
   %13 = lshr i32 %12, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @hexdigits_lower, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @hexdigits_lower, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %16, ptr %.1, align 1, !tbaa !4
   %18 = and i32 %12, 15
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [16 x i8], ptr @hexdigits_lower, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @hexdigits_lower, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %21, ptr %17, align 1, !tbaa !4

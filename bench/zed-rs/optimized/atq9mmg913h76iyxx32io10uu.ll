@@ -8122,7 +8122,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h5688c2bce37a5e44E(ptr noun
   br i1 %6, label %switch.lookup, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i"
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %7)
@@ -8130,12 +8130,12 @@ switch.lookup:                                    ; preds = %3
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i": ; preds = %1
   %8 = load i64, ptr %0, align 8, !range !1746, !alias.scope !1752, !noundef !11
-  %switch.tableidx2 = add nsw i64 %8, -1
-  %9 = icmp ult i64 %switch.tableidx2, 3
-  br i1 %9, label %switch.lookup1, label %"_ZN4core3ptr77drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..AnyElement$GT$$GT$17hcaf58227f6164bdfE.exit"
+  %switch.tableidx1 = add nsw i64 %8, -1
+  %9 = icmp ult i64 %switch.tableidx1, 3
+  br i1 %9, label %switch.lookup2, label %"_ZN4core3ptr77drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..AnyElement$GT$$GT$17hcaf58227f6164bdfE.exit"
 
-switch.lookup1:                                   ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i"
-  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 0, i64 %switch.tableidx2
+switch.lookup2:                                   ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i"
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load4
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %10)
@@ -8150,7 +8150,7 @@ switch.lookup1:                                   ; preds = %"_ZN4core3ptr46drop
 "_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i": ; preds = %3, %switch.lookup
   resume { ptr, i32 } %4
 
-"_ZN4core3ptr77drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..AnyElement$GT$$GT$17hcaf58227f6164bdfE.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i", %switch.lookup1
+"_ZN4core3ptr77drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..AnyElement$GT$$GT$17hcaf58227f6164bdfE.exit": ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i", %switch.lookup2
   ret void
 }
 
@@ -8492,7 +8492,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE(ptr noun
   br i1 %6, label %switch.lookup, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i"
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %7)
@@ -8501,12 +8501,12 @@ switch.lookup:                                    ; preds = %2
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8, !range !1746, !alias.scope !1868, !noundef !11
-  %switch.tableidx2 = add nsw i64 %10, -1
-  %11 = icmp ult i64 %switch.tableidx2, 3
-  br i1 %11, label %switch.lookup1, label %"_ZN4core3ptr84drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..text..StyledText$GT$$GT$17h70ba9a8e440e3eb3E.exit"
+  %switch.tableidx1 = add nsw i64 %10, -1
+  %11 = icmp ult i64 %switch.tableidx1, 3
+  br i1 %11, label %switch.lookup2, label %"_ZN4core3ptr84drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..text..StyledText$GT$$GT$17h70ba9a8e440e3eb3E.exit"
 
-switch.lookup1:                                   ; preds = %8
-  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 0, i64 %switch.tableidx2
+switch.lookup2:                                   ; preds = %8
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %switch.load4
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %12)
@@ -8521,7 +8521,7 @@ switch.lookup1:                                   ; preds = %8
 "_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i": ; preds = %2, %switch.lookup
   resume { ptr, i32 } %3
 
-"_ZN4core3ptr84drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..text..StyledText$GT$$GT$17h70ba9a8e440e3eb3E.exit": ; preds = %8, %switch.lookup1
+"_ZN4core3ptr84drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..text..StyledText$GT$$GT$17h70ba9a8e440e3eb3E.exit": ; preds = %8, %switch.lookup2
   ret void
 }
 

@@ -91,7 +91,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
 
 .preheader.us:                                    ; preds = %41, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %41 ]
-  %44 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1

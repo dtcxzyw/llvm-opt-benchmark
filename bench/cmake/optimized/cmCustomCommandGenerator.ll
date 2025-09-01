@@ -8467,10 +8467,10 @@ define dso_local void @_ZNK24cmCustomCommandGenerator22GetInternalDepfileNameERK
 
 switch.lookup:                                    ; preds = %19
   %25 = and i64 %18, 3
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK24cmCustomCommandGenerator22GetInternalDepfileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24cmCustomCommandGenerator22GetInternalDepfileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = and i64 %18, 3
-  %switch.gep23 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK24cmCustomCommandGenerator22GetInternalDepfileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.5, i64 0, i64 %26
+  %switch.gep23 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK24cmCustomCommandGenerator22GetInternalDepfileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.5, i64 %26
   %switch.load24 = load i64, ptr %switch.gep23, align 8
   %27 = load i64, ptr %10, align 8, !tbaa !49
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef %27, ptr noundef nonnull %switch.load, i64 noundef %switch.load24)

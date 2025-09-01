@@ -66,8 +66,8 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit: ; preds = %6, %12
 
 18:                                               ; preds = %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit, %18
   %indvars.iv = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %17, i64 0, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %8, i64 0, i64 %indvars.iv, i32 1
+  %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %8, i64 %indvars.iv, i32 1
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %19, align 8
   %23 = add i64 %22, %21
@@ -96,8 +96,8 @@ define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr 
 
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %8, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %5, i64 0, i64 %indvars.iv, i32 1
+  %10 = getelementptr inbounds nuw %class.VirtualMemory, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %5, i64 %indvars.iv, i32 1
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %10, align 8
   %14 = add i64 %13, %12
@@ -253,7 +253,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %62 = getelementptr inbounds nuw i8, ptr %.0, i64 25
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %64, i32 1
+  %65 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %64, i32 1
   %66 = load ptr, ptr %65, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %66) #10
   %67 = load i32, ptr %11, align 8
@@ -468,8 +468,8 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i: ; preds = %12, %5
 
 18:                                               ; preds = %18, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %17, i64 0, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %7, i64 0, i64 %indvars.iv.i, i32 1
+  %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %7, i64 %indvars.iv.i, i32 1
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %19, align 8
   %23 = add i64 %22, %21
@@ -501,8 +501,8 @@ define hidden void @_ZN17MemoryFileTracker8Instance11free_memoryEPNS_10MemoryFil
 
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %7, i64 0, i64 %indvars.iv.i
-  %10 = getelementptr inbounds nuw [28 x %"struct.VMATree::SingleDiff"], ptr %4, i64 0, i64 %indvars.iv.i, i32 1
+  %9 = getelementptr inbounds nuw %class.VirtualMemory, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %4, i64 %indvars.iv.i, i32 1
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %9, align 8
   %13 = add i64 %12, %11
@@ -698,7 +698,7 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
 
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %1, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %1, i64 %indvars.iv
   %.idx = mul nuw nsw i64 %indvars.iv, 24
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = load i64, ptr %14, align 8
@@ -744,7 +744,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
 
 12:                                               ; preds = %12, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %0, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %0, i64 %indvars.iv.i
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %15 = load i64, ptr %14, align 8

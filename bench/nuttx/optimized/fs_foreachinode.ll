@@ -83,7 +83,7 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnu
 21:                                               ; preds = %12
   %sext = shl i64 %13, 32
   %22 = ashr exact i64 %sext, 32
-  %23 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %22
+  %23 = getelementptr inbounds i8, ptr %3, i64 %22
   %24 = sub nsw i64 256, %22
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %23, i64 noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull %15) #7
   %26 = load ptr, ptr %10, align 8

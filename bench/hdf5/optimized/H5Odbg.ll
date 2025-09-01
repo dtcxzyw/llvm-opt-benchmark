@@ -137,7 +137,7 @@ define range(i32 -1, -2147483648) i32 @H5O_debug_id(i32 noundef %0, ptr noundef 
 
 22:                                               ; preds = %19
   %23 = zext i32 %0 to i64
-  %24 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !15

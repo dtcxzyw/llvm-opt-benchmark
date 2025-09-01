@@ -440,10 +440,10 @@ define hidden void @av1_get_inv_txfm_cfg(i8 noundef zeroext %0, i8 noundef zeroe
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.av1_get_inv_txfm_cfg, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.av1_get_inv_txfm_cfg, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep31 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.av1_get_inv_txfm_cfg.1, i64 0, i64 %8
+  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table.av1_get_inv_txfm_cfg.1, i64 %8
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   br label %set_flip_cfg.exit
 
@@ -455,36 +455,36 @@ set_flip_cfg.exit:                                ; preds = %3, %switch.lookup
   store i32 %.sink12.i.i, ptr %10, align 4
   store i32 %.sink.i.i, ptr %9, align 4
   %11 = zext i8 %0 to i64
-  %12 = getelementptr inbounds nuw [16 x i8], ptr @vtx_tab, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @vtx_tab, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds nuw [16 x i8], ptr @htx_tab, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr @htx_tab, i64 %11
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %1 to i64
-  %17 = getelementptr inbounds nuw [19 x ptr], ptr @av1_inv_txfm_shift_ls, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @av1_inv_txfm_shift_ls, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_log2, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw i32, ptr @tx_size_wide_log2, i64 %16
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, -2
-  %23 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_log2, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw i32, ptr @tx_size_high_log2, i64 %16
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, -2
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds [5 x [5 x i8]], ptr @av1_inv_cos_bit_col, i64 0, i64 %26
+  %27 = getelementptr inbounds [5 x i8], ptr @av1_inv_cos_bit_col, i64 %26
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds [5 x i8], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 %30, ptr %31, align 8
-  %32 = getelementptr inbounds [5 x [5 x i8]], ptr @av1_inv_cos_bit_row, i64 0, i64 %26
-  %33 = getelementptr inbounds [5 x i8], ptr %32, i64 0, i64 %28
+  %32 = getelementptr inbounds [5 x i8], ptr @av1_inv_cos_bit_row, i64 %26
+  %33 = getelementptr inbounds i8, ptr %32, i64 %28
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 %34, ptr %35, align 1
-  %36 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %28
+  %36 = getelementptr inbounds [4 x i8], ptr @av1_txfm_type_ls, i64 %28
   %37 = zext i8 %13 to i64
-  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 50
   store i8 %39, ptr %40, align 2
@@ -496,9 +496,9 @@ set_flip_cfg.exit:                                ; preds = %3, %switch.lookup
   br label %43
 
 43:                                               ; preds = %42, %set_flip_cfg.exit
-  %44 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26
+  %44 = getelementptr inbounds [4 x i8], ptr @av1_txfm_type_ls, i64 %26
   %45 = zext i8 %15 to i64
-  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 51
   store i8 %47, ptr %48, align 1
@@ -511,13 +511,13 @@ set_flip_cfg.exit:                                ; preds = %3, %switch.lookup
 
 51:                                               ; preds = %50, %43
   %52 = zext i8 %39 to i64
-  %53 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @av1_txfm_stage_num_list, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %55, ptr %56, align 4
   %57 = zext i8 %47 to i64
-  %58 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @av1_txfm_stage_num_list, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -608,46 +608,46 @@ set_flip_cfg.exit.i:
   %10 = select i1 %9, i1 %switch.masked, i1 true
   %11 = select i1 %9, i1 %switch.masked35, i1 true
   %12 = zext i8 %4 to i64
-  %13 = getelementptr inbounds nuw [16 x i8], ptr @vtx_tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @vtx_tab, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @htx_tab, i64 0, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr @htx_tab, i64 %12
   %16 = load i8, ptr %15, align 1
   %17 = zext nneg i8 %5 to i64
-  %18 = getelementptr inbounds nuw [19 x ptr], ptr @av1_inv_txfm_shift_ls, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr @av1_inv_txfm_shift_ls, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_log2, i64 0, i64 %17
+  %20 = getelementptr inbounds nuw i32, ptr @tx_size_wide_log2, i64 %17
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, -2
-  %23 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_log2, i64 0, i64 %17
+  %23 = getelementptr inbounds nuw i32, ptr @tx_size_high_log2, i64 %17
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, -2
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds [5 x [5 x i8]], ptr @av1_inv_cos_bit_col, i64 0, i64 %26
+  %27 = getelementptr inbounds [5 x i8], ptr @av1_inv_cos_bit_col, i64 %26
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds [5 x i8], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds [5 x [5 x i8]], ptr @av1_inv_cos_bit_row, i64 0, i64 %26
-  %32 = getelementptr inbounds [5 x i8], ptr %31, i64 0, i64 %28
+  %31 = getelementptr inbounds [5 x i8], ptr @av1_inv_cos_bit_row, i64 %26
+  %32 = getelementptr inbounds i8, ptr %31, i64 %28
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %28
+  %34 = getelementptr inbounds [4 x i8], ptr @av1_txfm_type_ls, i64 %28
   %35 = zext i8 %14 to i64
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26
+  %38 = getelementptr inbounds [4 x i8], ptr @av1_txfm_type_ls, i64 %26
   %39 = zext i8 %16 to i64
-  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %37 to i64
-  %43 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @av1_txfm_stage_num_list, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %41 to i64
-  %46 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @av1_txfm_stage_num_list, i64 %45
   %47 = load i8, ptr %46, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %17
+  %48 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %17
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %17
+  %50 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %17
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %49, %51
   br i1 %52, label %get_rect_tx_log_ratio.exit.i, label %53
@@ -711,7 +711,7 @@ av1_gen_inv_stage_range.exit.i:                   ; preds = %.lr.ph45.i.preheade
 
 switch.lookup36:                                  ; preds = %av1_gen_inv_stage_range.exit.i
   %72 = zext nneg i8 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.inv_txfm2d_add_facade.2, i64 0, i64 %72
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.inv_txfm2d_add_facade.2, i64 %72
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %inv_txfm_type_to_func.exit.i
 
@@ -722,7 +722,7 @@ inv_txfm_type_to_func.exit.i:                     ; preds = %av1_gen_inv_stage_r
 
 switch.lookup37:                                  ; preds = %inv_txfm_type_to_func.exit.i
   %74 = zext nneg i8 %41 to i64
-  %switch.gep38 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.inv_txfm2d_add_facade.2, i64 0, i64 %74
+  %switch.gep38 = getelementptr inbounds nuw ptr, ptr @switch.table.inv_txfm2d_add_facade.2, i64 %74
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %.lr.ph175.i
 

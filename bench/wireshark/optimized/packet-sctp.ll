@@ -2482,7 +2482,7 @@ proto_item_set_hidden.exit119:                    ; preds = %163, %160, %proto_i
   %245 = add nuw nsw i32 %242, 1
   store i32 %245, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 72), align 8
   %246 = zext nneg i32 %242 to i64
-  %247 = getelementptr [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 0, i64 %246
+  %247 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 %246
   store ptr %240, ptr %247, align 8
   br label %249
 
@@ -7486,7 +7486,7 @@ dissect_heartbeat_info_parameter.exit:            ; preds = %44, %49
   %69 = add nuw nsw i32 %66, 1
   store i32 %69, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 72), align 8
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 0, i64 %70
+  %71 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 %70
   store ptr %0, ptr %71, align 8
   br label %dissect_ipv4_parameter.exit
 
@@ -7526,7 +7526,7 @@ dissect_heartbeat_info_parameter.exit:            ; preds = %44, %49
   %88 = add nuw nsw i32 %85, 1
   store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 72), align 8
   %89 = zext nneg i32 %85 to i64
-  %90 = getelementptr [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 0, i64 %89
+  %90 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 80), i64 %89
   store ptr %0, ptr %90, align 8
   br label %dissect_ipv4_parameter.exit
 
@@ -8971,7 +8971,7 @@ define internal nonnull ptr @sctp_conv_get_filter_type(ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.sctp_endpoint_get_filter_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sctp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -9029,7 +9029,7 @@ define internal nonnull ptr @sctp_endpoint_get_filter_type(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.sctp_endpoint_get_filter_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sctp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 

@@ -469,7 +469,7 @@ define hidden range(i32 0, 4) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 71:                                               ; preds = %71, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %71 ]
-  %72 = getelementptr [4 x %struct.anon.3], ptr @secrets_types, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr %struct.anon.3, ptr @secrets_types, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 16
   %74 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %70, i32 noundef 2, ptr noundef nonnull @.str.74, ptr noundef %73)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -498,7 +498,7 @@ lookup_secrets_type.exit.thread:                  ; preds = %80
 
 .preheader630:                                    ; preds = %78, %80
   %indvars.iv.i506 = phi i64 [ %indvars.iv.next.i507, %80 ], [ 0, %78 ]
-  %81 = getelementptr [4 x %struct.anon.3], ptr @secrets_types, i64 0, i64 %indvars.iv.i506
+  %81 = getelementptr %struct.anon.3, ptr @secrets_types, i64 %indvars.iv.i506
   %82 = load ptr, ptr %81, align 16
   %83 = call i32 @strcmp(ptr noundef %82, ptr noundef nonnull readonly dereferenceable(1) %77) #22
   %.not.i = icmp eq i32 %83, 0
@@ -1899,12 +1899,12 @@ thread-pre-split592:                              ; preds = %.thread-pre-split59
 .thread1531:                                      ; preds = %.thread1527, %673, %672
   %676 = load i32, ptr @max_selected, align 4
   %677 = zext i32 %676 to i64
-  %678 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %677
+  %678 = getelementptr %struct.select_item, ptr @selectfrm, i64 %677
   store i8 0, ptr %678, align 8
   %679 = call i64 @get_uint64(ptr noundef %662, ptr noundef nonnull @.str.207)
   %680 = load i32, ptr @max_selected, align 4
   %681 = zext i32 %680 to i64
-  %682 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %681, i32 1
+  %682 = getelementptr %struct.select_item, ptr @selectfrm, i64 %681, i32 1
   store i64 %679, ptr %682, align 8
   %spec.select = call i64 @llvm.umax.i64(i64 %679, i64 %.05561010)
   %.b1724.i = load i1, ptr @verbose, align 1
@@ -1929,17 +1929,17 @@ thread-pre-split592:                              ; preds = %.thread-pre-split59
   %691 = getelementptr i8, ptr %690, i64 1
   %692 = load i32, ptr @max_selected, align 4
   %693 = zext i32 %692 to i64
-  %694 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %693
+  %694 = getelementptr %struct.select_item, ptr @selectfrm, i64 %693
   store i8 1, ptr %694, align 8
   %695 = call i64 @get_uint64(ptr noundef %662, ptr noundef nonnull @.str.210)
   %696 = load i32, ptr @max_selected, align 4
   %697 = zext i32 %696 to i64
-  %698 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %697, i32 1
+  %698 = getelementptr %struct.select_item, ptr @selectfrm, i64 %697, i32 1
   store i64 %695, ptr %698, align 8
   %699 = call i64 @get_uint64(ptr noundef %691, ptr noundef nonnull @.str.211)
   %700 = load i32, ptr @max_selected, align 4
   %701 = zext i32 %700 to i64
-  %702 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %701, i32 2
+  %702 = getelementptr %struct.select_item, ptr @selectfrm, i64 %701, i32 2
   store i64 %699, ptr %702, align 8
   %703 = icmp eq i64 %699, 0
   br i1 %703, label %704, label %705
@@ -1960,7 +1960,7 @@ thread-pre-split592:                              ; preds = %.thread-pre-split59
 
 708:                                              ; preds = %706
   %709 = load ptr, ptr @stderr, align 8
-  %710 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %701, i32 1
+  %710 = getelementptr %struct.select_item, ptr @selectfrm, i64 %701, i32 1
   %711 = load i64, ptr %710, align 8
   %712 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %709, i32 noundef 2, ptr noundef nonnull @.str.212, i64 noundef %711, i64 noundef %707)
   br label %715
@@ -2007,7 +2007,7 @@ add_selection.exit:                               ; preds = %.lr.ph1013
 .lr.ph1015:                                       ; preds = %724, %.lr.ph1015
   %indvars.iv1436 = phi i64 [ %indvars.iv.next1437, %.lr.ph1015 ], [ 0, %724 ]
   %.idx.neg = mul nsw i64 %indvars.iv1436, -40
-  %727 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %indvars.iv1436
+  %727 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv1436
   %728 = add nsw i64 %.idx.neg, 40000000
   %729 = icmp samesign ugt i64 %indvars.iv1436, 1000000
   %730 = select i1 %729, i64 0, i64 %728
@@ -2569,8 +2569,8 @@ add_selection.exit:                               ; preds = %.lr.ph1013
   %992 = load ptr, ptr @stderr, align 8
   %993 = load i32, ptr @cur_dup_entry, align 4
   %994 = sext i32 %993 to i64
-  %995 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %994
-  %996 = getelementptr [16 x i8], ptr %995, i64 0, i64 %indvars.iv1446
+  %995 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %994
+  %996 = getelementptr i8, ptr %995, i64 %indvars.iv1446
   %997 = load i8, ptr %996, align 1
   %998 = zext i8 %997 to i32
   %999 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %992, i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef %998)
@@ -2603,8 +2603,8 @@ add_selection.exit:                               ; preds = %.lr.ph1013
   %1010 = load ptr, ptr @stderr, align 8
   %1011 = load i32, ptr @cur_dup_entry, align 4
   %1012 = sext i32 %1011 to i64
-  %1013 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %1012
-  %1014 = getelementptr [16 x i8], ptr %1013, i64 0, i64 %indvars.iv1439
+  %1013 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1012
+  %1014 = getelementptr i8, ptr %1013, i64 %indvars.iv1439
   %1015 = load i8, ptr %1014, align 1
   %1016 = zext i8 %1015 to i32
   %1017 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1010, i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef %1016)
@@ -2651,8 +2651,8 @@ add_selection.exit:                               ; preds = %.lr.ph1013
   %1037 = load ptr, ptr @stderr, align 8
   %1038 = load i32, ptr @cur_dup_entry, align 4
   %1039 = sext i32 %1038 to i64
-  %1040 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %1039
-  %1041 = getelementptr [16 x i8], ptr %1040, i64 0, i64 %indvars.iv1442
+  %1040 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1039
+  %1041 = getelementptr i8, ptr %1040, i64 %indvars.iv1442
   %1042 = load i8, ptr %1041, align 1
   %1043 = zext i8 %1042 to i32
   %1044 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1037, i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef %1043)
@@ -2679,8 +2679,8 @@ add_selection.exit:                               ; preds = %.lr.ph1013
   %1054 = load ptr, ptr @stderr, align 8
   %1055 = load i32, ptr @cur_dup_entry, align 4
   %1056 = sext i32 %1055 to i64
-  %1057 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %1056
-  %1058 = getelementptr [16 x i8], ptr %1057, i64 0, i64 %indvars.iv1450
+  %1057 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1056
+  %1058 = getelementptr i8, ptr %1057, i64 %indvars.iv1450
   %1059 = load i8, ptr %1058, align 1
   %1060 = zext i8 %1059 to i32
   %1061 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1054, i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef %1060)
@@ -3999,7 +3999,7 @@ define internal fastcc noundef zeroext i1 @selected(i64 noundef %0) unnamed_addr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %3 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %indvars.iv
+  %3 = getelementptr %struct.select_item, ptr @selectfrm, i64 %indvars.iv
   %4 = load i8, ptr %3, align 8, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4320,19 +4320,19 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
   %spec.store.select1 = select i1 %.not24, i32 %16, i32 0
   store i32 %spec.store.select1, ptr @cur_dup_entry, align 4
   %18 = sext i32 %spec.store.select1 to i64
-  %19 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %18
+  %19 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %18
   %20 = zext i32 %14 to i64
   tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %19, ptr noundef %13, i64 noundef %20)
   %21 = load i32, ptr @cur_dup_entry, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %22, i32 1
+  %23 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %22, i32 1
   store i32 %1, ptr %23, align 8
   %24 = load i32, ptr @dup_window, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %26 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %22
+  %26 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %22
   %27 = zext i32 %21 to i64
   %wide.trip.count = zext nneg i32 %24 to i64
   br label %28
@@ -4343,7 +4343,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %indvars.iv
+  %31 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %1
@@ -4380,19 +4380,19 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
   %spec.store.select = select i1 %.not27, i32 %10, i32 0
   store i32 %spec.store.select, ptr @cur_dup_entry, align 4
   %12 = sext i32 %spec.store.select to i64
-  %13 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %12
+  %13 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %12
   %14 = zext i32 %8 to i64
   tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %13, ptr noundef %7, i64 noundef %14)
   %15 = load i32, ptr @cur_dup_entry, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %16, i32 1
+  %17 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %16, i32 1
   store i32 %1, ptr %17, align 8
   %18 = load i64, ptr %2, align 8
-  %19 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %16, i32 2
+  %19 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %16, i32 2
   store i64 %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %16, i32 2, i32 1
+  %22 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %16, i32 2, i32 1
   store i32 %21, ptr %22, align 8
   %.02332 = add i32 %15, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4410,7 +4410,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
 28:                                               ; preds = %.lr.ph, %52
   %.12434 = phi i32 [ %.12433, %.lr.ph ], [ %.124, %52 ]
   %29 = sext i32 %.12434 to i64
-  %30 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %29
+  %30 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = call zeroext i1 @nstime_is_unset(ptr noundef nonnull %31)
   br i1 %32, label %._crit_edge, label %33
@@ -4438,7 +4438,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
   %43 = load i32, ptr %42, align 8
   %44 = load i32, ptr @cur_dup_entry, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [1000000 x %struct._fd_hash_t], ptr @fd_hash, i64 0, i64 %45
+  %46 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %43, %48
@@ -4628,7 +4628,7 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   %84 = tail call i32 @rand() #21
   %85 = sext i32 %84 to i64
   %86 = udiv i64 %85, 34636834
-  %87 = getelementptr [63 x i8], ptr @.str.217, i64 0, i64 %86
+  %87 = getelementptr i8, ptr @.str.217, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i32 %.04469 to i64
   %90 = getelementptr i8, ptr %1, i64 %89

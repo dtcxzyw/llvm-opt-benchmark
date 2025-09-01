@@ -8439,7 +8439,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
 
 .thread446:                                       ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.thread
   %37 = load i64, ptr %1, align 8, !tbaa !8
-  %38 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %40, align 8, !tbaa !3
@@ -8449,7 +8449,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %2
 
 42:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit
   %43 = load i64, ptr %16, align 8, !tbaa !8
-  %44 = getelementptr inbounds nuw [32 x i8], ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm5APInt4sqrtEvE7results, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %46, align 8, !tbaa !3
@@ -10134,16 +10134,16 @@ define dso_local void @_ZN4llvm5APInt6divideEPKmjS2_jPmS3_(ptr noundef readonly 
   br i1 %16, label %19, label %28
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw i32, ptr %7, i64 %18
   %21 = add i32 %8, %17
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
   br i1 %.not, label %24, label %39
 
 24:                                               ; preds = %19
   %25 = add i32 %21, %9
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %26
   br label %39
 
 28:                                               ; preds = %6
@@ -18153,7 +18153,7 @@ switch.lookup:                                    ; preds = %7
   %11 = add i32 %2, -2
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 31)
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 

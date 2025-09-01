@@ -726,7 +726,7 @@ gv_calloc.exit.i.i:                               ; preds = %48, %.thread.i.i.i
   br label %61
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %23
+  %58 = getelementptr inbounds nuw i8, ptr @ps_string.xb, i64 %23
   store i8 92, ptr %58, align 1, !tbaa !15
   %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_string.xb, i64 31), align 1, !tbaa !15
   %60 = add i8 %59, 1
@@ -836,7 +836,7 @@ gv_calloc.exit.i.i31:                             ; preds = %95, %.thread.i.i.i3
   br label %108
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %70
+  %105 = getelementptr inbounds nuw i8, ptr @ps_string.xb, i64 %70
   store i8 %68, ptr %105, align 1, !tbaa !15
   %106 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_string.xb, i64 31), align 1, !tbaa !15
   %107 = add i8 %106, 1
@@ -986,7 +986,7 @@ gv_calloc.exit.i:                                 ; preds = %28, %.thread.i.i
 
 37:                                               ; preds = %36
   %38 = zext i8 %.pr.fr to i64
-  %39 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @ps_string.xb, i64 %38
   store i8 %0, ptr %39, align 1, !tbaa !15
   %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_string.xb, i64 31), align 1, !tbaa !15
   %41 = add i8 %40, 1

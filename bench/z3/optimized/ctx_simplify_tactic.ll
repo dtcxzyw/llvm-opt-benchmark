@@ -5934,7 +5934,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %12
   br label %.outer, !llvm.loop !254
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !34
   %41 = load ptr, ptr %6, align 8, !tbaa !53
   %42 = icmp eq ptr %41, null
@@ -6309,7 +6309,7 @@ _ZNK19ctx_simplify_tactic3imp11scope_levelEv.exit: ; preds = %3
 36:                                               ; preds = %.lr.ph, %234
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %234 ]
   %.050269 = phi i1 [ false, %.lr.ph ], [ %.353, %234 ]
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load ptr, ptr %0, align 8, !tbaa !107
@@ -7760,7 +7760,7 @@ _ZNK19ctx_simplify_tactic3imp11scope_levelEv.exit: ; preds = %3
 36:                                               ; preds = %.lr.ph, %234
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %234 ]
   %.050269 = phi i1 [ false, %.lr.ph ], [ %.353, %234 ]
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load ptr, ptr %0, align 8, !tbaa !107
@@ -9935,7 +9935,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %9, %14, %21
 32:                                               ; preds = %22, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %.01935 = phi i1 [ false, %22 ], [ %spec.select, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load ptr, ptr %0, align 8, !tbaa !107
@@ -12050,7 +12050,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !156
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

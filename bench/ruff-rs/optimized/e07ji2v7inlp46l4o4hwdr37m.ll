@@ -36801,10 +36801,10 @@ define hidden void @_ZN11ruff_server6server19SupportedCodeAction3all17hfad2486d7
 define hidden { ptr, i64 } @_ZN11ruff_server6server16SupportedCommand5label17hc141e136db619ad4E(i8 noundef range(i8 0, 4) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN11ruff_server6server16SupportedCommand5label17hc141e136db619ad4E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_server6server16SupportedCommand5label17hc141e136db619ad4E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN11ruff_server6server16SupportedCommand5label17hc141e136db619ad4E.154, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_server6server16SupportedCommand5label17hc141e136db619ad4E.154, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -36815,10 +36815,10 @@ switch.lookup:
 define hidden { ptr, i64 } @_ZN11ruff_server6server16SupportedCommand10identifier17hdab56acd71b7a055E(i8 noundef range(i8 0, 4) %0) unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN11ruff_server6server16SupportedCommand10identifier17hdab56acd71b7a055E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11ruff_server6server16SupportedCommand10identifier17hdab56acd71b7a055E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN11ruff_server6server16SupportedCommand10identifier17hdab56acd71b7a055E.155, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11ruff_server6server16SupportedCommand10identifier17hdab56acd71b7a055E.155, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -36887,10 +36887,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$ruff_server..edit..PositionEncodi
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1173, !noundef !10
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E.156", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$ruff_server..edit..PositionEncoding$u20$as$u20$core..fmt..Debug$GT$3fmt17h17499e41f740d618E.156", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -84,7 +84,7 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr noundef capture
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [12 x %struct.t_ppwstr], ptr @_ZZ11ellipticityiP4t_bbE3ppw, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.t_ppwstr, ptr @_ZZ11ellipticityiP4t_bbE3ppw, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !14
   %12 = fsub float %5, %11
   %13 = fmul float %12, %12
@@ -390,9 +390,9 @@ define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr noundef read
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !21
-  %18 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %19 = load float, ptr %18, align 4, !tbaa !21
   %20 = tail call float @llvm.fmuladd.f32(float %17, float %13, float %19)
   store float %20, ptr %18, align 4, !tbaa !21
@@ -770,7 +770,7 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread:                                     ; preds = %.tail.thread.preheader, %77
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %77 ], [ 0, %.tail.thread.preheader ]
-  %73 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZ7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfoE5bb_nm, i64 0, i64 %indvars.iv217
+  %73 = getelementptr inbounds nuw ptr, ptr @_ZZ7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfoE5bb_nm, i64 %indvars.iv217
   %74 = load ptr, ptr %73, align 8, !tbaa !43
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %63) #24
   %76 = icmp eq i32 %75, 0

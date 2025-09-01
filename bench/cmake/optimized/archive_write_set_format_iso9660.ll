@@ -1588,7 +1588,7 @@ define internal range(i32 -30, 1) i32 @iso9660_finish_entry(ptr noundef %0) #0 {
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %.139.i24.i, i64 %65)
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 732
   %67 = sub i64 65536, %65
-  %68 = getelementptr inbounds nuw [65536 x i8], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 1 %.243.i23.i, i64 %spec.select.i.i, i1 false)
   %69 = load ptr, ptr %3, align 8, !tbaa !69
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 66272
@@ -2109,7 +2109,7 @@ zisofs_extract.exit.thread85.i:                   ; preds = %zisofs_extract_init
   %218 = getelementptr inbounds nuw i8, ptr %.val120.i.i, i64 66272
   %219 = load i64, ptr %218, align 8, !tbaa !50
   %220 = sub i64 65536, %219
-  %221 = getelementptr inbounds nuw [65536 x i8], ptr %217, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 %220
   %..096.i.i = call i64 @llvm.umin.i64(i64 %.096153.i.i, i64 %219)
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %221, i8 0, i64 %..096.i.i, i1 false)
   %222 = load ptr, ptr %7, align 8, !tbaa !69
@@ -2152,7 +2152,7 @@ wb_consume.exit.thread141.i.i:                    ; preds = %wb_consume.exit.i.i
   %236 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 66272
   %237 = load i64, ptr %236, align 8, !tbaa !50
   %238 = sub i64 65536, %237
-  %239 = getelementptr inbounds nuw [65536 x i8], ptr %235, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 %238
   store ptr %239, ptr %106, align 8, !tbaa !143
   %240 = trunc i64 %237 to i32
   store i32 %240, ptr %107, align 8, !tbaa !144
@@ -6038,7 +6038,7 @@ define internal fastcc i32 @write_null(ptr noundef %0, i64 noundef %1) unnamed_a
   %6 = load i64, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 732
   %8 = sub i64 65536, %6
-  %9 = getelementptr inbounds nuw [65536 x i8], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %.not = icmp ugt i64 %1, %6
   br i1 %.not, label %22, label %10
 
@@ -6103,7 +6103,7 @@ wb_consume.exit50.thread:                         ; preds = %wb_consume.exit50.w
   %33 = sub i64 %1, %6
   %34 = getelementptr inbounds nuw i8, ptr %.val47, i64 732
   %35 = sub i64 65536, %32
-  %36 = getelementptr inbounds nuw [65536 x i8], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
   %37 = ptrtoint ptr %9 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
@@ -6604,7 +6604,7 @@ define internal fastcc range(i32 -30, 1) i32 @zisofs_write_to_temp(ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 66272
   %12 = load i64, ptr %11, align 8, !tbaa !50
   %13 = sub i64 65536, %12
-  %14 = getelementptr inbounds nuw [65536 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 608
   store ptr %14, ptr %15, align 8, !tbaa !257
   %16 = trunc i64 %12 to i32
@@ -6762,7 +6762,7 @@ wb_consume.exit.thread:                           ; preds = %wb_consume.exit.wb_
   store i64 %90, ptr %88, align 8, !tbaa !121
   %91 = getelementptr inbounds nuw i8, ptr %.val, i64 732
   %92 = sub i64 65536, %82
-  %93 = getelementptr inbounds nuw [65536 x i8], ptr %91, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
   store ptr %93, ptr %15, align 8, !tbaa !257
   %94 = trunc i64 %82 to i32
   store i32 %94, ptr %17, align 8, !tbaa !258
@@ -6874,7 +6874,7 @@ write_to_temp.exit:                               ; preds = %16
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.13965, i64 %32)
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 732
   %34 = sub i64 65536, %32
-  %35 = getelementptr inbounds nuw [65536 x i8], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %.24364, i64 %spec.select, i1 false)
   %36 = load ptr, ptr %4, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 66272
@@ -7277,7 +7277,7 @@ define internal fastcc i32 @write_VD(ptr noundef %0, ptr noundef readonly captur
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 66272
   %14 = load i64, ptr %13, align 8, !tbaa !50
   %15 = sub i64 65536, %14
-  %16 = getelementptr inbounds nuw [65536 x i8], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
   store i8 %.0106, ptr %16, align 1, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -7496,7 +7496,7 @@ define internal fastcc i32 @write_VD_boot_record(ptr noundef %0) unnamed_addr #0
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 66272
   %6 = load i64, ptr %5, align 8, !tbaa !50
   %7 = sub i64 65536, %6
-  %8 = getelementptr inbounds nuw [65536 x i8], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   store i8 0, ptr %8, align 1, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %9, ptr noundef nonnull align 1 dereferenceable(5) @.str.85, i64 5, i1 false)
@@ -7549,7 +7549,7 @@ define internal fastcc i32 @write_VD_terminator(ptr noundef %0) unnamed_addr #0 
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
   %5 = load i64, ptr %4, align 8, !tbaa !50
   %6 = sub i64 65536, %5
-  %7 = getelementptr inbounds nuw [65536 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   store i8 -1, ptr %7, align 1, !tbaa !68
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.85, i64 5, i1 false)
@@ -7897,7 +7897,7 @@ define internal fastcc i32 @write_information_block(ptr noundef %0) unnamed_addr
   %138 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
   %139 = load i64, ptr %138, align 8, !tbaa !50
   %140 = sub i64 65536, %139
-  %141 = getelementptr inbounds nuw [65536 x i8], ptr %137, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 %140
   %142 = load ptr, ptr %4, align 8, !tbaa !241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %141, ptr noundef nonnull align 1 dereferenceable(2048) %142, i64 2048, i1 false)
   call void @archive_string_free(ptr noundef nonnull %4) #23
@@ -7958,7 +7958,7 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef range(i
   %17 = getelementptr inbounds nuw i8, ptr %.val82.i, i64 66272
   %18 = load i64, ptr %17, align 8, !tbaa !50
   %19 = sub i64 65536, %18
-  %20 = getelementptr inbounds nuw [65536 x i8], ptr %16, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
   %22 = getelementptr inbounds nuw %struct.path_table, ptr %11, i64 %indvars.iv, i32 2
   %23 = load ptr, ptr %22, align 8, !tbaa !164
@@ -8031,7 +8031,7 @@ wb_consume.exit.thread87.i:                       ; preds = %wb_consume.exit.wb_
   %.val.i = phi ptr [ %.val.pre.i, %wb_consume.exit.wb_consume.exit.thread87_crit_edge.i ], [ %44, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %.val.i, i64 732
   %56 = sub i64 65536, %54
-  %57 = getelementptr inbounds nuw [65536 x i8], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -1
   br label %59
 
@@ -8212,7 +8212,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_directory_descriptor
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 66272
   %11 = load i64, ptr %10, align 8, !tbaa !50
   %12 = sub i64 65536, %11
-  %13 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
   %14 = load i32, ptr %5, align 8, !tbaa !269
   %15 = tail call fastcc i32 @set_directory_record(ptr noundef nonnull %13, i64 noundef 2048, ptr noundef %.042, ptr noundef %8, i32 noundef 1, i32 noundef %14)
   %16 = sext i32 %15 to i64
@@ -8395,7 +8395,7 @@ wb_consume.exit87.thread91.i:                     ; preds = %wb_consume.exit87.w
   %.val.i = phi ptr [ %.val.pre.i, %wb_consume.exit87.wb_consume.exit87.thread91_crit_edge.i ], [ %63, %67 ]
   %108 = getelementptr inbounds nuw i8, ptr %.val.i, i64 732
   %109 = sub i64 65536, %107
-  %110 = getelementptr inbounds nuw [65536 x i8], ptr %108, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
   %111 = load i32, ptr %5, align 8, !tbaa !269
   %112 = tail call fastcc i32 @set_directory_record(ptr noundef nonnull %110, i64 noundef 2048, ptr noundef %48, ptr noundef %8, i32 noundef 3, i32 noundef %111)
   br label %113
@@ -8461,7 +8461,7 @@ _write_directory_descriptors.exit.thread60:       ; preds = %130, %42, %_write_d
   %139 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
   %140 = load i64, ptr %139, align 8, !tbaa !50
   %141 = sub i64 65536, %140
-  %142 = getelementptr inbounds nuw [65536 x i8], ptr %138, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %.03887, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %.03887, i64 4
   %145 = load i32, ptr %144, align 4, !tbaa !275
@@ -8556,7 +8556,7 @@ define internal fastcc i32 @write_rr_ER(ptr noundef %0) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
   %5 = load i64, ptr %4, align 8, !tbaa !50
   %6 = sub i64 65536, %5
-  %7 = getelementptr inbounds nuw [65536 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 237
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1811) %8, i8 0, i64 1811, i1 false)
   store i8 69, ptr %7, align 1, !tbaa !68
@@ -8619,7 +8619,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_descriptors(ptr
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 66272
   %9 = load i64, ptr %8, align 8, !tbaa !50
   %10 = sub i64 65536, %9
-  %11 = getelementptr inbounds nuw [65536 x i8], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2047) %12, i8 0, i64 2047, i1 false)
   store i8 1, ptr %11, align 1, !tbaa !68
@@ -9133,7 +9133,7 @@ define internal fastcc range(i32 -30, 1) i32 @isoent_make_path_table_2(ptr nound
 
 switch.lookup:                                    ; preds = %._crit_edge
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.isoent_make_path_table_2, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.isoent_make_path_table_2, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @qsort(ptr noundef nonnull %17, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %switch.load) #23
   br label %28
@@ -9627,7 +9627,7 @@ idr_extend_identifier.exit.i:                     ; preds = %167, %.lr.ph.i
   %.lhs.trunc.i = trunc nuw i64 %207 to i16
   %208 = udiv i16 %.lhs.trunc.i, 1296
   %.zext.i = zext nneg i16 %208 to i64
-  %209 = getelementptr inbounds nuw [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext.i
+  %209 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext.i
   %210 = load i16, ptr %209, align 2, !tbaa !332
   %211 = lshr i16 %210, 8
   %212 = trunc nuw i16 %211 to i8
@@ -9637,7 +9637,7 @@ idr_extend_identifier.exit.i:                     ; preds = %167, %.lr.ph.i
   %214 = urem i16 %.lhs.trunc.i, 1296
   %215 = udiv i16 %214, 36
   %.zext11.i = zext nneg i16 %215 to i64
-  %216 = getelementptr inbounds nuw [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext11.i
+  %216 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext11.i
   %217 = load i16, ptr %216, align 2, !tbaa !332
   %218 = lshr i16 %217, 8
   %219 = trunc nuw i16 %218 to i8
@@ -9646,7 +9646,7 @@ idr_extend_identifier.exit.i:                     ; preds = %167, %.lr.ph.i
   store i8 %220, ptr %198, align 1, !tbaa !68
   %221 = urem i16 %214, 36
   %.zext13.i = zext nneg i16 %221 to i64
-  %222 = getelementptr inbounds nuw [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext13.i
+  %222 = getelementptr inbounds nuw i16, ptr @idr_set_num_beutf16.xdig, i64 %.zext13.i
   %223 = load i16, ptr %222, align 2, !tbaa !332
   %224 = lshr i16 %223, 8
   %225 = trunc nuw i16 %224 to i8
@@ -10184,18 +10184,18 @@ idr_extend_identifier.exit.i:                     ; preds = %217, %.lr.ph.i
   %.lhs.trunc.i = trunc nuw i64 %254 to i16
   %255 = udiv i16 %.lhs.trunc.i, 1296
   %.zext.i = zext nneg i16 %255 to i64
-  %256 = getelementptr inbounds nuw [36 x i8], ptr @idr_set_num.xdig, i64 0, i64 %.zext.i
+  %256 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext.i
   %257 = load i8, ptr %256, align 1, !tbaa !68
   store i8 %257, ptr %244, align 1, !tbaa !68
   %258 = urem i16 %.lhs.trunc.i, 1296
   %259 = udiv i16 %258, 36
   %.zext11.i = zext nneg i16 %259 to i64
-  %260 = getelementptr inbounds nuw [36 x i8], ptr @idr_set_num.xdig, i64 0, i64 %.zext11.i
+  %260 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext11.i
   %261 = load i8, ptr %260, align 1, !tbaa !68
   store i8 %261, ptr %246, align 1, !tbaa !68
   %262 = urem i16 %258, 36
   %.zext13.i = zext nneg i16 %262 to i64
-  %263 = getelementptr inbounds nuw [36 x i8], ptr @idr_set_num.xdig, i64 0, i64 %.zext13.i
+  %263 = getelementptr inbounds nuw i8, ptr @idr_set_num.xdig, i64 %.zext13.i
   %264 = load i8, ptr %263, align 1, !tbaa !68
   store i8 %264, ptr %247, align 1, !tbaa !68
   %265 = tail call i32 @__archive_rb_tree_insert_node(ptr noundef nonnull %35, ptr noundef nonnull %.017.i) #23
@@ -13303,7 +13303,7 @@ extra_get_record.exit:                            ; preds = %7, %23
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %34 = load i32, ptr %27, align 4, !tbaa !275
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [2048 x i8], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -1
   store ptr %37, ptr %5, align 8, !tbaa !359
   br label %extra_get_record.exit26
@@ -13949,34 +13949,34 @@ get_path_component.exit.thread19.i:               ; preds = %get_path_component.
   %66 = icmp eq i32 %65, 1
   %67 = getelementptr inbounds nuw i8, ptr %47, i64 168
   %68 = load ptr, ptr %67, align 8, !tbaa !188
-  br i1 %66, label %70, label %69
+  br i1 %66, label %71, label %69
 
 69:                                               ; preds = %57
   %spec.store.select2 = call i64 @llvm.umin.i64(i64 %63, i64 255)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %68, i64 %spec.store.select2, i1 false)
-  br label %73
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 %spec.store.select2
+  store i8 0, ptr %70, align 1, !tbaa !68
+  br label %74
 
-70:                                               ; preds = %57
+71:                                               ; preds = %57
   %spec.store.select = call i64 @llvm.umin.i64(i64 %63, i64 254)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %68, i64 %spec.store.select, i1 false)
-  %71 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %spec.store.select
-  store i8 0, ptr %71, align 1, !tbaa !68
-  %72 = add nuw nsw i64 %spec.store.select, 1
-  br label %73
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 %spec.store.select
+  store i8 0, ptr %72, align 1, !tbaa !68
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  store i8 0, ptr %73, align 1, !tbaa !68
+  br label %74
 
-73:                                               ; preds = %69, %70
-  %spec.store.select2.sink = phi i64 [ %spec.store.select2, %69 ], [ %72, %70 ]
-  %.064 = phi i32 [ %3, %69 ], [ 3, %70 ]
-  %74 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %spec.store.select2.sink
-  store i8 0, ptr %74, align 1, !tbaa !68
+74:                                               ; preds = %69, %71
+  %.064 = phi i32 [ 3, %71 ], [ %3, %69 ]
   %75 = icmp eq i32 %9, 0
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %73
+76:                                               ; preds = %74
   %77 = call fastcc i32 @set_str_a_characters_bp(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %12, i32 noundef %.064)
   br label %86
 
-78:                                               ; preds = %73
+78:                                               ; preds = %74
   %79 = call fastcc i32 @set_str_d_characters_bp(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %12, i32 noundef %.064)
   br label %86
 
@@ -14444,7 +14444,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_contents(ptr no
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 66272
   %13 = load i64, ptr %12, align 8, !tbaa !50
   %14 = sub i64 65536, %13
-  %15 = getelementptr inbounds nuw [65536 x i8], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 %.023)
   %16 = load i32, ptr %6, align 8, !tbaa !35
   %17 = tail call i64 @read(i32 noundef %16, ptr noundef nonnull %15, i64 noundef %spec.select) #23

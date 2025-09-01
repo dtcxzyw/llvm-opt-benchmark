@@ -317,7 +317,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeENS_15Action
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN12FilterAction19actionDirectionNameENS_15ActionDirectionE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction19actionDirectionNameENS_15ActionDirectionE, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -386,7 +386,7 @@ define void @_ZN12FilterAction19actionDirectionNameENS_15ActionDirectionE(ptr de
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN12FilterAction19actionDirectionNameENS_15ActionDirectionE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction19actionDirectionNameENS_15ActionDirectionE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -415,7 +415,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeE(ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %11 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12FilterAction14actionTypeNameENS_10ActionTypeE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction14actionTypeNameENS_10ActionTypeE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 
@@ -484,7 +484,7 @@ define void @_ZN12FilterAction14actionTypeNameENS_10ActionTypeE(ptr dead_on_unwi
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12FilterAction14actionTypeNameENS_10ActionTypeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction14actionTypeNameENS_10ActionTypeE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -513,7 +513,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionE(ptr noundef align 8 derefe
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12FilterAction10actionNameENS_6ActionE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction10actionNameENS_6ActionE, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %11
 
@@ -582,7 +582,7 @@ define void @_ZN12FilterAction10actionNameENS_6ActionE(ptr dead_on_unwind noalia
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12FilterAction10actionNameENS_6ActionE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12FilterAction10actionNameENS_6ActionE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

@@ -1337,7 +1337,7 @@ define internal fastcc ptr @srp_create_user(ptr noundef %0, ptr noundef %1, ptr 
 
 14:                                               ; preds = %7
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !26
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %20, label %17
@@ -1446,7 +1446,7 @@ define internal fastcc ptr @srp_verify_user(ptr noundef %0, ptr noundef %1, ptr 
 
 15:                                               ; preds = %7
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !26
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %18

@@ -87,7 +87,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
 .preheader26:                                     ; preds = %9, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 1, %9 ]
   %.01931 = phi i64 [ %34, %33 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %.01931
+  %12 = getelementptr inbounds nuw %struct.anon, ptr @test_sparse_array.cases, i64 %.01931
   %13 = load i64, ptr %12, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !11
@@ -105,7 +105,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
 
 .preheader:                                       ; preds = %.preheader26, %31
   %.01830 = phi i64 [ %32, %31 ], [ 0, %.preheader26 ]
-  %22 = getelementptr inbounds nuw [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %.01830
+  %22 = getelementptr inbounds nuw %struct.anon, ptr @test_sparse_array.cases, i64 %.01830
   %23 = load i64, ptr %22, align 16, !tbaa !4
   %24 = tail call ptr @ossl_sa_get(ptr noundef %1, i64 noundef %23) #4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -163,7 +163,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 
 .preheader:                                       ; preds = %6, %9
   %.0915 = phi i64 [ %10, %9 ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %.0915
+  %11 = getelementptr inbounds nuw %struct.anon.0, ptr @test_sparse_array_num.cases, i64 %.0915
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 
 8:                                                ; preds = %4, %19
   %.01114 = phi i64 [ 0, %4 ], [ %17, %19 ]
-  %9 = getelementptr inbounds nuw [8 x %struct.index_cases_st], ptr @test_sparse_array_doall.cases, i64 0, i64 %.01114
+  %9 = getelementptr inbounds nuw %struct.index_cases_st, ptr @test_sparse_array_doall.cases, i64 %.01114
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !30

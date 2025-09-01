@@ -3384,7 +3384,7 @@ thread-pre-split.thread477:                       ; preds = %36, %64, %thread-pr
   br i1 %155, label %156, label %166
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds nuw [64 x i8], ptr %136, i64 0, i64 %154
+  %157 = getelementptr inbounds nuw i8, ptr %136, i64 %154
   store i8 44, ptr %157, align 1, !tbaa !76
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %159 = sub nuw nsw i64 63, %154

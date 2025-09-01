@@ -4689,7 +4689,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %136 = shl nuw i64 1, %135
   %137 = sdiv i32 %0, 64
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %138
+  %139 = getelementptr inbounds i64, ptr %5, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !38
   %141 = or i64 %140, %136
   store i64 %141, ptr %139, align 8, !tbaa !38
@@ -5468,7 +5468,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %150 = shl nuw i64 1, %149
   %151 = sdiv i32 %0, 64
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %152
+  %153 = getelementptr inbounds i64, ptr %6, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %.backedge
 
@@ -5495,7 +5495,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %163 = call i32 @fileno_stdin() #14
   %164 = sdiv i32 %163, 64
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %165
+  %166 = getelementptr inbounds i64, ptr %6, i64 %165
   %167 = load i64, ptr %166, align 8, !tbaa !38
   %168 = or i64 %162, %167
   store i64 %168, ptr %166, align 8, !tbaa !38
@@ -5539,7 +5539,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %187 = call i32 @fileno_stdin() #14
   %188 = sdiv i32 %187, 64
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %189
+  %190 = getelementptr inbounds i64, ptr %6, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !38
   %192 = call i32 @fileno_stdin() #14
   %193 = srem i32 %192, 64

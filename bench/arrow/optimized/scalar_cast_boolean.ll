@@ -1116,7 +1116,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102:
 
 switch.lookup:                                    ; preds = %295
   %300 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN5arrow7compute8internal15GetBooleanCastsEv, i64 0, i64 %300
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal15GetBooleanCastsEv, i64 %300
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_10applicator11ScalarUnaryENS_11BooleanTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJNS1_9IsNonZeroEEEET1_NS1_6detail9GetTypeIdE.exit
 
@@ -4903,14 +4903,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !252
@@ -5005,7 +5005,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %74 = load i8, ptr %72, align 1, !tbaa !51
   %75 = icmp ne i8 %74, 0
   %76 = zext i1 %75 to i8
-  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %76, ptr %77, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5093,14 +5093,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !258
@@ -5195,7 +5195,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %74 = load i8, ptr %72, align 1, !tbaa !51
   %75 = icmp ne i8 %74, 0
   %76 = zext i1 %75 to i8
-  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %76, ptr %77, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5261,14 +5261,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !264
@@ -5366,7 +5366,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i16, ptr %73, align 2, !tbaa !266
   %76 = icmp ne i16 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5437,14 +5437,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !271
@@ -5542,7 +5542,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i16, ptr %73, align 2, !tbaa !266
   %76 = icmp ne i16 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5613,14 +5613,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !277
@@ -5718,7 +5718,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i32, ptr %73, align 4, !tbaa !52
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5789,14 +5789,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !283
@@ -5894,7 +5894,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i32, ptr %73, align 4, !tbaa !52
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5965,14 +5965,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !289
@@ -6070,7 +6070,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i64, ptr %73, align 8, !tbaa !120
   %76 = icmp ne i64 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -6141,14 +6141,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %32
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !295
@@ -6246,7 +6246,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %75 = load i64, ptr %73, align 8, !tbaa !120
   %76 = icmp ne i64 %75, 0
   %77 = zext i1 %76 to i8
-  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -6317,14 +6317,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %33
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !301
@@ -6422,7 +6422,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %76 = load float, ptr %74, align 4, !tbaa !303
   %77 = fcmp une float %76, 0.000000e+00
   %78 = zext i1 %77 to i8
-  %79 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %78, ptr %79, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -6493,14 +6493,14 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %9, align 1, !tbaa !51
-  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %10
   %14 = load i8, ptr %13, align 1, !tbaa !51
   %15 = and i8 %14, %12
   %16 = icmp sgt i64 %2, 0
   br i1 %16, label %.lr.ph, label %33
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %10
   %18 = load i8, ptr %17, align 1, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !309
@@ -6598,7 +6598,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %76 = load double, ptr %74, align 8, !tbaa !311
   %77 = fcmp une double %76, 0.000000e+00
   %78 = zext i1 %77 to i8
-  %79 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %78, ptr %79, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -6806,7 +6806,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
   %17 = load i64, ptr %16, align 8, !tbaa !156
   %18 = sdiv i64 %15, 8
   %19 = srem i64 %15, 8
-  %20 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !51
   %22 = icmp sgt i64 %17, 0
   br i1 %22, label %23, label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
@@ -6814,7 +6814,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
 23:                                               ; preds = %_ZN5arrow7compute10ExecResult18array_span_mutableEv.exit
   %24 = getelementptr inbounds i8, ptr %13, i64 %18
   %25 = load i8, ptr %24, align 1, !tbaa !51
-  %26 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %19
+  %26 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %19
   %27 = load i8, ptr %26, align 1, !tbaa !51
   %28 = and i8 %27, %25
   br label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
@@ -7497,7 +7497,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
   %17 = load i64, ptr %16, align 8, !tbaa !156
   %18 = sdiv i64 %15, 8
   %19 = srem i64 %15, 8
-  %20 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !51
   %22 = icmp sgt i64 %17, 0
   br i1 %22, label %23, label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
@@ -7505,7 +7505,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
 23:                                               ; preds = %_ZN5arrow7compute10ExecResult18array_span_mutableEv.exit
   %24 = getelementptr inbounds i8, ptr %13, i64 %18
   %25 = load i8, ptr %24, align 1, !tbaa !51
-  %26 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %19
+  %26 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %19
   %27 = load i8, ptr %26, align 1, !tbaa !51
   %28 = and i8 %27, %25
   br label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
@@ -7837,7 +7837,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
   %16 = load i64, ptr %15, align 8, !tbaa !156
   %17 = sdiv i64 %14, 8
   %18 = srem i64 %14, 8
-  %19 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !51
   %21 = icmp sgt i64 %16, 0
   br i1 %21, label %22, label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
@@ -7845,7 +7845,7 @@ _ZN5arrow7compute10ExecResult18array_span_mutableEv.exit: ; preds = %5
 22:                                               ; preds = %_ZN5arrow7compute10ExecResult18array_span_mutableEv.exit
   %23 = getelementptr inbounds i8, ptr %12, i64 %17
   %24 = load i8, ptr %23, align 1, !tbaa !51
-  %25 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %18
+  %25 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 %18
   %26 = load i8, ptr %25, align 1, !tbaa !51
   %27 = and i8 %26, %24
   br label %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit

@@ -77,7 +77,7 @@ define noundef nonnull ptr @_ZN2cv13depthToStringEi(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   br label %_ZN2cv6detail14depthToString_Ei.exit
 
@@ -95,7 +95,7 @@ define noundef ptr @_ZN2cv6detail14depthToString_Ei(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   br label %6
 
@@ -115,7 +115,7 @@ define void @_ZN2cv12typeToStringB5cxx11Ei(ptr dead_on_unwind noalias writable s
   %8 = add nuw nsw i32 %7, 1
   %9 = and i32 %1, 7
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !3, !noalias !8
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.10, ptr noundef %12, i32 noundef %8)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -275,7 +275,7 @@ define void @_ZN2cv6detail13typeToString_B5cxx11Ei(ptr dead_on_unwind noalias wr
   %5 = add nuw nsw i32 %4, 1
   %6 = and i32 %1, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   tail call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.10, ptr noundef %9, i32 noundef %5)
   ret void
@@ -369,7 +369,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -424,7 +424,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %57
 
 59:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45
   %60 = zext nneg i32 %0 to i64
-  %61 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !3
   br label %63
 
@@ -461,7 +461,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %72
 
 76:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -506,7 +506,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %92
 
 94:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60
   %95 = zext nneg i32 %1 to i64
-  %96 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !3
   br label %98
 
@@ -701,7 +701,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -805,7 +805,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %75
 
 79:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
   %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1100,7 +1100,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -1167,7 +1167,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %59
 
 63:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45
   %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1371,7 +1371,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -1439,7 +1439,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %59
 
 63:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
   %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1648,7 +1648,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -1715,7 +1715,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %58
 
 62:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
   %63 = zext nneg i32 %60 to i64
-  %64 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1917,7 +1917,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -1985,7 +1985,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %59
 
 63:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
   %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -2188,7 +2188,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -2255,7 +2255,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %58
 
 62:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
   %63 = zext nneg i32 %60 to i64
-  %64 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -2461,7 +2461,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 
 _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   br label %_ZN2cv6detailL13getTestOpMathEj.exit.thread
 
@@ -2528,7 +2528,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %61
 
 65:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !3
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -2808,7 +2808,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %64
 
 66:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36
   %67 = zext nneg i32 %0 to i64
-  %68 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !3
   br label %70
 

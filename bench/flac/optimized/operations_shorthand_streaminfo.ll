@@ -59,7 +59,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__streaminfo(ptr nou
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !9
   %19 = zext i8 %18 to i32
   %20 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %19) #3

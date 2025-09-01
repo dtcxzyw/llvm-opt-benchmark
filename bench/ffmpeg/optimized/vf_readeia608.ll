@@ -283,7 +283,7 @@ define internal noundef i32 @extract_lines(ptr noundef %0, ptr noundef %1, i32 n
   %44 = load i32, ptr %43, align 4, !tbaa !52
   %45 = icmp sgt i32 %44, 8
   %46 = zext i1 %45 to i64
-  %47 = getelementptr inbounds nuw [2 x ptr], ptr %42, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !58
@@ -863,17 +863,17 @@ dump_code.exit.i:                                 ; preds = %228
   %287 = phi i1 [ true, %._crit_edge162.i ], [ false, %302 ]
   %indvars.iv195.i = phi i64 [ 0, %._crit_edge162.i ], [ 1, %302 ]
   %288 = shl nuw nsw i64 %indvars.iv195.i, 3
-  %289 = or disjoint i64 %288, 3
-  %290 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 0, i64 %indvars.iv195.i
-  %.promoted.i = load i8, ptr %290, align 1, !tbaa !46
-  br label %291
+  %289 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv195.i
+  %.promoted.i = load i8, ptr %289, align 1, !tbaa !46
+  %290 = getelementptr inbounds nuw i8, ptr %5, i64 %288
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 3
+  br label %292
 
-291:                                              ; preds = %291, %.preheader.i
-  %indvars.iv192.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next193.i, %291 ]
-  %.095165.i = phi i32 [ 0, %.preheader.i ], [ %.196.i, %291 ]
-  %292 = phi i8 [ %.promoted.i, %.preheader.i ], [ %301, %291 ]
-  %293 = add nuw nsw i64 %289, %indvars.iv192.i
-  %294 = getelementptr inbounds nuw [19 x i8], ptr %5, i64 0, i64 %293
+292:                                              ; preds = %292, %.preheader.i
+  %indvars.iv192.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next193.i, %292 ]
+  %.095165.i = phi i32 [ 0, %.preheader.i ], [ %.196.i, %292 ]
+  %293 = phi i8 [ %.promoted.i, %.preheader.i ], [ %301, %292 ]
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 %indvars.iv192.i
   %295 = load i8, ptr %294, align 1, !tbaa !46
   %296 = icmp eq i8 %295, -1
   %297 = zext i1 %296 to i32
@@ -881,20 +881,20 @@ dump_code.exit.i:                                 ; preds = %228
   %298 = trunc nuw nsw i64 %indvars.iv192.i to i32
   %299 = shl nuw nsw i32 %297, %298
   %300 = trunc nuw i32 %299 to i8
-  %301 = or i8 %292, %300
+  %301 = or i8 %293, %300
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond194.not.i = icmp eq i64 %indvars.iv.next193.i, 8
-  br i1 %exitcond194.not.i, label %302, label %291, !llvm.loop !91
+  br i1 %exitcond194.not.i, label %302, label %292, !llvm.loop !91
 
-302:                                              ; preds = %291
-  store i8 %301, ptr %290, align 1, !tbaa !46
+302:                                              ; preds = %292
+  store i8 %301, ptr %289, align 1, !tbaa !46
   %303 = load i32, ptr %286, align 4, !tbaa !92
   %.not102.i = icmp ne i32 %303, 0
   %304 = and i32 %.196.i, 1
   %.not103.i = icmp eq i32 %304, 0
   %or.cond105.i = select i1 %.not102.i, i1 %.not103.i, i1 false
   %spec.store.select.i = select i1 %or.cond105.i, i8 127, i8 %301
-  store i8 %spec.store.select.i, ptr %290, align 1
+  store i8 %spec.store.select.i, ptr %289, align 1
   br i1 %287, label %.preheader.i, label %305, !llvm.loop !93
 
 305:                                              ; preds = %302

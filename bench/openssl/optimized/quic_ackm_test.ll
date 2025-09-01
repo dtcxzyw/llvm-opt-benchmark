@@ -163,7 +163,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %10 = srem i32 %9, 3
   %11 = sdiv i32 %9, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %12 = getelementptr inbounds nuw [13 x ptr], ptr @tx_ack_cases, i64 0, i64 %7
+  %12 = getelementptr inbounds nuw ptr, ptr @tx_ack_cases, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -708,7 +708,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %8 = ashr i32 %0, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [4 x ptr], ptr @rx_test_scripts, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @rx_test_scripts, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -928,7 +928,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %.pre-phi.i = phi i32 [ %107, %105 ], [ %8, %.preheader154.i ]
   %112 = load ptr, ptr %2, align 8, !tbaa !15
   %113 = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %112, i32 noundef %.pre-phi.i) #9
-  %114 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %5, i64 0, i64 %.3170.i
+  %114 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %5, i64 %.3170.i
   %115 = load i64, ptr %114, align 8
   %.0.i.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %113, i64 %115)
   %116 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 997, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.11, i32 noundef %.0.i.i, i32 noundef 0) #9

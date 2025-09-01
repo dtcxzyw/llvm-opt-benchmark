@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %4, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #7
@@ -92,7 +92,7 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
@@ -153,7 +153,7 @@ define dso_local ptr @tr2_sysenv_display_name(i32 noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !14
   ret ptr %7
 }
@@ -164,7 +164,7 @@ define dso_local void @tr2_sysenv_release() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv, i32 2
+  %2 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv, i32 2
   %3 = load ptr, ptr %2, align 16, !tbaa !13
   tail call void @free(ptr noundef %3) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

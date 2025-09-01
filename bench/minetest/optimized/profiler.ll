@@ -1774,7 +1774,7 @@ if.end:                                           ; preds = %invoke.cont11
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub, i32 0)
   %conv21 = zext nneg i32 %.sroa.speculated to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buffer, i8 95, i64 %conv21, i1 false)
-  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr %buffer, i64 0, i64 %conv21
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv21
   store i8 0, ptr %arrayidx, align 1, !tbaa !21
   %call.i.i74 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #24
   %call1.i75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef nonnull %buffer, i64 noundef %call.i.i74)

@@ -1711,7 +1711,7 @@ thread-pre-split:                                 ; preds = %9
 
 switch.lookup:                                    ; preds = %10
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK13lua_exception4whatEv, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK13lua_exception4whatEv, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 

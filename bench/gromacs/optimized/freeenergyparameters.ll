@@ -39,7 +39,7 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
   %19 = getelementptr inbounds nuw double, ptr %18, i64 %15
   %20 = load double, ptr %19, align 8, !tbaa !26, !noalias !19
   %21 = fptrunc double %20 to float
-  %22 = getelementptr inbounds nuw [7 x float], ptr %0, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !27, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
@@ -70,7 +70,7 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias wr
   %36 = getelementptr inbounds nuw double, ptr %35, i64 %32
   %37 = load double, ptr %36, align 8, !tbaa !26, !noalias !31
   %38 = fptrunc double %37 to float
-  %39 = getelementptr inbounds nuw [7 x float], ptr %0, i64 0, i64 %indvars.iv.i20
+  %39 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i20
   store float %38, ptr %39, align 4, !tbaa !27, !alias.scope !31
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 7
@@ -173,7 +173,7 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
   %98 = fsub double %97, %95
   %99 = tail call double @llvm.fmuladd.f64(double %88, double %98, double %95)
   %100 = fptrunc double %99 to float
-  %101 = getelementptr inbounds nuw [7 x float], ptr %0, i64 0, i64 %indvars.iv.i24
+  %101 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i24
   store float %100, ptr %101, align 4, !tbaa !27, !alias.scope !36
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 7

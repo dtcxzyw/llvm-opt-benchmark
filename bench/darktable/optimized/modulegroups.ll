@@ -1238,187 +1238,187 @@ _preset_retrieve_old_search_pref.exit:            ; preds = %2
   br label %11
 
 11:                                               ; preds = %_preset_retrieve_old_search_pref.exit, %._crit_edge
-  %.06181 = phi i32 [ 0, %_preset_retrieve_old_search_pref.exit ], [ %46, %._crit_edge ]
+  %.06181 = phi i32 [ 0, %_preset_retrieve_old_search_pref.exit ], [ %47, %._crit_edge ]
   %12 = icmp eq i32 %.06181, 0
   br i1 %12, label %13, label %switch.lookup
 
 13:                                               ; preds = %11
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161) #16
-  br label %15
+  br label %16
 
 switch.lookup:                                    ; preds = %11
-  %switch.tableidx = add nsw i32 %.06181, -1
-  %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._preset_retrieve_old_layout, i64 0, i64 %14
+  %14 = zext nneg i32 %.06181 to i64
+  %15 = getelementptr ptr, ptr @switch.table._preset_retrieve_old_layout, i64 %14
+  %switch.gep = getelementptr i8, ptr %15, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %switch.lookup, %13
+16:                                               ; preds = %switch.lookup, %13
   %.str.163.sink = phi ptr [ @.str.162, %13 ], [ %switch.load, %switch.lookup ]
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull %.str.163.sink) #16
   %.06278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !19
   %.not79 = icmp eq ptr %.06278, null
   br i1 %.not79, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15
-  %16 = icmp ne i32 %.06181, 0
-  %or.cond = and i1 %9, %16
+.lr.ph:                                           ; preds = %16
+  %17 = icmp ne i32 %.06181, 0
+  %or.cond = and i1 %9, %17
   %or.cond3 = and i1 %10, %12
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %44
-  %.06280.us = phi ptr [ %.062.us, %44 ], [ %.06278, %.lr.ph ]
-  %17 = load ptr, ptr %.06280.us, align 8, !tbaa !21
-  %18 = call i32 @dt_iop_so_is_hidden(ptr noundef %17) #16
-  %.not65.us = icmp eq i32 %18, 0
-  br i1 %.not65.us, label %19, label %44
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %45
+  %.06280.us = phi ptr [ %.062.us, %45 ], [ %.06278, %.lr.ph ]
+  %18 = load ptr, ptr %.06280.us, align 8, !tbaa !21
+  %19 = call i32 @dt_iop_so_is_hidden(ptr noundef %18) #16
+  %.not65.us = icmp eq i32 %19, 0
+  br i1 %.not65.us, label %20, label %45
 
-19:                                               ; preds = %.lr.ph.split.us
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
-  %22 = call i32 %21() #16
-  %23 = and i32 %22, 4
-  %.not66.us = icmp eq i32 %23, 0
-  br i1 %.not66.us, label %24, label %44
+20:                                               ; preds = %.lr.ph.split.us
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = call i32 %22() #16
+  %24 = and i32 %23, 4
+  %.not66.us = icmp eq i32 %24, 0
+  br i1 %.not66.us, label %25, label %45
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 496
-  %26 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.168, ptr noundef nonnull %25) #16
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !25
-  %29 = call i32 %28() #16
-  %30 = and i32 %29, 1
-  %.not67.us = icmp eq i32 %30, 0
-  br i1 %.not67.us, label %31, label %.thread.us
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 496
+  %27 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.168, ptr noundef nonnull %26) #16
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
+  %30 = call i32 %29() #16
+  %31 = and i32 %30, 1
+  %.not67.us = icmp eq i32 %31, 0
+  br i1 %.not67.us, label %32, label %.thread.us
 
-31:                                               ; preds = %24
-  %32 = and i32 %29, 2
-  %.not68.us = icmp eq i32 %32, 0
-  br i1 %.not68.us, label %33, label %.thread.us
+32:                                               ; preds = %25
+  %33 = and i32 %30, 2
+  %.not68.us = icmp eq i32 %33, 0
+  br i1 %.not68.us, label %34, label %.thread.us
 
-33:                                               ; preds = %31
-  %34 = and i32 %29, 4
-  %.not69.us = icmp eq i32 %34, 0
-  br i1 %.not69.us, label %35, label %.thread.us
+34:                                               ; preds = %32
+  %35 = and i32 %30, 4
+  %.not69.us = icmp eq i32 %35, 0
+  br i1 %.not69.us, label %36, label %.thread.us
 
-35:                                               ; preds = %33
-  %36 = and i32 %29, 8
-  %.not70.us = icmp eq i32 %36, 0
-  br i1 %.not70.us, label %37, label %.thread.us
+36:                                               ; preds = %34
+  %37 = and i32 %30, 8
+  %.not70.us = icmp eq i32 %37, 0
+  br i1 %.not70.us, label %38, label %.thread.us
 
-37:                                               ; preds = %35
-  %38 = and i32 %29, 16
-  %.not71.us = icmp eq i32 %38, 0
+38:                                               ; preds = %36
+  %39 = and i32 %30, 16
+  %.not71.us = icmp eq i32 %39, 0
   %spec.select.us = select i1 %.not71.us, i32 -1, i32 5
   br label %.thread.us
 
-.thread.us:                                       ; preds = %37, %35, %33, %31, %24
-  %.177.us = phi i32 [ %spec.select.us, %37 ], [ 4, %35 ], [ 3, %33 ], [ 2, %31 ], [ 1, %24 ]
-  %39 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %26) #17
-  %40 = icmp ne ptr %39, null
-  %41 = icmp eq i32 %.06181, %.177.us
-  %or.cond72.us = select i1 %41, i1 %40, i1 false
-  br i1 %or.cond72.us, label %42, label %43
+.thread.us:                                       ; preds = %38, %36, %34, %32, %25
+  %.177.us = phi i32 [ %spec.select.us, %38 ], [ 4, %36 ], [ 3, %34 ], [ 2, %32 ], [ 1, %25 ]
+  %40 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %27) #17
+  %41 = icmp ne ptr %40, null
+  %42 = icmp eq i32 %.06181, %.177.us
+  %or.cond72.us = select i1 %42, i1 %41, i1 false
+  br i1 %or.cond72.us, label %43, label %44
 
-42:                                               ; preds = %.thread.us
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %25) #16
-  br label %43
-
-43:                                               ; preds = %42, %.thread.us
-  call void @g_free(ptr noundef nonnull %26) #16
+43:                                               ; preds = %.thread.us
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #16
   br label %44
 
-44:                                               ; preds = %43, %19, %.lr.ph.split.us
-  %45 = getelementptr inbounds nuw i8, ptr %.06280.us, i64 8
-  %.062.us = load ptr, ptr %45, align 8, !tbaa !19
+44:                                               ; preds = %43, %.thread.us
+  call void @g_free(ptr noundef nonnull %27) #16
+  br label %45
+
+45:                                               ; preds = %44, %20, %.lr.ph.split.us
+  %46 = getelementptr inbounds nuw i8, ptr %.06280.us, i64 8
+  %.062.us = load ptr, ptr %46, align 8, !tbaa !19
   %.not.us = icmp eq ptr %.062.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-._crit_edge:                                      ; preds = %81, %44, %15
-  %46 = add nuw nsw i32 %.06181, 1
-  %exitcond.not = icmp eq i32 %46, 6
+._crit_edge:                                      ; preds = %82, %45, %16
+  %47 = add nuw nsw i32 %.06181, 1
+  %exitcond.not = icmp eq i32 %47, 6
   br i1 %exitcond.not, label %.loopexit, label %11
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %81
-  %.06280 = phi ptr [ %.062, %81 ], [ %.06278, %.lr.ph ]
-  %47 = load ptr, ptr %.06280, align 8, !tbaa !21
-  %48 = call i32 @dt_iop_so_is_hidden(ptr noundef %47) #16
-  %.not65 = icmp eq i32 %48, 0
-  br i1 %.not65, label %49, label %81
+.lr.ph.split:                                     ; preds = %.lr.ph, %82
+  %.06280 = phi ptr [ %.062, %82 ], [ %.06278, %.lr.ph ]
+  %48 = load ptr, ptr %.06280, align 8, !tbaa !21
+  %49 = call i32 @dt_iop_so_is_hidden(ptr noundef %48) #16
+  %.not65 = icmp eq i32 %49, 0
+  br i1 %.not65, label %50, label %82
 
-49:                                               ; preds = %.lr.ph.split
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 104
-  %51 = load ptr, ptr %50, align 8, !tbaa !23
-  %52 = call i32 %51() #16
-  %53 = and i32 %52, 4
-  %.not66 = icmp eq i32 %53, 0
-  br i1 %.not66, label %54, label %81
+50:                                               ; preds = %.lr.ph.split
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 104
+  %52 = load ptr, ptr %51, align 8, !tbaa !23
+  %53 = call i32 %52() #16
+  %54 = and i32 %53, 4
+  %.not66 = icmp eq i32 %54, 0
+  br i1 %.not66, label %55, label %82
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 496
-  %56 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.168, ptr noundef nonnull %55) #16
-  br i1 %16, label %57, label %61
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 496
+  %57 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.168, ptr noundef nonnull %56) #16
+  br i1 %17, label %58, label %62
 
-57:                                               ; preds = %54
-  %58 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.169, ptr noundef nonnull %55) #16
-  %59 = call i32 @dt_conf_get_int(ptr noundef %58) #16
-  call void @g_free(ptr noundef %58) #16
-  %60 = icmp eq i32 %.06181, %59
-  br label %61
+58:                                               ; preds = %55
+  %59 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.169, ptr noundef nonnull %56) #16
+  %60 = call i32 @dt_conf_get_int(ptr noundef %59) #16
+  call void @g_free(ptr noundef %59) #16
+  %61 = icmp eq i32 %.06181, %60
+  br label %62
 
-61:                                               ; preds = %54, %57
-  %.1 = phi i1 [ %60, %57 ], [ false, %54 ]
-  br i1 %9, label %.thread, label %64
+62:                                               ; preds = %55, %58
+  %.1 = phi i1 [ %61, %58 ], [ false, %55 ]
+  br i1 %9, label %.thread, label %65
 
-.thread:                                          ; preds = %61
-  %62 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %56) #17
-  %63 = icmp ne ptr %62, null
-  br label %68
+.thread:                                          ; preds = %62
+  %63 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %57) #17
+  %64 = icmp ne ptr %63, null
+  br label %69
 
-64:                                               ; preds = %61
-  %65 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull %55) #16
-  %66 = call i32 @dt_conf_get_bool(ptr noundef %65) #16
-  call void @g_free(ptr noundef %65) #16
-  %67 = icmp ne i32 %66, 0
-  br label %68
+65:                                               ; preds = %62
+  %66 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull %56) #16
+  %67 = call i32 @dt_conf_get_bool(ptr noundef %66) #16
+  call void @g_free(ptr noundef %66) #16
+  %68 = icmp ne i32 %67, 0
+  br label %69
 
-68:                                               ; preds = %64, %.thread
-  %.058 = phi i1 [ %63, %.thread ], [ %67, %64 ]
-  br i1 %or.cond3, label %69, label %72
+69:                                               ; preds = %65, %.thread
+  %.058 = phi i1 [ %64, %.thread ], [ %68, %65 ]
+  br i1 %or.cond3, label %70, label %73
 
-69:                                               ; preds = %68
-  %70 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %56) #17
-  %71 = icmp ne ptr %70, null
-  br label %77
+70:                                               ; preds = %69
+  %71 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %57) #17
+  %72 = icmp ne ptr %71, null
+  br label %78
 
-72:                                               ; preds = %68
-  br i1 %12, label %73, label %77
+73:                                               ; preds = %69
+  br i1 %12, label %74, label %78
 
-73:                                               ; preds = %72
-  %74 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull %55) #16
-  %75 = call i32 @dt_conf_get_bool(ptr noundef %74) #16
-  call void @g_free(ptr noundef %74) #16
-  %76 = icmp ne i32 %75, 0
-  br label %77
+74:                                               ; preds = %73
+  %75 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull %56) #16
+  %76 = call i32 @dt_conf_get_bool(ptr noundef %75) #16
+  call void @g_free(ptr noundef %75) #16
+  %77 = icmp ne i32 %76, 0
+  br label %78
 
-77:                                               ; preds = %72, %73, %69
-  %.0 = phi i1 [ %71, %69 ], [ %76, %73 ], [ false, %72 ]
+78:                                               ; preds = %73, %74, %70
+  %.0 = phi i1 [ %72, %70 ], [ %77, %74 ], [ false, %73 ]
   %or.cond5 = select i1 %12, i1 %.0, i1 false
-  %78 = select i1 %or.cond5, i1 true, i1 %.1
-  %or.cond72 = select i1 %78, i1 %.058, i1 false
-  br i1 %or.cond72, label %79, label %80
+  %79 = select i1 %or.cond5, i1 true, i1 %.1
+  %or.cond72 = select i1 %79, i1 %.058, i1 false
+  br i1 %or.cond72, label %80, label %81
 
-79:                                               ; preds = %77
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %55) #16
-  br label %80
-
-80:                                               ; preds = %77, %79
-  call void @g_free(ptr noundef %56) #16
+80:                                               ; preds = %78
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %56) #16
   br label %81
 
-81:                                               ; preds = %80, %49, %.lr.ph.split
-  %82 = getelementptr inbounds nuw i8, ptr %.06280, i64 8
-  %.062 = load ptr, ptr %82, align 8, !tbaa !19
+81:                                               ; preds = %78, %80
+  call void @g_free(ptr noundef %57) #16
+  br label %82
+
+82:                                               ; preds = %81, %50, %.lr.ph.split
+  %83 = getelementptr inbounds nuw i8, ptr %.06280, i64 8
+  %.062 = load ptr, ptr %83, align 8, !tbaa !19
   %.not = icmp eq ptr %.062, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 

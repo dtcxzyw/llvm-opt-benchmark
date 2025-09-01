@@ -789,10 +789,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %75
   %114 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv, i64 0, i64 %114
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv, i64 %114
   %switch.load = load i32, ptr %switch.gep, align 4
   %115 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep175 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv.2, i64 0, i64 %115
+  %switch.gep175 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv.2, i64 %115
   %switch.load176 = load i32, ptr %switch.gep175, align 4
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   store i32 %switch.load, ptr %116, align 8, !tbaa !56
@@ -1508,7 +1508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %72 = udiv i32 %71, %48
   %73 = xor i32 %52, %72
   %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %74, ptr %75, align 1, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1967,7 +1967,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit213:         ; preds = %226, %._crit_edge26
 
 237:                                              ; preds = %233
   %238 = zext nneg i32 %spec.select to i64
-  %239 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %4, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !66
   %241 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv293
   store i8 %240, ptr %241, align 1, !tbaa !66
@@ -2457,10 +2457,10 @@ define hidden void @_ZN2cv10PxMEncoderC2ENS_7PxMModeE(ptr noundef nonnull align 
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i32 %1 to i64
-  %switch.gep11 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE.3, i64 0, i64 %10
+  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE.3, i64 %10
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16

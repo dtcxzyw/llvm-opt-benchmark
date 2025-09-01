@@ -1397,7 +1397,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %88
 145:                                              ; preds = %.preheader, %149
   %exitcond.not = phi i1 [ false, %.preheader ], [ true, %149 ]
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %149 ]
-  %146 = getelementptr inbounds nuw [3 x i32], ptr %141, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !149
   %.not = icmp eq i32 %147, %142
   br i1 %.not, label %149, label %148
@@ -3163,11 +3163,11 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
 
 217:                                              ; preds = %213, %217
   %indvars.iv = phi i64 [ 0, %213 ], [ %indvars.iv.next, %217 ]
-  %218 = getelementptr inbounds nuw [3 x i32], ptr %196, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv
   %219 = load i32, ptr %218, align 4, !tbaa !149
   %.not180 = icmp eq i32 %219, 0
   %220 = select i1 %.not180, float %.pre-phi, float 0.000000e+00
-  %221 = getelementptr inbounds nuw [3 x float], ptr %216, i64 0, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw float, ptr %216, i64 %indvars.iv
   store float %220, ptr %221, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3186,7 +3186,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
 
 230:                                              ; preds = %222, %230
   %indvars.iv201 = phi i64 [ 0, %222 ], [ %indvars.iv.next202, %230 ]
-  %231 = getelementptr inbounds nuw [3 x float], ptr %229, i64 0, i64 %indvars.iv201
+  %231 = getelementptr inbounds nuw float, ptr %229, i64 %indvars.iv201
   store float %223, ptr %231, align 4, !tbaa !38
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next202, 3
@@ -4563,7 +4563,7 @@ define internal void @_Z14update_mdatomsP9t_mdatomsf.omp_outlined(ptr noalias no
 
 56:                                               ; preds = %52, %62
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %62 ]
-  %57 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !38
   %59 = fpext float %58 to double
   %60 = fcmp ogt double %59, 0x39B64F86CB9CEFB1

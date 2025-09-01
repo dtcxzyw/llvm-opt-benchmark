@@ -829,7 +829,7 @@ Vec_IntPush.exit121:                              ; preds = %Vec_IntPush.exit121
 Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.exit121, %._crit_edge.loopexit.split.loop.exit12.i
   %.07.i = phi i64 [ -1, %Vec_IntPush.exit121 ], [ %137, %._crit_edge.loopexit.split.loop.exit12.i ], [ -1, %136 ]
   %138 = and i32 %127, 1
-  %139 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i
+  %139 = getelementptr inbounds i64, ptr @s_Truths6, i64 %.07.i
   %140 = load i64, ptr %139, align 8, !tbaa !53
   %sext187 = add nsw i32 %138, -1
   %141 = sext i32 %sext187 to i64
@@ -1469,10 +1469,10 @@ Sbd_ManSolverSupp.exit:                           ; preds = %22
   %33 = sub nuw nsw i8 49, %32
   %34 = ashr i32 %28, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %35
+  %36 = getelementptr inbounds i32, ptr %2, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [65 x i8], ptr %3, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %3, i64 %38
   store i8 %33, ptr %39, align 1, !tbaa !60
   br label %..loopexit_crit_edge.us
 
@@ -1509,10 +1509,10 @@ Sbd_ManSolverSupp.exit:                           ; preds = %22
   %48 = sub nuw nsw i8 49, %47
   %49 = ashr i32 %43, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %50
+  %51 = getelementptr inbounds i32, ptr %2, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !3
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [65 x i8], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr %3, i64 %53
   store i8 %48, ptr %54, align 1, !tbaa !60
   br label %55
 

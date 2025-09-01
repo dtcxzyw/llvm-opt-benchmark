@@ -296,7 +296,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1
   unreachable
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit": ; preds = %4
-  %7 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %2, i32 1
+  %7 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %2, i32 1
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !29, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
@@ -353,7 +353,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   br i1 %19, label %3, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i": ; preds = %3
-  %20 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
+  %20 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %5, i32 1
   %21 = load ptr, ptr %20, align 8, !noalias !82, !nonnull !5, !align !29, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !82, !noundef !5
@@ -373,7 +373,7 @@ define hidden { ptr, i64 } @"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u
   br i1 %2, label %3, label %10, !prof !63
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %0, i32 1
+  %4 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %0, i32 1
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !29, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !5

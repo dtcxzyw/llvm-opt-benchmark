@@ -293,7 +293,7 @@ define internal void @dm_exit() #3 section ".exit.text" align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 8, %0 ], [ %3, %1 ]
   %3 = add nsw i64 %2, -1
-  %4 = getelementptr [8 x ptr], ptr @_exits, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @_exits, i64 %3
   %5 = load ptr, ptr %4, align 8
   tail call void %5() #23
   %6 = icmp eq i64 %3, 0
@@ -2342,7 +2342,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %41 = load ptr, ptr %26, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %37, 63
-  %44 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %43
+  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %42
   %47 = inttoptr i64 %46 to ptr
@@ -2385,7 +2385,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %66 = load ptr, ptr %26, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %62, 63
-  %69 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %68
+  %69 = getelementptr i64, ptr @__per_cpu_offset, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %67
   %72 = inttoptr i64 %71 to ptr
@@ -2738,7 +2738,7 @@ define internal i32 @dm_init() #3 section ".init.text" align 16 {
 
 1:                                                ; preds = %10, %0
   %2 = phi i64 [ 0, %0 ], [ %11, %10 ]
-  %3 = getelementptr [8 x ptr], ptr @_inits, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @_inits, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4() #23
   %6 = icmp eq i32 %5, 0
@@ -2757,7 +2757,7 @@ define internal i32 @dm_init() #3 section ".init.text" align 16 {
 .preheader:                                       ; preds = %7, %.preheader
   %13 = phi i64 [ %14, %.preheader ], [ %2, %7 ]
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr [8 x ptr], ptr @_exits, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr @_exits, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void %16() #23
   %17 = icmp eq i64 %14, 0

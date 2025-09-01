@@ -457,13 +457,13 @@ if.then4.i:                                       ; preds = %call.i.i51.noexc, %
 
 if.else.i.i:                                      ; preds = %if.then4.i
   %idxprom.i.i.i = zext i8 %21 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 %idxprom.i.i.i
   %26 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp5.i.i = icmp eq i8 %14, %26
   br i1 %cmp5.i.i, label %if.end17.i.i, label %if.else8.i.i
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
-  %arrayidx.i7.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i7.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i.i.i
   %27 = load i8, ptr %arrayidx.i7.i.i, align 1
   %cmp12.i.i = icmp eq i8 %14, %27
   br i1 %cmp12.i.i, label %if.end17.i.i, label %if.else
@@ -518,7 +518,7 @@ call.i21.i.noexc:                                 ; preds = %_ZN6google8protobuf
 
 if.end15.i:                                       ; preds = %if.end5.i
   %idxprom.i.i = zext i8 %21 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 %idxprom.i.i
   %40 = load i8, ptr %arrayidx.i.i, align 1
   %cmp19.i = icmp eq i8 %14, %40
   %41 = load i8, ptr %is_all_upper_.i.i, align 1
@@ -556,7 +556,7 @@ if.else.i60.i:                                    ; preds = %if.then7.i54.i, %if
   br i1 %cmp19.i, label %if.end17.i68.i, label %if.else8.i64.i
 
 if.else8.i64.i:                                   ; preds = %if.else.i60.i
-  %arrayidx.i7.i65.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i7.i65.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i.i
   %48 = load i8, ptr %arrayidx.i7.i65.i, align 1
   %cmp12.i66.i = icmp eq i8 %14, %48
   br i1 %cmp12.i66.i, label %if.end17.i68.i, label %if.else

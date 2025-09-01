@@ -3651,7 +3651,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h0a20b7c638a5901
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h72a12b86cf44ccebE.exit"
 
 28:                                               ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw [0 x { { { [29 x i64] } } }], ptr %17, i64 0, i64 %19
+  %29 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %17, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %30, ptr noundef nonnull align 8 dereferenceable(232) %29, i64 232, i1 false)
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h72a12b86cf44ccebE.exit"
@@ -3730,7 +3730,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h0e1f63aa326f684
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h3496414cd08d48abE.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h3496414cd08d48abE.exit": ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw [0 x { { { [8 x i64] } } }], ptr %18, i64 0, i64 %20
+  %29 = getelementptr inbounds nuw { { { [8 x i64] } } }, ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !656
@@ -3785,7 +3785,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h0f0dbd05424c65e1E.exit.thread": ; preds = %.loopexit
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %22 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %16
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 1
   %25 = add i64 %15, 1
@@ -3858,7 +3858,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17ha4eb6fe3a72365f
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hdc5b1fbb9c6c872bE.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hdc5b1fbb9c6c872bE.exit": ; preds = %.loopexit
-  %28 = getelementptr inbounds nuw [0 x { { { [11 x i64] } } }], ptr %17, i64 0, i64 %19
+  %28 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %17, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %28, i64 88, i1 false)
   %.pre = load i8, ptr %0, align 8, !range !666
   %29 = add nsw i8 %.pre, -15
@@ -4431,7 +4431,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h2265527ab4fc84
 
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
-  %10 = getelementptr inbounds nuw [0 x { { { [29 x i64] } } }], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %7, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull align 8 dereferenceable(232) %1, i64 232, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 7440
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)
@@ -4468,7 +4468,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hf2bea4dcf1847b
 
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
-  %10 = getelementptr inbounds nuw [0 x { { { [11 x i64] } } }], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %7, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2832
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)

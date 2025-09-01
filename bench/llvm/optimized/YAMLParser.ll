@@ -1817,7 +1817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit49: ; preds = %1
   %.019.i = phi i64 [ %150, %.thread.i ], [ %134, %.thread.i.preheader ]
   %.117.i = phi ptr [ %149, %.thread.i ], [ %51, %.thread.i.preheader ]
   %146 = and i64 %.019.i, 15
-  %147 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !24, !noalias !68
   %149 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %148, ptr %149, align 1, !tbaa !24, !noalias !68
@@ -2162,7 +2162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit67: ; preds = %2
   %.019.i69 = phi i64 [ %283, %.thread.i68 ], [ %266, %265 ]
   %.117.i71 = phi ptr [ %282, %.thread.i68 ], [ %28, %265 ]
   %279 = and i64 %.019.i69, 15
-  %280 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !24, !noalias !82
   %282 = getelementptr inbounds i8, ptr %.117.i71, i64 -1
   store i8 %281, ptr %282, align 1, !tbaa !24, !noalias !82

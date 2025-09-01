@@ -5552,7 +5552,7 @@ define dso_local range(i32 -1, 32) i32 @rb_postponed_job_preregister(i32 noundef
 
 8:                                                ; preds = %3, %20
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %20 ]
-  %9 = getelementptr [32 x %struct.anon.14], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5612,7 +5612,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register(i32 noundef %0, 
 
 8:                                                ; preds = %15, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %15 ]
-  %9 = getelementptr [32 x %struct.anon.14], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv.i.i
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5667,7 +5667,7 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register_one(i32 noundef 
 
 8:                                                ; preds = %15, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %15 ]
-  %9 = getelementptr [32 x %struct.anon.14], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr %struct.anon.14, ptr %6, i64 %indvars.iv.i.i
   %10 = cmpxchg volatile ptr %9, i64 0, i64 %7 seq_cst seq_cst, align 8
   %11 = extractvalue { i64, i1 } %10, 0
   %12 = inttoptr i64 %11 to ptr
@@ -5834,7 +5834,7 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %56 = zext nneg i32 %55 to i64
   %57 = shl nuw i32 1, %55
   %58 = xor i32 %57, %.149
-  %59 = getelementptr [32 x %struct.anon.14], ptr %9, i64 0, i64 %56
+  %59 = getelementptr %struct.anon.14, ptr %9, i64 %56
   %60 = load ptr, ptr %59, align 8, !tbaa !174
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !176

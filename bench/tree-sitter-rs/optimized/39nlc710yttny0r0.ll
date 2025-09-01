@@ -1134,7 +1134,7 @@ define { ptr, i64 } @_ZN16tree_sitter_tags17TagsConfiguration16syntax_type_name1
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h87b62811498035e5E.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %.val, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val, i64 %5
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !6, !noundef !4
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1514,7 +1514,7 @@ define { i64, i64 } @_ZN16tree_sitter_tags10line_range17h7601fc05ad925bc3E(ptr n
 
 .lr.ph:                                           ; preds = %6, %.critedge
   %.02438 = phi i64 [ %24, %.critedge ], [ %8, %6 ]
-  %22 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.02438
+  %22 = getelementptr inbounds i8, ptr %0, i64 %.02438
   %23 = load i8, ptr %22, align 1, !noundef !4
   switch i8 %23, label %._crit_edge [
     i8 9, label %.critedge
@@ -1568,7 +1568,7 @@ define { i64, i64 } @_ZN16tree_sitter_tags10line_range17h7601fc05ad925bc3E(ptr n
   ret { i64, i64 } %40
 
 41:                                               ; preds = %.lr.ph43
-  %42 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 %37
   %43 = load i8, ptr %42, align 1, !noundef !4
   switch i8 %43, label %._crit_edge44 [
     i8 9, label %.critedge33

@@ -2466,7 +2466,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit76.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 394:                                              ; preds = %404, %388
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %404 ], [ 0, %388 ]
   %.23252.i.i.i = phi i16 [ %405, %404 ], [ 0, %388 ]
-  %395 = getelementptr inbounds nuw [8 x i64], ptr %393, i64 0, i64 %indvars.iv.i
+  %395 = getelementptr inbounds nuw i64, ptr %393, i64 %indvars.iv.i
   %396 = load i64, ptr %395, align 8, !tbaa !121
   %.not41.i.i.i = icmp eq i64 %396, 0
   br i1 %.not41.i.i.i, label %404, label %397
@@ -4356,7 +4356,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %_ZN12_GLOBAL__N_110
 1202:                                             ; preds = %1209, %1192
   %indvars.iv419 = phi i64 [ %indvars.iv.next420, %1209 ], [ 0, %1192 ]
   %.23252.i.i = phi i16 [ %1210, %1209 ], [ 0, %1192 ]
-  %1203 = getelementptr inbounds nuw [8 x i64], ptr %1201, i64 0, i64 %indvars.iv419
+  %1203 = getelementptr inbounds nuw i64, ptr %1201, i64 %indvars.iv419
   %1204 = load i64, ptr %1203, align 8, !tbaa !121
   %.not41.i.i = icmp eq i64 %1204, 0
   br i1 %.not41.i.i, label %1209, label %1205
@@ -6104,7 +6104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit39.i: ; preds = %108, %
 139:                                              ; preds = %146, %130
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %146 ], [ 0, %130 ]
   %.23252.i.i.i = phi i16 [ %147, %146 ], [ 0, %130 ]
-  %140 = getelementptr inbounds nuw [8 x i64], ptr %138, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw i64, ptr %138, i64 %indvars.iv.i
   %141 = load i64, ptr %140, align 8, !tbaa !121
   %.not41.i.i.i = icmp eq i64 %141, 0
   br i1 %.not41.i.i.i, label %146, label %142
@@ -6133,10 +6133,10 @@ _ZNK4llvm15TreePatternNode13getSimpleTypeEj.exit.i: ; preds = %146, %142
   %152 = getelementptr inbounds nuw i8, ptr %131, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %153 = zext i16 %.2.i.i.i to i64
-  %154 = add nsw i64 %153, -1
-  %155 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %154
+  %154 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %153
+  %155 = getelementptr i8, ptr %154, i64 -16
   %.sroa.0.0.copyload.i.i.i17 = load i64, ptr %155, align 16
-  %.sroa.2.0..sroa_idx.i.i.i18 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i18 = getelementptr i8, ptr %154, i64 -8
   %.sroa.2.0.copyload.i.i.i19 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i18, align 8
   store i64 %.sroa.0.0.copyload.i.i.i17, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6238,7 +6238,7 @@ _ZN12_GLOBAL__N_110MatcherGen10AddMatcherEPN4llvm7MatcherE.exit.i22: ; preds = %
 209:                                              ; preds = %216, %197
   %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %216 ], [ 0, %197 ]
   %.23252.i.i59.i = phi i16 [ %217, %216 ], [ 0, %197 ]
-  %210 = getelementptr inbounds nuw [8 x i64], ptr %208, i64 0, i64 %indvars.iv189.i
+  %210 = getelementptr inbounds nuw i64, ptr %208, i64 %indvars.iv189.i
   %211 = load i64, ptr %210, align 8, !tbaa !121
   %.not41.i.i60.i = icmp eq i64 %211, 0
   br i1 %.not41.i.i60.i, label %216, label %212
@@ -6354,7 +6354,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 261:                                              ; preds = %268, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %268 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %.23252.i.i76.i = phi i16 [ %269, %268 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
-  %262 = getelementptr inbounds nuw [8 x i64], ptr %260, i64 0, i64 %indvars.iv187.i
+  %262 = getelementptr inbounds nuw i64, ptr %260, i64 %indvars.iv187.i
   %263 = load i64, ptr %262, align 8, !tbaa !121
   %.not41.i.i77.i = icmp eq i64 %263, 0
   br i1 %.not41.i.i77.i, label %268, label %264
@@ -6458,7 +6458,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit96.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 309:                                              ; preds = %316, %_ZN4llvmeqENS_9StringRefES0_.exit96.thread.i
   %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %316 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit96.thread.i ]
   %.23252.i.i98.i = phi i16 [ %317, %316 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit96.thread.i ]
-  %310 = getelementptr inbounds nuw [8 x i64], ptr %308, i64 0, i64 %indvars.iv185.i
+  %310 = getelementptr inbounds nuw i64, ptr %308, i64 %indvars.iv185.i
   %311 = load i64, ptr %310, align 8, !tbaa !121
   %.not41.i.i99.i = icmp eq i64 %311, 0
   br i1 %.not41.i.i99.i, label %316, label %312
@@ -7594,7 +7594,7 @@ _ZN12_GLOBAL__N_110MatcherGen10AddMatcherEPN4llvm7MatcherE.exit66: ; preds = %83
 860:                                              ; preds = %867, %.lr.ph173
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %867 ], [ 0, %.lr.ph173 ]
   %.23252.i.i = phi i16 [ %868, %867 ], [ 0, %.lr.ph173 ]
-  %861 = getelementptr inbounds nuw [8 x i64], ptr %859, i64 0, i64 %indvars.iv215
+  %861 = getelementptr inbounds nuw i64, ptr %859, i64 %indvars.iv215
   %862 = load i64, ptr %861, align 8, !tbaa !121
   %.not41.i.i = icmp eq i64 %862, 0
   br i1 %.not41.i.i, label %867, label %863
@@ -8300,10 +8300,10 @@ define linkonce_odr hidden void @_ZN4llvm18EmitIntegerMatcherC2ElNS_3MVT15Simple
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = zext i16 %2 to i64
-  %10 = add nsw i64 %9, -1
-  %11 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %10
+  %10 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %10, i64 -8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8

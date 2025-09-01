@@ -1335,7 +1335,7 @@ define dso_local noundef nonnull ptr @_ZNK24btInverseDynamicsBullet313MultiBodyT
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -1355,7 +1355,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -1560,7 +1560,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 
 switch.lookup:                                    ; preds = %6
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -1662,7 +1662,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZNK24btInverseDynamicsBullet313Mu
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -6691,13 +6691,13 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit: ; preds 
 
 switch.lookup:                                    ; preds = %959
   %962 = zext nneg i32 %960 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %962
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %962
   %switch.load = load float, ptr %switch.gep, align 4
   %963 = zext nneg i32 %960 to i64
-  %switch.gep744 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %963
+  %switch.gep744 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %963
   %switch.load745 = load float, ptr %switch.gep744, align 4
   %964 = zext nneg i32 %960 to i64
-  %switch.gep746 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %964
+  %switch.gep746 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %964
   %switch.load747 = load float, ptr %switch.gep746, align 4
   store float %switch.load, ptr %18, align 4, !tbaa !62
   store float %switch.load745, ptr %570, align 4, !tbaa !62
@@ -6811,13 +6811,13 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
 
 switch.lookup748:                                 ; preds = %1045
   %1048 = zext nneg i32 %1046 to i64
-  %switch.gep749 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1048
+  %switch.gep749 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1048
   %switch.load750 = load float, ptr %switch.gep749, align 4
   %1049 = zext nneg i32 %1046 to i64
-  %switch.gep751 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1049
+  %switch.gep751 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1049
   %switch.load752 = load float, ptr %switch.gep751, align 4
   %1050 = zext nneg i32 %1046 to i64
-  %switch.gep753 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1050
+  %switch.gep753 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1050
   %switch.load754 = load float, ptr %switch.gep753, align 4
   store float %switch.load750, ptr %18, align 4, !tbaa !62
   store float %switch.load752, ptr %570, align 4, !tbaa !62
@@ -7101,13 +7101,13 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
 
 switch.lookup755:                                 ; preds = %1190
   %1193 = zext nneg i32 %1191 to i64
-  %switch.gep756 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1193
+  %switch.gep756 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1193
   %switch.load757 = load float, ptr %switch.gep756, align 4
   %1194 = zext nneg i32 %1191 to i64
-  %switch.gep758 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1194
+  %switch.gep758 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1194
   %switch.load759 = load float, ptr %switch.gep758, align 4
   %1195 = zext nneg i32 %1191 to i64
-  %switch.gep760 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1195
+  %switch.gep760 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1195
   %switch.load761 = load float, ptr %switch.gep760, align 4
   store float %switch.load757, ptr %20, align 4, !tbaa !62
   store float %switch.load759, ptr %575, align 4, !tbaa !62
@@ -8040,7 +8040,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 
 switch.lookup:                                    ; preds = %8
   %15 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 

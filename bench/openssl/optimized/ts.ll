@@ -1613,7 +1613,7 @@ define internal fastcc ptr @create_nonce() unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw [20 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !27
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %.critedge.split.loop.exit24

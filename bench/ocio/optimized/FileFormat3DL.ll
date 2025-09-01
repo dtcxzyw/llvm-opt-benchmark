@@ -1966,7 +1966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332: ; preds = %52
 
 switch.lookup:                                    ; preds = %.split.loop.exit18.i
   %539 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 0, i64 %539
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 %539
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit.thread
 
@@ -2297,16 +2297,16 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit360: ; preds 
 
 673:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit360
   %674 = icmp ult i32 %spec.select.i355, 9
-  br i1 %674, label %switch.lookup1246, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
+  br i1 %674, label %switch.lookup1247, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
 
-switch.lookup1246:                                ; preds = %673
+switch.lookup1247:                                ; preds = %673
   %675 = zext nneg i32 %spec.select.i355 to i64
-  %switch.gep1248 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE.11, i64 0, i64 %675
+  %switch.gep1248 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE.11, i64 %675
   %switch.load1249 = load i32, ptr %switch.gep1248, align 4
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
 
-_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373: ; preds = %673, %switch.lookup1246
-  %.0.i372 = phi i32 [ %switch.load1249, %switch.lookup1246 ], [ 0, %673 ]
+_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373: ; preds = %673, %switch.lookup1247
+  %.0.i372 = phi i32 [ %switch.load1249, %switch.lookup1247 ], [ 0, %673 ]
   %676 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #26
           to label %.noexc374 unwind label %714
 

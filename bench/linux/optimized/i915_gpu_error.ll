@@ -355,7 +355,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %80 = udiv i32 %79, 29
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %82 = zext nneg i32 %80 to i64
-  %83 = getelementptr [2 x i32], ptr %81, i64 0, i64 %82
+  %83 = getelementptr i32, ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, 7
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, i32 noundef %85)
@@ -427,7 +427,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 133:                                              ; preds = %133, %131
   %134 = phi i32 [ 0, %131 ], [ %138, %133 ]
   %135 = sext i32 %134 to i64
-  %136 = getelementptr [32 x i64], ptr %132, i64 0, i64 %135
+  %136 = getelementptr i64, ptr %132, i64 %135
   %137 = load i64, ptr %136, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.41, i32 noundef %134, i64 noundef %137)
   %138 = add nuw i32 %134, 1
@@ -460,7 +460,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 153:                                              ; preds = %153, %151
   %154 = phi i32 [ 0, %151 ], [ %158, %153 ]
   %155 = sext i32 %154 to i64
-  %156 = getelementptr [32 x i64], ptr %152, i64 0, i64 %155
+  %156 = getelementptr i64, ptr %152, i64 %155
   %157 = load i64, ptr %156, align 8
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.41, i32 noundef %154, i64 noundef %157)
   %158 = add nuw i32 %154, 1
@@ -582,7 +582,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   br i1 %222, label %227, label %223
 
 223:                                              ; preds = %215
-  %224 = getelementptr [4 x i32], ptr %205, i64 0, i64 %207
+  %224 = getelementptr i32, ptr %205, i64 %207
   %225 = load i32, ptr %224, align 4
   %226 = trunc i64 %207 to i32
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.49, i32 noundef %226, i32 noundef %225)
@@ -801,7 +801,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 370:                                              ; preds = %364
   %371 = sext i32 %353 to i64
-  %372 = getelementptr [3 x i8], ptr %369, i64 0, i64 %371
+  %372 = getelementptr i8, ptr %369, i64 %371
   %373 = load i8, ptr %372, align 1
   %374 = zext i8 %373 to i64
   %375 = zext nneg i32 %354 to i64
@@ -823,8 +823,8 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %384 = load i32, ptr %10, align 4
   %385 = sext i32 %383 to i64
   %386 = sext i32 %384 to i64
-  %.split = getelementptr [16 x [8 x i32]], ptr %313, i64 0, i64 %385
-  %387 = getelementptr [8 x i32], ptr %.split, i64 0, i64 %386
+  %.split = getelementptr [8 x i32], ptr %313, i64 %385
+  %387 = getelementptr i32, ptr %.split, i64 %386
   %388 = load i32, ptr %387, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.89, i32 noundef %383, i32 noundef %384, i32 noundef %388)
   br label %389
@@ -926,7 +926,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 457:                                              ; preds = %451
   %458 = sext i32 %440 to i64
-  %459 = getelementptr [3 x i8], ptr %456, i64 0, i64 %458
+  %459 = getelementptr i8, ptr %456, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i64
   %462 = zext nneg i32 %441 to i64
@@ -948,8 +948,8 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %471 = load i32, ptr %10, align 4
   %472 = sext i32 %470 to i64
   %473 = sext i32 %471 to i64
-  %.split45 = getelementptr [16 x [8 x i32]], ptr %400, i64 0, i64 %472
-  %474 = getelementptr [8 x i32], ptr %.split45, i64 0, i64 %473
+  %.split45 = getelementptr [8 x i32], ptr %400, i64 %472
+  %474 = getelementptr i32, ptr %.split45, i64 %473
   %475 = load i32, ptr %474, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.90, i32 noundef %470, i32 noundef %471, i32 noundef %475)
   br label %476
@@ -1068,7 +1068,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 557:                                              ; preds = %551
   %558 = sext i32 %540 to i64
-  %559 = getelementptr [3 x i8], ptr %556, i64 0, i64 %558
+  %559 = getelementptr i8, ptr %556, i64 %558
   %560 = load i8, ptr %559, align 1
   %561 = zext i8 %560 to i64
   %562 = zext nneg i32 %541 to i64
@@ -1090,8 +1090,8 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %571 = load i32, ptr %10, align 4
   %572 = sext i32 %570 to i64
   %573 = sext i32 %571 to i64
-  %.split46 = getelementptr [16 x [8 x i32]], ptr %500, i64 0, i64 %572
-  %574 = getelementptr [8 x i32], ptr %.split46, i64 0, i64 %573
+  %.split46 = getelementptr [8 x i32], ptr %500, i64 %572
+  %574 = getelementptr i32, ptr %.split46, i64 %573
   %575 = load i32, ptr %574, align 4
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.91, i32 noundef %570, i32 noundef %571, i32 noundef %575)
   br label %576
@@ -1246,7 +1246,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
 
 .preheader78:                                     ; preds = %661, %.preheader78
   %669 = phi i64 [ %673, %.preheader78 ], [ 0, %661 ]
-  %670 = getelementptr [4 x i64], ptr %668, i64 0, i64 %669
+  %670 = getelementptr i64, ptr %668, i64 %669
   %671 = load i64, ptr %670, align 8
   %672 = trunc i64 %669 to i32
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.83, i32 noundef %672, i64 noundef %671)
@@ -1273,7 +1273,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nound
   %683 = phi i32 [ 0, %680 ], [ %709, %708 ]
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.85, i32 noundef %683)
   %684 = sext i32 %683 to i64
-  %685 = getelementptr [2 x %struct.i915_request_coredump], ptr %681, i64 0, i64 %684
+  %685 = getelementptr %struct.i915_request_coredump, ptr %681, i64 %684
   %686 = getelementptr inbounds nuw i8, ptr %685, i64 16
   %687 = load i32, ptr %686, align 8
   %688 = icmp eq i32 %687, 0
@@ -2025,7 +2025,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
 
 12:                                               ; preds = %8, %3
   %13 = phi i64 [ 0, %3 ], [ %11, %8 ]
-  %14 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13, i64 11
+  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 11
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(1896) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %5, i64 noundef 1896) #16
   %17 = icmp eq ptr %16, null
@@ -2126,7 +2126,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %82 = load i8, ptr %81, align 8
   %83 = zext i8 %82 to i64
-  %84 = getelementptr [4 x i32], ptr %4, i64 0, i64 %83
+  %84 = getelementptr i32, ptr %4, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %87 = load ptr, ptr %86, align 8
@@ -2461,7 +2461,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %334 = load i8, ptr %333, align 8
   %335 = zext i8 %334 to i64
-  %336 = getelementptr [5 x %struct.atomic_t], ptr %332, i64 0, i64 %335
+  %336 = getelementptr %struct.atomic_t, ptr %332, i64 %335
   %337 = load volatile i32, ptr %336, align 4
   %338 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %337, ptr %338, align 4
@@ -2509,7 +2509,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   %366 = load ptr, ptr %365, align 8
   %367 = tail call i32 %366(ptr noundef %360, i32 %364, i1 noundef zeroext true) #15
   %368 = zext i32 %367 to i64
-  %369 = getelementptr [4 x i64], ptr %357, i64 0, i64 %359
+  %369 = getelementptr i64, ptr %357, i64 %359
   %370 = shl nuw i64 %368, 32
   store i64 %370, ptr %369, align 8
   %371 = load ptr, ptr %95, align 8
@@ -2556,7 +2556,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   %400 = getelementptr i8, ptr %399, i64 8
   %401 = add i32 %398, 1
   %402 = zext i32 %398 to i64
-  %403 = getelementptr [2 x %struct.i915_request_coredump], ptr %395, i64 0, i64 %402
+  %403 = getelementptr %struct.i915_request_coredump, ptr %395, i64 %402
   %404 = getelementptr inbounds nuw i8, ptr %397, i64 48
   %405 = load i64, ptr %404, align 8
   store i64 %405, ptr %403, align 8
@@ -2880,7 +2880,7 @@ define internal fastcc noundef ptr @capture_vma_snapshot(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
-  %15 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %14, i64 6
+  %15 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14, i64 6
   %16 = load ptr, ptr %15, align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %2, i64 noundef 40) #16
   %18 = icmp eq ptr %17, null
@@ -3499,7 +3499,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   %295 = add i8 %292, -1
   store i8 %295, ptr %2, align 8
   %296 = zext i8 %295 to i64
-  %297 = getelementptr [15 x ptr], ptr %283, i64 0, i64 %296
+  %297 = getelementptr ptr, ptr %283, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %298, null
   br i1 %299, label %.thread76, label %.thread72
@@ -3637,7 +3637,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   %383 = add i8 %380, 1
   store i8 %383, ptr %2, align 8
   %384 = zext i8 %380 to i64
-  %385 = getelementptr [15 x ptr], ptr %331, i64 0, i64 %384
+  %385 = getelementptr ptr, ptr %331, i64 %384
   store ptr %379, ptr %385, align 8
   br label %392
 
@@ -3695,7 +3695,7 @@ define dso_local noundef ptr @i915_gpu_coredump_alloc(ptr noundef %0, i32 nounde
 
 14:                                               ; preds = %10, %6
   %15 = phi i64 [ 0, %6 ], [ %13, %10 ]
-  %16 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %15, i64 10
+  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15, i64 10
   %17 = load ptr, ptr %16, align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %7, i64 noundef 688) #16
   %19 = icmp eq ptr %18, null
@@ -3808,7 +3808,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
 
 11:                                               ; preds = %7, %3
   %12 = phi i64 [ 0, %3 ], [ %10, %7 ]
-  %13 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %12, i64 10
+  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12, i64 10
   %14 = load ptr, ptr %13, align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(640) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 640) #16
   %16 = icmp eq ptr %15, null
@@ -3965,7 +3965,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
   %120 = shl i32 %119, 4
   %121 = add i32 %120, 279308
   %122 = tail call i32 %118(ptr noundef %75, i32 %121, i1 noundef zeroext true) #15
-  %123 = getelementptr [6 x i32], ptr %115, i64 0, i64 %117
+  %123 = getelementptr i32, ptr %115, i64 %117
   store i32 %122, ptr %123, align 4
   %124 = add nuw nsw i64 %117, 1
   %125 = icmp eq i64 %124, 4
@@ -4242,7 +4242,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
   %302 = shl i32 %301, 12
   %303 = add i32 %302, 1884160
   %304 = tail call i32 %300(ptr noundef %149, i32 %303, i1 noundef zeroext true) #15
-  %305 = getelementptr [4 x i32], ptr %281, i64 0, i64 %283
+  %305 = getelementptr i32, ptr %281, i64 %283
   store i32 %304, ptr %305, align 4
   br label %306
 
@@ -4290,7 +4290,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
   %335 = load ptr, ptr %329, align 8
   %336 = tail call i64 %335(ptr noundef %318, i32 %334, i1 noundef zeroext true) #15
   %337 = sext i32 %332 to i64
-  %338 = getelementptr [32 x i64], ptr %330, i64 0, i64 %337
+  %338 = getelementptr i64, ptr %330, i64 %337
   store i64 %336, ptr %338, align 8
   %339 = add nuw i32 %332, 1
   %340 = load i32, ptr %325, align 4
@@ -4327,7 +4327,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
   %359 = load ptr, ptr %353, align 8
   %360 = tail call i64 %359(ptr noundef %318, i32 %358, i1 noundef zeroext true) #15
   %361 = sext i32 %356 to i64
-  %362 = getelementptr [32 x i64], ptr %354, i64 0, i64 %361
+  %362 = getelementptr i64, ptr %354, i64 %361
   store i64 %360, ptr %362, align 8
   %363 = add nuw i32 %356, 1
   %364 = load i32, ptr %344, align 4
@@ -4346,7 +4346,7 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
   %375 = tail call i32 %374(ptr noundef %318, i32 %373, i1 noundef zeroext true) #15
   %376 = zext i32 %375 to i64
   %377 = sext i32 %367 to i64
-  %378 = getelementptr [32 x i64], ptr %350, i64 0, i64 %377
+  %378 = getelementptr i64, ptr %350, i64 %377
   store i64 %376, ptr %378, align 8
   %379 = add nuw i32 %367, 1
   %380 = load i32, ptr %344, align 4
@@ -4387,7 +4387,7 @@ define dso_local noundef ptr @i915_vma_capture_prepare(ptr readnone captures(non
   %13 = add i8 %11, 1
   store i8 %13, ptr %3, align 8
   %14 = zext i8 %11 to i64
-  %15 = getelementptr [15 x ptr], ptr %7, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr %7, i64 %14
   store ptr %9, ptr %15, align 8
   %16 = icmp eq i8 %13, 15
   br i1 %16, label %19, label %8
@@ -4430,7 +4430,7 @@ define dso_local noundef ptr @i915_vma_capture_prepare(ptr readnone captures(non
   %38 = add i8 %35, -1
   store i8 %38, ptr %3, align 8
   %39 = zext i8 %38 to i64
-  %40 = getelementptr [15 x ptr], ptr %7, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr %7, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %.thread5
@@ -4541,7 +4541,7 @@ define dso_local void @i915_vma_capture_finish(ptr readnone captures(none) %0, p
   %53 = add i8 %49, 1
   store i8 %53, ptr %1, align 8
   %54 = zext i8 %49 to i64
-  %55 = getelementptr [15 x ptr], ptr %52, i64 0, i64 %54
+  %55 = getelementptr ptr, ptr %52, i64 %54
   store ptr %48, ptr %55, align 8
   br label %62
 
@@ -5090,7 +5090,7 @@ define internal fastcc ptr @i915_gpu_coredump(ptr noundef %0, i32 noundef %1, i3
   %192 = phi i64 [ 0, %175 ], [ %372, %371 ]
   %193 = load ptr, ptr %186, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 4040
-  %195 = getelementptr [27 x ptr], ptr %194, i64 0, i64 %192
+  %195 = getelementptr ptr, ptr %194, i64 %192
   %196 = load ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, null
   br i1 %197, label %371, label %198
@@ -5110,7 +5110,7 @@ define internal fastcc ptr @i915_gpu_coredump(ptr noundef %0, i32 noundef %1, i3
   %205 = add i8 %204, 1
   store i8 %205, ptr %26, align 8
   %206 = zext i8 %204 to i64
-  %207 = getelementptr [15 x ptr], ptr %187, i64 0, i64 %206
+  %207 = getelementptr ptr, ptr %187, i64 %206
   store ptr %201, ptr %207, align 8
   %208 = icmp eq i8 %205, 15
   br i1 %208, label %.loopexit31, label %.preheader30
@@ -5753,7 +5753,7 @@ define internal fastcc void @err_print_gt_global_nonguc(ptr noundef captures(non
 20:                                               ; preds = %20, %18
   %21 = phi i32 [ 0, %18 ], [ %25, %20 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [6 x i32], ptr %19, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %21, i32 noundef %24)
   %25 = add nuw i32 %21, 1
@@ -6266,7 +6266,7 @@ define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnul
   %31 = add i8 %28, -1
   store i8 %31, ptr %0, align 8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr [15 x ptr], ptr %17, i64 0, i64 %32
+  %33 = getelementptr ptr, ptr %17, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread9, label %.thread6

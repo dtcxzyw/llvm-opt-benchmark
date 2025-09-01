@@ -1613,7 +1613,7 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4, !tbaa !10
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   store i8 -128, ptr %8, align 1, !tbaa !14
   %9 = load i32, ptr %5, align 4, !tbaa !10
   %10 = zext i32 %9 to i64
@@ -1649,30 +1649,29 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonl
 
 .preheader:                                       ; preds = %18, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %18 ]
-  %27 = lshr exact i64 %indvars.iv, 2
-  %28 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !6
-  %30 = trunc i32 %29 to i8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %30, ptr %31, align 1, !tbaa !14
-  %32 = load i32, ptr %28, align 4, !tbaa !6
-  %33 = lshr i32 %32, 8
-  %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !14
-  %36 = load i32, ptr %28, align 4, !tbaa !6
-  %37 = lshr i32 %36, 16
-  %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  store i8 %38, ptr %39, align 1, !tbaa !14
-  %40 = load i32, ptr %28, align 4, !tbaa !6
-  %41 = lshr i32 %40, 24
-  %42 = trunc nuw i32 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 3
-  store i8 %42, ptr %43, align 1, !tbaa !14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4, !tbaa !6
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  store i8 %29, ptr %30, align 1, !tbaa !14
+  %31 = load i32, ptr %27, align 4, !tbaa !6
+  %32 = lshr i32 %31, 8
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i8 %33, ptr %34, align 1, !tbaa !14
+  %35 = load i32, ptr %27, align 4, !tbaa !6
+  %36 = lshr i32 %35, 16
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  store i8 %37, ptr %38, align 1, !tbaa !14
+  %39 = load i32, ptr %27, align 4, !tbaa !6
+  %40 = lshr i32 %39, 24
+  %41 = trunc nuw i32 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  store i8 %41, ptr %42, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %44 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !15
+  %43 = icmp samesign ult i64 %indvars.iv, 16
+  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

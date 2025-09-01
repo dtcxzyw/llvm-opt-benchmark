@@ -338,9 +338,9 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %155 ]
-  %156 = getelementptr inbounds nuw [64 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !21
-  %158 = getelementptr inbounds nuw [32 x i64], ptr %152, i64 0, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw i64, ptr %152, i64 %indvars.iv.i
   %159 = load i64, ptr %158, align 8, !tbaa !21
   %.not23.i = icmp eq i64 %157, %159
   br i1 %.not23.i, label %155, label %.sink.split
@@ -764,9 +764,9 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph.i354:                                      ; preds = %390, %.lr.ph.preheader.i352
   %indvars.iv.i355 = phi i64 [ 0, %.lr.ph.preheader.i352 ], [ %indvars.iv.next.i357, %390 ]
-  %391 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %indvars.iv.i355
+  %391 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i355
   %392 = load i64, ptr %391, align 8, !tbaa !21
-  %393 = getelementptr inbounds nuw [32 x i64], ptr %257, i64 0, i64 %indvars.iv.i355
+  %393 = getelementptr inbounds nuw i64, ptr %257, i64 %indvars.iv.i355
   %394 = load i64, ptr %393, align 8, !tbaa !21
   %.not23.i356 = icmp eq i64 %392, %394
   br i1 %.not23.i356, label %390, label %verify_layout.exit359.thread
@@ -1646,7 +1646,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   %indvars.iv.sroa.phi = phi ptr [ %6, %.preheader70 ], [ %indvars.iv.sroa.gep140, %51 ]
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ 1, %51 ]
   %54 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !20
-  %55 = getelementptr inbounds nuw [20 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !20
   %.not59 = icmp eq i32 %54, %56
   br i1 %.not59, label %51, label %.loopexit69
@@ -1675,9 +1675,9 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 66:                                               ; preds = %.lr.ph, %62
   %67 = phi i64 [ 0, %.lr.ph ], [ %64, %62 ]
   %.178 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
-  %68 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %6, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !20
-  %70 = getelementptr inbounds nuw [20 x i32], ptr %61, i64 0, i64 %67
+  %70 = getelementptr inbounds nuw i32, ptr %61, i64 %67
   %71 = load i32, ptr %70, align 4, !tbaa !20
   %.not58 = icmp eq i32 %69, %71
   br i1 %.not58, label %62, label %.loopexit69
@@ -1706,9 +1706,9 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 81:                                               ; preds = %.lr.ph81, %77
   %82 = phi i64 [ 0, %.lr.ph81 ], [ %79, %77 ]
   %.280 = phi i32 [ 0, %.lr.ph81 ], [ %78, %77 ]
-  %83 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !20
-  %85 = getelementptr inbounds nuw [20 x i32], ptr %76, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw i32, ptr %76, i64 %82
   %86 = load i32, ptr %85, align 4, !tbaa !20
   %.not68 = icmp eq i32 %84, %86
   br i1 %.not68, label %77, label %.loopexit69

@@ -3585,7 +3585,7 @@ _ZL20getAvailableFeaturesjjjPj.exit:              ; preds = %.critedge128.i, %.c
 
 switch.lookup:                                    ; preds = %234
   %265 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 0, i64 %265
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 %265
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm9StringRefC2EPKc.exit
 

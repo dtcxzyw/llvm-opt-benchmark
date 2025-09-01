@@ -931,7 +931,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
 
 56:                                               ; preds = %53
   %57 = zext nneg i16 %50 to i64
-  %58 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !17
   %60 = icmp slt i8 %59, 0
   %or.cond5.us = and i1 %60, %44
@@ -1155,7 +1155,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
 
 170:                                              ; preds = %164
   %171 = zext nneg i16 %161 to i64
-  %172 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !17
   %174 = icmp slt i8 %173, 0
   br i1 %174, label %.loopexit, label %175
@@ -1485,7 +1485,7 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
 
 55:                                               ; preds = %52
   %56 = zext nneg i32 %49 to i64
-  %57 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !17
   %59 = icmp slt i8 %58, 0
   %or.cond5.us = and i1 %59, %44
@@ -1740,7 +1740,7 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
 
 177:                                              ; preds = %171
   %178 = zext nneg i32 %168 to i64
-  %179 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !17
   %181 = icmp slt i8 %180, 0
   br i1 %181, label %.split181.us, label %182
@@ -2912,7 +2912,7 @@ _ZN6icu_7713UnicodeString13readOnlyAliasIA5_DsvEES0_RKT_.exit: ; preds = %_ZNSt1
 
 205:                                              ; preds = %201
   %206 = zext nneg i16 %199 to i64
-  %207 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !17
   %209 = icmp slt i8 %208, 0
   br i1 %209, label %210, label %217
@@ -3601,7 +3601,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %20, %22
 
 37:                                               ; preds = %35
   %38 = zext nneg i16 %33 to i64
-  %39 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !17
   %.inv = icmp slt i8 %40, 0
   %.037.mux.us = select i1 %.inv, i8 0, i8 %.03745.us
@@ -3647,7 +3647,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %20, %22
 
 54:                                               ; preds = %50
   %55 = zext nneg i16 %48 to i64
-  %56 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6icu_77L9asciiDataE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9asciiDataE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !17
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %59, label %.sink.split

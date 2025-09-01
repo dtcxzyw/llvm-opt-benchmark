@@ -3449,10 +3449,10 @@ define { ptr, i64 } @_ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
   %1 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE.36, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE.36, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -3462,13 +3462,13 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN4jiff3fmt7strtime19weekday_name_abbrev17he25644ef04f832d3E(i8 noundef range(i8 1, 8) %0) unnamed_addr #2 {
 switch.lookup:
-  %switch.tableidx = add nsw i8 %0, -1
-  %1 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime19weekday_name_abbrev17he25644ef04f832d3E, i64 0, i64 %1
+  %1 = zext nneg i8 %0 to i64
+  %2 = getelementptr ptr, ptr @switch.table._ZN4jiff3fmt7strtime19weekday_name_abbrev17he25644ef04f832d3E, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 3, 1
-  ret { ptr, i64 } %3
+  %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 3, 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3502,10 +3502,10 @@ define { ptr, i64 } @_ZN4jiff3fmt7strtime15month_name_full17ha9c4810928889e87E(i
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN4jiff3fmt7strtime15month_name_full17ha9c4810928889e87E, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff3fmt7strtime15month_name_full17ha9c4810928889e87E, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep4 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime15month_name_full17ha9c4810928889e87E.37, i64 0, i64 %12
+  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt7strtime15month_name_full17ha9c4810928889e87E.37, i64 %12
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   %13 = insertvalue { ptr, i64 } poison, ptr %switch.load5, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %switch.load, 1
@@ -3543,7 +3543,7 @@ define { ptr, i64 } @_ZN4jiff3fmt7strtime17month_name_abbrev17he2e0a6e82413ddf2E
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime17month_name_abbrev17he2e0a6e82413ddf2E, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt7strtime17month_name_abbrev17he2e0a6e82413ddf2E, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %13 = insertvalue { ptr, i64 } %12, i64 3, 1

@@ -1193,22 +1193,25 @@ define { ptr, i64 } @"_ZN4ring2io6writer119_$LT$impl$u20$core..convert..From$LT$
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %5, label %.lr.ph.i
+  %.idx = shl i64 %1, 3
+  %5 = getelementptr i8, ptr %0, i64 %.idx
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = icmp eq ptr %6, null
+  %8 = or i1 %.not, %7
+  br i1 %8, label %9, label %10
 
-5:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3beb75dc861d66d2d938a1ec4e9d58e9.22, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3beb75dc861d66d2d938a1ec4e9d58e9.24) #19
   unreachable
 
-.lr.ph.i:                                         ; preds = %4
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %6
-  %8 = shl i64 %1, 6
-  %9 = urem i64 %8, 5
-  %10 = icmp eq i64 %9, 0
-  %11 = sub nuw nsw i64 64, %9
-  %12 = select i1 %10, i64 59, i64 %11
-  %13 = load i64, ptr %7, align 8, !noundef !7
-  %14 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %13, i64 noundef 0, i64 noundef %12)
+10:                                               ; preds = %4
+  %11 = shl i64 %1, 6
+  %12 = urem i64 %11, 5
+  %13 = icmp eq i64 %12, 0
+  %14 = sub nuw nsw i64 64, %12
+  %15 = select i1 %13, i64 59, i64 %14
+  %16 = load i64, ptr %6, align 8, !noundef !7
+  %17 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %16, i64 noundef 0, i64 noundef %15)
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !noundef !7
@@ -1216,81 +1219,86 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %15 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !359, !noundef !7
-  tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %15, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %14), !noalias !359
-  %.idx = shl nsw i64 %1, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %17 = add nsw i64 %12, -5
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %21 = load ptr, ptr %3, align 8, !nonnull !7, !align !14
-  %22 = load ptr, ptr %18, align 8, !nonnull !7, !align !14
-  %23 = load ptr, ptr %19, align 8, !nonnull !7, !align !14
-  %24 = load ptr, ptr %20, align 8, !nonnull !7, !align !14
-  br label %25
+  %18 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !359, !noundef !7
+  tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %18, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %17), !noalias !359
+  %19 = icmp eq i64 %.idx, 0
+  br i1 %19, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit, label %.lr.ph.i
 
-25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i", %.lr.ph.i
+.lr.ph.i:                                         ; preds = %10
+  %20 = add nsw i64 %15, -5
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %24 = load ptr, ptr %3, align 8, !nonnull !7, !align !14
+  %25 = load ptr, ptr %21, align 8, !nonnull !7, !align !14
+  %26 = load ptr, ptr %22, align 8, !nonnull !7, !align !14
+  %27 = load ptr, ptr %23, align 8, !nonnull !7, !align !14
+  br label %28
+
+28:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i", %.lr.ph.i
   %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
-  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
-  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
-  %.val.i = load i64, ptr %26, align 8, !noalias !362, !noundef !7
+  %.024 = phi i64 [ %20, %.lr.ph.i ], [ %38, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
+  %.sroa.2.012.i = phi ptr [ %5, %.lr.ph.i ], [ %29, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
+  %29 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
+  %.val.i = load i64, ptr %29, align 8, !noalias !362, !noundef !7
   %or.cond.i.i = icmp ugt i64 %.024, 59
   br i1 %or.cond.i.i, label %.critedge.i.i, label %.lr.ph.i.i.preheader
 
-.critedge.i.i:                                    ; preds = %25
-  %27 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %.val.i, i64 noundef %.025, i64 noundef %.024), !noalias !366
-  %28 = add i64 %.024, -5
-  %29 = load i64, ptr %24, align 8, !noalias !370, !noundef !7
-  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %21, ptr noundef nonnull readonly align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %29, i64 noundef %27), !noalias !374
-  %30 = icmp ult i64 %28, 64
-  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
+.critedge.i.i:                                    ; preds = %28
+  %30 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %.val.i, i64 noundef %.025, i64 noundef %.024), !noalias !366
+  %31 = add i64 %.024, -5
+  %32 = load i64, ptr %27, align 8, !noalias !370, !noundef !7
+  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly align 8 %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26, i64 noundef %32, i64 noundef %30), !noalias !374
+  %33 = icmp ult i64 %31, 64
+  br i1 %33, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
 
-.lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %25
-  %.2.ph = phi i64 [ %.024, %25 ], [ %28, %.critedge.i.i ]
+.lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %28
+  %.2.ph = phi i64 [ %.024, %28 ], [ %31, %.critedge.i.i ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.2 = phi i64 [ %32, %.lr.ph.i.i ], [ %.2.ph, %.lr.ph.i.i.preheader ]
-  %31 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_unsplit_window(i64 noundef %.val.i, i64 noundef %.2), !noalias !375
-  %32 = add nsw i64 %.2, -5
-  %33 = load i64, ptr %24, align 8, !noalias !376, !noundef !7
-  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %21, ptr noundef nonnull readonly align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %33, i64 noundef %31), !noalias !380
-  %34 = icmp ult i64 %32, 64
-  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
+  %.2 = phi i64 [ %35, %.lr.ph.i.i ], [ %.2.ph, %.lr.ph.i.i.preheader ]
+  %34 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_unsplit_window(i64 noundef %.val.i, i64 noundef %.2), !noalias !375
+  %35 = add nsw i64 %.2, -5
+  %36 = load i64, ptr %27, align 8, !noalias !376, !noundef !7
+  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly align 8 %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26, i64 noundef %36, i64 noundef %34), !noalias !380
+  %37 = icmp ult i64 %35, 64
+  br i1 %37, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
 
 "_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
-  %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
-  %35 = add i64 %.lcssa.i.i, 64
-  %36 = icmp eq ptr %0, %26
-  br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit, label %25
+  %.lcssa.i.i = phi i64 [ %31, %.critedge.i.i ], [ %35, %.lr.ph.i.i ]
+  %38 = add i64 %.lcssa.i.i, 64
+  %39 = icmp eq ptr %0, %29
+  br i1 %39, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit, label %28
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
-  %37 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
-  %38 = insertvalue { ptr, i64 } %37, i64 %.sroa.5.0.copyload, 1
-  ret { ptr, i64 } %38
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i", %10
+  %40 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
+  %41 = insertvalue { ptr, i64 } %40, i64 %.sroa.5.0.copyload, 1
+  ret { ptr, i64 } %41
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %5, label %.lr.ph.i
+  %.idx = shl i64 %1, 3
+  %5 = getelementptr i8, ptr %0, i64 %.idx
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = icmp eq ptr %6, null
+  %8 = or i1 %.not, %7
+  br i1 %8, label %9, label %10
 
-5:                                                ; preds = %4
+9:                                                ; preds = %4
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3beb75dc861d66d2d938a1ec4e9d58e9.22, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3beb75dc861d66d2d938a1ec4e9d58e9.24) #19
   unreachable
 
-.lr.ph.i:                                         ; preds = %4
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %6
-  %8 = shl i64 %1, 6
-  %9 = urem i64 %8, 5
-  %10 = icmp eq i64 %9, 0
-  %11 = sub nuw nsw i64 64, %9
-  %12 = select i1 %10, i64 59, i64 %11
-  %13 = load i64, ptr %7, align 8, !noundef !7
-  %14 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %13, i64 noundef 0, i64 noundef %12)
+10:                                               ; preds = %4
+  %11 = shl i64 %1, 6
+  %12 = urem i64 %11, 5
+  %13 = icmp eq i64 %12, 0
+  %14 = sub nuw nsw i64 64, %12
+  %15 = select i1 %13, i64 59, i64 %14
+  %16 = load i64, ptr %6, align 8, !noundef !7
+  %17 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %16, i64 noundef 0, i64 noundef %15)
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !7, !noundef !7
@@ -1298,60 +1306,62 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !7, !noundef !7
-  %15 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !381, !noundef !7
-  tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %15, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %14), !noalias !381
-  %.idx = shl nsw i64 %1, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %17 = add nsw i64 %12, -5
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %21 = load ptr, ptr %3, align 8, !nonnull !7, !align !14
-  %22 = load ptr, ptr %18, align 8, !nonnull !7, !align !14
-  %23 = load ptr, ptr %19, align 8, !nonnull !7, !align !14
-  %24 = load ptr, ptr %20, align 8, !nonnull !7, !align !14
-  br label %25
+  %18 = load i64, ptr %.sroa.6.0.copyload, align 8, !noalias !381, !noundef !7
+  tail call void @ring_core_0_17_8__bn_gather5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, i64 noundef %18, ptr noundef nonnull readonly align 8 %.sroa.0.0.copyload, i64 noundef %17), !noalias !381
+  %19 = icmp eq i64 %.idx, 0
+  br i1 %19, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit, label %.lr.ph.i
 
-25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i", %.lr.ph.i
+.lr.ph.i:                                         ; preds = %10
+  %20 = add nsw i64 %15, -5
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %24 = load ptr, ptr %3, align 8, !nonnull !7, !align !14
+  %25 = load ptr, ptr %21, align 8, !nonnull !7, !align !14
+  %26 = load ptr, ptr %22, align 8, !nonnull !7, !align !14
+  %27 = load ptr, ptr %23, align 8, !nonnull !7, !align !14
+  br label %28
+
+28:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i", %.lr.ph.i
   %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
-  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
-  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
-  %.val.i = load i64, ptr %26, align 8, !noalias !384, !noundef !7
+  %.024 = phi i64 [ %20, %.lr.ph.i ], [ %38, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
+  %.sroa.2.012.i = phi ptr [ %5, %.lr.ph.i ], [ %29, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
+  %29 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
+  %.val.i = load i64, ptr %29, align 8, !noalias !384, !noundef !7
   %or.cond.i.i = icmp ugt i64 %.024, 59
   br i1 %or.cond.i.i, label %.critedge.i.i, label %.lr.ph.i.i.preheader
 
-.critedge.i.i:                                    ; preds = %25
-  %27 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %.val.i, i64 noundef %.025, i64 noundef %.024), !noalias !388
-  %28 = add i64 %.024, -5
-  %29 = load i64, ptr %24, align 8, !noalias !392, !noundef !7
-  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %21, ptr noundef nonnull readonly align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %29, i64 noundef %27), !noalias !396
-  %30 = icmp ult i64 %28, 64
-  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
+.critedge.i.i:                                    ; preds = %28
+  %30 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_split_window(i64 noundef %.val.i, i64 noundef %.025, i64 noundef %.024), !noalias !388
+  %31 = add i64 %.024, -5
+  %32 = load i64, ptr %27, align 8, !noalias !392, !noundef !7
+  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly align 8 %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26, i64 noundef %32, i64 noundef %30), !noalias !396
+  %33 = icmp ult i64 %31, 64
+  br i1 %33, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
 
-.lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %25
-  %.2.ph = phi i64 [ %.024, %25 ], [ %28, %.critedge.i.i ]
+.lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %28
+  %.2.ph = phi i64 [ %.024, %28 ], [ %31, %.critedge.i.i ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.2 = phi i64 [ %32, %.lr.ph.i.i ], [ %.2.ph, %.lr.ph.i.i.preheader ]
-  %31 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_unsplit_window(i64 noundef %.val.i, i64 noundef %.2), !noalias !397
-  %32 = add nsw i64 %.2, -5
-  %33 = load i64, ptr %24, align 8, !noalias !398, !noundef !7
-  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %21, ptr noundef nonnull readonly align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %33, i64 noundef %31), !noalias !402
-  %34 = icmp ult i64 %32, 64
-  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
+  %.2 = phi i64 [ %35, %.lr.ph.i.i ], [ %.2.ph, %.lr.ph.i.i.preheader ]
+  %34 = tail call noundef i64 @ring_core_0_17_8__LIMBS_window5_unsplit_window(i64 noundef %.val.i, i64 noundef %.2), !noalias !397
+  %35 = add nsw i64 %.2, -5
+  %36 = load i64, ptr %27, align 8, !noalias !398, !noundef !7
+  tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull align 8 %.sroa.412.0.copyload, ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly align 8 %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26, i64 noundef %36, i64 noundef %34), !noalias !402
+  %37 = icmp ult i64 %35, 64
+  br i1 %37, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
 
 "_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
-  %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
-  %35 = add i64 %.lcssa.i.i, 64
-  %36 = icmp eq ptr %0, %26
-  br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit, label %25
+  %.lcssa.i.i = phi i64 [ %31, %.critedge.i.i ], [ %35, %.lr.ph.i.i ]
+  %38 = add i64 %.lcssa.i.i, 64
+  %39 = icmp eq ptr %0, %29
+  br i1 %39, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit, label %28
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
-  %37 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
-  %38 = insertvalue { ptr, i64 } %37, i64 %.sroa.5.0.copyload, 1
-  ret { ptr, i64 } %38
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i", %10
+  %40 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
+  %41 = insertvalue { ptr, i64 } %40, i64 %.sroa.5.0.copyload, 1
+  ret { ptr, i64 } %41
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1104,9 +1104,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h2d60216
   unreachable
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
+  %56 = getelementptr inbounds i8, ptr %4, i64 %45
   %57 = load i8, ptr %56, align 1, !noundef !5
-  %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
+  %58 = getelementptr inbounds i8, ptr %2, i64 %52
   %59 = load i8, ptr %58, align 1, !noundef !5
   %.not28 = icmp eq i8 %57, %59
   br i1 %.not28, label %40, label %61
@@ -1127,9 +1127,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h2d60216
 
 66:                                               ; preds = %63
   %67 = add nuw i64 %.sroa.04.0, 1
-  %68 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %69 = load i8, ptr %68, align 1, !noundef !5
-  %70 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %64
+  %70 = getelementptr inbounds i8, ptr %2, i64 %64
   %71 = load i8, ptr %70, align 1, !noundef !5
   %.not = icmp eq i8 %69, %71
   br i1 %.not, label %37, label %74
@@ -1187,7 +1187,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4db994daed8a67dE.exit.i.i": ; preds = %.preheader140.i
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = load i8, ptr %21, align 1, !alias.scope !280, !noalias !285, !noundef !5
   %.not.i.not.i.i = icmp eq i8 %22, %16
   br i1 %.not.i.not.i.i, label %.preheader140.i, label %23
@@ -1259,7 +1259,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %51 = icmp eq <16 x i8> %.0.copyload.i.i, %34
   %52 = icmp eq <16 x i8> %.0.copyload2.i.i, %35
   %53 = and <16 x i1> %51, %52
-  %54 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0144.i
+  %54 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0144.i
   store <16 x i1> %53, ptr %54, align 2, !noalias !293
   %exitcond.not.i = icmp eq i64 %47, 4
   br i1 %exitcond.not.i, label %.preheader139.i, label %46
@@ -1277,7 +1277,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0146.i = phi i64 [ %60, %64 ], [ 0, %46 ]
   %.2145.i = phi i8 [ %.3.i, %64 ], [ 0, %46 ]
   %60 = add nuw nsw i64 %.sroa.028.0146.i, 1
-  %61 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0146.i
+  %61 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0146.i
   %62 = load i16, ptr %61, align 2, !noalias !293, !noundef !5
   %63 = icmp eq i16 %62, 0
   br i1 %63, label %64, label %65
@@ -6091,7 +6091,7 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1486, %1490
   %.05.i.i.i.i.i = phi i64 [ %1491, %1490 ], [ 0, %1486 ]
-  %1487 = getelementptr inbounds nuw [0 x i8], ptr %1482, i64 0, i64 %.05.i.i.i.i.i
+  %1487 = getelementptr inbounds nuw i8, ptr %1482, i64 %.05.i.i.i.i.i
   %1488 = load i8, ptr %1487, align 1, !alias.scope !989, !noalias !994, !noundef !5
   %1489 = icmp eq i8 %1488, 64
   br i1 %1489, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i, label %1490
@@ -6179,7 +6179,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i: ; preds = 
 
 .lr.ph.i.i.i70.i.i:                               ; preds = %1513, %1517
   %.05.i.i.i71.i.i = phi i64 [ %1518, %1517 ], [ 0, %1513 ]
-  %1514 = getelementptr inbounds nuw [0 x i8], ptr %1509, i64 0, i64 %.05.i.i.i71.i.i
+  %1514 = getelementptr inbounds nuw i8, ptr %1509, i64 %.05.i.i.i71.i.i
   %1515 = load i8, ptr %1514, align 1, !alias.scope !1001, !noalias !1006, !noundef !5
   %1516 = icmp eq i8 %1515, 44
   br i1 %1516, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i73.i.i, label %1517

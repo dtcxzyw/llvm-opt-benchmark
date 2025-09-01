@@ -2015,7 +2015,7 @@ define internal fastcc void @cmd_log_init_finish(i32 noundef %0, ptr noundef %1,
 
 .preheader.i:                                     ; preds = %229, %240
   %.025.i = phi i64 [ %241, %240 ], [ 0, %229 ]
-  %234 = getelementptr inbounds nuw [9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 %.025.i
+  %234 = getelementptr inbounds nuw %struct.ref_namespace_info, ptr @ref_namespace, i64 %.025.i
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load i32, ptr %235, align 8, !tbaa !194
   %.not21.i = icmp eq i32 %236, 0
@@ -4777,7 +4777,7 @@ get_base_commit.exit.thread:                      ; preds = %.critedge.critedge.
   %1184 = phi i8 [ %1194, %1192 ], [ %1183, %1182 ]
   %.030.i = phi ptr [ %1193, %1192 ], [ %.pre422, %1182 ]
   %1185 = zext i8 %1184 to i64
-  %1186 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1185
+  %1186 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1185
   %1187 = load i8, ptr %1186, align 1, !tbaa !77
   %1188 = and i8 %1187, 1
   %1189 = icmp ne i8 %1188, 0
@@ -4796,7 +4796,7 @@ get_base_commit.exit.thread:                      ; preds = %.critedge.critedge.
   %.135.i = phi ptr [ %1202, %.lr.ph36.i ], [ %.030.i, %.lr.ph.i291 ]
   %.02134.i = phi ptr [ %spec.select.i, %.lr.ph36.i ], [ null, %.lr.ph.i291 ]
   %1196 = zext i8 %1195 to i64
-  %1197 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %1196
+  %1197 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %1196
   %1198 = load i8, ptr %1197, align 1, !tbaa !77
   %1199 = and i8 %1198, 1
   %1200 = icmp eq i8 %1199, 0
@@ -6740,7 +6740,7 @@ define internal fastcc void @print_bases(ptr noundef nonnull %0, ptr noundef cap
 
 23:                                               ; preds = %25, %._crit_edge
   %.0811.i.i = phi i64 [ 0, %._crit_edge ], [ %26, %25 ]
-  %24 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %25
 

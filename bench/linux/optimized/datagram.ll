@@ -857,7 +857,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %55 = phi i32 [ %102, %.thread.us ], [ %39, %50 ]
   %56 = phi i32 [ %65, %.thread.us ], [ %12, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %58 = getelementptr [17 x %struct.bio_vec], ptr %57, i64 0, i64 %52
+  %58 = getelementptr %struct.bio_vec, ptr %57, i64 %52
   %59 = add i32 %55, %54
   %60 = icmp sgt i32 %56, %59
   br i1 %60, label %61, label %62, !prof !14
@@ -943,7 +943,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
   %115 = phi i32 [ %157, %.thread ], [ %39, %50 ]
   %116 = phi i32 [ %125, %.thread ], [ %12, %50 ]
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  %118 = getelementptr [17 x %struct.bio_vec], ptr %117, i64 0, i64 %112
+  %118 = getelementptr %struct.bio_vec, ptr %117, i64 %112
   %119 = add i32 %115, %114
   %120 = icmp sgt i32 %116, %119
   br i1 %120, label %121, label %122, !prof !14
@@ -1253,7 +1253,7 @@ define dso_local noundef range(i32 -14, 1) i32 @skb_copy_datagram_from_iter(ptr 
   %43 = phi i32 [ %.ph, %72 ], [ %29, %28 ]
   %44 = phi i32 [ %53, %72 ], [ %9, %28 ]
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %46 = getelementptr [17 x %struct.bio_vec], ptr %45, i64 0, i64 %40
+  %46 = getelementptr %struct.bio_vec, ptr %45, i64 %40
   %47 = add i32 %43, %42
   %48 = icmp sgt i32 %44, %47
   br i1 %48, label %49, label %50, !prof !14
@@ -1611,7 +1611,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %147 = trunc i64 %141 to i32
   %148 = call i32 @llvm.smin.i32(i32 %140, i32 %147)
   %149 = sext i32 %142 to i64
-  %150 = getelementptr [17 x ptr], ptr %6, i64 0, i64 %149
+  %150 = getelementptr ptr, ptr %6, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %146 to i64
@@ -1697,7 +1697,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %209 = zext i32 %208 to i64
   %210 = getelementptr i8, ptr %207, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  %212 = getelementptr [17 x %struct.bio_vec], ptr %211, i64 0, i64 %139
+  %212 = getelementptr %struct.bio_vec, ptr %211, i64 %139
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %194, %213
   br i1 %214, label %215, label %.thread
@@ -1740,7 +1740,7 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %236 = getelementptr i8, ptr %233, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
   %238 = sext i32 %.ph34 to i64
-  %239 = getelementptr [17 x %struct.bio_vec], ptr %237, i64 0, i64 %238
+  %239 = getelementptr %struct.bio_vec, ptr %237, i64 %238
   store ptr %194, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 12
   store i32 %232, ptr %240, align 4
@@ -2630,45 +2630,44 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #4 align
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 63
   %19 = icmp eq i64 %18, %15
-  br i1 %19, label %20, label %.loopexit, !prof !7
+  br i1 %19, label %.preheader, label %.loopexit, !prof !7
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %22
+.preheader:                                       ; preds = %12
+  %20 = getelementptr i8, ptr %3, i64 48
+  br label %21
 
-22:                                               ; preds = %35, %20
-  %23 = phi i8 [ %14, %20 ], [ %36, %35 ]
-  %24 = phi i64 [ %17, %20 ], [ %37, %35 ]
-  %25 = icmp eq i64 %24, -1
-  %26 = icmp eq i8 %23, 63
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.loopexit, label %27, !prof !74
+21:                                               ; preds = %.preheader, %33
+  %22 = phi i8 [ %34, %33 ], [ %14, %.preheader ]
+  %23 = phi i64 [ %35, %33 ], [ %17, %.preheader ]
+  %24 = icmp eq i64 %23, -1
+  %25 = icmp eq i8 %22, 63
+  %or.cond = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond, label %.loopexit, label %26, !prof !74
 
-27:                                               ; preds = %22
-  %28 = zext i8 %23 to i64
-  %29 = add nuw nsw i64 %28, 1
-  %30 = getelementptr [64 x ptr], ptr %21, i64 0, i64 %29
-  %31 = load volatile ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 3
-  %34 = icmp eq i64 %33, 2
-  br i1 %34, label %.loopexit, label %35, !prof !14
+26:                                               ; preds = %21
+  %27 = zext i8 %22 to i64
+  %28 = getelementptr ptr, ptr %20, i64 %27
+  %29 = load volatile ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = and i64 %30, 3
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %.loopexit, label %33, !prof !14
 
-35:                                               ; preds = %27
-  %36 = add i8 %23, 1
-  store i8 %36, ptr %13, align 2
-  %37 = add nuw i64 %24, 1
-  store i64 %37, ptr %16, align 8
-  %38 = icmp eq ptr %31, null
-  br i1 %38, label %22, label %.loopexit4, !llvm.loop !75
+33:                                               ; preds = %26
+  %34 = add i8 %22, 1
+  store i8 %34, ptr %13, align 2
+  %35 = add nuw i64 %23, 1
+  store i64 %35, ptr %16, align 8
+  %36 = icmp eq ptr %29, null
+  br i1 %36, label %21, label %.loopexit4, !llvm.loop !75
 
-.loopexit:                                        ; preds = %27, %22, %12, %9, %1
-  %39 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #10
+.loopexit:                                        ; preds = %26, %21, %12, %9, %1
+  %37 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #10
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %35, %.loopexit
-  %40 = phi ptr [ %39, %.loopexit ], [ %31, %35 ]
-  ret ptr %40
+.loopexit4:                                       ; preds = %33, %.loopexit
+  %38 = phi ptr [ %37, %.loopexit ], [ %29, %33 ]
+  ret ptr %38
 }
 
 ; Function Attrs: null_pointer_is_valid

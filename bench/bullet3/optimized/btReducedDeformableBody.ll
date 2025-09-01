@@ -5577,7 +5577,7 @@ define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr dead
 
 .preheader347.us:                                 ; preds = %.preheader347.us.preheader, %.split.us.us
   %indvars.iv384 = phi i64 [ 0, %.preheader347.us.preheader ], [ %indvars.iv.next385, %.split.us.us ]
-  %132 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %4, i64 0, i64 %indvars.iv384
+  %132 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv384
   br label %.preheader346.us.us
 
 .preheader346.us.us:                              ; preds = %._crit_edge.us.us, %.preheader347.us
@@ -5900,7 +5900,7 @@ define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr dead
 .preheader345.us:                                 ; preds = %.preheader345.us.preheader, %.split369.us.us
   %indvars.iv405 = phi i64 [ 0, %.preheader345.us.preheader ], [ %indvars.iv.next406, %.split369.us.us ]
   %invariant.gep.us = getelementptr inbounds nuw float, ptr %.pre425, i64 %indvars.iv405
-  %341 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %6, i64 0, i64 %indvars.iv405
+  %341 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv405
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge364.us.us, %.preheader345.us
@@ -7417,23 +7417,23 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %.cmp = icmp eq i32 %41, 0
   %45 = select i1 %.cmp, i32 2, i32 %.urem
   %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %46
   %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
   %49 = load float, ptr %48, align 4, !tbaa !138
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %50
   %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
   %53 = load float, ptr %52, align 4, !tbaa !138
   %54 = fsub float %49, %53
   %55 = zext nneg i32 %45 to i64
-  %56 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %55
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %55
   %58 = load float, ptr %57, align 4, !tbaa !138
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
   %61 = tail call noundef float @sqrtf(float noundef %60) #27, !tbaa !169
   %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %46
+  %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !138
   %64 = fdiv float 5.000000e-01, %61
   %65 = getelementptr inbounds nuw float, ptr %56, i64 %50
@@ -7450,7 +7450,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %75 = load float, ptr %74, align 4, !tbaa !138
   %76 = fadd float %73, %75
   %77 = fmul float %64, %76
-  %78 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %50
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %50
   store float %77, ptr %78, align 4, !tbaa !138
   %79 = getelementptr inbounds nuw float, ptr %56, i64 %46
   %80 = load float, ptr %79, align 4, !tbaa !138
@@ -7458,7 +7458,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %82 = load float, ptr %81, align 4, !tbaa !138
   %83 = fadd float %80, %82
   %84 = fmul float %64, %83
-  %85 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %55
+  %85 = getelementptr inbounds nuw float, ptr %3, i64 %55
   store float %84, ptr %85, align 4, !tbaa !138
   %.pre = load float, ptr %3, align 16, !tbaa !138
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

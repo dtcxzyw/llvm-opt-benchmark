@@ -7036,7 +7036,7 @@ define noundef range(i32 0, 7) i32 @_ZN6icu_7724tokenTypeToPluralOperandENS_9tok
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -9146,7 +9146,7 @@ define void @_ZN6icu_7712FixedDecimal4initEd(ptr noundef nonnull align 8 capture
 
 5:                                                ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
-  %6 = getelementptr inbounds nuw [5 x i32], ptr @_ZN6icu_77L3p10E, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = sitofp i32 %7 to double
   %9 = fmul double %4, %8
@@ -9182,7 +9182,7 @@ define void @_ZN6icu_7712FixedDecimal4initEd(ptr noundef nonnull align 8 capture
   %.01729.i = phi i32 [ %21, %.lr.ph.i ], [ 15, %13 ]
   %21 = add nsw i32 %.01729.i, -1
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, -1
-  %22 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %indvars.iv.next34.i
+  %22 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next34.i
   %23 = load i8, ptr %22, align 1, !tbaa !50
   %.not.i = icmp eq i8 %23, 48
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !174
@@ -10073,7 +10073,7 @@ define noundef i32 @_ZN6icu_7712FixedDecimal8decimalsEd(double noundef %0) local
 
 4:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw [5 x i32], ptr @_ZN6icu_77L3p10E, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sitofp i32 %6 to double
   %8 = fmul double %3, %7
@@ -10109,7 +10109,7 @@ define noundef i32 @_ZN6icu_7712FixedDecimal8decimalsEd(double noundef %0) local
   %.01729 = phi i32 [ %20, %.lr.ph ], [ 15, %12 ]
   %20 = add nsw i32 %.01729, -1
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
-  %21 = getelementptr inbounds [30 x i8], ptr %2, i64 0, i64 %indvars.iv.next34
+  %21 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next34
   %22 = load i8, ptr %21, align 1, !tbaa !50
   %.not = icmp eq i8 %22, 48
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !174
@@ -10137,7 +10137,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712FixedDecimal9quickInitEd(p
 
 4:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw [5 x i32], ptr @_ZN6icu_77L3p10E, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sitofp i32 %6 to double
   %8 = fmul double %3, %7

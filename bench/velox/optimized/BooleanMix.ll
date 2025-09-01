@@ -460,7 +460,7 @@ if.end13.i.i:                                     ; preds = %if.else.i.i, %if.th
 
 if.then17.i.i:                                    ; preds = %if.end13.i.i
   %rem.i.i.i.i = and i64 %indvars.iv.i, 7
-  %arrayidx.i.i25.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i.i
+  %arrayidx.i.i25.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i.i
   %67 = load i8, ptr %arrayidx.i.i25.i.i, align 1
   %div2.i.i26.i.i = lshr i64 %indvars.iv.i, 3
   %idxprom1.i.i.i.i = and i64 %div2.i.i26.i.i, 536870911
@@ -599,7 +599,7 @@ if.end13.i153.i.i.i:                              ; preds = %if.else.i137.i.i.i,
 
 if.then17.i155.i.i.i:                             ; preds = %if.end13.i153.i.i.i
   %rem.i.i.i156.i.i.i = and i64 %77, 7
-  %arrayidx.i.i25.i158.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i156.i.i.i
+  %arrayidx.i.i25.i158.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i156.i.i.i
   %89 = load i8, ptr %arrayidx.i.i25.i158.i.i.i, align 1
   %div2.i.i26.i159.i.i.i = lshr i32 %add.i26.i.i.i.i, 3
   %idxprom1.i.i.i160.i.i.i = zext nneg i32 %div2.i.i26.i159.i.i.i to i64
@@ -721,7 +721,7 @@ if.end13.i99.i.i.i:                               ; preds = %if.else.i83.i.i.i, 
 
 if.then17.i101.i.i.i:                             ; preds = %if.end13.i99.i.i.i
   %rem.i.i.i102.i.i.i = and i64 %92, 7
-  %arrayidx.i.i25.i104.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i102.i.i.i
+  %arrayidx.i.i25.i104.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i102.i.i.i
   %104 = load i8, ptr %arrayidx.i.i25.i104.i.i.i, align 1
   %div2.i.i26.i105.i.i.i = lshr i32 %add.i45.i.i.i.i, 3
   %idxprom1.i.i.i106.i.i.i = zext nneg i32 %div2.i.i26.i105.i.i.i to i64
@@ -885,7 +885,7 @@ if.end13.i45.i.i.i:                               ; preds = %if.else.i29.i.i.i, 
 
 if.then17.i47.i.i.i:                              ; preds = %if.end13.i45.i.i.i
   %rem.i.i.i48.i.i.i = and i64 %row.015.i.i.i.i.i, 7
-  %arrayidx.i.i25.i50.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i48.i.i.i
+  %arrayidx.i.i25.i50.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i48.i.i.i
   %123 = load i8, ptr %arrayidx.i.i25.i50.i.i.i, align 1
   %div2.i.i26.i51.i.i.i = lshr i64 %row.015.i.i.i.i.i, 3
   %idxprom1.i.i.i52.i.i.i = and i64 %div2.i.i26.i51.i.i.i, 536870911
@@ -981,7 +981,7 @@ if.end13.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, 
 
 if.then17.i.i.i.i.i:                              ; preds = %if.end13.i.i.i.i.i
   %rem.i.i.i.i.i.i.i = and i64 %125, 7
-  %arrayidx.i.i25.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i.i.i.i.i
+  %arrayidx.i.i25.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i.i.i.i.i
   %137 = load i8, ptr %arrayidx.i.i25.i.i.i.i.i, align 1
   %div2.i.i26.i.i.i.i.i = lshr i32 %add10.i.i.i.i.i, 3
   %idxprom1.i.i.i.i.i.i.i = zext nneg i32 %div2.i.i26.i.i.i.i.i to i64
@@ -1104,7 +1104,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %i
 
 if.then17.i.i.i.i:                                ; preds = %if.end13.i.i.i.i
   %rem.i.i.i11.i.i.i = and i64 %140, 7
-  %arrayidx.i.i25.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %rem.i.i.i11.i.i.i
+  %arrayidx.i.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %rem.i.i.i11.i.i.i
   %152 = load i8, ptr %arrayidx.i.i25.i.i.i.i, align 1
   %div2.i.i26.i.i.i.i = lshr i32 %add.i73.i.i.i.i, 3
   %idxprom1.i.i.i.i.i.i = zext nneg i32 %div2.i.i26.i.i.i.i to i64

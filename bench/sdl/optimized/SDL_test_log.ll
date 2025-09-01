@@ -86,7 +86,7 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
   %4 = alloca [3584 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %100, label %5
+  br i1 %.not, label %98, label %5
 
 5:                                                ; preds = %3
   store i8 34, ptr %4, align 16
@@ -94,7 +94,7 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %89
-  %.05263 = phi i64 [ %91, %89 ], [ 0, %5 ]
+  %.05263 = phi i64 [ %90, %89 ], [ 0, %5 ]
   %.05362 = phi i64 [ %.2, %89 ], [ 1, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.05263
   %7 = load i8, ptr %6, align 1
@@ -112,173 +112,180 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
 8:                                                ; preds = %.lr.ph
   %9 = add i64 %.05362, -3581
   %10 = icmp ult i64 %9, -3583
-  br i1 %10, label %92, label %11
+  br i1 %10, label %91, label %11
 
 11:                                               ; preds = %8
-  %12 = add nsw i64 %.05362, 1
-  %13 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %13, align 1
-  %14 = add nsw i64 %.05362, 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %12, align 1
+  %13 = add nsw i64 %.05362, 2
+  %14 = getelementptr i8, ptr %12, i64 1
+  store i8 48, ptr %14, align 1
   br label %89
 
 15:                                               ; preds = %.lr.ph
   %16 = add i64 %.05362, -3581
   %17 = icmp ult i64 %16, -3583
-  br i1 %17, label %92, label %18
+  br i1 %17, label %91, label %18
 
 18:                                               ; preds = %15
-  %19 = add nsw i64 %.05362, 1
-  %20 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %20, align 1
-  %21 = add nsw i64 %.05362, 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %19, align 1
+  %20 = add nsw i64 %.05362, 2
+  %21 = getelementptr i8, ptr %19, i64 1
+  store i8 34, ptr %21, align 1
   br label %89
 
 22:                                               ; preds = %.lr.ph
   %23 = add i64 %.05362, -3581
   %24 = icmp ult i64 %23, -3583
-  br i1 %24, label %92, label %25
+  br i1 %24, label %91, label %25
 
 25:                                               ; preds = %22
-  %26 = add nsw i64 %.05362, 1
-  %27 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %27, align 1
-  %28 = add nsw i64 %.05362, 2
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %26, align 1
+  %27 = add nsw i64 %.05362, 2
+  %28 = getelementptr i8, ptr %26, i64 1
+  store i8 110, ptr %28, align 1
   br label %89
 
 29:                                               ; preds = %.lr.ph
   %30 = add i64 %.05362, -3581
   %31 = icmp ult i64 %30, -3583
-  br i1 %31, label %92, label %32
+  br i1 %31, label %91, label %32
 
 32:                                               ; preds = %29
-  %33 = add nsw i64 %.05362, 1
-  %34 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %34, align 1
-  %35 = add nsw i64 %.05362, 2
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %33, align 1
+  %34 = add nsw i64 %.05362, 2
+  %35 = getelementptr i8, ptr %33, i64 1
+  store i8 114, ptr %35, align 1
   br label %89
 
 36:                                               ; preds = %.lr.ph
   %37 = add i64 %.05362, -3581
   %38 = icmp ult i64 %37, -3583
-  br i1 %38, label %92, label %39
+  br i1 %38, label %91, label %39
 
 39:                                               ; preds = %36
-  %40 = add nsw i64 %.05362, 1
-  %41 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %41, align 1
-  %42 = add nsw i64 %.05362, 2
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %40, align 1
+  %41 = add nsw i64 %.05362, 2
+  %42 = getelementptr i8, ptr %40, i64 1
+  store i8 116, ptr %42, align 1
   br label %89
 
 43:                                               ; preds = %.lr.ph
   %44 = add i64 %.05362, -3581
   %45 = icmp ult i64 %44, -3583
-  br i1 %45, label %92, label %46
+  br i1 %45, label %91, label %46
 
 46:                                               ; preds = %43
-  %47 = add nsw i64 %.05362, 1
-  %48 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %48, align 1
-  %49 = add nsw i64 %.05362, 2
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %47, align 1
+  %48 = add nsw i64 %.05362, 2
+  %49 = getelementptr i8, ptr %47, i64 1
+  store i8 102, ptr %49, align 1
   br label %89
 
 50:                                               ; preds = %.lr.ph
   %51 = add i64 %.05362, -3581
   %52 = icmp ult i64 %51, -3583
-  br i1 %52, label %92, label %53
+  br i1 %52, label %91, label %53
 
 53:                                               ; preds = %50
-  %54 = add nsw i64 %.05362, 1
-  %55 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %55, align 1
-  %56 = add nsw i64 %.05362, 2
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %54, align 1
+  %55 = add nsw i64 %.05362, 2
+  %56 = getelementptr i8, ptr %54, i64 1
+  store i8 98, ptr %56, align 1
   br label %89
 
 57:                                               ; preds = %.lr.ph
   %58 = add i64 %.05362, -3581
   %59 = icmp ult i64 %58, -3583
-  br i1 %59, label %92, label %60
+  br i1 %59, label %91, label %60
 
 60:                                               ; preds = %57
-  %61 = add nsw i64 %.05362, 1
-  %62 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %62, align 1
-  %63 = add nsw i64 %.05362, 2
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %61, align 1
+  %62 = add nsw i64 %.05362, 2
+  %63 = getelementptr i8, ptr %61, i64 1
+  store i8 92, ptr %63, align 1
   br label %89
 
 64:                                               ; preds = %.lr.ph
   %65 = zext i8 %7 to i32
   %66 = tail call i32 @SDL_isprint(i32 noundef %65) #6
   %.not56 = icmp eq i32 %66, 0
-  br i1 %.not56, label %70, label %67
+  br i1 %.not56, label %72, label %67
 
 67:                                               ; preds = %64
   %68 = add i64 %.05362, 1
   %69 = icmp ugt i64 %68, 3582
-  br i1 %69, label %92, label %89
+  br i1 %69, label %91, label %70
 
-70:                                               ; preds = %64
-  %71 = add i64 %.05362, -3579
-  %72 = icmp ult i64 %71, -3583
-  br i1 %72, label %92, label %73
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 %7, ptr %71, align 1
+  br label %89
 
-73:                                               ; preds = %70
-  %74 = add nsw i64 %.05362, 1
-  %75 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.05362
-  store i8 92, ptr %75, align 1
-  %76 = add nsw i64 %.05362, 2
-  %77 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %74
+72:                                               ; preds = %64
+  %73 = add i64 %.05362, -3579
+  %74 = icmp ult i64 %73, -3583
+  br i1 %74, label %91, label %75
+
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 %.05362
+  store i8 92, ptr %76, align 1
+  %77 = getelementptr i8, ptr %76, i64 1
   store i8 120, ptr %77, align 1
   %78 = lshr i8 %7, 4
   %79 = icmp ult i8 %7, -96
   %80 = or disjoint i8 %78, 48
   %81 = add nuw nsw i8 %78, 87
   %.0.i = select i1 %79, i8 %80, i8 %81
-  %82 = add nsw i64 %.05362, 3
-  %83 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %76
-  store i8 %.0.i, ptr %83, align 1
-  %84 = and i8 %7, 15
-  %85 = icmp samesign ult i8 %84, 10
-  %86 = or disjoint i8 %84, 48
-  %87 = add nuw nsw i8 %84, 87
-  %.0.i57 = select i1 %85, i8 %86, i8 %87
-  %88 = add nsw i64 %.05362, 4
+  %82 = getelementptr i8, ptr %76, i64 2
+  store i8 %.0.i, ptr %82, align 1
+  %83 = and i8 %7, 15
+  %84 = icmp samesign ult i8 %83, 10
+  %85 = or disjoint i8 %83, 48
+  %86 = add nuw nsw i8 %83, 87
+  %.0.i57 = select i1 %84, i8 %85, i8 %86
+  %87 = add nsw i64 %.05362, 4
+  %88 = getelementptr i8, ptr %76, i64 3
+  store i8 %.0.i57, ptr %88, align 1
   br label %89
 
-89:                                               ; preds = %67, %11, %18, %25, %32, %39, %46, %53, %60, %73
-  %.sink69 = phi i64 [ %12, %11 ], [ %19, %18 ], [ %26, %25 ], [ %33, %32 ], [ %40, %39 ], [ %47, %46 ], [ %54, %53 ], [ %61, %60 ], [ %82, %73 ], [ %.05362, %67 ]
-  %.sink = phi i8 [ 48, %11 ], [ 34, %18 ], [ 110, %25 ], [ 114, %32 ], [ 116, %39 ], [ 102, %46 ], [ 98, %53 ], [ 92, %60 ], [ %.0.i57, %73 ], [ %7, %67 ]
-  %.2 = phi i64 [ %14, %11 ], [ %21, %18 ], [ %28, %25 ], [ %35, %32 ], [ %42, %39 ], [ %49, %46 ], [ %56, %53 ], [ %63, %60 ], [ %88, %73 ], [ %68, %67 ]
-  %90 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.sink69
-  store i8 %.sink, ptr %90, align 1
-  %91 = add nuw i64 %.05263, 1
-  %exitcond.not = icmp eq i64 %91, %2
+89:                                               ; preds = %11, %18, %25, %32, %39, %46, %53, %60, %75, %70
+  %.2 = phi i64 [ %68, %70 ], [ %87, %75 ], [ %13, %11 ], [ %20, %18 ], [ %27, %25 ], [ %34, %32 ], [ %41, %39 ], [ %48, %46 ], [ %55, %53 ], [ %62, %60 ]
+  %90 = add nuw i64 %.05263, 1
+  %exitcond.not = icmp eq i64 %90, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-92:                                               ; preds = %67, %70, %8, %15, %22, %29, %36, %43, %50, %57
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 3580
-  store i8 46, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 3581
-  store i8 46, ptr %94, align 1
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 3582
-  store i8 46, ptr %95, align 2
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 3583
-  store i8 0, ptr %96, align 1
-  br label %102
+91:                                               ; preds = %67, %72, %8, %15, %22, %29, %36, %43, %50, %57
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 3580
+  store i8 46, ptr %92, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 3581
+  store i8 46, ptr %93, align 1
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 3582
+  store i8 46, ptr %94, align 2
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 3583
+  store i8 0, ptr %95, align 1
+  br label %100
 
 ._crit_edge:                                      ; preds = %89, %5
   %.053.lcssa = phi i64 [ 1, %5 ], [ %.2, %89 ]
-  %97 = add nuw nsw i64 %.053.lcssa, 1
-  %98 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %.053.lcssa
-  store i8 34, ptr %98, align 1
-  %99 = getelementptr inbounds nuw [3584 x i8], ptr %4, i64 0, i64 %97
-  store i8 0, ptr %99, align 1
-  br label %102
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 %.053.lcssa
+  store i8 34, ptr %96, align 1
+  %97 = getelementptr i8, ptr %96, i64 1
+  store i8 0, ptr %97, align 1
+  br label %100
 
-100:                                              ; preds = %3
-  %101 = call i64 @SDL_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 3584) #6
-  br label %102
+98:                                               ; preds = %3
+  %99 = call i64 @SDL_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 3584) #6
+  br label %100
 
-102:                                              ; preds = %92, %._crit_edge, %100
+100:                                              ; preds = %91, %._crit_edge, %98
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

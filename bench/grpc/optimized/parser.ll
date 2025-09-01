@@ -13332,7 +13332,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i72: ; pr
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %100
   store i8 0, ptr %113, align 1, !tbaa !63
   %114 = zext nneg i8 %75 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2024072214ascii_internal8kToLowerE, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072214ascii_internal8kToLowerE, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !63
   %117 = load i64, ptr %62, align 8, !tbaa !29
   %118 = add i64 %117, 1
@@ -21416,7 +21416,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit94:         ; preds = %_ZN6google8protobuf
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %176 = load i8, ptr %175, align 2, !tbaa !138
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !674
   switch i32 %179, label %._ZN6google8protobuf13json_internal16Proto2Descriptor7Is32BitEPKNS0_15FieldDescriptorE.exit_crit_edge [
     i32 3, label %180
@@ -21689,7 +21689,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18Pa
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %20 = load i8, ptr %19, align 2, !tbaa !138
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !674
   switch i32 %23, label %_ZN6google8protobuf13json_internal16Proto2Descriptor7Is32BitEPKNS0_15FieldDescriptorE.exit [
     i32 3, label %24
@@ -21887,7 +21887,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19Pa
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %20 = load i8, ptr %19, align 2, !tbaa !138
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !674
   switch i32 %23, label %_ZN6google8protobuf13json_internal16Proto2Descriptor7Is32BitEPKNS0_15FieldDescriptorE.exit [
     i32 3, label %24
@@ -22688,7 +22688,7 @@ _ZN6google8protobuf13json_internal9JsonLexer7InvalidESt17basic_string_viewIcSt11
   %.064217 = phi ptr [ %194, %193 ], [ %191, %189 ]
   %197 = load i8, ptr %.064217, align 1, !tbaa !63
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !63
   %201 = and i8 %200, 8
   %.not215 = icmp eq i8 %201, 0
@@ -23901,7 +23901,7 @@ _ZN6google8protobuf13json_internal9JsonLexer7InvalidESt17basic_string_viewIcSt11
   %.064217 = phi ptr [ %196, %195 ], [ %193, %191 ]
   %199 = load i8, ptr %.064217, align 1, !tbaa !63
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !63
   %203 = and i8 %202, 8
   %.not215 = icmp eq i8 %203, 0
@@ -24618,14 +24618,14 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
   %.04571 = phi ptr [ %58, %50 ], [ %1, %3 ]
   %8 = load i8, ptr %.04571, align 1, !tbaa !63
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !63
   %12 = sext i8 %11 to i32
   %13 = shl nsw i32 %12, 18
   %14 = getelementptr inbounds nuw i8, ptr %.04571, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !63
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !63
   %19 = sext i8 %18 to i32
   %20 = shl nsw i32 %19, 12
@@ -24633,7 +24633,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
   %22 = getelementptr inbounds nuw i8, ptr %.04571, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !63
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !63
   %27 = sext i8 %26 to i32
   %28 = shl nsw i32 %27, 6
@@ -24641,7 +24641,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
   %30 = getelementptr inbounds nuw i8, ptr %.04571, i64 3
   %31 = load i8, ptr %30, align 1, !tbaa !63
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !63
   %35 = sext i8 %34 to i32
   %36 = or i32 %29, %35
@@ -24704,14 +24704,14 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
 66:                                               ; preds = %62
   %67 = load i8, ptr %.04569, align 1, !tbaa !63
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !63
   %71 = sext i8 %70 to i32
   %72 = shl nsw i32 %71, 18
   %73 = getelementptr inbounds nuw i8, ptr %.04569, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !63
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !63
   %78 = sext i8 %77 to i32
   %79 = shl nsw i32 %78, 12
@@ -24724,14 +24724,14 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
 83:                                               ; preds = %62
   %84 = load i8, ptr %.04569, align 1, !tbaa !63
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !63
   %88 = sext i8 %87 to i32
   %89 = shl nsw i32 %88, 18
   %90 = getelementptr inbounds nuw i8, ptr %.04569, i64 1
   %91 = load i8, ptr %90, align 1, !tbaa !63
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !63
   %95 = sext i8 %94 to i32
   %96 = shl nsw i32 %95, 12
@@ -24739,7 +24739,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_119D
   %98 = getelementptr inbounds nuw i8, ptr %.04569, i64 2
   %99 = load i8, ptr %98, align 1, !tbaa !63
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @_ZN6google8protobuf13json_internal12_GLOBAL__N_112kBase64TableE, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !63
   %103 = sext i8 %102 to i32
   %104 = shl nsw i32 %103, 6
@@ -30751,7 +30751,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i72: ; pr
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %100
   store i8 0, ptr %113, align 1, !tbaa !63
   %114 = zext nneg i8 %75 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2024072214ascii_internal8kToLowerE, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072214ascii_internal8kToLowerE, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !63
   %117 = load i64, ptr %62, align 8, !tbaa !29
   %118 = add i64 %117, 1

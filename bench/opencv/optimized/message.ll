@@ -1760,7 +1760,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %.critedge21, %
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %33 = load i8, ptr %32, align 2, !tbaa !96
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !97
   switch i32 %36, label %121 [
     i32 1, label %42
@@ -4913,7 +4913,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal23RepeatedP
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -4962,7 +4962,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
@@ -5043,7 +5043,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 8, !tbaa !182
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !91
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %12, align 8, !tbaa !34
@@ -5058,9 +5058,9 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %9, align 8, !tbaa !91
   %13 = load ptr, ptr %11, align 8, !tbaa !91
   store ptr %13, ptr %9, align 8, !tbaa !91
@@ -5347,7 +5347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %115 ]
   %111 = load ptr, ptr %107, align 8, !tbaa !185
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = getelementptr inbounds nuw [268435454 x ptr], ptr %112, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !91
   invoke void @_ZNK6google8protobuf8internal21RepeatedFieldAccessor3AddINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEvPvRKT0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %114)
           to label %115 unwind label %116
@@ -5505,7 +5505,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = sext i32 %7 to i64
-  %23 = getelementptr inbounds [268435454 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !91
   %25 = load ptr, ptr %0, align 8, !tbaa !187
   %26 = icmp ne ptr %25, null
@@ -5542,10 +5542,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = sext i32 %7 to i64
-  %40 = getelementptr inbounds [268435454 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !91
   %42 = sext i32 %18 to i64
-  %43 = getelementptr inbounds [268435454 x ptr], ptr %38, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %38, i64 %42
   store ptr %41, ptr %43, align 8, !tbaa !91
   %44 = load ptr, ptr %3, align 8, !tbaa !185
   %45 = load i32, ptr %44, align 8, !tbaa !188
@@ -5566,7 +5566,7 @@ _ZN6google8protobuf8internal17StringTypeHandler6DeleteEPNSt7__cxx1112basic_strin
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %51, align 8, !tbaa !182
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds [268435454 x ptr], ptr %50, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %50, i64 %54
   store ptr %1, ptr %55, align 8, !tbaa !91
   ret void
 }
@@ -6102,7 +6102,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal16MapFieldA
   %7 = load ptr, ptr %6, align 8, !tbaa !185
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [268435454 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !91
   ret ptr %11
 }
@@ -6149,7 +6149,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal16MapFieldAccessor
   %7 = load ptr, ptr %6, align 8, !tbaa !185
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [268435454 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !91
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
@@ -6255,7 +6255,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal16MapFieldAccessor
   %9 = add nsw i32 %8, -1
   store i32 %9, ptr %7, align 8, !tbaa !182
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [268435454 x ptr], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -6271,9 +6271,9 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal16MapFieldAccessor
   %7 = load ptr, ptr %6, align 8, !tbaa !185
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [268435454 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds [268435454 x ptr], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !91
   %14 = load ptr, ptr %12, align 8, !tbaa !91
   store ptr %14, ptr %10, align 8, !tbaa !91
@@ -6472,7 +6472,7 @@ _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantI
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = sext i32 %23 to i64
-  %39 = getelementptr inbounds [268435454 x ptr], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !91
   %41 = load ptr, ptr %0, align 8, !tbaa !187
   %42 = icmp ne ptr %41, null
@@ -6495,10 +6495,10 @@ _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantI
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %52 = sext i32 %23 to i64
-  %53 = getelementptr inbounds [268435454 x ptr], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !91
   %55 = sext i32 %34 to i64
-  %56 = getelementptr inbounds [268435454 x ptr], ptr %51, i64 0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr %51, i64 %55
   store ptr %54, ptr %56, align 8, !tbaa !91
   %57 = load ptr, ptr %19, align 8, !tbaa !185
   %58 = load i32, ptr %57, align 8, !tbaa !188
@@ -6519,7 +6519,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 8, !tbaa !182
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [268435454 x ptr], ptr %63, i64 0, i64 %67
+  %68 = getelementptr inbounds ptr, ptr %63, i64 %67
   store ptr %.0, ptr %68, align 8, !tbaa !91
   ret void
 }
@@ -6778,7 +6778,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal23RepeatedP
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
@@ -6827,7 +6827,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !91
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
@@ -6931,7 +6931,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 8, !tbaa !182
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [268435454 x ptr], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !91
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -6946,9 +6946,9 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23RepeatedPtrField
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [268435454 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %9, align 8, !tbaa !91
   %13 = load ptr, ptr %11, align 8, !tbaa !91
   store ptr %13, ptr %9, align 8, !tbaa !91

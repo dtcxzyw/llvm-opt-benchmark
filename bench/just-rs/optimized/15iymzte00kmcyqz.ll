@@ -2929,7 +2929,7 @@ default.unreachable548:                           ; preds = %49, %48
   ret i64 %.0336
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %34, i64 0, i64 %.0367
+  %38 = getelementptr inbounds { i64, [4 x i64] }, ptr %34, i64 %.0367
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)
@@ -3045,8 +3045,8 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h300f8ba38f3bd34dE.exit": ; preds = %66
-  %70 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %63, i64 0, i64 %33
-  %71 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %63, i64 0, i64 %.0367
+  %70 = getelementptr inbounds { i64, [4 x i64] }, ptr %63, i64 %33
+  %71 = getelementptr inbounds { i64, [4 x i64] }, ptr %63, i64 %.0367
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(40) %70, i64 40, i1 false), !noalias !480
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false), !alias.scope !477, !noalias !480
@@ -3068,7 +3068,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 79:                                               ; preds = %72
   %80 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %81 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %80, i64 0, i64 %33
+  %81 = getelementptr inbounds { i64, [4 x i64] }, ptr %80, i64 %33
   %82 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %81)
   br i1 %82, label %84, label %93
 
@@ -3171,7 +3171,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 125:                                              ; preds = %122
   %126 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %126, i64 0, i64 %77
+  %127 = getelementptr inbounds { i64, [4 x i64] }, ptr %126, i64 %77
   call void @_ZN7similar5types6DiffOp9grow_left17h5c6585292ce11584E(ptr noalias noundef nonnull align 8 dereferenceable(40) %127, i64 noundef %57)
   %.pre497 = load i64, ptr %19, align 8
   br label %129
@@ -3187,7 +3187,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %134 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %133, i64 0, i64 %.0367
+  %134 = getelementptr inbounds { i64, [4 x i64] }, ptr %133, i64 %.0367
   call void @_ZN7similar5types6DiffOp10shift_left17h9dccea7e074305cdE(ptr noalias noundef nonnull align 8 dereferenceable(40) %134, i64 noundef %57)
   %135 = load i64, ptr %19, align 8, !noundef !4
   %136 = icmp ult i64 %33, %135
@@ -3199,7 +3199,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 138:                                              ; preds = %132
   %139 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %140 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %139, i64 0, i64 %33
+  %140 = getelementptr inbounds { i64, [4 x i64] }, ptr %139, i64 %33
   call void @_ZN7similar5types6DiffOp11shrink_left17h726ec5531c834d8fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %140, i64 noundef %57)
   %141 = load i64, ptr %19, align 8, !noundef !4
   %142 = icmp ult i64 %33, %141
@@ -3211,7 +3211,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 144:                                              ; preds = %138
   %145 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %146 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %145, i64 0, i64 %33
+  %146 = getelementptr inbounds { i64, [4 x i64] }, ptr %145, i64 %33
   %147 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %146)
   %.pre500 = load i64, ptr %19, align 8
   br i1 %147, label %149, label %157
@@ -3253,7 +3253,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
 
 162:                                              ; preds = %59
   %163 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %164 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %163, i64 0, i64 %33
+  %164 = getelementptr inbounds { i64, [4 x i64] }, ptr %163, i64 %33
   %165 = call { i64, i64 } @_ZN7similar5types6DiffOp9old_range17h4954f2ef6ec0149aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17)
   %166 = extractvalue { i64, i64 } %165, 0
   %167 = extractvalue { i64, i64 } %165, 1
@@ -3340,7 +3340,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 196:                                              ; preds = %189
   %197 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %198 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %197, i64 0, i64 %33
+  %198 = getelementptr inbounds { i64, [4 x i64] }, ptr %197, i64 %33
   %199 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %198)
   br i1 %199, label %201, label %93
 
@@ -3435,7 +3435,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 239:                                              ; preds = %236
   %240 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %241 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %240, i64 0, i64 %194
+  %241 = getelementptr inbounds { i64, [4 x i64] }, ptr %240, i64 %194
   call void @_ZN7similar5types6DiffOp9grow_left17h5c6585292ce11584E(ptr noalias noundef nonnull align 8 dereferenceable(40) %241, i64 noundef %185)
   %.pre = load i64, ptr %19, align 8
   br label %243
@@ -3451,7 +3451,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 246:                                              ; preds = %243
   %247 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %248 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %247, i64 0, i64 %.0367
+  %248 = getelementptr inbounds { i64, [4 x i64] }, ptr %247, i64 %.0367
   call void @_ZN7similar5types6DiffOp10shift_left17h9dccea7e074305cdE(ptr noalias noundef nonnull align 8 dereferenceable(40) %248, i64 noundef %185)
   %249 = load i64, ptr %19, align 8, !noundef !4
   %250 = icmp ult i64 %33, %249
@@ -3463,7 +3463,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 252:                                              ; preds = %246
   %253 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %254 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %253, i64 0, i64 %33
+  %254 = getelementptr inbounds { i64, [4 x i64] }, ptr %253, i64 %33
   call void @_ZN7similar5types6DiffOp11shrink_left17h726ec5531c834d8fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %254, i64 noundef %185)
   %255 = load i64, ptr %19, align 8, !noundef !4
   %256 = icmp ult i64 %33, %255
@@ -3475,7 +3475,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 258:                                              ; preds = %252
   %259 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %260 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %259, i64 0, i64 %33
+  %260 = getelementptr inbounds { i64, [4 x i64] }, ptr %259, i64 %33
   %261 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %260)
   %.pre499 = load i64, ptr %19, align 8
   br i1 %261, label %263, label %157
@@ -3506,7 +3506,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
 
 271:                                              ; preds = %186
   %272 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %273 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %272, i64 0, i64 %33
+  %273 = getelementptr inbounds { i64, [4 x i64] }, ptr %272, i64 %33
   %274 = call { i64, i64 } @_ZN7similar5types6DiffOp9new_range17h36fe34187dcde5eaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17)
   %275 = extractvalue { i64, i64 } %274, 0
   %276 = extractvalue { i64, i64 } %274, 1
@@ -3605,7 +3605,7 @@ default.unreachable548:                           ; preds = %55, %54
   ret i64 %.0336
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %40, i64 0, i64 %.0367
+  %44 = getelementptr inbounds { i64, [4 x i64] }, ptr %40, i64 %.0367
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false)
@@ -3723,8 +3723,8 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h300f8ba38f3bd34dE.exit": ; preds = %72
-  %76 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %69, i64 0, i64 %39
-  %77 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %69, i64 0, i64 %.0367
+  %76 = getelementptr inbounds { i64, [4 x i64] }, ptr %69, i64 %39
+  %77 = getelementptr inbounds { i64, [4 x i64] }, ptr %69, i64 %.0367
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(40) %76, i64 40, i1 false), !noalias !557
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %77, i64 40, i1 false), !alias.scope !554, !noalias !557
@@ -3746,7 +3746,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 85:                                               ; preds = %78
   %86 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %87 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %86, i64 0, i64 %39
+  %87 = getelementptr inbounds { i64, [4 x i64] }, ptr %86, i64 %39
   %88 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %87)
   br i1 %88, label %90, label %99
 
@@ -3849,7 +3849,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %133 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %132, i64 0, i64 %83
+  %133 = getelementptr inbounds { i64, [4 x i64] }, ptr %132, i64 %83
   call void @_ZN7similar5types6DiffOp9grow_left17h5c6585292ce11584E(ptr noalias noundef nonnull align 8 dereferenceable(40) %133, i64 noundef %63)
   %.pre497 = load i64, ptr %21, align 8
   br label %135
@@ -3865,7 +3865,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %140 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %139, i64 0, i64 %.0367
+  %140 = getelementptr inbounds { i64, [4 x i64] }, ptr %139, i64 %.0367
   call void @_ZN7similar5types6DiffOp10shift_left17h9dccea7e074305cdE(ptr noalias noundef nonnull align 8 dereferenceable(40) %140, i64 noundef %63)
   %141 = load i64, ptr %21, align 8, !noundef !4
   %142 = icmp ult i64 %39, %141
@@ -3877,7 +3877,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 144:                                              ; preds = %138
   %145 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %146 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %145, i64 0, i64 %39
+  %146 = getelementptr inbounds { i64, [4 x i64] }, ptr %145, i64 %39
   call void @_ZN7similar5types6DiffOp11shrink_left17h726ec5531c834d8fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %146, i64 noundef %63)
   %147 = load i64, ptr %21, align 8, !noundef !4
   %148 = icmp ult i64 %39, %147
@@ -3889,7 +3889,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 150:                                              ; preds = %144
   %151 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %152 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %151, i64 0, i64 %39
+  %152 = getelementptr inbounds { i64, [4 x i64] }, ptr %151, i64 %39
   %153 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %152)
   %.pre500 = load i64, ptr %21, align 8
   br i1 %153, label %155, label %163
@@ -3931,7 +3931,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 
 168:                                              ; preds = %65
   %169 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %170 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %169, i64 0, i64 %39
+  %170 = getelementptr inbounds { i64, [4 x i64] }, ptr %169, i64 %39
   %171 = call { i64, i64 } @_ZN7similar5types6DiffOp9old_range17h4954f2ef6ec0149aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %19)
   %172 = extractvalue { i64, i64 } %171, 0
   %173 = extractvalue { i64, i64 } %171, 1
@@ -4020,7 +4020,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 202:                                              ; preds = %195
   %203 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %204 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %203, i64 0, i64 %39
+  %204 = getelementptr inbounds { i64, [4 x i64] }, ptr %203, i64 %39
   %205 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %204)
   br i1 %205, label %207, label %99
 
@@ -4115,7 +4115,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 245:                                              ; preds = %242
   %246 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %247 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %246, i64 0, i64 %200
+  %247 = getelementptr inbounds { i64, [4 x i64] }, ptr %246, i64 %200
   call void @_ZN7similar5types6DiffOp9grow_left17h5c6585292ce11584E(ptr noalias noundef nonnull align 8 dereferenceable(40) %247, i64 noundef %191)
   %.pre = load i64, ptr %21, align 8
   br label %249
@@ -4131,7 +4131,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 252:                                              ; preds = %249
   %253 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %254 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %253, i64 0, i64 %.0367
+  %254 = getelementptr inbounds { i64, [4 x i64] }, ptr %253, i64 %.0367
   call void @_ZN7similar5types6DiffOp10shift_left17h9dccea7e074305cdE(ptr noalias noundef nonnull align 8 dereferenceable(40) %254, i64 noundef %191)
   %255 = load i64, ptr %21, align 8, !noundef !4
   %256 = icmp ult i64 %39, %255
@@ -4143,7 +4143,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 258:                                              ; preds = %252
   %259 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %260 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %259, i64 0, i64 %39
+  %260 = getelementptr inbounds { i64, [4 x i64] }, ptr %259, i64 %39
   call void @_ZN7similar5types6DiffOp11shrink_left17h726ec5531c834d8fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %260, i64 noundef %191)
   %261 = load i64, ptr %21, align 8, !noundef !4
   %262 = icmp ult i64 %39, %261
@@ -4155,7 +4155,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 264:                                              ; preds = %258
   %265 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %266 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %265, i64 0, i64 %39
+  %266 = getelementptr inbounds { i64, [4 x i64] }, ptr %265, i64 %39
   %267 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %266)
   %.pre499 = load i64, ptr %21, align 8
   br i1 %267, label %269, label %163
@@ -4186,7 +4186,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
 
 277:                                              ; preds = %192
   %278 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %279 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %278, i64 0, i64 %39
+  %279 = getelementptr inbounds { i64, [4 x i64] }, ptr %278, i64 %39
   %280 = call { i64, i64 } @_ZN7similar5types6DiffOp9new_range17h36fe34187dcde5eaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %19)
   %281 = extractvalue { i64, i64 } %280, 0
   %282 = extractvalue { i64, i64 } %280, 1
@@ -4286,7 +4286,7 @@ default.unreachable563:                           ; preds = %50, %49
   ret i64 %.0346
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %35, i64 0, i64 %.0379
+  %39 = getelementptr inbounds { i64, [4 x i64] }, ptr %35, i64 %.0379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
@@ -4408,8 +4408,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h300f8ba38f3bd34dE.exit": ; preds = %68
-  %72 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %64, i64 0, i64 %.0379
-  %73 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %64, i64 0, i64 %66
+  %72 = getelementptr inbounds { i64, [4 x i64] }, ptr %64, i64 %.0379
+  %73 = getelementptr inbounds { i64, [4 x i64] }, ptr %64, i64 %66
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(40) %72, i64 40, i1 false), !noalias !639
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %73, i64 40, i1 false), !alias.scope !636, !noalias !639
@@ -4434,7 +4434,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %85 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %84, i64 0, i64 %75
+  %85 = getelementptr inbounds { i64, [4 x i64] }, ptr %84, i64 %75
   %86 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %85)
   br i1 %86, label %88, label %97
 
@@ -4534,7 +4534,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %128 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %127, i64 0, i64 %79
+  %128 = getelementptr inbounds { i64, [4 x i64] }, ptr %127, i64 %79
   call void @_ZN7similar5types6DiffOp10grow_right17hfdf175effa8c2eaeE(ptr noalias noundef nonnull align 8 dereferenceable(40) %128, i64 noundef %59)
   %.pre502 = load i64, ptr %19, align 8
   br label %130
@@ -4551,7 +4551,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %135 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %134, i64 0, i64 %.2
+  %135 = getelementptr inbounds { i64, [4 x i64] }, ptr %134, i64 %.2
   call void @_ZN7similar5types6DiffOp11shift_right17h3e302af04fbc2fb2E(ptr noalias noundef nonnull align 8 dereferenceable(40) %135, i64 noundef %59)
   %136 = add nuw i64 %.2, 1
   %137 = load i64, ptr %19, align 8, !noundef !4
@@ -4564,7 +4564,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %142 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %141, i64 0, i64 %136
+  %142 = getelementptr inbounds { i64, [4 x i64] }, ptr %141, i64 %136
   call void @_ZN7similar5types6DiffOp12shrink_right17hf8b13d5b88000c97E(ptr noalias noundef nonnull align 8 dereferenceable(40) %142, i64 noundef %59)
   %143 = load i64, ptr %19, align 8, !noundef !4
   %144 = icmp ult i64 %136, %143
@@ -4576,7 +4576,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 146:                                              ; preds = %140
   %147 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %148 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %147, i64 0, i64 %136
+  %148 = getelementptr inbounds { i64, [4 x i64] }, ptr %147, i64 %136
   %149 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %148)
   %.pre505 = load i64, ptr %19, align 8
   br i1 %149, label %151, label %159
@@ -4620,7 +4620,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
 
 165:                                              ; preds = %60
   %166 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %167 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %166, i64 0, i64 %.0379
+  %167 = getelementptr inbounds { i64, [4 x i64] }, ptr %166, i64 %.0379
   %168 = call { i64, i64 } @_ZN7similar5types6DiffOp9old_range17h4954f2ef6ec0149aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
   %169 = extractvalue { i64, i64 } %168, 0
   %170 = extractvalue { i64, i64 } %168, 1
@@ -4716,7 +4716,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 202:                                              ; preds = %193
   %203 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %204 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %203, i64 0, i64 %194
+  %204 = getelementptr inbounds { i64, [4 x i64] }, ptr %203, i64 %194
   %205 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %204)
   br i1 %205, label %207, label %97
 
@@ -4811,7 +4811,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 244:                                              ; preds = %241
   %245 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %246 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %245, i64 0, i64 %198
+  %246 = getelementptr inbounds { i64, [4 x i64] }, ptr %245, i64 %198
   call void @_ZN7similar5types6DiffOp10grow_right17hfdf175effa8c2eaeE(ptr noalias noundef nonnull align 8 dereferenceable(40) %246, i64 noundef %189)
   %.pre = load i64, ptr %19, align 8
   br label %248
@@ -4828,7 +4828,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %253 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %252, i64 0, i64 %.3
+  %253 = getelementptr inbounds { i64, [4 x i64] }, ptr %252, i64 %.3
   call void @_ZN7similar5types6DiffOp11shift_right17h3e302af04fbc2fb2E(ptr noalias noundef nonnull align 8 dereferenceable(40) %253, i64 noundef %189)
   %254 = add nuw i64 %.3, 1
   %255 = load i64, ptr %19, align 8, !noundef !4
@@ -4841,7 +4841,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 258:                                              ; preds = %251
   %259 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %260 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %259, i64 0, i64 %254
+  %260 = getelementptr inbounds { i64, [4 x i64] }, ptr %259, i64 %254
   call void @_ZN7similar5types6DiffOp12shrink_right17hf8b13d5b88000c97E(ptr noalias noundef nonnull align 8 dereferenceable(40) %260, i64 noundef %189)
   %261 = load i64, ptr %19, align 8, !noundef !4
   %262 = icmp ult i64 %254, %261
@@ -4853,7 +4853,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 264:                                              ; preds = %258
   %265 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %266 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %265, i64 0, i64 %254
+  %266 = getelementptr inbounds { i64, [4 x i64] }, ptr %265, i64 %254
   %267 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %266)
   %.pre504 = load i64, ptr %19, align 8
   br i1 %267, label %269, label %159
@@ -4885,7 +4885,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
 
 277:                                              ; preds = %190
   %278 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %279 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %278, i64 0, i64 %.0379
+  %279 = getelementptr inbounds { i64, [4 x i64] }, ptr %278, i64 %.0379
   %280 = call { i64, i64 } @_ZN7similar5types6DiffOp9new_range17h36fe34187dcde5eaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %18)
   %281 = extractvalue { i64, i64 } %280, 0
   %282 = extractvalue { i64, i64 } %280, 1
@@ -4990,7 +4990,7 @@ default.unreachable563:                           ; preds = %56, %55
   ret i64 %.0346
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %41, i64 0, i64 %.0379
+  %45 = getelementptr inbounds { i64, [4 x i64] }, ptr %41, i64 %.0379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %45, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %45, i64 40, i1 false)
@@ -5114,8 +5114,8 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h300f8ba38f3bd34dE.exit": ; preds = %74
-  %78 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %70, i64 0, i64 %.0379
-  %79 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %70, i64 0, i64 %72
+  %78 = getelementptr inbounds { i64, [4 x i64] }, ptr %70, i64 %.0379
+  %79 = getelementptr inbounds { i64, [4 x i64] }, ptr %70, i64 %72
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(40) %78, i64 40, i1 false), !noalias !726
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %78, ptr noundef nonnull align 8 dereferenceable(40) %79, i64 40, i1 false), !alias.scope !723, !noalias !726
@@ -5140,7 +5140,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 89:                                               ; preds = %80
   %90 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %91 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %90, i64 0, i64 %81
+  %91 = getelementptr inbounds { i64, [4 x i64] }, ptr %90, i64 %81
   %92 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %91)
   br i1 %92, label %94, label %103
 
@@ -5240,7 +5240,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %134 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %133, i64 0, i64 %85
+  %134 = getelementptr inbounds { i64, [4 x i64] }, ptr %133, i64 %85
   call void @_ZN7similar5types6DiffOp10grow_right17hfdf175effa8c2eaeE(ptr noalias noundef nonnull align 8 dereferenceable(40) %134, i64 noundef %65)
   %.pre502 = load i64, ptr %21, align 8
   br label %136
@@ -5257,7 +5257,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %140, i64 0, i64 %.2
+  %141 = getelementptr inbounds { i64, [4 x i64] }, ptr %140, i64 %.2
   call void @_ZN7similar5types6DiffOp11shift_right17h3e302af04fbc2fb2E(ptr noalias noundef nonnull align 8 dereferenceable(40) %141, i64 noundef %65)
   %142 = add nuw i64 %.2, 1
   %143 = load i64, ptr %21, align 8, !noundef !4
@@ -5270,7 +5270,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 146:                                              ; preds = %139
   %147 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %148 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %147, i64 0, i64 %142
+  %148 = getelementptr inbounds { i64, [4 x i64] }, ptr %147, i64 %142
   call void @_ZN7similar5types6DiffOp12shrink_right17hf8b13d5b88000c97E(ptr noalias noundef nonnull align 8 dereferenceable(40) %148, i64 noundef %65)
   %149 = load i64, ptr %21, align 8, !noundef !4
   %150 = icmp ult i64 %142, %149
@@ -5282,7 +5282,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %154 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %153, i64 0, i64 %142
+  %154 = getelementptr inbounds { i64, [4 x i64] }, ptr %153, i64 %142
   %155 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %154)
   %.pre505 = load i64, ptr %21, align 8
   br i1 %155, label %157, label %165
@@ -5326,7 +5326,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
 
 171:                                              ; preds = %66
   %172 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %173 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %172, i64 0, i64 %.0379
+  %173 = getelementptr inbounds { i64, [4 x i64] }, ptr %172, i64 %.0379
   %174 = call { i64, i64 } @_ZN7similar5types6DiffOp9old_range17h4954f2ef6ec0149aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %20)
   %175 = extractvalue { i64, i64 } %174, 0
   %176 = extractvalue { i64, i64 } %174, 1
@@ -5424,7 +5424,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 208:                                              ; preds = %199
   %209 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %210 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %209, i64 0, i64 %200
+  %210 = getelementptr inbounds { i64, [4 x i64] }, ptr %209, i64 %200
   %211 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %210)
   br i1 %211, label %213, label %103
 
@@ -5519,7 +5519,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %252 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %251, i64 0, i64 %204
+  %252 = getelementptr inbounds { i64, [4 x i64] }, ptr %251, i64 %204
   call void @_ZN7similar5types6DiffOp10grow_right17hfdf175effa8c2eaeE(ptr noalias noundef nonnull align 8 dereferenceable(40) %252, i64 noundef %195)
   %.pre = load i64, ptr %21, align 8
   br label %254
@@ -5536,7 +5536,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 257:                                              ; preds = %254
   %258 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %259 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %258, i64 0, i64 %.3
+  %259 = getelementptr inbounds { i64, [4 x i64] }, ptr %258, i64 %.3
   call void @_ZN7similar5types6DiffOp11shift_right17h3e302af04fbc2fb2E(ptr noalias noundef nonnull align 8 dereferenceable(40) %259, i64 noundef %195)
   %260 = add nuw i64 %.3, 1
   %261 = load i64, ptr %21, align 8, !noundef !4
@@ -5549,7 +5549,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 264:                                              ; preds = %257
   %265 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %266 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %265, i64 0, i64 %260
+  %266 = getelementptr inbounds { i64, [4 x i64] }, ptr %265, i64 %260
   call void @_ZN7similar5types6DiffOp12shrink_right17hf8b13d5b88000c97E(ptr noalias noundef nonnull align 8 dereferenceable(40) %266, i64 noundef %195)
   %267 = load i64, ptr %21, align 8, !noundef !4
   %268 = icmp ult i64 %260, %267
@@ -5561,7 +5561,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 270:                                              ; preds = %264
   %271 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %272 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %271, i64 0, i64 %260
+  %272 = getelementptr inbounds { i64, [4 x i64] }, ptr %271, i64 %260
   %273 = call noundef zeroext i1 @_ZN7similar5types6DiffOp8is_empty17hbe478af2e1e97759E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %272)
   %.pre504 = load i64, ptr %21, align 8
   br i1 %273, label %275, label %165
@@ -5593,7 +5593,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
 
 283:                                              ; preds = %196
   %284 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %285 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %284, i64 0, i64 %.0379
+  %285 = getelementptr inbounds { i64, [4 x i64] }, ptr %284, i64 %.0379
   %286 = call { i64, i64 } @_ZN7similar5types6DiffOp9new_range17h36fe34187dcde5eaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %20)
   %287 = extractvalue { i64, i64 } %286, 0
   %288 = extractvalue { i64, i64 } %286, 1

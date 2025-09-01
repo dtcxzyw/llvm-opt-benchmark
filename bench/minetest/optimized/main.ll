@@ -3930,7 +3930,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   %trunc.not.i = phi i1 [ true, %if.end.i730 ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %if.end.i730 ], [ 1, %for.inc.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i728)
-  %arrayidx.i = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_113debuggerNamesE, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_113debuggerNamesE, i64 %indvars.iv.i
   %276 = load ptr, ptr %arrayidx.i, align 8, !tbaa !49
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %call.i.i733 = call ptr @getenv(ptr noundef nonnull @.str.133) #32, !noalias !180
@@ -8905,7 +8905,7 @@ lpad49.i:                                         ; preds = %if.end54.i, %call1.
 if.end54.i:                                       ; preds = %call1.i.noexc325.i, %invoke.cont50.i, %call.i202.noexc.i, %invoke.cont43.i
   %lev_i.0.i = phi i64 [ %call.i.i112, %invoke.cont43.i ], [ 2, %call1.i.noexc325.i ], [ 2, %invoke.cont50.i ], [ 2, %call.i202.noexc.i ]
   %idxprom.i = and i64 %lev_i.0.i, 4294967295
-  %arrayidx.i = getelementptr inbounds nuw [6 x ptr], ptr @_ZZL16init_log_streamsRK8SettingsE8lev_name, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZZL16init_log_streamsRK8SettingsE8lev_name, i64 %idxprom.i
   %237 = load ptr, ptr %arrayidx.i, align 8, !tbaa !49
   %238 = load i64, ptr %_M_string_length.i.i.i.i183.i, align 8, !tbaa !14
   %call.i.i.i223.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %237) #32

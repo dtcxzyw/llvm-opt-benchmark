@@ -170,7 +170,7 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
 31:                                               ; preds = %24, %25
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %33 = sext i32 %1 to i64
-  %34 = getelementptr inbounds [2 x ptr], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %.06374 = load ptr, ptr %34, align 8, !tbaa !38
   %cond75 = icmp eq ptr %.06374, null
   br i1 %cond75, label %._crit_edge, label %.lr.ph
@@ -190,59 +190,58 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
 ._crit_edge:                                      ; preds = %35, %31
   %.062.lcssa = phi ptr [ null, %31 ], [ %.06376, %35 ]
   %38 = icmp eq ptr %.062.lcssa, null
-  %39 = getelementptr inbounds [2 x i64], ptr @first_pool_slop, i64 0, i64 %33
-  %40 = getelementptr inbounds [2 x i64], ptr @extra_pool_slop, i64 0, i64 %33
-  %.0.in = select i1 %38, ptr %39, ptr %40
+  %.0.in.v = select i1 %38, ptr @first_pool_slop, ptr @extra_pool_slop
+  %.0.in = getelementptr inbounds i64, ptr %.0.in.v, i64 %33
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !12
-  %41 = sub i64 999999945, %15
-  %.1 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %41)
-  %42 = add i64 %.1, %16
-  %43 = tail call ptr @jpeg_get_small(ptr noundef %0, i64 noundef %42) #9
-  %.not6977 = icmp eq ptr %43, null
+  %39 = sub i64 999999945, %15
+  %.1 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %39)
+  %40 = add i64 %.1, %16
+  %41 = tail call ptr @jpeg_get_small(ptr noundef %0, i64 noundef %40) #9
+  %.not6977 = icmp eq ptr %41, null
   br i1 %.not6977, label %.lr.ph80, label %._crit_edge81
 
-.lr.ph80:                                         ; preds = %._crit_edge, %52
-  %.278 = phi i64 [ %44, %52 ], [ %.1, %._crit_edge ]
-  %44 = lshr i64 %.278, 1
-  %45 = icmp ult i64 %.278, 100
-  br i1 %45, label %46, label %52
+.lr.ph80:                                         ; preds = %._crit_edge, %50
+  %.278 = phi i64 [ %42, %50 ], [ %.1, %._crit_edge ]
+  %42 = lshr i64 %.278, 1
+  %43 = icmp ult i64 %.278, 100
+  br i1 %43, label %44, label %50
 
-46:                                               ; preds = %.lr.ph80
-  %47 = load ptr, ptr %0, align 8, !tbaa !14
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i32 54, ptr %48, align 8, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  store i32 2, ptr %49, align 4, !tbaa !18
-  %50 = load ptr, ptr %0, align 8, !tbaa !14
-  %51 = load ptr, ptr %50, align 8, !tbaa !19
-  tail call void %51(ptr noundef nonnull %0) #9
-  br label %52
+44:                                               ; preds = %.lr.ph80
+  %45 = load ptr, ptr %0, align 8, !tbaa !14
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store i32 54, ptr %46, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 44
+  store i32 2, ptr %47, align 4, !tbaa !18
+  %48 = load ptr, ptr %0, align 8, !tbaa !14
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
+  tail call void %49(ptr noundef nonnull %0) #9
+  br label %50
 
-52:                                               ; preds = %46, %.lr.ph80
-  %53 = add i64 %44, %16
-  %54 = tail call ptr @jpeg_get_small(ptr noundef %0, i64 noundef %53) #9
-  %.not69 = icmp eq ptr %54, null
+50:                                               ; preds = %44, %.lr.ph80
+  %51 = add i64 %42, %16
+  %52 = tail call ptr @jpeg_get_small(ptr noundef %0, i64 noundef %51) #9
+  %.not69 = icmp eq ptr %52, null
   br i1 %.not69, label %.lr.ph80, label %._crit_edge81
 
-._crit_edge81:                                    ; preds = %52, %._crit_edge
-  %.2.lcssa = phi i64 [ %.1, %._crit_edge ], [ %44, %52 ]
-  %.lcssa71 = phi i64 [ %42, %._crit_edge ], [ %53, %52 ]
-  %.lcssa = phi ptr [ %43, %._crit_edge ], [ %54, %52 ]
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %56 = load i64, ptr %55, align 8, !tbaa !37
-  %57 = add i64 %56, %.lcssa71
-  store i64 %57, ptr %55, align 8, !tbaa !37
-  %58 = add i64 %.2.lcssa, %15
-  %59 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+._crit_edge81:                                    ; preds = %50, %._crit_edge
+  %.2.lcssa = phi i64 [ %.1, %._crit_edge ], [ %42, %50 ]
+  %.lcssa71 = phi i64 [ %40, %._crit_edge ], [ %51, %50 ]
+  %.lcssa = phi ptr [ %41, %._crit_edge ], [ %52, %50 ]
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %54 = load i64, ptr %53, align 8, !tbaa !37
+  %55 = add i64 %54, %.lcssa71
+  store i64 %55, ptr %53, align 8, !tbaa !37
+  %56 = add i64 %.2.lcssa, %15
+  %57 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa, i8 0, i64 16, i1 false)
-  store i64 %58, ptr %59, align 8, !tbaa !42
-  br i1 %38, label %60, label %61
+  store i64 %56, ptr %57, align 8, !tbaa !42
+  br i1 %38, label %58, label %59
 
-60:                                               ; preds = %._crit_edge81
+58:                                               ; preds = %._crit_edge81
   store ptr %.lcssa, ptr %34, align 8, !tbaa !38
   br label %.loopexit
 
-61:                                               ; preds = %._crit_edge81
+59:                                               ; preds = %._crit_edge81
   store ptr %.lcssa, ptr %.062.lcssa, align 8, !tbaa !44
   br label %.loopexit
 
@@ -251,25 +250,25 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !45
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %60, %61
-  %62 = phi i64 [ %58, %60 ], [ %58, %61 ], [ %37, %.loopexit.loopexit ]
-  %63 = phi i64 [ 0, %60 ], [ 0, %61 ], [ %.pre, %.loopexit.loopexit ]
-  %.164 = phi ptr [ %.lcssa, %60 ], [ %.lcssa, %61 ], [ %.06376, %.loopexit.loopexit ]
-  %64 = getelementptr inbounds nuw i8, ptr %.164, i64 24
-  %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, 31
-  %.not70 = icmp eq i64 %66, 0
-  %67 = sub nuw nsw i64 32, %66
-  %.061.idx = select i1 %.not70, i64 0, i64 %67
-  %.061 = getelementptr inbounds nuw i8, ptr %64, i64 %.061.idx
-  %68 = getelementptr inbounds nuw i8, ptr %.164, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %.061, i64 %63
-  %70 = add i64 %63, %15
-  store i64 %70, ptr %68, align 8, !tbaa !45
-  %71 = getelementptr inbounds nuw i8, ptr %.164, i64 16
-  %72 = sub i64 %62, %15
-  store i64 %72, ptr %71, align 8, !tbaa !42
-  ret ptr %69
+.loopexit:                                        ; preds = %.loopexit.loopexit, %58, %59
+  %60 = phi i64 [ %56, %58 ], [ %56, %59 ], [ %37, %.loopexit.loopexit ]
+  %61 = phi i64 [ 0, %58 ], [ 0, %59 ], [ %.pre, %.loopexit.loopexit ]
+  %.164 = phi ptr [ %.lcssa, %58 ], [ %.lcssa, %59 ], [ %.06376, %.loopexit.loopexit ]
+  %62 = getelementptr inbounds nuw i8, ptr %.164, i64 24
+  %63 = ptrtoint ptr %62 to i64
+  %64 = and i64 %63, 31
+  %.not70 = icmp eq i64 %64, 0
+  %65 = sub nuw nsw i64 32, %64
+  %.061.idx = select i1 %.not70, i64 0, i64 %65
+  %.061 = getelementptr inbounds nuw i8, ptr %62, i64 %.061.idx
+  %66 = getelementptr inbounds nuw i8, ptr %.164, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.061, i64 %61
+  %68 = add i64 %61, %15
+  store i64 %68, ptr %66, align 8, !tbaa !45
+  %69 = getelementptr inbounds nuw i8, ptr %.164, i64 16
+  %70 = sub i64 %60, %15
+  store i64 %70, ptr %69, align 8, !tbaa !42
+  ret ptr %67
 }
 
 ; Function Attrs: nounwind uwtable
@@ -346,7 +345,7 @@ define internal nonnull ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 nou
   store i64 %43, ptr %41, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds [2 x ptr], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !46
   store ptr %47, ptr %32, align 8, !tbaa !48
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1676,7 +1675,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
 31:                                               ; preds = %.thread, %._crit_edge71, %10
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %33 = sext i32 %1 to i64
-  %34 = getelementptr inbounds [2 x ptr], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   store ptr null, ptr %34, align 8, !tbaa !46
   %.not5972 = icmp eq ptr %35, null
@@ -1704,7 +1703,7 @@ define internal void @free_pool(ptr noundef %0, i32 noundef %1) #0 {
 
 ._crit_edge76:                                    ; preds = %37, %31
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %48 = getelementptr inbounds [2 x ptr], ptr %47, i64 0, i64 %33
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %33
   %49 = load ptr, ptr %48, align 8, !tbaa !38
   store ptr null, ptr %48, align 8, !tbaa !38
   %.not6077 = icmp eq ptr %49, null

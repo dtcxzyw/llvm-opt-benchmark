@@ -263,7 +263,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4, !tbaa !12
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [128 x ptr], ptr @_ZZN4perf7PrintToERKNS_12CvtColorInfoEPSoE3str, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZZN4perf7PrintToERKNS_12CvtColorInfoEPSoE3str, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i64 noundef %7)

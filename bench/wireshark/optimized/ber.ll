@@ -69,7 +69,7 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   %25 = add i32 %.068, -1
   %26 = add i32 %.05267, 1
   %27 = sext i32 %.05267 to i64
-  %28 = getelementptr [8 x i8], ptr %4, i64 0, i64 %27
+  %28 = getelementptr i8, ptr %4, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = shl i32 %.166, 8
   %31 = zext i8 %29 to i32

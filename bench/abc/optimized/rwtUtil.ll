@@ -700,7 +700,7 @@ define noalias noundef ptr @Rwt_ManGetPractical(ptr noundef readonly captures(no
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [136 x i16], ptr @s_RwtPracticalClasses, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i16, ptr @s_RwtPracticalClasses, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !37
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 %7

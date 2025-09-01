@@ -3323,7 +3323,7 @@ define void @_ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl(ptr noundef
 
 switch.lookup:                                    ; preds = %60
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl, i64 %71
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %53, align 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 208

@@ -69,7 +69,7 @@ define internal fastcc void @_tree2str_recursive(ptr noundef readonly captures(a
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [10 x %struct.op_tbl_t], ptr @op_table, i64 0, i64 %17, i32 1
+  %18 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %17, i32 1
   %19 = load ptr, ptr %18, align 8
   br i1 %.not18, label %20, label %23
 
@@ -421,11 +421,11 @@ _str2op.exit.thread:                              ; preds = %64
 
 65:                                               ; preds = %64, %._crit_edge.i
   %indvars.iv.i = phi i64 [ 1, %._crit_edge.i ], [ %indvars.iv.next.i, %64 ]
-  %66 = getelementptr inbounds nuw [10 x %struct.op_tbl_t], ptr @op_table, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 16
   %.fr.i = freeze i32 %67
   %68 = zext i32 %.fr.i to i64
-  %69 = getelementptr inbounds nuw [10 x %struct.op_tbl_t], ptr @op_table, i64 0, i64 %68, i32 1
+  %69 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %68, i32 1
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @xstrcmp(ptr noundef nonnull %55, ptr noundef %70) #6
   %.not24.not.i = icmp eq i32 %71, 0
@@ -557,11 +557,11 @@ _str2op.exit.thread.i:                            ; preds = %112
 
 113:                                              ; preds = %112, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %indvars.iv.next.i.i, %112 ]
-  %114 = getelementptr inbounds nuw [10 x %struct.op_tbl_t], ptr @op_table, i64 0, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %indvars.iv.i.i
   %115 = load i32, ptr %114, align 16
   %.fr.i.i = freeze i32 %115
   %116 = zext i32 %.fr.i.i to i64
-  %117 = getelementptr inbounds nuw [10 x %struct.op_tbl_t], ptr @op_table, i64 0, i64 %116, i32 1
+  %117 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %116, i32 1
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 @xstrcmp(ptr noundef nonnull %.01539.i, ptr noundef %118) #6
   %.not24.not.i.i = icmp eq i32 %119, 0

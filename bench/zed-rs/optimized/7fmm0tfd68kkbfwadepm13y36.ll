@@ -990,7 +990,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$gpui..shared_string..SharedString$GT$$GT$17hca26b39423021686E.exit45", %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hdb756922a951baa4E.llvm.2036775944964463284.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %105, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17hdb756922a951baa4E.llvm.2036775944964463284.exit.i.i.i" ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$gpui..shared_string..SharedString$GT$$GT$17hca26b39423021686E.exit45" ]
-  %104 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %101, i64 0, i64 %.sroa.0.09.i.i.i
+  %104 = getelementptr inbounds { i64, [2 x i64] }, ptr %101, i64 %.sroa.0.09.i.i.i
   %105 = add nuw i64 %.sroa.0.09.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %106 = load i64, ptr %104, align 8, !range !19, !alias.scope !105, !noalias !98, !noundef !5
@@ -1312,9 +1312,9 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
   br i1 %42, label %43, label %.split132.us.invoke.i
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %38
+  %44 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %38
   %45 = load i8, ptr %44, align 1, !alias.scope !173, !noalias !178, !noundef !5
-  %46 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %41
+  %46 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %41
   %47 = load i8, ptr %46, align 1, !alias.scope !170, !noalias !175, !noundef !5
   %.not.i32.us.i = icmp eq i8 %45, %47
   br i1 %.not.i32.us.i, label %.preheader67.us.i, label %48
@@ -1330,9 +1330,9 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
 
 53:                                               ; preds = %50
   %54 = add nuw i64 %.sroa.04.0.i30.us.i, 1
-  %55 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i30.us.i
+  %55 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i30.us.i
   %56 = load i8, ptr %55, align 1, !alias.scope !173, !noalias !178, !noundef !5
-  %57 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %51
+  %57 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %51
   %58 = load i8, ptr %57, align 1, !alias.scope !170, !noalias !175, !noundef !5
   %.not24.i34.us.i = icmp eq i8 %56, %58
   br i1 %.not24.i34.us.i, label %34, label %59
@@ -1391,9 +1391,9 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
   br i1 %80, label %81, label %.split132.us.invoke.i
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %78
+  %82 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %78
   %83 = load i8, ptr %82, align 1, !alias.scope !182, !noalias !187, !noundef !5
-  %84 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %79
+  %84 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %79
   %85 = load i8, ptr %84, align 1, !alias.scope !179, !noalias !184, !noundef !5
   %.not.i.us.i.us = icmp eq i8 %83, %85
   br i1 %.not.i.us.i.us, label %.preheader.us.i.us, label %.split.us
@@ -1461,9 +1461,9 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
 
 110:                                              ; preds = %107
   %111 = add nuw i64 %.sroa.04.0.i.us.i, 1
-  %112 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i.us.i
+  %112 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i.us.i
   %113 = load i8, ptr %112, align 1, !alias.scope !182, !noalias !187, !noundef !5
-  %114 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %108
+  %114 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %108
   %115 = load i8, ptr %114, align 1, !alias.scope !179, !noalias !184, !noundef !5
   %.not24.i.us.i = icmp eq i8 %113, %115
   br i1 %.not24.i.us.i, label %.preheader66.us.i, label %116
@@ -1776,7 +1776,7 @@ common.resume:                                    ; preds = %243, %"_ZN63_$LT$al
   br label %274
 
 247:                                              ; preds = %226
-  %248 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }], ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.601, i64 0, i64 %228, i32 1
+  %248 = getelementptr inbounds nuw { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.7f75af4656809b7e57137b5ca6f6cdb4.601, i64 %228, i32 1
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 64
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %250 = load i64, ptr %249, align 8, !range !19, !alias.scope !228, !noalias !231, !noundef !5

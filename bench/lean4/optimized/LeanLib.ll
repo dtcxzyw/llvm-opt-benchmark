@@ -32,7 +32,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Package_leanLibs___spec__1(ptr n
 9:                                                ; preds = %.lr.ph, %lean_dec.exit47
   %.03584 = phi i64 [ %2, %.lr.ph ], [ %20, %lean_dec.exit47 ]
   %.03983 = phi ptr [ %4, %.lr.ph ], [ %.241, %lean_dec.exit47 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.03584
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.03584
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

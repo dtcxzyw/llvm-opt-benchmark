@@ -404,7 +404,7 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4SSAO9runShaderER12MeshDocumentP6GLArea(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Matrix44", align 4
-  %.sroa.055 = alloca [16 x float], align 4
+  %.sroa.067 = alloca [16 x float], align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
   %6 = alloca %class.MLRenderingData, align 8
   %7 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
@@ -447,535 +447,535 @@ define void @_ZN4SSAO9runShaderER12MeshDocumentP6GLArea(ptr noundef nonnull read
   call void @glMatrixMode(i32 noundef 5888)
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %19, %39
-  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %39 ], [ 1, %19 ]
-  %30 = shl nuw nsw i64 %indvars.iv15.i.i, 2
-  br label %31
+.preheader.i.i:                                   ; preds = %19, %33
+  %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %33 ], [ 1, %19 ]
+  %.idx.i.i = shl nuw nsw i64 %indvars.iv15.i.i, 4
+  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
+  %invariant.gep20.i.i = getelementptr float, ptr %4, i64 %indvars.iv15.i.i
+  br label %30
 
-31:                                               ; preds = %31, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %32 = add nuw nsw i64 %indvars.iv.i.i, %30
-  %33 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %32
-  %34 = shl i64 %indvars.iv.i.i, 2
-  %35 = add nuw nsw i64 %34, %indvars.iv15.i.i
-  %36 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %35
-  %37 = load float, ptr %33, align 4
-  %38 = load float, ptr %36, align 4
-  store float %38, ptr %33, align 4
-  store float %37, ptr %36, align 4
+30:                                               ; preds = %30, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
+  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %.idx19.i.i = shl i64 %indvars.iv.i.i, 4
+  %gep21.i.i = getelementptr i8, ptr %invariant.gep20.i.i, i64 %.idx19.i.i
+  %31 = load float, ptr %gep.i.i, align 4
+  %32 = load float, ptr %gep21.i.i, align 4
+  store float %32, ptr %gep.i.i, align 4
+  store float %31, ptr %gep21.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv15.i.i
-  br i1 %exitcond.not.i.i, label %39, label %31, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %33, label %30, !llvm.loop !5
 
-39:                                               ; preds = %31
+33:                                               ; preds = %30
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %exitcond18.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, 4
   br i1 %exitcond18.not.i.i, label %_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit, label %.preheader.i.i, !llvm.loop !7
 
-_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit:     ; preds = %39
+_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit:     ; preds = %33
   call void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %5, ptr noundef nonnull align 4 dereferenceable(64) %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.055, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.067, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   call void @glDrawBuffer(i32 noundef 36064)
   call void @glClear(i32 noundef 16640)
   call void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  store i32 0, ptr %40, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  store i32 0, ptr %34, align 1
   store i8 1, ptr %7, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 1, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 1, ptr %42, align 1
-  %43 = invoke noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 3, ptr noundef nonnull align 1 dereferenceable(7) %7)
-          to label %44 unwind label %.loopexit.split-lp
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 1, ptr %35, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 1, ptr %36, align 1
+  %37 = invoke noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 3, ptr noundef nonnull align 1 dereferenceable(7) %7)
+          to label %38 unwind label %.loopexit.split-lp
 
-44:                                               ; preds = %_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit
-  %45 = invoke ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
-          to label %46 unwind label %.loopexit.split-lp
+38:                                               ; preds = %_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit
+  %39 = invoke ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
+          to label %40 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %44
-  %47 = invoke ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %45)
+40:                                               ; preds = %38
+  %41 = invoke ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %39)
           to label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit unwind label %.loopexit.split-lp
 
-_ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %46
-  %48 = invoke ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %45)
+_ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %40
+  %42 = invoke ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %39)
           to label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader unwind label %.loopexit.split-lp
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader: ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
-  %.not56 = icmp eq ptr %47, %48
-  br i1 %.not56, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
+  %.not68 = icmp eq ptr %41, %42
+  br i1 %.not68, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
-  %.sroa.050.057 = phi ptr [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ], [ %47, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.050.057, i64 1220
-  %50 = load i8, ptr %49, align 4
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  %.sroa.062.069 = phi ptr [ %51, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ], [ %41, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.062.069, i64 1220
+  %44 = load i8, ptr %43, align 4
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.050.057, i64 1240
-  %54 = load i32, ptr %53, align 8
-  %55 = invoke noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %56 unwind label %.loopexit
+46:                                               ; preds = %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.062.069, i64 1240
+  %48 = load i32, ptr %47, align 8
+  %49 = invoke noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
+          to label %50 unwind label %.loopexit
 
-56:                                               ; preds = %52
-  invoke void @_ZN26MLSceneGLSharedDataContext29drawAllocatedAttributesSubsetEiP10QGLContextRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(168) %17, i32 noundef %54, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(40) %6)
+50:                                               ; preds = %46
+  invoke void @_ZN26MLSceneGLSharedDataContext29drawAllocatedAttributesSubsetEiP10QGLContextRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(168) %17, i32 noundef %48, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit unwind label %.loopexit
 
-.loopexit:                                        ; preds = %52, %56
+.loopexit:                                        ; preds = %46, %50
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %218
 
-.loopexit.split-lp:                               ; preds = %_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit, %44, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, %59, %63, %67, %68, %70, %73, %77, %79, %81, %84, %88, %90, %92, %95, %99, %101, %105, %109, %125, %141, %142, %143, %144, %145, %146, %147, %148, %149, %151, %154, %158, %166, %168, %170, %173, %177, %179, %180, %181, %182, %183, %184, %185, %186, %_ZN14DecorateShader6unbindEv.exit, %194, %195, %196, %197, %199, %203, %205, %206, %207, %208, %209, %210, %211, %213, %214, %215, %46, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %191, %.noexc
+.loopexit.split-lp:                               ; preds = %_ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit, %38, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, %53, %57, %61, %62, %64, %67, %71, %73, %75, %78, %82, %84, %86, %89, %93, %95, %99, %103, %113, %123, %124, %125, %126, %127, %128, %129, %130, %131, %133, %136, %140, %148, %150, %152, %155, %159, %161, %162, %163, %164, %165, %166, %167, %168, %_ZN14DecorateShader6unbindEv.exit, %176, %177, %178, %179, %181, %185, %187, %188, %189, %190, %191, %192, %193, %195, %196, %197, %40, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %173, %.noexc
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %218
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %.lr.ph, %56
-  %57 = load ptr, ptr %.sroa.050.057, align 8
-  %.not = icmp eq ptr %57, %48
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %.lr.ph, %50
+  %51 = load ptr, ptr %.sroa.062.069, align 8
+  %.not = icmp eq ptr %51, %42
   br i1 %.not, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge, label %.lr.ph
 
 _ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit.preheader
+  %52 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %52(i32 noundef 0)
+          to label %53 unwind label %.loopexit.split-lp
+
+53:                                               ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
+  %54 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %56 = load i32, ptr %55, align 4
+  invoke void %54(i32 noundef 36160, i32 noundef %56)
+          to label %57 unwind label %.loopexit.split-lp
+
+57:                                               ; preds = %53
   %58 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %58(i32 noundef 0)
-          to label %59 unwind label %.loopexit.split-lp
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %60 = load i32, ptr %59, align 4
+  invoke void %58(i32 noundef %60)
+          to label %61 unwind label %.loopexit.split-lp
 
-59:                                               ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge
-  %60 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %62 = load i32, ptr %61, align 4
-  invoke void %60(i32 noundef 36160, i32 noundef %62)
-          to label %63 unwind label %.loopexit.split-lp
+61:                                               ; preds = %57
+  invoke void @glEnable(i32 noundef 3553)
+          to label %62 unwind label %.loopexit.split-lp
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr @__glewUseProgram, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %66 = load i32, ptr %65, align 4
-  invoke void %64(i32 noundef %66)
+62:                                               ; preds = %61
+  %63 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %63(i32 noundef 33984)
+          to label %64 unwind label %.loopexit.split-lp
+
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %66 = load i32, ptr %65, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %66)
           to label %67 unwind label %.loopexit.split-lp
 
-67:                                               ; preds = %63
-  invoke void @glEnable(i32 noundef 3553)
-          to label %68 unwind label %.loopexit.split-lp
+67:                                               ; preds = %64
+  %68 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %69 = load i32, ptr %59, align 4
+  %70 = invoke i32 %68(i32 noundef %69, ptr noundef nonnull @.str.14)
+          to label %71 unwind label %.loopexit.split-lp
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %69(i32 noundef 33984)
-          to label %70 unwind label %.loopexit.split-lp
-
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %72 = load i32, ptr %71, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %72)
+71:                                               ; preds = %67
+  %72 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %72(i32 noundef %70, i32 noundef 0)
           to label %73 unwind label %.loopexit.split-lp
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %75 = load i32, ptr %65, align 4
-  %76 = invoke i32 %74(i32 noundef %75, ptr noundef nonnull @.str.14)
-          to label %77 unwind label %.loopexit.split-lp
+73:                                               ; preds = %71
+  %74 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %74(i32 noundef 33985)
+          to label %75 unwind label %.loopexit.split-lp
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %78(i32 noundef %76, i32 noundef 0)
-          to label %79 unwind label %.loopexit.split-lp
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load i32, ptr %76, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %77)
+          to label %78 unwind label %.loopexit.split-lp
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %80(i32 noundef 33985)
-          to label %81 unwind label %.loopexit.split-lp
+78:                                               ; preds = %75
+  %79 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %80 = load i32, ptr %59, align 4
+  %81 = invoke i32 %79(i32 noundef %80, ptr noundef nonnull @.str.15)
+          to label %82 unwind label %.loopexit.split-lp
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load i32, ptr %82, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %83)
+82:                                               ; preds = %78
+  %83 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %83(i32 noundef %81, i32 noundef 1)
           to label %84 unwind label %.loopexit.split-lp
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %86 = load i32, ptr %65, align 4
-  %87 = invoke i32 %85(i32 noundef %86, ptr noundef nonnull @.str.15)
-          to label %88 unwind label %.loopexit.split-lp
+84:                                               ; preds = %82
+  %85 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %85(i32 noundef 33986)
+          to label %86 unwind label %.loopexit.split-lp
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %89(i32 noundef %87, i32 noundef 1)
-          to label %90 unwind label %.loopexit.split-lp
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %88 = load i32, ptr %87, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %88)
+          to label %89 unwind label %.loopexit.split-lp
 
-90:                                               ; preds = %88
-  %91 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %91(i32 noundef 33986)
-          to label %92 unwind label %.loopexit.split-lp
+89:                                               ; preds = %86
+  %90 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %91 = load i32, ptr %59, align 4
+  %92 = invoke i32 %90(i32 noundef %91, ptr noundef nonnull @.str.16)
+          to label %93 unwind label %.loopexit.split-lp
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %94 = load i32, ptr %93, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %94)
+93:                                               ; preds = %89
+  %94 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %94(i32 noundef %92, i32 noundef 2)
           to label %95 unwind label %.loopexit.split-lp
 
-95:                                               ; preds = %92
+95:                                               ; preds = %93
   %96 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %97 = load i32, ptr %65, align 4
-  %98 = invoke i32 %96(i32 noundef %97, ptr noundef nonnull @.str.16)
+  %97 = load i32, ptr %59, align 4
+  %98 = invoke i32 %96(i32 noundef %97, ptr noundef nonnull @.str.17)
           to label %99 unwind label %.loopexit.split-lp
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %100(i32 noundef %98, i32 noundef 2)
-          to label %101 unwind label %.loopexit.split-lp
+  %100 = load ptr, ptr @__glewUniform1f, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %102 = load float, ptr %101, align 8
+  invoke void %100(i32 noundef %98, float noundef %102)
+          to label %103 unwind label %.loopexit.split-lp
 
-101:                                              ; preds = %99
-  %102 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %103 = load i32, ptr %65, align 4
-  %104 = invoke i32 %102(i32 noundef %103, ptr noundef nonnull @.str.17)
-          to label %105 unwind label %.loopexit.split-lp
+103:                                              ; preds = %99
+  %104 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %105 = load i32, ptr %59, align 4
+  %106 = invoke i32 %104(i32 noundef %105, ptr noundef nonnull @.str.18)
+          to label %107 unwind label %.loopexit.split-lp
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr @__glewUniform1f, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %108 = load float, ptr %107, align 8
-  invoke void %106(i32 noundef %104, float noundef %108)
-          to label %109 unwind label %.loopexit.split-lp
-
-109:                                              ; preds = %105
-  %110 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %111 = load i32, ptr %65, align 4
-  %112 = invoke i32 %110(i32 noundef %111, ptr noundef nonnull @.str.18)
-          to label %113 unwind label %.loopexit.split-lp
-
-113:                                              ; preds = %109
-  %114 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+107:                                              ; preds = %103
+  %108 = load ptr, ptr @__glewUniformMatrix4fv, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %.preheader.i.i34
 
-.preheader.i.i34:                                 ; preds = %124, %113
-  %indvars.iv15.i.i35 = phi i64 [ 1, %113 ], [ %indvars.iv.next16.i.i39, %124 ]
-  %115 = shl nuw nsw i64 %indvars.iv15.i.i35, 2
-  br label %116
+.preheader.i.i34:                                 ; preds = %112, %107
+  %indvars.iv15.i.i35 = phi i64 [ 1, %107 ], [ %indvars.iv.next16.i.i45, %112 ]
+  %.idx.i.i36 = shl nuw nsw i64 %indvars.iv15.i.i35, 4
+  %invariant.gep.i.i37 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i36
+  %invariant.gep20.i.i38 = getelementptr float, ptr %8, i64 %indvars.iv15.i.i35
+  br label %109
 
-116:                                              ; preds = %116, %.preheader.i.i34
-  %indvars.iv.i.i36 = phi i64 [ 0, %.preheader.i.i34 ], [ %indvars.iv.next.i.i37, %116 ]
-  %117 = add nuw nsw i64 %indvars.iv.i.i36, %115
-  %118 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %117
-  %119 = shl i64 %indvars.iv.i.i36, 2
-  %120 = add nuw nsw i64 %119, %indvars.iv15.i.i35
-  %121 = getelementptr inbounds [16 x float], ptr %8, i64 0, i64 %120
-  %122 = load float, ptr %118, align 4, !alias.scope !8
-  %123 = load float, ptr %121, align 4, !alias.scope !8
-  store float %123, ptr %118, align 4, !alias.scope !8
-  store float %122, ptr %121, align 4, !alias.scope !8
-  %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, %indvars.iv15.i.i35
-  br i1 %exitcond.not.i.i38, label %124, label %116, !llvm.loop !5
+109:                                              ; preds = %109, %.preheader.i.i34
+  %indvars.iv.i.i39 = phi i64 [ 0, %.preheader.i.i34 ], [ %indvars.iv.next.i.i43, %109 ]
+  %gep.i.i40 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i37, i64 %indvars.iv.i.i39
+  %.idx19.i.i41 = shl i64 %indvars.iv.i.i39, 4
+  %gep21.i.i42 = getelementptr i8, ptr %invariant.gep20.i.i38, i64 %.idx19.i.i41
+  %110 = load float, ptr %gep.i.i40, align 4, !alias.scope !8
+  %111 = load float, ptr %gep21.i.i42, align 4, !alias.scope !8
+  store float %111, ptr %gep.i.i40, align 4, !alias.scope !8
+  store float %110, ptr %gep21.i.i42, align 4, !alias.scope !8
+  %indvars.iv.next.i.i43 = add nuw nsw i64 %indvars.iv.i.i39, 1
+  %exitcond.not.i.i44 = icmp eq i64 %indvars.iv.next.i.i43, %indvars.iv15.i.i35
+  br i1 %exitcond.not.i.i44, label %112, label %109, !llvm.loop !5
 
-124:                                              ; preds = %116
-  %indvars.iv.next16.i.i39 = add nuw nsw i64 %indvars.iv15.i.i35, 1
-  %exitcond18.not.i.i40 = icmp eq i64 %indvars.iv.next16.i.i39, 4
-  br i1 %exitcond18.not.i.i40, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i34, !llvm.loop !7
+112:                                              ; preds = %109
+  %indvars.iv.next16.i.i45 = add nuw nsw i64 %indvars.iv15.i.i35, 1
+  %exitcond18.not.i.i46 = icmp eq i64 %indvars.iv.next16.i.i45, 4
+  br i1 %exitcond18.not.i.i46, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i34, !llvm.loop !7
 
-_ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %124
-  invoke void %114(i32 noundef %112, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %8)
-          to label %125 unwind label %232
+_ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %112
+  invoke void %108(i32 noundef %106, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %8)
+          to label %113 unwind label %214
 
-125:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit
-  %126 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %127 = load i32, ptr %65, align 4
-  %128 = invoke i32 %126(i32 noundef %127, ptr noundef nonnull @.str.19)
+113:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit
+  %114 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %115 = load i32, ptr %59, align 4
+  %116 = invoke i32 %114(i32 noundef %115, ptr noundef nonnull @.str.19)
+          to label %117 unwind label %.loopexit.split-lp
+
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @__glewUniformMatrix4fv, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %.sroa.067, i64 64, i1 false)
+  br label %.preheader.i.i47
+
+.preheader.i.i47:                                 ; preds = %122, %117
+  %indvars.iv15.i.i48 = phi i64 [ 1, %117 ], [ %indvars.iv.next16.i.i58, %122 ]
+  %.idx.i.i49 = shl nuw nsw i64 %indvars.iv15.i.i48, 4
+  %invariant.gep.i.i50 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i49
+  %invariant.gep20.i.i51 = getelementptr float, ptr %9, i64 %indvars.iv15.i.i48
+  br label %119
+
+119:                                              ; preds = %119, %.preheader.i.i47
+  %indvars.iv.i.i52 = phi i64 [ 0, %.preheader.i.i47 ], [ %indvars.iv.next.i.i56, %119 ]
+  %gep.i.i53 = getelementptr inbounds nuw float, ptr %invariant.gep.i.i50, i64 %indvars.iv.i.i52
+  %.idx19.i.i54 = shl i64 %indvars.iv.i.i52, 4
+  %gep21.i.i55 = getelementptr i8, ptr %invariant.gep20.i.i51, i64 %.idx19.i.i54
+  %120 = load float, ptr %gep.i.i53, align 4, !alias.scope !11
+  %121 = load float, ptr %gep21.i.i55, align 4, !alias.scope !11
+  store float %121, ptr %gep.i.i53, align 4, !alias.scope !11
+  store float %120, ptr %gep21.i.i55, align 4, !alias.scope !11
+  %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i52, 1
+  %exitcond.not.i.i57 = icmp eq i64 %indvars.iv.next.i.i56, %indvars.iv15.i.i48
+  br i1 %exitcond.not.i.i57, label %122, label %119, !llvm.loop !5
+
+122:                                              ; preds = %119
+  %indvars.iv.next16.i.i58 = add nuw nsw i64 %indvars.iv15.i.i48, 1
+  %exitcond18.not.i.i59 = icmp eq i64 %indvars.iv.next16.i.i58, 4
+  br i1 %exitcond18.not.i.i59, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit60, label %.preheader.i.i47, !llvm.loop !7
+
+_ZNK3vcg8Matrix44IfE9transposeEv.exit60:          ; preds = %122
+  invoke void %118(i32 noundef %116, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %9)
+          to label %123 unwind label %216
+
+123:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit60
+  invoke void @glDrawBuffer(i32 noundef 36064)
+          to label %124 unwind label %.loopexit.split-lp
+
+124:                                              ; preds = %123
+  invoke void @glClear(i32 noundef 16640)
+          to label %125 unwind label %.loopexit.split-lp
+
+125:                                              ; preds = %124
+  invoke void @glBegin(i32 noundef 5)
+          to label %126 unwind label %.loopexit.split-lp
+
+126:                                              ; preds = %125
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %127 unwind label %.loopexit.split-lp
+
+127:                                              ; preds = %126
+  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %128 unwind label %.loopexit.split-lp
+
+128:                                              ; preds = %127
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
           to label %129 unwind label %.loopexit.split-lp
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr @__glewUniformMatrix4fv, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %.sroa.055, i64 64, i1 false)
-  br label %.preheader.i.i41
-
-.preheader.i.i41:                                 ; preds = %140, %129
-  %indvars.iv15.i.i42 = phi i64 [ 1, %129 ], [ %indvars.iv.next16.i.i46, %140 ]
-  %131 = shl nuw nsw i64 %indvars.iv15.i.i42, 2
-  br label %132
-
-132:                                              ; preds = %132, %.preheader.i.i41
-  %indvars.iv.i.i43 = phi i64 [ 0, %.preheader.i.i41 ], [ %indvars.iv.next.i.i44, %132 ]
-  %133 = add nuw nsw i64 %indvars.iv.i.i43, %131
-  %134 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %133
-  %135 = shl i64 %indvars.iv.i.i43, 2
-  %136 = add nuw nsw i64 %135, %indvars.iv15.i.i42
-  %137 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %136
-  %138 = load float, ptr %134, align 4, !alias.scope !11
-  %139 = load float, ptr %137, align 4, !alias.scope !11
-  store float %139, ptr %134, align 4, !alias.scope !11
-  store float %138, ptr %137, align 4, !alias.scope !11
-  %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
-  %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, %indvars.iv15.i.i42
-  br i1 %exitcond.not.i.i45, label %140, label %132, !llvm.loop !5
-
-140:                                              ; preds = %132
-  %indvars.iv.next16.i.i46 = add nuw nsw i64 %indvars.iv15.i.i42, 1
-  %exitcond18.not.i.i47 = icmp eq i64 %indvars.iv.next16.i.i46, 4
-  br i1 %exitcond18.not.i.i47, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit48, label %.preheader.i.i41, !llvm.loop !7
-
-_ZNK3vcg8Matrix44IfE9transposeEv.exit48:          ; preds = %140
-  invoke void %130(i32 noundef %128, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %9)
-          to label %141 unwind label %234
-
-141:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit48
-  invoke void @glDrawBuffer(i32 noundef 36064)
-          to label %142 unwind label %.loopexit.split-lp
-
-142:                                              ; preds = %141
-  invoke void @glClear(i32 noundef 16640)
-          to label %143 unwind label %.loopexit.split-lp
-
-143:                                              ; preds = %142
-  invoke void @glBegin(i32 noundef 5)
-          to label %144 unwind label %.loopexit.split-lp
-
-144:                                              ; preds = %143
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %145 unwind label %.loopexit.split-lp
-
-145:                                              ; preds = %144
-  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %146 unwind label %.loopexit.split-lp
-
-146:                                              ; preds = %145
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %147 unwind label %.loopexit.split-lp
-
-147:                                              ; preds = %146
+129:                                              ; preds = %128
   invoke void @glVertex3f(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %130 unwind label %.loopexit.split-lp
+
+130:                                              ; preds = %129
+  invoke void @glEnd()
+          to label %131 unwind label %.loopexit.split-lp
+
+131:                                              ; preds = %130
+  %132 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %132(i32 noundef 0)
+          to label %133 unwind label %.loopexit.split-lp
+
+133:                                              ; preds = %131
+  %134 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %135 = load i32, ptr %21, align 4
+  invoke void %134(i32 noundef 36160, i32 noundef %135)
+          to label %136 unwind label %.loopexit.split-lp
+
+136:                                              ; preds = %133
+  %137 = load ptr, ptr @__glewUseProgram, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %139 = load i32, ptr %138, align 8
+  invoke void %137(i32 noundef %139)
+          to label %140 unwind label %.loopexit.split-lp
+
+140:                                              ; preds = %136
+  %141 = load i32, ptr %23, align 4
+  %142 = sitofp i32 %141 to float
+  %143 = fmul float %142, 0x3FE99999A0000000
+  %144 = fdiv float 1.000000e+00, %143
+  %145 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %146 = load i32, ptr %138, align 8
+  %147 = invoke i32 %145(i32 noundef %146, ptr noundef nonnull @.str.20)
           to label %148 unwind label %.loopexit.split-lp
 
-148:                                              ; preds = %147
-  invoke void @glEnd()
-          to label %149 unwind label %.loopexit.split-lp
+148:                                              ; preds = %140
+  %149 = load ptr, ptr @__glewUniform2f, align 8
+  invoke void %149(i32 noundef %147, float noundef %144, float noundef 0.000000e+00)
+          to label %150 unwind label %.loopexit.split-lp
 
-149:                                              ; preds = %148
-  %150 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %150(i32 noundef 0)
-          to label %151 unwind label %.loopexit.split-lp
+150:                                              ; preds = %148
+  %151 = load ptr, ptr @__glewActiveTexture, align 8
+  invoke void %151(i32 noundef 33984)
+          to label %152 unwind label %.loopexit.split-lp
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %153 = load i32, ptr %21, align 4
-  invoke void %152(i32 noundef 36160, i32 noundef %153)
-          to label %154 unwind label %.loopexit.split-lp
+152:                                              ; preds = %150
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %154 = load i32, ptr %153, align 4
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %154)
+          to label %155 unwind label %.loopexit.split-lp
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr @__glewUseProgram, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %157 = load i32, ptr %156, align 8
-  invoke void %155(i32 noundef %157)
-          to label %158 unwind label %.loopexit.split-lp
+155:                                              ; preds = %152
+  %156 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %157 = load i32, ptr %138, align 8
+  %158 = invoke i32 %156(i32 noundef %157, ptr noundef nonnull @.str.21)
+          to label %159 unwind label %.loopexit.split-lp
 
-158:                                              ; preds = %154
-  %159 = load i32, ptr %23, align 4
-  %160 = sitofp i32 %159 to float
-  %161 = fmul float %160, 0x3FE99999A0000000
-  %162 = fdiv float 1.000000e+00, %161
-  %163 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %164 = load i32, ptr %156, align 8
-  %165 = invoke i32 %163(i32 noundef %164, ptr noundef nonnull @.str.20)
+159:                                              ; preds = %155
+  %160 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %160(i32 noundef %158, i32 noundef 0)
+          to label %161 unwind label %.loopexit.split-lp
+
+161:                                              ; preds = %159
+  invoke void @glDrawBuffer(i32 noundef 36064)
+          to label %162 unwind label %.loopexit.split-lp
+
+162:                                              ; preds = %161
+  invoke void @glClear(i32 noundef 16640)
+          to label %163 unwind label %.loopexit.split-lp
+
+163:                                              ; preds = %162
+  invoke void @glBegin(i32 noundef 5)
+          to label %164 unwind label %.loopexit.split-lp
+
+164:                                              ; preds = %163
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %165 unwind label %.loopexit.split-lp
+
+165:                                              ; preds = %164
+  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
           to label %166 unwind label %.loopexit.split-lp
 
-166:                                              ; preds = %158
-  %167 = load ptr, ptr @__glewUniform2f, align 8
-  invoke void %167(i32 noundef %165, float noundef %162, float noundef 0.000000e+00)
+166:                                              ; preds = %165
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %167 unwind label %.loopexit.split-lp
+
+167:                                              ; preds = %166
+  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
           to label %168 unwind label %.loopexit.split-lp
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr @__glewActiveTexture, align 8
-  invoke void %169(i32 noundef 33984)
-          to label %170 unwind label %.loopexit.split-lp
-
-170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %172 = load i32, ptr %171, align 4
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %172)
-          to label %173 unwind label %.loopexit.split-lp
-
-173:                                              ; preds = %170
-  %174 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %175 = load i32, ptr %156, align 8
-  %176 = invoke i32 %174(i32 noundef %175, ptr noundef nonnull @.str.21)
-          to label %177 unwind label %.loopexit.split-lp
-
-177:                                              ; preds = %173
-  %178 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %178(i32 noundef %176, i32 noundef 0)
-          to label %179 unwind label %.loopexit.split-lp
-
-179:                                              ; preds = %177
-  invoke void @glDrawBuffer(i32 noundef 36064)
-          to label %180 unwind label %.loopexit.split-lp
-
-180:                                              ; preds = %179
-  invoke void @glClear(i32 noundef 16640)
-          to label %181 unwind label %.loopexit.split-lp
-
-181:                                              ; preds = %180
-  invoke void @glBegin(i32 noundef 5)
-          to label %182 unwind label %.loopexit.split-lp
-
-182:                                              ; preds = %181
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %183 unwind label %.loopexit.split-lp
-
-183:                                              ; preds = %182
-  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %184 unwind label %.loopexit.split-lp
-
-184:                                              ; preds = %183
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %185 unwind label %.loopexit.split-lp
-
-185:                                              ; preds = %184
-  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %186 unwind label %.loopexit.split-lp
-
-186:                                              ; preds = %185
+168:                                              ; preds = %167
   invoke void @glEnd()
-          to label %187 unwind label %.loopexit.split-lp
+          to label %169 unwind label %.loopexit.split-lp
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %189 = load i8, ptr %188, align 8
-  %190 = trunc i8 %189 to i1
-  br i1 %190, label %191, label %_ZN14DecorateShader6unbindEv.exit
+169:                                              ; preds = %168
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %171 = load i8, ptr %170, align 8
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %_ZN14DecorateShader6unbindEv.exit
 
-191:                                              ; preds = %187
+173:                                              ; preds = %169
   invoke void @glPopAttrib()
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %191
-  %192 = load ptr, ptr @__glewBindFramebuffer, align 8
-  invoke void %192(i32 noundef 36160, i32 noundef 0)
+.noexc:                                           ; preds = %173
+  %174 = load ptr, ptr @__glewBindFramebuffer, align 8
+  invoke void %174(i32 noundef 36160, i32 noundef 0)
           to label %_ZN14DecorateShader6unbindEv.exit unwind label %.loopexit.split-lp
 
-_ZN14DecorateShader6unbindEv.exit:                ; preds = %187, %.noexc
-  %193 = load ptr, ptr @__glewUniform2f, align 8
-  invoke void %193(i32 noundef %165, float noundef 0.000000e+00, float noundef %162)
-          to label %194 unwind label %.loopexit.split-lp
+_ZN14DecorateShader6unbindEv.exit:                ; preds = %169, %.noexc
+  %175 = load ptr, ptr @__glewUniform2f, align 8
+  invoke void %175(i32 noundef %147, float noundef 0.000000e+00, float noundef %144)
+          to label %176 unwind label %.loopexit.split-lp
 
-194:                                              ; preds = %_ZN14DecorateShader6unbindEv.exit
+176:                                              ; preds = %_ZN14DecorateShader6unbindEv.exit
   invoke void @glDisable(i32 noundef 2929)
+          to label %177 unwind label %.loopexit.split-lp
+
+177:                                              ; preds = %176
+  invoke void @glEnable(i32 noundef 3042)
+          to label %178 unwind label %.loopexit.split-lp
+
+178:                                              ; preds = %177
+  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
+          to label %179 unwind label %.loopexit.split-lp
+
+179:                                              ; preds = %178
+  %180 = load i32, ptr %76, align 8
+  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %180)
+          to label %181 unwind label %.loopexit.split-lp
+
+181:                                              ; preds = %179
+  %182 = load ptr, ptr @__glewGetUniformLocation, align 8
+  %183 = load i32, ptr %138, align 8
+  %184 = invoke i32 %182(i32 noundef %183, ptr noundef nonnull @.str.21)
+          to label %185 unwind label %.loopexit.split-lp
+
+185:                                              ; preds = %181
+  %186 = load ptr, ptr @__glewUniform1i, align 8
+  invoke void %186(i32 noundef %184, i32 noundef 0)
+          to label %187 unwind label %.loopexit.split-lp
+
+187:                                              ; preds = %185
+  invoke void @glBegin(i32 noundef 5)
+          to label %188 unwind label %.loopexit.split-lp
+
+188:                                              ; preds = %187
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %189 unwind label %.loopexit.split-lp
+
+189:                                              ; preds = %188
+  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %190 unwind label %.loopexit.split-lp
+
+190:                                              ; preds = %189
+  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %191 unwind label %.loopexit.split-lp
+
+191:                                              ; preds = %190
+  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %192 unwind label %.loopexit.split-lp
+
+192:                                              ; preds = %191
+  invoke void @glEnd()
+          to label %193 unwind label %.loopexit.split-lp
+
+193:                                              ; preds = %192
+  %194 = load ptr, ptr @__glewUseProgram, align 8
+  invoke void %194(i32 noundef 0)
           to label %195 unwind label %.loopexit.split-lp
 
-195:                                              ; preds = %194
-  invoke void @glEnable(i32 noundef 3042)
+195:                                              ; preds = %193
+  invoke void @glEnable(i32 noundef 2929)
           to label %196 unwind label %.loopexit.split-lp
 
 196:                                              ; preds = %195
-  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
+  invoke void @glDisable(i32 noundef 3553)
           to label %197 unwind label %.loopexit.split-lp
 
 197:                                              ; preds = %196
-  %198 = load i32, ptr %82, align 8
-  invoke void @glBindTexture(i32 noundef 3553, i32 noundef %198)
-          to label %199 unwind label %.loopexit.split-lp
-
-199:                                              ; preds = %197
-  %200 = load ptr, ptr @__glewGetUniformLocation, align 8
-  %201 = load i32, ptr %156, align 8
-  %202 = invoke i32 %200(i32 noundef %201, ptr noundef nonnull @.str.21)
-          to label %203 unwind label %.loopexit.split-lp
-
-203:                                              ; preds = %199
-  %204 = load ptr, ptr @__glewUniform1i, align 8
-  invoke void %204(i32 noundef %202, i32 noundef 0)
-          to label %205 unwind label %.loopexit.split-lp
-
-205:                                              ; preds = %203
-  invoke void @glBegin(i32 noundef 5)
-          to label %206 unwind label %.loopexit.split-lp
-
-206:                                              ; preds = %205
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %207 unwind label %.loopexit.split-lp
-
-207:                                              ; preds = %206
-  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %208 unwind label %.loopexit.split-lp
-
-208:                                              ; preds = %207
-  invoke void @glVertex3f(float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %209 unwind label %.loopexit.split-lp
-
-209:                                              ; preds = %208
-  invoke void @glVertex3f(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %210 unwind label %.loopexit.split-lp
-
-210:                                              ; preds = %209
-  invoke void @glEnd()
-          to label %211 unwind label %.loopexit.split-lp
-
-211:                                              ; preds = %210
-  %212 = load ptr, ptr @__glewUseProgram, align 8
-  invoke void %212(i32 noundef 0)
-          to label %213 unwind label %.loopexit.split-lp
-
-213:                                              ; preds = %211
-  invoke void @glEnable(i32 noundef 2929)
-          to label %214 unwind label %.loopexit.split-lp
-
-214:                                              ; preds = %213
-  invoke void @glDisable(i32 noundef 3553)
-          to label %215 unwind label %.loopexit.split-lp
-
-215:                                              ; preds = %214
   invoke void @glDisable(i32 noundef 3042)
-          to label %216 unwind label %.loopexit.split-lp
+          to label %198 unwind label %.loopexit.split-lp
 
-216:                                              ; preds = %215
-  %217 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %220 = load ptr, ptr %219, align 8
-  %.not.i.i.i.i = icmp eq ptr %220, %218
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %221
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %202 = load ptr, ptr %201, align 8
+  %.not.i.i.i.i = icmp eq ptr %202, %200
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %203
 
-221:                                              ; preds = %216
-  store ptr %218, ptr %219, align 8
+203:                                              ; preds = %198
+  store ptr %200, ptr %201, align 8
   br label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
 
-_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %221, %216
-  %222 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %229, label %225
+_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %203, %198
+  %204 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %211, label %207
 
-225:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %226 = load ptr, ptr %223, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %228 = load ptr, ptr %227, align 8
-  call void %228(ptr noundef nonnull align 8 dereferenceable(90) %223) #22
-  %.pre.i.i = load ptr, ptr %217, align 8
-  br label %229
+207:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %208 = load ptr, ptr %205, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(90) %205) #22
+  %.pre.i.i = load ptr, ptr %199, align 8
+  br label %211
 
-229:                                              ; preds = %225, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %230 = phi ptr [ %.pre.i.i, %225 ], [ %218, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %230, null
-  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %231
+211:                                              ; preds = %207, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %212 = phi ptr [ %.pre.i.i, %207 ], [ %200, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %212, null
+  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %213
 
-231:                                              ; preds = %229
-  call void @_ZdlPv(ptr noundef nonnull %230) #23
+213:                                              ; preds = %211
+  call void @_ZdlPv(ptr noundef nonnull %212) #23
   br label %_ZN15MLRenderingDataD2Ev.exit
 
-_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %231, %229, %15, %3, %11
+_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %213, %211, %15, %3, %11
   ret void
 
-232:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit
-  %233 = landingpad { ptr, i32 }
+214:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit
+  %215 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %218
 
-234:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit48
-  %235 = landingpad { ptr, i32 }
+216:                                              ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit60
+  %217 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %218
 
-236:                                              ; preds = %.loopexit, %.loopexit.split-lp, %232, %234
-  %.pn.pn = phi { ptr, i32 } [ %235, %234 ], [ %233, %232 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+218:                                              ; preds = %.loopexit, %.loopexit.split-lp, %214, %216
+  %.pn.pn = phi { ptr, i32 } [ %217, %216 ], [ %215, %214 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15MLRenderingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #22
   resume { ptr, i32 } %.pn.pn
 }
@@ -2446,31 +2446,31 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   %4 = alloca %"class.Eigen::Matrix", align 16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %13, %2
-  %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %13 ]
-  %5 = shl nuw nsw i64 %indvars.iv13.i, 2
-  %6 = getelementptr inbounds nuw [16 x float], ptr %1, i64 0, i64 %5
-  %7 = getelementptr double, ptr %3, i64 %indvars.iv13.i
-  br label %8
+.preheader.i:                                     ; preds = %12, %2
+  %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %12 ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv13.i, 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %6 = getelementptr double, ptr %3, i64 %indvars.iv13.i
+  br label %7
 
-8:                                                ; preds = %8, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
-  %10 = load float, ptr %9, align 4
-  %11 = fpext float %10 to double
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
+  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %9 = load float, ptr %8, align 4
+  %10 = fpext float %9 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
-  %12 = getelementptr i8, ptr %7, i64 %.idx.i.i.i.i
-  store double %11, ptr %12, align 8
+  %11 = getelementptr i8, ptr %6, i64 %.idx.i.i.i.i
+  store double %10, ptr %11, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %13, label %8, !llvm.loop !30
+  br i1 %exitcond.not.i, label %12, label %7, !llvm.loop !30
 
-13:                                               ; preds = %8
+12:                                               ; preds = %7
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
   br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !31
 
-_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %13
+_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %12
   %.sroa.0286.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 16
@@ -2486,176 +2486,176 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %.sroa.7.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i, align 16
   %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 112
   %.sroa.8.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %14 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %15 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %14
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %17 = fsub <2 x double> %15, %16
-  %18 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %19 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %18
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %21 = fsub <2 x double> %19, %20
-  %22 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %23 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %22
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %25 = fsub <2 x double> %23, %24
-  %26 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %27 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %26
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %29 = fsub <2 x double> %27, %28
-  %30 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %31 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %30
-  %32 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %33 = fmul <2 x double> %32, %.sroa.4.0.copyload.i.i.i.i.i.i.i
-  %34 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %35 = fmul <2 x double> %34, %.sroa.4.0.copyload.i.i.i.i.i.i.i
-  %36 = fsub <2 x double> %31, %35
-  %37 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %37
-  %39 = fsub <2 x double> %33, %38
-  %40 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %41 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %40
-  %42 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %42
-  %44 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %45 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %44
-  %46 = fsub <2 x double> %41, %45
-  %47 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %47
-  %49 = fsub <2 x double> %43, %48
-  %50 = shufflevector <2 x double> %46, <2 x double> %49, <2 x i32> <i32 0, i32 2>
-  %51 = fmul <2 x double> %36, %50
-  %52 = shufflevector <2 x double> %46, <2 x double> %49, <2 x i32> <i32 1, i32 3>
-  %53 = fmul <2 x double> %39, %52
-  %54 = fadd <2 x double> %51, %53
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = fadd <2 x double> %54, %55
-  %57 = fmul <2 x double> %17, %29
-  %58 = fmul <2 x double> %21, %25
-  %59 = fadd <2 x double> %58, %57
-  %60 = fsub <2 x double> %59, %56
-  %61 = fdiv <2 x double> <double 1.000000e+00, double poison>, %60
-  %62 = bitcast <2 x double> %61 to <2 x i64>
-  %63 = shufflevector <2 x i64> %62, <2 x i64> poison, <2 x i32> zeroinitializer
-  %64 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %65 = fmul <2 x double> %36, %64
-  %66 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %67 = fmul <2 x double> %36, %66
-  %68 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %69 = fmul <2 x double> %39, %68
-  %70 = fadd <2 x double> %65, %69
-  %71 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %72 = fmul <2 x double> %39, %71
-  %73 = fadd <2 x double> %67, %72
-  %74 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %74
-  %76 = fsub <2 x double> %75, %70
-  %77 = fmul <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, %74
-  %78 = fsub <2 x double> %77, %73
-  %79 = shufflevector <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %79, %46
-  %81 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = fmul <2 x double> %81, %46
-  %83 = shufflevector <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %84 = fmul <2 x double> %83, %49
-  %85 = fadd <2 x double> %80, %84
-  %86 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %87 = fmul <2 x double> %86, %49
-  %88 = fadd <2 x double> %82, %87
-  %89 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %90 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %89
-  %91 = fsub <2 x double> %90, %85
-  %92 = fmul <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, %89
-  %93 = fsub <2 x double> %92, %88
-  %94 = shufflevector <2 x double> %39, <2 x double> %36, <2 x i32> <i32 1, i32 2>
-  %95 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %94
-  %96 = fmul <2 x double> %94, %.sroa.8.0.copyload.i.i.i.i.i.i.i
-  %97 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %98 = shufflevector <2 x double> %39, <2 x double> %36, <2 x i32> <i32 0, i32 3>
-  %99 = fmul <2 x double> %97, %98
-  %100 = fsub <2 x double> %95, %99
-  %101 = fmul <2 x double> %98, %26
-  %102 = fsub <2 x double> %96, %101
-  %103 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %104 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %103
-  %105 = fsub <2 x double> %104, %100
-  %106 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %103
-  %107 = fsub <2 x double> %106, %102
-  %108 = shufflevector <2 x double> %49, <2 x double> %46, <2 x i32> <i32 1, i32 2>
-  %109 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %108
-  %110 = fmul <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, %108
-  %111 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %112 = shufflevector <2 x double> %49, <2 x double> %46, <2 x i32> <i32 0, i32 3>
-  %113 = fmul <2 x double> %111, %112
-  %114 = fsub <2 x double> %109, %113
-  %115 = fmul <2 x double> %14, %112
-  %116 = fsub <2 x double> %110, %115
-  %117 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
-  %118 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %117
-  %119 = fsub <2 x double> %118, %114
-  %120 = fmul <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, %117
-  %121 = fsub <2 x double> %120, %116
-  %122 = xor <2 x i64> %63, <i64 0, i64 -9223372036854775808>
-  %123 = bitcast <2 x i64> %122 to <2 x double>
-  %124 = xor <2 x i64> %63, <i64 -9223372036854775808, i64 0>
-  %125 = bitcast <2 x i64> %124 to <2 x double>
-  %126 = shufflevector <2 x double> %93, <2 x double> %91, <2 x i32> <i32 1, i32 3>
-  %127 = fmul <2 x double> %126, %123
-  store <2 x double> %127, ptr %4, align 16
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %129 = shufflevector <2 x double> %93, <2 x double> %91, <2 x i32> <i32 0, i32 2>
-  %130 = fmul <2 x double> %129, %125
-  store <2 x double> %130, ptr %128, align 16
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %132 = shufflevector <2 x double> %107, <2 x double> %105, <2 x i32> <i32 1, i32 3>
-  %133 = fmul <2 x double> %132, %123
-  store <2 x double> %133, ptr %131, align 16
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %135 = shufflevector <2 x double> %107, <2 x double> %105, <2 x i32> <i32 0, i32 2>
-  %136 = fmul <2 x double> %135, %125
-  store <2 x double> %136, ptr %134, align 16
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %138 = shufflevector <2 x double> %121, <2 x double> %119, <2 x i32> <i32 1, i32 3>
-  %139 = fmul <2 x double> %138, %123
-  store <2 x double> %139, ptr %137, align 16
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %141 = shufflevector <2 x double> %121, <2 x double> %119, <2 x i32> <i32 0, i32 2>
-  %142 = fmul <2 x double> %141, %125
-  store <2 x double> %142, ptr %140, align 16
-  %143 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %144 = shufflevector <2 x double> %78, <2 x double> %76, <2 x i32> <i32 1, i32 3>
-  %145 = fmul <2 x double> %144, %123
-  store <2 x double> %145, ptr %143, align 16
-  %146 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %147 = shufflevector <2 x double> %78, <2 x double> %76, <2 x i32> <i32 0, i32 2>
-  %148 = fmul <2 x double> %147, %125
-  store <2 x double> %148, ptr %146, align 16
+  %13 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %14 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %13
+  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %16 = fsub <2 x double> %14, %15
+  %17 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %18 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %17
+  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %20 = fsub <2 x double> %18, %19
+  %21 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %22 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %21
+  %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %24 = fsub <2 x double> %22, %23
+  %25 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %26 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %25
+  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %28 = fsub <2 x double> %26, %27
+  %29 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %30 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %29
+  %31 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %32 = fmul <2 x double> %31, %.sroa.4.0.copyload.i.i.i.i.i.i.i
+  %33 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %34 = fmul <2 x double> %33, %.sroa.4.0.copyload.i.i.i.i.i.i.i
+  %35 = fsub <2 x double> %30, %34
+  %36 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %37 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %36
+  %38 = fsub <2 x double> %32, %37
+  %39 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %40 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %39
+  %41 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %42 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %41
+  %43 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %44 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %43
+  %45 = fsub <2 x double> %40, %44
+  %46 = shufflevector <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %47 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %46
+  %48 = fsub <2 x double> %42, %47
+  %49 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 0, i32 2>
+  %50 = fmul <2 x double> %35, %49
+  %51 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 1, i32 3>
+  %52 = fmul <2 x double> %38, %51
+  %53 = fadd <2 x double> %50, %52
+  %54 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %55 = fadd <2 x double> %53, %54
+  %56 = fmul <2 x double> %16, %28
+  %57 = fmul <2 x double> %20, %24
+  %58 = fadd <2 x double> %57, %56
+  %59 = fsub <2 x double> %58, %55
+  %60 = fdiv <2 x double> <double 1.000000e+00, double poison>, %59
+  %61 = bitcast <2 x double> %60 to <2 x i64>
+  %62 = shufflevector <2 x i64> %61, <2 x i64> poison, <2 x i32> zeroinitializer
+  %63 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %64 = fmul <2 x double> %35, %63
+  %65 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %66 = fmul <2 x double> %35, %65
+  %67 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %68 = fmul <2 x double> %38, %67
+  %69 = fadd <2 x double> %64, %68
+  %70 = shufflevector <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %71 = fmul <2 x double> %38, %70
+  %72 = fadd <2 x double> %66, %71
+  %73 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
+  %74 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %73
+  %75 = fsub <2 x double> %74, %69
+  %76 = fmul <2 x double> %.sroa.8.0.copyload.i.i.i.i.i.i.i, %73
+  %77 = fsub <2 x double> %76, %72
+  %78 = shufflevector <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %79 = fmul <2 x double> %78, %45
+  %80 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %81 = fmul <2 x double> %80, %45
+  %82 = shufflevector <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %83 = fmul <2 x double> %82, %48
+  %84 = fadd <2 x double> %79, %83
+  %85 = shufflevector <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %86 = fmul <2 x double> %85, %48
+  %87 = fadd <2 x double> %81, %86
+  %88 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
+  %89 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %88
+  %90 = fsub <2 x double> %89, %84
+  %91 = fmul <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, %88
+  %92 = fsub <2 x double> %91, %87
+  %93 = shufflevector <2 x double> %38, <2 x double> %35, <2 x i32> <i32 1, i32 2>
+  %94 = fmul <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, %93
+  %95 = fmul <2 x double> %93, %.sroa.8.0.copyload.i.i.i.i.i.i.i
+  %96 = shufflevector <2 x double> %.sroa.6.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %97 = shufflevector <2 x double> %38, <2 x double> %35, <2 x i32> <i32 0, i32 3>
+  %98 = fmul <2 x double> %96, %97
+  %99 = fsub <2 x double> %94, %98
+  %100 = fmul <2 x double> %97, %25
+  %101 = fsub <2 x double> %95, %100
+  %102 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
+  %103 = fmul <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, %102
+  %104 = fsub <2 x double> %103, %99
+  %105 = fmul <2 x double> %.sroa.7.0.copyload.i.i.i.i.i.i.i, %102
+  %106 = fsub <2 x double> %105, %101
+  %107 = shufflevector <2 x double> %48, <2 x double> %45, <2 x i32> <i32 1, i32 2>
+  %108 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %107
+  %109 = fmul <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, %107
+  %110 = shufflevector <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %111 = shufflevector <2 x double> %48, <2 x double> %45, <2 x i32> <i32 0, i32 3>
+  %112 = fmul <2 x double> %110, %111
+  %113 = fsub <2 x double> %108, %112
+  %114 = fmul <2 x double> %13, %111
+  %115 = fsub <2 x double> %109, %114
+  %116 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %117 = fmul <2 x double> %.sroa.2.0.copyload.i.i.i.i.i.i.i, %116
+  %118 = fsub <2 x double> %117, %113
+  %119 = fmul <2 x double> %.sroa.4.0.copyload.i.i.i.i.i.i.i, %116
+  %120 = fsub <2 x double> %119, %115
+  %121 = xor <2 x i64> %62, <i64 0, i64 -9223372036854775808>
+  %122 = bitcast <2 x i64> %121 to <2 x double>
+  %123 = xor <2 x i64> %62, <i64 -9223372036854775808, i64 0>
+  %124 = bitcast <2 x i64> %123 to <2 x double>
+  %125 = shufflevector <2 x double> %92, <2 x double> %90, <2 x i32> <i32 1, i32 3>
+  %126 = fmul <2 x double> %125, %122
+  store <2 x double> %126, ptr %4, align 16
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %128 = shufflevector <2 x double> %92, <2 x double> %90, <2 x i32> <i32 0, i32 2>
+  %129 = fmul <2 x double> %128, %124
+  store <2 x double> %129, ptr %127, align 16
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %131 = shufflevector <2 x double> %106, <2 x double> %104, <2 x i32> <i32 1, i32 3>
+  %132 = fmul <2 x double> %131, %122
+  store <2 x double> %132, ptr %130, align 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %134 = shufflevector <2 x double> %106, <2 x double> %104, <2 x i32> <i32 0, i32 2>
+  %135 = fmul <2 x double> %134, %124
+  store <2 x double> %135, ptr %133, align 16
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %137 = shufflevector <2 x double> %120, <2 x double> %118, <2 x i32> <i32 1, i32 3>
+  %138 = fmul <2 x double> %137, %122
+  store <2 x double> %138, ptr %136, align 16
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %140 = shufflevector <2 x double> %120, <2 x double> %118, <2 x i32> <i32 0, i32 2>
+  %141 = fmul <2 x double> %140, %124
+  store <2 x double> %141, ptr %139, align 16
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %143 = shufflevector <2 x double> %77, <2 x double> %75, <2 x i32> <i32 1, i32 3>
+  %144 = fmul <2 x double> %143, %122
+  store <2 x double> %144, ptr %142, align 16
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %146 = shufflevector <2 x double> %77, <2 x double> %75, <2 x i32> <i32 0, i32 2>
+  %147 = fmul <2 x double> %146, %124
+  store <2 x double> %147, ptr %145, align 16
   br label %.preheader.i3
 
-.preheader.i3:                                    ; preds = %158, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit
-  %indvars.iv13.i4 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit ], [ %indvars.iv.next14.i8, %158 ]
-  %149 = getelementptr double, ptr %4, i64 %indvars.iv13.i4
-  %150 = shl nuw nsw i64 %indvars.iv13.i4, 2
-  br label %151
+.preheader.i3:                                    ; preds = %154, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit
+  %indvars.iv13.i4 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit ], [ %indvars.iv.next14.i9, %154 ]
+  %148 = getelementptr double, ptr %4, i64 %indvars.iv13.i4
+  %.idx.i5 = shl nuw nsw i64 %indvars.iv13.i4, 4
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i5
+  br label %149
 
-151:                                              ; preds = %151, %.preheader.i3
-  %indvars.iv.i5 = phi i64 [ 0, %.preheader.i3 ], [ %indvars.iv.next.i6, %151 ]
-  %152 = shl nuw nsw i64 %indvars.iv.i5, 5
-  %153 = getelementptr i8, ptr %149, i64 %152
-  %154 = load double, ptr %153, align 8
-  %155 = fptrunc double %154 to float
-  %156 = add nuw nsw i64 %indvars.iv.i5, %150
-  %157 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %156
-  store float %155, ptr %157, align 4
-  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
-  %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 4
-  br i1 %exitcond.not.i7, label %158, label %151, !llvm.loop !32
+149:                                              ; preds = %149, %.preheader.i3
+  %indvars.iv.i6 = phi i64 [ 0, %.preheader.i3 ], [ %indvars.iv.next.i7, %149 ]
+  %150 = shl nuw nsw i64 %indvars.iv.i6, 5
+  %151 = getelementptr i8, ptr %148, i64 %150
+  %152 = load double, ptr %151, align 8
+  %153 = fptrunc double %152 to float
+  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i6
+  store float %153, ptr %gep.i, align 4
+  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
+  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4
+  br i1 %exitcond.not.i8, label %154, label %149, !llvm.loop !32
 
-158:                                              ; preds = %151
-  %indvars.iv.next14.i8 = add nuw nsw i64 %indvars.iv13.i4, 1
-  %exitcond16.not.i9 = icmp eq i64 %indvars.iv.next14.i8, 4
-  br i1 %exitcond16.not.i9, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !33
+154:                                              ; preds = %149
+  %indvars.iv.next14.i9 = add nuw nsw i64 %indvars.iv13.i4, 1
+  %exitcond16.not.i10 = icmp eq i64 %indvars.iv.next14.i9, 4
+  br i1 %exitcond16.not.i10, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !33
 
-_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit: ; preds = %158
+_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit: ; preds = %154
   ret void
 }
 

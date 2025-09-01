@@ -1616,7 +1616,7 @@ define internal i32 @dissect_h450_arg(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 57, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr [58 x %struct._h450_op_t], ptr @h450_op_tab, i64 0, i64 %21
+  %22 = getelementptr %struct._h450_op_t, ptr @h450_op_tab, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_op.exit, label %18
@@ -1734,7 +1734,7 @@ define internal i32 @dissect_h450_res(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 57, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr [58 x %struct._h450_op_t], ptr @h450_op_tab, i64 0, i64 %21
+  %22 = getelementptr %struct._h450_op_t, ptr @h450_op_tab, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_op.exit, label %18
@@ -1852,7 +1852,7 @@ define internal i32 @dissect_h450_err(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 37, %15 ], [ %19, %18 ]
   %21 = zext nneg i32 %.06.i to i64
-  %22 = getelementptr [38 x %struct._h450_err_t], ptr @h450_err_tab, i64 0, i64 %21
+  %22 = getelementptr %struct._h450_err_t, ptr @h450_err_tab, i64 %21
   %23 = load i32, ptr %22, align 16
   %24 = icmp eq i32 %23, %17
   br i1 %24, label %get_err.exit, label %18
@@ -1940,7 +1940,7 @@ define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr [58 x %struct._h450_op_t], ptr @h450_op_tab, i64 0, i64 %indvars.iv
+  %2 = getelementptr %struct._h450_op_t, ptr @h450_op_tab, i64 %indvars.iv
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr @h450_arg_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.603, i32 noundef %3, ptr noundef %4)
@@ -1952,7 +1952,7 @@ define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.preheader ], [ 0, %1 ]
-  %6 = getelementptr [38 x %struct._h450_err_t], ptr @h450_err_tab, i64 0, i64 %indvars.iv10
+  %6 = getelementptr %struct._h450_err_t, ptr @h450_err_tab, i64 %indvars.iv10
   %7 = load i32, ptr %6, align 16
   %8 = load ptr, ptr @h450_err_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.609, i32 noundef %7, ptr noundef %8)

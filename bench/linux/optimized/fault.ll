@@ -1579,7 +1579,7 @@ define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef 
   %57 = load i64, ptr %50, align 8
   tail call void @print_vma_addr(ptr noundef nonnull @.str.44, i64 noundef %57) #14
   %58 = sext i32 %42 to i64
-  %59 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %58
+  %59 = getelementptr i64, ptr @__per_cpu_offset, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, ptrtoint (ptr @cpu_info to i64)
   %62 = inttoptr i64 %61 to ptr

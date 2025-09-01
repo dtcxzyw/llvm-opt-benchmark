@@ -510,7 +510,7 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
   %.01.i = phi i64 [ 1, %6 ], [ %17, %13 ]
   %14 = mul nuw nsw i64 %.01.i, 2147483647
   %15 = add nuw nsw i64 %14, 7767517
-  %16 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %.01.i
+  %16 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %.01.i
   store i64 %15, ptr %16, align 8, !tbaa !32
   %17 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %17, 64
@@ -528,15 +528,15 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
 .split.us.i:                                      ; preds = %18
   %20 = add i64 %.us-phi45.i, 40
   %21 = and i64 %20, 63
-  %22 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !32
   %24 = add i64 %.us-phi45.i, 9
   %25 = and i64 %24, 63
-  %26 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !32
   %28 = add i64 %27, %23
   %29 = and i64 %.us-phi45.i, 63
-  %30 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %29
   store i64 %28, ptr %30, align 8, !tbaa !32
   %31 = add i64 %.us-phi45.i, 1
   br label %_ZL9prng_randP11prng_rand_t.exit.i
@@ -546,15 +546,15 @@ define dso_local void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 derefere
   %32 = phi i64 [ %44, %.split.i ], [ %.us-phi45.i, %18 ]
   %33 = add i64 %32, 40
   %34 = and i64 %33, 63
-  %35 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !32
   %37 = add i64 %32, 9
   %38 = and i64 %37, 63
-  %39 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !32
   %41 = add i64 %40, %36
   %42 = and i64 %32, 63
-  %43 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %42
   store i64 %41, ptr %43, align 8, !tbaa !32
   %44 = add i64 %32, 1
   %45 = add nuw nsw i64 %.0161.i.i, 1
@@ -3882,15 +3882,15 @@ define internal fastcc void @_ZL9RandomizeRN4ncnn3MatEff(ptr noundef nonnull rea
 .split.us.i:                                      ; preds = %17
   %19 = add i64 %.us-phi7.i6061, 40
   %20 = and i64 %19, 63
-  %21 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !32
   %23 = add i64 %.us-phi7.i6061, 9
   %24 = and i64 %23, 63
-  %25 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !32
   %27 = add i64 %26, %22
   %28 = and i64 %.us-phi7.i6061, 63
-  %29 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %28
   store i64 %27, ptr %29, align 8, !tbaa !32
   %30 = add i64 %.us-phi7.i6061, 1
   br label %_ZL11RandomFloatff.exit
@@ -3900,15 +3900,15 @@ define internal fastcc void @_ZL9RandomizeRN4ncnn3MatEff(ptr noundef nonnull rea
   %31 = phi i64 [ %43, %.split.i ], [ %.us-phi7.i6061, %17 ]
   %32 = add i64 %31, 40
   %33 = and i64 %32, 63
-  %34 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !32
   %36 = add i64 %31, 9
   %37 = and i64 %36, 63
-  %38 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !32
   %40 = add i64 %39, %35
   %41 = and i64 %31, 63
-  %42 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %41
   store i64 %40, ptr %42, align 8, !tbaa !32
   %43 = add i64 %31, 1
   %44 = add nuw nsw i64 %.0161.i.i, 1
@@ -3957,15 +3957,15 @@ _ZL11RandomFloatff.exit:                          ; preds = %.split.i, %.split.u
 .split.us.i30:                                    ; preds = %61
   %64 = add i64 %.promoted.i.i29, 40
   %65 = and i64 %64, 63
-  %66 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !32
   %68 = add i64 %.promoted.i.i29, 9
   %69 = and i64 %68, 63
-  %70 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !32
   %72 = add i64 %71, %67
   %73 = and i64 %.promoted.i.i29, 63
-  %74 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %73
   store i64 %72, ptr %74, align 8, !tbaa !32
   %75 = add i64 %.promoted.i.i29, 1
   br label %_ZL11RandomFloatff.exit36
@@ -3975,15 +3975,15 @@ _ZL11RandomFloatff.exit:                          ; preds = %.split.i, %.split.u
   %76 = phi i64 [ %88, %.split.i33 ], [ %.promoted.i.i29, %61 ]
   %77 = add i64 %76, 40
   %78 = and i64 %77, 63
-  %79 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !32
   %81 = add i64 %76, 9
   %82 = and i64 %81, 63
-  %83 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !32
   %85 = add i64 %84, %80
   %86 = and i64 %76, 63
-  %87 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %86
   store i64 %85, ptr %87, align 8, !tbaa !32
   %88 = add i64 %76, 1
   %89 = add nuw nsw i64 %.0161.i.i34, 1
@@ -4038,15 +4038,15 @@ _ZL11RandomFloatff.exit36:                        ; preds = %.split.i33, %.split
 .split.us.i41:                                    ; preds = %.lr.ph
   %111 = add i64 %.us-phi7.i43101, 40
   %112 = and i64 %111, 63
-  %113 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !32
   %115 = add i64 %.us-phi7.i43101, 9
   %116 = and i64 %115, 63
-  %117 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !32
   %119 = add i64 %118, %114
   %120 = and i64 %.us-phi7.i43101, 63
-  %121 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %120
   store i64 %119, ptr %121, align 8, !tbaa !32
   %122 = add i64 %.us-phi7.i43101, 1
   br label %_ZL11RandomFloatff.exit47
@@ -4056,15 +4056,15 @@ _ZL11RandomFloatff.exit36:                        ; preds = %.split.i33, %.split
   %123 = phi i64 [ %135, %.split.i44 ], [ %.us-phi7.i43101, %.lr.ph ]
   %124 = add i64 %123, 40
   %125 = and i64 %124, 63
-  %126 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !32
   %128 = add i64 %123, 9
   %129 = and i64 %128, 63
-  %130 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !32
   %132 = add i64 %131, %127
   %133 = and i64 %123, 63
-  %134 = getelementptr inbounds nuw [64 x i64], ptr @_ZL17g_prng_rand_state, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i64, ptr @_ZL17g_prng_rand_state, i64 %133
   store i64 %132, ptr %134, align 8, !tbaa !32
   %135 = add i64 %123, 1
   %136 = add nuw nsw i64 %.0161.i.i45, 1

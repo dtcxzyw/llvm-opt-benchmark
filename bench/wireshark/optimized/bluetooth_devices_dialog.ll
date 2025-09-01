@@ -2687,7 +2687,7 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %169, %_ZN17QArrayDa
   store ptr null, ptr %43, align 8
   store ptr @.str.4, ptr %184, align 8
   store i64 3, ptr %185, align 8
-  %189 = getelementptr [6 x i8], ptr %186, i64 0, i64 %indvars.iv
+  %189 = getelementptr i8, ptr %186, i64 %indvars.iv
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %42, ptr noundef nonnull align 8 dereferenceable_or_null(24) %43, i64 noundef %191, i32 noundef 2, i32 noundef 16, i16 48)

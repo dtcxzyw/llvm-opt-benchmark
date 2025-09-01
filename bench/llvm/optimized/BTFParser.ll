@@ -294,7 +294,7 @@ define dso_local void @_ZN4llvm9BTFParser8parseBTFERNS0_12ParseContextENS_6objec
 
 switch.lookup:                                    ; preds = %29
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6object10SectionRefE, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6object10SectionRefE, i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %40
 
@@ -1528,7 +1528,7 @@ define dso_local void @_ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6o
 
 switch.lookup:                                    ; preds = %28
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6object10SectionRefE, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6object10SectionRefE, i64 %38
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %39
 

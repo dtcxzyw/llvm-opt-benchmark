@@ -68,7 +68,7 @@ define internal void @_ZL20collect_features_useP21hb_ot_shape_planner_t(ptr noun
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [7 x i32], ptr @_ZL18use_basic_features, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL18use_basic_features, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %5, i32 noundef 73, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -82,7 +82,7 @@ define internal void @_ZL20collect_features_useP21hb_ot_shape_planner_t(ptr noun
 
 7:                                                ; preds = %6, %7
   %indvars.iv32 = phi i64 [ 0, %6 ], [ %indvars.iv.next33, %7 ]
-  %8 = getelementptr inbounds nuw [4 x i32], ptr @_ZL26use_topographical_features, i64 0, i64 %indvars.iv32
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL26use_topographical_features, i64 %indvars.iv32
   %9 = load i32, ptr %8, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %9, i32 noundef 0, i32 noundef 1)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -95,7 +95,7 @@ define internal void @_ZL20collect_features_useP21hb_ot_shape_planner_t(ptr noun
 
 11:                                               ; preds = %10, %11
   %indvars.iv36 = phi i64 [ 0, %10 ], [ %indvars.iv.next37, %11 ]
-  %12 = getelementptr inbounds nuw [5 x i32], ptr @_ZL18use_other_features, i64 0, i64 %indvars.iv36
+  %12 = getelementptr inbounds nuw i32, ptr @_ZL18use_other_features, i64 %indvars.iv36
   %13 = load i32, ptr %12, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %13, i32 noundef 9, i32 noundef 1)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -317,33 +317,33 @@ define internal void @_ZL15setup_masks_usePK18hb_ot_shape_plan_tP11hb_buffer_tP9
   %34 = shl nuw nsw i32 %33, 5
   %35 = and i32 %34, 480
   %36 = and i32 %25, 31
-  %37 = add nuw nsw i32 %36, 113
-  %38 = add nuw nsw i32 %37, %35
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [3187 x i8], ptr @_ZL9hb_use_u8, i64 0, i64 %39
+  %37 = or disjoint i32 %35, %36
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr @_ZL9hb_use_u8, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 113
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 3
   %44 = and i32 %24, 7
   %45 = or disjoint i32 %43, %44
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [808 x i16], ptr @_ZL10hb_use_u16, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr @_ZL10hb_use_u16, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = shl nuw nsw i32 %49, 3
   %51 = and i32 %23, 7
-  %52 = add nuw nsw i32 %51, 593
-  %53 = add nuw nsw i32 %52, %50
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [3187 x i8], ptr @_ZL9hb_use_u8, i64 0, i64 %54
+  %52 = or disjoint i32 %50, %51
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr @_ZL9hb_use_u8, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 593
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %57, 1
   %59 = and i32 %20, 1
-  %60 = add nuw nsw i32 %59, 2809
-  %61 = add nuw nsw i32 %60, %58
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [3187 x i8], ptr @_ZL9hb_use_u8, i64 0, i64 %62
+  %60 = or disjoint i32 %58, %59
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr @_ZL9hb_use_u8, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 2809
   %64 = load i8, ptr %63, align 1
   br label %_ZL19hb_use_get_categoryj.exit
 
@@ -675,7 +675,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %.1168.i = phi i32 [ %.3.i, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i" ], [ 1, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i" ], [ %.3.i, %"_ZNR9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEppEv.exit.i" ]
   %.1.i = phi i32 [ %135, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i" ], [ 1, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i" ], [ %135, %"_ZNR9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEppEv.exit.i" ]
   %97 = sext i32 %.1.i to i64
-  %98 = getelementptr inbounds [125 x i8], ptr @_ZL40_use_syllable_machine_from_state_actions, i64 0, i64 %97
+  %98 = getelementptr inbounds i8, ptr @_ZL40_use_syllable_machine_from_state_actions, i64 %97
   %99 = load i8, ptr %98, align 1
   %cond.i = icmp eq i8 %99, 3
   br i1 %cond.i, label %100, label %101
@@ -690,11 +690,11 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %103 = shl nsw i32 %.1.i, 1
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr @_ZL32_use_syllable_machine_trans_keys, i64 %104
-  %106 = getelementptr inbounds [125 x i16], ptr @_ZL35_use_syllable_machine_index_offsets, i64 0, i64 %97
+  %106 = getelementptr inbounds i16, ptr @_ZL35_use_syllable_machine_index_offsets, i64 %97
   %107 = load i16, ptr %106, align 2
   %108 = sext i16 %107 to i64
   %109 = getelementptr inbounds i8, ptr @_ZL30_use_syllable_machine_indicies, i64 %108
-  %110 = getelementptr inbounds [125 x i8], ptr @_ZL31_use_syllable_machine_key_spans, i64 0, i64 %97
+  %110 = getelementptr inbounds i8, ptr @_ZL31_use_syllable_machine_key_spans, i64 %97
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i64
   %113 = load i8, ptr %105, align 2
@@ -744,10 +744,10 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %.0169.i = phi i64 [ %1461, %1456 ], [ %130, %126 ]
   %.2.i = phi i32 [ %.0167.i, %1456 ], [ %.1168.i, %126 ]
   %132 = and i64 %.0169.i, 4294967295
-  %133 = getelementptr inbounds nuw [143 x i8], ptr @_ZL33_use_syllable_machine_trans_targs, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_ZL33_use_syllable_machine_trans_targs, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = sext i8 %134 to i32
-  %136 = getelementptr inbounds nuw [143 x i8], ptr @_ZL35_use_syllable_machine_trans_actions, i64 0, i64 %132
+  %136 = getelementptr inbounds nuw i8, ptr @_ZL35_use_syllable_machine_trans_actions, i64 %132
   %137 = load i8, ptr %136, align 1
   switch i8 %137, label %1409 [
     i8 1, label %1332
@@ -3863,7 +3863,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 1409:                                             ; preds = %1406, %1329, %1264, %1203, %1142, %1081, %1020, %959, %898, %837, %777, %707, %641, %575, %509, %443, %377, %311, %245, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i", %131
   %.3.i = phi i32 [ %.2.i, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i" ], [ %spec.store.select.i, %245 ], [ %spec.store.select2.i, %311 ], [ %spec.store.select3.i, %377 ], [ %spec.store.select4.i, %443 ], [ %spec.store.select5.i, %509 ], [ %spec.store.select6.i, %575 ], [ %spec.store.select7.i, %641 ], [ %spec.store.select8.i, %707 ], [ %spec.store.select9.i, %777 ], [ %spec.store.select10.i, %837 ], [ %spec.store.select11.i, %898 ], [ %spec.store.select12.i, %959 ], [ %spec.store.select13.i, %1020 ], [ %spec.store.select14.i, %1081 ], [ %spec.store.select15.i, %1142 ], [ %spec.store.select16.i, %1203 ], [ %spec.store.select17.i, %1264 ], [ %spec.store.select18.i, %1329 ], [ %spec.store.select19.i, %1406 ], [ %.2.i, %131 ]
   %1410 = sext i8 %134 to i64
-  %1411 = getelementptr inbounds [125 x i8], ptr @_ZL38_use_syllable_machine_to_state_actions, i64 0, i64 %1410
+  %1411 = getelementptr inbounds i8, ptr @_ZL38_use_syllable_machine_to_state_actions, i64 %1410
   %1412 = load i8, ptr %1411, align 1
   %cond1.i = icmp eq i8 %1412, 2
   br i1 %cond1.i, label %1413, label %1414
@@ -4002,7 +4002,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1456:                                             ; preds = %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
   %1457 = sext i32 %.0166.i to i64
-  %1458 = getelementptr inbounds [125 x i16], ptr @_ZL31_use_syllable_machine_eof_trans, i64 0, i64 %1457
+  %1458 = getelementptr inbounds i16, ptr @_ZL31_use_syllable_machine_eof_trans, i64 %1457
   %1459 = load i16, ptr %1458, align 2
   %1460 = sext i16 %1459 to i64
   %1461 = add nsw i64 %1460, 4294967295
@@ -4227,7 +4227,7 @@ _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15s
 .lr.ph.preheader.i.i.i.i.i.i.us.i:                ; preds = %.preheader.i, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
   %.05272.us.i = phi i32 [ %1562, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
-  %1542 = getelementptr inbounds nuw [4 x i32], ptr @_ZL26use_topographical_features, i64 0, i64 %indvars.iv.i30
+  %1542 = getelementptr inbounds nuw i32, ptr @_ZL26use_topographical_features, i64 %indvars.iv.i30
   %1543 = load i32, ptr %1542, align 4
   br label %.lr.ph.i.i.i.i.i.i.us.i
 
@@ -4268,7 +4268,7 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i:        ; preds = %1558, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i
   %1559 = phi i32 [ %1555, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i ], [ 0, %1558 ]
-  %1560 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i30
+  %1560 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i30
   %1561 = icmp eq i32 %1559, %1540
   %spec.store.select.us.i = select i1 %1561, i32 0, i32 %1559
   store i32 %spec.store.select.us.i, ptr %1560, align 4
@@ -4376,7 +4376,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i34: ; preds = %1571
 
 .lr.ph75.i:                                       ; preds = %.loopexit68.i
   %1596 = zext nneg i32 %1594 to i64
-  %1597 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %1596
+  %1597 = getelementptr inbounds nuw i32, ptr %4, i64 %1596
   %1598 = load i32, ptr %1597, align 4
   %wide.trip.count99.i = zext i32 %.05479.i to i64
   br label %1599

@@ -5099,8 +5099,8 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !1170, !noalias !1173, !nonnull !4
-  %34 = add i64 %31, -1
-  %35 = getelementptr inbounds [0 x { i32, i32 }], ptr %33, i64 0, i64 %34
+  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !1174
   %37 = zext i32 %36 to i64
@@ -6509,8 +6509,8 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !1627, !noalias !1630, !nonnull !4
-  %34 = add i64 %31, -1
-  %35 = getelementptr inbounds [0 x { i32, i32 }], ptr %33, i64 0, i64 %34
+  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !1631
   %37 = zext i32 %36 to i64
@@ -8769,8 +8769,8 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !2403, !noalias !2406, !nonnull !4
-  %34 = add i64 %31, -1
-  %35 = getelementptr inbounds [0 x { i32, i32 }], ptr %33, i64 0, i64 %34
+  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !2407
   %37 = zext i32 %36 to i64
@@ -12678,8 +12678,8 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %32, 0
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load ptr, ptr %33, align 8, !alias.scope !3519, !noalias !3522, !nonnull !4
-  %35 = add i64 %32, -1
-  %36 = getelementptr inbounds [0 x { i32, i32 }], ptr %34, i64 0, i64 %35
+  %35 = getelementptr { i32, i32 }, ptr %34, i64 %32
+  %36 = getelementptr i8, ptr %35, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %36
   %37 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !3523
   %38 = zext i32 %37 to i64
@@ -16622,7 +16622,7 @@ _ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa2
   br i1 %.not.i.us.i, label %41, label %_ZN14regex_automata6hybrid3dfa3DFA29try_which_overlapping_matches17hab5db6d2737a995eE.exit.thread
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 %40
   %43 = load i8, ptr %42, align 1, !range !173, !noalias !4550, !noundef !4
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %_ZN14regex_automata6hybrid3dfa3DFA29try_which_overlapping_matches17hab5db6d2737a995eE.exit.thread, label %45
@@ -16679,7 +16679,7 @@ _ZN14regex_automata6hybrid3dfa3DFA26try_search_overlapping_fwd17hd9782bcb6982fa2
   br i1 %.not.i.i, label %61, label %_ZN14regex_automata4util6search10PatternSet10try_insert17h07b16fcdbf8c8494E.exit.i
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 %60
   %63 = load i8, ptr %62, align 1, !range !173, !noalias !4550, !noundef !4
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %_ZN14regex_automata4util6search10PatternSet10try_insert17h07b16fcdbf8c8494E.exit.i, label %65

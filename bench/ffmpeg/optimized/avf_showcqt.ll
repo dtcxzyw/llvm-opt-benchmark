@@ -1663,15 +1663,15 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph101.us:                                     ; preds = %.lr.ph103, %._crit_edge.us
   %exitcond108.not = phi i1 [ true, %._crit_edge.us ], [ false, %.lr.ph103 ]
   %indvars.iv = phi i64 [ 2, %._crit_edge.us ], [ 1, %.lr.ph103 ]
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !143
-  %23 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !143
   %.95.us = tail call i32 @llvm.smin.i32(i32 %22, i32 %24)
   %spec.select98.us = tail call i32 @llvm.abs.i32(i32 %.95.us, i1 true)
   %25 = zext nneg i32 %spec.select98.us to i64
-  %26 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   br label %28
 
 28:                                               ; preds = %.lr.ph101.us, %28
@@ -3767,7 +3767,7 @@ define internal fastcc range(i32 -12, 1) i32 @init_axis_empty(ptr noundef captur
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.init_axis_from_font.7, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %convert_axis_pixel_format.exit
 
@@ -3830,7 +3830,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_axis_from_file(ptr no
 
 switch.lookup:                                    ; preds = %16
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.init_axis_from_font.7, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %convert_axis_pixel_format.exit
 
@@ -3862,7 +3862,7 @@ convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %16
 
 switch.lookup27:                                  ; preds = %32
   %40 = zext nneg i32 %38 to i64
-  %switch.gep31 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %40
+  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table.init_axis_from_font.7, i64 %40
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   br label %convert_axis_pixel_format.exit22
 
@@ -3925,7 +3925,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_axis_from_font(ptr no
 alloc_frame_empty.exit.thread:                    ; preds = %17, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr null, ptr %9, align 8, !tbaa !51
-  br label %160
+  br label %158
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %10, align 8, !tbaa !130
@@ -3940,7 +3940,7 @@ alloc_frame_empty.exit.thread:                    ; preds = %17, %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !128
   %.not36 = icmp eq ptr %24, null
-  br i1 %.not36, label %160, label %.split33
+  br i1 %.not36, label %158, label %.split33
 
 .split33:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -3972,14 +3972,14 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   %36 = sext i32 %.val37 to i64
   br label %37
 
-37:                                               ; preds = %59, %render_fontconfig.exit
-  %indvars.iv11.i = phi i64 [ 0, %render_fontconfig.exit ], [ %indvars.iv.next12.i, %59 ]
+37:                                               ; preds = %57, %render_fontconfig.exit
+  %indvars.iv11.i = phi i64 [ 0, %render_fontconfig.exit ], [ %indvars.iv.next12.i, %57 ]
   %38 = shl nuw nsw i64 %indvars.iv11.i, 2
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 %38
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %58, %37
-  %indvars.iv7.i = phi i64 [ 0, %37 ], [ %indvars.iv.next8.i, %58 ]
+.preheader.i:                                     ; preds = %56, %37
+  %indvars.iv7.i = phi i64 [ 0, %37 ], [ %indvars.iv.next8.i, %56 ]
   %40 = shl nuw nsw i64 %indvars.iv7.i, 5
   %invariant.gep.i = getelementptr i8, ptr %39, i64 %40
   %41 = getelementptr inbounds nuw i8, ptr @.str.35, i64 %indvars.iv7.i
@@ -3987,48 +3987,48 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   %43 = sext i8 %42 to i32
   %44 = shl nsw i32 %43, 4
   %45 = sext i32 %44 to i64
+  %invariant.gep14.i = getelementptr i8, ptr @avpriv_vga16_font, i64 %45
   br label %46
 
-46:                                               ; preds = %57, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %57 ]
+46:                                               ; preds = %55, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %55 ]
   %47 = mul nsw i64 %indvars.iv.i, %36
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %47
-  %48 = add nuw nsw i64 %indvars.iv.i, %45
-  %49 = getelementptr inbounds [4096 x i8], ptr @avpriv_vga16_font, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !148
-  %51 = zext i8 %50 to i32
-  br label %52
+  %gep15.i = getelementptr i8, ptr %invariant.gep14.i, i64 %indvars.iv.i
+  %48 = load i8, ptr %gep15.i, align 1, !tbaa !148
+  %49 = zext i8 %48 to i32
+  br label %50
 
-52:                                               ; preds = %52, %46
-  %.02.i = phi ptr [ %gep.i, %46 ], [ %56, %52 ]
-  %.0291.i = phi i32 [ 128, %46 ], [ %55, %52 ]
-  %53 = and i32 %.0291.i, %51
-  %.not30.i = icmp ne i32 %53, 0
+50:                                               ; preds = %50, %46
+  %.02.i = phi ptr [ %gep.i, %46 ], [ %54, %50 ]
+  %.0291.i = phi i32 [ 128, %46 ], [ %53, %50 ]
+  %51 = and i32 %.0291.i, %49
+  %.not30.i = icmp ne i32 %51, 0
   %spec.select.i = sext i1 %.not30.i to i8
-  %54 = getelementptr inbounds nuw i8, ptr %.02.i, i64 3
-  store i8 %spec.select.i, ptr %54, align 1, !tbaa !148
-  %55 = lshr i32 %.0291.i, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.02.i, i64 3
+  store i8 %spec.select.i, ptr %52, align 1, !tbaa !148
+  %53 = lshr i32 %.0291.i, 1
+  %54 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
   %.not.i40 = icmp samesign ult i32 %.0291.i, 2
-  br i1 %.not.i40, label %57, label %52, !llvm.loop !170
+  br i1 %.not.i40, label %55, label %50, !llvm.loop !170
 
-57:                                               ; preds = %52
+55:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %58, label %46, !llvm.loop !171
+  br i1 %exitcond.not.i, label %56, label %46, !llvm.loop !171
 
-58:                                               ; preds = %57
+56:                                               ; preds = %55
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, 12
-  br i1 %exitcond10.not.i, label %59, label %.preheader.i, !llvm.loop !172
+  br i1 %exitcond10.not.i, label %57, label %.preheader.i, !llvm.loop !172
 
-59:                                               ; preds = %58
+57:                                               ; preds = %56
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 96
-  %60 = icmp samesign ult i64 %indvars.iv11.i, 864
-  br i1 %60, label %37, label %render_default_font.exit, !llvm.loop !173
+  %58 = icmp samesign ult i64 %indvars.iv11.i, 864
+  br i1 %58, label %37, label %render_default_font.exit, !llvm.loop !173
 
-render_default_font.exit:                         ; preds = %59
-  %61 = load ptr, ptr %9, align 8, !tbaa !51
+render_default_font.exit:                         ; preds = %57
+  %59 = load ptr, ptr %9, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef nonnull align 16 dereferenceable(48) @__const.init_axis_color.var_names, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4038,228 +4038,228 @@ render_default_font.exit:                         ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %63 = load double, ptr %62, align 8, !tbaa !69
-  %64 = fcmp nsz une double %63, 0x403403E6323519C5
-  br i1 %64, label %69, label %65
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %61 = load double, ptr %60, align 8, !tbaa !69
+  %62 = fcmp nsz une double %61, 0x403403E6323519C5
+  br i1 %62, label %67, label %63
 
-65:                                               ; preds = %render_default_font.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %67 = load double, ptr %66, align 8, !tbaa !70
-  %68 = fcmp nsz une double %67, 0x40D403E6323519C5
-  br i1 %68, label %69, label %72
+63:                                               ; preds = %render_default_font.exit
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %65 = load double, ptr %64, align 8, !tbaa !70
+  %66 = fcmp nsz une double %65, 0x40D403E6323519C5
+  br i1 %66, label %67, label %70
 
-69:                                               ; preds = %65, %render_default_font.exit
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !20
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %71, i32 noundef 24, ptr noundef nonnull @.str.40) #15
+67:                                               ; preds = %63, %render_default_font.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !20
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %69, i32 noundef 24, ptr noundef nonnull @.str.40) #15
   br label %init_axis_color.exit.thread
 
-72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %74 = load i32, ptr %73, align 8, !tbaa !68
-  %75 = icmp eq i32 %74, 1920
-  br i1 %75, label %76, label %79
+70:                                               ; preds = %63
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %72 = load i32, ptr %71, align 8, !tbaa !68
+  %73 = icmp eq i32 %72, 1920
+  br i1 %73, label %74, label %77
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %78 = load ptr, ptr %77, align 8, !tbaa !73
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %76 = load ptr, ptr %75, align 8, !tbaa !73
   br label %create_freq_table.exit.i
 
-79:                                               ; preds = %72
-  %80 = tail call ptr @av_malloc_array(i64 noundef 1920, i64 noundef 8) #15
-  %.not.i.i = icmp eq ptr %80, null
+77:                                               ; preds = %70
+  %78 = tail call ptr @av_malloc_array(i64 noundef 1920, i64 noundef 8) #15
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %init_axis_color.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %79, %.preheader
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %79 ]
-  %81 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %82 = uitofp nneg i32 %81 to double
-  %83 = fadd nsz double %82, 5.000000e-01
-  %84 = fmul nsz double %83, 0x401BB9D3BEB8C86A
-  %85 = tail call nsz double @llvm.fmuladd.f64(double %84, double 0x3F41111111111111, double 0x4007F8D19BD56E1B)
-  %86 = tail call nsz double @llvm.exp.f64(double %85)
-  %87 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv.i.i
-  store double %86, ptr %87, align 8, !tbaa !71
+.preheader:                                       ; preds = %77, %.preheader
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %77 ]
+  %79 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %80 = uitofp nneg i32 %79 to double
+  %81 = fadd nsz double %80, 5.000000e-01
+  %82 = fmul nsz double %81, 0x401BB9D3BEB8C86A
+  %83 = tail call nsz double @llvm.fmuladd.f64(double %82, double 0x3F41111111111111, double 0x4007F8D19BD56E1B)
+  %84 = tail call nsz double @llvm.exp.f64(double %83)
+  %85 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv.i.i
+  store double %84, ptr %85, align 8, !tbaa !71
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 1920
   br i1 %exitcond.not.i.i, label %create_freq_table.exit.i, label %.preheader, !llvm.loop !72
 
-create_freq_table.exit.i:                         ; preds = %.preheader, %76
-  %88 = phi ptr [ %78, %76 ], [ %80, %.preheader ]
-  store ptr %88, ptr %6, align 8, !tbaa !174
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %90 = load ptr, ptr %89, align 8, !tbaa !175
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !20
-  %93 = call i32 @av_expr_parse(ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %92) #15
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %101, label %.preheader.i41
+create_freq_table.exit.i:                         ; preds = %.preheader, %74
+  %86 = phi ptr [ %76, %74 ], [ %78, %.preheader ]
+  store ptr %86, ptr %6, align 8, !tbaa !174
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %88 = load ptr, ptr %87, align 8, !tbaa !175
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !20
+  %91 = call i32 @av_expr_parse(ptr noundef nonnull %5, ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %90) #15
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %99, label %.preheader.i41
 
 .preheader.i41:                                   ; preds = %create_freq_table.exit.i
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %100 = getelementptr inbounds nuw i8, ptr %61, i64 64
-  br label %105
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %59, i64 64
+  br label %103
 
-101:                                              ; preds = %create_freq_table.exit.i
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %103 = load ptr, ptr %102, align 8, !tbaa !73
-  %.not55.i = icmp eq ptr %88, %103
-  br i1 %.not55.i, label %init_axis_color.exit.thread, label %104
+99:                                               ; preds = %create_freq_table.exit.i
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %101 = load ptr, ptr %100, align 8, !tbaa !73
+  %.not55.i = icmp eq ptr %86, %101
+  br i1 %.not55.i, label %init_axis_color.exit.thread, label %102
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   call void @av_freep(ptr noundef nonnull %6) #15
   br label %init_axis_color.exit.thread
 
-105:                                              ; preds = %127, %.preheader.i41
-  %indvars.iv62.i = phi i64 [ 0, %.preheader.i41 ], [ %indvars.iv.next63.i, %127 ]
-  %indvars.iv60.i = phi i64 [ 0, %.preheader.i41 ], [ %indvars.iv.next61.i, %127 ]
+103:                                              ; preds = %125, %.preheader.i41
+  %indvars.iv62.i = phi i64 [ 0, %.preheader.i41 ], [ %indvars.iv.next63.i, %125 ]
+  %indvars.iv60.i = phi i64 [ 0, %.preheader.i41 ], [ %indvars.iv.next61.i, %125 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %106 = load double, ptr %95, align 8, !tbaa !80
-  store double %106, ptr %7, align 16, !tbaa !71
-  store double %106, ptr %96, align 8, !tbaa !71
-  %107 = load ptr, ptr %6, align 8, !tbaa !174
-  %108 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv62.i
-  %109 = load double, ptr %108, align 8, !tbaa !71
-  store double %109, ptr %97, align 16, !tbaa !71
-  store double %109, ptr %98, align 8, !tbaa !71
-  %110 = load double, ptr %108, align 8, !tbaa !71
-  store double %110, ptr %99, align 16, !tbaa !71
-  %111 = load ptr, ptr %5, align 8, !tbaa !74
-  %112 = call nsz double @av_expr_eval(ptr noundef %111, ptr noundef nonnull %7, ptr noundef null) #15
-  %113 = fptosi double %112 to i32
-  %114 = lshr i32 %113, 16
+  %104 = load double, ptr %93, align 8, !tbaa !80
+  store double %104, ptr %7, align 16, !tbaa !71
+  store double %104, ptr %94, align 8, !tbaa !71
+  %105 = load ptr, ptr %6, align 8, !tbaa !174
+  %106 = getelementptr inbounds nuw double, ptr %105, i64 %indvars.iv62.i
+  %107 = load double, ptr %106, align 8, !tbaa !71
+  store double %107, ptr %95, align 16, !tbaa !71
+  store double %107, ptr %96, align 8, !tbaa !71
+  %108 = load double, ptr %106, align 8, !tbaa !71
+  store double %108, ptr %97, align 16, !tbaa !71
+  %109 = load ptr, ptr %5, align 8, !tbaa !74
+  %110 = call nsz double @av_expr_eval(ptr noundef %109, ptr noundef nonnull %7, ptr noundef null) #15
+  %111 = fptosi double %110 to i32
+  %112 = lshr i32 %111, 16
+  %113 = trunc i32 %112 to i8
+  %114 = lshr i32 %111, 8
   %115 = trunc i32 %114 to i8
-  %116 = lshr i32 %113, 8
-  %117 = trunc i32 %116 to i8
-  %118 = trunc i32 %113 to i8
-  %119 = load ptr, ptr %61, align 8, !tbaa !130
-  %120 = load i32, ptr %100, align 8, !tbaa !143
-  %121 = shl nuw nsw i64 %indvars.iv60.i, 2
-  %122 = sext i32 %120 to i64
-  %invariant.gep.i42 = getelementptr i8, ptr %119, i64 %121
-  br label %123
+  %116 = trunc i32 %111 to i8
+  %117 = load ptr, ptr %59, align 8, !tbaa !130
+  %118 = load i32, ptr %98, align 8, !tbaa !143
+  %119 = shl nuw nsw i64 %indvars.iv60.i, 2
+  %120 = sext i32 %118 to i64
+  %invariant.gep.i42 = getelementptr i8, ptr %117, i64 %119
+  br label %121
 
-123:                                              ; preds = %123, %105
-  %indvars.iv.i43 = phi i64 [ 0, %105 ], [ %indvars.iv.next.i45, %123 ]
-  %124 = mul nsw i64 %indvars.iv.i43, %122
-  %gep.i44 = getelementptr i8, ptr %invariant.gep.i42, i64 %124
-  store i8 %115, ptr %gep.i44, align 1, !tbaa !148
-  %125 = getelementptr i8, ptr %gep.i44, i64 1
-  store i8 %117, ptr %125, align 1, !tbaa !148
-  %126 = getelementptr i8, ptr %gep.i44, i64 2
-  store i8 %118, ptr %126, align 1, !tbaa !148
+121:                                              ; preds = %121, %103
+  %indvars.iv.i43 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i45, %121 ]
+  %122 = mul nsw i64 %indvars.iv.i43, %120
+  %gep.i44 = getelementptr i8, ptr %invariant.gep.i42, i64 %122
+  store i8 %113, ptr %gep.i44, align 1, !tbaa !148
+  %123 = getelementptr i8, ptr %gep.i44, i64 1
+  store i8 %115, ptr %123, align 1, !tbaa !148
+  %124 = getelementptr i8, ptr %gep.i44, i64 2
+  store i8 %116, ptr %124, align 1, !tbaa !148
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 16
-  br i1 %exitcond.not.i46, label %127, label %123, !llvm.loop !176
+  br i1 %exitcond.not.i46, label %125, label %121, !llvm.loop !176
 
-127:                                              ; preds = %123
+125:                                              ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 2
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next61.i, 960
-  br i1 %exitcond67.not.i, label %128, label %105, !llvm.loop !177
+  br i1 %exitcond67.not.i, label %126, label %103, !llvm.loop !177
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %5, align 8, !tbaa !74
-  call void @av_expr_free(ptr noundef %129) #15
-  %130 = load ptr, ptr %6, align 8, !tbaa !174
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %132 = load ptr, ptr %131, align 8, !tbaa !73
-  %.not54.i = icmp eq ptr %130, %132
-  br i1 %.not54.i, label %134, label %133
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %5, align 8, !tbaa !74
+  call void @av_expr_free(ptr noundef %127) #15
+  %128 = load ptr, ptr %6, align 8, !tbaa !174
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %130 = load ptr, ptr %129, align 8, !tbaa !73
+  %.not54.i = icmp eq ptr %128, %130
+  br i1 %.not54.i, label %132, label %131
 
-133:                                              ; preds = %128
+131:                                              ; preds = %126
   call void @av_freep(ptr noundef nonnull %6) #15
-  br label %134
+  br label %132
 
-init_axis_color.exit.thread:                      ; preds = %69, %104, %101, %79
-  %.0.i47.ph = phi i32 [ -12, %79 ], [ %93, %101 ], [ %93, %104 ], [ -22, %69 ]
+init_axis_color.exit.thread:                      ; preds = %67, %102, %99, %77
+  %.0.i47.ph = phi i32 [ -12, %77 ], [ %91, %99 ], [ %91, %102 ], [ -22, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %160
+  br label %158
 
-134:                                              ; preds = %133, %128
+132:                                              ; preds = %131, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %135 = load ptr, ptr %25, align 8, !tbaa !128
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %138 = load i32, ptr %137, align 8, !tbaa !33
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %140 = load i32, ptr %139, align 4, !tbaa !35
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %142 = load i32, ptr %141, align 8, !tbaa !65
-  %143 = icmp ult i32 %142, 6
-  %switch.maskindex = trunc i32 %142 to i8
+  %133 = load ptr, ptr %25, align 8, !tbaa !128
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %136 = load i32, ptr %135, align 8, !tbaa !33
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %138 = load i32, ptr %137, align 4, !tbaa !35
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %140 = load i32, ptr %139, align 8, !tbaa !65
+  %141 = icmp ult i32 %140, 6
+  %switch.maskindex = trunc i32 %140 to i8
   %switch.shifted = lshr i8 53, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %143, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %141, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %convert_axis_pixel_format.exit
 
-switch.lookup:                                    ; preds = %134
-  %144 = zext nneg i32 %142 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %144
+switch.lookup:                                    ; preds = %132
+  %142 = zext nneg i32 %140 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.init_axis_from_font.7, i64 %142
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %convert_axis_pixel_format.exit
 
-convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %134
-  %.0.i48 = phi i32 [ %142, %134 ], [ %switch.load, %switch.lookup ]
-  %145 = load ptr, ptr %9, align 8, !tbaa !51
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 64
-  %147 = load ptr, ptr %91, align 8, !tbaa !20
-  %148 = call i32 @ff_scale_image(ptr noundef %135, ptr noundef nonnull %136, i32 noundef %138, i32 noundef %140, i32 noundef %.0.i48, ptr noundef %145, ptr noundef nonnull %146, i32 noundef 960, i32 noundef 16, i32 noundef 26, ptr noundef %147) #15
-  %149 = icmp slt i32 %148, 0
-  br i1 %149, label %160, label %150
+convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %132
+  %.0.i48 = phi i32 [ %140, %132 ], [ %switch.load, %switch.lookup ]
+  %143 = load ptr, ptr %9, align 8, !tbaa !51
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 64
+  %145 = load ptr, ptr %89, align 8, !tbaa !20
+  %146 = call i32 @ff_scale_image(ptr noundef %133, ptr noundef nonnull %134, i32 noundef %136, i32 noundef %138, i32 noundef %.0.i48, ptr noundef %143, ptr noundef nonnull %144, i32 noundef 960, i32 noundef 16, i32 noundef 26, ptr noundef %145) #15
+  %147 = icmp slt i32 %146, 0
+  br i1 %147, label %158, label %148
 
-150:                                              ; preds = %convert_axis_pixel_format.exit
+148:                                              ; preds = %convert_axis_pixel_format.exit
   call void @av_frame_free(ptr noundef nonnull %9) #15
-  %151 = load i32, ptr %137, align 8, !tbaa !33
-  %152 = load ptr, ptr %25, align 8, !tbaa !128
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 104
-  store i32 %151, ptr %153, align 8, !tbaa !147
-  %154 = load i32, ptr %139, align 4, !tbaa !35
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 108
-  store i32 %154, ptr %155, align 4, !tbaa !142
-  %156 = load i32, ptr %141, align 8, !tbaa !65
-  %157 = icmp ult i32 %156, 6
-  %switch.maskindex59 = trunc i32 %156 to i8
+  %149 = load i32, ptr %135, align 8, !tbaa !33
+  %150 = load ptr, ptr %25, align 8, !tbaa !128
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
+  store i32 %149, ptr %151, align 8, !tbaa !147
+  %152 = load i32, ptr %137, align 4, !tbaa !35
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 108
+  store i32 %152, ptr %153, align 4, !tbaa !142
+  %154 = load i32, ptr %139, align 8, !tbaa !65
+  %155 = icmp ult i32 %154, 6
+  %switch.maskindex59 = trunc i32 %154 to i8
   %switch.shifted60 = lshr i8 53, %switch.maskindex59
   %switch.lobit61 = trunc i8 %switch.shifted60 to i1
-  %or.cond64 = select i1 %157, i1 %switch.lobit61, i1 false
+  %or.cond64 = select i1 %155, i1 %switch.lobit61, i1 false
   br i1 %or.cond64, label %switch.lookup58, label %convert_axis_pixel_format.exit50
 
-switch.lookup58:                                  ; preds = %150
-  %158 = zext nneg i32 %156 to i64
-  %switch.gep62 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %158
+switch.lookup58:                                  ; preds = %148
+  %156 = zext nneg i32 %154 to i64
+  %switch.gep62 = getelementptr inbounds nuw i32, ptr @switch.table.init_axis_from_font.7, i64 %156
   %switch.load63 = load i32, ptr %switch.gep62, align 4
   br label %convert_axis_pixel_format.exit50
 
-convert_axis_pixel_format.exit50:                 ; preds = %switch.lookup58, %150
-  %.0.i49 = phi i32 [ %156, %150 ], [ %switch.load63, %switch.lookup58 ]
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 116
-  store i32 %.0.i49, ptr %159, align 4, !tbaa !137
-  br label %162
+convert_axis_pixel_format.exit50:                 ; preds = %switch.lookup58, %148
+  %.0.i49 = phi i32 [ %154, %148 ], [ %switch.load63, %switch.lookup58 ]
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 116
+  store i32 %.0.i49, ptr %157, align 4, !tbaa !137
+  br label %160
 
-160:                                              ; preds = %init_axis_color.exit.thread, %alloc_frame_empty.exit.thread, %convert_axis_pixel_format.exit, %18
-  %.030 = phi i32 [ %148, %convert_axis_pixel_format.exit ], [ -12, %18 ], [ -12, %alloc_frame_empty.exit.thread ], [ %.0.i47.ph, %init_axis_color.exit.thread ]
+158:                                              ; preds = %init_axis_color.exit.thread, %alloc_frame_empty.exit.thread, %convert_axis_pixel_format.exit, %18
+  %.030 = phi i32 [ %146, %convert_axis_pixel_format.exit ], [ -12, %18 ], [ -12, %alloc_frame_empty.exit.thread ], [ %.0.i47.ph, %init_axis_color.exit.thread ]
   call void @av_frame_free(ptr noundef nonnull %9) #15
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @av_frame_free(ptr noundef nonnull %161) #15
-  br label %162
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @av_frame_free(ptr noundef nonnull %159) #15
+  br label %160
 
-162:                                              ; preds = %160, %convert_axis_pixel_format.exit50
-  %.031 = phi i32 [ %.030, %160 ], [ 0, %convert_axis_pixel_format.exit50 ]
+160:                                              ; preds = %158, %convert_axis_pixel_format.exit50
+  %.031 = phi i32 [ %.030, %158 ], [ 0, %convert_axis_pixel_format.exit50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.031
 }
@@ -4510,10 +4510,10 @@ define internal fastcc void @init_colormatrix(ptr noundef captures(none) initial
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x double], ptr @switch.table.init_colormatrix, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.init_colormatrix, i64 %8
   %switch.load = load double, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep26 = getelementptr inbounds nuw [9 x double], ptr @switch.table.init_colormatrix.8, i64 0, i64 %9
+  %switch.gep26 = getelementptr inbounds nuw double, ptr @switch.table.init_colormatrix.8, i64 %9
   %switch.load27 = load double, ptr %switch.gep26, align 8
   br label %10
 
@@ -4584,7 +4584,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_cscheme(ptr noundef %0) unnam
 
 .preheader:                                       ; preds = %1, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
-  %13 = getelementptr inbounds nuw [6 x float], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !61
   %or.cond = fcmp ult float %14, 0.000000e+00
   %15 = fcmp nsz ogt float %14, 1.000000e+00

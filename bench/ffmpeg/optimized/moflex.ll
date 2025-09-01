@@ -902,7 +902,7 @@ read_var_byte.exit88:                             ; preds = %read_var_byte.exit,
 
 switch.lookup:                                    ; preds = %70
   %75 = zext nneg i32 %72 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.moflex_read_sync, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.moflex_read_sync, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   %76 = tail call i32 @avio_rb24(ptr noundef %5) #5
   %77 = add i32 %76, 1

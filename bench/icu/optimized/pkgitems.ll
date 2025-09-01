@@ -66,7 +66,7 @@ define void @_ZN6icu_777Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr 
 
 27:                                               ; preds = %30, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %30 ]
-  %28 = getelementptr inbounds nuw [3 x %struct.anon], ptr @_ZN6icu_77L11dataFormatsE, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %struct.anon, ptr @_ZN6icu_77L11dataFormatsE, i64 %indvars.iv.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %28, ptr noundef nonnull readonly dereferenceable(4) %26, i64 4)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %_ZN6icu_77L13getDataFormatEPKh.exit, label %30
@@ -1064,7 +1064,7 @@ define internal fastcc void @_ZN6icu_77L10checkAliasEPKcjPKDsiaPFvPvS1_S1_ES4_P1
 36:                                               ; preds = %30
   call void @u_UCharsToChars_77(ptr noundef %2, ptr noundef nonnull %10, i32 noundef %.030)
   %37 = sext i32 %.030 to i64
-  %38 = getelementptr inbounds [48 x i8], ptr %10, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr %10, i64 %37
   store i8 0, ptr %38, align 1, !tbaa !26
   %.not34 = icmp eq i8 %4, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

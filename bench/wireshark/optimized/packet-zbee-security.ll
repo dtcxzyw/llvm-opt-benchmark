@@ -1118,7 +1118,7 @@ define internal fastcc zeroext i1 @zbee_sec_decrypt_payload(ptr noundef readonly
   %17 = getelementptr i8, ptr %6, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1
   %19 = xor i8 %18, 92
-  %20 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr i8, ptr %9, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1153,7 +1153,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   %29 = getelementptr i8, ptr %6, i64 %indvars.iv.i14
   %30 = load i8, ptr %29, align 1
   %31 = xor i8 %30, 92
-  %32 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv.i14
+  %32 = getelementptr i8, ptr %8, i64 %indvars.iv.i14
   store i8 %31, ptr %32, align 1
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 16
@@ -1377,12 +1377,12 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
 82:                                               ; preds = %77, %75
   %.2 = phi i32 [ %.179, %75 ], [ 0, %77 ]
   %83 = zext nneg i32 %.2 to i64
-  %84 = getelementptr [16 x i8], ptr %10, i64 0, i64 %83
+  %84 = getelementptr i8, ptr %10, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = getelementptr i8, ptr %2, i64 %indvars.iv90
   %87 = load i8, ptr %86, align 1
   %88 = xor i8 %87, %85
-  %89 = getelementptr [16 x i8], ptr %9, i64 0, i64 %83
+  %89 = getelementptr i8, ptr %9, i64 %83
   store i8 %88, ptr %89, align 1
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %90 = add nuw nsw i32 %.2, 1
@@ -1428,12 +1428,12 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
 100:                                              ; preds = %95, %.lr.ph83
   %.5 = phi i32 [ %.482, %.lr.ph83 ], [ 0, %95 ]
   %101 = zext nneg i32 %.5 to i64
-  %102 = getelementptr [16 x i8], ptr %10, i64 0, i64 %101
+  %102 = getelementptr i8, ptr %10, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = getelementptr i8, ptr %4, i64 %indvars.iv101
   %105 = load i8, ptr %104, align 1
   %106 = xor i8 %105, %103
-  %107 = getelementptr [16 x i8], ptr %9, i64 0, i64 %101
+  %107 = getelementptr i8, ptr %9, i64 %101
   store i8 %106, ptr %107, align 1
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %108 = add nuw nsw i32 %.5, 1
@@ -1720,7 +1720,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
   %8 = load i8, ptr %7, align 1
   %9 = add nuw nsw i32 %.042, 1
   %10 = zext i32 %.042 to i64
-  %11 = getelementptr [16 x i8], ptr %4, i64 0, i64 %10
+  %11 = getelementptr i8, ptr %4, i64 %10
   store i8 %8, ptr %11, align 1
   %12 = icmp ugt i32 %.042, 14
   br i1 %12, label %13, label %.loopexit39
@@ -1734,7 +1734,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
 
 18:                                               ; preds = %13, %18
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %19 = getelementptr i8, ptr %4, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr i8, ptr %2, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1
@@ -1751,7 +1751,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %.loopexit39
   %25 = zext nneg i32 %.1 to i64
-  %26 = getelementptr [16 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr i8, ptr %4, i64 %25
   store i8 -128, ptr %26, align 1
   %.344 = add nuw nsw i32 %.1, 1
   %.not3845 = icmp eq i32 %.344, 14
@@ -1772,7 +1772,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
 
 33:                                               ; preds = %28, %33
   %indvars.iv54 = phi i64 [ 0, %28 ], [ %indvars.iv.next55, %33 ]
-  %34 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv54
+  %34 = getelementptr i8, ptr %4, i64 %indvars.iv54
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr i8, ptr %2, i64 %indvars.iv54
   %37 = load i8, ptr %36, align 1
@@ -1785,7 +1785,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
 .loopexit:                                        ; preds = %33, %.lr.ph
   %.4 = phi i32 [ %.347, %.lr.ph ], [ 0, %33 ]
   %39 = zext nneg i32 %.4 to i64
-  %40 = getelementptr [16 x i8], ptr %4, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %4, i64 %39
   store i8 0, ptr %40, align 1
   %.3 = add nuw nsw i32 %.4, 1
   %.not38 = icmp eq i32 %.3, 14
@@ -1808,7 +1808,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
 
 50:                                               ; preds = %._crit_edge, %50
   %indvars.iv58 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next59, %50 ]
-  %51 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv58
+  %51 = getelementptr i8, ptr %4, i64 %indvars.iv58
   %52 = load i8, ptr %51, align 1
   %53 = getelementptr i8, ptr %2, i64 %indvars.iv58
   %54 = load i8, ptr %53, align 1

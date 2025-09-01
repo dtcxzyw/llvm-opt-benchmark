@@ -44,10 +44,10 @@ define dso_local range(i32 -1, 65536) i32 @ScanCKeywordLookup(ptr noundef readon
 ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loopexit.i
   %.09.lcssa.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i ]
   %.08.lcssa.i = phi i64 [ 0, %4 ], [ %16, %._crit_edge.loopexit.i ]
-  %17 = getelementptr inbounds nuw [53 x i8], ptr @ScanCKeywords_hash_func.h, i64 0, i64 %.09.lcssa.i
+  %17 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.09.lcssa.i
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
-  %20 = getelementptr inbounds nuw [53 x i8], ptr @ScanCKeywords_hash_func.h, i64 0, i64 %.08.lcssa.i
+  %20 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.08.lcssa.i
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = add nsw i32 %22, %19
@@ -65,7 +65,7 @@ ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loo
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw [26 x i16], ptr @ScanCKeywordTokens, i64 0, i64 %25
+  %33 = getelementptr inbounds nuw i16, ptr @ScanCKeywordTokens, i64 %25
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   br label %36

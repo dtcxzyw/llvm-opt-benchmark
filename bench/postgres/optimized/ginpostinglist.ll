@@ -144,7 +144,7 @@ encode_varbyte.exit48:                            ; preds = %.lr.ph.i45, %49
   br i1 %.not38, label %75, label %73
 
 73:                                               ; preds = %.loopexit
-  %74 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %70
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 %70
   store i8 0, ptr %74, align 1
   br label %75
 

@@ -970,7 +970,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
 
 322:                                              ; preds = %318
   %323 = load ptr, ptr %0, align 8, !tbaa !73
-  %324 = getelementptr inbounds nuw [0 x ptr], ptr %157, i64 0, i64 %indvars.iv461
+  %324 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv461
   %325 = load ptr, ptr %324, align 8, !tbaa !72
   %326 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZNK3sls7bv_eval4wvalEP4expr(ptr noundef nonnull align 8 dereferenceable(865) %323, ptr noundef %325)
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 72
@@ -1249,7 +1249,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
 
 481:                                              ; preds = %477
   %482 = load ptr, ptr %0, align 8, !tbaa !73
-  %483 = getelementptr inbounds nuw [0 x ptr], ptr %358, i64 0, i64 %indvars.iv451
+  %483 = getelementptr inbounds nuw ptr, ptr %358, i64 %indvars.iv451
   %484 = load ptr, ptr %483, align 8, !tbaa !72
   %485 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZNK3sls7bv_eval4wvalEP4expr(ptr noundef nonnull align 8 dereferenceable(865) %482, ptr noundef %484)
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 72
@@ -1308,7 +1308,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
   %.0247345 = phi i32 [ 0, %.lr.ph347 ], [ %531, %._crit_edge343 ]
   %519 = add nsw i64 %indvars.iv, -1
   %520 = load ptr, ptr %0, align 8, !tbaa !73
-  %521 = getelementptr inbounds nuw [0 x ptr], ptr %514, i64 0, i64 %519
+  %521 = getelementptr inbounds nuw ptr, ptr %514, i64 %519
   %522 = load ptr, ptr %521, align 8, !tbaa !72
   %523 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZNK3sls7bv_eval4wvalEP4expr(ptr noundef nonnull align 8 dereferenceable(865) %520, ptr noundef %522)
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 152

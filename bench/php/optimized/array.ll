@@ -4843,7 +4843,7 @@ zend_string_alloc.exit:
   br i1 %4, label %20, label %22
 
 20:                                               ; preds = %zend_string_alloc.exit
-  %21 = getelementptr inbounds nuw [1 x i8], ptr %17, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %19
   store i8 95, ptr %21, align 1, !tbaa !8
   br label %22
 
@@ -5022,7 +5022,7 @@ zend_gc_try_delref.exit:                          ; preds = %50, %45, %41, %.cri
   %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = lshr i8 %73, 5
   %75 = zext nneg i8 %74 to i64
-  %76 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = and i8 %73, 31
   %79 = zext nneg i8 %78 to i32
@@ -5041,7 +5041,7 @@ zend_gc_try_delref.exit:                          ; preds = %50, %45, %41, %.cri
   %84 = load i8, ptr %83, align 1, !tbaa !8
   %85 = lshr i8 %84, 5
   %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !69
   %89 = and i8 %84, 31
   %90 = zext nneg i8 %89 to i32
@@ -5303,7 +5303,7 @@ define internal fastcc i64 @php_extract_ref_if_exists(ptr noundef readonly captu
   %35 = load i8, ptr %31, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -5322,7 +5322,7 @@ define internal fastcc i64 @php_extract_ref_if_exists(ptr noundef readonly captu
   %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = lshr i8 %46, 5
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !69
   %51 = and i8 %46, 31
   %52 = zext nneg i8 %51 to i32
@@ -5463,7 +5463,7 @@ define internal fastcc i64 @php_extract_ref_overwrite(ptr noundef readonly captu
   %24 = load i8, ptr %20, align 1, !tbaa !8
   %25 = lshr i8 %24, 5
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !69
   %29 = and i8 %24, 31
   %30 = zext nneg i8 %29 to i32
@@ -5482,7 +5482,7 @@ define internal fastcc i64 @php_extract_ref_overwrite(ptr noundef readonly captu
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -5753,7 +5753,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %68 = load i64, ptr %14, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull readonly align 8 %15, i64 %68, i1 false)
-  %69 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   store i8 95, ptr %69, align 1, !tbaa !8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
@@ -5764,7 +5764,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %72 = load i8, ptr %67, align 1, !tbaa !8
   %73 = lshr i8 %72, 5
   %74 = zext nneg i8 %73 to i64
-  %75 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !69
   %77 = and i8 %72, 31
   %78 = zext nneg i8 %77 to i32
@@ -5783,7 +5783,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = lshr i8 %83, 5
   %85 = zext nneg i8 %84 to i64
-  %86 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !69
   %88 = and i8 %83, 31
   %89 = zext nneg i8 %88 to i32
@@ -6031,7 +6031,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %71 = load i64, ptr %14, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull readonly align 8 %15, i64 %71, i1 false)
-  %72 = getelementptr inbounds nuw [1 x i8], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   store i8 95, ptr %72, align 1, !tbaa !8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %59, i64 %62, i1 false)
@@ -6042,7 +6042,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %75 = load i8, ptr %70, align 1, !tbaa !8
   %76 = lshr i8 %75, 5
   %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !69
   %80 = and i8 %75, 31
   %81 = zext nneg i8 %80 to i32
@@ -6061,7 +6061,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %86 = load i8, ptr %85, align 1, !tbaa !8
   %87 = lshr i8 %86, 5
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !69
   %91 = and i8 %86, 31
   %92 = zext nneg i8 %91 to i32
@@ -6182,7 +6182,7 @@ php_valid_var_name.exit124.thread:                ; preds = %131, %134
   %144 = load i8, ptr %141, align 1, !tbaa !8
   %145 = lshr i8 %144, 5
   %146 = zext nneg i8 %145 to i64
-  %147 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !69
   %149 = and i8 %144, 31
   %150 = zext nneg i8 %149 to i32
@@ -6201,7 +6201,7 @@ php_valid_var_name.exit124.thread:                ; preds = %131, %134
   %155 = load i8, ptr %154, align 1, !tbaa !8
   %156 = lshr i8 %155, 5
   %157 = zext nneg i8 %156 to i64
-  %158 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !69
   %160 = and i8 %155, 31
   %161 = zext nneg i8 %160 to i32
@@ -6363,7 +6363,7 @@ php_prefix_varname.exit:                          ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 8 %10, i64 %44, i1 false)
-  %45 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   store i8 95, ptr %45, align 1, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %33, i64 %35, i1 false)
@@ -6390,7 +6390,7 @@ php_prefix_varname.exit86:                        ; preds = %28
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %61 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %10, i64 %61, i1 false)
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   store i8 95, ptr %62, align 1, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %48, i64 %52, i1 false)
@@ -6425,7 +6425,7 @@ zend_string_release_ex.exit:                      ; preds = %72, %67, %php_prefi
   %76 = load i8, ptr %74, align 1, !tbaa !8
   %77 = lshr i8 %76, 5
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = and i8 %76, 31
   %82 = zext nneg i8 %81 to i32
@@ -6444,7 +6444,7 @@ zend_string_release_ex.exit:                      ; preds = %72, %67, %php_prefi
   %87 = load i8, ptr %86, align 1, !tbaa !8
   %88 = lshr i8 %87, 5
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !69
   %92 = and i8 %87, 31
   %93 = zext nneg i8 %92 to i32
@@ -6634,7 +6634,7 @@ define internal fastcc i64 @php_extract_ref_prefix_invalid(ptr noundef readonly 
   %34 = load i8, ptr %30, align 1, !tbaa !8
   %35 = lshr i8 %34, 5
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !69
   %39 = and i8 %34, 31
   %40 = zext nneg i8 %39 to i32
@@ -6653,7 +6653,7 @@ define internal fastcc i64 @php_extract_ref_prefix_invalid(ptr noundef readonly 
   %45 = load i8, ptr %44, align 1, !tbaa !8
   %46 = lshr i8 %45, 5
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !69
   %50 = and i8 %45, 31
   %51 = zext nneg i8 %50 to i32
@@ -6706,7 +6706,7 @@ php_valid_var_name.exit110.thread:                ; preds = %.preheader170, %zen
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %76 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr nonnull readonly align 8 %10, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw [1 x i8], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   store i8 95, ptr %77, align 1, !tbaa !8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %30, i64 %67, i1 false)
@@ -6717,7 +6717,7 @@ php_valid_var_name.exit110.thread:                ; preds = %.preheader170, %zen
   %80 = load i8, ptr %75, align 1, !tbaa !8
   %81 = lshr i8 %80, 5
   %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !69
   %85 = and i8 %80, 31
   %86 = zext nneg i8 %85 to i32
@@ -6736,7 +6736,7 @@ php_valid_var_name.exit110.thread:                ; preds = %.preheader170, %zen
   %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = lshr i8 %91, 5
   %93 = zext nneg i8 %92 to i64
-  %94 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !69
   %96 = and i8 %91, 31
   %97 = zext nneg i8 %96 to i32
@@ -6788,7 +6788,7 @@ php_prefix_varname.exit121:                       ; preds = %28
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %122 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr nonnull readonly align 8 %10, i64 %122, i1 false)
-  %123 = getelementptr inbounds nuw [1 x i8], ptr %121, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
   store i8 95, ptr %123, align 1, !tbaa !8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr nonnull readonly align 1 %109, i64 %113, i1 false)
@@ -6821,7 +6821,7 @@ zend_string_release_ex.exit:                      ; preds = %php_prefix_varname.
   %136 = load i8, ptr %121, align 1, !tbaa !8
   %137 = lshr i8 %136, 5
   %138 = zext nneg i8 %137 to i64
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !69
   %141 = and i8 %136, 31
   %142 = zext nneg i8 %141 to i32
@@ -6840,7 +6840,7 @@ zend_string_release_ex.exit:                      ; preds = %php_prefix_varname.
   %147 = load i8, ptr %146, align 1, !tbaa !8
   %148 = lshr i8 %147, 5
   %149 = zext nneg i8 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !69
   %152 = and i8 %147, 31
   %153 = zext nneg i8 %152 to i32
@@ -7023,7 +7023,7 @@ define internal fastcc i64 @php_extract_ref_skip(ptr noundef readonly captures(n
   %24 = load i8, ptr %20, align 1, !tbaa !8
   %25 = lshr i8 %24, 5
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !69
   %29 = and i8 %24, 31
   %30 = zext nneg i8 %29 to i32
@@ -7042,7 +7042,7 @@ define internal fastcc i64 @php_extract_ref_skip(ptr noundef readonly captures(n
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -7244,7 +7244,7 @@ define internal fastcc i64 @php_extract_if_exists(ptr noundef readonly captures(
   %35 = load i8, ptr %31, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -7263,7 +7263,7 @@ define internal fastcc i64 @php_extract_if_exists(ptr noundef readonly captures(
   %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = lshr i8 %46, 5
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !69
   %51 = and i8 %46, 31
   %52 = zext nneg i8 %51 to i32
@@ -7424,7 +7424,7 @@ define internal fastcc i64 @php_extract_overwrite(ptr noundef readonly captures(
   %24 = load i8, ptr %20, align 1, !tbaa !8
   %25 = lshr i8 %24, 5
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !69
   %29 = and i8 %24, 31
   %30 = zext nneg i8 %29 to i32
@@ -7443,7 +7443,7 @@ define internal fastcc i64 @php_extract_overwrite(ptr noundef readonly captures(
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -7726,7 +7726,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %68 = load i64, ptr %14, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull readonly align 8 %15, i64 %68, i1 false)
-  %69 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   store i8 95, ptr %69, align 1, !tbaa !8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
@@ -7737,7 +7737,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %72 = load i8, ptr %67, align 1, !tbaa !8
   %73 = lshr i8 %72, 5
   %74 = zext nneg i8 %73 to i64
-  %75 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !69
   %77 = and i8 %72, 31
   %78 = zext nneg i8 %77 to i32
@@ -7756,7 +7756,7 @@ php_prefix_varname.exit:                          ; preds = %29, %25
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = lshr i8 %83, 5
   %85 = zext nneg i8 %84 to i64
-  %86 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !69
   %88 = and i8 %83, 31
   %89 = zext nneg i8 %88 to i32
@@ -8058,7 +8058,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %71 = load i64, ptr %14, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull readonly align 8 %15, i64 %71, i1 false)
-  %72 = getelementptr inbounds nuw [1 x i8], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   store i8 95, ptr %72, align 1, !tbaa !8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %59, i64 %62, i1 false)
@@ -8069,7 +8069,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %75 = load i8, ptr %70, align 1, !tbaa !8
   %76 = lshr i8 %75, 5
   %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !69
   %80 = and i8 %75, 31
   %81 = zext nneg i8 %80 to i32
@@ -8088,7 +8088,7 @@ zend_string_equals.exit125.thread:                ; preds = %php_valid_var_name.
   %86 = load i8, ptr %85, align 1, !tbaa !8
   %87 = lshr i8 %86, 5
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !69
   %91 = and i8 %86, 31
   %92 = zext nneg i8 %91 to i32
@@ -8266,7 +8266,7 @@ php_valid_var_name.exit123.thread:                ; preds = %161, %142
   %171 = load i8, ptr %168, align 1, !tbaa !8
   %172 = lshr i8 %171, 5
   %173 = zext nneg i8 %172 to i64
-  %174 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !69
   %176 = and i8 %171, 31
   %177 = zext nneg i8 %176 to i32
@@ -8285,7 +8285,7 @@ php_valid_var_name.exit123.thread:                ; preds = %161, %142
   %182 = load i8, ptr %181, align 1, !tbaa !8
   %183 = lshr i8 %182, 5
   %184 = zext nneg i8 %183 to i64
-  %185 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !69
   %187 = and i8 %182, 31
   %188 = zext nneg i8 %187 to i32
@@ -8434,7 +8434,7 @@ php_prefix_varname.exit:                          ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull readonly align 8 %10, i64 %44, i1 false)
-  %45 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   store i8 95, ptr %45, align 1, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %33, i64 %35, i1 false)
@@ -8461,7 +8461,7 @@ php_prefix_varname.exit100:                       ; preds = %28
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %61 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull readonly align 8 %10, i64 %61, i1 false)
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   store i8 95, ptr %62, align 1, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %48, i64 %52, i1 false)
@@ -8496,7 +8496,7 @@ zend_string_release_ex.exit:                      ; preds = %72, %67, %php_prefi
   %76 = load i8, ptr %74, align 1, !tbaa !8
   %77 = lshr i8 %76, 5
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = and i8 %76, 31
   %82 = zext nneg i8 %81 to i32
@@ -8515,7 +8515,7 @@ zend_string_release_ex.exit:                      ; preds = %72, %67, %php_prefi
   %87 = load i8, ptr %86, align 1, !tbaa !8
   %88 = lshr i8 %87, 5
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !69
   %92 = and i8 %87, 31
   %93 = zext nneg i8 %92 to i32
@@ -8758,7 +8758,7 @@ define internal fastcc i64 @php_extract_prefix_invalid(ptr noundef readonly capt
   %34 = load i8, ptr %30, align 1, !tbaa !8
   %35 = lshr i8 %34, 5
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !69
   %39 = and i8 %34, 31
   %40 = zext nneg i8 %39 to i32
@@ -8777,7 +8777,7 @@ define internal fastcc i64 @php_extract_prefix_invalid(ptr noundef readonly capt
   %45 = load i8, ptr %44, align 1, !tbaa !8
   %46 = lshr i8 %45, 5
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !69
   %50 = and i8 %45, 31
   %51 = zext nneg i8 %50 to i32
@@ -8830,7 +8830,7 @@ php_valid_var_name.exit122.thread:                ; preds = %.preheader187, %zen
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %76 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr nonnull readonly align 8 %10, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw [1 x i8], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   store i8 95, ptr %77, align 1, !tbaa !8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull readonly align 1 %30, i64 %67, i1 false)
@@ -8841,7 +8841,7 @@ php_valid_var_name.exit122.thread:                ; preds = %.preheader187, %zen
   %80 = load i8, ptr %75, align 1, !tbaa !8
   %81 = lshr i8 %80, 5
   %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !69
   %85 = and i8 %80, 31
   %86 = zext nneg i8 %85 to i32
@@ -8860,7 +8860,7 @@ php_valid_var_name.exit122.thread:                ; preds = %.preheader187, %zen
   %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = lshr i8 %91, 5
   %93 = zext nneg i8 %92 to i64
-  %94 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !69
   %96 = and i8 %91, 31
   %97 = zext nneg i8 %96 to i32
@@ -8912,7 +8912,7 @@ php_prefix_varname.exit135:                       ; preds = %28
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %122 = load i64, ptr %9, align 8, !tbaa !119
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr nonnull readonly align 8 %10, i64 %122, i1 false)
-  %123 = getelementptr inbounds nuw [1 x i8], ptr %121, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
   store i8 95, ptr %123, align 1, !tbaa !8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr nonnull readonly align 1 %109, i64 %113, i1 false)
@@ -8945,7 +8945,7 @@ zend_string_release_ex.exit:                      ; preds = %php_prefix_varname.
   %136 = load i8, ptr %121, align 1, !tbaa !8
   %137 = lshr i8 %136, 5
   %138 = zext nneg i8 %137 to i64
-  %139 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !69
   %141 = and i8 %136, 31
   %142 = zext nneg i8 %141 to i32
@@ -8964,7 +8964,7 @@ zend_string_release_ex.exit:                      ; preds = %php_prefix_varname.
   %147 = load i8, ptr %146, align 1, !tbaa !8
   %148 = lshr i8 %147, 5
   %149 = zext nneg i8 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !69
   %152 = and i8 %147, 31
   %153 = zext nneg i8 %152 to i32
@@ -9200,7 +9200,7 @@ define internal fastcc i64 @php_extract_skip(ptr noundef readonly captures(none)
   %24 = load i8, ptr %20, align 1, !tbaa !8
   %25 = lshr i8 %24, 5
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !69
   %29 = and i8 %24, 31
   %30 = zext nneg i8 %29 to i32
@@ -9219,7 +9219,7 @@ define internal fastcc i64 @php_extract_skip(ptr noundef readonly captures(none)
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = lshr i8 %35, 5
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr @php_valid_var_name.charset2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @php_valid_var_name.charset2, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = and i8 %35, 31
   %41 = zext nneg i8 %40 to i32
@@ -10424,7 +10424,7 @@ zend_dval_to_lval.exit:                           ; preds = %55, %57
   %.0435590 = phi ptr [ %145, %.lr.ph593 ], [ %154, %147 ]
   %.0440589 = phi i32 [ %139, %.lr.ph593 ], [ %152, %147 ]
   %148 = zext i8 %.0433591 to i64
-  %149 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !62
   store ptr %150, ptr %.0435590, align 8, !tbaa !8
   %151 = getelementptr inbounds nuw i8, ptr %.0435590, i64 8
@@ -10500,7 +10500,7 @@ zend_dval_to_lval.exit:                           ; preds = %55, %57
   %.0442584 = phi ptr [ %187, %.lr.ph ], [ %197, %189 ]
   %.0443583 = phi i32 [ %181, %.lr.ph ], [ %194, %189 ]
   %190 = zext i8 %.1434585 to i64
-  %191 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !62
   store ptr %192, ptr %.0442584, align 8, !tbaa !8
   %193 = getelementptr inbounds nuw i8, ptr %.0442584, i64 8
@@ -10535,7 +10535,7 @@ zend_dval_to_lval.exit:                           ; preds = %55, %57
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %208, align 8, !tbaa !8
   %209 = zext i8 %117 to i64
-  %210 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !62
   store ptr %211, ptr %6, align 8, !tbaa !8
   %212 = getelementptr inbounds nuw i8, ptr %6, i64 8

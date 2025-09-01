@@ -746,7 +746,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
 
 32:                                               ; preds = %26
   %33 = add nuw nsw i64 %.05970, 1
-  %34 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %.05970
+  %34 = getelementptr i8, ptr %6, i64 %.05970
   store i8 %27, ptr %34, align 1
   br label %41
 
@@ -756,7 +756,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
 
 36:                                               ; preds = %35
   %37 = add nuw nsw i64 %.05970, 1
-  %38 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %.05970
+  %38 = getelementptr i8, ptr %6, i64 %.05970
   store i8 46, ptr %38, align 1
   br label %41
 
@@ -773,7 +773,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %44, label %26, label %45, !llvm.loop !9
 
 45:                                               ; preds = %41
-  %46 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %.1
+  %46 = getelementptr i8, ptr %6, i64 %.1
   store i8 0, ptr %46, align 1
   br i1 %7, label %47, label %50
 

@@ -431,10 +431,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !13, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E.108", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h798cebefd444cfb2E.108", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -446,10 +446,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !14, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E.109", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbf90c2f276d39cc9E.109", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -17781,7 +17781,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
 
 76:                                               ; preds = %76, %75
   %77 = phi i64 [ 0, %75 ], [ %79, %76 ]
-  %78 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw float, ptr %4, i64 %77
   store float 1.000000e+00, ptr %78, align 4, !noalias !1944
   %79 = add nuw nsw i64 %77, 1
   %exitcond.not.i.us = icmp eq i64 %79, 4
@@ -19319,7 +19319,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
 
 75:                                               ; preds = %75, %74
   %76 = phi i64 [ 0, %74 ], [ %78, %75 ]
-  %77 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw float, ptr %4, i64 %76
   store float 1.000000e+00, ptr %77, align 4, !noalias !2062
   %78 = add nuw nsw i64 %76, 1
   %exitcond.not.i.us = icmp eq i64 %78, 4
@@ -24274,7 +24274,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !2450, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -24417,7 +24417,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !2468, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -24844,7 +24844,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !2536, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -24999,7 +24999,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !2557, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -26140,7 +26140,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !2781, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -27715,7 +27715,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !3105, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -28994,7 +28994,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !3341, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -29553,7 +29553,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !3419, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -29830,7 +29830,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !3458, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -29976,7 +29976,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !3476, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -30337,7 +30337,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -31088,7 +31088,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !3727, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -31743,7 +31743,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -32096,7 +32096,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !3897, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -32283,7 +32283,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !3946, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -32956,7 +32956,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4079, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -33097,7 +33097,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 149
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4097, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -33589,7 +33589,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4160, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -33733,7 +33733,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4178, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -34166,7 +34166,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4243, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -34904,7 +34904,7 @@ switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
   %36 = zext nneg i8 %.0.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
   %38 = extractvalue { i64, i1 } %37, 1
@@ -35249,7 +35249,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4420, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -35885,7 +35885,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4522, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -36548,7 +36548,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %16 = load i8, ptr %15, align 8, !range !14, !alias.scope !4627, !noundef !4
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %12 to i64
   %19 = zext i32 %14 to i64
@@ -36699,7 +36699,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i8, ptr %10, align 8, !range !2449, !alias.scope !4650, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hecbb599937f90c1fE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %.0.i.i.i to i64
   %14 = zext i32 %.0.i3.i.i to i64
@@ -37023,7 +37023,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 362
   %11 = load i8, ptr %10, align 2, !range !14, !alias.scope !4695, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = zext i32 %7 to i64
   %14 = zext i32 %9 to i64
@@ -37402,7 +37402,7 @@ switch.lookup:
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 173
   %11 = load i8, ptr %10, align 1, !range !14, !alias.scope !4755, !noundef !4
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = and i64 %7, 4294967295
   %14 = and i64 %9, 4294967295
@@ -41456,7 +41456,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
   store float 1.000000e+00, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4
@@ -42821,7 +42821,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 
 4:                                                ; preds = %2, %4
   %5 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw float, ptr %3, i64 %5
   store float 1.000000e+00, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 4

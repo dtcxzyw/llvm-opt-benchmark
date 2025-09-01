@@ -207,7 +207,7 @@ define internal range(i64 -2147483648, 35) i64 @dir_read(ptr noundef captures(no
 
 switch.lookup:                                    ; preds = %25
   %30 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.dir_read, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %1, align 1
   %.pre = load ptr, ptr %15, align 8

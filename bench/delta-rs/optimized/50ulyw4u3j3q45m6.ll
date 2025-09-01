@@ -23078,7 +23078,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hcc76db5dfb
   ret void
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw [0 x { { { [35 x i64] } } }], ptr %1, i64 0, i64 %4
+  %16 = getelementptr inbounds nuw { { { [35 x i64] } } }, ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %16, i64 280, i1 false)
   br label %14
 }
@@ -23384,7 +23384,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %33 = and i64 %.0411, 255
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !align !12, !noundef !4
-  %36 = getelementptr inbounds nuw [256 x ptr], ptr %35, i64 0, i64 %33
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8
   br label %45
 

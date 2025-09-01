@@ -814,7 +814,7 @@ define hidden noundef range(i8 1, 12) i8 @_ZN3syn4expr10precedence10Precedence2o
 switch.lookup:
   %1 = load i32, ptr %0, align 4, !range !190, !noundef !7
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [28 x i8], ptr @switch.table._ZN3syn4expr10precedence10Precedence2of17h3991decb90ba0367E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN3syn4expr10precedence10Precedence2of17h3991decb90ba0367E, i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -1166,7 +1166,7 @@ define hidden noundef i8 @_ZN3syn3lit5value4byte17h2572aba12ded7ffdE(ptr noalias
   ret i8 %.0
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 %2
   %8 = load i8, ptr %7, align 1, !noundef !7
   br label %5
 }
@@ -1181,7 +1181,7 @@ define hidden noundef i8 @_ZN3syn3lit5value4byte17h974d316fd1183218E(ptr noalias
   ret i8 %.0
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 %2
   %8 = load i8, ptr %7, align 1, !noundef !7
   br label %5
 }
@@ -1200,7 +1200,7 @@ define hidden noundef i8 @_ZN3syn3lit5value4byte17hf8160151b64e06f7E(ptr noalias
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !245, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds i8, ptr %9, i64 %1
   %11 = load i8, ptr %10, align 1, !noundef !7
   br label %6
 }
@@ -2835,7 +2835,7 @@ common.resume:                                    ; preds = %131, %136, %.body, 
   br label %109
 
 88:                                               ; preds = %"_ZN3syn4expr7parsing63_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..expr..Expr$GT$5parse17h8767ced0dce096f9E.exit"
-  %89 = getelementptr inbounds nuw [39 x i64], ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 0, i64 %84
+  %89 = getelementptr inbounds nuw i64, ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 %84
   %90 = load i64, ptr %89, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %12, i64 %90, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %13, align 8
@@ -2844,7 +2844,7 @@ common.resume:                                    ; preds = %131, %136, %.body, 
   br i1 %91, label %109, label %92
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds [39 x i64], ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 0, i64 %.0..0..0..0..0..0..pr
+  %93 = getelementptr inbounds i64, ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 %.0..0..0..0..0..0..pr
   %94 = load i64, ptr %93, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull align 8 %13, i64 %94, i1 false)
   %95 = icmp ne ptr %.sroa.565.076, null
@@ -4563,7 +4563,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %244, %2
 
 .lr.ph.i.i:                                       ; preds = %252, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i"
   %.09.i.i = phi i64 [ %257, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E.exit.i.i" ], [ 0, %252 ]
-  %256 = getelementptr inbounds [0 x { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }], ptr %253, i64 0, i64 %.09.i.i
+  %256 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %253, i64 %.09.i.i
   %257 = add nuw i64 %.09.i.i, 1
   %258 = load i64, ptr %256, align 8, !range !955, !alias.scope !956, !noalias !952, !noundef !7
   %259 = add nsw i64 %258, -39
@@ -4602,7 +4602,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %244, %2
   br label %267
 
 271:                                              ; preds = %267
-  %272 = getelementptr inbounds [0 x { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }], ptr %253, i64 0, i64 %.1.i.i
+  %272 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %253, i64 %.1.i.i
   %273 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2291984479704542E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %272) #28
           to label %267 unwind label %274, !noalias !952

@@ -649,7 +649,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273
   unreachable
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit29: ; preds = %22
-  %28 = getelementptr inbounds [0 x { { { i32, [1 x i32] } }, i32 }], ptr %24, i64 0, i64 %.sroa.012.061
+  %28 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %24, i64 %.sroa.012.061
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %28, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

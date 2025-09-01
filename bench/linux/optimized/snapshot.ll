@@ -676,7 +676,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
 
 49:                                               ; preds = %48, %.loopexit98
   %50 = phi i64 [ 0, %.loopexit98 ], [ %23, %48 ]
-  %51 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %50, i64 5
+  %51 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %50, i64 5
   %52 = load ptr, ptr %51, align 8
   %53 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %52, i32 noundef %18, i64 noundef 32) #23
   %54 = icmp eq ptr %53, null
@@ -5252,7 +5252,7 @@ define dso_local i32 @snapshot_read_next(ptr noundef captures(none) %0) local_un
   %26 = phi i64 [ %33, %41 ], [ 0, %22 ]
   %27 = phi i32 [ %43, %41 ], [ %24, %22 ]
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr @node_data, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 13104
   %32 = load i64, ptr %31, align 16
@@ -5850,7 +5850,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   %64 = phi i64 [ %71, %79 ], [ 0, %60 ]
   %65 = phi i32 [ %81, %79 ], [ %62, %60 ]
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %66
+  %67 = getelementptr ptr, ptr @node_data, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 13104
   %70 = load i64, ptr %69, align 16
@@ -8002,11 +8002,11 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
   %85 = getelementptr %struct.page, ptr %84, i64 %18
   %86 = load i64, ptr %85, align 16
   %87 = lshr i64 %86, 58
-  %88 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %87
+  %88 = getelementptr ptr, ptr @node_data, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = lshr i64 %86, 56
   %91 = and i64 %90, 3
-  %92 = getelementptr [4 x %struct.zone], ptr %89, i64 0, i64 %91
+  %92 = getelementptr %struct.zone, ptr %89, i64 %91
   %93 = icmp eq ptr %92, %0
   br i1 %93, label %94, label %.thread
 
@@ -8083,12 +8083,12 @@ define internal fastcc void @mark_free_pages(ptr noundef nonnull %0) unnamed_add
 
 127:                                              ; preds = %242, %.loopexit23
   %128 = phi i64 [ 0, %.loopexit23 ], [ %243, %242 ]
-  %129 = getelementptr [11 x %struct.free_area], ptr %17, i64 0, i64 %128
+  %129 = getelementptr %struct.free_area, ptr %17, i64 %128
   br label %130
 
 130:                                              ; preds = %.loopexit21, %127
   %131 = phi i64 [ 0, %127 ], [ %240, %.loopexit21 ]
-  %132 = getelementptr [4 x %struct.list_head], ptr %129, i64 0, i64 %131
+  %132 = getelementptr %struct.list_head, ptr %129, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, %132
   %135 = load ptr, ptr @free_pages_map, align 8
@@ -8517,11 +8517,11 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
 131:                                              ; preds = %124
   %132 = load i64, ptr %129, align 16
   %133 = lshr i64 %132, 58
-  %134 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %133
+  %134 = getelementptr ptr, ptr @node_data, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = lshr i64 %132, 56
   %137 = and i64 %136, 3
-  %138 = getelementptr [4 x %struct.zone], ptr %135, i64 0, i64 %137
+  %138 = getelementptr %struct.zone, ptr %135, i64 %137
   %139 = icmp eq ptr %138, %0
   br i1 %139, label %140, label %.thread
 

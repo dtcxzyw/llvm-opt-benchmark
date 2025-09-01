@@ -10277,9 +10277,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error5Error12as_trap_code17h2cfe97f
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8, !range !863, !alias.scope !858, !noundef !10
-  %switch.tableidx2 = add nsw i64 %14, -4
-  %15 = icmp ult i64 %switch.tableidx2, 7
-  br i1 %15, label %switch.lookup1, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
+  %switch.tableidx1 = add nsw i64 %14, -4
+  %15 = icmp ult i64 %switch.tableidx1, 7
+  br i1 %15, label %switch.lookup2, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10297,15 +10297,15 @@ switch.lookup:                                    ; preds = %8
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-switch.lookup1:                                   ; preds = %12
-  %switch.cast = trunc nuw i64 %switch.tableidx2 to i56
+switch.lookup2:                                   ; preds = %12
+  %switch.cast = trunc nuw i64 %switch.tableidx1 to i56
   %switch.shiftamt3 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift4 = lshr i56 2542118161744386, %switch.shiftamt3
   %switch.masked5 = trunc i56 %switch.downshift4 to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %16, %switch.lookup1, %12, %switch.lookup, %8, %1, %5, %20
-  %.sroa.0.0.i = phi i8 [ 11, %12 ], [ 11, %8 ], [ 11, %1 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup1 ], [ %spec.select, %16 ]
+_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %16, %switch.lookup2, %12, %switch.lookup, %8, %1, %5, %20
+  %.sroa.0.0.i = phi i8 [ 11, %12 ], [ 11, %8 ], [ 11, %1 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup2 ], [ %spec.select, %16 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10495,9 +10495,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !range !863, !noundef !10
-  %switch.tableidx3 = add nsw i64 %13, -4
-  %14 = icmp ult i64 %switch.tableidx3, 7
-  br i1 %14, label %switch.lookup2, label %20
+  %switch.tableidx2 = add nsw i64 %13, -4
+  %14 = icmp ult i64 %switch.tableidx2, 7
+  br i1 %14, label %switch.lookup3, label %20
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10515,15 +10515,15 @@ switch.lookup:                                    ; preds = %7
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %20
 
-switch.lookup2:                                   ; preds = %11
-  %switch.cast = trunc nuw i64 %switch.tableidx3 to i56
+switch.lookup3:                                   ; preds = %11
+  %switch.cast = trunc nuw i64 %switch.tableidx2 to i56
   %switch.shiftamt4 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift5 = lshr i56 2542118161744386, %switch.shiftamt4
   %switch.masked6 = trunc i56 %switch.downshift5 to i8
   br label %20
 
-20:                                               ; preds = %15, %switch.lookup2, %11, %switch.lookup, %7, %4, %1, %19
-  %.sroa.0.0 = phi i8 [ 11, %11 ], [ 11, %7 ], [ 11, %1 ], [ %6, %4 ], [ 9, %19 ], [ %switch.masked, %switch.lookup ], [ %switch.masked6, %switch.lookup2 ], [ %spec.select, %15 ]
+20:                                               ; preds = %15, %switch.lookup3, %11, %switch.lookup, %7, %4, %1, %19
+  %.sroa.0.0 = phi i8 [ 11, %11 ], [ 11, %7 ], [ 11, %1 ], [ %6, %4 ], [ 9, %19 ], [ %switch.masked, %switch.lookup ], [ %switch.masked6, %switch.lookup3 ], [ %spec.select, %15 ]
   ret i8 %.sroa.0.0
 }
 

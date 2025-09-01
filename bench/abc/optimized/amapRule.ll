@@ -975,7 +975,7 @@ Vec_PtrAlloc.exit:                                ; preds = %19, %25
   %33 = phi i32 [ %spec.store.select.i, %.lr.ph65 ], [ %74, %Vec_PtrPush.exit ]
   %34 = phi i32 [ 0, %.lr.ph65 ], [ %76, %Vec_PtrPush.exit ]
   %indvars.iv71 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next72, %Vec_PtrPush.exit ]
-  %35 = getelementptr inbounds nuw [0 x i16], ptr %31, i64 0, i64 %indvars.iv71
+  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv71
   %36 = load i16, ptr %35, align 2, !tbaa !48
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 65534
@@ -1277,10 +1277,10 @@ Kit_DsdNtkObj.exit37:                             ; preds = %Kit_DsdNtkObj.exit,
 
 41:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %42 = getelementptr inbounds nuw [0 x i16], ptr %37, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2, !tbaa !48
   %44 = zext i16 %43 to i32
-  %45 = getelementptr inbounds nuw [0 x i16], ptr %39, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2, !tbaa !48
   %47 = zext i16 %46 to i32
   %48 = xor i32 %47, %44
@@ -1329,7 +1329,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [0 x i16], ptr %16, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !48
   %20 = and i16 %19, -2
   %21 = zext i16 %20 to i32
@@ -1371,7 +1371,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   br i1 %35, label %.lr.ph42, label %Kit_DsdNtkObj.exit.thread
 
 .lr.ph42:                                         ; preds = %31
-  %36 = getelementptr inbounds nuw [0 x i16], ptr %29, i64 0, i64 %indvars.iv54
+  %36 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv54
   br label %37
 
 37:                                               ; preds = %.lr.ph42, %112
@@ -1380,7 +1380,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
   %indvars.iv51 = phi i64 [ %indvars.iv49, %.lr.ph42 ], [ %indvars.iv.next52, %112 ]
   %40 = load i16, ptr %36, align 2, !tbaa !48
   %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw [0 x i16], ptr %29, i64 0, i64 %indvars.iv51
+  %42 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv51
   %43 = load i16, ptr %42, align 2, !tbaa !48
   %44 = zext i16 %43 to i32
   %45 = xor i32 %44, %41
@@ -1741,22 +1741,22 @@ Amap_CreateRulesFromDsd.exit:                     ; preds = %48
   %116 = zext nneg i32 %115 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %113, ptr nonnull align 4 %84, i64 %116, i1 false)
   %117 = sext i32 %102 to i64
-  %118 = getelementptr inbounds [15 x i8], ptr %84, i64 0, i64 %117
+  %118 = getelementptr inbounds i8, ptr %84, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !77
   %120 = and i8 %119, -2
   %121 = zext nneg i32 %101 to i64
-  %122 = getelementptr inbounds nuw [15 x i8], ptr %84, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %84, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !77
   %124 = and i8 %123, 1
   %125 = or disjoint i8 %124, %120
-  %126 = getelementptr inbounds nuw [15 x i8], ptr %113, i64 0, i64 %121
+  %126 = getelementptr inbounds nuw i8, ptr %113, i64 %121
   store i8 %125, ptr %126, align 1, !tbaa !77
   %127 = load i8, ptr %122, align 1, !tbaa !77
   %128 = and i8 %127, -2
   %129 = load i8, ptr %118, align 1, !tbaa !77
   %130 = and i8 %129, 1
   %131 = or disjoint i8 %130, %128
-  %132 = getelementptr inbounds [15 x i8], ptr %113, i64 0, i64 %117
+  %132 = getelementptr inbounds i8, ptr %113, i64 %117
   store i8 %131, ptr %132, align 1, !tbaa !77
   %133 = load ptr, ptr %94, align 8, !tbaa !71
   store ptr %133, ptr %104, align 8, !tbaa !74

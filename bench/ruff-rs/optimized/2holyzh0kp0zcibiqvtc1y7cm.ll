@@ -1465,7 +1465,7 @@ switch.lookup:                                    ; preds = %_ZN22ruff_annotate_
   %191 = load i64, ptr %190, align 8, !alias.scope !108, !noalias !109, !noundef !3
   %192 = add i64 %191, 2
   %193 = zext nneg i8 %.val.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 0, i64 %193
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 %193
   %switch.load = load i64, ptr %switch.gep, align 8
   %194 = add i64 %192, %switch.load
   br label %_ZN22ruff_annotate_snippets8renderer12display_list19annotation_type_len17h8f8df1cf898cb439E.exit38.i.i
@@ -4416,7 +4416,7 @@ switch.lookup37:                                  ; preds = %_ZN22ruff_annotate_
   %1216 = getelementptr inbounds nuw i8, ptr %1147, i64 56
   %.val255 = load i8, ptr %1216, align 8, !range !107, !noundef !3
   %1217 = zext nneg i8 %.val255 to i64
-  %switch.gep38 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 0, i64 %1217
+  %switch.gep38 = getelementptr inbounds nuw i64, ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 %1217
   %switch.load39 = load i64, ptr %switch.gep38, align 8
   %1218 = add i64 %1215, 2
   %1219 = add i64 %1218, %switch.load39
@@ -4426,7 +4426,7 @@ switch.lookup40:                                  ; preds = %_ZN22ruff_annotate_
   %1220 = getelementptr inbounds nuw i8, ptr %1147, i64 56
   %.val256 = load i8, ptr %1220, align 8, !range !107, !noundef !3
   %1221 = zext nneg i8 %.val256 to i64
-  %switch.gep41 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 0, i64 %1221
+  %switch.gep41 = getelementptr inbounds nuw i64, ptr @switch.table._ZN22ruff_annotate_snippets8renderer12display_list10DisplaySet11format_line17hba6ff3ceeefaef47E.82, i64 %1221
   %switch.load42 = load i64, ptr %switch.gep41, align 8
   br label %_ZN22ruff_annotate_snippets8renderer12display_list19annotation_type_len17h8f8df1cf898cb439E.exit389
 

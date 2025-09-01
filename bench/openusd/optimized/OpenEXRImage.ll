@@ -1131,8 +1131,8 @@ define noundef range(i32 -1, 36) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hi
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %10 = load i32, ptr %9, align 4
-  %switch.tableidx2 = add i32 %10, -1
-  %11 = icmp ult i32 %switch.tableidx2, 4
+  %switch.tableidx1 = add i32 %10, -1
+  %11 = icmp ult i32 %switch.tableidx1, 4
   %switch.offset3 = add i32 %10, 7
   %spec.select7 = select i1 %11, i32 %switch.offset3, i32 -1
   br label %switch.lookup
@@ -1140,8 +1140,8 @@ define noundef range(i32 -1, 36) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hi
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %14 = load i32, ptr %13, align 4
-  %switch.tableidx5 = add i32 %14, -1
-  %15 = icmp ult i32 %switch.tableidx5, 4
+  %switch.tableidx4 = add i32 %14, -1
+  %15 = icmp ult i32 %switch.tableidx4, 4
   %switch.offset6 = add i32 %14, 11
   %spec.select8 = select i1 %15, i32 %switch.offset6, i32 -1
   br label %switch.lookup
@@ -1171,15 +1171,15 @@ define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16Ge
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
 
 8:                                                ; preds = %1
-  %switch.tableidx2 = add i32 %3, -1
-  %9 = icmp ult i32 %switch.tableidx2, 4
+  %switch.tableidx1 = add i32 %3, -1
+  %9 = icmp ult i32 %switch.tableidx1, 4
   %switch.offset3 = add i32 %3, 7
   %spec.select7 = select i1 %9, i32 %switch.offset3, i32 -1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
 
 10:                                               ; preds = %1
-  %switch.tableidx5 = add i32 %3, -1
-  %11 = icmp ult i32 %switch.tableidx5, 4
+  %switch.tableidx4 = add i32 %3, -1
+  %11 = icmp ult i32 %switch.tableidx4, 4
   %switch.offset6 = add i32 %3, 11
   %spec.select8 = select i1 %11, i32 %switch.offset6, i32 -1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage9GetFormatEv.exit
@@ -1466,7 +1466,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIma
   %154 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %153, i64 %.0182235
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i64
-  %157 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %156
   %158 = load float, ptr %157, align 4
   %159 = getelementptr inbounds nuw float, ptr %146, i64 %.0182235
   store float %158, ptr %159, align 4
@@ -1511,7 +1511,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIma
   %175 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %171, i64 %indvars.iv.i
   %176 = load i16, ptr %175, align 2
   %177 = zext i16 %176 to i64
-  %178 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %177
   %179 = load float, ptr %178, align 4
   %180 = getelementptr inbounds nuw float, ptr %.pre241, i64 %indvars.iv.i
   store float %179, ptr %180, align 4
@@ -2424,7 +2424,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZN32pxrInte
 8:                                                ; preds = %2
   %9 = lshr i32 %3, 23
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %10
   %12 = load i16, ptr %11, align 2
   %.not.i = icmp eq i16 %12, 0
   br i1 %.not.i, label %22, label %13
@@ -2484,7 +2484,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 17:                                               ; preds = %.lr.ph
   %18 = lshr i32 %12, 23
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i, label %31, label %22
@@ -2934,7 +2934,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIm
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage18GetSamplerMetadataENS_19HioAddressDimensionEPNS_14HioAddressModeE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage18GetSamplerMetadataENS_19HioAddressDimensionEPNS_14HioAddressModeE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 4
   br label %9
@@ -7087,7 +7087,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EE17_S_chec
 44:                                               ; preds = %.lr.ph
   %45 = lshr i32 %39, 23
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not.i = icmp eq i16 %48, 0
   br i1 %.not.i, label %58, label %49
@@ -7110,7 +7110,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EE17_S_chec
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %49, %41, %58
   %.sink.i = phi i16 [ %57, %49 ], [ %43, %41 ], [ %59, %58 ]
   %60 = zext i16 %.sink.i to i64
-  %61 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %60
   %62 = load float, ptr %61, align 4
   %63 = fdiv float %62, 2.550000e+02
   %64 = bitcast float %63 to i32
@@ -7125,7 +7125,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %49, %41
 69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %70 = lshr i32 %64, 23
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %71
   %73 = load i16, ptr %72, align 2
   %.not.i.i = icmp eq i16 %73, 0
   br i1 %.not.i.i, label %83, label %74

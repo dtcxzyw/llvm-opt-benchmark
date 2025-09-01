@@ -68,14 +68,14 @@ align_get_bits.exit:                              ; preds = %3, %7
 39:                                               ; preds = %39, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %38, %35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds [258 x i32], ptr %33, i64 0, i64 %indvars.iv.next
+  %40 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4, !tbaa !24
   %.not = icmp ugt i32 %41, %37
   br i1 %.not, label %42, label %39, !llvm.loop !25
 
 42:                                               ; preds = %39
   %43 = trunc i64 %indvars.iv to i8
-  %44 = getelementptr inbounds nuw [1024 x i8], ptr %34, i64 0, i64 %indvars.iv33
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv33
   store i8 %43, ptr %44, align 1, !tbaa !19
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next34, 1024

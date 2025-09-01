@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %31 = trunc nuw i32 %30 to i8
   %32 = and i8 %31, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds [2304 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv
   store i8 %32, ptr %33, align 1, !tbaa !30
   %34 = add nuw nsw i32 %.04765, 1
   %exitcond.not = icmp eq i32 %34, 8
@@ -139,7 +139,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %53, align 4, !tbaa !35
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [4608 x %struct.ProbRange], ptr %6, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %struct.ProbRange, ptr %6, i64 %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load i8, ptr %59, align 2, !tbaa !37
   call void @ff_big_div(ptr noundef nonnull %8, i8 noundef zeroext %60, ptr noundef nonnull %5) #8
@@ -184,7 +184,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %71 = load i8, ptr %10, align 1, !tbaa !30
   %72 = add i8 %71, 33
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %73 = getelementptr inbounds nuw [666 x i8], ptr %9, i64 0, i64 %indvars.iv79
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv79
   store i8 %72, ptr %73, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr = load i32, ptr %8, align 4, !tbaa !41
@@ -217,7 +217,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %indvars.iv83 = phi i64 [ %83, %.lr.ph73.preheader ], [ %indvars.iv.next84, %.lr.ph73 ]
   %.071 = phi ptr [ %81, %.lr.ph73.preheader ], [ %86, %.lr.ph73 ]
   %indvars.iv.next84 = add nsw i64 %indvars.iv83, -1
-  %84 = getelementptr inbounds nuw [666 x i8], ptr %9, i64 0, i64 %indvars.iv.next84
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next84
   %85 = load i8, ptr %84, align 1, !tbaa !30
   %86 = getelementptr inbounds nuw i8, ptr %.071, i64 1
   store i8 %85, ptr %.071, align 1, !tbaa !30
@@ -302,11 +302,11 @@ all_white.exit:                                   ; preds = %10, %17
 21:                                               ; preds = %all_white.exit
   %sext76 = shl i64 %indvars.iv, 32
   %22 = ashr exact i64 %sext76, 32
-  %23 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %22, i64 2
+  %23 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %22, i64 2
   %24 = add nsw i32 %19, 1
   store i32 %24, ptr %6, align 4, !tbaa !35
   %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %25
   %27 = load i16, ptr %23, align 2
   store i16 %27, ptr %26, align 2
   br label %pq_push.exit
@@ -324,11 +324,11 @@ all_white.exit:                                   ; preds = %10, %17
 32:                                               ; preds = %31
   %sext = shl i64 %indvars.iv, 32
   %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %33
+  %34 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %33
   %35 = add nsw i32 %29, 1
   store i32 %35, ptr %6, align 4, !tbaa !35
   %36 = sext i32 %29 to i64
-  %37 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %36
   %38 = load i16, ptr %34, align 2
   store i16 %38, ptr %37, align 2
   br label %pq_push.exit44
@@ -341,11 +341,11 @@ pq_push.exit44:                                   ; preds = %31, %32
   br i1 %30, label %pq_push.exit46, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %indvars.iv, i64 1
+  %41 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %indvars.iv, i64 1
   %42 = add nsw i32 %29, 1
   store i32 %42, ptr %6, align 4, !tbaa !35
   %43 = sext i32 %29 to i64
-  %44 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %43
+  %44 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %43
   %45 = load i16, ptr %41, align 2
   store i16 %45, ptr %44, align 2
   br label %pq_push.exit46
@@ -497,7 +497,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %40 = add nsw i32 %16, 1
   store i32 %40, ptr %15, align 4, !tbaa !35
   %41 = sext i32 %16 to i64
-  %42 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %0, i64 0, i64 %41
+  %42 = getelementptr inbounds %struct.ProbRange, ptr %0, i64 %41
   %43 = load i16, ptr %39, align 2
   store i16 %43, ptr %42, align 2
   br label %pq_push.exit

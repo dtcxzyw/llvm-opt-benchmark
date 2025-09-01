@@ -1886,10 +1886,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %192, %194
 
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52
   %203 = zext nneg i32 %201 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 0, i64 %203
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 %203
   %switch.load = load i64, ptr %switch.gep, align 8
   %204 = zext nneg i32 %201 to i64
-  %switch.gep155 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %204
+  %switch.gep155 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %204
   %switch.load156 = load ptr, ptr %switch.gep155, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit
 
@@ -1981,10 +1981,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %243, %245
 
 switch.lookup157:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
   %254 = zext nneg i32 %252 to i64
-  %switch.gep158 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 0, i64 %254
+  %switch.gep158 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 %254
   %switch.load159 = load i64, ptr %switch.gep158, align 8
   %255 = zext nneg i32 %252 to i64
-  %switch.gep160 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 0, i64 %255
+  %switch.gep160 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %255
   %switch.load161 = load ptr, ptr %switch.gep160, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit67
 

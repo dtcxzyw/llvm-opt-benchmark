@@ -1294,10 +1294,10 @@ define { ptr, i64 } @_ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9e
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !129, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E.12, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E.12, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -1902,7 +1902,7 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !100, !noundef !4
   %2 = xor i64 %1, -9223372036854775808
   %3 = tail call i64 @llvm.umin.i64(i64 %2, i64 4)
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN78_$LT$yara_x_parser..ast..MetaValue$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h3d8e7e311c00cf2eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$yara_x_parser..ast..MetaValue$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h3d8e7e311c00cf2eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0.val = load i32, ptr %4, align 4, !alias.scope !167, !noundef !4

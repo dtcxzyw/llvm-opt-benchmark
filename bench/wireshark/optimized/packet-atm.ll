@@ -1625,7 +1625,7 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %.01214.i
   %48 = zext i8 %47 to i64
-  %49 = getelementptr [256 x i8], ptr @syndrome_table, i64 0, i64 %48
+  %49 = getelementptr i8, ptr @syndrome_table, i64 %48
   %50 = load i8, ptr %49, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1637,7 +1637,7 @@ get_header_err.exit:                              ; preds = %44
   %53 = xor i8 %52, %50
   %54 = xor i8 %53, 85
   %55 = zext i8 %54 to i64
-  %56 = getelementptr [256 x i32], ptr @err_posn_table, i64 0, i64 %55
+  %56 = getelementptr i32, ptr @err_posn_table, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i8 %53, 85
   %59 = icmp slt i32 %57, 40

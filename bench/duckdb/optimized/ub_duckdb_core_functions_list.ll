@@ -5610,7 +5610,7 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit94
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
   %.01114.i = phi i64 [ 0, %.lr.ph.i ], [ %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i ]
-  %43 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %.01114.i
+  %43 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %28, i64 %.01114.i
   %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = load ptr, ptr %44, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %45, null
@@ -6168,7 +6168,7 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit92
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
   %.01114.i = phi i64 [ 0, %.lr.ph.i ], [ %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i ]
-  %43 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %.01114.i
+  %43 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %28, i64 %.01114.i
   %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = load ptr, ptr %44, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %45, null
@@ -8279,7 +8279,7 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit90
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
   %.01114.i = phi i64 [ 0, %.lr.ph.i ], [ %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i ]
-  %43 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %.01114.i
+  %43 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %28, i64 %.01114.i
   %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = load ptr, ptr %44, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %45, null
@@ -8837,7 +8837,7 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit92
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
   %.01114.i = phi i64 [ 0, %.lr.ph.i ], [ %59, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i ]
-  %43 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %.01114.i
+  %43 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %28, i64 %.01114.i
   %44 = load ptr, ptr %43, align 8, !tbaa !58
   %45 = load ptr, ptr %44, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %45, null
@@ -78817,7 +78817,7 @@ _ZN6duckdb15RangeInfoStructINS_18TimestampRangeInfoELb0EE14StartListValueEm.exit
   %25 = icmp ne i64 %.pre-phi20.i, 104
   %26 = zext i1 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %27, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = load ptr, ptr %28, align 8, !tbaa !58
@@ -80008,7 +80008,7 @@ _ZN6duckdb15RangeInfoStructINS_18TimestampRangeInfoELb1EE14StartListValueEm.exit
   %25 = icmp ne i64 %.pre-phi20.i, 104
   %26 = zext i1 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %27, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = load ptr, ptr %28, align 8, !tbaa !58

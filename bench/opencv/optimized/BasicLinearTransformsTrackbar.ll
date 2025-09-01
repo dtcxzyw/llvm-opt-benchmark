@@ -716,7 +716,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %49 = mul i64 %48, %indvars.iv34
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
   %51 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %50, i64 %indvars.iv31
-  %52 = getelementptr inbounds nuw [3 x i8], ptr %51, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1, !tbaa !13
   %54 = zext i8 %53 to i32
   %55 = mul nsw i32 %45, %54
@@ -731,7 +731,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %64 = mul i64 %63, %indvars.iv34
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %64
   %66 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %65, i64 %indvars.iv31
-  %67 = getelementptr inbounds nuw [3 x i8], ptr %66, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv
   store i8 %60, ptr %67, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

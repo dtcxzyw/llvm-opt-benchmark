@@ -2936,10 +2936,10 @@ BufferGetPage.exit.i.i:                           ; preds = %BufferGetPage.exit.
   %633 = sext i32 %632 to i64
   %634 = mul nsw i64 %633, 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 2 %630, i64 %634, i1 false)
-  %635 = getelementptr inbounds [820 x %struct.PostingItem], ptr %10, i64 0, i64 %633
+  %635 = getelementptr inbounds %struct.PostingItem, ptr %10, i64 %633
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %635, ptr noundef nonnull readonly align 2 dereferenceable(10) %3, i64 10, i1 false)
   %636 = zext i16 %609 to i64
-  %637 = getelementptr inbounds nuw [820 x %struct.PostingItem], ptr %10, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw %struct.PostingItem, ptr %10, i64 %636
   %638 = getelementptr inbounds nuw i8, ptr %630, i64 %634
   %639 = sub nsw i32 %611, %632
   %narrow.i.i = mul nsw i32 %639, 10
@@ -3001,7 +3001,7 @@ dataSplitPageInternal.exit.i:                     ; preds = %666, %655
   store i16 %.0.i.i22, ptr %679, align 4
   %680 = getelementptr inbounds nuw i8, ptr %617, i64 24
   %681 = getelementptr inbounds nuw i8, ptr %617, i64 32
-  %682 = getelementptr inbounds nuw [820 x %struct.PostingItem], ptr %10, i64 0, i64 %673
+  %682 = getelementptr inbounds nuw %struct.PostingItem, ptr %10, i64 %673
   %narrow67.i.i = mul nsw i32 %670, 10
   %683 = sext i32 %narrow67.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %681, ptr nonnull align 2 %682, i64 %683, i1 false)

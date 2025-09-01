@@ -487,7 +487,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTablesC2Ev(ptr nou
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt10unique_ptrI15ContextDecisionSt14default_deleteIS0_EED2Ev.exit ]
   %10 = tail call noalias noundef nonnull dereferenceable(28816896) ptr @_Znwm(i64 noundef 28816896) #17, !noalias !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(28816896) %10, i8 0, i64 28816896, i1 false), !noalias !31
-  %11 = getelementptr inbounds nuw [12 x %"class.std::unique_ptr"], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   store ptr %10, ptr %11, align 8, !tbaa !34
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -601,7 +601,7 @@ define dso_local void @_ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRM
   %.03059.i = phi i1 [ true, %7 ], [ %.13156.i, %28 ]
   %.03258.i = phi i1 [ true, %7 ], [ %.25055.i, %28 ]
   %.03457.i = phi i1 [ true, %7 ], [ %spec.select.i, %28 ]
-  %17 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !47
   %.not.i = icmp eq i16 %18, %13
   %spec.select.i = select i1 %.not.i, i1 %.03457.i, i1 false
@@ -613,7 +613,7 @@ define dso_local void @_ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRM
   %.not37.i = icmp eq i16 %18, %15
   %spec.select42.i = select i1 %.not37.i, i1 %.03258.i, i1 false
   %21 = and i64 %indvars.iv.i, 248
-  %22 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %12, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !47
   %.not40.i = icmp eq i16 %18, %23
   %spec.select44.i = select i1 %.not40.i, i1 %.03059.i, i1 false
@@ -622,7 +622,7 @@ define dso_local void @_ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRM
 24:                                               ; preds = %16
   %spec.select43.i = select i1 %.not.i, i1 %.03258.i, i1 false
   %25 = and i64 %indvars.iv.i, 56
-  %26 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i16, ptr %12, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !47
   %.not41.i = icmp eq i16 %18, %27
   %spec.select45.i = select i1 %.not41.i, i1 %.02960.i, i1 false
@@ -782,7 +782,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   %88 = phi ptr [ null, %.preheader167 ], [ %.promoted189, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit86 ]
   %89 = phi ptr [ null, %.preheader167 ], [ %.promoted190, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit86 ]
   %90 = phi ptr [ null, %.preheader167 ], [ %113, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit86 ]
-  %91 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %indvars.iv202
+  %91 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv202
   %92 = load i16, ptr %91, align 2, !tbaa !47
   %93 = zext i16 %92 to i32
   %.not.i.i79 = icmp eq ptr %88, %89
@@ -851,7 +851,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit86:         ; preds = %94, %_ZNSt6vectorIj
   %116 = phi ptr [ %.promoted189, %.preheader ], [ %145, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit94 ]
   %117 = phi ptr [ %.promoted190, %.preheader ], [ %144, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit94 ]
   %118 = phi ptr [ %.promoted191, %.preheader ], [ %143, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit94 ]
-  %119 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %indvars.iv205
+  %119 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv205
   %120 = load i16, ptr %119, align 2, !tbaa !47
   %121 = zext i16 %120 to i32
   %.not.i.i87 = icmp eq ptr %116, %117
@@ -927,7 +927,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit94:         ; preds = %122, %_ZNSt6vectorI
   %148 = phi ptr [ null, %.preheader170 ], [ %.promoted181, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit102 ]
   %149 = phi ptr [ null, %.preheader170 ], [ %.promoted182, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit102 ]
   %150 = phi ptr [ null, %.preheader170 ], [ %173, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit102 ]
-  %151 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
   %152 = load i16, ptr %151, align 2, !tbaa !47
   %153 = zext i16 %152 to i32
   %.not.i.i95 = icmp eq ptr %148, %149
@@ -996,7 +996,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit102:        ; preds = %154, %_ZNSt6vectorI
   %176 = phi ptr [ %.promoted181, %.preheader168 ], [ %205, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit110 ]
   %177 = phi ptr [ %.promoted182, %.preheader168 ], [ %204, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit110 ]
   %178 = phi ptr [ %.promoted183, %.preheader168 ], [ %203, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit110 ]
-  %179 = getelementptr inbounds nuw [256 x i16], ptr %12, i64 0, i64 %indvars.iv199
+  %179 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv199
   %180 = load i16, ptr %179, align 2, !tbaa !47
   %181 = zext i16 %180 to i32
   %.not.i.i103 = icmp eq ptr %176, %177
@@ -1434,7 +1434,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit132:              ; preds = %372, %374
 switch.lookup:                                    ; preds = %386, %384
   %.0.i.i134 = phi ptr [ %385, %384 ], [ %2, %386 ]
   %389 = zext nneg i32 %.036.i to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision, i64 0, i64 %389
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision, i64 %389
   %switch.load = load ptr, ptr %switch.gep, align 8
   %390 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #19
   %391 = getelementptr inbounds nuw i8, ptr %.0.i.i134, i64 24
@@ -1512,7 +1512,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit142:              ; preds = %412, %414
 
 switch.lookup276:                                 ; preds = %428, %426
   %431 = zext nneg i32 %.036.i to i64
-  %switch.gep277 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 0, i64 %431
+  %switch.gep277 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 %431
   %switch.load278 = load i64, ptr %switch.gep277, align 8
   %432 = load i64, ptr @_ZZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecisionE12sEntryNumber, align 8, !tbaa !81
   %433 = add i64 %432, %switch.load278
@@ -1608,14 +1608,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 
 21:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %27
   %indvars.iv = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %indvars.iv.next, %27 ]
-  %22 = getelementptr inbounds nuw [256 x %struct.ModRMDecision], ptr %6, i64 0, i64 %indvars.iv, i32 1
+  %22 = getelementptr inbounds nuw %struct.ModRMDecision, ptr %6, i64 %indvars.iv, i32 1
   %23 = load i16, ptr %22, align 2, !tbaa !47
   br label %.thread52.i
 
 .thread52.i:                                      ; preds = %.thread52.i, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %.thread52.i ]
   %.03457.i = phi i1 [ true, %21 ], [ %spec.select.i, %.thread52.i ]
-  %24 = getelementptr inbounds nuw [256 x i16], ptr %22, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv.i
   %25 = load i16, ptr %24, align 2, !tbaa !47
   %.not.i = icmp eq i16 %25, %23
   %spec.select.i = select i1 %.not.i, i1 %.03457.i, i1 false
@@ -1737,7 +1737,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %63, %65
 
 _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %78, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %83 = getelementptr inbounds nuw [256 x %struct.ModRMDecision], ptr %6, i64 0, i64 %indvars.iv62
+  %83 = getelementptr inbounds nuw %struct.ModRMDecision, ptr %6, i64 %indvars.iv62
   call void @_ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr nonnull align 4 poison, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(514) %83)
   %.not = icmp eq i64 %indvars.iv62, 255
   %.pre66 = load ptr, ptr %11, align 8, !tbaa !54
@@ -2049,7 +2049,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %108, %110, %111
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit48
 
 _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %120, %122
-  %125 = getelementptr inbounds nuw [219 x %struct.OpcodeDecision], ptr %6, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw %struct.OpcodeDecision, ptr %6, i64 %indvars.iv
   tail call void @_ZNK4llvm15X86Disassembler18DisassemblerTables18emitOpcodeDecisionERNS_11raw_ostreamES3_RjS4_S4_R14OpcodeDecision(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 2 dereferenceable(131584) %125)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 219
@@ -2060,7 +2060,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %120, %122
 define internal fastcc noundef nonnull ptr @_ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE(i32 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [219 x ptr], ptr @switch.table._ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2424,12 +2424,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit89:               ; preds = %172, %174
   %191 = getelementptr inbounds nuw %"struct.std::pair", ptr %190, i64 %indvars.iv
   %192 = load i32, ptr %191, align 4, !tbaa !94
   %193 = zext nneg i32 %192 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj, i64 0, i64 %193
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj, i64 %193
   %switch.load = load ptr, ptr %switch.gep, align 8
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %195 = load i32, ptr %194, align 4, !tbaa !98
   %196 = zext nneg i32 %195 to i64
-  %switch.gep199 = getelementptr inbounds nuw [36 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj.2, i64 0, i64 %196
+  %switch.gep199 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj.2, i64 %196
   %switch.load200 = load ptr, ptr %switch.gep199, align 8
   %197 = load ptr, ptr %15, align 8, !tbaa !50
   %198 = load ptr, ptr %17, align 8, !tbaa !54
@@ -4513,7 +4513,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !47
   %21 = icmp eq i16 %20, %3
   br i1 %21, label %.thread, label %22
@@ -4554,10 +4554,10 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !113
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw [219 x i32], ptr @_ZZL8outranksN4llvm15X86Disassembler18InstructionContextES1_E5ranks, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr @_ZZL8outranksN4llvm15X86Disassembler18InstructionContextES1_E5ranks, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !55
   %49 = zext i32 %45 to i64
-  %50 = getelementptr inbounds nuw [219 x i32], ptr @_ZZL8outranksN4llvm15X86Disassembler18InstructionContextES1_E5ranks, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr @_ZZL8outranksN4llvm15X86Disassembler18InstructionContextES1_E5ranks, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !55
   %52 = icmp sgt i32 %48, %51
   br i1 %52, label %.thread, label %53
@@ -4826,7 +4826,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFieldsENS0_10OpcodeTypeENS0_18InstructionContextEhRKNS0_11ModRMFilterEtbbbbj(ptr noundef nonnull align 8 captures(none) dereferenceable(169) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i16 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i32 noundef %10) local_unnamed_addr #0 align 2 {
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw [12 x %"class.std::unique_ptr"], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = icmp eq i32 %10, 16
   %or.cond = or i1 %6, %15
@@ -4834,7 +4834,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = zext i16 %5 to i64
   %19 = zext i8 %3 to i64
-  %invariant.gep = getelementptr inbounds nuw [256 x %struct.ModRMDecision], ptr %14, i64 0, i64 %19
+  %invariant.gep = getelementptr inbounds nuw %struct.ModRMDecision, ptr %14, i64 %19
   br i1 %or.cond, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %11, %28
@@ -4851,7 +4851,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %22
-  %gep.us = getelementptr inbounds nuw [219 x %struct.OpcodeDecision], ptr %invariant.gep, i64 0, i64 %indvars.iv25
+  %gep.us = getelementptr inbounds nuw %struct.OpcodeDecision, ptr %invariant.gep, i64 %indvars.iv25
   tail call void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFieldsER13ModRMDecisionRKNS0_11ModRMFilterEth(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 2 dereferenceable(514) %gep.us, ptr noundef nonnull align 8 dereferenceable(8) %4, i16 noundef zeroext %5, i8 noundef zeroext %3)
   br label %28
 
@@ -4873,7 +4873,7 @@ define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFi
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split
-  %gep = getelementptr inbounds nuw [219 x %struct.OpcodeDecision], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw %struct.OpcodeDecision, ptr %invariant.gep, i64 %indvars.iv
   tail call void @_ZN4llvm15X86Disassembler18DisassemblerTables14setTableFieldsER13ModRMDecisionRKNS0_11ModRMFilterEth(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 2 dereferenceable(514) %gep, ptr noundef nonnull align 8 dereferenceable(8) %4, i16 noundef zeroext %5, i8 noundef zeroext %3)
   br label %35
 

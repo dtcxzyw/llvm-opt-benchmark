@@ -564,7 +564,7 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %20 = lshr i32 %19, 29
   %21 = and i32 %20, 3
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x i8], ptr @__const.Ifd_ObjPrint_rec.Symb, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @__const.Ifd_ObjPrint_rec.Symb, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = sext i8 %24 to i32
   %putchar36 = tail call i32 @putchar(i32 %25)
@@ -660,7 +660,7 @@ define void @Ifd_ObjPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %82 = lshr i32 %81, 29
   %83 = and i32 %82, 3
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @__const.Ifd_ObjPrint_rec.Symb, i64 4), i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @__const.Ifd_ObjPrint_rec.Symb, i64 4), i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !44
   %87 = sext i8 %86 to i32
   br label %.sink.split
@@ -834,7 +834,7 @@ define i64 @Ifd_ObjTruth_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %2, align 4, !tbaa !37
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %8
+  %9 = getelementptr inbounds i64, ptr @s_Truths6, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !46
   br label %52
 
@@ -3360,7 +3360,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @Ifd_ManComputeMatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = alloca [16 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3368,52 +3368,54 @@ define noundef nonnull ptr @Ifd_ManComputeMatches(ptr noundef readonly captures(
   %.not25 = icmp eq i8 %3, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
-  %.027 = phi i32 [ %.1, %20 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
+  %.027 = phi i32 [ %.1, %17 ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %5 = getelementptr inbounds nuw [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr @Ifd_ManComputeMatches.pMatches, i64 %indvars.iv
   store i32 0, ptr %5, align 4, !tbaa !37
   %6 = load i8, ptr %4, align 1, !tbaa !44
-  switch i8 %6, label %20 [
+  switch i8 %6, label %17 [
     i8 40, label %7
     i8 91, label %7
     i8 60, label %7
     i8 123, label %7
-    i8 41, label %12
-    i8 93, label %12
-    i8 62, label %12
-    i8 125, label %12
+    i8 41, label %9
+    i8 93, label %9
+    i8 62, label %9
+    i8 125, label %9
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nsw i32 %.027, 1
-  %9 = sext i32 %.027 to i64
-  %10 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %9
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %11, ptr %10, align 4, !tbaa !37
-  br label %20
+  br label %.sink.split
 
-12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %13 = add nsw i32 %.027, -1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !37
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %17
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %19, ptr %18, align 4, !tbaa !37
-  br label %20
+9:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %10 = add nsw i32 %.027, -1
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds i32, ptr %2, i64 %11
+  %13 = load i32, ptr %12, align 4, !tbaa !37
+  br label %.sink.split
 
-20:                                               ; preds = %.lr.ph, %7, %12
-  %.1 = phi i32 [ %8, %7 ], [ %13, %12 ], [ %.027, %.lr.ph ]
+.sink.split:                                      ; preds = %9, %7
+  %.027.sink = phi i32 [ %.027, %7 ], [ %13, %9 ]
+  %.sink = phi ptr [ %2, %7 ], [ @Ifd_ManComputeMatches.pMatches, %9 ]
+  %.1.ph = phi i32 [ %8, %7 ], [ %10, %9 ]
+  %14 = sext i32 %.027.sink to i64
+  %15 = getelementptr inbounds i32, ptr %.sink, i64 %14
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %16, ptr %15, align 4, !tbaa !37
+  br label %17
+
+17:                                               ; preds = %.sink.split, %.lr.ph
+  %.1 = phi i32 [ %.027, %.lr.ph ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %22 = load i8, ptr %21, align 1, !tbaa !44
-  %.not = icmp eq i8 %22, 0
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
+  %19 = load i8, ptr %18, align 1, !tbaa !44
+  %.not = icmp eq i8 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %20, %1
+._crit_edge:                                      ; preds = %17, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr @Ifd_ManComputeMatches.pMatches
 }
@@ -3433,13 +3435,13 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %34, label %.thread.thread
+  br i1 %9, label %31, label %.thread.thread
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !44
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %34, label %.thread.thread
+  br i1 %13, label %31, label %.thread.thread
 
 .thread.thread:                                   ; preds = %6, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3453,58 +3455,60 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
 .lr.ph.i.preheader:                               ; preds = %.thread.thread, %.thread
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.lr.ph.i.preheader ]
-  %.027.i = phi i32 [ %.1.i, %30 ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.lr.ph.i.preheader ]
+  %.027.i = phi i32 [ %.1.i, %27 ], [ 0, %.lr.ph.i.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %15 = getelementptr inbounds nuw [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr @Ifd_ManComputeMatches.pMatches, i64 %indvars.iv.i
   store i32 0, ptr %15, align 4, !tbaa !37
   %16 = load i8, ptr %14, align 1, !tbaa !44
-  switch i8 %16, label %30 [
+  switch i8 %16, label %27 [
     i8 40, label %17
     i8 91, label %17
     i8 60, label %17
     i8 123, label %17
-    i8 41, label %22
-    i8 93, label %22
-    i8 62, label %22
-    i8 125, label %22
+    i8 41, label %19
+    i8 93, label %19
+    i8 62, label %19
+    i8 125, label %19
   ]
 
 17:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %18 = add nsw i32 %.027.i, 1
-  %19 = sext i32 %.027.i to i64
-  %20 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %19
-  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %21, ptr %20, align 4, !tbaa !37
-  br label %30
+  br label %.sink.split.i
 
-22:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %23 = add nsw i32 %.027.i, -1
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !37
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %27
-  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %29, ptr %28, align 4, !tbaa !37
-  br label %30
+19:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %20 = add nsw i32 %.027.i, -1
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i32, ptr %3, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !37
+  br label %.sink.split.i
 
-30:                                               ; preds = %22, %17, %.lr.ph.i
-  %.1.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %.027.i, %.lr.ph.i ]
+.sink.split.i:                                    ; preds = %19, %17
+  %.027.sink.i = phi i32 [ %.027.i, %17 ], [ %23, %19 ]
+  %.sink.i = phi ptr [ %3, %17 ], [ @Ifd_ManComputeMatches.pMatches, %19 ]
+  %.1.ph.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %24 = sext i32 %.027.sink.i to i64
+  %25 = getelementptr inbounds i32, ptr %.sink.i, i64 %24
+  %26 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %26, ptr %25, align 4, !tbaa !37
+  br label %27
+
+27:                                               ; preds = %.sink.split.i, %.lr.ph.i
+  %.1.i = phi i32 [ %.027.i, %.lr.ph.i ], [ %.1.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
-  %32 = load i8, ptr %31, align 1, !tbaa !44
-  %.not.i = icmp eq i8 %32, 0
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
+  %29 = load i8, ptr %28, align 1, !tbaa !44
+  %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %Ifd_ManComputeMatches.exit, label %.lr.ph.i, !llvm.loop !72
 
-Ifd_ManComputeMatches.exit:                       ; preds = %30, %.thread
+Ifd_ManComputeMatches.exit:                       ; preds = %27, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %33 = call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull @Ifd_ManComputeMatches.pMatches)
-  br label %34
+  %30 = call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull @Ifd_ManComputeMatches.pMatches)
+  br label %31
 
-34:                                               ; preds = %10, %6, %Ifd_ManComputeMatches.exit
-  %.0 = phi i32 [ %33, %Ifd_ManComputeMatches.exit ], [ 0, %6 ], [ 1, %10 ]
+31:                                               ; preds = %10, %6, %Ifd_ManComputeMatches.exit
+  %.0 = phi i32 [ %30, %Ifd_ManComputeMatches.exit ], [ 0, %6 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -4498,21 +4502,19 @@ define noundef i32 @Ifd_ManDsdTest4() local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x i32], ptr %1, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %1, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !37
-  %12 = add nsw i32 %8, 1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [6 x i32], ptr %1, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !37
-  store i32 %15, ptr %10, align 4, !tbaa !37
-  store i32 %11, ptr %14, align 4, !tbaa !37
+  %12 = getelementptr i8, ptr %10, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !37
+  store i32 %13, ptr %10, align 4, !tbaa !37
+  store i32 %11, ptr %12, align 4, !tbaa !37
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %17 = load i32, ptr %16, align 4, !tbaa !37
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %17)
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %15 = load i32, ptr %14, align 4, !tbaa !37
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %Ifd_ManDsdPermPrint.exit, label %.lr.ph.i, !llvm.loop !84
@@ -4605,7 +4607,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %11
   %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !37
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %36
+  %37 = getelementptr inbounds i64, ptr @s_Truths6, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !46
   %39 = xor i64 %38, -1
   %40 = and i64 %.145.us.us.us, %39
@@ -4623,7 +4625,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %11
   %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
   %48 = load i32, ptr %47, align 4, !tbaa !37
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %49
+  %50 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !46
   %52 = and i64 %51, %46
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -4696,7 +4698,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
   %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv49
   %21 = load i32, ptr %20, align 4, !tbaa !37
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %22
+  %23 = getelementptr inbounds [3 x i64], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !46
   %25 = and i64 %24, %.043.us
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -4726,7 +4728,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
   %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %46
+  %47 = getelementptr inbounds i64, ptr @s_Truths6, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !46
   %49 = xor i64 %48, -1
   %50 = and i64 %.141.us, %49
@@ -4756,7 +4758,7 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr noundef captures(none) %1)
 
 3:                                                ; preds = %2, %83
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %83 ]
-  %4 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8, !tbaa !46
   %6 = and i64 %5, %0
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4783,7 +4785,7 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr noundef captures(none) %1)
   %28 = trunc i64 %27 to i32
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 127
-  %31 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !46
   %33 = and i64 %32, %0
   %34 = lshr i64 %33, %9
@@ -4918,7 +4920,7 @@ define noundef i32 @Ifd_ManDsdTest33() local_unnamed_addr #4 {
 
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [6 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !37
   %15 = lshr i32 %14, 20
   %16 = and i32 %15, 255
@@ -5809,7 +5811,7 @@ attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #10 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

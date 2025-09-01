@@ -1511,7 +1511,7 @@ define linkonce_odr dso_local void @_ZN10ChainSlideC2ER8Settings(ptr noundef non
 22:                                               ; preds = %17, %22
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %22 ]
   %.05876 = phi float [ 2.000000e+01, %17 ], [ %24, %22 ]
-  %23 = getelementptr inbounds nuw [80 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv
   store float %.05876, ptr %23, align 8, !tbaa !15
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %.sroa.424.0..sroa_idx, align 4, !tbaa !15
@@ -1523,7 +1523,7 @@ define linkonce_odr dso_local void @_ZN10ChainSlideC2ER8Settings(ptr noundef non
 .preheader74:                                     ; preds = %22, %.preheader74
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.preheader74 ], [ 20, %22 ]
   %.06078 = phi float [ %26, %.preheader74 ], [ 0.000000e+00, %22 ]
-  %25 = getelementptr inbounds nuw [80 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv86
+  %25 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv86
   store float %24, ptr %25, align 8, !tbaa !15
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   store float %.06078, ptr %.sroa.419.0..sroa_idx, align 4, !tbaa !15
@@ -1535,7 +1535,7 @@ define linkonce_odr dso_local void @_ZN10ChainSlideC2ER8Settings(ptr noundef non
 .preheader73:                                     ; preds = %.preheader74, %.preheader73
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader73 ], [ 40, %.preheader74 ]
   %.15980 = phi float [ %28, %.preheader73 ], [ %24, %.preheader74 ]
-  %27 = getelementptr inbounds nuw [80 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv90
+  %27 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv90
   store float %.15980, ptr %27, align 8, !tbaa !15
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   store float %26, ptr %.sroa.414.0..sroa_idx, align 4, !tbaa !15
@@ -1552,7 +1552,7 @@ define linkonce_odr dso_local void @_ZN10ChainSlideC2ER8Settings(ptr noundef non
 .preheader:                                       ; preds = %.preheader73, %.preheader
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.preheader ], [ 60, %.preheader73 ]
   %.16182 = phi float [ %31, %.preheader ], [ %26, %.preheader73 ]
-  %30 = getelementptr inbounds nuw [80 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv94
+  %30 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv94
   store float %28, ptr %30, align 8, !tbaa !15
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float %.16182, ptr %.sroa.410.0..sroa_idx, align 4, !tbaa !15

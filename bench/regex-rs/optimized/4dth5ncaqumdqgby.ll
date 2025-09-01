@@ -1708,7 +1708,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit": ; preds = %76
   %.val125 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %80 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val125, i64 0, i64 %77, i32 2
+  %80 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val125, i64 %77, i32 2
   %81 = load i32, ptr %80, align 4, !noundef !5
   %82 = icmp ne i32 %81, 0
   %83 = zext i1 %82 to i8
@@ -1744,7 +1744,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137": ; preds = %95
   %.val = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val, i64 0, i64 %96, i32 1
+  %99 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val, i64 %96, i32 1
   %100 = load i32, ptr %99, align 4, !noundef !5
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %119
@@ -1776,7 +1776,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 115:                                              ; preds = %111
   %.val.i138 = load ptr, ptr %108, align 8, !noalias !119, !nonnull !5, !noundef !5
-  %116 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %.val.i138, i64 0, i64 %112
+  %116 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %.val.i138, i64 %112
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %116, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !119
   %.sroa.6169.1.copyload = load i8, ptr %116, align 1, !noalias !126
@@ -1790,7 +1790,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 119:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137"
   %120 = zext i8 %70 to i64
-  %121 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %25, i64 %120
   %122 = load i8, ptr %121, align 1, !alias.scope !127, !noundef !5
   %123 = zext i8 %122 to i64
   %124 = zext i32 %100 to i64
@@ -1805,7 +1805,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit": ; preds = %119
   %.val127 = load ptr, ptr %27, align 8, !nonnull !5, !noundef !5
-  %128 = getelementptr inbounds nuw [0 x i32], ptr %.val127, i64 0, i64 %125
+  %128 = getelementptr inbounds nuw i32, ptr %.val127, i64 %125
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit: ; preds = %117, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit"
@@ -2118,7 +2118,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit": ; preds = %75
   %.val125 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %79 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val125, i64 0, i64 %76, i32 2
+  %79 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val125, i64 %76, i32 2
   %80 = load i32, ptr %79, align 4, !noundef !5
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i8
@@ -2154,7 +2154,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137": ; preds = %94
   %.val = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val, i64 0, i64 %95, i32 1
+  %98 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val, i64 %95, i32 1
   %99 = load i32, ptr %98, align 4, !noundef !5
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %118
@@ -2186,7 +2186,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 114:                                              ; preds = %110
   %.val.i138 = load ptr, ptr %107, align 8, !noalias !143, !nonnull !5, !noundef !5
-  %115 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %.val.i138, i64 0, i64 %111
+  %115 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %.val.i138, i64 %111
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %115, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !143
   %.sroa.6169.1.copyload = load i8, ptr %115, align 1, !noalias !150
@@ -2200,7 +2200,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 118:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137"
   %119 = zext i8 %69 to i64
-  %120 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %25, i64 %119
   %121 = load i8, ptr %120, align 1, !alias.scope !151, !noundef !5
   %122 = zext i8 %121 to i64
   %123 = zext i32 %99 to i64
@@ -2215,7 +2215,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit": ; preds = %118
   %.val127 = load ptr, ptr %27, align 8, !nonnull !5, !noundef !5
-  %127 = getelementptr inbounds nuw [0 x i32], ptr %.val127, i64 0, i64 %124
+  %127 = getelementptr inbounds nuw i32, ptr %.val127, i64 %124
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit: ; preds = %116, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit"
@@ -2530,7 +2530,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit": ; preds = %79
   %.val126 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %83 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val126, i64 0, i64 %80, i32 2
+  %83 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val126, i64 %80, i32 2
   %84 = load i32, ptr %83, align 4, !noundef !5
   %85 = icmp ne i32 %84, 0
   %86 = zext i1 %85 to i8
@@ -2566,7 +2566,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137": ; preds = %98
   %.val124 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %.val124, i64 0, i64 %99, i32 1
+  %102 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %.val124, i64 %99, i32 1
   %103 = load i32, ptr %102, align 4, !noundef !5
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %122
@@ -2598,7 +2598,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 118:                                              ; preds = %114
   %.val.i = load ptr, ptr %111, align 8, !noalias !166, !nonnull !5, !noundef !5
-  %119 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %.val.i, i64 0, i64 %115
+  %119 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %.val.i, i64 %115
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %119, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !166
   %.sroa.6168.1.copyload = load i8, ptr %119, align 1, !noalias !173
@@ -2612,7 +2612,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 122:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0c530a2efaac7b98E.exit137"
   %123 = zext i8 %71 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr %25, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %25, i64 %123
   %125 = load i8, ptr %124, align 1, !alias.scope !174, !noundef !5
   %126 = zext i8 %125 to i64
   %127 = zext i32 %103 to i64
@@ -2627,7 +2627,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit": ; preds = %122
   %.val128 = load ptr, ptr %27, align 8, !nonnull !5, !noundef !5
-  %131 = getelementptr inbounds nuw [0 x i32], ptr %.val128, i64 0, i64 %128
+  %131 = getelementptr inbounds nuw i32, ptr %.val128, i64 %128
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17h76dcf83c9532615bE.exit: ; preds = %120, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf286d28621769729E.exit"
@@ -3163,7 +3163,7 @@ define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14wit
   unreachable
 
 "_ZN6memchr4arch7generic10packedpair15Finder$LT$V$GT$3new17h69eb6b3e6b5b15f0E.exit": ; preds = %8
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %14 = load i8, ptr %13, align 1, !alias.scope !236, !noalias !241, !noundef !5
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -3171,7 +3171,7 @@ define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14wit
   %15 = zext i8 %.0.sroa.speculated.i to i64
   %16 = add nuw nsw i64 %15, 16
   %.0.sroa.speculated.i1 = tail call noundef i64 @llvm.umax.i64(i64 range(i64 2, 0) %2, i64 %16)
-  %17 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %18 = load i8, ptr %17, align 1, !alias.scope !236, !noalias !241, !noundef !5
   %.0.vec.insert.i2 = insertelement <16 x i8> poison, i8 %18, i64 0
   %.15.vec.insert.i3 = shufflevector <16 x i8> %.0.vec.insert.i2, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -3492,7 +3492,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.exit: ; preds = %_ZN6memch
   unreachable
 
 _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h6b4f70683cf7ac71E.exit: ; preds = %80
-  %85 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %78
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 %78
   %86 = load i8, ptr %85, align 1, !alias.scope !293, !noalias !294, !noundef !5
   %.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %86, i64 0
   %.15.vec.insert.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -3500,7 +3500,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h6b4f70683cf7ac7
   %87 = zext i8 %.0.sroa.speculated.i.i to i64
   %88 = add nuw nsw i64 %87, 16
   %.0.sroa.speculated.i1.i = call noundef i64 @llvm.umax.i64(i64 range(i64 2, 0) %3, i64 %88)
-  %89 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %81
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %81
   %90 = load i8, ptr %89, align 1, !alias.scope !293, !noalias !294, !noundef !5
   %.0.vec.insert.i2.i = insertelement <16 x i8> poison, i8 %90, i64 0
   %.15.vec.insert.i3.i = shufflevector <16 x i8> %.0.vec.insert.i2.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -3550,7 +3550,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h6b4f70683cf7ac7
   br i1 %108, label %109, label %122, !prof !111
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %107
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 %107
   %111 = load i8, ptr %110, align 1, !noundef !5
   %112 = call noundef i64 @_ZN6memchr4arch3all6twoway18ApproximateByteSet3new17h8f98dddf16041aabE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 2, 0) %3), !noalias !298
   %113 = call { i64, i64 } @_ZN6memchr4arch3all6twoway6Suffix7forward17hbc7edfe7a64e9651E(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 2, 0) %3, i1 noundef zeroext false), !noalias !298
@@ -6812,7 +6812,7 @@ _ZN14regex_automata4util9prefilter7byteset7ByteSet3new17h0a5bba3a923698a2E.exit.
   %98 = extractvalue { ptr, i64 } %93, 0
   %99 = load i8, ptr %98, align 1, !noalias !973, !noundef !5
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 %100
   store i8 1, ptr %101, align 1, !noalias !969
   %102 = icmp eq ptr %97, %92
   br i1 %102, label %_ZN14regex_automata4util9prefilter7byteset7ByteSet3new17h0a5bba3a923698a2E.exit, label %.lr.ph.i
@@ -7123,7 +7123,7 @@ _ZN14regex_automata4util9prefilter7byteset7ByteSet3new17hcec435252480a163E.exit.
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 16
   %82 = load i8, ptr %.val.i48, align 1, !noalias !1011, !noundef !5
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %83
   store i8 1, ptr %84, align 1, !noalias !1011
   %85 = icmp eq ptr %81, %77
   br i1 %85, label %_ZN14regex_automata4util9prefilter7byteset7ByteSet3new17hcec435252480a163E.exit, label %.lr.ph.i

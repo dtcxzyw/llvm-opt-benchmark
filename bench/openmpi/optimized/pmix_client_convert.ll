@@ -278,7 +278,7 @@ pmix_obj_run_constructors.exit184:                ; preds = %.lr.ph.i181, %88
 
 102:                                              ; preds = %pmix_obj_run_constructors.exit184
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %103, i32 2
+  %104 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %103, i32 2
   %105 = load i32, ptr %104, align 4, !tbaa !78
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %107, label %109

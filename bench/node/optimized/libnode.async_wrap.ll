@@ -11818,7 +11818,7 @@ if.end2371:                                       ; preds = %sw.epilog
   %1127 = load ptr, ptr %isolate_data_.i.i2382, align 8
   %async_wrap_providers_.i.i = getelementptr inbounds nuw i8, ptr %1127, i64 3544
   %conv.i.i = sext i32 %1124 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [64 x %"class.v8::Eternal.302"], ptr %async_wrap_providers_.i.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds %"class.v8::Eternal.302", ptr %async_wrap_providers_.i.i, i64 %conv.i.i
   %1128 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %1129 = load double, ptr %async_id_, align 8
   %1130 = load double, ptr %trigger_async_id_, align 8
@@ -18302,7 +18302,7 @@ entry:
   %provider_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %provider_type_.i, align 8
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw [64 x ptr], ptr @_ZN4nodeL14provider_namesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN4nodeL14provider_namesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   ret ptr %1
 }

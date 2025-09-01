@@ -164,7 +164,7 @@ define noundef i32 @_Z14get_ebin_spaceP6t_ebiniPKPKcS2_(ptr noundef captures(non
 43:                                               ; preds = %.preheader.us, %54
   %indvars.iv51 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next52, %54 ]
   %.047.us = phi ptr [ @.str.7, %.preheader.us ], [ %.1.us, %54 ]
-  %44 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv51, i32 1
+  %44 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv51, i32 1
   %45 = load ptr, ptr %44, align 8, !tbaa !29
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %45) #16
   %47 = icmp eq i32 %46, 0

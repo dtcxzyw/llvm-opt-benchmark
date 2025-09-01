@@ -1400,7 +1400,7 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
   %.5144 = phi i32 [ %.6145, %301 ], [ 0, %248 ]
   %.05687.i = phi i64 [ %302, %301 ], [ 0, %248 ]
   %.286.i = phi ptr [ %.7.ph.i, %301 ], [ null, %248 ]
-  %251 = getelementptr inbounds nuw [7 x ptr], ptr @file_handlers, i64 0, i64 %.05687.i
+  %251 = getelementptr inbounds nuw ptr, ptr @file_handlers, i64 %.05687.i
   %252 = load ptr, ptr %251, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !12

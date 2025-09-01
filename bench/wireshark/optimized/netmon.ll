@@ -164,7 +164,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 57:                                               ; preds = %45
   %58 = load i16, ptr %31, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr [12 x i32], ptr @netmon_encap, i64 0, i64 %59
+  %60 = getelementptr i32, ptr @netmon_encap, i64 %59
   %61 = load i32, ptr %60, align 4
   br label %62
 
@@ -1475,7 +1475,7 @@ default.unreachable:                              ; preds = %108
 
 129:                                              ; preds = %127
   %130 = zext nneg i16 %105 to i64
-  %131 = getelementptr [12 x i32], ptr @netmon_encap, i64 0, i64 %130
+  %131 = getelementptr i32, ptr @netmon_encap, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = shl nuw nsw i64 1, %130
   %134 = and i64 %133, 3104
@@ -1825,7 +1825,7 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   br label %187
 
 45:                                               ; preds = %40
-  %46 = getelementptr [14 x i32], ptr @wtap_encap, i64 0, i64 %41
+  %46 = getelementptr i32, ptr @wtap_encap, i64 %41
   %47 = load i32, ptr %46, align 4
   %48 = trunc i32 %47 to i8
   store i8 %48, ptr %8, align 1
@@ -2129,7 +2129,7 @@ define internal noundef zeroext i1 @netmon_dump_finish(ptr noundef %0, ptr nound
 
 35:                                               ; preds = %31
   %36 = sext i32 %33 to i64
-  %37 = getelementptr [14 x i32], ptr @wtap_encap, i64 0, i64 %36
+  %37 = getelementptr i32, ptr @wtap_encap, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = trunc i32 %38 to i16
   br label %40

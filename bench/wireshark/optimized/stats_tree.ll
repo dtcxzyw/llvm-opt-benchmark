@@ -2010,7 +2010,7 @@ define range(i32 0, 8) i32 @stats_tree_get_default_sort_col(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.stats_tree_get_default_sort_col, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.stats_tree_get_default_sort_col, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 

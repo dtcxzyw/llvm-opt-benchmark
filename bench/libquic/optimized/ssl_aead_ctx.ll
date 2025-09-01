@@ -395,9 +395,9 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %42, %44
 
 88:                                               ; preds = %.lr.ph, %88
   %.077 = phi i64 [ 0, %.lr.ph ], [ %94, %88 ]
-  %89 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 0, i64 %.077
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %.077
   %90 = load i8, ptr %89, align 1, !tbaa !29
-  %91 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.077
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 %.077
   %92 = load i8, ptr %91, align 1, !tbaa !29
   %93 = xor i8 %92, %90
   store i8 %93, ptr %91, align 1, !tbaa !29
@@ -600,9 +600,9 @@ ssl_aead_ctx_get_ad.exit:                         ; preds = %26, %29
 
 89:                                               ; preds = %.lr.ph, %89
   %.080 = phi i64 [ 0, %.lr.ph ], [ %95, %89 ]
-  %90 = getelementptr inbounds nuw [12 x i8], ptr %88, i64 0, i64 %.080
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %.080
   %91 = load i8, ptr %90, align 1, !tbaa !29
-  %92 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.080
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 %.080
   %93 = load i8, ptr %92, align 1, !tbaa !29
   %94 = xor i8 %93, %91
   store i8 %94, ptr %92, align 1, !tbaa !29

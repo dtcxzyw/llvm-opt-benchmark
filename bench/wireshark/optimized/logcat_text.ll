@@ -652,7 +652,7 @@ get_priority.exit.sink.split:                     ; preds = %46, %42
   %.sink122.ph = phi i64 [ 21, %42 ], [ 25, %46 ]
   %.sink.ph = phi ptr [ %43, %42 ], [ %47, %46 ]
   %52 = zext nneg i8 %.sink125 to i64
-  %53 = getelementptr [10 x i8], ptr @get_priority.priorities, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @get_priority.priorities, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   br label %get_priority.exit

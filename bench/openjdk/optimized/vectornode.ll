@@ -491,9 +491,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 14:                                               ; preds = %2
-  %switch.tableidx74 = add i8 %1, -4
-  %15 = icmp ult i8 %switch.tableidx74, 7
-  br i1 %15, label %switch.lookup73, label %185
+  %switch.tableidx73 = add i8 %1, -4
+  %15 = icmp ult i8 %switch.tableidx73, 7
+  br i1 %15, label %switch.lookup74, label %185
 
 16:                                               ; preds = %2
   %17 = icmp eq i8 %1, 11
@@ -511,9 +511,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 25:                                               ; preds = %2
-  %switch.tableidx78 = add i8 %1, -5
-  %26 = icmp ult i8 %switch.tableidx78, 6
-  br i1 %26, label %switch.lookup77, label %185
+  %switch.tableidx77 = add i8 %1, -5
+  %26 = icmp ult i8 %switch.tableidx77, 6
+  br i1 %26, label %switch.lookup78, label %185
 
 27:                                               ; preds = %2
   %28 = icmp eq i8 %1, 11
@@ -561,9 +561,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 54:                                               ; preds = %2
-  %switch.tableidx82 = add i8 %1, -8
-  %55 = icmp ult i8 %switch.tableidx82, 3
-  br i1 %55, label %switch.lookup81, label %185
+  %switch.tableidx81 = add i8 %1, -8
+  %55 = icmp ult i8 %switch.tableidx81, 3
+  br i1 %55, label %switch.lookup82, label %185
 
 56:                                               ; preds = %2
   %57 = icmp eq i8 %1, 11
@@ -735,9 +735,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 147:                                              ; preds = %2
-  %switch.tableidx84 = add i8 %1, -4
-  %148 = icmp ult i8 %switch.tableidx84, 7
-  br i1 %148, label %switch.lookup83, label %185
+  %switch.tableidx83 = add i8 %1, -4
+  %148 = icmp ult i8 %switch.tableidx83, 7
+  br i1 %148, label %switch.lookup84, label %185
 
 149:                                              ; preds = %2
   %150 = icmp eq i8 %1, 11
@@ -745,9 +745,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 152:                                              ; preds = %2
-  %switch.tableidx88 = add i8 %1, -4
-  %153 = icmp ult i8 %switch.tableidx88, 7
-  br i1 %153, label %switch.lookup87, label %185
+  %switch.tableidx87 = add i8 %1, -4
+  %153 = icmp ult i8 %switch.tableidx87, 7
+  br i1 %153, label %switch.lookup88, label %185
 
 154:                                              ; preds = %2
   %155 = icmp eq i8 %1, 11
@@ -765,9 +765,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 163:                                              ; preds = %2
-  %switch.tableidx92 = add i8 %1, -4
-  %164 = icmp ult i8 %switch.tableidx92, 7
-  br i1 %164, label %switch.lookup91, label %185
+  %switch.tableidx91 = add i8 %1, -4
+  %164 = icmp ult i8 %switch.tableidx91, 7
+  br i1 %164, label %switch.lookup92, label %185
 
 165:                                              ; preds = %2
   %166 = icmp eq i8 %1, 11
@@ -809,47 +809,47 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
 
 switch.lookup:                                    ; preds = %3
   %179 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType, i64 0, i64 %179
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType, i64 %179
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %185
 
-switch.lookup73:                                  ; preds = %14
-  %180 = zext nneg i8 %switch.tableidx74 to i64
-  %switch.gep75 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.2, i64 0, i64 %180
+switch.lookup74:                                  ; preds = %14
+  %180 = zext nneg i8 %switch.tableidx73 to i64
+  %switch.gep75 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.2, i64 %180
   %switch.load76 = load i32, ptr %switch.gep75, align 4
   br label %185
 
-switch.lookup77:                                  ; preds = %25
-  %181 = zext nneg i8 %switch.tableidx78 to i64
-  %switch.gep79 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.3, i64 0, i64 %181
+switch.lookup78:                                  ; preds = %25
+  %181 = zext nneg i8 %switch.tableidx77 to i64
+  %switch.gep79 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.3, i64 %181
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %185
 
-switch.lookup81:                                  ; preds = %54
-  %switch.idx.cast = zext nneg i8 %switch.tableidx82 to i32
+switch.lookup82:                                  ; preds = %54
+  %switch.idx.cast = zext nneg i8 %switch.tableidx81 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 387
   br label %185
 
-switch.lookup83:                                  ; preds = %147
-  %182 = zext nneg i8 %switch.tableidx84 to i64
-  %switch.gep85 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 0, i64 %182
+switch.lookup84:                                  ; preds = %147
+  %182 = zext nneg i8 %switch.tableidx83 to i64
+  %switch.gep85 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 %182
   %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %185
 
-switch.lookup87:                                  ; preds = %152
-  %183 = zext nneg i8 %switch.tableidx88 to i64
-  %switch.gep89 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 0, i64 %183
+switch.lookup88:                                  ; preds = %152
+  %183 = zext nneg i8 %switch.tableidx87 to i64
+  %switch.gep89 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 %183
   %switch.load90 = load i32, ptr %switch.gep89, align 4
   br label %185
 
-switch.lookup91:                                  ; preds = %163
-  %184 = zext nneg i8 %switch.tableidx92 to i64
-  %switch.gep93 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 0, i64 %184
+switch.lookup92:                                  ; preds = %163
+  %184 = zext nneg i8 %switch.tableidx91 to i64
+  %switch.gep93 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 %184
   %switch.load94 = load i32, ptr %switch.gep93, align 4
   br label %185
 
-185:                                              ; preds = %163, %switch.lookup91, %152, %switch.lookup87, %147, %switch.lookup83, %54, %switch.lookup81, %25, %switch.lookup77, %14, %switch.lookup73, %3, %switch.lookup, %85, %69, %59, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
-  %.0 = phi i32 [ 0, %178 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %58, %56 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %102, %98 ], [ %107, %103 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ], [ 278, %120 ], [ 279, %121 ], [ %126, %122 ], [ %131, %127 ], [ %135, %132 ], [ %138, %136 ], [ %142, %139 ], [ %146, %143 ], [ %151, %149 ], [ %156, %154 ], [ %159, %157 ], [ %162, %160 ], [ %167, %165 ], [ 413, %168 ], [ 415, %169 ], [ 417, %170 ], [ 426, %171 ], [ 429, %172 ], [ 382, %173 ], [ 149, %174 ], [ 152, %175 ], [ 316, %176 ], [ 317, %177 ], [ 472, %2 ], [ %., %59 ], [ %.63, %69 ], [ %.66, %85 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load76, %switch.lookup73 ], [ 0, %14 ], [ %switch.load80, %switch.lookup77 ], [ 0, %25 ], [ %switch.offset, %switch.lookup81 ], [ 0, %54 ], [ %switch.load86, %switch.lookup83 ], [ 0, %147 ], [ %switch.load90, %switch.lookup87 ], [ 0, %152 ], [ %switch.load94, %switch.lookup91 ], [ 0, %163 ]
+185:                                              ; preds = %163, %switch.lookup92, %152, %switch.lookup88, %147, %switch.lookup84, %54, %switch.lookup82, %25, %switch.lookup78, %14, %switch.lookup74, %3, %switch.lookup, %85, %69, %59, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
+  %.0 = phi i32 [ 0, %178 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %58, %56 ], [ %62, %60 ], [ %65, %63 ], [ %68, %66 ], [ %72, %70 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %97, %95 ], [ %102, %98 ], [ %107, %103 ], [ %110, %108 ], [ %113, %111 ], [ %116, %114 ], [ %119, %117 ], [ 278, %120 ], [ 279, %121 ], [ %126, %122 ], [ %131, %127 ], [ %135, %132 ], [ %138, %136 ], [ %142, %139 ], [ %146, %143 ], [ %151, %149 ], [ %156, %154 ], [ %159, %157 ], [ %162, %160 ], [ %167, %165 ], [ 413, %168 ], [ 415, %169 ], [ 417, %170 ], [ 426, %171 ], [ 429, %172 ], [ 382, %173 ], [ 149, %174 ], [ 152, %175 ], [ 316, %176 ], [ 317, %177 ], [ 472, %2 ], [ %., %59 ], [ %.63, %69 ], [ %.66, %85 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load76, %switch.lookup74 ], [ 0, %14 ], [ %switch.load80, %switch.lookup78 ], [ 0, %25 ], [ %switch.offset, %switch.lookup82 ], [ 0, %54 ], [ %switch.load86, %switch.lookup84 ], [ 0, %147 ], [ %switch.load90, %switch.lookup88 ], [ 0, %152 ], [ %switch.load94, %switch.lookup92 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -891,60 +891,60 @@ define hidden noundef range(i32 0, 355) i32 @_ZN10VectorNode13scalar_opcodeEi9Ba
   br i1 %7, label %switch.lookup, label %22
 
 8:                                                ; preds = %2, %2
-  %switch.tableidx8 = add i8 %1, -4
-  %9 = icmp ult i8 %switch.tableidx8, 8
-  br i1 %9, label %switch.lookup7, label %22
+  %switch.tableidx7 = add i8 %1, -4
+  %9 = icmp ult i8 %switch.tableidx7, 8
+  br i1 %9, label %switch.lookup8, label %22
 
 10:                                               ; preds = %2, %2
-  %switch.tableidx12 = add i8 %1, -4
-  %11 = icmp ult i8 %switch.tableidx12, 8
-  br i1 %11, label %switch.lookup11, label %22
+  %switch.tableidx11 = add i8 %1, -4
+  %11 = icmp ult i8 %switch.tableidx11, 8
+  br i1 %11, label %switch.lookup12, label %22
 
 12:                                               ; preds = %2, %2
-  %switch.tableidx16 = add i8 %1, -6
-  %13 = icmp ult i8 %switch.tableidx16, 6
-  br i1 %13, label %switch.lookup15, label %22
+  %switch.tableidx15 = add i8 %1, -6
+  %13 = icmp ult i8 %switch.tableidx15, 6
+  br i1 %13, label %switch.lookup16, label %22
 
 14:                                               ; preds = %2, %2
-  %switch.tableidx20 = add i8 %1, -6
-  %15 = icmp ult i8 %switch.tableidx20, 6
-  br i1 %15, label %switch.lookup19, label %22
+  %switch.tableidx19 = add i8 %1, -6
+  %15 = icmp ult i8 %switch.tableidx19, 6
+  br i1 %15, label %switch.lookup20, label %22
 
 16:                                               ; preds = %2
   br label %22
 
 switch.lookup:                                    ; preds = %6
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
-switch.lookup7:                                   ; preds = %8
-  %18 = zext nneg i8 %switch.tableidx8 to i64
-  %switch.gep9 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.7, i64 0, i64 %18
+switch.lookup8:                                   ; preds = %8
+  %18 = zext nneg i8 %switch.tableidx7 to i64
+  %switch.gep9 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.7, i64 %18
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   br label %22
 
-switch.lookup11:                                  ; preds = %10
-  %19 = zext nneg i8 %switch.tableidx12 to i64
-  %switch.gep13 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8, i64 0, i64 %19
+switch.lookup12:                                  ; preds = %10
+  %19 = zext nneg i8 %switch.tableidx11 to i64
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8, i64 %19
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %22
 
-switch.lookup15:                                  ; preds = %12
-  %20 = zext nneg i8 %switch.tableidx16 to i64
-  %switch.gep17 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9, i64 0, i64 %20
+switch.lookup16:                                  ; preds = %12
+  %20 = zext nneg i8 %switch.tableidx15 to i64
+  %switch.gep17 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9, i64 %20
   %switch.load18 = load i32, ptr %switch.gep17, align 4
   br label %22
 
-switch.lookup19:                                  ; preds = %14
-  %21 = zext nneg i8 %switch.tableidx20 to i64
-  %switch.gep21 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10, i64 0, i64 %21
+switch.lookup20:                                  ; preds = %14
+  %21 = zext nneg i8 %switch.tableidx19 to i64
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10, i64 %21
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %22
 
-22:                                               ; preds = %14, %switch.lookup19, %12, %switch.lookup15, %10, %switch.lookup11, %8, %switch.lookup7, %6, %switch.lookup, %2, %2, %16, %5, %4, %3
-  %.0 = phi i32 [ 0, %16 ], [ 24, %3 ], [ 246, %4 ], [ 247, %5 ], [ 23, %2 ], [ 23, %2 ], [ %switch.load, %switch.lookup ], [ 0, %6 ], [ %switch.load10, %switch.lookup7 ], [ 0, %8 ], [ %switch.load14, %switch.lookup11 ], [ 0, %10 ], [ %switch.load18, %switch.lookup15 ], [ 0, %12 ], [ %switch.load22, %switch.lookup19 ], [ 0, %14 ]
+22:                                               ; preds = %14, %switch.lookup20, %12, %switch.lookup16, %10, %switch.lookup12, %8, %switch.lookup8, %6, %switch.lookup, %2, %2, %16, %5, %4, %3
+  %.0 = phi i32 [ 0, %16 ], [ 24, %3 ], [ 246, %4 ], [ 247, %5 ], [ 23, %2 ], [ 23, %2 ], [ %switch.load, %switch.lookup ], [ 0, %6 ], [ %switch.load10, %switch.lookup8 ], [ 0, %8 ], [ %switch.load14, %switch.lookup12 ], [ 0, %10 ], [ %switch.load18, %switch.lookup16 ], [ 0, %12 ], [ %switch.load22, %switch.lookup20 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1454,7 +1454,7 @@ define hidden noundef ptr @_ZN10VectorNode14make_mask_nodeEiP4NodeS1_j9BasicType
 
 9:                                                ; preds = %5
   %10 = zext i8 %4 to i64
-  %11 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %12, i32 noundef %3) #8
   switch i32 %0, label %107 [
@@ -1656,7 +1656,7 @@ _ZN4NodenwEm.exit50:                              ; preds = %101, %103
   %108 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %108, align 1
   %109 = zext nneg i32 %0 to i64
-  %110 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %109
   %111 = load ptr, ptr %110, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 664, ptr noundef nonnull @.str.6, ptr noundef %111) #9
   unreachable
@@ -2670,7 +2670,7 @@ define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noun
   %284 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %284, align 1
   %285 = zext nneg i32 %0 to i64
-  %286 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %285
   %287 = load ptr, ptr %286, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 763, ptr noundef nonnull @.str.7, ptr noundef %287) #9
   unreachable
@@ -6350,7 +6350,7 @@ _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %3, %9, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = zext i8 %4 to i64
-  %8 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %9, i32 noundef %3, i1 noundef zeroext false) #8
   %11 = tail call noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8 noundef zeroext %4)
@@ -6361,7 +6361,7 @@ define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 nound
   %13 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %13, align 1
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 773, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %16) #9
   unreachable
@@ -6546,7 +6546,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %92, %94
   %99 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %99, align 1
   %100 = zext nneg i32 %0 to i64
-  %101 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %100
   %102 = load ptr, ptr %101, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.7, ptr noundef %102) #9
   unreachable
@@ -6559,7 +6559,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %92, %94
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_j9BasicType(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = zext i8 %5 to i64
-  %8 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %9, i32 noundef %4, i1 noundef zeroext false) #8
   %11 = tail call noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8 noundef zeroext %5)
@@ -6570,7 +6570,7 @@ define hidden noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_j9BasicType(i32 nou
   %13 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %13, align 1
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 797, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %16) #9
   unreachable
@@ -6680,7 +6680,7 @@ _ZN11MaskAllNodeC2EP4NodePK8TypeVect.exit:        ; preds = %30, %36, %47
 
 58:                                               ; preds = %53
   %59 = zext i8 %5 to i64
-  %60 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %59
   %61 = load ptr, ptr %60, align 8
   br label %62
 
@@ -6779,7 +6779,7 @@ declare noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef, i32 noundef, i1 no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10VectorNode11shift_countEiP4Nodej9BasicType(i32 noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   %5 = zext i8 %3 to i64
-  %6 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %7, i32 noundef %2, i1 noundef zeroext false) #8
   switch i32 %0, label %97 [
@@ -6959,7 +6959,7 @@ _ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit:     ; preds = %74, %80, %91
   %98 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %98, align 1
   %99 = sext i32 %0 to i64
-  %100 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %99
+  %100 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %99
   %101 = load ptr, ptr %100, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 829, ptr noundef nonnull @.str.7, ptr noundef %101) #9
   unreachable
@@ -7328,7 +7328,7 @@ define hidden noundef ptr @_ZN10VectorNode24try_to_gen_masked_vectorEP8PhaseGVNP
   %24 = load ptr, ptr %9, align 8
   %25 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %24) #8
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = mul i32 %28, %23
   %30 = load i64, ptr @MaxVectorSize, align 8
@@ -7755,7 +7755,7 @@ declare noundef zeroext i1 @_ZN7Matcher31vector_needs_partial_operationsEP4NodeP
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8PackNode4makeEP4Nodej9BasicType(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = zext i8 %2 to i64
-  %5 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %6, i32 noundef %1, i1 noundef zeroext false) #8
   switch i8 %2, label %272 [
@@ -9027,7 +9027,7 @@ _ZN8PackNodeC2EP4NodeS1_PK8TypeVect.exit91:       ; preds = %_ZN4Node8init_reqEj
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
   %9 = zext i8 %6 to i64
-  %10 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %11, i32 noundef %5, i1 noundef zeroext false) #8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -9236,7 +9236,7 @@ define hidden noundef ptr @_ZN20LoadVectorMaskedNode5IdealEP8PhaseGVNb(ptr nound
 42:                                               ; preds = %36
   %43 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %19) #8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load i64, ptr %37, align 8
   %48 = trunc i64 %47 to i32
@@ -9386,7 +9386,7 @@ define hidden noundef ptr @_ZN21StoreVectorMaskedNode5IdealEP8PhaseGVNb(ptr noun
 42:                                               ; preds = %36
   %43 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %19) #8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load i64, ptr %37, align 8
   %48 = trunc i64 %47 to i32
@@ -9494,7 +9494,7 @@ define hidden noundef range(i32 0, 464) i32 @_ZN11ExtractNode6opcodeE9BasicType(
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN11ExtractNode6opcodeE9BasicType, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11ExtractNode6opcodeE9BasicType, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -10012,7 +10012,7 @@ define hidden noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 
   %9 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %9, align 1
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1353, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef %12) #9
   unreachable
@@ -10078,10 +10078,10 @@ _ZN4NodenwEm.exit:                                ; preds = %30, %32
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %43, i32 1
   %45 = load i8, ptr %44, align 4
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %46
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %36, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
@@ -10139,10 +10139,10 @@ _ZN4NodenwEm.exit66:                              ; preds = %71, %73
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %84, i32 1
+  %85 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %84, i32 1
   %86 = load i8, ptr %85, align 4
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %87
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %77, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i65, i64 64
@@ -10201,10 +10201,10 @@ _ZN4NodenwEm.exit69:                              ; preds = %112, %114
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %126, i32 1
+  %127 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %126, i32 1
   %128 = load i8, ptr %127, align 4
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %129
   %131 = load ptr, ptr %130, align 8
   store ptr %131, ptr %119, align 8
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i68, i64 64
@@ -10265,10 +10265,10 @@ _ZN4NodenwEm.exit72:                              ; preds = %155, %157
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load i32, ptr %167, align 8
   %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %169, i32 1
+  %170 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %169, i32 1
   %171 = load i8, ptr %170, align 4
   %172 = zext i8 %171 to i64
-  %173 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %172
   %174 = load ptr, ptr %173, align 8
   store ptr %174, ptr %162, align 8
   %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i71, i64 64
@@ -10328,10 +10328,10 @@ _ZN4NodenwEm.exit75:                              ; preds = %198, %200
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load i32, ptr %209, align 8
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %211, i32 1
+  %212 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %211, i32 1
   %213 = load i8, ptr %212, align 4
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %214
   %216 = load ptr, ptr %215, align 8
   store ptr %216, ptr %204, align 8
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i.i74, i64 64
@@ -10389,10 +10389,10 @@ _ZN4NodenwEm.exit78:                              ; preds = %239, %241
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %251 = load i32, ptr %250, align 8
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %252, i32 1
+  %253 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %252, i32 1
   %254 = load i8, ptr %253, align 4
   %255 = zext i8 %254 to i64
-  %256 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %255
   %257 = load ptr, ptr %256, align 8
   store ptr %257, ptr %245, align 8
   %258 = getelementptr inbounds nuw i8, ptr %.0.i.i.i77, i64 64
@@ -10451,10 +10451,10 @@ _ZN4NodenwEm.exit81:                              ; preds = %280, %282
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %293 = load i32, ptr %292, align 8
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %294, i32 1
+  %295 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %294, i32 1
   %296 = load i8, ptr %295, align 4
   %297 = zext i8 %296 to i64
-  %298 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %297
   %299 = load ptr, ptr %298, align 8
   store ptr %299, ptr %287, align 8
   %300 = getelementptr inbounds nuw i8, ptr %.0.i.i.i80, i64 64
@@ -10515,10 +10515,10 @@ _ZN4NodenwEm.exit84:                              ; preds = %323, %325
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %336 = load i32, ptr %335, align 8
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %337, i32 1
+  %338 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %337, i32 1
   %339 = load i8, ptr %338, align 4
   %340 = zext i8 %339 to i64
-  %341 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %340
   %342 = load ptr, ptr %341, align 8
   store ptr %342, ptr %330, align 8
   %343 = getelementptr inbounds nuw i8, ptr %.0.i.i.i83, i64 64
@@ -10578,10 +10578,10 @@ _ZN4NodenwEm.exit87:                              ; preds = %366, %368
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i32, ptr %377, align 8
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %379, i32 1
+  %380 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %379, i32 1
   %381 = load i8, ptr %380, align 4
   %382 = zext i8 %381 to i64
-  %383 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %382
   %384 = load ptr, ptr %383, align 8
   store ptr %384, ptr %372, align 8
   %385 = getelementptr inbounds nuw i8, ptr %.0.i.i.i86, i64 64
@@ -10639,10 +10639,10 @@ _ZN4NodenwEm.exit90:                              ; preds = %407, %409
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
   %419 = load i32, ptr %418, align 8
   %420 = zext i32 %419 to i64
-  %421 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %420, i32 1
+  %421 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %420, i32 1
   %422 = load i8, ptr %421, align 4
   %423 = zext i8 %422 to i64
-  %424 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %423
   %425 = load ptr, ptr %424, align 8
   store ptr %425, ptr %413, align 8
   %426 = getelementptr inbounds nuw i8, ptr %.0.i.i.i89, i64 64
@@ -10700,10 +10700,10 @@ _ZN4NodenwEm.exit93:                              ; preds = %448, %450
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load i32, ptr %459, align 8
   %461 = zext i32 %460 to i64
-  %462 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %461, i32 1
+  %462 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %461, i32 1
   %463 = load i8, ptr %462, align 4
   %464 = zext i8 %463 to i64
-  %465 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %464
+  %465 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %464
   %466 = load ptr, ptr %465, align 8
   store ptr %466, ptr %454, align 8
   %467 = getelementptr inbounds nuw i8, ptr %.0.i.i.i92, i64 64
@@ -10761,10 +10761,10 @@ _ZN4NodenwEm.exit96:                              ; preds = %489, %491
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 16
   %501 = load i32, ptr %500, align 8
   %502 = zext i32 %501 to i64
-  %503 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %502, i32 1
+  %503 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %502, i32 1
   %504 = load i8, ptr %503, align 4
   %505 = zext i8 %504 to i64
-  %506 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %505
   %507 = load ptr, ptr %506, align 8
   store ptr %507, ptr %495, align 8
   %508 = getelementptr inbounds nuw i8, ptr %.0.i.i.i95, i64 64
@@ -10822,10 +10822,10 @@ _ZN4NodenwEm.exit99:                              ; preds = %530, %532
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 16
   %542 = load i32, ptr %541, align 8
   %543 = zext i32 %542 to i64
-  %544 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %543, i32 1
+  %544 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %543, i32 1
   %545 = load i8, ptr %544, align 4
   %546 = zext i8 %545 to i64
-  %547 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %546
+  %547 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %546
   %548 = load ptr, ptr %547, align 8
   store ptr %548, ptr %536, align 8
   %549 = getelementptr inbounds nuw i8, ptr %.0.i.i.i98, i64 64
@@ -10920,7 +10920,7 @@ define hidden noundef ptr @_ZN19VectorStoreMaskNode4makeER8PhaseGVNP4Node9BasicT
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 32), align 16
   %6 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %5, i32 noundef %3, i1 noundef zeroext false) #8
   %7 = zext i8 %2 to i64
-  %8 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
@@ -11055,7 +11055,7 @@ _ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit:      ; preds = %_ZN4Node8init_reqEj
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14VectorCastNode4makeEiP4Node9BasicTypej(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = zext i8 %2 to i64
-  %6 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %7, i32 noundef %3, i1 noundef zeroext false) #8
   switch i32 %0, label %493 [
@@ -12056,7 +12056,7 @@ _ZN10VectorNode40vector_size_supported_auto_vectorizationE9BasicTypei.exit: ; pr
 
 switch.lookup:                                    ; preds = %18
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN14VectorCastNode11implementedEij9BasicTypeS0_, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14VectorCastNode11implementedEij9BasicTypeS0_, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %21
 
@@ -12118,7 +12118,7 @@ define hidden noundef ptr @_ZN13ReductionNode24make_identity_con_scalarER8PhaseG
   %6 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %6, align 1
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1483, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %9) #9
   unreachable
@@ -12285,7 +12285,7 @@ define hidden noundef ptr @_ZN13ReductionNode24make_identity_con_scalarER8PhaseG
   %78 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %78, align 1
   %79 = sext i32 %4 to i64
-  %80 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %79
+  %80 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1549, ptr noundef nonnull @.str.7, ptr noundef %81) #9
   unreachable
@@ -12392,10 +12392,10 @@ _ZN15MacroLogicVNodeC2EP4NodeS1_S1_S1_S1_PK8TypeVect.exit: ; preds = %30, %29, %
 define hidden noundef ptr @_ZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVN(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
 "_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.exit":
   %6 = zext i8 %4 to i64
-  %7 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %8, i32 noundef %3, i1 noundef zeroext false) #8
-  %10 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %6
   %11 = load i32, ptr %10, align 4
   %12 = shl nsw i32 %11, 3
   %13 = add nsw i32 %12, -1
@@ -12964,7 +12964,7 @@ _ZN4NodenwEm.exit119:                             ; preds = %319, %321
   %329 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %329, align 1
   %330 = zext nneg i32 %15 to i64
-  %331 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %330
   %332 = load ptr, ptr %331, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 773, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %332) #9
   unreachable
@@ -12984,7 +12984,7 @@ _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit: ; preds = %324
   %341 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %341, align 1
   %342 = zext nneg i32 %.0.i to i64
-  %343 = getelementptr inbounds nuw [0 x ptr], ptr @NodeClassNames, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw ptr, ptr @NodeClassNames, i64 %342
   %344 = load ptr, ptr %343, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 773, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef %344) #9
   unreachable
@@ -13094,7 +13094,7 @@ define hidden noundef ptr @_ZN21VectorReinterpretNode8IdentityEP8PhaseGVN(ptr no
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %31) #8
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = mul i32 %35, %29
   %37 = load ptr, ptr %6, align 8
@@ -13107,7 +13107,7 @@ define hidden noundef ptr @_ZN21VectorReinterpretNode8IdentityEP8PhaseGVN(ptr no
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %44) #8
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = mul i32 %48, %42
   %.not = icmp ugt i32 %36, %49
@@ -13243,7 +13243,7 @@ define hidden noundef ptr @_ZN15VectorUnboxNode5IdealEP8PhaseGVNb(ptr noundef no
   %58 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %57) #8
   %59 = load i32, ptr %43, align 8
   %60 = zext i8 %58 to i64
-  %61 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %62, i32 noundef %59) #8
   %64 = load ptr, ptr %55, align 8
@@ -14153,7 +14153,7 @@ define hidden noundef ptr @_ZN8NegVNode26degenerate_integral_negateEP8PhaseGVNb(
   %.044 = phi i32 [ 24, %14 ], [ 23, %17 ]
   %.043 = phi ptr [ %15, %14 ], [ %18, %17 ]
   %21 = zext i8 %8 to i64
-  %22 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.043, i32 noundef %11, ptr noundef %23, i1 noundef zeroext false)
   %25 = load ptr, ptr %1, align 8
@@ -14243,7 +14243,7 @@ _ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb.exit: ; preds = %_ZN4NodenwEm.exit,
   %.041 = phi ptr [ %77, %76 ], [ %79, %78 ]
   %.0 = phi i32 [ 343, %76 ], [ 342, %78 ]
   %81 = zext i8 %8 to i64
-  %82 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.041, i32 noundef %11, ptr noundef %83, i1 noundef zeroext false)
   %85 = load ptr, ptr %1, align 8
@@ -14759,7 +14759,7 @@ define hidden noundef ptr @_ZN8XorVNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = zext i8 %20 to i64
-  %29 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -14846,7 +14846,7 @@ define linkonce_odr hidden noundef i32 @_ZNK13ReductionNode9ideal_regEv(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %8, i32 4
+  %9 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %8, i32 4
   %10 = load i32, ptr %9, align 4
   ret i32 %10
 }
@@ -14906,7 +14906,7 @@ define linkonce_odr hidden noundef i32 @_ZNK10VectorNode9ideal_regEv(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %6, i32 4
+  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6, i32 4
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }

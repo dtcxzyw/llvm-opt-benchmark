@@ -1838,7 +1838,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %36 = load ptr, ptr %35, align 8, !noalias !226, !nonnull !4, !align !237, !noundef !4
-  %37 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %36, i64 0, i64 %30
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %36, i64 %30
   %38 = load ptr, ptr %37, align 8, !noalias !226, !nonnull !4, !align !232, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8, !noalias !226, !noundef !4
@@ -1894,7 +1894,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %64 = load ptr, ptr %63, align 8, !noalias !238, !nonnull !4, !align !237, !noundef !4
-  %65 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %64, i64 0, i64 %58
+  %65 = getelementptr inbounds nuw { ptr, i64 }, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !238, !nonnull !4, !align !232, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i64, ptr %67, align 8, !noalias !238, !noundef !4

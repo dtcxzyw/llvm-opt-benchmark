@@ -3358,7 +3358,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit365: ; preds = %.lr.ph.i340, %317
 
 378:                                              ; preds = %.lr.ph596, %378
   %indvars.iv636 = phi i64 [ 0, %.lr.ph596 ], [ %indvars.iv.next637, %378 ]
-  %379 = getelementptr inbounds nuw [7 x float], ptr %374, i64 0, i64 %indvars.iv636
+  %379 = getelementptr inbounds nuw float, ptr %374, i64 %indvars.iv636
   %380 = load float, ptr %379, align 4, !tbaa !197
   %381 = trunc nuw nsw i64 %indvars.iv636 to i32
   %.reass = add i32 %invariant.op, %381
@@ -5453,23 +5453,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i = icmp eq i32 %236, 0
   %240 = select i1 %.cmp.i, i32 2, i32 %.urem.i
   %241 = zext nneg i32 %236 to i64
-  %242 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %241
   %243 = getelementptr inbounds nuw float, ptr %242, i64 %241
   %244 = load float, ptr %243, align 4, !tbaa !197
   %245 = zext nneg i32 %239 to i64
-  %246 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %245
   %247 = getelementptr inbounds nuw float, ptr %246, i64 %245
   %248 = load float, ptr %247, align 4, !tbaa !197
   %249 = fsub float %244, %248
   %250 = zext nneg i32 %240 to i64
-  %251 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %250
   %252 = getelementptr inbounds nuw float, ptr %251, i64 %250
   %253 = load float, ptr %252, align 4, !tbaa !197
   %254 = fsub float %249, %253
   %255 = fadd float %254, 1.000000e+00
   %256 = call noundef float @sqrtf(float noundef %255) #19, !tbaa !231
   %257 = fmul float %256, 5.000000e-01
-  %258 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %241
+  %258 = getelementptr inbounds nuw float, ptr %10, i64 %241
   store float %257, ptr %258, align 4, !tbaa !197
   %259 = fdiv float 5.000000e-01, %256
   %260 = getelementptr inbounds nuw float, ptr %251, i64 %245
@@ -5485,7 +5485,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %269 = load float, ptr %268, align 4, !tbaa !197
   %270 = fadd float %267, %269
   %271 = fmul float %259, %270
-  %272 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %245
+  %272 = getelementptr inbounds nuw float, ptr %10, i64 %245
   store float %271, ptr %272, align 4, !tbaa !197
   %273 = getelementptr inbounds nuw float, ptr %251, i64 %241
   %274 = load float, ptr %273, align 4, !tbaa !197
@@ -5493,7 +5493,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %276 = load float, ptr %275, align 4, !tbaa !197
   %277 = fadd float %274, %276
   %278 = fmul float %259, %277
-  %279 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %250
+  %279 = getelementptr inbounds nuw float, ptr %10, i64 %250
   store float %278, ptr %279, align 4, !tbaa !197
   %.pre.i = load float, ptr %10, align 16, !tbaa !197
   %.pre42.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !197
@@ -5610,23 +5610,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i273 = icmp eq i32 %366, 0
   %370 = select i1 %.cmp.i273, i32 2, i32 %.urem.i272
   %371 = zext nneg i32 %366 to i64
-  %372 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %371
   %373 = getelementptr inbounds nuw float, ptr %372, i64 %371
   %374 = load float, ptr %373, align 4, !tbaa !197
   %375 = zext nneg i32 %369 to i64
-  %376 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %375
   %377 = getelementptr inbounds nuw float, ptr %376, i64 %375
   %378 = load float, ptr %377, align 4, !tbaa !197
   %379 = fsub float %374, %378
   %380 = zext nneg i32 %370 to i64
-  %381 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %380
+  %381 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %380
   %382 = getelementptr inbounds nuw float, ptr %381, i64 %380
   %383 = load float, ptr %382, align 4, !tbaa !197
   %384 = fsub float %379, %383
   %385 = fadd float %384, 1.000000e+00
   %386 = call noundef float @sqrtf(float noundef %385) #19, !tbaa !231
   %387 = fmul float %386, 5.000000e-01
-  %388 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %371
+  %388 = getelementptr inbounds nuw float, ptr %9, i64 %371
   store float %387, ptr %388, align 4, !tbaa !197
   %389 = fdiv float 5.000000e-01, %386
   %390 = getelementptr inbounds nuw float, ptr %381, i64 %375
@@ -5642,7 +5642,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %399 = load float, ptr %398, align 4, !tbaa !197
   %400 = fadd float %397, %399
   %401 = fmul float %389, %400
-  %402 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %375
+  %402 = getelementptr inbounds nuw float, ptr %9, i64 %375
   store float %401, ptr %402, align 4, !tbaa !197
   %403 = getelementptr inbounds nuw float, ptr %381, i64 %371
   %404 = load float, ptr %403, align 4, !tbaa !197
@@ -5650,7 +5650,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %406 = load float, ptr %405, align 4, !tbaa !197
   %407 = fadd float %404, %406
   %408 = fmul float %389, %407
-  %409 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %380
+  %409 = getelementptr inbounds nuw float, ptr %9, i64 %380
   store float %408, ptr %409, align 4, !tbaa !197
   %.pre.i274 = load float, ptr %9, align 16, !tbaa !197
   %.pre42.i276 = load float, ptr %.phi.trans.insert.i275, align 4, !tbaa !197
@@ -5758,23 +5758,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i285 = icmp eq i32 %487, 0
   %491 = select i1 %.cmp.i285, i32 2, i32 %.urem.i284
   %492 = zext nneg i32 %487 to i64
-  %493 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %492
   %494 = getelementptr inbounds nuw float, ptr %493, i64 %492
   %495 = load float, ptr %494, align 4, !tbaa !197
   %496 = zext nneg i32 %490 to i64
-  %497 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %496
   %498 = getelementptr inbounds nuw float, ptr %497, i64 %496
   %499 = load float, ptr %498, align 4, !tbaa !197
   %500 = fsub float %495, %499
   %501 = zext nneg i32 %491 to i64
-  %502 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %501
   %503 = getelementptr inbounds nuw float, ptr %502, i64 %501
   %504 = load float, ptr %503, align 4, !tbaa !197
   %505 = fsub float %500, %504
   %506 = fadd float %505, 1.000000e+00
   %507 = call noundef float @sqrtf(float noundef %506) #19, !tbaa !231
   %508 = fmul float %507, 5.000000e-01
-  %509 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %492
+  %509 = getelementptr inbounds nuw float, ptr %8, i64 %492
   store float %508, ptr %509, align 4, !tbaa !197
   %510 = fdiv float 5.000000e-01, %507
   %511 = getelementptr inbounds nuw float, ptr %502, i64 %496
@@ -5790,7 +5790,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %520 = load float, ptr %519, align 4, !tbaa !197
   %521 = fadd float %518, %520
   %522 = fmul float %510, %521
-  %523 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %496
+  %523 = getelementptr inbounds nuw float, ptr %8, i64 %496
   store float %522, ptr %523, align 4, !tbaa !197
   %524 = getelementptr inbounds nuw float, ptr %502, i64 %492
   %525 = load float, ptr %524, align 4, !tbaa !197
@@ -5798,7 +5798,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %527 = load float, ptr %526, align 4, !tbaa !197
   %528 = fadd float %525, %527
   %529 = fmul float %510, %528
-  %530 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %501
+  %530 = getelementptr inbounds nuw float, ptr %8, i64 %501
   store float %529, ptr %530, align 4, !tbaa !197
   %.pre.i286 = load float, ptr %8, align 16, !tbaa !197
   %.pre42.i288 = load float, ptr %.phi.trans.insert.i287, align 4, !tbaa !197
@@ -5945,23 +5945,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i297 = icmp eq i32 %627, 0
   %631 = select i1 %.cmp.i297, i32 2, i32 %.urem.i296
   %632 = zext nneg i32 %627 to i64
-  %633 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %632
+  %633 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %632
   %634 = getelementptr inbounds nuw float, ptr %633, i64 %632
   %635 = load float, ptr %634, align 4, !tbaa !197
   %636 = zext nneg i32 %630 to i64
-  %637 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %636
   %638 = getelementptr inbounds nuw float, ptr %637, i64 %636
   %639 = load float, ptr %638, align 4, !tbaa !197
   %640 = fsub float %635, %639
   %641 = zext nneg i32 %631 to i64
-  %642 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %641
   %643 = getelementptr inbounds nuw float, ptr %642, i64 %641
   %644 = load float, ptr %643, align 4, !tbaa !197
   %645 = fsub float %640, %644
   %646 = fadd float %645, 1.000000e+00
   %647 = call noundef float @sqrtf(float noundef %646) #19, !tbaa !231
   %648 = fmul float %647, 5.000000e-01
-  %649 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %632
+  %649 = getelementptr inbounds nuw float, ptr %7, i64 %632
   store float %648, ptr %649, align 4, !tbaa !197
   %650 = fdiv float 5.000000e-01, %647
   %651 = getelementptr inbounds nuw float, ptr %642, i64 %636
@@ -5977,7 +5977,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %660 = load float, ptr %659, align 4, !tbaa !197
   %661 = fadd float %658, %660
   %662 = fmul float %650, %661
-  %663 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %636
+  %663 = getelementptr inbounds nuw float, ptr %7, i64 %636
   store float %662, ptr %663, align 4, !tbaa !197
   %664 = getelementptr inbounds nuw float, ptr %642, i64 %632
   %665 = load float, ptr %664, align 4, !tbaa !197
@@ -5985,7 +5985,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %667 = load float, ptr %666, align 4, !tbaa !197
   %668 = fadd float %665, %667
   %669 = fmul float %650, %668
-  %670 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %641
+  %670 = getelementptr inbounds nuw float, ptr %7, i64 %641
   store float %669, ptr %670, align 4, !tbaa !197
   %.pre.i298 = load float, ptr %7, align 16, !tbaa !197
   %.pre42.i300 = load float, ptr %.phi.trans.insert.i299, align 4, !tbaa !197
@@ -6102,23 +6102,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i309 = icmp eq i32 %757, 0
   %761 = select i1 %.cmp.i309, i32 2, i32 %.urem.i308
   %762 = zext nneg i32 %757 to i64
-  %763 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %762
+  %763 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %762
   %764 = getelementptr inbounds nuw float, ptr %763, i64 %762
   %765 = load float, ptr %764, align 4, !tbaa !197
   %766 = zext nneg i32 %760 to i64
-  %767 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %766
+  %767 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %766
   %768 = getelementptr inbounds nuw float, ptr %767, i64 %766
   %769 = load float, ptr %768, align 4, !tbaa !197
   %770 = fsub float %765, %769
   %771 = zext nneg i32 %761 to i64
-  %772 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %771
+  %772 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %771
   %773 = getelementptr inbounds nuw float, ptr %772, i64 %771
   %774 = load float, ptr %773, align 4, !tbaa !197
   %775 = fsub float %770, %774
   %776 = fadd float %775, 1.000000e+00
   %777 = call noundef float @sqrtf(float noundef %776) #19, !tbaa !231
   %778 = fmul float %777, 5.000000e-01
-  %779 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %762
+  %779 = getelementptr inbounds nuw float, ptr %6, i64 %762
   store float %778, ptr %779, align 4, !tbaa !197
   %780 = fdiv float 5.000000e-01, %777
   %781 = getelementptr inbounds nuw float, ptr %772, i64 %766
@@ -6134,7 +6134,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %790 = load float, ptr %789, align 4, !tbaa !197
   %791 = fadd float %788, %790
   %792 = fmul float %780, %791
-  %793 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %766
+  %793 = getelementptr inbounds nuw float, ptr %6, i64 %766
   store float %792, ptr %793, align 4, !tbaa !197
   %794 = getelementptr inbounds nuw float, ptr %772, i64 %762
   %795 = load float, ptr %794, align 4, !tbaa !197
@@ -6142,7 +6142,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %797 = load float, ptr %796, align 4, !tbaa !197
   %798 = fadd float %795, %797
   %799 = fmul float %780, %798
-  %800 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %771
+  %800 = getelementptr inbounds nuw float, ptr %6, i64 %771
   store float %799, ptr %800, align 4, !tbaa !197
   %.pre.i310 = load float, ptr %6, align 16, !tbaa !197
   %.pre42.i312 = load float, ptr %.phi.trans.insert.i311, align 4, !tbaa !197
@@ -6250,23 +6250,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i321 = icmp eq i32 %878, 0
   %882 = select i1 %.cmp.i321, i32 2, i32 %.urem.i320
   %883 = zext nneg i32 %878 to i64
-  %884 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %883
+  %884 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %883
   %885 = getelementptr inbounds nuw float, ptr %884, i64 %883
   %886 = load float, ptr %885, align 4, !tbaa !197
   %887 = zext nneg i32 %881 to i64
-  %888 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %887
   %889 = getelementptr inbounds nuw float, ptr %888, i64 %887
   %890 = load float, ptr %889, align 4, !tbaa !197
   %891 = fsub float %886, %890
   %892 = zext nneg i32 %882 to i64
-  %893 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %892
+  %893 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %892
   %894 = getelementptr inbounds nuw float, ptr %893, i64 %892
   %895 = load float, ptr %894, align 4, !tbaa !197
   %896 = fsub float %891, %895
   %897 = fadd float %896, 1.000000e+00
   %898 = call noundef float @sqrtf(float noundef %897) #19, !tbaa !231
   %899 = fmul float %898, 5.000000e-01
-  %900 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %883
+  %900 = getelementptr inbounds nuw float, ptr %5, i64 %883
   store float %899, ptr %900, align 4, !tbaa !197
   %901 = fdiv float 5.000000e-01, %898
   %902 = getelementptr inbounds nuw float, ptr %893, i64 %887
@@ -6282,7 +6282,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %911 = load float, ptr %910, align 4, !tbaa !197
   %912 = fadd float %909, %911
   %913 = fmul float %901, %912
-  %914 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %887
+  %914 = getelementptr inbounds nuw float, ptr %5, i64 %887
   store float %913, ptr %914, align 4, !tbaa !197
   %915 = getelementptr inbounds nuw float, ptr %893, i64 %883
   %916 = load float, ptr %915, align 4, !tbaa !197
@@ -6290,7 +6290,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %918 = load float, ptr %917, align 4, !tbaa !197
   %919 = fadd float %916, %918
   %920 = fmul float %901, %919
-  %921 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %892
+  %921 = getelementptr inbounds nuw float, ptr %5, i64 %892
   store float %920, ptr %921, align 4, !tbaa !197
   %.pre.i322 = load float, ptr %5, align 16, !tbaa !197
   %.pre42.i324 = load float, ptr %.phi.trans.insert.i323, align 4, !tbaa !197
@@ -6437,23 +6437,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i333 = icmp eq i32 %1018, 0
   %1022 = select i1 %.cmp.i333, i32 2, i32 %.urem.i332
   %1023 = zext nneg i32 %1018 to i64
-  %1024 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1023
   %1025 = getelementptr inbounds nuw float, ptr %1024, i64 %1023
   %1026 = load float, ptr %1025, align 4, !tbaa !197
   %1027 = zext nneg i32 %1021 to i64
-  %1028 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1027
+  %1028 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1027
   %1029 = getelementptr inbounds nuw float, ptr %1028, i64 %1027
   %1030 = load float, ptr %1029, align 4, !tbaa !197
   %1031 = fsub float %1026, %1030
   %1032 = zext nneg i32 %1022 to i64
-  %1033 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1032
+  %1033 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1032
   %1034 = getelementptr inbounds nuw float, ptr %1033, i64 %1032
   %1035 = load float, ptr %1034, align 4, !tbaa !197
   %1036 = fsub float %1031, %1035
   %1037 = fadd float %1036, 1.000000e+00
   %1038 = call noundef float @sqrtf(float noundef %1037) #19, !tbaa !231
   %1039 = fmul float %1038, 5.000000e-01
-  %1040 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %1023
+  %1040 = getelementptr inbounds nuw float, ptr %4, i64 %1023
   store float %1039, ptr %1040, align 4, !tbaa !197
   %1041 = fdiv float 5.000000e-01, %1038
   %1042 = getelementptr inbounds nuw float, ptr %1033, i64 %1027
@@ -6469,7 +6469,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1051 = load float, ptr %1050, align 4, !tbaa !197
   %1052 = fadd float %1049, %1051
   %1053 = fmul float %1041, %1052
-  %1054 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %1027
+  %1054 = getelementptr inbounds nuw float, ptr %4, i64 %1027
   store float %1053, ptr %1054, align 4, !tbaa !197
   %1055 = getelementptr inbounds nuw float, ptr %1033, i64 %1023
   %1056 = load float, ptr %1055, align 4, !tbaa !197
@@ -6477,7 +6477,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1058 = load float, ptr %1057, align 4, !tbaa !197
   %1059 = fadd float %1056, %1058
   %1060 = fmul float %1041, %1059
-  %1061 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %1032
+  %1061 = getelementptr inbounds nuw float, ptr %4, i64 %1032
   store float %1060, ptr %1061, align 4, !tbaa !197
   %.pre.i334 = load float, ptr %4, align 16, !tbaa !197
   %.pre42.i336 = load float, ptr %.phi.trans.insert.i335, align 4, !tbaa !197
@@ -6594,23 +6594,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i345 = icmp eq i32 %1148, 0
   %1152 = select i1 %.cmp.i345, i32 2, i32 %.urem.i344
   %1153 = zext nneg i32 %1148 to i64
-  %1154 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1153
+  %1154 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1153
   %1155 = getelementptr inbounds nuw float, ptr %1154, i64 %1153
   %1156 = load float, ptr %1155, align 4, !tbaa !197
   %1157 = zext nneg i32 %1151 to i64
-  %1158 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1157
+  %1158 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1157
   %1159 = getelementptr inbounds nuw float, ptr %1158, i64 %1157
   %1160 = load float, ptr %1159, align 4, !tbaa !197
   %1161 = fsub float %1156, %1160
   %1162 = zext nneg i32 %1152 to i64
-  %1163 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1162
+  %1163 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1162
   %1164 = getelementptr inbounds nuw float, ptr %1163, i64 %1162
   %1165 = load float, ptr %1164, align 4, !tbaa !197
   %1166 = fsub float %1161, %1165
   %1167 = fadd float %1166, 1.000000e+00
   %1168 = call noundef float @sqrtf(float noundef %1167) #19, !tbaa !231
   %1169 = fmul float %1168, 5.000000e-01
-  %1170 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %1153
+  %1170 = getelementptr inbounds nuw float, ptr %3, i64 %1153
   store float %1169, ptr %1170, align 4, !tbaa !197
   %1171 = fdiv float 5.000000e-01, %1168
   %1172 = getelementptr inbounds nuw float, ptr %1163, i64 %1157
@@ -6626,7 +6626,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1181 = load float, ptr %1180, align 4, !tbaa !197
   %1182 = fadd float %1179, %1181
   %1183 = fmul float %1171, %1182
-  %1184 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %1157
+  %1184 = getelementptr inbounds nuw float, ptr %3, i64 %1157
   store float %1183, ptr %1184, align 4, !tbaa !197
   %1185 = getelementptr inbounds nuw float, ptr %1163, i64 %1153
   %1186 = load float, ptr %1185, align 4, !tbaa !197
@@ -6634,7 +6634,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1188 = load float, ptr %1187, align 4, !tbaa !197
   %1189 = fadd float %1186, %1188
   %1190 = fmul float %1171, %1189
-  %1191 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %1162
+  %1191 = getelementptr inbounds nuw float, ptr %3, i64 %1162
   store float %1190, ptr %1191, align 4, !tbaa !197
   %.pre.i346 = load float, ptr %3, align 16, !tbaa !197
   %.pre42.i348 = load float, ptr %.phi.trans.insert.i347, align 4, !tbaa !197
@@ -6742,23 +6742,23 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.cmp.i357 = icmp eq i32 %1269, 0
   %1273 = select i1 %.cmp.i357, i32 2, i32 %.urem.i356
   %1274 = zext nneg i32 %1269 to i64
-  %1275 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1274
+  %1275 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1274
   %1276 = getelementptr inbounds nuw float, ptr %1275, i64 %1274
   %1277 = load float, ptr %1276, align 4, !tbaa !197
   %1278 = zext nneg i32 %1272 to i64
-  %1279 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1278
+  %1279 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1278
   %1280 = getelementptr inbounds nuw float, ptr %1279, i64 %1278
   %1281 = load float, ptr %1280, align 4, !tbaa !197
   %1282 = fsub float %1277, %1281
   %1283 = zext nneg i32 %1273 to i64
-  %1284 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %180, i64 0, i64 %1283
+  %1284 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %1283
   %1285 = getelementptr inbounds nuw float, ptr %1284, i64 %1283
   %1286 = load float, ptr %1285, align 4, !tbaa !197
   %1287 = fsub float %1282, %1286
   %1288 = fadd float %1287, 1.000000e+00
   %1289 = call noundef float @sqrtf(float noundef %1288) #19, !tbaa !231
   %1290 = fmul float %1289, 5.000000e-01
-  %1291 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %1274
+  %1291 = getelementptr inbounds nuw float, ptr %2, i64 %1274
   store float %1290, ptr %1291, align 4, !tbaa !197
   %1292 = fdiv float 5.000000e-01, %1289
   %1293 = getelementptr inbounds nuw float, ptr %1284, i64 %1278
@@ -6774,7 +6774,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1302 = load float, ptr %1301, align 4, !tbaa !197
   %1303 = fadd float %1300, %1302
   %1304 = fmul float %1292, %1303
-  %1305 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %1278
+  %1305 = getelementptr inbounds nuw float, ptr %2, i64 %1278
   store float %1304, ptr %1305, align 4, !tbaa !197
   %1306 = getelementptr inbounds nuw float, ptr %1284, i64 %1274
   %1307 = load float, ptr %1306, align 4, !tbaa !197
@@ -6782,7 +6782,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1309 = load float, ptr %1308, align 4, !tbaa !197
   %1310 = fadd float %1307, %1309
   %1311 = fmul float %1292, %1310
-  %1312 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %1283
+  %1312 = getelementptr inbounds nuw float, ptr %2, i64 %1283
   store float %1311, ptr %1312, align 4, !tbaa !197
   %.pre.i358 = load float, ptr %2, align 16, !tbaa !197
   %.pre42.i360 = load float, ptr %.phi.trans.insert.i359, align 4, !tbaa !197

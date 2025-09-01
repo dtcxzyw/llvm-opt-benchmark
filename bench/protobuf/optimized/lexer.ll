@@ -6340,7 +6340,7 @@ invoke.cont5.i.i:                                 ; preds = %while.end10.i.i.i.i
 
 invoke.cont7.i.i:                                 ; preds = %invoke.cont5.i.i
   %idxprom.i.i.i.i = zext i8 %21 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal13kPropertyBitsE, i64 %idxprom.i.i.i.i
   %22 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !117
   %23 = and i8 %22, 4
   %cmp.i.i8.not.i.i = icmp eq i8 %23, 0

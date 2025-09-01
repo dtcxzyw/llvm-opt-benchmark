@@ -716,7 +716,7 @@ _ZL11isSameTokenRN5clang5TokenES1_.exit:          ; preds = %_ZNK5clang5Token17g
   %270 = lshr i16 %.sroa.21.0416, 1
   %.lobit = and i16 %270, 1
   %271 = zext nneg i16 %.lobit to i64
-  %272 = getelementptr inbounds nuw [4 x i8], ptr @.str.4, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %271
   %273 = xor i64 %271, 3
   call void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef %.sroa.3.0.extract.trunc.i120, ptr nonnull %272, i64 %273, i1 noundef zeroext true) #17
   br label %.critedge6
@@ -2473,7 +2473,7 @@ _ZSt8distanceIN4llvm22RopePieceBTreeIteratorEENSt15iterator_traitsIT_E15differen
   %48 = load i32, ptr %47, align 8, !tbaa !436
   %49 = add i32 %48, %44
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !389
   store i8 %52, ptr %.03.i, align 1, !tbaa !389
   %53 = add i32 %44, 1

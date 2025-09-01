@@ -1628,7 +1628,7 @@ define internal void @test_fill_picture(ptr noundef readonly captures(none) %0, 
   %171 = load i32, ptr %49, align 8, !tbaa !70
   %172 = sext i32 %171 to i64
   %173 = sext i32 %169 to i64
-  %174 = getelementptr inbounds [10 x i8], ptr @draw_digit.masks, i64 0, i64 %173
+  %174 = getelementptr inbounds i8, ptr @draw_digit.masks, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !76
   br label %176
 
@@ -1654,7 +1654,7 @@ draw_rectangle.exit.preheader.i:                  ; preds = %176
   br i1 %.not.i, label %draw_rectangle.exit18.i, label %184
 
 184:                                              ; preds = %180
-  %185 = getelementptr inbounds nuw [7 x %struct.segments], ptr @__const.draw_digit.segments, i64 0, i64 %indvars.iv.i
+  %185 = getelementptr inbounds nuw %struct.segments, ptr @__const.draw_digit.segments, i64 %indvars.iv.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 12
   %187 = load i32, ptr %186, align 4, !tbaa !92
   %188 = mul nsw i32 %187, %124
@@ -2246,7 +2246,7 @@ color_gradient.exit:                              ; preds = %72, %75, %78, %80, 
   %277 = add i32 %276, 1013904223
   %278 = lshr i32 %277, 24
   %279 = trunc nuw i32 %278 to i8
-  %280 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %indvars.iv357
+  %280 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv357
   store i8 %279, ptr %280, align 1, !tbaa !76
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next358, 256
@@ -3563,7 +3563,7 @@ define internal void @pal75bars_fill_picture(ptr noundef readonly captures(none)
 22:                                               ; preds = %2, %22
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %22 ]
   %.02627 = phi i32 [ %19, %2 ], [ %25, %22 ]
-  %23 = getelementptr inbounds nuw [7 x [4 x i8]], ptr @rainbow, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @rainbow, i64 %indvars.iv
   %24 = load i32, ptr %20, align 4, !tbaa !37
   tail call fastcc void @draw_bar(ptr noundef nonnull %4, ptr noundef nonnull %23, i32 noundef %.02627, i32 noundef 0, i32 noundef %19, i32 noundef %24, ptr noundef nonnull %1)
   %25 = add nsw i32 %.02627, %19
@@ -3633,7 +3633,7 @@ define internal fastcc void @draw_bar(ptr noundef readonly captures(none) %0, pt
   %35 = phi ptr [ %27, %.lr.ph113 ], [ %64, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !76
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
   %40 = sext i32 %39 to i64
   %41 = trunc i64 %indvars.iv to i32
@@ -3680,7 +3680,7 @@ define internal fastcc void @draw_bar(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
+  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
   %64 = load ptr, ptr %63, align 8, !tbaa !69
   %.not106 = icmp eq ptr %64, null
   br i1 %.not106, label %._crit_edge114, label %34, !llvm.loop !121
@@ -3725,7 +3725,7 @@ define internal void @pal100bars_fill_picture(ptr noundef readonly captures(none
 21:                                               ; preds = %2, %21
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
   %.01920 = phi i32 [ 0, %2 ], [ %24, %21 ]
-  %22 = getelementptr inbounds nuw [7 x [4 x i8]], ptr @rainbow100, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @rainbow100, i64 %indvars.iv
   %23 = load i32, ptr %20, align 4, !tbaa !37
   tail call fastcc void @draw_bar(ptr noundef nonnull %4, ptr noundef nonnull %22, i32 noundef %.01920, i32 noundef 0, i32 noundef %19, i32 noundef %23, ptr noundef nonnull %1)
   %24 = add nsw i32 %.01920, %19
@@ -3780,9 +3780,9 @@ define internal void @smptebars_fill_picture(ptr noundef readonly captures(none)
 37:                                               ; preds = %2, %37
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %37 ]
   %.0112114 = phi i32 [ 0, %2 ], [ %40, %37 ]
-  %38 = getelementptr inbounds nuw [7 x [4 x i8]], ptr @rainbow, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @rainbow, i64 %indvars.iv
   tail call fastcc void @draw_bar(ptr noundef nonnull %4, ptr noundef nonnull %38, i32 noundef %.0112114, i32 noundef 0, i32 noundef %19, i32 noundef %31, ptr noundef nonnull %1)
-  %39 = getelementptr inbounds nuw [7 x [4 x i8]], ptr @wobnair, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @wobnair, i64 %indvars.iv
   tail call fastcc void @draw_bar(ptr noundef nonnull %4, ptr noundef nonnull %39, i32 noundef %.0112114, i32 noundef %31, i32 noundef %19, i32 noundef %36, ptr noundef nonnull %1)
   %40 = add nsw i32 %.0112114, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3880,7 +3880,7 @@ define internal void @smptehdbars_fill_picture(ptr noundef readonly captures(non
 44:                                               ; preds = %2, %44
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %44 ]
   %.0221 = phi i32 [ %19, %2 ], [ %46, %44 ]
-  %45 = getelementptr inbounds nuw [7 x [4 x i8]], ptr @rainbowhd, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @rainbowhd, i64 %indvars.iv
   tail call fastcc void @draw_bar(ptr noundef nonnull %5, ptr noundef nonnull %45, i32 noundef %.0221, i32 noundef 0, i32 noundef %43, i32 noundef %31, ptr noundef nonnull %1)
   %46 = add nsw i32 %.0221, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4426,7 +4426,7 @@ define internal void @colorchart_fill_picture(ptr noundef readonly captures(none
   %11 = load i32, ptr %10, align 8, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !58
-  %14 = getelementptr inbounds [2 x %struct.ColorChartPreset], ptr @colorchart_presets, i64 0, i64 %9, i32 2
+  %14 = getelementptr inbounds %struct.ColorChartPreset, ptr @colorchart_presets, i64 %9, i32 2
   %15 = load ptr, ptr %14, align 8, !tbaa !138
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -4592,7 +4592,7 @@ define internal range(i32 -22, 1) i32 @zoneplate_config_props(ptr noundef captur
 
 switch.lookup:                                    ; preds = %.loopexit
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.zoneplate_config_props, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zoneplate_config_props, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

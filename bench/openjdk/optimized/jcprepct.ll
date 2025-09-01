@@ -114,7 +114,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %65, !llvm.loop !6
 
 ._crit_edge.us.i:                                 ; preds = %65
-  %70 = getelementptr inbounds nuw [10 x ptr], ptr %42, i64 0, i64 %indvars.iv56.i
+  %70 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv56.i
   store ptr %64, ptr %70, align 8
   %71 = getelementptr inbounds nuw ptr, ptr %.046.us.i, i64 %43
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
@@ -146,7 +146,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %91 = tail call ptr %78(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %90, i32 noundef %37) #4
   %92 = getelementptr inbounds ptr, ptr %.046.i, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 1 %91, i64 %40, i1 false)
-  %93 = getelementptr inbounds nuw [10 x ptr], ptr %42, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds ptr, ptr %.046.i, i64 %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -191,7 +191,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %123 = trunc i64 %122 to i32
   %124 = load i32, ptr %106, align 4
   %125 = tail call ptr %111(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %123, i32 noundef %124) #4
-  %126 = getelementptr inbounds nuw [10 x ptr], ptr %107, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
   store ptr %125, ptr %126, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = getelementptr inbounds nuw i8, ptr %.030, i64 96
@@ -301,7 +301,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not7882, label %._crit_edge85, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.preheader
-  %48 = getelementptr inbounds nuw [10 x ptr], ptr %19, i64 0, i64 %indvars.iv94
+  %48 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv94
   br label %49
 
 49:                                               ; preds = %.lr.ph84, %49
@@ -359,7 +359,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph.split:                                     ; preds = %.preheader80, %expand_bottom_edge.exit
   %73 = phi i32 [ %83, %expand_bottom_edge.exit ], [ %71, %.preheader80 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %expand_bottom_edge.exit ], [ 0, %.preheader80 ]
-  %74 = getelementptr inbounds nuw [10 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %20, align 8
   %77 = load i32, ptr %16, align 4
@@ -507,7 +507,7 @@ define internal void @pre_process_data(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph.split:                                     ; preds = %.preheader, %expand_bottom_edge.exit
   %45 = phi i32 [ %55, %expand_bottom_edge.exit ], [ %43, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %expand_bottom_edge.exit ], [ 0, %.preheader ]
-  %46 = getelementptr inbounds nuw [10 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %18, align 8
   %49 = load i32, ptr %13, align 4

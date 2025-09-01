@@ -387,7 +387,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8241836
   %110 = lshr i32 %27, 26
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [17 x i32], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %109, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !55
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4, !tbaa !55
@@ -403,11 +403,11 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %124
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %124 ], [ 0, %.lr.ph ]
-  %118 = getelementptr inbounds nuw [0 x i16], ptr %117, i64 0, i64 %indvars.iv124
+  %118 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv124
   %119 = load i16, ptr %118, align 2, !tbaa !54
   %120 = zext i16 %119 to i32
   %121 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %120, ptr noundef null)
-  %122 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv124
+  %122 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv124
   store ptr %121, ptr %122, align 8, !tbaa !28
   %123 = icmp eq ptr %121, null
   br i1 %123, label %.loopexit, label %124
@@ -434,7 +434,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br i1 %134, label %140, label %135
 
 135:                                              ; preds = %.lr.ph.split
-  %136 = getelementptr inbounds nuw [0 x i16], ptr %117, i64 0, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv
   %137 = load i16, ptr %136, align 2, !tbaa !54
   %138 = zext i16 %137 to i32
   %139 = tail call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %138, ptr noundef null)
@@ -442,7 +442,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
 
 140:                                              ; preds = %.lr.ph.split, %135
   %.sink127 = phi ptr [ %139, %135 ], [ %4, %.lr.ph.split ]
-  %141 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %.sink127, ptr %141, align 8, !tbaa !28
   %142 = icmp eq ptr %.sink127, null
   br i1 %142, label %.loopexit, label %129

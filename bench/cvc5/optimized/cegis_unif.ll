@@ -3006,7 +3006,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quan
 368:                                              ; preds = %.noexc252, %325
   %.sroa.06.0.i249 = phi ptr [ %.sroa.0.010.i, %.noexc252 ], [ %.19.i.i.i.i243, %325 ]
   %369 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i249, i64 128
-  %370 = getelementptr inbounds nuw [2 x %"struct.std::pair.728"], ptr %369, i64 0, i64 %indvars.iv
+  %370 = getelementptr inbounds nuw %"struct.std::pair.728", ptr %369, i64 %indvars.iv
   %371 = load ptr, ptr %370, align 8, !tbaa !11
   %372 = load ptr, ptr %18, align 8, !tbaa !11
   %.not.i.i254 = icmp eq ptr %371, %372
@@ -4155,7 +4155,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers29CegisUn
   %47 = load ptr, ptr %46, align 8, !tbaa !53
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
   %49 = zext i32 %3 to i64
-  %50 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.std::vector", ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !53
   %52 = zext i32 %25 to i64
   %53 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %51, i64 %52
@@ -5875,7 +5875,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit371: ; preds = %676, %680, %686
   %751 = icmp eq i32 %750, 2
   %752 = getelementptr inbounds nuw i8, ptr %745, i64 24
   %753 = zext i1 %751 to i64
-  %754 = getelementptr inbounds nuw [0 x ptr], ptr %752, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw ptr, ptr %752, i64 %753
   %755 = load ptr, ptr %754, align 8, !tbaa !7, !noalias !133
   store ptr %755, ptr %39, align 8, !tbaa !11, !alias.scope !133
   %756 = load i64, ptr %755, align 8, !noalias !133
@@ -6991,7 +6991,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   store ptr %15, ptr %0, align 8, !tbaa !11
   %16 = load i64, ptr %15, align 8
@@ -7672,7 +7672,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit79: ; preds = %294, %288, %296
   %305 = icmp eq i32 %304, 2
   %306 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %307 = zext i1 %305 to i64
-  %308 = getelementptr inbounds nuw [0 x ptr], ptr %306, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %307
   %309 = load ptr, ptr %308, align 8, !tbaa !7, !noalias !153
   store ptr %309, ptr %20, align 8, !tbaa !11, !alias.scope !153
   %310 = load i64, ptr %309, align 8, !noalias !153
@@ -7841,7 +7841,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit88: ; preds = %_ZN4cvc58internal12
   %379 = icmp eq i32 %378, 2
   %380 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %381 = zext i1 %379 to i64
-  %382 = getelementptr inbounds nuw [0 x ptr], ptr %380, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw ptr, ptr %380, i64 %381
   %383 = load ptr, ptr %382, align 8, !tbaa !7, !noalias !159
   store ptr %383, ptr %25, align 8, !tbaa !11, !alias.scope !159
   %384 = load i64, ptr %383, align 8, !noalias !159
@@ -12878,7 +12878,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecision
   %24 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11nodeManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %26 = zext i32 %3 to i64
-  %27 = getelementptr inbounds nuw [2 x %"struct.std::pair.728"], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.std::pair.728", ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   %29 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %30 = icmp eq i8 %29, 0
@@ -13043,7 +13043,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit98: ; preds = %_ZN4cvc58internal12
 
 97:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit98, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %99 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %98, i64 0, i64 %26
+  %99 = getelementptr inbounds nuw %"class.std::vector", ptr %98, i64 %26
   %100 = load ptr, ptr %99, align 8, !tbaa !53
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !53

@@ -51,7 +51,7 @@ define internal void @_ZL10_ISCIIOpenP10UConverterP18UConverterLoadArgsP10UError
 
 17:                                               ; preds = %9
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %.tr = trunc i32 %20 to i16
   %21 = shl i16 %.tr, 7
@@ -61,7 +61,7 @@ define internal void @_ZL10_ISCIIOpenP10UConverterP18UConverterLoadArgsP10UError
   store i16 %21, ptr %23, align 4, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 %21, ptr %24, align 2, !tbaa !29
-  %25 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %18, i32 1
+  %25 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %18, i32 1
   %26 = load i32, ptr %25, align 4, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %26, ptr %27, align 4, !tbaa !31
@@ -79,11 +79,11 @@ define internal void @_ZL10_ISCIIOpenP10UConverterP18UConverterLoadArgsP10UError
   %35 = or disjoint i8 %34, 48
   %sext = shl i64 %32, 32
   %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds [16 x i8], ptr %31, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr %31, i64 %36
   store i8 %35, ptr %37, align 1, !tbaa !35
   %sext31 = add i64 %sext, 4294967296
   %38 = ashr exact i64 %sext31, 32
-  %39 = getelementptr inbounds [16 x i8], ptr %31, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %31, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 0, ptr %40, align 4, !tbaa !36
@@ -318,7 +318,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
 97:                                               ; preds = %87
   %98 = and i8 %86, 15
   %99 = zext nneg i8 %98 to i64
-  %100 = getelementptr inbounds nuw [12 x [2 x i16]], ptr @_ZL11lookupTable, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i16], ptr @_ZL11lookupTable, i64 %99
   %101 = load i16, ptr %100, align 4, !tbaa !52
   %102 = shl i16 %101, 7
   store i16 %102, ptr %24, align 4, !tbaa !28
@@ -364,7 +364,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %114 = select i1 %113, i32 2416, i32 2386
   %115 = and i32 %114, 114
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %116
   %118 = load i8, ptr %117, align 2, !tbaa !35
   %119 = zext i8 %118 to i32
   %120 = load i32, ptr %26, align 4, !tbaa !32
@@ -408,7 +408,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %141 = add i8 %140, 1
   store i8 %141, ptr %139, align 1, !tbaa !57
   %142 = sext i8 %140 to i64
-  %143 = getelementptr inbounds [32 x i16], ptr %138, i64 0, i64 %142
+  %143 = getelementptr inbounds i16, ptr %138, i64 %142
   store i16 %126, ptr %143, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %144
@@ -461,7 +461,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %174 = add i8 %173, 1
   store i8 %174, ptr %172, align 1, !tbaa !57
   %175 = sext i8 %173 to i64
-  %176 = getelementptr inbounds [32 x i16], ptr %171, i64 0, i64 %175
+  %176 = getelementptr inbounds i16, ptr %171, i64 %175
   store i16 %159, ptr %176, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit842.thread
@@ -521,7 +521,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %208 = add i8 %207, 1
   store i8 %208, ptr %206, align 1, !tbaa !57
   %209 = sext i8 %207 to i64
-  %210 = getelementptr inbounds [32 x i16], ptr %205, i64 0, i64 %209
+  %210 = getelementptr inbounds i16, ptr %205, i64 %209
   store i16 %193, ptr %210, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %211
@@ -564,7 +564,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %231 = add i8 %230, 1
   store i8 %231, ptr %229, align 1, !tbaa !57
   %232 = sext i8 %230 to i64
-  %233 = getelementptr inbounds [32 x i16], ptr %228, i64 0, i64 %232
+  %233 = getelementptr inbounds i16, ptr %228, i64 %232
   store i16 %216, ptr %233, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %234
@@ -642,7 +642,7 @@ define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverter
   %264 = add i8 %263, 1
   store i8 %264, ptr %51, align 1, !tbaa !57
   %265 = sext i8 %263 to i64
-  %266 = getelementptr inbounds [32 x i16], ptr %50, i64 0, i64 %265
+  %266 = getelementptr inbounds i16, ptr %50, i64 %265
   store i16 %253, ptr %266, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %267
@@ -720,7 +720,7 @@ switch.early.test799:                             ; preds = %277
   %308 = add i8 %307, 1
   store i8 %308, ptr %55, align 1, !tbaa !57
   %309 = sext i8 %307 to i64
-  %310 = getelementptr inbounds [32 x i16], ptr %54, i64 0, i64 %309
+  %310 = getelementptr inbounds i16, ptr %54, i64 %309
   store i16 %296, ptr %310, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %311
@@ -764,7 +764,7 @@ switch.early.test799:                             ; preds = %277
 333:                                              ; preds = %.loopexit843.split.us, %.loopexit843.split.us
   store i8 1, ptr %29, align 1, !tbaa !21
   %334 = zext nneg i8 %86 to i64
-  %335 = getelementptr inbounds nuw [256 x i16], ptr @_ZL14toUnicodeTable, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw i16, ptr @_ZL14toUnicodeTable, i64 %334
   %336 = load i16, ptr %335, align 2, !tbaa !52
   %337 = zext i16 %336 to i32
   %338 = zext nneg i8 %86 to i16
@@ -822,7 +822,7 @@ switch.early.test799:                             ; preds = %277
   %363 = add i8 %362, 1
   store i8 %363, ptr %34, align 1, !tbaa !57
   %364 = sext i8 %362 to i64
-  %365 = getelementptr inbounds [32 x i16], ptr %33, i64 0, i64 %364
+  %365 = getelementptr inbounds i16, ptr %33, i64 %364
   store i16 %352, ptr %365, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %366
@@ -877,7 +877,7 @@ switch.early.test799:                             ; preds = %277
   %397 = add i8 %396, 1
   store i8 %397, ptr %38, align 1, !tbaa !57
   %398 = sext i8 %396 to i64
-  %399 = getelementptr inbounds [32 x i16], ptr %37, i64 0, i64 %398
+  %399 = getelementptr inbounds i16, ptr %37, i64 %398
   store i16 2652, ptr %399, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %441
@@ -941,7 +941,7 @@ switch.early.test799:                             ; preds = %277
   %430 = add i8 %429, 1
   store i8 %430, ptr %46, align 1, !tbaa !57
   %431 = sext i8 %429 to i64
-  %432 = getelementptr inbounds [32 x i16], ptr %45, i64 0, i64 %431
+  %432 = getelementptr inbounds i16, ptr %45, i64 %431
   store i16 2617, ptr %432, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %454
@@ -951,13 +951,13 @@ switch.early.test799:                             ; preds = %277
   %435 = add i8 %434, 1
   store i8 %435, ptr %41, align 1, !tbaa !57
   %436 = sext i8 %434 to i64
-  %437 = getelementptr inbounds [32 x i16], ptr %40, i64 0, i64 %436
+  %437 = getelementptr inbounds i16, ptr %40, i64 %436
   store i16 2637, ptr %437, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   %438 = add i8 %434, 2
   store i8 %438, ptr %43, align 1, !tbaa !57
   %439 = sext i8 %435 to i64
-  %440 = getelementptr inbounds [32 x i16], ptr %42, i64 0, i64 %439
+  %440 = getelementptr inbounds i16, ptr %42, i64 %439
   store i16 2617, ptr %440, align 2, !tbaa !51
   br label %454
 
@@ -971,12 +971,12 @@ switch.early.test799:                             ; preds = %277
   %447 = load i8, ptr %49, align 1, !tbaa !57
   %448 = add i8 %447, 1
   %449 = sext i8 %447 to i64
-  %450 = getelementptr inbounds [32 x i16], ptr %48, i64 0, i64 %449
+  %450 = getelementptr inbounds i16, ptr %48, i64 %449
   store i16 2637, ptr %450, align 2, !tbaa !51
   %451 = add i8 %447, 2
   store i8 %451, ptr %49, align 1, !tbaa !57
   %452 = sext i8 %448 to i64
-  %453 = getelementptr inbounds [32 x i16], ptr %48, i64 0, i64 %452
+  %453 = getelementptr inbounds i16, ptr %48, i64 %452
   store i16 2617, ptr %453, align 2, !tbaa !51
   br label %454
 
@@ -1002,19 +1002,19 @@ switch.early.test799:                             ; preds = %277
 
 465:                                              ; preds = %.preheader841, %464
   %indvars.iv = phi i64 [ 1, %.preheader841 ], [ %indvars.iv.next, %464 ]
-  %466 = getelementptr inbounds nuw [16 x [2 x i16]], ptr @_ZL17nuktaSpecialCases, i64 0, i64 %indvars.iv
+  %466 = getelementptr inbounds nuw [2 x i16], ptr @_ZL17nuktaSpecialCases, i64 %indvars.iv
   %467 = load i16, ptr %466, align 4, !tbaa !52
   %468 = icmp eq i16 %467, %347
   br i1 %468, label %469, label %464
 
 469:                                              ; preds = %465
-  %470 = getelementptr inbounds nuw [16 x [2 x i16]], ptr @_ZL17nuktaSpecialCases, i64 0, i64 %indvars.iv, i64 1
+  %470 = getelementptr inbounds nuw [2 x i16], ptr @_ZL17nuktaSpecialCases, i64 %indvars.iv, i64 1
   %471 = load i16, ptr %470, align 2, !tbaa !52
   %.fr = freeze i16 %471
   %472 = zext i16 %.fr to i32
   %473 = and i32 %472, 255
   %474 = zext nneg i32 %473 to i64
-  %475 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %474
   %476 = load i8, ptr %475, align 1, !tbaa !35
   %477 = zext i8 %476 to i32
   %478 = load i32, ptr %26, align 4, !tbaa !32
@@ -1058,7 +1058,7 @@ switch.early.test799:                             ; preds = %277
   %496 = add i8 %495, 1
   store i8 %496, ptr %73, align 1, !tbaa !57
   %497 = sext i8 %495 to i64
-  %498 = getelementptr inbounds [32 x i16], ptr %72, i64 0, i64 %497
+  %498 = getelementptr inbounds i16, ptr %72, i64 %497
   store i16 %485, ptr %498, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %499
@@ -1132,14 +1132,14 @@ switch.early.test:                                ; preds = %509
   %537 = add i8 %536, 1
   store i8 %537, ptr %535, align 1, !tbaa !57
   %538 = sext i8 %536 to i64
-  %539 = getelementptr inbounds [32 x i16], ptr %534, i64 0, i64 %538
+  %539 = getelementptr inbounds i16, ptr %534, i64 %538
   store i16 %.14623, ptr %539, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit842.thread
 
 .thread810:                                       ; preds = %464, %.loopexit843.split.us, %469
   %540 = zext i8 %86 to i64
-  %541 = getelementptr inbounds nuw [256 x i16], ptr @_ZL14toUnicodeTable, i64 0, i64 %540
+  %541 = getelementptr inbounds nuw i16, ptr @_ZL14toUnicodeTable, i64 %540
   %542 = load i16, ptr %541, align 2, !tbaa !52
   %543 = zext i16 %542 to i32
   %544 = icmp ugt i8 %86, -96
@@ -1148,7 +1148,7 @@ switch.early.test:                                ; preds = %509
 545:                                              ; preds = %.thread810
   %546 = and i32 %543, 127
   %547 = zext nneg i32 %546 to i64
-  %548 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %547
   %549 = load i8, ptr %548, align 1, !tbaa !35
   %550 = zext i8 %549 to i32
   %551 = load i32, ptr %26, align 4, !tbaa !32
@@ -1187,9 +1187,9 @@ switch.early.test:                                ; preds = %509
   br i1 %or.cond.not, label %_ZL14isPNJConsonanti.exit, label %_ZL14isPNJConsonanti.exit.thread
 
 _ZL14isPNJConsonanti.exit:                        ; preds = %561
-  %565 = add nsw i32 %.pre1002, -2560
-  %566 = zext nneg i32 %565 to i64
-  %567 = getelementptr inbounds nuw [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %566
+  %565 = zext nneg i32 %.pre1002 to i64
+  %566 = getelementptr i8, ptr @_ZL6pnjMap, i64 %565
+  %567 = getelementptr i8, ptr %566, i64 -2560
   %568 = load i8, ptr %567, align 1, !tbaa !35
   %569 = and i8 %568, 1
   %.not708 = icmp ne i8 %569, 0
@@ -1227,7 +1227,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %561
   %586 = add i8 %585, 1
   store i8 %586, ptr %59, align 1, !tbaa !57
   %587 = sext i8 %585 to i64
-  %588 = getelementptr inbounds [32 x i16], ptr %58, i64 0, i64 %587
+  %588 = getelementptr inbounds i16, ptr %58, i64 %587
   store i16 2673, ptr %588, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %589
@@ -1262,7 +1262,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %561
   %605 = add i8 %604, 1
   store i8 %605, ptr %61, align 1, !tbaa !57
   %606 = sext i8 %604 to i64
-  %607 = getelementptr inbounds [32 x i16], ptr %60, i64 0, i64 %606
+  %607 = getelementptr inbounds i16, ptr %60, i64 %606
   store i16 %597, ptr %607, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %608
@@ -1308,7 +1308,7 @@ _ZL14isPNJConsonanti.exit.thread.thread:          ; preds = %_ZL14isPNJConsonant
   %626 = add i8 %625, 1
   store i8 %626, ptr %63, align 1, !tbaa !57
   %627 = sext i8 %625 to i64
-  %628 = getelementptr inbounds [32 x i16], ptr %62, i64 0, i64 %627
+  %628 = getelementptr inbounds i16, ptr %62, i64 %627
   store i16 %615, ptr %628, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %629
@@ -1345,23 +1345,23 @@ _ZL14isPNJConsonanti.exit.thread.thread:          ; preds = %_ZL14isPNJConsonant
 650:                                              ; preds = %639
   %651 = load i32, ptr %18, align 4, !tbaa !56
   %.fr838 = freeze i32 %651
-  %652 = add i32 %.fr838, -2384
-  %or.cond.i803 = icmp ult i32 %652, -80
+  %652 = add nsw i32 %.fr838, 256
+  %653 = add i32 %.fr838, -2384
+  %or.cond.i803 = icmp ult i32 %653, -80
   br i1 %or.cond.i803, label %_ZL14isPNJConsonanti.exit807.thread, label %_ZL15isPNJBindiTippii.exit
 
 _ZL15isPNJBindiTippii.exit:                       ; preds = %650
-  %653 = add nsw i32 %.fr838, -2304
-  %654 = zext nneg i32 %653 to i64
-  %655 = getelementptr inbounds nuw [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %654
-  %656 = load i8, ptr %655, align 1, !tbaa !35
-  %.not715 = icmp ult i8 %656, 2
+  %654 = zext nneg i32 %652 to i64
+  %655 = getelementptr i8, ptr @_ZL6pnjMap, i64 %654
+  %656 = getelementptr i8, ptr %655, i64 -2560
+  %657 = load i8, ptr %656, align 1, !tbaa !35
+  %.not715 = icmp ult i8 %657, 2
   br i1 %.not715, label %_ZL14isPNJConsonanti.exit807.thread, label %switch.early.test800
 
 switch.early.test800:                             ; preds = %_ZL15isPNJBindiTippii.exit
-  %657 = icmp ult ptr %.25, %8
-  %658 = trunc nuw i32 %.fr838 to i16
-  %659 = add nuw nsw i16 %658, 256
-  br i1 %657, label %660, label %669
+  %658 = icmp ult ptr %.25, %8
+  %659 = trunc nuw i32 %652 to i16
+  br i1 %658, label %660, label %669
 
 660:                                              ; preds = %switch.early.test800
   %661 = getelementptr inbounds nuw i8, ptr %.25, i64 2
@@ -1385,7 +1385,7 @@ switch.early.test800:                             ; preds = %_ZL15isPNJBindiTipp
   %671 = add i8 %670, 1
   store i8 %671, ptr %67, align 1, !tbaa !57
   %672 = sext i8 %670 to i64
-  %673 = getelementptr inbounds [32 x i16], ptr %66, i64 0, i64 %672
+  %673 = getelementptr inbounds i16, ptr %66, i64 %672
   store i16 %659, ptr %673, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %708
@@ -1403,9 +1403,9 @@ switch.early.test800:                             ; preds = %_ZL15isPNJBindiTipp
   br i1 %or.cond.i805, label %_ZL14isPNJConsonanti.exit807.thread, label %_ZL14isPNJConsonanti.exit807
 
 _ZL14isPNJConsonanti.exit807:                     ; preds = %676
-  %679 = add nsw i32 %.pr826.pre, -2304
-  %680 = zext nneg i32 %679 to i64
-  %681 = getelementptr inbounds nuw [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %680
+  %679 = zext nneg i32 %677 to i64
+  %680 = getelementptr i8, ptr @_ZL6pnjMap, i64 %679
+  %681 = getelementptr i8, ptr %680, i64 -2560
   %682 = load i8, ptr %681, align 1, !tbaa !35
   %683 = and i8 %682, 1
   %.not716 = icmp eq i8 %683, 0
@@ -1463,7 +1463,7 @@ switch.early.test801:                             ; preds = %_ZL14isPNJConsonant
   %705 = add i8 %704, 1
   store i8 %705, ptr %70, align 1, !tbaa !57
   %706 = sext i8 %704 to i64
-  %707 = getelementptr inbounds [32 x i16], ptr %69, i64 0, i64 %706
+  %707 = getelementptr inbounds i16, ptr %69, i64 %706
   store i16 %693, ptr %707, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %708
@@ -1644,7 +1644,7 @@ switch.early.test802:                             ; preds = %762
   %791 = add i8 %790, 1
   store i8 %791, ptr %789, align 1, !tbaa !57
   %792 = sext i8 %790 to i64
-  %793 = getelementptr inbounds [32 x i16], ptr %788, i64 0, i64 %792
+  %793 = getelementptr inbounds i16, ptr %788, i64 %792
   store i16 %773, ptr %793, align 2, !tbaa !51
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %794
@@ -1717,7 +1717,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %.1388.ph556 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %.1388.ph.be, %.outer.backedge ]
   %.0404.ph555 = phi ptr [ %19, %.lr.ph.lr.ph ], [ %.0404.ph.be, %.outer.backedge ]
   %31 = zext i16 %.0383.ph557 to i64
-  %32 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %31, i32 2
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.backedge
@@ -1780,7 +1780,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %64 = add i8 %63, 1
   store i8 %64, ptr %62, align 1, !tbaa !71
   %65 = sext i8 %63 to i64
-  %66 = getelementptr inbounds [32 x i8], ptr %61, i64 0, i64 %65
+  %66 = getelementptr inbounds i8, ptr %61, i64 %65
   store i8 %59, ptr %66, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -1792,7 +1792,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %71 = add i8 %70, 1
   store i8 %71, ptr %69, align 1, !tbaa !71
   %72 = sext i8 %70 to i64
-  %73 = getelementptr inbounds [32 x i8], ptr %68, i64 0, i64 %72
+  %73 = getelementptr inbounds i8, ptr %68, i64 %72
   store i8 -17, ptr %73, align 1, !tbaa !35
   %74 = trunc i32 %39 to i8
   %75 = load ptr, ptr %11, align 8, !tbaa !67
@@ -1802,7 +1802,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %79 = add i8 %78, 1
   store i8 %79, ptr %77, align 1, !tbaa !71
   %80 = sext i8 %78 to i64
-  %81 = getelementptr inbounds [32 x i8], ptr %76, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr %76, i64 %80
   store i8 %74, ptr %81, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -1857,7 +1857,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %109 = add i8 %108, 1
   store i8 %109, ptr %107, align 1, !tbaa !71
   %110 = sext i8 %108 to i64
-  %111 = getelementptr inbounds [32 x i8], ptr %106, i64 0, i64 %110
+  %111 = getelementptr inbounds i8, ptr %106, i64 %110
   store i8 %101, ptr %111, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -1922,7 +1922,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   store i16 %128, ptr %22, align 2, !tbaa !29
   %.mask = and i32 %126, 65535
   %133 = zext nneg i32 %.mask to i64
-  %134 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %133, i32 1
+  %134 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %133, i32 1
   %135 = load i32, ptr %134, align 4, !tbaa !30
   store i32 %135, ptr %30, align 4, !tbaa !33
   store i8 0, ptr %29, align 4, !tbaa !34
@@ -1958,9 +1958,9 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %.3381 = phi i1 [ %137, %141 ], [ true, %122 ]
   %145 = and i32 %.3396, 255
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [128 x i16], ptr @_ZL16fromUnicodeTable, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i16, ptr @_ZL16fromUnicodeTable, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !52
-  %149 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %146
+  %149 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %146
   %150 = load i8, ptr %149, align 1, !tbaa !35
   %151 = zext i8 %150 to i32
   %152 = load i32, ptr %30, align 4, !tbaa !33
@@ -1983,7 +1983,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
 
 160:                                              ; preds = %159
   %161 = zext i16 %.3386 to i64
-  %162 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %161, i32 2
+  %162 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %161, i32 2
   %163 = load i32, ptr %162, align 4, !tbaa !70
   %164 = load ptr, ptr %3, align 8, !tbaa !62
   %165 = ptrtoint ptr %85 to i64
@@ -2033,7 +2033,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %188 = add i8 %187, 1
   store i8 %188, ptr %186, align 1, !tbaa !71
   %189 = sext i8 %187 to i64
-  %190 = getelementptr inbounds [32 x i8], ptr %185, i64 0, i64 %189
+  %190 = getelementptr inbounds i8, ptr %185, i64 %189
   store i8 %183, ptr %190, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.thread619
@@ -2046,7 +2046,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %196 = add i8 %195, 1
   store i8 %196, ptr %194, align 1, !tbaa !71
   %197 = sext i8 %195 to i64
-  %198 = getelementptr inbounds [32 x i8], ptr %193, i64 0, i64 %197
+  %198 = getelementptr inbounds i8, ptr %193, i64 %197
   store i8 -17, ptr %198, align 1, !tbaa !35
   %199 = trunc i32 %163 to i8
   %200 = load ptr, ptr %11, align 8, !tbaa !67
@@ -2056,7 +2056,7 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   %204 = add i8 %203, 1
   store i8 %204, ptr %202, align 1, !tbaa !71
   %205 = sext i8 %203 to i64
-  %206 = getelementptr inbounds [32 x i8], ptr %201, i64 0, i64 %205
+  %206 = getelementptr inbounds i8, ptr %201, i64 %205
   store i8 %199, ptr %206, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.thread619
@@ -2102,9 +2102,9 @@ define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConvert
   br i1 %or.cond518, label %_ZL14isPNJConsonanti.exit.thread, label %_ZL14isPNJConsonanti.exit
 
 _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
-  %218 = add nsw i32 %.1394, -2304
-  %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %219
+  %218 = zext nneg i32 %.1394 to i64
+  %219 = getelementptr i8, ptr @_ZL6pnjMap, i64 %218
+  %220 = getelementptr i8, ptr %219, i64 -2304
   %221 = load i8, ptr %220, align 1, !tbaa !35
   %222 = and i8 %221, 1
   %.not458 = icmp eq i8 %222, 0
@@ -2172,7 +2172,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %257 = add i8 %256, 1
   store i8 %257, ptr %255, align 1, !tbaa !71
   %258 = sext i8 %256 to i64
-  %259 = getelementptr inbounds [32 x i8], ptr %254, i64 0, i64 %258
+  %259 = getelementptr inbounds i8, ptr %254, i64 %258
   store i8 %252, ptr %259, align 1, !tbaa !35
   %260 = trunc i32 %.0400 to i8
   %261 = load ptr, ptr %11, align 8, !tbaa !67
@@ -2182,7 +2182,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %265 = add i8 %264, 1
   store i8 %265, ptr %263, align 1, !tbaa !71
   %266 = sext i8 %264 to i64
-  %267 = getelementptr inbounds [32 x i8], ptr %262, i64 0, i64 %266
+  %267 = getelementptr inbounds i8, ptr %262, i64 %266
   store i8 %260, ptr %267, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -2228,7 +2228,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %287 = add i8 %286, 1
   store i8 %287, ptr %285, align 1, !tbaa !71
   %288 = sext i8 %286 to i64
-  %289 = getelementptr inbounds [32 x i8], ptr %284, i64 0, i64 %288
+  %289 = getelementptr inbounds i8, ptr %284, i64 %288
   store i8 %277, ptr %289, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -2248,7 +2248,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %298 = add i8 %297, 1
   store i8 %298, ptr %296, align 1, !tbaa !71
   %299 = sext i8 %297 to i64
-  %300 = getelementptr inbounds [32 x i8], ptr %295, i64 0, i64 %299
+  %300 = getelementptr inbounds i8, ptr %295, i64 %299
   store i8 %294, ptr %300, align 1, !tbaa !35
   %.pre = load ptr, ptr %11, align 8, !tbaa !67
   br label %301
@@ -2263,7 +2263,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %308 = add i8 %307, 1
   store i8 %308, ptr %306, align 1, !tbaa !71
   %309 = sext i8 %307 to i64
-  %310 = getelementptr inbounds [32 x i8], ptr %305, i64 0, i64 %309
+  %310 = getelementptr inbounds i8, ptr %305, i64 %309
   store i8 %304, ptr %310, align 1, !tbaa !35
   %311 = trunc i32 %.0400 to i8
   %312 = load ptr, ptr %11, align 8, !tbaa !67
@@ -2273,7 +2273,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %.thread619
   %316 = add i8 %315, 1
   store i8 %316, ptr %314, align 1, !tbaa !71
   %317 = sext i8 %315 to i64
-  %318 = getelementptr inbounds [32 x i8], ptr %313, i64 0, i64 %317
+  %318 = getelementptr inbounds i8, ptr %313, i64 %317
   store i8 %311, ptr %318, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -2371,7 +2371,7 @@ _ZL14isPNJConsonanti.exit.thread:                 ; preds = %_ZL14isPNJConsonant
   %365 = add i8 %364, 1
   store i8 %365, ptr %363, align 1, !tbaa !71
   %366 = sext i8 %364 to i64
-  %367 = getelementptr inbounds [32 x i8], ptr %362, i64 0, i64 %366
+  %367 = getelementptr inbounds i8, ptr %362, i64 %366
   store i8 %360, ptr %367, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -2391,7 +2391,7 @@ _ZL14isPNJConsonanti.exit.thread:                 ; preds = %_ZL14isPNJConsonant
   %377 = add i8 %376, 1
   store i8 %377, ptr %375, align 1, !tbaa !71
   %378 = sext i8 %376 to i64
-  %379 = getelementptr inbounds [32 x i8], ptr %374, i64 0, i64 %378
+  %379 = getelementptr inbounds i8, ptr %374, i64 %378
   store i8 %372, ptr %379, align 1, !tbaa !35
   br label %.thread516
 
@@ -2404,7 +2404,7 @@ _ZL14isPNJConsonanti.exit.thread:                 ; preds = %_ZL14isPNJConsonant
   %385 = add i8 %384, 1
   store i8 %385, ptr %383, align 1, !tbaa !71
   %386 = sext i8 %384 to i64
-  %387 = getelementptr inbounds [32 x i8], ptr %382, i64 0, i64 %386
+  %387 = getelementptr inbounds i8, ptr %382, i64 %386
   store i8 %380, ptr %387, align 1, !tbaa !35
   store i32 15, ptr %1, align 4, !tbaa !37
   br label %.loopexit
@@ -2528,7 +2528,7 @@ define internal void @_ZL19_ISCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConve
 
 9:                                                ; preds = %4, %.split26.us
   %indvars.iv34 = phi i64 [ 0, %4 ], [ %indvars.iv.next35, %.split26.us ]
-  %10 = getelementptr inbounds nuw [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %indvars.iv34, i32 1
+  %10 = getelementptr inbounds nuw %struct.LookupDataStruct, ptr @_ZL17lookupInitialData, i64 %indvars.iv34, i32 1
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %12 = icmp eq i64 %indvars.iv34, 6
   %13 = shl nuw nsw i64 %indvars.iv34, 7
@@ -2537,7 +2537,7 @@ define internal void @_ZL19_ISCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConve
 
 .split.us:                                        ; preds = %9, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !35
   %17 = zext i8 %16 to i32
   %18 = and i32 %11, %17
@@ -2559,7 +2559,7 @@ define internal void @_ZL19_ISCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConve
 
 .split:                                           ; preds = %9, %35
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %35 ], [ 0, %9 ]
-  %25 = getelementptr inbounds nuw [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %indvars.iv30
+  %25 = getelementptr inbounds nuw i8, ptr @_ZL13validityTable, i64 %indvars.iv30
   %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = and i32 %11, %27

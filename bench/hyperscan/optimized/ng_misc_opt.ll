@@ -315,7 +315,7 @@ define hidden noundef zeroext i1 @_ZN3ue212improveGraphERNS_8NGHolderENS_8som_ty
 
 64:                                               ; preds = %62, %.loopexit49.i.i
   %.0813.i.i.i.i = phi i64 [ 0, %.loopexit49.i.i ], [ %63, %62 ]
-  %65 = getelementptr inbounds nuw [4 x i64], ptr %61, i64 0, i64 %.0813.i.i.i.i
+  %65 = getelementptr inbounds nuw i64, ptr %61, i64 %.0813.i.i.i.i
   %66 = load i64, ptr %65, align 8
   %.not.i.i.i.i = icmp eq i64 %66, -1
   br i1 %.not.i.i.i.i, label %62, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i
@@ -2066,7 +2066,7 @@ _ZN3ue2L15enlargeCyclicCRERNS_8NGHolderENS_8som_typeERKSt6vectorINS_12graph_deta
 
 640:                                              ; preds = %638, %.loopexit51.i.i
   %.0813.i.i.i.i19 = phi i64 [ 0, %.loopexit51.i.i ], [ %639, %638 ]
-  %641 = getelementptr inbounds nuw [4 x i64], ptr %637, i64 0, i64 %.0813.i.i.i.i19
+  %641 = getelementptr inbounds nuw i64, ptr %637, i64 %.0813.i.i.i.i19
   %642 = load i64, ptr %641, align 8
   %.not.i.i.i.i20 = icmp eq i64 %642, -1
   br i1 %.not.i.i.i.i20, label %638, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i21
@@ -4503,7 +4503,7 @@ define hidden noundef zeroext i1 @_ZN3ue219mergeCyclicDotStarsERNS_8NGHolderE(pt
 
 42:                                               ; preds = %40, %38
   %.0813.i.i = phi i64 [ 0, %38 ], [ %41, %40 ]
-  %43 = getelementptr inbounds nuw [4 x i64], ptr %39, i64 0, i64 %.0813.i.i
+  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %.0813.i.i
   %44 = load i64, ptr %43, align 8
   %.not.i.i = icmp eq i64 %44, -1
   br i1 %.not.i.i, label %40, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit
@@ -5257,7 +5257,7 @@ define hidden noundef zeroext i1 @_ZN3ue241prunePathsRedundantWithSuccessorOfCyc
 
 94:                                               ; preds = %92, %.loopexit74
   %.0813.i.i = phi i64 [ 0, %.loopexit74 ], [ %93, %92 ]
-  %95 = getelementptr inbounds nuw [4 x i64], ptr %91, i64 0, i64 %.0813.i.i
+  %95 = getelementptr inbounds nuw i64, ptr %91, i64 %.0813.i.i
   %96 = load i64, ptr %95, align 8
   %.not.i.i = icmp eq i64 %96, -1
   br i1 %.not.i.i, label %92, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit

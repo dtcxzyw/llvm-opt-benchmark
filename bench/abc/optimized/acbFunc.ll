@@ -1532,7 +1532,7 @@ Acb_WireIsTarget.exit.thread:                     ; preds = %229, %Acb_WireIsTar
 
 switch.lookup:                                    ; preds = %267
   %279 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.Acb_VerilogSimpleParse, i64 0, i64 %279
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Acb_VerilogSimpleParse, i64 %279
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Acb_Type2Oper.exit
 
@@ -1854,7 +1854,7 @@ define i32 @Gia_FileSimpleParse_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i32, ptr %.val, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv120
+  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv120
   store i32 %40, ptr %41, align 4, !tbaa !25
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -1909,7 +1909,7 @@ define i32 @Gia_FileSimpleParse_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %.lr.ph113
   %indvars.iv135 = phi i64 [ 1, %.lr.ph113.preheader ], [ %indvars.iv.next136, %.lr.ph113 ]
   %.1112 = phi i32 [ %49, %.lr.ph113.preheader ], [ %57, %.lr.ph113 ]
-  %55 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv135
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv135
   %56 = load i32, ptr %55, align 4, !tbaa !25
   %57 = tail call fastcc i32 @Gia_ManAppendAnd2(ptr noundef %0, i32 noundef %.1112, i32 noundef %56)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
@@ -1919,7 +1919,7 @@ define i32 @Gia_FileSimpleParse_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
   %indvars.iv130 = phi i64 [ 1, %.lr.ph109.preheader ], [ %indvars.iv.next131, %.lr.ph109 ]
   %.3108 = phi i32 [ %53, %.lr.ph109.preheader ], [ %61, %.lr.ph109 ]
-  %58 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv130
+  %58 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv130
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %60 = xor i32 %59, 1
   %61 = tail call fastcc i32 @Gia_ManAppendAnd2(ptr noundef %0, i32 noundef %.3108, i32 noundef %60)
@@ -1930,7 +1930,7 @@ define i32 @Gia_FileSimpleParse_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv125 = phi i64 [ 1, %.lr.ph106.preheader ], [ %indvars.iv.next126, %.lr.ph106 ]
   %.4105 = phi i32 [ %49, %.lr.ph106.preheader ], [ %71, %.lr.ph106 ]
-  %62 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv125
+  %62 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv125
   %63 = load i32, ptr %62, align 4, !tbaa !25
   %64 = xor i32 %63, 1
   %65 = xor i32 %.4105, 1
@@ -17051,8 +17051,8 @@ define ptr @Gia_ManInterOneInt(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %13 = add i32 %.val3.i, 1
   %.neg = add i32 %13, %.val.i
   %14 = icmp eq i32 %6, %.neg
-  %indvars.iv156.sroa.gep190 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %indvars.iv159.sroa.gep192 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv159.sroa.gep191 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv156.sroa.gep192 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %3
@@ -17227,8 +17227,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
 
 .preheader128:                                    ; preds = %Vec_IntFree.exit, %104
   %84 = phi i1 [ true, %Vec_IntFree.exit ], [ false, %104 ]
-  %indvars.iv156.sroa.phi = phi ptr [ %4, %Vec_IntFree.exit ], [ %indvars.iv156.sroa.gep190, %104 ]
-  %indvars.iv156.sroa.phi194.sroa.speculated = phi ptr [ %1, %Vec_IntFree.exit ], [ %0, %104 ]
+  %indvars.iv156.sroa.phi = phi ptr [ %4, %Vec_IntFree.exit ], [ %indvars.iv156.sroa.gep192, %104 ]
+  %indvars.iv156.sroa.phi193.sroa.speculated = phi ptr [ %1, %Vec_IntFree.exit ], [ %0, %104 ]
   %indvars.iv156 = phi i32 [ 0, %Vec_IntFree.exit ], [ 1, %104 ]
   br label %88
 
@@ -17242,8 +17242,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
   %89 = phi i1 [ true, %.preheader128 ], [ false, %Acb_NtkEcoSynthesize.exit ]
   %indvars.iv153 = phi i64 [ 0, %.preheader128 ], [ 1, %Acb_NtkEcoSynthesize.exit ]
   %90 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %91 = tail call ptr @Gia_ManDupCofactorVar(ptr noundef %indvars.iv156.sroa.phi194.sroa.speculated, i32 noundef %.085.lcssa182, i32 noundef %90) #32
-  %92 = getelementptr inbounds nuw [2 x ptr], ptr %indvars.iv156.sroa.phi, i64 0, i64 %indvars.iv153
+  %91 = tail call ptr @Gia_ManDupCofactorVar(ptr noundef %indvars.iv156.sroa.phi193.sroa.speculated, i32 noundef %.085.lcssa182, i32 noundef %90) #32
+  %92 = getelementptr inbounds nuw ptr, ptr %indvars.iv156.sroa.phi, i64 %indvars.iv153
   %93 = tail call ptr @Gia_ManDup(ptr noundef %91) #32
   %94 = tail call ptr @Gia_ManAreaBalance(ptr noundef %93, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #32
   tail call void @Gia_ManStop(ptr noundef %93) #32
@@ -17281,9 +17281,9 @@ Acb_NtkEcoSynthesize.exit:                        ; preds = %100
 105:                                              ; preds = %.preheader127, %138
   %106 = phi i1 [ true, %.preheader127 ], [ false, %138 ]
   %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %.preheader127 ], [ %.sroa.4, %138 ]
-  %indvars.iv159.sroa.phi191 = phi ptr [ %4, %.preheader127 ], [ %indvars.iv159.sroa.gep192, %138 ]
+  %indvars.iv159.sroa.phi190 = phi ptr [ %4, %.preheader127 ], [ %indvars.iv159.sroa.gep191, %138 ]
   %indvars.iv159 = phi i64 [ 0, %.preheader127 ], [ 1, %138 ]
-  %107 = getelementptr inbounds nuw [2 x ptr], ptr %85, i64 0, i64 %indvars.iv159
+  %107 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv159
   %108 = load ptr, ptr %107, align 8, !tbaa !300
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load i32, ptr %109, align 8, !tbaa !76
@@ -17301,7 +17301,7 @@ Acb_NtkEcoSynthesize.exit:                        ; preds = %100
   br i1 %118, label %131, label %119
 
 119:                                              ; preds = %105
-  %120 = load ptr, ptr %indvars.iv159.sroa.phi191, align 8, !tbaa !300
+  %120 = load ptr, ptr %indvars.iv159.sroa.phi190, align 8, !tbaa !300
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !76
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 64

@@ -2205,10 +2205,10 @@ switch.hole_check:                                ; preds = %"_ZN74_$LT$syntax..
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [44 x i8], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hc437b44b9f0ef31bE.llvm.5640989741778157468, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hc437b44b9f0ef31bE.llvm.5640989741778157468, i64 %35
   %switch.load = load i8, ptr %switch.gep, align 1
   %36 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep159 = getelementptr inbounds nuw [44 x i8], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hc437b44b9f0ef31bE.llvm.5640989741778157468.190, i64 0, i64 %36
+  %switch.gep159 = getelementptr inbounds nuw i8, ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hc437b44b9f0ef31bE.llvm.5640989741778157468.190, i64 %36
   %switch.load160 = load i8, ptr %switch.gep159, align 1
   store ptr %spec.select.i, ptr %0, align 8, !alias.scope !1051
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20830,7 +20830,7 @@ define { i64, ptr } @"_ZN6syntax3ast8node_ext133_$LT$impl$u20$core..convert..Fro
 switch.lookup:
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN6syntax3ast8node_ext133_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..AssocItem$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17h02b05cf8145c5bdbE", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN6syntax3ast8node_ext133_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..AssocItem$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17h02b05cf8145c5bdbE", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
@@ -20842,7 +20842,7 @@ define { i64, ptr } @"_ZN6syntax3ast8node_ext134_$LT$impl$u20$core..convert..Fro
 switch.lookup:
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN6syntax3ast8node_ext134_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..ExternItem$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17h81ee42c571d5bc18E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN6syntax3ast8node_ext134_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..ExternItem$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17h81ee42c571d5bc18E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
@@ -31172,7 +31172,7 @@ define { i64, ptr } @"_ZN6syntax3ast8node_ext127_$LT$impl$u20$core..convert..Fro
 switch.lookup:
   %2 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %2)
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN6syntax3ast8node_ext127_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..Adt$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17ha8f901de8b243b78E", i64 0, i64 %0
+  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN6syntax3ast8node_ext127_$LT$impl$u20$core..convert..From$LT$syntax..ast..generated..nodes..Adt$GT$$u20$for$u20$syntax..ast..generated..nodes..Item$GT$4from17ha8f901de8b243b78E", i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = insertvalue { i64, ptr } poison, i64 %switch.load, 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
@@ -33219,10 +33219,10 @@ default.unreachable12:                            ; preds = %1
 
 switch.lookup:                                    ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
   %26 = zext nneg i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
   %27 = zext nneg i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep13 = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
+  %switch.gep13 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 %27
   %switch.load14 = load i8, ptr %switch.gep13, align 1
   br label %28
 
@@ -34598,7 +34598,7 @@ _ZN6syntax11syntax_node17SyntaxTreeBuilder11finish_node17h53f1f16076fa7311E.exit
 
 .lr.ph.i.i.i:                                     ; preds = %342, %346
   %.05.i.i.i = phi i64 [ %347, %346 ], [ 0, %342 ]
-  %343 = getelementptr inbounds nuw [0 x i8], ptr %338, i64 0, i64 %.05.i.i.i
+  %343 = getelementptr inbounds nuw i8, ptr %338, i64 %.05.i.i.i
   %344 = load i8, ptr %343, align 1, !alias.scope !10204, !noalias !10209, !noundef !4
   %345 = icmp eq i8 %344, 46
   br i1 %345, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %346
@@ -35301,7 +35301,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit: ; preds = %.noexc282
   %611 = extractvalue { i64, i64 } %604, 1
   %612 = and i64 %611, 63
   %613 = shl nuw i64 1, %612
-  %614 = getelementptr inbounds [0 x i64], ptr %610, i64 0, i64 %605
+  %614 = getelementptr inbounds i64, ptr %610, i64 %605
   %615 = load i64, ptr %614, align 8, !noundef !4
   %616 = or i64 %615, %613
   store i64 %616, ptr %614, align 8
@@ -35358,7 +35358,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit294: ; preds = %.noexc2
   %640 = extractvalue { i64, i64 } %635, 1
   %641 = and i64 %640, 63
   %642 = shl nuw i64 1, %641
-  %643 = getelementptr inbounds [0 x i64], ptr %639, i64 0, i64 %636
+  %643 = getelementptr inbounds i64, ptr %639, i64 %636
   %644 = load i64, ptr %643, align 8, !noundef !4
   %645 = or i64 %644, %642
   store i64 %645, ptr %643, align 8
@@ -48872,7 +48872,7 @@ define { i64, ptr } @"_ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$sy
 
 switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit"
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc14d0f0722f7b563E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$syntax..ast..generated..nodes..Adt$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc14d0f0722f7b563E", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit7"
 
@@ -49302,7 +49302,7 @@ switch.hole_check:                                ; preds = %"_ZN74_$LT$syntax..
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [60 x i64], ptr @"switch.table._ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$4cast17ha4c36d51cf8452bbE", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$4cast17ha4c36d51cf8452bbE", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit39"
 
@@ -49626,7 +49626,7 @@ define { i64, ptr } @"_ZN82_$LT$syntax..ast..generated..nodes..GenericArg$u20$as
 
 switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit"
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN82_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$syntax..ast..AstNode$GT$4cast17h6c58df582c5bfcfaE", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$syntax..ast..AstNode$GT$4cast17h6c58df582c5bfcfaE", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit7"
 
@@ -50194,7 +50194,7 @@ switch.hole_check:                                ; preds = %"_ZN74_$LT$syntax..
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h3357570b3198fc4eE", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h3357570b3198fc4eE", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit19"
 
@@ -50387,7 +50387,7 @@ define { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$s
 
 switch.lookup:                                    ; preds = %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit"
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @"switch.table._ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$syntax..ast..AstNode$GT$4cast17hb43e7ff9c88b9379E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$syntax..ast..AstNode$GT$4cast17hb43e7ff9c88b9379E", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit17"
 

@@ -977,10 +977,10 @@ define hidden ptr @rb_yjit_get_proc_ptr(i64 noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define hidden ptr @rb_insn_name(i64 noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr [220 x i16], ptr @rb_vm_insn_name_offset, i64 0, i64 %0
+  %2 = getelementptr i16, ptr @rb_vm_insn_name_offset, i64 %0
   %3 = load i16, ptr %2, align 2, !tbaa !82
   %4 = zext i16 %3 to i64
-  %5 = getelementptr [0 x i8], ptr @rb_vm_insn_name_base, i64 0, i64 %4
+  %5 = getelementptr i8, ptr @rb_vm_insn_name_base, i64 %4
   ret ptr %5
 }
 
@@ -1079,7 +1079,7 @@ define hidden i32 @rb_get_cikw_keyword_len(ptr noundef readonly captures(none) %
 define hidden i64 @rb_get_cikw_keywords_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [0 x i64], ptr %3, i64 0, i64 %4
+  %5 = getelementptr i64, ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !15
   ret i64 %6
 }
@@ -1453,7 +1453,7 @@ define hidden ptr @rb_yjit_builtin_function(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !97
   %12 = sext i32 %8 to i64
-  %13 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !14
   %15 = zext i8 %14 to i32
   %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_vm_insn_len_info, i64 69), align 1, !tbaa !14
@@ -2257,7 +2257,7 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_RB_TYPE_P, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_RB_TYPE_P, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
@@ -2305,7 +2305,7 @@ define hidden ptr @rb_get_call_data_ci(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @rb_BASIC_OP_UNREDEFINED_P(i32 noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [34 x i16], ptr @ruby_vm_redefined_flag, i64 0, i64 %3
+  %4 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !82
   %6 = sext i16 %5 to i32
   %7 = and i32 %1, %6

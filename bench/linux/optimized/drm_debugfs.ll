@@ -889,7 +889,7 @@ define internal noundef range(i64 -22, 12) i64 @connector_write(ptr noundef read
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %11
-  %15 = getelementptr [12 x i8], ptr %5, i64 0, i64 %2
+  %15 = getelementptr i8, ptr %5, i64 %2
   store i8 0, ptr %15, align 1
   %16 = call zeroext i1 @sysfs_streq(ptr noundef nonnull %5, ptr noundef nonnull @.str.31) #6
   br i1 %16, label %23, label %17

@@ -1474,15 +1474,14 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit: ; 
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %17 to i64
   %69 = sub i64 %67, %68
-  %70 = add i64 %69, 1
-  %71 = getelementptr inbounds nuw [15000 x i8], ptr %17, i64 0, i64 %69
-  store i8 10, ptr %71, align 1, !tbaa !17
-  %72 = add i64 %69, 2
-  %73 = getelementptr inbounds nuw [15000 x i8], ptr %17, i64 0, i64 %70
-  store i8 0, ptr %73, align 1, !tbaa !17
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %72, i64 15000)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %17, ptr %74, align 8, !tbaa !44
+  %70 = getelementptr i8, ptr %17, i64 %69
+  store i8 10, ptr %70, align 1, !tbaa !17
+  %71 = add i64 %69, 2
+  %72 = getelementptr i8, ptr %70, i64 1
+  store i8 0, ptr %72, align 1, !tbaa !17
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %71, i64 15000)
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %17, ptr %73, align 8, !tbaa !44
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.speculated.i, ptr %.sroa.423.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

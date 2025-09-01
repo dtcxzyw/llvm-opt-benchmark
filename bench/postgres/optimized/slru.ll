@@ -1273,14 +1273,14 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
 
 81:                                               ; preds = %80, %.lr.ph83.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph83.i ], [ %indvars.iv.next.i, %80 ]
-  %82 = getelementptr inbounds nuw [16 x i64], ptr %79, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8
   %84 = icmp eq i64 %83, %49
   br i1 %84, label %85, label %80
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %87 = getelementptr inbounds nuw [16 x i32], ptr %86, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %.thread.i, label %118
@@ -1324,12 +1324,12 @@ SlruFileName.exit.i:                              ; preds = %96, %94
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds [16 x i32], ptr %109, i64 0, i64 %110
+  %111 = getelementptr inbounds i32, ptr %109, i64 %110
   store i32 %99, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %113 = load i32, ptr %2, align 8
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [16 x i64], ptr %112, i64 0, i64 %114
+  %115 = getelementptr inbounds i64, ptr %112, i64 %114
   store i64 %49, ptr %115, align 8
   %116 = load i32, ptr %2, align 8
   %117 = add i32 %116, 1
@@ -1451,7 +1451,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.
 
 164:                                              ; preds = %.lr.ph74, %164
   %indvars.iv = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next, %164 ]
-  %165 = getelementptr inbounds nuw [16 x i32], ptr %163, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4
   %167 = call i32 @CloseTransientFile(i32 noundef %166) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1671,7 +1671,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 
 41:                                               ; preds = %.outer, %45
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %45 ], [ %indvars.iv49.ph, %.outer ]
-  %42 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %indvars.iv49
+  %42 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv49
   %43 = load i32, ptr %42, align 4
   %44 = call i32 @CloseTransientFile(i32 noundef %43) #15
   %.not36 = icmp eq i32 %44, 0
@@ -1687,7 +1687,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %46 = tail call ptr @__errno_location() #16
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr @slru_errno, align 4
-  %48 = getelementptr inbounds nuw [16 x i64], ptr %19, i64 0, i64 %indvars.iv49
+  %48 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv49
   %49 = load i64, ptr %48, align 8
   %50 = shl i64 %49, 5
   %indvars.iv.next5054 = add nuw nsw i64 %indvars.iv49, 1

@@ -256,7 +256,7 @@ define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, p
   %35 = phi ptr [ %41, %.lr.ph ], [ %33, %.lr.ph.preheader ]
   %.05765 = phi ptr [ %35, %.lr.ph ], [ %29, %.lr.ph.preheader ]
   %36 = and i64 %34, 31
-  %37 = getelementptr inbounds nuw [33 x i8], ptr @base32alphabet, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @base32alphabet, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !21
   store i8 %38, ptr %.05765, align 1, !tbaa !21
   %39 = load i64, ptr %5, align 8, !tbaa !26
@@ -306,7 +306,7 @@ zend_string_alloc.exit:                           ; preds = %53
   store i64 %57, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 16 %4, i64 %57, i1 false)
-  %65 = getelementptr inbounds nuw [1 x i8], ptr %64, i64 0, i64 %57
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %57
   store i8 0, ptr %65, align 1, !tbaa !21
   store ptr %60, ptr %2, align 8, !tbaa !22
   br label %66

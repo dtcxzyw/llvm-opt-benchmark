@@ -1430,7 +1430,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 84:                                               ; preds = %80
   %85 = add i32 %61, 1
   %86 = zext i32 %61 to i64
-  %87 = getelementptr [8 x ptr], ptr %5, i64 0, i64 %86
+  %87 = getelementptr ptr, ptr %5, i64 %86
   store ptr %74, ptr %87, align 8
   %88 = icmp eq i32 %85, 8
   br i1 %88, label %89, label %.loopexit

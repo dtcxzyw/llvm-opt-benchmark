@@ -605,7 +605,7 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.137 = phi i64 [ %22, %.lr.ph ], [ %.137.ph, %.lr.ph.preheader ]
   %20 = trunc i64 %.137 to i8
-  %21 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !16
   %22 = lshr i64 %.137, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -618,7 +618,7 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next47, %.lr.ph40 ]
   %indvars.iv44 = phi i64 [ %19, %.lr.ph40.preheader ], [ %indvars.iv.next45, %.lr.ph40 ]
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  %25 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %indvars.iv.next45
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next45
   %26 = load i8, ptr %25, align 1, !tbaa !16
   %27 = load ptr, ptr %13, align 8, !tbaa !15
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1

@@ -2647,7 +2647,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr noundef readnone cap
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !163
   %.not1.i = icmp eq ptr %8, null
   br i1 %.not1.i, label %cf_is_http2.exit, label %.lr.ph.i
@@ -2684,7 +2684,7 @@ define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr n
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !163
   %.not1.i.i = icmp eq ptr %8, null
   br i1 %.not1.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -3937,7 +3937,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %36 = call fastcc i32 @fr_print(ptr noundef nonnull %1, ptr noundef %12)
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr %12, i64 %37
   store i8 0, ptr %38, align 1, !tbaa !93
   %39 = load i64, ptr %20, align 2
   %40 = and i64 %39, 134217728
@@ -5126,7 +5126,7 @@ define internal noundef i32 @on_frame_send(ptr readnone captures(none) %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = call fastcc i32 @fr_print(ptr noundef %1, ptr noundef %4)
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %4, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !93
   %30 = load i64, ptr %11, align 2
   %31 = and i64 %30, 134217728
@@ -6254,7 +6254,7 @@ define internal fastcc i32 @fr_print(ptr noundef readonly captures(none) %0, ptr
   br label %74
 
 74:                                               ; preds = %71, %68
-  %75 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %.
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.
   store i8 0, ptr %75, align 1, !tbaa !93
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = load i32, ptr %76, align 4, !tbaa !93

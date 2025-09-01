@@ -61,14 +61,14 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %.1304 = phi ptr [ %0, %4 ], [ %214, %14 ]
   %.1146301 = phi ptr [ null, %4 ], [ %.3148, %14 ]
   %.2135.lcssa = phi ptr [ %0, %4 ], [ %spec.select322, %14 ]
-  %17 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE24_ControlVerbs_trans_keys, i64 %19
-  %21 = getelementptr inbounds [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 0, i64 %16
+  %21 = getelementptr inbounds i16, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 %16
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE28_ControlVerbs_single_lengths, i64 0, i64 %16
+  %24 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE28_ControlVerbs_single_lengths, i64 %16
   %25 = load i8, ptr %24, align 1
   %26 = sext i8 %25 to i32
   %27 = zext nneg i32 %26 to i64
@@ -117,7 +117,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
 
 ._crit_edge265:                                   ; preds = %45
   %.1162225 = add nsw i32 %26, %23
-  %52 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_range_lengths, i64 0, i64 %16
+  %52 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_range_lengths, i64 %16
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   %55 = icmp sgt i8 %53, 0
@@ -180,7 +180,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
 86:                                               ; preds = %47, %.loopexit, %._crit_edge265
   %.2163 = phi i32 [ %.3164, %.loopexit ], [ %.1162225, %._crit_edge265 ], [ %.1162, %47 ]
   %87 = zext i32 %.2163 to i64
-  %88 = getelementptr inbounds nuw [238 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE22_ControlVerbs_indicies, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE22_ControlVerbs_indicies, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = sext i8 %89 to i64
   br label %91
@@ -191,10 +191,10 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %.4137 = phi ptr [ %.0133, %217 ], [ %.2135.lcssa, %86 ]
   %.2 = phi ptr [ %.0, %217 ], [ %.1304, %86 ]
   %92 = and i64 %.4165, 4294967295
-  %93 = getelementptr inbounds nuw [83 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_trans_targs, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_trans_targs, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i32
-  %96 = getelementptr inbounds nuw [83 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_trans_actions, i64 0, i64 %92
+  %96 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_trans_actions, i64 %92
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %.loopexit235, label %.lr.ph
@@ -540,7 +540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %18
 
 .lr.ph251.preheader:                              ; preds = %.loopexit235
   %205 = zext nneg i8 %94 to i64
-  %206 = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE30_ControlVerbs_to_state_actions, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE30_ControlVerbs_to_state_actions, i64 %205
   %207 = load i8, ptr %206, align 1
   %208 = sext i8 %207 to i64
   %209 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %208
@@ -578,7 +578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %18
 
 217:                                              ; preds = %215
   %218 = sext i32 %.0166 to i64
-  %219 = getelementptr inbounds [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 0, i64 %218
+  %219 = getelementptr inbounds i16, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 %218
   %220 = load i16, ptr %219, align 2
   %221 = sext i16 %220 to i64
   %222 = add nsw i64 %221, 4294967295

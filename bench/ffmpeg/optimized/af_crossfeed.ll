@@ -47,7 +47,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %8) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -305,7 +305,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %80 = shl nsw i32 %79, 1
   %81 = sext i32 %80 to i64
   %82 = tail call noalias ptr @av_calloc(i64 noundef %81, i64 noundef 8) #7
-  %83 = getelementptr inbounds nuw [3 x ptr], ptr %76, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
   store ptr %82, ptr %83, align 8, !tbaa !56
   %.not = icmp eq ptr %82, null
   br i1 %.not, label %.critedge, label %77

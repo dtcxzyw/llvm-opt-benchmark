@@ -3841,7 +3841,7 @@ define hidden noundef zeroext i1 @_ZN2cv13HaarEvaluator7Feature4readERKNS_8FileN
 
 16:                                               ; preds = %3, %16
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw [3 x %"struct.cv::HaarEvaluator::Feature::RectWeigth"], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.cv::HaarEvaluator::Feature::RectWeigth", ptr %15, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store float 0.000000e+00, ptr %18, align 4, !tbaa !162
@@ -3863,7 +3863,7 @@ define hidden noundef zeroext i1 @_ZN2cv13HaarEvaluator7Feature4readERKNS_8FileN
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %10)
   call void @_ZNK2cv8FileNode5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNodeIterator") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %24 = getelementptr inbounds nuw [3 x %"struct.cv::HaarEvaluator::Feature::RectWeigth"], ptr %15, i64 0, i64 %indvars.iv81
+  %24 = getelementptr inbounds nuw %"struct.cv::HaarEvaluator::Feature::RectWeigth", ptr %15, i64 %indvars.iv81
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %12)
   call void @_ZN2cv4readERKNS_8FileNodeERii(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 0)

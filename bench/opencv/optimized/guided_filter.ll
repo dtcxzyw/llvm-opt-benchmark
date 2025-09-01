@@ -263,12 +263,12 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl24MulChannelsGuide_ParBody
   %22 = add nsw i32 %.018.us, -12
   %23 = add i32 %22, %21
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !28
   %27 = add nsw i32 %.018.us, -6
   %28 = add i32 %27, %21
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %33 = sext i32 %26 to i64
@@ -333,7 +333,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr
   %8 = add i32 %1, -12
   %9 = add i32 %8, %7
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !28
   store i32 %12, ptr %2, align 4, !tbaa !28
   %13 = load i32, ptr %5, align 8, !tbaa !23
@@ -341,7 +341,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr
   %15 = add i32 %1, -6
   %16 = add i32 %15, %14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !28
   store i32 %19, ptr %3, align 4, !tbaa !28
   ret void
@@ -391,12 +391,12 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl38ComputeCovGuideFromChann
   %27 = add nsw i32 %.024.us, -12
   %28 = add i32 %27, %26
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %32 = add nsw i32 %.024.us, -6
   %33 = add i32 %32, %26
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [36 x i32], ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 0, i64 %34
+  %35 = getelementptr inbounds i32, ptr @_ZZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_E5wdata, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %38 = sext i32 %31 to i64
@@ -1579,7 +1579,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl19ComputeBeta_ParBodyclERK
   %54 = load i64, ptr %53, align 8, !tbaa !40
   %55 = mul i64 %54, %indvars.iv72
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 %55
-  %57 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv64
+  %57 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv64
   %58 = load ptr, ptr %57, align 8, !tbaa !108
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %60 = load i32, ptr %59, align 4, !tbaa !42
@@ -1602,7 +1602,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl19ComputeBeta_ParBodyclERK
   %72 = load i64, ptr %71, align 8, !tbaa !40
   %73 = mul i64 %72, %indvars.iv72
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 %73
-  %75 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv59
+  %75 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59
   store ptr %74, ptr %75, align 8, !tbaa !108
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -1658,7 +1658,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl19ComputeBeta_ParBodyclERK
   %97 = load i64, ptr %96, align 8, !tbaa !40
   %98 = mul i64 %97, %indvars.iv56
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 %98
-  %100 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv51
+  %100 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv51
   store ptr %99, ptr %100, align 8, !tbaa !108
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
@@ -1755,7 +1755,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl22ApplyTransform_ParBodycl
   %53 = load i64, ptr %52, align 8, !tbaa !40
   %54 = mul i64 %53, %indvars.iv72
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 %54
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv64
+  %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv64
   %57 = load ptr, ptr %56, align 8, !tbaa !108
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 44
   %59 = load i32, ptr %58, align 4, !tbaa !118
@@ -1778,7 +1778,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl22ApplyTransform_ParBodycl
   %71 = load i64, ptr %70, align 8, !tbaa !40
   %72 = mul i64 %71, %indvars.iv72
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 %72
-  %74 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv59
+  %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59
   store ptr %73, ptr %74, align 8, !tbaa !108
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
@@ -1834,7 +1834,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl22ApplyTransform_ParBodycl
   %96 = load i64, ptr %95, align 8, !tbaa !40
   %97 = mul i64 %96, %indvars.iv56
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 %97
-  %99 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv51
+  %99 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv51
   store ptr %98, ptr %99, align 8, !tbaa !108
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54

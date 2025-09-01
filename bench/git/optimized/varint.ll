@@ -61,7 +61,7 @@ define dso_local i32 @encode_varint(i64 noundef %0, ptr noundef writeonly captur
   %10 = or i8 %9, -128
   %11 = add i32 %.015, -1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   store i8 %10, ptr %13, align 1, !tbaa !9
   %.not = icmp samesign ult i64 %8, 128
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12

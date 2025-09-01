@@ -113,7 +113,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_fsdP11proc
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = lshr i64 %1, 15
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
@@ -125,12 +125,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_fsdP11proc
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = lshr i64 %31, 12
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   %43 = and i64 %31, 7
@@ -140,7 +140,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_fsdP11proc
 
 46:                                               ; preds = %15
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %48 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %47, i64 0, i64 %39
+  %48 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %47, i64 %39
   %49 = load ptr, ptr %48, align 8, !tbaa !142
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %31
   store i64 %36, ptr %50, align 8
@@ -234,7 +234,7 @@ define noundef i64 @_Z14fast_rv64i_fsdP11processor_t6insn_tm(ptr noundef readonl
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = lshr i64 %1, 15
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
@@ -246,12 +246,12 @@ define noundef i64 @_Z14fast_rv64i_fsdP11processor_t6insn_tm(ptr noundef readonl
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = lshr i64 %31, 12
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   %43 = and i64 %31, 7
@@ -261,7 +261,7 @@ define noundef i64 @_Z14fast_rv64i_fsdP11processor_t6insn_tm(ptr noundef readonl
 
 46:                                               ; preds = %15
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %48 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %47, i64 0, i64 %39
+  %48 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %47, i64 %39
   %49 = load ptr, ptr %48, align 8, !tbaa !142
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %31
   store i64 %36, ptr %50, align 8
@@ -336,7 +336,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_fsdP11pr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = lshr i64 %1, 15
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
@@ -348,12 +348,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_fsdP11pr
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = lshr i64 %31, 12
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   %43 = and i64 %31, 7
@@ -363,7 +363,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_fsdP11pr
 
 46:                                               ; preds = %15
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %48 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %47, i64 0, i64 %39
+  %48 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %47, i64 %39
   %49 = load ptr, ptr %48, align 8, !tbaa !142
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %31
   store i64 %36, ptr %50, align 8
@@ -440,7 +440,7 @@ define noundef i64 @_Z16logged_rv64i_fsdP11processor_t6insn_tm(ptr noundef reado
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = lshr i64 %1, 15
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = lshr i64 %1, 7
   %26 = and i64 %25, 31
@@ -452,12 +452,12 @@ define noundef i64 @_Z16logged_rv64i_fsdP11processor_t6insn_tm(ptr noundef reado
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %33 = lshr i64 %1, 20
   %34 = and i64 %33, 31
-  %35 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %32, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = lshr i64 %31, 12
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %39 = and i64 %37, 255
-  %40 = getelementptr inbounds nuw [256 x i64], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, %37
   %43 = and i64 %31, 7
@@ -467,7 +467,7 @@ define noundef i64 @_Z16logged_rv64i_fsdP11processor_t6insn_tm(ptr noundef reado
 
 46:                                               ; preds = %15
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %48 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %47, i64 0, i64 %39
+  %48 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %47, i64 %39
   %49 = load ptr, ptr %48, align 8, !tbaa !142
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %31
   store i64 %36, ptr %50, align 8
@@ -558,7 +558,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_fsdP11proc
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %21
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
@@ -570,12 +570,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_fsdP11proc
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %40 = lshr i64 %1, 20
   %41 = and i64 %40, 31
-  %42 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.float128_t, ptr %39, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = lshr i64 %38, 12
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %46 = and i64 %44, 255
-  %47 = getelementptr inbounds nuw [256 x i64], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = icmp eq i64 %48, %44
   %50 = and i64 %38, 7
@@ -585,7 +585,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_fsdP11proc
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %55 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %54, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %54, i64 %46
   %56 = load ptr, ptr %55, align 8, !tbaa !142
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %38
   store i64 %43, ptr %57, align 8
@@ -678,7 +678,7 @@ define noundef i64 @_Z14fast_rv64e_fsdP11processor_t6insn_tm(ptr noundef readonl
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %21
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
@@ -690,12 +690,12 @@ define noundef i64 @_Z14fast_rv64e_fsdP11processor_t6insn_tm(ptr noundef readonl
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %40 = lshr i64 %1, 20
   %41 = and i64 %40, 31
-  %42 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.float128_t, ptr %39, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = lshr i64 %38, 12
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %46 = and i64 %44, 255
-  %47 = getelementptr inbounds nuw [256 x i64], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = icmp eq i64 %48, %44
   %50 = and i64 %38, 7
@@ -705,7 +705,7 @@ define noundef i64 @_Z14fast_rv64e_fsdP11processor_t6insn_tm(ptr noundef readonl
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %55 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %54, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %54, i64 %46
   %56 = load ptr, ptr %55, align 8, !tbaa !142
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %38
   store i64 %43, ptr %57, align 8
@@ -796,7 +796,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_fsdP11pr
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %21
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
@@ -808,12 +808,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_fsdP11pr
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %40 = lshr i64 %1, 20
   %41 = and i64 %40, 31
-  %42 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.float128_t, ptr %39, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = lshr i64 %38, 12
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %46 = and i64 %44, 255
-  %47 = getelementptr inbounds nuw [256 x i64], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = icmp eq i64 %48, %44
   %50 = and i64 %38, 7
@@ -823,7 +823,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_fsdP11pr
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %55 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %54, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %54, i64 %46
   %56 = load ptr, ptr %55, align 8, !tbaa !142
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %38
   store i64 %43, ptr %57, align 8
@@ -916,7 +916,7 @@ define noundef i64 @_Z16logged_rv64e_fsdP11processor_t6insn_tm(ptr noundef reado
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %29, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %21
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
@@ -928,12 +928,12 @@ define noundef i64 @_Z16logged_rv64e_fsdP11processor_t6insn_tm(ptr noundef reado
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %40 = lshr i64 %1, 20
   %41 = and i64 %40, 31
-  %42 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.float128_t, ptr %39, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = lshr i64 %38, 12
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 41104
   %46 = and i64 %44, 255
-  %47 = getelementptr inbounds nuw [256 x i64], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !3
   %49 = icmp eq i64 %48, %44
   %50 = and i64 %38, 7
@@ -943,7 +943,7 @@ define noundef i64 @_Z16logged_rv64e_fsdP11processor_t6insn_tm(ptr noundef reado
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 32912
-  %55 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %54, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %54, i64 %46
   %56 = load ptr, ptr %55, align 8, !tbaa !142
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %38
   store i64 %43, ptr %57, align 8

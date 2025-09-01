@@ -114,7 +114,7 @@ define internal fastcc ptr @rhashtable_lookup_fast(ptr noundef %0, ptr noundef %
 26:                                               ; preds = %.split9.us
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %28 = zext i32 %20 to i64
-  %29 = getelementptr [0 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr %27, i64 %28
   br label %.split5.us.us
 
 .split5.us.us:                                    ; preds = %26, %24
@@ -195,7 +195,7 @@ define internal fastcc ptr @rhashtable_lookup_fast(ptr noundef %0, ptr noundef %
 80:                                               ; preds = %.split9
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %82 = zext i32 %74 to i64
-  %83 = getelementptr [0 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr ptr, ptr %81, i64 %82
   br label %.split5
 
 .split5:                                          ; preds = %80, %78
@@ -1997,7 +1997,7 @@ define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr no
 66:                                               ; preds = %56
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %68 = zext i32 %60 to i64
-  %69 = getelementptr [0 x ptr], ptr %67, i64 0, i64 %68
+  %69 = getelementptr ptr, ptr %67, i64 %68
   br label %70
 
 70:                                               ; preds = %66, %64
@@ -2403,7 +2403,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %57 = zext i32 %49 to i64
-  %58 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %55, %53

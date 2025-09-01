@@ -233,7 +233,7 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   %15 = load i8, ptr %.151, align 1, !tbaa !31
   %16 = add nuw nsw i64 %13, 1
   store i64 %16, ptr %8, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw [45 x i8], ptr %11, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   store i8 %15, ptr %17, align 1, !tbaa !31
   %18 = add i64 %.14350, -1
   %19 = icmp samesign ult i64 %13, 44

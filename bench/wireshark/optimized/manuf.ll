@@ -61015,7 +61015,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
 .thread:                                          ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = add nuw nsw i64 %.136, 1
-  %21 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %.136
+  %21 = getelementptr ptr, ptr %3, i64 %.136
   store ptr %19, ptr %21, align 8
   br label %23
 
@@ -61043,7 +61043,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
 .lr.ph:                                           ; preds = %23, %33
   %.048 = phi i64 [ %34, %33 ], [ 1, %23 ]
   %.03447 = phi ptr [ %.1, %33 ], [ %24, %23 ]
-  %28 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %.048
+  %28 = getelementptr ptr, ptr %3, i64 %.048
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %33, label %30
@@ -61069,7 +61069,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = getelementptr [36718 x %struct.manuf_oui24_t], ptr @global_manuf_oui24_table, i64 0, i64 %37
+  %41 = getelementptr %struct.manuf_oui24_t, ptr @global_manuf_oui24_table, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %40, ptr noundef readonly align 8 dereferenceable(3) %41, i64 noundef 3, i1 noundef false) #10
   %42 = getelementptr i8, ptr %0, i64 27
   store i8 0, ptr %42, align 1
@@ -61086,7 +61086,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = getelementptr [5700 x %struct.manuf_oui28_t], ptr @global_manuf_oui28_table, i64 0, i64 %46
+  %50 = getelementptr %struct.manuf_oui28_t, ptr @global_manuf_oui28_table, i64 %46
   %51 = load i32, ptr %50, align 8
   store i32 %51, ptr %49, align 1
   %52 = getelementptr i8, ptr %0, i64 52
@@ -61102,7 +61102,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr noundef %1) lo
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %59 = getelementptr [10932 x %struct.manuf_oui36_t], ptr @global_manuf_oui36_table, i64 0, i64 %55
+  %59 = getelementptr %struct.manuf_oui36_t, ptr @global_manuf_oui36_table, i64 %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %58, ptr noundef readonly align 8 dereferenceable(5) %59, i64 noundef 5, i1 noundef false) #10
   br label %.sink.split
 

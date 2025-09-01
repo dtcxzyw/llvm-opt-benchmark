@@ -748,7 +748,7 @@ _ZN6LibRaw4get4Ev.exit26:                         ; preds = %249, %251
   %282 = trunc i32 %281 to i8
   %283 = xor i32 %.0927, %275
   %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %12, i64 %284
   store i8 %282, ptr %285, align 1, !tbaa !71
   %286 = add nuw nsw i32 %.0927, 1
   %exitcond.not = icmp eq i32 %286, 8
@@ -1070,7 +1070,7 @@ _Z19libraw_sget4_staticsPh.exit46:                ; preds = %169, %171
   %.02949 = phi i32 [ 0, %191 ], [ %199, %195 ]
   %196 = xor i32 %.02949, %192
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr %4, i64 %197
   store i8 %194, ptr %198, align 1, !tbaa !71
   %199 = add nuw nsw i32 %.02949, 1
   %exitcond.not = icmp eq i32 %199, 8

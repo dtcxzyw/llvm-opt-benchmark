@@ -83,7 +83,7 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
 
 23:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %24 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %21, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.ParamExternData, ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -98,7 +98,7 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br label %32
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %22, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.ParamExternData, ptr %22, i64 %indvars.iv
   br label %32
 
 32:                                               ; preds = %30, %26
@@ -183,7 +183,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   br label %19
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %10, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.ParamExternData, ptr %10, i64 %indvars.iv
   br label %19
 
 19:                                               ; preds = %17, %13
@@ -284,7 +284,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   br label %25
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %16, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.ParamExternData, ptr %16, i64 %indvars.iv
   br label %25
 
 25:                                               ; preds = %23, %19
@@ -371,7 +371,7 @@ define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.ParamExternData, ptr %13, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load ptr, ptr %0, align 8
   %18 = load i32, ptr %17, align 1
@@ -427,7 +427,7 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %32 ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv33
+  %18 = getelementptr inbounds nuw %struct.ParamExternData, ptr %17, i64 %indvars.iv33
   %.not29.us = icmp eq i64 %indvars.iv33, 0
   %19 = select i1 %.not29.us, ptr @.str.3, ptr @.str.2
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -474,7 +474,7 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
-  %37 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.ParamExternData, ptr %17, i64 %indvars.iv
   %.not29 = icmp eq i64 %indvars.iv, 0
   %38 = select i1 %.not29, ptr @.str.3, ptr @.str.2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -627,9 +627,9 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %19 = add nsw i32 %7, -1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %18, i64 0, i64 %20
+  %19 = zext nneg i32 %7 to i64
+  %20 = getelementptr %struct.ParamExternData, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -16
   br label %22
 
 22:                                               ; preds = %17, %15

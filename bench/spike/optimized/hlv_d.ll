@@ -192,7 +192,7 @@ define noundef i64 @_Z16fast_rv64i_hlv_dP11processor_t6insn_tm(ptr noundef captu
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %44 = lshr i64 %1, 15
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw [32 x i64], ptr %43, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -229,7 +229,7 @@ _ZN5mmu_t10guest_loadIlEET_m.exit:                ; preds = %40, %50, %54
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %60
 
 60:                                               ; preds = %_ZN5mmu_t10guest_loadIlEET_m.exit
-  %61 = getelementptr inbounds nuw [32 x i64], ptr %43, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw i64, ptr %43, i64 %59
   store i64 %.sroa.0.0.copyload.i.i, ptr %61, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -336,7 +336,7 @@ define noundef i64 @_Z18logged_rv64i_hlv_dP11processor_t6insn_tm(ptr noundef %0,
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %45 = lshr i64 %1, 15
   %46 = and i64 %45, 31
-  %47 = getelementptr inbounds nuw [32 x i64], ptr %44, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -382,7 +382,7 @@ _ZN5mmu_t10guest_loadIlEET_m.exit:                ; preds = %41, %51, %55
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %64
 
 64:                                               ; preds = %_ZN5mmu_t10guest_loadIlEET_m.exit
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %44, i64 0, i64 %61
+  %65 = getelementptr inbounds nuw i64, ptr %44, i64 %61
   store i64 %.sroa.0.0.copyload.i.i, ptr %65, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -600,7 +600,7 @@ define noundef i64 @_Z16fast_rv64e_hlv_dP11processor_t6insn_tm(ptr noundef captu
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %60 = load ptr, ptr %59, align 8, !tbaa !96
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %62 = getelementptr inbounds nuw [32 x i64], ptr %61, i64 0, i64 %51
+  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %51
   %63 = load i64, ptr %62, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -635,7 +635,7 @@ _ZN5mmu_t10guest_loadIlEET_m.exit:                ; preds = %58, %66, %70
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %74
 
 74:                                               ; preds = %_ZN5mmu_t10guest_loadIlEET_m.exit
-  %75 = getelementptr inbounds nuw [32 x i64], ptr %61, i64 0, i64 %42
+  %75 = getelementptr inbounds nuw i64, ptr %61, i64 %42
   store i64 %.sroa.0.0.copyload.i.i, ptr %75, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -768,7 +768,7 @@ define noundef i64 @_Z18logged_rv64e_hlv_dP11processor_t6insn_tm(ptr noundef %0,
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %61 = load ptr, ptr %60, align 8, !tbaa !96
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %63 = getelementptr inbounds nuw [32 x i64], ptr %62, i64 0, i64 %52
+  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %52
   %64 = load i64, ptr %63, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -812,7 +812,7 @@ _ZN5mmu_t10guest_loadIlEET_m.exit:                ; preds = %59, %67, %71
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %78
 
 78:                                               ; preds = %_ZN5mmu_t10guest_loadIlEET_m.exit
-  %79 = getelementptr inbounds nuw [32 x i64], ptr %62, i64 0, i64 %43
+  %79 = getelementptr inbounds nuw i64, ptr %62, i64 %43
   store i64 %.sroa.0.0.copyload.i.i, ptr %79, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

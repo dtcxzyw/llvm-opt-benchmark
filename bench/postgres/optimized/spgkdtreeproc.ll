@@ -555,7 +555,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   %181 = load ptr, ptr %163, align 8
   %182 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %181, ptr @CurrentMemoryContext, align 8
-  %183 = getelementptr inbounds nuw [2 x %struct.BOX], ptr %2, i64 0, i64 %172
+  %183 = getelementptr inbounds nuw %struct.BOX, ptr %2, i64 %172
   %184 = call ptr @box_copy(ptr noundef nonnull %183) #9
   store ptr %182, ptr @CurrentMemoryContext, align 8
   %185 = load ptr, ptr %164, align 8

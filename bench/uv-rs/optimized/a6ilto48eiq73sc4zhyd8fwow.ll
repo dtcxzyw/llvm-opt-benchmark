@@ -14179,7 +14179,7 @@ switch.lookup:
   %4 = xor i64 %3, -9223372036854775808
   %5 = icmp ult i64 %4, 11
   %6 = select i1 %5, i64 %4, i64 8
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN9uv_python12installation18PythonInstallation2os17heb68f2ceda4e7d40E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_python12installation18PythonInstallation2os17heb68f2ceda4e7d40E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

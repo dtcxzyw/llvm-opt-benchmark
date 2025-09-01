@@ -197,7 +197,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
 
 3:                                                ; preds = %.loopexit, %1
   %4 = phi i64 [ 0, %1 ], [ %31, %.loopexit ]
-  %5 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %4
+  %5 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %13
@@ -217,7 +217,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
   %16 = phi ptr [ %14, %13 ], [ %24, %15 ]
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_ctype, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = shl i8 %20, 5
   %22 = and i8 %21, 32
@@ -235,7 +235,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
   store ptr @power_supply_show_property, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @power_supply_store_property, ptr %29, align 8
-  %30 = getelementptr [77 x ptr], ptr @__power_supply_attrs, i64 0, i64 %4
+  %30 = getelementptr ptr, ptr @__power_supply_attrs, i64 %4
   store ptr %26, ptr %30, align 8
   %31 = add nuw nsw i64 %4, 1
   %32 = icmp eq i64 %31, 76
@@ -348,7 +348,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %59 = icmp eq i32 %58, %57
   %60 = trunc i64 %54 to i32
   %61 = zext i32 %57 to i64
-  %62 = getelementptr [10 x ptr], ptr @POWER_SUPPLY_USB_TYPE_TEXT, i64 0, i64 %61
+  %62 = getelementptr ptr, ptr @POWER_SUPPLY_USB_TYPE_TEXT, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = select i1 %59, ptr @.str.3, ptr @.str.4
   %65 = select i1 %59, i8 1, i8 %53
@@ -573,7 +573,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %76 = getelementptr i32, ptr %75, i64 %66
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
-  %79 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %78
+  %79 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %20)
   %82 = trunc i64 %81 to i32
@@ -619,7 +619,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br i1 %104, label %105, label %.thread22
 
 105:                                              ; preds = %102
-  %106 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %98
+  %106 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %98
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %107, ptr noundef nonnull %20)
   %109 = trunc i64 %108 to i32
@@ -699,7 +699,7 @@ define dso_local i64 @power_supply_charge_behaviour_show(ptr noundef %0, i32 nou
   %16 = select i1 %15, i8 1, i8 %10
   %17 = select i1 %15, ptr @.str.3, ptr @.str.4
   %18 = trunc i64 %9 to i32
-  %19 = getelementptr [3 x ptr], ptr @POWER_SUPPLY_CHARGE_BEHAVIOUR_TEXT, i64 0, i64 %8
+  %19 = getelementptr ptr, ptr @POWER_SUPPLY_CHARGE_BEHAVIOUR_TEXT, i64 %8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %17, ptr noundef %20) #9
   %22 = sext i32 %21 to i64
@@ -764,7 +764,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %6
+  %7 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10

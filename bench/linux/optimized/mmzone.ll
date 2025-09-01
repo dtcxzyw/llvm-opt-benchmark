@@ -24,7 +24,7 @@ define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
 
 8:                                                ; preds = %3, %0
   %9 = phi i64 [ %7, %3 ], [ 64, %0 ]
-  %10 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr @node_data, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -53,7 +53,7 @@ define dso_local ptr @next_online_pgdat(ptr noundef readonly captures(none) %0) 
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @node_data, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %.thread
 
@@ -97,7 +97,7 @@ define dso_local ptr @next_zone(ptr noundef readonly captures(address, ret: addr
 
 23:                                               ; preds = %19
   %24 = and i64 %20, 63
-  %25 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr @node_data, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %.thread
 
@@ -157,7 +157,7 @@ define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_u
 
 2:                                                ; preds = %2, %1
   %3 = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %4 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %3
+  %4 = getelementptr %struct.list_head, ptr %0, i64 %3
   store volatile ptr %4, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %4, ptr %5, align 8

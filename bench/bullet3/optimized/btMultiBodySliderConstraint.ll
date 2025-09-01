@@ -1186,7 +1186,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   br i1 %521, label %522, label %542
 
 522:                                              ; preds = %520
-  %523 = getelementptr inbounds nuw [2 x %class.btVector3], ptr %10, i64 0, i64 %indvars.iv250
+  %523 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %indvars.iv250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %523, i64 16, i1 false), !tbaa.struct !23
   %524 = load float, ptr %5, align 8, !tbaa !28
   %525 = load float, ptr %8, align 8, !tbaa !28

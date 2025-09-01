@@ -2928,7 +2928,7 @@ define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr noundef readonly captu
 
 6:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !71
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %.critedge, label %9

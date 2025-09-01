@@ -137,13 +137,13 @@ define dso_local noundef ptr @bin2hex(ptr noundef writeonly captures(ret: addres
   %11 = zext i8 %10 to i32
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %13
+  %14 = getelementptr i8, ptr @hex_asc, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = getelementptr i8, ptr %7, i64 1
   store i8 %15, ptr %7, align 1
   %17 = and i32 %11, 15
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @hex_asc, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr i8, ptr %7, i64 2
   store i8 %20, ptr %16, align 1
@@ -310,7 +310,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %111 = zext i8 %110 to i32
   %112 = lshr i32 %111, 4
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr [17 x i8], ptr @hex_asc, i64 0, i64 %113
+  %114 = getelementptr i8, ptr @hex_asc, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = add i32 %103, 1
   %117 = sext i32 %103 to i64
@@ -324,7 +324,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
 122:                                              ; preds = %108
   %123 = and i32 %111, 15
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr [17 x i8], ptr @hex_asc, i64 0, i64 %124
+  %125 = getelementptr i8, ptr @hex_asc, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = sext i32 %116 to i64
   %128 = getelementptr i8, ptr %4, i64 %127
@@ -397,7 +397,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
 
 167:                                              ; preds = %163
   %168 = zext nneg i8 %165 to i64
-  %169 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %168
+  %169 = getelementptr i8, ptr @_ctype, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = and i8 %170, -105
   %172 = icmp eq i8 %171, 0

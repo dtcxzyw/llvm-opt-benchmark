@@ -1408,7 +1408,7 @@ define internal i32 @cmd_MinProtocol(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %15, %14
   %.067.i.i = phi i64 [ 0, %14 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %.067.i.i
+  %18 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i.i
   %19 = load ptr, ptr %18, align 16, !tbaa !134
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #8
   %21 = icmp eq i32 %20, 0
@@ -1465,7 +1465,7 @@ define internal i32 @cmd_MaxProtocol(ptr noundef readonly captures(none) %0, ptr
 
 17:                                               ; preds = %15, %14
   %.067.i.i = phi i64 [ 0, %14 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %.067.i.i
+  %18 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i.i
   %19 = load ptr, ptr %18, align 16, !tbaa !134
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #8
   %21 = icmp eq i32 %20, 0

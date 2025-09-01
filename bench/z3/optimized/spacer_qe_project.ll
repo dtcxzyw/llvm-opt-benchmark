@@ -515,7 +515,7 @@ _ZN9spacer_qe13is_partial_eqEP3app.exit:          ; preds = %42
 
 .lr.ph:                                           ; preds = %51, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 2, %51 ]
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !8
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %58
@@ -14771,7 +14771,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %114
   br i1 %.not.not, label %.critedge, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %126, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8, !tbaa !8
   %133 = invoke noundef zeroext i1 @_ZN9spacer_qe18arith_project_util9is_linearERK8rationalP4exprRS1_R10ref_vectorIS4_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %134 unwind label %135
@@ -19023,7 +19023,7 @@ _ZN8rationalD2Ev.exit137:                         ; preds = %.noexc.i136
 
 446:                                              ; preds = %.lr.ph, %477
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %477 ]
-  %447 = getelementptr inbounds nuw [0 x ptr], ptr %442, i64 0, i64 %indvars.iv
+  %447 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv
   %448 = load ptr, ptr %447, align 8, !tbaa !8
   %.not.i141 = icmp eq ptr %448, null
   br i1 %.not.i141, label %452, label %_ZN11ast_manager7inc_refEP3ast.exit.i142
@@ -19531,7 +19531,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6i
 
 71:                                               ; preds = %.lr.ph, %131
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
-  %72 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !8
   %.not.i.i.i.i30 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i30, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i31, label %74
@@ -32215,7 +32215,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit44:            ; preds = %_ZNK6vectorIP3appLb
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %235 ]
   %.027150 = phi i8 [ 0, %.lr.ph ], [ %.128, %235 ]
   %.029148 = phi i1 [ false, %.lr.ph ], [ %.130, %235 ]
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %78, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
@@ -35398,7 +35398,7 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit157.lr.ph: ; preds
 141:                                              ; preds = %.lr.ph, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit155
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %142 = getelementptr inbounds nuw [0 x ptr], ptr %132, i64 0, i64 %indvars.iv.next
+  %142 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.next
   %143 = load ptr, ptr %142, align 8, !tbaa !8
   %144 = load ptr, ptr %79, align 8, !tbaa !232
   invoke void @_ZN26model_evaluator_array_util4evalER5modelP4exprR7obj_refIS2_11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(160) %144, ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext true)

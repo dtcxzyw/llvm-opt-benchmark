@@ -2667,7 +2667,7 @@ define dso_local range(i32 -1, 256) i32 @pipe_command(ptr noundef %0, ptr nounde
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %47 = load i32, ptr %46, align 4, !tbaa !23
   %48 = zext nneg i32 %.0 to i64
-  %49 = getelementptr inbounds nuw [3 x %struct.io_pump], ptr %8, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %48
   store i32 %47, ptr %49, align 8, !tbaa !92
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 1, ptr %50, align 4, !tbaa !95
@@ -2686,7 +2686,7 @@ define dso_local range(i32 -1, 256) i32 @pipe_command(ptr noundef %0, ptr nounde
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = zext nneg i32 %.1 to i64
-  %58 = getelementptr inbounds nuw [3 x %struct.io_pump], ptr %8, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %57
   store i32 %56, ptr %58, align 8, !tbaa !92
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 1, ptr %59, align 4, !tbaa !95

@@ -311,7 +311,7 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_e
   br i1 %exitcond53.not.i, label %..loopexit27_crit_edge.us.us.i, label %31, !llvm.loop !32
 
 .preheader.us.us.i:                               ; preds = %Vec_PtrAllocSimInfo.exit.split.us.split.us.i
-  %33 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv54.i
+  %33 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv54.i
   %34 = load i32, ptr %33, align 4, !tbaa !17
   br label %31
 
@@ -436,19 +436,19 @@ select.unfold.preheader.i72:                      ; preds = %80
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %87 = zext nneg i32 %2 to i64
+  %88 = getelementptr [8 x i32], ptr @Hop_ManConvertAigToTruth.uTruths, i64 %87
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv96 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next97, %.lr.ph.split.us ]
   %.val67.us = load ptr, ptr %0, align 8, !tbaa !33
-  %88 = getelementptr i8, ptr %.val67.us, i64 8
-  %.val67.val.us = load ptr, ptr %88, align 8, !tbaa !29
-  %89 = getelementptr inbounds nuw ptr, ptr %.val67.val.us, i64 %indvars.iv96
-  %90 = load ptr, ptr %89, align 8, !tbaa !24
-  %91 = xor i64 %indvars.iv96, -1
-  %92 = add nsw i64 %87, %91
-  %93 = getelementptr inbounds [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %92
-  store ptr %93, ptr %90, align 8, !tbaa !11
+  %89 = getelementptr i8, ptr %.val67.us, i64 8
+  %.val67.val.us = load ptr, ptr %89, align 8, !tbaa !29
+  %90 = getelementptr inbounds nuw ptr, ptr %.val67.val.us, i64 %indvars.iv96
+  %91 = load ptr, ptr %90, align 8, !tbaa !24
+  %92 = xor i64 %indvars.iv96, -1
+  %93 = getelementptr [8 x i32], ptr %88, i64 %92
+  store ptr %93, ptr %91, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !38
@@ -477,7 +477,7 @@ select.unfold.preheader.i72:                      ; preds = %80
   %.val68.val.us = load ptr, ptr %95, align 8, !tbaa !29
   %96 = getelementptr inbounds nuw ptr, ptr %.val68.val.us, i64 %indvars.iv106
   %97 = load ptr, ptr %96, align 8, !tbaa !24
-  %98 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %indvars.iv106
+  %98 = getelementptr inbounds nuw [8 x i32], ptr @Hop_ManConvertAigToTruth.uTruths, i64 %indvars.iv106
   store ptr %98, ptr %97, align 8, !tbaa !11
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -579,7 +579,7 @@ define i64 @Hop_ManComputeTruth6_rec(ptr noundef %0, ptr noundef readonly captur
 common.ret:                                       ; preds = %2
   %5 = load i32, ptr %1, align 8, !tbaa !11
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x i64], ptr @Truth, i64 0, i64 %6
+  %7 = getelementptr inbounds i64, ptr @Truth, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !42
   br label %common.ret21
 

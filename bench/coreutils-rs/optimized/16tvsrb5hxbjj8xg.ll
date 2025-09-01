@@ -1234,41 +1234,47 @@ define noundef zeroext i1 @"_ZN65_$LT$uu_ls..dired..BytePosition$u20$as$u20$core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #8 {
+define hidden noundef i64 @_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #8 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %8, label %3
+  %3 = getelementptr { i64, i64 }, ptr %0, i64 %1
+  %4 = getelementptr i8, ptr %3, i64 -16
+  %.not45 = icmp eq ptr %4, null
+  %.not4 = or i1 %.not, %.not45
+  br i1 %.not4, label %9, label %5
 
-3:                                                ; preds = %2
-  %4 = add i64 %1, -1
-  %5 = getelementptr inbounds [0 x { i64, i64 }], ptr %0, i64 0, i64 %4, i32 1
-  %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = add i64 %6, 1
-  br label %8
+5:                                                ; preds = %2
+  %6 = getelementptr i8, ptr %3, i64 -8
+  %7 = load i64, ptr %6, align 8, !noundef !5
+  %8 = add i64 %7, 1
+  br label %9
 
-8:                                                ; preds = %2, %3
-  %.0 = phi i64 [ %7, %3 ], [ 0, %2 ]
+9:                                                ; preds = %2, %5
+  %.0 = phi i64 [ %8, %5 ], [ 0, %2 ]
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i64, i64 } @_ZN5uu_ls5dired15calculate_dired17hc9480b5088dc1704E(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
+define hidden { i64, i64 } @_ZN5uu_ls5dired15calculate_dired17hc9480b5088dc1704E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %5
+  %5 = getelementptr { i64, i64 }, ptr %0, i64 %1
+  %6 = getelementptr i8, ptr %5, i64 -16
+  %.not45.i = icmp eq ptr %6, null
+  %.not4.i = or i1 %.not.i, %.not45.i
+  br i1 %.not4.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %7
 
-5:                                                ; preds = %4
-  %6 = add i64 %1, -1
-  %7 = getelementptr inbounds [0 x { i64, i64 }], ptr %0, i64 0, i64 %6, i32 1
-  %8 = load i64, ptr %7, align 8, !alias.scope !234, !noundef !5
-  %9 = add i64 %8, 1
+7:                                                ; preds = %4
+  %8 = getelementptr i8, ptr %5, i64 -8
+  %9 = load i64, ptr %8, align 8, !alias.scope !234, !noundef !5
+  %10 = add i64 %9, 1
   br label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
 
-_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %4, %5
-  %.0.i = phi i64 [ %9, %5 ], [ 0, %4 ]
-  %10 = add i64 %.0.i, %2
-  %11 = add i64 %10, %3
-  %12 = insertvalue { i64, i64 } poison, i64 %10, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %11, 1
-  ret { i64, i64 } %13
+_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %4, %7
+  %.0.i = phi i64 [ %10, %7 ], [ 0, %4 ]
+  %11 = add i64 %.0.i, %2
+  %12 = add i64 %11, %3
+  %13 = insertvalue { i64, i64 } poison, i64 %11, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %12, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1356,49 +1362,52 @@ _ZN3std2io5Write9write_fmt17hefbd6275f8b00a75E.exit.thread: ; preds = %18, %"_ZN
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5uu_ls5dired18calculate_subdired17hed16c64084f7e9d0E(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !noundef !5
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !5
+  %.not.i = icmp eq i64 %6, 0
+  %7 = getelementptr { i64, i64 }, ptr %4, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.not45.i = icmp eq ptr %8, null
+  %.not4.i = or i1 %.not.i, %.not45.i
+  br i1 %.not4.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %9
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %8 = add i64 %4, -1
-  %9 = getelementptr inbounds [0 x { i64, i64 }], ptr %7, i64 0, i64 %8, i32 1
-  %10 = load i64, ptr %9, align 8, !alias.scope !255, !noundef !5
-  %11 = add i64 %10, 3
+9:                                                ; preds = %2
+  %10 = getelementptr i8, ptr %7, i64 -8
+  %11 = load i64, ptr %10, align 8, !alias.scope !255, !noundef !5
+  %12 = add i64 %11, 3
   br label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
 
-_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %2, %5
-  %.0.i = phi i64 [ %11, %5 ], [ 2, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !alias.scope !258, !noundef !5
-  %16 = icmp eq i64 %13, %15
-  br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.llvm.10078391086421553218.exit"
+_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %2, %9
+  %.0.i = phi i64 [ %12, %9 ], [ 2, %2 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load i64, ptr %13, align 8, !noundef !5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i64, ptr %15, align 8, !alias.scope !258, !noundef !5
+  %17 = icmp eq i64 %14, %16
+  br i1 %17, label %18, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.llvm.10078391086421553218.exit"
 
-17:                                               ; preds = %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf9511fa2c9cf56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %13)
-  %.pre.i = load i64, ptr %12, align 8, !alias.scope !258
+18:                                               ; preds = %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf9511fa2c9cf56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %14)
+  %.pre.i = load i64, ptr %13, align 8, !alias.scope !258
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.llvm.10078391086421553218.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.llvm.10078391086421553218.exit": ; preds = %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, %17
-  %18 = phi i64 [ %.pre.i, %17 ], [ %13, %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit ]
-  %19 = icmp eq i64 %13, 0
-  %. = select i1 %19, i64 0, i64 2
-  %20 = add i64 %., %.0.i
-  %21 = add i64 %20, %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !alias.scope !258, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { i64, i64 }, ptr %23, i64 %18
-  store i64 %20, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.llvm.10078391086421553218.exit": ; preds = %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, %18
+  %19 = phi i64 [ %.pre.i, %18 ], [ %14, %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit ]
+  %20 = icmp eq i64 %14, 0
+  %. = select i1 %20, i64 0, i64 2
+  %21 = add i64 %., %.0.i
+  %22 = add i64 %21, %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8, !alias.scope !258, !nonnull !5, !noundef !5
+  %25 = getelementptr inbounds { i64, i64 }, ptr %24, i64 %19
   store i64 %21, ptr %25, align 8
-  %26 = load i64, ptr %12, align 8, !alias.scope !258, !noundef !5
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %12, align 8, !alias.scope !258
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %22, ptr %26, align 8
+  %27 = load i64, ptr %13, align 8, !alias.scope !258, !noundef !5
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %13, align 8, !alias.scope !258
   ret void
 }
 
@@ -1721,25 +1730,28 @@ define hidden void @_ZN5uu_ls5dired9add_total17hca5aad377567ee2fE(ptr noalias no
   br i1 %5, label %6, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !noundef !5
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8, !noundef !5
+  %.not.i = icmp eq i64 %10, 0
+  %11 = getelementptr { i64, i64 }, ptr %8, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
+  %.not45.i = icmp eq ptr %12, null
+  %.not4.i = or i1 %.not.i, %.not45.i
+  br i1 %.not4.i, label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit, label %13
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = add i64 %8, -1
-  %13 = getelementptr inbounds [0 x { i64, i64 }], ptr %11, i64 0, i64 %12, i32 1
-  %14 = load i64, ptr %13, align 8, !alias.scope !316, !noundef !5
-  %15 = add i64 %14, 1
+13:                                               ; preds = %6
+  %14 = getelementptr i8, ptr %11, i64 -8
+  %15 = load i64, ptr %14, align 8, !alias.scope !316, !noundef !5
+  %16 = add i64 %15, 1
   br label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
 
-_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %2, %9, %6
-  %.sink4 = phi i64 [ %15, %9 ], [ 0, %6 ], [ %4, %2 ]
-  %16 = add i64 %1, 2
-  %17 = add i64 %16, %.sink4
-  store i64 %17, ptr %3, align 8
+_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %2, %13, %6
+  %.sink3 = phi i64 [ %16, %13 ], [ 0, %6 ], [ %4, %2 ]
+  %17 = add i64 %1, 2
+  %18 = add i64 %17, %.sink3
+  store i64 %18, ptr %3, align 8
   ret void
 }
 
@@ -1759,45 +1771,48 @@ define hidden void @_ZN5uu_ls5dired30calculate_and_update_positions17h5399937366
   %5 = load i64, ptr %4, align 8, !noundef !5
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit", label %7
+  %7 = load ptr, ptr %6, align 8, !nonnull !5
+  %8 = getelementptr { i64, i64 }, ptr %7, i64 %5
+  %9 = getelementptr i8, ptr %8, i64 -16
+  %10 = icmp eq ptr %9, null
+  %11 = select i1 %.not, i1 true, i1 %10
+  br i1 %11, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit", label %12
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr %6, align 8, !nonnull !5
-  %9 = add i64 %5, -1
-  %10 = getelementptr inbounds [0 x { i64, i64 }], ptr %8, i64 0, i64 %9
-  %11 = load i64, ptr %10, align 8, !alias.scope !319, !noundef !5
-  %12 = add i64 %11, 2
+12:                                               ; preds = %3
+  %13 = load i64, ptr %9, align 8, !alias.scope !319, !noundef !5
+  %14 = add i64 %13, 2
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit": ; preds = %3, %7
-  %.0.i = phi i64 [ %12, %7 ], [ 2, %3 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load i64, ptr %13, align 8, !alias.scope !324, !noundef !5
-  %15 = load i64, ptr %0, align 8, !alias.scope !327, !noundef !5
-  %16 = icmp eq i64 %5, %15
-  br i1 %16, label %17, label %_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit
+"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit": ; preds = %3, %12
+  %.0.i = phi i64 [ %14, %12 ], [ 2, %3 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = load i64, ptr %15, align 8, !alias.scope !324, !noundef !5
+  %17 = load i64, ptr %0, align 8, !alias.scope !327, !noundef !5
+  %18 = icmp eq i64 %5, %17
+  br i1 %18, label %19, label %_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit
 
-17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit"
+19:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf9511fa2c9cf56acE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %5)
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !327
+  %.pre = load ptr, ptr %6, align 8, !alias.scope !327
   br label %_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit
 
-_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit", %17
-  %18 = phi i64 [ %.pre.i.i, %17 ], [ %5, %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit" ]
-  %19 = add i64 %1, 2
-  %20 = add i64 %19, %.0.i
-  %21 = add i64 %20, %2
-  %22 = add i64 %21, %14
-  %23 = add i64 %14, %20
-  %24 = load ptr, ptr %6, align 8, !alias.scope !327, !nonnull !5, !noundef !5
-  %25 = getelementptr inbounds { i64, i64 }, ptr %24, i64 %18
-  store i64 %23, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %22, ptr %26, align 8
-  %27 = load i64, ptr %4, align 8, !alias.scope !327, !noundef !5
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %4, align 8, !alias.scope !327
-  store i64 0, ptr %13, align 8, !alias.scope !324
+_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit: ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit", %19
+  %20 = phi ptr [ %.pre, %19 ], [ %7, %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit" ]
+  %21 = phi i64 [ %.pre.i.i, %19 ], [ %5, %"_ZN4core6option15Option$LT$T$GT$6map_or17h981d29be63e833e3E.llvm.10078391086421553218.exit" ]
+  %22 = add i64 %1, 2
+  %23 = add i64 %22, %.0.i
+  %24 = add i64 %23, %2
+  %25 = add i64 %24, %16
+  %26 = add i64 %16, %23
+  %27 = getelementptr inbounds { i64, i64 }, ptr %20, i64 %21
+  store i64 %26, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 %25, ptr %28, align 8
+  %29 = load i64, ptr %4, align 8, !alias.scope !327, !noundef !5
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %4, align 8, !alias.scope !327
+  store i64 0, ptr %15, align 8, !alias.scope !324
   ret void
 }
 

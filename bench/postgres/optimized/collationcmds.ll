@@ -1118,8 +1118,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = add i64 %31, -1
-  %35 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %34
+  %34 = getelementptr i8, ptr %4, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 -1
   %36 = load i8, ptr %35, align 1
   %.not75 = icmp eq i8 %36, 10
   br i1 %.not75, label %41, label %37
@@ -1394,7 +1394,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
 
 .lr.ph.i:                                         ; preds = %138, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %138 ]
-  %139 = getelementptr inbounds nuw [128 x i16], ptr %3, i64 0, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %140 = load i16, ptr %139, align 2
   %141 = icmp ugt i16 %140, 127
   br i1 %141, label %get_icu_locale_comment.exit.thread, label %138
@@ -1407,7 +1407,7 @@ create_collation_from_locale.exit.thread:         ; preds = %60, %56, %58, %50, 
 
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i, %._crit_edge.i
   %indvars.iv23.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
-  %145 = getelementptr inbounds nuw [128 x i16], ptr %3, i64 0, i64 %indvars.iv23.i
+  %145 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv23.i
   %146 = load i16, ptr %145, align 2
   %147 = trunc i16 %146 to i8
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 %indvars.iv23.i

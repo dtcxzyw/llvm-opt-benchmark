@@ -203,7 +203,7 @@ define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
-  %8 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = load i8, ptr %8, align 1, !alias.scope !44, !noundef !4
   %10 = icmp eq i8 %9, %2
   %spec.select.i = select i1 %10, i64 %7, i64 %1

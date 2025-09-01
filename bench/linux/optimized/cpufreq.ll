@@ -360,7 +360,7 @@ define dso_local i64 @get_cpu_idle_time(i32 noundef %0, ptr noundef %1, i32 noun
   %9 = load volatile i64, ptr @jiffies, align 64
   %10 = tail call i64 @jiffies64_to_nsecs(i64 noundef %9) #21
   %11 = sext i32 %0 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @kernel_cpustat to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -430,7 +430,7 @@ define dso_local void @cpufreq_generic_init(ptr noundef writeonly captures(none)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @cpufreq_cpu_get_raw(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -454,7 +454,7 @@ define dso_local ptr @cpufreq_cpu_get_raw(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @cpufreq_generic_get(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -507,7 +507,7 @@ define dso_local ptr @cpufreq_cpu_get(i32 noundef %0) #0 align 16 {
 
 9:                                                ; preds = %5
   %10 = zext i32 %0 to i64
-  %11 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %10
+  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %14 = inttoptr i64 %13 to ptr
@@ -601,7 +601,7 @@ define dso_local ptr @cpufreq_cpu_acquire(i32 noundef %0) local_unnamed_addr #0 
 
 8:                                                ; preds = %4
   %9 = zext i32 %0 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -2020,7 +2020,7 @@ define dso_local i32 @cpufreq_quick_get(i32 noundef %0) #0 align 16 {
 
 22:                                               ; preds = %18
   %23 = zext i32 %0 to i64
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -2073,7 +2073,7 @@ define dso_local i32 @cpufreq_quick_get_max(i32 noundef %0) #0 align 16 {
 
 8:                                                ; preds = %4
   %9 = zext i32 %0 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -2126,7 +2126,7 @@ define weak dso_local i32 @cpufreq_get_hw_max_freq(i32 noundef %0) #0 align 16 {
 
 8:                                                ; preds = %4
   %9 = zext i32 %0 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -2179,7 +2179,7 @@ define dso_local i32 @cpufreq_get(i32 noundef %0) #0 align 16 {
 
 8:                                                ; preds = %4
   %9 = zext i32 %0 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -3234,7 +3234,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef w
 
 11:                                               ; preds = %7
   %12 = zext i32 %1 to i64
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -3722,7 +3722,7 @@ define internal noundef i32 @cpuhp_cpufreq_online(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @cpuhp_cpufreq_offline(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4037,7 +4037,7 @@ define internal i32 @cpufreq_add_dev(ptr noundef %0, ptr readnone captures(none)
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %9, %2
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -4075,7 +4075,7 @@ define internal void @cpufreq_remove_dev(ptr noundef %0, ptr readnone captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -4133,7 +4133,7 @@ define internal void @cpufreq_remove_dev(ptr noundef %0, ptr readnone captures(n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4397,9 +4397,9 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
 141:                                              ; preds = %.thread52, %123
   %142 = phi ptr [ %87, %.thread52 ], [ %7, %123 ]
   %143 = and i32 %0, 63
-  %144 = add nuw nsw i32 %143, 1
-  %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %145
+  %144 = zext nneg i32 %143 to i64
+  %145 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %144
+  %146 = getelementptr i8, ptr %145, i64 8
   %147 = lshr i32 %0, 6
   %148 = zext nneg i32 %147 to i64
   %149 = sub nsw i64 0, %148
@@ -4448,7 +4448,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
 
 178:                                              ; preds = %174
   %179 = and i64 %175, 63
-  %180 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %179
+  %180 = getelementptr i64, ptr @__per_cpu_offset, i64 %179
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %183 = inttoptr i64 %182 to ptr
@@ -4976,7 +4976,7 @@ define internal fastcc void @cpufreq_policy_free(ptr noundef nonnull %0) unnamed
 
 24:                                               ; preds = %20
   %25 = and i64 %21, 63
-  %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
+  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpufreq_cpu_data to i64)
   %29 = inttoptr i64 %28 to ptr

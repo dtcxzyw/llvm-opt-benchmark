@@ -13684,7 +13684,7 @@ define noundef double @_ZN6casadi17nlpsol_default_inEx(i64 noundef %0) local_unn
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 %switch.tableidx
   %switch.load = load double, ptr %switch.gep, align 8
   br label %3
 
@@ -13712,7 +13712,7 @@ define void @_ZN6casadi17nlpsol_default_inEv(ptr dead_on_unwind noalias writable
   br i1 %7, label %switch.lookup, label %_ZN6casadi17nlpsol_default_inEx.exit
 
 switch.lookup:                                    ; preds = %6
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 %switch.tableidx
   %switch.load = load double, ptr %switch.gep, align 8
   br label %_ZN6casadi17nlpsol_default_inEx.exit
 
@@ -59575,7 +59575,7 @@ define linkonce_odr hidden noundef double @_ZNK6casadi6Nlpsol14get_default_inEx(
   br i1 %3, label %switch.lookup, label %_ZN6casadi17nlpsol_default_inEx.exit
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZNK6casadi6Nlpsol14get_default_inEx, i64 %switch.tableidx
   %switch.load = load double, ptr %switch.gep, align 8
   br label %_ZN6casadi17nlpsol_default_inEx.exit
 

@@ -1608,7 +1608,7 @@ define noundef ptr @_ZN5arrow7compute6detail17DispatchExactImplEPKNS0_8FunctionE
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !112
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %28
   store ptr %25, ptr %29, align 8, !tbaa !107
   br label %30
 
@@ -1724,7 +1724,7 @@ _ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EED2Ev.exit13: ; preds = %46,
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 52
   %68 = load i32, ptr %67, align 4, !tbaa !112
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw ptr, ptr %5, i64 %69
   store ptr %66, ptr %70, align 8, !tbaa !126
   br label %71
 
@@ -1840,7 +1840,7 @@ _ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EED2Ev.exit32: ; preds = %87,
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 52
   %109 = load i32, ptr %108, align 4, !tbaa !112
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [6 x ptr], ptr %4, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr %4, i64 %110
   store ptr %107, ptr %111, align 8, !tbaa !133
   br label %112
 
@@ -1956,7 +1956,7 @@ _ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EED2Ev.exit51: ; pre
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 52
   %150 = load i32, ptr %149, align 4, !tbaa !112
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw [6 x ptr], ptr %3, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw ptr, ptr %3, i64 %151
   store ptr %148, ptr %152, align 8, !tbaa !140
   br label %153
 

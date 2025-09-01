@@ -48,20 +48,20 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %328, label %10
+  br i1 %9, label %325, label %10
 
 10:                                               ; preds = %2
   %11 = icmp samesign ugt i32 %8, 50000
   %12 = add i32 %6, -3
   %13 = icmp ult i32 %12, -2
   %or.cond3 = select i1 %11, i1 true, i1 %13
-  br i1 %or.cond3, label %328, label %14
+  br i1 %or.cond3, label %325, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = icmp slt i64 %16, 1
-  br i1 %17, label %328, label %18
+  br i1 %17, label %325, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -160,7 +160,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %75
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %76
   %77 = zext nneg i32 %.110.i to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !52
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %.1.i, %80
@@ -172,7 +172,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 85:                                               ; preds = %62
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %82) #7
-  br label %328
+  br label %325
 
 86:                                               ; preds = %62
   %87 = icmp eq i32 %6, 2
@@ -336,7 +336,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 168:                                              ; preds = %.preheader301, %181
   %indvars.iv330 = phi i64 [ 0, %.preheader301 ], [ %indvars.iv.next331, %181 ]
   %.0259308 = phi i32 [ 0, %.preheader301 ], [ %spec.select295, %181 ]
-  %169 = getelementptr inbounds nuw [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %indvars.iv330
+  %169 = getelementptr inbounds nuw i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv330
   %170 = load i16, ptr %169, align 2, !tbaa !55
   %171 = zext i16 %170 to i32
   %172 = mul nsw i32 %166, %171
@@ -345,7 +345,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %spec.select295 = tail call i32 @llvm.smin.i32(i32 %174, i32 %162)
   %175 = sub nsw i32 %spec.select295, %.0259308
   %176 = trunc i32 %175 to i16
-  %177 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 0, i64 %indvars.iv330
+  %177 = getelementptr inbounds nuw i16, ptr %151, i64 %indvars.iv330
   store i16 %176, ptr %177, align 2, !tbaa !55
   %.not294 = icmp slt i32 %174, %162
   br i1 %.not294, label %181, label %178
@@ -363,7 +363,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 .loopexit302:                                     ; preds = %181, %178
   %.1252 = phi i32 [ %180, %178 ], [ 25, %181 ]
   store i32 %.1252, ptr %152, align 8, !tbaa !59
-  %.phi.trans.insert = getelementptr inbounds nuw [5 x i32], ptr %152, i64 0, i64 %indvars.iv339
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
   %.pre352 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !59
   br label %226
 
@@ -389,13 +389,13 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 192:                                              ; preds = %190, %182
   %193 = shl nsw i32 %.pre, 2
-  %194 = getelementptr inbounds nuw [5 x [25 x i16]], ptr %151, i64 0, i64 %indvars.iv339
+  %194 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
   br label %208
 
 195:                                              ; preds = %190, %188, %186
   %exponent_band_44100.sink = phi ptr [ @exponent_band_44100, %186 ], [ @exponent_band_32000, %188 ], [ @exponent_band_22050, %190 ]
   %196 = sext i32 %184 to i64
-  %197 = getelementptr inbounds [3 x [25 x i8]], ptr %exponent_band_44100.sink, i64 0, i64 %196
+  %197 = getelementptr inbounds [25 x i8], ptr %exponent_band_44100.sink, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 1
   %199 = load i8, ptr %197, align 1, !tbaa !52
   %200 = zext i8 %199 to i32
@@ -403,7 +403,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %.not324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %195
-  %201 = getelementptr inbounds nuw [5 x [25 x i16]], ptr %151, i64 0, i64 %indvars.iv339
+  %201 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
   %wide.trip.count = zext i8 %199 to i64
   br label %202
 
@@ -412,14 +412,14 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv327
   %204 = load i8, ptr %203, align 1, !tbaa !52
   %205 = zext i8 %204 to i16
-  %206 = getelementptr inbounds nuw [25 x i16], ptr %201, i64 0, i64 %indvars.iv327
+  %206 = getelementptr inbounds nuw i16, ptr %201, i64 %indvars.iv327
   store i16 %205, ptr %206, align 2, !tbaa !55
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %202, %195
-  %207 = getelementptr inbounds nuw [5 x i32], ptr %152, i64 0, i64 %indvars.iv339
+  %207 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
   store i32 %200, ptr %207, align 4, !tbaa !59
   br label %226
 
@@ -427,7 +427,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %222 ], [ 0, %192 ]
   %.0250306 = phi i32 [ %.2, %222 ], [ 0, %192 ]
   %.1260304 = phi i32 [ %spec.select296, %222 ], [ 0, %192 ]
-  %209 = getelementptr inbounds nuw [25 x i16], ptr @ff_wma_critical_freqs, i64 0, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv
   %210 = load i16, ptr %209, align 2, !tbaa !55
   %211 = zext i16 %210 to i32
   %212 = mul i32 %162, %211
@@ -444,7 +444,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %218 = trunc i32 %217 to i16
   %219 = add nsw i32 %.0250306, 1
   %220 = sext i32 %.0250306 to i64
-  %221 = getelementptr inbounds [25 x i16], ptr %194, i64 0, i64 %220
+  %221 = getelementptr inbounds i16, ptr %194, i64 %220
   store i16 %218, ptr %221, align 2, !tbaa !55
   br label %222
 
@@ -457,7 +457,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %or.cond, label %208, label %224, !llvm.loop !61
 
 224:                                              ; preds = %222
-  %225 = getelementptr inbounds nuw [5 x i32], ptr %152, i64 0, i64 %indvars.iv339
+  %225 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
   store i32 %.2, ptr %225, align 4, !tbaa !59
   br label %226
 
@@ -468,7 +468,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %.neg = sdiv i32 %229, -100
   %230 = add i32 %.neg, %228
   %231 = ashr i32 %230, %161
-  %232 = getelementptr inbounds nuw [5 x i32], ptr %153, i64 0, i64 %indvars.iv339
+  %232 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv339
   store i32 %231, ptr %232, align 4, !tbaa !59
   %233 = shl nsw i32 %162, 1
   %234 = sitofp i32 %233 to float
@@ -479,14 +479,14 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %239 = fpext nsz float %238 to double
   %240 = fadd nsz double %239, 5.000000e-01
   %241 = fptosi double %240 to i32
-  %242 = getelementptr inbounds nuw [5 x i32], ptr %154, i64 0, i64 %indvars.iv339
+  %242 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv339
   store i32 %241, ptr %242, align 4, !tbaa !59
   %243 = icmp sgt i32 %227, 0
   br i1 %243, label %.lr.ph314, label %._crit_edge315
 
 .lr.ph314:                                        ; preds = %226
-  %244 = getelementptr inbounds nuw [5 x [25 x i16]], ptr %151, i64 0, i64 %indvars.iv339
-  %245 = getelementptr inbounds nuw [5 x [16 x i32]], ptr %155, i64 0, i64 %indvars.iv339
+  %244 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
+  %245 = getelementptr inbounds nuw [16 x i32], ptr %155, i64 %indvars.iv339
   %wide.trip.count337 = zext nneg i32 %227 to i64
   br label %246
 
@@ -494,7 +494,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %indvars.iv334 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next335, %259 ]
   %.3312 = phi i32 [ 0, %.lr.ph314 ], [ %.4, %259 ]
   %.2263310 = phi i32 [ 0, %.lr.ph314 ], [ %250, %259 ]
-  %247 = getelementptr inbounds nuw [25 x i16], ptr %244, i64 0, i64 %indvars.iv334
+  %247 = getelementptr inbounds nuw i16, ptr %244, i64 %indvars.iv334
   %248 = load i16, ptr %247, align 2, !tbaa !55
   %249 = zext i16 %248 to i32
   %250 = add nuw nsw i32 %.2263310, %249
@@ -509,7 +509,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %255 = sub nsw i32 %.0247, %spec.select297
   %256 = add nsw i32 %.3312, 1
   %257 = sext i32 %.3312 to i64
-  %258 = getelementptr inbounds [16 x i32], ptr %245, i64 0, i64 %257
+  %258 = getelementptr inbounds i32, ptr %245, i64 %257
   store i32 %255, ptr %258, align 4, !tbaa !59
   br label %259
 
@@ -521,7 +521,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 ._crit_edge315:                                   ; preds = %259, %226
   %.3.lcssa = phi i32 [ 0, %226 ], [ %.4, %259 ]
-  %260 = getelementptr inbounds nuw [5 x i32], ptr %156, i64 0, i64 %indvars.iv339
+  %260 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv339
   store i32 %.3.lcssa, ptr %260, align 4, !tbaa !59
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %261 = load i32, ptr %45, align 8, !tbaa !50
@@ -538,9 +538,9 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %268 = load i32, ptr %26, align 4, !tbaa !44
   %269 = sub nsw i32 %268, %266
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds [0 x ptr], ptr @ff_sine_windows, i64 0, i64 %270
+  %271 = getelementptr inbounds ptr, ptr @ff_sine_windows, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !64
-  %273 = getelementptr inbounds nuw [5 x ptr], ptr %158, i64 0, i64 %indvars.iv342
+  %273 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv342
   store ptr %272, ptr %273, align 8, !tbaa !64
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %274 = load i32, ptr %45, align 8, !tbaa !50
@@ -575,7 +575,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %289 = add i32 %288, 1
   %290 = sitofp i32 %289 to float
   %291 = fmul nsz float %285, %290
-  %292 = getelementptr inbounds nuw [8192 x float], ptr %286, i64 0, i64 %indvars.iv345
+  %292 = getelementptr inbounds nuw float, ptr %286, i64 %indvars.iv345
   store float %291, ptr %292, align 4, !tbaa !70
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next346, 8192
@@ -589,7 +589,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %297 = getelementptr inbounds nuw i8, ptr %4, i64 175544
   store ptr %296, ptr %297, align 8, !tbaa !73
   %.not291 = icmp eq ptr %296, null
-  br i1 %.not291, label %328, label %298
+  br i1 %.not291, label %325, label %298
 
 298:                                              ; preds = %.loopexit
   %299 = load i32, ptr %7, align 8, !tbaa !28
@@ -609,35 +609,32 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %307
 
 307:                                              ; preds = %301, %306, %304, %298
-  %.0267 = phi i32 [ 2, %306 ], [ 4, %304 ], [ 4, %298 ], [ 0, %301 ]
-  %308 = zext nneg i32 %.0267 to i64
-  %309 = getelementptr inbounds nuw [6 x %struct.CoefVLCTable], ptr @coef_vlcs, i64 0, i64 %308
-  %310 = getelementptr inbounds nuw i8, ptr %4, i64 1152
-  store ptr %309, ptr %310, align 16, !tbaa !74
-  %311 = or disjoint i32 %.0267, 1
-  %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw [6 x %struct.CoefVLCTable], ptr @coef_vlcs, i64 0, i64 %312
-  %314 = getelementptr inbounds nuw i8, ptr %4, i64 1160
-  store ptr %313, ptr %314, align 8, !tbaa !74
-  %315 = getelementptr inbounds nuw i8, ptr %4, i64 1056
-  %316 = getelementptr inbounds nuw i8, ptr %4, i64 1104
-  %317 = getelementptr inbounds nuw i8, ptr %4, i64 1120
-  %318 = getelementptr inbounds nuw i8, ptr %4, i64 1136
-  %319 = tail call fastcc i32 @init_coef_vlc(ptr noundef nonnull %315, ptr noundef nonnull %316, ptr noundef nonnull %317, ptr noundef nonnull %318, ptr noundef nonnull %309) #8
-  %320 = icmp slt i32 %319, 0
-  br i1 %320, label %328, label %321
+  %.0267 = phi i64 [ 2, %306 ], [ 4, %304 ], [ 4, %298 ], [ 0, %301 ]
+  %308 = getelementptr inbounds nuw %struct.CoefVLCTable, ptr @coef_vlcs, i64 %.0267
+  %309 = getelementptr inbounds nuw i8, ptr %4, i64 1152
+  store ptr %308, ptr %309, align 16, !tbaa !74
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %4, i64 1160
+  store ptr %310, ptr %311, align 8, !tbaa !74
+  %312 = getelementptr inbounds nuw i8, ptr %4, i64 1056
+  %313 = getelementptr inbounds nuw i8, ptr %4, i64 1104
+  %314 = getelementptr inbounds nuw i8, ptr %4, i64 1120
+  %315 = getelementptr inbounds nuw i8, ptr %4, i64 1136
+  %316 = tail call fastcc i32 @init_coef_vlc(ptr noundef nonnull %312, ptr noundef nonnull %313, ptr noundef nonnull %314, ptr noundef nonnull %315, ptr noundef nonnull %308) #8
+  %317 = icmp slt i32 %316, 0
+  br i1 %317, label %325, label %318
 
-321:                                              ; preds = %307
-  %322 = getelementptr inbounds nuw i8, ptr %4, i64 1080
-  %323 = getelementptr inbounds nuw i8, ptr %4, i64 1112
-  %324 = getelementptr inbounds nuw i8, ptr %4, i64 1128
-  %325 = getelementptr inbounds nuw i8, ptr %4, i64 1144
-  %326 = load ptr, ptr %314, align 8, !tbaa !74
-  %327 = tail call fastcc i32 @init_coef_vlc(ptr noundef nonnull %322, ptr noundef nonnull %323, ptr noundef nonnull %324, ptr noundef nonnull %325, ptr noundef %326) #8
-  br label %328
+318:                                              ; preds = %307
+  %319 = getelementptr inbounds nuw i8, ptr %4, i64 1080
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 1112
+  %321 = getelementptr inbounds nuw i8, ptr %4, i64 1128
+  %322 = getelementptr inbounds nuw i8, ptr %4, i64 1144
+  %323 = load ptr, ptr %311, align 8, !tbaa !74
+  %324 = tail call fastcc i32 @init_coef_vlc(ptr noundef nonnull %319, ptr noundef nonnull %320, ptr noundef nonnull %321, ptr noundef nonnull %322, ptr noundef %323) #8
+  br label %325
 
-328:                                              ; preds = %307, %.loopexit, %2, %10, %14, %321, %85
-  %.0 = phi i32 [ -1163346256, %85 ], [ %327, %321 ], [ -1, %14 ], [ -1, %10 ], [ -1, %2 ], [ -12, %.loopexit ], [ %319, %307 ]
+325:                                              ; preds = %307, %.loopexit, %2, %10, %14, %318, %85
+  %.0 = phi i32 [ -1163346256, %85 ], [ %324, %318 ], [ -1, %14 ], [ -1, %10 ], [ -1, %2 ], [ -12, %.loopexit ], [ %316, %307 ]
   ret i32 %.0
 }
 
@@ -787,7 +784,7 @@ define noundef i32 @ff_wma_end(ptr noundef readonly captures(none) %0) local_unn
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [5 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   tail call void @av_tx_uninit(ptr noundef nonnull %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 8, !tbaa !50

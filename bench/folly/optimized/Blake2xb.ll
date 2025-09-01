@@ -269,7 +269,7 @@ define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParams
   %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !29
   %14 = xor i64 %13, %11
-  %15 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

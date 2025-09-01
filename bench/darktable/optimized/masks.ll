@@ -1558,13 +1558,13 @@ _get_pixbuf_from_cairo.exit227:                   ; preds = %._crit_edge.us.i.i2
 
 442:                                              ; preds = %_get_pixbuf_from_cairo.exit227, %457
   %indvars.iv = phi i64 [ 0, %_get_pixbuf_from_cairo.exit227 ], [ %indvars.iv.next, %457 ]
-  %443 = getelementptr inbounds nuw [7 x %struct.anon], ptr @_masks_properties, i64 0, i64 %indvars.iv
+  %443 = getelementptr inbounds nuw %struct.anon, ptr @_masks_properties, i64 %indvars.iv
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 16
   %445 = load float, ptr %444, align 16, !tbaa !154
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 20
   %447 = load float, ptr %446, align 4, !tbaa !156
   %448 = call ptr @dt_bauhaus_slider_new_action(ptr noundef %0, float noundef %445, float noundef %447, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 2) #12
-  %449 = getelementptr inbounds nuw [7 x ptr], ptr %419, i64 0, i64 %indvars.iv
+  %449 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv
   store ptr %448, ptr %449, align 8, !tbaa !157
   %450 = load ptr, ptr %443, align 16, !tbaa !158
   %451 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %448, ptr noundef nonnull @.str.30, ptr noundef %450) #12
@@ -1583,7 +1583,7 @@ _get_pixbuf_from_cairo.exit227:                   ; preds = %._crit_edge.us.i.i2
 
 457:                                              ; preds = %456, %442
   %458 = call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %448) #12
-  %459 = getelementptr inbounds nuw [7 x float], ptr %420, i64 0, i64 %indvars.iv
+  %459 = getelementptr inbounds nuw float, ptr %420, i64 %indvars.iv
   store float %458, ptr %459, align 4, !tbaa !161
   %460 = load ptr, ptr %409, align 8, !tbaa !120
   %461 = call ptr @g_type_check_instance_cast(ptr noundef %460, i64 noundef %376) #12
@@ -2133,7 +2133,7 @@ define internal void @_tree_selection_change(ptr noundef %0, ptr noundef readonl
 
 114:                                              ; preds = %114, %100
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %114 ]
-  %115 = getelementptr inbounds nuw [7 x ptr], ptr %107, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i
   %116 = load ptr, ptr %115, align 8, !tbaa !157
   %117 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_property_changed(ptr noundef %116, i32 noundef %117)
@@ -2876,7 +2876,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   store float 0.000000e+00, ptr %4, align 4, !tbaa !161
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw [7 x %struct.anon], ptr @_masks_properties, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %struct.anon, ptr @_masks_properties, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load float, ptr %27, align 16, !tbaa !154
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2906,7 +2906,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
   %42 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.63) #12
   %43 = fadd reassoc nsz arcp contract afn float %42, %20
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %45 = getelementptr inbounds nuw [7 x float], ptr %44, i64 0, i64 %25
+  %45 = getelementptr inbounds nuw float, ptr %44, i64 %25
   %46 = load float, ptr %45, align 4, !tbaa !161
   %47 = fsub reassoc nsz arcp contract afn float %43, %46
   %48 = fcmp reassoc nsz arcp contract afn ogt float %47, 1.000000e+00
@@ -2947,7 +2947,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %66 = getelementptr inbounds nuw [7 x float], ptr %65, i64 0, i64 %25
+  %66 = getelementptr inbounds nuw float, ptr %65, i64 %25
   %67 = load float, ptr %66, align 4, !tbaa !161
   call void %63(ptr noundef nonnull %13, i32 noundef %1, float noundef %67, float noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 168
@@ -2974,7 +2974,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
 .lr.ph:                                           ; preds = %76
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 2800
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %79 = getelementptr inbounds nuw [7 x float], ptr %78, i64 0, i64 %25
+  %79 = getelementptr inbounds nuw float, ptr %78, i64 %25
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 88
   br label %81
 
@@ -3076,7 +3076,7 @@ define internal void @_property_changed(ptr noundef %0, i32 noundef %1) #1 {
 
 131:                                              ; preds = %.loopexit
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  %133 = getelementptr inbounds nuw [7 x float], ptr %132, i64 0, i64 %25
+  %133 = getelementptr inbounds nuw float, ptr %132, i64 %25
   %134 = load float, ptr %133, align 4, !tbaa !161
   %135 = fcmp reassoc nsz arcp contract afn une float %20, %134
   br i1 %135, label %136, label %155
@@ -3218,7 +3218,7 @@ define internal void @_lib_masks_recreate_list(ptr noundef %0) #1 {
 
 17:                                               ; preds = %17, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !157
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @_property_changed(ptr noundef %19, i32 noundef %20)
@@ -3415,7 +3415,7 @@ define internal void @_lib_masks_selection_change(ptr noundef readonly captures(
 
 43:                                               ; preds = %43, %29
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr inbounds nuw [7 x ptr], ptr %36, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !157
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_property_changed(ptr noundef %45, i32 noundef %46)

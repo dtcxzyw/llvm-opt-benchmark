@@ -175,7 +175,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
   br label %27
 
 27:                                               ; preds = %.preheader, %36
-  %28 = phi i64 [ %44, %36 ], [ 0, %.preheader ]
+  %28 = phi i64 [ %39, %36 ], [ 0, %.preheader ]
   %29 = load i16, ptr %2, align 2
   %30 = lshr exact i64 %28, 1
   %31 = trunc nuw nsw i64 %30 to i16
@@ -187,36 +187,30 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
 
 36:                                               ; preds = %27
   %37 = load i16, ptr %3, align 2
-  %38 = trunc i16 %37 to i8
-  %39 = getelementptr [6 x i8], ptr %4, i64 0, i64 %28
-  store i8 %38, ptr %39, align 1
-  %40 = lshr i16 %37, 8
-  %41 = trunc nuw i16 %40 to i8
-  %42 = or disjoint i64 %28, 1
-  %43 = getelementptr [6 x i8], ptr %4, i64 0, i64 %42
-  store i8 %41, ptr %43, align 1
-  %44 = add nuw nsw i64 %28, 2
-  %45 = icmp samesign ult i64 %28, 4
-  br i1 %45, label %27, label %46, !llvm.loop !11
+  %38 = getelementptr i8, ptr %4, i64 %28
+  store i16 %37, ptr %38, align 1
+  %39 = add nuw nsw i64 %28, 2
+  %40 = icmp samesign ult i64 %28, 4
+  br i1 %40, label %27, label %41, !llvm.loop !11
 
-46:                                               ; preds = %36
-  %47 = load i32, ptr %4, align 4
-  %48 = and i32 %47, 1
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.loopexit
+41:                                               ; preds = %36
+  %42 = load i32, ptr %4, align 4
+  %43 = and i32 %42, 1
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %.loopexit
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 %52(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #6
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 %47(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %50, %46, %17, %13, %9, %1
-  %54 = phi i32 [ 0, %50 ], [ %7, %1 ], [ 0, %9 ], [ %15, %13 ], [ 0, %17 ], [ 0, %46 ], [ %34, %27 ]
+.loopexit:                                        ; preds = %27, %45, %41, %17, %13, %9, %1
+  %49 = phi i32 [ 0, %45 ], [ %7, %1 ], [ 0, %9 ], [ %15, %13 ], [ 0, %17 ], [ 0, %41 ], [ %34, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %54
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -344,7 +338,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %44 = and i32 %40, 31
   %45 = shl nuw i32 1, %44
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr [128 x i32], ptr %4, i64 0, i64 %46
+  %47 = getelementptr i32, ptr %4, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %45, %48
   store i32 %49, ptr %47, align 4
@@ -366,7 +360,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef initialize
   %58 = add nsw i64 %57, -1
   %59 = shl nuw nsw i64 %58, 2
   %60 = add nuw nsw i64 %59, 20992
-  %61 = getelementptr [128 x i32], ptr %4, i64 0, i64 %58
+  %61 = getelementptr i32, ptr %4, i64 %58
   %62 = load i32, ptr %61, align 4
   tail call void @__ew32(ptr noundef %0, i64 noundef %60, i32 noundef %62) #6
   %63 = icmp samesign ugt i64 %57, 1

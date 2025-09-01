@@ -3776,7 +3776,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_5Tab
 .thread375:                                       ; preds = %_ZNK10reflection4Type7elementEv.exit, %_ZNK10reflection5Field4typeEv.exit224, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i225
   %.ph374 = phi i64 [ 0, %_ZNK10reflection5Field4typeEv.exit224 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i225 ], [ %277, %_ZNK10reflection4Type7elementEv.exit ]
   %423 = and i64 %.ph374, 4294967295
-  %424 = getelementptr inbounds nuw [20 x i64], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw i64, ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %423
   %425 = load i64, ptr %424, align 8, !tbaa !11
   br label %_ZNK10reflection6Object9is_structEv.exit265.thread
 
@@ -4465,7 +4465,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i: ; preds = %_ZN11
 _ZNK10reflection4Type9base_typeEv.exit295.thread: ; preds = %_ZNK10reflection5Field4typeEv.exit292, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293, %_ZNK10reflection4Type9base_typeEv.exit295
   %747 = phi i64 [ %630, %_ZNK10reflection4Type9base_typeEv.exit295 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293 ], [ 0, %_ZNK10reflection5Field4typeEv.exit292 ]
   %748 = and i64 %747, 4294967295
-  %749 = getelementptr inbounds nuw [20 x i64], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw i64, ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %748
   %750 = load i64, ptr %749, align 8, !tbaa !11
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %585, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %750, i64 noundef %750)
           to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %751

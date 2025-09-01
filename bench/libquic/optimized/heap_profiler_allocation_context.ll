@@ -241,9 +241,9 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw [48 x %"struct.base::trace_event::StackFrame"], ptr %1, i64 0, i64 %.08, i32 1
+  %10 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08, i32 1
   %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw [48 x ptr], ptr %3, i64 0, i64 %.08
+  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08
   store ptr %11, ptr %12, align 8, !tbaa !20
   %13 = add nuw i64 %.08, 1
   %.not = icmp eq i64 %13, %5
@@ -263,9 +263,9 @@ define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEE
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.08.i = phi i64 [ %9, %.lr.ph.i ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [48 x %"struct.base::trace_event::StackFrame"], ptr %1, i64 0, i64 %.08.i, i32 1
+  %6 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %1, i64 %.08.i, i32 1
   %7 = load ptr, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw [48 x ptr], ptr %3, i64 0, i64 %.08.i
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.08.i
   store ptr %7, ptr %8, align 8, !tbaa !20
   %9 = add nuw i64 %.08.i, 1
   %.not.i = icmp eq i64 %9, %5

@@ -47,7 +47,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   br i1 %14, label %15, label %22, !prof !10
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 %13
   %17 = load ptr, ptr %16, align 8, !noalias !7, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !7, !noundef !4

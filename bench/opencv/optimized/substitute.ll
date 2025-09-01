@@ -122,7 +122,7 @@ define hidden void @_ZN6google8protobuf7strings19SubstituteAndAppendEPNSt7__cxx1
   %45 = zext nneg i8 %41 to i32
   %46 = add nsw i32 %45, -48
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [11 x ptr], ptr %15, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %15, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !16
@@ -600,7 +600,7 @@ _ZN6google8protobuf15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traits
 214:                                              ; preds = %207
   %215 = and i8 %211, 15
   %216 = zext nneg i8 %215 to i64
-  %217 = getelementptr inbounds nuw [11 x ptr], ptr %15, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw ptr, ptr %15, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !14
   %219 = load ptr, ptr %218, align 8, !tbaa !23
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8

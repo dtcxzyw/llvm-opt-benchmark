@@ -250,7 +250,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 92:                                               ; preds = %89
   %93 = zext nneg i16 %90 to i64
-  %94 = getelementptr inbounds nuw [108 x %struct.u_printf_info], ptr @_ZL16g_u_printf_infos, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %struct.u_printf_info, ptr @_ZL16g_u_printf_infos, i64 %93
   %95 = load i32, ptr %94, align 16, !tbaa !22
   br label %96
 
@@ -971,7 +971,7 @@ thread-pre-split337:                              ; preds = %.loopexit342, %324,
 
 399:                                              ; preds = %396
   %400 = zext nneg i16 %397 to i64
-  %401 = getelementptr inbounds nuw [108 x %struct.u_printf_info], ptr @_ZL16g_u_printf_infos, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw %struct.u_printf_info, ptr @_ZL16g_u_printf_infos, i64 %400
   %402 = load i32, ptr %401, align 16, !tbaa !22
   %403 = load i32, ptr %185, align 4, !tbaa !41
   %404 = icmp sgt i32 %403, 0

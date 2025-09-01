@@ -1106,7 +1106,7 @@ VULKAN_DestroyImage.exit.i:                       ; preds = %179, %176, %173
   br i1 %.not.i76.i, label %204, label %200
 
 200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %195, i64 0, i64 %indvars.iv.i.i
+  %201 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %195, i64 %indvars.iv.i.i
   %202 = load i32, ptr %201, align 4
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %.loopexit.i.i, label %204
@@ -2564,7 +2564,7 @@ VULKAN_GetRotationForCurrentRenderTarget.exit:    ; preds = %4, %19
 54:                                               ; preds = %50, %46
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 1880
   %56 = sext i32 %44 to i64
-  %57 = getelementptr inbounds [256 x %struct.VULKAN_Buffer], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds %struct.VULKAN_Buffer, ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %3, %59
@@ -3039,12 +3039,12 @@ VULKAN_SetupShaderConstants.exit.i:               ; preds = %311, %303
   %320 = zext i1 %319 to i64
   %321 = icmp eq i32 %316, 2
   %322 = select i1 %321, i64 2, i64 0
-  %323 = or disjoint i64 %322, %320
-  %324 = icmp eq i32 %318, 2
-  %325 = select i1 %324, i64 4, i64 0
-  %326 = or disjoint i64 %323, %325
-  %327 = getelementptr inbounds nuw i8, ptr %261, i64 10240
-  %328 = getelementptr inbounds nuw [8 x ptr], ptr %327, i64 0, i64 %326
+  %323 = icmp eq i32 %318, 2
+  %324 = select i1 %323, i64 4, i64 0
+  %325 = getelementptr inbounds nuw i8, ptr %261, i64 10240
+  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %322
+  %327 = getelementptr inbounds nuw ptr, ptr %326, i64 %320
+  %328 = getelementptr inbounds nuw ptr, ptr %327, i64 %324
   %329 = load ptr, ptr %328, align 8
   %.not.i42.i = icmp eq ptr %329, null
   br i1 %.not.i42.i, label %330, label %VULKAN_GetSampler.exit.thread2.i
@@ -4178,7 +4178,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %74, %76
 90:                                               ; preds = %86, %97
   %91 = phi i1 [ true, %86 ], [ false, %97 ]
   %indvars.iv = phi i64 [ 0, %86 ], [ 1, %97 ]
-  %92 = getelementptr inbounds nuw [2 x ptr], ptr %87, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %.not52 = icmp eq ptr %93, null
   br i1 %.not52, label %97, label %94
@@ -4996,7 +4996,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call void @VULKAN_GetVertexShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %340 = load ptr, ptr @vkCreateShaderModule, align 8
   %341 = load ptr, ptr %256, align 8
-  %342 = getelementptr inbounds nuw [3 x ptr], ptr %335, i64 0, i64 %indvars.iv221
+  %342 = getelementptr inbounds nuw ptr, ptr %335, i64 %indvars.iv221
   %343 = call i32 %340(ptr noundef %341, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %342) #7
   %.not193 = icmp eq i32 %343, 0
   br i1 %.not193, label %346, label %344
@@ -5010,7 +5010,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   call void @VULKAN_GetPixelShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
   %347 = load ptr, ptr @vkCreateShaderModule, align 8
   %348 = load ptr, ptr %256, align 8
-  %349 = getelementptr inbounds nuw [3 x ptr], ptr %336, i64 0, i64 %indvars.iv221
+  %349 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv221
   %350 = call i32 %347(ptr noundef %348, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %349) #7
   %.not194 = icmp eq i32 %350, 0
   br i1 %.not194, label %353, label %351
@@ -6256,7 +6256,7 @@ thread-pre-split:                                 ; preds = %299, %305
 521:                                              ; preds = %.preheader, %528
   %522 = phi i1 [ true, %.preheader ], [ false, %528 ]
   %indvars.iv212 = phi i64 [ 0, %.preheader ], [ 1, %528 ]
-  %523 = getelementptr inbounds nuw [2 x ptr], ptr %495, i64 0, i64 %indvars.iv212
+  %523 = getelementptr inbounds nuw ptr, ptr %495, i64 %indvars.iv212
   %524 = load ptr, ptr %523, align 8
   %.not512.i = icmp eq ptr %524, null
   br i1 %.not512.i, label %528, label %525
@@ -7306,7 +7306,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   br i1 %.not.i, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %30, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %30, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 7
   br i1 %38, label %.loopexit.i, label %39
@@ -7325,7 +7325,7 @@ define internal fastcc i32 @VULKAN_AllocateBuffer(ptr noundef readonly captures(
   br i1 %.not26.i, label %.critedge.i, label %43
 
 43:                                               ; preds = %.lr.ph33.i
-  %44 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %30, i64 0, i64 %indvars.iv41.i
+  %44 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %30, i64 %indvars.iv41.i
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 6
   %47 = icmp eq i32 %46, 6
@@ -7961,7 +7961,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   %98 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %99 = load ptr, ptr %98, align 8
   %.not154 = icmp eq ptr %99, %4
-  br i1 %.not154, label %266, label %100
+  br i1 %.not154, label %262, label %100
 
 100:                                              ; preds = %97, %94, %91, %88, %85, %83, %VULKAN_ActivateCommandBuffer.exit
   store ptr null, ptr %81, align 8
@@ -8060,226 +8060,224 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   store ptr %27, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store ptr %22, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.val163, i64 1816
-  %140 = zext i32 %2 to i64
-  %141 = getelementptr inbounds nuw [3 x ptr], ptr %139, i64 0, i64 %140
-  %142 = getelementptr inbounds nuw i8, ptr %.val163, i64 1840
-  %143 = getelementptr inbounds nuw [3 x ptr], ptr %142, i64 0, i64 %140
-  br label %208
+  %139 = zext i32 %2 to i64
+  %invariant.gep.i = getelementptr inbounds nuw ptr, ptr %.val163, i64 %139
+  br label %204
 
-144:                                              ; preds = %208
-  %145 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %146 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  store i32 2, ptr %146, align 4
-  store ptr %21, ptr %145, align 8
+140:                                              ; preds = %204
+  %141 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  store i32 2, ptr %142, align 4
+  store ptr %21, ptr %141, align 8
   store i32 19, ptr %17, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 3, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr %19, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  store i32 1, ptr %149, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %20, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 103, ptr %152, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i32 3, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store ptr %19, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  store i32 1, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %20, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 0, ptr %147, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i32 103, ptr %148, align 8
   store i32 0, ptr %19, align 16
-  %153 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 0, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %155 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i32 0, ptr %149, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  store i32 0, ptr %151, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i32 103, ptr %152, align 8
+  store i32 1, ptr %150, align 16
+  %153 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i32 8, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 0, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 103, ptr %156, align 8
-  store i32 1, ptr %154, align 16
-  %157 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 8, ptr %157, align 4
-  %158 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %159 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i32 0, ptr %159, align 4
-  %160 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 109, ptr %160, align 8
-  store i32 2, ptr %158, align 16
-  %161 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  store i32 16, ptr %161, align 4
+  %156 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i32 109, ptr %156, align 8
+  store i32 2, ptr %154, align 16
+  %157 = getelementptr inbounds nuw i8, ptr %19, i64 44
+  store i32 16, ptr %157, align 4
   store i32 0, ptr %20, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 0, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 32, ptr %163, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i32 0, ptr %158, align 4
+  %159 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 32, ptr %159, align 4
   store i32 20, ptr %18, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  store i32 %6, ptr %164, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 0, ptr %165, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  store i32 %6, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i32 0, ptr %161, align 8
   store i32 22, ptr %23, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 1, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 1, ptr %167, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i32 1, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 1, ptr %163, align 4
   store i32 27, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 4294967296, ptr %29, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %22, i64 20
-  store i32 2, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %29, ptr %169, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  store i32 2, ptr %164, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %29, ptr %165, align 8
   store i32 23, ptr %24, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %171 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %170, i8 0, i64 36, i1 false)
-  store float 1.000000e+00, ptr %171, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %167 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %166, i8 0, i64 36, i1 false)
+  store float 1.000000e+00, ptr %167, align 8
   store i32 24, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 -1, ptr %30, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %30, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  store i32 1, ptr %173, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store ptr %30, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  store i32 1, ptr %169, align 4
   store i32 25, ptr %26, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %174 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %174, i8 0, i64 28, i1 false)
+  %170 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %170, i8 0, i64 28, i1 false)
   store i32 26, ptr %27, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i32 1, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %31, ptr %176, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  store i32 1, ptr %171, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr %31, ptr %172, align 8
   store i32 1, ptr %31, align 4
-  %177 = call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %40) #7
-  %switch.tableidx = add i32 %177, -1
-  %178 = icmp ult i32 %switch.tableidx, 10
-  br i1 %178, label %switch.lookup, label %GetBlendFactor.exit.i
+  %173 = call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %40) #7
+  %switch.tableidx = add i32 %173, -1
+  %174 = icmp ult i32 %switch.tableidx, 10
+  br i1 %174, label %switch.lookup, label %GetBlendFactor.exit.i
 
-switch.lookup:                                    ; preds = %144
-  %179 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.VULKAN_SetDrawState.18, i64 0, i64 %179
+switch.lookup:                                    ; preds = %140
+  %175 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %175
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetBlendFactor.exit.i
 
-GetBlendFactor.exit.i:                            ; preds = %144, %switch.lookup
-  %.0.i.i166 = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %144 ]
-  store i32 %.0.i.i166, ptr %174, align 4
-  %180 = call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %40) #7
-  %switch.tableidx3 = add i32 %180, -1
-  %181 = icmp ult i32 %switch.tableidx3, 10
-  br i1 %181, label %switch.lookup2, label %GetBlendFactor.exit60.i
+GetBlendFactor.exit.i:                            ; preds = %140, %switch.lookup
+  %.0.i.i166 = phi i32 [ %switch.load, %switch.lookup ], [ 2147483647, %140 ]
+  store i32 %.0.i.i166, ptr %170, align 4
+  %176 = call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %40) #7
+  %switch.tableidx2 = add i32 %176, -1
+  %177 = icmp ult i32 %switch.tableidx2, 10
+  br i1 %177, label %switch.lookup3, label %GetBlendFactor.exit60.i
 
-switch.lookup2:                                   ; preds = %GetBlendFactor.exit.i
-  %182 = zext nneg i32 %switch.tableidx3 to i64
-  %switch.gep4 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.VULKAN_SetDrawState.18, i64 0, i64 %182
+switch.lookup3:                                   ; preds = %GetBlendFactor.exit.i
+  %178 = zext nneg i32 %switch.tableidx2 to i64
+  %switch.gep4 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %178
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %GetBlendFactor.exit60.i
 
-GetBlendFactor.exit60.i:                          ; preds = %GetBlendFactor.exit.i, %switch.lookup2
-  %.0.i59.i = phi i32 [ %switch.load5, %switch.lookup2 ], [ 2147483647, %GetBlendFactor.exit.i ]
-  %183 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %.0.i59.i, ptr %183, align 4
-  %184 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %40) #7
-  %switch.tableidx7 = add i32 %184, -1
-  %185 = icmp ult i32 %switch.tableidx7, 5
-  %switch.tableidx7. = select i1 %185, i32 %switch.tableidx7, i32 2147483647
-  %186 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %switch.tableidx7., ptr %186, align 4
-  %187 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %40) #7
-  %switch.tableidx17 = add i32 %187, -1
-  %188 = icmp ult i32 %switch.tableidx17, 10
-  br i1 %188, label %switch.lookup16, label %GetBlendFactor.exit63.i
+GetBlendFactor.exit60.i:                          ; preds = %GetBlendFactor.exit.i, %switch.lookup3
+  %.0.i59.i = phi i32 [ %switch.load5, %switch.lookup3 ], [ 2147483647, %GetBlendFactor.exit.i ]
+  %179 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i32 %.0.i59.i, ptr %179, align 4
+  %180 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %40) #7
+  %switch.tableidx6 = add i32 %180, -1
+  %181 = icmp ult i32 %switch.tableidx6, 5
+  %switch.tableidx6. = select i1 %181, i32 %switch.tableidx6, i32 2147483647
+  %182 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i32 %switch.tableidx6., ptr %182, align 4
+  %183 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %40) #7
+  %switch.tableidx16 = add i32 %183, -1
+  %184 = icmp ult i32 %switch.tableidx16, 10
+  br i1 %184, label %switch.lookup17, label %GetBlendFactor.exit63.i
 
-switch.lookup16:                                  ; preds = %GetBlendFactor.exit60.i
-  %189 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.VULKAN_SetDrawState.18, i64 0, i64 %189
+switch.lookup17:                                  ; preds = %GetBlendFactor.exit60.i
+  %185 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %185
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   br label %GetBlendFactor.exit63.i
 
-GetBlendFactor.exit63.i:                          ; preds = %GetBlendFactor.exit60.i, %switch.lookup16
-  %.0.i62.i = phi i32 [ %switch.load19, %switch.lookup16 ], [ 2147483647, %GetBlendFactor.exit60.i ]
-  %190 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %.0.i62.i, ptr %190, align 4
-  %191 = call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %40) #7
-  %switch.tableidx9 = add i32 %191, -1
-  %192 = icmp ult i32 %switch.tableidx9, 10
-  br i1 %192, label %switch.lookup8, label %GetBlendFactor.exit65.i
+GetBlendFactor.exit63.i:                          ; preds = %GetBlendFactor.exit60.i, %switch.lookup17
+  %.0.i62.i = phi i32 [ %switch.load19, %switch.lookup17 ], [ 2147483647, %GetBlendFactor.exit60.i ]
+  %186 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 %.0.i62.i, ptr %186, align 4
+  %187 = call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %40) #7
+  %switch.tableidx8 = add i32 %187, -1
+  %188 = icmp ult i32 %switch.tableidx8, 10
+  br i1 %188, label %switch.lookup9, label %GetBlendFactor.exit65.i
 
-switch.lookup8:                                   ; preds = %GetBlendFactor.exit63.i
-  %193 = zext nneg i32 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.VULKAN_SetDrawState.18, i64 0, i64 %193
+switch.lookup9:                                   ; preds = %GetBlendFactor.exit63.i
+  %189 = zext nneg i32 %switch.tableidx8 to i64
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_SetDrawState.18, i64 %189
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %GetBlendFactor.exit65.i
 
-GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit63.i, %switch.lookup8
-  %.0.i64.i = phi i32 [ %switch.load11, %switch.lookup8 ], [ 2147483647, %GetBlendFactor.exit63.i ]
-  %194 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 %.0.i64.i, ptr %194, align 4
-  %195 = call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %40) #7
-  %switch.tableidx13 = add i32 %195, -1
-  %196 = icmp ult i32 %switch.tableidx13, 5
-  %switch.tableidx13. = select i1 %196, i32 %switch.tableidx13, i32 2147483647
-  %197 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %switch.tableidx13., ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  store i32 15, ptr %198, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %.val163, i64 1808
-  %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  store i32 0, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store ptr %3, ptr %203, align 8
-  %204 = load ptr, ptr @vkCreateGraphicsPipelines, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %.val163, i64 1632
-  %206 = load ptr, ptr %205, align 8
-  %207 = call i32 %204(ptr noundef %206, ptr noundef null, i32 noundef 1, ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull %16) #7
-  %.not.i = icmp eq i32 %207, 0
-  br i1 %.not.i, label %222, label %215
+GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit63.i, %switch.lookup9
+  %.0.i64.i = phi i32 [ %switch.load11, %switch.lookup9 ], [ 2147483647, %GetBlendFactor.exit63.i ]
+  %190 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  store i32 %.0.i64.i, ptr %190, align 4
+  %191 = call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %40) #7
+  %switch.tableidx12 = add i32 %191, -1
+  %192 = icmp ult i32 %switch.tableidx12, 5
+  %switch.tableidx12. = select i1 %192, i32 %switch.tableidx12, i32 2147483647
+  %193 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store i32 %switch.tableidx12., ptr %193, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  store i32 15, ptr %194, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %.val163, i64 1808
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %28, i64 112
+  store ptr %196, ptr %197, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  store i32 0, ptr %198, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %28, i64 104
+  store ptr %3, ptr %199, align 8
+  %200 = load ptr, ptr @vkCreateGraphicsPipelines, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %.val163, i64 1632
+  %202 = load ptr, ptr %201, align 8
+  %203 = call i32 %200(ptr noundef %202, ptr noundef null, i32 noundef 1, ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull %16) #7
+  %.not.i = icmp eq i32 %203, 0
+  br i1 %.not.i, label %218, label %211
 
-208:                                              ; preds = %208, %._crit_edge
-  %209 = phi i1 [ true, %._crit_edge ], [ false, %208 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %21, %._crit_edge ], [ %indvars.iv.i.sroa.gep1, %208 ]
+204:                                              ; preds = %204, %._crit_edge
+  %205 = phi i1 [ true, %._crit_edge ], [ false, %204 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %21, %._crit_edge ], [ %indvars.iv.i.sroa.gep1, %204 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %indvars.iv.i.sroa.phi, i8 0, i64 48, i1 false)
   store i32 18, ptr %indvars.iv.i.sroa.phi, align 16
-  %210 = select i1 %209, i32 1, i32 16
-  %.in.i = select i1 %209, ptr %141, ptr %143
-  %211 = load ptr, ptr %.in.i, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 24
-  store ptr %211, ptr %212, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 20
-  store i32 %210, ptr %213, align 4
-  %214 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 32
-  store ptr @.str.34, ptr %214, align 16
-  br i1 %209, label %208, label %144, !llvm.loop !42
+  %206 = select i1 %205, i32 1, i32 16
+  %.in.v.v.i = select i1 %205, i64 1816, i64 1840
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.in.v.v.i
+  %207 = load ptr, ptr %gep.i, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 24
+  store ptr %207, ptr %208, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 20
+  store i32 %206, ptr %209, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 32
+  store ptr @.str.34, ptr %210, align 16
+  br i1 %205, label %204, label %140, !llvm.loop !42
 
-215:                                              ; preds = %GetBlendFactor.exit65.i
-  %216 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
-  br i1 %216, label %217, label %219
+211:                                              ; preds = %GetBlendFactor.exit65.i
+  %212 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
+  br i1 %212, label %213, label %215
 
-217:                                              ; preds = %215
-  %218 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #7
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %218) #7
+213:                                              ; preds = %211
+  %214 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %203) #7
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %214) #7
   call void @llvm.debugtrap()
-  br label %219
+  br label %215
 
-219:                                              ; preds = %217, %215
-  %220 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %207) #7
-  %221 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %220) #7
+215:                                              ; preds = %213, %211
+  %216 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %203) #7
+  %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %216) #7
   br label %.thread10
 
-222:                                              ; preds = %GetBlendFactor.exit65.i
-  %223 = getelementptr inbounds nuw i8, ptr %.val163, i64 10336
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %.val163, i64 10328
-  %226 = load i32, ptr %225, align 8
-  %227 = add nsw i32 %226, 1
-  %228 = sext i32 %227 to i64
-  %229 = mul nsw i64 %228, 88
-  %230 = call ptr @SDL_realloc_REAL(ptr noundef %224, i64 noundef %229) #12
-  %.not58.i = icmp eq ptr %230, null
-  br i1 %.not58.i, label %.thread10, label %232
+218:                                              ; preds = %GetBlendFactor.exit65.i
+  %219 = getelementptr inbounds nuw i8, ptr %.val163, i64 10336
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %.val163, i64 10328
+  %222 = load i32, ptr %221, align 8
+  %223 = add nsw i32 %222, 1
+  %224 = sext i32 %223 to i64
+  %225 = mul nsw i64 %224, 88
+  %226 = call ptr @SDL_realloc_REAL(ptr noundef %220, i64 noundef %225) #12
+  %.not58.i = icmp eq ptr %226, null
+  br i1 %.not58.i, label %.thread10, label %228
 
-.thread10:                                        ; preds = %219, %222
+.thread10:                                        ; preds = %215, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -8297,46 +8295,46 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr null, ptr %81, align 8
-  %231 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #7
-  br label %486
+  %227 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #7
+  br label %482
 
-232:                                              ; preds = %222
-  %233 = load i32, ptr %225, align 8
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %234
-  store i32 %2, ptr %235, align 8
-  %236 = load i32, ptr %225, align 8
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %237, i32 2
-  store i32 %40, ptr %238, align 4
-  %239 = load i32, ptr %225, align 8
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %240, i32 3
-  store i32 %6, ptr %241, align 8
-  %242 = load i32, ptr %225, align 8
+228:                                              ; preds = %218
+  %229 = load i32, ptr %221, align 8
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %230
+  store i32 %2, ptr %231, align 8
+  %232 = load i32, ptr %221, align 8
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %233, i32 2
+  store i32 %40, ptr %234, align 4
+  %235 = load i32, ptr %221, align 8
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %236, i32 3
+  store i32 %6, ptr %237, align 8
+  %238 = load i32, ptr %221, align 8
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %239, i32 4
+  store i32 %42, ptr %240, align 4
+  %241 = load ptr, ptr %16, align 8
+  %242 = load i32, ptr %221, align 8
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %243, i32 4
-  store i32 %42, ptr %244, align 4
-  %245 = load ptr, ptr %16, align 8
-  %246 = load i32, ptr %225, align 8
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %247, i32 7
-  store ptr %245, ptr %248, align 8
-  %249 = load i32, ptr %225, align 8
+  %244 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %243, i32 7
+  store ptr %241, ptr %244, align 8
+  %245 = load i32, ptr %221, align 8
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %246, i32 6
+  store ptr %4, ptr %247, align 8
+  %248 = load ptr, ptr %199, align 8
+  %249 = load i32, ptr %221, align 8
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %250, i32 6
-  store ptr %4, ptr %251, align 8
-  %252 = load ptr, ptr %203, align 8
-  %253 = load i32, ptr %225, align 8
-  %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %254, i32 5
-  store ptr %252, ptr %255, align 8
-  store ptr %230, ptr %223, align 8
-  %256 = load i32, ptr %225, align 8
-  %257 = add nsw i32 %256, 1
-  store i32 %257, ptr %225, align 8
-  %258 = sext i32 %256 to i64
-  %259 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %230, i64 %258
+  %251 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %250, i32 5
+  store ptr %248, ptr %251, align 8
+  store ptr %226, ptr %219, align 8
+  %252 = load i32, ptr %221, align 8
+  %253 = add nsw i32 %252, 1
+  store i32 %253, ptr %221, align 8
+  %254 = sext i32 %252 to i64
+  %255 = getelementptr inbounds %struct.VULKAN_PipelineState, ptr %226, i64 %254
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -8355,439 +8353,439 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread7
 
-.thread7:                                         ; preds = %126, %232
-  %260 = phi ptr [ %259, %232 ], [ %107, %126 ]
-  store ptr %260, ptr %81, align 8
-  %261 = load ptr, ptr @vkCmdBindPipeline, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %38, i64 1688
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %260, i64 80
-  %265 = load ptr, ptr %264, align 8
-  call void %261(ptr noundef %263, i32 noundef 0, ptr noundef %265) #7
-  br label %266
+.thread7:                                         ; preds = %126, %228
+  %256 = phi ptr [ %255, %228 ], [ %107, %126 ]
+  store ptr %256, ptr %81, align 8
+  %257 = load ptr, ptr @vkCmdBindPipeline, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %38, i64 1688
+  %259 = load ptr, ptr %258, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 80
+  %261 = load ptr, ptr %260, align 8
+  call void %257(ptr noundef %259, i32 noundef 0, ptr noundef %261) #7
+  br label %262
 
-266:                                              ; preds = %.thread7, %97
+262:                                              ; preds = %.thread7, %97
   %.0131 = phi i1 [ true, %.thread7 ], [ false, %97 ]
-  %267 = getelementptr inbounds nuw i8, ptr %38, i64 10536
-  %268 = load i8, ptr %267, align 8, !range !3, !noundef !4
-  %269 = trunc nuw i8 %268 to i1
-  br i1 %269, label %270, label %323
+  %263 = getelementptr inbounds nuw i8, ptr %38, i64 10536
+  %264 = load i8, ptr %263, align 8, !range !3, !noundef !4
+  %265 = trunc nuw i8 %264 to i1
+  br i1 %265, label %266, label %319
 
-270:                                              ; preds = %266
+266:                                              ; preds = %262
   %.val164 = load ptr, ptr %37, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %.val164, i64 10516
+  %267 = getelementptr inbounds nuw i8, ptr %.val164, i64 10516
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %272 = getelementptr inbounds nuw i8, ptr %.val164, i64 10488
-  %273 = load ptr, ptr %272, align 8
-  %.not.i.i167 = icmp eq ptr %273, null
-  br i1 %.not.i.i167, label %274, label %VULKAN_GetRotationForCurrentRenderTarget.exit.i
+  %268 = getelementptr inbounds nuw i8, ptr %.val164, i64 10488
+  %269 = load ptr, ptr %268, align 8
+  %.not.i.i167 = icmp eq ptr %269, null
+  br i1 %.not.i.i167, label %270, label %VULKAN_GetRotationForCurrentRenderTarget.exit.i
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds nuw i8, ptr %.val164, i64 10384
-  %276 = load i32, ptr %275, align 8
+270:                                              ; preds = %266
+  %271 = getelementptr inbounds nuw i8, ptr %.val164, i64 10384
+  %272 = load i32, ptr %271, align 8
   br label %VULKAN_GetRotationForCurrentRenderTarget.exit.i
 
-VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
-  %.0.i.i168 = phi i32 [ %276, %274 ], [ 1, %270 ]
-  %277 = getelementptr inbounds nuw i8, ptr %.val164, i64 10524
+VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %270, %266
+  %.0.i.i168 = phi i32 [ %272, %270 ], [ 1, %266 ]
+  %273 = getelementptr inbounds nuw i8, ptr %.val164, i64 10524
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %.sink.split, label %276
+
+276:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i
+  %277 = getelementptr inbounds nuw i8, ptr %.val164, i64 10528
   %278 = load i32, ptr %277, align 4
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %.sink.split, label %280
 
-280:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i
-  %281 = getelementptr inbounds nuw i8, ptr %.val164, i64 10528
-  %282 = load i32, ptr %281, align 4
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %.sink.split, label %284
+280:                                              ; preds = %276
+  switch i32 %.0.i.i168, label %284 [
+    i32 8, label %281
+    i32 4, label %282
+    i32 2, label %283
+  ]
+
+281:                                              ; preds = %280
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x3FF921FB60000000) #7
+  br label %285
+
+282:                                              ; preds = %280
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x400921FB60000000) #7
+  br label %285
+
+283:                                              ; preds = %280
+  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0xBFF921FB60000000) #7
+  br label %285
 
 284:                                              ; preds = %280
-  switch i32 %.0.i.i168, label %288 [
-    i32 8, label %285
-    i32 4, label %286
-    i32 2, label %287
-  ]
-
-285:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x3FF921FB60000000) #7
-  br label %289
-
-286:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0x400921FB60000000) #7
-  br label %289
-
-287:                                              ; preds = %284
-  call void @MatrixRotationZ(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12, float noundef 0xBFF921FB60000000) #7
-  br label %289
-
-288:                                              ; preds = %284
   call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %12) #7
-  br label %289
+  br label %285
 
-289:                                              ; preds = %288, %287, %286, %285
+285:                                              ; preds = %284, %283, %282, %281
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
-  %290 = load i32, ptr %277, align 4
-  %291 = sitofp i32 %290 to float
-  %292 = fdiv float 2.000000e+00, %291
-  store float %292, ptr %13, align 8
-  %293 = load i32, ptr %281, align 4
-  %294 = sitofp i32 %293 to float
-  %295 = fdiv float -2.000000e+00, %294
-  %296 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store float %295, ptr %296, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store float 1.000000e+00, ptr %297, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store float -1.000000e+00, ptr %298, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %13, i64 52
-  store float 1.000000e+00, ptr %299, align 4
-  %300 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  store float 1.000000e+00, ptr %300, align 4
-  %301 = getelementptr inbounds nuw i8, ptr %.val164, i64 10136
+  %286 = load i32, ptr %273, align 4
+  %287 = sitofp i32 %286 to float
+  %288 = fdiv float 2.000000e+00, %287
+  store float %288, ptr %13, align 8
+  %289 = load i32, ptr %277, align 4
+  %290 = sitofp i32 %289 to float
+  %291 = fdiv float -2.000000e+00, %290
+  %292 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store float %291, ptr %292, align 4
+  %293 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store float 1.000000e+00, ptr %293, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store float -1.000000e+00, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %13, i64 52
+  store float 1.000000e+00, ptr %295, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %13, i64 60
+  store float 1.000000e+00, ptr %296, align 4
+  %297 = getelementptr inbounds nuw i8, ptr %.val164, i64 10136
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @MatrixMultiply(ptr dead_on_unwind nonnull writable sret(%struct.Float4X4) align 4 %14, ptr noundef nonnull byval(%struct.Float4X4) align 8 %13, ptr noundef nonnull byval(%struct.Float4X4) align 8 %12) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %301, ptr noundef nonnull align 4 dereferenceable(64) %14, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %297, ptr noundef nonnull align 4 dereferenceable(64) %14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  switch i32 %.0.i.i168, label %306 [
-    i32 8, label %302
-    i32 2, label %302
+  switch i32 %.0.i.i168, label %302 [
+    i32 8, label %298
+    i32 2, label %298
   ]
 
-302:                                              ; preds = %289, %289
-  %303 = getelementptr inbounds nuw i8, ptr %.val164, i64 10520
-  %304 = load i32, ptr %303, align 4
-  %305 = sitofp i32 %304 to float
-  store float %305, ptr %15, align 4
-  br label %310
+298:                                              ; preds = %285, %285
+  %299 = getelementptr inbounds nuw i8, ptr %.val164, i64 10520
+  %300 = load i32, ptr %299, align 4
+  %301 = sitofp i32 %300 to float
+  store float %301, ptr %15, align 4
+  br label %306
 
-306:                                              ; preds = %289
-  %307 = load i32, ptr %271, align 4
-  %308 = sitofp i32 %307 to float
-  store float %308, ptr %15, align 4
-  %309 = getelementptr inbounds nuw i8, ptr %.val164, i64 10520
-  br label %310
+302:                                              ; preds = %285
+  %303 = load i32, ptr %267, align 4
+  %304 = sitofp i32 %303 to float
+  store float %304, ptr %15, align 4
+  %305 = getelementptr inbounds nuw i8, ptr %.val164, i64 10520
+  br label %306
 
-310:                                              ; preds = %306, %302
-  %.sink15.in = phi ptr [ %309, %306 ], [ %271, %302 ]
-  %.sink35.in = phi ptr [ %277, %306 ], [ %281, %302 ]
-  %.sink2.in.i = phi ptr [ %281, %306 ], [ %277, %302 ]
+306:                                              ; preds = %302, %298
+  %.sink15.in = phi ptr [ %305, %302 ], [ %267, %298 ]
+  %.sink35.in = phi ptr [ %273, %302 ], [ %277, %298 ]
+  %.sink2.in.i = phi ptr [ %277, %302 ], [ %273, %298 ]
   %.sink15 = load i32, ptr %.sink15.in, align 4
-  %311 = sitofp i32 %.sink15 to float
-  %312 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store float %311, ptr %312, align 4
+  %307 = sitofp i32 %.sink15 to float
+  %308 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store float %307, ptr %308, align 4
   %.sink35 = load i32, ptr %.sink35.in, align 4
-  %313 = sitofp i32 %.sink35 to float
-  %314 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store float %313, ptr %314, align 4
+  %309 = sitofp i32 %.sink35 to float
+  %310 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store float %309, ptr %310, align 4
   %.sink2.i = load i32, ptr %.sink2.in.i, align 4
-  %315 = sitofp i32 %.sink2.i to float
-  %316 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store float %315, ptr %316, align 4
-  %317 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store float 0.000000e+00, ptr %317, align 4
-  %318 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store float 1.000000e+00, ptr %318, align 4
-  %319 = load ptr, ptr @vkCmdSetViewport, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %.val164, i64 1688
-  %321 = load ptr, ptr %320, align 8
-  call void %319(ptr noundef %321, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15) #7
-  %322 = getelementptr inbounds nuw i8, ptr %.val164, i64 10536
-  store i8 0, ptr %322, align 8
+  %311 = sitofp i32 %.sink2.i to float
+  %312 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store float %311, ptr %312, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store float 0.000000e+00, ptr %313, align 4
+  %314 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store float 1.000000e+00, ptr %314, align 4
+  %315 = load ptr, ptr @vkCmdSetViewport, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %.val164, i64 1688
+  %317 = load ptr, ptr %316, align 8
+  call void %315(ptr noundef %317, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %15) #7
+  %318 = getelementptr inbounds nuw i8, ptr %.val164, i64 10536
+  store i8 0, ptr %318, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i, %280, %310
-  %.1132.ph = phi i1 [ true, %310 ], [ %.0131, %280 ], [ %.0131, %VULKAN_GetRotationForCurrentRenderTarget.exit.i ]
+.sink.split:                                      ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i, %276, %306
+  %.1132.ph = phi i1 [ true, %306 ], [ %.0131, %276 ], [ %.0131, %VULKAN_GetRotationForCurrentRenderTarget.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %323
+  br label %319
 
-323:                                              ; preds = %.sink.split, %266
-  %.1132 = phi i1 [ %.0131, %266 ], [ %.1132.ph, %.sink.split ]
-  %324 = getelementptr inbounds nuw i8, ptr %38, i64 10496
-  %325 = load i8, ptr %324, align 8, !range !3, !noundef !4
-  %326 = trunc nuw i8 %325 to i1
-  br i1 %326, label %327, label %361
+319:                                              ; preds = %.sink.split, %262
+  %.1132 = phi i1 [ %.0131, %262 ], [ %.1132.ph, %.sink.split ]
+  %320 = getelementptr inbounds nuw i8, ptr %38, i64 10496
+  %321 = load i8, ptr %320, align 8, !range !3, !noundef !4
+  %322 = trunc nuw i8 %321 to i1
+  br i1 %322, label %323, label %357
+
+323:                                              ; preds = %319
+  %.val165 = load ptr, ptr %37, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %.val165, i64 10516
+  %325 = getelementptr inbounds nuw i8, ptr %.val165, i64 10488
+  %326 = load ptr, ptr %325, align 8
+  %.not.i.i169 = icmp eq ptr %326, null
+  br i1 %.not.i.i169, label %327, label %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
 
 327:                                              ; preds = %323
-  %.val165 = load ptr, ptr %37, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %.val165, i64 10516
-  %329 = getelementptr inbounds nuw i8, ptr %.val165, i64 10488
-  %330 = load ptr, ptr %329, align 8
-  %.not.i.i169 = icmp eq ptr %330, null
-  br i1 %.not.i.i169, label %331, label %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
-
-331:                                              ; preds = %327
-  %332 = getelementptr inbounds nuw i8, ptr %.val165, i64 10384
-  %333 = load i32, ptr %332, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %.val165, i64 10384
+  %329 = load i32, ptr %328, align 8
   br label %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
 
-VULKAN_GetRotationForCurrentRenderTarget.exit.i170: ; preds = %331, %327
-  %.0.i.i171 = phi i32 [ %333, %331 ], [ 1, %327 ]
+VULKAN_GetRotationForCurrentRenderTarget.exit.i170: ; preds = %327, %323
+  %.0.i.i171 = phi i32 [ %329, %327 ], [ 1, %323 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %334 = getelementptr inbounds nuw i8, ptr %.val165, i64 10497
-  %335 = load i8, ptr %334, align 1, !range !3, !noundef !4
-  %336 = trunc nuw i8 %335 to i1
-  %337 = load i32, ptr %328, align 4
-  br i1 %336, label %338, label %347
+  %330 = getelementptr inbounds nuw i8, ptr %.val165, i64 10497
+  %331 = load i8, ptr %330, align 1, !range !3, !noundef !4
+  %332 = trunc nuw i8 %331 to i1
+  %333 = load i32, ptr %324, align 4
+  br i1 %332, label %334, label %343
 
-338:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
-  %339 = getelementptr inbounds nuw i8, ptr %.val165, i64 10500
-  %340 = load i32, ptr %339, align 4
-  %341 = add nsw i32 %340, %337
-  %342 = getelementptr inbounds nuw i8, ptr %.val165, i64 10520
-  %343 = load i32, ptr %342, align 4
-  %344 = getelementptr inbounds nuw i8, ptr %.val165, i64 10504
+334:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
+  %335 = getelementptr inbounds nuw i8, ptr %.val165, i64 10500
+  %336 = load i32, ptr %335, align 4
+  %337 = add nsw i32 %336, %333
+  %338 = getelementptr inbounds nuw i8, ptr %.val165, i64 10520
+  %339 = load i32, ptr %338, align 4
+  %340 = getelementptr inbounds nuw i8, ptr %.val165, i64 10504
+  %341 = load i32, ptr %340, align 4
+  %342 = add nsw i32 %341, %339
+  br label %346
+
+343:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
+  %344 = getelementptr inbounds nuw i8, ptr %.val165, i64 10520
   %345 = load i32, ptr %344, align 4
-  %346 = add nsw i32 %345, %343
-  br label %350
+  br label %346
 
-347:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i170
-  %348 = getelementptr inbounds nuw i8, ptr %.val165, i64 10520
-  %349 = load i32, ptr %348, align 4
-  br label %350
-
-350:                                              ; preds = %347, %338
-  %.sink4.i = phi i64 [ 10524, %347 ], [ 10508, %338 ]
-  %.sink.i = phi i64 [ 10528, %347 ], [ 10512, %338 ]
-  %.sroa.0.0.copyload.i = phi i32 [ %337, %347 ], [ %341, %338 ]
-  %.sroa.4.0.copyload.i = phi i32 [ %349, %347 ], [ %346, %338 ]
-  %351 = getelementptr inbounds nuw i8, ptr %.val165, i64 %.sink4.i
-  %352 = getelementptr inbounds nuw i8, ptr %.val165, i64 %.sink.i
-  %.sroa.6.0.copyload.i = load i32, ptr %352, align 4
-  %.sroa.5.0.copyload.i = load i32, ptr %351, align 4
+346:                                              ; preds = %343, %334
+  %.sink4.i = phi i64 [ 10524, %343 ], [ 10508, %334 ]
+  %.sink.i = phi i64 [ 10528, %343 ], [ 10512, %334 ]
+  %.sroa.0.0.copyload.i = phi i32 [ %333, %343 ], [ %337, %334 ]
+  %.sroa.4.0.copyload.i = phi i32 [ %345, %343 ], [ %342, %334 ]
+  %347 = getelementptr inbounds nuw i8, ptr %.val165, i64 %.sink4.i
+  %348 = getelementptr inbounds nuw i8, ptr %.val165, i64 %.sink.i
+  %.sroa.6.0.copyload.i = load i32, ptr %348, align 4
+  %.sroa.5.0.copyload.i = load i32, ptr %347, align 4
   store i32 %.sroa.0.0.copyload.i, ptr %11, align 4
-  %353 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %.sroa.4.0.copyload.i, ptr %353, align 4
-  %354 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %.sroa.5.0.copyload.i, ptr %354, align 4
-  %355 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %.sroa.6.0.copyload.i, ptr %355, align 4
+  %349 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %.sroa.4.0.copyload.i, ptr %349, align 4
+  %350 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %.sroa.5.0.copyload.i, ptr %350, align 4
+  %351 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 %.sroa.6.0.copyload.i, ptr %351, align 4
   switch i32 %.0.i.i171, label %VULKAN_UpdateClipRect.exit [
-    i32 8, label %356
-    i32 2, label %356
+    i32 8, label %352
+    i32 2, label %352
   ]
 
-356:                                              ; preds = %350, %350
+352:                                              ; preds = %346, %346
   store i32 %.sroa.4.0.copyload.i, ptr %11, align 4
-  store i32 %.sroa.0.0.copyload.i, ptr %353, align 4
-  store i32 %.sroa.6.0.copyload.i, ptr %354, align 4
-  store i32 %.sroa.5.0.copyload.i, ptr %355, align 4
+  store i32 %.sroa.0.0.copyload.i, ptr %349, align 4
+  store i32 %.sroa.6.0.copyload.i, ptr %350, align 4
+  store i32 %.sroa.5.0.copyload.i, ptr %351, align 4
   br label %VULKAN_UpdateClipRect.exit
 
-VULKAN_UpdateClipRect.exit:                       ; preds = %350, %356
-  %357 = load ptr, ptr @vkCmdSetScissor, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %.val165, i64 1688
-  %359 = load ptr, ptr %358, align 8
-  call void %357(ptr noundef %359, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %11) #7
-  %360 = getelementptr inbounds nuw i8, ptr %.val165, i64 10496
-  store i8 0, ptr %360, align 8
+VULKAN_UpdateClipRect.exit:                       ; preds = %346, %352
+  %353 = load ptr, ptr @vkCmdSetScissor, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %.val165, i64 1688
+  %355 = load ptr, ptr %354, align 8
+  call void %353(ptr noundef %355, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %11) #7
+  %356 = getelementptr inbounds nuw i8, ptr %.val165, i64 10496
+  store i8 0, ptr %356, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %361
+  br label %357
 
-361:                                              ; preds = %VULKAN_UpdateClipRect.exit, %323
-  br i1 %.1132, label %365, label %362
+357:                                              ; preds = %VULKAN_UpdateClipRect.exit, %319
+  br i1 %.1132, label %361, label %358
 
-362:                                              ; preds = %361
-  %363 = getelementptr inbounds nuw i8, ptr %38, i64 10072
-  %364 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %363, ptr noundef nonnull %43, i64 noundef 64) #7
-  %.not157 = icmp eq i32 %364, 0
-  br i1 %.not157, label %373, label %365
+358:                                              ; preds = %357
+  %359 = getelementptr inbounds nuw i8, ptr %38, i64 10072
+  %360 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %359, ptr noundef nonnull %43, i64 noundef 64) #7
+  %.not157 = icmp eq i32 %360, 0
+  br i1 %.not157, label %369, label %361
 
-365:                                              ; preds = %362, %361
-  %366 = getelementptr inbounds nuw i8, ptr %38, i64 10072
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %366, ptr noundef nonnull align 4 dereferenceable(64) %43, i64 64, i1 false)
-  %367 = load ptr, ptr @vkCmdPushConstants, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %38, i64 1688
-  %369 = load ptr, ptr %368, align 8
-  %370 = load ptr, ptr %81, align 8
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 64
-  %372 = load ptr, ptr %371, align 8
-  call void %367(ptr noundef %369, ptr noundef %372, i32 noundef 1, i32 noundef 0, i32 noundef 128, ptr noundef nonnull %366) #7
-  br label %373
+361:                                              ; preds = %358, %357
+  %362 = getelementptr inbounds nuw i8, ptr %38, i64 10072
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %362, ptr noundef nonnull align 4 dereferenceable(64) %43, i64 64, i1 false)
+  %363 = load ptr, ptr @vkCmdPushConstants, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %38, i64 1688
+  %365 = load ptr, ptr %364, align 8
+  %366 = load ptr, ptr %81, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 64
+  %368 = load ptr, ptr %367, align 8
+  call void %363(ptr noundef %365, ptr noundef %368, i32 noundef 1, i32 noundef 0, i32 noundef 128, ptr noundef nonnull %362) #7
+  br label %369
 
-373:                                              ; preds = %365, %362
+369:                                              ; preds = %361, %358
   %.not158 = icmp eq ptr %5, null
-  br i1 %.not158, label %374, label %381
+  br i1 %.not158, label %370, label %377
 
-374:                                              ; preds = %373
-  %375 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %375, i8 0, i64 44, i1 false)
-  %376 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
-  %377 = uitofp i1 %376 to float
-  store float %377, ptr %34, align 4
-  %378 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %379 = load float, ptr %378, align 8
-  %380 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store float %379, ptr %380, align 4
-  br label %381
+370:                                              ; preds = %369
+  %371 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %371, i8 0, i64 44, i1 false)
+  %372 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #7
+  %373 = uitofp i1 %372 to float
+  store float %373, ptr %34, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %375 = load float, ptr %374, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store float %375, ptr %376, align 4
+  br label %377
 
-381:                                              ; preds = %374, %373
-  %.0130 = phi ptr [ %5, %373 ], [ %34, %374 ]
-  %382 = getelementptr inbounds nuw i8, ptr %38, i64 10216
-  %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds nuw i8, ptr %38, i64 1680
-  %385 = load i32, ptr %384, align 8
-  %386 = zext i32 %385 to i64
-  %387 = getelementptr inbounds nuw ptr, ptr %383, i64 %386
-  %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %38, i64 10232
-  %390 = load i32, ptr %389, align 8
-  %391 = zext i32 %390 to i64
-  %392 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %388, i64 %391, i32 1
-  %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %38, i64 10236
-  %395 = load i32, ptr %394, align 4
-  br i1 %.1132, label %400, label %396
+377:                                              ; preds = %370, %369
+  %.0130 = phi ptr [ %5, %369 ], [ %34, %370 ]
+  %378 = getelementptr inbounds nuw i8, ptr %38, i64 10216
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds nuw i8, ptr %38, i64 1680
+  %381 = load i32, ptr %380, align 8
+  %382 = zext i32 %381 to i64
+  %383 = getelementptr inbounds nuw ptr, ptr %379, i64 %382
+  %384 = load ptr, ptr %383, align 8
+  %385 = getelementptr inbounds nuw i8, ptr %38, i64 10232
+  %386 = load i32, ptr %385, align 8
+  %387 = zext i32 %386 to i64
+  %388 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %384, i64 %387, i32 1
+  %389 = load ptr, ptr %388, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %38, i64 10236
+  %391 = load i32, ptr %390, align 4
+  br i1 %.1132, label %396, label %392
 
-396:                                              ; preds = %381
-  %narrow = call i32 @llvm.smax.i32(i32 %395, i32 0)
+392:                                              ; preds = %377
+  %narrow = call i32 @llvm.smax.i32(i32 %391, i32 0)
   %spec.select162 = zext nneg i32 %narrow to i64
-  %397 = load ptr, ptr %81, align 8
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  %399 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %398, i64 noundef 48) #7
-  %.not159 = icmp eq i32 %399, 0
-  br i1 %.not159, label %476, label %thread-pre-split14
+  %393 = load ptr, ptr %81, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 4
+  %395 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %394, i64 noundef 48) #7
+  %.not159 = icmp eq i32 %395, 0
+  br i1 %.not159, label %472, label %thread-pre-split14
 
-thread-pre-split14:                               ; preds = %396
-  %.pr15 = load i32, ptr %394, align 4
-  br label %400
+thread-pre-split14:                               ; preds = %392
+  %.pr15 = load i32, ptr %390, align 4
+  br label %396
 
-400:                                              ; preds = %thread-pre-split14, %381
-  %401 = phi i32 [ %.pr15, %thread-pre-split14 ], [ %395, %381 ]
-  %402 = icmp eq i32 %401, -1
-  br i1 %402, label %.thread16, label %403
+396:                                              ; preds = %thread-pre-split14, %377
+  %397 = phi i32 [ %.pr15, %thread-pre-split14 ], [ %391, %377 ]
+  %398 = icmp eq i32 %397, -1
+  br i1 %398, label %.thread16, label %399
 
-.thread16:                                        ; preds = %400
-  store i32 0, ptr %394, align 4
-  br label %461
+.thread16:                                        ; preds = %396
+  store i32 0, ptr %390, align 4
+  br label %457
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds nuw i8, ptr %38, i64 664
-  %405 = load i64, ptr %404, align 8
-  %406 = add i64 %405, 47
-  %407 = sub i64 0, %405
-  %408 = and i64 %406, %407
-  %409 = trunc i64 %408 to i32
-  %410 = add i32 %401, %409
-  store i32 %410, ptr %394, align 4
-  %411 = sext i32 %410 to i64
-  %412 = icmp sgt i32 %410, 65535
-  br i1 %412, label %413, label %461
+399:                                              ; preds = %396
+  %400 = getelementptr inbounds nuw i8, ptr %38, i64 664
+  %401 = load i64, ptr %400, align 8
+  %402 = add i64 %401, 47
+  %403 = sub i64 0, %401
+  %404 = and i64 %402, %403
+  %405 = trunc i64 %404 to i32
+  %406 = add i32 %397, %405
+  store i32 %406, ptr %390, align 4
+  %407 = sext i32 %406 to i64
+  %408 = icmp sgt i32 %406, 65535
+  br i1 %408, label %409, label %457
 
-413:                                              ; preds = %403
-  %414 = load i32, ptr %389, align 8
-  %415 = add i32 %414, 1
-  %416 = getelementptr inbounds nuw i8, ptr %38, i64 10224
-  %417 = load ptr, ptr %416, align 8
-  %418 = load i32, ptr %384, align 8
-  %419 = zext i32 %418 to i64
-  %420 = getelementptr inbounds nuw i32, ptr %417, i64 %419
-  %421 = load i32, ptr %420, align 4
-  %.not160 = icmp ult i32 %415, %421
-  br i1 %.not160, label %.thread18, label %422
+409:                                              ; preds = %399
+  %410 = load i32, ptr %385, align 8
+  %411 = add i32 %410, 1
+  %412 = getelementptr inbounds nuw i8, ptr %38, i64 10224
+  %413 = load ptr, ptr %412, align 8
+  %414 = load i32, ptr %380, align 8
+  %415 = zext i32 %414 to i64
+  %416 = getelementptr inbounds nuw i32, ptr %413, i64 %415
+  %417 = load i32, ptr %416, align 4
+  %.not160 = icmp ult i32 %411, %417
+  br i1 %.not160, label %.thread18, label %418
 
-422:                                              ; preds = %413
+418:                                              ; preds = %409
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %423 = call fastcc i32 @VULKAN_AllocateBuffer(ptr noundef nonnull %38, i64 noundef 65536, i32 noundef 16, ptr noundef nonnull %36)
-  %.not161 = icmp eq i32 %423, 0
-  br i1 %.not161, label %424, label %460
+  %419 = call fastcc i32 @VULKAN_AllocateBuffer(ptr noundef nonnull %38, i64 noundef 65536, i32 noundef 16, ptr noundef nonnull %36)
+  %.not161 = icmp eq i32 %419, 0
+  br i1 %.not161, label %420, label %456
 
-424:                                              ; preds = %422
-  %425 = load ptr, ptr %416, align 8
-  %426 = load i32, ptr %384, align 8
-  %427 = zext i32 %426 to i64
-  %428 = getelementptr inbounds nuw i32, ptr %425, i64 %427
-  %429 = load i32, ptr %428, align 4
-  %430 = add i32 %429, 1
-  store i32 %430, ptr %428, align 4
-  %431 = load ptr, ptr %382, align 8
-  %432 = load i32, ptr %384, align 8
-  %433 = zext i32 %432 to i64
-  %434 = getelementptr inbounds nuw ptr, ptr %431, i64 %433
-  %435 = load ptr, ptr %434, align 8
-  %436 = load ptr, ptr %416, align 8
-  %437 = getelementptr inbounds nuw i32, ptr %436, i64 %433
-  %438 = load i32, ptr %437, align 4
-  %439 = zext i32 %438 to i64
-  %440 = shl nuw nsw i64 %439, 5
-  %441 = call ptr @SDL_realloc_REAL(ptr noundef %435, i64 noundef %440) #12
-  %442 = load ptr, ptr %416, align 8
-  %443 = load i32, ptr %384, align 8
+420:                                              ; preds = %418
+  %421 = load ptr, ptr %412, align 8
+  %422 = load i32, ptr %380, align 8
+  %423 = zext i32 %422 to i64
+  %424 = getelementptr inbounds nuw i32, ptr %421, i64 %423
+  %425 = load i32, ptr %424, align 4
+  %426 = add i32 %425, 1
+  store i32 %426, ptr %424, align 4
+  %427 = load ptr, ptr %378, align 8
+  %428 = load i32, ptr %380, align 8
+  %429 = zext i32 %428 to i64
+  %430 = getelementptr inbounds nuw ptr, ptr %427, i64 %429
+  %431 = load ptr, ptr %430, align 8
+  %432 = load ptr, ptr %412, align 8
+  %433 = getelementptr inbounds nuw i32, ptr %432, i64 %429
+  %434 = load i32, ptr %433, align 4
+  %435 = zext i32 %434 to i64
+  %436 = shl nuw nsw i64 %435, 5
+  %437 = call ptr @SDL_realloc_REAL(ptr noundef %431, i64 noundef %436) #12
+  %438 = load ptr, ptr %412, align 8
+  %439 = load i32, ptr %380, align 8
+  %440 = zext i32 %439 to i64
+  %441 = getelementptr inbounds nuw i32, ptr %438, i64 %440
+  %442 = load i32, ptr %441, align 4
+  %443 = add i32 %442, -1
   %444 = zext i32 %443 to i64
-  %445 = getelementptr inbounds nuw i32, ptr %442, i64 %444
-  %446 = load i32, ptr %445, align 4
-  %447 = add i32 %446, -1
+  %445 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %437, i64 %444
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %445, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
+  %446 = load ptr, ptr %378, align 8
+  %447 = load i32, ptr %380, align 8
   %448 = zext i32 %447 to i64
-  %449 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %441, i64 %448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %449, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
-  %450 = load ptr, ptr %382, align 8
-  %451 = load i32, ptr %384, align 8
-  %452 = zext i32 %451 to i64
-  %453 = getelementptr inbounds nuw ptr, ptr %450, i64 %452
-  store ptr %441, ptr %453, align 8
+  %449 = getelementptr inbounds nuw ptr, ptr %446, i64 %448
+  store ptr %437, ptr %449, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %.pre = load i32, ptr %384, align 8
+  %.pre = load i32, ptr %380, align 8
   %.pre25 = zext i32 %.pre to i64
   br label %.thread18
 
-.thread18:                                        ; preds = %413, %424
-  %.pre-phi = phi i64 [ %419, %413 ], [ %.pre25, %424 ]
-  store i32 %415, ptr %389, align 8
-  store i32 0, ptr %394, align 4
-  %454 = load ptr, ptr %382, align 8
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %.pre-phi
-  %456 = load ptr, ptr %455, align 8
-  %457 = zext i32 %415 to i64
-  %458 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %456, i64 %457, i32 1
-  %459 = load ptr, ptr %458, align 8
-  br label %461
+.thread18:                                        ; preds = %409, %420
+  %.pre-phi = phi i64 [ %415, %409 ], [ %.pre25, %420 ]
+  store i32 %411, ptr %385, align 8
+  store i32 0, ptr %390, align 4
+  %450 = load ptr, ptr %378, align 8
+  %451 = getelementptr inbounds nuw ptr, ptr %450, i64 %.pre-phi
+  %452 = load ptr, ptr %451, align 8
+  %453 = zext i32 %411 to i64
+  %454 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %452, i64 %453, i32 1
+  %455 = load ptr, ptr %454, align 8
+  br label %457
 
-460:                                              ; preds = %422
+456:                                              ; preds = %418
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %486
+  br label %482
 
-461:                                              ; preds = %.thread18, %.thread16, %403
-  %.2138 = phi i64 [ %411, %403 ], [ 0, %.thread16 ], [ 0, %.thread18 ]
-  %.1134 = phi ptr [ %393, %403 ], [ %393, %.thread16 ], [ %459, %.thread18 ]
-  %462 = load ptr, ptr %81, align 8
-  %463 = getelementptr inbounds nuw i8, ptr %462, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %463, ptr noundef nonnull align 4 dereferenceable(48) %.0130, i64 48, i1 false)
-  %464 = load ptr, ptr %382, align 8
-  %465 = load i32, ptr %384, align 8
+457:                                              ; preds = %.thread18, %.thread16, %399
+  %.2138 = phi i64 [ %407, %399 ], [ 0, %.thread16 ], [ 0, %.thread18 ]
+  %.1134 = phi ptr [ %389, %399 ], [ %389, %.thread16 ], [ %455, %.thread18 ]
+  %458 = load ptr, ptr %81, align 8
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %459, ptr noundef nonnull align 4 dereferenceable(48) %.0130, i64 48, i1 false)
+  %460 = load ptr, ptr %378, align 8
+  %461 = load i32, ptr %380, align 8
+  %462 = zext i32 %461 to i64
+  %463 = getelementptr inbounds nuw ptr, ptr %460, i64 %462
+  %464 = load ptr, ptr %463, align 8
+  %465 = load i32, ptr %385, align 8
   %466 = zext i32 %465 to i64
-  %467 = getelementptr inbounds nuw ptr, ptr %464, i64 %466
+  %467 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %464, i64 %466, i32 3
   %468 = load ptr, ptr %467, align 8
-  %469 = load i32, ptr %389, align 8
-  %470 = zext i32 %469 to i64
-  %471 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %468, i64 %470, i32 3
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds nuw i8, ptr %472, i64 %.2138
-  %474 = load ptr, ptr %81, align 8
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %473, ptr noundef nonnull align 4 dereferenceable(48) %475, i64 48, i1 false)
-  br label %476
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 %.2138
+  %470 = load ptr, ptr %81, align 8
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %469, ptr noundef nonnull align 4 dereferenceable(48) %471, i64 48, i1 false)
+  br label %472
 
-476:                                              ; preds = %461, %396
-  %.0136 = phi i64 [ %.2138, %461 ], [ %spec.select162, %396 ]
-  %.0133 = phi ptr [ %.1134, %461 ], [ %393, %396 ]
-  %477 = call fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef %0, ptr noundef %4, ptr noundef %8, ptr noundef %.0133, i64 noundef %.0136, ptr noundef %7)
-  store ptr %477, ptr %35, align 8
-  %478 = icmp eq ptr %477, null
-  br i1 %478, label %486, label %479
+472:                                              ; preds = %457, %392
+  %.0136 = phi i64 [ %.2138, %457 ], [ %spec.select162, %392 ]
+  %.0133 = phi ptr [ %.1134, %457 ], [ %389, %392 ]
+  %473 = call fastcc ptr @VULKAN_AllocateDescriptorSet(ptr noundef %0, ptr noundef %4, ptr noundef %8, ptr noundef %.0133, i64 noundef %.0136, ptr noundef %7)
+  store ptr %473, ptr %35, align 8
+  %474 = icmp eq ptr %473, null
+  br i1 %474, label %482, label %475
 
-479:                                              ; preds = %476
-  %480 = load ptr, ptr @vkCmdBindDescriptorSets, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %38, i64 1688
-  %482 = load ptr, ptr %481, align 8
-  %483 = load ptr, ptr %81, align 8
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 64
-  %485 = load ptr, ptr %484, align 8
-  call void %480(ptr noundef %482, i32 noundef 0, ptr noundef %485, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %35, i32 noundef 0, ptr noundef null) #7
-  br label %486
+475:                                              ; preds = %472
+  %476 = load ptr, ptr @vkCmdBindDescriptorSets, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %38, i64 1688
+  %478 = load ptr, ptr %477, align 8
+  %479 = load ptr, ptr %81, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 64
+  %481 = load ptr, ptr %480, align 8
+  call void %476(ptr noundef %478, i32 noundef 0, ptr noundef %481, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %35, i32 noundef 0, ptr noundef null) #7
+  br label %482
 
-486:                                              ; preds = %460, %476, %479, %.thread10
+482:                                              ; preds = %456, %472, %475, %.thread10
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   ret void
@@ -8796,7 +8794,7 @@ thread-pre-split14:                               ; preds = %396
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @VULKAN_CreateVertexBuffer(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %5 = getelementptr inbounds nuw [256 x %struct.VULKAN_Buffer], ptr %4, i64 0, i64 %1
+  %5 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %4, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
@@ -9477,7 +9475,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 104:                                              ; preds = %100, %110
   %indvars.iv381 = phi i64 [ 0, %100 ], [ %indvars.iv.next382, %110 ]
-  %105 = getelementptr inbounds nuw [8 x ptr], ptr %101, i64 0, i64 %indvars.iv381
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv381
   %106 = load ptr, ptr %105, align 8
   %.not299 = icmp eq ptr %106, null
   br i1 %.not299, label %110, label %107
@@ -9501,7 +9499,7 @@ define internal fastcc void @VULKAN_DestroyAll(ptr noundef readonly captures(add
 
 113:                                              ; preds = %.preheader316, %VULKAN_DestroyBuffer.exit
   %indvars.iv384 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next385, %VULKAN_DestroyBuffer.exit ]
-  %114 = getelementptr inbounds nuw [256 x %struct.VULKAN_Buffer], ptr %103, i64 0, i64 %indvars.iv384
+  %114 = getelementptr inbounds nuw %struct.VULKAN_Buffer, ptr %103, i64 %indvars.iv384
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   %.not.i = icmp eq ptr %116, null
@@ -9546,7 +9544,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 130:                                              ; preds = %111, %137
   %131 = phi i1 [ true, %111 ], [ false, %137 ]
   %indvars.iv388 = phi i64 [ 0, %111 ], [ 1, %137 ]
-  %132 = getelementptr inbounds nuw [2 x ptr], ptr %112, i64 0, i64 %indvars.iv388
+  %132 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv388
   %133 = load ptr, ptr %132, align 8
   %.not298 = icmp eq ptr %133, null
   br i1 %.not298, label %137, label %134
@@ -9764,7 +9762,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
 
 225:                                              ; preds = %219, %237
   %indvars.iv403 = phi i64 [ 0, %219 ], [ %indvars.iv.next404, %237 ]
-  %226 = getelementptr inbounds nuw [3 x ptr], ptr %220, i64 0, i64 %indvars.iv403
+  %226 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv403
   %227 = load ptr, ptr %226, align 8
   %.not293 = icmp eq ptr %227, null
   br i1 %.not293, label %231, label %228
@@ -9777,7 +9775,7 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %120, %122
   br label %231
 
 231:                                              ; preds = %228, %225
-  %232 = getelementptr inbounds nuw [3 x ptr], ptr %221, i64 0, i64 %indvars.iv403
+  %232 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv403
   %233 = load ptr, ptr %232, align 8
   %.not294 = icmp eq ptr %233, null
   br i1 %.not294, label %237, label %234

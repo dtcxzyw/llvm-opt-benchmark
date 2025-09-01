@@ -1424,7 +1424,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   %406 = load i64, ptr %271, align 8, !tbaa !97
   %407 = lshr i64 %406, 3
   %408 = and i64 %407, 65535
-  %409 = getelementptr inbounds nuw [65536 x ptr], ptr %166, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw ptr, ptr %166, i64 %408
   %410 = load ptr, ptr %409, align 8, !tbaa !108
   %.not282.i = icmp eq ptr %410, null
   br i1 %.not282.i, label %414, label %411
@@ -1446,11 +1446,11 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   store i64 %418, ptr %168, align 8, !tbaa !112
   %419 = load i32, ptr %234, align 8, !tbaa !91
   %420 = sext i32 %419 to i64
-  %421 = getelementptr inbounds [6 x i32], ptr %169, i64 0, i64 %420
+  %421 = getelementptr inbounds i32, ptr %169, i64 %420
   %422 = load i32, ptr %421, align 4, !tbaa !83
   %423 = add i32 %422, 1
   store i32 %423, ptr %421, align 4, !tbaa !83
-  %424 = getelementptr inbounds [6 x i64], ptr %170, i64 0, i64 %420
+  %424 = getelementptr inbounds i64, ptr %170, i64 %420
   %425 = load i64, ptr %424, align 8, !tbaa !53
   %426 = add i64 %425, %385
   store i64 %426, ptr %424, align 8, !tbaa !53
@@ -1473,7 +1473,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
 435:                                              ; preds = %432, %429
   %436 = phi i64 [ 176, %432 ], [ 232, %429 ]
   %437 = getelementptr inbounds nuw i8, ptr %14, i64 %436
-  %438 = getelementptr inbounds [6 x i64], ptr %437, i64 0, i64 %420
+  %438 = getelementptr inbounds i64, ptr %437, i64 %420
   %439 = load i64, ptr %438, align 8, !tbaa !53
   %440 = add i64 %439, %385
   store i64 %440, ptr %438, align 8, !tbaa !53
@@ -1545,11 +1545,11 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   store i64 %477, ptr %182, align 8, !tbaa !128
   %478 = load i32, ptr %234, align 8, !tbaa !91
   %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds [6 x i32], ptr %183, i64 0, i64 %479
+  %480 = getelementptr inbounds i32, ptr %183, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !83
   %482 = add i32 %481, 1
   store i32 %482, ptr %480, align 4, !tbaa !83
-  %483 = getelementptr inbounds [6 x i64], ptr %184, i64 0, i64 %479
+  %483 = getelementptr inbounds i64, ptr %184, i64 %479
   %484 = load i64, ptr %483, align 8, !tbaa !53
   %485 = add i64 %484, %475
   store i64 %485, ptr %483, align 8, !tbaa !53
@@ -1632,7 +1632,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   %523 = load i64, ptr %522, align 8, !tbaa !53
   %524 = lshr i64 %523, 3
   %525 = and i64 %524, 65535
-  %526 = getelementptr inbounds nuw [65536 x ptr], ptr %166, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw ptr, ptr %166, i64 %525
   %.0262321.i = load ptr, ptr %526, align 8, !tbaa !108
   %cond322.i = icmp eq ptr %.0262321.i, null
   %.not284.i = icmp eq i64 %523, -1

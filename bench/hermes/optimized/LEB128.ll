@@ -303,7 +303,7 @@ if.then:                                          ; preds = %entry, %if.then
   %i.013 = phi i64 [ %add15, %if.then ], [ 0, %entry ]
   %1 = trunc i32 %input.addr.014 to i8
   %conv5 = or i8 %1, -128
-  %arrayidx = getelementptr inbounds nuw [5 x i8], ptr %buf, i64 0, i64 %i.013
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 %i.013
   store i8 %conv5, ptr %arrayidx, align 1
   %shr = ashr i32 %input.addr.014, 7
   %cmp = icmp samesign ult i64 %add15, 5
@@ -321,7 +321,7 @@ if.else:                                          ; preds = %if.then, %entry
   %add.lcssa = phi i64 [ 1, %entry ], [ %add, %if.then ]
   %3 = trunc nsw i32 %input.addr.0.lcssa to i8
   %conv8 = and i8 %3, 127
-  %arrayidx9 = getelementptr inbounds nuw [5 x i8], ptr %buf, i64 0, i64 %i.0.lcssa
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %buf, i64 %i.0.lcssa
   store i8 %conv8, ptr %arrayidx9, align 1
   %call11 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull %buf, i64 noundef %add.lcssa) #12
   ret void

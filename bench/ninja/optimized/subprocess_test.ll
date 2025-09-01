@@ -5348,7 +5348,7 @@ define dso_local void @_ZN32SubprocessTest_SetWithMulti_Test8TestBodyEv(ptr noun
 51:                                               ; preds = %1, %134
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !74
   store ptr %47, ptr %5, align 8, !tbaa !4
   %54 = icmp eq ptr %53, null
@@ -5405,7 +5405,7 @@ define dso_local void @_ZN32SubprocessTest_SetWithMulti_Test8TestBodyEv(ptr noun
           to label %70 unwind label %83
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %69, ptr %71, align 8, !tbaa !16
   %72 = load ptr, ptr %5, align 8, !tbaa !12
   %73 = icmp eq ptr %72, %47
@@ -5807,7 +5807,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 199:                                              ; preds = %193, %306
   %indvars.iv311 = phi i64 [ 0, %193 ], [ %indvars.iv.next312, %306 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %200 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv311
+  %200 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv311
   %201 = load ptr, ptr %200, align 8, !tbaa !16
   %202 = call noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull align 8 dereferenceable(41) %201)
   %203 = xor i1 %202, true
@@ -6689,7 +6689,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i32 0, ptr %38, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %511 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv315
+  %511 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv315
   %512 = load ptr, ptr %511, align 8, !tbaa !16
   %513 = call noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %512)
   store i32 %513, ptr %39, align 4, !tbaa !37

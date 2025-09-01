@@ -878,7 +878,7 @@ define dso_local i32 @Curl_ssl_backend() local_unnamed_addr #2 {
 
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %7 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %8 = load ptr, ptr %7, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %8, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -893,7 +893,7 @@ define dso_local i32 @Curl_ssl_backend() local_unnamed_addr #2 {
   br i1 %.not20.i, label %6, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !136
   br label %multissl_setup.exit.sink.split
 
@@ -2678,7 +2678,7 @@ define dso_local range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, pt
 
 11:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next43
+  %12 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next43
   %13 = load ptr, ptr %12, align 8, !tbaa !136
   %.not19.us = icmp eq ptr %13, null
   br i1 %.not19.us, label %multissl_setup.exit, label %.lr.ph.split.us, !llvm.loop !225
@@ -2715,7 +2715,7 @@ define dso_local range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %0, pt
   br i1 %.not21, label %54, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %27
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv
   %.pr = load ptr, ptr %31, align 8, !tbaa !136
   br label %.loopexit
 
@@ -2748,7 +2748,7 @@ thread-pre-split:                                 ; preds = %27
 
 41:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %42 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %43 = load ptr, ptr %42, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %43, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -2763,7 +2763,7 @@ thread-pre-split:                                 ; preds = %27
   br i1 %.not20.i, label %41, label %48
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !136
   store ptr %50, ptr @Curl_ssl, align 8, !tbaa !136
   %51 = load ptr, ptr @Curl_cfree, align 8, !tbaa !17
@@ -2783,7 +2783,7 @@ thread-pre-split:                                 ; preds = %27
 
 54:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
+  %55 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8, !tbaa !136
   %.not19 = icmp eq ptr %56, null
   br i1 %.not19, label %multissl_setup.exit, label %.lr.ph.split, !llvm.loop !225
@@ -3930,7 +3930,7 @@ define dso_local ptr @Curl_ssl_get_internals(ptr noundef %0, i32 noundef %1, i32
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !257
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %get_ssl_filter.exit.thread, label %.lr.ph.i
@@ -3980,7 +3980,7 @@ define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !257
   %.not4756 = icmp eq ptr %11, null
   br i1 %.not4756, label %.loopexit, label %.lr.ph
@@ -4199,7 +4199,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeon
 .lr.ph35:                                         ; preds = %.lr.ph, %12
   %.0242834 = phi i64 [ %20, %12 ], [ 0, %.lr.ph ]
   %.0232933 = phi i32 [ %19, %12 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds nuw [3 x [10 x i8]], ptr %1, i64 0, i64 %.0242834
+  %5 = getelementptr inbounds nuw [10 x i8], ptr %1, i64 %.0242834
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %7 = icmp ugt i64 %6, 9
   br i1 %7, label %.loopexit, label %8
@@ -4214,7 +4214,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeon
   %13 = trunc nuw nsw i64 %6 to i8
   %14 = add nsw i32 %.0232933, 1
   %15 = sext i32 %.0232933 to i64
-  %16 = getelementptr inbounds [33 x i8], ptr %0, i64 0, i64 %15
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
   store i8 %13, ptr %16, align 1, !tbaa !12
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
@@ -4254,7 +4254,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeon
 .lr.ph37:                                         ; preds = %.lr.ph, %16
   %.0253036 = phi i64 [ %19, %16 ], [ 0, %.lr.ph ]
   %.03135 = phi i64 [ %18, %16 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds nuw [3 x [10 x i8]], ptr %1, i64 0, i64 %.0253036
+  %5 = getelementptr inbounds nuw [10 x i8], ptr %1, i64 %.0253036
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %7 = icmp ugt i64 %6, 9
   br i1 %7, label %.loopexit, label %8
@@ -4271,7 +4271,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeon
 
 13:                                               ; preds = %12
   %14 = add i64 %.03135, 1
-  %15 = getelementptr inbounds nuw [33 x i8], ptr %0, i64 0, i64 %.03135
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.03135
   store i8 44, ptr %15, align 1, !tbaa !12
   br label %16
 
@@ -4287,7 +4287,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr noundef writeon
 
 .critedge:                                        ; preds = %16, %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph ], [ %18, %16 ]
-  %22 = getelementptr inbounds nuw [33 x i8], ptr %0, i64 0, i64 %.0.lcssa
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.lcssa
   store i8 0, ptr %22, align 1, !tbaa !12
   %23 = trunc i64 %.0.lcssa to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4319,7 +4319,7 @@ define dso_local noundef zeroext i1 @Curl_alpn_contains_proto(ptr noundef readon
 
 .lr.ph32:                                         ; preds = %.lr.ph, %.critedge24.us
   %.01825.us31 = phi i64 [ %13, %.critedge24.us ], [ 0, %.lr.ph ]
-  %9 = getelementptr inbounds nuw [3 x [10 x i8]], ptr %0, i64 0, i64 %.01825.us31
+  %9 = getelementptr inbounds nuw [10 x i8], ptr %0, i64 %.01825.us31
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %11 = icmp eq i64 %10, %4
   br i1 %11, label %12, label %.critedge24.us
@@ -4654,7 +4654,7 @@ define internal i32 @multissl_init() #2 {
 
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %7 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %7 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %8 = load ptr, ptr %7, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %8, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -4669,7 +4669,7 @@ define internal i32 @multissl_init() #2 {
   br i1 %.not20.i, label %6, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -4739,7 +4739,7 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
   %.1 = phi ptr [ %23, %15 ], [ %.027, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8, !tbaa !136
   %.not20 = icmp eq ptr %26, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !271
@@ -4791,7 +4791,7 @@ define internal i32 @multissl_connect(ptr noundef %0, ptr noundef %1) #2 {
 
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %10, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -4806,7 +4806,7 @@ define internal i32 @multissl_connect(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not20.i, label %8, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -4849,7 +4849,7 @@ define internal i32 @multissl_connect_nonblocking(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %11 = load ptr, ptr %10, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %11, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -4864,7 +4864,7 @@ define internal i32 @multissl_connect_nonblocking(ptr noundef %0, ptr noundef %1
   br i1 %.not20.i, label %9, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -4907,7 +4907,7 @@ define internal void @multissl_adjust_pollset(ptr noundef %0, ptr noundef %1, pt
 
 9:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %11 = load ptr, ptr %10, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %11, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -4922,7 +4922,7 @@ define internal void @multissl_adjust_pollset(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not20.i, label %9, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -4964,7 +4964,7 @@ define internal ptr @multissl_get_internals(ptr noundef %0, i32 noundef %1) #2 {
 
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %10, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -4979,7 +4979,7 @@ define internal ptr @multissl_get_internals(ptr noundef %0, i32 noundef %1) #2 {
   br i1 %.not20.i, label %8, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -5022,7 +5022,7 @@ define internal void @multissl_close(ptr noundef %0, ptr noundef %1) #2 {
 
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %10, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -5037,7 +5037,7 @@ define internal void @multissl_close(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %.not20.i, label %8, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -5079,7 +5079,7 @@ define internal i64 @multissl_recv_plain(ptr noundef %0, ptr noundef %1, ptr nou
 
 11:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %13 = load ptr, ptr %12, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %13, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -5094,7 +5094,7 @@ define internal i64 @multissl_recv_plain(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not20.i, label %11, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !136
   br label %.critedge.i
 
@@ -5137,7 +5137,7 @@ define internal i64 @multissl_send_plain(ptr noundef %0, ptr noundef %1, ptr nou
 
 11:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.next.i
   %13 = load ptr, ptr %12, align 8, !tbaa !136
   %.not19.i = icmp eq ptr %13, null
   br i1 %.not19.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !138
@@ -5152,7 +5152,7 @@ define internal i64 @multissl_send_plain(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not20.i, label %11, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr @available_backends, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !136
   br label %.critedge.i
 

@@ -639,32 +639,31 @@ define hidden noundef zeroext i1 @"_ZN13generic_array3hex91_$LT$impl$u20$core..f
   %16 = add nuw nsw i64 %.sroa.01.011.i, 1
   %17 = lshr i8 %.val9.i, 4
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %18
   %20 = load i8, ptr %19, align 1, !noalias !69, !noundef !5
-  %21 = getelementptr inbounds nuw [0 x i8], ptr %3, i64 0, i64 %13
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 %20, ptr %21, align 1, !alias.scope !63, !noalias !72
-  %22 = or disjoint i64 %13, 1
-  %23 = and i8 %.val9.i, 15
-  %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !noalias !69, !noundef !5
-  %27 = getelementptr inbounds nuw [0 x i8], ptr %3, i64 0, i64 %22
-  store i8 %26, ptr %27, align 1, !alias.scope !63, !noalias !72
+  %22 = and i8 %.val9.i, 15
+  %23 = zext nneg i8 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
+  %25 = load i8, ptr %24, align 1, !noalias !69, !noundef !5
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %25, ptr %26, align 1, !alias.scope !63, !noalias !72
   %exitcond13.not.i = icmp eq i64 %16, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond13.not.i, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17hb04d8091f54687caE.exit", label %12
 
 "_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17hb04d8091f54687caE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2241139d0d033694E.exit.i", %2
-  %28 = icmp ugt i64 %.sroa.07.0, 64
-  br i1 %28, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6ec26c2bb6867a0eE.exit"
+  %27 = icmp ugt i64 %.sroa.07.0, 64
+  br i1 %27, label %28, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6ec26c2bb6867a0eE.exit"
 
-29:                                               ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17hb04d8091f54687caE.exit"
+28:                                               ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17hb04d8091f54687caE.exit"
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %.sroa.07.0, i64 noundef 64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.05e66152e37140cfd23fa0c01ecab266.3) #19, !noalias !73
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6ec26c2bb6867a0eE.exit": ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17hb04d8091f54687caE.exit"
-  %30 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %.sroa.07.0)
+  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %.sroa.07.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %30
+  ret i1 %29
 }
 
 ; Function Attrs: nonlazybind uwtable

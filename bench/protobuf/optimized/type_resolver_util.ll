@@ -442,7 +442,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i.i: ; preds = %if.then5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %if.then.i.i.i47.i, %if.then.i
   %35 = load i8, ptr %type_.i.i, align 2, !noalias !4
   %idxprom.i.i.i = zext i8 %35 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i
   %36 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !4
   switch i32 %36, label %sw.epilog.i.i [
     i32 1, label %sw.bb.i.i
@@ -2098,7 +2098,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZN6google8pro
   %type_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 2
   %20 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %20 to i64
-  %arrayidx.i104 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i104 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i104, align 4
   switch i32 %21, label %sw.epilog [
     i32 10, label %sw.bb

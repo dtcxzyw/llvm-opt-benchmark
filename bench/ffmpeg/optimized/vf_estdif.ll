@@ -389,17 +389,17 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
 
 46:                                               ; preds = %.lr.ph157, %._crit_edge154
   %indvars.iv185 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next186, %._crit_edge154 ]
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv185
+  %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv185
   %48 = load ptr, ptr %47, align 8, !tbaa !68
-  %49 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv185
+  %49 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv185
   %50 = load ptr, ptr %49, align 8, !tbaa !68
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %38, i64 0, i64 %indvars.iv185
+  %51 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv185
   %52 = load i32, ptr %51, align 4, !tbaa !51
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %indvars.iv185
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv185
   %54 = load i32, ptr %53, align 4, !tbaa !51
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %40, i64 0, i64 %indvars.iv185
+  %55 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv185
   %56 = load i32, ptr %55, align 4, !tbaa !51
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %41, i64 0, i64 %indvars.iv185
+  %57 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv185
   %58 = load i32, ptr %57, align 4, !tbaa !51
   %59 = mul nsw i32 %54, %2
   %60 = sdiv i32 %59, %3
@@ -418,7 +418,7 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %70 = mul nsw i32 %65, %56
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %48, i64 %71
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv185
+  %73 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv185
   %74 = load i32, ptr %73, align 4, !tbaa !51
   %75 = sext i32 %74 to i64
   %76 = shl nsw i32 %56, 1
@@ -846,7 +846,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa230
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = sext i32 %16 to i64
-  %175 = getelementptr inbounds [3 x ptr], ptr %173, i64 0, i64 %174
+  %175 = getelementptr inbounds ptr, ptr %173, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !59
   %177 = tail call i32 %176(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %23, i32 noundef %8, i32 noundef %172, i32 noundef %12) #11
   %178 = trunc i32 %177 to i8
@@ -1217,7 +1217,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa230
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = sext i32 %16 to i64
-  %186 = getelementptr inbounds [3 x ptr], ptr %184, i64 0, i64 %185
+  %186 = getelementptr inbounds ptr, ptr %184, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !59
   %188 = tail call i32 %187(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %23, i32 noundef %8, i32 noundef %183, i32 noundef %12) #11
   %189 = trunc i32 %188 to i16

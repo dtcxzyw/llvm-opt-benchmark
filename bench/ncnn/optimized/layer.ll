@@ -7239,7 +7239,7 @@ define hidden noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly cap
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16, !tbaa !65
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
   %6 = icmp eq i32 %5, 0
@@ -7268,7 +7268,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr noundef readonly captu
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
   %6 = icmp eq i32 %5, 0
@@ -7301,7 +7301,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5, i32 1
   br label %19
 
 7:                                                ; preds = %2
@@ -7311,7 +7311,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10, i32 1
   br label %19
 
 12:                                               ; preds = %7
@@ -7321,11 +7321,11 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   br i1 %.not18.i, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14, i32 1
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14, i32 1
   br label %19
 
 19:                                               ; preds = %17, %15, %9, %4
@@ -7336,7 +7336,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8, !tbaa !68
   switch i32 %0, label %24 [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
@@ -7435,7 +7435,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr noundef readonly
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
   %6 = icmp eq i32 %5, 0
@@ -7458,7 +7458,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i, i32 1
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   %13 = tail call noundef ptr %12(ptr noundef null)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -7483,7 +7483,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %4, i32 1
   %6 = load ptr, ptr %5, align 8, !tbaa !68
   %7 = tail call noundef ptr %6(ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -7501,7 +7501,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr noundef readonly c
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
   %6 = icmp eq i32 %5, 0
@@ -7535,13 +7535,13 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
 
 15:                                               ; preds = %13, %11, %9
   %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %9 ], [ @_ZN4ncnnL18layer_registry_fmaE, %11 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %13 ]
-  %16 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 0, i64 %indvars.iv.i, i32 1
+  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 %indvars.iv.i, i32 1
   %.014.i = load ptr, ptr %16, align 8, !tbaa !68
   %.not19.i = icmp eq ptr %.014.i, null
   br i1 %.not19.i, label %17, label %.thread.i
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i, i32 1
   %19 = load ptr, ptr %18, align 8, !tbaa !68
   switch i32 %8, label %.thread.i [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit
@@ -7572,7 +7572,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL21layer_registry_avx512E, i64 %5, i32 1
   br label %19
 
 7:                                                ; preds = %2
@@ -7582,7 +7582,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_fmaE, i64 %10, i32 1
   br label %19
 
 12:                                               ; preds = %7
@@ -7592,11 +7592,11 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
   br i1 %.not18, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL18layer_registry_avxE, i64 %14, i32 1
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL19layer_registry_archE, i64 %14, i32 1
   br label %19
 
 19:                                               ; preds = %9, %17, %15, %4
@@ -7607,7 +7607,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8, !tbaa !68
   switch i32 %0, label %.thread [
     i32 34, label %26

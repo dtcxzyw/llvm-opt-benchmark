@@ -335,7 +335,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %16 = getelementptr inbounds nuw [2048 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !16
   switch i8 %17, label %20 [
     i8 10, label %18

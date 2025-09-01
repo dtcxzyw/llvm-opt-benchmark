@@ -820,7 +820,7 @@ _thumb_update_rating_class.exit:                  ; preds = %_thumb_update_ratin
 343:                                              ; preds = %205, %343
   %indvars.iv = phi i64 [ 0, %205 ], [ %indvars.iv.next, %343 ]
   %344 = tail call ptr @dtgtk_thumbnail_btn_new(ptr noundef nonnull @dtgtk_cairo_paint_star, i32 noundef 0, ptr noundef null) #20
-  %345 = getelementptr inbounds nuw [5 x ptr], ptr %241, i64 0, i64 %indvars.iv
+  %345 = getelementptr inbounds nuw ptr, ptr %241, i64 %indvars.iv
   store ptr %344, ptr %345, align 8, !tbaa !91
   %346 = tail call ptr @g_type_check_instance_cast(ptr noundef %344, i64 noundef 80) #20
   %347 = tail call i64 @g_signal_connect_data(ptr noundef %346, ptr noundef nonnull @.str.24, ptr noundef nonnull @_event_star_enter, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
@@ -3143,7 +3143,7 @@ define internal noundef i32 @_event_star_enter(ptr noundef readnone captures(add
 20:                                               ; preds = %14, %_set_flag.exit._crit_edge
   %indvars.iv = phi i64 [ 0, %14 ], [ %28, %_set_flag.exit._crit_edge ]
   %.01822 = phi i32 [ 1, %14 ], [ %.1, %_set_flag.exit._crit_edge ]
-  %21 = getelementptr inbounds nuw [5 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !91
   %.not.i = icmp eq i32 %.01822, 0
   br i1 %.not.i, label %24, label %23
@@ -3208,7 +3208,7 @@ define internal noundef i32 @_event_star_leave(ptr readnone captures(none) %0, p
 
 15:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [5 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !91
   tail call void @gtk_widget_unset_state_flags(ptr noundef %17, i32 noundef 2) #20
   %18 = load ptr, ptr %16, align 8, !tbaa !91
@@ -4060,7 +4060,7 @@ _thumb_update_rating_class.exit:                  ; preds = %41, %32, %30
 
 switch.lookup:                                    ; preds = %.lr.ph
   %88 = zext nneg i32 %86 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._image_get_infos, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._image_get_infos, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   %89 = load i32, ptr %43, align 4, !tbaa !97
   %90 = or i32 %89, %switch.load
@@ -4639,7 +4639,7 @@ _set_flag.exit48.preheader:                       ; preds = %59, %60
 
 61:                                               ; preds = %33, %61
   %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw [5 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !91
   tail call void @gtk_widget_show(ptr noundef %63) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4714,7 +4714,7 @@ _thumb_update_tags_tooltip.exit:                  ; preds = %83, %87
 
 _set_flag.exit48:                                 ; preds = %_set_flag.exit48.preheader, %_set_flag.exit55
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %_set_flag.exit55 ], [ 0, %_set_flag.exit48.preheader ]
-  %92 = getelementptr inbounds nuw [5 x ptr], ptr %43, i64 0, i64 %indvars.iv63
+  %92 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv63
   %93 = load ptr, ptr %92, align 8, !tbaa !91
   %94 = load i32, ptr %57, align 8, !tbaa !79
   %95 = sext i32 %94 to i64
@@ -5332,7 +5332,7 @@ define internal fastcc void @_thumb_resize_overlays(ptr noundef readonly %0) unn
 
 233:                                              ; preds = %107, %233
   %indvars.iv = phi i64 [ 0, %107 ], [ %indvars.iv.next, %233 ]
-  %234 = getelementptr inbounds nuw [5 x ptr], ptr %141, i64 0, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
   %235 = load ptr, ptr %234, align 8, !tbaa !91
   call void @gtk_widget_set_size_request(ptr noundef %235, i32 noundef %45, i32 noundef %45) #20
   %236 = load ptr, ptr %234, align 8, !tbaa !91
@@ -5658,7 +5658,7 @@ define internal fastcc void @_thumb_resize_overlays(ptr noundef readonly %0) unn
 
 477:                                              ; preds = %378, %477
   %indvars.iv335 = phi i64 [ 0, %378 ], [ %indvars.iv.next336, %477 ]
-  %478 = getelementptr inbounds nuw [5 x ptr], ptr %414, i64 0, i64 %indvars.iv335
+  %478 = getelementptr inbounds nuw ptr, ptr %414, i64 %indvars.iv335
   %479 = load ptr, ptr %478, align 8, !tbaa !91
   call void @gtk_widget_set_size_request(ptr noundef %479, i32 noundef %404, i32 noundef %404) #20
   %480 = load ptr, ptr %478, align 8, !tbaa !91
@@ -6384,7 +6384,7 @@ define void @dt_thumbnail_set_overlay(ptr noundef %0, i32 noundef %1, i32 nounde
 
 90:                                               ; preds = %41, %90
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [5 x ptr], ptr %53, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !91
   %93 = tail call ptr @g_object_ref(ptr noundef %92) #20
   %94 = tail call ptr @gtk_widget_get_parent(ptr noundef %92) #20
@@ -6455,7 +6455,7 @@ define internal noundef i32 @_thumbs_hide_overlays(ptr noundef captures(none) in
 
 29:                                               ; preds = %7, %29
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw [5 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !91
   tail call void @gtk_widget_hide(ptr noundef %31) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

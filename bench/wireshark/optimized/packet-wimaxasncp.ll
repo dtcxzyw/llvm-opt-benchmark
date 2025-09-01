@@ -600,7 +600,7 @@ match_ver_value_string.exit.thread:               ; preds = %._crit_edge.i, %mat
 
 94:                                               ; preds = %85, %92
   %.0135179 = phi i64 [ 0, %85 ], [ %93, %92 ]
-  %95 = getelementptr [11 x %struct.wimaxasncp_func_msg_t], ptr @wimaxasncp_func_to_msg_vals_map, i64 0, i64 %.0135179
+  %95 = getelementptr %struct.wimaxasncp_func_msg_t, ptr @wimaxasncp_func_to_msg_vals_map, i64 %.0135179
   %96 = load i8, ptr %95, align 16
   %97 = icmp eq i8 %60, %96
   br i1 %97, label %98, label %92

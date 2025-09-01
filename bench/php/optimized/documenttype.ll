@@ -38,7 +38,7 @@ zend_string_alloc.exit:                           ; preds = %2
   store i64 %8, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %spec.select, i64 %8, i1 false)
-  %16 = getelementptr inbounds nuw [1 x i8], ptr %15, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %8
   store i8 0, ptr %16, align 1, !tbaa !16
   store ptr %11, ptr %1, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -187,7 +187,7 @@ zend_string_alloc.exit:                           ; preds = %6
   store i64 %9, ptr %15, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %8, i64 %9, i1 false)
-  %17 = getelementptr inbounds nuw [1 x i8], ptr %16, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
   store i8 0, ptr %17, align 1, !tbaa !16
   store ptr %12, ptr %1, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -236,7 +236,7 @@ zend_string_alloc.exit:                           ; preds = %6
   store i64 %9, ptr %15, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %8, i64 %9, i1 false)
-  %17 = getelementptr inbounds nuw [1 x i8], ptr %16, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
   store i8 0, ptr %17, align 1, !tbaa !16
   store ptr %12, ptr %1, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -348,7 +348,7 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %.pre40, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %.pre40, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !20
-  %40 = getelementptr inbounds nuw [1 x i8], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !16
   %41 = load ptr, ptr %3, align 8, !tbaa !36
   %.not.i33 = icmp eq ptr %41, null

@@ -97,7 +97,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %17 = trunc nuw nsw i64 %indvars.iv105 to i32
   %18 = shl nuw i32 1, %17
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %19 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv.next106
+  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next106
   store i32 %18, ptr %19, align 4, !tbaa !11
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
   br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph79, !llvm.loop !13
@@ -149,7 +149,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 .preheader68:                                     ; preds = %35, %40
   %.26187 = phi i32 [ %41, %40 ], [ %33, %35 ]
   %37 = zext i32 %.26187 to i64
-  %38 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !11
   %.not65 = icmp eq i32 %39, 0
   br i1 %.not65, label %40, label %42
@@ -160,7 +160,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   br i1 %cond, label %.loopexit, label %.preheader68, !llvm.loop !15
 
 42:                                               ; preds = %.preheader68
-  %43 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %37
+  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %37
   store i32 0, ptr %43, align 4, !tbaa !11
   %.not67.not88 = icmp ult i32 %.26187, %33
   br i1 %.not67.not88, label %.lr.ph91, label %._crit_edge92
@@ -171,7 +171,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %44 = trunc nuw i64 %indvars.iv116 to i32
   %45 = shl nuw i32 1, %44
   %46 = add i32 %45, %39
-  %47 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv.next117
+  %47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next117
   store i32 %46, ptr %47, align 4, !tbaa !11
   %lftr.wideiv119 = trunc i64 %indvars.iv.next117 to i32
   %exitcond120.not = icmp eq i32 %lftr.wideiv119, %33
@@ -197,7 +197,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 
 .preheader:                                       ; preds = %.preheader.preheader, %51
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %51 ], [ 1, %.preheader.preheader ]
-  %52 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv122
+  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv122
   %53 = load i32, ptr %52, align 4, !tbaa !11
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %51, label %.loopexit
@@ -428,7 +428,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %12 = zext nneg i32 %1 to i64
   %.0.i = select i1 %.not.i, i64 %12, i64 %11
   %13 = and i64 %.0.i, 255
-  %14 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw float, ptr @ff_vorbis_floor1_inverse_db_table, i64 %13
   %15 = load float, ptr %14, align 4, !tbaa !31
   %16 = zext nneg i32 %0 to i64
   %17 = getelementptr inbounds nuw float, ptr %4, i64 %16
@@ -471,7 +471,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %34 = zext i32 %32 to i64
   %.0.i40.i = select i1 %.not.i38.i, i64 %34, i64 %33
   %35 = and i64 %.0.i40.i, 255
-  %36 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw float, ptr @ff_vorbis_floor1_inverse_db_table, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !31
   %38 = add nsw i64 %.02742.i, 2
   %39 = getelementptr inbounds float, ptr %23, i64 %27
@@ -488,7 +488,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %41 = sext i1 %isnotneg.i36.i to i64
   %.0.i37.i = select i1 %.not.i35.i, i64 %.pre-phi.i, i64 %41
   %42 = and i64 %.0.i37.i, 255
-  %43 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw float, ptr @ff_vorbis_floor1_inverse_db_table, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !31
   %45 = getelementptr inbounds float, ptr %23, i64 %.128.i
   store float %44, ptr %45, align 4, !tbaa !31
@@ -513,7 +513,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %53 = zext i32 %.2.i to i64
   %.0.i.i = select i1 %.not.i.i, i64 %53, i64 %52
   %54 = and i64 %.0.i.i, 255
-  %55 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw float, ptr @ff_vorbis_floor1_inverse_db_table, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !31
   store float %56, ptr %23, align 4, !tbaa !31
   br label %render_line_unrolled.exit
@@ -549,7 +549,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %71 = zext i32 %.144 to i64
   %.0.i53 = select i1 %.not.i51, i64 %71, i64 %70
   %72 = and i64 %.0.i53, 255
-  %73 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw float, ptr @ff_vorbis_floor1_inverse_db_table, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !31
   %75 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %74, ptr %75, align 4, !tbaa !31

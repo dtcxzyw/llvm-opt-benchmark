@@ -91,7 +91,7 @@ define noundef i32 @_Z11effnNparamsi(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !4
   br label %6
 
@@ -107,7 +107,7 @@ define noundef ptr @_Z15effnDescriptioni(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZL9longs_ffn, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   br label %6
 
@@ -788,7 +788,7 @@ define noundef double @_Z12fit_functioniPKdd(i32 noundef %0, ptr noundef %1, dou
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @lmcurves, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = tail call noundef double %10(double noundef %2, ptr noundef %1)
   br label %12
@@ -827,7 +827,7 @@ define noundef float @_Z8do_lmfitiPKfPffS0_ffPK16gmx_output_env_tbiPdiPKc(i32 no
 
 24:                                               ; preds = %23
   %25 = zext nneg i32 %9 to i64
-  %26 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !4
   br label %_Z11effnNparamsi.exit
 
@@ -930,7 +930,7 @@ _Z11effnNparamsi.exit:                            ; preds = %23, %24
 
 78:                                               ; preds = %._crit_edge
   %79 = zext nneg i32 %9 to i64
-  %80 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !4
   br label %_Z11effnNparamsi.exit163
 
@@ -958,7 +958,7 @@ _Z11effnNparamsi.exit163:                         ; preds = %._crit_edge, %78
 
 91:                                               ; preds = %90
   %92 = zext nneg i32 %9 to i64
-  %93 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !4
   br label %_Z11effnNparamsi.exit.i
 
@@ -1049,7 +1049,7 @@ _ZL19initiate_fit_paramsiPd.exit:                 ; preds = %_Z11effnNparamsi.ex
 137:                                              ; preds = %_ZL19initiate_fit_paramsiPd.exit.thread, %_ZL19initiate_fit_paramsiPd.exit
   %138 = phi i1 [ %135, %_ZL19initiate_fit_paramsiPd.exit.thread ], [ %136, %_ZL19initiate_fit_paramsiPd.exit ]
   %139 = zext nneg i32 %9 to i64
-  %140 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !4
   br label %_Z11effnNparamsi.exit.i165
 
@@ -1200,7 +1200,7 @@ _ZL18extract_fit_paramsiPd.exit:                  ; preds = %.lr.ph.i, %_Z11effn
 .lr.ph230:                                        ; preds = %.preheader223
   %202 = add nsw i32 %.0140.lcssa, -1
   %203 = sext i32 %9 to i64
-  %204 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %203
+  %204 = getelementptr inbounds ptr, ptr @lmcurves, i64 %203
   %wide.trip.count249 = zext nneg i32 %202 to i64
   %.pre = load double, ptr %36, align 8, !tbaa !13
   br label %275
@@ -1286,7 +1286,7 @@ _ZL5myexpddd.exit177:                             ; preds = %_ZL5myexpddd.exit17
 
 251:                                              ; preds = %200, %200, %200
   %252 = zext nneg i32 %9 to i64
-  %253 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %252
   %254 = fpext float %5 to double
   %255 = fneg double %254
   br label %256
@@ -1466,7 +1466,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 
 _Z11effnNparamsi.exit193.us.preheader:            ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %326 = zext nneg i32 %9 to i64
-  %327 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %326
   %328 = load i32, ptr %327, align 4, !tbaa !4
   %smax = call i32 @llvm.smax.i32(i32 %328, i32 1)
   %wide.trip.count254 = zext nneg i32 %smax to i64
@@ -1489,7 +1489,7 @@ _Z11effnNparamsi.exit193.us:                      ; preds = %_Z11effnNparamsi.ex
 .lr.ph237:                                        ; preds = %.preheader
   %.not157 = icmp eq ptr %4, null
   %334 = sext i32 %9 to i64
-  %335 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %334
+  %335 = getelementptr inbounds ptr, ptr @lmcurves, i64 %334
   %wide.trip.count264 = zext nneg i32 %.0140.lcssa to i64
   br i1 %.not157, label %.lr.ph237.split.us, label %.lr.ph237.split
 
@@ -1593,7 +1593,7 @@ define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr 
 
 .lr.ph:                                           ; preds = %7
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr @lmcurves, i64 %9
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %11
 
@@ -1620,7 +1620,7 @@ define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr 
 
 _Z11effnNparamsi.exit:                            ; preds = %._crit_edge
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef %23, ptr noundef %3, double noundef %.022.lcssa) #18
   %.not = icmp eq i32 %1, 0
@@ -1853,7 +1853,7 @@ define noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %0, 
 
 _Z15effnDescriptioni.exit:                        ; preds = %23
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @_ZL9longs_ffn, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !8
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %31)
   %33 = fpext float %4 to double
@@ -1909,9 +1909,9 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %64 = fmul double %63, %56
   %.not112 = icmp ne ptr %8, null
   %65 = sext i32 %1 to i64
-  %66 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %65
+  %66 = getelementptr inbounds ptr, ptr @lmcurves, i64 %65
   %67 = zext nneg i32 %1 to i64
-  %68 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr @_ZL7nfp_ffn, i64 %67
   %69 = fpext float %4 to double
   %wide.trip.count = zext nneg i32 %0 to i64
   %wide.trip.count196 = zext nneg i32 %0 to i64
@@ -2068,7 +2068,7 @@ _Z11effnNparamsi.exit125.us.preheader:            ; preds = %130
 
 _Z11effnNparamsi.exit125.us:                      ; preds = %_Z11effnNparamsi.exit125.us.preheader, %_Z11effnNparamsi.exit125.us
   %indvars.iv206 = phi i64 [ 0, %_Z11effnNparamsi.exit125.us.preheader ], [ %indvars.iv.next207, %_Z11effnNparamsi.exit125.us ]
-  %133 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv206
+  %133 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv206
   %134 = load double, ptr %133, align 8, !tbaa !13
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %134)
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1

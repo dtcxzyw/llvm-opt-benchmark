@@ -95,14 +95,14 @@ define internal range(i32 -2147483648, 1) i32 @xbm_encode_frame(ptr noundef %0, 
   %45 = load i8, ptr %.15684.us, align 1, !tbaa !31
   %46 = and i8 %45, 15
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [16 x i8], ptr @xbm_encode_frame.lut, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @xbm_encode_frame.lut, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %.185.us, i64 3
   store i8 %49, ptr %50, align 1, !tbaa !31
   %51 = load i8, ptr %.15684.us, align 1, !tbaa !31
   %52 = lshr i8 %51, 4
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw [16 x i8], ptr @xbm_encode_frame.lut, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @xbm_encode_frame.lut, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %.185.us, i64 4
   store i8 %55, ptr %56, align 1, !tbaa !31

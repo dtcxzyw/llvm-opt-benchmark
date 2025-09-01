@@ -31,7 +31,7 @@ define internal range(i32 -12, 1) i32 @vp9_superframe_init(ptr noundef readonly 
 6:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %7 = tail call ptr @av_packet_alloc() #5
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %7, ptr %8, align 8, !tbaa !16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %5
@@ -154,7 +154,7 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %64, ptr %4, align 8, !tbaa !24
   %66 = sext i32 %61 to i64
-  %67 = getelementptr inbounds [8 x ptr], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   tail call void @av_packet_move_ref(ptr noundef %68, ptr noundef nonnull %1) #5
   br i1 %.056130, label %69, label %180
@@ -198,7 +198,7 @@ stats.exit.i:                                     ; preds = %74
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %81
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %82
   %83 = zext nneg i32 %.110.i.i to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !27
   %86 = zext i8 %85 to i32
   %87 = add nuw nsw i32 %.1.i.i, %86
@@ -352,9 +352,9 @@ stats.exit.i:                                     ; preds = %74
 
 merge_superframe.exit:                            ; preds = %.loopexit.i
   %166 = load i32, ptr %4, align 8, !tbaa !24
-  %167 = add nsw i32 %166, -1
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds [8 x ptr], ptr %65, i64 0, i64 %168
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr ptr, ptr %65, i64 %167
+  %169 = getelementptr i8, ptr %168, i64 -8
   %170 = load ptr, ptr %169, align 8, !tbaa !16
   %171 = tail call i32 @av_packet_copy_props(ptr noundef nonnull %1, ptr noundef %170) #5
   %172 = icmp slt i32 %171, 0
@@ -367,7 +367,7 @@ merge_superframe.exit:                            ; preds = %.loopexit.i
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %175 = getelementptr inbounds nuw [8 x ptr], ptr %65, i64 0, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !16
   tail call void @av_packet_unref(ptr noundef %176) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -405,7 +405,7 @@ define internal void @vp9_superframe_close(ptr noundef readonly captures(none) %
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   tail call void @av_packet_free(ptr noundef nonnull %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -429,7 +429,7 @@ define internal void @vp9_superframe_flush(ptr noundef readonly captures(none) %
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   tail call void @av_packet_unref(ptr noundef %9) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

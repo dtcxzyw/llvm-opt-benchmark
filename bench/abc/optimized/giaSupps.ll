@@ -863,7 +863,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i66, %Vec_In
   %58 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %59 = urem i32 %58, 7
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !35
   %63 = mul i32 %62, %57
   %64 = add i32 %63, %.012.i70
@@ -919,7 +919,7 @@ Hsh_VecManHash.exit:                              ; preds = %55, %47
   %86 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %87 = urem i32 %86, 7
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !35
   %91 = mul i32 %90, %85
   %92 = add i32 %91, %.012.i80
@@ -1409,7 +1409,7 @@ Vec_WrdStart.exit:                                ; preds = %23, %25
   store ptr %.val55, ptr %28, align 8, !tbaa !10
   store i32 %13, ptr %27, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr align 8 %.val55, i8 0, i64 %15, i1 false)
-  %29 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %indvars.iv108
+  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv108
   store ptr %24, ptr %29, align 8, !tbaa !59
   %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   store i32 %13, ptr %30, align 8, !tbaa !37
@@ -1426,7 +1426,7 @@ Vec_WrdStart.exit67:                              ; preds = %Vec_WrdStart.exit, 
   store ptr %33, ptr %35, align 8, !tbaa !10
   store i32 %13, ptr %34, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %15, i1 false)
-  %36 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv108
+  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv108
   store ptr %30, ptr %36, align 8, !tbaa !59
   %37 = load ptr, ptr %18, align 8, !tbaa !60
   %.not = icmp eq ptr %37, null
@@ -1442,7 +1442,7 @@ Vec_WrdStart.exit67:                              ; preds = %Vec_WrdStart.exit, 
 .lr.ph:                                           ; preds = %.preheader78
   %41 = getelementptr i8, ptr %38, i64 8
   %.val62 = load ptr, ptr %41, align 8, !tbaa !34
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr %19, i64 0, i64 %indvars.iv108
+  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv108
   %43 = load ptr, ptr %42, align 8, !tbaa !59
   %44 = getelementptr i8, ptr %43, i64 8
   %.val58 = load ptr, ptr %44, align 8, !tbaa !10
@@ -1907,7 +1907,7 @@ Vec_WrdStart.exit:                                ; preds = %15, %20
   store ptr %24, ptr %26, align 8, !tbaa !10
   store i32 %18, ptr %25, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %.pre-phi35, i1 false)
-  %27 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %19, ptr %27, align 8, !tbaa !59
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   store i32 %18, ptr %28, align 8, !tbaa !37
@@ -1924,7 +1924,7 @@ Vec_WrdStart.exit29:                              ; preds = %Vec_WrdStart.exit, 
   store ptr %31, ptr %33, align 8, !tbaa !10
   store i32 %18, ptr %32, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr align 8 %31, i8 0, i64 %.pre-phi35, i1 false)
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %28, ptr %34, align 8, !tbaa !59
   %35 = load ptr, ptr %2, align 8, !tbaa !61
   %36 = getelementptr i8, ptr %35, i64 8
@@ -9963,7 +9963,7 @@ Vec_WrdStart.exit.i:                              ; preds = %12, %1
   br i1 %exitcond72.not.i, label %..loopexit28_crit_edge.us.us.i, label %33, !llvm.loop !171
 
 .preheader.us.us.i:                               ; preds = %.lr.ph34.split.us.split.us.i
-  %35 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73.i
+  %35 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73.i
   %36 = load i32, ptr %35, align 4, !tbaa !35
   br label %33
 

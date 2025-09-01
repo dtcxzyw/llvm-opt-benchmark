@@ -197,13 +197,13 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
   %.lhs.trunc50 = trunc nsw i16 %26 to i8
   %30 = sdiv i8 %.lhs.trunc50, 10
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 %33, ptr %29, align 2, !tbaa !13
   %35 = srem i8 %.lhs.trunc50, 10
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 %38, ptr %34, align 1, !tbaa !13
@@ -212,13 +212,13 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
   %.lhs.trunc54 = trunc nsw i16 %27 to i8
   %41 = sdiv i8 %.lhs.trunc54, 10
   %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 %44, ptr %40, align 1, !tbaa !13
   %46 = srem i8 %.lhs.trunc54, 10
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %47
+  %48 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 %49, ptr %45, align 2, !tbaa !13
@@ -227,13 +227,13 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
   %.lhs.trunc58 = trunc nsw i32 %.028 to i8
   %52 = sdiv i8 %.lhs.trunc58, 10
   %53 = sext i8 %52 to i64
-  %54 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %53
+  %54 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !13
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 %55, ptr %51, align 16, !tbaa !13
   %57 = srem i8 %.lhs.trunc58, 10
   %58 = sext i8 %57 to i64
-  %59 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds i8, ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 %60, ptr %56, align 1, !tbaa !13

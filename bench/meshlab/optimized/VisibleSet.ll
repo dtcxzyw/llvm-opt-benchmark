@@ -757,7 +757,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
 
 171:                                              ; preds = %.preheader, %249
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %249 ]
-  %172 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.sroa.0.0.copyload.i.i85 = load float, ptr %161, align 4
@@ -890,7 +890,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
 
 249:                                              ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137, %226, %232, %238
   %.sink = phi float [ %248, %238 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137 ]
-  %250 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %.sink, ptr %250, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

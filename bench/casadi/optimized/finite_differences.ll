@@ -570,7 +570,7 @@ define noundef range(i64 -1, 6) i64 @_ZN6casadi11n_fd_pointsENS_6FdModeE(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6casadi11n_fd_pointsENS_6FdModeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6casadi11n_fd_pointsENS_6FdModeE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -586,7 +586,7 @@ define noundef range(i64 -1, 3) i64 @_ZN6casadi9fd_offsetENS_6FdModeE(i32 nounde
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6casadi9fd_offsetENS_6FdModeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6casadi9fd_offsetENS_6FdModeE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 

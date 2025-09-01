@@ -548,7 +548,7 @@ define void @TransposeTest() local_unnamed_addr #2 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
   %.not14 = icmp eq i64 %indvars.iv, 0
   %9 = sext i1 %.not14 to i64
-  %10 = getelementptr inbounds nuw [64 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -730,9 +730,9 @@ Abc_Clock.exit22:                                 ; preds = %76, %79
 
 89:                                               ; preds = %Abc_Clock.exit22, %95
   %indvars.iv35 = phi i64 [ 0, %Abc_Clock.exit22 ], [ %indvars.iv.next36, %95 ]
-  %90 = getelementptr inbounds nuw [64 x i64], ptr %5, i64 0, i64 %indvars.iv35
+  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv35
   %91 = load i64, ptr %90, align 8, !tbaa !40
-  %92 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv35
+  %92 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv35
   %93 = load i64, ptr %92, align 8, !tbaa !40
   %.not = icmp eq i64 %91, %93
   br i1 %.not, label %95, label %94
@@ -834,7 +834,7 @@ define void @Ssw_RarTranspose(ptr noundef readonly captures(none) %0) local_unna
 
 transpose64.exit.us:                              ; preds = %transpose64.exit.preheader.us, %transpose64.exit.us
   %indvars.iv43 = phi i64 [ 0, %transpose64.exit.preheader.us ], [ %indvars.iv.next44, %transpose64.exit.us ]
-  %46 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %indvars.iv43
+  %46 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv43
   %47 = load i64, ptr %46, align 8, !tbaa !40
   %48 = sub nuw nsw i64 %20, %indvars.iv43
   %49 = mul nuw nsw i64 %48, %18
@@ -872,7 +872,7 @@ transpose64.exit.us:                              ; preds = %transpose64.exit.pr
 
 66:                                               ; preds = %50, %53
   %.sink = phi i64 [ %65, %53 ], [ 0, %50 ]
-  %67 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %.sink, ptr %67, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -1211,7 +1211,7 @@ define i32 @Ssw_RarManObjHashWord(ptr noundef readonly captures(none) %0, ptr no
   %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !45
   %14 = and i64 %indvars.iv, 127
-  %15 = getelementptr inbounds nuw [128 x i32], ptr @Ssw_RarManObjHashWord.s_SPrimes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @Ssw_RarManObjHashWord.s_SPrimes, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !45
   %17 = mul i32 %16, %13
   %18 = xor i32 %17, %.01012

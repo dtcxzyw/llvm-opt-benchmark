@@ -21507,7 +21507,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit651:         ; preds = %1277, %1316, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i649
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  %1326 = getelementptr inbounds [24 x float], ptr %91, i64 0, i64 %indvars.iv
+  %1326 = getelementptr inbounds float, ptr %91, i64 %indvars.iv
   %1327 = load float, ptr %52, align 4, !tbaa !67, !noalias !328
   %1328 = load float, ptr %1326, align 4, !tbaa !67, !noalias !328
   %1329 = fcmp oeq float %1327, %1328
@@ -27215,7 +27215,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit597:         ; preds = %1187, %1236, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i595
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  %1246 = getelementptr inbounds [24 x float], ptr %87, i64 0, i64 %indvars.iv
+  %1246 = getelementptr inbounds float, ptr %87, i64 %indvars.iv
   %1247 = load float, ptr %48, align 4, !tbaa !67, !noalias !407
   %1248 = load float, ptr %1246, align 4, !tbaa !67, !noalias !407
   %1249 = fcmp oeq float %1247, %1248
@@ -27852,7 +27852,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit652:         ; preds = %1406, %1445, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i650
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %1455 = getelementptr inbounds [24 x float], ptr %87, i64 0, i64 %indvars.iv803
+  %1455 = getelementptr inbounds float, ptr %87, i64 %indvars.iv803
   %1456 = load float, ptr %48, align 4, !tbaa !67, !noalias !418
   %1457 = load float, ptr %1455, align 4, !tbaa !67, !noalias !418
   %1458 = fcmp oeq float %1456, %1457

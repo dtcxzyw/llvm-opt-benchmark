@@ -1009,7 +1009,7 @@ define hidden void @_ZNK2cv27BackgroundSubtractorKNNImpl18getBackgroundImageERKN
   %indvars.iv.i.i = phi i64 [ 0, %62 ], [ %indvars.iv.next.i.i, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i.i
   %65 = load i8, ptr %64, align 1, !tbaa !99
-  %66 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   store i8 %65, ptr %66, align 1, !tbaa !99
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3

@@ -336,7 +336,7 @@ define void @_ZN5folly6detail18EventBaseLocalBaseD2Ev(ptr noundef nonnull align 
   %90 = and i32 %89, %.sroa.012.0.i.i.i
   %91 = zext nneg i32 %88 to i64
   call void @llvm.assume(i1 %85)
-  %92 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %78, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %78, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !21
   %94 = icmp eq ptr %47, %93
   br i1 %94, label %100, label %.critedge.i.i.i.i, !prof !14, !llvm.loop !29
@@ -352,7 +352,7 @@ define void @_ZN5folly6detail18EventBaseLocalBaseD2Ev(ptr noundef nonnull align 
   br i1 %.not.i.i.i.i, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit, label %75, !llvm.loop !31
 
 100:                                              ; preds = %87
-  %101 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %78, i64 0, i64 %91
+  %101 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %78, i64 %91
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %101, i64 %91, i64 %65, i64 %64)
           to label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit unwind label %.loopexit.split-lp
 
@@ -620,7 +620,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -817,7 +817,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %.250, %16 ], [ %25, %24 ]
   %18 = shl i32 %.4, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 32
   %22 = and i64 %21, -2
   %23 = icmp eq i64 %22, %9
@@ -855,7 +855,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02651 = phi i32 [ 0, %.lr.ph ], [ %.127, %46 ]
   %36 = shl i64 %indvars.iv, 2
   %37 = and i64 %36, 4294967292
-  %38 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 32
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, %9
@@ -938,7 +938,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %27 = phi ptr [ %29, %25 ], [ %1, %22 ]
   %28 = add i64 %26, -1
   %29 = getelementptr inbounds i8, ptr %27, i64 -8
-  %30 = getelementptr inbounds nuw [14 x i8], ptr %24, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %31 = load i8, ptr %30, align 1, !tbaa !36
   %.not.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i, label %25, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i, !prof !24, !llvm.loop !54
@@ -961,7 +961,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %42 = icmp ne ptr %32, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
-  %44 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %43, i64 0, i64 %41
+  %44 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %43, i64 %41
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %37, %20
@@ -980,7 +980,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE2
   %50 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -8
   %51 = getelementptr inbounds i8, ptr %50, i64 %.neg.i.i.i
-  %52 = getelementptr inbounds nuw [14 x i8], ptr %51, i64 0, i64 %2
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %2
   %53 = load i8, ptr %52, align 1, !tbaa !36
   %.not.i.i7 = icmp sgt i8 %53, -1
   br i1 %.not.i.i7, label %54, label %_ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE8clearTagEm.exit.i
@@ -1119,7 +1119,7 @@ define noundef ptr @_ZN5folly6detail18EventBaseLocalBase7getVoidERNS_9EventBaseE
   %33 = and i32 %32, %.sroa.014.0
   %34 = zext nneg i32 %31 to i64
   tail call void @llvm.assume(i1 %27)
-  %35 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %28, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %28, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %17, i64 %37
@@ -1212,7 +1212,7 @@ define void @_ZN5folly6detail18EventBaseLocalBase5eraseERNS_9EventBaseE(ptr noun
   %51 = and i32 %50, %.sroa.03.0.i.i.i
   %52 = zext nneg i32 %49 to i64
   tail call void @llvm.assume(i1 %45)
-  %53 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %46, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %46, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !10
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %36, i64 %55
@@ -1231,7 +1231,7 @@ define void @_ZN5folly6detail18EventBaseLocalBase5eraseERNS_9EventBaseE(ptr noun
   br i1 %.not.i.i.i.i.i, label %_ZN5folly3f146detail16F14VectorMapImplImSt10unique_ptrIvPFvPvEENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS7_EESt17integral_constantIbLb1EEE5eraseERSD_.exit, label %37, !llvm.loop !68
 
 64:                                               ; preds = %48
-  %65 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %46, i64 0, i64 %52
+  %65 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %46, i64 %52
   tail call void @_ZN5folly3f146detail16F14VectorMapImplImSt10unique_ptrIvPFvPvEENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS7_EESt17integral_constantIbLb1EEE15eraseUnderlyingIRKNS_16variadic_noop_fnEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull %65, i64 %52, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5folly13variadic_noopE)
   br label %_ZN5folly3f146detail16F14VectorMapImplImSt10unique_ptrIvPFvPvEENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS7_EESt17integral_constantIbLb1EEE5eraseERSD_.exit
 
@@ -1331,7 +1331,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %120 = and i32 %119, %.sroa.012.0.i.i.i
   %121 = zext nneg i32 %118 to i64
   call void @llvm.assume(i1 %115)
-  %122 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %108, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %108, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !78
   %124 = icmp eq ptr %0, %123
   br i1 %124, label %130, label %.critedge.i.i.i.i, !prof !14, !llvm.loop !80
@@ -1347,7 +1347,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br i1 %.not.i.i.i.i, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE5eraseERKS6_.exit, label %105, !llvm.loop !81
 
 130:                                              ; preds = %117
-  %131 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %108, i64 0, i64 %121
+  %131 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %108, i64 %121
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr nonnull %131, i64 %121, i64 %95, i64 %94)
           to label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE5eraseERKS6_.exit.thread unwind label %212
 
@@ -1475,7 +1475,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %193 = and i32 %192, %.sroa.012.0.i.i.i26
   %194 = zext nneg i32 %191 to i64
   call void @llvm.assume(i1 %188)
-  %195 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %181, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %181, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !21
   %197 = icmp eq ptr %1, %196
   br i1 %197, label %203, label %.critedge.i.i.i.i25, !prof !14, !llvm.loop !29
@@ -1491,7 +1491,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br i1 %.not.i.i.i.i29, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit, label %178, !llvm.loop !31
 
 203:                                              ; preds = %190
-  %204 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %181, i64 0, i64 %194
+  %204 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %181, i64 %194
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr nonnull %204, i64 %194, i64 %168, i64 %167)
           to label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit.thread unwind label %214
 
@@ -1682,7 +1682,7 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   %62 = and i32 %61, %.sroa.018.0
   %63 = zext nneg i32 %60 to i64
   call void @llvm.assume(i1 %56)
-  %64 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %57, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %57, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = icmp eq i32 %65, %22
   br i1 %66, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %.critedge.i, !prof !14, !llvm.loop !88
@@ -1695,7 +1695,7 @@ _ZNSt16allocator_traitsISaISt4pairIKmSt10unique_ptrIvPFvPvEEEEE7destroyIS7_EEvRS
   br label %48, !llvm.loop !89
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %59
-  %71 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %57, i64 0, i64 %63
+  %71 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %57, i64 %63
   store i32 %7, ptr %71, align 4, !tbaa !10
   %72 = icmp ne ptr %6, null
   call void @llvm.assume(i1 %72)
@@ -1755,7 +1755,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %31 = add i64 %29, -256
   %32 = or disjoint i64 %31, %30
   store i64 %32, ptr %27, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw [14 x i8], ptr %6, i64 0, i64 %2
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %34 = load i8, ptr %33, align 1, !tbaa !36
   %.not.i.i.i = icmp sgt i8 %34, -1
   br i1 %.not.i.i.i, label %35, label %_ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i
@@ -1858,7 +1858,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %27 = phi ptr [ %29, %25 ], [ %1, %22 ]
   %28 = add i64 %26, -1
   %29 = getelementptr inbounds i8, ptr %27, i64 -8
-  %30 = getelementptr inbounds nuw [14 x i8], ptr %24, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %31 = load i8, ptr %30, align 1, !tbaa !36
   %.not.i.i = icmp eq i8 %31, 0
   br i1 %.not.i.i, label %25, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i, !prof !24, !llvm.loop !105
@@ -1881,7 +1881,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %42 = icmp ne ptr %32, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
-  %44 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %43, i64 0, i64 %41
+  %44 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %43, i64 %41
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i
 
 _ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i: ; preds = %thread-pre-split.i.i, %37, %20
@@ -1900,7 +1900,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
   %50 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i = mul i64 %2, -8
   %51 = getelementptr inbounds i8, ptr %50, i64 %.neg.i.i.i
-  %52 = getelementptr inbounds nuw [14 x i8], ptr %51, i64 0, i64 %2
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %2
   %53 = load i8, ptr %52, align 1, !tbaa !36
   %.not.i.i7 = icmp sgt i8 %53, -1
   br i1 %.not.i.i7, label %54, label %_ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.i
@@ -2071,7 +2071,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_10F14FastSetIPNS_9EventBaseENS_
   %64 = and i32 %63, %.sroa.012.0.i.i.i
   %65 = zext nneg i32 %62 to i64
   call void @llvm.assume(i1 %59)
-  %66 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %52, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %52, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !21
   %68 = icmp eq ptr %1, %67
   br i1 %68, label %74, label %.critedge.i.i.i.i, !prof !14, !llvm.loop !29
@@ -2087,7 +2087,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_10F14FastSetIPNS_9EventBaseENS_
   br i1 %.not.i.i.i.i, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit.thread, label %49, !llvm.loop !31
 
 74:                                               ; preds = %61
-  %75 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %52, i64 0, i64 %65
+  %75 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %52, i64 %65
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr nonnull %75, i64 %65, i64 %39, i64 %38)
           to label %._ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE5eraseERKS5_.exit_crit_edge unwind label %77
 
@@ -2308,7 +2308,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -2368,7 +2368,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %3, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %21, %20 ]
   %14 = shl i32 %.4, 2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 32
   %18 = and i64 %17, -2
   %19 = icmp eq i64 %18, %9
@@ -2384,7 +2384,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02648 = phi i32 [ 0, %.lr.ph ], [ %.127, %34 ]
   %24 = shl i64 %indvars.iv, 2
   %25 = and i64 %24, 4294967292
-  %26 = getelementptr inbounds nuw [2048 x %"struct.std::atomic.36"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.std::atomic.36", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %25
   %27 = load atomic i64, ptr %26 acquire, align 32
   %28 = and i64 %27, -2
   %29 = icmp eq i64 %28, %9
@@ -2765,7 +2765,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %39 = and i32 %38, %.sroa.044.0
   %40 = zext nneg i32 %37 to i64
   tail call void @llvm.assume(i1 %33)
-  %41 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %23, i64 %43
@@ -2784,7 +2784,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br i1 %.not.i, label %.thread67, label %25, !llvm.loop !68
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %34, i64 0, i64 %40
+  %53 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %34, i64 %40
   br label %122
 
 .thread67:                                        ; preds = %49, %47, %..thread67_crit_edge
@@ -2865,7 +2865,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %7
   %.sroa.038.0.in = xor i16 %.sroa.038.0.in.in, 4095
   %92 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.038.0.in, i1 true)
   %93 = zext nneg i16 %92 to i64
-  %94 = getelementptr inbounds nuw [14 x i8], ptr %.031, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.031, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !36
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %97
@@ -2878,7 +2878,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %91
   %98 = trunc i64 %3 to i8
   store i8 %98, ptr %94, align 1, !tbaa !36
   %99 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %100 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %99, i64 0, i64 %93
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %99, i64 %93
   %101 = icmp ne ptr %.031, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %101)
   %102 = load i64, ptr %9, align 8, !tbaa !16
@@ -3153,13 +3153,13 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPv
 74:                                               ; preds = %70, %86
   %.0130 = phi i64 [ 0, %70 ], [ %87, %86 ]
   %.034129 = phi i64 [ 0, %70 ], [ %.1, %86 ]
-  %75 = getelementptr inbounds nuw [14 x i8], ptr %20, i64 0, i64 %.0130
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 %.0130
   %76 = load i8, ptr %75, align 1, !tbaa !36
   %.not112 = icmp eq i8 %76, 0
   br i1 %.not112, label %86, label %77, !prof !24
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw [14 x i8], ptr %41, i64 0, i64 %.034129
+  %78 = getelementptr inbounds nuw i8, ptr %41, i64 %.034129
   %79 = load i8, ptr %78, align 1, !tbaa !36
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %81
@@ -3170,9 +3170,9 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPv
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %77
   store i8 %76, ptr %78, align 1, !tbaa !36
-  %82 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %71, i64 0, i64 %.034129
+  %82 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %71, i64 %.034129
   call void @llvm.assume(i1 %72)
-  %83 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %73, i64 0, i64 %.0130
+  %83 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %73, i64 %.0130
   %84 = load i32, ptr %83, align 4, !tbaa !10
   store i32 %84, ptr %82, align 4, !tbaa !10
   %85 = add nuw i64 %.034129, 1
@@ -3253,7 +3253,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %103, %105
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.069.1 = lshr i32 %.sroa.069.0118, %.pn111
   %109 = zext i32 %.sroa.8.1.in to i64
-  %110 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %101, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %101, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !10
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %102, i64 %112
@@ -3282,7 +3282,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %103, %105
   %.sroa.874.1 = add i32 %.sroa.874.1.in, 1
   %.sroa.072.1 = lshr i32 %.sroa.072.0121, %.pn
   %121 = zext i32 %.sroa.874.1.in to i64
-  %122 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %101, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %101, i64 %121
   %123 = load ptr, ptr %0, align 8, !tbaa !85
   %124 = load i32, ptr %122, align 4, !tbaa !10
   %125 = zext i32 %124 to i64
@@ -3298,7 +3298,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit:  ; preds = %103, %105
   %135 = lshr i64 %134, 15
   %136 = and i64 %135, 127
   %137 = or disjoint i64 %136, 128
-  %138 = getelementptr inbounds nuw [14 x i8], ptr %.042128, i64 0, i64 %121
+  %138 = getelementptr inbounds nuw i8, ptr %.042128, i64 %121
   %139 = load i8, ptr %138, align 1, !tbaa !36
   %140 = zext i8 %139 to i64
   %141 = icmp eq i64 %137, %140
@@ -3352,7 +3352,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %166 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %166, ptr %165, align 1, !tbaa !36
   %167 = zext nneg i8 %.lcssa.i to i64
-  %168 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !36
   %170 = icmp eq i8 %169, 0
   br i1 %170, label %172, label %171
@@ -3369,7 +3369,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %176 = add i8 %175, %.018.lcssa.i
   store i8 %176, ptr %174, align 2, !tbaa !100
   %177 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %178 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %177, i64 0, i64 %167
+  %178 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %177, i64 %167
   %179 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %179)
   %180 = load i32, ptr %122, align 4, !tbaa !10
@@ -3667,7 +3667,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %35 = and i32 %34, %.sroa.042.0
   %36 = zext nneg i32 %33 to i64
   tail call void @llvm.assume(i1 %30)
-  %37 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %39 = icmp eq ptr %19, %38
   br i1 %39, label %45, label %.critedge.i, !prof !14, !llvm.loop !29
@@ -3683,7 +3683,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br i1 %.not.i, label %.thread65, label %20, !llvm.loop !31
 
 45:                                               ; preds = %32
-  %46 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   br label %106
 
 .thread65:                                        ; preds = %42, %40, %6
@@ -3760,7 +3760,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE25incrOutboundOverflowCountEv.exit
   %.sroa.036.0.in = xor i16 %.sroa.036.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.036.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.029, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.029, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !36
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE6setTagEmm.exit, label %88
@@ -3773,7 +3773,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE6setTagEmm.exit: ; preds = %82
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !36
   %90 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %91 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.029, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load ptr, ptr %5, align 8, !tbaa !21
@@ -3997,13 +3997,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE1
 50:                                               ; preds = %46, %63
   %.0134 = phi i64 [ 0, %46 ], [ %64, %63 ]
   %.042133 = phi i64 [ 0, %46 ], [ %.1, %63 ]
-  %51 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0134
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %.0134
   %52 = load i8, ptr %51, align 1, !tbaa !36
   %.not119 = icmp eq i8 %52, 0
   br i1 %.not119, label %63, label %53, !prof !24
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042133
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %.042133
   %55 = load i8, ptr %54, align 1, !tbaa !36
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -4014,9 +4014,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE1
 
 58:                                               ; preds = %53
   store i8 %52, ptr %54, align 1, !tbaa !36
-  %59 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %.042133
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %.042133
   call void @llvm.assume(i1 %48)
-  %60 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %49, i64 0, i64 %.0134
+  %60 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %49, i64 %.0134
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   store ptr %61, ptr %59, align 8, !tbaa !21
   %62 = add nuw i64 %.042133, 1
@@ -4030,7 +4030,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE1
 
 66:                                               ; preds = %63
   %67 = add i64 %.1, -1
-  %68 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %67
   %69 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %69)
   %70 = and i64 %67, 255
@@ -4129,7 +4129,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.081.1 = lshr i32 %.sroa.081.0126, %.pn
   %99 = zext i32 %.sroa.8.1.in to i64
-  %100 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %102 = ptrtoint ptr %101 to i64
   %103 = zext i64 %102 to i128
@@ -4142,7 +4142,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %110 = lshr i64 %109, 15
   %111 = and i64 %110, 127
   %112 = or disjoint i64 %111, 128
-  %113 = getelementptr inbounds nuw [14 x i8], ptr %.054132, i64 0, i64 %99
+  %113 = getelementptr inbounds nuw i8, ptr %.054132, i64 %99
   %114 = load i8, ptr %113, align 1, !tbaa !36
   %115 = zext i8 %114 to i64
   %116 = icmp eq i64 %112, %115
@@ -4196,7 +4196,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE25incrOutboundOverflowCountEv.exit
   %141 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %141, ptr %140, align 1, !tbaa !36
   %142 = zext nneg i8 %.lcssa.i to i64
-  %143 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !36
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %147, label %146
@@ -4213,7 +4213,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE25incrOutboundOverflowCountEv.exit
   %151 = add i8 %150, %.018.lcssa.i
   store i8 %151, ptr %149, align 2, !tbaa !56
   %152 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %153 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %152, i64 0, i64 %142
+  %153 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %152, i64 %142
   %154 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %154)
   %155 = load ptr, ptr %100, align 8, !tbaa !21
@@ -4241,7 +4241,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE25incrOutboundOverflowCountEv.exit
   %167 = zext nneg i8 %162 to i64
   %168 = add nsw i64 %167, -1
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %170 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %169, i64 0, i64 %168
+  %170 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %169, i64 %168
   %171 = icmp ne ptr %166, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %171)
   %172 = icmp ult i8 %162, 17
@@ -4410,7 +4410,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %35 = and i32 %34, %.sroa.042.0
   %36 = zext nneg i32 %33 to i64
   tail call void @llvm.assume(i1 %30)
-  %37 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !78
   %39 = icmp eq ptr %19, %38
   br i1 %39, label %45, label %.critedge.i, !prof !14, !llvm.loop !80
@@ -4426,7 +4426,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br i1 %.not.i, label %.thread65, label %20, !llvm.loop !81
 
 45:                                               ; preds = %32
-  %46 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %23, i64 0, i64 %36
+  %46 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %23, i64 %36
   br label %106
 
 .thread65:                                        ; preds = %42, %40, %6
@@ -4503,7 +4503,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE25incrOutboundOve
   %.sroa.036.0.in = xor i16 %.sroa.036.0.in.in, 16383
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.036.0.in, i1 true)
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw [14 x i8], ptr %.029, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.029, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !36
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %_ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE6setTagEmm.exit, label %88
@@ -4516,7 +4516,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE6setTagEmm.exit: 
   %89 = trunc i64 %3 to i8
   store i8 %89, ptr %85, align 1, !tbaa !36
   %90 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %91 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %84
+  %91 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %84
   %92 = icmp ne ptr %.029, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %92)
   %93 = load ptr, ptr %5, align 8, !tbaa !78
@@ -4740,13 +4740,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
 50:                                               ; preds = %46, %63
   %.0134 = phi i64 [ 0, %46 ], [ %64, %63 ]
   %.042133 = phi i64 [ 0, %46 ], [ %.1, %63 ]
-  %51 = getelementptr inbounds nuw [14 x i8], ptr %19, i64 0, i64 %.0134
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %.0134
   %52 = load i8, ptr %51, align 1, !tbaa !36
   %.not119 = icmp eq i8 %52, 0
   br i1 %.not119, label %63, label %53, !prof !24
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw [14 x i8], ptr %30, i64 0, i64 %.042133
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %.042133
   %55 = load i8, ptr %54, align 1, !tbaa !36
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -4757,9 +4757,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
 
 58:                                               ; preds = %53
   store i8 %52, ptr %54, align 1, !tbaa !36
-  %59 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %.042133
+  %59 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %.042133
   call void @llvm.assume(i1 %48)
-  %60 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %49, i64 0, i64 %.0134
+  %60 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %49, i64 %.0134
   %61 = load ptr, ptr %60, align 8, !tbaa !78
   store ptr %61, ptr %59, align 8, !tbaa !78
   %62 = add nuw i64 %.042133, 1
@@ -4773,7 +4773,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseL
 
 66:                                               ; preds = %63
   %67 = add i64 %.1, -1
-  %68 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %67
   %69 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %69)
   %70 = and i64 %67, 255
@@ -4872,7 +4872,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.081.1 = lshr i32 %.sroa.081.0126, %.pn
   %99 = zext i32 %.sroa.8.1.in to i64
-  %100 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %90, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %90, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !78
   %102 = ptrtoint ptr %101 to i64
   %103 = zext i64 %102 to i128
@@ -4885,7 +4885,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %110 = lshr i64 %109, 15
   %111 = and i64 %110, 127
   %112 = or disjoint i64 %111, 128
-  %113 = getelementptr inbounds nuw [14 x i8], ptr %.054132, i64 0, i64 %99
+  %113 = getelementptr inbounds nuw i8, ptr %.054132, i64 %99
   %114 = load i8, ptr %113, align 1, !tbaa !36
   %115 = zext i8 %114 to i64
   %116 = icmp eq i64 %112, %115
@@ -4939,7 +4939,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE25incrOutboundOve
   %141 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %141, ptr %140, align 1, !tbaa !36
   %142 = zext nneg i8 %.lcssa.i to i64
-  %143 = getelementptr inbounds nuw [14 x i8], ptr %.lcssa21.i, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !36
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %147, label %146
@@ -4956,7 +4956,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE25incrOutboundOve
   %151 = add i8 %150, %.018.lcssa.i
   store i8 %151, ptr %149, align 2, !tbaa !107
   %152 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %153 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %152, i64 0, i64 %142
+  %153 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %152, i64 %142
   %154 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %154)
   %155 = load ptr, ptr %100, align 8, !tbaa !78
@@ -4984,7 +4984,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE25incrOutboundOve
   %167 = zext nneg i8 %162 to i64
   %168 = add nsw i64 %167, -1
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %170 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %169, i64 0, i64 %168
+  %170 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %169, i64 %168
   %171 = icmp ne ptr %166, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %171)
   %172 = icmp ult i8 %162, 17

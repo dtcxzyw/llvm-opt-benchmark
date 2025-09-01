@@ -181,7 +181,7 @@ define dso_local void @render_sigset_t(ptr noundef %0, ptr noundef %1, ptr nound
   %27 = or disjoint i32 %23, 8
   %28 = select i1 %26, i32 %23, i32 %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %29
+  %30 = getelementptr i8, ptr @hex_asc, i64 %29
   %31 = load i8, ptr %30, align 1
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext %31) #7
   %32 = icmp eq i64 %6, 0
@@ -328,7 +328,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %77 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %76, i32 -1) #8, !srcloc !10
   %78 = add i32 %77, 1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr [9 x ptr], ptr @task_state_array, i64 0, i64 %79
+  %80 = getelementptr ptr, ptr @task_state_array, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %81) #7
   %82 = sext i32 %41 to i64
@@ -412,7 +412,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %141 = phi i64 [ 0, %138 ], [ %150, %140 ]
   %142 = icmp eq i64 %141, 0
   %143 = select i1 %142, ptr @.str.3, ptr @.str.4
-  %144 = getelementptr [0 x %struct.kgid_t], ptr %139, i64 0, i64 %141
+  %144 = getelementptr %struct.kgid_t, ptr %139, i64 %141
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, -1
   %147 = load i32, ptr @overflowgid, align 4
@@ -683,7 +683,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %313 = or disjoint i32 %309, 8
   %314 = select i1 %312, i32 %309, i32 %313
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %315
+  %316 = getelementptr i8, ptr @hex_asc, i64 %315
   %317 = load i8, ptr %316, align 1
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %317) #7
   %318 = icmp eq i64 %293, 0
@@ -719,7 +719,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %342 = or disjoint i32 %338, 8
   %343 = select i1 %341, i32 %338, i32 %342
   %344 = zext nneg i32 %343 to i64
-  %345 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %344
+  %345 = getelementptr i8, ptr @hex_asc, i64 %344
   %346 = load i8, ptr %345, align 1
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %346) #7
   %347 = icmp eq i64 %322, 0
@@ -755,7 +755,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %371 = or disjoint i32 %367, 8
   %372 = select i1 %370, i32 %367, i32 %371
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %373
+  %374 = getelementptr i8, ptr @hex_asc, i64 %373
   %375 = load i8, ptr %374, align 1
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %375) #7
   %376 = icmp eq i64 %351, 0
@@ -791,7 +791,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %400 = or disjoint i32 %396, 8
   %401 = select i1 %399, i32 %396, i32 %400
   %402 = zext nneg i32 %401 to i64
-  %403 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %402
+  %403 = getelementptr i8, ptr @hex_asc, i64 %402
   %404 = load i8, ptr %403, align 1
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %404) #7
   %405 = icmp eq i64 %380, 0
@@ -827,7 +827,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %429 = or disjoint i32 %425, 8
   %430 = select i1 %428, i32 %425, i32 %429
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %431
+  %432 = getelementptr i8, ptr @hex_asc, i64 %431
   %433 = load i8, ptr %432, align 1
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext %433) #7
   %434 = icmp eq i64 %409, 0
@@ -1012,7 +1012,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %26 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %25, i32 -1) #8, !srcloc !10
   %27 = add i32 %26, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr [9 x ptr], ptr @task_state_array, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr @task_state_array, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %32 = tail call zeroext i1 @ptrace_may_access(ptr noundef %3, i32 noundef 13) #7

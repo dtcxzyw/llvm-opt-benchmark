@@ -15778,7 +15778,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %1 ]
   %.02178 = phi i32 [ %.324, %47 ], [ 2147483647, %1 ]
   %.02977 = phi i64 [ %.332, %47 ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw [34 x i32], ptr @_ZN5zxing6qrcode7Version19VERSION_DECODE_INFOE, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr @_ZN5zxing6qrcode7Version19VERSION_DECODE_INFOE, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !67
   %.not41 = icmp eq i32 %7, %0
   br i1 %.not41, label %8, label %43

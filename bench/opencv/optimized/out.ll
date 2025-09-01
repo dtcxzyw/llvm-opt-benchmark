@@ -369,10 +369,10 @@ define void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind noalias w
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep46 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3, i64 0, i64 %8
+  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3, i64 %8
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %_ZNSt12__shared_ptrIN2cv15MatlabFormatterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -1671,7 +1671,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 75:                                               ; preds = %.lr.ph, %75
   %.1220 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
   %76 = add nuw nsw i64 %.1220, 1
-  %77 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 0, i64 %.1220
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.1220
   store i8 32, ptr %77, align 1, !tbaa !28
   %78 = load i64, ptr %72, align 8, !tbaa !53
   %79 = icmp ult i64 %76, %78
@@ -1689,7 +1689,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .thread:                                          ; preds = %.loopexit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %85 = add nuw nsw i64 %.08, 1
-  %86 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 0, i64 %.08
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %.08
   store i8 %83, ptr %86, align 1, !tbaa !28
   br label %88
 
@@ -1700,7 +1700,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 88:                                               ; preds = %87, %.thread
   %.234 = phi i64 [ %85, %.thread ], [ %.08, %87 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 0, i64 %.234
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.234
   store i8 0, ptr %90, align 1, !tbaa !28
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.loopexit37
@@ -2864,7 +2864,7 @@ define linkonce_odr hidden void @_ZNK2cv14NumpyFormatter6formatERKNS_3MatE(ptr d
   %15 = load i32, ptr %2, align 8, !tbaa !40
   %16 = and i32 %15, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZNK2cv14NumpyFormatter6formatERKNS_3MatEE10numpyTypes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr @_ZZNK2cv14NumpyFormatter6formatERKNS_3MatEE10numpyTypes, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.22, ptr noundef %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

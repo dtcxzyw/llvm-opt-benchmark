@@ -300,7 +300,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %57 = sdiv exact i64 %.idx, 6
   %58 = trunc i64 %57 to i32
   %59 = sext i32 %23 to i64
-  %60 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %59
+  %60 = getelementptr i32, ptr @orc_lookup, i64 %59
   store i32 %58, ptr %60, align 4
   %61 = add nuw i32 %23, 1
   %62 = icmp eq i32 %61, %16
@@ -362,7 +362,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %97 = sdiv exact i64 %.idx8, 6
   %98 = trunc i64 %97 to i32
   %99 = zext i32 %16 to i64
-  %100 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %99
+  %100 = getelementptr i32, ptr @orc_lookup, i64 %99
   store i32 %98, ptr %100, align 4
   store i1 true, ptr @orc_init, align 1
   br label %101
@@ -493,11 +493,11 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 41:                                               ; preds = %29
   %42 = and i64 %31, 4294967295
-  %43 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %42
+  %43 = getelementptr i32, ptr @orc_lookup, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nuw nsw i64 %31, 1
   %46 = and i64 %45, 4294967295
-  %47 = getelementptr [0 x i32], ptr @orc_lookup, i64 0, i64 %46
+  %47 = getelementptr i32, ptr @orc_lookup, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
   %50 = zext i32 %44 to i64

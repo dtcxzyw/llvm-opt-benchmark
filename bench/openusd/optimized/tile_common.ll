@@ -10,44 +10,40 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @av1_tile_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [65 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
-  %12 = add nsw i32 %2, 1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [65 x i32], ptr %5, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = shl i32 %15, %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %17, align 4
+  %12 = getelementptr i8, ptr %7, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = shl i32 %13, %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %15, align 4
   store i32 %11, ptr %0, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1076
-  %19 = load i32, ptr %18, align 4
-  %..i = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %..i, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 27196
-  %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds [65 x i32], ptr %21, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = load i32, ptr %9, align 4
-  %26 = shl i32 %24, %25
-  %27 = add nsw i32 %3, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [65 x i32], ptr %21, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = shl i32 %30, %25
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %26, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %35 = load i32, ptr %34, align 8
-  %..i5 = tail call i32 @llvm.smin.i32(i32 %31, i32 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %..i5, ptr %36, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1076
+  %17 = load i32, ptr %16, align 4
+  %..i = tail call i32 @llvm.smin.i32(i32 %14, i32 %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %..i, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 27196
+  %20 = sext i32 %3 to i64
+  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %9, align 4
+  %24 = shl i32 %22, %23
+  %25 = getelementptr i8, ptr %21, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = shl i32 %26, %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %3, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %24, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %31 = load i32, ptr %30, align 8
+  %..i5 = tail call i32 @llvm.smin.i32(i32 %27, i32 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %..i5, ptr %32, align 4
   ret void
 }
 
@@ -55,24 +51,22 @@ define hidden void @av1_tile_init(ptr noundef writeonly captures(none) initializ
 define hidden void @av1_tile_set_row(ptr noundef writeonly captures(none) initializes((0, 8), (16, 20)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %7, %9
-  %11 = add nsw i32 %2, 1
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = shl i32 %14, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %16, align 4
+  %11 = getelementptr i8, ptr %6, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = shl i32 %12, %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %14, align 4
   store i32 %10, ptr %0, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1076
-  %18 = load i32, ptr %17, align 4
-  %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %., ptr %19, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1076
+  %16 = load i32, ptr %15, align 4
+  %. = tail call i32 @llvm.smin.i32(i32 %13, i32 %16)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %., ptr %17, align 4
   ret void
 }
 
@@ -80,25 +74,23 @@ define hidden void @av1_tile_set_row(ptr noundef writeonly captures(none) initia
 define hidden void @av1_tile_set_col(ptr noundef writeonly captures(none) initializes((8, 16), (20, 24)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 27196
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %7, %9
-  %11 = add nsw i32 %2, 1
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = shl i32 %14, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %2, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %10, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %19 = load i32, ptr %18, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %19)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %., ptr %20, align 4
+  %11 = getelementptr i8, ptr %6, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = shl i32 %12, %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %2, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %10, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %17 = load i32, ptr %16, align 8
+  %. = tail call i32 @llvm.smin.i32(i32 %13, i32 %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %., ptr %18, align 4
   ret void
 }
 
@@ -216,7 +208,7 @@ define hidden void @av1_calculate_tile_cols(ptr noundef readonly captures(none) 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.08595 = phi i32 [ 0, %.lr.ph ], [ %28, %26 ]
-  %27 = getelementptr inbounds nuw [65 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   store i32 %.08595, ptr %27, align 4
   %28 = add nuw nsw i32 %.08595, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -232,7 +224,7 @@ define hidden void @av1_calculate_tile_cols(ptr noundef readonly captures(none) 
   store i32 %.0.lcssa, ptr %3, align 4
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %32 = zext nneg i32 %.0.lcssa to i64
-  %33 = getelementptr inbounds nuw [65 x i32], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
   store i32 %12, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %35 = load i32, ptr %34, align 4
@@ -283,7 +275,7 @@ tile_log2.exit:                                   ; preds = %47
   %.08198 = phi i32 [ 65536, %.lr.ph100 ], [ %.182, %57 ]
   %.08397 = phi i32 [ 1, %.lr.ph100 ], [ %62, %57 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %59 = getelementptr inbounds nuw [65 x i32], ptr %54, i64 0, i64 %indvars.iv.next107
+  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next107
   %60 = load i32, ptr %59, align 4
   %61 = sub nsw i32 %60, %58
   %62 = tail call i32 @llvm.smax.i32(i32 %.08397, i32 %61)
@@ -355,7 +347,7 @@ define hidden void @av1_calculate_tile_rows(ptr noundef readonly captures(none) 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.03338 = phi i32 [ 0, %.lr.ph ], [ %23, %21 ]
-  %22 = getelementptr inbounds nuw [65 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   store i32 %.03338, ptr %22, align 4
   %23 = add nuw nsw i32 %.03338, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -372,7 +364,7 @@ define hidden void @av1_calculate_tile_rows(ptr noundef readonly captures(none) 
   store i32 %.0.lcssa, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %28 = zext nneg i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds nuw [65 x i32], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
   store i32 %9, ptr %29, align 4
   %30 = load i32, ptr %4, align 4
   %31 = shl i32 %18, %30
@@ -569,9 +561,9 @@ define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw [65 x i32], ptr %9, i64 0, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw [65 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %23, %25
   %27 = load i32, ptr %10, align 16
@@ -585,9 +577,9 @@ define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none
 32:                                               ; preds = %.lr.ph31, %32
   %indvars.iv33 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next34, %32 ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %33 = getelementptr inbounds nuw [65 x i32], ptr %19, i64 0, i64 %indvars.iv.next34
+  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next34
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw [65 x i32], ptr %19, i64 0, i64 %indvars.iv33
+  %35 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv33
   %36 = load i32, ptr %35, align 4
   %37 = sub nsw i32 %34, %36
   %38 = load i32, ptr %20, align 16

@@ -1650,7 +1650,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %227 = select i1 %226, i8 %218, i8 %225
   store i8 %227, ptr %14, align 1
   %228 = zext i8 %227 to i64
-  %229 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %228
+  %229 = getelementptr i8, ptr @_ctype, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = and i8 %230, 3
   %232 = icmp eq i8 %231, 0
@@ -1695,7 +1695,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %255 = phi i64 [ 0, %243 ], [ %264, %262 ]
   %256 = phi i32 [ %202, %243 ], [ %260, %262 ]
   %257 = phi ptr [ %203, %243 ], [ %263, %262 ]
-  %258 = getelementptr [6 x i8], ptr %14, i64 0, i64 %255
+  %258 = getelementptr i8, ptr %14, i64 %255
   %259 = load i8, ptr %258, align 1
   store i8 %259, ptr %257, align 1
   %260 = add i32 %256, 1
@@ -1803,7 +1803,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %322 = select i1 %321, i8 %313, i8 %320
   store i8 %322, ptr %14, align 1
   %323 = zext i8 %322 to i64
-  %324 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %323
+  %324 = getelementptr i8, ptr @_ctype, i64 %323
   %325 = load i8, ptr %324, align 1
   %326 = and i8 %325, 3
   %327 = icmp eq i8 %326, 0
@@ -1843,7 +1843,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 343:                                              ; preds = %343, %341
   %344 = phi i64 [ 0, %341 ], [ %349, %343 ]
   %345 = phi ptr [ %298, %341 ], [ %348, %343 ]
-  %346 = getelementptr [6 x i8], ptr %14, i64 0, i64 %344
+  %346 = getelementptr i8, ptr %14, i64 %344
   %347 = load i8, ptr %346, align 1
   %348 = getelementptr i8, ptr %345, i64 1
   store i8 %347, ptr %345, align 1
@@ -1880,10 +1880,10 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %364 = phi i8 [ 7, %.thread61 ], [ %.ph64, %353 ], [ %.ph120, %.loopexit86.loopexit ]
   %365 = phi i64 [ 0, %.thread61 ], [ 3, %353 ], [ %363, %.loopexit86.loopexit ]
   %366 = phi i32 [ %289, %.thread61 ], [ %356, %353 ], [ %.ph122, %.loopexit86.loopexit ]
-  %367 = getelementptr [4 x i8], ptr %12, i64 0, i64 %365
+  %367 = getelementptr i8, ptr %12, i64 %365
   store i8 0, ptr %367, align 1
   %368 = sext i32 %292 to i64
-  %369 = getelementptr [9 x i8], ptr %11, i64 0, i64 %368
+  %369 = getelementptr i8, ptr %11, i64 %368
   store i8 0, ptr %369, align 1
   %370 = load i8, ptr %11, align 1
   %371 = icmp eq i8 %370, -27

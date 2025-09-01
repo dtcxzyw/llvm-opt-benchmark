@@ -90,14 +90,14 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sitofp i32 %16 to float
-  %18 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv218
+  %18 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv218
   store float %17, ptr %18, align 4, !tbaa !13
   %19 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %20 = tail call i32 @llvm.smax.i32(i32 %.1127191, i32 %19)
   %21 = getelementptr inbounds nuw i32, ptr %12, i64 %14
   %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sitofp i32 %22 to float
-  %24 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv218
+  %24 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv218
   store float %23, ptr %24, align 4, !tbaa !13
   %25 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
   %26 = tail call i32 @llvm.umax.i32(i32 %20, i32 %25)
@@ -133,7 +133,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv223
+  %39 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv223
   store float %38, ptr %39, align 4, !tbaa !13
   %40 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
   %41 = tail call i32 @llvm.umax.i32(i32 %.3129194, i32 %40)
@@ -198,7 +198,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %69 = sitofp i32 %68 to double
   %70 = fmul double %58, %69
   %71 = fptrunc double %70 to float
-  %72 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv
   store float %71, ptr %72, align 4, !tbaa !13
   %73 = icmp eq i32 %68, -2147483648
   %74 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
@@ -208,7 +208,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %78 = sitofp i32 %77 to double
   %79 = fmul double %58, %78
   %80 = fptrunc double %79 to float
-  %81 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv
   store float %80, ptr %81, align 4, !tbaa !13
   %82 = icmp eq i32 %77, -2147483648
   %83 = tail call i32 @llvm.abs.i32(i32 %77, i1 true)
@@ -249,7 +249,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %98 = sitofp i32 %97 to double
   %99 = fmul double %58, %98
   %100 = fptrunc double %99 to float
-  %101 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv213
+  %101 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv213
   store float %100, ptr %101, align 4, !tbaa !13
   %102 = icmp eq i32 %97, -2147483648
   %103 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
@@ -695,7 +695,7 @@ define internal fastcc ptr @store_to_file_pre_(ptr noundef %0, ptr noundef nonnu
   %9 = load ptr, ptr %1, align 8, !tbaa !42
   %10 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %9) #14
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = load ptr, ptr %1, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %14) #14
@@ -754,7 +754,7 @@ define internal fastcc ptr @store_to_file_pre_(ptr noundef %0, ptr noundef nonnu
   %35 = load ptr, ptr %1, align 8, !tbaa !42
   %36 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %35) #14
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !44
   %40 = load ptr, ptr %1, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %40) #14
@@ -786,7 +786,7 @@ define internal fastcc ptr @store_to_file_post_(ptr noundef %0, ptr noundef %1, 
 8:                                                ; preds = %3
   %9 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %1) #14
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #14
   br label %17

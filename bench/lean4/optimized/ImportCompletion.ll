@@ -74,7 +74,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_ImportCompletion_AvailableImports_
 8:                                                ; preds = %.lr.ph, %33
   %.01638 = phi i64 [ %4, %.lr.ph ], [ %35, %33 ]
   %.01837 = phi ptr [ %5, %.lr.ph ], [ %34, %33 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.01638
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01638
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -340,7 +340,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_ImportCompletion_i
 
 9:                                                ; preds = %.lr.ph, %.thread
   %.078223 = phi i64 [ %2, %.lr.ph ], [ %.785, %.thread ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.078223
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.078223
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -1759,7 +1759,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_ImportCompletion_i
 
 8:                                                ; preds = %.lr.ph, %lean_dec.exit62
   %.044111 = phi i64 [ %2, %.lr.ph ], [ %.549, %lean_dec.exit62 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.044111
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %.044111
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -2112,7 +2112,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_ImportCompletion_i
 
 6:                                                ; preds = %.lr.ph, %lean_dec.exit38
   %.03061 = phi i64 [ %2, %.lr.ph ], [ %.333, %lean_dec.exit38 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.03061
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03061
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -3127,7 +3127,7 @@ define ptr @l_Array_mapMUnsafe_map___at_ImportCompletion_computePartialImportCom
   %.02043 = phi i64 [ %32, %48 ], [ %2, %4 ]
   %.02242 = phi ptr [ %.0.i.i30, %48 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02242, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02043
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02043
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -3253,7 +3253,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_ImportCompletion_computePartialImport
 6:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.01935 = phi i64 [ %1, %.lr.ph ], [ %33, %lean_dec.exit ]
   %.02134 = phi ptr [ %3, %.lr.ph ], [ %.223, %lean_dec.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01935
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01935
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -3355,7 +3355,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_ImportCompletion_computePartialImport
 11:                                               ; preds = %.lr.ph, %lean_dec.exit62
   %.055107 = phi i64 [ %2, %.lr.ph ], [ %99, %lean_dec.exit62 ]
   %.057106 = phi ptr [ %4, %.lr.ph ], [ %.259, %lean_dec.exit62 ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.055107
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %.055107
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -4788,7 +4788,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_ImportCompletion_computePartialImp
 
 20:                                               ; preds = %.lr.ph, %lean_inc.exit198
   %.0162353 = phi i64 [ %8, %.lr.ph ], [ %416, %lean_inc.exit198 ]
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %.0162353
+  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0162353
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -10979,7 +10979,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit326
   br label %lean_dec.exit325
 
 lean_dec.exit325:                                 ; preds = %38, %37, %35, %29
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.0228619
+  %39 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0228619
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, 1
@@ -16377,7 +16377,7 @@ define ptr @l_Array_mapMUnsafe_map___at_ImportCompletion_addCompletionItemData__
   %.070158 = phi i64 [ %2, %.lr.ph ], [ %.171, %lean_dec.exit86 ]
   %.072157 = phi ptr [ %3, %.lr.ph ], [ %.173, %lean_dec.exit86 ]
   %15 = getelementptr inbounds nuw i8, ptr %.072157, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.070158
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.070158
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -17035,7 +17035,7 @@ define ptr @l_Array_mapMUnsafe_map___at_ImportCompletion_find___spec__1(i64 noun
   %.03660 = phi i64 [ %44, %60 ], [ %1, %3 ]
   %.03859 = phi ptr [ %.0.i.i46, %60 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.03859, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.03660
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.03660
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -17186,7 +17186,7 @@ define ptr @l_Array_mapMUnsafe_map___at_ImportCompletion_find___spec__2(i64 noun
   %.04167 = phi i64 [ %57, %73 ], [ %1, %3 ]
   %.04366 = phi ptr [ %.0.i.i52, %73 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.04366, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.04167
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.04167
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

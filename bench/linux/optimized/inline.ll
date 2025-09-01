@@ -2868,7 +2868,7 @@ define dso_local i32 @ext4_read_inline_dir(ptr noundef %0, ptr noundef %1, ptr n
 
 150:                                              ; preds = %133
   %151 = zext nneg i8 %140 to i64
-  %152 = getelementptr [8 x i8], ptr @ext4_filetype_table, i64 0, i64 %151
+  %152 = getelementptr i8, ptr @ext4_filetype_table, i64 %151
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   br label %155

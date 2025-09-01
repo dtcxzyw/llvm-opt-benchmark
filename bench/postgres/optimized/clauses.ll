@@ -2102,9 +2102,9 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %41 = add nsw i32 %30, -1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %40, i64 0, i64 %42
+  %41 = zext nneg i32 %30 to i64
+  %42 = getelementptr %struct.ParamExternData, ptr %40, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -16
   br label %44
 
 44:                                               ; preds = %39, %37
@@ -4112,7 +4112,7 @@ list_length.exit.thread.i:                        ; preds = %48
   %.sink.i = phi ptr [ %71, %69 ], [ %63, %67 ]
   %.142.i = phi i32 [ %.0415254.i, %69 ], [ %68, %67 ]
   %75 = sext i32 %.sink85.i to i64
-  %76 = getelementptr inbounds [100 x ptr], ptr %5, i64 0, i64 %75
+  %76 = getelementptr inbounds ptr, ptr %5, i64 %75
   store ptr %.sink.i, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
@@ -4146,7 +4146,7 @@ list_length.exit.thread.i:                        ; preds = %48
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph63.preheader.i ], [ %indvars.iv.next69.i, %98 ]
   %.25762.i = phi i32 [ %89, %.lr.ph63.preheader.i ], [ %99, %98 ]
   %90 = sext i32 %.25762.i to i64
-  %91 = getelementptr inbounds [100 x ptr], ptr %5, i64 0, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %5, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %98
@@ -4176,7 +4176,7 @@ list_length.exit.thread.i:                        ; preds = %48
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph66.preheader.i ], [ %indvars.iv.next74.i, %.lr.ph66.i ]
   %.065.i = phi ptr [ null, %.lr.ph66.preheader.i ], [ %102, %.lr.ph66.i ]
-  %100 = getelementptr inbounds nuw [100 x ptr], ptr %5, i64 0, i64 %indvars.iv73.i
+  %100 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv73.i
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr @lappend(ptr noundef %.065.i, ptr noundef %101) #9
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
@@ -4291,7 +4291,7 @@ list_length.exit:                                 ; preds = %4
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @exprType(ptr noundef %21) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %13, align 4
   %25 = sext i32 %24 to i64

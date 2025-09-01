@@ -5561,7 +5561,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn18AttentionLayerImpl7forwardERKNS_11
   %25 = srem i32 %.043, 3
   %26 = load ptr, ptr %9, align 8, !tbaa !156
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds [3 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !121
   %30 = load ptr, ptr %10, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i64, ptr %30, i64 %27
@@ -5603,10 +5603,10 @@ define linkonce_odr hidden void @_ZZN2cv3dnn18AttentionLayerImpl7forwardERKNS_11
   %53 = phi i64 [ %34, %19 ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ 0, %19 ], [ %52, %._crit_edge.loopexit ]
   %54 = load ptr, ptr %15, align 8, !tbaa !158
-  %55 = getelementptr inbounds [3 x ptr], ptr %54, i64 0, i64 %27
+  %55 = getelementptr inbounds ptr, ptr %54, i64 %27
   %56 = load ptr, ptr %55, align 8, !tbaa !121
   %57 = load ptr, ptr %16, align 8, !tbaa !159
-  %58 = getelementptr inbounds [3 x i64], ptr %57, i64 0, i64 %27
+  %58 = getelementptr inbounds i64, ptr %57, i64 %27
   %59 = load i64, ptr %58, align 8, !tbaa !66
   %60 = mul i64 %59, %38
   %61 = getelementptr inbounds nuw float, ptr %56, i64 %60

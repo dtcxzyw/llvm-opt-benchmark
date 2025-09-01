@@ -1729,7 +1729,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %40, label %41, label %58, !prof !251
 
 41:                                               ; preds = %.lr.ph.i.i.i
-  %42 = getelementptr inbounds [0 x { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }], ptr %5, i64 0, i64 %.val3.i.i.i.i, i32 1
+  %42 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %5, i64 %.val3.i.i.i.i, i32 1
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !alias.scope !252, !noalias !257, !noundef !4
   %45 = icmp eq i32 %23, %44
@@ -2732,7 +2732,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6c77d6b0b2bd7334E.exit: ; preds = %65
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h058badfbafe21cbaE.exit
 
 82:                                               ; preds = %._crit_edge93
-  %83 = getelementptr inbounds [0 x { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }], ptr %2, i64 0, i64 %.val5.i
+  %83 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %2, i64 %.val5.i
   %84 = load i64, ptr %83, align 8, !noalias !361, !noundef !4
   %.sroa.0.05.i.i = and i64 %35, %84
   %85 = getelementptr inbounds i8, ptr %32, i64 %.sroa.0.05.i.i
@@ -2905,7 +2905,7 @@ _ZN4core3ptr19swap_nonoverlapping17h4cb21fd7a9296568E.exit.loopexit: ; preds = %
 .lr.ph:                                           ; preds = %147, %_ZN4core3ptr19swap_nonoverlapping17h4cb21fd7a9296568E.exit.loopexit
   %.val5.i1686 = phi i64 [ %.val5.i16, %_ZN4core3ptr19swap_nonoverlapping17h4cb21fd7a9296568E.exit.loopexit ], [ %.val5.i1684, %147 ]
   %.val.i1485 = phi ptr [ %.val.i14, %_ZN4core3ptr19swap_nonoverlapping17h4cb21fd7a9296568E.exit.loopexit ], [ %144, %147 ]
-  %158 = getelementptr inbounds [0 x { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }], ptr %2, i64 0, i64 %.val5.i1686
+  %158 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %2, i64 %.val5.i1686
   %159 = load i64, ptr %158, align 8, !noalias !403, !noundef !4
   %.val3 = load i64, ptr %18, align 8, !noundef !4
   %.sroa.0.05.i = and i64 %.val3, %159

@@ -8565,7 +8565,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit67:         ; preds = %47, %_ZN17QArrayDat
 
 switch.lookup:                                    ; preds = %92
   %96 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN29DisplayFilterExpressionDialog39on_fieldTreeWidget_itemSelectionChangedEv, i64 0, i64 %96
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN29DisplayFilterExpressionDialog39on_fieldTreeWidget_itemSelectionChangedEv, i64 %96
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %97
 

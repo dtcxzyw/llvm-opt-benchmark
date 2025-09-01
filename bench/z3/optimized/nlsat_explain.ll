@@ -2988,7 +2988,7 @@ define linkonce_odr hidden i32 @_ZN5nlsat7explain3imp9normalizeEN3sat7literalEj(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %.052149 = phi i32 [ 1, %.lr.ph ], [ %.4, %165 ]
   %.055147 = phi i1 [ false, %.lr.ph ], [ %.459, %165 ]
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !68
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, -8
@@ -6187,10 +6187,10 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit: ; preds = %_Z3neg
 
 switch.lookup:                                    ; preds = %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat7explain3imp14mk_linear_rootENS_4atom4kindEjjPN10polynomial10polynomialEb, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat7explain3imp14mk_linear_rootENS_4atom4kindEjjPN10polynomial10polynomialEb, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep28 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat7explain3imp14mk_linear_rootENS_4atom4kindEjjPN10polynomial10polynomialEb.1, i64 0, i64 %32
+  %switch.gep28 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5nlsat7explain3imp14mk_linear_rootENS_4atom4kindEjjPN10polynomial10polynomialEb.1, i64 %32
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %33
 
@@ -6987,7 +6987,7 @@ _ZNK5nlsat21scoped_literal_vector3endEv.exit:     ; preds = %3
 
 30:                                               ; preds = %.lr.ph106, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %._crit_edge ]
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !68
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -8
@@ -7178,7 +7178,7 @@ define linkonce_odr hidden void @_ZN5nlsat7explain3imp8simplifyEN3sat7literalERN
 
 68:                                               ; preds = %.outer, %246
   %indvars.iv = phi i64 [ %indvars.iv.next, %246 ], [ %indvars.iv.ph, %.outer ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !68
   %71 = ptrtoint ptr %70 to i64
   %72 = and i64 %71, -8
@@ -8092,7 +8092,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 
 37:                                               ; preds = %.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ]
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !68
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -8

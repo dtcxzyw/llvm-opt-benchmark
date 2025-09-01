@@ -173,13 +173,13 @@ define hidden void @_ZN19ZStoreBarrierBuffer27install_base_pointers_innerEv(ptr 
 
 10:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %11 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = load i64, ptr %7, align 8
   %15 = lshr i64 %14, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = shl i64 %13, %19
@@ -216,7 +216,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer27install_base_pointers_innerEv(ptr 
 37:                                               ; preds = %32
   %38 = lshr i64 %21, 12
   %39 = and i64 %38, 15
-  %40 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = zext nneg i32 %41 to i64
   %43 = lshr i64 %21, %42
@@ -252,7 +252,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit:    ; preds = %25, %30, %35, %37
 
 63:                                               ; preds = %_ZN8ZBarrier16remap_generationE8zpointer.exit, %60
   %.sink = phi i64 [ %62, %60 ], [ 0, %_ZN8ZBarrier16remap_generationE8zpointer.exit ]
-  %64 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   store i64 %.sink, ptr %64, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %65 = and i64 %indvars.iv.next, 4294967295
@@ -308,13 +308,13 @@ define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr nounde
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %60, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %11
+  %16 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %11
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %13, ptr %3, align 8
@@ -325,7 +325,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr nounde
 19:                                               ; preds = %15
   %20 = lshr i64 %5, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = load i64, ptr @ZPointerLoadBadMask, align 8
   %25 = and i64 %24, %5
@@ -401,7 +401,7 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %15, %19, %_ZN8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -444,7 +444,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi(ptr nounde
   %37 = lshr i64 %35, 3
   %38 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %36, i64 0, i64 %39
+  %40 = getelementptr inbounds %class.ZMovableBitMap, ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = lshr i64 %35, 9
   %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
@@ -490,7 +490,7 @@ define hidden noundef zeroext i1 @_ZNK19ZStoreBarrierBuffer22stored_during_old_m
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ZStoreBarrierBuffer17on_new_phase_markEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(832) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, -65521
@@ -534,7 +534,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer17on_new_phase_markEi(ptr noundef no
   %.not.i.i = icmp eq i64 %35, 0
   %36 = lshr i64 %6, 12
   %37 = and i64 %36, 15
-  %38 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = zext nneg i32 %39 to i64
   %41 = lshr i64 %6, %40
@@ -659,7 +659,7 @@ _ZN19ZStoreBarrierBuffer21install_base_pointersEv.exit: ; preds = %4, %11
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %_ZN19ZStoreBarrierBuffer21on_new_phase_rememberEi.exit ]
   %22 = trunc nsw i64 %indvars.iv to i32
   tail call void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %22)
-  %23 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -701,7 +701,7 @@ _ZN19ZStoreBarrierBuffer21install_base_pointersEv.exit: ; preds = %4, %11
   %55 = lshr i64 %53, 3
   %56 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %54, i64 0, i64 %57
+  %58 = getelementptr inbounds %class.ZMovableBitMap, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = lshr i64 %53, 9
   %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
@@ -763,9 +763,9 @@ define hidden void @_ZN19ZStoreBarrierBuffer8on_errorEP12outputStream(ptr nounde
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds [32 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -812,7 +812,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer5flushEv(ptr noundef nonnull align 8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8ZBarrier14make_load_goodE8zpointer.exit
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN8ZBarrier14make_load_goodE8zpointer.exit ]
-  %15 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, -65521
@@ -825,7 +825,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer5flushEv(ptr noundef nonnull align 8
   %.not.i.i = icmp eq i64 %22, 0
   %23 = lshr i64 %17, 12
   %24 = and i64 %23, 15
-  %25 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = zext nneg i32 %26 to i64
   %28 = lshr i64 %17, %27
@@ -971,7 +971,7 @@ _ZN8ZBarrier4markILb0ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %_ZN11ZGeneration
   %47 = lshr i64 %45, 3
   %48 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %46, i64 0, i64 %49
+  %50 = getelementptr inbounds %class.ZMovableBitMap, ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = lshr i64 %45, 9
   %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
@@ -1069,7 +1069,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %44 ], [ %40, %.lr.ph ]
-  %41 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %29, i64 0, i64 %indvars.iv34
+  %41 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %29, i64 %indvars.iv34
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
   br i1 %43, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %44
@@ -1086,9 +1086,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ %40, %.lr.ph ]
-  %46 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %29, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %29, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds [32 x i64], ptr %39, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %96, label %51
@@ -1104,7 +1104,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
 54:                                               ; preds = %51
   %55 = lshr i64 %52, 12
   %56 = and i64 %55, 15
-  %57 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = load i64, ptr @ZPointerLoadBadMask, align 8
   %60 = and i64 %59, %52
@@ -1668,13 +1668,13 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb0ELb1ELb0EEEv8zadd
   %25 = load i8, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %27 = zext i8 %25 to i64
-  %28 = getelementptr inbounds nuw [2 x %class.ZMarkThreadLocalStacks], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %30 = lshr i64 %1, 21
   %31 = load volatile i64, ptr %29, align 64
   %32 = and i64 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %34 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %33, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %33, i64 %32
   %35 = load i64, ptr @ZAddressOffsetMask, align 8
   %36 = and i64 %35, %1
   %37 = shl i64 %36, 5
@@ -1682,7 +1682,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb0ELb1ELb0EEEv8zadd
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %42 = getelementptr inbounds nuw [16 x ptr], ptr %41, i64 0, i64 %32
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %32
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %44
@@ -1696,7 +1696,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = add i64 %45, 1
   store i64 %47, ptr %43, align 8
-  %48 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %46, i64 0, i64 %45
+  %48 = getelementptr inbounds %class.ZMarkStackEntry, ptr %46, i64 %45
   store i64 %38, ptr %48, align 8
   br label %_ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkStripeP14ZMarkTerminate15ZMarkStackEntryb.exit
 
@@ -1734,9 +1734,9 @@ define linkonce_odr hidden void @_ZN19ZStoreBarrierBuffer7OnError4callEP12output
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds [32 x i64], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %4, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %4, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8

@@ -2293,7 +2293,7 @@ _block_get_at_zoom.exit:                          ; preds = %139, %560
 
 switch.lookup:                                    ; preds = %_block_get_at_zoom.exit
   %570 = zext nneg i32 %568 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._lib_timeline_draw_callback, i64 0, i64 %570
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._lib_timeline_draw_callback, i64 %570
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_block_get_bar_width.exit
 

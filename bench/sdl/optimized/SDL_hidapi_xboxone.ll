@@ -824,7 +824,7 @@ SendIdentificationRequest.exit.i:                 ; preds = %SendProtocolPacket.
 
 333:                                              ; preds = %373, %330
   %.02134.i.i = phi i64 [ 0, %330 ], [ %374, %373 ]
-  %334 = getelementptr inbounds nuw [7 x %struct.SDL_DriverXboxOne_InitPacket], ptr @xboxone_init_packets, i64 0, i64 %.02134.i.i
+  %334 = getelementptr inbounds nuw %struct.SDL_DriverXboxOne_InitPacket, ptr @xboxone_init_packets, i64 %.02134.i.i
   %335 = load i16, ptr %334, align 8
   %.not.i.i37 = icmp eq i16 %335, 0
   %.not24.i.i = icmp eq i16 %331, %335
@@ -1376,7 +1376,7 @@ define internal fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %0, ptr nound
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds nuw [29 x i8], ptr %6, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 %32
   %34 = call ptr @SDL_uitoa_REAL(i32 noundef %31, ptr noundef nonnull %33, i32 noundef 16) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14

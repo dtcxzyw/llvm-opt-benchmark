@@ -1293,7 +1293,7 @@ zend_string_alloc.exit:                           ; preds = %zend_string_release
   store i64 %19, ptr %25, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %2, i64 %19, i1 false)
-  %27 = getelementptr inbounds nuw [1 x i8], ptr %26, i64 0, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
   store i8 0, ptr %27, align 1, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !21

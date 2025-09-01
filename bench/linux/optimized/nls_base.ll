@@ -782,7 +782,7 @@ define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, 
 5:                                                ; preds = %3
   %6 = lshr i16 %0, 8
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr [256 x ptr], ptr @page_uni2charset, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr @page_uni2charset, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %18, label %11
@@ -808,7 +808,7 @@ define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, 
 define internal range(i32 -22, 2) i32 @char2uni(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 2)) %2) #7 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i16], ptr @charset2uni, i64 0, i64 %5
+  %6 = getelementptr i16, ptr @charset2uni, i64 %5
   %7 = load i16, ptr %6, align 2
   store i16 %7, ptr %2, align 2
   %8 = icmp eq i8 %4, 0

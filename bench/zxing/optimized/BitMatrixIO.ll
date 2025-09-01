@@ -337,8 +337,8 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb(ptr dead_on_unwind noal
 
 28:                                               ; preds = %21, %25, %16
   %29 = phi i64 [ 2, %16 ], [ 0, %21 ], [ %27, %25 ]
-  %30 = or disjoint i64 %29, %18
-  %31 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb.map, i64 0, i64 %30
+  %30 = getelementptr inbounds nuw ptr, ptr @__const._ZN5ZXing8ToStringB5cxx11ERKNS_9BitMatrixEb.map, i64 %29
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %18
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %32) #15
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %39

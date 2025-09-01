@@ -1003,7 +1003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %38 ]
   %40 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i.i
   %41 = load double, ptr %40, align 8, !tbaa !22
-  %42 = getelementptr inbounds nuw [6 x double], ptr %0, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   store double %41, ptr %42, align 8, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6

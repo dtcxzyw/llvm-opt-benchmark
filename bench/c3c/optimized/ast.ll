@@ -672,7 +672,7 @@ declare i32 @type_alloca_alignment(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i32 @binaryop_assign_base_op(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [31 x i32], ptr @assign_binop, i64 0, i64 %2
+  %3 = getelementptr inbounds i32, ptr @assign_binop, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -680,7 +680,7 @@ define dso_local i32 @binaryop_assign_base_op(i32 noundef %0) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @binaryop_from_token(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [190 x i32], ptr @binary_op, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @binary_op, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -691,7 +691,7 @@ define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [190 x i32], ptr @binary_op, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i32, ptr @binary_op, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %.split.loop.exit9, label %6
@@ -713,7 +713,7 @@ define dso_local range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @unaryop_from_token(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [190 x i32], ptr @unary_op, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i32, ptr @unary_op, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -759,7 +759,7 @@ define dso_local range(i32 0, 42) i32 @attribute_by_name(ptr noundef readnone ca
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [41 x ptr], ptr @attribute_list, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @attribute_list, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.split.loop.exit8, label %6

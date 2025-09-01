@@ -15577,7 +15577,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo10testBoundsEhjPNS
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %12 = load i8, ptr %11, align 8, !tbaa !402
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !181
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not20.i = icmp eq ptr %15, null
@@ -15596,7 +15596,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo10testBoundsEhjPNS
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %24 = load i8, ptr %23, align 8, !tbaa !402
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !181
   %.not18.i61 = icmp eq ptr %27, null
   br i1 %.not18.i61, label %_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE.exit.thread, label %.lr.ph
@@ -15608,7 +15608,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DependenceInfo10testBoundsEhjPNS
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %33 = load i8, ptr %32, align 8, !tbaa !402
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !181
   %.not18.i = icmp eq ptr %36, null
   br i1 %.not18.i, label %_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE.exit.thread, label %.lr.ph, !llvm.loop !413
@@ -15670,7 +15670,7 @@ _ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE.exit.thread: ; preds =
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %56 = load i8, ptr %11, align 8, !tbaa !402
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [8 x ptr], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !181
   %.not20.i20 = icmp eq ptr %59, null
   %.not1721.i21 = icmp ult i32 %54, 2
@@ -15694,7 +15694,7 @@ _ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9BoundInfoE.exit.thread: ; preds =
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 136
   %69 = load i8, ptr %68, align 8, !tbaa !402
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [8 x ptr], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !181
   %.not18.i27 = icmp eq ptr %72, null
   br i1 %.not18.i27, label %_ZNK4llvm14DependenceInfo13getUpperBoundEPNS0_9BoundInfoE.exit.thread, label %73
@@ -16432,7 +16432,7 @@ define dso_local noundef ptr @_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9Bou
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i8, ptr %5, align 8, !tbaa !402
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !181
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not20 = icmp eq ptr %9, null
@@ -16462,7 +16462,7 @@ define dso_local noundef ptr @_ZNK4llvm14DependenceInfo13getLowerBoundEPNS0_9Bou
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %21 = load i8, ptr %20, align 8, !tbaa !402
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [8 x ptr], ptr %19, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !181
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %.critedge, label %25
@@ -16501,7 +16501,7 @@ define dso_local noundef ptr @_ZNK4llvm14DependenceInfo13getUpperBoundEPNS0_9Bou
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i8, ptr %5, align 8, !tbaa !402
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !181
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not20 = icmp eq ptr %9, null
@@ -16531,7 +16531,7 @@ define dso_local noundef ptr @_ZNK4llvm14DependenceInfo13getUpperBoundEPNS0_9Bou
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %21 = load i8, ptr %20, align 8, !tbaa !402
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [8 x ptr], ptr %19, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !181
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %.critedge, label %25

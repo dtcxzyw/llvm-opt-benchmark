@@ -3520,7 +3520,7 @@ zend_string_alloc.exit:                           ; preds = %170
   store i64 %197, ptr %203, align 8, !tbaa !73
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %204, ptr align 1 %195, i64 %197, i1 false)
-  %205 = getelementptr inbounds nuw [1 x i8], ptr %204, i64 0, i64 %197
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %197
   store i8 0, ptr %205, align 1, !tbaa !28
   call void @php_pcre_match_impl(ptr noundef nonnull %178, ptr noundef nonnull %200, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef 256, i64 noundef 0) #21
   %206 = load i32, ptr %201, align 4, !tbaa !28
@@ -4588,7 +4588,7 @@ define internal fastcc range(i32 -1, 2) i32 @moffset(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %33
   %39 = tail call i64 @strcspn(ptr noundef nonnull %34, ptr noundef nonnull @.str.44) #26
-  %40 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !28
   %.pre = load i8, ptr %5, align 2, !tbaa !26
   br label %41

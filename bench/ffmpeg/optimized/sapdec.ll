@@ -105,7 +105,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr inbounds nuw [8192 x i8], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !28
   %42 = icmp samesign ult i32 %35, 8
   br i1 %42, label %43, label %44
@@ -155,7 +155,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
 
 62:                                               ; preds = %52
   %63 = zext nneg i32 %59 to i64
-  %64 = getelementptr inbounds nuw [8192 x i8], ptr %5, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 %63
   %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(16) @.str.9) #7
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %69
@@ -176,7 +176,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
 
 .loopexit113:                                     ; preds = %69, %67
   %.pre-phi = phi i64 [ %.pre126, %67 ], [ %63, %69 ]
-  %73 = getelementptr inbounds nuw [8192 x i8], ptr %5, i64 0, i64 %.pre-phi
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi
   %74 = call noalias ptr @av_strdup(ptr noundef nonnull %73) #6
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 304
   store ptr %74, ptr %75, align 8, !tbaa !39

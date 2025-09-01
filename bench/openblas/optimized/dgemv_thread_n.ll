@@ -68,13 +68,13 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
 
 37:                                               ; preds = %28
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %40, i32 %33) #6, !srcloc !22
   %42 = extractvalue { i32, i32 } %41, 0
   store volatile i32 %42, ptr %13, align 4, !tbaa !21
   %.0..0..0..0..0..0..i = load volatile i32, ptr %13, align 4, !tbaa !21
-  %.phi.trans.insert = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %.0100113
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %17, i64 %.0100113
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !20
   br label %blas_quickdivide.exit
 
@@ -85,12 +85,12 @@ blas_quickdivide.exit:                            ; preds = %28, %37
   %44 = call i32 @llvm.umax.i32(i32 %.0.i, i32 4)
   %spec.store.select = zext i32 %44 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %.096114, i64 %spec.store.select)
-  %45 = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %.0100113
+  %45 = getelementptr inbounds nuw i64, ptr %17, i64 %.0100113
   %46 = add nsw i64 %spec.select, %43
   %47 = add nuw nsw i64 %.0100113, 1
-  %48 = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr %17, i64 %47
   store i64 %46, ptr %48, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %.0100113
+  %49 = getelementptr inbounds nuw %struct.blas_queue, ptr %16, i64 %.0100113
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 160
   store i32 3, ptr %50, align 8, !tbaa !23
   store ptr @gemv_kernel, ptr %49, align 8, !tbaa !26
@@ -99,7 +99,7 @@ blas_quickdivide.exit:                            ; preds = %28, %37
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr %45, ptr %52, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %54 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw %struct.blas_queue, ptr %16, i64 %47
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   store ptr %54, ptr %55, align 8, !tbaa !29
@@ -150,13 +150,13 @@ blas_quickdivide.exit:                            ; preds = %28, %37
 
 80:                                               ; preds = %.lr.ph118
   %81 = zext i32 %78 to i64
-  %82 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !21
   %84 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %83, i32 %76) #6, !srcloc !22
   %85 = extractvalue { i32, i32 } %84, 0
   store volatile i32 %85, ptr %12, align 4, !tbaa !21
   %.0..0..0..0..0..0..i108 = load volatile i32, ptr %12, align 4, !tbaa !21
-  %.phi.trans.insert129 = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %.2102115
+  %.phi.trans.insert129 = getelementptr inbounds nuw i64, ptr %17, i64 %.2102115
   %.pre130 = load i64, ptr %.phi.trans.insert129, align 8, !tbaa !20
   br label %blas_quickdivide.exit110
 
@@ -167,12 +167,12 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %87 = call i32 @llvm.umax.i32(i32 %.0.i109, i32 4)
   %spec.store.select1 = zext i32 %87 to i64
   %spec.select107 = call i64 @llvm.umin.i64(i64 %.197116, i64 %spec.store.select1)
-  %88 = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %.2102115
+  %88 = getelementptr inbounds nuw i64, ptr %17, i64 %.2102115
   %89 = add nsw i64 %spec.select107, %86
   %90 = add nuw nsw i64 %.2102115, 1
-  %91 = getelementptr inbounds nuw [17 x i64], ptr %17, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i64, ptr %17, i64 %90
   store i64 %89, ptr %91, align 8, !tbaa !20
-  %92 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %.2102115
+  %92 = getelementptr inbounds nuw %struct.blas_queue, ptr %16, i64 %.2102115
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 160
   store i32 3, ptr %93, align 8, !tbaa !23
   store ptr @gemv_kernel, ptr %92, align 8, !tbaa !26
@@ -185,7 +185,7 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 40
   store ptr %88, ptr %97, align 8, !tbaa !33
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %99 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %90
+  %99 = getelementptr inbounds nuw %struct.blas_queue, ptr %16, i64 %90
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
   store ptr %99, ptr %100, align 8, !tbaa !29
@@ -202,45 +202,46 @@ blas_quickdivide.exit110:                         ; preds = %.lr.ph118, %80
   store ptr null, ptr %103, align 16, !tbaa !35
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %9, ptr %104, align 8, !tbaa !36
-  %105 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %16, i64 0, i64 %.2102115, i32 8
-  store ptr null, ptr %105, align 8, !tbaa !29
-  %106 = call i32 @exec_blas(i64 noundef %90, ptr noundef nonnull %16) #6
-  %107 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @y_dummy)
+  %105 = getelementptr %struct.blas_queue, ptr %16, i64 %90
+  %106 = getelementptr i8, ptr %105, i64 -104
+  store ptr null, ptr %106, align 8, !tbaa !29
+  %107 = call i32 @exec_blas(i64 noundef %90, ptr noundef nonnull %16) #6
+  %108 = call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @y_dummy)
   br i1 %26, label %.preheader.us, label %.loopexit
 
 .preheader.us:                                    ; preds = %.loopexit112.thread141, %._crit_edge122.us
-  %.2123.us = phi i64 [ %117, %._crit_edge122.us ], [ 0, %.loopexit112.thread141 ]
-  %108 = mul nuw nsw i64 %.2123.us, %0
-  br label %109
+  %.2123.us = phi i64 [ %118, %._crit_edge122.us ], [ 0, %.loopexit112.thread141 ]
+  %109 = mul nuw nsw i64 %.2123.us, %0
+  %110 = getelementptr double, ptr %108, i64 %109
+  br label %111
 
-109:                                              ; preds = %.preheader.us, %109
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %109 ]
-  %110 = add nuw nsw i64 %indvars.iv, %108
-  %111 = getelementptr inbounds nuw [1024 x double], ptr %107, i64 0, i64 %110
-  %112 = load double, ptr %111, align 8, !tbaa !3
-  %113 = mul nsw i64 %indvars.iv, %8
-  %114 = getelementptr inbounds double, ptr %7, i64 %113
-  %115 = load double, ptr %114, align 8, !tbaa !3
-  %116 = fadd double %112, %115
-  store double %116, ptr %114, align 8, !tbaa !3
+111:                                              ; preds = %.preheader.us, %111
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %111 ]
+  %112 = getelementptr double, ptr %110, i64 %indvars.iv
+  %113 = load double, ptr %112, align 8, !tbaa !3
+  %114 = mul nsw i64 %indvars.iv, %8
+  %115 = getelementptr inbounds double, ptr %7, i64 %114
+  %116 = load double, ptr %115, align 8, !tbaa !3
+  %117 = fadd double %113, %116
+  store double %117, ptr %115, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %._crit_edge122.us, label %109, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge122.us, label %111, !llvm.loop !37
 
-._crit_edge122.us:                                ; preds = %109
-  %117 = add nuw nsw i64 %.2123.us, 1
+._crit_edge122.us:                                ; preds = %111
+  %118 = add nuw nsw i64 %.2123.us, 1
   %exitcond128.not = icmp eq i64 %.2123.us, %.2102115
   br i1 %exitcond128.not, label %.loopexit, label %.preheader.us, !llvm.loop !38
 
 .loopexit.critedge:                               ; preds = %.loopexit112
-  %118 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr null, ptr %118, align 16, !tbaa !35
-  %119 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store ptr %9, ptr %119, align 8, !tbaa !36
-  %120 = add nsw i64 %.0100.lcssa, -1
-  %121 = getelementptr inbounds [16 x %struct.blas_queue], ptr %16, i64 0, i64 %120, i32 8
-  store ptr null, ptr %121, align 8, !tbaa !29
-  %122 = call i32 @exec_blas(i64 noundef %.0100.lcssa, ptr noundef nonnull %16) #6
+  %119 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store ptr null, ptr %119, align 16, !tbaa !35
+  %120 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store ptr %9, ptr %120, align 8, !tbaa !36
+  %121 = getelementptr %struct.blas_queue, ptr %16, i64 %.0100.lcssa
+  %122 = getelementptr i8, ptr %121, i64 -104
+  store ptr null, ptr %122, align 8, !tbaa !29
+  %123 = call i32 @exec_blas(i64 noundef %.0100.lcssa, ptr noundef nonnull %16) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge122.us, %.loopexit.critedge, %67, %.loopexit112, %.loopexit112.thread141

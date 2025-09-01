@@ -146,14 +146,14 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 define dso_local { ptr, i64 } @_ZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [22804 x i32], ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [22804 x i16], ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 0, i64 %4
+  %8 = getelementptr inbounds nuw i16, ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 %4
   %9 = load i16, ptr %8, align 2, !tbaa !18
   %10 = zext i16 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
-  %12 = getelementptr inbounds nuw [22804 x i8], ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo2, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm17X86ATTInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo2, i64 %4
   %13 = load i8, ptr %12, align 1, !tbaa !20
   %14 = zext i8 %13 to i64
   %15 = shl nuw nsw i64 %14, 48
@@ -2307,7 +2307,7 @@ declare void @_ZN4llvm20X86InstPrinterCommon11printVKPairEPKNS_6MCInstEjRNS_11ra
 define dso_local noundef nonnull ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %0) local_unnamed_addr #4 align 2 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !18
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %6
@@ -2519,7 +2519,7 @@ define dso_local void @_ZN4llvm17X86ATTInstPrinter12printRegNameERNS_11raw_ostre
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %13, %11
   %15 = add i32 %2, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [391 x i16], ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !18
   %19 = zext i16 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %19

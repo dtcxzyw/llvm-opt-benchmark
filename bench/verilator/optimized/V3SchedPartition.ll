@@ -2277,7 +2277,7 @@ _ZN12AstAssignPre12unlinkFrBackEP10VNRelinker.exit: ; preds = %.loopexit
 536:                                              ; preds = %534
   %.sroa.0.0.copyload.i.i = load i16, ptr %345, align 8, !tbaa !164
   %537 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %538 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %537
+  %538 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %537
   %539 = load ptr, ptr %538, align 8, !tbaa !188
   %540 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %533, ptr noundef %539)
           to label %541 unwind label %.loopexit.split-lp
@@ -3458,7 +3458,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !164
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !188
   ret ptr %5
 }
@@ -6706,7 +6706,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_116SchedLogicVertex4nameB5cxx11Ev
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %7, align 8, !tbaa !164
   %8 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %9 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7029,7 +7029,7 @@ define internal fastcc void @_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %6, align 8, !tbaa !260
   %7 = zext i8 %.sroa.0.0.copyload.i.i.i to i64
-  %8 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK9VEdgeType11clockedStmtEvE7clocked, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZZNK9VEdgeType11clockedStmtEvE7clocked, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !214, !range !194, !noundef !195
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp eq i8 %.sroa.0.0.copyload.i.i.i, 7
@@ -8220,7 +8220,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11
 
 switch.lookup:                                    ; preds = %10
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11Ev, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11Ev, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK6AstVar11isNonOutputEv.exit
 
@@ -8259,7 +8259,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11Ev, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11Ev, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK6AstVar11isNonOutputEv.exit
 
@@ -9326,7 +9326,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZNK6VNTypecvNS_2enEEv(ptr no
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !235
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !188
   ret ptr %5
 }

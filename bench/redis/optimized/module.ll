@@ -1963,7 +1963,7 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
   %5 = load i32, ptr %4, align 8, !tbaa !87
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %40, label %7
+  br i1 %.not, label %39, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1971,7 +1971,7 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
   %10 = icmp eq ptr %9, null
   %11 = icmp slt i32 %1, 1
   %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %40, label %12
+  br i1 %or.cond, label %39, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %9, align 8, !tbaa !146
@@ -1999,9 +1999,9 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
 
 27:                                               ; preds = %35, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %35 ]
-  %28 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %20 ], [ %36, %35 ]
   %.01113.i = phi i64 [ 0, %20 ], [ %.1.i, %35 ]
-  %29 = load i64, ptr %28, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
+  %29 = load i64, ptr %28, align 16, !tbaa !24
   %30 = and i64 %29, %26
   %.not12.i = icmp eq i64 %30, 0
   br i1 %.not12.i, label %35, label %31
@@ -2015,19 +2015,18 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
 35:                                               ; preds = %31, %27
   %.1.i = phi i64 [ %34, %31 ], [ %.01113.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %27, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %35
-  %37 = trunc i64 %.1.i to i32
-  %38 = getelementptr inbounds %struct.keyReference, ptr %23, i64 %24, i32 1
-  store i32 %37, ptr %38, align 4, !tbaa !153
-  %39 = add nsw i32 %21, 1
-  store i32 %39, ptr %9, align 8, !tbaa !146
-  br label %40
+  %36 = trunc i64 %.1.i to i32
+  %37 = getelementptr inbounds %struct.keyReference, ptr %23, i64 %24, i32 1
+  store i32 %36, ptr %37, align 4, !tbaa !153
+  %38 = add nsw i32 %21, 1
+  store i32 %38, ptr %9, align 8, !tbaa !146
+  br label %39
 
-40:                                               ; preds = %3, %7, %moduleConvertKeySpecsFlags.exit
+39:                                               ; preds = %3, %7, %moduleConvertKeySpecsFlags.exit
   ret void
 }
 
@@ -2037,8 +2036,8 @@ define dso_local void @RM_KeyAtPos(ptr noundef readonly captures(none) %0, i32 n
 
 3:                                                ; preds = %11, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %11 ]
-  %4 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %2 ], [ %12, %11 ]
   %.01113.i = phi i64 [ 0, %2 ], [ %.1.i, %11 ]
+  %4 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !24
   %7 = and i64 %6, 50
@@ -2046,88 +2045,86 @@ define dso_local void @RM_KeyAtPos(ptr noundef readonly captures(none) %0, i32 n
   br i1 %.not12.i, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr %4, align 8, !tbaa !24
+  %9 = load i64, ptr %4, align 16, !tbaa !24
   %10 = or i64 %9, %.01113.i
   br label %11
 
 11:                                               ; preds = %8, %3
   %.1.i = phi i64 [ %10, %8 ], [ %.01113.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %3, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load i32, ptr %13, align 8, !tbaa !87
-  %15 = and i32 %14, 2
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %RM_KeyAtPosWithFlags.exit, label %16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = load i32, ptr %12, align 8, !tbaa !87
+  %14 = and i32 %13, 2
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %RM_KeyAtPosWithFlags.exit, label %15
 
-16:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !145
-  %19 = icmp eq ptr %18, null
-  %20 = icmp slt i32 %1, 1
-  %or.cond.i = or i1 %20, %19
-  br i1 %or.cond.i, label %RM_KeyAtPosWithFlags.exit, label %21
+15:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = load ptr, ptr %16, align 8, !tbaa !145
+  %18 = icmp eq ptr %17, null
+  %19 = icmp slt i32 %1, 1
+  %or.cond.i = or i1 %19, %18
+  br i1 %or.cond.i, label %RM_KeyAtPosWithFlags.exit, label %20
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %18, align 8, !tbaa !146
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !148
-  %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %29
+20:                                               ; preds = %15
+  %21 = load i32, ptr %17, align 8, !tbaa !146
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !148
+  %24 = icmp eq i32 %21, %23
+  br i1 %24, label %25, label %28
 
-26:                                               ; preds = %21
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %22, i32 8192)
-  %27 = add nsw i32 %spec.select.i, %22
-  %28 = tail call ptr @getKeysPrepareResult(ptr noundef nonnull %18, i32 noundef %27) #35
-  %.pre.i = load i32, ptr %18, align 8, !tbaa !146
-  br label %29
+25:                                               ; preds = %20
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %21, i32 8192)
+  %26 = add nsw i32 %spec.select.i, %21
+  %27 = tail call ptr @getKeysPrepareResult(ptr noundef nonnull %17, i32 noundef %26) #35
+  %.pre.i = load i32, ptr %17, align 8, !tbaa !146
+  br label %28
 
-29:                                               ; preds = %26, %21
-  %30 = phi i32 [ %.pre.i, %26 ], [ %22, %21 ]
-  %31 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %32 = load ptr, ptr %31, align 8, !tbaa !149
-  %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.keyReference, ptr %32, i64 %33
-  store i32 %1, ptr %34, align 4, !tbaa !150
+28:                                               ; preds = %25, %20
+  %29 = phi i32 [ %.pre.i, %25 ], [ %21, %20 ]
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %31 = load ptr, ptr %30, align 8, !tbaa !149
+  %32 = sext i32 %29 to i64
+  %33 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %32
+  store i32 %1, ptr %33, align 4, !tbaa !150
   %sext = shl i64 %.1.i, 32
-  %35 = ashr exact i64 %sext, 32
-  br label %36
+  %34 = ashr exact i64 %sext, 32
+  br label %35
 
-36:                                               ; preds = %44, %29
-  %indvars.iv.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i, %44 ]
-  %37 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %29 ], [ %45, %44 ]
-  %.01113.i.i = phi i64 [ 0, %29 ], [ %.1.i.i, %44 ]
-  %38 = load i64, ptr %37, align 8, !tbaa !24
-  %39 = and i64 %38, %35
-  %.not12.i.i = icmp eq i64 %39, 0
-  br i1 %.not12.i.i, label %44, label %40
+35:                                               ; preds = %43, %28
+  %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %43 ]
+  %.01113.i.i = phi i64 [ 0, %28 ], [ %.1.i.i, %43 ]
+  %36 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i.i
+  %37 = load i64, ptr %36, align 16, !tbaa !24
+  %38 = and i64 %37, %34
+  %.not12.i.i = icmp eq i64 %38, 0
+  br i1 %.not12.i.i, label %43, label %39
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !24
-  %43 = or i64 %42, %.01113.i.i
-  br label %44
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !24
+  %42 = or i64 %41, %.01113.i.i
+  br label %43
 
-44:                                               ; preds = %40, %36
-  %.1.i.i = phi i64 [ %43, %40 ], [ %.01113.i.i, %36 ]
+43:                                               ; preds = %39, %35
+  %.1.i.i = phi i64 [ %42, %39 ], [ %.01113.i.i, %35 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %45 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i.i
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %36, !llvm.loop !152
+  br i1 %exitcond.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %35, !llvm.loop !152
 
-moduleConvertKeySpecsFlags.exit.i:                ; preds = %44
-  %46 = trunc i64 %.1.i.i to i32
-  %47 = getelementptr inbounds %struct.keyReference, ptr %32, i64 %33, i32 1
-  store i32 %46, ptr %47, align 4, !tbaa !153
-  %48 = add nsw i32 %30, 1
-  store i32 %48, ptr %18, align 8, !tbaa !146
+moduleConvertKeySpecsFlags.exit.i:                ; preds = %43
+  %44 = trunc i64 %.1.i.i to i32
+  %45 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %32, i32 1
+  store i32 %44, ptr %45, align 4, !tbaa !153
+  %46 = add nsw i32 %29, 1
+  store i32 %46, ptr %17, align 8, !tbaa !146
   br label %RM_KeyAtPosWithFlags.exit
 
-RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpecsFlags.exit, %16, %moduleConvertKeySpecsFlags.exit.i
+RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpecsFlags.exit, %15, %moduleConvertKeySpecsFlags.exit.i
   ret void
 }
 
@@ -3274,7 +3271,7 @@ moduleValidateCommandInfo.exit:                   ; preds = %73, %.critedge.i, %
 moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, %61, %58, %52, %49, %45, %isPowerOfTwo.exit.thread.i, %37, %34, %17, %20, %8, %5, %moduleValidateCommandInfo.exit
   %82 = tail call ptr @__errno_location() #40
   store i32 22, ptr %82, align 4, !tbaa !22
-  br label %314
+  br label %313
 
 83:                                               ; preds = %moduleValidateCommandInfo.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3339,7 +3336,7 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 116:                                              ; preds = %103, %112, %106, %100, %97, %94, %91, %88, %83
   %117 = tail call ptr @__errno_location() #40
   store i32 17, ptr %117, align 4, !tbaa !22
-  br label %314
+  br label %313
 
 118:                                              ; preds = %103, %112
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3516,7 +3513,7 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 199:                                              ; preds = %197, %194
   %200 = load ptr, ptr %27, align 8, !tbaa !194
   %.not173 = icmp eq ptr %200, null
-  br i1 %.not173, label %308, label %.preheader
+  br i1 %.not173, label %307, label %.preheader
 
 .preheader:                                       ; preds = %199
   %201 = getelementptr i8, ptr %134, i64 16
@@ -3556,12 +3553,12 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
   %.not219 = icmp eq i64 %.0146, 0
   br i1 %.not219, label %._crit_edge217, label %.lr.ph216
 
-._crit_edge217:                                   ; preds = %306, %212
+._crit_edge217:                                   ; preds = %305, %212
   call void @populateCommandLegacyRangeSpec(ptr noundef nonnull %85) #35
-  br label %308
+  br label %307
 
-.lr.ph216:                                        ; preds = %212, %306
-  %.0145214 = phi i64 [ %307, %306 ], [ 0, %212 ]
+.lr.ph216:                                        ; preds = %212, %305
+  %.0145214 = phi i64 [ %306, %305 ], [ 0, %212 ]
   %218 = load ptr, ptr %27, align 8, !tbaa !194
   %.val179 = load i64, ptr %201, align 8, !tbaa !195
   %sext185 = shl i64 %.0145214, 32
@@ -3587,9 +3584,9 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 
 231:                                              ; preds = %239, %225
   %indvars.iv.i = phi i64 [ 0, %225 ], [ %indvars.iv.next.i, %239 ]
-  %232 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %225 ], [ %240, %239 ]
   %.01113.i = phi i64 [ 0, %225 ], [ %.1.i, %239 ]
-  %233 = load i64, ptr %232, align 8, !tbaa !24
+  %232 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
+  %233 = load i64, ptr %232, align 16, !tbaa !24
   %234 = and i64 %233, %230
   %.not12.i = icmp eq i64 %234, 0
   br i1 %.not12.i, label %239, label %235
@@ -3603,151 +3600,150 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 239:                                              ; preds = %235, %231
   %.1.i = phi i64 [ %238, %235 ], [ %.01113.i, %231 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %240 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i180 = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i180, label %moduleConvertKeySpecsFlags.exit, label %231, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %239
-  %241 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 1
-  store i64 %.1.i, ptr %241, align 8, !tbaa !196
-  %242 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %243 = load i32, ptr %242, align 8, !tbaa !165
-  switch i32 %243, label %262 [
-    i32 1, label %244
-    i32 2, label %246
-    i32 3, label %251
+  %240 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 1
+  store i64 %.1.i, ptr %240, align 8, !tbaa !196
+  %241 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %242 = load i32, ptr %241, align 8, !tbaa !165
+  switch i32 %242, label %261 [
+    i32 1, label %243
+    i32 2, label %245
+    i32 3, label %250
   ]
 
-244:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %245 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 1, ptr %245, align 8, !tbaa !165
-  br label %263
+243:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %244 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
+  store i32 1, ptr %244, align 8, !tbaa !165
+  br label %262
 
-246:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %247 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 2, ptr %247, align 8, !tbaa !165
-  %248 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %249 = load i32, ptr %248, align 8, !tbaa !60
-  %250 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 3
-  store i32 %249, ptr %250, align 8, !tbaa !60
-  br label %263
+245:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %246 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
+  store i32 2, ptr %246, align 8, !tbaa !165
+  %247 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %248 = load i32, ptr %247, align 8, !tbaa !60
+  %249 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 3
+  store i32 %248, ptr %249, align 8, !tbaa !60
+  br label %262
 
-251:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %252 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 3, ptr %252, align 8, !tbaa !165
-  %253 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %254 = load ptr, ptr %253, align 8, !tbaa !60
-  %255 = call noalias ptr @zstrdup(ptr noundef %254) #35
-  %256 = load ptr, ptr %214, align 8, !tbaa !164
-  %257 = getelementptr inbounds nuw %struct.keySpec, ptr %256, i64 %.0145214, i32 3
-  store ptr %255, ptr %257, align 8, !tbaa !60
-  %258 = getelementptr inbounds nuw i8, ptr %221, i64 32
-  %259 = load i32, ptr %258, align 8, !tbaa !60
-  %260 = load ptr, ptr %214, align 8, !tbaa !164
-  %261 = getelementptr inbounds nuw %struct.keySpec, ptr %260, i64 %.0145214, i32 3, i32 0, i32 1
-  store i32 %259, ptr %261, align 8, !tbaa !60
-  br label %263
+250:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %251 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
+  store i32 3, ptr %251, align 8, !tbaa !165
+  %252 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %253 = load ptr, ptr %252, align 8, !tbaa !60
+  %254 = call noalias ptr @zstrdup(ptr noundef %253) #35
+  %255 = load ptr, ptr %214, align 8, !tbaa !164
+  %256 = getelementptr inbounds nuw %struct.keySpec, ptr %255, i64 %.0145214, i32 3
+  store ptr %254, ptr %256, align 8, !tbaa !60
+  %257 = getelementptr inbounds nuw i8, ptr %221, i64 32
+  %258 = load i32, ptr %257, align 8, !tbaa !60
+  %259 = load ptr, ptr %214, align 8, !tbaa !164
+  %260 = getelementptr inbounds nuw %struct.keySpec, ptr %259, i64 %.0145214, i32 3, i32 0, i32 1
+  store i32 %258, ptr %260, align 8, !tbaa !60
+  br label %262
 
-262:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+261:                                              ; preds = %moduleConvertKeySpecsFlags.exit
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1949, ptr noundef nonnull @.str.31) #35
   call void @abort() #38
   unreachable
 
-263:                                              ; preds = %251, %246, %244
-  %264 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  %265 = load i32, ptr %264, align 8, !tbaa !166
-  switch i32 %265, label %305 [
-    i32 0, label %266
-    i32 1, label %274
-    i32 2, label %277
-    i32 3, label %291
+262:                                              ; preds = %250, %245, %243
+  %263 = getelementptr inbounds nuw i8, ptr %221, i64 40
+  %264 = load i32, ptr %263, align 8, !tbaa !166
+  switch i32 %264, label %304 [
+    i32 0, label %265
+    i32 1, label %273
+    i32 2, label %276
+    i32 3, label %290
   ]
 
-266:                                              ; preds = %263
-  %267 = load ptr, ptr %214, align 8, !tbaa !164
-  %268 = getelementptr inbounds nuw %struct.keySpec, ptr %267, i64 %.0145214, i32 4
-  store i32 2, ptr %268, align 8, !tbaa !166
-  %269 = getelementptr inbounds nuw %struct.keySpec, ptr %267, i64 %.0145214, i32 5
-  store i32 0, ptr %269, align 4, !tbaa !60
-  %270 = load ptr, ptr %214, align 8, !tbaa !164
-  %271 = getelementptr inbounds nuw %struct.keySpec, ptr %270, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 1, ptr %271, align 4, !tbaa !60
-  %272 = load ptr, ptr %214, align 8, !tbaa !164
-  %273 = getelementptr inbounds nuw %struct.keySpec, ptr %272, i64 %.0145214, i32 5, i32 0, i32 2
-  store i32 0, ptr %273, align 4, !tbaa !60
-  br label %306
+265:                                              ; preds = %262
+  %266 = load ptr, ptr %214, align 8, !tbaa !164
+  %267 = getelementptr inbounds nuw %struct.keySpec, ptr %266, i64 %.0145214, i32 4
+  store i32 2, ptr %267, align 8, !tbaa !166
+  %268 = getelementptr inbounds nuw %struct.keySpec, ptr %266, i64 %.0145214, i32 5
+  store i32 0, ptr %268, align 4, !tbaa !60
+  %269 = load ptr, ptr %214, align 8, !tbaa !164
+  %270 = getelementptr inbounds nuw %struct.keySpec, ptr %269, i64 %.0145214, i32 5, i32 0, i32 1
+  store i32 1, ptr %270, align 4, !tbaa !60
+  %271 = load ptr, ptr %214, align 8, !tbaa !164
+  %272 = getelementptr inbounds nuw %struct.keySpec, ptr %271, i64 %.0145214, i32 5, i32 0, i32 2
+  store i32 0, ptr %272, align 4, !tbaa !60
+  br label %305
 
-274:                                              ; preds = %263
-  %275 = load ptr, ptr %214, align 8, !tbaa !164
-  %276 = getelementptr inbounds nuw %struct.keySpec, ptr %275, i64 %.0145214, i32 4
-  store i32 1, ptr %276, align 8, !tbaa !166
-  br label %306
+273:                                              ; preds = %262
+  %274 = load ptr, ptr %214, align 8, !tbaa !164
+  %275 = getelementptr inbounds nuw %struct.keySpec, ptr %274, i64 %.0145214, i32 4
+  store i32 1, ptr %275, align 8, !tbaa !166
+  br label %305
 
-277:                                              ; preds = %263
-  %278 = load ptr, ptr %214, align 8, !tbaa !164
-  %279 = getelementptr inbounds nuw %struct.keySpec, ptr %278, i64 %.0145214, i32 4
-  store i32 2, ptr %279, align 8, !tbaa !166
-  %280 = getelementptr inbounds nuw i8, ptr %221, i64 44
-  %281 = load i32, ptr %280, align 4, !tbaa !60
-  %282 = getelementptr inbounds nuw %struct.keySpec, ptr %278, i64 %.0145214, i32 5
-  store i32 %281, ptr %282, align 4, !tbaa !60
-  %283 = getelementptr inbounds nuw i8, ptr %221, i64 48
-  %284 = load i32, ptr %283, align 4, !tbaa !60
-  %285 = load ptr, ptr %214, align 8, !tbaa !164
-  %286 = getelementptr inbounds nuw %struct.keySpec, ptr %285, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 %284, ptr %286, align 4, !tbaa !60
-  %287 = getelementptr inbounds nuw i8, ptr %221, i64 52
-  %288 = load i32, ptr %287, align 4, !tbaa !60
-  %289 = load ptr, ptr %214, align 8, !tbaa !164
-  %290 = getelementptr inbounds nuw %struct.keySpec, ptr %289, i64 %.0145214, i32 5, i32 0, i32 2
-  store i32 %288, ptr %290, align 4, !tbaa !60
-  br label %306
+276:                                              ; preds = %262
+  %277 = load ptr, ptr %214, align 8, !tbaa !164
+  %278 = getelementptr inbounds nuw %struct.keySpec, ptr %277, i64 %.0145214, i32 4
+  store i32 2, ptr %278, align 8, !tbaa !166
+  %279 = getelementptr inbounds nuw i8, ptr %221, i64 44
+  %280 = load i32, ptr %279, align 4, !tbaa !60
+  %281 = getelementptr inbounds nuw %struct.keySpec, ptr %277, i64 %.0145214, i32 5
+  store i32 %280, ptr %281, align 4, !tbaa !60
+  %282 = getelementptr inbounds nuw i8, ptr %221, i64 48
+  %283 = load i32, ptr %282, align 4, !tbaa !60
+  %284 = load ptr, ptr %214, align 8, !tbaa !164
+  %285 = getelementptr inbounds nuw %struct.keySpec, ptr %284, i64 %.0145214, i32 5, i32 0, i32 1
+  store i32 %283, ptr %285, align 4, !tbaa !60
+  %286 = getelementptr inbounds nuw i8, ptr %221, i64 52
+  %287 = load i32, ptr %286, align 4, !tbaa !60
+  %288 = load ptr, ptr %214, align 8, !tbaa !164
+  %289 = getelementptr inbounds nuw %struct.keySpec, ptr %288, i64 %.0145214, i32 5, i32 0, i32 2
+  store i32 %287, ptr %289, align 4, !tbaa !60
+  br label %305
 
-291:                                              ; preds = %263
-  %292 = load ptr, ptr %214, align 8, !tbaa !164
-  %293 = getelementptr inbounds nuw %struct.keySpec, ptr %292, i64 %.0145214, i32 4
-  store i32 3, ptr %293, align 8, !tbaa !166
-  %294 = getelementptr inbounds nuw i8, ptr %221, i64 44
-  %295 = load i32, ptr %294, align 4, !tbaa !60
-  %296 = getelementptr inbounds nuw %struct.keySpec, ptr %292, i64 %.0145214, i32 5
-  store i32 %295, ptr %296, align 4, !tbaa !60
-  %297 = getelementptr inbounds nuw i8, ptr %221, i64 48
-  %298 = load i32, ptr %297, align 4, !tbaa !60
-  %299 = load ptr, ptr %214, align 8, !tbaa !164
-  %300 = getelementptr inbounds nuw %struct.keySpec, ptr %299, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 %298, ptr %300, align 4, !tbaa !60
-  %301 = getelementptr inbounds nuw i8, ptr %221, i64 52
-  %302 = load i32, ptr %301, align 4, !tbaa !60
-  %303 = load ptr, ptr %214, align 8, !tbaa !164
-  %304 = getelementptr inbounds nuw %struct.keySpec, ptr %303, i64 %.0145214, i32 5, i32 0, i32 2
-  store i32 %302, ptr %304, align 4, !tbaa !60
-  br label %306
+290:                                              ; preds = %262
+  %291 = load ptr, ptr %214, align 8, !tbaa !164
+  %292 = getelementptr inbounds nuw %struct.keySpec, ptr %291, i64 %.0145214, i32 4
+  store i32 3, ptr %292, align 8, !tbaa !166
+  %293 = getelementptr inbounds nuw i8, ptr %221, i64 44
+  %294 = load i32, ptr %293, align 4, !tbaa !60
+  %295 = getelementptr inbounds nuw %struct.keySpec, ptr %291, i64 %.0145214, i32 5
+  store i32 %294, ptr %295, align 4, !tbaa !60
+  %296 = getelementptr inbounds nuw i8, ptr %221, i64 48
+  %297 = load i32, ptr %296, align 4, !tbaa !60
+  %298 = load ptr, ptr %214, align 8, !tbaa !164
+  %299 = getelementptr inbounds nuw %struct.keySpec, ptr %298, i64 %.0145214, i32 5, i32 0, i32 1
+  store i32 %297, ptr %299, align 4, !tbaa !60
+  %300 = getelementptr inbounds nuw i8, ptr %221, i64 52
+  %301 = load i32, ptr %300, align 4, !tbaa !60
+  %302 = load ptr, ptr %214, align 8, !tbaa !164
+  %303 = getelementptr inbounds nuw %struct.keySpec, ptr %302, i64 %.0145214, i32 5, i32 0, i32 2
+  store i32 %301, ptr %303, align 4, !tbaa !60
+  br label %305
 
-305:                                              ; preds = %263
+304:                                              ; preds = %262
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1977, ptr noundef nonnull @.str.32) #35
   call void @abort() #38
   unreachable
 
-306:                                              ; preds = %291, %277, %274, %266
-  %307 = add nuw i64 %.0145214, 1
-  %exitcond239.not = icmp eq i64 %307, %.0146
+305:                                              ; preds = %290, %276, %273, %265
+  %306 = add nuw i64 %.0145214, 1
+  %exitcond239.not = icmp eq i64 %306, %.0146
   br i1 %exitcond239.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !217
 
-308:                                              ; preds = %._crit_edge217, %199
-  %309 = load ptr, ptr %79, align 8, !tbaa !198
-  %.not175 = icmp eq ptr %309, null
-  br i1 %.not175, label %314, label %310
+307:                                              ; preds = %._crit_edge217, %199
+  %308 = load ptr, ptr %79, align 8, !tbaa !198
+  %.not175 = icmp eq ptr %308, null
+  br i1 %.not175, label %313, label %309
 
-310:                                              ; preds = %308
-  %311 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef %309, ptr noundef %134)
-  store ptr %311, ptr %101, align 8, !tbaa !204
-  %312 = call i32 @populateArgsStructure(ptr noundef %311)
-  %313 = getelementptr inbounds nuw i8, ptr %85, i64 152
-  store i32 %312, ptr %313, align 8, !tbaa !218
-  br label %314
+309:                                              ; preds = %307
+  %310 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef %308, ptr noundef %134)
+  store ptr %310, ptr %101, align 8, !tbaa !204
+  %311 = call i32 @populateArgsStructure(ptr noundef %310)
+  %312 = getelementptr inbounds nuw i8, ptr %85, i64 152
+  store i32 %311, ptr %312, align 8, !tbaa !218
+  br label %313
 
-314:                                              ; preds = %116, %310, %308, %moduleValidateCommandInfo.exit.thread
-  %.0 = phi i32 [ 1, %moduleValidateCommandInfo.exit.thread ], [ 1, %116 ], [ 0, %310 ], [ 0, %308 ]
+313:                                              ; preds = %116, %309, %307, %moduleValidateCommandInfo.exit.thread
+  %.0 = phi i32 [ 1, %moduleValidateCommandInfo.exit.thread ], [ 1, %116 ], [ 0, %309 ], [ 0, %307 ]
   ret i32 %.0
 }
 
@@ -6215,7 +6211,7 @@ moduleGetReplyClient.exit:                        ; preds = %10, %12
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %36 = load i32, ptr %35, align 4, !tbaa !276
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 0, i64 %37
+  %38 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !141
   tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %39) #35
   br label %moduleGetReplyClient.exit.thread
@@ -6224,7 +6220,7 @@ moduleGetReplyClient.exit:                        ; preds = %10, %12
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !276
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !141
   tail call void @addReply(ptr noundef nonnull %.0.i, ptr noundef %45) #35
   br label %moduleGetReplyClient.exit.thread
@@ -8817,7 +8813,7 @@ define dso_local range(i32 0, 8) i32 @RM_KeyType(ptr noundef readonly captures(a
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.RM_KeyType, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.RM_KeyType, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 
@@ -14274,7 +14270,7 @@ define dso_local ptr @moduleTypeLookupModuleByID(i64 noundef %0) local_unnamed_a
 
 3:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr inbounds nuw [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.anon.15, ptr @moduleTypeLookupModuleByID.cache, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !384
   %.not = icmp eq ptr %6, null
@@ -14341,7 +14337,7 @@ define dso_local ptr @moduleTypeLookupModuleByID(i64 noundef %0) local_unnamed_a
 
 31:                                               ; preds = %._crit_edge
   %32 = and i64 %.024.lcssa, 4294967295
-  %33 = getelementptr inbounds nuw [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %struct.anon.15, ptr @moduleTypeLookupModuleByID.cache, i64 %32
   store i64 %0, ptr %33, align 16, !tbaa !387
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %.2, ptr %34, align 8, !tbaa !384
@@ -18721,7 +18717,7 @@ define dso_local void @moduleUnsubscribeNotifications(ptr noundef readnone captu
 define dso_local void @moduleCallClusterReceivers(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.RedisModuleCtx, align 8
   %7 = zext i8 %2 to i64
-  %8 = getelementptr inbounds nuw [255 x ptr], ptr @clusterReceivers, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @clusterReceivers, i64 %7
   %.011 = load ptr, ptr %8, align 8, !tbaa !507
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %.loopexit, label %.lr.ph
@@ -18864,7 +18860,7 @@ define dso_local void @RM_RegisterClusterMessageReceiver(ptr noundef readonly ca
 moduleTypeEncodeId.exit:                          ; preds = %5, %23
   %.0.i = phi i64 [ %.4.i, %23 ], [ 0, %5 ]
   %25 = zext i8 %1 to i64
-  %26 = getelementptr inbounds nuw [255 x ptr], ptr @clusterReceivers, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr @clusterReceivers, i64 %25
   %.02634 = load ptr, ptr %26, align 8, !tbaa !507
   %.not2835 = icmp eq ptr %.02634, null
   br i1 %.not2835, label %._crit_edge, label %.lr.ph.preheader
@@ -19385,7 +19381,7 @@ keyHashSlot.exit:                                 ; preds = %._crit_edge.thread.
 define dso_local ptr @RM_ClusterCanonicalKeyNameInSlot(i32 noundef %0) #24 {
   %2 = icmp ult i32 %0, 16384
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [16384 x [4 x i8]], ptr @crc16_slot_table, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @crc16_slot_table, i64 %3
   %5 = select i1 %2, ptr %4, ptr null
   ret ptr %5
 }
@@ -20354,8 +20350,8 @@ define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPermissions(ptr noundef read
 
 7:                                                ; preds = %15, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %15 ]
-  %8 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %5 ], [ %16, %15 ]
   %.01113.i = phi i64 [ 0, %5 ], [ %.1.i, %15 ]
+  %8 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !24
   %11 = and i64 %10, %6
@@ -20363,19 +20359,115 @@ define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPermissions(ptr noundef read
   br i1 %.not12.i, label %15, label %12
 
 12:                                               ; preds = %7
-  %13 = load i64, ptr %8, align 8, !tbaa !24
+  %13 = load i64, ptr %8, align 16, !tbaa !24
   %14 = or i64 %13, %.01113.i
   br label %15
 
 15:                                               ; preds = %12, %7
   %.1.i = phi i64 [ %14, %12 ], [ %.01113.i, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %15
-  %17 = trunc i64 %.1.i to i32
+  %16 = trunc i64 %.1.i to i32
+  %17 = load ptr, ptr %0, align 8, !tbaa !543
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !269
+  %20 = getelementptr inbounds i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !60
+  %22 = zext i8 %21 to i32
+  %23 = and i32 %22, 7
+  switch i32 %23, label %sdslen.exit [
+    i32 0, label %24
+    i32 1, label %27
+    i32 2, label %31
+    i32 3, label %35
+    i32 4, label %39
+  ]
+
+24:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %25 = lshr i32 %22, 3
+  %26 = zext nneg i32 %25 to i64
+  br label %sdslen.exit
+
+27:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %28 = getelementptr inbounds i8, ptr %19, i64 -3
+  %29 = load i8, ptr %28, align 1, !tbaa !60
+  %30 = zext i8 %29 to i64
+  br label %sdslen.exit
+
+31:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %32 = getelementptr inbounds i8, ptr %19, i64 -5
+  %33 = load i16, ptr %32, align 1, !tbaa !270
+  %34 = zext i16 %33 to i64
+  br label %sdslen.exit
+
+35:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %36 = getelementptr inbounds i8, ptr %19, i64 -9
+  %37 = load i32, ptr %36, align 1, !tbaa !22
+  %38 = zext i32 %37 to i64
+  br label %sdslen.exit
+
+39:                                               ; preds = %moduleConvertKeySpecsFlags.exit
+  %40 = getelementptr inbounds i8, ptr %19, i64 -17
+  %41 = load i64, ptr %40, align 1, !tbaa !24
+  br label %sdslen.exit
+
+sdslen.exit:                                      ; preds = %moduleConvertKeySpecsFlags.exit, %24, %27, %31, %35, %39
+  %.0.i = phi i64 [ %26, %24 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %41, %39 ], [ 0, %moduleConvertKeySpecsFlags.exit ]
+  %42 = trunc i64 %.0.i to i32
+  %43 = tail call i32 @ACLUserCheckKeyPerm(ptr noundef %17, ptr noundef nonnull %19, i32 noundef %42, i32 noundef %16) #35
+  %.not8 = icmp eq i32 %43, 0
+  br i1 %.not8, label %45, label %.sink.split
+
+.sink.split:                                      ; preds = %sdslen.exit, %3
+  %.sink = phi i32 [ 22, %3 ], [ 13, %sdslen.exit ]
+  %44 = tail call ptr @__errno_location() #40
+  store i32 %.sink, ptr %44, align 4, !tbaa !22
+  br label %45
+
+45:                                               ; preds = %.sink.split, %sdslen.exit
+  %.0 = phi i32 [ 0, %sdslen.exit ], [ 1, %.sink.split ]
+  ret i32 %.0
+}
+
+declare i32 @ACLUserCheckKeyPerm(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPrefixPermissions(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
+  %4 = and i32 %2, -241
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %.sink.split
+
+5:                                                ; preds = %3
+  %6 = zext nneg i32 %2 to i64
+  br label %7
+
+7:                                                ; preds = %15, %5
+  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %15 ]
+  %.01113.i = phi i64 [ 0, %5 ], [ %.1.i, %15 ]
+  %8 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %11 = and i64 %10, %6
+  %.not12.i = icmp eq i64 %11, 0
+  br i1 %.not12.i, label %15, label %12
+
+12:                                               ; preds = %7
+  %13 = load i64, ptr %8, align 16, !tbaa !24
+  %14 = or i64 %13, %.01113.i
+  br label %15
+
+15:                                               ; preds = %12, %7
+  %.1.i = phi i64 [ %14, %12 ], [ %.01113.i, %7 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
+
+moduleConvertKeySpecsFlags.exit:                  ; preds = %15
+  %16 = trunc i64 %.1.i to i32
+  %17 = or i32 %16, 2048
   %18 = load ptr, ptr %0, align 8, !tbaa !543
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !269
@@ -20423,8 +20515,8 @@ sdslen.exit:                                      ; preds = %moduleConvertKeySpe
   %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %moduleConvertKeySpecsFlags.exit ]
   %43 = trunc i64 %.0.i to i32
   %44 = tail call i32 @ACLUserCheckKeyPerm(ptr noundef %18, ptr noundef nonnull %20, i32 noundef %43, i32 noundef %17) #35
-  %.not8 = icmp eq i32 %44, 0
-  br i1 %.not8, label %46, label %.sink.split
+  %.not9 = icmp eq i32 %44, 0
+  br i1 %.not9, label %46, label %.sink.split
 
 .sink.split:                                      ; preds = %sdslen.exit, %3
   %.sink = phi i32 [ 22, %3 ], [ 13, %sdslen.exit ]
@@ -20433,104 +20525,6 @@ sdslen.exit:                                      ; preds = %moduleConvertKeySpe
   br label %46
 
 46:                                               ; preds = %.sink.split, %sdslen.exit
-  %.0 = phi i32 [ 0, %sdslen.exit ], [ 1, %.sink.split ]
-  ret i32 %.0
-}
-
-declare i32 @ACLUserCheckKeyPerm(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @RM_ACLCheckKeyPrefixPermissions(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
-  %4 = and i32 %2, -241
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %.sink.split
-
-5:                                                ; preds = %3
-  %6 = zext nneg i32 %2 to i64
-  br label %7
-
-7:                                                ; preds = %15, %5
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %15 ]
-  %8 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %5 ], [ %16, %15 ]
-  %.01113.i = phi i64 [ 0, %5 ], [ %.1.i, %15 ]
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !24
-  %11 = and i64 %10, %6
-  %.not12.i = icmp eq i64 %11, 0
-  br i1 %.not12.i, label %15, label %12
-
-12:                                               ; preds = %7
-  %13 = load i64, ptr %8, align 8, !tbaa !24
-  %14 = or i64 %13, %.01113.i
-  br label %15
-
-15:                                               ; preds = %12, %7
-  %.1.i = phi i64 [ %14, %12 ], [ %.01113.i, %7 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %7, !llvm.loop !152
-
-moduleConvertKeySpecsFlags.exit:                  ; preds = %15
-  %17 = trunc i64 %.1.i to i32
-  %18 = or i32 %17, 2048
-  %19 = load ptr, ptr %0, align 8, !tbaa !543
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !269
-  %22 = getelementptr inbounds i8, ptr %21, i64 -1
-  %23 = load i8, ptr %22, align 1, !tbaa !60
-  %24 = zext i8 %23 to i32
-  %25 = and i32 %24, 7
-  switch i32 %25, label %sdslen.exit [
-    i32 0, label %26
-    i32 1, label %29
-    i32 2, label %33
-    i32 3, label %37
-    i32 4, label %41
-  ]
-
-26:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %27 = lshr i32 %24, 3
-  %28 = zext nneg i32 %27 to i64
-  br label %sdslen.exit
-
-29:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %30 = getelementptr inbounds i8, ptr %21, i64 -3
-  %31 = load i8, ptr %30, align 1, !tbaa !60
-  %32 = zext i8 %31 to i64
-  br label %sdslen.exit
-
-33:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %34 = getelementptr inbounds i8, ptr %21, i64 -5
-  %35 = load i16, ptr %34, align 1, !tbaa !270
-  %36 = zext i16 %35 to i64
-  br label %sdslen.exit
-
-37:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %38 = getelementptr inbounds i8, ptr %21, i64 -9
-  %39 = load i32, ptr %38, align 1, !tbaa !22
-  %40 = zext i32 %39 to i64
-  br label %sdslen.exit
-
-41:                                               ; preds = %moduleConvertKeySpecsFlags.exit
-  %42 = getelementptr inbounds i8, ptr %21, i64 -17
-  %43 = load i64, ptr %42, align 1, !tbaa !24
-  br label %sdslen.exit
-
-sdslen.exit:                                      ; preds = %moduleConvertKeySpecsFlags.exit, %26, %29, %33, %37, %41
-  %.0.i = phi i64 [ %28, %26 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %43, %41 ], [ 0, %moduleConvertKeySpecsFlags.exit ]
-  %44 = trunc i64 %.0.i to i32
-  %45 = tail call i32 @ACLUserCheckKeyPerm(ptr noundef %19, ptr noundef nonnull %21, i32 noundef %44, i32 noundef %18) #35
-  %.not9 = icmp eq i32 %45, 0
-  br i1 %.not9, label %47, label %.sink.split
-
-.sink.split:                                      ; preds = %sdslen.exit, %3
-  %.sink = phi i32 [ 22, %3 ], [ 13, %sdslen.exit ]
-  %46 = tail call ptr @__errno_location() #40
-  store i32 %.sink, ptr %46, align 4, !tbaa !22
-  br label %47
-
-47:                                               ; preds = %.sink.split, %sdslen.exit
   %.0 = phi i32 [ 0, %sdslen.exit ], [ 1, %.sink.split ]
   ret i32 %.0
 }
@@ -20573,7 +20567,7 @@ define dso_local range(i32 0, 5) i32 @moduleGetACLLogEntryReason(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -20589,7 +20583,7 @@ define dso_local range(i32 0, 2) i32 @RM_ACLAddLogEntry(ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !95
@@ -20613,7 +20607,7 @@ define dso_local range(i32 0, 2) i32 @RM_ACLAddLogEntryByUserName(ptr noundef re
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !95
@@ -24300,7 +24294,7 @@ define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr noundef read
   br i1 %or.cond, label %42, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw [18 x i64], ptr @moduleEventVersions, i64 0, i64 %1
+  %11 = getelementptr inbounds nuw i64, ptr @moduleEventVersions, i64 %1
   %12 = load i64, ptr %11, align 8, !tbaa !24
   %13 = icmp ugt i64 %2, %12
   br i1 %13, label %42, label %14
@@ -29788,7 +29782,7 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #40
   store i32 2, ptr %10, align 4, !tbaa !22
-  br label %70
+  br label %69
 
 11:                                               ; preds = %5
   %12 = tail call i32 @doesCommandHaveKeys(ptr noundef nonnull %7) #35
@@ -29798,7 +29792,7 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
 13:                                               ; preds = %11
   %14 = tail call ptr @__errno_location() #40
   store i32 0, ptr %14, align 4, !tbaa !22
-  br label %70
+  br label %69
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -29814,7 +29808,7 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
 21:                                               ; preds = %15
   %22 = tail call ptr @__errno_location() #40
   store i32 22, ptr %22, align 4, !tbaa !22
-  br label %70
+  br label %69
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -29887,8 +29881,8 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
 
 55:                                               ; preds = %63, %48
   %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %63 ]
-  %56 = phi ptr [ @__const.moduleConvertKeySpecsFlags.map, %48 ], [ %64, %63 ]
   %.01113.i = phi i64 [ 0, %48 ], [ %.1.i, %63 ]
+  %56 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = and i64 %58, %54
@@ -29896,33 +29890,32 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
   br i1 %.not12.i, label %63, label %60
 
 60:                                               ; preds = %55
-  %61 = load i64, ptr %56, align 8, !tbaa !24
+  %61 = load i64, ptr %56, align 16, !tbaa !24
   %62 = or i64 %61, %.01113.i
   br label %63
 
 63:                                               ; preds = %60, %55
   %.1.i = phi i64 [ %62, %60 ], [ %.01113.i, %55 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %55, !llvm.loop !152
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %63
-  %65 = trunc i64 %.1.i to i32
-  %66 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 %65, ptr %66, align 4, !tbaa !22
+  %64 = trunc i64 %.1.i to i32
+  %65 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  store i32 %64, ptr %65, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %6, align 8, !tbaa !146
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %48, label %.loopexit, !llvm.loop !676
+  %66 = load i32, ptr %6, align 8, !tbaa !146
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %48, label %.loopexit, !llvm.loop !676
 
 .loopexit:                                        ; preds = %moduleConvertKeySpecsFlags.exit, %41, %.thread, %33, %27
   %.1 = phi ptr [ null, %27 ], [ %32, %33 ], [ %32, %.thread ], [ %32, %41 ], [ %32, %moduleConvertKeySpecsFlags.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %.loopexit, %21, %13, %9
+69:                                               ; preds = %.loopexit, %21, %13, %9
   %.026 = phi ptr [ null, %9 ], [ null, %21 ], [ %.1, %.loopexit ], [ null, %13 ]
   ret ptr %.026
 }

@@ -1113,7 +1113,7 @@ _ZNK4decl13get_decl_kindEv.exit.thread:           ; preds = %_ZNK4decl13get_decl
 
 switch.lookup:                                    ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK22special_relations_util12get_propertyEP9func_decl, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK22special_relations_util12get_propertyEP9func_decl, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 

@@ -279,7 +279,7 @@ inflate_flush.exit:                               ; preds = %74
 
 123:                                              ; preds = %121, %119, %117
   %.0719 = phi i32 [ 8, %117 ], [ 9, %119 ], [ %spec.select, %121 ]
-  %124 = getelementptr inbounds nuw [288 x i32], ptr %57, i64 0, i64 %indvars.iv1657
+  %124 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv1657
   store i32 %.0719, ptr %124, align 4, !tbaa !29
   %indvars.iv.next1658 = add nuw nsw i64 %indvars.iv1657, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1658, 288
@@ -291,7 +291,7 @@ inflate_flush.exit:                               ; preds = %74
 
 127:                                              ; preds = %125, %127
   %indvars.iv1660 = phi i64 [ 0, %125 ], [ %indvars.iv.next1661, %127 ]
-  %128 = getelementptr inbounds nuw [288 x i32], ptr %57, i64 0, i64 %indvars.iv1660
+  %128 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv1660
   store i32 5, ptr %128, align 4, !tbaa !29
   %indvars.iv.next1661 = add nuw nsw i64 %indvars.iv1660, 1
   %exitcond1663.not = icmp eq i64 %indvars.iv.next1661, 30
@@ -819,10 +819,10 @@ inflate_flush.exit830:                            ; preds = %314
   %344 = add nuw nsw i32 %307, 1
   store i32 %344, ptr %50, align 4, !tbaa !21
   %345 = zext nneg i32 %307 to i64
-  %346 = getelementptr inbounds nuw [19 x i8], ptr @border, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr @border, i64 %345
   %347 = load i8, ptr %346, align 1, !tbaa !21
   %348 = sext i8 %347 to i64
-  %349 = getelementptr inbounds [320 x i32], ptr %45, i64 0, i64 %348
+  %349 = getelementptr inbounds i32, ptr %45, i64 %348
   store i32 %343, ptr %349, align 4, !tbaa !21
   %350 = lshr i64 %.sroa.5684.13.lcssa, 3
   %351 = add i32 %.sroa.130.14.lcssa, -3
@@ -838,10 +838,10 @@ inflate_flush.exit830:                            ; preds = %314
   %358 = add nuw nsw i32 %357, 1
   store i32 %358, ptr %50, align 4, !tbaa !21
   %359 = zext nneg i32 %357 to i64
-  %360 = getelementptr inbounds nuw [19 x i8], ptr @border, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr @border, i64 %359
   %361 = load i8, ptr %360, align 1, !tbaa !21
   %362 = sext i8 %361 to i64
-  %363 = getelementptr inbounds [320 x i32], ptr %45, i64 0, i64 %362
+  %363 = getelementptr inbounds i32, ptr %45, i64 %362
   store i32 0, ptr %363, align 4, !tbaa !21
   %.pr = load i32, ptr %50, align 4, !tbaa !21
   %364 = icmp ult i32 %.pr, 19
@@ -984,7 +984,7 @@ inflate_flush.exit835:                            ; preds = %389
   %.sroa.5684.15.lcssa = phi i64 [ %.sroa.5684.141295, %.lr.ph1297 ], [ %415, %408 ]
   %418 = load ptr, ptr %52, align 8, !tbaa !21
   %419 = zext i32 %378 to i64
-  %420 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %419
   %421 = load i16, ptr %420, align 2, !tbaa !34
   %422 = zext i16 %421 to i64
   %423 = and i64 %.sroa.5684.15.lcssa, %422
@@ -1005,7 +1005,7 @@ inflate_flush.exit835:                            ; preds = %389
   %436 = add nuw nsw i32 %.lcssa99612891291, 1
   store i32 %436, ptr %50, align 4, !tbaa !21
   %437 = zext nneg i32 %.lcssa99612891291 to i64
-  %438 = getelementptr inbounds nuw [320 x i32], ptr %45, i64 0, i64 %437
+  %438 = getelementptr inbounds nuw i32, ptr %45, i64 %437
   store i32 %430, ptr %438, align 4, !tbaa !21
   br label %538
 
@@ -1116,7 +1116,7 @@ inflate_flush.exit840:                            ; preds = %455
   %484 = lshr i64 %.sroa.5684.18.lcssa, %483
   %485 = trunc i64 %484 to i32
   %486 = zext nneg i32 %.0717 to i64
-  %487 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %486
   %488 = load i16, ptr %487, align 2, !tbaa !34
   %489 = zext i16 %488 to i32
   %490 = and i32 %489, %485
@@ -1197,7 +1197,7 @@ inflate_flush.exit845:                            ; preds = %505
 525:                                              ; preds = %524
   %526 = add nsw i32 %.lcssa99612891291, -1
   %527 = zext i32 %526 to i64
-  %528 = getelementptr inbounds nuw [320 x i32], ptr %45, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw i32, ptr %45, i64 %527
   %529 = load i32, ptr %528, align 4, !tbaa !21
   br label %530
 
@@ -1210,7 +1210,7 @@ inflate_flush.exit845:                            ; preds = %505
   %.1716 = phi i32 [ %491, %530 ], [ %536, %532 ]
   %533 = add i32 %.1718, 1
   %534 = zext i32 %.1718 to i64
-  %535 = getelementptr inbounds nuw [320 x i32], ptr %45, i64 0, i64 %534
+  %535 = getelementptr inbounds nuw i32, ptr %45, i64 %534
   store i32 %531, ptr %535, align 4, !tbaa !21
   %536 = add nsw i32 %.1716, -1
   %.not794 = icmp eq i32 %536, 0
@@ -1455,7 +1455,7 @@ inflate_flush.exit855:                            ; preds = %602
   %.sroa.5684.19.lcssa = phi i64 [ %.sroa.5684.4, %590 ], [ %628, %621 ]
   %631 = load ptr, ptr %45, align 8
   %632 = zext i32 %591 to i64
-  %633 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %632
+  %633 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %632
   %634 = load i16, ptr %633, align 2, !tbaa !34
   %635 = zext i16 %634 to i64
   %636 = and i64 %.sroa.5684.19.lcssa, %635
@@ -1610,7 +1610,7 @@ inflate_flush.exit860:                            ; preds = %681
   %.sroa.5684.20.lcssa = phi i64 [ %.sroa.5684.0, %669 ], [ %707, %700 ]
   %710 = trunc i64 %.sroa.5684.20.lcssa to i32
   %711 = zext i32 %670 to i64
-  %712 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %711
+  %712 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %711
   %713 = load i16, ptr %712, align 2, !tbaa !34
   %714 = zext i16 %713 to i32
   %715 = and i32 %714, %710
@@ -1724,7 +1724,7 @@ inflate_flush.exit865:                            ; preds = %735
   %.sroa.5684.21.lcssa = phi i64 [ %.sroa.5684.5, %723 ], [ %761, %754 ]
   %764 = load ptr, ptr %45, align 8, !tbaa !21
   %765 = zext i32 %724 to i64
-  %766 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %765
+  %766 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %765
   %767 = load i16, ptr %766, align 2, !tbaa !34
   %768 = zext i16 %767 to i64
   %769 = and i64 %.sroa.5684.21.lcssa, %768
@@ -1858,7 +1858,7 @@ inflate_flush.exit870:                            ; preds = %805
   %.sroa.5684.22.lcssa = phi i64 [ %.sroa.5684.0, %793 ], [ %831, %824 ]
   %834 = trunc i64 %.sroa.5684.22.lcssa to i32
   %835 = zext i32 %794 to i64
-  %836 = getelementptr inbounds nuw [17 x i16], ptr @inflate_mask, i64 0, i64 %835
+  %836 = getelementptr inbounds nuw i16, ptr @inflate_mask, i64 %835
   %837 = load i16, ptr %836, align 2, !tbaa !34
   %838 = zext i16 %837 to i32
   %839 = and i32 %838, %834
@@ -2366,7 +2366,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw i8, ptr %.1164, i64 4
   %14 = load i32, ptr %.1164, align 4, !tbaa !29
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !29
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !29
@@ -2390,7 +2390,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 
 26:                                               ; preds = %24, %29
   %indvars.iv = phi i64 [ 1, %24 ], [ %indvars.iv.next, %29 ]
-  %27 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !29
   %.not216 = icmp eq i32 %28, 0
   br i1 %.not216, label %29, label %.split.loop.exit
@@ -2412,7 +2412,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 31:                                               ; preds = %.split.loop.exit408, %35
   %.1179258 = phi i32 [ 15, %.split.loop.exit408 ], [ %36, %35 ]
   %32 = zext i32 %.1179258 to i64
-  %33 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %10, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !29
   %.not218 = icmp eq i32 %34, 0
   br i1 %.not218, label %35, label %37
@@ -2442,7 +2442,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv343 = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next344, %45 ]
   %.1153260 = phi i32 [ %38, %.lr.ph.preheader ], [ %46, %45 ]
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv343
+  %41 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv343
   %42 = load i32, ptr %41, align 4, !tbaa !29
   %43 = sub i32 %.1153260, %42
   %44 = icmp slt i32 %43, 0
@@ -2457,7 +2457,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %45, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %wide.trip.count, %45 ]
   %.1153.lcssa = phi i32 [ %38, %.._crit_edge_crit_edge ], [ %46, %45 ]
-  %47 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %.pre-phi
+  %47 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre-phi
   %48 = load i32, ptr %47, align 4, !tbaa !29
   %49 = sub i32 %.1153.lcssa, %48
   %50 = icmp slt i32 %49, 0
@@ -2502,7 +2502,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 
 62:                                               ; preds = %.preheader234
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %12, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !29
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !29
@@ -2518,7 +2518,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 
 71:                                               ; preds = %69
   %72 = sext i32 %.1179.lcssa to i64
-  %73 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %72
+  %73 = getelementptr inbounds i32, ptr %12, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !29
   store i32 0, ptr %12, align 16, !tbaa !29
   store ptr null, ptr %11, align 16, !tbaa !38
@@ -2544,7 +2544,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   %.4167311 = phi ptr [ %9, %.lr.ph317 ], [ %.5.lcssa, %._crit_edge438 ]
   %.4182309 = phi i32 [ 0, %.lr.ph317 ], [ %.5183.lcssa, %._crit_edge438 ]
   %.0186308 = phi i32 [ -1, %.lr.ph317 ], [ %.1187.lcssa, %._crit_edge438 ]
-  %82 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv356
+  %82 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv356
   %83 = load i32, ptr %82, align 4, !tbaa !29
   %84 = trunc i64 %indvars.iv356 to i32
   %85 = add i32 %84, -1
@@ -2631,18 +2631,18 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
 116:                                              ; preds = %.critedge
   %117 = zext i32 %113 to i64
   %118 = getelementptr inbounds nuw %struct.inflate_huft_s, ptr %7, i64 %117
-  %119 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv.next352
+  %119 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next352
   store ptr %118, ptr %119, align 8, !tbaa !38
   store i32 %114, ptr %8, align 4, !tbaa !29
   %.not226 = icmp eq i64 %indvars.iv.next352, 0
   br i1 %.not226, label %135, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next352
+  %121 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next352
   store i32 %.5183432, ptr %121, align 4, !tbaa !29
   %122 = trunc i32 %.3174 to i8
   %123 = lshr i32 %.5183432, %.2158277
-  %124 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv351
+  %124 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv351
   %125 = load ptr, ptr %124, align 8, !tbaa !38
   %126 = ptrtoint ptr %118 to i64
   %127 = ptrtoint ptr %125 to i64
@@ -2755,7 +2755,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   %172 = xor i32 %notmask299, -1
   %173 = and i32 %171, %172
   %174 = sext i32 %.2188.lcssa to i64
-  %175 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %174
+  %175 = getelementptr inbounds i32, ptr %12, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !29
   %.not225300 = icmp eq i32 %173, %176
   br i1 %.not225300, label %.loopexit, label %.lr.ph304
@@ -2768,7 +2768,7 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr noundef readonly cap
   %notmask = shl nsw i32 -1, %177
   %178 = xor i32 %notmask, -1
   %179 = and i32 %171, %178
-  %180 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next354
+  %180 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next354
   %181 = load i32, ptr %180, align 4, !tbaa !29
   %.not225 = icmp eq i32 %179, %181
   br i1 %.not225, label %.loopexit.loopexit, label %.lr.ph304

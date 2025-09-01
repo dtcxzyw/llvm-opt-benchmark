@@ -417,7 +417,7 @@ _tvb_captured_length_remaining.exit79:            ; preds = %31
   %.pre-phi = phi i64 [ %54, %._crit_edge ], [ %38, %41 ]
   %.0 = phi ptr [ %55, %._crit_edge ], [ %39, %41 ]
   %75 = zext i8 %.068 to i64
-  %76 = getelementptr [8 x i8], ptr @left_aligned_bitmask, i64 0, i64 %75
+  %76 = getelementptr i8, ptr @left_aligned_bitmask, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = getelementptr i8, ptr %.0, i64 %.pre-phi
   %79 = getelementptr i8, ptr %78, i64 -1
@@ -4304,7 +4304,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
 
 129:                                              ; preds = %131, %127
   %indvars.iv.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i, %131 ]
-  %130 = getelementptr [12 x [4 x i8]], ptr @parse_month_name.months, i64 0, i64 %indvars.iv.i
+  %130 = getelementptr [4 x i8], ptr @parse_month_name.months, i64 %indvars.iv.i
   %lhsv = load i32, ptr %130, align 4
   %.not187 = icmp eq i32 %lhsv, %rhsv
   br i1 %.not187, label %132, label %131
@@ -4628,7 +4628,7 @@ define hidden range(i32 -1, 17) i32 @tvb_get_ipv6_addr_with_prefix_len(ptr nound
   %13 = lshr exact i32 65280, %11
   %14 = add nsw i32 %8, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr [16 x i8], ptr %2, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %2, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = trunc i32 %13 to i8
   %19 = and i8 %17, %18
@@ -4837,7 +4837,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   %14 = lshr i32 %12, %13
   %15 = srem i32 %2, 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [9 x i8], ptr @bit_mask8, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @bit_mask8, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = and i32 %14, %19
@@ -4853,7 +4853,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   %25 = zext nneg i32 %23 to i64
   %26 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %4, i32 noundef 1)
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr [9 x i8], ptr @bit_mask8, i64 0, i64 %25
+  %28 = getelementptr i8, ptr @bit_mask8, i64 %25
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, %27
   %31 = zext i8 %30 to i64
@@ -6745,7 +6745,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 33:                                               ; preds = %30
   %34 = zext nneg i8 %31 to i64
-  %35 = getelementptr [16 x i8], ptr %4, i64 0, i64 %34
+  %35 = getelementptr i8, ptr %4, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = sext i32 %.04457.us to i64
   %38 = getelementptr i8, ptr %27, i64 %37
@@ -6764,7 +6764,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 44:                                               ; preds = %40
   %45 = zext nneg i8 %41 to i64
-  %46 = getelementptr [16 x i8], ptr %4, i64 0, i64 %45
+  %46 = getelementptr i8, ptr %4, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = sext i32 %.2.us to i64
   %49 = getelementptr i8, ptr %27, i64 %48
@@ -6790,7 +6790,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 58:                                               ; preds = %55
   %59 = zext nneg i8 %56 to i64
-  %60 = getelementptr [16 x i8], ptr %4, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %4, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = sext i32 %.04457 to i64
   %63 = getelementptr i8, ptr %27, i64 %62
@@ -6809,7 +6809,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 69:                                               ; preds = %65
   %70 = zext nneg i8 %66 to i64
-  %71 = getelementptr [16 x i8], ptr %4, i64 0, i64 %70
+  %71 = getelementptr i8, ptr %4, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = sext i32 %.2 to i64
   %74 = getelementptr i8, ptr %27, i64 %73

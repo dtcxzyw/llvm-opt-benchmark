@@ -482,7 +482,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6clause7di
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
-  %11 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %11, align 4, !tbaa !8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -512,7 +512,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6clause15d
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
-  %11 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.sat::literal", ptr %7, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %11, align 4, !tbaa !8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_compactERSoN3sat7literalEPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -565,7 +565,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 18:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %19 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %11, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %11, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = lshr i32 %20, 1
   %22 = zext nneg i32 %21 to i64

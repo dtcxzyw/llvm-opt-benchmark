@@ -9196,7 +9196,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 53:                                               ; preds = %.lr.ph, %_ZN22symmetry_reduce_tactic3imp15num_occurrencesclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %287, %_ZN22symmetry_reduce_tactic3imp15num_occurrencesclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !297
@@ -11310,7 +11310,7 @@ _ZNK7obj_mapI3appjE4findEPS0_Rj.exit.thread:      ; preds = %.lr.ph.i.i.i, %129,
 
 140:                                              ; preds = %.lr.ph, %256
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %256 ]
-  %141 = getelementptr inbounds nuw [0 x ptr], ptr %139, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8, !tbaa !12
   %143 = load ptr, ptr %9, align 8, !tbaa !3
   %144 = icmp eq ptr %143, null
@@ -12294,7 +12294,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 58:                                               ; preds = %.lr.ph, %_ZN22symmetry_reduce_tactic3imp11sort_colorsclEP3app.exit
   %59 = phi i32 [ %55, %.lr.ph ], [ %317, %_ZN22symmetry_reduce_tactic3imp11sort_colorsclEP3app.exit ]
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !12
   %63 = add nuw i32 %59, 1
   store i32 %63, ptr %54, align 8, !tbaa !297
@@ -15730,7 +15730,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %9
   %.02563 = phi i32 [ %79, %.critedge34 ], [ 0, %.lr.ph ]
   %storemerge.in.sroa.speculated6062 = phi ptr [ %storemerge.in.sroa.speculated, %.critedge34 ], [ null, %.lr.ph ]
   %27 = zext i32 %.02563 to i64
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %23, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -16210,7 +16210,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 54:                                               ; preds = %.lr.ph, %_ZN22symmetry_reduce_tactic3imp9member_ofclEP3app.exit
   %55 = phi i32 [ %51, %.lr.ph ], [ %157, %_ZN22symmetry_reduce_tactic3imp9member_ofclEP3app.exit ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !12
   %59 = add nuw i32 %55, 1
   store i32 %59, ptr %50, align 8, !tbaa !297
@@ -19488,7 +19488,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI15ac_rewriter_cfgE11process_a
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -22195,7 +22195,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI15ac_rewriter_cfgE11process_a
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

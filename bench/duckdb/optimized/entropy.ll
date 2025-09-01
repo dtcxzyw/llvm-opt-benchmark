@@ -20,7 +20,7 @@ define hidden void @mbedtls_entropy_init(ptr noundef initializes((0, 4), (112, 1
 
 7:                                                ; preds = %1
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds %struct.mbedtls_entropy_source_state, ptr %3, i64 %8
   store ptr @mbedtls_platform_entropy_poll, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8, !tbaa !14
@@ -51,7 +51,7 @@ define hidden range(i32 -62, 1) i32 @mbedtls_entropy_add_source(ptr noundef capt
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.mbedtls_entropy_source_state, ptr %10, i64 %11
   store ptr %1, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8, !tbaa !14
@@ -172,7 +172,7 @@ define hidden i32 @mbedtls_entropy_gather(ptr noundef %0) local_unnamed_addr #0 
 9:                                                ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %.037.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %28 ]
-  %10 = getelementptr inbounds nuw [20 x %struct.mbedtls_entropy_source_state], ptr %8, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.mbedtls_entropy_source_state, ptr %8, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !16
   %13 = icmp eq i32 %12, 1
@@ -257,7 +257,7 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef writeonly ca
 .lr.ph.i:                                         ; preds = %.preheader.i, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i ]
   %.037.i = phi i32 [ %spec.select.i, %33 ], [ 0, %.preheader.i ]
-  %15 = getelementptr inbounds nuw [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.mbedtls_entropy_source_state, ptr %9, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !16
   %18 = icmp eq i32 %17, 1
@@ -329,7 +329,7 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03170 = phi i64 [ 0, %.lr.ph.preheader ], [ %spec.select54, %.lr.ph ]
   %.03269 = phi i32 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %40 = getelementptr inbounds nuw [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.mbedtls_entropy_source_state, ptr %9, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24

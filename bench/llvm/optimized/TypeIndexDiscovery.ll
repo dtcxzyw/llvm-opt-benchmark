@@ -854,7 +854,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 356:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i
   %357 = and i16 %.0.copyload.i.i.i.i.i.i.i.i.i, 32767
   %358 = zext nneg i16 %357 to i64
-  %359 = getelementptr inbounds nuw [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %358
   %360 = load i32, ptr %359, align 4, !tbaa !20
   %361 = add i32 %360, 10
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -869,7 +869,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 365:                                              ; preds = %362
   %366 = and i16 %.0.copyload.i.i.i.i.i.i.i.i54.i, 32767
   %367 = zext nneg i16 %366 to i64
-  %368 = getelementptr inbounds nuw [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !20
   %370 = add i32 %369, 6
   br label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -920,7 +920,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 392:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i58.i
   %393 = and i16 %.0.copyload.i.i.i.i.i.i.i.i60.i, 32767
   %394 = zext nneg i16 %393 to i64
-  %395 = getelementptr inbounds nuw [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %394
   %396 = load i32, ptr %395, align 4, !tbaa !20
   %397 = add i32 %396, 10
   br label %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
@@ -1117,7 +1117,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 493:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i88.i
   %494 = and i16 %.0.copyload.i.i.i.i.i.i.i.i90.i, 32767
   %495 = zext nneg i16 %494 to i64
-  %496 = getelementptr inbounds nuw [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %495
   %497 = load i32, ptr %496, align 4, !tbaa !20
   %498 = add i32 %497, 14
   br label %_ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i
@@ -1134,7 +1134,7 @@ _ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i: ; preds = %493, %_ZN4l
 502:                                              ; preds = %_ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i
   %503 = and i16 %.0.copyload.i.i.i.i.i.i.i14.i.i, 32767
   %504 = zext nneg i16 %503 to i64
-  %505 = getelementptr inbounds nuw [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw i32, ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 %504
   %506 = load i32, ptr %505, align 4, !tbaa !20
   %507 = add i32 %506, 2
   br label %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i

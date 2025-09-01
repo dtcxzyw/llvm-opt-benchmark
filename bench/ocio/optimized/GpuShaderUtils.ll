@@ -5849,10 +5849,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi2EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 0, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5
@@ -6403,10 +6403,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi3EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 0, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5
@@ -7964,10 +7964,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 0, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5

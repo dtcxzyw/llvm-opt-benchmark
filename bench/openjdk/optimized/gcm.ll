@@ -1886,7 +1886,7 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
 51:                                               ; preds = %49
   %52 = add nuw nsw i32 %.026.i, 1
   %53 = zext nneg i32 %.026.i to i64
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %8, i64 %53
   store ptr %50, ptr %54, align 8
   br label %55
 
@@ -1898,7 +1898,7 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
 56:                                               ; preds = %55
   %57 = add nuw nsw i32 %.127.i, 1
   %58 = zext nneg i32 %.127.i to i64
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %8, i64 %58
   store ptr %45, ptr %59, align 8
   br label %60
 
@@ -1918,7 +1918,7 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
 
 .thread.i:                                        ; preds = %65
   %68 = zext nneg i32 %.2.i to i64
-  %69 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %8, i64 %68
   store ptr %67, ptr %69, align 8
   br label %.lr.ph.i
 
@@ -1936,7 +1936,7 @@ define hidden noundef ptr @_ZN8PhaseCFG23insert_anti_dependencesEP5BlockP4Nodeb(
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
   %.02338.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select36.i, %72 ]
   %.02437.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %72 ]
-  %73 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load i32, ptr %75, align 8
@@ -3952,7 +3952,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98: ; preds = %_ZN8PhaseCFG20get_l
   %.08.i = phi i32 [ %158, %.lr.ph.i ], [ %151, %145 ]
   %.057.i = phi i64 [ %157, %.lr.ph.i ], [ 0, %145 ]
   %154 = zext i32 %.08.i to i64
-  %155 = getelementptr inbounds nuw [11 x i64], ptr %149, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i64, ptr %149, i64 %154
   %156 = load i64, ptr %155, align 8
   %.fr = freeze i64 %156
   %157 = or i64 %.fr, %.057.i
@@ -4909,7 +4909,7 @@ _ZNK4Node16is_memory_writerEv.exit73.thread:      ; preds = %.lr.ph88, %.prehead
   %339 = load ptr, ptr %338, align 8
   %340 = tail call noundef i32 %339(ptr noundef nonnull align 8 dereferenceable(64) %153) #14
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %341
+  %342 = getelementptr inbounds i8, ptr @must_clone, i64 %341
   %343 = load i8, ptr %342, align 1
   %.not70 = icmp eq i8 %343, 0
   %spec.select = select i1 %.not70, i1 %335, i1 false

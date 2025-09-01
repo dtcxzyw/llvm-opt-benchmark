@@ -12871,9 +12871,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033100 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal10RandenPoolIhEEEvT_S5_T0_.exit ], [ %51, %33 ]
   %34 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal10RandenPoolIhEEEvT_S5_T0_.exit ], [ %42, %33 ]
   %35 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal10RandenPoolIhEEEvT_S5_T0_.exit ], [ %46, %33 ]
-  %36 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 0, i64 %.031102
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.031102
   %37 = load i8, ptr %36, align 1, !tbaa !17
-  %38 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %.031102
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %.031102
   %39 = load i8, ptr %38, align 1, !tbaa !17
   %40 = icmp eq i8 %37, %39
   %41 = zext i1 %40 to i64
@@ -19343,9 +19343,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033100 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal10RandenPoolItEEEvT_S5_T0_.exit ], [ %50, %32 ]
   %33 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal10RandenPoolItEEEvT_S5_T0_.exit ], [ %41, %32 ]
   %34 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal10RandenPoolItEEEvT_S5_T0_.exit ], [ %45, %32 ]
-  %35 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 0, i64 %.031102
+  %35 = getelementptr inbounds nuw i16, ptr %1, i64 %.031102
   %36 = load i16, ptr %35, align 2, !tbaa !397
-  %37 = getelementptr inbounds nuw [64 x i16], ptr %2, i64 0, i64 %.031102
+  %37 = getelementptr inbounds nuw i16, ptr %2, i64 %.031102
   %38 = load i16, ptr %37, align 2, !tbaa !397
   %39 = icmp eq i16 %36, %38
   %40 = zext i1 %39 to i64
@@ -20009,9 +20009,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033100 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal10RandenPoolIjEEEvT_S5_T0_.exit ], [ %50, %32 ]
   %33 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal10RandenPoolIjEEEvT_S5_T0_.exit ], [ %41, %32 ]
   %34 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal10RandenPoolIjEEEvT_S5_T0_.exit ], [ %45, %32 ]
-  %35 = getelementptr inbounds nuw [64 x i32], ptr %1, i64 0, i64 %.031102
+  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %.031102
   %36 = load i32, ptr %35, align 4, !tbaa !25
-  %37 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %.031102
+  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %.031102
   %38 = load i32, ptr %37, align 4, !tbaa !25
   %39 = icmp eq i32 %36, %38
   %40 = zext i1 %39 to i64
@@ -20675,9 +20675,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033100 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal10RandenPoolImEEEvT_S5_T0_.exit ], [ %49, %32 ]
   %33 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal10RandenPoolImEEEvT_S5_T0_.exit ], [ %41, %32 ]
   %34 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal10RandenPoolImEEEvT_S5_T0_.exit ], [ %44, %32 ]
-  %35 = getelementptr inbounds nuw [64 x i64], ptr %1, i64 0, i64 %.031102
+  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.031102
   %36 = load i64, ptr %35, align 8, !tbaa !22
-  %37 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %.031102
+  %37 = getelementptr inbounds nuw i64, ptr %2, i64 %.031102
   %38 = load i64, ptr %37, align 8, !tbaa !22
   %39 = icmp eq i64 %36, %38
   %40 = zext i1 %39 to i64
@@ -21319,7 +21319,7 @@ _ZN4absl15random_internal8PoolURBGIhLm2EEclEv.exit.i.i: ; preds = %28, %thread-p
   %29 = phi i64 [ %.pre.i.i.i, %28 ], [ %26, %thread-pre-split.i ]
   %30 = add i64 %29, 1
   store i64 %30, ptr %1, align 8, !tbaa !117
-  %31 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %29
   %32 = load i8, ptr %31, align 1, !tbaa !17
   store i8 %32, ptr %.05.i.i.ptr, align 1, !tbaa !17
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 1
@@ -21348,7 +21348,7 @@ _ZN4absl15random_internal8PoolURBGIhLm2EEclEv.exit.i: ; preds = %36, %thread-pre
   %37 = phi i64 [ %.pre.i.i, %36 ], [ %34, %thread-pre-split ]
   %38 = add i64 %37, 1
   store i64 %38, ptr %5, align 8, !tbaa !117
-  %39 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %37
   %40 = load i8, ptr %39, align 1, !tbaa !17
   store i8 %40, ptr %.05.i.ptr, align 1, !tbaa !17
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 1
@@ -21393,9 +21393,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033102 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal8PoolURBGIhLm2EEEEvT_S5_T0_.exit ], [ %69, %51 ]
   %52 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal8PoolURBGIhLm2EEEEvT_S5_T0_.exit ], [ %60, %51 ]
   %53 = phi i64 [ 0, %_ZSt8generateIPhN4absl15random_internal8PoolURBGIhLm2EEEEvT_S5_T0_.exit ], [ %64, %51 ]
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %.031104
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.031104
   %55 = load i8, ptr %54, align 1, !tbaa !17
-  %56 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.031104
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.031104
   %57 = load i8, ptr %56, align 1, !tbaa !17
   %58 = icmp eq i8 %55, %57
   %59 = zext i1 %58 to i64
@@ -22041,7 +22041,7 @@ _ZN4absl15random_internal8PoolURBGItLm2EEclEv.exit.i.i: ; preds = %29, %26
   %30 = phi i64 [ %.pre.i.i.i, %29 ], [ %27, %26 ]
   %31 = add i64 %30, 1
   store i64 %31, ptr %1, align 8, !tbaa !119
-  %32 = getelementptr inbounds nuw [2 x i16], ptr %25, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw i16, ptr %25, i64 %30
   %33 = load i16, ptr %32, align 2, !tbaa !397
   store i16 %33, ptr %.05.i.i.ptr, align 2, !tbaa !397
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 2
@@ -22070,7 +22070,7 @@ _ZN4absl15random_internal8PoolURBGItLm2EEclEv.exit.i: ; preds = %38, %35
   %39 = phi i64 [ %.pre.i.i, %38 ], [ %36, %35 ]
   %40 = add i64 %39, 1
   store i64 %40, ptr %5, align 8, !tbaa !119
-  %41 = getelementptr inbounds nuw [2 x i16], ptr %34, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw i16, ptr %34, i64 %39
   %42 = load i16, ptr %41, align 2, !tbaa !397
   store i16 %42, ptr %.05.i.ptr, align 2, !tbaa !397
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 2
@@ -22115,9 +22115,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033103 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal8PoolURBGItLm2EEEEvT_S5_T0_.exit ], [ %71, %53 ]
   %54 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal8PoolURBGItLm2EEEEvT_S5_T0_.exit ], [ %62, %53 ]
   %55 = phi i64 [ 0, %_ZSt8generateIPtN4absl15random_internal8PoolURBGItLm2EEEEvT_S5_T0_.exit ], [ %66, %53 ]
-  %56 = getelementptr inbounds nuw [64 x i16], ptr %3, i64 0, i64 %.031105
+  %56 = getelementptr inbounds nuw i16, ptr %3, i64 %.031105
   %57 = load i16, ptr %56, align 2, !tbaa !397
-  %58 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %.031105
+  %58 = getelementptr inbounds nuw i16, ptr %4, i64 %.031105
   %59 = load i16, ptr %58, align 2, !tbaa !397
   %60 = icmp eq i16 %57, %59
   %61 = zext i1 %60 to i64
@@ -27340,7 +27340,7 @@ _ZN4absl15random_internal8PoolURBGIjLm2EEclEv.exit.i.i: ; preds = %29, %26
   %30 = phi i64 [ %.pre.i.i.i, %29 ], [ %27, %26 ]
   %31 = add i64 %30, 1
   store i64 %31, ptr %1, align 8, !tbaa !196
-  %32 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw i32, ptr %25, i64 %30
   %33 = load i32, ptr %32, align 4, !tbaa !25
   store i32 %33, ptr %.05.i.i.ptr, align 4, !tbaa !25
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 4
@@ -27369,7 +27369,7 @@ _ZN4absl15random_internal8PoolURBGIjLm2EEclEv.exit.i: ; preds = %38, %35
   %39 = phi i64 [ %.pre.i.i, %38 ], [ %36, %35 ]
   %40 = add i64 %39, 1
   store i64 %40, ptr %5, align 8, !tbaa !196
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %34, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %39
   %42 = load i32, ptr %41, align 4, !tbaa !25
   store i32 %42, ptr %.05.i.ptr, align 4, !tbaa !25
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 4
@@ -27414,9 +27414,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033103 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm2EEEEvT_S5_T0_.exit ], [ %71, %53 ]
   %54 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm2EEEEvT_S5_T0_.exit ], [ %62, %53 ]
   %55 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm2EEEEvT_S5_T0_.exit ], [ %66, %53 ]
-  %56 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %.031105
+  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %.031105
   %57 = load i32, ptr %56, align 4, !tbaa !25
-  %58 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %.031105
+  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %.031105
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %60 = icmp eq i32 %57, %59
   %61 = zext i1 %60 to i64
@@ -28062,7 +28062,7 @@ _ZN4absl15random_internal8PoolURBGImLm2EEclEv.exit.i.i: ; preds = %28, %thread-p
   %29 = phi i64 [ %.pre.i.i.i, %28 ], [ %26, %thread-pre-split.i ]
   %30 = add i64 %29, 1
   store i64 %30, ptr %1, align 8, !tbaa !198
-  %31 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %29
   %32 = load i64, ptr %31, align 8, !tbaa !22
   store i64 %32, ptr %.05.i.i.ptr, align 8, !tbaa !22
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 8
@@ -28091,7 +28091,7 @@ _ZN4absl15random_internal8PoolURBGImLm2EEclEv.exit.i: ; preds = %36, %thread-pre
   %37 = phi i64 [ %.pre.i.i, %36 ], [ %34, %thread-pre-split ]
   %38 = add i64 %37, 1
   store i64 %38, ptr %5, align 8, !tbaa !198
-  %39 = getelementptr inbounds nuw [2 x i64], ptr %33, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i64, ptr %33, i64 %37
   %40 = load i64, ptr %39, align 8, !tbaa !22
   store i64 %40, ptr %.05.i.ptr, align 8, !tbaa !22
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 8
@@ -28136,9 +28136,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033102 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm2EEEEvT_S5_T0_.exit ], [ %68, %51 ]
   %52 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm2EEEEvT_S5_T0_.exit ], [ %60, %51 ]
   %53 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm2EEEEvT_S5_T0_.exit ], [ %63, %51 ]
-  %54 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %.031104
+  %54 = getelementptr inbounds nuw i64, ptr %3, i64 %.031104
   %55 = load i64, ptr %54, align 8, !tbaa !22
-  %56 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %.031104
+  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %.031104
   %57 = load i64, ptr %56, align 8, !tbaa !22
   %58 = icmp eq i64 %55, %57
   %59 = zext i1 %58 to i64
@@ -28787,7 +28787,7 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i.i: ; preds = %28, %25
   %31 = phi i64 [ %.pre.i.i.i, %28 ], [ %26, %25 ]
   %32 = add i64 %31, 1
   store i64 %32, ptr %1, align 8, !tbaa !200
-  %33 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !25
   store i32 %34, ptr %.05.i.i.ptr, align 4, !tbaa !25
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 4
@@ -28821,7 +28821,7 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i: ; preds = %39, %36
   %42 = phi i64 [ %.pre.i.i, %39 ], [ %37, %36 ]
   %43 = add i64 %42, 1
   store i64 %43, ptr %5, align 8, !tbaa !200
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %35, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %42
   %45 = load i32, ptr %44, align 4, !tbaa !25
   store i32 %45, ptr %.05.i.ptr, align 4, !tbaa !25
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 4
@@ -28866,9 +28866,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033110 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm8EEEEvT_S5_T0_.exit ], [ %74, %56 ]
   %57 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm8EEEEvT_S5_T0_.exit ], [ %65, %56 ]
   %58 = phi i64 [ 0, %_ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm8EEEEvT_S5_T0_.exit ], [ %69, %56 ]
-  %59 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %.031112
+  %59 = getelementptr inbounds nuw i32, ptr %3, i64 %.031112
   %60 = load i32, ptr %59, align 4, !tbaa !25
-  %61 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %.031112
+  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %.031112
   %62 = load i32, ptr %61, align 4, !tbaa !25
   %63 = icmp eq i32 %60, %62
   %64 = zext i1 %63 to i64
@@ -29519,7 +29519,7 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i.i: ; preds = %27, %thread-p
   %30 = phi i64 [ %.pre.i.i.i, %27 ], [ %25, %thread-pre-split.i ]
   %31 = add i64 %30, 1
   store i64 %31, ptr %1, align 8, !tbaa !202
-  %32 = getelementptr inbounds nuw [8 x i64], ptr %24, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw i64, ptr %24, i64 %30
   %33 = load i64, ptr %32, align 8, !tbaa !22
   store i64 %33, ptr %.05.i.i.ptr, align 8, !tbaa !22
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 8
@@ -29553,7 +29553,7 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i: ; preds = %37, %thread-pre
   %40 = phi i64 [ %.pre.i.i, %37 ], [ %35, %thread-pre-split ]
   %41 = add i64 %40, 1
   store i64 %41, ptr %5, align 8, !tbaa !202
-  %42 = getelementptr inbounds nuw [8 x i64], ptr %34, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !22
   store i64 %43, ptr %.05.i.ptr, align 8, !tbaa !22
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 8
@@ -29598,9 +29598,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033109 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm8EEEEvT_S5_T0_.exit ], [ %71, %54 ]
   %55 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm8EEEEvT_S5_T0_.exit ], [ %63, %54 ]
   %56 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm8EEEEvT_S5_T0_.exit ], [ %66, %54 ]
-  %57 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %.031111
+  %57 = getelementptr inbounds nuw i64, ptr %3, i64 %.031111
   %58 = load i64, ptr %57, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %.031111
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.031111
   %60 = load i64, ptr %59, align 8, !tbaa !22
   %61 = icmp eq i64 %58, %60
   %62 = zext i1 %61 to i64
@@ -30249,7 +30249,7 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i.i: ; preds = %27, %thread-p
   %30 = phi i64 [ %.pre.i.i.i, %27 ], [ %25, %thread-pre-split.i ]
   %31 = add i64 %30, 1
   store i64 %31, ptr %1, align 8, !tbaa !204
-  %32 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw i64, ptr %24, i64 %30
   %33 = load i64, ptr %32, align 8, !tbaa !22
   store i64 %33, ptr %.05.i.i.ptr, align 8, !tbaa !22
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 8
@@ -30283,7 +30283,7 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i: ; preds = %37, %thread-pre
   %40 = phi i64 [ %.pre.i.i, %37 ], [ %35, %thread-pre-split ]
   %41 = add i64 %40, 1
   store i64 %41, ptr %5, align 8, !tbaa !204
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %34, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !22
   store i64 %43, ptr %.05.i.ptr, align 8, !tbaa !22
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 8
@@ -30328,9 +30328,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033109 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm4EEEEvT_S5_T0_.exit ], [ %71, %54 ]
   %55 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm4EEEEvT_S5_T0_.exit ], [ %63, %54 ]
   %56 = phi i64 [ 0, %_ZSt8generateIPmN4absl15random_internal8PoolURBGImLm4EEEEvT_S5_T0_.exit ], [ %66, %54 ]
-  %57 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %.031111
+  %57 = getelementptr inbounds nuw i64, ptr %3, i64 %.031111
   %58 = load i64, ptr %57, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %.031111
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.031111
   %60 = load i64, ptr %59, align 8, !tbaa !22
   %61 = icmp eq i64 %58, %60
   %62 = zext i1 %61 to i64
@@ -30987,7 +30987,7 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i.i: ; preds = %28, %25
   %31 = phi i64 [ %.pre.i.i.i, %28 ], [ %26, %25 ]
   %32 = add i64 %31, 1
   store i64 %32, ptr %1, align 8, !tbaa !206
-  %33 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw i64, ptr %24, i64 %31
   %34 = load i64, ptr %33, align 8, !tbaa !494
   store i64 %34, ptr %.05.i.i.ptr, align 8, !tbaa !494
   %.05.i.i.add = add nuw nsw i64 %.05.i.i.idx, 8
@@ -31021,7 +31021,7 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i: ; preds = %39, %36
   %42 = phi i64 [ %.pre.i.i, %39 ], [ %37, %36 ]
   %43 = add i64 %42, 1
   store i64 %43, ptr %5, align 8, !tbaa !206
-  %44 = getelementptr inbounds nuw [4 x i64], ptr %35, i64 0, i64 %42
+  %44 = getelementptr inbounds nuw i64, ptr %35, i64 %42
   %45 = load i64, ptr %44, align 8, !tbaa !494
   store i64 %45, ptr %.05.i.ptr, align 8, !tbaa !494
   %.05.i.add = add nuw nsw i64 %.05.i.idx, 8
@@ -31066,9 +31066,9 @@ _ZN7testing8internal11CmpHelperLEImdEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %.033110 = phi i64 [ 0, %_ZSt8generateIPyN4absl15random_internal8PoolURBGIyLm4EEEEvT_S5_T0_.exit ], [ %73, %56 ]
   %57 = phi i64 [ 0, %_ZSt8generateIPyN4absl15random_internal8PoolURBGIyLm4EEEEvT_S5_T0_.exit ], [ %65, %56 ]
   %58 = phi i64 [ 0, %_ZSt8generateIPyN4absl15random_internal8PoolURBGIyLm4EEEEvT_S5_T0_.exit ], [ %68, %56 ]
-  %59 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %.031112
+  %59 = getelementptr inbounds nuw i64, ptr %3, i64 %.031112
   %60 = load i64, ptr %59, align 8, !tbaa !494
-  %61 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %.031112
+  %61 = getelementptr inbounds nuw i64, ptr %4, i64 %.031112
   %62 = load i64, ptr %61, align 8, !tbaa !494
   %63 = icmp eq i64 %60, %62
   %64 = zext i1 %63 to i64

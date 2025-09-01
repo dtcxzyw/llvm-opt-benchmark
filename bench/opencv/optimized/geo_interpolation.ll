@@ -291,15 +291,15 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader: ; preds = %.critedge
 
 _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit
   %indvars.iv = phi i64 [ 0, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader ], [ %indvars.iv.next, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit ]
-  %102 = getelementptr inbounds nuw [8 x float], ptr %10, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !45
   %104 = fcmp olt float %103, 0.000000e+00
   br i1 %104, label %_ZN2cv3VecIfLi8EEC2ERKS1_.exit, label %105
 
 105:                                              ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader
-  %106 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4, !tbaa !43
-  %108 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4, !tbaa !43
   %110 = add nsw i32 %109, %79
   %111 = add nsw i32 %107, %81
@@ -688,7 +688,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader: ; preds = %119
 _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit
   %indvars.iv192 = phi i64 [ 0, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader ], [ %indvars.iv.next193, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit ]
   %.1137182 = phi i8 [ %.0136.ph, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader.preheader ], [ %.2138, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit ]
-  %150 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %indvars.iv192
+  %150 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %indvars.iv192
   %151 = load i32, ptr %150, align 4, !tbaa !43
   %152 = add nsw i32 %151, %.1146
   %153 = icmp sgt i32 %152, -1
@@ -698,7 +698,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZN2cv3VecIfLi8EEC2
   br i1 %or.cond169, label %155, label %_ZN2cv3VecIfLi8EEC2ERKS1_.exit
 
 155:                                              ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader
-  %156 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %indvars.iv192
+  %156 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %indvars.iv192
   %157 = load i32, ptr %156, align 4, !tbaa !43
   %158 = add nsw i32 %157, %.1143
   %159 = icmp sgt i32 %158, -1
@@ -718,7 +718,7 @@ _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZN2cv3VecIfLi8EEC2
   %169 = getelementptr inbounds nuw float, ptr %167, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !45
   %171 = fcmp ogt float %135, %170
-  %172 = getelementptr inbounds nuw [8 x float], ptr %13, i64 0, i64 %indvars.iv192
+  %172 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv192
   %173 = load float, ptr %172, align 4, !tbaa !45
   br i1 %171, label %174, label %191
 
@@ -984,11 +984,11 @@ define hidden void @_ZN2cv7optflow8getGraphERKNS_3MatEf(ptr dead_on_unwind noali
 
 39:                                               ; preds = %.preheader, %105
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %105 ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !43
-  %42 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !43
-  %44 = getelementptr inbounds nuw [8 x float], ptr %27, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
   store float -1.000000e+00, ptr %44, align 4, !tbaa !45
   %45 = add nsw i32 %41, %30
   %46 = icmp slt i32 %45, 0
@@ -1016,7 +1016,7 @@ define hidden void @_ZN2cv7optflow8getGraphERKNS_3MatEf(ptr dead_on_unwind noali
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 %57
   %59 = zext nneg i32 %45 to i64
   %60 = getelementptr inbounds nuw %"class.cv::Vec.7", ptr %58, i64 %59
-  %61 = getelementptr inbounds nuw [8 x float], ptr %60, i64 0, i64 %55
+  %61 = getelementptr inbounds nuw float, ptr %60, i64 %55
   %62 = load float, ptr %61, align 4, !tbaa !45
   br label %.sink.split
 
@@ -1542,15 +1542,15 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
 
 _ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader:         ; preds = %_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE9push_backEOS2_.exit, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EE9push_backEOS2_.exit ], [ %indvars.iv.next, %_ZN2cv3VecIfLi8EEC2ERKS1_.exit ]
-  %244 = getelementptr inbounds nuw [8 x float], ptr %17, i64 0, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   %245 = load float, ptr %244, align 4, !tbaa !45
   %246 = fcmp olt float %245, 0.000000e+00
   br i1 %246, label %_ZN2cv3VecIfLi8EEC2ERKS1_.exit, label %_ZNSt4pairIfN2cv3VecIiLi2EEEEC2IRfRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_.exit.critedge
 
 _ZNSt4pairIfN2cv3VecIiLi2EEEEC2IRfRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_.exit.critedge: ; preds = %_ZN2cv3VecIfLi8EEC2ERKS1_.exit.preheader
-  %247 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %indvars.iv
+  %247 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %indvars.iv
   %248 = load i32, ptr %247, align 4, !tbaa !43
-  %249 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4, !tbaa !43
   %251 = load i32, ptr %114, align 4, !tbaa !21
   %252 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
@@ -1726,15 +1726,15 @@ _ZN2cv3Mat2atINS_3VecIfLi8EEEEERT_i.exit:         ; preds = %306, %299, %291
 338:                                              ; preds = %.loopexit249, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183
   %339 = phi i64 [ %284, %.loopexit249 ], [ %378, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183 ]
   %indvars.iv317 = phi i64 [ 0, %.loopexit249 ], [ %indvars.iv.next318, %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183 ]
-  %340 = getelementptr inbounds nuw [8 x float], ptr %18, i64 0, i64 %indvars.iv317
+  %340 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv317
   %341 = load float, ptr %340, align 4, !tbaa !45
   %342 = fcmp olt float %341, 0.000000e+00
   br i1 %342, label %_ZN2cv7optflow12Graph_helper15color_in_targetEii.exit183, label %343
 
 343:                                              ; preds = %338
-  %344 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %indvars.iv317
+  %344 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %indvars.iv317
   %345 = load i32, ptr %344, align 4, !tbaa !43
-  %346 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %indvars.iv317
+  %346 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %indvars.iv317
   %347 = load i32, ptr %346, align 4, !tbaa !43
   %348 = add nsw i32 %345, %279
   %349 = load i32, ptr %114, align 4, !tbaa !21
@@ -2416,10 +2416,10 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %113
   %.053133 = phi i32 [ %162, %.lr.ph134 ], [ %135, %.preheader ]
   %.054132 = phi i32 [ %159, %.lr.ph134 ], [ %150, %.preheader ]
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dx, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !43
   %159 = add nsw i32 %158, %.054132
-  %160 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 0, i64 %156
+  %160 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv7optflow24interpolate_irregular_nnERKSt6vectorINS_6Point_IfEESaIS3_EES7_RKS1_IhSaIhEERKNS_3MatEf.Dy, i64 %156
   %161 = load i32, ptr %160, align 4, !tbaa !43
   %162 = add nsw i32 %161, %.053133
   %163 = sext i32 %162 to i64

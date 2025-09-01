@@ -787,7 +787,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   %.015 = select i1 %.not, i32 %., i32 3
   %24 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #12
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [7 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !43
   %28 = and i32 %27, 255
   %29 = icmp samesign ugt i32 %.015, %28
@@ -796,7 +796,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
 30:                                               ; preds = %9
   %31 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #12
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [7 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %32
+  %33 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !43
   %35 = and i32 %34, 255
   br label %36
@@ -805,7 +805,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   %37 = phi i32 [ %35, %30 ], [ %.015, %9 ]
   %38 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #12
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [7 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %39
+  %40 = getelementptr inbounds i32, ptr @H5O_attr_ver_bounds, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !43
   %42 = icmp ugt i32 %37, %41
   br i1 %42, label %43, label %47

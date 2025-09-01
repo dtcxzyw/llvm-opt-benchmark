@@ -3537,7 +3537,7 @@ for.cond.preheader:                               ; preds = %invoke.cont40
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %storemerge1127 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
   %idxprom = sext i32 %storemerge1127 to i64
-  %arrayidx = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZL7strings, i64 %idxprom
   %21 = load ptr, ptr %arrayidx, align 8
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30, ptr noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %i)
           to label %for.inc unwind label %lpad32.loopexit.split-lp.loopexit
@@ -3853,7 +3853,7 @@ for.cond70.preheader:                             ; preds = %invoke.cont63
 for.body72:                                       ; preds = %for.cond70.preheader, %for.inc77
   %storemerge221128 = phi i32 [ 0, %for.cond70.preheader ], [ %inc78, %for.inc77 ]
   %idxprom73 = sext i32 %storemerge221128 to i64
-  %arrayidx74 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom73
+  %arrayidx74 = getelementptr inbounds ptr, ptr @_ZL7strings, i64 %idxprom73
   %56 = load ptr, ptr %arrayidx74, align 8
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp75, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap30, ptr noundef %56, ptr noundef nonnull align 4 dereferenceable(4) %i69)
           to label %for.inc77 unwind label %lpad32.loopexit
@@ -4183,7 +4183,7 @@ for.cond117.preheader:                            ; preds = %_ZNK5eastl9hashtabl
 for.body119:                                      ; preds = %for.cond117.preheader, %for.inc124
   %storemerge231129 = phi i32 [ 0, %for.cond117.preheader ], [ %inc125, %for.inc124 ]
   %idxprom120 = sext i32 %storemerge231129 to i64
-  %arrayidx121 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom120
+  %arrayidx121 = getelementptr inbounds ptr, ptr @_ZL7strings, i64 %idxprom120
   %97 = load ptr, ptr %arrayidx121, align 8
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp122, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap102, ptr noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %i116)
           to label %for.inc124 unwind label %lpad105.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4338,7 +4338,7 @@ for.body156.preheader:                            ; preds = %_ZN5eastl18hashtabl
 
 for.body156:                                      ; preds = %for.body156.preheader, %for.inc187
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc187 ], [ 0, %for.body156.preheader ]
-  %arrayidx159 = getelementptr inbounds nuw [20 x ptr], ptr @_ZL7strings, i64 0, i64 %indvars.iv
+  %arrayidx159 = getelementptr inbounds nuw ptr, ptr @_ZL7strings, i64 %indvars.iv
   %118 = load ptr, ptr %arrayidx159, align 8, !noalias !226
   %119 = load i8, ptr %118, align 1, !noalias !226
   %cmp.not2.i.i.i445 = icmp eq i8 %119, 0
@@ -4816,7 +4816,7 @@ for.cond274.preheader:                            ; preds = %invoke.cont264
 for.body276:                                      ; preds = %for.cond274.preheader, %for.inc282
   %storemerge241135 = phi i32 [ 0, %for.cond274.preheader ], [ %inc283, %for.inc282 ]
   %idxprom277 = sext i32 %storemerge241135 to i64
-  %arrayidx278 = getelementptr inbounds [20 x ptr], ptr @_ZL7strings, i64 0, i64 %idxprom277
+  %arrayidx278 = getelementptr inbounds ptr, ptr @_ZL7strings, i64 %idxprom277
   %196 = load ptr, ptr %arrayidx278, align 8
   invoke void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEE6insertES3_RKi(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp279, ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef %196, ptr noundef nonnull align 4 dereferenceable(4) %i273)
           to label %for.inc282 unwind label %lpad280.loopexit
@@ -5117,7 +5117,7 @@ invoke.cont299:                                   ; preds = %for.end.i771, %if.e
 
 for.body306:                                      ; preds = %invoke.cont299, %for.inc329
   %indvars.iv1165 = phi i64 [ %indvars.iv.next1166, %for.inc329 ], [ 0, %invoke.cont299 ]
-  %arrayidx308 = getelementptr inbounds nuw [20 x ptr], ptr @_ZL7strings, i64 0, i64 %indvars.iv1165
+  %arrayidx308 = getelementptr inbounds nuw ptr, ptr @_ZL7strings, i64 %indvars.iv1165
   %229 = load ptr, ptr %arrayidx308, align 8
   %call310 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEEixES3_(ptr noundef nonnull align 8 dereferenceable(45) %stringHashMap1, ptr noundef %229)
           to label %invoke.cont309 unwind label %lpad290.loopexit

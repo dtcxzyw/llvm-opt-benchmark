@@ -3084,7 +3084,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %.thread153.i.i.i.i,
 675:                                              ; preds = %740, %.lr.ph.i.i.i.i117
   %676 = phi i32 [ %672, %.lr.ph.i.i.i.i117 ], [ %741, %740 ]
   %677 = zext i32 %676 to i64
-  %678 = getelementptr inbounds nuw [0 x ptr], ptr %674, i64 0, i64 %677
+  %678 = getelementptr inbounds nuw ptr, ptr %674, i64 %677
   %679 = load ptr, ptr %678, align 8, !tbaa !249
   %680 = add nuw i32 %676, 1
   store i32 %680, ptr %671, align 8, !tbaa !325
@@ -6564,7 +6564,7 @@ thread-pre-split.i.i:                             ; preds = %.thread153.i.i, %39
 47:                                               ; preds = %112, %.lr.ph.i.i
   %48 = phi i32 [ %44, %.lr.ph.i.i ], [ %113, %112 ]
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %46, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !249
   %52 = add nuw i32 %48, 1
   store i32 %52, ptr %43, align 8, !tbaa !325
@@ -7548,7 +7548,7 @@ thread-pre-split.i:                               ; preds = %.thread249.i, %58, 
 68:                                               ; preds = %_ZN12_GLOBAL__N_110smt_solver16collect_fds_procclEP3app.exit.i, %.lr.ph.i
   %69 = phi i32 [ %65, %.lr.ph.i ], [ %219, %_ZN12_GLOBAL__N_110smt_solver16collect_fds_procclEP3app.exit.i ]
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !249
   %73 = add nuw i32 %69, 1
   store i32 %73, ptr %64, align 8, !tbaa !325

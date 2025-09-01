@@ -40,7 +40,7 @@ define range(i32 0, 4) i32 @merge_string_to_idb_merge_mode(ptr noundef %0) local
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr [4 x ptr], ptr @idb_merge_mode_strings, i64 0, i64 %indvars.iv
+  %3 = getelementptr ptr, ptr @idb_merge_mode_strings, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef %4)
   %6 = icmp eq i32 %5, 0
@@ -70,7 +70,7 @@ define ptr @merge_idb_merge_mode_to_string(i32 noundef %0) local_unnamed_addr #2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr [4 x ptr], ptr @idb_merge_mode_strings, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @idb_merge_mode_strings, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 

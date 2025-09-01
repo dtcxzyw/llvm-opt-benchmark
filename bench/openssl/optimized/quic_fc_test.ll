@@ -509,7 +509,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   %3 = alloca [3 x %struct.quic_rxfc_st], align 16
   %4 = alloca [3 x i8], align 1
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr @rx_scripts, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr @rx_scripts, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
@@ -572,7 +572,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %20, align 8, !tbaa !16
-  %29 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %.064.i, i64 24
@@ -586,7 +586,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %20, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %39
   store i8 1, ptr %40, align 1, !tbaa !17
   br label %258
 
@@ -601,7 +601,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %44
   %48 = load i8, ptr %47, align 1, !tbaa !17
   %49 = icmp ne i8 %48, 0
   %50 = zext i1 %49 to i32
@@ -616,7 +616,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %.064.i, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !16
-  %57 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %.064.i, i64 24
@@ -640,7 +640,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %70
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %70
   %74 = load i8, ptr %73, align 1, !tbaa !17
   %75 = icmp ne i8 %74, 0
   %76 = zext i1 %75 to i32
@@ -655,7 +655,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %.064.i, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !16
-  %83 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %85 = load i64, ptr %84, align 8, !tbaa !14
   %86 = getelementptr inbounds nuw i8, ptr %.064.i, i64 24
@@ -691,7 +691,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %104
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 %104
   %108 = load i8, ptr %107, align 1, !tbaa !17
   %109 = icmp ne i8 %108, 0
   %110 = zext i1 %109 to i32
@@ -705,7 +705,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 114:                                              ; preds = %111
   %115 = load i64, ptr %103, align 8, !tbaa !16
-  %116 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %115
   %117 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %116) #7
   %118 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %119 = load i64, ptr %118, align 8, !tbaa !14
@@ -735,7 +735,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %133, label %134, label %139
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %132
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 %132
   %136 = load i8, ptr %135, align 1, !tbaa !17
   %137 = icmp ne i8 %136, 0
   %138 = zext i1 %137 to i32
@@ -749,7 +749,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 142:                                              ; preds = %139
   %143 = load i64, ptr %131, align 8, !tbaa !16
-  %144 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %143
   %145 = call i64 @ossl_quic_rxfc_get_swm(ptr noundef nonnull %144) #7
   %146 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %147 = load i64, ptr %146, align 8, !tbaa !14
@@ -779,7 +779,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %160
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 %160
   %164 = load i8, ptr %163, align 1, !tbaa !17
   %165 = icmp ne i8 %164, 0
   %166 = zext i1 %165 to i32
@@ -793,7 +793,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 170:                                              ; preds = %167
   %171 = load i64, ptr %159, align 8, !tbaa !16
-  %172 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %171
   %173 = call i64 @ossl_quic_rxfc_get_rwm(ptr noundef nonnull %172) #7
   %174 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
   %175 = load i64, ptr %174, align 8, !tbaa !14
@@ -827,7 +827,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %193, label %194, label %199
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %192
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 %192
   %196 = load i8, ptr %195, align 1, !tbaa !17
   %197 = icmp ne i8 %196, 0
   %198 = zext i1 %197 to i32
@@ -841,7 +841,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 202:                                              ; preds = %199
   %203 = load i64, ptr %191, align 8, !tbaa !16
-  %204 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %.064.i, i64 24
   %206 = load i64, ptr %205, align 8, !tbaa !15
   %207 = trunc i64 %206 to i32
@@ -879,7 +879,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
   br i1 %229, label %230, label %235
 
 230:                                              ; preds = %226
-  %231 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %228
+  %231 = getelementptr inbounds nuw i8, ptr %4, i64 %228
   %232 = load i8, ptr %231, align 1, !tbaa !17
   %233 = icmp ne i8 %232, 0
   %234 = zext i1 %233 to i32
@@ -893,7 +893,7 @@ define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %0) #0 {
 
 238:                                              ; preds = %235
   %239 = load i64, ptr %227, align 8, !tbaa !16
-  %240 = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %3, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %3, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %.064.i, i64 24
   %242 = load i64, ptr %241, align 8, !tbaa !15
   %243 = trunc i64 %242 to i32

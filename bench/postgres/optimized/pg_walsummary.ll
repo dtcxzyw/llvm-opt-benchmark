@@ -132,7 +132,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %39 = load i32, ptr %19, align 4
   %40 = load i32, ptr %20, align 4
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %41
+  %42 = getelementptr inbounds ptr, ptr @forkNames, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef %43, i32 noundef %36) #11
   br label %45
@@ -192,7 +192,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph17.i:                                       ; preds = %70
   %73 = sext i32 %35 to i64
-  %74 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %73
+  %74 = getelementptr inbounds ptr, ptr @forkNames, i64 %73
   br i1 %.sroa.0.0, label %.lr.ph17.split.us.i, label %.preheader.i
 
 .lr.ph17.split.us.i:                              ; preds = %.lr.ph17.i

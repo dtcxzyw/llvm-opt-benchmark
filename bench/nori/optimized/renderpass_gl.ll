@@ -168,7 +168,7 @@ _ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
 
 53:                                               ; preds = %53, %52
   %.04.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %52 ], [ %55, %53 ]
-  %54 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.04.i.i.i.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw float, ptr %12, i64 %.04.i.i.i.i.i.i.i.i.i
   store float 2.550000e+02, ptr %54, align 4
   %55 = add nuw nsw i64 %.04.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %55, 4
@@ -180,12 +180,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
 
 56:                                               ; preds = %56, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i ], [ %63, %56 ]
-  %57 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.06.i.i.i.i.i.i.i.i.i
+  %57 = getelementptr inbounds nuw float, ptr %11, i64 %.06.i.i.i.i.i.i.i.i.i
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.06.i.i.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw float, ptr %12, i64 %.06.i.i.i.i.i.i.i.i.i
   %60 = load float, ptr %59, align 4
   %61 = fdiv float %58, %60
-  %62 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.06.i.i.i.i.i.i.i.i.i
+  %62 = getelementptr inbounds nuw float, ptr %10, i64 %.06.i.i.i.i.i.i.i.i.i
   store float %61, ptr %62, align 4
   %63 = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i4.i.i.i.i.i.i.i.i = icmp eq i64 %63, 4
@@ -384,7 +384,7 @@ _ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93:       ; preds = %106, %119
 
 123:                                              ; preds = %123, %_ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93
   %.04.i.i = phi i64 [ 0, %_ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93 ], [ %125, %123 ]
-  %124 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.04.i.i
+  %124 = getelementptr inbounds nuw float, ptr %9, i64 %.04.i.i
   store float 2.550000e+02, ptr %124, align 4
   %125 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %125, 4
@@ -396,12 +396,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %123
 
 126:                                              ; preds = %126, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
   %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %133, %126 ]
-  %127 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.06.i.i
+  %127 = getelementptr inbounds nuw float, ptr %8, i64 %.06.i.i
   %128 = load float, ptr %127, align 4
-  %129 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.06.i.i
+  %129 = getelementptr inbounds nuw float, ptr %9, i64 %.06.i.i
   %130 = load float, ptr %129, align 4
   %131 = fdiv float %128, %130
-  %132 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.06.i.i
+  %132 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i
   store float %131, ptr %132, align 4
   %133 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i4.i = icmp eq i64 %133, 4
@@ -1281,7 +1281,7 @@ define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_
 26:                                               ; preds = %26, %11
   %.not8.i = phi i1 [ true, %11 ], [ false, %26 ]
   %.07.i = phi i64 [ 0, %11 ], [ 1, %26 ]
-  %27 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %.07.i
+  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %.07.i
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp eq i32 %28, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
@@ -1294,9 +1294,9 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %26
 .preheader:                                       ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, %.preheader
   %.not8.i4 = phi i1 [ false, %.preheader ], [ true, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
   %.07.i5 = phi i64 [ 1, %.preheader ], [ 0, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
-  %30 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %.07.i5
+  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %.07.i5
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw [2 x i32], ptr %29, i64 0, i64 %.07.i5
+  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %.07.i5
   %33 = load i32, ptr %32, align 4
   %.not.i6 = icmp eq i32 %31, %33
   %or.cond.i7 = and i1 %.not8.i4, %.not.i6

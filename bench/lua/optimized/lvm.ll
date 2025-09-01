@@ -2149,7 +2149,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %184 = lshr i32 %.02305, 16
   %185 = and i32 %184, 255
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw ptr, ptr %39, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !60
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8, !tbaa !8
@@ -2182,7 +2182,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %206 = lshr i32 %.02305, 16
   %207 = and i32 %206, 255
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw ptr, ptr %39, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !60
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8, !tbaa !8
@@ -2239,7 +2239,7 @@ define hidden void @luaV_execute(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %240 = lshr i32 %.02305, 16
   %241 = and i32 %240, 255
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw ptr, ptr %39, i64 %242
   %244 = load ptr, ptr %243, align 8, !tbaa !60
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8, !tbaa !8
@@ -2863,7 +2863,7 @@ luaV_finishget.exit2621:                          ; preds = %555, %.thread.i2613
   %572 = lshr i32 %.02305, 7
   %573 = and i32 %572, 255
   %574 = zext nneg i32 %573 to i64
-  %575 = getelementptr inbounds nuw [1 x ptr], ptr %39, i64 0, i64 %574
+  %575 = getelementptr inbounds nuw ptr, ptr %39, i64 %574
   %576 = load ptr, ptr %575, align 8, !tbaa !60
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 16
   %578 = load ptr, ptr %577, align 8, !tbaa !8
@@ -7662,7 +7662,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.02305 = load i32, ptr %.02305.in, align 4, !tbaa !46
   %.pn3803.in = and i32 %.02305, 127
   %.pn3803 = zext nneg i32 %.pn3803.in to i64
-  %.in = getelementptr inbounds nuw [83 x ptr], ptr @luaV_execute.disptab, i64 0, i64 %.pn3803
+  %.in = getelementptr inbounds nuw ptr, ptr @luaV_execute.disptab, i64 %.pn3803
   %3132 = load ptr, ptr %.in, align 8, !tbaa !75
   indirectbr ptr %3132, [label %40, label %59, label %74, label %89, label %107, label %127, label %138, label %150, label %161, label %179, label %201, label %235, label %310, label %411, label %499, label %571, label %622, label %710, label %787, label %835, label %872, label %947, label %977, label %1020, label %1063, label %1106, label %1169, label %1213, label %1251, label %1309, label %1344, label %1379, label %1414, label %1456, label %1498, label %1541, label %1584, label %1627, label %1690, label %1734, label %1772, label %1830, label %1877, label %1924, label %2025, label %1971, label %2080, label %2104, label %2130, label %2156, label %2185, label %2218, label %2237, label %2292, label %2315, label %2329, label %2341, label %2353, label %2383, label %2522, label %2666, label %2694, label %2733, label %2777, label %2821, label %2865, label %2909, label %2936, label %2971, label %2994, label %3030, label %3075, label %3094, label %3136, label %3180, label %3415, label %3433, label %3462, label %3480, label %3551, label %3611, label %3626, label %3634]
 
@@ -8513,7 +8513,7 @@ forprep.exit.thread:                              ; preds = %3399, %3401, %forli
   %3578 = getelementptr inbounds nuw i8, ptr %3575, i64 9
   %3579 = load i8, ptr %3578, align 1, !tbaa !82
   %3580 = zext i8 %3579 to i64
-  %3581 = getelementptr inbounds nuw [1 x ptr], ptr %3572, i64 0, i64 %indvars.iv.i
+  %3581 = getelementptr inbounds nuw ptr, ptr %3572, i64 %indvars.iv.i
   br i1 %.not.i2737, label %3585, label %3582
 
 3582:                                             ; preds = %3574

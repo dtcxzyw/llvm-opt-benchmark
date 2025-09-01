@@ -253,7 +253,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %4
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_117getMessageTypeStrE11MessageType.exit
 
@@ -1041,9 +1041,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i24: ; preds = %328, 
 .split.i:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i24
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %331 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %switch.tableidx122 = add i32 %1, -1
-  %332 = icmp ult i32 %switch.tableidx122, 6
-  br i1 %332, label %switch.lookup121, label %_ZN12_GLOBAL__N_115getMessageColorE11MessageType.exit.i
+  %switch.tableidx121 = add i32 %1, -1
+  %332 = icmp ult i32 %switch.tableidx121, 6
+  br i1 %332, label %switch.lookup122, label %_ZN12_GLOBAL__N_115getMessageColorE11MessageType.exit.i
 
 333:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1378,14 +1378,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body43
 
-switch.lookup121:                                 ; preds = %.split.i
-  %450 = zext nneg i32 %switch.tableidx122 to i64
-  %switch.gep123 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace.1, i64 0, i64 %450
+switch.lookup122:                                 ; preds = %.split.i
+  %450 = zext nneg i32 %switch.tableidx121 to i64
+  %switch.gep123 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace.1, i64 %450
   %switch.load124 = load i32, ptr %switch.gep123, align 4
   br label %_ZN12_GLOBAL__N_115getMessageColorE11MessageType.exit.i
 
-_ZN12_GLOBAL__N_115getMessageColorE11MessageType.exit.i: ; preds = %.split.i, %switch.lookup121
-  %phi.call.i = phi i32 [ %switch.load124, %switch.lookup121 ], [ 0, %.split.i ]
+_ZN12_GLOBAL__N_115getMessageColorE11MessageType.exit.i: ; preds = %.split.i, %switch.lookup122
+  %phi.call.i = phi i32 [ %switch.load124, %switch.lookup122 ], [ 0, %.split.i ]
   store i32 %phi.call.i, ptr %331, align 8, !tbaa !87
   switch i32 %1, label %452 [
     i32 8, label %451

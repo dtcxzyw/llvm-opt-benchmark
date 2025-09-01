@@ -1327,7 +1327,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %408 = load ptr, ptr %407, align 8, !tbaa !12
   %409 = call i64 @strtol(ptr noundef nonnull captures(none) %408, ptr noundef null, i32 noundef 10) #23
   %410 = trunc i64 %409 to i32
-  %411 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %411 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   store i32 %410, ptr %411, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

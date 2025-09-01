@@ -452,7 +452,7 @@ define void @Rwr_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.024 = phi i32 [ 0, %1 ], [ %8, %3 ]
-  %4 = getelementptr inbounds nuw [222 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !69
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32

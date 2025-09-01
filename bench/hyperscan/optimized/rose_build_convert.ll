@@ -1714,7 +1714,7 @@ _ZN3ue2L22getReachOfNormalVertexERKNS_8NGHolderE.exit.preheader: ; preds = %16, 
 
 _ZN3ue2L22getReachOfNormalVertexERKNS_8NGHolderE.exit: ; preds = %_ZN3ue2L22getReachOfNormalVertexERKNS_8NGHolderE.exit.preheader, %19
   %.0813.i.i = phi i64 [ %20, %19 ], [ 0, %_ZN3ue2L22getReachOfNormalVertexERKNS_8NGHolderE.exit.preheader ]
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0813.i.i
+  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %.0813.i.i
   %22 = load i64, ptr %21, align 8
   %.not.i.i = icmp eq i64 %22, -1
   br i1 %.not.i.i, label %19, label %_ZNK3ue29CharReach3allEv.exit.thread
@@ -2123,7 +2123,7 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
 
 59:                                               ; preds = %57, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit
   %.0813.i.i = phi i64 [ 0, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit ], [ %58, %57 ]
-  %60 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %.0813.i.i
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %.0813.i.i
   %61 = load i64, ptr %60, align 8
   %.not.i.i = icmp eq i64 %61, -1
   br i1 %.not.i.i, label %57, label %_ZNK3ue29CharReach3allEv.exit.thread
@@ -2549,7 +2549,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 109:                                              ; preds = %107, %.lr.ph
   %.0813.i.i = phi i64 [ 0, %.lr.ph ], [ %108, %107 ]
-  %110 = getelementptr inbounds nuw [4 x i64], ptr %106, i64 0, i64 %.0813.i.i
+  %110 = getelementptr inbounds nuw i64, ptr %106, i64 %.0813.i.i
   %111 = load i64, ptr %110, align 8
   %.not.i.i = icmp eq i64 %111, -1
   br i1 %.not.i.i, label %107, label %_ZNK3ue29CharReach3allEv.exit.thread
@@ -4028,7 +4028,7 @@ define hidden void @_ZN3ue225convertAnchPrefixToBoundsERNS_13RoseBuildImplE(ptr 
 
 21:                                               ; preds = %19, %17
   %.0813.i.i = phi i64 [ 0, %17 ], [ %20, %19 ]
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %18, i64 0, i64 %.0813.i.i
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %.0813.i.i
   %23 = load i64, ptr %22, align 8
   %.not.i.i = icmp eq i64 %23, -1
   br i1 %.not.i.i, label %19, label %_ZNK3ue29CharReach3allEv.exit.thread

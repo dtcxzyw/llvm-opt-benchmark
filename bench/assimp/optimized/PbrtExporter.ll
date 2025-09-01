@@ -5149,7 +5149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
 
 303:                                              ; preds = %229, %303
   %indvars.iv = phi i64 [ 0, %229 ], [ %indvars.iv.next, %303 ]
-  %304 = getelementptr inbounds nuw [4 x %class.aiVector3t], ptr %4, i64 0, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw %class.aiVector3t, ptr %4, i64 %indvars.iv
   %305 = load float, ptr %304, align 4
   %306 = fpext float %305 to double
   %307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %306)
@@ -10996,14 +10996,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292: ; preds = %_ZSt
 
 609:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292, %608
   %indvars.iv379 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292 ], [ %indvars.iv.next380, %608 ]
-  %610 = getelementptr inbounds nuw [8 x i32], ptr %607, i64 0, i64 %indvars.iv379
+  %610 = getelementptr inbounds nuw i32, ptr %607, i64 %indvars.iv379
   %611 = load i32, ptr %610, align 4
   %612 = icmp eq i32 %611, 2
   br i1 %612, label %613, label %608
 
 613:                                              ; preds = %609
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %615 = getelementptr inbounds nuw [8 x ptr], ptr %614, i64 0, i64 %indvars.iv379
+  %615 = getelementptr inbounds nuw ptr, ptr %614, i64 %indvars.iv379
   %616 = load ptr, ptr %615, align 8
   %617 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.150, i64 noundef 17)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit308.preheader unwind label %620

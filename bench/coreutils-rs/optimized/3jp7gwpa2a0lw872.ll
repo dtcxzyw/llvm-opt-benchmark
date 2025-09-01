@@ -799,9 +799,9 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br i1 %37, label %38, label %.split130.us, !prof !120
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.14.0.copyload, i64 0, i64 %33
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.sroa.14.0.copyload, i64 %33
   %40 = load i8, ptr %39, align 1, !alias.scope !115, !noalias !121, !noundef !13
-  %41 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.12.0.copyload, i64 0, i64 %36
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %36
   %42 = load i8, ptr %41, align 1, !alias.scope !112, !noalias !117, !noundef !13
   %.not28.i14.us = icmp eq i8 %40, %42
   br i1 %.not28.i14.us, label %.preheader56.us, label %43
@@ -817,9 +817,9 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
 
 48:                                               ; preds = %45
   %49 = add nuw i64 %.sroa.04.0.i12.us, 1
-  %50 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i12.us
+  %50 = getelementptr inbounds i8, ptr %.sroa.0.sroa.14.0.copyload, i64 %.sroa.04.0.i12.us
   %51 = load i8, ptr %50, align 1, !alias.scope !115, !noalias !121, !noundef !13
-  %52 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.12.0.copyload, i64 0, i64 %46
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %46
   %53 = load i8, ptr %52, align 1, !alias.scope !112, !noalias !117, !noundef !13
   %.not.i17.us = icmp eq i8 %51, %53
   br i1 %.not.i17.us, label %29, label %54
@@ -878,9 +878,9 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br i1 %75, label %76, label %.split141.us, !prof !120
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.14.0.copyload, i64 0, i64 %72
+  %77 = getelementptr inbounds i8, ptr %.sroa.0.sroa.14.0.copyload, i64 %72
   %78 = load i8, ptr %77, align 1, !alias.scope !125, !noalias !130, !noundef !13
-  %79 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.12.0.copyload, i64 0, i64 %74
+  %79 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %74
   %80 = load i8, ptr %79, align 1, !alias.scope !122, !noalias !127, !noundef !13
   %.not28.i.us = icmp eq i8 %78, %80
   br i1 %.not28.i.us, label %.preheader.us, label %81
@@ -903,9 +903,9 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
 
 87:                                               ; preds = %84
   %88 = add nuw i64 %.sroa.04.0.i.us, 1
-  %89 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i.us
+  %89 = getelementptr inbounds i8, ptr %.sroa.0.sroa.14.0.copyload, i64 %.sroa.04.0.i.us
   %90 = load i8, ptr %89, align 1, !alias.scope !125, !noalias !130, !noundef !13
-  %91 = getelementptr inbounds [0 x i8], ptr %.sroa.0.sroa.12.0.copyload, i64 0, i64 %85
+  %91 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %85
   %92 = load i8, ptr %91, align 1, !alias.scope !122, !noalias !127, !noundef !13
   %.not.i.us = icmp eq i8 %90, %92
   br i1 %.not.i.us, label %.preheader55.us, label %93

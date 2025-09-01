@@ -4971,7 +4971,7 @@ _ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEC2EmRKS3_.exit: ; p
 91:                                               ; preds = %71, %91
   %.0429555 = phi i64 [ 1, %71 ], [ %95, %91 ]
   %.sroa.0.0.in.sroa.speculated554 = phi <4 x float> [ %90, %71 ], [ %94, %91 ]
-  %92 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %11, i64 0, i64 %.0429555
+  %92 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %11, i64 %.0429555
   %93 = load <4 x float>, ptr %92, align 16
   %94 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %93, <4 x float> %93, <4 x float> %.sroa.0.0.in.sroa.speculated554)
   %95 = add nuw nsw i64 %.0429555, 1
@@ -4990,7 +4990,7 @@ _ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEC2EmRKS3_.exit: ; p
 
 104:                                              ; preds = %104, %96
   %.04.i.i = phi i64 [ 0, %96 ], [ %106, %104 ]
-  %105 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %6, i64 0, i64 %.04.i.i
+  %105 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %6, i64 %.04.i.i
   store <4 x float> %103, ptr %105, align 16
   %106 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %106, 3
@@ -5002,12 +5002,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEE
 
 107:                                              ; preds = %107, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit
   %.034.i = phi i64 [ 0, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit ], [ %114, %107 ]
-  %108 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %11, i64 0, i64 %.034.i
-  %109 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %6, i64 0, i64 %.034.i
+  %108 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %11, i64 %.034.i
+  %109 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %6, i64 %.034.i
   %110 = load <4 x float>, ptr %108, align 16, !noalias !75
   %111 = load <4 x float>, ptr %109, align 16, !noalias !75
   %112 = fmul contract <4 x float> %110, %111
-  %113 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %14, i64 0, i64 %.034.i
+  %113 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %14, i64 %.034.i
   store <4 x float> %112, ptr %113, align 16, !alias.scope !75
   %114 = add nuw nsw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %114, 3
@@ -5020,7 +5020,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit:
 116:                                              ; preds = %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit, %116
   %.0428557 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit ], [ %120, %116 ]
   %.sroa.0431.0.in.sroa.speculated556 = phi <4 x float> [ %115, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit ], [ %119, %116 ]
-  %117 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %12, i64 0, i64 %.0428557
+  %117 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %12, i64 %.0428557
   %118 = load <4 x float>, ptr %117, align 16
   %119 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %118, <4 x float> %118, <4 x float> %.sroa.0431.0.in.sroa.speculated556)
   %120 = add nuw nsw i64 %.0428557, 1
@@ -5039,7 +5039,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit:
 
 129:                                              ; preds = %129, %121
   %.04.i.i471 = phi i64 [ 0, %121 ], [ %131, %129 ]
-  %130 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %5, i64 0, i64 %.04.i.i471
+  %130 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %5, i64 %.04.i.i471
   store <4 x float> %128, ptr %130, align 16
   %131 = add nuw nsw i64 %.04.i.i471, 1
   %exitcond.not.i.i472 = icmp eq i64 %131, 3
@@ -5051,12 +5051,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEE
 
 132:                                              ; preds = %132, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit473
   %.034.i474 = phi i64 [ 0, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit473 ], [ %139, %132 ]
-  %133 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %12, i64 0, i64 %.034.i474
-  %134 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %5, i64 0, i64 %.034.i474
+  %133 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %12, i64 %.034.i474
+  %134 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %5, i64 %.034.i474
   %135 = load <4 x float>, ptr %133, align 16, !noalias !79
   %136 = load <4 x float>, ptr %134, align 16, !noalias !79
   %137 = fmul contract <4 x float> %135, %136
-  %138 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %15, i64 0, i64 %.034.i474
+  %138 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %15, i64 %.034.i474
   store <4 x float> %137, ptr %138, align 16, !alias.scope !79
   %139 = add nuw nsw i64 %.034.i474, 1
   %exitcond.not.i475 = icmp eq i64 %139, 3
@@ -5073,8 +5073,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit4
 143:                                              ; preds = %143, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit476
   %.051.i.i = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit476 ], [ %149, %143 ]
   %.sroa.0.0.in.sroa.speculated50.i.i = phi <4 x float> [ %142, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4mul_ERKS4_.exit476 ], [ %148, %143 ]
-  %144 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %14, i64 0, i64 %.051.i.i
-  %145 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %15, i64 0, i64 %.051.i.i
+  %144 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %14, i64 %.051.i.i
+  %145 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %15, i64 %.051.i.i
   %146 = load <4 x float>, ptr %144, align 16
   %147 = load <4 x float>, ptr %145, align 16
   %148 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %146, <4 x float> %147, <4 x float> %.sroa.0.0.in.sroa.speculated50.i.i)
@@ -5091,7 +5091,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4dot_ERKS4_.exit.
 
 152:                                              ; preds = %152, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4dot_ERKS4_.exit.i
   %.04.i.i.i.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4dot_ERKS4_.exit.i ], [ %154, %152 ]
-  %153 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %2, i64 0, i64 %.04.i.i.i.i
+  %153 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %2, i64 %.04.i.i.i.i
   store <4 x i32> %151, ptr %153, align 16, !noalias !86
   %154 = add nuw nsw i64 %.04.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %154, 3
@@ -5103,12 +5103,12 @@ _ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEE
 
 155:                                              ; preds = %155, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit.i.i
   %.026.i.i.i = phi i64 [ 0, %_ZN5drjit5ArrayINS_6PacketIfLm3EEELm3EECI2NS_15StaticArrayImplIS2_Lm3ELb0ES3_iEEIS2_TnNSt3__19enable_ifIXntsr3stdE9is_same_vIT_fEEiE4typeELi0EEERKS2_.exit.i.i ], [ %162, %155 ]
-  %156 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %14, i64 0, i64 %.026.i.i.i
-  %157 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %2, i64 0, i64 %.026.i.i.i
+  %156 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %14, i64 %.026.i.i.i
+  %157 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %2, i64 %.026.i.i.i
   %158 = load <4 x i32>, ptr %156, align 16, !noalias !92
   %159 = load <4 x i32>, ptr %157, align 16, !noalias !92
   %160 = xor <4 x i32> %159, %158
-  %161 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %4, i64 0, i64 %.026.i.i.i
+  %161 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %4, i64 %.026.i.i.i
   store <4 x i32> %160, ptr %161, align 16, !alias.scope !92
   %162 = add nuw nsw i64 %.026.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %162, 3
@@ -5121,12 +5121,12 @@ _ZN5drjit6detail4xor_INS_5ArrayINS_6PacketIfLm3EEELm3EEES4_TnNSt3__19enable_ifIX
 
 163:                                              ; preds = %163, %_ZN5drjit6detail4xor_INS_5ArrayINS_6PacketIfLm3EEELm3EEES4_TnNSt3__19enable_ifIX14is_array_any_vIT_T0_EEiE4typeELi0EEEDaRKS8_RKS9_.exit.i
   %.034.i.i = phi i64 [ 0, %_ZN5drjit6detail4xor_INS_5ArrayINS_6PacketIfLm3EEELm3EEES4_TnNSt3__19enable_ifIX14is_array_any_vIT_T0_EEiE4typeELi0EEEDaRKS8_RKS9_.exit.i ], [ %170, %163 ]
-  %164 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %15, i64 0, i64 %.034.i.i
-  %165 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %4, i64 0, i64 %.034.i.i
+  %164 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %15, i64 %.034.i.i
+  %165 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %4, i64 %.034.i.i
   %166 = load <4 x float>, ptr %164, align 16, !noalias !94
   %167 = load <4 x float>, ptr %165, align 16, !noalias !94
   %168 = fsub contract <4 x float> %166, %167
-  %169 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %3, i64 0, i64 %.034.i.i
+  %169 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %3, i64 %.034.i.i
   store <4 x float> %168, ptr %169, align 16, !alias.scope !94
   %170 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i137.i = icmp eq i64 %170, 3
@@ -5140,7 +5140,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.
 173:                                              ; preds = %173, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.i
   %.0158.i = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.i ], [ %177, %173 ]
   %.sroa.0132.0.in.sroa.speculated157.i = phi <4 x float> [ %172, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.i ], [ %176, %173 ]
-  %174 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet"], ptr %3, i64 0, i64 %.0158.i
+  %174 = getelementptr inbounds nuw %"struct.drjit::Packet", ptr %3, i64 %.0158.i
   %175 = load <4 x float>, ptr %174, align 16
   %176 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %175, <4 x float> %175, <4 x float> %.sroa.0132.0.in.sroa.speculated157.i)
   %177 = add nuw nsw i64 %.0158.i, 1
@@ -5694,7 +5694,7 @@ _ZN7mitsuba12_GLOBAL__N_118sutherland_hodgmanINS_5PointIdLm3EEEEEmPT_mS5_idb.exi
   %.0266383 = phi i64 [ %159, %.lr.ph ], [ 0, %151 ]
   %152 = phi <4 x float> [ %157, %.lr.ph ], [ splat (float 0x7FF0000000000000), %151 ]
   %153 = phi <4 x float> [ %158, %.lr.ph ], [ splat (float 0xFFF0000000000000), %151 ]
-  %154 = getelementptr inbounds [10 x %"struct.mitsuba::Point.166"], ptr %13, i64 0, i64 %.0266383
+  %154 = getelementptr inbounds %"struct.mitsuba::Point.166", ptr %13, i64 %.0266383
   %155 = load <4 x double>, ptr %154, align 32
   %156 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %155)
   %157 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %156, <4 x float> %152)
@@ -10924,7 +10924,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
   %25 = insertelement <4 x i32> poison, i32 %24, i64 0
   %26 = shufflevector <4 x i32> %25, <4 x i32> poison, <4 x i32> zeroinitializer
   %27 = add <4 x i32> %26, %22
-  %28 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %13, i64 0, i64 %.034.i.i
+  %28 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %13, i64 %.034.i.i
   store <4 x i32> %27, ptr %28, align 16, !alias.scope !121, !noalias !118
   %29 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %29, 3
@@ -10941,13 +10941,13 @@ _ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm4EEELm3EEES4_EET_RKT0_
 
 32:                                               ; preds = %32, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm4EEELm3EEES4_EET_RKT0_.exit.i
   %.022.i.i.i = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm4EEELm3EEES4_EET_RKT0_.exit.i ], [ %39, %32 ]
-  %33 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %13, i64 0, i64 %.022.i.i.i
-  %34 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.513"], ptr %12, i64 0, i64 %.022.i.i.i
+  %33 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %13, i64 %.022.i.i.i
+  %34 = getelementptr inbounds nuw %"struct.drjit::PacketMask.513", ptr %12, i64 %.022.i.i.i
   %.sroa.0.0.copyload89.i.i.i.i = load <8 x i1>, ptr %34, align 1, !noalias !132
   %35 = load <4 x i32>, ptr %33, align 16, !noalias !132
   %36 = shufflevector <8 x i1> %.sroa.0.0.copyload89.i.i.i.i, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %37 = tail call <4 x i32> @llvm.x86.avx512.mask.gather3siv4.si(<4 x i32> zeroinitializer, ptr %31, <4 x i32> %35, <4 x i1> %36, i32 4), !noalias !132
-  %38 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %17, i64 0, i64 %.022.i.i.i
+  %38 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %17, i64 %.022.i.i.i
   store <4 x i32> %37, ptr %38, align 16, !alias.scope !132
   %39 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %39, 3
@@ -10972,7 +10972,7 @@ _ZN5drjit6gatherINS_5ArrayINS_6PacketIjLm4EEELm3EEELb0ERNS_12DynamicArrayIjEES3_
   %43 = insertelement <4 x i32> poison, i32 %42, i64 0
   %44 = shufflevector <4 x i32> %43, <4 x i32> poison, <4 x i32> zeroinitializer
   %45 = add <4 x i32> %44, %40
-  %46 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %11, i64 0, i64 %.034.i.i46
+  %46 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %11, i64 %.034.i.i46
   store <4 x i32> %45, ptr %46, align 16, !alias.scope !137, !noalias !134
   %47 = add nuw nsw i64 %.034.i.i46, 1
   %exitcond.not.i.i47 = icmp eq i64 %47, 3
@@ -10989,13 +10989,13 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET
 
 50:                                               ; preds = %50, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i
   %.022.i.i.i48 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i ], [ %57, %50 ]
-  %51 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %11, i64 0, i64 %.022.i.i.i48
-  %52 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask"], ptr %10, i64 0, i64 %.022.i.i.i48
+  %51 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %11, i64 %.022.i.i.i48
+  %52 = getelementptr inbounds nuw %"struct.drjit::PacketMask", ptr %10, i64 %.022.i.i.i48
   %.sroa.0.0.copyload7.i.i.i.i = load <8 x i1>, ptr %52, align 1, !noalias !148
   %53 = load <4 x i32>, ptr %51, align 16, !noalias !148
   %54 = shufflevector <8 x i1> %.sroa.0.0.copyload7.i.i.i.i, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %55 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %49, <4 x i32> %53, <4 x i1> %54, i32 4), !noalias !148
-  %56 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %18, i64 0, i64 %.022.i.i.i48
+  %56 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %18, i64 %.022.i.i.i48
   store <4 x float> %55, ptr %56, align 16, !alias.scope !148
   %57 = add nuw nsw i64 %.022.i.i.i48, 1
   %exitcond.not.i.i.i49 = icmp eq i64 %57, 3
@@ -11016,7 +11016,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm4EEELm3EEELb0ERNS_12DynamicArrayI
   %61 = insertelement <4 x i32> poison, i32 %60, i64 0
   %62 = shufflevector <4 x i32> %61, <4 x i32> poison, <4 x i32> zeroinitializer
   %63 = add <4 x i32> %62, %58
-  %64 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %9, i64 0, i64 %.034.i.i50
+  %64 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %9, i64 %.034.i.i50
   store <4 x i32> %63, ptr %64, align 16, !alias.scope !153, !noalias !150
   %65 = add nuw nsw i64 %.034.i.i50, 1
   %exitcond.not.i.i51 = icmp eq i64 %65, 3
@@ -11031,13 +11031,13 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET
 
 66:                                               ; preds = %66, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i52
   %.022.i.i.i53 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i52 ], [ %73, %66 ]
-  %67 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %9, i64 0, i64 %.022.i.i.i53
-  %68 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask"], ptr %8, i64 0, i64 %.022.i.i.i53
+  %67 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %9, i64 %.022.i.i.i53
+  %68 = getelementptr inbounds nuw %"struct.drjit::PacketMask", ptr %8, i64 %.022.i.i.i53
   %.sroa.0.0.copyload7.i.i.i.i54 = load <8 x i1>, ptr %68, align 1, !noalias !163
   %69 = load <4 x i32>, ptr %67, align 16, !noalias !163
   %70 = shufflevector <8 x i1> %.sroa.0.0.copyload7.i.i.i.i54, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %71 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %49, <4 x i32> %69, <4 x i1> %70, i32 4), !noalias !163
-  %72 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %19, i64 0, i64 %.022.i.i.i53
+  %72 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %19, i64 %.022.i.i.i53
   store <4 x float> %71, ptr %72, align 16, !alias.scope !163
   %73 = add nuw nsw i64 %.022.i.i.i53, 1
   %exitcond.not.i.i.i55 = icmp eq i64 %73, 3
@@ -11058,7 +11058,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm4EEELm3EEELb0ERNS_12DynamicArrayI
   %77 = insertelement <4 x i32> poison, i32 %76, i64 0
   %78 = shufflevector <4 x i32> %77, <4 x i32> poison, <4 x i32> zeroinitializer
   %79 = add <4 x i32> %78, %74
-  %80 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %7, i64 0, i64 %.034.i.i57
+  %80 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %7, i64 %.034.i.i57
   store <4 x i32> %79, ptr %80, align 16, !alias.scope !167, !noalias !164
   %81 = add nuw nsw i64 %.034.i.i57, 1
   %exitcond.not.i.i58 = icmp eq i64 %81, 3
@@ -11073,13 +11073,13 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET
 
 82:                                               ; preds = %82, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i59
   %.022.i.i.i60 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm4EEELm3EEES5_EET_RKT0_.exit.i59 ], [ %89, %82 ]
-  %83 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.296"], ptr %7, i64 0, i64 %.022.i.i.i60
-  %84 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask"], ptr %6, i64 0, i64 %.022.i.i.i60
+  %83 = getelementptr inbounds nuw %"struct.drjit::Packet.296", ptr %7, i64 %.022.i.i.i60
+  %84 = getelementptr inbounds nuw %"struct.drjit::PacketMask", ptr %6, i64 %.022.i.i.i60
   %.sroa.0.0.copyload7.i.i.i.i61 = load <8 x i1>, ptr %84, align 1, !noalias !177
   %85 = load <4 x i32>, ptr %83, align 16, !noalias !177
   %86 = shufflevector <8 x i1> %.sroa.0.0.copyload7.i.i.i.i61, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %87 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %49, <4 x i32> %85, <4 x i1> %86, i32 4), !noalias !177
-  %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %20, i64 0, i64 %.022.i.i.i60
+  %88 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %20, i64 %.022.i.i.i60
   store <4 x float> %87, ptr %88, align 16, !alias.scope !177
   %89 = add nuw nsw i64 %.022.i.i.i60, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %89, 3
@@ -11138,7 +11138,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
   %25 = insertelement <8 x i32> poison, i32 %24, i64 0
   %26 = shufflevector <8 x i32> %25, <8 x i32> poison, <8 x i32> zeroinitializer
   %27 = add <8 x i32> %26, %22
-  %28 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %13, i64 0, i64 %.034.i.i
+  %28 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %13, i64 %.034.i.i
   store <8 x i32> %27, ptr %28, align 32, !alias.scope !181, !noalias !178
   %29 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %29, 3
@@ -11155,12 +11155,12 @@ _ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm8EEELm3EEES4_EET_RKT0_
 
 32:                                               ; preds = %32, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm8EEELm3EEES4_EET_RKT0_.exit.i
   %.022.i.i.i = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm8EEELm3EEES4_EET_RKT0_.exit.i ], [ %38, %32 ]
-  %33 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %13, i64 0, i64 %.022.i.i.i
-  %34 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.544"], ptr %12, i64 0, i64 %.022.i.i.i
+  %33 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %13, i64 %.022.i.i.i
+  %34 = getelementptr inbounds nuw %"struct.drjit::PacketMask.544", ptr %12, i64 %.022.i.i.i
   %.sroa.0.0.copyload89.i.i.i.i = load <8 x i1>, ptr %34, align 1, !noalias !192
   %35 = load <8 x i32>, ptr %33, align 32, !noalias !192
   %36 = tail call <8 x i32> @llvm.x86.avx512.mask.gather3siv8.si(<8 x i32> zeroinitializer, ptr %31, <8 x i32> %35, <8 x i1> %.sroa.0.0.copyload89.i.i.i.i, i32 4), !noalias !192
-  %37 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %17, i64 0, i64 %.022.i.i.i
+  %37 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %17, i64 %.022.i.i.i
   store <8 x i32> %36, ptr %37, align 32, !alias.scope !192
   %38 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %38, 3
@@ -11185,7 +11185,7 @@ _ZN5drjit6gatherINS_5ArrayINS_6PacketIjLm8EEELm3EEELb0ERNS_12DynamicArrayIjEES3_
   %42 = insertelement <8 x i32> poison, i32 %41, i64 0
   %43 = shufflevector <8 x i32> %42, <8 x i32> poison, <8 x i32> zeroinitializer
   %44 = add <8 x i32> %43, %39
-  %45 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %11, i64 0, i64 %.034.i.i46
+  %45 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %11, i64 %.034.i.i46
   store <8 x i32> %44, ptr %45, align 32, !alias.scope !197, !noalias !194
   %46 = add nuw nsw i64 %.034.i.i46, 1
   %exitcond.not.i.i47 = icmp eq i64 %46, 3
@@ -11202,12 +11202,12 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET
 
 49:                                               ; preds = %49, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i
   %.022.i.i.i48 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i ], [ %55, %49 ]
-  %50 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %11, i64 0, i64 %.022.i.i.i48
-  %51 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.298"], ptr %10, i64 0, i64 %.022.i.i.i48
+  %50 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %11, i64 %.022.i.i.i48
+  %51 = getelementptr inbounds nuw %"struct.drjit::PacketMask.298", ptr %10, i64 %.022.i.i.i48
   %.sroa.0.0.copyload7.i.i.i.i = load <8 x i1>, ptr %51, align 1, !noalias !208
   %52 = load <8 x i32>, ptr %50, align 32, !noalias !208
   %53 = tail call contract <8 x float> @llvm.x86.avx512.mask.gather3siv8.sf(<8 x float> zeroinitializer, ptr %48, <8 x i32> %52, <8 x i1> %.sroa.0.0.copyload7.i.i.i.i, i32 4), !noalias !208
-  %54 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %18, i64 0, i64 %.022.i.i.i48
+  %54 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %18, i64 %.022.i.i.i48
   store <8 x float> %53, ptr %54, align 32, !alias.scope !208
   %55 = add nuw nsw i64 %.022.i.i.i48, 1
   %exitcond.not.i.i.i49 = icmp eq i64 %55, 3
@@ -11228,7 +11228,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm8EEELm3EEELb0ERNS_12DynamicArrayI
   %59 = insertelement <8 x i32> poison, i32 %58, i64 0
   %60 = shufflevector <8 x i32> %59, <8 x i32> poison, <8 x i32> zeroinitializer
   %61 = add <8 x i32> %60, %56
-  %62 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %9, i64 0, i64 %.034.i.i50
+  %62 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %9, i64 %.034.i.i50
   store <8 x i32> %61, ptr %62, align 32, !alias.scope !213, !noalias !210
   %63 = add nuw nsw i64 %.034.i.i50, 1
   %exitcond.not.i.i51 = icmp eq i64 %63, 3
@@ -11243,12 +11243,12 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET
 
 64:                                               ; preds = %64, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i52
   %.022.i.i.i53 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i52 ], [ %70, %64 ]
-  %65 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %9, i64 0, i64 %.022.i.i.i53
-  %66 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.298"], ptr %8, i64 0, i64 %.022.i.i.i53
+  %65 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %9, i64 %.022.i.i.i53
+  %66 = getelementptr inbounds nuw %"struct.drjit::PacketMask.298", ptr %8, i64 %.022.i.i.i53
   %.sroa.0.0.copyload7.i.i.i.i54 = load <8 x i1>, ptr %66, align 1, !noalias !223
   %67 = load <8 x i32>, ptr %65, align 32, !noalias !223
   %68 = tail call contract <8 x float> @llvm.x86.avx512.mask.gather3siv8.sf(<8 x float> zeroinitializer, ptr %48, <8 x i32> %67, <8 x i1> %.sroa.0.0.copyload7.i.i.i.i54, i32 4), !noalias !223
-  %69 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %19, i64 0, i64 %.022.i.i.i53
+  %69 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %19, i64 %.022.i.i.i53
   store <8 x float> %68, ptr %69, align 32, !alias.scope !223
   %70 = add nuw nsw i64 %.022.i.i.i53, 1
   %exitcond.not.i.i.i55 = icmp eq i64 %70, 3
@@ -11269,7 +11269,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm8EEELm3EEELb0ERNS_12DynamicArrayI
   %74 = insertelement <8 x i32> poison, i32 %73, i64 0
   %75 = shufflevector <8 x i32> %74, <8 x i32> poison, <8 x i32> zeroinitializer
   %76 = add <8 x i32> %75, %71
-  %77 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %7, i64 0, i64 %.034.i.i57
+  %77 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %7, i64 %.034.i.i57
   store <8 x i32> %76, ptr %77, align 32, !alias.scope !227, !noalias !224
   %78 = add nuw nsw i64 %.034.i.i57, 1
   %exitcond.not.i.i58 = icmp eq i64 %78, 3
@@ -11284,12 +11284,12 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET
 
 79:                                               ; preds = %79, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i59
   %.022.i.i.i60 = phi i64 [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm8EEELm3EEES5_EET_RKT0_.exit.i59 ], [ %85, %79 ]
-  %80 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.313"], ptr %7, i64 0, i64 %.022.i.i.i60
-  %81 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.298"], ptr %6, i64 0, i64 %.022.i.i.i60
+  %80 = getelementptr inbounds nuw %"struct.drjit::Packet.313", ptr %7, i64 %.022.i.i.i60
+  %81 = getelementptr inbounds nuw %"struct.drjit::PacketMask.298", ptr %6, i64 %.022.i.i.i60
   %.sroa.0.0.copyload7.i.i.i.i61 = load <8 x i1>, ptr %81, align 1, !noalias !237
   %82 = load <8 x i32>, ptr %80, align 32, !noalias !237
   %83 = tail call contract <8 x float> @llvm.x86.avx512.mask.gather3siv8.sf(<8 x float> zeroinitializer, ptr %48, <8 x i32> %82, <8 x i1> %.sroa.0.0.copyload7.i.i.i.i61, i32 4), !noalias !237
-  %84 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %20, i64 0, i64 %.022.i.i.i60
+  %84 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %20, i64 %.022.i.i.i60
   store <8 x float> %83, ptr %84, align 32, !alias.scope !237
   %85 = add nuw nsw i64 %.022.i.i.i60, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %85, 3
@@ -11347,7 +11347,7 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
   %25 = insertelement <16 x i32> poison, i32 %24, i64 0
   %26 = shufflevector <16 x i32> %25, <16 x i32> poison, <16 x i32> zeroinitializer
   %27 = add <16 x i32> %26, %22
-  %28 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %13, i64 0, i64 %.034.i.i
+  %28 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %13, i64 %.034.i.i
   store <16 x i32> %27, ptr %28, align 64, !alias.scope !241, !noalias !238
   %29 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %29, 3
@@ -11360,7 +11360,7 @@ _ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm16EEELm3EEES4_EET_RKT0
 
 _ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i: ; preds = %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm16EEELm3EEES4_EET_RKT0_.exit.i
   %.012.i.i.i5.i.i = phi i64 [ %31, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i ], [ 0, %_ZN5drjit6detail15broadcast_indexINS_5ArrayINS_6PacketIjLm16EEELm3EEES4_EET_RKT0_.exit.i ]
-  %30 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.575"], ptr %12, i64 0, i64 %.012.i.i.i5.i.i
+  %30 = getelementptr inbounds nuw %"struct.drjit::PacketMask.575", ptr %12, i64 %.012.i.i.i5.i.i
   store i16 %4, ptr %30, align 2, !noalias !248
   %31 = add nuw nsw i64 %.012.i.i.i5.i.i, 1
   %exitcond.not.i.i.i6.i.i = icmp eq i64 %31, 3
@@ -11374,12 +11374,12 @@ _ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10Packe
 
 34:                                               ; preds = %34, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit7.i.i
   %.022.i.i.i = phi i64 [ 0, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit7.i.i ], [ %40, %34 ]
-  %35 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %13, i64 0, i64 %.022.i.i.i
-  %36 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.575"], ptr %12, i64 0, i64 %.022.i.i.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %13, i64 %.022.i.i.i
+  %36 = getelementptr inbounds nuw %"struct.drjit::PacketMask.575", ptr %12, i64 %.022.i.i.i
   %.sroa.0.0.copyload89.i.i.i.i = load <16 x i1>, ptr %36, align 2, !noalias !253
   %37 = load <16 x i32>, ptr %35, align 64, !noalias !253
   %38 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %33, <16 x i32> %37, <16 x i1> %.sroa.0.0.copyload89.i.i.i.i, i32 4), !noalias !253
-  %39 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %17, i64 0, i64 %.022.i.i.i
+  %39 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %17, i64 %.022.i.i.i
   store <16 x i32> %38, ptr %39, align 64, !alias.scope !253
   %40 = add nuw nsw i64 %.022.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %40, 3
@@ -11404,7 +11404,7 @@ _ZN5drjit6gatherINS_5ArrayINS_6PacketIjLm16EEELm3EEELb0ERNS_12DynamicArrayIjEES3
   %44 = insertelement <16 x i32> poison, i32 %43, i64 0
   %45 = shufflevector <16 x i32> %44, <16 x i32> poison, <16 x i32> zeroinitializer
   %46 = add <16 x i32> %45, %41
-  %47 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %11, i64 0, i64 %.034.i.i46
+  %47 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %11, i64 %.034.i.i46
   store <16 x i32> %46, ptr %47, align 64, !alias.scope !258, !noalias !255
   %48 = add nuw nsw i64 %.034.i.i46, 1
   %exitcond.not.i.i47 = icmp eq i64 %48, 3
@@ -11417,7 +11417,7 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EE
 
 _ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i48: ; preds = %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i48, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i
   %.012.i.i.i5.i.i49 = phi i64 [ %50, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i48 ], [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i ]
-  %49 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %10, i64 0, i64 %.012.i.i.i5.i.i49
+  %49 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %10, i64 %.012.i.i.i5.i.i49
   store i16 %4, ptr %49, align 2, !noalias !265
   %50 = add nuw nsw i64 %.012.i.i.i5.i.i49, 1
   %exitcond.not.i.i.i6.i.i50 = icmp eq i64 %50, 3
@@ -11431,12 +11431,12 @@ _ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10Packe
 
 53:                                               ; preds = %53, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i
   %.022.i.i.i51 = phi i64 [ 0, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i ], [ %59, %53 ]
-  %54 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %11, i64 0, i64 %.022.i.i.i51
-  %55 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %10, i64 0, i64 %.022.i.i.i51
+  %54 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %11, i64 %.022.i.i.i51
+  %55 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %10, i64 %.022.i.i.i51
   %.sroa.0.0.copyload7.i.i.i.i = load <16 x i1>, ptr %55, align 2, !noalias !270
   %56 = load <16 x i32>, ptr %54, align 64, !noalias !270
   %57 = tail call contract <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %52, <16 x i32> %56, <16 x i1> %.sroa.0.0.copyload7.i.i.i.i, i32 4), !noalias !270
-  %58 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %18, i64 0, i64 %.022.i.i.i51
+  %58 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %18, i64 %.022.i.i.i51
   store <16 x float> %57, ptr %58, align 64, !alias.scope !270
   %59 = add nuw nsw i64 %.022.i.i.i51, 1
   %exitcond.not.i.i.i52 = icmp eq i64 %59, 3
@@ -11457,7 +11457,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm16EEELm3EEELb0ERNS_12DynamicArray
   %63 = insertelement <16 x i32> poison, i32 %62, i64 0
   %64 = shufflevector <16 x i32> %63, <16 x i32> poison, <16 x i32> zeroinitializer
   %65 = add <16 x i32> %64, %60
-  %66 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %9, i64 0, i64 %.034.i.i53
+  %66 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %9, i64 %.034.i.i53
   store <16 x i32> %65, ptr %66, align 64, !alias.scope !275, !noalias !272
   %67 = add nuw nsw i64 %.034.i.i53, 1
   %exitcond.not.i.i54 = icmp eq i64 %67, 3
@@ -11470,7 +11470,7 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EE
 
 _ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i56: ; preds = %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i56, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i55
   %.012.i.i.i5.i.i57 = phi i64 [ %69, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i56 ], [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i55 ]
-  %68 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %8, i64 0, i64 %.012.i.i.i5.i.i57
+  %68 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %8, i64 %.012.i.i.i5.i.i57
   store i16 %4, ptr %68, align 2, !noalias !281
   %69 = add nuw nsw i64 %.012.i.i.i5.i.i57, 1
   %exitcond.not.i.i.i6.i.i58 = icmp eq i64 %69, 3
@@ -11482,12 +11482,12 @@ _ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10Packe
 
 70:                                               ; preds = %70, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i59
   %.022.i.i.i60 = phi i64 [ 0, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i59 ], [ %76, %70 ]
-  %71 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %9, i64 0, i64 %.022.i.i.i60
-  %72 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %8, i64 0, i64 %.022.i.i.i60
+  %71 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %9, i64 %.022.i.i.i60
+  %72 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %8, i64 %.022.i.i.i60
   %.sroa.0.0.copyload7.i.i.i.i61 = load <16 x i1>, ptr %72, align 2, !noalias !285
   %73 = load <16 x i32>, ptr %71, align 64, !noalias !285
   %74 = tail call contract <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %52, <16 x i32> %73, <16 x i1> %.sroa.0.0.copyload7.i.i.i.i61, i32 4), !noalias !285
-  %75 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %19, i64 0, i64 %.022.i.i.i60
+  %75 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %19, i64 %.022.i.i.i60
   store <16 x float> %74, ptr %75, align 64, !alias.scope !285
   %76 = add nuw nsw i64 %.022.i.i.i60, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %76, 3
@@ -11508,7 +11508,7 @@ _ZN5drjit6gatherIN7mitsuba5PointINS_6PacketIfLm16EEELm3EEELb0ERNS_12DynamicArray
   %80 = insertelement <16 x i32> poison, i32 %79, i64 0
   %81 = shufflevector <16 x i32> %80, <16 x i32> poison, <16 x i32> zeroinitializer
   %82 = add <16 x i32> %81, %77
-  %83 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %7, i64 0, i64 %.034.i.i64
+  %83 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %7, i64 %.034.i.i64
   store <16 x i32> %82, ptr %83, align 64, !alias.scope !289, !noalias !286
   %84 = add nuw nsw i64 %.034.i.i64, 1
   %exitcond.not.i.i65 = icmp eq i64 %84, 3
@@ -11521,7 +11521,7 @@ _ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EE
 
 _ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i67: ; preds = %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i67, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i66
   %.012.i.i.i5.i.i68 = phi i64 [ %86, %_ZN5drjit4MaskINS_6PacketIjLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i67 ], [ 0, %_ZN5drjit6detail15broadcast_indexIN7mitsuba5PointINS_6PacketIjLm16EEELm3EEES5_EET_RKT0_.exit.i66 ]
-  %85 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %6, i64 0, i64 %.012.i.i.i5.i.i68
+  %85 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %6, i64 %.012.i.i.i5.i.i68
   store i16 %4, ptr %85, align 2, !noalias !295
   %86 = add nuw nsw i64 %.012.i.i.i5.i.i68, 1
   %exitcond.not.i.i.i6.i.i69 = icmp eq i64 %86, 3
@@ -11533,12 +11533,12 @@ _ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10Packe
 
 87:                                               ; preds = %87, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i70
   %.022.i.i.i71 = phi i64 [ 0, %_ZN5drjit4MaskINS_6PacketIfLm16EEELm3EECI2NS_8MaskBaseIS2_Lm3ES3_EEIRKNS_10PacketMaskIjLm16EEENS4_IS2_Lm3ES3_EETnNSt3__19enable_ifIXntsr3stdE11is_scalar_vIu7__decayIT_EEEiE4typeELi0EEEOSC_.exit.i.i70 ], [ %93, %87 ]
-  %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.330"], ptr %7, i64 0, i64 %.022.i.i.i71
-  %89 = getelementptr inbounds nuw [3 x %"struct.drjit::PacketMask.315"], ptr %6, i64 0, i64 %.022.i.i.i71
+  %88 = getelementptr inbounds nuw %"struct.drjit::Packet.330", ptr %7, i64 %.022.i.i.i71
+  %89 = getelementptr inbounds nuw %"struct.drjit::PacketMask.315", ptr %6, i64 %.022.i.i.i71
   %.sroa.0.0.copyload7.i.i.i.i72 = load <16 x i1>, ptr %89, align 2, !noalias !299
   %90 = load <16 x i32>, ptr %88, align 64, !noalias !299
   %91 = tail call contract <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %52, <16 x i32> %90, <16 x i1> %.sroa.0.0.copyload7.i.i.i.i72, i32 4), !noalias !299
-  %92 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %20, i64 0, i64 %.022.i.i.i71
+  %92 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %20, i64 %.022.i.i.i71
   store <16 x float> %91, ptr %92, align 64, !alias.scope !299
   %93 = add nuw nsw i64 %.022.i.i.i71, 1
   %exitcond.not.i.i.i73 = icmp eq i64 %93, 3
@@ -19300,12 +19300,12 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
 
 29:                                               ; preds = %29, %7
   %.034.i.i = phi i64 [ 0, %7 ], [ %36, %29 ]
-  %30 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %12, i64 0, i64 %.034.i.i
-  %31 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %13, i64 0, i64 %.034.i.i
+  %30 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %12, i64 %.034.i.i
+  %31 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %13, i64 %.034.i.i
   %32 = load <4 x float>, ptr %30, align 16, !noalias !371
   %33 = load <4 x float>, ptr %31, align 16, !noalias !371
   %34 = fsub contract <4 x float> %32, %33
-  %35 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %24, i64 0, i64 %.034.i.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %24, i64 %.034.i.i
   store <4 x float> %34, ptr %35, align 16, !alias.scope !371
   %36 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %36, 3
@@ -19324,12 +19324,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 
 37:                                               ; preds = %37, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit
   %.034.i.i472 = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %10, i64 0, i64 %.034.i.i472
-  %39 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %11, i64 0, i64 %.034.i.i472
+  %38 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %10, i64 %.034.i.i472
+  %39 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %11, i64 %.034.i.i472
   %40 = load <4 x float>, ptr %38, align 16, !noalias !379
   %41 = load <4 x float>, ptr %39, align 16, !noalias !379
   %42 = fsub contract <4 x float> %40, %41
-  %43 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %25, i64 0, i64 %.034.i.i472
+  %43 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %25, i64 %.034.i.i472
   store <4 x float> %42, ptr %43, align 16, !alias.scope !379
   %44 = add nuw nsw i64 %.034.i.i472, 1
   %exitcond.not.i.i473 = icmp eq i64 %44, 3
@@ -19368,12 +19368,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 
 58:                                               ; preds = %58, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit474
   %.034.i = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit474 ], [ %65, %58 ]
-  %59 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %17, i64 0, i64 %.034.i
-  %60 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %18, i64 0, i64 %.034.i
+  %59 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %17, i64 %.034.i
+  %60 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %18, i64 %.034.i
   %61 = load <4 x float>, ptr %59, align 16, !noalias !386
   %62 = load <4 x float>, ptr %60, align 16, !noalias !386
   %63 = fmul contract <4 x float> %61, %62
-  %64 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %16, i64 0, i64 %.034.i
+  %64 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %16, i64 %.034.i
   store <4 x float> %63, ptr %64, align 16, !alias.scope !383, !noalias !380
   %65 = add nuw nsw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %65, 3
@@ -19385,15 +19385,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5
 
 66:                                               ; preds = %66, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit
   %.048.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit ], [ %76, %66 ]
-  %67 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %14, i64 0, i64 %.048.i
-  %68 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %15, i64 0, i64 %.048.i
-  %69 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %16, i64 0, i64 %.048.i
+  %67 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %14, i64 %.048.i
+  %68 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %15, i64 %.048.i
+  %69 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %16, i64 %.048.i
   %70 = load <4 x float>, ptr %67, align 16, !noalias !388
   %71 = load <4 x float>, ptr %68, align 16, !noalias !388
   %72 = load <4 x float>, ptr %69, align 16, !noalias !388
   %73 = fneg contract <4 x float> %72
   %74 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %70, <4 x float> %71, <4 x float> %73)
-  %75 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %26, i64 0, i64 %.048.i
+  %75 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %26, i64 %.048.i
   store <4 x float> %74, ptr %75, align 16, !alias.scope !388
   %76 = add nuw nsw i64 %.048.i, 1
   %exitcond.not.i475 = icmp eq i64 %76, 3
@@ -19408,8 +19408,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERK
 80:                                               ; preds = %80, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit
   %.051.i = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %86, %80 ]
   %.sroa.0.0.in.sroa.speculated50.i = phi <4 x float> [ %79, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %85, %80 ]
-  %81 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %24, i64 0, i64 %.051.i
-  %82 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %26, i64 0, i64 %.051.i
+  %81 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %24, i64 %.051.i
+  %82 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %26, i64 %.051.i
   %83 = load <4 x float>, ptr %81, align 16
   %84 = load <4 x float>, ptr %82, align 16
   %85 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %83, <4 x float> %84, <4 x float> %.sroa.0.0.in.sroa.speculated50.i)
@@ -19428,12 +19428,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 
 87:                                               ; preds = %87, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit
   %.034.i.i477 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit ], [ %94, %87 ]
-  %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %8, i64 0, i64 %.034.i.i477
-  %89 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %9, i64 0, i64 %.034.i.i477
+  %88 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %8, i64 %.034.i.i477
+  %89 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %9, i64 %.034.i.i477
   %90 = load <4 x float>, ptr %88, align 16, !noalias !399
   %91 = load <4 x float>, ptr %89, align 16, !noalias !399
   %92 = fsub contract <4 x float> %90, %91
-  %93 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %27, i64 0, i64 %.034.i.i477
+  %93 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %27, i64 %.034.i.i477
   store <4 x float> %92, ptr %93, align 16, !alias.scope !399
   %94 = add nuw nsw i64 %.034.i.i477, 1
   %exitcond.not.i.i478 = icmp eq i64 %94, 3
@@ -19449,8 +19449,8 @@ _ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 97:                                               ; preds = %97, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit479
   %.051.i480 = phi i64 [ 1, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit479 ], [ %103, %97 ]
   %.sroa.0.0.in.sroa.speculated50.i481 = phi <4 x float> [ %96, %_ZN7mitsubamiIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit479 ], [ %102, %97 ]
-  %98 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %27, i64 0, i64 %.051.i480
-  %99 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %26, i64 0, i64 %.051.i480
+  %98 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %27, i64 %.051.i480
+  %99 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %26, i64 %.051.i480
   %100 = load <4 x float>, ptr %98, align 16
   %101 = load <4 x float>, ptr %99, align 16
   %102 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %100, <4 x float> %101, <4 x float> %.sroa.0.0.in.sroa.speculated50.i481)
@@ -19488,12 +19488,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 
 116:                                              ; preds = %116, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit483
   %.034.i484 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit483 ], [ %123, %116 ]
-  %117 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %22, i64 0, i64 %.034.i484
-  %118 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %23, i64 0, i64 %.034.i484
+  %117 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %22, i64 %.034.i484
+  %118 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %23, i64 %.034.i484
   %119 = load <4 x float>, ptr %117, align 16, !noalias !406
   %120 = load <4 x float>, ptr %118, align 16, !noalias !406
   %121 = fmul contract <4 x float> %119, %120
-  %122 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %21, i64 0, i64 %.034.i484
+  %122 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %21, i64 %.034.i484
   store <4 x float> %121, ptr %122, align 16, !alias.scope !403, !noalias !400
   %123 = add nuw nsw i64 %.034.i484, 1
   %exitcond.not.i485 = icmp eq i64 %123, 3
@@ -19505,15 +19505,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5
 
 124:                                              ; preds = %124, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit486
   %.048.i487 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit486 ], [ %134, %124 ]
-  %125 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %19, i64 0, i64 %.048.i487
-  %126 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %20, i64 0, i64 %.048.i487
-  %127 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %21, i64 0, i64 %.048.i487
+  %125 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %19, i64 %.048.i487
+  %126 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %20, i64 %.048.i487
+  %127 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %21, i64 %.048.i487
   %128 = load <4 x float>, ptr %125, align 16, !noalias !407
   %129 = load <4 x float>, ptr %126, align 16, !noalias !407
   %130 = load <4 x float>, ptr %127, align 16, !noalias !407
   %131 = fneg contract <4 x float> %130
   %132 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %128, <4 x float> %129, <4 x float> %131)
-  %133 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %28, i64 0, i64 %.048.i487
+  %133 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %28, i64 %.048.i487
   store <4 x float> %132, ptr %133, align 16, !alias.scope !407
   %134 = add nuw nsw i64 %.048.i487, 1
   %exitcond.not.i488 = icmp eq i64 %134, 3
@@ -19528,8 +19528,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERK
 138:                                              ; preds = %138, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit489
   %.051.i490 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit489 ], [ %144, %138 ]
   %.sroa.0.0.in.sroa.speculated50.i491 = phi <4 x float> [ %137, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit489 ], [ %143, %138 ]
-  %139 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %45, i64 0, i64 %.051.i490
-  %140 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %28, i64 0, i64 %.051.i490
+  %139 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %45, i64 %.051.i490
+  %140 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %28, i64 %.051.i490
   %141 = load <4 x float>, ptr %139, align 16
   %142 = load <4 x float>, ptr %140, align 16
   %143 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %141, <4 x float> %142, <4 x float> %.sroa.0.0.in.sroa.speculated50.i491)
@@ -19545,8 +19545,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 147:                                              ; preds = %147, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit493
   %.051.i494 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit493 ], [ %153, %147 ]
   %.sroa.0.0.in.sroa.speculated50.i495 = phi <4 x float> [ %146, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit493 ], [ %152, %147 ]
-  %148 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %25, i64 0, i64 %.051.i494
-  %149 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.288"], ptr %28, i64 0, i64 %.051.i494
+  %148 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %25, i64 %.051.i494
+  %149 = getelementptr inbounds nuw %"struct.drjit::Packet.288", ptr %28, i64 %.051.i494
   %150 = load <4 x float>, ptr %148, align 16
   %151 = load <4 x float>, ptr %149, align 16
   %152 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %150, <4 x float> %151, <4 x float> %.sroa.0.0.in.sroa.speculated50.i495)
@@ -19635,12 +19635,12 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
 
 29:                                               ; preds = %29, %7
   %.034.i.i = phi i64 [ 0, %7 ], [ %36, %29 ]
-  %30 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %12, i64 0, i64 %.034.i.i
-  %31 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %13, i64 0, i64 %.034.i.i
+  %30 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %12, i64 %.034.i.i
+  %31 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %13, i64 %.034.i.i
   %32 = load <8 x float>, ptr %30, align 32, !noalias !416
   %33 = load <8 x float>, ptr %31, align 32, !noalias !416
   %34 = fsub contract <8 x float> %32, %33
-  %35 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %24, i64 0, i64 %.034.i.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %24, i64 %.034.i.i
   store <8 x float> %34, ptr %35, align 32, !alias.scope !416
   %36 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %36, 3
@@ -19659,12 +19659,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 
 37:                                               ; preds = %37, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit
   %.034.i.i480 = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %10, i64 0, i64 %.034.i.i480
-  %39 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %11, i64 0, i64 %.034.i.i480
+  %38 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %10, i64 %.034.i.i480
+  %39 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %11, i64 %.034.i.i480
   %40 = load <8 x float>, ptr %38, align 32, !noalias !424
   %41 = load <8 x float>, ptr %39, align 32, !noalias !424
   %42 = fsub contract <8 x float> %40, %41
-  %43 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %25, i64 0, i64 %.034.i.i480
+  %43 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %25, i64 %.034.i.i480
   store <8 x float> %42, ptr %43, align 32, !alias.scope !424
   %44 = add nuw nsw i64 %.034.i.i480, 1
   %exitcond.not.i.i481 = icmp eq i64 %44, 3
@@ -19703,12 +19703,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 
 58:                                               ; preds = %58, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit482
   %.034.i = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit482 ], [ %65, %58 ]
-  %59 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %17, i64 0, i64 %.034.i
-  %60 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %18, i64 0, i64 %.034.i
+  %59 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %17, i64 %.034.i
+  %60 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %18, i64 %.034.i
   %61 = load <8 x float>, ptr %59, align 32, !noalias !431
   %62 = load <8 x float>, ptr %60, align 32, !noalias !431
   %63 = fmul contract <8 x float> %61, %62
-  %64 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %16, i64 0, i64 %.034.i
+  %64 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %16, i64 %.034.i
   store <8 x float> %63, ptr %64, align 32, !alias.scope !428, !noalias !425
   %65 = add nuw nsw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %65, 3
@@ -19720,15 +19720,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5
 
 66:                                               ; preds = %66, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit
   %.048.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit ], [ %76, %66 ]
-  %67 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %14, i64 0, i64 %.048.i
-  %68 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %15, i64 0, i64 %.048.i
-  %69 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %16, i64 0, i64 %.048.i
+  %67 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %14, i64 %.048.i
+  %68 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %15, i64 %.048.i
+  %69 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %16, i64 %.048.i
   %70 = load <8 x float>, ptr %67, align 32, !noalias !433
   %71 = load <8 x float>, ptr %68, align 32, !noalias !433
   %72 = load <8 x float>, ptr %69, align 32, !noalias !433
   %73 = fneg contract <8 x float> %72
   %74 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %70, <8 x float> %71, <8 x float> %73)
-  %75 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %26, i64 0, i64 %.048.i
+  %75 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %26, i64 %.048.i
   store <8 x float> %74, ptr %75, align 32, !alias.scope !433
   %76 = add nuw nsw i64 %.048.i, 1
   %exitcond.not.i483 = icmp eq i64 %76, 3
@@ -19743,8 +19743,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERK
 80:                                               ; preds = %80, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit
   %.051.i = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %86, %80 ]
   %.sroa.0.0.in.sroa.speculated50.i = phi <8 x float> [ %79, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %85, %80 ]
-  %81 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %24, i64 0, i64 %.051.i
-  %82 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %26, i64 0, i64 %.051.i
+  %81 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %24, i64 %.051.i
+  %82 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %26, i64 %.051.i
   %83 = load <8 x float>, ptr %81, align 32
   %84 = load <8 x float>, ptr %82, align 32
   %85 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %83, <8 x float> %84, <8 x float> %.sroa.0.0.in.sroa.speculated50.i)
@@ -19763,12 +19763,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 
 87:                                               ; preds = %87, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit
   %.034.i.i485 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit ], [ %94, %87 ]
-  %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %8, i64 0, i64 %.034.i.i485
-  %89 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %9, i64 0, i64 %.034.i.i485
+  %88 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %8, i64 %.034.i.i485
+  %89 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %9, i64 %.034.i.i485
   %90 = load <8 x float>, ptr %88, align 32, !noalias !444
   %91 = load <8 x float>, ptr %89, align 32, !noalias !444
   %92 = fsub contract <8 x float> %90, %91
-  %93 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %27, i64 0, i64 %.034.i.i485
+  %93 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %27, i64 %.034.i.i485
   store <8 x float> %92, ptr %93, align 32, !alias.scope !444
   %94 = add nuw nsw i64 %.034.i.i485, 1
   %exitcond.not.i.i486 = icmp eq i64 %94, 3
@@ -19784,8 +19784,8 @@ _ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT
 97:                                               ; preds = %97, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit487
   %.051.i488 = phi i64 [ 1, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit487 ], [ %103, %97 ]
   %.sroa.0.0.in.sroa.speculated50.i489 = phi <8 x float> [ %96, %_ZN7mitsubamiIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit487 ], [ %102, %97 ]
-  %98 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %27, i64 0, i64 %.051.i488
-  %99 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %26, i64 0, i64 %.051.i488
+  %98 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %27, i64 %.051.i488
+  %99 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %26, i64 %.051.i488
   %100 = load <8 x float>, ptr %98, align 32
   %101 = load <8 x float>, ptr %99, align 32
   %102 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %100, <8 x float> %101, <8 x float> %.sroa.0.0.in.sroa.speculated50.i489)
@@ -19823,12 +19823,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 
 116:                                              ; preds = %116, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit491
   %.034.i492 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit491 ], [ %123, %116 ]
-  %117 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %22, i64 0, i64 %.034.i492
-  %118 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %23, i64 0, i64 %.034.i492
+  %117 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %22, i64 %.034.i492
+  %118 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %23, i64 %.034.i492
   %119 = load <8 x float>, ptr %117, align 32, !noalias !451
   %120 = load <8 x float>, ptr %118, align 32, !noalias !451
   %121 = fmul contract <8 x float> %119, %120
-  %122 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %21, i64 0, i64 %.034.i492
+  %122 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %21, i64 %.034.i492
   store <8 x float> %121, ptr %122, align 32, !alias.scope !448, !noalias !445
   %123 = add nuw nsw i64 %.034.i492, 1
   %exitcond.not.i493 = icmp eq i64 %123, 3
@@ -19840,15 +19840,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5
 
 124:                                              ; preds = %124, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit494
   %.048.i495 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit494 ], [ %134, %124 ]
-  %125 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %19, i64 0, i64 %.048.i495
-  %126 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %20, i64 0, i64 %.048.i495
-  %127 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %21, i64 0, i64 %.048.i495
+  %125 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %19, i64 %.048.i495
+  %126 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %20, i64 %.048.i495
+  %127 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %21, i64 %.048.i495
   %128 = load <8 x float>, ptr %125, align 32, !noalias !452
   %129 = load <8 x float>, ptr %126, align 32, !noalias !452
   %130 = load <8 x float>, ptr %127, align 32, !noalias !452
   %131 = fneg contract <8 x float> %130
   %132 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %128, <8 x float> %129, <8 x float> %131)
-  %133 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %28, i64 0, i64 %.048.i495
+  %133 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %28, i64 %.048.i495
   store <8 x float> %132, ptr %133, align 32, !alias.scope !452
   %134 = add nuw nsw i64 %.048.i495, 1
   %exitcond.not.i496 = icmp eq i64 %134, 3
@@ -19863,8 +19863,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERK
 138:                                              ; preds = %138, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit497
   %.051.i498 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit497 ], [ %144, %138 ]
   %.sroa.0.0.in.sroa.speculated50.i499 = phi <8 x float> [ %137, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit497 ], [ %143, %138 ]
-  %139 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %45, i64 0, i64 %.051.i498
-  %140 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %28, i64 0, i64 %.051.i498
+  %139 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %45, i64 %.051.i498
+  %140 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %28, i64 %.051.i498
   %141 = load <8 x float>, ptr %139, align 32
   %142 = load <8 x float>, ptr %140, align 32
   %143 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %141, <8 x float> %142, <8 x float> %.sroa.0.0.in.sroa.speculated50.i499)
@@ -19880,8 +19880,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
 147:                                              ; preds = %147, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit501
   %.051.i502 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit501 ], [ %153, %147 ]
   %.sroa.0.0.in.sroa.speculated50.i503 = phi <8 x float> [ %146, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit501 ], [ %152, %147 ]
-  %148 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %25, i64 0, i64 %.051.i502
-  %149 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.305"], ptr %28, i64 0, i64 %.051.i502
+  %148 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %25, i64 %.051.i502
+  %149 = getelementptr inbounds nuw %"struct.drjit::Packet.305", ptr %28, i64 %.051.i502
   %150 = load <8 x float>, ptr %148, align 32
   %151 = load <8 x float>, ptr %149, align 32
   %152 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %150, <8 x float> %151, <8 x float> %.sroa.0.0.in.sroa.speculated50.i503)
@@ -19973,12 +19973,12 @@ define linkonce_odr hidden void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumI
 
 29:                                               ; preds = %29, %7
   %.034.i.i = phi i64 [ 0, %7 ], [ %36, %29 ]
-  %30 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %12, i64 0, i64 %.034.i.i
-  %31 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %13, i64 0, i64 %.034.i.i
+  %30 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %12, i64 %.034.i.i
+  %31 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %13, i64 %.034.i.i
   %32 = load <16 x float>, ptr %30, align 64, !noalias !461
   %33 = load <16 x float>, ptr %31, align 64, !noalias !461
   %34 = fsub contract <16 x float> %32, %33
-  %35 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %24, i64 0, i64 %.034.i.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %24, i64 %.034.i.i
   store <16 x float> %34, ptr %35, align 64, !alias.scope !461
   %36 = add nuw nsw i64 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %36, 3
@@ -19997,12 +19997,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_I
 
 37:                                               ; preds = %37, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit
   %.034.i.i479 = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %10, i64 0, i64 %.034.i.i479
-  %39 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %11, i64 0, i64 %.034.i.i479
+  %38 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %10, i64 %.034.i.i479
+  %39 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %11, i64 %.034.i.i479
   %40 = load <16 x float>, ptr %38, align 64, !noalias !469
   %41 = load <16 x float>, ptr %39, align 64, !noalias !469
   %42 = fsub contract <16 x float> %40, %41
-  %43 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %25, i64 0, i64 %.034.i.i479
+  %43 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %25, i64 %.034.i.i479
   store <16 x float> %42, ptr %43, align 64, !alias.scope !469
   %44 = add nuw nsw i64 %.034.i.i479, 1
   %exitcond.not.i.i480 = icmp eq i64 %44, 3
@@ -20041,12 +20041,12 @@ _ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_I
 
 58:                                               ; preds = %58, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit481
   %.034.i = phi i64 [ 0, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit481 ], [ %65, %58 ]
-  %59 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %17, i64 0, i64 %.034.i
-  %60 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %18, i64 0, i64 %.034.i
+  %59 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %17, i64 %.034.i
+  %60 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %18, i64 %.034.i
   %61 = load <16 x float>, ptr %59, align 64, !noalias !476
   %62 = load <16 x float>, ptr %60, align 64, !noalias !476
   %63 = fmul contract <16 x float> %61, %62
-  %64 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %16, i64 0, i64 %.034.i
+  %64 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %16, i64 %.034.i
   store <16 x float> %63, ptr %64, align 64, !alias.scope !473, !noalias !470
   %65 = add nuw nsw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %65, 3
@@ -20058,15 +20058,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS
 
 66:                                               ; preds = %66, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit
   %.048.i = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit ], [ %76, %66 ]
-  %67 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %14, i64 0, i64 %.048.i
-  %68 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %15, i64 0, i64 %.048.i
-  %69 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %16, i64 0, i64 %.048.i
+  %67 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %14, i64 %.048.i
+  %68 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %15, i64 %.048.i
+  %69 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %16, i64 %.048.i
   %70 = load <16 x float>, ptr %67, align 64, !noalias !478
   %71 = load <16 x float>, ptr %68, align 64, !noalias !478
   %72 = load <16 x float>, ptr %69, align 64, !noalias !478
   %73 = fneg contract <16 x float> %72
   %74 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %70, <16 x float> %71, <16 x float> %73)
-  %75 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %26, i64 0, i64 %.048.i
+  %75 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %26, i64 %.048.i
   store <16 x float> %74, ptr %75, align 64, !alias.scope !478
   %76 = add nuw nsw i64 %.048.i, 1
   %exitcond.not.i482 = icmp eq i64 %76, 3
@@ -20081,8 +20081,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ER
 80:                                               ; preds = %80, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit
   %.051.i = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %86, %80 ]
   %.sroa.0.0.in.sroa.speculated50.i = phi <16 x float> [ %79, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit ], [ %85, %80 ]
-  %81 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %24, i64 0, i64 %.051.i
-  %82 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %26, i64 0, i64 %.051.i
+  %81 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %24, i64 %.051.i
+  %82 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %26, i64 %.051.i
   %83 = load <16 x float>, ptr %81, align 64
   %84 = load <16 x float>, ptr %82, align 64
   %85 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %83, <16 x float> %84, <16 x float> %.sroa.0.0.in.sroa.speculated50.i)
@@ -20101,12 +20101,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
 
 87:                                               ; preds = %87, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit
   %.034.i.i484 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit ], [ %94, %87 ]
-  %88 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %8, i64 0, i64 %.034.i.i484
-  %89 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %9, i64 0, i64 %.034.i.i484
+  %88 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %8, i64 %.034.i.i484
+  %89 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %9, i64 %.034.i.i484
   %90 = load <16 x float>, ptr %88, align 64, !noalias !489
   %91 = load <16 x float>, ptr %89, align 64, !noalias !489
   %92 = fsub contract <16 x float> %90, %91
-  %93 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %27, i64 0, i64 %.034.i.i484
+  %93 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %27, i64 %.034.i.i484
   store <16 x float> %92, ptr %93, align 64, !alias.scope !489
   %94 = add nuw nsw i64 %.034.i.i484, 1
   %exitcond.not.i.i485 = icmp eq i64 %94, 3
@@ -20122,8 +20122,8 @@ _ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_I
 97:                                               ; preds = %97, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit486
   %.051.i487 = phi i64 [ 1, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit486 ], [ %103, %97 ]
   %.sroa.0.0.in.sroa.speculated50.i488 = phi <16 x float> [ %96, %_ZN7mitsubamiIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS4_IT1_XT2_EEE.exit486 ], [ %102, %97 ]
-  %98 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %27, i64 0, i64 %.051.i487
-  %99 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %26, i64 0, i64 %.051.i487
+  %98 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %27, i64 %.051.i487
+  %99 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %26, i64 %.051.i487
   %100 = load <16 x float>, ptr %98, align 64
   %101 = load <16 x float>, ptr %99, align 64
   %102 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %100, <16 x float> %101, <16 x float> %.sroa.0.0.in.sroa.speculated50.i488)
@@ -20161,12 +20161,12 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
 
 116:                                              ; preds = %116, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit490
   %.034.i491 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit490 ], [ %123, %116 ]
-  %117 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %22, i64 0, i64 %.034.i491
-  %118 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %23, i64 0, i64 %.034.i491
+  %117 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %22, i64 %.034.i491
+  %118 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %23, i64 %.034.i491
   %119 = load <16 x float>, ptr %117, align 64, !noalias !496
   %120 = load <16 x float>, ptr %118, align 64, !noalias !496
   %121 = fmul contract <16 x float> %119, %120
-  %122 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %21, i64 0, i64 %.034.i491
+  %122 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %21, i64 %.034.i491
   store <16 x float> %121, ptr %122, align 64, !alias.scope !493, !noalias !490
   %123 = add nuw nsw i64 %.034.i491, 1
   %exitcond.not.i492 = icmp eq i64 %123, 3
@@ -20178,15 +20178,15 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS
 
 124:                                              ; preds = %124, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit493
   %.048.i494 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4mul_ERKS5_.exit493 ], [ %134, %124 ]
-  %125 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %19, i64 0, i64 %.048.i494
-  %126 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %20, i64 0, i64 %.048.i494
-  %127 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %21, i64 0, i64 %.048.i494
+  %125 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %19, i64 %.048.i494
+  %126 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %20, i64 %.048.i494
+  %127 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %21, i64 %.048.i494
   %128 = load <16 x float>, ptr %125, align 64, !noalias !497
   %129 = load <16 x float>, ptr %126, align 64, !noalias !497
   %130 = load <16 x float>, ptr %127, align 64, !noalias !497
   %131 = fneg contract <16 x float> %130
   %132 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %128, <16 x float> %129, <16 x float> %131)
-  %133 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %28, i64 0, i64 %.048.i494
+  %133 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %28, i64 %.048.i494
   store <16 x float> %132, ptr %133, align 64, !alias.scope !497
   %134 = add nuw nsw i64 %.048.i494, 1
   %exitcond.not.i495 = icmp eq i64 %134, 3
@@ -20201,8 +20201,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ER
 138:                                              ; preds = %138, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit496
   %.051.i497 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit496 ], [ %144, %138 ]
   %.sroa.0.0.in.sroa.speculated50.i498 = phi <16 x float> [ %137, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE6fmsub_ERKS5_S8_.exit496 ], [ %143, %138 ]
-  %139 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %45, i64 0, i64 %.051.i497
-  %140 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %28, i64 0, i64 %.051.i497
+  %139 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %45, i64 %.051.i497
+  %140 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %28, i64 %.051.i497
   %141 = load <16 x float>, ptr %139, align 64
   %142 = load <16 x float>, ptr %140, align 64
   %143 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %141, <16 x float> %142, <16 x float> %.sroa.0.0.in.sroa.speculated50.i498)
@@ -20218,8 +20218,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
 147:                                              ; preds = %147, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit500
   %.051.i501 = phi i64 [ 1, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit500 ], [ %153, %147 ]
   %.sroa.0.0.in.sroa.speculated50.i502 = phi <16 x float> [ %146, %_ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5_.exit500 ], [ %152, %147 ]
-  %148 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %25, i64 0, i64 %.051.i501
-  %149 = getelementptr inbounds nuw [3 x %"struct.drjit::Packet.322"], ptr %28, i64 0, i64 %.051.i501
+  %148 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %25, i64 %.051.i501
+  %149 = getelementptr inbounds nuw %"struct.drjit::Packet.322", ptr %28, i64 %.051.i501
   %150 = load <16 x float>, ptr %148, align 64
   %151 = load <16 x float>, ptr %149, align 64
   %152 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %150, <16 x float> %151, <16 x float> %.sroa.0.0.in.sroa.speculated50.i502)

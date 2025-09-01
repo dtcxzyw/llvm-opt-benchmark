@@ -731,7 +731,7 @@ define dso_local void @fib6_metric_set(ptr noundef captures(address_is_null) %0,
   %16 = phi ptr [ %11, %13 ], [ %7, %5 ]
   %17 = add i32 %1, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [17 x i32], ptr %16, i64 0, i64 %18
+  %19 = getelementptr i32, ptr %16, i64 %18
   store i32 %2, ptr %19, align 4
   br label %20
 
@@ -4463,7 +4463,7 @@ define internal fastcc void @__fib6_drop_pcpu_from(ptr noundef readonly captures
   %16 = load ptr, ptr %3, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %12, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = inttoptr i64 %21 to ptr

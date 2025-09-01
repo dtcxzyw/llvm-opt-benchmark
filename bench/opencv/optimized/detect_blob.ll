@@ -661,7 +661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %_Z
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %230 ]
   %237 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv.i.i.i.i.i.i
   %238 = load i8, ptr %237, align 1, !tbaa !13
-  %239 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.9.01321, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %239 = getelementptr inbounds nuw i8, ptr %.sroa.9.01321, i64 %indvars.iv.i.i.i.i.i.i
   store i8 %238, ptr %239, align 1, !tbaa !13
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -709,7 +709,7 @@ _ZNKSt6vectorIN2cv3VecIhLi3EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %240
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %254 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %255 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %256 = load i8, ptr %255, align 1, !tbaa !13
-  %257 = getelementptr inbounds nuw [3 x i8], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %257 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store i8 %256, ptr %257, align 1, !tbaa !13
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 3
@@ -6218,10 +6218,10 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 
 2023:                                             ; preds = %2023, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %2023 ]
-  %2024 = getelementptr inbounds nuw [3 x i8], ptr %2022, i64 0, i64 %indvars.iv.i
+  %2024 = getelementptr inbounds nuw i8, ptr %2022, i64 %indvars.iv.i
   %2025 = load i8, ptr %2024, align 1, !tbaa !13
   %2026 = uitofp i8 %2025 to double
-  %2027 = getelementptr inbounds nuw [4 x double], ptr %84, i64 0, i64 %indvars.iv.i
+  %2027 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv.i
   store double %2026, ptr %2027, align 8, !tbaa !279
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

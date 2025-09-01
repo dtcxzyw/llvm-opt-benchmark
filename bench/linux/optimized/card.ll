@@ -85,7 +85,7 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   %31 = getelementptr i8, ptr %2, i64 3
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %33
+  %34 = getelementptr i8, ptr @_ctype, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = shl i8 %35, 5
   %37 = and i8 %36, 32
@@ -95,7 +95,7 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   %40 = getelementptr i8, ptr %2, i64 4
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %42
+  %43 = getelementptr i8, ptr @_ctype, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = shl i8 %44, 5
   %46 = and i8 %45, 32
@@ -105,7 +105,7 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   %49 = getelementptr i8, ptr %2, i64 5
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %51
+  %52 = getelementptr i8, ptr @_ctype, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = shl i8 %53, 5
   %55 = and i8 %54, 32
@@ -115,7 +115,7 @@ define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr
   %58 = getelementptr i8, ptr %2, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %60
+  %61 = getelementptr i8, ptr @_ctype, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = shl i8 %62, 5
   %64 = and i8 %63, 32
@@ -315,7 +315,7 @@ define internal fastcc void @card_probe(ptr noundef %0, ptr noundef %1) unnamed_
 21:                                               ; preds = %19, %35
   %22 = phi i32 [ 0, %19 ], [ %36, %35 ]
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [8 x %struct.anon.2], ptr %20, i64 0, i64 %23
+  %24 = getelementptr %struct.anon.2, ptr %20, i64 %23
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %41, label %.preheader11

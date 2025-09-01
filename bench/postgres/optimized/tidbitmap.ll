@@ -282,7 +282,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %66 = and i32 %21, 63
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %68 = zext nneg i32 %65 to i64
-  %69 = getelementptr inbounds nuw [5 x i64], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = zext nneg i32 %66 to i64
   %72 = shl nuw i64 1, %71
@@ -371,7 +371,7 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %105 = shl nuw i64 1, %103
   %106 = select i1 %99, i64 1, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %.133, i64 8
-  %108 = getelementptr inbounds nuw [5 x i64], ptr %107, i64 0, i64 %.030
+  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %.030
   %109 = load i64, ptr %108, align 8
   %110 = or i64 %106, %109
   store i64 %110, ptr %108, align 8
@@ -794,7 +794,7 @@ pagetable_delete.exit:                            ; preds = %24, %.loopexit74, %
   %114 = shl nuw i64 1, %113
   %115 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %116 = zext nneg i32 %111 to i64
-  %117 = getelementptr inbounds nuw [5 x i64], ptr %115, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %115, i64 %116
   %118 = load i64, ptr %117, align 8
   %119 = or i64 %118, %114
   store i64 %119, ptr %117, align 8
@@ -903,7 +903,7 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %.preheader, %.loopexit
   %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %.loopexit ]
-  %9 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv53
+  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv53
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.loopexit, label %11
@@ -997,7 +997,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %61 = and i32 %22, 63
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %63 = zext nneg i32 %60 to i64
-  %64 = getelementptr inbounds nuw [5 x i64], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = zext nneg i32 %61 to i64
   %67 = shl nuw i64 1, %66
@@ -1090,9 +1090,9 @@ tbm_get_pageentry.exit:                           ; preds = %72, %77, %.loopexit
 
 105:                                              ; preds = %.preheader41, %105
   %indvars.iv = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next, %105 ]
-  %106 = getelementptr inbounds nuw [5 x i64], ptr %99, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds nuw [5 x i64], ptr %100, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv
   %109 = load i64, ptr %108, align 8
   %110 = or i64 %109, %107
   store i64 %110, ptr %108, align 8
@@ -1449,7 +1449,7 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr noundef captures(none)
 12:                                               ; preds = %.preheader, %109
   %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %109 ]
   %.04725 = phi i1 [ true, %.preheader ], [ %.148, %109 ]
-  %13 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv37
+  %13 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv37
   %14 = load i64, ptr %13, align 8
   %.not56 = icmp eq i64 %14, 0
   br i1 %.not56, label %109, label %15
@@ -1527,7 +1527,7 @@ pagetable_lookup.exit.i:                          ; preds = %.lr.ph.i.i.i
   %58 = and i32 %.04321, 63
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw [5 x i64], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = zext nneg i32 %58 to i64
   %64 = shl nuw i64 1, %63
@@ -1680,7 +1680,7 @@ pagetable_lookup.exit.i77:                        ; preds = %.lr.ph.i.i.i72
   %149 = and i32 %111, 63
   %150 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %151 = zext nneg i32 %148 to i64
-  %152 = getelementptr inbounds nuw [5 x i64], ptr %150, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = zext nneg i32 %149 to i64
   %155 = shl nuw i64 1, %154
@@ -1766,9 +1766,9 @@ tbm_find_pageentry.exit92:                        ; preds = %165, %pagetable_loo
 201:                                              ; preds = %tbm_find_pageentry.exit92, %201
   %indvars.iv = phi i64 [ 0, %tbm_find_pageentry.exit92 ], [ %indvars.iv.next, %201 ]
   %.118 = phi i1 [ true, %tbm_find_pageentry.exit92 ], [ %spec.select60, %201 ]
-  %202 = getelementptr inbounds nuw [5 x i64], ptr %199, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw i64, ptr %199, i64 %indvars.iv
   %203 = load i64, ptr %202, align 8
-  %204 = getelementptr inbounds nuw [5 x i64], ptr %200, i64 0, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw i64, ptr %200, i64 %indvars.iv
   %205 = load i64, ptr %204, align 8
   %206 = and i64 %205, %203
   store i64 %206, ptr %204, align 8
@@ -2146,7 +2146,7 @@ pagetable_iterate.exit:                           ; preds = %63
   %.1 = phi i32 [ %.0, %84 ], [ %83, %82 ]
   %.sink141 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 4
   %87 = sext i32 %.081.sink to i64
-  %88 = getelementptr inbounds [0 x i32], ptr %.sink141, i64 0, i64 %87
+  %88 = getelementptr inbounds i32, ptr %.sink141, i64 %87
   store i32 %78, ptr %88, align 4
   %.pre = load ptr, ptr %42, align 8
   br label %57, !llvm.loop !19
@@ -2335,7 +2335,7 @@ define dso_local ptr @tbm_private_iterate(ptr noundef captures(ret: address, pro
   %21 = sdiv i32 %.010.i, 64
   %22 = srem i32 %.010.i, 64
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds [5 x i64], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds i64, ptr %18, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = zext nneg i32 %22 to i64
   %27 = shl nuw i64 1, %26
@@ -2443,7 +2443,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %19, %tbm_advance_sc
 81:                                               ; preds = %.loopexit.i, %78
   %indvars.iv.i = phi i64 [ 0, %78 ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.01423.i = phi i32 [ 0, %78 ], [ %.1.i, %.loopexit.i ]
-  %82 = getelementptr inbounds nuw [5 x i64], ptr %79, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8
   %.not.i54 = icmp eq i64 %83, 0
   br i1 %.not.i54, label %.loopexit.i, label %84
@@ -2465,7 +2465,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %19, %tbm_advance_sc
 89:                                               ; preds = %87
   %90 = add i32 %.219.i, 1
   %91 = sext i32 %.219.i to i64
-  %92 = getelementptr inbounds [0 x i16], ptr %80, i64 0, i64 %91
+  %92 = getelementptr inbounds i16, ptr %80, i64 %91
   store i16 %.021.i, ptr %92, align 2
   br label %93
 
@@ -2554,7 +2554,7 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, prov
   %31 = sdiv i32 %.010.i, 64
   %32 = srem i32 %.010.i, 64
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds [5 x i64], ptr %28, i64 0, i64 %33
+  %34 = getelementptr inbounds i64, ptr %28, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = zext nneg i32 %32 to i64
   %37 = shl nuw i64 1, %36
@@ -2645,7 +2645,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %29, %tbm_advance_sc
 81:                                               ; preds = %.loopexit.i, %.thread81.thread
   %indvars.iv.i = phi i64 [ 0, %.thread81.thread ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.01423.i = phi i32 [ 0, %.thread81.thread ], [ %.1.i, %.loopexit.i ]
-  %82 = getelementptr inbounds nuw [5 x i64], ptr %79, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8
   %.not.i74 = icmp eq i64 %83, 0
   br i1 %.not.i74, label %.loopexit.i, label %84
@@ -2667,7 +2667,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %29, %tbm_advance_sc
 89:                                               ; preds = %87
   %90 = add i32 %.219.i, 1
   %91 = sext i32 %.219.i to i64
-  %92 = getelementptr inbounds [0 x i16], ptr %80, i64 0, i64 %91
+  %92 = getelementptr inbounds i16, ptr %80, i64 %91
   store i16 %.021.i, ptr %92, align 2
   br label %93
 

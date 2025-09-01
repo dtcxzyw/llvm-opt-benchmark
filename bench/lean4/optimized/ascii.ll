@@ -23,7 +23,7 @@ define hidden void @_ZN4lean16initialize_asciiEv() local_unnamed_addr #0 {
   %.019.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.019.idx30
   %1 = load i8, ptr %.019.ptr, align 1, !tbaa !3
   %2 = zext i8 %1 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4leanL12g_safe_asciiE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN4leanL12g_safe_asciiE, i64 %2
   store i8 1, ptr %3, align 1, !tbaa !3
   %.019.add = add nuw nsw i64 %.019.idx30, 1
   %.not = icmp eq i64 %.019.add, 36
@@ -38,7 +38,7 @@ define hidden void @_ZN4lean14finalize_asciiEv() local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN4lean13is_safe_asciiEc(i8 noundef signext %0) local_unnamed_addr #2 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4leanL12g_safe_asciiE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN4leanL12g_safe_asciiE, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !3
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -64,7 +64,7 @@ define hidden noundef zeroext i1 @_ZN4lean13is_safe_asciiEPKc(ptr noundef readon
   %6 = phi i8 [ %5, %3 ], [ %2, %.preheader ]
   %.010 = phi ptr [ %4, %3 ], [ %0, %.preheader ]
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4leanL12g_safe_asciiE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN4leanL12g_safe_asciiE, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %.not8.not.not = icmp ne i8 %9, 0
   br i1 %.not8.not.not, label %3, label %.loopexit
@@ -84,7 +84,7 @@ define hidden noundef zeroext i1 @_ZN4lean13is_safe_asciiEPKcm(ptr noundef reado
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.068
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4leanL12g_safe_asciiE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN4leanL12g_safe_asciiE, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %.not.not = icmp ne i8 %8, 0
   %9 = add nuw i64 %.068, 1

@@ -8228,7 +8228,7 @@ _ZL14printSyncScopeRN4llvm11raw_ostreamERKNS_11LLVMContextEhRNS_15SmallVectorImp
 
 390:                                              ; preds = %_ZL14printSyncScopeRN4llvm11raw_ostreamERKNS_11LLVMContextEhRNS_15SmallVectorImplINS_9StringRefEEE.exit
   %391 = zext nneg i16 %389 to i64
-  %392 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN4llvm10toIRStringENS_14AtomicOrderingEE5names, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm10toIRStringENS_14AtomicOrderingEE5names, i64 %391
   %393 = load ptr, ptr %392, align 8, !tbaa !44
   %.not.i.i214 = icmp eq ptr %393, null
   br i1 %.not.i.i214, label %_ZN4llvm11raw_ostreamlsEPKc.exit218, label %_ZN4llvm9StringRefC2EPKc.exit.i215
@@ -8289,7 +8289,7 @@ _ZN4llvm11raw_ostreamlsEc.exit221:                ; preds = %_ZN4llvm11raw_ostre
 416:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit221
   %417 = lshr i16 %415, 12
   %418 = zext nneg i16 %417 to i64
-  %419 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN4llvm10toIRStringENS_14AtomicOrderingEE5names, i64 0, i64 %418
+  %419 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm10toIRStringENS_14AtomicOrderingEE5names, i64 %418
   %420 = load ptr, ptr %419, align 8, !tbaa !44
   %.not.i.i222 = icmp eq ptr %420, null
   br i1 %.not.i.i222, label %_ZN4llvm11raw_ostreamlsEPKc.exit226, label %_ZN4llvm9StringRefC2EPKc.exit.i223

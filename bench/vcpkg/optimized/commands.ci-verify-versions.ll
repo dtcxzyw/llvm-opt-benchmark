@@ -3290,9 +3290,9 @@ _ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit266.i
 
 switch.lookup:                                    ; preds = %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit266.i
   %1248 = load i32, ptr %122, align 8, !tbaa !167
-  %switch.tableidx1201 = add i32 %1248, -1
-  %1249 = icmp ult i32 %switch.tableidx1201, 4
-  br i1 %1249, label %switch.lookup1200, label %1250
+  %switch.tableidx1200 = add i32 %1248, -1
+  %1249 = icmp ult i32 %switch.tableidx1200, 4
+  br i1 %1249, label %switch.lookup1201, label %1250
 
 1250:                                             ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
@@ -3305,18 +3305,18 @@ switch.lookup:                                    ; preds = %_ZNO5vcpkg15Localiz
 .noexc278.i:                                      ; preds = %1250
   unreachable
 
-switch.lookup1200:                                ; preds = %switch.lookup
+switch.lookup1201:                                ; preds = %switch.lookup
   %1252 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1192 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 0, i64 %1252
+  %switch.gep1192 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 %1252
   %switch.load1193 = load i64, ptr %switch.gep1192, align 8
   %1253 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 0, i64 %1253
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 %1253
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %1254 = zext nneg i32 %switch.tableidx1201 to i64
-  %switch.gep1202 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 0, i64 %1254
+  %1254 = zext nneg i32 %switch.tableidx1200 to i64
+  %switch.gep1202 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 %1254
   %switch.load1203 = load ptr, ptr %switch.gep1202, align 8
-  %1255 = zext nneg i32 %switch.tableidx1201 to i64
-  %switch.gep1204 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 0, i64 %1255
+  %1255 = zext nneg i32 %switch.tableidx1200 to i64
+  %switch.gep1204 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 %1255
   %switch.load1205 = load i64, ptr %switch.gep1204, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(32) %822) #22
@@ -3359,7 +3359,7 @@ switch.lookup1200:                                ; preds = %switch.lookup
   invoke void @_ZN5vcpkg3msg6detail26format_message_by_index_toERNS_15LocalizedStringEmN3fmt3v1117basic_format_argsINS5_7contextEEE(ptr noundef nonnull align 8 dereferenceable(32) %1241, i64 noundef %.sroa.035.0.copyload.i, i64 4611686018427453439, ptr nonnull %325)
           to label %1261 unwind label %.loopexit589
 
-1261:                                             ; preds = %switch.lookup1200
+1261:                                             ; preds = %switch.lookup1201
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
@@ -3521,7 +3521,7 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit317.i:         ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   br label %1319
 
-.loopexit589:                                     ; preds = %switch.lookup1200, %1261, %1263, %1269, %1271, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit293.i, %1273, %1275, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit302.i, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit304.i, %1277, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit306.i
+.loopexit589:                                     ; preds = %switch.lookup1201, %1261, %1263, %1269, %1271, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit293.i, %1273, %1275, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit302.i, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit304.i, %1277, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit306.i
   %lpad.loopexit591 = landingpad { ptr, i32 }
           cleanup
   br label %1319
@@ -6799,9 +6799,9 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit162.i:         ; preds = %_ZNKSt7__cxx1112bas
 _ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit164.i: ; preds = %2458
   %.sroa.014.0.copyload.i420 = load i64, ptr @_ZN5vcpkg28msgVersionSchemeMismatch1OldE, align 8, !tbaa !15
   %2459 = load i32, ptr %.sroa.0506.0792, align 8, !tbaa !164
-  %switch.tableidx1195 = add i32 %2459, -1
-  %2460 = icmp ult i32 %switch.tableidx1195, 4
-  br i1 %2460, label %switch.lookup1194, label %2461
+  %switch.tableidx1194 = add i32 %2459, -1
+  %2460 = icmp ult i32 %switch.tableidx1194, 4
+  br i1 %2460, label %switch.lookup1195, label %2461
 
 2461:                                             ; preds = %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit164.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -6814,13 +6814,13 @@ _ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit164.i
 .noexc167.i:                                      ; preds = %2461
   unreachable
 
-switch.lookup1194:                                ; preds = %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit164.i
+switch.lookup1195:                                ; preds = %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit164.i
   %2463 = load i32, ptr %36, align 8, !tbaa !167
-  %switch.tableidx1207 = add i32 %2463, -1
-  %2464 = icmp ult i32 %switch.tableidx1207, 4
-  br i1 %2464, label %switch.lookup1206, label %2465
+  %switch.tableidx1206 = add i32 %2463, -1
+  %2464 = icmp ult i32 %switch.tableidx1206, 4
+  br i1 %2464, label %switch.lookup1207, label %2465
 
-2465:                                             ; preds = %switch.lookup1194
+2465:                                             ; preds = %switch.lookup1195
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 28, ptr %16, align 8, !tbaa !19
   %2466 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -6831,18 +6831,18 @@ switch.lookup1194:                                ; preds = %_ZNO5vcpkg15Localiz
 .noexc174.i432:                                   ; preds = %2465
   unreachable
 
-switch.lookup1206:                                ; preds = %switch.lookup1194
-  %2467 = zext nneg i32 %switch.tableidx1195 to i64
-  %switch.gep1198 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 0, i64 %2467
+switch.lookup1207:                                ; preds = %switch.lookup1195
+  %2467 = zext nneg i32 %switch.tableidx1194 to i64
+  %switch.gep1198 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 %2467
   %switch.load1199 = load i64, ptr %switch.gep1198, align 8
-  %2468 = zext nneg i32 %switch.tableidx1195 to i64
-  %switch.gep1196 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 0, i64 %2468
+  %2468 = zext nneg i32 %switch.tableidx1194 to i64
+  %switch.gep1196 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 %2468
   %switch.load1197 = load ptr, ptr %switch.gep1196, align 8
-  %2469 = zext nneg i32 %switch.tableidx1207 to i64
-  %switch.gep1208 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 0, i64 %2469
+  %2469 = zext nneg i32 %switch.tableidx1206 to i64
+  %switch.gep1208 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.14, i64 %2469
   %switch.load1209 = load ptr, ptr %switch.gep1208, align 8
-  %2470 = zext nneg i32 %switch.tableidx1207 to i64
-  %switch.gep1210 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 0, i64 %2470
+  %2470 = zext nneg i32 %switch.tableidx1206 to i64
+  %switch.gep1210 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5vcpkg35command_ci_verify_versions_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsE.15, i64 %2470
   %switch.load1211 = load i64, ptr %switch.gep1210, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(32) %2211) #22
@@ -6899,7 +6899,7 @@ switch.lookup1206:                                ; preds = %switch.lookup1194
   invoke void @_ZN5vcpkg3msg6detail26format_message_by_index_toERNS_15LocalizedStringEmN3fmt3v1117basic_format_argsINS5_7contextEEE(ptr noundef nonnull align 8 dereferenceable(32) %2457, i64 noundef %.sroa.014.0.copyload.i420, i64 4611686018428436479, ptr nonnull %2137)
           to label %2478 unwind label %.loopexit577
 
-2478:                                             ; preds = %switch.lookup1206
+2478:                                             ; preds = %switch.lookup1207
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7002,7 +7002,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           cleanup
   br label %2508
 
-.loopexit577:                                     ; preds = %switch.lookup1206, %2478, %2480, %2485, %2487, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit194.i, %2489, %2491, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit203.i, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i426
+.loopexit577:                                     ; preds = %switch.lookup1207, %2478, %2480, %2485, %2487, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit194.i, %2489, %2491, %_ZNO5vcpkg15LocalizedString10append_rawINS_13StringLiteralEvEEOS0_RKT_.exit203.i, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i426
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %2508
@@ -8997,7 +8997,7 @@ _ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   %.012.i = phi i64 [ %188, %.lr.ph.i ], [ 0, %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit110 ]
   %185 = getelementptr inbounds nuw i8, ptr %.0206, i64 %.012.i
   %186 = load i8, ptr %185, align 1, !tbaa !44
-  %187 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 0, i64 %.012.i
+  %187 = getelementptr inbounds nuw i8, ptr %26, i64 %.012.i
   store i8 %186, ptr %187, align 1, !tbaa !44
   %188 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %.012.i, %166
@@ -9681,10 +9681,10 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %13 = zext i8 %12 to i32
   %14 = lshr i32 %13, 3
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [32 x i8], ptr @.str.33, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !44
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !93
   %21 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !44
@@ -9692,11 +9692,11 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !44
-  %27 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %18
+  %27 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %18
   %28 = load i32, ptr %27, align 4, !tbaa !93
-  %29 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %18
+  %29 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %18
   %30 = load i32, ptr %29, align 4, !tbaa !93
-  %31 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %18
+  %31 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %18
   %32 = load i32, ptr %31, align 4, !tbaa !93
   %33 = load i64, ptr %.sroa.5.0.copyload, align 8, !tbaa !15
   %.not.i.not.i = icmp eq i64 %33, 0
@@ -9799,14 +9799,14 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %91 = zext i8 %90 to i32
   %92 = lshr i32 %91, 3
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [32 x i8], ptr @.str.33, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !44
   %96 = sext i8 %95 to i64
-  %97 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %96
+  %97 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !93
-  %99 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %96
+  %99 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %96
   %100 = load i32, ptr %99, align 4, !tbaa !93
-  %101 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %96
+  %101 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %96
   %102 = load i32, ptr %101, align 4, !tbaa !93
   %103 = getelementptr inbounds nuw i8, ptr %.026, i64 3
   %104 = load i8, ptr %103, align 1, !tbaa !44
@@ -9814,7 +9814,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %106 = load i8, ptr %105, align 1, !tbaa !44
   %107 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %108 = load i8, ptr %107, align 1, !tbaa !44
-  %109 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %96
+  %109 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %96
   %110 = load i32, ptr %109, align 4, !tbaa !93
   %111 = add i64 %88, -1
   store i64 %111, ptr %.sroa.5.0.copyload, align 8, !tbaa !15
@@ -10045,7 +10045,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %10 = zext i8 %9 to i32
   %11 = lshr i32 %10, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [32 x i8], ptr @.str.33, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !44
   %15 = sext i8 %14 to i64
   %16 = getelementptr inbounds i8, ptr %.169, i64 %15
@@ -10053,7 +10053,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %18 = and i32 %17, 1
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
-  %21 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %15
+  %21 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %15
   %22 = load i32, ptr %21, align 4, !tbaa !93
   %23 = and i32 %22, %10
   %24 = shl nuw nsw i32 %23, 18
@@ -10074,10 +10074,10 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %39 = and i8 %38, 63
   %40 = zext nneg i8 %39 to i32
   %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %15
+  %42 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %15
   %43 = load i32, ptr %42, align 4, !tbaa !93
   %44 = lshr i32 %41, %43
-  %45 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %15
+  %45 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %15
   %46 = load i32, ptr %45, align 4, !tbaa !93
   %47 = icmp ult i32 %44, %46
   %48 = select i1 %47, i32 64, i32 0
@@ -10098,7 +10098,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %62 = or disjoint i32 %61, %52
   %63 = or disjoint i32 %62, %50
   %64 = xor i32 %63, 42
-  %65 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %15
+  %65 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %15
   %66 = load i32, ptr %65, align 4, !tbaa !93
   %67 = lshr i32 %64, %66
   %.not.i = icmp eq i32 %67, 0
@@ -10168,7 +10168,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %85 = zext i8 %84 to i32
   %86 = lshr i32 %85, 3
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [32 x i8], ptr @.str.33, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !44
   %90 = sext i8 %89 to i64
   %91 = getelementptr inbounds i8, ptr %.026, i64 %90
@@ -10176,7 +10176,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %93 = and i32 %92, 1
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %94
-  %96 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %90
+  %96 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %90
   %97 = load i32, ptr %96, align 4, !tbaa !93
   %98 = and i32 %97, %85
   %99 = shl nuw nsw i32 %98, 18
@@ -10197,10 +10197,10 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %114 = and i8 %113, 63
   %115 = zext nneg i8 %114 to i32
   %116 = or disjoint i32 %111, %115
-  %117 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %90
+  %117 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %90
   %118 = load i32, ptr %117, align 4, !tbaa !93
   %119 = lshr i32 %116, %118
-  %120 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %90
+  %120 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %90
   %121 = load i32, ptr %120, align 4, !tbaa !93
   %122 = icmp ult i32 %119, %121
   %123 = select i1 %122, i32 64, i32 0
@@ -10221,7 +10221,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %137 = or disjoint i32 %136, %127
   %138 = or disjoint i32 %137, %125
   %139 = xor i32 %138, 42
-  %140 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %90
+  %140 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %90
   %141 = load i32, ptr %140, align 4, !tbaa !93
   %142 = lshr i32 %139, %141
   %.not.i41 = icmp eq i32 %142, 0
@@ -10278,10 +10278,10 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %5 = zext i8 %4 to i32
   %6 = lshr i32 %5, 3
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [32 x i8], ptr @.str.33, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @.str.33, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !44
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !93
   %13 = and i32 %12, %5
   %14 = shl nuw nsw i32 %13, 18
@@ -10302,10 +10302,10 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %29 = and i8 %28, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %10
+  %32 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %10
   %33 = load i32, ptr %32, align 4, !tbaa !93
   %34 = lshr i32 %31, %33
-  %35 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %10
+  %35 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %10
   %36 = load i32, ptr %35, align 4, !tbaa !93
   %37 = icmp ult i32 %34, %36
   %38 = select i1 %37, i32 64, i32 0
@@ -10326,7 +10326,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %52 = or disjoint i32 %51, %42
   %53 = or disjoint i32 %52, %40
   %54 = xor i32 %53, 42
-  %55 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %10
+  %55 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %10
   %56 = load i32, ptr %55, align 4, !tbaa !93
   %57 = lshr i32 %54, %56
   %.not = icmp eq i32 %57, 0

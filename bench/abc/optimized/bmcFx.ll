@@ -1026,7 +1026,7 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.si
   %235 = trunc nuw nsw i64 %234 to i32
   %236 = and i32 %235, 32767
   %237 = lshr i64 %225, 62
-  %238 = getelementptr inbounds nuw [5 x ptr], ptr @__const.Tab_TabFindBest.pNames, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw ptr, ptr @__const.Tab_TabFindBest.pNames, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !40
   %240 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %230, i32 noundef %233, i32 noundef %236, ptr noundef %239, i32 noundef %227)
   %241 = load i64, ptr %224, align 4
@@ -2453,7 +2453,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 66:                                               ; preds = %.sink.split, %58
   %67 = load i32, ptr %2, align 4, !tbaa !11
-  %68 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv57.sroa.phi, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %indvars.iv57.sroa.phi, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = add nsw i32 %69, %67
   store i32 %70, ptr %68, align 4, !tbaa !11

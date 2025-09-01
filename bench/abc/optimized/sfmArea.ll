@@ -44,7 +44,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %10 ]
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call ptr @Extra_PermSchedule(i32 noundef %11) #13
-  %13 = getelementptr inbounds nuw [7 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -62,7 +62,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.preheader153 ], [ 1, %10 ]
   %15 = trunc nuw nsw i64 %indvars.iv225 to i32
   %16 = tail call i32 @Extra_Factorial(i32 noundef %15) #13
-  %17 = getelementptr inbounds nuw [7 x i32], ptr %4, i64 0, i64 %indvars.iv225
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv225
   store i32 %16, ptr %17, align 4, !tbaa !15
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next226, 7
@@ -93,10 +93,10 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.not218 = icmp ult i32 %.fr219, 268435456
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [7 x i32], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %26
   %28 = icmp ugt i32 %.fr219, 268435455
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %30 = getelementptr inbounds nuw [7 x ptr], ptr %3, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
   %31 = add nuw nsw i32 %24, 1
   %wide.trip.count258 = zext nneg i32 %31 to i64
   %32 = trunc nuw nsw i64 %indvars.iv260 to i32
@@ -121,7 +121,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %41 = shl nuw nsw i32 1, %40
   %42 = zext nneg i32 %41 to i64
   %43 = shl i64 %36, %42
-  %44 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv255
+  %44 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv255
   %45 = load i64, ptr %44, align 8, !tbaa !23
   %46 = and i64 %45, %43
   %47 = and i64 %45, %36
@@ -169,7 +169,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %63, %.lr.ph
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %.lr.ph ], [ 0, %63 ]
-  %64 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %indvars.iv229
+  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv229
   %65 = trunc nuw nsw i64 %indvars.iv229 to i32
   store i32 %65, ptr %64, align 4, !tbaa !15
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
@@ -204,7 +204,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
 .preheader151.us.us.us:                           ; preds = %.lr.ph168.split.us.split.us.split.us, %.preheader151.us.us.us
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %.preheader151.us.us.us ], [ 0, %.lr.ph168.split.us.split.us.split.us ]
   %.4157.us.us.us = phi i32 [ %81, %.preheader151.us.us.us ], [ 0, %.lr.ph168.split.us.split.us.split.us ]
-  %76 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %indvars.iv244
+  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv244
   %77 = load i32, ptr %76, align 4, !tbaa !15
   %78 = shl i32 %77, 2
   %79 = trunc nuw nsw i64 %indvars.iv244 to i32
@@ -256,7 +256,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
 .lr.ph159:                                        ; preds = %.preheader151, %.lr.ph159
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.lr.ph159 ], [ 0, %.preheader151 ]
   %.4157 = phi i32 [ %98, %.lr.ph159 ], [ 0, %.preheader151 ]
-  %93 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %indvars.iv233
+  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv233
   %94 = load i32, ptr %93, align 4, !tbaa !15
   %95 = shl i32 %94, 2
   %96 = trunc nuw nsw i64 %indvars.iv233 to i32
@@ -281,7 +281,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr noundef readonly capt
   %102 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv238
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %104
+  %105 = getelementptr inbounds [3 x i64], ptr @s_PMasks, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !23
   %107 = and i64 %106, %.0101165
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -432,7 +432,7 @@ Vec_IntPushThree.exit:                            ; preds = %Vec_IntPush.exit11.
 
 170:                                              ; preds = %.preheader, %174
   %indvars.iv265 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next266, %174 ]
-  %171 = getelementptr inbounds nuw [7 x ptr], ptr %3, i64 0, i64 %indvars.iv265
+  %171 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv265
   %172 = load ptr, ptr %171, align 8, !tbaa !12
   %.not144 = icmp eq ptr %172, null
   br i1 %.not144, label %174, label %173

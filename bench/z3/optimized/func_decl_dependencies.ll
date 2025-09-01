@@ -2544,7 +2544,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 56:                                               ; preds = %.lr.ph, %_ZN25collect_dependencies_procclEP3app.exit
   %57 = phi i32 [ %53, %.lr.ph ], [ %128, %_ZN25collect_dependencies_procclEP3app.exit ]
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !114
   %61 = add nuw i32 %57, 1
   store i32 %61, ptr %52, align 8, !tbaa !113

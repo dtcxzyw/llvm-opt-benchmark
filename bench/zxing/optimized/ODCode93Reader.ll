@@ -159,7 +159,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i122:        ; preds = %.lr.ph.i.i.i.i.i116
   %49 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv.i.i123
   %50 = load i16, ptr %49, align 2, !tbaa !20, !noalias !3
   %51 = uitofp i16 %50 to double
-  %52 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i123
+  %52 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i123
   %53 = load i16, ptr %52, align 2, !tbaa !20, !noalias !3
   %54 = uitofp i16 %53 to double
   %55 = fneg double %54
@@ -263,7 +263,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %96 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv.i.i
   %97 = load i16, ptr %96, align 2, !tbaa !20, !noalias !3
   %98 = uitofp i16 %97 to double
-  %99 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i.i
   %100 = load i16, ptr %99, align 2, !tbaa !20, !noalias !3
   %101 = uitofp i16 %100 to double
   %102 = fneg double %101
@@ -551,7 +551,7 @@ _ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i:      ; preds = %201, %198, %195, %_
 210:                                              ; preds = %_ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i
   %sext.i = shl i64 %.028.i.i.i.i.idx15.i.i, 30
   %211 = ashr i64 %sext.i, 32
-  %212 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %211
+  %212 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %211
   %213 = load i8, ptr %212, align 1, !tbaa !35
   br label %_ZN5ZXing4OneD9RowReader16LookupBitPatternIA48_iA49_cEEciRKT_RKT0_.exit
 
@@ -1293,11 +1293,11 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   %17 = fdiv double %16, %9
   %18 = fadd double %17, 5.000000e-01
   %19 = fptosi double %18 to i32
-  %20 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   store i32 %19, ptr %20, align 4, !tbaa !27, !noalias !60
   %21 = sitofp i32 %19 to double
   %22 = fsub double %17, %21
-  %23 = getelementptr inbounds nuw [6 x double], ptr %3, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   store double %22, ptr %23, align 8, !tbaa !63, !noalias !60
   %24 = sub nsw i32 %.033.i, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1348,8 +1348,8 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i:             ; preds = %.lr.ph.i.i21.i, %.l
   %37 = ptrtoint ptr %spec.select.i.i23.lcssa.sink.i to i64
   %38 = ptrtoint ptr %3 to i64
   %39 = sub i64 %37, %38
-  %40 = ashr exact i64 %39, 3
-  %41 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %40
+  %40 = ashr exact i64 %39, 1
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !27, !noalias !60
   %43 = add nsw i32 %42, %24
   store i32 %43, ptr %41, align 4, !tbaa !27, !noalias !60
@@ -1367,7 +1367,7 @@ _ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit: 
 45:                                               ; preds = %45, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit
   %indvars.iv.i1 = phi i64 [ 0, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ], [ %indvars.iv.next.i2, %45 ]
   %.0910.i = phi i32 [ 0, %_ZN5ZXing17NormalizedPatternILi6ELi9EEESt5arrayIiXT_EERKNS_11PatternViewE.exit ], [ %53, %45 ]
-  %46 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv.i1
+  %46 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i1
   %47 = load i32, ptr %46, align 4, !tbaa !27
   %48 = shl i32 %.0910.i, %47
   %49 = trunc nuw nsw i64 %indvars.iv.i1 to i32
@@ -1428,7 +1428,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %18 = sext i32 %2 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !35
-  %21 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
+  %21 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %.011.lcssa.i
   %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = icmp eq i8 %20, %22
   br i1 %23, label %24, label %47
@@ -1474,7 +1474,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %41 = sext i32 %25 to i64
   %42 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !35
-  %44 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i5
+  %44 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %.011.lcssa.i5
   %45 = load i8, ptr %44, align 1, !tbaa !35
   %46 = icmp eq i8 %43, %45
   br label %47

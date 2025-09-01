@@ -168,7 +168,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4base5Value11GetTypeNameENS0_4TypeE(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4base12_GLOBAL__N_110kTypeNamesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_110kTypeNamesE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   ret ptr %4
 }

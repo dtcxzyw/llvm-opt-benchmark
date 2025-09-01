@@ -476,7 +476,7 @@ define dso_local void @_xmemcat(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %9 = sub i64 %8, %7
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %9, i64 4095)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %1, i64 %spec.store.select, i1 false)
-  %10 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %spec.store.select
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.store.select
   store i8 0, ptr %10, align 1
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %12 = trunc i64 %11 to i32

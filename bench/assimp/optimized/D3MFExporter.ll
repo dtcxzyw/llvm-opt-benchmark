@@ -2741,7 +2741,7 @@ _ZNK10aiMetadata3GetEmRPK8aiStringRPK15aiMetadataEntry.exit: ; preds = %20, %26
   %49 = load ptr, ptr %4, align 8
   %50 = zext i32 %spec.select.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %49, i64 %50, i1 false)
-  %51 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 %50
   store i8 0, ptr %51, align 1
   %52 = load i32, ptr %45, align 8
   %.not14.not.i.i = icmp eq i32 %52, 0
@@ -2787,7 +2787,7 @@ _ZNK8aiStringeqERKS_.exit.i.i:                    ; preds = %55
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %73 = zext nneg i32 %spec.select.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull align 4 %72, i64 %73, i1 false)
-  %74 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 %73
   store i8 0, ptr %74, align 1
   br label %.loopexit
 

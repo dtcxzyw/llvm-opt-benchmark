@@ -2149,7 +2149,7 @@ define range(i32 -22, 1) i32 @ff_default_get_supported_config(ptr readnone captu
   %53 = lshr i32 %52, 27
   %54 = and i32 %53, 3
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr @color_range_table, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr @color_range_table, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !134
   store ptr %57, ptr %4, align 8, !tbaa !134
   %.not72 = icmp eq ptr %5, null

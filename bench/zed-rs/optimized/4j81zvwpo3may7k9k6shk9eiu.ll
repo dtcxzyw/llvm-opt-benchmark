@@ -7883,8 +7883,8 @@ common.resume:                                    ; preds = %22, %48
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !19, !noundef !19
-  %19 = add i64 %9, -1
-  %20 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %18, i64 0, i64 %19
+  %19 = getelementptr { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %18, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 -192
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone..Clone$GT$5clone17hd92a3f9aa4b1286aE"(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %20)
           to label %24 unwind label %22
@@ -7911,7 +7911,7 @@ common.resume:                                    ; preds = %22, %48
   br i1 %26, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha49aefddb02c6844E.llvm.8627063476570623420.exit.i8", label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %18, i64 0, i64 %.sroa.0.0.i.i.i4
+  %28 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %18, i64 %.sroa.0.0.i.i.i4
   %29 = add i64 %.sroa.0.0.i.i.i4, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %28)
           to label %25 unwind label %32, !noalias !1865
@@ -7927,7 +7927,7 @@ common.resume:                                    ; preds = %22, %48
   br label %30
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %18, i64 0, i64 %.sroa.0.1.i.i.i5
+  %35 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %18, i64 %.sroa.0.1.i.i.i5
   %36 = add i64 %.sroa.0.1.i.i.i5, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %35) #27
           to label %30 unwind label %37, !noalias !1865
@@ -8020,8 +8020,8 @@ common.resume:                                    ; preds = %23, %49
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !19, !noundef !19
-  %20 = add i64 %10, -1
-  %21 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %20
+  %20 = getelementptr { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %10
+  %21 = getelementptr i8, ptr %20, i64 -192
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone..Clone$GT$5clone17hd92a3f9aa4b1286aE"(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %21)
           to label %25 unwind label %23
@@ -8048,7 +8048,7 @@ common.resume:                                    ; preds = %23, %49
   br i1 %27, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha49aefddb02c6844E.llvm.8627063476570623420.exit.i8", label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %.sroa.0.0.i.i.i4
+  %29 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %.sroa.0.0.i.i.i4
   %30 = add i64 %.sroa.0.0.i.i.i4, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %29)
           to label %26 unwind label %33, !noalias !1913
@@ -8064,7 +8064,7 @@ common.resume:                                    ; preds = %23, %49
   br label %31
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %19, i64 0, i64 %.sroa.0.1.i.i.i5
+  %36 = getelementptr inbounds { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }, ptr %19, i64 %.sroa.0.1.i.i.i5
   %37 = add i64 %.sroa.0.1.i.i.i5, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h86ddc4900246f5feE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %36) #27
           to label %31 unwind label %38, !noalias !1913
@@ -8341,7 +8341,7 @@ define void @"_ZN84_$LT$ui..components..keybinding..KeyBinding$u20$as$u20$gpui..
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 3572
   %18 = load i8, ptr %17, align 4, !range !2000, !noundef !19
   %19 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @"switch.table._ZN84_$LT$ui..components..keybinding..KeyBinding$u20$as$u20$gpui..element..RenderOnce$GT$6render17hc40df72c5d1f61a1E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw float, ptr @"switch.table._ZN84_$LT$ui..components..keybinding..KeyBinding$u20$as$u20$gpui..element..RenderOnce$GT$6render17hc40df72c5d1f61a1E", i64 %19
   %switch.load = load float, ptr %switch.gep, align 4
   %20 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
           to label %_ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit unwind label %62
@@ -9458,9 +9458,9 @@ switch.lookup11:
   %7 = load i8, ptr %6, align 4, !range !2000, !noundef !19
   %8 = zext nneg i8 %0 to i64
   %9 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2ui6styles7spacing7Spacing13spacing_ratio17hf9a649e6a2594914E.46, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2ui6styles7spacing7Spacing13spacing_ratio17hf9a649e6a2594914E.46, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep9 = getelementptr inbounds nuw [8 x float], ptr %switch.load, i64 0, i64 %8
+  %switch.gep9 = getelementptr inbounds nuw float, ptr %switch.load, i64 %8
   %switch.load10 = load float, ptr %switch.gep9, align 4
   ret float %switch.load10
 }

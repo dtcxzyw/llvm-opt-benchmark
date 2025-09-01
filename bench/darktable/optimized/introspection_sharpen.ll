@@ -395,7 +395,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx222
   %125 = load float, ptr %124, align 4, !tbaa !47
   %126 = fmul reassoc nsz arcp contract afn float %125, %117
-  %127 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0193229
+  %127 = getelementptr inbounds nuw float, ptr %9, i64 %.0193229
   %128 = load float, ptr %127, align 4, !tbaa !47
   %129 = fadd reassoc nsz arcp contract afn float %128, %126
   store float %129, ptr %127, align 4, !tbaa !47
@@ -715,7 +715,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [5 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

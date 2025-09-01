@@ -467,9 +467,9 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   br i1 %.not.i, label %102, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds [1 x i8], ptr %92, i64 0, i64 %.2
+  %100 = getelementptr inbounds i8, ptr %92, i64 %.2
   store i8 47, ptr %100, align 1
-  %101 = getelementptr inbounds [1 x i8], ptr %92, i64 0, i64 %93
+  %101 = getelementptr inbounds i8, ptr %92, i64 %93
   store i8 0, ptr %101, align 1
   br label %102
 

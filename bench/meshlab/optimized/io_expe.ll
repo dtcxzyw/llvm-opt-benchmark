@@ -1135,7 +1135,7 @@ _ZN7QStringD2Ev.exit113:                          ; preds = %_ZN7QStringD2Ev.exi
 
 133:                                              ; preds = %131
   %134 = zext nneg i32 %129 to i64
-  %135 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEiE9error_msg, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw ptr, ptr @_ZZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEiE9error_msg, i64 %134
   %136 = load ptr, ptr %135, align 8
   br label %_ZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEi.exit
 
@@ -1193,7 +1193,7 @@ _ZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEi.exit: ; preds = %131, %133
 
 149:                                              ; preds = %147
   %150 = zext nneg i32 %145 to i64
-  %151 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN3vcg3tri2io15ImporterExpePTSI6CMeshOE8ErrorMsgEiE9error_msg, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr @_ZZN3vcg3tri2io15ImporterExpePTSI6CMeshOE8ErrorMsgEiE9error_msg, i64 %150
   %152 = load ptr, ptr %151, align 8
   br label %_ZN3vcg3tri2io15ImporterExpePTSI6CMeshOE8ErrorMsgEi.exit
 
@@ -1381,7 +1381,7 @@ _ZN7QStringD2Ev.exit138:                          ; preds = %_ZN7QStringD2Ev.exi
 
 197:                                              ; preds = %195
   %198 = zext nneg i32 %193 to i64
-  %199 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEiE9error_msg, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw ptr, ptr @_ZZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEiE9error_msg, i64 %198
   %200 = load ptr, ptr %199, align 8
   br label %_ZN3vcg3tri2io11ImporterXYZI6CMeshOE8ErrorMsgEi.exit149
 
@@ -2662,7 +2662,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN11QStringListD2E
 
 216:                                              ; preds = %207
   %217 = fptrunc double %215 to float
-  %218 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv389
+  %218 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv389
   store float %217, ptr %218, align 4
   %219 = load ptr, ptr %11, align 8
   %220 = load atomic i32, ptr %219 monotonic, align 4
@@ -2693,7 +2693,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN11QStringListD2E
 
 235:                                              ; preds = %225
   %236 = fptrunc double %234 to float
-  %237 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv389
+  %237 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv389
   store float %236, ptr %237, align 4
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next390, 3
@@ -2925,9 +2925,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 
 300:                                              ; preds = %291
   %301 = fptrunc double %299 to float
-  %302 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %indvars.iv
+  %302 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   store float %301, ptr %302, align 4
-  %303 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   store float 0.000000e+00, ptr %303, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3939,7 +3939,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.th
 
 81:                                               ; preds = %.preheader104, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
   %indvars.iv = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit ]
-  %82 = getelementptr inbounds nuw [3 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8
   %.not54 = icmp eq ptr %83, null
   br i1 %.not54, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %84
@@ -7116,7 +7116,7 @@ _ZeqRK10QByteArrayPKc.exit:                       ; preds = %50
   %indvars.iv99 = phi i64 [ 0, %56 ], [ %indvars.iv.next100, %59 ]
   %60 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv99
   %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv99
+  %62 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv99
   store float %61, ptr %62, align 4
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 3
@@ -7168,7 +7168,7 @@ _ZeqRK10QByteArrayPKc.exit57:                     ; preds = %67
   %indvars.iv = phi i64 [ 0, %75 ], [ %indvars.iv.next, %78 ]
   %79 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv
   %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
   store float %80, ptr %81, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7840,7 +7840,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   %213 = getelementptr inbounds nuw double, ptr %212, i64 %indvars.iv214
   %214 = load double, ptr %213, align 8
   %215 = fptrunc double %214 to float
-  %216 = getelementptr inbounds nuw [3 x float], ptr %119, i64 0, i64 %indvars.iv214
+  %216 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv214
   store float %215, ptr %216, align 4
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next215, 3
@@ -8007,7 +8007,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   %296 = getelementptr inbounds nuw double, ptr %295, i64 %indvars.iv
   %297 = load double, ptr %296, align 8
   %298 = fptrunc double %297 to float
-  %299 = getelementptr inbounds nuw [3 x float], ptr %118, i64 0, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv
   store float %298, ptr %299, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

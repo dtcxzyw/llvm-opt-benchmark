@@ -43,7 +43,7 @@ define void @ossl_rcu_read_lock(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %16, %26
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
   %.02633 = phi i32 [ -1, %16 ], [ %spec.select, %26 ]
-  %18 = getelementptr inbounds nuw [10 x %struct.thread_qp], ptr %.0, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.thread_qp, ptr %.0, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = icmp eq ptr %20, %0
@@ -98,7 +98,7 @@ get_hold_current_qp.exit:                         ; preds = %.lr.ph.i, %31
   %52 = load ptr, ptr %33, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw %struct.rcu_qp, ptr %52, i64 %.lcssa.i
   %54 = sext i32 %spec.select to i64
-  %55 = getelementptr inbounds [10 x %struct.thread_qp], ptr %.0, i64 0, i64 %54
+  %55 = getelementptr inbounds %struct.thread_qp, ptr %.0, i64 %54
   store ptr %53, ptr %55, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 1, ptr %56, align 8, !tbaa !16
@@ -162,7 +162,7 @@ define void @ossl_rcu_read_unlock(ptr noundef readonly captures(address) %0) loc
 
 8:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw [10 x %struct.thread_qp], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.thread_qp, ptr %6, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = icmp eq ptr %11, %0

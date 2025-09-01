@@ -203,7 +203,7 @@ SDL_GetTrackedAllocationSize.exit.thread:         ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %13
   %.0710.i.i = load ptr, ptr %14, align 8
   %.not11.i.i = icmp eq ptr %.0710.i.i, null
   br i1 %.not11.i.i, label %SDL_GetTrackedAllocation.exit.thread.i, label %.lr.ph14.i.i
@@ -324,7 +324,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   %.068148 = phi i32 [ 0, %13 ], [ %.169.lcssa, %._crit_edge ]
   %.072146 = phi i64 [ %10, %13 ], [ %.173.lcssa, %._crit_edge ]
   %.074145 = phi ptr [ %12, %13 ], [ %.175.lcssa, %._crit_edge ]
-  %18 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %indvars.iv159
+  %18 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %indvars.iv159
   %.071135 = load ptr, ptr %18, align 8
   %.not96136 = icmp eq ptr %.071135, null
   br i1 %.not96136, label %._crit_edge, label %.lr.ph
@@ -362,7 +362,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   store i8 63, ptr %2, align 16
   store i8 63, ptr %15, align 1
   store i8 63, ptr %16, align 2
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8
   %.not98 = icmp eq i64 %34, 0
   br i1 %.not98, label %47, label %35
@@ -372,7 +372,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   br i1 %.b, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw [32 x [256 x i8]], ptr %31, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 %indvars.iv
   %38 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %2, i64 noundef 256, ptr noundef nonnull @.str.11, ptr noundef nonnull %37) #4
   %.pre = load i64, ptr %33, align 8
   br label %39
@@ -527,7 +527,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %20
   %.0710.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0710.i.i, null
   br i1 %.not11.i.i, label %.loopexit, label %.lr.ph14.i.i
@@ -585,7 +585,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %40 = call i32 @_ULx86_64_get_reg(ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull %9) #4
   %41 = load i64, ptr %9, align 8
-  %42 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
   store i64 %41, ptr %42, align 8
   %.b = load i1, ptr @s_unwind_symbol_names, align 1
   br i1 %.b, label %50, label %43
@@ -596,7 +596,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [32 x [256 x i8]], ptr %35, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [256 x i8], ptr %35, i64 %indvars.iv
   %48 = load i64, ptr %10, align 8
   %49 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %47, i64 noundef 256, ptr noundef nonnull @.str.16, ptr noundef nonnull %11, i64 noundef %48) #4
   br label %50
@@ -613,7 +613,7 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = zext nneg i32 %14 to i64
-  %54 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %28, i64 272
   store ptr %55, ptr %56, align 8
@@ -668,7 +668,7 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %9
   %.016 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %._crit_edge22, label %.lr.ph21.preheader

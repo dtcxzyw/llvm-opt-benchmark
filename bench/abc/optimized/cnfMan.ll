@@ -35,25 +35,25 @@ define noundef ptr @Cnf_ManStart() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %0, %8
-  %9 = phi ptr [ %6, %0 ], [ %10, %8 ]
+  %store_forwarded = phi ptr [ %6, %0 ], [ %10, %8 ]
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %11 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !16
+  %9 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 128
+  store ptr %10, ptr %9, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %8, !llvm.loop !18
+  br i1 %exitcond.not, label %11, label %8, !llvm.loop !18
 
-12:                                               ; preds = %8
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %14, align 4, !tbaa !20
-  store i32 262144, ptr %13, align 8, !tbaa !22
-  %15 = tail call noalias dereferenceable_or_null(1048576) ptr @malloc(i64 noundef 1048576) #17
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %15, ptr %16, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store ptr %13, ptr %17, align 8, !tbaa !24
+11:                                               ; preds = %8
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %13, align 4, !tbaa !20
+  store i32 262144, ptr %12, align 8, !tbaa !22
+  %14 = tail call noalias dereferenceable_or_null(1048576) ptr @malloc(i64 noundef 1048576) #17
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %14, ptr %15, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store ptr %12, ptr %16, align 8, !tbaa !24
   ret ptr %calloc
 }
 

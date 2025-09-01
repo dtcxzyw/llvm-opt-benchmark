@@ -2991,7 +2991,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip_setup_cork(ptr noundef
 
 50:                                               ; preds = %46, %41
   %51 = phi i64 [ 0, %41 ], [ %49, %46 ]
-  %52 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %51, i64 6
+  %52 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %51, i64 6
   %53 = load ptr, ptr %52, align 16
   %54 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %53, i32 noundef %43, i64 noundef 56) #15
   store ptr %54, ptr %38, align 8
@@ -3622,17 +3622,17 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
 
 383:                                              ; preds = %379
   %384 = getelementptr inbounds nuw i8, ptr %372, i64 48
-  %385 = add nsw i32 %356, -1
-  %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr [17 x %struct.bio_vec], ptr %384, i64 0, i64 %386
+  %385 = zext i8 %355 to i64
+  %386 = getelementptr %struct.bio_vec, ptr %384, i64 %385
+  %387 = getelementptr i8, ptr %386, i64 -16
   %388 = load ptr, ptr %387, align 8
   %389 = icmp eq ptr %388, %370
   br i1 %389, label %390, label %397
 
 390:                                              ; preds = %383
-  %391 = getelementptr inbounds nuw i8, ptr %387, i64 12
+  %391 = getelementptr i8, ptr %386, i64 -4
   %392 = load i32, ptr %391, align 4
-  %393 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  %393 = getelementptr i8, ptr %386, i64 -8
   %394 = load i32, ptr %393, align 8
   %395 = add i32 %394, %392
   %396 = icmp eq i32 %395, %371
@@ -3646,7 +3646,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
 399:                                              ; preds = %397
   %400 = getelementptr inbounds nuw i8, ptr %372, i64 48
   %401 = zext i8 %355 to i64
-  %402 = getelementptr [17 x %struct.bio_vec], ptr %400, i64 0, i64 %401
+  %402 = getelementptr %struct.bio_vec, ptr %400, i64 %401
   store ptr %370, ptr %402, align 8
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 12
   store i32 %371, ptr %403, align 4

@@ -16308,7 +16308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit: ; preds = %._crit_edge39.us.i, %61, %.split
   %.not3135.i = phi i8 [ 0, %.split ], [ 1, %61 ], [ 0, %._crit_edge39.us.i ]
-  %103 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %.02456
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 %.02456
   store i8 %.not3135.i, ptr %103, align 1, !tbaa !492
   %104 = add nuw nsw i64 %.02456, 1
   %exitcond.not = icmp eq i64 %104, 4
@@ -16324,7 +16324,7 @@ _ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERK
   %105 = add nuw nsw i32 %.02357, 1
   %106 = and i32 %105, 3
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !492, !range !112, !noundef !113
   %110 = trunc nuw i8 %109 to i1
   %.not = xor i1 %110, true

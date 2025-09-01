@@ -728,7 +728,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %22 = tail call i64 @strscpy(ptr noundef %2, ptr noundef %5, i64 noundef %18) #16
   %23 = load i8, ptr %2, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @_ctype, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = freeze i8 %26
   %28 = and i8 %27, 3
@@ -751,7 +751,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %35 = phi i8 [ %48, %46 ], [ %33, %31 ]
   %36 = phi ptr [ %47, %46 ], [ %32, %31 ]
   %37 = zext i8 %35 to i64
-  %38 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %37
+  %38 = getelementptr i8, ptr @_ctype, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 3
   %41 = icmp eq i8 %40, 0
@@ -815,7 +815,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
 68:                                               ; preds = %62
   %69 = load i8, ptr %64, align 1
   %70 = zext i8 %69 to i64
-  %71 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %70
+  %71 = getelementptr i8, ptr @_ctype, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 3
   %74 = icmp ne i8 %73, 0
@@ -833,7 +833,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %81 = phi i8 [ %95, %93 ], [ %79, %77 ]
   %82 = phi ptr [ %94, %93 ], [ %78, %77 ]
   %83 = zext i8 %81 to i64
-  %84 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %83
+  %84 = getelementptr i8, ptr @_ctype, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = and i8 %85, 3
   %87 = icmp ne i8 %86, 0
@@ -870,7 +870,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr [0 x %struct.probe_arg], ptr %6, i64 0, i64 %7
+  %8 = getelementptr %struct.probe_arg, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
@@ -921,7 +921,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 35:                                               ; preds = %31
   %36 = load i8, ptr %32, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %37
+  %38 = getelementptr i8, ptr @_ctype, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 3
   %41 = icmp ne i8 %40, 0
@@ -942,7 +942,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %48 = phi i8 [ %62, %60 ], [ %46, %44 ]
   %49 = phi ptr [ %61, %60 ], [ %45, %44 ]
   %50 = zext i8 %48 to i64
-  %51 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @_ctype, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 3
   %54 = icmp ne i8 %53, 0
@@ -978,7 +978,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 .loopexit32:                                      ; preds = %.loopexit32.preheader, %64
   %71 = phi i64 [ %65, %64 ], [ 0, %.loopexit32.preheader ]
-  %72 = getelementptr [8 x ptr], ptr @reserved_field_names, i64 0, i64 %71
+  %72 = getelementptr ptr, ptr @reserved_field_names, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @strcmp(ptr noundef %73, ptr noundef nonnull dereferenceable(1) %32) #16
   %75 = icmp eq i32 %74, 0
@@ -2092,7 +2092,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
 14:                                               ; preds = %10, %8
   %15 = phi i32 [ 0, %8 ], [ %11, %10 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [0 x %struct.probe_arg], ptr %4, i64 0, i64 %16
+  %17 = getelementptr %struct.probe_arg, ptr %4, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2234,7 +2234,7 @@ define dso_local void @trace_probe_cleanup(ptr noundef %0) local_unnamed_addr #0
 7:                                                ; preds = %traceprobe_free_probe_arg.exit, %5
   %8 = phi i32 [ 0, %5 ], [ %28, %traceprobe_free_probe_arg.exit ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr [0 x %struct.probe_arg], ptr %6, i64 0, i64 %9
+  %10 = getelementptr %struct.probe_arg, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %traceprobe_free_probe_arg.exit, label %.preheader.i
@@ -2669,10 +2669,10 @@ define dso_local i32 @trace_probe_compare_arg_type(ptr noundef readonly captures
 
 22:                                               ; preds = %19
   %23 = sext i32 %20 to i64
-  %24 = getelementptr [0 x %struct.probe_arg], ptr %15, i64 0, i64 %23
+  %24 = getelementptr %struct.probe_arg, ptr %15, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr [0 x %struct.probe_arg], ptr %16, i64 0, i64 %23
+  %27 = getelementptr %struct.probe_arg, ptr %16, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %26, %29
@@ -2734,7 +2734,7 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef readonly
 
 13:                                               ; preds = %13, %11
   %14 = phi i64 [ 0, %11 ], [ %25, %13 ]
-  %15 = getelementptr [0 x %struct.probe_arg], ptr %9, i64 0, i64 %14
+  %15 = getelementptr %struct.probe_arg, ptr %9, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -2968,7 +2968,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
   br i1 %40, label %.loopexit, label %41, !llvm.loop !38
 
 41:                                               ; preds = %.preheader
-  %42 = getelementptr [18 x %struct.fetch_type], ptr @probe_fetch_types, i64 0, i64 %39
+  %42 = getelementptr %struct.fetch_type, ptr @probe_fetch_types, i64 %39
   %43 = load ptr, ptr %42, align 16
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = icmp eq i32 %44, 0
@@ -3533,7 +3533,7 @@ sub_1:                                            ; preds = %sub_0
 
 301:                                              ; preds = %4
   %302 = zext i8 %10 to i64
-  %303 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %302
+  %303 = getelementptr i8, ptr @_ctype, i64 %302
   %304 = load i8, ptr %303, align 1
   %305 = and i8 %304, 3
   %306 = icmp ne i8 %305, 0

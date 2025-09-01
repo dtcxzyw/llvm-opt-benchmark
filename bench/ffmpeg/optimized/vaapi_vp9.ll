@@ -230,9 +230,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 159:                                              ; preds = %55, %159
   %indvars.iv = phi i64 [ 0, %55 ], [ %indvars.iv.next, %159 ]
-  %160 = getelementptr inbounds nuw [7 x i8], ptr %158, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !62
-  %162 = getelementptr inbounds nuw [7 x i8], ptr %.sroa.56.0..sroa_idx, i64 0, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.56.0..sroa_idx, i64 %indvars.iv
   store i8 %161, ptr %162, align 1, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -249,9 +249,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 166:                                              ; preds = %.preheader, %166
   %indvars.iv124 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next125, %166 ]
-  %167 = getelementptr inbounds nuw [3 x i8], ptr %165, i64 0, i64 %indvars.iv124
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 %indvars.iv124
   %168 = load i8, ptr %167, align 1, !tbaa !62
-  %169 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.57.0..sroa_idx, i64 0, i64 %indvars.iv124
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.57.0..sroa_idx, i64 %indvars.iv124
   store i8 %168, ptr %169, align 1, !tbaa !62
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 3
@@ -267,7 +267,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 172:                                              ; preds = %.loopexit, %179
   %indvars.iv128 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next129, %179 ]
-  %173 = getelementptr inbounds nuw [8 x %struct.ProgressFrame], ptr %171, i64 0, i64 %indvars.iv128
+  %173 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %171, i64 %indvars.iv128
   %174 = load ptr, ptr %173, align 8, !tbaa !77
   %.not119 = icmp eq ptr %174, null
   br i1 %.not119, label %179, label %175
@@ -281,7 +281,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 179:                                              ; preds = %172, %175
   %.sink = phi i32 [ %178, %175 ], [ -1, %172 ]
-  %180 = getelementptr inbounds nuw [8 x i32], ptr %.sroa.3.0..sroa_idx, i64 0, i64 %indvars.iv128
+  %180 = getelementptr inbounds nuw i32, ptr %.sroa.3.0..sroa_idx, i64 %indvars.iv128
   store i32 %.sink, ptr %180, align 4, !tbaa !78
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 8
@@ -319,8 +319,8 @@ define internal i32 @vaapi_vp9_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 
 11:                                               ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [8 x %struct._VASegmentParameterVP9], ptr %9, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct._VASegmentParameterVP9, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.anon.2, ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i8, ptr %14, align 2, !tbaa !80
   %16 = and i8 %15, 1

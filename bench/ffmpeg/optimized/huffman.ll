@@ -439,7 +439,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %.0182245 = phi i32 [ 1, %._crit_edge.thread ], [ %.1183222, %.thread ]
   %27 = add nsw i32 %.0182245, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %28
+  %29 = getelementptr inbounds [2 x ptr], ptr %11, i64 %28
   %30 = load ptr, ptr %29, align 16, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !29
@@ -620,7 +620,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %indvars.iv281
+  %104 = getelementptr inbounds [2 x ptr], ptr %11, i64 %indvars.iv281
   store ptr %.0179237, ptr %104, align 16, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %.0171.lcssa, ptr %105, align 8, !tbaa !29
@@ -629,7 +629,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 107:                                              ; preds = %98
   %108 = getelementptr inbounds nuw i8, ptr %.0170.lcssa, i64 8
-  %109 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %indvars.iv281
+  %109 = getelementptr inbounds [2 x ptr], ptr %11, i64 %indvars.iv281
   store ptr %108, ptr %109, align 16, !tbaa !29
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %.0176238, ptr %110, align 8, !tbaa !29

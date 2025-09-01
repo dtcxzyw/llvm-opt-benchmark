@@ -373,7 +373,7 @@ define void @MixCoder_Construct(ptr noundef writeonly captures(none) initializes
 
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct._IStateCoder, ptr %5, i64 %indvars.iv
   store ptr null, ptr %7, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -404,7 +404,7 @@ define void @MixCoder_Free(ptr noundef captures(none) %0) local_unnamed_addr #1 
   %8 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %6, %.lr.ph ]
   %9 = phi i32 [ %17, %.lr.ph.splitthread-pre-split ], [ %3, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct._IStateCoder, ptr %5, i64 %indvars.iv
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %16, label %11
 
@@ -471,11 +471,11 @@ define void @MixCoder_Init(ptr noundef captures(none) %0) local_unnamed_addr #1 
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 0, ptr %12, align 8, !tbaa !26
-  %13 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 0, ptr %13, align 8, !tbaa !26
-  %14 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 0, ptr %14, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -483,7 +483,7 @@ define void @MixCoder_Init(ptr noundef captures(none) %0) local_unnamed_addr #1 
 
 15:                                               ; preds = %.lr.ph17, %15
   %indvars.iv19 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next20, %15 ]
-  %16 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %10, i64 0, i64 %indvars.iv19
+  %16 = getelementptr inbounds nuw %struct._IStateCoder, ptr %10, i64 %indvars.iv19
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %16, align 8, !tbaa !19
@@ -502,9 +502,9 @@ define void @MixCoder_Init(ptr noundef captures(none) %0) local_unnamed_addr #1 
 define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct._IStateCoder, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %5
+  %8 = getelementptr inbounds i64, ptr %7, i64 %5
   store i64 %2, ptr %8, align 8, !tbaa !3
   %cond = icmp eq i64 %2, 33
   br i1 %cond, label %9, label %20
@@ -615,7 +615,7 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   %.080134 = phi i32 [ %.181.ph, %101 ], [ 0, %.split ]
   %.186133 = phi i32 [ %.287.ph, %101 ], [ %.085, %.split ]
   %.191132 = phi ptr [ %.292.ph, %101 ], [ %.090, %.split ]
-  %33 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %25, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct._IStateCoder, ptr %25, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -632,13 +632,13 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   %40 = add nsw i64 %indvars.iv, -1
   %41 = shl nsw i64 %40, 17
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
-  %43 = getelementptr inbounds [3 x i64], ptr %26, i64 0, i64 %40
+  %43 = getelementptr inbounds i64, ptr %26, i64 %40
   %44 = load i64, ptr %43, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
-  %46 = getelementptr inbounds [3 x i64], ptr %27, i64 0, i64 %40
+  %46 = getelementptr inbounds i64, ptr %27, i64 %40
   %47 = load i64, ptr %46, align 8, !tbaa !26
   %48 = sub i64 %47, %44
-  %49 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %40
+  %49 = getelementptr inbounds i32, ptr %28, i64 %40
   %50 = load i32, ptr %49, align 4, !tbaa !27
   br label %51
 
@@ -658,9 +658,9 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br label %67
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !26
-  %61 = getelementptr inbounds nuw [3 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !26
   %.not98 = icmp eq i64 %60, %62
   br i1 %.not98, label %63, label %101
@@ -693,8 +693,8 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br label %83
 
 78:                                               ; preds = %67
-  %79 = add nsw i64 %indvars.iv, -1
-  %80 = getelementptr inbounds [3 x i64], ptr %26, i64 0, i64 %79
+  %79 = getelementptr i64, ptr %26, i64 %indvars.iv
+  %80 = getelementptr i8, ptr %79, i64 -8
   %81 = load i64, ptr %80, align 8, !tbaa !26
   %82 = add i64 %81, %73
   store i64 %82, ptr %80, align 8, !tbaa !26
@@ -717,11 +717,11 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br label %97
 
 93:                                               ; preds = %83
-  %94 = getelementptr inbounds nuw [3 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   store i64 %88, ptr %94, align 8, !tbaa !26
-  %95 = getelementptr inbounds nuw [3 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   store i64 0, ptr %95, align 8, !tbaa !26
-  %96 = getelementptr inbounds nuw [3 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   store i32 %72, ptr %96, align 4, !tbaa !27
   br label %97
 
@@ -1066,10 +1066,10 @@ define i32 @XzDec_Init(ptr noundef captures(none) %0, ptr noundef %1) local_unna
 
 13:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = sub nuw nsw i64 %12, %indvars.iv
-  %17 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %11, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.CXzFilter, ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !45
   %.not61 = icmp eq i64 %15, %18
   br i1 %.not61, label %19, label %20
@@ -1102,7 +1102,7 @@ define i32 @XzDec_Init(ptr noundef captures(none) %0, ptr noundef %1) local_unna
   %26 = phi ptr [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %24, %.lr.ph.i ]
   %27 = phi i32 [ %35, %.lr.ph.splitthread-pre-split.i ], [ %8, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %23, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %struct._IStateCoder, ptr %23, i64 %indvars.iv.i
   %.not18.i = icmp eq ptr %26, null
   br i1 %.not18.i, label %34, label %29
 
@@ -1152,10 +1152,10 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 48:                                               ; preds = %MixCoder_Free.exit, %80
   %indvars.iv84 = phi i64 [ 0, %MixCoder_Free.exit ], [ %indvars.iv.next85, %80 ]
   %49 = sub nuw nsw i64 %47, %indvars.iv84
-  %50 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %44, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw %struct.CXzFilter, ptr %44, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !45
-  %52 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %45, i64 0, i64 %indvars.iv84
-  %53 = getelementptr inbounds nuw [4 x i64], ptr %46, i64 0, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw %struct._IStateCoder, ptr %45, i64 %indvars.iv84
+  %53 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv84
   store i64 %51, ptr %53, align 8, !tbaa !3
   %cond.i = icmp eq i64 %51, 33
   br i1 %cond.i, label %54, label %65
@@ -1231,8 +1231,8 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 84:                                               ; preds = %.loopexit, %83
   %indvars.iv89 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next90, %83 ]
   %85 = sub nuw nsw i64 %.pre-phi, %indvars.iv89
-  %86 = getelementptr inbounds nuw [4 x %struct.CXzFilter], ptr %81, i64 0, i64 %85
-  %87 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %82, i64 0, i64 %indvars.iv89
+  %86 = getelementptr inbounds nuw %struct.CXzFilter, ptr %81, i64 %85
+  %87 = getelementptr inbounds nuw %struct._IStateCoder, ptr %82, i64 %indvars.iv89
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !23
   %90 = load ptr, ptr %87, align 8, !tbaa !19
@@ -1264,11 +1264,11 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 
 105:                                              ; preds = %105, %.lr.ph.i69
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %105 ]
-  %106 = getelementptr inbounds nuw [3 x i64], ptr %101, i64 0, i64 %indvars.iv.i70
+  %106 = getelementptr inbounds nuw i64, ptr %101, i64 %indvars.iv.i70
   store i64 0, ptr %106, align 8, !tbaa !26
-  %107 = getelementptr inbounds nuw [3 x i64], ptr %102, i64 0, i64 %indvars.iv.i70
+  %107 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv.i70
   store i64 0, ptr %107, align 8, !tbaa !26
-  %108 = getelementptr inbounds nuw [3 x i32], ptr %103, i64 0, i64 %indvars.iv.i70
+  %108 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i70
   store i32 0, ptr %108, align 4, !tbaa !27
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i
@@ -1279,7 +1279,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 
 .lr.ph17.i:                                       ; preds = %.lr.ph17.i.preheader, %.lr.ph17.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph17.i ], [ 0, %.lr.ph17.i.preheader ]
-  %109 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %82, i64 0, i64 %indvars.iv19.i
+  %109 = getelementptr inbounds nuw %struct._IStateCoder, ptr %82, i64 %indvars.iv19.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !24
   %112 = load ptr, ptr %109, align 8, !tbaa !19
@@ -1308,7 +1308,7 @@ define noundef i32 @XzUnpacker_Create(ptr noundef writeonly captures(none) initi
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct._IStateCoder, ptr %6, i64 %indvars.iv.i
   store ptr null, ptr %8, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1351,7 +1351,7 @@ define void @XzUnpacker_Free(ptr noundef captures(address_is_null) %0) local_unn
   %10 = phi ptr [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %8, %.lr.ph.i ]
   %11 = phi i32 [ %19, %.lr.ph.splitthread-pre-split.i ], [ %5, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.splitthread-pre-split.i ], [ 0, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %7, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct._IStateCoder, ptr %7, i64 %indvars.iv.i
   %.not18.i = icmp eq ptr %10, null
   br i1 %.not18.i, label %18, label %13
 
@@ -1572,7 +1572,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   br i1 %102, label %104, label %._crit_edge
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw [6 x i8], ptr @XZ_SIG, i64 0, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr @XZ_SIG, i64 %103
   %106 = load i8, ptr %105, align 1, !tbaa !7
   %.not310 = icmp eq i8 %.pre348, %106
   br i1 %.not310, label %._crit_edge, label %.thread336
@@ -1581,7 +1581,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %107 = getelementptr inbounds nuw i8, ptr %.0252, i64 1
   %108 = add nuw nsw i32 %99, 1
   store i32 %108, ptr %16, align 4, !tbaa !49
-  %109 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %103
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 %103
   store i8 %.pre348, ptr %109, align 1, !tbaa !7
   %110 = load i64, ptr %4, align 8, !tbaa !26
   %111 = add i64 %110, 1
@@ -1784,7 +1784,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %208 = add nuw i32 %201, 1
   store i32 %208, ptr %16, align 4, !tbaa !49
   %209 = zext i32 %201 to i64
-  %210 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr %17, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !7
   %.not298 = icmp eq i8 %207, %211
   br i1 %.not298, label %.backedge, label %.thread336
@@ -1832,7 +1832,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %.masked = and i32 %234, 255
   %236 = xor i32 %.masked, %235
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw [0 x i32], ptr @g_CrcTable, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw i32, ptr @g_CrcTable, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !27
   %240 = lshr i32 %234, 8
   %241 = xor i32 %239, %240
@@ -1881,7 +1881,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr noundef captures
   %258 = add nuw nsw i32 %252, 1
   store i32 %258, ptr %16, align 4, !tbaa !49
   %259 = zext nneg i32 %252 to i64
-  %260 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i8, ptr %17, i64 %259
   store i8 %257, ptr %260, align 1, !tbaa !7
   br label %.backedge
 

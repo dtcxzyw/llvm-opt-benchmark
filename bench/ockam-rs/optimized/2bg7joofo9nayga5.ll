@@ -9681,10 +9681,10 @@ define noundef zeroext i1 @"_ZN97_$LT$ockam_vault..software..legacy..secret_attr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E.27", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E.27", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -86,7 +86,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %12, align 1, !noalias !16, !noundef !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = load i8, ptr %16, align 1, !noalias !17, !noundef !4
   %18 = getelementptr inbounds i8, ptr %.sroa.7.0.copyload, i64 %11
   store i8 %17, ptr %18, align 1, !noalias !22
@@ -1619,7 +1619,7 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %3 = zext i8 %1 to i64
   %4 = load ptr, ptr %0, align 8, !alias.scope !279, !nonnull !4, !align !5, !noundef !4
-  %5 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %3
   %6 = load i8, ptr %5, align 1, !noalias !279, !noundef !4
   ret i8 %6
 }
@@ -2010,7 +2010,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h259b72a1045d55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %18
   %20 = load i8, ptr %19, align 1, !noalias !380, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
@@ -2079,7 +2079,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %4 = zext i8 %1 to i64
   %5 = load ptr, ptr %3, align 8, !alias.scope !409, !nonnull !4, !align !5, !noundef !4
-  %6 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %4
   %7 = load i8, ptr %6, align 1, !noalias !409, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
@@ -2936,7 +2936,7 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h0c99157c64b5
 define hidden noundef i8 @"_ZN5uu_dd6blocks25conv_block_unblock_helper16apply_conversion28_$u7b$$u7b$closure$u7d$$u7d$17h16b283f03649dd82E.llvm.16547901512627249430"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i8 noundef %1) unnamed_addr #21 {
   %3 = zext i8 %1 to i64
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %5 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %3
   %6 = load i8, ptr %5, align 1, !noundef !4
   ret i8 %6
 }

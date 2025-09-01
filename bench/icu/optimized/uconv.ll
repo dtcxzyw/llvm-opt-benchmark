@@ -914,7 +914,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %352
   br label %391
 
 354:                                              ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit, %.lr.ph
-  %355 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 0, i64 %indvars.iv
+  %355 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
   %356 = load i8, ptr %355, align 1, !tbaa !10
   %357 = lshr i8 %356, 4
   %358 = icmp ult i8 %356, -96
@@ -1509,7 +1509,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit327:      ; preds = %612
   %615 = phi i8 [ %.pre428, %_ZN6icu_7713UnicodeString6appendEDs.exit327 ], [ %610, %.lr.ph413 ]
   %616 = add nsw i8 %.0151411, 1
   %617 = sext i8 %.0151411 to i64
-  %618 = getelementptr inbounds [4 x i16], ptr %52, i64 0, i64 %617
+  %618 = getelementptr inbounds i16, ptr %52, i64 %617
   %619 = load i16, ptr %618, align 2, !tbaa !32
   %620 = zext i16 %619 to i32
   %621 = and i32 %620, 64512
@@ -1520,7 +1520,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit327:      ; preds = %612
 
 623:                                              ; preds = %614
   %624 = sext i8 %616 to i64
-  %625 = getelementptr inbounds [4 x i16], ptr %52, i64 0, i64 %624
+  %625 = getelementptr inbounds i16, ptr %52, i64 %624
   %626 = load i16, ptr %625, align 2, !tbaa !32
   %627 = zext i16 %626 to i32
   %628 = and i32 %627, 64512
@@ -2678,7 +2678,7 @@ sub_2506:                                         ; preds = %sub_1505
 
 227:                                              ; preds = %226, %224
   %indvars.iv.i = phi i64 [ 0, %224 ], [ %indvars.iv.next.i, %226 ]
-  %228 = getelementptr inbounds nuw [11 x %struct.callback_ent], ptr @_ZL19transcode_callbacks, i64 0, i64 %indvars.iv.i
+  %228 = getelementptr inbounds nuw %struct.callback_ent, ptr @_ZL19transcode_callbacks, i64 %indvars.iv.i
   %229 = load ptr, ptr %228, align 8, !tbaa !47
   %230 = invoke i32 @uprv_stricmp_77(ptr noundef %225, ptr noundef %229)
           to label %.noexc unwind label %231
@@ -2760,7 +2760,7 @@ sub_2506:                                         ; preds = %sub_1505
 
 258:                                              ; preds = %257, %255
   %indvars.iv.i361 = phi i64 [ 0, %255 ], [ %indvars.iv.next.i363, %257 ]
-  %259 = getelementptr inbounds nuw [11 x %struct.callback_ent], ptr @_ZL19transcode_callbacks, i64 0, i64 %indvars.iv.i361
+  %259 = getelementptr inbounds nuw %struct.callback_ent, ptr @_ZL19transcode_callbacks, i64 %indvars.iv.i361
   %260 = load ptr, ptr %259, align 8, !tbaa !47
   %261 = invoke i32 @uprv_stricmp_77(ptr noundef %256, ptr noundef %260)
           to label %.noexc366 unwind label %262
@@ -2865,7 +2865,7 @@ sub_2511:                                         ; preds = %sub_1510
 
 298:                                              ; preds = %297, %295
   %indvars.iv.i368 = phi i64 [ 0, %295 ], [ %indvars.iv.next.i370, %297 ]
-  %299 = getelementptr inbounds nuw [11 x %struct.callback_ent], ptr @_ZL19transcode_callbacks, i64 0, i64 %indvars.iv.i368
+  %299 = getelementptr inbounds nuw %struct.callback_ent, ptr @_ZL19transcode_callbacks, i64 %indvars.iv.i368
   %300 = load ptr, ptr %299, align 8, !tbaa !47
   %301 = invoke i32 @uprv_stricmp_77(ptr noundef %296, ptr noundef %300)
           to label %.noexc373 unwind label %302
@@ -4053,7 +4053,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit27:    ; preds = %_ZNK6icu_7713Unicod
 
 .preheader:                                       ; preds = %50, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %50 ]
-  %51 = getelementptr inbounds nuw [11 x %struct.callback_ent], ptr @_ZL19transcode_callbacks, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.callback_ent, ptr @_ZL19transcode_callbacks, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !47
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.71, ptr noundef %52) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

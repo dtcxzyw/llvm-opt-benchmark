@@ -1403,7 +1403,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 %.01527
   %69 = load i8, ptr %68, align 1, !tbaa !16
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !24, !range !27, !noundef !28
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %._crit_edge, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit
@@ -1607,7 +1607,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.01519.i
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !24, !range !27, !noundef !28
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit.i, label %._crit_edge.i
@@ -1695,7 +1695,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.01519
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !24, !range !27, !noundef !28
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPb.exit, label %._crit_edge
@@ -1838,7 +1838,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.013.i
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !24, !range !27, !noundef !28
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.013.i, 0
@@ -1923,7 +1923,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.013
   %35 = load i8, ptr %34, align 1, !tbaa !16
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !24, !range !27, !noundef !28
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.013, 0
@@ -2035,7 +2035,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.speculated.i
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !24, !range !27, !noundef !28
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i
@@ -2050,7 +2050,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !24, !range !27, !noundef !28
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !34
@@ -2126,7 +2126,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.speculated
   %31 = load i8, ptr %30, align 1, !tbaa !16
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !24, !range !27, !noundef !28
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph, label %._crit_edge
@@ -2141,7 +2141,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !24, !range !27, !noundef !28
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !34

@@ -4313,7 +4313,7 @@ _ZN4llvm9MIPrinterD2Ev.exit152:                   ; preds = %_ZN4llvm9MIPrinter2
   %.not.i.i.i.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i.i.i.i ], [ false, %624 ]
   %.0813.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ 1, %624 ]
   %.0912.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i.i, %624 ]
-  %619 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i.i.i
+  %619 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i.i.i.i
   %620 = load i8, ptr %619, align 1, !tbaa !53, !range !48, !noalias !576, !noundef !49
   %621 = trunc nuw i8 %620 to i1
   br i1 %621, label %622, label %624
@@ -4436,7 +4436,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo12getStackSlotEv.exit: ; preds = %655
 680:                                              ; preds = %680, %661
   %indvars.iv.i = phi i64 [ 0, %661 ], [ %indvars.iv.next.i, %680 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %681 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.i
+  %681 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %682 = load ptr, ptr %681, align 8, !tbaa !320
   store i32 0, ptr %644, align 8, !tbaa !314
   store i8 0, ptr %645, align 8, !tbaa !318
@@ -4445,7 +4445,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo12getStackSlotEv.exit: ; preds = %655
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %10, align 8, !tbaa !3
   store ptr %682, ptr %648, align 8, !tbaa !320
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  %683 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv.i
+  %683 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %684 = load ptr, ptr %683, align 8, !tbaa !596
   call void @_ZNK4llvm8Metadata14printAsOperandERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleE(ptr noundef nonnull align 4 dereferenceable(8) %684, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef null) #22
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #22
@@ -4489,7 +4489,7 @@ _ZL23printStackObjectDbgInfoIN4llvm4yaml23FixedMachineStackObjectEEvRKNS0_15Mach
 702:                                              ; preds = %702, %685
   %indvars.iv.i154 = phi i64 [ 0, %685 ], [ %indvars.iv.next.i155, %702 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %703 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i154
+  %703 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i154
   %704 = load ptr, ptr %703, align 8, !tbaa !320
   store i32 0, ptr %634, align 8, !tbaa !314
   store i8 0, ptr %635, align 8, !tbaa !318
@@ -4498,7 +4498,7 @@ _ZL23printStackObjectDbgInfoIN4llvm4yaml23FixedMachineStackObjectEEvRKNS0_15Mach
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8, !tbaa !3
   store ptr %704, ptr %638, align 8, !tbaa !320
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  %705 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i154
+  %705 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i154
   %706 = load ptr, ptr %705, align 8, !tbaa !596
   call void @_ZNK4llvm8Metadata14printAsOperandERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleE(ptr noundef nonnull align 4 dereferenceable(8) %706, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef null) #22
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #22
@@ -4527,7 +4527,7 @@ _ZL23printStackObjectDbgInfoIN4llvm4yaml18MachineStackObjectEEvRKNS0_15MachineFu
   %.not.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i ], [ false, %717 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %717 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %.1.i.i.i.i.i.i, %717 ]
-  %712 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %712 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %713 = load i8, ptr %712, align 1, !tbaa !53, !range !48, !noundef !49
   %714 = trunc nuw i8 %713 to i1
   br i1 %714, label %715, label %717
@@ -4590,7 +4590,7 @@ define dso_local void @_ZN4llvm10MIRPrinter24convertEntryValueObjectsERNS_4yaml1
   %.not.i.i.i.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i.i.i.i ], [ false, %30 ]
   %.0813.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ 1, %30 ]
   %.0912.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i.i, %30 ]
-  %25 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 %.0813.i.i.i.i.i.i.i.i.i
   %26 = load i8, ptr %25, align 1, !tbaa !53, !range !48, !noalias !602, !noundef !49
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %30
@@ -4708,7 +4708,7 @@ _ZNSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12emplace_backIJEEERS2_DpOT_.
 83:                                               ; preds = %83, %_ZNSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ], [ %indvars.iv.next.i, %83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %84 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8, !tbaa !320
   store i32 0, ptr %42, align 8, !tbaa !314
   store i8 0, ptr %43, align 8, !tbaa !318
@@ -4717,7 +4717,7 @@ _ZNSt6vectorIN4llvm4yaml16EntryValueObjectESaIS2_EE12emplace_backIJEEERS2_DpOT_.
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8, !tbaa !3
   store ptr %85, ptr %46, align 8, !tbaa !320
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  %86 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8, !tbaa !596
   call void @_ZNK4llvm8Metadata14printAsOperandERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleE(ptr noundef nonnull align 4 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef null) #22
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #22
@@ -4788,7 +4788,7 @@ _ZL11printRegMIRjRN4llvm4yaml11StringValueEPKNS_18TargetRegisterInfoE.exit: ; pr
   %.not.i.i.i.i.i.i = phi i1 [ true, %.lr.ph.i.i ], [ false, %107 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %107 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %.1.i.i.i.i.i.i, %107 ]
-  %102 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %102 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm10MCRegisterEJiS1_EEmv.__found, i64 %.0813.i.i.i.i.i.i
   %103 = load i8, ptr %102, align 1, !tbaa !53, !range !48, !noundef !49
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %107

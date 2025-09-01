@@ -37323,7 +37323,7 @@ define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr noundef nonnull align 8 
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load i32, ptr %180, align 8
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %182, i32 5
+  %183 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %182, i32 5
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %._crit_edge
@@ -43662,7 +43662,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %7, i32 5
+  %8 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %7, i32 5
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %43
@@ -72183,7 +72183,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %23, i32 1
+  %24 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %23, i32 1
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 11
   %.pr.pre = load ptr, ptr %3, align 8
@@ -72271,7 +72271,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %73, i32 1
+  %74 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %73, i32 1
   %75 = load i8, ptr %74, align 4
   %76 = icmp eq i8 %75, 11
   %.pr309.pre = load ptr, ptr %3, align 8
@@ -72460,7 +72460,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i32, ptr %178, align 8
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %180, i32 1
+  %181 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %180, i32 1
   %182 = load i8, ptr %181, align 4
   %183 = icmp eq i8 %182, 11
   %.pr313.pr.pre = load ptr, ptr %3, align 8
@@ -72649,7 +72649,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %285 = load i32, ptr %284, align 8
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %286, i32 1
+  %287 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %286, i32 1
   %288 = load i8, ptr %287, align 4
   %289 = icmp eq i8 %288, 11
   %.pr317.pre = load ptr, ptr %3, align 8
@@ -72832,7 +72832,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %389 = load i32, ptr %388, align 8
   %390 = zext i32 %389 to i64
-  %391 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %390, i32 1
+  %391 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %390, i32 1
   %392 = load i8, ptr %391, align 4
   %393 = icmp eq i8 %392, 10
   %.pr322.pr.pr.pre = load ptr, ptr %3, align 8
@@ -72924,7 +72924,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %440 = load i32, ptr %439, align 8
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %441, i32 1
+  %442 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %441, i32 1
   %443 = load i8, ptr %442, align 4
   %444 = icmp eq i8 %443, 10
   %.pr326.pre = load ptr, ptr %3, align 8
@@ -73129,7 +73129,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 16
   %556 = load i32, ptr %555, align 8
   %557 = zext i32 %556 to i64
-  %558 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %557, i32 1
+  %558 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %557, i32 1
   %559 = load i8, ptr %558, align 4
   %560 = icmp eq i8 %559, 10
   %.pr331.pr.pr.pre = load ptr, ptr %3, align 8
@@ -73334,7 +73334,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 16
   %671 = load i32, ptr %670, align 8
   %672 = zext i32 %671 to i64
-  %673 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %672, i32 1
+  %673 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %672, i32 1
   %674 = load i8, ptr %673, align 4
   %675 = icmp eq i8 %674, 10
   br i1 %675, label %676, label %.thread332
@@ -73788,7 +73788,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %23, i32 1
+  %24 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %23, i32 1
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 11
   %.pr.pre = load ptr, ptr %3, align 8
@@ -73876,7 +73876,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %73, i32 1
+  %74 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %73, i32 1
   %75 = load i8, ptr %74, align 4
   %76 = icmp eq i8 %75, 11
   %.pr309.pre = load ptr, ptr %3, align 8
@@ -74065,7 +74065,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i32, ptr %178, align 8
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %180, i32 1
+  %181 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %180, i32 1
   %182 = load i8, ptr %181, align 4
   %183 = icmp eq i8 %182, 11
   %.pr313.pr.pre = load ptr, ptr %3, align 8
@@ -74254,7 +74254,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %285 = load i32, ptr %284, align 8
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %286, i32 1
+  %287 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %286, i32 1
   %288 = load i8, ptr %287, align 4
   %289 = icmp eq i8 %288, 11
   %.pr317.pre = load ptr, ptr %3, align 8
@@ -74437,7 +74437,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %389 = load i32, ptr %388, align 8
   %390 = zext i32 %389 to i64
-  %391 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %390, i32 1
+  %391 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %390, i32 1
   %392 = load i8, ptr %391, align 4
   %393 = icmp eq i8 %392, 10
   %.pr322.pr.pr.pre = load ptr, ptr %3, align 8
@@ -74529,7 +74529,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %440 = load i32, ptr %439, align 8
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %441, i32 1
+  %442 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %441, i32 1
   %443 = load i8, ptr %442, align 4
   %444 = icmp eq i8 %443, 10
   %.pr326.pre = load ptr, ptr %3, align 8
@@ -74734,7 +74734,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 16
   %556 = load i32, ptr %555, align 8
   %557 = zext i32 %556 to i64
-  %558 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %557, i32 1
+  %558 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %557, i32 1
   %559 = load i8, ptr %558, align 4
   %560 = icmp eq i8 %559, 10
   %.pr331.pr.pr.pre = load ptr, ptr %3, align 8
@@ -74939,7 +74939,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 16
   %671 = load i32, ptr %670, align 8
   %672 = zext i32 %671 to i64
-  %673 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %672, i32 1
+  %673 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %672, i32 1
   %674 = load i8, ptr %673, align 4
   %675 = icmp eq i8 %674, 10
   br i1 %675, label %676, label %.thread332
@@ -134840,7 +134840,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr noundef nonnull
 47:                                               ; preds = %40
   %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, 5
   %.pr29.pre37 = load ptr, ptr %3, align 8
@@ -139114,7 +139114,7 @@ define hidden noundef zeroext i1 @_ZN5State3DFAEiPK4Node(ptr noundef nonnull ali
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %629, ptr noundef nonnull @.str) #8
   %630 = load ptr, ptr @tty, align 8
   %631 = sext i32 %1 to i64
-  %632 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %631
+  %632 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %631
   %633 = load ptr, ptr %632, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %630, ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef %633) #8
   br label %_ZN5State15_sub_Op_CacheWBEPK4Node.exit

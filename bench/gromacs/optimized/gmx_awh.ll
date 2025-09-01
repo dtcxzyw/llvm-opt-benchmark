@@ -3541,7 +3541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
 132:                                              ; preds = %.lr.ph117, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %133 = phi ptr [ %55, %.lr.ph117 ], [ %155, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %.024116 = phi i64 [ 0, %.lr.ph117 ], [ %156, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %134 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.024116
+  %134 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.024116
   %135 = load ptr, ptr %62, align 8, !tbaa !30
   %.not.i = icmp eq ptr %133, %135
   br i1 %.not.i, label %154, label %136

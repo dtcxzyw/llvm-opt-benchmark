@@ -3868,7 +3868,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14Che
 
 switch.lookup:                                    ; preds = %639
   %642 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 0, i64 %642
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 %642
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i.i
 
@@ -3937,18 +3937,18 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i.i: ; preds = %653, %651
 
 677:                                              ; preds = %672
   %678 = urem i32 %673, 10
-  %switch.tableidx126 = add nsw i32 %678, -1
-  %679 = icmp ult i32 %switch.tableidx126, 3
-  br i1 %679, label %switch.lookup125, label %_ZN4llvm16getOrdinalSuffixEj.exit50.i.i.i.i
+  %switch.tableidx125 = add nsw i32 %678, -1
+  %679 = icmp ult i32 %switch.tableidx125, 3
+  br i1 %679, label %switch.lookup126, label %_ZN4llvm16getOrdinalSuffixEj.exit50.i.i.i.i
 
-switch.lookup125:                                 ; preds = %677
-  %680 = zext nneg i32 %switch.tableidx126 to i64
-  %switch.gep127 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 0, i64 %680
+switch.lookup126:                                 ; preds = %677
+  %680 = zext nneg i32 %switch.tableidx125 to i64
+  %switch.gep127 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 %680
   %switch.load128 = load ptr, ptr %switch.gep127, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit50.i.i.i.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit50.i.i.i.i:      ; preds = %677, %switch.lookup125, %672
-  %.sroa.0.0.i47.i.i.i.i = phi ptr [ @.str.41, %672 ], [ %switch.load128, %switch.lookup125 ], [ @.str.41, %677 ]
+_ZN4llvm16getOrdinalSuffixEj.exit50.i.i.i.i:      ; preds = %677, %switch.lookup126, %672
+  %.sroa.0.0.i47.i.i.i.i = phi ptr [ @.str.41, %672 ], [ %switch.load128, %switch.lookup126 ], [ @.str.41, %677 ]
   %681 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %682 = load ptr, ptr %681, align 8, !tbaa !773, !noalias !822
   %683 = getelementptr inbounds nuw i8, ptr %675, i64 32
@@ -4467,18 +4467,18 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
 
 898:                                              ; preds = %893
   %899 = urem i32 %894, 10
-  %switch.tableidx130 = add nsw i32 %899, -1
-  %900 = icmp ult i32 %switch.tableidx130, 3
-  br i1 %900, label %switch.lookup129, label %_ZN4llvm16getOrdinalSuffixEj.exit.i77.i.i.i
+  %switch.tableidx129 = add nsw i32 %899, -1
+  %900 = icmp ult i32 %switch.tableidx129, 3
+  br i1 %900, label %switch.lookup130, label %_ZN4llvm16getOrdinalSuffixEj.exit.i77.i.i.i
 
-switch.lookup129:                                 ; preds = %898
-  %901 = zext nneg i32 %switch.tableidx130 to i64
-  %switch.gep131 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 0, i64 %901
+switch.lookup130:                                 ; preds = %898
+  %901 = zext nneg i32 %switch.tableidx129 to i64
+  %switch.gep131 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 %901
   %switch.load132 = load ptr, ptr %switch.gep131, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i77.i.i.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit.i77.i.i.i:      ; preds = %898, %switch.lookup129, %893
-  %.sroa.0.0.i.i78.i.i.i = phi ptr [ @.str.41, %893 ], [ %switch.load132, %switch.lookup129 ], [ @.str.41, %898 ]
+_ZN4llvm16getOrdinalSuffixEj.exit.i77.i.i.i:      ; preds = %898, %switch.lookup130, %893
+  %.sroa.0.0.i.i78.i.i.i = phi ptr [ @.str.41, %893 ], [ %switch.load132, %switch.lookup130 ], [ @.str.41, %898 ]
   %902 = getelementptr inbounds nuw i8, ptr %896, i64 24
   %903 = load ptr, ptr %902, align 8, !tbaa !773, !noalias !822
   %904 = getelementptr inbounds nuw i8, ptr %896, i64 32
@@ -4613,18 +4613,18 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i79.i.i.i: ; preds = %912, %910
 
 979:                                              ; preds = %974
   %980 = urem i32 %975, 10
-  %switch.tableidx134 = add nsw i32 %980, -1
-  %981 = icmp ult i32 %switch.tableidx134, 3
-  br i1 %981, label %switch.lookup133, label %_ZN4llvm16getOrdinalSuffixEj.exit37.i.i.i.i
+  %switch.tableidx133 = add nsw i32 %980, -1
+  %981 = icmp ult i32 %switch.tableidx133, 3
+  br i1 %981, label %switch.lookup134, label %_ZN4llvm16getOrdinalSuffixEj.exit37.i.i.i.i
 
-switch.lookup133:                                 ; preds = %979
-  %982 = zext nneg i32 %switch.tableidx134 to i64
-  %switch.gep135 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 0, i64 %982
+switch.lookup134:                                 ; preds = %979
+  %982 = zext nneg i32 %switch.tableidx133 to i64
+  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 %982
   %switch.load136 = load ptr, ptr %switch.gep135, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit37.i.i.i.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit37.i.i.i.i:      ; preds = %979, %switch.lookup133, %974
-  %.sroa.0.0.i34.i.i.i.i = phi ptr [ @.str.41, %974 ], [ %switch.load136, %switch.lookup133 ], [ @.str.41, %979 ]
+_ZN4llvm16getOrdinalSuffixEj.exit37.i.i.i.i:      ; preds = %979, %switch.lookup134, %974
+  %.sroa.0.0.i34.i.i.i.i = phi ptr [ @.str.41, %974 ], [ %switch.load136, %switch.lookup134 ], [ @.str.41, %979 ]
   %983 = getelementptr inbounds nuw i8, ptr %977, i64 24
   %984 = load ptr, ptr %983, align 8, !tbaa !773, !noalias !822
   %985 = getelementptr inbounds nuw i8, ptr %977, i64 32
@@ -4683,18 +4683,18 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit40.i.i.i.i: ; preds = %993, %991
 
 1015:                                             ; preds = %1010
   %1016 = urem i32 %1011, 10
-  %switch.tableidx138 = add nsw i32 %1016, -1
-  %1017 = icmp ult i32 %switch.tableidx138, 3
-  br i1 %1017, label %switch.lookup137, label %_ZN4llvm16getOrdinalSuffixEj.exit49.i.i.i.i
+  %switch.tableidx137 = add nsw i32 %1016, -1
+  %1017 = icmp ult i32 %switch.tableidx137, 3
+  br i1 %1017, label %switch.lookup138, label %_ZN4llvm16getOrdinalSuffixEj.exit49.i.i.i.i
 
-switch.lookup137:                                 ; preds = %1015
-  %1018 = zext nneg i32 %switch.tableidx138 to i64
-  %switch.gep139 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 0, i64 %1018
+switch.lookup138:                                 ; preds = %1015
+  %1018 = zext nneg i32 %switch.tableidx137 to i64
+  %switch.gep139 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_121CallAndMessageCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE.6, i64 %1018
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit49.i.i.i.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit49.i.i.i.i:      ; preds = %1015, %switch.lookup137, %1010
-  %.sroa.0.0.i46.i.i.i.i = phi ptr [ @.str.41, %1010 ], [ %switch.load140, %switch.lookup137 ], [ @.str.41, %1015 ]
+_ZN4llvm16getOrdinalSuffixEj.exit49.i.i.i.i:      ; preds = %1015, %switch.lookup138, %1010
+  %.sroa.0.0.i46.i.i.i.i = phi ptr [ @.str.41, %1010 ], [ %switch.load140, %switch.lookup138 ], [ @.str.41, %1015 ]
   %1019 = getelementptr inbounds nuw i8, ptr %1013, i64 24
   %1020 = load ptr, ptr %1019, align 8, !tbaa !773, !noalias !822
   %1021 = getelementptr inbounds nuw i8, ptr %1013, i64 32

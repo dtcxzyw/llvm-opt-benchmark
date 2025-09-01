@@ -54,7 +54,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
   %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %12) #9
-  br label %113
+  br label %111
 
 16:                                               ; preds = %5
   %17 = and i64 %9, 1
@@ -74,7 +74,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %19) #9
-  br label %113
+  br label %111
 
 23:                                               ; preds = %16
   %24 = icmp ugt i64 %9, 80
@@ -93,7 +93,7 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
   %29 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %26) #9
-  br label %113
+  br label %111
 
 30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -132,17 +132,17 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit61:           ; preds = %30
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader unwind label %51
 
 49:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
-  %50 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %86, ptr noundef nonnull @_ZN5ZXing4OneDL11END_PATTERNE, i64 noundef 3, i1 noundef zeroext true)
+  %50 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %84, ptr noundef nonnull @_ZN5ZXing4OneDL11END_PATTERNE, i64 noundef 3, i1 noundef zeroext true)
           to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %51
 
 51:                                               ; preds = %49, %38, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %101
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader: ; preds = %38, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
-  %.04166 = phi i64 [ %87, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ 0, %38 ]
-  %.04265 = phi i32 [ %86, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %48, %38 ]
+  %.04166 = phi i64 [ %85, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ 0, %38 ]
+  %.04265 = phi i32 [ %84, %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit ], [ %48, %38 ]
   %53 = load ptr, ptr %2, align 8, !tbaa !17
   %54 = getelementptr inbounds nuw i32, ptr %53, i64 %.04166
   %55 = load i32, ptr %54, align 4, !tbaa !18
@@ -162,117 +162,116 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
 
 63:                                               ; preds = %61
   invoke void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #10
-          to label %114 unwind label %66
+          to label %112 unwind label %66
 
 64:                                               ; preds = %61
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %62) #9
-  br label %103
+  br label %101
 
 66:                                               ; preds = %63
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %101
 
 68:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader
-  %69 = add nsw i32 %57, -48
-  %70 = add nsw i32 %55, -48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %71
-  %73 = zext nneg i32 %69 to i64
-  %74 = getelementptr inbounds nuw [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %73
+  %69 = zext nneg i32 %55 to i64
+  %70 = getelementptr %"struct.std::array.13", ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 -960
+  %72 = zext nneg i32 %57 to i64
+  %73 = getelementptr %"struct.std::array.13", ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 %72
+  %74 = getelementptr i8, ptr %73, i64 -960
   br label %77
 
 75:                                               ; preds = %77
   %76 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %.04265, ptr noundef nonnull align 4 dereferenceable(40) %7, i64 noundef 10, i1 noundef zeroext true)
-          to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %89
+          to label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit unwind label %87
 
 77:                                               ; preds = %68, %77
   %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw [5 x i32], ptr %72, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !20
-  %80 = shl nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %80
-  store i32 %79, ptr %81, align 4, !tbaa !20
-  %82 = getelementptr inbounds nuw [5 x i32], ptr %74, i64 0, i64 %indvars.iv
-  %83 = load i32, ptr %82, align 4, !tbaa !20
-  %84 = or disjoint i64 %80, 1
-  %85 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %84
-  store i32 %83, ptr %85, align 4, !tbaa !20
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  store i32 %79, ptr %80, align 4, !tbaa !20
+  %81 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
+  %82 = load i32, ptr %81, align 4, !tbaa !20
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store i32 %82, ptr %83, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %75, label %77, !llvm.loop !21
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm10EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %75
-  %86 = add nsw i32 %76, %.04265
+  %84 = add nsw i32 %76, %.04265
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %87 = add nuw nsw i64 %.04166, 2
-  %88 = icmp ult i64 %87, %9
-  br i1 %88, label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader, label %49, !llvm.loop !23
+  %85 = add nuw nsw i64 %.04166, 2
+  %86 = icmp ult i64 %85, %9
+  br i1 %86, label %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEEiRKT_b.exit.preheader, label %49, !llvm.loop !23
 
-89:                                               ; preds = %75
-  %90 = landingpad { ptr, i32 }
+87:                                               ; preds = %75
+  %88 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %103
+  br label %101
 
 _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit: ; preds = %49
-  %91 = load i32, ptr %1, align 4, !tbaa !24
-  %92 = icmp sgt i32 %91, -1
-  %spec.select = select i1 %92, i32 %91, i32 10
+  %89 = load i32, ptr %1, align 4, !tbaa !24
+  %90 = icmp sgt i32 %89, -1
+  %spec.select = select i1 %90, i32 %89, i32 10
   invoke void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(ptr dead_on_unwind writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %3, i32 noundef %4, i32 noundef %spec.select)
-          to label %93 unwind label %51
+          to label %91 unwind label %51
 
-93:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
-  %94 = load ptr, ptr %6, align 8, !tbaa !26
-  %.not.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %95
+91:                                               ; preds = %_ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm3EEEEiRSt6vectorIbSaIbEEiRKT_b.exit
+  %92 = load ptr, ptr %6, align 8, !tbaa !26
+  %.not.i.i = icmp eq ptr %92, null
+  br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %93
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %32, align 8, !tbaa !11
-  %97 = ptrtoint ptr %96 to i64
-  %98 = ptrtoint ptr %94 to i64
-  %99 = sub i64 %97, %98
-  %100 = ashr exact i64 %99, 3
-  %101 = sub nsw i64 0, %100
-  %102 = getelementptr inbounds i64, ptr %96, i64 %101
-  call void @_ZdlPvm(ptr noundef %102, i64 noundef %99) #12
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %32, align 8, !tbaa !11
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %92 to i64
+  %97 = sub i64 %95, %96
+  %98 = ashr exact i64 %97, 3
+  %99 = sub nsw i64 0, %98
+  %100 = getelementptr inbounds i64, ptr %94, i64 %99
+  call void @_ZdlPvm(ptr noundef %100, i64 noundef %97) #12
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %93, %95
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %91, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-103:                                              ; preds = %64, %66, %89, %51
-  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %67, %66 ], [ %65, %64 ], [ %90, %89 ]
-  %104 = load ptr, ptr %6, align 8, !tbaa !26
-  %.not.i.i52 = icmp eq ptr %104, null
-  br i1 %.not.i.i52, label %.body, label %105
+101:                                              ; preds = %64, %66, %87, %51
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %67, %66 ], [ %65, %64 ], [ %88, %87 ]
+  %102 = load ptr, ptr %6, align 8, !tbaa !26
+  %.not.i.i52 = icmp eq ptr %102, null
+  br i1 %.not.i.i52, label %.body, label %103
 
-105:                                              ; preds = %103
-  %106 = load ptr, ptr %32, align 8, !tbaa !11
-  %107 = ptrtoint ptr %106 to i64
-  %108 = ptrtoint ptr %104 to i64
-  %109 = sub i64 %107, %108
-  %110 = ashr exact i64 %109, 3
-  %111 = sub nsw i64 0, %110
-  %112 = getelementptr inbounds i64, ptr %106, i64 %111
-  call void @_ZdlPvm(ptr noundef %112, i64 noundef %109) #12
+103:                                              ; preds = %101
+  %104 = load ptr, ptr %32, align 8, !tbaa !11
+  %105 = ptrtoint ptr %104 to i64
+  %106 = ptrtoint ptr %102 to i64
+  %107 = sub i64 %105, %106
+  %108 = ashr exact i64 %107, 3
+  %109 = sub nsw i64 0, %108
+  %110 = getelementptr inbounds i64, ptr %104, i64 %109
+  call void @_ZdlPvm(ptr noundef %110, i64 noundef %107) #12
   br label %.body
 
-.body:                                            ; preds = %105, %103, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61
-  %.pn.pn.pn = phi { ptr, i32 } [ %37, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61 ], [ %.pn.pn, %103 ], [ %.pn.pn, %105 ]
+.body:                                            ; preds = %103, %101, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61
+  %.pn.pn.pn = phi { ptr, i32 } [ %37, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit61 ], [ %.pn.pn, %101 ], [ %.pn.pn, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %113
+  br label %111
 
-113:                                              ; preds = %.body, %28, %21, %14
+111:                                              ; preds = %.body, %28, %21, %14
   %.pn50 = phi { ptr, i32 } [ %15, %14 ], [ %22, %21 ], [ %29, %28 ], [ %.pn.pn.pn, %.body ]
   resume { ptr, i32 } %.pn50
 
-114:                                              ; preds = %63
+112:                                              ; preds = %63
   unreachable
 }
 

@@ -395,7 +395,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 18:                                               ; preds = %6, %18
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %18 ]
   %.01422 = phi i32 [ 0, %6 ], [ %23, %18 ]
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = icmp ne i32 %20, -1
   %22 = zext i1 %21 to i32
@@ -726,7 +726,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 36:                                               ; preds = %8, %53
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %53 ]
   %.01932 = phi i32 [ 0, %8 ], [ %56, %53 ]
-  %37 = getelementptr inbounds nuw [6 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = icmp slt i32 %38, %26
   br i1 %39, label %53, label %40

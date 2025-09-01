@@ -1791,8 +1791,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit172: ; preds = %417, %421, %427
   %spec.select.i.i173 = add nuw nsw i64 %indvars.iv, %440
   %441 = getelementptr inbounds nuw i8, ptr %431, i64 24
   %sext = shl nuw i64 %spec.select.i.i173, 32
-  %442 = ashr exact i64 %sext, 32
-  %443 = getelementptr inbounds [0 x ptr], ptr %441, i64 0, i64 %442
+  %442 = ashr exact i64 %sext, 29
+  %443 = getelementptr inbounds i8, ptr %441, i64 %442
   %444 = load ptr, ptr %443, align 8, !tbaa !88, !noalias !85
   store ptr %444, ptr %43, align 8, !tbaa !59, !alias.scope !85
   %445 = load i64, ptr %444, align 8, !noalias !85
@@ -1903,8 +1903,8 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit178:       ; preds = %491, %485, %493
   %spec.select.i.i179 = add nuw nsw i64 %indvars.iv, %504
   %505 = getelementptr inbounds nuw i8, ptr %495, i64 24
   %sext405 = shl nuw i64 %spec.select.i.i179, 32
-  %506 = ashr exact i64 %sext405, 32
-  %507 = getelementptr inbounds [0 x ptr], ptr %505, i64 0, i64 %506
+  %506 = ashr exact i64 %sext405, 29
+  %507 = getelementptr inbounds i8, ptr %505, i64 %506
   %508 = load ptr, ptr %507, align 8, !tbaa !88, !noalias !89
   store ptr %508, ptr %47, align 8, !tbaa !59, !alias.scope !89
   %509 = load i64, ptr %508, align 8, !noalias !89
@@ -2123,8 +2123,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit197:           ; preds = %_ZN4cvc58internal8T
   %spec.select.i.i198 = add nuw nsw i64 %indvars.iv, %618
   %619 = getelementptr inbounds nuw i8, ptr %609, i64 24
   %sext406 = shl nuw i64 %spec.select.i.i198, 32
-  %620 = ashr exact i64 %sext406, 32
-  %621 = getelementptr inbounds [0 x ptr], ptr %619, i64 0, i64 %620
+  %620 = ashr exact i64 %sext406, 29
+  %621 = getelementptr inbounds i8, ptr %619, i64 %620
   %622 = load ptr, ptr %621, align 8, !tbaa !88, !noalias !92
   %623 = load i64, ptr %622, align 8, !noalias !92
   %624 = lshr i64 %623, 40
@@ -2992,7 +2992,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !88
   store ptr %15, ptr %0, align 8, !tbaa !59
   %16 = load i64, ptr %15, align 8

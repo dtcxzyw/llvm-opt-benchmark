@@ -1340,7 +1340,7 @@ define noundef i32 @IPdr_ManRestoreAbsFlops(ptr noundef readonly captures(none) 
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !37
   %25 = ashr i32 %24, 1
   %26 = sext i32 %25 to i64
@@ -1483,7 +1483,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %21
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !37
   %41 = ashr i32 %40, 1
   %42 = sext i32 %41 to i64
@@ -2059,7 +2059,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 256:                                              ; preds = %256, %.lr.ph.i625
   %indvars.iv.i626 = phi i64 [ 0, %.lr.ph.i625 ], [ %indvars.iv.next.i627, %256 ]
-  %257 = getelementptr inbounds nuw [0 x i32], ptr %255, i64 0, i64 %indvars.iv.i626
+  %257 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i626
   %258 = load i32, ptr %257, align 4, !tbaa !37
   %259 = ashr i32 %258, 1
   %260 = sext i32 %259 to i64
@@ -3521,7 +3521,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 
 982:                                              ; preds = %.lr.ph851, %982
   %indvars.iv944 = phi i64 [ 0, %.lr.ph851 ], [ %indvars.iv.next945, %982 ]
-  %983 = getelementptr inbounds nuw [0 x i32], ptr %980, i64 0, i64 %indvars.iv944
+  %983 = getelementptr inbounds nuw i32, ptr %980, i64 %indvars.iv944
   %984 = load i32, ptr %983, align 4, !tbaa !37
   %985 = ashr i32 %984, 1
   %986 = sext i32 %985 to i64

@@ -812,7 +812,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   %12 = getelementptr inbounds nuw double, ptr %9, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !9
   %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %11
+  %15 = getelementptr inbounds nuw double, ptr %4, i64 %11
   %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = tail call double @llvm.fmuladd.f64(double %14, double 1.000000e-04, double %16)
   %18 = fcmp ugt double %17, 0.000000e+00

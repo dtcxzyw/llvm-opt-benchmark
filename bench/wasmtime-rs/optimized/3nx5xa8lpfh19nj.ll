@@ -105,7 +105,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN16cranelift_e
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
-  %23 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }], ptr %22, i64 0, i64 %1
+  %23 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, {}, [4 x i8] }, ptr %22, i64 %1
   ret ptr %23
 
 24:                                               ; preds = %2
@@ -160,7 +160,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_e
 20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
-  %23 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %22, i64 0, i64 %1
+  %23 = getelementptr inbounds { { i32, [1 x i32] }, i32, i32 }, ptr %22, i64 %1
   ret ptr %23
 
 24:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
@@ -196,7 +196,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
 13:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6292a95278d74fE.exit"
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds i32, ptr %15, i64 %1
   ret ptr %16
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h8c6292a95278d74fE.exit"
@@ -232,7 +232,7 @@ define hidden noundef nonnull align 2 dereferenceable(2) ptr @"_ZN16cranelift_en
 13:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h79e77dfa598b3693E.exit"
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds [0 x i16], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds i16, ptr %15, i64 %1
   ret ptr %16
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h79e77dfa598b3693E.exit"
@@ -268,7 +268,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN16cranelift_en
 13:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h0b29b8ca9d2d7670E.exit"
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %1
+  %16 = getelementptr inbounds i8, ptr %15, i64 %1
   ret ptr %16
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h0b29b8ca9d2d7670E.exit"
@@ -415,7 +415,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !99, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %16
+  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
   %25 = load i64, ptr %24, align 8, !noalias !99, !noundef !9
   %26 = and i64 %3, 63
   %27 = lshr i64 %25, %26
@@ -425,7 +425,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %31 = load ptr, ptr %30, align 8, !nonnull !9, !noundef !9
   %32 = and i64 %3, 63
   %33 = shl nuw i64 1, %32
-  %34 = getelementptr inbounds nuw [0 x i64], ptr %31, i64 0, i64 %16
+  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %16
   %35 = load i64, ptr %34, align 8, !noundef !9
   %36 = or i64 %35, %33
   store i64 %36, ptr %34, align 8
@@ -454,7 +454,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds nuw [0 x i64], ptr %15, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %8
   %17 = load i64, ptr %16, align 8, !noundef !9
   %18 = and i64 %3, 63
   %19 = lshr i64 %17, %18

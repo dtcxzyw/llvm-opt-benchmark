@@ -740,7 +740,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %68, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %71 ]
-  %69 = getelementptr inbounds nuw [512 x i8], ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %indvars.iv.i
   %70 = load i8, ptr %69, align 1, !tbaa !22
   switch i8 %70, label %._crit_edge.i [
     i8 10, label %71
@@ -779,7 +779,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf) #25
-  %82 = getelementptr inbounds nuw [512 x i8], ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %81
   store i8 0, ptr %82, align 1, !tbaa !22
   store ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 48), align 16, !tbaa !17
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 74), align 2, !tbaa !19
@@ -829,7 +829,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %109 = load ptr, ptr @stderr, align 8, !tbaa !20
   %110 = icmp eq i64 %indvars.iv293, 0
   %111 = select i1 %110, ptr @.str.10, ptr @.str.11
-  %112 = getelementptr inbounds nuw [23 x %struct.UOption], ptr @_ZL7options, i64 0, i64 %indvars.iv293
+  %112 = getelementptr inbounds nuw %struct.UOption, ptr @_ZL7options, i64 %indvars.iv293
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load i8, ptr %113, align 8, !tbaa !25
   %115 = sext i8 %114 to i32
@@ -837,7 +837,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
   %.not99 = icmp eq ptr %116, null
   %.str.12..str.13 = select i1 %.not99, ptr @.str.13, ptr @.str.12
   %spec.select = select i1 %.not99, ptr @.str.11, ptr %116
-  %117 = getelementptr inbounds nuw [23 x [320 x i8]], ptr @_ZL12options_help, i64 0, i64 %indvars.iv293
+  %117 = getelementptr inbounds nuw [320 x i8], ptr @_ZL12options_help, i64 %indvars.iv293
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.9, ptr noundef nonnull %111, i32 noundef %115, ptr noundef nonnull %.str.12..str.13, ptr noundef nonnull %spec.select, ptr noundef nonnull %117) #24
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next294, 23
@@ -851,7 +851,7 @@ _ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %79, %80
 122:                                              ; preds = %119, %134
   %indvars.iv297 = phi i64 [ 0, %119 ], [ %indvars.iv.next298, %134 ]
   %123 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %124 = getelementptr inbounds nuw [4 x %struct.anon], ptr @_ZL5modes, i64 0, i64 %indvars.iv297
+  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZL5modes, i64 %indvars.iv297
   %125 = load ptr, ptr %124, align 8, !tbaa !28
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.15, ptr noundef %125) #24
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -1407,7 +1407,7 @@ thread-pre-split.i.i:                             ; preds = %348
 339:                                              ; preds = %339, %334
   %indvars.iv68.i.i = phi i64 [ 0, %334 ], [ %indvars.iv.next69.i.i, %339 ]
   %340 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %341 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL10FLAG_NAMES, i64 0, i64 %indvars.iv68.i.i
+  %341 = getelementptr inbounds nuw ptr, ptr @_ZL10FLAG_NAMES, i64 %indvars.iv68.i.i
   %342 = load ptr, ptr %341, align 8, !tbaa !16
   %343 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   %344 = getelementptr inbounds nuw ptr, ptr %343, i64 %indvars.iv68.i.i
@@ -1493,7 +1493,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %348, %296, %330, %
 374:                                              ; preds = %.lr.ph.i210.i
   %375 = add i64 %371, 4294967295
   %376 = and i64 %375, 4294967295
-  %377 = getelementptr inbounds nuw [4096 x i8], ptr %16, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i8, ptr %16, i64 %376
   store i8 0, ptr %377, align 1, !tbaa !22
   br label %378
 
@@ -1711,7 +1711,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %461, %458, %450, %4
   %468 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv.i112
   %469 = load i8, ptr %468, align 1, !tbaa !22
   %470 = icmp eq i8 %469, 46
-  %471 = getelementptr inbounds nuw [10 x i8], ptr %25, i64 0, i64 %indvars.iv.i112
+  %471 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i112
   br i1 %470, label %472, label %473
 
 472:                                              ; preds = %.preheader.i111
@@ -1943,8 +1943,8 @@ _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.thread.i: ; preds = %555, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %11, i8 0, i64 4096, i1 false)
   %596 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %24) #21
   %597 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
-  %598 = add i64 %597, -1
-  %599 = getelementptr inbounds nuw [4096 x i8], ptr %11, i64 0, i64 %598
+  %598 = getelementptr i8, ptr %11, i64 %597
+  %599 = getelementptr i8, ptr %598, i64 -1
   store i8 111, ptr %599, align 1, !tbaa !22
   %600 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 48
@@ -2138,7 +2138,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
 689:                                              ; preds = %709, %686
   %indvars.iv101.i.i = phi i64 [ %indvars.iv.next102.i.i, %709 ], [ 0, %686 ]
   store i8 0, ptr %9, align 16, !tbaa !22
-  %690 = getelementptr inbounds nuw [9 x [10 x i8]], ptr @_ZL11DATA_PREFIX, i64 0, i64 %indvars.iv101.i.i
+  %690 = getelementptr inbounds nuw [10 x i8], ptr @_ZL11DATA_PREFIX, i64 %indvars.iv101.i.i
   %691 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull %690, ptr noundef nonnull @.str.55) #21
   %692 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %688, ptr noundef nonnull dereferenceable(1) %9) #25
   %.not78.i.i = icmp eq ptr %692, null
@@ -2156,7 +2156,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
   %697 = getelementptr inbounds nuw i8, ptr %695, i64 %indvars.iv.i225.i
   %698 = load i8, ptr %697, align 1, !tbaa !22
   %699 = icmp eq i8 %698, 46
-  %700 = getelementptr inbounds nuw [4096 x i8], ptr %10, i64 0, i64 %indvars.iv.i225.i
+  %700 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i225.i
   br i1 %699, label %701, label %702
 
 701:                                              ; preds = %696
@@ -2211,8 +2211,8 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
 719:                                              ; preds = %715, %684
   %720 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %5) #21
   %721 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
-  %722 = add i64 %721, -1
-  %723 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %722
+  %722 = getelementptr i8, ptr %6, i64 %721
+  %723 = getelementptr i8, ptr %722, i64 -1
   store i8 111, ptr %723, align 1, !tbaa !22
   %724 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 48

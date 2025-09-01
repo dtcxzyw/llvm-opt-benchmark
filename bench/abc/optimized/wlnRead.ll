@@ -559,7 +559,7 @@ define void @Rtl_NtkPrintOpers(ptr noundef readonly captures(none) %0) local_unn
 
 15:                                               ; preds = %8
   %16 = sext i32 %.val32 to i64
-  %17 = getelementptr inbounds [99 x i32], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !38
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !38
@@ -593,7 +593,7 @@ define void @Rtl_NtkPrintOpers(ptr noundef readonly captures(none) %0) local_unn
 
 27:                                               ; preds = %.preheader47, %35
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %35 ], [ 0, %.preheader47 ]
-  %28 = getelementptr inbounds nuw [99 x i32], ptr %2, i64 0, i64 %indvars.iv41
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
   %29 = load i32, ptr %28, align 4, !tbaa !38
   %.not27 = icmp eq i32 %29, 0
   br i1 %.not27, label %35, label %30
@@ -606,7 +606,7 @@ define void @Rtl_NtkPrintOpers(ptr noundef readonly captures(none) %0) local_unn
 
 switch.lookup:                                    ; preds = %30
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [97 x ptr], ptr @switch.table.Rtl_NtkPrintOpers, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Rtl_NtkPrintOpers, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Abc_OperName.exit
 
@@ -9384,14 +9384,14 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %18
 switch.lookup:                                    ; preds = %29
   %switch.tableidx = add nuw nsw i64 %indvars.iv.i, 4294967295
   %31 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Rtl_LibReadFile, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Rtl_Num2Name.exit.i
 
 Rtl_Num2Name.exit.i:                              ; preds = %29, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %29 ]
   %32 = tail call i32 @Abc_NamStrFind(ptr noundef %24, ptr noundef %.0.i.i) #38
-  %33 = getelementptr inbounds nuw [32 x i32], ptr %28, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
   store i32 %32, ptr %33, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
@@ -12540,7 +12540,7 @@ Rtl_NtkCellParamValue.exit87:                     ; preds = %41, %46, %60, %Rtl_
   tail call void @Rtl_NtkCollectSignalRange(ptr noundef %1, i32 noundef %114)
   %118 = load ptr, ptr %4, align 8, !tbaa !23
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 256
-  %120 = getelementptr inbounds nuw [5 x %struct.Vec_Int_t_], ptr %119, i64 0, i64 %indvars.iv112
+  %120 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %119, i64 %indvars.iv112
   %.val7.i = load i32, ptr %95, align 4, !tbaa !37
   %121 = icmp sgt i32 %.val7.i, 0
   br i1 %121, label %.lr.ph.i88, label %Vec_IntAppend.exit
@@ -12657,29 +12657,23 @@ define noundef ptr @Rtl_ShortenName(ptr noundef readonly captures(ret: address, 
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #39
   %4 = trunc i64 %3 to i32
   %.not = icmp slt i32 %1, %4
-  br i1 %.not, label %5, label %18
+  br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %2
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16, !tbaa !61
   %6 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull dereferenceable(1) %0) #38
-  %7 = add nsw i32 %1, -3
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %8
+  %7 = sext i32 %1 to i64
+  %8 = getelementptr i8, ptr @Rtl_ShortenName.Buffer, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -3
   store i8 46, ptr %9, align 1, !tbaa !61
-  %10 = add nsw i32 %1, -2
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %11
-  store i8 46, ptr %12, align 1, !tbaa !61
-  %13 = add nsw i32 %1, -1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %14
-  store i8 46, ptr %15, align 1, !tbaa !61
-  %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %16
-  store i8 0, ptr %17, align 1, !tbaa !61
-  br label %18
+  %10 = getelementptr i8, ptr %8, i64 -2
+  store i8 46, ptr %10, align 1, !tbaa !61
+  %11 = getelementptr i8, ptr %8, i64 -1
+  store i8 46, ptr %11, align 1, !tbaa !61
+  store i8 0, ptr %8, align 1, !tbaa !61
+  br label %12
 
-18:                                               ; preds = %2, %5
+12:                                               ; preds = %2, %5
   %.0 = phi ptr [ @Rtl_ShortenName.Buffer, %5 ], [ %0, %2 ]
   ret ptr %.0
 }
@@ -13774,7 +13768,7 @@ Vec_IntDup.exit:                                  ; preds = %33, %35
 
 Vec_IntFree.exit:                                 ; preds = %51, %46, %55
   %.sink = phi i32 [ %56, %55 ], [ %49, %46 ], [ %.pre, %51 ]
-  %57 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.sink, ptr %57, align 4, !tbaa !38
   tail call void @free(ptr noundef nonnull %39) #38
   %.pre39 = load i32, ptr %6, align 4, !tbaa !38

@@ -1761,7 +1761,7 @@ define internal void @mon_bin_error(ptr noundef %0, ptr noundef %1, i32 noundef 
   %32 = load i8, ptr %31, align 1
   %33 = and i8 %32, 3
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr [4 x i8], ptr @xfer_to_pipe, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @xfer_to_pipe, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 9
   store i8 %36, ptr %37, align 1
@@ -2039,7 +2039,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %140 = load i8, ptr %14, align 1
   %141 = and i8 %140, 3
   %142 = zext nneg i8 %141 to i64
-  %143 = getelementptr [4 x i8], ptr @xfer_to_pipe, i64 0, i64 %142
+  %143 = getelementptr i8, ptr @xfer_to_pipe, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = getelementptr inbounds nuw i8, ptr %135, i64 9
   store i8 %144, ptr %145, align 1

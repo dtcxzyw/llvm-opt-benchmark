@@ -149,7 +149,7 @@ define hidden void @_ZN10FieldGroupC2Ei(ptr noundef nonnull writeonly align 8 ca
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = zext i8 %2 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -644,7 +644,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %31 = and i32 %30, 2
   %.not.i.i = icmp eq i32 %31, 0
   %32 = zext i16 %29 to i64
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %35 = getelementptr inbounds nuw i64, ptr %34, i64 %32
   %.0.in.i.i = select i1 %.not.i.i, ptr %35, ptr %33
@@ -660,7 +660,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
 
 41:                                               ; preds = %.lr.ph
   %42 = zext i8 %39 to i64
-  %43 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %46 = load i32, ptr %9, align 8
@@ -1709,7 +1709,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %53 = and i32 %52, 2
   %.not.i = icmp eq i32 %53, 0
   %54 = zext i16 %50 to i64
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %57 = getelementptr inbounds nuw i64, ptr %56, i64 %54
   %.0.in.i = select i1 %.not.i, ptr %57, ptr %55
@@ -1722,7 +1722,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %63 = and i32 %62, 2
   %.not.i41 = icmp eq i32 %63, 0
   %64 = zext i16 %61 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %67 = getelementptr inbounds nuw i64, ptr %66, i64 %64
   %.0.in.i42 = select i1 %.not.i41, ptr %67, ptr %65
@@ -1753,7 +1753,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %88 = and i32 %87, 2
   %.not.i44 = icmp eq i32 %88, 0
   %89 = zext i16 %85 to i64
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %92 = getelementptr inbounds nuw i64, ptr %91, i64 %89
   %.0.in.i45 = select i1 %.not.i44, ptr %92, ptr %90
@@ -1766,7 +1766,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %98 = and i32 %97, 2
   %.not.i47 = icmp eq i32 %98, 0
   %99 = zext i16 %96 to i64
-  %100 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %102 = getelementptr inbounds nuw i64, ptr %101, i64 %99
   %.0.in.i48 = select i1 %.not.i47, ptr %102, ptr %100
@@ -1814,7 +1814,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %129 = and i32 %128, 2
   %.not.i.i = icmp eq i32 %129, 0
   %130 = zext i16 %127 to i64
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %133 = getelementptr inbounds nuw i64, ptr %132, i64 %130
   %.0.in.i.i = select i1 %.not.i.i, ptr %133, ptr %131
@@ -1826,7 +1826,7 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %138 = and i32 %137, 2
   %.not.i.i50 = icmp eq i32 %138, 0
   %139 = zext i16 %136 to i64
-  %140 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 72
   %142 = getelementptr inbounds nuw i64, ptr %141, i64 %139
   %.0.in.i.i51 = select i1 %.not.i.i50, ptr %142, ptr %140
@@ -2239,7 +2239,7 @@ _ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit: ; preds = %50, %_
   %78 = and i32 %.sroa.3.0.copyload, 2
   %.not.i = icmp eq i32 %78, 0
   %79 = zext i16 %.sroa.1.0.copyload to i64
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 72
   %82 = getelementptr inbounds nuw i64, ptr %81, i64 %79
   %.0.in.i = select i1 %.not.i, ptr %82, ptr %80

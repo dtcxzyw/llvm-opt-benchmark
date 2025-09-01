@@ -2172,14 +2172,14 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread:
 72:                                               ; preds = %64
   %73 = and i32 %.sroa.4.1.i.ph, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %74
   %76 = load i8, ptr %75, align 1, !noundef !4
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
 
 77:                                               ; preds = %64
   %78 = and i32 %.sroa.4.1.i.ph, 255
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %79
   %81 = load i8, ptr %80, align 1, !noundef !4
   %82 = lshr i8 %81, 1
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit
@@ -2327,14 +2327,14 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 59:                                               ; preds = %51
   %60 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i, 255
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %61
   %63 = load i8, ptr %62, align 1, !noalias !514, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i"
 
 64:                                               ; preds = %51
   %65 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i, 255
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %66
   %68 = load i8, ptr %67, align 1, !noalias !514, !noundef !4
   %69 = lshr i8 %68, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i"
@@ -2486,14 +2486,14 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 145:                                              ; preds = %137
   %146 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i20, 255
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %147
   %149 = load i8, ptr %148, align 1, !noalias !539, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i"
 
 150:                                              ; preds = %137
   %151 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i20, 255
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %152
   %154 = load i8, ptr %153, align 1, !noalias !539, !noundef !4
   %155 = lshr i8 %154, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i"

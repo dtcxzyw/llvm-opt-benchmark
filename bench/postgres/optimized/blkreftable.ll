@@ -1146,7 +1146,7 @@ blockreftable_iterate.exit:                       ; preds = %38
 BlockRefTableWrite.exit51:                        ; preds = %79, %87
   %91 = phi i32 [ 0, %87 ], [ %84, %79 ]
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [65536 x i8], ptr %13, i64 0, i64 %92
+  %93 = getelementptr inbounds i8, ptr %13, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %93, ptr noundef nonnull align 1 dereferenceable(24) %80, i64 24, i1 false)
   %94 = load i32, ptr %12, align 8
   %95 = add i32 %94, 24
@@ -1236,7 +1236,7 @@ blockreftable_lookup.exit:                        ; preds = %108, %.lr.ph.i.i, %
 
 141:                                              ; preds = %134
   %142 = sext i32 %135 to i64
-  %143 = getelementptr inbounds [65536 x i8], ptr %13, i64 0, i64 %142
+  %143 = getelementptr inbounds i8, ptr %13, i64 %142
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr align 1 %121, i64 %125, i1 false)
   %144 = load i32, ptr %12, align 8
   %145 = add i32 %144, %122
@@ -1298,7 +1298,7 @@ BlockRefTableWrite.exit52:                        ; preds = %141, %137, %blockre
 
 179:                                              ; preds = %172
   %180 = sext i32 %173 to i64
-  %181 = getelementptr inbounds [65536 x i8], ptr %13, i64 0, i64 %180
+  %181 = getelementptr inbounds i8, ptr %13, i64 %180
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %158, i64 %163, i1 false)
   %182 = load i32, ptr %12, align 8
   %183 = add i32 %182, %160
@@ -1414,7 +1414,7 @@ BlockRefTableWrite.exit:                          ; preds = %1, %12
   %18 = phi i32 [ 0, %12 ], [ %9, %1 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [65536 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   %22 = load i32, ptr %8, align 8
   %23 = add i32 %22, 24
@@ -1441,7 +1441,7 @@ BlockRefTableWrite.exit:                          ; preds = %1, %12
 BlockRefTableWrite.exit4:                         ; preds = %BlockRefTableWrite.exit, %31
   %36 = phi i32 [ 0, %31 ], [ %28, %BlockRefTableWrite.exit ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [65536 x i8], ptr %19, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr %19, i64 %37
   %39 = load i32, ptr %3, align 4
   store i32 %39, ptr %38, align 1
   %40 = load i32, ptr %8, align 8
@@ -1517,14 +1517,14 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   %18 = sub i32 %15, %14
   %.050. = tail call i32 @llvm.smin.i32(i32 %.05055, i32 %18)
   %19 = sext i32 %14 to i64
-  %20 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr %8, i64 %19
   %21 = sext i32 %.050. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.056, ptr nonnull align 1 %20, i64 %21, i1 false)
   %22 = load ptr, ptr @pg_comp_crc32c, align 8
   %23 = load i32, ptr %12, align 8
   %24 = load i32, ptr %5, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %8, i64 %25
   %27 = tail call i32 %22(i32 noundef %23, ptr noundef nonnull %26, i64 noundef %21) #14
   store i32 %27, ptr %12, align 8
   %28 = load i32, ptr %5, align 4
@@ -1717,7 +1717,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %.254 = phi i32 [ %.041, %.lr.ph55 ], [ %.3, %46 ]
   %33 = lshr i32 %32, 4
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [4096 x i16], ptr %7, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i16, ptr %7, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %38 = and i32 %32, 15
@@ -1749,7 +1749,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = phi i32 [ %20, %.lr.ph ], [ %61, %52 ]
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [4096 x i16], ptr %7, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i16, ptr %7, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = or disjoint i32 %24, %57
@@ -1854,7 +1854,7 @@ BlockRefTableWrite.exit:                          ; preds = %2, %13
   %18 = phi i32 [ 0, %13 ], [ %10, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds [65536 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = load i32, ptr %3, align 4
   store i32 %22, ptr %21, align 1
   %23 = load i32, ptr %9, align 8
@@ -1924,7 +1924,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
   %37 = phi i32 [ 0, %31 ], [ %28, %.critedge ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds [65536 x i8], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %40, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   %41 = load i32, ptr %27, align 8
   %42 = add i32 %41, 24
@@ -1968,7 +1968,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
 
 67:                                               ; preds = %59
   %68 = sext i32 %60 to i64
-  %69 = getelementptr inbounds [65536 x i8], ptr %38, i64 0, i64 %68
+  %69 = getelementptr inbounds i8, ptr %38, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %45, i64 %49, i1 false)
   %70 = load i32, ptr %27, align 8
   %71 = add i32 %70, %46
@@ -2029,7 +2029,7 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
 
 104:                                              ; preds = %97
   %105 = sext i32 %98 to i64
-  %106 = getelementptr inbounds [65536 x i8], ptr %38, i64 0, i64 %105
+  %106 = getelementptr inbounds i8, ptr %38, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr align 1 %83, i64 %88, i1 false)
   %107 = load i32, ptr %27, align 8
   %108 = add i32 %107, %85

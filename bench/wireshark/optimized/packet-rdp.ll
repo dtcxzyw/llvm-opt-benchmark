@@ -2920,7 +2920,7 @@ default.unreachable:                              ; preds = %.lr.ph21.i
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %282 = zext nneg i8 %275 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_rdp_heur, i64 0, i64 %282
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rdp_heur, i64 %282
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %283
 
@@ -3255,7 +3255,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
 .lr.ph.split.i:                                   ; preds = %.thread.i, %find_known_channel_by_name.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ], [ 0, %.thread.i ]
   %.141.i = phi i32 [ %179, %find_known_channel_by_name.exit.i ], [ %144, %.thread.i ]
-  %160 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %indvars.iv.i
+  %160 = getelementptr %struct._rdp_channel_def, ptr %119, i64 %indvars.iv.i
   store i32 -1, ptr %160, align 8
   %161 = call ptr @wmem_file_scope()
   %162 = call ptr @tvb_get_string_enc(ptr noundef %161, ptr noundef %0, i32 noundef %.141.i, i32 noundef 8, i32 noundef 0)
@@ -3300,7 +3300,7 @@ find_known_channel_by_name.exit.i:                ; preds = %175, %172, %169, %1
 
 ._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
   %.035.lcssa56.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
-  %184 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %.035.lcssa56.i
+  %184 = getelementptr %struct._rdp_channel_def, ptr %119, i64 %.035.lcssa56.i
   store i32 0, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr null, ptr %185, align 8
@@ -3726,7 +3726,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %90
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %.lr.ph
-  %164 = getelementptr [32 x %struct._rdp_channel_def], ptr %108, i64 0, i64 %indvars.iv
+  %164 = getelementptr %struct._rdp_channel_def, ptr %108, i64 %indvars.iv
   store i32 %.pre, ptr %164, align 8
   br label %165
 
@@ -3870,7 +3870,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 25:                                               ; preds = %add_address_to_hash.exit, %25
   %indvars.iv = phi i64 [ 0, %add_address_to_hash.exit ], [ %indvars.iv.next, %25 ]
   %.013 = phi i32 [ %.011.lcssa.i, %add_address_to_hash.exit ], [ %29, %25 ]
-  %26 = getelementptr [16 x i8], ptr %24, i64 0, i64 %indvars.iv
+  %26 = getelementptr i8, ptr %24, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = add i32 %.013, %28
@@ -5070,7 +5070,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
 
 509:                                              ; preds = %508, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %508 ]
-  %510 = getelementptr [32 x %struct._rdp_channel_def], ptr %504, i64 0, i64 %indvars.iv.i.i.i
+  %510 = getelementptr %struct._rdp_channel_def, ptr %504, i64 %indvars.iv.i.i.i
   %511 = load i32, ptr %510, align 8
   %512 = icmp eq i32 %511, %507
   br i1 %512, label %find_channel.exit.i.i, label %508
@@ -5179,7 +5179,7 @@ find_channel_type.exit.thread.i:                  ; preds = %508, %515, %find_ch
 
 556:                                              ; preds = %555, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %555 ]
-  %557 = getelementptr [32 x %struct._rdp_channel_def], ptr %551, i64 0, i64 %indvars.iv.i.i
+  %557 = getelementptr %struct._rdp_channel_def, ptr %551, i64 %indvars.iv.i.i
   %558 = load i32, ptr %557, align 8
   %559 = icmp eq i32 %558, %554
   br i1 %559, label %find_channel.exit.i, label %555

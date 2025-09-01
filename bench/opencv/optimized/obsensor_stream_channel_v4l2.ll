@@ -7169,7 +7169,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   %613 = load i32, ptr %486, align 8, !tbaa !27
   %614 = zext i32 %613 to i64
   %615 = call ptr @mmap(ptr noundef null, i64 noundef %611, i32 noundef 3, i32 noundef 1, i32 noundef %612, i64 noundef %614) #26
-  %616 = getelementptr inbounds nuw [4 x %"struct.cv::obsensor::V4L2FrameBuffer"], ptr %487, i64 0, i64 %indvars.iv
+  %616 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %487, i64 %indvars.iv
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 8
   store ptr %615, ptr %617, align 8, !tbaa !202
   %618 = load i32, ptr %485, align 8, !tbaa !280
@@ -7346,7 +7346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %_Z
 
 681:                                              ; preds = %679, %689
   %indvars.iv285 = phi i64 [ 0, %679 ], [ %indvars.iv.next286, %689 ]
-  %682 = getelementptr inbounds nuw [4 x %"struct.cv::obsensor::V4L2FrameBuffer"], ptr %680, i64 0, i64 %indvars.iv285
+  %682 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %680, i64 %indvars.iv285
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
   %684 = load ptr, ptr %683, align 8, !tbaa !202
   %.not127 = icmp eq ptr %684, null
@@ -7479,7 +7479,7 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %16, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds i64, ptr %3, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !48
   %24 = or i64 %19, %23
   store i64 %24, ptr %22, align 8, !tbaa !48
@@ -9338,7 +9338,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit39:          ; preds = %26, %114
 
 122:                                              ; preds = %119, %130
   %indvars.iv = phi i64 [ 0, %119 ], [ %indvars.iv.next, %130 ]
-  %123 = getelementptr inbounds nuw [4 x %"struct.cv::obsensor::V4L2FrameBuffer"], ptr %120, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %120, i64 %indvars.iv
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !202
   %.not31 = icmp eq ptr %125, null

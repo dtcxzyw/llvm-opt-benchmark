@@ -72,7 +72,7 @@ define noundef i32 @ff_vvc_per_frame_init(ptr noundef %0) local_unnamed_addr #0 
 5:                                                ; preds = %.loopexit, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %6 = getelementptr inbounds nuw [11 x ptr], ptr @__const.frame_context_for_each_tl.init, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw ptr, ptr @__const.frame_context_for_each_tl.init, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   call void %7(ptr noundef nonnull %2, ptr noundef %0) #10
   %8 = load i32, ptr %3, align 4, !tbaa !10
@@ -538,9 +538,9 @@ slices_realloc.exit.thread68.i.i.i:               ; preds = %slices_realloc.exit
 
 196:                                              ; preds = %251, %187
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i.i.i.i.i, %251 ]
-  %197 = getelementptr inbounds nuw [17 x %struct.VVCFrame], ptr %104, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %197 = getelementptr inbounds nuw %struct.VVCFrame, ptr %104, i64 %indvars.iv.i.i.i.i.i
   call void @ff_vvc_unref_frame(ptr noundef nonnull %79, ptr noundef nonnull %197, i32 noundef -1) #10
-  %198 = getelementptr inbounds nuw [17 x %struct.VVCFrame], ptr %195, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %198 = getelementptr inbounds nuw %struct.VVCFrame, ptr %195, i64 %indvars.iv.i.i.i.i.i
   %199 = load ptr, ptr %198, align 8, !tbaa !135
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 184
   %201 = load ptr, ptr %200, align 8, !tbaa !96
@@ -679,7 +679,7 @@ free_cus.exit.i.i.i.i.i.i.preheader:              ; preds = %.lr.ph.i.i.i.i.i.i.
 free_cus.exit.i.i.i.i.i.i:                        ; preds = %free_cus.exit.i.i.i.i.i.i.preheader, %.loopexit.i.i.i.i.i.i
   %indvars.iv.i55.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i56.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i ], [ 0, %free_cus.exit.i.i.i.i.i.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %277 = getelementptr inbounds nuw [11 x ptr], ptr @__const.frame_context_for_each_tl.init, i64 0, i64 %indvars.iv.i55.i.i.i.i.i.i
+  %277 = getelementptr inbounds nuw ptr, ptr @__const.frame_context_for_each_tl.init, i64 %indvars.iv.i55.i.i.i.i.i.i
   %278 = load ptr, ptr %277, align 8, !tbaa !6
   call void %278(ptr noundef nonnull %6, ptr noundef %79) #10
   %279 = load i32, ptr %109, align 8, !tbaa !167
@@ -691,7 +691,7 @@ free_cus.exit.i.i.i.i.i.i:                        ; preds = %free_cus.exit.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %free_cus.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %free_cus.exit.i.i.i.i.i.i ]
-  %282 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %282 = getelementptr inbounds nuw %struct.Tab, ptr %6, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %283 = load ptr, ptr %282, align 8, !tbaa !13
   call void @av_freep(ptr noundef %283) #10
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -1072,7 +1072,7 @@ frame_start.exit.i.i.i.i:                         ; preds = %471, %466, %458
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %498 ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
   %.03.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %498 ], [ -1, %.lr.ph.i.preheader.i.i.i.i.i ]
   %.0201.i.i.i.i.i.i = phi i32 [ %.222.i.i.i.i.i.i, %498 ], [ -1, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %487 = getelementptr inbounds nuw [29 x %struct.VVCRefPic], ptr %.val17.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %487 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %.val17.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 12
   %489 = load i32, ptr %488, align 4, !tbaa !236
   %.not.i.i.i52.i.i.i = icmp eq i32 %489, 0
@@ -1125,7 +1125,7 @@ smvd_find.exit41.thread.i.i.i.i.i:                ; preds = %smvd_find.exit.i.i.
   %indvars.iv.i29.i.i.i.i.i = phi i64 [ %indvars.iv.next.i35.i.i.i.i.i, %517 ], [ 0, %.lr.ph.i28.preheader.i.i.i.i.i ]
   %.03.i30.i.i.i.i.i = phi i8 [ %.2.i34.i.i.i.i.i, %517 ], [ -1, %.lr.ph.i28.preheader.i.i.i.i.i ]
   %.0201.i31.i.i.i.i.i = phi i32 [ %.222.i33.i.i.i.i.i, %517 ], [ -1, %.lr.ph.i28.preheader.i.i.i.i.i ]
-  %506 = getelementptr inbounds nuw [29 x %struct.VVCRefPic], ptr %501, i64 0, i64 %indvars.iv.i29.i.i.i.i.i
+  %506 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %501, i64 %indvars.iv.i29.i.i.i.i.i
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 12
   %508 = load i32, ptr %507, align 4, !tbaa !236
   %.not.i32.i.i.i.i.i = icmp eq i32 %508, 0
@@ -1177,7 +1177,7 @@ smvd_find.exit41.i.i.i.i.i:                       ; preds = %517
   %indvars.iv.i44.i.i.i.i.i = phi i64 [ %indvars.iv.next.i50.i.i.i.i.i, %537 ], [ 0, %.lr.ph.i43.preheader.i.i.i.i.i ]
   %.03.i45.i.i.i.i.i = phi i8 [ %.2.i49.i.i.i.i.i, %537 ], [ -1, %.lr.ph.i43.preheader.i.i.i.i.i ]
   %.0201.i46.i.i.i.i.i = phi i32 [ %.222.i48.i.i.i.i.i, %537 ], [ -1, %.lr.ph.i43.preheader.i.i.i.i.i ]
-  %526 = getelementptr inbounds nuw [29 x %struct.VVCRefPic], ptr %.val17.i.i.i.i.i, i64 0, i64 %indvars.iv.i44.i.i.i.i.i
+  %526 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %.val17.i.i.i.i.i, i64 %indvars.iv.i44.i.i.i.i.i
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 12
   %528 = load i32, ptr %527, align 4, !tbaa !236
   %.not.i47.i.i.i.i.i = icmp eq i32 %528, 0
@@ -1222,7 +1222,7 @@ smvd_find.exit56.i.i.i.i.i:                       ; preds = %537, %521
   %indvars.iv.i59.i.i.i.i.i = phi i64 [ %indvars.iv.next.i65.i.i.i.i.i, %552 ], [ 0, %.lr.ph.i58.preheader.i.i.i.i.i ]
   %.03.i60.i.i.i.i.i = phi i8 [ %.2.i64.i.i.i.i.i, %552 ], [ -1, %.lr.ph.i58.preheader.i.i.i.i.i ]
   %.0201.i61.i.i.i.i.i = phi i32 [ %.222.i63.i.i.i.i.i, %552 ], [ -1, %.lr.ph.i58.preheader.i.i.i.i.i ]
-  %541 = getelementptr inbounds nuw [29 x %struct.VVCRefPic], ptr %501, i64 0, i64 %indvars.iv.i59.i.i.i.i.i
+  %541 = getelementptr inbounds nuw %struct.VVCRefPic, ptr %501, i64 %indvars.iv.i59.i.i.i.i.i
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 12
   %543 = load i32, ptr %542, align 4, !tbaa !236
   %.not.i62.i.i.i.i.i = icmp eq i32 %543, 0
@@ -1329,7 +1329,7 @@ smvd_find.exit71.i.i.i.i.i:                       ; preds = %552, %smvd_find.exi
   %594 = ashr i32 %.sroa.6.017.i.i.i.i, 3
   %595 = sext i32 %594 to i64
   %596 = getelementptr inbounds nuw i8, ptr %587, i64 2608
-  %597 = getelementptr inbounds nuw [4050 x i32], ptr %596, i64 0, i64 %indvars.iv26.i.i.i.i
+  %597 = getelementptr inbounds nuw i32, ptr %596, i64 %indvars.iv26.i.i.i.i
   %598 = load i32, ptr %597, align 4, !tbaa !62
   %599 = zext i32 %598 to i64
   %600 = add nsw i64 %595, 1
@@ -1413,7 +1413,7 @@ get_ep_size.exit.i.i.i.i:                         ; preds = %631, %.critedge2.i.
   %indvars.iv.next27.i.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i.i, 1
   %634 = zext i32 %585 to i64
   %635 = icmp eq i64 %indvars.iv.next27.i.i.i.i, %634
-  %636 = getelementptr inbounds nuw [4050 x i32], ptr %581, i64 0, i64 %indvars.iv26.i.i.i.i
+  %636 = getelementptr inbounds nuw i32, ptr %581, i64 %indvars.iv26.i.i.i.i
   %.in.i.i.i.i = select i1 %635, ptr %580, ptr %636
   %637 = load i32, ptr %.in.i.i.i.i, align 4, !tbaa !62
   %638 = load ptr, ptr %582, align 8, !tbaa !242
@@ -1447,7 +1447,7 @@ get_ep_size.exit.i.i.i.i:                         ; preds = %631, %.critedge2.i.
 
 654:                                              ; preds = %654, %650
   %indvars.iv.i65.i.i.i.i = phi i64 [ 0, %650 ], [ %indvars.iv.next.i66.i.i.i.i, %654 ]
-  %655 = getelementptr inbounds nuw [3 x %struct.Palette], ptr %653, i64 0, i64 %indvars.iv.i65.i.i.i.i
+  %655 = getelementptr inbounds nuw %struct.Palette, ptr %653, i64 %indvars.iv.i65.i.i.i.i
   store i8 0, ptr %655, align 8, !tbaa !255
   %indvars.iv.next.i66.i.i.i.i = add nuw nsw i64 %indvars.iv.i65.i.i.i.i, 1
   %exitcond.not.i67.i.i.i.i = icmp eq i64 %indvars.iv.next.i66.i.i.i.i, 3
@@ -1908,10 +1908,10 @@ define internal void @min_cb_tl_init(ptr noundef writeonly captures(none) initia
   %indvars.iv30 = phi i64 [ 1, %13 ], [ %indvars.iv.next31, %28 ]
   %29 = phi i1 [ true, %13 ], [ false, %28 ]
   %indvars.iv = phi i64 [ 0, %13 ], [ 1, %28 ]
-  %30 = getelementptr inbounds nuw [2 x ptr], ptr %24, i64 0, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv30
+  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv30
   store ptr %30, ptr %31, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv30, i32 1
+  %32 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv30, i32 1
   store i64 %22, ptr %32, align 8, !tbaa !17
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   br i1 %29, label %28, label %25, !llvm.loop !274
@@ -1978,46 +1978,46 @@ define internal void @min_cb_nz_tl_init(ptr noundef writeonly captures(none) ini
   %indvars.iv111 = phi i64 [ 2, %13 ], [ %indvars.iv.next112, %42 ]
   %43 = phi i1 [ true, %13 ], [ false, %42 ]
   %indvars.iv = phi i64 [ 0, %13 ], [ 1, %42 ]
-  %44 = getelementptr inbounds nuw [2 x ptr], ptr %28, i64 0, i64 %indvars.iv
-  %45 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv111
+  %44 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv111
   store ptr %44, ptr %45, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv111, i32 1
+  %46 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv111, i32 1
   store i64 %23, ptr %46, align 8, !tbaa !17
   %47 = add nuw nsw i64 %indvars.iv111, 1
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %29, i64 0, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %47
   store ptr %48, ptr %49, align 8, !tbaa !13
-  %50 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %47, i32 1
+  %50 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %47, i32 1
   store i64 %30, ptr %50, align 8, !tbaa !17
   %51 = add nuw nsw i64 %indvars.iv111, 2
-  %52 = getelementptr inbounds nuw [2 x ptr], ptr %31, i64 0, i64 %indvars.iv
-  %53 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %51
   store ptr %52, ptr %53, align 8, !tbaa !13
-  %54 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %51, i32 1
+  %54 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %51, i32 1
   store i64 %30, ptr %54, align 8, !tbaa !17
   %55 = add nuw nsw i64 %indvars.iv111, 3
-  %56 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
-  %57 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %55
   store ptr %56, ptr %57, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %55, i32 1
+  %58 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %55, i32 1
   store i64 %23, ptr %58, align 8, !tbaa !17
   %59 = add nuw nsw i64 %indvars.iv111, 4
-  %60 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 0, i64 %indvars.iv
-  %61 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %59
   store ptr %60, ptr %61, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %59, i32 1
+  %62 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %59, i32 1
   store i64 %36, ptr %62, align 8, !tbaa !17
   %63 = add nuw nsw i64 %indvars.iv111, 5
-  %64 = getelementptr inbounds nuw [2 x ptr], ptr %37, i64 0, i64 %indvars.iv
-  %65 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %63
   store ptr %64, ptr %65, align 8, !tbaa !13
-  %66 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %63, i32 1
+  %66 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %63, i32 1
   store i64 %23, ptr %66, align 8, !tbaa !17
   %67 = add nuw nsw i64 %indvars.iv111, 6
-  %68 = getelementptr inbounds nuw [2 x ptr], ptr %38, i64 0, i64 %indvars.iv
-  %69 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %67
   store ptr %68, ptr %69, align 8, !tbaa !13
-  %70 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %67, i32 1
+  %70 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %67, i32 1
   store i64 %23, ptr %70, align 8, !tbaa !17
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 7
   br i1 %43, label %42, label %39, !llvm.loop !275
@@ -2029,9 +2029,9 @@ define internal void @min_cb_nz_tl_init(ptr noundef writeonly captures(none) ini
 
 72:                                               ; preds = %39
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 21448
-  %74 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv.next112
+  %74 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv.next112
   store ptr %73, ptr %74, align 8, !tbaa !13
-  %75 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv.next112, i32 1
+  %75 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv.next112, i32 1
   store i64 %23, ptr %75, align 8, !tbaa !17
   %76 = add nuw nsw i32 %40, 1
   store i32 %76, ptr %19, align 8, !tbaa !18
@@ -2178,13 +2178,13 @@ define internal void @min_tu_tl_init(ptr noundef writeonly captures(none) initia
 31:                                               ; preds = %13, %28
   %.promoted454672 = phi i32 [ 1, %13 ], [ %38, %28 ]
   %indvars.iv5371 = phi i64 [ 0, %13 ], [ %indvars.iv.next54, %28 ]
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %indvars.iv5371
+  %32 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv5371
   %33 = sext i32 %.promoted454672 to i64
-  %34 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %33
+  %34 = getelementptr inbounds %struct.Tab, ptr %0, i64 %33
   store ptr %32, ptr %34, align 8, !tbaa !13
-  %35 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %33, i32 1
+  %35 = getelementptr inbounds %struct.Tab, ptr %0, i64 %33, i32 1
   store i64 %23, ptr %35, align 8, !tbaa !17
-  %invariant.gep = getelementptr inbounds nuw [3 x ptr], ptr %26, i64 0, i64 %indvars.iv5371
+  %invariant.gep = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv5371
   %exitcond.not66 = icmp eq i32 %.promoted454672, 31
   br i1 %exitcond.not66, label %._crit_edge, label %.lr.ph
 
@@ -2221,10 +2221,10 @@ define internal void @min_tu_tl_init(ptr noundef writeonly captures(none) initia
   %indvars.iv68 = phi i64 [ 0, %.lr.ph ], [ 1, %39 ]
   %43 = phi i1 [ true, %.lr.ph ], [ false, %39 ]
   %indvars.iv4867 = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next49, %39 ]
-  %gep = getelementptr inbounds nuw [2 x [3 x ptr]], ptr %invariant.gep, i64 0, i64 %indvars.iv68
-  %44 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv4867
+  %gep = getelementptr inbounds nuw [3 x ptr], ptr %invariant.gep, i64 %indvars.iv68
+  %44 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv4867
   store ptr %gep, ptr %44, align 8, !tbaa !13
-  %45 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv4867, i32 1
+  %45 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv4867, i32 1
   store i64 %23, ptr %45, align 8, !tbaa !17
   %indvars.iv.next49 = add nsw i64 %indvars.iv4867, 1
   br i1 %43, label %39, label %37, !llvm.loop !277
@@ -2276,16 +2276,16 @@ define internal void @min_tu_nz_tl_init(ptr noundef writeonly captures(none) ini
   %indvars.iv74 = phi i64 [ 0, %13 ], [ %indvars.iv.next75, %29 ]
   %30 = phi i1 [ true, %13 ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %13 ], [ 1, %29 ]
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %22, i64 0, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv74
+  %31 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv74
   store ptr %31, ptr %32, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv74, i32 1
+  %33 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv74, i32 1
   store i64 %23, ptr %33, align 8, !tbaa !17
   %34 = or disjoint i64 %indvars.iv74, 1
-  %35 = getelementptr inbounds nuw [2 x ptr], ptr %24, i64 0, i64 %indvars.iv
-  %36 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %34
   store ptr %35, ptr %36, align 8, !tbaa !13
-  %37 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %34, i32 1
+  %37 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %34, i32 1
   store i64 %23, ptr %37, align 8, !tbaa !17
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 2
   br i1 %30, label %29, label %.preheader68, !llvm.loop !278
@@ -2311,16 +2311,16 @@ define internal void @min_tu_nz_tl_init(ptr noundef writeonly captures(none) ini
   unreachable
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw [2 x ptr], ptr %26, i64 0, i64 %indvars.iv79
-  %46 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv81
+  %45 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv79
+  %46 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv81
   store ptr %45, ptr %46, align 8, !tbaa !13
-  %47 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv81, i32 1
+  %47 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv81, i32 1
   store i64 %23, ptr %47, align 8, !tbaa !17
   %48 = or disjoint i64 %indvars.iv81, 1
-  %49 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 0, i64 %indvars.iv79
-  %50 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv79
+  %50 = getelementptr inbounds %struct.Tab, ptr %0, i64 %48
   store ptr %49, ptr %50, align 8, !tbaa !13
-  %51 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %48, i32 1
+  %51 = getelementptr inbounds %struct.Tab, ptr %0, i64 %48, i32 1
   store i64 %23, ptr %51, align 8, !tbaa !17
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 2
   %52 = trunc nsw i64 %indvars.iv.next82 to i32
@@ -2343,10 +2343,10 @@ define internal void @min_tu_nz_tl_init(ptr noundef writeonly captures(none) ini
   unreachable
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw [3 x ptr], ptr %38, i64 0, i64 %indvars.iv86
-  %58 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv88
+  %57 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv86
+  %58 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv88
   store ptr %57, ptr %58, align 8, !tbaa !13
-  %59 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv88, i32 1
+  %59 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv88, i32 1
   store i64 %23, ptr %59, align 8, !tbaa !17
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %60 = trunc nsw i64 %indvars.iv.next89 to i32
@@ -2467,16 +2467,16 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
 71:                                               ; preds = %71, %.split.us
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %71 ], [ 0, %.split.us ]
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %71 ], [ 0, %.split.us ]
-  %72 = getelementptr inbounds nuw [3 x ptr], ptr %61, i64 0, i64 %indvars.iv163
-  %73 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv165
+  %72 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv163
+  %73 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv165
   store ptr %72, ptr %73, align 8, !tbaa !13
-  %74 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv165, i32 1
+  %74 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv165, i32 1
   store i64 %67, ptr %74, align 8, !tbaa !17
   %75 = or disjoint i64 %indvars.iv165, 1
-  %76 = getelementptr inbounds nuw [3 x ptr], ptr %63, i64 0, i64 %indvars.iv163
-  %77 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv163
+  %77 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %75
   store ptr %76, ptr %77, align 8, !tbaa !13
-  %78 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %75, i32 1
+  %78 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %75, i32 1
   store i64 %70, ptr %78, align 8, !tbaa !17
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 2
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
@@ -2506,10 +2506,10 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   %.not118.us = icmp eq i64 %indvars.iv191, 0
   %85 = select i1 %.not118.us, i32 3, i32 2
   %factor.op.mul.us.reass = mul i32 %85, %factor.op.mul150
-  %86 = getelementptr inbounds nuw [3 x [2 x ptr]], ptr %82, i64 0, i64 %indvars.iv191
+  %86 = getelementptr inbounds nuw [2 x ptr], ptr %82, i64 %indvars.iv191
   %87 = shl i32 %factor.op.mul.us.reass, %33
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw [3 x [2 x ptr]], ptr %83, i64 0, i64 %indvars.iv191
+  %89 = getelementptr inbounds nuw [2 x ptr], ptr %83, i64 %indvars.iv191
   %sext209 = shl i64 %.promoted136140141.us, 32
   %90 = ashr exact i64 %sext209, 32
   br label %92
@@ -2527,10 +2527,10 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   br i1 %94, label %95, label %.split147.us
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw [2 x ptr], ptr %86, i64 0, i64 %indvars.iv184
-  %97 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv186
+  %96 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv184
+  %97 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv186
   store ptr %96, ptr %97, align 8, !tbaa !13
-  %98 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv186, i32 1
+  %98 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv186, i32 1
   store i64 %88, ptr %98, align 8, !tbaa !17
   %99 = add nsw i64 %indvars.iv186, 1
   %100 = trunc nsw i64 %99 to i32
@@ -2539,10 +2539,10 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   br i1 %101, label %.split149.us, label %102
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds nuw [2 x ptr], ptr %89, i64 0, i64 %indvars.iv184
-  %104 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %99
+  %103 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv184
+  %104 = getelementptr inbounds %struct.Tab, ptr %0, i64 %99
   store ptr %103, ptr %104, align 8, !tbaa !13
-  %105 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %99, i32 1
+  %105 = getelementptr inbounds %struct.Tab, ptr %0, i64 %99, i32 1
   store i64 %84, ptr %105, align 8, !tbaa !17
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, 2
   %106 = trunc nsw i64 %indvars.iv.next187 to i32
@@ -2552,30 +2552,30 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
 .thread125.preheader:                             ; preds = %54, %.thread125.preheader
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.thread125.preheader ], [ 0, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread125.preheader ], [ 0, %54 ]
-  %107 = getelementptr inbounds nuw [3 x i8], ptr %60, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv
   %108 = load i8, ptr %107, align 1, !tbaa !217
   %109 = zext nneg i8 %108 to i32
   %110 = lshr i32 %22, %109
-  %111 = getelementptr inbounds nuw [3 x i8], ptr %59, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %112 = load i8, ptr %111, align 1, !tbaa !217
   %113 = zext nneg i8 %112 to i32
   %114 = lshr i32 %21, %113
-  %115 = getelementptr inbounds nuw [3 x ptr], ptr %61, i64 0, i64 %indvars.iv
-  %116 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv158
+  %115 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv158
   store ptr %115, ptr %116, align 8, !tbaa !13
   %117 = mul i32 %62, %114
   %118 = shl i32 %117, %33
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv158, i32 1
+  %120 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv158, i32 1
   store i64 %119, ptr %120, align 8, !tbaa !17
   %121 = or disjoint i64 %indvars.iv158, 1
-  %122 = getelementptr inbounds nuw [3 x ptr], ptr %63, i64 0, i64 %indvars.iv
-  %123 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %121
   store ptr %122, ptr %123, align 8, !tbaa !13
   %124 = mul i32 %64, %110
   %125 = shl i32 %124, %33
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %121, i32 1
+  %127 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %121, i32 1
   store i64 %126, ptr %127, align 8, !tbaa !17
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 2
   %128 = trunc nuw nsw i64 %indvars.iv.next159 to i32
@@ -2590,11 +2590,11 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
 .thread126:                                       ; preds = %.thread126.preheader, %144
   %indvars.iv179 = phi i64 [ 0, %.thread126.preheader ], [ %indvars.iv.next180, %144 ]
   %.promoted136140141 = phi i64 [ %indvars.iv.next159, %.thread126.preheader ], [ %indvars.iv.next175, %144 ]
-  %129 = getelementptr inbounds nuw [3 x i8], ptr %59, i64 0, i64 %indvars.iv179
+  %129 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv179
   %130 = load i8, ptr %129, align 1, !tbaa !217
   %131 = zext nneg i8 %130 to i32
   %132 = lshr i32 %21, %131
-  %133 = getelementptr inbounds nuw [3 x i8], ptr %60, i64 0, i64 %indvars.iv179
+  %133 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv179
   %134 = load i8, ptr %133, align 1, !tbaa !217
   %135 = zext nneg i8 %134 to i32
   %136 = lshr i32 %22, %135
@@ -2602,11 +2602,11 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   %137 = select i1 %.not118, i32 3, i32 2
   %factor.op.mul = mul nuw nsw i32 %137, %132
   %factor.op.mul134.reass = mul i32 %factor.op.mul138, %136
-  %138 = getelementptr inbounds nuw [3 x [2 x ptr]], ptr %79, i64 0, i64 %indvars.iv179
+  %138 = getelementptr inbounds nuw [2 x ptr], ptr %79, i64 %indvars.iv179
   %.reass = mul i32 %factor.op.mul, %23
   %139 = shl i32 %.reass, %33
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds nuw [3 x [2 x ptr]], ptr %80, i64 0, i64 %indvars.iv179
+  %141 = getelementptr inbounds nuw [2 x ptr], ptr %80, i64 %indvars.iv179
   %142 = zext nneg i32 %factor.op.mul134.reass to i64
   %sext = shl i64 %.promoted136140141, 32
   %143 = ashr exact i64 %sext, 32
@@ -2630,10 +2630,10 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   unreachable
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds nuw [2 x ptr], ptr %138, i64 0, i64 %indvars.iv172
-  %150 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv174
+  %149 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv172
+  %150 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv174
   store ptr %149, ptr %150, align 8, !tbaa !13
-  %151 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv174, i32 1
+  %151 = getelementptr inbounds %struct.Tab, ptr %0, i64 %indvars.iv174, i32 1
   store i64 %140, ptr %151, align 8, !tbaa !17
   %152 = add nsw i64 %indvars.iv174, 1
   %153 = trunc nsw i64 %152 to i32
@@ -2647,10 +2647,10 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   unreachable
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds nuw [2 x ptr], ptr %141, i64 0, i64 %indvars.iv172
-  %157 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %152
+  %156 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv172
+  %157 = getelementptr inbounds %struct.Tab, ptr %0, i64 %152
   store ptr %156, ptr %157, align 8, !tbaa !13
-  %158 = getelementptr inbounds [32 x %struct.Tab], ptr %0, i64 0, i64 %152, i32 1
+  %158 = getelementptr inbounds %struct.Tab, ptr %0, i64 %152, i32 1
   store i64 %142, ptr %158, align 8, !tbaa !17
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 2
   %159 = trunc nsw i64 %indvars.iv.next175 to i32
@@ -2718,10 +2718,10 @@ define internal void @msm_tl_init(ptr noundef writeonly captures(none) initializ
 40:                                               ; preds = %40, %29
   %41 = phi i1 [ true, %29 ], [ false, %40 ]
   %indvars.iv = phi i64 [ 0, %29 ], [ 1, %40 ]
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 0, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv
   store ptr %42, ptr %43, align 8, !tbaa !13
-  %44 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv, i32 1
+  %44 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv, i32 1
   store i64 %35, ptr %44, align 8, !tbaa !17
   br i1 %41, label %40, label %36, !llvm.loop !284
 }
@@ -2882,10 +2882,10 @@ define internal void @ibc_tl_init(ptr noundef writeonly captures(none) initializ
 
 59:                                               ; preds = %.split.us, %59
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %59 ], [ 0, %.split.us ]
-  %60 = getelementptr inbounds nuw [3 x ptr], ptr %56, i64 0, i64 %indvars.iv69
-  %61 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv69
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv69
+  %61 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv69
   store ptr %60, ptr %61, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv69, i32 1
+  %62 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv69, i32 1
   store i64 %58, ptr %62, align 8, !tbaa !17
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next70, 3
@@ -2900,19 +2900,19 @@ define internal void @ibc_tl_init(ptr noundef writeonly captures(none) initializ
 
 .thread58.preheader:                              ; preds = %48, %.thread58.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread58.preheader ], [ 0, %48 ]
-  %63 = getelementptr inbounds nuw [3 x i8], ptr %55, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !217
   %65 = zext nneg i8 %64 to i32
-  %66 = getelementptr inbounds nuw [3 x i8], ptr %54, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1, !tbaa !217
   %68 = zext nneg i8 %67 to i32
-  %69 = getelementptr inbounds nuw [3 x ptr], ptr %56, i64 0, i64 %indvars.iv
-  %70 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv
   store ptr %69, ptr %70, align 8, !tbaa !13
   %71 = ashr i32 %57, %68
   %72 = ashr i32 %71, %65
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %0, i64 0, i64 %indvars.iv, i32 1
+  %74 = getelementptr inbounds nuw %struct.Tab, ptr %0, i64 %indvars.iv, i32 1
   store i64 %73, ptr %74, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2958,7 +2958,7 @@ define internal fastcc range(i32 -12, 1) i32 @frame_context_init(ptr noundef wri
 7:                                                ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
   %8 = tail call ptr @av_frame_alloc() #10
-  %9 = getelementptr inbounds nuw [17 x %struct.VVCFrame], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.VVCFrame, ptr %5, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !135
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %.loopexit, label %6
@@ -3202,7 +3202,7 @@ free_cus.exit.i:                                  ; preds = %.lr.ph.i.i, %.prehe
 38:                                               ; preds = %.loopexit.i, %free_cus.exit.i
   %indvars.iv.i5.i = phi i64 [ 0, %free_cus.exit.i ], [ %indvars.iv.next.i6.i, %.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %39 = getelementptr inbounds nuw [11 x ptr], ptr @__const.frame_context_for_each_tl.init, i64 0, i64 %indvars.iv.i5.i
+  %39 = getelementptr inbounds nuw ptr, ptr @__const.frame_context_for_each_tl.init, i64 %indvars.iv.i5.i
   %40 = load ptr, ptr %39, align 8, !tbaa !6
   call void %40(ptr noundef nonnull %2, ptr noundef nonnull %0) #10
   %41 = load i32, ptr %37, align 8, !tbaa !18
@@ -3211,7 +3211,7 @@ free_cus.exit.i:                                  ; preds = %.lr.ph.i.i, %.prehe
 
 .lr.ph.i7.i:                                      ; preds = %38, %.lr.ph.i7.i
   %indvars.iv.i8.i = phi i64 [ %indvars.iv.next.i9.i, %.lr.ph.i7.i ], [ 0, %38 ]
-  %43 = getelementptr inbounds nuw [32 x %struct.Tab], ptr %2, i64 0, i64 %indvars.iv.i8.i
+  %43 = getelementptr inbounds nuw %struct.Tab, ptr %2, i64 %indvars.iv.i8.i
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   call void @av_freep(ptr noundef %44) #10
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
@@ -3235,7 +3235,7 @@ pic_arrays_free.exit:                             ; preds = %.loopexit.i
 
 53:                                               ; preds = %slices_free.exit, %53
   %indvars.iv = phi i64 [ 0, %slices_free.exit ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw [17 x %struct.VVCFrame], ptr %25, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.VVCFrame, ptr %25, i64 %indvars.iv
   tail call void @ff_vvc_unref_frame(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef -1) #10
   tail call void @av_frame_free(ptr noundef nonnull %54) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

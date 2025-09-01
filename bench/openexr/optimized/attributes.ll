@@ -67,7 +67,7 @@ define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr noundef rea
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [29 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #8
   %6 = icmp eq i32 %5, 0
@@ -712,7 +712,7 @@ define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef capture
 
 55:                                               ; preds = %52, %54
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %54 ]
-  %56 = getelementptr inbounds nuw [29 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !3
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %57) #8
   %59 = icmp eq i32 %58, 0
@@ -1597,119 +1597,119 @@ define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(addres
   br label %100
 
 44:                                               ; preds = %34
-  %45 = add nsw i32 %3, -1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [29 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !64
+  %45 = zext nneg i32 %3 to i64
+  %46 = getelementptr %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -8
+  %48 = load i64, ptr %47, align 8, !tbaa !64
   %.not.i = icmp eq i64 %23, 0
   %narrow.i = add nuw nsw i64 %23, 33
   %.067.i = select i1 %.not.i, i64 32, i64 %narrow.i
-  %.not81.i = icmp eq i64 %49, 0
-  br i1 %.not81.i, label %56, label %50
+  %.not81.i = icmp eq i64 %48, 0
+  br i1 %.not81.i, label %55, label %49
 
-50:                                               ; preds = %44
-  %51 = and i64 %.067.i, 7
-  %52 = sub nuw nsw i64 8, %51
-  %53 = icmp eq i64 %51, 0
-  %spec.store.select.i = select i1 %53, i64 0, i64 %52
-  %54 = add nuw nsw i64 %spec.store.select.i, %.067.i
-  %55 = add i64 %54, %49
-  br label %56
+49:                                               ; preds = %44
+  %50 = and i64 %.067.i, 7
+  %51 = sub nuw nsw i64 8, %50
+  %52 = icmp eq i64 %50, 0
+  %spec.store.select.i = select i1 %52, i64 0, i64 %51
+  %53 = add nuw nsw i64 %spec.store.select.i, %.067.i
+  %54 = add i64 %53, %48
+  br label %55
 
-56:                                               ; preds = %50, %44
-  %.269.i = phi i64 [ %55, %50 ], [ %.067.i, %44 ]
-  %.065.i = phi i64 [ %spec.store.select.i, %50 ], [ 0, %44 ]
-  %57 = icmp sgt i32 %4, 0
-  br i1 %57, label %58, label %65
+55:                                               ; preds = %49, %44
+  %.269.i = phi i64 [ %54, %49 ], [ %.067.i, %44 ]
+  %.065.i = phi i64 [ %spec.store.select.i, %49 ], [ 0, %44 ]
+  %56 = icmp sgt i32 %4, 0
+  br i1 %56, label %57, label %64
 
-58:                                               ; preds = %56
-  %59 = and i64 %.269.i, 7
-  %60 = sub nuw nsw i64 8, %59
-  %61 = icmp eq i64 %59, 0
-  %spec.store.select1.i = select i1 %61, i64 0, i64 %60
-  %62 = zext nneg i32 %4 to i64
-  %63 = add i64 %.269.i, %62
-  %64 = add i64 %63, %spec.store.select1.i
-  br label %65
+57:                                               ; preds = %55
+  %58 = and i64 %.269.i, 7
+  %59 = sub nuw nsw i64 8, %58
+  %60 = icmp eq i64 %58, 0
+  %spec.store.select1.i = select i1 %60, i64 0, i64 %59
+  %61 = zext nneg i32 %4 to i64
+  %62 = add i64 %.269.i, %61
+  %63 = add i64 %62, %spec.store.select1.i
+  br label %64
 
-65:                                               ; preds = %58, %56
-  %.070.i = phi i64 [ %spec.store.select1.i, %58 ], [ 0, %56 ]
-  %.3.i = phi i64 [ %64, %58 ], [ %.269.i, %56 ]
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %67 = load ptr, ptr %66, align 8, !tbaa !68
-  %68 = tail call ptr %67(i64 noundef %.3.i) #9
-  %.not82.i = icmp eq ptr %68, null
-  br i1 %.not82.i, label %create_attr_block.exit, label %69
+64:                                               ; preds = %57, %55
+  %.070.i = phi i64 [ %spec.store.select1.i, %57 ], [ 0, %55 ]
+  %.3.i = phi i64 [ %63, %57 ], [ %.269.i, %55 ]
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %66 = load ptr, ptr %65, align 8, !tbaa !68
+  %67 = tail call ptr %66(i64 noundef %.3.i) #9
+  %.not82.i = icmp eq ptr %67, null
+  br i1 %.not82.i, label %create_attr_block.exit, label %68
 
-69:                                               ; preds = %65
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  br i1 %.not.i, label %76, label %71
+68:                                               ; preds = %64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  br i1 %.not.i, label %75, label %70
 
-71:                                               ; preds = %69
-  %72 = add nuw nsw i64 %23, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %72, i1 false)
-  store ptr %70, ptr %68, align 8, !tbaa !57
-  %73 = trunc nuw i64 %23 to i8
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i8 %73, ptr %74, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %72
-  br label %76
+70:                                               ; preds = %68
+  %71 = add nuw nsw i64 %23, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %71, i1 false)
+  store ptr %69, ptr %67, align 8, !tbaa !57
+  %72 = trunc nuw i64 %23 to i8
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store i8 %72, ptr %73, align 8, !tbaa !35
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 %71
+  br label %75
 
-76:                                               ; preds = %71, %69
-  %.066.i = phi ptr [ %75, %71 ], [ %70, %69 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %.065.i
-  br i1 %.not81.i, label %81, label %78
+75:                                               ; preds = %70, %68
+  %.066.i = phi ptr [ %74, %70 ], [ %69, %68 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %.065.i
+  br i1 %.not81.i, label %80, label %77
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr %77, ptr %79, align 8, !tbaa !32
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %49
-  br label %81
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr %76, ptr %78, align 8, !tbaa !32
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %48
+  br label %80
 
-81:                                               ; preds = %78, %76
-  %.2.i = phi ptr [ %80, %78 ], [ %77, %76 ]
+80:                                               ; preds = %77, %75
+  %.2.i = phi ptr [ %79, %77 ], [ %76, %75 ]
   %.not83.i = icmp eq ptr %5, null
   br i1 %.not83.i, label %create_attr_block.exit.thread, label %create_attr_block.exit.thread.sink.split
 
-create_attr_block.exit.thread.sink.split:         ; preds = %81
-  %82 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.070.i
-  %.sink = select i1 %57, ptr %82, ptr null
+create_attr_block.exit.thread.sink.split:         ; preds = %80
+  %81 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.070.i
+  %.sink = select i1 %56, ptr %81, ptr null
   store ptr %.sink, ptr %5, align 8, !tbaa !67
   br label %create_attr_block.exit.thread
 
-create_attr_block.exit:                           ; preds = %65
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %84 = load ptr, ptr %83, align 8, !tbaa !69
-  %85 = tail call i32 %84(ptr noundef nonnull %0, i32 noundef 1) #9
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %create_attr_block.exit.thread, label %.thread
+create_attr_block.exit:                           ; preds = %64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %83 = load ptr, ptr %82, align 8, !tbaa !69
+  %84 = tail call i32 %83(ptr noundef nonnull %0, i32 noundef 1) #9
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %create_attr_block.exit.thread, label %.thread
 
-create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %81, %create_attr_block.exit
-  %87 = load ptr, ptr %47, align 8, !tbaa !3
-  %88 = getelementptr inbounds nuw i8, ptr %68, i64 8
+create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %80, %create_attr_block.exit
+  %86 = getelementptr i8, ptr %46, i64 -24
+  %87 = load ptr, ptr %86, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !56
-  %89 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %89 = getelementptr i8, ptr %46, i64 -16
   %90 = load i32, ptr %89, align 8, !tbaa !65
   %91 = trunc i32 %90 to i8
-  %92 = getelementptr inbounds nuw i8, ptr %68, i64 17
+  %92 = getelementptr inbounds nuw i8, ptr %67, i64 17
   store i8 %91, ptr %92, align 1, !tbaa !36
-  %93 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %93 = getelementptr i8, ptr %46, i64 -12
   %94 = load i32, ptr %93, align 4, !tbaa !66
-  %95 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i32 %94, ptr %95, align 4, !tbaa !30
-  %96 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %68)
+  %96 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %67)
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %.thread
 
 98:                                               ; preds = %create_attr_block.exit.thread
-  store ptr %68, ptr %6, align 8, !tbaa !28
-  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %68)
+  store ptr %67, ptr %6, align 8, !tbaa !28
+  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %67)
   br label %100
 
 .thread:                                          ; preds = %create_attr_block.exit, %create_attr_block.exit.thread
-  %.05878 = phi i32 [ %96, %create_attr_block.exit.thread ], [ %85, %create_attr_block.exit ]
+  %.05878 = phi i32 [ %96, %create_attr_block.exit.thread ], [ %84, %create_attr_block.exit ]
   %.not67 = icmp eq ptr %5, null
   br i1 %.not67, label %100, label %99
 
@@ -1788,93 +1788,93 @@ define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef cap
   br label %90
 
 44:                                               ; preds = %34
-  %45 = add nsw i32 %3, -1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [29 x %struct._internal_exr_attr_map], ptr @the_predefined_attr_typenames, i64 0, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !64
-  %.not81.i = icmp eq i64 %49, 0
-  %50 = add i64 %49, 32
-  %51 = icmp sgt i32 %4, 0
-  br i1 %51, label %52, label %59
+  %45 = zext nneg i32 %3 to i64
+  %46 = getelementptr %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -8
+  %48 = load i64, ptr %47, align 8, !tbaa !64
+  %.not81.i = icmp eq i64 %48, 0
+  %49 = add i64 %48, 32
+  %50 = icmp sgt i32 %4, 0
+  br i1 %50, label %51, label %58
 
-52:                                               ; preds = %44
-  %53 = and i64 %49, 7
-  %54 = sub nuw nsw i64 8, %53
-  %55 = icmp eq i64 %53, 0
-  %spec.store.select1.i = select i1 %55, i64 0, i64 %54
-  %56 = zext nneg i32 %4 to i64
-  %57 = add i64 %50, %56
-  %58 = add i64 %57, %spec.store.select1.i
-  br label %59
+51:                                               ; preds = %44
+  %52 = and i64 %48, 7
+  %53 = sub nuw nsw i64 8, %52
+  %54 = icmp eq i64 %52, 0
+  %spec.store.select1.i = select i1 %54, i64 0, i64 %53
+  %55 = zext nneg i32 %4 to i64
+  %56 = add i64 %49, %55
+  %57 = add i64 %56, %spec.store.select1.i
+  br label %58
 
-59:                                               ; preds = %52, %44
-  %.070.i = phi i64 [ %spec.store.select1.i, %52 ], [ 0, %44 ]
-  %.3.i = phi i64 [ %58, %52 ], [ %50, %44 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %61 = load ptr, ptr %60, align 8, !tbaa !68
-  %62 = tail call ptr %61(i64 noundef %.3.i) #9
-  %.not82.i = icmp eq ptr %62, null
-  br i1 %.not82.i, label %create_attr_block.exit, label %63
+58:                                               ; preds = %51, %44
+  %.070.i = phi i64 [ %spec.store.select1.i, %51 ], [ 0, %44 ]
+  %.3.i = phi i64 [ %57, %51 ], [ %49, %44 ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %60 = load ptr, ptr %59, align 8, !tbaa !68
+  %61 = tail call ptr %60(i64 noundef %.3.i) #9
+  %.not82.i = icmp eq ptr %61, null
+  br i1 %.not82.i, label %create_attr_block.exit, label %62
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  br i1 %.not81.i, label %69, label %66
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  br i1 %.not81.i, label %68, label %65
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %65, ptr %67, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %49
-  br label %69
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store ptr %64, ptr %66, align 8, !tbaa !32
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %48
+  br label %68
 
-69:                                               ; preds = %66, %63
-  %.2.i = phi ptr [ %68, %66 ], [ %65, %63 ]
+68:                                               ; preds = %65, %62
+  %.2.i = phi ptr [ %67, %65 ], [ %64, %62 ]
   %.not83.i = icmp eq ptr %5, null
   br i1 %.not83.i, label %create_attr_block.exit.thread, label %create_attr_block.exit.thread.sink.split
 
-create_attr_block.exit.thread.sink.split:         ; preds = %69
-  %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.070.i
-  %.sink = select i1 %51, ptr %70, ptr null
+create_attr_block.exit.thread.sink.split:         ; preds = %68
+  %69 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.070.i
+  %.sink = select i1 %50, ptr %69, ptr null
   store ptr %.sink, ptr %5, align 8, !tbaa !67
   br label %create_attr_block.exit.thread
 
-create_attr_block.exit:                           ; preds = %59
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %72 = load ptr, ptr %71, align 8, !tbaa !69
-  %73 = tail call i32 %72(ptr noundef nonnull %0, i32 noundef 1) #9
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %create_attr_block.exit.thread, label %.thread
+create_attr_block.exit:                           ; preds = %58
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !69
+  %72 = tail call i32 %71(ptr noundef nonnull %0, i32 noundef 1) #9
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %create_attr_block.exit.thread, label %.thread
 
-create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %69, %create_attr_block.exit
-  store ptr %2, ptr %62, align 8, !tbaa !57
-  %75 = load ptr, ptr %47, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %62, i64 8
+create_attr_block.exit.thread:                    ; preds = %create_attr_block.exit.thread.sink.split, %68, %create_attr_block.exit
+  %74 = getelementptr i8, ptr %46, i64 -24
+  store ptr %2, ptr %61, align 8, !tbaa !57
+  %75 = load ptr, ptr %74, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !56
   %77 = trunc nuw i64 %25 to i8
-  %78 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 %77, ptr %78, align 8, !tbaa !35
-  %79 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %79 = getelementptr i8, ptr %46, i64 -16
   %80 = load i32, ptr %79, align 8, !tbaa !65
   %81 = trunc i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %62, i64 17
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 17
   store i8 %81, ptr %82, align 1, !tbaa !36
-  %83 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %83 = getelementptr i8, ptr %46, i64 -12
   %84 = load i32, ptr %83, align 4, !tbaa !66
-  %85 = getelementptr inbounds nuw i8, ptr %62, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i32 %84, ptr %85, align 4, !tbaa !30
-  %86 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %62)
+  %86 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %61)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %.thread
 
 88:                                               ; preds = %create_attr_block.exit.thread
-  store ptr %62, ptr %6, align 8, !tbaa !28
-  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %62)
+  store ptr %61, ptr %6, align 8, !tbaa !28
+  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %61)
   br label %90
 
 .thread:                                          ; preds = %create_attr_block.exit, %create_attr_block.exit.thread
-  %.05880 = phi i32 [ %86, %create_attr_block.exit.thread ], [ %73, %create_attr_block.exit ]
+  %.05880 = phi i32 [ %86, %create_attr_block.exit.thread ], [ %72, %create_attr_block.exit ]
   %.not67 = icmp eq ptr %5, null
   br i1 %.not67, label %90, label %89
 

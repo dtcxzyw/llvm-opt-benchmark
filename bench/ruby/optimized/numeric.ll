@@ -6311,7 +6311,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %.022 = phi ptr [ %4, %13 ], [ %19, %15 ]
   %.1 = phi i64 [ %.020, %13 ], [ %20, %15 ]
   %16 = urem i64 %.1, %14
-  %17 = getelementptr [0 x i8], ptr @ruby_digitmap, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @ruby_digitmap, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !20
   %19 = getelementptr i8, ptr %.022, i64 -1
   store i8 %18, ptr %19, align 1, !tbaa !20
@@ -6354,7 +6354,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr [10 x i64], ptr @rb_fix_to_s_static, i64 0, i64 %3
+  %5 = getelementptr i64, ptr @rb_fix_to_s_static, i64 %3
   %6 = load i64, ptr %5, align 8, !tbaa !7
   br label %28
 
@@ -6376,7 +6376,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
   %.022.i = phi ptr [ %8, %12 ], [ %17, %13 ]
   %.1.i = phi i64 [ %.020.i, %12 ], [ %18, %13 ]
   %14 = urem i64 %.1.i, 10
-  %15 = getelementptr [0 x i8], ptr @ruby_digitmap, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @ruby_digitmap, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !20
   %17 = getelementptr i8, ptr %.022.i, i64 -1
   store i8 %16, ptr %17, align 1, !tbaa !20
@@ -6498,7 +6498,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   %.022.i = phi ptr [ %6, %15 ], [ %21, %17 ]
   %.1.i = phi i64 [ %.020.i, %15 ], [ %22, %17 ]
   %18 = urem i64 %.1.i, %16
-  %19 = getelementptr [0 x i8], ptr @ruby_digitmap, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @ruby_digitmap, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !20
   %21 = getelementptr i8, ptr %.022.i, i64 -1
   store i8 %20, ptr %21, align 1, !tbaa !20
@@ -9778,7 +9778,7 @@ define internal i64 @num_eql(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.num_eql.2, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -9818,7 +9818,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %7, 
   br label %rb_type.exit12
 
 switch.lookup17:                                  ; preds = %29
-  %switch.gep21 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %30
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table.num_eql.2, i64 %30
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %rb_type.exit12
 
@@ -12699,7 +12699,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %38, %46
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %55, ptr noundef nonnull align 1 %54, i64 noundef range(i64 -2147483645, 2147483647) %57, i1 noundef false) #26
   %58 = load i32, ptr %5, align 4, !tbaa !18
   %59 = sext i32 %58 to i64
-  %60 = getelementptr [31 x i8], ptr %2, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %2, i64 %59
   store i8 46, ptr %60, align 1, !tbaa !20
   %61 = add nuw nsw i32 %spec.store.select, 1
   %62 = zext nneg i32 %61 to i64

@@ -150,7 +150,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .preheader59:                                     ; preds = %4, %._crit_edge
   %indvars.iv89 = phi i64 [ 0, %4 ], [ %indvars.iv.next90, %._crit_edge ]
-  %5 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv89
+  %5 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv89
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -189,7 +189,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.preheader, %.preheader
   %indvars.iv93127 = phi i64 [ %indvars.iv.next94, %.preheader ], [ 0, %.preheader.preheader.preheader ]
-  %15 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv93127
+  %15 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv93127
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %10) #9
   %18 = icmp eq i32 %17, 0
@@ -582,7 +582,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 
 .preheader:                                       ; preds = %58, %._crit_edge62
   %indvars.iv68 = phi i64 [ 0, %58 ], [ %indvars.iv.next69, %._crit_edge62 ]
-  %60 = getelementptr inbounds nuw [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv68
+  %60 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv68
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0

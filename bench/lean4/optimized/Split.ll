@@ -9729,7 +9729,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_Tactic_Grind_Spli
   %.0142451 = phi i64 [ %2, %.lr.ph ], [ %.4146, %lean_dec.exit194 ]
   %.0147450 = phi ptr [ %4, %.lr.ph ], [ %.4151, %lean_dec.exit194 ]
   %.0152449 = phi ptr [ %13, %.lr.ph ], [ %.4156, %lean_dec.exit194 ]
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.0142451
+  %35 = getelementptr inbounds nuw ptr, ptr %15, i64 %.0142451
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
@@ -11958,7 +11958,7 @@ lean_dec.exit106:                                 ; preds = %115, %114, %112, %l
 
 119:                                              ; preds = %42, %lean_dec.exit116
   %120 = lshr i64 %40, 1
-  %121 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw ptr, ptr %17, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !4
   %123 = ptrtoint ptr %122 to i64
   %124 = and i64 %123, 1
@@ -11984,7 +11984,7 @@ lean_dec.exit106:                                 ; preds = %115, %114, %112, %l
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %119, %127, %129, %130
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %120
+  %131 = getelementptr inbounds nuw ptr, ptr %18, i64 %120
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, 1
@@ -33420,7 +33420,7 @@ lean_dec.exit379:                                 ; preds = %lean_inc.exit408, %
   %130 = add nsw i64 %122, -1
   %131 = and i64 %129, %130
   %132 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %133 = getelementptr inbounds nuw [0 x ptr], ptr %132, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %131
   %134 = load ptr, ptr %133, align 8, !tbaa !4
   %135 = ptrtoint ptr %134 to i64
   %136 = and i64 %135, 1
@@ -34812,7 +34812,7 @@ lean_dec.exit347:                                 ; preds = %lean_inc.exit390, %
   %649 = add nsw i64 %641, -1
   %650 = and i64 %648, %649
   %651 = getelementptr inbounds nuw i8, ptr %624, i64 24
-  %652 = getelementptr inbounds nuw [0 x ptr], ptr %651, i64 0, i64 %650
+  %652 = getelementptr inbounds nuw ptr, ptr %651, i64 %650
   %653 = load ptr, ptr %652, align 8, !tbaa !4
   %654 = ptrtoint ptr %653 to i64
   %655 = and i64 %654, 1

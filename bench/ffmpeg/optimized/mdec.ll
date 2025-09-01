@@ -55,12 +55,12 @@ define internal noundef i32 @decode_init(ptr noundef %0) #0 {
 
 22:                                               ; preds = %1, %22
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !40
-  %25 = getelementptr inbounds nuw [0 x i16], ptr @ff_mpeg1_default_intra_matrix, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !41
   %27 = zext i8 %24 to i64
-  %28 = getelementptr inbounds nuw [64 x i16], ptr %21, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i16, ptr %21, i64 %27
   store i16 %26, ptr %28, align 2, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -212,7 +212,7 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
 
 93:                                               ; preds = %92, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %92 ]
-  %94 = getelementptr inbounds nuw [6 x i32], ptr @decode_mb.block_index, i64 0, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw i32, ptr @decode_mb.block_index, i64 %indvars.iv.i
   %95 = load i32, ptr %94, align 4, !tbaa !57
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds [64 x i16], ptr %67, i64 %96
@@ -366,7 +366,7 @@ decode_dc.exit.i.i:                               ; preds = %190, %187
   %206 = phi i32 [ %200, %190 ], [ %188, %187 ]
   %.0.i.i.i = phi i32 [ %205, %190 ], [ 0, %187 ]
   %207 = zext nneg i32 %115 to i64
-  %208 = getelementptr inbounds nuw [3 x i32], ptr %58, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i32, ptr %58, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !57
   %210 = add nsw i32 %209, %.0.i.i.i
   store i32 %210, ptr %208, align 4, !tbaa !57
@@ -394,7 +394,7 @@ decode_dc.exit.i.i:                               ; preds = %190, %187
   %223 = shl i32 %221, %222
   %224 = lshr i32 %223, 23
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw [0 x %struct.VLCElem], ptr @ff_mpeg1_rl_vlc, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %225
   %227 = load i16, ptr %226, align 2, !tbaa !40
   %228 = sext i16 %227 to i32
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 2
@@ -411,7 +411,7 @@ decode_dc.exit.i.i:                               ; preds = %190, %187
   %238 = lshr i32 %234, %237
   %239 = add i32 %238, %228
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw [0 x %struct.VLCElem], ptr @ff_mpeg1_rl_vlc, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %240
   %242 = load i16, ptr %241, align 2, !tbaa !40
   %243 = sext i16 %242 to i32
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 2
@@ -435,7 +435,7 @@ decode_dc.exit.i.i:                               ; preds = %190, %187
 
 251:                                              ; preds = %247
   %252 = zext i32 %.0104.i.i to i64
-  %253 = getelementptr inbounds nuw [0 x %struct.VLCElem], ptr @ff_mpeg1_rl_vlc, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 3
   %255 = load i8, ptr %254, align 1, !tbaa !40
   %256 = zext i8 %255 to i32

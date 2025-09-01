@@ -5428,7 +5428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
   %1160 = load i32, ptr %1159, align 8, !tbaa !484
   %1161 = add i32 %1160, %1155
   %1162 = zext i32 %1161 to i64
-  %1163 = getelementptr inbounds nuw [1 x i8], ptr %1158, i64 0, i64 %1162
+  %1163 = getelementptr inbounds nuw i8, ptr %1158, i64 %1162
   %1164 = load i8, ptr %1163, align 1, !tbaa !14
   %1165 = load ptr, ptr %949, align 8, !tbaa !77
   %1166 = load ptr, ptr %950, align 8, !tbaa !73
@@ -7656,7 +7656,7 @@ _ZN12_GLOBAL__N_115HTMLDiagnostics12FinalizeHTMLERKN5clang4ento14PathDiagnosticE
   %2277 = load i32, ptr %2276, align 8, !tbaa !484
   %2278 = add i32 %2277, %2272
   %2279 = zext i32 %2278 to i64
-  %2280 = getelementptr inbounds nuw [1 x i8], ptr %2275, i64 0, i64 %2279
+  %2280 = getelementptr inbounds nuw i8, ptr %2275, i64 %2279
   %2281 = load i8, ptr %2280, align 1, !tbaa !14
   %2282 = load ptr, ptr %2269, align 8, !tbaa !77
   %2283 = load ptr, ptr %2270, align 8, !tbaa !73

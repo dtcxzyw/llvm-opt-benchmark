@@ -582,7 +582,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %12, %15
 
 .preheader:                                       ; preds = %_ZNK2cv11_InputArray6getMatEi.exit, %.preheader
   %indvars.iv23 = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %indvars.iv.next24, %.preheader ]
-  %18 = getelementptr inbounds nuw [5 x [2 x float]], ptr %6, i64 0, i64 %indvars.iv23
+  %18 = getelementptr inbounds nuw [2 x float], ptr %6, i64 %indvars.iv23
   %.idx = shl nuw nsw i64 %indvars.iv23, 3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 16
@@ -1190,7 +1190,7 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   %indvars.iv327.sroa.phi = phi ptr [ %8, %3 ], [ %indvars.iv327.sroa.gep469, %74 ]
   %indvars.iv327.sroa.phi470.sroa.speculated = phi float [ %56, %3 ], [ %71, %74 ]
   %indvars.iv327 = phi i64 [ 0, %3 ], [ 1, %74 ]
-  %invariant.gep = getelementptr inbounds nuw [2 x float], ptr %2, i64 0, i64 %indvars.iv327
+  %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv327
   br label %75
 
 73:                                               ; preds = %74
@@ -1205,7 +1205,7 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   %gep = getelementptr inbounds nuw [2 x float], ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 4, !tbaa !57
   %77 = fsub float %76, %indvars.iv327.sroa.phi470.sroa.speculated
-  %gep300 = getelementptr inbounds nuw [5 x [2 x float]], ptr %indvars.iv327.sroa.phi, i64 0, i64 %indvars.iv
+  %gep300 = getelementptr inbounds nuw [2 x float], ptr %indvars.iv327.sroa.phi, i64 %indvars.iv
   store float %77, ptr %gep300, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -1215,8 +1215,8 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   %78 = phi i1 [ true, %73 ], [ false, %81 ]
   %indvars.iv334.sroa.phi = phi ptr [ %9, %73 ], [ %indvars.iv334.sroa.gep468, %81 ]
   %indvars.iv334 = phi i64 [ 0, %73 ], [ 1, %81 ]
-  %invariant.gep303 = getelementptr inbounds nuw [2 x float], ptr @__const._ZNK2cv20FaceRecognizerSFImpl28getSimilarityTransformMatrixEPA2_f.dst, i64 0, i64 %indvars.iv334
-  %79 = getelementptr inbounds nuw [2 x float], ptr @__const._ZNK2cv20FaceRecognizerSFImpl28getSimilarityTransformMatrixEPA2_f.dst_mean, i64 0, i64 %indvars.iv334
+  %invariant.gep303 = getelementptr inbounds nuw float, ptr @__const._ZNK2cv20FaceRecognizerSFImpl28getSimilarityTransformMatrixEPA2_f.dst, i64 %indvars.iv334
+  %79 = getelementptr inbounds nuw float, ptr @__const._ZNK2cv20FaceRecognizerSFImpl28getSimilarityTransformMatrixEPA2_f.dst_mean, i64 %indvars.iv334
   %80 = load float, ptr %79, align 4, !tbaa !57
   br label %82
 
@@ -1225,10 +1225,10 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
 
 82:                                               ; preds = %.preheader297, %82
   %indvars.iv330 = phi i64 [ 0, %.preheader297 ], [ %indvars.iv.next331, %82 ]
-  %gep304 = getelementptr inbounds nuw [5 x [2 x float]], ptr %invariant.gep303, i64 0, i64 %indvars.iv330
+  %gep304 = getelementptr inbounds nuw [2 x float], ptr %invariant.gep303, i64 %indvars.iv330
   %83 = load float, ptr %gep304, align 4, !tbaa !57
   %84 = fsub float %83, %80
-  %gep306 = getelementptr inbounds nuw [5 x [2 x float]], ptr %indvars.iv334.sroa.phi, i64 0, i64 %indvars.iv330
+  %gep306 = getelementptr inbounds nuw [2 x float], ptr %indvars.iv334.sroa.phi, i64 %indvars.iv330
   store float %84, ptr %gep306, align 4, !tbaa !57
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond333.not = icmp eq i64 %indvars.iv.next331, 5
@@ -1237,9 +1237,9 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
 .preheader:                                       ; preds = %81, %.preheader
   %indvars.iv337 = phi i64 [ %indvars.iv.next338, %.preheader ], [ 0, %81 ]
   %.0125310 = phi double [ %91, %.preheader ], [ 0.000000e+00, %81 ]
-  %85 = getelementptr inbounds nuw [5 x [2 x float]], ptr %9, i64 0, i64 %indvars.iv337
+  %85 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %indvars.iv337
   %86 = load float, ptr %85, align 8, !tbaa !57
-  %87 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv337
+  %87 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv337
   %88 = load float, ptr %87, align 8, !tbaa !57
   %89 = fmul float %86, %88
   %90 = fpext float %89 to double
@@ -1251,9 +1251,9 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
 .preheader465:                                    ; preds = %.preheader, %.preheader465
   %indvars.iv341 = phi i64 [ %indvars.iv.next342, %.preheader465 ], [ 0, %.preheader ]
   %.0126312 = phi double [ %98, %.preheader465 ], [ 0.000000e+00, %.preheader ]
-  %92 = getelementptr inbounds nuw [5 x [2 x float]], ptr %9, i64 0, i64 %indvars.iv341
+  %92 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %indvars.iv341
   %93 = load float, ptr %92, align 8, !tbaa !57
-  %94 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv341, i64 1
+  %94 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv341, i64 1
   %95 = load float, ptr %94, align 4, !tbaa !57
   %96 = fmul float %93, %95
   %97 = fpext float %96 to double
@@ -1265,9 +1265,9 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
 .preheader463:                                    ; preds = %.preheader465, %.preheader463
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %.preheader463 ], [ 0, %.preheader465 ]
   %.0127314 = phi double [ %105, %.preheader463 ], [ 0.000000e+00, %.preheader465 ]
-  %99 = getelementptr inbounds nuw [5 x [2 x float]], ptr %9, i64 0, i64 %indvars.iv345, i64 1
+  %99 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %indvars.iv345, i64 1
   %100 = load float, ptr %99, align 4, !tbaa !57
-  %101 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv345
+  %101 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv345
   %102 = load float, ptr %101, align 8, !tbaa !57
   %103 = fmul float %100, %102
   %104 = fpext float %103 to double
@@ -1320,9 +1320,9 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
 .preheader461:                                    ; preds = %.preheader463, %.preheader461
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.preheader461 ], [ 0, %.preheader463 ]
   %.0128316 = phi double [ %127, %.preheader461 ], [ 0.000000e+00, %.preheader463 ]
-  %121 = getelementptr inbounds nuw [5 x [2 x float]], ptr %9, i64 0, i64 %indvars.iv349, i64 1
+  %121 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %indvars.iv349, i64 1
   %122 = load float, ptr %121, align 4, !tbaa !57
-  %123 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv349, i64 1
+  %123 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv349, i64 1
   %124 = load float, ptr %123, align 4, !tbaa !57
   %125 = fmul float %122, %124
   %126 = fpext float %125 to double
@@ -2220,7 +2220,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit252:              ; preds = %405
 440:                                              ; preds = %439, %440
   %indvars.iv353 = phi i64 [ 0, %439 ], [ %indvars.iv.next354, %440 ]
   %.0122317 = phi double [ 0.000000e+00, %439 ], [ %445, %440 ]
-  %441 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv353
+  %441 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv353
   %442 = load float, ptr %441, align 8, !tbaa !57
   %443 = fmul float %442, %442
   %444 = fpext float %443 to double
@@ -2264,7 +2264,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit252:              ; preds = %405
 .preheader459:                                    ; preds = %440, %.preheader459
   %indvars.iv357 = phi i64 [ %indvars.iv.next358, %.preheader459 ], [ 0, %440 ]
   %.0120319 = phi double [ %476, %.preheader459 ], [ 0.000000e+00, %440 ]
-  %472 = getelementptr inbounds nuw [5 x [2 x float]], ptr %8, i64 0, i64 %indvars.iv357, i64 1
+  %472 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %indvars.iv357, i64 1
   %473 = load float, ptr %472, align 4, !tbaa !57
   %474 = fmul float %473, %473
   %475 = fpext float %474 to double
@@ -2988,7 +2988,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21, i8 noundef signext 45)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit unwind label %59
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit unwind label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %23 = zext nneg i32 %.lobit to i64
@@ -3003,61 +3003,57 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = 
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %30, %.lr.ph.i11 ], [ %3, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %43, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i32 %.020.i, 100
   %29 = shl nuw nsw i32 %28, 1
   %30 = udiv i32 %.020.i, 100
-  %31 = or disjoint i32 %29, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %31 = zext nneg i32 %29 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !28
   %35 = zext i32 %.01819.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %34, ptr %36, align 1, !tbaa !28
-  %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 2, !tbaa !28
-  %40 = add i32 %.01819.i, -1
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %41
-  store i8 %39, ptr %42, align 1, !tbaa !28
-  %43 = add i32 %.01819.i, -2
-  %44 = icmp ugt i32 %.020.i, 9999
-  br i1 %44, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !139
+  %37 = load i8, ptr %32, align 2, !tbaa !28
+  %38 = add i32 %.01819.i, -1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
+  store i8 %37, ptr %40, align 1, !tbaa !28
+  %41 = add i32 %.01819.i, -2
+  %42 = icmp ugt i32 %.020.i, 9999
+  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !139
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
   %.0.lcssa.i = phi i32 [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit ], [ %30, %.lr.ph.i11 ]
-  %45 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %45, label %46, label %56
+  %43 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %43, label %44, label %52
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %48 = or disjoint i32 %47, 1
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !28
-  %52 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %51, ptr %52, align 1, !tbaa !28
-  %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 2, !tbaa !28
+44:                                               ; preds = %._crit_edge.i
+  %45 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !28
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %49, ptr %50, align 1, !tbaa !28
+  %51 = load i8, ptr %47, align 2, !tbaa !28
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %58 = or disjoint i8 %57, 48
+52:                                               ; preds = %._crit_edge.i
+  %53 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %46, %56
-  %storemerge.i = phi i8 [ %58, %56 ], [ %55, %46 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %44, %52
+  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
   store i8 %storemerge.i, ptr %25, align 1, !tbaa !28
   ret void
 
-59:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  %60 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #24
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #24
   unreachable
 }
 

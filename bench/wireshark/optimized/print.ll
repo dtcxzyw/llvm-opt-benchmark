@@ -679,7 +679,7 @@ define internal void @proto_tree_write_node_pdml(ptr noundef %0, ptr noundef %1)
   %27 = add i32 %26, 2
   %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 2047)
   %29 = sext i32 %28 to i64
-  %30 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %29
+  %30 = getelementptr i8, ptr @print_indent.spaces, i64 %29
   store i8 0, ptr %30, align 1
   %31 = tail call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %22)
   store i8 32, ptr %30, align 1
@@ -712,7 +712,7 @@ print_indent.exit:                                ; preds = %23, %25
   %42 = add i32 %41, 4
   %43 = tail call i32 @llvm.smin.i32(i32 %42, i32 2047)
   %44 = sext i32 %43 to i64
-  %45 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %44
+  %45 = getelementptr i8, ptr @print_indent.spaces, i64 %44
   store i8 0, ptr %45, align 1
   %46 = tail call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %37)
   store i8 32, ptr %45, align 1
@@ -1157,7 +1157,7 @@ print_escaped_xml.exit175:                        ; preds = %199, %194, %188
   %283 = add i32 %282, 4
   %284 = call i32 @llvm.smin.i32(i32 %283, i32 2047)
   %285 = sext i32 %284 to i64
-  %286 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %285
+  %286 = getelementptr i8, ptr @print_indent.spaces, i64 %285
   store i8 0, ptr %286, align 1
   %287 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %278)
   store i8 32, ptr %286, align 1
@@ -1231,7 +1231,7 @@ print_escaped_xml.exit183:                        ; preds = %print_indent.exit18
   %318 = add i32 %317, 2
   %319 = call i32 @llvm.smin.i32(i32 %318, i32 2047)
   %320 = sext i32 %319 to i64
-  %321 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %320
+  %321 = getelementptr i8, ptr @print_indent.spaces, i64 %320
   store i8 0, ptr %321, align 1
   %322 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %313)
   store i8 32, ptr %321, align 1
@@ -1291,7 +1291,7 @@ print_indent.exit186:                             ; preds = %314, %316
   %348 = add i32 %347, 2
   %349 = call i32 @llvm.smin.i32(i32 %348, i32 2047)
   %350 = sext i32 %349 to i64
-  %351 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %350
+  %351 = getelementptr i8, ptr @print_indent.spaces, i64 %350
   store i8 0, ptr %351, align 1
   %352 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %343)
   store i8 32, ptr %351, align 1
@@ -3231,7 +3231,7 @@ define void @write_carrays_hex_data(i32 noundef %0, ptr noundef %1, ptr noundef 
   %.not53 = icmp eq i16 %35, 0
   %spec.select = select i1 %.not53, i8 46, i8 %31
   %36 = and i64 %indvars.iv, 7
-  %37 = getelementptr [9 x i8], ptr %4, i64 0, i64 %36
+  %37 = getelementptr i8, ptr %4, i64 %36
   store i8 %spec.select, ptr %37, align 1
   %38 = icmp eq i64 %indvars.iv, %25
   br i1 %38, label %39, label %46
@@ -4517,7 +4517,7 @@ get_field_data.exit:                              ; preds = %23
   %45 = load i8, ptr %44, align 1
   %46 = lshr i8 %45, 4
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %47
+  %48 = getelementptr i8, ptr @json_write_field_hex_value.hex, i64 %47
   %49 = load i8, ptr %48, align 1
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %50 = shl i32 %indvars.iv.tr, 1
@@ -4527,7 +4527,7 @@ get_field_data.exit:                              ; preds = %23
   %53 = load i8, ptr %44, align 1
   %54 = and i8 %53, 15
   %55 = zext nneg i8 %54 to i64
-  %56 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %55
+  %56 = getelementptr i8, ptr @json_write_field_hex_value.hex, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = getelementptr i8, ptr %52, i64 1
   store i8 %57, ptr %58, align 1
@@ -5318,7 +5318,7 @@ get_field_data.exit:                              ; preds = %21
   %41 = zext i8 %40 to i32
   %42 = lshr i32 %41, 4
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %43
+  %44 = getelementptr i8, ptr @json_write_field_hex_value.hex, i64 %43
   %45 = load i8, ptr %44, align 1
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %46 = shl i32 %indvars.iv.tr, 1
@@ -5327,7 +5327,7 @@ get_field_data.exit:                              ; preds = %21
   store i8 %45, ptr %48, align 1
   %49 = and i32 %41, 15
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr [17 x i8], ptr @json_write_field_hex_value.hex, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @json_write_field_hex_value.hex, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = getelementptr i8, ptr %48, i64 1
   store i8 %52, ptr %53, align 1

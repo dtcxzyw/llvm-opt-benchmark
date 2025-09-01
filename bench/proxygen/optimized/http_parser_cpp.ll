@@ -801,7 +801,7 @@ do.body550:                                       ; preds = %sw.bb546
 if.end556:                                        ; preds = %sw.bb546
   %26 = load i8, ptr %method3064, align 2
   %idxprom = zext i8 %26 to i64
-  %arrayidx = getelementptr inbounds nuw [24 x ptr], ptr @_ZN8proxygenL14method_stringsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
   %27 = load ptr, ptr %arrayidx, align 8
   %cmp559 = icmp eq i8 %ch.0, 32
   %.pre3573 = load i8, ptr %index2896, align 1
@@ -1151,7 +1151,7 @@ do.body971:                                       ; preds = %if.end934
 
 sw.bb978:                                         ; preds = %reexecute_byte
   %idxprom979 = zext i8 %ch.0 to i64
-  %arrayidx980 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom979
+  %arrayidx980 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom979
   %41 = load i8, ptr %arrayidx980, align 1
   %cmp983.not = icmp ne i8 %41, 0
   %tobool987.not = icmp slt i8 %ch.0, 0
@@ -1277,7 +1277,7 @@ do.body1098:                                      ; preds = %if.end993
 
 sw.bb1105:                                        ; preds = %reexecute_byte
   %idxprom1106 = zext i8 %ch.0 to i64
-  %arrayidx1107 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom1106
+  %arrayidx1107 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom1106
   %45 = load i8, ptr %arrayidx1107, align 1
   %cmp1112.not = icmp ne i8 %45, 0
   %tobool1116.not = icmp slt i8 %ch.0, 0
@@ -1403,7 +1403,7 @@ do.body1227:                                      ; preds = %if.end1122
 
 sw.bb1234:                                        ; preds = %reexecute_byte
   %idxprom1235 = zext i8 %ch.0 to i64
-  %arrayidx1236 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom1235
+  %arrayidx1236 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom1235
   %49 = load i8, ptr %arrayidx1236, align 1
   %cmp1241.not = icmp ne i8 %49, 0
   %tobool1245.not = icmp slt i8 %ch.0, 0
@@ -1529,7 +1529,7 @@ do.body1356:                                      ; preds = %if.end1251
 
 sw.bb1363:                                        ; preds = %reexecute_byte
   %idxprom1364 = zext i8 %ch.0 to i64
-  %arrayidx1365 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom1364
+  %arrayidx1365 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom1364
   %53 = load i8, ptr %arrayidx1365, align 1
   %cmp1370.not = icmp ne i8 %53, 0
   %tobool1374.not = icmp slt i8 %ch.0, 0
@@ -1655,7 +1655,7 @@ do.body1485:                                      ; preds = %if.end1380
 
 sw.bb1492:                                        ; preds = %reexecute_byte
   %idxprom1493 = zext i8 %ch.0 to i64
-  %arrayidx1494 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom1493
+  %arrayidx1494 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom1493
   %57 = load i8, ptr %arrayidx1494, align 1
   %cmp1499.not = icmp ne i8 %57, 0
   %tobool1503.not = icmp slt i8 %ch.0, 0
@@ -1951,7 +1951,7 @@ sw.bb1785:                                        ; preds = %reexecute_byte
 
 if.end1793:                                       ; preds = %sw.bb1785
   %idxprom1794 = zext i8 %ch.0 to i64
-  %arrayidx1795 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1794
+  %arrayidx1795 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1794
   %71 = load i8, ptr %arrayidx1795, align 1
   %tobool1796.not = icmp eq i8 %71, 0
   br i1 %tobool1796.not, label %do.body1798, label %do.body1805
@@ -1991,7 +1991,7 @@ sw.default1817:                                   ; preds = %do.body1805
 
 sw.bb1820:                                        ; preds = %reexecute_byte
   %idxprom1821 = zext i8 %ch.0 to i64
-  %arrayidx1822 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1821
+  %arrayidx1822 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1821
   %72 = load i8, ptr %arrayidx1822, align 1
   %tobool1823.not = icmp eq i8 %72, 0
   br i1 %tobool1823.not, label %notatoken, label %if.then1824
@@ -2018,7 +2018,7 @@ do.body1834:                                      ; preds = %sw.bb1827
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %74 = load i8, ptr %incdec.ptr, align 1
   %idxprom1835 = zext i8 %74 to i64
-  %arrayidx1836 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1835
+  %arrayidx1836 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1835
   %75 = load i8, ptr %arrayidx1836, align 1
   %tobool1837.not = icmp eq i8 %75, 0
   br i1 %tobool1837.not, label %notatoken, label %do.body1841
@@ -2027,7 +2027,7 @@ do.body1841:                                      ; preds = %do.body1834
   %incdec.ptr1842 = getelementptr inbounds nuw i8, ptr %p.1, i64 2
   %76 = load i8, ptr %incdec.ptr1842, align 1
   %idxprom1843 = zext i8 %76 to i64
-  %arrayidx1844 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1843
+  %arrayidx1844 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1843
   %77 = load i8, ptr %arrayidx1844, align 1
   %tobool1845.not = icmp eq i8 %77, 0
   br i1 %tobool1845.not, label %notatoken, label %do.body1849
@@ -2036,7 +2036,7 @@ do.body1849:                                      ; preds = %do.body1841
   %incdec.ptr1850 = getelementptr inbounds nuw i8, ptr %p.1, i64 3
   %78 = load i8, ptr %incdec.ptr1850, align 1
   %idxprom1851 = zext i8 %78 to i64
-  %arrayidx1852 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1851
+  %arrayidx1852 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1851
   %79 = load i8, ptr %arrayidx1852, align 1
   %tobool1853.not = icmp eq i8 %79, 0
   br i1 %tobool1853.not, label %notatoken, label %do.body1857
@@ -2045,7 +2045,7 @@ do.body1857:                                      ; preds = %do.body1849
   %incdec.ptr1858 = getelementptr inbounds nuw i8, ptr %p.1, i64 4
   %80 = load i8, ptr %incdec.ptr1858, align 1
   %idxprom1859 = zext i8 %80 to i64
-  %arrayidx1860 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1859
+  %arrayidx1860 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1859
   %81 = load i8, ptr %arrayidx1860, align 1
   %tobool1861.not = icmp eq i8 %81, 0
   br i1 %tobool1861.not, label %notatoken, label %do.body1865
@@ -2054,7 +2054,7 @@ do.body1865:                                      ; preds = %do.body1857
   %incdec.ptr1866 = getelementptr inbounds nuw i8, ptr %p.1, i64 5
   %82 = load i8, ptr %incdec.ptr1866, align 1
   %idxprom1867 = zext i8 %82 to i64
-  %arrayidx1868 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1867
+  %arrayidx1868 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1867
   %83 = load i8, ptr %arrayidx1868, align 1
   %tobool1869.not = icmp eq i8 %83, 0
   br i1 %tobool1869.not, label %notatoken, label %do.body1873
@@ -2063,7 +2063,7 @@ do.body1873:                                      ; preds = %do.body1865
   %incdec.ptr1874 = getelementptr inbounds nuw i8, ptr %p.1, i64 6
   %84 = load i8, ptr %incdec.ptr1874, align 1
   %idxprom1875 = zext i8 %84 to i64
-  %arrayidx1876 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1875
+  %arrayidx1876 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1875
   %85 = load i8, ptr %arrayidx1876, align 1
   %tobool1877.not = icmp eq i8 %85, 0
   br i1 %tobool1877.not, label %notatoken, label %do.body1881
@@ -2072,7 +2072,7 @@ do.body1881:                                      ; preds = %do.body1873
   %incdec.ptr1882 = getelementptr inbounds nuw i8, ptr %p.1, i64 7
   %86 = load i8, ptr %incdec.ptr1882, align 1
   %idxprom1883 = zext i8 %86 to i64
-  %arrayidx1884 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1883
+  %arrayidx1884 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1883
   %87 = load i8, ptr %arrayidx1884, align 1
   %tobool1885.not = icmp eq i8 %87, 0
   br i1 %tobool1885.not, label %notatoken, label %do.body1889
@@ -2081,7 +2081,7 @@ do.body1889:                                      ; preds = %do.body1881
   %incdec.ptr1890 = getelementptr inbounds nuw i8, ptr %p.1, i64 8
   %88 = load i8, ptr %incdec.ptr1890, align 1
   %idxprom1891 = zext i8 %88 to i64
-  %arrayidx1892 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1891
+  %arrayidx1892 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1891
   %89 = load i8, ptr %arrayidx1892, align 1
   %tobool1893.not = icmp eq i8 %89, 0
   br i1 %tobool1893.not, label %notatoken, label %for.inc
@@ -2094,7 +2094,7 @@ do.body1904:                                      ; preds = %if.else1897
   %incdec.ptr1905 = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %90 = load i8, ptr %incdec.ptr1905, align 1
   %idxprom1906 = zext i8 %90 to i64
-  %arrayidx1907 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1906
+  %arrayidx1907 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1906
   %91 = load i8, ptr %arrayidx1907, align 1
   %tobool1908.not = icmp eq i8 %91, 0
   br i1 %tobool1908.not, label %notatoken, label %do.body1912
@@ -2103,7 +2103,7 @@ do.body1912:                                      ; preds = %do.body1904
   %incdec.ptr1913 = getelementptr inbounds nuw i8, ptr %p.1, i64 2
   %92 = load i8, ptr %incdec.ptr1913, align 1
   %idxprom1914 = zext i8 %92 to i64
-  %arrayidx1915 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1914
+  %arrayidx1915 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1914
   %93 = load i8, ptr %arrayidx1915, align 1
   %tobool1916.not = icmp eq i8 %93, 0
   br i1 %tobool1916.not, label %notatoken, label %do.body1920
@@ -2112,7 +2112,7 @@ do.body1920:                                      ; preds = %do.body1912
   %incdec.ptr1921 = getelementptr inbounds nuw i8, ptr %p.1, i64 3
   %94 = load i8, ptr %incdec.ptr1921, align 1
   %idxprom1922 = zext i8 %94 to i64
-  %arrayidx1923 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL6tokensE, i64 0, i64 %idxprom1922
+  %arrayidx1923 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL6tokensE, i64 %idxprom1922
   %95 = load i8, ptr %arrayidx1923, align 1
   %tobool1924.not = icmp eq i8 %95, 0
   br i1 %tobool1924.not, label %notatoken, label %for.inc
@@ -2126,7 +2126,7 @@ sw.bb1930:                                        ; preds = %if.then1824
 
 lor.lhs.false1936:                                ; preds = %sw.bb1930
   %conv1934 = zext nneg i8 %inc1932 to i64
-  %arrayidx1940 = getelementptr inbounds nuw [15 x i8], ptr @.str, i64 0, i64 %conv1934
+  %arrayidx1940 = getelementptr inbounds nuw i8, ptr @.str, i64 %conv1934
   %97 = load i8, ptr %arrayidx1940, align 1
   %cmp1942.not = icmp eq i8 %72, %97
   br i1 %cmp1942.not, label %if.else1945, label %if.then1943
@@ -2152,7 +2152,7 @@ sw.bb1953:                                        ; preds = %if.then1824
 
 lor.lhs.false1959:                                ; preds = %sw.bb1953
   %conv1957 = zext nneg i8 %inc1955 to i64
-  %arrayidx1963 = getelementptr inbounds nuw [18 x i8], ptr @.str.1, i64 0, i64 %conv1957
+  %arrayidx1963 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %conv1957
   %99 = load i8, ptr %arrayidx1963, align 1
   %cmp1965.not = icmp eq i8 %72, %99
   br i1 %cmp1965.not, label %if.else1968, label %if.then1966
@@ -2178,7 +2178,7 @@ sw.bb1976:                                        ; preds = %if.then1824
 
 lor.lhs.false1982:                                ; preds = %sw.bb1976
   %conv1980 = zext nneg i8 %inc1978 to i64
-  %arrayidx1986 = getelementptr inbounds nuw [8 x i8], ptr @.str.2, i64 0, i64 %conv1980
+  %arrayidx1986 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %conv1980
   %101 = load i8, ptr %arrayidx1986, align 1
   %cmp1988.not = icmp eq i8 %72, %101
   br i1 %cmp1988.not, label %if.else1991, label %if.then1989
@@ -2883,7 +2883,7 @@ lor.lhs.false2901:                                ; preds = %sw.bb2895
   %conv2899 = zext nneg i8 %inc2897 to i64
   %or2903 = or i8 %ch.2, 32
   %conv2905 = zext i8 %or2903 to i32
-  %arrayidx2908 = getelementptr inbounds nuw [8 x i8], ptr @.str.3, i64 0, i64 %conv2899
+  %arrayidx2908 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %conv2899
   %136 = load i8, ptr %arrayidx2908, align 1
   %conv2909 = sext i8 %136 to i32
   %cmp2910.not = icmp eq i32 %conv2905, %conv2909
@@ -3366,7 +3366,7 @@ do.body3424:                                      ; preds = %do.end3418
 
 sw.bb3432:                                        ; preds = %reexecute_byte
   %idxprom3433 = zext i8 %ch.0 to i64
-  %arrayidx3434 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL5unhexE, i64 0, i64 %idxprom3433
+  %arrayidx3434 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL5unhexE, i64 %idxprom3433
   %160 = load i8, ptr %arrayidx3434, align 1
   %cmp3436 = icmp eq i8 %160, -1
   br i1 %cmp3436, label %do.body3438, label %if.end3444
@@ -3389,7 +3389,7 @@ sw.bb3447:                                        ; preds = %reexecute_byte
 
 if.end3451:                                       ; preds = %sw.bb3447
   %idxprom3452 = zext i8 %ch.0 to i64
-  %arrayidx3453 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL5unhexE, i64 0, i64 %idxprom3452
+  %arrayidx3453 = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL5unhexE, i64 %idxprom3452
   %161 = load i8, ptr %arrayidx3453, align 1
   %cmp3455 = icmp eq i8 %161, -1
   br i1 %cmp3455, label %if.then3456, label %if.end3470
@@ -3817,7 +3817,7 @@ return:                                           ; preds = %if.end3814, %if.end
 define noundef ptr @_ZN8proxygen15http_method_strENS_11http_methodE(i32 noundef %m) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %m to i64
-  %arrayidx = getelementptr inbounds nuw [24 x ptr], ptr @_ZN8proxygenL14method_stringsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }
@@ -3851,7 +3851,7 @@ entry:
 define noundef ptr @_ZN8proxygen15http_errno_nameENS_10http_errnoE(i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %err to i64
-  %arrayidx = getelementptr inbounds nuw [39 x %struct.anon], ptr @_ZN8proxygenL17http_strerror_tabE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   ret ptr %0
 }
@@ -3860,7 +3860,7 @@ entry:
 define noundef ptr @_ZN8proxygen22http_errno_descriptionENS_10http_errnoE(i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %err to i64
-  %description = getelementptr inbounds nuw [39 x %struct.anon], ptr @_ZN8proxygenL17http_strerror_tabE, i64 0, i64 %idxprom, i32 1
+  %description = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom, i32 1
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }
@@ -4000,7 +4000,7 @@ switch.early.test.i:                              ; preds = %if.end76.i
 
 sw.bb153.i:                                       ; preds = %if.end12.i
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %cmp155.not.i = icmp eq i8 %8, 0
   %tobool.i = icmp sgt i8 %2, -1
@@ -4016,7 +4016,7 @@ if.end161.i:                                      ; preds = %sw.bb153.i
 
 sw.bb165.i:                                       ; preds = %if.end12.i, %if.end12.i
   %idxprom166.i = zext i8 %2 to i64
-  %arrayidx167.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom166.i
+  %arrayidx167.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom166.i
   %9 = load i8, ptr %arrayidx167.i, align 1
   %cmp170.not.i = icmp eq i8 %9, 0
   %tobool174.i = icmp sgt i8 %2, -1
@@ -4032,7 +4032,7 @@ if.end178.i:                                      ; preds = %sw.bb165.i
 
 sw.bb183.i:                                       ; preds = %if.end12.i
   %idxprom184.i = zext i8 %2 to i64
-  %arrayidx185.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom184.i
+  %arrayidx185.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom184.i
   %10 = load i8, ptr %arrayidx185.i, align 1
   %cmp188.not.i = icmp eq i8 %10, 0
   %tobool192.i = icmp sgt i8 %2, -1
@@ -4048,7 +4048,7 @@ if.end196.i:                                      ; preds = %sw.bb183.i
 
 sw.bb201.i:                                       ; preds = %if.end12.i
   %idxprom202.i = zext i8 %2 to i64
-  %arrayidx203.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN8proxygenL15normal_url_charE, i64 0, i64 %idxprom202.i
+  %arrayidx203.i = getelementptr inbounds nuw i8, ptr @_ZN8proxygenL15normal_url_charE, i64 %idxprom202.i
   %11 = load i8, ptr %arrayidx203.i, align 1
   %cmp206.not.i = icmp eq i8 %11, 0
   %tobool210.i = icmp sgt i8 %2, -1
@@ -4099,7 +4099,7 @@ if.end:                                           ; preds = %sw.epilog
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv9 = trunc i64 %sub.ptr.sub to i16
   %idxprom11 = zext nneg i32 %uf.0 to i64
-  %arrayidx12 = getelementptr inbounds nuw [7 x %struct.anon.0], ptr %field_data10, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw %struct.anon.0, ptr %field_data10, i64 %idxprom11
   store i16 %conv9, ptr %arrayidx12, align 2
   %len16 = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 2
   store i16 1, ptr %len16, align 2

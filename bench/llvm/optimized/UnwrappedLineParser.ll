@@ -9989,7 +9989,7 @@ switch.hole_check:                                ; preds = %.lr.ph145
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %54 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZN5clang6format19UnwrappedLineParser19calculateBraceTypesEb, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN5clang6format19UnwrappedLineParser19calculateBraceTypesEb, i64 %54
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 

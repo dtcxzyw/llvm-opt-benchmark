@@ -13713,7 +13713,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 990:                                              ; preds = %.lr.ph870, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit
   %991 = phi ptr [ %.pre925, %.lr.ph870 ], [ %1032, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph870 ], [ %indvars.iv.next, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit ]
-  %992 = getelementptr inbounds nuw [3 x ptr], ptr %963, i64 0, i64 %indvars.iv
+  %992 = getelementptr inbounds nuw ptr, ptr %963, i64 %indvars.iv
   %993 = load ptr, ptr %992, align 8
   %994 = load double, ptr %993, align 8
   %995 = getelementptr inbounds nuw i8, ptr %993, i64 8

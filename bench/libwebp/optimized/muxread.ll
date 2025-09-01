@@ -306,7 +306,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
 
 103:                                              ; preds = %101
   %104 = zext i32 %81 to i64
-  %105 = getelementptr inbounds nuw [11 x ptr], ptr %6, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %6, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !27
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %110
@@ -756,7 +756,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
 7:                                                ; preds = %3
   %8 = tail call i32 @ChunkGetIndexFromFourCC(ptr noundef nonnull %1) #5
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %9, i32 1
+  %10 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %9, i32 1
   %11 = load i32, ptr %10, align 4, !tbaa !38
   switch i32 %11, label %12 [
     i32 3, label %IsWPI.exit
@@ -1046,7 +1046,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i, i32 1
+  %15 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.next.i, i32 1
   %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not.i = icmp eq i32 %16, 10
   br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !60
@@ -1058,7 +1058,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit14.i
   %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit14.i ], [ 10, %14 ]
   %18 = load ptr, ptr %10, align 8, !tbaa !61
-  %19 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %.06.i
+  %19 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %.06.i
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %.not9.i = icmp eq ptr %18, null
   br i1 %.not9.i, label %CountChunks.exit, label %.lr.ph.i15

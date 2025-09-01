@@ -631,7 +631,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %.loopexit.sink.split
 
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit167: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181
-  %181 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %.099279
+  %181 = getelementptr inbounds nuw i32, ptr %11, i64 %.099279
   store i32 %145, ptr %181, align 4, !tbaa !22
   %182 = add i64 %91, 1
   %183 = add nuw nsw i64 %.099279, 1

@@ -203,7 +203,7 @@ define internal noundef i32 @speex_packet(ptr noundef readonly captures(none) %0
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %23 ]
-  %24 = getelementptr inbounds nuw [255 x i8], ptr %22, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1, !tbaa !50
   %.not.i = icmp ne i8 %25, -1
   %26 = zext i1 %.not.i to i32
@@ -252,7 +252,7 @@ ogg_page_packets.exit:                            ; preds = %ogg_page_packets.ex
 43:                                               ; preds = %43, %.lr.ph.i37
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i43, %43 ]
   %.08.i40 = phi i32 [ 0, %.lr.ph.i37 ], [ %spec.select.i42, %43 ]
-  %44 = getelementptr inbounds nuw [255 x i8], ptr %42, i64 0, i64 %indvars.iv.i39
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i39
   %45 = load i8, ptr %44, align 1, !tbaa !50
   %.not.i41 = icmp ne i8 %45, -1
   %46 = zext i1 %.not.i41 to i32

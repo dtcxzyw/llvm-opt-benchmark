@@ -3241,7 +3241,7 @@ define internal fastcc void @_update_node_record(ptr noundef nonnull %0, ptr nou
   %116 = load i32, ptr @sview_colors_cnt, align 4
   %117 = srem i32 %115, %116
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [0 x ptr], ptr @sview_colors, i64 0, i64 %118
+  %119 = getelementptr inbounds ptr, ptr @sview_colors, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %122 = load ptr, ptr %121, align 8

@@ -81,7 +81,7 @@ define dso_local ptr @pte_alloc_one(ptr noundef readnone captures(none) %0) loca
 18:                                               ; preds = %14, %6
   %19 = phi i64 [ %17, %14 ], [ 1, %6 ]
   %20 = lshr i64 %11, 58
-  %21 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @node_data, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void @mod_node_page_state(ptr noundef %22, i32 noundef 38, i64 noundef %19) #14
   br label %23
@@ -131,7 +131,7 @@ define dso_local void @___pte_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %13 = phi i32 [ %11, %9 ], [ 1, %2 ]
   %14 = sub i32 0, %13
   %15 = lshr i64 %6, 58
-  %16 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr @node_data, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %14 to i64
   tail call void @mod_node_page_state(ptr noundef %17, i32 noundef 38, i64 noundef %18) #14
@@ -176,7 +176,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %25 = phi i32 [ %23, %21 ], [ 1, %2 ]
   %26 = sub i32 0, %25
   %27 = lshr i64 %18, 58
-  %28 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr @node_data, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
   tail call void @mod_node_page_state(ptr noundef %29, i32 noundef 38, i64 noundef %30) #14
@@ -221,7 +221,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %25 = phi i32 [ %23, %21 ], [ 1, %2 ]
   %26 = sub i32 0, %25
   %27 = lshr i64 %18, 58
-  %28 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr @node_data, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
   tail call void @mod_node_page_state(ptr noundef %29, i32 noundef 38, i64 noundef %30) #14
@@ -793,7 +793,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %66 = phi i32 [ %64, %62 ], [ 1, %44 ]
   %67 = sub i32 0, %66
   %68 = lshr i64 %59, 58
-  %69 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %68
+  %69 = getelementptr ptr, ptr @node_data, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %67 to i64
   tail call void @mod_node_page_state(ptr noundef %70, i32 noundef 38, i64 noundef %71) #14

@@ -280,9 +280,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h7942ba4
   unreachable
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %45
+  %56 = getelementptr inbounds i8, ptr %4, i64 %45
   %57 = load i8, ptr %56, align 1, !noundef !7
-  %58 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %52
+  %58 = getelementptr inbounds i8, ptr %2, i64 %52
   %59 = load i8, ptr %58, align 1, !noundef !7
   %.not28 = icmp eq i8 %57, %59
   br i1 %.not28, label %40, label %61
@@ -303,9 +303,9 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h7942ba4
 
 66:                                               ; preds = %63
   %67 = add nuw i64 %.sroa.04.0, 1
-  %68 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.sroa.04.0
+  %68 = getelementptr inbounds i8, ptr %4, i64 %.sroa.04.0
   %69 = load i8, ptr %68, align 1, !noundef !7
-  %70 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %64
+  %70 = getelementptr inbounds i8, ptr %2, i64 %64
   %71 = load i8, ptr %70, align 1, !noundef !7
   %.not = icmp eq i8 %69, %71
   br i1 %.not, label %37, label %74
@@ -1529,7 +1529,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h23bf47a7bef98fa4E.exit.i.i.i.i": ; preds = %.preheader49.i.i
   %65 = add nsw i64 %64, -1
-  %66 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %65
+  %66 = getelementptr inbounds i8, ptr %9, i64 %65
   %67 = load i8, ptr %66, align 1, !alias.scope !294, !noalias !295, !noundef !7
   %.not.i.not.i.i.i.i = icmp eq i8 %67, %45
   br i1 %.not.i.not.i.i.i.i, label %.preheader49.i.i, label %68
@@ -1598,7 +1598,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %96 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, %79
   %97 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, %80
   %98 = and <16 x i1> %96, %97
-  %99 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0143.i.i.i
+  %99 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0143.i.i.i
   store <16 x i1> %98, ptr %99, align 2, !noalias !303
   %exitcond.not.i38.i.i = icmp eq i64 %92, 4
   br i1 %exitcond.not.i38.i.i, label %.preheader139.i.i.i, label %91
@@ -1616,7 +1616,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   %.sroa.028.0145.i.i.i = phi i64 [ %105, %109 ], [ 0, %91 ]
   %.2144.i.i.i = phi i8 [ %.3.i.i.i, %109 ], [ 0, %91 ]
   %105 = add nuw nsw i64 %.sroa.028.0145.i.i.i, 1
-  %106 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0145.i.i.i
+  %106 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0145.i.i.i
   %107 = load i16, ptr %106, align 2, !noalias !303, !noundef !7
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %109, label %110
@@ -1937,9 +1937,9 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.exit.thread.i.i.i
   unreachable
 
 266:                                              ; preds = %262
-  %267 = getelementptr inbounds [0 x i8], ptr %228, i64 0, i64 %260
+  %267 = getelementptr inbounds i8, ptr %228, i64 %260
   %268 = load i8, ptr %267, align 1, !alias.scope !350, !noalias !356, !noundef !7
-  %269 = getelementptr inbounds [0 x i8], ptr %224, i64 0, i64 %263
+  %269 = getelementptr inbounds i8, ptr %224, i64 %263
   %270 = load i8, ptr %269, align 1, !alias.scope !348, !noalias !354, !noundef !7
   %.not28.i.i.i = icmp eq i8 %268, %270
   br i1 %.not28.i.i.i, label %.preheader.i.i, label %272
@@ -1959,9 +1959,9 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.exit.thread.i.i.i
 
 277:                                              ; preds = %274
   %278 = add nuw i64 %.sroa.04.0.i.i.i, 1
-  %279 = getelementptr inbounds [0 x i8], ptr %228, i64 0, i64 %.sroa.04.0.i.i.i
+  %279 = getelementptr inbounds i8, ptr %228, i64 %.sroa.04.0.i.i.i
   %280 = load i8, ptr %279, align 1, !alias.scope !350, !noalias !356, !noundef !7
-  %281 = getelementptr inbounds [0 x i8], ptr %224, i64 0, i64 %275
+  %281 = getelementptr inbounds i8, ptr %224, i64 %275
   %282 = load i8, ptr %281, align 1, !alias.scope !348, !noalias !354, !noundef !7
   %.not.i45.i.i = icmp eq i8 %280, %282
   br i1 %.not.i45.i.i, label %256, label %285
@@ -2018,7 +2018,7 @@ _ZN4core3str11validations15next_code_point17hf9f5ecc635d7edf4E.exit.thread.i.i.i
 
 .lr.ph.i.i:                                       ; preds = %298, %302
   %.05.i.i = phi i64 [ %303, %302 ], [ 0, %298 ]
-  %299 = getelementptr inbounds nuw [0 x i8], ptr %293, i64 0, i64 %.05.i.i
+  %299 = getelementptr inbounds nuw i8, ptr %293, i64 %.05.i.i
   %300 = load i8, ptr %299, align 1, !alias.scope !357, !noundef !7
   %301 = icmp eq i8 %300, %296
   br i1 %301, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread", label %302

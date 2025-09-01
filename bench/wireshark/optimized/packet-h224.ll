@@ -280,7 +280,7 @@ define internal i32 @dissect_h224(ptr noundef %0, ptr noundef readonly captures(
 
 26:                                               ; preds = %25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %27 = getelementptr [5 x %struct.h224_opt_t], ptr @h224opt, i64 0, i64 %indvars.iv.next
+  %27 = getelementptr %struct.h224_opt_t, ptr @h224opt, i64 %indvars.iv.next
   %28 = load i32, ptr %27, align 16
   %29 = icmp eq i32 %28, %24
   br i1 %29, label %30, label %25, !llvm.loop !6

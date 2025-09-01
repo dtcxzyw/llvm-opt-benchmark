@@ -605,7 +605,7 @@ define hidden void @_ZN8AngleSet4_setEdd(ptr noundef nonnull align 8 captures(no
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !21
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.AngleSetArc, ptr %0, i64 %9
   store double %1, ptr %10, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %2, ptr %11, align 8, !tbaa !25
@@ -675,13 +675,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 35:                                               ; preds = %23
   %36 = zext nneg i32 %.04969 to i64
-  %37 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %36, i32 2
+  %37 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %36, i32 2
   store i32 %7, ptr %37, align 8, !tbaa !26
   br label %89
 
 38:                                               ; preds = %17
   %39 = zext nneg i32 %.04870 to i64
-  %40 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !23
   %42 = fcmp ugt double %19, %41
   br i1 %42, label %49, label %43
@@ -697,7 +697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %.04969 to i64
-  %48 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %47, i32 2
+  %48 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %47, i32 2
   store i32 %7, ptr %48, align 8, !tbaa !26
   br label %89
 
@@ -724,7 +724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 61:                                               ; preds = %59
   %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %62, i32 2
+  %63 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %62, i32 2
   %64 = load i32, ptr %63, align 8, !tbaa !26
   store i32 %64, ptr %13, align 8, !tbaa !27
   br label %70
@@ -733,7 +733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %66 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !26
   %68 = zext nneg i32 %.04969 to i64
-  %69 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %68, i32 2
+  %69 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %68, i32 2
   store i32 %67, ptr %69, align 8, !tbaa !26
   br label %70
 
@@ -818,7 +818,7 @@ define hidden noundef double @_ZN8AngleSet8_overlapEdd(ptr noundef nonnull reado
 6:                                                ; preds = %.lr.ph, %12
   %.034 = phi i32 [ %.03338, %.lr.ph ], [ %.0, %12 ]
   %7 = zext nneg i32 %.034 to i64
-  %8 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !25
   %11 = fcmp ogt double %1, %10
@@ -888,7 +888,7 @@ define hidden noundef double @_ZN8AngleSet7overlapEdd(ptr noundef nonnull readon
 8:                                                ; preds = %14, %.lr.ph.i
   %.034.i = phi i32 [ %.03338.i, %.lr.ph.i ], [ %.0.i, %14 ]
   %9 = zext nneg i32 %.034.i to i64
-  %10 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !25
   %13 = fcmp ogt double %1, %12
@@ -945,7 +945,7 @@ define hidden noundef double @_ZN8AngleSet7overlapEdd(ptr noundef nonnull readon
 33:                                               ; preds = %39, %.lr.ph.i16
   %.034.i19 = phi i32 [ %.03338.i17, %.lr.ph.i16 ], [ %.0.i25, %39 ]
   %34 = zext nneg i32 %.034.i19 to i64
-  %35 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load double, ptr %36, align 8, !tbaa !25
   %38 = fcmp ogt double %1, %37
@@ -1003,7 +1003,7 @@ _ZN8AngleSet8_overlapEdd.exit26:                  ; preds = %42, %.outer.i21, %3
 57:                                               ; preds = %63, %.lr.ph.i29
   %.034.i32 = phi i32 [ %.03338.i30, %.lr.ph.i29 ], [ %.0.i38, %63 ]
   %58 = zext nneg i32 %.034.i32 to i64
-  %59 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load double, ptr %60, align 8, !tbaa !25
   %62 = fcmp olt double %61, 0.000000e+00
@@ -1066,7 +1066,7 @@ define hidden void @_ZN8AngleSet20computeStartEndThetaERdS0_(ptr noundef nonnull
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8640
   %5 = load i32, ptr %4, align 8, !tbaa !27
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.AngleSetArc, ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !26
   %10 = icmp slt i32 %9, 0
@@ -1075,7 +1075,7 @@ define hidden void @_ZN8AngleSet20computeStartEndThetaERdS0_(ptr noundef nonnull
 11:                                               ; preds = %3
   %12 = load double, ptr %7, align 8, !tbaa !23
   store double %12, ptr %1, align 8, !tbaa !37
-  %13 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %6, i32 1
+  %13 = getelementptr inbounds %struct.AngleSetArc, ptr %0, i64 %6, i32 1
   %14 = load double, ptr %13, align 8, !tbaa !25
   br label %44
 
@@ -1083,10 +1083,10 @@ define hidden void @_ZN8AngleSet20computeStartEndThetaERdS0_(ptr noundef nonnull
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load double, ptr %16, align 8, !tbaa !25
   %18 = zext nneg i32 %9 to i64
-  %19 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !23
   %21 = fsub double %20, %17
-  %22 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %18, i32 2
+  %22 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %18, i32 2
   %23 = load i32, ptr %22, align 8, !tbaa !26
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
@@ -1097,17 +1097,17 @@ define hidden void @_ZN8AngleSet20computeStartEndThetaERdS0_(ptr noundef nonnull
   %.041 = phi double [ %.1, %.lr.ph ], [ %21, %15 ]
   %.03040 = phi double [ %.131, %.lr.ph ], [ %20, %15 ]
   %.03239 = phi double [ %.133, %.lr.ph ], [ %17, %15 ]
-  %27 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %26, i32 1
+  %27 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %26, i32 1
   %28 = load double, ptr %27, align 8, !tbaa !25
   %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !23
   %32 = fsub double %31, %28
   %33 = fcmp ogt double %32, %.041
   %.133 = select i1 %33, double %28, double %.03239
   %.131 = select i1 %33, double %31, double %.03040
   %.1 = select i1 %33, double %32, double %.041
-  %34 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %29, i32 2
+  %34 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %29, i32 2
   %35 = load i32, ptr %34, align 8, !tbaa !26
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %._crit_edge, label %.lr.ph, !llvm.loop !38
@@ -1117,7 +1117,7 @@ define hidden void @_ZN8AngleSet20computeStartEndThetaERdS0_(ptr noundef nonnull
   %.030.lcssa = phi double [ %20, %15 ], [ %.131, %.lr.ph ]
   %.0.lcssa = phi double [ %21, %15 ], [ %.1, %.lr.ph ]
   %37 = phi i64 [ %18, %15 ], [ %29, %.lr.ph ]
-  %38 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %37, i32 1
+  %38 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %37, i32 1
   %39 = load double, ptr %38, align 8, !tbaa !25
   %40 = load double, ptr %7, align 8, !tbaa !23
   %41 = fsub double 0x401921FB54442D18, %39
@@ -1145,7 +1145,7 @@ define hidden noundef double @_ZN8AngleSet10coverRatioEv(ptr noundef nonnull rea
   %.069 = phi i32 [ %.06, %.lr.ph ], [ %.067, %1 ]
   %.08 = phi double [ %10, %.lr.ph ], [ 0.000000e+00, %1 ]
   %4 = zext nneg i32 %.069 to i64
-  %5 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8, !tbaa !25
   %8 = load double, ptr %5, align 8, !tbaa !23
@@ -8084,7 +8084,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %134, %139
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i ], [ 0, %167 ]
   %183 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i.i.i
   %184 = load float, ptr %183, align 4, !tbaa !103
-  %185 = getelementptr inbounds nuw [4 x float], ptr %.sroa.10.0109, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %185 = getelementptr inbounds nuw float, ptr %.sroa.10.0109, i64 %indvars.iv.i.i.i.i.i
   store float %184, ptr %185, align 4, !tbaa !103
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -8132,7 +8132,7 @@ _ZNKSt6vectorIN2cv3VecIfLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %186
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %200 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %201 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %202 = load float, ptr %201, align 4, !tbaa !103
-  %203 = getelementptr inbounds nuw [4 x float], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %203 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store float %202, ptr %203, align 4, !tbaa !103
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -10245,13 +10245,13 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl19EnumerateRectPointsEddddPi
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %46 ]
   %47 = add nuw nsw i64 %indvars.iv, %.095
   %48 = and i64 %47, 3
-  %49 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw double, ptr %8, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !37
-  %51 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
   store double %50, ptr %51, align 8, !tbaa !37
-  %52 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw double, ptr %9, i64 %48
   %53 = load double, ptr %52, align 8, !tbaa !37
-  %54 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   store double %53, ptr %54, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -12107,7 +12107,7 @@ _ZNSt6vectorI8mEllipseSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %652 ]
   %655 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i.i.i.i.i.i
   %656 = load double, ptr %655, align 8, !tbaa !37
-  %657 = getelementptr inbounds nuw [6 x double], ptr %.sroa.12.0443, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %657 = getelementptr inbounds nuw double, ptr %.sroa.12.0443, i64 %indvars.iv.i.i.i.i.i.i
   store double %656, ptr %657, align 8, !tbaa !37
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 6
@@ -12155,7 +12155,7 @@ _ZNKSt6vectorIN2cv3VecIdLi6EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %658
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %672 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %673 = getelementptr inbounds nuw double, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %674 = load double, ptr %673, align 8, !tbaa !37
-  %675 = getelementptr inbounds nuw [6 x double], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %675 = getelementptr inbounds nuw double, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store double %674, ptr %675, align 8, !tbaa !37
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 6
@@ -12310,7 +12310,7 @@ _ZNSt6vectorI7mCircleSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_i
   %indvars.iv.i.i.i.i.i.i251 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i252, %.preheader.i.i250 ], [ 0, %711 ]
   %712 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i.i.i.i.i.i251
   %713 = load double, ptr %712, align 8, !tbaa !37
-  %714 = getelementptr inbounds nuw [6 x double], ptr %.sroa.12.0443, i64 0, i64 %indvars.iv.i.i.i.i.i.i251
+  %714 = getelementptr inbounds nuw double, ptr %.sroa.12.0443, i64 %indvars.iv.i.i.i.i.i.i251
   store double %713, ptr %714, align 8, !tbaa !37
   %indvars.iv.next.i.i.i.i.i.i252 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i251, 1
   %exitcond.not.i.i.i.i.i.i253 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i252, 6
@@ -12358,7 +12358,7 @@ _ZNKSt6vectorIN2cv3VecIdLi6EEESaIS2_EE12_M_check_lenEmPKc.exit.i265: ; preds = %
   %indvars.iv.i.i.i.i.i.i.i.i.i272 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i273, %729 ], [ 0, %.preheader.i.i.i.i.i.i269 ]
   %730 = getelementptr inbounds nuw double, ptr %.01214.i.i.i.i.i.i271, i64 %indvars.iv.i.i.i.i.i.i.i.i.i272
   %731 = load double, ptr %730, align 8, !tbaa !37
-  %732 = getelementptr inbounds nuw [6 x double], ptr %.015.i.i.i.i.i.i270, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i272
+  %732 = getelementptr inbounds nuw double, ptr %.015.i.i.i.i.i.i270, i64 %indvars.iv.i.i.i.i.i.i.i.i.i272
   store double %731, ptr %732, align 8, !tbaa !37
   %indvars.iv.next.i.i.i.i.i.i.i.i.i273 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i272, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i274 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i273, 6
@@ -13178,7 +13178,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl7A_TperBEPPdS3_S3_iiii.exit223: ; preds = %.preh
   %159 = load ptr, ptr %158, align 8, !tbaa !421
   %160 = getelementptr inbounds double, ptr %159, i64 %156
   %161 = load double, ptr %160, align 8, !tbaa !37
-  %162 = getelementptr inbounds nuw [7 x double], ptr %3, i64 0, i64 %indvars.iv374
+  %162 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv374
   store double %161, ptr %162, align 8, !tbaa !37
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next375, 7
@@ -16276,7 +16276,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %66, %106
 139:                                              ; preds = %145, %.lr.ph.i.i
   %.034.i.i = phi i32 [ %.03338.i.i, %.lr.ph.i.i ], [ %.0.i.i, %145 ]
   %140 = zext nneg i32 %.034.i.i to i64
-  %141 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load double, ptr %142, align 8, !tbaa !25
   %144 = fcmp ogt double %134, %143
@@ -16333,7 +16333,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %66, %106
 164:                                              ; preds = %170, %.lr.ph.i16.i
   %.034.i19.i = phi i32 [ %.03338.i17.i, %.lr.ph.i16.i ], [ %.0.i25.i, %170 ]
   %165 = zext nneg i32 %.034.i19.i to i64
-  %166 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load double, ptr %167, align 8, !tbaa !25
   %169 = fcmp ogt double %134, %168
@@ -16391,7 +16391,7 @@ _ZN8AngleSet8_overlapEdd.exit26.i:                ; preds = %.outer.i21.i, %173,
 188:                                              ; preds = %194, %.lr.ph.i29.i
   %.034.i32.i = phi i32 [ %.03338.i30.i, %.lr.ph.i29.i ], [ %.0.i38.i, %194 ]
   %189 = zext nneg i32 %.034.i32.i to i64
-  %190 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load double, ptr %191, align 8, !tbaa !25
   %193 = fcmp olt double %192, 0.000000e+00
@@ -16708,7 +16708,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit: ; preds = %3
   %370 = add nsw i32 %109, 1
   store i32 %370, ptr %9, align 4, !tbaa !21
   %371 = sext i32 %109 to i64
-  %372 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %371
+  %372 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %371
   store double %365, ptr %372, align 8, !tbaa !23
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store double 0x401921FB54442D18, ptr %373, align 8, !tbaa !25
@@ -16780,13 +16780,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i372: ; preds = %
 
 395:                                              ; preds = %383
   %396 = zext nneg i32 %.04969.i364 to i64
-  %397 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %396, i32 2
+  %397 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %396, i32 2
   store i32 %109, ptr %397, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit351
 
 398:                                              ; preds = %377
   %399 = zext nneg i32 %.04870.i363 to i64
-  %400 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %399
   %401 = load double, ptr %400, align 8, !tbaa !23
   %402 = fcmp ugt double %379, %401
   br i1 %402, label %409, label %403
@@ -16802,7 +16802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i372: ; preds = %
 
 406:                                              ; preds = %403
   %407 = zext nneg i32 %.04969.i364 to i64
-  %408 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %407, i32 2
+  %408 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %407, i32 2
   store i32 %109, ptr %408, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit351
 
@@ -16829,7 +16829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i372: ; preds = %
 
 421:                                              ; preds = %419
   %422 = zext nneg i32 %381 to i64
-  %423 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %422, i32 2
+  %423 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %422, i32 2
   %424 = load i32, ptr %423, align 8, !tbaa !26
   store i32 %424, ptr %8, align 8, !tbaa !27
   br label %430
@@ -16838,7 +16838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i372: ; preds = %
   %426 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %427 = load i32, ptr %426, align 8, !tbaa !26
   %428 = zext nneg i32 %.04969.i364 to i64
-  %429 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %428, i32 2
+  %429 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %428, i32 2
   store i32 %427, ptr %429, align 8, !tbaa !26
   br label %430
 
@@ -16887,7 +16887,7 @@ _ZN8AngleSet3setEdd.exit351:                      ; preds = %417, %406, %405, %3
   %450 = add nsw i32 %449, 1
   store i32 %450, ptr %9, align 4, !tbaa !21
   %451 = sext i32 %449 to i64
-  %452 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %451
+  %452 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %451
   store double %.sink.i350, ptr %452, align 8, !tbaa !23
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store double %367, ptr %453, align 8, !tbaa !25
@@ -16955,13 +16955,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 475:                                              ; preds = %463
   %476 = zext nneg i32 %.04969.i to i64
-  %477 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %476, i32 2
+  %477 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %476, i32 2
   store i32 %449, ptr %477, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
 478:                                              ; preds = %457
   %479 = zext nneg i32 %.04870.i to i64
-  %480 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %479
   %481 = load double, ptr %480, align 8, !tbaa !23
   %482 = fcmp ugt double %459, %481
   br i1 %482, label %489, label %483
@@ -16977,7 +16977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 486:                                              ; preds = %483
   %487 = zext nneg i32 %.04969.i to i64
-  %488 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %487, i32 2
+  %488 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %487, i32 2
   store i32 %449, ptr %488, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
@@ -17004,7 +17004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 501:                                              ; preds = %499
   %502 = zext nneg i32 %461 to i64
-  %503 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %502, i32 2
+  %503 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %502, i32 2
   %504 = load i32, ptr %503, align 8, !tbaa !26
   store i32 %504, ptr %8, align 8, !tbaa !27
   br label %510
@@ -17013,7 +17013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %506 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %507 = load i32, ptr %506, align 8, !tbaa !26
   %508 = zext nneg i32 %.04969.i to i64
-  %509 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %508, i32 2
+  %509 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %508, i32 2
   store i32 %507, ptr %509, align 8, !tbaa !26
   br label %510
 
@@ -17126,7 +17126,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i360, %
 550:                                              ; preds = %.thread442
   %551 = load i32, ptr %8, align 8, !tbaa !27
   %552 = sext i32 %551 to i64
-  %553 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %552
+  %553 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %552
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 16
   %555 = load i32, ptr %554, align 8, !tbaa !26
   %556 = icmp slt i32 %555, 0
@@ -17134,7 +17134,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i360, %
 
 557:                                              ; preds = %550
   %558 = load double, ptr %553, align 8, !tbaa !23
-  %559 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %552, i32 1
+  %559 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %552, i32 1
   %560 = load double, ptr %559, align 8, !tbaa !25
   br label %_ZN8AngleSet20computeStartEndThetaERdS0_.exit
 
@@ -17142,10 +17142,10 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i360, %
   %562 = getelementptr inbounds nuw i8, ptr %553, i64 8
   %563 = load double, ptr %562, align 8, !tbaa !25
   %564 = zext nneg i32 %555 to i64
-  %565 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %564
+  %565 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %564
   %566 = load double, ptr %565, align 8, !tbaa !23
   %567 = fsub double %566, %563
-  %568 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %564, i32 2
+  %568 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %564, i32 2
   %569 = load i32, ptr %568, align 8, !tbaa !26
   %570 = icmp slt i32 %569, 0
   br i1 %570, label %._crit_edge.i354, label %.lr.ph.i352
@@ -17156,17 +17156,17 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i360, %
   %.041.i = phi double [ %.1.i353, %.lr.ph.i352 ], [ %567, %561 ]
   %.03040.i = phi double [ %.131.i, %.lr.ph.i352 ], [ %566, %561 ]
   %.03239.i = phi double [ %.133.i, %.lr.ph.i352 ], [ %563, %561 ]
-  %573 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %572, i32 1
+  %573 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %572, i32 1
   %574 = load double, ptr %573, align 8, !tbaa !25
   %575 = zext nneg i32 %571 to i64
-  %576 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %575
   %577 = load double, ptr %576, align 8, !tbaa !23
   %578 = fsub double %577, %574
   %579 = fcmp ogt double %578, %.041.i
   %.133.i = select i1 %579, double %574, double %.03239.i
   %.131.i = select i1 %579, double %577, double %.03040.i
   %.1.i353 = select i1 %579, double %578, double %.041.i
-  %580 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %575, i32 2
+  %580 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %575, i32 2
   %581 = load i32, ptr %580, align 8, !tbaa !26
   %582 = icmp slt i32 %581, 0
   br i1 %582, label %._crit_edge.i354, label %.lr.ph.i352, !llvm.loop !38
@@ -17176,7 +17176,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i360, %
   %.030.lcssa.i = phi double [ %566, %561 ], [ %.131.i, %.lr.ph.i352 ]
   %.0.lcssa.i = phi double [ %567, %561 ], [ %.1.i353, %.lr.ph.i352 ]
   %583 = phi i64 [ %564, %561 ], [ %575, %.lr.ph.i352 ]
-  %584 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %583, i32 1
+  %584 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %583, i32 1
   %585 = load double, ptr %584, align 8, !tbaa !25
   %586 = load double, ptr %553, align 8, !tbaa !23
   %587 = fsub double 0x401921FB54442D18, %585
@@ -17574,7 +17574,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %59, %95
 133:                                              ; preds = %139, %.lr.ph.i.i
   %.034.i.i = phi i32 [ %.03338.i.i, %.lr.ph.i.i ], [ %.0.i.i, %139 ]
   %134 = zext nneg i32 %.034.i.i to i64
-  %135 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load double, ptr %136, align 8, !tbaa !25
   %138 = fcmp ogt double %128, %137
@@ -17631,7 +17631,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %59, %95
 158:                                              ; preds = %164, %.lr.ph.i16.i
   %.034.i19.i = phi i32 [ %.03338.i17.i, %.lr.ph.i16.i ], [ %.0.i25.i, %164 ]
   %159 = zext nneg i32 %.034.i19.i to i64
-  %160 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load double, ptr %161, align 8, !tbaa !25
   %163 = fcmp ogt double %128, %162
@@ -17689,7 +17689,7 @@ _ZN8AngleSet8_overlapEdd.exit26.i:                ; preds = %.outer.i21.i, %167,
 182:                                              ; preds = %188, %.lr.ph.i29.i
   %.034.i32.i = phi i32 [ %.03338.i30.i, %.lr.ph.i29.i ], [ %.0.i38.i, %188 ]
   %183 = zext nneg i32 %.034.i32.i to i64
-  %184 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load double, ptr %185, align 8, !tbaa !25
   %187 = fcmp olt double %186, 0.000000e+00
@@ -17896,7 +17896,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %142, %.outer.i.i, %
   %299 = add nsw i32 %.pre511, 1
   store i32 %299, ptr %15, align 4, !tbaa !21
   %300 = sext i32 %.pre511 to i64
-  %301 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %300
+  %301 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %300
   store double %294, ptr %301, align 8, !tbaa !23
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store double 0x401921FB54442D18, ptr %302, align 8, !tbaa !25
@@ -17968,13 +17968,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i331: ; preds = %
 
 324:                                              ; preds = %312
   %325 = zext nneg i32 %.04969.i323 to i64
-  %326 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %325, i32 2
+  %326 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %325, i32 2
   store i32 %.pre511, ptr %326, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit312
 
 327:                                              ; preds = %306
   %328 = zext nneg i32 %.04870.i322 to i64
-  %329 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %328
   %330 = load double, ptr %329, align 8, !tbaa !23
   %331 = fcmp ugt double %308, %330
   br i1 %331, label %338, label %332
@@ -17990,7 +17990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i331: ; preds = %
 
 335:                                              ; preds = %332
   %336 = zext nneg i32 %.04969.i323 to i64
-  %337 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %336, i32 2
+  %337 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %336, i32 2
   store i32 %.pre511, ptr %337, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit312
 
@@ -18017,7 +18017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i331: ; preds = %
 
 350:                                              ; preds = %348
   %351 = zext nneg i32 %310 to i64
-  %352 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %351, i32 2
+  %352 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %351, i32 2
   %353 = load i32, ptr %352, align 8, !tbaa !26
   store i32 %353, ptr %14, align 8, !tbaa !27
   br label %359
@@ -18026,7 +18026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i331: ; preds = %
   %355 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %356 = load i32, ptr %355, align 8, !tbaa !26
   %357 = zext nneg i32 %.04969.i323 to i64
-  %358 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %357, i32 2
+  %358 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %357, i32 2
   store i32 %356, ptr %358, align 8, !tbaa !26
   br label %359
 
@@ -18075,7 +18075,7 @@ _ZN8AngleSet3setEdd.exit312:                      ; preds = %346, %335, %334, %3
   %379 = add nsw i32 %378, 1
   store i32 %379, ptr %15, align 4, !tbaa !21
   %380 = sext i32 %378 to i64
-  %381 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %380
+  %381 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %380
   store double %.sink.i311, ptr %381, align 8, !tbaa !23
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store double %296, ptr %382, align 8, !tbaa !25
@@ -18143,13 +18143,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 404:                                              ; preds = %392
   %405 = zext nneg i32 %.04969.i to i64
-  %406 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %405, i32 2
+  %406 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %405, i32 2
   store i32 %378, ptr %406, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
 407:                                              ; preds = %386
   %408 = zext nneg i32 %.04870.i to i64
-  %409 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %408
   %410 = load double, ptr %409, align 8, !tbaa !23
   %411 = fcmp ugt double %388, %410
   br i1 %411, label %418, label %412
@@ -18165,7 +18165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 415:                                              ; preds = %412
   %416 = zext nneg i32 %.04969.i to i64
-  %417 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %416, i32 2
+  %417 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %416, i32 2
   store i32 %378, ptr %417, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
@@ -18192,7 +18192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 430:                                              ; preds = %428
   %431 = zext nneg i32 %390 to i64
-  %432 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %431, i32 2
+  %432 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %431, i32 2
   %433 = load i32, ptr %432, align 8, !tbaa !26
   store i32 %433, ptr %14, align 8, !tbaa !27
   br label %439
@@ -18201,7 +18201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %435 = getelementptr inbounds nuw i8, ptr %409, i64 16
   %436 = load i32, ptr %435, align 8, !tbaa !26
   %437 = zext nneg i32 %.04969.i to i64
-  %438 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %437, i32 2
+  %438 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %437, i32 2
   store i32 %436, ptr %438, align 8, !tbaa !26
   br label %439
 
@@ -18322,7 +18322,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i319, %
 488:                                              ; preds = %.thread360
   %489 = load i32, ptr %14, align 8, !tbaa !27
   %490 = sext i32 %489 to i64
-  %491 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %490
+  %491 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %490
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 16
   %493 = load i32, ptr %492, align 8, !tbaa !26
   %494 = icmp slt i32 %493, 0
@@ -18330,7 +18330,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i319, %
 
 495:                                              ; preds = %488
   %496 = load double, ptr %491, align 8, !tbaa !23
-  %497 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %490, i32 1
+  %497 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %490, i32 1
   %498 = load double, ptr %497, align 8, !tbaa !25
   br label %_ZN8AngleSet20computeStartEndThetaERdS0_.exit
 
@@ -18338,10 +18338,10 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i319, %
   %500 = getelementptr inbounds nuw i8, ptr %491, i64 8
   %501 = load double, ptr %500, align 8, !tbaa !25
   %502 = zext nneg i32 %493 to i64
-  %503 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %502
   %504 = load double, ptr %503, align 8, !tbaa !23
   %505 = fsub double %504, %501
-  %506 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %502, i32 2
+  %506 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %502, i32 2
   %507 = load i32, ptr %506, align 8, !tbaa !26
   %508 = icmp slt i32 %507, 0
   br i1 %508, label %._crit_edge.i315, label %.lr.ph.i313
@@ -18352,17 +18352,17 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i319, %
   %.041.i = phi double [ %.1.i314, %.lr.ph.i313 ], [ %505, %499 ]
   %.03040.i = phi double [ %.131.i, %.lr.ph.i313 ], [ %504, %499 ]
   %.03239.i = phi double [ %.133.i, %.lr.ph.i313 ], [ %501, %499 ]
-  %511 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %510, i32 1
+  %511 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %510, i32 1
   %512 = load double, ptr %511, align 8, !tbaa !25
   %513 = zext nneg i32 %509 to i64
-  %514 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %513
   %515 = load double, ptr %514, align 8, !tbaa !23
   %516 = fsub double %515, %512
   %517 = fcmp ogt double %516, %.041.i
   %.133.i = select i1 %517, double %512, double %.03239.i
   %.131.i = select i1 %517, double %515, double %.03040.i
   %.1.i314 = select i1 %517, double %516, double %.041.i
-  %518 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %513, i32 2
+  %518 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %513, i32 2
   %519 = load i32, ptr %518, align 8, !tbaa !26
   %520 = icmp slt i32 %519, 0
   br i1 %520, label %._crit_edge.i315, label %.lr.ph.i313, !llvm.loop !38
@@ -18372,7 +18372,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i319, %
   %.030.lcssa.i = phi double [ %504, %499 ], [ %.131.i, %.lr.ph.i313 ]
   %.0.lcssa.i = phi double [ %505, %499 ], [ %.1.i314, %.lr.ph.i313 ]
   %521 = phi i64 [ %502, %499 ], [ %513, %.lr.ph.i313 ]
-  %522 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %521, i32 1
+  %522 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %521, i32 1
   %523 = load double, ptr %522, align 8, !tbaa !25
   %524 = load double, ptr %491, align 8, !tbaa !23
   %525 = fsub double 0x401921FB54442D18, %523
@@ -18787,7 +18787,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %59, %95
 124:                                              ; preds = %130, %.lr.ph.i.i
   %.034.i.i = phi i32 [ %.03338.i.i, %.lr.ph.i.i ], [ %.0.i.i, %130 ]
   %125 = zext nneg i32 %.034.i.i to i64
-  %126 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load double, ptr %127, align 8, !tbaa !25
   %129 = fcmp ogt double %119, %128
@@ -18844,7 +18844,7 @@ _ZN8AngleSet3setEdd.exit:                         ; preds = %59, %95
 149:                                              ; preds = %155, %.lr.ph.i16.i
   %.034.i19.i = phi i32 [ %.03338.i17.i, %.lr.ph.i16.i ], [ %.0.i25.i, %155 ]
   %150 = zext nneg i32 %.034.i19.i to i64
-  %151 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !25
   %154 = fcmp ogt double %119, %153
@@ -18902,7 +18902,7 @@ _ZN8AngleSet8_overlapEdd.exit26.i:                ; preds = %.outer.i21.i, %158,
 173:                                              ; preds = %179, %.lr.ph.i29.i
   %.034.i32.i = phi i32 [ %.03338.i30.i, %.lr.ph.i29.i ], [ %.0.i38.i, %179 ]
   %174 = zext nneg i32 %.034.i32.i to i64
-  %175 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load double, ptr %176, align 8, !tbaa !25
   %178 = fcmp olt double %177, 0.000000e+00
@@ -19145,7 +19145,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %133, %.outer.i.i, %
   %310 = add nsw i32 %.pre529, 1
   store i32 %310, ptr %15, align 4, !tbaa !21
   %311 = sext i32 %.pre529 to i64
-  %312 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %311
+  %312 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %311
   store double %305, ptr %312, align 8, !tbaa !23
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store double 0x401921FB54442D18, ptr %313, align 8, !tbaa !25
@@ -19217,13 +19217,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i349: ; preds = %
 
 335:                                              ; preds = %323
   %336 = zext nneg i32 %.04969.i341 to i64
-  %337 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %336, i32 2
+  %337 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %336, i32 2
   store i32 %.pre529, ptr %337, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit330
 
 338:                                              ; preds = %317
   %339 = zext nneg i32 %.04870.i340 to i64
-  %340 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %339
   %341 = load double, ptr %340, align 8, !tbaa !23
   %342 = fcmp ugt double %319, %341
   br i1 %342, label %349, label %343
@@ -19239,7 +19239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i349: ; preds = %
 
 346:                                              ; preds = %343
   %347 = zext nneg i32 %.04969.i341 to i64
-  %348 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %347, i32 2
+  %348 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %347, i32 2
   store i32 %.pre529, ptr %348, align 8, !tbaa !26
   br label %_ZN8AngleSet3setEdd.exit330
 
@@ -19266,7 +19266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i349: ; preds = %
 
 361:                                              ; preds = %359
   %362 = zext nneg i32 %321 to i64
-  %363 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %362, i32 2
+  %363 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %362, i32 2
   %364 = load i32, ptr %363, align 8, !tbaa !26
   store i32 %364, ptr %14, align 8, !tbaa !27
   br label %370
@@ -19275,7 +19275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i349: ; preds = %
   %366 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %367 = load i32, ptr %366, align 8, !tbaa !26
   %368 = zext nneg i32 %.04969.i341 to i64
-  %369 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %368, i32 2
+  %369 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %368, i32 2
   store i32 %367, ptr %369, align 8, !tbaa !26
   br label %370
 
@@ -19324,7 +19324,7 @@ _ZN8AngleSet3setEdd.exit330:                      ; preds = %357, %346, %345, %3
   %390 = add nsw i32 %389, 1
   store i32 %390, ptr %15, align 4, !tbaa !21
   %391 = sext i32 %389 to i64
-  %392 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %391
+  %392 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %391
   store double %.sink.i329, ptr %392, align 8, !tbaa !23
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store double %307, ptr %393, align 8, !tbaa !25
@@ -19392,13 +19392,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 415:                                              ; preds = %403
   %416 = zext nneg i32 %.04969.i to i64
-  %417 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %416, i32 2
+  %417 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %416, i32 2
   store i32 %389, ptr %417, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
 418:                                              ; preds = %397
   %419 = zext nneg i32 %.04870.i to i64
-  %420 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %419
   %421 = load double, ptr %420, align 8, !tbaa !23
   %422 = fcmp ugt double %399, %421
   br i1 %422, label %429, label %423
@@ -19414,7 +19414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 426:                                              ; preds = %423
   %427 = zext nneg i32 %.04969.i to i64
-  %428 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %427, i32 2
+  %428 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %427, i32 2
   store i32 %389, ptr %428, align 8, !tbaa !26
   br label %_ZN8AngleSet4_setEdd.exit
 
@@ -19441,7 +19441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 441:                                              ; preds = %439
   %442 = zext nneg i32 %401 to i64
-  %443 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %442, i32 2
+  %443 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %442, i32 2
   %444 = load i32, ptr %443, align 8, !tbaa !26
   store i32 %444, ptr %14, align 8, !tbaa !27
   br label %450
@@ -19450,7 +19450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %446 = getelementptr inbounds nuw i8, ptr %420, i64 16
   %447 = load i32, ptr %446, align 8, !tbaa !26
   %448 = zext nneg i32 %.04969.i to i64
-  %449 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %448, i32 2
+  %449 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %448, i32 2
   store i32 %447, ptr %449, align 8, !tbaa !26
   br label %450
 
@@ -19571,7 +19571,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i337, %
 499:                                              ; preds = %.thread378
   %500 = load i32, ptr %14, align 8, !tbaa !27
   %501 = sext i32 %500 to i64
-  %502 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %501
+  %502 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %501
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
   %504 = load i32, ptr %503, align 8, !tbaa !26
   %505 = icmp slt i32 %504, 0
@@ -19579,7 +19579,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i337, %
 
 506:                                              ; preds = %499
   %507 = load double, ptr %502, align 8, !tbaa !23
-  %508 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %501, i32 1
+  %508 = getelementptr inbounds %struct.AngleSetArc, ptr %7, i64 %501, i32 1
   %509 = load double, ptr %508, align 8, !tbaa !25
   br label %_ZN8AngleSet20computeStartEndThetaERdS0_.exit
 
@@ -19587,10 +19587,10 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i337, %
   %511 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %512 = load double, ptr %511, align 8, !tbaa !25
   %513 = zext nneg i32 %504 to i64
-  %514 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %513
   %515 = load double, ptr %514, align 8, !tbaa !23
   %516 = fsub double %515, %512
-  %517 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %513, i32 2
+  %517 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %513, i32 2
   %518 = load i32, ptr %517, align 8, !tbaa !26
   %519 = icmp slt i32 %518, 0
   br i1 %519, label %._crit_edge.i333, label %.lr.ph.i331
@@ -19601,17 +19601,17 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i337, %
   %.041.i = phi double [ %.1.i332, %.lr.ph.i331 ], [ %516, %510 ]
   %.03040.i = phi double [ %.131.i, %.lr.ph.i331 ], [ %515, %510 ]
   %.03239.i = phi double [ %.133.i, %.lr.ph.i331 ], [ %512, %510 ]
-  %522 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %521, i32 1
+  %522 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %521, i32 1
   %523 = load double, ptr %522, align 8, !tbaa !25
   %524 = zext nneg i32 %520 to i64
-  %525 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %524
   %526 = load double, ptr %525, align 8, !tbaa !23
   %527 = fsub double %526, %523
   %528 = fcmp ogt double %527, %.041.i
   %.133.i = select i1 %528, double %523, double %.03239.i
   %.131.i = select i1 %528, double %526, double %.03040.i
   %.1.i332 = select i1 %528, double %527, double %.041.i
-  %529 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %524, i32 2
+  %529 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %524, i32 2
   %530 = load i32, ptr %529, align 8, !tbaa !26
   %531 = icmp slt i32 %530, 0
   br i1 %531, label %._crit_edge.i333, label %.lr.ph.i331, !llvm.loop !38
@@ -19621,7 +19621,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i337, %
   %.030.lcssa.i = phi double [ %515, %510 ], [ %.131.i, %.lr.ph.i331 ]
   %.0.lcssa.i = phi double [ %516, %510 ], [ %.1.i332, %.lr.ph.i331 ]
   %532 = phi i64 [ %513, %510 ], [ %524, %.lr.ph.i331 ]
-  %533 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %532, i32 1
+  %533 = getelementptr inbounds nuw %struct.AngleSetArc, ptr %7, i64 %532, i32 1
   %534 = load double, ptr %533, align 8, !tbaa !25
   %535 = load double, ptr %502, align 8, !tbaa !23
   %536 = fsub double 0x401921FB54442D18, %534

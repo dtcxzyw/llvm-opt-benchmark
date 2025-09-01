@@ -1196,7 +1196,7 @@ define hidden void @_ZN7datalog12aig_exporter18collect_var_substsER12substitutio
 
 17:                                               ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %122 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !337
   %20 = trunc nuw i64 %indvars.iv to i32
   tail call void @_ZN7datalog12aig_exporter13mk_latch_varsEj(ptr noundef nonnull align 8 dereferenceable(624) %0, i32 noundef %20)
@@ -3160,7 +3160,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %686 = load ptr, ptr %43, align 8, !tbaa !265
   store ptr null, ptr %36, align 8, !tbaa !412
   store ptr %686, ptr %76, align 8, !tbaa !238
-  %687 = getelementptr inbounds nuw [0 x ptr], ptr %676, i64 0, i64 %indvars.iv
+  %687 = getelementptr inbounds nuw ptr, ptr %676, i64 %indvars.iv
   %688 = load ptr, ptr %687, align 8, !tbaa !396
   %689 = ptrtoint ptr %688 to i64
   %690 = and i64 %689, -8
@@ -5922,7 +5922,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_Z17is_uninterp_con
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %51 ]
   %.02236 = phi i32 [ %67, %.lr.ph ], [ %54, %51 ]
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !337
   %60 = tail call noundef i32 @_ZN7datalog12aig_exporter11expr_to_aigEPK4expr(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef %59)
   %61 = and i32 %.02236, 1

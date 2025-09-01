@@ -185,7 +185,7 @@ define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef reado
   %sext = shl i64 %10, 32
   %17 = ashr exact i64 %sext, 32
   %18 = add nsw i64 %17, 1
-  %19 = getelementptr inbounds [261 x i8], ptr %16, i64 0, i64 %17
+  %19 = getelementptr inbounds i8, ptr %16, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -360,7 +360,7 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   %sext = shl i64 %11, 32
   %16 = ashr exact i64 %sext, 32
   %17 = add nsw i64 %16, 1
-  %18 = getelementptr inbounds [261 x i8], ptr %10, i64 0, i64 %16
+  %18 = getelementptr inbounds i8, ptr %10, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40

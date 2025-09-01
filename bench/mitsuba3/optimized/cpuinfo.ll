@@ -75,7 +75,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 30:                                               ; preds = %29, %25, %21, %17, %13
   %31 = phi i64 [ 4, %29 ], [ 0, %13 ], [ 1, %17 ], [ 2, %21 ], [ 3, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %33 = getelementptr inbounds nuw [5 x %struct.Vendor], ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw %struct.Vendor, ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 %31
   %34 = load i64, ptr %33, align 4
   store i64 %34, ptr %32, align 4
   %35 = icmp eq i32 %9, 0

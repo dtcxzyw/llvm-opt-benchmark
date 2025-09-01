@@ -4641,7 +4641,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv50 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
-  %70 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %67, i64 0, i64 %indvars.iv50
+  %70 = getelementptr inbounds nuw %class.btVector3, ptr %67, i64 %indvars.iv50
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv50
@@ -4651,9 +4651,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
 74:                                               ; preds = %.preheader.us, %74
   %75 = phi float [ %.pre, %.preheader.us ], [ %93, %74 ]
   %indvars.iv47 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next48, %74 ]
-  %76 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv47
+  %76 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv47
   %77 = load float, ptr %76, align 4, !tbaa !45
-  %78 = getelementptr inbounds nuw [3 x i32], ptr %65, i64 0, i64 %indvars.iv47
+  %78 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv47
   %79 = load i32, ptr %78, align 4, !tbaa !37
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds %class.btVector3, ptr %66, i64 %80
@@ -12529,35 +12529,35 @@ _ZN11btSparseSdfILi3EE5ResetEv.exit:              ; preds = %._crit_edge.i, %137
   %159 = getelementptr inbounds nuw i8, ptr %.1, i64 268
   store i32 %158, ptr %159, align 4, !tbaa !412
   %160 = sext i32 %67 to i64
-  %161 = getelementptr inbounds [4 x [4 x [4 x float]]], ptr %.1, i64 0, i64 %160
+  %161 = getelementptr inbounds [4 x [4 x float]], ptr %.1, i64 %160
   %162 = sext i32 %73 to i64
-  %163 = getelementptr inbounds [4 x [4 x float]], ptr %161, i64 0, i64 %162
+  %163 = getelementptr inbounds [4 x float], ptr %161, i64 %162
   %164 = sext i32 %79 to i64
-  %165 = getelementptr inbounds [4 x float], ptr %163, i64 0, i64 %164
+  %165 = getelementptr inbounds float, ptr %163, i64 %164
   %166 = load float, ptr %165, align 4, !tbaa !45
   %sext = add i64 %.sroa.5.0.insert.shift.i, 4294967296
-  %167 = ashr exact i64 %sext, 32
-  %168 = getelementptr inbounds [4 x [4 x [4 x float]]], ptr %.1, i64 0, i64 %167
-  %169 = getelementptr inbounds [4 x [4 x float]], ptr %168, i64 0, i64 %162
-  %170 = getelementptr inbounds [4 x float], ptr %169, i64 0, i64 %164
+  %167 = ashr exact i64 %sext, 26
+  %168 = getelementptr inbounds i8, ptr %.1, i64 %167
+  %169 = getelementptr inbounds [4 x float], ptr %168, i64 %162
+  %170 = getelementptr inbounds float, ptr %169, i64 %164
   %171 = load float, ptr %170, align 4, !tbaa !45
   %sext138 = add i64 %.sroa.5.0.insert.shift.i141, 4294967296
   %172 = ashr exact i64 %sext138, 32
-  %173 = getelementptr inbounds [4 x [4 x float]], ptr %168, i64 0, i64 %172
-  %174 = getelementptr inbounds [4 x float], ptr %173, i64 0, i64 %164
+  %173 = getelementptr inbounds [4 x float], ptr %168, i64 %172
+  %174 = getelementptr inbounds float, ptr %173, i64 %164
   %175 = load float, ptr %174, align 4, !tbaa !45
-  %176 = getelementptr inbounds [4 x [4 x float]], ptr %161, i64 0, i64 %172
-  %177 = getelementptr inbounds [4 x float], ptr %176, i64 0, i64 %164
+  %176 = getelementptr inbounds [4 x float], ptr %161, i64 %172
+  %177 = getelementptr inbounds float, ptr %176, i64 %164
   %178 = load float, ptr %177, align 4, !tbaa !45
   %sext139 = add i64 %.sroa.5.0.insert.shift.i147, 4294967296
   %179 = ashr exact i64 %sext139, 32
-  %180 = getelementptr inbounds [4 x float], ptr %163, i64 0, i64 %179
+  %180 = getelementptr inbounds float, ptr %163, i64 %179
   %181 = load float, ptr %180, align 4, !tbaa !45
-  %182 = getelementptr inbounds [4 x float], ptr %169, i64 0, i64 %179
+  %182 = getelementptr inbounds float, ptr %169, i64 %179
   %183 = load float, ptr %182, align 4, !tbaa !45
-  %184 = getelementptr inbounds [4 x float], ptr %173, i64 0, i64 %179
+  %184 = getelementptr inbounds float, ptr %173, i64 %179
   %185 = load float, ptr %184, align 4, !tbaa !45
-  %186 = getelementptr inbounds [4 x float], ptr %176, i64 0, i64 %179
+  %186 = getelementptr inbounds float, ptr %176, i64 %179
   %187 = load float, ptr %186, align 4, !tbaa !45
   %188 = fsub float %171, %166
   %189 = fsub float %175, %178
@@ -16795,7 +16795,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %35 = trunc nuw nsw i64 %indvars.iv44 to i32
   %36 = uitofp nneg i32 %35 to float
   %37 = call float @llvm.fmuladd.f32(float %34, float %36, float %22)
-  %invariant.gep36 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv44
+  %invariant.gep36 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv44
   br label %39
 
 38:                                               ; preds = %44
@@ -16809,7 +16809,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %41 = trunc nuw nsw i64 %indvars.iv40 to i32
   %42 = uitofp nneg i32 %41 to float
   %43 = call float @llvm.fmuladd.f32(float %40, float %42, float %21)
-  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep36, i64 0, i64 %indvars.iv40
+  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep36, i64 %indvars.iv40
   br label %45
 
 44:                                               ; preds = %_ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit
@@ -16850,7 +16850,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
 _ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit: ; preds = %45, %54
   %.0.i = phi float [ %55, %54 ], [ 0.000000e+00, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %gep35 = getelementptr inbounds nuw [4 x [4 x [4 x float]]], ptr %gep, i64 0, i64 %indvars.iv
+  %gep35 = getelementptr inbounds nuw [4 x [4 x float]], ptr %gep, i64 %indvars.iv
   store float %.0.i, ptr %gep35, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

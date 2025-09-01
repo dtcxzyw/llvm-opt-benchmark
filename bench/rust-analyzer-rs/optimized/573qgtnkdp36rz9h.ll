@@ -1171,7 +1171,7 @@ _ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
 "_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i": ; preds = %14
   %.val9.in = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val9 = load ptr, ptr %.val9.in, align 8, !nonnull !22, !noundef !22
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %.val9, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %.val9, i64 %16
   %20 = load i8, ptr %19, align 1, !range !304, !noalias !301, !noundef !22
   %switch.i.i = icmp samesign ult i8 %20, 2
   %spec.select2.i = zext i1 %switch.i.i to i32
@@ -1419,7 +1419,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load ptr, ptr %66, align 8, !alias.scope !344, !nonnull !22, !noundef !22
-  %68 = getelementptr inbounds nuw [0 x i8], ptr %67, i64 0, i64 %49
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %49
   %69 = load i8, ptr %68, align 1, !range !304, !noalias !344, !noundef !22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
@@ -1499,7 +1499,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %66, align 8, !nonnull !22, !noundef !22
-  %99 = getelementptr inbounds nuw [0 x i8], ptr %98, i64 0, i64 %49
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %49
   store i8 %.030, ptr %99, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1737,7 +1737,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %18, %.thread,
 
 57:                                               ; preds = %48
   %58 = load ptr, ptr %45, align 8, !nonnull !22, !noundef !22
-  %59 = getelementptr inbounds nuw [0 x i8], ptr %58, i64 0, i64 %53
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %53
   %60 = load i8, ptr %59, align 1, !range !304, !noundef !22
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %64, label %65
@@ -1784,7 +1784,7 @@ define noundef zeroext i1 @_ZN3vfs3Vfs6exists17hcda2eaa52874c641E(ptr noalias no
 _ZN3vfs3Vfs3get17h1b648ad72e54dad2E.exit:         ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !alias.scope !369, !nonnull !22, !noundef !22
-  %10 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %3
   %11 = load i8, ptr %10, align 1, !range !304, !noalias !369, !noundef !22
   %switch = icmp samesign ult i8 %11, 2
   ret i1 %switch
@@ -1801,7 +1801,7 @@ define noundef range(i8 0, 3) i8 @_ZN3vfs3Vfs3get17h1b648ad72e54dad2E(ptr noalia
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !nonnull !22, !noundef !22
-  %10 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %3
   %11 = load i8, ptr %10, align 1, !range !304, !noundef !22
   ret i8 %11
 

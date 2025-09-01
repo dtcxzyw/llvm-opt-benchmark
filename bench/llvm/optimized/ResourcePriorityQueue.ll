@@ -668,7 +668,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue19numberRCValPredIn
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %33 = getelementptr inbounds nuw [234 x ptr], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !273
   %.not43 = icmp eq ptr %34, null
   br i1 %.not43, label %.thread, label %35
@@ -775,7 +775,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue19numberRCValSuccIn
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %40 = getelementptr inbounds nuw [234 x ptr], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !273
   %.not45 = icmp eq ptr %41, null
   br i1 %.not45, label %.thread, label %42
@@ -1722,7 +1722,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue19rawRegPressureDel
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %32 = getelementptr inbounds nuw [234 x ptr], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !273
   %.not73 = icmp eq ptr %33, null
   br i1 %.not73, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %34
@@ -1812,7 +1812,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %24
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %70
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 104
   %82 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %83 = getelementptr inbounds nuw [234 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !273
   %.not45.i = icmp eq ptr %84, null
   br i1 %.not45.i, label %.thread.i, label %85
@@ -1884,7 +1884,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %24, 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54: ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 104
   %114 = zext i16 %.sroa.0.0.copyload.i.i52 to i64
-  %115 = getelementptr inbounds nuw [234 x ptr], ptr %113, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !273
   %.not74 = icmp eq ptr %116, null
   br i1 %.not74, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread, label %117
@@ -1967,7 +1967,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54: ; preds = %111
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i67: ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 104
   %158 = zext i16 %.sroa.0.0.copyload.i.i.i65 to i64
-  %159 = getelementptr inbounds nuw [234 x ptr], ptr %157, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !273
   %.not43.i = icmp eq ptr %160, null
   br i1 %.not43.i, label %.thread.i69, label %161
@@ -2395,7 +2395,7 @@ _ZN4llvm13DFAPacketizer14clearResourcesEv.exit:   ; preds = %3, %9
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %42 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %43 = getelementptr inbounds nuw [234 x ptr], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !273
   %.not160 = icmp eq ptr %44, null
   br i1 %.not160, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %45
@@ -2475,7 +2475,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %37
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %73
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 104
   %85 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
-  %86 = getelementptr inbounds nuw [234 x ptr], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !273
   %.not45.i = icmp eq ptr %87, null
   br i1 %.not45.i, label %.thread.i, label %88
@@ -2557,7 +2557,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %37, 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit90: ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 104
   %122 = zext i16 %.sroa.0.0.copyload.i.i88 to i64
-  %123 = getelementptr inbounds nuw [234 x ptr], ptr %121, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw ptr, ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !273
   %.not161 = icmp eq ptr %124, null
   br i1 %.not161, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit90.thread, label %125
@@ -2634,7 +2634,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit90: ; preds = %110
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i103: ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 104
   %162 = zext i16 %.sroa.0.0.copyload.i.i.i101 to i64
-  %163 = getelementptr inbounds nuw [234 x ptr], ptr %161, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr %161, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !273
   %.not43.i = icmp eq ptr %164, null
   br i1 %.not43.i, label %.thread.i105, label %165
@@ -2729,7 +2729,7 @@ _ZN4llvm21ResourcePriorityQueue19numberRCValPredInSUEPNS_5SUnitEj.exit: ; preds 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i127: ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 104
   %204 = zext i16 %.sroa.0.0.copyload.i.i.i125 to i64
-  %205 = getelementptr inbounds nuw [234 x ptr], ptr %203, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw ptr, ptr %203, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !273
   %.not43.i128 = icmp eq ptr %206, null
   br i1 %.not43.i128, label %.thread.i131, label %207

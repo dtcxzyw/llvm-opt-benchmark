@@ -186,7 +186,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctIhEEvT_.exit: ;
   %.0.i31 = phi ptr [ %33, %32 ], [ %39, %34 ]
   %35 = and i8 %.06.i30, 15
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = getelementptr inbounds i8, ptr %.0.i31, i64 -1
   store i8 %38, ptr %39, align 1, !tbaa !4
@@ -1073,7 +1073,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctIhEEvT_.exit: ;
   %.0.i31 = phi ptr [ %33, %32 ], [ %39, %34 ]
   %35 = and i8 %.06.i30, 15
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = getelementptr inbounds i8, ptr %.0.i31, i64 -1
   store i8 %38, ptr %39, align 1, !tbaa !4
@@ -1254,7 +1254,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctIhEEvT_.exit: ;
   %.0.i31 = phi ptr [ %33, %32 ], [ %39, %34 ]
   %35 = and i8 %.06.i30, 15
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = getelementptr inbounds i8, ptr %.0.i31, i64 -1
   store i8 %38, ptr %39, align 1, !tbaa !4
@@ -1437,7 +1437,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.ex
   %.0.i27 = phi ptr [ %32, %31 ], [ %38, %33 ]
   %34 = and i32 %.06.i26, 15
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = getelementptr inbounds i8, ptr %.0.i27, i64 -1
   store i8 %37, ptr %38, align 1, !tbaa !4
@@ -1629,7 +1629,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerItEEvT_.ex
   %.0.i33 = phi ptr [ %38, %37 ], [ %44, %39 ]
   %40 = and i16 %.06.i32, 15
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %43, ptr %44, align 1, !tbaa !4
@@ -1823,7 +1823,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerItEEvT_.ex
   %.0.i33 = phi ptr [ %38, %37 ], [ %44, %39 ]
   %40 = and i16 %.06.i32, 15
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %43, ptr %44, align 1, !tbaa !4
@@ -2016,7 +2016,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.ex
   %.0.i33 = phi ptr [ %37, %36 ], [ %43, %38 ]
   %39 = and i32 %.06.i32, 15
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %42, ptr %43, align 1, !tbaa !4
@@ -2207,7 +2207,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIjEEvT_.ex
   %.0.i33 = phi ptr [ %37, %36 ], [ %43, %38 ]
   %39 = and i32 %.06.i32, 15
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %42, ptr %43, align 1, !tbaa !4
@@ -2397,7 +2397,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %.06.i32 = phi i64 [ %0, %36 ], [ %43, %38 ]
   %.0.i33 = phi ptr [ %37, %36 ], [ %42, %38 ]
   %39 = and i64 %.06.i32, 15
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %41, ptr %42, align 1, !tbaa !4
@@ -2587,7 +2587,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %.06.i32 = phi i64 [ %0, %36 ], [ %43, %38 ]
   %.0.i33 = phi ptr [ %37, %36 ], [ %42, %38 ]
   %39 = and i64 %.06.i32, 15
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %41, ptr %42, align 1, !tbaa !4
@@ -2777,7 +2777,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIyEEvT_.ex
   %.06.i32 = phi i64 [ %0, %36 ], [ %43, %38 ]
   %.0.i33 = phi ptr [ %37, %36 ], [ %42, %38 ]
   %39 = and i64 %.06.i32, 15
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %41, ptr %42, align 1, !tbaa !4
@@ -2967,7 +2967,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerIyEEvT_.ex
   %.06.i32 = phi i64 [ %0, %36 ], [ %43, %38 ]
   %.0.i33 = phi ptr [ %37, %36 ], [ %42, %38 ]
   %39 = and i64 %.06.i32, 15
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %.0.i33, i64 -1
   store i8 %41, ptr %42, align 1, !tbaa !4
@@ -5431,7 +5431,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint1
   %.sroa.0.0.i44 = phi i64 [ %0, %49 ], [ %.sroa.0.0.extract.trunc.i.i.i50, %51 ]
   %.0.i45 = phi ptr [ %50, %49 ], [ %55, %51 ]
   %52 = and i64 %.sroa.0.0.i44, 15
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = getelementptr inbounds i8, ptr %.0.i45, i64 -1
   store i8 %54, ptr %55, align 1, !tbaa !4
@@ -5749,7 +5749,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint1
   %.sroa.0.0.i44 = phi i64 [ %0, %49 ], [ %.sroa.0.0.extract.trunc.i.i.i50, %51 ]
   %.0.i45 = phi ptr [ %50, %49 ], [ %55, %51 ]
   %52 = and i64 %.sroa.0.0.i44, 15
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @.str.8, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = getelementptr inbounds i8, ptr %.0.i45, i64 -1
   store i8 %54, ptr %55, align 1, !tbaa !4

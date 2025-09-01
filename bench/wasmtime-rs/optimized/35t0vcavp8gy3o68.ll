@@ -6489,7 +6489,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %36, label %37, label %.invoke, !prof !266
 
 37:                                               ; preds = %.lr.ph.i.i.i
-  %38 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, {} }], ptr %8, i64 0, i64 %.val3.i.i.i.i
+  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %8, i64 %.val3.i.i.i.i
   %39 = getelementptr i8, ptr %38, i64 16
   %.val4.i.i.i.i.i = load i64, ptr %39, align 8, !noalias !267, !noundef !4
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i.i, %.val4.i.i.i.i.i
@@ -20719,7 +20719,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf4c4cabf424cb76aE.exit: ; preds = %.preheade
   unreachable
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, {} }], ptr %1, i64 0, i64 %.val5.i, i32 1
+  %104 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %1, i64 %.val5.i, i32 1
   %105 = load i64, ptr %104, align 8, !noalias !3581, !noundef !4
   %.sroa.0.05.i.i = and i64 %62, %105
   %106 = getelementptr inbounds i8, ptr %61, i64 %.sroa.0.05.i.i
@@ -20873,7 +20873,7 @@ _ZN4core3ptr19swap_nonoverlapping17hc3b7177db4c27370E.exit.loopexit.i: ; preds =
 
 .lr.ph.i:                                         ; preds = %165, %_ZN4core3ptr19swap_nonoverlapping17hc3b7177db4c27370E.exit.loopexit.i
   %.val5.i17.i = phi i64 [ %.val5.i.i, %_ZN4core3ptr19swap_nonoverlapping17hc3b7177db4c27370E.exit.loopexit.i ], [ %.val5.i15.i, %165 ]
-  %174 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, {} }], ptr %1, i64 0, i64 %.val5.i17.i, i32 1
+  %174 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %1, i64 %.val5.i17.i, i32 1
   %175 = load i64, ptr %174, align 8, !noalias !3613, !noundef !4
   %.sroa.0.05.i.i13 = and i64 %175, %15
   %176 = getelementptr inbounds i8, ptr %.val16.i, i64 %.sroa.0.05.i.i13

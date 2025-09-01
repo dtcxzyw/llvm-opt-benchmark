@@ -468,7 +468,7 @@ define internal fastcc i32 @migrate_paths(ptr noundef nonnull %0, ptr noundef no
 34:                                               ; preds = %28
   %35 = load i8, ptr %31, align 1, !tbaa !22
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !22
   %.not.i25 = icmp eq i8 %38, -1
   br i1 %.not.i25, label %is_loose_object_shard.exit.thread, label %is_loose_object_shard.exit
@@ -477,7 +477,7 @@ is_loose_object_shard.exit:                       ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !22
   %.fr = freeze i8 %43
   %.not36 = icmp eq i8 %.fr, -1

@@ -96,7 +96,7 @@ BlockSplitIteratorNext.exit:                      ; preds = %36, %39
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %52 = load i16, ptr %51, align 4, !tbaa !15
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw [704 x i32], ptr %50, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !11
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4, !tbaa !11
@@ -143,7 +143,7 @@ BlockSplitIteratorNext.exit60.us:                 ; preds = %63, %.lr.ph.split.u
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !14
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr %74, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !11
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4, !tbaa !11
@@ -188,7 +188,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %101 = load i32, ptr %100, align 4, !tbaa !11
   %102 = shl i32 %101, 9
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_kBrotliContextLookupTable, i64 %103
   %105 = zext i8 %.177 to i64
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !14
@@ -205,7 +205,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !14
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [256 x i32], ptr %115, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %115, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !11
   %122 = add i32 %121, 1
   store i32 %122, ptr %120, align 4, !tbaa !11
@@ -284,7 +284,7 @@ BlockSplitIteratorNext.exit61:                    ; preds = %144, %146
   %169 = load i16, ptr %168, align 2, !tbaa !27
   %170 = and i16 %169, 1023
   %171 = zext nneg i16 %170 to i64
-  %172 = getelementptr inbounds nuw [544 x i32], ptr %167, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i32, ptr %167, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !11
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !11

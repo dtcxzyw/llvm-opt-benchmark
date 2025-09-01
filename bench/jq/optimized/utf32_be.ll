@@ -129,7 +129,7 @@ define internal i32 @utf32be_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr n
   store i8 0, ptr %22, align 1, !tbaa !4
   %24 = load i8, ptr %6, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @OnigEncAsciiToLowerCaseTable, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !4
   store i8 %27, ptr %23, align 1, !tbaa !4
   %28 = load ptr, ptr %1, align 8, !tbaa !7

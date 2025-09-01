@@ -295,7 +295,7 @@ _ZNK9func_decl14is_commutativeEv.exit.i:          ; preds = %5
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
   %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8, !tbaa !47
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %46, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
   store ptr %49, ptr %50, align 8, !tbaa !47
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %52 = load ptr, ptr %51, align 8, !tbaa !32
@@ -820,7 +820,7 @@ _ZN3euf5enode6mk_tmpEj.exit:                      ; preds = %11, %.lr.ph.i
   %42 = load ptr, ptr %41, align 8, !tbaa !47
   %43 = load ptr, ptr %5, align 8, !tbaa !125
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 176
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   store ptr %42, ptr %45, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5441,7 +5441,7 @@ _ZNK3euf5enode8merge_tfEv.exit:                   ; preds = %162, %168, %_ZNK3eu
 
 251:                                              ; preds = %.lr.ph, %251
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %251 ]
-  %252 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !47
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 64
   %255 = load ptr, ptr %254, align 8, !tbaa !32
@@ -7194,9 +7194,9 @@ _ZNKSt8functionIFvP3appS1_EEclES1_S1_.exit:       ; preds = %4
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !47
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   call void @_ZN3euf6egraph8push_lcaEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %46, ptr noundef %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8104,7 +8104,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit:      ; preds = %30, %36
   %50 = phi ptr [ %22, %.lr.ph ], [ %111, %110 ]
   %51 = phi ptr [ %22, %.lr.ph ], [ %112, %110 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !47
   %54 = load ptr, ptr %53, align 8, !tbaa !30
   %55 = load i32, ptr %54, align 4, !tbaa !117
@@ -12570,7 +12570,7 @@ _ZN6vectorIN3euf13justificationELb0EjE9push_backERKS1_.exit: ; preds = %21, %27
 .preheader:                                       ; preds = %12, %104
   %36 = phi i1 [ false, %104 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %104 ], [ 0, %12 ]
-  %37 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !339
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1073741824

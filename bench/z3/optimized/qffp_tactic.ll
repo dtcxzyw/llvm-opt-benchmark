@@ -809,7 +809,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %231
 61:                                               ; preds = %.lr.ph, %141
   %62 = phi i32 [ %58, %.lr.ph ], [ %142, %141 ]
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !68
   %66 = add nuw i32 %62, 1
   store i32 %66, ptr %57, align 8, !tbaa !67
@@ -2998,7 +2998,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %231
 61:                                               ; preds = %.lr.ph, %139
   %62 = phi i32 [ %58, %.lr.ph ], [ %140, %139 ]
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %60, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !68
   %66 = add nuw i32 %62, 1
   store i32 %66, ptr %57, align 8, !tbaa !67

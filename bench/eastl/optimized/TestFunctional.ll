@@ -2572,7 +2572,7 @@ for.body.preheader:                               ; preds = %invoke.cont.thread.
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNK5eastl8str_lessIPKcEclES2_S2_.exit
   %i.02262 = phi i64 [ %inc, %_ZNK5eastl8str_lessIPKcEclES2_S2_.exit ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw [10 x %"struct.(anonymous namespace)::Results"], ptr @__const._Z14TestFunctionalv.results8, i64 0, i64 %i.02262
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::Results", ptr @__const._Z14TestFunctionalv.results8, i64 %i.02262
   %82 = load ptr, ptr %arrayidx, align 8
   %p260 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %83 = load ptr, ptr %p260, align 8
@@ -2629,7 +2629,7 @@ lpad:                                             ; preds = %_ZN5eastl9hashtable
 
 for.body100:                                      ; preds = %_ZNK5eastl8str_lessIPKcEclES2_S2_.exit, %_ZNK5eastl8str_lessIPKwEclES2_S2_.exit
   %i97.02263 = phi i64 [ %inc148, %_ZNK5eastl8str_lessIPKwEclES2_S2_.exit ], [ 0, %_ZNK5eastl8str_lessIPKcEclES2_S2_.exit ]
-  %arrayidx102 = getelementptr inbounds nuw [10 x %"struct.(anonymous namespace)::Results.21"], ptr @__const._Z14TestFunctionalv.resultsW, i64 0, i64 %i97.02263
+  %arrayidx102 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Results.21", ptr @__const._Z14TestFunctionalv.resultsW, i64 %i97.02263
   %92 = load ptr, ptr %arrayidx102, align 8
   %p2105 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 8
   %93 = load ptr, ptr %p2105, align 8
@@ -2640,7 +2640,7 @@ for.body100:                                      ; preds = %_ZNK5eastl8str_less
   %95 = and i8 %94, 1
   %conv114 = zext nneg i8 %95 to i32
   %cmp115 = icmp eq i32 %call106.lobit, %conv114
-  %arrayidx116 = getelementptr inbounds nuw [10 x %"struct.(anonymous namespace)::Results"], ptr @__const._Z14TestFunctionalv.results8, i64 0, i64 %i97.02263
+  %arrayidx116 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Results", ptr @__const._Z14TestFunctionalv.results8, i64 %i97.02263
   %96 = load ptr, ptr %arrayidx116, align 8
   %expectedResult119 = getelementptr inbounds nuw i8, ptr %arrayidx116, i64 16
   %97 = load i8, ptr %expectedResult119, align 8

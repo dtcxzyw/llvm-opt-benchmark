@@ -536,7 +536,7 @@ _ZNK11func_interp11num_entriesEv.exit.i:          ; preds = %._crit_edge.i28
   %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %indvars.iv104.i)
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull @.str.1, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %211 = getelementptr inbounds nuw [0 x ptr], ptr %206, i64 0, i64 %indvars.iv104.i
+  %211 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv104.i
   %212 = load ptr, ptr %211, align 8, !tbaa !28
   call void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %212, ptr noundef nonnull align 8 dereferenceable(976) %126, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull align 8 dereferenceable(48) %3)

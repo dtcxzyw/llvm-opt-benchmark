@@ -131,9 +131,9 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   %64 = getelementptr inbounds nuw i8, ptr %.03645, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !31
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [10 x [9 x i8]], ptr @kBModesProba, i64 %66
   %68 = zext nneg i32 %.03344 to i64
-  %69 = getelementptr inbounds nuw [10 x [9 x i8]], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [9 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %.047, i64 %indvars.iv
   %71 = load i8, ptr %70, align 1, !tbaa !31
   %72 = zext i8 %71 to i32
@@ -273,34 +273,34 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef readonly captures
 
 .preheader34:                                     ; preds = %2, %29
   %indvars.iv48 = phi i64 [ 0, %2 ], [ %indvars.iv.next49, %29 ]
-  %4 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv48
-  %5 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv48
-  %6 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv48
+  %4 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %3, i64 %indvars.iv48
+  %5 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsProba0, i64 %indvars.iv48
+  %6 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsUpdateProba, i64 %indvars.iv48
   br label %.preheader33
 
 .preheader33:                                     ; preds = %.preheader34, %28
   %indvars.iv44 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next45, %28 ]
-  %7 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %4, i64 0, i64 %indvars.iv44
-  %8 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %5, i64 0, i64 %indvars.iv44
-  %9 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %6, i64 0, i64 %indvars.iv44
+  %7 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %4, i64 %indvars.iv44
+  %8 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %indvars.iv44
+  %9 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %6, i64 %indvars.iv44
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader33, %27
   %indvars.iv40 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next41, %27 ]
-  %10 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %7, i64 0, i64 %indvars.iv40
-  %11 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %8, i64 0, i64 %indvars.iv40
-  %12 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv40
+  %10 = getelementptr inbounds nuw [11 x i8], ptr %7, i64 %indvars.iv40
+  %11 = getelementptr inbounds nuw [11 x i8], ptr %8, i64 %indvars.iv40
+  %12 = getelementptr inbounds nuw [11 x i8], ptr %9, i64 %indvars.iv40
   br label %13
 
 13:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
-  %14 = getelementptr inbounds nuw [11 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !31
-  %16 = getelementptr inbounds nuw [11 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !31
   %18 = icmp ne i8 %15, %17
   %19 = zext i1 %18 to i32
-  %20 = getelementptr inbounds nuw [11 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !31
   %22 = zext i8 %21 to i32
   %23 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %19, i32 noundef %22) #6

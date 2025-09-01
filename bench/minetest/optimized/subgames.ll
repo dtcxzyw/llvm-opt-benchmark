@@ -15170,13 +15170,12 @@ invoke.cont.i:                                    ; preds = %invoke.cont3
 
 if.then.i.i408:                                   ; preds = %invoke.cont.i
   %23 = shl nuw nsw i64 %indvars.iv, 1
-  %24 = or disjoint i64 %23, 1
-  %arrayidx14.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %24
+  %24 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %23
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   %25 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !27, !noalias !275
   %arrayidx15.i.i = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %25, ptr %arrayidx15.i.i, align 1, !tbaa !27
-  %arrayidx17.i.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %23
-  %26 = load i8, ptr %arrayidx17.i.i, align 2, !tbaa !27, !noalias !275
+  %26 = load i8, ptr %24, align 2, !tbaa !27, !noalias !275
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont.i

@@ -54,7 +54,7 @@ define i32 @ossl_ec_encoding_name2id(ptr noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %3
   %4 = phi i1 [ false, %3 ], [ true, %1 ]
   %.079 = phi i64 [ 1, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %.079
+  %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @encoding_nameid_map, i64 %.079
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %0, ptr noundef %7) #4
@@ -83,7 +83,7 @@ define ptr @ossl_ec_check_group_type_id2name(i32 noundef %0) local_unnamed_addr 
 
 4:                                                ; preds = %1, %2
   %.067 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %.067
+  %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @check_group_type_nameid_map, i64 %.067
   %6 = load i32, ptr %5, align 16, !tbaa !11
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @ossl_ec_set_check_group_type_from_name(ptr noundef %
 
 .preheader.i:                                     ; preds = %2, %4
   %.079.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %.079.i
+  %6 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @check_group_type_nameid_map, i64 %.079.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !5
   %9 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef %8) #4
@@ -149,7 +149,7 @@ define i32 @ossl_ec_pt_format_name2id(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %3
   %.079 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %.079
+  %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @format_nameid_map, i64 %.079
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   %8 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %0, ptr noundef %7) #4
@@ -176,7 +176,7 @@ define ptr @ossl_ec_pt_format_id2name(i32 noundef %0) local_unnamed_addr #2 {
 
 4:                                                ; preds = %1, %2
   %.067 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %.067
+  %5 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @format_nameid_map, i64 %.067
   %6 = load i32, ptr %5, align 16, !tbaa !11
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %2
@@ -212,7 +212,7 @@ define range(i32 0, 2) i32 @ossl_ec_group_todata(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %12, %10
   %.067.i = phi i64 [ 0, %10 ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %.067.i
+  %15 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @format_nameid_map, i64 %.067.i
   %16 = load i32, ptr %15, align 16, !tbaa !11
   %17 = icmp eq i32 %11, %16
   br i1 %17, label %ossl_ec_pt_format_id2name.exit, label %12
@@ -244,7 +244,7 @@ ossl_ec_pt_format_id2name.exit.thread:            ; preds = %12, %21, %ossl_ec_p
 27:                                               ; preds = %26, %23
   %28 = phi i1 [ true, %23 ], [ false, %26 ]
   %.067.i46 = phi i64 [ 0, %23 ], [ 1, %26 ]
-  %29 = getelementptr inbounds nuw [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %.067.i46
+  %29 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @encoding_nameid_map, i64 %.067.i46
   %30 = load i32, ptr %29, align 16, !tbaa !11
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %ec_param_encoding_id2name.exit, label %26
@@ -822,7 +822,7 @@ ossl_ec_set_ecdh_cofactor_mode.exit:              ; preds = %15, %12, %10
 
 .preheader.i.i.i:                                 ; preds = %46, %.preheader.i.preheader.i.i
   %.079.i.i.i = phi i64 [ %47, %46 ], [ 0, %.preheader.i.preheader.i.i ]
-  %48 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %.079.i.i.i
+  %48 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @format_nameid_map, i64 %.079.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !5
   %51 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %45, ptr noundef %50) #4
@@ -890,7 +890,7 @@ ec_key_point_format_fromdata.exit:                ; preds = %46, %34, %37, %40, 
 
 .preheader.i.i.i.i:                               ; preds = %69, %.preheader.i.i.preheader.i.i
   %.079.i.i.i.i = phi i64 [ %70, %69 ], [ 0, %.preheader.i.i.preheader.i.i ]
-  %71 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %.079.i.i.i.i
+  %71 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @check_group_type_nameid_map, i64 %.079.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !5
   %74 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %68, ptr noundef %73) #4
@@ -1188,7 +1188,7 @@ define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %0, ptr nounde
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %15
   %16 = phi i1 [ false, %15 ], [ true, %.preheader.i.preheader ]
   %.079.i = phi i64 [ 1, %15 ], [ 0, %.preheader.i.preheader ]
-  %17 = getelementptr inbounds nuw [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %.079.i
+  %17 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @encoding_nameid_map, i64 %.079.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !5
   %20 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %14, ptr noundef %19) #4
@@ -1253,7 +1253,7 @@ define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %0, ptr nound
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %15
   %.079.i = phi i64 [ %16, %15 ], [ 0, %.preheader.i.preheader ]
-  %17 = getelementptr inbounds nuw [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %.079.i
+  %17 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @format_nameid_map, i64 %.079.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !5
   %20 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %14, ptr noundef %19) #4

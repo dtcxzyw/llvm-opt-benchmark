@@ -2049,7 +2049,7 @@ define internal void @rand_test_cleanup(ptr noundef readonly captures(none) %0) 
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [15 x %struct.rand_data_pass_st], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.rand_data_pass_st, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.29, i32 noundef 3477) #10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3064,7 +3064,7 @@ define internal void @cipher_test_cleanup(ptr noundef readonly captures(none) %0
 
 15:                                               ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.29, i32 noundef 990) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3223,15 +3223,15 @@ sub_1:                                            ; preds = %sub_0
 
 73:                                               ; preds = %.preheader, %72
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %72 ]
-  %74 = getelementptr inbounds nuw [4 x ptr], ptr %71, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !10
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw [4 x ptr], ptr %71, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %80 = getelementptr inbounds nuw [4 x i64], ptr %79, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv
   %81 = tail call fastcc i32 @parse_bin(ptr noundef %2, ptr noundef nonnull %78, ptr noundef nonnull %80)
   br label %.thread
 
@@ -4159,8 +4159,8 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 
 204:                                              ; preds = %.lr.ph529, %.thread476
   %indvars.iv534 = phi i64 [ 0, %.lr.ph529 ], [ %indvars.iv.next535, %.thread476 ]
-  %205 = phi ptr [ %195, %.lr.ph529 ], [ %220, %.thread476 ]
-  %206 = getelementptr inbounds nuw [4 x i64], ptr %203, i64 0, i64 %indvars.iv534
+  %205 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv534
+  %206 = getelementptr inbounds nuw i64, ptr %203, i64 %indvars.iv534
   %207 = load i64, ptr %206, align 8, !tbaa !35
   br label %208
 
@@ -4187,7 +4187,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 
 .thread476:                                       ; preds = %217
   %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
-  %220 = getelementptr inbounds nuw [4 x ptr], ptr %195, i64 0, i64 %indvars.iv.next535
+  %220 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.next535
   %221 = load ptr, ptr %220, align 8, !tbaa !10
   %.not366 = icmp eq ptr %221, null
   br i1 %.not366, label %.loopexit520, label %204, !llvm.loop !147
@@ -4195,9 +4195,9 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 222:                                              ; preds = %.lr.ph, %.thread481
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread481 ]
   %223 = phi ptr [ %201, %.lr.ph ], [ %250, %.thread481 ]
-  %224 = phi ptr [ %195, %.lr.ph ], [ %249, %.thread481 ]
   %.2305525 = phi i64 [ 0, %.lr.ph ], [ %.4307483, %.thread481 ]
-  %225 = getelementptr inbounds nuw [4 x i64], ptr %202, i64 0, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw i64, ptr %202, i64 %indvars.iv
   %226 = load i64, ptr %225, align 8, !tbaa !35
   %.not370 = icmp eq i64 %226, 0
   br i1 %.not370, label %.thread481, label %227
@@ -4244,7 +4244,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 .thread481:                                       ; preds = %222, %242, %245
   %.4307483 = phi i64 [ %.4307, %242 ], [ %.4307, %245 ], [ %.2305525, %222 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %249 = getelementptr inbounds nuw [4 x ptr], ptr %195, i64 0, i64 %indvars.iv.next
+  %249 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.next
   %250 = load ptr, ptr %249, align 8, !tbaa !10
   %.not369 = icmp eq ptr %250, null
   br i1 %.not369, label %.loopexit520, label %222, !llvm.loop !148
@@ -8881,7 +8881,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 68:                                               ; preds = %64
   %69 = add nuw nsw i64 %65, 1
   store i64 %69, ptr %11, align 8, !tbaa !35
-  %70 = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %9, i64 0, i64 %65
+  %70 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %65
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %71 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %72 = load i64, ptr %71, align 8, !tbaa !258
@@ -8900,7 +8900,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 77:                                               ; preds = %73
   %78 = add nuw nsw i64 %74, 1
   store i64 %78, ptr %11, align 8, !tbaa !35
-  %79 = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %9, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %74
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %81 = load i64, ptr %80, align 8, !tbaa !259
@@ -11016,7 +11016,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_test_init_ex2(ptr noundef captu
 
 20:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %1, i64 %17, i1 false)
-  %21 = getelementptr inbounds [51 x i8], ptr %6, i64 0, i64 %17
+  %21 = getelementptr inbounds i8, ptr %6, i64 %17
   store i8 0, ptr %21, align 1, !tbaa !34
   %22 = tail call fastcc i32 @pkey_test_init_keyctx(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %2)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 35224
@@ -11570,7 +11570,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 
 81:                                               ; preds = %79
   %82 = add i64 %77, 1
-  %83 = getelementptr inbounds nuw [10 x %struct.ossl_param_st], ptr %4, i64 0, i64 %77
+  %83 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %85 = load i64, ptr %84, align 8, !tbaa !314
@@ -11581,7 +11581,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 
 86:                                               ; preds = %81, %79
   %87 = phi i64 [ %82, %81 ], [ %77, %79 ]
-  %88 = getelementptr inbounds nuw [10 x %struct.ossl_param_st], ptr %4, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %87
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !96

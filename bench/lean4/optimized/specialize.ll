@@ -524,7 +524,7 @@ define hidden noundef nonnull ptr @_ZN4lean6to_strENS_13spec_arg_kindE(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -4784,7 +4784,7 @@ _ZN4leanlsIA2_cEERNS_4toutERKS2_RKT_.exit:        ; preds = %_ZN4lean4toutC2Ev.e
 
 switch.lookup:                                    ; preds = %_ZN4leanlsIA2_cEERNS_4toutERKS2_RKT_.exit
   %1469 = zext nneg i32 %1445 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 0, i64 %1469
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 %1469
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1470 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(376) %55, ptr noundef nonnull %switch.load, i64 noundef 1)
           to label %_ZN4leanlsIPKcEERNS_4toutERKS3_RKT_.exit unwind label %.loopexit
@@ -17516,7 +17516,7 @@ _ZN4leanlsIA2_cEERNS_4toutERKS2_RKT_.exit199:     ; preds = %_ZN4lean4toutC2Ev.e
 
 switch.lookup:                                    ; preds = %_ZN4leanlsIA2_cEERNS_4toutERKS2_RKT_.exit199
   %158 = zext nneg i32 %150 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 0, i64 %158
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4lean13specialize_fn20specialize_init_depsERKNS_4exprERKNS_6bufferIS1_Lm16EEERNS0_8spec_ctxE, i64 %158
   %switch.load = load ptr, ptr %switch.gep, align 8
   %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(376) %15, ptr noundef nonnull %switch.load, i64 noundef 1)
           to label %_ZN4leanlsIPKcEERNS_4toutERKS3_RKT_.exit unwind label %.loopexit350

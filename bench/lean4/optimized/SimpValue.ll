@@ -52,7 +52,7 @@ define internal fastcc ptr @lean_array_get(ptr noundef %0, ptr noundef readonly 
 
 lean_dec.exit:                                    ; preds = %19, %18, %16, %10
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %7
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -1515,7 +1515,7 @@ lean_array_get.exit.thread454:                    ; preds = %528
 
 lean_dec.exit.i:                                  ; preds = %542, %541, %539, %533
   %543 = getelementptr inbounds nuw i8, ptr %464, i64 24
-  %544 = getelementptr inbounds nuw [0 x ptr], ptr %543, i64 0, i64 %529
+  %544 = getelementptr inbounds nuw ptr, ptr %543, i64 %529
   %545 = load ptr, ptr %544, align 8, !tbaa !12
   %546 = ptrtoint ptr %545 to i64
   %547 = and i64 %546, 1

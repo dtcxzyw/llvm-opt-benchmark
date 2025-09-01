@@ -459,7 +459,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv87 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next88, %.lr.ph83 ]
-  %69 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv87
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv87
   %70 = load i8, ptr %69, align 1, !tbaa !6
   %71 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv87
   %72 = load i8, ptr %71, align 1, !tbaa !6
@@ -636,7 +636,7 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !6
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !tbaa !6
   %37 = xor i8 %36, %34
   store i8 %37, ptr %35, align 1, !tbaa !6

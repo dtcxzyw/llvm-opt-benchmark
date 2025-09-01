@@ -1348,8 +1348,8 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05788 = phi i32 [ 0, %.lr.ph.preheader ], [ %78, %.lr.ph ]
   %73 = shl i32 %.05788, 8
-  %74 = add nuw nsw i64 %indvars.iv, 2
-  %75 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %74
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i8, ptr %75, align 1, !tbaa !41
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %73, %77

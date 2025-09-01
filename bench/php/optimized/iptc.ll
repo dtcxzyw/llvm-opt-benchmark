@@ -640,7 +640,7 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   %213 = phi ptr [ %.promoted283, %202 ], [ %224, %php_iptc_put1.exit172 ]
   %214 = load i64, ptr %15, align 8, !tbaa !4
   %215 = trunc i64 %214 to i32
-  %216 = getelementptr inbounds nuw [29 x i8], ptr @psheader, i64 0, i64 %.0118285
+  %216 = getelementptr inbounds nuw i8, ptr @psheader, i64 %.0118285
   %217 = load i8, ptr %216, align 1, !tbaa !11
   %.not147 = icmp eq ptr %213, null
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

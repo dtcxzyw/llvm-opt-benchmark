@@ -1144,21 +1144,21 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92.preheader: ; preds = %_ZL13gmx_snew_im
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92:        ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92.preheader, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92 ], [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit92.preheader ]
-  %361 = getelementptr inbounds nuw [3 x float], ptr @_ZZ8gmx_shamiPPcE5nrdim, i64 0, i64 %indvars.iv
+  %361 = getelementptr inbounds nuw float, ptr @_ZZ8gmx_shamiPPcE5nrdim, i64 %indvars.iv
   %362 = load float, ptr %361, align 4, !tbaa !26
   %363 = fptosi float %362 to i32
   %364 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv
   store i32 %363, ptr %364, align 4, !tbaa !4
-  %365 = getelementptr inbounds nuw [3 x float], ptr @_ZZ8gmx_shamiPPcE5nrbox, i64 0, i64 %indvars.iv
+  %365 = getelementptr inbounds nuw float, ptr @_ZZ8gmx_shamiPPcE5nrbox, i64 %indvars.iv
   %366 = load float, ptr %365, align 4, !tbaa !26
   %367 = fptosi float %366 to i32
   %368 = getelementptr inbounds nuw i32, ptr %348, i64 %indvars.iv
   store i32 %367, ptr %368, align 4, !tbaa !4
-  %369 = getelementptr inbounds nuw [3 x float], ptr @_ZZ8gmx_shamiPPcE4xmin, i64 0, i64 %indvars.iv
+  %369 = getelementptr inbounds nuw float, ptr @_ZZ8gmx_shamiPPcE4xmin, i64 %indvars.iv
   %370 = load float, ptr %369, align 4, !tbaa !26
   %371 = getelementptr inbounds nuw float, ptr %351, i64 %indvars.iv
   store float %370, ptr %371, align 4, !tbaa !26
-  %372 = getelementptr inbounds nuw [3 x float], ptr @_ZZ8gmx_shamiPPcE4xmax, i64 0, i64 %indvars.iv
+  %372 = getelementptr inbounds nuw float, ptr @_ZZ8gmx_shamiPPcE4xmax, i64 %indvars.iv
   %373 = load float, ptr %372, align 4, !tbaa !26
   %374 = getelementptr inbounds nuw float, ptr %354, i64 %indvars.iv
   store float %373, ptr %374, align 4, !tbaa !26

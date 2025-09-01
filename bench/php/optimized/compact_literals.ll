@@ -688,7 +688,7 @@ bias_key.exit:                                    ; preds = %313
   store i64 %344, ptr %350, align 8, !tbaa !51
   %351 = getelementptr inbounds nuw i8, ptr %347, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %351, ptr nonnull align 1 %342, i64 %344, i1 false)
-  %352 = getelementptr inbounds nuw [1 x i8], ptr %351, i64 0, i64 %344
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 %344
   store i8 0, ptr %352, align 1, !tbaa !41
   %353 = load i8, ptr %257, align 1, !tbaa !42
   %354 = zext i8 %353 to i64

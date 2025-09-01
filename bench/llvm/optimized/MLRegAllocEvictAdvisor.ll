@@ -4864,7 +4864,7 @@ _ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveInter
 
 403:                                              ; preds = %_ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit
   %404 = add i64 %.0183, 1
-  %405 = getelementptr inbounds nuw [33 x %"struct.std::pair.479"], ptr %7, i64 0, i64 %.065182
+  %405 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %7, i64 %.065182
   store i32 %.sroa.0.0.i, ptr %405, align 4, !tbaa !67
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 4
   store i8 1, ptr %406, align 4, !tbaa !468
@@ -5176,7 +5176,7 @@ _ZNKSt6bitsetILm21EE4testEm.exit:                 ; preds = %.preheader128, %.lo
 536:                                              ; preds = %499
   %537 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %538 = load ptr, ptr %537, align 8, !tbaa !480
-  %539 = getelementptr inbounds nuw [33 x %"struct.std::pair.479"], ptr %7, i64 0, i64 %521
+  %539 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %7, i64 %521
   %.sroa.05.0.copyload = load i32, ptr %539, align 4, !tbaa !67
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 56
   %541 = load ptr, ptr %540, align 8, !tbaa !481, !noalias !602

@@ -300,7 +300,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 switch.lookup:                                    ; preds = %._crit_edge45.i
   %149 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.main, i64 0, i64 %149
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %149
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_sort_rpc.exit
 

@@ -454,7 +454,7 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
 
 42:                                               ; preds = %31
   %43 = zext i32 %40 to i64
-  %44 = getelementptr [256 x ptr], ptr %22, i64 0, i64 %43
+  %44 = getelementptr ptr, ptr %22, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %57

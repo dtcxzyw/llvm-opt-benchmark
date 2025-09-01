@@ -323,7 +323,7 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 captures(no
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -474,7 +474,7 @@ define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 captures(none) derefere
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !98
   br label %8
 
@@ -528,7 +528,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 captures(none
 
 25:                                               ; preds = %23
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -611,7 +611,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 captures(non
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -674,7 +674,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
 
 71:                                               ; preds = %69
   %72 = zext nneg i32 %68 to i64
-  %73 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit29
 
@@ -756,7 +756,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 captures(n
 
 39:                                               ; preds = %37
   %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -795,7 +795,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
 
 62:                                               ; preds = %60
   %63 = zext nneg i32 %59 to i64
-  %64 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit36
 
@@ -894,7 +894,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
 
 108:                                              ; preds = %106
   %109 = zext nneg i32 %105 to i64
-  %110 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit42
 
@@ -969,7 +969,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none
 
 25:                                               ; preds = %23
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -1017,7 +1017,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit21
 
@@ -1102,7 +1102,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nound
 
 40:                                               ; preds = %38
   %41 = zext nneg i32 %37 to i64
-  %42 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 
@@ -1370,7 +1370,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %21
 
 29:                                               ; preds = %27
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr @__const._ZN5dtm_t3dieEj.codes, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !98
   br label %_ZN5dtm_t3dieEj.exit
 

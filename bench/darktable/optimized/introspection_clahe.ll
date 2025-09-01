@@ -249,7 +249,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %119 = fadd reassoc nsz arcp contract afn double %118, 5.000000e-01
   %120 = fptoui double %119 to i32
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [257 x i32], ptr %7, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !36
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4, !tbaa !36
@@ -340,7 +340,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %175 = fadd reassoc nsz arcp contract afn double %174, 5.000000e-01
   %176 = fptoui double %175 to i32
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [257 x i32], ptr %7, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i32, ptr %7, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !36
   %180 = add nsw i32 %179, -1
   store i32 %180, ptr %178, align 4, !tbaa !36
@@ -367,7 +367,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %186 = fadd reassoc nsz arcp contract afn double %185, 5.000000e-01
   %187 = fptoui double %186 to i32
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw [257 x i32], ptr %7, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i32, ptr %7, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !36
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %189, align 4, !tbaa !36
@@ -392,7 +392,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 197:                                              ; preds = %192, %204
   %indvars.iv309 = phi i64 [ 0, %192 ], [ %indvars.iv.next310, %204 ]
   %.1199249 = phi i32 [ 0, %192 ], [ %.2, %204 ]
-  %198 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv309
+  %198 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv309
   %199 = load i32, ptr %198, align 4, !tbaa !36
   %200 = sub nsw i32 %199, %166
   %201 = icmp sgt i32 %200, 0
@@ -416,7 +416,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 207:                                              ; preds = %193, %207
   %indvars.iv313 = phi i64 [ 0, %193 ], [ %indvars.iv.next314, %207 ]
-  %208 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv313
+  %208 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv313
   %209 = load i32, ptr %208, align 4, !tbaa !36
   %210 = add nsw i32 %209, %196
   store i32 %210, ptr %208, align 4, !tbaa !36
@@ -433,7 +433,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 216:                                              ; preds = %211, %216
   %indvars.iv317 = phi i64 [ 0, %211 ], [ %indvars.iv.next318, %216 ]
-  %217 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %indvars.iv317
+  %217 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv317
   %218 = load i32, ptr %217, align 4, !tbaa !36
   %219 = add nsw i32 %218, 1
   store i32 %219, ptr %217, align 4, !tbaa !36
@@ -452,7 +452,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .preheader226:                                    ; preds = %.loopexit, %.preheader226
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.preheader226 ], [ 0, %.loopexit ]
   %.0191253 = phi i32 [ %spec.select, %.preheader226 ], [ 256, %.loopexit ]
-  %221 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv320
+  %221 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv320
   %222 = load i32, ptr %221, align 4, !tbaa !36
   %.not218 = icmp eq i32 %222, 0
   %223 = trunc nuw nsw i64 %indvars.iv320 to i32
@@ -474,7 +474,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .lr.ph258:                                        ; preds = %.preheader225, %.lr.ph258
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %.lr.ph258 ], [ %224, %.preheader225 ]
   %.0189256 = phi i32 [ %230, %.lr.ph258 ], [ 0, %.preheader225 ]
-  %228 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv324
+  %228 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv324
   %229 = load i32, ptr %228, align 4, !tbaa !36
   %230 = add nsw i32 %229, %.0189256
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
@@ -484,7 +484,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 ._crit_edge:                                      ; preds = %.lr.ph261, %.preheader
   %.0187.lcssa = phi i32 [ %.0189.lcssa, %.preheader ], [ %242, %.lr.ph261 ]
-  %232 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %224
+  %232 = getelementptr inbounds nuw i32, ptr %8, i64 %224
   %233 = load i32, ptr %232, align 4, !tbaa !36
   %234 = sub nsw i32 %.0189.lcssa, %233
   %235 = sitofp i32 %234 to float
@@ -501,7 +501,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %indvars.iv327 = phi i64 [ %227, %.lr.ph261.preheader ], [ %indvars.iv.next328, %.lr.ph261 ]
   %.0187259 = phi i32 [ %.0189.lcssa, %.lr.ph261.preheader ], [ %242, %.lr.ph261 ]
   %indvars.iv.next328 = add nsw i64 %indvars.iv327, 1
-  %240 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %indvars.iv.next328
+  %240 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next328
   %241 = load i32, ptr %240, align 4, !tbaa !36
   %242 = add nsw i32 %241, %.0187259
   %exitcond330.not = icmp eq i64 %indvars.iv.next328, 256

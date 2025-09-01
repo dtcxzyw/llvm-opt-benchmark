@@ -1658,7 +1658,7 @@ define internal noundef i32 @premultiply_slice(ptr noundef readonly captures(non
 
 27:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !44
   %30 = mul nsw i32 %29, %2
   %31 = sdiv i32 %30, %3
@@ -1674,32 +1674,32 @@ define internal noundef i32 @premultiply_slice(ptr noundef readonly captures(non
   br i1 %or.cond, label %40, label %58
 
 40:                                               ; preds = %27
-  %41 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !117
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !44
   %45 = mul nsw i32 %44, %31
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %42, i64 %46
-  %48 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !117
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !44
   %52 = mul nsw i32 %51, %31
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %49, i64 %53
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !44
   %57 = sub nsw i32 %33, %31
   tail call void @av_image_copy_plane(ptr noundef %47, i32 noundef %44, ptr noundef %54, i32 noundef %51, i32 noundef %56, i32 noundef %57) #12
   br label %89
 
 58:                                               ; preds = %27
-  %59 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !73
-  %61 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !117
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !44
   %65 = mul nsw i32 %64, %31
   %66 = sext i32 %65 to i64
@@ -1715,9 +1715,9 @@ define internal noundef i32 @premultiply_slice(ptr noundef readonly captures(non
   %69 = mul nsw i32 %.sink79, %31
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %.sink, i64 %70
-  %72 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !117
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !44
   %76 = mul nsw i32 %75, %31
   %77 = sext i32 %76 to i64
@@ -1725,7 +1725,7 @@ define internal noundef i32 @premultiply_slice(ptr noundef readonly captures(non
   %79 = sext i32 %64 to i64
   %80 = sext i32 %.sink79 to i64
   %81 = sext i32 %75 to i64
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !44
   %84 = sub nsw i32 %33, %31
   %85 = load i32, ptr %23, align 8, !tbaa !118

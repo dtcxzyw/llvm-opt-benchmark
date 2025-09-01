@@ -500,7 +500,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
 201:                                              ; preds = %194, %200, %198
   %202 = phi reassoc nsz arcp contract afn float [ %196, %200 ], [ 1.000000e+00, %198 ], [ 0.000000e+00, %194 ]
   %203 = fmul reassoc nsz arcp contract afn float %202, %11
-  %204 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.0114125
+  %204 = getelementptr inbounds nuw float, ptr %6, i64 %.0114125
   store float %203, ptr %204, align 4, !tbaa !18
   %205 = add nuw nsw i64 %.0114125, 1
   %exitcond.not = icmp eq i64 %205, 4
@@ -590,7 +590,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 60:                                               ; preds = %53, %59, %57
   %61 = phi reassoc nsz arcp contract afn float [ %55, %59 ], [ 1.000000e+00, %57 ], [ 0.000000e+00, %53 ]
   %62 = fmul reassoc nsz arcp contract afn float %61, %11
-  %63 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.0204215
+  %63 = getelementptr inbounds nuw float, ptr %6, i64 %.0204215
   store float %62, ptr %63, align 4, !tbaa !18
   %64 = add nuw nsw i64 %.0204215, 1
   %exitcond.not = icmp eq i64 %64, 4
@@ -1021,7 +1021,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 59:                                               ; preds = %52, %58, %56
   %60 = phi reassoc nsz arcp contract afn float [ %54, %58 ], [ 1.000000e+00, %56 ], [ 0.000000e+00, %52 ]
   %61 = fmul reassoc nsz arcp contract afn float %60, %11
-  %62 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.0249306
+  %62 = getelementptr inbounds nuw float, ptr %6, i64 %.0249306
   store float %61, ptr %62, align 4, !tbaa !18
   %63 = add nuw nsw i64 %.0249306, 1
   %exitcond.not = icmp eq i64 %63, 4
@@ -2150,7 +2150,7 @@ parse_cube_line.exit:                             ; preds = %22, %37, %39
 .preheader:                                       ; preds = %95, %108
   %indvars.iv = phi i64 [ %indvars.iv.next, %108 ], [ 0, %95 ]
   %.374166 = phi i32 [ %.475, %108 ], [ %.071172, %95 ]
-  %100 = getelementptr inbounds nuw [3 x [50 x i8]], ptr %5, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [50 x i8], ptr %5, i64 %indvars.iv
   %101 = call reassoc nsz arcp contract afn double @dt_atof(ptr noundef nonnull %100)
   %102 = fptrunc reassoc nsz arcp contract afn double %101 to float
   %103 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2452,7 +2452,7 @@ parse_cube_line.exit:                             ; preds = %21, %36, %38
 88:                                               ; preds = %73, %88
   %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %88 ]
   %.4109159 = phi i32 [ %.0105216, %73 ], [ %spec.select, %88 ]
-  %89 = getelementptr inbounds nuw [3 x [50 x i8]], ptr %5, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [50 x i8], ptr %5, i64 %indvars.iv
   %90 = call i64 @strtoll(ptr noundef nonnull captures(none) %89, ptr noundef null, i32 noundef 10) #25
   %91 = trunc i64 %90 to i32
   %92 = uitofp i32 %91 to float
@@ -2607,7 +2607,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 switch.lookup:                                    ; preds = %6
   %27 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.process, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %28
 
@@ -4072,7 +4072,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [11 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11

@@ -939,7 +939,7 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %134 = getelementptr inbounds i8, ptr %4, i64 %133
   %135 = sub nsw i32 256, %.07275
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds nuw [12 x i32], ptr %109, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4, !tbaa !45
   %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %134, i64 noundef %136, ptr noundef nonnull @.str.6, i32 noundef %138) #23
   %140 = add nsw i32 %139, %.07275
@@ -1673,7 +1673,7 @@ define dso_local noundef range(i32 -2147483648, 256) i32 @_Z14RegisterSamplePKcS
 
 6:                                                ; preds = %3
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds [256 x %struct.SampleEntry], ptr @g_sampleEntries, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %7
   store ptr %0, ptr %8, align 8, !tbaa !199
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !199

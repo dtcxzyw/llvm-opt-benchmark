@@ -769,7 +769,7 @@ define hidden void @_ZN3mbe15to_parser_input15to_parser_input17h40df232e5497df95
   %.sroa.15.0483 = phi i64 [ %.sroa.15.1, %"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE.exit108" ], [ %.sroa.15.0483.ph, %.lr.ph.outer ]
   %.sroa.23.0482 = phi i64 [ %.sroa.23.1, %"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE.exit108" ], [ %.sroa.23.0482.ph, %.lr.ph.outer ]
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %34 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %.pre.pre, i64 0, i64 %.sroa.15.0483
+  %34 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.pre.pre, i64 %.sroa.15.0483
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !noalias !104, !noundef !7
   %37 = icmp ult i64 %.sroa.23.0482, %36
@@ -890,7 +890,7 @@ default.unreachable697:                           ; preds = %578, %"_ZN4core5sli
   br i1 %67, label %68, label %.outer._crit_edge.invoke.loopexit.loopexit, !prof !113
 
 68:                                               ; preds = %"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE.exit"
-  %69 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %.pre.pre, i64 0, i64 %.sroa.15.0483
+  %69 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.pre.pre, i64 %.sroa.15.0483
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !114, !noundef !7
   %72 = icmp ult i64 %66, %71
@@ -1099,7 +1099,7 @@ default.unreachable697:                           ; preds = %578, %"_ZN4core5sli
   br i1 %150, label %151, label %.outer._crit_edge.invoke.loopexit.loopexit, !prof !113
 
 151:                                              ; preds = %144
-  %152 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %.pre.pre, i64 0, i64 %148
+  %152 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.pre.pre, i64 %148
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i64, ptr %153, align 8, !noalias !145, !noundef !7
   %155 = icmp ult i64 %149, %154
@@ -1217,7 +1217,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit121: ; preds = %"_ZN5al
   br i1 %201, label %202, label %.outer._crit_edge.invoke, !prof !113
 
 202:                                              ; preds = %.critedge
-  %203 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %.pre.pre, i64 0, i64 %.sroa.15.0483
+  %203 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.pre.pre, i64 %.sroa.15.0483
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load i64, ptr %204, align 8, !noalias !160, !noundef !7
   %206 = icmp ult i64 %.sroa.23.0482, %205
@@ -1724,7 +1724,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit: ; preds = %.noexc174
   %406 = extractvalue { i64, i64 } %401, 1
   %407 = and i64 %406, 63
   %408 = shl nuw i64 1, %407
-  %409 = getelementptr inbounds [0 x i64], ptr %405, i64 0, i64 %402
+  %409 = getelementptr inbounds i64, ptr %405, i64 %402
   %410 = load i64, ptr %409, align 8, !noundef !7
   %411 = or i64 %410, %408
   store i64 %411, ptr %409, align 8
@@ -1739,7 +1739,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit: ; preds = %.noexc174
   br i1 %414, label %415, label %.outer._crit_edge.invoke, !prof !113
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %.pre.pre, i64 0, i64 %.sroa.15.0483
+  %416 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %.pre.pre, i64 %.sroa.15.0483
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load i64, ptr %417, align 8, !noalias !233, !noundef !7
   %419 = icmp ult i64 %.sroa.23.0482, %418
@@ -1895,7 +1895,7 @@ _ZN6parser5input5Input9was_joint17hd79d09b421c3ed96E.exit193: ; preds = %.noexc1
   %483 = extractvalue { i64, i64 } %478, 1
   %484 = and i64 %483, 63
   %485 = shl nuw i64 1, %484
-  %486 = getelementptr inbounds [0 x i64], ptr %482, i64 0, i64 %479
+  %486 = getelementptr inbounds i64, ptr %482, i64 %479
   %487 = load i64, ptr %486, align 8, !noundef !7
   %488 = or i64 %487, %485
   store i64 %488, ptr %486, align 8

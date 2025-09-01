@@ -214,7 +214,7 @@ sub_1:                                            ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %spec.store.select2 = call i64 @llvm.umin.i64(i64 %.180147, i64 31)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr nonnull align 1 %.081145, i64 %spec.store.select2, i1 false)
-  %53 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %spec.store.select2
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 %spec.store.select2
   store i8 0, ptr %53, align 1, !tbaa !8
   %.not122 = icmp eq ptr %7, null
   br i1 %.not122, label %56, label %54

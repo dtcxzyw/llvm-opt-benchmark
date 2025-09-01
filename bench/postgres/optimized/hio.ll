@@ -66,22 +66,21 @@ BufferGetPage.exit:                               ; preds = %6, %12
   store i16 %32, ptr %33, align 2
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %22, ptr %34, align 2
-  br i1 %3, label %44, label %35
+  br i1 %3, label %43, label %35
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %37 = zext i16 %22 to i64
-  %38 = add nsw i64 %37, -1
-  %39 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %36, i64 0, i64 %38
-  %.val = load i32, ptr %39, align 4
-  %40 = and i32 %.val, 32767
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %43, ptr noundef nonnull align 4 dereferenceable(6) %28, i64 6, i1 false)
-  br label %44
+  %36 = zext i16 %22 to i64
+  %37 = getelementptr i8, ptr %.0.i.i, i64 20
+  %38 = getelementptr %struct.ItemIdData, ptr %37, i64 %36
+  %.val = load i32, ptr %38, align 4
+  %39 = and i32 %.val, 32767
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %42, ptr noundef nonnull align 4 dereferenceable(6) %28, i64 6, i1 false)
+  br label %43
 
-44:                                               ; preds = %35, %27
+43:                                               ; preds = %35, %27
   ret void
 }
 
@@ -684,7 +683,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i ]
-  %281 = getelementptr inbounds nuw [64 x i32], ptr %9, i64 0, i64 %indvars.iv.i
+  %281 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %282 = load i32, ptr %281, align 4
   call void @ReleaseBuffer(i32 noundef %282) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -701,7 +700,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
 
 .lr.ph.split.i:                                   ; preds = %292, %.lr.ph.split.preheader.i
   %indvars.iv92.i = phi i64 [ 1, %.lr.ph.split.preheader.i ], [ %indvars.iv.next93.i, %292 ]
-  %287 = getelementptr inbounds nuw [64 x i32], ptr %9, i64 0, i64 %indvars.iv92.i
+  %287 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv92.i
   %288 = load i32, ptr %287, align 4
   call void @ReleaseBuffer(i32 noundef %288) #8
   %.not75.not.i = icmp samesign ult i64 %indvars.iv92.i, %280

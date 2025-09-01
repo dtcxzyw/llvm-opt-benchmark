@@ -89917,7 +89917,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_RBMap_fromArray___spec__1___rarg
 9:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___rarg.exit
   %.02356 = phi i64 [ %2, %.lr.ph ], [ %47, %l_Lean_RBNode_insert___rarg.exit ]
   %.02555 = phi ptr [ %4, %.lr.ph ], [ %.126, %l_Lean_RBNode_insert___rarg.exit ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02356
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02356
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

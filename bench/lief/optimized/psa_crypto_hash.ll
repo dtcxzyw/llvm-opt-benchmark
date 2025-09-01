@@ -421,7 +421,7 @@ switch.hole_check:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_psa_hash_finish, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_hash_finish, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %12
 

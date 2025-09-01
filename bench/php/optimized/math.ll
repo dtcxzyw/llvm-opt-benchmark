@@ -70,7 +70,7 @@ define dso_local double @_php_math_round(double noundef %0, i32 noundef %1, i32 
 
 12:                                               ; preds = %5
   %13 = zext nneg i32 %7 to i64
-  %14 = getelementptr inbounds nuw [23 x double], ptr @php_intpow10.powers, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw double, ptr @php_intpow10.powers, i64 %13
   %15 = load double, ptr %14, align 8, !tbaa !8
   br label %php_intpow10.exit
 
@@ -2571,7 +2571,7 @@ define dso_local ptr @_php_math_longtobase(i64 noundef %0, i32 noundef %1) local
   %11 = icmp ugt ptr %.016, %3
   call void @llvm.assume(i1 %11)
   %12 = urem i64 %.0, %9
-  %13 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = getelementptr inbounds i8, ptr %.016, i64 -1
   store i8 %14, ptr %15, align 1, !tbaa !11
@@ -2595,7 +2595,7 @@ zend_string_alloc.exit:                           ; preds = %10
   store i64 %19, ptr %25, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %15, i64 %19, i1 false)
-  %27 = getelementptr inbounds nuw [1 x i8], ptr %26, i64 0, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
   store i8 0, ptr %27, align 1, !tbaa !11
   br label %28
 
@@ -2654,7 +2654,7 @@ define dso_local ptr @_php_math_zvaltobase(ptr noundef readonly captures(none) %
   %24 = call double @fmod(double noundef %.028, double noundef %22) #14, !tbaa !4
   %25 = fptosi double %24 to i32
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr @_php_math_longtobase_pwr2.digits, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = getelementptr inbounds i8, ptr %.027, i64 -1
   store i8 %28, ptr %29, align 1, !tbaa !11
@@ -2681,7 +2681,7 @@ zend_string_alloc.exit:                           ; preds = %23
   store i64 %37, ptr %43, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %29, i64 %37, i1 false)
-  %45 = getelementptr inbounds nuw [1 x i8], ptr %44, i64 0, i64 %37
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %37
   store i8 0, ptr %45, align 1, !tbaa !11
   br label %46
 
@@ -2704,7 +2704,7 @@ zend_string_alloc.exit:                           ; preds = %23
   %52 = icmp ugt ptr %.016.i, %3
   call void @llvm.assume(i1 %52)
   %53 = urem i64 %.0.i, %50
-  %54 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !11
   %56 = getelementptr inbounds i8, ptr %.016.i, i64 -1
   store i8 %55, ptr %56, align 1, !tbaa !11
@@ -2728,7 +2728,7 @@ _php_math_longtobase.exit:                        ; preds = %51
   store i64 %60, ptr %66, align 8, !tbaa !71
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %56, i64 %60, i1 false)
-  %68 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %60
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %60
   store i8 0, ptr %68, align 1, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
@@ -2966,7 +2966,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %24 = icmp sgt i64 %.0.idx.i, 24
   call void @llvm.assume(i1 %24)
   %25 = and i64 %.017.i, 1
-  %26 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
   %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
@@ -3062,7 +3062,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %16
   %27 = icmp sgt i64 %.0.idx.i, 24
   call void @llvm.assume(i1 %27)
   %28 = and i64 %.017.i, 7
-  %29 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
   %.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %.0.add.i
@@ -3150,7 +3150,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %24 = icmp sgt i64 %.0.idx.i, 24
   call void @llvm.assume(i1 %24)
   %25 = and i64 %.017.i, 15
-  %26 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
   %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
@@ -3224,7 +3224,7 @@ zend_string_alloc.exit:                           ; preds = %thread-pre-split, %
   %20 = icmp sgt i64 %.0.idx.i, 24
   call void @llvm.assume(i1 %20)
   %21 = and i64 %.017.i, 15
-  %22 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_php_math_longtobase_pwr2.digits, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
   %.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.add.i
@@ -3652,7 +3652,7 @@ define dso_local noalias noundef ptr @_php_math_number_format_long(i64 noundef %
 
 10:                                               ; preds = %8
   %11 = sub nsw i64 0, %1
-  %12 = getelementptr inbounds nuw [20 x i64], ptr @_php_math_number_format_long.powers, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr @_php_math_number_format_long.powers, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !38
   %.fr = freeze i64 %13
   %14 = lshr i64 %.fr, 1

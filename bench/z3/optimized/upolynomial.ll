@@ -2238,7 +2238,7 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i.i86:       ; preds = %._crit_edge.i.i83, 
 
 108:                                              ; preds = %_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit76, %_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit100
   %indvars.iv = phi i64 [ 0, %_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit76 ], [ %indvars.iv.next, %_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit100 ]
-  %109 = getelementptr inbounds nuw [6 x %class.svector.1], ptr %93, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %class.svector.1, ptr %93, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !28
   %111 = icmp eq ptr %110, null
   br i1 %111, label %_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit100, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i89
@@ -8295,7 +8295,7 @@ define hidden void @_ZN11upolynomial12core_manager7mod_gcdEjPK3mpzjS3_R7svectorI
 
 _ZN11mpz_managerILb0EE3setER3mpzj.exit.i:         ; preds = %50, %340
   %indvars.iv = phi i64 [ 0, %50 ], [ %indvars.iv.next, %340 ]
-  %83 = getelementptr inbounds nuw [231 x i32], ptr @_ZN10polynomialL12g_big_primesE, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i32, ptr @_ZN10polynomialL12g_big_primesE, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !27
   store i32 %84, ptr %51, align 8, !tbaa !8
   %85 = load i8, ptr %52, align 4

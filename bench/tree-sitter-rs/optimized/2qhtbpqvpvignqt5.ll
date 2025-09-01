@@ -1119,7 +1119,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %50, %54
   %.05.i.i.i.i.i = phi i64 [ %55, %54 ], [ 0, %50 ]
-  %51 = getelementptr inbounds nuw [0 x i8], ptr %46, i64 0, i64 %.05.i.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %.05.i.i.i.i.i
   %52 = load i8, ptr %51, align 1, !alias.scope !454, !noalias !457, !noundef !4
   %53 = icmp eq i8 %52, 46
   br i1 %53, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i, label %54

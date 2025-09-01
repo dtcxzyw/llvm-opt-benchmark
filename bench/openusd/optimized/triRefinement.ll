@@ -2240,7 +2240,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement32populateFaceEdg
   %62 = zext i1 %61 to i64
   %63 = getelementptr inbounds nuw i32, ptr %51, i64 %62
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %2, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 %indvars.iv
   store i32 %64, ptr %65, align 8
   %66 = xor i1 %61, true
   %67 = zext i1 %66 to i64

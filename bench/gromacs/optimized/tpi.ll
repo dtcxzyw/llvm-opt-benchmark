@@ -6574,7 +6574,7 @@ define { double, double } @_ZN3gmx21TestParticleInsertion22performSingleInsertio
 
 ._crit_edge.i.i.i.i:                              ; preds = %63
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %65 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !263
   %67 = add nuw nsw i32 %65, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit
@@ -6742,7 +6742,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
   %160 = tail call noundef float @llvm.fmuladd.f32(float %56, float %.013.i.i.i, float %55)
   %161 = tail call float @llvm.fmuladd.f32(float %160, float 2.000000e+00, float -1.000000e+00)
   %162 = fmul float %28, %161
-  %163 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   store float %162, ptr %163, align 4, !tbaa !257
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -6822,7 +6822,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
 ._crit_edge.i.i.i.i101:                           ; preds = %._crit_edge
   %.phi.trans.insert.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.phi.trans.insert1.i.i.i.i103 = zext nneg i32 %200 to i64
-  %.phi.trans.insert2.i.i.i.i104 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i102, i64 0, i64 %.phi.trans.insert1.i.i.i.i103
+  %.phi.trans.insert2.i.i.i.i104 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i102, i64 %.phi.trans.insert1.i.i.i.i103
   %.pre.i.i.i.i105 = load i64, ptr %.phi.trans.insert2.i.i.i.i104, align 8, !tbaa !263
   %202 = add nuw nsw i32 %200, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit108
@@ -6898,7 +6898,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit116: ;
 ._crit_edge.i.i.i.i117:                           ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit116
   %.phi.trans.insert.i.i.i.i118 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.phi.trans.insert1.i.i.i.i119 = zext nneg i32 %238 to i64
-  %.phi.trans.insert2.i.i.i.i120 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i118, i64 0, i64 %.phi.trans.insert1.i.i.i.i119
+  %.phi.trans.insert2.i.i.i.i120 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i118, i64 %.phi.trans.insert1.i.i.i.i119
   %.pre.i.i.i.i121 = load i64, ptr %.phi.trans.insert2.i.i.i.i120, align 8, !tbaa !263
   %240 = add nuw nsw i32 %238, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit124
@@ -7821,7 +7821,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit
 
 ._crit_edge.i.i.i.i:                              ; preds = %134
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %136 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i.i.i.i, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !263
   %138 = add nuw nsw i32 %136, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit
@@ -7986,11 +7986,11 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
   %231 = fcmp oeq float %230, 1.000000e+00
   %.013.i.i.i = select i1 %231, float 0.000000e+00, float %230
   %232 = call noundef float @llvm.fmuladd.f32(float %133, float %.013.i.i.i, float %132)
-  %233 = getelementptr inbounds nuw [3 x [3 x float]], ptr %32, i64 0, i64 %indvars.iv
-  %234 = getelementptr inbounds nuw [3 x float], ptr %233, i64 0, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [3 x float], ptr %32, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw float, ptr %233, i64 %indvars.iv
   %235 = load float, ptr %234, align 4, !tbaa !257
   %236 = fmul float %235, %232
-  %237 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   store float %236, ptr %237, align 4, !tbaa !257
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, 3
@@ -8067,9 +8067,9 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
 266:                                              ; preds = %.preheader, %266
   %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %266 ]
   %267 = load float, ptr %254, align 4, !tbaa !257
-  %268 = getelementptr inbounds nuw [3 x float], ptr %255, i64 0, i64 %indvars.iv115
+  %268 = getelementptr inbounds nuw float, ptr %255, i64 %indvars.iv115
   %269 = load float, ptr %268, align 4, !tbaa !257
-  %270 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv115
+  %270 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv115
   %271 = load float, ptr %270, align 4, !tbaa !257
   %272 = call float @llvm.fmuladd.f32(float %267, float %269, float %271)
   store float %272, ptr %270, align 4, !tbaa !257

@@ -358,8 +358,8 @@ define hidden void @_ZN4cvc58internal9TCtxStack9pushChildENS0_12NodeTemplateILb1
   %spec.select.i.i = add i64 %3, %24
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds [0 x ptr], ptr %25, i64 0, i64 %26
+  %26 = ashr exact i64 %sext, 29
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !33, !noalias !30
   store ptr %28, ptr %7, align 8, !tbaa !16, !alias.scope !30
   %29 = load i64, ptr %28, align 8, !noalias !30

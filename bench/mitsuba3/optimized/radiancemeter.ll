@@ -440,7 +440,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 127:                                              ; preds = %127, %55
   %.050.i.i = phi i64 [ 1, %55 ], [ %135, %127 ]
   %.sroa.044.0.in.sroa.speculated49.i.i = phi <4 x float> [ %126, %55 ], [ %134, %127 ]
-  %128 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %3, i64 0, i64 %.050.i.i
+  %128 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %3, i64 %.050.i.i
   %129 = getelementptr inbounds nuw float, ptr %4, i64 %.050.i.i
   %130 = load float, ptr %129, align 4, !noalias !7
   %131 = insertelement <4 x float> poison, float %130, i64 0
@@ -768,8 +768,8 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
 
 34:                                               ; preds = %34, %.critedge
   %.013.i = phi i64 [ 0, %.critedge ], [ %37, %34 ]
-  %35 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.52"], ptr %30, i64 0, i64 %.013.i
-  %36 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.52"], ptr %33, i64 0, i64 %.013.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Array.52", ptr %30, i64 %.013.i
+  %36 = getelementptr inbounds nuw %"struct.drjit::Array.52", ptr %33, i64 %.013.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %36, ptr noundef nonnull align 16 dereferenceable(64) %35, i64 64, i1 false)
   %37 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %37, 4
@@ -845,8 +845,8 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
 
 34:                                               ; preds = %34, %.critedge
   %.013.i = phi i64 [ 0, %.critedge ], [ %37, %34 ]
-  %35 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.52"], ptr %30, i64 0, i64 %.013.i
-  %36 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.52"], ptr %33, i64 0, i64 %.013.i
+  %35 = getelementptr inbounds nuw %"struct.drjit::Array.52", ptr %30, i64 %.013.i
+  %36 = getelementptr inbounds nuw %"struct.drjit::Array.52", ptr %33, i64 %.013.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %36, ptr noundef nonnull align 16 dereferenceable(64) %35, i64 64, i1 false)
   %37 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %37, 4
@@ -2956,7 +2956,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
   %.014 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr [4 x %"struct.drjit::Array"], ptr %invariant.gep, i64 0, i64 %.014
+  %gep = getelementptr %"struct.drjit::Array", ptr %invariant.gep, i64 %.014
   %28 = load float, ptr %gep, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.19, double noundef %29)

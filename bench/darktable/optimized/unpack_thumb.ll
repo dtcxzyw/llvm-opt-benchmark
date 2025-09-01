@@ -41,7 +41,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw15unpack_thumb_exEi(ptr noun
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 193384
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.libraw_thumbnail_item_t, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 381456
@@ -810,7 +810,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 364:                                              ; preds = %362
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %366 = zext nneg i32 %361 to i64
-  %367 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %365, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %365, i64 %366
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 72
   %369 = load i32, ptr %368, align 8, !tbaa !123
   %.not251 = icmp eq i32 %369, 0

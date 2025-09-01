@@ -756,7 +756,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds =
   %127 = phi float [ %.promoted5672, %.lr.ph ], [ %154, %152 ]
   %.355 = phi i1 [ %.265, %.lr.ph ], [ %.4, %152 ]
   %128 = phi float [ %.promoted6263, %.lr.ph ], [ %155, %152 ]
-  %129 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %124, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %124, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 80
   %131 = load float, ptr %130, align 8, !tbaa !101
   %132 = fcmp olt float %131, %113
@@ -4066,23 +4066,23 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %.cmp = icmp eq i32 %41, 0
   %45 = select i1 %.cmp, i32 2, i32 %.urem
   %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %46
   %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
   %49 = load float, ptr %48, align 4, !tbaa !4
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %50
   %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
   %53 = load float, ptr %52, align 4, !tbaa !4
   %54 = fsub float %49, %53
   %55 = zext nneg i32 %45 to i64
-  %56 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %55
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %55
   %58 = load float, ptr %57, align 4, !tbaa !4
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
   %61 = tail call noundef float @sqrtf(float noundef %60) #29, !tbaa !54
   %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %46
+  %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !4
   %64 = fdiv float 5.000000e-01, %61
   %65 = getelementptr inbounds nuw float, ptr %56, i64 %50
@@ -4099,7 +4099,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %75 = load float, ptr %74, align 4, !tbaa !4
   %76 = fadd float %73, %75
   %77 = fmul float %64, %76
-  %78 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %50
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %50
   store float %77, ptr %78, align 4, !tbaa !4
   %79 = getelementptr inbounds nuw float, ptr %56, i64 %46
   %80 = load float, ptr %79, align 4, !tbaa !4
@@ -4107,7 +4107,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %82 = load float, ptr %81, align 4, !tbaa !4
   %83 = fadd float %80, %82
   %84 = fmul float %64, %83
-  %85 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %55
+  %85 = getelementptr inbounds nuw float, ptr %3, i64 %55
   store float %84, ptr %85, align 4, !tbaa !4
   %.pre = load float, ptr %3, align 16, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

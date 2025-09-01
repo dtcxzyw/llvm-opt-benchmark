@@ -1041,7 +1041,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
 
 switch.lookup:                                    ; preds = %104
   %108 = zext nneg i16 %106 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.SDL_SYS_ToFFEffect, i64 0, i64 %108
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.SDL_SYS_ToFFEffect, i64 %108
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 %switch.load, ptr %0, align 8
   br label %109

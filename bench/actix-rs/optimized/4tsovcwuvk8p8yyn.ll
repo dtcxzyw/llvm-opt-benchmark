@@ -363,7 +363,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha8ce0c5
 15:                                               ; preds = %12
   %16 = lshr i32 %13, 26
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x i8], ptr @anon.7a92ee09cdfc971649dd219aeebbba51.2.llvm.2744819028355529065, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.2.llvm.2744819028355529065, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !45, !noundef !7
   %20 = load i64, ptr %6, align 8, !noundef !7
   %21 = load i64, ptr %0, align 8, !noundef !7
@@ -681,7 +681,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 15:                                               ; preds = %12
   %16 = lshr i32 %13, 26
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x i8], ptr @anon.7a92ee09cdfc971649dd219aeebbba51.2.llvm.2744819028355529065, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.2.llvm.2744819028355529065, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !81, !noundef !7
   %20 = load i64, ptr %6, align 8, !alias.scope !58, !noalias !61, !noundef !7
   %21 = load i64, ptr %0, align 8, !alias.scope !58, !noalias !61, !noundef !7

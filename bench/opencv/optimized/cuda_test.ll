@@ -3674,7 +3674,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit260: ; preds = %522
   %524 = load i32, ptr %8, align 8, !tbaa !35, !noalias !137
   %525 = and i32 %524, 7
   %526 = zext nneg i32 %525 to i64
-  %527 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEEE5funcsB5cxx11, i64 0, i64 %526
+  %527 = getelementptr inbounds nuw ptr, ptr @_ZZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEEE5funcsB5cxx11, i64 %526
   %528 = load ptr, ptr %527, align 8, !tbaa !140, !noalias !137
   invoke void %528(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 %.sroa.01.0.copyload)
           to label %_ZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEE.exit unwind label %677
@@ -3742,7 +3742,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit275: ; preds = %557
   %559 = load i32, ptr %9, align 8, !tbaa !35, !noalias !141
   %560 = and i32 %559, 7
   %561 = zext nneg i32 %560 to i64
-  %562 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEEE5funcsB5cxx11, i64 0, i64 %561
+  %562 = getelementptr inbounds nuw ptr, ptr @_ZZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEEE5funcsB5cxx11, i64 %561
   %563 = load ptr, ptr %562, align 8, !tbaa !140, !noalias !141
   invoke void %563(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 %.sroa.0.0.copyload)
           to label %_ZN6cvtest12_GLOBAL__N_111printMatValB5cxx11ERKN2cv3MatENS1_6Point_IiEE.exit277 unwind label %681

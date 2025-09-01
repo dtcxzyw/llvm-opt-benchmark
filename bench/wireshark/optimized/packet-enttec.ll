@@ -422,7 +422,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 152:                                              ; preds = %138
   %153 = sext i32 %142 to i64
-  %154 = getelementptr [3 x ptr], ptr @dissect_enttec_dmx_data.chan_format, i64 0, i64 %153
+  %154 = getelementptr ptr, ptr @dissect_enttec_dmx_data.chan_format, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = zext i8 %141 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef %155, i32 noundef %156)
@@ -453,7 +453,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %174 = sub nsw i32 %173, %171
   %175 = load i32, ptr @global_disp_chan_nr_type, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr [2 x ptr], ptr @dissect_enttec_dmx_data.string_format, i64 0, i64 %176
+  %177 = getelementptr ptr, ptr @dissect_enttec_dmx_data.string_format, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = add i32 %162, 1
   %180 = tail call ptr @wmem_strbuf_get_str(ptr noundef %122)

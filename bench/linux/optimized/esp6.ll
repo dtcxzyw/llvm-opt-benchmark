@@ -502,7 +502,7 @@ define internal fastcc void @__skb_fill_page_desc(ptr noundef captures(none) %0,
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr [17 x %struct.bio_vec], ptr %12, i64 0, i64 %13
+  %14 = getelementptr %struct.bio_vec, ptr %12, i64 %13
   store ptr %2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %3, ptr %15, align 4
@@ -732,7 +732,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 64
   %113 = add i32 %106, -1
   %114 = sext i32 %113 to i64
-  %115 = getelementptr [1 x %struct.xfrm_offload], ptr %112, i64 0, i64 %114
+  %115 = getelementptr %struct.xfrm_offload, ptr %112, i64 %114
   br label %.thread
 
 .thread:                                          ; preds = %90, %111, %108, %104, %95
@@ -1184,7 +1184,7 @@ define internal void @esp_output_done(ptr noundef %0, i32 noundef %1) #0 align 1
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %25 = add i32 %18, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr [1 x %struct.xfrm_offload], ptr %24, i64 0, i64 %26
+  %27 = getelementptr %struct.xfrm_offload, ptr %24, i64 %26
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread5, label %29
 
@@ -1197,7 +1197,7 @@ define internal void @esp_output_done(ptr noundef %0, i32 noundef %1) #0 align 1
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %36 = getelementptr [6 x ptr], ptr %35, i64 0, i64 %26
+  %36 = getelementptr ptr, ptr %35, i64 %26
   br label %44
 
 .thread5:                                         ; preds = %2, %7, %16, %20, %29, %23
@@ -1475,7 +1475,7 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
   %11 = load i32, ptr null, align 4294967296
   %12 = add i32 %11, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [6 x ptr], ptr inttoptr (i64 16 to ptr), i64 0, i64 %13
+  %14 = getelementptr ptr, ptr inttoptr (i64 16 to ptr), i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %39
 
@@ -1491,7 +1491,7 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
   %25 = load i32, ptr %23, align 8
   %26 = add i32 %25, -1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [6 x ptr], ptr %24, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %23, null
   br i1 %30, label %39, label %31
@@ -1506,7 +1506,7 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %38 = getelementptr [1 x %struct.xfrm_offload], ptr %37, i64 0, i64 %27
+  %38 = getelementptr %struct.xfrm_offload, ptr %37, i64 %27
   br label %39
 
 39:                                               ; preds = %.thread9, %36, %31, %16
@@ -1568,7 +1568,7 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
   %82 = load i32, ptr %80, align 8
   %83 = add i32 %82, -1
   %84 = sext i32 %83 to i64
-  %85 = getelementptr [6 x ptr], ptr %81, i64 0, i64 %84
+  %85 = getelementptr ptr, ptr %81, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 736
   %88 = load ptr, ptr %87, align 8
@@ -2599,7 +2599,7 @@ define internal i32 @esp6_input(ptr noundef readonly captures(none) %0, ptr noun
   %151 = load i32, ptr %149, align 8
   %152 = add i32 %151, -1
   %153 = sext i32 %152 to i64
-  %154 = getelementptr [6 x ptr], ptr %150, i64 0, i64 %153
+  %154 = getelementptr ptr, ptr %150, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 225
   %157 = load i8, ptr %156, align 1

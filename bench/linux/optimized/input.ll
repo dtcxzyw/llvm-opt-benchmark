@@ -468,7 +468,7 @@ define dso_local void @input_handle_event(ptr noundef %0, i32 noundef %1, i32 no
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %116 = zext nneg i32 %2 to i64
-  %117 = getelementptr [2 x i32], ptr %115, i64 0, i64 %116
+  %117 = getelementptr i32, ptr %115, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, %3
   br i1 %119, label %.thread8, label %120
@@ -868,7 +868,7 @@ define dso_local void @input_set_capability(ptr noundef %0, i32 noundef %1, i32 
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr [32 x i32], ptr @input_max_code, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @input_max_code, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ne i32 %8, 0
   %10 = icmp ult i32 %8, %2
@@ -3796,9 +3796,9 @@ define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr n
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr [0 x %struct.input_mt_slot], ptr %24, i64 0, i64 %27
+  %28 = getelementptr %struct.input_mt_slot, ptr %24, i64 %27
   %29 = zext nneg i32 %19 to i64
-  %30 = getelementptr [14 x i32], ptr %28, i64 0, i64 %29
+  %30 = getelementptr i32, ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 1128
@@ -4306,7 +4306,7 @@ define internal i32 @input_dev_uevent(ptr noundef %0, ptr noundef %1) #0 align 1
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, -1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr [2048 x i8], ptr %43, i64 0, i64 %47
+  %48 = getelementptr i8, ptr %43, i64 %47
   %49 = sub i32 2048, %45
   %50 = tail call fastcc i32 @input_print_bitmap(ptr noundef %48, i32 noundef %49, ptr noundef %42, i32 noundef 31, i32 noundef 0)
   %51 = sext i32 %50 to i64
@@ -4328,7 +4328,7 @@ define internal i32 @input_dev_uevent(ptr noundef %0, ptr noundef %1) #0 align 1
   %62 = load i32, ptr %44, align 4
   %63 = add i32 %62, -1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr [2048 x i8], ptr %43, i64 0, i64 %64
+  %65 = getelementptr i8, ptr %43, i64 %64
   %66 = sub i32 2048, %62
   %67 = tail call fastcc i32 @input_print_bitmap(ptr noundef %65, i32 noundef %66, ptr noundef %58, i32 noundef 31, i32 noundef 0)
   %68 = sext i32 %67 to i64
@@ -5350,7 +5350,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @input_add_uevent_bm_var(pt
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [2048 x i8], ptr %8, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %8, i64 %12
   %14 = sub i32 2048, %10
   %15 = tail call fastcc i32 @input_print_bitmap(ptr noundef %13, i32 noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef 0)
   %16 = sext i32 %15 to i64
@@ -5382,7 +5382,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @input_add_uevent_modalias_
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [2048 x i8], ptr %6, i64 0, i64 %10
+  %11 = getelementptr i8, ptr %6, i64 %10
   %12 = sub i32 2048, %8
   %13 = tail call fastcc i32 @input_print_modalias(ptr noundef %11, i32 noundef %12, ptr noundef %1, i32 noundef 0)
   %14 = sext i32 %13 to i64

@@ -806,7 +806,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   store i8 %12, ptr %.0194, align 1
   %287 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
   %288 = zext i8 %12 to i64
-  %289 = getelementptr inbounds nuw [19 x i8], ptr @_ZN24SharedStringDecompressor5sizesE, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr @_ZN24SharedStringDecompressor5sizesE, i64 %288
   %290 = load i8, ptr %289, align 1
   %291 = zext i8 %290 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %287, ptr nonnull align 1 %13, i64 %291, i1 false)

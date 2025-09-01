@@ -1266,7 +1266,7 @@ _ZNK17FileLineSingleton12numberToLangEt.exit:     ; preds = %71, %65
   %storemerge.i.i.i.i.i = phi ptr [ %77, %71 ], [ %66, %65 ]
   %.sroa.0.0.copyload.i = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !71
   %78 = zext i8 %.sroa.0.0.copyload.i to i64
-  %79 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !73
   %81 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #27
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %80, i64 noundef %81)
@@ -1855,7 +1855,7 @@ _ZNK17FileLineSingleton12numberToLangEt.exit:     ; preds = %202, %196
   %storemerge.i.i.i.i.i = phi ptr [ %208, %202 ], [ %197, %196 ]
   %.sroa.0.0.copyload.i = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !71
   %209 = zext i8 %.sroa.0.0.copyload.i to i64
-  %210 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !73
   %212 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %211) #27
   %213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i71, ptr noundef nonnull %211, i64 noundef %212)
@@ -2504,7 +2504,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i:       ; preds = %6
 
 13:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i
   %14 = lshr i64 %indvars.iv, 6
-  %15 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = or i64 %16, %12
   store i64 %17, ptr %15, align 8, !tbaa !13
@@ -2514,7 +2514,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i:       ; preds = %6
   %19 = phi i64 [ %9, %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.thread ], [ %12, %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i ]
   %20 = xor i64 %19, -1
   %21 = lshr i64 %indvars.iv, 6
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %2, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !13
   %24 = and i64 %23, %20
   store i64 %24, ptr %22, align 8, !tbaa !13
@@ -2574,7 +2574,7 @@ _ZNK17FileLineSingleton5msgEnEt.exit:             ; preds = %4
 
 _ZNKSt6bitsetILm121EE4testEm.exit:                ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit
   %19 = lshr i64 %2, 6
-  %20 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !13
   %22 = and i64 %2, 63
   %23 = shl nuw i64 1, %22
@@ -2589,7 +2589,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i:       ; preds = %_ZNKSt6bitsetILm121
   br i1 %3, label %27, label %31
 
 27:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i
-  %28 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %19
+  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %19
   %29 = load i64, ptr %28, align 8, !tbaa !13
   %30 = or i64 %29, %23
   store i64 %30, ptr %28, align 8, !tbaa !13
@@ -2597,7 +2597,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i:       ; preds = %_ZNKSt6bitsetILm121
 
 31:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i
   %32 = xor i64 %23, -1
-  %33 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %19
+  %33 = getelementptr inbounds nuw i64, ptr %5, i64 %19
   %34 = load i64, ptr %33, align 8, !tbaa !13
   %35 = and i64 %34, %32
   store i64 %35, ptr %33, align 8, !tbaa !13
@@ -2686,7 +2686,7 @@ _ZNK17FileLineSingleton5msgEnEt.exit10:           ; preds = %_ZNK17FileLineSingl
   %.079.i.i.sroa.phi = phi ptr [ %.05.i.i.sroa.gep18, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ %4, %_ZNK17FileLineSingleton5msgEnEt.exit8 ]
   %.079.i.i = phi i64 [ 1, %_ZNK17FileLineSingleton5msgEnEt.exit10 ], [ 0, %_ZNK17FileLineSingleton5msgEnEt.exit8 ]
   %26 = load i64, ptr %.079.i.i.sroa.phi, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %.079.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %15, i64 %.079.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !13
   %.not.i.i = icmp eq i64 %26, %28
   %or.cond.i.i = and i1 %.not10.i.i, %.not.i.i
@@ -2700,7 +2700,7 @@ _ZNK17FileLineSingleton5msgEnEt.exit12:           ; preds = %_ZNKSt6bitsetILm121
   %.079.i.i14.sroa.phi = phi ptr [ %.05.i.i.sroa.gep18, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ %4, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
   %.079.i.i14 = phi i64 [ 1, %_ZNK17FileLineSingleton5msgEnEt.exit12 ], [ 0, %_ZNKSt6bitsetILm121EEeqERKS0_.exit ]
   %29 = load i64, ptr %.079.i.i14.sroa.phi, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %.079.i.i14
+  %30 = getelementptr inbounds nuw i64, ptr %18, i64 %.079.i.i14
   %31 = load i64, ptr %30, align 8, !tbaa !13
   %.not.i.i15 = icmp eq i64 %29, %31
   %or.cond.i.i16 = and i1 %.not10.i.i13, %.not.i.i15
@@ -12781,7 +12781,7 @@ define dso_local noundef zeroext i1 @_ZNK8FileLine9warnIsOffE11V3ErrorCode(ptr n
 
 _ZNKSt6bitsetILm121EE4testEm.exit:                ; preds = %2
   %8 = lshr i64 %5, 6
-  %9 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = and i64 %5, 63
   %12 = shl nuw i64 1, %11
@@ -12827,7 +12827,7 @@ _ZN8FileLine15defaultFileLineEv.exit:             ; preds = %14, %17, %20
 
 _ZNKSt6bitsetILm121EE4testEm.exit2:               ; preds = %_ZN8FileLine15defaultFileLineEv.exit
   %29 = lshr i64 %26, 6
-  %30 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %24, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !13
   %32 = and i64 %26, 63
   %33 = shl nuw i64 1, %32
@@ -17356,7 +17356,7 @@ _ZNK17FileLineSingleton5msgEnEt.exit.i:           ; preds = %_ZN8FileLine9single
 
 _ZNKSt6bitsetILm121EE4testEm.exit.i:              ; preds = %_ZNK17FileLineSingleton5msgEnEt.exit.i
   %28 = lshr i64 %16, 6
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !13
   %31 = and i64 %16, 63
   %32 = shl nuw i64 1, %31
@@ -17371,7 +17371,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNKSt6bitsetILm121
   br i1 %2, label %36, label %40
 
 36:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i
-  %37 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %28
+  %37 = getelementptr inbounds nuw i64, ptr %4, i64 %28
   %38 = load i64, ptr %37, align 8, !tbaa !13
   %39 = or i64 %38, %32
   store i64 %39, ptr %37, align 8, !tbaa !13
@@ -17379,7 +17379,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNKSt6bitsetILm121
 
 40:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i
   %41 = xor i64 %32, -1
-  %42 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %28
+  %42 = getelementptr inbounds nuw i64, ptr %4, i64 %28
   %43 = load i64, ptr %42, align 8, !tbaa !13
   %44 = and i64 %43, %41
   store i64 %44, ptr %42, align 8, !tbaa !13
@@ -17457,7 +17457,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i:     ; preds = %14
 
 21:                                               ; preds = %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i
   %22 = lshr i64 %indvars.iv.i, 6
-  %23 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !13
   %25 = or i64 %24, %20
   store i64 %25, ptr %23, align 8, !tbaa !13
@@ -17467,7 +17467,7 @@ _ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i:     ; preds = %14
   %27 = phi i64 [ %17, %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.thread.i ], [ %20, %_ZNKSt6bitsetILm121EE8_M_checkEmPKc.exit.i.i ]
   %28 = xor i64 %27, -1
   %29 = lshr i64 %indvars.iv.i, 6
-  %30 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %2, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !13
   %32 = and i64 %31, %28
   store i64 %32, ptr %30, align 8, !tbaa !13
@@ -19052,9 +19052,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt6bitsetILm121EESt
 16:                                               ; preds = %16, %14
   %.not10.i.i.i.i = phi i1 [ true, %14 ], [ false, %16 ]
   %.079.i.i.i.i = phi i64 [ 0, %14 ], [ 1, %16 ]
-  %17 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %.079.i.i.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %5, i64 %.079.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !13
-  %19 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %.079.i.i.i.i
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %.079.i.i.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !13
   %.not.i.i.i.i = icmp eq i64 %18, %20
   %or.cond.i.i.i.i = and i1 %.not10.i.i.i.i, %.not.i.i.i.i
@@ -19098,9 +19098,9 @@ _ZNKSt8__detail15_Hashtable_baseISt6bitsetILm121EESt4pairIKS2_tENS_10_Select1stE
 35:                                               ; preds = %35, %.preheader.i.i
   %.not10.i.i.i.i.i.i.i = phi i1 [ true, %.preheader.i.i ], [ false, %35 ]
   %.079.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %35 ]
-  %36 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %.079.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %.079.i.i.i.i.i.i.i
   %37 = load i64, ptr %36, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %.079.i.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i64, ptr %34, i64 %.079.i.i.i.i.i.i.i
   %39 = load i64, ptr %38, align 8, !tbaa !13
   %.not.i.i.i.i.i.i.i = icmp eq i64 %37, %39
   %or.cond.i.i.i.i.i.i.i = and i1 %.not10.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i

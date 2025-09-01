@@ -752,7 +752,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2bv24BVSolverBitblastI
   %36 = icmp eq i32 %35, 2
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %38 = zext i1 %36 to i64
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !238, !noalias !235
   %41 = load ptr, ptr %3, align 8, !tbaa !28
   %.not.i = icmp eq ptr %41, %40
@@ -786,7 +786,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %42, %34, %6
   %53 = icmp eq i32 %52, 2
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %55 = zext i1 %53 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !238, !noalias !239
   %58 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11nodeManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1783,7 +1783,7 @@ define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory2bv12_GLOBAL_
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = zext i1 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !238, !noalias !290
   store ptr %16, ptr %3, align 8, !tbaa !28, !alias.scope !290
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)

@@ -675,7 +675,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %195, %_ZN6Assimp
 199:                                              ; preds = %199, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread
   %indvars.iv.i = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %indvars.iv.next.i, %199 ]
   %.056.i = phi i32 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %spec.select.i, %199 ]
-  %200 = getelementptr inbounds nuw [8 x ptr], ptr %198, i64 0, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv.i
   %201 = load ptr, ptr %200, align 8
   %.not.i210 = icmp ne ptr %201, null
   %202 = zext i1 %.not.i210 to i32
@@ -697,7 +697,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader:   ; preds = %199
 
 204:                                              ; preds = %.lr.ph, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread ]
-  %205 = getelementptr inbounds nuw [8 x ptr], ptr %198, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv
   %206 = load ptr, ptr %205, align 8
   %.not169 = icmp eq ptr %206, null
   br i1 %.not169, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread, label %207
@@ -707,7 +707,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader:   ; preds = %199
   br i1 %.not13.i212, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread, label %.lr.ph.i213.preheader
 
 .lr.ph.i213.preheader:                            ; preds = %207
-  %209 = getelementptr inbounds nuw [8 x ptr], ptr %56, i64 0, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   %210 = load ptr, ptr %209, align 8
   br label %.lr.ph.i213
 
@@ -755,7 +755,7 @@ _ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388: ; preds = %_
 
 234:                                              ; preds = %237, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388
   %indvars.iv.i219 = phi i64 [ 0, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388 ], [ %indvars.iv.next.i221, %237 ]
-  %235 = getelementptr inbounds nuw [8 x ptr], ptr %233, i64 0, i64 %indvars.iv.i219
+  %235 = getelementptr inbounds nuw ptr, ptr %233, i64 %indvars.iv.i219
   %236 = load ptr, ptr %235, align 8
   %.not.i220 = icmp eq ptr %236, null
   br i1 %.not.i220, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit, label %237
@@ -780,7 +780,7 @@ _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %234
 
 240:                                              ; preds = %.lr.ph303, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread
   %indvars.iv350 = phi i64 [ 0, %.lr.ph303 ], [ %indvars.iv.next351, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread ]
-  %241 = getelementptr inbounds nuw [8 x ptr], ptr %233, i64 0, i64 %indvars.iv350
+  %241 = getelementptr inbounds nuw ptr, ptr %233, i64 %indvars.iv350
   %242 = load ptr, ptr %241, align 8
   %.not171 = icmp eq ptr %242, null
   br i1 %.not171, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread, label %243
@@ -790,7 +790,7 @@ _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %234
   br i1 %.not13.i224, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread, label %.lr.ph.i225.preheader
 
 .lr.ph.i225.preheader:                            ; preds = %243
-  %245 = getelementptr inbounds nuw [8 x ptr], ptr %57, i64 0, i64 %indvars.iv350
+  %245 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv350
   %246 = load ptr, ptr %245, align 8
   br label %.lr.ph.i225
 
@@ -1146,7 +1146,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -1198,7 +1198,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -1631,7 +1631,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -1650,7 +1650,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

@@ -40,7 +40,7 @@ define internal range(i32 0, -2147483648) i32 @slg_write(ptr readnone captures(n
 
 13:                                               ; preds = %13, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %10 ]
-  %14 = getelementptr inbounds nuw [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.anon, ptr @slg_write.mapping, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %14, align 4, !tbaa !6
   %17 = sext i32 %16 to i64
@@ -85,7 +85,7 @@ define internal range(i32 0, -2147483648) i32 @slg_puts(ptr readnone captures(no
 
 14:                                               ; preds = %14, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw [20 x %struct.anon], ptr @slg_write.mapping, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.anon, ptr @slg_write.mapping, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %15, align 4, !tbaa !6
   %18 = sext i32 %17 to i64

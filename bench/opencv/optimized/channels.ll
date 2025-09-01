@@ -398,7 +398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
   %155 = udiv i32 %154, %43
   %.sroa.speculated232 = call i32 @llvm.smin.i32(i32 %155, i32 %153)
   %156 = zext nneg i32 %45 to i64
-  %157 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL12getMixchFuncEiE8mixchTab, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL12getMixchFuncEiE8mixchTab, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !39
   %.not = icmp eq i32 %45, 7
   br i1 %.not, label %213, label %.preheader259

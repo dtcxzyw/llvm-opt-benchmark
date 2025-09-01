@@ -551,7 +551,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %78 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.1256337
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !47
-  %81 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %.1256337
+  %81 = getelementptr inbounds nuw i64, ptr %7, i64 %.1256337
   store i64 %80, ptr %81, align 8, !tbaa !25
   %82 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
   %83 = call i64 @EVP_CIPHER_get_flags(ptr noundef %82) #4
@@ -569,7 +569,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %89 = lshr i16 %88, 8
   %90 = trunc nuw i16 %89 to i8
   %91 = trunc i16 %88 to i8
-  %92 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %8, i64 0, i64 %.1256337
+  %92 = getelementptr inbounds nuw [13 x i8], ptr %8, i64 %.1256337
   store i8 %90, ptr %92, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 %91, ptr %.sroa.4.0..sroa_idx, align 1
@@ -578,7 +578,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %97
 
 93:                                               ; preds = %85
-  %94 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %8, i64 0, i64 %.1256337
+  %94 = getelementptr inbounds nuw [13 x i8], ptr %8, i64 %.1256337
   %95 = load i64, ptr %74, align 1
   store i64 %95, ptr %94, align 1
   %96 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #4
@@ -589,7 +589,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %98 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !50
   %100 = trunc i32 %99 to i8
-  %101 = getelementptr inbounds nuw [32 x [13 x i8]], ptr %8, i64 0, i64 %.1256337
+  %101 = getelementptr inbounds nuw [13 x i8], ptr %8, i64 %.1256337
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i8 %100, ptr %102, align 1, !tbaa !51
   %103 = load i32, ptr %75, align 4, !tbaa !38
@@ -706,7 +706,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %.2257340 = phi i64 [ %153, %.preheader329 ], [ 0, %149 ]
   %150 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.2257340, i32 5
   %151 = load ptr, ptr %150, align 8, !tbaa !44
-  %152 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.2257340
+  %152 = getelementptr inbounds nuw ptr, ptr %9, i64 %.2257340
   store ptr %151, ptr %152, align 8, !tbaa !54
   %153 = add nuw i64 %.2257340, 1
   %exitcond347.not = icmp eq i64 %153, %2
@@ -728,7 +728,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %.3258341 = phi i64 [ %162, %.preheader328 ], [ 0, %154 ]
   %159 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.3258341, i32 6
   %160 = load ptr, ptr %159, align 8, !tbaa !46
-  %161 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.3258341
+  %161 = getelementptr inbounds nuw ptr, ptr %9, i64 %.3258341
   store ptr %160, ptr %161, align 8, !tbaa !54
   %162 = add nuw i64 %.3258341, 1
   %exitcond348.not = icmp eq i64 %162, %2

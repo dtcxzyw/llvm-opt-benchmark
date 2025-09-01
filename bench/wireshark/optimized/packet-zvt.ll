@@ -297,7 +297,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @apdu_table, align 8
-  %4 = getelementptr [13 x %struct._apdu_info_t], ptr @apdu_info, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct._apdu_info_t, ptr @apdu_info, i64 %indvars.iv
   %5 = load i16, ptr %4, align 8
   %6 = zext i16 %5 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -314,7 +314,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 11:                                               ; preds = %9, %11
   %indvars.iv19 = phi i64 [ 0, %9 ], [ %indvars.iv.next20, %11 ]
   %12 = load ptr, ptr @bitmap_table, align 8
-  %13 = getelementptr [26 x %struct._bitmap_info_t], ptr @bitmap_info, i64 0, i64 %indvars.iv19
+  %13 = getelementptr %struct._bitmap_info_t, ptr @bitmap_info, i64 %indvars.iv19
   %14 = load i8, ptr %13, align 16
   %15 = zext i8 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -331,7 +331,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 20:                                               ; preds = %18, %20
   %indvars.iv23 = phi i64 [ 0, %18 ], [ %indvars.iv.next24, %20 ]
   %21 = load ptr, ptr @tlv_table, align 8
-  %22 = getelementptr [10 x %struct._tlv_info_t], ptr @tlv_info, i64 0, i64 %indvars.iv23
+  %22 = getelementptr %struct._tlv_info_t, ptr @tlv_info, i64 %indvars.iv23
   %23 = load i32, ptr %22, align 16
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr

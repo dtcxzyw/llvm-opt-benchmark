@@ -131,7 +131,7 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
 34:                                               ; preds = %2
   %35 = load i8, ptr %1, align 1, !tbaa !12
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [94 x i16], ptr @ff_mqc_qe, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !15
   %39 = zext i16 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -157,7 +157,7 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
 
 53:                                               ; preds = %47
   %54 = zext i8 %49 to i64
-  %55 = getelementptr inbounds nuw [94 x i16], ptr @ff_mqc_qe, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !15
   %57 = zext i16 %56 to i32
   %.not31 = icmp ult i32 %42, %57
@@ -165,7 +165,7 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
   %ff_mqc_nlps.sink = select i1 %.not31, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
   %59 = zext i1 %.not31 to i8
   %.0.in.i = xor i8 %58, %59
-  %60 = getelementptr inbounds nuw [94 x i8], ptr %ff_mqc_nlps.sink, i64 0, i64 %54
+  %60 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink, i64 %54
   %storemerge.i = load i8, ptr %60, align 1, !tbaa !12
   store i8 %storemerge.i, ptr %1, align 1, !tbaa !12
   %.promoted.i = load i32, ptr %43, align 4, !tbaa !13
@@ -235,7 +235,7 @@ exchange.exit:                                    ; preds = %bytein.exit.i
   store i32 %92, ptr %43, align 4, !tbaa !13
   %93 = load i8, ptr %1, align 1, !tbaa !12
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw [94 x i16], ptr @ff_mqc_qe, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i16, ptr @ff_mqc_qe, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !15
   %97 = zext i16 %96 to i32
   %98 = icmp samesign uge i32 %42, %97
@@ -246,7 +246,7 @@ exchange.exit:                                    ; preds = %bytein.exit.i
   %ff_mqc_nlps.sink41 = select i1 %98, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
   %100 = zext i1 %98 to i8
   %.0.in.i20 = xor i8 %99, %100
-  %101 = getelementptr inbounds nuw [94 x i8], ptr %ff_mqc_nlps.sink41, i64 0, i64 %.pre30.i
+  %101 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink41, i64 %.pre30.i
   %storemerge.i21 = load i8, ptr %101, align 1, !tbaa !12
   store i8 %storemerge.i21, ptr %1, align 1, !tbaa !12
   %.promoted.i22 = load i32, ptr %43, align 4, !tbaa !13

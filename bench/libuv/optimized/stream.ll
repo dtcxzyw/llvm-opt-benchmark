@@ -527,7 +527,7 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %177, %242
   %225 = add i32 %222, 1
   store i32 %225, ptr %224, align 4
   %226 = zext i32 %222 to i64
-  %227 = getelementptr inbounds nuw [1 x i32], ptr %223, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %223, i64 %226
   store i32 %.0.copyload.i.i, ptr %227, align 4
   br label %uv__stream_queue_fd.exit.i.i
 
@@ -2122,7 +2122,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [1 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @uv__close(i32 noundef %58) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

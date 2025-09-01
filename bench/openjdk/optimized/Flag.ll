@@ -222,7 +222,7 @@ define i32 @Java_com_sun_management_internal_Flag_getFlags(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.Java_com_sun_management_internal_Flag_getFlags, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Java_com_sun_management_internal_Flag_getFlags, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %55
 

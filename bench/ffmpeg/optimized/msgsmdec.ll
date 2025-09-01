@@ -47,7 +47,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %.32.val, i64 660
   %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [2 x [8 x i32]], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds [8 x i32], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -204,7 +204,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   store i32 %147, ptr %148, align 4, !tbaa !36
   %149 = load i32, ptr %13, align 8, !tbaa !12
   %150 = sext i32 %2 to i64
-  %151 = getelementptr inbounds [0 x [4 x ptr]], ptr @ff_gsm_apcm_bits, i64 0, i64 %150
+  %151 = getelementptr inbounds [4 x ptr], ptr @ff_gsm_apcm_bits, i64 %150
   %.promoted = load i32, ptr %11, align 8, !tbaa !14
   br label %152
 
@@ -245,7 +245,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %180 = sub nsw i64 0, %179
   %181 = getelementptr inbounds i16, ptr %.0426, i64 %180
   %182 = zext nneg i32 %169 to i64
-  %183 = getelementptr inbounds nuw [4 x i16], ptr @ff_gsm_long_term_gain_tab, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i16, ptr @ff_gsm_long_term_gain_tab, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !37
   %185 = zext i16 %184 to i32
   br label %186
@@ -271,7 +271,7 @@ long_term_synth.exit:                             ; preds = %186
   %197 = and i32 %196, 3
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr inbounds nuw i16, ptr %.0426, i64 %198
-  %200 = getelementptr inbounds nuw [4 x ptr], ptr %151, i64 0, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv
   %201 = load ptr, ptr %200, align 8, !tbaa !41
   %202 = lshr i32 %177, 3
   %203 = zext nneg i32 %202 to i64
@@ -284,7 +284,7 @@ long_term_synth.exit:                             ; preds = %186
   %210 = tail call i32 @llvm.umin.i32(i32 %149, i32 %209)
   store i32 %210, ptr %11, align 8, !tbaa !14
   %211 = zext nneg i32 %208 to i64
-  %212 = getelementptr inbounds nuw [64 x [8 x i16]], ptr @ff_gsm_dequant_tab, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i16], ptr @ff_gsm_dequant_tab, i64 %211
   br label %213
 
 213:                                              ; preds = %213, %long_term_synth.exit
@@ -306,9 +306,9 @@ long_term_synth.exit:                             ; preds = %186
   store i32 %227, ptr %11, align 8, !tbaa !14
   %228 = load i32, ptr %215, align 4, !tbaa !36
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds [4 x [8 x i8]], ptr @ff_gsm_requant_tab, i64 0, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr @ff_gsm_requant_tab, i64 %229
   %231 = sext i32 %225 to i64
-  %232 = getelementptr inbounds [8 x i8], ptr %230, i64 0, i64 %231
+  %232 = getelementptr inbounds i8, ptr %230, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !35
   %234 = zext i8 %233 to i64
   %235 = getelementptr inbounds nuw i16, ptr %212, i64 %234
@@ -334,10 +334,10 @@ apcm_dequant_add.exit:                            ; preds = %213
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %243 = load i32, ptr %7, align 4, !tbaa !33
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds [2 x [8 x i32]], ptr %6, i64 0, i64 %244
+  %245 = getelementptr inbounds [8 x i32], ptr %6, i64 %244
   %246 = xor i32 %243, 1
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds [2 x [8 x i32]], ptr %6, i64 0, i64 %247
+  %248 = getelementptr inbounds [8 x i32], ptr %6, i64 %247
   br label %250
 
 .preheader82.i:                                   ; preds = %250
@@ -356,7 +356,7 @@ apcm_dequant_add.exit:                            ; preds = %213
   %258 = ashr i32 %257, 2
   %259 = add nsw i32 %255, %258
   %260 = tail call fastcc i32 @get_rrp(i32 noundef %259)
-  %261 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv.i46
+  %261 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i46
   store i32 %260, ptr %261, align 4, !tbaa !36
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 8
@@ -409,7 +409,7 @@ filter_value.exit.i:                              ; preds = %266
   %287 = ashr i32 %286, 1
   %288 = add nsw i32 %287, %284
   %289 = tail call fastcc i32 @get_rrp(i32 noundef %288)
-  %290 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv102.i
+  %290 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv102.i
   store i32 %289, ptr %290, align 4, !tbaa !36
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 8
@@ -464,7 +464,7 @@ filter_value.exit66.i:                            ; preds = %294
   %317 = ashr i32 %314, 2
   %318 = add nsw i32 %316, %317
   %319 = tail call fastcc i32 @get_rrp(i32 noundef %318)
-  %320 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv110.i
+  %320 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv110.i
   store i32 %319, ptr %320, align 4, !tbaa !36
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 8
@@ -512,7 +512,7 @@ filter_value.exit71.i:                            ; preds = %324
   %340 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv118.i
   %341 = load i32, ptr %340, align 4, !tbaa !36
   %342 = tail call fastcc i32 @get_rrp(i32 noundef %341)
-  %343 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv118.i
+  %343 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv118.i
   store i32 %342, ptr %343, align 4, !tbaa !36
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond121.not.i = icmp eq i64 %indvars.iv.next119.i, 8

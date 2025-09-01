@@ -658,7 +658,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Std_Sat_AIG_relabel___spec__1___rarg(ptr
   %.02148 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit ]
   %.02347 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i33, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02347, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02148
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02148
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1

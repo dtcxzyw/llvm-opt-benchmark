@@ -334,7 +334,7 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 
 154:                                              ; preds = %147, %154
   %indvars.iv280 = phi i64 [ 0, %147 ], [ %indvars.iv.next281, %154 ]
-  %155 = getelementptr inbounds nuw [3 x float], ptr %153, i64 0, i64 %indvars.iv280
+  %155 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv280
   %156 = load float, ptr %155, align 4, !tbaa !33
   %157 = fmul float %156, %152
   store float %157, ptr %155, align 4, !tbaa !33
@@ -823,9 +823,9 @@ define void @_Z23put_molecule_com_in_boxiiP7t_blockiP6t_atom7PbcTypePA3_fS5_(i32
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw [3 x float], ptr %36, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !33
-  %40 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !33
   %42 = call float @llvm.fmuladd.f32(float %35, float %39, float %41)
   store float %42, ptr %40, align 4, !tbaa !33
@@ -1109,9 +1109,9 @@ define void @_Z22put_residue_com_in_boxiiiP6t_atom7PbcTypePA3_fS3_(i32 noundef %
 
 79:                                               ; preds = %75, %79
   %indvars.iv84 = phi i64 [ 0, %75 ], [ %indvars.iv.next85, %79 ]
-  %80 = getelementptr inbounds nuw [3 x float], ptr %78, i64 0, i64 %indvars.iv84
+  %80 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv84
   %81 = load float, ptr %80, align 4, !tbaa !33
-  %82 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv84
+  %82 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv84
   %83 = load float, ptr %82, align 4, !tbaa !33
   %84 = call float @llvm.fmuladd.f32(float %77, float %81, float %83)
   store float %84, ptr %82, align 4, !tbaa !33
@@ -1184,9 +1184,9 @@ define void @_Z8center_xiPA3_fS0_iiPKi(i32 noundef %0, ptr noundef captures(none
 
 30:                                               ; preds = %25, %42
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %42 ]
-  %31 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !33
-  %33 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !33
   %35 = fcmp olt float %32, %34
   br i1 %35, label %36, label %37
@@ -1196,7 +1196,7 @@ define void @_Z8center_xiPA3_fS0_iiPKi(i32 noundef %0, ptr noundef captures(none
   br label %42
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !33
   %40 = fcmp ogt float %32, %39
   br i1 %40, label %41, label %42
@@ -1234,19 +1234,19 @@ define void @_Z8center_xiPA3_fS0_iiPKi(i32 noundef %0, ptr noundef captures(none
 
 51:                                               ; preds = %44, %51
   %indvars.iv54 = phi i64 [ 0, %44 ], [ %indvars.iv.next55, %51 ]
-  %52 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv54
+  %52 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv54
   %53 = load float, ptr %52, align 4, !tbaa !33
   %54 = fpext float %53 to double
-  %55 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv54
+  %55 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv54
   %56 = load float, ptr %55, align 4, !tbaa !33
-  %57 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv54
+  %57 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv54
   %58 = load float, ptr %57, align 4, !tbaa !33
   %59 = fadd float %56, %58
   %60 = fpext float %59 to double
   %61 = fneg double %60
   %62 = call double @llvm.fmuladd.f64(double %61, double 5.000000e-01, double %54)
   %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv54
+  %64 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv54
   store float %63, ptr %64, align 4, !tbaa !33
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 3

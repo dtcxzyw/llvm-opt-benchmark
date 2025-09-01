@@ -562,7 +562,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %13 ]
   %21 = phi float [ %26, %25 ], [ %1, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw [7 x %struct.Order], ptr %5, i64 0, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %indvars.iv.next
   %23 = load float, ptr %22, align 16
   %24 = fcmp contract ogt float %21, %23
   br i1 %24, label %25, label %.critedge
@@ -578,7 +578,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   store float %.lcssa, ptr %4, align 4
   %.str.17..str.18 = select i1 %2, ptr @.str.17, ptr @.str.18
   %27 = and i64 %.0.lcssa, 4294967295
-  %28 = getelementptr inbounds nuw [7 x %struct.Order], ptr %5, i64 0, i64 %27, i32 1
+  %28 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %27, i32 1
   call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %28)
   br label %29
 
@@ -722,7 +722,7 @@ define void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind noalias writable
   %.0.lcssa = phi i64 [ 0, %3 ], [ %14, %._crit_edge.loopexit ]
   store float %.lcssa, ptr %5, align 4
   %.str.26..str.27 = select i1 %2, ptr @.str.26, ptr @.str.27
-  %15 = getelementptr inbounds nuw [7 x ptr], ptr %4, i64 0, i64 %.0.lcssa
+  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.lcssa
   call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.26..str.27, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %15)
   ret void
 }

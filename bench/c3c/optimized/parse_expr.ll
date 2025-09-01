@@ -79,7 +79,7 @@ define dso_local zeroext i1 @parse_current_is_expr(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   ret i1 %7
@@ -170,7 +170,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
 46:                                               ; preds = %38
   %47 = load i32, ptr %4, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not50 = icmp eq ptr %50, null
   br i1 %.not50, label %62, label %51
@@ -270,7 +270,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %6, i32 2
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %2, %8
   br i1 %9, label %.loopexit, label %.lr.ph
@@ -290,7 +290,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   br i1 %.not, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %13
-  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %10, i32 1
+  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %10, i32 1
   %18 = load ptr, ptr %17, align 8
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %19, label %24
@@ -307,7 +307,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %25 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %.01621) #8
   %26 = load i32, ptr %4, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %27, i32 2
+  %28 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %27, i32 2
   %29 = load i32, ptr %28, align 8
   %30 = icmp ugt i32 %2, %29
   br i1 %30, label %.loopexit, label %.lr.ph
@@ -1182,7 +1182,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
@@ -1202,7 +1202,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split12:                                         ; preds = %12
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16, i32 2
+  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16, i32 2
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %1, %18
   br i1 %19, label %.critedge, label %.lr.ph.i
@@ -1222,7 +1222,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not.i, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %23, %.lr.ph.i
-  %27 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %20, i32 1
+  %27 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %20, i32 1
   %28 = load ptr, ptr %27, align 8
   %.not18.i = icmp eq ptr %28, null
   br i1 %.not18.i, label %29, label %34
@@ -1239,7 +1239,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %35 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %.01621.i) #8
   %36 = load i32, ptr %3, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %37, i32 2
+  %38 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %37, i32 2
   %39 = load i32, ptr %38, align 8
   %40 = icmp ugt i32 %1, %39
   br i1 %40, label %.critedge, label %.lr.ph.i
@@ -1254,7 +1254,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split:                                           ; preds = %41
   %45 = load i32, ptr %3, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %46, i32 2
+  %47 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %46, i32 2
   %48 = load i32, ptr %47, align 8
   %49 = icmp ugt i32 %1, %48
   br i1 %49, label %.critedge, label %.lr.ph.i16
@@ -1274,7 +1274,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not.i18, label %.critedge, label %.critedge.i19
 
 .critedge.i19:                                    ; preds = %53, %.lr.ph.i16
-  %57 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %50, i32 1
+  %57 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %50, i32 1
   %58 = load ptr, ptr %57, align 8
   %.not18.i20 = icmp eq ptr %58, null
   br i1 %.not18.i20, label %59, label %64
@@ -1291,7 +1291,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %65 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %.01621.i17) #8
   %66 = load i32, ptr %3, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %67, i32 2
+  %68 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %67, i32 2
   %69 = load i32, ptr %68, align 8
   %70 = icmp ugt i32 %1, %69
   br i1 %70, label %.critedge, label %.lr.ph.i16
@@ -2445,7 +2445,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %75 = extractvalue { i64, i64 } %73, 1
   %76 = sext i8 %21 to i64
   %77 = and i64 %76, 4294967295
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i64
   %81 = add nsw i64 %80, -1
@@ -3698,7 +3698,7 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   %4 = load i32, ptr %3, align 8
   tail call void @advance(ptr noundef %0) #8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %18
@@ -4055,7 +4055,7 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr readnone captures(n
 
 38:                                               ; preds = %32, %27
   %39 = zext i32 %30 to i64
-  %40 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not46 = icmp eq ptr %41, null
   br i1 %.not46, label %66, label %42
@@ -4467,7 +4467,7 @@ define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
@@ -4480,7 +4480,7 @@ define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not54 = icmp eq ptr %18, null
   br i1 %.not54, label %19, label %39
@@ -5481,10 +5481,10 @@ define internal ptr @parse_char_lit(ptr noundef %0, ptr readnone captures(none) 
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_char_lit, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_char_lit, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.parse_char_lit.2, i64 0, i64 %17
+  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table.parse_char_lit.2, i64 %17
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   br label %18
 
@@ -5916,7 +5916,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
   %123 = load i8, ptr %.1.i44, align 1
   %124 = sext i8 %123 to i64
   %125 = and i64 %124, 4294967295
-  %126 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %125
   %127 = load i8, ptr %126, align 1
   %128 = icmp slt i8 %127, 1
   br i1 %128, label %129, label %.preheader.i45
@@ -5931,7 +5931,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
   %132 = load i8, ptr %.2.i46, align 1
   %133 = sext i8 %132 to i64
   %134 = and i64 %133, 4294967295
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = icmp slt i8 %136, 1
   br i1 %137, label %.preheader.i45, label %138, !llvm.loop !28

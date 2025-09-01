@@ -118,7 +118,7 @@ define hidden noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef %0, i1 noundef z
   %70 = load i32, ptr %69, align 8, !tbaa !47
   %71 = and i32 %70, 31
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [32 x i32], ptr %63, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %63, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !48
   store i32 %68, ptr %73, align 4, !tbaa !48
   %75 = sub nsw i32 %68, %74
@@ -356,7 +356,7 @@ _ZL12propagateallP12global_State.exit.i:          ; preds = %.lr.ph.i30.i, %_ZL1
 
 83:                                               ; preds = %91, %81
   %indvars.iv.i.i = phi i64 [ 0, %81 ], [ %indvars.iv.next.i.i, %91 ]
-  %84 = getelementptr inbounds nuw [11 x ptr], ptr %82, i64 0, i64 %indvars.iv.i.i
+  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i.i
   %85 = load ptr, ptr %84, align 8, !tbaa !62
   %.not.i32.i = icmp eq ptr %85, null
   br i1 %.not.i32.i, label %91, label %86
@@ -997,7 +997,7 @@ define internal fastcc void @_ZL8markrootP9lua_State(ptr noundef readonly captur
 
 33:                                               ; preds = %41, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %41 ]
-  %34 = getelementptr inbounds nuw [11 x ptr], ptr %32, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !62
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -1327,7 +1327,7 @@ define hidden noundef ptr @_Z14luaC_statenamei(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._Z14luaC_statenamei, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z14luaC_statenamei, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1777,7 +1777,7 @@ _ZL13traversetableP12global_StateP8LuaTable.exit.thread: ; preds = %37, %_ZL13tr
 190:                                              ; preds = %202, %.lr.ph.i56
   %191 = phi i8 [ %188, %.lr.ph.i56 ], [ %203, %202 ]
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i58, %202 ]
-  %192 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %189, i64 0, i64 %indvars.iv.i57
+  %192 = getelementptr inbounds nuw %struct.lua_TValue, ptr %189, i64 %indvars.iv.i57
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %194 = load i32, ptr %193, align 4, !tbaa !56
   %195 = icmp sgt i32 %194, 4
@@ -1829,7 +1829,7 @@ _ZL13traversetableP12global_StateP8LuaTable.exit.thread: ; preds = %37, %_ZL13tr
 217:                                              ; preds = %229, %.lr.ph34.i
   %218 = phi i8 [ %215, %.lr.ph34.i ], [ %230, %229 ]
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next40.i, %229 ]
-  %219 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %216, i64 0, i64 %indvars.iv39.i
+  %219 = getelementptr inbounds nuw %struct.lua_TValue, ptr %216, i64 %indvars.iv39.i
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 12
   %221 = load i32, ptr %220, align 4, !tbaa !56
   %222 = icmp sgt i32 %221, 4

@@ -834,7 +834,7 @@ define void @Mop_ManPrintOne(ptr noundef readonly captures(none) %0, i32 noundef
   %23 = zext nneg i32 %22 to i64
   %24 = lshr i64 %20, %23
   %25 = and i64 %24, 3
-  %26 = getelementptr inbounds nuw [4 x i8], ptr @__const.Mop_ManDerive.Symb, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @__const.Mop_ManDerive.Symb, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !34
   %28 = sext i8 %27 to i32
   %putchar14 = tail call i32 @putchar(i32 %28)
@@ -4629,7 +4629,7 @@ define ptr @Mop_ManDerive(ptr noundef readonly captures(none) %0, ptr noundef %1
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %59, %62
   %64 = and i64 %63, 3
-  %65 = getelementptr inbounds nuw [4 x i8], ptr @__const.Mop_ManDerive.Symb, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @__const.Mop_ManDerive.Symb, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !34
   %67 = load i32, ptr %4, align 4, !tbaa !101
   %68 = load i32, ptr %3, align 8, !tbaa !104

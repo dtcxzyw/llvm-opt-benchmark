@@ -827,7 +827,7 @@ define internal fastcc ptr @_find_signature(ptr noundef readonly captures(addres
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_memfind.exit.thread.us
   %.03054.us = phi i64 [ %37, %_memfind.exit.thread.us ], [ 0, %.preheader.split.us.preheader ]
-  %12 = getelementptr inbounds nuw [100 x %struct.dt_magic_bytes_t], ptr @_magic_signatures, i64 0, i64 %.03054.us
+  %12 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03054.us
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !92
   %15 = zext i32 %14 to i64
@@ -880,7 +880,7 @@ _memfind.exit.thread.us:                          ; preds = %35, %25, %.preheade
 
 .preheader.split:                                 ; preds = %.preheader, %_memfind.exit.thread
   %.03054 = phi i64 [ %65, %_memfind.exit.thread ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw [100 x %struct.dt_magic_bytes_t], ptr @_magic_signatures, i64 0, i64 %.03054
+  %38 = getelementptr inbounds nuw %struct.dt_magic_bytes_t, ptr @_magic_signatures, i64 %.03054
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !92
   %41 = zext i32 %40 to i64

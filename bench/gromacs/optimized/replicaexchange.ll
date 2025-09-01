@@ -538,15 +538,15 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %indvars.iv331 = phi i64 [ 0, %.preheader255 ], [ %indvars.iv.next332, %174 ]
   %.1270 = phi float [ 0.000000e+00, %.preheader255 ], [ %.2, %174 ]
   %.0170268 = phi i32 [ 0, %.preheader255 ], [ %.1171, %174 ]
-  %164 = getelementptr inbounds nuw [3 x [3 x float]], ptr %158, i64 0, i64 %indvars.iv331
-  %165 = getelementptr inbounds nuw [3 x float], ptr %164, i64 0, i64 %indvars.iv331
+  %164 = getelementptr inbounds nuw [3 x float], ptr %158, i64 %indvars.iv331
+  %165 = getelementptr inbounds nuw float, ptr %164, i64 %indvars.iv331
   %166 = load float, ptr %165, align 4, !tbaa !133
   %167 = fcmp une float %166, 0.000000e+00
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %163
-  %169 = getelementptr inbounds nuw [3 x [3 x float]], ptr %159, i64 0, i64 %indvars.iv331
-  %170 = getelementptr inbounds nuw [3 x float], ptr %169, i64 0, i64 %indvars.iv331
+  %169 = getelementptr inbounds nuw [3 x float], ptr %159, i64 %indvars.iv331
+  %170 = getelementptr inbounds nuw float, ptr %169, i64 %indvars.iv331
   %171 = load float, ptr %170, align 4, !tbaa !133
   %172 = fadd float %.1270, %171
   %173 = add nsw i32 %.0170268, 1
@@ -610,7 +610,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 .lr.ph279:                                        ; preds = %._crit_edge274
   %198 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %199 = sext i32 %195 to i64
-  %200 = getelementptr inbounds nuw [4 x ptr], ptr %198, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
   %201 = zext nneg i32 %192 to i64
   %wide.trip.count346 = zext nneg i32 %192 to i64
   br label %202
@@ -653,9 +653,9 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
   %220 = load i32, ptr %99, align 4, !tbaa !138
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !151
-  %224 = getelementptr inbounds nuw [4 x ptr], ptr %198, i64 0, i64 %221
+  %224 = getelementptr inbounds nuw ptr, ptr %198, i64 %221
   %225 = load ptr, ptr %224, align 8, !tbaa !144
   %226 = getelementptr inbounds nuw float, ptr %225, i64 %indvars.iv343
   %227 = load float, ptr %226, align 4, !tbaa !133
@@ -685,7 +685,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
   %238 = load i32, ptr %99, align 4, !tbaa !138
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !151
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 401, ptr noundef nonnull @.str.27, ptr noundef %241) #22
           to label %242 unwind label %243
@@ -752,7 +752,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %indvars.iv360 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next361, %264 ]
   %265 = load i32, ptr %99, align 4, !tbaa !138
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds nuw [4 x ptr], ptr %263, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw ptr, ptr %263, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !144
   %269 = load ptr, ptr %184, align 8, !tbaa !154
   %270 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv360
@@ -782,7 +782,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   %indvars.iv357 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next358, %285 ]
   %286 = load i32, ptr %99, align 4, !tbaa !138
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds nuw [4 x ptr], ptr %284, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw ptr, ptr %284, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !144
   %290 = load ptr, ptr %184, align 8, !tbaa !154
   %291 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv357
@@ -1366,7 +1366,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   store i32 %2, ptr %23, align 4, !tbaa !138
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !114
   %29 = sext i32 %28 to i64
@@ -2040,7 +2040,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
 
 ._crit_edge.i.i.i.i:                              ; preds = %383
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %380 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %149, i64 0, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %149, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !183
   %385 = add nuw nsw i32 %380, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i
@@ -2252,7 +2252,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_12ThreeFry2x64ILj64EEEEEiRT_.exit.i: ; p
 
 ._crit_edge.i.i.i239.i:                           ; preds = %504
   %.phi.trans.insert1.i.i.i240.i = zext nneg i32 %501 to i64
-  %.phi.trans.insert2.i.i.i241.i = getelementptr inbounds nuw [2 x i64], ptr %149, i64 0, i64 %.phi.trans.insert1.i.i.i240.i
+  %.phi.trans.insert2.i.i.i241.i = getelementptr inbounds nuw i64, ptr %149, i64 %.phi.trans.insert1.i.i.i240.i
   %.pre.i.i.i242.i = load i64, ptr %.phi.trans.insert2.i.i.i241.i, align 8, !tbaa !183
   %506 = add nuw nsw i32 %501, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i243.i
@@ -2472,7 +2472,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_12ThreeFry2x64ILj64EEEEEiRT_.exit244.thr
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %628
   %.phi.trans.insert1.i.i.i.i.i = zext nneg i32 %629 to i64
-  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %149, i64 0, i64 %.phi.trans.insert1.i.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %149, i64 %.phi.trans.insert1.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i.i, align 8, !tbaa !183
   %631 = add nuw nsw i32 %629, 1
   br label %714
@@ -2754,7 +2754,7 @@ _ZL18print_allswitchindP8_IO_FILEiPiS1_S1_.exit.i: ; preds = %.lr.ph40.i.i, %._c
 
 ._crit_edge.i.i.i.i246.i:                         ; preds = %802
   %.phi.trans.insert1.i.i.i.i248.i = zext nneg i32 %804 to i64
-  %.phi.trans.insert2.i.i.i.i249.i = getelementptr inbounds nuw [2 x i64], ptr %149, i64 0, i64 %.phi.trans.insert1.i.i.i.i248.i
+  %.phi.trans.insert2.i.i.i.i249.i = getelementptr inbounds nuw i64, ptr %149, i64 %.phi.trans.insert1.i.i.i.i248.i
   %.pre.i.i.i.i250.i = load i64, ptr %.phi.trans.insert2.i.i.i.i249.i, align 8, !tbaa !183
   %806 = add nuw nsw i32 %804, 1
   br label %889
@@ -2977,7 +2977,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit.i:           ; preds = %953, %_ZL9print_ind
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %fputc.i = call i32 @fputc(i32 10, ptr %0)
   %954 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  %955 = getelementptr inbounds [2 x i32], ptr %954, i64 0, i64 %769
+  %955 = getelementptr inbounds i32, ptr %954, i64 %769
   %956 = load i32, ptr %955, align 4, !tbaa !148
   %957 = add nsw i32 %956, 1
   store i32 %957, ptr %955, align 4, !tbaa !148
@@ -4535,7 +4535,7 @@ define void @_Z33print_replica_exchange_statisticsP8_IO_FILEP11gmx_repl_ex(ptr n
 27:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %28 = and i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !148
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %38, label %32
@@ -4681,7 +4681,7 @@ _ZL11print_countP8_IO_FILEPKciPi.exit:            ; preds = %.lr.ph.i75, %_ZL9pr
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %103
   %indvars.iv107 = phi i64 [ 1, %.lr.ph103.preheader ], [ %indvars.iv.next108, %103 ]
   %92 = and i64 %indvars.iv107, 1
-  %93 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %10, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !148
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %103, label %96

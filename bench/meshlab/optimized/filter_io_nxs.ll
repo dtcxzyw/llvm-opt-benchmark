@@ -12234,17 +12234,17 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
 
 31:                                               ; preds = %26, %79
   %indvars.iv44 = phi i64 [ 0, %26 ], [ %indvars.iv.next45, %79 ]
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr %29, i64 0, i64 %indvars.iv44
+  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv44
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw [3 x %struct.Vertex], ptr %28, i64 0, i64 %indvars.iv44
+  %34 = getelementptr inbounds nuw %struct.Vertex, ptr %28, i64 %indvars.iv44
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %36
 
 36:                                               ; preds = %31, %36
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw [3 x float], ptr %35, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds nuw [3 x float], ptr %34, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   store float %38, ptr %39, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -12262,9 +12262,9 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %45 ]
-  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %indvars.iv40
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv40
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 0, i64 %indvars.iv40
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv40
   store i8 %47, ptr %48, align 1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
@@ -12289,7 +12289,7 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   %60 = sdiv exact i64 %59, 48
   %61 = load ptr, ptr %56, align 8
   %62 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %61, i64 %60
-  %63 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %62, i64 0, i64 %indvars.iv44
+  %63 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %62, i64 %indvars.iv44
   br label %75
 
 64:                                               ; preds = %51

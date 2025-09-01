@@ -2791,14 +2791,14 @@ define internal range(i32 0, 2) i32 @_circle_events_button_pressed(ptr noundef %
 
 229:                                              ; preds = %211, %239
   %indvars.iv = phi i64 [ 0, %211 ], [ %indvars.iv.next, %239 ]
-  %230 = getelementptr inbounds nuw [5 x i32], ptr %214, i64 0, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv
   %231 = load i32, ptr %230, align 4, !tbaa !22
   %232 = load i32, ptr %116, align 8, !tbaa !19
   %233 = icmp eq i32 %231, %232
   br i1 %233, label %234, label %239
 
 234:                                              ; preds = %229
-  %235 = getelementptr inbounds nuw [5 x ptr], ptr %215, i64 0, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv
   %236 = load ptr, ptr %235, align 8, !tbaa !180
   %237 = tail call i64 @gtk_toggle_button_get_type() #15
   %238 = call ptr @g_type_check_instance_cast(ptr noundef %236, i64 noundef %237) #13

@@ -8578,7 +8578,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 406:                                              ; preds = %.preheader, %_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3gmx31KeyValueTreeUniformArrayBuilderIdE8addValueERKd.exit ]
-  %407 = getelementptr inbounds nuw [3 x float], ptr %.sroa.0206.0221, i64 0, i64 %indvars.iv
+  %407 = getelementptr inbounds nuw float, ptr %.sroa.0206.0221, i64 %indvars.iv
   %408 = load float, ptr %407, align 4, !tbaa !326
   %409 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %.noexc139 unwind label %441
@@ -12120,7 +12120,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %749
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 8
   %760 = load double, ptr %759, align 8, !tbaa !405
   %761 = fptrunc double %760 to float
-  %762 = getelementptr inbounds nuw [3 x float], ptr %37, i64 0, i64 %indvars.iv
+  %762 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
   store float %761, ptr %762, align 4, !tbaa !326
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -364,7 +364,7 @@ fixjump.exit.i.i:                                 ; preds = %30, %25
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = and i32 %53, 63
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !39
   %.not.i.i.i = icmp sgt i8 %57, -1
   br i1 %.not.i.i.i, label %58, label %getjumpcontrol.exit.i.i
@@ -525,7 +525,7 @@ define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0
   %22 = load i32, ptr %21, align 4, !tbaa !29
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !39
   %.not.i.i = icmp sgt i8 %26, -1
   br i1 %.not.i.i, label %27, label %getjumpcontrol.exit.i
@@ -1234,7 +1234,7 @@ luaK_concat.exit:                                 ; preds = %fixjump.exit.i, %15
   %50 = load i32, ptr %49, align 4, !tbaa !29
   %51 = and i32 %50, 63
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !39
   %.not.i.i = icmp sgt i8 %54, -1
   br i1 %.not.i.i, label %55, label %getjumpcontrol.exit.i
@@ -1282,7 +1282,7 @@ select.unfold.i:                                  ; preds = %getjumpcontrol.exit
   %71 = load i32, ptr %70, align 4, !tbaa !29
   %72 = and i32 %71, 63
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !39
   %.not.i.i54 = icmp sgt i8 %75, -1
   br i1 %.not.i.i54, label %76, label %getjumpcontrol.exit.i48
@@ -1950,7 +1950,7 @@ define hidden void @luaK_goiftrue(ptr noundef captures(none) %0, ptr noundef cap
   %12 = load i32, ptr %11, align 4, !tbaa !29
   %13 = and i32 %12, 63
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !39
   %.not.i.i = icmp sgt i8 %16, -1
   br i1 %.not.i.i, label %17, label %invertjump.exit
@@ -2288,7 +2288,7 @@ isnumeral.exit:                                   ; preds = %11
   %29 = load i32, ptr %28, align 4, !tbaa !29
   %30 = and i32 %29, 63
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %.not.i.i.i = icmp sgt i8 %33, -1
   br i1 %.not.i.i.i, label %34, label %invertjump.exit.i
@@ -2412,7 +2412,7 @@ freeexp.exit.i:                                   ; preds = %66, %62, %discharge
   %91 = load i32, ptr %90, align 4, !tbaa !29
   %92 = and i32 %91, 63
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !39
   %.not.i.i.i.i = icmp sgt i8 %95, -1
   br i1 %.not.i.i.i.i, label %96, label %getjumpcontrol.exit.i.i.i
@@ -2474,7 +2474,7 @@ removevalues.exit.i:                              ; preds = %removevalues.exitth
   %118 = load i32, ptr %117, align 4, !tbaa !29
   %119 = and i32 %118, 63
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !39
   %.not.i.i.i40.i = icmp sgt i8 %122, -1
   br i1 %.not.i.i.i40.i, label %123, label %getjumpcontrol.exit.i.i34.i
@@ -3756,7 +3756,7 @@ define internal fastcc i32 @luaK_code(ptr noundef captures(none) %0, i32 noundef
   %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = and i32 %23, 63
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !39
   %.not.i.i.i.i = icmp sgt i8 %27, -1
   br i1 %.not.i.i.i.i, label %28, label %getjumpcontrol.exit.i.i.i

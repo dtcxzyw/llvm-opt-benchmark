@@ -463,8 +463,8 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 .preheader:                                       ; preds = %.preheader56, %44
   %indvars.iv61 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next62, %44 ]
-  %42 = getelementptr inbounds nuw [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv61
-  %43 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %9, i64 0, i64 %indvars.iv61
+  %42 = getelementptr inbounds nuw [3 x float], ptr %41, i64 %indvars.iv61
+  %43 = getelementptr inbounds nuw %"struct.std::array.0", ptr %9, i64 %indvars.iv61
   br label %45
 
 44:                                               ; preds = %45
@@ -474,9 +474,9 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !46
-  %48 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
   store float %47, ptr %48, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

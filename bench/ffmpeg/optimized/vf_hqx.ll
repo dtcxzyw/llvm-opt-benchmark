@@ -77,7 +77,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
   %35 = shl i32 %.051, 16
   %36 = add i32 %32, %35
   %37 = zext i32 %.04250 to i64
-  %38 = getelementptr inbounds nuw [16777216 x i32], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %37
   store i32 %36, ptr %38, align 4, !tbaa !20
   %39 = add nsw i32 %.04250, 65793
   %40 = add nuw nsw i32 %.04549, 1
@@ -97,9 +97,9 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !25
-  %47 = add nsw i32 %46, -2
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [3 x ptr], ptr @init.hqxfuncs, i64 0, i64 %48
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr ptr, ptr @init.hqxfuncs, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -16
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !28

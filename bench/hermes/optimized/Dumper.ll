@@ -1932,7 +1932,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit43:               ; preds = %if.then.i.i41, %if.
   %op_.i = getelementptr inbounds nuw i8, ptr %I, i64 132
   %16 = load i32, ptr %op_.i, align 4
   %idxprom.i = sext i32 %16 to i64
-  %arrayidx.i = getelementptr inbounds [26 x ptr], ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %idxprom.i
   %17 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i.not.i = icmp eq ptr %17, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit58, label %_ZN6hermes18BinaryOperatorInst14getOperatorStrEv.exit
@@ -2012,7 +2012,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit91:               ; preds = %if.then.i.i89, %if.
   %op_.i92 = getelementptr inbounds nuw i8, ptr %I, i64 132
   %28 = load i32, ptr %op_.i92, align 4
   %idxprom.i93 = sext i32 %28 to i64
-  %arrayidx.i94 = getelementptr inbounds [26 x ptr], ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 0, i64 %idxprom.i93
+  %arrayidx.i94 = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %idxprom.i93
   %29 = load ptr, ptr %arrayidx.i94, align 8
   %tobool.i.not.i95 = icmp eq ptr %29, null
   br i1 %tobool.i.not.i95, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit114, label %_ZN6hermes17CompareBranchInst14getOperatorStrEv.exit
@@ -2092,7 +2092,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit147:              ; preds = %if.then.i.i145, %if
   %op_.i148 = getelementptr inbounds nuw i8, ptr %I, i64 132
   %40 = load i32, ptr %op_.i148, align 4
   %idxprom.i149 = sext i32 %40 to i64
-  %arrayidx.i150 = getelementptr inbounds [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %idxprom.i149
+  %arrayidx.i150 = getelementptr inbounds ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %idxprom.i149
   %41 = load ptr, ptr %arrayidx.i150, align 8
   %tobool.i.not.i151 = icmp eq ptr %41, null
   br i1 %tobool.i.not.i151, label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit170, label %_ZN6hermes17UnaryOperatorInst14getOperatorStrEv.exit

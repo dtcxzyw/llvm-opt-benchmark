@@ -1363,7 +1363,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 293:                                              ; preds = %.outer, %_ZN12substitution11apply_visitERK11expr_offsetRb.exit135
   %indvars.iv403 = phi i64 [ %294, %_ZN12substitution11apply_visitERK11expr_offsetRb.exit135 ], [ %indvars.iv403.ph, %.outer ]
   %294 = add nsw i64 %indvars.iv403, -1
-  %295 = getelementptr inbounds nuw [0 x ptr], ptr %287, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw ptr, ptr %287, i64 %294
   %296 = load ptr, ptr %295, align 8, !tbaa !44
   br i1 %289, label %_ZNK15expr_offset_mapIP4exprE8containsERK11expr_offset.exit.thread.i126, label %_ZNK6vectorI7svectorIN15expr_offset_mapIP4exprE4dataEjELb1EjE4sizeEv.exit.i.i125
 
@@ -1570,7 +1570,7 @@ _ZN12substitution11apply_visitERK11expr_offsetRb.exit135.thread: ; preds = %310,
   %.089380 = phi i1 [ false, %.critedge386 ], [ %spec.select, %418 ]
   %374 = load ptr, ptr %16, align 8, !tbaa !44
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
-  %376 = getelementptr inbounds nuw [0 x ptr], ptr %375, i64 0, i64 %indvars.iv405
+  %376 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv405
   %377 = load ptr, ptr %376, align 8, !tbaa !44
   %378 = load ptr, ptr %110, align 8, !tbaa !57
   %379 = icmp eq ptr %378, null
@@ -4018,7 +4018,7 @@ _ZN6vectorI11expr_offsetLb0EjE9push_backERKS0_.exit.i: ; preds = %59, %53
   %indvars.iv = phi i64 [ %76, %.lr.ph ], [ %78, %_ZN12substitution5visitERK11expr_offsetRb.exit20 ]
   %.135 = phi i1 [ true, %.lr.ph ], [ %.3, %_ZN12substitution5visitERK11expr_offsetRb.exit20 ]
   %78 = add nsw i64 %indvars.iv, -1
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %71, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %71, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = load ptr, ptr %72, align 8, !tbaa !152
   %82 = icmp eq ptr %81, null

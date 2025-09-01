@@ -662,7 +662,7 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
 
 .critedge44.i:                                    ; preds = %282
   %293 = and i64 %283, 2147483647
-  %294 = getelementptr inbounds nuw [592 x i8], ptr %30, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw i8, ptr %30, i64 %293
   store i8 0, ptr %294, align 1
   %295 = call fastcc zeroext i1 @interpret_ident_response(ptr noundef %30, ptr noundef %23)
   br i1 %295, label %.thread50.i, label %296
@@ -1338,7 +1338,7 @@ radius_add_attribute.exit174.i.i:                 ; preds = %564, %562, %560
 601:                                              ; preds = %599
   %602 = getelementptr inbounds nuw i8, ptr %429, i64 %indvars.iv197.i.i
   %603 = load i8, ptr %602, align 1
-  %604 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %indvars.iv197.i.i
+  %604 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv197.i.i
   %605 = load i8, ptr %604, align 1
   %606 = xor i8 %605, %603
   store i8 %606, ptr %604, align 1
@@ -1503,7 +1503,7 @@ radius_add_attribute.exit175.i.i:                 ; preds = %617, %615, %613
   %690 = shl nuw i64 1, %689
   %691 = sdiv i32 %633, 64
   %692 = sext i32 %691 to i64
-  %693 = getelementptr inbounds [16 x i64], ptr %11, i64 0, i64 %692
+  %693 = getelementptr inbounds i64, ptr %11, i64 %692
   %694 = add nuw i32 %633, 1
   %695 = trunc i64 %495 to i16
   %696 = call i16 @llvm.bswap.i16(i16 %695)
@@ -1972,10 +1972,10 @@ sendAuthRequest.exit:                             ; preds = %879, %887
 
 switch.lookup:                                    ; preds = %892
   %897 = zext nneg i32 %895 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.ClientAuthentication, i64 0, i64 %897
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ClientAuthentication, i64 %897
   %switch.load = load ptr, ptr %switch.gep, align 8
   %898 = zext nneg i32 %895 to i64
-  %switch.gep145 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %898
+  %switch.gep145 = getelementptr inbounds nuw i32, ptr @switch.table.ClientAuthentication.3, i64 %898
   %switch.load146 = load i32, ptr %switch.gep145, align 4
   br label %899
 
@@ -2352,13 +2352,13 @@ define internal fastcc noundef zeroext i1 @interpret_ident_response(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %23 = load i8, ptr %.2, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %23, ptr %24, align 1
   br label %.preheader62, !llvm.loop !29
 
 .critedge2:                                       ; preds = %.preheader62, %.preheader62, %18
   %25 = and i64 %indvars.iv, 4294967295
-  %26 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   store i8 0, ptr %26, align 1
   br label %27
 

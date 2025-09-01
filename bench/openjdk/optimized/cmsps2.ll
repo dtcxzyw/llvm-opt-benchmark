@@ -295,12 +295,12 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 
 .preheader.i.i:                                   ; preds = %95, %88
   %indvars.iv25.i.i = phi i64 [ 0, %88 ], [ %indvars.iv.next26.i.i, %95 ]
-  %90 = getelementptr inbounds nuw [3 x %struct.cmsVEC3], ptr %31, i64 0, i64 %indvars.iv25.i.i
+  %90 = getelementptr inbounds nuw %struct.cmsVEC3, ptr %31, i64 %indvars.iv25.i.i
   br label %91
 
 91:                                               ; preds = %91, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %91 ]
-  %92 = getelementptr inbounds nuw [3 x double], ptr %90, i64 0, i64 %indvars.iv.i.i
+  %92 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv.i.i
   %93 = load double, ptr %92, align 8
   %94 = fmul double %93, 0x3FFFFFE000000000
   store double %94, ptr %92, align 8
@@ -678,7 +678,7 @@ EmitNGamma.exit.i.i41.i:                          ; preds = %241, %.lr.ph.i.i.i3
 
 switch.lookup:                                    ; preds = %251
   %281 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 0, i64 %281
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %281
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %EmitCIEBasedDEF.exit.i.i
 
@@ -1108,7 +1108,7 @@ EmitPQRStage.exit.i.i:                            ; preds = %435, %433, %420
 
 switch.lookup51:                                  ; preds = %._crit_edge.i21.i
   %463 = zext nneg i32 %3 to i64
-  %switch.gep52 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 0, i64 %463
+  %switch.gep52 = getelementptr inbounds nuw ptr, ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %463
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %EmitIntent.exit.i.i
 
@@ -1466,7 +1466,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
   %29 = phi ptr [ %34, %.lr.ph ], [ %26, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %31 = getelementptr inbounds nuw [15 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.64, i32 noundef %32) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

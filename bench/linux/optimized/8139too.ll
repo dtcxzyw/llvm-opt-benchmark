@@ -266,7 +266,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   %63 = xor i8 %62, 1
   %64 = zext nneg i8 %63 to i32
   %65 = zext nneg i8 %63 to i64
-  %66 = getelementptr [11 x %struct.resource], ptr %61, i64 0, i64 %65
+  %66 = getelementptr %struct.resource, ptr %61, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, 0
@@ -286,7 +286,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   %77 = sub i64 %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr [2 x %struct.anon.31], ptr @rtl8139_init_board.res, i64 0, i64 %73
+  %80 = getelementptr %struct.anon.31, ptr @rtl8139_init_board.res, i64 %73
   %81 = load i64, ptr %80, align 16
   %82 = and i64 %81, %79
   %83 = icmp eq i64 %82, 0
@@ -298,7 +298,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   %.lcssa27 = phi ptr [ %66, %60 ], [ %61, %107 ]
   %84 = getelementptr inbounds nuw i8, ptr %.lcssa27, i64 24
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr [2 x %struct.anon.31], ptr @rtl8139_init_board.res, i64 0, i64 %.lcssa32
+  %86 = getelementptr %struct.anon.31, ptr @rtl8139_init_board.res, i64 %.lcssa32
   %87 = load i64, ptr %86, align 16
   %88 = and i64 %87, %85
   %89 = icmp eq i64 %88, 0
@@ -307,7 +307,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 .loopexit24:                                      ; preds = %.lr.ph, %.thread18
   %90 = phi i32 [ %.lcssa37, %.thread18 ], [ %74, %.lr.ph ]
   %91 = phi i64 [ %.lcssa32, %.thread18 ], [ %73, %.lr.ph ]
-  %92 = getelementptr [2 x %struct.anon.31], ptr @rtl8139_init_board.res, i64 0, i64 %91, i32 1
+  %92 = getelementptr %struct.anon.31, ptr @rtl8139_init_board.res, i64 %91, i32 1
   %93 = load ptr, ptr %92, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %45, ptr noundef nonnull @.str.19, i32 noundef %90, ptr noundef %93) #15
   br label %.loopexit25
@@ -318,7 +318,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 
 .thread19:                                        ; preds = %94, %.thread18
   %96 = phi i64 [ %.lcssa32, %.thread18 ], [ %73, %94 ]
-  %97 = getelementptr [2 x %struct.anon.31], ptr @rtl8139_init_board.res, i64 0, i64 %96, i32 1
+  %97 = getelementptr %struct.anon.31, ptr @rtl8139_init_board.res, i64 %96, i32 1
   %98 = load ptr, ptr %97, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %45, ptr noundef nonnull @.str.20, ptr noundef %98) #15
   br label %.loopexit25
@@ -365,7 +365,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 
 121:                                              ; preds = %126, %118
   %122 = phi i64 [ 0, %118 ], [ %127, %126 ]
-  %123 = getelementptr [10 x %struct.anon.30], ptr @rtl_chip_info, i64 0, i64 %122, i32 1
+  %123 = getelementptr %struct.anon.30, ptr @rtl_chip_info, i64 %122, i32 1
   %124 = load i32, ptr %123, align 8
   %125 = icmp eq i32 %120, %124
   br i1 %125, label %132, label %126
@@ -532,7 +532,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   %210 = add i32 %209, 7
   %211 = tail call fastcc i32 @read_eeprom(ptr noundef %201, i32 noundef %210, i32 noundef %206)
   %212 = trunc i32 %211 to i16
-  %213 = getelementptr [3 x i16], ptr %3, i64 0, i64 %208
+  %213 = getelementptr i16, ptr %3, i64 %208
   store i16 %212, ptr %213, align 2
   %214 = add nuw nsw i64 %208, 1
   %215 = icmp eq i64 %214, 3
@@ -564,7 +564,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   store i32 1770, ptr %229, align 4
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %231 = load i64, ptr %230, align 8
-  %232 = getelementptr [2 x %struct.anon.29], ptr @board_info, i64 0, i64 %231, i32 1
+  %232 = getelementptr %struct.anon.29, ptr @board_info, i64 %231, i32 1
   %233 = load i32, ptr %232, align 8
   %234 = getelementptr i8, ptr %193, i64 2312
   store i32 %233, ptr %234, align 8
@@ -609,7 +609,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %193, ptr %257, align 8
   %258 = load i64, ptr %230, align 8
-  %259 = getelementptr [2 x %struct.anon.29], ptr @board_info, i64 0, i64 %258
+  %259 = getelementptr %struct.anon.29, ptr @board_info, i64 %258
   %260 = load ptr, ptr %259, align 16
   %261 = getelementptr inbounds nuw i8, ptr %193, i64 968
   %262 = load ptr, ptr %261, align 8
@@ -625,7 +625,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 
 268:                                              ; preds = %255
   %269 = sext i32 %266 to i64
-  %270 = getelementptr [8 x i32], ptr @media, i64 0, i64 %269
+  %270 = getelementptr i32, ptr @media, i64 %269
   %271 = load i32, ptr %270, align 4
   %272 = icmp sgt i32 %271, 0
   br i1 %272, label %273, label %292
@@ -663,7 +663,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 
 294:                                              ; preds = %292
   %295 = sext i32 %.pr to i64
-  %296 = getelementptr [8 x i32], ptr @full_duplex, i64 0, i64 %295
+  %296 = getelementptr i32, ptr @full_duplex, i64 %295
   %297 = load i32, ptr %296, align 4
   %298 = icmp sgt i32 %297, 0
   br i1 %298, label %299, label %.thread23
@@ -1294,7 +1294,7 @@ define internal i32 @mdio_read(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  %15 = getelementptr [8 x i8], ptr @mii_2_8139_map, i64 0, i64 %10
+  %15 = getelementptr i8, ptr @mii_2_8139_map, i64 %10
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %7, i64 %17
@@ -1338,7 +1338,7 @@ define internal void @mdio_write(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %16
-  %22 = getelementptr [8 x i8], ptr @mii_2_8139_map, i64 0, i64 %17
+  %22 = getelementptr i8, ptr @mii_2_8139_map, i64 %17
   %23 = load i8, ptr %22, align 1
   %24 = trunc i32 %3 to i16
   %25 = zext i8 %23 to i64
@@ -1508,7 +1508,7 @@ define internal i32 @rtl8139_open(ptr noundef %0) #2 align 16 {
   %53 = load ptr, ptr %14, align 8
   %54 = mul nuw nsw i64 %52, 1792
   %55 = getelementptr i8, ptr %53, i64 %54
-  %56 = getelementptr [4 x ptr], ptr %50, i64 0, i64 %52
+  %56 = getelementptr ptr, ptr %50, i64 %52
   store ptr %55, ptr %56, align 8
   %57 = add nuw nsw i64 %52, 1
   %58 = icmp eq i64 %57, 4
@@ -1641,14 +1641,14 @@ define internal noundef i32 @rtl8139_start_xmit(ptr noundef %0, ptr noundef %1) 
 
 13:                                               ; preds = %11
   %14 = getelementptr i8, ptr %1, i64 2824
-  %15 = getelementptr [4 x ptr], ptr %14, i64 0, i64 %9
+  %15 = getelementptr ptr, ptr %14, i64 %9
   %16 = load ptr, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(60) %16, i8 0, i64 60, i1 false)
   br label %17
 
 17:                                               ; preds = %13, %11
   %18 = getelementptr i8, ptr %1, i64 2824
-  %19 = getelementptr [4 x ptr], ptr %18, i64 0, i64 %9
+  %19 = getelementptr ptr, ptr %18, i64 %9
   %20 = load ptr, ptr %19, align 8
   tail call void @skb_copy_and_csum_dev(ptr noundef %0, ptr noundef %20) #14
   tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #14
@@ -1745,7 +1745,7 @@ define internal void @rtl8139_set_rx_mode(ptr noundef %0) #2 align 16 {
   %29 = tail call i32 @crc32_le(i32 noundef -1, ptr noundef nonnull %28, i64 noundef 6) #16
   %30 = and i32 %29, 255
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %31
+  %32 = getelementptr i8, ptr @byte_rev_table, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = lshr i32 %34, 2
@@ -1753,7 +1753,7 @@ define internal void @rtl8139_set_rx_mode(ptr noundef %0) #2 align 16 {
   %37 = shl nuw i32 1, %36
   %38 = lshr i32 %34, 7
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [2 x i32], ptr %2, i64 0, i64 %39
+  %40 = getelementptr i32, ptr %2, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = or i32 %37, %41
   store i32 %42, ptr %40, align 4
@@ -2358,7 +2358,7 @@ define internal fastcc void @rtl8139_hw_start(ptr noundef %0) unnamed_addr #2 al
 66:                                               ; preds = %66, %61
   %67 = phi i64 [ 0, %61 ], [ %80, %66 ]
   %68 = load i64, ptr %62, align 8
-  %69 = getelementptr [4 x ptr], ptr %63, i64 0, i64 %67
+  %69 = getelementptr ptr, ptr %63, i64 %67
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %64, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -3082,7 +3082,7 @@ define internal noundef i32 @rtl8139_resume(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %11, align 8
   %16 = mul nuw nsw i64 %14, 1792
   %17 = getelementptr i8, ptr %15, i64 %16
-  %18 = getelementptr [4 x ptr], ptr %12, i64 0, i64 %14
+  %18 = getelementptr ptr, ptr %12, i64 %14
   store ptr %17, ptr %18, align 8
   %19 = add nuw nsw i64 %14, 1
   %20 = icmp eq i64 %19, 4

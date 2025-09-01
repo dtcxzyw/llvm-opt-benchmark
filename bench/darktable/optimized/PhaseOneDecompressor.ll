@@ -681,8 +681,8 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %99 = lshr i64 %.sroa.052.3167.us, 62
   %100 = add nsw i32 %.sroa.13.3168.us, -2
   %101 = shl i64 %.sroa.052.3167.us, 2
-  %102 = or disjoint i64 %99, 8
-  %103 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %102
+  %102 = getelementptr inbounds nuw i32, ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %99
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = load i32, ptr %103, align 4, !tbaa !109
   store i32 %104, ptr %.041.ptr173.us, align 4, !tbaa !109
   %.041.add.us = add nuw nsw i64 %.041.idx172.us, 4
@@ -734,7 +734,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %119 = shl i64 %.sroa.052.3167, 2
   %120 = or disjoint i32 %114, %117
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !109
   store i32 %123, ptr %.041.ptr173, align 4, !tbaa !109
   br label %124
@@ -750,7 +750,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.052.1 = phi i64 [ %.sroa.052.7, %84 ], [ %.sroa.052.7, %83 ], [ %101, %.thread.loopexit.us ], [ %.sroa.052.5, %124 ]
   %.sroa.13.1 = phi i32 [ %.sroa.13.7, %84 ], [ %.sroa.13.7, %83 ], [ %100, %.thread.loopexit.us ], [ %.sroa.13.5, %124 ]
   %125 = and i64 %indvars.iv, 1
-  %126 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %4, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !109
   %128 = icmp eq i32 %127, 14
   %129 = icmp samesign ult i32 %.sroa.13.1, 65
@@ -766,7 +766,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %134 = lshr i64 %.sroa.052.1, 48
   %135 = trunc nuw nsw i64 %134 to i32
   %136 = add nsw i32 %.sroa.13.1, -16
-  %137 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %125
+  %137 = getelementptr inbounds nuw i32, ptr %3, i64 %125
   store i32 %135, ptr %137, align 4, !tbaa !109
   %138 = trunc nuw i64 %134 to i16
   br label %156
@@ -786,7 +786,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %148 = zext nneg i32 %127 to i64
   %149 = add nsw i32 %127, -1
   %.neg = shl nsw i32 -1, %149
-  %150 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %125
+  %150 = getelementptr inbounds nuw i32, ptr %3, i64 %125
   %151 = load i32, ptr %150, align 4, !tbaa !109
   %152 = add nsw i32 %.neg, 1
   %153 = add i32 %152, %146

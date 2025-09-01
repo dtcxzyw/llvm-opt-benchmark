@@ -5691,7 +5691,7 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
 
 42:                                               ; preds = %._crit_edge
   %43 = zext nneg i32 %.063 to i64
-  %44 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %15, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %15, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store i8 %.147, ptr %45, align 1, !tbaa !275
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4

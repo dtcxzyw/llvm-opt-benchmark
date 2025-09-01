@@ -204,7 +204,7 @@ Dar_ArrayAlloc.exit:                              ; preds = %13, %Dar_Factorial.
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = trunc i64 %indvars.iv to i8
-  %21 = getelementptr inbounds nuw [50 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -434,7 +434,7 @@ define i32 @Dar_TruthPolarize(i32 noundef %0, i32 noundef %1, i32 noundef %2) lo
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = xor i32 %10, -1
   %12 = and i32 %.01920, %11
@@ -484,7 +484,7 @@ define void @Dar_Truth4VarNPN(ptr noundef writeonly captures(address_is_null) %0
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %11 ]
   %17 = trunc i64 %indvars.iv.i to i8
-  %18 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %17, ptr %18, align 1, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -538,7 +538,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   br i1 %.not.i, label %48, label %39
 
 39:                                               ; preds = %.lr.ph.i141
-  %40 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i142
+  %40 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i142
   %41 = load i32, ptr %40, align 4, !tbaa !15
   %42 = xor i32 %41, -1
   %43 = and i32 %.01920.i, %42
@@ -693,7 +693,7 @@ Dar_TruthPolarize.exit:                           ; preds = %88, %Dar_TruthPermu
   br i1 %.not.i155, label %114, label %105
 
 105:                                              ; preds = %.lr.ph.i152
-  %106 = getelementptr inbounds nuw [5 x i32], ptr @Dar_TruthPolarize.Signs, i64 0, i64 %indvars.iv.i153
+  %106 = getelementptr inbounds nuw i32, ptr @Dar_TruthPolarize.Signs, i64 %indvars.iv.i153
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = xor i32 %107, -1
   %109 = and i32 %.01920.i154, %108

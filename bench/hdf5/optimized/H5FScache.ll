@@ -2374,14 +2374,14 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
 
 28:                                               ; preds = %27
   %29 = lshr i64 %23, 56
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !35
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %32, 56
   br label %H5VM_limit_enc_size.exit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %26
+  %35 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %26
   %36 = load i8, ptr %35, align 1, !tbaa !35
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %37, 48
@@ -2393,14 +2393,14 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
 
 40:                                               ; preds = %39
   %41 = lshr i64 %23, 40
-  %42 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !35
   %44 = zext i8 %43 to i32
   %45 = add nuw nsw i32 %44, 40
   br label %H5VM_limit_enc_size.exit
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %24
+  %47 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %24
   %48 = load i8, ptr %47, align 1, !tbaa !35
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %49, 32
@@ -2417,14 +2417,14 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
 
 54:                                               ; preds = %53
   %55 = lshr i64 %23, 24
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !35
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 24
   br label %H5VM_limit_enc_size.exit
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %52
+  %61 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %52
   %62 = load i8, ptr %61, align 1, !tbaa !35
   %63 = zext i8 %62 to i32
   %64 = add nuw nsw i32 %63, 16
@@ -2436,14 +2436,14 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
 
 66:                                               ; preds = %65
   %67 = lshr i64 %23, 8
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
   %71 = add nuw nsw i32 %70, 8
   br label %H5VM_limit_enc_size.exit
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %23
+  %73 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %23
   %74 = load i8, ptr %73, align 1, !tbaa !35
   %75 = zext i8 %74 to i32
   br label %H5VM_limit_enc_size.exit
@@ -2676,14 +2676,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 6:                                                ; preds = %5
   %7 = lshr i64 %0, 56
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !35
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 56
   br label %H5VM_log2_gen.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %4
   %14 = load i8, ptr %13, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, 48
@@ -2695,14 +2695,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 18:                                               ; preds = %17
   %19 = lshr i64 %0, 40
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !35
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 40
   br label %H5VM_log2_gen.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %2
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %2
   %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 32
@@ -2719,14 +2719,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 32:                                               ; preds = %31
   %33 = lshr i64 %0, 24
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !35
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, 24
   br label %H5VM_log2_gen.exit
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %30
+  %39 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %30
   %40 = load i8, ptr %39, align 1, !tbaa !35
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, 16
@@ -2738,14 +2738,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 44:                                               ; preds = %43
   %45 = lshr i64 %0, 8
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 8
   br label %H5VM_log2_gen.exit
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %0
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %0
   %52 = load i8, ptr %51, align 1, !tbaa !35
   %53 = zext i8 %52 to i32
   br label %H5VM_log2_gen.exit

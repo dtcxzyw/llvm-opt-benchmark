@@ -898,7 +898,7 @@ define internal zeroext i1 @HIDAPI_DriverShield_SendJoystickEffect(ptr noundef %
   br i1 %.not13.i, label %29, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw [30 x i8], ptr %25, i64 0, i64 %14
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %14
   %28 = sub nuw nsw i64 30, %14
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %28, i1 false)
   br label %29

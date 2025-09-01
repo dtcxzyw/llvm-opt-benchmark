@@ -112,20 +112,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 40:                                               ; preds = %.lr.ph167, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next, %.loopexit ]
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !41
-  %43 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !41
-  %45 = getelementptr inbounds nuw [8 x ptr], ptr %.0142, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %.0142, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   br i1 %.not151, label %56, label %47
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !42
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !41
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = load i32, ptr %31, align 4, !tbaa !43
   %55 = mul nsw i32 %54, %42
@@ -145,7 +145,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %61, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader153
-  %62 = getelementptr inbounds nuw [8 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %63 = tail call i32 @llvm.smin.i32(i32 %12, i32 %44)
   br label %68
 
@@ -155,7 +155,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %65, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph159:                                        ; preds = %.preheader
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %67 = tail call i32 @llvm.smin.i32(i32 %12, i32 %42)
   br label %83
 
@@ -237,7 +237,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge160:                                   ; preds = %._crit_edge, %.preheader
   %.0144.lcssa = phi i32 [ %12, %.preheader ], [ %123, %._crit_edge ]
   %.0.lcssa = phi ptr [ %46, %.preheader ], [ %87, %._crit_edge ]
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !41
   %127 = mul nsw i32 %126, %12
   %128 = sext i32 %127 to i64

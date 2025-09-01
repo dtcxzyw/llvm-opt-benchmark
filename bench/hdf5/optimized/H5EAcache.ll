@@ -263,7 +263,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 44:                                               ; preds = %36
   %45 = zext nneg i8 %38 to i64
-  %46 = getelementptr inbounds nuw [3 x ptr], ptr @H5EA_client_class_g, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr @H5EA_client_class_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 248
   store ptr %47, ptr %48, align 8, !tbaa !41
@@ -805,7 +805,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %361 = mul nuw nsw i64 %360, 125613361
   %362 = lshr i64 %361, 27
   %363 = and i64 %362, 31
-  %364 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %363
+  %364 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !16
   %366 = shl i32 %365, 1
   %367 = zext i32 %366 to i64
@@ -1525,7 +1525,7 @@ define internal noundef i32 @H5EA__cache_iblock_get_initial_load_size(ptr nounde
   %13 = mul nuw nsw i64 %12, 125613361
   %14 = lshr i64 %13, 27
   %15 = and i64 %14, 31
-  %16 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = shl i32 %17, 1
   %19 = zext i32 %18 to i64

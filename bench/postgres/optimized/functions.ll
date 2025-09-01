@@ -1189,8 +1189,8 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
 
 325:                                              ; preds = %341, %.lr.ph.i184
   %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.i184 ], [ %indvars.iv.next.i187, %341 ]
-  %326 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %323, i64 0, i64 %indvars.iv.i185
-  %327 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %324, i64 0, i64 %indvars.iv.i185
+  %326 = getelementptr inbounds nuw %struct.ParamExternData, ptr %323, i64 %indvars.iv.i185
+  %327 = getelementptr inbounds nuw %struct.NullableDatum, ptr %324, i64 %indvars.iv.i185
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %329 = load i8, ptr %328, align 8, !range !6, !noundef !7
   %330 = trunc nuw i8 %329 to i1

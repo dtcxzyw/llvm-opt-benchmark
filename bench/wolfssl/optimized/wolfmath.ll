@@ -66,7 +66,7 @@ define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 nou
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw [129 x i64], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !11
   br label %13
 
@@ -120,15 +120,15 @@ get_digit.exit.lr.ph.split:                       ; preds = %.preheader45
 
 get_digit.exit:                                   ; preds = %get_digit.exit.lr.ph.split, %get_digit.exit
   %indvars.iv = phi i64 [ 0, %get_digit.exit.lr.ph.split ], [ %indvars.iv.next, %get_digit.exit ]
-  %25 = getelementptr inbounds nuw [129 x i64], ptr %15, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !11
   %.not.i36 = icmp samesign ult i64 %indvars.iv, %18
-  %27 = getelementptr inbounds nuw [129 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !11
   %. = select i1 %.not.i36, i64 %28, i64 0
   %29 = xor i64 %., %26
   %30 = and i64 %29, %5
-  %31 = getelementptr inbounds nuw [129 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %32 = xor i64 %30, %28
   store i64 %32, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -141,13 +141,13 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
   br i1 %.not.i39, label %34, label %get_digit.exit44
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw [129 x i64], ptr %21, i64 0, i64 %indvars.iv63
+  %35 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv63
   %36 = load i64, ptr %35, align 8, !tbaa !11
   br label %get_digit.exit44
 
 get_digit.exit44:                                 ; preds = %34, %33
   %.0.i40 = phi i64 [ %36, %34 ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw [129 x i64], ptr %22, i64 0, i64 %indvars.iv63
+  %37 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv63
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = xor i64 %38, %.0.i40
   %40 = and i64 %39, %5
@@ -207,22 +207,21 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %.critedge30, %24
+.preheader:                                       ; preds = %.critedge30, %23
   %18 = load i16, ptr %0, align 8, !tbaa !8
   %19 = zext i16 %18 to i64
-  %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [129 x i64], ptr %15, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !11
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.critedge
+  %20 = getelementptr i64, ptr %0, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !11
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %.critedge
 
-24:                                               ; preds = %.preheader
-  %25 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %2, ptr noundef nonnull %21, i32 noundef 8) #6
-  %.old2 = icmp eq i32 %25, 0
+23:                                               ; preds = %.preheader
+  %24 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %2, ptr noundef nonnull %20, i32 noundef 8) #6
+  %.old2 = icmp eq i32 %24, 0
   br i1 %.old2, label %.preheader, label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %24, %6, %9, %3, %.critedge30
-  %.3 = phi i32 [ %16, %.critedge30 ], [ -236, %3 ], [ -173, %9 ], [ -173, %6 ], [ 0, %.preheader ], [ %25, %24 ]
+.critedge:                                        ; preds = %.preheader, %23, %6, %9, %3, %.critedge30
+  %.3 = phi i32 [ %16, %.critedge30 ], [ -236, %3 ], [ -173, %9 ], [ -173, %6 ], [ 0, %.preheader ], [ %24, %23 ]
   ret i32 %.3
 }
 

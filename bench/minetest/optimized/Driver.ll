@@ -510,7 +510,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase12quer
 entry:
   %FeatureEnabled = getelementptr inbounds nuw i8, ptr %this, i64 1107
   %idxprom = zext i32 %feature to i64
-  %arrayidx = getelementptr inbounds nuw [39 x i8], ptr %FeatureEnabled, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %FeatureEnabled, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !55, !range !35, !noundef !36
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.end, label %land.rhs

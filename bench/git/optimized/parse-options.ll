@@ -301,7 +301,7 @@ optbug.exit.i:                                    ; preds = %58, %57, %56, %.lr.
 
 68:                                               ; preds = %61
   %69 = sext i32 %60 to i64
-  %70 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %69
+  %70 = getelementptr inbounds i8, ptr %7, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !28
   %72 = add i8 %71, 1
   store i8 %72, ptr %70, align 1, !tbaa !28
@@ -1749,7 +1749,7 @@ define internal fastcc i32 @parse_short_opt(ptr noundef %0, ptr noundef %1) unna
   %23 = load ptr, ptr %22, align 8, !tbaa !47
   %24 = load i8, ptr %23, align 1, !tbaa !28
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !28
   %28 = and i8 %27, 2
   %.not40 = icmp eq i8 %28, 0
@@ -1760,7 +1760,7 @@ define internal fastcc i32 @parse_short_opt(ptr noundef %0, ptr noundef %1) unna
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 %.034
   %30 = load i8, ptr %29, align 1, !tbaa !28
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !28
   %34 = and i8 %33, 2
   %.not41 = icmp eq i8 %34, 0
@@ -3016,7 +3016,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 12:                                               ; preds = %11
   %13 = add nuw nsw i32 %.0, 1
   %14 = zext nneg i32 %.0 to i64
-  %15 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %14
   store ptr %3, ptr %15, align 8, !tbaa !48
   br label %16
 
@@ -3028,7 +3028,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 17:                                               ; preds = %16
   %18 = add nuw nsw i32 %.1, 1
   %19 = zext nneg i32 %.1 to i64
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
   store ptr %5, ptr %20, align 8, !tbaa !48
   br label %21
 
@@ -3040,7 +3040,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 22:                                               ; preds = %21
   %23 = add nuw nsw i32 %.2, 1
   %24 = zext nneg i32 %.2 to i64
-  %25 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %24
   store ptr %7, ptr %25, align 8, !tbaa !48
   br label %26
 

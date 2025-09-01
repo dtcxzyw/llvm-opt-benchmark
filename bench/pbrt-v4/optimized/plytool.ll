@@ -7701,7 +7701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 
 .preheader.i.i:                                   ; preds = %268, %._crit_edge710
   %indvars.iv12.i.i = phi i64 [ 0, %._crit_edge710 ], [ %indvars.iv.next13.i.i, %268 ]
-  %267 = getelementptr inbounds nuw [4 x [4 x float]], ptr %18, i64 0, i64 %indvars.iv12.i.i
+  %267 = getelementptr inbounds nuw [4 x float], ptr %18, i64 %indvars.iv12.i.i
   br label %269
 
 268:                                              ; preds = %269
@@ -7713,7 +7713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %269 ]
   %270 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i
   %271 = uitofp i1 %270 to float
-  %272 = getelementptr inbounds nuw [4 x float], ptr %267, i64 0, i64 %indvars.iv.i.i
+  %272 = getelementptr inbounds nuw float, ptr %267, i64 %indvars.iv.i.i
   store float %271, ptr %272, align 4, !tbaa !97
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -7721,7 +7721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 
 .preheader.i1.i:                                  ; preds = %268, %274
   %indvars.iv12.i2.i = phi i64 [ %indvars.iv.next13.i6.i, %274 ], [ 0, %268 ]
-  %273 = getelementptr inbounds nuw [4 x [4 x float]], ptr %246, i64 0, i64 %indvars.iv12.i2.i
+  %273 = getelementptr inbounds nuw [4 x float], ptr %246, i64 %indvars.iv12.i2.i
   br label %275
 
 274:                                              ; preds = %275
@@ -7733,7 +7733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %275 ]
   %276 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %277 = uitofp i1 %276 to float
-  %278 = getelementptr inbounds nuw [4 x float], ptr %273, i64 0, i64 %indvars.iv.i3.i
+  %278 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv.i3.i
   store float %277, ptr %278, align 4, !tbaa !97
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4

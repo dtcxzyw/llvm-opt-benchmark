@@ -484,7 +484,7 @@ define dso_local noundef ptr @php_uudecode(ptr noundef readonly captures(address
 
 106:                                              ; preds = %77, %97, %87, %._crit_edge74
   store i64 %.1.ph, ptr %13, align 8, !tbaa !13
-  %107 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %.1.ph
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 %.1.ph
   store i8 0, ptr %107, align 1, !tbaa !9
   br label %108
 

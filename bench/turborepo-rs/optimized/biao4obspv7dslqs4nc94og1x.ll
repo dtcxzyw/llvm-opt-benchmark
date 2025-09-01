@@ -4184,7 +4184,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %40, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i, label %41
 
 41:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
-  %42 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %37, i64 0, i64 %.sroa.0.0.i.i
+  %42 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %37, i64 %.sroa.0.0.i.i
   %43 = add i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %42) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %45, !noalias !1008
@@ -4200,7 +4200,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
 
 47:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
-  %48 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %37, i64 0, i64 %.sroa.0.1.i.i
+  %48 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %37, i64 %.sroa.0.1.i.i
   %49 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %48) #19
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %50, !noalias !1008
@@ -6566,10 +6566,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !301, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !1543, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [53 x i64], ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [53 x ptr], ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax.20, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCsaPKTPzkFU9s_3nom5error9ErrorKindNtB5_5Debug3fmtCseG2FYMysgNb_3wax.20, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

@@ -7300,7 +7300,7 @@ list_length.exit.i:                               ; preds = %189
 240:                                              ; preds = %.thread274.i, %.lr.ph328.i
   %.0197327.i = phi i32 [ 0, %.lr.ph328.i ], [ %260, %.thread274.i ]
   %241 = sext i32 %.0197327.i to i64
-  %242 = getelementptr inbounds [0 x %struct.MVNDistinctItem], ptr %208, i64 0, i64 %241
+  %242 = getelementptr inbounds %struct.MVNDistinctItem, ptr %208, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load i32, ptr %243, align 8
   %245 = call i32 @bms_num_members(ptr noundef %.0199315.i.lcssa) #12
@@ -9480,8 +9480,8 @@ gincost_opexpr.exit:                              ; preds = %185
 
 .lr.ph.i228:                                      ; preds = %220
   %235 = sext i16 %193 to i64
-  %236 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %235
-  %237 = getelementptr inbounds [32 x i8], ptr %138, i64 0, i64 %235
+  %236 = getelementptr inbounds i8, ptr %15, i64 %235
+  %237 = getelementptr inbounds i8, ptr %138, i64 %235
   br label %238
 
 238:                                              ; preds = %263, %.lr.ph.i228
@@ -9616,13 +9616,13 @@ gincost_scalararrayopexpr.exit:                   ; preds = %208, %268
 
 293:                                              ; preds = %.lr.ph259, %302
   %indvars.iv265 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next266, %302 ]
-  %294 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 0, i64 %indvars.iv265
+  %294 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv265
   %295 = load i8, ptr %294, align 1, !range !4, !noundef !5
   %296 = trunc nuw i8 %295 to i1
   br i1 %296, label %297, label %302
 
 297:                                              ; preds = %293
-  %298 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 0, i64 %indvars.iv265
+  %298 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv265
   %299 = load i8, ptr %298, align 1, !range !4, !noundef !5
   %300 = trunc nuw i8 %299 to i1
   br i1 %300, label %302, label %.thread241
@@ -11037,13 +11037,13 @@ define internal fastcc noundef zeroext i1 @gincost_pattern(ptr noundef readonly 
 
 79:                                               ; preds = %._crit_edge
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %81 = getelementptr inbounds [32 x i8], ptr %80, i64 0, i64 %17
+  %81 = getelementptr inbounds i8, ptr %80, i64 %17
   store i8 1, ptr %81, align 1
   br label %93
 
 82:                                               ; preds = %._crit_edge
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %84 = getelementptr inbounds [32 x i8], ptr %83, i64 0, i64 %17
+  %84 = getelementptr inbounds i8, ptr %83, i64 %17
   store i8 1, ptr %84, align 1
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %86 = load double, ptr %85, align 8
@@ -11056,7 +11056,7 @@ define internal fastcc noundef zeroext i1 @gincost_pattern(ptr noundef readonly 
   br label %93
 
 91:                                               ; preds = %._crit_edge
-  %92 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %17
+  %92 = getelementptr inbounds i8, ptr %4, i64 %17
   store i8 1, ptr %92, align 1
   br label %93
 

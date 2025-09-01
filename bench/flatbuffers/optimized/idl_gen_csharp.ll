@@ -3417,7 +3417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %.pre.i115 = load i32, ptr %167, align 8, !tbaa !216, !noalias !213
   %168 = zext i32 %.pre.i115 to i64
-  %169 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !147, !noalias !213
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %171, ptr %13, align 8, !tbaa !16, !alias.scope !213
@@ -17369,7 +17369,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
 
 switch.lookup:                                    ; preds = %4509
   %4512 = zext nneg i32 %4510 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZNK11flatbuffers6csharp15CSharpGenerator9GenStructERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE.11, i64 0, i64 %4512
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK11flatbuffers6csharp15CSharpGenerator9GenStructERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE.11, i64 %4512
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 
@@ -27053,7 +27053,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4745.split: ; pred
 
 switch.lookup27060:                               ; preds = %7660
   %7664 = zext nneg i32 %7662 to i64
-  %switch.gep27061 = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZNK11flatbuffers6csharp15CSharpGenerator9GenStructERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE.11, i64 0, i64 %7664
+  %switch.gep27061 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK11flatbuffers6csharp15CSharpGenerator9GenStructERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE.11, i64 %7664
   %switch.load27062 = load i64, ptr %switch.gep27061, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit4753
 
@@ -36746,7 +36746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 86:                                               ; preds = %15, %4
   %87 = zext i32 %.pre to i64
-  %88 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !147
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %90, ptr %0, align 8, !tbaa !16
@@ -51675,7 +51675,7 @@ _ZN11flatbuffers8IsSeriesERKNS_4TypeE.exit:       ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1213)
   %30 = zext nneg i32 %10 to i64
-  %31 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !147, !noalias !1213
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %33, ptr %9, align 8, !tbaa !16, !alias.scope !1213
@@ -52463,7 +52463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1241)
   %98 = zext i32 %12 to i64
-  %99 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !147, !noalias !1241
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %101, ptr %9, align 8, !tbaa !16, !alias.scope !1241
@@ -52535,7 +52535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !1244)
   %.pre.i38 = load i32, ptr %2, align 8, !tbaa !216, !noalias !1244
   %123 = zext i32 %.pre.i38 to i64
-  %124 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !147, !noalias !1244
   %126 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %126, ptr %11, align 8, !tbaa !16, !alias.scope !1244
@@ -52750,7 +52750,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6csharp15CSharpGenerator9Ge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1247)
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !147, !noalias !1247
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %18, ptr %6, align 8, !tbaa !16, !alias.scope !1247
@@ -52827,7 +52827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !1250)
   %.pre.i19 = load i32, ptr %2, align 8, !tbaa !216, !noalias !1250
   %42 = zext i32 %.pre.i19 to i64
-  %43 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !147, !noalias !1250
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %45, ptr %8, align 8, !tbaa !16, !alias.scope !1250
@@ -57833,7 +57833,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6csharp15CSharpGenerator9Ge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1363)
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6csharp15CSharpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE15csharp_typename, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !147, !noalias !1363
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %5, align 8, !tbaa !16, !alias.scope !1363

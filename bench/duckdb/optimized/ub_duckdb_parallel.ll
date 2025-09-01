@@ -31378,7 +31378,7 @@ _ZNSt5arrayIN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4Task
 
 14:                                               ; preds = %14, %_ZNSt5arrayIN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE19ImplicitProducerKVPELm32EEC2Ev.exit.i.i.i
   %.07.i.i.i.i = phi i64 [ 0, %_ZNSt5arrayIN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS2_4TaskELb1EEENS0_28ConcurrentQueueDefaultTraitsEE19ImplicitProducerKVPELm32EEC2Ev.exit.i.i.i ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw [32 x %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::shared_ptr<duckdb::Task>>::ImplicitProducerKVP"], ptr %4, i64 0, i64 %.07.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.duckdb_moodycamel::ConcurrentQueue<duckdb::shared_ptr<duckdb::Task>>::ImplicitProducerKVP", ptr %4, i64 %.07.i.i.i.i
   store atomic i64 0, ptr %15 monotonic, align 8, !noalias !1143
   %16 = add nuw nsw i64 %.07.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %16, 32
@@ -47817,7 +47817,7 @@ define linkonce_odr noundef zeroext i1 @_ZN17duckdb_moodycamel15ConcurrentQueueI
 
 18:                                               ; preds = %16, %12
   %.0511.i = phi i64 [ 0, %12 ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw [32 x %"struct.std::atomic.6"], ptr %15, i64 0, i64 %.0511.i
+  %19 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %15, i64 %.0511.i
   %20 = load atomic i8, ptr %19 monotonic, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %16, label %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit
@@ -47833,7 +47833,7 @@ define linkonce_odr noundef zeroext i1 @_ZN17duckdb_moodycamel15ConcurrentQueueI
 
 27:                                               ; preds = %27, %22
   %.03.i = phi i64 [ 0, %22 ], [ %29, %27 ]
-  %28 = getelementptr inbounds nuw [32 x %"struct.std::atomic.6"], ptr %26, i64 0, i64 %.03.i
+  %28 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %26, i64 %.03.i
   store atomic i8 0, ptr %28 monotonic, align 1
   %29 = add nuw nsw i64 %.03.i, 1
   %.not.i = icmp eq i64 %29, 32
@@ -48047,7 +48047,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_
 
 127:                                              ; preds = %127, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE17requisition_blockILNS6_14AllocationModeE0EEEPNS6_5BlockEv.exit.thread
   %.03.i30 = phi i64 [ 0, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE17requisition_blockILNS6_14AllocationModeE0EEEPNS6_5BlockEv.exit.thread ], [ %129, %127 ]
-  %128 = getelementptr inbounds nuw [32 x %"struct.std::atomic.6"], ptr %126, i64 0, i64 %.03.i30
+  %128 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %126, i64 %.03.i30
   store atomic i8 0, ptr %128 monotonic, align 1
   %129 = add nuw nsw i64 %.03.i30, 1
   %.not.i31 = icmp eq i64 %129, 32
@@ -48293,7 +48293,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %84, %82
 .thread:                                          ; preds = %87, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %72, %_ZN6duckdb10shared_ptrINS_4TaskELb1EEaSEOS2_.exit
   %88 = getelementptr inbounds nuw i8, ptr %37, i64 528
   %89 = xor i64 %38, 31
-  %90 = getelementptr inbounds nuw [32 x %"struct.std::atomic.6"], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %88, i64 %89
   store atomic i8 1, ptr %90 release, align 1
   br label %93
 
@@ -48638,7 +48638,7 @@ define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shar
 
 38:                                               ; preds = %36, %32
   %.0511.i = phi i64 [ 0, %32 ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw [32 x %"struct.std::atomic.6"], ptr %35, i64 0, i64 %.0511.i
+  %39 = getelementptr inbounds nuw %"struct.std::atomic.6", ptr %35, i64 %.0511.i
   %40 = load atomic i8, ptr %39 monotonic, align 1
   %41 = trunc i8 %40 to i1
   br i1 %41, label %36, label %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit

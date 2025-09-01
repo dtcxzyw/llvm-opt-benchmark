@@ -1121,7 +1121,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %67
   %.not.i.i.i.i.i = phi i1 [ true, %135 ], [ false, %144 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %135 ], [ 1, %144 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %135 ], [ %.1.i.i.i.i.i, %144 ]
-  %139 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %140 = load i8, ptr %139, align 1, !tbaa !288, !range !150, !noundef !151
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %142, label %144
@@ -1708,7 +1708,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %125
   %154 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !41
   %156 = add nsw i32 %155, %145
-  %157 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %157 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   store i32 %156, ptr %157, align 4, !tbaa !41
   br label %158
 
@@ -1716,7 +1716,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %125
   %.not.i.i.i.i.i.i = phi i1 [ true, %153 ], [ false, %164 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %153 ], [ 1, %164 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %153 ], [ %.1.i.i.i.i.i.i, %164 ]
-  %159 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %159 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %160 = load i8, ptr %159, align 1, !tbaa !288, !range !150, !noundef !151
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %162, label %164
@@ -1884,7 +1884,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %228, %225, %_ZNSt12
 
 .lr.ph97.i:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %.lr.ph97.preheader.i
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph97.preheader.i ], [ %indvars.iv.next109.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
-  %232 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv108.i
+  %232 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv108.i
   %233 = load i32, ptr %232, align 4, !tbaa !41
   %234 = load i8, ptr %97, align 8, !tbaa !286
   br label %235
@@ -1893,7 +1893,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %228, %225, %_ZNSt12
   %.not.i.i.i.i.i60.i = phi i1 [ true, %.lr.ph97.i ], [ false, %241 ]
   %.0813.i.i.i.i.i61.i = phi i64 [ 0, %.lr.ph97.i ], [ 1, %241 ]
   %.0912.i.i.i.i.i62.i = phi i64 [ 2, %.lr.ph97.i ], [ %.1.i.i.i.i.i63.i, %241 ]
-  %236 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i61.i
+  %236 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i61.i
   %237 = load i8, ptr %236, align 1, !tbaa !288, !range !150, !noundef !151
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %241
@@ -1955,13 +1955,13 @@ _ZNK11gmx_ga2la_t4findEi.exit.i69.i:              ; preds = %260, %244
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit72.i:            ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i69.i
   %268 = load i32, ptr %.0.i.i70.i, align 4, !tbaa !41
-  %269 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv108.i
+  %269 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv108.i
   store i32 %268, ptr %269, align 4, !tbaa !41
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
 
 .loopexit.i:                                      ; preds = %262, %_ZNK11gmx_ga2la_t4findEi.exit.i69.i, %244
   %270 = xor i32 %233, -1
-  %271 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv108.i
+  %271 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv108.i
   store i32 %270, ptr %271, align 4, !tbaa !41
   %272 = load ptr, ptr %99, align 8, !tbaa !14
   %273 = load ptr, ptr %100, align 8, !tbaa !307
@@ -2310,7 +2310,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit81:         ; preds = %62, %_ZNSt6vectorIi
   %.not.i.i.i.i.i = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit81 ], [ false, %118 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit81 ], [ 1, %118 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit81 ], [ %.1.i.i.i.i.i, %118 ]
-  %113 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %113 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %114 = load i8, ptr %113, align 1, !tbaa !288, !range !150, !noundef !151
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %118
@@ -2390,7 +2390,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   %.not.i.i.i.i.i86 = phi i1 [ true, %150 ], [ false, %158 ]
   %.0813.i.i.i.i.i87 = phi i64 [ 0, %150 ], [ 1, %158 ]
   %.0912.i.i.i.i.i88 = phi i64 [ 2, %150 ], [ %.1.i.i.i.i.i89, %158 ]
-  %153 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i87
+  %153 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i87
   %154 = load i8, ptr %153, align 1, !tbaa !288, !range !150, !noundef !151
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %158
@@ -2813,7 +2813,7 @@ _ZN3gmx9HashedMapIiE4findEi.exit:                 ; preds = %240, %_ZN3gmx9Hashe
   %.not.i.i.i.i.i114 = phi i1 [ true, %366 ], [ false, %376 ]
   %.0813.i.i.i.i.i115 = phi i64 [ 0, %366 ], [ 1, %376 ]
   %.0912.i.i.i.i.i116 = phi i64 [ 2, %366 ], [ %.1.i.i.i.i.i117, %376 ]
-  %371 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i115
+  %371 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i115
   %372 = load i8, ptr %371, align 1, !tbaa !288, !range !150, !noundef !151
   %373 = trunc nuw i8 %372 to i1
   br i1 %373, label %374, label %376

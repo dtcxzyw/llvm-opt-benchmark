@@ -39,7 +39,7 @@ define dso_local i32 @netlink_policy_dump_get_policy_idx(ptr noundef readonly ca
 
 15:                                               ; preds = %24, %11
   %16 = phi i64 [ 0, %11 ], [ %25, %24 ]
-  %17 = getelementptr [0 x %struct.anon], ptr %12, i64 0, i64 %16
+  %17 = getelementptr %struct.anon, ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %20, label %24
@@ -119,7 +119,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
 
 31:                                               ; preds = %28, %25
   %32 = phi i64 [ %29, %28 ], [ 0, %25 ]
-  %33 = getelementptr [0 x %struct.anon], ptr %26, i64 0, i64 %32
+  %33 = getelementptr %struct.anon, ptr %26, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %1
   br i1 %35, label %36, label %40
@@ -149,7 +149,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
   store i32 %42, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %52 = zext i32 %50 to i64
-  %53 = getelementptr [0 x %struct.anon], ptr %51, i64 0, i64 %52
+  %53 = getelementptr %struct.anon, ptr %51, i64 %52
   %54 = sub i32 %42, %50
   %55 = zext i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 4
@@ -183,7 +183,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.loopexit26 ]
   %68 = phi ptr [ %129, %63 ], [ %.ph, %.loopexit26 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = getelementptr [0 x %struct.anon], ptr %69, i64 0, i64 %indvars.iv
+  %70 = getelementptr %struct.anon, ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.loopexit24, label %.preheader
@@ -231,7 +231,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
 
 100:                                              ; preds = %97, %94
   %101 = phi i64 [ 0, %94 ], [ %98, %97 ]
-  %102 = getelementptr [0 x %struct.anon], ptr %96, i64 0, i64 %101
+  %102 = getelementptr %struct.anon, ptr %96, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, %83
   br i1 %104, label %105, label %109
@@ -261,7 +261,7 @@ define dso_local noundef i32 @netlink_policy_dump_add_policy(ptr noundef capture
   store i32 %111, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %121 = zext i32 %119 to i64
-  %122 = getelementptr [0 x %struct.anon], ptr %120, i64 0, i64 %121
+  %122 = getelementptr %struct.anon, ptr %120, i64 %121
   %123 = sub i32 %111, %119
   %124 = zext i32 %123 to i64
   %125 = shl nuw nsw i64 %124, 4
@@ -326,7 +326,7 @@ define dso_local zeroext i1 @netlink_policy_dump_loop(ptr noundef readonly captu
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = zext i32 %2 to i64
-  %9 = getelementptr [0 x %struct.anon], ptr %7, i64 0, i64 %8
+  %9 = getelementptr %struct.anon, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   br label %12
@@ -795,7 +795,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %1, align 8
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert5 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert5 = getelementptr %struct.anon, ptr %3, i64 %.phi.trans.insert
   %.pre6 = load ptr, ptr %.phi.trans.insert5, align 8
   %.pre7 = load i32, ptr %4, align 4
   br label %9
@@ -891,7 +891,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
 
 66:                                               ; preds = %63
   %67 = zext i32 %61 to i64
-  %68 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %67
+  %68 = getelementptr %struct.anon, ptr %3, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit, label %9

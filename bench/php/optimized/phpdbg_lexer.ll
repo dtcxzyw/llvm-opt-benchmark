@@ -88,8 +88,8 @@ define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr noundef writeonly captures(n
 
 25:                                               ; preds = %22
   %26 = zext i8 %21 to i64
-  %27 = or disjoint i64 %26, 256
-  %28 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %27
+  %27 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 256
   %29 = load i8, ptr %28, align 1, !tbaa !42
   %.not953 = icmp sgt i8 %29, -1
   br i1 %.not953, label %30, label %.preheader1083
@@ -154,8 +154,8 @@ define hidden range(i32 0, 278) i32 @phpdbg_lex(ptr noundef writeonly captures(n
   %.0836 = phi i8 [ %35, %.loopexit1022 ], [ %363, %367 ], [ %363, %369 ], [ %363, %375 ], [ %363, %378 ], [ %133, %138 ], [ %177, %186 ], [ %177, %188 ], [ %177, %192 ], [ %383, %381 ], [ %177, %193 ], [ %428, %431 ], [ %755, %753 ], [ %713, %711 ], [ %699, %697 ], [ %683, %681 ], [ %603, %601 ], [ %408, %406 ], [ %200, %198 ], [ %439, %442 ], [ %717, %715 ], [ %703, %701 ], [ %687, %685 ], [ %607, %605 ], [ %412, %410 ], [ %204, %202 ], [ %691, %689 ], [ %611, %609 ], [ %416, %414 ], [ %208, %206 ], [ %420, %422 ], [ %420, %424 ], [ %212, %210 ], [ %216, %214 ], [ %434, %432 ], [ %220, %225 ], [ %220, %226 ], [ %641, %639 ], [ %445, %443 ], [ %230, %228 ], [ %449, %447 ], [ %234, %232 ], [ %707, %705 ], [ %695, %693 ], [ %645, %643 ], [ %453, %451 ], [ %238, %236 ], [ %649, %647 ], [ %457, %455 ], [ %242, %240 ], [ %220, %222 ], [ %428, %430 ], [ %439, %441 ], [ %518, %516 ]
   %.0834 = phi i32 [ 0, %.loopexit1022 ], [ 0, %367 ], [ 0, %369 ], [ 0, %375 ], [ 0, %378 ], [ 0, %138 ], [ 2, %186 ], [ 2, %188 ], [ 2, %192 ], [ 0, %381 ], [ 2, %193 ], [ 0, %431 ], [ 0, %753 ], [ 0, %711 ], [ 0, %697 ], [ 0, %681 ], [ 0, %601 ], [ 0, %406 ], [ 0, %198 ], [ 0, %442 ], [ 0, %715 ], [ 0, %701 ], [ 0, %685 ], [ 0, %605 ], [ 0, %410 ], [ 0, %202 ], [ 0, %689 ], [ 0, %609 ], [ 0, %414 ], [ 0, %206 ], [ 0, %422 ], [ 0, %424 ], [ 0, %210 ], [ 0, %214 ], [ 0, %432 ], [ 0, %225 ], [ 0, %226 ], [ 0, %639 ], [ 0, %443 ], [ 0, %228 ], [ 0, %447 ], [ 0, %232 ], [ 0, %705 ], [ 0, %693 ], [ 0, %643 ], [ 0, %451 ], [ 0, %236 ], [ 0, %647 ], [ 0, %455 ], [ 0, %240 ], [ 0, %222 ], [ 0, %430 ], [ 0, %441 ], [ 0, %516 ]
   %38 = zext i8 %.0836 to i64
-  %39 = or disjoint i64 %38, 256
-  %40 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 256
   %41 = load i8, ptr %40, align 1, !tbaa !42
   %42 = and i8 %41, 64
   %.not976 = icmp eq i8 %42, 0
@@ -232,8 +232,8 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %74, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %75 = load i8, ptr %74, align 1, !tbaa !42
   %76 = zext i8 %75 to i64
-  %77 = or disjoint i64 %76, 256
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %77
+  %77 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
   %79 = load i8, ptr %78, align 1, !tbaa !42
   %.not979 = icmp sgt i8 %79, -1
   br i1 %.not979, label %80, label %.preheader1083
@@ -357,7 +357,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %132, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %133 = load i8, ptr %132, align 1, !tbaa !42
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !42
   %137 = and i8 %136, 1
   %.not963 = icmp eq i8 %137, 0
@@ -374,7 +374,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %142 = load i8, ptr %141, align 1, !tbaa !42
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !42
   %146 = and i8 %145, 1
   %.not968 = icmp eq i8 %146, 0
@@ -447,7 +447,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %176, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %177 = load i8, ptr %176, align 1, !tbaa !42
   %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !42
   %181 = and i8 %180, 1
   %.not959 = icmp eq i8 %181, 0
@@ -621,7 +621,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %.3839 = phi i8 [ %246, %.loopexit1007 ], [ %469, %473 ], [ %469, %475 ], [ %469, %480 ], [ %469, %481 ]
   %.4 = phi i32 [ %.1835, %.loopexit1007 ], [ 0, %473 ], [ 0, %475 ], [ 0, %480 ], [ 0, %481 ]
   %249 = zext i8 %.3839 to i64
-  %250 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !42
   %252 = and i8 %251, 2
   %.not977 = icmp eq i8 %252, 0
@@ -657,7 +657,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %263 = phi ptr [ %261, %259 ], [ %86, %85 ]
   %.1837 = phi i8 [ %262, %259 ], [ %87, %85 ]
   %264 = zext i8 %.1837 to i64
-  %265 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !42
   %267 = and i8 %266, 4
   %.not973 = icmp eq i8 %267, 0
@@ -701,7 +701,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %.4840 = phi i8 [ %281, %.loopexit1006 ], [ %667, %665 ], [ %491, %489 ], [ %278, %292 ]
   %.8 = phi i32 [ %.7, %.loopexit1006 ], [ 5, %665 ], [ 0, %489 ], [ 0, %292 ]
   %284 = zext i8 %.4840 to i64
-  %285 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !42
   %287 = and i8 %286, 8
   %.not975 = icmp eq i8 %287, 0
@@ -787,7 +787,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %320 = phi ptr [ %318, %316 ], [ %128, %127 ]
   %.2838 = phi i8 [ %319, %316 ], [ %129, %127 ]
   %321 = zext i8 %.2838 to i64
-  %322 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %321
   %323 = load i8, ptr %322, align 1, !tbaa !42
   %324 = and i8 %323, 16
   %.not970 = icmp eq i8 %324, 0
@@ -831,7 +831,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   %.5841 = phi i8 [ %338, %.loopexit1011 ], [ %670, %668 ], [ %498, %496 ], [ %335, %349 ]
   %.10 = phi i32 [ %.9, %.loopexit1011 ], [ 5, %668 ], [ 0, %496 ], [ 0, %349 ]
   %341 = zext i8 %.5841 to i64
-  %342 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %341
   %343 = load i8, ptr %342, align 1, !tbaa !42
   %344 = and i8 %343, 32
   %.not971 = icmp eq i8 %344, 0
@@ -939,7 +939,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %382, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %383 = load i8, ptr %382, align 1, !tbaa !42
   %384 = zext i8 %383 to i64
-  %385 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %384
   %386 = load i8, ptr %385, align 1, !tbaa !42
   %387 = and i8 %386, 64
   %.not960 = icmp eq i8 %387, 0
@@ -1386,7 +1386,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %564, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %565 = load i8, ptr %564, align 1, !tbaa !42
   %566 = zext i8 %565 to i64
-  %567 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %566
   %568 = load i8, ptr %567, align 1, !tbaa !42
   %569 = and i8 %568, 64
   %.not961 = icmp eq i8 %569, 0
@@ -1696,7 +1696,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %706, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %707 = load i8, ptr %706, align 1, !tbaa !42
   %708 = zext i8 %707 to i64
-  %709 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %708
+  %709 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %708
   %710 = load i8, ptr %709, align 1, !tbaa !42
   %.not954 = icmp sgt i8 %710, -1
   br i1 %.not954, label %36, label %.preheader1028
@@ -1726,7 +1726,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %720, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %721 = load i8, ptr %720, align 1, !tbaa !42
   %722 = zext i8 %721 to i64
-  %723 = getelementptr inbounds nuw [512 x i8], ptr @phpdbg_lex.yybm, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm, i64 %722
   %724 = load i8, ptr %723, align 1, !tbaa !42
   %.not955 = icmp sgt i8 %724, -1
   br i1 %.not955, label %725, label %.preheader1028
@@ -1832,7 +1832,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %770 = load i8, ptr %16, align 1, !tbaa !42
   %771 = zext i8 %770 to i64
-  %772 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %771
+  %772 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %771
   %773 = load i8, ptr %772, align 1, !tbaa !42
   %774 = and i8 %773, 64
   %.not951 = icmp eq i8 %774, 0
@@ -1848,7 +1848,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %776, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %777 = load i8, ptr %776, align 1, !tbaa !42
   %778 = zext i8 %777 to i64
-  %779 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %778
+  %779 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %778
   %780 = load i8, ptr %779, align 1, !tbaa !42
   %781 = and i8 %780, 64
   %.not952 = icmp eq i8 %781, 0
@@ -1873,7 +1873,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %789 = load i8, ptr %14, align 1, !tbaa !42
   %790 = zext i8 %789 to i64
-  %791 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %790
+  %791 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %790
   %792 = load i8, ptr %791, align 1, !tbaa !42
   %.not9481156 = icmp sgt i8 %792, -1
   br i1 %.not9481156, label %.lr.ph, label %.preheader.preheader
@@ -1895,7 +1895,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %799, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %800 = load i8, ptr %799, align 1, !tbaa !42
   %801 = zext i8 %800 to i64
-  %802 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %801
+  %802 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %801
   %803 = load i8, ptr %802, align 1, !tbaa !42
   %.not948 = icmp sgt i8 %803, -1
   br i1 %.not948, label %.lr.ph, label %.preheader.preheader
@@ -1917,7 +1917,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %811, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %812 = load i8, ptr %811, align 1, !tbaa !42
   %813 = zext i8 %812 to i64
-  %814 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %813
+  %814 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %813
   %815 = load i8, ptr %814, align 1, !tbaa !42
   %.not949 = icmp sgt i8 %815, -1
   br i1 %.not949, label %.loopexit1081, label %.preheader.loopexit1481.split.loop.exit1656
@@ -1936,7 +1936,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %818, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %819 = load i8, ptr %818, align 1, !tbaa !42
   %820 = zext i8 %819 to i64
-  %821 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.1, i64 0, i64 %820
+  %821 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.1, i64 %820
   %822 = load i8, ptr %821, align 1, !tbaa !42
   %.not950 = icmp sgt i8 %822, -1
   br i1 %.not950, label %823, label %.preheader
@@ -1966,7 +1966,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
 
 836:                                              ; preds = %23
   %837 = zext i8 %21 to i64
-  %838 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %837
+  %838 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %837
   %839 = load i8, ptr %838, align 1, !tbaa !42
   %840 = and i8 %839, 1
   %.not934 = icmp eq i8 %840, 0
@@ -2005,7 +2005,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %853, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %854 = load i8, ptr %853, align 1, !tbaa !42
   %855 = zext i8 %854 to i64
-  %856 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %855
+  %856 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %855
   %857 = load i8, ptr %856, align 1, !tbaa !42
   %858 = and i8 %857, 1
   %.not935 = icmp eq i8 %858, 0
@@ -2060,7 +2060,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %878, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %879 = load i8, ptr %878, align 1, !tbaa !42
   %880 = zext i8 %879 to i64
-  %881 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %880
+  %881 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %880
   %882 = load i8, ptr %881, align 1, !tbaa !42
   %883 = and i8 %882, 2
   %.not937 = icmp eq i8 %883, 0
@@ -2100,7 +2100,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %891, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %892 = load i8, ptr %891, align 1, !tbaa !42
   %893 = zext i8 %892 to i64
-  %894 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %893
+  %894 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %893
   %895 = load i8, ptr %894, align 1, !tbaa !42
   %896 = and i8 %895, 4
   %.not944 = icmp eq i8 %896, 0
@@ -2148,7 +2148,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %910, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %911 = load i8, ptr %910, align 1, !tbaa !42
   %912 = zext i8 %911 to i64
-  %913 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %912
+  %913 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %912
   %914 = load i8, ptr %913, align 1, !tbaa !42
   %915 = and i8 %914, 2
   %.not938 = icmp eq i8 %915, 0
@@ -2168,7 +2168,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %921, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %922 = load i8, ptr %921, align 1, !tbaa !42
   %923 = zext i8 %922 to i64
-  %924 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %923
+  %924 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %923
   %925 = load i8, ptr %924, align 1, !tbaa !42
   %926 = and i8 %925, 4
   %.not945 = icmp eq i8 %926, 0
@@ -2189,7 +2189,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %931, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %932 = load i8, ptr %931, align 1, !tbaa !42
   %933 = zext i8 %932 to i64
-  %934 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %933
+  %934 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %933
   %935 = load i8, ptr %934, align 1, !tbaa !42
   %936 = and i8 %935, 16
   %.not939 = icmp eq i8 %936, 0
@@ -2222,7 +2222,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %943, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %944 = load i8, ptr %943, align 1, !tbaa !42
   %945 = zext i8 %944 to i64
-  %946 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %945
+  %946 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %945
   %947 = load i8, ptr %946, align 1, !tbaa !42
   %948 = and i8 %947, 32
   %.not942 = icmp eq i8 %948, 0
@@ -2254,7 +2254,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %955, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %956 = load i8, ptr %955, align 1, !tbaa !42
   %957 = zext i8 %956 to i64
-  %958 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %957
+  %958 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %957
   %959 = load i8, ptr %958, align 1, !tbaa !42
   %960 = and i8 %959, 64
   %.not940 = icmp eq i8 %960, 0
@@ -2326,7 +2326,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %980, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %981 = load i8, ptr %980, align 1, !tbaa !42
   %982 = zext i8 %981 to i64
-  %983 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %982
+  %983 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %982
   %984 = load i8, ptr %983, align 1, !tbaa !42
   %985 = and i8 %984, 64
   %.not941 = icmp eq i8 %985, 0
@@ -2351,7 +2351,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %990, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 808), align 8, !tbaa !43
   %991 = load i8, ptr %990, align 1, !tbaa !42
   %992 = zext i8 %991 to i64
-  %993 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.2, i64 0, i64 %992
+  %993 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.2, i64 %992
   %994 = load i8, ptr %993, align 1, !tbaa !42
   %.not943 = icmp sgt i8 %994, -1
   br i1 %.not943, label %995, label %.backedge1034.backedge
@@ -2456,7 +2456,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %1033 = load i8, ptr %11, align 1, !tbaa !42
   %1034 = zext i8 %1033 to i64
-  %1035 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.3, i64 0, i64 %1034
+  %1035 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.3, i64 %1034
   %1036 = load i8, ptr %1035, align 1, !tbaa !42
   %.not932 = icmp sgt i8 %1036, -1
   br i1 %.not932, label %1029, label %.preheader1084.preheader
@@ -2471,7 +2471,7 @@ unescape_string.exit:                             ; preds = %.loopexit, %68
   store ptr %1038, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 800), align 8, !tbaa !39
   %1039 = load i8, ptr %1038, align 1, !tbaa !42
   %1040 = zext i8 %1039 to i64
-  %1041 = getelementptr inbounds nuw [256 x i8], ptr @phpdbg_lex.yybm.3, i64 0, i64 %1040
+  %1041 = getelementptr inbounds nuw i8, ptr @phpdbg_lex.yybm.3, i64 %1040
   %1042 = load i8, ptr %1041, align 1, !tbaa !42
   %.not933 = icmp sgt i8 %1042, -1
   br i1 %.not933, label %1043, label %.preheader1084

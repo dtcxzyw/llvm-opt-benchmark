@@ -164,7 +164,7 @@ bytestream2_get_byte.exit71.thread:               ; preds = %26, %bytestream2_ge
 
 70:                                               ; preds = %68
   %71 = zext i8 %62 to i64
-  %72 = getelementptr inbounds nuw [64 x [4 x i8]], ptr %5, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %71
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %.sroa.093, align 4
   br label %105
@@ -240,7 +240,7 @@ default.unreachable:                              ; preds = %68
   %115 = mul nuw nsw i64 %114, 11
   %116 = add nuw nsw i64 %113, %115
   %117 = and i64 %116, 63
-  %118 = getelementptr inbounds nuw [64 x [4 x i8]], ptr %5, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %117
   %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0.96 = load i32, ptr %.sroa.093, align 4
   store i32 %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0.96, ptr %118, align 4
   br label %119

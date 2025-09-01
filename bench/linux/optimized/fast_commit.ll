@@ -530,7 +530,7 @@ define dso_local void @ext4_fc_mark_ineligible(ptr noundef readonly captures(non
 48:                                               ; preds = %47, %45
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 2024
   %50 = sext i32 %1 to i64
-  %51 = getelementptr [10 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -4198,9 +4198,9 @@ define dso_local noundef i32 @ext4_fc_info_show(ptr noundef %0, ptr noundef read
 
 19:                                               ; preds = %19, %9
   %20 = phi i64 [ 0, %9 ], [ %25, %19 ]
-  %21 = getelementptr [10 x ptr], ptr @fc_ineligible_reasons, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @fc_ineligible_reasons, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr [10 x i32], ptr %7, i64 0, i64 %20
+  %23 = getelementptr i32, ptr %7, i64 %20
   %24 = load i32, ptr %23, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %22, i32 noundef %24) #14
   %25 = add nuw nsw i64 %20, 1

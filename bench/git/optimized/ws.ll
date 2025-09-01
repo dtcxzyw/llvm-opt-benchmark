@@ -63,7 +63,7 @@ define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) l
 
 .preheader:                                       ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [7 x %struct.whitespace_rule], ptr @whitespace_rule_names, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 16, !tbaa !9
   %13 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull %.1, i64 noundef %.037) #12
   %.not42 = icmp eq i32 %13, 0
@@ -186,7 +186,7 @@ define dso_local i32 @whitespace_rule(ptr noundef %0, ptr noundef %1) local_unna
 17:                                               ; preds = %14, %26
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %26 ]
   %.01319 = phi i32 [ %16, %14 ], [ %.1, %26 ]
-  %18 = getelementptr inbounds nuw [7 x %struct.whitespace_rule], ptr @whitespace_rule_names, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 3
@@ -399,7 +399,7 @@ define internal fastcc i32 @ws_check_emit_1(ptr noundef readonly captures(none) 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next353
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %34 = and i8 %33, 1
   %.not131354 = icmp eq i8 %34, 0
@@ -419,7 +419,7 @@ define internal fastcc i32 @ws_check_emit_1(ptr noundef readonly captures(none) 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = and i8 %41, 1
   %.not131 = icmp eq i8 %42, 0
@@ -835,7 +835,7 @@ define dso_local range(i32 0, 2) i32 @ws_blank_line(ptr noundef readonly capture
   %.035 = phi ptr [ %6, %4 ], [ %0, %2 ]
   %8 = load i8, ptr %.035, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %12 = and i8 %11, 1
   %.not = icmp eq i8 %12, 0
@@ -889,7 +889,7 @@ define dso_local void @ws_fix_copy(ptr noundef %0, ptr noundef %1, i32 noundef %
   %25 = getelementptr i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !4
   %30 = and i8 %29, 1
   %.not130 = icmp eq i8 %30, 0
@@ -902,7 +902,7 @@ define dso_local void @ws_fix_copy(ptr noundef %0, ptr noundef %1, i32 noundef %
   %33 = getelementptr i8, ptr %32, i64 -1
   %34 = load i8, ptr %33, align 1, !tbaa !4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = and i8 %37, 1
   %.not131 = icmp eq i8 %38, 0

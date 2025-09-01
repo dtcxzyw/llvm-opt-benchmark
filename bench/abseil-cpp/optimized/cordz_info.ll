@@ -91,7 +91,7 @@ define dso_local void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10Inline
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1336
   store i64 %2, ptr %24, align 8, !tbaa !34
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %22, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %22, i64 %25
   %27 = load atomic i64, ptr %26 monotonic, align 8
   %28 = add nsw i64 %27, 1
   store atomic i64 %28, ptr %26 monotonic, align 8
@@ -613,7 +613,7 @@ _ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit: ; preds = %_ZN4ab
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store i64 %4, ptr %40, align 8, !tbaa !34
   %41 = zext i32 %3 to i64
-  %42 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %36, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %36, i64 %41
   %43 = load atomic i64, ptr %42 monotonic, align 8
   %44 = add nsw i64 %43, 1
   store atomic i64 %44, ptr %42 monotonic, align 8
@@ -625,13 +625,13 @@ _ZN4absl13cord_internal9CordzInfo15GetParentMethodEPKS1_.exit: ; preds = %_ZN4ab
 
 47:                                               ; preds = %54, %45
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %54 ]
-  %48 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %46, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %46, i64 %indvars.iv.i
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %.not.i12 = icmp eq i64 %49, 0
   br i1 %.not.i12, label %54, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %36, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %36, i64 %indvars.iv.i
   %52 = load atomic i64, ptr %51 monotonic, align 8
   %53 = add nsw i64 %52, %49
   store atomic i64 %53, ptr %51 monotonic, align 8
@@ -742,7 +742,7 @@ define dso_local void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateT
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %4, i64 %5
   %7 = load atomic i64, ptr %6 monotonic, align 8
   %8 = add nsw i64 %7, 1
   store atomic i64 %8, ptr %6 monotonic, align 8
@@ -808,8 +808,8 @@ define dso_local void @_ZNK4absl13cord_internal9CordzInfo18GetCordzStatisticsEv(
 
 12:                                               ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %11, i64 0, i64 %indvars.iv.i
-  %14 = getelementptr inbounds nuw [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %11, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %10, i64 %indvars.iv.i
   %15 = load atomic i64, ptr %14 monotonic, align 8
   store atomic i64 %15, ptr %13 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

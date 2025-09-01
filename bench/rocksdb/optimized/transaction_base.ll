@@ -12528,7 +12528,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb19MultiCfIteratorImplINS_18C
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !55, !range !56, !noundef !57
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -12668,7 +12668,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -14250,7 +14250,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -15653,7 +15653,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -16019,7 +16019,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -16387,7 +16387,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !55, !range !56, !noundef !57
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -17155,7 +17155,7 @@ define linkonce_odr noundef ptr @_ZNK7rocksdb19MultiCfIteratorImplINS_18Coalesci
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !55, !range !56, !noundef !57
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -17238,7 +17238,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !55, !range !56, !noundef !57
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -18013,7 +18013,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb19MultiCfIteratorImplINS_18Co
   %.not.i.i = phi i1 [ true, %5 ], [ false, %15 ]
   %.0813.i.i = phi i64 [ 0, %5 ], [ 1, %15 ]
   %.0912.i.i = phi i64 [ 2, %5 ], [ %.1.i.i, %15 ]
-  %10 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !55, !range !56, !noundef !57
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %15
@@ -18644,7 +18644,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb19MultiCfIteratorImplINS_26A
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !55, !range !56, !noundef !57
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -18762,7 +18762,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -20163,7 +20163,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -21562,7 +21562,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -21924,7 +21924,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %11 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %11 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %11 ]
-  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !55, !range !56, !noundef !57
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -22288,7 +22288,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt7greaterIiEEEEEJSC_NS1_IS2_NS8_ISt4lessIiEEEEEEEmv.__found, i64 %.0813.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !55, !range !56, !noundef !57
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -23052,7 +23052,7 @@ define linkonce_odr noundef ptr @_ZNK7rocksdb19MultiCfIteratorImplINS_26Attribut
   %.not.i.i = phi i1 [ true, %1 ], [ false, %10 ]
   %.0813.i.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %.0912.i.i = phi i64 [ 2, %1 ], [ %.1.i.i, %10 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %5 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %6 = load i8, ptr %5, align 1, !tbaa !55, !range !56, !noundef !57
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -23135,7 +23135,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(248) ptr @_ZN7rocksd
   %.not.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i = phi i64 [ 2, %2 ], [ %.1.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !55, !range !56, !noundef !57
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -23906,7 +23906,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb19MultiCfIteratorImplINS_26At
   %.not.i.i = phi i1 [ true, %5 ], [ false, %15 ]
   %.0813.i.i = phi i64 [ 0, %5 ], [ 1, %15 ]
   %.0912.i.i = phi i64 [ 2, %5 ], [ %.1.i.i, %15 ]
-  %10 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 0, i64 %.0813.i.i
+  %10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN7rocksdb10BinaryHeapINS0_19MultiCfIteratorInfoENS0_19MultiCfIteratorImplINS0_26AttributeGroupIteratorImpl9ResetFuncENS4_12PopulateFuncEE25MultiCfHeapItemComparatorISt4lessIiEEEEEJNS1_IS2_NS8_ISt7greaterIiEEEEESC_EEmv.__found, i64 %.0813.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !55, !range !56, !noundef !57
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %15

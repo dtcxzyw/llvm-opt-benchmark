@@ -35,7 +35,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %.016 = phi double [ %7, %6 ], [ %11, %8 ]
   %13 = tail call double @llvm.fmuladd.f64(double %.016, double 6.553600e+04, double 5.000000e-01)
   %14 = fptoui double %13 to i32
-  %15 = getelementptr inbounds nuw [1026 x i32], ptr @kGammaToLinearTabS, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @kGammaToLinearTabS, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -67,7 +67,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %.0 = phi double [ %24, %23 ], [ %27, %25 ]
   %29 = tail call double @llvm.fmuladd.f64(double %.0, double 6.553600e+04, double 5.000000e-01)
   %30 = fptoui double %29 to i32
-  %31 = getelementptr inbounds nuw [514 x i32], ptr @kLinearToGammaTabS, i64 0, i64 %indvars.iv24
+  %31 = getelementptr inbounds nuw i32, ptr @kLinearToGammaTabS, i64 %indvars.iv24
   store i32 %30, ptr %31, align 4, !tbaa !3
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 513
@@ -103,7 +103,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %9 = sub nsw i32 10, %1
   %10 = shl i32 %7, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1026 x i32], ptr @kGammaToLinearTabS, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr @kGammaToLinearTabS, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   br label %ToLinearSrgb.exit
 

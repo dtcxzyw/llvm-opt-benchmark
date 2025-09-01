@@ -134,7 +134,7 @@ define dso_local range(i32 0, 2) i32 @cpu_has_xfeatures(i64 noundef %0, ptr noun
   %10 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %9, i32 -1) #14, !srcloc !7
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 19)
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [20 x ptr], ptr @xfeature_names, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @xfeature_names, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %1, align 8
   br label %15
@@ -311,7 +311,7 @@ define dso_local void @fpu__init_system_xstate(i32 noundef %0) local_unnamed_add
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr [19 x i16], ptr @xsave_cpuid_features, i64 0, i64 %32
+  %39 = getelementptr i16, ptr @xsave_cpuid_features, i64 %32
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i64
   %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), i64 %41) #15, !srcloc !28
@@ -462,13 +462,13 @@ define internal fastcc void @setup_xstate_cache() unnamed_addr #2 section ".init
   %14 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 %13) #15, !srcloc !24
   %15 = extractvalue { i32, i32, i32, i32 } %14, 0
   %16 = extractvalue { i32, i32, i32, i32 } %14, 2
-  %17 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %10
+  %17 = getelementptr i32, ptr @xstate_sizes, i64 %10
   store i32 %15, ptr %17, align 4
-  %18 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %10
+  %18 = getelementptr i32, ptr @xstate_flags, i64 %10
   store i32 %16, ptr %18, align 4
   %19 = shl i64 %9, 32
-  %20 = ashr exact i64 %19, 32
-  %21 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %20
+  %20 = ashr exact i64 %19, 30
+  %21 = getelementptr i8, ptr @xstate_flags, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1
   %24 = icmp eq i32 %23, 0
@@ -476,7 +476,7 @@ define internal fastcc void @setup_xstate_cache() unnamed_addr #2 section ".init
 
 25:                                               ; preds = %12
   %26 = extractvalue { i32, i32, i32, i32 } %14, 1
-  %27 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %10
+  %27 = getelementptr i32, ptr @xstate_offsets, i64 %10
   store i32 %26, ptr %27, align 4
   %28 = icmp ule i32 %3, %26
   %29 = load i1, ptr @setup_xstate_cache.__already_done, align 1
@@ -541,9 +541,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @init_xstate_size() unnamed
 
 19:                                               ; preds = %15
   %20 = zext i32 %17 to i64
-  %21 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %20
+  %21 = getelementptr i32, ptr @xstate_offsets, i64 %20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %20
+  %23 = getelementptr i32, ptr @xstate_sizes, i64 %20
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, %22
   br label %26
@@ -596,7 +596,7 @@ define internal fastcc void @print_xstate_offset_size() unnamed_addr #2 section 
   br label %1
 
 1:                                                ; preds = %0, %xfeature_get_offset.exit
-  %2 = phi i64 [ 2, %0 ], [ %51, %xfeature_get_offset.exit ]
+  %2 = phi i64 [ 2, %0 ], [ %52, %xfeature_get_offset.exit ]
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %4 = shl nsw i64 -1, %2
   %5 = and i64 %3, %4
@@ -620,56 +620,57 @@ define internal fastcc void @print_xstate_offset_size() unnamed_addr #2 section 
   br i1 %15, label %.preheader.i, label %.thread.i
 
 .thread.i:                                        ; preds = %14, %12
-  %16 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %10
-  %17 = load i32, ptr %16, align 4
+  %16 = ashr exact i64 %9, 30
+  %17 = getelementptr i8, ptr @xstate_offsets, i64 %16
+  %18 = load i32, ptr %17, align 4
   br label %xfeature_get_offset.exit
 
-.preheader.i:                                     ; preds = %14, %39
-  %18 = phi i64 [ %44, %39 ], [ 2, %14 ]
-  %19 = phi i32 [ %42, %39 ], [ 576, %14 ]
-  %20 = shl nsw i64 -1, %18
-  %21 = and i64 %20, %3
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %xfeature_get_offset.exit, label %23
+.preheader.i:                                     ; preds = %14, %40
+  %19 = phi i64 [ %45, %40 ], [ 2, %14 ]
+  %20 = phi i32 [ %43, %40 ], [ 576, %14 ]
+  %21 = shl nsw i64 -1, %19
+  %22 = and i64 %21, %3
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %xfeature_get_offset.exit, label %24
 
-23:                                               ; preds = %.preheader.i
-  %24 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %21) #14, !srcloc !35
-  %25 = and i64 %24, 4294967295
-  %26 = icmp samesign ult i64 %25, 64
-  br i1 %26, label %27, label %xfeature_get_offset.exit
+24:                                               ; preds = %.preheader.i
+  %25 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %22) #14, !srcloc !35
+  %26 = and i64 %25, 4294967295
+  %27 = icmp samesign ult i64 %26, 64
+  br i1 %27, label %28, label %xfeature_get_offset.exit
 
-27:                                               ; preds = %23
-  %28 = trunc i64 %24 to i32
-  %29 = shl i64 %24, 32
-  %30 = ashr exact i64 %29, 32
-  %31 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 2
-  %34 = icmp eq i32 %33, 0
-  %35 = add i32 %19, 63
-  %36 = and i32 %35, -64
-  %37 = select i1 %34, i32 %19, i32 %36
-  %38 = icmp eq i32 %13, %28
-  br i1 %38, label %xfeature_get_offset.exit, label %39
+28:                                               ; preds = %24
+  %29 = trunc i64 %25 to i32
+  %30 = shl i64 %25, 32
+  %31 = ashr exact i64 %30, 30
+  %32 = getelementptr i8, ptr @xstate_flags, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 2
+  %35 = icmp eq i32 %34, 0
+  %36 = add i32 %20, 63
+  %37 = and i32 %36, -64
+  %38 = select i1 %35, i32 %20, i32 %37
+  %39 = icmp eq i32 %13, %29
+  br i1 %39, label %xfeature_get_offset.exit, label %40
 
-39:                                               ; preds = %27
-  %40 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %25
-  %41 = load i32, ptr %40, align 4
-  %42 = add i32 %41, %37
-  %43 = add i64 %24, 1
-  %44 = and i64 %43, 4294967295
-  %45 = icmp samesign ugt i64 %44, 63
-  br i1 %45, label %xfeature_get_offset.exit, label %.preheader.i, !prof !41, !llvm.loop !44
+40:                                               ; preds = %28
+  %41 = getelementptr i32, ptr @xstate_sizes, i64 %26
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, %38
+  %44 = add i64 %25, 1
+  %45 = and i64 %44, 4294967295
+  %46 = icmp samesign ugt i64 %45, 63
+  br i1 %46, label %xfeature_get_offset.exit, label %.preheader.i, !prof !41, !llvm.loop !44
 
-xfeature_get_offset.exit:                         ; preds = %.preheader.i, %23, %27, %39, %.thread.i
-  %46 = phi i32 [ %17, %.thread.i ], [ %37, %27 ], [ %19, %23 ], [ %42, %39 ], [ %19, %.preheader.i ]
-  %47 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %10
-  %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, i32 noundef %13, i32 noundef %46, i32 noundef %13, i32 noundef %48) #16
-  %50 = add i64 %9, 4294967296
-  %51 = ashr exact i64 %50, 32
-  %52 = icmp ugt i64 %51, 63
-  br i1 %52, label %.thread, label %1, !prof !41, !llvm.loop !45
+xfeature_get_offset.exit:                         ; preds = %.preheader.i, %24, %28, %40, %.thread.i
+  %47 = phi i32 [ %18, %.thread.i ], [ %38, %28 ], [ %20, %24 ], [ %43, %40 ], [ %20, %.preheader.i ]
+  %48 = getelementptr i32, ptr @xstate_sizes, i64 %10
+  %49 = load i32, ptr %48, align 4
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, i32 noundef %13, i32 noundef %47, i32 noundef %13, i32 noundef %49) #16
+  %51 = add i64 %9, 4294967296
+  %52 = ashr exact i64 %51, 32
+  %53 = icmp ugt i64 %52, 63
+  br i1 %53, label %.thread, label %1, !prof !41, !llvm.loop !45
 
 .thread:                                          ; preds = %1, %xfeature_get_offset.exit, %7
   ret void
@@ -851,7 +852,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly captures(ret: 
 
 .thread:                                          ; preds = %16, %17
   %19 = sext i32 %1 to i64
-  %20 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %19
+  %20 = getelementptr i32, ptr @xstate_offsets, i64 %19
   %21 = load i32, ptr %20, align 4
   br label %.thread3
 
@@ -872,8 +873,8 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly captures(ret: 
 31:                                               ; preds = %27
   %32 = trunc i64 %28 to i32
   %33 = shl i64 %28, 32
-  %34 = ashr exact i64 %33, 32
-  %35 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %34
+  %34 = ashr exact i64 %33, 30
+  %35 = getelementptr i8, ptr @xstate_flags, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 2
   %38 = icmp eq i32 %37, 0
@@ -884,7 +885,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly captures(ret: 
   br i1 %42, label %.thread3, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %29
+  %44 = getelementptr i32, ptr @xstate_sizes, i64 %29
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, %41
   %47 = add i64 %28, 1
@@ -1106,7 +1107,7 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0
   br i1 %86, label %87, label %.thread34
 
 87:                                               ; preds = %81
-  %88 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %85
+  %88 = getelementptr i32, ptr @xstate_offsets, i64 %85
   %89 = load i32, ptr %88, align 4
   %90 = icmp uge i32 %75, %89
   %91 = icmp eq i64 %77, 0
@@ -1154,7 +1155,7 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0
   br i1 %114, label %122, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %85
+  %116 = getelementptr i32, ptr @xstate_sizes, i64 %85
   %117 = load i32, ptr %116, align 4
   %118 = zext i32 %117 to i64
   %119 = tail call i64 @llvm.umin.i64(i64 %100, i64 %118)
@@ -1167,7 +1168,7 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0
   %123 = phi i64 [ %110, %109 ], [ 0, %112 ], [ %121, %115 ]
   %124 = phi ptr [ %111, %109 ], [ %101, %112 ], [ %120, %115 ]
   %125 = load i32, ptr %88, align 4
-  %126 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %85
+  %126 = getelementptr i32, ptr @xstate_sizes, i64 %85
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, %125
   %129 = add i64 %84, 4294967296
@@ -1325,14 +1326,14 @@ define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0
 66:                                               ; preds = %.split.us
   %67 = trunc i64 %61 to i32
   %68 = call fastcc ptr @__raw_xsave_addr(ptr noundef nonnull %7, i32 noundef %67)
-  %69 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %61
+  %69 = getelementptr i32, ptr @xstate_sizes, i64 %61
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.split7.us, label %72, !prof !16
 
 72:                                               ; preds = %66
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %61
+  %74 = getelementptr i32, ptr @xstate_offsets, i64 %61
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
   %77 = getelementptr i8, ptr %2, i64 %76
@@ -1356,9 +1357,9 @@ define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0
 87:                                               ; preds = %.split
   %88 = trunc i64 %82 to i32
   %89 = call fastcc ptr @__raw_xsave_addr(ptr noundef nonnull %7, i32 noundef %88)
-  %90 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %82
+  %90 = getelementptr i32, ptr @xstate_offsets, i64 %82
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %82
+  %92 = getelementptr i32, ptr @xstate_sizes, i64 %82
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %91 to i64
   %95 = zext i32 %93 to i64
@@ -1953,7 +1954,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 49:                                               ; preds = %46
   %50 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 19, i64 %1) #15, !srcloc !105
   %51 = and i64 %50, %1
-  %52 = getelementptr [19 x i64], ptr @xstate_prctl_req, i64 0, i64 %51
+  %52 = getelementptr i64, ptr @xstate_prctl_req, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %51, 18
   br i1 %54, label %55, label %175
@@ -2013,7 +2014,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
   br i1 %92, label %134, label %93
 
 93:                                               ; preds = %84
-  %94 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %91
+  %94 = getelementptr i32, ptr @xstate_offsets, i64 %91
   %95 = load i32, ptr %94, align 4
   br i1 %80, label %96, label %.thread8
 
@@ -2027,7 +2028,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 
 .thread:                                          ; preds = %96, %97
   %99 = sext i32 %90 to i64
-  %100 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %99
+  %100 = getelementptr i32, ptr @xstate_offsets, i64 %99
   %101 = load i32, ptr %100, align 4
   br label %.thread8
 
@@ -2048,8 +2049,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 111:                                              ; preds = %107
   %112 = trunc i64 %108 to i32
   %113 = shl i64 %108, 32
-  %114 = ashr exact i64 %113, 32
-  %115 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %114
+  %114 = ashr exact i64 %113, 30
+  %115 = getelementptr i8, ptr @xstate_flags, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 2
   %118 = icmp eq i32 %117, 0
@@ -2060,7 +2061,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
   br i1 %122, label %.thread8, label %123
 
 123:                                              ; preds = %111
-  %124 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %109
+  %124 = getelementptr i32, ptr @xstate_sizes, i64 %109
   %125 = load i32, ptr %124, align 4
   %126 = add i32 %125, %121
   %127 = add i64 %108, 1
@@ -2070,7 +2071,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 
 .thread8:                                         ; preds = %.preheader, %123, %111, %107, %.thread, %93
   %130 = phi i32 [ %95, %93 ], [ %101, %.thread ], [ %103, %.preheader ], [ %126, %123 ], [ %103, %107 ], [ %121, %111 ]
-  %131 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %91
+  %131 = getelementptr i32, ptr @xstate_sizes, i64 %91
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, %130
   br label %134
@@ -2084,9 +2085,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 no
 
 139:                                              ; preds = %134
   %140 = zext i32 %137 to i64
-  %141 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %140
+  %141 = getelementptr i32, ptr @xstate_offsets, i64 %140
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %140
+  %143 = getelementptr i32, ptr @xstate_sizes, i64 %140
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, %142
   br label %146
@@ -2239,7 +2240,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
   br i1 %5, label %47, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %4
+  %7 = getelementptr i32, ptr @xstate_offsets, i64 %4
   %8 = load i32, ptr %7, align 4
   br i1 %1, label %9, label %.thread4
 
@@ -2253,7 +2254,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
 
 .thread:                                          ; preds = %9, %10
   %12 = sext i32 %3 to i64
-  %13 = getelementptr [19 x i32], ptr @xstate_offsets, i64 0, i64 %12
+  %13 = getelementptr i32, ptr @xstate_offsets, i64 %12
   %14 = load i32, ptr %13, align 4
   br label %.thread4
 
@@ -2274,8 +2275,8 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
 24:                                               ; preds = %20
   %25 = trunc i64 %21 to i32
   %26 = shl i64 %21, 32
-  %27 = ashr exact i64 %26, 32
-  %28 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %27
+  %27 = ashr exact i64 %26, 30
+  %28 = getelementptr i8, ptr @xstate_flags, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 2
   %31 = icmp eq i32 %30, 0
@@ -2286,7 +2287,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
   br i1 %35, label %.thread4, label %36
 
 36:                                               ; preds = %24
-  %37 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %22
+  %37 = getelementptr i32, ptr @xstate_sizes, i64 %22
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, %34
   %40 = add i64 %21, 1
@@ -2296,7 +2297,7 @@ define internal fastcc i32 @xstate_calculate_size(i64 noundef %0, i1 noundef zer
 
 .thread4:                                         ; preds = %.preheader, %36, %24, %20, %.thread, %6
   %43 = phi i32 [ %8, %6 ], [ %14, %.thread ], [ %16, %.preheader ], [ %39, %36 ], [ %16, %20 ], [ %34, %24 ]
-  %44 = getelementptr [19 x i32], ptr @xstate_sizes, i64 0, i64 %4
+  %44 = getelementptr i32, ptr @xstate_sizes, i64 %4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, %43
   br label %47
@@ -2350,7 +2351,7 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
 
 22:                                               ; preds = %21
   %23 = and i64 %15, 63
-  %24 = getelementptr [19 x i32], ptr @xstate_flags, i64 0, i64 %23
+  %24 = getelementptr i32, ptr @xstate_flags, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %27 = icmp eq i32 %26, 0
@@ -2820,7 +2821,7 @@ define internal fastcc void @print_xstate_feature(i64 noundef %0) unnamed_addr #
 8:                                                ; preds = %1
   %9 = tail call i32 @llvm.smin.i32(i32 %7, i32 19)
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [20 x ptr], ptr @xfeature_names, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @xfeature_names, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i64 noundef %0, ptr noundef %12) #16
   br label %14

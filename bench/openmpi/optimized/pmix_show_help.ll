@@ -778,8 +778,8 @@ localgetline.exit.thread.i:                       ; preds = %.backedge.i, %62
 
 65:                                               ; preds = %.lr.ph.i15
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
-  %67 = add i64 %66, -1
-  %68 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %67
+  %67 = getelementptr i8, ptr %6, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 -1
   store i8 0, ptr %68, align 1, !tbaa !70
   br label %localgetline.exit.i
 
@@ -833,8 +833,8 @@ localgetline.exit.thread:                         ; preds = %.backedge, %80
 
 83:                                               ; preds = %.lr.ph
   %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %85 = add i64 %84, -1
-  %86 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %85
+  %85 = getelementptr i8, ptr %4, i64 %84
+  %86 = getelementptr i8, ptr %85, i64 -1
   store i8 0, ptr %86, align 1, !tbaa !70
   br label %localgetline.exit
 

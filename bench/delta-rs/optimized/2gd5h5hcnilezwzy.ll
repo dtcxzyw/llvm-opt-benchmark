@@ -396,9 +396,9 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
   unreachable
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.14.0.copyload, i64 0, i64 %111
+  %118 = getelementptr inbounds i8, ptr %.sroa.039.sroa.14.0.copyload, i64 %111
   %119 = load i8, ptr %118, align 1, !alias.scope !32, !noalias !39, !noundef !4
-  %120 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.12.0.copyload, i64 0, i64 %114
+  %120 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %114
   %121 = load i8, ptr %120, align 1, !alias.scope !29, !noalias !34, !noundef !4
   %.not28.i34 = icmp eq i8 %119, %121
   br i1 %.not28.i34, label %.preheader110, label %123
@@ -418,9 +418,9 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 
 128:                                              ; preds = %125
   %129 = add nuw i64 %.sroa.04.0.i32, 1
-  %130 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i32
+  %130 = getelementptr inbounds i8, ptr %.sroa.039.sroa.14.0.copyload, i64 %.sroa.04.0.i32
   %131 = load i8, ptr %130, align 1, !alias.scope !32, !noalias !39, !noundef !4
-  %132 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.12.0.copyload, i64 0, i64 %126
+  %132 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %126
   %133 = load i8, ptr %132, align 1, !alias.scope !29, !noalias !34, !noundef !4
   %.not.i37 = icmp eq i8 %131, %133
   br i1 %.not.i37, label %105, label %136
@@ -502,9 +502,9 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
   unreachable
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.14.0.copyload, i64 0, i64 %161
+  %167 = getelementptr inbounds i8, ptr %.sroa.039.sroa.14.0.copyload, i64 %161
   %168 = load i8, ptr %167, align 1, !alias.scope !43, !noalias !49, !noundef !4
-  %169 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.12.0.copyload, i64 0, i64 %163
+  %169 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %163
   %170 = load i8, ptr %169, align 1, !alias.scope !40, !noalias !45, !noundef !4
   %.not28.i = icmp eq i8 %168, %170
   br i1 %.not28.i, label %.preheader, label %172
@@ -524,9 +524,9 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 
 177:                                              ; preds = %174
   %178 = add nuw i64 %.sroa.04.0.i, 1
-  %179 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i
+  %179 = getelementptr inbounds i8, ptr %.sroa.039.sroa.14.0.copyload, i64 %.sroa.04.0.i
   %180 = load i8, ptr %179, align 1, !alias.scope !43, !noalias !49, !noundef !4
-  %181 = getelementptr inbounds [0 x i8], ptr %.sroa.039.sroa.12.0.copyload, i64 0, i64 %175
+  %181 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %175
   %182 = load i8, ptr %181, align 1, !alias.scope !40, !noalias !45, !noundef !4
   %.not.i24 = icmp eq i8 %180, %182
   br i1 %.not.i24, label %.preheader109, label %185

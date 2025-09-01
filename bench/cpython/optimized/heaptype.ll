@@ -2420,7 +2420,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %10
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr [1 x ptr], ptr %20, i64 0, i64 %.030
+  %26 = getelementptr ptr, ptr %20, i64 %.030
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = load i32, ptr %27, align 8, !tbaa !8
   %29 = icmp slt i32 %28, 0

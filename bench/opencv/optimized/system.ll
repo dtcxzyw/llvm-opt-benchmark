@@ -2297,7 +2297,7 @@ define noundef nonnull ptr @cvErrorStr(i32 noundef %0) local_unnamed_addr #12 {
 define noundef zeroext i1 @_ZN2cv20checkHardwareSupportEi(i32 noundef %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr @_ZN2cvL15currentFeaturesE, align 8, !tbaa !78
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [513 x i8], ptr %2, i64 0, i64 %3
+  %4 = getelementptr inbounds i8, ptr %2, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !14, !range !80, !noundef !81
   %6 = trunc nuw i8 %5 to i1
   ret i1 %6
@@ -2311,7 +2311,7 @@ define void @_ZN2cv22getHardwareFeatureNameB5cxx11Ei(ptr dead_on_unwind noalias 
 
 _ZN2cvL16getHWFeatureNameEi.exit:                 ; preds = %2
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !82
   %.not.not = icmp eq ptr %7, null
   br i1 %.not.not, label %.thread, label %8
@@ -2410,7 +2410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 12:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
-  %13 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN2cv18getCPUFeaturesLineB5cxx11Ev.features, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv18getCPUFeaturesLineB5cxx11Ev.features, i64 %indvars.iv
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %14, label %27 [
     i32 4, label %15
@@ -2498,7 +2498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
   %37 = load i32, ptr %13, align 4, !tbaa !83
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !82
   %.not.i = icmp eq ptr %40, null
   %41 = select i1 %.not.i, ptr @.str.123, ptr %40
@@ -2514,7 +2514,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i17
   %47 = load ptr, ptr @_ZN2cvL15currentFeaturesE, align 8, !tbaa !78
-  %48 = getelementptr inbounds [513 x i8], ptr %47, i64 0, i64 %38
+  %48 = getelementptr inbounds i8, ptr %47, i64 %38
   %49 = load i8, ptr %48, align 1, !tbaa !14, !range !80, !noundef !81
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %51
@@ -4400,7 +4400,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #28
 define range(i32 0, 2) i32 @cvCheckHardwareSupport(i32 noundef %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr @_ZN2cvL15currentFeaturesE, align 8, !tbaa !78
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [513 x i8], ptr %2, i64 0, i64 %3
+  %4 = getelementptr inbounds i8, ptr %2, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !14, !range !80, !noundef !81
   %6 = zext nneg i8 %5 to i32
   ret i32 %6
@@ -9237,7 +9237,7 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
 
 185:                                              ; preds = %.lr.ph.split.i
   %186 = sext i32 %184 to i64
-  %187 = getelementptr inbounds [513 x i8], ptr %0, i64 0, i64 %186
+  %187 = getelementptr inbounds i8, ptr %0, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !14, !range !80, !noundef !81
   %189 = trunc nuw i8 %188 to i1
   %.019..i = select i1 %189, i1 %.019.i, i1 false
@@ -9269,7 +9269,7 @@ _ZN2cv10HWFeatures13checkFeaturesEPKiib.exit:     ; preds = %190
 
 198:                                              ; preds = %.lr.ph.split.us.i
   %199 = sext i32 %197 to i64
-  %200 = getelementptr inbounds [513 x i8], ptr %0, i64 0, i64 %199
+  %200 = getelementptr inbounds i8, ptr %0, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !14, !range !80, !noundef !81
   %202 = trunc nuw i8 %201 to i1
   %203 = load ptr, ptr @stderr, align 8, !tbaa !116
@@ -9278,7 +9278,7 @@ _ZN2cv10HWFeatures13checkFeaturesEPKiib.exit:     ; preds = %190
   br i1 %204, label %.sink.split.sink.split.i, label %.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %198
-  %205 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %199
+  %205 = getelementptr inbounds ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %199
   %206 = load ptr, ptr %205, align 8, !tbaa !82
   br label %.sink.split.i
 
@@ -9571,7 +9571,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
 
 .preheader94:                                     ; preds = %49, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %49 ]
-  %73 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !82
   %.not66 = icmp eq ptr %74, null
   br i1 %.not66, label %.thread, label %75
@@ -9606,7 +9606,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
 _ZN2cvL20getHWFeatureNameSafeEi.exit:             ; preds = %.lr.ph
   %86 = load ptr, ptr @stderr, align 8, !tbaa !116
   %87 = and i64 %indvars.iv, 4294967295
-  %88 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !82
   %.not.i = icmp eq ptr %89, null
   %90 = select i1 %.not.i, ptr @.str.123, ptr %89
@@ -9614,7 +9614,7 @@ _ZN2cvL20getHWFeatureNameSafeEi.exit:             ; preds = %.lr.ph
   br label %.critedge69
 
 .critedge69:                                      ; preds = %82, %.preheader, %_ZN2cvL20getHWFeatureNameSafeEi.exit
-  %92 = getelementptr inbounds nuw [513 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %93 = load i8, ptr %92, align 1, !tbaa !14, !range !80, !noundef !81
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %.thread92, label %_ZN2cvL20getHWFeatureNameSafeEi.exit80
@@ -9622,7 +9622,7 @@ _ZN2cvL20getHWFeatureNameSafeEi.exit:             ; preds = %.lr.ph
 _ZN2cvL20getHWFeatureNameSafeEi.exit80:           ; preds = %.critedge69
   %95 = load ptr, ptr @stderr, align 8, !tbaa !116
   %96 = and i64 %indvars.iv, 4294967295
-  %97 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !82
   %.not.i79 = icmp eq ptr %98, null
   %99 = select i1 %.not.i79, ptr @.str.123, ptr %98

@@ -3440,7 +3440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184: ; preds = %_Z
   %497 = getelementptr inbounds nuw i8, ptr %494, i64 4
   %498 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %496, ptr nonnull align 4 %497, i64 %498, i1 false)
-  %499 = getelementptr inbounds nuw [1024 x i8], ptr %496, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw i8, ptr %496, i64 %498
   store i8 0, ptr %499, align 1
   %500 = getelementptr inbounds nuw i8, ptr %494, i64 1096
   store ptr %357, ptr %500, align 8
@@ -3551,7 +3551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
   store ptr %357, ptr %42, align 8
   store i32 %spec.select.i, ptr %357, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %440, ptr nonnull align 4 %496, i64 %498, i1 false)
-  %537 = getelementptr inbounds nuw [1024 x i8], ptr %440, i64 0, i64 %498
+  %537 = getelementptr inbounds nuw i8, ptr %440, i64 %498
   store i8 0, ptr %537, align 1
   br label %541
 

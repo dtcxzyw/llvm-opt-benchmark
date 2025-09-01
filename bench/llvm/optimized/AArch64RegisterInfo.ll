@@ -2316,12 +2316,12 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm22AArch64GenRegisterInf
   %4 = add i32 %1, -1
   %5 = add i32 %2, -1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw [143 x i8], ptr @_ZZNK4llvm22AArch64GenRegisterInfo24composeSubRegIndicesImplEjjE6RowMap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm22AArch64GenRegisterInfo24composeSubRegIndicesImplEjjE6RowMap, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [9 x [143 x i8]], ptr @_ZZNK4llvm22AArch64GenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [143 x i8], ptr @_ZZNK4llvm22AArch64GenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [143 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = zext i8 %13 to i32
   ret i32 %14
@@ -2331,10 +2331,10 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm22AArch64GenRegisterInf
 define dso_local i64 @_ZNK4llvm22AArch64GenRegisterInfo30composeSubRegIndexLaneMaskImplEjNS_11LaneBitmaskE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [143 x i16], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr @_ZN4llvmL18CompositeSequencesE, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !6
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw [294 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %8
   %10 = load i64, ptr %9, align 16, !tbaa !8
   %.not1718 = icmp eq i64 %10, 0
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
@@ -2381,10 +2381,10 @@ define dso_local i64 @_ZNK4llvm22AArch64GenRegisterInfo37reverseComposeSubRegInd
   %8 = and i64 %.sroa.0.0.copyload.i, %2
   %9 = add i32 %1, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [143 x i16], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr @_ZN4llvmL18CompositeSequencesE, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !6
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw [294 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %13
   %15 = load i64, ptr %14, align 16, !tbaa !8
   %.not1920 = icmp eq i64 %15, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
@@ -2430,9 +2430,9 @@ define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getSubClassWith
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !45
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [531 x [143 x i16]], ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [143 x i16], ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [143 x i16], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !6
   %.not10 = icmp eq i16 %13, 0
   br i1 %.not10, label %22, label %14
@@ -2463,9 +2463,9 @@ define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo19getSubRegisterC
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !45
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [531 x [143 x i16]], ptr @_ZZNK4llvm22AArch64GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [143 x i16], ptr @_ZZNK4llvm22AArch64GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [143 x i16], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !6
   %.not10 = icmp eq i16 %13, 0
   br i1 %.not10, label %22, label %14
@@ -2491,7 +2491,7 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4llvm22AArc
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !45
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [531 x %"struct.llvm::RegClassWeight"], ptr @_ZZNK4llvm22AArch64GenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::RegClassWeight", ptr @_ZZNK4llvm22AArch64GenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 %6
   ret ptr %7
 }
 
@@ -2508,7 +2508,7 @@ define dso_local noundef i32 @_ZNK4llvm22AArch64GenRegisterInfo21getNumRegPressu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getRegPressureSetNameEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [190 x ptr], ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   ret ptr %5
 }
@@ -2516,7 +2516,7 @@ define dso_local noundef ptr @_ZNK4llvm22AArch64GenRegisterInfo21getRegPressureS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm22AArch64GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw [190 x i8], ptr @_ZZNK4llvm22AArch64GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm22AArch64GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
   ret i32 %7
@@ -2528,20 +2528,20 @@ define dso_local noundef nonnull ptr @_ZNK4llvm22AArch64GenRegisterInfo23getRegC
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !45
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [531 x i16], ptr @_ZZNK4llvm22AArch64GenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @_ZZNK4llvm22AArch64GenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !6
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [7806 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4llvm22AArch64GenRegisterInfo22getRegUnitPressureSetsEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [297 x i16], ptr @_ZZNK4llvm22AArch64GenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i16, ptr @_ZZNK4llvm22AArch64GenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !6
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [7806 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %6
   ret ptr %7
 }
 
@@ -2877,7 +2877,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit17: ; preds = %.thread
 
 30:                                               ; preds = %30, %28
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw [21 x i16], ptr @_ZN4llvmL26CSR_AArch64_AAPCS_SaveListE, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i16, ptr @_ZN4llvmL26CSR_AArch64_AAPCS_SaveListE, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !6
   %33 = zext i16 %32 to i32
   %34 = icmp eq i32 %29, %33
@@ -3362,9 +3362,9 @@ define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo21getSubClassWithSub
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8, !tbaa !45
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw [531 x [143 x i16]], ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [143 x i16], ptr @_ZZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %14
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw [143 x i16], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !6
   %.not10.i = icmp eq i16 %18, 0
   br i1 %.not10.i, label %_ZNK4llvm22AArch64GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit, label %19
@@ -3447,7 +3447,7 @@ define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo26getDarwinC
 
 switch.lookup:                                    ; preds = %23
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %26
 
@@ -3643,7 +3643,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %17
 
 switch.lookup:                                    ; preds = %37
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 

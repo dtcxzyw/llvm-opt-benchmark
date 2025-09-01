@@ -381,7 +381,7 @@ _ZN6vectorISt4pairIP4exprjELb0EjE4backEv.exit:    ; preds = %.preheader, %13
 
 30:                                               ; preds = %27
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = add nuw i32 %28, 1
   store i32 %34, ptr %25, align 8, !tbaa !46

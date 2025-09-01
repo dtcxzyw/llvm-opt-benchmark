@@ -780,9 +780,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   unreachable
 
 191:                                              ; preds = %185
-  %192 = getelementptr inbounds [0 x i8], ptr %148, i64 0, i64 %183
+  %192 = getelementptr inbounds i8, ptr %148, i64 %183
   %193 = load i8, ptr %192, align 1, !alias.scope !201, !noalias !206, !noundef !5
-  %194 = getelementptr inbounds [0 x i8], ptr %146, i64 0, i64 %186
+  %194 = getelementptr inbounds i8, ptr %146, i64 %186
   %195 = load i8, ptr %194, align 1, !alias.scope !199, !noalias !205, !noundef !5
   %.not.i34.i.i.i = icmp eq i8 %193, %195
   br i1 %.not.i34.i.i.i, label %.preheader8.i.i.i, label %196
@@ -793,9 +793,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 198:                                              ; preds = %176
   %199 = add nuw i64 %.sroa.04.0.i32.i.i.i, 1
-  %200 = getelementptr inbounds [0 x i8], ptr %148, i64 0, i64 %.sroa.04.0.i32.i.i.i
+  %200 = getelementptr inbounds i8, ptr %148, i64 %.sroa.04.0.i32.i.i.i
   %201 = load i8, ptr %200, align 1, !alias.scope !201, !noalias !206, !noundef !5
-  %202 = getelementptr inbounds [0 x i8], ptr %146, i64 0, i64 %177
+  %202 = getelementptr inbounds i8, ptr %146, i64 %177
   %203 = load i8, ptr %202, align 1, !alias.scope !199, !noalias !205, !noundef !5
   %.not24.i36.i.i.i = icmp eq i8 %201, %203
   br i1 %.not24.i36.i.i.i, label %174, label %206
@@ -871,9 +871,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %236, label %237, label %.invoke
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds [0 x i8], ptr %148, i64 0, i64 %234
+  %238 = getelementptr inbounds i8, ptr %148, i64 %234
   %239 = load i8, ptr %238, align 1, !alias.scope !212, !noalias !217, !noundef !5
-  %240 = getelementptr inbounds [0 x i8], ptr %146, i64 0, i64 %235
+  %240 = getelementptr inbounds i8, ptr %146, i64 %235
   %241 = load i8, ptr %240, align 1, !alias.scope !210, !noalias !216, !noundef !5
   %.not.i.i.us.i.i = icmp eq i8 %239, %241
   br i1 %.not.i.i.us.i.i, label %.preheader.i.us.i.i, label %.split47.us.i.i
@@ -897,9 +897,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 247:                                              ; preds = %243
   %248 = add nuw i64 %.sroa.04.0.i.i.i.i, 1
-  %249 = getelementptr inbounds [0 x i8], ptr %148, i64 0, i64 %.sroa.04.0.i.i.i.i
+  %249 = getelementptr inbounds i8, ptr %148, i64 %.sroa.04.0.i.i.i.i
   %250 = load i8, ptr %249, align 1, !alias.scope !212, !noalias !217, !noundef !5
-  %251 = getelementptr inbounds [0 x i8], ptr %146, i64 0, i64 %244
+  %251 = getelementptr inbounds i8, ptr %146, i64 %244
   %252 = load i8, ptr %251, align 1, !alias.scope !210, !noalias !216, !noundef !5
   %.not24.i.i.i.i = icmp eq i8 %250, %252
   br i1 %.not24.i.i.i.i, label %.preheader7.i.i.i, label %255

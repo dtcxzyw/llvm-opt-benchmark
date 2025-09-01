@@ -649,12 +649,12 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %10 = alloca %struct._CompositeInfo, align 4
   %11 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %181, label %13
+  br i1 %12, label %189, label %13
 
 13:                                               ; preds = %7
   %14 = tail call ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %181, label %16
+  br i1 %15, label %189, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #10
@@ -834,7 +834,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %100 = icmp sgt i32 %97, %96
   %101 = icmp sgt i32 %99, %98
   %or.cond.i = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond.i, label %102, label %178
+  br i1 %or.cond.i, label %102, label %186
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -843,159 +843,167 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %106 = zext i8 %24 to i32
   %107 = call i32 @llvm.smax.i32(i32 %19, i32 100)
   %.0.i.i = call i32 @llvm.umin.i32(i32 %107, i32 250)
-  %108 = add nsw i32 %.0.i.i, -100
-  %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw [151 x ptr], ptr @lcdGammaLUT, i64 0, i64 %109
+  %108 = zext nneg i32 %.0.i.i to i64
+  %109 = getelementptr ptr, ptr @lcdGammaLUT, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 -800
   %111 = load ptr, ptr %110, align 8
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %112, label %getLCDGammaLUT.exit.i
 
 112:                                              ; preds = %102
-  %113 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  store ptr %113, ptr %110, align 8
+  %113 = add nsw i32 %.0.i.i, -100
   %114 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %115 = getelementptr inbounds nuw [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %109
-  store ptr %114, ptr %115, align 8
-  %116 = icmp slt i32 %19, 101
-  br i1 %116, label %.preheader.i.i.i, label %122
+  %115 = zext nneg i32 %113 to i64
+  %116 = getelementptr inbounds nuw ptr, ptr @lcdGammaLUT, i64 %115
+  store ptr %114, ptr %116, align 8
+  %117 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
+  %118 = getelementptr inbounds nuw ptr, ptr @lcdInvGammaLUT, i64 %115
+  store ptr %117, ptr %118, align 8
+  %119 = icmp slt i32 %19, 101
+  br i1 %119, label %.preheader.i.i.i, label %125
 
 .preheader.i.i.i:                                 ; preds = %112, %.preheader.i.i.i
   %indvars.iv36.i.i.i = phi i64 [ %indvars.iv.next37.i.i.i, %.preheader.i.i.i ], [ 0, %112 ]
-  %117 = trunc i64 %indvars.iv36.i.i.i to i8
-  %118 = load ptr, ptr %110, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv36.i.i.i
-  store i8 %117, ptr %119, align 1
-  %120 = load ptr, ptr %115, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv36.i.i.i
-  store i8 %117, ptr %121, align 1
+  %120 = trunc i64 %indvars.iv36.i.i.i to i8
+  %121 = load ptr, ptr %116, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv36.i.i.i
+  store i8 %120, ptr %122, align 1
+  %123 = load ptr, ptr %118, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv36.i.i.i
+  store i8 %120, ptr %124, align 1
   %indvars.iv.next37.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i, 1
   %exitcond39.not.i.i.i = icmp eq i64 %indvars.iv.next37.i.i.i, 256
   br i1 %exitcond39.not.i.i.i, label %getLCDGammaLUT.exit.i, label %.preheader.i.i.i, !llvm.loop !10
 
-122:                                              ; preds = %112
-  %123 = uitofp nneg i32 %.0.i.i to double
-  %124 = fdiv double %123, 1.000000e+02
-  %125 = fdiv double 1.000000e+00, %124
-  store i8 0, ptr %113, align 1
+125:                                              ; preds = %112
+  %126 = uitofp nneg i32 %.0.i.i to double
+  %127 = fdiv double %126, 1.000000e+02
+  %128 = fdiv double 1.000000e+00, %127
   store i8 0, ptr %114, align 1
-  %126 = getelementptr inbounds nuw i8, ptr %113, i64 255
-  store i8 -1, ptr %126, align 1
-  %127 = getelementptr inbounds nuw i8, ptr %114, i64 255
-  store i8 -1, ptr %127, align 1
-  br label %128
+  store i8 0, ptr %117, align 1
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 255
+  store i8 -1, ptr %129, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %117, i64 255
+  store i8 -1, ptr %130, align 1
+  br label %131
 
-128:                                              ; preds = %128, %122
-  %indvars.iv.i.i.i = phi i64 [ 1, %122 ], [ %indvars.iv.next.i.i.i, %128 ]
-  %129 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %130 = uitofp nneg i32 %129 to double
-  %131 = fdiv double %130, 2.550000e+02
-  %132 = call double @pow(double noundef %131, double noundef %125) #10
-  %133 = call double @pow(double noundef %131, double noundef %124) #10
-  %134 = fmul double %132, 2.550000e+02
-  %135 = fptoui double %134 to i8
-  %136 = load ptr, ptr %110, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv.i.i.i
-  store i8 %135, ptr %137, align 1
-  %138 = fmul double %133, 2.550000e+02
-  %139 = fptoui double %138 to i8
-  %140 = load ptr, ptr %115, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv.i.i.i
-  store i8 %139, ptr %141, align 1
+131:                                              ; preds = %131, %125
+  %indvars.iv.i.i.i = phi i64 [ 1, %125 ], [ %indvars.iv.next.i.i.i, %131 ]
+  %132 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %133 = uitofp nneg i32 %132 to double
+  %134 = fdiv double %133, 2.550000e+02
+  %135 = call double @pow(double noundef %134, double noundef %128) #10
+  %136 = call double @pow(double noundef %134, double noundef %127) #10
+  %137 = fmul double %135, 2.550000e+02
+  %138 = fptoui double %137 to i8
+  %139 = load ptr, ptr %116, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv.i.i.i
+  store i8 %138, ptr %140, align 1
+  %141 = fmul double %136, 2.550000e+02
+  %142 = fptoui double %141 to i8
+  %143 = load ptr, ptr %118, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv.i.i.i
+  store i8 %142, ptr %144, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 255
-  br i1 %exitcond.not.i.i.i, label %getLCDGammaLUT.exit.i, label %128, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %getLCDGammaLUT.exit.i, label %131, !llvm.loop !11
 
-getLCDGammaLUT.exit.i:                            ; preds = %128, %.preheader.i.i.i, %102
-  %142 = load ptr, ptr %110, align 8
-  %143 = getelementptr inbounds nuw [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %109
-  %144 = load ptr, ptr %143, align 8
-  %.not.i70.i = icmp eq ptr %144, null
-  br i1 %.not.i70.i, label %145, label %getInvLCDGammaLUT.exit.i
+getLCDGammaLUT.exit.i:                            ; preds = %131, %.preheader.i.i.i, %102
+  %145 = load ptr, ptr %110, align 8
+  %146 = getelementptr ptr, ptr @lcdInvGammaLUT, i64 %108
+  %147 = getelementptr i8, ptr %146, i64 -800
+  %148 = load ptr, ptr %147, align 8
+  %.not.i70.i = icmp eq ptr %148, null
+  br i1 %.not.i70.i, label %149, label %getInvLCDGammaLUT.exit.i
 
-145:                                              ; preds = %getLCDGammaLUT.exit.i
-  %146 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  store ptr %146, ptr %110, align 8
-  %147 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  store ptr %147, ptr %143, align 8
-  %148 = icmp slt i32 %19, 101
-  br i1 %148, label %.preheader.i.i74.i, label %154
+149:                                              ; preds = %getLCDGammaLUT.exit.i
+  %150 = add nsw i32 %.0.i.i, -100
+  %151 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
+  %152 = zext nneg i32 %150 to i64
+  %153 = getelementptr inbounds nuw ptr, ptr @lcdGammaLUT, i64 %152
+  store ptr %151, ptr %153, align 8
+  %154 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
+  %155 = getelementptr inbounds nuw ptr, ptr @lcdInvGammaLUT, i64 %152
+  store ptr %154, ptr %155, align 8
+  %156 = icmp slt i32 %19, 101
+  br i1 %156, label %.preheader.i.i74.i, label %162
 
-.preheader.i.i74.i:                               ; preds = %145, %.preheader.i.i74.i
-  %indvars.iv36.i.i75.i = phi i64 [ %indvars.iv.next37.i.i76.i, %.preheader.i.i74.i ], [ 0, %145 ]
-  %149 = trunc i64 %indvars.iv36.i.i75.i to i8
-  %150 = load ptr, ptr %110, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv36.i.i75.i
-  store i8 %149, ptr %151, align 1
-  %152 = load ptr, ptr %143, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %indvars.iv36.i.i75.i
-  store i8 %149, ptr %153, align 1
+.preheader.i.i74.i:                               ; preds = %149, %.preheader.i.i74.i
+  %indvars.iv36.i.i75.i = phi i64 [ %indvars.iv.next37.i.i76.i, %.preheader.i.i74.i ], [ 0, %149 ]
+  %157 = trunc i64 %indvars.iv36.i.i75.i to i8
+  %158 = load ptr, ptr %153, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv36.i.i75.i
+  store i8 %157, ptr %159, align 1
+  %160 = load ptr, ptr %155, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 %indvars.iv36.i.i75.i
+  store i8 %157, ptr %161, align 1
   %indvars.iv.next37.i.i76.i = add nuw nsw i64 %indvars.iv36.i.i75.i, 1
   %exitcond39.not.i.i77.i = icmp eq i64 %indvars.iv.next37.i.i76.i, 256
   br i1 %exitcond39.not.i.i77.i, label %getInvLCDGammaLUT.exit.i, label %.preheader.i.i74.i, !llvm.loop !10
 
-154:                                              ; preds = %145
-  %155 = uitofp nneg i32 %.0.i.i to double
-  %156 = fdiv double %155, 1.000000e+02
-  %157 = fdiv double 1.000000e+00, %156
-  store i8 0, ptr %146, align 1
-  store i8 0, ptr %147, align 1
-  %158 = getelementptr inbounds nuw i8, ptr %146, i64 255
-  store i8 -1, ptr %158, align 1
-  %159 = getelementptr inbounds nuw i8, ptr %147, i64 255
-  store i8 -1, ptr %159, align 1
-  br label %160
+162:                                              ; preds = %149
+  %163 = uitofp nneg i32 %.0.i.i to double
+  %164 = fdiv double %163, 1.000000e+02
+  %165 = fdiv double 1.000000e+00, %164
+  store i8 0, ptr %151, align 1
+  store i8 0, ptr %154, align 1
+  %166 = getelementptr inbounds nuw i8, ptr %151, i64 255
+  store i8 -1, ptr %166, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %154, i64 255
+  store i8 -1, ptr %167, align 1
+  br label %168
 
-160:                                              ; preds = %160, %154
-  %indvars.iv.i.i71.i = phi i64 [ 1, %154 ], [ %indvars.iv.next.i.i72.i, %160 ]
-  %161 = trunc nuw nsw i64 %indvars.iv.i.i71.i to i32
-  %162 = uitofp nneg i32 %161 to double
-  %163 = fdiv double %162, 2.550000e+02
-  %164 = call double @pow(double noundef %163, double noundef %157) #10
-  %165 = call double @pow(double noundef %163, double noundef %156) #10
-  %166 = fmul double %164, 2.550000e+02
-  %167 = fptoui double %166 to i8
-  %168 = load ptr, ptr %110, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv.i.i71.i
-  store i8 %167, ptr %169, align 1
-  %170 = fmul double %165, 2.550000e+02
-  %171 = fptoui double %170 to i8
-  %172 = load ptr, ptr %143, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 %indvars.iv.i.i71.i
-  store i8 %171, ptr %173, align 1
+168:                                              ; preds = %168, %162
+  %indvars.iv.i.i71.i = phi i64 [ 1, %162 ], [ %indvars.iv.next.i.i72.i, %168 ]
+  %169 = trunc nuw nsw i64 %indvars.iv.i.i71.i to i32
+  %170 = uitofp nneg i32 %169 to double
+  %171 = fdiv double %170, 2.550000e+02
+  %172 = call double @pow(double noundef %171, double noundef %165) #10
+  %173 = call double @pow(double noundef %171, double noundef %164) #10
+  %174 = fmul double %172, 2.550000e+02
+  %175 = fptoui double %174 to i8
+  %176 = load ptr, ptr %153, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv.i.i71.i
+  store i8 %175, ptr %177, align 1
+  %178 = fmul double %173, 2.550000e+02
+  %179 = fptoui double %178 to i8
+  %180 = load ptr, ptr %155, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %indvars.iv.i.i71.i
+  store i8 %179, ptr %181, align 1
   %indvars.iv.next.i.i72.i = add nuw nsw i64 %indvars.iv.i.i71.i, 1
   %exitcond.not.i.i73.i = icmp eq i64 %indvars.iv.next.i.i72.i, 255
-  br i1 %exitcond.not.i.i73.i, label %getInvLCDGammaLUT.exit.i, label %160, !llvm.loop !11
+  br i1 %exitcond.not.i.i73.i, label %getInvLCDGammaLUT.exit.i, label %168, !llvm.loop !11
 
-getInvLCDGammaLUT.exit.i:                         ; preds = %160, %.preheader.i.i74.i, %getLCDGammaLUT.exit.i
-  %174 = load ptr, ptr %143, align 8
-  call void %26(ptr noundef nonnull %9, ptr noundef %104, i32 noundef %105, i32 noundef %17, i32 noundef %18, i32 noundef %96, i32 noundef %98, i32 noundef %97, i32 noundef %99, i32 noundef %106, ptr noundef %142, ptr noundef %174, ptr noundef nonnull %11, ptr noundef nonnull %10) #10
-  %175 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %176 = load ptr, ptr %175, align 8
-  %.not67.i = icmp eq ptr %176, null
-  br i1 %.not67.i, label %178, label %177
+getInvLCDGammaLUT.exit.i:                         ; preds = %168, %.preheader.i.i74.i, %getLCDGammaLUT.exit.i
+  %182 = load ptr, ptr %147, align 8
+  call void %26(ptr noundef nonnull %9, ptr noundef %104, i32 noundef %105, i32 noundef %17, i32 noundef %18, i32 noundef %96, i32 noundef %98, i32 noundef %97, i32 noundef %99, i32 noundef %106, ptr noundef %145, ptr noundef %182, ptr noundef nonnull %11, ptr noundef nonnull %10) #10
+  %183 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %.not67.i = icmp eq ptr %184, null
+  br i1 %.not67.i, label %186, label %185
 
-177:                                              ; preds = %getInvLCDGammaLUT.exit.i
-  call void %176(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
-  br label %178
+185:                                              ; preds = %getInvLCDGammaLUT.exit.i
+  call void %184(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
+  br label %186
 
-178:                                              ; preds = %177, %getInvLCDGammaLUT.exit.i, %95
-  %179 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %.not68.i = icmp eq ptr %180, null
+186:                                              ; preds = %185, %getInvLCDGammaLUT.exit.i, %95
+  %187 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %188 = load ptr, ptr %187, align 8
+  %.not68.i = icmp eq ptr %188, null
   br i1 %.not68.i, label %drawGlyphListLCD.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %178, %92, %84
-  %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %180, %178 ]
+.sink.split.i:                                    ; preds = %186, %92, %84
+  %.sink.i = phi ptr [ %86, %84 ], [ %94, %92 ], [ %188, %186 ]
   call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %9) #10
   br label %drawGlyphListLCD.exit
 
-drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %178, %.sink.split.i
+drawGlyphListLCD.exit:                            ; preds = %16, %35, %40, %44, %84, %92, %186, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @free(ptr noundef %14) #10
-  br label %181
+  br label %189
 
-181:                                              ; preds = %13, %7, %drawGlyphListLCD.exit
+189:                                              ; preds = %13, %7, %drawGlyphListLCD.exit
   ret void
 }
 
@@ -1430,10 +1438,10 @@ define hidden void @initLUT(i32 noundef %0) local_unnamed_addr #4 {
   %2 = add nsw i32 %0, -100
   %3 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [151 x ptr], ptr @lcdGammaLUT, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @lcdGammaLUT, i64 %4
   store ptr %3, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %7 = getelementptr inbounds [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %4
+  %7 = getelementptr inbounds ptr, ptr @lcdInvGammaLUT, i64 %4
   store ptr %6, ptr %7, align 8
   %8 = icmp eq i32 %0, 100
   br i1 %8, label %.preheader, label %14

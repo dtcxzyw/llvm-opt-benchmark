@@ -1144,7 +1144,7 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader57:                                     ; preds = %2, %13
   %indvars.iv69 = phi i64 [ 0, %2 ], [ %indvars.iv.next70, %13 ]
-  %5 = getelementptr inbounds nuw [13 x [13 x i8]], ptr %3, i64 0, i64 %indvars.iv69
+  %5 = getelementptr inbounds nuw [13 x i8], ptr %3, i64 %indvars.iv69
   br label %9
 
 .preheader56:                                     ; preds = %13
@@ -1164,7 +1164,7 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
   %10 = or i64 %indvars.iv, %indvars.iv69
   %11 = and i64 %10, 3
   %or.cond = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds nuw [13 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %. = select i1 %or.cond, i8 42, i8 32
   store i8 %., ptr %12, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1227,7 +1227,7 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %42
   %46 = sext i32 %20 to i64
-  %invariant.gep = getelementptr [13 x i8], ptr %3, i64 0, i64 %46
+  %invariant.gep = getelementptr i8, ptr %3, i64 %46
   %47 = or disjoint i32 %18, 1
   %48 = sext i32 %47 to i64
   %wide.trip.count = sext i32 %24 to i64
@@ -1235,7 +1235,7 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv73 = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next74, %49 ]
-  %gep = getelementptr [13 x [13 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv73
+  %gep = getelementptr [13 x i8], ptr %invariant.gep, i64 %indvars.iv73
   store i8 124, ptr %gep, align 1, !tbaa !52
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
@@ -1251,12 +1251,12 @@ define void @Abc_GraphPathPrint4(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %55
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %55 ], [ 0, %.preheader.preheader ]
-  %50 = getelementptr inbounds nuw [13 x [13 x i8]], ptr %3, i64 0, i64 %indvars.iv90
+  %50 = getelementptr inbounds nuw [13 x i8], ptr %3, i64 %indvars.iv90
   br label %51
 
 51:                                               ; preds = %.preheader, %51
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %51 ]
-  %52 = getelementptr inbounds nuw [13 x i8], ptr %50, i64 0, i64 %indvars.iv86
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv86
   %53 = load i8, ptr %52, align 1, !tbaa !52
   %54 = sext i8 %53 to i32
   %putchar51 = tail call i32 @putchar(i32 %54)
@@ -1289,7 +1289,7 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader57:                                     ; preds = %2, %13
   %indvars.iv69 = phi i64 [ 0, %2 ], [ %indvars.iv.next70, %13 ]
-  %5 = getelementptr inbounds nuw [17 x [17 x i8]], ptr %3, i64 0, i64 %indvars.iv69
+  %5 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 %indvars.iv69
   br label %9
 
 .preheader56:                                     ; preds = %13
@@ -1309,7 +1309,7 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
   %10 = or i64 %indvars.iv, %indvars.iv69
   %11 = and i64 %10, 3
   %or.cond = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds nuw [17 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %. = select i1 %or.cond, i8 42, i8 32
   store i8 %., ptr %12, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1372,7 +1372,7 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %42
   %46 = sext i32 %20 to i64
-  %invariant.gep = getelementptr [17 x i8], ptr %3, i64 0, i64 %46
+  %invariant.gep = getelementptr i8, ptr %3, i64 %46
   %47 = or disjoint i32 %18, 1
   %48 = sext i32 %47 to i64
   %wide.trip.count = sext i32 %24 to i64
@@ -1380,7 +1380,7 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv73 = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next74, %49 ]
-  %gep = getelementptr [17 x [17 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv73
+  %gep = getelementptr [17 x i8], ptr %invariant.gep, i64 %indvars.iv73
   store i8 124, ptr %gep, align 1, !tbaa !52
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
@@ -1396,12 +1396,12 @@ define void @Abc_GraphPathPrint5(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %55
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %55 ], [ 0, %.preheader.preheader ]
-  %50 = getelementptr inbounds nuw [17 x [17 x i8]], ptr %3, i64 0, i64 %indvars.iv90
+  %50 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 %indvars.iv90
   br label %51
 
 51:                                               ; preds = %.preheader, %51
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %51 ]
-  %52 = getelementptr inbounds nuw [17 x i8], ptr %50, i64 0, i64 %indvars.iv86
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv86
   %53 = load i8, ptr %52, align 1, !tbaa !52
   %54 = sext i8 %53 to i32
   %putchar51 = tail call i32 @putchar(i32 %54)
@@ -3093,7 +3093,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = urem i32 %59, 7
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !5
   %64 = mul i32 %63, %58
   %65 = add i32 %64, %.012.i68
@@ -3149,7 +3149,7 @@ Hsh_VecManHash.exit:                              ; preds = %56, %48
   %87 = trunc nuw nsw i64 %indvars.iv.i75 to i32
   %88 = urem i32 %87, 7
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !5
   %92 = mul i32 %91, %86
   %93 = add i32 %92, %.012.i76

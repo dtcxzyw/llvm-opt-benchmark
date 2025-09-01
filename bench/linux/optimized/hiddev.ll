@@ -98,7 +98,7 @@ define dso_local void @hiddev_hid_event(ptr noundef readonly captures(none) %0, 
   %41 = getelementptr i8, ptr %34, i64 -32
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %40, i64 0, i64 %43
+  %44 = getelementptr %struct.hiddev_usage_ref, ptr %40, i64 %43
   store i32 %12, ptr %44, align 8
   %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %16, ptr %.sroa.5.0..sroa_idx.us, align 4
@@ -129,7 +129,7 @@ define dso_local void @hiddev_hid_event(ptr noundef readonly captures(none) %0, 
   %54 = getelementptr i8, ptr %52, i64 -32
   %55 = load i32, ptr %54, align 8
   %56 = sext i32 %55 to i64
-  %57 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %53, i64 0, i64 %56
+  %57 = getelementptr %struct.hiddev_usage_ref, ptr %53, i64 %56
   store i32 %12, ptr %57, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %16, ptr %.sroa.5.0..sroa_idx, align 4
@@ -204,7 +204,7 @@ define dso_local void @hiddev_report_event(ptr noundef readonly captures(none) %
   %26 = getelementptr i8, ptr %19, i64 -32
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %25, i64 0, i64 %28
+  %29 = getelementptr %struct.hiddev_usage_ref, ptr %25, i64 %28
   store i32 %10, ptr %29, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %12, ptr %.sroa.5.0..sroa_idx, align 4
@@ -589,7 +589,7 @@ split:                                            ; preds = %48, %52, %56, %.pre
   %84 = and i32 %83, 1
   %85 = icmp eq i32 %84, 0
   %86 = sext i32 %82 to i64
-  %87 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %14, i64 0, i64 %86, i32 2
+  %87 = getelementptr %struct.hiddev_usage_ref, ptr %14, i64 %86, i32 2
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, -1
   br i1 %85, label %90, label %102
@@ -599,10 +599,10 @@ split:                                            ; preds = %48, %52, %56, %.pre
 
 91:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %92 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %14, i64 0, i64 %86, i32 4
+  %92 = getelementptr %struct.hiddev_usage_ref, ptr %14, i64 %86, i32 4
   %93 = load i32, ptr %92, align 8
   store i32 %93, ptr %6, align 8
-  %94 = getelementptr [2048 x %struct.hiddev_usage_ref], ptr %14, i64 0, i64 %86, i32 5
+  %94 = getelementptr %struct.hiddev_usage_ref, ptr %14, i64 %86, i32 5
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %32, align 4
   %96 = sext i32 %81 to i64
@@ -1081,7 +1081,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   store i32 %224, ptr %214, align 4
   %225 = getelementptr inbounds nuw i8, ptr %211, i64 64
   %226 = zext i32 %224 to i64
-  %227 = getelementptr [256 x ptr], ptr %225, i64 0, i64 %226
+  %227 = getelementptr ptr, ptr %225, i64 %226
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %229, i8 0, i64 48, i1 false)
@@ -1212,7 +1212,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 303:                                              ; preds = %294
   %304 = getelementptr i8, ptr %298, i64 -2048
   %305 = zext nneg i32 %291 to i64
-  %306 = getelementptr [256 x ptr], ptr %304, i64 0, i64 %305
+  %306 = getelementptr ptr, ptr %304, i64 %305
   %307 = load ptr, ptr %306, align 8
   %308 = icmp eq ptr %307, null
   br i1 %308, label %.thread.i, label %309
@@ -1233,7 +1233,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %318 = phi i32 [ %290, %294 ], [ %316, %313 ]
   %319 = getelementptr i8, ptr %298, i64 -2048
   %320 = zext i32 %318 to i64
-  %321 = getelementptr [256 x ptr], ptr %319, i64 0, i64 %320
+  %321 = getelementptr ptr, ptr %319, i64 %320
   %322 = load ptr, ptr %321, align 8
   %323 = icmp eq ptr %322, null
   br i1 %323, label %.thread.i, label %324
@@ -1255,7 +1255,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   store i32 %335, ptr %325, align 8
   %336 = getelementptr inbounds nuw i8, ptr %322, i64 64
   %337 = zext i32 %335 to i64
-  %338 = getelementptr [256 x ptr], ptr %336, i64 0, i64 %337
+  %338 = getelementptr ptr, ptr %336, i64 %337
   %339 = load ptr, ptr %338, align 8
   %340 = getelementptr inbounds nuw i8, ptr %277, i64 12
   %341 = load i32, ptr %340, align 4
@@ -1332,7 +1332,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 389:                                              ; preds = %.loopexit6.i, %387
   %390 = phi i32 [ 0, %387 ], [ %409, %.loopexit6.i ]
   %391 = sext i32 %390 to i64
-  %392 = getelementptr [256 x ptr], ptr %388, i64 0, i64 %391
+  %392 = getelementptr ptr, ptr %388, i64 %391
   %393 = load ptr, ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
   %395 = load i32, ptr %394, align 8
@@ -1399,7 +1399,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 430:                                              ; preds = %421
   %431 = getelementptr i8, ptr %425, i64 -2048
   %432 = zext nneg i32 %418 to i64
-  %433 = getelementptr [256 x ptr], ptr %431, i64 0, i64 %432
+  %433 = getelementptr ptr, ptr %431, i64 %432
   %434 = load ptr, ptr %433, align 8
   %435 = icmp eq ptr %434, null
   br i1 %435, label %.thread.i, label %436
@@ -1420,7 +1420,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %445 = phi i32 [ %364, %421 ], [ %443, %440 ]
   %446 = getelementptr i8, ptr %425, i64 -2048
   %447 = zext i32 %445 to i64
-  %448 = getelementptr [256 x ptr], ptr %446, i64 0, i64 %447
+  %448 = getelementptr ptr, ptr %446, i64 %447
   %449 = load ptr, ptr %448, align 8
   %450 = icmp eq ptr %449, null
   br i1 %450, label %.thread.i, label %451
@@ -1442,7 +1442,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   store i32 %462, ptr %452, align 8
   %463 = getelementptr inbounds nuw i8, ptr %449, i64 64
   %464 = zext i32 %462 to i64
-  %465 = getelementptr [256 x ptr], ptr %463, i64 0, i64 %464
+  %465 = getelementptr ptr, ptr %463, i64 %464
   %466 = load ptr, ptr %465, align 8
   %467 = icmp eq i32 %1, 1075333136
   %468 = getelementptr inbounds nuw i8, ptr %277, i64 12
@@ -1583,7 +1583,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %554 = getelementptr i32, ptr %550, i64 %553
   %555 = load i32, ptr %554, align 4
   %556 = sext i32 %549 to i64
-  %557 = getelementptr [1024 x i32], ptr %514, i64 0, i64 %556
+  %557 = getelementptr i32, ptr %514, i64 %556
   store i32 %555, ptr %557, align 4
   %558 = add nuw i32 %549, 1
   %559 = load i32, ptr %487, align 8
@@ -1598,7 +1598,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 563:                                              ; preds = %563, %506
   %564 = phi i32 [ 0, %506 ], [ %573, %563 ]
   %565 = sext i32 %564 to i64
-  %566 = getelementptr [1024 x i32], ptr %507, i64 0, i64 %565
+  %566 = getelementptr i32, ptr %507, i64 %565
   %567 = load i32, ptr %566, align 4
   %568 = load ptr, ptr %508, align 8
   %569 = load i32, ptr %491, align 4
@@ -1967,7 +1967,7 @@ define internal fastcc ptr @hiddev_lookup_report(ptr noundef %0, ptr noundef cap
 18:                                               ; preds = %9
   %19 = getelementptr i8, ptr %13, i64 -2048
   %20 = zext nneg i32 %5 to i64
-  %21 = getelementptr [256 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %38, label %24
@@ -1989,7 +1989,7 @@ define internal fastcc ptr @hiddev_lookup_report(ptr noundef %0, ptr noundef cap
   %33 = phi i32 [ %31, %28 ], [ %4, %9 ]
   %34 = getelementptr i8, ptr %13, i64 -2048
   %35 = zext i32 %33 to i64
-  %36 = getelementptr [256 x ptr], ptr %34, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %38
 

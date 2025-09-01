@@ -848,24 +848,24 @@ define internal noundef ptr @VULKAN_CreateDevice(i1 noundef zeroext %0, i1 nound
 220:                                              ; preds = %102, %220
   %indvars.iv = phi i64 [ 0, %102 ], [ %indvars.iv.next, %220 ]
   %221 = load ptr, ptr %219, align 8
-  %222 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %221, i64 0, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %221, i64 %indvars.iv
   %223 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %223, ptr %222, align 8
   %224 = load ptr, ptr %219, align 8
-  %225 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %224, i64 0, i64 %indvars.iv, i32 1
+  %225 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %224, i64 %indvars.iv, i32 1
   store ptr null, ptr %225, align 8
   %226 = load ptr, ptr %219, align 8
-  %227 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %226, i64 0, i64 %indvars.iv, i32 2
+  %227 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %226, i64 %indvars.iv, i32 2
   store i32 0, ptr %227, align 8
   %228 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #12
   %229 = load ptr, ptr %219, align 8
-  %230 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %229, i64 0, i64 %indvars.iv, i32 3
+  %230 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %229, i64 %indvars.iv, i32 3
   store ptr %228, ptr %230, align 8
   %231 = load ptr, ptr %219, align 8
-  %232 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %231, i64 0, i64 %indvars.iv, i32 4
+  %232 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %231, i64 %indvars.iv, i32 4
   store i32 0, ptr %232, align 8
   %233 = load ptr, ptr %219, align 8
-  %234 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %233, i64 0, i64 %indvars.iv, i32 5
+  %234 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %233, i64 %indvars.iv, i32 5
   store i32 4, ptr %234, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -3504,7 +3504,7 @@ VULKAN_INTERNAL_DestroyDescriptorSetCache.exit:   ; preds = %._crit_edge.i, %58
 174:                                              ; preds = %._crit_edge141, %363
   %indvars.iv178 = phi i64 [ 0, %._crit_edge141 ], [ %indvars.iv.next179, %363 ]
   %175 = load ptr, ptr %108, align 8
-  %176 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %175, i64 0, i64 %indvars.iv178
+  %176 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %175, i64 %indvars.iv178
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i32, ptr %177, align 8
   %.094148 = add i32 %178, -1
@@ -3522,7 +3522,7 @@ VULKAN_INTERNAL_DestroyDescriptorSetCache.exit:   ; preds = %._crit_edge.i, %58
 
 ._crit_edge153:                                   ; preds = %._crit_edge153.loopexit, %174
   %182 = phi ptr [ %.pre182, %._crit_edge153.loopexit ], [ %175, %174 ]
-  %183 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %182, i64 0, i64 %indvars.iv178, i32 1
+  %183 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %182, i64 %indvars.iv178, i32 1
   %184 = load ptr, ptr %183, align 8
   %.not = icmp eq ptr %184, null
   br i1 %.not, label %363, label %362
@@ -3861,7 +3861,7 @@ VULKAN_INTERNAL_RemoveMemoryUsedRegion.exit:      ; preds = %.loopexit.i111, %35
 
 363:                                              ; preds = %362, %._crit_edge153
   %364 = phi ptr [ %.pre183, %362 ], [ %182, %._crit_edge153 ]
-  %365 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %364, i64 0, i64 %indvars.iv178, i32 3
+  %365 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %364, i64 %indvars.iv178, i32 3
   %366 = load ptr, ptr %365, align 8
   tail call void @SDL_free_REAL(ptr noundef %366) #12
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -4719,7 +4719,7 @@ define internal ptr @VULKAN_CreateGraphicsPipeline(ptr noundef %0, ptr noundef r
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %45
   %47 = load i32, ptr %46, align 4
   %.sroa.0.0.copyload181 = load ptr, ptr %37, align 8
   %.sroa.5.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %1, i64 148
@@ -4739,10 +4739,10 @@ define internal ptr @VULKAN_CreateGraphicsPipeline(ptr noundef %0, ptr noundef r
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
   %48 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetDescription, ptr %.sroa.0.0.copyload181, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %48, align 4
-  %49 = getelementptr inbounds nuw [5 x %struct.VkAttachmentDescription], ptr %7, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw %struct.VkAttachmentDescription, ptr %7, i64 %indvars.iv.i
   store i32 0, ptr %49, align 4
   %50 = zext i32 %.sroa.0.0.copyload.i to i64
-  %51 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %52, ptr %53, align 4
@@ -4760,7 +4760,7 @@ define internal ptr @VULKAN_CreateGraphicsPipeline(ptr noundef %0, ptr noundef r
   store i32 2, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i32 2, ptr %60, align 4
-  %61 = getelementptr inbounds nuw [4 x %struct.VkAttachmentReference], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw %struct.VkAttachmentReference, ptr %8, i64 %indvars.iv.i
   %62 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -4789,10 +4789,10 @@ define internal ptr @VULKAN_CreateGraphicsPipeline(ptr noundef %0, ptr noundef r
   br i1 %71, label %72, label %87
 
 72:                                               ; preds = %._crit_edge.i
-  %73 = getelementptr inbounds nuw [5 x %struct.VkAttachmentDescription], ptr %7, i64 0, i64 %40
+  %73 = getelementptr inbounds nuw %struct.VkAttachmentDescription, ptr %7, i64 %40
   store i32 0, ptr %73, align 4
   %74 = zext i32 %.sroa.5.0.copyload185 to i64
-  %75 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %76, ptr %77, align 4
@@ -5146,7 +5146,7 @@ VULKAN_INTERNAL_CreateTransientRenderPass.exit:   ; preds = %VkErrorMessages.exi
   %203 = getelementptr inbounds nuw %struct.SDL_GPUVertexBufferDescription, ptr %195, i64 %indvars.iv, i32 2
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %205
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i32 %207, ptr %208, align 4
@@ -5168,7 +5168,7 @@ VULKAN_INTERNAL_CreateTransientRenderPass.exit:   ; preds = %VkErrorMessages.exi
   %217 = getelementptr inbounds nuw %struct.SDL_GPUVertexAttribute, ptr %198, i64 %indvars.iv212, i32 2
   %218 = load i32, ptr %217, align 4
   %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw [31 x i32], ptr @SDLToVK_VertexFormat, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i32, ptr @SDLToVK_VertexFormat, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 %221, ptr %222, align 8
@@ -5207,7 +5207,7 @@ VULKAN_INTERNAL_CreateTransientRenderPass.exit:   ; preds = %VkErrorMessages.exi
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %238 = load i32, ptr %237, align 8
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw [5 x i32], ptr @SDLToVK_PrimitiveType, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i32, ptr @SDLToVK_PrimitiveType, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %241, ptr %242, align 4
@@ -5270,14 +5270,14 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %272 = load i32, ptr %271, align 4
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_CullMode, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i32, ptr @SDLToVK_CullMode, i64 %273
   %275 = load i32, ptr %274, align 4
   %276 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 %275, ptr %276, align 8
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %278 = load i32, ptr %277, align 4
   %279 = zext i32 %278 to i64
-  %280 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %279
   %281 = load i32, ptr %280, align 4
   %282 = getelementptr inbounds nuw i8, ptr %18, i64 36
   store i32 %281, ptr %282, align 4
@@ -5309,7 +5309,7 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   store i32 0, ptr %298, align 8
   %299 = load i32, ptr %43, align 8
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %302, ptr %303, align 4
@@ -5330,22 +5330,22 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %314 = load i32, ptr %313, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %315
   %317 = load i32, ptr %316, align 4
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %319 = load i32, ptr %318, align 4
   %320 = zext i32 %319 to i64
-  %321 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %320
   %322 = load i32, ptr %321, align 4
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %324 = load i32, ptr %323, align 8
   %325 = zext i32 %324 to i64
-  %326 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %325
   %327 = load i32, ptr %326, align 4
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %329 = load i32, ptr %328, align 4
   %330 = zext i32 %329 to i64
-  %331 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %334 = load i8, ptr %333, align 8
@@ -5356,22 +5356,22 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   %339 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %340 = load i32, ptr %339, align 8
   %341 = zext i32 %340 to i64
-  %342 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %341
   %343 = load i32, ptr %342, align 4
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %345 = load i32, ptr %344, align 4
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %346
   %348 = load i32, ptr %347, align 4
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %350 = load i32, ptr %349, align 8
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %355 = load i32, ptr %354, align 4
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %356
   %358 = load i32, ptr %357, align 4
   store i32 25, ptr %20, align 8
   %359 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -5390,7 +5390,7 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   store i32 %367, ptr %368, align 8
   %369 = load i32, ptr %312, align 4
   %370 = zext i32 %369 to i64
-  %371 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %370
   %372 = load i32, ptr %371, align 4
   %373 = getelementptr inbounds nuw i8, ptr %20, i64 28
   store i32 %372, ptr %373, align 4
@@ -5468,32 +5468,32 @@ SDLToVK_PolygonMode.exit:                         ; preds = %._crit_edge, %261, 
   %390 = getelementptr inbounds nuw %struct.VkPipelineColorBlendAttachmentState, ptr %42, i64 %indvars.iv217
   store i32 %389, ptr %390, align 16
   %391 = zext i32 %.sroa.0.0.copyload to i64
-  %392 = getelementptr inbounds nuw [14 x i32], ptr @SDLToVK_BlendFactor, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendFactor, i64 %391
   %393 = load i32, ptr %392, align 4
   %394 = getelementptr inbounds nuw i8, ptr %390, i64 4
   store i32 %393, ptr %394, align 4
   %395 = zext i32 %.sroa.4.0.copyload to i64
-  %396 = getelementptr inbounds nuw [14 x i32], ptr @SDLToVK_BlendFactor, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendFactor, i64 %395
   %397 = load i32, ptr %396, align 4
   %398 = getelementptr inbounds nuw i8, ptr %390, i64 8
   store i32 %397, ptr %398, align 8
   %399 = zext i32 %.sroa.5.0.copyload to i64
-  %400 = getelementptr inbounds nuw [6 x i32], ptr @SDLToVK_BlendOp, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendOp, i64 %399
   %401 = load i32, ptr %400, align 4
   %402 = getelementptr inbounds nuw i8, ptr %390, i64 12
   store i32 %401, ptr %402, align 4
   %403 = zext i32 %.sroa.6.0.copyload to i64
-  %404 = getelementptr inbounds nuw [14 x i32], ptr @SDLToVK_BlendFactor, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendFactor, i64 %403
   %405 = load i32, ptr %404, align 4
   %406 = getelementptr inbounds nuw i8, ptr %390, i64 16
   store i32 %405, ptr %406, align 16
   %407 = zext i32 %.sroa.7.0.copyload to i64
-  %408 = getelementptr inbounds nuw [14 x i32], ptr @SDLToVK_BlendFactor, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendFactor, i64 %407
   %409 = load i32, ptr %408, align 4
   %410 = getelementptr inbounds nuw i8, ptr %390, i64 20
   store i32 %409, ptr %410, align 4
   %411 = zext i32 %.sroa.8.0.copyload to i64
-  %412 = getelementptr inbounds nuw [6 x i32], ptr @SDLToVK_BlendOp, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw i32, ptr @SDLToVK_BlendOp, i64 %411
   %413 = load i32, ptr %412, align 4
   %414 = getelementptr inbounds nuw i8, ptr %390, i64 24
   store i32 %413, ptr %414, align 8
@@ -6167,41 +6167,41 @@ define internal ptr @VULKAN_CreateSampler(ptr noundef readonly captures(none) %0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %12, ptr %13, align 4
   %14 = load i32, ptr %1, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %35, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %41, ptr %42, align 8
@@ -6226,7 +6226,7 @@ define internal ptr @VULKAN_CreateSampler(ptr noundef readonly captures(none) %0
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [9 x i32], ptr @SDLToVK_CompareOp, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr @SDLToVK_CompareOp, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %61, ptr %62, align 4
@@ -7512,7 +7512,7 @@ define internal void @VULKAN_BeginRenderPass(ptr noundef %0, ptr noundef readonl
   %51 = tail call fastcc ptr @VULKAN_INTERNAL_PrepareTextureSubresourceForWrite(ptr noundef %11, ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef %45, i32 noundef %47, i1 noundef zeroext %50, i32 noundef 7)
   %52 = load i32, ptr %30, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %29, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %29, i64 %53
   store ptr %51, ptr %54, align 8
   %55 = load i32, ptr %30, align 8
   %56 = add i32 %55, 1
@@ -7590,7 +7590,7 @@ VULKAN_INTERNAL_TrackTexture.exit:                ; preds = %63, %77
   %103 = tail call fastcc ptr @VULKAN_INTERNAL_PrepareTextureSubresourceForWrite(ptr noundef %11, ptr noundef nonnull %0, ptr noundef %95, i32 noundef %97, i32 noundef %99, i1 noundef zeroext %102, i32 noundef 7)
   %104 = load i32, ptr %35, align 8
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw [4 x ptr], ptr %34, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw ptr, ptr %34, i64 %105
   store ptr %103, ptr %106, align 8
   %107 = load i32, ptr %35, align 8
   %108 = add i32 %107, 1
@@ -7789,7 +7789,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %208
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv.i186
+  %214 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i186
   store ptr %213, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %187, i64 40
   %216 = load ptr, ptr %215, align 8
@@ -7811,7 +7811,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %226 = load ptr, ptr %225, align 8
   %227 = load i32, ptr %185, align 8
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw [4 x ptr], ptr %184, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw ptr, ptr %184, i64 %228
   store ptr %226, ptr %229, align 8
   %230 = load i32, ptr %185, align 8
   %231 = add i32 %230, 1
@@ -7904,7 +7904,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %271
   %276 = load ptr, ptr %275, align 8
   %277 = zext i32 %.088113.i to i64
-  %278 = getelementptr inbounds nuw [9 x ptr], ptr %7, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw ptr, ptr %7, i64 %277
   store ptr %276, ptr %278, align 8
   %279 = add i32 %.088113.i, 1
   %280 = getelementptr inbounds nuw i8, ptr %252, i64 36
@@ -7933,7 +7933,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %297 = load ptr, ptr %296, align 8
   %298 = load ptr, ptr %297, align 8
   %299 = zext i32 %279 to i64
-  %300 = getelementptr inbounds nuw [9 x ptr], ptr %7, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw ptr, ptr %7, i64 %299
   store ptr %298, ptr %300, align 8
   %301 = add i32 %.088113.i, 2
   br label %302
@@ -7957,7 +7957,7 @@ VULKAN_INTERNAL_TrackTexture.exit185:             ; preds = %155, %170
   %307 = getelementptr inbounds nuw i8, ptr %.val108.val.i, i64 32
   %308 = load ptr, ptr %307, align 8
   %309 = zext i32 %.088.lcssa.i to i64
-  %310 = getelementptr inbounds nuw [9 x ptr], ptr %7, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw ptr, ptr %7, i64 %309
   store ptr %308, ptr %310, align 8
   %311 = add i32 %.088.lcssa.i, 1
   br label %312
@@ -8458,7 +8458,7 @@ VULKAN_INTERNAL_TrackGraphicsPipeline.exit:       ; preds = %18, %33
 51:                                               ; preds = %.lr.ph, %58
   %52 = phi ptr [ %43, %.lr.ph ], [ %59, %58 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %53 = getelementptr inbounds nuw [4 x ptr], ptr %46, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %58
@@ -8486,7 +8486,7 @@ VULKAN_INTERNAL_TrackGraphicsPipeline.exit:       ; preds = %18, %33
 65:                                               ; preds = %.lr.ph34, %72
   %66 = phi ptr [ %47, %.lr.ph34 ], [ %73, %72 ]
   %indvars.iv37 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next38, %72 ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr %50, i64 0, i64 %indvars.iv37
+  %67 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv37
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %72
@@ -8642,7 +8642,7 @@ define internal void @VULKAN_BindVertexBuffers(ptr noundef captures(none) %0, i3
   %18 = trunc nuw i64 %indvars.iv to i32
   %19 = add i32 %1, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -8650,7 +8650,7 @@ define internal void @VULKAN_BindVertexBuffers(ptr noundef captures(none) %0, i3
   br i1 %.not, label %25, label %31
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %20
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %29 = load i32, ptr %28, align 8
@@ -8713,7 +8713,7 @@ VULKAN_INTERNAL_TrackBuffer.exit:                 ; preds = %37, %51
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %20
+  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %20
   store i64 %63, ptr %64, align 8
   store i8 1, ptr %10, align 4
   br label %65
@@ -8791,7 +8791,7 @@ VULKAN_INTERNAL_TrackBuffer.exit:                 ; preds = %15, %30
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = zext i32 %2 to i64
-  %49 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %48
   %50 = load i32, ptr %49, align 4
   tail call void %40(ptr noundef %42, ptr noundef %44, i64 noundef %47, i32 noundef %50) #12
   ret void
@@ -8827,7 +8827,7 @@ define internal void @VULKAN_BindVertexSamplers(ptr noundef captures(none) %0, i
   %19 = trunc nuw i64 %indvars.iv to i32
   %20 = add i32 %1, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, %18
   br i1 %.not, label %54, label %24
@@ -8888,7 +8888,7 @@ VULKAN_INTERNAL_TrackSampler.exit:                ; preds = %30, %44
   br label %54
 
 54:                                               ; preds = %VULKAN_INTERNAL_TrackSampler.exit, %14
-  %55 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %21
+  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %21
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %58 = load ptr, ptr %57, align 8
@@ -8980,7 +8980,7 @@ define internal void @VULKAN_BindVertexStorageTextures(ptr noundef captures(none
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -9072,7 +9072,7 @@ define internal void @VULKAN_BindVertexStorageBuffers(ptr noundef captures(none)
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %17, %18
@@ -9169,7 +9169,7 @@ define internal void @VULKAN_BindFragmentSamplers(ptr noundef captures(none) %0,
   %19 = trunc nuw i64 %indvars.iv to i32
   %20 = add i32 %1, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, %18
   br i1 %.not, label %54, label %24
@@ -9230,7 +9230,7 @@ VULKAN_INTERNAL_TrackSampler.exit:                ; preds = %30, %44
   br label %54
 
 54:                                               ; preds = %VULKAN_INTERNAL_TrackSampler.exit, %14
-  %55 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %21
+  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %21
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %58 = load ptr, ptr %57, align 8
@@ -9322,7 +9322,7 @@ define internal void @VULKAN_BindFragmentStorageTextures(ptr noundef captures(no
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -9411,7 +9411,7 @@ define internal void @VULKAN_BindFragmentStorageBuffers(ptr noundef captures(non
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %17, %18
@@ -9493,7 +9493,7 @@ define internal void @VULKAN_PushVertexUniformData(ptr noundef captures(none) %0
   %12 = sub nuw i32 %10, %11
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  %15 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -9568,7 +9568,7 @@ define internal void @VULKAN_PushFragmentUniformData(ptr noundef captures(none) 
   %12 = sub nuw i32 %10, %11
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  %15 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -9881,7 +9881,7 @@ define internal void @VULKAN_EndRenderPass(ptr noundef captures(none) %0) #0 {
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage(ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 7, ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9903,7 +9903,7 @@ define internal void @VULKAN_EndRenderPass(ptr noundef captures(none) %0) #0 {
 
 20:                                               ; preds = %.lr.ph48, %20
   %indvars.iv53 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next54, %20 ]
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv53
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage(ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 7, ptr noundef %22)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
@@ -9990,7 +9990,7 @@ define internal void @VULKAN_BeginComputePass(ptr noundef captures(none) initial
   %36 = load i8, ptr %35, align 8, !range !3, !noundef !4
   %37 = trunc nuw i8 %36 to i1
   %38 = tail call fastcc ptr @VULKAN_INTERNAL_PrepareTextureSubresourceForWrite(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %30, i32 noundef %32, i32 noundef %34, i1 noundef zeroext %37, i32 noundef 6)
-  %39 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %38, align 8
   %41 = load i32, ptr %11, align 8
@@ -10126,7 +10126,7 @@ VULKAN_INTERNAL_BufferTransitionFromDefaultUsage.exit: ; preds = %VULKAN_INTERNA
   store i8 1, ptr %101, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %102 = load ptr, ptr %71, align 8
-  %103 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv45
+  %103 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv45
   store ptr %102, ptr %103, align 8
   %104 = load i32, ptr %25, align 8
   %105 = zext i32 %104 to i64
@@ -10267,7 +10267,7 @@ VULKAN_INTERNAL_TrackComputePipeline.exit:        ; preds = %19, %34
 49:                                               ; preds = %.lr.ph, %56
   %50 = phi ptr [ %44, %.lr.ph ], [ %57, %56 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %51 = getelementptr inbounds nuw [4 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %56
@@ -10318,7 +10318,7 @@ define internal void @VULKAN_BindComputeSamplers(ptr noundef captures(none) %0, 
   %19 = trunc nuw i64 %indvars.iv to i32
   %20 = add i32 %1, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, %18
   br i1 %.not, label %53, label %24
@@ -10377,7 +10377,7 @@ VULKAN_INTERNAL_TrackSampler.exit:                ; preds = %30, %44
   br label %53
 
 53:                                               ; preds = %VULKAN_INTERNAL_TrackSampler.exit, %14
-  %54 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %21
+  %54 = getelementptr inbounds nuw ptr, ptr %10, i64 %21
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %57 = load ptr, ptr %56, align 8
@@ -10501,7 +10501,7 @@ define internal void @VULKAN_BindComputeStorageTextures(ptr noundef captures(non
   %45 = trunc nuw i64 %indvars.iv to i32
   %46 = add i32 %1, %45
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %9, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %51 = load ptr, ptr %50, align 8
@@ -10587,11 +10587,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %73, %71, %69, %67, 
   store i32 1, ptr %20, align 8
   store i32 32, ptr %11, align 8
   store i32 1, ptr %12, align 8
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep58 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
+  %switch.gep58 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 %.0.i.i
   %switch.load59 = load i32, ptr %switch.gep58, align 4
-  %switch.gep60 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
+  %switch.gep60 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 %.0.i.i
   %switch.load61 = load i32, ptr %switch.gep60, align 4
   store i32 %switch.load, ptr %22, align 4
   store i32 %switch.load59, ptr %21, align 4
@@ -10687,11 +10687,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38: ; preds = %108, %106, %104, %1
   br i1 %110, label %switch.lookup, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
 switch.lookup:                                    ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i38
-  %switch.gep63 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i39
+  %switch.gep63 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 %.0.i.i39
   %switch.load64 = load i32, ptr %switch.gep63, align 4
-  %switch.gep65 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i39
+  %switch.gep65 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 %.0.i.i39
   %switch.load66 = load i32, ptr %switch.gep65, align 4
-  %switch.gep67 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i39
+  %switch.gep67 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 %.0.i.i39
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
@@ -10816,7 +10816,7 @@ define internal void @VULKAN_BindComputeStorageBuffers(ptr noundef captures(none
   %26 = trunc nuw i64 %indvars.iv to i32
   %27 = add i32 %1, %26
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %8, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %30, %31
@@ -10964,7 +10964,7 @@ define internal void @VULKAN_PushComputeUniformData(ptr noundef captures(none) %
   %12 = sub nuw i32 %10, %11
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %15 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -11124,7 +11124,7 @@ define internal void @VULKAN_EndComputePass(ptr noundef captures(none) %0) #0 {
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage(ptr noundef %8, ptr noundef nonnull %0, i32 noundef 6, ptr noundef %10)
   store ptr null, ptr %9, align 8
@@ -11160,7 +11160,7 @@ define internal void @VULKAN_EndComputePass(ptr noundef captures(none) %0) #0 {
 
 31:                                               ; preds = %._crit_edge, %36
   %indvars.iv58 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next59, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %14, i64 0, i64 %indvars.iv58
+  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv58
   %33 = load ptr, ptr %32, align 8
   %.not50 = icmp eq ptr %33, null
   br i1 %.not50, label %36, label %34
@@ -11182,7 +11182,7 @@ define internal void @VULKAN_EndComputePass(ptr noundef captures(none) %0) #0 {
 
 38:                                               ; preds = %.preheader51, %78
   %indvars.iv61 = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next62, %78 ]
-  %39 = getelementptr inbounds nuw [8 x ptr], ptr %16, i64 0, i64 %indvars.iv61
+  %39 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv61
   %40 = load ptr, ptr %39, align 8
   %.not49 = icmp eq ptr %40, null
   br i1 %.not49, label %78, label %41
@@ -11264,11 +11264,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %63, %61, %59, %57, 
   store i32 1, ptr %27, align 8
   store i32 32, ptr %18, align 8
   store i32 1, ptr %19, align 8
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep71 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i
+  %switch.gep71 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 %.0.i.i
   %switch.load72 = load i32, ptr %switch.gep71, align 4
-  %switch.gep73 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i
+  %switch.gep73 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 %.0.i.i
   %switch.load74 = load i32, ptr %switch.gep73, align 4
   store i32 %switch.load, ptr %29, align 4
   store i32 %switch.load72, ptr %28, align 4
@@ -11293,7 +11293,7 @@ VULKAN_INTERNAL_TextureTransitionToDefaultUsage.exit: ; preds = %VULKAN_INTERNAL
 
 79:                                               ; preds = %.preheader, %84
   %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %84 ]
-  %80 = getelementptr inbounds nuw [8 x ptr], ptr %37, i64 0, i64 %indvars.iv65
+  %80 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv65
   %81 = load ptr, ptr %80, align 8
   %.not = icmp eq ptr %81, null
   br i1 %.not, label %84, label %82
@@ -12863,11 +12863,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i:   ; preds = %131, %129, %127, %1
   br i1 %133, label %switch.lookup, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
 switch.lookup:                                    ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 %.0.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep127 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i
+  %switch.gep127 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 %.0.i.i
   %switch.load128 = load i32, ptr %switch.gep127, align 4
-  %switch.gep129 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i
+  %switch.gep129 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 %.0.i.i
   %switch.load130 = load i32, ptr %switch.gep129, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit
 
@@ -12943,21 +12943,21 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62: ; preds = %157, %155, %153, %1
   %167 = load i32, ptr %166, align 4
   store i32 %167, ptr %38, align 4
   store i32 1, ptr %39, align 8
-  br i1 %159, label %switch.lookup131, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
+  br i1 %159, label %switch.lookup132, label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
 
-switch.lookup131:                                 ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62
-  %switch.gep133 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i.i63
+switch.lookup132:                                 ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62
+  %switch.gep133 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 %.0.i.i63
   %switch.load134 = load i32, ptr %switch.gep133, align 4
-  %switch.gep135 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i.i63
+  %switch.gep135 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 %.0.i.i63
   %switch.load136 = load i32, ptr %switch.gep135, align 4
-  %switch.gep137 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i.i63
+  %switch.gep137 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 %.0.i.i63
   %switch.load138 = load i32, ptr %switch.gep137, align 4
   br label %VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73
 
-VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62, %switch.lookup131
-  %.sink31.i.i64 = phi i32 [ %switch.load134, %switch.lookup131 ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
-  %.sink.ph.i.i65 = phi i32 [ %switch.load136, %switch.lookup131 ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
-  %.025.ph.i.i66 = phi i32 [ %switch.load138, %switch.lookup131 ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.exit73: ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62, %switch.lookup132
+  %.sink31.i.i64 = phi i32 [ %switch.load134, %switch.lookup132 ], [ 1024, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+  %.sink.ph.i.i65 = phi i32 [ %switch.load136, %switch.lookup132 ], [ 3, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
+  %.025.ph.i.i66 = phi i32 [ %switch.load138, %switch.lookup132 ], [ 768, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i62 ]
   store i32 %.sink31.i.i64, ptr %30, align 8
   store i32 %.sink.ph.i.i65, ptr %31, align 8
   store i32 4096, ptr %41, align 4
@@ -13058,11 +13058,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i76: ; preds = %195, %193, %191, %1
   store i32 1, ptr %74, align 8
   store i32 2048, ptr %65, align 8
   store i32 6, ptr %66, align 8
-  %switch.gep141 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i77
+  %switch.gep141 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 %.0.i.i77
   %switch.load142 = load i32, ptr %switch.gep141, align 4
-  %switch.gep143 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i77
+  %switch.gep143 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 %.0.i.i77
   %switch.load144 = load i32, ptr %switch.gep143, align 4
-  %switch.gep145 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i77
+  %switch.gep145 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 %.0.i.i77
   %switch.load146 = load i32, ptr %switch.gep145, align 4
   store i32 %switch.load142, ptr %76, align 4
   store i32 %switch.load144, ptr %75, align 4
@@ -13129,11 +13129,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit.i89: ; preds = %218, %216, %214, %2
   store i32 1, ptr %87, align 8
   store i32 4096, ptr %78, align 8
   store i32 7, ptr %79, align 8
-  %switch.gep149 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i.i90
+  %switch.gep149 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 %.0.i.i90
   %switch.load150 = load i32, ptr %switch.gep149, align 4
-  %switch.gep151 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i.i90
+  %switch.gep151 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 %.0.i.i90
   %switch.load152 = load i32, ptr %switch.gep151, align 4
-  %switch.gep153 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i.i90
+  %switch.gep153 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 %.0.i.i90
   %switch.load154 = load i32, ptr %switch.gep153, align 4
   store i32 %switch.load150, ptr %89, align 4
   store i32 %switch.load152, ptr %88, align 4
@@ -13438,7 +13438,7 @@ define internal void @VULKAN_Blit(ptr noundef %0, ptr noundef readonly captures(
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %124 = load i32, ptr %123, align 8
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw [2 x i32], ptr @SDLToVK_IndexType, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr @SDLToVK_IndexType, i64 %125
   %127 = load i32, ptr %126, align 4
   call void %116(ptr noundef %118, ptr noundef %120, i32 noundef 6, ptr noundef %122, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %3, i32 noundef %127) #12
   call fastcc void @VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage(ptr noundef %6, ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %45)
@@ -13602,9 +13602,9 @@ define internal noundef zeroext i1 @VULKAN_SupportsSwapchainComposition(ptr noun
 
 29:                                               ; preds = %25
   %30 = zext i32 %2 to i64
-  %31 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToFormat, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToFormat, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToColorSpace, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToColorSpace, i64 %30
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %36 = load ptr, ptr %35, align 8
@@ -13636,7 +13636,7 @@ define internal noundef zeroext i1 @VULKAN_SupportsSwapchainComposition(ptr noun
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i20, label %.lr.ph.i, !llvm.loop !73
 
 .lr.ph.preheader.i20:                             ; preds = %46
-  %47 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToFallbackFormat, i64 0, i64 %30
+  %47 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToFallbackFormat, i64 %30
   %48 = load i32, ptr %47, align 4
   br label %.lr.ph.i22
 
@@ -13723,7 +13723,7 @@ define internal noundef zeroext i1 @VULKAN_SupportsPresentMode(ptr noundef reado
 
 29:                                               ; preds = %25
   %30 = zext i32 %2 to i64
-  %31 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_PresentMode, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @SDLToVK_PresentMode, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
@@ -13889,7 +13889,7 @@ define internal void @VULKAN_ReleaseWindow(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %6, %VULKAN_ReleaseFence.exit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %VULKAN_ReleaseFence.exit ]
-  %14 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %VULKAN_ReleaseFence.exit, label %16
@@ -14875,7 +14875,7 @@ define internal noundef zeroext i1 @VULKAN_WaitForSwapchain(ptr noundef %0, ptr 
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %20
@@ -14948,7 +14948,7 @@ define internal noundef zeroext i1 @VULKAN_Submit(ptr noundef %0) #0 {
 
 27:                                               ; preds = %20, %27
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 1024, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -16607,7 +16607,7 @@ VkErrorMessages.exit138:                          ; preds = %715, %716, %717, %7
   %753 = getelementptr inbounds nuw i8, ptr %751, i64 160
   %754 = load i32, ptr %753, align 8
   %755 = zext i32 %754 to i64
-  %756 = getelementptr inbounds nuw [3 x ptr], ptr %752, i64 0, i64 %755
+  %756 = getelementptr inbounds nuw ptr, ptr %752, i64 %755
   store ptr %750, ptr %756, align 8
   %757 = getelementptr inbounds nuw i8, ptr %750, i64 8
   %758 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %757, i32 noundef 1) #12
@@ -16825,7 +16825,7 @@ VkErrorMessages.exit141:                          ; preds = %787, %788, %789, %7
 849:                                              ; preds = %843, %._crit_edge208
   %indvars.iv233 = phi i64 [ 0, %843 ], [ %indvars.iv.next234, %._crit_edge208 ]
   %850 = load ptr, ptr %846, align 8
-  %851 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %850, i64 0, i64 %indvars.iv233
+  %851 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %850, i64 %indvars.iv233
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 16
   %853 = load i32, ptr %852, align 8
   %.0204 = add i32 %853, -1
@@ -17796,7 +17796,7 @@ VULKAN_INTERNAL_ReturnFenceToPool.exit:           ; preds = %._crit_edge.i, %14
 define internal zeroext i1 @VULKAN_SupportsTextureFormat(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.VkImageFormatProperties, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %6
   %8 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = shl i32 %3, 2
@@ -17831,7 +17831,7 @@ define internal zeroext i1 @VULKAN_SupportsSampleCount(ptr noundef readonly capt
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %4 = load i32, ptr %.in, align 4
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, %4
   %9 = icmp ne i32 %8, 0
@@ -17897,7 +17897,7 @@ define internal i32 @VULKAN_INTERNAL_RenderPassHashFunction(ptr readnone capture
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03233 = phi i32 [ 1, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %8 = mul i32 %.03233, 31
-  %9 = getelementptr inbounds nuw [4 x %struct.RenderPassColorTargetDescription], ptr %1, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.RenderPassColorTargetDescription, ptr %1, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, %8
@@ -17944,7 +17944,7 @@ define internal i32 @VULKAN_INTERNAL_RenderPassHashFunction(ptr readnone capture
   %indvars.iv42 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next43, %44 ]
   %.135 = phi i32 [ %.032.lcssa, %.lr.ph37 ], [ %48, %44 ]
   %45 = mul i32 %.135, 31
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv42
+  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv42
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, %45
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -18002,9 +18002,9 @@ define internal zeroext i1 @VULKAN_INTERNAL_RenderPassHashKeyMatch(ptr readnone 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %21 = getelementptr inbounds nuw [4 x %struct.RenderPassColorTargetDescription], ptr %1, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.RenderPassColorTargetDescription, ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw [4 x %struct.RenderPassColorTargetDescription], ptr %2, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.RenderPassColorTargetDescription, ptr %2, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %.not49 = icmp eq i32 %22, %24
   br i1 %.not49, label %25, label %.loopexit
@@ -18032,9 +18032,9 @@ define internal zeroext i1 @VULKAN_INTERNAL_RenderPassHashKeyMatch(ptr readnone 
 
 35:                                               ; preds = %.lr.ph67, %.critedge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next71, %.critedge ]
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv70
+  %36 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv70
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv70
   %39 = load i32, ptr %38, align 4
   %.not53 = icmp eq i32 %37, %39
   br i1 %.not53, label %.critedge, label %.loopexit
@@ -18124,7 +18124,7 @@ define internal i32 @VULKAN_INTERNAL_FramebufferHashFunction(ptr readnone captur
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02021 = phi i32 [ 1, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %8 = mul i32 %.02021, 31
-  %9 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32
@@ -18155,7 +18155,7 @@ define internal i32 @VULKAN_INTERNAL_FramebufferHashFunction(ptr readnone captur
   %indvars.iv30 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next31, %28 ]
   %.123 = phi i32 [ %.020.lcssa, %.lr.ph25 ], [ %34, %28 ]
   %29 = mul i32 %.123, 31
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv30
+  %30 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv30
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i32
@@ -18207,9 +18207,9 @@ define internal zeroext i1 @VULKAN_INTERNAL_FramebufferHashKeyMatch(ptr readnone
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %16 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not34 = icmp eq ptr %17, %19
   br i1 %.not34, label %13, label %.loopexit
@@ -18221,9 +18221,9 @@ define internal zeroext i1 @VULKAN_INTERNAL_FramebufferHashKeyMatch(ptr readnone
 
 20:                                               ; preds = %.lr.ph48, %.critedge
   %indvars.iv51 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next52, %.critedge ]
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv51
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw [4 x ptr], ptr %15, i64 0, i64 %indvars.iv51
+  %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv51
   %24 = load ptr, ptr %23, align 8
   %.not36 = icmp eq ptr %22, %24
   br i1 %.not36, label %.critedge, label %.loopexit
@@ -19093,7 +19093,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv
   %35 = trunc nuw i64 %indvars.iv to i32
   store i32 %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -19120,7 +19120,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124
   %indvars.iv138 = phi i64 [ %33, %.lr.ph124.preheader ], [ %indvars.iv.next139, %.lr.ph124 ]
-  %43 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv138
+  %43 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv138
   %44 = trunc nuw i64 %indvars.iv138 to i32
   store i32 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -19145,7 +19145,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv143 = phi i64 [ %42, %.lr.ph126.preheader ], [ %indvars.iv.next144, %.lr.ph126 ]
-  %49 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv143
+  %49 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv143
   %50 = trunc nuw i64 %indvars.iv143 to i32
   store i32 %50, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -19172,7 +19172,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
   %indvars.iv148 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next149, %.lr.ph129 ]
-  %58 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv148
+  %58 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv148
   %59 = trunc nuw i64 %indvars.iv148 to i32
   store i32 %59, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -19197,7 +19197,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
   %indvars.iv153 = phi i64 [ %57, %.lr.ph131.preheader ], [ %indvars.iv.next154, %.lr.ph131 ]
-  %64 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv153
+  %64 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv153
   %65 = trunc nuw i64 %indvars.iv153 to i32
   store i32 %65, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -19230,7 +19230,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSetLayout(ptr noundef
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv158 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next159, %.lr.ph133 ]
-  %80 = getelementptr inbounds nuw [48 x %struct.VkDescriptorSetLayoutBinding], ptr %12, i64 0, i64 %indvars.iv158
+  %80 = getelementptr inbounds nuw %struct.VkDescriptorSetLayoutBinding, ptr %12, i64 %indvars.iv158
   %81 = trunc nuw i64 %indvars.iv158 to i32
   store i32 %81, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -19528,7 +19528,7 @@ SwizzleForSDLFormat.exit:                         ; preds = %3, %17, %18
 
 switch.lookup:                                    ; preds = %SwizzleForSDLFormat.exit
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.VULKAN_INTERNAL_CreateTexture, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_CreateTexture, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 
@@ -19555,7 +19555,7 @@ switch.lookup:                                    ; preds = %SwizzleForSDLFormat
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %38, ptr %39, align 4
   %40 = zext i32 %25 to i64
-  %41 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %42, ptr %43, align 8
@@ -19578,7 +19578,7 @@ switch.lookup:                                    ; preds = %SwizzleForSDLFormat
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %59, ptr %60, align 8
@@ -19811,7 +19811,7 @@ VkErrorMessages.exit232:                          ; preds = %95, %96, %97, %98, 
 135:                                              ; preds = %130
   %136 = zext i32 %132 to i64
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %138 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %137, i64 0, i64 %136
+  %138 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %137, i64 %136
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %139, 1
   %141 = icmp eq i32 %140, 0
@@ -19867,7 +19867,7 @@ VULKAN_INTERNAL_BindMemoryForImage.exit.thread245: ; preds = %124, %114
   store ptr %160, ptr %161, align 8
   %162 = load i32, ptr %15, align 4
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %165, ptr %166, align 4
@@ -19888,18 +19888,18 @@ VULKAN_INTERNAL_BindMemoryForImage.exit.thread245: ; preds = %124, %114
   store i32 %., ptr %175, align 8
   %176 = load i32, ptr %2, align 4
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %switch.tableidx283 = add i32 %176, -1
-  %178 = icmp ult i32 %switch.tableidx283, 4
-  br i1 %178, label %switch.lookup282, label %180
+  %switch.tableidx282 = add i32 %176, -1
+  %178 = icmp ult i32 %switch.tableidx282, 4
+  br i1 %178, label %switch.lookup283, label %180
 
-switch.lookup282:                                 ; preds = %157
-  %179 = zext nneg i32 %switch.tableidx283 to i64
-  %switch.gep284 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.VULKAN_INTERNAL_CreateTexture.33, i64 0, i64 %179
+switch.lookup283:                                 ; preds = %157
+  %179 = zext nneg i32 %switch.tableidx282 to i64
+  %switch.gep284 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_CreateTexture.33, i64 %179
   %switch.load285 = load i32, ptr %switch.gep284, align 4
   br label %180
 
-180:                                              ; preds = %157, %switch.lookup282
-  %.sink280 = phi i32 [ %switch.load285, %switch.lookup282 ], [ 1, %157 ]
+180:                                              ; preds = %157, %switch.lookup283
+  %.sink280 = phi i32 [ %switch.load285, %switch.lookup283 ], [ 1, %157 ]
   store i32 %.sink280, ptr %177, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   %182 = load ptr, ptr %181, align 8
@@ -20123,7 +20123,7 @@ VkErrorMessages.exit236:                          ; preds = %208, %209, %210, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %249 ], [ 0, %244 ]
   %250 = load i32, ptr %15, align 4
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %251
   %253 = load i32, ptr %252, align 4
   %254 = load ptr, ptr %233, align 8
   %255 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %254, i64 %247, i32 3
@@ -20142,7 +20142,7 @@ VkErrorMessages.exit236:                          ; preds = %208, %209, %210, %2
 261:                                              ; preds = %244
   %262 = load i32, ptr %15, align 4
   %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %263
   %265 = load i32, ptr %264, align 4
   %266 = load ptr, ptr %233, align 8
   %267 = getelementptr inbounds nuw %struct.VulkanTextureSubresource, ptr %266, i64 %247, i32 3
@@ -20762,7 +20762,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_CreateSubresourceView
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.24.val, ptr %9, align 8
   %10 = zext i32 %.4.val to i64
-  %11 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %12, ptr %13, align 4
@@ -21037,7 +21037,7 @@ define internal noundef zeroext i1 @CheckOneFramebufferForRemoval(ptr noundef ca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03440 = phi i1 [ false, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %12 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %6
   %spec.select = select i1 %14, i1 true, i1 %.03440
@@ -21056,7 +21056,7 @@ define internal noundef zeroext i1 @CheckOneFramebufferForRemoval(ptr noundef ca
 19:                                               ; preds = %.lr.ph44, %19
   %indvars.iv47 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next48, %19 ]
   %.242 = phi i1 [ %.034.lcssa, %.lr.ph44 ], [ %spec.select39, %19 ]
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv47
+  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv47
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %6
   %spec.select39 = select i1 %22, i1 true, i1 %.242
@@ -21115,11 +21115,11 @@ define internal fastcc zeroext range(i8 0, 3) i8 @VULKAN_INTERNAL_BindResourceMe
   %9 = alloca %struct.VkMemoryAllocateInfo, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %15, i64 %11
   %17 = load i64, ptr %2, align 8
   %18 = icmp ult i64 %17, 2097153
   %19 = icmp eq ptr %5, null
@@ -21350,7 +21350,7 @@ VULKAN_INTERNAL_NewMemoryUsedRegion.exit:         ; preds = %.split.us, %87
 143:                                              ; preds = %138, %25, %140
   %.0119 = phi i64 [ %142, %140 ], [ %17, %25 ], [ 16777216, %138 ]
   %144 = load ptr, ptr %14, align 8
-  %145 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %144, i64 0, i64 %11
+  %145 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %144, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 5, ptr %9, align 8
   %146 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21745,7 +21745,7 @@ define internal fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noun
   br i1 %.not101, label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %13, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %13, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, %14
   %or.cond = icmp eq i32 %24, %14
@@ -21805,7 +21805,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit:  ; preds = %.lr.ph.i, %17, %21,
   br i1 %.not100, label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %15, i64 0, i64 %indvars.iv173
+  %43 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %15, i64 %indvars.iv173
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %2
   %46 = icmp eq i32 %45, %2
@@ -21864,7 +21864,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit125: ; preds = %.lr.ph.i119, %38,
   br i1 %.not99, label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %35, i64 0, i64 %indvars.iv178
+  %64 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %35, i64 %indvars.iv178
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, %37
   %or.cond112 = icmp eq i32 %66, %37
@@ -21914,7 +21914,7 @@ VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit134: ; preds = %.lr.ph.i128, %59,
   br i1 %.not, label %VULKAN_INTERNAL_CheckMemoryTypeArrayUnique.exit143, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %57, i64 0, i64 %indvars.iv183
+  %80 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %57, i64 %indvars.iv183
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %3
   %83 = icmp eq i32 %82, 0
@@ -22346,7 +22346,7 @@ define internal fastcc void @VULKAN_INTERNAL_MarkAllocationsForDefrag(ptr nounde
 6:                                                ; preds = %1, %._crit_edge
   %indvars.iv32 = phi i64 [ 0, %1 ], [ %indvars.iv.next33, %._crit_edge ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %7, i64 0, i64 %indvars.iv32
+  %8 = getelementptr inbounds nuw %struct.VulkanMemorySubAllocator, ptr %7, i64 %indvars.iv32
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %.not29 = icmp eq i32 %10, 0
@@ -22612,11 +22612,11 @@ switch.lookup:                                    ; preds = %.sink.split.i, %VUL
   %.025.i = phi i32 [ 1, %VULKAN_INTERNAL_DefaultTextureUsageMode.exit ], [ %.025.ph.i, %.sink.split.i ]
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sink.i, ptr %46, align 8
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 0, i64 %.0.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage, i64 %.0.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep5 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 0, i64 %.0.i
+  %switch.gep5 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.34, i64 %.0.i
   %switch.load6 = load i32, ptr %switch.gep5, align 4
-  %switch.gep7 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 0, i64 %.0.i
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionToDefaultUsage.35, i64 %.0.i
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -22925,7 +22925,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %110 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %109, i64 0, i64 %104
+  %110 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %109, i64 %104
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 1
   %113 = icmp eq i32 %112, 0
@@ -22950,7 +22950,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %121 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %120, i64 0, i64 %104
+  %121 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %120, i64 %104
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, 1
   %124 = icmp eq i32 %123, 0
@@ -22969,7 +22969,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %131 = getelementptr inbounds nuw [32 x %struct.VkMemoryType], ptr %130, i64 0, i64 %104
+  %131 = getelementptr inbounds nuw %struct.VkMemoryType, ptr %130, i64 %104
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 1
   %.not51.i = icmp eq i32 %133, 0
@@ -23306,9 +23306,9 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw [4 x %struct.RenderPassColorTargetDescription], ptr %13, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.RenderPassColorTargetDescription, ptr %13, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %27 = load i32, ptr %26, align 8
@@ -23327,11 +23327,11 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %16, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %15, i64 %41
   store i32 %39, ptr %42, align 4
   %43 = load i32, ptr %16, align 4
   %44 = add i32 %43, 1
@@ -23350,7 +23350,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %50
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %46, align 4
   br label %53
@@ -23366,7 +23366,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %64 = load i32, ptr %63, align 4
@@ -23430,33 +23430,33 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %87 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8
   %89 = zext i32 %.07689.i to i64
-  %90 = getelementptr inbounds nuw [9 x %struct.VkAttachmentDescription], ptr %5, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %struct.VkAttachmentDescription, ptr %5, i64 %89
   store i32 0, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %95, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 %101, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 12
   store i32 %107, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %87, i64 36
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_StoreOp, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr @SDLToVK_StoreOp, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %113, ptr %114, align 4
@@ -23468,7 +23468,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   store i32 2, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i32 2, ptr %118, align 4
-  %119 = getelementptr inbounds nuw [4 x %struct.VkAttachmentReference], ptr %6, i64 0, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw %struct.VkAttachmentReference, ptr %6, i64 %indvars.iv.i
   store i32 %.07689.i, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 2, ptr %120, align 4
@@ -23482,19 +23482,19 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %124 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %125 = load ptr, ptr %124, align 8
   %126 = zext i32 %121 to i64
-  %127 = getelementptr inbounds nuw [9 x %struct.VkAttachmentDescription], ptr %5, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw %struct.VkAttachmentDescription, ptr %5, i64 %126
   store i32 0, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 %132, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i32 %138, ptr %139, align 4
@@ -23511,7 +23511,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
   %145 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store i32 2, ptr %145, align 4
   %146 = zext i32 %.07788.i to i64
-  %147 = getelementptr inbounds nuw [4 x %struct.VkAttachmentReference], ptr %7, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw %struct.VkAttachmentReference, ptr %7, i64 %146
   store i32 %121, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 2, ptr %148, align 4
@@ -23553,47 +23553,47 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchRenderPass(ptr noundef readonly
 161:                                              ; preds = %._crit_edge.i
   %162 = load ptr, ptr %3, align 8
   %163 = zext i32 %.076.lcssa.i to i64
-  %164 = getelementptr inbounds nuw [9 x %struct.VkAttachmentDescription], ptr %5, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw %struct.VkAttachmentDescription, ptr %5, i64 %163
   store i32 0, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw [105 x i32], ptr @SDLToVK_TextureFormat, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr @SDLToVK_TextureFormat, i64 %167
   %169 = load i32, ptr %168, align 4
   %170 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %169, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 28
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_SampleCount, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr @SDLToVK_SampleCount, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 %175, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = getelementptr inbounds nuw i8, ptr %164, i64 12
   store i32 %181, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %184 = load i32, ptr %183, align 8
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_StoreOp, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i32, ptr @SDLToVK_StoreOp, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store i32 %187, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_LoadOp, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i32, ptr @SDLToVK_LoadOp, i64 %191
   %193 = load i32, ptr %192, align 4
   %194 = getelementptr inbounds nuw i8, ptr %164, i64 20
   store i32 %193, ptr %194, align 4
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %196 = load i32, ptr %195, align 8
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw [4 x i32], ptr @SDLToVK_StoreOp, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i32, ptr @SDLToVK_StoreOp, i64 %197
   %199 = load i32, ptr %198, align 4
   %200 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store i32 %199, ptr %200, align 4
@@ -23919,11 +23919,11 @@ VULKAN_INTERNAL_DefaultTextureUsageMode.exit:     ; preds = %4, %9, %11, %13, %1
   br i1 %21, label %switch.lookup, label %.sink.split.i
 
 switch.lookup:                                    ; preds = %VULKAN_INTERNAL_DefaultTextureUsageMode.exit
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 0, i64 %.0.i
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage, i64 %.0.i
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.gep5 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 0, i64 %.0.i
+  %switch.gep5 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.36, i64 %.0.i
   %switch.load6 = load i32, ptr %switch.gep5, align 4
-  %switch.gep7 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 0, i64 %.0.i
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.37, i64 %.0.i
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %.sink.split.i
 
@@ -23935,15 +23935,15 @@ switch.lookup:                                    ; preds = %VULKAN_INTERNAL_Def
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.sink31.i, ptr %40, align 8
   store i32 %.sink.ph.i, ptr %39, align 8
-  %switch.tableidx10 = add nsw i32 %2, -1
-  %41 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep11 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.38, i64 0, i64 %41
+  %switch.tableidx9 = add nsw i32 %2, -1
+  %41 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep11 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.38, i64 %41
   %switch.load12 = load i32, ptr %switch.gep11, align 4
-  %42 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep13 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.39, i64 0, i64 %42
+  %42 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.39, i64 %42
   %switch.load14 = load i32, ptr %switch.gep13, align 4
-  %43 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep15 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.40, i64 0, i64 %43
+  %43 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_TextureSubresourceTransitionFromDefaultUsage.40, i64 %43
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -24209,7 +24209,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %indvars.iv
   store i32 35, ptr %66, align 16
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr null, ptr %67, align 8
@@ -24225,13 +24225,13 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %55, ptr %73, align 16
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %75 = getelementptr inbounds nuw [16 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw [48 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %indvars.iv
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw [16 x ptr], ptr %60, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
@@ -24264,7 +24264,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.2309 = phi i32 [ %.1284.lcssa, %.lr.ph310 ], [ %114, %92 ]
   %.2285308 = phi i32 [ %.1284.lcssa, %.lr.ph310 ], [ %115, %92 ]
   %93 = zext i32 %.2309 to i64
-  %94 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %93
   store i32 35, ptr %94, align 16
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr null, ptr %95, align 8
@@ -24283,10 +24283,10 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr %55, ptr %103, align 16
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %105 = zext i32 %.2285308 to i64
-  %106 = getelementptr inbounds nuw [48 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   store ptr null, ptr %106, align 8
-  %107 = getelementptr inbounds nuw [8 x ptr], ptr %64, i64 0, i64 %indvars.iv395
+  %107 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv395
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load ptr, ptr %109, align 8
@@ -24318,7 +24318,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %indvars.iv398 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next399, %120 ]
   %.3315 = phi i32 [ %.2.lcssa, %.lr.ph316 ], [ %144, %120 ]
   %121 = zext i32 %.3315 to i64
-  %122 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %121
   store i32 35, ptr %122, align 16
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr null, ptr %123, align 8
@@ -24341,11 +24341,11 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr null, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 40
   store ptr null, ptr %135, align 8
-  %136 = getelementptr inbounds nuw [8 x ptr], ptr %91, i64 0, i64 %indvars.iv398
+  %136 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv398
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw [16 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %indvars.iv398
+  %140 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %indvars.iv398
   store ptr %139, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 0, ptr %141, align 8
@@ -24395,7 +24395,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.5321 = phi i32 [ %.0273, %.lr.ph323 ], [ %182, %160 ]
   %.3278320 = phi i32 [ %.0275, %.lr.ph323 ], [ %183, %160 ]
   %161 = zext i32 %.5321 to i64
-  %162 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %161
   store i32 35, ptr %162, align 16
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr null, ptr %163, align 8
@@ -24414,13 +24414,13 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 40
   store ptr null, ptr %171, align 8
-  %172 = getelementptr inbounds nuw [4 x ptr], ptr %159, i64 0, i64 %indvars.iv403
+  %172 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv403
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = zext i32 %.3278320 to i64
-  %178 = getelementptr inbounds nuw [16 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %177
   store ptr %176, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 0, ptr %179, align 8
@@ -24462,11 +24462,11 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
 
 196:                                              ; preds = %.lr.ph330, %196
   %indvars.iv406 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next407, %196 ]
-  %197 = getelementptr inbounds nuw [4 x ptr], ptr %190, i64 0, i64 %indvars.iv406
+  %197 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv406
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv406
+  %201 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv406
   store i32 %200, ptr %201, align 4
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %202 = icmp samesign ult i64 %indvars.iv.next407, %191
@@ -24505,7 +24505,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.7335 = phi i32 [ %.4, %.lr.ph337 ], [ %238, %215 ]
   %.3286334 = phi i32 [ %.0283, %.lr.ph337 ], [ %239, %215 ]
   %216 = zext i32 %.7335 to i64
-  %217 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %216
   store i32 35, ptr %217, align 16
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store ptr null, ptr %218, align 8
@@ -24521,14 +24521,14 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store ptr %206, ptr %224, align 16
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  %226 = getelementptr inbounds nuw [16 x ptr], ptr %210, i64 0, i64 %indvars.iv411
+  %226 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv411
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %225, i8 0, i64 16, i1 false)
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %227, align 8
   %229 = zext i32 %.3286334 to i64
-  %230 = getelementptr inbounds nuw [48 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %229
   store ptr %228, ptr %230, align 8
-  %231 = getelementptr inbounds nuw [16 x ptr], ptr %211, i64 0, i64 %indvars.iv411
+  %231 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv411
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8
@@ -24562,7 +24562,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.8342 = phi i32 [ %.7.lcssa, %.lr.ph343 ], [ %268, %246 ]
   %.4287340 = phi i32 [ %.3286.lcssa, %.lr.ph343 ], [ %269, %246 ]
   %247 = zext i32 %.8342 to i64
-  %248 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %247
   store i32 35, ptr %248, align 16
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr null, ptr %249, align 8
@@ -24581,10 +24581,10 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr %206, ptr %257, align 16
   %258 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %259 = zext i32 %.4287340 to i64
-  %260 = getelementptr inbounds nuw [48 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %258, i8 0, i64 16, i1 false)
   store ptr null, ptr %260, align 8
-  %261 = getelementptr inbounds nuw [8 x ptr], ptr %214, i64 0, i64 %indvars.iv414
+  %261 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv414
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = load ptr, ptr %263, align 8
@@ -24613,7 +24613,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.9347 = phi i32 [ %.8.lcssa, %.lr.ph348 ], [ %298, %273 ]
   %.5280345 = phi i32 [ %.2277, %.lr.ph348 ], [ %299, %273 ]
   %274 = zext i32 %.9347 to i64
-  %275 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %274
   store i32 35, ptr %275, align 16
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store ptr null, ptr %276, align 8
@@ -24636,12 +24636,12 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr null, ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %275, i64 40
   store ptr null, ptr %288, align 8
-  %289 = getelementptr inbounds nuw [8 x ptr], ptr %245, i64 0, i64 %indvars.iv417
+  %289 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv417
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %292 = load ptr, ptr %291, align 8
   %293 = zext i32 %.5280345 to i64
-  %294 = getelementptr inbounds nuw [16 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %293
   store ptr %292, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i64 0, ptr %295, align 8
@@ -24690,7 +24690,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   %.11353 = phi i32 [ %.6, %.lr.ph356 ], [ %337, %315 ]
   %.6281352 = phi i32 [ %.4279, %.lr.ph356 ], [ %338, %315 ]
   %316 = zext i32 %.11353 to i64
-  %317 = getelementptr inbounds nuw [72 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %316
   store i32 35, ptr %317, align 16
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr null, ptr %318, align 8
@@ -24709,13 +24709,13 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
   store ptr null, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %317, i64 40
   store ptr null, ptr %326, align 8
-  %327 = getelementptr inbounds nuw [4 x ptr], ptr %314, i64 0, i64 %indvars.iv420
+  %327 = getelementptr inbounds nuw ptr, ptr %314, i64 %indvars.iv420
   %328 = load ptr, ptr %327, align 8
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %331 = load ptr, ptr %330, align 8
   %332 = zext i32 %.6281352 to i64
-  %333 = getelementptr inbounds nuw [16 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %332
+  %333 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %332
   store ptr %331, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i64 0, ptr %334, align 8
@@ -24782,12 +24782,12 @@ define internal fastcc void @VULKAN_INTERNAL_BindGraphicsDescriptorSets(ptr noun
 369:                                              ; preds = %.lr.ph362, %369
   %indvars.iv423 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next424, %369 ]
   %.1291359 = phi i32 [ %.0290.lcssa, %.lr.ph362 ], [ %376, %369 ]
-  %370 = getelementptr inbounds nuw [4 x ptr], ptr %345, i64 0, i64 %indvars.iv423
+  %370 = getelementptr inbounds nuw ptr, ptr %345, i64 %indvars.iv423
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load i32, ptr %372, align 8
   %374 = zext i32 %.1291359 to i64
-  %375 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw i32, ptr %6, i64 %374
   store i32 %373, ptr %375, align 4
   %376 = add i32 %.1291359, 1
   %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
@@ -24903,7 +24903,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv.i
   store i32 1, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 128, ptr %57, align 4
@@ -24925,7 +24925,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph87.i:                                       ; preds = %.lr.ph87.i, %.lr.ph87.preheader.i
   %indvars.iv105.i = phi i64 [ %55, %.lr.ph87.preheader.i ], [ %indvars.iv.next106.i, %.lr.ph87.i ]
-  %63 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv105.i
+  %63 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv105.i
   store i32 2, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 128, ptr %64, align 4
@@ -24945,7 +24945,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph90.i:                                       ; preds = %.lr.ph90.i, %.lr.ph90.preheader.i
   %indvars.iv110.i = phi i64 [ %62, %.lr.ph90.preheader.i ], [ %indvars.iv.next111.i, %.lr.ph90.i ]
-  %67 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv110.i
+  %67 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv110.i
   store i32 7, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 128, ptr %68, align 4
@@ -24967,7 +24967,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph93.preheader.i ], [ %indvars.iv.next116.i, %.lr.ph93.i ]
-  %74 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv115.i
+  %74 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv115.i
   store i32 3, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 128, ptr %75, align 4
@@ -24987,7 +24987,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %.lr.ph96.preheader.i
   %indvars.iv120.i = phi i64 [ %73, %.lr.ph96.preheader.i ], [ %indvars.iv.next121.i, %.lr.ph96.i ]
-  %78 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv120.i
+  %78 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv120.i
   store i32 7, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 128, ptr %79, align 4
@@ -25020,7 +25020,7 @@ define internal fastcc ptr @VULKAN_INTERNAL_FetchDescriptorSet(ptr noundef reado
 
 .lr.ph99.i:                                       ; preds = %.lr.ph99.i, %.lr.ph99.preheader.i
   %indvars.iv125.i = phi i64 [ 0, %.lr.ph99.preheader.i ], [ %indvars.iv.next126.i, %.lr.ph99.i ]
-  %93 = getelementptr inbounds nuw [52 x %struct.VkDescriptorPoolSize], ptr %6, i64 0, i64 %indvars.iv125.i
+  %93 = getelementptr inbounds nuw %struct.VkDescriptorPoolSize, ptr %6, i64 %indvars.iv125.i
   store i32 8, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 128, ptr %94, align 4
@@ -25595,15 +25595,15 @@ VULKAN_INTERNAL_DefaultBufferUsageMode.exit:      ; preds = %4, %8, %10, %12, %1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %28, ptr %29, align 8
   %30 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = zext nneg i32 %2 to i64
-  %switch.gep5 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.41, i64 0, i64 %31
+  %switch.gep5 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.41, i64 %31
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   store i32 %switch.load, ptr %20, align 8
-  %switch.gep7 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.42, i64 0, i64 %.0.i
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.42, i64 %.0.i
   %switch.load8 = load i32, ptr %switch.gep7, align 4
-  %switch.gep9 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.43, i64 0, i64 %.0.i
+  %switch.gep9 = getelementptr inbounds nuw i32, ptr @switch.table.VULKAN_INTERNAL_BufferTransitionToDefaultUsage.43, i64 %.0.i
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %switch.load8, ptr %32, align 4
@@ -25696,7 +25696,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %indvars.iv
   store i32 35, ptr %45, align 16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr null, ptr %46, align 8
@@ -25712,13 +25712,13 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %34, ptr %52, align 16
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %54 = getelementptr inbounds nuw [16 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw [32 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %indvars.iv
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw [16 x ptr], ptr %39, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
@@ -25751,7 +25751,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %.2220 = phi i32 [ %.1203.lcssa, %.lr.ph221 ], [ %93, %71 ]
   %.2204219 = phi i32 [ %.1203.lcssa, %.lr.ph221 ], [ %94, %71 ]
   %72 = zext i32 %.2220 to i64
-  %73 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %72
   store i32 35, ptr %73, align 16
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr null, ptr %74, align 8
@@ -25770,10 +25770,10 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store ptr %34, ptr %82, align 16
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %84 = zext i32 %.2204219 to i64
-  %85 = getelementptr inbounds nuw [32 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   store ptr null, ptr %85, align 8
-  %86 = getelementptr inbounds nuw [8 x ptr], ptr %43, i64 0, i64 %indvars.iv277
+  %86 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv277
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8
@@ -25807,7 +25807,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %indvars.iv280 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next281, %99 ]
   %.3226 = phi i32 [ %.2.lcssa, %.lr.ph227 ], [ %123, %99 ]
   %100 = zext i32 %.3226 to i64
-  %101 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %100
   store i32 35, ptr %101, align 16
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr null, ptr %102, align 8
@@ -25830,11 +25830,11 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store ptr null, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store ptr null, ptr %114, align 8
-  %115 = getelementptr inbounds nuw [8 x ptr], ptr %70, i64 0, i64 %indvars.iv280
+  %115 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv280
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw [20 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %indvars.iv280
+  %119 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %indvars.iv280
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 0, ptr %120, align 8
@@ -25890,7 +25890,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %.5232 = phi i32 [ %.0194, %.lr.ph234 ], [ %163, %143 ]
   %.3205230 = phi i32 [ %.0202, %.lr.ph234 ], [ %164, %143 ]
   %144 = zext i32 %.5232 to i64
-  %145 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %144
   store i32 35, ptr %145, align 16
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr null, ptr %146, align 8
@@ -25907,10 +25907,10 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store ptr %135, ptr %152, align 16
   %153 = getelementptr inbounds nuw i8, ptr %145, i64 48
   %154 = zext i32 %.3205230 to i64
-  %155 = getelementptr inbounds nuw [32 x %struct.VkDescriptorImageInfo], ptr %5, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw %struct.VkDescriptorImageInfo, ptr %5, i64 %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %153, i8 0, i64 16, i1 false)
   store ptr null, ptr %155, align 8
-  %156 = getelementptr inbounds nuw [8 x ptr], ptr %139, i64 0, i64 %indvars.iv285
+  %156 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv285
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8
@@ -25939,7 +25939,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %.6238 = phi i32 [ %.5.lcssa, %.lr.ph239 ], [ %191, %168 ]
   %.3199236 = phi i32 [ %.0196, %.lr.ph239 ], [ %192, %168 ]
   %169 = zext i32 %.6238 to i64
-  %170 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %169
   store i32 35, ptr %170, align 16
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr null, ptr %171, align 8
@@ -25960,12 +25960,12 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store ptr null, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %170, i64 40
   store ptr null, ptr %181, align 8
-  %182 = getelementptr inbounds nuw [8 x ptr], ptr %142, i64 0, i64 %indvars.iv288
+  %182 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv288
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
   %186 = zext i32 %.3199236 to i64
-  %187 = getelementptr inbounds nuw [20 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %186
   store ptr %185, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i64 0, ptr %188, align 8
@@ -26014,7 +26014,7 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   %.8244 = phi i32 [ %.4, %.lr.ph247 ], [ %230, %208 ]
   %.4200243 = phi i32 [ %.2198, %.lr.ph247 ], [ %231, %208 ]
   %209 = zext i32 %.8244 to i64
-  %210 = getelementptr inbounds nuw [52 x %struct.VkWriteDescriptorSet], ptr %3, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw %struct.VkWriteDescriptorSet, ptr %3, i64 %209
   store i32 35, ptr %210, align 16
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr null, ptr %211, align 8
@@ -26033,13 +26033,13 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
   store ptr null, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %210, i64 40
   store ptr null, ptr %219, align 8
-  %220 = getelementptr inbounds nuw [4 x ptr], ptr %207, i64 0, i64 %indvars.iv291
+  %220 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv291
   %221 = load ptr, ptr %220, align 8
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %224 = load ptr, ptr %223, align 8
   %225 = zext i32 %.4200243 to i64
-  %226 = getelementptr inbounds nuw [20 x %struct.VkDescriptorBufferInfo], ptr %4, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw %struct.VkDescriptorBufferInfo, ptr %4, i64 %225
   store ptr %224, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i64 0, ptr %227, align 8
@@ -26103,11 +26103,11 @@ define internal fastcc void @VULKAN_INTERNAL_BindComputeDescriptorSets(ptr nound
 
 258:                                              ; preds = %.lr.ph253, %258
   %indvars.iv294 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next295, %258 ]
-  %259 = getelementptr inbounds nuw [4 x ptr], ptr %238, i64 0, i64 %indvars.iv294
+  %259 = getelementptr inbounds nuw ptr, ptr %238, i64 %indvars.iv294
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load i32, ptr %261, align 8
-  %263 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv294
+  %263 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv294
   store i32 %262, ptr %263, align 4
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %264 = icmp samesign ult i64 %indvars.iv.next295, %239
@@ -26821,16 +26821,16 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_CreateSwapchain(ptr 
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToFormat, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToFormat, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToColorSpace, i64 0, i64 %38
+  %42 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToColorSpace, i64 %38
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %46 = getelementptr inbounds nuw [4 x %struct.VkComponentMapping], ptr @SwapchainCompositionSwizzle, i64 0, i64 %38
+  %46 = getelementptr inbounds nuw %struct.VkComponentMapping, ptr @SwapchainCompositionSwizzle, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 16 dereferenceable(16) %46, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i8 0, ptr %47, align 8
@@ -26842,7 +26842,7 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_CreateSwapchain(ptr 
   br i1 %.not.i, label %.thread, label %.lr.ph.preheader.i
 
 .thread:                                          ; preds = %35
-  %52 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToFallbackFormat, i64 0, i64 %38
+  %52 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToFallbackFormat, i64 %38
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %41, align 8
   store i8 1, ptr %47, align 8
@@ -26871,7 +26871,7 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_CreateSwapchain(ptr 
   br i1 %exitcond.not.i, label %.lr.ph.preheader.i285, label %.lr.ph.i, !llvm.loop !73
 
 .lr.ph.preheader.i285:                            ; preds = %61
-  %62 = getelementptr inbounds nuw [4 x i32], ptr @SwapchainCompositionToFallbackFormat, i64 0, i64 %38
+  %62 = getelementptr inbounds nuw i32, ptr @SwapchainCompositionToFallbackFormat, i64 %38
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %41, align 8
   store i8 1, ptr %47, align 8
@@ -26901,7 +26901,7 @@ VULKAN_INTERNAL_VerifySwapSurfaceFormat.exit:     ; preds = %57, %71, %67, %.thr
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_PresentMode, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @SDLToVK_PresentMode, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %79 = load ptr, ptr %78, align 8
@@ -27099,7 +27099,7 @@ VULKAN_INTERNAL_VerifySwapPresentMode.exit.thread: ; preds = %82, %VULKAN_INTERN
   %.pre329 = load i32, ptr %152, align 8
   %.pre330 = load i32, ptr %73, align 4
   %.phi.trans.insert = zext i32 %.pre330 to i64
-  %.phi.trans.insert331 = getelementptr inbounds nuw [3 x i32], ptr @SDLToVK_PresentMode, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert331 = getelementptr inbounds nuw i32, ptr @SDLToVK_PresentMode, i64 %.phi.trans.insert
   %.pre332 = load i32, ptr %.phi.trans.insert331, align 4
   br label %176
 
@@ -27550,7 +27550,7 @@ SwapchainCompositionToSDLFormat.exit:             ; preds = %.lr.ph, %311, %313,
   %indvars.iv321 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next322, %443 ]
   %424 = load ptr, ptr %420, align 8
   %425 = load ptr, ptr %205, align 8
-  %426 = getelementptr inbounds nuw [3 x ptr], ptr %421, i64 0, i64 %indvars.iv321
+  %426 = getelementptr inbounds nuw ptr, ptr %421, i64 %indvars.iv321
   %427 = call i32 %424(ptr noundef %425, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %426) #12
   %.not277 = icmp eq i32 %427, 0
   br i1 %.not277, label %443, label %428
@@ -27582,7 +27582,7 @@ SwapchainCompositionToSDLFormat.exit:             ; preds = %.lr.ph, %311, %313,
   br label %477
 
 443:                                              ; preds = %423
-  %444 = getelementptr inbounds nuw [3 x ptr], ptr %422, i64 0, i64 %indvars.iv321
+  %444 = getelementptr inbounds nuw ptr, ptr %422, i64 %indvars.iv321
   store ptr null, ptr %444, align 8
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next322, 3
@@ -27808,7 +27808,7 @@ define internal fastcc void @VULKAN_INTERNAL_DestroySwapchain(ptr noundef readon
 
 68:                                               ; preds = %62, %74
   %indvars.iv69 = phi i64 [ 0, %62 ], [ %indvars.iv.next70, %74 ]
-  %69 = getelementptr inbounds nuw [3 x ptr], ptr %63, i64 0, i64 %indvars.iv69
+  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv69
   %70 = load ptr, ptr %69, align 8
   %.not59 = icmp eq ptr %70, null
   br i1 %.not59, label %74, label %71
@@ -27882,7 +27882,7 @@ define internal fastcc range(i32 0, 3) i32 @VULKAN_INTERNAL_RecreateSwapchain(pt
 
 9:                                                ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %34, label %12
@@ -28375,7 +28375,7 @@ define internal fastcc noundef zeroext i1 @VULKAN_INTERNAL_AcquireSwapchainTextu
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr %32, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not112 = icmp eq ptr %37, null
   br i1 %.not112, label %.thread, label %38
@@ -28431,7 +28431,7 @@ VULKAN_INTERNAL_ReturnFenceToPool.exit.i:         ; preds = %50, %._crit_edge.i.
 VULKAN_ReleaseFence.exit:                         ; preds = %38, %VULKAN_INTERNAL_ReturnFenceToPool.exit.i
   %64 = load i32, ptr %33, align 8
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [3 x ptr], ptr %32, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %32, i64 %65
   store ptr null, ptr %66, align 8
   br label %.thread
 
@@ -28458,7 +28458,7 @@ VULKAN_ReleaseFence.exit:                         ; preds = %38, %VULKAN_INTERNA
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw [3 x ptr], ptr %76, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %76, i64 %79
   %81 = load ptr, ptr %80, align 8
   %.not113 = icmp eq ptr %81, null
   br i1 %.not113, label %120, label %82
@@ -28477,7 +28477,7 @@ VULKAN_ReleaseFence.exit:                         ; preds = %38, %VULKAN_INTERNA
 87:                                               ; preds = %85, %83
   %88 = load i32, ptr %77, align 8
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [3 x ptr], ptr %76, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %76, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %92, i32 noundef -1) #12
@@ -28529,7 +28529,7 @@ VULKAN_INTERNAL_ReturnFenceToPool.exit.i117:      ; preds = %103, %._crit_edge.i
 VULKAN_ReleaseFence.exit121:                      ; preds = %87, %VULKAN_INTERNAL_ReturnFenceToPool.exit.i117
   %117 = load i32, ptr %77, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw [3 x ptr], ptr %76, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw ptr, ptr %76, i64 %118
   store ptr null, ptr %119, align 8
   br label %120
 
@@ -28546,7 +28546,7 @@ VULKAN_ReleaseFence.exit121:                      ; preds = %87, %VULKAN_INTERNA
   %128 = load ptr, ptr %123, align 8
   %129 = load i32, ptr %77, align 8
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw [3 x ptr], ptr %124, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw ptr, ptr %124, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = call i32 %126(ptr noundef %127, ptr noundef %128, i64 noundef -1, ptr noundef %132, ptr noundef null, ptr noundef nonnull %7) #12
   switch i32 %133, label %134 [
@@ -28668,7 +28668,7 @@ VULKAN_ReleaseFence.exit121:                      ; preds = %87, %VULKAN_INTERNA
   %197 = phi ptr [ %.pre134, %._crit_edge132 ], [ %194, %188 ]
   %198 = load i32, ptr %77, align 8
   %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds nuw [3 x ptr], ptr %124, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %124, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = zext i32 %196 to i64
   %203 = getelementptr inbounds nuw ptr, ptr %197, i64 %202

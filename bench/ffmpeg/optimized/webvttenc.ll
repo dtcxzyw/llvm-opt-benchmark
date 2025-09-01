@@ -156,7 +156,7 @@ define internal fastcc void @webvtt_style_apply(ptr noundef %0, ptr noundef %1) 
   %15 = add nsw i32 %11, 1
   store i32 %15, ptr %10, align 8, !tbaa !54
   %16 = sext i32 %11 to i64
-  %17 = getelementptr inbounds [64 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr %14, i64 %16
   store i8 98, ptr %17, align 1, !tbaa !55
   br label %webvtt_stack_push.exit
 
@@ -178,7 +178,7 @@ webvtt_stack_push.exit:                           ; preds = %13, %9, %6
   %26 = add nsw i32 %22, 1
   store i32 %26, ptr %21, align 8, !tbaa !54
   %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds i8, ptr %25, i64 %27
   store i8 105, ptr %28, align 1, !tbaa !55
   br label %webvtt_stack_push.exit16
 
@@ -200,7 +200,7 @@ webvtt_stack_push.exit16:                         ; preds = %24, %20, %webvtt_st
   %37 = add nsw i32 %33, 1
   store i32 %37, ptr %32, align 8, !tbaa !54
   %38 = sext i32 %33 to i64
-  %39 = getelementptr inbounds [64 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
   store i8 117, ptr %39, align 1, !tbaa !55
   br label %webvtt_stack_push.exit18
 
@@ -279,7 +279,7 @@ define internal void @webvtt_style_cb(ptr noundef %0, i8 noundef signext %1, i32
 15:                                               ; preds = %12
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !55
   %19 = icmp eq i8 %18, %1
   br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !58
@@ -312,7 +312,7 @@ webvtt_stack_find.exit.i:                         ; preds = %12, %.split.loop.ex
   %29 = add nsw i32 %26, -1
   store i32 %29, ptr %23, align 8, !tbaa !54
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !55
   %33 = sext i8 %32 to i32
   br label %webvtt_stack_pop.exit.i
@@ -335,7 +335,7 @@ webvtt_stack_push.exit.i:                         ; preds = %35
   %40 = add nsw i32 %37, 1
   store i32 %40, ptr %36, align 8, !tbaa !54
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
   store i8 %1, ptr %42, align 1, !tbaa !55
   br label %webvtt_stack_push_pop.exit.thread
 
@@ -372,7 +372,7 @@ define internal void @webvtt_cancel_overrides_cb(ptr noundef %0, ptr noundef %1)
   %10 = add nsw i32 %7, -1
   store i32 %10, ptr %3, align 8, !tbaa !54
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !55
   %14 = sext i8 %13 to i32
   br label %webvtt_stack_pop.exit.i
@@ -409,7 +409,7 @@ define internal void @webvtt_end_cb(ptr noundef %0) #1 {
   %9 = add nsw i32 %6, -1
   store i32 %9, ptr %2, align 8, !tbaa !54
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !55
   %13 = sext i8 %12 to i32
   br label %webvtt_stack_pop.exit.i

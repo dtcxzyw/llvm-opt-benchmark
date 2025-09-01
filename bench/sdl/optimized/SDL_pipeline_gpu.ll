@@ -107,7 +107,7 @@ GPU_ConvertBlendOperation.exit.i:                 ; preds = %12
 
 switch.lookup:                                    ; preds = %GPU_ConvertBlendOperation.exit.i
   %27 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.GPU_GetPipeline.3, i64 0, i64 %27
+  %switch.gep32 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %27
   %switch.load33 = load i32, ptr %switch.gep32, align 4
   br label %GPU_ConvertBlendFactor.exit.i
 
@@ -116,54 +116,54 @@ GPU_ConvertBlendFactor.exit.i:                    ; preds = %GPU_ConvertBlendOpe
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %.0.i36.i, ptr %28, align 4
   %29 = call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %17) #5
-  %switch.tableidx23 = add i32 %29, -1
-  %30 = icmp ult i32 %switch.tableidx23, 10
-  br i1 %30, label %switch.lookup22, label %GPU_ConvertBlendFactor.exit38.i
+  %switch.tableidx22 = add i32 %29, -1
+  %30 = icmp ult i32 %switch.tableidx22, 10
+  br i1 %30, label %switch.lookup23, label %GPU_ConvertBlendFactor.exit38.i
 
-switch.lookup22:                                  ; preds = %GPU_ConvertBlendFactor.exit.i
-  %31 = zext nneg i32 %switch.tableidx23 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.GPU_GetPipeline.3, i64 0, i64 %31
+switch.lookup23:                                  ; preds = %GPU_ConvertBlendFactor.exit.i
+  %31 = zext nneg i32 %switch.tableidx22 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GPU_ConvertBlendFactor.exit38.i
 
-GPU_ConvertBlendFactor.exit38.i:                  ; preds = %GPU_ConvertBlendFactor.exit.i, %switch.lookup22
-  %.0.i37.i = phi i32 [ %switch.load, %switch.lookup22 ], [ 2147483647, %GPU_ConvertBlendFactor.exit.i ]
+GPU_ConvertBlendFactor.exit38.i:                  ; preds = %GPU_ConvertBlendFactor.exit.i, %switch.lookup23
+  %.0.i37.i = phi i32 [ %switch.load, %switch.lookup23 ], [ 2147483647, %GPU_ConvertBlendFactor.exit.i ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0.i37.i, ptr %32, align 4
   %33 = call i32 @SDL_GetBlendModeColorOperation(i32 noundef %17) #5
-  %switch.tableidx25 = add i32 %33, -1
-  %34 = icmp ult i32 %switch.tableidx25, 5
+  %switch.tableidx24 = add i32 %33, -1
+  %34 = icmp ult i32 %switch.tableidx24, 5
   %.0.i39.i = select i1 %34, i32 %33, i32 2147483647
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.0.i39.i, ptr %35, align 4
   %36 = call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %17) #5
-  %switch.tableidx35 = add i32 %36, -1
-  %37 = icmp ult i32 %switch.tableidx35, 10
-  br i1 %37, label %switch.lookup34, label %GPU_ConvertBlendFactor.exit42.i
+  %switch.tableidx34 = add i32 %36, -1
+  %37 = icmp ult i32 %switch.tableidx34, 10
+  br i1 %37, label %switch.lookup35, label %GPU_ConvertBlendFactor.exit42.i
 
-switch.lookup34:                                  ; preds = %GPU_ConvertBlendFactor.exit38.i
-  %38 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep36 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.GPU_GetPipeline.3, i64 0, i64 %38
+switch.lookup35:                                  ; preds = %GPU_ConvertBlendFactor.exit38.i
+  %38 = zext nneg i32 %switch.tableidx34 to i64
+  %switch.gep36 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %38
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %GPU_ConvertBlendFactor.exit42.i
 
-GPU_ConvertBlendFactor.exit42.i:                  ; preds = %GPU_ConvertBlendFactor.exit38.i, %switch.lookup34
-  %.0.i41.i = phi i32 [ %switch.load37, %switch.lookup34 ], [ 2147483647, %GPU_ConvertBlendFactor.exit38.i ]
+GPU_ConvertBlendFactor.exit42.i:                  ; preds = %GPU_ConvertBlendFactor.exit38.i, %switch.lookup35
+  %.0.i41.i = phi i32 [ %switch.load37, %switch.lookup35 ], [ 2147483647, %GPU_ConvertBlendFactor.exit38.i ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.0.i41.i, ptr %39, align 4
   %40 = call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %17) #5
-  %switch.tableidx28 = add i32 %40, -1
-  %41 = icmp ult i32 %switch.tableidx28, 10
-  br i1 %41, label %switch.lookup27, label %GPU_ConvertBlendFactor.exit44.i
+  %switch.tableidx27 = add i32 %40, -1
+  %41 = icmp ult i32 %switch.tableidx27, 10
+  br i1 %41, label %switch.lookup28, label %GPU_ConvertBlendFactor.exit44.i
 
-switch.lookup27:                                  ; preds = %GPU_ConvertBlendFactor.exit42.i
-  %42 = zext nneg i32 %switch.tableidx28 to i64
-  %switch.gep29 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.GPU_GetPipeline.3, i64 0, i64 %42
+switch.lookup28:                                  ; preds = %GPU_ConvertBlendFactor.exit42.i
+  %42 = zext nneg i32 %switch.tableidx27 to i64
+  %switch.gep29 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %42
   %switch.load30 = load i32, ptr %switch.gep29, align 4
   br label %GPU_ConvertBlendFactor.exit44.i
 
-GPU_ConvertBlendFactor.exit44.i:                  ; preds = %GPU_ConvertBlendFactor.exit42.i, %switch.lookup27
-  %.0.i43.i = phi i32 [ %switch.load30, %switch.lookup27 ], [ 2147483647, %GPU_ConvertBlendFactor.exit42.i ]
+GPU_ConvertBlendFactor.exit44.i:                  ; preds = %GPU_ConvertBlendFactor.exit42.i, %switch.lookup28
+  %.0.i43.i = phi i32 [ %switch.load30, %switch.lookup28 ], [ 2147483647, %GPU_ConvertBlendFactor.exit42.i ]
   store i32 %.0.i43.i, ptr %19, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 136

@@ -91,7 +91,7 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr noundef readonly captures(none) %0,
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %22 = getelementptr [4 x ptr], ptr %21, i64 0, i64 %4
+  %22 = getelementptr ptr, ptr %21, i64 %4
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = load i1, ptr @drm_gem_fb_get_obj.__already_done.3, align 1
@@ -149,7 +149,7 @@ define dso_local void @drm_gem_fb_destroy(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %.thread, %7
   %10 = phi i64 [ 0, %7 ], [ %21, %.thread ]
-  %11 = getelementptr [4 x ptr], ptr %8, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -314,10 +314,10 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %72 = phi i32 [ %69, %66 ], [ %64, %62 ]
   %73 = phi i32 [ %71, %66 ], [ 1, %62 ]
   %74 = load i32, ptr %55, align 8
-  %75 = getelementptr [4 x i32], ptr %57, i64 0, i64 %63
+  %75 = getelementptr i32, ptr %57, i64 %63
   %76 = load i32, ptr %75, align 4
   %77 = tail call ptr @drm_gem_object_lookup(ptr noundef %2, i32 noundef %76) #7
-  %78 = getelementptr [4 x ptr], ptr %6, i64 0, i64 %63
+  %78 = getelementptr ptr, ptr %6, i64 %63
   store ptr %77, ptr %78, align 8
   %79 = icmp eq ptr %77, null
   br i1 %79, label %80, label %85
@@ -338,12 +338,12 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 85:                                               ; preds = %.thread
   %86 = udiv i32 %74, %73
   %87 = add i32 %86, -1
-  %88 = getelementptr [4 x i32], ptr %58, i64 0, i64 %63
+  %88 = getelementptr i32, ptr %58, i64 %63
   %89 = load i32, ptr %88, align 4
   %90 = mul i32 %87, %89
   %91 = trunc nuw nsw i64 %63 to i32
   %92 = tail call i64 @drm_format_info_min_pitch(ptr noundef nonnull %7, i32 noundef %91, i32 noundef %72) #7
-  %93 = getelementptr [4 x i32], ptr %59, i64 0, i64 %63
+  %93 = getelementptr i32, ptr %59, i64 %63
   %94 = load i32, ptr %93, align 4
   %95 = trunc i64 %92 to i32
   %96 = add i32 %90, %95
@@ -430,7 +430,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 139:                                              ; preds = %.thread20, %137
   %140 = phi i64 [ %138, %137 ], [ %141, %.thread20 ]
   %141 = add nsw i64 %140, -1
-  %142 = getelementptr [4 x ptr], ptr %6, i64 0, i64 %141
+  %142 = getelementptr ptr, ptr %6, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.thread20, label %145
@@ -601,7 +601,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr [4 x i32], ptr %27, i64 0, i64 %29
+  %35 = getelementptr i32, ptr %27, i64 %29
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %32, i64 %37

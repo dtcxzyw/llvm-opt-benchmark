@@ -16091,7 +16091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 30:                                               ; preds = %11
   %31 = zext nneg i32 %7 to i64
-  %32 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZN18cmCTestTestHandler13GetTestStatusB5cxx11ERKNS_17cmCTestTestResultEE8statuses, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr @_ZZN18cmCTestTestHandler13GetTestStatusB5cxx11ERKNS_17cmCTestTestResultEE8statuses, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !196
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !7

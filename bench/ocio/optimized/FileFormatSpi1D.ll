@@ -2206,7 +2206,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 650:                                              ; preds = %.lr.ph, %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit202
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN19OpenColorIO_v2_5dev11NumberUtils10from_charsEPKcS2_Rf.exit202 ]
-  %651 = getelementptr inbounds nuw [4 x [64 x i8]], ptr %53, i64 0, i64 %indvars.iv
+  %651 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %indvars.iv
   store i32 0, ptr %649, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8, !tbaa !52

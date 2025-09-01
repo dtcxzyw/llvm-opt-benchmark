@@ -51,7 +51,7 @@ define dso_local void @_ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamE
 
 switch.lookup:                                    ; preds = %3
   %17 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamEj, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6mcdxbc14PSVRuntimeInfo5writeERNS_11raw_ostreamEj, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.idx.mult = mul nuw nsw i32 %2, 12
   %switch.offset = add nuw nsw i32 %switch.idx.mult, 24

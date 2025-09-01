@@ -69,7 +69,7 @@ define void @_ZN5draco17MeshAreEquivalent13PrintPositionERKNS_4MeshENS_9IndexTyp
   %10 = load ptr, ptr %8, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw %"struct.std::array", ptr %10, i64 %9
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %11, i64 %12
   %.sroa.05.0.copyload = load i32, ptr %13, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %15 = load i8, ptr %14, align 4, !tbaa !13, !range !41, !noundef !42
@@ -125,7 +125,7 @@ define void @_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeI
   %8 = load ptr, ptr %6, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw %"struct.std::array", ptr %8, i64 %7
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %9, i64 %10
   %.sroa.05.0.copyload = load i32, ptr %11, align 4, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %13 = load i8, ptr %12, align 4, !tbaa !13, !range !41, !noundef !42
@@ -268,9 +268,9 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiE7reserveE
 41:                                               ; preds = %40, %.preheader.i.i.i
   %42 = phi i1 [ false, %40 ], [ true, %.preheader.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 1, %40 ], [ 0, %.preheader.i.i.i ]
-  %43 = getelementptr inbounds nuw [3 x float], ptr %.ptr10.i, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %43 = getelementptr inbounds nuw float, ptr %.ptr10.i, i64 %indvars.iv.i.i.i.i.i
   %44 = load float, ptr %43, align 4, !tbaa !50
-  %45 = getelementptr inbounds nuw [3 x float], ptr %.026.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %45 = getelementptr inbounds nuw float, ptr %.026.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %46 = load float, ptr %45, align 4, !tbaa !50
   %47 = fcmp olt float %44, %46
   br i1 %47, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5draco7VectorDIfLi3EEES6_EEbT_T0_.exit.thread.i.i.i, label %48
@@ -303,7 +303,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5draco7VectorDIfLi3EEES6_EEbT_T0_.exit
   %57 = call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %38, i32 noundef 0), !noalias !81
   %58 = load ptr, ptr %39, align 8, !tbaa !8, !noalias !81
   %59 = getelementptr inbounds nuw %"struct.std::array", ptr %58, i64 %indvars.iv
-  %60 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %59, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %59, i64 %indvars.iv.i
   %.sroa.05.0.copyload.i.i = load i32, ptr %60, align 4, !tbaa !11, !noalias !81
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 100
   %62 = load i8, ptr %61, align 4, !tbaa !13, !range !41, !noalias !81, !noundef !42
@@ -335,7 +335,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %.sroa.2.0.copyload3.i.i.i = load float, ptr %.sroa.2.0..sroa_idx2.i.i.i, align 1, !noalias !81
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i, i64 1
-  %80 = getelementptr inbounds nuw [3 x %"class.draco::VectorD"], ptr %2, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw %"class.draco::VectorD", ptr %2, i64 %indvars.iv.i
   store float %.sroa.0.0.vec.extract.i.i, ptr %80, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 4
   store float %.sroa.0.4.vec.extract.i.i, ptr %.sroa.4.0..sroa_idx.i, align 4
@@ -444,9 +444,9 @@ define noundef i32 @_ZN5draco17MeshAreEquivalent36ComputeCornerIndexOfSmallestPo
 6:                                                ; preds = %5, %.preheader.i.i
   %7 = phi i1 [ false, %5 ], [ true, %.preheader.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 1, %5 ], [ 0, %.preheader.i.i ]
-  %8 = getelementptr inbounds nuw [3 x float], ptr %.ptr10, i64 0, i64 %indvars.iv.i.i.i.i
+  %8 = getelementptr inbounds nuw float, ptr %.ptr10, i64 %indvars.iv.i.i.i.i
   %9 = load float, ptr %8, align 4, !tbaa !50
-  %10 = getelementptr inbounds nuw [3 x float], ptr %.026.i.i, i64 0, i64 %indvars.iv.i.i.i.i
+  %10 = getelementptr inbounds nuw float, ptr %.026.i.i, i64 %indvars.iv.i.i.i.i
   %11 = load float, ptr %10, align 4, !tbaa !50
   %12 = fcmp olt float %9, %11
   br i1 %12, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5draco7VectorDIfLi3EEES6_EEbT_T0_.exit.thread.i.i, label %13
@@ -488,7 +488,7 @@ _ZSt11min_elementIPN5draco7VectorDIfLi3EEEET_S4_S4_.exit: ; preds = %_ZNK9__gnu_
   %27 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 0), !noalias !87
   %28 = load ptr, ptr %3, align 8, !tbaa !8, !noalias !87
   %29 = getelementptr inbounds nuw %"struct.std::array", ptr %28, i64 %4
-  %30 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %29, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %29, i64 %indvars.iv
   %.sroa.05.0.copyload.i = load i32, ptr %30, align 4, !tbaa !11, !noalias !87
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 100
   %32 = load i8, ptr %31, align 4, !tbaa !13, !range !41, !noalias !87, !noundef !42
@@ -520,7 +520,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %.sroa.2.0.copyload3.i.i = load float, ptr %.sroa.2.0..sroa_idx2.i.i, align 1, !noalias !87
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 1
-  %50 = getelementptr inbounds nuw [3 x %"class.draco::VectorD"], ptr %2, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %"class.draco::VectorD", ptr %2, i64 %indvars.iv
   store float %.sroa.0.0.vec.extract.i, ptr %50, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float %.sroa.0.4.vec.extract.i, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1119,12 +1119,12 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit106: ; preds = %69
   %109 = add nsw i32 %.082126, %99
   %110 = srem i32 %109, 3
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %104, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %104, i64 %111
   %.sroa.015.0.copyload = load i32, ptr %112, align 4, !tbaa !11
   %113 = add nsw i32 %.082126, %103
   %114 = srem i32 %113, 3
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %105, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %105, i64 %115
   %.sroa.013.0.copyload = load i32, ptr %116, align 4, !tbaa !11
   %117 = load i8, ptr %82, align 4, !tbaa !13, !range !41, !noundef !42
   %118 = trunc nuw i8 %117 to i1
@@ -1234,7 +1234,7 @@ define noundef zeroext i1 @_ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9In
   %22 = load ptr, ptr %21, align 8, !tbaa !8, !noalias !124
   %23 = getelementptr inbounds nuw %"struct.std::array", ptr %22, i64 %8
   %24 = sext i32 %19 to i64
-  %25 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %23, i64 %24
   %.sroa.05.0.copyload.i = load i32, ptr %25, align 4, !tbaa !11, !noalias !124
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %27 = load i8, ptr %26, align 4, !tbaa !13, !range !41, !noalias !124, !noundef !42
@@ -1276,7 +1276,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %51 = load ptr, ptr %50, align 8, !tbaa !8, !noalias !127
   %52 = getelementptr inbounds nuw %"struct.std::array", ptr %51, i64 %12
   %53 = sext i32 %48 to i64
-  %54 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %52, i64 %53
   %.sroa.05.0.copyload.i14 = load i32, ptr %54, align 4, !tbaa !11, !noalias !127
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 100
   %56 = load i8, ptr %55, align 4, !tbaa !13, !range !41, !noalias !127, !noundef !42
@@ -1488,7 +1488,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5dr
   %36 = load ptr, ptr %35, align 8, !tbaa !8, !noalias !135
   %37 = getelementptr inbounds nuw %"struct.std::array", ptr %36, i64 %24
   %38 = sext i32 %33 to i64
-  %39 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %37, i64 %38
   %.sroa.05.0.copyload.i.i5 = load i32, ptr %39, align 4, !tbaa !11, !noalias !135
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 100
   %41 = load i8, ptr %40, align 4, !tbaa !13, !range !41, !noalias !135, !noundef !42
@@ -1529,7 +1529,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %64 = load ptr, ptr %63, align 8, !tbaa !8, !noalias !138
   %65 = getelementptr inbounds nuw %"struct.std::array", ptr %64, i64 %28
   %66 = sext i32 %61 to i64
-  %67 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %65, i64 %66
   %.sroa.05.0.copyload.i14.i14 = load i32, ptr %67, align 4, !tbaa !11, !noalias !138
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 100
   %69 = load i8, ptr %68, align 4, !tbaa !13, !range !41, !noalias !138, !noundef !42
@@ -1683,7 +1683,7 @@ _ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag
   %134 = load ptr, ptr %133, align 8, !tbaa !8, !noalias !142
   %135 = getelementptr inbounds nuw %"struct.std::array", ptr %134, i64 %123
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %135, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %135, i64 %136
   %.sroa.05.0.copyload.i.i = load i32, ptr %137, align 4, !tbaa !11, !noalias !142
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 100
   %139 = load i8, ptr %138, align 4, !tbaa !13, !range !41, !noalias !142, !noundef !42
@@ -1724,7 +1724,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %162 = load ptr, ptr %161, align 8, !tbaa !8, !noalias !145
   %163 = getelementptr inbounds nuw %"struct.std::array", ptr %162, i64 %119
   %164 = sext i32 %159 to i64
-  %165 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %163, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %163, i64 %164
   %.sroa.05.0.copyload.i14.i = load i32, ptr %165, align 4, !tbaa !11, !noalias !145
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 100
   %167 = load i8, ptr %166, align 4, !tbaa !13, !range !41, !noalias !145, !noundef !42
@@ -1894,7 +1894,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5dr
   %43 = load ptr, ptr %42, align 8, !tbaa !8, !noalias !150
   %44 = getelementptr inbounds nuw %"struct.std::array", ptr %43, i64 %31
   %45 = sext i32 %40 to i64
-  %46 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %44, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %44, i64 %45
   %.sroa.05.0.copyload.i.i14 = load i32, ptr %46, align 4, !tbaa !11, !noalias !150
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 100
   %48 = load i8, ptr %47, align 4, !tbaa !13, !range !41, !noalias !150, !noundef !42
@@ -1935,7 +1935,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %71 = load ptr, ptr %70, align 8, !tbaa !8, !noalias !153
   %72 = getelementptr inbounds nuw %"struct.std::array", ptr %71, i64 %35
   %73 = sext i32 %68 to i64
-  %74 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %72, i64 %73
   %.sroa.05.0.copyload.i14.i23 = load i32, ptr %74, align 4, !tbaa !11, !noalias !153
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 100
   %76 = load i8, ptr %75, align 4, !tbaa !13, !range !41, !noalias !153, !noundef !42
@@ -2079,7 +2079,7 @@ _ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag
   %134 = load ptr, ptr %133, align 8, !tbaa !8, !noalias !156
   %135 = getelementptr inbounds nuw %"struct.std::array", ptr %134, i64 %123
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %135, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %135, i64 %136
   %.sroa.05.0.copyload.i.i = load i32, ptr %137, align 4, !tbaa !11, !noalias !156
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 100
   %139 = load i8, ptr %138, align 4, !tbaa !13, !range !41, !noalias !156, !noundef !42
@@ -2120,7 +2120,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %162 = load ptr, ptr %161, align 8, !tbaa !8, !noalias !159
   %163 = getelementptr inbounds nuw %"struct.std::array", ptr %162, i64 %119
   %164 = sext i32 %159 to i64
-  %165 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %163, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %163, i64 %164
   %.sroa.05.0.copyload.i14.i = load i32, ptr %165, align 4, !tbaa !11, !noalias !159
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 100
   %167 = load i8, ptr %166, align 4, !tbaa !13, !range !41, !noalias !159, !noundef !42
@@ -2337,7 +2337,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %20 = load ptr, ptr %19, align 8, !tbaa !8, !noalias !163
   %21 = getelementptr inbounds nuw %"struct.std::array", ptr %20, i64 %8
   %22 = sext i32 %17 to i64
-  %23 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %21, i64 %22
   %.sroa.05.0.copyload.i.i = load i32, ptr %23, align 4, !tbaa !11, !noalias !163
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %25 = load i8, ptr %24, align 4, !tbaa !13, !range !41, !noalias !163, !noundef !42
@@ -2378,7 +2378,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %48 = load ptr, ptr %47, align 8, !tbaa !8, !noalias !166
   %49 = getelementptr inbounds nuw %"struct.std::array", ptr %48, i64 %12
   %50 = sext i32 %45 to i64
-  %51 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %49, i64 %50
   %.sroa.05.0.copyload.i14.i = load i32, ptr %51, align 4, !tbaa !11, !noalias !166
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 100
   %53 = load i8, ptr %52, align 4, !tbaa !13, !range !41, !noalias !166, !noundef !42
@@ -2502,7 +2502,7 @@ _ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag
   %100 = load ptr, ptr %99, align 8, !tbaa !8, !noalias !170
   %101 = getelementptr inbounds nuw %"struct.std::array", ptr %100, i64 %88
   %102 = sext i32 %97 to i64
-  %103 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %101, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %101, i64 %102
   %.sroa.05.0.copyload.i.i11 = load i32, ptr %103, align 4, !tbaa !11, !noalias !170
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 100
   %105 = load i8, ptr %104, align 4, !tbaa !13, !range !41, !noalias !170, !noundef !42
@@ -2543,7 +2543,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %128 = load ptr, ptr %127, align 8, !tbaa !8, !noalias !173
   %129 = getelementptr inbounds nuw %"struct.std::array", ptr %128, i64 %92
   %130 = sext i32 %125 to i64
-  %131 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %129, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %129, i64 %130
   %.sroa.05.0.copyload.i14.i20 = load i32, ptr %131, align 4, !tbaa !11, !noalias !173
   %132 = getelementptr inbounds nuw i8, ptr %126, i64 100
   %133 = load i8, ptr %132, align 4, !tbaa !13, !range !41, !noalias !173, !noundef !42
@@ -2752,7 +2752,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19Fac
   %41 = load ptr, ptr %40, align 8, !tbaa !8, !noalias !179
   %42 = getelementptr inbounds nuw %"struct.std::array", ptr %41, i64 %28
   %43 = sext i32 %38 to i64
-  %44 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %42, i64 %43
   %.sroa.05.0.copyload.i.i = load i32, ptr %44, align 4, !tbaa !11, !noalias !179
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 100
   %46 = load i8, ptr %45, align 4, !tbaa !13, !range !41, !noalias !179, !noundef !42
@@ -2793,7 +2793,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %69 = load ptr, ptr %68, align 8, !tbaa !8, !noalias !182
   %70 = getelementptr inbounds nuw %"struct.std::array", ptr %69, i64 %33
   %71 = sext i32 %66 to i64
-  %72 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %70, i64 %71
   %.sroa.05.0.copyload.i14.i = load i32, ptr %72, align 4, !tbaa !11, !noalias !182
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 100
   %74 = load i8, ptr %73, align 4, !tbaa !13, !range !41, !noalias !182, !noundef !42
@@ -2959,7 +2959,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %24 = load ptr, ptr %23, align 8, !tbaa !8, !noalias !187
   %25 = getelementptr inbounds nuw %"struct.std::array", ptr %24, i64 %11
   %26 = sext i32 %21 to i64
-  %27 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %25, i64 %26
   %.sroa.05.0.copyload.i.i = load i32, ptr %27, align 4, !tbaa !11, !noalias !187
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 100
   %29 = load i8, ptr %28, align 4, !tbaa !13, !range !41, !noalias !187, !noundef !42
@@ -3000,7 +3000,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %52 = load ptr, ptr %51, align 8, !tbaa !8, !noalias !190
   %53 = getelementptr inbounds nuw %"struct.std::array", ptr %52, i64 %16
   %54 = sext i32 %49 to i64
-  %55 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.17"], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw %"class.draco::IndexType.17", ptr %53, i64 %54
   %.sroa.05.0.copyload.i14.i = load i32, ptr %55, align 4, !tbaa !11, !noalias !190
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 100
   %57 = load i8, ptr %56, align 4, !tbaa !13, !range !41, !noalias !190, !noundef !42

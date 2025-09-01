@@ -3003,31 +3003,31 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   call fastcc void @ivi_mc_8x8_delta(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %2, i64 noundef %3, i32 noundef %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %ivi_mc_8x8_no_delta.exit, %66
-  %indvars.iv27 = phi i64 [ 0, %ivi_mc_8x8_no_delta.exit ], [ %indvars.iv.next28, %66 ]
-  %.01621 = phi ptr [ %0, %ivi_mc_8x8_no_delta.exit ], [ %67, %66 ]
-  %59 = shl nuw nsw i64 %indvars.iv27, 3
-  br label %60
+.preheader:                                       ; preds = %ivi_mc_8x8_no_delta.exit, %63
+  %indvars.iv27 = phi i64 [ 0, %ivi_mc_8x8_no_delta.exit ], [ %indvars.iv.next28, %63 ]
+  %.01621 = phi ptr [ %0, %ivi_mc_8x8_no_delta.exit ], [ %64, %63 ]
+  %.idx = shl nuw nsw i64 %indvars.iv27, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  br label %59
 
-60:                                               ; preds = %.preheader, %60
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
-  %61 = add nuw nsw i64 %indvars.iv, %59
-  %62 = getelementptr inbounds nuw [64 x i16], ptr %7, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !27
-  %64 = ashr i16 %63, 1
-  %65 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
-  store i16 %64, ptr %65, align 2, !tbaa !27
+59:                                               ; preds = %.preheader, %59
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %60 = load i16, ptr %gep, align 2, !tbaa !27
+  %61 = ashr i16 %60, 1
+  %62 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  store i16 %61, ptr %62, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %66, label %60, !llvm.loop !93
+  br i1 %exitcond.not, label %63, label %59, !llvm.loop !93
 
-66:                                               ; preds = %60
+63:                                               ; preds = %59
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %67 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %64 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !94
+  br i1 %exitcond30.not, label %65, label %.preheader, !llvm.loop !94
 
-68:                                               ; preds = %66
+65:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -3160,33 +3160,33 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   call fastcc void @ivi_mc_8x8_delta(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %2, i64 noundef %3, i32 noundef %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %ivi_mc_8x8_no_delta.exit, %68
-  %indvars.iv27 = phi i64 [ 0, %ivi_mc_8x8_no_delta.exit ], [ %indvars.iv.next28, %68 ]
-  %.01621 = phi ptr [ %0, %ivi_mc_8x8_no_delta.exit ], [ %69, %68 ]
-  %59 = shl nuw nsw i64 %indvars.iv27, 3
-  br label %60
+.preheader:                                       ; preds = %ivi_mc_8x8_no_delta.exit, %65
+  %indvars.iv27 = phi i64 [ 0, %ivi_mc_8x8_no_delta.exit ], [ %indvars.iv.next28, %65 ]
+  %.01621 = phi ptr [ %0, %ivi_mc_8x8_no_delta.exit ], [ %66, %65 ]
+  %.idx = shl nuw nsw i64 %indvars.iv27, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  br label %59
 
-60:                                               ; preds = %.preheader, %60
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
-  %61 = add nuw nsw i64 %indvars.iv, %59
-  %62 = getelementptr inbounds nuw [64 x i16], ptr %7, i64 0, i64 %61
+59:                                               ; preds = %.preheader, %59
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %60 = load i16, ptr %gep, align 2, !tbaa !27
+  %61 = ashr i16 %60, 1
+  %62 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !27
-  %64 = ashr i16 %63, 1
-  %65 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
-  %66 = load i16, ptr %65, align 2, !tbaa !27
-  %67 = add i16 %66, %64
-  store i16 %67, ptr %65, align 2, !tbaa !27
+  %64 = add i16 %63, %61
+  store i16 %64, ptr %62, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %68, label %60, !llvm.loop !95
+  br i1 %exitcond.not, label %65, label %59, !llvm.loop !95
 
-68:                                               ; preds = %60
+65:                                               ; preds = %59
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %69 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %66 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %70, label %.preheader, !llvm.loop !96
+  br i1 %exitcond30.not, label %67, label %.preheader, !llvm.loop !96
 
-70:                                               ; preds = %68
+67:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -3320,31 +3320,31 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   call fastcc void @ivi_mc_4x4_delta(ptr noundef nonnull %7, i64 noundef 4, ptr noundef %2, i64 noundef %3, i32 noundef %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %ivi_mc_4x4_no_delta.exit, %67
-  %indvars.iv27 = phi i64 [ 0, %ivi_mc_4x4_no_delta.exit ], [ %indvars.iv.next28, %67 ]
-  %.01621 = phi ptr [ %0, %ivi_mc_4x4_no_delta.exit ], [ %68, %67 ]
-  %60 = shl nuw nsw i64 %indvars.iv27, 2
-  br label %61
+.preheader:                                       ; preds = %ivi_mc_4x4_no_delta.exit, %64
+  %indvars.iv27 = phi i64 [ 0, %ivi_mc_4x4_no_delta.exit ], [ %indvars.iv.next28, %64 ]
+  %.01621 = phi ptr [ %0, %ivi_mc_4x4_no_delta.exit ], [ %65, %64 ]
+  %.idx = shl nuw nsw i64 %indvars.iv27, 3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  br label %60
 
-61:                                               ; preds = %.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %61 ]
-  %62 = add nuw nsw i64 %indvars.iv, %60
-  %63 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !27
-  %65 = ashr i16 %64, 1
-  %66 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
-  store i16 %65, ptr %66, align 2, !tbaa !27
+60:                                               ; preds = %.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %61 = load i16, ptr %gep, align 2, !tbaa !27
+  %62 = ashr i16 %61, 1
+  %63 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  store i16 %62, ptr %63, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %67, label %61, !llvm.loop !97
+  br i1 %exitcond.not, label %64, label %60, !llvm.loop !97
 
-67:                                               ; preds = %61
+64:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %68 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %65 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
-  br i1 %exitcond30.not, label %69, label %.preheader, !llvm.loop !98
+  br i1 %exitcond30.not, label %66, label %.preheader, !llvm.loop !98
 
-69:                                               ; preds = %67
+66:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -3478,33 +3478,33 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   call fastcc void @ivi_mc_4x4_delta(ptr noundef nonnull %7, i64 noundef 4, ptr noundef %2, i64 noundef %3, i32 noundef %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %ivi_mc_4x4_no_delta.exit, %69
-  %indvars.iv27 = phi i64 [ 0, %ivi_mc_4x4_no_delta.exit ], [ %indvars.iv.next28, %69 ]
-  %.01621 = phi ptr [ %0, %ivi_mc_4x4_no_delta.exit ], [ %70, %69 ]
-  %60 = shl nuw nsw i64 %indvars.iv27, 2
-  br label %61
+.preheader:                                       ; preds = %ivi_mc_4x4_no_delta.exit, %66
+  %indvars.iv27 = phi i64 [ 0, %ivi_mc_4x4_no_delta.exit ], [ %indvars.iv.next28, %66 ]
+  %.01621 = phi ptr [ %0, %ivi_mc_4x4_no_delta.exit ], [ %67, %66 ]
+  %.idx = shl nuw nsw i64 %indvars.iv27, 3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  br label %60
 
-61:                                               ; preds = %.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %61 ]
-  %62 = add nuw nsw i64 %indvars.iv, %60
-  %63 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %62
+60:                                               ; preds = %.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %61 = load i16, ptr %gep, align 2, !tbaa !27
+  %62 = ashr i16 %61, 1
+  %63 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !27
-  %65 = ashr i16 %64, 1
-  %66 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
-  %67 = load i16, ptr %66, align 2, !tbaa !27
-  %68 = add i16 %67, %65
-  store i16 %68, ptr %66, align 2, !tbaa !27
+  %65 = add i16 %64, %62
+  store i16 %65, ptr %63, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %69, label %61, !llvm.loop !99
+  br i1 %exitcond.not, label %66, label %60, !llvm.loop !99
 
-69:                                               ; preds = %61
+66:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %70 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %67 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
-  br i1 %exitcond30.not, label %71, label %.preheader, !llvm.loop !100
+  br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !100
 
-71:                                               ; preds = %69
+68:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

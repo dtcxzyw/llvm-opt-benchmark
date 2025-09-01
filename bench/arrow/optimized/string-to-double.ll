@@ -70,7 +70,7 @@ define linkonce_odr noundef double @_ZNK14arrow_vendored17double_conversion23Str
 
 .preheader.i.i:                                   ; preds = %29, %.lr.ph.i
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %29 ], [ 0, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = icmp eq i8 %28, %31
   br i1 %32, label %33, label %29
@@ -125,7 +125,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit: ; 
 
 .preheader.i.i240:                                ; preds = %47, %.lr.ph.i239
   %indvars.iv34.i.i241 = phi i64 [ %indvars.iv.next35.i.i242, %47 ], [ 0, %.lr.ph.i239 ]
-  %48 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i241
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i241
   %49 = load i8, ptr %48, align 1, !tbaa !15
   %50 = icmp eq i8 %46, %49
   br i1 %50, label %51, label %47
@@ -258,7 +258,7 @@ _ZN14arrow_vendored17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKc
 
 .preheader.i.i250:                                ; preds = %98, %.lr.ph.i249
   %indvars.iv34.i.i251 = phi i64 [ %indvars.iv.next35.i.i252, %98 ], [ 0, %.lr.ph.i249 ]
-  %99 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i251
+  %99 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i251
   %100 = load i8, ptr %99, align 1, !tbaa !15
   %101 = icmp eq i8 %97, %100
   br i1 %101, label %102, label %98
@@ -379,7 +379,7 @@ _ZN14arrow_vendored17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKc
 
 .preheader.i.i264:                                ; preds = %150, %.lr.ph.i263
   %indvars.iv34.i.i265 = phi i64 [ %indvars.iv.next35.i.i266, %150 ], [ 0, %.lr.ph.i263 ]
-  %151 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i265
+  %151 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i265
   %152 = load i8, ptr %151, align 1, !tbaa !15
   %153 = icmp eq i8 %149, %152
   br i1 %153, label %154, label %150
@@ -550,7 +550,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit.thread: ; preds = %switc
 
 .preheader.i.i274:                                ; preds = %218, %.lr.ph.i273
   %indvars.iv34.i.i275 = phi i64 [ %indvars.iv.next35.i.i276, %218 ], [ 0, %.lr.ph.i273 ]
-  %219 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i275
+  %219 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i275
   %220 = load i8, ptr %219, align 1, !tbaa !15
   %221 = icmp eq i8 %217, %220
   br i1 %221, label %222, label %218
@@ -671,7 +671,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit289.thread: 
 272:                                              ; preds = %268
   %273 = add nsw i32 %.0185453, 1
   %274 = sext i32 %.0185453 to i64
-  %275 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %274
+  %275 = getelementptr inbounds i8, ptr %8, i64 %274
   store i8 %269, ptr %275, align 1, !tbaa !15
   %276 = add nsw i32 %.0165457, 1
   br label %282
@@ -851,7 +851,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit.thread.i294: ; preds = %
 357:                                              ; preds = %353
   %358 = add nsw i32 %.4189472, 1
   %359 = sext i32 %.4189472 to i64
-  %360 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %359
+  %360 = getelementptr inbounds i8, ptr %8, i64 %359
   store i8 %354, ptr %360, align 1, !tbaa !15
   %361 = add nsw i32 %.3168474, 1
   %362 = add nsw i32 %.4160475, -1
@@ -1094,7 +1094,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit.thread.i303: ; preds = %
 
 .preheader.i.i311:                                ; preds = %462, %.lr.ph.i310
   %indvars.iv34.i.i312 = phi i64 [ %indvars.iv.next35.i.i313, %462 ], [ 0, %.lr.ph.i310 ]
-  %463 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i312
+  %463 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i312
   %464 = load i8, ptr %463, align 1, !tbaa !15
   %465 = icmp eq i8 %461, %464
   br i1 %465, label %466, label %462
@@ -1131,7 +1131,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit317.
 
 .preheader.i.i321:                                ; preds = %472, %.lr.ph.i320
   %indvars.iv34.i.i322 = phi i64 [ %indvars.iv.next35.i.i323, %472 ], [ 0, %.lr.ph.i320 ]
-  %473 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i322
+  %473 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i322
   %474 = load i8, ptr %473, align 1, !tbaa !15
   %475 = icmp eq i8 %471, %474
   br i1 %475, label %476, label %472
@@ -1212,7 +1212,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit327.
 499:                                              ; preds = %496
   %500 = add nsw i32 %.2187392, 1
   %501 = sext i32 %.2187392 to i64
-  %502 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %501
+  %502 = getelementptr inbounds i8, ptr %8, i64 %501
   store i8 49, ptr %502, align 1, !tbaa !15
   %503 = add nsw i32 %497, -1
   br label %504
@@ -1221,7 +1221,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit327.
   %.6191 = phi i32 [ %500, %499 ], [ %.2187392, %496 ]
   %.9 = phi i32 [ %503, %499 ], [ %497, %496 ]
   %505 = sext i32 %.6191 to i64
-  %506 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %505
+  %506 = getelementptr inbounds i8, ptr %8, i64 %505
   store i8 0, ptr %506, align 1, !tbaa !15
   %507 = zext i32 %.6191 to i64
   br label %508
@@ -1338,7 +1338,7 @@ define linkonce_odr noundef double @_ZNK14arrow_vendored17double_conversion23Str
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %31
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %31 ], [ 0, %.lr.ph.i ]
-  %32 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = sext i8 %33 to i32
   %35 = icmp eq i32 %29, %34
@@ -1351,7 +1351,7 @@ define linkonce_odr noundef double @_ZNK14arrow_vendored17double_conversion23Str
 
 .preheader26.i.i:                                 ; preds = %.lr.ph.i, %36
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %36 ], [ 0, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw [20 x i16], ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw i16, ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i
   %38 = load i16, ptr %37, align 2, !tbaa !40
   %39 = icmp eq i16 %28, %38
   br i1 %39, label %.loopexit.i, label %36
@@ -1407,7 +1407,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit: ; 
 
 .preheader.i.i247:                                ; preds = %.lr.ph.i239, %54
   %indvars.iv34.i.i248 = phi i64 [ %indvars.iv.next35.i.i249, %54 ], [ 0, %.lr.ph.i239 ]
-  %55 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i248
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i248
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = sext i8 %56 to i32
   %58 = icmp eq i32 %52, %57
@@ -1420,7 +1420,7 @@ _ZN14arrow_vendored17double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit: ; 
 
 .preheader26.i.i240:                              ; preds = %.lr.ph.i239, %59
   %indvars.iv.i.i241 = phi i64 [ %indvars.iv.next.i.i242, %59 ], [ 0, %.lr.ph.i239 ]
-  %60 = getelementptr inbounds nuw [20 x i16], ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i241
+  %60 = getelementptr inbounds nuw i16, ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i241
   %61 = load i16, ptr %60, align 2, !tbaa !40
   %62 = icmp eq i16 %51, %61
   br i1 %62, label %.loopexit.i245, label %59
@@ -1903,7 +1903,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit264.thread: 
   %267 = trunc nuw nsw i16 %263 to i8
   %268 = add nsw i32 %.0185403, 1
   %269 = sext i32 %.0185403 to i64
-  %270 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %269
+  %270 = getelementptr inbounds i8, ptr %8, i64 %269
   store i8 %267, ptr %270, align 1, !tbaa !15
   %271 = add nsw i32 %.0165407, 1
   br label %277
@@ -2077,7 +2077,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit.thread.i269: ; preds = %
   %348 = trunc nuw nsw i16 %344 to i8
   %349 = add nsw i32 %.4189422, 1
   %350 = sext i32 %.4189422 to i64
-  %351 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %350
+  %351 = getelementptr inbounds i8, ptr %8, i64 %350
   store i8 %348, ptr %351, align 1, !tbaa !15
   %352 = add nsw i32 %.3168424, 1
   %353 = add nsw i32 %.4160425, -1
@@ -2385,7 +2385,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit273.thread..
 478:                                              ; preds = %475
   %479 = add nsw i32 %.2187347, 1
   %480 = sext i32 %.2187347 to i64
-  %481 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %480
+  %481 = getelementptr inbounds i8, ptr %8, i64 %480
   store i8 49, ptr %481, align 1, !tbaa !15
   %482 = add nsw i32 %476, -1
   br label %483
@@ -2394,7 +2394,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit273.thread..
   %.6191 = phi i32 [ %479, %478 ], [ %.2187347, %475 ]
   %.9 = phi i32 [ %482, %478 ], [ %476, %475 ]
   %484 = sext i32 %.6191 to i64
-  %485 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %484
+  %485 = getelementptr inbounds i8, ptr %8, i64 %484
   store i8 0, ptr %485, align 1, !tbaa !15
   %486 = zext i32 %.6191 to i64
   br label %487
@@ -3075,7 +3075,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit87: ; preds = %_ZN14arrow
 
 .preheader.i.i:                                   ; preds = %132, %.lr.ph.i
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %132 ], [ 0, %.lr.ph.i ]
-  %133 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %134 = load i8, ptr %133, align 1, !tbaa !15
   %135 = icmp eq i8 %131, %134
   br i1 %135, label %136, label %132
@@ -3251,7 +3251,7 @@ _ZN14arrow_vendored17double_conversionL24IsCharacterDigitForRadixEiic.exit162.th
 
 .preheader.i.i:                                   ; preds = %59, %.lr.ph.i
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %59 ], [ 0, %.lr.ph.i ]
-  %60 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %61 = load i8, ptr %60, align 1, !tbaa !15
   %62 = icmp eq i8 %58, %61
   br i1 %62, label %63, label %59
@@ -3465,7 +3465,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit188.thread28
 
 .preheader.i.i207:                                ; preds = %126, %.lr.ph.i206
   %indvars.iv34.i.i208 = phi i64 [ %indvars.iv.next35.i.i209, %126 ], [ 0, %.lr.ph.i206 ]
-  %127 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i208
+  %127 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i208
   %128 = load i8, ptr %127, align 1, !tbaa !15
   %129 = icmp eq i8 %125, %128
   br i1 %129, label %130, label %126
@@ -4019,7 +4019,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPcEEbPT_tiRS3_.exit: ; preds = %
 
 .preheader.i.i:                                   ; preds = %60, %.lr.ph.i
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %60 ], [ 0, %.lr.ph.i ]
-  %61 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !15
   %63 = icmp eq i8 %59, %62
   br i1 %63, label %64, label %60
@@ -4153,7 +4153,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit: ; preds = %_ZN14arrow_v
 
 .preheader.i.i162:                                ; preds = %116, %.lr.ph.i161
   %indvars.iv34.i.i163 = phi i64 [ %indvars.iv.next35.i.i164, %116 ], [ 0, %.lr.ph.i161 ]
-  %117 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i163
+  %117 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i163
   %118 = load i8, ptr %117, align 1, !tbaa !15
   %119 = icmp eq i8 %115, %118
   br i1 %119, label %120, label %116
@@ -4371,7 +4371,7 @@ define internal fastcc noundef zeroext i1 @_ZN14arrow_vendored17double_conversio
 
 .preheader.i:                                     ; preds = %.lr.ph, %7
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %7 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i
   %9 = load i8, ptr %8, align 1, !tbaa !15
   %10 = sext i8 %9 to i32
   %11 = icmp eq i32 %5, %10
@@ -4384,7 +4384,7 @@ define internal fastcc noundef zeroext i1 @_ZN14arrow_vendored17double_conversio
 
 .preheader26.i:                                   ; preds = %.lr.ph, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds nuw [20 x i16], ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2, !tbaa !40
   %15 = icmp eq i16 %4, %14
   br i1 %15, label %.loopexit, label %12
@@ -5172,7 +5172,7 @@ _ZN14arrow_vendored17double_conversionL24IsCharacterDigitForRadixEiic.exit164.th
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %54
   %indvars.iv34.i.i = phi i64 [ %indvars.iv.next35.i.i, %54 ], [ 0, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = sext i8 %56 to i32
   %58 = icmp eq i32 %52, %57
@@ -5185,7 +5185,7 @@ _ZN14arrow_vendored17double_conversionL24IsCharacterDigitForRadixEiic.exit164.th
 
 .preheader26.i.i:                                 ; preds = %.lr.ph.i, %59
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %59 ], [ 0, %.lr.ph.i ]
-  %60 = getelementptr inbounds nuw [20 x i16], ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw i16, ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i
   %61 = load i16, ptr %60, align 2, !tbaa !40
   %62 = icmp eq i16 %51, %61
   br i1 %62, label %.loopexit.i, label %59
@@ -5391,7 +5391,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit190.thread29
 
 .preheader.i.i216:                                ; preds = %.lr.ph.i208, %120
   %indvars.iv34.i.i217 = phi i64 [ %indvars.iv.next35.i.i218, %120 ], [ 0, %.lr.ph.i208 ]
-  %121 = getelementptr inbounds nuw [6 x i8], ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv34.i.i217
+  %121 = getelementptr inbounds nuw i8, ptr @_ZN14arrow_vendored17double_conversionL17kWhitespaceTable7E, i64 %indvars.iv34.i.i217
   %122 = load i8, ptr %121, align 1, !tbaa !15
   %123 = sext i8 %122 to i32
   %124 = icmp eq i32 %118, %123
@@ -5404,7 +5404,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit190.thread29
 
 .preheader26.i.i209:                              ; preds = %.lr.ph.i208, %125
   %indvars.iv.i.i210 = phi i64 [ %indvars.iv.next.i.i211, %125 ], [ 0, %.lr.ph.i208 ]
-  %126 = getelementptr inbounds nuw [20 x i16], ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i210
+  %126 = getelementptr inbounds nuw i16, ptr @_ZN14arrow_vendored17double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i210
   %127 = load i16, ptr %126, align 2, !tbaa !40
   %128 = icmp eq i16 %117, %127
   br i1 %128, label %.loopexit.i214, label %125

@@ -309,11 +309,11 @@ define hidden void @ipmi_set_data(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 12:                                               ; preds = %9
   %13 = zext nneg i8 %6 to i64
-  %14 = getelementptr [3 x ptr], ptr %11, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr [2 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr i32, ptr %16, i64 %17
   store i32 %2, ptr %18, align 4
   br label %19
 
@@ -339,11 +339,11 @@ define hidden noundef zeroext i1 @ipmi_get_data(ptr noundef %0, i32 noundef %1, 
 
 12:                                               ; preds = %9
   %13 = zext nneg i8 %6 to i64
-  %14 = getelementptr [3 x ptr], ptr %11, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr [2 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %2, align 4
   br label %20
@@ -366,42 +366,41 @@ define hidden void @ipmi_add_typelen(ptr noundef readonly captures(none) %0, ptr
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %15, ptr @ipmi_add_typelen.fru_eng, ptr @ipmi_add_typelen.fru_noneng
   %17 = zext nneg i32 %13 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
-  %19 = getelementptr [4 x ptr], ptr @ipmi_add_typelen.ipmi, i64 0, i64 %17
   %.047 = select i1 %7, ptr @.str, ptr @.str.1
   %.046 = select i1 %7, i32 63, i32 31
-  %.0.in = select i1 %7, ptr %18, ptr %19
+  %.0.in.v = select i1 %7, ptr %16, ptr @ipmi_add_typelen.ipmi
+  %.0.in = getelementptr ptr, ptr %.0.in.v, i64 %17
   %.0 = load ptr, ptr %.0.in, align 8
-  %20 = and i32 %.046, %12
-  %21 = load ptr, ptr %.0, align 8
-  %22 = add i32 %6, 1
-  call void %21(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %5, i32 noundef %22, i32 noundef %20, i1 noundef zeroext %7)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = add i32 %25, 1
-  %27 = zext i32 %26 to i64
-  %28 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef %27) #14
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %9, align 4
-  call void %30(ptr noundef %28, ptr noundef %5, i32 noundef %22, i32 noundef %31)
-  %32 = load i32, ptr %9, align 4
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr i8, ptr %28, i64 %33
-  store i8 0, ptr %34, align 1
-  %35 = load i32, ptr @ett_typelen, align 4
-  %36 = call ptr @proto_registrar_get_nth(i32 noundef %2)
+  %18 = and i32 %.046, %12
+  %19 = load ptr, ptr %.0, align 8
+  %20 = add i32 %6, 1
+  call void %19(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %5, i32 noundef %20, i32 noundef %18, i1 noundef zeroext %7)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = add i32 %23, 1
+  %25 = zext i32 %24 to i64
+  %26 = call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %25) #14
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr %9, align 4
+  call void %28(ptr noundef %26, ptr noundef %5, i32 noundef %20, i32 noundef %29)
+  %30 = load i32, ptr %9, align 4
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr i8, ptr %26, i64 %31
+  store i8 0, ptr %32, align 1
+  %33 = load i32, ptr @ett_typelen, align 4
+  %34 = call ptr @proto_registrar_get_nth(i32 noundef %2)
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %37, ptr noundef %39, i32 noundef %20, ptr noundef nonnull %.047)
-  %41 = load ptr, ptr %38, align 8
-  %42 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %40, i32 noundef %3, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.3, ptr noundef %41, i32 noundef %13)
-  %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %40, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.4, i32 noundef %20, ptr noundef nonnull %.047)
-  %44 = load i32, ptr %10, align 4
-  %45 = load ptr, ptr %38, align 8
-  %46 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1, i32 noundef %2, ptr noundef %5, i32 noundef %22, i32 noundef %44, ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef %45, ptr noundef %28)
+  %38 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %35, ptr noundef %37, i32 noundef %18, ptr noundef nonnull %.047)
+  %39 = load ptr, ptr %36, align 8
+  %40 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %38, i32 noundef %3, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.3, ptr noundef %39, i32 noundef %13)
+  %41 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %38, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef 1, i32 noundef %18, ptr noundef nonnull @.str.4, i32 noundef %18, ptr noundef nonnull %.047)
+  %42 = load i32, ptr %10, align 4
+  %43 = load ptr, ptr %36, align 8
+  %44 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1, i32 noundef %2, ptr noundef %5, i32 noundef %20, i32 noundef %42, ptr noundef %26, ptr noundef nonnull @.str.5, ptr noundef %43, ptr noundef %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -489,7 +488,7 @@ define hidden void @ipmi_add_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = sub i32 %14, %17
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %18)
-  %20 = getelementptr [8 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr i8, ptr %15, i64 %indvars.iv
   store i8 %19, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -515,7 +514,7 @@ define hidden void @ipmi_register_netfn_cmdtab(i32 noundef %0, i32 noundef %1, p
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %11
+  %12 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, %3
@@ -550,7 +549,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 define hidden i32 @ipmi_getsiglen(i32 noundef %0) local_unnamed_addr #3 {
   %2 = lshr i32 %0, 1
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %3, i32 2
+  %4 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %3, i32 2
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
@@ -559,7 +558,7 @@ define hidden i32 @ipmi_getsiglen(i32 noundef %0) local_unnamed_addr #3 {
 define hidden ptr @ipmi_getnetfnname(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = lshr i32 %1, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %5, i32 1
+  %6 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   %spec.select = select i1 %.not, ptr @.str.9, ptr %7
@@ -588,7 +587,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 define hidden ptr @ipmi_getnetfn(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = lshr i32 %0, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %4
+  %5 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.016 = load ptr, ptr %5, align 8
   %.not17 = icmp eq ptr %.016, null
@@ -1219,7 +1218,7 @@ define internal fastcc i32 @dissect_ipmi_cmd(ptr noundef %0, ptr noundef %1, ptr
   %22 = load i8, ptr %21, align 2
   %23 = lshr i8 %22, 1
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %24, i32 2
+  %25 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %24, i32 2
   %26 = load i32, ptr %25, align 8
   %27 = and i8 %22, 1
   %28 = zext nneg i8 %27 to i32
@@ -1353,7 +1352,7 @@ remove_old_requests.exit:                         ; preds = %remove_old_requests
   %98 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = zext nneg i8 %91 to i64
-  %101 = getelementptr [3 x ptr], ptr %99, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8
   %.not.i283 = icmp eq ptr %102, null
   br i1 %.not.i283, label %103, label %match_request_response.exit
@@ -1480,7 +1479,7 @@ get_frame_data.exit.i284:                         ; preds = %159, %153
   %163 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 16
   %164 = load i8, ptr %163, align 4
   %165 = zext i8 %164 to i64
-  %166 = getelementptr [3 x ptr], ptr %.0.i.i285, i64 0, i64 %165
+  %166 = getelementptr ptr, ptr %.0.i.i285, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %169 = load i32, ptr %168, align 8
@@ -1504,7 +1503,7 @@ get_frame_data.exit.i284:                         ; preds = %159, %153
 179:                                              ; preds = %get_frame_data.exit.i284, %get_matched_request.exit.i, %get_matched_request.exit.thread.i
   %180 = load i8, ptr %43, align 8
   %181 = zext i8 %180 to i64
-  %182 = getelementptr [3 x ptr], ptr %99, i64 0, i64 %181
+  %182 = getelementptr ptr, ptr %99, i64 %181
   store ptr %105, ptr %182, align 8
   br label %match_request_response.exit
 
@@ -1512,7 +1511,7 @@ get_frame_data.exit.i284:                         ; preds = %159, %153
   %184 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %185 = load ptr, ptr %184, align 8
   %186 = zext nneg i8 %91 to i64
-  %187 = getelementptr [3 x ptr], ptr %185, i64 0, i64 %186
+  %187 = getelementptr ptr, ptr %185, i64 %186
   %188 = load ptr, ptr %187, align 8
   %.not.i286 = icmp eq ptr %188, null
   br i1 %.not.i286, label %189, label %match_request_response.exit
@@ -1522,7 +1521,7 @@ get_frame_data.exit.i284:                         ; preds = %159, %153
   %191 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %190, i64 noundef 12) #14
   %192 = load i8, ptr %43, align 8
   %193 = zext i8 %192 to i64
-  %194 = getelementptr [3 x ptr], ptr %185, i64 0, i64 %193
+  %194 = getelementptr ptr, ptr %185, i64 %193
   store ptr %191, ptr %194, align 8
   %195 = call ptr @wmem_file_scope()
   %196 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc0(ptr noundef %195, i64 noundef 20) #14
@@ -1555,7 +1554,7 @@ match_request_response.exit:                      ; preds = %189, %183, %179, %9
   %213 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %212, i32 noundef %26)
   %214 = lshr i8 %210, 1
   %215 = zext nneg i8 %214 to i64
-  %216 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %215
+  %216 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %.016.i = load ptr, ptr %216, align 8
   %.not17.i = icmp eq ptr %.016.i, null
@@ -1759,7 +1758,7 @@ add_command_info.exit:                            ; preds = %.thread, %271, %ipm
   %303 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %304 = load ptr, ptr %303, align 8
   %305 = zext nneg i8 %298 to i64
-  %306 = getelementptr [3 x ptr], ptr %304, i64 0, i64 %305
+  %306 = getelementptr ptr, ptr %304, i64 %305
   %307 = load ptr, ptr %306, align 8
   %308 = load i32, ptr %307, align 4
   %.not264 = icmp eq i32 %308, 0
@@ -1873,7 +1872,7 @@ proto_item_set_generated.exit303:                 ; preds = %340, %337, %334, %3
   %361 = load i8, ptr %21, align 2
   %362 = lshr i8 %361, 1
   %363 = zext nneg i8 %362 to i64
-  %364 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %363, i32 1
+  %364 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %363, i32 1
   %365 = load ptr, ptr %364, align 8
   %.not.i304 = icmp eq ptr %365, null
   %spec.select.i = select i1 %.not.i304, ptr @.str.9, ptr %365
@@ -2136,7 +2135,7 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
 8:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 48, %0 ], [ %indvars.iv.next, %8 ]
   %9 = lshr exact i64 %indvars.iv, 1
-  %10 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %9
+  %10 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.119, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2444,13 +2443,13 @@ define internal void @parse_binary(ptr noundef writeonly captures(none) %0, ptr 
   %8 = zext i8 %7 to i32
   %9 = lshr i32 %8, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [17 x i8], ptr @parse_binary.hex, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @parse_binary.hex, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr i8, ptr %.01213, i64 1
   store i8 %12, ptr %.01213, align 1
   %14 = and i32 %8, 15
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr [17 x i8], ptr @parse_binary.hex, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @parse_binary.hex, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = getelementptr i8, ptr %.01213, i64 2
   store i8 %17, ptr %13, align 1
@@ -2507,7 +2506,7 @@ define internal void @parse_bcdplus(ptr noundef writeonly captures(none) %0, ptr
   %9 = and i32 %.01215, %8
   %10 = lshr i32 %9, %.01116
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [17 x i8], ptr @parse_bcdplus.bcd, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @parse_bcdplus.bcd, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = getelementptr i8, ptr %.017, i64 1
   store i8 %13, ptr %.017, align 1

@@ -11214,7 +11214,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.6717981035442482804.ex
 
 74:                                               ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc9456d6927183bcdE.exit"
   %75 = load ptr, ptr %1, align 8, !noalias !2471, !nonnull !4, !align !5, !noundef !4
-  %76 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %75, i64 0, i64 %.0.i.i
+  %76 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %75, i64 %.0.i.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %76, ptr %4, align 8, !alias.scope !2471
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13974,7 +13974,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlic
   %13 = trunc nuw nsw i64 %5 to i8
   %14 = shl nuw i8 1, %13
   %15 = xor i8 %14, -1
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %4
   %17 = load i8, ptr %16, align 1, !noundef !4
   %18 = and i8 %17, %15
   store i8 %18, ptr %16, align 1
@@ -13991,7 +13991,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$mini_lsm_mvcc..table..bloom..BitSlic
   %22 = load ptr, ptr %0, align 8, !alias.scope !2908, !nonnull !4, !noundef !4
   %23 = trunc nuw nsw i64 %5 to i8
   %24 = shl nuw i8 1, %23
-  %25 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %4
   %26 = load i8, ptr %25, align 1, !noundef !4
   %27 = or i8 %26, %24
   store i8 %27, ptr %25, align 1

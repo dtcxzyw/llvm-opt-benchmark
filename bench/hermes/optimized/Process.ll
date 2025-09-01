@@ -1206,12 +1206,12 @@ entry:
 define hidden noundef nonnull ptr @_ZN4llvh3sys7Process11OutputColorEcbb(i8 noundef signext %code, i1 noundef zeroext %bold, i1 noundef zeroext %bg) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom = zext i1 %bg to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [2 x [8 x [10 x i8]]]], ptr @_ZL10colorcodes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x [8 x [10 x i8]]], ptr @_ZL10colorcodes, i64 %idxprom
   %idxprom4 = zext i1 %bold to i64
-  %arrayidx5 = getelementptr inbounds nuw [2 x [8 x [10 x i8]]], ptr %arrayidx, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [8 x [10 x i8]], ptr %arrayidx, i64 %idxprom4
   %0 = and i8 %code, 7
   %idxprom6 = zext nneg i8 %0 to i64
-  %arrayidx7 = getelementptr inbounds nuw [8 x [10 x i8]], ptr %arrayidx5, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds nuw [10 x i8], ptr %arrayidx5, i64 %idxprom6
   ret ptr %arrayidx7
 }
 

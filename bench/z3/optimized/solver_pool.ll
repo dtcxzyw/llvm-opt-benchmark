@@ -4747,7 +4747,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit81:            ; preds = %._crit_edge
 124:                                              ; preds = %.lr.ph, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %.060363 = phi i1 [ false, %.lr.ph ], [ %.161, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
-  %125 = getelementptr inbounds nuw [0 x ptr], ptr %118, i64 0, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
   %126 = load ptr, ptr %125, align 8, !tbaa !159
   %127 = load ptr, ptr %0, align 8, !tbaa !138
   %128 = icmp eq ptr %126, %127
@@ -5489,7 +5489,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %446 = add i32 %445, -1
   %447 = getelementptr inbounds nuw i8, ptr %443, i64 32
   %448 = zext i32 %446 to i64
-  %449 = getelementptr inbounds nuw [0 x ptr], ptr %447, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw ptr, ptr %447, i64 %448
   %450 = load ptr, ptr %449, align 8, !tbaa !159
   %451 = load ptr, ptr %52, align 8, !tbaa !158
   %452 = icmp eq ptr %450, %451
@@ -5778,7 +5778,7 @@ _ZNK11ast_manager8has_factEPK3app.exit.i:         ; preds = %561
   %564 = add i32 %563, -1
   %565 = getelementptr inbounds nuw i8, ptr %550, i64 32
   %566 = zext i32 %564 to i64
-  %567 = getelementptr inbounds nuw [0 x ptr], ptr %565, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw ptr, ptr %565, i64 %566
   %568 = load ptr, ptr %567, align 8, !tbaa !159
   %569 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %568)
           to label %.noexc191 unwind label %.loopexit341
@@ -5792,7 +5792,7 @@ _ZNK11ast_manager8has_factEPK3app.exit.i:         ; preds = %561
   %572 = load i32, ptr %562, align 8, !tbaa !202
   %573 = add i32 %572, -1
   %574 = zext i32 %573 to i64
-  %575 = getelementptr inbounds nuw [0 x ptr], ptr %565, i64 0, i64 %574
+  %575 = getelementptr inbounds nuw ptr, ptr %565, i64 %574
   %576 = load ptr, ptr %575, align 8, !tbaa !159
   %577 = icmp eq ptr %576, %545
   br i1 %577, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit196, label %_ZNK11ast_manager8is_proofEPK4expr.exit.thread.i
@@ -7881,7 +7881,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62: ; preds = %47
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11pool_solver14dump_benchmarkERK10ref_vectorI4expr11ast_managerERK6vectorIS3_Lb1EjE5lboold, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11pool_solver14dump_benchmarkERK10ref_vectorI4expr11ast_managerERK6vectorIS3_Lb1EjE5lboold, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK11pool_solver12lbool2statusE5lbool.exit
 

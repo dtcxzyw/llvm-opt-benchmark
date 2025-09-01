@@ -11593,7 +11593,7 @@ _ZN10hir_expand20builtin_derive_macro12VariantShape14as_pattern_map17h8df200576a
 420:                                              ; preds = %406
   %421 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %422 = load ptr, ptr %421, align 8, !alias.scope !2321, !noalias !2326, !nonnull !4, !noundef !4
-  %423 = getelementptr inbounds [0 x { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }], ptr %422, i64 0, i64 %408
+  %423 = getelementptr inbounds { { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, { i64, [2 x i64] } }, ptr %422, i64 %408
   %424 = getelementptr inbounds nuw i8, ptr %189, i64 112
   %425 = getelementptr inbounds nuw i8, ptr %423, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9425.i)

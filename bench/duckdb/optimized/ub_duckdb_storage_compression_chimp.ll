@@ -1331,17 +1331,17 @@ define linkonce_odr void @_ZN6duckdb14ChimpScanStateIfE9LoadGroupEPj(ptr noundef
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = and i64 %.09.i, 3
-  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants5MASKSE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb19FlagBufferConstants5MASKSE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !35
   %28 = and i8 %27, %24
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 %25
   %31 = load i8, ptr %30, align 1, !tbaa !35
   %32 = zext nneg i8 %31 to i32
   %33 = lshr i32 %29, %32
   %34 = trunc nuw i32 %33 to i8
   %35 = add nuw i64 %.09.i, 1
-  %36 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 %35
   store i8 %34, ptr %36, align 1, !tbaa !132
   %exitcond.not.i = icmp eq i64 %35, %14
   br i1 %exitcond.not.i, label %_ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit, label %.lr.ph.i, !llvm.loop !134
@@ -1368,19 +1368,19 @@ _ZN6duckdb15ChimpGroupStateIjE9LoadFlagsEPhm.exit: ; preds = %.lr.ph.i, %2
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 %43
   %.0.copyload.i.i.i = load i32, ptr %44, align 1
   %45 = and i64 %.08.i, 7
-  %46 = getelementptr inbounds nuw [8 x i32], ptr @_ZN6duckdb26LeadingZeroBufferConstants5MASKSE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @_ZN6duckdb26LeadingZeroBufferConstants5MASKSE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !136
   %48 = and i32 %47, %.0.copyload.i.i.i
-  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %45
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 %45
   %50 = load i8, ptr %49, align 1, !tbaa !35
   %51 = zext nneg i8 %50 to i32
   %52 = lshr i32 %48, %51
   %53 = add nuw nsw i64 %.08.i, 1
   %54 = and i32 %52, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !35
-  %58 = getelementptr inbounds nuw [1025 x i8], ptr %40, i64 0, i64 %.08.i
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 %.08.i
   store i8 %57, ptr %58, align 1, !tbaa !35
   %exitcond.not.i16 = icmp eq i64 %53, %39
   br i1 %exitcond.not.i16, label %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exitthread-pre-split, label %41, !llvm.loop !137
@@ -1409,7 +1409,7 @@ _ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit.thread: ; preds
   %.07.i = phi i64 [ %63, %.lr.ph.i18 ], [ 0, %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit ]
   %.056.i = phi i64 [ %68, %.lr.ph.i18 ], [ 0, %_ZN6duckdb15ChimpGroupStateIjE16LoadLeadingZerosEPhm.exit ]
   %63 = add nuw i64 %.07.i, 1
-  %64 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !132
   %66 = icmp eq i8 %65, 1
   %67 = zext i1 %66 to i64
@@ -1436,7 +1436,7 @@ _ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit: ; preds = %.lr
   %.012.i = phi i64 [ 0, %.lr.ph.i21 ], [ %89, %73 ]
   %74 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %.012.i
   %75 = load i16, ptr %74, align 2, !tbaa !141
-  %76 = getelementptr inbounds nuw [1024 x %"struct.duckdb::UnpackedData"], ptr %72, i64 0, i64 %.012.i
+  %76 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %72, i64 %.012.i
   %77 = lshr i16 %75, 9
   %78 = trunc nuw nsw i16 %77 to i8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 2
@@ -1450,7 +1450,7 @@ _ZNK6duckdb15ChimpGroupStateIjE24CalculatePackedDataCountEv.exit: ; preds = %.lr
   %86 = icmp eq i8 %84, 0
   %spec.store.select.i = select i1 %86, i8 64, i8 %84
   store i8 %spec.store.select.i, ptr %85, align 1
-  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %82
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 %82
   %88 = load i8, ptr %87, align 1, !tbaa !35
   store i8 %88, ptr %76, align 1, !tbaa !145
   %89 = add nuw i64 %.012.i, 1
@@ -1494,7 +1494,7 @@ _ZN6duckdb15ChimpGroupStateIjE14LoadPackedDataEPtm.exit: ; preds = %73, %_ZNK6du
   br label %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %.06.i
+  %106 = getelementptr inbounds nuw i8, ptr %20, i64 %.06.i
   %107 = load i8, ptr %106, align 1, !tbaa !132
   %108 = tail call noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE(i8 noundef zeroext %107, ptr noundef nonnull %99, ptr noundef nonnull align 8 dereferenceable(75864) %19, ptr noundef nonnull %98, ptr noundef nonnull align 4 dereferenceable(4) %90, ptr noundef nonnull align 8 dereferenceable(66593) %97)
   br label %_ZN6duckdb21Chimp128DecompressionIjE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE.exit.i
@@ -1521,20 +1521,20 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE9LoadFirstE
   %7 = getelementptr i8, ptr %2, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = and i32 %4, 7
-  %10 = getelementptr i8, ptr %7, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !35
-  %12 = or disjoint i32 %9, 8
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %13
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr i8, ptr %7, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !35
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 1, !tbaa !35
-  %16 = and i8 %15, %11
+  %16 = and i8 %15, %12
   %17 = trunc i32 %4 to i8
   %18 = tail call noundef i8 @llvm.fshl.i8(i8 %8, i8 %16, i8 %17)
   %19 = zext i8 %18 to i32
   %20 = getelementptr i8, ptr %7, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !35
   %22 = and i8 %21, %15
-  %23 = tail call noundef i8 @llvm.fshl.i8(i8 %11, i8 %22, i8 %17)
+  %23 = tail call noundef i8 @llvm.fshl.i8(i8 %12, i8 %22, i8 %17)
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %19, 16
   %26 = shl nuw nsw i32 %24, 8
@@ -1556,7 +1556,7 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE9LoadFirstE
   %42 = sub i32 0, %4
   %43 = and i32 %42, 7
   %44 = zext nneg i8 %41 to i64
-  %45 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = and i8 %46, %36
   %48 = zext i8 %47 to i32
@@ -1569,7 +1569,7 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE9LoadFirstE
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %55 = load i64, ptr %54, align 8, !tbaa !129
   %56 = and i64 %55, 127
-  %57 = getelementptr inbounds nuw [128 x i64], ptr %52, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i64, ptr %52, i64 %56
   store i64 %53, ptr %57, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 66592
   store i8 0, ptr %58, align 8, !tbaa !88
@@ -1582,69 +1582,68 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE9LoadFirstE
 define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateIjEE(i8 noundef zeroext %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(66593) %5) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  switch i8 %0, label %263 [
+  switch i8 %0, label %267 [
     i8 0, label %9
-    i8 1, label %40
-    i8 2, label %125
-    i8 3, label %192
+    i8 1, label %41
+    i8 2, label %127
+    i8 3, label %195
   ]
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !87
   %12 = and i32 %11, 7
-  %13 = sub i32 1, %11
-  %14 = and i32 %13, 7
-  %15 = icmp ne i32 %12, 0
-  %16 = load ptr, ptr %5, align 8, !tbaa !86
-  %17 = lshr i32 %11, 3
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !35
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, %12
-  %23 = lshr i32 %22, 1
-  %24 = and i32 %23, 127
-  %25 = zext i1 %15 to i64
-  %26 = getelementptr i8, ptr %19, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !35
-  %narrow1.i = add nuw nsw i32 %12, 7
-  %narrow.i = zext nneg i32 %narrow1.i to i64
-  %28 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %narrow.i
-  %29 = load i8, ptr %28, align 1, !tbaa !35
-  %30 = and i8 %29, %27
-  %31 = zext i8 %30 to i32
-  %32 = lshr i32 %31, %14
-  %33 = or i32 %32, %24
-  %34 = zext nneg i32 %33 to i64
-  %35 = add i32 %11, 7
-  store i32 %35, ptr %10, align 8, !tbaa !87
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %37 = getelementptr inbounds nuw [128 x i64], ptr %36, i64 0, i64 %34
-  %38 = load i64, ptr %37, align 8, !tbaa !34
-  %39 = trunc i64 %38 to i32
-  br label %278
+  %13 = zext nneg i32 %12 to i64
+  %14 = sub i32 1, %11
+  %15 = and i32 %14, 7
+  %16 = icmp ne i32 %12, 0
+  %17 = load ptr, ptr %5, align 8, !tbaa !86
+  %18 = lshr i32 %11, 3
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !35
+  %22 = zext i8 %21 to i32
+  %23 = shl nuw nsw i32 %22, %12
+  %24 = lshr i32 %23, 1
+  %25 = and i32 %24, 127
+  %26 = zext i1 %16 to i64
+  %27 = getelementptr i8, ptr %20, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 7), i64 %13
+  %30 = load i8, ptr %29, align 1, !tbaa !35
+  %31 = and i8 %30, %28
+  %32 = zext i8 %31 to i32
+  %33 = lshr i32 %32, %15
+  %34 = or i32 %33, %25
+  %35 = zext nneg i32 %34 to i64
+  %36 = add i32 %11, 7
+  store i32 %36, ptr %10, align 8, !tbaa !87
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %35
+  %39 = load i64, ptr %38, align 8, !tbaa !34
+  %40 = trunc i64 %39 to i32
+  br label %282
 
-40:                                               ; preds = %6
-  %41 = load i32, ptr %4, align 4, !tbaa !136
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %4, align 4, !tbaa !136
-  %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %3, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !145
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %45, ptr %46, align 8, !tbaa !89
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %48 = load i8, ptr %47, align 1, !tbaa !152
-  %49 = add i8 %45, %48
-  %50 = sub i8 32, %49
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  store i8 %50, ptr %51, align 1, !tbaa !90
-  %52 = load i8, ptr %47, align 1, !tbaa !35
-  %.not.i.i = icmp ult i8 %52, 8
+41:                                               ; preds = %6
+  %42 = load i32, ptr %4, align 4, !tbaa !136
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %4, align 4, !tbaa !136
+  %44 = zext i32 %42 to i64
+  %45 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %3, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !145
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %46, ptr %47, align 8, !tbaa !89
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !152
+  %50 = add i8 %46, %49
+  %51 = sub i8 32, %50
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  store i8 %51, ptr %52, align 1, !tbaa !90
+  %53 = load i8, ptr %48, align 1, !tbaa !35
+  %.not.i.i = icmp ult i8 %53, 8
   br i1 %.not.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
-.._crit_edge_crit_edge.i.i:                       ; preds = %40
+.._crit_edge_crit_edge.i.i:                       ; preds = %41
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !87
   %.pre14.i.i = load ptr, ptr %5, align 8, !tbaa !86
@@ -1654,377 +1653,377 @@ define linkonce_odr noundef i32 @_ZN6duckdb21Chimp128DecompressionIjE15Decompres
   %.pre22.i.i = zext nneg i32 %.pre20.i.i to i64
   br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit
 
-.lr.ph.i.i:                                       ; preds = %40
-  %53 = lshr i8 %52, 3
-  %54 = load ptr, ptr %5, align 8, !tbaa !86
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !87
-  %57 = lshr i32 %56, 3
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr i8, ptr %54, i64 %58
-  %60 = and i32 %56, 7
-  %61 = or disjoint i32 %60, 8
+.lr.ph.i.i:                                       ; preds = %41
+  %54 = lshr i8 %53, 3
+  %55 = load ptr, ptr %5, align 8, !tbaa !86
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !87
+  %58 = lshr i32 %57, 3
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr i8, ptr %55, i64 %59
+  %61 = and i32 %57, 7
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !35
-  %65 = trunc i32 %56 to i8
-  %wide.trip.count.i.i = zext nneg i8 %53 to i64
-  br label %66
+  %63 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i8, ptr %64, align 1, !tbaa !35
+  %66 = trunc i32 %57 to i8
+  %wide.trip.count.i.i = zext nneg i8 %54 to i64
+  br label %67
 
-66:                                               ; preds = %66, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %66 ]
-  %.011.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %75, %66 ]
-  %67 = shl i32 %.011.i.i, 8
-  %68 = getelementptr i8, ptr %59, i64 %indvars.iv.i.i
-  %69 = load i8, ptr %68, align 1, !tbaa !35
-  %70 = getelementptr i8, ptr %68, i64 1
-  %71 = load i8, ptr %70, align 1, !tbaa !35
-  %72 = and i8 %71, %64
-  %73 = tail call noundef i8 @llvm.fshl.i8(i8 %69, i8 %72, i8 %65)
-  %74 = zext i8 %73 to i32
-  %75 = or disjoint i32 %67, %74
+67:                                               ; preds = %67, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %67 ]
+  %.011.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %76, %67 ]
+  %68 = shl i32 %.011.i.i, 8
+  %69 = getelementptr i8, ptr %60, i64 %indvars.iv.i.i
+  %70 = load i8, ptr %69, align 1, !tbaa !35
+  %71 = getelementptr i8, ptr %69, i64 1
+  %72 = load i8, ptr %71, align 1, !tbaa !35
+  %73 = and i8 %72, %65
+  %74 = tail call noundef i8 @llvm.fshl.i8(i8 %70, i8 %73, i8 %66)
+  %75 = zext i8 %74 to i32
+  %76 = or disjoint i32 %68, %75
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, label %66, !llvm.loop !153
+  br i1 %exitcond.not.i.i, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, label %67, !llvm.loop !153
 
-_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %66, %.._crit_edge_crit_edge.i.i
-  %.pre-phi23.i.i = phi i64 [ %.pre22.i.i, %.._crit_edge_crit_edge.i.i ], [ %58, %66 ]
-  %.pre-phi19.i.i = phi i32 [ %.pre18.i.i, %.._crit_edge_crit_edge.i.i ], [ %60, %66 ]
-  %.pre-phi17.i.i = phi i8 [ %.pre16.i.i, %.._crit_edge_crit_edge.i.i ], [ %65, %66 ]
-  %.pre-phi.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %wide.trip.count.i.i, %66 ]
-  %76 = phi ptr [ %.pre14.i.i, %.._crit_edge_crit_edge.i.i ], [ %54, %66 ]
-  %77 = phi i32 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %56, %66 ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %75, %66 ]
-  %78 = and i8 %52, 7
-  %79 = zext nneg i8 %78 to i32
-  %80 = shl i32 %.0.lcssa.i.i, %79
-  %81 = sub nuw nsw i8 8, %78
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %83 = and i8 %.pre-phi17.i.i, 7
-  %84 = add i8 %52, %.pre-phi17.i.i
-  %85 = sub i8 0, %84
-  %86 = and i8 %85, 7
-  %87 = add nuw nsw i32 %.pre-phi19.i.i, %79
-  %88 = icmp samesign ugt i32 %87, 7
-  %89 = getelementptr i8, ptr %76, i64 %.pre-phi23.i.i
-  %90 = getelementptr i8, ptr %89, i64 %.pre-phi.i.i
-  %91 = load i8, ptr %90, align 1, !tbaa !35
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, %.pre-phi19.i.i
-  %94 = zext nneg i8 %78 to i64
-  %95 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !35
-  %97 = zext i8 %96 to i32
-  %98 = and i32 %93, %97
-  %99 = zext nneg i8 %81 to i32
-  %100 = lshr i32 %98, %99
-  %101 = zext i1 %88 to i64
-  %102 = getelementptr i8, ptr %90, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !35
-  %narrow.i40 = add nuw nsw i8 %83, %78
-  %104 = zext nneg i8 %narrow.i40 to i64
-  %105 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !35
-  %107 = and i8 %106, %103
-  %108 = zext i8 %107 to i32
-  %109 = zext nneg i8 %86 to i32
-  %110 = lshr i32 %108, %109
-  %111 = or i32 %100, %80
-  %112 = or i32 %111, %110
-  %113 = zext i8 %52 to i32
-  %114 = add i32 %77, %113
-  store i32 %114, ptr %82, align 8, !tbaa !87
-  %115 = zext nneg i8 %50 to i32
-  %116 = shl i32 %112, %115
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %118 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  %119 = load i8, ptr %118, align 1, !tbaa !35
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw [128 x i64], ptr %117, i64 0, i64 %120
-  %122 = load i64, ptr %121, align 8, !tbaa !34
-  %123 = trunc i64 %122 to i32
-  %124 = xor i32 %116, %123
-  br label %278
+_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit:     ; preds = %67, %.._crit_edge_crit_edge.i.i
+  %.pre-phi23.i.i = phi i64 [ %.pre22.i.i, %.._crit_edge_crit_edge.i.i ], [ %59, %67 ]
+  %.pre-phi19.i.i = phi i32 [ %.pre18.i.i, %.._crit_edge_crit_edge.i.i ], [ %61, %67 ]
+  %.pre-phi17.i.i = phi i8 [ %.pre16.i.i, %.._crit_edge_crit_edge.i.i ], [ %66, %67 ]
+  %.pre-phi.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %wide.trip.count.i.i, %67 ]
+  %77 = phi ptr [ %.pre14.i.i, %.._crit_edge_crit_edge.i.i ], [ %55, %67 ]
+  %78 = phi i32 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %57, %67 ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.._crit_edge_crit_edge.i.i ], [ %76, %67 ]
+  %79 = and i8 %53, 7
+  %80 = zext nneg i8 %79 to i32
+  %81 = shl i32 %.0.lcssa.i.i, %80
+  %82 = sub nuw nsw i8 8, %79
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %84 = and i8 %.pre-phi17.i.i, 7
+  %85 = add i8 %53, %.pre-phi17.i.i
+  %86 = sub i8 0, %85
+  %87 = and i8 %86, 7
+  %88 = add nuw nsw i32 %.pre-phi19.i.i, %80
+  %89 = icmp samesign ugt i32 %88, 7
+  %90 = getelementptr i8, ptr %77, i64 %.pre-phi23.i.i
+  %91 = getelementptr i8, ptr %90, i64 %.pre-phi.i.i
+  %92 = load i8, ptr %91, align 1, !tbaa !35
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, %.pre-phi19.i.i
+  %95 = zext nneg i8 %79 to i64
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !35
+  %98 = zext i8 %97 to i32
+  %99 = and i32 %94, %98
+  %100 = zext nneg i8 %82 to i32
+  %101 = lshr i32 %99, %100
+  %102 = zext i1 %89 to i64
+  %103 = getelementptr i8, ptr %91, i64 %102
+  %104 = load i8, ptr %103, align 1, !tbaa !35
+  %105 = zext nneg i8 %84 to i64
+  %106 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %95
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %105
+  %108 = load i8, ptr %107, align 1, !tbaa !35
+  %109 = and i8 %108, %104
+  %110 = zext i8 %109 to i32
+  %111 = zext nneg i8 %87 to i32
+  %112 = lshr i32 %110, %111
+  %113 = or i32 %101, %81
+  %114 = or i32 %113, %112
+  %115 = zext i8 %53 to i32
+  %116 = add i32 %78, %115
+  store i32 %116, ptr %83, align 8, !tbaa !87
+  %117 = zext nneg i8 %51 to i32
+  %118 = shl i32 %114, %117
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  %121 = load i8, ptr %120, align 1, !tbaa !35
+  %122 = zext i8 %121 to i64
+  %123 = getelementptr inbounds nuw i64, ptr %119, i64 %122
+  %124 = load i64, ptr %123, align 8, !tbaa !34
+  %125 = trunc i64 %124 to i32
+  %126 = xor i32 %118, %125
+  br label %282
 
-125:                                              ; preds = %6
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %127 = load i8, ptr %126, align 8, !tbaa !89
-  %128 = sub i8 32, %127
-  %.not.i.i41 = icmp ult i8 %128, 8
-  br i1 %.not.i.i41, label %.._crit_edge_crit_edge.i.i54, label %.lr.ph.i.i42
+127:                                              ; preds = %6
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %129 = load i8, ptr %128, align 8, !tbaa !89
+  %130 = sub i8 32, %129
+  %.not.i.i40 = icmp ult i8 %130, 8
+  br i1 %.not.i.i40, label %.._crit_edge_crit_edge.i.i52, label %.lr.ph.i.i41
 
-.._crit_edge_crit_edge.i.i54:                     ; preds = %125
-  %.phi.trans.insert.i.i55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i.i56 = load i32, ptr %.phi.trans.insert.i.i55, align 8, !tbaa !87
-  %.pre14.i.i57 = load ptr, ptr %5, align 8, !tbaa !86
-  %.pre16.i.i58 = trunc i32 %.pre.i.i56 to i8
-  %.pre18.i.i59 = and i32 %.pre.i.i56, 7
-  %.pre20.i.i60 = lshr i32 %.pre.i.i56, 3
-  %.pre22.i.i61 = zext nneg i32 %.pre20.i.i60 to i64
-  br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62
+.._crit_edge_crit_edge.i.i52:                     ; preds = %127
+  %.phi.trans.insert.i.i53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i54 = load i32, ptr %.phi.trans.insert.i.i53, align 8, !tbaa !87
+  %.pre14.i.i55 = load ptr, ptr %5, align 8, !tbaa !86
+  %.pre16.i.i56 = trunc i32 %.pre.i.i54 to i8
+  %.pre18.i.i57 = and i32 %.pre.i.i54, 7
+  %.pre20.i.i58 = lshr i32 %.pre.i.i54, 3
+  %.pre22.i.i59 = zext nneg i32 %.pre20.i.i58 to i64
+  br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60
 
-.lr.ph.i.i42:                                     ; preds = %125
-  %129 = lshr i8 %128, 3
-  %130 = load ptr, ptr %5, align 8, !tbaa !86
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %132 = load i32, ptr %131, align 8, !tbaa !87
-  %133 = lshr i32 %132, 3
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr i8, ptr %130, i64 %134
-  %136 = and i32 %132, 7
-  %137 = or disjoint i32 %136, 8
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !35
-  %141 = trunc i32 %132 to i8
-  %wide.trip.count.i.i43 = zext nneg i8 %129 to i64
-  br label %142
+.lr.ph.i.i41:                                     ; preds = %127
+  %131 = lshr i8 %130, 3
+  %132 = load ptr, ptr %5, align 8, !tbaa !86
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %134 = load i32, ptr %133, align 8, !tbaa !87
+  %135 = lshr i32 %134, 3
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr i8, ptr %132, i64 %136
+  %138 = and i32 %134, 7
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = load i8, ptr %141, align 1, !tbaa !35
+  %143 = trunc i32 %134 to i8
+  %wide.trip.count.i.i42 = zext nneg i8 %131 to i64
+  br label %144
 
-142:                                              ; preds = %142, %.lr.ph.i.i42
-  %indvars.iv.i.i44 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %indvars.iv.next.i.i46, %142 ]
-  %.011.i.i45 = phi i32 [ 0, %.lr.ph.i.i42 ], [ %151, %142 ]
-  %143 = shl i32 %.011.i.i45, 8
-  %144 = getelementptr i8, ptr %135, i64 %indvars.iv.i.i44
-  %145 = load i8, ptr %144, align 1, !tbaa !35
-  %146 = getelementptr i8, ptr %144, i64 1
+144:                                              ; preds = %144, %.lr.ph.i.i41
+  %indvars.iv.i.i43 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %indvars.iv.next.i.i45, %144 ]
+  %.011.i.i44 = phi i32 [ 0, %.lr.ph.i.i41 ], [ %153, %144 ]
+  %145 = shl i32 %.011.i.i44, 8
+  %146 = getelementptr i8, ptr %137, i64 %indvars.iv.i.i43
   %147 = load i8, ptr %146, align 1, !tbaa !35
-  %148 = and i8 %147, %140
-  %149 = tail call noundef i8 @llvm.fshl.i8(i8 %145, i8 %148, i8 %141)
-  %150 = zext i8 %149 to i32
-  %151 = or disjoint i32 %143, %150
-  %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i44, 1
-  %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, %wide.trip.count.i.i43
-  br i1 %exitcond.not.i.i47, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62, label %142, !llvm.loop !153
+  %148 = getelementptr i8, ptr %146, i64 1
+  %149 = load i8, ptr %148, align 1, !tbaa !35
+  %150 = and i8 %149, %142
+  %151 = tail call noundef i8 @llvm.fshl.i8(i8 %147, i8 %150, i8 %143)
+  %152 = zext i8 %151 to i32
+  %153 = or disjoint i32 %145, %152
+  %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i43, 1
+  %exitcond.not.i.i46 = icmp eq i64 %indvars.iv.next.i.i45, %wide.trip.count.i.i42
+  br i1 %exitcond.not.i.i46, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60, label %144, !llvm.loop !153
 
-_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62:   ; preds = %142, %.._crit_edge_crit_edge.i.i54
-  %.pre-phi23.i.i48 = phi i64 [ %.pre22.i.i61, %.._crit_edge_crit_edge.i.i54 ], [ %134, %142 ]
-  %.pre-phi19.i.i49 = phi i32 [ %.pre18.i.i59, %.._crit_edge_crit_edge.i.i54 ], [ %136, %142 ]
-  %.pre-phi17.i.i50 = phi i8 [ %.pre16.i.i58, %.._crit_edge_crit_edge.i.i54 ], [ %141, %142 ]
-  %.pre-phi.i.i51 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i54 ], [ %wide.trip.count.i.i43, %142 ]
-  %152 = phi ptr [ %.pre14.i.i57, %.._crit_edge_crit_edge.i.i54 ], [ %130, %142 ]
-  %153 = phi i32 [ %.pre.i.i56, %.._crit_edge_crit_edge.i.i54 ], [ %132, %142 ]
-  %.0.lcssa.i.i52 = phi i32 [ 0, %.._crit_edge_crit_edge.i.i54 ], [ %151, %142 ]
-  %154 = and i8 %128, 7
-  %155 = zext nneg i8 %154 to i32
-  %156 = shl i32 %.0.lcssa.i.i52, %155
-  %157 = sub nuw nsw i8 8, %154
-  %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %159 = and i8 %.pre-phi17.i.i50, 7
-  %.neg92 = sub i8 %127, %.pre-phi17.i.i50
-  %160 = and i8 %.neg92, 7
-  %161 = add nuw nsw i32 %.pre-phi19.i.i49, %155
-  %162 = icmp samesign ugt i32 %161, 7
-  %163 = getelementptr i8, ptr %152, i64 %.pre-phi23.i.i48
-  %164 = getelementptr i8, ptr %163, i64 %.pre-phi.i.i51
-  %165 = load i8, ptr %164, align 1, !tbaa !35
-  %166 = zext i8 %165 to i32
-  %167 = shl nuw nsw i32 %166, %.pre-phi19.i.i49
-  %168 = zext nneg i8 %154 to i64
-  %169 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !35
-  %171 = zext i8 %170 to i32
-  %172 = and i32 %167, %171
-  %173 = zext nneg i8 %157 to i32
-  %174 = lshr i32 %172, %173
-  %175 = zext i1 %162 to i64
-  %176 = getelementptr i8, ptr %164, i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !35
-  %narrow.i53 = add nuw nsw i8 %159, %154
-  %178 = zext nneg i8 %narrow.i53 to i64
-  %179 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %178
-  %180 = load i8, ptr %179, align 1, !tbaa !35
-  %181 = and i8 %180, %177
-  %182 = zext i8 %181 to i32
-  %183 = zext nneg i8 %160 to i32
-  %184 = lshr i32 %182, %183
-  %185 = or i32 %174, %156
-  %186 = or i32 %185, %184
-  %187 = zext i8 %128 to i32
-  %188 = add i32 %153, %187
-  store i32 %188, ptr %158, align 8, !tbaa !87
-  %189 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %190 = load i32, ptr %189, align 4, !tbaa !128
-  %191 = xor i32 %186, %190
-  br label %278
+_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60:   ; preds = %144, %.._crit_edge_crit_edge.i.i52
+  %.pre-phi23.i.i47 = phi i64 [ %.pre22.i.i59, %.._crit_edge_crit_edge.i.i52 ], [ %136, %144 ]
+  %.pre-phi19.i.i48 = phi i32 [ %.pre18.i.i57, %.._crit_edge_crit_edge.i.i52 ], [ %138, %144 ]
+  %.pre-phi17.i.i49 = phi i8 [ %.pre16.i.i56, %.._crit_edge_crit_edge.i.i52 ], [ %143, %144 ]
+  %.pre-phi.i.i50 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i52 ], [ %wide.trip.count.i.i42, %144 ]
+  %154 = phi ptr [ %.pre14.i.i55, %.._crit_edge_crit_edge.i.i52 ], [ %132, %144 ]
+  %155 = phi i32 [ %.pre.i.i54, %.._crit_edge_crit_edge.i.i52 ], [ %134, %144 ]
+  %.0.lcssa.i.i51 = phi i32 [ 0, %.._crit_edge_crit_edge.i.i52 ], [ %153, %144 ]
+  %156 = and i8 %130, 7
+  %157 = zext nneg i8 %156 to i32
+  %158 = shl i32 %.0.lcssa.i.i51, %157
+  %159 = sub nuw nsw i8 8, %156
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %161 = and i8 %.pre-phi17.i.i49, 7
+  %.neg89 = sub i8 %129, %.pre-phi17.i.i49
+  %162 = and i8 %.neg89, 7
+  %163 = add nuw nsw i32 %.pre-phi19.i.i48, %157
+  %164 = icmp samesign ugt i32 %163, 7
+  %165 = getelementptr i8, ptr %154, i64 %.pre-phi23.i.i47
+  %166 = getelementptr i8, ptr %165, i64 %.pre-phi.i.i50
+  %167 = load i8, ptr %166, align 1, !tbaa !35
+  %168 = zext i8 %167 to i32
+  %169 = shl nuw nsw i32 %168, %.pre-phi19.i.i48
+  %170 = zext nneg i8 %156 to i64
+  %171 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %170
+  %172 = load i8, ptr %171, align 1, !tbaa !35
+  %173 = zext i8 %172 to i32
+  %174 = and i32 %169, %173
+  %175 = zext nneg i8 %159 to i32
+  %176 = lshr i32 %174, %175
+  %177 = zext i1 %164 to i64
+  %178 = getelementptr i8, ptr %166, i64 %177
+  %179 = load i8, ptr %178, align 1, !tbaa !35
+  %180 = zext nneg i8 %161 to i64
+  %181 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %170
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 %180
+  %183 = load i8, ptr %182, align 1, !tbaa !35
+  %184 = and i8 %183, %179
+  %185 = zext i8 %184 to i32
+  %186 = zext nneg i8 %162 to i32
+  %187 = lshr i32 %185, %186
+  %188 = or i32 %176, %158
+  %189 = or i32 %188, %187
+  %190 = zext i8 %130 to i32
+  %191 = add i32 %155, %190
+  store i32 %191, ptr %160, align 8, !tbaa !87
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %193 = load i32, ptr %192, align 4, !tbaa !128
+  %194 = xor i32 %189, %193
+  br label %282
 
-192:                                              ; preds = %6
-  %193 = load i32, ptr %2, align 4, !tbaa !136
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %2, align 4, !tbaa !136
-  %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !35
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %197, ptr %198, align 8, !tbaa !89
-  %199 = sub i8 32, %197
-  %.not.i.i63 = icmp ult i8 %199, 8
-  br i1 %.not.i.i63, label %.._crit_edge_crit_edge.i.i76, label %.lr.ph.i.i64
+195:                                              ; preds = %6
+  %196 = load i32, ptr %2, align 4, !tbaa !136
+  %197 = add i32 %196, 1
+  store i32 %197, ptr %2, align 4, !tbaa !136
+  %198 = zext i32 %196 to i64
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 %198
+  %200 = load i8, ptr %199, align 1, !tbaa !35
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %200, ptr %201, align 8, !tbaa !89
+  %202 = sub i8 32, %200
+  %.not.i.i61 = icmp ult i8 %202, 8
+  br i1 %.not.i.i61, label %.._crit_edge_crit_edge.i.i73, label %.lr.ph.i.i62
 
-.._crit_edge_crit_edge.i.i76:                     ; preds = %192
-  %.phi.trans.insert.i.i77 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i.i78 = load i32, ptr %.phi.trans.insert.i.i77, align 8, !tbaa !87
-  %.pre14.i.i79 = load ptr, ptr %5, align 8, !tbaa !86
-  %.pre16.i.i80 = trunc i32 %.pre.i.i78 to i8
-  %.pre18.i.i81 = and i32 %.pre.i.i78, 7
-  %.pre20.i.i82 = lshr i32 %.pre.i.i78, 3
-  %.pre22.i.i83 = zext nneg i32 %.pre20.i.i82 to i64
-  br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84
+.._crit_edge_crit_edge.i.i73:                     ; preds = %195
+  %.phi.trans.insert.i.i74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i75 = load i32, ptr %.phi.trans.insert.i.i74, align 8, !tbaa !87
+  %.pre14.i.i76 = load ptr, ptr %5, align 8, !tbaa !86
+  %.pre16.i.i77 = trunc i32 %.pre.i.i75 to i8
+  %.pre18.i.i78 = and i32 %.pre.i.i75, 7
+  %.pre20.i.i79 = lshr i32 %.pre.i.i75, 3
+  %.pre22.i.i80 = zext nneg i32 %.pre20.i.i79 to i64
+  br label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81
 
-.lr.ph.i.i64:                                     ; preds = %192
-  %200 = lshr i8 %199, 3
-  %201 = load ptr, ptr %5, align 8, !tbaa !86
-  %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %203 = load i32, ptr %202, align 8, !tbaa !87
-  %204 = lshr i32 %203, 3
-  %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr i8, ptr %201, i64 %205
-  %207 = and i32 %203, 7
-  %208 = or disjoint i32 %207, 8
-  %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1, !tbaa !35
-  %212 = trunc i32 %203 to i8
-  %wide.trip.count.i.i65 = zext nneg i8 %200 to i64
-  br label %213
+.lr.ph.i.i62:                                     ; preds = %195
+  %203 = lshr i8 %202, 3
+  %204 = load ptr, ptr %5, align 8, !tbaa !86
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %206 = load i32, ptr %205, align 8, !tbaa !87
+  %207 = lshr i32 %206, 3
+  %208 = zext nneg i32 %207 to i64
+  %209 = getelementptr i8, ptr %204, i64 %208
+  %210 = and i32 %206, 7
+  %211 = zext nneg i32 %210 to i64
+  %212 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %211
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %214 = load i8, ptr %213, align 1, !tbaa !35
+  %215 = trunc i32 %206 to i8
+  %wide.trip.count.i.i63 = zext nneg i8 %203 to i64
+  br label %216
 
-213:                                              ; preds = %213, %.lr.ph.i.i64
-  %indvars.iv.i.i66 = phi i64 [ 0, %.lr.ph.i.i64 ], [ %indvars.iv.next.i.i68, %213 ]
-  %.011.i.i67 = phi i32 [ 0, %.lr.ph.i.i64 ], [ %222, %213 ]
-  %214 = shl i32 %.011.i.i67, 8
-  %215 = getelementptr i8, ptr %206, i64 %indvars.iv.i.i66
-  %216 = load i8, ptr %215, align 1, !tbaa !35
-  %217 = getelementptr i8, ptr %215, i64 1
-  %218 = load i8, ptr %217, align 1, !tbaa !35
-  %219 = and i8 %218, %211
-  %220 = tail call noundef i8 @llvm.fshl.i8(i8 %216, i8 %219, i8 %212)
-  %221 = zext i8 %220 to i32
-  %222 = or disjoint i32 %214, %221
-  %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i66, 1
-  %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, %wide.trip.count.i.i65
-  br i1 %exitcond.not.i.i69, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84, label %213, !llvm.loop !153
+216:                                              ; preds = %216, %.lr.ph.i.i62
+  %indvars.iv.i.i64 = phi i64 [ 0, %.lr.ph.i.i62 ], [ %indvars.iv.next.i.i66, %216 ]
+  %.011.i.i65 = phi i32 [ 0, %.lr.ph.i.i62 ], [ %225, %216 ]
+  %217 = shl i32 %.011.i.i65, 8
+  %218 = getelementptr i8, ptr %209, i64 %indvars.iv.i.i64
+  %219 = load i8, ptr %218, align 1, !tbaa !35
+  %220 = getelementptr i8, ptr %218, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !35
+  %222 = and i8 %221, %214
+  %223 = tail call noundef i8 @llvm.fshl.i8(i8 %219, i8 %222, i8 %215)
+  %224 = zext i8 %223 to i32
+  %225 = or disjoint i32 %217, %224
+  %indvars.iv.next.i.i66 = add nuw nsw i64 %indvars.iv.i.i64, 1
+  %exitcond.not.i.i67 = icmp eq i64 %indvars.iv.next.i.i66, %wide.trip.count.i.i63
+  br i1 %exitcond.not.i.i67, label %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81, label %216, !llvm.loop !153
 
-_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84:   ; preds = %213, %.._crit_edge_crit_edge.i.i76
-  %.pre-phi23.i.i70 = phi i64 [ %.pre22.i.i83, %.._crit_edge_crit_edge.i.i76 ], [ %205, %213 ]
-  %.pre-phi19.i.i71 = phi i32 [ %.pre18.i.i81, %.._crit_edge_crit_edge.i.i76 ], [ %207, %213 ]
-  %.pre-phi17.i.i72 = phi i8 [ %.pre16.i.i80, %.._crit_edge_crit_edge.i.i76 ], [ %212, %213 ]
-  %.pre-phi.i.i73 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i76 ], [ %wide.trip.count.i.i65, %213 ]
-  %223 = phi ptr [ %.pre14.i.i79, %.._crit_edge_crit_edge.i.i76 ], [ %201, %213 ]
-  %224 = phi i32 [ %.pre.i.i78, %.._crit_edge_crit_edge.i.i76 ], [ %203, %213 ]
-  %.0.lcssa.i.i74 = phi i32 [ 0, %.._crit_edge_crit_edge.i.i76 ], [ %222, %213 ]
-  %225 = and i8 %199, 7
-  %226 = zext nneg i8 %225 to i32
-  %227 = shl i32 %.0.lcssa.i.i74, %226
-  %228 = sub nuw nsw i8 8, %225
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %230 = and i8 %.pre-phi17.i.i72, 7
-  %.neg91 = sub i8 %197, %.pre-phi17.i.i72
-  %231 = and i8 %.neg91, 7
-  %232 = add nuw nsw i32 %.pre-phi19.i.i71, %226
-  %233 = icmp samesign ugt i32 %232, 7
-  %234 = getelementptr i8, ptr %223, i64 %.pre-phi23.i.i70
-  %235 = getelementptr i8, ptr %234, i64 %.pre-phi.i.i73
-  %236 = load i8, ptr %235, align 1, !tbaa !35
-  %237 = zext i8 %236 to i32
-  %238 = shl nuw nsw i32 %237, %.pre-phi19.i.i71
-  %239 = zext nneg i8 %225 to i64
-  %240 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !35
-  %242 = zext i8 %241 to i32
-  %243 = and i32 %238, %242
-  %244 = zext nneg i8 %228 to i32
-  %245 = lshr i32 %243, %244
-  %246 = zext i1 %233 to i64
-  %247 = getelementptr i8, ptr %235, i64 %246
-  %248 = load i8, ptr %247, align 1, !tbaa !35
-  %narrow.i75 = add nuw nsw i8 %230, %225
-  %249 = zext nneg i8 %narrow.i75 to i64
-  %250 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %249
+_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81:   ; preds = %216, %.._crit_edge_crit_edge.i.i73
+  %.pre-phi23.i.i68 = phi i64 [ %.pre22.i.i80, %.._crit_edge_crit_edge.i.i73 ], [ %208, %216 ]
+  %.pre-phi19.i.i69 = phi i32 [ %.pre18.i.i78, %.._crit_edge_crit_edge.i.i73 ], [ %210, %216 ]
+  %.pre-phi17.i.i70 = phi i8 [ %.pre16.i.i77, %.._crit_edge_crit_edge.i.i73 ], [ %215, %216 ]
+  %.pre-phi.i.i71 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i73 ], [ %wide.trip.count.i.i63, %216 ]
+  %226 = phi ptr [ %.pre14.i.i76, %.._crit_edge_crit_edge.i.i73 ], [ %204, %216 ]
+  %227 = phi i32 [ %.pre.i.i75, %.._crit_edge_crit_edge.i.i73 ], [ %206, %216 ]
+  %.0.lcssa.i.i72 = phi i32 [ 0, %.._crit_edge_crit_edge.i.i73 ], [ %225, %216 ]
+  %228 = and i8 %202, 7
+  %229 = zext nneg i8 %228 to i32
+  %230 = shl i32 %.0.lcssa.i.i72, %229
+  %231 = sub nuw nsw i8 8, %228
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %233 = and i8 %.pre-phi17.i.i70, 7
+  %.neg88 = sub i8 %200, %.pre-phi17.i.i70
+  %234 = and i8 %.neg88, 7
+  %235 = add nuw nsw i32 %.pre-phi19.i.i69, %229
+  %236 = icmp samesign ugt i32 %235, 7
+  %237 = getelementptr i8, ptr %226, i64 %.pre-phi23.i.i68
+  %238 = getelementptr i8, ptr %237, i64 %.pre-phi.i.i71
+  %239 = load i8, ptr %238, align 1, !tbaa !35
+  %240 = zext i8 %239 to i32
+  %241 = shl nuw nsw i32 %240, %.pre-phi19.i.i69
+  %242 = zext nneg i8 %228 to i64
+  %243 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %242
+  %244 = load i8, ptr %243, align 1, !tbaa !35
+  %245 = zext i8 %244 to i32
+  %246 = and i32 %241, %245
+  %247 = zext nneg i8 %231 to i32
+  %248 = lshr i32 %246, %247
+  %249 = zext i1 %236 to i64
+  %250 = getelementptr i8, ptr %238, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !35
-  %252 = and i8 %251, %248
-  %253 = zext i8 %252 to i32
-  %254 = zext nneg i8 %231 to i32
-  %255 = lshr i32 %253, %254
-  %256 = or i32 %245, %227
-  %257 = or i32 %256, %255
-  %258 = zext i8 %199 to i32
-  %259 = add i32 %224, %258
-  store i32 %259, ptr %229, align 8, !tbaa !87
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %261 = load i32, ptr %260, align 4, !tbaa !128
-  %262 = xor i32 %257, %261
-  br label %278
+  %252 = zext nneg i8 %233 to i64
+  %253 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %242
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 %252
+  %255 = load i8, ptr %254, align 1, !tbaa !35
+  %256 = and i8 %255, %251
+  %257 = zext i8 %256 to i32
+  %258 = zext nneg i8 %234 to i32
+  %259 = lshr i32 %257, %258
+  %260 = or i32 %248, %230
+  %261 = or i32 %260, %259
+  %262 = zext i8 %202 to i32
+  %263 = add i32 %227, %262
+  store i32 %263, ptr %232, align 8, !tbaa !87
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %265 = load i32, ptr %264, align 4, !tbaa !128
+  %266 = xor i32 %261, %265
+  br label %282
 
-263:                                              ; preds = %6
-  %264 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+267:                                              ; preds = %6
+  %268 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %265 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+          to label %269 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-265:                                              ; preds = %263
-  invoke void @_ZN6duckdb17InternalExceptionC2IJNS_14ChimpConstants5FlagsEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpT_(ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %0)
-          to label %266 unwind label %268
+269:                                              ; preds = %267
+  invoke void @_ZN6duckdb17InternalExceptionC2IJNS_14ChimpConstants5FlagsEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpT_(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %0)
+          to label %270 unwind label %272
 
-266:                                              ; preds = %265
-  invoke void @__cxa_throw(ptr nonnull %264, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
-          to label %287 unwind label %268
+270:                                              ; preds = %269
+  invoke void @__cxa_throw(ptr nonnull %268, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+          to label %291 unwind label %272
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %263
-  %267 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %267
+  %271 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %276
+  br label %280
 
-268:                                              ; preds = %266, %265
-  %.0 = phi i1 [ false, %266 ], [ true, %265 ]
-  %269 = landingpad { ptr, i32 }
+272:                                              ; preds = %270, %269
+  %.0 = phi i1 [ false, %270 ], [ true, %269 ]
+  %273 = landingpad { ptr, i32 }
           cleanup
-  %270 = load ptr, ptr %7, align 8, !tbaa !3
-  %271 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %272 = icmp eq ptr %270, %271
-  br i1 %272, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %274 = load ptr, ptr %7, align 8, !tbaa !3
+  %275 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %276 = icmp eq ptr %274, %275
+  br i1 %276, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %268
-  %273 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %274 = load i64, ptr %273, align 8, !tbaa !11
-  %275 = icmp ult i64 %274, 16
-  call void @llvm.assume(i1 %275)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %278 = load i64, ptr %277, align 8, !tbaa !11
+  %279 = icmp ult i64 %278, 16
+  call void @llvm.assume(i1 %279)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %276, label %277
+  br i1 %.0, label %280, label %281
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %268
-  call void @_ZdlPv(ptr noundef %270) #19
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %272
+  call void @_ZdlPv(ptr noundef %274) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %276, label %277
+  br i1 %.0, label %280, label %281
 
-276:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn90 = phi { ptr, i32 } [ %267, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %269, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %264) #17
-  br label %277
+280:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn87 = phi { ptr, i32 } [ %271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %273, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @__cxa_free_exception(ptr %268) #17
+  br label %281
 
-277:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn89 = phi { ptr, i32 } [ %.pn90, %276 ], [ %269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %269, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  resume { ptr, i32 } %.pn89
+281:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn86 = phi { ptr, i32 } [ %.pn87, %280 ], [ %273, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  resume { ptr, i32 } %.pn86
 
-278:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, %9
-  %.038 = phi i32 [ %39, %9 ], [ %124, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit ], [ %191, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit62 ], [ %262, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit84 ]
-  %279 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %.038, ptr %279, align 4, !tbaa !128
-  %280 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %281 = zext i32 %.038 to i64
-  %282 = getelementptr inbounds nuw i8, ptr %5, i64 1048
-  %283 = load i64, ptr %282, align 8, !tbaa !129
-  %284 = add i64 %283, 1
-  store i64 %284, ptr %282, align 8, !tbaa !129
-  %285 = and i64 %284, 127
-  %286 = getelementptr inbounds nuw [128 x i64], ptr %280, i64 0, i64 %285
-  store i64 %281, ptr %286, align 8, !tbaa !34
+282:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit, %9
+  %.038 = phi i32 [ %40, %9 ], [ %126, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit ], [ %194, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit60 ], [ %266, %_ZN6duckdb9BitReader9ReadValueIjEET_RKh.exit81 ]
+  %283 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 %.038, ptr %283, align 4, !tbaa !128
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %285 = zext i32 %.038 to i64
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 1048
+  %287 = load i64, ptr %286, align 8, !tbaa !129
+  %288 = add i64 %287, 1
+  store i64 %288, ptr %286, align 8, !tbaa !129
+  %289 = and i64 %288, 127
+  %290 = getelementptr inbounds nuw i64, ptr %284, i64 %289
+  store i64 %285, ptr %290, align 8, !tbaa !34
   ret i32 %.038
 
-287:                                              ; preds = %266
+291:                                              ; preds = %270
   unreachable
 }
 
@@ -3325,17 +3324,17 @@ define linkonce_odr void @_ZN6duckdb14ChimpScanStateIdE9LoadGroupEPm(ptr noundef
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = and i64 %.09.i, 3
-  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants5MASKSE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb19FlagBufferConstants5MASKSE, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !35
   %28 = and i8 %27, %24
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb19FlagBufferConstants6SHIFTSE, i64 %25
   %31 = load i8, ptr %30, align 1, !tbaa !35
   %32 = zext nneg i8 %31 to i32
   %33 = lshr i32 %29, %32
   %34 = trunc nuw i32 %33 to i8
   %35 = add nuw i64 %.09.i, 1
-  %36 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 %35
   store i8 %34, ptr %36, align 1, !tbaa !132
   %exitcond.not.i = icmp eq i64 %35, %14
   br i1 %exitcond.not.i, label %_ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit, label %.lr.ph.i, !llvm.loop !194
@@ -3362,19 +3361,19 @@ _ZN6duckdb15ChimpGroupStateImE9LoadFlagsEPhm.exit: ; preds = %.lr.ph.i, %2
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 %43
   %.0.copyload.i.i.i = load i32, ptr %44, align 1
   %45 = and i64 %.08.i, 7
-  %46 = getelementptr inbounds nuw [8 x i32], ptr @_ZN6duckdb26LeadingZeroBufferConstants5MASKSE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @_ZN6duckdb26LeadingZeroBufferConstants5MASKSE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !136
   %48 = and i32 %47, %.0.copyload.i.i.i
-  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 0, i64 %45
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb26LeadingZeroBufferConstants6SHIFTSE, i64 %45
   %50 = load i8, ptr %49, align 1, !tbaa !35
   %51 = zext nneg i8 %50 to i32
   %52 = lshr i32 %48, %51
   %53 = add nuw nsw i64 %.08.i, 1
   %54 = and i32 %52, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !35
-  %58 = getelementptr inbounds nuw [1025 x i8], ptr %40, i64 0, i64 %.08.i
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 %.08.i
   store i8 %57, ptr %58, align 1, !tbaa !35
   %exitcond.not.i16 = icmp eq i64 %53, %39
   br i1 %exitcond.not.i16, label %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exitthread-pre-split, label %41, !llvm.loop !196
@@ -3403,7 +3402,7 @@ _ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit.thread: ; preds
   %.07.i = phi i64 [ %63, %.lr.ph.i18 ], [ 0, %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit ]
   %.056.i = phi i64 [ %68, %.lr.ph.i18 ], [ 0, %_ZN6duckdb15ChimpGroupStateImE16LoadLeadingZerosEPhm.exit ]
   %63 = add nuw i64 %.07.i, 1
-  %64 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !132
   %66 = icmp eq i8 %65, 1
   %67 = zext i1 %66 to i64
@@ -3430,7 +3429,7 @@ _ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit: ; preds = %.lr
   %.012.i = phi i64 [ 0, %.lr.ph.i21 ], [ %89, %73 ]
   %74 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %.012.i
   %75 = load i16, ptr %74, align 2, !tbaa !141
-  %76 = getelementptr inbounds nuw [1024 x %"struct.duckdb::UnpackedData"], ptr %72, i64 0, i64 %.012.i
+  %76 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %72, i64 %.012.i
   %77 = lshr i16 %75, 9
   %78 = trunc nuw nsw i16 %77 to i8
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 2
@@ -3444,7 +3443,7 @@ _ZNK6duckdb15ChimpGroupStateImE24CalculatePackedDataCountEv.exit: ; preds = %.lr
   %86 = icmp eq i8 %84, 0
   %spec.store.select.i = select i1 %86, i8 64, i8 %84
   store i8 %spec.store.select.i, ptr %85, align 1
-  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 0, i64 %82
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb14ChimpConstants13Decompression22LEADING_REPRESENTATIONE, i64 %82
   %88 = load i8, ptr %87, align 1, !tbaa !35
   store i8 %88, ptr %76, align 1, !tbaa !145
   %89 = add nuw i64 %.012.i, 1
@@ -3488,7 +3487,7 @@ _ZN6duckdb15ChimpGroupStateImE14LoadPackedDataEPtm.exit: ; preds = %73, %_ZNK6du
   br label %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw [1025 x i8], ptr %20, i64 0, i64 %.06.i
+  %106 = getelementptr inbounds nuw i8, ptr %20, i64 %.06.i
   %107 = load i8, ptr %106, align 1, !tbaa !132
   %108 = tail call noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE(i8 noundef zeroext %107, ptr noundef nonnull %99, ptr noundef nonnull align 8 dereferenceable(145504) %19, ptr noundef nonnull %98, ptr noundef nonnull align 4 dereferenceable(4) %90, ptr noundef nonnull align 8 dereferenceable(132137) %97)
   br label %_ZN6duckdb21Chimp128DecompressionImE4LoadENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE.exit.i
@@ -3515,20 +3514,20 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE9LoadFirstE
   %7 = getelementptr i8, ptr %2, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !35
   %9 = and i32 %4, 7
-  %10 = getelementptr i8, ptr %7, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !35
-  %12 = or disjoint i32 %9, 8
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %13
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr i8, ptr %7, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !35
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 1, !tbaa !35
-  %16 = and i8 %15, %11
+  %16 = and i8 %15, %12
   %17 = trunc i32 %4 to i8
   %18 = tail call noundef i8 @llvm.fshl.i8(i8 %8, i8 %16, i8 %17)
   %19 = zext i8 %18 to i64
   %20 = getelementptr i8, ptr %7, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !35
   %22 = and i8 %21, %15
-  %23 = tail call noundef i8 @llvm.fshl.i8(i8 %11, i8 %22, i8 %17)
+  %23 = tail call noundef i8 @llvm.fshl.i8(i8 %12, i8 %22, i8 %17)
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %19, 16
   %26 = shl nuw nsw i64 %24, 8
@@ -3578,7 +3577,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE9LoadFirstE
   %70 = sub i32 0, %4
   %71 = and i32 %70, 7
   %72 = zext nneg i8 %69 to i64
-  %73 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !35
   %75 = and i8 %74, %64
   %76 = zext i8 %75 to i32
@@ -3591,7 +3590,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE9LoadFirstE
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %83 = load i64, ptr %82, align 8, !tbaa !192
   %84 = and i64 %83, 127
-  %85 = getelementptr inbounds nuw [128 x i64], ptr %81, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %81, i64 %84
   store i64 %79, ptr %85, align 8, !tbaa !34
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 132136
   store i8 0, ptr %86, align 8, !tbaa !187
@@ -3604,68 +3603,67 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE9LoadFirstE
 define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15DecompressValueENS_14ChimpConstants5FlagsEPhRjPNS_12UnpackedDataES5_RNS_26Chimp128DecompressionStateImEE(i8 noundef zeroext %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(132137) %5) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  switch i8 %0, label %264 [
+  switch i8 %0, label %268 [
     i8 0, label %9
-    i8 1, label %39
-    i8 2, label %124
-    i8 3, label %192
+    i8 1, label %40
+    i8 2, label %126
+    i8 3, label %195
   ]
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !87
   %12 = and i32 %11, 7
-  %13 = sub i32 1, %11
-  %14 = and i32 %13, 7
-  %15 = icmp ne i32 %12, 0
-  %16 = load ptr, ptr %5, align 8, !tbaa !86
-  %17 = lshr i32 %11, 3
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !35
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, %12
-  %23 = lshr i32 %22, 1
-  %24 = and i32 %23, 127
-  %25 = zext i1 %15 to i64
-  %26 = getelementptr i8, ptr %19, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !35
-  %narrow1.i = add nuw nsw i32 %12, 7
-  %narrow.i = zext nneg i32 %narrow1.i to i64
-  %28 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %narrow.i
-  %29 = load i8, ptr %28, align 1, !tbaa !35
-  %30 = and i8 %29, %27
-  %31 = zext i8 %30 to i32
-  %32 = lshr i32 %31, %14
-  %33 = or i32 %32, %24
-  %34 = zext nneg i32 %33 to i64
-  %35 = add i32 %11, 7
-  store i32 %35, ptr %10, align 8, !tbaa !87
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %37 = getelementptr inbounds nuw [128 x i64], ptr %36, i64 0, i64 %34
-  %38 = load i64, ptr %37, align 8, !tbaa !34
-  br label %279
+  %13 = zext nneg i32 %12 to i64
+  %14 = sub i32 1, %11
+  %15 = and i32 %14, 7
+  %16 = icmp ne i32 %12, 0
+  %17 = load ptr, ptr %5, align 8, !tbaa !86
+  %18 = lshr i32 %11, 3
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !35
+  %22 = zext i8 %21 to i32
+  %23 = shl nuw nsw i32 %22, %12
+  %24 = lshr i32 %23, 1
+  %25 = and i32 %24, 127
+  %26 = zext i1 %16 to i64
+  %27 = getelementptr i8, ptr %20, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 7), i64 %13
+  %30 = load i8, ptr %29, align 1, !tbaa !35
+  %31 = and i8 %30, %28
+  %32 = zext i8 %31 to i32
+  %33 = lshr i32 %32, %15
+  %34 = or i32 %33, %25
+  %35 = zext nneg i32 %34 to i64
+  %36 = add i32 %11, 7
+  store i32 %36, ptr %10, align 8, !tbaa !87
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %35
+  %39 = load i64, ptr %38, align 8, !tbaa !34
+  br label %283
 
-39:                                               ; preds = %6
-  %40 = load i32, ptr %4, align 4, !tbaa !136
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %4, align 4, !tbaa !136
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %3, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !145
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %44, ptr %45, align 8, !tbaa !188
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %47 = load i8, ptr %46, align 1, !tbaa !152
-  %48 = add i8 %44, %47
-  %49 = sub i8 64, %48
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  store i8 %49, ptr %50, align 1, !tbaa !189
-  %51 = load i8, ptr %46, align 1, !tbaa !35
-  %.not.i.i = icmp ult i8 %51, 8
+40:                                               ; preds = %6
+  %41 = load i32, ptr %4, align 4, !tbaa !136
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %4, align 4, !tbaa !136
+  %43 = zext i32 %41 to i64
+  %44 = getelementptr inbounds nuw %"struct.duckdb::UnpackedData", ptr %3, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !145
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %45, ptr %46, align 8, !tbaa !188
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !152
+  %49 = add i8 %45, %48
+  %50 = sub i8 64, %49
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  store i8 %50, ptr %51, align 1, !tbaa !189
+  %52 = load i8, ptr %47, align 1, !tbaa !35
+  %.not.i.i = icmp ult i8 %52, 8
   br i1 %.not.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.i
 
-.._crit_edge_crit_edge.i.i:                       ; preds = %39
+.._crit_edge_crit_edge.i.i:                       ; preds = %40
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !87
   %.pre14.i.i = load ptr, ptr %5, align 8, !tbaa !86
@@ -3675,378 +3673,378 @@ define linkonce_odr noundef i64 @_ZN6duckdb21Chimp128DecompressionImE15Decompres
   %.pre22.i.i = zext nneg i32 %.pre20.i.i to i64
   br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit
 
-.lr.ph.i.i:                                       ; preds = %39
-  %52 = lshr i8 %51, 3
-  %53 = load ptr, ptr %5, align 8, !tbaa !86
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !87
-  %56 = lshr i32 %55, 3
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr i8, ptr %53, i64 %57
-  %59 = and i32 %55, 7
-  %60 = or disjoint i32 %59, 8
+.lr.ph.i.i:                                       ; preds = %40
+  %53 = lshr i8 %52, 3
+  %54 = load ptr, ptr %5, align 8, !tbaa !86
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !87
+  %57 = lshr i32 %56, 3
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr i8, ptr %54, i64 %58
+  %60 = and i32 %56, 7
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !35
-  %64 = trunc i32 %55 to i8
-  %wide.trip.count.i.i = zext nneg i8 %52 to i64
-  br label %65
+  %62 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i8, ptr %63, align 1, !tbaa !35
+  %65 = trunc i32 %56 to i8
+  %wide.trip.count.i.i = zext nneg i8 %53 to i64
+  br label %66
 
-65:                                               ; preds = %65, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %74, %65 ]
-  %66 = shl i64 %.011.i.i, 8
-  %67 = getelementptr i8, ptr %58, i64 %indvars.iv.i.i
-  %68 = load i8, ptr %67, align 1, !tbaa !35
-  %69 = getelementptr i8, ptr %67, i64 1
-  %70 = load i8, ptr %69, align 1, !tbaa !35
-  %71 = and i8 %70, %63
-  %72 = tail call noundef i8 @llvm.fshl.i8(i8 %68, i8 %71, i8 %64)
-  %73 = zext i8 %72 to i64
-  %74 = or disjoint i64 %66, %73
+66:                                               ; preds = %66, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %66 ]
+  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %75, %66 ]
+  %67 = shl i64 %.011.i.i, 8
+  %68 = getelementptr i8, ptr %59, i64 %indvars.iv.i.i
+  %69 = load i8, ptr %68, align 1, !tbaa !35
+  %70 = getelementptr i8, ptr %68, i64 1
+  %71 = load i8, ptr %70, align 1, !tbaa !35
+  %72 = and i8 %71, %64
+  %73 = tail call noundef i8 @llvm.fshl.i8(i8 %69, i8 %72, i8 %65)
+  %74 = zext i8 %73 to i64
+  %75 = or disjoint i64 %67, %74
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, label %65, !llvm.loop !204
+  br i1 %exitcond.not.i.i, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, label %66, !llvm.loop !204
 
-_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %65, %.._crit_edge_crit_edge.i.i
-  %.pre-phi23.i.i = phi i64 [ %.pre22.i.i, %.._crit_edge_crit_edge.i.i ], [ %57, %65 ]
-  %.pre-phi19.i.i = phi i32 [ %.pre18.i.i, %.._crit_edge_crit_edge.i.i ], [ %59, %65 ]
-  %.pre-phi17.i.i = phi i8 [ %.pre16.i.i, %.._crit_edge_crit_edge.i.i ], [ %64, %65 ]
-  %.pre-phi.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %wide.trip.count.i.i, %65 ]
-  %75 = phi ptr [ %.pre14.i.i, %.._crit_edge_crit_edge.i.i ], [ %53, %65 ]
-  %76 = phi i32 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %55, %65 ]
-  %.0.lcssa.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %74, %65 ]
-  %77 = and i8 %51, 7
-  %78 = zext nneg i8 %77 to i64
-  %79 = shl i64 %.0.lcssa.i.i, %78
-  %80 = sub nuw nsw i8 8, %77
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = and i8 %.pre-phi17.i.i, 7
-  %83 = add i8 %51, %.pre-phi17.i.i
-  %84 = sub i8 0, %83
-  %85 = and i8 %84, 7
-  %86 = zext nneg i8 %77 to i32
-  %87 = add nuw nsw i32 %.pre-phi19.i.i, %86
-  %88 = icmp samesign ugt i32 %87, 7
-  %89 = getelementptr i8, ptr %75, i64 %.pre-phi23.i.i
-  %90 = getelementptr i8, ptr %89, i64 %.pre-phi.i.i
-  %91 = load i8, ptr %90, align 1, !tbaa !35
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, %.pre-phi19.i.i
-  %94 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %78
-  %95 = load i8, ptr %94, align 1, !tbaa !35
-  %96 = zext i8 %95 to i32
-  %97 = and i32 %93, %96
-  %98 = zext nneg i8 %80 to i32
-  %99 = lshr i32 %97, %98
-  %100 = zext i1 %88 to i64
-  %101 = getelementptr i8, ptr %90, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !35
-  %narrow.i40 = add nuw nsw i8 %82, %77
-  %103 = zext nneg i8 %narrow.i40 to i64
-  %104 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !35
-  %106 = and i8 %105, %102
-  %107 = zext i8 %106 to i32
-  %108 = zext nneg i8 %85 to i32
-  %109 = lshr i32 %107, %108
-  %110 = or i32 %109, %99
-  %111 = zext nneg i32 %110 to i64
-  %112 = or i64 %79, %111
-  %113 = zext i8 %51 to i32
-  %114 = add i32 %76, %113
-  store i32 %114, ptr %81, align 8, !tbaa !87
-  %115 = zext nneg i8 %49 to i64
-  %116 = shl i64 %112, %115
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %118 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %119 = load i8, ptr %118, align 1, !tbaa !35
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw [128 x i64], ptr %117, i64 0, i64 %120
-  %122 = load i64, ptr %121, align 8, !tbaa !34
-  %123 = xor i64 %116, %122
-  br label %279
+_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit:     ; preds = %66, %.._crit_edge_crit_edge.i.i
+  %.pre-phi23.i.i = phi i64 [ %.pre22.i.i, %.._crit_edge_crit_edge.i.i ], [ %58, %66 ]
+  %.pre-phi19.i.i = phi i32 [ %.pre18.i.i, %.._crit_edge_crit_edge.i.i ], [ %60, %66 ]
+  %.pre-phi17.i.i = phi i8 [ %.pre16.i.i, %.._crit_edge_crit_edge.i.i ], [ %65, %66 ]
+  %.pre-phi.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %wide.trip.count.i.i, %66 ]
+  %76 = phi ptr [ %.pre14.i.i, %.._crit_edge_crit_edge.i.i ], [ %54, %66 ]
+  %77 = phi i32 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %56, %66 ]
+  %.0.lcssa.i.i = phi i64 [ 0, %.._crit_edge_crit_edge.i.i ], [ %75, %66 ]
+  %78 = and i8 %52, 7
+  %79 = zext nneg i8 %78 to i64
+  %80 = shl i64 %.0.lcssa.i.i, %79
+  %81 = sub nuw nsw i8 8, %78
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %83 = and i8 %.pre-phi17.i.i, 7
+  %84 = add i8 %52, %.pre-phi17.i.i
+  %85 = sub i8 0, %84
+  %86 = and i8 %85, 7
+  %87 = zext nneg i8 %78 to i32
+  %88 = add nuw nsw i32 %.pre-phi19.i.i, %87
+  %89 = icmp samesign ugt i32 %88, 7
+  %90 = getelementptr i8, ptr %76, i64 %.pre-phi23.i.i
+  %91 = getelementptr i8, ptr %90, i64 %.pre-phi.i.i
+  %92 = load i8, ptr %91, align 1, !tbaa !35
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, %.pre-phi19.i.i
+  %95 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %79
+  %96 = load i8, ptr %95, align 1, !tbaa !35
+  %97 = zext i8 %96 to i32
+  %98 = and i32 %94, %97
+  %99 = zext nneg i8 %81 to i32
+  %100 = lshr i32 %98, %99
+  %101 = zext i1 %89 to i64
+  %102 = getelementptr i8, ptr %91, i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !35
+  %104 = zext nneg i8 %83 to i64
+  %105 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %79
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %104
+  %107 = load i8, ptr %106, align 1, !tbaa !35
+  %108 = and i8 %107, %103
+  %109 = zext i8 %108 to i32
+  %110 = zext nneg i8 %86 to i32
+  %111 = lshr i32 %109, %110
+  %112 = or i32 %111, %100
+  %113 = zext nneg i32 %112 to i64
+  %114 = or i64 %80, %113
+  %115 = zext i8 %52 to i32
+  %116 = add i32 %77, %115
+  store i32 %116, ptr %82, align 8, !tbaa !87
+  %117 = zext nneg i8 %50 to i64
+  %118 = shl i64 %114, %117
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  %121 = load i8, ptr %120, align 1, !tbaa !35
+  %122 = zext i8 %121 to i64
+  %123 = getelementptr inbounds nuw i64, ptr %119, i64 %122
+  %124 = load i64, ptr %123, align 8, !tbaa !34
+  %125 = xor i64 %118, %124
+  br label %283
 
-124:                                              ; preds = %6
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %126 = load i8, ptr %125, align 8, !tbaa !188
-  %127 = sub i8 64, %126
-  %.not.i.i41 = icmp ult i8 %127, 8
-  br i1 %.not.i.i41, label %.._crit_edge_crit_edge.i.i54, label %.lr.ph.i.i42
+126:                                              ; preds = %6
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %128 = load i8, ptr %127, align 8, !tbaa !188
+  %129 = sub i8 64, %128
+  %.not.i.i40 = icmp ult i8 %129, 8
+  br i1 %.not.i.i40, label %.._crit_edge_crit_edge.i.i52, label %.lr.ph.i.i41
 
-.._crit_edge_crit_edge.i.i54:                     ; preds = %124
-  %.phi.trans.insert.i.i55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i.i56 = load i32, ptr %.phi.trans.insert.i.i55, align 8, !tbaa !87
-  %.pre14.i.i57 = load ptr, ptr %5, align 8, !tbaa !86
-  %.pre16.i.i58 = trunc i32 %.pre.i.i56 to i8
-  %.pre18.i.i59 = and i32 %.pre.i.i56, 7
-  %.pre20.i.i60 = lshr i32 %.pre.i.i56, 3
-  %.pre22.i.i61 = zext nneg i32 %.pre20.i.i60 to i64
-  br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62
+.._crit_edge_crit_edge.i.i52:                     ; preds = %126
+  %.phi.trans.insert.i.i53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i54 = load i32, ptr %.phi.trans.insert.i.i53, align 8, !tbaa !87
+  %.pre14.i.i55 = load ptr, ptr %5, align 8, !tbaa !86
+  %.pre16.i.i56 = trunc i32 %.pre.i.i54 to i8
+  %.pre18.i.i57 = and i32 %.pre.i.i54, 7
+  %.pre20.i.i58 = lshr i32 %.pre.i.i54, 3
+  %.pre22.i.i59 = zext nneg i32 %.pre20.i.i58 to i64
+  br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60
 
-.lr.ph.i.i42:                                     ; preds = %124
-  %128 = lshr i8 %127, 3
-  %129 = load ptr, ptr %5, align 8, !tbaa !86
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %131 = load i32, ptr %130, align 8, !tbaa !87
-  %132 = lshr i32 %131, 3
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr i8, ptr %129, i64 %133
-  %135 = and i32 %131, 7
-  %136 = or disjoint i32 %135, 8
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !35
-  %140 = trunc i32 %131 to i8
-  %wide.trip.count.i.i43 = zext nneg i8 %128 to i64
-  br label %141
+.lr.ph.i.i41:                                     ; preds = %126
+  %130 = lshr i8 %129, 3
+  %131 = load ptr, ptr %5, align 8, !tbaa !86
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %133 = load i32, ptr %132, align 8, !tbaa !87
+  %134 = lshr i32 %133, 3
+  %135 = zext nneg i32 %134 to i64
+  %136 = getelementptr i8, ptr %131, i64 %135
+  %137 = and i32 %133, 7
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %138
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load i8, ptr %140, align 1, !tbaa !35
+  %142 = trunc i32 %133 to i8
+  %wide.trip.count.i.i42 = zext nneg i8 %130 to i64
+  br label %143
 
-141:                                              ; preds = %141, %.lr.ph.i.i42
-  %indvars.iv.i.i44 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %indvars.iv.next.i.i46, %141 ]
-  %.011.i.i45 = phi i64 [ 0, %.lr.ph.i.i42 ], [ %150, %141 ]
-  %142 = shl i64 %.011.i.i45, 8
-  %143 = getelementptr i8, ptr %134, i64 %indvars.iv.i.i44
-  %144 = load i8, ptr %143, align 1, !tbaa !35
-  %145 = getelementptr i8, ptr %143, i64 1
+143:                                              ; preds = %143, %.lr.ph.i.i41
+  %indvars.iv.i.i43 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %indvars.iv.next.i.i45, %143 ]
+  %.011.i.i44 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %152, %143 ]
+  %144 = shl i64 %.011.i.i44, 8
+  %145 = getelementptr i8, ptr %136, i64 %indvars.iv.i.i43
   %146 = load i8, ptr %145, align 1, !tbaa !35
-  %147 = and i8 %146, %139
-  %148 = tail call noundef i8 @llvm.fshl.i8(i8 %144, i8 %147, i8 %140)
-  %149 = zext i8 %148 to i64
-  %150 = or disjoint i64 %142, %149
-  %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i44, 1
-  %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, %wide.trip.count.i.i43
-  br i1 %exitcond.not.i.i47, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62, label %141, !llvm.loop !204
+  %147 = getelementptr i8, ptr %145, i64 1
+  %148 = load i8, ptr %147, align 1, !tbaa !35
+  %149 = and i8 %148, %141
+  %150 = tail call noundef i8 @llvm.fshl.i8(i8 %146, i8 %149, i8 %142)
+  %151 = zext i8 %150 to i64
+  %152 = or disjoint i64 %144, %151
+  %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i43, 1
+  %exitcond.not.i.i46 = icmp eq i64 %indvars.iv.next.i.i45, %wide.trip.count.i.i42
+  br i1 %exitcond.not.i.i46, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60, label %143, !llvm.loop !204
 
-_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62:   ; preds = %141, %.._crit_edge_crit_edge.i.i54
-  %.pre-phi23.i.i48 = phi i64 [ %.pre22.i.i61, %.._crit_edge_crit_edge.i.i54 ], [ %133, %141 ]
-  %.pre-phi19.i.i49 = phi i32 [ %.pre18.i.i59, %.._crit_edge_crit_edge.i.i54 ], [ %135, %141 ]
-  %.pre-phi17.i.i50 = phi i8 [ %.pre16.i.i58, %.._crit_edge_crit_edge.i.i54 ], [ %140, %141 ]
-  %.pre-phi.i.i51 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i54 ], [ %wide.trip.count.i.i43, %141 ]
-  %151 = phi ptr [ %.pre14.i.i57, %.._crit_edge_crit_edge.i.i54 ], [ %129, %141 ]
-  %152 = phi i32 [ %.pre.i.i56, %.._crit_edge_crit_edge.i.i54 ], [ %131, %141 ]
-  %.0.lcssa.i.i52 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i54 ], [ %150, %141 ]
-  %153 = and i8 %127, 7
-  %154 = zext nneg i8 %153 to i64
-  %155 = shl i64 %.0.lcssa.i.i52, %154
-  %156 = sub nuw nsw i8 8, %153
-  %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %158 = and i8 %.pre-phi17.i.i50, 7
-  %.neg92 = sub i8 %126, %.pre-phi17.i.i50
-  %159 = and i8 %.neg92, 7
-  %160 = zext nneg i8 %153 to i32
-  %161 = add nuw nsw i32 %.pre-phi19.i.i49, %160
-  %162 = icmp samesign ugt i32 %161, 7
-  %163 = getelementptr i8, ptr %151, i64 %.pre-phi23.i.i48
-  %164 = getelementptr i8, ptr %163, i64 %.pre-phi.i.i51
-  %165 = load i8, ptr %164, align 1, !tbaa !35
-  %166 = zext i8 %165 to i32
-  %167 = shl nuw nsw i32 %166, %.pre-phi19.i.i49
-  %168 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %154
-  %169 = load i8, ptr %168, align 1, !tbaa !35
-  %170 = zext i8 %169 to i32
-  %171 = and i32 %167, %170
-  %172 = zext nneg i8 %156 to i32
-  %173 = lshr i32 %171, %172
-  %174 = zext i1 %162 to i64
-  %175 = getelementptr i8, ptr %164, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !35
-  %narrow.i53 = add nuw nsw i8 %158, %153
-  %177 = zext nneg i8 %narrow.i53 to i64
-  %178 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %177
-  %179 = load i8, ptr %178, align 1, !tbaa !35
-  %180 = and i8 %179, %176
-  %181 = zext i8 %180 to i32
-  %182 = zext nneg i8 %159 to i32
-  %183 = lshr i32 %181, %182
-  %184 = or i32 %183, %173
-  %185 = zext nneg i32 %184 to i64
-  %186 = or i64 %155, %185
-  %187 = zext i8 %127 to i32
-  %188 = add i32 %152, %187
-  store i32 %188, ptr %157, align 8, !tbaa !87
-  %189 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %190 = load i64, ptr %189, align 8, !tbaa !191
-  %191 = xor i64 %186, %190
-  br label %279
+_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60:   ; preds = %143, %.._crit_edge_crit_edge.i.i52
+  %.pre-phi23.i.i47 = phi i64 [ %.pre22.i.i59, %.._crit_edge_crit_edge.i.i52 ], [ %135, %143 ]
+  %.pre-phi19.i.i48 = phi i32 [ %.pre18.i.i57, %.._crit_edge_crit_edge.i.i52 ], [ %137, %143 ]
+  %.pre-phi17.i.i49 = phi i8 [ %.pre16.i.i56, %.._crit_edge_crit_edge.i.i52 ], [ %142, %143 ]
+  %.pre-phi.i.i50 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i52 ], [ %wide.trip.count.i.i42, %143 ]
+  %153 = phi ptr [ %.pre14.i.i55, %.._crit_edge_crit_edge.i.i52 ], [ %131, %143 ]
+  %154 = phi i32 [ %.pre.i.i54, %.._crit_edge_crit_edge.i.i52 ], [ %133, %143 ]
+  %.0.lcssa.i.i51 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i52 ], [ %152, %143 ]
+  %155 = and i8 %129, 7
+  %156 = zext nneg i8 %155 to i64
+  %157 = shl i64 %.0.lcssa.i.i51, %156
+  %158 = sub nuw nsw i8 8, %155
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %160 = and i8 %.pre-phi17.i.i49, 7
+  %.neg89 = sub i8 %128, %.pre-phi17.i.i49
+  %161 = and i8 %.neg89, 7
+  %162 = zext nneg i8 %155 to i32
+  %163 = add nuw nsw i32 %.pre-phi19.i.i48, %162
+  %164 = icmp samesign ugt i32 %163, 7
+  %165 = getelementptr i8, ptr %153, i64 %.pre-phi23.i.i47
+  %166 = getelementptr i8, ptr %165, i64 %.pre-phi.i.i50
+  %167 = load i8, ptr %166, align 1, !tbaa !35
+  %168 = zext i8 %167 to i32
+  %169 = shl nuw nsw i32 %168, %.pre-phi19.i.i48
+  %170 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %156
+  %171 = load i8, ptr %170, align 1, !tbaa !35
+  %172 = zext i8 %171 to i32
+  %173 = and i32 %169, %172
+  %174 = zext nneg i8 %158 to i32
+  %175 = lshr i32 %173, %174
+  %176 = zext i1 %164 to i64
+  %177 = getelementptr i8, ptr %166, i64 %176
+  %178 = load i8, ptr %177, align 1, !tbaa !35
+  %179 = zext nneg i8 %160 to i64
+  %180 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %156
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %179
+  %182 = load i8, ptr %181, align 1, !tbaa !35
+  %183 = and i8 %182, %178
+  %184 = zext i8 %183 to i32
+  %185 = zext nneg i8 %161 to i32
+  %186 = lshr i32 %184, %185
+  %187 = or i32 %186, %175
+  %188 = zext nneg i32 %187 to i64
+  %189 = or i64 %157, %188
+  %190 = zext i8 %129 to i32
+  %191 = add i32 %154, %190
+  store i32 %191, ptr %159, align 8, !tbaa !87
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %193 = load i64, ptr %192, align 8, !tbaa !191
+  %194 = xor i64 %189, %193
+  br label %283
 
-192:                                              ; preds = %6
-  %193 = load i32, ptr %2, align 4, !tbaa !136
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %2, align 4, !tbaa !136
-  %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !35
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %197, ptr %198, align 8, !tbaa !188
-  %199 = sub i8 64, %197
-  %.not.i.i63 = icmp ult i8 %199, 8
-  br i1 %.not.i.i63, label %.._crit_edge_crit_edge.i.i76, label %.lr.ph.i.i64
+195:                                              ; preds = %6
+  %196 = load i32, ptr %2, align 4, !tbaa !136
+  %197 = add i32 %196, 1
+  store i32 %197, ptr %2, align 4, !tbaa !136
+  %198 = zext i32 %196 to i64
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 %198
+  %200 = load i8, ptr %199, align 1, !tbaa !35
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %200, ptr %201, align 8, !tbaa !188
+  %202 = sub i8 64, %200
+  %.not.i.i61 = icmp ult i8 %202, 8
+  br i1 %.not.i.i61, label %.._crit_edge_crit_edge.i.i73, label %.lr.ph.i.i62
 
-.._crit_edge_crit_edge.i.i76:                     ; preds = %192
-  %.phi.trans.insert.i.i77 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i.i78 = load i32, ptr %.phi.trans.insert.i.i77, align 8, !tbaa !87
-  %.pre14.i.i79 = load ptr, ptr %5, align 8, !tbaa !86
-  %.pre16.i.i80 = trunc i32 %.pre.i.i78 to i8
-  %.pre18.i.i81 = and i32 %.pre.i.i78, 7
-  %.pre20.i.i82 = lshr i32 %.pre.i.i78, 3
-  %.pre22.i.i83 = zext nneg i32 %.pre20.i.i82 to i64
-  br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84
+.._crit_edge_crit_edge.i.i73:                     ; preds = %195
+  %.phi.trans.insert.i.i74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i75 = load i32, ptr %.phi.trans.insert.i.i74, align 8, !tbaa !87
+  %.pre14.i.i76 = load ptr, ptr %5, align 8, !tbaa !86
+  %.pre16.i.i77 = trunc i32 %.pre.i.i75 to i8
+  %.pre18.i.i78 = and i32 %.pre.i.i75, 7
+  %.pre20.i.i79 = lshr i32 %.pre.i.i75, 3
+  %.pre22.i.i80 = zext nneg i32 %.pre20.i.i79 to i64
+  br label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81
 
-.lr.ph.i.i64:                                     ; preds = %192
-  %200 = lshr i8 %199, 3
-  %201 = load ptr, ptr %5, align 8, !tbaa !86
-  %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %203 = load i32, ptr %202, align 8, !tbaa !87
-  %204 = lshr i32 %203, 3
-  %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr i8, ptr %201, i64 %205
-  %207 = and i32 %203, 7
-  %208 = or disjoint i32 %207, 8
-  %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %209
-  %211 = load i8, ptr %210, align 1, !tbaa !35
-  %212 = trunc i32 %203 to i8
-  %wide.trip.count.i.i65 = zext nneg i8 %200 to i64
-  br label %213
+.lr.ph.i.i62:                                     ; preds = %195
+  %203 = lshr i8 %202, 3
+  %204 = load ptr, ptr %5, align 8, !tbaa !86
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %206 = load i32, ptr %205, align 8, !tbaa !87
+  %207 = lshr i32 %206, 3
+  %208 = zext nneg i32 %207 to i64
+  %209 = getelementptr i8, ptr %204, i64 %208
+  %210 = and i32 %206, 7
+  %211 = zext nneg i32 %210 to i64
+  %212 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %211
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %214 = load i8, ptr %213, align 1, !tbaa !35
+  %215 = trunc i32 %206 to i8
+  %wide.trip.count.i.i63 = zext nneg i8 %203 to i64
+  br label %216
 
-213:                                              ; preds = %213, %.lr.ph.i.i64
-  %indvars.iv.i.i66 = phi i64 [ 0, %.lr.ph.i.i64 ], [ %indvars.iv.next.i.i68, %213 ]
-  %.011.i.i67 = phi i64 [ 0, %.lr.ph.i.i64 ], [ %222, %213 ]
-  %214 = shl i64 %.011.i.i67, 8
-  %215 = getelementptr i8, ptr %206, i64 %indvars.iv.i.i66
-  %216 = load i8, ptr %215, align 1, !tbaa !35
-  %217 = getelementptr i8, ptr %215, i64 1
-  %218 = load i8, ptr %217, align 1, !tbaa !35
-  %219 = and i8 %218, %211
-  %220 = tail call noundef i8 @llvm.fshl.i8(i8 %216, i8 %219, i8 %212)
-  %221 = zext i8 %220 to i64
-  %222 = or disjoint i64 %214, %221
-  %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i66, 1
-  %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, %wide.trip.count.i.i65
-  br i1 %exitcond.not.i.i69, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84, label %213, !llvm.loop !204
+216:                                              ; preds = %216, %.lr.ph.i.i62
+  %indvars.iv.i.i64 = phi i64 [ 0, %.lr.ph.i.i62 ], [ %indvars.iv.next.i.i66, %216 ]
+  %.011.i.i65 = phi i64 [ 0, %.lr.ph.i.i62 ], [ %225, %216 ]
+  %217 = shl i64 %.011.i.i65, 8
+  %218 = getelementptr i8, ptr %209, i64 %indvars.iv.i.i64
+  %219 = load i8, ptr %218, align 1, !tbaa !35
+  %220 = getelementptr i8, ptr %218, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !35
+  %222 = and i8 %221, %214
+  %223 = tail call noundef i8 @llvm.fshl.i8(i8 %219, i8 %222, i8 %215)
+  %224 = zext i8 %223 to i64
+  %225 = or disjoint i64 %217, %224
+  %indvars.iv.next.i.i66 = add nuw nsw i64 %indvars.iv.i.i64, 1
+  %exitcond.not.i.i67 = icmp eq i64 %indvars.iv.next.i.i66, %wide.trip.count.i.i63
+  br i1 %exitcond.not.i.i67, label %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81, label %216, !llvm.loop !204
 
-_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84:   ; preds = %213, %.._crit_edge_crit_edge.i.i76
-  %.pre-phi23.i.i70 = phi i64 [ %.pre22.i.i83, %.._crit_edge_crit_edge.i.i76 ], [ %205, %213 ]
-  %.pre-phi19.i.i71 = phi i32 [ %.pre18.i.i81, %.._crit_edge_crit_edge.i.i76 ], [ %207, %213 ]
-  %.pre-phi17.i.i72 = phi i8 [ %.pre16.i.i80, %.._crit_edge_crit_edge.i.i76 ], [ %212, %213 ]
-  %.pre-phi.i.i73 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i76 ], [ %wide.trip.count.i.i65, %213 ]
-  %223 = phi ptr [ %.pre14.i.i79, %.._crit_edge_crit_edge.i.i76 ], [ %201, %213 ]
-  %224 = phi i32 [ %.pre.i.i78, %.._crit_edge_crit_edge.i.i76 ], [ %203, %213 ]
-  %.0.lcssa.i.i74 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i76 ], [ %222, %213 ]
-  %225 = and i8 %199, 7
-  %226 = zext nneg i8 %225 to i64
-  %227 = shl i64 %.0.lcssa.i.i74, %226
-  %228 = sub nuw nsw i8 8, %225
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %230 = and i8 %.pre-phi17.i.i72, 7
-  %.neg91 = sub i8 %197, %.pre-phi17.i.i72
-  %231 = and i8 %.neg91, 7
-  %232 = zext nneg i8 %225 to i32
-  %233 = add nuw nsw i32 %.pre-phi19.i.i71, %232
-  %234 = icmp samesign ugt i32 %233, 7
-  %235 = getelementptr i8, ptr %223, i64 %.pre-phi23.i.i70
-  %236 = getelementptr i8, ptr %235, i64 %.pre-phi.i.i73
-  %237 = load i8, ptr %236, align 1, !tbaa !35
-  %238 = zext i8 %237 to i32
-  %239 = shl nuw nsw i32 %238, %.pre-phi19.i.i71
-  %240 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6duckdb9BitReader5MASKSE, i64 0, i64 %226
-  %241 = load i8, ptr %240, align 1, !tbaa !35
-  %242 = zext i8 %241 to i32
-  %243 = and i32 %239, %242
-  %244 = zext nneg i8 %228 to i32
-  %245 = lshr i32 %243, %244
-  %246 = zext i1 %234 to i64
-  %247 = getelementptr i8, ptr %236, i64 %246
-  %248 = load i8, ptr %247, align 1, !tbaa !35
-  %narrow.i75 = add nuw nsw i8 %230, %225
-  %249 = zext nneg i8 %narrow.i75 to i64
-  %250 = getelementptr inbounds nuw [17 x i8], ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 0, i64 %249
+_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81:   ; preds = %216, %.._crit_edge_crit_edge.i.i73
+  %.pre-phi23.i.i68 = phi i64 [ %.pre22.i.i80, %.._crit_edge_crit_edge.i.i73 ], [ %208, %216 ]
+  %.pre-phi19.i.i69 = phi i32 [ %.pre18.i.i78, %.._crit_edge_crit_edge.i.i73 ], [ %210, %216 ]
+  %.pre-phi17.i.i70 = phi i8 [ %.pre16.i.i77, %.._crit_edge_crit_edge.i.i73 ], [ %215, %216 ]
+  %.pre-phi.i.i71 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i73 ], [ %wide.trip.count.i.i63, %216 ]
+  %226 = phi ptr [ %.pre14.i.i76, %.._crit_edge_crit_edge.i.i73 ], [ %204, %216 ]
+  %227 = phi i32 [ %.pre.i.i75, %.._crit_edge_crit_edge.i.i73 ], [ %206, %216 ]
+  %.0.lcssa.i.i72 = phi i64 [ 0, %.._crit_edge_crit_edge.i.i73 ], [ %225, %216 ]
+  %228 = and i8 %202, 7
+  %229 = zext nneg i8 %228 to i64
+  %230 = shl i64 %.0.lcssa.i.i72, %229
+  %231 = sub nuw nsw i8 8, %228
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %233 = and i8 %.pre-phi17.i.i70, 7
+  %.neg88 = sub i8 %200, %.pre-phi17.i.i70
+  %234 = and i8 %.neg88, 7
+  %235 = zext nneg i8 %228 to i32
+  %236 = add nuw nsw i32 %.pre-phi19.i.i69, %235
+  %237 = icmp samesign ugt i32 %236, 7
+  %238 = getelementptr i8, ptr %226, i64 %.pre-phi23.i.i68
+  %239 = getelementptr i8, ptr %238, i64 %.pre-phi.i.i71
+  %240 = load i8, ptr %239, align 1, !tbaa !35
+  %241 = zext i8 %240 to i32
+  %242 = shl nuw nsw i32 %241, %.pre-phi19.i.i69
+  %243 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader5MASKSE, i64 %229
+  %244 = load i8, ptr %243, align 1, !tbaa !35
+  %245 = zext i8 %244 to i32
+  %246 = and i32 %242, %245
+  %247 = zext nneg i8 %231 to i32
+  %248 = lshr i32 %246, %247
+  %249 = zext i1 %237 to i64
+  %250 = getelementptr i8, ptr %239, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !35
-  %252 = and i8 %251, %248
-  %253 = zext i8 %252 to i32
-  %254 = zext nneg i8 %231 to i32
-  %255 = lshr i32 %253, %254
-  %256 = or i32 %255, %245
-  %257 = zext nneg i32 %256 to i64
-  %258 = or i64 %227, %257
-  %259 = zext i8 %199 to i32
-  %260 = add i32 %224, %259
-  store i32 %260, ptr %229, align 8, !tbaa !87
-  %261 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %262 = load i64, ptr %261, align 8, !tbaa !191
-  %263 = xor i64 %258, %262
-  br label %279
+  %252 = zext nneg i8 %233 to i64
+  %253 = getelementptr inbounds nuw i8, ptr @_ZN6duckdb9BitReader15REMAINDER_MASKSE, i64 %229
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 %252
+  %255 = load i8, ptr %254, align 1, !tbaa !35
+  %256 = and i8 %255, %251
+  %257 = zext i8 %256 to i32
+  %258 = zext nneg i8 %234 to i32
+  %259 = lshr i32 %257, %258
+  %260 = or i32 %259, %248
+  %261 = zext nneg i32 %260 to i64
+  %262 = or i64 %230, %261
+  %263 = zext i8 %202 to i32
+  %264 = add i32 %227, %263
+  store i32 %264, ptr %232, align 8, !tbaa !87
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %266 = load i64, ptr %265, align 8, !tbaa !191
+  %267 = xor i64 %262, %266
+  br label %283
 
-264:                                              ; preds = %6
-  %265 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+268:                                              ; preds = %6
+  %269 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %266 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+          to label %270 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-266:                                              ; preds = %264
-  invoke void @_ZN6duckdb17InternalExceptionC2IJNS_14ChimpConstants5FlagsEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpT_(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %0)
-          to label %267 unwind label %269
+270:                                              ; preds = %268
+  invoke void @_ZN6duckdb17InternalExceptionC2IJNS_14ChimpConstants5FlagsEEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpT_(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %0)
+          to label %271 unwind label %273
 
-267:                                              ; preds = %266
-  invoke void @__cxa_throw(ptr nonnull %265, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
-          to label %287 unwind label %269
+271:                                              ; preds = %270
+  invoke void @__cxa_throw(ptr nonnull %269, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+          to label %291 unwind label %273
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %264
-  %268 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %268
+  %272 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %277
+  br label %281
 
-269:                                              ; preds = %267, %266
-  %.0 = phi i1 [ false, %267 ], [ true, %266 ]
-  %270 = landingpad { ptr, i32 }
+273:                                              ; preds = %271, %270
+  %.0 = phi i1 [ false, %271 ], [ true, %270 ]
+  %274 = landingpad { ptr, i32 }
           cleanup
-  %271 = load ptr, ptr %7, align 8, !tbaa !3
-  %272 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %273 = icmp eq ptr %271, %272
-  br i1 %273, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %275 = load ptr, ptr %7, align 8, !tbaa !3
+  %276 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %277 = icmp eq ptr %275, %276
+  br i1 %277, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %269
-  %274 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %275 = load i64, ptr %274, align 8, !tbaa !11
-  %276 = icmp ult i64 %275, 16
-  call void @llvm.assume(i1 %276)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %273
+  %278 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %279 = load i64, ptr %278, align 8, !tbaa !11
+  %280 = icmp ult i64 %279, 16
+  call void @llvm.assume(i1 %280)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %277, label %278
+  br i1 %.0, label %281, label %282
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %269
-  call void @_ZdlPv(ptr noundef %271) #19
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %273
+  call void @_ZdlPv(ptr noundef %275) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %277, label %278
+  br i1 %.0, label %281, label %282
 
-277:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn90 = phi { ptr, i32 } [ %268, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %270, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %270, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %265) #17
-  br label %278
+281:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn87 = phi { ptr, i32 } [ %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %274, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %274, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @__cxa_free_exception(ptr %269) #17
+  br label %282
 
-278:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn89 = phi { ptr, i32 } [ %.pn90, %277 ], [ %270, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %270, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  resume { ptr, i32 } %.pn89
+282:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn86 = phi { ptr, i32 } [ %.pn87, %281 ], [ %274, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %274, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  resume { ptr, i32 } %.pn86
 
-279:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, %9
-  %.038 = phi i64 [ %38, %9 ], [ %123, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit ], [ %191, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit62 ], [ %263, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit84 ]
-  %280 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.038, ptr %280, align 8, !tbaa !191
-  %281 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %282 = getelementptr inbounds nuw i8, ptr %5, i64 1056
-  %283 = load i64, ptr %282, align 8, !tbaa !192
-  %284 = add i64 %283, 1
-  store i64 %284, ptr %282, align 8, !tbaa !192
-  %285 = and i64 %284, 127
-  %286 = getelementptr inbounds nuw [128 x i64], ptr %281, i64 0, i64 %285
-  store i64 %.038, ptr %286, align 8, !tbaa !34
+283:                                              ; preds = %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit, %9
+  %.038 = phi i64 [ %39, %9 ], [ %125, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit ], [ %194, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit60 ], [ %267, %_ZN6duckdb9BitReader9ReadValueImEET_RKh.exit81 ]
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.038, ptr %284, align 8, !tbaa !191
+  %285 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 1056
+  %287 = load i64, ptr %286, align 8, !tbaa !192
+  %288 = add i64 %287, 1
+  store i64 %288, ptr %286, align 8, !tbaa !192
+  %289 = and i64 %288, 127
+  %290 = getelementptr inbounds nuw i64, ptr %285, i64 %289
+  store i64 %.038, ptr %290, align 8, !tbaa !34
   ret i64 %.038
 
-287:                                              ; preds = %267
+291:                                              ; preds = %271
   unreachable
 }
 

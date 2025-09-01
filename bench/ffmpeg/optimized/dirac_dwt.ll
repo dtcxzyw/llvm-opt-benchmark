@@ -2380,7 +2380,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %26 = mul nsw i32 %.0.i, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2418,7 +2418,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %44 = mul nsw i32 %.0.i50, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -2658,7 +2658,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %31 = select i1 %28, i64 0, i64 %30
   %32 = getelementptr inbounds i16, ptr %0, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !39
-  %34 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   store i16 %33, ptr %34, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2719,7 +2719,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %73 = select i1 %70, i64 0, i64 %72
   %74 = getelementptr inbounds i16, ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !39
-  %76 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 0, i64 %indvars.iv63
+  %76 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv63
   store i16 %75, ptr %76, align 2, !tbaa !39
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -4199,7 +4199,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %26 = mul nsw i32 %.0.i50, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -4237,7 +4237,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %44 = mul nsw i32 %.0.i, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -4459,7 +4459,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %31 = select i1 %28, i64 0, i64 %30
   %32 = getelementptr inbounds i32, ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -4511,7 +4511,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %64 = select i1 %61, i64 0, i64 %63
   %65 = getelementptr inbounds i32, ptr %1, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !70
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv63
+  %67 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
   store i32 %66, ptr %67, align 4, !tbaa !70
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -5950,7 +5950,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %26 = mul nsw i32 %.0.i50, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5988,7 +5988,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %44 = mul nsw i32 %.0.i, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -6210,7 +6210,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %31 = select i1 %28, i64 0, i64 %30
   %32 = getelementptr inbounds i32, ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  %34 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -6262,7 +6262,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %64 = select i1 %61, i64 0, i64 %63
   %65 = getelementptr inbounds i32, ptr %1, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !70
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv63
+  %67 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
   store i32 %66, ptr %67, align 4, !tbaa !70
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8

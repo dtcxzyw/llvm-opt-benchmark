@@ -100,7 +100,7 @@ define dso_local void @_ZN9Stockfish14TimeManagement4initERNS_6Search10LimitsTyp
   store i64 %20, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw [2 x i64], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %151, label %26
@@ -177,7 +177,7 @@ _ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZN9Stockfish6Optio
   %55 = phi i64 [ %53, %51 ], [ %50, %47 ]
   store i64 %55, ptr %23, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %56, i64 0, i64 %22
+  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %22
   %58 = load i64, ptr %57, align 8
   %59 = mul nsw i64 %58, %39
   store i64 %59, ptr %57, align 8
@@ -193,7 +193,7 @@ _ZN9Stockfish6OptionD2Ev.exit61:                  ; preds = %_ZN9Stockfish6Optio
   %64 = select i1 %.not58, i32 50, i32 %.sroa.speculated107
   %65 = load i64, ptr %23, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %67 = getelementptr inbounds nuw [2 x i64], ptr %66, i64 0, i64 %22
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %22
   %68 = load i64, ptr %67, align 8
   %69 = add nsw i32 %64, -1
   %70 = sext i32 %69 to i64

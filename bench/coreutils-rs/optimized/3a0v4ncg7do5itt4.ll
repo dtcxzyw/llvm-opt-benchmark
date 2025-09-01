@@ -7284,7 +7284,7 @@ default.unreachable238:                           ; preds = %"_ZN4core6result19R
   unreachable
 
 175:                                              ; preds = %.lr.ph.split
-  %176 = getelementptr inbounds nuw [8 x i64], ptr %108, i64 0, i64 %122
+  %176 = getelementptr inbounds nuw i64, ptr %108, i64 %122
   %177 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr @anon.9b33a3cde8d4dd4818b9db5641171ef1.108, ptr %29, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %45, align 8

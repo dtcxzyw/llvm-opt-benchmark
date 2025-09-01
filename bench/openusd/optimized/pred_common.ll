@@ -139,7 +139,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 150
   %17 = icmp ne i32 %1, 0
   %18 = zext i1 %17 to i64
-  %19 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   br label %22
@@ -155,7 +155,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 150
   %27 = icmp ne i32 %1, 0
   %28 = zext i1 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   br label %32

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @big5_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_BIG5, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @EncLen_BIG5, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -87,7 +87,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone captures(ad
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %.not24 = icmp eq i8 %7, 0
   br i1 %.not24, label %.loopexit, label %.preheader
@@ -130,7 +130,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone captures(ad
 define internal range(i32 0, 2) i32 @big5_is_allowed_reverse_match(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i8, ptr %0, align 1, !tbaa !4
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %.not = icmp eq i8 %6, 0
   %7 = zext i1 %.not to i32

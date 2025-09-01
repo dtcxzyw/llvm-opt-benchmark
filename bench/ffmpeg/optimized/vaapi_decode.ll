@@ -577,7 +577,7 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   %.087147 = phi i32 [ undef, %.preheader ], [ %.2140, %.thread131 ]
   %.094145 = phi i32 [ -1, %.preheader ], [ %.296138, %.thread131 ]
   %28 = load i32, ptr %13, align 8, !tbaa !72
-  %29 = getelementptr inbounds nuw [32 x %struct.anon], ptr @vaapi_profile_map, i64 0, i64 %indvars.iv150
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_profile_map, i64 %indvars.iv150
   %30 = load i32, ptr %29, align 8, !tbaa !73
   %.not114 = icmp eq i32 %28, %30
   br i1 %.not114, label %31, label %.thread131
@@ -1020,7 +1020,7 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
 
 32:                                               ; preds = %28, %31
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %31 ]
-  %33 = getelementptr inbounds nuw [20 x %struct.anon.1], ptr @vaapi_format_map, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.anon.1, ptr @vaapi_format_map, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8, !tbaa !115
   %35 = icmp eq i32 %30, %34
   br i1 %35, label %37, label %31
@@ -1030,7 +1030,7 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
   br label %43
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw [20 x %struct.anon.1], ptr @vaapi_format_map, i64 0, i64 %indvars.iv, i32 1
+  %38 = getelementptr inbounds nuw %struct.anon.1, ptr @vaapi_format_map, i64 %indvars.iv, i32 1
   %39 = load i32, ptr %38, align 4, !tbaa !117
   %40 = call ptr @av_get_pix_fmt_name(i32 noundef %39) #4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %30, ptr noundef %40) #4

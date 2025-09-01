@@ -9850,13 +9850,13 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread18: ; preds = %_
 
 switch.lookup:                                    ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %27
   %44 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   %45 = zext nneg i32 %4 to i64
-  %switch.gep85 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.249, i64 0, i64 %45
+  %switch.gep85 = getelementptr inbounds nuw i32, ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.249, i64 %45
   %switch.load86 = load i32, ptr %switch.gep85, align 4
   %46 = zext nneg i32 %4 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.250, i64 0, i64 %46
+  %switch.gep87 = getelementptr inbounds nuw i32, ptr @switch.table._ZL11EmitCompareRN5clang7CodeGen11CGBuilderTyERNS0_15CodeGenFunctionEPKNS_14BinaryOperatorEPN4llvm5ValueESA_11CompareKindPKc.250, i64 %46
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   %47 = shl nuw nsw i32 %4, 1
   %switch.offset = sub nuw nsw i32 36, %47

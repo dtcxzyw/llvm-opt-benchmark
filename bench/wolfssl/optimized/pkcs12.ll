@@ -2143,7 +2143,7 @@ wc_PKCS12_create_key_bag.exit.i:                  ; preds = %37
 .preheader.i:                                     ; preds = %51, %.preheader.i
   %indvars.iv103.i.i = phi i64 [ %indvars.iv.next104.i.i, %.preheader.i ], [ 0, %51 ]
   %.07898.i.i = phi i32 [ %59, %.preheader.i ], [ %56, %51 ]
-  %57 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_KeyBag_OID, i64 0, i64 %indvars.iv103.i.i
+  %57 = getelementptr inbounds nuw i8, ptr @WC_PKCS12_KeyBag_OID, i64 %indvars.iv103.i.i
   %58 = load i8, ptr %57, align 1, !tbaa !31
   %59 = add i32 %.07898.i.i, 1
   %60 = zext i32 %.07898.i.i to i64
@@ -2156,7 +2156,7 @@ wc_PKCS12_create_key_bag.exit.i:                  ; preds = %37
 .preheader88.i:                                   ; preds = %51, %.preheader88.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader88.i ], [ 0, %51 ]
   %.294.i.i = phi i32 [ %64, %.preheader88.i ], [ %56, %51 ]
-  %62 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_ShroudedKeyBag_OID, i64 0, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw i8, ptr @WC_PKCS12_ShroudedKeyBag_OID, i64 %indvars.iv.i.i
   %63 = load i8, ptr %62, align 1, !tbaa !31
   %64 = add i32 %.294.i.i, 1
   %65 = zext i32 %.294.i.i to i64
@@ -2265,7 +2265,7 @@ wc_PKCS12_create_key_bag.exit77.i:                ; preds = %71
 
 switch.lookup:                                    ; preds = %111
   %113 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_PKCS12_create, i64 0, i64 %113
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wc_PKCS12_create, i64 %113
   %switch.load = load i32, ptr %switch.gep, align 4
   %114 = add nsw i32 %6, 55
   %.not104.i = icmp eq ptr %7, null
@@ -2572,114 +2572,111 @@ define internal fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly ca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv103 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next104, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = or disjoint i64 %indvars.iv103, 1
-  %19 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %indvars.iv103
-  store i8 0, ptr %19, align 2, !tbaa !31
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !31
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv103
+  store i8 0, ptr %18, align 2, !tbaa !31
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %20 = load i8, ptr %19, align 1, !tbaa !31
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 2
-  %22 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %18
-  store i8 %21, ptr %22, align 1, !tbaa !31
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %20, ptr %21, align 1, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %23 = trunc nuw i64 %indvars.iv.next104 to i32
+  %22 = trunc nuw i64 %indvars.iv.next104 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.047.lcssa = phi i32 [ 0, %.preheader ], [ %23, %._crit_edge.loopexit ]
-  %24 = or disjoint i32 %.047.lcssa, 1
-  %25 = zext nneg i32 %.047.lcssa to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %25
+  %.047.lcssa = phi i32 [ 0, %.preheader ], [ %22, %._crit_edge.loopexit ]
+  %23 = zext nneg i32 %.047.lcssa to i64
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %23
+  store i8 0, ptr %24, align 1, !tbaa !31
+  %25 = add nuw nsw i32 %.047.lcssa, 2
+  %26 = getelementptr i8, ptr %24, i64 1
   store i8 0, ptr %26, align 1, !tbaa !31
-  %27 = add nuw nsw i32 %.047.lcssa, 2
-  %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %28
-  store i8 0, ptr %29, align 1, !tbaa !31
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !36
-  %32 = tail call i32 @wc_OidGetHash(i32 noundef %31) #9
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.lr.ph29.i, label %36
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !36
+  %29 = tail call i32 @wc_OidGetHash(i32 noundef %28) #9
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.lr.ph29.i, label %33
 
 .lr.ph29.i:                                       ; preds = %._crit_edge, %.lr.ph29.i
-  %.01528.i = phi ptr [ %34, %.lr.ph29.i ], [ %8, %._crit_edge ]
-  %.01827.i = phi i32 [ %35, %.lr.ph29.i ], [ 256, %._crit_edge ]
-  %34 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %31, %.lr.ph29.i ], [ %8, %._crit_edge ]
+  %.01827.i = phi i32 [ %32, %.lr.ph29.i ], [ 256, %._crit_edge ]
+  %31 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !40
-  %35 = add nsw i32 %.01827.i, -8
-  %.not97 = icmp eq i32 %35, 0
+  %32 = add nsw i32 %.01827.i, -8
+  %.not97 = icmp eq i32 %32, 0
   br i1 %.not97, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !59
 
-36:                                               ; preds = %._crit_edge
-  %37 = tail call i32 @wc_HashGetDigestSize(i32 noundef %32) #9
-  %38 = icmp ugt i32 %37, 64
-  br i1 %38, label %.lr.ph29.i67, label %.lr.ph29.preheader.i82
+33:                                               ; preds = %._crit_edge
+  %34 = tail call i32 @wc_HashGetDigestSize(i32 noundef %29) #9
+  %35 = icmp ugt i32 %34, 64
+  br i1 %35, label %.lr.ph29.i67, label %.lr.ph29.preheader.i82
 
-.lr.ph29.i67:                                     ; preds = %36, %.lr.ph29.i67
-  %.01528.i68 = phi ptr [ %39, %.lr.ph29.i67 ], [ %8, %36 ]
-  %.01827.i69 = phi i32 [ %40, %.lr.ph29.i67 ], [ 256, %36 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.01528.i68, i64 8
+.lr.ph29.i67:                                     ; preds = %33, %.lr.ph29.i67
+  %.01528.i68 = phi ptr [ %36, %.lr.ph29.i67 ], [ %8, %33 ]
+  %.01827.i69 = phi i32 [ %37, %.lr.ph29.i67 ], [ 256, %33 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.01528.i68, i64 8
   store volatile i64 0, ptr %.01528.i68, align 8, !tbaa !40
-  %40 = add nsw i32 %.01827.i69, -8
-  %.not96 = icmp eq i32 %40, 0
+  %37 = add nsw i32 %.01827.i69, -8
+  %.not96 = icmp eq i32 %37, 0
   br i1 %.not96, label %ForceZero.exit, label %.lr.ph29.i67, !llvm.loop !59
 
-.lr.ph29.preheader.i82:                           ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !25
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !37
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %46 = load i32, ptr %45, align 4, !tbaa !38
-  %47 = load ptr, ptr %0, align 8, !tbaa !3
-  %48 = call i32 @wc_PKCS12_PBKDF_ex(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %27, ptr noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %37, i32 noundef %32, i32 noundef 3, ptr noundef %47) #9
+.lr.ph29.preheader.i82:                           ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %41 = load i32, ptr %40, align 8, !tbaa !37
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %43 = load i32, ptr %42, align 4, !tbaa !38
+  %44 = load ptr, ptr %0, align 8, !tbaa !3
+  %45 = call i32 @wc_PKCS12_PBKDF_ex(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %25, ptr noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %34, i32 noundef %29, i32 noundef 3, ptr noundef %44) #9
   br label %.lr.ph29.i84
 
 .lr.ph29.i84:                                     ; preds = %.lr.ph29.i84, %.lr.ph29.preheader.i82
-  %.01528.i85 = phi ptr [ %49, %.lr.ph29.i84 ], [ %8, %.lr.ph29.preheader.i82 ]
-  %.01827.i86 = phi i32 [ %50, %.lr.ph29.i84 ], [ 256, %.lr.ph29.preheader.i82 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.01528.i85, i64 8
+  %.01528.i85 = phi ptr [ %46, %.lr.ph29.i84 ], [ %8, %.lr.ph29.preheader.i82 ]
+  %.01827.i86 = phi i32 [ %47, %.lr.ph29.i84 ], [ 256, %.lr.ph29.preheader.i82 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.01528.i85, i64 8
   store volatile i64 0, ptr %.01528.i85, align 8, !tbaa !40
-  %50 = add nsw i32 %.01827.i86, -8
-  %.not95 = icmp eq i32 %50, 0
+  %47 = add nsw i32 %.01827.i86, -8
+  %.not95 = icmp eq i32 %47, 0
   br i1 %.not95, label %ForceZero.exit93, label %.lr.ph29.i84, !llvm.loop !59
 
 ForceZero.exit93:                                 ; preds = %.lr.ph29.i84
-  %51 = icmp slt i32 %48, 0
-  br i1 %51, label %ForceZero.exit, label %52
+  %48 = icmp slt i32 %45, 0
+  br i1 %48, label %ForceZero.exit, label %49
 
-52:                                               ; preds = %ForceZero.exit93
-  %53 = load ptr, ptr %0, align 8, !tbaa !3
-  %54 = call i32 @wc_HmacInit(ptr noundef nonnull %7, ptr noundef %53, i32 noundef -2) #9
-  %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %55, label %ForceZero.exit
+49:                                               ; preds = %ForceZero.exit93
+  %50 = load ptr, ptr %0, align 8, !tbaa !3
+  %51 = call i32 @wc_HmacInit(ptr noundef nonnull %7, ptr noundef %50, i32 noundef -2) #9
+  %.not = icmp eq i32 %51, 0
+  br i1 %.not, label %52, label %ForceZero.exit
+
+52:                                               ; preds = %49
+  %53 = call i32 @wc_HmacSetKey(ptr noundef nonnull %7, i32 noundef %29, ptr noundef nonnull %9, i32 noundef %34) #9
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %52
-  %56 = call i32 @wc_HmacSetKey(ptr noundef nonnull %7, i32 noundef %32, ptr noundef nonnull %9, i32 noundef %37) #9
+  %56 = call i32 @wc_HmacUpdate(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %2) #9
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %55
-  %59 = call i32 @wc_HmacUpdate(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %2) #9
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.thread
-
-61:                                               ; preds = %58
-  %62 = call i32 @wc_HmacFinal(ptr noundef nonnull %7, ptr noundef nonnull %5) #9
+  %59 = call i32 @wc_HmacFinal(ptr noundef nonnull %7, ptr noundef nonnull %5) #9
   br label %.thread
 
-.thread:                                          ; preds = %55, %61, %58
-  %.1 = phi i32 [ %62, %61 ], [ %59, %58 ], [ %56, %55 ]
+.thread:                                          ; preds = %52, %58, %55
+  %.1 = phi i32 [ %59, %58 ], [ %56, %55 ], [ %53, %52 ]
   call void @wc_HmacFree(ptr noundef nonnull %7) #9
   %.not58 = icmp eq i32 %.1, 0
-  %..1 = select i1 %.not58, i32 %37, i32 %.1
+  %..1 = select i1 %.not58, i32 %34, i32 %.1
   br label %ForceZero.exit
 
-ForceZero.exit:                                   ; preds = %.lr.ph29.i67, %.lr.ph29.i, %.thread, %52, %ForceZero.exit93, %14, %6
-  %.046 = phi i32 [ -173, %6 ], [ -175, %14 ], [ %48, %ForceZero.exit93 ], [ %54, %52 ], [ %..1, %.thread ], [ -173, %.lr.ph29.i ], [ -173, %.lr.ph29.i67 ]
+ForceZero.exit:                                   ; preds = %.lr.ph29.i67, %.lr.ph29.i, %.thread, %49, %ForceZero.exit93, %14, %6
+  %.046 = phi i32 [ -173, %6 ], [ -175, %14 ], [ %45, %ForceZero.exit93 ], [ %51, %49 ], [ %..1, %.thread ], [ -173, %.lr.ph29.i ], [ -173, %.lr.ph29.i67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3093,7 +3090,7 @@ define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %0, ptr nounde
 17:                                               ; preds = %12, %17
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %.01215 = phi i32 [ %16, %12 ], [ %20, %17 ]
-  %18 = getelementptr inbounds nuw [11 x i8], ptr @WC_PKCS12_CertBag_OID, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr @WC_PKCS12_CertBag_OID, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !31
   %20 = add i32 %.01215, 1
   %21 = zext i32 %.01215 to i64
@@ -3121,7 +3118,7 @@ define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %0, ptr nounde
 34:                                               ; preds = %23, %34
   %indvars.iv12 = phi i64 [ 0, %23 ], [ %indvars.iv.next13, %34 ]
   %.11227 = phi i32 [ %33, %23 ], [ %37, %34 ]
-  %35 = getelementptr inbounds nuw [10 x i8], ptr @WC_PKCS12_CertBag_Type1_OID, i64 0, i64 %indvars.iv12
+  %35 = getelementptr inbounds nuw i8, ptr @WC_PKCS12_CertBag_Type1_OID, i64 %indvars.iv12
   %36 = load i8, ptr %35, align 1, !tbaa !31
   %37 = add i32 %.11227, 1
   %38 = zext i32 %.11227 to i64

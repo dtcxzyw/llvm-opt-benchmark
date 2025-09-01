@@ -3284,7 +3284,7 @@ define hidden void @_ZN3old15model_evaluator10eval_arithEP3app(ptr noundef nonnu
 
 35:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !110
   %38 = load i32, ptr %37, align 4, !tbaa !102
   %39 = icmp ult i32 %38, %28
@@ -4100,7 +4100,7 @@ _ZN3old15model_evaluator5set_vEP4expr.exit.i180:  ; preds = %485, %._crit_edge37
 
 497:                                              ; preds = %.lr.ph376, %_ZN8rationalpLERKS_.exit
   %indvars.iv391 = phi i64 [ 0, %.lr.ph376 ], [ %indvars.iv.next392, %_ZN8rationalpLERKS_.exit ]
-  %498 = getelementptr inbounds nuw [0 x ptr], ptr %480, i64 0, i64 %indvars.iv391
+  %498 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv391
   %499 = load ptr, ptr %498, align 8, !tbaa !110
   %500 = invoke noundef ptr @_ZNK7obj_mapI4expr8rationalE9find_coreEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %481, ptr noundef %499)
           to label %501 unwind label %504
@@ -4204,7 +4204,7 @@ _ZN3old15model_evaluator5set_vEP4expr.exit.i194:  ; preds = %537, %._crit_edge37
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %_ZN8rationalmIERKS_.exit
   %indvars.iv386 = phi i64 [ 1, %.lr.ph373.preheader ], [ %indvars.iv.next387, %_ZN8rationalmIERKS_.exit ]
-  %548 = getelementptr inbounds nuw [0 x ptr], ptr %507, i64 0, i64 %indvars.iv386
+  %548 = getelementptr inbounds nuw ptr, ptr %507, i64 %indvars.iv386
   %549 = load ptr, ptr %548, align 8, !tbaa !110
   %550 = invoke noundef ptr @_ZNK7obj_mapI4expr8rationalE9find_coreEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %509, ptr noundef %549)
           to label %551 unwind label %573
@@ -4464,7 +4464,7 @@ _ZN3old15model_evaluator5set_vEP4expr.exit.i217:  ; preds = %651, %._crit_edge
 
 663:                                              ; preds = %.lr.ph371, %_ZN8rationalmLERKS_.exit
   %indvars.iv381 = phi i64 [ 0, %.lr.ph371 ], [ %indvars.iv.next382, %_ZN8rationalmLERKS_.exit ]
-  %664 = getelementptr inbounds nuw [0 x ptr], ptr %646, i64 0, i64 %indvars.iv381
+  %664 = getelementptr inbounds nuw ptr, ptr %646, i64 %indvars.iv381
   %665 = load ptr, ptr %664, align 8, !tbaa !110
   %666 = invoke noundef ptr @_ZNK7obj_mapI4expr8rationalE9find_coreEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %647, ptr noundef %665)
           to label %667 unwind label %689
@@ -10583,7 +10583,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
 29:                                               ; preds = %.lr.ph404, %_ZN3old15model_evaluator4is_xEP4expr.exit.thread
   %indvars.iv421 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next422, %_ZN3old15model_evaluator4is_xEP4expr.exit.thread ]
   %.088403 = phi i1 [ false, %.lr.ph404 ], [ %.2.ph, %_ZN3old15model_evaluator4is_xEP4expr.exit.thread ]
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %indvars.iv421
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv421
   %31 = load ptr, ptr %30, align 8, !tbaa !110
   %32 = load i32, ptr %31, align 4, !tbaa !102
   %33 = icmp ult i32 %32, %24
@@ -10742,7 +10742,7 @@ _ZN3old15model_evaluator8set_trueEP4expr.exit:    ; preds = %_ZN8obj_markI4expr1
 101:                                              ; preds = %.lr.ph400, %_ZN3old15model_evaluator4is_xEP4expr.exit140.thread
   %indvars.iv417 = phi i64 [ 0, %.lr.ph400 ], [ %indvars.iv.next418, %_ZN3old15model_evaluator4is_xEP4expr.exit140.thread ]
   %.4399 = phi i1 [ false, %.lr.ph400 ], [ %.6.ph, %_ZN3old15model_evaluator4is_xEP4expr.exit140.thread ]
-  %102 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv417
+  %102 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv417
   %103 = load ptr, ptr %102, align 8, !tbaa !110
   %104 = load i32, ptr %103, align 4, !tbaa !102
   %105 = icmp ult i32 %104, %17
@@ -11577,7 +11577,7 @@ _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit:     ; preds = %_ZNK11ast_manager5i
 
 528:                                              ; preds = %.lr.ph, %557
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %557 ]
-  %529 = getelementptr inbounds nuw [0 x ptr], ptr %523, i64 0, i64 %indvars.iv
+  %529 = getelementptr inbounds nuw ptr, ptr %523, i64 %indvars.iv
   %530 = load ptr, ptr %529, align 8, !tbaa !110
   %531 = load i32, ptr %530, align 4, !tbaa !102
   %532 = load i32, ptr %524, align 8, !tbaa !104
@@ -12370,7 +12370,7 @@ _ZN3old15model_evaluator10is_unknownEP4expr.exit.thread: ; preds = %_ZNK8obj_mar
   %87 = phi ptr [ %36, %.lr.ph ], [ %175, %_ZN3old15model_evaluator10is_unknownEP4expr.exit49.thread90 ]
   %88 = phi ptr [ %36, %.lr.ph ], [ %176, %_ZN3old15model_evaluator10is_unknownEP4expr.exit49.thread90 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3old15model_evaluator10is_unknownEP4expr.exit49.thread90 ]
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %74, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !110
   %91 = load i32, ptr %90, align 4, !tbaa !102
   %92 = load i32, ptr %28, align 8, !tbaa !104

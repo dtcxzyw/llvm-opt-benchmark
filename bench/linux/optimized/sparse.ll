@@ -472,7 +472,7 @@ declare dso_local void @set_pageblock_order() local_unnamed_addr #3
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @node_data, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = mul i64 %3, 56
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 13120

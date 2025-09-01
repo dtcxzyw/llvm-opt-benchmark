@@ -195,16 +195,16 @@ define internal range(i32 0, 2) i32 @test_des_ecb(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @key_data, i64 %8
   call void @DES_set_key_unchecked(ptr noundef nonnull %9, ptr noundef nonnull %2) #5
-  %10 = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %8
+  %10 = getelementptr inbounds [8 x i8], ptr @plain_data, i64 %8
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %3, align 8
   store i64 0, ptr %4, align 8
   store i64 0, ptr %5, align 8
   call void @DES_ecb_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 1) #5
   call void @DES_ecb_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 0) #5
-  %12 = getelementptr inbounds [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %8
+  %12 = getelementptr inbounds [8 x i8], ptr @cipher_data, i64 %8
   %13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 331, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull %12, i64 noundef 8) #5
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.preheader, label %44
@@ -463,141 +463,139 @@ define internal range(i32 0, 2) i32 @test_des_ede_ecb(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @key_data, i64 %10
   call void @DES_set_key_unchecked(ptr noundef nonnull %11, ptr noundef nonnull %5) #5
   %12 = add nsw i32 %0, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @key_data, i64 %13
   call void @DES_set_key_unchecked(ptr noundef nonnull %14, ptr noundef nonnull %6) #5
-  %15 = add nsw i32 %0, 2
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %16
-  call void @DES_set_key_unchecked(ptr noundef nonnull %17, ptr noundef nonnull %7) #5
-  %18 = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %10
-  %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %2, align 8
+  %15 = getelementptr i8, ptr %11, i64 16
+  call void @DES_set_key_unchecked(ptr noundef %15, ptr noundef nonnull %7) #5
+  %16 = getelementptr inbounds [8 x i8], ptr @plain_data, i64 %10
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %2, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
   call void @DES_ecb3_encrypt(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1) #5
   call void @DES_ecb3_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0) #5
-  %20 = getelementptr inbounds [33 x [8 x i8]], ptr @cipher_ecb2, i64 0, i64 %10
-  %21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 359, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42, ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull %20, i64 noundef 8) #5
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %.preheader, label %51
+  %18 = getelementptr inbounds [8 x i8], ptr @cipher_ecb2, i64 %10
+  %19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 359, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42, ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull %18, i64 noundef 8) #5
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %.preheader, label %49
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %1 ]
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
-  %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = lshr i8 %23, 4
-  %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !4
-  %28 = shl nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 %28
-  store i8 %27, ptr %29, align 2, !tbaa !4
-  %30 = and i8 %23, 15
-  %31 = zext nneg i8 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store i8 %33, ptr %34, align 1, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
+  %21 = load i8, ptr %20, align 1, !tbaa !4
+  %22 = lshr i8 %21, 4
+  %23 = zext nneg i8 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !4
+  %26 = shl nuw nsw i64 %indvars.iv.i, 1
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
+  store i8 %25, ptr %27, align 2, !tbaa !4
+  %28 = and i8 %21, 15
+  %29 = zext nneg i8 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %31, ptr %32, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %pt.exit, label %.preheader, !llvm.loop !7
 
 pt.exit:                                          ; preds = %.preheader
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %35, align 16, !tbaa !4
-  br label %36
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 0, ptr %33, align 16, !tbaa !4
+  br label %34
 
-36:                                               ; preds = %36, %pt.exit
-  %indvars.iv.i11 = phi i64 [ 0, %pt.exit ], [ %indvars.iv.next.i12, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i11
-  %38 = load i8, ptr %37, align 1, !tbaa !4
-  %39 = lshr i8 %38, 4
-  %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !4
-  %43 = shl nuw nsw i64 %indvars.iv.i11, 1
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 %43
-  store i8 %42, ptr %44, align 2, !tbaa !4
-  %45 = and i8 %38, 15
-  %46 = zext nneg i8 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store i8 %48, ptr %49, align 1, !tbaa !4
+34:                                               ; preds = %34, %pt.exit
+  %indvars.iv.i11 = phi i64 [ 0, %pt.exit ], [ %indvars.iv.next.i12, %34 ]
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i11
+  %36 = load i8, ptr %35, align 1, !tbaa !4
+  %37 = lshr i8 %36, 4
+  %38 = zext nneg i8 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !4
+  %41 = shl nuw nsw i64 %indvars.iv.i11, 1
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %41
+  store i8 %40, ptr %42, align 2, !tbaa !4
+  %43 = and i8 %36, 15
+  %44 = zext nneg i8 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store i8 %46, ptr %47, align 1, !tbaa !4
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 8
-  br i1 %exitcond.not.i13, label %pt.exit14, label %36, !llvm.loop !7
+  br i1 %exitcond.not.i13, label %pt.exit14, label %34, !llvm.loop !7
 
-pt.exit14:                                        ; preds = %36
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 0, ptr %50, align 16, !tbaa !4
+pt.exit14:                                        ; preds = %34
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i8 0, ptr %48, align 16, !tbaa !4
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.24, i32 noundef 361, ptr noundef nonnull @.str.27, i32 noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  br label %82
+  br label %80
 
-51:                                               ; preds = %1
-  %52 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 364, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull %2, i64 noundef 8, ptr noundef nonnull %4, i64 noundef 8) #5
-  %.not10 = icmp eq i32 %52, 0
-  br i1 %.not10, label %.preheader23, label %82
+49:                                               ; preds = %1
+  %50 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 364, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull %2, i64 noundef 8, ptr noundef nonnull %4, i64 noundef 8) #5
+  %.not10 = icmp eq i32 %50, 0
+  br i1 %.not10, label %.preheader23, label %80
 
-.preheader23:                                     ; preds = %51, %.preheader23
-  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i16, %.preheader23 ], [ 0, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i15
-  %54 = load i8, ptr %53, align 1, !tbaa !4
-  %55 = lshr i8 %54, 4
-  %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !4
-  %59 = shl nuw nsw i64 %indvars.iv.i15, 1
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 %59
-  store i8 %58, ptr %60, align 2, !tbaa !4
-  %61 = and i8 %54, 15
-  %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !4
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !4
+.preheader23:                                     ; preds = %49, %.preheader23
+  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i16, %.preheader23 ], [ 0, %49 ]
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i15
+  %52 = load i8, ptr %51, align 1, !tbaa !4
+  %53 = lshr i8 %52, 4
+  %54 = zext nneg i8 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !4
+  %57 = shl nuw nsw i64 %indvars.iv.i15, 1
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %57
+  store i8 %56, ptr %58, align 2, !tbaa !4
+  %59 = and i8 %52, 15
+  %60 = zext nneg i8 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  store i8 %62, ptr %63, align 1, !tbaa !4
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 8
   br i1 %exitcond.not.i17, label %pt.exit18, label %.preheader23, !llvm.loop !7
 
 pt.exit18:                                        ; preds = %.preheader23
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %66, align 16, !tbaa !4
-  br label %67
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 0, ptr %64, align 16, !tbaa !4
+  br label %65
 
-67:                                               ; preds = %67, %pt.exit18
-  %indvars.iv.i19 = phi i64 [ 0, %pt.exit18 ], [ %indvars.iv.next.i20, %67 ]
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i19
-  %69 = load i8, ptr %68, align 1, !tbaa !4
-  %70 = lshr i8 %69, 4
-  %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !4
-  %74 = shl nuw nsw i64 %indvars.iv.i19, 1
-  %75 = getelementptr inbounds nuw i8, ptr %9, i64 %74
-  store i8 %73, ptr %75, align 2, !tbaa !4
-  %76 = and i8 %69, 15
-  %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store i8 %79, ptr %80, align 1, !tbaa !4
+65:                                               ; preds = %65, %pt.exit18
+  %indvars.iv.i19 = phi i64 [ 0, %pt.exit18 ], [ %indvars.iv.next.i20, %65 ]
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i19
+  %67 = load i8, ptr %66, align 1, !tbaa !4
+  %68 = lshr i8 %67, 4
+  %69 = zext nneg i8 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %69
+  %71 = load i8, ptr %70, align 1, !tbaa !4
+  %72 = shl nuw nsw i64 %indvars.iv.i19, 1
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 %72
+  store i8 %71, ptr %73, align 2, !tbaa !4
+  %74 = and i8 %67, 15
+  %75 = zext nneg i8 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr @.str.31, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !4
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  store i8 %77, ptr %78, align 1, !tbaa !4
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 8
-  br i1 %exitcond.not.i21, label %pt.exit22, label %67, !llvm.loop !7
+  br i1 %exitcond.not.i21, label %pt.exit22, label %65, !llvm.loop !7
 
-pt.exit22:                                        ; preds = %67
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 0, ptr %81, align 16, !tbaa !4
+pt.exit22:                                        ; preds = %65
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i8 0, ptr %79, align 16, !tbaa !4
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.24, i32 noundef 366, ptr noundef nonnull @.str.43, i32 noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  br label %82
+  br label %80
 
-82:                                               ; preds = %51, %pt.exit22, %pt.exit14
-  %.0 = phi i32 [ 0, %pt.exit22 ], [ 0, %pt.exit14 ], [ 1, %51 ]
+80:                                               ; preds = %49, %pt.exit22, %pt.exit14
+  %.0 = phi i32 [ 0, %pt.exit22 ], [ 0, %pt.exit14 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -749,8 +747,8 @@ define internal i32 @test_des_cfb64() #0 {
 
 10:                                               ; preds = %9, %10
   %.013 = phi i64 [ 0, %9 ], [ %13, %10 ]
-  %11 = getelementptr inbounds nuw [24 x i8], ptr @plain, i64 0, i64 %.013
-  %12 = getelementptr inbounds nuw [40 x i8], ptr @cfb_buf1, i64 0, i64 %.013
+  %11 = getelementptr inbounds nuw i8, ptr @plain, i64 %.013
+  %12 = getelementptr inbounds nuw i8, ptr @cfb_buf1, i64 %.013
   call void @DES_cfb_encrypt(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 8, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, i32 noundef 1) #5
   %13 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %13, 24
@@ -767,8 +765,8 @@ define internal i32 @test_des_cfb64() #0 {
 
 17:                                               ; preds = %16, %17
   %.114 = phi i64 [ 0, %16 ], [ %20, %17 ]
-  %18 = getelementptr inbounds nuw [40 x i8], ptr @cfb_buf1, i64 0, i64 %.114
-  %19 = getelementptr inbounds nuw [40 x i8], ptr @cfb_buf2, i64 0, i64 %.114
+  %18 = getelementptr inbounds nuw i8, ptr @cfb_buf1, i64 %.114
+  %19 = getelementptr inbounds nuw i8, ptr @cfb_buf2, i64 %.114
   call void @DES_cfb_encrypt(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 8, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @cfb_tmp, i32 noundef 0) #5
   %20 = add nuw nsw i64 %.114, 1
   %exitcond15.not = icmp eq i64 %20, 24
@@ -853,8 +851,8 @@ define internal i32 @test_des_ofb64() #0 {
 
 4:                                                ; preds = %0, %4
   %.06 = phi i64 [ 0, %0 ], [ %7, %4 ]
-  %5 = getelementptr inbounds nuw [24 x i8], ptr @plain, i64 0, i64 %.06
-  %6 = getelementptr inbounds nuw [24 x i8], ptr @ofb_buf1, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw i8, ptr @plain, i64 %.06
+  %6 = getelementptr inbounds nuw i8, ptr @ofb_buf1, i64 %.06
   call void @DES_ofb64_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #5
   %7 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %7, 24
@@ -894,8 +892,8 @@ define internal i32 @test_des_ede_ofb64() #0 {
 
 4:                                                ; preds = %0, %4
   %.06 = phi i64 [ 0, %0 ], [ %7, %4 ]
-  %5 = getelementptr inbounds nuw [24 x i8], ptr @plain, i64 0, i64 %.06
-  %6 = getelementptr inbounds nuw [24 x i8], ptr @ofb_buf1, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw i8, ptr @plain, i64 %.06
+  %6 = getelementptr inbounds nuw i8, ptr @ofb_buf1, i64 %.06
   call void @DES_ede3_ofb64_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp, ptr noundef nonnull %2) #5
   %7 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %7, 24
@@ -1077,7 +1075,7 @@ define internal range(i32 0, 2) i32 @test_output_align(i32 noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = add i64 %5, 1
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds [40 x i8], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %2, i64 %11
   call void @DES_ncbc_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %12, i64 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 1) #5
   br label %13
 
@@ -1100,7 +1098,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds [6 x i32], ptr @test_des_key_wrap_sizes, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr @test_des_key_wrap_sizes, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !9
   %.fr41 = freeze i32 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1161,7 +1159,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %34 = tail call i32 @test_random() #5
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds nuw [100 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %35, ptr %36, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1285,7 +1283,7 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_des_weak_keys(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.anon, ptr @weak_keys, i64 %2
   %4 = tail call i32 @DES_is_weak_key(ptr noundef nonnull %3) #5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !16
@@ -1296,7 +1294,7 @@ define internal i32 @test_des_weak_keys(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_des_check_bad_parity(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.anon.0, ptr @bad_parity_keys, i64 %2
   %4 = tail call i32 @DES_check_key_parity(ptr noundef nonnull %3) #5
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !16

@@ -5061,7 +5061,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_TerminationMeasure_delab_go___
   %.03073 = phi i64 [ %4, %.lr.ph ], [ %54, %lean_dec.exit38 ]
   %.03272 = phi ptr [ %5, %.lr.ph ], [ %.133, %lean_dec.exit38 ]
   %17 = getelementptr inbounds nuw i8, ptr %.03272, i64 24
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.03073
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.03073
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1

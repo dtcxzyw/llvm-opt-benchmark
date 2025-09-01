@@ -299,7 +299,7 @@ define dso_local void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %13, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
-  %17 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.acct_gather_profile_timer_t, ptr @acct_gather_profile_timer, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #15
   %.not47 = icmp eq i32 %19, 0
@@ -575,7 +575,7 @@ define dso_local noundef nonnull ptr @acct_gather_profile_type_to_string(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.acct_gather_profile_type_to_string, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acct_gather_profile_type_to_string, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -624,7 +624,7 @@ define dso_local noundef nonnull ptr @acct_gather_profile_type_t_name(i32 nounde
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.acct_gather_profile_type_t_name, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acct_gather_profile_type_t_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -754,7 +754,7 @@ define dso_local noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr 
 
 26:                                               ; preds = %.preheader, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.acct_gather_profile_timer_t, ptr @acct_gather_profile_timer, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, i8 0, i64 104, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #15
@@ -1063,7 +1063,7 @@ acct_gather_profile_test.exit:                    ; preds = %21
 32:                                               ; preds = %29, %79
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %79 ]
   %33 = call zeroext i1 @acct_gather_suspend_test() #15
-  %34 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.acct_gather_profile_timer_t, ptr @acct_gather_profile_timer, i64 %indvars.iv
   br i1 %33, label %35, label %43
 
 35:                                               ; preds = %32
@@ -1132,7 +1132,7 @@ acct_gather_profile_test.exit60:                  ; preds = %55
 
 switch.lookup:                                    ; preds = %59
   %62 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._timer_thread, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._timer_thread, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.56, ptr noundef nonnull %switch.load) #15
   br label %63

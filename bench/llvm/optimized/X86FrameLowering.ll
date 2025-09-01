@@ -25465,7 +25465,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 _ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit: ; preds = %.loopexit104, %90
   %142 = add i32 %.055111, 1
   %143 = zext i32 %.055111 to i64
-  %144 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %6, i64 %143
   store i32 %71, ptr %144, align 4, !tbaa !403
   %145 = icmp eq i32 %142, %14
   br i1 %145, label %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit_edge, label %_ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit.thread90
@@ -25506,7 +25506,7 @@ _ZNK4llvm14MCRegisterInfo22isSuperOrSubRegisterEqENS_10MCRegisterES1_.exit._crit
 157:                                              ; preds = %.lr.ph115, %157
   %indvars.iv = phi i64 [ %150, %.lr.ph115 ], [ %indvars.iv.next, %157 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %158 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %149, ptr %158, align 4, !tbaa !403
   %159 = icmp samesign ult i64 %indvars.iv.next, %151
   br i1 %159, label %157, label %.preheader, !llvm.loop !2020
@@ -25546,7 +25546,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %171 = load ptr, ptr %166, align 8, !tbaa !350
   %.neg = select i1 %170, i64 -3294, i64 -3291
   %172 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %171, i64 %.neg
-  %173 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv121
+  %173 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv121
   %174 = load i32, ptr %173, align 4, !tbaa !403
   %175 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %172, i32 %174)
   %176 = load ptr, ptr %7, align 8, !tbaa !346

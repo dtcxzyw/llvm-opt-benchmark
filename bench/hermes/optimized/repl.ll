@@ -900,7 +900,7 @@ if.end.i112:                                      ; preds = %_ZN6hermes6parser7J
 
 switch.lookup:                                    ; preds = %sw.epilog.i
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [87 x i32], ptr @switch.table._Z4replRKN6hermes2vm13RuntimeConfigE, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z4replRKN6hermes2vm13RuntimeConfigE, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i.backedge"
 

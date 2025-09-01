@@ -118,13 +118,13 @@ define internal zeroext i1 @HIDAPI_DriverPS4_InitDevice(ptr noundef %0) #0 {
 19:                                               ; preds = %.preheader, %19
   %indvars.iv136 = phi i64 [ -1, %.preheader ], [ %indvars.iv.next137, %19 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = add nsw i64 %indvars.iv136, 1
-  %21 = getelementptr inbounds [18 x i8], ptr %5, i64 0, i64 %20
+  %20 = getelementptr i8, ptr %5, i64 %indvars.iv136
+  %21 = getelementptr i8, ptr %20, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %23 = load i16, ptr %22, align 1
   store i16 %23, ptr %21, align 1
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 3
-  %24 = getelementptr inbounds [18 x i8], ptr %5, i64 0, i64 %indvars.iv.next137
+  %24 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next137
   store i8 45, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %25 = icmp samesign ult i64 %indvars.iv, 10
@@ -391,7 +391,7 @@ ReadWiredSerial.exit130:                          ; preds = %84, %87, %106
 
 switch.lookup:                                    ; preds = %184
   %186 = zext nneg i8 %135 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.HIDAPI_DriverPS4_InitDevice, i64 0, i64 %186
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.HIDAPI_DriverPS4_InitDevice, i64 %186
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %187
 
@@ -593,7 +593,7 @@ define internal void @HIDAPI_DriverPS4_SetDevicePlayerIndex(ptr noundef readonly
   %.inv.i.i = icmp slt i32 %2, 0
   %narrow.i.i = select i1 %.inv.i.i, i32 0, i32 %33
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %34 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @SetLedsForPlayerIndex.colors, i64 0, i64 %.0.i.i
+  %34 = getelementptr inbounds nuw [3 x i8], ptr @SetLedsForPlayerIndex.colors, i64 %.0.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %.sink.split.i
@@ -1118,7 +1118,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_RumbleJoystick(ptr noundef readonly
   %.inv.i.i = icmp slt i32 %35, 0
   %narrow.i.i = select i1 %.inv.i.i, i32 0, i32 %36
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %37 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @SetLedsForPlayerIndex.colors, i64 0, i64 %.0.i.i
+  %37 = getelementptr inbounds nuw [3 x i8], ptr @SetLedsForPlayerIndex.colors, i64 %.0.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 2
   br label %.sink.split.i
@@ -1324,7 +1324,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %40 ]
-  %41 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %42 = load i8, ptr %41, align 1
   %.not.i.i = icmp eq i8 %42, 0
   br i1 %.not.i.i, label %40, label %.thread.i.i
@@ -1555,7 +1555,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 218:                                              ; preds = %231, %186
   %indvars.iv117.i.i = phi i64 [ 0, %186 ], [ %indvars.iv.next118.i.i, %231 ]
-  %219 = getelementptr inbounds nuw [6 x %struct.IMUCalibrationData], ptr %190, i64 0, i64 %indvars.iv117.i.i
+  %219 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %190, i64 %indvars.iv117.i.i
   %220 = load i16, ptr %219, align 4
   %221 = sext i16 %220 to i32
   %222 = call i32 @SDL_abs_REAL(i32 noundef %221) #9
@@ -1596,7 +1596,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
 
 236:                                              ; preds = %236, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %236 ]
-  %237 = getelementptr inbounds nuw [6 x %struct.IMUCalibrationData], ptr %235, i64 0, i64 %indvars.iv.i
+  %237 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %235, i64 %indvars.iv.i
   store i16 0, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   store float 1.000000e+00, ptr %238, align 4
@@ -1825,7 +1825,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
   %44 = zext nneg i32 %.02229 to i64
   %45 = add nsw i64 %44, -4
   %46 = call i32 @SDL_crc32_REAL(i32 noundef %43, ptr noundef nonnull %5, i64 noundef %45) #9
-  %47 = getelementptr inbounds nuw [78 x i8], ptr %5, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %45
   store i32 %46, ptr %47, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre24 = load ptr, ptr %0, align 8
@@ -1990,7 +1990,7 @@ HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6:  ; preds = %4, %37
   %.inv.i.i = icmp slt i32 %70, 0
   %narrow.i.i = select i1 %.inv.i.i, i32 0, i32 %71
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %72 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @SetLedsForPlayerIndex.colors, i64 0, i64 %.0.i.i
+  %72 = getelementptr inbounds nuw [3 x i8], ptr @SetLedsForPlayerIndex.colors, i64 %.0.i.i
   %73 = load i8, ptr %72, align 1
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %73, ptr %74, align 1
@@ -2500,7 +2500,7 @@ define internal void @SDL_PS4ReportIntervalHintChanged(ptr noundef captures(none
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.SDL_PS4ReportIntervalHintChanged, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_PS4ReportIntervalHintChanged, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -2557,7 +2557,7 @@ switch.lookup:                                    ; preds = %6
   %.inv.i.i = icmp slt i32 %39, 0
   %narrow.i.i = select i1 %.inv.i.i, i32 0, i32 %40
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %41 = getelementptr inbounds nuw [7 x [3 x i8]], ptr @SetLedsForPlayerIndex.colors, i64 0, i64 %.0.i.i
+  %41 = getelementptr inbounds nuw [3 x i8], ptr @SetLedsForPlayerIndex.colors, i64 %.0.i.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 2
   br label %.sink.split.i

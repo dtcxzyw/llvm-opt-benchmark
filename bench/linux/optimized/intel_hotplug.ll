@@ -404,7 +404,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %153, label %.thread9, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr [15 x %struct.anon.36], ptr %64, i64 0, i64 %122
+  %155 = getelementptr %struct.anon.36, ptr %64, i64 %122
   %156 = load i64, ptr %155, align 8
   %157 = load i32, ptr %69, align 4
   %158 = icmp eq i32 %157, 0
@@ -415,7 +415,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   %160 = trunc i64 %.fr to i32
   %161 = or i32 %159, %160
   store i32 %161, ptr %68, align 8
-  %162 = getelementptr [15 x %struct.anon.36], ptr %64, i64 0, i64 %122
+  %162 = getelementptr %struct.anon.36, ptr %64, i64 %122
   %163 = load i64, ptr %162, align 8
   %164 = load i32, ptr %69, align 4
   %165 = icmp eq i32 %164, 0
@@ -568,7 +568,7 @@ define dso_local void @intel_hpd_init(ptr noundef %0) local_unnamed_addr #1 alig
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 1, %5 ], [ %12, %7 ]
-  %9 = getelementptr [15 x %struct.anon.36], ptr %6, i64 0, i64 %8
+  %9 = getelementptr %struct.anon.36, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -1762,7 +1762,7 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_storm_ctl_write(ptr nou
   br i1 %14, label %15, label %57
 
 15:                                               ; preds = %12
-  %16 = getelementptr [16 x i8], ptr %6, i64 0, i64 %2
+  %16 = getelementptr i8, ptr %6, i64 %2
   store i8 0, ptr %16, align 1
   %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 10) #8
   %18 = icmp eq ptr %17, null
@@ -1929,7 +1929,7 @@ define internal noundef range(i64 -22, 16) i64 @i915_hpd_short_storm_ctl_write(p
   br i1 %14, label %15, label %56
 
 15:                                               ; preds = %12
-  %16 = getelementptr [16 x i8], ptr %5, i64 0, i64 %2
+  %16 = getelementptr i8, ptr %5, i64 %2
   store i8 0, ptr %16, align 1
   %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #8
   %18 = icmp eq ptr %17, null

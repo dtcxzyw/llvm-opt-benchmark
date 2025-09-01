@@ -298,7 +298,7 @@ define internal fastcc range(i32 0, 2) i32 @pci_mmcfg_check_hostbridge() unnamed
 
 5:                                                ; preds = %.thread, %4
   %6 = phi i64 [ 0, %4 ], [ %31, %.thread ]
-  %7 = getelementptr [5 x %struct.pci_mmcfg_hostbridge_probe], ptr @pci_mmcfg_probes, i64 0, i64 %6
+  %7 = getelementptr %struct.pci_mmcfg_hostbridge_probe, ptr @pci_mmcfg_probes, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
@@ -1335,14 +1335,14 @@ define internal ptr @pci_mmcfg_nvidia_mcp55() #0 section ".init.text" align 16 {
   %26 = lshr i32 %23, 28
   %27 = and i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [4 x i32], ptr @pci_mmcfg_nvidia_mcp55.extcfg_base_mask, i64 0, i64 %28
+  %29 = getelementptr i32, ptr @pci_mmcfg_nvidia_mcp55.extcfg_base_mask, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, %23
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 25
   %34 = lshr i32 %23, 16
   %35 = and i32 %34, 255
-  %36 = getelementptr [4 x i32], ptr @pci_mmcfg_nvidia_mcp55.extcfg_sizebus, i64 0, i64 %28
+  %36 = getelementptr i32, ptr @pci_mmcfg_nvidia_mcp55.extcfg_sizebus, i64 %28
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %35, -1
   %39 = add i32 %38, %37

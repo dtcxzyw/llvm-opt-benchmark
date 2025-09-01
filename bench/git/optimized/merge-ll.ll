@@ -271,7 +271,7 @@ initialize_ll_merge.exit.i:                       ; preds = %77, %75
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %91
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %91 ], [ 0, %.preheader.i.preheader ]
-  %92 = getelementptr inbounds nuw [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw %struct.ll_merge_driver, ptr @ll_merge_drv, i64 %indvars.iv.i
   %93 = load ptr, ptr %92, align 16, !tbaa !34
   %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %.014.i) #17
   %.not21.i = icmp eq i32 %94, 0
@@ -337,7 +337,7 @@ initialize_ll_merge.exit.i54:                     ; preds = %102, %100
 
 .preheader.i63:                                   ; preds = %.preheader.i63.preheader, %112
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i66, %112 ], [ 0, %.preheader.i63.preheader ]
-  %113 = getelementptr inbounds nuw [3 x %struct.ll_merge_driver], ptr @ll_merge_drv, i64 0, i64 %indvars.iv.i64
+  %113 = getelementptr inbounds nuw %struct.ll_merge_driver, ptr @ll_merge_drv, i64 %indvars.iv.i64
   %114 = load ptr, ptr %113, align 16, !tbaa !34
   %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %99) #17
   %.not21.i65 = icmp eq i32 %115, 0
@@ -958,7 +958,7 @@ strbuf_addch.exit88:                              ; preds = %strbuf_avail.exit.i
 
 156:                                              ; preds = %.preheader, %156
   %indvars.iv = phi i64 [ %indvars.iv.next, %156 ], [ 0, %.preheader ]
-  %157 = getelementptr inbounds nuw [3 x [50 x i8]], ptr %12, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [50 x i8], ptr %12, i64 %indvars.iv
   %158 = call i32 @unlink_or_warn(ptr noundef nonnull %157) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next, 3

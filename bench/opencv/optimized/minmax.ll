@@ -295,7 +295,7 @@ _ZNK2cv11_InputArray6getMatEi.exit160:            ; preds = %69, %72
 
 90:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit160, %86, %80, %83
   %91 = zext nneg i32 %27 to i64
-  %92 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !31
   %.not129 = icmp eq i32 %27, 7
   br i1 %.not129, label %94, label %107

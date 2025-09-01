@@ -103,7 +103,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %35, %37
   %39 = or disjoint i32 %38, -16777216
-  %40 = getelementptr inbounds nuw [256 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -123,7 +123,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %50 = or disjoint i32 %49, -16777216
   %51 = load i8, ptr %.2264287, align 1, !tbaa !39
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i32], ptr %26, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %26, i64 %52
   store i32 %50, ptr %53, align 4, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %.2264287, i64 4
   %55 = add nuw nsw i32 %.1103288, 1
@@ -388,7 +388,7 @@ cin_decode_rle.exit130:                           ; preds = %._crit_edge.i118
 
 195:                                              ; preds = %184
   %196 = zext nneg i32 %188 to i64
-  %197 = getelementptr inbounds nuw [15 x i8], ptr %7, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !39
   br label %199
 
@@ -405,7 +405,7 @@ cin_decode_rle.exit130:                           ; preds = %._crit_edge.i118
   %201 = and i32 %.029.i, 15
   %202 = icmp eq i32 %201, 15
   %203 = zext nneg i32 %201 to i64
-  %204 = getelementptr inbounds nuw [15 x i8], ptr %7, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 %203
   %storemerge36.in.i = select i1 %202, ptr %.1.i135, ptr %204
   %.2.idx.i = zext i1 %202 to i64
   %.2.i = getelementptr inbounds nuw i8, ptr %.1.i135, i64 %.2.idx.i
@@ -545,7 +545,7 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
 
 282:                                              ; preds = %271
   %283 = zext nneg i32 %275 to i64
-  %284 = getelementptr inbounds nuw [15 x i8], ptr %6, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr %6, i64 %283
   %285 = load i8, ptr %284, align 1, !tbaa !39
   br label %286
 
@@ -562,7 +562,7 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
   %288 = and i32 %.029.i156, 15
   %289 = icmp eq i32 %288, 15
   %290 = zext nneg i32 %288 to i64
-  %291 = getelementptr inbounds nuw [15 x i8], ptr %6, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %6, i64 %290
   %storemerge36.in.i160 = select i1 %289, ptr %.1.i157, ptr %291
   %.2.idx.i161 = zext i1 %289 to i64
   %.2.i162 = getelementptr inbounds nuw i8, ptr %.1.i157, i64 %.2.idx.i161
@@ -726,7 +726,7 @@ cin_decode_rle.exit181:                           ; preds = %._crit_edge.i169
 
 378:                                              ; preds = %367
   %379 = zext nneg i32 %371 to i64
-  %380 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %5, i64 %379
   %381 = load i8, ptr %380, align 1, !tbaa !39
   br label %382
 
@@ -743,7 +743,7 @@ cin_decode_rle.exit181:                           ; preds = %._crit_edge.i169
   %384 = and i32 %.029.i194, 15
   %385 = icmp eq i32 %384, 15
   %386 = zext nneg i32 %384 to i64
-  %387 = getelementptr inbounds nuw [15 x i8], ptr %5, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr %5, i64 %386
   %storemerge36.in.i198 = select i1 %385, ptr %.1.i195, ptr %387
   %.2.idx.i199 = zext i1 %385 to i64
   %.2.i200 = getelementptr inbounds nuw i8, ptr %.1.i195, i64 %.2.idx.i199
@@ -1109,7 +1109,7 @@ define internal noundef i32 @cinvideo_decode_end(ptr noundef readonly captures(n
 
 6:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef nonnull %7) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1137,7 +1137,7 @@ define internal fastcc range(i32 -12, 1) i32 @allocate_buffers(ptr noundef captu
   %6 = load i32, ptr %2, align 8, !tbaa !35
   %7 = zext i32 %6 to i64
   %8 = tail call noalias ptr @av_mallocz(i64 noundef %7) #7
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !44
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %4

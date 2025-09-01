@@ -398,7 +398,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   %49 = load i64, ptr %45, align 8, !tbaa !56
   %50 = mul nsw i64 %indvars.iv, %47
   %51 = add nsw i64 %49, %50
-  %52 = getelementptr inbounds nuw [30 x i64], ptr %46, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
   store i64 %51, ptr %52, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
@@ -681,7 +681,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %70 = fdiv nsz double %square.i, -2.450000e+01
   %71 = tail call nsz double @llvm.exp.f64(double %70)
   %72 = fmul nsz double %71, 0x3FBD2E05F2171982
-  %73 = getelementptr inbounds nuw [21 x double], ptr %65, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv.i
   store double %72, ptr %73, align 8, !tbaa !40
   %74 = fadd nsz double %.018.i, %72
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -694,7 +694,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 77:                                               ; preds = %77, %75
   %indvars.iv21.i = phi i64 [ 0, %75 ], [ %indvars.iv.next22.i, %77 ]
-  %78 = getelementptr inbounds nuw [21 x double], ptr %65, i64 0, i64 %indvars.iv21.i
+  %78 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv21.i
   %79 = load double, ptr %78, align 8, !tbaa !40
   %80 = fmul nsz double %76, %79
   store double %80, ptr %78, align 8, !tbaa !40
@@ -1066,7 +1066,7 @@ thread-pre-split.thread577:                       ; preds = %.lr.ph, %54
 
 144:                                              ; preds = %140, %144
   %indvars.iv530 = phi i64 [ 0, %140 ], [ %indvars.iv.next531, %144 ]
-  %145 = getelementptr inbounds nuw [30 x double], ptr %143, i64 0, i64 %indvars.iv530
+  %145 = getelementptr inbounds nuw double, ptr %143, i64 %indvars.iv530
   store double %142, ptr %145, align 8, !tbaa !40
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next531, 30
@@ -1076,7 +1076,7 @@ thread-pre-split.thread577:                       ; preds = %.lr.ph, %54
   %147 = getelementptr inbounds nuw i8, ptr %13, i64 528
   %148 = load i32, ptr %147, align 8, !tbaa !83
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [30 x double], ptr %143, i64 0, i64 %149
+  %150 = getelementptr inbounds double, ptr %143, i64 %149
   %151 = load double, ptr %150, align 8, !tbaa !40
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 520
   store double %151, ptr %152, align 8, !tbaa !94
@@ -1185,9 +1185,9 @@ thread-pre-split.thread577:                       ; preds = %.lr.ph, %54
   %202 = trunc nsw i64 %200 to i32
   %203 = select i1 %201, i32 %202, i32 %.reass.i
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds [30 x double], ptr %196, i64 0, i64 %204
+  %205 = getelementptr inbounds double, ptr %196, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !40
-  %207 = getelementptr inbounds nuw [21 x double], ptr %197, i64 0, i64 %indvars.iv.i
+  %207 = getelementptr inbounds nuw double, ptr %197, i64 %indvars.iv.i
   %208 = load double, ptr %207, align 8, !tbaa !40
   %209 = tail call nsz double @llvm.fmuladd.f64(double %206, double %208, double %.01517.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1215,9 +1215,9 @@ gaussian_filter.exit:                             ; preds = %199
   %218 = trunc nsw i64 %216 to i32
   %219 = select i1 %217, i32 %218, i32 %.reass.i361
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [30 x double], ptr %196, i64 0, i64 %220
+  %221 = getelementptr inbounds double, ptr %196, i64 %220
   %222 = load double, ptr %221, align 8, !tbaa !40
-  %223 = getelementptr inbounds nuw [21 x double], ptr %197, i64 0, i64 %indvars.iv.i358
+  %223 = getelementptr inbounds nuw double, ptr %197, i64 %indvars.iv.i358
   %224 = load double, ptr %223, align 8, !tbaa !40
   %225 = tail call nsz double @llvm.fmuladd.f64(double %222, double %224, double %.01517.i359)
   %indvars.iv.next.i362 = add nuw nsw i64 %indvars.iv.i358, 1
@@ -1439,7 +1439,7 @@ gaussian_filter.exit364._crit_edge:               ; preds = %._crit_edge445
   %.sink = phi double [ %351, %344 ], [ %331, %329 ]
   %353 = load i32, ptr %190, align 8, !tbaa !83
   %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds [30 x double], ptr %196, i64 0, i64 %354
+  %355 = getelementptr inbounds double, ptr %196, i64 %354
   store double %.sink, ptr %355, align 8, !tbaa !40
   %356 = getelementptr inbounds nuw i8, ptr %13, i64 520
   store double %.sink, ptr %356, align 8, !tbaa !94
@@ -1479,9 +1479,9 @@ gaussian_filter.exit364._crit_edge:               ; preds = %._crit_edge445
   %375 = trunc nsw i64 %373 to i32
   %376 = select i1 %374, i32 %375, i32 %.reass.i370
   %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds [30 x double], ptr %369, i64 0, i64 %377
+  %378 = getelementptr inbounds double, ptr %369, i64 %377
   %379 = load double, ptr %378, align 8, !tbaa !40
-  %380 = getelementptr inbounds nuw [21 x double], ptr %370, i64 0, i64 %indvars.iv.i367
+  %380 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv.i367
   %381 = load double, ptr %380, align 8, !tbaa !40
   %382 = tail call nsz double @llvm.fmuladd.f64(double %379, double %381, double %.01517.i368)
   %indvars.iv.next.i371 = add nuw nsw i64 %indvars.iv.i367, 1

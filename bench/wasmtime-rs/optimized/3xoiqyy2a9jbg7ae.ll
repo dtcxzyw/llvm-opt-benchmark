@@ -158,7 +158,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN13wasmtime_slab13Slab$LT$T$GT$10a
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !14, !noalias !17, !nonnull !7, !noundef !7
-  %48 = getelementptr inbounds nuw [0 x { ptr, [1 x i64] }], ptr %47, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %47, i64 %43
   %49 = load ptr, ptr %48, align 8, !noalias !27, !noundef !7
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread, label %.invoke.i

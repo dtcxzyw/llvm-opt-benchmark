@@ -6299,7 +6299,7 @@ _ZN3ue2L13initWorkQueueERSt5queueISt4pairINS_12graph_detail17vertex_descriptorIN
 
 97:                                               ; preds = %95, %92
   %.0813.i.i.i.i = phi i64 [ 0, %92 ], [ %96, %95 ]
-  %98 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %.0813.i.i.i.i
+  %98 = getelementptr inbounds nuw i64, ptr %94, i64 %.0813.i.i.i.i
   %99 = load i64, ptr %98, align 8
   %.not.i.i.i.i = icmp eq i64 %99, -1
   br i1 %.not.i.i.i.i, label %95, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader
@@ -6315,7 +6315,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader: ; preds = %97, %_ZNK3ue29Cha
 
 _ZNK3ue29CharReach3allEv.exit.thread.i.i:         ; preds = %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader, %105
   %.0710.i.i.i.i = phi i64 [ %106, %105 ], [ 0, %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader ]
-  %103 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %.0710.i.i.i.i
+  %103 = getelementptr inbounds nuw i64, ptr %94, i64 %.0710.i.i.i.i
   %104 = load i64, ptr %103, align 8
   %.not.i.i13.i.i = icmp eq i64 %104, 0
   br i1 %.not.i.i13.i.i, label %105, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i
@@ -6343,7 +6343,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
 113:                                              ; preds = %.lr.ph.i.i
   %114 = lshr i64 %.022.i.i, 6
   %115 = and i64 %114, 3
-  %116 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %94, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %.022.i.i, 31
   %119 = shl nuw i64 4294967296, %118
@@ -6370,7 +6370,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
   br label %134
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %125
+  %128 = getelementptr inbounds nuw i64, ptr %94, i64 %125
   %129 = load i64, ptr %128, align 8
   %130 = shl nsw i64 -2, %126
   %131 = and i64 %129, %130
@@ -6388,7 +6388,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
 
 136:                                              ; preds = %134
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %137 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %.0.i.i.i.i
+  %137 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i.i.i
   %138 = load i64, ptr %137, align 8
   %.not22.i.i.i.i = icmp eq i64 %138, 0
   br i1 %.not22.i.i.i.i, label %134, label %139, !llvm.loop !201
@@ -6545,7 +6545,7 @@ _ZNK3ue29CharReach9find_nextEm.exit.i.i:          ; preds = %139, %132
 
 .preheader.i:                                     ; preds = %209, %215
   %.0710.i.i.i = phi i64 [ %216, %215 ], [ 0, %209 ]
-  %213 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %.0710.i.i.i
+  %213 = getelementptr inbounds nuw i64, ptr %94, i64 %.0710.i.i.i
   %214 = load i64, ptr %213, align 8
   %.not.i.i.i = icmp eq i64 %214, 0
   br i1 %.not.i.i.i, label %215, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -6576,7 +6576,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
 225:                                              ; preds = %221
   %226 = lshr i64 %.08142.i, 6
   %227 = and i64 %226, 3
-  %228 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i64, ptr %94, i64 %227
   %229 = load i64, ptr %228, align 8
   %230 = and i64 %.08142.i, 31
   %231 = shl nuw i64 4294967296, %230
@@ -6593,7 +6593,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
   %237 = add i64 %.08142.i, 224
   %238 = lshr i64 %237, 6
   %239 = and i64 %238, 3
-  %240 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i64, ptr %94, i64 %239
   %241 = load i64, ptr %240, align 8
   %242 = and i64 %237, 63
   %243 = lshr i64 %241, %242
@@ -6719,7 +6719,7 @@ _ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_
   br label %287
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %278
+  %281 = getelementptr inbounds nuw i64, ptr %94, i64 %278
   %282 = load i64, ptr %281, align 8
   %283 = shl nsw i64 -2, %279
   %284 = and i64 %282, %283
@@ -6737,7 +6737,7 @@ _ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_
 
 289:                                              ; preds = %287
   %.0.i.i133.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %290 = getelementptr inbounds nuw [4 x i64], ptr %94, i64 0, i64 %.0.i.i133.i
+  %290 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i133.i
   %291 = load i64, ptr %290, align 8
   %.not22.i.i.i = icmp eq i64 %291, 0
   br i1 %.not22.i.i.i, label %287, label %292, !llvm.loop !201
@@ -7942,7 +7942,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 .preheader:                                       ; preds = %103, %114
   %.0710.i.i = phi i64 [ %115, %114 ], [ 0, %103 ]
-  %105 = getelementptr inbounds nuw [4 x i64], ptr %65, i64 0, i64 %.0710.i.i
+  %105 = getelementptr inbounds nuw i64, ptr %65, i64 %.0710.i.i
   %106 = load i64, ptr %105, align 8
   %.not.i.i93 = icmp eq i64 %106, 0
   br i1 %.not.i.i93, label %114, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -8059,7 +8059,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
 
 _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106: ; preds = %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106.preheader, %161
   %.0710.i.i107 = phi i64 [ %162, %161 ], [ 0, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106.preheader ]
-  %154 = getelementptr inbounds nuw [4 x i64], ptr %65, i64 0, i64 %.0710.i.i107
+  %154 = getelementptr inbounds nuw i64, ptr %65, i64 %.0710.i.i107
   %155 = load i64, ptr %154, align 8
   %.not.i.i108 = icmp eq i64 %155, 0
   br i1 %.not.i.i108, label %161, label %156
@@ -9533,7 +9533,7 @@ define internal fastcc void @_ZN3ue2L10addToQueueERSt5queueISt4pairINS_12graph_d
 
 7:                                                ; preds = %10, %5
   %.0710.i.i = phi i64 [ 0, %5 ], [ %11, %10 ]
-  %8 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0710.i.i
+  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i.i
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i, label %10, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -9577,7 +9577,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %7
 30:                                               ; preds = %26
   %31 = lshr i64 %.035, 6
   %32 = and i64 %31, 3
-  %33 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %3, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %.035, 31
   %36 = shl nuw i64 4294967296, %35
@@ -9594,7 +9594,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %7
   %42 = add i64 %.035, 224
   %43 = lshr i64 %42, 6
   %44 = and i64 %43, 3
-  %45 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %42, 63
   %48 = lshr i64 %46, %47
@@ -9851,7 +9851,7 @@ _ZNSt5queueISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12
   br label %173
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %164
+  %167 = getelementptr inbounds nuw i64, ptr %3, i64 %164
   %168 = load i64, ptr %167, align 8
   %169 = shl nsw i64 -2, %165
   %170 = and i64 %168, %169
@@ -9869,7 +9869,7 @@ _ZNSt5queueISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12
 
 175:                                              ; preds = %173
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %176 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0.i.i
+  %176 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i.i
   %177 = load i64, ptr %176, align 8
   %.not22.i.i = icmp eq i64 %177, 0
   br i1 %.not22.i.i, label %173, label %178, !llvm.loop !201

@@ -255,13 +255,13 @@ define void @ff_snow_reset_contexts(ptr noundef writeonly captures(none) %0) loc
 6:                                                ; preds = %.preheader, %11
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %11 ]
   %.not = icmp ne i64 %indvars.iv19, 0
-  %7 = getelementptr inbounds nuw [8 x [4 x %struct.SubBand]], ptr %5, i64 0, i64 %indvars.iv19
+  %7 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %5, i64 %indvars.iv19
   %8 = zext i1 %.not to i64
   br label %9
 
 9:                                                ; preds = %6, %9
   %indvars.iv = phi i64 [ %8, %6 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %7, i64 0, i64 %indvars.iv, i32 12
+  %10 = getelementptr inbounds nuw %struct.SubBand, ptr %7, i64 %indvars.iv, i32 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16608) %10, i8 -128, i64 16608, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -334,7 +334,7 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %18 = sext i32 %9 to i64
-  %19 = getelementptr inbounds [3 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !16
   %21 = zext i8 %20 to i32
   %22 = mul nuw i32 %21, 16843009
@@ -458,10 +458,10 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %51 = load i8, ptr %50, align 2, !tbaa !65
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [8 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !66
   %55 = sext i32 %9 to i64
-  %56 = getelementptr inbounds [8 x ptr], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !14
   %.not242 = icmp eq i32 %9, 0
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 6640
@@ -561,7 +561,7 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
 
 121:                                              ; preds = %106, %117, %112, %103
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 6680
-  %123 = getelementptr inbounds [4 x %struct.Plane], ptr %122, i64 0, i64 %55
+  %123 = getelementptr inbounds %struct.Plane, ptr %122, i64 %55
   %124 = trunc i64 %3 to i32
   tail call fastcc void @mc_block(ptr noundef nonnull %123, ptr noundef %1, ptr noundef %.0237, i32 noundef %124, i32 noundef %6, i32 noundef %7, i32 noundef %74, i32 noundef %75)
   br label %.loopexit
@@ -579,7 +579,7 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   %129 = lshr exact i32 %74, 2
   %130 = or disjoint i32 %75, %129
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [16 x ptr], ptr %128, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr %128, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %.0237, i64 19
@@ -609,11 +609,11 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
 
 150:                                              ; preds = %148
   %151 = sext i32 %78 to i64
-  %152 = getelementptr inbounds [4 x [16 x ptr]], ptr %149, i64 0, i64 %151
+  %152 = getelementptr inbounds [16 x ptr], ptr %149, i64 %151
   %153 = lshr exact i32 %74, 2
   %154 = or disjoint i32 %75, %153
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [16 x ptr], ptr %152, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !74
   %158 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
   %159 = mul nsw i64 %3, 3
@@ -625,13 +625,13 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
   br i1 %111, label %162, label %179
 
 162:                                              ; preds = %161
-  %163 = add nsw i32 %reass.sub, 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [4 x [16 x ptr]], ptr %149, i64 0, i64 %164
+  %163 = sext i32 %reass.sub to i64
+  %164 = getelementptr [16 x ptr], ptr %149, i64 %163
+  %165 = getelementptr i8, ptr %164, i64 512
   %166 = lshr exact i32 %74, 2
   %167 = or disjoint i32 %75, %166
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw [16 x ptr], ptr %165, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %165, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !74
   %171 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
   %172 = mul nsw i64 %3, 3
@@ -647,11 +647,11 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
 
 179:                                              ; preds = %161
   %180 = sext i32 %78 to i64
-  %181 = getelementptr inbounds [4 x [16 x ptr]], ptr %149, i64 0, i64 %180
+  %181 = getelementptr inbounds [16 x ptr], ptr %149, i64 %180
   %182 = lshr exact i32 %74, 2
   %183 = or disjoint i32 %75, %182
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds nuw [16 x ptr], ptr %181, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw ptr, ptr %181, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !74
   %187 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
   %188 = mul nsw i64 %3, 3
@@ -680,16 +680,16 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %12 = shl nuw nsw i32 %7, 4
   %13 = or disjoint i32 %12, %6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @mc_block.brane, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @mc_block.brane, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %17 = zext i8 %16 to i32
   %18 = and i32 %17, 15
   %19 = lshr i32 %17, 4
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [16 x i8], ptr @mc_block.needs, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @mc_block.needs, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !16
   %23 = zext nneg i32 %18 to i64
-  %24 = getelementptr inbounds nuw [16 x i8], ptr @mc_block.needs, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @mc_block.needs, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = or i8 %25, %22
   %.not = icmp eq ptr %0, null
@@ -1468,13 +1468,13 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %469 = zext nneg i32 %448 to i64
-  %470 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw ptr, ptr %11, i64 %469
   %471 = load ptr, ptr %470, align 8, !tbaa !14
-  %472 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %458
+  %472 = getelementptr inbounds nuw ptr, ptr %11, i64 %458
   %473 = load ptr, ptr %472, align 8, !tbaa !14
-  %474 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %454
+  %474 = getelementptr inbounds nuw ptr, ptr %11, i64 %454
   %475 = load ptr, ptr %474, align 8, !tbaa !14
-  %476 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %450
+  %476 = getelementptr inbounds nuw ptr, ptr %11, i64 %450
   %477 = load ptr, ptr %476, align 8, !tbaa !14
   %wide.trip.count522 = zext nneg i32 %4 to i64
   br label %.preheader.us
@@ -1534,7 +1534,7 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %505 = and i32 %504, 56
   %506 = or disjoint i32 %505, %503
   %507 = zext nneg i32 %506 to i64
-  %508 = getelementptr inbounds nuw [64 x i8], ptr @mc_block.weight, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i8, ptr @mc_block.weight, i64 %507
   %509 = load i8, ptr %508, align 1, !tbaa !16
   %510 = zext i8 %509 to i32
   %511 = sub nsw i32 8, %510
@@ -1553,9 +1553,9 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   br i1 %516, label %.preheader326.us.preheader, label %.loopexit
 
 .preheader326.us.preheader:                       ; preds = %.preheader326.lr.ph
-  %519 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %20
+  %519 = getelementptr inbounds nuw ptr, ptr %11, i64 %20
   %520 = load ptr, ptr %519, align 8, !tbaa !14
-  %521 = getelementptr inbounds nuw [11 x ptr], ptr %11, i64 0, i64 %23
+  %521 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %522 = load ptr, ptr %521, align 8, !tbaa !14
   %wide.trip.count516 = zext nneg i32 %4 to i64
   br label %.preheader326.us
@@ -1711,7 +1711,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
 57:                                               ; preds = %.preheader, %56
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %56 ]
   %58 = tail call ptr @av_frame_alloc() #10
-  %59 = getelementptr inbounds nuw [8 x ptr], ptr %55, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   store ptr %58, ptr %59, align 8, !tbaa !66
   %.not56 = icmp eq ptr %58, null
   br i1 %.not56, label %.loopexit, label %56
@@ -1834,7 +1834,7 @@ define internal void @snow_static_init() #7 {
 
 .preheader:                                       ; preds = %0, %5
   %indvars.iv12 = phi i64 [ 0, %0 ], [ %indvars.iv.next13, %5 ]
-  %1 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @ff_scale_mv_ref, i64 0, i64 %indvars.iv12
+  %1 = getelementptr inbounds nuw [8 x i32], ptr @ff_scale_mv_ref, i64 %indvars.iv12
   %indvars.iv12.tr = trunc i64 %indvars.iv12 to i32
   %2 = shl i32 %indvars.iv12.tr, 8
   %3 = add i32 %2, 256
@@ -1853,7 +1853,7 @@ define internal void @snow_static_init() #7 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = trunc nuw nsw i64 %indvars.iv.next to i32
   %8 = udiv i32 %3, %7
-  %9 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !60
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %5, label %6, !llvm.loop !99
@@ -1935,7 +1935,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
 49:                                               ; preds = %40, %33
   %.0101 = phi i32 [ %37, %33 ], [ %44, %40 ]
   %.099 = phi i32 [ %39, %33 ], [ %48, %40 ]
-  %50 = getelementptr inbounds nuw [4 x %struct.Plane], ptr %29, i64 0, i64 %indvars.iv134
+  %50 = getelementptr inbounds nuw %struct.Plane, ptr %29, i64 %indvars.iv134
   store i32 %.0101, ptr %50, align 8, !tbaa !104
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %.099, ptr %51, align 4, !tbaa !105
@@ -1954,12 +1954,12 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
   %.1102124 = phi i32 [ %.0101, %.lr.ph ], [ %59, %120 ]
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, -1
   %.not115 = icmp ne i64 %indvars.iv.next132, 0
-  %57 = getelementptr inbounds nuw [8 x [4 x %struct.SubBand]], ptr %54, i64 0, i64 %indvars.iv.next132
+  %57 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %54, i64 %indvars.iv.next132
   %58 = add nsw i32 %.1102124, 1
   %59 = ashr i32 %58, 1
   %60 = sext i32 %59 to i64
-  %61 = add nsw i64 %indvars.iv131, -2
-  %62 = getelementptr inbounds nuw [8 x [4 x %struct.SubBand]], ptr %54, i64 0, i64 %61
+  %61 = getelementptr [4 x %struct.SubBand], ptr %54, i64 %indvars.iv131
+  %62 = getelementptr i8, ptr %61, i64 -133440
   %63 = zext i1 %.not115 to i64
   %64 = trunc nuw nsw i64 %indvars.iv.next132 to i32
   br label %66
@@ -1971,7 +1971,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
 
 66:                                               ; preds = %56, %65
   %indvars.iv = phi i64 [ %63, %56 ], [ %indvars.iv.next, %65 ]
-  %67 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %57, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.SubBand, ptr %57, i64 %indvars.iv
   %68 = load ptr, ptr %31, align 8, !tbaa !91
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %68, ptr %69, align 8, !tbaa !107
@@ -2037,7 +2037,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
   br i1 %.not115, label %108, label %111
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %62, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct.SubBand, ptr %62, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %109, ptr %110, align 8, !tbaa !119
   br label %111
@@ -2087,7 +2087,7 @@ define range(i32 -1094995529, 1) i32 @ff_snow_frames_prepare(ptr noundef capture
   %4 = load i32, ptr %3, align 4, !tbaa !88
   %5 = add nsw i32 %4, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %2, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !66
   %9 = icmp sgt i32 %4, 1
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -2123,11 +2123,11 @@ define range(i32 -1094995529, 1) i32 @ff_snow_frames_prepare(ptr noundef capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %18 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %19 = getelementptr i8, ptr %18, i64 -8
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  store ptr %20, ptr %18, align 8, !tbaa !66
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.next
-  %19 = load ptr, ptr %18, align 8, !tbaa !66
-  %20 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  store ptr %19, ptr %20, align 8, !tbaa !66
   %21 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
@@ -2139,73 +2139,72 @@ define range(i32 -1094995529, 1) i32 @ff_snow_frames_prepare(ptr noundef capture
   %26 = load i32, ptr %25, align 4, !tbaa !126
   %27 = or i32 %26, 2
   store i32 %27, ptr %25, align 4, !tbaa !126
-  br label %55
+  br label %54
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %39
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next53, %39 ]
-  %28 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv52
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %38
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next54, %38 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv53
   %29 = load ptr, ptr %28, align 8, !tbaa !66
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %.not34 = icmp eq ptr %30, null
   br i1 %.not34, label %.critedge.split.loop.exit, label %31
 
 31:                                               ; preds = %.lr.ph47
-  %.not35 = icmp eq i64 %indvars.iv52, 0
-  br i1 %.not35, label %39, label %32
+  %.not35 = icmp eq i64 %indvars.iv53, 0
+  br i1 %.not35, label %38, label %32
 
 32:                                               ; preds = %31
-  %33 = add nsw i64 %indvars.iv52, -1
-  %34 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %33
-  %35 = load ptr, ptr %34, align 8, !tbaa !66
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 276
-  %37 = load i32, ptr %36, align 4, !tbaa !126
-  %38 = and i32 %37, 2
-  %.not36 = icmp eq i32 %38, 0
-  br i1 %.not36, label %39, label %48
+  %33 = getelementptr i8, ptr %28, i64 -8
+  %34 = load ptr, ptr %33, align 8, !tbaa !66
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 276
+  %36 = load i32, ptr %35, align 4, !tbaa !126
+  %37 = and i32 %36, 2
+  %.not36 = icmp eq i32 %37, 0
+  br i1 %.not36, label %38, label %47
 
-39:                                               ; preds = %31, %32
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+38:                                               ; preds = %31, %32
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph47, !llvm.loop !131
 
 .critedge.split.loop.exit:                        ; preds = %.lr.ph47
-  %40 = trunc nuw nsw i64 %indvars.iv52 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %.critedge.split.loop.exit
-  %.031.lcssa = phi i32 [ %40, %.critedge.split.loop.exit ], [ %15, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 6440
-  store i32 %.031.lcssa, ptr %41, align 8, !tbaa !124
+.critedge:                                        ; preds = %38, %.critedge.split.loop.exit
+  %.031.lcssa = phi i32 [ %39, %.critedge.split.loop.exit ], [ %15, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 6440
+  store i32 %.031.lcssa, ptr %40, align 8, !tbaa !124
   %.not37 = icmp eq i32 %.031.lcssa, 0
   br i1 %.not37, label %.thread, label %.thread42
 
 .thread42:                                        ; preds = %.critedge
-  %42 = load ptr, ptr %11, align 8, !tbaa !97
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 276
-  %44 = load i32, ptr %43, align 4, !tbaa !126
-  %45 = and i32 %44, -3
-  store i32 %45, ptr %43, align 4, !tbaa !126
-  br label %55
+  %41 = load ptr, ptr %11, align 8, !tbaa !97
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 276
+  %43 = load i32, ptr %42, align 4, !tbaa !126
+  %44 = and i32 %43, -3
+  store i32 %44, ptr %42, align 4, !tbaa !126
+  br label %54
 
 .thread:                                          ; preds = %.critedge.thread, %.critedge
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %47, i32 noundef 16, ptr noundef nonnull @.str) #10
-  br label %55
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %46, i32 noundef 16, ptr noundef nonnull @.str) #10
+  br label %54
 
-48:                                               ; preds = %32
-  %49 = trunc nuw nsw i64 %indvars.iv52 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 6440
-  store i32 %49, ptr %50, align 8, !tbaa !124
-  %51 = load ptr, ptr %11, align 8, !tbaa !97
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 276
-  %53 = load i32, ptr %52, align 4, !tbaa !126
-  %54 = and i32 %53, -3
-  store i32 %54, ptr %52, align 4, !tbaa !126
-  br label %55
+47:                                               ; preds = %32
+  %48 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 6440
+  store i32 %48, ptr %49, align 8, !tbaa !124
+  %50 = load ptr, ptr %11, align 8, !tbaa !97
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 276
+  %52 = load i32, ptr %51, align 4, !tbaa !126
+  %53 = and i32 %52, -3
+  store i32 %53, ptr %51, align 4, !tbaa !126
+  br label %54
 
-55:                                               ; preds = %22, %.thread42, %48, %.thread
-  %.1 = phi i32 [ -1094995529, %.thread ], [ 0, %48 ], [ 0, %.thread42 ], [ 0, %22 ]
+54:                                               ; preds = %22, %.thread42, %47, %.thread
+  %.1 = phi i32 [ -1094995529, %.thread ], [ 0, %47 ], [ 0, %.thread42 ], [ 0, %22 ]
   ret i32 %.1
 }
 
@@ -2240,7 +2239,7 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
 
 12:                                               ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2256,13 +2255,13 @@ define void @ff_snow_common_end(ptr noundef %0) local_unnamed_addr #5 {
 17:                                               ; preds = %.preheader, %22
   %indvars.iv39 = phi i64 [ 7, %.preheader ], [ %indvars.iv.next40, %22 ]
   %.not = icmp ne i64 %indvars.iv39, 0
-  %18 = getelementptr inbounds nuw [8 x [4 x %struct.SubBand]], ptr %16, i64 0, i64 %indvars.iv39
+  %18 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %16, i64 %indvars.iv39
   %19 = zext i1 %.not to i64
   br label %20
 
 20:                                               ; preds = %17, %20
   %indvars.iv35 = phi i64 [ %19, %17 ], [ %indvars.iv.next36, %20 ]
-  %21 = getelementptr inbounds nuw [4 x %struct.SubBand], ptr %18, i64 0, i64 %indvars.iv35, i32 10
+  %21 = getelementptr inbounds nuw %struct.SubBand, ptr %18, i64 %indvars.iv35, i32 10
   tail call void @av_freep(ptr noundef nonnull %21) #10
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 4

@@ -1797,7 +1797,7 @@ get_btle_context.exit:                            ; preds = %.thread.i, %49, %56
 
 switch.lookup:                                    ; preds = %76
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_btle, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_btle, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   %80 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %74, ptr noundef nonnull %switch.load)
   br label %81
@@ -2483,14 +2483,14 @@ dissect_btle_broadcast_iso.exit:                  ; preds = %402, %415, %425, %4
   %455 = lshr i32 %451, %453
   %456 = and i32 %455, 15
   %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr [16 x i8], ptr @reverse_bits_per_byte.nibble_rev, i64 0, i64 %457
+  %458 = getelementptr i8, ptr @reverse_bits_per_byte.nibble_rev, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i32
   %461 = shl i32 %460, %454
   %462 = lshr i32 %451, %454
   %463 = and i32 %462, 15
   %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr [16 x i8], ptr @reverse_bits_per_byte.nibble_rev, i64 0, i64 %464
+  %465 = getelementptr i8, ptr @reverse_bits_per_byte.nibble_rev, i64 %464
   %466 = load i8, ptr %465, align 1
   %467 = zext i8 %466 to i32
   %468 = shl nuw i32 %467, %453
@@ -2541,7 +2541,7 @@ reverse_bits_per_byte.exit.i:                     ; preds = %452
   %492 = or disjoint i8 %488, %491
   %493 = shl nuw nsw i32 %.01519.i.i, 4
   %494 = zext i8 %492 to i64
-  %495 = getelementptr [256 x i16], ptr @btle_crc.btle_crc_next_state_flips, i64 0, i64 %494
+  %495 = getelementptr i16, ptr @btle_crc.btle_crc_next_state_flips, i64 %494
   %496 = load i16, ptr %495, align 2
   %497 = zext i16 %496 to i32
   %.masked.i.i = and i32 %493, 1048560
@@ -2553,7 +2553,7 @@ reverse_bits_per_byte.exit.i:                     ; preds = %452
   %503 = or disjoint i8 %502, %499
   %504 = shl nuw nsw i32 %498, 4
   %505 = zext i8 %503 to i64
-  %506 = getelementptr [256 x i16], ptr @btle_crc.btle_crc_next_state_flips, i64 0, i64 %505
+  %506 = getelementptr i16, ptr @btle_crc.btle_crc_next_state_flips, i64 %505
   %507 = load i16, ptr %506, align 2
   %508 = zext i16 %507 to i32
   %509 = xor i32 %504, %508
@@ -4664,7 +4664,7 @@ control_proc_complete_if_instant_reached.exit1794: ; preds = %174, %170, %166, %
 180:                                              ; preds = %control_proc_complete_if_instant_reached.exit1794
   %181 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %179, i64 noundef 8) #12
   %182 = zext nneg i32 %.01594 to i64
-  %183 = getelementptr [3 x %struct._direction_info_t], ptr %121, i64 0, i64 %182
+  %183 = getelementptr %struct._direction_info_t, ptr %121, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 4
@@ -4736,7 +4736,7 @@ control_proc_complete_if_instant_reached.exit1794: ; preds = %174, %170, %166, %
   %233 = and i8 %232, -2
   %234 = or disjoint i8 %233, %.lobit
   store i8 %234, ptr %183, align 8
-  %235 = getelementptr [3 x %struct._direction_info_t], ptr %121, i64 0, i64 %.01595
+  %235 = getelementptr %struct._direction_info_t, ptr %121, i64 %.01595
   %236 = load i8, ptr %235, align 8
   %237 = xor i8 %236, %227
   %238 = load i8, ptr %181, align 4
@@ -4914,7 +4914,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 328:                                              ; preds = %322
   %329 = getelementptr inbounds nuw i8, ptr %.01593, i64 40
   %330 = zext nneg i32 %.01594 to i64
-  %331 = getelementptr [3 x %struct._direction_info_t], ptr %329, i64 0, i64 %330
+  %331 = getelementptr %struct._direction_info_t, ptr %329, i64 %330
   %332 = load i8, ptr %331, align 8
   %333 = and i8 %332, 2
   %.not1771 = icmp eq i8 %333, 0
@@ -5176,7 +5176,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 427:                                              ; preds = %421
   %428 = getelementptr inbounds nuw i8, ptr %.01593, i64 40
   %429 = zext nneg i32 %.01594 to i64
-  %430 = getelementptr [3 x %struct._direction_info_t], ptr %428, i64 0, i64 %429
+  %430 = getelementptr %struct._direction_info_t, ptr %428, i64 %429
   %431 = load i8, ptr %430, align 8
   %432 = or i8 %431, 2
   store i8 %432, ptr %430, align 8
@@ -5466,7 +5466,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 541:                                              ; preds = %538
   %542 = getelementptr i8, ptr %.01593, i64 80
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %544 = getelementptr ptr, ptr %16, i64 %.01595
   %545 = load ptr, ptr %544, align 8
   %546 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %543, ptr noundef %545, i8 noundef zeroext 0)
   %.not1763 = icmp eq ptr %546, null
@@ -5550,7 +5550,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 587:                                              ; preds = %578
   %588 = getelementptr i8, ptr %.01593, i64 80
   %589 = load ptr, ptr %588, align 8
-  %590 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %590 = getelementptr ptr, ptr %16, i64 %.01595
   %591 = load ptr, ptr %590, align 8
   %592 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %589, ptr noundef %591, i8 noundef zeroext 1)
   %.not1759 = icmp eq ptr %592, null
@@ -5627,7 +5627,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 629:                                              ; preds = %.cont2054.thread
   %630 = getelementptr i8, ptr %.01593, i64 80
   %631 = load ptr, ptr %630, align 8
-  %632 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %632 = getelementptr ptr, ptr %16, i64 %.01595
   %633 = load ptr, ptr %632, align 8
   %634 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %631, ptr noundef %633, i8 noundef zeroext 3)
   br label %proto_item_set_generated.exit1800
@@ -5796,7 +5796,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
   br i1 %or.cond9, label %703, label %proto_item_set_generated.exit1800
 
 703:                                              ; preds = %.cont2038
-  %704 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %704 = getelementptr ptr, ptr %16, i64 %.01595
   %705 = load ptr, ptr %704, align 8
   %.not1749 = icmp eq ptr %705, null
   br i1 %.not1749, label %control_proc_can_add_frame_even_if_complete.exit.thread, label %706
@@ -5807,14 +5807,14 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
   br i1 %708, label %control_proc_can_add_frame_even_if_complete.exit.thread, label %709
 
 709:                                              ; preds = %706
-  %710 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %711 = load ptr, ptr %710, align 8
-  %712 = getelementptr inbounds nuw i8, ptr %711, i64 57
-  %713 = load i16, ptr %712, align 1
-  %714 = and i16 %713, 8
-  %.not16.i = icmp eq i16 %714, 0
-  %715 = getelementptr i8, ptr %705, i64 4
-  %716 = load i32, ptr %715, align 4
+  %710 = getelementptr i8, ptr %705, i64 4
+  %711 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %712 = load ptr, ptr %711, align 8
+  %713 = getelementptr inbounds nuw i8, ptr %712, i64 57
+  %714 = load i16, ptr %713, align 1
+  %715 = and i16 %714, 8
+  %.not16.i = icmp eq i16 %715, 0
+  %716 = load i32, ptr %710, align 4
   br i1 %.not16.i, label %717, label %718
 
 717:                                              ; preds = %709
@@ -5829,7 +5829,7 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
 
 control_proc_can_add_frame_even_if_complete.exit: ; preds = %718, %717
   %721 = zext nneg i32 %.01594 to i64
-  %722 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %721
+  %722 = getelementptr ptr, ptr %16, i64 %721
   %723 = load ptr, ptr %722, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 7, i32 noundef %.01594, ptr noundef nonnull %705, ptr noundef %723, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -5861,7 +5861,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 729:                                              ; preds = %.cont2034.thread
   %730 = getelementptr i8, ptr %.01593, i64 80
   %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %732 = getelementptr ptr, ptr %16, i64 %.01595
   %733 = load ptr, ptr %732, align 8
   %734 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %731, ptr noundef %733, i8 noundef zeroext 8)
   br label %proto_item_set_generated.exit1800
@@ -5890,7 +5890,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond11, label %743, label %proto_item_set_generated.exit1800
 
 743:                                              ; preds = %.cont2030
-  %744 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %744 = getelementptr ptr, ptr %16, i64 %.01595
   %745 = load ptr, ptr %744, align 8
   %746 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %745, i8 noundef zeroext 8, i32 noundef 1)
   br i1 %746, label %749, label %747
@@ -5901,7 +5901,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 
 749:                                              ; preds = %747, %743
   %750 = zext nneg i32 %.01594 to i64
-  %751 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %750
+  %751 = getelementptr ptr, ptr %16, i64 %750
   %752 = load ptr, ptr %751, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 9, i32 noundef %.01594, ptr noundef %745, ptr noundef %752, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -5947,7 +5947,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 768:                                              ; preds = %.cont2026.thread
   %769 = getelementptr i8, ptr %.01593, i64 80
   %770 = load ptr, ptr %769, align 8
-  %771 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %771 = getelementptr ptr, ptr %16, i64 %.01595
   %772 = load ptr, ptr %771, align 8
   %773 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %770, ptr noundef %772, i8 noundef zeroext 10)
   br label %proto_item_set_generated.exit1800
@@ -6037,14 +6037,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond15, label %813, label %proto_item_set_generated.exit1800
 
 813:                                              ; preds = %.cont2018
-  %814 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %814 = getelementptr ptr, ptr %16, i64 %.01595
   %815 = load ptr, ptr %814, align 8
   %816 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %815, i8 noundef zeroext 12, i32 noundef 1)
   br i1 %816, label %817, label %821
 
 817:                                              ; preds = %813
   %818 = zext nneg i32 %.01594 to i64
-  %819 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %818
+  %819 = getelementptr ptr, ptr %16, i64 %818
   %820 = load ptr, ptr %819, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 12, i32 noundef %.01594, ptr noundef %815, ptr noundef %820, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6134,7 +6134,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 854:                                              ; preds = %.cont2010.thread
   %855 = getelementptr i8, ptr %.01593, i64 104
   %856 = load ptr, ptr %855, align 8
-  %857 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %857 = getelementptr ptr, ptr %16, i64 %.01595
   %858 = load ptr, ptr %857, align 8
   %859 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %856, ptr noundef %858, i8 noundef zeroext 14)
   br label %proto_item_set_generated.exit1800
@@ -6169,7 +6169,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %871 = getelementptr i8, ptr %869, i64 %870
   %872 = getelementptr i8, ptr %871, i64 16
   %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %874 = getelementptr ptr, ptr %16, i64 %.01595
   %875 = load ptr, ptr %874, align 8
   %876 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %873, ptr noundef %875, i8 noundef zeroext 15)
   br label %proto_item_set_generated.exit1800
@@ -6265,14 +6265,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br label %proto_item_set_generated.exit1800
 
 .critedge1784:                                    ; preds = %903, %912
-  %917 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %917 = getelementptr ptr, ptr %16, i64 %.01595
   %918 = load ptr, ptr %917, align 8
   %919 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %918, i8 noundef zeroext 15, i32 noundef 1)
   br i1 %919, label %920, label %924
 
 920:                                              ; preds = %.critedge1784
   %921 = zext nneg i32 %.01594 to i64
-  %922 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %921
+  %922 = getelementptr ptr, ptr %16, i64 %921
   %923 = load ptr, ptr %922, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 17, i32 noundef %.01594, ptr noundef %918, ptr noundef %923, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6283,7 +6283,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 
 926:                                              ; preds = %924
   %927 = zext nneg i32 %.01594 to i64
-  %928 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %927
+  %928 = getelementptr ptr, ptr %16, i64 %927
   %929 = load ptr, ptr %928, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 17, i32 noundef %.01594, ptr noundef %918, ptr noundef %929, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6294,7 +6294,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 
 932:                                              ; preds = %930
   %933 = zext nneg i32 %.01594 to i64
-  %934 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %933
+  %934 = getelementptr ptr, ptr %16, i64 %933
   %935 = load ptr, ptr %934, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 17, i32 noundef %.01594, ptr noundef %918, ptr noundef %935, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6327,7 +6327,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 
 950:                                              ; preds = %948
   %951 = zext nneg i32 %.01594 to i64
-  %952 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %951
+  %952 = getelementptr ptr, ptr %16, i64 %951
   %953 = load ptr, ptr %952, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 17, i32 noundef %.01594, ptr noundef %918, ptr noundef %953, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6372,7 +6372,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %970 = getelementptr i8, ptr %968, i64 %969
   %971 = getelementptr i8, ptr %970, i64 16
   %972 = load ptr, ptr %971, align 8
-  %973 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %973 = getelementptr ptr, ptr %16, i64 %.01595
   %974 = load ptr, ptr %973, align 8
   %975 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %972, ptr noundef %974, i8 noundef zeroext 18)
   br label %proto_item_set_generated.exit1800
@@ -6397,14 +6397,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond21, label %982, label %proto_item_set_generated.exit1800
 
 982:                                              ; preds = %.cont1990
-  %983 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %983 = getelementptr ptr, ptr %16, i64 %.01595
   %984 = load ptr, ptr %983, align 8
   %985 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %984, i8 noundef zeroext 18, i32 noundef 1)
   br i1 %985, label %986, label %990
 
 986:                                              ; preds = %982
   %987 = zext nneg i32 %.01594 to i64
-  %988 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %987
+  %988 = getelementptr ptr, ptr %16, i64 %987
   %989 = load ptr, ptr %988, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 19, i32 noundef %.01594, ptr noundef %984, ptr noundef %989, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6439,7 +6439,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1000 = getelementptr i8, ptr %998, i64 %999
   %1001 = getelementptr i8, ptr %1000, i64 16
   %1002 = load ptr, ptr %1001, align 8
-  %1003 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1003 = getelementptr ptr, ptr %16, i64 %.01595
   %1004 = load ptr, ptr %1003, align 8
   %1005 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1002, ptr noundef %1004, i8 noundef zeroext 20)
   br label %proto_item_set_generated.exit1800
@@ -6464,14 +6464,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond25, label %1011, label %proto_item_set_generated.exit1800
 
 1011:                                             ; preds = %.cont1982
-  %1012 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1012 = getelementptr ptr, ptr %16, i64 %.01595
   %1013 = load ptr, ptr %1012, align 8
   %1014 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1013, i8 noundef zeroext 20, i32 noundef 1)
   br i1 %1014, label %1015, label %1019
 
 1015:                                             ; preds = %1011
   %1016 = zext nneg i32 %.01594 to i64
-  %1017 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1016
+  %1017 = getelementptr ptr, ptr %16, i64 %1016
   %1018 = load ptr, ptr %1017, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 21, i32 noundef %.01594, ptr noundef %1013, ptr noundef %1018, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6506,7 +6506,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1029 = getelementptr i8, ptr %1027, i64 %1028
   %1030 = getelementptr i8, ptr %1029, i64 16
   %1031 = load ptr, ptr %1030, align 8
-  %1032 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1032 = getelementptr ptr, ptr %16, i64 %.01595
   %1033 = load ptr, ptr %1032, align 8
   %1034 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1031, ptr noundef %1033, i8 noundef zeroext 22)
   br label %proto_item_set_generated.exit1800
@@ -6684,7 +6684,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 1109:                                             ; preds = %.cont1966.thread
   %1110 = getelementptr i8, ptr %.01593, i64 104
   %1111 = load ptr, ptr %1110, align 8
-  %1112 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1112 = getelementptr ptr, ptr %16, i64 %.01595
   %1113 = load ptr, ptr %1112, align 8
   %1114 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1111, ptr noundef %1113, i8 noundef zeroext 25)
   %.not1713 = icmp eq ptr %1114, null
@@ -6730,7 +6730,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1133 = getelementptr i8, ptr %1131, i64 %1132
   %1134 = getelementptr i8, ptr %1133, i64 16
   %1135 = load ptr, ptr %1134, align 8
-  %1136 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1136 = getelementptr ptr, ptr %16, i64 %.01595
   %1137 = load ptr, ptr %1136, align 8
   %1138 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1135, ptr noundef %1137, i8 noundef zeroext 26)
   br label %proto_item_set_generated.exit1800
@@ -6755,14 +6755,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond33, label %1145, label %proto_item_set_generated.exit1800
 
 1145:                                             ; preds = %.cont1958
-  %1146 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1146 = getelementptr ptr, ptr %16, i64 %.01595
   %1147 = load ptr, ptr %1146, align 8
   %1148 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1147, i8 noundef zeroext 26, i32 noundef 1)
   br i1 %1148, label %1149, label %1153
 
 1149:                                             ; preds = %1145
   %1150 = zext nneg i32 %.01594 to i64
-  %1151 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1150
+  %1151 = getelementptr ptr, ptr %16, i64 %1150
   %1152 = load ptr, ptr %1151, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 27, i32 noundef %.01594, ptr noundef %1147, ptr noundef %1152, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -6799,7 +6799,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1166 = getelementptr i8, ptr %1164, i64 %1165
   %1167 = getelementptr i8, ptr %1166, i64 16
   %1168 = load ptr, ptr %1167, align 8
-  %1169 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1169 = getelementptr ptr, ptr %16, i64 %.01595
   %1170 = load ptr, ptr %1169, align 8
   %1171 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1168, ptr noundef %1170, i8 noundef zeroext 28)
   %.not1706 = icmp eq ptr %1171, null
@@ -6840,7 +6840,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1187 = getelementptr i8, ptr %1185, i64 %1186
   %1188 = getelementptr i8, ptr %1187, i64 16
   %1189 = load ptr, ptr %1188, align 8
-  %1190 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1190 = getelementptr ptr, ptr %16, i64 %.01595
   %1191 = load ptr, ptr %1190, align 8
   %1192 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1189, ptr noundef %1191, i8 noundef zeroext 29)
   br label %proto_item_set_generated.exit1800
@@ -6867,14 +6867,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond39, label %1201, label %proto_item_set_generated.exit1800
 
 1201:                                             ; preds = %.cont1946
-  %1202 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1202 = getelementptr ptr, ptr %16, i64 %.01595
   %1203 = load ptr, ptr %1202, align 8
   %1204 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1203, i8 noundef zeroext 29, i32 noundef 1)
   br i1 %1204, label %1205, label %1209
 
 1205:                                             ; preds = %1201
   %1206 = zext nneg i32 %.01594 to i64
-  %1207 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1206
+  %1207 = getelementptr ptr, ptr %16, i64 %1206
   %1208 = load ptr, ptr %1207, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 30, i32 noundef %.01594, ptr noundef %1203, ptr noundef %1208, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7054,7 +7054,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1281 = getelementptr i8, ptr %1279, i64 %1280
   %1282 = getelementptr i8, ptr %1281, i64 16
   %1283 = load ptr, ptr %1282, align 8
-  %1284 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1284 = getelementptr ptr, ptr %16, i64 %.01595
   %1285 = load ptr, ptr %1284, align 8
   %1286 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1283, ptr noundef %1285, i8 noundef zeroext 34)
   %.not1692 = icmp eq ptr %1286, null
@@ -7093,7 +7093,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1300 = getelementptr i8, ptr %1298, i64 %1299
   %1301 = getelementptr i8, ptr %1300, i64 16
   %1302 = load ptr, ptr %1301, align 8
-  %1303 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1303 = getelementptr ptr, ptr %16, i64 %.01595
   %1304 = load ptr, ptr %1303, align 8
   %1305 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1302, ptr noundef %1304, i8 noundef zeroext 35)
   br label %proto_item_set_generated.exit1800
@@ -7118,14 +7118,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond49, label %1312, label %proto_item_set_generated.exit1800
 
 1312:                                             ; preds = %.cont1922
-  %1313 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1313 = getelementptr ptr, ptr %16, i64 %.01595
   %1314 = load ptr, ptr %1313, align 8
   %1315 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1314, i8 noundef zeroext 35, i32 noundef 1)
   br i1 %1315, label %1316, label %1320
 
 1316:                                             ; preds = %1312
   %1317 = zext nneg i32 %.01594 to i64
-  %1318 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1317
+  %1318 = getelementptr ptr, ptr %16, i64 %1317
   %1319 = load ptr, ptr %1318, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 36, i32 noundef %.01594, ptr noundef %1314, ptr noundef %1319, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7160,7 +7160,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1331 = getelementptr i8, ptr %1329, i64 %1330
   %1332 = getelementptr i8, ptr %1331, i64 16
   %1333 = load ptr, ptr %1332, align 8
-  %1334 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1334 = getelementptr ptr, ptr %16, i64 %.01595
   %1335 = load ptr, ptr %1334, align 8
   %1336 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1333, ptr noundef %1335, i8 noundef zeroext 37)
   %.not1684 = icmp eq ptr %1336, null
@@ -7363,7 +7363,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1420 = getelementptr i8, ptr %1418, i64 %1419
   %1421 = getelementptr i8, ptr %1420, i64 16
   %1422 = load ptr, ptr %1421, align 8
-  %1423 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1423 = getelementptr ptr, ptr %16, i64 %.01595
   %1424 = load ptr, ptr %1423, align 8
   %1425 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1422, ptr noundef %1424, i8 noundef zeroext 42)
   %.not1669 = icmp eq ptr %1425, null
@@ -7401,7 +7401,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1438 = getelementptr i8, ptr %1436, i64 %1437
   %1439 = getelementptr i8, ptr %1438, i64 16
   %1440 = load ptr, ptr %1439, align 8
-  %1441 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1441 = getelementptr ptr, ptr %16, i64 %.01595
   %1442 = load ptr, ptr %1441, align 8
   %1443 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1440, ptr noundef %1442, i8 noundef zeroext 43)
   br label %proto_item_set_generated.exit1800
@@ -7425,14 +7425,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond57, label %1449, label %proto_item_set_generated.exit1800
 
 1449:                                             ; preds = %.cont1890
-  %1450 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1450 = getelementptr ptr, ptr %16, i64 %.01595
   %1451 = load ptr, ptr %1450, align 8
   %1452 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1451, i8 noundef zeroext 43, i32 noundef 1)
   br i1 %1452, label %1453, label %1457
 
 1453:                                             ; preds = %1449
   %1454 = zext nneg i32 %.01594 to i64
-  %1455 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1454
+  %1455 = getelementptr ptr, ptr %16, i64 %1454
   %1456 = load ptr, ptr %1455, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 44, i32 noundef %.01594, ptr noundef %1451, ptr noundef %1456, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7464,7 +7464,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
 1463:                                             ; preds = %.cont1886.thread
   %1464 = getelementptr i8, ptr %.01593, i64 80
   %1465 = load ptr, ptr %1464, align 8
-  %1466 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1466 = getelementptr ptr, ptr %16, i64 %.01595
   %1467 = load ptr, ptr %1466, align 8
   %1468 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1465, ptr noundef %1467, i8 noundef zeroext 57)
   br label %proto_item_set_generated.exit1800
@@ -7493,14 +7493,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond59, label %1477, label %proto_item_set_generated.exit1800
 
 1477:                                             ; preds = %.cont1882
-  %1478 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1478 = getelementptr ptr, ptr %16, i64 %.01595
   %1479 = load ptr, ptr %1478, align 8
   %1480 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1479, i8 noundef zeroext 57, i32 noundef 1)
   br i1 %1480, label %1481, label %1485
 
 1481:                                             ; preds = %1477
   %1482 = zext nneg i32 %.01594 to i64
-  %1483 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1482
+  %1483 = getelementptr ptr, ptr %16, i64 %1482
   %1484 = load ptr, ptr %1483, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 45, i32 noundef %.01594, ptr noundef %1479, ptr noundef %1484, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7535,7 +7535,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1496 = getelementptr i8, ptr %1494, i64 %1495
   %1497 = getelementptr i8, ptr %1496, i64 16
   %1498 = load ptr, ptr %1497, align 8
-  %1499 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1499 = getelementptr ptr, ptr %16, i64 %.01595
   %1500 = load ptr, ptr %1499, align 8
   %1501 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1498, ptr noundef %1500, i8 noundef zeroext 46)
   br label %proto_item_set_generated.exit1800
@@ -7560,14 +7560,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond63, label %1508, label %proto_item_set_generated.exit1800
 
 1508:                                             ; preds = %.cont1874
-  %1509 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1509 = getelementptr ptr, ptr %16, i64 %.01595
   %1510 = load ptr, ptr %1509, align 8
   %1511 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1510, i8 noundef zeroext 46, i32 noundef 1)
   br i1 %1511, label %1512, label %1516
 
 1512:                                             ; preds = %1508
   %1513 = zext nneg i32 %.01594 to i64
-  %1514 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1513
+  %1514 = getelementptr ptr, ptr %16, i64 %1513
   %1515 = load ptr, ptr %1514, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 47, i32 noundef %.01594, ptr noundef %1510, ptr noundef %1515, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7602,7 +7602,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1527 = getelementptr i8, ptr %1525, i64 %1526
   %1528 = getelementptr i8, ptr %1527, i64 16
   %1529 = load ptr, ptr %1528, align 8
-  %1530 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1530 = getelementptr ptr, ptr %16, i64 %.01595
   %1531 = load ptr, ptr %1530, align 8
   %1532 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1529, ptr noundef %1531, i8 noundef zeroext 48)
   br label %proto_item_set_generated.exit1800
@@ -7627,14 +7627,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond67, label %1539, label %proto_item_set_generated.exit1800
 
 1539:                                             ; preds = %.cont1866
-  %1540 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1540 = getelementptr ptr, ptr %16, i64 %.01595
   %1541 = load ptr, ptr %1540, align 8
   %1542 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1541, i8 noundef zeroext 48, i32 noundef 1)
   br i1 %1542, label %1543, label %1547
 
 1543:                                             ; preds = %1539
   %1544 = zext nneg i32 %.01594 to i64
-  %1545 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1544
+  %1545 = getelementptr ptr, ptr %16, i64 %1544
   %1546 = load ptr, ptr %1545, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 49, i32 noundef %.01594, ptr noundef %1541, ptr noundef %1546, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7681,7 +7681,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1564 = getelementptr i8, ptr %1562, i64 %1563
   %1565 = getelementptr i8, ptr %1564, i64 16
   %1566 = load ptr, ptr %1565, align 8
-  %1567 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1567 = getelementptr ptr, ptr %16, i64 %.01595
   %1568 = load ptr, ptr %1567, align 8
   %1569 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1566, ptr noundef %1568, i8 noundef zeroext 53)
   br label %proto_item_set_generated.exit1800
@@ -7706,14 +7706,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond71, label %1576, label %proto_item_set_generated.exit1800
 
 1576:                                             ; preds = %.cont1858
-  %1577 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1577 = getelementptr ptr, ptr %16, i64 %.01595
   %1578 = load ptr, ptr %1577, align 8
   %1579 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1578, i8 noundef zeroext 53, i32 noundef 1)
   br i1 %1579, label %1580, label %1584
 
 1580:                                             ; preds = %1576
   %1581 = zext nneg i32 %.01594 to i64
-  %1582 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1581
+  %1582 = getelementptr ptr, ptr %16, i64 %1581
   %1583 = load ptr, ptr %1582, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 58, i32 noundef %.01594, ptr noundef %1578, ptr noundef %1583, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7747,7 +7747,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1594 = getelementptr i8, ptr %1592, i64 %1593
   %1595 = getelementptr i8, ptr %1594, i64 16
   %1596 = load ptr, ptr %1595, align 8
-  %1597 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1597 = getelementptr ptr, ptr %16, i64 %.01595
   %1598 = load ptr, ptr %1597, align 8
   %1599 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1596, ptr noundef %1598, i8 noundef zeroext 54)
   br label %proto_item_set_generated.exit1800
@@ -7771,14 +7771,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond75, label %1605, label %proto_item_set_generated.exit1800
 
 1605:                                             ; preds = %.cont1850
-  %1606 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1606 = getelementptr ptr, ptr %16, i64 %.01595
   %1607 = load ptr, ptr %1606, align 8
   %1608 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1607, i8 noundef zeroext 54, i32 noundef 1)
   br i1 %1608, label %1609, label %1613
 
 1609:                                             ; preds = %1605
   %1610 = zext nneg i32 %.01594 to i64
-  %1611 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1610
+  %1611 = getelementptr ptr, ptr %16, i64 %1610
   %1612 = load ptr, ptr %1611, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 55, i32 noundef %.01594, ptr noundef %1607, ptr noundef %1612, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -7816,7 +7816,7 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %1625 = getelementptr i8, ptr %1623, i64 %1624
   %1626 = getelementptr i8, ptr %1625, i64 16
   %1627 = load ptr, ptr %1626, align 8
-  %1628 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1628 = getelementptr ptr, ptr %16, i64 %.01595
   %1629 = load ptr, ptr %1628, align 8
   %1630 = call fastcc ptr @control_proc_start(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %468, ptr noundef %1627, ptr noundef %1629, i8 noundef zeroext 59)
   br label %proto_item_set_generated.exit1800
@@ -7840,14 +7840,14 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   br i1 %or.cond79, label %1636, label %proto_item_set_generated.exit1800
 
 1636:                                             ; preds = %.cont1842
-  %1637 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %.01595
+  %1637 = getelementptr ptr, ptr %16, i64 %.01595
   %1638 = load ptr, ptr %1637, align 8
   %1639 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1638, i8 noundef zeroext 59, i32 noundef 1)
   br i1 %1639, label %1640, label %1644
 
 1640:                                             ; preds = %1636
   %1641 = zext nneg i32 %.01594 to i64
-  %1642 = getelementptr [3 x ptr], ptr %16, i64 0, i64 %1641
+  %1642 = getelementptr ptr, ptr %16, i64 %1641
   %1643 = load ptr, ptr %1642, align 8
   call fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr noundef %1, ptr noundef %3, i8 noundef zeroext 60, i32 noundef %.01594, ptr noundef %1638, ptr noundef %1643, i32 noundef 1)
   br label %proto_item_set_generated.exit1800
@@ -8292,9 +8292,9 @@ define internal fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef readon
   br i1 %.not15.i, label %8, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
 8:                                                ; preds = %5
-  %9 = add nsw i32 %3, -1
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [5 x i32], ptr %1, i64 0, i64 %10
+  %9 = zext nneg i32 %3 to i64
+  %10 = getelementptr i32, ptr %1, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %control_proc_can_add_frame_even_if_complete.exit.thread, label %14
@@ -8306,37 +8306,35 @@ define internal fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef readon
   %18 = load i16, ptr %17, align 1
   %19 = and i16 %18, 8
   %.not16.i = icmp eq i16 %19, 0
-  %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr [5 x i32], ptr %1, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  br i1 %.not16.i, label %23, label %24
+  %20 = load i32, ptr %10, align 4
+  br i1 %.not16.i, label %21, label %22
 
-23:                                               ; preds = %14
-  %.not17.i = icmp eq i32 %22, 0
+21:                                               ; preds = %14
+  %.not17.i = icmp eq i32 %20, 0
   br i1 %.not17.i, label %.control_proc_can_add_frame_even_if_complete.exit_crit_edge, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-.control_proc_can_add_frame_even_if_complete.exit_crit_edge: ; preds = %23
+.control_proc_can_add_frame_even_if_complete.exit_crit_edge: ; preds = %21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %control_proc_can_add_frame_even_if_complete.exit
 
-24:                                               ; preds = %14
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %26 = load i32, ptr %25, align 4
-  %.not19.i = icmp eq i32 %22, %26
+22:                                               ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %24 = load i32, ptr %23, align 4
+  %.not19.i = icmp eq i32 %20, %24
   br i1 %.not19.i, label %control_proc_can_add_frame_even_if_complete.exit, label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-control_proc_can_add_frame_even_if_complete.exit: ; preds = %.control_proc_can_add_frame_even_if_complete.exit_crit_edge, %24
-  %27 = phi i32 [ %.pre, %.control_proc_can_add_frame_even_if_complete.exit_crit_edge ], [ %22, %24 ]
-  %28 = getelementptr i8, ptr %1, i64 24
-  %.val = load i32, ptr %28, align 4
+control_proc_can_add_frame_even_if_complete.exit: ; preds = %.control_proc_can_add_frame_even_if_complete.exit_crit_edge, %22
+  %25 = phi i32 [ %.pre, %.control_proc_can_add_frame_even_if_complete.exit_crit_edge ], [ %20, %22 ]
+  %26 = getelementptr i8, ptr %1, i64 24
+  %.val = load i32, ptr %26, align 4
   %.not.i6 = icmp eq i32 %.val, 0
-  %29 = icmp ule i32 %27, %.val
-  %or.cond.i.not = or i1 %.not.i6, %29
+  %27 = icmp ule i32 %25, %.val
+  %or.cond.i.not = or i1 %.not.i6, %27
   br label %control_proc_can_add_frame_even_if_complete.exit.thread
 
-control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %24, %23, %8, %5, %4, %control_proc_can_add_frame_even_if_complete.exit
-  %.0 = phi i1 [ %or.cond.i.not, %control_proc_can_add_frame_even_if_complete.exit ], [ false, %4 ], [ false, %5 ], [ false, %8 ], [ false, %23 ], [ false, %24 ]
+control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %22, %21, %8, %5, %4, %control_proc_can_add_frame_even_if_complete.exit
+  %.0 = phi i1 [ %or.cond.i.not, %control_proc_can_add_frame_even_if_complete.exit ], [ false, %4 ], [ false, %5 ], [ false, %8 ], [ false, %21 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -8345,7 +8343,7 @@ define internal fastcc void @control_proc_add_last_frame(ptr noundef %0, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr [5 x i32], ptr %5, i64 0, i64 %11
+  %12 = getelementptr i32, ptr %5, i64 %11
   store i32 %10, ptr %12, align 4
   %13 = load i32, ptr @hf_request_in_frame, align 4
   %14 = load i32, ptr %5, align 4
@@ -8513,7 +8511,7 @@ control_proc_invalid_collision.exit.thread:       ; preds = %16, %13, %8, %7, %2
 
 .preheader:                                       ; preds = %43, %proto_item_set_generated.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %proto_item_set_generated.exit ], [ 1, %43 ]
-  %47 = getelementptr [5 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %47 = getelementptr i32, ptr %42, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %.not43 = icmp eq i32 %48, 0
   br i1 %.not43, label %proto_item_set_generated.exit, label %49
@@ -8566,7 +8564,7 @@ define internal fastcc void @control_proc_add_frame_with_instant(ptr noundef %0,
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = zext nneg i32 %7 to i64
-  %17 = getelementptr [5 x i32], ptr %5, i64 0, i64 %16
+  %17 = getelementptr i32, ptr %5, i64 %16
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @hf_request_in_frame, align 4
   %19 = load i32, ptr %5, align 4
@@ -8640,7 +8638,7 @@ control_proc_add_frame.exit:                      ; preds = %proto_item_set_gene
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = zext nneg i32 %7 to i64
-  %46 = getelementptr [5 x i32], ptr %5, i64 0, i64 %45
+  %46 = getelementptr i32, ptr %5, i64 %45
   store i32 %44, ptr %46, align 4
   %47 = load i32, ptr @hf_request_in_frame, align 4
   %48 = load i32, ptr %5, align 4
@@ -8718,7 +8716,7 @@ define internal fastcc void @control_proc_add_frame(ptr noundef %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr [5 x i32], ptr %5, i64 0, i64 %11
+  %12 = getelementptr i32, ptr %5, i64 %11
   store i32 %10, ptr %12, align 4
   %13 = load i32, ptr @hf_request_in_frame, align 4
   %14 = load i32, ptr %5, align 4

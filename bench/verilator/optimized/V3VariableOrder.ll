@@ -1600,7 +1600,7 @@ _ZNSt10_HashtableIPK6AstVarSt4pairIKS2_St6vectorIbSaIbEEESaIS8_ENSt8__detail10_S
 .noexc75:                                         ; preds = %.noexc74
   %.sroa.0.0.copyload.i.i5.i = load i16, ptr %283, align 8, !tbaa !147
   %287 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
-  %288 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !148
   %290 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef %289)
           to label %.noexc76 unwind label %194
@@ -1941,7 +1941,7 @@ _ZN13AstNodeModule9addStmtspEP7AstNode.exit:      ; preds = %396, %.loopexit
 .noexc121:                                        ; preds = %.noexc120
   %.sroa.0.0.copyload.i.i5.i118 = load i16, ptr %403, align 8, !tbaa !147
   %407 = zext i16 %.sroa.0.0.copyload.i.i5.i118 to i64
-  %408 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %407
   %409 = load ptr, ptr %408, align 8, !tbaa !148
   %410 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %405, ptr noundef %409)
           to label %.noexc122 unwind label %342
@@ -2457,7 +2457,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI13AstNodeModule
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.11)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !147
   %9 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %10 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !148
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.12)
@@ -3450,7 +3450,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !147
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !148
   ret ptr %5
 }
@@ -3472,7 +3472,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZNK6VNTypecvNS_2enEEv(ptr no
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !166
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !148
   ret ptr %5
 }
@@ -6896,7 +6896,7 @@ _ZN7AstNode9privateIsI21AstNodeUOrStructDTypeKP12AstNodeDTypeEEbPKS_.exit.thread
 
 switch.lookup:                                    ; preds = %133
   %143 = zext nneg i8 %switch.tableidx41 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN13VariableOrder15orderModuleVarsEP13AstNodeModule, i64 0, i64 %143
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN13VariableOrder15orderModuleVarsEP13AstNodeModule, i64 %143
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN9EmitCBase8isAnonOkEPK6AstVar.exit
 

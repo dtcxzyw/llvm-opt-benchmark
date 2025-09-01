@@ -466,7 +466,7 @@ define internal i32 @EmitSampledRGB(ptr noundef readonly captures(none) %0, ptr 
   %27 = load i32, ptr %26, align 8, !tbaa !15
   %28 = load i32, ptr %3, align 8, !tbaa !24
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr @WebPSamplers, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @WebPSamplers, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !58
   tail call void @WebPSamplerProcessPlane(ptr noundef %15, i32 noundef %17, ptr noundef %19, ptr noundef %21, i32 noundef %23, ptr noundef %13, i32 noundef %10, i32 noundef %25, i32 noundef %27, ptr noundef %31) #6
   %32 = load i32, ptr %26, align 8, !tbaa !15
@@ -492,7 +492,7 @@ define internal i32 @EmitFancyRGB(ptr noundef readonly captures(none) %0, ptr no
   %15 = getelementptr inbounds i8, ptr %7, i64 %14
   %16 = load i32, ptr %5, align 8, !tbaa !24
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr @WebPUpsamplers, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr @WebPUpsamplers, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !53
@@ -1022,7 +1022,7 @@ define internal i32 @EmitRescaledRGB(ptr noundef readonly captures(none) %0, ptr
   %49 = load ptr, ptr %1, align 8, !tbaa !23
   %50 = load i32, ptr %49, align 8, !tbaa !24
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr @WebPYUV444Converters, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr @WebPYUV444Converters, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !58
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %55 = load ptr, ptr %8, align 8, !tbaa !31

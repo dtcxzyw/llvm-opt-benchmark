@@ -619,7 +619,7 @@ define hidden noundef nonnull ptr @plpgsql_getdiag_kindname(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dump_stmt.6, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dump_stmt.6, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -650,7 +650,7 @@ define hidden void @plpgsql_mark_local_assignment_targets(ptr noundef readonly c
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.089 = phi ptr [ null, %.lr.ph ], [ %11, %8 ]
-  %9 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @bms_add_member(ptr noundef %.089, i32 noundef %10) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4232,7 +4232,7 @@ dump_ind.exit44.i:                                ; preds = %.lr.ph.i42.i, %.lr.
 
 switch.lookup:                                    ; preds = %dump_ind.exit44.i
   %852 = zext nneg i32 %849 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dump_stmt, i64 0, i64 %852
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dump_stmt, i64 %852
   %switch.load = load ptr, ptr %switch.gep, align 8
   %853 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %switch.load) #16
   br label %854
@@ -4829,7 +4829,7 @@ list_head.exit.thread.i:                          ; preds = %list_head.exit.i, %
 
 switch.lookup473:                                 ; preds = %1172
   %1177 = zext nneg i32 %1175 to i64
-  %switch.gep474 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dump_stmt.6, i64 0, i64 %1177
+  %switch.gep474 = getelementptr inbounds nuw ptr, ptr @switch.table.dump_stmt.6, i64 %1177
   %switch.load475 = load ptr, ptr %switch.gep474, align 8
   br label %plpgsql_getdiag_kindname.exit.i
 

@@ -19,10 +19,10 @@ switch.lookup:
   %3 = add nsw i32 %2, -1000000000
   %narrow = tail call i32 @llvm.umin.i32(i32 %3, i32 4)
   %4 = zext nneg i32 %narrow to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %narrow to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_memory_cache11CacheStatus6as_str17hbeac8180671b921cE.1, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1

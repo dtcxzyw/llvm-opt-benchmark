@@ -432,7 +432,7 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %.017.i = phi i32 [ %spec.select19.i, %.preheader66 ], [ 0, %14 ]
   %.01116.i = phi i64 [ %53, %.preheader66 ], [ 0, %14 ]
   %.01215.i = phi i32 [ %spec.select.i, %.preheader66 ], [ -1, %14 ]
-  %33 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i
+  %33 = getelementptr inbounds nuw %struct.color_t, ptr @COLORS, i64 %.01116.i
   %34 = load i64, ptr %33, align 16
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8
@@ -507,7 +507,7 @@ get_color.exit:                                   ; preds = %.preheader66
   %.017.i54 = phi i32 [ %spec.select19.i63, %.preheader ], [ 0, %77 ]
   %.01116.i55 = phi i64 [ %98, %.preheader ], [ 0, %77 ]
   %.01215.i56 = phi i32 [ %spec.select.i62, %.preheader ], [ -1, %77 ]
-  %78 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i55
+  %78 = getelementptr inbounds nuw %struct.color_t, ptr @COLORS, i64 %.01116.i55
   %79 = load i64, ptr %78, align 16
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i64, ptr %80, align 8

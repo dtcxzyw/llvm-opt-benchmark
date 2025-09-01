@@ -942,7 +942,7 @@ _ZNK5clang4Expr8ClassifyERNS_10ASTContextE.exit:  ; preds = %2, %22, %_ZNK5clang
   %.011.i.i = phi i32 [ %3, %2 ], [ %3, %_ZNK5clang8QualType13hasQualifiersEv.exit.i.i ], [ %33, %31 ], [ %3, %_ZNK5clang4Type10isVoidTypeEv.exit.i.i ], [ %3, %22 ]
   %34 = and i32 %.011.i.i, 65535
   %35 = zext nneg i32 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang4Expr8ClassifyERNS_10ASTContextE.exit.thread
 
@@ -962,9 +962,9 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
   %trunc = trunc i32 %6 to i16
   switch i16 %trunc, label %switch.lookup [
     i16 11, label %15
-    i16 1, label %19
+    i16 1, label %20
     i16 2, label %7
-    i16 3, label %19
+    i16 3, label %20
     i16 4, label %8
     i16 5, label %9
     i16 6, label %10
@@ -975,42 +975,42 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
   ]
 
 7:                                                ; preds = %3
-  br label %19
+  br label %20
 
 8:                                                ; preds = %3
-  br label %19
+  br label %20
 
 9:                                                ; preds = %3
-  br label %19
+  br label %20
 
 10:                                               ; preds = %3
-  br label %19
+  br label %20
 
 11:                                               ; preds = %3
-  br label %19
+  br label %20
 
 12:                                               ; preds = %3
-  br label %19
+  br label %20
 
 13:                                               ; preds = %3
-  br label %19
+  br label %20
 
 14:                                               ; preds = %3
-  br label %19
+  br label %20
 
 15:                                               ; preds = %3
   %16 = icmp eq i32 %.sroa.4.0.extract.shift, 4
   %17 = select i1 %16, i32 5, i32 4
-  br label %19
+  br label %20
 
 switch.lookup:                                    ; preds = %3
-  %switch.tableidx = add nsw i32 %.sroa.4.0.extract.shift, -1
-  %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 0, i64 %18
+  %18 = zext nneg i32 %.sroa.4.0.extract.shift to i64
+  %19 = getelementptr i32, ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 %18
+  %switch.gep = getelementptr i8, ptr %19, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %switch.lookup, %3, %3, %15, %14, %13, %12, %11, %10, %9, %8, %7
+20:                                               ; preds = %switch.lookup, %3, %3, %15, %14, %13, %12, %11, %10, %9, %8, %7
   %.0 = phi i32 [ %17, %15 ], [ 1, %7 ], [ 2, %8 ], [ 3, %9 ], [ 12, %10 ], [ 13, %11 ], [ 15, %12 ], [ 16, %13 ], [ 14, %14 ], [ 4, %3 ], [ 4, %3 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1236,7 +1236,7 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_14MSPropertyDeclEJNS1_20FunctionTemplateD
 
 switch.lookup:                                    ; preds = %14
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 

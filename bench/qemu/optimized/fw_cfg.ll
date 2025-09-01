@@ -226,7 +226,7 @@ define dso_local void @fw_cfg_add_bytes(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -292,7 +292,7 @@ trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit
   %.lobit.i = lshr i16 %1, 15
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %43 = zext nneg i16 %.lobit.i to i64
-  %44 = getelementptr inbounds nuw [2 x ptr], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i16 %33 to i64
   %47 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %45, i64 %46, i32 2
@@ -342,7 +342,7 @@ define dso_local void @fw_cfg_add_string(ptr noundef readonly captures(none) %0,
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -427,7 +427,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %17 = zext nneg i16 %.lobit.i to i64
-  %18 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i16 %8 to i64
   %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %20, i32 2
@@ -463,7 +463,7 @@ define dso_local void @fw_cfg_add_i16(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -540,7 +540,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
   %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
@@ -574,7 +574,7 @@ define dso_local void @fw_cfg_add_i32(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -646,7 +646,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
   %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
@@ -680,7 +680,7 @@ define dso_local void @fw_cfg_add_i64(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -752,7 +752,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
   %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16, i32 2
@@ -831,8 +831,8 @@ define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, 
   %23 = load i32, ptr %22, align 4
   %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
   %25 = getelementptr i8, ptr %0, i64 808
-  %.val104 = load i16, ptr %25, align 8
-  %26 = zext i16 %.val104 to i32
+  %.val103 = load i16, ptr %25, align 8
+  %26 = zext i16 %.val103 to i32
   %27 = icmp slt i32 %24, %26
   br i1 %27, label %29, label %28
 
@@ -845,172 +845,178 @@ define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, 
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 32
   %.not95 = icmp eq i8 %32, 0
-  br i1 %.not95, label %.preheader, label %35
+  br i1 %.not95, label %.preheader, label %36
 
 .preheader:                                       ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %34 = zext i32 %24 to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %24, i32 0)
-  br label %61
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %34 = icmp sgt i32 %24, 0
+  br i1 %34, label %.lr.ph112.preheader, label %.critedge.._crit_edge_crit_edge
 
-35:                                               ; preds = %29
-  %36 = getelementptr i8, ptr %0, i64 880
-  %.val105 = load i32, ptr %36, align 16
-  %37 = icmp sgt i32 %.val105, 0
-  br i1 %37, label %get_fw_cfg_order.exit, label %.preheader.i
+.lr.ph112.preheader:                              ; preds = %.preheader
+  %35 = zext nneg i32 %24 to i64
+  br label %.lr.ph112
 
-.preheader.i:                                     ; preds = %35, %47
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %35 ]
-  %38 = getelementptr inbounds nuw [22 x %struct.anon.5], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i
-  %39 = load ptr, ptr %38, align 16
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %47, label %41
+36:                                               ; preds = %29
+  %37 = getelementptr i8, ptr %0, i64 880
+  %.val104 = load i32, ptr %37, align 16
+  %38 = icmp sgt i32 %.val104, 0
+  br i1 %38, label %get_fw_cfg_order.exit, label %.preheader.i
 
-41:                                               ; preds = %.preheader.i
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %39) #20
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+.preheader.i:                                     ; preds = %36, %48
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %36 ]
+  %39 = getelementptr inbounds nuw %struct.anon.5, ptr @fw_cfg_order, i64 %indvars.iv.i
+  %40 = load ptr, ptr %39, align 16
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %48, label %42
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %46 = load i32, ptr %45, align 8
+42:                                               ; preds = %.preheader.i
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %40) #20
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %47 = load i32, ptr %46, align 8
   br label %get_fw_cfg_order.exit
 
-47:                                               ; preds = %41, %.preheader.i
+48:                                               ; preds = %42, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 22
-  br i1 %exitcond.not.i, label %48, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %49, label %.preheader.i, !llvm.loop !8
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.58, ptr noundef %1) #18
   br label %get_fw_cfg_order.exit
 
-get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
-  %.09.i = phi i32 [ %46, %44 ], [ 200, %48 ], [ %.val105, %35 ]
-  %49 = icmp sgt i32 %24, 0
-  br i1 %49, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
+get_fw_cfg_order.exit:                            ; preds = %36, %45, %49
+  %.09.i = phi i32 [ %47, %45 ], [ 200, %49 ], [ %.val104, %36 ]
+  %50 = icmp sgt i32 %24, 0
+  br i1 %50, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
 
 .lr.ph:                                           ; preds = %get_fw_cfg_order.exit
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %51 = load ptr, ptr %50, align 16
-  br label %52
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %52 = load ptr, ptr %51, align 16
+  br label %53
 
-52:                                               ; preds = %.lr.ph, %58
-  %.091109 = phi i32 [ %24, %.lr.ph ], [ %59, %58 ]
-  %53 = zext nneg i32 %.091109 to i64
-  %54 = getelementptr i32, ptr %51, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -4
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp slt i32 %.09.i, %56
-  br i1 %57, label %58, label %.critedge
+53:                                               ; preds = %.lr.ph, %59
+  %.091108 = phi i32 [ %24, %.lr.ph ], [ %60, %59 ]
+  %54 = zext nneg i32 %.091108 to i64
+  %55 = getelementptr i32, ptr %52, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp slt i32 %.09.i, %57
+  br i1 %58, label %59, label %.critedge
 
-58:                                               ; preds = %52
-  %59 = add nsw i32 %.091109, -1
-  %60 = icmp sgt i32 %.091109, 1
-  br i1 %60, label %52, label %.critedge, !llvm.loop !10
+59:                                               ; preds = %53
+  %60 = add nsw i32 %.091108, -1
+  %61 = icmp sgt i32 %.091108, 1
+  br i1 %61, label %53, label %.critedge, !llvm.loop !10
 
-61:                                               ; preds = %.preheader, %64
-  %indvars.iv = phi i64 [ %34, %.preheader ], [ %65, %64 ]
-  %62 = trunc nuw i64 %indvars.iv to i32
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %.critedge
+.lr.ph112:                                        ; preds = %.lr.ph112.preheader, %66
+  %indvars.iv = phi i64 [ %35, %.lr.ph112.preheader ], [ %indvars.iv.next, %66 ]
+  %62 = getelementptr %struct.fw_cfg_file, ptr %33, i64 %indvars.iv
+  %63 = getelementptr i8, ptr %62, i64 -56
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %63) #20
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %.critedge.loopexit.split.loop.exit
 
-64:                                               ; preds = %61
-  %65 = add nsw i64 %indvars.iv, -1
-  %.idx = shl nuw nsw i64 %65, 6
-  %66 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %66) #20
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %61, label %.critedge, !llvm.loop !11
+66:                                               ; preds = %.lr.ph112
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %67 = icmp sgt i64 %indvars.iv, 1
+  br i1 %67, label %.lr.ph112, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %58, %52, %64, %61
-  %.192 = phi i32 [ %62, %64 ], [ %smin, %61 ], [ 0, %58 ], [ %.091109, %52 ]
-  %.0 = phi i32 [ 0, %61 ], [ 0, %64 ], [ %.09.i, %52 ], [ %.09.i, %58 ]
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph112
+  %68 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %59, %53, %66, %.critedge.loopexit.split.loop.exit
+  %.192 = phi i32 [ %68, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ 0, %59 ], [ %.091108, %53 ]
+  %.0 = phi i32 [ 0, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ %.09.i, %53 ], [ %.09.i, %59 ]
   %69 = icmp sgt i32 %24, %.192
-  br i1 %69, label %.lr.ph113, label %.critedge.._crit_edge_crit_edge
+  br i1 %69, label %.lr.ph117, label %.critedge.._crit_edge_crit_edge
 
-.critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.critedge
-  %.0141 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ]
-  %.192139 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ]
-  %.pre129 = sext i32 %.192139 to i64
+.critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.preheader, %.critedge
+  %.0145 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ], [ 0, %.preheader ]
+  %.192143 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ], [ %24, %.preheader ]
+  %.pre134 = sext i32 %.192143 to i64
   br label %._crit_edge
 
-.lr.ph113:                                        ; preds = %.critedge
+.lr.ph117:                                        ; preds = %.critedge
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %72 = sext i32 %24 to i64
   %73 = sext i32 %.192 to i64
   br label %74
 
-74:                                               ; preds = %.lr.ph113, %74
-  %indvars.iv123 = phi i64 [ %72, %.lr.ph113 ], [ %indvars.iv.next124, %74 ]
+74:                                               ; preds = %.lr.ph117, %74
+  %indvars.iv128 = phi i64 [ %72, %.lr.ph117 ], [ %indvars.iv.next129, %74 ]
   %75 = load ptr, ptr %13, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %76, i64 0, i64 %indvars.iv123
-  %indvars.iv.next124 = add nsw i64 %indvars.iv123, -1
-  %78 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %76, i64 0, i64 %indvars.iv.next124
+  %77 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv128
+  %indvars.iv.next129 = add nsw i64 %indvars.iv128, -1
+  %78 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv.next129
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %77, ptr noundef nonnull align 4 dereferenceable(64) %78, i64 64, i1 false)
-  %79 = add nsw i64 %indvars.iv123, 32
+  %79 = add nsw i64 %indvars.iv128, 32
   %80 = trunc i64 %79 to i16
   %81 = tail call noundef i16 @llvm.bswap.i16(i16 %80)
   %82 = load ptr, ptr %13, align 8
-  %.idx103 = shl nsw i64 %indvars.iv123, 6
+  %.idx102 = shl nsw i64 %indvars.iv128, 6
   %83 = getelementptr i8, ptr %82, i64 8
-  %84 = getelementptr i8, ptr %83, i64 %.idx103
+  %84 = getelementptr i8, ptr %83, i64 %.idx102
   store i16 %81, ptr %84, align 4
   %85 = load ptr, ptr %70, align 16
   %86 = getelementptr inbounds %struct.FWCfgEntry, ptr %85, i64 %79
-  %87 = getelementptr %struct.FWCfgEntry, ptr %85, i64 %indvars.iv123
+  %87 = getelementptr %struct.FWCfgEntry, ptr %85, i64 %indvars.iv128
   %88 = getelementptr i8, ptr %87, i64 1240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(40) %88, i64 40, i1 false)
   %89 = load ptr, ptr %71, align 16
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv.next124
+  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv.next129
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv123
+  %92 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv128
   store i32 %91, ptr %92, align 4
-  %93 = icmp sgt i64 %indvars.iv.next124, %73
+  %93 = icmp sgt i64 %indvars.iv.next129, %73
   br i1 %93, label %74, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %74, %.critedge.._crit_edge_crit_edge
-  %.0140 = phi i32 [ %.0141, %.critedge.._crit_edge_crit_edge ], [ %.0, %74 ]
-  %.192138 = phi i32 [ %.192139, %.critedge.._crit_edge_crit_edge ], [ %.192, %74 ]
-  %.pre-phi = phi i64 [ %.pre129, %.critedge.._crit_edge_crit_edge ], [ %73, %74 ]
+  %.0144 = phi i32 [ %.0145, %.critedge.._crit_edge_crit_edge ], [ %.0, %74 ]
+  %.192142 = phi i32 [ %.192143, %.critedge.._crit_edge_crit_edge ], [ %.192, %74 ]
+  %.pre-phi = phi i64 [ %.pre134, %.critedge.._crit_edge_crit_edge ], [ %73, %74 ]
   %94 = load ptr, ptr %13, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %95, i64 0, i64 %.pre-phi
+  %96 = getelementptr inbounds %struct.fw_cfg_file, ptr %95, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %96, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %98 = load ptr, ptr %97, align 16
-  %99 = add nsw i32 %.192138, 32
+  %99 = add nsw i32 %.192142, 32
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds %struct.FWCfgEntry, ptr %98, i64 %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %101, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
   %102 = load ptr, ptr %13, align 8
-  %.idx96 = shl nsw i64 %.pre-phi, 6
+  %.idx = shl nsw i64 %.pre-phi, 6
   %103 = getelementptr i8, ptr %102, i64 12
-  %104 = getelementptr i8, ptr %103, i64 %.idx96
+  %104 = getelementptr i8, ptr %103, i64 %.idx
   tail call void @pstrcpy(ptr noundef %104, i32 noundef 56, ptr noundef %1) #18
-  %.not97114 = icmp slt i32 %24, 0
-  br i1 %.not97114, label %._crit_edge118, label %.lr.ph117.preheader
+  %.not96118 = icmp slt i32 %24, 0
+  br i1 %.not96118, label %._crit_edge122, label %.lr.ph121.preheader
 
-.lr.ph117.preheader:                              ; preds = %._crit_edge
-  %105 = zext i32 %.192138 to i64
+.lr.ph121.preheader:                              ; preds = %._crit_edge
+  %105 = zext i32 %.192142 to i64
   %106 = add nuw nsw i32 %24, 1
   %wide.trip.count = zext nneg i32 %106 to i64
-  br label %.lr.ph117
+  br label %.lr.ph121
 
-.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %117
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next127, %117 ]
-  %.not100 = icmp eq i64 %indvars.iv126, %105
-  br i1 %.not100, label %117, label %107
+.lr.ph121:                                        ; preds = %.lr.ph121.preheader, %117
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next132, %117 ]
+  %.not99 = icmp eq i64 %indvars.iv131, %105
+  br i1 %.not99, label %117, label %107
 
-107:                                              ; preds = %.lr.ph117
+107:                                              ; preds = %.lr.ph121
   %108 = load ptr, ptr %13, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  %110 = getelementptr i8, ptr %109, i64 %.idx96
+  %110 = getelementptr i8, ptr %109, i64 %.idx
   %111 = getelementptr i8, ptr %110, i64 8
-  %.idx102 = shl nuw nsw i64 %indvars.iv126, 6
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx102
+  %.idx101 = shl nuw nsw i64 %indvars.iv131, 6
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx101
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %113) #20
   %115 = icmp eq i32 %114, 0
@@ -1021,12 +1027,12 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-117:                                              ; preds = %.lr.ph117, %107
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !13
+117:                                              ; preds = %.lr.ph121, %107
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !13
 
-._crit_edge118:                                   ; preds = %117, %._crit_edge
+._crit_edge122:                                   ; preds = %117, %._crit_edge
   %118 = trunc i32 %99 to i16
   %119 = and i32 %99, 16383
   %.val.i = load i16, ptr %25, align 8
@@ -1037,15 +1043,15 @@ get_fw_cfg_order.exit:                            ; preds = %35, %44, %48
   %or.cond.i = and i1 %123, %122
   br i1 %or.cond.i, label %125, label %124
 
-124:                                              ; preds = %._crit_edge118
+124:                                              ; preds = %._crit_edge122
   tail call void @__assert_fail(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #19
   unreachable
 
-125:                                              ; preds = %._crit_edge118
+125:                                              ; preds = %._crit_edge122
   %126 = and i16 %118, 16383
   %.lobit.i = lshr i16 %118, 15
   %127 = zext nneg i16 %.lobit.i to i64
-  %128 = getelementptr inbounds nuw [2 x ptr], ptr %97, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw ptr, ptr %97, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = zext nneg i16 %126 to i64
   %131 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %129, i64 %130, i32 2
@@ -1080,20 +1086,20 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %125
   %148 = tail call noundef i32 @llvm.bswap.i32(i32 %135)
   %149 = load ptr, ptr %13, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  %151 = getelementptr inbounds [0 x %struct.fw_cfg_file], ptr %150, i64 0, i64 %.pre-phi
+  %151 = getelementptr inbounds %struct.fw_cfg_file, ptr %150, i64 %.pre-phi
   store i32 %148, ptr %151, align 4
   %152 = tail call noundef i16 @llvm.bswap.i16(i16 %118)
   %153 = load ptr, ptr %13, align 8
   %154 = getelementptr i8, ptr %153, i64 8
-  %155 = getelementptr i8, ptr %154, i64 %.idx96
+  %155 = getelementptr i8, ptr %154, i64 %.idx
   store i16 %152, ptr %155, align 4
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %157 = load ptr, ptr %156, align 16
   %158 = getelementptr inbounds i32, ptr %157, i64 %.pre-phi
-  store i32 %.0140, ptr %158, align 4
+  store i32 %.0144, ptr %158, align 4
   %159 = load ptr, ptr %13, align 8
   %160 = getelementptr i8, ptr %159, i64 12
-  %161 = getelementptr i8, ptr %160, i64 %.idx96
+  %161 = getelementptr i8, ptr %160, i64 %.idx
   %162 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %162, 0
   br i1 %.not.i.i, label %trace_fw_cfg_add_file.exit, label %163, !prof !6
@@ -1122,12 +1128,12 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %125
   %174 = load i64, ptr %9, align 8
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %176 = load i64, ptr %175, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %173, i64 noundef %174, i64 noundef %176, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %161, i64 noundef %6) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %173, i64 noundef %174, i64 noundef %176, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192142, ptr noundef %161, i64 noundef %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %trace_fw_cfg_add_file.exit
 
 177:                                              ; preds = %168
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192138, ptr noundef %161, i64 noundef %6) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 65535) %.192142, ptr noundef %161, i64 noundef %6) #18
   br label %trace_fw_cfg_add_file.exit
 
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %163, %165, %171, %177
@@ -1244,7 +1250,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %17
   %.lobit.i = lshr i16 %19, 15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = zext nneg i16 %.lobit.i to i64
-  %30 = getelementptr inbounds nuw [2 x ptr], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i16 %20 to i64
   %33 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %31, i64 %32, i32 2
@@ -1260,7 +1266,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %17
   %40 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = getelementptr inbounds nuw [0 x %struct.fw_cfg_file], ptr %42, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.fw_cfg_file, ptr %42, i64 %indvars.iv
   store i32 %40, ptr %43, align 4
   %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
   %.not.i = icmp eq i32 %44, 0
@@ -1610,7 +1616,7 @@ define internal i64 @fw_cfg_data_read(ptr noundef %0, i64 %1, i32 noundef %2) #1
   %.lobit = lshr i16 %6, 15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %11 = zext nneg i16 %.lobit to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = and i16 %6, 16383
   %15 = zext nneg i16 %14 to i64
@@ -1764,7 +1770,7 @@ define internal fastcc void @fw_cfg_select(ptr noundef initializes((848, 850), (
   %.lobit = lshr i16 %1, 15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %14 = zext nneg i16 %.lobit to i64
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i16 %5 to i64
   %18 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %16, i64 %17
@@ -1794,7 +1800,7 @@ define internal fastcc void @fw_cfg_select(ptr noundef initializes((848, 850), (
 
 29:                                               ; preds = %27
   %30 = zext nneg i16 %1 to i64
-  %31 = getelementptr inbounds nuw [32 x ptr], ptr @key_name.fw_cfg_wellknown_keys, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %30
   %32 = load ptr, ptr %31, align 8
   br label %trace_key_name.exit
 
@@ -1930,7 +1936,7 @@ fw_cfg_update_mr.exit:                            ; preds = %23
   store i64 0, ptr %5, align 8, !annotation !7
   %.lobit.i = lshr i16 %25, 15
   %33 = zext nneg i16 %.lobit.i to i64
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %15, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i16 %27 to i64
   %37 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %35, i64 %36, i32 2
@@ -1966,7 +1972,7 @@ fw_cfg_update_mr.exit26:                          ; preds = %42
   store i64 0, ptr %4, align 8, !annotation !7
   %.lobit.i25 = lshr i16 %44, 15
   %52 = zext nneg i16 %.lobit.i25 to i64
-  %53 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %15, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i16 %46 to i64
   %56 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %54, i64 %55, i32 2
@@ -2002,7 +2008,7 @@ fw_cfg_update_mr.exit29:                          ; preds = %61
   store i64 0, ptr %3, align 8, !annotation !7
   %.lobit.i28 = lshr i16 %63, 15
   %71 = zext nneg i16 %.lobit.i28 to i64
-  %72 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %15, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i16 %65 to i64
   %75 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %73, i64 %74, i32 2
@@ -2535,7 +2541,7 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #1
   %.lobit = lshr i16 %29, 15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %33 = zext nneg i16 %.lobit to i64
-  %34 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = and i16 %29, 16383
   %37 = zext nneg i16 %36 to i64
@@ -2931,9 +2937,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

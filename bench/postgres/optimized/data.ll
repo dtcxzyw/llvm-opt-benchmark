@@ -46,14 +46,14 @@ define noundef range(i32 0, -1) i32 @ecpg_hex_encode(ptr noundef readonly captur
   %6 = load i8, ptr %.011, align 1
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds nuw [17 x i8], ptr @ecpg_hex_encode.hextbl, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @ecpg_hex_encode.hextbl, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds nuw i8, ptr %.0910, i64 1
   store i8 %10, ptr %.0910, align 1
   %12 = load i8, ptr %.011, align 1
   %13 = and i8 %12, 15
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds nuw [17 x i8], ptr @ecpg_hex_encode.hextbl, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @ecpg_hex_encode.hextbl, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = getelementptr inbounds nuw i8, ptr %.0910, i64 2
   store i8 %16, ptr %11, align 1
@@ -823,7 +823,7 @@ garbage_left.exit664.thread710:                   ; preds = %280, %array_delimit
 
 341:                                              ; preds = %338
   %342 = zext nneg i8 %334 to i64
-  %343 = getelementptr inbounds nuw [128 x i8], ptr @get_hex.hexlookup, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @get_hex.hexlookup, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = shl i8 %344, 4
   br label %get_hex.exit.i
@@ -842,7 +842,7 @@ get_hex.exit.i:                                   ; preds = %341, %338
 
 350:                                              ; preds = %346
   %351 = zext nneg i8 %348 to i64
-  %352 = getelementptr inbounds nuw [128 x i8], ptr @get_hex.hexlookup, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw i8, ptr @get_hex.hexlookup, i64 %351
   %353 = load i8, ptr %352, align 1
   br label %get_hex.exit27.i
 

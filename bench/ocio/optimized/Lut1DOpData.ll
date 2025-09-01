@@ -3787,7 +3787,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForward
   %26 = getelementptr inbounds nuw float, ptr %17, i64 %.0172
   %27 = load float, ptr %26, align 4, !tbaa !13
   %28 = fcmp olt float %25, %27
-  %29 = getelementptr inbounds nuw [3 x %"struct.OpenColorIO_v2_5dev::Lut1DOpData::ComponentProperties"], ptr %18, i64 0, i64 %.0221
+  %29 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::Lut1DOpData::ComponentProperties", ptr %18, i64 %.0221
   %30 = zext i1 %28 to i8
   store i8 %30, ptr %29, align 8, !tbaa !66
   %.0181207 = add i64 %.0221, 3

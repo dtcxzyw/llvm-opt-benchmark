@@ -22,7 +22,7 @@ define void @Dar_CutPrint(ptr noundef readonly captures(none) %0) local_unnamed_
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -77,7 +77,7 @@ define void @Dar_ObjCutPrint(ptr noundef readnone captures(none) %0, ptr noundef
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -841,13 +841,13 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv27.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next28.i.i, %._crit_edge.us.i.i ]
-  %169 = getelementptr inbounds nuw [4 x i32], ptr %150, i64 0, i64 %indvars.iv27.i.i
+  %169 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv27.i.i
   %170 = load i32, ptr %169, align 4, !tbaa !3
   br label %171
 
 171:                                              ; preds = %175, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %175 ]
-  %172 = getelementptr inbounds nuw [4 x i32], ptr %168, i64 0, i64 %indvars.iv.i.i
+  %172 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv.i.i
   %173 = load i32, ptr %172, align 4, !tbaa !3
   %174 = icmp eq i32 %170, %173
   br i1 %174, label %._crit_edge.us.i.i, label %175
@@ -888,13 +888,13 @@ Dar_CutCheckDominance.exit.i:                     ; preds = %._crit_edge.us.i.i,
 
 .preheader.us.i34.i:                              ; preds = %189, %.preheader.us.preheader.i31.i
   %indvars.iv27.i35.i = phi i64 [ 0, %.preheader.us.preheader.i31.i ], [ %indvars.iv.next28.i41.i, %189 ]
-  %180 = getelementptr inbounds nuw [4 x i32], ptr %179, i64 0, i64 %indvars.iv27.i35.i
+  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv27.i35.i
   %181 = load i32, ptr %180, align 4, !tbaa !3
   br label %182
 
 182:                                              ; preds = %186, %.preheader.us.i34.i
   %indvars.iv.i36.i = phi i64 [ 0, %.preheader.us.i34.i ], [ %indvars.iv.next.i37.i, %186 ]
-  %183 = getelementptr inbounds nuw [4 x i32], ptr %150, i64 0, i64 %indvars.iv.i36.i
+  %183 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv.i36.i
   %184 = load i32, ptr %183, align 4, !tbaa !3
   %185 = icmp eq i32 %181, %184
   br i1 %185, label %._crit_edge.us.i40.i, label %186
@@ -947,10 +947,10 @@ Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.
   br i1 %205, label %Dar_CutTruthPhase.exit.i, label %206
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw [4 x i32], ptr %203, i64 0, i64 %indvars.iv.i.i74
+  %207 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i.i74
   %208 = load i32, ptr %207, align 4, !tbaa !3
   %209 = zext nneg i32 %.017.i.i to i64
-  %210 = getelementptr inbounds nuw [4 x i32], ptr %38, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i32, ptr %38, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !3
   %212 = icmp sge i32 %208, %211
   %213 = trunc nuw nsw i64 %indvars.iv.i.i74 to i32
@@ -1057,10 +1057,10 @@ Dar_CutTruthStretch.exit.i:                       ; preds = %248
   br i1 %255, label %Dar_CutTruthPhase.exit32.i, label %256
 
 256:                                              ; preds = %254
-  %257 = getelementptr inbounds nuw [4 x i32], ptr %252, i64 0, i64 %indvars.iv.i23.i
+  %257 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv.i23.i
   %258 = load i32, ptr %257, align 4, !tbaa !3
   %259 = zext nneg i32 %.017.i24.i to i64
-  %260 = getelementptr inbounds nuw [4 x i32], ptr %253, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i32, ptr %253, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !3
   %262 = icmp sge i32 %258, %261
   %263 = trunc nuw nsw i64 %indvars.iv.i23.i to i32
@@ -1168,7 +1168,7 @@ Dar_CutTruth.exit:                                ; preds = %298
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i77 ]
   %.045.i = phi i32 [ %305, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i77 ]
   %.03943.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.140.i, %.lr.ph.i77 ]
-  %306 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @__const.Dar_CutSuppMinimize.uMasks, i64 0, i64 %indvars.iv.i
+  %306 = getelementptr inbounds nuw [2 x i32], ptr @__const.Dar_CutSuppMinimize.uMasks, i64 %indvars.iv.i
   %307 = load i32, ptr %306, align 8, !tbaa !3
   %308 = and i32 %307, %301
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 4
@@ -1278,11 +1278,11 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %346
   br i1 %.not.i88, label %365, label %355
 
 355:                                              ; preds = %350
-  %356 = getelementptr inbounds nuw [4 x i32], ptr %349, i64 0, i64 %indvars.iv56.i
+  %356 = getelementptr inbounds nuw i32, ptr %349, i64 %indvars.iv56.i
   %357 = load i32, ptr %356, align 4, !tbaa !3
   %358 = add nsw i32 %.03548.i, 1
   %359 = sext i32 %.03548.i to i64
-  %360 = getelementptr inbounds [4 x i32], ptr %349, i64 0, i64 %359
+  %360 = getelementptr inbounds i32, ptr %349, i64 %359
   store i32 %357, ptr %360, align 4, !tbaa !3
   %361 = and i32 %357, 31
   %362 = shl nuw i32 1, %361
@@ -1356,13 +1356,13 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %346
 
 .preheader.us.i.i126:                             ; preds = %._crit_edge.us.i.i131, %.preheader.us.preheader.i.i123
   %indvars.iv27.i.i127 = phi i64 [ 0, %.preheader.us.preheader.i.i123 ], [ %indvars.iv.next28.i.i132, %._crit_edge.us.i.i131 ]
-  %393 = getelementptr inbounds nuw [4 x i32], ptr %349, i64 0, i64 %indvars.iv27.i.i127
+  %393 = getelementptr inbounds nuw i32, ptr %349, i64 %indvars.iv27.i.i127
   %394 = load i32, ptr %393, align 4, !tbaa !3
   br label %395
 
 395:                                              ; preds = %399, %.preheader.us.i.i126
   %indvars.iv.i.i128 = phi i64 [ 0, %.preheader.us.i.i126 ], [ %indvars.iv.next.i.i129, %399 ]
-  %396 = getelementptr inbounds nuw [4 x i32], ptr %392, i64 0, i64 %indvars.iv.i.i128
+  %396 = getelementptr inbounds nuw i32, ptr %392, i64 %indvars.iv.i.i128
   %397 = load i32, ptr %396, align 4, !tbaa !3
   %398 = icmp eq i32 %394, %397
   br i1 %398, label %._crit_edge.us.i.i131, label %399
@@ -1403,13 +1403,13 @@ Dar_CutCheckDominance.exit.i134:                  ; preds = %._crit_edge.us.i.i1
 
 .preheader.us.i34.i110:                           ; preds = %413, %.preheader.us.preheader.i31.i107
   %indvars.iv27.i35.i111 = phi i64 [ 0, %.preheader.us.preheader.i31.i107 ], [ %indvars.iv.next28.i41.i116, %413 ]
-  %404 = getelementptr inbounds nuw [4 x i32], ptr %403, i64 0, i64 %indvars.iv27.i35.i111
+  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv27.i35.i111
   %405 = load i32, ptr %404, align 4, !tbaa !3
   br label %406
 
 406:                                              ; preds = %410, %.preheader.us.i34.i110
   %indvars.iv.i36.i112 = phi i64 [ 0, %.preheader.us.i34.i110 ], [ %indvars.iv.next.i37.i113, %410 ]
-  %407 = getelementptr inbounds nuw [4 x i32], ptr %349, i64 0, i64 %indvars.iv.i36.i112
+  %407 = getelementptr inbounds nuw i32, ptr %349, i64 %indvars.iv.i36.i112
   %408 = load i32, ptr %407, align 4, !tbaa !3
   %409 = icmp eq i32 %405, %408
   br i1 %409, label %._crit_edge.us.i40.i115, label %410
@@ -1471,7 +1471,7 @@ Aig_ManObj.exit.i:                                ; preds = %433, %.lr.ph.split.
   %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i143, %433 ]
   %.026.i = phi i32 [ 0, %.lr.ph.split.i ], [ %441, %433 ]
   %.01625.i = phi i32 [ 0, %.lr.ph.split.i ], [ %438, %433 ]
-  %427 = getelementptr inbounds nuw [4 x i32], ptr %425, i64 0, i64 %indvars.iv.i142
+  %427 = getelementptr inbounds nuw i32, ptr %425, i64 %indvars.iv.i142
   %428 = load i32, ptr %427, align 4, !tbaa !3
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %429
@@ -1704,18 +1704,18 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 21:                                               ; preds = %.preheader107, %19
   %indvars.iv146 = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next147, %19 ]
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv146
+  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv146
   %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv146
+  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv146
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %.not104 = icmp eq i32 %23, %25
   br i1 %.not104, label %19, label %.thread105
 
 26:                                               ; preds = %.lr.ph124, %26
   %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %26 ]
-  %27 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv150
+  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv150
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv150
+  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv150
   store i32 %28, ptr %29, align 4, !tbaa !3
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %30 = load i32, ptr %4, align 4
@@ -1751,7 +1751,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 .preheader109:                                    ; preds = %.preheader109.lr.ph, %53
   %indvars.iv139 = phi i64 [ 0, %.preheader109.lr.ph ], [ %indvars.iv.next140, %53 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %43, i64 0, i64 %indvars.iv139
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv139
   %45 = load i32, ptr %44, align 4, !tbaa !3
   br label %48
 
@@ -1767,7 +1767,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 49:                                               ; preds = %48
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, -1
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.next137
+  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next137
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = icmp eq i32 %51, %45
   br i1 %52, label %53, label %48, !llvm.loop !75
@@ -1779,9 +1779,9 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv143 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next144, %54 ]
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %46, i64 0, i64 %indvars.iv143
+  %55 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv143
   %56 = load i32, ptr %55, align 4, !tbaa !3
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %indvars.iv143
+  %57 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv143
   store i32 %56, ptr %57, align 4, !tbaa !3
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %58 = load i32, ptr %4, align 4
@@ -1827,9 +1827,9 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 82:                                               ; preds = %74
   %83 = add nsw i32 %.4117, 1
   %84 = sext i32 %.4117 to i64
-  %85 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %84
+  %85 = getelementptr inbounds i32, ptr %8, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !3
-  %87 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !3
   br label %113
 
@@ -1839,21 +1839,21 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 89:                                               ; preds = %88
   %90 = add nsw i32 %.1118, 1
   %91 = sext i32 %.1118 to i64
-  %92 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %91
+  %92 = getelementptr inbounds i32, ptr %9, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !3
-  %94 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %93, ptr %94, align 4, !tbaa !3
   br label %113
 
 95:                                               ; preds = %88
   %96 = sext i32 %.4117 to i64
-  %97 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %96
+  %97 = getelementptr inbounds i32, ptr %8, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !3
   %99 = sext i32 %.1118 to i64
-  %100 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %99
+  %100 = getelementptr inbounds i32, ptr %9, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = icmp slt i32 %98, %101
-  %103 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   br i1 %102, label %104, label %106
 
 104:                                              ; preds = %95

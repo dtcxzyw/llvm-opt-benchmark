@@ -2094,9 +2094,9 @@ define hidden <2 x float> @b2ComputeShapeExtent(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.0142 = phi float [ %27, %.lr.ph ], [ %45, %39 ]
   %.067141 = phi float [ 0.000000e+00, %.lr.ph ], [ %48, %39 ]
-  %40 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %25, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.b2Vec2, ptr %25, i64 %indvars.iv
   %.sroa.07.0.copyload = load <2 x float>, ptr %40, align 4
-  %41 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %31, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.b2Vec2, ptr %31, i64 %indvars.iv
   %foldExtExtBinop179 = fsub <2 x float> %.sroa.07.0.copyload, %33
   %foldExtExtBinop181 = fsub <2 x float> %.sroa.07.0.copyload, %33
   %42 = load <2 x float>, ptr %41, align 4
@@ -2345,8 +2345,8 @@ define hidden void @b2ShapeCastShape(ptr dead_on_unwind noalias writable sret(%s
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %6, i64 0, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %1, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.b2Vec2, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
   %24 = load <2 x float>, ptr %23, align 4
   %foldExtExtBinop = fsub <2 x float> %24, %3
   %25 = extractelement <2 x float> %foldExtExtBinop, i64 0

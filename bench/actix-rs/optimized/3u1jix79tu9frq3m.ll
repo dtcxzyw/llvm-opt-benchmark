@@ -539,7 +539,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h0c4
 
 .lr.ph.i.i.i:                                     ; preds = %15, %19
   %.05.i.i.i = phi i64 [ %20, %19 ], [ 0, %15 ]
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %.05.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.05.i.i.i
   %17 = load i8, ptr %16, align 1, !alias.scope !108, !noalias !111, !noundef !4
   %18 = icmp eq i8 %17, %.sroa.13.40.extract.trunc
   br i1 %18, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %19
@@ -1371,7 +1371,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
 
 221:                                              ; preds = %.preheader.i
   %222 = add nsw i64 %.sroa.6.0.i, -1
-  %223 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i173, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr %.pn3.i173, i64 %222
   %224 = load i8, ptr %223, align 1, !alias.scope !286, !noundef !4
   %225 = icmp sgt i8 %224, -1
   br i1 %225, label %.preheader.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
@@ -2315,7 +2315,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
 
 224:                                              ; preds = %.preheader.i
   %225 = add nsw i64 %.sroa.6.0.i, -1
-  %226 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i178, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr %.pn3.i178, i64 %225
   %227 = load i8, ptr %226, align 1, !alias.scope !476, !noundef !4
   %228 = icmp sgt i8 %227, -1
   br i1 %228, label %.preheader.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread

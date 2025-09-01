@@ -2273,7 +2273,7 @@ define internal fastcc { ptr, i64 } @_ZN3ue2L14findReformableERKNS_8NGHolderERKS
 
 11:                                               ; preds = %9, %.lr.ph
   %.0813.i.i = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
-  %12 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.0813.i.i
+  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %.0813.i.i
   %13 = load i64, ptr %12, align 8
   %.not.i.i = icmp eq i64 %13, -1
   br i1 %.not.i.i, label %9, label %_ZN3ue2L6is_dotINS_8NGHolderEEEbNS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKT_.exit.thread
@@ -3742,7 +3742,7 @@ define internal fastcc void @_ZN3ue2L25collapseVariableDotRepeatERNS_8NGHolderEN
 
 28:                                               ; preds = %26, %24
   %.0813.i.i = phi i64 [ 0, %24 ], [ %27, %26 ]
-  %29 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %.0813.i.i
+  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %.0813.i.i
   %30 = load i64, ptr %29, align 8
   %.not.i.i = icmp eq i64 %30, -1
   br i1 %.not.i.i, label %26, label %_ZNK3ue29CharReach3allEv.exit.thread
@@ -3874,7 +3874,7 @@ _ZNK3ue29CharReach3allEv.exit.thread:             ; preds = %28, %39, %.lr.ph.sp
 
 77:                                               ; preds = %75, %67
   %.0813.i.i.i.i = phi i64 [ 0, %67 ], [ %76, %75 ]
-  %78 = getelementptr inbounds nuw [4 x i64], ptr %74, i64 0, i64 %.0813.i.i.i.i
+  %78 = getelementptr inbounds nuw i64, ptr %74, i64 %.0813.i.i.i.i
   %79 = load i64, ptr %78, align 8
   %.not.i.i.i.i = icmp eq i64 %79, -1
   br i1 %.not.i.i.i.i, label %75, label %.thread.i

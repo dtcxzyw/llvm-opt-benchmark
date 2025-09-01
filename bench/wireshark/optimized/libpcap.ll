@@ -910,7 +910,7 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
 
 libpcap_try_variant.exit:                         ; preds = %190, %.thread47.sink.split.i
   %193 = phi i32 [ %.ph.i, %.thread47.sink.split.i ], [ %.7.i, %190 ]
-  %194 = getelementptr [3 x i32], ptr %11, i64 0, i64 %.03394
+  %194 = getelementptr i32, ptr %11, i64 %.03394
   store i32 %193, ptr %194, align 4
   switch i32 %193, label %203 [
     i32 -1, label %.loopexit
@@ -948,7 +948,7 @@ libpcap_try_variant.exit:                         ; preds = %190, %.thread47.sin
 210:                                              ; preds = %.preheader, %217
   %.097 = phi i64 [ 0, %.preheader ], [ %218, %217 ]
   %.03596 = phi i32 [ 2147483647, %.preheader ], [ %.136, %217 ]
-  %211 = getelementptr [3 x i32], ptr %11, i64 0, i64 %.097
+  %211 = getelementptr i32, ptr %11, i64 %.097
   %212 = load i32, ptr %211, align 4
   %213 = icmp slt i32 %212, %.03596
   br i1 %213, label %214, label %217
@@ -1061,7 +1061,7 @@ define internal fastcc noundef zeroext i1 @libpcap_read_packet(ptr noundef %0, p
 
 switch.lookup:                                    ; preds = %5
   %13 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.libpcap_read_packet, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.libpcap_read_packet, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %switch.load, ptr noundef %3, ptr noundef %4)
   br i1 %14, label %15, label %.critedge

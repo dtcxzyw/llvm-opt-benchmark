@@ -887,7 +887,7 @@ define { i32, i32 } @_ZN4rope5point5Point9parse_str17h7de359ddfe6263d3E(ptr noal
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %12
   %.sroa.01.05.i.i.i.i.i = phi i64 [ %13, %12 ], [ 0, %.preheader.i.i.i.i.i ]
-  %9 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %.sroa.01.05.i.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.01.05.i.i.i.i.i
   %10 = load i8, ptr %9, align 1, !alias.scope !219, !noalias !222, !noundef !4
   %11 = icmp eq i8 %10, 10
   br i1 %11, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i, label %12

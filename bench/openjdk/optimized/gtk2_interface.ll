@@ -4873,43 +4873,43 @@ init_containers.exit:                             ; preds = %4, %7
 21:                                               ; preds = %init_containers.exit
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.GdkColor, ptr %22, i64 %23
   br label %53
 
 25:                                               ; preds = %init_containers.exit
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %27 = zext i32 %2 to i64
-  %28 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %struct.GdkColor, ptr %26, i64 %27
   br label %53
 
 29:                                               ; preds = %init_containers.exit
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 324
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.GdkColor, ptr %30, i64 %31
   br label %53
 
 33:                                               ; preds = %init_containers.exit
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 384
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.GdkColor, ptr %34, i64 %35
   br label %53
 
 37:                                               ; preds = %init_containers.exit
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.GdkColor, ptr %38, i64 %39
   br label %53
 
 41:                                               ; preds = %init_containers.exit
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 204
   %43 = zext i32 %2 to i64
-  %44 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.GdkColor, ptr %42, i64 %43
   br label %53
 
 45:                                               ; preds = %init_containers.exit
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %47 = zext i32 %2 to i64
-  %48 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.GdkColor, ptr %46, i64 %47
   br label %53
 
 49:                                               ; preds = %init_containers.exit, %init_containers.exit

@@ -298,7 +298,7 @@ define dso_local ptr @acpi_ev_get_gpe_event_info(ptr noundef %0, i32 noundef %1)
 .preheader:                                       ; preds = %2, %.preheader.backedge
   %4 = phi i1 [ false, %.preheader.backedge ], [ true, %2 ]
   %5 = phi i64 [ 1, %.preheader.backedge ], [ 0, %2 ]
-  %6 = getelementptr [2 x ptr], ptr @acpi_gbl_gpe_fadt_blocks, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @acpi_gbl_gpe_fadt_blocks, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -499,7 +499,7 @@ define dso_local i32 @acpi_ev_detect_gpe(ptr noundef %0, ptr noundef %1, i32 nou
 .preheader:                                       ; preds = %9, %.thread
   %11 = phi i1 [ false, %.thread ], [ true, %9 ]
   %12 = phi i64 [ 1, %.thread ], [ 0, %9 ]
-  %13 = getelementptr [2 x ptr], ptr @acpi_gbl_gpe_fadt_blocks, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @acpi_gbl_gpe_fadt_blocks, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16

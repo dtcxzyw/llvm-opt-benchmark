@@ -449,7 +449,7 @@ define i32 @Fraig_BitStringCountOnes(ptr noundef readonly captures(none) %0, i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !39
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

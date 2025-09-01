@@ -164,7 +164,7 @@ define noundef range(i32 -1, 1) i32 @H5T_debug(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %24
   %36 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5T_debug, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
@@ -177,7 +177,7 @@ switch.lookup:                                    ; preds = %24
 
 switch.lookup169:                                 ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %switch.gep170 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5T_debug.1, i64 0, i64 %41
+  %switch.gep170 = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug.1, i64 %41
   %switch.load171 = load ptr, ptr %switch.gep170, align 8
   br label %42
 

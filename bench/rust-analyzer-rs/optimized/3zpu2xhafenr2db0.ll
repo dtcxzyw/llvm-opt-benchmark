@@ -563,7 +563,7 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.i.us:                                      ; preds = %25, %29
   %.05.i.us = phi i64 [ %30, %29 ], [ 0, %25 ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %19, i64 0, i64 %.05.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.05.i.us
   %27 = load i8, ptr %26, align 1, !alias.scope !95, !noundef !15
   %28 = icmp eq i8 %27, %21
   br i1 %28, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us, label %29
@@ -620,7 +620,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us: ; preds = %.lr.
 
 .lr.ph.i:                                         ; preds = %49, %53
   %.05.i = phi i64 [ %54, %53 ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw [0 x i8], ptr %43, i64 0, i64 %.05.i
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 %.05.i
   %51 = load i8, ptr %50, align 1, !alias.scope !95, !noundef !15
   %52 = icmp eq i8 %51, %45
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %53
@@ -2783,7 +2783,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %102 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, splat (i8 115)
   %103 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, splat (i8 101)
   %104 = and <16 x i1> %102, %103
-  %105 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.022.047.i.i.i
+  %105 = getelementptr inbounds nuw i16, ptr %7, i64 %.sroa.022.047.i.i.i
   store <16 x i1> %104, ptr %105, align 2, !noalias !514
   %exitcond.not.i.i.i = icmp eq i64 %98, 4
   br i1 %exitcond.not.i.i.i, label %.preheader44.i.i.i, label %97
@@ -2801,7 +2801,7 @@ _ZN6xshell3Cmd3arg17h25a2c54d965b41c6E.exit10.i:  ; preds = %_ZN6xshell3Cmd3arg1
   %.sroa.028.049.i.i.i = phi i64 [ %111, %115 ], [ 0, %97 ]
   %.248.i.i.i = phi i8 [ %.3.i.i.i, %115 ], [ 0, %97 ]
   %111 = add nuw nsw i64 %.sroa.028.049.i.i.i, 1
-  %112 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.028.049.i.i.i
+  %112 = getelementptr inbounds nuw i16, ptr %7, i64 %.sroa.028.049.i.i.i
   %113 = load i16, ptr %112, align 2, !noalias !514, !noundef !15
   %114 = icmp eq i16 %113, 0
   br i1 %114, label %115, label %116
@@ -3916,9 +3916,9 @@ define internal fastcc void @_ZN9sourcegen18normalize_newlines17hdbe7e989ffa444c
   br i1 %45, label %46, label %.split139.us.invoke.i, !prof !753
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload.i, i64 0, i64 %41
+  %47 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload.i, i64 %41
   %48 = load i8, ptr %47, align 1, !alias.scope !748, !noalias !754, !noundef !15
-  %49 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload.i, i64 0, i64 %44
+  %49 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i, i64 %44
   %50 = load i8, ptr %49, align 1, !alias.scope !745, !noalias !750, !noundef !15
   %.not28.i38.us.i = icmp eq i8 %48, %50
   br i1 %.not28.i38.us.i, label %.preheader57.us.i, label %51
@@ -3934,9 +3934,9 @@ define internal fastcc void @_ZN9sourcegen18normalize_newlines17hdbe7e989ffa444c
 
 56:                                               ; preds = %53
   %57 = add nuw i64 %.sroa.04.0.i36.us.i, 1
-  %58 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i36.us.i
+  %58 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload.i, i64 %.sroa.04.0.i36.us.i
   %59 = load i8, ptr %58, align 1, !alias.scope !748, !noalias !754, !noundef !15
-  %60 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload.i, i64 0, i64 %54
+  %60 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i, i64 %54
   %61 = load i8, ptr %60, align 1, !alias.scope !745, !noalias !750, !noundef !15
   %.not.i42.us.i = icmp eq i8 %59, %61
   br i1 %.not.i42.us.i, label %37, label %62
@@ -3995,9 +3995,9 @@ define internal fastcc void @_ZN9sourcegen18normalize_newlines17hdbe7e989ffa444c
   br i1 %82, label %83, label %.split139.us.invoke.i, !prof !753
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload.i, i64 0, i64 %80
+  %84 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload.i, i64 %80
   %85 = load i8, ptr %84, align 1, !alias.scope !758, !noalias !763, !noundef !15
-  %86 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload.i, i64 0, i64 %81
+  %86 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i, i64 %81
   %87 = load i8, ptr %86, align 1, !alias.scope !755, !noalias !760, !noundef !15
   %.not28.i.us.i.us = icmp eq i8 %85, %87
   br i1 %.not28.i.us.i.us, label %.preheader.us.i.us, label %.split.us
@@ -4078,9 +4078,9 @@ define internal fastcc void @_ZN9sourcegen18normalize_newlines17hdbe7e989ffa444c
 
 120:                                              ; preds = %117
   %121 = add nuw i64 %.sroa.04.0.i.us.i, 1
-  %122 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i.us.i
+  %122 = getelementptr inbounds i8, ptr %.sroa.03.sroa.14.0.copyload.i, i64 %.sroa.04.0.i.us.i
   %123 = load i8, ptr %122, align 1, !alias.scope !758, !noalias !763, !noundef !15
-  %124 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload.i, i64 0, i64 %118
+  %124 = getelementptr inbounds i8, ptr %.sroa.03.sroa.12.0.copyload.i, i64 %118
   %125 = load i8, ptr %124, align 1, !alias.scope !755, !noalias !760, !noundef !15
   %.not.i.us.i = icmp eq i8 %123, %125
   br i1 %.not.i.us.i, label %.preheader56.us.i, label %126

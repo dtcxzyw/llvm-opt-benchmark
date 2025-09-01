@@ -772,7 +772,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   %245 = getelementptr inbounds nuw i8, ptr %.01721.us.i.i, i64 %indvars.iv.i243.i
   %246 = load i8, ptr %245, align 1, !tbaa !49
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i32, ptr %5, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !32
   %250 = add nsw i32 %249, 1
   store i32 %250, ptr %248, align 4, !tbaa !32
@@ -791,7 +791,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
 
 .preheader.i240.i:                                ; preds = %.preheader.i240.i.preheader, %255
   %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %255 ], [ 0, %.preheader.i240.i.preheader ]
-  %253 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv27.i.i
+  %253 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv27.i.i
   %254 = load i32, ptr %253, align 4, !tbaa !32
   %.not.i241.i = icmp eq i32 %254, 0
   br i1 %.not.i241.i, label %pick_palette_entry.exit.i, label %255
@@ -927,7 +927,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %283, %shrink_palett
 
 297:                                              ; preds = %296
   %298 = zext nneg i32 %286 to i64
-  %299 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr %7, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !49
   %301 = zext i8 %300 to i32
   br label %302
@@ -974,7 +974,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %283, %shrink_palett
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %323
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %324
   %325 = zext nneg i32 %.110.i.i to i64
-  %326 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %325
   %327 = load i8, ptr %326, align 1, !tbaa !49
   %328 = zext i8 %327 to i32
   %329 = add nuw nsw i32 %.1.i.i, %328
@@ -989,7 +989,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %283, %shrink_palett
 334:                                              ; preds = %334, %319
   %.2 = phi ptr [ %332, %319 ], [ %344, %334 ]
   %indvars.iv167.i = phi i64 [ 0, %319 ], [ %indvars.iv.next168.i, %334 ]
-  %335 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv167.i
+  %335 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv167.i
   %336 = load i32, ptr %335, align 4, !tbaa !32
   %337 = trunc i32 %336 to i8
   %338 = getelementptr inbounds nuw i8, ptr %.2, i64 2

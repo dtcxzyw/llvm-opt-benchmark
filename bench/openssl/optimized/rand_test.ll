@@ -357,7 +357,7 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
 2:                                                ; preds = %0, %2
   %.027 = phi i64 [ 0, %0 ], [ %5, %2 ]
   %3 = trunc i64 %.027 to i8
-  %4 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.027
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.027
   store i8 %3, ptr %4, align 1, !tbaa !21
   %5 = add nuw nsw i64 %.027, 1
   %exitcond.not = icmp eq i64 %5, 1000
@@ -376,7 +376,7 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   %11 = icmp samesign ugt i64 %.128, 10
   %12 = trunc nuw nsw i64 %.128 to i8
   %13 = select i1 %11, i8 -56, i8 %12
-  %14 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.128
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.128
   store i8 %13, ptr %14, align 1, !tbaa !21
   %15 = add nuw nsw i64 %.128, 1
   %exitcond32.not = icmp eq i64 %15, 20
@@ -398,7 +398,7 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   %or.cond = and i1 %21, %23
   %24 = trunc i64 %.229 to i8
   %25 = select i1 %or.cond, i8 -128, i8 %24
-  %26 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.229
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.229
   store i8 %25, ptr %26, align 1, !tbaa !21
   %27 = add nuw nsw i64 %.229, 1
   %exitcond33.not = icmp eq i64 %27, 1000

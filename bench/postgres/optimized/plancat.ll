@@ -390,7 +390,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %163
 
 208:                                              ; preds = %.lr.ph354, %208
   %indvars.iv382 = phi i64 [ 0, %.lr.ph354 ], [ %indvars.iv.next383, %208 ]
-  %209 = getelementptr inbounds nuw [0 x i16], ptr %203, i64 0, i64 %indvars.iv382
+  %209 = getelementptr inbounds nuw i16, ptr %203, i64 %indvars.iv382
   %210 = load i16, ptr %209, align 2
   %211 = sext i16 %210 to i32
   %212 = load ptr, ptr %191, align 8
@@ -941,7 +941,7 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
 508:                                              ; preds = %508, %.lr.ph.i330
   %indvars.iv.i331 = phi i64 [ 0, %.lr.ph.i330 ], [ %indvars.iv.next.i332, %508 ]
   %.03946.i = phi ptr [ null, %.lr.ph.i330 ], [ %512, %508 ]
-  %509 = getelementptr inbounds nuw [0 x i16], ptr %507, i64 0, i64 %indvars.iv.i331
+  %509 = getelementptr inbounds nuw i16, ptr %507, i64 %indvars.iv.i331
   %510 = load i16, ptr %509, align 2
   %511 = sext i16 %510 to i32
   %512 = call ptr @bms_add_member(ptr noundef %.03946.i, i32 noundef %511) #10
@@ -1901,7 +1901,7 @@ define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) 
   %126 = load i32, ptr %125, align 4
   %127 = load ptr, ptr %78, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %129 = getelementptr inbounds [0 x i16], ptr %128, i64 0, i64 %123
+  %129 = getelementptr inbounds i16, ptr %128, i64 %123
   %130 = load i16, ptr %129, align 2
   %.not48.i.us = icmp ne i16 %130, 0
   %131 = zext i1 %.not48.i.us to i32
@@ -2024,7 +2024,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   %.0121198.us = phi ptr [ %.1122.us, %193 ], [ null, %.preheader.us ]
   %185 = load ptr, ptr %78, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 48
-  %187 = getelementptr inbounds nuw [0 x i16], ptr %186, i64 0, i64 %indvars.iv254
+  %187 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv254
   %188 = load i16, ptr %187, align 2
   %.not148.us = icmp eq i16 %188, 0
   br i1 %.not148.us, label %193, label %189

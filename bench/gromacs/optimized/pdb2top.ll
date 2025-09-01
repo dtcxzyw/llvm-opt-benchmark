@@ -378,7 +378,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._Z17enumValueToString15HistidineStates.histidineStateNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString15HistidineStates.histidineStateNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -8489,9 +8489,9 @@ _ZL16check_restp_typePKcii.exit23.i:              ; preds = %_ZL16check_restp_ty
   %indvars.iv580 = phi i64 [ %indvars.iv.next581, %_ZL16check_restp_typePKcii.exit21.i ], [ 0, %_ZL16check_restp_typePKcii.exit21.preheader.i ]
   %238 = trunc nuw nsw i64 %indvars.iv580 to i32
   %239 = call noundef ptr @_Z17enumValueToString11BondedTypes(i32 noundef %238)
-  %240 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %228, i64 0, i64 %indvars.iv580
+  %240 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %228, i64 %indvars.iv580
   %241 = load i32, ptr %240, align 8, !tbaa !279
-  %242 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %229, i64 0, i64 %indvars.iv580
+  %242 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %229, i64 %indvars.iv580
   %243 = load i32, ptr %242, align 8, !tbaa !279
   %.not.i22.i = icmp eq i32 %241, %243
   br i1 %.not.i22.i, label %_ZL16check_restp_typePKcii.exit21.i, label %244
@@ -9880,7 +9880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i: 
 44:                                               ; preds = %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i
   %45 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i ], [ %58, %44 ]
   %46 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %42, i64 %45
-  %47 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %43, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %43, i64 %45
   %48 = load i32, ptr %47, align 8, !tbaa !279, !alias.scope !321, !noalias !318
   store i32 %48, ptr %46, align 8, !tbaa !279, !alias.scope !318, !noalias !321
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -10553,7 +10553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i: ; preds = 
 54:                                               ; preds = %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i
   %55 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit8.i ], [ %68, %54 ]
   %56 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %52, i64 %55
-  %57 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %53, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %53, i64 %55
   %58 = load i32, ptr %57, align 8, !tbaa !279
   store i32 %58, ptr %56, align 8, !tbaa !279
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -15561,7 +15561,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit68.i:             ; preds = %_ZNKSt7__cxx1112bas
 .preheader.split.us.split.split.us90.us.us.i:     ; preds = %.preheader.us.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i
   %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i ], [ 0, %.preheader.us.us.us.i ]
   %.25223.us.us63.us.us.i = phi i32 [ %.454.us.us69.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i ], [ %.15161.us.us.us.i, %.preheader.us.us.us.i ]
-  %789 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.03.053.us.us.us.i, i64 0, i64 %indvars.iv133.i
+  %789 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.03.053.us.us.us.i, i64 %indvars.iv133.i
   %790 = load ptr, ptr %789, align 8, !tbaa !27
   %791 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %790, i32 noundef 45) #33
   %.not105.i = icmp eq ptr %791, null
@@ -15585,7 +15585,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit68.i:             ; preds = %_ZNKSt7__cxx1112bas
 
 _ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i: ; preds = %.noexc215
   %.sroa.0.0.extract.trunc.us.us67.us.us.i = trunc i64 %795 to i32
-  %797 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %indvars.iv133.i
+  %797 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv133.i
   store i32 %.sroa.0.0.extract.trunc.us.us67.us.us.i, ptr %797, align 4, !tbaa !59
   %798 = load ptr, ptr %760, align 8, !tbaa !244
   %sext.us.us68.us.us.i = shl i64 %795, 32
@@ -15612,7 +15612,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i: ; preds = %.noexc215
 .preheader.split.us.split.split.us.us.us.us.i:    ; preds = %.preheader.us.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i ], [ 0, %.preheader.us.us.us.i ]
   %.25223.us.us32.us.us.us.i = phi i32 [ %.454.us.us39.us.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i ], [ %.15161.us.us.us.i, %.preheader.us.us.us.i ]
-  %809 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.03.053.us.us.us.i, i64 0, i64 %indvars.iv130.i
+  %809 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.03.053.us.us.us.i, i64 %indvars.iv130.i
   %810 = load ptr, ptr %809, align 8, !tbaa !27
   %811 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %810, i32 noundef 45) #33
   %.not104.i = icmp eq ptr %811, null
@@ -15631,7 +15631,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us66.us.us.i: ; preds = %.noexc215
 
 _ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i: ; preds = %.noexc216
   %.sroa.0.0.extract.trunc.us.us37.us.us.us.i = trunc i64 %813 to i32
-  %815 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %indvars.iv130.i
+  %815 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv130.i
   store i32 %.sroa.0.0.extract.trunc.us.us37.us.us.us.i, ptr %815, align 4, !tbaa !59
   %816 = load ptr, ptr %760, align 8, !tbaa !244
   %sext.us.us38.us.us.us.i = shl i64 %813, 32
@@ -15676,7 +15676,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i: ; preds = %.noexc216
 .preheader.split.us.split.us.split.us93.us.i:     ; preds = %.preheader.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i
   %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i ], [ 0, %.preheader.us.us.i ]
   %.25223.us.us.us78.us.i = phi i32 [ %.454.us.us.us83.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i ], [ %.15161.us.us.i, %.preheader.us.us.i ]
-  %836 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.03.053.us.us.i, i64 0, i64 %indvars.iv127.i
+  %836 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.03.053.us.us.i, i64 %indvars.iv127.i
   %837 = load ptr, ptr %836, align 8, !tbaa !27
   %838 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %837, i32 noundef 43) #33
   %.not63.us.us.us.us.not.i = icmp eq ptr %838, null
@@ -15695,7 +15695,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us36.us.us.us.i: ; preds = %.noexc216
 
 _ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i: ; preds = %.noexc218
   %.sroa.0.0.extract.trunc.us.us.us81.us.i = trunc i64 %840 to i32
-  %842 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %indvars.iv127.i
+  %842 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv127.i
   store i32 %.sroa.0.0.extract.trunc.us.us.us81.us.i, ptr %842, align 4, !tbaa !59
   %843 = load ptr, ptr %760, align 8, !tbaa !244
   %sext.us.us.us82.us.i = shl i64 %840, 32
@@ -15722,7 +15722,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i: ; preds = %.noexc218
 .preheader.split.us.split.us.split.us.us.us.i:    ; preds = %.preheader.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i ], [ 0, %.preheader.us.us.i ]
   %.25223.us.us.us.us.us.i = phi i32 [ %.454.us.us.us.us.us.i, %_ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i ], [ %.15161.us.us.i, %.preheader.us.us.i ]
-  %854 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.03.053.us.us.i, i64 0, i64 %indvars.iv124.i
+  %854 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.03.053.us.us.i, i64 %indvars.iv124.i
   %855 = load ptr, ptr %854, align 8, !tbaa !27
   store ptr %.fr, ptr %27, align 8, !tbaa !376
   store ptr %716, ptr %759, align 8, !tbaa !376
@@ -15736,7 +15736,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us.us80.us.i: ; preds = %.noexc218
 
 _ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i: ; preds = %.noexc219
   %.sroa.0.0.extract.trunc.us.us.us.us.us.i = trunc i64 %856 to i32
-  %858 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %indvars.iv124.i
+  %858 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv124.i
   store i32 %.sroa.0.0.extract.trunc.us.us.us.us.us.i, ptr %858, align 4, !tbaa !59
   %859 = load ptr, ptr %760, align 8, !tbaa !244
   %sext.us.us.us.us.us.i = shl i64 %856, 32
@@ -15788,7 +15788,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i: ; preds = %.noexc219
 
 877:                                              ; preds = %891, %.outer.i
   %indvars.iv.i207 = phi i64 [ %indvars.iv.next.i209, %891 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %878 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.03.053.i, i64 0, i64 %indvars.iv.i207
+  %878 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.03.053.i, i64 %indvars.iv.i207
   %879 = load ptr, ptr %878, align 8, !tbaa !27
   store ptr %.fr, ptr %27, align 8, !tbaa !376
   store ptr %716, ptr %759, align 8, !tbaa !376
@@ -15802,7 +15802,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.us.us.us.us.us.i: ; preds = %.noexc219
 
 _ZNKRSt8optionalIiE5valueEv.exit.i:               ; preds = %.noexc220
   %.sroa.0.0.extract.trunc.i = trunc i64 %880 to i32
-  %882 = getelementptr inbounds nuw [5 x i32], ptr %25, i64 0, i64 %indvars.iv.i207
+  %882 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i207
   store i32 %.sroa.0.0.extract.trunc.i, ptr %882, align 4, !tbaa !59
   %883 = load ptr, ptr %760, align 8, !tbaa !244
   %sext.i208 = shl i64 %880, 32
@@ -16237,9 +16237,9 @@ _ZN3gmx14LogEntryWriterD2Ev.exit245:              ; preds = %_ZNKSt7__cxx1112bas
 
 1120:                                             ; preds = %1116, %1120
   %indvars.iv430 = phi i64 [ 0, %1116 ], [ %indvars.iv.next431, %1120 ]
-  %1121 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %1119, i64 0, i64 %indvars.iv430
+  %1121 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %1119, i64 %indvars.iv430
   %1122 = load i32, ptr %1121, align 8, !tbaa !279
-  %1123 = getelementptr inbounds nuw [6 x i32], ptr %42, i64 0, i64 %indvars.iv430
+  %1123 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv430
   store i32 %1122, ptr %1123, align 4, !tbaa !59
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %.not296 = icmp eq i64 %indvars.iv.next431, 6

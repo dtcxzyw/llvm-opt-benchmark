@@ -84,7 +84,7 @@ define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %
   %.val21 = load i32, ptr %7, align 4, !tbaa !16
   %8 = lshr i32 %.val21, 24
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4, !tbaa !17
@@ -93,7 +93,7 @@ define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %
   %14 = lshr i32 %.val22, 16
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !17
@@ -110,7 +110,7 @@ define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %
   %.val24 = load i32, ptr %7, align 4, !tbaa !16
   %28 = and i32 %.val24, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i32], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !17
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !17
@@ -136,7 +136,7 @@ define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %
 
 44:                                               ; preds = %41
   %45 = zext nneg i16 %.val27 to i64
-  %46 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.VP8LPrefixCode, ptr @kPrefixEncodeCode, i64 %45
   %.sroa.0.0.copyload.i = load i8, ptr %46, align 2, !tbaa !23
   %47 = sext i8 %.sroa.0.0.copyload.i to i32
   br label %VP8LPrefixEncodeBits.exit
@@ -173,7 +173,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 68:                                               ; preds = %66
   %69 = sext i32 %.val28 to i64
-  %70 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %69
+  %70 = getelementptr inbounds %struct.VP8LPrefixCode, ptr @kPrefixEncodeCode, i64 %69
   %.sroa.0.0.copyload.i30 = load i8, ptr %70, align 2, !tbaa !23
   %71 = sext i8 %.sroa.0.0.copyload.i30 to i32
   br label %VP8LPrefixEncodeBits.exit33
@@ -196,7 +196,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 84:                                               ; preds = %81
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %85
+  %86 = getelementptr inbounds %struct.VP8LPrefixCode, ptr @kPrefixEncodeCode, i64 %85
   %.sroa.0.0.copyload.i34 = load i8, ptr %86, align 2, !tbaa !23
   %87 = sext i8 %.sroa.0.0.copyload.i34 to i32
   br label %VP8LPrefixEncodeBits.exit33
@@ -216,7 +216,7 @@ VP8LPrefixEncodeBits.exit33:                      ; preds = %88, %84, %72, %68
   %.0 = phi i32 [ %71, %68 ], [ %80, %72 ], [ %87, %84 ], [ %96, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   %98 = sext i32 %.0 to i64
-  %99 = getelementptr inbounds [40 x i32], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds i32, ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !17
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !17
@@ -1324,7 +1324,7 @@ HistogramAnalyzeEntropyBin.exit:                  ; preds = %305, %282, %277, %G
 
 306:                                              ; preds = %306, %HistogramAnalyzeEntropyBin.exit
   %indvars.iv.i103 = phi i64 [ 0, %HistogramAnalyzeEntropyBin.exit ], [ %indvars.iv.next.i104, %306 ]
-  %307 = getelementptr inbounds nuw [64 x %struct.anon], ptr %24, i64 0, i64 %indvars.iv.i103
+  %307 = getelementptr inbounds nuw %struct.anon, ptr %24, i64 %indvars.iv.i103
   store i16 -1, ptr %307, align 4, !tbaa !48
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 2
   store i16 0, ptr %308, align 2, !tbaa !50
@@ -1352,7 +1352,7 @@ HistogramAnalyzeEntropyBin.exit:                  ; preds = %305, %282, %277, %G
   %313 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv107.i
   %314 = load i16, ptr %313, align 2, !tbaa !45
   %315 = zext i16 %314 to i64
-  %316 = getelementptr inbounds nuw [64 x %struct.anon], ptr %24, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw %struct.anon, ptr %24, i64 %315
   %317 = load i16, ptr %316, align 4, !tbaa !48
   %318 = icmp eq i16 %317, -1
   br i1 %318, label %394, label %319
@@ -1525,7 +1525,7 @@ HistogramAddEval.exit.thread.us.i:                ; preds = %DivRound.exit.us.i
   %407 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv104.i
   %408 = load i16, ptr %407, align 2, !tbaa !45
   %409 = zext i16 %408 to i64
-  %410 = getelementptr inbounds nuw [64 x %struct.anon], ptr %24, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw %struct.anon, ptr %24, i64 %409
   %411 = load i16, ptr %410, align 4, !tbaa !48
   %412 = icmp eq i16 %411, -1
   br i1 %412, label %413, label %415

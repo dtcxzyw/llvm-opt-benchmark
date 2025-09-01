@@ -368,7 +368,7 @@ define void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt
   %.01216.i = phi ptr [ %15, %14 ], [ %12, %2 ]
   %16 = load i8, ptr %.01216.i, align 1, !tbaa !21
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !21
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0

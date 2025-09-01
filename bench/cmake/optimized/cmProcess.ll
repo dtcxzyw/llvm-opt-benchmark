@@ -3556,7 +3556,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK9cmProcess16GetExitExceptionEv
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK9cmProcess16GetExitExceptionEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK9cmProcess16GetExitExceptionEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -3588,10 +3588,10 @@ define dso_local void @_ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev(ptr dead_
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [31 x ptr], ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep53 = getelementptr inbounds nuw [31 x i64], ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev.1, i64 0, i64 %14
+  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK9cmProcess22GetExitExceptionStringB5cxx11Ev.1, i64 %14
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load54)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %11

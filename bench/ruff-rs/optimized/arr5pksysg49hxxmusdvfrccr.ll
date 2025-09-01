@@ -39380,10 +39380,10 @@ define hidden { ptr, i64 } @_ZN18ty_python_semantic5types10class_base9ClassBase4
 
 switch.lookup:                                    ; preds = %3
   %7 = and i64 %.sroa.4.0.extract.shift, 255
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = and i64 %.sroa.4.0.extract.shift, 255
-  %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E.283, i64 0, i64 %8
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZN18ty_python_semantic5types10class_base9ClassBase4name17h6903ebee52d438d5E.283, i64 %8
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   br label %15
 
@@ -40312,10 +40312,10 @@ define internal noundef zeroext i1 @"_ZN68_$LT$ty_python_semantic..lint..Level$u
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2936, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN68_$LT$ty_python_semantic..lint..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17h988ae7f6b96172f7E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$ty_python_semantic..lint..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17h988ae7f6b96172f7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN68_$LT$ty_python_semantic..lint..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17h988ae7f6b96172f7E.284", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$ty_python_semantic..lint..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17h988ae7f6b96172f7E.284", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

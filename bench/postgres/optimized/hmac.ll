@@ -26,10 +26,10 @@ define dso_local ptr @pg_hmac_create(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pg_hmac_create, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %0 to i64
-  %switch.gep30 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
+  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.pg_hmac_create.1, i64 %9
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %switch.load, ptr %10, align 4
@@ -149,12 +149,12 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %.06269 = phi i32 [ %52, %.lr.ph ], [ 0, %41 ]
   %43 = getelementptr inbounds i8, ptr %.058, i64 %42
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %42
+  %45 = getelementptr inbounds i8, ptr %12, i64 %42
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %44
   store i8 %47, ptr %45, align 1
   %48 = load i8, ptr %43, align 1
-  %49 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %42
+  %49 = getelementptr inbounds i8, ptr %10, i64 %42
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %48
   store i8 %51, ptr %49, align 1

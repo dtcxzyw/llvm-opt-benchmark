@@ -345,7 +345,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
   %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [7 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !52
   %16 = icmp ugt i32 %11, %15
   br i1 %16, label %21, label %17
@@ -353,7 +353,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
 17:                                               ; preds = %9
   %18 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [7 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %19
+  %20 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %19
   br label %21
 
 21:                                               ; preds = %9, %17
@@ -361,7 +361,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef
   %22 = load i32, ptr %.in, align 4, !tbaa !52
   %23 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [7 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !52
   %27 = icmp ugt i32 %22, %26
   br i1 %27, label %28, label %32
@@ -439,18 +439,18 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr noundef capture
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %43 ]
   %.05065 = phi i1 [ true, %.preheader ], [ %.151, %43 ]
   %.05264 = phi i32 [ 0, %.preheader ], [ %spec.select, %43 ]
-  %32 = getelementptr inbounds nuw [33 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !49
   %34 = icmp eq i64 %33, -1
   %35 = zext i1 %34 to i32
   %spec.select = add i32 %.05264, %35
-  %36 = getelementptr inbounds nuw [33 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !49
   %.not61 = icmp eq i64 %37, %33
   br i1 %.not61, label %38, label %42
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw [33 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !48
   %41 = zext i32 %40 to i64
   %.not62 = icmp eq i64 %33, %41

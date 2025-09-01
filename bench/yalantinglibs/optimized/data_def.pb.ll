@@ -4016,7 +4016,7 @@ if.then.i.i.i91:                                  ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %52, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %52 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %54 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4046,7 +4046,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %61, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %61 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4748,7 +4748,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit151: ; preds = %
   %31 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %idxprom.i.i.i = sext i32 %i.0262 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %32 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 58, ptr %retval.0.i150, align 1
   %add.ptr.i.i153 = getelementptr inbounds nuw i8, ptr %retval.0.i150, i64 1
@@ -4906,7 +4906,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit224: ; preds = %
   %43 = load ptr, ptr %rep_.i.i.i225, align 8
   %elements.i.i.i226 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %idxprom.i.i.i227 = sext i32 %i55.0266 to i64
-  %arrayidx.i.i.i228 = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i226, i64 0, i64 %idxprom.i.i.i227
+  %arrayidx.i.i.i228 = getelementptr inbounds ptr, ptr %elements.i.i.i226, i64 %idxprom.i.i.i227
   %44 = load ptr, ptr %arrayidx.i.i.i228, align 8
   store i8 74, ptr %retval.0.i223, align 1
   %add.ptr.i.i230 = getelementptr inbounds nuw i8, ptr %retval.0.i223, i64 1
@@ -6444,7 +6444,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %11, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6474,7 +6474,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %20, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %20 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6650,7 +6650,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -9071,7 +9071,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -11426,7 +11426,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %inc.i.i.i = add nsw i32 %11, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11456,7 +11456,7 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %inc20.i.i.i = add nsw i32 %20, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %20 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds ptr, ptr %elements18.i.i.i, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11632,7 +11632,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for
   %2 = load ptr, ptr %rep_.i.i.i, align 8
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
@@ -13608,7 +13608,7 @@ if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [1 x ptr], ptr %elements, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -13667,7 +13667,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototy
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds [1 x ptr], ptr %elements18, i64 0, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds ptr, ptr %elements18, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 
@@ -13701,7 +13701,7 @@ if.then:                                          ; preds = %land.lhs.true
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [1 x ptr], ptr %elements, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -13760,7 +13760,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromProto
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds [1 x ptr], ptr %elements18, i64 0, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds ptr, ptr %elements18, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 

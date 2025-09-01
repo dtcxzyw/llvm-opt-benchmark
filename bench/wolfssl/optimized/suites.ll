@@ -326,7 +326,7 @@ thread-pre-split.thread:                          ; preds = %1
 
 14:                                               ; preds = %12
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.14)
-  br label %152
+  br label %150
 
 thread-pre-split:                                 ; preds = %6, %12
   %15 = phi i32 [ %5, %12 ], [ %.pr.pre, %6 ]
@@ -351,7 +351,7 @@ thread-pre-split:                                 ; preds = %6, %12
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8, !tbaa !19
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.31, ptr noundef %.091) #17
-  br label %152
+  br label %150
 
 28:                                               ; preds = %22
   %29 = tail call i32 @fseek(ptr noundef nonnull %23, i64 noundef 0, i32 noundef 2)
@@ -364,7 +364,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.32, i32 noundef %34, ptr noundef %.091) #17
   %36 = tail call i32 @fclose(ptr noundef nonnull %23)
-  br label %152
+  br label %150
 
 37:                                               ; preds = %28
   %38 = tail call i64 @ftell(ptr noundef nonnull %23)
@@ -375,7 +375,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %41 = load ptr, ptr @stderr, align 8, !tbaa !19
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.33, ptr noundef %.091) #17
   %43 = tail call i32 @fclose(ptr noundef nonnull %23)
-  br label %152
+  br label %150
 
 44:                                               ; preds = %37
   %45 = tail call i32 @fseek(ptr noundef nonnull %23, i64 noundef 0, i32 noundef 0)
@@ -388,7 +388,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %50 = load i32, ptr %49, align 4, !tbaa !21
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.32, i32 noundef %50, ptr noundef %.091) #17
   %52 = tail call i32 @fclose(ptr noundef nonnull %23)
-  br label %152
+  br label %150
 
 53:                                               ; preds = %44
   %54 = add nuw nsw i64 %38, 1
@@ -400,7 +400,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %58 = load ptr, ptr @stderr, align 8, !tbaa !19
   %59 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 33, i64 1, ptr %58) #20
   %60 = tail call i32 @fclose(ptr noundef nonnull %23)
-  br label %152
+  br label %150
 
 61:                                               ; preds = %53
   %62 = tail call i64 @fread(ptr noundef nonnull %55, i64 noundef 1, i64 noundef %38, ptr noundef nonnull %23)
@@ -412,7 +412,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %65 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr %64) #20
   %66 = tail call i32 @fclose(ptr noundef nonnull %23)
   tail call void @free(ptr noundef nonnull %55) #16
-  br label %152
+  br label %150
 
 .lr.ph:                                           ; preds = %61
   %67 = tail call i32 @fclose(ptr noundef nonnull %23)
@@ -427,12 +427,12 @@ thread-pre-split:                                 ; preds = %6, %12
   %72 = icmp eq ptr %.0151, null
   br label %73
 
-73:                                               ; preds = %.lr.ph, %150
-  %74 = phi ptr [ %55, %.lr.ph ], [ %151, %150 ]
-  %.093139 = phi i8 [ 0, %.lr.ph ], [ %75, %150 ]
-  %.095138 = phi i32 [ 0, %.lr.ph ], [ %.398, %150 ]
-  %.099137 = phi i32 [ 1, %.lr.ph ], [ %.3102, %150 ]
-  %.0104136 = phi i32 [ 1, %.lr.ph ], [ %.3107, %150 ]
+73:                                               ; preds = %.lr.ph, %148
+  %74 = phi ptr [ %55, %.lr.ph ], [ %149, %148 ]
+  %.093139 = phi i8 [ 0, %.lr.ph ], [ %75, %148 ]
+  %.095138 = phi i32 [ 0, %.lr.ph ], [ %.398, %148 ]
+  %.099137 = phi i32 [ 1, %.lr.ph ], [ %.3102, %148 ]
+  %.0104136 = phi i32 [ 1, %.lr.ph ], [ %.3107, %148 ]
   %75 = load i8, ptr %74, align 1, !tbaa !22
   switch i8 %75, label %84 [
     i8 0, label %.critedge
@@ -483,7 +483,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %.2106 = phi i32 [ %89, %88 ], [ %.0104136, %86 ]
   %.2101 = phi i32 [ %.099137, %88 ], [ %87, %86 ]
   %91 = sext i32 %.0104136.sink to i64
-  %92 = getelementptr inbounds [40 x ptr], ptr %.sink178, i64 0, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %.sink178, i64 %91
   store ptr %85, ptr %92, align 8, !tbaa !4
   %93 = load ptr, ptr %4, align 8, !tbaa !4
   %94 = icmp eq ptr %93, null
@@ -518,7 +518,7 @@ thread-pre-split:                                 ; preds = %6, %12
   br label %.thread172
 
 105:                                              ; preds = %98
-  br i1 %.2, label %150, label %.thread172
+  br i1 %.2, label %148, label %.thread172
 
 .thread172:                                       ; preds = %.thread153, %.thread, %105
   %.1100163 = phi i32 [ %.1100165, %.thread ], [ %.1100, %105 ], [ %.2101, %.thread153 ]
@@ -526,103 +526,95 @@ thread-pre-split:                                 ; preds = %6, %12
   %106 = icmp slt i32 %.1100163, 38
   %107 = icmp slt i32 %.1105160, 38
   %or.cond124 = and i1 %107, %106
-  br i1 %or.cond124, label %108, label %137
+  br i1 %or.cond124, label %108, label %135
 
 108:                                              ; preds = %.thread172
-  br i1 %72, label %.thread132, label %113
+  br i1 %72, label %.thread132, label %115
 
 .thread132:                                       ; preds = %108
   %109 = add nsw i32 %.1100163, 1
   %110 = sext i32 %.1100163 to i64
-  %111 = getelementptr inbounds [40 x ptr], ptr %3, i64 0, i64 %110
+  %111 = getelementptr inbounds ptr, ptr %3, i64 %110
   store ptr @disableDHPrimeTest, ptr %111, align 8, !tbaa !4
   %112 = add nsw i32 %.1105160, 1
-  br label %.sink.split
+  %113 = sext i32 %.1105160 to i64
+  %114 = getelementptr inbounds ptr, ptr %2, i64 %113
+  store ptr @disableDHPrimeTest, ptr %114, align 8, !tbaa !4
+  br label %135
 
-113:                                              ; preds = %108
-  %114 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0151, ptr noundef nonnull dereferenceable(1) @.str.20) #21
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %.thread127
+115:                                              ; preds = %108
+  %116 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0151, ptr noundef nonnull dereferenceable(1) @.str.20) #21
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %118, label %.thread127
 
-116:                                              ; preds = %113
-  %117 = add nsw i32 %.1100163, 1
-  %118 = sext i32 %.1100163 to i64
-  %119 = getelementptr inbounds [40 x ptr], ptr %3, i64 0, i64 %118
-  store ptr @disableDHPrimeTest, ptr %119, align 8, !tbaa !4
-  %120 = add nsw i32 %.1105160, 1
-  %121 = sext i32 %.1105160 to i64
-  %122 = getelementptr inbounds [40 x ptr], ptr %2, i64 0, i64 %121
-  store ptr @disableDHPrimeTest, ptr %122, align 8, !tbaa !4
+118:                                              ; preds = %115
+  %119 = add nsw i32 %.1100163, 1
+  %120 = sext i32 %.1100163 to i64
+  %121 = getelementptr inbounds ptr, ptr %3, i64 %120
+  store ptr @disableDHPrimeTest, ptr %121, align 8, !tbaa !4
+  %122 = add nsw i32 %.1105160, 1
+  %123 = sext i32 %.1105160 to i64
+  %124 = getelementptr inbounds ptr, ptr %2, i64 %123
+  store ptr @disableDHPrimeTest, ptr %124, align 8, !tbaa !4
   br label %.thread127
 
-.thread127:                                       ; preds = %113, %116
-  %.5131 = phi i32 [ %117, %116 ], [ %.1100163, %113 ]
-  %.5109130 = phi i32 [ %120, %116 ], [ %.1105160, %113 ]
-  %123 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0151, ptr noundef nonnull dereferenceable(1) @.str.23) #21
-  %.not123 = icmp eq ptr %123, null
-  br i1 %.not123, label %137, label %124
+.thread127:                                       ; preds = %115, %118
+  %.5131 = phi i32 [ %119, %118 ], [ %.1100163, %115 ]
+  %.5109130 = phi i32 [ %122, %118 ], [ %.1105160, %115 ]
+  %125 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0151, ptr noundef nonnull dereferenceable(1) @.str.23) #21
+  %.not123 = icmp eq ptr %125, null
+  br i1 %.not123, label %135, label %126
 
-124:                                              ; preds = %.thread127
-  %125 = add nsw i32 %.5131, 1
-  %126 = sext i32 %.5131 to i64
-  %127 = getelementptr inbounds [40 x ptr], ptr %3, i64 0, i64 %126
-  store ptr @intTestFlag, ptr %127, align 8, !tbaa !4
-  %128 = add nsw i32 %.5131, 2
-  %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds [40 x ptr], ptr %3, i64 0, i64 %129
+126:                                              ; preds = %.thread127
+  %127 = sext i32 %.5131 to i64
+  %128 = getelementptr inbounds ptr, ptr %3, i64 %127
+  store ptr @intTestFlag, ptr %128, align 8, !tbaa !4
+  %129 = add nsw i32 %.5131, 2
+  %130 = getelementptr i8, ptr %128, i64 8
   store ptr @exitWithRetFlag, ptr %130, align 8, !tbaa !4
-  %131 = add nsw i32 %.5109130, 1
-  %132 = sext i32 %.5109130 to i64
-  %133 = getelementptr inbounds [40 x ptr], ptr %2, i64 0, i64 %132
-  store ptr @intTestFlag, ptr %133, align 8, !tbaa !4
-  %134 = add nsw i32 %.5109130, 2
-  br label %.sink.split
+  %131 = sext i32 %.5109130 to i64
+  %132 = getelementptr inbounds ptr, ptr %2, i64 %131
+  store ptr @intTestFlag, ptr %132, align 8, !tbaa !4
+  %133 = add nsw i32 %.5109130, 2
+  %134 = getelementptr i8, ptr %132, i64 8
+  store ptr @exitWithRetFlag, ptr %134, align 8, !tbaa !4
+  br label %135
 
-.sink.split:                                      ; preds = %124, %.thread132
-  %.1105160.sink = phi i32 [ %.1105160, %.thread132 ], [ %131, %124 ]
-  %disableDHPrimeTest.sink = phi ptr [ @disableDHPrimeTest, %.thread132 ], [ @exitWithRetFlag, %124 ]
-  %.4108.ph = phi i32 [ %112, %.thread132 ], [ %134, %124 ]
-  %.4103.ph = phi i32 [ %109, %.thread132 ], [ %128, %124 ]
-  %135 = sext i32 %.1105160.sink to i64
-  %136 = getelementptr inbounds [40 x ptr], ptr %2, i64 0, i64 %135
-  store ptr %disableDHPrimeTest.sink, ptr %136, align 8, !tbaa !4
-  br label %137
+135:                                              ; preds = %.thread132, %.thread127, %126, %.thread172
+  %.4108 = phi i32 [ %133, %126 ], [ %.5109130, %.thread127 ], [ %.1105160, %.thread172 ], [ %112, %.thread132 ]
+  %.4103 = phi i32 [ %129, %126 ], [ %.5131, %.thread127 ], [ %.1100163, %.thread172 ], [ %109, %.thread132 ]
+  %136 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %148
 
-137:                                              ; preds = %.sink.split, %.thread127, %.thread172
-  %.4108 = phi i32 [ %.5109130, %.thread127 ], [ %.1105160, %.thread172 ], [ %.4108.ph, %.sink.split ]
-  %.4103 = phi i32 [ %.5131, %.thread127 ], [ %.1100163, %.thread172 ], [ %.4103.ph, %.sink.split ]
-  %138 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %150
+138:                                              ; preds = %135
+  %139 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %140 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %141 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %142 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %143 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %144 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %145 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %146 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %147 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  br label %148
 
-140:                                              ; preds = %137
-  %141 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %142 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %143 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %144 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %145 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %146 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %147 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %148 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %149 = call fastcc i32 @execute_test_case(i32 noundef %.4108, ptr noundef %2, i32 noundef %.4103, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  br label %150
-
-150:                                              ; preds = %137, %140, %105
-  %.3107 = phi i32 [ %.1105, %105 ], [ 1, %140 ], [ 1, %137 ]
-  %.3102 = phi i32 [ %.1100, %105 ], [ 1, %140 ], [ 1, %137 ]
-  %.398 = phi i32 [ %.297, %105 ], [ 0, %140 ], [ 0, %137 ]
-  %151 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not117 = icmp eq ptr %151, null
+148:                                              ; preds = %135, %138, %105
+  %.3107 = phi i32 [ %.1105, %105 ], [ 1, %138 ], [ 1, %135 ]
+  %.3102 = phi i32 [ %.1100, %105 ], [ 1, %138 ], [ 1, %135 ]
+  %.398 = phi i32 [ %.297, %105 ], [ 0, %138 ], [ 0, %135 ]
+  %149 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not117 = icmp eq ptr %149, null
   br i1 %.not117, label %.critedge, label %73, !llvm.loop !23
 
-.critedge:                                        ; preds = %150, %73
+.critedge:                                        ; preds = %148, %73
   call void @free(ptr noundef %55) #16
-  br label %152
+  br label %150
 
-152:                                              ; preds = %.critedge, %63, %57, %47, %40, %31, %25, %14
+150:                                              ; preds = %.critedge, %63, %57, %47, %40, %31, %25, %14
   %.sink = phi i32 [ 0, %.critedge ], [ 1, %63 ], [ 1, %57 ], [ 1, %47 ], [ 1, %40 ], [ 1, %31 ], [ 1, %25 ], [ 1, %14 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %153, align 8, !tbaa !18
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %151, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -783,7 +775,7 @@ IsValidCert.exit.thread122:                       ; preds = %49
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
-  %58 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 0, i64 %.01420.i
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 %.01420.i
   store i8 %55, ptr %58, align 1, !tbaa !22
   %59 = add nuw nsw i64 %.01420.i, 1
   %exitcond.not.i = icmp eq i64 %59, 79
@@ -791,7 +783,7 @@ IsValidCert.exit.thread122:                       ; preds = %49
 
 .critedge.i:                                      ; preds = %56, %54, %54
   %.014.lcssa.i = phi i64 [ %.01420.i, %54 ], [ %.01420.i, %54 ], [ 79, %56 ]
-  %60 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 0, i64 %.014.lcssa.i
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 %.014.lcssa.i
   store i8 0, ptr %60, align 1, !tbaa !22
   %61 = call ptr @wolfSSLv23_server_method_ex(ptr noundef null) #16
   %62 = call ptr @wolfSSL_CTX_new(ptr noundef %61) #16
@@ -1166,7 +1158,7 @@ IsValidCA.exit.thread131:                         ; preds = %.loopexit
 
 220:                                              ; preds = %218
   %221 = getelementptr inbounds nuw i8, ptr %.021.i112, i64 1
-  %222 = getelementptr inbounds nuw [80 x i8], ptr %10, i64 0, i64 %.01420.i113
+  %222 = getelementptr inbounds nuw i8, ptr %10, i64 %.01420.i113
   store i8 %219, ptr %222, align 1, !tbaa !22
   %223 = add nuw nsw i64 %.01420.i113, 1
   %exitcond.not.i117 = icmp eq i64 %223, 79
@@ -1174,7 +1166,7 @@ IsValidCA.exit.thread131:                         ; preds = %.loopexit
 
 .critedge.i114:                                   ; preds = %220, %218, %218
   %.014.lcssa.i115 = phi i64 [ %.01420.i113, %218 ], [ %.01420.i113, %218 ], [ 79, %220 ]
-  %224 = getelementptr inbounds nuw [80 x i8], ptr %10, i64 0, i64 %.014.lcssa.i115
+  %224 = getelementptr inbounds nuw i8, ptr %10, i64 %.014.lcssa.i115
   store i8 0, ptr %224, align 1, !tbaa !22
   %225 = call ptr @wolfSSLv23_server_method_ex(ptr noundef null) #16
   %226 = call ptr @wolfSSL_CTX_new(ptr noundef %225) #16

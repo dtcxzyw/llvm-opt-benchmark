@@ -3059,7 +3059,7 @@ SetTextureScaleMode.exit.i:                       ; preds = %258
 
 switch.lookup:                                    ; preds = %258
   %263 = zext nneg i32 %260 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.GL_RunCommandQueue.5, i64 0, i64 %263
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %263
   %switch.load = load i32, ptr %switch.gep, align 4
   %264 = load ptr, ptr %37, align 8
   call void %264(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load) #6
@@ -3099,7 +3099,7 @@ SetTextureScaleMode.exit99.i:                     ; preds = %274
   %.sink372 = phi i32 [ %267, %SetTextureScaleMode.exit.thread.i ], [ %276, %274 ]
   %switch.table.GL_RunCommandQueue.4.sink = phi ptr [ @switch.table.GL_RunCommandQueue.5, %SetTextureScaleMode.exit.thread.i ], [ @switch.table.GL_RunCommandQueue.5, %274 ]
   %279 = zext nneg i32 %.sink372 to i64
-  %switch.gep370 = getelementptr inbounds nuw [3 x i32], ptr %switch.table.GL_RunCommandQueue.4.sink, i64 0, i64 %279
+  %switch.gep370 = getelementptr inbounds nuw i32, ptr %switch.table.GL_RunCommandQueue.4.sink, i64 %279
   %switch.load371 = load i32, ptr %switch.gep370, align 4
   %280 = load ptr, ptr %37, align 8
   call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load371) #6
@@ -3124,7 +3124,7 @@ SetTextureScaleMode.exit101.i:                    ; preds = %282
 
 switch.lookup373:                                 ; preds = %282
   %286 = zext nneg i32 %283 to i64
-  %switch.gep374 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.GL_RunCommandQueue.5, i64 0, i64 %286
+  %switch.gep374 = getelementptr inbounds nuw i32, ptr @switch.table.GL_RunCommandQueue.5, i64 %286
   %switch.load375 = load i32, ptr %switch.gep374, align 4
   %287 = load ptr, ptr %37, align 8
   call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load375) #6
@@ -4318,67 +4318,67 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
 
 switch.lookup:                                    ; preds = %110
   %117 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.SetDrawState.8, i64 0, i64 %117
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %117
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetBlendFunc.exit
 
 GetBlendFunc.exit:                                ; preds = %110, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1280, %110 ]
   %118 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %6) #6
-  %switch.tableidx2 = add i32 %118, -1
-  %119 = icmp ult i32 %switch.tableidx2, 10
-  br i1 %119, label %switch.lookup1, label %GetBlendFunc.exit125
+  %switch.tableidx1 = add i32 %118, -1
+  %119 = icmp ult i32 %switch.tableidx1, 10
+  br i1 %119, label %switch.lookup2, label %GetBlendFunc.exit125
 
-switch.lookup1:                                   ; preds = %GetBlendFunc.exit
-  %120 = zext nneg i32 %switch.tableidx2 to i64
-  %switch.gep3 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.SetDrawState.8, i64 0, i64 %120
+switch.lookup2:                                   ; preds = %GetBlendFunc.exit
+  %120 = zext nneg i32 %switch.tableidx1 to i64
+  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %120
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %GetBlendFunc.exit125
 
-GetBlendFunc.exit125:                             ; preds = %GetBlendFunc.exit, %switch.lookup1
-  %.0.i124 = phi i32 [ %switch.load4, %switch.lookup1 ], [ 1280, %GetBlendFunc.exit ]
+GetBlendFunc.exit125:                             ; preds = %GetBlendFunc.exit, %switch.lookup2
+  %.0.i124 = phi i32 [ %switch.load4, %switch.lookup2 ], [ 1280, %GetBlendFunc.exit ]
   %121 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %6) #6
-  %switch.tableidx6 = add i32 %121, -1
-  %122 = icmp ult i32 %switch.tableidx6, 10
-  br i1 %122, label %switch.lookup5, label %GetBlendFunc.exit127
+  %switch.tableidx5 = add i32 %121, -1
+  %122 = icmp ult i32 %switch.tableidx5, 10
+  br i1 %122, label %switch.lookup6, label %GetBlendFunc.exit127
 
-switch.lookup5:                                   ; preds = %GetBlendFunc.exit125
-  %123 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.SetDrawState.8, i64 0, i64 %123
+switch.lookup6:                                   ; preds = %GetBlendFunc.exit125
+  %123 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %123
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %GetBlendFunc.exit127
 
-GetBlendFunc.exit127:                             ; preds = %GetBlendFunc.exit125, %switch.lookup5
-  %.0.i126 = phi i32 [ %switch.load8, %switch.lookup5 ], [ 1280, %GetBlendFunc.exit125 ]
+GetBlendFunc.exit127:                             ; preds = %GetBlendFunc.exit125, %switch.lookup6
+  %.0.i126 = phi i32 [ %switch.load8, %switch.lookup6 ], [ 1280, %GetBlendFunc.exit125 ]
   %124 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %6) #6
-  %switch.tableidx10 = add i32 %124, -1
-  %125 = icmp ult i32 %switch.tableidx10, 10
-  br i1 %125, label %switch.lookup9, label %GetBlendFunc.exit129
+  %switch.tableidx9 = add i32 %124, -1
+  %125 = icmp ult i32 %switch.tableidx9, 10
+  br i1 %125, label %switch.lookup10, label %GetBlendFunc.exit129
 
-switch.lookup9:                                   ; preds = %GetBlendFunc.exit127
-  %126 = zext nneg i32 %switch.tableidx10 to i64
-  %switch.gep11 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.SetDrawState.8, i64 0, i64 %126
+switch.lookup10:                                  ; preds = %GetBlendFunc.exit127
+  %126 = zext nneg i32 %switch.tableidx9 to i64
+  %switch.gep11 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.8, i64 %126
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %GetBlendFunc.exit129
 
-GetBlendFunc.exit129:                             ; preds = %GetBlendFunc.exit127, %switch.lookup9
-  %.0.i128 = phi i32 [ %switch.load12, %switch.lookup9 ], [ 1280, %GetBlendFunc.exit127 ]
+GetBlendFunc.exit129:                             ; preds = %GetBlendFunc.exit127, %switch.lookup10
+  %.0.i128 = phi i32 [ %switch.load12, %switch.lookup10 ], [ 1280, %GetBlendFunc.exit127 ]
   tail call void %114(i32 noundef %.0.i, i32 noundef %.0.i124, i32 noundef %.0.i126, i32 noundef %.0.i128) #6
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %128 = load ptr, ptr %127, align 8
   %129 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %6) #6
-  %switch.tableidx14 = add i32 %129, -1
-  %130 = icmp ult i32 %switch.tableidx14, 5
-  br i1 %130, label %switch.lookup13, label %GetBlendEquation.exit
+  %switch.tableidx13 = add i32 %129, -1
+  %130 = icmp ult i32 %switch.tableidx13, 5
+  br i1 %130, label %switch.lookup14, label %GetBlendEquation.exit
 
-switch.lookup13:                                  ; preds = %GetBlendFunc.exit129
-  %131 = zext nneg i32 %switch.tableidx14 to i64
-  %switch.gep15 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SetDrawState.9, i64 0, i64 %131
+switch.lookup14:                                  ; preds = %GetBlendFunc.exit129
+  %131 = zext nneg i32 %switch.tableidx13 to i64
+  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.9, i64 %131
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %GetBlendEquation.exit
 
-GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit129, %switch.lookup13
-  %.0.i130 = phi i32 [ %switch.load16, %switch.lookup13 ], [ 1280, %GetBlendFunc.exit129 ]
+GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit129, %switch.lookup14
+  %.0.i130 = phi i32 [ %switch.load16, %switch.lookup14 ], [ 1280, %GetBlendFunc.exit129 ]
   tail call void %128(i32 noundef %.0.i130) #6
   br label %132
 

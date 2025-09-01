@@ -1829,7 +1829,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EED2Ev(ptr
   %.05.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !89
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   invoke void %8(ptr noundef nonnull %9)
@@ -1931,7 +1931,7 @@ _ZNSt6vectorIN2cv6detail10OpaqueKindESaIS2_EED2Ev.exit: ; preds = %1, %4
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN2cv6detail10OpaqueKindESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %16, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i.i ], [ %6, %_ZNSt6vectorIN2cv6detail10OpaqueKindESaIS2_EED2Ev.exit ]
   %9 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !89
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   invoke void %11(ptr noundef nonnull %12)
@@ -2116,7 +2116,7 @@ _ZN2cv4gapi8GBackendD2Ev.exit:                    ; preds = %_ZN2cv4util3anyD2Ev
   %.05.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i.i.i ], [ %31, %_ZN2cv4gapi8GBackendD2Ev.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !89
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   invoke void %37(ptr noundef nonnull %38)
@@ -2527,14 +2527,14 @@ _ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteI
   br i1 %.not.i, label %143, label %133
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %130
+  %134 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %130
   %135 = load ptr, ptr %134, align 8, !tbaa !27
   invoke void %135(ptr noundef nonnull %132)
           to label %136 unwind label %147
 
 136:                                              ; preds = %133
   %137 = load i64, ptr %14, align 8, !tbaa !138
-  %138 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw ptr, ptr @constinit.18, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !27
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %139(ptr noundef nonnull %132, ptr noundef nonnull %140)
@@ -2546,7 +2546,7 @@ _ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteI
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSEOS8_.exit
 
 143:                                              ; preds = %129
-  %144 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.19, i64 0, i64 %130
+  %144 = getelementptr inbounds nuw ptr, ptr @constinit.19, i64 %130
   %145 = load ptr, ptr %144, align 8, !tbaa !27
   %146 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %145(ptr noundef nonnull %132, ptr noundef nonnull %146)
@@ -2565,7 +2565,7 @@ _ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteI
 
 _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSEOS8_.exit: ; preds = %._ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSEOS8_.exit_crit_edge, %141
   %150 = phi i64 [ %.pre, %._ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSEOS8_.exit_crit_edge ], [ %142, %141 ]
-  %151 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !27
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %152(ptr noundef nonnull %153)
@@ -2758,7 +2758,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %229, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %230 = load i64, ptr %15, align 8, !tbaa !150
-  %231 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !27
   %233 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void %232(ptr noundef nonnull %233)
@@ -2836,7 +2836,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %260, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %261 = load i64, ptr %13, align 8, !tbaa !150
-  %262 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %261
   %263 = load ptr, ptr %262, align 8, !tbaa !27
   %264 = getelementptr inbounds nuw i8, ptr %13, i64 8
   invoke void %263(ptr noundef nonnull %264)
@@ -2921,7 +2921,7 @@ _ZN2cv7GRunArgD2Ev.exit:                          ; preds = %_ZNSt13unordered_ma
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %284 = load i64, ptr %283, align 8, !tbaa !89
   store i64 %284, ptr %16, align 8, !tbaa !89
-  %285 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !27
   %287 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -3038,7 +3038,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i71: ; preds = %327
   %337 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %338 = load i64, ptr %12, align 8, !tbaa !138
   store i64 %338, ptr %337, align 8, !tbaa !138
-  %339 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.21, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw ptr, ptr @constinit.21, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !27
   %341 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %342 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3049,7 +3049,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %343 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %344 = load i64, ptr %16, align 8, !tbaa !89
   store i64 %344, ptr %343, align 8, !tbaa !89
-  %345 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !27
   %347 = getelementptr inbounds nuw i8, ptr %17, i64 72
   invoke void %346(ptr noundef nonnull %347, ptr noundef nonnull %287)
@@ -3072,7 +3072,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 353:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEEC2ERKSD_.exit83
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %354 = load i64, ptr %343, align 8, !tbaa !89
-  %355 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !27
   invoke void %356(ptr noundef nonnull %347)
           to label %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i unwind label %357
@@ -3086,7 +3086,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i: ; preds = %353
   %360 = load i64, ptr %337, align 8, !tbaa !138
-  %361 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %360
   %362 = load ptr, ptr %361, align 8, !tbaa !27
   invoke void %362(ptr noundef nonnull %341)
           to label %_ZN2cv5gimpl4DataD2Ev.exit unwind label %363
@@ -3101,7 +3101,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 _ZN2cv5gimpl4DataD2Ev.exit:                       ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %366 = load i64, ptr %16, align 8, !tbaa !89
-  %367 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %366
   %368 = load ptr, ptr %367, align 8, !tbaa !27
   invoke void %368(ptr noundef nonnull %287)
           to label %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit unwind label %369
@@ -3116,7 +3116,7 @@ _ZN2cv5gimpl4DataD2Ev.exit:                       ; preds = %_ZN2cv4util7variant
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit: ; preds = %_ZN2cv5gimpl4DataD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %372 = load i64, ptr %12, align 8, !tbaa !138
-  %373 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %372
   %374 = load ptr, ptr %373, align 8, !tbaa !27
   invoke void %374(ptr noundef nonnull %342)
           to label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit86 unwind label %375
@@ -3146,7 +3146,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %383 = landingpad { ptr, i32 }
           cleanup
   %384 = load i64, ptr %337, align 8, !tbaa !138
-  %385 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %384
   %386 = load ptr, ptr %385, align 8, !tbaa !27
   invoke void %386(ptr noundef nonnull %341)
           to label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit87 unwind label %387
@@ -3172,7 +3172,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 .body78:                                          ; preds = %330, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i71, %318, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit87
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit87 ], [ %319, %330 ], [ %319, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i71 ], [ %319, %318 ]
   %392 = load i64, ptr %16, align 8, !tbaa !89
-  %393 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %392
+  %393 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %392
   %394 = load ptr, ptr %393, align 8, !tbaa !27
   invoke void %394(ptr noundef nonnull %287)
           to label %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit88 unwind label %395
@@ -3192,7 +3192,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 398:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit88, %281, %270
   %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit88 ], [ %.pn27.pn.pn.pn, %281 ], [ %271, %270 ]
   %399 = load i64, ptr %12, align 8, !tbaa !138
-  %400 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %399
   %401 = load ptr, ptr %400, align 8, !tbaa !27
   %402 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void %401(ptr noundef nonnull %402)
@@ -3360,7 +3360,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %25, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %26 = load i64, ptr %0, align 8, !tbaa !150
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %28(ptr noundef nonnull %29)
@@ -3442,7 +3442,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %25
   %26 = load i64, ptr %0, align 8, !tbaa !150
-  %27 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %28(ptr noundef nonnull %29)
@@ -3463,7 +3463,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
 define linkonce_odr hidden void @_ZN2cv5gimpl4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !89
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void %5(ptr noundef nonnull %6)
@@ -3479,7 +3479,7 @@ define linkonce_odr hidden void @_ZN2cv5gimpl4DataD2Ev(ptr noundef nonnull align
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit: ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !138
-  %12 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void %13(ptr noundef nonnull %14)
@@ -3868,7 +3868,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i36: ; preds = %154
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %164 = load i64, ptr %10, align 8, !tbaa !138
   store i64 %164, ptr %163, align 8, !tbaa !138
-  %165 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.21, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr @constinit.21, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !27
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3879,7 +3879,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %169 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %170 = load i64, ptr %11, align 8, !tbaa !89
   store i64 %170, ptr %169, align 8, !tbaa !89
-  %171 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !27
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3901,7 +3901,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 178:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEEC2ERKSD_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %179 = load i64, ptr %169, align 8, !tbaa !89
-  %180 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !27
   invoke void %181(ptr noundef nonnull %173)
           to label %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i unwind label %182
@@ -3915,7 +3915,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i: ; preds = %178
   %185 = load i64, ptr %163, align 8, !tbaa !138
-  %186 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !27
   invoke void %187(ptr noundef nonnull %167)
           to label %_ZN2cv5gimpl4DataD2Ev.exit unwind label %188
@@ -3930,7 +3930,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 _ZN2cv5gimpl4DataD2Ev.exit:                       ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %191 = load i64, ptr %11, align 8, !tbaa !89
-  %192 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !27
   invoke void %193(ptr noundef nonnull %174)
           to label %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit unwind label %194
@@ -3945,7 +3945,7 @@ _ZN2cv5gimpl4DataD2Ev.exit:                       ; preds = %_ZN2cv4util7variant
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit: ; preds = %_ZN2cv5gimpl4DataD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %197 = load i64, ptr %10, align 8, !tbaa !138
-  %198 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !27
   invoke void %199(ptr noundef nonnull %168)
           to label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit unwind label %200
@@ -3990,7 +3990,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %208 = landingpad { ptr, i32 }
           cleanup
   %209 = load i64, ptr %163, align 8, !tbaa !138
-  %210 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !27
   invoke void %211(ptr noundef nonnull %167)
           to label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit50 unwind label %212
@@ -4016,7 +4016,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 .body43:                                          ; preds = %157, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i36, %145, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit50
   %.pn17.pn = phi { ptr, i32 } [ %.pn17, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEED2Ev.exit50 ], [ %146, %157 ], [ %146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i36 ], [ %146, %145 ]
   %217 = load i64, ptr %11, align 8, !tbaa !89
-  %218 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !27
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %219(ptr noundef nonnull %220)
@@ -4032,7 +4032,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit51: ; preds = %.body43
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %224 = load i64, ptr %10, align 8, !tbaa !138
-  %225 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !27
   %227 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void %226(ptr noundef nonnull %227)
@@ -5113,7 +5113,7 @@ _ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i: ; preds = %_ZN2
 _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZN2cv4GArgaSEOS0_.exit, %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i
   store ptr null, ptr %448, align 8, !tbaa !38
   %458 = load i64, ptr %442, align 8, !tbaa !89
-  %459 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %458
   %460 = load ptr, ptr %459, align 8, !tbaa !27
   %461 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void %460(ptr noundef nonnull %461)
@@ -5140,7 +5140,7 @@ _ZN2cv5gimpl6RcDescD2Ev.exit:                     ; preds = %_ZN2cv4GArgD2Ev.exi
   %468 = landingpad { ptr, i32 }
           cleanup
   %469 = load i64, ptr %442, align 8, !tbaa !89
-  %470 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %469
   %471 = load ptr, ptr %470, align 8, !tbaa !27
   %472 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void %471(ptr noundef nonnull %472)
@@ -5226,7 +5226,7 @@ define linkonce_odr hidden void @_ZN2cv4GArgC2INS_5gimpl6RcDescETnNSt9enable_ifI
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !89, !noalias !244
   store i64 %9, ptr %7, align 8, !tbaa !89, !alias.scope !244
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !27, !noalias !244
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5242,7 +5242,7 @@ define linkonce_odr hidden void @_ZN2cv4GArgC2INS_5gimpl6RcDescETnNSt9enable_ifI
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %7, align 8, !tbaa !89
   store i64 %18, ptr %17, align 8, !tbaa !89
-  %19 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   invoke void %20(ptr noundef nonnull %21, ptr noundef nonnull %12)
@@ -5258,7 +5258,7 @@ define linkonce_odr hidden void @_ZN2cv4GArgC2INS_5gimpl6RcDescETnNSt9enable_ifI
 25:                                               ; preds = %.noexc
   store ptr %14, ptr %5, align 8, !tbaa !38
   %26 = load i64, ptr %7, align 8, !tbaa !89
-  %27 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   invoke void %28(ptr noundef nonnull %12)
           to label %_ZN2cv5gimpl6RcDescD2Ev.exit unwind label %29
@@ -5278,7 +5278,7 @@ _ZN2cv5gimpl6RcDescD2Ev.exit:                     ; preds = %25
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = load i64, ptr %7, align 8, !tbaa !89
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !27
   invoke void %36(ptr noundef nonnull %12)
           to label %_ZN2cv5gimpl6RcDescD2Ev.exit3 unwind label %37
@@ -6398,7 +6398,7 @@ _ZNSt10unique_ptrIN3ade7details8Metadata18MetadataHolderBaseESt14default_deleteI
 
 _ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEmRKS2_.exit: ; preds = %._ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEmRKS2_.exit_crit_edge, %463
   %478 = phi i64 [ %.pre, %._ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE6resizeEmRKS2_.exit_crit_edge ], [ 0, %463 ]
-  %479 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !27
   %481 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void %480(ptr noundef nonnull %481)
@@ -6433,14 +6433,14 @@ _ZN2cv5gimpl6RcDescD2Ev.exit:                     ; preds = %_ZNSt6vectorIN2cv5g
   br i1 %.not.i.i142, label %_ZN2cv5gimpl6RcDescaSEOS1_.exit, label %496
 
 496:                                              ; preds = %_ZN2cv5gimpl6RcDescD2Ev.exit
-  %497 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %494
+  %497 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %494
   %498 = load ptr, ptr %497, align 8, !tbaa !27
   invoke void %498(ptr noundef nonnull %495)
           to label %499 unwind label %506
 
 499:                                              ; preds = %496
   %500 = load i64, ptr %489, align 8, !tbaa !89
-  %501 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %500
   %502 = load ptr, ptr %501, align 8, !tbaa !27
   %503 = getelementptr inbounds nuw i8, ptr %24, i64 16
   invoke void %502(ptr noundef nonnull %495, ptr noundef nonnull %503)
@@ -6460,7 +6460,7 @@ _ZN2cv5gimpl6RcDescD2Ev.exit:                     ; preds = %_ZNSt6vectorIN2cv5g
 
 _ZN2cv5gimpl6RcDescaSEOS1_.exit:                  ; preds = %_ZN2cv5gimpl6RcDescD2Ev.exit, %504
   %509 = phi i64 [ %505, %504 ], [ 0, %_ZN2cv5gimpl6RcDescD2Ev.exit ]
-  %510 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %509
   %511 = load ptr, ptr %510, align 8, !tbaa !27
   %512 = getelementptr inbounds nuw i8, ptr %24, i64 16
   invoke void %511(ptr noundef nonnull %512)
@@ -6486,7 +6486,7 @@ _ZN2cv5gimpl6RcDescD2Ev.exit143:                  ; preds = %_ZN2cv5gimpl6RcDesc
   %519 = landingpad { ptr, i32 }
           cleanup
   %520 = load i64, ptr %475, align 8, !tbaa !89
-  %521 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %520
   %522 = load ptr, ptr %521, align 8, !tbaa !27
   %523 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void %522(ptr noundef nonnull %523)
@@ -13865,14 +13865,14 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %.not.i, label %472, label %464
 
 464:                                              ; preds = %.loopexit163
-  %465 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %461
+  %465 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %461
   %466 = load ptr, ptr %465, align 8, !tbaa !27
   invoke void %466(ptr noundef nonnull %463)
           to label %.noexc137 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc137:                                        ; preds = %464
   %467 = load i64, ptr %380, align 8, !tbaa !138
-  %468 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.21, i64 0, i64 %467
+  %468 = getelementptr inbounds nuw ptr, ptr @constinit.21, i64 %467
   %469 = load ptr, ptr %468, align 8, !tbaa !27
   %470 = getelementptr inbounds nuw i8, ptr %365, i64 24
   invoke void %469(ptr noundef nonnull %463, ptr noundef nonnull %470)
@@ -13884,7 +13884,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSERKS8_.exit
 
 472:                                              ; preds = %.loopexit163
-  %473 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.30, i64 0, i64 %461
+  %473 = getelementptr inbounds nuw ptr, ptr @constinit.30, i64 %461
   %474 = load ptr, ptr %473, align 8, !tbaa !27
   %475 = getelementptr inbounds nuw i8, ptr %365, i64 24
   invoke void %474(ptr noundef nonnull %463, ptr noundef nonnull %475)
@@ -14072,7 +14072,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateE
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !138
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -15608,14 +15608,14 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br i1 %.not.i, label %472, label %464
 
 464:                                              ; preds = %.loopexit163
-  %465 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %461
+  %465 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %461
   %466 = load ptr, ptr %465, align 8, !tbaa !27
   invoke void %466(ptr noundef nonnull %463)
           to label %.noexc137 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc137:                                        ; preds = %464
   %467 = load i64, ptr %380, align 8, !tbaa !138
-  %468 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.21, i64 0, i64 %467
+  %468 = getelementptr inbounds nuw ptr, ptr @constinit.21, i64 %467
   %469 = load ptr, ptr %468, align 8, !tbaa !27
   %470 = getelementptr inbounds nuw i8, ptr %365, i64 24
   invoke void %469(ptr noundef nonnull %463, ptr noundef nonnull %470)
@@ -15627,7 +15627,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEaSERKS8_.exit
 
 472:                                              ; preds = %.loopexit163
-  %473 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.30, i64 0, i64 %461
+  %473 = getelementptr inbounds nuw ptr, ptr @constinit.30, i64 %461
   %474 = load ptr, ptr %473, align 8, !tbaa !27
   %475 = getelementptr inbounds nuw i8, ptr %365, i64 24
   invoke void %474(ptr noundef nonnull %463, ptr noundef nonnull %475)
@@ -15996,7 +15996,7 @@ _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_
   %.sroa.08.013.i.i.i.i = phi ptr [ %25, %_ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEJRKSE_EEvPT_DpOT0_.exit.i.i.i.i ], [ %18, %13 ]
   %20 = load i64, ptr %.sroa.08.013.i.i.i.i, align 8, !tbaa !89
   store i64 %20, ptr %.014.i.i.i.i, align 8, !tbaa !89
-  %21 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 8
@@ -16020,7 +16020,7 @@ _ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9Ve
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %38, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i.i.i.i ], [ %14, %27 ]
   %31 = load i64, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !89
-  %32 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
   invoke void %33(ptr noundef nonnull %34)
@@ -16087,7 +16087,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateE
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateESt8functionIFvRNS0_6detail9VectorRefEEES4_IFvRNS5_9OpaqueRefEEEEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !89
-  %6 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -17863,7 +17863,7 @@ _ZNSt16allocator_traitsISaIN2cv5gimpl6RcDescEEE8allocateERS3_m.exit.i.i.i: ; pre
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !89
   store i64 %23, ptr %21, align 8, !tbaa !89
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 16
@@ -17888,7 +17888,7 @@ _ZSt10_ConstructIN2cv5gimpl6RcDescEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.
   %.05.i.i.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i.i.i.i.i ], [ %14, %30 ]
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !89
-  %36 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 16
   invoke void %37(ptr noundef nonnull %38)
@@ -18324,7 +18324,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %26, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %27 = load i64, ptr %2, align 8, !tbaa !150
-  %28 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void %29(ptr noundef nonnull %30)
@@ -18408,7 +18408,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i.i: ; preds = %26, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i.i
   %27 = load i64, ptr %2, align 8, !tbaa !150
-  %28 = getelementptr inbounds nuw [8 x ptr], ptr @constinit, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void %29(ptr noundef nonnull %30)
@@ -18641,7 +18641,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata3setIN2cv5gimpl4DataEEE
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !138, !noalias !594
   store i64 %11, ptr %9, align 8, !tbaa !138, !noalias !594
-  %12 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.18, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @constinit.18, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !27, !noalias !594
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -18660,7 +18660,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDes
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = load i64, ptr %20, align 8, !tbaa !89, !noalias !594
   store i64 %21, ptr %19, align 8, !tbaa !89, !noalias !594
-  %22 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !27, !noalias !594
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -18723,7 +18723,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5g
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl4DataEEE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !tbaa !89
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void %5(ptr noundef nonnull %6)
@@ -18739,7 +18739,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5g
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i: ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !138
-  %12 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %13(ptr noundef nonnull %14)
@@ -18761,7 +18761,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5g
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl4DataEEE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !tbaa !89
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void %5(ptr noundef nonnull %6)
@@ -18777,7 +18777,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5g
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit.i.i: ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !138
-  %12 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %13(ptr noundef nonnull %14)
@@ -18807,7 +18807,7 @@ define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !138
   store i64 %9, ptr %7, align 8, !tbaa !138
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.21, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @constinit.21, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -18819,7 +18819,7 @@ define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !89
   store i64 %16, ptr %14, align 8, !tbaa !89
-  %17 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -18830,7 +18830,7 @@ define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load i64, ptr %7, align 8, !tbaa !138
-  %24 = getelementptr inbounds nuw [6 x ptr], ptr @constinit.17, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   invoke void %25(ptr noundef nonnull %12)
           to label %.body unwind label %26
@@ -18895,7 +18895,7 @@ define linkonce_odr hidden void @_ZN2cv4util3any11holder_implINS_5gimpl6RcDescEE
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !89
   store i64 %9, ptr %7, align 8, !tbaa !89
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -18918,7 +18918,7 @@ define linkonce_odr hidden void @_ZN2cv4util3any11holder_implINS_5gimpl6RcDescEE
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util3any11holder_implINS_5gimpl6RcDescEEE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !89
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %5(ptr noundef nonnull %6)
@@ -18940,7 +18940,7 @@ define linkonce_odr hidden void @_ZN2cv4util3any11holder_implINS_5gimpl6RcDescEE
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util3any11holder_implINS_5gimpl6RcDescEEE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !89
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %5(ptr noundef nonnull %6)
@@ -19009,7 +19009,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE14_M_fil
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !89
   store i64 %20, ptr %18, align 8, !tbaa !89
-  %21 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -19037,7 +19037,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE14_M_fil
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !89
   store i64 %36, ptr %34, align 8, !tbaa !89
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i, i64 16
@@ -19091,14 +19091,14 @@ _ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit:
   br i1 %.not.i.i.i.i.i.i.i, label %70, label %60
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i68
-  %61 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %57
+  %61 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %57
   %62 = load ptr, ptr %61, align 8, !tbaa !27
   invoke void %62(ptr noundef nonnull %59)
           to label %63 unwind label %74
 
 63:                                               ; preds = %60
   %64 = load i64, ptr %56, align 8, !tbaa !89
-  %65 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %67 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
   invoke void %66(ptr noundef nonnull %59, ptr noundef nonnull %67)
@@ -19110,7 +19110,7 @@ _ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit:
   br label %_ZN2cv5gimpl6RcDescaSEOS1_.exit.i.i.i.i.i
 
 70:                                               ; preds = %.lr.ph.i.i.i.i.i68
-  %71 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.14, i64 0, i64 %57
+  %71 = getelementptr inbounds nuw ptr, ptr @constinit.14, i64 %57
   %72 = load ptr, ptr %71, align 8, !tbaa !27
   %73 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
   invoke void %72(ptr noundef nonnull %59, ptr noundef nonnull %73)
@@ -19145,14 +19145,14 @@ _ZSt13move_backwardIPN2cv5gimpl6RcDescES3_ET0_T_S5_S4_.exit: ; preds = %_ZN2cv5g
   br i1 %.not.i.i.i.i.i69, label %93, label %86
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %83
+  %87 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %83
   %88 = load ptr, ptr %87, align 8, !tbaa !27
   invoke void %88(ptr noundef nonnull %85)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %86
   %89 = load i64, ptr %18, align 8, !tbaa !89
-  %90 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !27
   invoke void %91(ptr noundef nonnull %85, ptr noundef nonnull %23)
           to label %.noexc70 unwind label %.loopexit
@@ -19163,7 +19163,7 @@ _ZSt13move_backwardIPN2cv5gimpl6RcDescES3_ET0_T_S5_S4_.exit: ; preds = %_ZN2cv5g
   br label %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i
 
 93:                                               ; preds = %80
-  %94 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.23, i64 0, i64 %83
+  %94 = getelementptr inbounds nuw ptr, ptr @constinit.23, i64 %83
   %95 = load ptr, ptr %94, align 8, !tbaa !27
   invoke void %95(ptr noundef nonnull %85, ptr noundef nonnull %23)
           to label %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i unwind label %.loopexit
@@ -19191,7 +19191,7 @@ _ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i:           ; preds = %93, %.noexc70
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit135, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp136, %.loopexit.split-lp.loopexit.split-lp ]
   %97 = load i64, ptr %18, align 8, !tbaa !89
-  %98 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !27
   invoke void %99(ptr noundef nonnull %23)
           to label %_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE16_Temporary_valueD2Ev.exit unwind label %100
@@ -19231,7 +19231,7 @@ _ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit8
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i76, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !89
   store i64 %110, ptr %108, align 8, !tbaa !89
-  %111 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !27
   %113 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i75, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i76, i64 16
@@ -19269,14 +19269,14 @@ _ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit8
   br i1 %.not.i.i.i.i.i84, label %135, label %128
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %125
+  %129 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %125
   %130 = load ptr, ptr %129, align 8, !tbaa !27
   invoke void %130(ptr noundef nonnull %127)
           to label %.noexc87 unwind label %.loopexit.split-lp.loopexit
 
 .noexc87:                                         ; preds = %128
   %131 = load i64, ptr %18, align 8, !tbaa !89
-  %132 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !27
   invoke void %133(ptr noundef nonnull %127, ptr noundef nonnull %23)
           to label %.noexc88 unwind label %.loopexit.split-lp.loopexit
@@ -19287,7 +19287,7 @@ _ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit8
   br label %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i85
 
 135:                                              ; preds = %122
-  %136 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.23, i64 0, i64 %125
+  %136 = getelementptr inbounds nuw ptr, ptr @constinit.23, i64 %125
   %137 = load ptr, ptr %136, align 8, !tbaa !27
   invoke void %137(ptr noundef nonnull %127, ptr noundef nonnull %23)
           to label %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i85 unwind label %.loopexit.split-lp.loopexit
@@ -19299,7 +19299,7 @@ _ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i85:         ; preds = %135, %.noexc88
 
 _ZSt4fillIPN2cv5gimpl6RcDescES2_EvT_S4_RKT0_.exit: ; preds = %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i85, %_ZN2cv5gimpl6RcDescaSERKS1_.exit.i.i.i, %_ZSt22__uninitialized_move_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit80.thread
   %139 = load i64, ptr %18, align 8, !tbaa !89
-  %140 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !27
   invoke void %141(ptr noundef nonnull %23)
           to label %_ZNSt6vectorIN2cv5gimpl6RcDescESaIS2_EE16_Temporary_valueD2Ev.exit91 unwind label %142
@@ -19363,7 +19363,7 @@ _ZSt24__uninitialized_fill_n_aIPN2cv5gimpl6RcDescEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i97, i64 8
   %168 = load i64, ptr %167, align 8, !tbaa !89
   store i64 %168, ptr %166, align 8, !tbaa !89
-  %169 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !27
   %171 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i96, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i97, i64 16
@@ -19398,7 +19398,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i104, i64 8
   %182 = load i64, ptr %181, align 8, !tbaa !89
   store i64 %182, ptr %180, align 8, !tbaa !89
-  %183 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.13, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !27
   %185 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i103, i64 16
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i.i104, i64 16
@@ -19427,7 +19427,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S
   %.05.i.i.i = phi ptr [ %200, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i.i ], [ %146, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv5gimpl6RcDescES3_SaIS2_EET0_T_S6_S5_RT1_.exit108 ]
   %192 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %193 = load i64, ptr %192, align 8, !tbaa !89
-  %194 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !27
   %196 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   invoke void %195(ptr noundef nonnull %196)
@@ -19477,7 +19477,7 @@ _ZNSt12_Vector_baseIN2cv5gimpl6RcDescESaIS2_EE13_M_deallocateEPS2_m.exit: ; pred
   %.05.i.i.i114 = phi ptr [ %217, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i.i115 ], [ %163, %207 ]
   %209 = getelementptr inbounds nuw i8, ptr %.05.i.i.i114, i64 8
   %210 = load i64, ptr %209, align 8, !tbaa !89
-  %211 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !27
   %213 = getelementptr inbounds nuw i8, ptr %.05.i.i.i114, i64 16
   invoke void %212(ptr noundef nonnull %213)
@@ -19708,7 +19708,7 @@ define linkonce_odr hidden noundef ptr @_ZSt18__do_uninit_fill_nIPN2cv5gimpl6RcD
   %8 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %9 = load i64, ptr %4, align 8, !tbaa !89
   store i64 %9, ptr %8, align 8, !tbaa !89
-  %10 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.20, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @constinit.20, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   invoke void %11(ptr noundef nonnull %12, ptr noundef nonnull %5)
@@ -19732,7 +19732,7 @@ _ZSt10_ConstructIN2cv5gimpl6RcDescEJRKS2_EEvPT_DpOT0_.exit: ; preds = %6
   %.05.i.i = phi ptr [ %27, %_ZSt8_DestroyIN2cv5gimpl6RcDescEEvPT_.exit.i.i ], [ %0, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !89
-  %21 = getelementptr inbounds nuw [3 x ptr], ptr @constinit.12, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @constinit.12, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
   invoke void %22(ptr noundef nonnull %23)

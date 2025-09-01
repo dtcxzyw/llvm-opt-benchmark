@@ -1311,7 +1311,7 @@ default.unreachable20:                            ; preds = %2
 
 switch.lookup:                                    ; preds = %24
   %28 = zext nneg i8 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5serde2de7Visitor8visit_u817h3bb84b76cb478ad0E.exit
 
@@ -1331,7 +1331,7 @@ _ZN5serde2de7Visitor8visit_u817h3bb84b76cb478ad0E.exit: ; preds = %switch.lookup
 
 switch.lookup21:                                  ; preds = %30
   %34 = zext nneg i16 %32 to i64
-  %switch.gep22 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %34
+  %switch.gep22 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %34
   %switch.load23 = load i64, ptr %switch.gep22, align 8
   br label %_ZN5serde2de7Visitor9visit_u1617h8a5c4281ad7b329cE.exit
 
@@ -1351,7 +1351,7 @@ _ZN5serde2de7Visitor9visit_u1617h8a5c4281ad7b329cE.exit: ; preds = %switch.looku
 
 switch.lookup24:                                  ; preds = %36
   %40 = zext nneg i32 %38 to i64
-  %switch.gep25 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %40
+  %switch.gep25 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %40
   %switch.load26 = load i64, ptr %switch.gep25, align 8
   br label %_ZN5serde2de7Visitor9visit_u3217he419088b055fde97E.exit
 
@@ -1370,7 +1370,7 @@ _ZN5serde2de7Visitor9visit_u3217he419088b055fde97E.exit: ; preds = %switch.looku
   br i1 %45, label %switch.lookup27, label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h08a12908a9e535edE.exit"
 
 switch.lookup27:                                  ; preds = %42
-  %switch.gep28 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %44
+  %switch.gep28 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %44
   %switch.load29 = load i64, ptr %switch.gep28, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h08a12908a9e535edE.exit"
 
@@ -1389,7 +1389,7 @@ switch.lookup27:                                  ; preds = %42
 
 switch.lookup30:                                  ; preds = %46
   %50 = zext nneg i8 %48 to i64
-  %switch.gep31 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %50
+  %switch.gep31 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %50
   %switch.load32 = load i64, ptr %switch.gep31, align 8
   br label %_ZN5serde2de7Visitor8visit_i817h6ab2c0c809d6341fE.exit
 
@@ -1409,7 +1409,7 @@ _ZN5serde2de7Visitor8visit_i817h6ab2c0c809d6341fE.exit: ; preds = %switch.lookup
 
 switch.lookup33:                                  ; preds = %52
   %56 = zext nneg i16 %54 to i64
-  %switch.gep34 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %56
+  %switch.gep34 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %56
   %switch.load35 = load i64, ptr %switch.gep34, align 8
   br label %_ZN5serde2de7Visitor9visit_i1617h56e97799f6da2677E.exit
 
@@ -1429,7 +1429,7 @@ _ZN5serde2de7Visitor9visit_i1617h56e97799f6da2677E.exit: ; preds = %switch.looku
 
 switch.lookup36:                                  ; preds = %58
   %62 = zext nneg i32 %60 to i64
-  %switch.gep37 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %62
+  %switch.gep37 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %62
   %switch.load38 = load i64, ptr %switch.gep37, align 8
   br label %_ZN5serde2de7Visitor9visit_i3217h00200844fb73c1e3E.exit
 
@@ -1448,7 +1448,7 @@ _ZN5serde2de7Visitor9visit_i3217h00200844fb73c1e3E.exit: ; preds = %switch.looku
   br i1 %67, label %switch.lookup39, label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h151abb43a1bae355E.exit"
 
 switch.lookup39:                                  ; preds = %64
-  %switch.gep40 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 0, i64 %66
+  %switch.gep40 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h6d0dd2a88d2c28c9E.195", i64 %66
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   br label %"_ZN146_$LT$$LT$cargo_metadata..messages..ArtifactDebuginfo$u20$as$u20$serde..de..Deserialize$GT$..deserialize..Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h151abb43a1bae355E.exit"
 

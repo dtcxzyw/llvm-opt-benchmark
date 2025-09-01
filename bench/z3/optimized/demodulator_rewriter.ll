@@ -12212,7 +12212,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit: ; preds = %_ZN14core_hashtable
 
 53:                                               ; preds = %.lr.ph, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit ]
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !48
   %56 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !48
@@ -12682,9 +12682,9 @@ _ZNK14core_hashtableI19obj_pair_hash_entryI4exprS1_E17obj_ptr_pair_hashIS1_S1_E1
   %283 = phi ptr [ %.pre, %.preheader ], [ %301, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit90 ]
   %indvars.iv143 = phi i64 [ %281, %.preheader ], [ %284, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit90 ]
   %284 = add nsw i64 %indvars.iv143, -1
-  %285 = getelementptr inbounds nuw [0 x ptr], ptr %280, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %280, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !48
-  %287 = getelementptr inbounds nuw [0 x ptr], ptr %278, i64 0, i64 %284
+  %287 = getelementptr inbounds nuw ptr, ptr %278, i64 %284
   %288 = load ptr, ptr %287, align 8, !tbaa !48
   %289 = icmp eq ptr %283, null
   br i1 %289, label %296, label %290
@@ -13874,7 +13874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 129:                                              ; preds = %.lr.ph, %261
   %130 = phi i32 [ %126, %.lr.ph ], [ %262, %261 ]
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [0 x ptr], ptr %128, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr %128, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !48
   %134 = add nuw i32 %130, 1
   store i32 %134, ptr %125, align 8, !tbaa !421
@@ -14632,7 +14632,7 @@ _ZN15max_var_id_procclEP3var.exit:                ; preds = %43, %48
 58:                                               ; preds = %.lr.ph, %_ZN15max_var_id_procclEP3var.exit60
   %59 = phi i32 [ %55, %.lr.ph ], [ %134, %_ZN15max_var_id_procclEP3var.exit60 ]
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !48
   %63 = add nuw i32 %59, 1
   store i32 %63, ptr %54, align 8, !tbaa !421
@@ -17224,7 +17224,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 57:                                               ; preds = %.lr.ph, %_ZN20demodulator_rewriter17add_back_idx_procclEP3app.exit
   %58 = phi i32 [ %54, %.lr.ph ], [ %127, %_ZN20demodulator_rewriter17add_back_idx_procclEP3app.exit ]
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !48
   %62 = add nuw i32 %58, 1
   store i32 %62, ptr %53, align 8, !tbaa !421
@@ -18164,7 +18164,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 54:                                               ; preds = %.lr.ph, %_ZN20demodulator_rewriter20remove_back_idx_procclEP3app.exit
   %55 = phi i32 [ %51, %.lr.ph ], [ %124, %_ZN20demodulator_rewriter20remove_back_idx_procclEP3app.exit ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !48
   %59 = add nuw i32 %55, 1
   store i32 %59, ptr %50, align 8, !tbaa !421
@@ -19454,7 +19454,7 @@ _ZN19match_args_aux_procclEP3var.exit:            ; preds = %_ZN12substitution6i
 156:                                              ; preds = %.lr.ph, %_ZN19match_args_aux_procclEP3var.exit79
   %157 = phi i32 [ %153, %.lr.ph ], [ %325, %_ZN19match_args_aux_procclEP3var.exit79 ]
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw [0 x ptr], ptr %155, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw ptr, ptr %155, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !48
   %161 = add nuw i32 %157, 1
   store i32 %161, ptr %152, align 8, !tbaa !421

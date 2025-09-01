@@ -980,7 +980,7 @@ pmix_obj_run_destructors.exit391:                 ; preds = %.lr.ph.i388, %318
 
 340:                                              ; preds = %338
   %341 = zext nneg i32 %339 to i64
-  %342 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %341, i32 2
+  %342 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %341, i32 2
   %343 = load i32, ptr %342, align 4, !tbaa !86
   %344 = icmp sgt i32 %343, 1
   br i1 %344, label %345, label %346
@@ -1203,7 +1203,7 @@ pmix_obj_run_destructors.exit391:                 ; preds = %.lr.ph.i388, %318
 
 471:                                              ; preds = %469
   %472 = zext nneg i32 %470 to i64
-  %473 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %472, i32 2
+  %473 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %472, i32 2
   %474 = load i32, ptr %473, align 4, !tbaa !86
   %475 = icmp sgt i32 %474, 0
   br i1 %475, label %476, label %478
@@ -1456,7 +1456,7 @@ pmix_obj_update.exit359:                          ; preds = %536
 
 597:                                              ; preds = %595
   %598 = zext nneg i32 %596 to i64
-  %599 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %598, i32 2
+  %599 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %598, i32 2
   %600 = load i32, ptr %599, align 4, !tbaa !86
   %601 = icmp sgt i32 %600, 0
   br i1 %601, label %602, label %603
@@ -1541,7 +1541,7 @@ pmix_strncpy.exit:                                ; preds = %pmix_obj_run_constr
 
 630:                                              ; preds = %628
   %631 = zext nneg i32 %629 to i64
-  %632 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %631, i32 2
+  %632 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %631, i32 2
   %633 = load i32, ptr %632, align 4, !tbaa !86
   %634 = icmp sgt i32 %633, 0
   br i1 %634, label %635, label %636
@@ -1789,7 +1789,7 @@ pmix_obj_run_constructors.exit423:                ; preds = %.lr.ph.i420, %698
 
 732:                                              ; preds = %729
   %733 = zext nneg i32 %731 to i64
-  %734 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %733, i32 2
+  %734 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %733, i32 2
   %735 = load i32, ptr %734, align 4, !tbaa !86
   %736 = icmp sgt i32 %735, 1
   br i1 %736, label %737, label %745
@@ -2088,7 +2088,7 @@ pmix_obj_run_constructors.exit444:                ; preds = %.lr.ph.i441, %860
 
 874:                                              ; preds = %pmix_obj_run_constructors.exit444
   %875 = zext nneg i32 %873 to i64
-  %876 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %875, i32 2
+  %876 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %875, i32 2
   %877 = load i32, ptr %876, align 4, !tbaa !86
   %878 = icmp sgt i32 %877, 0
   br i1 %878, label %879, label %882
@@ -2127,7 +2127,7 @@ pmix_obj_run_constructors.exit444:                ; preds = %.lr.ph.i441, %860
 
 899:                                              ; preds = %897
   %900 = zext nneg i32 %898 to i64
-  %901 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %900, i32 2
+  %901 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %900, i32 2
   %902 = load i32, ptr %901, align 4, !tbaa !86
   %903 = icmp sgt i32 %902, 4
   br i1 %903, label %904, label %905
@@ -2280,7 +2280,7 @@ pmix_obj_run_destructors.exit454:                 ; preds = %.lr.ph.i451, %918, 
 
 969:                                              ; preds = %966
   %970 = zext nneg i32 %968 to i64
-  %971 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %970, i32 2
+  %971 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %970, i32 2
   %972 = load i32, ptr %971, align 4, !tbaa !86
   %973 = icmp sgt i32 %972, 1
   br i1 %973, label %974, label %982
@@ -2598,7 +2598,7 @@ pmix_obj_run_constructors.exit480:                ; preds = %.lr.ph.i477, %1105
 
 1124:                                             ; preds = %pmix_obj_run_constructors.exit480
   %1125 = zext nneg i32 %1123 to i64
-  %1126 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %1125, i32 2
+  %1126 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %1125, i32 2
   %1127 = load i32, ptr %1126, align 4, !tbaa !86
   %1128 = icmp sgt i32 %1127, 1
   br i1 %1128, label %1129, label %1131
@@ -2763,7 +2763,7 @@ define internal void @pmix_tool_notify_recv(ptr noundef readonly captures(none) 
 
 10:                                               ; preds = %4
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11, i32 2
+  %12 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %11, i32 2
   %13 = load i32, ptr %12, align 4, !tbaa !86
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %16
@@ -2838,7 +2838,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
 
 47:                                               ; preds = %pmix_obj_new_tma.exit
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %48, i32 2
+  %49 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %48, i32 2
   %50 = load i32, ptr %49, align 4, !tbaa !86
   %51 = icmp sgt i32 %50, 1
   br i1 %51, label %52, label %60
@@ -2945,7 +2945,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %86
 
 102:                                              ; preds = %100
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %103, i32 2
+  %104 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %103, i32 2
   %105 = load i32, ptr %104, align 4, !tbaa !86
   %106 = icmp sgt i32 %105, 1
   br i1 %106, label %107, label %115
@@ -3052,7 +3052,7 @@ pmix_obj_run_destructors.exit191:                 ; preds = %.lr.ph.i188, %141
 
 157:                                              ; preds = %155
   %158 = zext nneg i32 %156 to i64
-  %159 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %158, i32 2
+  %159 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %158, i32 2
   %160 = load i32, ptr %159, align 4, !tbaa !86
   %161 = icmp sgt i32 %160, 1
   br i1 %161, label %162, label %170
@@ -3159,7 +3159,7 @@ pmix_obj_run_destructors.exit197:                 ; preds = %.lr.ph.i194, %196
 
 212:                                              ; preds = %210
   %213 = zext nneg i32 %211 to i64
-  %214 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %213, i32 2
+  %214 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %213, i32 2
   %215 = load i32, ptr %214, align 4, !tbaa !86
   %216 = icmp sgt i32 %215, 1
   br i1 %216, label %217, label %225
@@ -3340,7 +3340,7 @@ pmix_obj_run_destructors.exit209:                 ; preds = %.lr.ph.i206, %282
 
 302:                                              ; preds = %298
   %303 = zext nneg i32 %301 to i64
-  %304 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %303, i32 2
+  %304 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %303, i32 2
   %305 = load i32, ptr %304, align 4, !tbaa !86
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %307, label %315
@@ -3447,7 +3447,7 @@ pmix_obj_run_destructors.exit215:                 ; preds = %.lr.ph.i212, %341
 
 357:                                              ; preds = %355
   %358 = zext nneg i32 %356 to i64
-  %359 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %358, i32 2
+  %359 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %358, i32 2
   %360 = load i32, ptr %359, align 4, !tbaa !86
   %361 = icmp sgt i32 %360, 1
   br i1 %361, label %362, label %370
@@ -3591,7 +3591,7 @@ pmix_obj_run_destructors.exit221:                 ; preds = %.lr.ph.i218, %395
 
 437:                                              ; preds = %435
   %438 = zext nneg i32 %436 to i64
-  %439 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %438, i32 2
+  %439 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %438, i32 2
   %440 = load i32, ptr %439, align 4, !tbaa !86
   %441 = icmp sgt i32 %440, 1
   br i1 %441, label %442, label %444
@@ -3617,7 +3617,7 @@ pmix_obj_run_destructors.exit221:                 ; preds = %.lr.ph.i218, %395
 
 453:                                              ; preds = %451
   %454 = zext nneg i32 %452 to i64
-  %455 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %454, i32 2
+  %455 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %454, i32 2
   %456 = load i32, ptr %455, align 4, !tbaa !86
   %457 = icmp sgt i32 %456, 1
   br i1 %457, label %458, label %464
@@ -3710,7 +3710,7 @@ pmix_obj_run_destructors.exit227:                 ; preds = %.lr.ph.i224, %483
 
 499:                                              ; preds = %497
   %500 = zext nneg i32 %498 to i64
-  %501 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %500, i32 2
+  %501 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %500, i32 2
   %502 = load i32, ptr %501, align 4, !tbaa !86
   %503 = icmp sgt i32 %502, 1
   br i1 %503, label %504, label %505
@@ -3864,7 +3864,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 12:                                               ; preds = %4
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4, !tbaa !86
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %21
@@ -3891,7 +3891,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %28, i32 2
+  %29 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %28, i32 2
   %30 = load i32, ptr %29, align 4, !tbaa !86
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %32, label %39
@@ -3941,7 +3941,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 56:                                               ; preds = %54
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %57, i32 2
+  %58 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %57, i32 2
   %59 = load i32, ptr %58, align 4, !tbaa !86
   %60 = icmp sgt i32 %59, 1
   br i1 %60, label %61, label %67
@@ -3988,7 +3988,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 82:                                               ; preds = %80
   %83 = zext nneg i32 %81 to i64
-  %84 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %83, i32 2
+  %84 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %83, i32 2
   %85 = load i32, ptr %84, align 4, !tbaa !86
   %86 = icmp sgt i32 %85, 1
   br i1 %86, label %87, label %93
@@ -4035,7 +4035,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 108:                                              ; preds = %106
   %109 = zext nneg i32 %107 to i64
-  %110 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %109, i32 2
+  %110 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %109, i32 2
   %111 = load i32, ptr %110, align 4, !tbaa !86
   %112 = icmp sgt i32 %111, 1
   br i1 %112, label %113, label %119
@@ -4090,7 +4090,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 139:                                              ; preds = %134
   %140 = zext nneg i32 %138 to i64
-  %141 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %140, i32 2
+  %141 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %140, i32 2
   %142 = load i32, ptr %141, align 4, !tbaa !86
   %143 = icmp sgt i32 %142, 1
   br i1 %143, label %144, label %150
@@ -4138,7 +4138,7 @@ define internal void @tool_iof_handler(ptr noundef readonly captures(none) %0, p
 
 165:                                              ; preds = %163
   %166 = zext nneg i32 %164 to i64
-  %167 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %166, i32 2
+  %167 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %166, i32 2
   %168 = load i32, ptr %167, align 4, !tbaa !86
   %169 = icmp sgt i32 %168, 1
   br i1 %169, label %170, label %176
@@ -4498,7 +4498,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %7, %8
 
 38:                                               ; preds = %36
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %39, i32 2
+  %40 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %39, i32 2
   %41 = load i32, ptr %40, align 4, !tbaa !86
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %45
@@ -4650,7 +4650,7 @@ pmix_obj_new_tma.exit630:                         ; preds = %.lr.ph.i.i627, %78,
 
 108:                                              ; preds = %106
   %109 = zext nneg i32 %107 to i64
-  %110 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %109, i32 2
+  %110 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %109, i32 2
   %111 = load i32, ptr %110, align 4, !tbaa !86
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %115
@@ -4802,7 +4802,7 @@ pmix_obj_new_tma.exit643:                         ; preds = %.lr.ph.i.i640, %148
 
 178:                                              ; preds = %176
   %179 = zext nneg i32 %177 to i64
-  %180 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %179, i32 2
+  %180 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %179, i32 2
   %181 = load i32, ptr %180, align 4, !tbaa !86
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %183, label %185
@@ -4954,7 +4954,7 @@ pmix_obj_new_tma.exit656:                         ; preds = %.lr.ph.i.i653, %218
 
 248:                                              ; preds = %246
   %249 = zext nneg i32 %247 to i64
-  %250 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %249, i32 2
+  %250 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %249, i32 2
   %251 = load i32, ptr %250, align 4, !tbaa !86
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %253, label %255
@@ -5068,7 +5068,7 @@ pmix_obj_run_destructors.exit661:                 ; preds = %.lr.ph.i658, %268
 
 303:                                              ; preds = %301
   %304 = zext nneg i32 %302 to i64
-  %305 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %304, i32 2
+  %305 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %304, i32 2
   %306 = load i32, ptr %305, align 4, !tbaa !86
   %307 = icmp sgt i32 %306, 0
   br i1 %307, label %308, label %310
@@ -5181,7 +5181,7 @@ pmix_obj_run_destructors.exit667:                 ; preds = %.lr.ph.i664, %323
 
 357:                                              ; preds = %355
   %358 = zext nneg i32 %356 to i64
-  %359 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %358, i32 2
+  %359 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %358, i32 2
   %360 = load i32, ptr %359, align 4, !tbaa !86
   %361 = icmp sgt i32 %360, 0
   br i1 %361, label %362, label %364
@@ -5294,7 +5294,7 @@ pmix_obj_run_destructors.exit673:                 ; preds = %.lr.ph.i670, %377
 
 411:                                              ; preds = %409
   %412 = zext nneg i32 %410 to i64
-  %413 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %412, i32 2
+  %413 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %412, i32 2
   %414 = load i32, ptr %413, align 4, !tbaa !86
   %415 = icmp sgt i32 %414, 0
   br i1 %415, label %416, label %418
@@ -5407,7 +5407,7 @@ pmix_obj_run_destructors.exit679:                 ; preds = %.lr.ph.i676, %431
 
 465:                                              ; preds = %463
   %466 = zext nneg i32 %464 to i64
-  %467 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %466, i32 2
+  %467 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %466, i32 2
   %468 = load i32, ptr %467, align 4, !tbaa !86
   %469 = icmp sgt i32 %468, 0
   br i1 %469, label %470, label %472
@@ -5520,7 +5520,7 @@ pmix_obj_run_destructors.exit685:                 ; preds = %.lr.ph.i682, %485
 
 519:                                              ; preds = %517
   %520 = zext nneg i32 %518 to i64
-  %521 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %520, i32 2
+  %521 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %520, i32 2
   %522 = load i32, ptr %521, align 4, !tbaa !86
   %523 = icmp sgt i32 %522, 0
   br i1 %523, label %524, label %526
@@ -5633,7 +5633,7 @@ pmix_obj_run_destructors.exit691:                 ; preds = %.lr.ph.i688, %539
 
 573:                                              ; preds = %571
   %574 = zext nneg i32 %572 to i64
-  %575 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %574, i32 2
+  %575 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %574, i32 2
   %576 = load i32, ptr %575, align 4, !tbaa !86
   %577 = icmp sgt i32 %576, 0
   br i1 %577, label %578, label %580
@@ -5746,7 +5746,7 @@ pmix_obj_run_destructors.exit697:                 ; preds = %.lr.ph.i694, %593
 
 627:                                              ; preds = %625
   %628 = zext nneg i32 %626 to i64
-  %629 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %628, i32 2
+  %629 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %628, i32 2
   %630 = load i32, ptr %629, align 4, !tbaa !86
   %631 = icmp sgt i32 %630, 0
   br i1 %631, label %632, label %634
@@ -5859,7 +5859,7 @@ pmix_obj_run_destructors.exit703:                 ; preds = %.lr.ph.i700, %647
 
 681:                                              ; preds = %679
   %682 = zext nneg i32 %680 to i64
-  %683 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %682, i32 2
+  %683 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %682, i32 2
   %684 = load i32, ptr %683, align 4, !tbaa !86
   %685 = icmp sgt i32 %684, 0
   br i1 %685, label %686, label %688
@@ -5972,7 +5972,7 @@ pmix_obj_run_destructors.exit709:                 ; preds = %.lr.ph.i706, %701
 
 735:                                              ; preds = %733
   %736 = zext nneg i32 %734 to i64
-  %737 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %736, i32 2
+  %737 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %736, i32 2
   %738 = load i32, ptr %737, align 4, !tbaa !86
   %739 = icmp sgt i32 %738, 0
   br i1 %739, label %740, label %742
@@ -6085,7 +6085,7 @@ pmix_obj_run_destructors.exit715:                 ; preds = %.lr.ph.i712, %755
 
 789:                                              ; preds = %787
   %790 = zext nneg i32 %788 to i64
-  %791 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %790, i32 2
+  %791 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %790, i32 2
   %792 = load i32, ptr %791, align 4, !tbaa !86
   %793 = icmp sgt i32 %792, 0
   br i1 %793, label %794, label %796
@@ -6198,7 +6198,7 @@ pmix_obj_run_destructors.exit721:                 ; preds = %.lr.ph.i718, %809
 
 843:                                              ; preds = %841
   %844 = zext nneg i32 %842 to i64
-  %845 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %844, i32 2
+  %845 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %844, i32 2
   %846 = load i32, ptr %845, align 4, !tbaa !86
   %847 = icmp sgt i32 %846, 0
   br i1 %847, label %848, label %850
@@ -6313,7 +6313,7 @@ pmix_obj_run_destructors.exit727:                 ; preds = %.lr.ph.i724, %863
 
 899:                                              ; preds = %897
   %900 = zext nneg i32 %898 to i64
-  %901 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %900, i32 2
+  %901 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %900, i32 2
   %902 = load i32, ptr %901, align 4, !tbaa !86
   %903 = icmp sgt i32 %902, 0
   br i1 %903, label %904, label %906
@@ -6428,7 +6428,7 @@ pmix_obj_run_destructors.exit733:                 ; preds = %.lr.ph.i730, %919
 
 955:                                              ; preds = %953
   %956 = zext nneg i32 %954 to i64
-  %957 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %956, i32 2
+  %957 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %956, i32 2
   %958 = load i32, ptr %957, align 4, !tbaa !86
   %959 = icmp sgt i32 %958, 0
   br i1 %959, label %960, label %962
@@ -6542,7 +6542,7 @@ pmix_obj_run_destructors.exit739:                 ; preds = %.lr.ph.i736, %975
 
 1010:                                             ; preds = %1008
   %1011 = zext nneg i32 %1009 to i64
-  %1012 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %1011, i32 2
+  %1012 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %1011, i32 2
   %1013 = load i32, ptr %1012, align 4, !tbaa !86
   %1014 = icmp sgt i32 %1013, 0
   br i1 %1014, label %1015, label %1017
@@ -6678,7 +6678,7 @@ pmix_obj_run_destructors.exit745:                 ; preds = %.lr.ph.i742, %1030
 
 1078:                                             ; preds = %1076
   %1079 = zext nneg i32 %1077 to i64
-  %1080 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %1079, i32 2
+  %1080 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %1079, i32 2
   %1081 = load i32, ptr %1080, align 4, !tbaa !86
   %1082 = icmp sgt i32 %1081, 0
   br i1 %1082, label %1083, label %1085
@@ -6796,7 +6796,7 @@ pmix_obj_run_destructors.exit751:                 ; preds = %.lr.ph.i748, %1098
 
 1137:                                             ; preds = %1135
   %1138 = zext nneg i32 %1136 to i64
-  %1139 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %1138, i32 2
+  %1139 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %1138, i32 2
   %1140 = load i32, ptr %1139, align 4, !tbaa !86
   %1141 = icmp sgt i32 %1140, 0
   br i1 %1141, label %1142, label %1144
@@ -6896,7 +6896,7 @@ define internal void @job_data(ptr readnone captures(none) %0, ptr readnone capt
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4, !tbaa !86
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %13, label %21
@@ -6952,7 +6952,7 @@ define internal void @job_data(ptr readnone captures(none) %0, ptr readnone capt
 
 44:                                               ; preds = %37
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %45, i32 2
+  %46 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %45, i32 2
   %47 = load i32, ptr %46, align 4, !tbaa !86
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %51
@@ -7152,7 +7152,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr readnone captures(none
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12, i32 2
   %14 = load i32, ptr %13, align 4, !tbaa !86
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %18
@@ -7213,7 +7213,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr readnone captures(none
 
 35:                                               ; preds = %._crit_edge.thread
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %36, i32 2
+  %37 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %36, i32 2
   %38 = load i32, ptr %37, align 4, !tbaa !86
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %40, label %43
@@ -7530,7 +7530,7 @@ define noundef i32 @PMIx_tool_finalize() local_unnamed_addr #0 {
 
 23:                                               ; preds = %17
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %24, i32 2
+  %25 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %24, i32 2
   %26 = load i32, ptr %25, align 4, !tbaa !86
   %27 = icmp sgt i32 %26, 1
   br i1 %27, label %28, label %29
@@ -7551,7 +7551,7 @@ define noundef i32 @PMIx_tool_finalize() local_unnamed_addr #0 {
 
 34:                                               ; preds = %32
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %35, i32 2
+  %36 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %35, i32 2
   %37 = load i32, ptr %36, align 4, !tbaa !86
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %39, label %40
@@ -7607,7 +7607,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %46, %4
 
 59:                                               ; preds = %pmix_obj_new_tma.exit
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %60, i32 2
+  %61 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %60, i32 2
   %62 = load i32, ptr %61, align 4, !tbaa !86
   %63 = icmp sgt i32 %62, 1
   br i1 %63, label %64, label %72
@@ -7892,7 +7892,7 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %._cri
 
 202:                                              ; preds = %200
   %203 = zext nneg i32 %201 to i64
-  %204 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %203, i32 2
+  %204 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %203, i32 2
   %205 = load i32, ptr %204, align 4, !tbaa !86
   %206 = icmp sgt i32 %205, 1
   br i1 %206, label %207, label %208
@@ -8985,7 +8985,7 @@ define internal void @fin_timeout(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4, !tbaa !86
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %11
@@ -9024,7 +9024,7 @@ define internal void @finwait_cbfunc(ptr readnone captures(none) %0, ptr readnon
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !86
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %12
@@ -9385,7 +9385,7 @@ pmix_obj_new_tma.exit148:                         ; preds = %.lr.ph.i.i145, %117
 
 151:                                              ; preds = %149
   %152 = zext nneg i32 %150 to i64
-  %153 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %152, i32 2
+  %153 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %152, i32 2
   %154 = load i32, ptr %153, align 4, !tbaa !86
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %156, label %158
@@ -9540,7 +9540,7 @@ pmix_obj_new_tma.exit157:                         ; preds = %.lr.ph.i.i154, %191
 
 224:                                              ; preds = %222
   %225 = zext nneg i32 %223 to i64
-  %226 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %225, i32 2
+  %226 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %225, i32 2
   %227 = load i32, ptr %226, align 4, !tbaa !86
   %228 = icmp sgt i32 %227, 0
   br i1 %228, label %229, label %231
@@ -9658,7 +9658,7 @@ pmix_obj_run_destructors.exit162:                 ; preds = %.lr.ph.i159, %244
 
 284:                                              ; preds = %282
   %285 = zext nneg i32 %283 to i64
-  %286 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %285, i32 2
+  %286 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %285, i32 2
   %287 = load i32, ptr %286, align 4, !tbaa !86
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %289, label %291

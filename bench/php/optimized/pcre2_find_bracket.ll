@@ -61,7 +61,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
 
 34:                                               ; preds = %33
   %35 = zext nneg i8 %8 to i64
-  %36 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %.06291, i64 %38
@@ -107,7 +107,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
 
 50:                                               ; preds = %41
   %51 = zext i8 %8 to i64
-  %52 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %.06291, i64 %54
@@ -139,7 +139,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %spec.select78.idx.sink = phi i64 [ %spec.select78.idx, %59 ], [ %spec.select75.idx, %56 ], [ %65, %62 ]
   %spec.select78 = getelementptr inbounds nuw i8, ptr %.06291, i64 %spec.select78.idx.sink
   %66 = zext i8 %8 to i64
-  %67 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !4
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %spec.select78, i64 %69
@@ -147,7 +147,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
 
 71:                                               ; preds = %40
   %72 = zext i8 %8 to i64
-  %73 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !4
   %75 = zext i8 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %.06291, i64 %75
@@ -165,7 +165,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
 81:                                               ; preds = %77
   %82 = and i8 %79, 63
   %83 = zext nneg i8 %82 to i64
-  %84 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !4
   %86 = zext i8 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %76, i64 %86

@@ -413,7 +413,7 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
 
 .preheader:                                       ; preds = %3, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw [273 x %struct.LongShort], ptr @aliases, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.LongShort, ptr @aliases, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %.not = icmp eq i8 %6, 32
@@ -421,8 +421,8 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
 
 7:                                                ; preds = %.preheader
   %8 = zext i8 %6 to i64
-  %9 = add nsw i64 %8, -32
-  %10 = getelementptr inbounds [96 x ptr], ptr @findshortopt.singles, i64 0, i64 %9
+  %9 = getelementptr ptr, ptr @findshortopt.singles, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -256
   store ptr %4, ptr %10, align 8, !tbaa !11
   br label %11
 
@@ -439,7 +439,7 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
   %narrow = add nsw i8 %0, -32
   %14 = sext i8 %narrow to i64
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw [96 x ptr], ptr @findshortopt.singles, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @findshortopt.singles, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   br label %18
 
@@ -887,7 +887,7 @@ findlongopt.exit:                                 ; preds = %45, %60, %14
 
 .preheader.i:                                     ; preds = %292, %300
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %300 ], [ 0, %292 ]
-  %293 = getelementptr inbounds nuw [273 x %struct.LongShort], ptr @aliases, i64 0, i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw %struct.LongShort, ptr @aliases, i64 %indvars.iv.i
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 9
   %295 = load i8, ptr %294, align 1, !tbaa !4
   %.not.i = icmp eq i8 %295, 32
@@ -895,8 +895,8 @@ findlongopt.exit:                                 ; preds = %45, %60, %14
 
 296:                                              ; preds = %.preheader.i
   %297 = zext i8 %295 to i64
-  %298 = add nsw i64 %297, -32
-  %299 = getelementptr inbounds [96 x ptr], ptr @findshortopt.singles, i64 0, i64 %298
+  %298 = getelementptr ptr, ptr @findshortopt.singles, i64 %297
+  %299 = getelementptr i8, ptr %298, i64 -256
   store ptr %293, ptr %299, align 8, !tbaa !11
   br label %300
 
@@ -913,7 +913,7 @@ findshortopt.exit:                                ; preds = %292, %301
   %narrow.i = add nsw i8 %290, -32
   %302 = sext i8 %narrow.i to i64
   %303 = and i64 %302, 4294967295
-  %304 = getelementptr inbounds nuw [96 x ptr], ptr @findshortopt.singles, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr @findshortopt.singles, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !11
   %.not825 = icmp eq ptr %305, null
   br i1 %.not825, label %.critedge, label %306
@@ -3455,7 +3455,7 @@ define internal fastcc i32 @set_rate(ptr noundef %0, ptr noundef %1) unnamed_add
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %1, i64 %15, i1 false)
-  %18 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %15
   store i8 0, ptr %18, align 1, !tbaa !19
   %19 = call i32 @str2unum(ptr noundef nonnull %4, ptr noundef nonnull %3) #15
   %.not38 = icmp eq i32 %19, 0

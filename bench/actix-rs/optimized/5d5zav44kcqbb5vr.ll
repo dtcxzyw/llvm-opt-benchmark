@@ -487,7 +487,7 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !noundef !3
-  %60 = getelementptr inbounds [0 x { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }], ptr %59, i64 0, i64 %41
+  %60 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %59, i64 %41
   call void @_ZN5regex5regex6string5Regex11captures_at17h0e1710724883c43eE(ptr nonnull sret({ i64, [8 x i64] }) align 8 %5, ptr nonnull align 8 %60, ptr align 1 %1, i64 %2, i64 0)
   %61 = load i64, ptr %5, align 8, !range !10, !noundef !3
   %62 = icmp eq i64 %61, 2

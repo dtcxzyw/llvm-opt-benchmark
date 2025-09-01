@@ -1540,7 +1540,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 15
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %89, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr %89, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !41
   %106 = add nsw i32 %105, -1
   store i32 %106, ptr %104, align 4, !tbaa !41

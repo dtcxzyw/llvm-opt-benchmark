@@ -937,7 +937,7 @@ zend_string_alloc.exit:                           ; preds = %9, %11
   store i64 %2, ptr %17, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %1, i64 %2, i1 false)
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %18, i64 0, i64 %2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %2
   store i8 0, ptr %19, align 1, !tbaa !43
   %20 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false)
   %21 = load i32, ptr %15, align 4, !tbaa !43
@@ -999,7 +999,7 @@ zend_string_alloc.exit:                           ; preds = %10, %12
   store i64 %2, ptr %18, align 8, !tbaa !64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %1, i64 %2, i1 false)
-  %20 = getelementptr inbounds nuw [1 x i8], ptr %19, i64 0, i64 %2
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 0, ptr %20, align 1, !tbaa !43
   %21 = icmp ne i32 %5, 0
   %22 = tail call i32 @zend_alter_ini_entry_ex(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %21)
@@ -1553,7 +1553,7 @@ smart_str_0.exit:                                 ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !64
-  %39 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !43
   %.pre228 = load ptr, ptr %6, align 8, !tbaa !96
   %40 = getelementptr inbounds nuw i8, ptr %.pre228, i64 24
@@ -1732,7 +1732,7 @@ zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, 
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %102 = load i64, ptr %101, align 8, !tbaa !64
-  %103 = getelementptr inbounds nuw [1 x i8], ptr %100, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 %102
   store i8 0, ptr %103, align 1, !tbaa !43
   %.pre = load ptr, ptr %6, align 8, !tbaa !96
   %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
@@ -1826,7 +1826,7 @@ smart_str_0.exit133:                              ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %143 = load i64, ptr %142, align 8, !tbaa !64
-  %144 = getelementptr inbounds nuw [1 x i8], ptr %141, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 %143
   store i8 0, ptr %144, align 1, !tbaa !43
   %.pre227 = load ptr, ptr %6, align 8, !tbaa !96
   %145 = getelementptr inbounds nuw i8, ptr %.pre227, i64 24
@@ -1908,7 +1908,7 @@ smart_str_0.exit133:                              ; preds = %134
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %174 = load i64, ptr %173, align 8, !tbaa !64
-  %175 = getelementptr inbounds nuw [1 x i8], ptr %172, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 %174
   store i8 0, ptr %175, align 1, !tbaa !43
   br label %smart_str_0.exit135
 
@@ -1925,7 +1925,7 @@ smart_str_0.exit135:                              ; preds = %168, %171
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %183 = load i64, ptr %182, align 8, !tbaa !64
-  %184 = getelementptr inbounds nuw [1 x i8], ptr %181, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %183
   store i8 0, ptr %184, align 1, !tbaa !43
   br label %smart_str_0.exit137
 
@@ -1935,7 +1935,7 @@ smart_str_0.exit137:                              ; preds = %smart_str_0.exit135
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %188 = load i64, ptr %187, align 8, !tbaa !64
-  %189 = getelementptr inbounds nuw [1 x i8], ptr %186, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 %188
   store i8 0, ptr %189, align 1, !tbaa !43
   %.pre225 = load ptr, ptr %8, align 8, !tbaa !96
   %190 = load ptr, ptr %6, align 8, !tbaa !96
@@ -2080,7 +2080,7 @@ smart_str_free_ex.exit176:                        ; preds = %smart_str_free_ex.e
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %256 = load i64, ptr %255, align 8, !tbaa !64
-  %257 = getelementptr inbounds nuw [1 x i8], ptr %254, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 %256
   store i8 0, ptr %257, align 1, !tbaa !43
   br label %smart_str_0.exit141
 
@@ -2097,7 +2097,7 @@ smart_str_0.exit141:                              ; preds = %250, %253
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %265 = load i64, ptr %264, align 8, !tbaa !64
-  %266 = getelementptr inbounds nuw [1 x i8], ptr %263, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 %265
   store i8 0, ptr %266, align 1, !tbaa !43
   br label %smart_str_0.exit143
 
@@ -2107,7 +2107,7 @@ smart_str_0.exit143:                              ; preds = %smart_str_0.exit141
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %270 = load i64, ptr %269, align 8, !tbaa !64
-  %271 = getelementptr inbounds nuw [1 x i8], ptr %268, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 %270
   store i8 0, ptr %271, align 1, !tbaa !43
   %.pre224 = load ptr, ptr %8, align 8, !tbaa !96
   %272 = load ptr, ptr %6, align 8, !tbaa !96
@@ -2216,7 +2216,7 @@ smart_str_0.exit147:                              ; preds = %313
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 24
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %319 = load i64, ptr %318, align 8, !tbaa !64
-  %320 = getelementptr inbounds nuw [1 x i8], ptr %317, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 %319
   store i8 0, ptr %320, align 1, !tbaa !43
   %.pre226 = load ptr, ptr %6, align 8, !tbaa !96
   %321 = getelementptr inbounds nuw i8, ptr %.pre226, i64 24

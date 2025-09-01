@@ -614,10 +614,10 @@ define noundef align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$se
   %10 = phi i64 [ %21, %.backedge ], [ %7, %1 ]
   %11 = phi i64 [ %22, %.backedge ], [ %6, %1 ]
   %12 = load ptr, ptr %0, align 8, !nonnull !13, !align !75, !noundef !13
-  %13 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds i8, ptr %12, i64 %11
   %14 = load i8, ptr %13, align 1, !noundef !13
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read6ESCAPE17h3b07d76487309de9E, i64 %15
   %17 = load i8, ptr %16, align 1, !range !85, !noundef !13
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %34, label %19
@@ -628,7 +628,7 @@ define noundef align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$se
   br label %.backedge
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %19
-  %21 = phi i64 [ %.pre47, %..backedge_crit_edge ], [ %10, %19 ]
+  %21 = phi i64 [ %.pre52, %..backedge_crit_edge ], [ %10, %19 ]
   %22 = phi i64 [ %.pre, %..backedge_crit_edge ], [ %20, %19 ]
   %23 = icmp ult i64 %22, %21
   br i1 %23, label %.lr.ph, label %.thread
@@ -676,7 +676,7 @@ _ZN10serde_json4read5error17h163b424e2d9691fcE.exit: ; preds = %.lr.ph.i.i.i, %"
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i7": ; preds = %34
-  %36 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %11
+  %36 = getelementptr inbounds i8, ptr %12, i64 %11
   %37 = icmp eq i64 %11, 0
   br i1 %37, label %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit17, label %.lr.ph.i.i.i8
 
@@ -717,7 +717,7 @@ _ZN10serde_json4read5error17h163b424e2d9691fcE.exit17: ; preds = %.lr.ph.i.i.i8,
 
 ..backedge_crit_edge:                             ; preds = %47
   %.pre = load i64, ptr %4, align 8
-  %.pre47 = load i64, ptr %5, align 8
+  %.pre52 = load i64, ptr %5, align 8
   br label %.backedge
 
 .loopexit:                                        ; preds = %47, %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit17, %45, %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit
@@ -796,10 +796,10 @@ _ZN10serde_json4read5error17h53e783baf89b9e7dE.exit: ; preds = %.lr.ph.i.i.i, %"
   ret void
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %26
+  %31 = getelementptr inbounds i8, ptr %11, i64 %26
   %32 = load i8, ptr %31, align 1, !noundef !13
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read3HEX17hc1b4e8166bb6b5e1E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read3HEX17hc1b4e8166bb6b5e1E, i64 %33
   %35 = load i8, ptr %34, align 1, !noundef !13
   %.not = icmp eq i8 %35, -1
   %36 = add nuw i64 %26, 1
@@ -1010,7 +1010,7 @@ define void @_ZN10serde_json4read12parse_escape16encode_surrogate17h123157416cd4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i16, i16 } @_ZN10serde_json4read14decode_hex_val17hb390f188d1cd9487E(i8 noundef %0) unnamed_addr #7 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json4read3HEX17hc1b4e8166bb6b5e1E, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json4read3HEX17hc1b4e8166bb6b5e1E, i64 %2
   %4 = load i8, ptr %3, align 1, !noundef !13
   %5 = icmp ne i8 %4, -1
   %.sroa.0.0 = zext i1 %5 to i16

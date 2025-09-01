@@ -10634,7 +10634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !389)
   %96 = load i32, ptr %95, align 8, !tbaa !392, !noalias !389
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !393, !noalias !389
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %100, ptr %10, align 8, !tbaa !4, !alias.scope !389
@@ -17570,7 +17570,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator10NativeType
 19:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
   %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !393, !noalias !591
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !4, !alias.scope !591
@@ -31464,7 +31464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1062: ; preds = %_
   %1960 = getelementptr inbounds nuw i8, ptr %415, i64 224
   call void @llvm.experimental.noalias.scope.decl(metadata !996)
   %1961 = zext nneg i32 %1954 to i64
-  %1962 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %1961
+  %1962 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %1961
   %1963 = load ptr, ptr %1962, align 8, !tbaa !393, !noalias !996
   store ptr %319, ptr %76, align 8, !tbaa !4, !alias.scope !996
   %1964 = icmp eq ptr %1963, null
@@ -48441,7 +48441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   %27 = load i32, ptr %2, align 8, !tbaa !392, !noalias !1428
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !393, !noalias !1428
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %31, ptr %8, align 8, !tbaa !4, !alias.scope !1428
@@ -59227,7 +59227,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator9GenGetterB5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1689)
   %34 = zext i32 %9 to i64
-  %35 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !393, !noalias !1689
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %37, ptr %8, align 8, !tbaa !4, !alias.scope !1689
@@ -60117,7 +60117,7 @@ _ZN11flatbuffers2go11GoGenerator15GetEnumTypeNameB5cxx11ERKNS_7EnumDefE.exit: ; 
 36:                                               ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1723)
   %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !393, !noalias !1723
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %40, ptr %0, align 8, !tbaa !4, !alias.scope !1723
@@ -61040,7 +61040,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator25MutateScal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1748)
   %22 = load i32, ptr %21, align 8, !tbaa !392, !noalias !1748
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !393, !noalias !1748
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %26, ptr %8, align 8, !tbaa !4, !alias.scope !1748
@@ -62197,7 +62197,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator24MutateScal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   %25 = load i32, ptr %24, align 8, !tbaa !392, !noalias !1778
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !393, !noalias !1778
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %29, ptr %10, align 8, !tbaa !4, !alias.scope !1778
@@ -63659,7 +63659,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator32MutateElem
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1817)
   %36 = zext i32 %24 to i64
-  %37 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !393, !noalias !1817
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %39, ptr %9, align 8, !tbaa !4, !alias.scope !1817
@@ -67297,7 +67297,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator9GenMethodB5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1911)
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !393, !noalias !1911
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %6, align 8, !tbaa !4, !alias.scope !1911

@@ -584,7 +584,7 @@ switch.lookup:
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr @.str.6, ptr %51, align 8, !tbaa !48, !alias.scope !44, !noalias !38
   %52 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang12ast_matchersL23gtestComparisonInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8GtestCmpENS0_8internal7MatcherINS_4StmtEEES7_, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12ast_matchersL23gtestComparisonInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8GtestCmpENS0_8internal7MatcherINS_4StmtEEES7_, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %39, ptr %38, align 8, !alias.scope !49, !noalias !38
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -3547,9 +3547,9 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !301
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !301
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.2, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.2, i64 %39
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep149 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.3, i64 0, i64 %40
+  %switch.gep149 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.3, i64 %40
   %switch.load150 = load ptr, ptr %switch.gep149, align 8
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 5, ptr %41, align 8, !tbaa !41, !alias.scope !304, !noalias !301
@@ -3990,9 +3990,9 @@ switch.lookup151:                                 ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !345
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !345
-  %switch.gep152 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.2, i64 0, i64 %39
+  %switch.gep152 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.2, i64 %39
   %switch.load153 = load i64, ptr %switch.gep152, align 8
-  %switch.gep154 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.3, i64 0, i64 %40
+  %switch.gep154 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12ast_matchersL17gtestCallInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8internal7MatcherINS_4StmtEEENS0_8MockArgsE.3, i64 %40
   %switch.load155 = load ptr, ptr %switch.gep154, align 8
   %218 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 5, ptr %218, align 8, !tbaa !41, !alias.scope !348, !noalias !345

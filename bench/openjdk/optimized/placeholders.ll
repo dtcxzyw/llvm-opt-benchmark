@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTa
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load ptr, ptr %7, align 8
@@ -136,7 +136,7 @@ define hidden void @_ZN16PlaceholderEntry11set_threadQEP10SeenThreadN16Placehold
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   store ptr %1, ptr %8, align 8
@@ -161,37 +161,37 @@ define hidden void @_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16Place
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0.i = load ptr, ptr %10, align 8
   %11 = icmp eq ptr %.0.i, null
-  br i1 %11, label %switch.lookup18, label %.preheader
+  br i1 %11, label %switch.lookup19, label %.preheader
 
-switch.lookup18:                                  ; preds = %switch.lookup
-  %switch.tableidx19 = add nsw i32 %2, -1
-  %12 = zext nneg i32 %switch.tableidx19 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %12
+switch.lookup19:                                  ; preds = %switch.lookup
+  %12 = zext nneg i32 %2 to i64
+  %13 = getelementptr i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %12
+  %switch.gep20 = getelementptr i8, ptr %13, i64 -8
   %switch.load21 = load i64, ptr %switch.gep20, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load21
-  store ptr %4, ptr %13, align 8
-  br label %19
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load21
+  store ptr %4, ptr %14, align 8
+  br label %20
 
 .preheader:                                       ; preds = %switch.lookup, %.preheader
-  %.0 = phi ptr [ %15, %.preheader ], [ %.0.i, %switch.lookup ]
-  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %16, label %.preheader, !llvm.loop !6
+  %.0 = phi ptr [ %16, %.preheader ], [ %.0.i, %switch.lookup ]
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %17, label %.preheader, !llvm.loop !6
 
-16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.0, ptr %18, align 8
-  br label %19
+17:                                               ; preds = %.preheader
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %4, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.0, ptr %19, align 8
+  br label %20
 
-19:                                               ; preds = %16, %switch.lookup18
+20:                                               ; preds = %17, %switch.lookup19
   ret void
 }
 
@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @_ZN16PlaceholderEntry17check_seen_threadEP10Ja
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.08 = load ptr, ptr %8, align 8
@@ -247,7 +247,7 @@ define hidden noundef zeroext i1 @_ZN16PlaceholderEntry18remove_seen_threadEP10J
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.01725 = load ptr, ptr %8, align 8
@@ -278,9 +278,9 @@ switch.lookup:                                    ; preds = %3
   br label %23
 
 17:                                               ; preds = %.lr.ph._crit_edge
-  %switch.tableidx39 = add nsw i32 %2, -1
-  %18 = icmp ult i32 %switch.tableidx39, 3
-  br i1 %18, label %switch.lookup38, label %19
+  %switch.tableidx38 = add nsw i32 %2, -1
+  %18 = icmp ult i32 %switch.tableidx38, 3
+  br i1 %18, label %switch.lookup39, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @g_assert_poison, align 8
@@ -288,17 +288,17 @@ switch.lookup:                                    ; preds = %3
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 120) #11
   unreachable
 
-switch.lookup38:                                  ; preds = %17
-  %21 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep40 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %21
+switch.lookup39:                                  ; preds = %17
+  %21 = zext nneg i32 %switch.tableidx38 to i64
+  %switch.gep40 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %21
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load41
   store ptr %14, ptr %22, align 8
   %.pre = load ptr, ptr %13, align 8
   br label %23
 
-23:                                               ; preds = %switch.lookup38, %15
-  %24 = phi ptr [ %.pre, %switch.lookup38 ], [ %14, %15 ]
+23:                                               ; preds = %switch.lookup39, %15
+  %24 = phi ptr [ %.pre, %switch.lookup39 ], [ %14, %15 ]
   %.not19 = icmp eq ptr %24, null
   br i1 %.not19, label %27, label %25
 
@@ -319,9 +319,9 @@ switch.lookup38:                                  ; preds = %17
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph36, %switch.lookup, %27
-  %switch.tableidx43 = add nsw i32 %2, -1
-  %29 = icmp ult i32 %switch.tableidx43, 3
-  br i1 %29, label %switch.lookup42, label %30
+  %switch.tableidx42 = add nsw i32 %2, -1
+  %29 = icmp ult i32 %switch.tableidx42, 3
+  br i1 %29, label %switch.lookup43, label %30
 
 30:                                               ; preds = %.loopexit
   %31 = load ptr, ptr @g_assert_poison, align 8
@@ -329,9 +329,9 @@ switch.lookup38:                                  ; preds = %17
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 104) #11
   unreachable
 
-switch.lookup42:                                  ; preds = %.loopexit
-  %32 = zext nneg i32 %switch.tableidx43 to i64
-  %switch.gep44 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %32
+switch.lookup43:                                  ; preds = %.loopexit
+  %32 = zext nneg i32 %switch.tableidx42 to i64
+  %switch.gep44 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %32
   %switch.load45 = load i64, ptr %switch.gep44, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load45
   %.0.i21 = load ptr, ptr %33, align 8
@@ -610,29 +610,29 @@ _ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.
   br i1 %78, label %switch.lookup, label %.preheader.i
 
 switch.lookup:                                    ; preds = %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i
-  %switch.tableidx = add nsw i32 %2, -1
-  %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %79
+  %79 = sext i32 %2 to i64
+  %80 = getelementptr i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %79
+  %switch.gep = getelementptr i8, ptr %80, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %.023, i64 %switch.load
-  store ptr %76, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.023, i64 %switch.load
+  store ptr %76, ptr %81, align 8
   br label %_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE.exit
 
 .preheader.i:                                     ; preds = %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i, %.preheader.i
-  %.0.i = phi ptr [ %82, %.preheader.i ], [ %.0.i.i18, %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %83, label %.preheader.i, !llvm.loop !6
+  %.0.i = phi ptr [ %83, %.preheader.i ], [ %.0.i.i18, %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %.not.i = icmp eq ptr %83, null
+  br i1 %.not.i, label %84, label %.preheader.i, !llvm.loop !6
 
-83:                                               ; preds = %.preheader.i
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store ptr %76, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %.0.i, ptr %85, align 8
+84:                                               ; preds = %.preheader.i
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store ptr %76, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  store ptr %.0.i, ptr %86, align 8
   br label %_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE.exit
 
-_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE.exit: ; preds = %switch.lookup, %83
+_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE.exit: ; preds = %switch.lookup, %84
   call void @_Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE(ptr noundef nonnull %0, ptr noundef nonnull %.023, ptr noundef nonnull @.str.4, i32 noundef %2)
   ret ptr %.023
 }
@@ -673,7 +673,7 @@ define linkonce_odr hidden void @_Z3logP6SymbolP16PlaceholderEntryPKcN16Placehol
 
 switch.lookup:                                    ; preds = %7
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
 

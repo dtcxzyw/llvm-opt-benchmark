@@ -1448,7 +1448,7 @@ do_initialization_msg.exit.thread228:             ; preds = %533, %dnet_ntoa.exi
 
 switch.lookup:                                    ; preds = %669
   %678 = zext nneg i8 %675 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dec_rt, i64 0, i64 %678
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dec_rt, i64 %678
   %switch.load = load ptr, ptr %switch.gep, align 8
   %679 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %679, i32 noundef 25, ptr noundef nonnull %switch.load)

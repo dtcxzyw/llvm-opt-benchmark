@@ -4186,7 +4186,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 
 _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit147
   %317 = sext i16 %286 to i64
-  %318 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %317
+  %318 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = ptrtoint ptr %319 to i64
   %321 = trunc i64 %320 to i32
@@ -4514,7 +4514,7 @@ define internal fastcc noundef ptr @_ZL13new_loc_valueP13PhaseRegAllociN8Locatio
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32
@@ -5266,7 +5266,7 @@ _ZN13GrowableArrayIP10ScopeValueE10deallocateEPS1_.exit.i: ; preds = %.loopexit.
 
 _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %383
   %384 = sext i16 %367 to i64
-  %385 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %384
+  %385 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = ptrtoint ptr %386 to i64
   %388 = trunc i64 %387 to i32
@@ -5294,7 +5294,7 @@ _ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE.exit: ; preds = %_ZN7OptoReg
 
 _ZN7OptoReg8as_VMRegEi.exit.i203:                 ; preds = %398
   %399 = sext i16 %367 to i64
-  %400 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %399
+  %400 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %399
   %401 = load ptr, ptr %400, align 8
   %402 = ptrtoint ptr %401 to i64
   %403 = trunc i64 %402 to i32
@@ -9215,7 +9215,7 @@ _ZNK5Block8get_nodeEj.exit101:                    ; preds = %26, %29
 57:                                               ; preds = %56
   %58 = add i32 %.sroa.7136.1, 1
   %59 = zext i32 %.sroa.7136.1 to i64
-  %60 = getelementptr inbounds nuw [11 x i64], ptr %51, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %51, i64 %59
   %61 = load i64, ptr %60, align 8
   %.not11.i.i = icmp eq i64 %61, 0
   br i1 %.not11.i.i, label %56, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit, !llvm.loop !67
@@ -9260,7 +9260,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %57
 74:                                               ; preds = %.preheader.i
   %75 = add i32 %.sroa.7136.3, 1
   %76 = zext i32 %.sroa.7136.3 to i64
-  %77 = getelementptr inbounds nuw [11 x i64], ptr %51, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %51, i64 %76
   %78 = load i64, ptr %77, align 8
   %.not11.i = icmp eq i64 %78, 0
   br i1 %.not11.i, label %.preheader.i, label %79, !llvm.loop !67
@@ -9367,7 +9367,7 @@ _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %69, %79
 137:                                              ; preds = %136
   %138 = add i32 %.sroa.7.1, 1
   %139 = zext i32 %.sroa.7.1 to i64
-  %140 = getelementptr inbounds nuw [11 x i64], ptr %131, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %131, i64 %139
   %141 = load i64, ptr %140, align 8
   %.not11.i.i103 = icmp eq i64 %141, 0
   br i1 %.not11.i.i103, label %136, label %_ZN15RegMaskIteratorC2ERK7RegMask.exit105, !llvm.loop !67
@@ -9416,7 +9416,7 @@ _ZN15RegMaskIterator4nextEv.exit112.thread:       ; preds = %.preheader.i108
 154:                                              ; preds = %.preheader.i108
   %155 = add i32 %.sroa.7.3, 1
   %156 = zext i32 %.sroa.7.3 to i64
-  %157 = getelementptr inbounds nuw [11 x i64], ptr %131, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i64, ptr %131, i64 %156
   %158 = load i64, ptr %157, align 8
   %.not11.i111 = icmp eq i64 %158, 0
   br i1 %.not11.i111, label %.preheader.i108, label %159, !llvm.loop !67
@@ -9741,7 +9741,7 @@ _ZNK5Block8get_nodeEj.exit129:                    ; preds = %._crit_edge, %315
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i32, ptr %333, align 8
   %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %335, i32 3
+  %336 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %335, i32 3
   %337 = load i8, ptr %336, align 8
   %338 = trunc i8 %337 to i1
   br i1 %338, label %339, label %343
@@ -9870,7 +9870,7 @@ define hidden void @_ZN10Scheduling11anti_do_defEP5BlockP4Nodeii(ptr noundef non
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32

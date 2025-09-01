@@ -10108,7 +10108,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
 38:                                               ; preds = %.preheader, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit
   %39 = phi ptr [ %21, %.preheader ], [ %45, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
-  %40 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.77"], ptr %23, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.77", ptr %23, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   %.not.i19 = icmp eq ptr %41, null
   br i1 %.not.i19, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit, label %42
@@ -10663,7 +10663,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
 53:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.02960 = phi i1 [ %49, %.lr.ph ], [ %.130, %72 ]
-  %54 = getelementptr inbounds nuw [128 x %struct.epoll_event], ptr %4, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load ptr, ptr %55, align 4, !tbaa !16
   %57 = icmp eq ptr %56, %51
@@ -11929,7 +11929,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader:
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader, %108
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %108 ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader ]
-  %105 = getelementptr inbounds nuw [12 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !21
   %.not.i1.i = icmp eq ptr %106, null
   br i1 %.not.i1.i, label %108, label %107
@@ -12430,7 +12430,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader: ;
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader ]
-  %23 = getelementptr inbounds nuw [12 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !21
   %.not.i1 = icmp eq ptr %24, null
   br i1 %.not.i1, label %26, label %25
@@ -17714,7 +17714,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit: ; preds = %2, %7
 
 26:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit, %.thread
   %indvars.iv = phi i64 [ 2, %_ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit ], [ %indvars.iv.next, %.thread ]
-  %27 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN5boost4asio6detail13epoll_reactor16descriptor_state10perform_ioEjE4flag, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4asio6detail13epoll_reactor16descriptor_state10perform_ioEjE4flag, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !42
   %29 = or i32 %28, 24
   %30 = and i32 %29, %1
@@ -17722,9 +17722,9 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit: ; preds = %2, %7
   br i1 %.not, label %.thread, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw [3 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 1, ptr %32, align 1, !tbaa !482
-  %33 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.77"], ptr %16, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.77", ptr %16, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %35
 
@@ -18133,7 +18133,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit.thre
   %33 = phi ptr [ %.pre44, %30 ], [ %73, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %._crit_edge ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %35 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.77"], ptr %34, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.77", ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !345
   %.not2641 = icmp eq ptr %36, null
   br i1 %.not2641, label %._crit_edge, label %.lr.ph.preheader
@@ -18187,7 +18187,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   store i64 %56, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12
   %57 = load ptr, ptr %2, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
-  %59 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.77"], ptr %58, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.77", ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !345
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %67, label %61
@@ -18215,7 +18215,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   store ptr %48, ptr %31, align 8, !tbaa !354
   %68 = load ptr, ptr %2, align 8, !tbaa !21
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
-  %70 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.77"], ptr %69, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.77", ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !345
   %.not26 = icmp eq ptr %71, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -19253,7 +19253,7 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 .preheader53.i:                                   ; preds = %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit, %.thread.i
   %.not61.i = phi i1 [ false, %.thread.i ], [ true, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit ]
   %indvars.iv.i = phi i64 [ 1, %.thread.i ], [ 0, %_ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEEENS1_16thread_info_base11default_tagEE8allocateEm.exit ]
-  %7 = getelementptr inbounds nuw [12 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %.not46.i = icmp eq ptr %8, null
   br i1 %.not46.i, label %.thread.i, label %9
@@ -19268,7 +19268,7 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
   br i1 %or.cond, label %.thread51.i, label %.thread.i
 
 .thread51.i:                                      ; preds = %9
-  %14 = getelementptr inbounds nuw [12 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8, !tbaa !21
   %15 = load i8, ptr %8, align 1, !tbaa !16
   br label %_ZN5boost4asio6detail16thread_info_base8allocateINS2_11default_tagEEEPvT_PS2_mm.exit
@@ -19282,13 +19282,13 @@ _ZN5boost4asio6detail19recycling_allocatorINS1_11executor_opINS1_17executor_func
 .preheader.i:                                     ; preds = %.thread.i, %16
   %17 = phi i1 [ false, %16 ], [ true, %.thread.i ]
   %indvars.iv70.i = phi i64 [ 1, %16 ], [ 0, %.thread.i ]
-  %18 = getelementptr inbounds nuw [12 x ptr], ptr %6, i64 0, i64 %indvars.iv70.i
+  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70.i
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %.not48.i = icmp eq ptr %19, null
   br i1 %.not48.i, label %16, label %20
 
 20:                                               ; preds = %.preheader.i
-  %21 = getelementptr inbounds nuw [12 x ptr], ptr %6, i64 0, i64 %indvars.iv70.i
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv70.i
   store ptr null, ptr %21, align 8, !tbaa !21
   tail call void @free(ptr noundef nonnull %19) #35
   br label %.loopexit.i
@@ -19518,13 +19518,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %20
   %21 = phi i1 [ false, %20 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %20 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr %19, i64 0, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %20
 
 25:                                               ; preds = %.preheader.i.i.i
-  %26 = getelementptr inbounds nuw [12 x ptr], ptr %19, i64 0, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %28 = load i8, ptr %27, align 1, !tbaa !16
   store i8 %28, ptr %14, align 1, !tbaa !16
@@ -20122,13 +20122,13 @@ _ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i, %16
   %17 = phi i1 [ false, %16 ], [ true, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 1, %16 ], [ 0, %_ZN5boost4asio6detail14thread_context24top_of_thread_call_stackEv.exit.i.i ]
-  %18 = getelementptr inbounds nuw [12 x ptr], ptr %15, i64 0, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %16
 
 21:                                               ; preds = %.preheader.i.i.i
-  %22 = getelementptr inbounds nuw [12 x ptr], ptr %15, i64 0, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i8, ptr %23, align 1, !tbaa !16
   store i8 %24, ptr %1, align 1, !tbaa !16

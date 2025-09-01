@@ -455,7 +455,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlink_add_tap(ptr noundef %0) 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #23
   %11 = load ptr, ptr %0, align 8
@@ -506,7 +506,7 @@ define dso_local noundef range(i32 -19, 1) i32 @netlink_remove_tap(ptr noundef %
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #23
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1108,7 +1108,7 @@ define dso_local i32 @netlink_sendskb(ptr noundef %0, ptr noundef %1) local_unna
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #23
   tail call void @__rcu_read_lock() #23
@@ -1158,7 +1158,7 @@ define internal fastcc void @__netlink_sendskb(ptr noundef %0, ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #23
   tail call void @__rcu_read_lock() #23
@@ -1382,7 +1382,7 @@ define dso_local i32 @netlink_unicast(ptr noundef %0, ptr noundef %1, i32 nounde
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 2536
   %107 = load volatile ptr, ptr %106, align 8
   %108 = zext i32 %105 to i64
-  %109 = getelementptr [0 x ptr], ptr %107, i64 0, i64 %108
+  %109 = getelementptr ptr, ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
   tail call void @__rcu_read_unlock() #23
   tail call void @__rcu_read_lock() #23
@@ -1896,7 +1896,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast_filtered(ptr 
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 2536
   %191 = load volatile ptr, ptr %190, align 8
   %192 = zext i32 %189 to i64
-  %193 = getelementptr [0 x ptr], ptr %191, i64 0, i64 %192
+  %193 = getelementptr ptr, ptr %191, i64 %192
   %194 = load ptr, ptr %193, align 8
   tail call void @__rcu_read_unlock() #23
   tail call void @__rcu_read_lock() #23
@@ -2551,7 +2551,7 @@ define internal fastcc range(i32 -16, -17) i32 @netlink_insert(ptr noundef %0, i
 89:                                               ; preds = %39
   %90 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %91 = zext i32 %83 to i64
-  %92 = getelementptr [0 x ptr], ptr %90, i64 0, i64 %91
+  %92 = getelementptr ptr, ptr %90, i64 %91
   br label %93
 
 93:                                               ; preds = %89, %87
@@ -3161,7 +3161,7 @@ define internal fastcc void @netlink_update_socket_mc(ptr noundef %0, i32 nounde
 
 .loopexit:                                        ; preds = %85, %64
   %93 = phi i64 [ 0, %64 ], [ %86, %85 ]
-  %94 = getelementptr [0 x i64], ptr %63, i64 0, i64 %65
+  %94 = getelementptr i64, ptr %63, i64 %65
   store i64 %93, ptr %94, align 8
   %95 = add nuw nsw i64 %65, 1
   %96 = load i32, ptr %57, align 4
@@ -3583,7 +3583,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @netlink_dump(ptr noundef 
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 2536
   %104 = load volatile ptr, ptr %103, align 8
   %105 = zext i32 %102 to i64
-  %106 = getelementptr [0 x ptr], ptr %104, i64 0, i64 %105
+  %106 = getelementptr ptr, ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8
   call void @__rcu_read_unlock() #23
   call void @__rcu_read_lock() #23
@@ -4823,7 +4823,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 70:                                               ; preds = %21
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %72 = zext i32 %64 to i64
-  %73 = getelementptr [0 x ptr], ptr %71, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr %71, i64 %72
   br label %74
 
 74:                                               ; preds = %70, %68
@@ -5140,7 +5140,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 
 .loopexit24:                                      ; preds = %228, %207
   %236 = phi i64 [ 0, %207 ], [ %229, %228 ]
-  %237 = getelementptr [0 x i64], ptr %206, i64 0, i64 %208
+  %237 = getelementptr i64, ptr %206, i64 %208
   store i64 %236, ptr %237, align 8
   %238 = add nuw nsw i64 %208, 1
   %239 = load i32, ptr %200, align 4
@@ -5358,7 +5358,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
   %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netlink_proto, i64 208), align 8
   %366 = zext i32 %365 to i64
-  %367 = getelementptr [64 x i32], ptr %364, i64 0, i64 %366
+  %367 = getelementptr i32, ptr %364, i64 %366
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %367, ptr elementtype(i32) %367) #23, !srcloc !138
   %368 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %369 = load i8, ptr %368, align 1
@@ -5734,7 +5734,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
 
 .loopexit:                                        ; preds = %223, %202
   %231 = phi i64 [ 0, %202 ], [ %224, %223 ]
-  %232 = getelementptr [0 x i64], ptr %201, i64 0, i64 %203
+  %232 = getelementptr i64, ptr %201, i64 %203
   store i64 %231, ptr %232, align 8
   %233 = add nuw nsw i64 %203, 1
   %234 = load i32, ptr %195, align 4
@@ -7238,7 +7238,7 @@ define internal fastcc ptr @__netlink_lookup(ptr noundef %0, i32 noundef %1, ptr
 48:                                               ; preds = %11
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %50 = zext i32 %42 to i64
-  %51 = getelementptr [0 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %49, i64 %50
   br label %52
 
 52:                                               ; preds = %48, %46
@@ -7587,7 +7587,7 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netlink_proto, i64 208), align 8
   %84 = zext i32 %83 to i64
-  %85 = getelementptr [64 x i32], ptr %82, i64 0, i64 %84
+  %85 = getelementptr i32, ptr %82, i64 %84
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85, ptr elementtype(i32) %85) #23, !srcloc !161
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %87 = load ptr, ptr %86, align 8
@@ -7866,7 +7866,7 @@ define internal noundef i32 @netlink_tap_init_net(ptr noundef %0) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #23
   store volatile ptr %7, ptr %7, align 8

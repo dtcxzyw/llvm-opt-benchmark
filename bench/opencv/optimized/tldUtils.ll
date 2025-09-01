@@ -174,10 +174,10 @@ switch.lookup:
   store i8 0, ptr %3, align 8, !tbaa !19
   %5 = and i32 %2, 7
   %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %5 to i64
-  %switch.gep16 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE.1, i64 0, i64 %7
+  %switch.gep16 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2cv8tracking4impl3tld8type2strB5cxx11ERKNS_3MatE.1, i64 %7
   %switch.load17 = load i64, ptr %switch.gep16, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load17)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %9

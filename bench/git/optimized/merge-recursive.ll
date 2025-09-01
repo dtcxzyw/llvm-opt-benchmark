@@ -143,7 +143,7 @@ sub_1:                                            ; preds = %sub_0
   %49 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %50 = load ptr, ptr %35, align 8, !tbaa !9
   %51 = add nuw nsw i32 %.03979, 1
-  %52 = getelementptr inbounds nuw [21 x %struct.object_id], ptr %5, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw %struct.object_id, ptr %5, i64 %48
   %53 = call i32 @repo_get_oid(ptr noundef %49, ptr noundef %50, ptr noundef nonnull %52) #12
   %.not49 = icmp eq i32 %53, 0
   br i1 %.not49, label %62, label %54

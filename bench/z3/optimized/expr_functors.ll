@@ -217,7 +217,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
 
 40:                                               ; preds = %.outer, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ %indvars.iv.ph, %.outer ]
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %42)
           to label %44 unwind label %.loopexit75
@@ -565,7 +565,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %2, %7
 13:                                               ; preds = %.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
   %.016 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !14

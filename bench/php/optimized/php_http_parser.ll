@@ -520,7 +520,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 187:                                              ; preds = %185
   %188 = load i8, ptr %46, align 2, !tbaa !20
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw [27 x ptr], ptr @method_strings, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw ptr, ptr @method_strings, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !24
   %192 = icmp eq i8 %57, 32
   %.not1296 = icmp eq i8 %188, 26
@@ -768,7 +768,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 286:                                              ; preds = %66
   %287 = zext i8 %57 to i64
-  %288 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @normal_url_char, i64 %287
   %289 = load i8, ptr %288, align 1, !tbaa !17
   %.not1265 = icmp eq i8 %289, 0
   br i1 %.not1265, label %290, label %1041
@@ -970,7 +970,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 381:                                              ; preds = %66
   %382 = zext i8 %57 to i64
-  %383 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr @normal_url_char, i64 %382
   %384 = load i8, ptr %383, align 1, !tbaa !17
   %.not1255 = icmp eq i8 %384, 0
   br i1 %.not1255, label %385, label %1041
@@ -1065,7 +1065,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 422:                                              ; preds = %66
   %423 = zext i8 %57 to i64
-  %424 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw i8, ptr @normal_url_char, i64 %423
   %425 = load i8, ptr %424, align 1, !tbaa !17
   %.not1233 = icmp eq i8 %425, 0
   br i1 %.not1233, label %426, label %1041
@@ -1245,7 +1245,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 506:                                              ; preds = %66
   %507 = zext i8 %57 to i64
-  %508 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i8, ptr @normal_url_char, i64 %507
   %509 = load i8, ptr %508, align 1, !tbaa !17
   %.not1223 = icmp eq i8 %509, 0
   br i1 %.not1223, label %510, label %1041
@@ -1340,7 +1340,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 547:                                              ; preds = %66
   %548 = zext i8 %57 to i64
-  %549 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw i8, ptr @normal_url_char, i64 %548
   %550 = load i8, ptr %549, align 1, !tbaa !17
   %.not1204 = icmp eq i8 %550, 0
   br i1 %.not1204, label %551, label %1041
@@ -1594,7 +1594,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 658:                                              ; preds = %657
   %659 = zext i8 %57 to i64
-  %660 = getelementptr inbounds nuw [256 x i8], ptr @tokens, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i8, ptr @tokens, i64 %659
   %661 = load i8, ptr %660, align 1, !tbaa !17
   switch i8 %661, label %665 [
     i8 0, label %1100
@@ -1618,7 +1618,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 666:                                              ; preds = %66
   %667 = zext i8 %57 to i64
-  %668 = getelementptr inbounds nuw [256 x i8], ptr @tokens, i64 0, i64 %667
+  %668 = getelementptr inbounds nuw i8, ptr @tokens, i64 %667
   %669 = load i8, ptr %668, align 1, !tbaa !17
   %.not1170 = icmp eq i8 %669, 0
   br i1 %.not1170, label %729, label %670
@@ -1671,7 +1671,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 686:                                              ; preds = %683
   %687 = zext nneg i32 %684 to i64
-  %688 = getelementptr inbounds nuw [11 x i8], ptr @.str, i64 0, i64 %687
+  %688 = getelementptr inbounds nuw i8, ptr @.str, i64 %687
   %689 = load i8, ptr %688, align 1, !tbaa !17
   %.not1184 = icmp eq i8 %669, %689
   br i1 %.not1184, label %690, label %1041
@@ -1688,7 +1688,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 695:                                              ; preds = %692
   %696 = zext nneg i32 %693 to i64
-  %697 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %696
+  %697 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %696
   %698 = load i8, ptr %697, align 1, !tbaa !17
   %.not1183 = icmp eq i8 %669, %698
   br i1 %.not1183, label %699, label %1041
@@ -1705,7 +1705,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 704:                                              ; preds = %701
   %705 = zext nneg i32 %702 to i64
-  %706 = getelementptr inbounds nuw [15 x i8], ptr @.str.2, i64 0, i64 %705
+  %706 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %705
   %707 = load i8, ptr %706, align 1, !tbaa !17
   %.not1182 = icmp eq i8 %669, %707
   br i1 %.not1182, label %708, label %1041
@@ -1722,7 +1722,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 713:                                              ; preds = %710
   %714 = zext nneg i32 %711 to i64
-  %715 = getelementptr inbounds nuw [18 x i8], ptr @.str.3, i64 0, i64 %714
+  %715 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %714
   %716 = load i8, ptr %715, align 1, !tbaa !17
   %.not1181 = icmp eq i8 %669, %716
   br i1 %.not1181, label %717, label %1041
@@ -1739,7 +1739,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 722:                                              ; preds = %719
   %723 = zext nneg i32 %720 to i64
-  %724 = getelementptr inbounds nuw [8 x i8], ptr @.str.4, i64 0, i64 %723
+  %724 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %723
   %725 = load i8, ptr %724, align 1, !tbaa !17
   %.not1180 = icmp eq i8 %669, %725
   br i1 %.not1180, label %726, label %1041
@@ -2002,7 +2002,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 833:                                              ; preds = %830
   %834 = zext nneg i32 %831 to i64
-  %835 = getelementptr inbounds nuw [8 x i8], ptr @.str.5, i64 0, i64 %834
+  %835 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %834
   %836 = load i8, ptr %835, align 1, !tbaa !17
   %.not1158 = icmp eq i8 %797, %836
   br i1 %.not1158, label %837, label %1041
@@ -2019,7 +2019,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 842:                                              ; preds = %839
   %843 = zext nneg i32 %840 to i64
-  %844 = getelementptr inbounds nuw [11 x i8], ptr @.str.6, i64 0, i64 %843
+  %844 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %843
   %845 = load i8, ptr %844, align 1, !tbaa !17
   %.not1157 = icmp eq i8 %797, %845
   br i1 %.not1157, label %846, label %1041
@@ -2036,7 +2036,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr noundef readonly 
 
 851:                                              ; preds = %848
   %852 = zext nneg i32 %849 to i64
-  %853 = getelementptr inbounds nuw [6 x i8], ptr @.str.7, i64 0, i64 %852
+  %853 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %852
   %854 = load i8, ptr %853, align 1, !tbaa !17
   %.not1156 = icmp eq i8 %797, %854
   br i1 %.not1156, label %855, label %1041
@@ -2351,7 +2351,7 @@ php_http_should_keep_alive.exit:                  ; preds = %941, %943
 
 996:                                              ; preds = %66
   %997 = zext i8 %57 to i64
-  %998 = getelementptr inbounds nuw [256 x i8], ptr @unhex, i64 0, i64 %997
+  %998 = getelementptr inbounds nuw i8, ptr @unhex, i64 %997
   %999 = load i8, ptr %998, align 1, !tbaa !17
   %1000 = icmp eq i8 %999, -1
   br i1 %1000, label %1100, label %1001
@@ -2367,7 +2367,7 @@ php_http_should_keep_alive.exit:                  ; preds = %941, %943
 
 1005:                                             ; preds = %1003
   %1006 = zext i8 %57 to i64
-  %1007 = getelementptr inbounds nuw [256 x i8], ptr @unhex, i64 0, i64 %1006
+  %1007 = getelementptr inbounds nuw i8, ptr @unhex, i64 %1006
   %1008 = load i8, ptr %1007, align 1, !tbaa !17
   %1009 = icmp eq i8 %1008, -1
   br i1 %1009, label %1010, label %1011
@@ -2628,7 +2628,7 @@ define hidden range(i32 0, 2) i32 @php_http_should_keep_alive(ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @php_http_method_str(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [27 x ptr], ptr @method_strings, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @method_strings, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !24
   ret ptr %4
 }

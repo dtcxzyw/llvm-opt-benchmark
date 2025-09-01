@@ -1132,7 +1132,7 @@ define dso_local i32 @ext4_ind_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   %93 = phi i64 [ %90, %89 ], [ %97, %92 ]
   %94 = phi i32 [ %86, %89 ], [ %95, %92 ]
   %95 = add i32 %94, 1
-  %96 = getelementptr [15 x i32], ptr %8, i64 0, i64 %93
+  %96 = getelementptr i32, ptr %8, i64 %93
   store i32 %94, ptr %96, align 4
   %97 = add nuw nsw i64 %93, 1
   %98 = trunc i64 %97 to i32

@@ -4879,7 +4879,7 @@ define ptr @PQresStatus(i32 noundef %0) local_unnamed_addr #15 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [13 x ptr], ptr @pgresStatus, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @pgresStatus, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -5457,7 +5457,7 @@ define noundef nonnull ptr @PQoidStatus(ptr noundef readonly captures(address_is
   %7 = tail call i64 @strspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.46) #28
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %7, i64 23)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @PQoidStatus.buf, ptr nonnull align 1 %6, i64 %spec.store.select, i1 false)
-  %8 = getelementptr inbounds nuw [24 x i8], ptr @PQoidStatus.buf, i64 0, i64 %spec.store.select
+  %8 = getelementptr inbounds nuw i8, ptr @PQoidStatus.buf, i64 %spec.store.select
   store i8 0, ptr %8, align 1
   br label %9
 
@@ -6616,13 +6616,13 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   %34 = zext i8 %33 to i32
   %35 = lshr i32 %34, 4
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [17 x i8], ptr @hextbl, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @hextbl, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.27691.us, i64 1
   store i8 %38, ptr %.27691.us, align 1
   %40 = and i32 %34, 15
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [17 x i8], ptr @hextbl, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @hextbl, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = getelementptr inbounds nuw i8, ptr %.27691.us, i64 2
   store i8 %43, ptr %39, align 1
@@ -6809,7 +6809,7 @@ define noalias noundef ptr @PQunescapeBytea(ptr noundef readonly captures(addres
 
 get_hex.exit:                                     ; preds = %.lr.ph115
   %22 = zext nneg i8 %20 to i64
-  %23 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = load i8, ptr %21, align 1
   %26 = icmp eq i8 %25, 0
@@ -6824,7 +6824,7 @@ get_hex.exit:                                     ; preds = %.lr.ph115
 
 get_hex.exit105:                                  ; preds = %28
   %30 = zext nneg i8 %25 to i64
-  %31 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %30
   %32 = load i8, ptr %31, align 1
   %.not97 = icmp eq i8 %32, -1
   br i1 %.not97, label %get_hex.exit.threadthread-pre-split, label %33

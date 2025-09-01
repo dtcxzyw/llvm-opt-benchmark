@@ -116,7 +116,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i32, ptr %9, align 4, !tbaa !17
   %.zext39.us = zext nneg i8 %43 to i32
-  %56 = getelementptr inbounds nuw [27 x i8], ptr @dv_calc_mb_coordinates.serpent1, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.serpent1, i64 %indvars.iv
   %57 = add nuw nsw i64 %indvars.iv, %32
   %58 = shl nuw nsw i64 %57, 1
   %59 = add nuw nsw i64 %58, %38
@@ -164,7 +164,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 .split.us131.split.us135.i.us:                    ; preds = %.split.us131.i.us, %.split.us131.split.us135.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.split.us131.split.us135.i.us ], [ 0, %.split.us131.i.us ]
-  %76 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv.i.us
+  %76 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv.i.us
   %77 = load i8, ptr %76, align 1, !tbaa !19
   %78 = zext i8 %77 to i32
   %79 = add nuw nsw i32 %33, %78
@@ -174,7 +174,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %83 = icmp ult i32 %82, 2
   %84 = select i1 %83, i32 3, i32 0
   %85 = add nuw nsw i32 %84, %41
-  %86 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.l_start_shuffled, i64 0, i64 %indvars.iv.i.us
+  %86 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.l_start_shuffled, i64 %indvars.iv.i.us
   %87 = load i8, ptr %86, align 1, !tbaa !19
   %88 = zext i8 %87 to i32
   %.lhs.trunc40.us = trunc nuw nsw i32 %85 to i8
@@ -182,7 +182,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %.zext41.us = zext nneg i8 %89 to i32
   %90 = add nuw nsw i32 %.zext41.us, %88
   %91 = zext nneg i32 %85 to i64
-  %92 = getelementptr inbounds nuw [30 x i8], ptr @dv_calc_mb_coordinates.serpent2, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.serpent2, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !19
   %94 = zext i8 %93 to i32
   %95 = mul nuw nsw i32 %80, 6
@@ -208,11 +208,11 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 107:                                              ; preds = %107, %.split.us131.split.us133.i.us
   %indvars.iv146.i.us = phi i64 [ %indvars.iv.next147.i.us, %107 ], [ 0, %.split.us131.split.us133.i.us ]
-  %108 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv146.i.us
+  %108 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.shuf3, i64 %indvars.iv146.i.us
   %109 = load i8, ptr %108, align 1, !tbaa !19
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %110, %.zext39.us
-  %112 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv146.i.us
+  %112 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv146.i.us
   %113 = load i8, ptr %112, align 1, !tbaa !19
   %114 = zext i8 %113 to i32
   %115 = add nuw nsw i32 %33, %114
@@ -236,11 +236,11 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 126:                                              ; preds = %126, %.split.us131.split.us.i.us
   %indvars.iv150.i.us = phi i64 [ %indvars.iv.next151.i.us, %126 ], [ 0, %.split.us131.split.us.i.us ]
-  %127 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv150.i.us
+  %127 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.shuf3, i64 %indvars.iv150.i.us
   %128 = load i8, ptr %127, align 1, !tbaa !19
   %129 = zext i8 %128 to i32
   %130 = add nuw nsw i32 %129, %.zext39.us
-  %131 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv150.i.us
+  %131 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv150.i.us
   %132 = load i8, ptr %131, align 1, !tbaa !19
   %133 = zext i8 %132 to i32
   %134 = add nuw nsw i32 %33, %133
@@ -261,7 +261,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 .split.us129.i.us:                                ; preds = %.split.us129.i.us.preheader, %.split.us129.i.us
   %indvars.iv154.i.us = phi i64 [ %indvars.iv.next155.i.us, %.split.us129.i.us ], [ 0, %.split.us129.i.us.preheader ]
-  %145 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv154.i.us
+  %145 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv154.i.us
   %146 = load i8, ptr %145, align 1, !tbaa !19
   %147 = zext i8 %146 to i32
   %148 = add nuw nsw i32 %73, %147
@@ -269,7 +269,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %150 = trunc i32 %149 to i1
   %151 = select i1 %150, i32 3, i32 0
   %152 = add nuw nsw i32 %151, %62
-  %153 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf2, i64 0, i64 %indvars.iv154.i.us
+  %153 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.shuf2, i64 %indvars.iv154.i.us
   %154 = load i8, ptr %153, align 1, !tbaa !19
   %155 = zext i8 %154 to i32
   %.lhs.trunc120.us.i.us = trunc nuw nsw i32 %152 to i8
@@ -278,7 +278,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %157 = add nuw nsw i32 %17, %155
   %158 = add nuw nsw i32 %157, %.sext121.us.i.us
   %159 = zext nneg i32 %149 to i64
-  %160 = getelementptr inbounds nuw [10 x i8], ptr @dv_calc_mb_coordinates.l_start, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.l_start, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !19
   %162 = zext i8 %161 to i32
   %163 = udiv i8 %.lhs.trunc120.us.i.us, 6
@@ -297,12 +297,12 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 .split.us127.i.us:                                ; preds = %.split.us127.i.us.preheader, %199
   %indvars.iv158.i.us = phi i64 [ %indvars.iv.next159.i.us, %199 ], [ 0, %.split.us127.i.us.preheader ]
-  %171 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv158.i.us
+  %171 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv158.i.us
   %172 = load i8, ptr %171, align 1, !tbaa !19
   %173 = zext i8 %172 to i32
   %174 = add nuw nsw i32 %74, %173
   %175 = urem i32 %174, 10
-  %176 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv158.i.us
+  %176 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.shuf1, i64 %indvars.iv158.i.us
   %177 = load i8, ptr %176, align 1, !tbaa !19
   %178 = zext i8 %177 to i32
   %179 = add nuw nsw i32 %64, %178
@@ -316,7 +316,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 186:                                              ; preds = %.split.us127.i.us
   %187 = zext nneg i32 %184 to i64
-  %188 = getelementptr inbounds nuw [64 x [2 x i8]], ptr @dv_calc_mb_coordinates.remap, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr @dv_calc_mb_coordinates.remap, i64 %187
   %189 = load i8, ptr %188, align 2, !tbaa !19
   %190 = zext i8 %189 to i32
   %191 = add nsw i32 %179, -80
@@ -352,12 +352,12 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 .split.us.split.i.us:                             ; preds = %.split.us.split.i.us.preheader, %.split.us.split.i.us
   %indvars.iv162.i.us = phi i64 [ %indvars.iv.next163.i.us, %.split.us.split.i.us ], [ 0, %.split.us.split.i.us.preheader ]
-  %207 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv162.i.us
+  %207 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.off, i64 %indvars.iv162.i.us
   %208 = load i8, ptr %207, align 1, !tbaa !19
   %209 = zext i8 %208 to i32
   %210 = add nuw nsw i32 %206, %209
   %211 = urem i32 %210, 11
-  %212 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv162.i.us
+  %212 = getelementptr inbounds nuw i8, ptr @dv_calc_mb_coordinates.shuf1, i64 %indvars.iv162.i.us
   %213 = load i8, ptr %212, align 1, !tbaa !19
   %214 = zext i8 %213 to i32
   %215 = add nuw nsw i32 %71, %214

@@ -4866,7 +4866,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %74, i32 1
+  %75 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %74, i32 1
   %76 = load i8, ptr %75, align 4
   switch i8 %76, label %.loopexit204 [
     i8 7, label %77
@@ -24510,7 +24510,7 @@ _ZL22is_unordered_reductionP4Node.exit:           ; preds = %25
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %49) #9
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %41, align 8
   %55 = load ptr, ptr %54, align 8

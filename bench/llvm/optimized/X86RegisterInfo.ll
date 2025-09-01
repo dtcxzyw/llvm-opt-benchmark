@@ -961,7 +961,7 @@ define internal { ptr, i64 } @_ZN4llvmL24GR8GetRawAllocationOrderERKNS_15Machine
   %10 = getelementptr i8, ptr %.val, i64 477
   %.val.val = load i8, ptr %10, align 1, !tbaa !133, !range !261, !noundef !262
   %11 = zext nneg i8 %.val.val to i64
-  %12 = getelementptr inbounds nuw [2 x %"class.llvm::ArrayRef"], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %2, i64 %11
   %.sroa.0.0.copyload = load ptr, ptr %12, align 16, !tbaa !263
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !264
@@ -990,7 +990,7 @@ define internal { ptr, i64 } @_ZN4llvmL31GR8_NOREX2GetRawAllocationOrderERKNS_15
   %10 = getelementptr i8, ptr %.val, i64 477
   %.val.val = load i8, ptr %10, align 1, !tbaa !133, !range !261, !noundef !262
   %11 = zext nneg i8 %.val.val to i64
-  %12 = getelementptr inbounds nuw [2 x %"class.llvm::ArrayRef"], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %2, i64 %11
   %.sroa.0.0.copyload = load ptr, ptr %12, align 16, !tbaa !263
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !264
@@ -1019,7 +1019,7 @@ define internal { ptr, i64 } @_ZN4llvmL30GR8_NOREXGetRawAllocationOrderERKNS_15M
   %10 = getelementptr i8, ptr %.val, i64 477
   %.val.val = load i8, ptr %10, align 1, !tbaa !133, !range !261, !noundef !262
   %11 = zext nneg i8 %.val.val to i64
-  %12 = getelementptr inbounds nuw [2 x %"class.llvm::ArrayRef"], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %2, i64 %11
   %.sroa.0.0.copyload = load ptr, ptr %12, align 16, !tbaa !263
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !264
@@ -1033,7 +1033,7 @@ define internal { ptr, i64 } @_ZN4llvmL30GR8_NOREXGetRawAllocationOrderERKNS_15M
 define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm18X86GenRegisterInfo24composeSubRegIndicesImplEjj(ptr nonnull readnone align 8 captures(none) %0, i32 %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = add i32 %2, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm18X86GenRegisterInfo24composeSubRegIndicesImplEjjE4Rows, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !265
   %8 = zext i8 %7 to i32
   ret i32 %8
@@ -1043,10 +1043,10 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm18X86GenRegisterInfo24c
 define dso_local i64 @_ZNK4llvm18X86GenRegisterInfo30composeSubRegIndexLaneMaskImplEjNS_11LaneBitmaskE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [12 x i8], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !265
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [18 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %8
   %10 = load i64, ptr %9, align 16, !tbaa !266
   %.not1718 = icmp eq i64 %10, 0
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
@@ -1093,10 +1093,10 @@ define dso_local i64 @_ZNK4llvm18X86GenRegisterInfo37reverseComposeSubRegIndexLa
   %8 = and i64 %.sroa.0.0.copyload.i, %2
   %9 = add i32 %1, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [12 x i8], ptr @_ZN4llvmL18CompositeSequencesE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL18CompositeSequencesE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !265
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [18 x %"struct.llvm::MaskRolOp"], ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.llvm::MaskRolOp", ptr @_ZN4llvmL24LaneMaskComposeSequencesE, i64 %13
   %15 = load i64, ptr %14, align 16, !tbaa !266
   %.not1920 = icmp eq i64 %15, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
@@ -1142,9 +1142,9 @@ define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubR
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !275
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !265
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %22, label %14
@@ -1175,9 +1175,9 @@ define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo19getSubRegisterClass
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8, !tbaa !275
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo19getSubRegisterClassEPKNS_19TargetRegisterClassEjE5Table, i64 %9
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !265
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %22, label %14
@@ -1203,7 +1203,7 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4llvm18X86G
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !275
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [135 x %"struct.llvm::RegClassWeight"], ptr @_ZZNK4llvm18X86GenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::RegClassWeight", ptr @_ZZNK4llvm18X86GenRegisterInfo17getRegClassWeightEPKNS_19TargetRegisterClassEE13RCWeightTable, i64 %6
   ret ptr %7
 }
 
@@ -1220,7 +1220,7 @@ define dso_local noundef i32 @_ZNK4llvm18X86GenRegisterInfo21getNumRegPressureSe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo21getRegPressureSetNameEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [36 x ptr], ptr @_ZZNK4llvm18X86GenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm18X86GenRegisterInfo21getRegPressureSetNameEjE17PressureNameTable, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !279
   ret ptr %5
 }
@@ -1228,7 +1228,7 @@ define dso_local noundef ptr @_ZNK4llvm18X86GenRegisterInfo21getRegPressureSetNa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm18X86GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw [36 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZZNK4llvm18X86GenRegisterInfo22getRegPressureSetLimitERKNS_15MachineFunctionEjE18PressureLimitTable, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !265
   %7 = zext i8 %6 to i32
   ret i32 %7
@@ -1240,20 +1240,20 @@ define dso_local noundef nonnull ptr @_ZNK4llvm18X86GenRegisterInfo23getRegClass
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !275
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [135 x i16], ptr @_ZZNK4llvm18X86GenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @_ZZNK4llvm18X86GenRegisterInfo23getRegClassPressureSetsEPKNS_19TargetRegisterClassEE15RCSetStartTable, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !280
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw [497 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4llvm18X86GenRegisterInfo22getRegUnitPressureSetsEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [221 x i16], ptr @_ZZNK4llvm18X86GenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i16, ptr @_ZZNK4llvm18X86GenRegisterInfo22getRegUnitPressureSetsEjE15RUSetStartTable, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !280
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw [497 x i32], ptr @_ZN4llvmL11RCSetsTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL11RCSetsTableE, i64 %6
   ret ptr %7
 }
 
@@ -1346,19 +1346,19 @@ _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCR
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %47 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj, i64 0, i64 %47
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj, i64 %47
   %switch.load = load ptr, ptr %switch.gep, align 8
   %48 = zext nneg i32 %2 to i64
-  %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.34, i64 0, i64 %48
+  %switch.gep16 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.34, i64 %48
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %49 = load i32, ptr %switch.load, align 4, !tbaa !285
   store ptr %switch.load17, ptr %45, align 8, !tbaa !303
   store i32 %49, ptr %46, align 8, !tbaa !304
   %50 = zext nneg i32 %3 to i64
-  %switch.gep23 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.37, i64 0, i64 %50
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.37, i64 %50
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %51 = zext nneg i32 %3 to i64
-  %switch.gep25 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.38, i64 0, i64 %51
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.38, i64 %51
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   %52 = load i32, ptr %switch.load24, align 4, !tbaa !285
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1366,20 +1366,20 @@ _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCR
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %52, ptr %54, align 4, !tbaa !306
   %55 = zext nneg i32 %2 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.35, i64 0, i64 %55
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.35, i64 %55
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %56 = zext nneg i32 %2 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.36, i64 0, i64 %56
+  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.36, i64 %56
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %57 = load i32, ptr %switch.load19, align 4, !tbaa !285
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %switch.load21, ptr %58, align 8, !tbaa !307
   store i32 %57, ptr %22, align 8, !tbaa !308
   %59 = zext nneg i32 %3 to i64
-  %switch.gep27 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.39, i64 0, i64 %59
+  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.39, i64 %59
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   %60 = zext nneg i32 %3 to i64
-  %switch.gep29 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.40, i64 0, i64 %60
+  %switch.gep29 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.40, i64 %60
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   %61 = load i32, ptr %switch.load28, align 4, !tbaa !285
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2069,9 +2069,9 @@ define dso_local noundef ptr @_ZNK4llvm15X86RegisterInfo21getSubClassWithSubRegE
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8, !tbaa !275
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %13
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !265
   %.not10.i = icmp eq i8 %17, 0
   br i1 %.not10.i, label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit, label %18
@@ -2105,7 +2105,7 @@ define dso_local noundef ptr @_ZNK4llvm15X86RegisterInfo24getMatchingSuperRegCla
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8, !tbaa !275
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw [135 x [12 x i8]], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 0, i64 %13, i64 1
+  %14 = getelementptr inbounds nuw [12 x i8], ptr @_ZZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEjE5Table, i64 %13, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !265
   %.not10.i = icmp eq i8 %15, 0
   br i1 %.not10.i, label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit.thread, label %_ZNK4llvm18X86GenRegisterInfo21getSubClassWithSubRegEPKNS_19TargetRegisterClassEj.exit

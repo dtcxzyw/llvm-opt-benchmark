@@ -3728,15 +3728,15 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [32 x i16], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i16, ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %13 = getelementptr inbounds [32 x i16], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds i16, ptr %12, i64 %7
   %14 = load i16, ptr %13, align 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %16 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %7
+  %16 = getelementptr inbounds i32, ptr %15, i64 %7
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
@@ -3871,10 +3871,10 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
 
 .thread:                                          ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %85 = getelementptr inbounds [32 x ptr], ptr %84, i64 0, i64 %7
+  %85 = getelementptr inbounds ptr, ptr %84, i64 %7
   store ptr %40, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %87 = getelementptr inbounds [32 x ptr], ptr %86, i64 0, i64 %7
+  %87 = getelementptr inbounds ptr, ptr %86, i64 %7
   store ptr %.273, ptr %87, align 8
   br label %.loopexit105
 
@@ -4985,7 +4985,7 @@ list_length.exit:                                 ; preds = %7
 
 switch.lookup:                                    ; preds = %13
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.eclass_useful_for_merging, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.eclass_useful_for_merging, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %18
 

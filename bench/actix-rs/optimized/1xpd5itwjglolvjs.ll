@@ -2061,7 +2061,7 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
 
 356:                                              ; preds = %356, %355
   %357 = phi i64 [ 0, %355 ], [ %359, %356 ]
-  %358 = getelementptr inbounds nuw [32 x { { ptr, i64 }, { ptr, i64 } }], ptr %14, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %14, i64 %357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %358, ptr noundef nonnull align 8 dereferenceable(32) @anon.5007fb1ca41d1123f19426ceed96f3e3.29, i64 32, i1 false), !noalias !448
   %359 = add nuw nsw i64 %357, 1
   %exitcond.not.i.i = icmp eq i64 %359, 32

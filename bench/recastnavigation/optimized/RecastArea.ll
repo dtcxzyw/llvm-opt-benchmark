@@ -162,10 +162,10 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   br i1 %74, label %94, label %75
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4
   %78 = add nsw i32 %77, %58
-  %79 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, %46
   %82 = mul nsw i32 %81, %9
@@ -788,10 +788,10 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
   br label %139
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, %59
-  %91 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %93 = add nsw i32 %92, %47
   %94 = mul nsw i32 %93, %9
@@ -809,7 +809,7 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
 
 104:                                              ; preds = %87
   %105 = shl nuw nsw i64 %indvars.iv, 1
-  %106 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %105
   store i8 %103, ptr %106, align 1
   br label %107
 
@@ -828,10 +828,10 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
 
 117:                                              ; preds = %107
   %118 = and i64 %108, 3
-  %119 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = add nsw i32 %120, %90
-  %122 = getelementptr inbounds nuw [4 x i32], ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 0, i64 %118
+  %122 = getelementptr inbounds nuw i32, ptr @_ZZ15rcGetDirOffsetYiE6offset, i64 %118
   %123 = load i32, ptr %122, align 4
   %124 = add nsw i32 %123, %93
   %125 = mul nsw i32 %124, %9
@@ -849,8 +849,8 @@ _ZL10insertSortPhi.exit.us:                       ; preds = %.critedge.i.us
 
 135:                                              ; preds = %117
   %136 = shl nuw nsw i64 %indvars.iv, 1
-  %137 = or disjoint i64 %136, 1
-  %138 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %137
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   store i8 %134, ptr %138, align 1
   br label %139
 

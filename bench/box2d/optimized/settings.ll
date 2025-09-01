@@ -663,7 +663,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
 
 28:                                               ; preds = %.lr.ph, %_ZL6jsoneqPKcP7jsmntokS0_.exit25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL6jsoneqPKcP7jsmntokS0_.exit25 ]
-  %29 = getelementptr inbounds nuw [32 x %struct.jsmntok], ptr %3, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv
   %30 = load i32, ptr %29, align 16, !tbaa !16
   %31 = icmp eq i32 %30, 4
   br i1 %31, label %32, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
@@ -676,7 +676,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   %37 = sub nsw i32 %34, %36
   switch i32 %37, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25 [
     i32 11, label %38
-    i32 10, label %58
+    i32 10, label %56
   ]
 
 38:                                               ; preds = %32
@@ -687,87 +687,83 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
   br i1 %42, label %43, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
 43:                                               ; preds = %38
-  %44 = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw [32 x %struct.jsmntok], ptr %3, i64 0, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !17
-  %50 = sub nsw i32 %47, %49
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i8, ptr %17, i64 %51
-  %53 = sext i32 %50 to i64
-  %54 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef %52, i64 noundef %53) #12
-  %55 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %53
-  store i8 0, ptr %55, align 1, !tbaa !10
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %45 = load i32, ptr %44, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %47 = load i32, ptr %46, align 4, !tbaa !17
+  %48 = sub nsw i32 %45, %47
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds i8, ptr %17, i64 %49
+  %51 = sext i32 %48 to i64
+  %52 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef %50, i64 noundef %51) #12
+  %53 = getelementptr inbounds i8, ptr %4, i64 %51
+  store i8 0, ptr %53, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %56 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 10) #12
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %0, align 4, !tbaa !27
+  %54 = call i64 @strtol(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 10) #12
+  %55 = trunc i64 %54 to i32
+  store i32 %55, ptr %0, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-58:                                               ; preds = %32
-  %59 = sext i32 %36 to i64
-  %60 = getelementptr inbounds i8, ptr %17, i64 %59
-  %61 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %60, ptr noundef nonnull dereferenceable(11) @.str.20, i64 noundef 10) #14
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %76
+56:                                               ; preds = %32
+  %57 = sext i32 %36 to i64
+  %58 = getelementptr inbounds i8, ptr %17, i64 %57
+  %59 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %58, ptr noundef nonnull dereferenceable(11) @.str.20, i64 noundef 10) #14
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %73
 
-63:                                               ; preds = %58
-  %64 = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw [32 x %struct.jsmntok], ptr %3, i64 0, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 4, !tbaa !17
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %17, i64 %67
-  %69 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #14
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %72
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %63 = load i32, ptr %62, align 4, !tbaa !17
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %17, i64 %64
+  %66 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #14
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %69
 
-71:                                               ; preds = %63
+68:                                               ; preds = %61
   store i8 1, ptr %27, align 1, !tbaa !31
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-72:                                               ; preds = %63
-  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
+69:                                               ; preds = %61
+  %70 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-75:                                               ; preds = %72
+72:                                               ; preds = %69
   store i8 0, ptr %27, align 1, !tbaa !31
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-76:                                               ; preds = %58
-  %77 = sext i32 %36 to i64
-  %78 = getelementptr inbounds i8, ptr %17, i64 %77
-  %79 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %78, ptr noundef nonnull dereferenceable(11) @.str.21, i64 noundef 10) #14
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
+73:                                               ; preds = %56
+  %74 = sext i32 %36 to i64
+  %75 = getelementptr inbounds i8, ptr %17, i64 %74
+  %76 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %75, ptr noundef nonnull dereferenceable(11) @.str.21, i64 noundef 10) #14
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-81:                                               ; preds = %76
-  %82 = add nuw nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds nuw [32 x %struct.jsmntok], ptr %3, i64 0, i64 %82, i32 1
-  %84 = load i32, ptr %83, align 4, !tbaa !17
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %17, i64 %85
-  %87 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #14
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %90
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %80 = load i32, ptr %79, align 4, !tbaa !17
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %17, i64 %81
+  %83 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(5) @.str.4, i64 noundef 4) #14
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %86
 
-89:                                               ; preds = %81
+85:                                               ; preds = %78
   store i8 1, ptr %26, align 2, !tbaa !34
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-90:                                               ; preds = %81
-  %91 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
+86:                                               ; preds = %78
+  %87 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-93:                                               ; preds = %90
+89:                                               ; preds = %86
   store i8 0, ptr %26, align 2, !tbaa !34
   br label %_ZL6jsoneqPKcP7jsmntokS0_.exit25
 
-_ZL6jsoneqPKcP7jsmntokS0_.exit25:                 ; preds = %32, %38, %28, %76, %89, %93, %90, %71, %75, %72, %43
+_ZL6jsoneqPKcP7jsmntokS0_.exit25:                 ; preds = %32, %38, %28, %73, %85, %89, %86, %68, %72, %69, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !46

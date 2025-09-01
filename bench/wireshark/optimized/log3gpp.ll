@@ -202,7 +202,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   br i1 %.not.i, label %.critedge.i, label %78
 
 78:                                               ; preds = %.preheader.i
-  %79 = getelementptr [10 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %79 = getelementptr i8, ptr %5, i64 %indvars.iv.i
   store i8 %77, ptr %79, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -211,7 +211,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
 .critedge.i:                                      ; preds = %78, %.preheader.i
   %.017.lcssa.i = phi i64 [ 9, %78 ], [ %indvars.iv.i, %.preheader.i ]
   %80 = and i64 %.017.lcssa.i, 4294967295
-  %81 = getelementptr [10 x i8], ptr %5, i64 0, i64 %80
+  %81 = getelementptr i8, ptr %5, i64 %80
   store i8 0, ptr %81, align 1
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str.4, i64 8)
   %82 = icmp eq i32 %bcmp.i, 0
@@ -388,11 +388,11 @@ define internal noundef zeroext i1 @log3gpp_read(ptr noundef readonly captures(n
   %.not7892.not = icmp eq ptr %23, null
   br i1 %.not7892.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %187
-  %24 = phi i64 [ %192, %187 ], [ %22, %5 ]
-  %25 = phi ptr [ %191, %187 ], [ %21, %5 ]
-  %26 = phi i32 [ %190, %187 ], [ %19, %5 ]
-  %27 = phi i64 [ %189, %187 ], [ %18, %5 ]
+.lr.ph:                                           ; preds = %5, %186
+  %24 = phi i64 [ %191, %186 ], [ %22, %5 ]
+  %25 = phi ptr [ %190, %186 ], [ %21, %5 ]
+  %26 = phi i32 [ %189, %186 ], [ %19, %5 ]
+  %27 = phi i64 [ %188, %186 ], [ %18, %5 ]
   %28 = tail call i64 @file_tell(ptr noundef %25)
   %29 = sub i64 %28, %24
   %30 = trunc i64 %29 to i32
@@ -427,17 +427,17 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %45 = add nsw i32 %.1, -1
   br label %47
 
-._crit_edge:                                      ; preds = %187, %5
-  %.lcssa = phi ptr [ %21, %5 ], [ %191, %187 ]
+._crit_edge:                                      ; preds = %186, %5
+  %.lcssa = phi ptr [ %21, %5 ], [ %190, %186 ]
   %46 = tail call i32 @file_error(ptr noundef %.lcssa, ptr noundef %3)
   store i32 %46, ptr %2, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %194, label %.thread
+  br i1 %.not, label %193, label %.thread
 
 47:                                               ; preds = %.lr.ph, %thread-pre-split.i, %thread-pre-split.thread.i, %44
   %.2.ph = phi i32 [ %30, %.lr.ph ], [ 0, %thread-pre-split.i ], [ %.1, %thread-pre-split.thread.i ], [ %45, %44 ]
   %48 = call fastcc zeroext i1 @parse_line(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef %.2.ph, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  br i1 %48, label %49, label %187
+  br i1 %48, label %49, label %186
 
 49:                                               ; preds = %47
   %50 = icmp eq i64 %27, 0
@@ -490,7 +490,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #14
   %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_name) #14
   %82 = load i32, ptr %11, align 4
-  br i1 %78, label %148, label %83
+  br i1 %78, label %147, label %83
 
 83:                                               ; preds = %73
   %84 = sdiv i32 %82, 2
@@ -537,19 +537,19 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 .lr.ph99:                                         ; preds = %83
   %116 = load i64, ptr %6, align 8
-  br label %117
+  %117 = getelementptr i8, ptr @log3gpp_read.linebuff, i64 %116
+  br label %118
 
-117:                                              ; preds = %.lr.ph99, %hex_from_char.exit63
-  %.097 = phi i32 [ 0, %.lr.ph99 ], [ %147, %hex_from_char.exit63 ]
-  %118 = sext i32 %.097 to i64
-  %119 = add i64 %116, %118
-  %120 = getelementptr [65537 x i8], ptr @log3gpp_read.linebuff, i64 0, i64 %119
+118:                                              ; preds = %.lr.ph99, %hex_from_char.exit63
+  %.097 = phi i32 [ 0, %.lr.ph99 ], [ %146, %hex_from_char.exit63 ]
+  %119 = sext i32 %.097 to i64
+  %120 = getelementptr i8, ptr %117, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = add i8 %121, -48
   %or.cond.i = icmp ult i8 %122, 10
   br i1 %or.cond.i, label %hex_from_char.exit, label %123
 
-123:                                              ; preds = %117
+123:                                              ; preds = %118
   %124 = add i8 %121, -97
   %or.cond5.i = icmp ult i8 %124, 6
   br i1 %or.cond5.i, label %125, label %127
@@ -565,95 +565,94 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %spec.select.i = select i1 %or.cond8.i, i8 %129, i8 -1
   br label %hex_from_char.exit
 
-hex_from_char.exit:                               ; preds = %117, %125, %127
-  %.0.i = phi i8 [ %126, %125 ], [ %spec.select.i, %127 ], [ %122, %117 ]
+hex_from_char.exit:                               ; preds = %118, %125, %127
+  %.0.i = phi i8 [ %126, %125 ], [ %spec.select.i, %127 ], [ %122, %118 ]
   %130 = shl i8 %.0.i, 4
-  %131 = add i64 %119, 1
-  %132 = getelementptr [65537 x i8], ptr @log3gpp_read.linebuff, i64 0, i64 %131
-  %133 = load i8, ptr %132, align 1
-  %134 = add i8 %133, -48
-  %or.cond.i58 = icmp ult i8 %134, 10
-  br i1 %or.cond.i58, label %hex_from_char.exit63, label %135
+  %131 = getelementptr i8, ptr %120, i64 1
+  %132 = load i8, ptr %131, align 1
+  %133 = add i8 %132, -48
+  %or.cond.i58 = icmp ult i8 %133, 10
+  br i1 %or.cond.i58, label %hex_from_char.exit63, label %134
 
-135:                                              ; preds = %hex_from_char.exit
-  %136 = add i8 %133, -97
-  %or.cond5.i59 = icmp ult i8 %136, 6
-  br i1 %or.cond5.i59, label %137, label %139
+134:                                              ; preds = %hex_from_char.exit
+  %135 = add i8 %132, -97
+  %or.cond5.i59 = icmp ult i8 %135, 6
+  br i1 %or.cond5.i59, label %136, label %138
 
-137:                                              ; preds = %135
-  %138 = add nsw i8 %133, -87
+136:                                              ; preds = %134
+  %137 = add nsw i8 %132, -87
   br label %hex_from_char.exit63
 
-139:                                              ; preds = %135
-  %140 = add i8 %133, -65
-  %or.cond8.i60 = icmp ult i8 %140, 6
-  %141 = add nsw i8 %133, -55
-  %spec.select.i61 = select i1 %or.cond8.i60, i8 %141, i8 -1
+138:                                              ; preds = %134
+  %139 = add i8 %132, -65
+  %or.cond8.i60 = icmp ult i8 %139, 6
+  %140 = add nsw i8 %132, -55
+  %spec.select.i61 = select i1 %or.cond8.i60, i8 %140, i8 -1
   br label %hex_from_char.exit63
 
-hex_from_char.exit63:                             ; preds = %hex_from_char.exit, %137, %139
-  %.0.i62 = phi i8 [ %138, %137 ], [ %spec.select.i61, %139 ], [ %134, %hex_from_char.exit ]
-  %142 = or i8 %.0.i62, %130
-  %143 = ashr exact i32 %.097, 1
-  %144 = add i32 %143, %113
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr i8, ptr %90, i64 %145
-  store i8 %142, ptr %146, align 1
-  %147 = add i32 %.097, 2
-  %.not54 = icmp sgt i32 %147, %82
-  br i1 %.not54, label %.loopexit, label %117, !llvm.loop !10
+hex_from_char.exit63:                             ; preds = %hex_from_char.exit, %136, %138
+  %.0.i62 = phi i8 [ %137, %136 ], [ %spec.select.i61, %138 ], [ %133, %hex_from_char.exit ]
+  %141 = or i8 %.0.i62, %130
+  %142 = ashr exact i32 %.097, 1
+  %143 = add i32 %142, %113
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr i8, ptr %90, i64 %144
+  store i8 %141, ptr %145, align 1
+  %146 = add i32 %.097, 2
+  %.not54 = icmp sgt i32 %146, %82
+  br i1 %.not54, label %.loopexit, label %118, !llvm.loop !10
 
-148:                                              ; preds = %73
-  %149 = sext i32 %82 to i64
-  %150 = add i64 %80, 3
-  %151 = add i64 %150, %81
-  %152 = add i64 %151, %149
-  call void @ws_buffer_assure_space(ptr noundef nonnull %79, i64 noundef %152)
+147:                                              ; preds = %73
+  %148 = sext i32 %82 to i64
+  %149 = add i64 %80, 3
+  %150 = add i64 %149, %81
+  %151 = add i64 %150, %148
+  call void @ws_buffer_assure_space(ptr noundef nonnull %79, i64 noundef %151)
   %.val56 = load ptr, ptr %79, align 8
-  %153 = getelementptr i8, ptr %1, i64 296
-  %.val57 = load i64, ptr %153, align 8
-  %154 = getelementptr i8, ptr %.val56, i64 %.val57
-  %155 = load i32, ptr %7, align 4
-  %156 = call i64 @g_strlcpy(ptr noundef %154, ptr noundef nonnull %12, i64 noundef 33)
-  %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #14
-  %158 = trunc i64 %157 to i32
-  %159 = shl i64 %157, 32
-  %sext.i64 = add i64 %159, 4294967296
-  %160 = ashr exact i64 %sext.i64, 32
-  %161 = getelementptr i8, ptr %154, i64 %160
-  %162 = call i64 @g_strlcpy(ptr noundef %161, ptr noundef nonnull @protocol_name, i64 noundef 65)
-  %163 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_name) #14
-  %164 = trunc i64 %163 to i32
-  %165 = add i32 %158, 2
-  %166 = add i32 %165, %164
-  %167 = trunc i32 %155 to i8
-  %168 = sext i32 %166 to i64
-  %169 = getelementptr i8, ptr %154, i64 %168
-  store i8 %167, ptr %169, align 1
-  %170 = add i32 %166, 1
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr i8, ptr %154, i64 %171
-  %173 = call i64 @g_strlcpy(ptr noundef %172, ptr noundef nonnull @protocol_parameters, i64 noundef 65)
-  %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_parameters) #14
-  %175 = trunc i64 %174 to i32
-  %176 = add i32 %166, 2
-  %177 = add i32 %176, %175
-  %178 = add i32 %177, %82
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %178, ptr %179, align 4
-  store i32 %178, ptr %58, align 8
-  %180 = sext i32 %177 to i64
-  %181 = getelementptr i8, ptr %154, i64 %180
-  %182 = load i64, ptr %6, align 8
-  %183 = getelementptr [65537 x i8], ptr @log3gpp_read.linebuff, i64 0, i64 %182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %181, ptr noundef align 1 %183, i64 noundef range(i64 -2147483648, 2147483648) %149, i1 noundef false) #15
-  %184 = add i32 %178, -1
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr i8, ptr %154, i64 %185
-  store i8 0, ptr %186, align 1
+  %152 = getelementptr i8, ptr %1, i64 296
+  %.val57 = load i64, ptr %152, align 8
+  %153 = getelementptr i8, ptr %.val56, i64 %.val57
+  %154 = load i32, ptr %7, align 4
+  %155 = call i64 @g_strlcpy(ptr noundef %153, ptr noundef nonnull %12, i64 noundef 33)
+  %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #14
+  %157 = trunc i64 %156 to i32
+  %158 = shl i64 %156, 32
+  %sext.i64 = add i64 %158, 4294967296
+  %159 = ashr exact i64 %sext.i64, 32
+  %160 = getelementptr i8, ptr %153, i64 %159
+  %161 = call i64 @g_strlcpy(ptr noundef %160, ptr noundef nonnull @protocol_name, i64 noundef 65)
+  %162 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_name) #14
+  %163 = trunc i64 %162 to i32
+  %164 = add i32 %157, 2
+  %165 = add i32 %164, %163
+  %166 = trunc i32 %154 to i8
+  %167 = sext i32 %165 to i64
+  %168 = getelementptr i8, ptr %153, i64 %167
+  store i8 %166, ptr %168, align 1
+  %169 = add i32 %165, 1
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr i8, ptr %153, i64 %170
+  %172 = call i64 @g_strlcpy(ptr noundef %171, ptr noundef nonnull @protocol_parameters, i64 noundef 65)
+  %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_parameters) #14
+  %174 = trunc i64 %173 to i32
+  %175 = add i32 %165, 2
+  %176 = add i32 %175, %174
+  %177 = add i32 %176, %82
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %177, ptr %178, align 4
+  store i32 %177, ptr %58, align 8
+  %179 = sext i32 %176 to i64
+  %180 = getelementptr i8, ptr %153, i64 %179
+  %181 = load i64, ptr %6, align 8
+  %182 = getelementptr i8, ptr @log3gpp_read.linebuff, i64 %181
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %180, ptr noundef align 1 %182, i64 noundef range(i64 -2147483648, 2147483648) %148, i1 noundef false) #15
+  %183 = add i32 %177, -1
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr i8, ptr %153, i64 %184
+  store i8 0, ptr %185, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %hex_from_char.exit63, %83, %148
+.loopexit:                                        ; preds = %hex_from_char.exit63, %83, %147
   store i32 0, ptr %20, align 4
   store i32 0, ptr %2, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -664,35 +663,35 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %196
+  br label %195
 
-187:                                              ; preds = %47
+186:                                              ; preds = %47
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %188 = load ptr, ptr %0, align 8
-  %189 = tail call i64 @file_tell(ptr noundef %188)
-  %190 = load i32, ptr @first_packet_offset, align 4
+  %187 = load ptr, ptr %0, align 8
+  %188 = tail call i64 @file_tell(ptr noundef %187)
+  %189 = load i32, ptr @first_packet_offset, align 4
   store i32 0, ptr %20, align 4
-  %191 = load ptr, ptr %0, align 8
-  %192 = tail call i64 @file_tell(ptr noundef %191)
-  %193 = tail call ptr @file_gets(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef 65536, ptr noundef %191)
-  %.not78.not = icmp eq ptr %193, null
+  %190 = load ptr, ptr %0, align 8
+  %191 = tail call i64 @file_tell(ptr noundef %190)
+  %192 = tail call ptr @file_gets(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef 65536, ptr noundef %190)
+  %.not78.not = icmp eq ptr %192, null
   br i1 %.not78.not, label %._crit_edge, label %.lr.ph
 
-194:                                              ; preds = %._crit_edge
+193:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %195 = load i32, ptr %20, align 4
-  store i32 %195, ptr %2, align 4
-  br label %196
+  %194 = load i32, ptr %20, align 4
+  store i32 %194, ptr %2, align 4
+  br label %195
 
-196:                                              ; preds = %.thread, %194
-  %.3 = phi i1 [ false, %194 ], [ %.not7881, %.thread ]
+195:                                              ; preds = %.thread, %193
+  %.3 = phi i1 [ false, %193 ], [ %.not7881, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -723,7 +722,7 @@ define internal noundef zeroext i1 @log3gpp_seek_read(ptr noundef readonly captu
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @file_seek(ptr noundef %17, i64 noundef %1, i32 noundef 0, ptr noundef %3)
   %19 = icmp eq i64 %18, -1
-  br i1 %19, label %148, label %20
+  br i1 %19, label %147, label %20
 
 20:                                               ; preds = %5
   %21 = load ptr, ptr %16, align 8
@@ -770,12 +769,12 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 read_new_line.exit:                               ; preds = %20
   %43 = tail call i32 @file_error(ptr noundef %21, ptr noundef %4)
   store i32 %43, ptr %3, align 4
-  br label %148
+  br label %147
 
 44:                                               ; preds = %24, %thread-pre-split.i, %thread-pre-split.thread.i, %41
   %.1.ph = phi i32 [ %27, %24 ], [ 0, %thread-pre-split.i ], [ %.047, %thread-pre-split.thread.i ], [ %42, %41 ]
   %45 = call fastcc zeroext i1 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11)
-  br i1 %45, label %46, label %145
+  br i1 %45, label %46, label %144
 
 46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -855,7 +854,7 @@ read_new_line.exit:                               ; preds = %20
   %101 = add i32 %100, %99
   %102 = load i8, ptr %11, align 1, !range !8, !noundef !9
   %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %136, label %.preheader
+  br i1 %103, label %135, label %.preheader
 
 .preheader:                                       ; preds = %65
   %.not52 = icmp slt i32 %72, 0
@@ -863,19 +862,19 @@ read_new_line.exit:                               ; preds = %20
 
 .lr.ph:                                           ; preds = %.preheader
   %104 = load i64, ptr %6, align 8
-  br label %105
+  %105 = getelementptr i8, ptr @log3gpp_seek_read.linebuff, i64 %104
+  br label %106
 
-105:                                              ; preds = %.lr.ph, %hex_from_char.exit44
-  %.053 = phi i32 [ 0, %.lr.ph ], [ %135, %hex_from_char.exit44 ]
-  %106 = sext i32 %.053 to i64
-  %107 = add i64 %104, %106
-  %108 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %107
+106:                                              ; preds = %.lr.ph, %hex_from_char.exit44
+  %.053 = phi i32 [ 0, %.lr.ph ], [ %134, %hex_from_char.exit44 ]
+  %107 = sext i32 %.053 to i64
+  %108 = getelementptr i8, ptr %105, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = add i8 %109, -48
   %or.cond.i = icmp ult i8 %110, 10
   br i1 %or.cond.i, label %hex_from_char.exit, label %111
 
-111:                                              ; preds = %105
+111:                                              ; preds = %106
   %112 = add i8 %109, -97
   %or.cond5.i = icmp ult i8 %112, 6
   br i1 %or.cond5.i, label %113, label %115
@@ -891,72 +890,71 @@ read_new_line.exit:                               ; preds = %20
   %spec.select.i = select i1 %or.cond8.i, i8 %117, i8 -1
   br label %hex_from_char.exit
 
-hex_from_char.exit:                               ; preds = %105, %113, %115
-  %.0.i = phi i8 [ %114, %113 ], [ %spec.select.i, %115 ], [ %110, %105 ]
+hex_from_char.exit:                               ; preds = %106, %113, %115
+  %.0.i = phi i8 [ %114, %113 ], [ %spec.select.i, %115 ], [ %110, %106 ]
   %118 = shl i8 %.0.i, 4
-  %119 = add i64 %107, 1
-  %120 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %119
-  %121 = load i8, ptr %120, align 1
-  %122 = add i8 %121, -48
-  %or.cond.i39 = icmp ult i8 %122, 10
-  br i1 %or.cond.i39, label %hex_from_char.exit44, label %123
+  %119 = getelementptr i8, ptr %108, i64 1
+  %120 = load i8, ptr %119, align 1
+  %121 = add i8 %120, -48
+  %or.cond.i39 = icmp ult i8 %121, 10
+  br i1 %or.cond.i39, label %hex_from_char.exit44, label %122
 
-123:                                              ; preds = %hex_from_char.exit
-  %124 = add i8 %121, -97
-  %or.cond5.i40 = icmp ult i8 %124, 6
-  br i1 %or.cond5.i40, label %125, label %127
+122:                                              ; preds = %hex_from_char.exit
+  %123 = add i8 %120, -97
+  %or.cond5.i40 = icmp ult i8 %123, 6
+  br i1 %or.cond5.i40, label %124, label %126
 
-125:                                              ; preds = %123
-  %126 = add nsw i8 %121, -87
+124:                                              ; preds = %122
+  %125 = add nsw i8 %120, -87
   br label %hex_from_char.exit44
 
-127:                                              ; preds = %123
-  %128 = add i8 %121, -65
-  %or.cond8.i41 = icmp ult i8 %128, 6
-  %129 = add nsw i8 %121, -55
-  %spec.select.i42 = select i1 %or.cond8.i41, i8 %129, i8 -1
+126:                                              ; preds = %122
+  %127 = add i8 %120, -65
+  %or.cond8.i41 = icmp ult i8 %127, 6
+  %128 = add nsw i8 %120, -55
+  %spec.select.i42 = select i1 %or.cond8.i41, i8 %128, i8 -1
   br label %hex_from_char.exit44
 
-hex_from_char.exit44:                             ; preds = %hex_from_char.exit, %125, %127
-  %.0.i43 = phi i8 [ %126, %125 ], [ %spec.select.i42, %127 ], [ %122, %hex_from_char.exit ]
-  %130 = or i8 %.0.i43, %118
-  %131 = ashr exact i32 %.053, 1
-  %132 = add i32 %131, %101
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr i8, ptr %78, i64 %133
-  store i8 %130, ptr %134, align 1
-  %135 = add i32 %.053, 2
-  %.not = icmp sgt i32 %135, %72
-  br i1 %.not, label %.loopexit, label %105, !llvm.loop !11
+hex_from_char.exit44:                             ; preds = %hex_from_char.exit, %124, %126
+  %.0.i43 = phi i8 [ %125, %124 ], [ %spec.select.i42, %126 ], [ %121, %hex_from_char.exit ]
+  %129 = or i8 %.0.i43, %118
+  %130 = ashr exact i32 %.053, 1
+  %131 = add i32 %130, %101
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr i8, ptr %78, i64 %132
+  store i8 %129, ptr %133, align 1
+  %134 = add i32 %.053, 2
+  %.not = icmp sgt i32 %134, %72
+  br i1 %.not, label %.loopexit, label %106, !llvm.loop !11
 
-136:                                              ; preds = %65
-  %137 = sext i32 %101 to i64
-  %138 = getelementptr i8, ptr %78, i64 %137
-  %139 = load i64, ptr %6, align 8
-  %140 = getelementptr [65537 x i8], ptr @log3gpp_seek_read.linebuff, i64 0, i64 %139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %138, ptr noundef align 1 %140, i64 noundef range(i64 -2147483648, 2147483648) %73, i1 noundef false) #15
-  %141 = add i32 %72, -1
-  %142 = add i32 %141, %101
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr i8, ptr %78, i64 %143
-  store i8 0, ptr %144, align 1
+135:                                              ; preds = %65
+  %136 = sext i32 %101 to i64
+  %137 = getelementptr i8, ptr %78, i64 %136
+  %138 = load i64, ptr %6, align 8
+  %139 = getelementptr i8, ptr @log3gpp_seek_read.linebuff, i64 %138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %137, ptr noundef align 1 %139, i64 noundef range(i64 -2147483648, 2147483648) %73, i1 noundef false) #15
+  %140 = add i32 %72, -1
+  %141 = add i32 %140, %101
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr i8, ptr %78, i64 %142
+  store i8 0, ptr %143, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %hex_from_char.exit44, %.preheader, %136
+.loopexit:                                        ; preds = %hex_from_char.exit44, %.preheader, %135
   store i32 0, ptr %15, align 4
   store i32 0, ptr %3, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %148
+  br label %147
 
-145:                                              ; preds = %44
-  %146 = load i32, ptr %15, align 4
-  store i32 %146, ptr %3, align 4
-  %147 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef %1)
-  store ptr %147, ptr %4, align 8
-  br label %148
+144:                                              ; preds = %44
+  %145 = load i32, ptr %15, align 4
+  store i32 %145, ptr %3, align 4
+  %146 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef %1)
+  store ptr %146, ptr %4, align 8
+  br label %147
 
-148:                                              ; preds = %read_new_line.exit, %5, %145, %.loopexit
-  %.037 = phi i1 [ true, %.loopexit ], [ false, %145 ], [ false, %5 ], [ false, %read_new_line.exit ]
+147:                                              ; preds = %read_new_line.exit, %5, %144, %.loopexit
+  %.037 = phi i1 [ true, %.loopexit ], [ false, %144 ], [ false, %5 ], [ false, %read_new_line.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1044,7 +1042,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   br i1 %.not167, label %.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr [17 x i8], ptr %9, i64 0, i64 %indvars.iv271
+  %32 = getelementptr i8, ptr %9, i64 %indvars.iv271
   store i8 %26, ptr %32, align 1
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
@@ -1069,7 +1067,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   br label %._crit_edge
 
 .lr.ph218:                                        ; preds = %.critedge
-  %41 = getelementptr [17 x i8], ptr %9, i64 0, i64 %indvars.iv.next272
+  %41 = getelementptr i8, ptr %9, i64 %indvars.iv.next272
   store i8 0, ptr %41, align 1
   br label %49
 
@@ -1098,7 +1096,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   %50 = phi i32 [ 0, %.lr.ph218 ], [ %56, %49 ]
   %.0135216 = phi i32 [ 1, %.lr.ph218 ], [ %57, %49 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, -1
-  %51 = getelementptr [17 x i8], ptr %9, i64 0, i64 %indvars.iv.next276
+  %51 = getelementptr i8, ptr %9, i64 %indvars.iv.next276
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
   %54 = add nsw i32 %53, -48
@@ -1120,7 +1118,7 @@ define internal fastcc noundef zeroext i1 @parse_line(ptr noundef readonly captu
   br i1 %.not166, label %.loopexit, label %64
 
 64:                                               ; preds = %.lr.ph225
-  %65 = getelementptr [4 x i8], ptr %10, i64 0, i64 %indvars.iv280
+  %65 = getelementptr i8, ptr %10, i64 %indvars.iv280
   store i8 %59, ptr %65, align 1
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
@@ -1215,7 +1213,7 @@ switch.early.test:                                ; preds = %.lr.ph238
   ]
 
 112:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph238
-  %113 = getelementptr [65 x i8], ptr @protocol_name, i64 0, i64 %indvars.iv285
+  %113 = getelementptr i8, ptr @protocol_name, i64 %indvars.iv285
   store i8 %107, ptr %113, align 1
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
@@ -1245,7 +1243,7 @@ switch.early.test:                                ; preds = %.lr.ph238
 122:                                              ; preds = %.critedge9
   %123 = getelementptr i8, ptr %0, i64 %.lcssa233
   %124 = zext nneg i32 %.0139.lcssa to i64
-  %125 = getelementptr [65 x i8], ptr @protocol_name, i64 0, i64 %124
+  %125 = getelementptr i8, ptr @protocol_name, i64 %124
   store i8 0, ptr %125, align 1
   %126 = load i8, ptr %123, align 1
   %.not153 = icmp eq i8 %126, 32
@@ -1317,7 +1315,7 @@ switch.early.test:                                ; preds = %.lr.ph238
 
 .critedge11.thread:                               ; preds = %146, %.critedge11.thread.loopexit
   %.0138.lcssa = phi i64 [ %150, %.critedge11.thread.loopexit ], [ 0, %146 ]
-  %151 = getelementptr [65 x i8], ptr @protocol_parameters, i64 0, i64 %.0138.lcssa
+  %151 = getelementptr i8, ptr @protocol_parameters, i64 %.0138.lcssa
   store i8 0, ptr %151, align 1
   br label %.loopexit
 
@@ -1329,7 +1327,7 @@ switch.early.test:                                ; preds = %.lr.ph238
   %154 = icmp ne i8 %153, 36
   %155 = icmp samesign ult i64 %indvars.iv292, 64
   %or.cond13 = select i1 %154, i1 %155, i1 false
-  %156 = getelementptr [65 x i8], ptr @protocol_parameters, i64 0, i64 %indvars.iv292
+  %156 = getelementptr i8, ptr @protocol_parameters, i64 %indvars.iv292
   br i1 %or.cond13, label %157, label %.critedge11
 
 157:                                              ; preds = %.lr.ph246

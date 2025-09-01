@@ -400,7 +400,7 @@ sdslen.exit:                                      ; preds = %22, %26, %30, %34
   br i1 %37, label %sdslen.exit.thread, label %64
 
 sdslen.exit.thread:                               ; preds = %16, %sdslen.exit
-  %38 = getelementptr inbounds nuw [32 x ptr], ptr @lua_args_cached_objects, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr @lua_args_cached_objects, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %41, label %40
@@ -453,7 +453,7 @@ sdslen.exit.thread:                               ; preds = %16, %sdslen.exit
 
 sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, %56, %60
   %.0.i24 = phi i64 [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %62, %60 ], [ 0, %41 ]
-  %63 = getelementptr inbounds nuw [32 x i64], ptr @lua_args_cached_objects_len, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
   store i64 %.0.i24, ptr %63, align 8, !tbaa !20
   br label %65
 
@@ -1870,7 +1870,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !82
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   br label %24
 
 24:                                               ; preds = %18, %19
@@ -2561,7 +2561,7 @@ define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %0, ptr noundef captu
 34:                                               ; preds = %27
   %35 = call i32 @fpconv_dtoa(double noundef %28, ptr noundef nonnull %5) #11
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
   store i8 0, ptr %37, align 1, !tbaa !7
   br label %38
 
@@ -2593,14 +2593,14 @@ sdssetlen.exit.thread:                            ; preds = %39
   br label %74
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw [32 x ptr], ptr @lua_args_cached_objects, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr @lua_args_cached_objects, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %.not45 = icmp eq ptr %47, null
   %.pre56 = load i64, ptr %4, align 8, !tbaa !20
   br i1 %.not45, label %74, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw [32 x i64], ptr @lua_args_cached_objects_len, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !20
   %.not46 = icmp ult i64 %50, %.pre56
   br i1 %.not46, label %74, label %51

@@ -60,7 +60,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 12:                                               ; preds = %.lr.ph63
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = icmp sgt i32 %15, 4
   br i1 %16, label %17, label %19
@@ -83,7 +83,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 25:                                               ; preds = %24
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %26, i32 2
+  %27 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %26, i32 2
   %28 = load i32, ptr %27, align 4, !tbaa !31
   %29 = icmp sgt i32 %28, 4
   br i1 %29, label %30, label %102
@@ -98,7 +98,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 33:                                               ; preds = %32
   %34 = zext nneg i32 %23 to i64
-  %35 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %34, i32 2
+  %35 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %34, i32 2
   %36 = load i32, ptr %35, align 4, !tbaa !31
   %37 = icmp sgt i32 %36, 4
   br i1 %37, label %38, label %40
@@ -125,7 +125,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %49, i32 2
+  %50 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %49, i32 2
   %51 = load i32, ptr %50, align 4, !tbaa !31
   %52 = icmp sgt i32 %51, 4
   br i1 %52, label %53, label %102

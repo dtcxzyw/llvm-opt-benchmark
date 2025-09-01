@@ -936,10 +936,10 @@ trspeed.exit51:                                   ; preds = %24, %35, %38, %40
   %50 = add nsw i64 %43, %12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2856
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds [6 x i64], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds i64, ptr %51, i64 %52
   store i64 %50, ptr %53, align 8, !tbaa !93
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %55 = getelementptr inbounds [6 x %struct.curltime], ptr %54, i64 0, i64 %52
+  %55 = getelementptr inbounds %struct.curltime, ptr %54, i64 %52
   store i64 %1, ptr %55, align 8, !tbaa !93
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %2, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !99
@@ -953,14 +953,14 @@ trspeed.exit51:                                   ; preds = %24, %35, %38, %40
   %60 = urem i32 %56, 6
   %narrow = select i1 %59, i32 %60, i32 0
   %61 = zext nneg i32 %narrow to i64
-  %62 = getelementptr inbounds nuw [6 x %struct.curltime], ptr %54, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.curltime, ptr %54, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = tail call i64 @Curl_timediff(i64 %1, i32 %2, i64 %63, i32 %65) #8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %66, i64 1)
   %67 = load i64, ptr %53, align 8, !tbaa !93
-  %68 = getelementptr inbounds nuw [6 x i64], ptr %51, i64 0, i64 %61
+  %68 = getelementptr inbounds nuw i64, ptr %51, i64 %61
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = sub nsw i64 %67, %69
   %71 = icmp sgt i64 %70, 4294967

@@ -95,16 +95,16 @@ $_ZTVN4llvm13format_objectIJjjEEE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN4llvm20serializeSectionKindENS_16DWARFSectionKindEj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 5
-  br i1 %3, label %5, label %switch.lookup
+  br i1 %3, label %6, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
-  %switch.tableidx = add nsw i32 %0, -1
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm20serializeSectionKindENS_16DWARFSectionKindEj, i64 0, i64 %4
+  %4 = sext i32 %0 to i64
+  %5 = getelementptr i32, ptr @switch.table._ZN4llvm20serializeSectionKindENS_16DWARFSectionKindEj, i64 %4
+  %switch.gep = getelementptr i8, ptr %5, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %switch.lookup, %2
+6:                                                ; preds = %switch.lookup, %2
   %.0 = phi i32 [ %0, %2 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
@@ -129,7 +129,7 @@ define dso_local noundef range(i32 0, 11) i32 @_ZN4llvm22deserializeSectionKindE
 
 switch.lookup:                                    ; preds = %8
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm14DWARFUnitIndex9parseImplENS_13DataExtractorE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14DWARFUnitIndex9parseImplENS_13DataExtractorE, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -525,7 +525,7 @@ _ZNSt10unique_ptrIA_N4llvm14DWARFUnitIndex5Entry19SectionContributionESt14defaul
 
 switch.lookup:                                    ; preds = %110
   %112 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm14DWARFUnitIndex9parseImplENS_13DataExtractorE, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14DWARFUnitIndex9parseImplENS_13DataExtractorE, i64 %112
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm22deserializeSectionKindEjj.exit
 
@@ -661,10 +661,10 @@ declare noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef n
 define dso_local { ptr, i64 } @_ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.20, i64 0, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm14DWARFUnitIndex15getColumnHeaderENS_16DWARFSectionKindE.20, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load4, 1

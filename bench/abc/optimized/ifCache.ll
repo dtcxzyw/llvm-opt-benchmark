@@ -823,7 +823,7 @@ Hsh_IntManHashArray.exit:                         ; preds = %Vec_IntFree.exit.i.
   %201 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store ptr %201, ptr %202, align 8, !tbaa !28
-  %203 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %199, ptr %203, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -857,7 +857,7 @@ Hsh_IntManHashArray.exit:                         ; preds = %Vec_IntFree.exit.i.
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load i32, ptr %212, align 4, !tbaa !29
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds [32 x ptr], ptr %2, i64 0, i64 %214
+  %215 = getelementptr inbounds ptr, ptr %2, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !57
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %218 = load i32, ptr %217, align 4, !tbaa !24
@@ -937,7 +937,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 251:                                              ; preds = %.lr.ph104, %Vec_IntCountUnique.exit
   %indvars.iv128 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next129, %Vec_IntCountUnique.exit ]
-  %252 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv128
+  %252 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv128
   %253 = load ptr, ptr %252, align 8, !tbaa !57
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %255 = load i32, ptr %254, align 4, !tbaa !24
@@ -1031,7 +1031,7 @@ Vec_IntCountUnique.exit:                          ; preds = %._crit_edge.i44, %.
 
 .lr.ph107:                                        ; preds = %.preheader, %Vec_IntFree.exit
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %Vec_IntFree.exit ], [ 0, %.preheader ]
-  %293 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %indvars.iv131
+  %293 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv131
   %294 = load ptr, ptr %293, align 8, !tbaa !57
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8, !tbaa !28

@@ -31,7 +31,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 
 .preheader125:                                    ; preds = %3, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %3 ]
-  %11 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr i8, ptr %6, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 71
   br i1 %13, label %.preheader122, label %19
@@ -124,7 +124,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv216 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next217, %63 ]
-  %51 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv216
+  %51 = getelementptr i8, ptr %6, i64 %indvars.iv216
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 71
   br i1 %53, label %54, label %63
@@ -147,7 +147,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
 
 .preheader:                                       ; preds = %35, %72
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %72 ], [ 0, %35 ]
-  %64 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv212
+  %64 = getelementptr i8, ptr %6, i64 %indvars.iv212
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 71
   br i1 %66, label %67, label %72

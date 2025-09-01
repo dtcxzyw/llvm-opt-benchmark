@@ -327,7 +327,7 @@ strbuf_complete.exit.i:                           ; preds = %strbuf_addch.exit.i
   br label %strbuf_setlen.exit12.i
 
 strbuf_setlen.exit12.i:                           ; preds = %56, %54
-  %58 = getelementptr inbounds nuw [4 x ptr], ptr @__const.add_rebase_files.path, i64 0, i64 %.014.i
+  %58 = getelementptr inbounds nuw ptr, ptr @__const.add_rebase_files.path, i64 %.014.i
   %59 = load ptr, ptr %58, align 8, !tbaa !79
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #14
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %59, i64 noundef %60) #11

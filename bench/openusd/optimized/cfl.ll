@@ -64,7 +64,7 @@ define hidden void @cfl_store_dc_pred(ptr noundef captures(none) %0, ptr noundef
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %13 = zext i8 %2 to i64
-  %14 = getelementptr inbounds nuw [2 x [32 x i16]], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i16], ptr %12, i64 %13
   %15 = shl i32 %3, 1
   %16 = sext i32 %15 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 2 %11, i64 %16, i1 false)
@@ -73,7 +73,7 @@ define hidden void @cfl_store_dc_pred(ptr noundef captures(none) %0, ptr noundef
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %19 = zext i8 %2 to i64
-  %20 = getelementptr inbounds nuw [2 x [32 x i16]], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i16], ptr %18, i64 %19
   %21 = sext i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr align 1 %1, i64 %21, i1 false)
   br label %22
@@ -88,9 +88,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @cfl_load_dc_pred(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = zext i8 %3 to i64
-  %7 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %6
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %0, i64 7960
   %.val = load ptr, ptr %11, align 8
@@ -100,7 +100,7 @@ define hidden void @cfl_load_dc_pred(ptr noundef readonly captures(none) %0, ptr
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %15 = zext i8 %4 to i64
-  %16 = getelementptr inbounds nuw [2 x [32 x i16]], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i16], ptr %14, i64 %15
   br i1 %.not, label %.lr.ph.i15, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
@@ -983,7 +983,7 @@ subtract_average_c.exit:                          ; preds = %19
 define hidden ptr @cfl_get_subtract_average_fn_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = urem i8 %0, 19
   %3 = zext nneg i8 %2 to i64
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -1776,7 +1776,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 define hidden ptr @cfl_get_predict_lbd_fn_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = urem i8 %0, 19
   %3 = zext nneg i8 %2 to i64
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_predict_lbd_fn_c.pred, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @cfl_get_predict_lbd_fn_c.pred, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -2031,7 +2031,7 @@ define hidden void @cfl_predict_hbd_32x32_c(ptr noundef readonly captures(none) 
 define hidden ptr @cfl_get_predict_hbd_fn_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = urem i8 %0, 19
   %3 = zext nneg i8 %2 to i64
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_predict_hbd_fn_c.pred, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @cfl_get_predict_hbd_fn_c.pred, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -2049,9 +2049,9 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 43536
   %13 = zext i8 %3 to i64
-  %14 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %13
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   %19 = load i32, ptr %18, align 4
@@ -2137,7 +2137,7 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
 cfl_compute_parameters.exit:                      ; preds = %35, %.split59.us.i.i
   %47 = urem i8 %3, 19
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   tail call void %50(ptr noundef nonnull %12, ptr noundef nonnull %51) #9
@@ -2200,7 +2200,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
   %87 = inttoptr i64 %86 to ptr
   %88 = urem i8 %3, 19
   %89 = zext nneg i8 %88 to i64
-  %90 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_predict_hbd_fn_c.pred, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr @cfl_get_predict_hbd_fn_c.pred, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 10656
@@ -2211,7 +2211,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
 95:                                               ; preds = %cfl_idx_to_alpha.exit
   %96 = urem i8 %3, 19
   %97 = zext nneg i8 %96 to i64
-  %98 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_predict_lbd_fn_c.pred, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @cfl_get_predict_lbd_fn_c.pred, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   tail call void %99(ptr noundef nonnull %100, ptr noundef %1, i32 noundef %2, i32 noundef %.0.i) #9
@@ -2901,7 +2901,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_420_lbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_420_lbd_c.subfn_420, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_420_lbd_c.subfn_420, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -3438,7 +3438,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_422_lbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_422_lbd_c.subfn_422, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_422_lbd_c.subfn_422, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -3922,7 +3922,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_444_lbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -4551,7 +4551,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_420_hbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_420_hbd_c.subfn_420, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_420_hbd_c.subfn_420, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -5054,7 +5054,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_422_hbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_422_hbd_c.subfn_422, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_422_hbd_c.subfn_422, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -5524,7 +5524,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @cfl_get_luma_subsampling_444_hbd_c(i8 noundef zeroext %0) local_unnamed_addr #6 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @cfl_get_luma_subsampling_444_hbd_c.subfn_444, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @cfl_get_luma_subsampling_444_hbd_c.subfn_444, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -5585,9 +5585,9 @@ sub8x8_adjust_offset.exit:                        ; preds = %25, %5, %23
   %35 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load i32, ptr %35, align 8
   %36 = zext i8 %3 to i64
-  %37 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %36
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %36
+  %39 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %36
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %42 = load i32, ptr %41, align 8
@@ -5639,7 +5639,7 @@ sub8x8_adjust_offset.exit:                        ; preds = %25, %5, %23
 cfl_subsampling_hbd.exit.i:                       ; preds = %64
   %cfl_get_luma_subsampling_420_hbd_c.subfn_420.cfl_get_luma_subsampling_422_hbd_c.subfn_422.i = select i1 %71, ptr @cfl_get_luma_subsampling_420_hbd_c.subfn_420, ptr @cfl_get_luma_subsampling_422_hbd_c.subfn_422
   %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i = select i1 %70, ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.cfl_get_luma_subsampling_422_hbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_hbd_c.subfn_444
-  %72 = getelementptr inbounds nuw [19 x ptr], ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i, i64 0, i64 %36
+  %72 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i, i64 %36
   %.0.i.i = load ptr, ptr %72, align 8
   %73 = ptrtoint ptr %33 to i64
   %74 = shl i64 %73, 1
@@ -5650,7 +5650,7 @@ cfl_subsampling_hbd.exit.i:                       ; preds = %64
 cfl_subsampling_lbd.exit.i:                       ; preds = %64
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i = select i1 %71, ptr @cfl_get_luma_subsampling_420_lbd_c.subfn_420, ptr @cfl_get_luma_subsampling_422_lbd_c.subfn_422
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i = select i1 %70, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444
-  %76 = getelementptr inbounds nuw [19 x ptr], ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 0, i64 %36
+  %76 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 %36
   %.0.i53.i = load ptr, ptr %76, align 8
   tail call void %.0.i53.i(ptr noundef %33, i32 noundef %10, ptr noundef nonnull %68) #9
   br label %cfl_store.exit
@@ -5699,7 +5699,7 @@ define hidden void @cfl_store_block(ptr noundef initializes((47780, 47784)) %0, 
 sub8x8_adjust_offset.exit:                        ; preds = %18, %3, %16
   %.027 = phi i32 [ %.128, %16 ], [ 0, %3 ], [ %.128, %18 ]
   %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ %spec.select29, %18 ]
-  %21 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %5
+  %21 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %5
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7928
@@ -5719,13 +5719,13 @@ max_intra_block_width.exit:                       ; preds = %sub8x8_adjust_offse
   %.0.i.i = phi i32 [ %32, %27 ], [ %23, %sub8x8_adjust_offset.exit ]
   %33 = and i32 %.0.i.i, -4
   %34 = zext i8 %2 to i64
-  %35 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_log2, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr @tx_size_wide_log2, i64 %34
   %36 = load i32, ptr %35, align 4
   %notmask.i = shl nsw i32 -1, %36
   %37 = xor i32 %notmask.i, -1
   %38 = add nsw i32 %33, %37
   %39 = and i32 %38, %notmask.i
-  %40 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %5
+  %40 = getelementptr inbounds nuw i8, ptr @block_size_high, i64 %5
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 7936
@@ -5744,7 +5744,7 @@ max_intra_block_width.exit:                       ; preds = %sub8x8_adjust_offse
 max_intra_block_height.exit:                      ; preds = %max_intra_block_width.exit, %46
   %.0.i.i20 = phi i32 [ %51, %46 ], [ %42, %max_intra_block_width.exit ]
   %52 = and i32 %.0.i.i20, -4
-  %53 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_log2, i64 0, i64 %34
+  %53 = getelementptr inbounds nuw i32, ptr @tx_size_high_log2, i64 %34
   %54 = load i32, ptr %53, align 4
   %notmask.i21 = shl nsw i32 -1, %54
   %55 = xor i32 %notmask.i21, -1
@@ -5831,13 +5831,13 @@ max_intra_block_height.exit:                      ; preds = %max_intra_block_wid
 
 switch.lookup:                                    ; preds = %69
   %87 = zext nneg i32 %71 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.cfl_store_block, i64 0, i64 %87
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.cfl_store_block, i64 %87
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %get_tx_size.exit
 
 switch.lookup34:                                  ; preds = %79
   %88 = zext nneg i32 %81 to i64
-  %switch.gep35 = getelementptr inbounds nuw [8 x i64], ptr @switch.table.cfl_store_block.3, i64 0, i64 %88
+  %switch.gep35 = getelementptr inbounds nuw i64, ptr @switch.table.cfl_store_block.3, i64 %88
   %switch.load36 = load i64, ptr %switch.gep35, align 8
   br label %get_tx_size.exit
 
@@ -5851,9 +5851,9 @@ get_tx_size.exit:                                 ; preds = %switch.lookup34, %s
   %.val = load ptr, ptr %93, align 8
   %94 = getelementptr i8, ptr %.val, i64 192
   %.val.val = load i32, ptr %94, align 8
-  %95 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %.0.i
+  %95 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %.0.i
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %.0.i
+  %97 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %.0.i
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %100 = load i32, ptr %99, align 8
@@ -5905,7 +5905,7 @@ get_tx_size.exit:                                 ; preds = %switch.lookup34, %s
 cfl_subsampling_hbd.exit.i:                       ; preds = %122
   %cfl_get_luma_subsampling_420_hbd_c.subfn_420.cfl_get_luma_subsampling_422_hbd_c.subfn_422.i = select i1 %129, ptr @cfl_get_luma_subsampling_420_hbd_c.subfn_420, ptr @cfl_get_luma_subsampling_422_hbd_c.subfn_422
   %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i = select i1 %128, ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.cfl_get_luma_subsampling_422_hbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_hbd_c.subfn_444
-  %130 = getelementptr inbounds nuw [19 x ptr], ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i, i64 0, i64 %.0.i
+  %130 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_hbd_c.subfn_420.sink.i, i64 %.0.i
   %.0.i.i23 = load ptr, ptr %130, align 8
   %131 = ptrtoint ptr %90 to i64
   %132 = shl i64 %131, 1
@@ -5916,7 +5916,7 @@ cfl_subsampling_hbd.exit.i:                       ; preds = %122
 cfl_subsampling_lbd.exit.i:                       ; preds = %122
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i = select i1 %129, ptr @cfl_get_luma_subsampling_420_lbd_c.subfn_420, ptr @cfl_get_luma_subsampling_422_lbd_c.subfn_422
   %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i = select i1 %128, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.cfl_get_luma_subsampling_422_lbd_c.subfn_422.i, ptr @cfl_get_luma_subsampling_444_lbd_c.subfn_444
-  %134 = getelementptr inbounds nuw [19 x ptr], ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 0, i64 %.0.i
+  %134 = getelementptr inbounds nuw ptr, ptr %cfl_get_luma_subsampling_420_lbd_c.subfn_420.sink.i, i64 %.0.i
   %.0.i53.i = load ptr, ptr %134, align 8
   tail call void %.0.i53.i(ptr noundef %90, i32 noundef %92, ptr noundef nonnull %126) #9
   br label %cfl_store.exit

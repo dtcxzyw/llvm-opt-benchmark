@@ -643,7 +643,7 @@ vc1_has_OVERFLAGS_bitplane.exit:                  ; preds = %vc1_has_ACPRED_bitp
 
 switch.lookup:                                    ; preds = %357
   %361 = zext nneg i8 %359 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_vc1_start_frame, i64 0, i64 %361
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.vaapi_vc1_start_frame, i64 %361
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %vc1_get_MVMODE.exit
 
@@ -677,7 +677,7 @@ vc1_get_MVMODE.exit:                              ; preds = %357, %switch.lookup
 
 switch.lookup440:                                 ; preds = %370
   %374 = zext nneg i8 %372 to i64
-  %switch.gep441 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.vaapi_vc1_start_frame.4, i64 0, i64 %374
+  %switch.gep441 = getelementptr inbounds nuw i32, ptr @switch.table.vaapi_vc1_start_frame.4, i64 %374
   %switch.load442 = load i32, ptr %switch.gep441, align 4
   br label %vc1_get_MVMODE2.exit
 
@@ -824,7 +824,7 @@ vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup
 
 switch.lookup443:                                 ; preds = %466
   %493 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep444 = getelementptr inbounds nuw [5 x i16], ptr @switch.table.vaapi_vc1_start_frame.5, i64 0, i64 %493
+  %switch.gep444 = getelementptr inbounds nuw i16, ptr @switch.table.vaapi_vc1_start_frame.5, i64 %493
   %switch.load445 = load i16, ptr %switch.gep444, align 2
   br label %vc1_get_TTFRM.exit
 

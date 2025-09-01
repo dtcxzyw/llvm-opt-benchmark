@@ -42,7 +42,7 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %19
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %20
   %21 = zext nneg i32 %.110.i to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %.1.i, %24
@@ -66,9 +66,9 @@ define void @ff_jpegls_init_state(ptr noundef captures(none) initializes((5896, 
   %37 = add nsw i32 %36, 32
   %38 = ashr i32 %37, 6
   %spec.select28 = tail call i32 @llvm.smax.i32(i32 %38, i32 2)
-  %39 = getelementptr inbounds nuw [367 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   store i32 %spec.select28, ptr %39, align 4, !tbaa !18
-  %40 = getelementptr inbounds nuw [367 x i32], ptr %34, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   store i32 1, ptr %40, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 367

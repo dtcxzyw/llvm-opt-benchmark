@@ -1972,7 +1972,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %71, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %84) #18, !srcloc !55
   %85 = sext i32 %.1.i to i64
-  %86 = getelementptr inbounds [16 x i16], ptr %84, i64 0, i64 %85
+  %86 = getelementptr inbounds i16, ptr %84, i64 %85
   store i16 0, ptr %86, align 2, !tbaa !30
   br label %.thread.sink.split
 
@@ -2476,7 +2476,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %78, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %89) #18, !srcloc !55
   %90 = sext i32 %.1.i to i64
-  %91 = getelementptr inbounds [16 x i16], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds i16, ptr %89, i64 %90
   store i16 0, ptr %91, align 2, !tbaa !30
   br label %.thread201.sink.split
 
@@ -3874,7 +3874,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %92, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %105) #18, !srcloc !55
   %106 = sext i32 %.1.i to i64
-  %107 = getelementptr inbounds [16 x i16], ptr %105, i64 0, i64 %106
+  %107 = getelementptr inbounds i16, ptr %105, i64 %106
   store i16 0, ptr %107, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit
 
@@ -4223,7 +4223,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i170:       ; preds = %256, %_ZNK6icu_7713
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i172: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i170
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %269) #18, !srcloc !55
   %270 = sext i32 %.1.i171 to i64
-  %271 = getelementptr inbounds [16 x i16], ptr %269, i64 0, i64 %270
+  %271 = getelementptr inbounds i16, ptr %269, i64 %270
   store i16 0, ptr %271, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174
 
@@ -4627,7 +4627,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %19, %8, %5
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %33) #18, !srcloc !55
   %34 = sext i32 %.029 to i64
-  %35 = getelementptr inbounds [16 x i16], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds i16, ptr %33, i64 %34
   store i16 0, ptr %35, align 2, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i16, ptr %36, align 8, !tbaa !19
@@ -4676,7 +4676,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38:            ; preds = %49, %46, %_ZNK6icu_
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %63) #18, !srcloc !55
   %64 = sext i32 %.1 to i64
-  %65 = getelementptr inbounds [16 x i16], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds i16, ptr %63, i64 %64
   store i16 0, ptr %65, align 2, !tbaa !30
   br label %66
 
@@ -5424,7 +5424,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %107, %_ZNK6icu_7713
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %120) #18, !srcloc !55
   %121 = sext i32 %.1.i to i64
-  %122 = getelementptr inbounds [16 x i16], ptr %120, i64 0, i64 %121
+  %122 = getelementptr inbounds i16, ptr %120, i64 %121
   store i16 0, ptr %122, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit
 

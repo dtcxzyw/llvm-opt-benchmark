@@ -177,7 +177,7 @@ _ZN12_GLOBAL__N_14procclEPK3var.exit.i.i:         ; preds = %29
 40:                                               ; preds = %_ZN12_GLOBAL__N_14procclEPK3var.exit89.i.i, %.lr.ph.i.i
   %41 = phi i32 [ %37, %.lr.ph.i.i ], [ %122, %_ZN12_GLOBAL__N_14procclEPK3var.exit89.i.i ]
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !31
   %45 = add nuw i32 %41, 1
   store i32 %45, ptr %36, align 8, !tbaa !30
@@ -914,7 +914,7 @@ thread-pre-split.i.i:                             ; preds = %.thread-pre-split_c
 39:                                               ; preds = %_ZN12_GLOBAL__N_19decl_procclEPK3app.exit.i.i, %.lr.ph.i.i
   %40 = phi i32 [ %36, %.lr.ph.i.i ], [ %119, %_ZN12_GLOBAL__N_19decl_procclEPK3app.exit.i.i ]
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !31
   %44 = add nuw i32 %40, 1
   store i32 %44, ptr %35, align 8, !tbaa !30

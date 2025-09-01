@@ -11965,7 +11965,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -12596,7 +12596,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 .lr.ph.i.i:                                       ; preds = %.noexc146, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc146 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %328, %.noexc146 ]
-  %324 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %324 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %60, i64 %indvars.iv.i.i
   %325 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %324)
           to label %.noexc146 unwind label %333
 
@@ -13295,7 +13295,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -13920,7 +13920,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 .lr.ph.i.i:                                       ; preds = %.noexc143, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc143 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %327, %.noexc143 ]
-  %323 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %323 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %60, i64 %indvars.iv.i.i
   %324 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %323)
           to label %.noexc143 unwind label %332
 
@@ -14615,7 +14615,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %32, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %32, i64 %indvars.iv.i
   %36 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull %1)
   br i1 %36, label %33, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
@@ -15246,7 +15246,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 .lr.ph.i.i:                                       ; preds = %.noexc146, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.noexc146 ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %328, %.noexc146 ]
-  %324 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %324 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %60, i64 %indvars.iv.i.i
   %325 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %324)
           to label %.noexc146 unwind label %333
 

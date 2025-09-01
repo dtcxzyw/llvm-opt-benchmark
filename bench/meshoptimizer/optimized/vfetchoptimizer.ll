@@ -82,7 +82,7 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
 15:                                               ; preds = %9
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %52
 
 17:                                               ; preds = %13, %6
   %.sroa.phi = phi ptr [ %.sroa.gep, %13 ], [ %7, %6 ]
@@ -93,83 +93,83 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
   %21 = shl i64 %4, 2
   %22 = select i1 %20, i64 -1, i64 %21
   %23 = invoke noundef ptr %19(i64 noundef %22)
-          to label %24 unwind label %35
+          to label %24 unwind label %34
 
 24:                                               ; preds = %17
   store ptr %23, ptr %.sroa.phi, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 -1, i64 %21, i1 false)
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph.i.preheader, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %50
+._crit_edge.loopexit:                             ; preds = %49
   %25 = zext i32 %.1 to i64
-  br label %._crit_edge
+  br label %.lr.ph.i.preheader
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
+.lr.ph.i.preheader:                               ; preds = %24, %._crit_edge.loopexit
   %.036.lcssa = phi i64 [ 0, %24 ], [ %25, %._crit_edge.loopexit ]
-  br label %26
+  br label %.lr.ph.i
 
-26:                                               ; preds = %27, %._crit_edge
-  %.0.i = phi i64 [ %18, %._crit_edge ], [ %29, %27 ]
-  %.not.i = icmp eq i64 %.0.i, 0
-  br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %27
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
+  %.04.i = phi i64 [ 1, %30 ], [ %18, %.lr.ph.i.preheader ]
+  %26 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
+  %27 = getelementptr ptr, ptr %7, i64 %.04.i
+  %28 = getelementptr i8, ptr %27, i64 -8
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  invoke void %26(ptr noundef %29)
+          to label %30 unwind label %31
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
-  %29 = add nsw i64 %.0.i, -1
-  %30 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !10
-  invoke void %28(ptr noundef %31)
-          to label %26 unwind label %32, !llvm.loop !15
+30:                                               ; preds = %.lr.ph.i
+  %.not.i = icmp eq i64 %.04.i, 1
+  br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %.lr.ph.i, !llvm.loop !15
 
-32:                                               ; preds = %27
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %.lr.ph.i
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #10
+  %33 = extractvalue { ptr, i32 } %32, 0
+  tail call void @__clang_call_terminate(ptr %33) #10
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %26
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.036.lcssa
 
-35:                                               ; preds = %17
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %17
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %52
 
-.lr.ph:                                           ; preds = %24, %50
-  %.03542 = phi i64 [ %52, %50 ], [ 0, %24 ]
-  %.03641 = phi i32 [ %.1, %50 ], [ 0, %24 ]
-  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %.03542
-  %38 = load i32, ptr %37, align 4, !tbaa !4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %23, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !4
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %43, label %50
+.lr.ph:                                           ; preds = %24, %49
+  %.03542 = phi i64 [ %51, %49 ], [ 0, %24 ]
+  %.03641 = phi i32 [ %.1, %49 ], [ 0, %24 ]
+  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %.03542
+  %37 = load i32, ptr %36, align 4, !tbaa !4
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %23, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !4
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %49
 
-43:                                               ; preds = %.lr.ph
-  %44 = zext i32 %.03641 to i64
-  %45 = mul i64 %5, %44
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  %47 = mul i64 %5, %39
-  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %48, i64 %5, i1 false)
-  %49 = add i32 %.03641, 1
-  store i32 %.03641, ptr %40, align 4, !tbaa !4
-  br label %50
+42:                                               ; preds = %.lr.ph
+  %43 = zext i32 %.03641 to i64
+  %44 = mul i64 %5, %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+  %46 = mul i64 %5, %38
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 %46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %47, i64 %5, i1 false)
+  %48 = add i32 %.03641, 1
+  store i32 %.03641, ptr %39, align 4, !tbaa !4
+  br label %49
 
-50:                                               ; preds = %43, %.lr.ph
-  %51 = phi i32 [ %.03641, %43 ], [ %41, %.lr.ph ]
-  %.1 = phi i32 [ %49, %43 ], [ %.03641, %.lr.ph ]
-  store i32 %51, ptr %37, align 4, !tbaa !4
-  %52 = add nuw i64 %.03542, 1
-  %exitcond.not = icmp eq i64 %52, %2
+49:                                               ; preds = %42, %.lr.ph
+  %50 = phi i32 [ %.03641, %42 ], [ %40, %.lr.ph ]
+  %.1 = phi i32 [ %48, %42 ], [ %.03641, %.lr.ph ]
+  store i32 %50, ptr %36, align 4, !tbaa !4
+  %51 = add nuw i64 %.03542, 1
+  %exitcond.not = icmp eq i64 %51, %2
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
-53:                                               ; preds = %35, %15
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %16, %15 ]
+52:                                               ; preds = %34, %15
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %16, %15 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -184,29 +184,31 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i64, ptr %2, align 8, !tbaa !12
-  br label %4
+  %.not3 = icmp eq i64 %3, 0
+  br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-4:                                                ; preds = %6, %1
-  %.0 = phi i64 [ %3, %1 ], [ %8, %6 ]
-  %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %5, label %6
-
-5:                                                ; preds = %4
+._crit_edge:                                      ; preds = %8, %1
   ret void
 
-6:                                                ; preds = %4
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
-  %8 = add i64 %.0, -1
-  %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !10
-  invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !15
+.lr.ph:                                           ; preds = %1, %8
+  %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
+  %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
+  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  invoke void %4(ptr noundef %7)
+          to label %8 unwind label %10
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %.04, -1
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+
+10:                                               ; preds = %.lr.ph
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #10
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #10
   unreachable
 }
 

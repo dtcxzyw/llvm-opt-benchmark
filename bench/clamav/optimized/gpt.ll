@@ -220,7 +220,7 @@ fmap_readn.exit.i:                                ; preds = %23
 
 36:                                               ; preds = %.preheader, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 1, %.preheader ]
-  %37 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i, i32 2
+  %37 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i, i32 2
   %38 = load i8, ptr %37, align 1, !tbaa !26
   %.not12.i = icmp eq i8 %38, 0
   br i1 %.not12.i, label %35, label %.loopexit.sink.split

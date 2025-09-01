@@ -2274,7 +2274,7 @@ generic_ivtbl_no_ractor_check.exit:               ; preds = %1, %4, %rb_ractor_m
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr [1 x i64], ptr %21, i64 0, i64 %indvars.iv
+  %25 = getelementptr i64, ptr %21, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !32
   call void @rb_gc_mark_movable(i64 noundef %26) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3096,7 +3096,7 @@ RB_FL_TEST.exit:                                  ; preds = %8
 59:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
   %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i14, %59 ]
-  %60 = getelementptr [1 x i64], ptr %55, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr i64, ptr %55, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8, !tbaa !32
   %62 = icmp ne i64 %61, 36
   %63 = zext i1 %62 to i64
@@ -3943,7 +3943,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %rb_check_frozen_inl
 35:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
   %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i31, %35 ]
-  %36 = getelementptr [1 x i64], ptr %31, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr i64, ptr %31, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8, !tbaa !32
   %38 = icmp ne i64 %37, 36
   %39 = zext i1 %38 to i64
@@ -3995,7 +3995,7 @@ RB_FL_SET.exit:                                   ; preds = %RB_FL_ABLE.exit.i33
 
 57:                                               ; preds = %57, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i37, %57 ]
-  %58 = getelementptr [1 x i64], ptr %56, i64 0, i64 %indvars.iv.i36
+  %58 = getelementptr i64, ptr %56, i64 %indvars.iv.i36
   store i64 36, ptr %58, align 8, !tbaa !32
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %52
@@ -4013,8 +4013,8 @@ gen_ivtbl_resize.exit:                            ; preds = %57, %50
 
 62:                                               ; preds = %.lr.ph, %rb_obj_write.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_obj_write.exit ]
-  %63 = getelementptr [1 x i64], ptr %60, i64 0, i64 %indvars.iv
-  %64 = getelementptr [1 x i64], ptr %61, i64 0, i64 %indvars.iv
+  %63 = getelementptr i64, ptr %60, i64 %indvars.iv
+  %64 = getelementptr i64, ptr %61, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !32
   store i64 %65, ptr %63, align 8, !tbaa !14
   %66 = icmp eq i64 %65, 0
@@ -8762,7 +8762,7 @@ define internal noundef i32 @generic_ivar_lookup_ensure_size(ptr noundef readonl
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr [1 x i64], ptr %36, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr i64, ptr %36, i64 %indvars.iv.i
   store i64 36, ptr %39, align 8, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %31

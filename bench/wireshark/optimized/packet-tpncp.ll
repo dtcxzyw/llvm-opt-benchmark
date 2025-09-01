@@ -1941,7 +1941,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %.3181214 = phi i32 [ %101, %.lr.ph ], [ %.0178219, %.preheader ]
   %.0184213 = phi i32 [ %100, %.lr.ph ], [ 0, %.preheader ]
   %97 = sext i32 %.3181214 to i64
-  %98 = getelementptr [8 x i32], ptr @bits, i64 0, i64 %97
+  %98 = getelementptr i32, ptr @bits, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = or i32 %99, %.0184213
   %101 = add i32 %.3181214, %14

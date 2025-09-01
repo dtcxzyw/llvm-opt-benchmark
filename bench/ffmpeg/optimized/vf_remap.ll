@@ -129,7 +129,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %31 = load i8, ptr %2, align 1, !tbaa !44
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %32
   store i32 %29, ptr %33, align 4, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %35 = load i8, ptr %34, align 1, !tbaa !44
@@ -138,7 +138,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !44
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %30, i64 %40
   store i32 %37, ptr %41, align 4, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %43 = load i8, ptr %42, align 2, !tbaa !44
@@ -147,7 +147,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !44
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %48
   store i32 %45, ptr %49, align 4, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %51 = load i8, ptr %50, align 1, !tbaa !44
@@ -156,7 +156,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !44
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %30, i64 %56
   store i32 %53, ptr %57, align 4, !tbaa !45
   br label %96
 
@@ -286,13 +286,13 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
   %46 = phi i32 [ %98, %._crit_edge76.us ], [ %43, %.lr.ph79.split.us ]
   %47 = phi i32 [ %99, %._crit_edge76.us ], [ %43, %.lr.ph79.split.us ]
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge76.us ], [ 0, %.lr.ph79.split.us ]
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv92
+  %48 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv92
   %49 = load i32, ptr %48, align 4, !tbaa !45
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv92
+  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv92
   %51 = load ptr, ptr %50, align 8, !tbaa !61
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv92
+  %52 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv92
   %53 = load i32, ptr %52, align 4, !tbaa !45
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv92
+  %54 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv92
   %55 = load i32, ptr %54, align 4, !tbaa !45
   %56 = trunc i32 %55 to i8
   %57 = sext i32 %49 to i64
@@ -304,7 +304,7 @@ define internal noundef i32 @remap_planar8_nearest_slice(ptr noundef readonly ca
   %60 = getelementptr inbounds i16, ptr %59, i64 %35
   %61 = load ptr, ptr %7, align 8, !tbaa !61
   %62 = getelementptr inbounds i16, ptr %61, i64 %33
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv92
+  %63 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv92
   %64 = load ptr, ptr %63, align 8, !tbaa !61
   %65 = mul nsw i32 %49, %15
   %66 = sext i32 %65 to i64
@@ -500,7 +500,7 @@ define internal noundef i32 @remap_packed8_nearest_slice(ptr noundef readonly ca
   br label %92
 
 88:                                               ; preds = %74, %69
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !45
   %91 = trunc i32 %90 to i8
   br label %92
@@ -603,20 +603,20 @@ define internal noundef i32 @remap_planar16_nearest_slice(ptr noundef readonly c
 
 .preheader.lr.ph.us.us:                           ; preds = %._crit_edge76.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %._crit_edge76.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv89
+  %50 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv89
   %51 = load i32, ptr %50, align 4, !tbaa !45
   %52 = sdiv i32 %51, 2
-  %53 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv89
+  %53 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv89
   %54 = load ptr, ptr %53, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv89
+  %55 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv89
   %56 = load ptr, ptr %55, align 8, !tbaa !61
   %57 = mul nsw i32 %52, %11
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i16, ptr %56, i64 %58
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv89
+  %60 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv89
   %61 = load i32, ptr %60, align 4, !tbaa !45
   %62 = sdiv i32 %61, 2
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %40, i64 0, i64 %indvars.iv89
+  %63 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv89
   %64 = load i32, ptr %63, align 4, !tbaa !45
   %65 = trunc i32 %64 to i16
   %66 = sext i32 %52 to i64
@@ -782,7 +782,7 @@ define internal noundef i32 @remap_packed16_nearest_slice(ptr noundef readonly c
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %71, %67
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %55, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !45
   %79 = trunc i32 %78 to i16
   br label %89

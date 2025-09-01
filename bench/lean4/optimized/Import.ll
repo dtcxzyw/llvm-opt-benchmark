@@ -861,7 +861,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_HeaderSyntax_imports___spec__3
   %.079185 = phi i64 [ %.180, %253 ], [ %3, %5 ]
   %.081184 = phi ptr [ %.182, %253 ], [ %4, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.081184, i64 24
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.079185
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.079185
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -2886,7 +2886,7 @@ define nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_processHeaderCor
   br label %lean_dec.exit129
 
 lean_dec.exit129:                                 ; preds = %24, %23, %21, %15
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.087236
+  %25 = getelementptr inbounds nuw ptr, ptr %10, i64 %.087236
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
@@ -9146,7 +9146,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_printImports___spec__2(p
   br label %lean_dec.exit90
 
 lean_dec.exit90:                                  ; preds = %21, %20, %18, %12
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.061169
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %.061169
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 1
@@ -10309,7 +10309,7 @@ lean_dec.exit99:                                  ; preds = %18, %17, %15, %._cr
   br label %lean_dec.exit98
 
 lean_dec.exit98:                                  ; preds = %31, %30, %28, %22
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.066190
+  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %.066190
   %33 = load ptr, ptr %32, align 8, !tbaa !4
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1

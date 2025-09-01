@@ -6281,7 +6281,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMap
   %.not.i.i.i.i310 = phi i1 [ true, %2578 ], [ false, %2587 ]
   %.0813.i.i.i.i = phi i64 [ 0, %2578 ], [ 1, %2587 ]
   %.0912.i.i.i.i = phi i64 [ 2, %2578 ], [ %.1.i.i.i.i, %2587 ]
-  %2582 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %2582 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiN4llvm10MCRegisterEEEmv.__found, i64 %.0813.i.i.i.i
   %2583 = load i8, ptr %2582, align 1, !tbaa !47, !range !48, !noundef !49
   %2584 = trunc nuw i8 %2583 to i1
   br i1 %2584, label %2585, label %2587

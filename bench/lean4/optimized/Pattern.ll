@@ -2805,7 +2805,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPatDescr_m
 
 9:                                                ; preds = %.lr.ph, %7
   %.01530 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01530
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01530
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -2897,7 +2897,7 @@ lean_nat_lt.exit:
 
 7:                                                ; preds = %5, %.lr.ph.i
   %.01530.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %3, i64 0, i64 %.01530.i
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01530.i
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -3014,7 +3014,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 
 19:                                               ; preds = %17, %.lr.ph.i.i
   %.01530.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %17 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.01530.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01530.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -3535,7 +3535,7 @@ lean_dec.exit12:                                  ; preds = %24, %23, %21, %lean
 
 29:                                               ; preds = %27, %.lr.ph.i
   %.01530.i = phi i64 [ %.val, %.lr.ph.i ], [ %28, %27 ]
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01530.i
+  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01530.i
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
@@ -3675,7 +3675,7 @@ define noundef nonnull ptr @l_Array_contains___at_Lake_StrPatDescr_matches___spe
 
 8:                                                ; preds = %6, %.lr.ph.i.i
   %.01530.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01530.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01530.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -3877,7 +3877,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPat_mem___
 
 10:                                               ; preds = %.lr.ph, %8
   %.02254 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02254
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02254
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -4073,7 +4073,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_StrPat_mem___
 
 10:                                               ; preds = %.lr.ph, %8
   %.02254 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02254
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02254
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -6160,7 +6160,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_PathPat_path_
 
 10:                                               ; preds = %.lr.ph, %8
   %.02254 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02254
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02254
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -6356,7 +6356,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_PathPat_path_
 
 10:                                               ; preds = %.lr.ph, %8
   %.02254 = phi i64 [ %2, %.lr.ph ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02254
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02254
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1

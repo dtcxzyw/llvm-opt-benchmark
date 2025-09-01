@@ -2279,7 +2279,7 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
   %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.preheader ]
-  %25 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.02241
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.02241
   %26 = load i8, ptr %25, align 1, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %.12540, i64 1
   %28 = load i8, ptr %.12540, align 1, !tbaa !23
@@ -3214,7 +3214,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 
 18:                                               ; preds = %16
   %19 = add nsw i64 %14, -1
-  %20 = getelementptr inbounds nuw [1024 x i8], ptr %9, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !23
   %.not77 = icmp eq i8 %21, -68
   br i1 %.not77, label %22, label %.critedge87

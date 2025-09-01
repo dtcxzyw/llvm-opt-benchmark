@@ -897,7 +897,7 @@ define dso_local ptr @drm_dp_phy_name(i32 noundef %0) #4 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr [9 x ptr], ptr @drm_dp_phy_name.phy_names, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @drm_dp_phy_name.phy_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -3039,7 +3039,7 @@ define dso_local range(i32 -22, 65536) i32 @drm_dp_psr_setup_time(ptr noundef re
 
 7:                                                ; preds = %1
   %8 = zext nneg i8 %5 to i64
-  %9 = getelementptr [7 x i16], ptr @drm_dp_psr_setup_time.psr_setup_time_us, i64 0, i64 %8
+  %9 = getelementptr i16, ptr @drm_dp_psr_setup_time.psr_setup_time_us, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   br label %12
@@ -3144,7 +3144,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_desc(ptr noundef %0,
 12:                                               ; preds = %33, %9
   %13 = phi i64 [ 0, %9 ], [ %35, %33 ]
   %14 = phi i32 [ 0, %9 ], [ %34, %33 ]
-  %15 = getelementptr [7 x %struct.dpcd_quirk], ptr @dpcd_quirk_list, i64 0, i64 %13
+  %15 = getelementptr %struct.dpcd_quirk, ptr @dpcd_quirk_list, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %17 = load i8, ptr %16, align 1, !range !20, !noundef !21
   %18 = icmp eq i8 %17, %10

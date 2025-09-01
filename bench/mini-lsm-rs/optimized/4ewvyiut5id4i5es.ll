@@ -3796,9 +3796,9 @@ define noundef zeroext i1 @_ZN8mini_lsm5block7builder12BlockBuilder3add17h90d406
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5822c4e70a34a341E.exit", %47
   %.021.i = phi i64 [ %48, %47 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5822c4e70a34a341E.exit" ]
-  %43 = getelementptr inbounds [0 x i8], ptr %40, i64 0, i64 %.021.i
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.021.i
   %44 = load i8, ptr %43, align 1, !alias.scope !696, !noalias !699, !noundef !21
-  %45 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.021.i
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.021.i
   %46 = load i8, ptr %45, align 1, !alias.scope !699, !noalias !696, !noundef !21
   %.not19.i = icmp eq i8 %44, %46
   br i1 %.not19.i, label %47, label %_ZN8mini_lsm5block7builder15compute_overlap17h78d7a05dd42328e8E.exit

@@ -11033,7 +11033,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %32, ptr %33, align 16, !tbaa !4
   %34 = sext i32 %2 to i64
-  %35 = getelementptr [3 x ptr], ptr %12, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr %12, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = tail call i32 @PyObject_IsInstance(ptr noundef %0, ptr noundef %36) #8
   switch i32 %37, label %45 [
@@ -11043,7 +11043,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %15
 
 38:                                               ; preds = %25
   %39 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !4
-  %40 = getelementptr [3 x ptr], ptr @__const.PyAST_obj2mod.req_name, i64 0, i64 %34
+  %40 = getelementptr ptr, ptr @__const.PyAST_obj2mod.req_name, i64 %34
   %41 = load ptr, ptr %40, align 8, !tbaa !131
   %42 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %42, align 8, !tbaa !133
@@ -11214,7 +11214,7 @@ Py_DECREF.exit257.i:                              ; preds = %111, %108, %_Py_Ent
 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %7, align 8, !tbaa !141
-  %119 = getelementptr [1 x ptr], ptr %86, i64 0, i64 %.0176384.i
+  %119 = getelementptr ptr, ptr %86, i64 %.0176384.i
   store ptr %118, ptr %119, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %120 = add nuw nsw i64 %.0176384.i, 1
@@ -11561,7 +11561,7 @@ Py_DECREF.exit253.i:                              ; preds = %263, %260, %obj2ast
   br label %Py_DECREF.exit255.thread331.i
 
 269:                                              ; preds = %264
-  %270 = getelementptr [1 x ptr], ptr %155, i64 0, i64 %.0177388.i
+  %270 = getelementptr ptr, ptr %155, i64 %.0177388.i
   store ptr %.4311.i, ptr %270, align 8, !tbaa !147
   %271 = add nuw nsw i64 %.0177388.i, 1
   %exitcond395.not.i = icmp eq i64 %271, %.val280.i
@@ -11758,7 +11758,7 @@ Py_DECREF.exit249.i:                              ; preds = %346, %343, %_Py_Ent
 
 352:                                              ; preds = %347
   %353 = load ptr, ptr %8, align 8, !tbaa !141
-  %354 = getelementptr [1 x ptr], ptr %321, i64 0, i64 %.0180381.i
+  %354 = getelementptr ptr, ptr %321, i64 %.0180381.i
   store ptr %353, ptr %354, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %355 = add nuw nsw i64 %.0180381.i, 1
@@ -12010,7 +12010,7 @@ Py_DECREF.exit243.i:                              ; preds = %453, %450, %_Py_Ent
 
 459:                                              ; preds = %454
   %460 = load ptr, ptr %11, align 8, !tbaa !151
-  %461 = getelementptr [1 x ptr], ptr %428, i64 0, i64 %.0175380.i
+  %461 = getelementptr ptr, ptr %428, i64 %.0175380.i
   store ptr %460, ptr %461, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %462 = add nuw nsw i64 %.0175380.i, 1
@@ -15524,7 +15524,7 @@ define internal fastcc ptr @make_type(ptr noundef readonly captures(none) %0, pt
   br i1 %18, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 19:                                               ; preds = %10
-  %20 = getelementptr [1 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %20 = getelementptr ptr, ptr %9, i64 %indvars.iv
   store ptr %13, ptr %20, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
@@ -15597,7 +15597,7 @@ define internal fastcc i32 @add_attributes(ptr noundef readonly captures(none) %
   br i1 %16, label %Py_DECREF.exit22.sink.split, label %Py_DECREF.exit22
 
 17:                                               ; preds = %8
-  %18 = getelementptr [1 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %18 = getelementptr ptr, ptr %7, i64 %indvars.iv
   store ptr %11, ptr %18, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
@@ -32477,7 +32477,7 @@ _PyOnceFlag_CallOnce.exit.i:                      ; preds = %3
   br i1 %.not138, label %Py_XDECREF.exit169.thread, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr [1 x ptr], ptr %33, i64 0, i64 %41
+  %44 = getelementptr ptr, ptr %33, i64 %41
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = tail call i32 @PyObject_SetAttr(ptr noundef %0, ptr noundef nonnull %42, ptr noundef %45) #8
   %47 = tail call i32 @PySet_Discard(ptr noundef nonnull %27, ptr noundef nonnull %42) #8
@@ -33110,7 +33110,7 @@ _PyOnceFlag_CallOnce.exit.i132:                   ; preds = %90
   br i1 %127, label %.thread146, label %128
 
 128:                                              ; preds = %125, %.lr.ph.split.us
-  %129 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %.046.i165.us
+  %129 = getelementptr ptr, ptr %3, i64 %.046.i165.us
   %130 = load ptr, ptr %129, align 8, !tbaa !4
   %131 = getelementptr i8, ptr %130, i64 8
   %.val.i.us = load ptr, ptr %131, align 8, !tbaa !133
@@ -33165,7 +33165,7 @@ _PyOnceFlag_CallOnce.exit.i132:                   ; preds = %90
   br i1 %151, label %.thread146, label %152
 
 152:                                              ; preds = %149, %.lr.ph.split
-  %153 = getelementptr [2 x ptr], ptr %3, i64 0, i64 %.046.i165
+  %153 = getelementptr ptr, ptr %3, i64 %.046.i165
   %154 = load ptr, ptr %153, align 8, !tbaa !4
   %155 = getelementptr i8, ptr %154, i64 8
   %.val.i = load ptr, ptr %155, align 8, !tbaa !133
@@ -38470,7 +38470,7 @@ Py_DECREF.exit934:                                ; preds = %502, %504, %507
   %.05981076 = phi i64 [ 0, %.lr.ph ], [ %575, %ast2obj_cmpop.exit ]
   %528 = load ptr, ptr %508, align 8, !tbaa !9
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 16
-  %530 = getelementptr [1 x i32], ptr %529, i64 0, i64 %.05981076
+  %530 = getelementptr i32, ptr %529, i64 %.05981076
   %531 = load i32, ptr %530, align 4, !tbaa !402
   switch i32 %531, label %572 [
     i32 1, label %532
@@ -43881,7 +43881,7 @@ Py_DECREF.exit2903:                               ; preds = %320, %327, %330
 
 336:                                              ; preds = %331
   %337 = load ptr, ptr %13, align 8, !tbaa !141
-  %338 = getelementptr [1 x ptr], ptr %308, i64 0, i64 %.018964036
+  %338 = getelementptr ptr, ptr %308, i64 %.018964036
   store ptr %337, ptr %338, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %339 = add nuw nsw i64 %.018964036, 1
@@ -44024,7 +44024,7 @@ Py_DECREF.exit2899:                               ; preds = %383, %390, %393
 
 399:                                              ; preds = %394
   %400 = load ptr, ptr %14, align 8, !tbaa !151
-  %401 = getelementptr [1 x ptr], ptr %371, i64 0, i64 %.018984039
+  %401 = getelementptr ptr, ptr %371, i64 %.018984039
   store ptr %400, ptr %401, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %402 = add nuw nsw i64 %.018984039, 1
@@ -44315,7 +44315,7 @@ Py_DECREF.exit2887:                               ; preds = %510, %517, %520
 
 526:                                              ; preds = %521
   %527 = load ptr, ptr %15, align 8, !tbaa !406
-  %528 = getelementptr [1 x ptr], ptr %498, i64 0, i64 %.018994042
+  %528 = getelementptr ptr, ptr %498, i64 %.018994042
   store ptr %527, ptr %528, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %529 = add nuw nsw i64 %.018994042, 1
@@ -44603,7 +44603,7 @@ Py_DECREF.exit2879:                               ; preds = %638, %645, %648
 
 654:                                              ; preds = %649
   %655 = load ptr, ptr %20, align 8, !tbaa !141
-  %656 = getelementptr [1 x ptr], ptr %626, i64 0, i64 %.019054027
+  %656 = getelementptr ptr, ptr %626, i64 %.019054027
   store ptr %655, ptr %656, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %657 = add nuw nsw i64 %.019054027, 1
@@ -44746,7 +44746,7 @@ Py_DECREF.exit2875:                               ; preds = %701, %708, %711
 
 717:                                              ; preds = %712
   %718 = load ptr, ptr %21, align 8, !tbaa !151
-  %719 = getelementptr [1 x ptr], ptr %689, i64 0, i64 %.019064030
+  %719 = getelementptr ptr, ptr %689, i64 %.019064030
   store ptr %718, ptr %719, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %720 = add nuw nsw i64 %.019064030, 1
@@ -45037,7 +45037,7 @@ Py_DECREF.exit2863:                               ; preds = %828, %835, %838
 
 844:                                              ; preds = %839
   %845 = load ptr, ptr %22, align 8, !tbaa !406
-  %846 = getelementptr [1 x ptr], ptr %816, i64 0, i64 %.019074033
+  %846 = getelementptr ptr, ptr %816, i64 %.019074033
   store ptr %845, ptr %846, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %847 = add nuw nsw i64 %.019074033, 1
@@ -45278,7 +45278,7 @@ Py_DECREF.exit2857:                               ; preds = %933, %940, %943
 
 949:                                              ; preds = %944
   %950 = load ptr, ptr %24, align 8, !tbaa !151
-  %951 = getelementptr [1 x ptr], ptr %921, i64 0, i64 %.019144012
+  %951 = getelementptr ptr, ptr %921, i64 %.019144012
   store ptr %950, ptr %951, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %952 = add nuw nsw i64 %.019144012, 1
@@ -45421,7 +45421,7 @@ Py_DECREF.exit2853:                               ; preds = %996, %1003, %1006
 
 1012:                                             ; preds = %1007
   %1013 = load ptr, ptr %25, align 8, !tbaa !415
-  %1014 = getelementptr [1 x ptr], ptr %984, i64 0, i64 %.019154015
+  %1014 = getelementptr ptr, ptr %984, i64 %.019154015
   store ptr %1013, ptr %1014, align 8, !tbaa !415
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1015 = add nuw nsw i64 %.019154015, 1
@@ -45564,7 +45564,7 @@ Py_DECREF.exit2849:                               ; preds = %1059, %1066, %1069
 
 1075:                                             ; preds = %1070
   %1076 = load ptr, ptr %26, align 8, !tbaa !141
-  %1077 = getelementptr [1 x ptr], ptr %1047, i64 0, i64 %.019164018
+  %1077 = getelementptr ptr, ptr %1047, i64 %.019164018
   store ptr %1076, ptr %1077, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %1078 = add nuw nsw i64 %.019164018, 1
@@ -45707,7 +45707,7 @@ Py_DECREF.exit2845:                               ; preds = %1122, %1129, %1132
 
 1138:                                             ; preds = %1133
   %1139 = load ptr, ptr %27, align 8, !tbaa !151
-  %1140 = getelementptr [1 x ptr], ptr %1110, i64 0, i64 %.019174021
+  %1140 = getelementptr ptr, ptr %1110, i64 %.019174021
   store ptr %1139, ptr %1140, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %1141 = add nuw nsw i64 %.019174021, 1
@@ -45850,7 +45850,7 @@ Py_DECREF.exit2841:                               ; preds = %1185, %1192, %1195
 
 1201:                                             ; preds = %1196
   %1202 = load ptr, ptr %28, align 8, !tbaa !406
-  %1203 = getelementptr [1 x ptr], ptr %1173, i64 0, i64 %.019184024
+  %1203 = getelementptr ptr, ptr %1173, i64 %.019184024
   store ptr %1202, ptr %1203, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1204 = add nuw nsw i64 %.019184024, 1
@@ -46142,7 +46142,7 @@ Py_DECREF.exit2833:                               ; preds = %1306, %1313, %1316
 
 1322:                                             ; preds = %1317
   %1323 = load ptr, ptr %30, align 8, !tbaa !151
-  %1324 = getelementptr [1 x ptr], ptr %1294, i64 0, i64 %.019204009
+  %1324 = getelementptr ptr, ptr %1294, i64 %.019204009
   store ptr %1323, ptr %1324, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %1325 = add nuw nsw i64 %.019204009, 1
@@ -46323,7 +46323,7 @@ Py_DECREF.exit2829:                               ; preds = %1383, %1390, %1393
 
 1399:                                             ; preds = %1394
   %1400 = load ptr, ptr %33, align 8, !tbaa !151
-  %1401 = getelementptr [1 x ptr], ptr %1371, i64 0, i64 %.019234006
+  %1401 = getelementptr ptr, ptr %1371, i64 %.019234006
   store ptr %1400, ptr %1401, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %1402 = add nuw nsw i64 %.019234006, 1
@@ -46676,7 +46676,7 @@ Py_DECREF.exit2817:                               ; preds = %1542, %1549, %1552
 
 1558:                                             ; preds = %1553
   %1559 = load ptr, ptr %36, align 8, !tbaa !406
-  %1560 = getelementptr [1 x ptr], ptr %1530, i64 0, i64 %.019264003
+  %1560 = getelementptr ptr, ptr %1530, i64 %.019264003
   store ptr %1559, ptr %1560, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %1561 = add nuw nsw i64 %.019264003, 1
@@ -47464,7 +47464,7 @@ Py_DECREF.exit2791:                               ; preds = %1904, %1911, %1914
 
 1920:                                             ; preds = %1915
   %1921 = load ptr, ptr %47, align 8, !tbaa !141
-  %1922 = getelementptr [1 x ptr], ptr %1892, i64 0, i64 %.019303997
+  %1922 = getelementptr ptr, ptr %1892, i64 %.019303997
   store ptr %1921, ptr %1922, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1923 = add nuw nsw i64 %.019303997, 1
@@ -47607,7 +47607,7 @@ Py_DECREF.exit2787:                               ; preds = %1967, %1974, %1977
 
 1983:                                             ; preds = %1978
   %1984 = load ptr, ptr %48, align 8, !tbaa !141
-  %1985 = getelementptr [1 x ptr], ptr %1955, i64 0, i64 %.019314000
+  %1985 = getelementptr ptr, ptr %1955, i64 %.019314000
   store ptr %1984, ptr %1985, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %1986 = add nuw nsw i64 %.019314000, 1
@@ -47965,7 +47965,7 @@ Py_DECREF.exit2775:                               ; preds = %2126, %2133, %2136
 
 2142:                                             ; preds = %2137
   %2143 = load ptr, ptr %52, align 8, !tbaa !141
-  %2144 = getelementptr [1 x ptr], ptr %2114, i64 0, i64 %.019343991
+  %2144 = getelementptr ptr, ptr %2114, i64 %.019343991
   store ptr %2143, ptr %2144, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %2145 = add nuw nsw i64 %.019343991, 1
@@ -48108,7 +48108,7 @@ Py_DECREF.exit2771:                               ; preds = %2189, %2196, %2199
 
 2205:                                             ; preds = %2200
   %2206 = load ptr, ptr %53, align 8, !tbaa !141
-  %2207 = getelementptr [1 x ptr], ptr %2177, i64 0, i64 %.019353994
+  %2207 = getelementptr ptr, ptr %2177, i64 %.019353994
   store ptr %2206, ptr %2207, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %2208 = add nuw nsw i64 %.019353994, 1
@@ -48420,7 +48420,7 @@ Py_DECREF.exit2761:                               ; preds = %2325, %2332, %2335
 
 2341:                                             ; preds = %2336
   %2342 = load ptr, ptr %55, align 8, !tbaa !141
-  %2343 = getelementptr [1 x ptr], ptr %2313, i64 0, i64 %.019383985
+  %2343 = getelementptr ptr, ptr %2313, i64 %.019383985
   store ptr %2342, ptr %2343, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %2344 = add nuw nsw i64 %.019383985, 1
@@ -48563,7 +48563,7 @@ Py_DECREF.exit2757:                               ; preds = %2388, %2395, %2398
 
 2404:                                             ; preds = %2399
   %2405 = load ptr, ptr %56, align 8, !tbaa !141
-  %2406 = getelementptr [1 x ptr], ptr %2376, i64 0, i64 %.019393988
+  %2406 = getelementptr ptr, ptr %2376, i64 %.019393988
   store ptr %2405, ptr %2406, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %2407 = add nuw nsw i64 %.019393988, 1
@@ -48789,7 +48789,7 @@ Py_DECREF.exit2751:                               ; preds = %2489, %2496, %2499
 
 2505:                                             ; preds = %2500
   %2506 = load ptr, ptr %58, align 8, !tbaa !141
-  %2507 = getelementptr [1 x ptr], ptr %2477, i64 0, i64 %.019433979
+  %2507 = getelementptr ptr, ptr %2477, i64 %.019433979
   store ptr %2506, ptr %2507, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %2508 = add nuw nsw i64 %.019433979, 1
@@ -48932,7 +48932,7 @@ Py_DECREF.exit2747:                               ; preds = %2552, %2559, %2562
 
 2568:                                             ; preds = %2563
   %2569 = load ptr, ptr %59, align 8, !tbaa !141
-  %2570 = getelementptr [1 x ptr], ptr %2540, i64 0, i64 %.019443982
+  %2570 = getelementptr ptr, ptr %2540, i64 %.019443982
   store ptr %2569, ptr %2570, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %2571 = add nuw nsw i64 %.019443982, 1
@@ -49104,7 +49104,7 @@ Py_DECREF.exit2743:                               ; preds = %2626, %2633, %2636
 
 2642:                                             ; preds = %2637
   %2643 = load ptr, ptr %61, align 8, !tbaa !432
-  %2644 = getelementptr [1 x ptr], ptr %2614, i64 0, i64 %.019483973
+  %2644 = getelementptr ptr, ptr %2614, i64 %.019483973
   store ptr %2643, ptr %2644, align 8, !tbaa !432
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %2645 = add nuw nsw i64 %.019483973, 1
@@ -49247,7 +49247,7 @@ Py_DECREF.exit2739:                               ; preds = %2689, %2696, %2699
 
 2705:                                             ; preds = %2700
   %2706 = load ptr, ptr %62, align 8, !tbaa !141
-  %2707 = getelementptr [1 x ptr], ptr %2677, i64 0, i64 %.019493976
+  %2707 = getelementptr ptr, ptr %2677, i64 %.019493976
   store ptr %2706, ptr %2707, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %2708 = add nuw nsw i64 %.019493976, 1
@@ -49515,7 +49515,7 @@ Py_DECREF.exit2731:                               ; preds = %2801, %2808, %2811
 
 2817:                                             ; preds = %2812
   %2818 = load ptr, ptr %64, align 8, !tbaa !432
-  %2819 = getelementptr [1 x ptr], ptr %2789, i64 0, i64 %.019533967
+  %2819 = getelementptr ptr, ptr %2789, i64 %.019533967
   store ptr %2818, ptr %2819, align 8, !tbaa !432
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %2820 = add nuw nsw i64 %.019533967, 1
@@ -49658,7 +49658,7 @@ Py_DECREF.exit2727:                               ; preds = %2864, %2871, %2874
 
 2880:                                             ; preds = %2875
   %2881 = load ptr, ptr %65, align 8, !tbaa !141
-  %2882 = getelementptr [1 x ptr], ptr %2852, i64 0, i64 %.019543970
+  %2882 = getelementptr ptr, ptr %2852, i64 %.019543970
   store ptr %2881, ptr %2882, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %2883 = add nuw nsw i64 %.019543970, 1
@@ -49980,7 +49980,7 @@ Py_DECREF.exit2717:                               ; preds = %3003, %3010, %3013
 
 3019:                                             ; preds = %3014
   %3020 = load ptr, ptr %67, align 8, !tbaa !438
-  %3021 = getelementptr [1 x ptr], ptr %2991, i64 0, i64 %.019563964
+  %3021 = getelementptr ptr, ptr %2991, i64 %.019563964
   store ptr %3020, ptr %3021, align 8, !tbaa !438
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %3022 = add nuw nsw i64 %.019563964, 1
@@ -50352,7 +50352,7 @@ Py_DECREF.exit2705:                               ; preds = %3158, %3165, %3168
 
 3174:                                             ; preds = %3169
   %3175 = load ptr, ptr %70, align 8, !tbaa !141
-  %3176 = getelementptr [1 x ptr], ptr %3146, i64 0, i64 %.019663952
+  %3176 = getelementptr ptr, ptr %3146, i64 %.019663952
   store ptr %3175, ptr %3176, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %3177 = add nuw nsw i64 %.019663952, 1
@@ -50495,7 +50495,7 @@ Py_DECREF.exit2701:                               ; preds = %3221, %3228, %3231
 
 3237:                                             ; preds = %3232
   %3238 = load ptr, ptr %71, align 8, !tbaa !442
-  %3239 = getelementptr [1 x ptr], ptr %3209, i64 0, i64 %.019673955
+  %3239 = getelementptr ptr, ptr %3209, i64 %.019673955
   store ptr %3238, ptr %3239, align 8, !tbaa !442
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %3240 = add nuw nsw i64 %.019673955, 1
@@ -50638,7 +50638,7 @@ Py_DECREF.exit2697:                               ; preds = %3284, %3291, %3294
 
 3300:                                             ; preds = %3295
   %3301 = load ptr, ptr %72, align 8, !tbaa !141
-  %3302 = getelementptr [1 x ptr], ptr %3272, i64 0, i64 %.019693958
+  %3302 = getelementptr ptr, ptr %3272, i64 %.019693958
   store ptr %3301, ptr %3302, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %3303 = add nuw nsw i64 %.019693958, 1
@@ -50781,7 +50781,7 @@ Py_DECREF.exit2693:                               ; preds = %3347, %3354, %3357
 
 3363:                                             ; preds = %3358
   %3364 = load ptr, ptr %73, align 8, !tbaa !141
-  %3365 = getelementptr [1 x ptr], ptr %3335, i64 0, i64 %.019683961
+  %3365 = getelementptr ptr, ptr %3335, i64 %.019683961
   store ptr %3364, ptr %3365, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %3366 = add nuw nsw i64 %.019683961, 1
@@ -50966,7 +50966,7 @@ Py_DECREF.exit2689:                               ; preds = %3427, %3434, %3437
 
 3443:                                             ; preds = %3438
   %3444 = load ptr, ptr %74, align 8, !tbaa !141
-  %3445 = getelementptr [1 x ptr], ptr %3415, i64 0, i64 %.019583940
+  %3445 = getelementptr ptr, ptr %3415, i64 %.019583940
   store ptr %3444, ptr %3445, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %3446 = add nuw nsw i64 %.019583940, 1
@@ -51109,7 +51109,7 @@ Py_DECREF.exit2685:                               ; preds = %3490, %3497, %3500
 
 3506:                                             ; preds = %3501
   %3507 = load ptr, ptr %75, align 8, !tbaa !442
-  %3508 = getelementptr [1 x ptr], ptr %3478, i64 0, i64 %.019523943
+  %3508 = getelementptr ptr, ptr %3478, i64 %.019523943
   store ptr %3507, ptr %3508, align 8, !tbaa !442
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %3509 = add nuw nsw i64 %.019523943, 1
@@ -51252,7 +51252,7 @@ Py_DECREF.exit2681:                               ; preds = %3553, %3560, %3563
 
 3569:                                             ; preds = %3564
   %3570 = load ptr, ptr %76, align 8, !tbaa !141
-  %3571 = getelementptr [1 x ptr], ptr %3541, i64 0, i64 %.019463946
+  %3571 = getelementptr ptr, ptr %3541, i64 %.019463946
   store ptr %3570, ptr %3571, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %3572 = add nuw nsw i64 %.019463946, 1
@@ -51395,7 +51395,7 @@ Py_DECREF.exit2677:                               ; preds = %3616, %3623, %3626
 
 3632:                                             ; preds = %3627
   %3633 = load ptr, ptr %77, align 8, !tbaa !141
-  %3634 = getelementptr [1 x ptr], ptr %3604, i64 0, i64 %.019403949
+  %3634 = getelementptr ptr, ptr %3604, i64 %.019403949
   store ptr %3633, ptr %3634, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %3635 = add nuw nsw i64 %.019403949, 1
@@ -51741,7 +51741,7 @@ Py_DECREF.exit2667:                               ; preds = %3767, %3774, %3777
 
 3783:                                             ; preds = %3778
   %3784 = load ptr, ptr %80, align 8, !tbaa !451
-  %3785 = getelementptr [1 x ptr], ptr %3755, i64 0, i64 %.019253937
+  %3785 = getelementptr ptr, ptr %3755, i64 %.019253937
   store ptr %3784, ptr %3785, align 8, !tbaa !451
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %3786 = add nuw nsw i64 %.019253937, 1
@@ -51996,7 +51996,7 @@ Py_DECREF.exit2659:                               ; preds = %3876, %3883, %3886
 
 3892:                                             ; preds = %3887
   %3893 = load ptr, ptr %83, align 8, !tbaa !451
-  %3894 = getelementptr [1 x ptr], ptr %3864, i64 0, i64 %.019133934
+  %3894 = getelementptr ptr, ptr %3864, i64 %.019133934
   store ptr %3893, ptr %3894, align 8, !tbaa !451
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %3895 = add nuw nsw i64 %.019133934, 1
@@ -52265,7 +52265,7 @@ Py_DECREF.exit2651:                               ; preds = %3989, %3996, %3999
 
 4005:                                             ; preds = %4000
   %4006 = load ptr, ptr %84, align 8, !tbaa !4
-  %4007 = getelementptr [1 x ptr], ptr %3977, i64 0, i64 %.019013931
+  %4007 = getelementptr ptr, ptr %3977, i64 %.019013931
   store ptr %4006, ptr %4007, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %4008 = add nuw nsw i64 %.019013931, 1
@@ -52443,7 +52443,7 @@ Py_DECREF.exit2647:                               ; preds = %4067, %4074, %4077
 
 4083:                                             ; preds = %4078
   %4084 = load ptr, ptr %85, align 8, !tbaa !4
-  %4085 = getelementptr [1 x ptr], ptr %4055, i64 0, i64 %.018943930
+  %4085 = getelementptr ptr, ptr %4055, i64 %.018943930
   store ptr %4084, ptr %4085, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %4086 = add nuw nsw i64 %.018943930, 1
@@ -53282,7 +53282,7 @@ Py_DECREF.exit1889:                               ; preds = %276, %283, %286
 
 292:                                              ; preds = %287
   %293 = load ptr, ptr %10, align 8, !tbaa !151
-  %294 = getelementptr [1 x ptr], ptr %264, i64 0, i64 %.012512558
+  %294 = getelementptr ptr, ptr %264, i64 %.012512558
   store ptr %293, ptr %294, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %295 = add nuw nsw i64 %.012512558, 1
@@ -54244,7 +54244,7 @@ Py_DECREF.exit1861:                               ; preds = %717, %724, %727
 
 733:                                              ; preds = %728
   %734 = load ptr, ptr %23, align 8, !tbaa !151
-  %735 = getelementptr [1 x ptr], ptr %705, i64 0, i64 %.012542552
+  %735 = getelementptr ptr, ptr %705, i64 %.012542552
   store ptr %734, ptr %735, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %736 = add nuw nsw i64 %.012542552, 1
@@ -54387,7 +54387,7 @@ Py_DECREF.exit1857:                               ; preds = %780, %787, %790
 
 796:                                              ; preds = %791
   %797 = load ptr, ptr %24, align 8, !tbaa !151
-  %798 = getelementptr [1 x ptr], ptr %768, i64 0, i64 %.012552555
+  %798 = getelementptr ptr, ptr %768, i64 %.012552555
   store ptr %797, ptr %798, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %799 = add nuw nsw i64 %.012552555, 1
@@ -54568,7 +54568,7 @@ Py_DECREF.exit1853:                               ; preds = %858, %865, %868
 
 874:                                              ; preds = %869
   %875 = load ptr, ptr %25, align 8, !tbaa !151
-  %876 = getelementptr [1 x ptr], ptr %846, i64 0, i64 %.012572549
+  %876 = getelementptr ptr, ptr %846, i64 %.012572549
   store ptr %875, ptr %876, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %877 = add nuw nsw i64 %.012572549, 1
@@ -54802,7 +54802,7 @@ Py_DECREF.exit1847:                               ; preds = %962, %969, %972
 
 978:                                              ; preds = %973
   %979 = load ptr, ptr %27, align 8, !tbaa !461
-  %980 = getelementptr [1 x ptr], ptr %950, i64 0, i64 %.012592546
+  %980 = getelementptr ptr, ptr %950, i64 %.012592546
   store ptr %979, ptr %980, align 8, !tbaa !461
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %981 = add nuw nsw i64 %.012592546, 1
@@ -55028,7 +55028,7 @@ Py_DECREF.exit1841:                               ; preds = %1063, %1070, %1073
 
 1079:                                             ; preds = %1074
   %1080 = load ptr, ptr %29, align 8, !tbaa !461
-  %1081 = getelementptr [1 x ptr], ptr %1051, i64 0, i64 %.012612543
+  %1081 = getelementptr ptr, ptr %1051, i64 %.012612543
   store ptr %1080, ptr %1081, align 8, !tbaa !461
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1082 = add nuw nsw i64 %.012612543, 1
@@ -55299,7 +55299,7 @@ Py_DECREF.exit1833:                               ; preds = %1187, %1194, %1197
 
 1203:                                             ; preds = %1198
   %1204 = load ptr, ptr %32, align 8, !tbaa !461
-  %1205 = getelementptr [1 x ptr], ptr %1175, i64 0, i64 %.012632540
+  %1205 = getelementptr ptr, ptr %1175, i64 %.012632540
   store ptr %1204, ptr %1205, align 8, !tbaa !461
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1206 = add nuw nsw i64 %.012632540, 1
@@ -55534,7 +55534,7 @@ Py_DECREF.exit1827:                               ; preds = %1290, %1297, %1300
 
 1306:                                             ; preds = %1301
   %1307 = load ptr, ptr %34, align 8, !tbaa !461
-  %1308 = getelementptr [1 x ptr], ptr %1278, i64 0, i64 %.012652537
+  %1308 = getelementptr ptr, ptr %1278, i64 %.012652537
   store ptr %1307, ptr %1308, align 8, !tbaa !461
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1309 = add nuw nsw i64 %.012652537, 1
@@ -56047,7 +56047,7 @@ Py_DECREF.exit1813:                               ; preds = %1514, %1521, %1524
 
 1530:                                             ; preds = %1525
   %1531 = load i32, ptr %39, align 4, !tbaa !402
-  %1532 = getelementptr [1 x i32], ptr %1502, i64 0, i64 %.012692531
+  %1532 = getelementptr i32, ptr %1502, i64 %.012692531
   store i32 %1531, ptr %1532, align 4, !tbaa !402
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1533 = add nuw nsw i64 %.012692531, 1
@@ -56190,7 +56190,7 @@ Py_DECREF.exit1809:                               ; preds = %1577, %1584, %1587
 
 1593:                                             ; preds = %1588
   %1594 = load ptr, ptr %40, align 8, !tbaa !151
-  %1595 = getelementptr [1 x ptr], ptr %1565, i64 0, i64 %.012712534
+  %1595 = getelementptr ptr, ptr %1565, i64 %.012712534
   store ptr %1594, ptr %1595, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %1596 = add nuw nsw i64 %.012712534, 1
@@ -56416,7 +56416,7 @@ Py_DECREF.exit1803:                               ; preds = %1678, %1685, %1688
 
 1694:                                             ; preds = %1689
   %1695 = load ptr, ptr %42, align 8, !tbaa !151
-  %1696 = getelementptr [1 x ptr], ptr %1666, i64 0, i64 %.012742525
+  %1696 = getelementptr ptr, ptr %1666, i64 %.012742525
   store ptr %1695, ptr %1696, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1697 = add nuw nsw i64 %.012742525, 1
@@ -56559,7 +56559,7 @@ Py_DECREF.exit1799:                               ; preds = %1741, %1748, %1751
 
 1757:                                             ; preds = %1752
   %1758 = load ptr, ptr %43, align 8, !tbaa !415
-  %1759 = getelementptr [1 x ptr], ptr %1729, i64 0, i64 %.012752528
+  %1759 = getelementptr ptr, ptr %1729, i64 %.012752528
   store ptr %1758, ptr %1759, align 8, !tbaa !415
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %1760 = add nuw nsw i64 %.012752528, 1
@@ -56945,7 +56945,7 @@ Py_DECREF.exit1787:                               ; preds = %1911, %1918, %1921
 
 1927:                                             ; preds = %1922
   %1928 = load ptr, ptr %47, align 8, !tbaa !151
-  %1929 = getelementptr [1 x ptr], ptr %1899, i64 0, i64 %.012782522
+  %1929 = getelementptr ptr, ptr %1899, i64 %.012782522
   store ptr %1928, ptr %1929, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1930 = add nuw nsw i64 %.012782522, 1
@@ -57954,7 +57954,7 @@ Py_DECREF.exit1757:                               ; preds = %2372, %2379, %2382
 
 2388:                                             ; preds = %2383
   %2389 = load ptr, ptr %60, align 8, !tbaa !151
-  %2390 = getelementptr [1 x ptr], ptr %2360, i64 0, i64 %.012772519
+  %2390 = getelementptr ptr, ptr %2360, i64 %.012772519
   store ptr %2389, ptr %2390, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %2391 = add nuw nsw i64 %.012772519, 1
@@ -58180,7 +58180,7 @@ Py_DECREF.exit1751:                               ; preds = %2473, %2480, %2483
 
 2489:                                             ; preds = %2484
   %2490 = load ptr, ptr %62, align 8, !tbaa !151
-  %2491 = getelementptr [1 x ptr], ptr %2461, i64 0, i64 %.012672518
+  %2491 = getelementptr ptr, ptr %2461, i64 %.012672518
   store ptr %2490, ptr %2491, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %2492 = add nuw nsw i64 %.012672518, 1
@@ -58842,7 +58842,7 @@ Py_DECREF.exit254:                                ; preds = %_Py_EnterRecursiveC
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %8, align 8, !tbaa !474
-  %83 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.0165355
+  %83 = getelementptr ptr, ptr %48, i64 %.0165355
   store ptr %82, ptr %83, align 8, !tbaa !474
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = add nuw nsw i64 %.0165355, 1
@@ -59023,7 +59023,7 @@ Py_DECREF.exit250:                                ; preds = %_Py_EnterRecursiveC
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %9, align 8, !tbaa !474
-  %162 = getelementptr [1 x ptr], ptr %127, i64 0, i64 %.0166356
+  %162 = getelementptr ptr, ptr %127, i64 %.0166356
   store ptr %161, ptr %162, align 8, !tbaa !474
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %163 = add nuw nsw i64 %.0166356, 1
@@ -59251,7 +59251,7 @@ Py_DECREF.exit242:                                ; preds = %_Py_EnterRecursiveC
 
 260:                                              ; preds = %255
   %261 = load ptr, ptr %10, align 8, !tbaa !474
-  %262 = getelementptr [1 x ptr], ptr %229, i64 0, i64 %.0167359
+  %262 = getelementptr ptr, ptr %229, i64 %.0167359
   store ptr %261, ptr %262, align 8, !tbaa !474
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %263 = add nuw nsw i64 %.0167359, 1
@@ -59395,7 +59395,7 @@ Py_DECREF.exit238:                                ; preds = %308, %315, %318
 
 324:                                              ; preds = %319
   %325 = load ptr, ptr %11, align 8, !tbaa !151
-  %326 = getelementptr [1 x ptr], ptr %296, i64 0, i64 %.0168362
+  %326 = getelementptr ptr, ptr %296, i64 %.0168362
   store ptr %325, ptr %326, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %327 = add nuw nsw i64 %.0168362, 1
@@ -59614,7 +59614,7 @@ Py_DECREF.exit230:                                ; preds = %405, %412, %415
 
 421:                                              ; preds = %416
   %422 = load ptr, ptr %12, align 8, !tbaa !151
-  %423 = getelementptr [1 x ptr], ptr %393, i64 0, i64 %.0160365
+  %423 = getelementptr ptr, ptr %393, i64 %.0160365
   store ptr %422, ptr %423, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %424 = add nuw nsw i64 %.0160365, 1
@@ -61857,7 +61857,7 @@ Py_DECREF.exit78:                                 ; preds = %_Py_EnterRecursiveC
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr %8, align 8, !tbaa !141
-  %143 = getelementptr [1 x ptr], ptr %110, i64 0, i64 %.054114
+  %143 = getelementptr ptr, ptr %110, i64 %.054114
   store ptr %142, ptr %143, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %144 = add nuw nsw i64 %.054114, 1
@@ -62527,7 +62527,7 @@ Py_DECREF.exit182:                                ; preds = %259, %266, %269
 
 275:                                              ; preds = %270
   %276 = load ptr, ptr %11, align 8, !tbaa !141
-  %277 = getelementptr [1 x ptr], ptr %247, i64 0, i64 %.0126258
+  %277 = getelementptr ptr, ptr %247, i64 %.0126258
   store ptr %276, ptr %277, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %278 = add nuw nsw i64 %.0126258, 1
@@ -64365,7 +64365,7 @@ Py_DECREF.exit626:                                ; preds = %279, %286, %289
 
 295:                                              ; preds = %290
   %296 = load ptr, ptr %10, align 8, !tbaa !481
-  %297 = getelementptr [1 x ptr], ptr %267, i64 0, i64 %.0416887
+  %297 = getelementptr ptr, ptr %267, i64 %.0416887
   store ptr %296, ptr %297, align 8, !tbaa !481
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %298 = add nuw nsw i64 %.0416887, 1
@@ -64545,7 +64545,7 @@ Py_DECREF.exit622:                                ; preds = %356, %363, %366
 
 372:                                              ; preds = %367
   %373 = load ptr, ptr %12, align 8, !tbaa !151
-  %374 = getelementptr [1 x ptr], ptr %344, i64 0, i64 %.0419881
+  %374 = getelementptr ptr, ptr %344, i64 %.0419881
   store ptr %373, ptr %374, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %375 = add nuw nsw i64 %.0419881, 1
@@ -64688,7 +64688,7 @@ Py_DECREF.exit618:                                ; preds = %419, %426, %429
 
 435:                                              ; preds = %430
   %436 = load ptr, ptr %13, align 8, !tbaa !481
-  %437 = getelementptr [1 x ptr], ptr %407, i64 0, i64 %.0420884
+  %437 = getelementptr ptr, ptr %407, i64 %.0420884
   store ptr %436, ptr %437, align 8, !tbaa !481
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %438 = add nuw nsw i64 %.0420884, 1
@@ -65010,7 +65010,7 @@ Py_DECREF.exit608:                                ; preds = %558, %565, %568
 
 574:                                              ; preds = %569
   %575 = load ptr, ptr %15, align 8, !tbaa !481
-  %576 = getelementptr [1 x ptr], ptr %546, i64 0, i64 %.0424872
+  %576 = getelementptr ptr, ptr %546, i64 %.0424872
   store ptr %575, ptr %576, align 8, !tbaa !481
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %577 = add nuw nsw i64 %.0424872, 1
@@ -65152,7 +65152,7 @@ Py_DECREF.exit604:                                ; preds = %621, %628, %631
 
 637:                                              ; preds = %632
   %638 = load ptr, ptr %16, align 8, !tbaa !4
-  %639 = getelementptr [1 x ptr], ptr %609, i64 0, i64 %.0425875
+  %639 = getelementptr ptr, ptr %609, i64 %.0425875
   store ptr %638, ptr %639, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %640 = add nuw nsw i64 %.0425875, 1
@@ -65295,7 +65295,7 @@ Py_DECREF.exit600:                                ; preds = %685, %692, %695
 
 701:                                              ; preds = %696
   %702 = load ptr, ptr %17, align 8, !tbaa !481
-  %703 = getelementptr [1 x ptr], ptr %673, i64 0, i64 %.0426878
+  %703 = getelementptr ptr, ptr %673, i64 %.0426878
   store ptr %702, ptr %703, align 8, !tbaa !481
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %704 = add nuw nsw i64 %.0426878, 1
@@ -65788,7 +65788,7 @@ Py_DECREF.exit584:                                ; preds = %887, %894, %897
 
 903:                                              ; preds = %898
   %904 = load ptr, ptr %21, align 8, !tbaa !481
-  %905 = getelementptr [1 x ptr], ptr %875, i64 0, i64 %.0404871
+  %905 = getelementptr ptr, ptr %875, i64 %.0404871
   store ptr %904, ptr %905, align 8, !tbaa !481
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %906 = add nuw nsw i64 %.0404871, 1
@@ -66247,7 +66247,7 @@ Py_DECREF.exit90:                                 ; preds = %_Py_EnterRecursiveC
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %9, align 8, !tbaa !151
-  %128 = getelementptr [1 x ptr], ptr %95, i64 0, i64 %.059125
+  %128 = getelementptr ptr, ptr %95, i64 %.059125
   store ptr %127, ptr %128, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %129 = add nuw nsw i64 %.059125, 1

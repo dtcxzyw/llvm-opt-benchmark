@@ -4075,7 +4075,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EE9push_backERKS1_.exit: ; preds = %1526, %_ZNSt6vect
   %1553 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1554 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1552, ptr nonnull align 4 %1553, i64 %1554, i1 false)
-  %1555 = getelementptr inbounds nuw [1024 x i8], ptr %1552, i64 0, i64 %1554
+  %1555 = getelementptr inbounds nuw i8, ptr %1552, i64 %1554
   store i8 0, ptr %1555, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -4581,7 +4581,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP6aiBoneSt6vectorIS3_SaIS3_EEEES4_ET0_
 
 128:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
-  %129 = getelementptr inbounds nuw [3 x i32], ptr %73, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
   %132 = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %131
@@ -4632,7 +4632,7 @@ define noundef nonnull ptr @_ZN6Assimp19SkeletonMeshBuilder14CreateMaterialEv(pt
   %17 = load ptr, ptr %4, align 8
   %18 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %17, i64 %18, i1 false)
-  %19 = getelementptr inbounds nuw [1024 x i8], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   store i8 0, ptr %19, align 1
   %20 = icmp eq ptr %17, %7
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

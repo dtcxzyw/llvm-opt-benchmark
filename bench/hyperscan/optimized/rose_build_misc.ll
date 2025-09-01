@@ -3505,7 +3505,7 @@ define hidden void @_ZN3ue220normaliseLiteralMaskERKNS_11ue2_literalERSt6vectorI
 
 46:                                               ; preds = %49, %45
   %.0710.i.i = phi i64 [ 0, %45 ], [ %50, %49 ]
-  %47 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i
   %48 = load i64, ptr %47, align 8
   %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %49, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -3561,7 +3561,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
   br label %75
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw i64, ptr %5, i64 %66
   %70 = load i64, ptr %69, align 8
   %71 = shl nsw i64 -2, %67
   %72 = and i64 %70, %71
@@ -3579,7 +3579,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
 
 77:                                               ; preds = %75
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %78 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0.i.i
+  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.0.i.i
   %79 = load i64, ptr %78, align 8
   %.not22.i.i = icmp eq i64 %79, 0
   br i1 %.not22.i.i, label %75, label %80, !llvm.loop !263

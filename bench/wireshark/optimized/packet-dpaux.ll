@@ -336,7 +336,7 @@ switch.hole_check:                                ; preds = %109
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %112 = zext nneg i8 %76 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_dpaux, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dpaux, i64 %112
   %switch.load = load ptr, ptr %switch.gep, align 8
   %113 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 25, ptr noundef nonnull %switch.load)
@@ -406,7 +406,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 150:                                              ; preds = %149, %137
   %indvars.iv.i.i = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i, %149 ]
-  %151 = getelementptr [5 x %struct.dpaux_register], ptr @registers, i64 0, i64 %indvars.iv.i.i
+  %151 = getelementptr %struct.dpaux_register, ptr @registers, i64 %indvars.iv.i.i
   %152 = load i32, ptr %151, align 8
   %153 = icmp eq i32 %152, %148
   br i1 %153, label %154, label %149

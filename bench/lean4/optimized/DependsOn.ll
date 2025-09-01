@@ -619,7 +619,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at___private_Lean_Com
 
 8:                                                ; preds = %.lr.ph, %6
   %.01532 = phi i64 [ %1, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01532
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01532
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -1145,7 +1145,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at___private_Lean_Com
 
 8:                                                ; preds = %.lr.ph, %6
   %.01734 = phi i64 [ %1, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01734
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01734
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1

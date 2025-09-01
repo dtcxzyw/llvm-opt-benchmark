@@ -98,7 +98,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br label %46
 
 zend_string_alloc.exit:                           ; preds = %28
-  %36 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %29
+  %36 = getelementptr inbounds i8, ptr %4, i64 %29
   store i8 0, ptr %36, align 1, !tbaa !4
   %37 = and i64 %29, -8
   %38 = add i64 %37, 32
@@ -112,7 +112,7 @@ zend_string_alloc.exit:                           ; preds = %28
   store i64 %29, ptr %42, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 16 %4, i64 range(i64 0, -1) %29, i1 false)
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %29
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %29
   store i8 0, ptr %44, align 1, !tbaa !4
   store ptr %39, ptr %1, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8

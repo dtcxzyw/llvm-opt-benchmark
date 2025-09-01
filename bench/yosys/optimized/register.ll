@@ -9316,7 +9316,7 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode.exit: ; pre
 
 308:                                              ; preds = %307
   %309 = trunc i32 %306 to i8
-  %310 = getelementptr inbounds nuw [3 x i8], ptr %22, i64 0, i64 %indvars.iv
+  %310 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   store i8 %309, ptr %310, align 1, !tbaa !24
   br label %313
 

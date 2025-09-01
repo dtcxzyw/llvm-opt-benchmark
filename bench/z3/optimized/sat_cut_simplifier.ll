@@ -8211,7 +8211,7 @@ _ZN6vectorIN3sat14cut_simplifier7bin_relELb0EjE3endEv.exit: ; preds = %._crit_ed
   %84 = phi i64 [ %81, %.lr.ph134.lr.ph ], [ %83, %.loopexit108 ]
   %indvars.iv251 = phi i32 [ %82, %.lr.ph134.lr.ph ], [ %indvars.iv.next, %.loopexit108 ]
   %85 = zext i32 %indvars.iv251 to i64
-  %86 = getelementptr inbounds nuw [5 x i32], ptr %79, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw i32, ptr %79, i64 %84
   br label %88
 
 ._crit_edge136:                                   ; preds = %.loopexit108, %.preheader.lr.ph, %.lr.ph140
@@ -8227,7 +8227,7 @@ _ZN6vectorIN3sat14cut_simplifier7bin_relELb0EjE3endEv.exit: ; preds = %._crit_ed
   br i1 %.not.i, label %91, label %_ZNK3sat3cutixEj.exit
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw [5 x i32], ptr %79, i64 0, i64 %indvars.iv165
+  %92 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv165
   %93 = load i32, ptr %92, align 4, !tbaa !97
   br label %_ZNK3sat3cutixEj.exit
 
@@ -9219,7 +9219,7 @@ _ZNK6vectorIN3sat7cut_setELb1EjE3endEv.exit:      ; preds = %2
   br i1 %38, label %_ZNK3sat3cutixEj.exit23.lr.ph.i, label %.loopexit.i
 
 _ZNK3sat3cutixEj.exit23.lr.ph.i:                  ; preds = %37
-  %39 = getelementptr inbounds nuw [5 x i32], ptr %28, i64 0, i64 %indvars.iv50.i
+  %39 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv50.i
   %40 = load i32, ptr %39, align 4, !tbaa !97
   %41 = trunc nuw i64 %indvars.iv50.i to i32
   %42 = shl nuw i32 1, %41
@@ -9228,7 +9228,7 @@ _ZNK3sat3cutixEj.exit23.lr.ph.i:                  ; preds = %37
 _ZNK3sat3cutixEj.exit23.i:                        ; preds = %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread.i, %_ZNK3sat3cutixEj.exit23.lr.ph.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.i, %_ZNK3sat3cutixEj.exit23.lr.ph.i ], [ %indvars.iv.next48.i, %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread.i ]
   %.135.i = phi i64 [ %.02138.i, %_ZNK3sat3cutixEj.exit23.lr.ph.i ], [ %.2.i, %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread.i ]
-  %43 = getelementptr inbounds nuw [5 x i32], ptr %28, i64 0, i64 %indvars.iv47.i
+  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv47.i
   %44 = load i32, ptr %43, align 4, !tbaa !97
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %40, i32 %44)
   %spec.select28.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %44)
@@ -9867,7 +9867,7 @@ define hidden noundef zeroext i1 @_ZN3sat14cut_simplifier13add_dont_careERKNS_3c
   br i1 %17, label %_ZNK3sat3cutixEj.exit23.lr.ph, label %.loopexit
 
 _ZNK3sat3cutixEj.exit23.lr.ph:                    ; preds = %16
-  %18 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv50
+  %18 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv50
   %19 = load i32, ptr %18, align 4, !tbaa !97
   %20 = trunc nuw i64 %indvars.iv50 to i32
   %21 = shl nuw i32 1, %20
@@ -9876,7 +9876,7 @@ _ZNK3sat3cutixEj.exit23.lr.ph:                    ; preds = %16
 _ZNK3sat3cutixEj.exit23:                          ; preds = %_ZNK3sat3cutixEj.exit23.lr.ph, %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread
   %indvars.iv47 = phi i64 [ %indvars.iv, %_ZNK3sat3cutixEj.exit23.lr.ph ], [ %indvars.iv.next48, %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread ]
   %.135 = phi i64 [ %.02138, %_ZNK3sat3cutixEj.exit23.lr.ph ], [ %.2, %_ZNK14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.thread ]
-  %22 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv47
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv47
   %23 = load i32, ptr %22, align 4, !tbaa !97
   %spec.select = tail call i32 @llvm.umax.i32(i32 %19, i32 %23)
   %spec.select28 = tail call i32 @llvm.umin.i32(i32 %19, i32 %23)

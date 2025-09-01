@@ -2157,7 +2157,7 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
           to label %547 unwind label %.loopexit.split-lp857
 
 547:                                              ; preds = %545
-  %548 = getelementptr inbounds nuw [3 x i32], ptr @__const.main.log_level_mitsuba, i64 0, i64 %.0822.lcssa
+  %548 = getelementptr inbounds nuw i32, ptr @__const.main.log_level_mitsuba, i64 %.0822.lcssa
   %549 = load i32, ptr %548, align 4
   invoke void @_ZN7mitsuba6Logger13set_log_levelENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(24) %546, i32 noundef %549)
           to label %550 unwind label %.loopexit.split-lp857

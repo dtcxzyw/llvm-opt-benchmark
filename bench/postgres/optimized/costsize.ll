@@ -7611,7 +7611,7 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
 
 60:                                               ; preds = %64, %.lr.ph.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %64 ], [ 0, %.lr.ph.split.us.i ]
-  %61 = getelementptr inbounds nuw [32 x ptr], ptr %42, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, %57
   br i1 %63, label %.split.us.i, label %64
@@ -7639,13 +7639,13 @@ define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr no
   br i1 %.not121.i, label %72, label %68
 
 68:                                               ; preds = %.lr.ph.split.i
-  %69 = getelementptr inbounds nuw [32 x ptr], ptr %42, i64 0, i64 %indvars.iv167.i
+  %69 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv167.i
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %66
   br i1 %71, label %.split.us.i, label %76
 
 72:                                               ; preds = %.lr.ph.split.i
-  %73 = getelementptr inbounds nuw [32 x ptr], ptr %43, i64 0, i64 %indvars.iv167.i
+  %73 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv167.i
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i1 @list_member_ptr(ptr noundef %74, ptr noundef nonnull %53) #17
   br i1 %75, label %.split.us.i, label %._crit_edge.i
@@ -7731,7 +7731,7 @@ list_length.exit.i:                               ; preds = %.critedge123.i
 113:                                              ; preds = %128, %.lr.ph153.i
   %indvars.iv170.i = phi i64 [ 0, %.lr.ph153.i ], [ %indvars.iv.next171.i, %128 ]
   %.4152.i = phi double [ %.2.i, %.lr.ph153.i ], [ %.5.i, %128 ]
-  %114 = getelementptr inbounds nuw [32 x ptr], ptr %42, i64 0, i64 %indvars.iv170.i
+  %114 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv170.i
   %115 = load ptr, ptr %114, align 8
   %.not119.i = icmp eq ptr %115, null
   br i1 %.not119.i, label %128, label %116
@@ -7743,7 +7743,7 @@ list_length.exit.i:                               ; preds = %.critedge123.i
   br i1 %119, label %120, label %128
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw [32 x ptr], ptr %112, i64 0, i64 %indvars.iv170.i
+  %121 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv170.i
   %122 = load ptr, ptr %121, align 8
   %123 = tail call ptr @find_derived_clause_for_ec_member(ptr noundef nonnull %115, ptr noundef %122) #17
   %.not120.i = icmp eq ptr %123, null

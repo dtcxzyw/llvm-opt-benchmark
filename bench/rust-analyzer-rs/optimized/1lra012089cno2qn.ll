@@ -60515,7 +60515,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h690c86cd9c73be5aE(p
 
 .lr.ph.i.i.i.i:                                   ; preds = %61, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h72ab3f3cd61b3fa9E.exit.i.i.i7.i"
   %.012.i.i.i.i = phi i64 [ %64, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h72ab3f3cd61b3fa9E.exit.i.i.i7.i" ], [ 0, %61 ]
-  %63 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %58, i64 0, i64 %.012.i.i.i.i
+  %63 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %58, i64 %.012.i.i.i.i
   %64 = add nuw i64 %.012.i.i.i.i, 1
   %65 = getelementptr i8, ptr %63, i64 8
   %.val9.i.i.i.i = load i64, ptr %65, align 8, !alias.scope !17674, !noalias !17638, !noundef !4
@@ -102619,7 +102619,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$thread_local..Entry$LT
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit"
   %.09 = phi i64 [ %5, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { { { [4 x i64] } }, { i8 }, [7 x i8] }], ptr %0, i64 0, i64 %.09
+  %4 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %0, i64 %.09
   %5 = add nuw i64 %.09, 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load i8, ptr %6, align 8, !range !1411, !alias.scope !28789, !noundef !4
@@ -102646,7 +102646,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$thread_local..Entry$LT
 
 .lr.ph12:                                         ; preds = %12, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit8"
   %.110 = phi i64 [ %16, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit8" ], [ %5, %12 ]
-  %15 = getelementptr inbounds [0 x { { { [4 x i64] } }, { i8 }, [7 x i8] }], ptr %0, i64 0, i64 %.110
+  %15 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %0, i64 %.110
   %16 = add i64 %.110, 1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i8, ptr %17, align 8, !range !1411, !alias.scope !28794, !noundef !4
@@ -102762,7 +102762,7 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$$u5b$t
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit.i"
   %.09.i = phi i64 [ %7, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit.i" ], [ 0, %1 ]
-  %6 = getelementptr inbounds [0 x { { { [4 x i64] } }, { i8 }, [7 x i8] }], ptr %2, i64 0, i64 %.09.i
+  %6 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %2, i64 %.09.i
   %7 = add nuw i64 %.09.i, 1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i8, ptr %8, align 1, !range !1411, !alias.scope !28805, !noundef !4
@@ -102786,7 +102786,7 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$$u5b$t
 
 .lr.ph12.i:                                       ; preds = %14, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit8.i"
   %.110.i = phi i64 [ %18, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h9e072fbca8b70769E.exit8.i" ], [ %7, %14 ]
-  %17 = getelementptr inbounds [0 x { { { [4 x i64] } }, { i8 }, [7 x i8] }], ptr %2, i64 0, i64 %.110.i
+  %17 = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %2, i64 %.110.i
   %18 = add i64 %.110.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %20 = load i8, ptr %19, align 1, !range !1411, !alias.scope !28812, !noundef !4
@@ -110316,7 +110316,7 @@ define hidden noundef range(i32 0, 37) i32 @"_ZN74_$LT$scip..scip_mod..scip..Syn
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !30826, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [39 x i32], ptr @"switch.table._ZN74_$LT$scip..scip_mod..scip..SyntaxKind$u20$as$u20$protobuf..enums..Enum$GT$5value17h6cc2f602ba71cb78E.llvm.1186121590401690724", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN74_$LT$scip..scip_mod..scip..SyntaxKind$u20$as$u20$protobuf..enums..Enum$GT$5value17h6cc2f602ba71cb78E.llvm.1186121590401690724", i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

@@ -1687,7 +1687,7 @@ _ZL14set_table_typePiPK19interaction_const_tb.exit: ; preds = %.thread78.i.threa
 
 132:                                              ; preds = %.outer, %135
   %indvars.iv = phi i64 [ %indvars.iv.next, %135 ], [ %indvars.iv.ph, %.outer ]
-  %133 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %134 = load i32, ptr %133, align 4, !tbaa !4
   switch i32 %134, label %135 [
     i32 17, label %.thread225
@@ -2104,7 +2104,7 @@ _ZNSt6vectorI11t_tabledataSaIS0_EED2Ev.exit98:    ; preds = %_ZSt8_DestroyIP11t_
 
 328:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
   %indvars.iv160 = phi i64 [ 0, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %indvars.iv.next161, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit ]
-  %329 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv160
+  %329 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv160
   %330 = load i32, ptr %329, align 4, !tbaa !4
   %.not71 = icmp eq i32 %330, 17
   br i1 %.not71, label %813, label %331
@@ -2263,7 +2263,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 .thread.i103:                                     ; preds = %405
   %407 = sext i32 %330 to i64
-  %408 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %407, i32 1
+  %408 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %407, i32 1
   %409 = load i8, ptr %408, align 8, !tbaa !114, !range !95, !noundef !96
   %410 = trunc nuw i8 %409 to i1
   %.in.in.v.i = select i1 %410, i64 72, i64 4
@@ -2277,7 +2277,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 .thread366.i:                                     ; preds = %405, %.thread.i103
   %412 = phi i1 [ %411, %.thread.i103 ], [ true, %405 ]
   %413 = sext i32 %330 to i64
-  %414 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %413, i32 1
+  %414 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %413, i32 1
   %415 = load i8, ptr %414, align 8, !tbaa !114, !range !95, !noundef !96
   %416 = trunc nuw i8 %415 to i1
   br i1 %416, label %.thread369.thread.i, label %.thread369.thread401.i
@@ -2305,12 +2305,12 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 .thread370.i:                                     ; preds = %_ZN11t_tabledataD2Ev.exit
   %.phi.trans.insert.i = sext i32 %330 to i64
-  %.phi.trans.insert392.i = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i, i32 1
+  %.phi.trans.insert392.i = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %.phi.trans.insert.i, i32 1
   %.pre.i = load i8, ptr %.phi.trans.insert392.i, align 8, !tbaa !114, !range !95
   %.pre.fr.i = freeze i8 %.pre.i
   %421 = trunc i8 %.pre.fr.i to i1
   %422 = load double, ptr %289, align 8, !tbaa !118
-  %423 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i
+  %423 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %.phi.trans.insert.i
   br i1 %421, label %424, label %425
 
 424:                                              ; preds = %.thread370.i
@@ -2334,7 +2334,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %429 = phi i1 [ %411, %.thread369.i._crit_edge165 ], [ %412, %.thread369.thread.i ]
   %430 = icmp eq i32 %427, 1
   %431 = load double, ptr %289, align 8, !tbaa !118
-  %432 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi
+  %432 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %.pre-phi
   %.0332.in457.i = load float, ptr %.0332.in.in456.i, align 8, !tbaa !19
   %.0332458.i = fpext float %.0332.in457.i to double
   %.0355.in459.i = load float, ptr %.0355.in.in422.i, align 4, !tbaa !19
@@ -2348,7 +2348,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %436 = phi i1 [ %411, %.thread369.i._crit_edge ], [ %412, %.thread369.thread401.i ]
   %437 = icmp eq i32 %434, 1
   %438 = load double, ptr %289, align 8, !tbaa !118
-  %439 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi167
+  %439 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %.pre-phi167
   %.0332.in.i = load float, ptr %.0332.in.in.i, align 4, !tbaa !19
   %.0332.i = fpext float %.0332.in.i to double
   %.0355.in.i = load float, ptr %.0355.in.in436.i, align 8, !tbaa !19
@@ -3013,7 +3013,7 @@ _ZL10fill_tableP11t_tabledataiPK19interaction_const_tb.exit: ; preds = %790, %.p
   %803 = getelementptr inbounds nuw %struct.t_tabledata, ptr %802, i64 %indvars.iv160
   %804 = load i32, ptr %803, align 8, !tbaa !73
   %805 = sext i32 %330 to i64
-  %806 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %805
+  %806 = getelementptr inbounds %struct.t_tab_props, ptr @_ZL6tprops, i64 %805
   %807 = load ptr, ptr %806, align 16, !tbaa !119
   %808 = getelementptr inbounds nuw i8, ptr %803, i64 8
   %809 = load double, ptr %808, align 8, !tbaa !81

@@ -4373,7 +4373,7 @@ switch.lookup:                                    ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %87 = load ptr, ptr %86, align 8, !nonnull !3, !align !4, !noundef !3
   %88 = load i64, ptr %87, align 8, !range !125, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table._ZN13ruff_notebook8notebook8Notebook11from_reader17hfa8cc3ea2ab95828E, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13ruff_notebook8notebook8Notebook11from_reader17hfa8cc3ea2ab95828E, i64 %88
   %switch.load = load i64, ptr %switch.gep, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %switch.load, ptr %89, align 8
@@ -4602,7 +4602,7 @@ switch.lookup:                                    ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %88 = load ptr, ptr %87, align 8, !nonnull !3, !align !4, !noundef !3
   %89 = load i64, ptr %88, align 8, !range !125, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table._ZN13ruff_notebook8notebook8Notebook11from_reader17hfa8cc3ea2ab95828E, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13ruff_notebook8notebook8Notebook11from_reader17hfa8cc3ea2ab95828E, i64 %89
   %switch.load = load i64, ptr %switch.gep, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %switch.load, ptr %90, align 8

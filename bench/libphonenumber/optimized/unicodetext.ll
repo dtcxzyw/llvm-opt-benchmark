@@ -2939,7 +2939,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phone
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = load i8, ptr %2, align 1, !tbaa !10
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4i18n12phonenumbers6UniLibL11kUTF8LenTblE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN4i18n12phonenumbers6UniLibL11kUTF8LenTblE, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !10
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7

@@ -424,12 +424,12 @@ lg_g15_get_initial_led_brightness.exit.thread.thread: ; preds = %89, %lg_g15_get
 
 187:                                              ; preds = %.preheader, %184
   %188 = phi i64 [ %185, %184 ], [ 0, %.preheader ]
-  %189 = getelementptr [6 x ptr], ptr @lg_g15_probe.led_names, i64 0, i64 %188
+  %189 = getelementptr ptr, ptr @lg_g15_probe.led_names, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = trunc i64 %188 to i32
   %sext = shl i64 %188, 32
   %192 = ashr exact i64 %sext, 32
-  %193 = getelementptr [6 x %struct.lg_g15_led], ptr %183, i64 0, i64 %192
+  %193 = getelementptr %struct.lg_g15_led, ptr %183, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 412
   store i32 %191, ptr %194, align 4
   store ptr %190, ptr %193, align 8
@@ -1119,7 +1119,7 @@ declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @lg_g15_register_led(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = sext i32 %1 to i64
-  %6 = getelementptr [6 x %struct.lg_g15_led], ptr %4, i64 0, i64 %5
+  %6 = getelementptr %struct.lg_g15_led, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 412
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %6, align 8
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
   %35 = phi i8 [ %33, %27 ], [ 0, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = zext nneg i32 %1 to i64
-  %38 = getelementptr [6 x %struct.lg_g15_led], ptr %36, i64 0, i64 %37
+  %38 = getelementptr %struct.lg_g15_led, ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 416
   store i8 %35, ptr %39, align 8
   %40 = icmp eq i8 %18, 0
@@ -1308,7 +1308,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g510_get_initial_led_brightness(p
 63:                                               ; preds = %14
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = zext nneg i32 %1 to i64
-  %66 = getelementptr [6 x %struct.lg_g15_led], ptr %64, i64 0, i64 %65
+  %66 = getelementptr %struct.lg_g15_led, ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 416
   store i8 -1, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 417

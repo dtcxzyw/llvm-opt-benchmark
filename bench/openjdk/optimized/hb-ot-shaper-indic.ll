@@ -50,7 +50,7 @@ define internal void @_ZL22collect_features_indicP21hb_ot_shape_planner_t(ptr no
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [17 x %struct.hb_ot_map_feature_t], ptr @_ZL14indic_features, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14indic_features, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
@@ -66,7 +66,7 @@ define internal void @_ZL22collect_features_indicP21hb_ot_shape_planner_t(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv17 = phi i64 [ 11, %.lr.ph.preheader ], [ %indvars.iv.next18, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [17 x %struct.hb_ot_map_feature_t], ptr @_ZL14indic_features, i64 0, i64 %indvars.iv17
+  %8 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14indic_features, i64 %indvars.iv17
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
@@ -106,7 +106,7 @@ define internal noalias noundef ptr @_ZL17data_create_indicPK18hb_ot_shape_plan_
 
 7:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw [10 x %struct.indic_config_t], ptr @_ZL13indic_configs, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.indic_config_t, ptr @_ZL13indic_configs, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %5, %9
   br i1 %10, label %11, label %6
@@ -686,7 +686,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126: ; preds
 
 _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us: ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us ], [ 0, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126 ]
-  %291 = getelementptr inbounds nuw [17 x %struct.hb_ot_map_feature_t], ptr @_ZL14indic_features, i64 0, i64 %indvars.iv160
+  %291 = getelementptr inbounds nuw %struct.hb_ot_map_feature_t, ptr @_ZL14indic_features, i64 %indvars.iv160
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 4
   %293 = load i32, ptr %292, align 4
   %294 = and i32 %293, 1
@@ -734,7 +734,7 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.us:          ; preds = %310, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us
   %311 = phi i32 [ 0, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us ], [ %307, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us ], [ 0, %310 ]
-  %312 = getelementptr inbounds nuw [17 x i32], ptr %289, i64 0, i64 %indvars.iv160
+  %312 = getelementptr inbounds nuw i32, ptr %289, i64 %indvars.iv160
   store i32 %311, ptr %312, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 17
@@ -3925,18 +3925,18 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   %.1225 = phi i32 [ %spec.select267, %222 ], [ 0, %1 ]
   %.1 = phi i32 [ %226, %222 ], [ 0, %1 ]
   %8 = zext nneg i32 %.1242 to i64
-  %9 = getelementptr inbounds nuw [138 x i8], ptr @_ZL42_indic_syllable_machine_from_state_actions, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZL42_indic_syllable_machine_from_state_actions, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 10
   %spec.select = select i1 %cond, i32 %.1, i32 %.1225
   %11 = shl nuw nsw i32 %.1242, 1
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr @_ZL34_indic_syllable_machine_trans_keys, i64 %12
-  %14 = getelementptr inbounds nuw [138 x i16], ptr @_ZL37_indic_syllable_machine_index_offsets, i64 0, i64 %8
+  %14 = getelementptr inbounds nuw i16, ptr @_ZL37_indic_syllable_machine_index_offsets, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL32_indic_syllable_machine_indicies, i64 %16
-  %18 = getelementptr inbounds nuw [138 x i8], ptr @_ZL33_indic_syllable_machine_key_spans, i64 0, i64 %8
+  %18 = getelementptr inbounds nuw i8, ptr @_ZL33_indic_syllable_machine_key_spans, i64 %8
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
@@ -3971,10 +3971,10 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   %.3227 = phi i32 [ %.0224, %228 ], [ %spec.select, %30 ]
   %.2 = phi i32 [ %5, %228 ], [ %.1, %30 ]
   %36 = and i64 %.0228, 4294967295
-  %37 = getelementptr inbounds nuw [150 x i8], ptr @_ZL35_indic_syllable_machine_trans_targs, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZL35_indic_syllable_machine_trans_targs, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds nuw [150 x i8], ptr @_ZL37_indic_syllable_machine_trans_actions, i64 0, i64 %36
+  %40 = getelementptr inbounds nuw i8, ptr @_ZL37_indic_syllable_machine_trans_actions, i64 %36
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %222 [
     i8 12, label %220
@@ -4454,7 +4454,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   %.3232 = phi i32 [ %43, %42 ], [ %45, %._crit_edge325 ], [ %.2, %._crit_edge321 ], [ %.2, %._crit_edge317 ], [ %.2, %._crit_edge313 ], [ %.2, %._crit_edge309 ], [ %.2, %._crit_edge305 ], [ %.2, %._crit_edge301 ], [ %.2231, %._crit_edge297 ], [ %.2231, %._crit_edge293 ], [ %.2231, %._crit_edge289 ], [ %.2231, %._crit_edge285 ], [ %.2231, %._crit_edge281 ], [ %.2231, %180 ], [ %.2231, %._crit_edge277 ], [ %.2231, %._crit_edge273 ], [ %.2231, %._crit_edge ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %.2231, %35 ]
   %.3 = phi i32 [ %.2, %42 ], [ %.2, %._crit_edge325 ], [ %56, %._crit_edge321 ], [ %66, %._crit_edge317 ], [ %77, %._crit_edge313 ], [ %88, %._crit_edge309 ], [ %99, %._crit_edge305 ], [ %113, %._crit_edge301 ], [ %124, %._crit_edge297 ], [ %134, %._crit_edge293 ], [ %145, %._crit_edge289 ], [ %156, %._crit_edge285 ], [ %167, %._crit_edge281 ], [ %.2, %180 ], [ %182, %._crit_edge277 ], [ %192, %._crit_edge273 ], [ %206, %._crit_edge ], [ %.2, %216 ], [ %.2, %218 ], [ %.2, %220 ], [ %.2, %35 ]
   %223 = zext i8 %38 to i64
-  %224 = getelementptr inbounds nuw [138 x i8], ptr @_ZL40_indic_syllable_machine_to_state_actions, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr @_ZL40_indic_syllable_machine_to_state_actions, i64 %223
   %225 = load i8, ptr %224, align 1
   %cond1 = icmp eq i8 %225, 9
   %spec.select267 = select i1 %cond1, i32 0, i32 %.3227
@@ -4473,7 +4473,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
 
 228:                                              ; preds = %227
   %229 = zext nneg i32 %.0241 to i64
-  %230 = getelementptr inbounds nuw [138 x i16], ptr @_ZL33_indic_syllable_machine_eof_trans, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw i16, ptr @_ZL33_indic_syllable_machine_eof_trans, i64 %229
   %231 = load i16, ptr %230, align 2
   %232 = sext i16 %231 to i64
   %233 = add nsw i64 %232, 4294967295

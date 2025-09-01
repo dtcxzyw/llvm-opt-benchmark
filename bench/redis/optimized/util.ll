@@ -467,7 +467,7 @@ define dso_local i32 @stringmatchlen_fuzz_test() local_unnamed_addr #3 {
   %10 = tail call i32 @rand() #31
   %11 = srem i32 %10, 128
   %12 = trunc nsw i32 %11 to i8
-  %13 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %12, ptr %13, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -488,7 +488,7 @@ define dso_local i32 @stringmatchlen_fuzz_test() local_unnamed_addr #3 {
   %17 = tail call i32 @rand() #31
   %18 = srem i32 %17, 128
   %19 = trunc nsw i32 %18 to i8
-  %20 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv25
   store i8 %19, ptr %20, align 1, !tbaa !9
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
@@ -613,7 +613,7 @@ define dso_local i64 @memtoull(ptr noundef %0, ptr noundef writeonly captures(ad
 
 43:                                               ; preds = %.critedge.thread
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %0, i64 %39, i1 false)
-  %44 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %39
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   store i8 0, ptr %44, align 1, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = tail call ptr @__errno_location() #29
@@ -1146,7 +1146,7 @@ digits10.exit:                                    ; preds = %3, %5, %7, %15, %17
   %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %27, %25 ], [ %30, %28 ], [ %47, %digits10.exit.i ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %15 ]
   %48 = zext nneg i32 %.0.i to i64
   %.not = icmp ugt i64 %1, %48
-  br i1 %.not, label %49, label %91
+  br i1 %.not, label %49, label %84
 
 49:                                               ; preds = %digits10.exit
   %50 = add nsw i32 %.0.i, -1
@@ -1157,72 +1157,64 @@ digits10.exit:                                    ; preds = %3, %5, %7, %15, %17
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %.03036 = phi i64 [ %55, %.lr.ph ], [ %2, %49 ]
-  %.03135 = phi i32 [ %68, %.lr.ph ], [ %50, %49 ]
+  %.03135 = phi i32 [ %65, %.lr.ph ], [ %50, %49 ]
   %53 = urem i64 %.03036, 100
-  %.tr = trunc nuw nsw i64 %53 to i32
-  %54 = shl nuw nsw i32 %.tr, 1
+  %54 = shl nuw nsw i64 %53, 1
   %55 = udiv i64 %.03036, 100
-  %56 = or disjoint i32 %54, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !9
-  %60 = zext i32 %.03135 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  store i8 %59, ptr %61, align 1, !tbaa !9
-  %62 = zext nneg i32 %54 to i64
-  %63 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 2, !tbaa !9
-  %65 = add i32 %.03135, -1
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
-  store i8 %64, ptr %67, align 1, !tbaa !9
-  %68 = add i32 %.03135, -2
-  %69 = icmp ugt i64 %.03036, 9999
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  %56 = getelementptr inbounds nuw i8, ptr @fixedpoint_d2string.digitsd, i64 %54
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %58 = load i8, ptr %57, align 1, !tbaa !9
+  %59 = zext i32 %.03135 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
+  store i8 %58, ptr %60, align 1, !tbaa !9
+  %61 = load i8, ptr %56, align 2, !tbaa !9
+  %62 = add i32 %.03135, -1
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
+  store i8 %61, ptr %64, align 1, !tbaa !9
+  %65 = add i32 %.03135, -2
+  %66 = icmp ugt i64 %.03036, 9999
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
-  %.031.lcssa = phi i32 [ %50, %49 ], [ %68, %.lr.ph ]
+  %.031.lcssa = phi i32 [ %50, %49 ], [ %65, %.lr.ph ]
   %.030.lcssa = phi i64 [ %2, %49 ], [ %55, %.lr.ph ]
-  %70 = icmp samesign ult i64 %.030.lcssa, 10
-  br i1 %70, label %71, label %76
+  %67 = icmp samesign ult i64 %.030.lcssa, 10
+  br i1 %67, label %68, label %73
 
-71:                                               ; preds = %._crit_edge
-  %72 = trunc nuw nsw i64 %.030.lcssa to i8
-  %73 = or disjoint i8 %72, 48
-  %74 = zext i32 %.031.lcssa to i64
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %74
-  store i8 %73, ptr %75, align 1, !tbaa !9
-  br label %93
+68:                                               ; preds = %._crit_edge
+  %69 = trunc nuw nsw i64 %.030.lcssa to i8
+  %70 = or disjoint i8 %69, 48
+  %71 = zext i32 %.031.lcssa to i64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %71
+  store i8 %70, ptr %72, align 1, !tbaa !9
+  br label %86
 
-76:                                               ; preds = %._crit_edge
-  %77 = trunc nuw nsw i64 %.030.lcssa to i32
-  %78 = shl nuw nsw i32 %77, 1
-  %79 = or disjoint i32 %78, 1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !9
-  %83 = zext i32 %.031.lcssa to i64
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %83
-  store i8 %82, ptr %84, align 1, !tbaa !9
-  %85 = zext nneg i32 %78 to i64
-  %86 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 2, !tbaa !9
-  %88 = add i32 %.031.lcssa, -1
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %89
-  store i8 %87, ptr %90, align 1, !tbaa !9
-  br label %93
+73:                                               ; preds = %._crit_edge
+  %74 = shl nuw nsw i64 %.030.lcssa, 1
+  %75 = getelementptr inbounds nuw i8, ptr @fixedpoint_d2string.digitsd, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !9
+  %78 = zext i32 %.031.lcssa to i64
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %78
+  store i8 %77, ptr %79, align 1, !tbaa !9
+  %80 = load i8, ptr %75, align 2, !tbaa !9
+  %81 = add i32 %.031.lcssa, -1
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
+  store i8 %80, ptr %83, align 1, !tbaa !9
+  br label %86
 
-91:                                               ; preds = %digits10.exit
+84:                                               ; preds = %digits10.exit
   %.not34 = icmp eq i64 %1, 0
-  br i1 %.not34, label %93, label %92
+  br i1 %.not34, label %86, label %85
 
-92:                                               ; preds = %91
+85:                                               ; preds = %84
   store i8 0, ptr %0, align 1, !tbaa !9
-  br label %93
+  br label %86
 
-93:                                               ; preds = %91, %92, %71, %76
-  %.0 = phi i32 [ %.0.i, %76 ], [ %.0.i, %71 ], [ 0, %92 ], [ 0, %91 ]
+86:                                               ; preds = %84, %85, %68, %73
+  %.0 = phi i32 [ %.0.i, %73 ], [ %.0.i, %68 ], [ 0, %85 ], [ 0, %84 ]
   ret i32 %.0
 }
 
@@ -1612,7 +1604,7 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
 15:                                               ; preds = %base_16_char_type.exit
   %16 = sext i8 %6 to i64
   %17 = zext nneg i32 %.0.i to i64
-  %18 = getelementptr inbounds nuw [3 x i8], ptr @string2ul_base16_async_signal_safe.ascii_to_dec, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @string2ul_base16_async_signal_safe.ascii_to_dec, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !9
   %20 = sext i8 %19 to i64
   %21 = sub nsw i64 %16, %20
@@ -1652,7 +1644,7 @@ define dso_local range(i32 0, 2) i32 @string2ld(ptr noundef readonly captures(no
 
 7:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %0, i64 %1, i1 false)
-  %8 = getelementptr inbounds nuw [5120 x i8], ptr %4, i64 0, i64 %1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %1
   store i8 0, ptr %8, align 1, !tbaa !9
   %9 = tail call ptr @__errno_location() #29
   store i32 0, ptr %9, align 4, !tbaa !5
@@ -1912,7 +1904,7 @@ define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly
   %7 = add nuw nsw i32 %3, 3
   %8 = icmp sgt i32 %7, %6
   %or.cond90 = select i1 %or.cond, i1 true, i1 %8
-  br i1 %or.cond90, label %125, label %9
+  br i1 %or.cond90, label %118, label %9
 
 9:                                                ; preds = %4
   %10 = fcmp oeq double %2, 0.000000e+00
@@ -1929,11 +1921,11 @@ define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !9
-  br label %127
+  br label %120
 
 18:                                               ; preds = %9
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds nuw [18 x double], ptr @fixedpoint_d2string.powers_of_ten, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw double, ptr @fixedpoint_d2string.powers_of_ten, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !42
   %22 = fmul double %2, %21
   %23 = tail call i64 @llrint(double noundef %22) #31, !tbaa !5
@@ -1942,7 +1934,7 @@ define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly
 
 25:                                               ; preds = %18
   %26 = icmp ult i64 %1, 2
-  br i1 %26, label %125, label %27
+  br i1 %26, label %118, label %27
 
 27:                                               ; preds = %25
   %28 = sub i64 0, %23
@@ -2036,7 +2028,7 @@ digits10.exit:                                    ; preds = %59, %61, %63, %67, 
   %.0.i = phi i32 [ %47, %45 ], [ %50, %48 ], [ %55, %53 ], [ %58, %56 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ 4, %43 ], [ %71, %69 ], [ 13, %59 ], [ 14, %61 ], [ 15, %63 ], [ 16, %67 ], [ 19, %65 ]
   %72 = zext nneg i32 %.0.i to i64
   %.not86 = icmp ugt i64 %.172, %72
-  br i1 %.not86, label %73, label %125
+  br i1 %.not86, label %73, label %118
 
 73:                                               ; preds = %digits10.exit
   %74 = sub nsw i32 %.0.i, %3
@@ -2064,78 +2056,70 @@ digits10.exit:                                    ; preds = %59, %61, %63, %67, 
   %.06992 = phi i32 [ %spec.select, %.lr.ph ], [ %83, %77 ]
   %.291 = phi i64 [ %87, %.lr.ph ], [ %.175, %77 ]
   %85 = urem i64 %.291, 100
-  %.tr = trunc nuw nsw i64 %85 to i32
-  %86 = shl nuw nsw i32 %.tr, 1
+  %86 = shl nuw nsw i64 %85, 1
   %87 = udiv i64 %.291, 100
-  %88 = or disjoint i32 %86, 1
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !9
-  %92 = sext i32 %.06992 to i64
-  %93 = getelementptr inbounds i8, ptr %.1, i64 %92
-  store i8 %91, ptr %93, align 1, !tbaa !9
-  %94 = zext nneg i32 %86 to i64
-  %95 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 2, !tbaa !9
-  %97 = getelementptr i8, ptr %93, i64 -1
-  store i8 %96, ptr %97, align 1, !tbaa !9
-  %98 = add nsw i32 %.06992, -2
-  %99 = icmp eq i32 %98, %.073
-  %100 = add nsw i32 %.06992, -3
-  %spec.select = select i1 %99, i32 %100, i32 %98
-  %101 = icmp ugt i64 %.291, 9999
-  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  %88 = getelementptr inbounds nuw i8, ptr @fixedpoint_d2string.digitsd, i64 %86
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  %90 = load i8, ptr %89, align 1, !tbaa !9
+  %91 = sext i32 %.06992 to i64
+  %92 = getelementptr inbounds i8, ptr %.1, i64 %91
+  store i8 %90, ptr %92, align 1, !tbaa !9
+  %93 = load i8, ptr %88, align 2, !tbaa !9
+  %94 = getelementptr i8, ptr %92, i64 -1
+  store i8 %93, ptr %94, align 1, !tbaa !9
+  %95 = add nsw i32 %.06992, -2
+  %96 = icmp eq i32 %95, %.073
+  %97 = add nsw i32 %.06992, -3
+  %spec.select = select i1 %96, i32 %97, i32 %95
+  %98 = icmp ugt i64 %.291, 9999
+  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %77
   %.2.lcssa = phi i64 [ %.175, %77 ], [ %87, %.lr.ph ]
   %.069.lcssa = phi i32 [ %83, %77 ], [ %spec.select, %.lr.ph ]
-  %102 = icmp samesign ult i64 %.2.lcssa, 10
-  br i1 %102, label %103, label %108
+  %99 = icmp samesign ult i64 %.2.lcssa, 10
+  br i1 %99, label %100, label %105
 
-103:                                              ; preds = %._crit_edge
-  %104 = trunc nuw nsw i64 %.2.lcssa to i8
-  %105 = or disjoint i8 %104, 48
-  %106 = sext i32 %.069.lcssa to i64
-  %107 = getelementptr inbounds i8, ptr %.1, i64 %106
-  store i8 %105, ptr %107, align 1, !tbaa !9
-  br label %121
+100:                                              ; preds = %._crit_edge
+  %101 = trunc nuw nsw i64 %.2.lcssa to i8
+  %102 = or disjoint i8 %101, 48
+  %103 = sext i32 %.069.lcssa to i64
+  %104 = getelementptr inbounds i8, ptr %.1, i64 %103
+  store i8 %102, ptr %104, align 1, !tbaa !9
+  br label %114
 
-108:                                              ; preds = %._crit_edge
-  %109 = trunc nuw nsw i64 %.2.lcssa to i32
-  %110 = shl nuw nsw i32 %109, 1
-  %111 = or disjoint i32 %110, 1
-  %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !9
-  %115 = sext i32 %.069.lcssa to i64
-  %116 = getelementptr inbounds i8, ptr %.1, i64 %115
-  store i8 %114, ptr %116, align 1, !tbaa !9
-  %117 = zext nneg i32 %110 to i64
-  %118 = getelementptr inbounds nuw [201 x i8], ptr @fixedpoint_d2string.digitsd, i64 0, i64 %117
-  %119 = load i8, ptr %118, align 2, !tbaa !9
-  %120 = getelementptr i8, ptr %116, i64 -1
-  store i8 %119, ptr %120, align 1, !tbaa !9
-  br label %121
+105:                                              ; preds = %._crit_edge
+  %106 = shl nuw nsw i64 %.2.lcssa, 1
+  %107 = getelementptr inbounds nuw i8, ptr @fixedpoint_d2string.digitsd, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  %109 = load i8, ptr %108, align 1, !tbaa !9
+  %110 = sext i32 %.069.lcssa to i64
+  %111 = getelementptr inbounds i8, ptr %.1, i64 %110
+  store i8 %109, ptr %111, align 1, !tbaa !9
+  %112 = load i8, ptr %107, align 2, !tbaa !9
+  %113 = getelementptr i8, ptr %111, i64 -1
+  store i8 %112, ptr %113, align 1, !tbaa !9
+  br label %114
 
-121:                                              ; preds = %108, %103
-  %122 = zext nneg i32 %81 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %.1, i64 %122
-  store i8 0, ptr %123, align 1, !tbaa !9
-  %124 = add nuw nsw i32 %81, %.076
-  br label %127
+114:                                              ; preds = %105, %100
+  %115 = zext nneg i32 %81 to i64
+  %116 = getelementptr inbounds nuw i8, ptr %.1, i64 %115
+  store i8 0, ptr %116, align 1, !tbaa !9
+  %117 = add nuw nsw i32 %81, %.076
+  br label %120
 
-125:                                              ; preds = %digits10.exit, %25, %4
+118:                                              ; preds = %digits10.exit, %25, %4
   %.071 = phi i64 [ %1, %4 ], [ %1, %25 ], [ %.172, %digits10.exit ]
   %.068 = phi ptr [ %0, %4 ], [ %0, %25 ], [ %.1, %digits10.exit ]
   %.not87 = icmp eq i64 %.071, 0
-  br i1 %.not87, label %127, label %126
+  br i1 %.not87, label %120, label %119
 
-126:                                              ; preds = %125
+119:                                              ; preds = %118
   store i8 0, ptr %.068, align 1, !tbaa !9
-  br label %127
+  br label %120
 
-127:                                              ; preds = %125, %126, %121, %11
-  %.0 = phi i32 [ %15, %11 ], [ %124, %121 ], [ 0, %126 ], [ 0, %125 ]
+120:                                              ; preds = %118, %119, %114, %11
+  %.0 = phi i32 [ %15, %11 ], [ %117, %114 ], [ 0, %119 ], [ 0, %118 ]
   ret i32 %.0
 }
 
@@ -2349,7 +2333,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   %22 = xor i64 %21, %20
   %23 = xor i64 %22, %19
   %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds nuw [64 x i8], ptr @getRandomBytes.seed, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr @getRandomBytes.seed, i64 %indvars.iv
   store i8 %24, ptr %25, align 1, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2390,7 +2374,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %31 ]
-  %32 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv40
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv40
   %33 = load i8, ptr %32, align 1, !tbaa !9
   %34 = xor i8 %33, 54
   store i8 %34, ptr %32, align 1, !tbaa !9
@@ -2418,7 +2402,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
 
 41:                                               ; preds = %30, %41
   %indvars.iv44 = phi i64 [ 0, %30 ], [ %indvars.iv.next45, %41 ]
-  %42 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv44
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv44
   %43 = load i8, ptr %42, align 1, !tbaa !9
   %44 = xor i8 %43, 92
   store i8 %44, ptr %42, align 1, !tbaa !9
@@ -3332,7 +3316,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   %.0.i68 = phi i64 [ %.051, %88 ], [ %93, %89 ]
   %.07.i = getelementptr inbounds i8, ptr %.pn.i, i64 -1
   %90 = urem i64 %.0.i68, 10
-  %91 = getelementptr inbounds nuw [17 x i8], ptr @HEX, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @HEX, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !9
   store i8 %92, ptr %.07.i, align 1, !tbaa !9
   %93 = udiv i64 %.0.i68, 10
@@ -3361,7 +3345,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   %.050.i = phi ptr [ %11, %.loopexit55.i ], [ %103, %99 ]
   %.2.i = phi i64 [ %.1.i, %.loopexit55.i ], [ %104, %99 ]
   %100 = urem i64 %.2.i, %98
-  %101 = getelementptr inbounds nuw [17 x i8], ptr @HEX, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @HEX, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !9
   %103 = getelementptr inbounds i8, ptr %.050.i, i64 -1
   store i8 %102, ptr %.050.i, align 1, !tbaa !9

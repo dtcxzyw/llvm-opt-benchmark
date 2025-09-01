@@ -168,7 +168,7 @@ define void @av_channel_name_bprint(ptr noundef %0, i32 noundef %1) local_unname
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [63 x %struct.channel_name], ptr @channel_names, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.channel_name, ptr @channel_names, i64 %9
   %11 = load ptr, ptr %10, align 16, !tbaa !4
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -257,7 +257,7 @@ define void @av_channel_description_bprint(ptr noundef %0, i32 noundef %1) local
   br i1 %.not.not, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [63 x %struct.channel_name], ptr @channel_names, i64 0, i64 %9, i32 1
+  %13 = getelementptr inbounds nuw %struct.channel_name, ptr @channel_names, i64 %9, i32 1
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %14) #16
   br label %20
@@ -335,7 +335,7 @@ define i32 @av_channel_from_string(ptr noundef %0) local_unnamed_addr #2 {
 
 .preheader:                                       ; preds = %1, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw [63 x %struct.channel_name], ptr @channel_names, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.channel_name, ptr @channel_names, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16, !tbaa !4
   %.not29 = icmp eq ptr %10, null
   br i1 %.not29, label %13, label %11
@@ -519,7 +519,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_from_string(ptr noundef 
 
 14:                                               ; preds = %2, %21
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
-  %15 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.channel_layout_name, ptr @channel_layout_map, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 16, !tbaa !25
   %.not118 = icmp eq ptr %16, null
   br i1 %.not118, label %21, label %17
@@ -960,7 +960,7 @@ sub_0:                                            ; preds = %188
 
 .preheader137:                                    ; preds = %.tail, %199
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %199 ], [ 0, %.tail ]
-  %200 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv.i, i32 1
+  %200 = getelementptr inbounds nuw %struct.channel_layout_name, ptr @channel_layout_map, i64 %indvars.iv.i, i32 1
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %202 = load i32, ptr %201, align 4, !tbaa !36
   %203 = icmp eq i32 %202, %190
@@ -1172,7 +1172,7 @@ define void @av_channel_layout_default(ptr noundef writeonly captures(none) %0, 
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv, i32 1
+  %5 = getelementptr inbounds nuw %struct.channel_layout_name, ptr @channel_layout_map, i64 %indvars.iv, i32 1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !36
   %8 = icmp eq i32 %1, %7
@@ -1395,7 +1395,7 @@ define range(i32 -2147483648, 1) i32 @av_channel_layout_describe_bprint(ptr noun
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.channel_layout_name, ptr @channel_layout_map, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 16, !tbaa !17
   %12 = icmp eq i64 %6, %11
@@ -2282,7 +2282,7 @@ define ptr @av_channel_layout_standard(ptr noundef captures(none) %0) local_unna
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %2 to i64
-  %6 = getelementptr inbounds nuw [40 x %struct.channel_layout_name], ptr @channel_layout_map, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %struct.channel_layout_name, ptr @channel_layout_map, i64 %5, i32 1
   %7 = add nuw nsw i64 %5, 1
   %8 = inttoptr i64 %7 to ptr
   store ptr %8, ptr %0, align 8, !tbaa !28

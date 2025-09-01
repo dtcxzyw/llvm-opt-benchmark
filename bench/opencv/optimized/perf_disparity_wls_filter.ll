@@ -2688,10 +2688,10 @@ _ZN2cv3RNG7uniformEii.exit116.i:                  ; preds = %69, %_ZN2cv3RNG7uni
 
 92:                                               ; preds = %92, %89
   %indvars.iv.i.i = phi i64 [ 0, %89 ], [ %indvars.iv.next.i.i, %92 ]
-  %93 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %94 = load i8, ptr %93, align 1, !tbaa !22
   %95 = uitofp i8 %94 to double
-  %96 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %96 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i.i
   store double %95, ptr %96, align 8, !tbaa !192
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -2781,10 +2781,10 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit.i: ; preds = %92
 
 118:                                              ; preds = %118, %115
   %indvars.iv.i117.i = phi i64 [ 0, %115 ], [ %indvars.iv.next.i118.i, %118 ]
-  %119 = getelementptr inbounds nuw [3 x i8], ptr %15, i64 0, i64 %indvars.iv.i117.i
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i117.i
   %120 = load i8, ptr %119, align 1, !tbaa !22
   %121 = uitofp i8 %120 to double
-  %122 = getelementptr inbounds nuw [4 x double], ptr %14, i64 0, i64 %indvars.iv.i117.i
+  %122 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.i117.i
   store double %121, ptr %122, align 8, !tbaa !192
   %indvars.iv.next.i118.i = add nuw nsw i64 %indvars.iv.i117.i, 1
   %exitcond.not.i119.i = icmp eq i64 %indvars.iv.next.i118.i, 3

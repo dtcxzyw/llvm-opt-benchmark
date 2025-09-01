@@ -242,7 +242,7 @@ match_eclass_clauses_to_index.exit:               ; preds = %match_eclass_clause
 .lr.ph.i184:                                      ; preds = %102, %list_length.exit30.i
   %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i187, %list_length.exit30.i ], [ 0, %102 ]
   %.02831.i = phi i32 [ %119, %list_length.exit30.i ], [ 0, %102 ]
-  %106 = getelementptr inbounds nuw [32 x ptr], ptr %20, i64 0, i64 %indvars.iv.i185
+  %106 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i185
   %107 = load ptr, ptr %106, align 8
   %.not.i.i186 = icmp eq ptr %107, null
   br i1 %.not.i.i186, label %list_length.exit.i, label %108
@@ -256,7 +256,7 @@ list_length.exit.i:                               ; preds = %108, %.lr.ph.i184
   %111 = phi i32 [ %110, %108 ], [ 0, %.lr.ph.i184 ]
   %112 = add i32 %111, %.02831.i
   call fastcc void @consider_index_join_outer_rels(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %6, ptr noundef %107, i32 noundef %112, ptr noundef %3)
-  %113 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv.i185
+  %113 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i185
   %114 = load ptr, ptr %113, align 8
   %.not.i29.i = icmp eq ptr %114, null
   br i1 %.not.i29.i, label %list_length.exit30.i, label %115
@@ -3236,7 +3236,7 @@ define internal fastcc void @get_join_index_paths(ptr noundef %0, ptr noundef %1
 20:                                               ; preds = %.lr.ph84, %.critedge70
   %21 = phi i8 [ %.promoted, %.lr.ph84 ], [ %spec.select, %.critedge70 ]
   %indvars.iv90 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next91, %.critedge70 ]
-  %22 = getelementptr inbounds nuw [32 x ptr], ptr %16, i64 0, i64 %indvars.iv90
+  %22 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv90
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not = icmp eq ptr %23, null
@@ -3244,7 +3244,7 @@ define internal fastcc void @get_join_index_paths(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw [32 x ptr], ptr %17, i64 0, i64 %indvars.iv90
+  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv90
   %27 = load i32, ptr %24, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph78, label %.critedge
@@ -3262,7 +3262,7 @@ define internal fastcc void @get_join_index_paths(ptr noundef %0, ptr noundef %1
   br i1 %36, label %43, label %46
 
 .critedge:                                        ; preds = %46, %.lr.ph, %20
-  %37 = getelementptr inbounds nuw [32 x ptr], ptr %18, i64 0, i64 %indvars.iv90
+  %37 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv90
   %38 = load ptr, ptr %37, align 8
   %.not66 = icmp eq ptr %38, null
   br i1 %.not66, label %.critedge70, label %.lr.ph80
@@ -3307,16 +3307,16 @@ define internal fastcc void @get_join_index_paths(ptr noundef %0, ptr noundef %1
   br i1 %61, label %.split, label %50
 
 .split:                                           ; preds = %.critedge72
-  %62 = getelementptr inbounds nuw [32 x ptr], ptr %17, i64 0, i64 %indvars.iv90
+  %62 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv90
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @lappend(ptr noundef %63, ptr noundef nonnull %56) #8
   store ptr %64, ptr %62, align 8
   br label %.critedge70
 
 .critedge70:                                      ; preds = %50, %.critedge, %.lr.ph80, %.split
-  %65 = getelementptr inbounds nuw [32 x ptr], ptr %17, i64 0, i64 %indvars.iv90
+  %65 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv90
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw [32 x ptr], ptr %19, i64 0, i64 %indvars.iv90
+  %67 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv90
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @list_concat(ptr noundef %66, ptr noundef %68) #8
   store ptr %69, ptr %65, align 8
@@ -3376,7 +3376,7 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.critedge154.us ], [ 0, %.lr.ph274 ]
   %.0134273.us = phi ptr [ %.1135.lcssa.us, %.critedge154.us ], [ null, %.lr.ph274 ]
   %.0140271.us = phi ptr [ %.1141.lcssa.us, %.critedge154.us ], [ %16, %.lr.ph274 ]
-  %23 = getelementptr inbounds nuw [32 x ptr], ptr %20, i64 0, i64 %indvars.iv331
+  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv331
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.not150.us = icmp eq ptr %24, null
@@ -3429,7 +3429,7 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %indvars.iv325 = phi i64 [ %indvars.iv.next326, %.critedge154 ], [ 0, %.lr.ph274 ]
   %.0134273 = phi ptr [ %.1135.lcssa, %.critedge154 ], [ null, %.lr.ph274 ]
   %.0140271 = phi ptr [ %.1141.lcssa, %.critedge154 ], [ %16, %.lr.ph274 ]
-  %48 = getelementptr inbounds nuw [32 x ptr], ptr %20, i64 0, i64 %indvars.iv325
+  %48 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv325
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.not150 = icmp eq ptr %49, null
@@ -4297,7 +4297,7 @@ define internal fastcc void @match_clause_to_index(ptr noundef %0, ptr noundef %
 
 31:                                               ; preds = %.lr.ph134, %match_clause_to_indexcol.exit.thread
   %indvars.iv169 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next170, %match_clause_to_indexcol.exit.thread ]
-  %32 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %32 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -4421,7 +4421,7 @@ list_length.exit.i.i:                             ; preds = %60
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %97 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %98 = tail call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 280, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -4474,7 +4474,7 @@ list_length.exit.i.i:                             ; preds = %60
   br i1 %123, label %124, label %.thread.i.i
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %125 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %126 = tail call ptr @commute_restrictinfo(ptr noundef nonnull %1, i32 noundef %121) #8
   %127 = tail call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 280, ptr %127, align 4
@@ -4591,7 +4591,7 @@ list_length.exit.i.i:                             ; preds = %60
   br i1 %194, label %195, label %match_clause_to_indexcol.exit.thread
 
 195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %196 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %197 = tail call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 280, ptr %197, align 4
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
@@ -4695,7 +4695,7 @@ list_length.exit.i.i:                             ; preds = %60
   ]
 
 257:                                              ; preds = %255, %255, %255, %255
-  %258 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %258 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %259 = tail call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 280, ptr %259, align 4
   %260 = load ptr, ptr %22, align 8
@@ -5271,7 +5271,7 @@ list_length.exit.thread.i.i:                      ; preds = %548, %545, %544, %5
   br label %match_clause_to_indexcol.exit.thread
 
 .thread195.i.i:                                   ; preds = %550
-  %557 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %557 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   br i1 %spec.select.i.i, label %558, label %565
 
 558:                                              ; preds = %.thread195.i.i
@@ -5298,7 +5298,7 @@ list_length.exit.thread.i.i:                      ; preds = %548, %545, %544, %5
   br i1 %.not.i178.i.i, label %list_length.exit179.thread.i.i, label %.lr.ph240.split.i.i
 
 list_length.exit179.thread.i.sink.split.i:        ; preds = %.lr.ph.i65.i, %458
-  %566 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %566 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5437,7 +5437,7 @@ list_length.exit179.thread.i.i:                   ; preds = %list_length.exit179
   br i1 %633, label %634, label %match_clause_to_indexcol.exit.thread
 
 634:                                              ; preds = %629
-  %635 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %635 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   %636 = tail call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 280, ptr %636, align 4
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 8
@@ -5461,7 +5461,7 @@ match_clause_to_indexcol.exit:                    ; preds = %106, %.thread.i.i, 
 
 match_clause_to_indexcol.exit.thread40.loopexit:  ; preds = %match_clause_to_indexcol.exit, %55
   %.0.i43.ph = phi ptr [ %.0.i, %match_clause_to_indexcol.exit ], [ %57, %55 ]
-  %644 = getelementptr inbounds nuw [32 x ptr], ptr %21, i64 0, i64 %indvars.iv169
+  %644 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   br label %match_clause_to_indexcol.exit.thread40
 
 match_clause_to_indexcol.exit.thread40:           ; preds = %match_clause_to_indexcol.exit.thread40.loopexit, %597, %expand_indexqual_rowcompare.exit.i.i, %195, %96, %124, %634

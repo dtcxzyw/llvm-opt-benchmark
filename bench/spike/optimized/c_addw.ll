@@ -119,13 +119,13 @@ define noundef i64 @_Z17fast_rv64i_c_addwP11processor_t6insn_tm(ptr noundef capt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = lshr i64 %1, 7
   %15 = and i64 %14, 7
-  %16 = or disjoint i64 %15, 8
-  %17 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %16
+  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = lshr i64 %1, 2
   %20 = and i64 %19, 7
-  %21 = or disjoint i64 %20, 8
-  %22 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %21
+  %21 = getelementptr inbounds nuw i64, ptr %13, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = add i64 %23, %18
   %sext = shl i64 %24, 32
@@ -178,12 +178,12 @@ define noundef i64 @_Z19logged_rv64i_c_addwP11processor_t6insn_tm(ptr noundef %0
   %15 = lshr i64 %1, 7
   %16 = and i64 %15, 7
   %17 = or disjoint i64 %16, 8
-  %18 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %20 = lshr i64 %1, 2
   %21 = and i64 %20, 7
-  %22 = or disjoint i64 %21, 8
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %22
+  %22 = getelementptr inbounds nuw i64, ptr %14, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load i64, ptr %23, align 8, !tbaa !14
   %25 = add i64 %24, %19
   %sext = shl i64 %25, 32
@@ -324,21 +324,21 @@ define noundef i64 @_Z17fast_rv64e_c_addwP11processor_t6insn_tm(ptr noundef capt
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 7
   %13 = and i64 %12, 7
-  %14 = or disjoint i64 %13, 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %16 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = lshr i64 %1, 2
   %19 = and i64 %18, 7
-  %20 = or disjoint i64 %19, 8
-  %21 = add i64 %2, 2
-  %22 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %20
+  %20 = add i64 %2, 2
+  %21 = getelementptr inbounds nuw i64, ptr %14, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = add i64 %23, %17
   %sext = shl i64 %24, 32
   %25 = ashr exact i64 %sext, 32
   store i64 %25, ptr %16, align 8, !tbaa !14
-  ret i64 %21
+  ret i64 %20
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
@@ -381,13 +381,13 @@ define noundef i64 @_Z19logged_rv64e_c_addwP11processor_t6insn_tm(ptr noundef %0
   %14 = and i64 %13, 7
   %15 = or disjoint i64 %14, 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %17 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = lshr i64 %1, 2
   %20 = and i64 %19, 7
-  %21 = or disjoint i64 %20, 8
-  %22 = add i64 %2, 2
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %21
+  %21 = add i64 %2, 2
+  %22 = getelementptr inbounds nuw i64, ptr %16, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load i64, ptr %23, align 8, !tbaa !14
   %25 = add i64 %24, %18
   %sext = shl i64 %25, 32
@@ -402,7 +402,7 @@ define noundef i64 @_Z19logged_rv64e_c_addwP11processor_t6insn_tm(ptr noundef %0
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %26, ptr %17, align 8, !tbaa !14
-  ret i64 %22
+  ret i64 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

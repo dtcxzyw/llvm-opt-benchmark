@@ -470,7 +470,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_BEP25UConverterFromUni
   %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %81 ]
   %.477 = phi ptr [ %.368, %57 ], [ %.5, %81 ]
   %68 = icmp ult ptr %.477, %9
-  %69 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1, !tbaa !23
   br i1 %68, label %71, label %73
 
@@ -487,7 +487,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_BEP25UConverterFromUni
   %78 = add i8 %77, 1
   store i8 %78, ptr %76, align 1, !tbaa !45
   %79 = sext i8 %77 to i64
-  %80 = getelementptr inbounds [32 x i8], ptr %75, i64 0, i64 %79
+  %80 = getelementptr inbounds i8, ptr %75, i64 %79
   store i8 %70, ptr %80, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
   br label %81
@@ -666,7 +666,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_BE_OFFSET_LOGICP25UCon
   %.493 = phi ptr [ %.377, %60 ], [ %.5, %85 ]
   %.48292 = phi ptr [ %.381, %60 ], [ %.583, %85 ]
   %71 = icmp ult ptr %.493, %9
-  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !23
   br i1 %71, label %74, label %77
 
@@ -685,7 +685,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_BE_OFFSET_LOGICP25UCon
   %82 = add i8 %81, 1
   store i8 %82, ptr %80, align 1, !tbaa !45
   %83 = sext i8 %81 to i64
-  %84 = getelementptr inbounds [32 x i8], ptr %79, i64 0, i64 %83
+  %84 = getelementptr inbounds i8, ptr %79, i64 %83
   store i8 %73, ptr %84, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
   br label %85
@@ -1284,7 +1284,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %78 ]
   %.477 = phi ptr [ %.368, %58 ], [ %.5, %78 ]
   %65 = icmp ult ptr %.477, %9
-  %66 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1, !tbaa !23
   br i1 %65, label %68, label %70
 
@@ -1301,7 +1301,7 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   %75 = add i8 %74, 1
   store i8 %75, ptr %73, align 1, !tbaa !45
   %76 = sext i8 %74 to i64
-  %77 = getelementptr inbounds [32 x i8], ptr %72, i64 0, i64 %76
+  %77 = getelementptr inbounds i8, ptr %72, i64 %76
   store i8 %67, ptr %77, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
   br label %78
@@ -1476,7 +1476,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %.493 = phi ptr [ %.377, %61 ], [ %.5, %82 ]
   %.48292 = phi ptr [ %.381, %61 ], [ %.583, %82 ]
   %68 = icmp ult ptr %.493, %9
-  %69 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1, !tbaa !23
   br i1 %68, label %71, label %74
 
@@ -1495,7 +1495,7 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   %79 = add i8 %78, 1
   store i8 %79, ptr %77, align 1, !tbaa !45
   %80 = sext i8 %78 to i64
-  %81 = getelementptr inbounds [32 x i8], ptr %76, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr %76, i64 %80
   store i8 %70, ptr %81, align 1, !tbaa !23
   store i32 15, ptr %1, align 4, !tbaa !30
   br label %82
@@ -1721,7 +1721,7 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
 .split.us:                                        ; preds = %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split
   %20 = load i8, ptr %.0.ph105171, align 1, !tbaa !23
   %21 = zext nneg i32 %.089.us to i64
-  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8utf32BOM, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !23
   %24 = icmp eq i8 %20, %23
   br i1 %24, label %26, label %41

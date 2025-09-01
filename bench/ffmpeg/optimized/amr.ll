@@ -206,7 +206,7 @@ define internal range(i32 0, 27) i32 @amrnb_probe(ptr noundef readonly captures(
 
 15:                                               ; preds = %.lr.ph
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds nuw [16 x i8], ptr @amrnb_packed_size, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @amrnb_packed_size, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !39
   %19 = zext i8 %18 to i32
   %20 = add i32 %.02539, %19
@@ -323,7 +323,7 @@ define internal range(i32 0, 27) i32 @amrwb_probe(ptr noundef readonly captures(
 
 15:                                               ; preds = %.lr.ph
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds nuw [16 x i8], ptr @amrwb_packed_size, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @amrwb_packed_size, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !39
   %19 = zext i8 %18 to i32
   %20 = add i32 %.02539, %19

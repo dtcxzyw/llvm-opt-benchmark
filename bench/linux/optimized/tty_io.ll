@@ -4216,7 +4216,7 @@ define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(non
   %37 = lshr i32 %36, 4
   %38 = and i32 %37, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [17 x i8], ptr @pty_line_name.ptychar, i64 0, i64 %39
+  %40 = getelementptr i8, ptr @pty_line_name.ptychar, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = and i32 %36, 15
@@ -6532,7 +6532,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
 25:                                               ; preds = %20
   %26 = add nuw nsw i32 %11, 1
   %27 = sext i32 %11 to i64
-  %28 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr %4, i64 %27
   store ptr %12, ptr %28, align 8
   %29 = icmp ugt i32 %11, 14
   br i1 %29, label %.thread12, label %30
@@ -6566,7 +6566,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   %42 = phi i64 [ 0, %.preheader.preheader ], [ %94, %87 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = getelementptr [16 x ptr], ptr %4, i64 0, i64 %indvars.iv.next
+  %43 = getelementptr ptr, ptr %4, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 74
   %46 = load i16, ptr %45, align 2

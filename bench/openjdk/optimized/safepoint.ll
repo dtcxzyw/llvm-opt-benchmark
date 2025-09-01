@@ -1084,7 +1084,7 @@ _ZN19EventSafepointBeginC2E14EventStartTime.exit: ; preds = %0, %8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [80 x i64], ptr @_ZN16SafepointTracing9_op_countE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr @_ZN16SafepointTracing9_op_countE, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8
@@ -1260,7 +1260,7 @@ _ZL26post_safepoint_begin_eventR19EventSafepointBeginmii.exit: ; preds = %_ZL32p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SafepointTracing5beginEN12VM_Operation9VMOp_TypeE(i32 noundef %0) local_unnamed_addr #2 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [80 x i64], ptr @_ZN16SafepointTracing9_op_countE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i64, ptr @_ZN16SafepointTracing9_op_countE, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8
@@ -1482,7 +1482,7 @@ define hidden void @_ZN16SafepointTracing3endEv() local_unnamed_addr #2 align 2 
 18:                                               ; preds = %16
   %19 = load i32, ptr @_ZN16SafepointTracing13_current_typeE, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr @_ZN12VM_Operation6_namesE, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr @_ZN16SafepointTracing17_last_app_time_nsE, align 8
   %24 = load i64, ptr @_ZN16SafepointTracing29_last_safepoint_begin_time_nsE, align 8
@@ -2133,7 +2133,7 @@ define hidden void @_ZN16SafepointTracing14statistics_logEv() local_unnamed_addr
   store i32 %storemerge, ptr @_ZZN16SafepointTracing14statistics_logEvE15_cur_stat_index, align 4
   %11 = load i32, ptr @_ZN16SafepointTracing13_current_typeE, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr @_ZN12VM_Operation6_namesE, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @_ZN16SafepointTracing12_nof_threadsE, align 4
   %16 = load i32, ptr @_ZN16SafepointTracing12_nof_runningE, align 4
@@ -2159,7 +2159,7 @@ define hidden void @_ZN16SafepointTracing19statistics_exit_logEv() local_unnamed
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [80 x i64], ptr @_ZN16SafepointTracing9_op_countE, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i64, ptr @_ZN16SafepointTracing9_op_countE, i64 %indvars.iv
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4
@@ -2170,7 +2170,7 @@ define hidden void @_ZN16SafepointTracing19statistics_exit_logEv() local_unnamed
   br i1 %.not8, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE132ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.24, ptr noundef %8, i64 noundef %3)
   br label %9

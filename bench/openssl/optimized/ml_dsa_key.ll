@@ -925,9 +925,9 @@ vector_ntt_inverse.exit:                          ; preds = %.lr.ph.i30
 
 52:                                               ; preds = %52, %49
   %indvars.iv.i.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.i, %52 ]
-  %53 = getelementptr inbounds nuw [256 x i32], ptr %50, i64 0, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !42
-  %55 = getelementptr inbounds nuw [256 x i32], ptr %51, i64 0, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !42
   %57 = add i32 %56, %54
   %58 = add i32 %57, -8380417
@@ -962,7 +962,7 @@ poly_add.exit.i:                                  ; preds = %52
 
 74:                                               ; preds = %74, %.lr.ph.i35
   %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i.i37, %74 ]
-  %75 = getelementptr inbounds nuw [256 x i32], ptr %69, i64 0, i64 %indvars.iv.i.i36
+  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i.i36
   %76 = load i32, ptr %75, align 4, !tbaa !42
   %77 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i.i36
   %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i36

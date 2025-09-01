@@ -563,9 +563,9 @@ read_yuv_component_line.exit61:                   ; preds = %200, %read_yuv_comp
 
 217:                                              ; preds = %read_yuv_component_line.exit61, %217
   %indvars.iv85 = phi i64 [ 0, %read_yuv_component_line.exit61 ], [ %indvars.iv.next86, %217 ]
-  %218 = getelementptr inbounds nuw [8 x i32], ptr %36, i64 0, i64 %indvars.iv85
+  %218 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv85
   %219 = load i32, ptr %218, align 4, !tbaa !48
-  %220 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv85
+  %220 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
   %221 = load ptr, ptr %220, align 8, !tbaa !49
   %222 = sext i32 %219 to i64
   %223 = getelementptr inbounds i8, ptr %221, i64 %222
@@ -641,7 +641,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_rgb24_frame(ptr nou
 
 read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_component_line.exit.us.us, %.preheader38.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %read_rgb24_component_line.exit.us.us ], [ 0, %.preheader38.us ]
-  %24 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv54
+  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
   %25 = getelementptr inbounds nuw i8, ptr %.03544.us, i64 %indvars.iv54
   store i32 %.promoted.us.pre, ptr %10, align 8, !tbaa !43
   %26 = load i8, ptr %25, align 1, !tbaa !36
@@ -662,7 +662,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
 32:                                               ; preds = %3, %39
   %indvars.iv74 = phi i32 [ 0, %3 ], [ %indvars.iv.next75, %39 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %39 ]
-  %33 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %5, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.VLC, ptr %5, i64 %indvars.iv
   %34 = call fastcc i32 @read_code_table(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %33)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.preheader, label %39
@@ -678,7 +678,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv71 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next72, %.lr.ph ]
-  %37 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %5, i64 0, i64 %indvars.iv71
+  %37 = getelementptr inbounds nuw %struct.VLC, ptr %5, i64 %indvars.iv71
   call void @ff_vlc_free(ptr noundef nonnull %37) #5
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count
@@ -709,7 +709,7 @@ read_rgb24_component_line.exit.us.us:             ; preds = %read_rgb24_componen
 
 read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read_rgb24_component_line.exit.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %read_rgb24_component_line.exit.us ], [ 0, %.preheader38 ]
-  %46 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv59
+  %46 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv59
   %47 = getelementptr inbounds nuw i8, ptr %.03544, i64 %indvars.iv59
   store i32 %.pre, ptr %10, align 8, !tbaa !43
   %48 = load i8, ptr %47, align 1, !tbaa !36
@@ -723,7 +723,7 @@ read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read
   %50 = phi ptr [ %109, %read_rgb24_component_line.exit ], [ %41, %.preheader38 ]
   %51 = phi i32 [ %.050.lcssa.i, %read_rgb24_component_line.exit ], [ %.pre, %.preheader38 ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %read_rgb24_component_line.exit ], [ 0, %.preheader38 ]
-  %52 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %indvars.iv63
+  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
   %53 = getelementptr inbounds nuw i8, ptr %.03544, i64 %indvars.iv63
   %54 = load i32, ptr %12, align 8, !tbaa !41
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 112
@@ -733,7 +733,7 @@ read_rgb24_component_line.exit.us:                ; preds = %.preheader38, %read
 
 .lr.ph.i:                                         ; preds = %.preheader38.split
   %58 = load i32, ptr %52, align 4, !tbaa !48
-  %59 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %5, i64 0, i64 %indvars.iv63, i32 1
+  %59 = getelementptr inbounds nuw %struct.VLC, ptr %5, i64 %indvars.iv63, i32 1
   %.pre79 = load ptr, ptr %59, align 8, !tbaa !52
   br label %60
 
@@ -831,7 +831,7 @@ read_rgb24_component_line.exit:                   ; preds = %98, %.preheader38.s
 
 .preheader37:                                     ; preds = %.preheader37.preheader, %.preheader37
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader37 ], [ 0, %.preheader37.preheader ]
-  %120 = getelementptr inbounds nuw [3 x %struct.VLC], ptr %5, i64 0, i64 %indvars.iv67
+  %120 = getelementptr inbounds nuw %struct.VLC, ptr %5, i64 %indvars.iv67
   call void @ff_vlc_free(ptr noundef nonnull %120) #5
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
@@ -884,7 +884,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
 25:                                               ; preds = %3, %32
   %indvars.iv55 = phi i32 [ 0, %3 ], [ %indvars.iv.next56, %32 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %32 ]
-  %26 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %4, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv
   %27 = call fastcc i32 @read_code_table(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.preheader, label %32
@@ -900,7 +900,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_argb_frame(ptr noun
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv52 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next53, %.lr.ph43 ]
-  %30 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %4, i64 0, i64 %indvars.iv52
+  %30 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv52
   call void @ff_vlc_free(ptr noundef nonnull %30) #5
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
@@ -1215,7 +1215,7 @@ read_argb_line.exit:                              ; preds = %._crit_edge.i, %227
 
 .preheader31:                                     ; preds = %.preheader31.preheader, %.preheader31
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader31 ], [ 0, %.preheader31.preheader ]
-  %243 = getelementptr inbounds nuw [4 x %struct.VLC], ptr %4, i64 0, i64 %indvars.iv48
+  %243 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv48
   call void @ff_vlc_free(ptr noundef nonnull %243) #5
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
@@ -1314,9 +1314,9 @@ define internal fastcc i32 @read_code_table(ptr noundef readonly captures(none) 
   %52 = tail call i32 @llvm.umin.i32(i32 %9, i32 %51)
   store i32 %52, ptr %6, align 8, !tbaa !43
   %53 = trunc nuw i32 %50 to i8
-  %54 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   store i8 %53, ptr %54, align 1, !tbaa !36
-  %55 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   store i8 %37, ptr %55, align 1, !tbaa !36
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %56 = add nuw nsw i32 %.02434, 1

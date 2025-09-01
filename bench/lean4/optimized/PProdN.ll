@@ -6236,7 +6236,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_Meta_PProdN_genMk___spec__1___ra
   %.061169 = phi ptr [ %4, %.lr.ph ], [ %76, %lean_dec.exit110 ]
   %.064168 = phi ptr [ %9, %.lr.ph ], [ %86, %lean_dec.exit110 ]
   %23 = add i64 %.058170, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -6951,7 +6951,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_Meta_PProdN_genMk___spec__2___ra
   %.061169 = phi ptr [ %4, %.lr.ph ], [ %76, %lean_dec.exit110 ]
   %.064168 = phi ptr [ %9, %.lr.ph ], [ %86, %lean_dec.exit110 ]
   %23 = add i64 %.058170, -1
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -11100,7 +11100,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_PProdN_packLambdas___spec__2(p
   %.02147 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit ]
   %.02346 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i32, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02346, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02147
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02147
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -12270,7 +12270,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_PProdN_mkLambdas___spec__1(ptr
   %.02147 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit ]
   %.02346 = phi ptr [ %3, %.lr.ph ], [ %.0.i.i32, %lean_dec.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02346, i64 24
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.02147
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02147
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1

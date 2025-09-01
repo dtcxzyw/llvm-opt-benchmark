@@ -536,7 +536,7 @@ propagateall.exit.i:                              ; preds = %.lr.ph.i28.i, %12, 
 
 43:                                               ; preds = %51, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %51 ]
-  %44 = getelementptr inbounds nuw [9 x ptr], ptr %42, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !63
   %.not.i30.i = icmp eq ptr %45, null
   br i1 %.not.i30.i, label %51, label %46
@@ -1128,7 +1128,7 @@ define internal fastcc void @markroot(ptr noundef readonly captures(none) %0) un
 
 37:                                               ; preds = %45, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %45 ]
-  %38 = getelementptr inbounds nuw [9 x ptr], ptr %36, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !63
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %45, label %40
@@ -1792,7 +1792,7 @@ traversetable.exit.thread:                        ; preds = %38, %traversetable.
 185:                                              ; preds = %197, %.lr.ph.i44
   %186 = phi i8 [ %183, %.lr.ph.i44 ], [ %198, %197 ]
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i46, %197 ]
-  %187 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %184, i64 0, i64 %indvars.iv.i45
+  %187 = getelementptr inbounds nuw %struct.lua_TValue, ptr %184, i64 %indvars.iv.i45
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load i32, ptr %188, align 8, !tbaa !28
   %190 = icmp sgt i32 %189, 3
@@ -1844,7 +1844,7 @@ traversetable.exit.thread:                        ; preds = %38, %traversetable.
 212:                                              ; preds = %220, %.lr.ph32.i
   %213 = phi i8 [ %210, %.lr.ph32.i ], [ %221, %220 ]
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next38.i, %220 ]
-  %214 = getelementptr inbounds nuw [1 x ptr], ptr %211, i64 0, i64 %indvars.iv37.i
+  %214 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv37.i
   %215 = load ptr, ptr %214, align 8, !tbaa !28
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 9
   %217 = load i8, ptr %216, align 1, !tbaa !28

@@ -2871,7 +2871,7 @@ define hidden void @_ZN1q11model_fixer23add_projection_functionER5modelP9func_de
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = zext i32 %4 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !594
   store ptr %18, ptr %10, align 8, !tbaa !594
   %19 = tail call noundef ptr @_ZN1q11model_fixer14get_projectionEP4sort(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %18)
@@ -2992,7 +2992,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %55
   %.081204 = phi ptr [ %56, %.lr.ph ], [ %139, %138 ]
   %71 = load ptr, ptr %.081204, align 8, !tbaa !604
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 176
-  %73 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %16
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %16
   %74 = load ptr, ptr %73, align 8, !tbaa !604
   %75 = load ptr, ptr %74, align 8, !tbaa !605
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -4537,7 +4537,7 @@ _ZNK1q11model_fixer19get_projection_dataEP9func_declj.exit: ; preds = %26, %41
 53:                                               ; preds = %_ZNK1q11model_fixer19get_projection_dataEP9func_declj.exit
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %55 = zext i32 %2 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !594
   %58 = tail call noundef ptr @_ZN1q11model_fixer14get_projectionEP4sort(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %57)
   %.not25 = icmp eq ptr %58, null
@@ -4557,7 +4557,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 66:                                               ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %67, i64 0, i64 %55
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %55
   %69 = load ptr, ptr %68, align 8, !tbaa !438
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !438
@@ -5134,7 +5134,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZNK1q11model_fixer
 61:                                               ; preds = %_ZNK1q11model_fixer19get_projection_dataEP9func_declj.exit
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = zext i32 %3 to i64
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !438
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24

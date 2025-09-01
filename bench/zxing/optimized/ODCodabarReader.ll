@@ -576,7 +576,7 @@ _ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i:    ; preds = %109, %106, %103, %_
 118:                                              ; preds = %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i
   %sext.i.i = shl i64 %.028.i.i.i.i.idx15.i.i.i, 30
   %119 = ashr i64 %sext.i.i, 32
-  %120 = getelementptr inbounds [21 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %119
+  %120 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !40
   br label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit
 
@@ -807,7 +807,7 @@ _ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51:  ; preds = %207, %204, %201, %_
 216:                                              ; preds = %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51
   %sext.i.i53 = shl i64 %.028.i.i.i.i.idx15.i.i.i52, 30
   %217 = ashr i64 %sext.i.i53, 32
-  %218 = getelementptr inbounds [21 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %217
+  %218 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %217
   %219 = load i8, ptr %218, align 1, !tbaa !40
   br label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit56
 

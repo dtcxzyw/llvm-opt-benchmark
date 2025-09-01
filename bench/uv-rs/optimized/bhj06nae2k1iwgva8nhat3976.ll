@@ -137,10 +137,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !47
   %6 = load i8, ptr %5, align 1, !range !49, !alias.scope !50, !noalias !53, !noundef !4
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E.10", i64 0, i64 %8
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E.10", i64 %8
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store ptr %switch.load2, ptr %2, align 8, !noalias !47
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8

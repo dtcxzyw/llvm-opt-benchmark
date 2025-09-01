@@ -3604,7 +3604,7 @@ _ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %14, %
 
 34:                                               ; preds = %.lr.ph25, %34
   %indvars.iv27 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next28, %34 ]
-  %35 = getelementptr inbounds nuw [1 x i8], ptr %32, i64 0, i64 %indvars.iv27
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv27
   %36 = load i8, ptr %35, align 1, !tbaa !26
   %37 = load ptr, ptr %33, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv27
@@ -3625,7 +3625,7 @@ _ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %14, %
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.01922 = phi i64 [ 0, %.lr.ph ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw [1 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !26
   %46 = zext i8 %45 to i64
   %47 = shl nsw i64 %indvars.iv, 2
@@ -3819,7 +3819,7 @@ _ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   %.029.lcssa = phi i32 [ %39, %.preheader ], [ %44, %.lr.ph40 ]
   %.0.lcssa = phi double [ %1, %.preheader ], [ %43, %.lr.ph40 ]
   %46 = zext nneg i32 %.029.lcssa to i64
-  %47 = getelementptr inbounds nuw [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw double, ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %46
   %48 = load double, ptr %47, align 8, !tbaa !71
   %49 = fmul double %.0.lcssa, %48
   br label %58
@@ -3837,7 +3837,7 @@ _ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   %.2.lcssa = phi double [ %1, %.preheader34 ], [ %50, %.lr.ph ]
   %53 = sub nsw i32 0, %.028.lcssa
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw double, ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %54
   %56 = load double, ptr %55, align 8, !tbaa !71
   %57 = fdiv double %.2.lcssa, %56
   br label %58
@@ -4701,7 +4701,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10fitsInLongE
 
 _ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit.us: ; preds = %36, %.lr.ph.split.us
   %.0.i.i.us = phi i8 [ %39, %36 ], [ 0, %.lr.ph.split.us ]
-  %40 = getelementptr inbounds nuw [19 x i8], ptr @_ZZNK6icu_776number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 0, i64 %indvars.iv33
+  %40 = getelementptr inbounds nuw i8, ptr @_ZZNK6icu_776number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 %indvars.iv33
   %41 = load i8, ptr %40, align 1, !tbaa !26
   %or.cond50.not = icmp eq i8 %.0.i.i.us, %41
   br i1 %or.cond50.not, label %35, label %.thread24.loopexit
@@ -4722,7 +4722,7 @@ _ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit.us: ; preds = %36, %.lr
   %48 = trunc i64 %47 to i8
   %49 = and i8 %48, 15
   %.0.i.i = select i1 %or.cond.i.i, i8 0, i8 %49
-  %50 = getelementptr inbounds nuw [19 x i8], ptr @_ZZNK6icu_776number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZNK6icu_776number4impl15DecimalQuantity10fitsInLongEbE9INT64_BCD, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1, !tbaa !26
   %or.cond51.not = icmp eq i8 %.0.i.i, %51
   br i1 %or.cond51.not, label %42, label %.thread24.loopexit53

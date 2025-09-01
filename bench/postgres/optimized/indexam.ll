@@ -1277,40 +1277,39 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.critedge, label %40
+  br i1 %25, label %.critedge, label %39
 
 .critedge:                                        ; preds = %4, %10
   %.not21 = icmp eq i64 %2, 0
-  br i1 %.not21, label %45, label %26
+  br i1 %.not21, label %44, label %26
 
 26:                                               ; preds = %.critedge
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef %28, i16 noundef signext 18) #7
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = sext i16 %1 to i64
-  %33 = add nsw i64 %32, -1
-  %34 = getelementptr inbounds [0 x i32], ptr %31, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %38 = tail call ptr @generate_opclass_name(i32 noundef %35) #7
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %38) #7
+  %31 = sext i16 %1 to i64
+  %32 = getelementptr i8, ptr %30, i64 20
+  %33 = getelementptr i32, ptr %32, i64 %31
+  %34 = load i32, ptr %33, align 4
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %37 = tail call ptr @generate_opclass_name(i32 noundef %34) #7
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %37) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1031, ptr noundef nonnull @__func__.index_opclass_options) #7
   unreachable
 
-40:                                               ; preds = %10
+39:                                               ; preds = %10
   call void @init_local_reloptions(ptr noundef nonnull %5, i64 noundef 0) #7
-  %41 = call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %1, i16 noundef zeroext %9)
-  %42 = ptrtoint ptr %5 to i64
-  %43 = call i64 @FunctionCall1Coll(ptr noundef %41, i32 noundef 0, i64 noundef %42) #7
-  %44 = call ptr @build_local_reloptions(ptr noundef nonnull %5, i64 noundef %2, i1 noundef zeroext %3) #7
-  br label %45
+  %40 = call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %1, i16 noundef zeroext %9)
+  %41 = ptrtoint ptr %5 to i64
+  %42 = call i64 @FunctionCall1Coll(ptr noundef %40, i32 noundef 0, i64 noundef %41) #7
+  %43 = call ptr @build_local_reloptions(ptr noundef nonnull %5, i64 noundef %2, i1 noundef zeroext %3) #7
+  br label %44
 
-45:                                               ; preds = %.critedge, %40
-  %.0 = phi ptr [ %44, %40 ], [ null, %.critedge ]
+44:                                               ; preds = %.critedge, %39
+  %.0 = phi ptr [ %43, %39 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

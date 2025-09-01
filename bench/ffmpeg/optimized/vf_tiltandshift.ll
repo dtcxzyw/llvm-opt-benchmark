@@ -705,9 +705,9 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split.us
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %.split.us ]
   %.not58 = icmp eq i64 %indvars.iv, 0
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr %39, i64 0, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %40, i64 0, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %50 = load i32, ptr %14, align 4, !tbaa !50
   %51 = icmp sgt i32 %50, 0
   br i1 %.not58, label %.preheader.split.us, label %.preheader.split

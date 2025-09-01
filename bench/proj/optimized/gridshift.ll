@@ -4561,7 +4561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
   %851 = fsub double %850, %849
   %852 = call double @llvm.fmuladd.f64(double %.sroa.0.1, double %849, double %842)
   %853 = call noundef double @llvm.fmuladd.f64(double %802, double %851, double %852)
-  %854 = getelementptr inbounds nuw [3 x [4 x double]], ptr %22, i64 0, i64 %indvars.iv632
+  %854 = getelementptr inbounds nuw [4 x double], ptr %22, i64 %indvars.iv632
   store double %853, ptr %854, align 16, !tbaa !110
   %855 = getelementptr inbounds nuw i8, ptr %.0278615, i64 4
   %856 = load float, ptr %855, align 4, !tbaa !187
@@ -4650,7 +4650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
   %923 = fsub double %922, %921
   %924 = call double @llvm.fmuladd.f64(double %.sroa.0.1, double %921, double %914)
   %925 = call noundef double @llvm.fmuladd.f64(double %802, double %923, double %924)
-  %926 = getelementptr inbounds nuw [3 x [2 x double]], ptr %23, i64 0, i64 %indvars.iv628
+  %926 = getelementptr inbounds nuw [2 x double], ptr %23, i64 %indvars.iv628
   store double %925, ptr %926, align 16, !tbaa !110
   %927 = getelementptr inbounds nuw i8, ptr %.1279613, i64 4
   %928 = load float, ptr %927, align 4, !tbaa !187
@@ -4753,7 +4753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
   %992 = fsub double %991, %990
   %993 = call double @llvm.fmuladd.f64(double %.sroa.0.1, double %990, double %983)
   %994 = call noundef double @llvm.fmuladd.f64(double %966, double %992, double %993)
-  %995 = getelementptr inbounds nuw [3 x double], ptr %24, i64 0, i64 %indvars.iv
+  %995 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   store double %994, ptr %995, align 8, !tbaa !110
   %996 = getelementptr inbounds nuw i8, ptr %.0275611, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

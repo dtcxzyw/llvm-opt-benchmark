@@ -1465,7 +1465,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_Test_Runner_0__Lea
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -7414,7 +7414,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_Test_Runner_0__Lea
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -10489,7 +10489,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_Test_Runner_0__Lea
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -13209,7 +13209,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Server_Test_Runner_0__Lea
   %.0111396 = phi i64 [ %388, %404 ], [ %1, %3 ]
   %.0117395 = phi ptr [ %.0.i.i266, %404 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0117395, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.0111396
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0111396
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -15039,7 +15039,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Widget_GetWidgetsResponse_debugJson
   %.074151 = phi i64 [ %201, %217 ], [ %1, %3 ]
   %.076150 = phi ptr [ %.0.i.i121, %217 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.076150, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.074151
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.074151
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -19338,7 +19338,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Test_Runner_ident___spec_
 6:                                                ; preds = %.lr.ph, %17
   %.01427 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
   %.01626 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01427
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01427
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -22140,7 +22140,7 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
 26:                                               ; preds = %37, %.lr.ph.i
   %.01427.i = phi i64 [ %.val15, %.lr.ph.i ], [ %39, %37 ]
   %.01626.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01427.i
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01427.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -23313,7 +23313,7 @@ lean_alloc_ctor.exit393:                          ; preds = %405
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit393
   %414 = zext nneg i8 %.val334 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %414
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %414
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %415
 
@@ -27286,7 +27286,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -29813,7 +29813,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -34917,7 +34917,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -37444,7 +37444,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -40956,7 +40956,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -43483,7 +43483,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -44073,7 +44073,7 @@ lean_dec.exit194:                                 ; preds = %43, %42, %40, %lean
   %.0133411 = phi i64 [ %7, %.lr.ph ], [ %470, %lean_nat_add.exit.thread ]
   %.0138410 = phi ptr [ %8, %.lr.ph ], [ %.0.i322, %lean_nat_add.exit.thread ]
   %.0143409 = phi ptr [ %10, %.lr.ph ], [ %246, %lean_nat_add.exit.thread ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %.0133411
+  %48 = getelementptr inbounds nuw ptr, ptr %12, i64 %.0133411
   %49 = load ptr, ptr %48, align 8, !tbaa !4
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, 1
@@ -48794,7 +48794,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -51321,7 +51321,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -54835,7 +54835,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -57362,7 +57362,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -61393,7 +61393,7 @@ lean_alloc_ctor.exit1453:                         ; preds = %1188
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1453
   %1197 = zext nneg i8 %.val1305 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %1197
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %1197
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1198
 
@@ -63920,7 +63920,7 @@ lean_alloc_ctor.exit1601:                         ; preds = %2150
 
 switch.lookup2125:                                ; preds = %lean_alloc_ctor.exit1601
   %2159 = zext nneg i8 %.val1304 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 0, i64 %2159
+  %switch.gep2126 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs___at_Lean_Server_Test_Runner_main___spec__28.20, i64 %2159
   %switch.load2127 = load ptr, ptr %switch.gep2126, align 8
   br label %2160
 
@@ -64449,7 +64449,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_Test_Runner_main___spe
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.03687
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %.03687
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1

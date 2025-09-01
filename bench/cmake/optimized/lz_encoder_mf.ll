@@ -117,7 +117,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr noundef captures(none) %0, ptr nounde
   %20 = add i32 %19, %.val
   %21 = load i8, ptr %17, align 1, !tbaa !24
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !24
@@ -447,7 +447,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr noundef captures(none) %0, i32 nound
   %23 = add i32 %22, %.val
   %24 = load i8, ptr %21, align 1, !tbaa !24
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !24
@@ -537,7 +537,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr noundef captures(none) %0, ptr nounde
   %20 = add i32 %19, %.val
   %21 = load i8, ptr %17, align 1, !tbaa !24
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !24
@@ -553,7 +553,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr noundef captures(none) %0, ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %37 = load i8, ptr %36, align 1, !tbaa !24
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !20
   %41 = shl i32 %40, 5
   %42 = xor i32 %34, %41
@@ -781,7 +781,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr noundef captures(none) %0, i32 nound
   %23 = add i32 %22, %.val
   %24 = load i8, ptr %21, align 1, !tbaa !24
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !24
@@ -797,7 +797,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr noundef captures(none) %0, i32 nound
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %40 = load i8, ptr %39, align 1, !tbaa !24
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !20
   %44 = shl i32 %43, 5
   %45 = xor i32 %37, %44
@@ -1311,7 +1311,7 @@ define dso_local i32 @lzma_mf_bt3_find(ptr noundef captures(none) %0, ptr nounde
   %24 = add i32 %23, %.val
   %25 = load i8, ptr %21, align 1, !tbaa !24
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !24
@@ -1761,7 +1761,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr noundef captures(none) %0, i32 nound
   %31 = add i32 %30, %.val
   %32 = load i8, ptr %29, align 1, !tbaa !24
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !24
@@ -1976,7 +1976,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr noundef captures(none) %0, ptr nounde
   %24 = add i32 %23, %.val
   %25 = load i8, ptr %21, align 1, !tbaa !24
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !24
@@ -1992,7 +1992,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr noundef captures(none) %0, ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !24
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !20
   %45 = shl i32 %44, 5
   %46 = xor i32 %38, %45
@@ -2490,7 +2490,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr noundef captures(none) %0, i32 nound
   %31 = add i32 %30, %.val
   %32 = load i8, ptr %29, align 1, !tbaa !24
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !24
@@ -2506,7 +2506,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr noundef captures(none) %0, i32 nound
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %48 = load i8, ptr %47, align 1, !tbaa !24
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr @lzma_crc32_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !20
   %52 = shl i32 %51, 5
   %53 = xor i32 %45, %52

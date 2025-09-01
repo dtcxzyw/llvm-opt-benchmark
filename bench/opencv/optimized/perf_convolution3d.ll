@@ -1386,7 +1386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i185: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %210 = load i32, ptr %3, align 4, !tbaa !51
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds [16 x %"struct.opencv_test::Conv3DParam_t"], ptr @_ZN11opencv_testL24testConvolution3DConfigsE, i64 0, i64 %211
+  %212 = getelementptr inbounds %"struct.opencv_test::Conv3DParam_t", ptr @_ZN11opencv_testL24testConvolution3DConfigsE, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 104
   %214 = load double, ptr %213, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -5380,7 +5380,7 @@ common.resume:                                    ; preds = %63, %.body.i.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.preheader.i ]
-  %11 = getelementptr inbounds nuw [16 x %"struct.opencv_test::Conv3DParamID"], ptr %2, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %"struct.opencv_test::Conv3DParamID", ptr %2, i64 %indvars.iv.i
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %12, ptr %11, align 4, !tbaa !51, !noalias !222
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -11754,7 +11754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71.i: ; preds = %_
 
 41:                                               ; preds = %26
   %42 = zext nneg i32 %.val to i64
-  %43 = getelementptr inbounds nuw [16 x %"struct.opencv_test::Conv3DParam_t"], ptr @_ZN11opencv_testL24testConvolution3DConfigsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.opencv_test::Conv3DParam_t", ptr @_ZN11opencv_testL24testConvolution3DConfigsE, i64 %42
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.79, i64 noundef 7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 104

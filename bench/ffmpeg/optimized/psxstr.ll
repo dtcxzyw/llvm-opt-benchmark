@@ -151,7 +151,7 @@ define internal range(i32 -5, 1) i32 @str_read_header(ptr noundef captures(none)
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [32 x %struct.StrChannel], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.StrChannel, ptr %6, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store i32 -1, ptr %14, align 8, !tbaa !31
   store i32 -1, ptr %13, align 8, !tbaa !37
@@ -235,7 +235,7 @@ define internal range(i32 -2147483648, 1) i32 @str_read_packet(ptr noundef %0, p
 
 36:                                               ; preds = %33
   %37 = zext nneg i8 %19 to i64
-  %38 = getelementptr inbounds nuw [32 x %struct.StrChannel], ptr %7, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.StrChannel, ptr %7, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !37
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %56
@@ -326,7 +326,7 @@ define internal range(i32 -2147483648, 1) i32 @str_read_packet(ptr noundef %0, p
 
 86:                                               ; preds = %21
   %87 = zext nneg i8 %19 to i64
-  %88 = getelementptr inbounds nuw [32 x %struct.StrChannel], ptr %7, i64 0, i64 %87, i32 2
+  %88 = getelementptr inbounds nuw %struct.StrChannel, ptr %7, i64 %87, i32 2
   %89 = load i32, ptr %88, align 8, !tbaa !31
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %115
@@ -413,7 +413,7 @@ define internal noundef i32 @str_read_close(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw [32 x %struct.StrChannel], ptr %3, i64 0, i64 %indvars.iv, i32 1
+  %5 = getelementptr inbounds nuw %struct.StrChannel, ptr %3, i64 %indvars.iv, i32 1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !68
   %.not = icmp eq ptr %7, null

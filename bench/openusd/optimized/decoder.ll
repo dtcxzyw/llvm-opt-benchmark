@@ -127,7 +127,7 @@ define hidden ptr @av1_decoder_create(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %32 ]
   %.0..0..0..0.13 = load volatile ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 960
-  %34 = getelementptr inbounds nuw [8 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   store ptr null, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -549,7 +549,7 @@ is_inter_block.exit:                              ; preds = %4
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 150
-  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   %.not12 = icmp eq i8 %25, 0
   br i1 %.not12, label %28, label %26
@@ -581,7 +581,7 @@ define hidden i32 @av1_copy_reference_dec(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48928
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1312
@@ -655,7 +655,7 @@ define hidden i32 @av1_set_reference_dec(ptr noundef %0, i32 noundef %1, i32 nou
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1312
@@ -918,7 +918,7 @@ define hidden range(i32 -1, 2) i32 @av1_receive_compressed_data(ptr noundef %0, 
 get_ref_frame_buf.exit:                           ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 960
   %13 = sext i32 %.val.i to i64
-  %14 = getelementptr inbounds [8 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %get_ref_frame_buf.exit.thread, label %16
@@ -998,7 +998,7 @@ assign_cur_frame_new_fb.exit:                     ; preds = %.thread.i.i, %39
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %53 = ashr exact i64 %sext.i, 32
-  %54 = getelementptr inbounds [16 x %struct.RefCntBuffer], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds %struct.RefCntBuffer, ptr %52, i64 %53
   store ptr %54, ptr %18, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1416
   store i32 0, ptr %55, align 8
@@ -1174,7 +1174,7 @@ release_current_frame.exit59:                     ; preds = %112, %118, %122, %1
   br i1 %.not51.i, label %164, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw [8 x ptr], ptr %141, i64 0, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv.i
   %149 = load ptr, ptr %148, align 8
   %.not.i.i61 = icmp eq ptr %149, null
   br i1 %.not.i.i61, label %decrease_ref_count.exit.i, label %150
@@ -1275,7 +1275,7 @@ decrease_ref_count.exit59.i:                      ; preds = %190, %187, %183, %1
 
 197:                                              ; preds = %176
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %199 = getelementptr inbounds nuw [4 x ptr], ptr %198, i64 0, i64 %175
+  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %175
   store ptr %179, ptr %199, align 8
   %200 = load i64, ptr %174, align 8
   %201 = add i64 %200, 1
@@ -1494,7 +1494,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_raw_frame(ptr noundef readonly captu
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %9 = getelementptr inbounds [4 x ptr], ptr %8, i64 0, i64 %1
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %1
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1312
   store ptr %11, ptr %2, align 8
@@ -1513,18 +1513,17 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_to_show(ptr noundef readonly c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 431832
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %12, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %8 = add i64 %4, -1
-  %9 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1312
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
-  br label %12
+  %7 = getelementptr i8, ptr %0, i64 431792
+  %8 = getelementptr ptr, ptr %7, i64 %4
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1312
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false)
+  br label %11
 
-12:                                               ; preds = %2, %6
+11:                                               ; preds = %2, %6
   %.0 = phi i32 [ 0, %6 ], [ -1, %2 ]
   ret i32 %.0
 }

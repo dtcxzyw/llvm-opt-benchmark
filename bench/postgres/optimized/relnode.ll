@@ -1733,7 +1733,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
 
 117:                                              ; preds = %115
   %118 = zext nneg i32 %113 to i64
-  %119 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 %118
   %120 = load i8, ptr %119, align 1, !range !4, !noundef !5
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %152, label %122
@@ -1809,7 +1809,7 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %164 = phi i16 [ %158, %.lr.ph244.i ], [ %233, %232 ]
   %indvars.iv269.i = phi i64 [ 0, %.lr.ph244.i ], [ %indvars.iv.next270.i, %232 ]
   %.3130242.i = phi i32 [ %.0127.lcssa.i, %.lr.ph244.i ], [ %.4131.i, %232 ]
-  %165 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %indvars.iv269.i
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv269.i
   %166 = load i8, ptr %165, align 1, !range !4, !noundef !5
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %._crit_edge272.i, label %168
@@ -2368,7 +2368,7 @@ declare void @add_child_join_rel_equivalences(ptr noundef, i32 noundef, ptr noun
 define dso_local ptr @fetch_upper_rel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

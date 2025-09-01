@@ -2428,7 +2428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
 
 .preheader:                                       ; preds = %122, %.preheader
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader ], [ 0, %122 ]
-  %127 = getelementptr inbounds nuw [6 x i32], ptr @_ZN6cvtestL7tsSigIdE, i64 0, i64 %indvars.iv58
+  %127 = getelementptr inbounds nuw i32, ptr @_ZN6cvtestL7tsSigIdE, i64 %indvars.iv58
   %128 = load i32, ptr %127, align 4, !tbaa !96
   %129 = call ptr @signal(i32 noundef %128, ptr noundef nonnull @_ZN6cvtestL13signalHandlerEi) #42
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -2437,7 +2437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
 
 .preheader52:                                     ; preds = %122, %.preheader52
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader52 ], [ 0, %122 ]
-  %130 = getelementptr inbounds nuw [6 x i32], ptr @_ZN6cvtestL7tsSigIdE, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw i32, ptr @_ZN6cvtestL7tsSigIdE, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4, !tbaa !96
   %132 = call ptr @signal(i32 noundef %131, ptr noundef null) #42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2889,7 +2889,7 @@ define internal void @_ZN6cvtestL13signalHandlerEi(i32 noundef %0) #27 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN6cvtestL13signalHandlerEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6cvtestL13signalHandlerEi, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -3631,7 +3631,7 @@ define hidden void @_ZN6cvtest2TS14update_contextEPNS_8BaseTestEib(ptr noundef n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8, !tbaa !6
   store i8 0, ptr %8, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = icmp eq ptr %13, %14
@@ -3779,7 +3779,7 @@ define hidden void @_ZN6cvtest2TS7vprintfEiPKcP13__va_list_tag(ptr noundef nonnu
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %28 = zext nneg i32 %.01018 to i64
-  %29 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %28
   %30 = load i64, ptr %24, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !11
@@ -4186,7 +4186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1, !tbaa !14
   %82 = uitofp i8 %81 to double
-  %83 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   store double %82, ptr %83, align 8, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4221,7 +4221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 105:                                              ; preds = %84, %105
   %indvars.iv206 = phi i64 [ 0, %84 ], [ %indvars.iv.next207, %105 ]
-  %106 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv206
+  %106 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv206
   %107 = load double, ptr %106, align 8, !tbaa !129
   %108 = fptoui double %107 to i8
   %109 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv206
@@ -4258,7 +4258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %indvars.iv214
   %129 = load i8, ptr %128, align 1, !tbaa !14
   %130 = uitofp i8 %129 to double
-  %131 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv214
+  %131 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv214
   store double %130, ptr %131, align 8, !tbaa !129
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
@@ -4293,7 +4293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 153:                                              ; preds = %132, %153
   %indvars.iv219 = phi i64 [ 0, %132 ], [ %indvars.iv.next220, %153 ]
-  %154 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv219
+  %154 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv219
   %155 = load double, ptr %154, align 8, !tbaa !129
   %156 = fptoui double %155 to i8
   %157 = getelementptr inbounds nuw i8, ptr %126, i64 %indvars.iv219
@@ -4340,7 +4340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 %indvars.iv232
   %174 = load i8, ptr %173, align 1, !tbaa !14
   %175 = uitofp i8 %174 to double
-  %176 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv232
+  %176 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv232
   store double %175, ptr %176, align 8, !tbaa !129
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
@@ -4380,7 +4380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 203:                                              ; preds = %177, %203
   %indvars.iv237 = phi i64 [ 0, %177 ], [ %indvars.iv.next238, %203 ]
-  %204 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv237
+  %204 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv237
   %205 = load double, ptr %204, align 8, !tbaa !129
   %206 = fptoui double %205 to i8
   %207 = getelementptr inbounds nuw i8, ptr %171, i64 %indvars.iv237
@@ -4416,7 +4416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv247
   %224 = load i8, ptr %223, align 1, !tbaa !14
   %225 = uitofp i8 %224 to double
-  %226 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv247
+  %226 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv247
   store double %225, ptr %226, align 8, !tbaa !129
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
@@ -4455,7 +4455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 252:                                              ; preds = %227, %252
   %indvars.iv252 = phi i64 [ 0, %227 ], [ %indvars.iv.next253, %252 ]
-  %253 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv252
+  %253 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv252
   %254 = load double, ptr %253, align 8, !tbaa !129
   %255 = fptoui double %254 to i8
   %256 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv252

@@ -329,7 +329,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %32, %23
 
 switch.lookup:                                    ; preds = %18
   %44 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -456,7 +456,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %31, %22
 
 switch.lookup:                                    ; preds = %17
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1252,7 +1252,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %145, %136
 
 switch.lookup:                                    ; preds = %131
   %157 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %157
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %157
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1569,7 +1569,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %41, %32
 
 switch.lookup:                                    ; preds = %27
   %53 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -1781,9 +1781,9 @@ lpCurrentEncodedSizeUnsafe.exit.thread:           ; preds = %161
   br i1 %168, label %lpEncodeBacklenBytes.exit, label %169
 
 169:                                              ; preds = %166
-  %switch.tableidx211 = add nsw i8 %158, 15
-  %170 = icmp ult i8 %switch.tableidx211, 4
-  br i1 %170, label %switch.lookup210, label %171
+  %switch.tableidx210 = add nsw i8 %158, 15
+  %170 = icmp ult i8 %switch.tableidx210, 4
+  br i1 %170, label %switch.lookup211, label %171
 
 171:                                              ; preds = %169
   %172 = and i32 %159, 240
@@ -1833,15 +1833,15 @@ lpCurrentEncodedSizeUnsafe.exit:                  ; preds = %174, %183
   %195 = select i1 %194, i32 4, i32 5
   br label %lpEncodeBacklenBytes.exit
 
-switch.lookup210:                                 ; preds = %169
-  %196 = zext nneg i8 %switch.tableidx211 to i64
-  %switch.gep212 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %196
+switch.lookup211:                                 ; preds = %169
+  %196 = zext nneg i8 %switch.tableidx210 to i64
+  %switch.gep212 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %196
   %switch.load213 = load i32, ptr %switch.gep212, align 4
   br label %lpEncodeBacklenBytes.exit
 
-lpEncodeBacklenBytes.exit:                        ; preds = %switch.lookup210, %lpCurrentEncodedSizeUnsafe.exit.thread, %182, %166, %157, %187, %lpCurrentEncodedSizeUnsafe.exit, %189, %191, %193
-  %.0.i148170 = phi i32 [ %.0.i148, %lpCurrentEncodedSizeUnsafe.exit ], [ %.0.i148, %189 ], [ %.0.i148, %191 ], [ %.0.i148, %193 ], [ 1, %182 ], [ 2, %166 ], [ 1, %157 ], [ 0, %187 ], [ %165, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load213, %switch.lookup210 ]
-  %.0.i149 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %189 ], [ 3, %191 ], [ %195, %193 ], [ 1, %182 ], [ 1, %166 ], [ 1, %157 ], [ 1, %187 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup210 ]
+lpEncodeBacklenBytes.exit:                        ; preds = %switch.lookup211, %lpCurrentEncodedSizeUnsafe.exit.thread, %182, %166, %157, %187, %lpCurrentEncodedSizeUnsafe.exit, %189, %191, %193
+  %.0.i148170 = phi i32 [ %.0.i148, %lpCurrentEncodedSizeUnsafe.exit ], [ %.0.i148, %189 ], [ %.0.i148, %191 ], [ %.0.i148, %193 ], [ 1, %182 ], [ 2, %166 ], [ 1, %157 ], [ 0, %187 ], [ %165, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load213, %switch.lookup211 ]
+  %.0.i149 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %189 ], [ 3, %191 ], [ %195, %193 ], [ 1, %182 ], [ 1, %166 ], [ 1, %157 ], [ 1, %187 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup211 ]
   %197 = add i32 %.0.i149, %.0.i148170
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.not139 = icmp uge ptr %.0121, %198
@@ -2417,7 +2417,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %49, %40
 
 switch.lookup:                                    ; preds = %35
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -3615,7 +3615,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %38, %29
 
 switch.lookup:                                    ; preds = %24
   %50 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -4070,7 +4070,7 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %63, %54
 
 switch.lookup:                                    ; preds = %49
   %74 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit
 
@@ -4543,7 +4543,7 @@ lpCurrentEncodedSizeUnsafe.exit:                  ; preds = %41, %50
 
 switch.lookup:                                    ; preds = %36
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpEncodeBacklenBytes.exit
 
@@ -5450,7 +5450,7 @@ lpCurrentEncodedSizeUnsafe.exit.i.i:              ; preds = %76, %67
 
 switch.lookup:                                    ; preds = %62
   %88 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit.i
 
@@ -5522,9 +5522,9 @@ lpCurrentEncodedSizeUnsafe.exit.thread.i:         ; preds = %119
   br i1 %108, label %lpEncodeBacklenBytes.exit.i, label %123
 
 123:                                              ; preds = %122
-  %switch.tableidx108 = add nsw i8 %92, 15
-  %124 = icmp ult i8 %switch.tableidx108, 4
-  br i1 %124, label %switch.lookup107, label %125
+  %switch.tableidx107 = add nsw i8 %92, 15
+  %124 = icmp ult i8 %switch.tableidx107, 4
+  br i1 %124, label %switch.lookup108, label %125
 
 125:                                              ; preds = %123
   %126 = and i32 %103, 240
@@ -5569,15 +5569,15 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %137, %128
   %..i.i = select i1 %147, i64 4, i64 5
   br label %lpEncodeBacklenBytes.exit.i
 
-switch.lookup107:                                 ; preds = %123
-  %148 = zext nneg i8 %switch.tableidx108 to i64
-  %switch.gep109 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %148
+switch.lookup108:                                 ; preds = %123
+  %148 = zext nneg i8 %switch.tableidx107 to i64
+  %switch.gep109 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %148
   %switch.load110 = load i32, ptr %switch.gep109, align 4
   br label %lpEncodeBacklenBytes.exit.i
 
-lpEncodeBacklenBytes.exit.i:                      ; preds = %switch.lookup107, %146, %144, %142, %lpCurrentEncodedSizeUnsafe.exit.i, %136, %122, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %118
-  %.shrunk.i = phi i32 [ %.0.i46.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %.0.i46.i, %142 ], [ %.0.i46.i, %144 ], [ %.0.i46.i, %146 ], [ 2, %122 ], [ 1, %118 ], [ 0, %136 ], [ %121, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load110, %switch.lookup107 ]
-  %.0.i47.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %142 ], [ 3, %144 ], [ %..i.i, %146 ], [ 1, %122 ], [ 1, %118 ], [ 1, %136 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup107 ]
+lpEncodeBacklenBytes.exit.i:                      ; preds = %switch.lookup108, %146, %144, %142, %lpCurrentEncodedSizeUnsafe.exit.i, %136, %122, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %118
+  %.shrunk.i = phi i32 [ %.0.i46.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %.0.i46.i, %142 ], [ %.0.i46.i, %144 ], [ %.0.i46.i, %146 ], [ 2, %122 ], [ 1, %118 ], [ 0, %136 ], [ %121, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load110, %switch.lookup108 ]
+  %.0.i47.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %142 ], [ 3, %144 ], [ %..i.i, %146 ], [ 1, %122 ], [ 1, %118 ], [ 1, %136 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup108 ]
   %149 = zext i32 %.shrunk.i to i64
   %150 = getelementptr inbounds nuw i8, ptr %91, i64 %.0.i47.i
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %149
@@ -6175,7 +6175,7 @@ lpCurrentEncodedSizeUnsafe.exit.i.i:              ; preds = %242, %233
 
 switch.lookup:                                    ; preds = %228
   %254 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %254
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %254
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %lpSkip.exit.i
 
@@ -6247,9 +6247,9 @@ lpCurrentEncodedSizeUnsafe.exit.thread.i:         ; preds = %285
   br i1 %274, label %lpEncodeBacklenBytes.exit.i, label %289
 
 289:                                              ; preds = %288
-  %switch.tableidx184 = add nsw i8 %258, 15
-  %290 = icmp ult i8 %switch.tableidx184, 4
-  br i1 %290, label %switch.lookup183, label %291
+  %switch.tableidx183 = add nsw i8 %258, 15
+  %290 = icmp ult i8 %switch.tableidx183, 4
+  br i1 %290, label %switch.lookup184, label %291
 
 291:                                              ; preds = %289
   %292 = and i32 %269, 240
@@ -6294,15 +6294,15 @@ lpCurrentEncodedSizeUnsafe.exit.i:                ; preds = %303, %294
   %..i.i = select i1 %313, i64 4, i64 5
   br label %lpEncodeBacklenBytes.exit.i
 
-switch.lookup183:                                 ; preds = %289
-  %314 = zext nneg i8 %switch.tableidx184 to i64
-  %switch.gep185 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.lpRandomPairs.5, i64 0, i64 %314
+switch.lookup184:                                 ; preds = %289
+  %314 = zext nneg i8 %switch.tableidx183 to i64
+  %switch.gep185 = getelementptr inbounds nuw i32, ptr @switch.table.lpRandomPairs.5, i64 %314
   %switch.load186 = load i32, ptr %switch.gep185, align 4
   br label %lpEncodeBacklenBytes.exit.i
 
-lpEncodeBacklenBytes.exit.i:                      ; preds = %switch.lookup183, %312, %310, %308, %lpCurrentEncodedSizeUnsafe.exit.i, %302, %288, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %284
-  %.shrunk.i = phi i32 [ %.0.i46.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %.0.i46.i, %308 ], [ %.0.i46.i, %310 ], [ %.0.i46.i, %312 ], [ 2, %288 ], [ 1, %284 ], [ 0, %302 ], [ %287, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load186, %switch.lookup183 ]
-  %.0.i47.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %308 ], [ 3, %310 ], [ %..i.i, %312 ], [ 1, %288 ], [ 1, %284 ], [ 1, %302 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup183 ]
+lpEncodeBacklenBytes.exit.i:                      ; preds = %switch.lookup184, %312, %310, %308, %lpCurrentEncodedSizeUnsafe.exit.i, %302, %288, %lpCurrentEncodedSizeUnsafe.exit.thread.i, %284
+  %.shrunk.i = phi i32 [ %.0.i46.i, %lpCurrentEncodedSizeUnsafe.exit.i ], [ %.0.i46.i, %308 ], [ %.0.i46.i, %310 ], [ %.0.i46.i, %312 ], [ 2, %288 ], [ 1, %284 ], [ 0, %302 ], [ %287, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ %switch.load186, %switch.lookup184 ]
+  %.0.i47.i = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit.i ], [ 2, %308 ], [ 3, %310 ], [ %..i.i, %312 ], [ 1, %288 ], [ 1, %284 ], [ 1, %302 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread.i ], [ 1, %switch.lookup184 ]
   %315 = zext i32 %.shrunk.i to i64
   %316 = getelementptr inbounds nuw i8, ptr %257, i64 %.0.i47.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 %315

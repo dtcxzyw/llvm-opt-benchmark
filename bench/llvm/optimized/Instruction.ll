@@ -776,7 +776,7 @@ $_ZTVN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_18PossiblyNonNegInst9hasNonNegEv
 define dso_local noundef nonnull ptr @_ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [65 x ptr], ptr @switch.table._ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -13006,29 +13006,29 @@ _ZN4llvm9sandboxir7Context7getTypeEPNS_4TypeE.exit: ; preds = %1, %_ZNSt10unique
 define dso_local noundef ptr @_ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly byval(%"class.llvm::sandboxir::InsertPosition") align 8 captures(none) %3, ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #1 align 2 {
 switch.lookup:
   %6 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %3)
-  %switch.tableidx = add nsw i32 %1, -48
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE, i64 0, i64 %7
+  %7 = sext i32 %1 to i64
+  %8 = getelementptr i32, ptr @switch.table._ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE, i64 %7
+  %switch.gep = getelementptr i8, ptr %8, i64 -192
   %switch.load = load i32, ptr %switch.gep, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = load ptr, ptr %0, align 8, !tbaa !198
-  %11 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %6, i32 noundef %switch.load, ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null, i64 0)
-  %12 = load i8, ptr %11, align 8, !tbaa !262
-  %13 = add i8 %12, -80
-  %14 = icmp ult i8 %13, -13
-  br i1 %14, label %17, label %15
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = load ptr, ptr %0, align 8, !tbaa !198
+  %12 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %6, i32 noundef %switch.load, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null, i64 0)
+  %13 = load i8, ptr %12, align 8, !tbaa !262
+  %14 = add i8 %13, -80
+  %15 = icmp ult i8 %14, -13
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %switch.lookup
-  %16 = tail call noundef ptr @_ZN4llvm9sandboxir7Context14createCastInstEPNS_8CastInstE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %11) #18
-  br label %19
+16:                                               ; preds = %switch.lookup
+  %17 = tail call noundef ptr @_ZN4llvm9sandboxir7Context14createCastInstEPNS_8CastInstE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %12) #18
+  br label %20
 
-17:                                               ; preds = %switch.lookup
-  %18 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %11) #18
-  br label %19
+18:                                               ; preds = %switch.lookup
+  %19 = tail call noundef ptr @_ZN4llvm9sandboxir7Context19getOrCreateConstantEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(432) %4, ptr noundef nonnull %12) #18
+  br label %20
 
-19:                                               ; preds = %15, %17
-  %.1 = phi ptr [ %18, %17 ], [ %16, %15 ]
+20:                                               ; preds = %16, %18
+  %.1 = phi ptr [ %19, %18 ], [ %17, %16 ]
   ret ptr %.1
 }
 

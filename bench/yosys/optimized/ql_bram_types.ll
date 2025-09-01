@@ -940,8 +940,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit201:             ; preds = %220, %225, %232
   %307 = icmp ult i32 %switch.tableidx, 6
   br i1 %307, label %switch.lookup, label %.invoke
 
-.invoke:                                          ; preds = %377, %368, %359, %306, %switch.lookup, %switch.lookup2004, %switch.lookup2000, %switch.lookup1996
-  %308 = phi i32 [ %286, %359 ], [ %292, %switch.lookup1996 ], [ %295, %368 ], [ %301, %switch.lookup2000 ], [ %298, %377 ], [ %304, %switch.lookup2004 ], [ %283, %306 ], [ %289, %switch.lookup ]
+.invoke:                                          ; preds = %377, %368, %359, %306, %switch.lookup, %switch.lookup2005, %switch.lookup2001, %switch.lookup1997
+  %308 = phi i32 [ %286, %359 ], [ %292, %switch.lookup1997 ], [ %295, %368 ], [ %301, %switch.lookup2001 ], [ %298, %377 ], [ %304, %switch.lookup2005 ], [ %283, %306 ], [ %289, %switch.lookup ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %308) #27
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -950,7 +950,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit201:             ; preds = %220, %225, %232
 
 switch.lookup:                                    ; preds = %306
   %309 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %309
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %309
   %switch.load = load i32, ptr %switch.gep, align 4
   switch i32 %289, label %.invoke [
     i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
@@ -976,10 +976,10 @@ switch.lookup:                                    ; preds = %306
 314:                                              ; preds = %switch.lookup
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke: ; preds = %switch.lookup, %310, %311, %312, %313, %314, %switch.lookup2004, %380, %381, %382, %383, %384, %switch.lookup2000, %371, %372, %373, %374, %375, %switch.lookup1996, %362, %363, %364, %365, %366
-  %315 = phi ptr [ @.str.14, %366 ], [ @.str.14, %365 ], [ @.str.14, %364 ], [ @.str.14, %363 ], [ @.str.14, %362 ], [ @.str.14, %switch.lookup1996 ], [ @.str.15, %375 ], [ @.str.15, %374 ], [ @.str.15, %373 ], [ @.str.15, %372 ], [ @.str.15, %371 ], [ @.str.15, %switch.lookup2000 ], [ @.str.16, %384 ], [ @.str.16, %383 ], [ @.str.16, %382 ], [ @.str.16, %381 ], [ @.str.16, %380 ], [ @.str.16, %switch.lookup2004 ], [ @.str.13, %314 ], [ @.str.13, %313 ], [ @.str.13, %312 ], [ @.str.13, %311 ], [ @.str.13, %310 ], [ @.str.13, %switch.lookup ]
-  %316 = phi i32 [ %switch.load1999, %366 ], [ %switch.load1999, %365 ], [ %switch.load1999, %364 ], [ %switch.load1999, %363 ], [ %switch.load1999, %362 ], [ %switch.load1999, %switch.lookup1996 ], [ %switch.load2003, %375 ], [ %switch.load2003, %374 ], [ %switch.load2003, %373 ], [ %switch.load2003, %372 ], [ %switch.load2003, %371 ], [ %switch.load2003, %switch.lookup2000 ], [ %switch.load2007, %384 ], [ %switch.load2007, %383 ], [ %switch.load2007, %382 ], [ %switch.load2007, %381 ], [ %switch.load2007, %380 ], [ %switch.load2007, %switch.lookup2004 ], [ %switch.load, %314 ], [ %switch.load, %313 ], [ %switch.load, %312 ], [ %switch.load, %311 ], [ %switch.load, %310 ], [ %switch.load, %switch.lookup ]
-  %317 = phi i32 [ 2, %366 ], [ 1, %365 ], [ 4, %364 ], [ 36, %363 ], [ 18, %362 ], [ 9, %switch.lookup1996 ], [ 2, %375 ], [ 1, %374 ], [ 4, %373 ], [ 36, %372 ], [ 18, %371 ], [ 9, %switch.lookup2000 ], [ 2, %384 ], [ 1, %383 ], [ 4, %382 ], [ 36, %381 ], [ 18, %380 ], [ 9, %switch.lookup2004 ], [ 2, %314 ], [ 1, %313 ], [ 4, %312 ], [ 36, %311 ], [ 18, %310 ], [ 9, %switch.lookup ]
+_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke: ; preds = %switch.lookup, %310, %311, %312, %313, %314, %switch.lookup2005, %380, %381, %382, %383, %384, %switch.lookup2001, %371, %372, %373, %374, %375, %switch.lookup1997, %362, %363, %364, %365, %366
+  %315 = phi ptr [ @.str.14, %366 ], [ @.str.14, %365 ], [ @.str.14, %364 ], [ @.str.14, %363 ], [ @.str.14, %362 ], [ @.str.14, %switch.lookup1997 ], [ @.str.15, %375 ], [ @.str.15, %374 ], [ @.str.15, %373 ], [ @.str.15, %372 ], [ @.str.15, %371 ], [ @.str.15, %switch.lookup2001 ], [ @.str.16, %384 ], [ @.str.16, %383 ], [ @.str.16, %382 ], [ @.str.16, %381 ], [ @.str.16, %380 ], [ @.str.16, %switch.lookup2005 ], [ @.str.13, %314 ], [ @.str.13, %313 ], [ @.str.13, %312 ], [ @.str.13, %311 ], [ @.str.13, %310 ], [ @.str.13, %switch.lookup ]
+  %316 = phi i32 [ %switch.load1999, %366 ], [ %switch.load1999, %365 ], [ %switch.load1999, %364 ], [ %switch.load1999, %363 ], [ %switch.load1999, %362 ], [ %switch.load1999, %switch.lookup1997 ], [ %switch.load2003, %375 ], [ %switch.load2003, %374 ], [ %switch.load2003, %373 ], [ %switch.load2003, %372 ], [ %switch.load2003, %371 ], [ %switch.load2003, %switch.lookup2001 ], [ %switch.load2007, %384 ], [ %switch.load2007, %383 ], [ %switch.load2007, %382 ], [ %switch.load2007, %381 ], [ %switch.load2007, %380 ], [ %switch.load2007, %switch.lookup2005 ], [ %switch.load, %314 ], [ %switch.load, %313 ], [ %switch.load, %312 ], [ %switch.load, %311 ], [ %switch.load, %310 ], [ %switch.load, %switch.lookup ]
+  %317 = phi i32 [ 2, %366 ], [ 1, %365 ], [ 4, %364 ], [ 36, %363 ], [ 18, %362 ], [ 9, %switch.lookup1997 ], [ 2, %375 ], [ 1, %374 ], [ 4, %373 ], [ 36, %372 ], [ 18, %371 ], [ 9, %switch.lookup2001 ], [ 2, %384 ], [ 1, %383 ], [ 4, %382 ], [ 36, %381 ], [ 18, %380 ], [ 9, %switch.lookup2005 ], [ 2, %314 ], [ 1, %313 ], [ 4, %312 ], [ 36, %311 ], [ 18, %310 ], [ 9, %switch.lookup ]
   invoke void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull %315, i32 noundef %316, i32 noundef %317)
           to label %621 unwind label %.loopexit
 
@@ -1126,13 +1126,13 @@ _ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke: ; preds = %
   br i1 %.not146, label %367, label %359
 
 359:                                              ; preds = %358
-  %switch.tableidx1997 = add i32 %286, -1
-  %360 = icmp ult i32 %switch.tableidx1997, 6
-  br i1 %360, label %switch.lookup1996, label %.invoke
+  %switch.tableidx1996 = add i32 %286, -1
+  %360 = icmp ult i32 %switch.tableidx1996, 6
+  br i1 %360, label %switch.lookup1997, label %.invoke
 
-switch.lookup1996:                                ; preds = %359
-  %361 = zext nneg i32 %switch.tableidx1997 to i64
-  %switch.gep1998 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %361
+switch.lookup1997:                                ; preds = %359
+  %361 = zext nneg i32 %switch.tableidx1996 to i64
+  %switch.gep1998 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %361
   %switch.load1999 = load i32, ptr %switch.gep1998, align 4
   switch i32 %292, label %.invoke [
     i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
@@ -1143,19 +1143,19 @@ switch.lookup1996:                                ; preds = %359
     i32 6, label %366
   ]
 
-362:                                              ; preds = %switch.lookup1996
+362:                                              ; preds = %switch.lookup1997
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-363:                                              ; preds = %switch.lookup1996
+363:                                              ; preds = %switch.lookup1997
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-364:                                              ; preds = %switch.lookup1996
+364:                                              ; preds = %switch.lookup1997
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-365:                                              ; preds = %switch.lookup1996
+365:                                              ; preds = %switch.lookup1997
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-366:                                              ; preds = %switch.lookup1996
+366:                                              ; preds = %switch.lookup1997
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
 367:                                              ; preds = %358
@@ -1163,13 +1163,13 @@ switch.lookup1996:                                ; preds = %359
   br i1 %.not147, label %376, label %368
 
 368:                                              ; preds = %367
-  %switch.tableidx2001 = add i32 %295, -1
-  %369 = icmp ult i32 %switch.tableidx2001, 6
-  br i1 %369, label %switch.lookup2000, label %.invoke
+  %switch.tableidx2000 = add i32 %295, -1
+  %369 = icmp ult i32 %switch.tableidx2000, 6
+  br i1 %369, label %switch.lookup2001, label %.invoke
 
-switch.lookup2000:                                ; preds = %368
-  %370 = zext nneg i32 %switch.tableidx2001 to i64
-  %switch.gep2002 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %370
+switch.lookup2001:                                ; preds = %368
+  %370 = zext nneg i32 %switch.tableidx2000 to i64
+  %switch.gep2002 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %370
   %switch.load2003 = load i32, ptr %switch.gep2002, align 4
   switch i32 %301, label %.invoke [
     i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
@@ -1180,19 +1180,19 @@ switch.lookup2000:                                ; preds = %368
     i32 6, label %375
   ]
 
-371:                                              ; preds = %switch.lookup2000
+371:                                              ; preds = %switch.lookup2001
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-372:                                              ; preds = %switch.lookup2000
+372:                                              ; preds = %switch.lookup2001
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-373:                                              ; preds = %switch.lookup2000
+373:                                              ; preds = %switch.lookup2001
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-374:                                              ; preds = %switch.lookup2000
+374:                                              ; preds = %switch.lookup2001
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-375:                                              ; preds = %switch.lookup2000
+375:                                              ; preds = %switch.lookup2001
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
 376:                                              ; preds = %367
@@ -1200,13 +1200,13 @@ switch.lookup2000:                                ; preds = %368
   br i1 %.not148, label %._crit_edge.i.i, label %377
 
 377:                                              ; preds = %376
-  %switch.tableidx2005 = add i32 %298, -1
-  %378 = icmp ult i32 %switch.tableidx2005, 6
-  br i1 %378, label %switch.lookup2004, label %.invoke
+  %switch.tableidx2004 = add i32 %298, -1
+  %378 = icmp ult i32 %switch.tableidx2004, 6
+  br i1 %378, label %switch.lookup2005, label %.invoke
 
-switch.lookup2004:                                ; preds = %377
-  %379 = zext nneg i32 %switch.tableidx2005 to i64
-  %switch.gep2006 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %379
+switch.lookup2005:                                ; preds = %377
+  %379 = zext nneg i32 %switch.tableidx2004 to i64
+  %switch.gep2006 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %379
   %switch.load2007 = load i32, ptr %switch.gep2006, align 4
   switch i32 %304, label %.invoke [
     i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
@@ -1217,19 +1217,19 @@ switch.lookup2004:                                ; preds = %377
     i32 6, label %384
   ]
 
-380:                                              ; preds = %switch.lookup2004
+380:                                              ; preds = %switch.lookup2005
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-381:                                              ; preds = %switch.lookup2004
+381:                                              ; preds = %switch.lookup2005
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-382:                                              ; preds = %switch.lookup2004
+382:                                              ; preds = %switch.lookup2005
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-383:                                              ; preds = %switch.lookup2004
+383:                                              ; preds = %switch.lookup2005
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
-384:                                              ; preds = %switch.lookup2004
+384:                                              ; preds = %switch.lookup2005
   br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit204.invoke
 
 ._crit_edge.i.i:                                  ; preds = %376
@@ -1282,13 +1282,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i226.invok
   br i1 %395, label %.invoke1831, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i226.invoke
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit229: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i226.invoke
-  %switch.tableidx2009 = add i32 %283, -1
-  %396 = icmp ult i32 %switch.tableidx2009, 6
+  %switch.tableidx2008 = add i32 %283, -1
+  %396 = icmp ult i32 %switch.tableidx2008, 6
   br i1 %237, label %397, label %499
 
 397:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit229
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  br i1 %396, label %switch.lookup2008, label %398
+  br i1 %396, label %switch.lookup2009, label %398
 
 398:                                              ; preds = %397
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %283) #27
@@ -1297,14 +1297,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit229: ; preds = %
 .noexc239:                                        ; preds = %398
   unreachable
 
-switch.lookup2008:                                ; preds = %397
-  %399 = zext nneg i32 %switch.tableidx2009 to i64
-  %switch.gep2010 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %399
+switch.lookup2009:                                ; preds = %397
+  %399 = zext nneg i32 %switch.tableidx2008 to i64
+  %switch.gep2010 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %399
   %switch.load2011 = load i32, ptr %switch.gep2010, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull @.str.22, i32 noundef %switch.load2011)
           to label %400 unwind label %.loopexit381
 
-400:                                              ; preds = %switch.lookup2008
+400:                                              ; preds = %switch.lookup2009
   %401 = load i64, ptr %85, align 8, !tbaa !20
   %402 = load i64, ptr %80, align 8, !tbaa !20
   %403 = sub i64 4611686018427387903, %402
@@ -1343,9 +1343,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %switch.tableidx2013 = add i32 %286, -1
-  %414 = icmp ult i32 %switch.tableidx2013, 6
-  br i1 %414, label %switch.lookup2012, label %415
+  %switch.tableidx2012 = add i32 %286, -1
+  %414 = icmp ult i32 %switch.tableidx2012, 6
+  br i1 %414, label %switch.lookup2013, label %415
 
 415:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %286) #27
@@ -1354,14 +1354,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .noexc244:                                        ; preds = %415
   unreachable
 
-switch.lookup2012:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %416 = zext nneg i32 %switch.tableidx2013 to i64
-  %switch.gep2014 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %416
+switch.lookup2013:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %416 = zext nneg i32 %switch.tableidx2012 to i64
+  %switch.gep2014 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %416
   %switch.load2015 = load i32, ptr %switch.gep2014, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr noundef nonnull @.str.23, i32 noundef %switch.load2015)
           to label %417 unwind label %.loopexit391
 
-417:                                              ; preds = %switch.lookup2012
+417:                                              ; preds = %switch.lookup2013
   %418 = load i64, ptr %87, align 8, !tbaa !20
   %419 = load i64, ptr %80, align 8, !tbaa !20
   %420 = sub i64 4611686018427387903, %419
@@ -1400,9 +1400,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %switch.tableidx2017 = add i32 %295, -1
-  %431 = icmp ult i32 %switch.tableidx2017, 6
-  br i1 %431, label %switch.lookup2016, label %432
+  %switch.tableidx2016 = add i32 %295, -1
+  %431 = icmp ult i32 %switch.tableidx2016, 6
+  br i1 %431, label %switch.lookup2017, label %432
 
 432:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %295) #27
@@ -1411,14 +1411,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
 .noexc254:                                        ; preds = %432
   unreachable
 
-switch.lookup2016:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
-  %433 = zext nneg i32 %switch.tableidx2017 to i64
-  %switch.gep2018 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %433
+switch.lookup2017:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
+  %433 = zext nneg i32 %switch.tableidx2016 to i64
+  %switch.gep2018 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %433
   %switch.load2019 = load i32, ptr %switch.gep2018, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull @.str.24, i32 noundef %switch.load2019)
           to label %434 unwind label %.loopexit401
 
-434:                                              ; preds = %switch.lookup2016
+434:                                              ; preds = %switch.lookup2017
   %435 = load i64, ptr %89, align 8, !tbaa !20
   %436 = load i64, ptr %80, align 8, !tbaa !20
   %437 = sub i64 4611686018427387903, %436
@@ -1457,9 +1457,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i261, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i260
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %switch.tableidx2021 = add i32 %298, -1
-  %448 = icmp ult i32 %switch.tableidx2021, 6
-  br i1 %448, label %switch.lookup2020, label %449
+  %switch.tableidx2020 = add i32 %298, -1
+  %448 = icmp ult i32 %switch.tableidx2020, 6
+  br i1 %448, label %switch.lookup2021, label %449
 
 449:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %298) #27
@@ -1468,14 +1468,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262: ; preds = %_Z
 .noexc264:                                        ; preds = %449
   unreachable
 
-switch.lookup2020:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262
-  %450 = zext nneg i32 %switch.tableidx2021 to i64
-  %switch.gep2022 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %450
+switch.lookup2021:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262
+  %450 = zext nneg i32 %switch.tableidx2020 to i64
+  %switch.gep2022 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %450
   %switch.load2023 = load i32, ptr %switch.gep2022, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull @.str.25, i32 noundef %switch.load2023)
           to label %451 unwind label %.loopexit411
 
-451:                                              ; preds = %switch.lookup2020
+451:                                              ; preds = %switch.lookup2021
   %452 = load i64, ptr %91, align 8, !tbaa !20
   %453 = load i64, ptr %80, align 8, !tbaa !20
   %454 = sub i64 4611686018427387903, %453
@@ -1524,7 +1524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i273.invok
   %470 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %468, i64 noundef %469)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit276 unwind label %.loopexit356
 
-.loopexit381:                                     ; preds = %switch.lookup2008
+.loopexit381:                                     ; preds = %switch.lookup2009
   %lpad.loopexit383 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279
@@ -1567,7 +1567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279: ; preds = %.l
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %624
 
-.loopexit391:                                     ; preds = %switch.lookup2012
+.loopexit391:                                     ; preds = %switch.lookup2013
   %lpad.loopexit393 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282
@@ -1610,7 +1610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282: ; preds = %.l
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %624
 
-.loopexit401:                                     ; preds = %switch.lookup2016
+.loopexit401:                                     ; preds = %switch.lookup2017
   %lpad.loopexit403 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285
@@ -1653,7 +1653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %.l
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %624
 
-.loopexit411:                                     ; preds = %switch.lookup2020
+.loopexit411:                                     ; preds = %switch.lookup2021
   %lpad.loopexit413 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288
@@ -1698,7 +1698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %.l
 
 499:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit229
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  br i1 %396, label %switch.lookup2024, label %500
+  br i1 %396, label %switch.lookup2025, label %500
 
 500:                                              ; preds = %499
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %283) #27
@@ -1707,14 +1707,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %.l
 .noexc290:                                        ; preds = %500
   unreachable
 
-switch.lookup2024:                                ; preds = %499
-  %501 = zext nneg i32 %switch.tableidx2009 to i64
-  %switch.gep2026 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %501
+switch.lookup2025:                                ; preds = %499
+  %501 = zext nneg i32 %switch.tableidx2008 to i64
+  %switch.gep2026 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %501
   %switch.load2027 = load i32, ptr %switch.gep2026, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull @.str.27, i32 noundef %switch.load2027)
           to label %502 unwind label %.loopexit361
 
-502:                                              ; preds = %switch.lookup2024
+502:                                              ; preds = %switch.lookup2025
   %503 = load i64, ptr %81, align 8, !tbaa !20
   %504 = load i64, ptr %80, align 8, !tbaa !20
   %505 = sub i64 4611686018427387903, %504
@@ -1753,9 +1753,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i297, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i296
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %switch.tableidx2029 = add i32 %286, -1
-  %516 = icmp ult i32 %switch.tableidx2029, 6
-  br i1 %516, label %switch.lookup2028, label %517
+  %switch.tableidx2028 = add i32 %286, -1
+  %516 = icmp ult i32 %switch.tableidx2028, 6
+  br i1 %516, label %switch.lookup2029, label %517
 
 517:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.43, i32 noundef %286) #27
@@ -1764,14 +1764,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298: ; preds = %_Z
 .noexc300:                                        ; preds = %517
   unreachable
 
-switch.lookup2028:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298
-  %518 = zext nneg i32 %switch.tableidx2029 to i64
-  %switch.gep2030 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %518
+switch.lookup2029:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298
+  %518 = zext nneg i32 %switch.tableidx2028 to i64
+  %switch.gep2030 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 %518
   %switch.load2031 = load i32, ptr %switch.gep2030, align 4
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull @.str.28, i32 noundef %switch.load2031)
           to label %519 unwind label %.loopexit371
 
-519:                                              ; preds = %switch.lookup2028
+519:                                              ; preds = %switch.lookup2029
   %520 = load i64, ptr %83, align 8, !tbaa !20
   %521 = load i64, ptr %80, align 8, !tbaa !20
   %522 = sub i64 4611686018427387903, %521
@@ -1814,7 +1814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %_Z
   %535 = icmp eq i64 %534, 4611686018427387896
   br i1 %535, label %.invoke1831, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i273.invoke
 
-.loopexit361:                                     ; preds = %switch.lookup2024
+.loopexit361:                                     ; preds = %switch.lookup2025
   %lpad.loopexit363 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315
@@ -1857,7 +1857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %624
 
-.loopexit371:                                     ; preds = %switch.lookup2028
+.loopexit371:                                     ; preds = %switch.lookup2029
   %lpad.loopexit373 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit318

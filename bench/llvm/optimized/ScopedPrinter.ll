@@ -395,7 +395,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.019.i = phi i64 [ %41, %.thread.i ], [ %19, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %.117.i = phi ptr [ %40, %.thread.i ], [ %20, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %37 = and i64 %.019.i, 15
-  %38 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !19, !noalias !16
   %40 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %39, ptr %40, align 1, !tbaa !19, !noalias !16

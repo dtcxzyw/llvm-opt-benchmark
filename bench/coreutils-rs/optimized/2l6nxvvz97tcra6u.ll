@@ -255,7 +255,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$$u5b$uu_join..Line$u5d$$GT$1
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.0
+  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr34drop_in_place$LT$uu_join..Line$GT$17hc6021535bef93bc3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %3 unwind label %11
@@ -274,7 +274,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$$u5b$uu_join..Line$u5d$$GT$1
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.1
+  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr34drop_in_place$LT$uu_join..Line$GT$17hc6021535bef93bc3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #22
           to label %9 unwind label %17
@@ -1303,7 +1303,7 @@ define hidden { ptr, i64 } @_ZN7uu_join4Line9get_field17h79dc743dc583b057E(ptr n
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds [0 x { i64, i64 }], ptr %11, i64 0, i64 %1
+  %12 = getelementptr inbounds { i64, i64 }, ptr %11, i64 %1
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !4
@@ -1621,7 +1621,7 @@ common.resume:                                    ; preds = %98, %84, %24
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !179, !noalias !175, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds [0 x { i64, i64 }], ptr %40, i64 0, i64 %34
+  %41 = getelementptr inbounds { i64, i64 }, ptr %40, i64 %34
   %42 = load i64, ptr %41, align 8, !noalias !182, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !182, !noundef !4
@@ -1663,7 +1663,7 @@ common.resume:                                    ; preds = %98, %84, %24
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %14, align 8, !alias.scope !183, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds [0 x { i64, i64 }], ptr %59, i64 0, i64 %34
+  %60 = getelementptr inbounds { i64, i64 }, ptr %59, i64 %34
   %61 = load i64, ptr %60, align 8, !noalias !183, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8, !noalias !183, !noundef !4
@@ -1805,7 +1805,7 @@ define hidden void @_ZN7uu_join5State5reset17h784107f14b1333c0E(ptr noalias noun
   br i1 %9, label %"_ZN4core3ptr44drop_in_place$LT$$u5b$uu_join..Line$u5d$$GT$17hcb750223bc826b51E.llvm.2011083569936217469.exit", label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }], ptr %5, i64 0, i64 %.0.i
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %5, i64 %.0.i
   %12 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr34drop_in_place$LT$uu_join..Line$GT$17hc6021535bef93bc3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
           to label %8 unwind label %15
@@ -1821,7 +1821,7 @@ define hidden void @_ZN7uu_join5State5reset17h784107f14b1333c0E(ptr noalias noun
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }], ptr %5, i64 0, i64 %.1.i
+  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %5, i64 %.1.i
   %19 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr34drop_in_place$LT$uu_join..Line$GT$17hc6021535bef93bc3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18) #22
           to label %13 unwind label %20
@@ -2471,7 +2471,7 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !237, !noalias !234, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds [0 x { i64, i64 }], ptr %44, i64 0, i64 %38
+  %45 = getelementptr inbounds { i64, i64 }, ptr %44, i64 %38
   %46 = load i64, ptr %45, align 8, !noalias !240, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8, !noalias !240, !noundef !4
@@ -2520,7 +2520,7 @@ define hidden void @_ZN7uu_join5State9next_line17h32e4bef65236a617E(ptr noalias 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !241, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds [0 x { i64, i64 }], ptr %68, i64 0, i64 %38
+  %69 = getelementptr inbounds { i64, i64 }, ptr %68, i64 %38
   %70 = load i64, ptr %69, align 8, !noalias !241, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i64, ptr %71, align 8, !noalias !241, !noundef !4
@@ -2812,7 +2812,7 @@ define hidden { ptr, i64 } @_ZN7uu_join5State15get_current_key17h3299d1b51c78a2a
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !285, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds [0 x { i64, i64 }], ptr %14, i64 0, i64 %8
+  %15 = getelementptr inbounds { i64, i64 }, ptr %14, i64 %8
   %16 = load i64, ptr %15, align 8, !noalias !285, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !285, !noundef !4
@@ -7440,7 +7440,7 @@ default.unreachable470:                           ; preds = %362
 223:                                              ; preds = %217
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %225 = load ptr, ptr %224, align 8, !alias.scope !1512, !noalias !1509, !nonnull !4, !noundef !4
-  %226 = getelementptr inbounds [0 x { i64, i64 }], ptr %225, i64 0, i64 %219
+  %226 = getelementptr inbounds { i64, i64 }, ptr %225, i64 %219
   %227 = load i64, ptr %226, align 8, !noalias !1515, !noundef !4
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %229 = load i64, ptr %228, align 8, !noalias !1515, !noundef !4
@@ -7732,7 +7732,7 @@ default.unreachable470:                           ; preds = %362
 344:                                              ; preds = %338
   %345 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %346 = load ptr, ptr %345, align 8, !alias.scope !1525, !noalias !1522, !nonnull !4, !noundef !4
-  %347 = getelementptr inbounds [0 x { i64, i64 }], ptr %346, i64 0, i64 %340
+  %347 = getelementptr inbounds { i64, i64 }, ptr %346, i64 %340
   %348 = load i64, ptr %347, align 8, !noalias !1528, !noundef !4
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %350 = load i64, ptr %349, align 8, !noalias !1528, !noundef !4

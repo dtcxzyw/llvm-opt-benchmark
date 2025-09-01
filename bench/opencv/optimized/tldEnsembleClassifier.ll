@@ -189,7 +189,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuf
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %32 = phi ptr [ %14, %.lr.ph ], [ %57, %55 ]
   %33 = getelementptr inbounds nuw %"class.cv::Vec", ptr %32, i64 %indvars.iv
-  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 0, i64 %23
+  %34 = getelementptr inbounds i8, ptr %33, i64 %23
   %35 = load i8, ptr %34, align 1, !tbaa !28
   %36 = zext i8 %35 to i32
   %37 = icmp sgt i32 %11, %36
@@ -916,7 +916,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i ], [ 0, %153 ]
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i.i.i
   %170 = load i8, ptr %169, align 1, !tbaa !28
-  %171 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %171 = getelementptr inbounds nuw i8, ptr %155, i64 %indvars.iv.i.i.i.i.i
   store i8 %170, ptr %171, align 1, !tbaa !28
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -971,7 +971,7 @@ _ZNKSt6vectorIN2cv3VecIhLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %173
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %188 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %189 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %190 = load i8, ptr %189, align 1, !tbaa !28
-  %191 = getelementptr inbounds nuw [4 x i8], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %191 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store i8 %190, ptr %191, align 1, !tbaa !28
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -1471,7 +1471,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv3VecIhLi4EEESt6vectorIS4_SaIS4_EE
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %45 ], [ 0, %.preheader.i.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   %47 = load i8, ptr %46, align 1, !tbaa !28
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %.013.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   store i8 %47, ptr %48, align 1, !tbaa !28
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 4

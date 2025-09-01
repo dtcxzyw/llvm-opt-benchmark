@@ -1731,7 +1731,7 @@ define internal i32 @dissect_zbncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %7)
   %9 = zext i8 %8 to i32
-  %10 = getelementptr [6 x i8], ptr @.str.1235, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr i8, ptr @.str.1235, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
   %.not39.i = icmp eq i32 %9, %12

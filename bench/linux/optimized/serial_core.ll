@@ -6271,7 +6271,7 @@ define internal fastcc i32 @uart_set_iso7816_config(ptr noundef nonnull %0, ptr 
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ 0, %10 ], [ %13, %12 ]
-  %17 = getelementptr [5 x i32], ptr %11, i64 0, i64 %16
+  %17 = getelementptr i32, ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %12, label %.loopexit

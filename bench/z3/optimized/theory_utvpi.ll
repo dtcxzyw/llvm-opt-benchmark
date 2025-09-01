@@ -40126,7 +40126,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %164
 182:                                              ; preds = %.lr.ph, %_ZNSt4pairIP4expr8rationalED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt4pairIP4expr8rationalED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %183 = getelementptr inbounds nuw [0 x ptr], ptr %177, i64 0, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv
   %184 = load ptr, ptr %183, align 8, !tbaa !30
   call void @llvm.experimental.noalias.scope.decl(metadata !1335)
   store ptr %184, ptr %7, align 8, !tbaa !998, !alias.scope !1335

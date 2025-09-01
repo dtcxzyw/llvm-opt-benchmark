@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = phi ptr [ %9, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ %call.i.i.i, %for.body.preheader ]
   %i.04 = phi i64 [ %inc, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ 0, %for.body.preheader ]
   %curStr.03 = phi ptr [ %add.ptr, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ @_ZZN6hermes2vmL9funcNamesEvE5names, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw [417 x ptr], ptr @_ZZN6hermes2vmL9funcNamesEvE16functionPointers, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN6hermes2vmL9funcNamesEvE16functionPointers, i64 %i.04
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6hermes2vmL19getFunctionNameImplEPvE3map, i64 16), align 8
   %cmp.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
@@ -207,7 +207,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12Den
   %retval.0.i.i = phi ptr [ %call.i.i.i8, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i7, %if.end13.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store ptr %curStr.03, ptr %second.i, align 8
-  %arrayidx1 = getelementptr inbounds nuw [417 x i8], ptr @_ZZN6hermes2vmL9funcNamesEvE11nameLengths, i64 0, i64 %i.04
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr @_ZZN6hermes2vmL9funcNamesEvE11nameLengths, i64 %i.04
   %10 = load i8, ptr %arrayidx1, align 1
   %idx.ext = zext i8 %10 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %curStr.03, i64 %idx.ext

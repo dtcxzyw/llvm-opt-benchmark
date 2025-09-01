@@ -240,7 +240,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 102:                                              ; preds = %102, %.preheader680.split.us
   %indvars.iv704 = phi i64 [ %indvars.iv.next705, %102 ], [ 0, %.preheader680.split.us ]
   %103 = phi i32 [ %113, %102 ], [ %.promoted, %.preheader680.split.us ]
-  %104 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 0, i64 %indvars.iv704
+  %104 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv704
   %105 = load i8, ptr %104, align 1, !tbaa !16
   %106 = icmp ugt i8 %105, 99
   %107 = icmp ugt i8 %105, 9
@@ -298,7 +298,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 
 135:                                              ; preds = %128, %133, %119
   %136 = zext nneg i32 %115 to i64
-  %137 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 %136
   store i8 0, ptr %137, align 1, !tbaa !16
   %138 = sext i32 %.9388688829 to i64
   %139 = getelementptr inbounds i8, ptr %0, i64 %138
@@ -336,7 +336,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i8 46, ptr %146, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv828, 1
   %147 = load ptr, ptr %91, align 8, !tbaa !20
-  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 0, i64 %indvars.iv.next
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %indvars.iv.next
   %149 = load i8, ptr %148, align 1, !tbaa !16
   %150 = icmp ugt i8 %149, 99
   %151 = icmp ugt i8 %149, 9
@@ -412,7 +412,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 
 .thread601:                                       ; preds = %.split
   %176 = load ptr, ptr %156, align 8, !tbaa !23
-  %177 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 0, i64 %indvars.iv708
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv708
   %178 = load i8, ptr %177, align 1, !tbaa !16
   %179 = zext i8 %178 to i32
   %180 = lshr i32 %179, 4
@@ -1268,7 +1268,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 109:                                              ; preds = %109, %.preheader690.split.us
   %indvars.iv714 = phi i64 [ %indvars.iv.next715, %109 ], [ 0, %.preheader690.split.us ]
   %110 = phi i32 [ %120, %109 ], [ %.promoted, %.preheader690.split.us ]
-  %111 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 0, i64 %indvars.iv714
+  %111 = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv714
   %112 = load i8, ptr %111, align 1, !tbaa !16
   %113 = icmp ugt i8 %112, 99
   %114 = icmp ugt i8 %112, 9
@@ -1332,7 +1332,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 148:                                              ; preds = %138, %145, %126
   %149 = zext nneg i32 %122 to i64
-  %150 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr %6, i64 %149
   store i32 0, ptr %150, align 4, !tbaa !3
   %151 = sext i32 %.9388698839 to i64
   %152 = getelementptr inbounds i32, ptr %0, i64 %151
@@ -1371,7 +1371,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 46, ptr %160, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv838, 1
   %161 = load ptr, ptr %98, align 8, !tbaa !51
-  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 0, i64 %indvars.iv.next
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.next
   %163 = load i8, ptr %162, align 1, !tbaa !16
   %164 = icmp ugt i8 %163, 99
   %165 = icmp ugt i8 %163, 9
@@ -1447,7 +1447,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 .thread601:                                       ; preds = %.split
   %190 = load ptr, ptr %170, align 8, !tbaa !53
-  %191 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 0, i64 %indvars.iv718
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %indvars.iv718
   %192 = load i8, ptr %191, align 1, !tbaa !16
   %193 = zext i8 %192 to i32
   %194 = lshr i32 %193, 4

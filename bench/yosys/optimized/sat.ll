@@ -19532,7 +19532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit965: ; preds = %.l
 
 3244:                                             ; preds = %.preheader2817, %._crit_edge3961
   %indvars.iv = phi i64 [ 0, %.preheader2817 ], [ %indvars.iv.next, %._crit_edge3961 ]
-  %3245 = getelementptr inbounds nuw [3 x %"class.std::set.602"], ptr %75, i64 0, i64 %indvars.iv
+  %3245 = getelementptr inbounds nuw %"class.std::set.602", ptr %75, i64 %indvars.iv
   %3246 = getelementptr inbounds nuw i8, ptr %3245, i64 24
   %3247 = load ptr, ptr %3246, align 8, !tbaa !16
   %3248 = getelementptr inbounds nuw i8, ptr %3245, i64 8
@@ -39300,7 +39300,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
 366:                                              ; preds = %364
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %367 = zext i8 %365 to i64
-  %368 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN12_GLOBAL__N_19SatHelper17dump_model_to_vcdENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7bitvals, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_19SatHelper17dump_model_to_vcdENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7bitvals, i64 %367
   %369 = load i8, ptr %368, align 1, !tbaa !24
   %370 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0223, i64 48
   %371 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %370)
@@ -39344,7 +39344,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
 385:                                              ; preds = %.lr.ph220
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %386 = zext i8 %384 to i64
-  %387 = getelementptr inbounds nuw [7 x i8], ptr @_ZZN12_GLOBAL__N_19SatHelper17dump_model_to_vcdENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7bitvals, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_19SatHelper17dump_model_to_vcdENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7bitvals, i64 %386
   %388 = load i8, ptr %387, align 1, !tbaa !24
   %389 = sext i8 %388 to i32
   %fputc87 = call i32 @fputc(i32 %389, ptr nonnull %16)

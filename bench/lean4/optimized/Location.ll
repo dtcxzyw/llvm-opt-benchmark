@@ -33,7 +33,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_expandLocation___spe
 6:                                                ; preds = %.lr.ph, %lean_dec.exit28
   %.02348 = phi i64 [ %1, %.lr.ph ], [ %35, %lean_dec.exit28 ]
   %.02547 = phi ptr [ %3, %.lr.ph ], [ %.227, %lean_dec.exit28 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02348
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02348
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -1382,7 +1382,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit244
   %.0157522 = phi i64 [ %5, %.lr.ph ], [ %.1158, %lean_dec.exit226 ]
   %.0163521 = phi i8 [ %6, %.lr.ph ], [ %.1164, %lean_dec.exit226 ]
   %.0169520 = phi ptr [ %15, %.lr.ph ], [ %.1170, %lean_dec.exit226 ]
-  %126 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.0157522
+  %126 = getelementptr inbounds nuw ptr, ptr %17, i64 %.0157522
   %127 = load ptr, ptr %126, align 8, !tbaa !4
   %128 = ptrtoint ptr %127 to i64
   %129 = and i64 %128, 1
@@ -3620,7 +3620,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_withLocation___spec_
   br label %lean_dec.exit120
 
 lean_dec.exit120:                                 ; preds = %43, %42, %40, %34
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.077244
+  %44 = getelementptr inbounds nuw ptr, ptr %15, i64 %.077244
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1

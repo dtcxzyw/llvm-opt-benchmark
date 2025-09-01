@@ -181,7 +181,7 @@ define range(i32 -2147483648, 2) i32 @ff_asf_handle_byte_array(ptr noundef %0, p
 67:                                               ; preds = %66, %65, %61
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %69 = zext nneg i32 %.050.i to i64
-  %70 = getelementptr inbounds nuw [21 x ptr], ptr @ff_id3v2_picture_types, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = call i32 @av_dict_set(ptr noundef nonnull %68, ptr noundef nonnull @.str.7, ptr noundef %71, i32 noundef 0) #5
   %73 = icmp slt i32 %72, 0

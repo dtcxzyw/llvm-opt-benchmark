@@ -65,7 +65,7 @@ malloc_read_fd.exit.i:                            ; preds = %24, %17, %malloc_re
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %malloc_read_fd.exit.i
-  %28 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %.2.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %.2.i.i
   store i8 0, ptr %28, align 1, !tbaa !10
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #9
   br label %30

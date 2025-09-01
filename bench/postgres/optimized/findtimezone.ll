@@ -160,7 +160,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   %40 = add i32 %39, 1
   store i32 %40, ptr %7, align 8
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds [5200 x i64], ptr %31, i64 0, i64 %41
+  %42 = getelementptr inbounds i64, ptr %31, i64 %41
   store i64 %38, ptr %42, align 8
   %43 = load i32, ptr %7, align 8
   %44 = icmp slt i32 %43, 5200
@@ -173,7 +173,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   %48 = add nsw i32 %45, 1
   store i32 %48, ptr %7, align 8
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds [5200 x i64], ptr %31, i64 0, i64 %49
+  %50 = getelementptr inbounds i64, ptr %31, i64 %49
   store i64 %47, ptr %50, align 8
   %51 = load i32, ptr %7, align 8
   %52 = icmp slt i32 %51, 5200
@@ -193,7 +193,7 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   br i1 %or.cond.i.i, label %.loopexit.i, label %58
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %56
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 %56
   store i8 0, ptr %59, align 1
   %60 = load i8, ptr %2, align 16
   %.not3.i.i = icmp eq i8 %60, 0
@@ -656,7 +656,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
 
 .lr.ph:                                           ; preds = %.preheader, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw [5200 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %3, align 8
   %13 = call ptr @pg_localtime(ptr noundef nonnull %3, ptr noundef nonnull %5) #13

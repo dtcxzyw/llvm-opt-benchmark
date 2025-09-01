@@ -919,9 +919,9 @@ define hidden i32 @getJavaErrorCode(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = add nsw i32 %3, -1
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [18 x i32], ptr @JAVA_ERROR_CODE, i64 0, i64 %6
+  %5 = zext nneg i32 %3 to i64
+  %6 = getelementptr i32, ptr @JAVA_ERROR_CODE, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4
   br label %17
 
@@ -1157,13 +1157,14 @@ define hidden void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 getJavaErrorCode.exit:                            ; preds = %.thread
   %33 = lshr i32 %24, 16
-  %34 = add nsw i32 %33, -1
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [18 x i32], ptr @JAVA_ERROR_CODE, i64 0, i64 %35
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr i32, ptr @JAVA_ERROR_CODE, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4
-  br label %getJavaErrorCode.exit.thread
+  %.not52 = icmp eq i32 %37, 0
+  br i1 %.not52, label %getJavaErrorCode.exit.thread63, label %getJavaErrorCode.exit.thread
 
-getJavaErrorCode.exit.thread:                     ; preds = %getJavaErrorCode.exit, %31, %29, %27, %25
+getJavaErrorCode.exit.thread:                     ; preds = %31, %29, %27, %25, %getJavaErrorCode.exit
   %.0.i62 = phi i32 [ %37, %getJavaErrorCode.exit ], [ 22, %31 ], [ 21, %29 ], [ 20, %27 ], [ 19, %25 ]
   %.not54 = icmp eq i32 %3, 0
   br i1 %.not54, label %44, label %38
@@ -1188,7 +1189,7 @@ getJavaErrorCode.exit.thread:                     ; preds = %getJavaErrorCode.ex
   %.not56 = icmp eq ptr %50, null
   br i1 %.not56, label %67, label %.sink.split
 
-getJavaErrorCode.exit.thread63:                   ; preds = %31
+getJavaErrorCode.exit.thread63:                   ; preds = %31, %getJavaErrorCode.exit
   %switch.selectcmp = icmp eq i32 %8, 33554432
   %switch.select = select i1 %switch.selectcmp, ptr @.str.95, ptr @.str.96
   %switch.selectcmp57 = icmp eq i32 %8, 16777216

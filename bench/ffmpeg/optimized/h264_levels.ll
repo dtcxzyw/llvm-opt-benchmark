@@ -38,7 +38,7 @@ switch.edge.split.us:                             ; preds = %switch.edge
 
 switch.edge.split.us.split.us:                    ; preds = %switch.edge.split.us, %.thread58.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.thread58.us.us ], [ 0, %switch.edge.split.us ]
-  %19 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv108
+  %19 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv108
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = zext i32 %21 to i64
@@ -46,7 +46,7 @@ switch.edge.split.us.split.us:                    ; preds = %switch.edge.split.u
 
 23:                                               ; preds = %27, %switch.edge.split.us.split.us
   %indvars.iv.i.us.us = phi i64 [ 0, %switch.edge.split.us.split.us ], [ %indvars.iv.next.i.us.us, %27 ]
-  %24 = getelementptr inbounds nuw [8 x %struct.anon], ptr @h264_br_factors, i64 0, i64 %indvars.iv.i.us.us
+  %24 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us.us
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = icmp eq i32 %25, %0
   br i1 %26, label %28, label %27
@@ -99,7 +99,7 @@ h264_get_br_factor.exit.us.us:                    ; preds = %27, %28
 
 switch.edge.split.us.split:                       ; preds = %switch.edge.split.us, %.thread58.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.thread58.us ], [ 0, %switch.edge.split.us ]
-  %48 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv112
+  %48 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv112
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 5
   %50 = load i8, ptr %49, align 1, !tbaa !19
   %.not89 = icmp eq i8 %50, 0
@@ -113,7 +113,7 @@ switch.edge.split.us.split:                       ; preds = %switch.edge.split.u
 
 55:                                               ; preds = %59, %51
   %indvars.iv.i.us = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.us, %59 ]
-  %56 = getelementptr inbounds nuw [8 x %struct.anon], ptr @h264_br_factors, i64 0, i64 %indvars.iv.i.us
+  %56 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us
   %57 = load i32, ptr %56, align 4, !tbaa !10
   %58 = icmp eq i32 %57, %0
   br i1 %58, label %60, label %59
@@ -169,7 +169,7 @@ switch.edge.split:                                ; preds = %switch.edge
 
 switch.edge.split.split.us:                       ; preds = %switch.edge.split, %.thread58.us80
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread58.us80 ], [ 0, %switch.edge.split ]
-  %80 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 20
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = zext i32 %82 to i64
@@ -177,7 +177,7 @@ switch.edge.split.split.us:                       ; preds = %switch.edge.split, 
 
 84:                                               ; preds = %88, %switch.edge.split.split.us
   %indvars.iv.i.us73 = phi i64 [ 0, %switch.edge.split.split.us ], [ %indvars.iv.next.i.us74, %88 ]
-  %85 = getelementptr inbounds nuw [8 x %struct.anon], ptr @h264_br_factors, i64 0, i64 %indvars.iv.i.us73
+  %85 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i.us73
   %86 = load i32, ptr %85, align 4, !tbaa !10
   %87 = icmp eq i32 %86, %0
   br i1 %87, label %89, label %88
@@ -215,7 +215,7 @@ h264_get_br_factor.exit.us77:                     ; preds = %88, %89
 
 switch.edge.split.split:                          ; preds = %switch.edge.split, %.thread58
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.thread58 ], [ 0, %switch.edge.split ]
-  %100 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv104
+  %100 = getelementptr inbounds nuw %struct.H264LevelDescriptor, ptr @h264_levels, i64 %indvars.iv104
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 5
   %102 = load i8, ptr %101, align 1, !tbaa !19
   %.not = icmp eq i8 %102, 0
@@ -234,7 +234,7 @@ switch.edge.split.split:                          ; preds = %switch.edge.split, 
 
 108:                                              ; preds = %107, %103
   %indvars.iv.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i, %107 ]
-  %109 = getelementptr inbounds nuw [8 x %struct.anon], ptr @h264_br_factors, i64 0, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw %struct.anon, ptr @h264_br_factors, i64 %indvars.iv.i
   %110 = load i32, ptr %109, align 4, !tbaa !10
   %111 = icmp eq i32 %110, %0
   br i1 %111, label %112, label %107

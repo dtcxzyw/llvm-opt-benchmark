@@ -237,13 +237,13 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %.1697 = phi ptr [ %.0696, %.loopexit ], [ %124, %112 ]
   %.1 = phi i32 [ %.0695, %.loopexit ], [ %122, %112 ]
   %113 = sext i32 %.1 to i64
-  %114 = getelementptr inbounds [234 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %113
+  %114 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %113
   %115 = load i8, ptr %.1697, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [44 x i16], ptr %114, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i16, ptr %114, i64 %119
   %121 = load i16, ptr %120, align 2
   %122 = sext i16 %121 to i32
   %123 = icmp sgt i16 %121, 0
@@ -259,7 +259,7 @@ psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.
   %.2698 = phi ptr [ %.1697, %125 ], [ %.2698.be, %.loopexit1401.backedge ]
   %.2 = phi i32 [ %126, %125 ], [ %.2.be, %.loopexit1401.backedge ]
   %127 = sext i32 %.2 to i64
-  %128 = getelementptr inbounds [234 x i16], ptr @yy_accept, i64 0, i64 %127
+  %128 = getelementptr inbounds i16, ptr @yy_accept, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = sext i16 %129 to i32
   store ptr %.1703, ptr %81, align 8
@@ -4307,7 +4307,7 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   %2058 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %2057) #27
   %2059 = load i32, ptr %95, align 8
   %2060 = sext i32 %2059 to i64
-  %2061 = getelementptr inbounds [4 x i8], ptr %96, i64 0, i64 %2060
+  %2061 = getelementptr inbounds i8, ptr %96, i64 %2060
   store i8 %2058, ptr %2061, align 1
   br label %2062
 
@@ -4596,21 +4596,21 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
   %.011.i = phi i32 [ %2222, %2218 ], [ %2208, %2199 ]
   %.0910.i = phi ptr [ %2223, %2218 ], [ %2205, %2199 ]
   %2210 = sext i32 %.011.i to i64
-  %2211 = getelementptr inbounds [234 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2210
+  %2211 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2210
   %2212 = load i8, ptr %.0910.i, align 1
   %.not.i1360 = icmp eq i8 %2212, 0
   br i1 %.not.i1360, label %2218, label %2213
 
 2213:                                             ; preds = %.lr.ph.i1359
   %2214 = zext i8 %2212 to i64
-  %2215 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %2214
+  %2215 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %2214
   %2216 = load i8, ptr %2215, align 1
   %2217 = zext i8 %2216 to i64
   br label %2218
 
 2218:                                             ; preds = %2213, %.lr.ph.i1359
   %2219 = phi i64 [ %2217, %2213 ], [ 1, %.lr.ph.i1359 ]
-  %2220 = getelementptr inbounds nuw [44 x i16], ptr %2211, i64 0, i64 %2219
+  %2220 = getelementptr inbounds nuw i16, ptr %2211, i64 %2219
   %2221 = load i16, ptr %2220, align 2
   %2222 = sext i16 %2221 to i32
   %2223 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
@@ -4620,7 +4620,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2158, %2164
 yy_get_previous_state.exit:                       ; preds = %2218, %2199
   %.0.lcssa.i = phi i32 [ %2208, %2199 ], [ %2222, %2218 ]
   %2224 = sext i32 %.0.lcssa.i to i64
-  %2225 = getelementptr inbounds [234 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2224, i64 1
+  %2225 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2224, i64 1
   %2226 = load i16, ptr %2225, align 2
   %.not742 = icmp slt i16 %2226, 1
   br i1 %.not742, label %.loopexit1401.backedge, label %2227
@@ -5056,21 +5056,21 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge: ; preds = 
   %.011.i1373 = phi i32 [ %2459, %2455 ], [ %2445, %2437 ]
   %.0910.i1374 = phi ptr [ %2460, %2455 ], [ %2435, %2437 ]
   %2447 = sext i32 %.011.i1373 to i64
-  %2448 = getelementptr inbounds [234 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2447
+  %2448 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2447
   %2449 = load i8, ptr %.0910.i1374, align 1
   %.not.i1375 = icmp eq i8 %2449, 0
   br i1 %.not.i1375, label %2455, label %2450
 
 2450:                                             ; preds = %.lr.ph.i1372
   %2451 = zext i8 %2449 to i64
-  %2452 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %2451
+  %2452 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %2451
   %2453 = load i8, ptr %2452, align 1
   %2454 = zext i8 %2453 to i64
   br label %2455
 
 2455:                                             ; preds = %2450, %.lr.ph.i1372
   %2456 = phi i64 [ %2454, %2450 ], [ 1, %.lr.ph.i1372 ]
-  %2457 = getelementptr inbounds nuw [44 x i16], ptr %2448, i64 0, i64 %2456
+  %2457 = getelementptr inbounds nuw i16, ptr %2448, i64 %2456
   %2458 = load i16, ptr %2457, align 2
   %2459 = sext i16 %2458 to i32
   %2460 = getelementptr inbounds nuw i8, ptr %.0910.i1374, i64 1
@@ -5091,21 +5091,21 @@ yy_get_next_buffer.exit.thread1397:               ; preds = %2243, %yy_get_next_
   %.011.i1381 = phi i32 [ %2478, %2474 ], [ %2464, %yy_get_next_buffer.exit.thread1397 ]
   %.0910.i1382 = phi ptr [ %2479, %2474 ], [ %2461, %yy_get_next_buffer.exit.thread1397 ]
   %2466 = sext i32 %.011.i1381 to i64
-  %2467 = getelementptr inbounds [234 x [44 x i16]], ptr @yy_nxt, i64 0, i64 %2466
+  %2467 = getelementptr inbounds [44 x i16], ptr @yy_nxt, i64 %2466
   %2468 = load i8, ptr %.0910.i1382, align 1
   %.not.i1383 = icmp eq i8 %2468, 0
   br i1 %.not.i1383, label %2474, label %2469
 
 2469:                                             ; preds = %.lr.ph.i1380
   %2470 = zext i8 %2468 to i64
-  %2471 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %2470
+  %2471 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %2470
   %2472 = load i8, ptr %2471, align 1
   %2473 = zext i8 %2472 to i64
   br label %2474
 
 2474:                                             ; preds = %2469, %.lr.ph.i1380
   %2475 = phi i64 [ %2473, %2469 ], [ 1, %.lr.ph.i1380 ]
-  %2476 = getelementptr inbounds nuw [44 x i16], ptr %2467, i64 0, i64 %2475
+  %2476 = getelementptr inbounds nuw i16, ptr %2467, i64 %2475
   %2477 = load i16, ptr %2476, align 2
   %2478 = sext i16 %2477 to i32
   %2479 = getelementptr inbounds nuw i8, ptr %.0910.i1382, i64 1

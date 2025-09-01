@@ -5025,7 +5025,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit10:        ; preds = %._crit_edge, %77
   %83 = call noundef i32 @_ZN4llvm3sys7Process15GetRandomNumberEv() #32
   %84 = and i32 %83, 15
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [17 x i8], ptr @.str.6, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !10
   %88 = load ptr, ptr %1, align 8, !tbaa !34
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv
@@ -6961,7 +6961,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN4llvm3sys2fs13get_file_typeERK
 switch.lookup:                                    ; preds = %11
   %17 = lshr exact i32 %15, 12
   %18 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
@@ -7771,7 +7771,7 @@ _ZN4llvm3sys2fs6existsERKNS_5TwineE.exit:         ; preds = %30, %33
 
 39:                                               ; preds = %34
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %35, i64 4095)
-  %40 = getelementptr inbounds nuw [4096 x i8], ptr %15, i64 0, i64 %.sroa.speculated
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.speculated
   store i8 0, ptr %40, align 1, !tbaa !10
   %41 = call ptr @realpath(ptr noundef nonnull %15, ptr noundef null) #32
   %.not = icmp eq ptr %41, null
@@ -9187,7 +9187,7 @@ define internal fastcc { i32, ptr } @_ZN4llvm3sys2fsL10fillStatusEiRK4statRNS1_1
 switch.lookup:                                    ; preds = %11
   %26 = lshr exact i32 %24, 12
   %27 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3sys2fsL11typeForModeEj.exit
 
@@ -9888,7 +9888,7 @@ tailrecurse._crit_edge:                           ; preds = %.critedge, %1
 switch.lookup:                                    ; preds = %.thread
   %39 = lshr exact i32 %37, 12
   %40 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3sys2fsL10direntTypeEP6dirent.exit
 
@@ -10129,7 +10129,7 @@ define dso_local void @_ZNK4llvm3sys2fs15directory_entry6statusEv(ptr dead_on_un
 switch.lookup:                                    ; preds = %22
   %37 = lshr exact i32 %35, 12
   %38 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm3sys2fs15directory_entry6statusEv, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3sys2fsL11typeForModeEj.exit.i
 

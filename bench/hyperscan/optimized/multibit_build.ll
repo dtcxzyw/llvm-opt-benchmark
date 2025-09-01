@@ -113,7 +113,7 @@ define hidden void @_ZN3ue222mmbBuildSparseIteratorERKSt6vectorIjSaIjEEj(ptr dea
   %8 = add i32 %2, -1
   %9 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, -1) %8, i1 true)
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_keyshift_lut, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @mmbit_keyshift_lut, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   br label %14
@@ -1664,7 +1664,7 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
   %238 = add i32 %0, -1
   %239 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, -1) %238, i1 true)
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_keyshift_lut, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr @mmbit_keyshift_lut, i64 %240
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1743,7 +1743,7 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163: ; p
   %.0120 = phi i32 [ %423, %422 ], [ %243, %.preheader209 ]
   %.0118 = phi i32 [ %424, %422 ], [ 0, %.preheader209 ]
   %276 = zext i32 %.0118 to i64
-  %277 = getelementptr inbounds nuw [7 x i32], ptr @mmbit_root_offset_from_level, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %276
   %278 = load i32, ptr %277, align 4
   %279 = shl i32 %278, 3
   %280 = lshr i32 %1, %.0120

@@ -239,7 +239,7 @@ default.unreachable15:                            ; preds = %1
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !23, !nonnull !5, !align !27, !noundef !5
-  %13 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds i8, ptr %12, i64 %7
   %14 = load i8, ptr %13, align 1, !noalias !23, !noundef !5
   %15 = icmp eq i8 %14, 58
   br i1 %15, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit, label %17
@@ -268,7 +268,7 @@ default.unreachable15:                            ; preds = %1
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !31, !nonnull !5, !align !27, !noundef !5
-  %28 = getelementptr inbounds [0 x i8], ptr %27, i64 0, i64 %22
+  %28 = getelementptr inbounds i8, ptr %27, i64 %22
   %29 = load i8, ptr %28, align 1, !noalias !31, !noundef !5
   %30 = icmp eq i8 %29, 58
   %31 = add nuw i64 %22, 1
@@ -305,7 +305,7 @@ default.unreachable15:                            ; preds = %1
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !37, !nonnull !5, !align !27, !noundef !5
-  %46 = getelementptr inbounds [0 x i8], ptr %45, i64 0, i64 %40
+  %46 = getelementptr inbounds i8, ptr %45, i64 %40
   %47 = load i8, ptr %46, align 1, !noalias !37, !noundef !5
   %48 = icmp eq i8 %47, 58
   br i1 %48, label %50, label %51
@@ -344,7 +344,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds i8, ptr %9, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
   br i1 %12, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit, label %14
@@ -381,7 +381,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds i8, ptr %9, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
   %13 = add nuw i64 %3, 1
@@ -425,7 +425,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !27, !noundef !5
-  %10 = getelementptr inbounds [0 x i8], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds i8, ptr %9, i64 %3
   %11 = load i8, ptr %10, align 1, !noundef !5
   %12 = icmp eq i8 %11, 58
   br i1 %12, label %14, label %15

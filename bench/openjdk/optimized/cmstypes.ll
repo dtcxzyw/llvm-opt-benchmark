@@ -96,7 +96,7 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
 .preheader:                                       ; preds = %1, %19
   %indvars.iv16 = phi i64 [ 0, %1 ], [ %indvars.iv.next17, %19 ]
   %8 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv16
-  %9 = getelementptr inbounds nuw [3 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv16
+  %9 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv16
   br label %11
 
 10:                                               ; preds = %11
@@ -106,9 +106,9 @@ define hidden range(i32 0, 2) i32 @IsIdentity(ptr noundef readonly captures(none
 
 11:                                               ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fsub double %15, %13
   %17 = tail call double @llvm.fabs.f64(double %16)
@@ -1704,7 +1704,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(non
 .lr.ph.preheader:                                 ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %17 = zext nneg i16 %11 to i64
-  %18 = getelementptr inbounds nuw [5 x i32], ptr @Type_ParametricCurve_Read.ParamsByType, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Read.ParamsByType, i64 %17
   %19 = load i32, ptr %18, align 4
   %smax = call i32 @llvm.smax.i32(i32 %19, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -1717,7 +1717,7 @@ define internal ptr @Type_ParametricCurve_Read(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [10 x double], ptr %5, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %22 = call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %21) #14
   %.not14 = icmp eq i32 %22, 0
   br i1 %.not14, label %.loopexit, label %20
@@ -1756,7 +1756,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr inbounds nuw [6 x i32], ptr @Type_ParametricCurve_Write.ParamsByType, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Write.ParamsByType, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = trunc nuw nsw i32 %8 to i16
   %20 = add nsw i16 %19, -1
@@ -1783,7 +1783,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = getelementptr inbounds nuw [10 x double], ptr %26, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
   %28 = load double, ptr %27, align 8
   %29 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %28) #14
   %.not21 = icmp eq i32 %29, 0
@@ -2261,7 +2261,7 @@ define internal range(i32 0, 2) i32 @Type_LUT8_Write(ptr noundef readonly captur
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 1, %50 ]
   %61 = load ptr, ptr %51, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %63 = getelementptr inbounds nuw [15 x i32], ptr %62, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %.not92 = icmp eq i32 %64, %54
   br i1 %.not92, label %57, label %65
@@ -2843,7 +2843,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw [15 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %.not110 = icmp eq i32 %56, %52
   br i1 %.not110, label %54, label %57
@@ -5792,7 +5792,7 @@ define internal ptr @Type_Screening_Read(ptr noundef readonly captures(none) %0,
 
 23:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %24 = getelementptr inbounds nuw [16 x %struct.cmsScreeningChannel], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.cmsScreeningChannel, ptr %18, i64 %indvars.iv
   %25 = tail call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %24) #14
   %.not29 = icmp eq i32 %25, 0
   br i1 %.not29, label %.loopexit, label %26
@@ -5852,7 +5852,7 @@ define internal range(i32 0, 2) i32 @Type_Screening_Write(ptr readnone captures(
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw [16 x %struct.cmsScreeningChannel], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.cmsScreeningChannel, ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8
   %19 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %18) #14
   %.not19 = icmp eq i32 %19, 0
@@ -7133,7 +7133,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
 
 76:                                               ; preds = %.preheader71, %75
   %indvars.iv = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next, %75 ]
-  %77 = getelementptr inbounds nuw [3 x %struct._cmsVCGTGAMMA], ptr %10, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw %struct._cmsVCGTGAMMA, ptr %10, i64 %indvars.iv
   %78 = call i32 @_cmsRead15Fixed16Number(ptr noundef %1, ptr noundef nonnull %77) #14
   %.not59 = icmp eq i32 %78, 0
   br i1 %.not59, label %.loopexit68, label %79
@@ -7619,7 +7619,7 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 .preheader.i:                                     ; preds = %50, %32
   %indvars.iv16.i = phi i64 [ 0, %32 ], [ %indvars.iv.next17.i, %50 ]
   %39 = getelementptr inbounds nuw [4 x double], ptr %33, i64 %indvars.iv16.i
-  %40 = getelementptr inbounds nuw [3 x [4 x double]], ptr %5, i64 0, i64 %indvars.iv16.i
+  %40 = getelementptr inbounds nuw [4 x double], ptr %5, i64 %indvars.iv16.i
   br label %42
 
 41:                                               ; preds = %42
@@ -7629,9 +7629,9 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 
 42:                                               ; preds = %41, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %43 = getelementptr inbounds nuw [4 x double], ptr %39, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds nuw [4 x double], ptr %40, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.i
   %46 = load double, ptr %45, align 8
   %47 = fsub double %46, %44
   %48 = tail call double @llvm.fabs.f64(double %47)
@@ -7958,7 +7958,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %12 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef 256, ptr noundef null) #14
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %.lr.ph63.preheader, label %10
@@ -7971,7 +7971,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   br i1 %.not47, label %.preheader50, label %.lr.ph63.preheader
 
 .preheader50:                                     ; preds = %15
-  %18 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv75
   %.pre = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   br label %20
@@ -8008,7 +8008,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv80 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next81, %.lr.ph60 ]
-  %31 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv80
+  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv80
   %32 = load ptr, ptr %31, align 8
   call void @cmsFreeToneCurve(ptr noundef %32) #14
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -8022,7 +8022,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %36
   %indvars.iv85 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next86, %36 ]
-  %33 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv85
+  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv85
   %34 = load ptr, ptr %33, align 8
   %.not49 = icmp eq ptr %34, null
   br i1 %.not49, label %36, label %35
@@ -8182,7 +8182,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %12 = tail call ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %4, ptr noundef null) #14
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %.loopexit33, label %15
@@ -8209,7 +8209,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
   %indvars.iv45 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next46, %.lr.ph36 ]
-  %21 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv45
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv45
   %22 = load ptr, ptr %21, align 8
   call void @cmsFreeToneCurve(ptr noundef %22) #14
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -8225,7 +8225,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %26
   %indvars.iv50 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next51, %26 ]
-  %23 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv50
+  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
   %24 = load ptr, ptr %23, align 8
   %.not31 = icmp eq ptr %24, null
   br i1 %.not31, label %26, label %25
@@ -8446,7 +8446,7 @@ ReadEmbeddedCurve.exit.thread:                    ; preds = %.lr.ph35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = and i64 %indvars.iv, 4294967295
-  %23 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %22
   store ptr null, ptr %23, align 8
   br label %.loopexit28
 
@@ -8454,7 +8454,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %24 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %.0.i, ptr %24, align 8
   %25 = icmp eq ptr %.0.i, null
   br i1 %25, label %.loopexit28, label %26
@@ -8485,7 +8485,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %.lr.ph38
   %indvars.iv48 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next49, %.lr.ph38 ]
-  %32 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv48
+  %32 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv48
   %33 = load ptr, ptr %32, align 8
   call void @cmsFreeToneCurve(ptr noundef %33) #14
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -8518,14 +8518,14 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
 
 .preheader45:                                     ; preds = %13, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %13 ]
-  %17 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 1
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader45
   %21 = zext i8 %18 to i32
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -8850,7 +8850,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
 
 65:                                               ; preds = %63
   %66 = zext nneg i32 %58 to i64
-  %67 = getelementptr inbounds nuw [6 x i32], ptr @Type_ParametricCurve_Write.ParamsByType, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr @Type_ParametricCurve_Write.ParamsByType, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = trunc nuw nsw i32 %58 to i16
   %70 = add nsw i16 %69, -1
@@ -8877,7 +8877,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %74 ]
   %75 = load ptr, ptr %55, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = getelementptr inbounds nuw [10 x double], ptr %76, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv.i
   %78 = load double, ptr %77, align 8
   %79 = tail call i32 @_cmsWrite15Fixed16Number(ptr noundef %1, double noundef %78) #14
   %.not21.i = icmp eq i32 %79, 0
@@ -8937,10 +8937,10 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [15 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp samesign ult i64 %indvars.iv.next, %16
@@ -9738,14 +9738,14 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 1
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %26 to i32
-  %30 = getelementptr inbounds nuw [15 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9847,10 +9847,10 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [15 x i32], ptr %26, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
-  %31 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %30, ptr %31, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10035,12 +10035,12 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 65:                                               ; preds = %63
   %66 = load float, ptr %9, align 4
   %67 = fpext float %66 to double
-  %68 = getelementptr inbounds nuw [10 x double], ptr %62, i64 0, i64 %indvars.iv172.i
+  %68 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv172.i
   store double %67, ptr %68, align 8
   %indvars.iv.next173.i = add nuw nsw i64 %indvars.iv172.i, 1
   %69 = load i16, ptr %8, align 2
   %70 = zext i16 %69 to i64
-  %71 = getelementptr inbounds nuw [3 x i32], ptr @__const.WriteSegmentedCurve.ParamsByType, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next173.i, %73
@@ -10493,7 +10493,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 .lr.ph72.i:                                       ; preds = %69
   %71 = zext nneg i32 %64 to i64
-  %72 = getelementptr inbounds nuw [3 x i32], ptr @__const.WriteSegmentedCurve.ParamsByType, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @__const.WriteSegmentedCurve.ParamsByType, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %umax.i = tail call i32 @llvm.umax.i32(i32 %73, i32 1)
@@ -10507,7 +10507,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 
 76:                                               ; preds = %75, %.lr.ph72.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next102.i, %75 ]
-  %77 = getelementptr inbounds nuw [10 x double], ptr %74, i64 0, i64 %indvars.iv101.i
+  %77 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv101.i
   %78 = load double, ptr %77, align 8
   %79 = fptrunc double %78 to float
   %80 = tail call i32 @_cmsWriteFloat32Number(ptr noundef %1, float noundef %79) #14

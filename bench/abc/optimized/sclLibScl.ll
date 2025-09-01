@@ -7503,7 +7503,7 @@ Vec_IntPush.exit146:                              ; preds = %.Vec_IntGrow.exit10
   %.sroa.0.3.insert.ext.i154 = zext i8 %389 to i32
   %.sroa.0.3.insert.shift.i155 = shl nuw i32 %.sroa.0.3.insert.ext.i154, 24
   %.sroa.0.3.insert.insert.i156 = or disjoint i32 %.sroa.0.2.insert.insert.i153, %.sroa.0.3.insert.shift.i155
-  %390 = getelementptr inbounds nuw [6 x float], ptr %214, i64 0, i64 %indvars.iv
+  %390 = getelementptr inbounds nuw float, ptr %214, i64 %indvars.iv
   store i32 %.sroa.0.3.insert.insert.i156, ptr %390, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7548,7 +7548,7 @@ Vec_IntPush.exit146:                              ; preds = %.Vec_IntGrow.exit10
   %.sroa.0.3.insert.ext.i164 = zext i8 %408 to i32
   %.sroa.0.3.insert.shift.i165 = shl nuw i32 %.sroa.0.3.insert.ext.i164, 24
   %.sroa.0.3.insert.insert.i166 = or disjoint i32 %.sroa.0.2.insert.insert.i163, %.sroa.0.3.insert.shift.i165
-  %409 = getelementptr inbounds nuw [6 x float], ptr %372, i64 0, i64 %indvars.iv212
+  %409 = getelementptr inbounds nuw float, ptr %372, i64 %indvars.iv212
   store i32 %.sroa.0.3.insert.insert.i166, ptr %409, align 4, !tbaa !77
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next213, 4
@@ -7587,7 +7587,7 @@ Vec_IntPush.exit146:                              ; preds = %.Vec_IntGrow.exit10
   %.sroa.0.3.insert.ext.i174 = zext i8 %425 to i32
   %.sroa.0.3.insert.shift.i175 = shl nuw i32 %.sroa.0.3.insert.ext.i174, 24
   %.sroa.0.3.insert.insert.i176 = or disjoint i32 %.sroa.0.2.insert.insert.i173, %.sroa.0.3.insert.shift.i175
-  %426 = getelementptr inbounds nuw [6 x float], ptr %391, i64 0, i64 %indvars.iv220
+  %426 = getelementptr inbounds nuw float, ptr %391, i64 %indvars.iv220
   store i32 %.sroa.0.3.insert.insert.i176, ptr %426, align 4, !tbaa !77
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next221, 6
@@ -8439,7 +8439,7 @@ define internal fastcc void @Abc_SclWriteSurface(ptr noundef captures(none) %0, 
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv85 = phi i64 [ 0, %.critedge4.preheader ], [ %indvars.iv.next86, %.critedge4 ]
-  %37 = getelementptr inbounds nuw [6 x float], ptr %22, i64 0, i64 %indvars.iv85
+  %37 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv85
   %38 = load float, ptr %37, align 4, !tbaa !77
   tail call fastcc void @Vec_StrPutF(ptr noundef %0, float noundef %38)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -8452,7 +8452,7 @@ define internal fastcc void @Abc_SclWriteSurface(ptr noundef captures(none) %0, 
 
 40:                                               ; preds = %.preheader60, %40
   %indvars.iv88 = phi i64 [ 0, %.preheader60 ], [ %indvars.iv.next89, %40 ]
-  %41 = getelementptr inbounds nuw [6 x float], ptr %36, i64 0, i64 %indvars.iv88
+  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv88
   %42 = load float, ptr %41, align 4, !tbaa !77
   tail call fastcc void @Vec_StrPutF(ptr noundef %0, float noundef %42)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -8461,7 +8461,7 @@ define internal fastcc void @Abc_SclWriteSurface(ptr noundef captures(none) %0, 
 
 43:                                               ; preds = %.preheader, %43
   %indvars.iv92 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next93, %43 ]
-  %44 = getelementptr inbounds nuw [6 x float], ptr %39, i64 0, i64 %indvars.iv92
+  %44 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv92
   %45 = load float, ptr %44, align 4, !tbaa !77
   tail call fastcc void @Vec_StrPutF(ptr noundef %0, float noundef %45)
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1

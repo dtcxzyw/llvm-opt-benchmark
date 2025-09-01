@@ -1396,7 +1396,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 .split.us:                                        ; preds = %114, %156
   %124 = phi i64 [ %159, %156 ], [ 0, %114 ]
   %125 = phi ptr [ %157, %156 ], [ null, %114 ]
-  %126 = getelementptr [15 x ptr], ptr %115, i64 0, i64 %124
+  %126 = getelementptr ptr, ptr %115, i64 %124
   %127 = load volatile ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %156, label %129
@@ -1449,7 +1449,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 .split:                                           ; preds = %.split.preheader, %184
   %162 = phi i64 [ %187, %184 ], [ 0, %.split.preheader ]
   %163 = phi ptr [ %185, %184 ], [ null, %.split.preheader ]
-  %164 = getelementptr [15 x ptr], ptr %123, i64 0, i64 %162
+  %164 = getelementptr ptr, ptr %123, i64 %162
   %165 = load volatile ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %184, label %167

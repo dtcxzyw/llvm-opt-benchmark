@@ -84,7 +84,7 @@ define dso_local noundef zeroext i1 @setup_userns_sysctls(ptr noundef %0) local_
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %11, %7 ]
-  %9 = getelementptr [10 x i64], ptr %6, i64 0, i64 %8
+  %9 = getelementptr i64, ptr %6, i64 %8
   %10 = getelementptr %struct.ctl_table, ptr %3, i64 %8, i32 1
   store ptr %9, ptr %10, align 8
   %11 = add nuw nsw i64 %8, 1
@@ -406,10 +406,10 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 488
-  %14 = getelementptr [10 x i64], ptr %13, i64 0, i64 %8
+  %14 = getelementptr i64, ptr %13, i64 %8
   %15 = load volatile i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %17 = getelementptr [10 x %struct.atomic64_t], ptr %16, i64 0, i64 %8
+  %17 = getelementptr %struct.atomic64_t, ptr %16, i64 %8
   %18 = load volatile i64, ptr %17, align 8
   %19 = shl i64 %15, 32
   %20 = ashr exact i64 %19, 32
@@ -439,7 +439,7 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
 .preheader:                                       ; preds = %24, %.preheader
   %34 = phi ptr [ %40, %.preheader ], [ %5, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = getelementptr [10 x %struct.atomic64_t], ptr %35, i64 0, i64 %8
+  %36 = getelementptr %struct.atomic64_t, ptr %35, i64 %8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, ptr elementtype(i64) %36) #11, !srcloc !15
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -505,7 +505,7 @@ define dso_local void @dec_ucount(ptr noundef %0, i32 noundef %1) local_unnamed_
 7:                                                ; preds = %.thread, %5
   %8 = phi ptr [ %0, %5 ], [ %27, %.thread ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = getelementptr [10 x %struct.atomic64_t], ptr %9, i64 0, i64 %6
+  %10 = getelementptr %struct.atomic64_t, ptr %9, i64 %6
   %11 = load volatile i64, ptr %10, align 8
   %12 = add i64 %11, -1
   %13 = icmp slt i64 %12, 0
@@ -595,7 +595,7 @@ define dso_local i64 @inc_rlimit_ucounts(ptr noundef %0, i32 noundef %1, i64 nou
   %9 = phi i64 [ 9223372036854775807, %5 ], [ %25, %7 ]
   %10 = phi ptr [ %0, %5 ], [ %27, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
+  %12 = getelementptr %struct.atomic64_t, ptr %11, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %2, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = add i64 %13, %2
   %15 = icmp slt i64 %14, 0
@@ -607,7 +607,7 @@ define dso_local i64 @inc_rlimit_ucounts(ptr noundef %0, i32 noundef %1, i64 nou
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 568
-  %24 = getelementptr [4 x i64], ptr %23, i64 0, i64 %6
+  %24 = getelementptr i64, ptr %23, i64 %6
   %25 = load volatile i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 480
   %27 = load ptr, ptr %26, align 8
@@ -633,7 +633,7 @@ define dso_local zeroext i1 @dec_rlimit_ucounts(ptr noundef %0, i32 noundef %1, 
   %9 = phi ptr [ %0, %5 ], [ %23, %17 ]
   %10 = phi i64 [ -1, %5 ], [ %19, %17 ]
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
+  %12 = getelementptr %struct.atomic64_t, ptr %11, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %7, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = sub i64 %13, %2
   %15 = icmp slt i64 %14, 0
@@ -683,7 +683,7 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
 8:                                                ; preds = %42, %6
   %9 = phi ptr [ %0, %6 ], [ %43, %42 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %11 = getelementptr [4 x %struct.atomic64_t], ptr %10, i64 0, i64 %7
+  %11 = getelementptr %struct.atomic64_t, ptr %10, i64 %7
   %12 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 -1, ptr elementtype(i64) %11) #11, !srcloc !26
   %13 = add i64 %12, -1
   %14 = icmp slt i64 %13, 0
@@ -770,7 +770,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
   %9 = phi i64 [ 0, %5 ], [ %20, %47 ]
   %10 = phi i64 [ 9223372036854775807, %5 ], [ %25, %47 ]
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
+  %12 = getelementptr %struct.atomic64_t, ptr %11, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 1, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = add i64 %13, 1
   %15 = icmp slt i64 %14, 0
@@ -784,7 +784,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 568
-  %24 = getelementptr [4 x i64], ptr %23, i64 0, i64 %6
+  %24 = getelementptr i64, ptr %23, i64 %6
   %25 = load volatile i64, ptr %24, align 8
   %26 = icmp eq i64 %13, 0
   br i1 %26, label %27, label %47
@@ -878,7 +878,7 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   %8 = phi i64 [ %5, %4 ], [ %20, %15 ]
   %9 = phi ptr [ %0, %4 ], [ %22, %15 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %11 = getelementptr [4 x %struct.atomic64_t], ptr %10, i64 0, i64 %6
+  %11 = getelementptr %struct.atomic64_t, ptr %10, i64 %6
   %12 = load volatile i64, ptr %11, align 8
   %13 = icmp slt i64 %12, 0
   %14 = icmp sgt i64 %12, %8
@@ -889,7 +889,7 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 568
-  %19 = getelementptr [4 x i64], ptr %18, i64 0, i64 %6
+  %19 = getelementptr i64, ptr %18, i64 %6
   %20 = load volatile i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %22 = load ptr, ptr %21, align 8

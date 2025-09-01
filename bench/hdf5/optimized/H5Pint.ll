@@ -323,7 +323,7 @@ define range(i32 -1, 1) i32 @H5P__init_package() local_unnamed_addr #0 {
   %.2100 = phi i64 [ %.4, %.preheader.backedge ], [ 0, %10 ]
   %.05799 = phi i64 [ %.05799.be, %.preheader.backedge ], [ 0, %10 ]
   %.05998 = phi i64 [ %.05998.be, %.preheader.backedge ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw [22 x ptr], ptr @init_class, i64 0, i64 %.05799
+  %13 = getelementptr inbounds nuw ptr, ptr @init_class, i64 %.05799
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !15
@@ -465,7 +465,7 @@ define range(i32 -1, 1) i32 @H5P__init_package() local_unnamed_addr #0 {
 
 92:                                               ; preds = %90, %H5P__close_class.exit
   %.158101 = phi i64 [ 0, %90 ], [ %120, %H5P__close_class.exit ]
-  %93 = getelementptr inbounds nuw [22 x ptr], ptr @init_class, i64 0, i64 %.158101
+  %93 = getelementptr inbounds nuw ptr, ptr @init_class, i64 %.158101
   %94 = load ptr, ptr %93, align 8, !tbaa !12
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8, !tbaa !15
@@ -5187,7 +5187,7 @@ define noundef zeroext i1 @H5P_is_default_plist(i64 noundef %0) local_unnamed_ad
 
 .preheader:                                       ; preds = %1, %.preheader
   %.010 = phi i64 [ %44, %.preheader ], [ 0, %1 ]
-  %41 = getelementptr inbounds nuw [19 x i64], ptr %2, i64 0, i64 %.010
+  %41 = getelementptr inbounds nuw i64, ptr %2, i64 %.010
   %42 = load i64, ptr %41, align 8, !tbaa !10
   %43 = icmp eq i64 %0, %42
   %44 = add nuw nsw i64 %.010, 1
@@ -5320,7 +5320,7 @@ define ptr @H5P_object_verify(i64 noundef %0, i64 noundef %1, i1 noundef zeroext
 
 .preheader.i:                                     ; preds = %27, %66
   %.010.i = phi i64 [ %67, %66 ], [ 0, %27 ]
-  %68 = getelementptr inbounds nuw [19 x i64], ptr %4, i64 0, i64 %.010.i
+  %68 = getelementptr inbounds nuw i64, ptr %4, i64 %.010.i
   %69 = load i64, ptr %68, align 8, !tbaa !10
   %70 = icmp eq i64 %0, %69
   br i1 %70, label %.loopexit, label %66

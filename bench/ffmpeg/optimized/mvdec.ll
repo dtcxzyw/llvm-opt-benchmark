@@ -519,7 +519,7 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 %11
+  %15 = getelementptr inbounds i32, ptr %14, i64 %11
   %16 = load i32, ptr %15, align 4, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 328
   %18 = load i32, ptr %17, align 8, !tbaa !60
@@ -582,7 +582,7 @@ define internal i32 @mv_read_packet(ptr noundef readonly captures(none) %0, ptr 
   %56 = or i32 %55, 1
   store i32 %56, ptr %54, align 8, !tbaa !80
   %57 = sext i32 %49 to i64
-  %58 = getelementptr inbounds [2 x i32], ptr %14, i64 0, i64 %57
+  %58 = getelementptr inbounds i32, ptr %14, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !59
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !59
@@ -652,7 +652,7 @@ define internal range(i32 -1094995529, 1) i32 @mv_read_seek(ptr noundef readonly
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw [2 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   store i32 %20, ptr %26, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %22, align 4, !tbaa !82

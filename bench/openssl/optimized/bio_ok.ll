@@ -70,7 +70,7 @@ define internal i32 @ok_write(ptr noundef %0, ptr noundef readonly captures(addr
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %37 = load i64, ptr %17, align 8, !tbaa !12
-  %38 = getelementptr inbounds nuw [4292 x i8], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   %39 = zext nneg i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %22, i64 %39, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 3
@@ -105,7 +105,7 @@ longswap.exit.i:                                  ; preds = %43
 
 52:                                               ; preds = %longswap.exit.i
   %53 = load i64, ptr %17, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw [4292 x i8], ptr %36, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 %53
   %55 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %19, ptr noundef nonnull %54, ptr noundef null) #8
   %.not32.i = icmp eq i32 %55, 0
   br i1 %.not32.i, label %sig_out.exit, label %56
@@ -147,7 +147,7 @@ sig_out.exit.thread:                              ; preds = %24, %56, %13
 .lr.ph:                                           ; preds = %64, %81
   %73 = phi i64 [ %84, %81 ], [ %66, %64 ]
   %.06179 = phi i32 [ %85, %81 ], [ %68, %64 ]
-  %74 = getelementptr inbounds nuw [4292 x i8], ptr %63, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 %73
   %75 = tail call i32 @BIO_write(ptr noundef %7, ptr noundef nonnull %74, i32 noundef %.06179) #8
   %76 = icmp slt i32 %75, 1
   br i1 %76, label %77, label %81
@@ -203,7 +203,7 @@ sig_out.exit.thread:                              ; preds = %24, %56, %13
   %101 = trunc i64 %95 to i32
   %102 = sub i32 4100, %101
   %103 = select i1 %100, i32 %102, i32 %.060
-  %104 = getelementptr inbounds nuw [4292 x i8], ptr %63, i64 0, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %63, i64 %95
   %105 = sext i32 %103 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %.059, i64 %105, i1 false)
   %106 = add i64 %95, %105
@@ -286,7 +286,7 @@ define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly captures(addr
   %27 = sub i64 %.pre, %26
   %28 = trunc i64 %27 to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %.063, i32 %28)
-  %29 = getelementptr inbounds nuw [4292 x i8], ptr %18, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %26
   %30 = sext i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.062, ptr nonnull align 1 %29, i64 %30, i1 false)
   %31 = add nsw i32 %spec.select, %.066
@@ -308,7 +308,7 @@ define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly captures(addr
 
 42:                                               ; preds = %38
   %43 = sub nuw i64 %39, %40
-  %44 = getelementptr inbounds nuw [4292 x i8], ptr %18, i64 0, i64 %40
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 %40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %44, i64 %43, i1 false)
   br label %45
 
@@ -330,7 +330,7 @@ define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly captures(addr
   %.284 = phi i32 [ %31, %46 ], [ %.066, %23 ]
   %50 = trunc i64 %49 to i32
   %51 = sub i32 4292, %50
-  %52 = getelementptr inbounds nuw [4292 x i8], ptr %18, i64 0, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 %49
   %53 = call i32 @BIO_read(ptr noundef %9, ptr noundef nonnull %52, i32 noundef %51) #8
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %.loopexit, label %55
@@ -377,7 +377,7 @@ define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly captures(addr
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %83 = load i64, ptr %73, align 8, !tbaa !17
-  %84 = getelementptr inbounds nuw [4292 x i8], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
   %85 = zext nneg i32 %68 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %84, i64 %85, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %71, i64 3
@@ -418,7 +418,7 @@ longswap.exit.i:                                  ; preds = %89
 
 101:                                              ; preds = %99
   %102 = load i64, ptr %73, align 8, !tbaa !17
-  %103 = getelementptr inbounds nuw [4292 x i8], ptr %82, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 %102
   %bcmp.i = call i32 @bcmp(ptr nonnull %103, ptr nonnull %5, i64 %85)
   %104 = icmp eq i32 %bcmp.i, 0
   %105 = add i64 %102, %85
@@ -433,7 +433,7 @@ longswap.exit.i:                                  ; preds = %89
   br i1 %.not45.i, label %._crit_edge.i, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw [4292 x i8], ptr %82, i64 0, i64 %105
+  %110 = getelementptr inbounds nuw i8, ptr %82, i64 %105
   %111 = sub i64 %108, %105
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %82, ptr nonnull align 1 %110, i64 %111, i1 false)
   br label %._crit_edge.i
@@ -513,7 +513,7 @@ sig_in.exit.thread:                               ; preds = %70, %112, %._crit_e
   br i1 %.not37.i, label %163, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw [4292 x i8], ptr %126, i64 0, i64 %145
+  %155 = getelementptr inbounds nuw i8, ptr %126, i64 %145
   %bcmp.i79 = call i32 @bcmp(ptr nonnull %155, ptr nonnull %4, i64 %146)
   %156 = icmp eq i32 %bcmp.i79, 0
   br i1 %156, label %157, label %block_in.exit.thread.sink.split
@@ -815,7 +815,7 @@ define internal fastcc range(i32 0, 2) i32 @block_out(ptr noundef %0) unnamed_ad
 
 24:                                               ; preds = %8
   %25 = load i64, ptr %2, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw [4292 x i8], ptr %13, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 %25
   %27 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %4, ptr noundef nonnull %26, ptr noundef null) #8
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %33, label %28

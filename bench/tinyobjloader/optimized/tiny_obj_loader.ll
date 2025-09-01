@@ -16912,7 +16912,7 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %713 = add i64 %.03741036, %spec.select
   %714 = urem i64 %713, %682
   %715 = getelementptr inbounds nuw %"struct.tinyobj::vertex_index_t", ptr %666, i64 %714
-  %716 = getelementptr inbounds nuw [3 x %"struct.tinyobj::vertex_index_t"], ptr %9, i64 0, i64 %.03741036
+  %716 = getelementptr inbounds nuw %"struct.tinyobj::vertex_index_t", ptr %9, i64 %.03741036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %716, ptr noundef nonnull align 4 dereferenceable(12) %715, i64 12, i1 false), !tbaa.struct !214
   %717 = load i32, ptr %716, align 4, !tbaa !200
   %718 = sext i32 %717 to i64
@@ -16927,14 +16927,14 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   br i1 %.not424, label %725, label %723
 
 723:                                              ; preds = %721, %712
-  %724 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.03741036
+  %724 = getelementptr inbounds nuw float, ptr %10, i64 %.03741036
   store float 0.000000e+00, ptr %724, align 4, !tbaa !26
   br label %731
 
 725:                                              ; preds = %721
   %726 = getelementptr inbounds nuw float, ptr %685, i64 %720
   %727 = load float, ptr %726, align 4, !tbaa !26
-  %728 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.03741036
+  %728 = getelementptr inbounds nuw float, ptr %10, i64 %.03741036
   store float %727, ptr %728, align 4, !tbaa !26
   %729 = getelementptr inbounds nuw float, ptr %685, i64 %722
   %730 = load float, ptr %729, align 4, !tbaa !26
@@ -16942,7 +16942,7 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
 
 731:                                              ; preds = %725, %723
   %.sink = phi float [ %730, %725 ], [ 0.000000e+00, %723 ]
-  %732 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.03741036
+  %732 = getelementptr inbounds nuw float, ptr %11, i64 %.03741036
   store float %.sink, ptr %732, align 4, !tbaa !26
   %733 = add nuw nsw i64 %.03741036, 1
   %exitcond1087.not = icmp eq i64 %733, 3
@@ -22576,7 +22576,7 @@ define internal fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw [8 x double], ptr @_ZZN7tinyobjL14tryParseDoubleEPKcS1_PdE7pow_lut, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr @_ZZN7tinyobjL14tryParseDoubleEPKcS1_PdE7pow_lut, i64 %indvars.iv
   %37 = load double, ptr %36, align 8, !tbaa !22
   br label %43
 

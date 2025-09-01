@@ -1256,9 +1256,9 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7710GreekUpper13getLetterDataEi(
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
-  %7 = add nsw i32 %0, -880
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [144 x i16], ptr @_ZN6icu_7710GreekUpperL8data0370E, i64 0, i64 %8
+  %7 = zext nneg i32 %0 to i64
+  %8 = getelementptr i16, ptr @_ZN6icu_7710GreekUpperL8data0370E, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1760
   %10 = load i16, ptr %9, align 2, !tbaa !34
   br label %20
 
@@ -1267,9 +1267,9 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7710GreekUpper13getLetterDataEi(
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = add nsw i32 %0, -7936
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [256 x i16], ptr @_ZN6icu_7710GreekUpperL8data1F00E, i64 0, i64 %15
+  %14 = zext nneg i32 %0 to i64
+  %15 = getelementptr i16, ptr @_ZN6icu_7710GreekUpperL8data1F00E, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -15872
   %17 = load i16, ptr %16, align 2, !tbaa !34
   br label %20
 
@@ -1444,404 +1444,396 @@ define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7710GreekUpper7toUpperEjPD
 
 39:                                               ; preds = %33
   %40 = icmp samesign ult i32 %.1188, 1024
-  br i1 %40, label %41, label %45
+  br i1 %40, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit, label %41
 
 41:                                               ; preds = %39
-  %42 = add nsw i32 %.1188, -880
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [144 x i16], ptr @_ZN6icu_7710GreekUpperL8data0370E, i64 0, i64 %43
-  br label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
+  %42 = icmp samesign ult i32 %.1188, 8192
+  br i1 %42, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit, label %43
 
-45:                                               ; preds = %39
-  %46 = icmp samesign ult i32 %.1188, 8192
-  br i1 %46, label %47, label %51
+43:                                               ; preds = %41
+  %44 = icmp eq i32 %.1188, 8486
+  br i1 %44, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %.1188, -7936
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [256 x i16], ptr @_ZN6icu_7710GreekUpperL8data1F00E, i64 0, i64 %49
-  br label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
-
-51:                                               ; preds = %45
-  %52 = icmp eq i32 %.1188, 8486
-  br i1 %52, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread
-
-_ZN6icu_7710GreekUpper13getLetterDataEi.exit:     ; preds = %41, %47
-  %.0.shrunk.i.in = phi ptr [ %44, %41 ], [ %50, %47 ]
-  %.0.shrunk.i = load i16, ptr %.0.shrunk.i.in, align 2, !tbaa !34
-  %.0.i = zext i16 %.0.shrunk.i to i32
-  %.not204 = icmp eq i16 %.0.shrunk.i, 0
+_ZN6icu_7710GreekUpper13getLetterDataEi.exit:     ; preds = %41, %39
+  %_ZN6icu_7710GreekUpperL8data0370E.sink = phi ptr [ @_ZN6icu_7710GreekUpperL8data0370E, %39 ], [ @_ZN6icu_7710GreekUpperL8data1F00E, %41 ]
+  %.sink326 = phi i64 [ -1760, %39 ], [ -15872, %41 ]
+  %45 = zext nneg i32 %.1188 to i64
+  %46 = getelementptr i16, ptr %_ZN6icu_7710GreekUpperL8data0370E.sink, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 %.sink326
+  %48 = load i16, ptr %47, align 2, !tbaa !34
+  %.0.i = zext i16 %48 to i32
+  %.not204 = icmp eq i16 %48, 0
   br i1 %.not204, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread, label %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308
 
-_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308: ; preds = %51, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
-  %.0.i312 = phi i32 [ %.0.i, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit ], [ 5033, %51 ]
-  %53 = and i32 %.0.i312, 1023
-  %54 = and i32 %.0.i312, 4096
-  %.not205 = icmp eq i32 %54, 0
-  %55 = and i32 %.0158291, 6
-  %.not206 = icmp eq i32 %55, 0
+_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308: ; preds = %43, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
+  %.0.i312 = phi i32 [ %.0.i, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit ], [ 5033, %43 ]
+  %49 = and i32 %.0.i312, 1023
+  %50 = and i32 %.0.i312, 4096
+  %.not205 = icmp eq i32 %50, 0
+  %51 = and i32 %.0158291, 6
+  %.not206 = icmp eq i32 %51, 0
   %or.cond224 = select i1 %.not205, i1 true, i1 %.not206
-  br i1 %or.cond224, label %61, label %56
+  br i1 %or.cond224, label %57, label %52
 
-56:                                               ; preds = %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308
-  switch i32 %53, label %61 [
-    i32 933, label %57
-    i32 921, label %57
+52:                                               ; preds = %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308
+  switch i32 %49, label %57 [
+    i32 933, label %53
+    i32 921, label %53
   ]
 
-57:                                               ; preds = %56, %56
-  %58 = and i32 %.0158291, 4
-  %.not207 = icmp eq i32 %58, 0
-  %59 = select i1 %.not207, i32 65536, i32 32768
-  %60 = or i32 %59, %.0.i312
-  br label %61
+53:                                               ; preds = %52, %52
+  %54 = and i32 %.0158291, 4
+  %.not207 = icmp eq i32 %54, 0
+  %55 = select i1 %.not207, i32 65536, i32 32768
+  %56 = or i32 %55, %.0.i312
+  br label %57
 
-61:                                               ; preds = %56, %57, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308
-  %.0168 = phi i32 [ %60, %57 ], [ %.0.i312, %56 ], [ %.0.i312, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308 ]
-  %62 = lshr i32 %.0168, 13
-  %.lobit = and i32 %62, 1
-  %63 = and i32 %.0168, 16384
-  %.not209 = icmp eq i32 %63, 0
-  %64 = icmp slt i32 %.1182, %4
-  br i1 %64, label %.lr.ph.preheader, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
+57:                                               ; preds = %52, %53, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308
+  %.0168 = phi i32 [ %56, %53 ], [ %.0.i312, %52 ], [ %.0.i312, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread308 ]
+  %58 = lshr i32 %.0168, 13
+  %.lobit = and i32 %58, 1
+  %59 = and i32 %.0168, 16384
+  %.not209 = icmp eq i32 %59, 0
+  %60 = icmp slt i32 %.1182, %4
+  br i1 %60, label %.lr.ph.preheader, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
 
-.lr.ph.preheader:                                 ; preds = %61
-  %65 = sext i32 %.1182 to i64
+.lr.ph.preheader:                                 ; preds = %57
+  %61 = sext i32 %.1182 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
-  %indvars.iv = phi i64 [ %65, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
+  %indvars.iv = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
   %.0162278 = phi i32 [ %.lobit, %.lr.ph.preheader ], [ %spec.select225, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %.1169277 = phi i32 [ %.0168, %.lr.ph.preheader ], [ %72, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %66 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
-  %67 = load i16, ptr %66, align 2, !tbaa !14
-  switch i16 %67, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit [
+  %.1169277 = phi i32 [ %.0168, %.lr.ph.preheader ], [ %68, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
+  %62 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv
+  %63 = load i16, ptr %62, align 2, !tbaa !14
+  switch i16 %63, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit [
     i16 768, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
     i16 769, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
     i16 834, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
     i16 770, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
     i16 771, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
     i16 785, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
-    i16 776, label %68
-    i16 836, label %69
-    i16 837, label %70
-    i16 772, label %71
-    i16 774, label %71
-    i16 787, label %71
-    i16 788, label %71
-    i16 835, label %71
+    i16 776, label %64
+    i16 836, label %65
+    i16 837, label %66
+    i16 772, label %67
+    i16 774, label %67
+    i16 787, label %67
+    i16 788, label %67
+    i16 835, label %67
   ]
 
-68:                                               ; preds = %.lr.ph
+64:                                               ; preds = %.lr.ph
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
 
-69:                                               ; preds = %.lr.ph
+65:                                               ; preds = %.lr.ph
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
 
-70:                                               ; preds = %.lr.ph
+66:                                               ; preds = %.lr.ph
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
 
-71:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+67:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit
 
-_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit:  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %71, %70, %69, %68
-  %.0.i236.ph = phi i32 [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 131072, %71 ], [ 8192, %70 ], [ 81920, %69 ], [ 65536, %68 ]
-  %72 = or i32 %.0.i236.ph, %.1169277
-  %73 = lshr exact i32 %.0.i236.ph, 13
-  %74 = and i32 %73, 1
-  %spec.select225 = add nuw nsw i32 %74, %.0162278
+_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit:  ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %67, %66, %65, %64
+  %.0.i236.ph = phi i32 [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 16384, %.lr.ph ], [ 131072, %67 ], [ 8192, %66 ], [ 81920, %65 ], [ 65536, %64 ]
+  %68 = or i32 %.0.i236.ph, %.1169277
+  %69 = lshr exact i32 %.0.i236.ph, 13
+  %70 = and i32 %69, 1
+  %spec.select225 = add nuw nsw i32 %70, %.0162278
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251, label %.lr.ph
 
 _ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit: ; preds = %.lr.ph
-  %75 = trunc nsw i64 %indvars.iv to i32
+  %71 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
 
-_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251: ; preds = %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit, %61
-  %.2183.lcssa = phi i32 [ %.1182, %61 ], [ %75, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %4, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %.1169.lcssa = phi i32 [ %.0168, %61 ], [ %.1169277, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %72, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %.0162.lcssa = phi i32 [ %.lobit, %61 ], [ %.0162278, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %spec.select225, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
-  %76 = and i32 %.1169.lcssa, 53248
-  %77 = icmp eq i32 %76, 20480
-  %78 = select i1 %.not209, i32 2, i32 4
-  %79 = select i1 %77, i32 %78, i32 0
-  %.1179 = or disjoint i32 %79, %.0178
-  %80 = icmp eq i32 %53, 919
-  br i1 %80, label %81, label %110
+_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251: ; preds = %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit, %57
+  %.2183.lcssa = phi i32 [ %.1182, %57 ], [ %71, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %4, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
+  %.1169.lcssa = phi i32 [ %.0168, %57 ], [ %.1169277, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %68, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
+  %.0162.lcssa = phi i32 [ %.lobit, %57 ], [ %.0162278, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251.loopexit.split.loop.exit ], [ %spec.select225, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit ]
+  %72 = and i32 %.1169.lcssa, 53248
+  %73 = icmp eq i32 %72, 20480
+  %74 = select i1 %.not209, i32 2, i32 4
+  %75 = select i1 %73, i32 %74, i32 0
+  %.1179 = or disjoint i32 %75, %.0178
+  %76 = icmp eq i32 %49, 919
+  br i1 %76, label %77, label %106
 
-81:                                               ; preds = %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
-  %82 = and i32 %.1169.lcssa, 16384
-  %83 = icmp ne i32 %82, 0
-  %84 = icmp eq i32 %.0162.lcssa, 0
-  %or.cond6 = select i1 %83, i1 %84, i1 false
-  %85 = icmp eq i32 %36, 0
-  %or.cond = select i1 %or.cond6, i1 %85, i1 false
-  br i1 %or.cond, label %.preheader, label %110
+77:                                               ; preds = %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
+  %78 = and i32 %.1169.lcssa, 16384
+  %79 = icmp ne i32 %78, 0
+  %80 = icmp eq i32 %.0162.lcssa, 0
+  %or.cond6 = select i1 %79, i1 %80, i1 false
+  %81 = icmp eq i32 %36, 0
+  %or.cond = select i1 %or.cond6, i1 %81, i1 false
+  br i1 %or.cond, label %.preheader, label %106
 
-.preheader:                                       ; preds = %81, %107
-  %.017.i = phi i32 [ %.219.i, %107 ], [ %.2183.lcssa, %81 ]
-  %86 = icmp slt i32 %.017.i, %4
-  br i1 %86, label %87, label %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread
+.preheader:                                       ; preds = %77, %103
+  %.017.i = phi i32 [ %.219.i, %103 ], [ %.2183.lcssa, %77 ]
+  %82 = icmp slt i32 %.017.i, %4
+  br i1 %82, label %83, label %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread
 
-87:                                               ; preds = %.preheader
-  %88 = add nsw i32 %.017.i, 1
-  %89 = sext i32 %.017.i to i64
-  %90 = getelementptr inbounds i16, ptr %3, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !14
-  %92 = zext i16 %91 to i32
-  %93 = and i32 %92, 64512
-  %94 = icmp ne i32 %93, 55296
-  %.not.i = icmp eq i32 %88, %4
-  %or.cond.i237 = select i1 %94, i1 true, i1 %.not.i
-  br i1 %or.cond.i237, label %107, label %95
+83:                                               ; preds = %.preheader
+  %84 = add nsw i32 %.017.i, 1
+  %85 = sext i32 %.017.i to i64
+  %86 = getelementptr inbounds i16, ptr %3, i64 %85
+  %87 = load i16, ptr %86, align 2, !tbaa !14
+  %88 = zext i16 %87 to i32
+  %89 = and i32 %88, 64512
+  %90 = icmp ne i32 %89, 55296
+  %.not.i = icmp eq i32 %84, %4
+  %or.cond.i237 = select i1 %90, i1 true, i1 %.not.i
+  br i1 %or.cond.i237, label %103, label %91
 
-95:                                               ; preds = %87
-  %96 = sext i32 %88 to i64
-  %97 = getelementptr inbounds i16, ptr %3, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !14
-  %99 = zext i16 %98 to i32
-  %100 = and i32 %99, 64512
-  %101 = icmp eq i32 %100, 56320
-  br i1 %101, label %102, label %107
+91:                                               ; preds = %83
+  %92 = sext i32 %84 to i64
+  %93 = getelementptr inbounds i16, ptr %3, i64 %92
+  %94 = load i16, ptr %93, align 2, !tbaa !14
+  %95 = zext i16 %94 to i32
+  %96 = and i32 %95, 64512
+  %97 = icmp eq i32 %96, 56320
+  br i1 %97, label %98, label %103
 
-102:                                              ; preds = %95
-  %103 = add nsw i32 %.017.i, 2
-  %104 = shl nuw nsw i32 %92, 10
-  %105 = add nsw i32 %104, -56613888
-  %106 = add nuw nsw i32 %105, %99
-  br label %107
+98:                                               ; preds = %91
+  %99 = add nsw i32 %.017.i, 2
+  %100 = shl nuw nsw i32 %88, 10
+  %101 = add nsw i32 %100, -56613888
+  %102 = add nuw nsw i32 %101, %95
+  br label %103
 
-107:                                              ; preds = %102, %95, %87
-  %.121.i = phi i32 [ %92, %87 ], [ %106, %102 ], [ %92, %95 ]
-  %.219.i = phi i32 [ %88, %87 ], [ %103, %102 ], [ %88, %95 ]
-  %108 = call i32 @ucase_getTypeOrIgnorable_77(i32 noundef %.121.i)
-  %109 = and i32 %108, 4
-  %.not25.not.i = icmp eq i32 %109, 0
+103:                                              ; preds = %98, %91, %83
+  %.121.i = phi i32 [ %88, %83 ], [ %102, %98 ], [ %88, %91 ]
+  %.219.i = phi i32 [ %84, %83 ], [ %99, %98 ], [ %84, %91 ]
+  %104 = call i32 @ucase_getTypeOrIgnorable_77(i32 noundef %.121.i)
+  %105 = and i32 %104, 4
+  %.not25.not.i = icmp eq i32 %105, 0
   br i1 %.not25.not.i, label %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit, label %.preheader
 
-_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit: ; preds = %107
-  %.not26.le.i.not = icmp eq i32 %108, 0
-  br i1 %.not26.le.i.not, label %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread, label %110
+_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit: ; preds = %103
+  %.not26.le.i.not = icmp eq i32 %104, 0
+  br i1 %.not26.le.i.not, label %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread, label %106
 
 _ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread: ; preds = %.preheader, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit
   %. = select i1 %.not209, i32 919, i32 905
   %not..not209 = xor i1 %.not209, true
-  br label %115
+  br label %111
 
-110:                                              ; preds = %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit, %81, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
-  %111 = and i32 %.1169.lcssa, 32768
-  %.not213 = icmp eq i32 %111, 0
-  br i1 %.not213, label %115, label %112
+106:                                              ; preds = %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit, %77, %_ZN6icu_7710GreekUpper16getDiacriticDataEi.exit.thread251
+  %107 = and i32 %.1169.lcssa, 32768
+  %.not213 = icmp eq i32 %107, 0
+  br i1 %.not213, label %111, label %108
 
-112:                                              ; preds = %110
-  switch i32 %53, label %115 [
-    i32 921, label %113
-    i32 933, label %114
+108:                                              ; preds = %106
+  switch i32 %49, label %111 [
+    i32 921, label %109
+    i32 933, label %110
   ]
 
-113:                                              ; preds = %112
-  br label %115
+109:                                              ; preds = %108
+  br label %111
 
-114:                                              ; preds = %112
-  br label %115
+110:                                              ; preds = %108
+  br label %111
 
-115:                                              ; preds = %112, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread, %110, %114, %113
-  %.4172 = phi i32 [ 0, %113 ], [ 0, %114 ], [ %.1169.lcssa, %110 ], [ %.1169.lcssa, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ %.1169.lcssa, %112 ]
-  %.0167 = phi i32 [ 938, %113 ], [ 939, %114 ], [ %53, %110 ], [ %., %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ %53, %112 ]
-  %.not216 = phi i1 [ true, %113 ], [ true, %114 ], [ true, %110 ], [ %not..not209, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ true, %112 ]
-  %116 = phi i1 [ false, %113 ], [ false, %114 ], [ false, %110 ], [ %.not209, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ false, %112 ]
-  br i1 %or.cond230, label %.critedge, label %117
+111:                                              ; preds = %108, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread, %106, %110, %109
+  %.4172 = phi i32 [ 0, %109 ], [ 0, %110 ], [ %.1169.lcssa, %106 ], [ %.1169.lcssa, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ %.1169.lcssa, %108 ]
+  %.0167 = phi i32 [ 938, %109 ], [ 939, %110 ], [ %49, %106 ], [ %., %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ %49, %108 ]
+  %.not216 = phi i1 [ true, %109 ], [ true, %110 ], [ true, %106 ], [ %not..not209, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ true, %108 ]
+  %112 = phi i1 [ false, %109 ], [ false, %110 ], [ false, %106 ], [ %.not209, %_ZN6icu_7710GreekUpper23isFollowedByCasedLetterEPKDsii.exit.thread ], [ false, %108 ]
+  br i1 %or.cond230, label %.critedge, label %113
 
-117:                                              ; preds = %115
-  %118 = load i16, ptr %16, align 2, !tbaa !14
-  %119 = zext i16 %118 to i32
-  %120 = icmp ne i32 %.0167, %119
-  %121 = icmp ne i32 %.0162.lcssa, 0
-  %122 = select i1 %120, i1 true, i1 %121
-  %123 = zext i1 %122 to i8
-  %124 = and i32 %.4172, 98304
-  %.not214 = icmp eq i32 %124, 0
-  br i1 %.not214, label %136, label %125
+113:                                              ; preds = %111
+  %114 = load i16, ptr %16, align 2, !tbaa !14
+  %115 = zext i16 %114 to i32
+  %116 = icmp ne i32 %.0167, %115
+  %117 = icmp ne i32 %.0162.lcssa, 0
+  %118 = select i1 %116, i1 true, i1 %117
+  %119 = zext i1 %118 to i8
+  %120 = and i32 %.4172, 98304
+  %.not214 = icmp eq i32 %120, 0
+  br i1 %.not214, label %132, label %121
 
-125:                                              ; preds = %117
+121:                                              ; preds = %113
   %.not215 = icmp slt i32 %14, %.2183.lcssa
-  br i1 %.not215, label %126, label %132
+  br i1 %.not215, label %122, label %128
 
-126:                                              ; preds = %125
-  %127 = sext i32 %14 to i64
-  %128 = getelementptr inbounds i16, ptr %3, i64 %127
-  %129 = load i16, ptr %128, align 2, !tbaa !14
-  %130 = icmp ne i16 %129, 776
-  %131 = zext i1 %130 to i8
+122:                                              ; preds = %121
+  %123 = sext i32 %14 to i64
+  %124 = getelementptr inbounds i16, ptr %3, i64 %123
+  %125 = load i16, ptr %124, align 2, !tbaa !14
+  %126 = icmp ne i16 %125, 776
+  %127 = zext i1 %126 to i8
+  br label %128
+
+128:                                              ; preds = %122, %121
+  %129 = phi i8 [ 1, %121 ], [ %127, %122 ]
+  %130 = or i8 %129, %119
+  %131 = add nsw i32 %.0160290, 2
   br label %132
 
-132:                                              ; preds = %126, %125
-  %133 = phi i8 [ 1, %125 ], [ %131, %126 ]
-  %134 = or i8 %133, %123
-  %135 = add nsw i32 %.0160290, 2
-  br label %136
+132:                                              ; preds = %128, %113
+  %.1154 = phi i8 [ %130, %128 ], [ %119, %113 ]
+  %.0151 = phi i32 [ %131, %128 ], [ %14, %113 ]
+  br i1 %.not216, label %144, label %133
 
-136:                                              ; preds = %132, %117
-  %.1154 = phi i8 [ %134, %132 ], [ %123, %117 ]
-  %.0151 = phi i32 [ %135, %132 ], [ %14, %117 ]
-  br i1 %.not216, label %148, label %137
-
-137:                                              ; preds = %136
+133:                                              ; preds = %132
   %.not217 = icmp slt i32 %.0151, %.2183.lcssa
-  br i1 %.not217, label %138, label %144
+  br i1 %.not217, label %134, label %140
 
-138:                                              ; preds = %137
-  %139 = sext i32 %.0151 to i64
-  %140 = getelementptr inbounds i16, ptr %3, i64 %139
-  %141 = load i16, ptr %140, align 2, !tbaa !14
-  %142 = icmp ne i16 %141, 769
-  %143 = zext i1 %142 to i8
+134:                                              ; preds = %133
+  %135 = sext i32 %.0151 to i64
+  %136 = getelementptr inbounds i16, ptr %3, i64 %135
+  %137 = load i16, ptr %136, align 2, !tbaa !14
+  %138 = icmp ne i16 %137, 769
+  %139 = zext i1 %138 to i8
+  br label %140
+
+140:                                              ; preds = %134, %133
+  %141 = phi i8 [ 1, %133 ], [ %139, %134 ]
+  %142 = or i8 %141, %.1154
+  %143 = add nsw i32 %.0151, 1
   br label %144
 
-144:                                              ; preds = %138, %137
-  %145 = phi i8 [ 1, %137 ], [ %143, %138 ]
-  %146 = or i8 %145, %.1154
-  %147 = add nsw i32 %.0151, 1
-  br label %148
+144:                                              ; preds = %140, %132
+  %.2155 = phi i8 [ %142, %140 ], [ %.1154, %132 ]
+  %.1152 = phi i32 [ %143, %140 ], [ %.0151, %132 ]
+  %145 = sub nsw i32 %.2183.lcssa, %.0160290
+  %146 = sub nsw i32 %.1152, %.0160290
+  %147 = add nsw i32 %146, %.0162.lcssa
+  %148 = icmp ne i32 %145, %147
+  %149 = zext i1 %148 to i8
+  %150 = or i8 %.2155, %149
+  %.not218 = icmp eq i8 %150, 0
+  br i1 %.not218, label %153, label %151
 
-148:                                              ; preds = %144, %136
-  %.2155 = phi i8 [ %146, %144 ], [ %.1154, %136 ]
-  %.1152 = phi i32 [ %147, %144 ], [ %.0151, %136 ]
-  %149 = sub nsw i32 %.2183.lcssa, %.0160290
-  %150 = sub nsw i32 %.1152, %.0160290
-  %151 = add nsw i32 %150, %.0162.lcssa
-  %152 = icmp ne i32 %149, %151
-  %153 = zext i1 %152 to i8
-  %154 = or i8 %.2155, %153
-  %.not218 = icmp eq i8 %154, 0
-  br i1 %.not218, label %157, label %155
+151:                                              ; preds = %144
+  br i1 %9, label %.critedge, label %152
 
-155:                                              ; preds = %148
-  br i1 %9, label %.critedge, label %156
-
-156:                                              ; preds = %155
-  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %149, i32 noundef %151)
+152:                                              ; preds = %151
+  call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %145, i32 noundef %147)
   br label %.critedge
 
-157:                                              ; preds = %148
-  br i1 %9, label %159, label %158
+153:                                              ; preds = %144
+  br i1 %9, label %155, label %154
 
-158:                                              ; preds = %157
-  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %149)
-  br label %159
+154:                                              ; preds = %153
+  call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 noundef %145)
+  br label %155
 
-159:                                              ; preds = %158, %157
+155:                                              ; preds = %154, %153
   br i1 %11, label %.critedge, label %._crit_edge.thread317
 
-.critedge:                                        ; preds = %115, %156, %155, %159
-  %160 = icmp slt i32 %.0144292, %2
-  br i1 %160, label %161, label %165
+.critedge:                                        ; preds = %111, %152, %151, %155
+  %156 = icmp slt i32 %.0144292, %2
+  br i1 %156, label %157, label %161
 
-161:                                              ; preds = %.critedge
-  %162 = trunc nuw nsw i32 %.0167 to i16
-  %163 = zext nneg i32 %.0144292 to i64
-  %164 = getelementptr inbounds nuw i16, ptr %1, i64 %163
-  store i16 %162, ptr %164, align 2, !tbaa !14
+157:                                              ; preds = %.critedge
+  %158 = trunc nuw nsw i32 %.0167 to i16
+  %159 = zext nneg i32 %.0144292 to i64
+  %160 = getelementptr inbounds nuw i16, ptr %1, i64 %159
+  store i16 %158, ptr %160, align 2, !tbaa !14
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
 
-165:                                              ; preds = %.critedge
-  %166 = icmp eq i32 %.0144292, 2147483647
-  br i1 %166, label %._crit_edge.thread, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
+161:                                              ; preds = %.critedge
+  %162 = icmp eq i32 %.0144292, 2147483647
+  br i1 %162, label %._crit_edge.thread, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %161, %165
-  %167 = add nuw nsw i32 %.0144292, 1
-  %168 = and i32 %.4172, 98304
-  %.not222 = icmp eq i32 %168, 0
-  br i1 %.not222, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240, label %169
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %157, %161
+  %163 = add nuw nsw i32 %.0144292, 1
+  %164 = and i32 %.4172, 98304
+  %.not222 = icmp eq i32 %164, 0
+  br i1 %.not222, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240, label %165
 
-169:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
-  %170 = icmp slt i32 %167, %2
-  br i1 %170, label %171, label %174
+165:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
+  %166 = icmp slt i32 %163, %2
+  br i1 %166, label %167, label %170
 
-171:                                              ; preds = %169
-  %172 = zext nneg i32 %167 to i64
-  %173 = getelementptr inbounds nuw i16, ptr %1, i64 %172
-  store i16 776, ptr %173, align 2, !tbaa !14
-  br label %176
+167:                                              ; preds = %165
+  %168 = zext nneg i32 %163 to i64
+  %169 = getelementptr inbounds nuw i16, ptr %1, i64 %168
+  store i16 776, ptr %169, align 2, !tbaa !14
+  br label %172
 
-174:                                              ; preds = %169
-  %175 = icmp eq i32 %167, 2147483647
-  br i1 %175, label %._crit_edge.thread, label %176
+170:                                              ; preds = %165
+  %171 = icmp eq i32 %163, 2147483647
+  br i1 %171, label %._crit_edge.thread, label %172
 
-176:                                              ; preds = %174, %171
-  %177 = add nuw nsw i32 %.0144292, 2
+172:                                              ; preds = %170, %167
+  %173 = add nuw nsw i32 %.0144292, 2
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240: ; preds = %176, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
-  %.3147 = phi i32 [ %167, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit ], [ %177, %176 ]
-  br i1 %116, label %178, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240: ; preds = %172, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit
+  %.3147 = phi i32 [ %163, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit ], [ %173, %172 ]
+  br i1 %112, label %174, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242
 
-178:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240
-  %179 = icmp slt i32 %.3147, %2
-  br i1 %179, label %180, label %183
+174:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240
+  %175 = icmp slt i32 %.3147, %2
+  br i1 %175, label %176, label %179
 
-180:                                              ; preds = %178
-  %181 = zext nneg i32 %.3147 to i64
-  %182 = getelementptr inbounds nuw i16, ptr %1, i64 %181
-  store i16 769, ptr %182, align 2, !tbaa !14
-  br label %185
+176:                                              ; preds = %174
+  %177 = zext nneg i32 %.3147 to i64
+  %178 = getelementptr inbounds nuw i16, ptr %1, i64 %177
+  store i16 769, ptr %178, align 2, !tbaa !14
+  br label %181
 
-183:                                              ; preds = %178
-  %184 = icmp eq i32 %.3147, 2147483647
-  br i1 %184, label %._crit_edge.thread, label %185
+179:                                              ; preds = %174
+  %180 = icmp eq i32 %.3147, 2147483647
+  br i1 %180, label %._crit_edge.thread, label %181
 
-185:                                              ; preds = %183, %180
-  %186 = add nuw nsw i32 %.3147, 1
+181:                                              ; preds = %179, %176
+  %182 = add nuw nsw i32 %.3147, 1
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242: ; preds = %185, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240
-  %.4148 = phi i32 [ %.3147, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240 ], [ %186, %185 ]
-  %187 = icmp sgt i32 %.4148, -1
-  %188 = icmp sgt i32 %.0162.lcssa, 0
-  %189 = select i1 %187, i1 %188, i1 false
-  br i1 %189, label %.lr.ph287, label %._crit_edge
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242: ; preds = %181, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240
+  %.4148 = phi i32 [ %.3147, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit240 ], [ %182, %181 ]
+  %183 = icmp sgt i32 %.4148, -1
+  %184 = icmp sgt i32 %.0162.lcssa, 0
+  %185 = select i1 %183, i1 %184, i1 false
+  br i1 %185, label %.lr.ph287, label %._crit_edge
 
 .lr.ph287:                                        ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244
-  %.5149286 = phi i32 [ %196, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ], [ %.4148, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242 ]
-  %.4166285 = phi i32 [ %197, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ], [ %.0162.lcssa, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242 ]
-  %190 = icmp slt i32 %.5149286, %2
-  br i1 %190, label %191, label %194
+  %.5149286 = phi i32 [ %192, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ], [ %.4148, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242 ]
+  %.4166285 = phi i32 [ %193, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ], [ %.0162.lcssa, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242 ]
+  %186 = icmp slt i32 %.5149286, %2
+  br i1 %186, label %187, label %190
 
-191:                                              ; preds = %.lr.ph287
-  %192 = zext nneg i32 %.5149286 to i64
-  %193 = getelementptr inbounds nuw i16, ptr %1, i64 %192
-  store i16 921, ptr %193, align 2, !tbaa !14
+187:                                              ; preds = %.lr.ph287
+  %188 = zext nneg i32 %.5149286 to i64
+  %189 = getelementptr inbounds nuw i16, ptr %1, i64 %188
+  store i16 921, ptr %189, align 2, !tbaa !14
   br label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244
 
-194:                                              ; preds = %.lr.ph287
-  %195 = icmp eq i32 %.5149286, 2147483647
-  br i1 %195, label %._crit_edge.thread, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244
+190:                                              ; preds = %.lr.ph287
+  %191 = icmp eq i32 %.5149286, 2147483647
+  br i1 %191, label %._crit_edge.thread, label %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244
 
-_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244: ; preds = %191, %194
-  %196 = add nuw nsw i32 %.5149286, 1
-  %197 = add nsw i32 %.4166285, -1
-  %198 = icmp samesign ugt i32 %.4166285, 1
-  br i1 %198, label %.lr.ph287, label %._crit_edge.thread317, !llvm.loop !36
+_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244: ; preds = %187, %190
+  %192 = add nuw nsw i32 %.5149286, 1
+  %193 = add nsw i32 %.4166285, -1
+  %194 = icmp samesign ugt i32 %.4166285, 1
+  br i1 %194, label %.lr.ph287, label %._crit_edge.thread317, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit242
-  %199 = icmp slt i32 %.4148, 0
-  br i1 %199, label %._crit_edge.thread, label %._crit_edge.thread317
+  %195 = icmp slt i32 %.4148, 0
+  br i1 %195, label %._crit_edge.thread, label %._crit_edge.thread317
 
-._crit_edge.thread:                               ; preds = %165, %174, %183, %._crit_edge, %194
+._crit_edge.thread:                               ; preds = %161, %170, %179, %._crit_edge, %190
   store i32 8, ptr %6, align 4, !tbaa !3
   br label %.thread268
 
-_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread: ; preds = %51, %33, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
+_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread: ; preds = %43, %33, %_ZN6icu_7710GreekUpper13getLetterDataEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %200 = call i32 @ucase_toFullUpper_77(i32 noundef %.1188, ptr noundef null, ptr noundef null, ptr noundef nonnull %8, i32 noundef 4)
-  %201 = load ptr, ptr %8, align 8, !tbaa !20
-  %202 = sub nsw i32 %.1182, %.0160290
-  %203 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %1, i32 noundef %.0144292, i32 noundef %2, i32 noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef %0, ptr noundef %5)
-  %204 = icmp sgt i32 %203, -1
-  br i1 %204, label %.critedge233, label %205
+  %196 = call i32 @ucase_toFullUpper_77(i32 noundef %.1188, ptr noundef null, ptr noundef null, ptr noundef nonnull %8, i32 noundef 4)
+  %197 = load ptr, ptr %8, align 8, !tbaa !20
+  %198 = sub nsw i32 %.1182, %.0160290
+  %199 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %1, i32 noundef %.0144292, i32 noundef %2, i32 noundef %196, ptr noundef %197, i32 noundef %198, i32 noundef %0, ptr noundef %5)
+  %200 = icmp sgt i32 %199, -1
+  br i1 %200, label %.critedge233, label %201
 
-205:                                              ; preds = %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread
+201:                                              ; preds = %_ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread
   store i32 8, ptr %6, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread268
@@ -1850,15 +1842,15 @@ _ZN6icu_7710GreekUpper13getLetterDataEi.exit.thread: ; preds = %51, %33, %_ZN6ic
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %._crit_edge.thread317
 
-._crit_edge.thread317:                            ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244, %159, %._crit_edge, %.critedge233
-  %.1161 = phi i32 [ %.1182, %.critedge233 ], [ %.2183.lcssa, %._crit_edge ], [ %.2183.lcssa, %159 ], [ %.2183.lcssa, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
-  %.1159 = phi i32 [ %.0178, %.critedge233 ], [ %.1179, %._crit_edge ], [ %.1179, %159 ], [ %.1179, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
-  %.7 = phi i32 [ %203, %.critedge233 ], [ %.4148, %._crit_edge ], [ %.0144292, %159 ], [ %196, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
+._crit_edge.thread317:                            ; preds = %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244, %155, %._crit_edge, %.critedge233
+  %.1161 = phi i32 [ %.1182, %.critedge233 ], [ %.2183.lcssa, %._crit_edge ], [ %.2183.lcssa, %155 ], [ %.2183.lcssa, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
+  %.1159 = phi i32 [ %.0178, %.critedge233 ], [ %.1179, %._crit_edge ], [ %.1179, %155 ], [ %.1179, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
+  %.7 = phi i32 [ %199, %.critedge233 ], [ %.4148, %._crit_edge ], [ %.0144292, %155 ], [ %192, %_ZN6icu_7712_GLOBAL__N_111appendUCharEPDsiiDs.exit244 ]
   %.not223 = icmp slt i32 %.1161, %4
   br i1 %.not223, label %13, label %.thread268, !llvm.loop !37
 
-.thread268:                                       ; preds = %._crit_edge.thread317, %7, %205, %._crit_edge.thread
-  %spec.select234 = phi i32 [ 0, %205 ], [ 0, %._crit_edge.thread ], [ 0, %7 ], [ %.7, %._crit_edge.thread317 ]
+.thread268:                                       ; preds = %._crit_edge.thread317, %7, %201, %._crit_edge.thread
+  %spec.select234 = phi i32 [ 0, %201 ], [ 0, %._crit_edge.thread ], [ 0, %7 ], [ %.7, %._crit_edge.thread317 ]
   ret i32 %spec.select234
 }
 
@@ -2726,7 +2718,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader9.us:                                   ; preds = %.preheader9.us.preheader, %.preheader9.us
   %indvars.iv = phi i64 [ %39, %.preheader9.us.preheader ], [ %indvars.iv.next, %.preheader9.us ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %9, i64 0, i64 %indvars.iv.next
+  %40 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8, !tbaa !40
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.preheader9.us, label %43, !llvm.loop !42
@@ -2775,7 +2767,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader9:                                      ; preds = %.preheader9.preheader, %.preheader9
   %indvars.iv173 = phi i64 [ %56, %.preheader9.preheader ], [ %indvars.iv.next174, %.preheader9 ]
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, -1
-  %59 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %9, i64 0, i64 %indvars.iv.next174
+  %59 = getelementptr inbounds %struct.CmpEquivLevel, ptr %9, i64 %indvars.iv.next174
   %60 = load ptr, ptr %59, align 8, !tbaa !40
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.preheader9, label %62, !llvm.loop !42
@@ -2829,7 +2821,7 @@ define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv176 = phi i64 [ %76, %.preheader.preheader ], [ %indvars.iv.next177, %.preheader ]
   %indvars.iv.next177 = add nsw i64 %indvars.iv176, -1
-  %80 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %10, i64 0, i64 %indvars.iv.next177
+  %80 = getelementptr inbounds %struct.CmpEquivLevel, ptr %10, i64 %indvars.iv.next177
   %81 = load ptr, ptr %80, align 8, !tbaa !40
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.preheader, label %83, !llvm.loop !46

@@ -42,7 +42,7 @@ define internal void @_ZL24collect_features_myanmarP21hb_ot_shape_planner_t(ptr 
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [4 x i32], ptr @_ZL22myanmar_basic_features, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL22myanmar_basic_features, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %5, i32 noundef 73, i32 noundef 1)
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef null)
@@ -56,7 +56,7 @@ define internal void @_ZL24collect_features_myanmarP21hb_ot_shape_planner_t(ptr 
 
 7:                                                ; preds = %6, %7
   %indvars.iv18 = phi i64 [ 0, %6 ], [ %indvars.iv.next19, %7 ]
-  %8 = getelementptr inbounds nuw [4 x i32], ptr @_ZL22myanmar_other_features, i64 0, i64 %indvars.iv18
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22myanmar_other_features, i64 %indvars.iv18
   %9 = load i32, ptr %8, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %9, i32 noundef 9, i32 noundef 1)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -710,18 +710,18 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %.1120 = phi i32 [ %spec.select146, %125 ], [ 0, %1 ]
   %.1 = phi i32 [ %129, %125 ], [ 0, %1 ]
   %8 = sext i32 %.1129 to i64
-  %9 = getelementptr inbounds [55 x i8], ptr @_ZL44_myanmar_syllable_machine_from_state_actions, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @_ZL44_myanmar_syllable_machine_from_state_actions, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 2
   %spec.select = select i1 %cond, i32 %.1, i32 %.1120
   %11 = shl nsw i32 %.1129, 1
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr @_ZL36_myanmar_syllable_machine_trans_keys, i64 %12
-  %14 = getelementptr inbounds [55 x i16], ptr @_ZL39_myanmar_syllable_machine_index_offsets, i64 0, i64 %8
+  %14 = getelementptr inbounds i16, ptr @_ZL39_myanmar_syllable_machine_index_offsets, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i64
   %17 = getelementptr inbounds i8, ptr @_ZL34_myanmar_syllable_machine_indicies, i64 %16
-  %18 = getelementptr inbounds [55 x i8], ptr @_ZL35_myanmar_syllable_machine_key_spans, i64 0, i64 %8
+  %18 = getelementptr inbounds i8, ptr @_ZL35_myanmar_syllable_machine_key_spans, i64 %8
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
@@ -753,7 +753,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %.0123 = phi i64 [ %136, %131 ], [ %34, %30 ]
   %.3122 = phi i32 [ %.0119, %131 ], [ %spec.select, %30 ]
   %.2 = phi i32 [ %5, %131 ], [ %.1, %30 ]
-  %36 = getelementptr inbounds [61 x i8], ptr @_ZL37_myanmar_syllable_machine_trans_targs, i64 0, i64 %.0123
+  %36 = getelementptr inbounds i8, ptr @_ZL37_myanmar_syllable_machine_trans_targs, i64 %.0123
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = shl nuw i64 1, %.0123
@@ -762,7 +762,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %.not136, label %41, label %125
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds [61 x i8], ptr @_ZL39_myanmar_syllable_machine_trans_actions, i64 0, i64 %.0123
+  %42 = getelementptr inbounds i8, ptr @_ZL39_myanmar_syllable_machine_trans_actions, i64 %.0123
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %125 [
     i8 6, label %44
@@ -980,7 +980,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %.3127 = phi i32 [ %.2126, %35 ], [ %.2126, %41 ], [ %spec.store.select, %._crit_edge172 ], [ %spec.store.select2, %._crit_edge168 ], [ %spec.store.select3, %._crit_edge164 ], [ %spec.store.select4, %._crit_edge160 ], [ %spec.store.select5, %._crit_edge156 ], [ %spec.store.select6, %._crit_edge152 ], [ %spec.store.select7, %._crit_edge ]
   %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %._crit_edge172 ], [ %.2, %._crit_edge168 ], [ %.2, %._crit_edge164 ], [ %.2, %._crit_edge160 ], [ %91, %._crit_edge156 ], [ %101, %._crit_edge152 ], [ %115, %._crit_edge ]
   %126 = sext i8 %37 to i64
-  %127 = getelementptr inbounds [55 x i8], ptr @_ZL42_myanmar_syllable_machine_to_state_actions, i64 0, i64 %126
+  %127 = getelementptr inbounds i8, ptr @_ZL42_myanmar_syllable_machine_to_state_actions, i64 %126
   %128 = load i8, ptr %127, align 1
   %cond1 = icmp eq i8 %128, 1
   %spec.select146 = select i1 %cond1, i32 0, i32 %.3122
@@ -997,7 +997,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
 
 131:                                              ; preds = %130
   %132 = sext i32 %.0128 to i64
-  %133 = getelementptr inbounds [55 x i16], ptr @_ZL35_myanmar_syllable_machine_eof_trans, i64 0, i64 %132
+  %133 = getelementptr inbounds i16, ptr @_ZL35_myanmar_syllable_machine_eof_trans, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = sext i16 %134 to i64
   %136 = add nsw i64 %135, -1

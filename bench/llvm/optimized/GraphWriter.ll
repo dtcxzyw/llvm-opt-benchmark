@@ -236,7 +236,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3DOT14getColorStringEj(i32 noundef %0) lo
 _ZN4llvm9StringRefC2EPKc.exit:
   %1 = urem i32 %0, 20
   %2 = zext nneg i32 %1 to i64
-  %3 = getelementptr inbounds nuw [20 x ptr], ptr @_ZZN4llvm3DOT14getColorStringEjE6Colors, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm3DOT14getColorStringEjE6Colors, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -874,7 +874,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit119: ; preds = %98
   call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef 32) #17
   %.sroa.13.2 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %109
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   %110 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #16
   store ptr %switch.load, ptr %.sroa.13.2, align 8, !tbaa !17
@@ -939,7 +939,7 @@ switch.lookup:                                    ; preds = %137, %133
   %140 = phi ptr [ %139, %137 ], [ %136, %133 ]
   %141 = phi ptr [ %138, %137 ], [ %135, %133 ]
   %142 = zext nneg i32 %3 to i64
-  %switch.gep583 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %142
+  %switch.gep583 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %142
   %switch.load584 = load ptr, ptr %switch.gep583, align 8
   %143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load584) #16
   %144 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %switch.load584, i64 %143, ptr noundef nonnull align 8 dereferenceable(32) %11)

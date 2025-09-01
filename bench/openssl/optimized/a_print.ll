@@ -214,7 +214,7 @@ switch.early.test:                                ; preds = %14
 16:                                               ; preds = %14, %.lr.ph, %switch.early.test
   %.fr.sink = phi i8 [ %switch.select42, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
   %17 = sext i32 %.02434 to i64
-  %18 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %3, i64 %17
   store i8 %.fr.sink, ptr %18, align 1, !tbaa !3
   %19 = add nsw i32 %.02434, 1
   %20 = icmp sgt i32 %.02434, 78

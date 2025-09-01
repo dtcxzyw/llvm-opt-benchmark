@@ -288,7 +288,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
   %114 = select i1 %.not49.us.i.i.not, i32 %28, i32 %113
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04052.us.i.i
+  %116 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04052.us.i.i
   %117 = load float, ptr %116, align 4, !tbaa !48, !noalias !57
   %118 = fmul reassoc nsz arcp contract afn float %117, %131
   %119 = getelementptr float, ptr %132, i64 %115
@@ -309,7 +309,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %127 = select i1 %.not.us.i.i.not, i32 %28, i32 %126
   %128 = sext i32 %127 to i64
   %129 = mul nsw i64 %128, %30
-  %130 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04154.us.i.i
+  %130 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04154.us.i.i
   %131 = load float, ptr %130, align 4, !tbaa !48, !noalias !57
   %132 = getelementptr float, ptr %34, i64 %129
   br label %110
@@ -455,7 +455,7 @@ create_motion_kernel.exit.i:                      ; preds = %195
   %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 0)
   %213 = select i1 %.not49.us.i60.i.not, i32 %28, i32 %212
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04052.us.i58.i
+  %215 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04052.us.i58.i
   %216 = load float, ptr %215, align 4, !tbaa !48, !noalias !72
   %217 = fmul reassoc nsz arcp contract afn float %216, %230
   %218 = getelementptr float, ptr %231, i64 %214
@@ -476,7 +476,7 @@ create_motion_kernel.exit.i:                      ; preds = %195
   %226 = select i1 %.not.us.i57.i.not, i32 %28, i32 %225
   %227 = sext i32 %226 to i64
   %228 = mul nsw i64 %227, %30
-  %229 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04154.us.i55.i
+  %229 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04154.us.i55.i
   %230 = load float, ptr %229, align 4, !tbaa !48, !noalias !72
   %231 = getelementptr float, ptr %34, i64 %228
   br label %209
@@ -648,7 +648,7 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %.0125162.us
   %312 = load float, ptr %gep.us, align 4, !tbaa !48
   %313 = fmul reassoc nsz arcp contract afn float %312, %309
-  %314 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0125162.us
+  %314 = getelementptr inbounds nuw float, ptr %7, i64 %.0125162.us
   %315 = load float, ptr %314, align 4, !tbaa !48
   %316 = fadd reassoc nsz arcp contract afn float %315, %313
   store float %316, ptr %314, align 4, !tbaa !48
@@ -681,7 +681,7 @@ build_pixel_kernel.exit:                          ; preds = %35, %normalize.exit
   %gep168.us = getelementptr float, ptr %invariant.gep167.us, i64 %.0130169.us
   %327 = load float, ptr %gep168.us, align 4, !tbaa !48
   %328 = fmul reassoc nsz arcp contract afn float %327, %324
-  %329 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.0130169.us
+  %329 = getelementptr inbounds nuw float, ptr %7, i64 %.0130169.us
   %330 = load float, ptr %329, align 4, !tbaa !48
   %331 = fadd reassoc nsz arcp contract afn float %330, %328
   store float %331, ptr %329, align 4, !tbaa !48
@@ -1043,7 +1043,7 @@ create_lens_kernel.exit:                          ; preds = %14
   %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
   %93 = select i1 %.not49.us.i, i32 %92, i32 %76
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04052.us.i
+  %95 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04052.us.i
   %96 = load float, ptr %95, align 4, !tbaa !48, !noalias !103
   %97 = fmul reassoc nsz arcp contract afn float %96, %110
   %98 = getelementptr float, ptr %111, i64 %94
@@ -1064,7 +1064,7 @@ create_lens_kernel.exit:                          ; preds = %14
   %106 = select i1 %.not.us.i, i32 %105, i32 %74
   %107 = sext i32 %106 to i64
   %108 = mul i64 %1, %107
-  %109 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04154.us.i
+  %109 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04154.us.i
   %110 = load float, ptr %109, align 4, !tbaa !48, !noalias !103
   %111 = getelementptr float, ptr %7, i64 %108
   br label %89
@@ -1230,7 +1230,7 @@ create_motion_kernel.exit:                        ; preds = %174, %init_kernel.e
   %195 = tail call i32 @llvm.smax.i32(i32 %194, i32 0)
   %196 = select i1 %.not49.us.i74, i32 %195, i32 %179
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04052.us.i72
+  %198 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04052.us.i72
   %199 = load float, ptr %198, align 4, !tbaa !48, !noalias !115
   %200 = fmul reassoc nsz arcp contract afn float %199, %213
   %201 = getelementptr float, ptr %214, i64 %197
@@ -1251,7 +1251,7 @@ create_motion_kernel.exit:                        ; preds = %174, %init_kernel.e
   %209 = select i1 %.not.us.i71, i32 %208, i32 %177
   %210 = sext i32 %209 to i64
   %211 = mul i64 %1, %210
-  %212 = getelementptr inbounds nuw [5 x float], ptr @blur_2D_Bspline.filter, i64 0, i64 %.04154.us.i69
+  %212 = getelementptr inbounds nuw float, ptr @blur_2D_Bspline.filter, i64 %.04154.us.i69
   %213 = load float, ptr %212, align 4, !tbaa !48, !noalias !115
   %214 = getelementptr float, ptr %7, i64 %211
   br label %192
@@ -1578,7 +1578,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [11 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11

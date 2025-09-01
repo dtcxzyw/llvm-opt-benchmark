@@ -769,7 +769,7 @@ _ZNK12CVQualifiers11is_volatileEv.exit:           ; preds = %96
 
 switch.lookup:                                    ; preds = %206
   %208 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 0, i64 %208
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign11make_randomER9CGContextPK4TypePK12CVQualifiers, i64 %208
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit
 
@@ -958,7 +958,7 @@ define dso_local noundef ptr @_ZN15StatementAssign29make_possible_compound_assig
 
 switch.lookup:                                    ; preds = %5
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1828,7 +1828,7 @@ define dso_local noundef range(i32 0, 19) i32 @_ZN15StatementAssign22compound_to
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15StatementAssign22compound_to_binary_opsE10eAssignOps, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

@@ -447,7 +447,7 @@ define ptr @ssl3_get_cipher(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp ult i32 %0, 167
   %narrow = sub nuw nsw i32 166, %0
   %3 = zext nneg i32 %narrow to i64
-  %4 = getelementptr inbounds nuw [167 x %struct.ssl_cipher_st], ptr @ssl3_ciphers, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @ssl3_ciphers, i64 %3
   %.0 = select i1 %2, ptr %4, ptr null
   ret ptr %.0
 }
@@ -544,7 +544,7 @@ define void @ssl3_free(ptr noundef %0) local_unnamed_addr #4 {
 19:                                               ; preds = %.lr.ph, %28
   %20 = phi i64 [ %16, %.lr.ph ], [ %29, %28 ]
   %.050 = phi i64 [ 0, %.lr.ph ], [ %30, %28 ]
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 0, i64 %.050
+  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %.050
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %.not48 = icmp eq ptr %22, null
   br i1 %.not48, label %28, label %23
@@ -721,7 +721,7 @@ define range(i32 0, 2) i32 @ssl3_clear(ptr noundef %0) local_unnamed_addr #4 {
 35:                                               ; preds = %.lr.ph, %44
   %36 = phi i64 [ %32, %.lr.ph ], [ %45, %44 ]
   %.055 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
-  %37 = getelementptr inbounds nuw [4 x ptr], ptr %33, i64 0, i64 %.055
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %.055
   %38 = load ptr, ptr %37, align 8, !tbaa !77
   %.not53 = icmp eq ptr %38, null
   br i1 %.not53, label %44, label %39
@@ -2312,9 +2312,9 @@ define ptr @ssl3_get_cipher_by_std_name(ptr noundef readonly captures(none) %0) 
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %1
   %.019 = phi i64 [ 0, %1 ], [ %15, %._crit_edge ]
-  %2 = getelementptr inbounds nuw [3 x i64], ptr @__const.ssl3_get_cipher_by_std_name.tblsize, i64 0, i64 %.019
+  %2 = getelementptr inbounds nuw i64, ptr @__const.ssl3_get_cipher_by_std_name.tblsize, i64 %.019
   %3 = load i64, ptr %2, align 8, !tbaa !198
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @__const.ssl3_get_cipher_by_std_name.alltabs, i64 0, i64 %.019
+  %4 = getelementptr inbounds nuw ptr, ptr @__const.ssl3_get_cipher_by_std_name.alltabs, i64 %.019
   %5 = load ptr, ptr %4, align 8, !tbaa !199
   %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   br label %.lr.ph

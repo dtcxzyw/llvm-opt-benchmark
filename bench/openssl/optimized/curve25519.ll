@@ -882,114 +882,113 @@ define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(non
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = and i8 %10, 15
   %12 = shl nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %12
   store i8 %11, ptr %13, align 2, !tbaa !3
   %14 = lshr i8 %10, 4
-  %15 = or disjoint i64 %12, 1
-  %16 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %15
-  store i8 %14, ptr %16, align 1, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 %14, ptr %15, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !6
 
 .preheader:                                       ; preds = %8, %.preheader
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.preheader ], [ 0, %8 ]
-  %.03133 = phi i8 [ %21, %.preheader ], [ 0, %8 ]
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv38
-  %18 = load i8, ptr %17, align 1, !tbaa !3
-  %19 = add i8 %18, %.03133
-  %20 = add i8 %19, 8
-  %21 = ashr i8 %20, 4
-  %22 = and i8 %20, -16
-  %23 = sub i8 %19, %22
-  store i8 %23, ptr %17, align 1, !tbaa !3
+  %.03133 = phi i8 [ %20, %.preheader ], [ 0, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv38
+  %17 = load i8, ptr %16, align 1, !tbaa !3
+  %18 = add i8 %17, %.03133
+  %19 = add i8 %18, 8
+  %20 = ashr i8 %19, 4
+  %21 = and i8 %19, -16
+  %22 = sub i8 %18, %21
+  store i8 %22, ptr %16, align 1, !tbaa !3
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next39, 63
-  br i1 %exitcond40.not, label %24, label %.preheader, !llvm.loop !8
+  br i1 %exitcond40.not, label %23, label %.preheader, !llvm.loop !8
 
-24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 63
-  %26 = load i8, ptr %25, align 1, !tbaa !3
-  %27 = add i8 %26, %21
-  store i8 %27, ptr %25, align 1, !tbaa !3
+23:                                               ; preds = %.preheader
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 63
+  %25 = load i8, ptr %24, align 1, !tbaa !3
+  %26 = add i8 %25, %20
+  store i8 %26, ptr %24, align 1, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 36, i1 false)
-  store i32 1, ptr %28, align 4, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %31, i8 0, i64 36, i1 false)
-  store i32 1, ptr %30, align 4, !tbaa !9
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %32, i8 0, i64 40, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  br label %36
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %28, i8 0, i64 36, i1 false)
+  store i32 1, ptr %27, align 4, !tbaa !9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %30, i8 0, i64 36, i1 false)
+  store i32 1, ptr %29, align 4, !tbaa !9
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %31, i8 0, i64 40, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  br label %35
 
-36:                                               ; preds = %24, %36
-  %indvars.iv41 = phi i64 [ 1, %24 ], [ %indvars.iv.next42, %36 ]
-  %37 = lshr i64 %indvars.iv41, 1
-  %38 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv41
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = trunc nuw nsw i64 %37 to i32
-  call fastcc void @table_select(ptr noundef %7, i32 noundef %40, i8 noundef signext %39)
+35:                                               ; preds = %23, %35
+  %indvars.iv41 = phi i64 [ 1, %23 ], [ %indvars.iv.next42, %35 ]
+  %36 = lshr i64 %indvars.iv41, 1
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv41
+  %38 = load i8, ptr %37, align 1, !tbaa !3
+  %39 = trunc nuw nsw i64 %36 to i32
+  call fastcc void @table_select(ptr noundef %7, i32 noundef %39, i8 noundef signext %38)
   call fastcc void @ge_madd(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %7)
-  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %28, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  call fastcc void @fe_mul(ptr noundef %30, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %32, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %27, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef %29, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %31, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2
-  %41 = icmp samesign ult i64 %indvars.iv41, 62
-  br i1 %41, label %36, label %42, !llvm.loop !11
+  %40 = icmp samesign ult i64 %indvars.iv41, 62
+  br i1 %40, label %35, label %41, !llvm.loop !11
 
-42:                                               ; preds = %36
+41:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, ptr noundef nonnull readonly align 4 dereferenceable(40) %0, i64 40, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %43, ptr noundef nonnull readonly align 4 dereferenceable(40) %28, i64 40, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %44, ptr noundef nonnull readonly align 4 dereferenceable(40) %30, i64 40, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %42, ptr noundef nonnull readonly align 4 dereferenceable(40) %27, i64 40, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %43, ptr noundef nonnull readonly align 4 dereferenceable(40) %29, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %5, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call fastcc void @fe_mul(ptr noundef %46, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
+  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  call fastcc void @fe_mul(ptr noundef %44, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
   call fastcc void @ge_p2_dbl(ptr noundef %5, ptr noundef %6)
-  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  call fastcc void @fe_mul(ptr noundef %46, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
+  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %44, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
   call fastcc void @ge_p2_dbl(ptr noundef %5, ptr noundef %6)
-  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  call fastcc void @fe_mul(ptr noundef %46, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
+  call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %44, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
   call fastcc void @ge_p2_dbl(ptr noundef %5, ptr noundef %6)
-  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %28, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  call fastcc void @fe_mul(ptr noundef %30, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %32, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %34)
-  br label %47
+  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %27, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef %29, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %31, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
+  br label %46
 
-47:                                               ; preds = %42, %47
-  %indvars.iv44 = phi i64 [ 0, %42 ], [ %indvars.iv.next45, %47 ]
-  %48 = lshr exact i64 %indvars.iv44, 1
-  %49 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv44
-  %50 = load i8, ptr %49, align 2, !tbaa !3
-  %51 = trunc nuw nsw i64 %48 to i32
-  call fastcc void @table_select(ptr noundef %7, i32 noundef %51, i8 noundef signext %50)
+46:                                               ; preds = %41, %46
+  %indvars.iv44 = phi i64 [ 0, %41 ], [ %indvars.iv.next45, %46 ]
+  %47 = lshr exact i64 %indvars.iv44, 1
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv44
+  %49 = load i8, ptr %48, align 2, !tbaa !3
+  %50 = trunc nuw nsw i64 %47 to i32
+  call fastcc void @table_select(ptr noundef %7, i32 noundef %50, i8 noundef signext %49)
   call fastcc void @ge_madd(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %7)
-  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %28, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
-  call fastcc void @fe_mul(ptr noundef %30, ptr noundef nonnull readonly %35, ptr noundef nonnull readonly %33)
-  call fastcc void @fe_mul(ptr noundef %32, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %27, ptr noundef nonnull readonly %33, ptr noundef nonnull readonly %34)
+  call fastcc void @fe_mul(ptr noundef %29, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %32)
+  call fastcc void @fe_mul(ptr noundef %31, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2
-  %52 = icmp samesign ult i64 %indvars.iv44, 62
-  br i1 %52, label %47, label %53, !llvm.loop !12
+  %51 = icmp samesign ult i64 %indvars.iv44, 62
+  br i1 %51, label %46, label %52, !llvm.loop !12
 
-53:                                               ; preds = %47
+52:                                               ; preds = %46
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2596,7 +2595,7 @@ define range(i32 0, 2) i32 @ossl_ed25519_verify(ptr noundef %0, i64 noundef %1, 
   %32 = zext nneg i32 %.04865 to i64
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !3
-  %35 = getelementptr inbounds nuw [16 x i8], ptr @__const.ossl_ed25519_verify.l_low, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr @__const.ossl_ed25519_verify.l_low, i64 %32
   %36 = load i8, ptr %35, align 1, !tbaa !3
   %37 = icmp ult i8 %34, %36
   br i1 %37, label %.loopexit, label %38
@@ -3290,13 +3289,13 @@ ge_p3_to_cached.exit110:                          ; preds = %229
 242:                                              ; preds = %ge_p3_to_cached.exit110, %249
   %.0129 = phi i32 [ 255, %ge_p3_to_cached.exit110 ], [ %250, %249 ]
   %243 = zext nneg i32 %.0129 to i64
-  %244 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr %8, i64 %243
   %245 = load i8, ptr %244, align 1, !tbaa !3
   %.not = icmp eq i8 %245, 0
   br i1 %.not, label %246, label %251
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %243
+  %247 = getelementptr inbounds nuw i8, ptr %9, i64 %243
   %248 = load i8, ptr %247, align 1, !tbaa !3
   %.not22 = icmp eq i8 %248, 0
   br i1 %.not22, label %249, label %251
@@ -3317,7 +3316,7 @@ ge_p3_to_cached.exit110:                          ; preds = %229
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %366
   %indvars.iv = phi i64 [ %253, %.lr.ph.preheader ], [ %indvars.iv.next, %366 ]
   call fastcc void @ge_p2_dbl(ptr noundef %11, ptr noundef %0)
-  %254 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %255 = load i8, ptr %254, align 1, !tbaa !3
   %256 = icmp sgt i8 %255, 0
   br i1 %256, label %257, label %261
@@ -3329,7 +3328,7 @@ ge_p3_to_cached.exit110:                          ; preds = %229
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
   %258 = lshr i8 %255, 1
   %259 = zext nneg i8 %258 to i64
-  %260 = getelementptr inbounds nuw [8 x %struct.ge_cached], ptr %10, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw %struct.ge_cached, ptr %10, i64 %259
   call fastcc void @ge_add(ptr noundef %11, ptr noundef %12, ptr noundef %260)
   br label %310
 
@@ -3375,7 +3374,7 @@ fe_sub.exit.i:                                    ; preds = %fe_add.exit.i114
   %.nonneg124 = sub i8 0, %255
   %277 = lshr i8 %.nonneg124, 1
   %278 = zext nneg i8 %277 to i64
-  %279 = getelementptr inbounds nuw [8 x %struct.ge_cached], ptr %10, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw %struct.ge_cached, ptr %10, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 40
   call fastcc void @fe_mul(ptr noundef %106, ptr noundef nonnull %11, ptr noundef nonnull readonly %280)
   call fastcc void @fe_mul(ptr noundef %105, ptr noundef nonnull %105, ptr noundef nonnull readonly %279)
@@ -3451,7 +3450,7 @@ ge_sub.exit:                                      ; preds = %fe_sub.exit48.i
   br label %310
 
 310:                                              ; preds = %261, %ge_sub.exit, %257
-  %311 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %312 = load i8, ptr %311, align 1, !tbaa !3
   %313 = icmp sgt i8 %312, 0
   br i1 %313, label %314, label %318
@@ -3463,7 +3462,7 @@ ge_sub.exit:                                      ; preds = %fe_sub.exit48.i
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
   %315 = lshr i8 %312, 1
   %316 = zext nneg i8 %315 to i64
-  %317 = getelementptr inbounds nuw [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw %struct.ge_precomp, ptr @Bi, i64 %316
   call fastcc void @ge_madd(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %317)
   br label %366
 
@@ -3509,7 +3508,7 @@ fe_sub.exit.i119:                                 ; preds = %fe_add.exit.i118
   %.nonneg = sub i8 0, %312
   %334 = lshr i8 %.nonneg, 1
   %335 = zext nneg i8 %334 to i64
-  %336 = getelementptr inbounds nuw [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw %struct.ge_precomp, ptr @Bi, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 40
   call fastcc void @fe_mul(ptr noundef %106, ptr noundef nonnull %11, ptr noundef nonnull readonly %337)
   call fastcc void @fe_mul(ptr noundef %105, ptr noundef nonnull %105, ptr noundef nonnull readonly %336)
@@ -3791,7 +3790,7 @@ define range(i32 0, 2) i32 @ossl_x25519(ptr noundef %0, ptr noundef readonly cap
   %.01117.i.i = phi i32 [ 254, %29 ], [ %81, %fe64_cswap.exit15.i.i ]
   %53 = lshr i32 %.01117.i.i, 3
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = zext i8 %56 to i32
   %58 = and i32 %.01117.i.i, 7
@@ -4130,7 +4129,7 @@ x25519_scalar_mulx.exit.i:                        ; preds = %104
   %.01440.i = phi i32 [ 254, %106 ], [ %363, %fe51_cswap.exit18.i ]
   %225 = lshr i32 %.01440.i, 3
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %27, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !3
   %229 = zext i8 %228 to i32
   %230 = and i32 %.01440.i, 7
@@ -5391,7 +5390,7 @@ define internal fastcc void @table_select(ptr noundef nonnull captures(none) ini
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [32 x [8 x %struct.ge_precomp]], ptr @k25519Precomp, i64 0, i64 %12
+  %13 = getelementptr inbounds [8 x %struct.ge_precomp], ptr @k25519Precomp, i64 %12
   %14 = xor i8 %7, 1
   %15 = zext i8 %14 to i32
   %16 = add nsw i32 %15, -1

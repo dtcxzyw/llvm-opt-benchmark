@@ -1179,7 +1179,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer13StateToStringEi(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN3net10SpdyFramer13StateToStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer13StateToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1217,7 +1217,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer17ErrorCodeToStringEi(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN3net10SpdyFramer17ErrorCodeToStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer17ErrorCodeToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1233,7 +1233,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer18StatusCodeToStringEi(i32 nounde
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN3net10SpdyFramer18StatusCodeToStringEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer18StatusCodeToStringEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1249,7 +1249,7 @@ define noundef nonnull ptr @_ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFram
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFrameTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net10SpdyFramer17FrameTypeToStringENS_13SpdyFrameTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6692,7 +6692,7 @@ define void @_ZNK3net10SpdyFramer19WriteHeaderBlockToZEPKNS_15SpdyHeaderBlockEP1
   %.0913.i = phi i64 [ %39, %3 ], [ %44, %40 ]
   %41 = trunc i64 %.0913.i to i8
   %42 = sub nuw nsw i64 4, %indvars.iv.i
-  %43 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 %42
   store i8 %41, ptr %43, align 1, !tbaa !80
   %44 = lshr i64 %.0913.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6761,7 +6761,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit: ; preds = %40
   %.0913.i68 = phi i64 [ %85, %83 ], [ %90, %86 ]
   %87 = trunc i64 %.0913.i68 to i8
   %88 = sub nuw nsw i64 4, %indvars.iv.i67
-  %89 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 %88
   store i8 %87, ptr %89, align 1, !tbaa !80
   %90 = lshr i64 %.0913.i68, 8
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67, 1
@@ -7185,7 +7185,7 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   %.0913.i92 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %213, %209 ]
   %210 = trunc i64 %.0913.i92 to i8
   %211 = sub nuw nsw i64 4, %indvars.iv.i91
-  %212 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr %10, i64 %211
   store i8 %210, ptr %212, align 1, !tbaa !80
   %213 = lshr i64 %.0913.i92, 8
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i91, 1
@@ -8483,7 +8483,7 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   %.0913.i215 = phi i64 [ %564, %562 ], [ %569, %565 ]
   %566 = trunc i64 %.0913.i215 to i8
   %567 = sub nuw nsw i64 4, %indvars.iv.i214
-  %568 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i8, ptr %5, i64 %567
   store i8 %566, ptr %568, align 1, !tbaa !80
   %569 = lshr i64 %.0913.i215, 8
   %indvars.iv.next.i216 = add nuw nsw i64 %indvars.iv.i214, 1
@@ -8517,7 +8517,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit218: ; preds = %565
   %.0913.i221 = phi i64 [ %578, %576 ], [ %583, %579 ]
   %580 = trunc i64 %.0913.i221 to i8
   %581 = sub nuw nsw i64 4, %indvars.iv.i220
-  %582 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %581
+  %582 = getelementptr inbounds nuw i8, ptr %4, i64 %581
   store i8 %580, ptr %582, align 1, !tbaa !80
   %583 = lshr i64 %.0913.i221, 8
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i220, 1

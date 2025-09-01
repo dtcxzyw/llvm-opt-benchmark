@@ -2254,7 +2254,7 @@ _ZN5clang8commentsL22convertCodePointToUTF8ERN4llvm20BumpPtrAllocatorImplINS1_15
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !23
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !57
   %33 = sext i16 %32 to i32
   %34 = add i32 %27, %33
@@ -2276,7 +2276,7 @@ define dso_local void @_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv(p
   %.0 = phi ptr [ %13, %12 ], [ %3, %1 ]
   %7 = load i8, ptr %.0, align 1, !tbaa !23
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !57
   %11 = and i16 %10, 5
   %.not = icmp eq i16 %11, 0
@@ -2482,7 +2482,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %22, %19,
   %.0.i4.i = phi ptr [ %50, %49 ], [ %.0.i.i, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i ]
   %44 = load i8, ptr %.0.i4.i, align 1, !tbaa !23
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !57
   %48 = and i16 %47, 5
   %.not.i5.i = icmp eq i16 %48, 0
@@ -2562,7 +2562,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %22, %19,
   %.0.i.i136 = phi ptr [ %95, %94 ], [ %84, %87 ]
   %89 = load i8, ptr %.0.i.i136, align 1, !tbaa !23
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !57
   %93 = and i16 %92, 5
   %.not.i.i137 = icmp eq i16 %93, 0
@@ -2625,7 +2625,7 @@ _ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i: ; preds =
   %.0711.i.i = phi ptr [ %129, %128 ], [ %120, %118 ]
   %123 = load i8, ptr %.0711.i.i, align 1, !tbaa !23
   %124 = zext i8 %123 to i64
-  %125 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %124
   %126 = load i16, ptr %125, align 2, !tbaa !57
   %127 = and i16 %126, 2
   %.not9.i.i = icmp eq i16 %127, 0
@@ -2792,7 +2792,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
 
 216:                                              ; preds = %187
   %217 = zext i8 %188 to i64
-  %218 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %217
   %219 = load i16, ptr %218, align 2, !tbaa !57
   %220 = and i16 %219, 96
   %.not168 = icmp eq i16 %220, 0
@@ -2824,7 +2824,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
   %.0711.i = phi ptr [ %241, %240 ], [ %169, %216 ]
   %235 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %236
   %238 = load i16, ptr %237, align 2, !tbaa !57
   %239 = and i16 %238, 104
   %.not9.i = icmp eq i16 %239, 0
@@ -3096,7 +3096,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
 370:                                              ; preds = %351
   %371 = load i8, ptr %352, align 1, !tbaa !23
   %372 = zext i8 %371 to i64
-  %373 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %372
   %374 = load i16, ptr %373, align 2, !tbaa !57
   %375 = and i16 %374, 96
   %.not167 = icmp eq i16 %375, 0
@@ -3205,7 +3205,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit: ; preds = %4, %8, %11
   %.0.i4 = phi ptr [ %39, %38 ], [ %.0.i, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit ]
   %33 = load i8, ptr %.0.i4, align 1, !tbaa !23
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !57
   %37 = and i16 %36, 5
   %.not.i5 = icmp eq i16 %37, 0
@@ -3277,7 +3277,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexVerbatimBlockFirstLineERNS0_
   %.0711.i = phi ptr [ %18, %17 ], [ %10, %9 ]
   %12 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !57
   %16 = and i16 %15, 2
   %.not9.i = icmp eq i16 %16, 0
@@ -3364,7 +3364,7 @@ _ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit: ; preds = %.lr.ph.i, 
   %.0711.i.i = phi ptr [ %69, %68 ], [ %61, %60 ]
   %63 = load i8, ptr %.0711.i.i, align 1, !tbaa !23
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !57
   %67 = and i16 %66, 7
   %.not9.i.i = icmp eq i16 %67, 0
@@ -3446,7 +3446,7 @@ define dso_local void @_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5Toke
   %.0.i = phi ptr [ %18, %17 ], [ %7, %10 ]
   %12 = load i8, ptr %.0.i, align 1, !tbaa !23
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !57
   %16 = and i16 %15, 5
   %.not.i = icmp eq i16 %16, 0
@@ -3514,7 +3514,7 @@ define dso_local void @_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5Token
   %.0711.i = phi ptr [ %13, %12 ], [ %4, %2 ]
   %7 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !57
   %11 = and i16 %10, 2
   %.not9.i = icmp eq i16 %11, 0
@@ -3560,7 +3560,7 @@ define dso_local void @_ZN5clang8comments5Lexer15lexHTMLStartTagERNS0_5TokenE(pt
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = load i8, ptr %4, align 1, !tbaa !23
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !57
   %9 = and i16 %8, 104
   %.not68 = icmp eq i16 %9, 0
@@ -3576,7 +3576,7 @@ define dso_local void @_ZN5clang8comments5Lexer15lexHTMLStartTagERNS0_5TokenE(pt
   %.0711.i = phi ptr [ %19, %18 ], [ %4, %10 ]
   %13 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !57
   %17 = and i16 %16, 104
   %.not9.i = icmp eq i16 %17, 0
@@ -3781,7 +3781,7 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   %.0711.i62 = phi ptr [ %135, %134 ], [ %126, %125 ]
   %129 = load i8, ptr %.0711.i62, align 1, !tbaa !23
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !57
   %133 = and i16 %132, 7
   %.not9.i63 = icmp eq i16 %133, 0
@@ -3804,7 +3804,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
 137:                                              ; preds = %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit
   %138 = load i8, ptr %.0711.i62, align 1, !tbaa !23
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !57
   %142 = and i16 %141, 96
   %.not69 = icmp eq i16 %142, 0
@@ -4014,7 +4014,7 @@ _ZN4llvm11SmallStringILj16EE6appendENS_9StringRefE.exit12: ; preds = %_ZN4llvm15
 55:                                               ; preds = %_ZN4llvm11SmallStringILj16EE6appendENS_9StringRefE.exit12
   %56 = load i8, ptr %2, align 1, !tbaa !23
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !57
   %60 = and i16 %59, 2
   %.not19 = icmp eq i16 %60, 0
@@ -4114,7 +4114,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
 24:                                               ; preds = %2
   %25 = load i8, ptr %7, align 1, !tbaa !23
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !57
   %29 = and i16 %28, 96
   %.not103 = icmp eq i16 %29, 0
@@ -4124,7 +4124,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i = phi ptr [ %36, %35 ], [ %7, %24 ]
   %30 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !57
   %34 = and i16 %33, 96
   %.not9.i = icmp eq i16 %34, 0
@@ -4167,7 +4167,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
 55:                                               ; preds = %39
   %56 = load i8, ptr %40, align 1, !tbaa !23
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !57
   %60 = and i16 %59, 8
   %.not104 = icmp eq i16 %60, 0
@@ -4177,7 +4177,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i66 = phi ptr [ %67, %66 ], [ %40, %55 ]
   %61 = load i8, ptr %.0711.i66, align 1, !tbaa !23
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !57
   %65 = and i16 %64, 8
   %.not9.i67 = icmp eq i16 %65, 0
@@ -4202,7 +4202,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i72 = phi ptr [ %78, %77 ], [ %71, %70 ]
   %72 = load i8, ptr %.0711.i72, align 1, !tbaa !23
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !57
   %76 = and i16 %75, 24
   %.not9.i73 = icmp eq i16 %76, 0
@@ -4401,7 +4401,7 @@ _ZNK5clang8comments5Lexer36resolveHTMLDecimalCharacterReferenceEN4llvm9StringRef
   %179 = getelementptr inbounds nuw i8, ptr %.056, i64 %indvars.iv.i81
   %180 = load i8, ptr %179, align 1, !tbaa !23
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %181
   %183 = load i16, ptr %182, align 2, !tbaa !57
   %184 = sext i16 %183 to i32
   %185 = add i32 %178, %184
@@ -4497,7 +4497,7 @@ define dso_local void @_ZN5clang8comments5Lexer23setupAndLexHTMLStartTagERNS0_5T
   %.0711.i = phi ptr [ %14, %13 ], [ %5, %2 ]
   %8 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !57
   %12 = and i16 %11, 104
   %.not9.i = icmp eq i16 %12, 0
@@ -4556,7 +4556,7 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr
   %.0711.i15 = phi ptr [ %45, %44 ], [ %.0.i, %36 ]
   %39 = load i8, ptr %.0711.i15, align 1, !tbaa !23
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !57
   %43 = and i16 %42, 7
   %.not9.i16 = icmp eq i16 %43, 0
@@ -4585,7 +4585,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
 
 48:                                               ; preds = %47
   %49 = zext i8 %46 to i64
-  %50 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !57
   %52 = and i16 %51, 96
   %.not22 = icmp eq i16 %52, 0
@@ -4614,7 +4614,7 @@ define dso_local void @_ZN5clang8comments5Lexer21setupAndLexHTMLEndTagERNS0_5Tok
   %.0711.i = phi ptr [ %14, %13 ], [ %5, %2 ]
   %8 = load i8, ptr %.0711.i, align 1, !tbaa !23
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !57
   %12 = and i16 %11, 7
   %.not9.i = icmp eq i16 %12, 0
@@ -4633,7 +4633,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
   %.0711.i15 = phi ptr [ %21, %20 ], [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ]
   %15 = load i8, ptr %.0711.i15, align 1, !tbaa !23
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !57
   %19 = and i16 %18, 104
   %.not9.i16 = icmp eq i16 %19, 0
@@ -4685,7 +4685,7 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %13,
   %.0711.i21 = phi ptr [ %49, %48 ], [ %.0.i18, %42 ]
   %43 = load i8, ptr %.0711.i21, align 1, !tbaa !23
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !57
   %47 = and i16 %46, 7
   %.not9.i22 = icmp eq i16 %47, 0
@@ -4782,9 +4782,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !23
-  %switch.tableidx83 = add i8 %13, -100
-  %14 = icmp ult i8 %switch.tableidx83, 17
-  br i1 %14, label %switch.lookup82, label %103
+  %switch.tableidx82 = add i8 %13, -100
+  %14 = icmp ult i8 %switch.tableidx82, 17
+  br i1 %14, label %switch.lookup83, label %103
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5037,8 +5037,8 @@ switch.lookup:                                    ; preds = %3
   %switch.masked = trunc i21 %switch.downshift to i1
   br label %104
 
-switch.lookup82:                                  ; preds = %11
-  %switch.cast84 = zext nneg i8 %switch.tableidx83 to i17
+switch.lookup83:                                  ; preds = %11
+  %switch.cast84 = zext nneg i8 %switch.tableidx82 to i17
   %switch.downshift86 = lshr i17 -65279, %switch.cast84
   %switch.masked87 = trunc i17 %switch.downshift86 to i1
   br label %104
@@ -5049,8 +5049,8 @@ switch.lookup88:                                  ; preds = %27
   %switch.masked92 = trunc i9 %switch.downshift91 to i1
   br label %104
 
-104:                                              ; preds = %switch.lookup88, %switch.lookup82, %switch.lookup, %102, %101, %100, %98, %96, %90, %88, %86, %84, %79, %75, %73, %71, %66, %61, %58, %55, %49, %46, %41, %39, %34, %24, %21, %18, %18, %18, %18, %18, %18, %18, %15, %8, %103
-  %.0 = phi i1 [ false, %103 ], [ true, %8 ], [ true, %15 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %21 ], [ true, %24 ], [ true, %34 ], [ true, %39 ], [ true, %41 ], [ true, %46 ], [ true, %49 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ %switch.selectcmp, %66 ], [ true, %71 ], [ true, %73 ], [ true, %75 ], [ true, %79 ], [ true, %84 ], [ true, %86 ], [ true, %88 ], [ true, %90 ], [ true, %96 ], [ true, %98 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ %switch.masked, %switch.lookup ], [ %switch.masked87, %switch.lookup82 ], [ %switch.masked92, %switch.lookup88 ]
+104:                                              ; preds = %switch.lookup88, %switch.lookup83, %switch.lookup, %102, %101, %100, %98, %96, %90, %88, %86, %84, %79, %75, %73, %71, %66, %61, %58, %55, %49, %46, %41, %39, %34, %24, %21, %18, %18, %18, %18, %18, %18, %18, %15, %8, %103
+  %.0 = phi i1 [ false, %103 ], [ true, %8 ], [ true, %15 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %21 ], [ true, %24 ], [ true, %34 ], [ true, %39 ], [ true, %41 ], [ true, %46 ], [ true, %49 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ %switch.selectcmp, %66 ], [ true, %71 ], [ true, %73 ], [ true, %75 ], [ true, %79 ], [ true, %84 ], [ true, %86 ], [ true, %88 ], [ true, %90 ], [ true, %96 ], [ true, %98 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ %switch.masked, %switch.lookup ], [ %switch.masked87, %switch.lookup83 ], [ %switch.masked92, %switch.lookup88 ]
   ret i1 %.0
 }
 
@@ -5198,7 +5198,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   %.1.i = phi ptr [ %.1.i.be, %.preheader38.i.backedge ], [ %41, %43 ]
   %45 = load i8, ptr %.1.i, align 1, !tbaa !23
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !57
   %49 = and i16 %48, 2
   %.not36.i = icmp eq i16 %49, 0
@@ -5218,7 +5218,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   %.0.i = getelementptr inbounds i8, ptr %.1.pn.i, i64 -1
   %53 = load i8, ptr %.0.i, align 1, !tbaa !23
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !57
   %57 = and i16 %56, 5
   %.not37.i = icmp eq i16 %57, 0
@@ -5857,7 +5857,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !129
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !131
   br label %49
 
@@ -6248,7 +6248,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
   %26 = add i32 %8, -1
   store i32 %26, ptr %7, align 8, !tbaa !129
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !131
   store i8 0, ptr %29, align 8, !tbaa !213
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 424
@@ -6394,7 +6394,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !129
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [16 x ptr], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !131
   store i8 0, ptr %32, align 8, !tbaa !213
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -6452,7 +6452,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %53 = load i8, ptr %51, align 8, !tbaa !213
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [10 x i8], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6509,7 +6509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %76 = add i8 %75, 1
   store i8 %76, ptr %73, align 8, !tbaa !213
   %77 = zext i8 %75 to i64
-  %78 = getelementptr inbounds nuw [10 x %"class.std::__cxx11::basic_string"], ptr %74, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %74, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !82
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
@@ -6677,7 +6677,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %18
   %32 = add i32 %14, -1
   store i32 %32, ptr %13, align 8, !tbaa !129
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [16 x ptr], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !131
   store i8 0, ptr %35, align 8, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 424

@@ -400,7 +400,7 @@ define internal range(i32 0, 2) i32 @test_script(i32 noundef %0) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.terp_config_st, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [3 x ptr], ptr @scripts, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr @scripts, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
@@ -614,7 +614,7 @@ RADIX_THREAD_join.exit.i.i:                       ; preds = %60, %.lr.ph.i.i
 
 113:                                              ; preds = %124, %109
   %.013.i.i.i.i = phi i64 [ 0, %109 ], [ %125, %124 ]
-  %114 = getelementptr inbounds nuw [8 x ptr], ptr %111, i64 0, i64 %.013.i.i.i.i
+  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %.013.i.i.i.i
   %115 = load ptr, ptr %114, align 8, !tbaa !44
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %119
@@ -625,7 +625,7 @@ RADIX_THREAD_join.exit.i.i:                       ; preds = %60, %.lr.ph.i.i
 
 119:                                              ; preds = %113
   %120 = load ptr, ptr %115, align 8, !tbaa !46
-  %121 = getelementptr inbounds nuw [8 x ptr], ptr %112, i64 0, i64 %.013.i.i.i.i
+  %121 = getelementptr inbounds nuw ptr, ptr %112, i64 %.013.i.i.i.i
   %122 = load ptr, ptr %121, align 8, !tbaa !49
   %123 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.287, i64 noundef %.013.i.i.i.i, ptr noundef %120, ptr noundef %122) #12
   br label %124
@@ -685,7 +685,7 @@ RADIX_PROCESS_join_all_threads.exit.i:            ; preds = %RADIX_PROCESS_repor
 
 155:                                              ; preds = %166, %148
   %.013.i.i.i = phi i64 [ 0, %148 ], [ %167, %166 ]
-  %156 = getelementptr inbounds nuw [8 x ptr], ptr %153, i64 0, i64 %.013.i.i.i
+  %156 = getelementptr inbounds nuw ptr, ptr %153, i64 %.013.i.i.i
   %157 = load ptr, ptr %156, align 8, !tbaa !44
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %161
@@ -696,7 +696,7 @@ RADIX_PROCESS_join_all_threads.exit.i:            ; preds = %RADIX_PROCESS_repor
 
 161:                                              ; preds = %155
   %162 = load ptr, ptr %157, align 8, !tbaa !46
-  %163 = getelementptr inbounds nuw [8 x ptr], ptr %154, i64 0, i64 %.013.i.i.i
+  %163 = getelementptr inbounds nuw ptr, ptr %154, i64 %.013.i.i.i
   %164 = load ptr, ptr %163, align 8, !tbaa !49
   %165 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %151, ptr noundef nonnull @.str.287, i64 noundef %.013.i.i.i, ptr noundef %162, ptr noundef %164) #12
   br label %166
@@ -2477,13 +2477,13 @@ TERP_stk_pop.exit9:                               ; preds = %18, %28
 39:                                               ; preds = %37
   %40 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr %41, i64 0, i64 %.013
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.013
   store ptr %35, ptr %42, align 8, !tbaa !44
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !108
   %45 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %46, i64 0, i64 %.013
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.013
   store ptr %44, ptr %47, align 8, !tbaa !49
   br label %48
 
@@ -5491,8 +5491,8 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 67:                                               ; preds = %65, %67
   %.03574 = phi i64 [ 0, %65 ], [ %68, %67 ]
   %68 = add nuw nsw i64 %.03574, 1
-  %69 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %68
-  %70 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %.03574
+  %69 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %68
+  %70 = getelementptr inbounds nuw ptr, ptr %2, i64 %.03574
   %71 = load ptr, ptr %70, align 8, !tbaa !49
   store i32 2, ptr %69, align 16, !tbaa !71
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -5529,11 +5529,11 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 80:                                               ; preds = %77, %80
   %.175 = phi i64 [ 0, %77 ], [ %81, %80 ]
   %81 = add nuw nsw i64 %.175, 1
-  %82 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %81, i32 1
+  %82 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %81, i32 1
   %83 = load i64, ptr %82, align 16, !tbaa !116
   %84 = or i64 %83, 128
   store i64 %84, ptr %82, align 16, !tbaa !116
-  %85 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %4, i64 0, i64 %81, i32 2
+  %85 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %81, i32 2
   %86 = load i64, ptr %85, align 8, !tbaa !119
   %87 = or i64 %86, 128
   store i64 %87, ptr %85, align 8, !tbaa !119
@@ -5581,9 +5581,9 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 
 .preheader:                                       ; preds = %99, %103
   %.276 = phi i64 [ %104, %103 ], [ 0, %99 ]
-  %105 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %.276, i32 2
+  %105 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %.276, i32 2
   %106 = load i64, ptr %105, align 8, !tbaa !119
-  %107 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %4, i64 0, i64 %.276, i32 2
+  %107 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %.276, i32 2
   %108 = load i64, ptr %107, align 8, !tbaa !119
   %109 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.23, i32 noundef 145, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i64 noundef %106, i64 noundef %108) #12
   %.not45 = icmp eq i32 %109, 0
@@ -6299,7 +6299,7 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
 
 switch.lookup:                                    ; preds = %54
   %57 = zext nneg i32 %47 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.report_obj.24, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.report_obj.24, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %stream_state_to_str.exit.i.i
 
@@ -6321,7 +6321,7 @@ report_ssl_state.exit.i:                          ; preds = %59, %stream_state_t
 
 switch.lookup9:                                   ; preds = %report_ssl_state.exit.i
   %64 = zext nneg i32 %48 to i64
-  %switch.gep10 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.report_obj.24, i64 0, i64 %64
+  %switch.gep10 = getelementptr inbounds nuw ptr, ptr @switch.table.report_obj.24, i64 %64
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   br label %stream_state_to_str.exit.i53.i
 

@@ -248,7 +248,7 @@ zend_string_alloc.exit:                           ; preds = %20
   store i64 %22, ptr %28, align 8, !tbaa !71
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 1 %21, i64 %22, i1 false)
-  %30 = getelementptr inbounds nuw [1 x i8], ptr %29, i64 0, i64 %22
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %22
   store i8 0, ptr %30, align 1, !tbaa !4
   store ptr %25, ptr %1, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3849,7 +3849,7 @@ zend_string_alloc.exit:                           ; preds = %11
   store i64 %15, ptr %21, align 8, !tbaa !71
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %14, i64 %15, i1 false)
-  %23 = getelementptr inbounds nuw [1 x i8], ptr %22, i64 0, i64 %15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %15
   store i8 0, ptr %23, align 1, !tbaa !4
   %24 = tail call i32 @zend_get_executed_lineno() #27
   %25 = add i32 %24, -1

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local signext i8 @Curl_raw_toupper(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !4
   ret i8 %4
 }
@@ -17,7 +17,7 @@ define dso_local signext i8 @Curl_raw_toupper(i8 noundef signext %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local signext i8 @Curl_raw_tolower(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @tolowermap, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @tolowermap, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !4
   ret i8 %4
 }
@@ -44,10 +44,10 @@ define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly capture
 
 9:                                                ; preds = %.lr.ph.i
   %10 = zext i8 %7 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %.not13.i = icmp eq i8 %12, %15
   br i1 %.not13.i, label %16, label %casecompare.exit
@@ -104,10 +104,10 @@ define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly captur
 
 12:                                               ; preds = %.lr.ph.i
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = zext i8 %9 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %.not15.i = icmp eq i8 %15, %18
   br i1 %.not15.i, label %19, label %ncasecompare.exit
@@ -135,11 +135,11 @@ define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly captur
   br i1 %25, label %ncasecompare.exit, label %26
 
 26:                                               ; preds = %.critedge.i
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %.lcssa.i
+  %27 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %.lcssa.i
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = load i8, ptr %.012.lcssa.i, align 1, !tbaa !4
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = icmp eq i8 %28, %32
   br label %ncasecompare.exit
@@ -169,7 +169,7 @@ define dso_local void @Curl_strntoupper(ptr noundef writeonly captures(none) %0,
   %.0 = phi i64 [ %12, %.preheader ], [ %2, %3 ]
   %5 = load i8, ptr %.04, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @touppermap, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   store i8 %8, ptr %.05, align 1, !tbaa !4
   %9 = load i8, ptr %.04, align 1, !tbaa !4
@@ -196,7 +196,7 @@ define dso_local void @Curl_strntolower(ptr noundef writeonly captures(none) %0,
   %.0 = phi i64 [ %12, %.preheader ], [ %2, %3 ]
   %5 = load i8, ptr %.04, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @tolowermap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @tolowermap, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   store i8 %8, ptr %.05, align 1, !tbaa !4
   %9 = load i8, ptr %.04, align 1, !tbaa !4

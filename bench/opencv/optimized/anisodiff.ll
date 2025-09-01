@@ -824,7 +824,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc6ADBodyclERKNS_5RangeE(ptr noun
   %.06269.us = phi float [ %115, %90 ], [ 0.000000e+00, %52 ]
   %.06368.us = phi float [ %117, %90 ], [ 0.000000e+00, %52 ]
   %.06467.us = phi float [ %119, %90 ], [ 0.000000e+00, %52 ]
-  %91 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %53, i64 %93

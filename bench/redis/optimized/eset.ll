@@ -28,9 +28,9 @@ define hidden void @je_eset_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %3, i64 %indvars.iv
   tail call void @je_edata_heap_new(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %4, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %4, i64 %indvars.iv
   store atomic i64 0, ptr %10 monotonic, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store atomic i64 0, ptr %11 monotonic, align 8
@@ -50,7 +50,7 @@ define hidden i64 @je_eset_npages_get(ptr noundef readonly captures(none) %0) lo
 define hidden i64 @je_eset_nextents_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6432
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %3, i64 %4
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -101,7 +101,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
   %.val30 = load i64, ptr %24, align 8, !tbaa !23
   %25 = ptrtoint ptr %.val29 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %26, i64 0, i64 %.0.i
+  %27 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %26, i64 %.0.i
   %28 = tail call zeroext i1 @je_edata_heap_empty(ptr noundef nonnull %27) #7
   br i1 %28, label %29, label %37
 
@@ -143,7 +143,7 @@ edata_cmp_summary_comp.exit:                      ; preds = %37
 46:                                               ; preds = %41, %edata_cmp_summary_comp.exit, %45, %29
   tail call void @je_edata_heap_insert(ptr noundef nonnull %27, ptr noundef nonnull %1) #7
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 6432
-  %48 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %47, i64 0, i64 %.0.i
+  %48 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %47, i64 %.0.i
   %49 = load atomic i64, ptr %48 monotonic, align 8
   %50 = add i64 %49, 1
   store atomic i64 %50, ptr %48 monotonic, align 8
@@ -230,7 +230,7 @@ define hidden void @je_eset_remove(ptr noundef %0, ptr noundef %1) local_unnamed
 sz_psz2ind.exit:                                  ; preds = %2, %7
   %.0.i = phi i64 [ %22, %7 ], [ 199, %2 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 6432
-  %24 = getelementptr inbounds nuw [200 x %struct.eset_bin_stats_s], ptr %23, i64 0, i64 %.0.i
+  %24 = getelementptr inbounds nuw %struct.eset_bin_stats_s, ptr %23, i64 %.0.i
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = add i64 %25, -1
   store atomic i64 %26, ptr %24 monotonic, align 8
@@ -244,7 +244,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
   %.val31 = load i64, ptr %31, align 8, !tbaa !23
   %32 = ptrtoint ptr %.val30 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %33, i64 0, i64 %.0.i
+  %34 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %33, i64 %.0.i
   tail call void @je_edata_heap_remove(ptr noundef nonnull %34, ptr noundef nonnull %1) #7
   %35 = tail call zeroext i1 @je_edata_heap_empty(ptr noundef nonnull %34) #7
   br i1 %35, label %36, label %44
@@ -378,7 +378,7 @@ sz_psz2ind.exit.i:                                ; preds = %14, %11
 
 30:                                               ; preds = %sz_psz2ind.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %31, i64 0, i64 %.0.i.i
+  %32 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %31, i64 %.0.i.i
   %33 = tail call zeroext i1 @je_edata_heap_empty(ptr noundef nonnull %32) #7
   br i1 %33, label %eset_first_fit.exit, label %34
 
@@ -430,7 +430,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   %.02742.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %fb_ffs.exit37.i ]
   %56 = icmp eq i32 %.02645.i, 64
   %spec.store.select.i = select i1 %56, i32 63, i32 %.02645.i
-  %57 = getelementptr inbounds nuw [200 x i64], ptr @je_sz_pind2sz_tab, i64 0, i64 %.025.in46.i
+  %57 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.025.in46.i
   %58 = load i64, ptr %57, align 8, !tbaa !24
   %59 = zext nneg i32 %spec.store.select.i to i64
   %60 = lshr i64 %58, %59
@@ -459,7 +459,7 @@ edata_cmp_summary_comp.exit.i:                    ; preds = %64
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %edata_cmp_summary_comp.exit.i, %67, %62
-  %73 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %54, i64 0, i64 %.025.in46.i
+  %73 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %54, i64 %.025.in46.i
   %74 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %73) #7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %75, align 8, !tbaa !24
@@ -607,7 +607,7 @@ fb_ffs.exit.i25:                                  ; preds = %.lr.ph.i.i27, %._cr
 152:                                              ; preds = %fb_ffs.exit46.i, %.lr.ph.i26
   %.028.in57.i = phi i64 [ %.0.i.i.i, %.lr.ph.i26 ], [ %.0.i.i43.i, %fb_ffs.exit46.i ]
   %153 = and i64 %.028.in57.i, 4294967295
-  %154 = getelementptr inbounds nuw [200 x %struct.eset_bin_s], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw %struct.eset_bin_s, ptr %150, i64 %153
   %155 = tail call ptr @je_edata_heap_first(ptr noundef nonnull %154) #7
   %156 = getelementptr i8, ptr %155, i64 8
   %.val38.i = load ptr, ptr %156, align 8, !tbaa !20

@@ -140,7 +140,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   %24 = getelementptr inbounds nuw double, ptr %16, i64 %.017
   %25 = load double, ptr %24, align 8
   %26 = fptrunc double %25 to float
-  %27 = getelementptr inbounds nuw [2 x float], ptr %.01618.sroa.phi, i64 0, i64 %.017
+  %27 = getelementptr inbounds nuw float, ptr %.01618.sroa.phi, i64 %.017
   store float %26, ptr %27, align 4
   br i1 %22, label %21, label %.critedge2, !llvm.loop !4
 
@@ -209,7 +209,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw float, ptr %16, i64 %.017
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw [2 x float], ptr %.01618.sroa.phi, i64 0, i64 %.017
+  %26 = getelementptr inbounds nuw float, ptr %.01618.sroa.phi, i64 %.017
   store float %25, ptr %26, align 4
   br i1 %22, label %21, label %.critedge2, !llvm.loop !7
 

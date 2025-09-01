@@ -760,7 +760,7 @@ define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 0, ptr %14, align 8, !tbaa !29
-  %15 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = add i64 %16, -1
   %18 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv

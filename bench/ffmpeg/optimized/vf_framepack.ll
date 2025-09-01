@@ -165,7 +165,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not66.i, label %._crit_edge.i, label %68
 
 ._crit_edge.i:                                    ; preds = %66
-  %.phi.trans.insert.i = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %indvars.iv21.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv21.i
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
   br label %83
 
@@ -182,7 +182,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 74:                                               ; preds = %69, %68
   %75 = phi i64 [ %73, %69 ], [ %63, %68 ]
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %indvars.iv21.i
+  %76 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv21.i
   %77 = load ptr, ptr %76, align 8, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
   store i64 %75, ptr %78, align 8, !tbaa !32
@@ -201,7 +201,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not67.i, label %try_push_frame.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %indvars.iv21.i
+  %87 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv21.i
   %88 = load i32, ptr %57, align 8, !tbaa !29
   store i32 %88, ptr %85, align 4, !tbaa !42
   %89 = select i1 %67, i32 1, i32 2
@@ -252,7 +252,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .critedge.i.i:                                    ; preds = %.critedge.i.i, %106
   %115 = phi i1 [ true, %106 ], [ false, %.critedge.i.i ]
   %indvars.iv85.i.i = phi i64 [ 0, %106 ], [ 1, %.critedge.i.i ]
-  %116 = getelementptr inbounds nuw [2 x ptr], ptr %107, i64 0, i64 %indvars.iv85.i.i
+  %116 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv85.i.i
   %117 = load ptr, ptr %116, align 8, !tbaa !27
   %118 = load i32, ptr %108, align 8, !tbaa !53
   %119 = icmp sgt i32 %118, 8
@@ -349,8 +349,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %182, label %.lr.ph44.i.i, label %._crit_edge45.i.i
 
 .lr.ph44.i.i:                                     ; preds = %181
-  %183 = getelementptr inbounds nuw [8 x ptr], ptr %99, i64 0, i64 %indvars.iv82.i.i
-  %184 = getelementptr inbounds nuw [8 x i32], ptr %162, i64 0, i64 %indvars.iv82.i.i
+  %183 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv82.i.i
+  %184 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv82.i.i
   %185 = icmp sgt i32 %.1170.i.i, 0
   br i1 %185, label %.lr.ph44.split.us.i.i, label %._crit_edge45.i.i
 
@@ -360,19 +360,19 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .lr.ph41.us.us.i.i:                               ; preds = %.lr.ph44.split.us.i.i, %._crit_edge.split.us.us.us54.i.i
   %.042.us.us.i.i = phi i32 [ %216, %._crit_edge.split.us.us.us54.i.i ], [ 0, %.lr.ph44.split.us.i.i ]
   %186 = load ptr, ptr %150, align 8, !tbaa !27
-  %187 = getelementptr inbounds nuw [8 x ptr], ptr %186, i64 0, i64 %indvars.iv82.i.i
+  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv82.i.i
   %188 = load ptr, ptr %187, align 8, !tbaa !58
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 64
-  %190 = getelementptr inbounds nuw [8 x i32], ptr %189, i64 0, i64 %indvars.iv82.i.i
+  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv82.i.i
   %191 = load i32, ptr %190, align 4, !tbaa !64
   %192 = mul nsw i32 %191, %.042.us.us.i.i
   %193 = sext i32 %192 to i64
   %194 = getelementptr inbounds i8, ptr %188, i64 %193
   %195 = load ptr, ptr %151, align 8, !tbaa !27
-  %196 = getelementptr inbounds nuw [8 x ptr], ptr %195, i64 0, i64 %indvars.iv82.i.i
+  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv82.i.i
   %197 = load ptr, ptr %196, align 8, !tbaa !58
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  %199 = getelementptr inbounds nuw [8 x i32], ptr %198, i64 0, i64 %indvars.iv82.i.i
+  %199 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv82.i.i
   %200 = load i32, ptr %199, align 4, !tbaa !64
   %201 = mul nsw i32 %200, %.042.us.us.i.i
   %202 = sext i32 %201 to i64
@@ -409,19 +409,19 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .lr.ph41.us.i.i:                                  ; preds = %.lr.ph44.split.us.i.i, %._crit_edge.split.us52.i.i
   %.042.us.i.i = phi i32 [ %271, %._crit_edge.split.us52.i.i ], [ 0, %.lr.ph44.split.us.i.i ]
   %217 = load ptr, ptr %150, align 8, !tbaa !27
-  %218 = getelementptr inbounds nuw [8 x ptr], ptr %217, i64 0, i64 %indvars.iv82.i.i
+  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv82.i.i
   %219 = load ptr, ptr %218, align 8, !tbaa !58
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 64
-  %221 = getelementptr inbounds nuw [8 x i32], ptr %220, i64 0, i64 %indvars.iv82.i.i
+  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv82.i.i
   %222 = load i32, ptr %221, align 4, !tbaa !64
   %223 = mul nsw i32 %222, %.042.us.i.i
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds i8, ptr %219, i64 %224
   %226 = load ptr, ptr %151, align 8, !tbaa !27
-  %227 = getelementptr inbounds nuw [8 x ptr], ptr %226, i64 0, i64 %indvars.iv82.i.i
+  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv82.i.i
   %228 = load ptr, ptr %227, align 8, !tbaa !58
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 64
-  %230 = getelementptr inbounds nuw [8 x i32], ptr %229, i64 0, i64 %indvars.iv82.i.i
+  %230 = getelementptr inbounds nuw i32, ptr %229, i64 %indvars.iv82.i.i
   %231 = load i32, ptr %230, align 4, !tbaa !64
   %232 = mul nsw i32 %231, %.042.us.i.i
   %233 = sext i32 %232 to i64
@@ -550,20 +550,20 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph14.i.i:                                     ; preds = %303
   %305 = load ptr, ptr %150, align 8, !tbaa !27
-  %306 = getelementptr inbounds nuw [8 x ptr], ptr %305, i64 0, i64 %indvars.iv.i.i
+  %306 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv.i.i
   %307 = load ptr, ptr %306, align 8, !tbaa !58
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 64
-  %309 = getelementptr inbounds nuw [8 x i32], ptr %308, i64 0, i64 %indvars.iv.i.i
+  %309 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv.i.i
   %310 = load i32, ptr %309, align 4, !tbaa !64
   %311 = load ptr, ptr %151, align 8, !tbaa !27
-  %312 = getelementptr inbounds nuw [8 x ptr], ptr %311, i64 0, i64 %indvars.iv.i.i
+  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv.i.i
   %313 = load ptr, ptr %312, align 8, !tbaa !58
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 64
-  %315 = getelementptr inbounds nuw [8 x i32], ptr %314, i64 0, i64 %indvars.iv.i.i
+  %315 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv.i.i
   %316 = load i32, ptr %315, align 4, !tbaa !64
-  %317 = getelementptr inbounds nuw [8 x ptr], ptr %99, i64 0, i64 %indvars.iv.i.i
+  %317 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i.i
   %318 = load ptr, ptr %317, align 8, !tbaa !58
-  %319 = getelementptr inbounds nuw [8 x i32], ptr %290, i64 0, i64 %indvars.iv.i.i
+  %319 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv.i.i
   %320 = load i32, ptr %319, align 4, !tbaa !64
   %321 = icmp sgt i32 %.1161.i.i, 0
   br i1 %321, label %.lr.ph14.split.us.i.i, label %._crit_edge15.i.i
@@ -759,7 +759,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 423:                                              ; preds = %423, %411
   %424 = phi i1 [ true, %411 ], [ false, %423 ]
   %indvars.iv.i73.i = phi i64 [ 0, %411 ], [ 1, %423 ]
-  %425 = getelementptr inbounds nuw [2 x ptr], ptr %412, i64 0, i64 %indvars.iv.i73.i
+  %425 = getelementptr inbounds nuw ptr, ptr %412, i64 %indvars.iv.i73.i
   %426 = load ptr, ptr %425, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -820,7 +820,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 468:                                              ; preds = %468, %457
   %469 = phi i1 [ true, %457 ], [ false, %468 ]
   %indvars.iv.i74.i = phi i64 [ 0, %457 ], [ 1, %468 ]
-  %470 = getelementptr inbounds nuw [2 x ptr], ptr %458, i64 0, i64 %indvars.iv.i74.i
+  %470 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv.i74.i
   %471 = load ptr, ptr %470, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

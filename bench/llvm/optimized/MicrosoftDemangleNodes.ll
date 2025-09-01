@@ -2043,7 +2043,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   %125 = load i64, ptr %107, align 8, !tbaa !16
   %126 = add i64 %125, 2
   store i64 %126, ptr %107, align 8, !tbaa !16
-  %127 = getelementptr inbounds nuw [3 x i64], ptr %109, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8, !tbaa !21
   %129 = tail call noundef i64 @llvm.abs.i64(i64 %128, i1 true)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6581,7 +6581,7 @@ define dso_local void @_ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16i
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = and i32 %2, 4
   %9 = icmp eq i32 %8, 0

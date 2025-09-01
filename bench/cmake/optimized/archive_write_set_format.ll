@@ -19,34 +19,33 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_write_set_format(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = icmp eq i32 %1, 917504
-  br i1 %3, label %._crit_edge, label %.lr.ph
+  br label %6
 
-.lr.ph:                                           ; preds = %2, %4
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
+3:                                                ; preds = %6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv.next
+  %5 = load i32, ptr %4, align 16, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %11, label %4, !llvm.loop !4
+  br i1 %exitcond, label %13, label %6, !llvm.loop !10
 
-4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw [21 x %struct.anon], ptr @codes, i64 0, i64 %indvars.iv.next
-  %6 = load i32, ptr %5, align 16, !tbaa !6
-  %7 = icmp eq i32 %1, %6
-  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+6:                                                ; preds = %2, %3
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+  %7 = phi i32 [ 917504, %2 ], [ %5, %3 ]
+  %8 = icmp eq i32 %1, %7
+  br i1 %8, label %9, label %3
 
-._crit_edge:                                      ; preds = %4, %2
-  %.lcssa = phi ptr [ @codes, %2 ], [ %5, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !12
-  %10 = tail call i32 %9(ptr noundef %0) #3
-  br label %12
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @codes, i64 %indvars.iv, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
+  %12 = tail call i32 %11(ptr noundef %0) #3
+  br label %14
 
-11:                                               ; preds = %.lr.ph
+13:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str) #3
-  br label %12
+  br label %14
 
-12:                                               ; preds = %11, %._crit_edge
-  %.07 = phi i32 [ %10, %._crit_edge ], [ -30, %11 ]
+14:                                               ; preds = %13, %9
+  %.07 = phi i32 [ %12, %9 ], [ -30, %13 ]
   ret i32 %.07
 }
 
@@ -66,7 +65,7 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %9, ptr noundef %2, ptr noundef nonnull %switch.load) #3
@@ -139,12 +138,12 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"", !8, i64 0, !11, i64 8}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"any pointer", !9, i64 0}
-!12 = !{!7, !11, i64 8}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"", !6, i64 0, !9, i64 8}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"any pointer", !7, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!5, !9, i64 8}

@@ -802,7 +802,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %.loopexit165, %_ZN1
 
 81:                                               ; preds = %.lr.ph, %_ZN10nlsat2goal3imp11poly_is_intEPN10polynomial10polynomialE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10nlsat2goal3imp11poly_is_intEPN10polynomial10polynomialE.exit ]
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !100
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, -8
@@ -854,7 +854,7 @@ _ZN10nlsat2goal3imp11poly_is_intEPN10polynomial10polynomialE.exit: ; preds = %.n
 
 96:                                               ; preds = %.lr.ph175, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %indvars.iv184 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next185, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %indvars.iv184
+  %97 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv184
   %98 = load ptr, ptr %97, align 8, !tbaa !100
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, -8
@@ -3394,7 +3394,7 @@ _ZN6bufferIbLb0ELj16EE6expandEv.exit.i:           ; preds = %.noexc38, %._crit_e
 
 switch.lookup:                                    ; preds = %100
   %103 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10goal2nlsat3imp11factor_atomEPN10polynomial10polynomialEN5nlsat4atom4kindE, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10goal2nlsat3imp11factor_atomEPN10polynomial10polynomialEN5nlsat4atom4kindE, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10goal2nlsat3imp4flipEN5nlsat4atom4kindE.exit
 
@@ -5448,7 +5448,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !63
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

@@ -94,7 +94,7 @@ get_state.exit.i:                                 ; preds = %25, %23, %21
   %.0.i.i = phi i32 [ %..i.i, %21 ], [ %.13.i.i, %23 ], [ %.lobit.i.i, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %28 = zext nneg i32 %.0.i.i to i64
-  %29 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %52
@@ -157,7 +157,7 @@ get_state.exit.i:                                 ; preds = %25, %23, %21
 suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, %43, %40, %37, %35, %33
   %.0.i41.i = phi i64 [ %28, %52 ], [ 0, %33 ], [ 0, %35 ], [ 3, %37 ], [ 1, %40 ], [ 0, %43 ], [ 0, %45 ], [ 3, %47 ], [ 0, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 208
-  %54 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %53, i64 0, i64 %.0.i41.i
+  %54 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %53, i64 %.0.i41.i
   %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %14, i32 noundef 0, i8 noundef zeroext 104) #6
   %56 = ptrtoint ptr %55 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %56 to i32
@@ -220,7 +220,7 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
 90:                                               ; preds = %72, %suggest_state.exit.i
   %.038.i = phi i32 [ %77, %72 ], [ 0, %suggest_state.exit.i ]
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 352
-  %92 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %91, i64 0, i64 %.0.i41.i
+  %92 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %91, i64 %.0.i41.i
   %93 = load ptr, ptr %92, align 8, !tbaa !3
   %.not39.i = icmp eq ptr %93, null
   br i1 %.not39.i, label %112, label %94
@@ -253,7 +253,7 @@ suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, 
 
 112:                                              ; preds = %94, %90
   %.0.i = phi i32 [ %99, %94 ], [ 0, %90 ]
-  %113 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %27, i64 0, i64 %.0.i41.i
+  %113 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %27, i64 %.0.i41.i
   %114 = load ptr, ptr %113, align 8, !tbaa !3
   %.not40.i = icmp eq ptr %114, null
   br i1 %.not40.i, label %draw_main.exit, label %115
@@ -352,7 +352,7 @@ get_state.exit:                                   ; preds = %145, %147, %149
   %.0.i39 = phi i32 [ %..i, %145 ], [ %.13.i, %147 ], [ %.lobit.i, %149 ]
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %152 = zext nneg i32 %.0.i39 to i64
-  %153 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %151, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !3
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %176
@@ -415,20 +415,20 @@ get_state.exit:                                   ; preds = %145, %147, %149
 suggest_state.exit:                               ; preds = %157, %159, %161, %164, %167, %169, %171, %174, %176
   %.0.i40 = phi i64 [ %152, %176 ], [ 0, %157 ], [ 0, %159 ], [ 3, %161 ], [ 1, %164 ], [ 0, %167 ], [ 0, %169 ], [ 3, %171 ], [ 0, %174 ]
   %177 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  %178 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %177, i64 0, i64 %.0.i40
+  %178 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %177, i64 %.0.i40
   %179 = load ptr, ptr %178, align 8, !tbaa !3
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %196
 
 181:                                              ; preds = %suggest_state.exit
-  %182 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %151, i64 0, i64 %.0.i40
+  %182 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %151, i64 %.0.i40
   %183 = load ptr, ptr %182, align 8, !tbaa !3
   %.not36 = icmp eq ptr %183, null
   br i1 %.not36, label %196, label %184
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 352
-  %186 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %185, i64 0, i64 %.0.i40
+  %186 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %185, i64 %.0.i40
   %187 = load ptr, ptr %186, align 8, !tbaa !3
   %188 = icmp eq ptr %187, null
   br i1 %188, label %189, label %196
@@ -470,7 +470,7 @@ define void @lv_imagebutton_set_src(ptr noundef %0, i32 noundef %1, ptr noundef 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %7, i64 %8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %10, label %11
 
@@ -490,7 +490,7 @@ define void @lv_imagebutton_set_src(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 update_src_info.exit:                             ; preds = %10, %11, %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %15, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %15, i64 %8
   %.not.i17 = icmp eq ptr %3, null
   br i1 %.not.i17, label %17, label %18
 
@@ -510,7 +510,7 @@ update_src_info.exit:                             ; preds = %10, %11, %14
 
 update_src_info.exit19:                           ; preds = %17, %18, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %23 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %22, i64 0, i64 %8
+  %23 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %22, i64 %8
   %.not.i20 = icmp eq ptr %4, null
   br i1 %.not.i20, label %24, label %25
 
@@ -572,7 +572,7 @@ get_state.exit:                                   ; preds = %7, %9, %11
   %.0.i = phi i32 [ %..i, %7 ], [ %.13.i, %9 ], [ %.lobit.i, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = zext nneg i32 %.0.i to i64
-  %15 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %38
@@ -634,7 +634,7 @@ get_state.exit:                                   ; preds = %7, %9, %11
 
 suggest_state.exit:                               ; preds = %19, %21, %23, %26, %29, %31, %33, %36, %38
   %.0.i10 = phi i64 [ %14, %38 ], [ 0, %19 ], [ 0, %21 ], [ 3, %23 ], [ 1, %26 ], [ 0, %29 ], [ 0, %31 ], [ 3, %33 ], [ 0, %36 ]
-  %39 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %13, i64 0, i64 %.0.i10
+  %39 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %13, i64 %.0.i10
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = icmp eq ptr %40, null
   br i1 %41, label %48, label %42
@@ -702,7 +702,7 @@ define ptr @lv_imagebutton_get_src_left(ptr noundef readonly captures(address_is
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   ret ptr %7
 }
@@ -718,7 +718,7 @@ define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly captures(address_
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   ret ptr %7
 }
@@ -734,7 +734,7 @@ define ptr @lv_imagebutton_get_src_right(ptr noundef readonly captures(address_i
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   ret ptr %7
 }

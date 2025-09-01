@@ -184,7 +184,7 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers4inst15TriggerDa
   %26 = icmp eq i32 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = zext i1 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !22, !noalias !16
   store ptr %30, ptr %9, align 8, !tbaa !19, !alias.scope !16
   %31 = load i64, ptr %30, align 8, !noalias !16

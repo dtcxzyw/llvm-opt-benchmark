@@ -531,7 +531,7 @@ define noundef nonnull ptr @get_type(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.get_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_type, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -548,7 +548,7 @@ define noundef nonnull ptr @get_sign(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.get_sign, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_sign, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -564,7 +564,7 @@ define noundef nonnull ptr @get_class(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.get_class, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_class, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

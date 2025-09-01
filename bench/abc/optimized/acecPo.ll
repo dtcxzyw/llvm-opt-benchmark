@@ -3090,7 +3090,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i66, %Vec_In
   %58 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %59 = urem i32 %58, 7
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = mul i32 %62, %57
   %64 = add i32 %63, %.012.i70
@@ -3146,7 +3146,7 @@ Hsh_VecManHash.exit:                              ; preds = %55, %47
   %86 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %87 = urem i32 %86, 7
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !13
   %91 = mul i32 %90, %85
   %92 = add i32 %91, %.012.i80
@@ -4724,7 +4724,7 @@ Vec_WecStart.exit:                                ; preds = %Abc_Clock.exit, %23
   %38 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   store ptr %36, ptr %40, align 8, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -4739,7 +4739,7 @@ Vec_WecStart.exit:                                ; preds = %Abc_Clock.exit, %23
   %43 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %indvars.iv484
+  %45 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv484
   store ptr %41, ptr %45, align 8, !tbaa !99
   %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next485, 4
@@ -6343,7 +6343,7 @@ Abc_Clock.exit386:                                ; preds = %.critedge6, %729
 
 739:                                              ; preds = %Abc_Clock.exit386, %Vec_IntFree.exit
   %indvars.iv505 = phi i64 [ 0, %Abc_Clock.exit386 ], [ %indvars.iv.next506, %Vec_IntFree.exit ]
-  %740 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 0, i64 %indvars.iv505
+  %740 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv505
   %741 = load ptr, ptr %740, align 8, !tbaa !99
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
   %743 = load ptr, ptr %742, align 8, !tbaa !12
@@ -6362,7 +6362,7 @@ Vec_IntFree.exit:                                 ; preds = %739, %744
 
 .preheader:                                       ; preds = %Vec_IntFree.exit, %Vec_IntFree.exit389
   %indvars.iv509 = phi i64 [ %indvars.iv.next510, %Vec_IntFree.exit389 ], [ 0, %Vec_IntFree.exit ]
-  %745 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %indvars.iv509
+  %745 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv509
   %746 = load ptr, ptr %745, align 8, !tbaa !99
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 8
   %748 = load ptr, ptr %747, align 8, !tbaa !12

@@ -4525,7 +4525,7 @@ H5F__flush_phase1.exit.thread141:                 ; preds = %.thread, %H5F__flus
   %279 = phi ptr [ %276, %265 ], [ %289, %288 ]
   %indvars.iv = phi i64 [ 0, %265 ], [ %indvars.iv.next, %288 ]
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 2056
-  %281 = getelementptr inbounds nuw [30 x ptr], ptr %280, i64 0, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv
   %282 = load ptr, ptr %281, align 8, !tbaa !119
   %.not131 = icmp eq ptr %282, null
   br i1 %.not131, label %288, label %283
@@ -4534,7 +4534,7 @@ H5F__flush_phase1.exit.thread141:                 ; preds = %.thread, %H5F__flus
   %284 = tail call ptr @H5MM_xfree(ptr noundef nonnull %282) #22
   %285 = load ptr, ptr %12, align 8, !tbaa !15
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 2056
-  %287 = getelementptr inbounds nuw [30 x ptr], ptr %286, i64 0, i64 %indvars.iv
+  %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv
   store ptr %284, ptr %287, align 8, !tbaa !119
   br label %288
 
@@ -5109,7 +5109,7 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
 
 .preheader66:                                     ; preds = %H5F_get_obj_ids.exit, %76
   %.04171 = phi i64 [ %77, %76 ], [ 0, %H5F_get_obj_ids.exit ]
-  %78 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %.04171
+  %78 = getelementptr inbounds nuw i64, ptr %6, i64 %.04171
   %79 = load i64, ptr %78, align 8, !tbaa !10
   %80 = call i32 @H5I_dec_ref(i64 noundef %79) #22
   %81 = icmp slt i32 %80, 0
@@ -5153,7 +5153,7 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
 
 98:                                               ; preds = %.preheader, %96
   %.172 = phi i64 [ 0, %.preheader ], [ %97, %96 ]
-  %99 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %.172
+  %99 = getelementptr inbounds nuw i64, ptr %6, i64 %.172
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = call i32 @H5I_dec_ref(i64 noundef %100) #22
   %102 = icmp slt i32 %101, 0
@@ -6072,7 +6072,7 @@ define range(i32 -1, 1) i32 @H5F_track_metadata_read_retries(ptr noundef readonl
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2056
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw [30 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %38
@@ -6438,7 +6438,7 @@ define range(i32 -1, 1) i32 @H5F_get_metadata_read_retry_info(ptr noundef readon
 30:                                               ; preds = %27
   %31 = load ptr, ptr %19, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2056
-  %33 = getelementptr inbounds nuw [30 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !119
   %.not25 = icmp eq ptr %34, null
   br i1 %.not25, label %46, label %35
@@ -6446,7 +6446,7 @@ define range(i32 -1, 1) i32 @H5F_get_metadata_read_retry_info(ptr noundef readon
 35:                                               ; preds = %30
   %36 = tail call noalias ptr @malloc(i64 noundef %26) #24
   %37 = zext i32 %.02226 to i64
-  %38 = getelementptr inbounds nuw [21 x ptr], ptr %23, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %23, i64 %37
   store ptr %36, ptr %38, align 8, !tbaa !119
   %39 = icmp eq ptr %36, null
   br i1 %39, label %40, label %44

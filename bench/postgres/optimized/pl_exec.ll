@@ -279,7 +279,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
 
 29:                                               ; preds = %.lr.ph, %exec_eval_cleanup.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %exec_eval_cleanup.exit ]
-  %30 = getelementptr inbounds nuw [100 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %24, align 8
   %33 = sext i32 %31 to i64
@@ -292,7 +292,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
   ]
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %25, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i8, ptr %40, align 8, !range !3, !noundef !4
@@ -346,7 +346,7 @@ define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0,
   br label %exec_eval_cleanup.exit
 
 71:                                               ; preds = %29
-  %72 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %25, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.NullableDatum, ptr %25, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i8, ptr %73, align 8, !range !3, !noundef !4
   %75 = trunc nuw i8 %74 to i1
@@ -11070,7 +11070,7 @@ get_stmt_mcontext.exit:                           ; preds = %list_length.exit, %
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %21, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.ParamExternData, ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
   store i16 1, ptr %29, align 2
@@ -11313,7 +11313,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readon
 
 16:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %17 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.ParamExternData, ptr %15, i64 %indvars.iv
   %.not16 = icmp eq i64 %indvars.iv, 0
   %18 = select i1 %.not16, ptr @.str.55, ptr @.str.125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

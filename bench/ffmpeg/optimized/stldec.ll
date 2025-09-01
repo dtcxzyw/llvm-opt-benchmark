@@ -135,7 +135,7 @@ define internal range(i32 -12, 1) i32 @stl_read_header(ptr noundef %0) #1 {
 
 26:                                               ; preds = %.lr.ph
   %27 = call i64 @strcspn(ptr noundef nonnull %11, ptr noundef nonnull @.str.4) #6
-  %28 = getelementptr inbounds nuw [4096 x i8], ptr %11, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
   store i8 0, ptr %28, align 1, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

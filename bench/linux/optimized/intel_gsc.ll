@@ -160,7 +160,7 @@ define dso_local void @intel_gsc_init(ptr noundef %0, ptr noundef readonly captu
   %17 = phi i1 [ true, %9 ], [ false, %210 ]
   %18 = phi i64 [ 0, %9 ], [ 1, %210 ]
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr [2 x %struct.intel_gsc_intf], ptr %0, i64 0, i64 %18
+  %20 = getelementptr %struct.intel_gsc_intf, ptr %0, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -229,7 +229,7 @@ define dso_local void @intel_gsc_init(ptr noundef %0, ptr noundef readonly captu
 
 56:                                               ; preds = %46, %43, %38
   %57 = phi ptr [ @gsc_def_dg1, %38 ], [ @gsc_def_xehpsdv, %43 ], [ @gsc_def_dg2, %46 ]
-  %58 = getelementptr [2 x %struct.gsc_def], ptr %57, i64 0, i64 %18
+  %58 = getelementptr %struct.gsc_def, ptr %57, i64 %18
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %69
@@ -549,7 +549,7 @@ define dso_local void @intel_gsc_fini(ptr noundef %0) local_unnamed_addr #0 alig
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @gsc_destroy_one(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr [2 x %struct.intel_gsc_intf], ptr %0, i64 0, i64 %3
+  %4 = getelementptr %struct.intel_gsc_intf, ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7

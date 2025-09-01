@@ -90,9 +90,9 @@ $_ZNSt15__new_allocatorI13thread_work_tE7destroyIS0_EEvPT_ = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_Z7nral_rti(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %2, i32 2
+  %3 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %2, i32 2
   %4 = load i32, ptr %3, align 16, !tbaa !4
-  %5 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %2, i32 5
+  %5 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %2, i32 5
   %6 = load i32, ptr %5, align 4, !tbaa !11
   %7 = lshr i32 %6, 1
   %8 = and i32 %7, 1
@@ -103,7 +103,7 @@ define noundef i32 @_Z7nral_rti(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %1) local_unnamed_addr #1 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %3, i32 5
+  %4 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %3, i32 5
   %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = and i32 %5, 3
   %or.cond10 = icmp eq i32 %6, 1
@@ -241,7 +241,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 .split.i:                                         ; preds = %.loopexit.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.loopexit.i ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ]
-  %20 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv37.i, i32 5
+  %20 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv37.i, i32 5
   %21 = load i32, ptr %20, align 4, !tbaa !11
   %22 = and i32 %21, 3
   %.not.i = icmp eq i32 %22, 0
@@ -257,7 +257,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %or.cond79.i, label %26, label %.loopexit.i
 
 26:                                               ; preds = %23, %.split.i
-  %27 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %0, i64 0, i64 %indvars.iv37.i
+  %27 = getelementptr inbounds nuw %struct.InteractionList, ptr %0, i64 %indvars.iv37.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = load ptr, ptr %27, align 8, !tbaa !39
@@ -270,7 +270,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %36, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %26
-  %37 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv37.i, i32 2
+  %37 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv37.i, i32 2
   %38 = load i32, ptr %37, align 16, !tbaa !4
   %39 = and i32 %21, 2
   %.not75.i = icmp eq i32 %39, 0
@@ -544,7 +544,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
 
 .split.us.i:                                      ; preds = %.loopexit.us.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.loopexit.us.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
-  %146 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv59.i, i32 5
+  %146 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv59.i, i32 5
   %147 = load i32, ptr %146, align 4, !tbaa !11
   %148 = and i32 %147, 3
   %.not.us.i = icmp eq i32 %148, 0
@@ -560,8 +560,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
   br i1 %or.cond79.us.i, label %152, label %.loopexit.us.i
 
 152:                                              ; preds = %149, %.split.us.i
-  %153 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv59.i, i32 2
-  %154 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %0, i64 0, i64 %indvars.iv59.i
+  %153 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv59.i, i32 2
+  %154 = getelementptr inbounds nuw %struct.InteractionList, ptr %0, i64 %indvars.iv59.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   %157 = load ptr, ptr %154, align 8, !tbaa !39
@@ -2198,7 +2198,7 @@ define linkonce_odr noundef ptr @_ZNSt6vectorI13thread_work_tSaIS0_EE11_S_reloca
 25:                                               ; preds = %25, %.lr.ph.i.i
   %26 = phi i64 [ 0, %.lr.ph.i.i ], [ %36, %25 ]
   %27 = getelementptr inbounds nuw %struct.InteractionList, ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %24, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.InteractionList, ptr %24, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !39, !alias.scope !202, !noalias !199
   store ptr %29, ptr %27, align 8, !tbaa !39, !alias.scope !199, !noalias !202
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8

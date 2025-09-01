@@ -124,7 +124,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 
 36:                                               ; preds = %.lr.ph.split.us
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !7, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.split.us, label %41
@@ -197,7 +197,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 
 65:                                               ; preds = %.lr.ph.split
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !7, !range !9, !noundef !10
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %.split.us, label %72

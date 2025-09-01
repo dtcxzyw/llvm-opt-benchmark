@@ -378,7 +378,7 @@ define dso_local i32 @data_get_type(ptr noundef readonly captures(address_is_nul
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %3
@@ -3003,7 +3003,7 @@ define dso_local i32 @data_dict_for_each_const(ptr noundef %0, ptr noundef reado
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %5
@@ -3082,7 +3082,7 @@ define dso_local i32 @data_dict_for_each(ptr noundef %0, ptr noundef readonly ca
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %5
@@ -4126,7 +4126,7 @@ define internal fastcc i64 @_convert_tree(ptr noundef %0, i32 noundef %1) unname
 
 .preheader.i.i:                                   ; preds = %3, %6
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 65283
@@ -4215,7 +4215,7 @@ define dso_local zeroext i1 @data_check_match(ptr noundef %0, ptr noundef %1, i1
 
 10:                                               ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %8
@@ -4238,7 +4238,7 @@ define dso_local zeroext i1 @data_check_match(ptr noundef %0, ptr noundef %1, i1
 
 20:                                               ; preds = %19, %.preheader.i134
   %indvars.iv.i135 = phi i64 [ 0, %.preheader.i134 ], [ %indvars.iv.next.i136, %19 ]
-  %21 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i135
+  %21 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i135
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %18
@@ -4290,7 +4290,7 @@ data_new.exit:                                    ; preds = %27, %32, %35
 
 .preheader.i142:                                  ; preds = %39, %42
   %indvars.iv.i143 = phi i64 [ %indvars.iv.next.i144, %42 ], [ 0, %39 ]
-  %43 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i143
+  %43 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i143
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %37
@@ -4313,7 +4313,7 @@ data_new.exit:                                    ; preds = %27, %32, %35
 
 52:                                               ; preds = %51, %.preheader.i149
   %indvars.iv.i150 = phi i64 [ 0, %.preheader.i149 ], [ %indvars.iv.next.i151, %51 ]
-  %53 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv.i150
+  %53 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i150
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %50
@@ -5381,7 +5381,7 @@ tailrecurse:                                      ; preds = %8, %1
 
 .preheader:                                       ; preds = %tailrecurse, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %tailrecurse ]
-  %4 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, %.tr
@@ -5393,7 +5393,7 @@ tailrecurse:                                      ; preds = %8, %1
 
 switch.lookup:                                    ; preds = %tailrecurse
   %10 = zext nneg i32 %.tr to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.data_type_to_string, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_type_to_string, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit
 
@@ -5419,7 +5419,7 @@ define dso_local nonnull ptr @data_get_type_string(ptr noundef readonly captures
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw [8 x %struct.anon], ptr @type_map, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %3

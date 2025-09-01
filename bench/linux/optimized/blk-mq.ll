@@ -327,7 +327,7 @@ define internal noundef zeroext i1 @blk_mq_check_inflight(ptr noundef %0, ptr no
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = and i32 %13, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [2 x i32], ptr %28, i64 0, i64 %30
+  %31 = getelementptr i32, ptr %28, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -409,7 +409,7 @@ define dso_local void @blk_mq_run_hw_queues(ptr noundef %0, i1 noundef zeroext %
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = zext i32 %9 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   %17 = inttoptr i64 %16 to ptr
@@ -1364,7 +1364,7 @@ define internal fastcc ptr @__blk_mq_alloc_requests(ptr noundef %0) unnamed_addr
   %59 = load ptr, ptr %50, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = zext i32 %58 to i64
-  %62 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %61
+  %62 = getelementptr i64, ptr @__per_cpu_offset, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, %60
   %65 = inttoptr i64 %64 to ptr
@@ -1377,7 +1377,7 @@ define internal fastcc ptr @__blk_mq_alloc_requests(ptr noundef %0) unnamed_addr
   %71 = icmp eq i32 %70, 0
   %72 = zext i1 %71 to i64
   %73 = select i1 %69, i64 %72, i64 2
-  %74 = getelementptr [3 x ptr], ptr %67, i64 0, i64 %73
+  %74 = getelementptr ptr, ptr %67, i64 %73
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %52, align 8
   %76 = load i32, ptr %53, align 4
@@ -1977,7 +1977,7 @@ define dso_local ptr @blk_mq_alloc_request_hctx(ptr noundef %0, i32 noundef %1, 
   %66 = load ptr, ptr %65, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %60, 4294967295
-  %69 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %68
+  %69 = getelementptr i64, ptr @__per_cpu_offset, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %67
   %72 = inttoptr i64 %71 to ptr
@@ -2595,7 +2595,7 @@ define dso_local noundef zeroext i1 @blk_update_request(ptr noundef %0, i8 nound
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = zext nneg i32 %67 to i64
-  %75 = getelementptr [4 x i64], ptr %73, i64 0, i64 %74
+  %75 = getelementptr i64, ptr %73, i64 %74
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %75, i64 %69, ptr elementtype(i64) %75) #22, !srcloc !53
   %76 = load ptr, ptr %50, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 49
@@ -2611,7 +2611,7 @@ define dso_local noundef zeroext i1 @blk_update_request(ptr noundef %0, i8 nound
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = getelementptr [4 x i64], ptr %87, i64 0, i64 %74
+  %88 = getelementptr i64, ptr %87, i64 %74
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %88, i64 %69, ptr elementtype(i64) %88) #22, !srcloc !54
   br label %89
 
@@ -3286,7 +3286,7 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = zext nneg i32 %67 to i64
-  %75 = getelementptr [4 x i64], ptr %73, i64 0, i64 %74
+  %75 = getelementptr i64, ptr %73, i64 %74
   call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %75, i64 %69, ptr elementtype(i64) %75) #22, !srcloc !53
   %76 = load ptr, ptr %51, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 49
@@ -3302,7 +3302,7 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = getelementptr [4 x i64], ptr %87, i64 0, i64 %74
+  %88 = getelementptr i64, ptr %87, i64 %74
   call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %88, i64 %69, ptr elementtype(i64) %88) #22, !srcloc !54
   br label %89
 
@@ -3603,7 +3603,7 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef captures(address_is_
   %258 = load i32, ptr %257, align 8
   %259 = add i32 %256, 1
   %260 = sext i32 %256 to i64
-  %261 = getelementptr [32 x i32], ptr %2, i64 0, i64 %260
+  %261 = getelementptr i32, ptr %2, i64 %260
   store i32 %258, ptr %261, align 4
   %262 = load ptr, ptr %0, align 8
   %263 = icmp eq ptr %262, null
@@ -3766,7 +3766,7 @@ define dso_local noundef zeroext i1 @blk_mq_complete_request_remote(ptr noundef 
   %51 = load i32, ptr %50, align 64
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %53 = zext i32 %51 to i64
-  %54 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %53
+  %54 = getelementptr i64, ptr @__per_cpu_offset, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, ptrtoint (ptr @blk_cpu_done to i64)
   %57 = inttoptr i64 %56 to ptr
@@ -4444,7 +4444,7 @@ define internal fastcc void @blk_mq_insert_request(ptr noundef %0, i32 noundef r
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 252
   %82 = load i16, ptr %81, align 4
   %83 = zext i16 %82 to i64
-  %84 = getelementptr [3 x %struct.list_head], ptr %80, i64 0, i64 %83
+  %84 = getelementptr %struct.list_head, ptr %80, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %78, label %89, label %86
 
@@ -4469,7 +4469,7 @@ define internal fastcc void @blk_mq_insert_request(ptr noundef %0, i32 noundef r
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %97 = load i16, ptr %81, align 4
   %98 = zext i16 %97 to i64
-  %99 = getelementptr [3 x i16], ptr %96, i64 0, i64 %98
+  %99 = getelementptr i16, ptr %96, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 212
@@ -5282,7 +5282,7 @@ define dso_local void @blk_mq_flush_busy_ctxs(ptr noundef readonly captures(none
   call void @_raw_spin_lock(ptr noundef %51) #22
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = zext i16 %52 to i64
-  %55 = getelementptr [3 x %struct.list_head], ptr %53, i64 0, i64 %54
+  %55 = getelementptr %struct.list_head, ptr %53, i64 %54
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %55
   br i1 %57, label %63, label %58
@@ -5344,7 +5344,7 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i64
-  %10 = getelementptr [3 x i16], ptr %6, i64 0, i64 %9
+  %10 = getelementptr i16, ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   br label %13
@@ -5433,7 +5433,7 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none
   call void @_raw_spin_lock(ptr noundef %74) #22
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = zext i16 %75 to i64
-  %78 = getelementptr [3 x %struct.list_head], ptr %76, i64 0, i64 %77
+  %78 = getelementptr %struct.list_head, ptr %76, i64 %77
   %79 = load volatile ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, %78
   br i1 %80, label %.thread19, label %81
@@ -6387,7 +6387,7 @@ define dso_local void @blk_mq_delay_run_hw_queues(ptr noundef %0, i64 noundef %1
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = zext i32 %9 to i64
-  %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   %17 = inttoptr i64 %16 to ptr
@@ -7127,7 +7127,7 @@ define dso_local void @blk_mq_flush_plug_list(ptr noundef %0, i1 noundef zeroext
 275:                                              ; preds = %.loopexit
   %276 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %277 = zext i16 %207 to i64
-  %278 = getelementptr [3 x %struct.list_head], ptr %276, i64 0, i64 %277
+  %278 = getelementptr %struct.list_head, ptr %276, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr %88, align 8
@@ -7144,7 +7144,7 @@ define dso_local void @blk_mq_flush_plug_list(ptr noundef %0, i1 noundef zeroext
   %284 = getelementptr inbounds nuw i8, ptr %143, i64 68
   %285 = load i16, ptr %206, align 4
   %286 = zext i16 %285 to i64
-  %287 = getelementptr [3 x i16], ptr %284, i64 0, i64 %286
+  %287 = getelementptr i16, ptr %284, i64 %286
   %288 = load i16, ptr %287, align 2
   %289 = zext i16 %288 to i32
   %290 = getelementptr inbounds nuw i8, ptr %147, i64 212
@@ -8565,7 +8565,7 @@ define internal fastcc void @blk_account_io_done(ptr noundef %0, i64 noundef %1)
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %51 = zext nneg i32 %44 to i64
-  %52 = getelementptr [4 x i64], ptr %50, i64 0, i64 %51
+  %52 = getelementptr i64, ptr %50, i64 %51
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %52, ptr elementtype(i64) %52) #22, !srcloc !177
   %53 = load ptr, ptr %34, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 49
@@ -8581,7 +8581,7 @@ define internal fastcc void @blk_account_io_done(ptr noundef %0, i64 noundef %1)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %65 = getelementptr [4 x i64], ptr %64, i64 0, i64 %51
+  %65 = getelementptr i64, ptr %64, i64 %51
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %65, ptr elementtype(i64) %65) #22, !srcloc !178
   %.pre = load ptr, ptr %34, align 8
   br label %66
@@ -8593,7 +8593,7 @@ define internal fastcc void @blk_account_io_done(ptr noundef %0, i64 noundef %1)
   %70 = sub i64 %1, %69
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr [4 x i64], ptr %72, i64 0, i64 %51
+  %73 = getelementptr i64, ptr %72, i64 %51
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %73, i64 %70, ptr elementtype(i64) %73) #22, !srcloc !179
   %74 = load ptr, ptr %34, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 49
@@ -8610,7 +8610,7 @@ define internal fastcc void @blk_account_io_done(ptr noundef %0, i64 noundef %1)
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr [4 x i64], ptr %86, i64 0, i64 %51
+  %87 = getelementptr i64, ptr %86, i64 %51
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87, i64 %80, ptr elementtype(i64) %87) #22, !srcloc !180
   br label %88
 
@@ -9045,7 +9045,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
 .preheader22:                                     ; preds = %3, %21
   %10 = phi i32 [ %22, %21 ], [ 0, %3 ]
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %6, i64 0, i64 %11
+  %12 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp ugt i32 %14, %1
@@ -9070,7 +9070,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
 
 27:                                               ; preds = %24, %3
   %28 = phi i64 [ 0, %3 ], [ %26, %24 ]
-  %29 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %6, i64 0, i64 %28
+  %29 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %28
   %30 = tail call i32 @blk_mq_hw_queue_to_node(ptr noundef %29, i32 noundef %1) #22
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %35
@@ -9119,7 +9119,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
 .preheader21:                                     ; preds = %55, %69
   %58 = phi i32 [ %70, %69 ], [ 0, %55 ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %6, i64 0, i64 %59
+  %60 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp ugt i32 %62, %1
@@ -9144,7 +9144,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
 
 75:                                               ; preds = %72, %55
   %76 = phi i64 [ 0, %55 ], [ %74, %72 ]
-  %77 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %6, i64 0, i64 %76
+  %77 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %76
   %78 = tail call i32 @blk_mq_hw_queue_to_node(ptr noundef %77, i32 noundef %1) #22
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %80, label %83
@@ -9707,7 +9707,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %25 = load ptr, ptr %11, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %21, 63
-  %28 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %27
+  %28 = getelementptr i64, ptr @__per_cpu_offset, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %26
   %31 = inttoptr i64 %30 to ptr
@@ -9834,7 +9834,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %99 = load ptr, ptr %38, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %95, 63
-  %102 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %101
+  %102 = getelementptr i64, ptr @__per_cpu_offset, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %100
   %105 = inttoptr i64 %104 to ptr
@@ -9846,7 +9846,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
 
 108:                                              ; preds = %108, %98
   %109 = phi i64 [ 0, %98 ], [ %112, %108 ]
-  %110 = getelementptr [3 x %struct.list_head], ptr %107, i64 0, i64 %109
+  %110 = getelementptr %struct.list_head, ptr %107, i64 %109
   store volatile ptr %110, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store volatile ptr %110, ptr %111, align 8
@@ -9871,7 +9871,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %121 = phi i64 [ %139, %138 ], [ 0, %114 ]
   %122 = load ptr, ptr %56, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %123, i64 0, i64 %121
+  %124 = getelementptr %struct.blk_mq_queue_map, ptr %123, i64 %121
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr i32, ptr %125, i64 %101
   %127 = load i32, ptr %126, align 4
@@ -9915,7 +9915,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %153 = load ptr, ptr %38, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = and i64 %149, 63
-  %156 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %155
+  %156 = getelementptr i64, ptr @__per_cpu_offset, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, %154
   %159 = inttoptr i64 %158 to ptr
@@ -9927,7 +9927,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
 
 162:                                              ; preds = %162, %152
   %163 = phi i64 [ 0, %152 ], [ %166, %162 ]
-  %164 = getelementptr [3 x %struct.list_head], ptr %161, i64 0, i64 %163
+  %164 = getelementptr %struct.list_head, ptr %161, i64 %163
   store volatile ptr %164, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store volatile ptr %164, ptr %165, align 8
@@ -9946,7 +9946,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr 
   %172 = phi i64 [ %181, %.preheader10 ], [ 0, %168 ]
   %173 = load ptr, ptr %56, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %174, i64 0, i64 %172
+  %175 = getelementptr %struct.blk_mq_queue_map, ptr %174, i64 %172
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr i32, ptr %176, i64 %155
   %178 = load i32, ptr %177, align 4
@@ -10069,7 +10069,7 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
 .preheader8:                                      ; preds = %12, %28
   %17 = phi i32 [ %29, %28 ], [ 0, %12 ]
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %9, i64 0, i64 %18
+  %19 = getelementptr %struct.blk_mq_queue_map, ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp ugt i32 %21, %14
@@ -10094,7 +10094,7 @@ define internal fastcc void @blk_mq_realloc_hw_ctxs(ptr noundef %0, ptr noundef 
 
 34:                                               ; preds = %31, %12
   %35 = phi i64 [ 0, %12 ], [ %33, %31 ]
-  %36 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %9, i64 0, i64 %35
+  %36 = getelementptr %struct.blk_mq_queue_map, ptr %9, i64 %35
   %37 = tail call i32 @blk_mq_hw_queue_to_node(ptr noundef %36, i32 noundef %14) #22
   %38 = tail call ptr @xa_load(ptr noundef nonnull %11, i64 noundef %13) #22
   %39 = icmp eq ptr %38, null
@@ -10511,7 +10511,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %8, align 8
   %32 = ptrtoint ptr %31 to i64
-  %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %28
+  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %32
   %36 = inttoptr i64 %35 to ptr
@@ -10535,7 +10535,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
 
 46:                                               ; preds = %130, %39
   %47 = phi i64 [ 0, %39 ], [ %131, %130 ]
-  %48 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %10, i64 0, i64 %47
+  %48 = getelementptr %struct.blk_mq_queue_map, ptr %10, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
@@ -10551,7 +10551,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
   %61 = call ptr @xa_load(ptr noundef nonnull %5, i64 noundef %60) #22
-  %62 = getelementptr [3 x ptr], ptr %40, i64 0, i64 %47
+  %62 = getelementptr ptr, ptr %40, i64 %47
   store ptr %61, ptr %62, align 8
   br label %130
 
@@ -10604,14 +10604,14 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   %96 = load i64, ptr %2, align 8
   %97 = load ptr, ptr %3, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %98, i64 0, i64 %47
+  %99 = getelementptr %struct.blk_mq_queue_map, ptr %98, i64 %47
   %100 = load ptr, ptr %99, align 8
   %101 = and i64 %96, 4294967295
   %102 = getelementptr i32, ptr %100, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
   %105 = call ptr @xa_load(ptr noundef nonnull %5, i64 noundef %104) #22
-  %106 = getelementptr [3 x ptr], ptr %40, i64 0, i64 %47
+  %106 = getelementptr ptr, ptr %40, i64 %47
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 152
   %108 = load i64, ptr %2, align 8
@@ -10632,7 +10632,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   %118 = getelementptr inbounds nuw i8, ptr %105, i64 254
   %119 = load i16, ptr %118, align 2
   %120 = and i64 %47, 65535
-  %121 = getelementptr [3 x i16], ptr %41, i64 0, i64 %120
+  %121 = getelementptr i16, ptr %41, i64 %120
   store i16 %119, ptr %121, align 2
   %122 = getelementptr inbounds nuw i8, ptr %105, i64 256
   %123 = load ptr, ptr %122, align 64
@@ -10668,7 +10668,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   %143 = load i32, ptr %142, align 4
   %144 = zext i32 %143 to i64
   %145 = call ptr @xa_load(ptr noundef nonnull %5, i64 noundef %144) #22
-  %146 = getelementptr [3 x ptr], ptr %45, i64 0, i64 %136
+  %146 = getelementptr ptr, ptr %45, i64 %136
   store ptr %145, ptr %146, align 8
   %147 = add nuw nsw i64 %136, 1
   %148 = and i64 %147, 4294967295
@@ -10948,7 +10948,7 @@ define dso_local i32 @blk_mq_alloc_tag_set(ptr noundef %0) #0 align 16 {
   %82 = load i32, ptr %64, align 4
   %83 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %81, i32 noundef 3520, i32 noundef %82) #26
   %84 = sext i32 %78 to i64
-  %85 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %76, i64 0, i64 %84
+  %85 = getelementptr %struct.blk_mq_queue_map, ptr %76, i64 %84
   store ptr %83, ptr %85, align 8
   %86 = icmp eq ptr %83, null
   br i1 %86, label %.loopexit7, label %87
@@ -10999,7 +10999,7 @@ define dso_local i32 @blk_mq_alloc_tag_set(ptr noundef %0) #0 align 16 {
 109:                                              ; preds = %109, %107
   %110 = phi i32 [ 0, %107 ], [ %114, %109 ]
   %111 = sext i32 %110 to i64
-  %112 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %108, i64 0, i64 %111
+  %112 = getelementptr %struct.blk_mq_queue_map, ptr %108, i64 %111
   %113 = load ptr, ptr %112, align 8
   tail call void @kfree(ptr noundef %113) #22
   store ptr null, ptr %112, align 8
@@ -11083,7 +11083,7 @@ define internal fastcc void @blk_mq_update_queue_map(ptr noundef %0) unnamed_add
 21:                                               ; preds = %.thread, %19
   %22 = phi i32 [ 0, %19 ], [ %42, %.thread ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %20, i64 0, i64 %23
+  %24 = getelementptr %struct.blk_mq_queue_map, ptr %20, i64 %23
   br label %25
 
 25:                                               ; preds = %21, %35
@@ -11430,7 +11430,7 @@ define dso_local void @blk_mq_free_tag_set(ptr noundef %0) #0 align 16 {
 49:                                               ; preds = %49, %47
   %50 = phi i32 [ 0, %47 ], [ %54, %49 ]
   %51 = sext i32 %50 to i64
-  %52 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %48, i64 0, i64 %51
+  %52 = getelementptr %struct.blk_mq_queue_map, ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8
   tail call void @kfree(ptr noundef %53) #22
   store ptr null, ptr %52, align 8
@@ -12605,7 +12605,7 @@ define internal noundef i32 @blk_mq_init() #11 section ".init.text" align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @blk_cpu_done to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -12634,7 +12634,7 @@ define internal noundef i32 @blk_mq_init() #11 section ".init.text" align 16 {
 
 29:                                               ; preds = %25
   %30 = and i64 %26, 63
-  %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
+  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @blk_cpu_csd to i64)
   %34 = inttoptr i64 %33 to ptr
@@ -13822,7 +13822,7 @@ define internal void @blk_done_softirq(ptr readnone captures(none) %0) #0 align 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @blk_softirq_cpu_dead(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @blk_cpu_done to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -13874,7 +13874,7 @@ define internal noundef i32 @blk_mq_hctx_notify_dead(i32 noundef %0, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %18
   %22 = inttoptr i64 %21 to ptr
@@ -13883,7 +13883,7 @@ define internal noundef i32 @blk_mq_hctx_notify_dead(i32 noundef %0, ptr noundef
   call void @_raw_spin_lock(ptr noundef %22) #22
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = zext i16 %24 to i64
-  %27 = getelementptr [3 x %struct.list_head], ptr %25, i64 0, i64 %26
+  %27 = getelementptr %struct.list_head, ptr %25, i64 %26
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
   br i1 %29, label %57, label %30
@@ -13913,7 +13913,7 @@ define internal noundef i32 @blk_mq_hctx_notify_dead(i32 noundef %0, ptr noundef
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %43 = load i16, ptr %23, align 4
   %44 = zext i16 %43 to i64
-  %45 = getelementptr [3 x i16], ptr %42, i64 0, i64 %44
+  %45 = getelementptr i16, ptr %42, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 212

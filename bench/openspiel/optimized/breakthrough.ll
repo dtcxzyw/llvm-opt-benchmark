@@ -1500,10 +1500,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %39, %41
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 1
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %55
+  %56 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, %47
-  %59 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 0, i64 %55
+  %59 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 %55
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, %49
   %62 = icmp sgt i32 %47, -1
@@ -2191,10 +2191,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %25, %27
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %41
+  %42 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = add nsw i32 %43, %33
-  %45 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 0, i64 %41
+  %45 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 %41
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %46, %35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
@@ -2681,10 +2681,10 @@ define void @_ZNK10open_spiel12breakthrough17BreakthroughState12LegalActionsEv(p
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ 0, %.lr.ph ]
   %64 = phi ptr [ %154, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %.promoted, %.lr.ph ]
   %65 = add nuw nsw i64 %indvars.iv, %47
-  %66 = getelementptr inbounds nuw [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, %.03990
-  %69 = getelementptr inbounds nuw [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 %65
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, %.03889
   %72 = icmp sgt i32 %68, -1
@@ -3378,7 +3378,7 @@ define noundef range(i32 -1, 3) i32 @_ZNK10open_spiel12breakthrough17Breakthroug
 
 switch.lookup:                                    ; preds = %3
   %30 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK10open_spiel12breakthrough17BreakthroughState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel12breakthrough17BreakthroughState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 
@@ -3865,7 +3865,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 
 switch.lookup:                                    ; preds = %.lr.ph
   %88 = zext nneg i32 %68 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK10open_spiel12breakthrough17BreakthroughState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel12breakthrough17BreakthroughState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %switch.load, ptr %21, align 4
@@ -3876,10 +3876,10 @@ switch.lookup:                                    ; preds = %.lr.ph
 89:                                               ; preds = %89, %switch.lookup
   %indvars.iv.i.i = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next.i.i, %89 ]
   %.078.i.i = phi i32 [ 0, %switch.lookup ], [ %95, %89 ]
-  %90 = getelementptr inbounds nuw [3 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i
   %91 = load i32, ptr %90, align 4
   %92 = mul nsw i32 %91, %.078.i.i
-  %93 = getelementptr inbounds nuw [3 x i32], ptr %21, i64 0, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i.i
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %92, %94
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4012,10 +4012,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %14, %16
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirRowOffsetsE, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, %22
-  %33 = getelementptr inbounds [6 x i32], ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 0, i64 %29
+  %33 = getelementptr inbounds i32, ptr @_ZN10open_spiel12breakthrough12_GLOBAL__N_114kDirColOffsetsE, i64 %29
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -9383,7 +9383,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_sp
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN10open_spiel12breakthroughlsERSoRKNS0_9CellStateE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel12breakthroughlsERSoRKNS0_9CellStateE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load)
   ret ptr %16

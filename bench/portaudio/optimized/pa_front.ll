@@ -100,7 +100,7 @@ define i32 @Pa_Initialize() local_unnamed_addr #3 {
 
 6:                                                ; preds = %6, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw ptr, ptr @paHostApiInitializers, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %8, null
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
@@ -135,7 +135,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   store ptr null, ptr %15, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr @paHostApiInitializers, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #13
   %.not30.i = icmp eq i32 %18, 0

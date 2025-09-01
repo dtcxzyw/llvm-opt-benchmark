@@ -236,7 +236,7 @@ define void @_ZN3gmx15TimeUnitManager11setTimeUnitENS_8TimeUnitE(ptr noundef non
 define noundef ptr @_ZNK3gmx15TimeUnitManager16timeUnitAsStringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN3gmx12_GLOBAL__N_115c_timeUnitNamesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3gmx12_GLOBAL__N_115c_timeUnitNamesE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   ret ptr %5
 }
@@ -245,7 +245,7 @@ define noundef ptr @_ZNK3gmx15TimeUnitManager16timeUnitAsStringEv(ptr noundef no
 define noundef double @_ZNK3gmx15TimeUnitManager15timeScaleFactorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [6 x double], ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw double, ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 %3
   %5 = load double, ptr %4, align 8, !tbaa !11
   ret double %5
 }
@@ -254,7 +254,7 @@ define noundef double @_ZNK3gmx15TimeUnitManager15timeScaleFactorEv(ptr noundef 
 define noundef double @_ZNK3gmx15TimeUnitManager22inverseTimeScaleFactorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds nuw [6 x double], ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw double, ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 %3
   %5 = load double, ptr %4, align 8, !tbaa !11
   %6 = fdiv double 1.000000e+00, %5
   ret double %6
@@ -311,7 +311,7 @@ define void @_ZN3gmx16TimeUnitBehavior26setTimeUnitFromEnvironmentEv(ptr noundef
 
 .preheader:                                       ; preds = %1, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw [6 x ptr], ptr @_ZN3gmx12_GLOBAL__N_115c_timeUnitNamesE, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3gmx12_GLOBAL__N_115c_timeUnitNamesE, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %10) #25
   %.not26 = icmp eq i32 %11, 0
@@ -784,7 +784,7 @@ define void @_ZN3gmx16TimeUnitBehavior16optionsFinishingEPNS_7OptionsE(ptr nound
   call void @_ZN3gmx15TimeUnitManagerC1ENS_8TimeUnitE(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %8)
   %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw [6 x double], ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw double, ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 %10
   %12 = load double, ptr %11, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

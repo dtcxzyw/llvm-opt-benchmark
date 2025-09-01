@@ -337,7 +337,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %.0316 = phi i32 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %40 = getelementptr i8, ptr %.0287, i64 %39
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr [64 x i8], ptr %5, i64 0, i64 %39
+  %42 = getelementptr i8, ptr %5, i64 %39
   store i8 %41, ptr %42, align 1
   %43 = add i32 %.0316, 1
   %44 = zext i32 %43 to i64

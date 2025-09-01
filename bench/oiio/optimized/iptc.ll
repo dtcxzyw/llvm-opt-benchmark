@@ -220,13 +220,13 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_015decode_iptc_iimEPKviRNS0_9Im
   br i1 %exitcond, label %.loopexit, label %68, !llvm.loop !15
 
 68:                                               ; preds = %.lr.ph129
-  %69 = getelementptr inbounds nuw [53 x %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 0, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv.next
   %70 = load i32, ptr %69, align 16, !tbaa !17
   %71 = icmp eq i32 %70, %42
   br i1 %71, label %._crit_edge, label %.lr.ph129, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv.next, i32 1
   %73 = load ptr, ptr %72, align 8, !tbaa !21
   br label %74
 
@@ -692,8 +692,8 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %2, %21
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit, %235
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %indvars.iv.next, %235 ]
-  %43 = phi ptr [ @.str.2, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %238, %235 ]
-  %44 = phi ptr [ @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %236, %235 ]
+  %43 = phi ptr [ @.str.2, %_ZNSt6vectorIcSaIcEE5clearEv.exit ], [ %237, %235 ]
+  %44 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv
   store ptr %43, ptr %5, align 8, !tbaa !25
   %45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #16
   store i64 %45, ptr %22, align 8, !tbaa !27
@@ -1037,7 +1037,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %239
+  br label %238
 
 162:                                              ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1252,17 +1252,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %239
+  br label %238
 
 235:                                              ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %236 = getelementptr inbounds nuw [53 x %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag"], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 0, i64 %indvars.iv.next
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %238 = load ptr, ptr %237, align 8, !tbaa !21
+  %236 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::(anonymous namespace)::IIMtag", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_16iimtagE, i64 %indvars.iv.next, i32 1
+  %237 = load ptr, ptr %236, align 8, !tbaa !21
   %exitcond = icmp eq i64 %indvars.iv.next, 52
   br i1 %exitcond, label %39, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, !llvm.loop !50
 
-239:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
+238:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
   %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ]
   resume { ptr, i32 } %.pn43.pn.pn
 }

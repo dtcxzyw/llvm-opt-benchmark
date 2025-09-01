@@ -2319,10 +2319,10 @@ define internal fastcc void @tokenize(ptr noundef captures(none) %0) unnamed_add
 32:                                               ; preds = %30
   %33 = add i32 %.05194, 1
   %34 = sext i32 %.05194 to i64
-  %35 = getelementptr [1024 x i8], ptr %2, i64 0, i64 %34
+  %35 = getelementptr i8, ptr %2, i64 %34
   store i8 34, ptr %35, align 1
   %36 = sext i32 %33 to i64
-  %37 = getelementptr [1024 x i8], ptr %2, i64 0, i64 %36
+  %37 = getelementptr i8, ptr %2, i64 %36
   store i8 0, ptr %37, align 1
   %38 = call noalias ptr @g_strdup(ptr noundef nonnull %2)
   %39 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -2351,7 +2351,7 @@ pushtoken.exit:                                   ; preds = %32
   %45 = trunc i32 %7 to i8
   %46 = add i32 %.05194, 1
   %47 = sext i32 %.05194 to i64
-  %48 = getelementptr [1024 x i8], ptr %2, i64 0, i64 %47
+  %48 = getelementptr i8, ptr %2, i64 %47
   store i8 %45, ptr %48, align 1
   br label %.backedge
 
@@ -2382,7 +2382,7 @@ pushtoken.exit:                                   ; preds = %32
 
 52:                                               ; preds = %51
   %53 = sext i32 %.04497 to i64
-  %54 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %3, i64 %53
   store i8 0, ptr %54, align 1
   %55 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   %56 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -2411,7 +2411,7 @@ pushtoken.exit68:                                 ; preds = %52
 62:                                               ; preds = %pushtoken.exit68, %51
   %63 = phi i32 [ %.pre, %pushtoken.exit68 ], [ %13, %51 ]
   %64 = sext i32 %63 to i64
-  %65 = getelementptr [1024 x i8], ptr @line, i64 0, i64 %64
+  %65 = getelementptr i8, ptr @line, i64 %64
   store i8 0, ptr %65, align 1
   store i32 0, ptr @linepos, align 4
   %66 = load i32, ptr @lineno, align 4
@@ -2425,7 +2425,7 @@ pushtoken.exit68:                                 ; preds = %52
 
 69:                                               ; preds = %68
   %70 = sext i32 %.04497 to i64
-  %71 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %70
+  %71 = getelementptr i8, ptr %3, i64 %70
   store i8 0, ptr %71, align 1
   %72 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   %73 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -2456,7 +2456,7 @@ pushtoken.exit72:                                 ; preds = %69
 
 80:                                               ; preds = %79
   %81 = sext i32 %.04497 to i64
-  %82 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %81
+  %82 = getelementptr i8, ptr %3, i64 %81
   store i8 0, ptr %82, align 1
   %83 = call noalias ptr @g_strdup(ptr noundef nonnull %3)
   %84 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
@@ -2515,12 +2515,12 @@ pushtoken.exit80:                                 ; preds = %90
   %100 = trunc i32 %7 to i8
   %101 = add i32 %spec.select, 1
   %102 = sext i32 %spec.select to i64
-  %103 = getelementptr [1024 x i8], ptr %3, i64 0, i64 %102
+  %103 = getelementptr i8, ptr %3, i64 %102
   store i8 %100, ptr %103, align 1
   %104 = add i32 %99, 1
   store i32 %104, ptr @linepos, align 4
   %105 = sext i32 %99 to i64
-  %106 = getelementptr [1024 x i8], ptr @line, i64 0, i64 %105
+  %106 = getelementptr i8, ptr @line, i64 %105
   store i8 %100, ptr %106, align 1
   br label %.backedge
 

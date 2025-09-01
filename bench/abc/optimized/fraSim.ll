@@ -44,7 +44,7 @@ define range(i32 0, -1) i32 @Fra_SmlNodeHash(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = and i64 %indvars.iv, 127
-  %22 = getelementptr inbounds nuw [128 x i32], ptr @Fra_SmlNodeHash.s_FPrimes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @Fra_SmlNodeHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = mul i32 %23, %20
   %25 = xor i32 %24, %.01213

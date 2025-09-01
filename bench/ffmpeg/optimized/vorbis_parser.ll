@@ -106,7 +106,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame_flags(ptr no
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = zext nneg i32 %.040 to i64
-  %42 = getelementptr inbounds nuw [64 x i32], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %.not44 = icmp eq i32 %43, 0
   br i1 %.not44, label %53, label %44
@@ -118,7 +118,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame_flags(ptr no
   %48 = icmp ne i32 %47, 0
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = zext i1 %48 to i64
-  %51 = getelementptr inbounds nuw [2 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !13
   br label %53
 
@@ -126,7 +126,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame_flags(ptr no
   %.037 = phi i32 [ %52, %44 ], [ %11, %39 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = sext i32 %43 to i64
-  %56 = getelementptr inbounds [2 x i32], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds i32, ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !13
   %58 = add nsw i32 %57, %.037
   %59 = ashr i32 %58, 2
@@ -187,7 +187,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame(ptr noundef 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = zext nneg i32 %.040.i to i64
-  %29 = getelementptr inbounds nuw [64 x i32], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %.not44.i = icmp eq i32 %30, 0
   br i1 %.not44.i, label %40, label %31
@@ -199,7 +199,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame(ptr noundef 
   %35 = icmp ne i32 %34, 0
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw [2 x i32], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !13
   br label %40
 
@@ -207,7 +207,7 @@ define range(i32 -1094995529, 536870912) i32 @av_vorbis_parse_frame(ptr noundef 
   %.037.i = phi i32 [ %39, %31 ], [ %10, %26 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = sext i32 %30 to i64
-  %43 = getelementptr inbounds [2 x i32], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds i32, ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !13
   %45 = add nsw i32 %44, %.037.i
   %46 = ashr i32 %45, 2
@@ -514,7 +514,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %129
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %130
   %131 = zext nneg i32 %.110.i.i.i to i64
-  %132 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !12
   %134 = zext i8 %133 to i32
   %135 = add nuw nsw i32 %.1.i.i.i, %134
@@ -553,7 +553,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %156 = shl nuw nsw i32 %154, %155
   %157 = lshr i32 %156, 7
   %158 = and i32 %157, 1
-  %159 = getelementptr inbounds nuw [64 x i32], ptr %141, i64 0, i64 %indvars.iv134.i.i
+  %159 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv134.i.i
   store i32 %158, ptr %159, align 4, !tbaa !13
   %indvars.iv.next135.i.i = add nsw i64 %indvars.iv134.i.i, -1
   %.not141.i.i = icmp eq i64 %indvars.iv134.i.i, 0
@@ -576,7 +576,7 @@ parse_setup_header.exit.thread22.i:               ; preds = %125, %._crit_edge11
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %163 = load i32, ptr %162, align 4, !tbaa !13
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [2 x i32], ptr %34, i64 0, i64 %164
+  %165 = getelementptr inbounds i32, ptr %34, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !13
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %166, ptr %167, align 8, !tbaa !11
@@ -664,7 +664,7 @@ thread-pre-split:                                 ; preds = %12
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %41 = zext nneg i32 %.040.i.i to i64
-  %42 = getelementptr inbounds nuw [64 x i32], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %.not44.i.i = icmp eq i32 %43, 0
   br i1 %.not44.i.i, label %av_vorbis_parse_frame.exit, label %44
@@ -676,7 +676,7 @@ thread-pre-split:                                 ; preds = %12
   %48 = icmp ne i32 %47, 0
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %50 = zext i1 %48 to i64
-  %51 = getelementptr inbounds nuw [2 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !13
   br label %av_vorbis_parse_frame.exit
 
@@ -684,7 +684,7 @@ av_vorbis_parse_frame.exit:                       ; preds = %39, %44
   %.037.i.i = phi i32 [ %52, %44 ], [ %23, %39 ]
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %54 = sext i32 %43 to i64
-  %55 = getelementptr inbounds [2 x i32], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds i32, ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !13
   %57 = add nsw i32 %56, %.037.i.i
   %58 = ashr i32 %57, 2

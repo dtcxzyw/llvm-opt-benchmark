@@ -431,7 +431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit: ; preds = %59, %62
-  %63 = getelementptr inbounds nuw [108 x i8], ptr %60, i64 0, i64 %1
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %1
   store i8 0, ptr %63, align 1, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 110, ptr %64, align 4, !tbaa !28
@@ -1861,7 +1861,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit: ; pr
 
 69:                                               ; preds = %.critedge
   %70 = call ptr @strncpy(ptr noundef nonnull %11, ptr noundef %45, i64 noundef %55) #25
-  %71 = getelementptr inbounds nuw [47 x i8], ptr %11, i64 0, i64 %55
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 %55
   store i8 0, ptr %71, align 1, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = invoke noundef i32 @_Z14grpc_inet_ptoniPKcPv(i32 noundef 10, ptr noundef nonnull %11, ptr noundef nonnull %72)

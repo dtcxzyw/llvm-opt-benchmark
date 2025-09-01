@@ -231,7 +231,7 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #9
   %. = tail call i64 @llvm.umin.i64(i64 %54, i64 4095)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %spec.select.i, i64 %., i1 false)
-  %55 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %.
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   store i8 0, ptr %55, align 1, !tbaa !42
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   store i8 0, ptr %56, align 1, !tbaa !43
@@ -367,7 +367,7 @@ zend_string_alloc.exit:                           ; preds = %8
   store i64 %10, ptr %16, align 8, !tbaa !49
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %9, i64 %10, i1 false)
-  %18 = getelementptr inbounds nuw [1 x i8], ptr %17, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %10
   store i8 0, ptr %18, align 1, !tbaa !42
   store ptr %13, ptr %4, align 8, !tbaa !50
   br label %19

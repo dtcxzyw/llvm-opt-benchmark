@@ -582,7 +582,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [3 x i8], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %3
   store i8 1, ptr %4, align 1
   ret void
 }
@@ -1117,7 +1117,7 @@ define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_E
 
 26:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %27 = getelementptr inbounds nuw [3 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = load double, ptr %28, align 8
   %30 = fsub double %14, %29

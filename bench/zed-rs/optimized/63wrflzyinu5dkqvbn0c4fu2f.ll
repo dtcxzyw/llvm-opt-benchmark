@@ -325,7 +325,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
 68:                                               ; preds = %.lr.ph, %134
   %.sroa.0.0183 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0.1, %134 ]
   %.sroa.031.0182 = phi i64 [ 0, %.lr.ph ], [ %.sroa.031.1, %134 ]
-  %69 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %.sroa.0.0183
+  %69 = getelementptr inbounds i8, ptr %15, i64 %.sroa.0.0183
   %70 = load i8, ptr %69, align 1, !noundef !8
   switch i8 %70, label %._crit_edge207 [
     i8 92, label %71
@@ -366,7 +366,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %83
+  %86 = getelementptr inbounds i8, ptr %15, i64 %83
   %87 = load i8, ptr %86, align 1, !noundef !8
   %88 = icmp eq i8 %87, 92
   br i1 %88, label %90, label %76
@@ -376,7 +376,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
           to label %49 unwind label %.thread125.loopexit.split-lp
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %80
+  %91 = getelementptr inbounds i8, ptr %15, i64 %80
   %92 = load i8, ptr %91, align 1, !noundef !8
   %93 = icmp eq i8 %92, 124
   br i1 %93, label %94, label %76
@@ -467,7 +467,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %135, label %68, label %._crit_edge
 
 136:                                              ; preds = %76
-  %137 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %77
+  %137 = getelementptr inbounds i8, ptr %15, i64 %77
   %138 = load i8, ptr %137, align 1, !noundef !8
   %139 = invoke noundef zeroext i1 @_ZN14pulldown_cmark10puncttable20is_ascii_punctuation17he6e6ef07c541fafeE(i8 noundef %138)
           to label %140 unwind label %.thread125.loopexit

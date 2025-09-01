@@ -3712,8 +3712,8 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0, %._crit_edge
   %indvars.iv47 = phi i64 [ 0, %0 ], [ %indvars.iv.next48, %._crit_edge ]
-  %6 = phi ptr [ @__const.Extra_GraphExperiment.Edges, %0 ], [ %17, %._crit_edge ]
   %.03643 = phi ptr [ %3, %0 ], [ %16, %._crit_edge ]
+  %6 = getelementptr inbounds nuw [5 x i32], ptr @__const.Extra_GraphExperiment.Edges, i64 %indvars.iv47
   %7 = load ptr, ptr %4, align 8, !tbaa !34
   tail call void @Cudd_Ref(ptr noundef %7) #19
   %8 = load i32, ptr %6, align 4, !tbaa !31
@@ -3733,7 +3733,7 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.03542) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %12) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %.not39 = icmp eq i32 %15, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !82
@@ -3745,12 +3745,11 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.03643) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.035.lcssa) #19
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %17 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @__const.Extra_GraphExperiment.Edges, i64 0, i64 %indvars.iv.next48
   %exitcond = icmp eq i64 %indvars.iv.next48, 4
-  br i1 %exitcond, label %18, label %5, !llvm.loop !83
+  br i1 %exitcond, label %17, label %5, !llvm.loop !83
 
-18:                                               ; preds = %._crit_edge
-  %19 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
+17:                                               ; preds = %._crit_edge
+  %18 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_Quit(ptr noundef nonnull %1) #19
   ret void

@@ -1045,7 +1045,7 @@ Vec_IntPush.exit115.i:                            ; preds = %148, %Vec_IntGrow.e
 
 switch.lookup:                                    ; preds = %162
   %178 = zext nneg i32 %176 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table.Smt_PrsBuildConstant, i64 0, i64 %178
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.Smt_PrsBuildConstant, i64 %178
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %179
 
@@ -5264,7 +5264,7 @@ Smt_PrsRemoveComments.exit:                       ; preds = %39
 
 48:                                               ; preds = %47, %.preheader.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %47 ], [ 1, %.preheader.i.i ]
-  %49 = getelementptr inbounds nuw [11 x %struct.Smt_Pair_t_], ptr @s_Types, i64 0, i64 %indvars.iv.i.i.i
+  %49 = getelementptr inbounds nuw %struct.Smt_Pair_t_, ptr @s_Types, i64 %indvars.iv.i.i.i
   %50 = load i32, ptr %49, align 16, !tbaa !81
   %51 = icmp eq i32 %50, %.04.i.i
   br i1 %51, label %52, label %47

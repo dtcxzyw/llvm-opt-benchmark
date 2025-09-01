@@ -2783,8 +2783,8 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br i1 %.not88, label %109, label %103
 
 103:                                              ; preds = %99
-  %104 = add i64 %100, -1
-  %105 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %104
+  %104 = getelementptr i8, ptr %6, i64 %100
+  %105 = getelementptr i8, ptr %104, i64 -1
   %106 = load i8, ptr %105, align 1, !tbaa !16
   %.not89 = icmp eq i8 %106, 10
   %107 = select i1 %.not89, ptr @.str.131, ptr @.str.130
@@ -3128,8 +3128,8 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br i1 %.not103, label %95, label %89
 
 89:                                               ; preds = %85
-  %90 = add i64 %86, -1
-  %91 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %90
+  %90 = getelementptr i8, ptr %9, i64 %86
+  %91 = getelementptr i8, ptr %90, i64 -1
   %92 = load i8, ptr %91, align 1, !tbaa !16
   %.not104 = icmp eq i8 %92, 10
   %93 = select i1 %.not104, ptr @.str.131, ptr @.str.130
@@ -3261,7 +3261,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br label %163
 
 154:                                              ; preds = %143
-  %155 = getelementptr inbounds nuw [513 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %147, ptr %155, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512

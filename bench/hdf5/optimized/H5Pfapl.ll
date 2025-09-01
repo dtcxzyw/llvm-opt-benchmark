@@ -9103,14 +9103,14 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr noundef readonly cap
 
 95:                                               ; preds = %94
   %96 = lshr i64 %90, 56
-  %97 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !21
   %99 = zext i8 %98 to i32
   %100 = add nuw nsw i32 %99, 56
   br label %H5VM_limit_enc_size.exit
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %93
+  %102 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %93
   %103 = load i8, ptr %102, align 1, !tbaa !21
   %104 = zext i8 %103 to i32
   %105 = add nuw nsw i32 %104, 48
@@ -9122,14 +9122,14 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr noundef readonly cap
 
 107:                                              ; preds = %106
   %108 = lshr i64 %90, 40
-  %109 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !21
   %111 = zext i8 %110 to i32
   %112 = add nuw nsw i32 %111, 40
   br label %H5VM_limit_enc_size.exit
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %91
+  %114 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %91
   %115 = load i8, ptr %114, align 1, !tbaa !21
   %116 = zext i8 %115 to i32
   %117 = add nuw nsw i32 %116, 32
@@ -9146,14 +9146,14 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr noundef readonly cap
 
 121:                                              ; preds = %120
   %122 = lshr i64 %90, 24
-  %123 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !21
   %125 = zext i8 %124 to i32
   %126 = add nuw nsw i32 %125, 24
   br label %H5VM_limit_enc_size.exit
 
 127:                                              ; preds = %120
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %119
+  %128 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %119
   %129 = load i8, ptr %128, align 1, !tbaa !21
   %130 = zext i8 %129 to i32
   %131 = add nuw nsw i32 %130, 16
@@ -9165,14 +9165,14 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr noundef readonly cap
 
 133:                                              ; preds = %132
   %134 = lshr i64 %90, 8
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !21
   %137 = zext i8 %136 to i32
   %138 = add nuw nsw i32 %137, 8
   br label %H5VM_limit_enc_size.exit
 
 139:                                              ; preds = %132
-  %140 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %90
+  %140 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %90
   %141 = load i8, ptr %140, align 1, !tbaa !21
   %142 = zext i8 %141 to i32
   br label %H5VM_limit_enc_size.exit
@@ -9241,14 +9241,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %95, %101, %107, %11
 
 172:                                              ; preds = %171
   %173 = lshr i64 %167, 56
-  %174 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !21
   %176 = zext i8 %175 to i32
   %177 = add nuw nsw i32 %176, 56
   br label %H5VM_limit_enc_size.exit396
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %170
+  %179 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %170
   %180 = load i8, ptr %179, align 1, !tbaa !21
   %181 = zext i8 %180 to i32
   %182 = add nuw nsw i32 %181, 48
@@ -9260,14 +9260,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %95, %101, %107, %11
 
 184:                                              ; preds = %183
   %185 = lshr i64 %167, 40
-  %186 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %185
   %187 = load i8, ptr %186, align 1, !tbaa !21
   %188 = zext i8 %187 to i32
   %189 = add nuw nsw i32 %188, 40
   br label %H5VM_limit_enc_size.exit396
 
 190:                                              ; preds = %183
-  %191 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %168
+  %191 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %168
   %192 = load i8, ptr %191, align 1, !tbaa !21
   %193 = zext i8 %192 to i32
   %194 = add nuw nsw i32 %193, 32
@@ -9284,14 +9284,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %95, %101, %107, %11
 
 198:                                              ; preds = %197
   %199 = lshr i64 %167, 24
-  %200 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !21
   %202 = zext i8 %201 to i32
   %203 = add nuw nsw i32 %202, 24
   br label %H5VM_limit_enc_size.exit396
 
 204:                                              ; preds = %197
-  %205 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %196
+  %205 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %196
   %206 = load i8, ptr %205, align 1, !tbaa !21
   %207 = zext i8 %206 to i32
   %208 = add nuw nsw i32 %207, 16
@@ -9303,14 +9303,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %95, %101, %107, %11
 
 210:                                              ; preds = %209
   %211 = lshr i64 %167, 8
-  %212 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %211
   %213 = load i8, ptr %212, align 1, !tbaa !21
   %214 = zext i8 %213 to i32
   %215 = add nuw nsw i32 %214, 8
   br label %H5VM_limit_enc_size.exit396
 
 216:                                              ; preds = %209
-  %217 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %167
+  %217 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %167
   %218 = load i8, ptr %217, align 1, !tbaa !21
   %219 = zext i8 %218 to i32
   br label %H5VM_limit_enc_size.exit396
@@ -9359,14 +9359,14 @@ H5VM_limit_enc_size.exit396:                      ; preds = %172, %178, %184, %1
 
 240:                                              ; preds = %239
   %241 = lshr i64 %235, 56
-  %242 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !21
   %244 = zext i8 %243 to i32
   %245 = add nuw nsw i32 %244, 56
   br label %H5VM_limit_enc_size.exit405
 
 246:                                              ; preds = %239
-  %247 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %238
+  %247 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %238
   %248 = load i8, ptr %247, align 1, !tbaa !21
   %249 = zext i8 %248 to i32
   %250 = add nuw nsw i32 %249, 48
@@ -9378,14 +9378,14 @@ H5VM_limit_enc_size.exit396:                      ; preds = %172, %178, %184, %1
 
 252:                                              ; preds = %251
   %253 = lshr i64 %235, 40
-  %254 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !21
   %256 = zext i8 %255 to i32
   %257 = add nuw nsw i32 %256, 40
   br label %H5VM_limit_enc_size.exit405
 
 258:                                              ; preds = %251
-  %259 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %236
+  %259 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %236
   %260 = load i8, ptr %259, align 1, !tbaa !21
   %261 = zext i8 %260 to i32
   %262 = add nuw nsw i32 %261, 32
@@ -9402,14 +9402,14 @@ H5VM_limit_enc_size.exit396:                      ; preds = %172, %178, %184, %1
 
 266:                                              ; preds = %265
   %267 = lshr i64 %235, 24
-  %268 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !21
   %270 = zext i8 %269 to i32
   %271 = add nuw nsw i32 %270, 24
   br label %H5VM_limit_enc_size.exit405
 
 272:                                              ; preds = %265
-  %273 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %264
+  %273 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %264
   %274 = load i8, ptr %273, align 1, !tbaa !21
   %275 = zext i8 %274 to i32
   %276 = add nuw nsw i32 %275, 16
@@ -9421,14 +9421,14 @@ H5VM_limit_enc_size.exit396:                      ; preds = %172, %178, %184, %1
 
 278:                                              ; preds = %277
   %279 = lshr i64 %235, 8
-  %280 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !21
   %282 = zext i8 %281 to i32
   %283 = add nuw nsw i32 %282, 8
   br label %H5VM_limit_enc_size.exit405
 
 284:                                              ; preds = %277
-  %285 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %235
+  %285 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %235
   %286 = load i8, ptr %285, align 1, !tbaa !21
   %287 = zext i8 %286 to i32
   br label %H5VM_limit_enc_size.exit405
@@ -9561,14 +9561,14 @@ H5VM_limit_enc_size.exit405:                      ; preds = %240, %246, %252, %2
 
 351:                                              ; preds = %350
   %352 = lshr i64 %346, 56
-  %353 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %352
   %354 = load i8, ptr %353, align 1, !tbaa !21
   %355 = zext i8 %354 to i32
   %356 = add nuw nsw i32 %355, 56
   br label %H5VM_limit_enc_size.exit414
 
 357:                                              ; preds = %350
-  %358 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %349
+  %358 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %349
   %359 = load i8, ptr %358, align 1, !tbaa !21
   %360 = zext i8 %359 to i32
   %361 = add nuw nsw i32 %360, 48
@@ -9580,14 +9580,14 @@ H5VM_limit_enc_size.exit405:                      ; preds = %240, %246, %252, %2
 
 363:                                              ; preds = %362
   %364 = lshr i64 %346, 40
-  %365 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %364
   %366 = load i8, ptr %365, align 1, !tbaa !21
   %367 = zext i8 %366 to i32
   %368 = add nuw nsw i32 %367, 40
   br label %H5VM_limit_enc_size.exit414
 
 369:                                              ; preds = %362
-  %370 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %347
+  %370 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %347
   %371 = load i8, ptr %370, align 1, !tbaa !21
   %372 = zext i8 %371 to i32
   %373 = add nuw nsw i32 %372, 32
@@ -9604,14 +9604,14 @@ H5VM_limit_enc_size.exit405:                      ; preds = %240, %246, %252, %2
 
 377:                                              ; preds = %376
   %378 = lshr i64 %346, 24
-  %379 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %378
   %380 = load i8, ptr %379, align 1, !tbaa !21
   %381 = zext i8 %380 to i32
   %382 = add nuw nsw i32 %381, 24
   br label %H5VM_limit_enc_size.exit414
 
 383:                                              ; preds = %376
-  %384 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %375
+  %384 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %375
   %385 = load i8, ptr %384, align 1, !tbaa !21
   %386 = zext i8 %385 to i32
   %387 = add nuw nsw i32 %386, 16
@@ -9623,14 +9623,14 @@ H5VM_limit_enc_size.exit405:                      ; preds = %240, %246, %252, %2
 
 389:                                              ; preds = %388
   %390 = lshr i64 %346, 8
-  %391 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %390
   %392 = load i8, ptr %391, align 1, !tbaa !21
   %393 = zext i8 %392 to i32
   %394 = add nuw nsw i32 %393, 8
   br label %H5VM_limit_enc_size.exit414
 
 395:                                              ; preds = %388
-  %396 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %346
+  %396 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %346
   %397 = load i8, ptr %396, align 1, !tbaa !21
   %398 = zext i8 %397 to i32
   br label %H5VM_limit_enc_size.exit414
@@ -9789,14 +9789,14 @@ H5VM_limit_enc_size.exit414:                      ; preds = %351, %357, %363, %3
 
 475:                                              ; preds = %474
   %476 = lshr i64 %470, 56
-  %477 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %476
   %478 = load i8, ptr %477, align 1, !tbaa !21
   %479 = zext i8 %478 to i32
   %480 = add nuw nsw i32 %479, 56
   br label %H5VM_limit_enc_size.exit423
 
 481:                                              ; preds = %474
-  %482 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %473
+  %482 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %473
   %483 = load i8, ptr %482, align 1, !tbaa !21
   %484 = zext i8 %483 to i32
   %485 = add nuw nsw i32 %484, 48
@@ -9808,14 +9808,14 @@ H5VM_limit_enc_size.exit414:                      ; preds = %351, %357, %363, %3
 
 487:                                              ; preds = %486
   %488 = lshr i64 %470, 40
-  %489 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !21
   %491 = zext i8 %490 to i32
   %492 = add nuw nsw i32 %491, 40
   br label %H5VM_limit_enc_size.exit423
 
 493:                                              ; preds = %486
-  %494 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %471
+  %494 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %471
   %495 = load i8, ptr %494, align 1, !tbaa !21
   %496 = zext i8 %495 to i32
   %497 = add nuw nsw i32 %496, 32
@@ -9832,14 +9832,14 @@ H5VM_limit_enc_size.exit414:                      ; preds = %351, %357, %363, %3
 
 501:                                              ; preds = %500
   %502 = lshr i64 %470, 24
-  %503 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %502
   %504 = load i8, ptr %503, align 1, !tbaa !21
   %505 = zext i8 %504 to i32
   %506 = add nuw nsw i32 %505, 24
   br label %H5VM_limit_enc_size.exit423
 
 507:                                              ; preds = %500
-  %508 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %499
+  %508 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %499
   %509 = load i8, ptr %508, align 1, !tbaa !21
   %510 = zext i8 %509 to i32
   %511 = add nuw nsw i32 %510, 16
@@ -9851,14 +9851,14 @@ H5VM_limit_enc_size.exit414:                      ; preds = %351, %357, %363, %3
 
 513:                                              ; preds = %512
   %514 = lshr i64 %470, 8
-  %515 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %514
+  %515 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %514
   %516 = load i8, ptr %515, align 1, !tbaa !21
   %517 = zext i8 %516 to i32
   %518 = add nuw nsw i32 %517, 8
   br label %H5VM_limit_enc_size.exit423
 
 519:                                              ; preds = %512
-  %520 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %470
+  %520 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %470
   %521 = load i8, ptr %520, align 1, !tbaa !21
   %522 = zext i8 %521 to i32
   br label %H5VM_limit_enc_size.exit423
@@ -10033,14 +10033,14 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
 
 623:                                              ; preds = %622
   %624 = lshr i64 %618, 56
-  %625 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %624
   %626 = load i8, ptr %625, align 1, !tbaa !21
   %627 = zext i8 %626 to i32
   %628 = add nuw nsw i32 %627, 56
   br label %H5VM_limit_enc_size.exit432
 
 629:                                              ; preds = %622
-  %630 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %621
+  %630 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %621
   %631 = load i8, ptr %630, align 1, !tbaa !21
   %632 = zext i8 %631 to i32
   %633 = add nuw nsw i32 %632, 48
@@ -10052,14 +10052,14 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
 
 635:                                              ; preds = %634
   %636 = lshr i64 %618, 40
-  %637 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %636
   %638 = load i8, ptr %637, align 1, !tbaa !21
   %639 = zext i8 %638 to i32
   %640 = add nuw nsw i32 %639, 40
   br label %H5VM_limit_enc_size.exit432
 
 641:                                              ; preds = %634
-  %642 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %619
+  %642 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %619
   %643 = load i8, ptr %642, align 1, !tbaa !21
   %644 = zext i8 %643 to i32
   %645 = add nuw nsw i32 %644, 32
@@ -10076,14 +10076,14 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
 
 649:                                              ; preds = %648
   %650 = lshr i64 %618, 24
-  %651 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %650
+  %651 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %650
   %652 = load i8, ptr %651, align 1, !tbaa !21
   %653 = zext i8 %652 to i32
   %654 = add nuw nsw i32 %653, 24
   br label %H5VM_limit_enc_size.exit432
 
 655:                                              ; preds = %648
-  %656 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %647
+  %656 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %647
   %657 = load i8, ptr %656, align 1, !tbaa !21
   %658 = zext i8 %657 to i32
   %659 = add nuw nsw i32 %658, 16
@@ -10095,14 +10095,14 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
 
 661:                                              ; preds = %660
   %662 = lshr i64 %618, 8
-  %663 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %662
+  %663 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %662
   %664 = load i8, ptr %663, align 1, !tbaa !21
   %665 = zext i8 %664 to i32
   %666 = add nuw nsw i32 %665, 8
   br label %H5VM_limit_enc_size.exit432
 
 667:                                              ; preds = %660
-  %668 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %618
+  %668 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %618
   %669 = load i8, ptr %668, align 1, !tbaa !21
   %670 = zext i8 %669 to i32
   br label %H5VM_limit_enc_size.exit432
@@ -10132,14 +10132,14 @@ H5VM_limit_enc_size.exit432:                      ; preds = %623, %629, %635, %6
 
 682:                                              ; preds = %681
   %683 = lshr i64 %677, 56
-  %684 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %683
   %685 = load i8, ptr %684, align 1, !tbaa !21
   %686 = zext i8 %685 to i32
   %687 = add nuw nsw i32 %686, 56
   br label %H5VM_limit_enc_size.exit441
 
 688:                                              ; preds = %681
-  %689 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %680
+  %689 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %680
   %690 = load i8, ptr %689, align 1, !tbaa !21
   %691 = zext i8 %690 to i32
   %692 = add nuw nsw i32 %691, 48
@@ -10151,14 +10151,14 @@ H5VM_limit_enc_size.exit432:                      ; preds = %623, %629, %635, %6
 
 694:                                              ; preds = %693
   %695 = lshr i64 %677, 40
-  %696 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %695
+  %696 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %695
   %697 = load i8, ptr %696, align 1, !tbaa !21
   %698 = zext i8 %697 to i32
   %699 = add nuw nsw i32 %698, 40
   br label %H5VM_limit_enc_size.exit441
 
 700:                                              ; preds = %693
-  %701 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %678
+  %701 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %678
   %702 = load i8, ptr %701, align 1, !tbaa !21
   %703 = zext i8 %702 to i32
   %704 = add nuw nsw i32 %703, 32
@@ -10175,14 +10175,14 @@ H5VM_limit_enc_size.exit432:                      ; preds = %623, %629, %635, %6
 
 708:                                              ; preds = %707
   %709 = lshr i64 %677, 24
-  %710 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %709
   %711 = load i8, ptr %710, align 1, !tbaa !21
   %712 = zext i8 %711 to i32
   %713 = add nuw nsw i32 %712, 24
   br label %H5VM_limit_enc_size.exit441
 
 714:                                              ; preds = %707
-  %715 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %706
+  %715 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %706
   %716 = load i8, ptr %715, align 1, !tbaa !21
   %717 = zext i8 %716 to i32
   %718 = add nuw nsw i32 %717, 16
@@ -10194,14 +10194,14 @@ H5VM_limit_enc_size.exit432:                      ; preds = %623, %629, %635, %6
 
 720:                                              ; preds = %719
   %721 = lshr i64 %677, 8
-  %722 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %721
+  %722 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %721
   %723 = load i8, ptr %722, align 1, !tbaa !21
   %724 = zext i8 %723 to i32
   %725 = add nuw nsw i32 %724, 8
   br label %H5VM_limit_enc_size.exit441
 
 726:                                              ; preds = %719
-  %727 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %677
+  %727 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %677
   %728 = load i8, ptr %727, align 1, !tbaa !21
   %729 = zext i8 %728 to i32
   br label %H5VM_limit_enc_size.exit441
@@ -10230,14 +10230,14 @@ H5VM_limit_enc_size.exit441:                      ; preds = %682, %688, %694, %7
 
 740:                                              ; preds = %739
   %741 = lshr i64 %735, 56
-  %742 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %741
+  %742 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %741
   %743 = load i8, ptr %742, align 1, !tbaa !21
   %744 = zext i8 %743 to i32
   %745 = add nuw nsw i32 %744, 56
   br label %H5VM_limit_enc_size.exit450
 
 746:                                              ; preds = %739
-  %747 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %738
+  %747 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %738
   %748 = load i8, ptr %747, align 1, !tbaa !21
   %749 = zext i8 %748 to i32
   %750 = add nuw nsw i32 %749, 48
@@ -10249,14 +10249,14 @@ H5VM_limit_enc_size.exit441:                      ; preds = %682, %688, %694, %7
 
 752:                                              ; preds = %751
   %753 = lshr i64 %735, 40
-  %754 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %753
   %755 = load i8, ptr %754, align 1, !tbaa !21
   %756 = zext i8 %755 to i32
   %757 = add nuw nsw i32 %756, 40
   br label %H5VM_limit_enc_size.exit450
 
 758:                                              ; preds = %751
-  %759 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %736
+  %759 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %736
   %760 = load i8, ptr %759, align 1, !tbaa !21
   %761 = zext i8 %760 to i32
   %762 = add nuw nsw i32 %761, 32
@@ -10273,14 +10273,14 @@ H5VM_limit_enc_size.exit441:                      ; preds = %682, %688, %694, %7
 
 766:                                              ; preds = %765
   %767 = lshr i64 %735, 24
-  %768 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %767
+  %768 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %767
   %769 = load i8, ptr %768, align 1, !tbaa !21
   %770 = zext i8 %769 to i32
   %771 = add nuw nsw i32 %770, 24
   br label %H5VM_limit_enc_size.exit450
 
 772:                                              ; preds = %765
-  %773 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %764
+  %773 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %764
   %774 = load i8, ptr %773, align 1, !tbaa !21
   %775 = zext i8 %774 to i32
   %776 = add nuw nsw i32 %775, 16
@@ -10292,14 +10292,14 @@ H5VM_limit_enc_size.exit441:                      ; preds = %682, %688, %694, %7
 
 778:                                              ; preds = %777
   %779 = lshr i64 %735, 8
-  %780 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %779
+  %780 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %779
   %781 = load i8, ptr %780, align 1, !tbaa !21
   %782 = zext i8 %781 to i32
   %783 = add nuw nsw i32 %782, 8
   br label %H5VM_limit_enc_size.exit450
 
 784:                                              ; preds = %777
-  %785 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %735
+  %785 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %735
   %786 = load i8, ptr %785, align 1, !tbaa !21
   %787 = zext i8 %786 to i32
   br label %H5VM_limit_enc_size.exit450
@@ -10328,14 +10328,14 @@ H5VM_limit_enc_size.exit450:                      ; preds = %740, %746, %752, %7
 
 798:                                              ; preds = %797
   %799 = lshr i64 %793, 56
-  %800 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %799
+  %800 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %799
   %801 = load i8, ptr %800, align 1, !tbaa !21
   %802 = zext i8 %801 to i32
   %803 = add nuw nsw i32 %802, 56
   br label %H5VM_limit_enc_size.exit459
 
 804:                                              ; preds = %797
-  %805 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %796
+  %805 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %796
   %806 = load i8, ptr %805, align 1, !tbaa !21
   %807 = zext i8 %806 to i32
   %808 = add nuw nsw i32 %807, 48
@@ -10347,14 +10347,14 @@ H5VM_limit_enc_size.exit450:                      ; preds = %740, %746, %752, %7
 
 810:                                              ; preds = %809
   %811 = lshr i64 %793, 40
-  %812 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %811
+  %812 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %811
   %813 = load i8, ptr %812, align 1, !tbaa !21
   %814 = zext i8 %813 to i32
   %815 = add nuw nsw i32 %814, 40
   br label %H5VM_limit_enc_size.exit459
 
 816:                                              ; preds = %809
-  %817 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %794
+  %817 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %794
   %818 = load i8, ptr %817, align 1, !tbaa !21
   %819 = zext i8 %818 to i32
   %820 = add nuw nsw i32 %819, 32
@@ -10371,14 +10371,14 @@ H5VM_limit_enc_size.exit450:                      ; preds = %740, %746, %752, %7
 
 824:                                              ; preds = %823
   %825 = lshr i64 %793, 24
-  %826 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %825
+  %826 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %825
   %827 = load i8, ptr %826, align 1, !tbaa !21
   %828 = zext i8 %827 to i32
   %829 = add nuw nsw i32 %828, 24
   br label %H5VM_limit_enc_size.exit459
 
 830:                                              ; preds = %823
-  %831 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %822
+  %831 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %822
   %832 = load i8, ptr %831, align 1, !tbaa !21
   %833 = zext i8 %832 to i32
   %834 = add nuw nsw i32 %833, 16
@@ -10390,14 +10390,14 @@ H5VM_limit_enc_size.exit450:                      ; preds = %740, %746, %752, %7
 
 836:                                              ; preds = %835
   %837 = lshr i64 %793, 8
-  %838 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %837
+  %838 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %837
   %839 = load i8, ptr %838, align 1, !tbaa !21
   %840 = zext i8 %839 to i32
   %841 = add nuw nsw i32 %840, 8
   br label %H5VM_limit_enc_size.exit459
 
 842:                                              ; preds = %835
-  %843 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %793
+  %843 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %793
   %844 = load i8, ptr %843, align 1, !tbaa !21
   %845 = zext i8 %844 to i32
   br label %H5VM_limit_enc_size.exit459
@@ -10426,14 +10426,14 @@ H5VM_limit_enc_size.exit459:                      ; preds = %798, %804, %810, %8
 
 856:                                              ; preds = %855
   %857 = lshr i64 %851, 56
-  %858 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %857
+  %858 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %857
   %859 = load i8, ptr %858, align 1, !tbaa !21
   %860 = zext i8 %859 to i32
   %861 = add nuw nsw i32 %860, 56
   br label %H5VM_limit_enc_size.exit468
 
 862:                                              ; preds = %855
-  %863 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %854
+  %863 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %854
   %864 = load i8, ptr %863, align 1, !tbaa !21
   %865 = zext i8 %864 to i32
   %866 = add nuw nsw i32 %865, 48
@@ -10445,14 +10445,14 @@ H5VM_limit_enc_size.exit459:                      ; preds = %798, %804, %810, %8
 
 868:                                              ; preds = %867
   %869 = lshr i64 %851, 40
-  %870 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %869
+  %870 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %869
   %871 = load i8, ptr %870, align 1, !tbaa !21
   %872 = zext i8 %871 to i32
   %873 = add nuw nsw i32 %872, 40
   br label %H5VM_limit_enc_size.exit468
 
 874:                                              ; preds = %867
-  %875 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %852
+  %875 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %852
   %876 = load i8, ptr %875, align 1, !tbaa !21
   %877 = zext i8 %876 to i32
   %878 = add nuw nsw i32 %877, 32
@@ -10469,14 +10469,14 @@ H5VM_limit_enc_size.exit459:                      ; preds = %798, %804, %810, %8
 
 882:                                              ; preds = %881
   %883 = lshr i64 %851, 24
-  %884 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %883
+  %884 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %883
   %885 = load i8, ptr %884, align 1, !tbaa !21
   %886 = zext i8 %885 to i32
   %887 = add nuw nsw i32 %886, 24
   br label %H5VM_limit_enc_size.exit468
 
 888:                                              ; preds = %881
-  %889 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %880
+  %889 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %880
   %890 = load i8, ptr %889, align 1, !tbaa !21
   %891 = zext i8 %890 to i32
   %892 = add nuw nsw i32 %891, 16
@@ -10488,14 +10488,14 @@ H5VM_limit_enc_size.exit459:                      ; preds = %798, %804, %810, %8
 
 894:                                              ; preds = %893
   %895 = lshr i64 %851, 8
-  %896 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %895
+  %896 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %895
   %897 = load i8, ptr %896, align 1, !tbaa !21
   %898 = zext i8 %897 to i32
   %899 = add nuw nsw i32 %898, 8
   br label %H5VM_limit_enc_size.exit468
 
 900:                                              ; preds = %893
-  %901 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %851
+  %901 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %851
   %902 = load i8, ptr %901, align 1, !tbaa !21
   %903 = zext i8 %902 to i32
   br label %H5VM_limit_enc_size.exit468
@@ -12306,14 +12306,14 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
 
 18:                                               ; preds = %17
   %19 = lshr i64 %13, 56
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !21
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 56
   br label %H5VM_limit_enc_size.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %26 = load i8, ptr %25, align 1, !tbaa !21
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 48
@@ -12325,14 +12325,14 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
 
 30:                                               ; preds = %29
   %31 = lshr i64 %13, 40
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !21
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 40
   br label %H5VM_limit_enc_size.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %14
   %38 = load i8, ptr %37, align 1, !tbaa !21
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 32
@@ -12349,14 +12349,14 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
 
 44:                                               ; preds = %43
   %45 = lshr i64 %13, 24
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !21
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 24
   br label %H5VM_limit_enc_size.exit
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %52 = load i8, ptr %51, align 1, !tbaa !21
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 16
@@ -12368,7 +12368,7 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
 
 56:                                               ; preds = %55
   %57 = lshr i64 %13, 8
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !21
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 8
@@ -12376,7 +12376,7 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr noundef readonly
 
 .thread45:                                        ; preds = %11, %55
   %.032404448 = phi i64 [ %13, %55 ], [ 0, %11 ]
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.032404448
+  %62 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %.032404448
   %63 = load i8, ptr %62, align 1, !tbaa !21
   %64 = zext i8 %63 to i32
   br label %H5VM_limit_enc_size.exit

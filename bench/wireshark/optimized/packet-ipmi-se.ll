@@ -1693,7 +1693,7 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %6, i32 1
+  %9 = getelementptr %struct.anon.1, ptr @conf_params, i64 %6, i32 1
   %10 = load ptr, ptr %9, align 8
   br label %13
 
@@ -1715,7 +1715,7 @@ define internal void @rq12(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 21:                                               ; preds = %13
   %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1)
-  %23 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %6
+  %23 = getelementptr %struct.anon.1, ptr @conf_params, i64 %6
   %24 = load ptr, ptr %23, align 16
   tail call void %24(ptr noundef %22, ptr noundef %1, ptr noundef %2)
   br label %28
@@ -1744,7 +1744,7 @@ define internal void @rq13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %10, i32 1
+  %11 = getelementptr %struct.anon.1, ptr @conf_params, i64 %10, i32 1
   %12 = load ptr, ptr %11, align 8
   br label %15
 
@@ -1832,7 +1832,7 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 31:                                               ; preds = %27
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %32, i32 1
+  %33 = getelementptr %struct.anon.1, ptr @conf_params, i64 %32, i32 1
   %34 = load ptr, ptr %33, align 8
   br label %37
 
@@ -1875,7 +1875,7 @@ proto_item_set_generated.exit:                    ; preds = %37, %40, %43
   %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1)
   %54 = load i32, ptr %4, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr [16 x %struct.anon.1], ptr @conf_params, i64 0, i64 %55
+  %56 = getelementptr %struct.anon.1, ptr @conf_params, i64 %55
   %57 = load ptr, ptr %56, align 16
   call void %57(ptr noundef %53, ptr noundef %1, ptr noundef %2)
   br label %61
@@ -2272,18 +2272,18 @@ define internal void @rs2d(ptr noundef %0, ptr readnone captures(none) %1, ptr n
   %indvars.iv28 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next29, %27 ]
   %indvars30 = trunc i64 %indvars.iv28 to i32
   %12 = or disjoint i32 %indvars30, 2
-  %13 = getelementptr [2 x ptr], ptr @rs2d.tsel, i64 0, i64 %indvars.iv28
+  %13 = getelementptr ptr, ptr @rs2d.tsel, i64 %indvars.iv28
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.1187, i32 noundef %indvars30)
-  %17 = getelementptr [2 x [8 x ptr]], ptr @rs2d.bsel, i64 0, i64 %indvars.iv28
+  %17 = getelementptr [8 x ptr], ptr @rs2d.bsel, i64 %indvars.iv28
   %18 = trunc i64 %indvars.iv28 to i32
   %19 = or i32 %18, 2
   br label %20
 
 20:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %21 = getelementptr [8 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %21 = getelementptr ptr, ptr %17, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %26, label %23
@@ -2320,7 +2320,7 @@ define internal void @rq2e(ptr noundef %0, ptr readnone captures(none) %1, ptr n
 
 7:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr [49 x %struct.anon], ptr @get_sensor_info.si_tab, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr %struct.anon, ptr @get_sensor_info.si_tab, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %11, label %6
@@ -2367,7 +2367,7 @@ define internal void @rs2f(ptr noundef %0, ptr readnone captures(none) %1, ptr n
 
 7:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr [49 x %struct.anon], ptr @get_sensor_info.si_tab, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr %struct.anon, ptr @get_sensor_info.si_tab, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %11, label %6
@@ -2411,7 +2411,7 @@ define internal fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %1
 
 6:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %7 = getelementptr [49 x %struct.anon], ptr @get_sensor_info.si_tab, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr %struct.anon, ptr @get_sensor_info.si_tab, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %4
   br i1 %9, label %10, label %5
@@ -2439,7 +2439,7 @@ get_sensor_info.exit:                             ; preds = %10, %12
 
 18:                                               ; preds = %17, %get_sensor_info.exit
   %indvars.iv.i106 = phi i64 [ 0, %get_sensor_info.exit ], [ %indvars.iv.next.i107, %17 ]
-  %19 = getelementptr [13 x %struct.anon.0], ptr @get_evtype_info.eti_tab, i64 0, i64 %indvars.iv.i106
+  %19 = getelementptr %struct.anon.0, ptr @get_evtype_info.eti_tab, i64 %indvars.iv.i106
   %20 = load i32, ptr %19, align 16
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %22, label %17
@@ -2723,7 +2723,7 @@ define internal noundef zeroext i1 @ssi_10_2(ptr noundef %0, ptr noundef %1, ptr
 
 .preheader:                                       ; preds = %9, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %9 ]
-  %12 = getelementptr [13 x %struct.anon.0], ptr @get_evtype_info.eti_tab, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr %struct.anon.0, ptr @get_evtype_info.eti_tab, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 16
   %14 = icmp eq i32 %13, %5
   br i1 %14, label %15, label %11
@@ -3581,17 +3581,17 @@ define internal fastcc void @add_events(ptr noundef %0, i32 noundef range(i32 1,
   %.033 = phi i32 [ %30, %29 ], [ %1, %5 ]
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.033)
   %9 = zext i8 %8 to i32
-  %10 = getelementptr [4 x ptr], ptr @add_events.tsel, i64 0, i64 %indvars.iv35
+  %10 = getelementptr ptr, ptr @add_events.tsel, i64 %indvars.iv35
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = trunc nuw nsw i64 %indvars.iv35 to i32
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1180, ptr noundef %4, i32 noundef %13)
-  %15 = getelementptr [4 x [8 x ptr]], ptr @add_events.bsel, i64 0, i64 %indvars.iv35
+  %15 = getelementptr [8 x ptr], ptr @add_events.bsel, i64 %indvars.iv35
   br label %16
 
 16:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %17 = getelementptr [8 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %28, label %19

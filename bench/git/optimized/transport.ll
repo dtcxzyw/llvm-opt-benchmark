@@ -628,7 +628,7 @@ define internal fastcc range(i32 -1, 1) i32 @transport_color_config() unnamed_ad
 .preheader:                                       ; preds = %8, %.preheader.backedge
   %11 = phi i1 [ false, %.preheader.backedge ], [ true, %8 ]
   %.016 = phi i64 [ 1, %.preheader.backedge ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr @__const.transport_color_config.keys, i64 0, i64 %.016
+  %12 = getelementptr inbounds nuw ptr, ptr @__const.transport_color_config.keys, i64 %.016
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr @the_repository, align 8, !tbaa !27
   %15 = call i32 @repo_config_get_string(ptr noundef %14, ptr noundef %13, ptr noundef nonnull %1) #21
@@ -645,7 +645,7 @@ define internal fastcc range(i32 -1, 1) i32 @transport_color_config() unnamed_ad
   br label %.loopexit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw [2 x [75 x i8]], ptr @transport_colors, i64 0, i64 %.016
+  %21 = getelementptr inbounds nuw [75 x i8], ptr @transport_colors, i64 %.016
   %22 = call i32 @color_parse(ptr noundef nonnull %17, ptr noundef nonnull %21) #21
   %23 = icmp sgt i32 %22, -1
   %brmerge.not = and i1 %23, %11
@@ -2672,7 +2672,7 @@ define dso_local ptr @transport_anonymize_url(ptr noundef %0) local_unnamed_addr
 
 16:                                               ; preds = %.lr.ph
   %17 = zext i8 %15 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !36
   %20 = and i8 %19, 6
   %.not34 = icmp eq i8 %20, 0

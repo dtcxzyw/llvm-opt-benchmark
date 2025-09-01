@@ -20622,10 +20622,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..codec..error..UserError$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1409, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [12 x ptr], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE.158", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE.158", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -27591,10 +27591,10 @@ common.ret:                                       ; preds = %3545, %3252, %2419,
 
 switch.lookup:                                    ; preds = %1714
   %1719 = zext nneg i8 %1716 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E", i64 0, i64 %1719
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E", i64 %1719
   %switch.load = load i64, ptr %switch.gep, align 8
   %1720 = zext nneg i8 %1716 to i64
-  %switch.gep405 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.159", i64 0, i64 %1720
+  %switch.gep405 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.159", i64 %1720
   %switch.load406 = load ptr, ptr %switch.gep405, align 8
   invoke void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h15a1be303cbe19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %147, ptr noalias noundef nonnull readonly align 1 %switch.load406, i64 noundef %switch.load)
           to label %1721 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i, !noalias !1840
@@ -27805,9 +27805,9 @@ switch.lookup:                                    ; preds = %1714
 switch.lookup407:                                 ; preds = %.noexc14.i.i.i
   %1785 = load i8, ptr %1782, align 8, !range !1850, !noalias !1851, !noundef !4
   %1786 = zext nneg i8 %1785 to i64
-  %switch.gep408 = getelementptr inbounds nuw [81 x ptr], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.160", i64 0, i64 %1786
+  %switch.gep408 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.160", i64 %1786
   %1787 = zext nneg i8 %1785 to i64
-  %switch.gep410 = getelementptr inbounds nuw [81 x i64], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.161", i64 0, i64 %1787
+  %switch.gep410 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.161", i64 %1787
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i.i.i
 
 _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i.i.i: ; preds = %switch.lookup407, %1783

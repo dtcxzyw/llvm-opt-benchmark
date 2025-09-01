@@ -2953,7 +2953,7 @@ quic_create_decoders.exit.i:                      ; preds = %668, %659, %quic_ar
   store i32 0, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
-  %703 = getelementptr [5 x i16], ptr @quic_create_0rtt_decoder.tls13_ciphers, i64 0, i64 %indvars.iv.i
+  %703 = getelementptr i16, ptr @quic_create_0rtt_decoder.tls13_ciphers, i64 %indvars.iv.i
   %704 = load i16, ptr %703, align 2
   %705 = call zeroext i1 @tls_get_cipher_info(ptr noundef null, i16 noundef zeroext %704, ptr noundef nonnull %26, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br i1 %705, label %706, label %.critedge.i.i
@@ -3833,7 +3833,7 @@ proto_item_set_generated.exit161.i:               ; preds = %1147, %1144, %1138
 1190:                                             ; preds = %1173, %1167
   %1191 = getelementptr inbounds nuw i8, ptr %1168, i64 8
   %1192 = zext i1 %.0134.i to i64
-  %1193 = getelementptr [2 x %struct.quic_pp_cipher], ptr %1191, i64 0, i64 %1192
+  %1193 = getelementptr %struct.quic_pp_cipher, ptr %1191, i64 %1192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef readonly align 8 dereferenceable(24) %1193, i64 24, i1 false)
   br label %quic_get_pp_cipher.exit.i
 
@@ -3889,7 +3889,7 @@ quic_get_pp_cipher.exit.i:                        ; preds = %1190, %1177, %1163
 1222:                                             ; preds = %1218
   %1223 = getelementptr inbounds nuw i8, ptr %1213, i64 8
   %1224 = zext i1 %.0134.i to i64
-  %1225 = getelementptr [2 x %struct.quic_pp_cipher], ptr %1223, i64 0, i64 %1224
+  %1225 = getelementptr %struct.quic_pp_cipher, ptr %1223, i64 %1224
   %1226 = load ptr, ptr %1225, align 8
   call void @gcry_cipher_close(ptr noundef %1226)
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(24) %1225, i8 noundef 0, i64 noundef 24, i1 noundef false) #19
@@ -4209,7 +4209,7 @@ copy_address.exit56:                              ; preds = %copy_address.exit56
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %104 = zext nneg i8 %103 to i64
-  %105 = getelementptr [2 x i32], ptr %102, i64 0, i64 %104
+  %105 = getelementptr i32, ptr %102, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, %101
   store i32 %107, ptr %105, align 4
@@ -5468,10 +5468,10 @@ define internal fastcc noundef zeroext i1 @quic_decrypt_header(ptr noundef %0, i
 29:                                               ; preds = %20, %29
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %29 ]
   %.0301 = phi i32 [ 0, %20 ], [ %39, %29 ]
-  %30 = getelementptr [4 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %30 = getelementptr i8, ptr %9, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr [5 x i8], ptr %8, i64 0, i64 %indvars.iv.next
+  %32 = getelementptr i8, ptr %8, i64 %indvars.iv.next
   %33 = load i8, ptr %32, align 1
   %34 = xor i8 %33, %31
   %35 = zext i8 %34 to i32
@@ -7963,7 +7963,7 @@ quic_get_long_packet_type.exit.sink.split:        ; preds = %4
   %10 = and i8 %9, 3
   %switch.table.quic_max_packet_number.18.switch.table.quic_max_packet_number = select i1 %8, ptr @switch.table.quic_max_packet_number.18, ptr @switch.table.quic_max_packet_number
   %11 = zext nneg i8 %10 to i64
-  %switch.gep46 = getelementptr inbounds nuw [4 x i64], ptr %switch.table.quic_max_packet_number.18.switch.table.quic_max_packet_number, i64 0, i64 %11
+  %switch.gep46 = getelementptr inbounds nuw i64, ptr %switch.table.quic_max_packet_number.18.switch.table.quic_max_packet_number, i64 %11
   %switch.load47 = load i64, ptr %switch.gep46, align 8
   br label %quic_get_long_packet_type.exit
 
@@ -8032,12 +8032,12 @@ quic_get_long_packet_type.exit:                   ; preds = %quic_get_long_packe
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %50 = getelementptr [3 x i64], ptr %49, i64 0, i64 %.029
+  %50 = getelementptr i64, ptr %49, i64 %.029
   br label %54
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %53 = getelementptr [3 x i64], ptr %52, i64 0, i64 %.029
+  %53 = getelementptr i64, ptr %52, i64 %.029
   br label %54
 
 54:                                               ; preds = %35, %39, %51, %48

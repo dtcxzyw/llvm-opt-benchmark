@@ -1542,7 +1542,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 157:                                              ; preds = %.lr.ph.i34
   %158 = and i8 %156, 31
   %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds nuw [32 x i32], ptr @cp1252c1chars, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr @cp1252c1chars, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = trunc i32 %161 to i16
   br label %165

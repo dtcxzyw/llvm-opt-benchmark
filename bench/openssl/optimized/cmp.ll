@@ -1186,7 +1186,7 @@ handle_opts_upfront.exit:                         ; preds = %53, %._crit_edge.i
 174:                                              ; preds = %171, %168, %164
   %.0.i111.i = phi i64 [ %166, %164 ], [ 40, %168 ], [ 40, %171 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @opt_item, ptr nonnull align 1 %.023.i.i, i64 %.0.i111.i, i1 false)
-  %175 = getelementptr inbounds nuw [41 x i8], ptr @opt_item, i64 0, i64 %.0.i111.i
+  %175 = getelementptr inbounds nuw i8, ptr @opt_item, i64 %.0.i111.i
   store i8 0, ptr %175, align 1, !tbaa !9
   br i1 %152, label %.lr.ph.preheader.i.i, label %prev_item.exit.thread.i
 
@@ -1405,14 +1405,14 @@ conf_get_string.exit.i:                           ; preds = %216, %204
 262:                                              ; preds = %257
   %263 = trunc nsw i64 %.2117.i to i32
   %264 = zext i32 %spec.select100.i to i64
-  %265 = getelementptr inbounds nuw [121 x %union.varref], ptr @cmp_vars, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !9
   store i32 %263, ptr %266, align 4, !tbaa !10
   br label %279
 
 267:                                              ; preds = %256
   %268 = zext i32 %spec.select100.i to i64
-  %269 = getelementptr inbounds nuw [121 x %union.varref], ptr @cmp_vars, i64 0, i64 %268
+  %269 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !9
   store i64 %.2117.i, ptr %270, align 8, !tbaa !33
   br label %279
@@ -1430,7 +1430,7 @@ conf_get_string.exit.i:                           ; preds = %216, %204
 275:                                              ; preds = %272, %271
   %.478.i = phi ptr [ %spec.store.select.i, %272 ], [ null, %271 ]
   %276 = zext i32 %spec.select100.i to i64
-  %277 = getelementptr inbounds nuw [121 x %union.varref], ptr @cmp_vars, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw %union.varref, ptr @cmp_vars, i64 %276
   %278 = load ptr, ptr %277, align 8, !tbaa !9
   store ptr %.478.i, ptr %278, align 8, !tbaa !4
   br label %279
@@ -3070,7 +3070,7 @@ define internal fastcc noundef ptr @prev_item(ptr noundef readnone captures(addr
 28:                                               ; preds = %25, %22, %18
   %.0 = phi i64 [ %20, %18 ], [ 40, %22 ], [ 40, %25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @opt_item, ptr align 1 %.023, i64 %.0, i1 false)
-  %29 = getelementptr inbounds nuw [41 x i8], ptr @opt_item, i64 0, i64 %.0
+  %29 = getelementptr inbounds nuw i8, ptr @opt_item, i64 %.0
   store i8 0, ptr %29, align 1, !tbaa !9
   br i1 %6, label %.lr.ph.preheader, label %.loopexit
 

@@ -557,7 +557,7 @@ zend_string_alloc.exit:                           ; preds = %65
   store i64 %70, ptr %76, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 1 %66, i64 %70, i1 false)
-  %78 = getelementptr inbounds nuw [1 x i8], ptr %77, i64 0, i64 %70
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %70
   store i8 0, ptr %78, align 1, !tbaa !20
   %79 = tail call i64 @zend_dirname(ptr noundef nonnull %77, i64 noundef %70) #20
   store i64 %79, ptr %76, align 8, !tbaa !25
@@ -1339,7 +1339,7 @@ zend_string_alloc.exit:                           ; preds = %1
   store i64 %9, ptr %15, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %6, i64 %9, i1 false)
-  %17 = getelementptr inbounds nuw [1 x i8], ptr %16, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
   store i8 0, ptr %17, align 1, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %19 = load i8, ptr %18, align 1, !tbaa !20
@@ -1558,7 +1558,7 @@ zend_string_alloc.exit.i:                         ; preds = %36
   store i64 %44, ptr %50, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 1 %41, i64 %44, i1 false)
-  %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %44
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %44
   store i8 0, ptr %52, align 1, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %54 = load i8, ptr %53, align 1, !tbaa !20
@@ -4407,7 +4407,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %74
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 208
   %102 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !107
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [6 x ptr], ptr %101, i64 0, i64 %103
+  %104 = getelementptr inbounds ptr, ptr %101, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !160
   %.not167 = icmp eq ptr %105, null
   br i1 %.not167, label %117, label %106
@@ -4454,7 +4454,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %74
   %127 = load ptr, ptr %126, align 8, !tbaa !151
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 208
   %129 = sext i32 %124 to i64
-  %130 = getelementptr inbounds [6 x ptr], ptr %128, i64 0, i64 %129
+  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !160
   %.not166 = icmp eq ptr %131, null
   br i1 %.not166, label %147, label %132
@@ -4479,7 +4479,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %74
   %143 = load ptr, ptr %142, align 8, !tbaa !151
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 208
   %145 = sext i32 %.pre to i64
-  %146 = getelementptr inbounds [6 x ptr], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds ptr, ptr %144, i64 %145
   store ptr null, ptr %146, align 8, !tbaa !176
   br label %147
 
@@ -4500,7 +4500,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %74
   %157 = load ptr, ptr %156, align 8, !tbaa !151
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 208
   %159 = sext i32 %154 to i64
-  %160 = getelementptr inbounds [6 x ptr], ptr %158, i64 0, i64 %159
+  %160 = getelementptr inbounds ptr, ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !160
   %.not165 = icmp eq ptr %161, null
   br i1 %.not165, label %166, label %162
@@ -4676,7 +4676,7 @@ zend_revert_pass_two.exit:                        ; preds = %._crit_edge.i, %74
   %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv261
   %241 = load ptr, ptr %240, align 8, !tbaa !151
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 208
-  %243 = getelementptr inbounds [6 x ptr], ptr %242, i64 0, i64 %237
+  %243 = getelementptr inbounds ptr, ptr %242, i64 %237
   %244 = load ptr, ptr %243, align 8, !tbaa !160
   %.not.i173 = icmp eq ptr %244, null
   br i1 %.not.i173, label %zend_adjust_fcall_stack_size_graph.exit, label %245
@@ -4778,7 +4778,7 @@ zend_adjust_fcall_stack_size_graph.exit:          ; preds = %277, %238, %245
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 208
   %291 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !107
   %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds [6 x ptr], ptr %290, i64 0, i64 %292
+  %293 = getelementptr inbounds ptr, ptr %290, i64 %292
   %294 = load ptr, ptr %293, align 8, !tbaa !160
   %.not158 = icmp eq ptr %294, null
   br i1 %.not158, label %526, label %295
@@ -5234,7 +5234,7 @@ zend_redo_pass_two_ex.exit:                       ; preds = %.thread114.i, %336
   %534 = getelementptr inbounds nuw ptr, ptr %283, i64 %indvars.iv267
   %535 = load ptr, ptr %534, align 8, !tbaa !151
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 208
-  %537 = getelementptr inbounds [6 x ptr], ptr %536, i64 0, i64 %285
+  %537 = getelementptr inbounds ptr, ptr %536, i64 %285
   store ptr null, ptr %537, align 8, !tbaa !176
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
@@ -5365,7 +5365,7 @@ zend_hash_find_ptr.exit:                          ; preds = %576, %579
 .lr.ph.i181:                                      ; preds = %._crit_edge229, %598
   %594 = phi i32 [ %599, %598 ], [ %592, %._crit_edge229 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %598 ], [ 0, %._crit_edge229 ]
-  %595 = getelementptr inbounds nuw [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %indvars.iv.i
+  %595 = getelementptr inbounds nuw ptr, ptr @zend_optimizer_registered_passes, i64 %indvars.iv.i
   %596 = load ptr, ptr %595, align 8, !tbaa !160
   %.not.i182 = icmp eq ptr %596, null
   br i1 %.not.i182, label %598, label %597
@@ -5642,7 +5642,7 @@ define internal zeroext i1 @needs_live_range(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !107
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [6 x ptr], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !160
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !210
@@ -6098,7 +6098,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @zend_optimizer_registe
   %6 = add nsw i32 %3, 1
   store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8, !tbaa !208
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr @zend_optimizer_registered_passes, i64 %7
   store ptr %0, ptr %8, align 8, !tbaa !160
   br label %9
 
@@ -6109,9 +6109,9 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @zend_optimizer_registe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @zend_optimizer_unregister_pass(i32 noundef %0) local_unnamed_addr #13 {
-  %2 = add nsw i32 %0, -1
-  %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %3
+  %2 = sext i32 %0 to i64
+  %3 = getelementptr ptr, ptr @zend_optimizer_registered_passes, i64 %2
+  %4 = getelementptr i8, ptr %3, i64 -8
   store ptr null, ptr %4, align 8, !tbaa !160
   ret void
 }

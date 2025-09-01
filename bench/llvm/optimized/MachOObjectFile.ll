@@ -20266,7 +20266,7 @@ _ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_
 
 switch.lookup:                                    ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
@@ -20399,7 +20399,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object15MachOObjectFile26getPlain
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
 
@@ -20434,7 +20434,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15MachOObjectFile20getRelocationS
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i
 
@@ -20515,7 +20515,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15MachOObjectFile23getAnyRelocati
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
@@ -20690,7 +20690,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile21getRelocationTypeNameE
   br i1 %13, label %_ZN4llvm9StringRefC2EPKc.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table, i64 0, i64 %7
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table, i64 %7
   %16 = load ptr, ptr %15, align 8, !tbaa !189
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #32
   br label %_ZN4llvm9StringRefC2EPKc.exit
@@ -20700,7 +20700,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile21getRelocationTypeNameE
   br i1 %19, label %_ZN4llvm9StringRefC2EPKc.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_0, i64 0, i64 %7
+  %21 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_0, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !189
   %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #32
   br label %_ZN4llvm9StringRefC2EPKc.exit
@@ -20710,7 +20710,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile21getRelocationTypeNameE
   br i1 %25, label %_ZN4llvm9StringRefC2EPKc.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_1, i64 0, i64 %7
+  %27 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_1, i64 %7
   %28 = load ptr, ptr %27, align 8, !tbaa !189
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #32
   br label %_ZN4llvm9StringRefC2EPKc.exit
@@ -20720,7 +20720,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile21getRelocationTypeNameE
   br i1 %.not, label %31, label %_ZN4llvm9StringRefC2EPKc.exit
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_2, i64 0, i64 %7
+  %32 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_2, i64 %7
   %33 = load ptr, ptr %32, align 8, !tbaa !189
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #32
   br label %_ZN4llvm9StringRefC2EPKc.exit
@@ -20730,7 +20730,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile21getRelocationTypeNameE
   br i1 %36, label %_ZN4llvm9StringRefC2EPKc.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_3, i64 0, i64 %7
+  %38 = getelementptr inbounds nuw ptr, ptr @_ZZNK4llvm6object15MachOObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEEE5Table_3, i64 %7
   %39 = load ptr, ptr %38, align 8, !tbaa !189
   %40 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #32
   br label %_ZN4llvm9StringRefC2EPKc.exit
@@ -20800,7 +20800,7 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZNK4llvm6object15MachOObjec
 
 switch.lookup:                                    ; preds = %9
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit.i
 
@@ -20841,7 +20841,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm6object15MachOObjectFile2
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile22getAnyRelocationLengthERKNS_5MachO19any_relocation_infoE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
 
@@ -26759,7 +26759,7 @@ _ZN4llvm5ErrorD2Ev.exit48:                        ; preds = %68
 
 switch.lookup:                                    ; preds = %68
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm6object15MachOObjectFile26getDyldChainedFixupTargetsEv, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object15MachOObjectFile26getDyldChainedFixupTargetsEv, i64 %80
   %switch.load = load i64, ptr %switch.gep, align 8
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !3533
@@ -26927,9 +26927,9 @@ _ZL8getArrayIjLj1EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ;
   %.0.val42 = load i64, ptr %.0165, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.0.val42, ptr %6, align 8
-  %switch.tableidx221 = add i32 %.val41, -11
-  %143 = icmp ult i32 %switch.tableidx221, 10
-  %switch.maskindex = trunc i32 %switch.tableidx221 to i16
+  %switch.tableidx220 = add i32 %.val41, -11
+  %143 = icmp ult i32 %switch.tableidx220, 10
+  %switch.maskindex = trunc i32 %switch.tableidx220 to i16
   %switch.shifted = lshr i16 683, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %143, i1 %switch.lobit, i1 false
@@ -26973,9 +26973,9 @@ _ZL8getArrayIjLj2EESt5arrayIT_XT0_EERKN4llvm6object15MachOObjectFileEPKv.exit: ;
   %.val43 = load i32, ptr %121, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0165, i64 16, i1 false)
-  %switch.tableidx224 = add i32 %.val43, -11
-  %156 = icmp ult i32 %switch.tableidx224, 10
-  %switch.maskindex226 = trunc i32 %switch.tableidx224 to i16
+  %switch.tableidx223 = add i32 %.val43, -11
+  %156 = icmp ult i32 %switch.tableidx223, 10
+  %switch.maskindex226 = trunc i32 %switch.tableidx223 to i16
   %switch.shifted227 = lshr i16 683, %switch.maskindex226
   %switch.lobit228 = trunc i16 %switch.shifted227 to i1
   %or.cond229 = select i1 %156, i1 %switch.lobit228, i1 false
@@ -30739,10 +30739,10 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object16MachORebaseEntry8typeNameEv(ptr
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv.23, i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv.23, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %7
 
@@ -34347,10 +34347,10 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14MachOBindEntry8typeNameEv(ptr n
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv.23, i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14MachOBindEntry8typeNameEv.23, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %7
 
@@ -36083,7 +36083,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZNK4llvm6object15MachOObjectFile2
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK4llvm6object15MachOObjectFile21getAnyRelocationPCRelERKNS_5MachO19any_relocation_infoE, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile21getAnyRelocationPCRelERKNS_5MachO19any_relocation_infoE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23getPlainRelocationPCRelRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_relocation_infoE.exit
 

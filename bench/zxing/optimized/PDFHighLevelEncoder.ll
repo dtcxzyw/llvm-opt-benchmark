@@ -997,7 +997,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit75:         ; preds = %58, %60
 
 _ZN5ZXing6Pdf417L7IsMixedEi.exit:                 ; preds = %63
   %65 = zext nneg i32 %35 to i64
-  %66 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !22
   %.not141 = icmp eq i8 %67, -1
   %.pre155 = load ptr, ptr %29, align 8, !tbaa !13
@@ -1059,7 +1059,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit81:         ; preds = %._ZNSt6vectorIiSaIi
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %81 = sext i32 %35 to i64
-  %82 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %81
+  %82 = getelementptr inbounds i8, ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !22
   %84 = sext i8 %83 to i32
   store i32 %84, ptr %11, align 4, !tbaa !11
@@ -1202,7 +1202,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit93:         ; preds = %117, %119
 
 _ZN5ZXing6Pdf417L7IsMixedEi.exit94:               ; preds = %124
   %126 = zext nneg i32 %35 to i64
-  %127 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !22
   %.not140 = icmp eq i8 %128, -1
   %.pre147 = load ptr, ptr %29, align 8, !tbaa !13
@@ -1264,7 +1264,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit100:        ; preds = %._ZNSt6vectorIiSaIi
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %142 = sext i32 %35 to i64
-  %143 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %142
+  %143 = getelementptr inbounds i8, ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !22
   %145 = sext i8 %144 to i32
   store i32 %145, ptr %17, align 4, !tbaa !11
@@ -1303,7 +1303,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit103:        ; preds = %146, %148
 
 _ZN5ZXing6Pdf417L7IsMixedEi.exit104:              ; preds = %153
   %155 = zext nneg i32 %35 to i64
-  %156 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !22
   %.not138 = icmp eq i8 %157, -1
   br i1 %.not138, label %_ZN5ZXing6Pdf417L7IsMixedEi.exit104.thread, label %158
@@ -1419,7 +1419,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit113:        ; preds = %185, %187
 
 _ZN5ZXing6Pdf417L13IsPunctuationEi.exit:          ; preds = %193
   %198 = zext nneg i32 %196 to i64
-  %199 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !22
   %.not139 = icmp eq i8 %200, -1
   br i1 %.not139, label %.thread, label %201
@@ -1481,7 +1481,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit119:        ; preds = %._ZNSt6vectorIiSaIi
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %217 = sext i32 %35 to i64
-  %218 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %217
+  %218 = getelementptr inbounds i8, ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 %217
   %219 = load i8, ptr %218, align 1, !tbaa !22
   %220 = sext i8 %219 to i32
   store i32 %220, ptr %23, align 4, !tbaa !11
@@ -1525,7 +1525,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit122:        ; preds = %221, %223
 
 _ZN5ZXing6Pdf417L13IsPunctuationEi.exit123:       ; preds = %228
   %230 = zext nneg i32 %35 to i64
-  %231 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 %230
   %232 = load i8, ptr %231, align 1, !tbaa !22
   %.not142 = icmp eq i8 %232, -1
   %.pre161 = load ptr, ptr %29, align 8, !tbaa !13
@@ -1877,7 +1877,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %31, %29, %27, %25
   %.155 = phi i64 [ %45, %.preheader51 ], [ %41, %37 ]
   %42 = srem i64 %.155, 900
   %43 = trunc nsw i64 %42 to i32
-  %44 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv62
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv62
   store i32 %43, ptr %44, align 4, !tbaa !11
   %45 = sdiv i64 %.155, 900
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -1893,7 +1893,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %31, %29, %27, %25
 
 .preheader:                                       ; preds = %.preheader51, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit48
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit48 ], [ 4, %.preheader51 ]
-  %50 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv66
+  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv66
   %51 = load ptr, ptr %34, align 8, !tbaa !13
   %52 = load ptr, ptr %35, align 8, !tbaa !16
   %.not.i47 = icmp eq ptr %51, %52

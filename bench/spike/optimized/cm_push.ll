@@ -234,14 +234,14 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %51
 63:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
   %64 = add i64 %.03459, -4
   %65 = load ptr, ptr %41, align 8, !tbaa !19
-  %66 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !3
   %68 = trunc i64 %67 to i32
   %69 = and i8 %.sroa.01.061, -32
   %70 = lshr i64 %64, 12
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 41104
   %72 = and i64 %70, 255
-  %73 = getelementptr inbounds nuw [256 x i64], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = icmp eq i64 %74, %70
   %76 = and i64 %.03459, 3
@@ -251,7 +251,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %51
 
 79:                                               ; preds = %63
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 32912
-  %81 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %80, i64 0, i64 %72
+  %81 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %80, i64 %72
   %82 = load ptr, ptr %81, align 8, !tbaa !144
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %64
   store i32 %68, ptr %83, align 4
@@ -469,13 +469,13 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %52
 64:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
   %65 = add i64 %.03458, -8
   %66 = load ptr, ptr %44, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = and i8 %.sroa.01.060, -32
   %70 = lshr i64 %65, 12
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 41104
   %72 = and i64 %70, 255
-  %73 = getelementptr inbounds nuw [256 x i64], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = icmp eq i64 %74, %70
   %76 = and i64 %.03458, 7
@@ -485,7 +485,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %52
 
 79:                                               ; preds = %64
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 32912
-  %81 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %80, i64 0, i64 %72
+  %81 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %80, i64 %72
   %82 = load ptr, ptr %81, align 8, !tbaa !144
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %65
   store i64 %68, ptr %83, align 8
@@ -686,14 +686,14 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %54
 66:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
   %67 = add i64 %.03962, -4
   %68 = load ptr, ptr %42, align 8, !tbaa !19
-  %69 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = trunc i64 %70 to i32
   %72 = and i8 %.sroa.03.064, -32
   %73 = lshr i64 %67, 12
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 41104
   %75 = and i64 %73, 255
-  %76 = getelementptr inbounds nuw [256 x i64], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr %74, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !3
   %78 = icmp eq i64 %77, %73
   %79 = and i64 %.03962, 3
@@ -703,7 +703,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %54
 
 82:                                               ; preds = %66
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 32912
-  %84 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %83, i64 0, i64 %75
+  %84 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %83, i64 %75
   %85 = load ptr, ptr %84, align 8, !tbaa !144
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %67
   store i32 %71, ptr %86, align 4
@@ -1001,13 +1001,13 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %55
 67:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
   %68 = add i64 %.03961, -8
   %69 = load ptr, ptr %45, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = and i8 %.sroa.03.063, -32
   %73 = lshr i64 %68, 12
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 41104
   %75 = and i64 %73, 255
-  %76 = getelementptr inbounds nuw [256 x i64], ptr %74, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr %74, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !3
   %78 = icmp eq i64 %77, %73
   %79 = and i64 %.03961, 7
@@ -1017,7 +1017,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %55
 
 82:                                               ; preds = %67
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 32912
-  %84 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %83, i64 0, i64 %75
+  %84 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %83, i64 %75
   %85 = load ptr, ptr %84, align 8, !tbaa !144
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %68
   store i64 %71, ptr %86, align 8
@@ -1225,14 +1225,14 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %51
 
 71:                                               ; preds = %63
   %72 = add i64 %.03963, -4
-  %73 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = trunc i64 %74 to i32
   %76 = and i8 %.sroa.01.065, -32
   %77 = lshr i64 %72, 12
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 41104
   %79 = and i64 %77, 255
-  %80 = getelementptr inbounds nuw [256 x i64], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %78, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !3
   %82 = icmp eq i64 %81, %77
   %83 = and i64 %.03963, 3
@@ -1242,7 +1242,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %51
 
 86:                                               ; preds = %71
   %87 = getelementptr inbounds nuw i8, ptr %64, i64 32912
-  %88 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %87, i64 0, i64 %79
+  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %79
   %89 = load ptr, ptr %88, align 8, !tbaa !144
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %72
   store i32 %75, ptr %90, align 4
@@ -1461,13 +1461,13 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %52
 
 72:                                               ; preds = %64
   %73 = add i64 %.03962, -8
-  %74 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   %75 = load i64, ptr %74, align 8, !tbaa !3
   %76 = and i8 %.sroa.01.064, -32
   %77 = lshr i64 %73, 12
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 41104
   %79 = and i64 %77, 255
-  %80 = getelementptr inbounds nuw [256 x i64], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %78, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !3
   %82 = icmp eq i64 %81, %77
   %83 = and i64 %.03962, 7
@@ -1477,7 +1477,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %52
 
 86:                                               ; preds = %72
   %87 = getelementptr inbounds nuw i8, ptr %65, i64 32912
-  %88 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %87, i64 0, i64 %79
+  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %79
   %89 = load ptr, ptr %88, align 8, !tbaa !144
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %73
   store i64 %75, ptr %90, align 8
@@ -1694,14 +1694,14 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %54
 
 74:                                               ; preds = %66
   %75 = add i64 %.04266, -4
-  %76 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %77 = load i64, ptr %76, align 8, !tbaa !3
   %78 = trunc i64 %77 to i32
   %79 = and i8 %.sroa.03.068, -32
   %80 = lshr i64 %75, 12
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 41104
   %82 = and i64 %80, 255
-  %83 = getelementptr inbounds nuw [256 x i64], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr %81, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !3
   %85 = icmp eq i64 %84, %80
   %86 = and i64 %.04266, 3
@@ -1711,7 +1711,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %54
 
 89:                                               ; preds = %74
   %90 = getelementptr inbounds nuw i8, ptr %67, i64 32912
-  %91 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %90, i64 0, i64 %82
+  %91 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %90, i64 %82
   %92 = load ptr, ptr %91, align 8, !tbaa !144
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %75
   store i32 %78, ptr %93, align 4
@@ -1939,13 +1939,13 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %55
 
 75:                                               ; preds = %67
   %76 = add i64 %.04265, -8
-  %77 = getelementptr inbounds nuw [32 x i64], ptr %35, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %78 = load i64, ptr %77, align 8, !tbaa !3
   %79 = and i8 %.sroa.03.067, -32
   %80 = lshr i64 %76, 12
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 41104
   %82 = and i64 %80, 255
-  %83 = getelementptr inbounds nuw [256 x i64], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr %81, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !3
   %85 = icmp eq i64 %84, %80
   %86 = and i64 %.04265, 7
@@ -1955,7 +1955,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %55
 
 89:                                               ; preds = %75
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 32912
-  %91 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %90, i64 0, i64 %82
+  %91 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %90, i64 %82
   %92 = load ptr, ptr %91, align 8, !tbaa !144
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %76
   store i64 %78, ptr %93, align 8

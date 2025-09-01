@@ -466,7 +466,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .preheader142.i:                                  ; preds = %.split149.i, %.split152.i
   %indvars.iv203.i = phi i64 [ 0, %.split152.i ], [ %indvars.iv.next204.i, %.split149.i ]
-  %163 = getelementptr inbounds nuw [6 x [6 x [4 x [2 x i32]]]], ptr %7, i64 0, i64 %indvars.iv203.i
+  %163 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %indvars.iv203.i
   %164 = trunc i64 %indvars.iv203.i to i32
   %165 = or i32 %164, 600
   %166 = add i32 %165, %161
@@ -522,7 +522,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %192 = trunc nuw nsw i64 %indvars.iv243.i to i32
   %193 = urem i32 %192, 6
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw [6 x [6 x [4 x [2 x i32]]]], ptr %7, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %194
   br label %196
 
 196:                                              ; preds = %.critedge.us.us.us.i44, %.lr.ph168.us.us.i
@@ -556,7 +556,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv238.i = phi i64 [ 0, %.preheader141.us.us.us.i ], [ %indvars.iv.next239.i, %222 ]
   %.0110157.us.us.us.i = phi float [ 0.000000e+00, %.preheader141.us.us.us.i ], [ %.1.us.us.us.i47, %222 ]
   %.0111156.us.us.us.i = phi i32 [ 0, %.preheader141.us.us.us.i ], [ %.1112.us.us.us.i, %222 ]
-  %207 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %225, i64 0, i64 %indvars.iv238.i
+  %207 = getelementptr inbounds nuw [2 x i32], ptr %225, i64 %indvars.iv238.i
   %208 = load i32, ptr %207, align 8, !tbaa !67
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %210 = load i32, ptr %209, align 4, !tbaa !67
@@ -587,7 +587,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .preheader141.us.us.us.i:                         ; preds = %196
   %223 = urem i32 %.0115166.us.us.us.i, 6
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %195, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %195, i64 %224
   br label %206
 
 ._crit_edge.split.us.us.us.i46:                   ; preds = %.critedge.us.us.us.i44
@@ -606,7 +606,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %231 = trunc i64 %indvars.iv233.i to i32
   %232 = urem i32 %231, 6
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [6 x [6 x [4 x [2 x i32]]]], ptr %7, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %7, i64 %233
   %235 = add i32 %231, 600
   %236 = add nsw i32 %161, %235
   %237 = srem i32 %236, 6
@@ -646,7 +646,7 @@ FCxtrans.exit140.us.i:                            ; preds = %.lr.ph162.us.i, %26
   %.reass70 = add i32 %invariant.op69, %255
   %256 = srem i32 %.reass70, 6
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds [6 x i8], ptr %247, i64 0, i64 %257
+  %258 = getelementptr inbounds i8, ptr %247, i64 %257
   %259 = load i8, ptr %258, align 1, !tbaa !68
   %260 = icmp eq i8 %307, %259
   br i1 %260, label %261, label %264
@@ -668,7 +668,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %274
   %.reass = add i32 %invariant.op, %265
   %266 = srem i32 %.reass, 6
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds [6 x i8], ptr %243, i64 0, i64 %267
+  %268 = getelementptr inbounds i8, ptr %243, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !68
   %270 = icmp eq i8 %307, %269
   br i1 %270, label %271, label %274
@@ -699,7 +699,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %274
   %indvars.iv219.i = phi i64 [ 0, %.preheader141.us189.i ], [ %indvars.iv.next220.i, %296 ]
   %.0110157.us185.i = phi float [ 0.000000e+00, %.preheader141.us189.i ], [ %.1.us188.i, %296 ]
   %.0111156.us186.i = phi i32 [ 0, %.preheader141.us189.i ], [ %.1112.us187.i, %296 ]
-  %281 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %301, i64 0, i64 %indvars.iv219.i
+  %281 = getelementptr inbounds nuw [2 x i32], ptr %301, i64 %indvars.iv219.i
   %282 = load i32, ptr %281, align 8, !tbaa !67
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %284 = load i32, ptr %283, align 4, !tbaa !67
@@ -736,7 +736,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %274
   %298 = trunc nuw nsw i64 %indvars.iv229.i to i32
   %299 = urem i32 %298, 6
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %234, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %234, i64 %300
   br label %280
 
 .lr.ph.us.i40:                                    ; preds = %254
@@ -745,7 +745,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %274
   %303 = add nsw i32 %162, %302
   %304 = srem i32 %303, 6
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds [6 x i8], ptr %239, i64 0, i64 %305
+  %306 = getelementptr inbounds i8, ptr %239, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !68
   %308 = sub nsw i64 0, %indvars.iv229.i
   %invariant.op = add i32 %302, %162
@@ -772,9 +772,9 @@ FCxtrans.exit.i:                                  ; preds = %.split.i, %.prehead
   %311 = add i32 %310, %162
   %312 = srem i32 %311, 6
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds [6 x i8], ptr %169, i64 0, i64 %313
+  %314 = getelementptr inbounds i8, ptr %169, i64 %313
   %315 = load i8, ptr %314, align 1, !tbaa !68
-  %316 = getelementptr inbounds nuw [6 x [4 x [2 x i32]]], ptr %163, i64 0, i64 %indvars.iv199.i
+  %316 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %163, i64 %indvars.iv199.i
   %317 = add i32 %invariant.op150.i, %309
   br label %FCxtrans.exit128.i
 
@@ -786,7 +786,7 @@ FCxtrans.exit.i:                                  ; preds = %.split.i, %.prehead
 FCxtrans.exit128.i:                               ; preds = %335, %FCxtrans.exit.i
   %indvars.iv.i35 = phi i64 [ 0, %FCxtrans.exit.i ], [ %indvars.iv.next.i36, %335 ]
   %.0113143.i = phi i32 [ 0, %FCxtrans.exit.i ], [ %.1114.i, %335 ]
-  %318 = getelementptr inbounds nuw [20 x [2 x i32]], ptr @__const.process_xtrans.search, i64 0, i64 %indvars.iv.i35
+  %318 = getelementptr inbounds nuw [2 x i32], ptr @__const.process_xtrans.search, i64 %indvars.iv.i35
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4, !tbaa !67
   %321 = load i32, ptr %318, align 8, !tbaa !67
@@ -797,14 +797,14 @@ FCxtrans.exit128.i:                               ; preds = %335, %FCxtrans.exit
   %324 = getelementptr inbounds [6 x i8], ptr %159, i64 %323
   %325 = srem i32 %.reass146.i, 6
   %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds [6 x i8], ptr %324, i64 0, i64 %326
+  %327 = getelementptr inbounds i8, ptr %324, i64 %326
   %328 = load i8, ptr %327, align 1, !tbaa !68
   %329 = icmp eq i8 %315, %328
   br i1 %329, label %330, label %335
 
 330:                                              ; preds = %FCxtrans.exit128.i
   %331 = sext i32 %.0113143.i to i64
-  %332 = getelementptr inbounds [4 x [2 x i32]], ptr %316, i64 0, i64 %331
+  %332 = getelementptr inbounds [2 x i32], ptr %316, i64 %331
   store i32 %321, ptr %332, align 8, !tbaa !67
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
   store i32 %320, ptr %333, align 4, !tbaa !67
@@ -1476,7 +1476,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [6 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

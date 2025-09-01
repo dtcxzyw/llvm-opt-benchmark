@@ -1135,10 +1135,10 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 219
   %216 = load i8, ptr %215, align 1, !range !70, !alias.scope !71, !noundef !3
   %217 = zext nneg i8 %216 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 0, i64 %217
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %217
   %switch.load = load i64, ptr %switch.gep, align 8
   %218 = zext nneg i8 %216 to i64
-  %switch.gep802 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 0, i64 %218
+  %switch.gep802 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %218
   %switch.load803 = load ptr, ptr %switch.gep802, align 8
   %219 = getelementptr inbounds nuw i8, ptr %switch.load803, i64 %switch.load
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %switch.load803, ptr noundef nonnull %219, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)
@@ -3155,10 +3155,10 @@ switch.lookup:                                    ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 219
   %6 = load i8, ptr %5, align 1, !range !70, !noundef !3
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep7 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 0, i64 %8
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 %8
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %switch.load8, i64 %switch.load
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %switch.load8, ptr noundef nonnull %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)

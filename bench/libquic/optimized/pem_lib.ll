@@ -98,7 +98,7 @@ define hidden void @PEM_dek_info(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %19 = load i8, ptr %18, align 1, !tbaa !6
   %20 = lshr i8 %19, 4
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @PEM_dek_info.map, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @PEM_dek_info.map, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !6
   %24 = shl nuw nsw i64 %.026, 1
   %25 = getelementptr i8, ptr %16, i64 %24
@@ -106,7 +106,7 @@ define hidden void @PEM_dek_info(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %26 = load i8, ptr %18, align 1, !tbaa !6
   %27 = and i8 %26, 15
   %28 = zext nneg i8 %27 to i64
-  %29 = getelementptr inbounds nuw [17 x i8], ptr @PEM_dek_info.map, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @PEM_dek_info.map, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !6
   %31 = getelementptr i8, ptr %25, i64 1
   store i8 %30, ptr %31, align 1, !tbaa !6
@@ -371,7 +371,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   tail call void @BUF_MEM_free(ptr noundef %11) #12
   tail call void @BUF_MEM_free(ptr noundef %12) #12
   tail call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 614) #12
-  br label %188
+  br label %184
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 254
@@ -386,12 +386,12 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 
 ._crit_edge:                                      ; preds = %.backedge, %17
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 110, ptr noundef nonnull @.str.8, i32 noundef 623) #12
-  br label %187
+  br label %183
 
 .preheader142:                                    ; preds = %.preheader142.backedge, %.preheader142.lr.ph
   %.0111145 = phi i32 [ %19, %.preheader142.lr.ph ], [ %.0111145.be, %.preheader142.backedge ]
   %22 = zext nneg i32 %.0111145 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !6
   %25 = icmp slt i8 %24, 33
   br i1 %25, label %26, label %.critedge
@@ -402,339 +402,335 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br i1 %28, label %.preheader142.backedge, label %.critedge
 
 .preheader142.backedge:                           ; preds = %26, %.backedge
-  %.0111145.be = phi i32 [ %27, %26 ], [ %42, %.backedge ]
+  %.0111145.be = phi i32 [ %27, %26 ], [ %40, %.backedge ]
   br label %.preheader142, !llvm.loop !18
 
 .critedge:                                        ; preds = %26, %.preheader142
   %.0111.lcssa = phi i32 [ -1, %26 ], [ %.0111145, %.preheader142 ]
-  %29 = add nsw i32 %.0111.lcssa, 1
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %30
+  %29 = sext i32 %.0111.lcssa to i64
+  %30 = getelementptr i8, ptr %9, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 1
   store i8 10, ptr %31, align 1, !tbaa !6
-  %32 = add nsw i32 %.0111.lcssa, 2
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !6
+  %32 = getelementptr i8, ptr %30, i64 2
+  store i8 0, ptr %32, align 1, !tbaa !6
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %9, ptr noundef nonnull dereferenceable(11) @.str.11, i64 11)
-  %35 = icmp eq i32 %bcmp, 0
-  br i1 %35, label %36, label %.backedge
+  %33 = icmp eq i32 %bcmp, 0
+  br i1 %33, label %34, label %.backedge
 
-36:                                               ; preds = %.critedge
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #13
-  %38 = shl i64 %37, 32
-  %sext = add i64 %38, 21474836480
-  %39 = ashr exact i64 %sext, 32
-  %40 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %39
-  %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #13
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %44, label %.backedge
+34:                                               ; preds = %.critedge
+  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #13
+  %36 = shl i64 %35, 32
+  %sext = add i64 %36, 21474836480
+  %37 = ashr exact i64 %sext, 32
+  %38 = getelementptr inbounds i8, ptr %9, i64 %37
+  %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #13
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %42, label %.backedge
 
-.backedge:                                        ; preds = %36, %.critedge
-  %42 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
-  %43 = icmp slt i32 %42, 1
-  br i1 %43, label %._crit_edge, label %.preheader142.backedge
+.backedge:                                        ; preds = %34, %.critedge
+  %40 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %._crit_edge, label %.preheader142.backedge
 
-44:                                               ; preds = %36
-  %sext121 = add i64 %38, 38654705664
-  %45 = ashr exact i64 %sext121, 32
-  %46 = call i64 @BUF_MEM_grow(ptr noundef %10, i64 noundef %45) #12
-  %.not122 = icmp eq i64 %46, 0
-  br i1 %.not122, label %47, label %48
+42:                                               ; preds = %34
+  %sext121 = add i64 %36, 38654705664
+  %43 = ashr exact i64 %sext121, 32
+  %44 = call i64 @BUF_MEM_grow(ptr noundef %10, i64 noundef %43) #12
+  %.not122 = icmp eq i64 %44, 0
+  br i1 %.not122, label %45, label %46
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 638) #12
-  br label %187
+  br label %183
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
-  %sext123 = add i64 %38, -25769803776
-  %51 = ashr exact i64 %sext123, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %21, i64 %51, i1 false)
-  %52 = load ptr, ptr %49, align 8, !tbaa !19
-  %53 = getelementptr inbounds i8, ptr %52, i64 %51
-  store i8 0, ptr %53, align 1, !tbaa !6
-  %54 = call i64 @BUF_MEM_grow(ptr noundef %11, i64 noundef 256) #12
-  %.not124 = icmp eq i64 %54, 0
-  br i1 %.not124, label %55, label %56
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !19
+  %sext123 = add i64 %36, -25769803776
+  %49 = ashr exact i64 %sext123, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %21, i64 %49, i1 false)
+  %50 = load ptr, ptr %47, align 8, !tbaa !19
+  %51 = getelementptr inbounds i8, ptr %50, i64 %49
+  store i8 0, ptr %51, align 1, !tbaa !6
+  %52 = call i64 @BUF_MEM_grow(ptr noundef %11, i64 noundef 256) #12
+  %.not124 = icmp eq i64 %52, 0
+  br i1 %.not124, label %53, label %54
 
-55:                                               ; preds = %48
+53:                                               ; preds = %46
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 648) #12
-  br label %187
+  br label %183
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !19
-  store i8 0, ptr %58, align 1, !tbaa !6
-  %59 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
-  %60 = icmp slt i32 %59, 1
-  br i1 %60, label %._crit_edge148, label %.preheader141
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !19
+  store i8 0, ptr %56, align 1, !tbaa !6
+  %57 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
+  %58 = icmp slt i32 %57, 1
+  br i1 %58, label %._crit_edge148, label %.preheader141
 
-.preheader141:                                    ; preds = %56, %86
-  %61 = phi i32 [ %93, %86 ], [ %59, %56 ]
-  %.0110147 = phi i32 [ %79, %86 ], [ 0, %56 ]
-  br label %62
+.preheader141:                                    ; preds = %54, %84
+  %59 = phi i32 [ %91, %84 ], [ %57, %54 ]
+  %.0110147 = phi i32 [ %77, %84 ], [ 0, %54 ]
+  br label %60
 
-62:                                               ; preds = %.preheader141, %67
-  %.1112146 = phi i32 [ %61, %.preheader141 ], [ %68, %67 ]
-  %63 = zext nneg i32 %.1112146 to i64
-  %64 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !6
-  %66 = icmp slt i8 %65, 33
-  br i1 %66, label %67, label %.critedge5
+60:                                               ; preds = %.preheader141, %65
+  %.1112146 = phi i32 [ %59, %.preheader141 ], [ %66, %65 ]
+  %61 = zext nneg i32 %.1112146 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !6
+  %64 = icmp slt i8 %63, 33
+  br i1 %64, label %65, label %.critedge5
 
-67:                                               ; preds = %62
-  %68 = add nsw i32 %.1112146, -1
-  %69 = icmp sgt i32 %.1112146, 0
-  br i1 %69, label %62, label %.critedge5, !llvm.loop !21
+65:                                               ; preds = %60
+  %66 = add nsw i32 %.1112146, -1
+  %67 = icmp sgt i32 %.1112146, 0
+  br i1 %67, label %60, label %.critedge5, !llvm.loop !21
 
-.critedge5:                                       ; preds = %67, %62
-  %.1112.lcssa = phi i32 [ -1, %67 ], [ %.1112146, %62 ]
-  %70 = add nsw i32 %.1112.lcssa, 1
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %71
-  store i8 10, ptr %72, align 1, !tbaa !6
-  %73 = add nsw i32 %.1112.lcssa, 2
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %74
-  store i8 0, ptr %75, align 1, !tbaa !6
-  %76 = load i8, ptr %9, align 16, !tbaa !6
-  %77 = icmp eq i8 %76, 10
-  br i1 %77, label %._crit_edge148, label %78
+.critedge5:                                       ; preds = %65, %60
+  %.1112.lcssa = phi i32 [ -1, %65 ], [ %.1112146, %60 ]
+  %68 = sext i32 %.1112.lcssa to i64
+  %69 = getelementptr i8, ptr %9, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 1
+  store i8 10, ptr %70, align 1, !tbaa !6
+  %71 = add nsw i32 %.1112.lcssa, 2
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 %72
+  store i8 0, ptr %73, align 1, !tbaa !6
+  %74 = load i8, ptr %9, align 16, !tbaa !6
+  %75 = icmp eq i8 %74, 10
+  br i1 %75, label %._crit_edge148, label %76
 
-78:                                               ; preds = %.critedge5
-  %79 = add nuw nsw i32 %73, %.0110147
-  %80 = add nuw nsw i32 %79, 9
-  %81 = zext nneg i32 %80 to i64
-  %82 = call i64 @BUF_MEM_grow(ptr noundef %11, i64 noundef %81) #12
-  %.not125 = icmp eq i64 %82, 0
-  br i1 %.not125, label %83, label %84
+76:                                               ; preds = %.critedge5
+  %77 = add nuw nsw i32 %71, %.0110147
+  %78 = add nuw nsw i32 %77, 9
+  %79 = zext nneg i32 %78 to i64
+  %80 = call i64 @BUF_MEM_grow(ptr noundef %11, i64 noundef %79) #12
+  %.not125 = icmp eq i64 %80, 0
+  br i1 %.not125, label %81, label %82
 
-83:                                               ; preds = %78
+81:                                               ; preds = %76
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 665) #12
-  br label %187
+  br label %183
 
-84:                                               ; preds = %78
+82:                                               ; preds = %76
   %bcmp126 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %9, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
-  %85 = icmp eq i32 %bcmp126, 0
-  br i1 %85, label %._crit_edge148, label %86
+  %83 = icmp eq i32 %bcmp126, 0
+  br i1 %83, label %._crit_edge148, label %84
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %57, align 8, !tbaa !19
-  %88 = zext nneg i32 %.0110147 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 16 %9, i64 %74, i1 false)
-  %90 = load ptr, ptr %57, align 8, !tbaa !19
-  %91 = zext nneg i32 %79 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
-  store i8 0, ptr %92, align 1, !tbaa !6
-  %93 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
-  %94 = icmp slt i32 %93, 1
-  br i1 %94, label %._crit_edge148, label %.preheader141
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %55, align 8, !tbaa !19
+  %86 = zext nneg i32 %.0110147 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr nonnull align 16 %9, i64 %72, i1 false)
+  %88 = load ptr, ptr %55, align 8, !tbaa !19
+  %89 = zext nneg i32 %77 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %89
+  store i8 0, ptr %90, align 1, !tbaa !6
+  %91 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
+  %92 = icmp slt i32 %91, 1
+  br i1 %92, label %._crit_edge148, label %.preheader141
 
-._crit_edge148:                                   ; preds = %86, %.critedge5, %84, %56
-  %.0110.lcssa = phi i32 [ 0, %56 ], [ %.0110147, %84 ], [ %.0110147, %.critedge5 ], [ %79, %86 ]
-  %.not128 = phi i1 [ true, %56 ], [ false, %84 ], [ true, %.critedge5 ], [ true, %86 ]
+._crit_edge148:                                   ; preds = %84, %.critedge5, %82, %54
+  %.0110.lcssa = phi i32 [ 0, %54 ], [ %.0110147, %82 ], [ %.0110147, %.critedge5 ], [ %77, %84 ]
+  %.not128 = phi i1 [ true, %54 ], [ false, %82 ], [ true, %.critedge5 ], [ true, %84 ]
   store i32 0, ptr %8, align 4, !tbaa !16
-  %95 = call i64 @BUF_MEM_grow(ptr noundef %12, i64 noundef 1024) #12
-  %.not127 = icmp eq i64 %95, 0
-  br i1 %.not127, label %96, label %97
+  %93 = call i64 @BUF_MEM_grow(ptr noundef %12, i64 noundef 1024) #12
+  %.not127 = icmp eq i64 %93, 0
+  br i1 %.not127, label %94, label %95
 
-96:                                               ; preds = %._crit_edge148
+94:                                               ; preds = %._crit_edge148
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 679) #12
-  br label %187
+  br label %183
 
-97:                                               ; preds = %._crit_edge148
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !19
-  store i8 0, ptr %99, align 1, !tbaa !6
-  br i1 %.not128, label %.preheader140, label %148
+95:                                               ; preds = %._crit_edge148
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !19
+  store i8 0, ptr %97, align 1, !tbaa !6
+  br i1 %.not128, label %.preheader140, label %144
 
-.preheader140:                                    ; preds = %97, %124
-  %100 = phi i32 [ %129, %124 ], [ 0, %97 ]
-  %101 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
-  %102 = icmp slt i32 %101, 1
-  br i1 %102, label %.loopexit, label %.preheader139
+.preheader140:                                    ; preds = %95, %122
+  %98 = phi i32 [ %127, %122 ], [ 0, %95 ]
+  %99 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
+  %100 = icmp slt i32 %99, 1
+  br i1 %100, label %.loopexit, label %.preheader139
 
-.preheader139:                                    ; preds = %.preheader140, %107
-  %.2155 = phi i32 [ %108, %107 ], [ %101, %.preheader140 ]
-  %103 = zext nneg i32 %.2155 to i64
-  %104 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !6
-  %106 = icmp slt i8 %105, 33
-  br i1 %106, label %107, label %.critedge7
+.preheader139:                                    ; preds = %.preheader140, %105
+  %.2155 = phi i32 [ %106, %105 ], [ %99, %.preheader140 ]
+  %101 = zext nneg i32 %.2155 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !6
+  %104 = icmp slt i8 %103, 33
+  br i1 %104, label %105, label %.critedge7
 
-107:                                              ; preds = %.preheader139
-  %108 = add nsw i32 %.2155, -1
-  %109 = icmp sgt i32 %.2155, 0
-  br i1 %109, label %.preheader139, label %.critedge7, !llvm.loop !22
+105:                                              ; preds = %.preheader139
+  %106 = add nsw i32 %.2155, -1
+  %107 = icmp sgt i32 %.2155, 0
+  br i1 %107, label %.preheader139, label %.critedge7, !llvm.loop !22
 
-.critedge7:                                       ; preds = %107, %.preheader139
-  %.2.lcssa = phi i32 [ -1, %107 ], [ %.2155, %.preheader139 ]
-  %110 = add nsw i32 %.2.lcssa, 1
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %111
-  store i8 10, ptr %112, align 1, !tbaa !6
-  %113 = add nsw i32 %.2.lcssa, 2
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %114
-  store i8 0, ptr %115, align 1, !tbaa !6
-  %.not129 = icmp eq i32 %113, 65
+.critedge7:                                       ; preds = %105, %.preheader139
+  %.2.lcssa = phi i32 [ -1, %105 ], [ %.2155, %.preheader139 ]
+  %108 = sext i32 %.2.lcssa to i64
+  %109 = getelementptr i8, ptr %9, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 1
+  store i8 10, ptr %110, align 1, !tbaa !6
+  %111 = add nsw i32 %.2.lcssa, 2
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 %112
+  store i8 0, ptr %113, align 1, !tbaa !6
+  %.not129 = icmp eq i32 %111, 65
   %bcmp130 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %9, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
-  %116 = icmp eq i32 %bcmp130, 0
-  %117 = icmp sgt i32 %.2.lcssa, 63
-  %or.cond11 = or i1 %117, %116
-  br i1 %or.cond11, label %.loopexit, label %118
+  %114 = icmp eq i32 %bcmp130, 0
+  %115 = icmp sgt i32 %.2.lcssa, 63
+  %or.cond11 = or i1 %115, %114
+  br i1 %or.cond11, label %.loopexit, label %116
 
-118:                                              ; preds = %.critedge7
-  %119 = add nsw i32 %.2.lcssa, 11
-  %120 = add i32 %119, %100
-  %121 = sext i32 %120 to i64
-  %122 = call i64 @BUF_MEM_grow_clean(ptr noundef %12, i64 noundef %121) #12
-  %.not131 = icmp eq i64 %122, 0
-  br i1 %.not131, label %123, label %124
+116:                                              ; preds = %.critedge7
+  %117 = add nsw i32 %.2.lcssa, 11
+  %118 = add i32 %117, %98
+  %119 = sext i32 %118 to i64
+  %120 = call i64 @BUF_MEM_grow_clean(ptr noundef %12, i64 noundef %119) #12
+  %.not131 = icmp eq i64 %120, 0
+  br i1 %.not131, label %121, label %122
 
-123:                                              ; preds = %118
+121:                                              ; preds = %116
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.8, i32 noundef 701) #12
-  br label %187
+  br label %183
 
-124:                                              ; preds = %118
-  %125 = load ptr, ptr %98, align 8, !tbaa !19
-  %126 = sext i32 %100 to i64
-  %127 = getelementptr inbounds i8, ptr %125, i64 %126
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr nonnull align 16 %9, i64 %114, i1 false)
-  %128 = load ptr, ptr %98, align 8, !tbaa !19
-  %129 = add nsw i32 %100, %113
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %128, i64 %130
-  store i8 0, ptr %131, align 1, !tbaa !6
-  store i32 %129, ptr %8, align 4, !tbaa !16
-  br i1 %.not129, label %.preheader140, label %132
+122:                                              ; preds = %116
+  %123 = load ptr, ptr %96, align 8, !tbaa !19
+  %124 = sext i32 %98 to i64
+  %125 = getelementptr inbounds i8, ptr %123, i64 %124
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr nonnull align 16 %9, i64 %112, i1 false)
+  %126 = load ptr, ptr %96, align 8, !tbaa !19
+  %127 = add nsw i32 %98, %111
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr %126, i64 %128
+  store i8 0, ptr %129, align 1, !tbaa !6
+  store i32 %127, ptr %8, align 4, !tbaa !16
+  br i1 %.not129, label %.preheader140, label %130
 
-132:                                              ; preds = %124
+130:                                              ; preds = %122
   store i8 0, ptr %9, align 16, !tbaa !6
-  %133 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
-  %134 = icmp slt i32 %133, 1
-  br i1 %134, label %.loopexit, label %.preheader
+  %131 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
+  %132 = icmp slt i32 %131, 1
+  br i1 %132, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %132, %139
-  %.3156 = phi i32 [ %140, %139 ], [ %133, %132 ]
-  %135 = zext nneg i32 %.3156 to i64
-  %136 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %135
-  %137 = load i8, ptr %136, align 1, !tbaa !6
-  %138 = icmp slt i8 %137, 33
-  br i1 %138, label %139, label %.critedge9
+.preheader:                                       ; preds = %130, %137
+  %.3156 = phi i32 [ %138, %137 ], [ %131, %130 ]
+  %133 = zext nneg i32 %.3156 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %9, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !6
+  %136 = icmp slt i8 %135, 33
+  br i1 %136, label %137, label %.critedge9
 
-139:                                              ; preds = %.preheader
-  %140 = add nsw i32 %.3156, -1
-  %141 = icmp sgt i32 %.3156, 0
-  br i1 %141, label %.preheader, label %.critedge9, !llvm.loop !23
+137:                                              ; preds = %.preheader
+  %138 = add nsw i32 %.3156, -1
+  %139 = icmp sgt i32 %.3156, 0
+  br i1 %139, label %.preheader, label %.critedge9, !llvm.loop !23
 
-.critedge9:                                       ; preds = %139, %.preheader
-  %.3.lcssa = phi i32 [ -1, %139 ], [ %.3156, %.preheader ]
-  %142 = add nsw i32 %.3.lcssa, 1
-  %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %143
-  store i8 10, ptr %144, align 1, !tbaa !6
-  %145 = add nsw i32 %.3.lcssa, 2
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %146
-  store i8 0, ptr %147, align 1, !tbaa !6
+.critedge9:                                       ; preds = %137, %.preheader
+  %.3.lcssa = phi i32 [ -1, %137 ], [ %.3156, %.preheader ]
+  %140 = sext i32 %.3.lcssa to i64
+  %141 = getelementptr i8, ptr %9, i64 %140
+  %142 = getelementptr i8, ptr %141, i64 1
+  store i8 10, ptr %142, align 1, !tbaa !6
+  %143 = getelementptr i8, ptr %141, i64 2
+  store i8 0, ptr %143, align 1, !tbaa !6
   br label %.loopexit
 
-148:                                              ; preds = %97
+144:                                              ; preds = %95
   store i32 %.0110.lcssa, ptr %8, align 4, !tbaa !16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader140, %.critedge7, %.critedge9, %132, %148
-  %149 = phi i32 [ %.0110.lcssa, %148 ], [ %129, %132 ], [ %129, %.critedge9 ], [ %100, %.critedge7 ], [ %100, %.preheader140 ]
-  %.1106 = phi ptr [ %12, %148 ], [ %11, %132 ], [ %11, %.critedge9 ], [ %11, %.critedge7 ], [ %11, %.preheader140 ]
-  %.1 = phi ptr [ %11, %148 ], [ %12, %132 ], [ %12, %.critedge9 ], [ %12, %.critedge7 ], [ %12, %.preheader140 ]
+.loopexit:                                        ; preds = %.preheader140, %.critedge7, %.critedge9, %130, %144
+  %145 = phi i32 [ %.0110.lcssa, %144 ], [ %127, %130 ], [ %127, %.critedge9 ], [ %98, %.critedge7 ], [ %98, %.preheader140 ]
+  %.1106 = phi ptr [ %12, %144 ], [ %11, %130 ], [ %11, %.critedge9 ], [ %11, %.critedge7 ], [ %11, %.preheader140 ]
+  %.1 = phi ptr [ %11, %144 ], [ %12, %130 ], [ %12, %.critedge9 ], [ %12, %.critedge7 ], [ %12, %.preheader140 ]
   %bcmp133 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %9, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
   %.not134 = icmp eq i32 %bcmp133, 0
-  br i1 %.not134, label %150, label %160
+  br i1 %.not134, label %146, label %156
 
-150:                                              ; preds = %.loopexit
-  %151 = load ptr, ptr %49, align 8, !tbaa !19
-  %152 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %151) #13
-  %153 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %sext135 = shl i64 %152, 32
-  %154 = ashr exact i64 %sext135, 32
-  %155 = call i32 @strncmp(ptr noundef nonnull %151, ptr noundef nonnull %153, i64 noundef %154) #13
-  %.not136 = icmp eq i32 %155, 0
-  br i1 %.not136, label %156, label %160
+146:                                              ; preds = %.loopexit
+  %147 = load ptr, ptr %47, align 8, !tbaa !19
+  %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #13
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %sext135 = shl i64 %148, 32
+  %150 = ashr exact i64 %sext135, 32
+  %151 = call i32 @strncmp(ptr noundef nonnull %147, ptr noundef nonnull %149, i64 noundef %150) #13
+  %.not136 = icmp eq i32 %151, 0
+  br i1 %.not136, label %152, label %156
 
-156:                                              ; preds = %150
+152:                                              ; preds = %146
   %sext137 = add i64 %sext135, 38654705664
-  %157 = ashr exact i64 %sext137, 32
-  %158 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %157
-  %159 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #13
-  %.not138 = icmp eq i32 %159, 0
-  br i1 %.not138, label %161, label %160
+  %153 = ashr exact i64 %sext137, 32
+  %154 = getelementptr inbounds i8, ptr %9, i64 %153
+  %155 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 6) #13
+  %.not138 = icmp eq i32 %155, 0
+  br i1 %.not138, label %157, label %156
 
-160:                                              ; preds = %156, %150, %.loopexit
+156:                                              ; preds = %152, %146, %.loopexit
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str.8, i32 noundef 731) #12
-  br label %187
+  br label %183
 
-161:                                              ; preds = %156
+157:                                              ; preds = %152
   call void @EVP_DecodeInit(ptr noundef nonnull %6) #12
-  %162 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !19
-  %164 = sext i32 %149 to i64
-  %165 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %6, ptr noundef %163, ptr noundef nonnull %8, ptr noundef %163, i64 noundef %164) #12
-  %166 = icmp slt i32 %165, 0
-  br i1 %166, label %167, label %168
+  %158 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !19
+  %160 = sext i32 %145 to i64
+  %161 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %6, ptr noundef %159, ptr noundef nonnull %8, ptr noundef %159, i64 noundef %160) #12
+  %162 = icmp slt i32 %161, 0
+  br i1 %162, label %163, label %164
 
-167:                                              ; preds = %161
+163:                                              ; preds = %157
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str.8, i32 noundef 740) #12
-  br label %187
+  br label %183
 
-168:                                              ; preds = %161
-  %169 = load ptr, ptr %162, align 8, !tbaa !19
-  %170 = load i32, ptr %8, align 4, !tbaa !16
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %169, i64 %171
-  %173 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %6, ptr noundef %172, ptr noundef nonnull %7) #12
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %175, label %176
+164:                                              ; preds = %157
+  %165 = load ptr, ptr %158, align 8, !tbaa !19
+  %166 = load i32, ptr %8, align 4, !tbaa !16
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i8, ptr %165, i64 %167
+  %169 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %6, ptr noundef %168, ptr noundef nonnull %7) #12
+  %170 = icmp slt i32 %169, 0
+  br i1 %170, label %171, label %172
 
-175:                                              ; preds = %168
+171:                                              ; preds = %164
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str.8, i32 noundef 745) #12
-  br label %187
+  br label %183
 
-176:                                              ; preds = %168
-  %177 = load i32, ptr %7, align 4, !tbaa !16
-  %178 = load i32, ptr %8, align 4, !tbaa !16
-  %179 = add nsw i32 %178, %177
-  store i32 %179, ptr %8, align 4, !tbaa !16
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %187, label %181
+172:                                              ; preds = %164
+  %173 = load i32, ptr %7, align 4, !tbaa !16
+  %174 = load i32, ptr %8, align 4, !tbaa !16
+  %175 = add nsw i32 %174, %173
+  store i32 %175, ptr %8, align 4, !tbaa !16
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %183, label %177
 
-181:                                              ; preds = %176
-  %182 = load ptr, ptr %49, align 8, !tbaa !19
-  store ptr %182, ptr %1, align 8, !tbaa !11
-  %183 = getelementptr inbounds nuw i8, ptr %.1106, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !19
-  store ptr %184, ptr %2, align 8, !tbaa !11
-  %185 = load ptr, ptr %162, align 8, !tbaa !19
-  store ptr %185, ptr %3, align 8, !tbaa !11
-  %186 = sext i32 %179 to i64
-  store i64 %186, ptr %4, align 8, !tbaa !14
+177:                                              ; preds = %172
+  %178 = load ptr, ptr %47, align 8, !tbaa !19
+  store ptr %178, ptr %1, align 8, !tbaa !11
+  %179 = getelementptr inbounds nuw i8, ptr %.1106, i64 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !19
+  store ptr %180, ptr %2, align 8, !tbaa !11
+  %181 = load ptr, ptr %158, align 8, !tbaa !19
+  store ptr %181, ptr %3, align 8, !tbaa !11
+  %182 = sext i32 %175 to i64
+  store i64 %182, ptr %4, align 8, !tbaa !14
   call void @free(ptr noundef nonnull %10) #12
   call void @free(ptr noundef %.1106) #12
   call void @free(ptr noundef nonnull %.1) #12
-  br label %188
+  br label %184
 
-187:                                              ; preds = %176, %175, %167, %160, %123, %96, %83, %55, %47, %._crit_edge
-  %.0105 = phi ptr [ %11, %._crit_edge ], [ %.1106, %160 ], [ %.1106, %167 ], [ %.1106, %175 ], [ %.1106, %176 ], [ %11, %123 ], [ %11, %96 ], [ %11, %83 ], [ %11, %55 ], [ %11, %47 ]
-  %.0104 = phi ptr [ %12, %._crit_edge ], [ %.1, %160 ], [ %.1, %167 ], [ %.1, %175 ], [ %.1, %176 ], [ %12, %123 ], [ %12, %96 ], [ %12, %83 ], [ %12, %55 ], [ %12, %47 ]
+183:                                              ; preds = %172, %171, %163, %156, %121, %94, %81, %53, %45, %._crit_edge
+  %.0105 = phi ptr [ %11, %._crit_edge ], [ %.1106, %156 ], [ %.1106, %163 ], [ %.1106, %171 ], [ %.1106, %172 ], [ %11, %121 ], [ %11, %94 ], [ %11, %81 ], [ %11, %53 ], [ %11, %45 ]
+  %.0104 = phi ptr [ %12, %._crit_edge ], [ %.1, %156 ], [ %.1, %163 ], [ %.1, %171 ], [ %.1, %172 ], [ %12, %121 ], [ %12, %94 ], [ %12, %81 ], [ %12, %53 ], [ %12, %45 ]
   call void @BUF_MEM_free(ptr noundef %10) #12
   call void @BUF_MEM_free(ptr noundef %.0105) #12
   call void @BUF_MEM_free(ptr noundef %.0104) #12
-  br label %188
+  br label %184
 
-188:                                              ; preds = %187, %181, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %187 ], [ 1, %181 ]
+184:                                              ; preds = %183, %177, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %183 ], [ 1, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

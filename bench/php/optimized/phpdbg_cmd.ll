@@ -86,7 +86,7 @@ define dso_local noundef nonnull ptr @phpdbg_get_param_type(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.phpdbg_get_param_type, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.phpdbg_get_param_type, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -1816,7 +1816,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %.not194, label %.thread208, label %36
 
 .thread208:                                       ; preds = %31
-  %34 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213244
+  %34 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0179213244
   store ptr %.0182212245, ptr %34, align 8, !tbaa !44
   %35 = add nuw nsw i64 %.0179213244, 1
   br label %.critedge
@@ -1825,7 +1825,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %.not193202, label %.thread206, label %.thread206.sink.split
 
 .thread206.sink.split:                            ; preds = %36, %23
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213244
+  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0179213244
   store ptr %.0182212245, ptr %37, align 8, !tbaa !44
   %38 = add i64 %.0179213244, 1
   br label %.thread206
@@ -1880,7 +1880,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   %.0176221 = phi i32 [ %62, %84 ], [ 0, %.critedge ]
   %.0177220 = phi ptr [ %.1178, %84 ], [ null, %.critedge ]
   %.not199 = icmp eq ptr %.0177220, null
-  %58 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %4, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !41

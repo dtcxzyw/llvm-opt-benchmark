@@ -740,7 +740,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   br i1 %exitcond249.not.i, label %._crit_edge180.us.i, label %.preheader163.us.i, !llvm.loop !76
 
 260:                                              ; preds = %268
-  %261 = getelementptr inbounds nuw [3 x float], ptr %278, i64 0, i64 %indvars.iv241.i
+  %261 = getelementptr inbounds nuw float, ptr %278, i64 %indvars.iv241.i
   %262 = load float, ptr %261, align 4, !tbaa !67
   %263 = fsub float %262, %273
   %264 = fmul float %263, %263
@@ -754,9 +754,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 268:                                              ; preds = %.preheader.us.i, %268
   %indvars.iv237.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next238.i, %268 ]
   %.0112175.us.i = phi float [ 0.000000e+00, %.preheader.us.i ], [ %273, %268 ]
-  %269 = getelementptr inbounds nuw [3 x float], ptr %274, i64 0, i64 %indvars.iv237.i
+  %269 = getelementptr inbounds nuw float, ptr %274, i64 %indvars.iv237.i
   %270 = load float, ptr %269, align 4, !tbaa !67
-  %271 = getelementptr inbounds nuw [3 x float], ptr %275, i64 0, i64 %indvars.iv237.i
+  %271 = getelementptr inbounds nuw float, ptr %275, i64 %indvars.iv237.i
   %272 = load float, ptr %271, align 4, !tbaa !67
   %273 = call float @llvm.fmuladd.f32(float %270, float %272, float %.0112175.us.i)
   %indvars.iv.next238.i = add nuw nsw i64 %indvars.iv237.i, 1
@@ -766,7 +766,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 .preheader.us.i:                                  ; preds = %.preheader163.us.i, %260
   %indvars.iv241.i = phi i64 [ 0, %.preheader163.us.i ], [ %indvars.iv.next242.i, %260 ]
   %.1116177.us.i = phi double [ %.0115179.us.i, %.preheader163.us.i ], [ %267, %260 ]
-  %274 = getelementptr inbounds nuw [3 x [3 x float]], ptr %6, i64 0, i64 %indvars.iv241.i
+  %274 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv241.i
   br label %268
 
 .preheader163.us.i:                               ; preds = %259, %.noexc126

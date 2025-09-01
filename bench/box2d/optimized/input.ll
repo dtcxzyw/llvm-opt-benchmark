@@ -509,7 +509,7 @@ define hidden void @_glfwInputKey(ptr noundef %0, i32 noundef %1, i32 noundef %2
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [349 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %32, label %17
@@ -518,7 +518,7 @@ define hidden void @_glfwInputKey(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %13 = trunc i32 %3 to i8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw [349 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   store i8 %13, ptr %16, align 1, !tbaa !3
   br label %25
 
@@ -539,7 +539,7 @@ define hidden void @_glfwInputKey(ptr noundef %0, i32 noundef %1, i32 noundef %2
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw [349 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %.fr = freeze i8 %24
   %.not55 = icmp eq i8 %.fr, 1
@@ -653,7 +653,7 @@ define hidden void @_glfwInputMouseClick(ptr noundef %0, i32 noundef %1, i32 nou
   %.sink = phi i8 [ %14, %13 ], [ 3, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   store i8 %.sink, ptr %18, align 1, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %20 = load ptr, ptr %19, align 8, !tbaa !57
@@ -831,7 +831,7 @@ define hidden void @_glfwInitGamepadMappings() local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133400), align 8, !tbaa !150
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds %struct._GLFWmapping, ptr %3, i64 %5
-  %7 = getelementptr inbounds nuw [395 x ptr], ptr @_glfwDefaultMappings, i64 0, i64 %.03
+  %7 = getelementptr inbounds nuw ptr, ptr @_glfwDefaultMappings, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !151
   %9 = tail call fastcc i32 @parseMapping(ptr noundef %6, ptr noundef %8)
   %.not = icmp eq i32 %9, 0
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 0, 2) i32 @parseMapping(ptr noundef %0, ptr nou
 
 .preheader94:                                     ; preds = %85, %140
   %.07398 = phi i64 [ %141, %140 ], [ 0, %85 ]
-  %87 = getelementptr inbounds nuw [22 x %struct.anon.39], ptr %4, i64 0, i64 %.07398
+  %87 = getelementptr inbounds nuw %struct.anon.39, ptr %4, i64 %.07398
   %88 = load ptr, ptr %87, align 16, !tbaa !152
   %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %90 = tail call i32 @strncmp(ptr noundef nonnull %storemerge, ptr noundef nonnull %88, i64 noundef %89) #13
@@ -1145,7 +1145,7 @@ thread-pre-split:                                 ; preds = %99, %101
 
 .preheader:                                       ; preds = %85, %152
   %.17499 = phi i64 [ %153, %152 ], [ 0, %85 ]
-  %147 = getelementptr inbounds nuw [33 x i8], ptr %75, i64 0, i64 %.17499
+  %147 = getelementptr inbounds nuw i8, ptr %75, i64 %.17499
   %148 = load i8, ptr %147, align 1, !tbaa !3
   %149 = add i8 %148, -65
   %or.cond = icmp ult i8 %149, 6
@@ -1179,7 +1179,7 @@ define hidden noundef ptr @_glfwAllocJoystick(ptr noundef readonly captures(none
 
 6:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds nuw [16 x %struct._GLFWjoystick], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !163
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -1508,7 +1508,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 26:                                               ; preds = %.preheader, %31
   %indvars.iv69 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next70, %31 ]
-  %27 = getelementptr inbounds nuw [349 x i8], ptr %25, i64 0, i64 %indvars.iv69
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv69
   %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = icmp eq i8 %28, 3
   br i1 %29, label %30, label %31
@@ -1543,7 +1543,7 @@ define void @glfwSetInputMode(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 39:                                               ; preds = %.preheader64, %44
   %indvars.iv = phi i64 [ 0, %.preheader64 ], [ %indvars.iv.next, %44 ]
-  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = icmp eq i8 %41, 3
   br i1 %42, label %43, label %44
@@ -1720,7 +1720,7 @@ define range(i32 -128, 128) i32 @glfwGetKey(ptr noundef captures(none) %0, i32 n
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw [349 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %13 = icmp eq i8 %12, 3
   br i1 %13, label %14, label %15
@@ -1759,7 +1759,7 @@ define range(i32 -128, 128) i32 @glfwGetMouseButton(ptr noundef captures(none) %
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %14
@@ -2850,7 +2850,7 @@ switch.early.test:                                ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(245) %3, i8 0, i64 245, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %.02849, i64 %12, i1 false)
-  %15 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   store i8 0, ptr %15, align 1, !tbaa !3
   %16 = call fastcc i32 @parseMapping(ptr noundef nonnull %3, ptr noundef nonnull %2)
   %.not37 = icmp eq i32 %16, 0
@@ -3215,7 +3215,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 .sink.split:                                      ; preds = %58, %56, %54, %70
   %.sink = phi i8 [ %76, %70 ], [ 1, %54 ], [ 1, %56 ], [ 1, %58 ]
-  %77 = getelementptr inbounds nuw [15 x i8], ptr %1, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %.sink, ptr %77, align 1, !tbaa !3
   br label %78
 
@@ -3251,7 +3251,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %96 = fadd float %92, %95
   %97 = tail call float @llvm.maxnum.f32(float %96, float -1.000000e+00)
   %98 = tail call float @llvm.minnum.f32(float %97, float 1.000000e+00)
-  %99 = getelementptr inbounds nuw [6 x float], ptr %29, i64 0, i64 %indvars.iv85
+  %99 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
   store float %98, ptr %99, align 4, !tbaa !145
   br label %126
 
@@ -3268,7 +3268,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %110 = zext i8 %109 to i32
   %111 = and i32 %105, %110
   %.not76 = icmp eq i32 %111, 0
-  %112 = getelementptr inbounds nuw [6 x float], ptr %29, i64 0, i64 %indvars.iv85
+  %112 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
   br i1 %.not76, label %114, label %113
 
 113:                                              ; preds = %100
@@ -3289,7 +3289,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %122 = uitofp i8 %121 to float
   %123 = fmul float %122, 2.000000e+00
   %124 = fadd float %123, -1.000000e+00
-  %125 = getelementptr inbounds nuw [6 x float], ptr %29, i64 0, i64 %indvars.iv85
+  %125 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
   store float %124, ptr %125, align 4, !tbaa !145
   br label %126
 

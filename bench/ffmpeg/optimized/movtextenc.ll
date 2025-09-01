@@ -474,7 +474,7 @@ define internal range(i32 3, 1) i32 @mov_text_encode_frame(ptr noundef %0, ptr n
 
 52:                                               ; preds = %47, %52
   %.048 = phi i64 [ 0, %47 ], [ %55, %52 ]
-  %53 = getelementptr inbounds nuw [3 x %struct.Box], ptr @box_types, i64 0, i64 %.048
+  %53 = getelementptr inbounds nuw %struct.Box, ptr @box_types, i64 %.048
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   call void %54(ptr noundef nonnull %7) #8
   %55 = add nuw nsw i64 %.048, 1

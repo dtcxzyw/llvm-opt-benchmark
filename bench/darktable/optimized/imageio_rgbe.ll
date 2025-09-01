@@ -75,8 +75,8 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
 
 33:                                               ; preds = %29, %45
   %.05681 = phi i64 [ 0, %29 ], [ %47, %45 ]
-  %34 = add nuw nsw i64 %.05681, 2
-  %35 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %34
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.05681
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %48, label %38
@@ -92,7 +92,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %45, label %48
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 0, i64 %.05681
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 %.05681
   store i8 %36, ptr %46, align 1, !tbaa !12
   %47 = add nuw nsw i64 %.05681, 1
   %exitcond.not = icmp eq i64 %47, 15
@@ -100,7 +100,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
 
 48:                                               ; preds = %33, %38, %45
   %.056.lcssa = phi i64 [ %.05681, %33 ], [ %.05681, %38 ], [ 15, %45 ]
-  %49 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 0, i64 %.056.lcssa
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 %.056.lcssa
   store i8 0, ptr %49, align 1, !tbaa !12
   %50 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
   %.not66 = icmp eq ptr %50, null
@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   %.05282 = phi ptr [ %61, %95 ], [ %101, %96 ]
   %98 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %.05282, ptr noundef nonnull %9) #16
   %99 = fptrunc reassoc nsz arcp contract afn double %98 to float
-  %100 = getelementptr inbounds nuw [8 x float], ptr %8, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %99, ptr %100, align 4, !tbaa !23
   %101 = load ptr, ptr %9, align 8, !tbaa !21
   %102 = icmp eq ptr %.05282, %101
@@ -790,7 +790,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
 
 45:                                               ; preds = %45, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw [4 x float], ptr %44, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %46, align 4, !tbaa !23
   %47 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv.i, i64 3
   store float 0.000000e+00, ptr %47, align 4, !tbaa !23
@@ -900,7 +900,7 @@ _xy2matrix.exit:                                  ; preds = %45
   %118 = load float, ptr %117, align 4, !tbaa !23
   %119 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %118, float 1.000000e+04)
   %120 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %119, float 0.000000e+00)
-  %121 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %.05278
+  %121 = getelementptr inbounds nuw float, ptr %5, i64 %.05278
   store float %120, ptr %121, align 4, !tbaa !23
   %122 = add nuw nsw i64 %.05278, 1
   %exitcond.not = icmp eq i64 %122, 3
@@ -908,8 +908,8 @@ _xy2matrix.exit:                                  ; preds = %45
 
 .preheader:                                       ; preds = %_xy2matrix.exit, %134
   %indvars.iv86 = phi i64 [ 0, %_xy2matrix.exit ], [ %indvars.iv.next87, %134 ]
-  %invariant.gep = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv86
-  %123 = getelementptr inbounds nuw [3 x [3 x float]], ptr %7, i64 0, i64 %indvars.iv86
+  %invariant.gep = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv86
+  %123 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %indvars.iv86
   br label %135
 
 124:                                              ; preds = %134
@@ -937,9 +937,9 @@ _xy2matrix.exit:                                  ; preds = %45
 
 135:                                              ; preds = %.preheader, %135
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %135 ]
-  %gep = getelementptr inbounds nuw [4 x [4 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
   %136 = load float, ptr %gep, align 4, !tbaa !23
-  %137 = getelementptr inbounds nuw [3 x float], ptr %123, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv
   store float %136, ptr %137, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next, 3

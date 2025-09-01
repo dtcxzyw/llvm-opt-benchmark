@@ -21,13 +21,13 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %9 = getelementptr inbounds nuw [36 x double], ptr %5, i64 %indvars.iv180
   %.not.not131135.not = icmp eq i64 %indvars.iv180, 0
   %10 = getelementptr inbounds nuw [36 x double], ptr %4, i64 %indvars.iv180
-  %11 = getelementptr inbounds nuw [36 x double], ptr %10, i64 0, i64 %indvars.iv180
-  %invariant.gep = getelementptr inbounds nuw [36 x double], ptr %4, i64 0, i64 %indvars.iv180
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv180
+  %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv180
   br i1 %.not.not131135.not, label %.preheader134.split, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.preheader134, %22
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %22 ], [ %indvars.iv180, %.preheader134 ]
-  %12 = getelementptr inbounds nuw [36 x double], ptr %9, i64 0, i64 %indvars.iv182
+  %12 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv182
   %13 = load double, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw [36 x double], ptr %4, i64 %indvars.iv182
   br label %23
@@ -54,9 +54,9 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 23:                                               ; preds = %.lr.ph.us, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %23 ]
   %.0117137.us = phi double [ %13, %.lr.ph.us ], [ %29, %23 ]
-  %24 = getelementptr inbounds nuw [36 x double], ptr %10, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw [36 x double], ptr %14, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %27 = load double, ptr %26, align 8, !tbaa !10
   %28 = fneg nsz double %25
   %29 = tail call nsz double @llvm.fmuladd.f64(double %28, double %27, double %.0117137.us)
@@ -75,7 +75,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 
 .preheader134.split:                              ; preds = %.preheader134, %42
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %42 ], [ 0, %.preheader134 ]
-  %32 = getelementptr inbounds nuw [36 x double], ptr %9, i64 0, i64 %indvars.iv187
+  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv187
   %33 = load double, ptr %32, align 8, !tbaa !10
   %34 = icmp eq i64 %indvars.iv187, 0
   br i1 %34, label %35, label %39
@@ -134,9 +134,9 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv195 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next196, %55 ]
   %.0116142 = phi double [ %53, %.lr.ph ], [ %61, %55 ]
-  %56 = getelementptr inbounds nuw [36 x double], ptr %54, i64 0, i64 %indvars.iv195
+  %56 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv195
   %57 = load double, ptr %56, align 8, !tbaa !10
-  %58 = getelementptr inbounds nuw [32 x double], ptr %31, i64 0, i64 %indvars.iv195
+  %58 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv195
   %59 = load double, ptr %58, align 8, !tbaa !10
   %60 = fneg nsz double %57
   %61 = tail call nsz double @llvm.fmuladd.f64(double %60, double %59, double %.0116142)
@@ -147,10 +147,10 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 ._crit_edge:                                      ; preds = %55, %51
   %.0116.lcssa = phi double [ %53, %51 ], [ %61, %55 ]
   %62 = getelementptr inbounds nuw [36 x double], ptr %4, i64 %indvars.iv199
-  %63 = getelementptr inbounds nuw [36 x double], ptr %62, i64 0, i64 %indvars.iv199
+  %63 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv199
   %64 = load double, ptr %63, align 8, !tbaa !10
   %65 = fdiv nsz double %.0116.lcssa, %64
-  %66 = getelementptr inbounds nuw [32 x double], ptr %31, i64 0, i64 %indvars.iv199
+  %66 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv199
   store double %65, ptr %66, align 8, !tbaa !10
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %.preheader132, label %51, !llvm.loop !17
@@ -164,14 +164,14 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %indvars.iv221 = phi i64 [ %49, %.preheader.lr.ph ], [ %indvars.iv.next222, %.loopexit ]
   %indvars.iv204 = phi i64 [ %48, %.preheader.lr.ph ], [ %indvars.iv.next205, %.loopexit ]
   %indvars.iv.next222 = add nsw i64 %indvars.iv221, -1
-  %67 = getelementptr inbounds nuw [32 x [32 x double]], ptr %44, i64 0, i64 %indvars.iv.next222
+  %67 = getelementptr inbounds nuw [32 x double], ptr %44, i64 %indvars.iv.next222
   br label %68
 
 68:                                               ; preds = %.lr.ph155, %._crit_edge152
   %indvars.iv206 = phi i64 [ %indvars.iv204, %.lr.ph155 ], [ %indvars.iv.next207, %._crit_edge152 ]
-  %69 = getelementptr inbounds nuw [32 x double], ptr %44, i64 0, i64 %indvars.iv206
+  %69 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv206
   %70 = load double, ptr %69, align 8, !tbaa !10
-  %invariant.gep145 = getelementptr inbounds nuw [36 x double], ptr %4, i64 0, i64 %indvars.iv206
+  %invariant.gep145 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv206
   %.not.not129147 = icmp slt i64 %indvars.iv206, %indvars.iv.next222
   br i1 %.not.not129147, label %.lr.ph151, label %._crit_edge152
 
@@ -181,7 +181,7 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %gep146 = getelementptr inbounds nuw [36 x double], ptr %invariant.gep145, i64 %indvars.iv.next209
   %71 = load double, ptr %gep146, align 8, !tbaa !10
-  %72 = getelementptr inbounds nuw [32 x double], ptr %67, i64 0, i64 %indvars.iv.next209
+  %72 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv.next209
   %73 = load double, ptr %72, align 8, !tbaa !10
   %74 = fneg nsz double %71
   %75 = tail call nsz double @llvm.fmuladd.f64(double %74, double %73, double %.0115149)
@@ -193,42 +193,42 @@ define void @avpriv_solve_lls(ptr noundef captures(none) %0, double noundef %1, 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %68
   %.0115.lcssa = phi double [ %70, %68 ], [ %75, %.lr.ph151 ]
   %77 = getelementptr inbounds nuw [36 x double], ptr %4, i64 %indvars.iv206
-  %78 = getelementptr inbounds nuw [36 x double], ptr %77, i64 0, i64 %indvars.iv206
+  %78 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv206
   %79 = load double, ptr %78, align 8, !tbaa !10
   %80 = fdiv nsz double %.0115.lcssa, %79
-  %81 = getelementptr inbounds nuw [32 x double], ptr %67, i64 0, i64 %indvars.iv206
+  %81 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv206
   store double %80, ptr %81, align 8, !tbaa !10
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, -1
   %82 = icmp sgt i64 %indvars.iv206, 0
   br i1 %82, label %68, label %.lr.ph169, !llvm.loop !20
 
 .lr.ph169:                                        ; preds = %._crit_edge152
-  %83 = getelementptr inbounds nuw [32 x double], ptr %46, i64 0, i64 %indvars.iv.next222
+  %83 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.next222
   store double %45, ptr %83, align 8, !tbaa !10
-  %84 = getelementptr inbounds nuw [32 x [32 x double]], ptr %44, i64 0, i64 %indvars.iv.next222
+  %84 = getelementptr inbounds nuw [32 x double], ptr %44, i64 %indvars.iv.next222
   br label %85
 
 85:                                               ; preds = %.lr.ph169, %._crit_edge163
   %indvars.iv216 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next217, %._crit_edge163 ]
   %storemerge166 = phi double [ %45, %.lr.ph169 ], [ %100, %._crit_edge163 ]
-  %86 = getelementptr inbounds nuw [32 x double], ptr %84, i64 0, i64 %indvars.iv216
+  %86 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv216
   %87 = load double, ptr %86, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw [36 x double], ptr %5, i64 %indvars.iv216
-  %89 = getelementptr inbounds nuw [36 x double], ptr %88, i64 0, i64 %indvars.iv216
+  %89 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv216
   %90 = load double, ptr %89, align 8, !tbaa !10
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %91 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.next217
   %92 = load double, ptr %91, align 8, !tbaa !10
   %93 = fmul nsz double %92, -2.000000e+00
   %94 = tail call nsz double @llvm.fmuladd.f64(double %87, double %90, double %93)
-  %invariant.gep157 = getelementptr inbounds nuw [36 x double], ptr %5, i64 0, i64 %indvars.iv216
+  %invariant.gep157 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv216
   %.not = icmp eq i64 %indvars.iv216, 0
   br i1 %.not, label %._crit_edge163, label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %85, %.lr.ph162
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.lr.ph162 ], [ 0, %85 ]
   %.0160 = phi double [ %99, %.lr.ph162 ], [ %94, %85 ]
-  %95 = getelementptr inbounds nuw [32 x double], ptr %84, i64 0, i64 %indvars.iv212
+  %95 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv212
   %96 = load double, ptr %95, align 8, !tbaa !10
   %97 = fmul nsz double %96, 2.000000e+00
   %gep158 = getelementptr inbounds nuw [36 x double], ptr %invariant.gep157, i64 %indvars.iv212
@@ -285,7 +285,7 @@ define internal void @update_lls(ptr noundef captures(none) %0, ptr noundef read
 .preheader:                                       ; preds = %.preheader.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %15 ]
   %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw [36 x [36 x double]], ptr %0, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [36 x double], ptr %0, i64 %indvars.iv
   br label %8
 
 8:                                                ; preds = %.preheader, %8
@@ -293,7 +293,7 @@ define internal void @update_lls(ptr noundef captures(none) %0, ptr noundef read
   %9 = load double, ptr %6, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv18
   %11 = load double, ptr %10, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw [36 x double], ptr %7, i64 0, i64 %indvars.iv18
+  %12 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv18
   %13 = load double, ptr %12, align 8, !tbaa !10
   %14 = tail call nsz double @llvm.fmuladd.f64(double %9, double %11, double %13)
   store double %14, ptr %12, align 8, !tbaa !10
@@ -314,7 +314,7 @@ define internal void @update_lls(ptr noundef captures(none) %0, ptr noundef read
 define internal double @evaluate_lls(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10368
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [32 x [32 x double]], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds [32 x double], ptr %4, i64 %5
   %7 = add nsw i32 %2, 1
   %8 = sext i32 %7 to i64
   %9 = tail call nsz double @ff_scalarproduct_double_c(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %8) #6

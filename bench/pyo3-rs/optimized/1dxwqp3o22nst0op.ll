@@ -199,7 +199,7 @@ switch.lookup:
   %3 = icmp eq i64 %2, 40
   %4 = add i64 %1, -39
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0 = load ptr, ptr %6, align 8
@@ -531,9 +531,9 @@ define hidden void @_ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa36
   br i1 %47, label %switch.lookup, label %48
 
 switch.lookup:                                    ; preds = %.noexc36
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep42 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E.2, i64 0, i64 %switch.tableidx
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E.2, i64 %switch.tableidx
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %48
 
@@ -3724,8 +3724,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 335:                                              ; preds = %323, %319, %317, %191
   store ptr %193, ptr %63, align 8, !noalias !6
-  %336 = add i64 %195, -1
-  %337 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %193, i64 0, i64 %336
+  %336 = getelementptr { i32, [7 x i32] }, ptr %193, i64 %195
+  %337 = getelementptr i8, ptr %336, i64 -32
   store ptr %337, ptr %62, align 8, !noalias !6
   %338 = add i64 %195, -2
   %339 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -3737,7 +3737,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 343:                                              ; preds = %335
   store i32 %342, ptr %61, align 4, !noalias !6
-  %.sroa.0.0.i150.i = getelementptr inbounds nuw i8, ptr %337, i64 4
+  %.sroa.0.0.i150.i = getelementptr i8, ptr %336, i64 -28
   %344 = load i32, ptr %.sroa.0.0.i150.i, align 4, !noalias !6
   %345 = invoke { i32, i32 } @_ZN11proc_macro24Span4join17h415cb72be7a2dac5E(ptr nonnull align 4 %61, i32 %344)
           to label %346 unwind label %199, !noalias !6
@@ -4162,7 +4162,7 @@ switch.lookup:                                    ; preds = %427
   %433 = extractvalue { ptr, ptr } %429, 0
   %434 = extractvalue { ptr, ptr } %429, 1
   %435 = zext nneg i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0166.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 0, i64 %435
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 %435
   %switch.load = load i64, ptr %switch.gep, align 8
   store ptr %433, ptr %88, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8

@@ -45,24 +45,23 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #7
-  %10 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.8, ptr noundef %9) #7
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  br label %13
 
-.lr.ph:                                           ; preds = %1, %12
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %1 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i36, 1
+10:                                               ; preds = %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %11 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.next.i
+  %12 = load ptr, ptr %11, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %17, label %12, !llvm.loop !4
+  br i1 %exitcond.i, label %17, label %13, !llvm.loop !4
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw [4 x %struct.anon.1], ptr @enclist, i64 0, i64 %indvars.iv.next.i
-  %14 = load ptr, ptr %13, align 8
+13:                                               ; preds = %10, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
+  %14 = phi ptr [ @.str.8, %1 ], [ %12, %10 ]
   %15 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %14, ptr noundef %9) #7
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %16, label %21, label %10
 
-17:                                               ; preds = %.lr.ph
+17:                                               ; preds = %10
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 50856066) #7
@@ -70,83 +69,82 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.binary_encode) #7
   unreachable
 
-._crit_edge:                                      ; preds = %12, %1
-  %.lcssa = phi ptr [ @enclist, %1 ], [ %13, %12 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %22 = load i8, ptr %5, align 1
-  %23 = zext i8 %22 to i32
-  %24 = and i32 %23, 1
-  %.not = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %27 = select i1 %.not, ptr %26, ptr %25
-  %28 = icmp eq i8 %22, 1
-  br i1 %28, label %29, label %35
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i, i32 1
+  %23 = load i8, ptr %5, align 1
+  %24 = zext i8 %23 to i32
+  %25 = and i32 %24, 1
+  %.not = icmp eq i32 %25, 0
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %28 = select i1 %.not, ptr %27, ptr %26
+  %29 = icmp eq i8 %23, 1
+  br i1 %29, label %30, label %36
 
-29:                                               ; preds = %._crit_edge
-  %30 = load i8, ptr %25, align 1
-  %31 = add i8 %30, -1
-  %or.cond = icmp ult i8 %31, 3
-  %32 = icmp eq i8 %30, 18
-  %33 = select i1 %32, i64 16, i64 0
-  %34 = select i1 %or.cond, i64 8, i64 %33
-  br label %45
+30:                                               ; preds = %21
+  %31 = load i8, ptr %26, align 1
+  %32 = add i8 %31, -1
+  %or.cond = icmp ult i8 %32, 3
+  %33 = icmp eq i8 %31, 18
+  %34 = select i1 %33, i64 16, i64 0
+  %35 = select i1 %or.cond, i64 8, i64 %34
+  br label %46
 
-35:                                               ; preds = %._crit_edge
-  br i1 %.not, label %40, label %36
+36:                                               ; preds = %21
+  br i1 %.not, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = lshr i32 %23, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = add nsw i64 %38, -1
-  br label %45
+37:                                               ; preds = %36
+  %38 = lshr i32 %24, 1
+  %39 = zext nneg i32 %38 to i64
+  %40 = add nsw i64 %39, -1
+  br label %46
 
-40:                                               ; preds = %35
-  %41 = load i32, ptr %5, align 4
-  %42 = lshr i32 %41, 2
-  %43 = add nsw i32 %42, -4
-  %44 = zext i32 %43 to i64
-  br label %45
+41:                                               ; preds = %36
+  %42 = load i32, ptr %5, align 4
+  %43 = lshr i32 %42, 2
+  %44 = add nsw i32 %43, -4
+  %45 = zext i32 %44 to i64
+  br label %46
 
-45:                                               ; preds = %36, %40, %29
-  %46 = phi i64 [ %34, %29 ], [ %39, %36 ], [ %44, %40 ]
-  %47 = load ptr, ptr %21, align 8
-  %48 = tail call i64 %47(ptr noundef nonnull %27, i64 noundef %46) #7
-  %49 = icmp ugt i64 %48, 1073741819
-  br i1 %49, label %50, label %54
+46:                                               ; preds = %37, %41, %30
+  %47 = phi i64 [ %35, %30 ], [ %40, %37 ], [ %45, %41 ]
+  %48 = load ptr, ptr %22, align 8
+  %49 = tail call i64 %48(ptr noundef nonnull %28, i64 noundef %47) #7
+  %50 = icmp ugt i64 %49, 1073741819
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %45
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 261) #7
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
+51:                                               ; preds = %46
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 @errcode(i32 noundef 261) #7
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.binary_encode) #7
   unreachable
 
-54:                                               ; preds = %45
-  %55 = add nuw nsw i64 %48, 4
-  %56 = tail call ptr @palloc(i64 noundef %55) #7
-  %57 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %60 = tail call i64 %58(ptr noundef nonnull %27, i64 noundef %46, ptr noundef nonnull %59) #7
-  %61 = icmp ugt i64 %60, %48
-  br i1 %61, label %62, label %65
+55:                                               ; preds = %46
+  %56 = add nuw nsw i64 %49, 4
+  %57 = tail call ptr @palloc(i64 noundef %56) #7
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %61 = tail call i64 %59(ptr noundef nonnull %28, i64 noundef %47, ptr noundef nonnull %60) #7
+  %62 = icmp ugt i64 %61, %49
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %54
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+63:                                               ; preds = %55
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %64)
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.binary_encode) #7
   unreachable
 
-65:                                               ; preds = %54
-  %66 = trunc nuw nsw i64 %60 to i32
-  %67 = shl nuw i32 %66, 2
-  %68 = add nuw i32 %67, 16
-  store i32 %68, ptr %56, align 4
-  %69 = ptrtoint ptr %56 to i64
-  ret i64 %69
+66:                                               ; preds = %55
+  %67 = trunc nuw nsw i64 %61 to i32
+  %68 = shl nuw i32 %67, 2
+  %69 = add nuw i32 %68, 16
+  store i32 %69, ptr %57, align 4
+  %70 = ptrtoint ptr %57 to i64
+  ret i64 %70
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -176,24 +174,23 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #7
-  %10 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.8, ptr noundef %9) #7
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  br label %13
 
-.lr.ph:                                           ; preds = %1, %12
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %1 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i36, 1
+10:                                               ; preds = %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %11 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.next.i
+  %12 = load ptr, ptr %11, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %17, label %12, !llvm.loop !4
+  br i1 %exitcond.i, label %17, label %13, !llvm.loop !4
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw [4 x %struct.anon.1], ptr @enclist, i64 0, i64 %indvars.iv.next.i
-  %14 = load ptr, ptr %13, align 8
+13:                                               ; preds = %10, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
+  %14 = phi ptr [ @.str.8, %1 ], [ %12, %10 ]
   %15 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %14, ptr noundef %9) #7
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %16, label %21, label %10
 
-17:                                               ; preds = %.lr.ph
+17:                                               ; preds = %10
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 50856066) #7
@@ -201,83 +198,83 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__func__.binary_decode) #7
   unreachable
 
-._crit_edge:                                      ; preds = %12, %1
-  %.lcssa = phi ptr [ @enclist, %1 ], [ %13, %12 ]
-  %21 = load i8, ptr %5, align 1
-  %22 = zext i8 %21 to i32
-  %23 = and i32 %22, 1
-  %.not = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %26 = select i1 %.not, ptr %25, ptr %24
-  %27 = icmp eq i8 %21, 1
-  br i1 %27, label %28, label %34
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i, i32 1
+  %23 = load i8, ptr %5, align 1
+  %24 = zext i8 %23 to i32
+  %25 = and i32 %24, 1
+  %.not = icmp eq i32 %25, 0
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %28 = select i1 %.not, ptr %27, ptr %26
+  %29 = icmp eq i8 %23, 1
+  br i1 %29, label %30, label %36
 
-28:                                               ; preds = %._crit_edge
-  %29 = load i8, ptr %24, align 1
-  %30 = add i8 %29, -1
-  %or.cond = icmp ult i8 %30, 3
-  %31 = icmp eq i8 %29, 18
-  %32 = select i1 %31, i64 16, i64 0
-  %33 = select i1 %or.cond, i64 8, i64 %32
-  br label %44
+30:                                               ; preds = %21
+  %31 = load i8, ptr %26, align 1
+  %32 = add i8 %31, -1
+  %or.cond = icmp ult i8 %32, 3
+  %33 = icmp eq i8 %31, 18
+  %34 = select i1 %33, i64 16, i64 0
+  %35 = select i1 %or.cond, i64 8, i64 %34
+  br label %46
 
-34:                                               ; preds = %._crit_edge
-  br i1 %.not, label %39, label %35
+36:                                               ; preds = %21
+  br i1 %.not, label %41, label %37
 
-35:                                               ; preds = %34
-  %36 = lshr i32 %22, 1
-  %37 = zext nneg i32 %36 to i64
-  %38 = add nsw i64 %37, -1
-  br label %44
+37:                                               ; preds = %36
+  %38 = lshr i32 %24, 1
+  %39 = zext nneg i32 %38 to i64
+  %40 = add nsw i64 %39, -1
+  br label %46
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr %5, align 4
-  %41 = lshr i32 %40, 2
-  %42 = add nsw i32 %41, -4
-  %43 = zext i32 %42 to i64
-  br label %44
+41:                                               ; preds = %36
+  %42 = load i32, ptr %5, align 4
+  %43 = lshr i32 %42, 2
+  %44 = add nsw i32 %43, -4
+  %45 = zext i32 %44 to i64
+  br label %46
 
-44:                                               ; preds = %35, %39, %28
-  %45 = phi i64 [ %33, %28 ], [ %38, %35 ], [ %43, %39 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i64 %47(ptr noundef nonnull %26, i64 noundef %45) #7
-  %49 = icmp ugt i64 %48, 1073741819
-  br i1 %49, label %50, label %54
+46:                                               ; preds = %37, %41, %30
+  %47 = phi i64 [ %35, %30 ], [ %40, %37 ], [ %45, %41 ]
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call i64 %49(ptr noundef nonnull %28, i64 noundef %47) #7
+  %51 = icmp ugt i64 %50, 1073741819
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %44
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 261) #7
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+52:                                               ; preds = %46
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %53)
+  %54 = tail call i32 @errcode(i32 noundef 261) #7
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.binary_decode) #7
   unreachable
 
-54:                                               ; preds = %44
-  %55 = add nuw nsw i64 %48, 4
-  %56 = tail call ptr @palloc(i64 noundef %55) #7
-  %57 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %60 = tail call i64 %58(ptr noundef nonnull %26, i64 noundef %45, ptr noundef nonnull %59) #7
-  %61 = icmp ugt i64 %60, %48
-  br i1 %61, label %62, label %65
+56:                                               ; preds = %46
+  %57 = add nuw nsw i64 %50, 4
+  %58 = tail call ptr @palloc(i64 noundef %57) #7
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %62 = tail call i64 %60(ptr noundef nonnull %28, i64 noundef %47, ptr noundef nonnull %61) #7
+  %63 = icmp ugt i64 %62, %50
+  br i1 %63, label %64, label %67
 
-62:                                               ; preds = %54
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
+64:                                               ; preds = %56
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %65)
+  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.binary_decode) #7
   unreachable
 
-65:                                               ; preds = %54
-  %66 = trunc nuw nsw i64 %60 to i32
-  %67 = shl nuw i32 %66, 2
-  %68 = add nuw i32 %67, 16
-  store i32 %68, ptr %56, align 4
-  %69 = ptrtoint ptr %56 to i64
-  ret i64 %69
+67:                                               ; preds = %56
+  %68 = trunc nuw nsw i64 %62 to i32
+  %69 = shl nuw i32 %68, 2
+  %70 = add nuw i32 %69, 16
+  store i32 %70, ptr %58, align 4
+  %71 = ptrtoint ptr %58 to i64
+  ret i64 %71
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -292,7 +289,7 @@ define dso_local noundef range(i64 0, -1) i64 @hex_encode(ptr noundef readonly c
   %5 = load i8, ptr %.011, align 1
   %6 = zext i8 %5 to i64
   %7 = shl nuw nsw i64 %6, 1
-  %8 = getelementptr inbounds nuw [512 x i8], ptr @hextbl, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @hextbl, i64 %7
   %9 = load i16, ptr %8, align 2
   store i16 %9, ptr %.0910, align 1
   %10 = getelementptr inbounds nuw i8, ptr %.011, i64 1
@@ -343,7 +340,7 @@ define dso_local i64 @hex_decode_safe(ptr noundef %0, i64 noundef %1, ptr nounde
 
 get_hex.exit:                                     ; preds = %11
   %13 = zext nneg i8 %7 to i64
-  %14 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp sgt i8 %15, -1
   br i1 %16, label %22, label %get_hex.exit.thread
@@ -381,7 +378,7 @@ get_hex.exit.thread:                              ; preds = %11, %get_hex.exit
 
 get_hex.exit39:                                   ; preds = %29
   %31 = zext nneg i8 %.val to i64
-  %32 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = icmp sgt i8 %33, -1
   br i1 %34, label %.outer, label %get_hex.exit39.thread
@@ -484,27 +481,27 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
 14:                                               ; preds = %.lr.ph
   %15 = lshr i32 %10, 18
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_base64, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %.03746, i64 1
   store i8 %18, ptr %.03746, align 1
   %20 = lshr i32 %10, 12
   %21 = and i32 %20, 63
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_base64, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.03746, i64 2
   store i8 %24, ptr %19, align 1
   %26 = lshr i32 %10, 6
   %27 = and i32 %26, 63
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_base64, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.03746, i64 3
   store i8 %30, ptr %25, align 1
   %32 = and i32 %10, 63
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_base64, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.03746, i64 4
   store i8 %35, ptr %31, align 1
@@ -536,14 +533,14 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
 43:                                               ; preds = %._crit_edge
   %44 = lshr i32 %.1, 18
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_base64, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %47, ptr %.2, align 1
   %49 = lshr i32 %.1, 12
   %50 = and i32 %49, 63
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_base64, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   store i8 %53, ptr %48, align 1
@@ -554,7 +551,7 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
   %57 = lshr i32 %.1, 6
   %58 = and i32 %57, 63
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [65 x i8], ptr @_base64, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_base64, i64 %59
   %61 = load i8, ptr %60, align 1
   br label %62
 
@@ -645,7 +642,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
 
 25:                                               ; preds = %23
   %26 = zext nneg i8 %7 to i64
-  %27 = getelementptr inbounds nuw [128 x i8], ptr @b64lookup, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @b64lookup, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext nneg i8 %28 to i32
   %30 = icmp slt i8 %28, 0

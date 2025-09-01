@@ -462,7 +462,7 @@ string_list_set_helper_option.exit:               ; preds = %strbuf_addch.exit.i
 
 .preheader:                                       ; preds = %12, %39
   %.02235 = phi i64 [ %40, %39 ], [ 0, %12 ]
-  %41 = getelementptr inbounds nuw [4 x ptr], ptr @unsupported_options, i64 0, i64 %.02235
+  %41 = getelementptr inbounds nuw ptr, ptr @unsupported_options, i64 %.02235
   %42 = load ptr, ptr %41, align 8, !tbaa !69
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %42) #21
   %.not27 = icmp eq i32 %43, 0
@@ -475,7 +475,7 @@ string_list_set_helper_option.exit:               ; preds = %strbuf_addch.exit.i
 
 .critedge.preheader:                              ; preds = %39, %.critedge
   %.036 = phi i64 [ %44, %.critedge ], [ 0, %39 ]
-  %45 = getelementptr inbounds nuw [4 x ptr], ptr @boolean_options, i64 0, i64 %.036
+  %45 = getelementptr inbounds nuw ptr, ptr @boolean_options, i64 %.036
   %46 = load ptr, ptr %45, align 8, !tbaa !69
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %46) #21
   %.not28 = icmp eq i32 %47, 0
@@ -2948,7 +2948,7 @@ recvline.exit:                                    ; preds = %52, %51
 
 74:                                               ; preds = %69
   %75 = sext i32 %70 to i64
-  %76 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %75
+  %76 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %75
   store ptr %76, ptr %41, align 8, !tbaa !113
   br label %skip_prefix.exit
 

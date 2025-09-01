@@ -4101,7 +4101,7 @@ _ZN10scoped_ptrIN1q7bindingEEaSEPS1_.exit:        ; preds = %12, %_Z7deallocIN1q
   %37 = add nsw i64 %indvars.iv, -1
   %38 = getelementptr inbounds nuw ptr, ptr %3, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !635
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %32, i64 0, i64 %37
+  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %37
   store ptr %39, ptr %40, align 8, !tbaa !635
   %.not.wide = icmp eq i64 %37, 0
   br i1 %.not.wide, label %._crit_edge, label %36, !llvm.loop !690
@@ -4185,7 +4185,7 @@ _ZN10scoped_ptrIN1q7bindingEEaSEPS1_.exit.i:      ; preds = %_Z7deallocIN1q7bind
   %40 = add nsw i64 %indvars.iv.i, -1
   %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !635
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %40
+  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %40
   store ptr %42, ptr %43, align 8, !tbaa !635
   %.not.wide.i = icmp eq i64 %40, 0
   br i1 %.not.wide.i, label %_ZN1q6ematch11tmp_bindingERNS_6clauseEP3appPKPN3euf5enodeE.exit, label %39, !llvm.loop !690
@@ -4222,7 +4222,7 @@ _ZN1q6ematch11tmp_bindingERNS_6clauseEP3appPKPN3euf5enodeE.exit: ; preds = %39, 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %54, %.lr.ph ], [ %57, %56 ]
   %57 = add nsw i64 %indvars.iv, -1
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %53, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !635
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8, !tbaa !636
@@ -4301,7 +4301,7 @@ _ZN1q6ematch11tmp_bindingERNS_6clauseEP3appPKPN3euf5enodeE.exit: ; preds = %39, 
   %indvars.iv37 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next38, %93 ]
   %94 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv37
   %95 = load ptr, ptr %94, align 8, !tbaa !635
-  %96 = getelementptr inbounds nuw [0 x ptr], ptr %78, i64 0, i64 %indvars.iv37
+  %96 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv37
   store ptr %95, ptr %96, align 8, !tbaa !635
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
@@ -11546,9 +11546,9 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN1
 
 48:                                               ; preds = %47
   %49 = add nsw i64 %indvars.iv.i.i.i, -1
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !635
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %49
+  %52 = getelementptr inbounds nuw ptr, ptr %24, i64 %49
   %53 = load ptr, ptr %52, align 8, !tbaa !635
   %.not10.i.i.i = icmp eq ptr %51, %53
   br i1 %.not10.i.i.i, label %47, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit.thread, !llvm.loop !895
@@ -11598,9 +11598,9 @@ _ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_1
 
 75:                                               ; preds = %74
   %76 = add nsw i64 %indvars.iv.i.i.i32, -1
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !635
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %76
+  %79 = getelementptr inbounds nuw ptr, ptr %27, i64 %76
   %80 = load ptr, ptr %79, align 8, !tbaa !635
   %.not10.i.i.i34 = icmp eq ptr %78, %80
   br i1 %.not10.i.i.i34, label %74, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit35.thread, !llvm.loop !895
@@ -11823,19 +11823,19 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN1q7bindingENS0_
   %.0383493 = phi i32 [ -1640531527, %.lr.ph ], [ %232, %185 ]
   %186 = add i64 %indvars.iv, 4294967295
   %187 = and i64 %186, 4294967295
-  %188 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw ptr, ptr %10, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !635
   %190 = load ptr, ptr %189, align 8, !tbaa !659
   %191 = load i32, ptr %190, align 4, !tbaa !660
   %192 = add i64 %indvars.iv, 4294967294
   %193 = and i64 %192, 4294967295
-  %194 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw ptr, ptr %10, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !635
   %196 = load ptr, ptr %195, align 8, !tbaa !659
   %197 = load i32, ptr %196, align 4, !tbaa !660
   %198 = add i32 %197, %.0381494
   %199 = add nsw i64 %indvars.iv, -3
-  %200 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %10, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !635
   %202 = load ptr, ptr %201, align 8, !tbaa !659
   %203 = load i32, ptr %202, align 4, !tbaa !660
@@ -12054,9 +12054,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN1q7bindin
 
 59:                                               ; preds = %58
   %60 = add nsw i64 %indvars.iv.i.i.i, -1
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %56, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !635
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %60
+  %63 = getelementptr inbounds nuw ptr, ptr %35, i64 %60
   %64 = load ptr, ptr %63, align 8, !tbaa !635
   %.not10.i.i.i = icmp eq ptr %62, %64
   br i1 %.not10.i.i.i, label %58, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit.thread, !llvm.loop !895
@@ -12133,9 +12133,9 @@ _ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_1
 
 95:                                               ; preds = %94
   %96 = add nsw i64 %indvars.iv.i.i.i54, -1
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr %92, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !635
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %96
+  %99 = getelementptr inbounds nuw ptr, ptr %38, i64 %96
   %100 = load ptr, ptr %99, align 8, !tbaa !635
   %.not10.i.i.i56 = icmp eq ptr %98, %100
   br i1 %.not10.i.i.i56, label %94, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit57.thread, !llvm.loop !895
@@ -12395,9 +12395,9 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN1q7bindin
 
 48:                                               ; preds = %47
   %49 = add nsw i64 %indvars.iv.i.i.i, -1
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %45, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !635
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %49
+  %52 = getelementptr inbounds nuw ptr, ptr %24, i64 %49
   %53 = load ptr, ptr %52, align 8, !tbaa !635
   %.not10.i.i.i = icmp eq ptr %51, %53
   br i1 %.not10.i.i.i, label %47, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit.thread, !llvm.loop !895
@@ -12447,9 +12447,9 @@ _ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_1
 
 75:                                               ; preds = %74
   %76 = add nsw i64 %indvars.iv.i.i.i37, -1
-  %77 = getelementptr inbounds nuw [0 x ptr], ptr %72, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !635
-  %79 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %76
+  %79 = getelementptr inbounds nuw ptr, ptr %27, i64 %76
   %80 = load ptr, ptr %79, align 8, !tbaa !635
   %.not10.i.i.i39 = icmp eq ptr %78, %80
   br i1 %.not10.i.i.i39, label %74, label %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit40.thread, !llvm.loop !895
@@ -15976,7 +15976,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI21pattern_inference_cfgE11pro
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !592
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -19451,7 +19451,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI21pattern_inference_cfgE11pro
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !592
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

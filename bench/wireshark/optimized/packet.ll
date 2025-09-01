@@ -1671,7 +1671,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph31.split.us:                                ; preds = %.lr.ph31, %dissector_add_uint.exit25.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %dissector_add_uint.exit25.us ], [ 0, %.lr.ph31 ]
-  %11 = getelementptr [0 x %struct.range_admin_tag], ptr %8, i64 0, i64 %indvars.iv41
+  %11 = getelementptr %struct.range_admin_tag, ptr %8, i64 %indvars.iv41
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1781,7 +1781,7 @@ find_dissector_table.exit:                        ; preds = %47, %50, %53, %56
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %dissector_add_uint.exit25
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %dissector_add_uint.exit25 ], [ 0, %.lr.ph31 ]
-  %61 = getelementptr [0 x %struct.range_admin_tag], ptr %8, i64 0, i64 %indvars.iv38
+  %61 = getelementptr %struct.range_admin_tag, ptr %8, i64 %indvars.iv38
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
@@ -2053,7 +2053,7 @@ dissector_handle_get_description.exit:            ; preds = %32, %33
 
 switch.lookup:                                    ; preds = %45
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissector_add_range_preference, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissector_add_range_preference, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   %56 = tail call ptr @wmem_epan_scope()
   %57 = tail call i32 @range_convert_str(ptr noundef %56, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load)
@@ -2150,7 +2150,7 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly ca
 
 6:                                                ; preds = %.lr.ph22, %._crit_edge
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next27, %._crit_edge ]
-  %7 = getelementptr [0 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv26
+  %7 = getelementptr %struct.range_admin_tag, ptr %5, i64 %indvars.iv26
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4

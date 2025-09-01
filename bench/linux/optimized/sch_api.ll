@@ -505,7 +505,7 @@ define dso_local void @qdisc_hash_add(ptr noundef %0, i1 noundef zeroext %1) #0 
   %25 = mul i32 %24, 1640531527
   %26 = lshr i32 %25, 28
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr [16 x %struct.hlist_head], ptr %22, i64 0, i64 %27
+  %28 = getelementptr %struct.hlist_head, ptr %22, i64 %27
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %18, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -633,7 +633,7 @@ define dso_local ptr @qdisc_lookup(ptr noundef readonly captures(none) %0, i32 n
   %27 = mul i32 %1, 1640531527
   %28 = lshr i32 %27, 28
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [16 x %struct.hlist_head], ptr %26, i64 0, i64 %29
+  %30 = getelementptr %struct.hlist_head, ptr %26, i64 %29
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 -40
@@ -701,7 +701,7 @@ select.unfold:                                    ; preds = %21
   %73 = mul i32 %1, 1640531527
   %74 = lshr i32 %73, 28
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [16 x %struct.hlist_head], ptr %72, i64 0, i64 %75
+  %76 = getelementptr %struct.hlist_head, ptr %72, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   %79 = getelementptr i8, ptr %77, i64 -40
@@ -770,7 +770,7 @@ define dso_local ptr @qdisc_lookup_rcu(ptr noundef %0, i32 noundef %1) local_unn
   %27 = mul i32 %1, 1640531527
   %28 = lshr i32 %27, 28
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [16 x %struct.hlist_head], ptr %26, i64 0, i64 %29
+  %30 = getelementptr %struct.hlist_head, ptr %26, i64 %29
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 -40
@@ -838,7 +838,7 @@ select.unfold:                                    ; preds = %21
   %73 = mul i32 %1, 1640531527
   %74 = lshr i32 %73, 28
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [16 x %struct.hlist_head], ptr %72, i64 0, i64 %75
+  %76 = getelementptr %struct.hlist_head, ptr %72, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   %79 = getelementptr i8, ptr %77, i64 -40
@@ -1152,22 +1152,22 @@ define dso_local void @__qdisc_calculate_pkt_len(ptr noundef captures(none) init
 
 26:                                               ; preds = %19
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr [0 x i16], ptr %25, i64 0, i64 %27
+  %28 = getelementptr i16, ptr %25, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   br label %45
 
 31:                                               ; preds = %19
-  %32 = add nsw i32 %10, -1
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [0 x i16], ptr %25, i64 0, i64 %33
+  %32 = zext nneg i32 %10 to i64
+  %33 = getelementptr i16, ptr %25, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -2
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = udiv i32 %23, %10
   %38 = mul i32 %37, %36
   %39 = urem i32 %23, %10
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [0 x i16], ptr %25, i64 0, i64 %40
+  %41 = getelementptr i16, ptr %25, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = add i32 %38, %43
@@ -2939,7 +2939,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %79 = load ptr, ptr %74, align 64
   %80 = load ptr, ptr %79, align 64
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1088
-  %82 = getelementptr [16 x %struct.hlist_head], ptr %81, i64 0, i64 %77
+  %82 = getelementptr %struct.hlist_head, ptr %81, i64 %77
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   %85 = getelementptr i8, ptr %83, i64 -40
@@ -3594,7 +3594,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %96 = mul i32 %86, 1640531527
   %97 = lshr i32 %96, 28
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr [16 x %struct.hlist_head], ptr %95, i64 0, i64 %98
+  %99 = getelementptr %struct.hlist_head, ptr %95, i64 %98
   %100 = load volatile ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   %102 = getelementptr i8, ptr %100, i64 -40
@@ -3696,7 +3696,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %153 = load ptr, ptr %71, align 64
   %154 = load ptr, ptr %153, align 64
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 1088
-  %156 = getelementptr [16 x %struct.hlist_head], ptr %155, i64 0, i64 %152
+  %156 = getelementptr %struct.hlist_head, ptr %155, i64 %152
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
   %159 = getelementptr i8, ptr %157, i64 -40
@@ -5372,7 +5372,7 @@ define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1
   %116 = load ptr, ptr %104, align 8
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %112, 63
-  %119 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %118
+  %119 = getelementptr i64, ptr @__per_cpu_offset, i64 %118
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %117
   %122 = inttoptr i64 %121 to ptr

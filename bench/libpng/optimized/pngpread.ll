@@ -301,7 +301,7 @@ define void @png_push_read_sig(ptr noalias noundef %0, ptr noalias noundef %1) l
   %8 = load i64, ptr %7, align 8, !tbaa !27
   %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %6)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = load i64, ptr %11, align 8, !tbaa !26
   %.not.i = icmp eq i64 %12, 0
@@ -1902,11 +1902,11 @@ define void @png_read_push_finish_row(ptr noalias noundef captures(none) %0) loc
   %38 = phi i32 [ %32, %.thread35 ], [ %.pre, %._crit_edge ]
   %39 = phi i8 [ %33, %.thread35 ], [ %22, %._crit_edge ]
   %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr inbounds nuw [7 x i8], ptr @png_pass_inc, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @png_pass_inc, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !39
   %43 = zext i8 %42 to i32
   %44 = add i32 %38, %43
-  %45 = getelementptr inbounds nuw [7 x i8], ptr @png_pass_start, i64 0, i64 %40
+  %45 = getelementptr inbounds nuw i8, ptr @png_pass_start, i64 %40
   %46 = load i8, ptr %45, align 1, !tbaa !39
   %47 = zext i8 %46 to i32
   %48 = xor i32 %47, -1
@@ -1920,11 +1920,11 @@ define void @png_read_push_finish_row(ptr noalias noundef captures(none) %0) loc
 
 53:                                               ; preds = %37
   %54 = load i32, ptr %21, align 8, !tbaa !95
-  %55 = getelementptr inbounds nuw [7 x i8], ptr @png_pass_yinc, i64 0, i64 %40
+  %55 = getelementptr inbounds nuw i8, ptr @png_pass_yinc, i64 %40
   %56 = load i8, ptr %55, align 1, !tbaa !39
   %57 = zext i8 %56 to i32
   %58 = add i32 %54, %57
-  %59 = getelementptr inbounds nuw [7 x i8], ptr @png_pass_ystart, i64 0, i64 %40
+  %59 = getelementptr inbounds nuw i8, ptr @png_pass_ystart, i64 %40
   %60 = load i8, ptr %59, align 1, !tbaa !39
   %61 = zext i8 %60 to i32
   %62 = xor i32 %61, -1

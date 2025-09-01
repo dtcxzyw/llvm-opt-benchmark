@@ -53,7 +53,7 @@ define internal i32 @microdvd_init(ptr noundef %0) #0 {
   %.12953 = phi i32 [ 0, %6 ], [ %.432, %.loopexit ]
   %.13452 = phi i32 [ 16777215, %6 ], [ %.235, %.loopexit ]
   %.13751 = phi i32 [ 16, %6 ], [ %.238, %.loopexit ]
-  %9 = getelementptr inbounds nuw [8 x %struct.microdvd_tag], ptr %3, i64 0, i64 %indvars.iv58
+  %9 = getelementptr inbounds nuw %struct.microdvd_tag, ptr %3, i64 %indvars.iv58
   %10 = load i8, ptr %9, align 16, !tbaa !27
   %11 = sext i8 %10 to i32
   %12 = add nsw i32 %11, -65
@@ -85,7 +85,7 @@ define internal i32 @microdvd_init(ptr noundef %0) #0 {
   br i1 %.not44, label %26, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw [5 x i8], ptr @.str.4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !30
   switch i8 %22, label %26 [
     i8 105, label %23
@@ -223,7 +223,7 @@ define internal i32 @microdvd_decode_frame(ptr noundef readonly captures(none) %
   br i1 %.not.i, label %37, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw [5 x i8], ptr @.str.4, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %indvars.iv.i
   %35 = load i8, ptr %34, align 1, !tbaa !30
   %36 = sext i8 %35 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, i32 noundef %36) #9
@@ -334,7 +334,7 @@ microdvd_open_tags.exit:                          ; preds = %.lr.ph
   br i1 %.not18.i, label %81, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw [5 x i8], ptr @.str.4, i64 0, i64 %indvars.iv.i41
+  %78 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %indvars.iv.i41
   %79 = load i8, ptr %78, align 1, !tbaa !30
   %80 = sext i8 %79 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %80) #9

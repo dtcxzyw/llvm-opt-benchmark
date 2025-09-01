@@ -2880,13 +2880,13 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %20 = xor i64 %19, 4607182418800017408
   %21 = bitcast i64 %20 to double
   %22 = and i64 %7, 127
-  %23 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !109
   %25 = fmul double %24, %21
   %26 = tail call noundef double @llvm.fabs.f64(double %25)
   %27 = add nuw nsw i32 %9, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !109
   %31 = fcmp olt double %26, %30
   br i1 %31, label %select.unfold.loopexit, label %32
@@ -2983,9 +2983,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_10pcg
   %reass.sub = sub nsw i64 %79, %78
   %80 = add nsw i64 %reass.sub, 4602678819172646912
   %81 = bitcast i64 %80 to double
-  %82 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %28
+  %82 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %28
   %83 = load double, ptr %82, align 8, !tbaa !109
-  %84 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %22
+  %84 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %22
   %85 = load double, ptr %84, align 8, !tbaa !109
   %86 = fsub double %85, %83
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
@@ -6926,13 +6926,13 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %29 = xor i64 %28, 4607182418800017408
   %30 = bitcast i64 %29 to double
   %31 = and i64 %16, 127
-  %32 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !109
   %34 = fmul double %33, %30
   %35 = tail call noundef double @llvm.fabs.f64(double %34)
   %36 = add nuw nsw i32 %18, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !109
   %40 = fcmp olt double %35, %39
   br i1 %40, label %select.unfold, label %41
@@ -7002,9 +7002,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_13seq
   %reass.sub = sub nsw i64 %89, %88
   %90 = add nsw i64 %reass.sub, 4602678819172646912
   %91 = bitcast i64 %90 to double
-  %92 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %37
+  %92 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %37
   %93 = load double, ptr %92, align 8, !tbaa !109
-  %94 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %31
+  %94 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %31
   %95 = load double, ptr %94, align 8, !tbaa !109
   %96 = fsub double %95, %93
   %97 = tail call double @llvm.fmuladd.f64(double %91, double %96, double %93)
@@ -11856,13 +11856,13 @@ define internal void @_ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBound
   %152 = xor i64 %151, 4607182418800017408
   %153 = bitcast i64 %152 to double
   %154 = and i64 %139, 127
-  %155 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %154
   %156 = load double, ptr %155, align 8, !tbaa !109
   %157 = fmul double %156, %153
   %158 = call noundef double @llvm.fabs.f64(double %157)
   %159 = add nuw nsw i32 %141, 1
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %160
   %162 = load double, ptr %161, align 8, !tbaa !109
   %163 = fcmp olt double %158, %162
   br i1 %163, label %.loopexit623, label %164
@@ -11929,9 +11929,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_13seq
   %reass.sub = sub nsw i64 %211, %212
   %213 = add nsw i64 %reass.sub, 4602678819172646912
   %214 = bitcast i64 %213 to double
-  %215 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %160
+  %215 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %160
   %216 = load double, ptr %215, align 8, !tbaa !109
-  %217 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %154
+  %217 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %154
   %218 = load double, ptr %217, align 8, !tbaa !109
   %219 = fsub double %218, %216
   %220 = call double @llvm.fmuladd.f64(double %214, double %219, double %216)
@@ -12647,13 +12647,13 @@ _ZN4absl15random_internal13sequence_urbgD2Ev.exit246: ; preds = %448, %383, %325
   %473 = xor i64 %472, 4607182418800017408
   %474 = bitcast i64 %473 to double
   %475 = and i64 %460, 127
-  %476 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %475
+  %476 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %475
   %477 = load double, ptr %476, align 8, !tbaa !109
   %478 = fmul double %477, %474
   %479 = call noundef double @llvm.fabs.f64(double %478)
   %480 = add nuw nsw i32 %462, 1
   %481 = zext nneg i32 %480 to i64
-  %482 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %481
   %483 = load double, ptr %482, align 8, !tbaa !109
   %484 = fcmp olt double %479, %483
   br i1 %484, label %.loopexit, label %485
@@ -12720,9 +12720,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_13seq
   %reass.sub690 = sub nsw i64 %532, %533
   %534 = add nsw i64 %reass.sub690, 4602678819172646912
   %535 = bitcast i64 %534 to double
-  %536 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %481
+  %536 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %481
   %537 = load double, ptr %536, align 8, !tbaa !109
-  %538 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %475
+  %538 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %475
   %539 = load double, ptr %538, align 8, !tbaa !109
   %540 = fsub double %539, %537
   %541 = call double @llvm.fmuladd.f64(double %535, double %540, double %537)
@@ -17734,7 +17734,7 @@ define internal void @_ZN12_GLOBAL__N_152GaussianDistributionInterfaceTest_Seria
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %102 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %103, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %104 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %.016.i.i.i.i.i
+  %104 = getelementptr inbounds nuw i32, ptr %14, i64 %.016.i.i.i.i.i
   %105 = load i32, ptr %104, align 4, !tbaa !49
   %106 = zext i32 %105 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %106
@@ -21317,13 +21317,13 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %20 = xor i64 %19, 4607182418800017408
   %21 = bitcast i64 %20 to double
   %22 = and i64 %7, 127
-  %23 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !109
   %25 = fmul double %24, %21
   %26 = tail call noundef double @llvm.fabs.f64(double %25)
   %27 = add nuw nsw i32 %9, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [129 x double], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !109
   %31 = fcmp olt double %26, %30
   br i1 %31, label %select.unfold.loopexit, label %32
@@ -21420,9 +21420,9 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   %reass.sub = sub nsw i64 %79, %78
   %80 = add nsw i64 %reass.sub, 4602678819172646912
   %81 = bitcast i64 %80 to double
-  %82 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %28
+  %82 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %28
   %83 = load double, ptr %82, align 8, !tbaa !109
-  %84 = getelementptr inbounds nuw [129 x double], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 0, i64 %22
+  %84 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %22
   %85 = load double, ptr %84, align 8, !tbaa !109
   %86 = fsub double %85, %83
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
@@ -23851,7 +23851,7 @@ define internal void @_ZN12_GLOBAL__N_152GaussianDistributionInterfaceTest_Seria
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %102 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %103, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %104 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %.016.i.i.i.i.i
+  %104 = getelementptr inbounds nuw i32, ptr %14, i64 %.016.i.i.i.i.i
   %105 = load i32, ptr %104, align 4, !tbaa !49
   %106 = zext i32 %105 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %106
@@ -28576,7 +28576,7 @@ define internal void @_ZN12_GLOBAL__N_152GaussianDistributionInterfaceTest_Seria
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %101 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %102, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %103 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %.016.i.i.i.i.i
+  %103 = getelementptr inbounds nuw i32, ptr %14, i64 %.016.i.i.i.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !49
   %105 = zext i32 %104 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %105

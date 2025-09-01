@@ -287,7 +287,7 @@ _ZN15obj_equiv_classI4expr11ast_managerEC2ERS1_.exit: ; preds = %.lr.ph.i.i.i.i.
 46:                                               ; preds = %.lr.ph, %65
   %47 = phi ptr [ null, %.lr.ph ], [ %66, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !244
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -8
@@ -384,7 +384,7 @@ _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit1
 
 88:                                               ; preds = %.lr.ph325, %150
   %indvars.iv373 = phi i64 [ %45, %.lr.ph325 ], [ %indvars.iv.next374, %150 ]
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv373
+  %89 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv373
   %90 = load ptr, ptr %89, align 8, !tbaa !244
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, -8

@@ -11694,10 +11694,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$wasmtime_environ..trap_encoding..
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !594, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN74_$LT$wasmtime_environ..trap_encoding..Trap$u20$as$u20$core..fmt..Debug$GT$3fmt17h300f5b5aa2d5d473E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$wasmtime_environ..trap_encoding..Trap$u20$as$u20$core..fmt..Debug$GT$3fmt17h300f5b5aa2d5d473E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN74_$LT$wasmtime_environ..trap_encoding..Trap$u20$as$u20$core..fmt..Debug$GT$3fmt17h300f5b5aa2d5d473E.700", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$wasmtime_environ..trap_encoding..Trap$u20$as$u20$core..fmt..Debug$GT$3fmt17h300f5b5aa2d5d473E.700", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -22493,9 +22493,9 @@ define void @_ZN6yara_x8compiler8warnings7Warning9all_codes17h5556f0f8359e57bdE(
 define { ptr, i64 } @_ZN6yara_x8compiler8warnings7Warning4code17hd6d80db74b08c789E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !1232, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [20 x i64], ptr @switch.table._ZN6yara_x8compiler8warnings7Warning4code17hd6d80db74b08c789E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6yara_x8compiler8warnings7Warning4code17hd6d80db74b08c789E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [20 x ptr], ptr @switch.table._ZN6yara_x8compiler8warnings7Warning4code17hd6d80db74b08c789E.701, i64 0, i64 %1
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6yara_x8compiler8warnings7Warning4code17hd6d80db74b08c789E.701, i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -28643,7 +28643,7 @@ define noundef range(i8 0, 17) i8 @_ZN6yara_x7modules6protos2pe2PE9subsystem17h8
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN6yara_x7modules6protos2pe2PE9subsystem17h8268d9a1439371e7E, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x7modules6protos2pe2PE9subsystem17h8268d9a1439371e7E, i64 %9
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN80_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb5b8b877f3a07222E.exit"
 
@@ -40916,7 +40916,7 @@ define noundef range(i8 1, 25) i8 @_ZN6yara_x7modules6protos2pe8Resource5type_17
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZN6yara_x7modules6protos2pe8Resource5type_17hf81c33779ff0ee28E, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x7modules6protos2pe8Resource5type_17hf81c33779ff0ee28E, i64 %9
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN83_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217he3ade495004428caE.exit"
 
@@ -59748,7 +59748,7 @@ define noundef range(i8 0, 25) i8 @"_ZN83_$LT$yara_x..modules..protos..pe..Resou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [24 x i8], ptr @"switch.table._ZN83_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217he3ade495004428caE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN83_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217he3ade495004428caE", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -59939,73 +59939,73 @@ define void @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$pro
 switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3784, !noundef !4
-  %switch.tableidx = add nsw i8 %3, -1
-  %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [24 x i64], ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h24f2998c89ce70c6E", i64 0, i64 %4
+  %4 = zext nneg i8 %3 to i64
+  %5 = getelementptr i64, ptr @"switch.table._ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h24f2998c89ce70c6E", i64 %4
+  %switch.gep = getelementptr i8, ptr %5, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3869)
-  %5 = load atomic ptr, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E" acquire, align 8, !noalias !3869
-  %.not.i.i = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.i, label %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i", label %6, !prof !121
+  %6 = load atomic ptr, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E" acquire, align 8, !noalias !3869
+  %.not.i.i = icmp eq ptr %6, inttoptr (i64 2 to ptr)
+  br i1 %.not.i.i, label %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i", label %7, !prof !121
 
 "._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i": ; preds = %switch.lookup
   %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 8), align 8, !range !3, !noalias !3869
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i"
 
-6:                                                ; preds = %switch.lookup
+7:                                                ; preds = %switch.lookup
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hea2ec413b9c86227E"(ptr noundef nonnull align 8 @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E"), !noalias !3869
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 8), align 8, !range !190, !noalias !3869, !noundef !4
-  %8 = icmp ne i64 %7, 2
-  tail call void @llvm.assume(i1 %8)
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 8), align 8, !range !190, !noalias !3869, !noundef !4
+  %9 = icmp ne i64 %8, 2
+  tail call void @llvm.assume(i1 %9)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i": ; preds = %6, %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i"
-  %9 = phi i64 [ %.pre.i, %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i" ], [ %7, %6 ]
-  %10 = trunc nuw i64 %9 to i1
-  br i1 %10, label %11, label %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i": ; preds = %7, %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i"
+  %10 = phi i64 [ %.pre.i, %"._ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit_crit_edge.i" ], [ %8, %7 ]
+  %11 = trunc nuw i64 %10 to i1
+  br i1 %11, label %12, label %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
 
-11:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i"
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 16), align 8, !noalias !3869, !nonnull !4, !noundef !4
-  %13 = atomicrmw add ptr %12, i64 1 monotonic, align 8, !noalias !3869
-  %14 = icmp slt i64 %13, 0
-  br i1 %14, label %15, label %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
+12:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i"
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 16), align 8, !noalias !3869, !nonnull !4, !noundef !4
+  %14 = atomicrmw add ptr %13, i64 1 monotonic, align 8, !noalias !3869
+  %15 = icmp slt i64 %14, 0
+  br i1 %15, label %16, label %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
 
-15:                                               ; preds = %11
+16:                                               ; preds = %12
   tail call void @llvm.trap()
   unreachable
 
-"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit": ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i", %11
-  %.sroa.01.0.i = phi i64 [ 1, %11 ], [ 0, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i" ]
+"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit": ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i", %12
+  %.sroa.01.0.i = phi i64 [ 1, %12 ], [ 0, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2109a71cc3c9de4bE.exit.i" ]
   %.sroa.5.0.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 16), align 8, !noalias !3869, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 24), align 8, !noalias !3869, !noundef !4
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor10descriptor17hee4d6c98991b0f50E", i64 24), align 8, !noalias !3869, !noundef !4
   store i64 %.sroa.01.0.i, ptr %2, align 8, !alias.scope !3869
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.5.0.i, ptr %17, align 8, !alias.scope !3869
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %16, ptr %18, align 8, !alias.scope !3869
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.5.0.i, ptr %18, align 8, !alias.scope !3869
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %17, ptr %19, align 8, !alias.scope !3869
   invoke void @_ZN8protobuf7reflect5enums14EnumDescriptor14value_by_index17h4a6760bb87b03712E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %switch.load)
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
-19:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #34
-          to label %24 unwind label %22
+          to label %25 unwind label %23
 
-21:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
+22:                                               ; preds = %"_ZN91_$LT$yara_x..modules..protos..pe..ResourceType$u20$as$u20$protobuf..enum_full..EnumFull$GT$15enum_descriptor17hf7f9e9f33927abd7E.exit"
   call void @"_ZN4core3ptr61drop_in_place$LT$protobuf..reflect..enums..EnumDescriptor$GT$17h80ec976af8edaa35E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #33
   unreachable
 
-24:                                               ; preds = %19
-  resume { ptr, i32 } %20
+25:                                               ; preds = %20
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -60491,7 +60491,7 @@ define noundef range(i8 0, 18) i8 @"_ZN80_$LT$yara_x..modules..protos..pe..Subsy
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i8], ptr @"switch.table._ZN80_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb5b8b877f3a07222E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN80_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hb5b8b877f3a07222E", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -60650,7 +60650,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3964, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN88_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h0ced87713938f140E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$yara_x..modules..protos..pe..Subsystem$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h0ced87713938f140E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4021)
@@ -61134,7 +61134,7 @@ switch.lookup:
   %3 = load i16, ptr %1, align 2, !range !4040, !noundef !4
   %4 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %3, i1 true)
   %5 = zext nneg i16 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN94_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h7fa4f5d4a44acf2bE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$yara_x..modules..protos..pe..Characteristics$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17h7fa4f5d4a44acf2bE", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4101)
@@ -96920,19 +96920,19 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x7modules2vt5typos17qwerty_n
   ]
 
 11:                                               ; preds = %2
-  %switch.tableidx3 = add nsw i32 %1, -55
-  %12 = icmp ult i32 %switch.tableidx3, 63
-  br i1 %12, label %switch.lookup2, label %62
+  %switch.tableidx2 = add nsw i32 %1, -55
+  %12 = icmp ult i32 %switch.tableidx2, 63
+  br i1 %12, label %switch.lookup3, label %62
 
 13:                                               ; preds = %2
-  %switch.tableidx9 = add nsw i32 %1, -48
-  %14 = icmp ult i32 %switch.tableidx9, 64
-  br i1 %14, label %switch.lookup8, label %62
+  %switch.tableidx8 = add nsw i32 %1, -48
+  %14 = icmp ult i32 %switch.tableidx8, 64
+  br i1 %14, label %switch.lookup9, label %62
 
 15:                                               ; preds = %2
-  %switch.tableidx15 = add nsw i32 %1, -57
-  %16 = icmp ult i32 %switch.tableidx15, 56
-  br i1 %16, label %switch.lookup14, label %62
+  %switch.tableidx14 = add nsw i32 %1, -57
+  %16 = icmp ult i32 %switch.tableidx14, 56
+  br i1 %16, label %switch.lookup15, label %62
 
 17:                                               ; preds = %2
   switch i32 %1, label %62 [
@@ -96983,9 +96983,9 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x7modules2vt5typos17qwerty_n
   ]
 
 22:                                               ; preds = %2
-  %switch.tableidx21 = add nsw i32 %1, -54
-  %23 = icmp ult i32 %switch.tableidx21, 64
-  br i1 %23, label %switch.lookup20, label %62
+  %switch.tableidx20 = add nsw i32 %1, -54
+  %23 = icmp ult i32 %switch.tableidx20, 64
+  br i1 %23, label %switch.lookup21, label %62
 
 24:                                               ; preds = %2
   switch i32 %1, label %62 [
@@ -96998,9 +96998,9 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x7modules2vt5typos17qwerty_n
   ]
 
 25:                                               ; preds = %2
-  %switch.tableidx27 = add nsw i32 %1, -56
-  %26 = icmp ult i32 %switch.tableidx27, 62
-  br i1 %26, label %switch.lookup26, label %62
+  %switch.tableidx26 = add nsw i32 %1, -56
+  %26 = icmp ult i32 %switch.tableidx26, 62
+  br i1 %26, label %switch.lookup27, label %62
 
 27:                                               ; preds = %2
   switch i32 %1, label %62 [
@@ -97013,69 +97013,69 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x7modules2vt5typos17qwerty_n
   ]
 
 28:                                               ; preds = %2
-  %switch.tableidx33 = add nsw i32 %1, -48
-  %29 = icmp ult i32 %switch.tableidx33, 64
-  br i1 %29, label %switch.lookup32, label %62
+  %switch.tableidx32 = add nsw i32 %1, -48
+  %29 = icmp ult i32 %switch.tableidx32, 64
+  br i1 %29, label %switch.lookup33, label %62
 
 30:                                               ; preds = %2
-  %switch.tableidx39 = add nsw i32 %1, -113
-  %31 = icmp ult i32 %switch.tableidx39, 10
-  br i1 %31, label %switch.lookup38, label %62
+  %switch.tableidx38 = add nsw i32 %1, -113
+  %31 = icmp ult i32 %switch.tableidx38, 10
+  br i1 %31, label %switch.lookup39, label %62
 
 32:                                               ; preds = %2
-  %switch.tableidx45 = add nsw i32 %1, -97
-  %33 = icmp ult i32 %switch.tableidx45, 26
-  br i1 %33, label %switch.lookup44, label %62
+  %switch.tableidx44 = add nsw i32 %1, -97
+  %33 = icmp ult i32 %switch.tableidx44, 26
+  br i1 %33, label %switch.lookup45, label %62
 
 34:                                               ; preds = %2
-  %switch.tableidx51 = add nsw i32 %1, -99
-  %35 = icmp ult i32 %switch.tableidx51, 22
-  br i1 %35, label %switch.lookup50, label %62
+  %switch.tableidx50 = add nsw i32 %1, -99
+  %35 = icmp ult i32 %switch.tableidx50, 22
+  br i1 %35, label %switch.lookup51, label %62
 
 36:                                               ; preds = %2
-  %switch.tableidx57 = add nsw i32 %1, -99
-  %37 = icmp ult i32 %switch.tableidx57, 20
-  br i1 %37, label %switch.lookup56, label %62
+  %switch.tableidx56 = add nsw i32 %1, -99
+  %37 = icmp ult i32 %switch.tableidx56, 20
+  br i1 %37, label %switch.lookup57, label %62
 
 38:                                               ; preds = %2
-  %switch.tableidx63 = add nsw i32 %1, -98
-  %39 = icmp ult i32 %switch.tableidx63, 24
-  br i1 %39, label %switch.lookup62, label %62
+  %switch.tableidx62 = add nsw i32 %1, -98
+  %39 = icmp ult i32 %switch.tableidx62, 24
+  br i1 %39, label %switch.lookup63, label %62
 
 40:                                               ; preds = %2
-  %switch.tableidx69 = add nsw i32 %1, -98
-  %41 = icmp ult i32 %switch.tableidx69, 24
-  br i1 %41, label %switch.lookup68, label %62
+  %switch.tableidx68 = add nsw i32 %1, -98
+  %41 = icmp ult i32 %switch.tableidx68, 24
+  br i1 %41, label %switch.lookup69, label %62
 
 42:                                               ; preds = %2
-  %switch.tableidx75 = add nsw i32 %1, -104
-  %43 = icmp ult i32 %switch.tableidx75, 14
-  br i1 %43, label %switch.lookup74, label %62
+  %switch.tableidx74 = add nsw i32 %1, -104
+  %43 = icmp ult i32 %switch.tableidx74, 14
+  br i1 %43, label %switch.lookup75, label %62
 
 44:                                               ; preds = %2
-  %switch.tableidx81 = add nsw i32 %1, -105
-  %45 = icmp ult i32 %switch.tableidx81, 7
-  br i1 %45, label %switch.lookup80, label %62
+  %switch.tableidx80 = add nsw i32 %1, -105
+  %45 = icmp ult i32 %switch.tableidx80, 7
+  br i1 %45, label %switch.lookup81, label %62
 
 46:                                               ; preds = %2
-  %switch.tableidx87 = add nsw i32 %1, -107
-  %47 = icmp ult i32 %switch.tableidx87, 6
-  br i1 %47, label %switch.lookup86, label %62
+  %switch.tableidx86 = add nsw i32 %1, -107
+  %47 = icmp ult i32 %switch.tableidx86, 6
+  br i1 %47, label %switch.lookup87, label %62
 
 48:                                               ; preds = %2
-  %switch.tableidx93 = add nsw i32 %1, -97
-  %49 = icmp ult i32 %switch.tableidx93, 24
-  br i1 %49, label %switch.lookup92, label %62
+  %switch.tableidx92 = add nsw i32 %1, -97
+  %49 = icmp ult i32 %switch.tableidx92, 24
+  br i1 %49, label %switch.lookup93, label %62
 
 50:                                               ; preds = %2
-  %switch.tableidx99 = add nsw i32 %1, -99
-  %51 = icmp ult i32 %switch.tableidx99, 24
-  br i1 %51, label %switch.lookup98, label %62
+  %switch.tableidx98 = add nsw i32 %1, -99
+  %51 = icmp ult i32 %switch.tableidx98, 24
+  br i1 %51, label %switch.lookup99, label %62
 
 52:                                               ; preds = %2
-  %switch.tableidx105 = add nsw i32 %1, -100
-  %53 = icmp ult i32 %switch.tableidx105, 21
-  br i1 %53, label %switch.lookup104, label %62
+  %switch.tableidx104 = add nsw i32 %1, -100
+  %53 = icmp ult i32 %switch.tableidx104, 21
+  br i1 %53, label %switch.lookup105, label %62
 
 54:                                               ; preds = %2
   %55 = add nsw i32 %1, -98
@@ -97084,19 +97084,19 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x7modules2vt5typos17qwerty_n
   br label %62
 
 56:                                               ; preds = %2
-  %switch.tableidx111 = add nsw i32 %1, -103
-  %57 = icmp ult i32 %switch.tableidx111, 16
-  br i1 %57, label %switch.lookup110, label %62
+  %switch.tableidx110 = add nsw i32 %1, -103
+  %57 = icmp ult i32 %switch.tableidx110, 16
+  br i1 %57, label %switch.lookup111, label %62
 
 58:                                               ; preds = %2
-  %switch.tableidx117 = add nsw i32 %1, -98
-  %59 = icmp ult i32 %switch.tableidx117, 12
-  br i1 %59, label %switch.lookup116, label %62
+  %switch.tableidx116 = add nsw i32 %1, -98
+  %59 = icmp ult i32 %switch.tableidx116, 12
+  br i1 %59, label %switch.lookup117, label %62
 
 60:                                               ; preds = %2
-  %switch.tableidx123 = add nsw i32 %1, -106
-  %61 = icmp ult i32 %switch.tableidx123, 5
-  br i1 %61, label %switch.lookup122, label %62
+  %switch.tableidx122 = add nsw i32 %1, -106
+  %61 = icmp ult i32 %switch.tableidx122, 5
+  br i1 %61, label %switch.lookup123, label %62
 
 switch.lookup:                                    ; preds = %6
   %switch.cast = zext nneg i32 %switch.tableidx to i64
@@ -97104,134 +97104,134 @@ switch.lookup:                                    ; preds = %6
   %switch.masked = trunc i64 %switch.downshift to i1
   br label %62
 
-switch.lookup2:                                   ; preds = %11
-  %switch.cast4 = zext nneg i32 %switch.tableidx3 to i63
+switch.lookup3:                                   ; preds = %11
+  %switch.cast4 = zext nneg i32 %switch.tableidx2 to i63
   %switch.downshift6 = lshr i63 -4610560118520545275, %switch.cast4
   %switch.masked7 = trunc i63 %switch.downshift6 to i1
   br label %62
 
-switch.lookup8:                                   ; preds = %13
-  %switch.cast10 = zext nneg i32 %switch.tableidx9 to i64
+switch.lookup9:                                   ; preds = %13
+  %switch.cast10 = zext nneg i32 %switch.tableidx8 to i64
   %switch.downshift12 = lshr i64 -9079256848778919679, %switch.cast10
   %switch.masked13 = trunc i64 %switch.downshift12 to i1
   br label %62
 
-switch.lookup14:                                  ; preds = %15
-  %switch.cast16 = zext nneg i32 %switch.tableidx15 to i56
+switch.lookup15:                                  ; preds = %15
+  %switch.cast16 = zext nneg i32 %switch.tableidx14 to i56
   %switch.downshift18 = lshr i56 -18014398509481983, %switch.cast16
   %switch.masked19 = trunc i56 %switch.downshift18 to i1
   br label %62
 
-switch.lookup20:                                  ; preds = %22
-  %switch.cast22 = zext nneg i32 %switch.tableidx21 to i64
+switch.lookup21:                                  ; preds = %22
+  %switch.cast22 = zext nneg i32 %switch.tableidx20 to i64
   %switch.downshift24 = lshr i64 -4609997168567123965, %switch.cast22
   %switch.masked25 = trunc i64 %switch.downshift24 to i1
   br label %62
 
-switch.lookup26:                                  ; preds = %25
-  %switch.cast28 = zext nneg i32 %switch.tableidx27 to i62
+switch.lookup27:                                  ; preds = %25
+  %switch.cast28 = zext nneg i32 %switch.tableidx26 to i62
   %switch.downshift30 = lshr i62 -2266436512474202109, %switch.cast28
   %switch.masked31 = trunc i62 %switch.downshift30 to i1
   br label %62
 
-switch.lookup32:                                  ; preds = %28
-  %switch.cast34 = zext nneg i32 %switch.tableidx33 to i64
+switch.lookup33:                                  ; preds = %28
+  %switch.cast34 = zext nneg i32 %switch.tableidx32 to i64
   %switch.downshift36 = lshr i64 -8070450532247928831, %switch.cast34
   %switch.masked37 = trunc i64 %switch.downshift36 to i1
   br label %62
 
-switch.lookup38:                                  ; preds = %30
-  %switch.cast40 = trunc nuw i32 %switch.tableidx39 to i10
+switch.lookup39:                                  ; preds = %30
+  %switch.cast40 = trunc nuw i32 %switch.tableidx38 to i10
   %switch.downshift42 = lshr i10 -443, %switch.cast40
   %switch.masked43 = trunc i10 %switch.downshift42 to i1
   br label %62
 
-switch.lookup44:                                  ; preds = %32
-  %switch.cast46 = trunc nuw nsw i32 %switch.tableidx45 to i26
+switch.lookup45:                                  ; preds = %32
+  %switch.cast46 = trunc nuw nsw i32 %switch.tableidx44 to i26
   %switch.downshift48 = lshr i26 -20971495, %switch.cast46
   %switch.masked49 = trunc i26 %switch.downshift48 to i1
   br label %62
 
-switch.lookup50:                                  ; preds = %34
-  %switch.cast52 = trunc nuw i32 %switch.tableidx51 to i22
+switch.lookup51:                                  ; preds = %34
+  %switch.cast52 = trunc nuw i32 %switch.tableidx50 to i22
   %switch.downshift54 = lshr i22 -1998835, %switch.cast52
   %switch.masked55 = trunc i22 %switch.downshift54 to i1
   br label %62
 
-switch.lookup56:                                  ; preds = %36
-  %switch.cast58 = trunc nuw i32 %switch.tableidx57 to i20
+switch.lookup57:                                  ; preds = %36
+  %switch.cast58 = trunc nuw i32 %switch.tableidx56 to i20
   %switch.downshift60 = lshr i20 -360429, %switch.cast58
   %switch.masked61 = trunc i20 %switch.downshift60 to i1
   br label %62
 
-switch.lookup62:                                  ; preds = %38
-  %switch.cast64 = trunc nuw nsw i32 %switch.tableidx63 to i24
+switch.lookup63:                                  ; preds = %38
+  %switch.cast64 = trunc nuw nsw i32 %switch.tableidx62 to i24
   %switch.downshift66 = lshr i24 -7077807, %switch.cast64
   %switch.masked67 = trunc i24 %switch.downshift66 to i1
   br label %62
 
-switch.lookup68:                                  ; preds = %40
-  %switch.cast70 = trunc nuw nsw i32 %switch.tableidx69 to i24
+switch.lookup69:                                  ; preds = %40
+  %switch.cast70 = trunc nuw nsw i32 %switch.tableidx68 to i24
   %switch.downshift72 = lshr i24 -7859935, %switch.cast70
   %switch.masked73 = trunc i24 %switch.downshift72 to i1
   br label %62
 
-switch.lookup74:                                  ; preds = %42
-  %switch.cast76 = trunc nuw i32 %switch.tableidx75 to i14
+switch.lookup75:                                  ; preds = %42
+  %switch.cast76 = trunc nuw i32 %switch.tableidx74 to i14
   %switch.downshift78 = lshr i14 -8085, %switch.cast76
   %switch.masked79 = trunc i14 %switch.downshift78 to i1
   br label %62
 
-switch.lookup80:                                  ; preds = %44
-  %switch.cast82 = trunc nuw i32 %switch.tableidx81 to i7
+switch.lookup81:                                  ; preds = %44
+  %switch.cast82 = trunc nuw i32 %switch.tableidx80 to i7
   %switch.downshift84 = lshr i7 -37, %switch.cast82
   %switch.masked85 = trunc i7 %switch.downshift84 to i1
   br label %62
 
-switch.lookup86:                                  ; preds = %46
-  %switch.cast88 = trunc nuw i32 %switch.tableidx87 to i6
+switch.lookup87:                                  ; preds = %46
+  %switch.cast88 = trunc nuw i32 %switch.tableidx86 to i6
   %switch.downshift90 = lshr i6 -15, %switch.cast88
   %switch.masked91 = trunc i6 %switch.downshift90 to i1
   br label %62
 
-switch.lookup92:                                  ; preds = %48
-  %switch.cast94 = trunc nuw nsw i32 %switch.tableidx93 to i24
+switch.lookup93:                                  ; preds = %48
+  %switch.cast94 = trunc nuw nsw i32 %switch.tableidx92 to i24
   %switch.downshift96 = lshr i24 -8126463, %switch.cast94
   %switch.masked97 = trunc i24 %switch.downshift96 to i1
   br label %62
 
-switch.lookup98:                                  ; preds = %50
-  %switch.cast100 = trunc nuw nsw i32 %switch.tableidx99 to i24
+switch.lookup99:                                  ; preds = %50
+  %switch.cast100 = trunc nuw nsw i32 %switch.tableidx98 to i24
   %switch.downshift102 = lshr i24 -8323069, %switch.cast100
   %switch.masked103 = trunc i24 %switch.downshift102 to i1
   br label %62
 
-switch.lookup104:                                 ; preds = %52
-  %switch.cast106 = trunc nuw i32 %switch.tableidx105 to i21
+switch.lookup105:                                 ; preds = %52
+  %switch.cast106 = trunc nuw i32 %switch.tableidx104 to i21
   %switch.downshift108 = lshr i21 -786427, %switch.cast106
   %switch.masked109 = trunc i21 %switch.downshift108 to i1
   br label %62
 
-switch.lookup110:                                 ; preds = %56
-  %switch.cast112 = trunc nuw i32 %switch.tableidx111 to i16
+switch.lookup111:                                 ; preds = %56
+  %switch.cast112 = trunc nuw i32 %switch.tableidx110 to i16
   %switch.downshift114 = lshr i16 -32637, %switch.cast112
   %switch.masked115 = trunc i16 %switch.downshift114 to i1
   br label %62
 
-switch.lookup116:                                 ; preds = %58
-  %switch.cast118 = trunc nuw i32 %switch.tableidx117 to i12
+switch.lookup117:                                 ; preds = %58
+  %switch.cast118 = trunc nuw i32 %switch.tableidx116 to i12
   %switch.downshift120 = lshr i12 -1727, %switch.cast118
   %switch.masked121 = trunc i12 %switch.downshift120 to i1
   br label %62
 
-switch.lookup122:                                 ; preds = %60
-  %switch.cast124 = trunc nuw i32 %switch.tableidx123 to i5
+switch.lookup123:                                 ; preds = %60
+  %switch.cast124 = trunc nuw i32 %switch.tableidx122 to i5
   %switch.downshift126 = lshr i5 -13, %switch.cast124
   %switch.masked127 = trunc i5 %switch.downshift126 to i1
   br label %62
 
-62:                                               ; preds = %switch.lookup122, %60, %switch.lookup116, %58, %switch.lookup110, %56, %switch.lookup104, %52, %switch.lookup98, %50, %switch.lookup92, %48, %switch.lookup86, %46, %switch.lookup80, %44, %switch.lookup74, %42, %switch.lookup68, %40, %switch.lookup62, %38, %switch.lookup56, %36, %switch.lookup50, %34, %switch.lookup44, %32, %switch.lookup38, %30, %switch.lookup32, %28, %switch.lookup26, %25, %switch.lookup20, %22, %switch.lookup14, %15, %switch.lookup8, %13, %switch.lookup2, %11, %switch.lookup, %6, %27, %24, %21, %20, %19, %18, %17, %10, %9, %8, %5, %4, %54, %3, %2, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63
-  %.sroa.0.0 = phi i1 [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ false, %2 ], [ %switch.selectcmp, %3 ], [ %switch.selectcmp1, %54 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ false, %24 ], [ false, %25 ], [ false, %27 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %38 ], [ false, %40 ], [ false, %42 ], [ false, %44 ], [ false, %46 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ %switch.masked, %switch.lookup ], [ %switch.masked7, %switch.lookup2 ], [ %switch.masked13, %switch.lookup8 ], [ %switch.masked19, %switch.lookup14 ], [ %switch.masked25, %switch.lookup20 ], [ %switch.masked31, %switch.lookup26 ], [ %switch.masked37, %switch.lookup32 ], [ %switch.masked43, %switch.lookup38 ], [ %switch.masked49, %switch.lookup44 ], [ %switch.masked55, %switch.lookup50 ], [ %switch.masked61, %switch.lookup56 ], [ %switch.masked67, %switch.lookup62 ], [ %switch.masked73, %switch.lookup68 ], [ %switch.masked79, %switch.lookup74 ], [ %switch.masked85, %switch.lookup80 ], [ %switch.masked91, %switch.lookup86 ], [ %switch.masked97, %switch.lookup92 ], [ %switch.masked103, %switch.lookup98 ], [ %switch.masked109, %switch.lookup104 ], [ %switch.masked115, %switch.lookup110 ], [ %switch.masked121, %switch.lookup116 ], [ %switch.masked127, %switch.lookup122 ]
+62:                                               ; preds = %switch.lookup123, %60, %switch.lookup117, %58, %switch.lookup111, %56, %switch.lookup105, %52, %switch.lookup99, %50, %switch.lookup93, %48, %switch.lookup87, %46, %switch.lookup81, %44, %switch.lookup75, %42, %switch.lookup69, %40, %switch.lookup63, %38, %switch.lookup57, %36, %switch.lookup51, %34, %switch.lookup45, %32, %switch.lookup39, %30, %switch.lookup33, %28, %switch.lookup27, %25, %switch.lookup21, %22, %switch.lookup15, %15, %switch.lookup9, %13, %switch.lookup3, %11, %switch.lookup, %6, %27, %24, %21, %20, %19, %18, %17, %10, %9, %8, %5, %4, %54, %3, %2, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63
+  %.sroa.0.0 = phi i1 [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ false, %2 ], [ %switch.selectcmp, %3 ], [ %switch.selectcmp1, %54 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ false, %24 ], [ false, %25 ], [ false, %27 ], [ false, %28 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %38 ], [ false, %40 ], [ false, %42 ], [ false, %44 ], [ false, %46 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ %switch.masked, %switch.lookup ], [ %switch.masked7, %switch.lookup3 ], [ %switch.masked13, %switch.lookup9 ], [ %switch.masked19, %switch.lookup15 ], [ %switch.masked25, %switch.lookup21 ], [ %switch.masked31, %switch.lookup27 ], [ %switch.masked37, %switch.lookup33 ], [ %switch.masked43, %switch.lookup39 ], [ %switch.masked49, %switch.lookup45 ], [ %switch.masked55, %switch.lookup51 ], [ %switch.masked61, %switch.lookup57 ], [ %switch.masked67, %switch.lookup63 ], [ %switch.masked73, %switch.lookup69 ], [ %switch.masked79, %switch.lookup75 ], [ %switch.masked85, %switch.lookup81 ], [ %switch.masked91, %switch.lookup87 ], [ %switch.masked97, %switch.lookup93 ], [ %switch.masked103, %switch.lookup99 ], [ %switch.masked109, %switch.lookup105 ], [ %switch.masked115, %switch.lookup111 ], [ %switch.masked121, %switch.lookup117 ], [ %switch.masked127, %switch.lookup123 ]
   ret i1 %.sroa.0.0
 
 63:                                               ; preds = %4, %4, %4, %4

@@ -63,7 +63,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %12 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !8, !noalias !9
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !8, !noalias !9
   %17 = and i8 %16, 8
   %.not.i.i = icmp eq i8 %17, 0
@@ -73,7 +73,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %19 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %20 = load i8, ptr %19, align 1, !tbaa !8, !noalias !9
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !9
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
@@ -83,7 +83,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %27 = load i8, ptr %26, align 1, !tbaa !8, !noalias !9
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !9
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
@@ -93,7 +93,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %34 = load i8, ptr %33, align 1, !tbaa !8, !noalias !9
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !8, !noalias !9
   %38 = and i8 %37, 8
   %.not11.i.i = icmp eq i8 %38, 0
@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %44 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %45 = load i8, ptr %44, align 1, !tbaa !8, !noalias !9
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !8, !noalias !9
   %49 = and i8 %48, 8
   %.not12.i.i = icmp eq i8 %49, 0
@@ -129,7 +129,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %51 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %52 = load i8, ptr %51, align 1, !tbaa !8, !noalias !9
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8, !noalias !9
   %56 = and i8 %55, 8
   %.not13.i.i = icmp eq i8 %56, 0
@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewI
   %58 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %59 = load i8, ptr %58, align 1, !tbaa !8, !noalias !9
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8, !noalias !9
   %63 = and i8 %62, 8
   %.not14.i.i = icmp eq i8 %63, 0
@@ -243,7 +243,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %12 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !8, !noalias !20
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !8, !noalias !20
   %17 = and i8 %16, 8
   %.not.i.i = icmp eq i8 %17, 0
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %19 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %20 = load i8, ptr %19, align 1, !tbaa !8, !noalias !20
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !20
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
@@ -263,7 +263,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %27 = load i8, ptr %26, align 1, !tbaa !8, !noalias !20
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !20
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
@@ -273,7 +273,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %34 = load i8, ptr %33, align 1, !tbaa !8, !noalias !20
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !8, !noalias !20
   %38 = and i8 %37, 8
   %.not11.i.i = icmp eq i8 %38, 0
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %44 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %45 = load i8, ptr %44, align 1, !tbaa !8, !noalias !20
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !8, !noalias !20
   %49 = and i8 %48, 8
   %.not12.i.i = icmp eq i8 %49, 0
@@ -309,7 +309,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %51 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %52 = load i8, ptr %51, align 1, !tbaa !8, !noalias !20
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8, !noalias !20
   %56 = and i8 %55, 8
   %.not13.i.i = icmp eq i8 %56, 0
@@ -320,7 +320,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %58 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %59 = load i8, ptr %58, align 1, !tbaa !8, !noalias !20
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8, !noalias !20
   %63 = and i8 %62, 8
   %.not14.i.i = icmp eq i8 %63, 0
@@ -1771,7 +1771,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -1795,7 +1795,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -1905,7 +1905,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %27, label %85, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 %65
   %70 = load i32, ptr %69, align 4, !tbaa !31
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
@@ -1914,7 +1914,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %.02839.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
   %71 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !8
   %75 = sext i8 %74 to i32
   %.not.i7.i = icmp sgt i32 %.0.i.i, %75
@@ -1937,7 +1937,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !35
 
 85:                                               ; preds = %62
-  %86 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 0, i64 %65
+  %86 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 %65
   %87 = load i32, ptr %86, align 4, !tbaa !31
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
@@ -1946,7 +1946,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %.03041.i.i = phi ptr [ %101, %99 ], [ %.2.i.i, %85 ]
   %88 = load i8, ptr %.03041.i.i, align 1, !tbaa !8
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = sext i8 %91 to i32
   %.not.i10.i = icmp sgt i32 %.0.i.i, %92
@@ -1994,7 +1994,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -2018,7 +2018,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -2128,7 +2128,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %27, label %85, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 %65
   %70 = load i64, ptr %69, align 8, !tbaa !37
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
@@ -2137,7 +2137,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %.02839.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
   %71 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !8
   %75 = sext i8 %74 to i64
   %.not.i7.i = icmp slt i64 %75, %65
@@ -2160,7 +2160,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !39
 
 85:                                               ; preds = %62
-  %86 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 0, i64 %65
+  %86 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 %65
   %87 = load i64, ptr %86, align 8, !tbaa !37
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
@@ -2169,7 +2169,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %.03040.i.i = phi ptr [ %102, %100 ], [ %.2.i.i, %85 ]
   %88 = load i8, ptr %.03040.i.i, align 1, !tbaa !8
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = sext i8 %91 to i32
   %.not.i10.i = icmp sgt i32 %.0.i.i, %92
@@ -2218,7 +2218,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -2242,7 +2242,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -2355,7 +2355,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 
 .lr.ph.i6.i:                                      ; preds = %65
   %68 = zext nneg i32 %.0.i.i to i64
-  %69 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"class.absl::int128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 %68
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.024.0.copyload.i.i = load i64, ptr %69, align 16
@@ -2372,7 +2372,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.11.090.i.i = phi i64 [ 0, %.lr.ph.i6.i ], [ %.narrow.i.i.i.i, %81 ]
   %71 = load i8, ptr %.03892.i.i, align 1, !tbaa !8
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !8
   %.sroa.0.0.extract.trunc.i.i = sext i8 %74 to i64
   %75 = ashr i8 %74, 7
@@ -2421,7 +2421,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 
 .lr.ph.i10.i:                                     ; preds = %84
   %87 = zext nneg i32 %.0.i.i to i64
-  %88 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw %"class.absl::int128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 %87
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.096.0.copyload.i.i = load i64, ptr %88, align 16
@@ -2437,7 +2437,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.11.0121.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %.narrow.i.i84.i.i, %101 ]
   %90 = load i8, ptr %.037123.i.i, align 1, !tbaa !8
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !8
   %94 = sext i8 %93 to i32
   %.not.i11.i = icmp sgt i32 %.0.i.i, %94
@@ -2503,7 +2503,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -2527,7 +2527,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -2635,7 +2635,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
-  %66 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
@@ -2646,7 +2646,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %.02839.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
   %70 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = sext i8 %73 to i32
   %.not.i5.i = icmp ugt i32 %.0.i.i, %74
@@ -2694,7 +2694,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -2718,7 +2718,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -2826,7 +2826,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
-  %66 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
@@ -2837,7 +2837,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %.02839.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
   %70 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = sext i8 %73 to i64
   %.not.i5.i = icmp ult i64 %74, %65
@@ -2886,7 +2886,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %.05672.i.i = phi ptr [ %14, %13 ], [ %1, %6 ]
   %8 = load i8, ptr %.05672.i.i, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   %12 = and i8 %11, 8
   %.not.i.i = icmp eq i8 %12, 0
@@ -2910,7 +2910,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %19 = getelementptr inbounds i8, ptr %.055.i.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
@@ -3023,7 +3023,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
 
 .lr.ph.i4.i:                                      ; preds = %62
   %67 = zext nneg i32 %.0.i.i to i64
-  %68 = getelementptr inbounds nuw [37 x %"class.absl::uint128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"class.absl::uint128", ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 %67
   %.sroa.4.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i5.i, align 8, !tbaa !37
   %.sroa.024.0.copyload.i.i = load i64, ptr %68, align 16, !tbaa !37
@@ -3040,7 +3040,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %.sroa.11.0100.i.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %.narrow.i.i.i.i, %85 ]
   %70 = load i8, ptr %.038102.i.i, align 1, !tbaa !8
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !8
   %74 = sext i8 %73 to i64
   %75 = ashr i8 %73, 7
@@ -3125,7 +3125,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.02946.i.i.i = phi ptr [ %36, %35 ], [ %1, %.lr.ph.i.i.i.preheader ]
   %9 = load i8, ptr %.02946.i.i.i, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -3135,7 +3135,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = and i8 %19, 8
   %.not5 = icmp eq i8 %20, 0
@@ -3145,7 +3145,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !8
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
@@ -3155,7 +3155,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1, !tbaa !8
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !8
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
@@ -3184,7 +3184,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
 40:                                               ; preds = %._crit_edge.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   %45 = and i8 %44, 8
   %.not8 = icmp eq i8 %45, 0
@@ -3198,7 +3198,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1, !tbaa !8
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = and i8 %52, 8
   %.not9 = icmp eq i8 %53, 0
@@ -3212,7 +3212,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1, !tbaa !8
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !8
   %61 = and i8 %60, 8
   %.not10 = icmp eq i8 %61, 0
@@ -3325,7 +3325,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit:                ; preds = %.lr.ph, %26
   %.sroa.9.0.lcssa = phi i64 [ 0, %2 ], [ %.sroa.3.0.i, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
   %.0.lcssa = phi i32 [ %1, %2 ], [ %35, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
   %37 = zext nneg i32 %.0.lcssa to i64
-  %38 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4abslL7PowFiveEmi.powers_of_five, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @__const._ZN4abslL7PowFiveEmi.powers_of_five, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = and i64 %.sroa.9.0.lcssa, 4294967295
   %41 = lshr i64 %.sroa.9.0.lcssa, 32

@@ -2156,10 +2156,10 @@ define dso_local { ptr, i64 } @_ZN4llvm6object18getOffloadKindNameENS0_11Offload
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE.1, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE.1, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -2225,10 +2225,10 @@ define dso_local { ptr, i64 } @_ZN4llvm6object16getImageKindNameENS0_9ImageKindE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE.2, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE.2, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 

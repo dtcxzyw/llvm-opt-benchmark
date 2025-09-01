@@ -356,7 +356,7 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
   %.08298 = phi i32 [ 0, %.lr.ph.preheader ], [ %82, %81 ]
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !3
   %76 = and i32 %75, %.08298
   %.not91 = icmp eq i32 %76, 0
@@ -414,11 +414,11 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
   %98 = zext i32 %93 to i64
   %99 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %94, i64 %indvars.iv106, i32 2
   store i64 %98, ptr %99, align 8, !tbaa !31
-  %100 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv106
+  %100 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv106
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %94, i64 %indvars.iv106
   store i32 %101, ptr %102, align 8, !tbaa !32
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv106
+  %103 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv106
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = zext i32 %104 to i64
   %106 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %94, i64 %indvars.iv106, i32 1
@@ -607,7 +607,7 @@ define range(i32 -1, 1) i32 @H5SM__get_index(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = shl nuw nsw i32 1, %switch.load
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -688,7 +688,7 @@ define range(i32 -1, 2) i32 @H5SM_type_shared(ptr noundef %0, i32 noundef %1) lo
 
 switch.lookup:                                    ; preds = %11
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = shl nuw nsw i32 1, %switch.load
   %22 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #11
@@ -823,7 +823,7 @@ define range(i32 -1, 1) i32 @H5SM_get_fheap_addr(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = shl nuw nsw i32 1, %switch.load
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -994,7 +994,7 @@ define range(i32 -1, 2) i32 @H5SM_can_share(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %46
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = shl nuw nsw i32 1, %switch.load
   %50 = getelementptr inbounds nuw i8, ptr %.134, i64 256
@@ -2125,7 +2125,7 @@ define range(i32 -1, 1) i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %37
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = shl nuw nsw i32 1, %switch.load
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 256
@@ -2828,12 +2828,12 @@ define range(i32 -1, 1) i32 @H5SM_get_info(ptr noundef %0, ptr noundef %1) local
   %64 = load ptr, ptr %53, align 8, !tbaa !28
   %65 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 8, !tbaa !32
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !3
   %68 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %64, i64 %indvars.iv, i32 1
   %69 = load i64, ptr %68, align 8, !tbaa !33
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %70, ptr %71, align 4, !tbaa !3
   %72 = and i32 %66, 4096
   %.not59 = icmp eq i32 %72, 0
@@ -3073,7 +3073,7 @@ define range(i32 -1, 1) i32 @H5SM_get_refcount(ptr noundef %0, i32 noundef %1, p
 
 switch.lookup:                                    ; preds = %34
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = shl nuw nsw i32 1, %switch.load
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 256
@@ -3444,7 +3444,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !105
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !106
   %27 = call i32 @H5O_loc_reset(ptr noundef nonnull %8) #11
   %28 = icmp slt i32 %27, 0

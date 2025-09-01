@@ -234,7 +234,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %indvars.iv = phi i64 [ 0, %53 ], [ %indvars.iv.next, %57 ]
   %58 = load ptr, ptr @X11_XKeysymToKeycode, align 8
   %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds nuw [6 x %struct.anon.3], ptr %8, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.anon.3, ptr %8, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = call zeroext i8 %58(ptr noundef %59, i64 noundef %62) #9
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %.077128 = phi i32 [ %spec.select112, %84 ], [ 7, %57 ]
   %.081127 = phi i32 [ %spec.select111, %84 ], [ -1, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %68 = getelementptr inbounds nuw [4 x i32], ptr @scancode_set, i64 0, i64 %indvars.iv141
+  %68 = getelementptr inbounds nuw i32, ptr @scancode_set, i64 %indvars.iv141
   %69 = load i32, ptr %68, align 4
   %70 = call ptr @SDL_GetScancodeTable(i32 noundef %69, ptr noundef nonnull %12) #9
   %71 = load i32, ptr %12, align 4
@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
 72:                                               ; preds = %.preheader123, %83
   %indvars.iv137 = phi i64 [ 0, %.preheader123 ], [ %indvars.iv.next138, %83 ]
   %.085125 = phi i32 [ 0, %.preheader123 ], [ %spec.select, %83 ]
-  %73 = getelementptr inbounds nuw [6 x %struct.anon.3], ptr %8, i64 0, i64 %indvars.iv137
+  %73 = getelementptr inbounds nuw %struct.anon.3, ptr %8, i64 %indvars.iv137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp sgt i32 %75, -1
@@ -324,7 +324,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
 101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %102 = zext nneg i32 %.283 to i64
-  %103 = getelementptr inbounds nuw [4 x i32], ptr @scancode_set, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr @scancode_set, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = call ptr @SDL_GetScancodeTable(i32 noundef %104, ptr noundef nonnull %13) #9
   %106 = load i32, ptr %13, align 4
@@ -345,7 +345,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
 114:                                              ; preds = %112, %101
   %.pre-phi = phi i64 [ %.pre, %112 ], [ %107, %101 ]
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 616
-  %116 = getelementptr inbounds [256 x i32], ptr %115, i64 0, i64 %109
+  %116 = getelementptr inbounds i32, ptr %115, i64 %109
   %117 = shl nsw i64 %.pre-phi, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %116, ptr align 4 %105, i64 %117, i1 false)
   %118 = load i32, ptr %7, align 4
@@ -398,7 +398,7 @@ X11_KeyCodeToSym.exit.i:                          ; preds = %128, %124
 
 X11_KeyCodeToSDLScancode.exit:                    ; preds = %X11_KeyCodeToSym.exit.thread.i, %X11_KeyCodeToSym.exit.i, %133
   %.0.i = phi i32 [ %136, %133 ], [ 0, %X11_KeyCodeToSym.exit.i ], [ 0, %X11_KeyCodeToSym.exit.thread.i ]
-  %137 = getelementptr inbounds [256 x i32], ptr %115, i64 0, i64 %indvars.iv148
+  %137 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv148
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %.0.i, %138
   br i1 %139, label %X11_ScancodeIsRemappable.exit, label %140
@@ -496,7 +496,7 @@ X11_KeyCodeToSym.exit.i117:                       ; preds = %162, %158
 
 X11_KeyCodeToSDLScancode.exit120:                 ; preds = %X11_KeyCodeToSym.exit.thread.i119, %X11_KeyCodeToSym.exit.i117, %167
   %.0.i118 = phi i32 [ %170, %167 ], [ 0, %X11_KeyCodeToSym.exit.i117 ], [ 0, %X11_KeyCodeToSym.exit.thread.i119 ]
-  %171 = getelementptr inbounds [256 x i32], ptr %150, i64 0, i64 %indvars.iv145
+  %171 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv145
   store i32 %.0.i118, ptr %171, align 4
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
   %172 = load i32, ptr %7, align 4
@@ -571,7 +571,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
 
 .preheader:                                       ; preds = %24, %78
   %indvars.iv62 = phi i64 [ 0, %24 ], [ %indvars.iv.next63, %78 ]
-  %27 = getelementptr inbounds nuw [16 x %struct.Keymod_masks], ptr @__const.X11_UpdateKeymap.keymod_masks, i64 0, i64 %indvars.iv62
+  %27 = getelementptr inbounds nuw %struct.Keymod_masks, ptr @__const.X11_UpdateKeymap.keymod_masks, i64 %indvars.iv62
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %79
 
@@ -610,7 +610,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i32], ptr %34, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %34, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 83
   br i1 %48, label %.split.loop.exit.us.i, label %38
@@ -665,7 +665,7 @@ X11_GetNumLockModifierMask.exit:                  ; preds = %..split.loop.exit1_
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw [256 x i32], ptr %58, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %58, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 71
   br i1 %72, label %.split.loop.exit.us.i56, label %62
@@ -696,7 +696,7 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
 
 79:                                               ; preds = %.preheader, %133
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %133 ]
-  %80 = getelementptr inbounds nuw [256 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %133, label %83
@@ -1691,7 +1691,7 @@ define hidden void @X11_ShowScreenKeyboard(ptr noundef readonly captures(none) %
 
 switch.lookup:                                    ; preds = %10
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.X11_ShowScreenKeyboard, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.X11_ShowScreenKeyboard, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 

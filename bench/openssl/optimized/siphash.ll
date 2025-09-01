@@ -160,7 +160,7 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   %.not159 = icmp ult i64 %2, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   br i1 %.not159, label %.thread, label %24
 
 .thread:                                          ; preds = %16

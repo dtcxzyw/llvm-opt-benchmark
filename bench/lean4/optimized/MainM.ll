@@ -2922,7 +2922,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_MainM_runLogIO_replay___spec__1(
   br label %lean_dec.exit61
 
 lean_dec.exit61:                                  ; preds = %19, %18, %16, %10
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.042110
+  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %.042110
   %21 = load ptr, ptr %20, align 8, !tbaa !9
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1

@@ -37,7 +37,7 @@ get_power2.exit:                                  ; preds = %3
   %12 = trunc nuw nsw i32 %10 to i8
   store i8 %12, ptr %0, align 8, !tbaa !18
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %13
+  %14 = getelementptr %struct.st_features, ptr @features, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -50,7 +50,7 @@ get_power2.exit:                                  ; preds = %3
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %get_power2.exit
-  %23 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %13, i32 3
+  %23 = getelementptr %struct.st_features, ptr @features, i64 %13, i32 3
   %24 = load i64, ptr %23, align 8, !tbaa !24
   %25 = shl i64 %24, 3
   %26 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %25) #24
@@ -78,7 +78,7 @@ get_power2.exit:                                  ; preds = %3
 36:                                               ; preds = %27
   %.val.i = load i8, ptr %0, align 8, !tbaa !18
   %37 = zext i8 %.val.i to i64
-  %38 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %37, i32 3
+  %38 = getelementptr %struct.st_features, ptr @features, i64 %37, i32 3
   %39 = load i64, ptr %38, align 8, !tbaa !24
   %40 = shl i64 %39, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %35, i8 noundef 0, i64 noundef %40, i1 noundef false) #25
@@ -239,7 +239,7 @@ define dso_local void @rb_st_clear(ptr noundef captures(none) initializes((16, 2
 6:                                                ; preds = %1
   %.val.i = load i8, ptr %0, align 8, !tbaa !18
   %7 = zext i8 %.val.i to i64
-  %8 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %7, i32 3
+  %8 = getelementptr %struct.st_features, ptr @features, i64 %7, i32 3
   %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = shl i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %10, i1 noundef false) #25
@@ -277,7 +277,7 @@ define dso_local i64 @rb_st_memsize(ptr noundef readonly captures(none) %0) loca
   br i1 %4, label %._crit_edge, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %.pre, i32 3
+  %6 = getelementptr %struct.st_features, ptr @features, i64 %.pre, i32 3
   %7 = load i64, ptr %6, align 8, !tbaa !24
   %8 = shl i64 %7, 3
   %9 = add i64 %8, 56
@@ -876,7 +876,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   br i1 %.not17.i, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %4, i32 3
+  %18 = getelementptr %struct.st_features, ptr @features, i64 %4, i32 3
   %19 = load i64, ptr %18, align 8, !tbaa !24
   %20 = shl i64 %19, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %20, i1 noundef false) #25
@@ -1425,7 +1425,7 @@ define hidden noundef ptr @rb_st_replace(ptr noundef returned captures(ret: addr
 6:                                                ; preds = %2
   %.val16 = load i8, ptr %1, align 8, !tbaa !18
   %7 = zext i8 %.val16 to i64
-  %8 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %7, i32 3
+  %8 = getelementptr %struct.st_features, ptr @features, i64 %7, i32 3
   %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = shl i64 %9, 3
   %11 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %10) #24
@@ -1462,7 +1462,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %12
   br i1 %.not, label %ruby_nonempty_memcpy.exit22, label %rbimpl_size_mul_or_raise.exit19
 
 rbimpl_size_mul_or_raise.exit19:                  ; preds = %rbimpl_size_mul_or_raise.exit
-  %27 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %18, i32 3
+  %27 = getelementptr %struct.st_features, ptr @features, i64 %18, i32 3
   %28 = load i64, ptr %27, align 8, !tbaa !24
   %29 = shl i64 %28, 3
   %.not.i20 = icmp eq i64 %29, 0
@@ -3788,7 +3788,7 @@ update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.
 76:                                               ; preds = %st_rehash_linear.exit.i
   %.val.i.i = load i8, ptr %0, align 8, !tbaa !18
   %77 = zext i8 %.val.i.i to i64
-  %78 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %77, i32 3
+  %78 = getelementptr %struct.st_features, ptr @features, i64 %77, i32 3
   %79 = load i64, ptr %78, align 8, !tbaa !24
   %80 = shl i64 %79, 3
   %.val64.i.i = load i8, ptr %13, align 2, !tbaa !23
@@ -3797,7 +3797,7 @@ update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.
   store ptr %82, ptr %14, align 8, !tbaa !25
   %.val61.i.i = load i8, ptr %0, align 8, !tbaa !18
   %83 = zext i8 %.val61.i.i to i64
-  %84 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %83, i32 3
+  %84 = getelementptr %struct.st_features, ptr @features, i64 %83, i32 3
   %85 = load i64, ptr %84, align 8, !tbaa !24
   %86 = shl i64 %85, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %82, i8 noundef 0, i64 noundef %86, i1 noundef false) #25

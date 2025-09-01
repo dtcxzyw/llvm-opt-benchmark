@@ -2083,7 +2083,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %.0.i = phi i64 [ %119, %109 ], [ %127, %125 ], [ %124, %120 ]
-  %128 = getelementptr inbounds nuw [31 x i64], ptr %99, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv
   store i64 %.0.i, ptr %128, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -404,7 +404,7 @@ ehcleanup65:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %do.end
   %46 = zext nneg i32 %name to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = load ptr, ptr %Z, align 8, !tbaa !15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28800) %47, ptr noundef nonnull align 16 dereferenceable(28800) %switch.load, i64 28800, i1 false)

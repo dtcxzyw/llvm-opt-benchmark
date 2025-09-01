@@ -412,7 +412,7 @@ av_cmp_q.exit.thread257.i:                        ; preds = %av_cmp_q.exit.threa
 
 131:                                              ; preds = %128
   %132 = zext nneg i32 %129 to i64
-  %133 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr %4, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !58
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4, !tbaa !58
@@ -420,7 +420,7 @@ av_cmp_q.exit.thread257.i:                        ; preds = %av_cmp_q.exit.threa
   br i1 %.not200.i, label %.thread266.i, label %136
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds nuw [4 x i32], ptr @init_muxer.default_codec_offsets, i64 0, i64 %132
+  %137 = getelementptr inbounds nuw i32, ptr @init_muxer.default_codec_offsets, i64 %132
   %138 = load i32, ptr %137, align 4, !tbaa !58
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 %139
@@ -3117,7 +3117,7 @@ thread-pre-split164.thread.i:                     ; preds = %thread-pre-split.i2
 
 167:                                              ; preds = %171, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
-  %168 = getelementptr inbounds nuw [17 x i64], ptr %163, i64 0, i64 %indvars.iv.i
+  %168 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv.i
   %169 = load i64, ptr %168, align 8, !tbaa !139
   %170 = icmp eq i64 %169, -9223372036854775808
   br i1 %170, label %171, label %.critedge.i
@@ -3140,7 +3140,7 @@ thread-pre-split164.thread.i:                     ; preds = %thread-pre-split.i2
 .lr.ph170.i:                                      ; preds = %181, %.critedge.i
   %indvars.iv173.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next174.i, %181 ]
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
-  %177 = getelementptr inbounds nuw [17 x i64], ptr %163, i64 0, i64 %indvars.iv.next174.i
+  %177 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv.next174.i
   %178 = load i64, ptr %177, align 8, !tbaa !139
   %179 = icmp sgt i64 %158, %178
   br i1 %179, label %181, label %.critedge7.loopexit.i
@@ -3155,7 +3155,7 @@ thread-pre-split164.thread.i:                     ; preds = %thread-pre-split.i2
   br label %183
 
 181:                                              ; preds = %.lr.ph170.i
-  %182 = getelementptr inbounds nuw [17 x i64], ptr %163, i64 0, i64 %indvars.iv173.i
+  %182 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv173.i
   store i64 %158, ptr %177, align 8, !tbaa !139
   store i64 %178, ptr %182, align 8, !tbaa !139
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next174.i, %wide.trip.count176.i

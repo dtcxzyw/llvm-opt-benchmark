@@ -1761,7 +1761,7 @@ switch.hole_check:                                ; preds = %60
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %64 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.sharedGetFieldValues.1, i64 %64
   br label %jdwpTag.exit.i39.us
 
 jdwpTag.exit.i39.us:                              ; preds = %55, %57, %63, %switch.lookup
@@ -2090,8 +2090,8 @@ fieldSignature.exit.i:                            ; preds = %205, %202
 
 213:                                              ; preds = %210
   %214 = load i8, ptr %203, align 1
-  %switch.tableidx70 = add i8 %214, -66
-  %215 = icmp ult i8 %switch.tableidx70, 26
+  %switch.tableidx69 = add i8 %214, -66
+  %215 = icmp ult i8 %switch.tableidx69, 26
   br i1 %215, label %switch.hole_check71, label %216
 
 216:                                              ; preds = %switch.hole_check71, %213
@@ -2099,14 +2099,14 @@ fieldSignature.exit.i:                            ; preds = %205, %202
   br label %jdwpTag.exit.i
 
 switch.hole_check71:                              ; preds = %213
-  %switch.maskindex73 = zext nneg i8 %switch.tableidx70 to i32
+  %switch.maskindex73 = zext nneg i8 %switch.tableidx69 to i32
   %switch.shifted74 = lshr i32 51512727, %switch.maskindex73
   %switch.lobit75 = trunc i32 %switch.shifted74 to i1
   br i1 %switch.lobit75, label %switch.lookup72, label %216
 
 switch.lookup72:                                  ; preds = %switch.hole_check71
-  %217 = zext nneg i8 %switch.tableidx70 to i64
-  %switch.gep76 = getelementptr inbounds nuw [26 x i8], ptr @switch.table.sharedGetFieldValues.1, i64 0, i64 %217
+  %217 = zext nneg i8 %switch.tableidx69 to i64
+  %switch.gep76 = getelementptr inbounds nuw i8, ptr @switch.table.sharedGetFieldValues.1, i64 %217
   br label %jdwpTag.exit.i
 
 jdwpTag.exit.i:                                   ; preds = %208, %210, %216, %switch.lookup72
@@ -5663,21 +5663,22 @@ define hidden zeroext i8 @eventIndex2jdwp(i32 noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %3, label %.thread
 
 3:                                                ; preds = %1
-  %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [22 x i8], ptr @index2jdwp, i64 0, i64 %4
-  %6 = load i8, ptr %5, align 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.thread, label %10
+  %4 = zext nneg i32 %0 to i64
+  %5 = getelementptr i8, ptr @index2jdwp, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %.thread, label %11
 
 .thread:                                          ; preds = %1, %3
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call ptr @jvmtiErrorText(i32 noundef 191) #14
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %9, i32 noundef 191, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.4, i32 noundef 1969) #14
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call ptr @jvmtiErrorText(i32 noundef 191) #14
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %10, i32 noundef 191, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.4, i32 noundef 1969) #14
   tail call void @debugInit_exit(i32 noundef 191, ptr noundef nonnull @.str.123) #14
-  br label %10
+  br label %11
 
-10:                                               ; preds = %.thread, %3
-  %.08 = phi i8 [ 0, %.thread ], [ %6, %3 ]
+11:                                               ; preds = %.thread, %3
+  %.08 = phi i8 [ 0, %.thread ], [ %7, %3 ]
   ret i8 %.08
 }
 
@@ -5688,21 +5689,22 @@ define hidden i32 @eventIndex2jvmti(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %3, label %.thread
 
 3:                                                ; preds = %1
-  %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [22 x i32], ptr @index2jvmti, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread, label %10
+  %4 = zext nneg i32 %0 to i64
+  %5 = getelementptr i32, ptr @index2jvmti, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -4
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.thread, label %11
 
 .thread:                                          ; preds = %1, %3
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call ptr @jvmtiErrorText(i32 noundef 191) #14
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %9, i32 noundef 191, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.4, i32 noundef 1982) #14
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call ptr @jvmtiErrorText(i32 noundef 191) #14
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %10, i32 noundef 191, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.4, i32 noundef 1982) #14
   tail call void @debugInit_exit(i32 noundef 191, ptr noundef nonnull @.str.123) #14
-  br label %10
+  br label %11
 
-10:                                               ; preds = %.thread, %3
-  %.08 = phi i32 [ 0, %.thread ], [ %6, %3 ]
+11:                                               ; preds = %.thread, %3
+  %.08 = phi i32 [ 0, %.thread ], [ %7, %3 ]
   ret i32 %.08
 }
 
@@ -5816,7 +5818,7 @@ define hidden range(i32 0, 23) i32 @jvmti2EventIndex(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [39 x i32], ptr @switch.table.jvmti2EventIndex, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.jvmti2EventIndex, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 

@@ -158,7 +158,7 @@ define i32 @ucase_tolower_77(i32 noundef %0) local_unnamed_addr #3 {
   %57 = icmp eq i32 %56, 0
   %58 = and i32 %52, 15
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !16
   %62 = zext i8 %61 to i64
   br i1 %57, label %63, label %67
@@ -311,7 +311,7 @@ define i32 @ucase_toupper_77(i32 noundef %0) local_unnamed_addr #3 {
   %59 = icmp eq i32 %58, 0
   %60 = and i32 %53, 15
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !16
   %64 = zext i8 %63 to i64
   br i1 %59, label %65, label %69
@@ -344,7 +344,7 @@ define i32 @ucase_toupper_77(i32 noundef %0) local_unnamed_addr #3 {
   %82 = icmp eq i32 %81, 0
   %83 = and i32 %53, 3
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !16
   %87 = zext i8 %86 to i64
   br i1 %82, label %88, label %92
@@ -472,7 +472,7 @@ define i32 @ucase_totitle_77(i32 noundef %0) local_unnamed_addr #3 {
   %59 = icmp eq i32 %58, 0
   %60 = and i32 %53, 15
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !16
   %64 = zext i8 %63 to i64
   br i1 %59, label %65, label %69
@@ -522,7 +522,7 @@ define i32 @ucase_totitle_77(i32 noundef %0) local_unnamed_addr #3 {
   %90 = xor i32 %notmask62, -1
   %91 = and i32 %90, %53
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !16
   %95 = zext i8 %94 to i64
   br i1 %89, label %96, label %100
@@ -689,7 +689,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %78 = add nuw nsw i32 %75, 65535
   %79 = and i32 %78, %56
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !16
   %83 = zext i8 %82 to i64
   %84 = getelementptr inbounds nuw i16, ptr %54, i64 %83
@@ -721,7 +721,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %95 = add nuw nsw i32 %92, 65535
   %96 = and i32 %95, %56
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !16
   %100 = zext i8 %99 to i64
   %.idx153 = shl nuw nsw i64 %100, 2
@@ -746,7 +746,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
 113:                                              ; preds = %.split156.us
   %114 = and i32 %56, 15
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !16
   %118 = zext i8 %117 to i64
   br i1 %73, label %119, label %123
@@ -789,7 +789,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
 141:                                              ; preds = %139
   %142 = and i32 %56, 63
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !16
   %146 = zext i8 %145 to i64
   %147 = getelementptr inbounds nuw i16, ptr %54, i64 %146
@@ -813,7 +813,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
 155:                                              ; preds = %153
   %156 = and i32 %56, 127
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !16
   %160 = zext i8 %159 to i64
   %161 = getelementptr inbounds nuw i16, ptr %54, i64 %160
@@ -1024,7 +1024,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %74 = add nuw nsw i32 %71, 65535
   %75 = and i32 %74, %56
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !16
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw i16, ptr %54, i64 %79
@@ -1056,7 +1056,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %91 = add nuw nsw i32 %88, 65535
   %92 = and i32 %91, %56
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !16
   %96 = zext i8 %95 to i64
   %.idx145 = shl nuw nsw i64 %96, 2
@@ -1081,7 +1081,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 109:                                              ; preds = %.split155.us
   %110 = and i32 %56, 15
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !16
   %114 = zext i8 %113 to i64
   br i1 %69, label %115, label %119
@@ -1124,7 +1124,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 137:                                              ; preds = %135
   %138 = and i32 %56, 63
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !16
   %142 = zext i8 %141 to i64
   br i1 %69, label %143, label %.thread167
@@ -1156,7 +1156,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 153:                                              ; preds = %143
   %154 = and i32 %56, 127
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !16
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds nuw i16, ptr %54, i64 %158
@@ -1165,7 +1165,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 .thread173:                                       ; preds = %.thread167
   %160 = and i32 %56, 127
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !16
   %164 = zext i8 %163 to i64
   %.idx143 = shl nuw nsw i64 %164, 2
@@ -2631,7 +2631,7 @@ _ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172: ; preds = %125
   %247 = icmp eq i32 %246, 0
   %248 = and i32 %56, 127
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !16
   %252 = zext i8 %251 to i64
   %253 = getelementptr inbounds nuw i16, ptr %54, i64 %252
@@ -2663,7 +2663,7 @@ _ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172: ; preds = %125
   %264 = icmp eq i32 %263, 0
   %265 = and i32 %56, 15
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %266
   %268 = load i8, ptr %267, align 1, !tbaa !16
   %269 = zext i8 %268 to i64
   br i1 %264, label %270, label %274
@@ -3028,7 +3028,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread: ; preds = %.preheader.i, %_ZL1
   %126 = icmp eq i32 %125, 0
   %127 = and i32 %58, 127
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !16
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw i16, ptr %56, i64 %131
@@ -3075,7 +3075,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread.thread: ; preds = %66, %122, %1
   %153 = icmp eq i32 %152, 0
   %154 = and i32 %58, 15
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !16
   %158 = zext i8 %157 to i64
   br i1 %153, label %159, label %163
@@ -3131,7 +3131,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread.thread: ; preds = %66, %122, %1
   %186 = xor i32 %notmask121, -1
   %187 = and i32 %186, %58
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !16
   %191 = zext i8 %190 to i64
   br i1 %185, label %192, label %196
@@ -3295,7 +3295,7 @@ define i32 @ucase_fold_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %68 = icmp eq i32 %67, 0
   %69 = and i32 %53, 15
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !16
   %73 = zext i8 %72 to i64
   br i1 %68, label %74, label %78
@@ -3345,7 +3345,7 @@ define i32 @ucase_fold_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   %99 = xor i32 %notmask74, -1
   %100 = and i32 %99, %53
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !16
   %104 = zext i8 %103 to i64
   br i1 %98, label %105, label %109
@@ -3490,7 +3490,7 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   %66 = icmp eq i32 %65, 0
   %67 = and i32 %54, 127
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !16
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw i16, ptr %52, i64 %71
@@ -3535,7 +3535,7 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   %91 = icmp eq i32 %90, 0
   %92 = and i32 %54, 15
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !16
   %96 = zext i8 %95 to i64
   br i1 %91, label %97, label %101
@@ -3589,7 +3589,7 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   %124 = xor i32 %notmask104, -1
   %125 = and i32 %124, %54
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @_ZL11flagsOffset, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !16
   %129 = zext i8 %128 to i64
   br i1 %123, label %130, label %134

@@ -11,7 +11,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %10, %12
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw [258 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   store i16 1024, ptr %13, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 258

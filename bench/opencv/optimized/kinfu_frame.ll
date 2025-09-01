@@ -4529,12 +4529,12 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %173
 
 182:                                              ; preds = %182, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i.i, %182 ]
-  %183 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i
+  %183 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i.i
   %184 = load float, ptr %183, align 4, !tbaa !107, !noalias !162
   %185 = fpext float %184 to double
   %186 = fmul double %181, %185
   %187 = fptrunc double %186 to float
-  %188 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %188 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i.i
   store float %187, ptr %188, align 4, !tbaa !107, !alias.scope !162
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
@@ -4547,10 +4547,10 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %182
 
 189:                                              ; preds = %189, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %indvars.iv.next.i, %189 ]
-  %190 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %190 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   %191 = load float, ptr %190, align 4, !tbaa !107, !noalias !164
   %192 = fneg float %191
-  %193 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   store float %192, ptr %193, align 4, !tbaa !107, !alias.scope !164
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -4802,12 +4802,12 @@ _ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit:          ; preds = %.lr.ph
 
 90:                                               ; preds = %90, %86
   %indvars.iv.i.i.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i.i.i, %90 ]
-  %91 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %91 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
   %92 = load float, ptr %91, align 4, !tbaa !107, !noalias !192
-  %93 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %93 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i
   %94 = load float, ptr %93, align 4, !tbaa !107, !noalias !192
   %95 = fsub float %92, %94
-  %96 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %96 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i
   store float %95, ptr %96, align 4, !tbaa !107, !alias.scope !192
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -4838,12 +4838,12 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %97
 
 106:                                              ; preds = %106, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i.i, %106 ]
-  %107 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
+  %107 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i.i
   %108 = load float, ptr %107, align 4, !tbaa !107, !noalias !202
   %109 = fpext float %108 to double
   %110 = fmul double %105, %109
   %111 = fptrunc double %110 to float
-  %112 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i
+  %112 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i.i
   store float %111, ptr %112, align 4, !tbaa !107, !alias.scope !202
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
@@ -4869,10 +4869,10 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %106
 
 116:                                              ; preds = %116, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %indvars.iv.next.i, %116 ]
-  %117 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   %118 = load float, ptr %117, align 4, !tbaa !107, !noalias !206
   %119 = fneg float %118
-  %120 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float %119, ptr %120, align 4, !tbaa !107, !alias.scope !206
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -4903,12 +4903,12 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i38: ; preds = %121
 
 130:                                              ; preds = %130, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i38
   %indvars.iv.i.i.i.i39 = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i38 ], [ %indvars.iv.next.i.i.i.i40, %130 ]
-  %131 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv.i.i.i.i39
+  %131 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i.i39
   %132 = load float, ptr %131, align 4, !tbaa !107, !noalias !215
   %133 = fpext float %132 to double
   %134 = fmul double %129, %133
   %135 = fptrunc double %134 to float
-  %136 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i.i.i.i39
+  %136 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i.i.i39
   store float %135, ptr %136, align 4, !tbaa !107, !alias.scope !215
   %indvars.iv.next.i.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i.i39, 1
   %exitcond.not.i.i.i.i41 = icmp eq i64 %indvars.iv.next.i.i.i.i40, 3
@@ -4962,12 +4962,12 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i55: ; preds = %152
 
 161:                                              ; preds = %161, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i55
   %indvars.iv.i.i.i.i56 = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i55 ], [ %indvars.iv.next.i.i.i.i57, %161 ]
-  %162 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.i.i.i56
+  %162 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i.i.i56
   %163 = load float, ptr %162, align 4, !tbaa !107, !noalias !225
   %164 = fpext float %163 to double
   %165 = fmul double %160, %164
   %166 = fptrunc double %165 to float
-  %167 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv.i.i.i.i56
+  %167 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i.i.i56
   store float %166, ptr %167, align 4, !tbaa !107, !alias.scope !225
   %indvars.iv.next.i.i.i.i57 = add nuw nsw i64 %indvars.iv.i.i.i.i56, 1
   %exitcond.not.i.i.i.i58 = icmp eq i64 %indvars.iv.next.i.i.i.i57, 3
@@ -5346,12 +5346,12 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %136
 
 145:                                              ; preds = %145, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i.i, %145 ]
-  %146 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i
+  %146 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i.i
   %147 = load float, ptr %146, align 4, !tbaa !107, !noalias !254
   %148 = fpext float %147 to double
   %149 = fmul double %144, %148
   %150 = fptrunc double %149 to float
-  %151 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %151 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i.i
   store float %150, ptr %151, align 4, !tbaa !107, !alias.scope !254
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
@@ -5364,10 +5364,10 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %145
 
 152:                                              ; preds = %152, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %indvars.iv.next.i, %152 ]
-  %153 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
   %154 = load float, ptr %153, align 4, !tbaa !107, !noalias !255
   %155 = fneg float %154
-  %156 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   store float %155, ptr %156, align 4, !tbaa !107, !alias.scope !255
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

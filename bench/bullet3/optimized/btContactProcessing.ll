@@ -518,7 +518,7 @@ _ZN20btAlignedObjectArrayI11GIM_CONTACTE10deallocateEv.exit.i.i80: ; preds = %18
 234:                                              ; preds = %229
   %235 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %236 = sext i32 %.043113 to i64
-  %237 = getelementptr inbounds [8 x %class.btVector3], ptr %6, i64 0, i64 %236
+  %237 = getelementptr inbounds %class.btVector3, ptr %6, i64 %236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %237, ptr noundef nonnull align 4 dereferenceable(16) %235, i64 16, i1 false), !tbaa.struct !17
   %238 = add nsw i32 %.043113, 1
   br label %314

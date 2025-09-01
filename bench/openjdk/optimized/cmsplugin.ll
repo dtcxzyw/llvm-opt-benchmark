@@ -1116,13 +1116,13 @@ _cmsGetContext.exit:                              ; preds = %6, %.sink.split.i
   %.08.i = phi ptr [ @globalContext, %6 ], [ %.08.ph.i, %.sink.split.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %_cmsGetContext.exit
-  %19 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), i64 0, i64 %15
+  %19 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), i64 %15
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -1556,7 +1556,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 
 49:                                               ; preds = %46, %48
   %indvars.iv = phi i64 [ 1, %46 ], [ %indvars.iv.next, %48 ]
-  %50 = getelementptr inbounds nuw [16 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %48

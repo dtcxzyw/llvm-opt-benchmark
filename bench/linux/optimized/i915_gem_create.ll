@@ -95,7 +95,7 @@ define internal fastcc ptr @__i915_gem_object_create_user_ext(ptr noundef %0, i6
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 148
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr [7 x ptr], ptr %36, i64 0, i64 %39
+  %40 = getelementptr ptr, ptr %36, i64 %39
   br label %48
 
 41:                                               ; preds = %31
@@ -708,7 +708,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 
 91:                                               ; preds = %73
   %92 = sext i32 %50 to i64
-  %93 = getelementptr [7 x ptr], ptr %3, i64 0, i64 %92
+  %93 = getelementptr ptr, ptr %3, i64 %92
   store ptr %58, ptr %93, align 8
   %94 = trunc i64 %78 to i32
   %95 = or i32 %51, %94
@@ -742,9 +742,9 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 107:                                              ; preds = %107, %105
   %108 = phi i32 [ 0, %105 ], [ %113, %107 ]
   %109 = sext i32 %108 to i64
-  %110 = getelementptr [7 x ptr], ptr %3, i64 0, i64 %109
+  %110 = getelementptr ptr, ptr %3, i64 %109
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr [7 x ptr], ptr %106, i64 0, i64 %109
+  %112 = getelementptr ptr, ptr %106, i64 %109
   store ptr %111, ptr %112, align 8
   %113 = add nuw i32 %108, 1
   %114 = icmp eq i32 %113, %98

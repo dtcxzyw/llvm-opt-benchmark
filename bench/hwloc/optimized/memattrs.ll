@@ -4143,7 +4143,7 @@ hwloc__memattr_target_get_initiator.exit309.i:    ; preds = %match_internal_loca
 
 302:                                              ; preds = %300
   %303 = zext nneg i32 %.0558.i to i64
-  %304 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %5, i64 %303
   store ptr %297, ptr %304, align 8, !tbaa !137
   br label %305
 

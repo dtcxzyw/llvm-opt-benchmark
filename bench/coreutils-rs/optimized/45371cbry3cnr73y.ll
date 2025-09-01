@@ -1178,10 +1178,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$indicatif..style..State$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !256, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E.43", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E.43", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -1307,10 +1307,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val5 = load i8, ptr %0, align 1, !range !263, !noundef !4
   %6 = zext nneg i8 %.val5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.47, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.47, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %.val5 to i64
-  %switch.gep13 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.48, i64 0, i64 %7
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.48, i64 %7
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   store ptr %switch.load14, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1319,10 +1319,10 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.val = load i8, ptr %9, align 1, !range !263, !noundef !4
   %10 = zext nneg i8 %.val to i64
-  %switch.gep21 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.47, i64 0, i64 %10
+  %switch.gep21 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.47, i64 %10
   %switch.load22 = load i64, ptr %switch.gep21, align 8
   %11 = zext nneg i8 %.val to i64
-  %switch.gep23 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.48, i64 0, i64 %11
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.48, i64 %11
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   store ptr %switch.load24, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1331,10 +1331,10 @@ switch.lookup:
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.val6 = load i8, ptr %13, align 1, !range !264, !noundef !4
   %14 = zext nneg i8 %.val6 to i64
-  %switch.gep16 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.45, i64 0, i64 %14
+  %switch.gep16 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.45, i64 %14
   %switch.load17 = load i64, ptr %switch.gep16, align 8
   %15 = zext nneg i8 %.val6 to i64
-  %switch.gep18 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.46, i64 0, i64 %15
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5uu_cp10show_debug17h83f4487677d3ea33E.46, i64 %15
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   store ptr %switch.load19, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8

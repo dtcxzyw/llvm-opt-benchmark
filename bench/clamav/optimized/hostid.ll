@@ -17,7 +17,7 @@ define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %0 ]
   %.01423 = phi i32 [ %spec.select, %.preheader ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [37 x i8], ptr @hostid, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i8, ptr @hostid, i64 %indvars.iv
   %3 = load i8, ptr %2, align 1, !tbaa !3
   %4 = icmp eq i8 %3, 45
   %5 = zext i1 %4 to i32
@@ -67,7 +67,7 @@ define noalias ptr @get_hostid(ptr noundef readnone captures(none) %0) local_unn
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %2 ]
   %.01423.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw [37 x i8], ptr @hostid, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr @hostid, i64 %indvars.iv.i
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = icmp eq i8 %5, 45
   %7 = zext i1 %6 to i32

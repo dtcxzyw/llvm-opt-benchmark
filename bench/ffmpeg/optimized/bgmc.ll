@@ -124,7 +124,7 @@ define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 .preheader.i.i:                                   ; preds = %35, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %35 ]
   %.01521.i.i = phi ptr [ %14, %18 ], [ %34, %35 ]
-  %20 = getelementptr inbounds nuw [16 x ptr], ptr @cf_table, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr @cf_table, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   br label %22
 
@@ -174,7 +174,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
 
 .lr.ph75:                                         ; preds = %bgmc_lut_getp.exit
   %42 = zext i32 %4 to i64
-  %43 = getelementptr inbounds nuw [16 x ptr], ptr @cf_table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr @cf_table, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = shl nuw i32 1, %3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -1167,8 +1167,8 @@ Vec_PtrAlloc.exit49:                              ; preds = %Vec_PtrAlloc.exit45
   %47 = phi i32 [ %161, %159 ], [ 0, %Vec_PtrAlloc.exit49 ]
   %.083 = phi i32 [ %164, %159 ], [ 0, %Vec_PtrAlloc.exit49 ]
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
-  %49 = add i64 %48, -1
-  %50 = getelementptr inbounds nuw [5000 x i8], ptr %3, i64 0, i64 %49
+  %49 = getelementptr i8, ptr %3, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -1
   %51 = load i8, ptr %50, align 1, !tbaa !66
   %52 = icmp eq i8 %51, 10
   br i1 %52, label %53, label %54
@@ -2942,7 +2942,7 @@ Vec_IntDrop.exit:                                 ; preds = %156, %.lr.ph210
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val150.pre, i64 %169, i32 1
   %171 = load i32, ptr %170, align 4, !tbaa !45
-  %172 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv239
+  %172 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv239
   store i32 %171, ptr %172, align 4, !tbaa !10
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count
@@ -3009,7 +3009,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i180, %.crit
   %202 = shl nuw i32 1, %201
   %203 = zext i32 %202 to i64
   %204 = shl i64 %200, %203
-  %205 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv242
+  %205 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv242
   %206 = load i64, ptr %205, align 8, !tbaa !76
   %207 = and i64 %204, %206
   %208 = and i64 %206, %200
@@ -3029,7 +3029,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i180, %.crit
   %214 = trunc nuw nsw i64 %indvars.iv242 to i32
   %215 = shl nuw nsw i32 1, %214
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv242
+  %217 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv242
   %218 = load i64, ptr %217, align 8, !tbaa !76
   br label %219
 

@@ -83,9 +83,9 @@ define void @_ZN2cv3reg9MapProjecC2Ev(ptr noundef nonnull writeonly align 8 capt
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %4 = shl nuw nsw i64 %indvars.iv.i, 2
-  %5 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %4
-  store double 1.000000e+00, ptr %5, align 8, !tbaa !6, !alias.scope !9
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
+  store double 1.000000e+00, ptr %4, align 8, !tbaa !6, !alias.scope !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN2cv4MatxIdLi3ELi3EE3eyeEv.exit, label %3, !llvm.loop !12
@@ -230,7 +230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %35 ]
   %37 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
   %38 = load double, ptr %37, align 8, !tbaa !6
-  %39 = getelementptr inbounds nuw [9 x double], ptr %0, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
   store double %38, ptr %39, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -631,39 +631,39 @@ define void @_ZN2cv3reg9MapProjec7composeENS_3PtrINS0_3MapEEE(ptr noundef nonnul
 .preheader19.i.i:                                 ; preds = %8, %2
   %indvars.iv29.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next30.i.i, %8 ]
   %7 = mul nuw nsw i64 %indvars.iv29.i.i, 3
+  %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %5, i64 %7
+  %invariant.gep35.i.i = getelementptr inbounds nuw double, ptr %3, i64 %7
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %.preheader19.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next26.i.i, %9 ]
-  br label %12
+  %invariant.gep33.i.i = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv25.i.i
+  br label %10
 
 8:                                                ; preds = %9
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, 3
   br i1 %exitcond32.not.i.i, label %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit, label %.preheader19.i.i, !llvm.loop !76
 
-9:                                                ; preds = %12
-  %10 = add nuw nsw i64 %indvars.iv25.i.i, %7
-  %11 = getelementptr inbounds nuw [9 x double], ptr %3, i64 0, i64 %10
-  store double %20, ptr %11, align 8, !tbaa !6, !alias.scope !73
+9:                                                ; preds = %10
+  %gep36.i.i = getelementptr inbounds nuw double, ptr %invariant.gep35.i.i, i64 %indvars.iv25.i.i
+  store double %13, ptr %gep36.i.i, align 8, !tbaa !6, !alias.scope !73
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 3
   br i1 %exitcond28.not.i.i, label %8, label %.preheader.i.i, !llvm.loop !77
 
-12:                                               ; preds = %12, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %.01620.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %20, %12 ]
-  %13 = add nuw nsw i64 %indvars.iv.i.i, %7
-  %14 = getelementptr inbounds nuw [9 x double], ptr %5, i64 0, i64 %13
-  %15 = load double, ptr %14, align 8, !tbaa !6, !noalias !73
-  %16 = mul nuw nsw i64 %indvars.iv.i.i, 3
-  %17 = add nuw nsw i64 %16, %indvars.iv25.i.i
-  %18 = getelementptr inbounds nuw [9 x double], ptr %6, i64 0, i64 %17
-  %19 = load double, ptr %18, align 8, !tbaa !6, !noalias !73
-  %20 = tail call double @llvm.fmuladd.f64(double %15, double %19, double %.01620.i.i)
+10:                                               ; preds = %10, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %10 ]
+  %.01620.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %13, %10 ]
+  %gep.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %11 = load double, ptr %gep.i.i, align 8, !tbaa !6, !noalias !73
+  %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 24
+  %gep34.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i.i, i64 %.idx.i.i
+  %12 = load double, ptr %gep34.i.i, align 8, !tbaa !6, !noalias !73
+  %13 = tail call double @llvm.fmuladd.f64(double %11, double %12, double %.01620.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %9, label %12, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %9, label %10, !llvm.loop !78
 
 _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit: ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !tbaa.struct !56

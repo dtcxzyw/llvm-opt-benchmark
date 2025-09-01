@@ -949,7 +949,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit: ; pr
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %214 = zext i32 %212 to i64
   %215 = lshr i64 %214, 6
-  %216 = getelementptr inbounds nuw [9 x i64], ptr %213, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i64, ptr %213, i64 %215
   %217 = load i64, ptr %216, align 8, !tbaa !32
   %218 = and i64 %214, 63
   %219 = shl nuw i64 1, %218
@@ -961,7 +961,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %211
   %221 = load ptr, ptr %3, align 8, !tbaa !89
   %222 = lshr i32 %212, 2
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw [131 x i8], ptr %221, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !16
   %226 = zext i8 %225 to i32
   %227 = shl i32 %212, 1

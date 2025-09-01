@@ -542,7 +542,7 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
   %20 = load i32, ptr %19, align 1, !tbaa !41
   %21 = or i32 %20, -16777216
-  %22 = getelementptr inbounds nuw [256 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -656,10 +656,10 @@ bytestream2_get_byte.exit213:                     ; preds = %39, %40
 56:                                               ; preds = %.lr.ph238
   %57 = and i32 %.1160237, 15
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [16 x i8], ptr @qpeg_table_w, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @qpeg_table_w, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !41
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds nuw [16 x i8], ptr @qpeg_table_h, i64 0, i64 %58
+  %62 = getelementptr inbounds nuw i8, ptr @qpeg_table_h, i64 %58
   %63 = load i8, ptr %62, align 1, !tbaa !41
   %64 = zext i8 %63 to i32
   %65 = icmp slt i64 %53, 1

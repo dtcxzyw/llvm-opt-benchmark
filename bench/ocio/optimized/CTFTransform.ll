@@ -3730,13 +3730,13 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6Op
 
 switch.lookup:                                    ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %218 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv, i64 0, i64 %218
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv, i64 %218
   %switch.load = load ptr, ptr %switch.gep, align 8
   %219 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep402 = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.11, i64 0, i64 %219
+  %switch.gep402 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.11, i64 %219
   %switch.load403 = load ptr, ptr %switch.gep402, align 8
   %220 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep404 = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.12, i64 0, i64 %220
+  %switch.gep404 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.12, i64 %220
   %switch.load405 = load ptr, ptr %switch.gep404, align 8
   %storemerge13.i = load i32, ptr %switch.load, align 4, !tbaa !18, !noalias !111
   %storemerge12.i = load i32, ptr %switch.load403, align 4, !tbaa !21, !noalias !111
@@ -15122,7 +15122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %50 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -18544,7 +18544,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit41: 
 
 switch.lookup:                                    ; preds = %146
   %155 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 0, i64 %155
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %155
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -18679,9 +18679,9 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55: 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %209 = load i32, ptr %208, align 4, !tbaa !208
-  %switch.tableidx145 = add i32 %209, -1
-  %210 = icmp ult i32 %switch.tableidx145, 8
-  %switch.maskindex147 = trunc i32 %switch.tableidx145 to i8
+  %switch.tableidx144 = add i32 %209, -1
+  %210 = icmp ult i32 %switch.tableidx144, 8
+  %switch.maskindex147 = trunc i32 %switch.tableidx144 to i8
   %switch.shifted148 = lshr i8 -41, %switch.maskindex147
   %switch.lobit149 = trunc i8 %switch.shifted148 to i1
   %or.cond152 = select i1 %210, i1 %switch.lobit149, i1 false
@@ -18706,8 +18706,8 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55: 
   br label %.body58
 
 switch.lookup146:                                 ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
-  %216 = zext nneg i32 %switch.tableidx145 to i64
-  %switch.gep150 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 0, i64 %216
+  %216 = zext nneg i32 %switch.tableidx144 to i64
+  %switch.gep150 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %216
   %switch.load151 = load ptr, ptr %switch.gep150, align 8
   store ptr %switch.load151, ptr %8, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

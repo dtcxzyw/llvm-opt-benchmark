@@ -13718,7 +13718,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %31
   %51 = phi ptr [ %18, %.lr.ph ], [ %100, %99 ]
   %52 = phi ptr [ %18, %.lr.ph ], [ %101, %99 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !142
   %55 = getelementptr inbounds i8, ptr %52, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !141
@@ -31307,7 +31307,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge.i ]
   %30 = load ptr, ptr %1, align 8, !tbaa !181
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !142
   %.not.i = icmp ult i32 %29, %28
   br i1 %.not.i, label %._crit_edge.i, label %34
@@ -35152,7 +35152,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.033119 = phi ptr [ null, %.lr.ph ], [ %.033.mux, %35 ]
   %.037118 = phi i1 [ false, %.lr.ph ], [ %.037.mux, %35 ]
-  %39 = getelementptr inbounds nuw [0 x ptr], ptr %34, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !142
   %41 = invoke noundef zeroext i1 @_ZN10check_predclEP4expr(ptr noundef nonnull align 8 dereferenceable(137) %15, ptr noundef %40)
           to label %_ZN12contains_appclEP4expr.exit unwind label %43

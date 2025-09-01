@@ -12531,7 +12531,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i321:   ; preds = %309
   %334 = load i8, ptr %333, align 1
   %335 = lshr i8 %334, 4
   %336 = zext nneg i8 %335 to i64
-  %337 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 0, i64 %336
+  %337 = getelementptr i8, ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 %336
   %338 = load i8, ptr %337, align 1
   %339 = getelementptr i8, ptr %.1166716, i64 1
   store i8 %338, ptr %.1166716, align 1
@@ -12540,7 +12540,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i321:   ; preds = %309
   %342 = load i8, ptr %341, align 1
   %343 = and i8 %342, 15
   %344 = zext nneg i8 %343 to i64
-  %345 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 0, i64 %344
+  %345 = getelementptr i8, ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 %344
   %346 = load i8, ptr %345, align 1
   %347 = getelementptr i8, ptr %.1166716, i64 2
   store i8 %346, ptr %339, align 1
@@ -12764,30 +12764,30 @@ _ZN7QStringD2Ev.exit337:                          ; preds = %418, %_ZN17QArrayDa
 435:                                              ; preds = %430
   %436 = add i32 %.0160712, 1
   %437 = sext i32 %.0160712 to i64
-  %438 = getelementptr [256 x i8], ptr %36, i64 0, i64 %437
+  %438 = getelementptr i8, ptr %36, i64 %437
   store i8 48, ptr %438, align 1
   %439 = add i32 %.0160712, 2
   %440 = sext i32 %436 to i64
-  %441 = getelementptr [256 x i8], ptr %36, i64 0, i64 %440
+  %441 = getelementptr i8, ptr %36, i64 %440
   store i8 120, ptr %441, align 1
   %442 = getelementptr i8, ptr %429, i64 %433
   %443 = load i8, ptr %442, align 1
   %444 = lshr i8 %443, 4
   %445 = zext nneg i8 %444 to i64
-  %446 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 0, i64 %445
+  %446 = getelementptr i8, ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 %445
   %447 = load i8, ptr %446, align 1
   %448 = add i32 %.0160712, 3
   %449 = sext i32 %439 to i64
-  %450 = getelementptr [256 x i8], ptr %36, i64 0, i64 %449
+  %450 = getelementptr i8, ptr %36, i64 %449
   store i8 %447, ptr %450, align 1
   %451 = load i8, ptr %442, align 1
   %452 = and i8 %451, 15
   %453 = zext nneg i8 %452 to i64
-  %454 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 0, i64 %453
+  %454 = getelementptr i8, ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymbj8nstime_tPjE8hexchars, i64 %453
   %455 = load i8, ptr %454, align 1
   %456 = add i32 %.0160712, 4
   %457 = sext i32 %448 to i64
-  %458 = getelementptr [256 x i8], ptr %36, i64 0, i64 %457
+  %458 = getelementptr i8, ptr %36, i64 %457
   store i8 %455, ptr %458, align 1
   %459 = add i32 %432, 1
   %460 = zext i32 %459 to i64
@@ -12797,7 +12797,7 @@ _ZN7QStringD2Ev.exit337:                          ; preds = %418, %_ZN17QArrayDa
 462:                                              ; preds = %435
   %463 = add i32 %.0160712, 5
   %464 = sext i32 %456 to i64
-  %465 = getelementptr [256 x i8], ptr %36, i64 0, i64 %464
+  %465 = getelementptr i8, ptr %36, i64 %464
   store i8 44, ptr %465, align 1
   br label %472
 
@@ -12822,7 +12822,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i339:   ; preds = %466
   %.1161 = phi i32 [ %463, %462 ], [ %456, %435 ]
   %473 = add i32 %.1161, 1
   %474 = sext i32 %.1161 to i64
-  %475 = getelementptr [256 x i8], ptr %36, i64 0, i64 %474
+  %475 = getelementptr i8, ptr %36, i64 %474
   store i8 32, ptr %475, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -12842,11 +12842,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i339:   ; preds = %466
 479:                                              ; preds = %.critedge4
   %480 = add i32 %.0160.lcssa, 1
   %481 = sext i32 %.0160.lcssa to i64
-  %482 = getelementptr [256 x i8], ptr %36, i64 0, i64 %481
+  %482 = getelementptr i8, ptr %36, i64 %481
   store i8 125, ptr %482, align 1
   %483 = add i32 %.0160.lcssa, 2
   %484 = sext i32 %480 to i64
-  %485 = getelementptr [256 x i8], ptr %36, i64 0, i64 %484
+  %485 = getelementptr i8, ptr %36, i64 %484
   store i8 59, ptr %485, align 1
   br label %486
 
@@ -12857,10 +12857,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i339:   ; preds = %466
   store i32 %488, ptr %6, align 4
   %489 = add i32 %.2162, 1
   %490 = sext i32 %.2162 to i64
-  %491 = getelementptr [256 x i8], ptr %36, i64 0, i64 %490
+  %491 = getelementptr i8, ptr %36, i64 %490
   store i8 10, ptr %491, align 1
   %492 = sext i32 %489 to i64
-  %493 = getelementptr [256 x i8], ptr %36, i64 0, i64 %492
+  %493 = getelementptr i8, ptr %36, i64 %492
   store i8 0, ptr %493, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %494 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #29

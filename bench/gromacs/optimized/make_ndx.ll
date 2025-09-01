@@ -1032,8 +1032,8 @@ _ZL19impliedNumberOfAtomN3gmx8ArrayRefIK10IndexGroupEE.exit: ; preds = %._crit_e
 
 303:                                              ; preds = %.critedge.i
   %304 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #31
-  %305 = add i64 %304, -1
-  %306 = getelementptr inbounds nuw [4096 x i8], ptr %7, i64 0, i64 %305
+  %305 = getelementptr i8, ptr %7, i64 %304
+  %306 = getelementptr i8, ptr %305, i64 -1
   store i8 0, ptr %306, align 1, !tbaa !32
   %putchar138.i = call i32 @putchar(i32 10)
   br label %307

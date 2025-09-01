@@ -2677,7 +2677,7 @@ default.unreachable238:                           ; preds = %155, %39, %35, %2
 
 switch.lookup:                                    ; preds = %46
   %157 = zext nneg i8 %50 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 0, i64 %157
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 %157
   %switch.load = load i8, ptr %switch.gep, align 1
   %158 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %158, align 8, !alias.scope !323
@@ -2688,7 +2688,7 @@ switch.lookup:                                    ; preds = %46
 
 switch.lookup241:                                 ; preds = %46
   %160 = zext nneg i8 %50 to i64
-  %switch.gep242 = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 0, i64 %160
+  %switch.gep242 = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 %160
   %switch.load243 = load i8, ptr %switch.gep242, align 1
   %161 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 1, ptr %161, align 8, !alias.scope !326
@@ -2699,7 +2699,7 @@ switch.lookup241:                                 ; preds = %46
 
 switch.lookup244:                                 ; preds = %46
   %163 = zext nneg i8 %50 to i64
-  %switch.gep245 = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 0, i64 %163
+  %switch.gep245 = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 %163
   %switch.load246 = load i8, ptr %switch.gep245, align 1
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %164, align 8, !alias.scope !329
@@ -2710,7 +2710,7 @@ switch.lookup244:                                 ; preds = %46
 
 switch.lookup247:                                 ; preds = %46
   %166 = zext nneg i8 %50 to i64
-  %switch.gep248 = getelementptr inbounds nuw [14 x i8], ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 0, i64 %166
+  %switch.gep248 = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker7algebra13InternerGuard10expression17h497bb36178e2ae08E.22, i64 %166
   %switch.load249 = load i8, ptr %switch.gep248, align 1
   %167 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 1, ptr %167, align 8, !alias.scope !332
@@ -9106,10 +9106,10 @@ define internal noundef zeroext i1 @"_ZN92_$LT$uv_pep508..marker..lowering..Cano
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !411, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE.23", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE.23", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

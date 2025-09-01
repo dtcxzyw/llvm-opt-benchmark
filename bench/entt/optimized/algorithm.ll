@@ -1546,7 +1546,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %14 = lshr i32 %.0.val.i.i, %.01510.i
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !68
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8, !tbaa !68
@@ -1557,11 +1557,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
 20:                                               ; preds = %20, %._crit_edge.i.loopexit.i
   %21 = phi i64 [ 0, %._crit_edge.i.loopexit.i ], [ %24, %20 ]
   %.0213.i.i = phi i64 [ 0, %._crit_edge.i.loopexit.i ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.0213.i.i
+  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %.0213.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !68
   %24 = add i64 %23, %21
   %25 = add nuw nsw i64 %.0213.i.i, 1
-  %26 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %5, i64 %25
   store i64 %24, ptr %26, align 8, !tbaa !68
   %exitcond.not.i.i = icmp eq i64 %25, 255
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %20, !llvm.loop !70
@@ -1573,7 +1573,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %27 = lshr i32 %.020.val.i.i, %.01510.i
   %28 = and i32 %27, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !68
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8, !tbaa !68
@@ -1603,7 +1603,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %36 = lshr i32 %.val.i.i, %34
   %37 = and i32 %36, 255
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i64], ptr %2, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !68
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !68
@@ -1614,11 +1614,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
 42:                                               ; preds = %42, %._crit_edge.i22.i
   %43 = phi i64 [ 0, %._crit_edge.i22.i ], [ %46, %42 ]
   %.012.i.i = phi i64 [ 0, %._crit_edge.i22.i ], [ %47, %42 ]
-  %44 = getelementptr inbounds nuw [256 x i64], ptr %2, i64 0, i64 %.012.i.i
+  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.012.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !68
   %46 = add i64 %45, %43
   %47 = add nuw nsw i64 %.012.i.i, 1
-  %48 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr %3, i64 %47
   store i64 %46, ptr %48, align 8, !tbaa !68
   %exitcond.not.i23.i = icmp eq i64 %47, 255
   br i1 %exitcond.not.i23.i, label %.lr.ph15.i.i, label %42, !llvm.loop !73
@@ -1630,7 +1630,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %49 = lshr i32 %.val11.i.i, %34
   %50 = and i32 %49, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %3, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !68
   %54 = add i64 %53, 1
   store i64 %54, ptr %52, align 8, !tbaa !68
@@ -1861,7 +1861,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %15 = lshr i32 %.val.i.i, 4
   %16 = and i32 %15, 3
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !68
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !68
@@ -1871,11 +1871,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 21:                                               ; preds = %21, %._crit_edge.i.i
   %22 = phi i64 [ 0, %._crit_edge.i.i ], [ %25, %21 ]
   %.013.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %26, %21 ]
-  %23 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.013.i.i
+  %23 = getelementptr inbounds nuw i64, ptr %5, i64 %.013.i.i
   %24 = load i64, ptr %23, align 8, !tbaa !68
   %25 = add i64 %24, %22
   %26 = add nuw nsw i64 %.013.i.i, 1
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
   store i64 %25, ptr %27, align 8, !tbaa !68
   %exitcond.not.i.i = icmp eq i64 %26, 3
   br i1 %exitcond.not.i.i, label %.lr.ph16.i.i, label %21, !llvm.loop !78
@@ -1887,7 +1887,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %29 = lshr i32 %.val9.i.i, 4
   %30 = and i32 %29, 3
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i64, ptr %6, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !68
   %34 = add i64 %33, 1
   store i64 %34, ptr %32, align 8, !tbaa !68
@@ -1907,7 +1907,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %.val.i23.i = load i32, ptr %36, align 4, !tbaa !46
   %37 = and i32 %.val.i23.i, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !68
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !68
@@ -1917,11 +1917,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 42:                                               ; preds = %42, %._crit_edge.i25.loopexit.i
   %43 = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %46, %42 ]
   %.013.i26.i = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %47, %42 ]
-  %44 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.013.i26.i
+  %44 = getelementptr inbounds nuw i64, ptr %3, i64 %.013.i26.i
   %45 = load i64, ptr %44, align 8, !tbaa !68
   %46 = add i64 %45, %43
   %47 = add nuw nsw i64 %.013.i26.i, 1
-  %48 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %47
   store i64 %46, ptr %48, align 8, !tbaa !68
   %exitcond.not.i27.i = icmp eq i64 %47, 3
   br i1 %exitcond.not.i27.i, label %.lr.ph16.i29.i, label %42, !llvm.loop !78
@@ -1932,7 +1932,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %.val9.i31.i = load i32, ptr %49, align 4, !tbaa !46
   %50 = and i32 %.val9.i31.i, 3
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !68
   %54 = add i64 %53, 1
   store i64 %54, ptr %52, align 8, !tbaa !68
@@ -1960,7 +1960,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %56 = lshr i32 %.val.i36.i, 2
   %57 = and i32 %56, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %1, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !68
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8, !tbaa !68
@@ -1971,11 +1971,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 62:                                               ; preds = %62, %._crit_edge.i38.i
   %63 = phi i64 [ 0, %._crit_edge.i38.i ], [ %66, %62 ]
   %.012.i.i = phi i64 [ 0, %._crit_edge.i38.i ], [ %67, %62 ]
-  %64 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.012.i.i
+  %64 = getelementptr inbounds nuw i64, ptr %1, i64 %.012.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !68
   %66 = add i64 %65, %63
   %67 = add nuw nsw i64 %.012.i.i, 1
-  %68 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %2, i64 %67
   store i64 %66, ptr %68, align 8, !tbaa !68
   %exitcond.not.i39.i = icmp eq i64 %67, 3
   br i1 %exitcond.not.i39.i, label %.lr.ph15.i.i, label %62, !llvm.loop !81
@@ -1987,7 +1987,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %69 = lshr i32 %.val10.i.i, 2
   %70 = and i32 %69, 3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %2, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !68
   %74 = add i64 %73, 1
   store i64 %74, ptr %72, align 8, !tbaa !68
@@ -2285,7 +2285,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %26 = ashr i32 %25, %23
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %6, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !68
   %31 = add i64 %30, 1
   store i64 %31, ptr %29, align 8, !tbaa !68
@@ -2296,11 +2296,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 33:                                               ; preds = %33, %._crit_edge.i.loopexit
   %34 = phi i64 [ 0, %._crit_edge.i.loopexit ], [ %37, %33 ]
   %.022.i = phi i64 [ 0, %._crit_edge.i.loopexit ], [ %38, %33 ]
-  %35 = getelementptr inbounds nuw [256 x i64], ptr %6, i64 0, i64 %.022.i
+  %35 = getelementptr inbounds nuw i64, ptr %6, i64 %.022.i
   %36 = load i64, ptr %35, align 8, !tbaa !68
   %37 = add i64 %36, %34
   %38 = add nuw nsw i64 %.022.i, 1
-  %39 = getelementptr inbounds nuw [256 x i64], ptr %7, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %7, i64 %38
   store i64 %37, ptr %39, align 8, !tbaa !68
   %exitcond.not.i = icmp eq i64 %38, 255
   br i1 %exitcond.not.i, label %.preheader.i, label %33, !llvm.loop !101
@@ -2311,7 +2311,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %41 = ashr i32 %40, %23
   %42 = and i32 %41, 255
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [256 x i64], ptr %7, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %7, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !68
   %46 = add i64 %45, 1
   store i64 %46, ptr %44, align 8, !tbaa !68
@@ -2344,7 +2344,7 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   %53 = ashr i32 %52, %50
   %54 = and i32 %53, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !68
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !68
@@ -2362,11 +2362,11 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
 61:                                               ; preds = %61, %._crit_edge.i17
   %62 = phi i64 [ 0, %._crit_edge.i17 ], [ %65, %61 ]
   %.022.i18 = phi i64 [ 0, %._crit_edge.i17 ], [ %66, %61 ]
-  %63 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.022.i18
+  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %.022.i18
   %64 = load i64, ptr %63, align 8, !tbaa !68
   %65 = add i64 %64, %62
   %66 = add nuw nsw i64 %.022.i18, 1
-  %67 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %5, i64 %66
   store i64 %65, ptr %67, align 8, !tbaa !68
   %exitcond.not.i19 = icmp eq i64 %66, 255
   br i1 %exitcond.not.i19, label %.preheader.i20, label %61, !llvm.loop !101
@@ -2377,7 +2377,7 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   %70 = ashr i32 %69, %60
   %71 = and i32 %70, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %5, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !68
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8, !tbaa !68

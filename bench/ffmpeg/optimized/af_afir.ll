@@ -176,7 +176,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %29
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %30
   %31 = zext nneg i32 %.110.i to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %.1.i, %34
@@ -195,7 +195,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %.110.i39 = select i1 %.not11.i38, i32 %spec.select.i36, i32 %41
   %.1.i40 = select i1 %.not11.i38, i32 %spec.select12.i37, i32 %42
   %43 = zext nneg i32 %.110.i39 to i64
-  %44 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !39
   %46 = zext i8 %45 to i32
   %47 = add nuw nsw i32 %.1.i40, %46
@@ -234,13 +234,13 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv27 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next28, %._crit_edge ]
-  %14 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv27
   %15 = load i32, ptr %14, align 4, !tbaa !32
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds nuw [32 x [1024 x %struct.AudioFIRSegment]], ptr %11, i64 0, i64 %indvars.iv27
+  %17 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %11, i64 %indvars.iv27
   br label %27
 
 ._crit_edge25:                                    ; preds = %._crit_edge, %1
@@ -255,9 +255,9 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   ret void
 
 ._crit_edge:                                      ; preds = %uninit_segment.exit, %.preheader
-  %22 = getelementptr inbounds nuw [32 x ptr], ptr %12, i64 0, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv27
   tail call void @av_frame_free(ptr noundef nonnull %22) #10
-  %23 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv27
   tail call void @av_frame_free(ptr noundef nonnull %23) #10
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %24 = load i32, ptr %7, align 8, !tbaa !20
@@ -267,7 +267,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 27:                                               ; preds = %.lr.ph, %uninit_segment.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %uninit_segment.exit ]
-  %28 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %17, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %17, i64 %indvars.iv
   %.val = load ptr, ptr %2, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8, !tbaa !44
@@ -457,7 +457,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %39 = load i32, ptr %38, align 4, !tbaa !67
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [3 x [3 x i32]], ptr @query_formats.sample_fmts, i64 0, i64 %40
+  %41 = getelementptr inbounds [3 x i32], ptr @query_formats.sample_fmts, i64 %40
   %42 = call i32 @ff_set_common_formats_from_list2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %41) #10
   %. = call i32 @llvm.smin.i32(i32 %42, i32 0)
   br label %43
@@ -586,7 +586,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %.not85, label %37, label %.critedge
 
 37:                                               ; preds = %34, %32
-  %38 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %indvars.iv166
+  %38 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv166
   %39 = load i32, ptr %38, align 4, !tbaa !32
   %.not86 = icmp eq i32 %39, 0
   br i1 %.not86, label %40, label %78
@@ -622,7 +622,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 100
-  %67 = getelementptr inbounds nuw [32 x i32], ptr %66, i64 0, i64 %indvars.iv166
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv166
   store i32 1, ptr %67, align 4, !tbaa !32
   br label %68
 
@@ -650,7 +650,7 @@ check_ir.exit:                                    ; preds = %40
   br label %.thread107
 
 78:                                               ; preds = %68, %37
-  %79 = getelementptr inbounds nuw [32 x i32], ptr %24, i64 0, i64 %indvars.iv166
+  %79 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv166
   %80 = load i32, ptr %79, align 4, !tbaa !32
   %.not89 = icmp eq i32 %80, 0
   br i1 %.not89, label %81, label %.critedge
@@ -658,7 +658,7 @@ check_ir.exit:                                    ; preds = %40
 81:                                               ; preds = %78
   %82 = load ptr, ptr %9, align 8, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 356
-  %84 = getelementptr inbounds nuw [32 x i32], ptr %83, i64 0, i64 %indvars.iv166
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv166
   %85 = load i32, ptr %84, align 4, !tbaa !32
   %.not.i = icmp eq i32 %85, 0
   br i1 %.not.i, label %86, label %.loopexit400.i
@@ -688,7 +688,7 @@ check_ir.exit:                                    ; preds = %40
 100:                                              ; preds = %99, %93
   %101 = phi i32 [ %95, %99 ], [ %97, %93 ]
   %102 = getelementptr inbounds nuw i8, ptr %82, i64 484
-  %103 = getelementptr inbounds nuw [32 x i32], ptr %102, i64 0, i64 %indvars.iv166
+  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv166
   %104 = load i32, ptr %103, align 4, !tbaa !32
   %.not316.i = icmp eq i32 %104, 0
   br i1 %.not316.i, label %.lr.ph.i, label %.loopexit400.i
@@ -704,7 +704,7 @@ check_ir.exit:                                    ; preds = %40
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %106
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %107
   %108 = zext nneg i32 %.110.i.i to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !39
   %111 = zext i8 %110 to i32
   %112 = add nuw nsw i32 %.1.i.i, %111
@@ -719,15 +719,15 @@ check_ir.exit:                                    ; preds = %40
   %116 = lshr i32 %spec.select.i333.i, 8
   %.110.i336.i = select i1 %.not11.i335.i, i32 %spec.select.i333.i, i32 %116
   %117 = zext nneg i32 %.110.i336.i to i64
-  %118 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !39
   %120 = zext i8 %119 to i32
   %121 = add nuw nsw i32 %.1.i337.i, %120
   %122 = shl nuw i32 1, %121
   %123 = getelementptr inbounds nuw i8, ptr %82, i64 768
-  %124 = getelementptr inbounds nuw [32 x [1024 x %struct.AudioFIRSegment]], ptr %123, i64 0, i64 %indvars.iv166
+  %124 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %123, i64 %indvars.iv166
   %125 = getelementptr inbounds nuw i8, ptr %82, i64 612
-  %126 = getelementptr inbounds nuw [32 x i32], ptr %125, i64 0, i64 %indvars.iv166
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv166
   br label %127
 
 127:                                              ; preds = %304, %.lr.ph.i
@@ -746,7 +746,7 @@ check_ir.exit:                                    ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %135 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %135, ptr %103, align 4, !tbaa !32
-  %136 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %124, i64 0, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %124, i64 %indvars.iv.i
   %137 = load ptr, ptr %9, align 8, !tbaa !4
   %138 = call i64 @av_cpu_max_align() #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1029,7 +1029,7 @@ select.unfold.i:                                  ; preds = %302, %300, %298, %2
 
 .loopexit400.i:                                   ; preds = %304, %100, %81
   %311 = getelementptr inbounds nuw i8, ptr %82, i64 5505832
-  %312 = getelementptr inbounds nuw [32 x ptr], ptr %311, i64 0, i64 %indvars.iv166
+  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv166
   %313 = load ptr, ptr %312, align 8, !tbaa !73
   %.not317.i = icmp eq ptr %313, null
   br i1 %.not317.i, label %314, label %324
@@ -1057,7 +1057,7 @@ select.unfold.i:                                  ; preds = %302, %300, %298, %2
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 112
   %327 = load i32, ptr %326, align 8, !tbaa !105
   %328 = getelementptr inbounds nuw i8, ptr %82, i64 5506088
-  %329 = getelementptr inbounds nuw [32 x ptr], ptr %328, i64 0, i64 %indvars.iv166
+  %329 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv166
   %330 = load ptr, ptr %329, align 8, !tbaa !73
   %.not318.i = icmp eq ptr %330, null
   br i1 %.not318.i, label %335, label %331
@@ -1082,7 +1082,7 @@ select.unfold.i:                                  ; preds = %302, %300, %298, %2
 341:                                              ; preds = %335, %331
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.74, i32 noundef %327) #10
   %342 = getelementptr inbounds nuw i8, ptr %82, i64 484
-  %343 = getelementptr inbounds nuw [32 x i32], ptr %342, i64 0, i64 %indvars.iv166
+  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv166
   %344 = load i32, ptr %343, align 4, !tbaa !32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.75, i32 noundef %344) #10
   %345 = getelementptr inbounds nuw i8, ptr %82, i64 96
@@ -1291,7 +1291,7 @@ ir_gain_float.exit.i:                             ; preds = %._crit_edge.i341.i,
   %421 = add nsw i32 %327, 3
   %422 = and i32 %421, -4
   %423 = getelementptr inbounds nuw i8, ptr %82, i64 768
-  %424 = getelementptr inbounds nuw [32 x [1024 x %struct.AudioFIRSegment]], ptr %423, i64 0, i64 %indvars.iv166
+  %424 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %423, i64 %indvars.iv166
   br label %425
 
 425:                                              ; preds = %.thread370.i, %.lr.ph463.i
@@ -1359,7 +1359,7 @@ ir_scale_float.exit.i:                            ; preds = %._crit_edge.i346.i,
 
 .lr.ph459.i:                                      ; preds = %ir_scale_float.exit.i, %.critedge._crit_edge.i
   %indvars.iv533.i = phi i64 [ %indvars.iv.next534.i, %.critedge._crit_edge.i ], [ 0, %ir_scale_float.exit.i ]
-  %463 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %424, i64 0, i64 %indvars.iv533.i
+  %463 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %424, i64 %indvars.iv533.i
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 96
   %465 = load ptr, ptr %464, align 8, !tbaa !129
   %.not327.i = icmp eq ptr %465, null
@@ -1555,7 +1555,7 @@ ir_scale_float.exit.i:                            ; preds = %._crit_edge.i346.i,
   %577 = add nsw i32 %327, 7
   %578 = and i32 %577, -8
   %579 = getelementptr inbounds nuw i8, ptr %82, i64 768
-  %580 = getelementptr inbounds nuw [32 x [1024 x %struct.AudioFIRSegment]], ptr %579, i64 0, i64 %indvars.iv166
+  %580 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %579, i64 %indvars.iv166
   br label %581
 
 581:                                              ; preds = %.thread379.i, %.lr.ph440.i
@@ -1622,7 +1622,7 @@ ir_scale_double.exit.i:                           ; preds = %._crit_edge.i361.i,
 
 .lr.ph436.i:                                      ; preds = %ir_scale_double.exit.i, %.critedge386._crit_edge.i
   %indvars.iv508.i = phi i64 [ %indvars.iv.next509.i, %.critedge386._crit_edge.i ], [ 0, %ir_scale_double.exit.i ]
-  %618 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %580, i64 0, i64 %indvars.iv508.i
+  %618 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %580, i64 %indvars.iv508.i
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 96
   %620 = load ptr, ptr %619, align 8, !tbaa !129
   %.not321.i = icmp eq ptr %620, null
@@ -1753,7 +1753,7 @@ ir_scale_double.exit.i:                           ; preds = %._crit_edge.i361.i,
 
 convert_coeffs.exit:                              ; preds = %.thread379.i, %.thread370.i, %341, %.preheader399.i, %.preheader393.i
   %708 = getelementptr inbounds nuw i8, ptr %82, i64 228
-  %709 = getelementptr inbounds nuw [32 x i32], ptr %708, i64 0, i64 %indvars.iv166
+  %709 = getelementptr inbounds nuw i32, ptr %708, i64 %indvars.iv166
   store i32 1, ptr %709, align 4, !tbaa !32
   br label %.critedge
 
@@ -2361,7 +2361,7 @@ define internal noundef i32 @fir_channels(ptr noundef readonly captures(none) %0
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 612
   %41 = sext i32 %27 to i64
-  %42 = getelementptr inbounds [32 x i32], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds i32, ptr %40, i64 %41
   %43 = shl nsw i64 %36, 2
   %44 = trunc nsw i64 %indvars.iv to i32
   %45 = trunc nsw i64 %indvars.iv to i32
@@ -2850,7 +2850,7 @@ define internal fastcc void @fir_quantum_float(ptr readonly captures(none) %.72.
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %20)
   %21 = getelementptr inbounds nuw i8, ptr %.72.val, i64 484
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %.72.val, i64 12
   %26 = load float, ptr %25, align 4, !tbaa !168
@@ -2861,7 +2861,7 @@ define internal fastcc void @fir_quantum_float(ptr readonly captures(none) %.72.
 
 .lr.ph8:                                          ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %.72.val, i64 768
-  %31 = getelementptr inbounds [32 x [1024 x %struct.AudioFIRSegment]], ptr %30, i64 0, i64 %22
+  %31 = getelementptr inbounds [1024 x %struct.AudioFIRSegment], ptr %30, i64 %22
   %32 = fcmp nsz oeq float %26, 1.000000e+00
   %33 = icmp sgt i32 %19, 7
   %34 = icmp sgt i32 %., 0
@@ -2886,7 +2886,7 @@ define internal fastcc void @fir_quantum_float(ptr readonly captures(none) %.72.
 
 46:                                               ; preds = %.lr.ph8, %fir_fadd_float.exit
   %indvars.iv14 = phi i64 [ 0, %.lr.ph8 ], [ %indvars.iv.next15, %fir_fadd_float.exit ]
-  %47 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %31, i64 0, i64 %indvars.iv14
+  %47 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %31, i64 %indvars.iv14
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8, !tbaa !102
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
@@ -3249,7 +3249,7 @@ define internal fastcc void @fir_quantum_double(ptr readonly captures(none) %.72
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %20)
   %21 = getelementptr inbounds nuw i8, ptr %.72.val, i64 484
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %.72.val, i64 8
   %26 = load float, ptr %25, align 8, !tbaa !169
@@ -3260,7 +3260,7 @@ define internal fastcc void @fir_quantum_double(ptr readonly captures(none) %.72
   %28 = getelementptr inbounds nuw i8, ptr %.72.val, i64 12
   %29 = load float, ptr %28, align 4, !tbaa !168
   %30 = getelementptr inbounds nuw i8, ptr %.72.val, i64 768
-  %31 = getelementptr inbounds [32 x [1024 x %struct.AudioFIRSegment]], ptr %30, i64 0, i64 %22
+  %31 = getelementptr inbounds [1024 x %struct.AudioFIRSegment], ptr %30, i64 %22
   %32 = fcmp nsz oeq float %29, 1.000000e+00
   %33 = icmp sgt i32 %19, 7
   %34 = icmp sgt i32 %., 0
@@ -3286,7 +3286,7 @@ define internal fastcc void @fir_quantum_double(ptr readonly captures(none) %.72
 
 47:                                               ; preds = %.lr.ph8, %fir_fadd_double.exit
   %indvars.iv14 = phi i64 [ 0, %.lr.ph8 ], [ %indvars.iv.next15, %fir_fadd_double.exit ]
-  %48 = getelementptr inbounds nuw [1024 x %struct.AudioFIRSegment], ptr %31, i64 0, i64 %indvars.iv14
+  %48 = getelementptr inbounds nuw %struct.AudioFIRSegment, ptr %31, i64 %indvars.iv14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 96

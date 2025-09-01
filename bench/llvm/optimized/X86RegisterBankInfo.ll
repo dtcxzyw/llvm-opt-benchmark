@@ -105,7 +105,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm22X86
   tail call void @llvm.assume(i1 %8)
   %9 = lshr i32 %7, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZZNK4llvm22X86GenRegisterBankInfo22getRegBankFromRegClassERKNS_19TargetRegisterClassENS_3LLTEE16RegClass2RegBank, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm22X86GenRegisterBankInfo22getRegBankFromRegClassERKNS_19TargetRegisterClassENS_3LLTEE16RegClass2RegBank, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !21
   %13 = shl nuw nsw i32 %7, 1
   %14 = and i32 %13, 30
@@ -129,7 +129,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm22X86GenRegisterBankInfo15getValue
   tail call void @llvm.assume(i1 %4)
   %5 = mul nuw nsw i32 %0, 3
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %6
   ret ptr %7
 }
 
@@ -562,7 +562,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit43:            ; preds = %_ZNK4llvm3LLT13getS
   %41 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %41, i1 true)
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %63
 
@@ -799,7 +799,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86RegisterBankInfo20getInstrValu
   tail call void @llvm.assume(i1 %21)
   %22 = mul nuw nsw i32 %20, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %23
   %25 = load ptr, ptr %24, align 16, !tbaa !307
   %.not.i = icmp ne ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -913,7 +913,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit19: ; preds = %_ZNK4llv
   %57 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %2)
   %58 = mul nuw nsw i32 %57, 3
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %59
   %61 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %62 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false, i32 noundef %61, i32 noundef 1, ptr noundef nonnull %60, i32 noundef 3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1073,7 +1073,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %100 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
   %101 = mul nuw nsw i32 %100, 3
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %102
   %104 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %105 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext false, i32 noundef %104, i32 noundef 1, ptr noundef nonnull %103, i32 noundef 3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1166,7 +1166,7 @@ _ZNK4llvm19X86RegisterBankInfo22getSameOperandsMappingERKNS_12MachineInstrEb.exi
   %158 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   %159 = mul nuw nsw i32 %158, 3
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %160
   %162 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %163 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext false, i32 noundef %162, i32 noundef 1, ptr noundef nonnull %161, i32 noundef 3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1205,7 +1205,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %164, %173,
   %184 = call noundef i32 @_ZN4llvm22X86GenRegisterBankInfo20getPartialMappingIdxERKNS_12MachineInstrERKNS_3LLTEb(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false)
   %185 = mul nuw nsw i32 %184, 3
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %186
   %188 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4, !tbaa !21
   %189 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false, i32 noundef %188, i32 noundef 1, ptr noundef nonnull %187, i32 noundef %167) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1650,7 +1650,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   call void @llvm.assume(i1 %380)
   %381 = mul nuw nsw i32 %379, 3
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %382
   %384 = load ptr, ptr %383, align 16, !tbaa !307
   %.not.i.i = icmp ne ptr %384, null
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 8
@@ -2105,7 +2105,7 @@ _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EEC2Em.exit: ; pr
   call void @llvm.assume(i1 %100)
   %101 = mul nuw nsw i32 %99, 3
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [36 x %"struct.llvm::RegisterBankInfo::ValueMapping"], ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm22X86GenRegisterBankInfo11ValMappingsE, i64 %102
   %104 = load ptr, ptr %103, align 16, !tbaa !307
   %.not.i.i = icmp ne ptr %104, null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8

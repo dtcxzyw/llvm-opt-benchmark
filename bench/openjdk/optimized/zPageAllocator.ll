@@ -714,7 +714,7 @@ _ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit: ; preds = %36
   %52 = icmp eq i8 %4, 15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw [2 x i64], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
   %56 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %55) #13, !srcloc !8
   call void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) %49, i8 noundef zeroext %4, i32 noundef 0) #13
   %57 = and i8 %3, 2
@@ -793,7 +793,7 @@ define hidden void @_ZN14ZPageAllocator9free_pageEP5ZPage(ptr noundef nonnull al
 _ZN14ZPageAllocator13decrease_usedEm.exit:        ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %24 = zext i8 %4 to i64
-  %25 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
   %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull %25) #13, !srcloc !8
   %27 = tail call noundef double @_ZN2os11elapsedTimeEv() #13
   %28 = tail call double @llvm.ceil.f64(double %27)
@@ -900,7 +900,7 @@ define hidden noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align
 define hidden noundef i64 @_ZNK14ZPageAllocator15used_generationE13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
   %6 = load volatile i64, ptr %5, align 8
   ret i64 %6
 }
@@ -939,14 +939,14 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw [2 x %struct.anon], ptr %16, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8
   %.idx = shl nuw nsw i64 %19, 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %26 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 0, i64 %19
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %19
   %27 = load volatile i64, ptr %26, align 8
   %28 = tail call noundef i64 @_ZNK11ZGeneration5freedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
   %29 = tail call noundef i64 @_ZNK11ZGeneration8promotedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
@@ -992,7 +992,7 @@ define hidden void @_ZN14ZPageAllocator16reset_statisticsE13ZGenerationId(ptr no
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw [2 x %struct.anon], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %5, i64 %6
   store i64 %4, ptr %7, align 8
   %8 = load volatile i64, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1125,7 +1125,7 @@ define hidden void @_ZN14ZPageAllocator13decrease_usedEm(ptr noundef nonnull ali
 define hidden void @_ZN14ZPageAllocator24increase_used_generationE13ZGenerationIdm(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = zext i8 %1 to i64
-  %6 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
   %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %6) #13, !srcloc !8
   ret void
 }
@@ -1134,7 +1134,7 @@ define hidden void @_ZN14ZPageAllocator24increase_used_generationE13ZGenerationI
 define hidden void @_ZN14ZPageAllocator24decrease_used_generationE13ZGenerationIdm(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = zext i8 %1 to i64
-  %6 = getelementptr inbounds nuw [2 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
   %7 = sub i64 0, %2
   %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %6) #13, !srcloc !8
   ret void

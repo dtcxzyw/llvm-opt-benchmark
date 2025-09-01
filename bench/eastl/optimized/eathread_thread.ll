@@ -65,13 +65,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05
+  %arrayidx = getelementptr inbounds nuw %"class.EA::Thread::AtomicInt", ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 %i.05
   %0 = cmpxchg ptr %arrayidx, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %arrayidx1 = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.05
+  %arrayidx1 = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.05
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -128,9 +128,9 @@ _ZN19EAThreadDynamicDataD2Ev.exit:                ; preds = %if.then, %if.then.i
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i) #24
   %sub.ptr.lhs.cast = ptrtoint ptr %pEAThreadDynamicData to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE to i64)
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 240
-  %arrayidx = getelementptr inbounds [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %sub.ptr.div
-  %1 = atomicrmw xchg ptr %arrayidx, i32 0 seq_cst, align 4
+  %1 = sdiv exact i64 %sub.ptr.sub, 60
+  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 %1
+  %2 = atomicrmw xchg ptr %arrayidx, i32 0 seq_cst, align 4
   br label %if.end4
 
 if.else:                                          ; preds = %entry
@@ -146,15 +146,15 @@ _ZN19EAThreadDynamicDataD2Ev.exit13:              ; preds = %if.else, %if.then.i
   tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i11) #24
   %mRunMutex.i12 = getelementptr inbounds nuw i8, ptr %pEAThreadDynamicData, i64 144
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i12) #24
-  %2 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  %tobool.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
+  %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %delete.notnull, label %if.then2
 
 if.then2:                                         ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit13
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %pEAThreadDynamicData, i64 noundef 0)
+  %4 = load ptr, ptr %vfn, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %pEAThreadDynamicData, i64 noundef 0)
   br label %if.end4
 
 delete.notnull:                                   ; preds = %_ZN19EAThreadDynamicDataD2Ev.exit13
@@ -180,7 +180,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.04
   %0 = load i64, ptr %arrayidx, align 8
   %cmp1 = icmp eq i64 %0, %threadId
   br i1 %cmp1, label %return, label %for.cond
@@ -509,20 +509,20 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.04.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq i64 %0, %call
   br i1 %cmp1.i, label %if.end9, label %for.cond.i
 
 for.body.i54:                                     ; preds = %for.cond.i, %for.inc.i
   %i.05.i = phi i64 [ %inc.i56, %for.inc.i ], [ 0, %for.cond.i ]
-  %arrayidx.i55 = getelementptr inbounds nuw [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05.i
+  %arrayidx.i55 = getelementptr inbounds nuw %"class.EA::Thread::AtomicInt", ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 %i.05.i
   %1 = cmpxchg ptr %arrayidx.i55, i32 0, i32 1 seq_cst seq_cst, align 4
   %2 = extractvalue { i32, i1 } %1, 1
   br i1 %2, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i54
-  %arrayidx1.i = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.05.i
+  %arrayidx1.i = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.05.i
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit
 
 for.inc.i:                                        ; preds = %for.body.i54
@@ -619,13 +619,13 @@ for.body.i63.preheader:                           ; preds = %if.then.i62, %if.th
 
 for.body.i63:                                     ; preds = %for.body.i63.preheader, %for.inc.i66
   %i.05.i64 = phi i64 [ %inc.i67, %for.inc.i66 ], [ 0, %for.body.i63.preheader ]
-  %arrayidx.i65 = getelementptr inbounds nuw [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.05.i64
+  %arrayidx.i65 = getelementptr inbounds nuw %"class.EA::Thread::AtomicInt", ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 %i.05.i64
   %11 = cmpxchg ptr %arrayidx.i65, i32 0, i32 1 seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
   br i1 %12, label %if.then.i78, label %for.inc.i66
 
 if.then.i78:                                      ; preds = %for.body.i63
-  %arrayidx1.i79 = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.05.i64
+  %arrayidx1.i79 = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.05.i64
   br label %_ZN2EA6Thread25AllocateThreadDynamicDataEv.exit80
 
 for.inc.i66:                                      ; preds = %for.body.i63
@@ -1688,7 +1688,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi i64 [ 0, %entry ], [ %inc13, %for.inc ]
   %requiredCount.010 = phi i64 [ 0, %entry ], [ %requiredCount.1, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [128 x %"class.EA::Thread::AtomicInt"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 0, i64 %i.011
+  %arrayidx = getelementptr inbounds nuw %"class.EA::Thread::AtomicInt", ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 30720), i64 %i.011
   %0 = load atomic i32, ptr %arrayidx seq_cst, align 4
   %cmp3.not = icmp eq i32 %0, 0
   br i1 %cmp3.not, label %for.inc, label %if.then4
@@ -1698,7 +1698,7 @@ if.then4:                                         ; preds = %for.body
   br i1 %cmp5, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.then4
-  %arrayidx7 = getelementptr inbounds nuw [128 x [240 x i8]], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 0, i64 %i.011
+  %arrayidx7 = getelementptr inbounds nuw [240 x i8], ptr @_ZN2EA6Thread19gEAThreadGlobalVarsE, i64 %i.011
   %arrayidx8 = getelementptr inbounds nuw %"struct.EA::Thread::ThreadEnumData", ptr %pDataArray, i64 %requiredCount.010
   store ptr %arrayidx7, ptr %arrayidx8, align 8
   %mnRefCount.i = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 64

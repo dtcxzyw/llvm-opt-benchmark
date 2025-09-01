@@ -141,7 +141,7 @@ define void @QuESTAssert(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_u
 
 4:                                                ; preds = %3
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [92 x ptr], ptr @errorMessages, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @errorMessages, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   tail call void @invalidQuESTInputError(ptr noundef %7, ptr noundef %2)
   br label %8
@@ -201,8 +201,8 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
 .preheader46:                                     ; preds = %1, %.critedge
   %.not54 = phi i1 [ true, %1 ], [ false, %.critedge ]
   %indvars.iv63 = phi i64 [ 0, %1 ], [ 1, %.critedge ]
-  %3 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv63
-  %4 = getelementptr inbounds nuw [2 x [2 x double]], ptr %2, i64 0, i64 %indvars.iv63
+  %3 = getelementptr inbounds nuw [2 x double], ptr %0, i64 %indvars.iv63
+  %4 = getelementptr inbounds nuw [2 x double], ptr %2, i64 %indvars.iv63
   br label %.preheader
 
 5:                                                ; preds = %8
@@ -211,8 +211,8 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
 .preheader:                                       ; preds = %.preheader46, %5
   %.not = phi i1 [ true, %.preheader46 ], [ false, %5 ]
   %indvars.iv60 = phi i64 [ 0, %.preheader46 ], [ 1, %5 ]
-  %6 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv60
-  %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %2, i64 0, i64 %indvars.iv60
+  %6 = getelementptr inbounds nuw [2 x double], ptr %0, i64 %indvars.iv60
+  %7 = getelementptr inbounds nuw [2 x double], ptr %2, i64 %indvars.iv60
   br label %15
 
 8:                                                ; preds = %15
@@ -229,13 +229,13 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %15 ]
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %27, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %31, %15 ]
-  %17 = getelementptr inbounds nuw [2 x double], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !9
-  %19 = getelementptr inbounds nuw [2 x double], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fmul double %22, %24
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %25)
@@ -261,8 +261,8 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 
 .preheader46:                                     ; preds = %1, %.critedge
   %indvars.iv63 = phi i64 [ 0, %1 ], [ %indvars.iv.next64, %.critedge ]
-  %3 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv63
-  %4 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv63
+  %3 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv63
+  %4 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv63
   br label %.preheader
 
 5:                                                ; preds = %8
@@ -272,8 +272,8 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 
 .preheader:                                       ; preds = %.preheader46, %5
   %indvars.iv59 = phi i64 [ 0, %.preheader46 ], [ %indvars.iv.next60, %5 ]
-  %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv59
-  %7 = getelementptr inbounds nuw [4 x [4 x double]], ptr %2, i64 0, i64 %indvars.iv59
+  %6 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv59
+  %7 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv59
   br label %15
 
 8:                                                ; preds = %15
@@ -289,13 +289,13 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
   %.03851 = phi double [ 0.000000e+00, %.preheader ], [ %26, %15 ]
   %.04549 = phi double [ 0.000000e+00, %.preheader ], [ %30, %15 ]
-  %16 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !9
   %24 = fmul double %21, %23
   %25 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %24)
@@ -426,15 +426,15 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ 1, %5 ]
   %.16173.us.us = phi double [ %.06076.us.us, %.preheader.us.us ], [ %23, %5 ]
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %19, %5 ]
-  %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %24, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv97
+  %7 = getelementptr inbounds nuw [2 x double], ptr %24, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv97
   %9 = load double, ptr %8, align 8, !tbaa !9
-  %10 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv94
+  %10 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv94
   %11 = load double, ptr %10, align 8, !tbaa !9
-  %12 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv97
+  %12 = getelementptr inbounds nuw [2 x double], ptr %25, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv97
   %14 = load double, ptr %13, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw [2 x double], ptr %12, i64 0, i64 %indvars.iv94
+  %15 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv94
   %16 = load double, ptr %15, align 8, !tbaa !9
   %17 = fmul double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %17)
@@ -499,15 +499,15 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %5 ]
   %.16173.us.us = phi double [ %.06076.us.us, %.preheader.us.us ], [ %22, %5 ]
   %.16372.us.us = phi double [ %.06275.us.us, %.preheader.us.us ], [ %18, %5 ]
-  %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %23, i64 0, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv98
+  %6 = getelementptr inbounds nuw [4 x double], ptr %23, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv98
   %8 = load double, ptr %7, align 8, !tbaa !9
-  %9 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv94
+  %9 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv94
   %10 = load double, ptr %9, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw [4 x [4 x double]], ptr %24, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv98
+  %11 = getelementptr inbounds nuw [4 x double], ptr %24, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv98
   %13 = load double, ptr %12, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv94
+  %14 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv94
   %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %8, double %10, double %16)
@@ -1727,8 +1727,8 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
 .preheader46.i:                                   ; preds = %.critedge.i, %2
   %.not54.i = phi i1 [ true, %2 ], [ false, %.critedge.i ]
   %indvars.iv63.i = phi i64 [ 0, %2 ], [ 1, %.critedge.i ]
-  %4 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv63.i
-  %5 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv63.i
+  %4 = getelementptr inbounds nuw [2 x double], ptr %0, i64 %indvars.iv63.i
+  %5 = getelementptr inbounds nuw [2 x double], ptr %3, i64 %indvars.iv63.i
   br label %.preheader.i
 
 6:                                                ; preds = %9
@@ -1737,8 +1737,8 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
 .preheader.i:                                     ; preds = %6, %.preheader46.i
   %.not.i = phi i1 [ true, %.preheader46.i ], [ false, %6 ]
   %indvars.iv60.i = phi i64 [ 0, %.preheader46.i ], [ 1, %6 ]
-  %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv60.i
-  %8 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv60.i
+  %7 = getelementptr inbounds nuw [2 x double], ptr %0, i64 %indvars.iv60.i
+  %8 = getelementptr inbounds nuw [2 x double], ptr %3, i64 %indvars.iv60.i
   br label %16
 
 9:                                                ; preds = %16
@@ -1755,13 +1755,13 @@ define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Co
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %16 ]
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %28, %16 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %32, %16 ]
-  %18 = getelementptr inbounds nuw [2 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   %21 = load double, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw [2 x double], ptr %5, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
   %23 = load double, ptr %22, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw [2 x double], ptr %8, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8, !tbaa !9
   %26 = fmul double %23, %25
   %27 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %26)
@@ -1800,8 +1800,8 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
 
 .preheader46.i:                                   ; preds = %.critedge.i, %validateMultiQubitMatrixFitsInNode.exit
   %indvars.iv63.i = phi i64 [ 0, %validateMultiQubitMatrixFitsInNode.exit ], [ %indvars.iv.next64.i, %.critedge.i ]
-  %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %1, i64 0, i64 %indvars.iv63.i
-  %7 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %indvars.iv63.i
+  %6 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv63.i
+  %7 = getelementptr inbounds nuw [4 x double], ptr %5, i64 %indvars.iv63.i
   br label %.preheader.i
 
 8:                                                ; preds = %11
@@ -1811,8 +1811,8 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
 
 .preheader.i:                                     ; preds = %8, %.preheader46.i
   %indvars.iv59.i = phi i64 [ 0, %.preheader46.i ], [ %indvars.iv.next60.i, %8 ]
-  %9 = getelementptr inbounds nuw [4 x [4 x double]], ptr %1, i64 0, i64 %indvars.iv59.i
-  %10 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %indvars.iv59.i
+  %9 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv59.i
+  %10 = getelementptr inbounds nuw [4 x double], ptr %5, i64 %indvars.iv59.i
   br label %18
 
 11:                                               ; preds = %18
@@ -1828,13 +1828,13 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %3, %4
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %18 ]
   %.03851.i = phi double [ 0.000000e+00, %.preheader.i ], [ %29, %18 ]
   %.04549.i = phi double [ 0.000000e+00, %.preheader.i ], [ %33, %18 ]
-  %19 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   %24 = load double, ptr %23, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i
   %26 = load double, ptr %25, align 8, !tbaa !9
   %27 = fmul double %24, %26
   %28 = tail call double @llvm.fmuladd.f64(double %20, double %22, double %27)
@@ -2522,15 +2522,15 @@ validateOneQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.us.i ], [ 1, %11 ]
   %.16173.us.us.i = phi double [ %.06076.us.us.i, %.preheader.us.us.i ], [ %29, %11 ]
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %25, %11 ]
-  %13 = getelementptr inbounds nuw [2 x [2 x double]], ptr %30, i64 0, i64 %indvars.iv.i
-  %14 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv97.i
+  %13 = getelementptr inbounds nuw [2 x double], ptr %30, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv97.i
   %15 = load double, ptr %14, align 8, !tbaa !9
-  %16 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv94.i
+  %16 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv94.i
   %17 = load double, ptr %16, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw [2 x [2 x double]], ptr %31, i64 0, i64 %indvars.iv.i
-  %19 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv97.i
+  %18 = getelementptr inbounds nuw [2 x double], ptr %31, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv97.i
   %20 = load double, ptr %19, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw [2 x double], ptr %18, i64 0, i64 %indvars.iv94.i
+  %21 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv94.i
   %22 = load double, ptr %21, align 8, !tbaa !9
   %23 = fmul double %20, %22
   %24 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %23)
@@ -2641,15 +2641,15 @@ validateTwoQubitKrausMapDimensions.exit:          ; preds = %QuESTAssert.exit.i,
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next.i, %11 ]
   %.16173.us.us.i = phi double [ %.06076.us.us.i, %.preheader.us.us.i ], [ %28, %11 ]
   %.16372.us.us.i = phi double [ %.06275.us.us.i, %.preheader.us.us.i ], [ %24, %11 ]
-  %12 = getelementptr inbounds nuw [4 x [4 x double]], ptr %29, i64 0, i64 %indvars.iv.i
-  %13 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv98.i
+  %12 = getelementptr inbounds nuw [4 x double], ptr %29, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv98.i
   %14 = load double, ptr %13, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv94.i
+  %15 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv94.i
   %16 = load double, ptr %15, align 8, !tbaa !9
-  %17 = getelementptr inbounds nuw [4 x [4 x double]], ptr %30, i64 0, i64 %indvars.iv.i
-  %18 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv98.i
+  %17 = getelementptr inbounds nuw [4 x double], ptr %30, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv98.i
   %19 = load double, ptr %18, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv94.i
+  %20 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv94.i
   %21 = load double, ptr %20, align 8, !tbaa !9
   %22 = fmul double %19, %21
   %23 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %22)
@@ -3452,7 +3452,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
 
 36:                                               ; preds = %.lr.ph82
   %37 = xor i64 %34, -1
-  %38 = getelementptr inbounds nuw [32768 x i64], ptr %9, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %9, i64 %37
   store i64 1, ptr %38, align 8, !tbaa !38
   br label %39
 
@@ -3468,7 +3468,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %40
   %indvars.iv102 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next103, %40 ]
-  %41 = getelementptr inbounds nuw [32768 x i64], ptr %9, i64 0, i64 %indvars.iv102
+  %41 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv102
   %42 = load i64, ptr %41, align 8, !tbaa !38
   %.not59 = icmp eq i64 %42, 0
   br i1 %.not59, label %43, label %40

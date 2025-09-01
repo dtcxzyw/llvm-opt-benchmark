@@ -342,7 +342,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @av_read_image_line2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds [4 x %struct.AVComponentDescriptor], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds %struct.AVComponentDescriptor, ptr %11, i64 %12
   %.sroa.0.0.copyload = load i32, ptr %13, align 4, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
@@ -714,7 +714,7 @@ define void @av_read_image_line(ptr noundef writeonly captures(none) %0, ptr nou
 define void @av_write_image_line2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = sext i32 %6 to i64
-  %12 = getelementptr inbounds [4 x %struct.AVComponentDescriptor], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.AVComponentDescriptor, ptr %10, i64 %11
   %.sroa.0.0.copyload = load i32, ptr %12, align 4, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
@@ -1107,7 +1107,7 @@ define ptr @av_get_pix_fmt_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !25
   br label %7
 
@@ -1135,7 +1135,7 @@ define i32 @av_get_pix_fmt(ptr noundef %0) local_unnamed_addr #3 {
 
 7:                                                ; preds = %16, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %16 ]
-  %8 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 16, !tbaa !25
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %16, label %10
@@ -1169,7 +1169,7 @@ get_pix_fmt_internal.exit.thread:                 ; preds = %16, %get_pix_fmt_in
 
 19:                                               ; preds = %28, %get_pix_fmt_internal.exit.thread
   %indvars.iv.i8 = phi i64 [ 0, %get_pix_fmt_internal.exit.thread ], [ %indvars.iv.next.i14, %28 ]
-  %20 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %indvars.iv.i8
+  %20 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %indvars.iv.i8
   %21 = load ptr, ptr %20, align 16, !tbaa !25
   %.not.i9 = icmp eq ptr %21, null
   br i1 %.not.i9, label %28, label %22
@@ -1280,7 +1280,7 @@ define i32 @av_get_padded_bits_per_pixel(ptr noundef readonly captures(none) %0)
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %12, i64 %indvars.iv
   %15 = trunc i64 %indvars.iv to i32
   %16 = add i32 %15, -1
   %or.cond = icmp ult i32 %16, 2
@@ -1290,7 +1290,7 @@ define i32 @av_get_padded_bits_per_pixel(ptr noundef readonly captures(none) %0)
   %20 = shl i32 %19, %17
   %21 = load i32, ptr %14, align 4, !tbaa !35
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %2, i64 %22
   store i32 %20, ptr %23, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1302,7 +1302,7 @@ define i32 @av_get_padded_bits_per_pixel(ptr noundef readonly captures(none) %0)
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.preheader ], [ 0, %.preheader.preheader ]
   %.02124 = phi i32 [ %26, %.preheader ], [ 0, %.preheader.preheader ]
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv28
+  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv28
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = add nsw i32 %25, %.02124
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -1336,7 +1336,7 @@ define noundef ptr @av_get_pix_fmt_string(ptr noundef returned writeonly capture
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %9
   %11 = sext i32 %1 to i64
   %12 = load ptr, ptr %10, align 16, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1387,7 +1387,7 @@ av_get_bits_per_pixel.exit:                       ; preds = %24, %8
 define ptr @av_pix_fmt_desc_get(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ugt i32 %0, 257
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %2
   %.0 = select i1 %or.cond, ptr null, ptr %3
   ret ptr %.0
 }
@@ -1442,7 +1442,7 @@ define range(i32 -38, 1) i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %0, p
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %8 = load i8, ptr %7, align 1, !tbaa !28
   %9 = zext i8 %8 to i32
@@ -1463,7 +1463,7 @@ define i32 @av_pix_fmt_count_planes(i32 noundef %0) local_unnamed_addr #10 {
   %2 = alloca [4 x i32], align 16
   %or.cond.i = icmp ugt i32 %0, 257
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br i1 %or.cond.i, label %.loopexit, label %.preheader16
@@ -1481,10 +1481,10 @@ define i32 @av_pix_fmt_count_planes(i32 noundef %0) local_unnamed_addr #10 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !35
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr %2, i64 %11
   store i32 1, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1496,7 +1496,7 @@ define i32 @av_pix_fmt_count_planes(i32 noundef %0) local_unnamed_addr #10 {
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %.preheader.preheader ]
   %.019 = phi i32 [ %15, %.preheader ], [ 0, %.preheader.preheader ]
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv21
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv21
   %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = add nsw i32 %14, %.019
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
@@ -1518,7 +1518,7 @@ define i32 @av_pix_fmt_swap_endianness(i32 noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !25
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %8 = icmp ult i64 %7, 2
@@ -1568,7 +1568,7 @@ sub_112:                                          ; preds = %sub_0
 
 27:                                               ; preds = %36, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %36 ]
-  %28 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 16, !tbaa !25
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %36, label %30
@@ -1627,10 +1627,10 @@ define i32 @av_get_pix_fmt_loss(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 define internal fastcc i32 @get_pix_fmt_score(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3) unnamed_addr #3 {
   %or.cond.i = icmp ugt i32 %1, 257
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %5
   %or.cond.i198 = icmp ugt i32 %0, 257
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %7
   %or.cond.not = or i1 %or.cond.i198, %or.cond.i
   br i1 %or.cond.not, label %get_pix_fmt_depth.exit.thread, label %9
 
@@ -2159,10 +2159,10 @@ define i32 @av_find_best_pix_fmt_of_2(i32 noundef %0, i32 noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %or.cond.i = icmp ugt i32 %0, 257
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %13
   %or.cond.i48 = icmp ugt i32 %1, 257
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw [258 x %struct.AVPixFmtDescriptor], ptr @av_pix_fmt_descriptors, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.AVPixFmtDescriptor, ptr @av_pix_fmt_descriptors, i64 %15
   %brmerge = or i1 %or.cond.i, %or.cond.i48
   %.mux = select i1 %or.cond.i, i32 %1, i32 %0
   br i1 %brmerge, label %129, label %17
@@ -2208,7 +2208,7 @@ define i32 @av_find_best_pix_fmt_of_2(i32 noundef %0, i32 noundef %1, i32 nounde
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %37, i64 %indvars.iv.i
   %40 = trunc i64 %indvars.iv.i to i32
   %41 = add i32 %40, -1
   %or.cond.i50 = icmp ult i32 %41, 2
@@ -2218,7 +2218,7 @@ define i32 @av_find_best_pix_fmt_of_2(i32 noundef %0, i32 noundef %1, i32 nounde
   %45 = shl i32 %44, %42
   %46 = load i32, ptr %39, align 4, !tbaa !35
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [4 x i32], ptr %10, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr %10, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2230,7 +2230,7 @@ define i32 @av_find_best_pix_fmt_of_2(i32 noundef %0, i32 noundef %1, i32 nounde
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %.02124.i = phi i32 [ %51, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv28.i
+  %49 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv28.i
   %50 = load i32, ptr %49, align 4, !tbaa !4
   %51 = add nsw i32 %50, %.02124.i
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
@@ -2267,7 +2267,7 @@ av_get_padded_bits_per_pixel.exit:                ; preds = %.preheader.i
 
 67:                                               ; preds = %67, %.lr.ph.i52
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i52 ], [ %indvars.iv.next.i56, %67 ]
-  %68 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %66, i64 0, i64 %indvars.iv.i54
+  %68 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %66, i64 %indvars.iv.i54
   %69 = trunc i64 %indvars.iv.i54 to i32
   %70 = add i32 %69, -1
   %or.cond.i55 = icmp ult i32 %70, 2
@@ -2277,7 +2277,7 @@ av_get_padded_bits_per_pixel.exit:                ; preds = %.preheader.i
   %74 = shl i32 %73, %71
   %75 = load i32, ptr %68, align 4, !tbaa !35
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %76
+  %77 = getelementptr inbounds i32, ptr %9, i64 %76
   store i32 %74, ptr %77, align 4, !tbaa !4
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i53
@@ -2289,7 +2289,7 @@ av_get_padded_bits_per_pixel.exit:                ; preds = %.preheader.i
 .preheader.i58:                                   ; preds = %.preheader.i58.preheader, %.preheader.i58
   %indvars.iv28.i59 = phi i64 [ %indvars.iv.next29.i61, %.preheader.i58 ], [ 0, %.preheader.i58.preheader ]
   %.02124.i60 = phi i32 [ %80, %.preheader.i58 ], [ 0, %.preheader.i58.preheader ]
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv28.i59
+  %78 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv28.i59
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = add nsw i32 %79, %.02124.i60
   %indvars.iv.next29.i61 = add nuw nsw i64 %indvars.iv28.i59, 1
@@ -2320,7 +2320,7 @@ av_get_padded_bits_per_pixel.exit65:              ; preds = %.preheader.i58
 
 88:                                               ; preds = %88, %.lr.ph.i67
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.i67 ], [ %indvars.iv.next.i71, %88 ]
-  %89 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %87, i64 0, i64 %indvars.iv.i69
+  %89 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %87, i64 %indvars.iv.i69
   %90 = trunc i64 %indvars.iv.i69 to i32
   %91 = add i32 %90, -1
   %or.cond.i70 = icmp ult i32 %91, 2
@@ -2330,7 +2330,7 @@ av_get_padded_bits_per_pixel.exit65:              ; preds = %.preheader.i58
   %95 = shl i32 %94, %92
   %96 = load i32, ptr %89, align 4, !tbaa !35
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %97
+  %98 = getelementptr inbounds i32, ptr %8, i64 %97
   store i32 %95, ptr %98, align 4, !tbaa !4
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i68
@@ -2342,7 +2342,7 @@ av_get_padded_bits_per_pixel.exit65:              ; preds = %.preheader.i58
 .preheader.i73:                                   ; preds = %.preheader.i73.preheader, %.preheader.i73
   %indvars.iv28.i74 = phi i64 [ %indvars.iv.next29.i76, %.preheader.i73 ], [ 0, %.preheader.i73.preheader ]
   %.02124.i75 = phi i32 [ %101, %.preheader.i73 ], [ 0, %.preheader.i73.preheader ]
-  %99 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv28.i74
+  %99 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv28.i74
   %100 = load i32, ptr %99, align 4, !tbaa !4
   %101 = add nsw i32 %100, %.02124.i75
   %indvars.iv.next29.i76 = add nuw nsw i64 %indvars.iv28.i74, 1
@@ -2365,7 +2365,7 @@ av_get_padded_bits_per_pixel.exit80:              ; preds = %.preheader.i73
 
 105:                                              ; preds = %105, %.lr.ph.i82
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i86, %105 ]
-  %106 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %104, i64 0, i64 %indvars.iv.i84
+  %106 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %104, i64 %indvars.iv.i84
   %107 = trunc i64 %indvars.iv.i84 to i32
   %108 = add i32 %107, -1
   %or.cond.i85 = icmp ult i32 %108, 2
@@ -2375,7 +2375,7 @@ av_get_padded_bits_per_pixel.exit80:              ; preds = %.preheader.i73
   %112 = shl i32 %111, %109
   %113 = load i32, ptr %106, align 4, !tbaa !35
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %114
+  %115 = getelementptr inbounds i32, ptr %7, i64 %114
   store i32 %112, ptr %115, align 4, !tbaa !4
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i83
@@ -2387,7 +2387,7 @@ av_get_padded_bits_per_pixel.exit80:              ; preds = %.preheader.i73
 .preheader.i88:                                   ; preds = %.preheader.i88.preheader, %.preheader.i88
   %indvars.iv28.i89 = phi i64 [ %indvars.iv.next29.i91, %.preheader.i88 ], [ 0, %.preheader.i88.preheader ]
   %.02124.i90 = phi i32 [ %118, %.preheader.i88 ], [ 0, %.preheader.i88.preheader ]
-  %116 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv28.i89
+  %116 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv28.i89
   %117 = load i32, ptr %116, align 4, !tbaa !4
   %118 = add nsw i32 %117, %.02124.i90
   %indvars.iv.next29.i91 = add nuw nsw i64 %indvars.iv28.i89, 1
@@ -2443,7 +2443,7 @@ define ptr @av_color_range_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [3 x ptr], ptr @color_range_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @color_range_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   br label %7
 
@@ -2458,7 +2458,7 @@ define range(i32 -22, 3) i32 @av_color_range_from_name(ptr noundef %0) local_unn
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [3 x ptr], ptr @color_range_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @color_range_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #15
   %.not = icmp eq i32 %5, 0
@@ -2487,7 +2487,7 @@ define ptr @av_color_primaries_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [23 x ptr], ptr @color_primaries_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @color_primaries_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   br label %7
 
@@ -2508,7 +2508,7 @@ define range(i32 -22, 23) i32 @av_color_primaries_from_name(ptr noundef %0) loca
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [23 x ptr], ptr @color_primaries_names, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr @color_primaries_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %7, ptr noundef null) #15
   %.not9 = icmp eq i32 %8, 0
@@ -2535,7 +2535,7 @@ define ptr @av_color_transfer_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @color_transfer_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @color_transfer_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   br label %7
 
@@ -2550,7 +2550,7 @@ define range(i32 -22, 19) i32 @av_color_transfer_from_name(ptr noundef %0) local
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [19 x ptr], ptr @color_transfer_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @color_transfer_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #15
   %.not = icmp eq i32 %5, 0
@@ -2577,7 +2577,7 @@ define ptr @av_color_space_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [18 x ptr], ptr @color_space_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @color_space_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   br label %7
 
@@ -2592,7 +2592,7 @@ define range(i32 -22, 18) i32 @av_color_space_from_name(ptr noundef %0) local_un
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [18 x ptr], ptr @color_space_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @color_space_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #15
   %.not = icmp eq i32 %5, 0
@@ -2619,7 +2619,7 @@ define ptr @av_chroma_location_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [7 x ptr], ptr @chroma_location_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @chroma_location_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   br label %7
 
@@ -2634,7 +2634,7 @@ define range(i32 -22, 7) i32 @av_chroma_location_from_name(ptr noundef %0) local
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw [7 x ptr], ptr @chroma_location_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @chroma_location_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #15
   %.not = icmp eq i32 %5, 0

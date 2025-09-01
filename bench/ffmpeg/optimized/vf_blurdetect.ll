@@ -196,9 +196,9 @@ define internal i32 @blurdetect_filter_frame(ptr noundef readonly captures(none)
 
 76:                                               ; preds = %65
   %77 = add i32 %.097113, 1
-  %78 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !57
   tail call void @ff_gaussian_blur_8(i32 noundef %69, i32 noundef %71, ptr noundef %15, i32 noundef %69, ptr noundef %79, i32 noundef %81, i32 noundef 1) #9
   tail call void @ff_sobel_8(i32 noundef %69, i32 noundef %71, ptr noundef %17, i32 noundef %69, ptr noundef %19, i32 noundef %69, ptr noundef %15, i32 noundef %69, i32 noundef 1) #9
@@ -303,10 +303,10 @@ define internal i32 @blurdetect_filter_frame(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %129
   %133 = zext nneg i8 %131 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.blurdetect_filter_frame, i64 0, i64 %133
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blurdetect_filter_frame, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = zext nneg i8 %131 to i64
-  %switch.gep177 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.blurdetect_filter_frame.4, i64 0, i64 %134
+  %switch.gep177 = getelementptr inbounds nuw i32, ptr @switch.table.blurdetect_filter_frame.4, i64 %134
   %switch.load178 = load i32, ptr %switch.gep177, align 4
   br label %135
 
@@ -486,7 +486,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.u
   %.0219328.i = phi i32 [ 1, %._crit_edge299.i ], [ %.1220271.i, %.thread.i ]
   %222 = add nsw i32 %.0219328.i, -1
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds [64 x [2 x ptr]], ptr %3, i64 0, i64 %223
+  %224 = getelementptr inbounds [2 x ptr], ptr %3, i64 %223
   %225 = load ptr, ptr %224, align 16, !tbaa !72
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %227 = load ptr, ptr %226, align 8, !tbaa !72
@@ -664,7 +664,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.u
   br i1 %282, label %283, label %287
 
 283:                                              ; preds = %278
-  %284 = getelementptr inbounds [64 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv362.i
+  %284 = getelementptr inbounds [2 x ptr], ptr %3, i64 %indvars.iv362.i
   store ptr %.0216320.i, ptr %284, align 16, !tbaa !72
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store ptr %.0208.lcssa.i, ptr %285, align 8, !tbaa !72
@@ -673,7 +673,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.u
 
 287:                                              ; preds = %278
   %288 = getelementptr inbounds nuw i8, ptr %.0205.lcssa.i, i64 4
-  %289 = getelementptr inbounds [64 x [2 x ptr]], ptr %3, i64 0, i64 %indvars.iv362.i
+  %289 = getelementptr inbounds [2 x ptr], ptr %3, i64 %indvars.iv362.i
   store ptr %288, ptr %289, align 16, !tbaa !72
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr %.0213321.i, ptr %290, align 8, !tbaa !72

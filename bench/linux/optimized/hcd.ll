@@ -2096,7 +2096,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
 
 19:                                               ; preds = %38, %16
   %20 = phi i64 [ 1, %16 ], [ %39, %38 ]
-  %21 = getelementptr [16 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
@@ -2109,7 +2109,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   br label %29
 
 29:                                               ; preds = %24, %19
-  %30 = getelementptr [16 x ptr], ptr %18, i64 0, i64 %20
+  %30 = getelementptr ptr, ptr %18, i64 %20
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %38, label %33
@@ -2154,7 +2154,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
 
 57:                                               ; preds = %78, %47
   %58 = phi i64 [ 1, %47 ], [ %79, %78 ]
-  %59 = getelementptr [16 x ptr], ptr %50, i64 0, i64 %58
+  %59 = getelementptr ptr, ptr %50, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %68, label %62
@@ -2168,7 +2168,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
   br i1 %67, label %.thread39, label %68
 
 68:                                               ; preds = %62, %57
-  %69 = getelementptr [16 x ptr], ptr %51, i64 0, i64 %58
+  %69 = getelementptr ptr, ptr %51, i64 %58
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %78, label %72
@@ -2193,7 +2193,7 @@ define dso_local i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef %1, pt
 
 83:                                               ; preds = %.loopexit41, %54
   %84 = phi i64 [ 0, %54 ], [ %81, %.loopexit41 ]
-  %85 = getelementptr [32 x ptr], ptr %55, i64 0, i64 %84
+  %85 = getelementptr ptr, ptr %55, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 10
   %88 = load i8, ptr %87, align 2
@@ -2398,7 +2398,7 @@ define dso_local void @usb_hcd_reset_endpoint(ptr noundef captures(none) %0, ptr
   %20 = icmp eq i8 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %22 = zext i1 %16 to i64
-  %23 = getelementptr [2 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = shl nuw nsw i32 1, %15
   %26 = xor i32 %25, -1
@@ -2409,7 +2409,7 @@ define dso_local void @usb_hcd_reset_endpoint(ptr noundef captures(none) %0, ptr
 28:                                               ; preds = %11
   %29 = xor i1 %16, true
   %30 = zext i1 %29 to i64
-  %31 = getelementptr [2 x i32], ptr %21, i64 0, i64 %30
+  %31 = getelementptr i32, ptr %21, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, %26
   store i32 %33, ptr %31, align 4

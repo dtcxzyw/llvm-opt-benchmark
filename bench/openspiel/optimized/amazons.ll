@@ -708,7 +708,7 @@ define void @_ZNK10open_spiel7amazons12AmazonsState18GetHorizontalMovesEl(ptr de
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %13 = phi ptr [ null, %.lr.ph ], [ %42, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %14 = sub nsw i64 %2, %indvars.iv
-  %15 = getelementptr inbounds [36 x i32], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %7, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %._crit_edge
@@ -840,7 +840,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %indvars.iv60 = phi i64 [ 1, %.lr.ph48 ], [ %indvars.iv.next61, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit28 ]
   %58 = phi ptr [ %.lcssa, %.lr.ph48 ], [ %87, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit28 ]
   %59 = add nsw i64 %2, %indvars.iv60
-  %60 = getelementptr inbounds [36 x i32], ptr %52, i64 0, i64 %59
+  %60 = getelementptr inbounds i32, ptr %52, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %._crit_edge49
@@ -944,7 +944,7 @@ define void @_ZNK10open_spiel7amazons12AmazonsState16GetVerticalMovesEl(ptr dead
   %.03240 = phi i64 [ %2, %.lr.ph ], [ %14, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %13 = phi ptr [ null, %.lr.ph ], [ %42, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %14 = add nsw i64 %.03240, -6
-  %15 = getelementptr inbounds [36 x i32], ptr %8, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %._crit_edge
@@ -1076,7 +1076,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %.13349 = phi i64 [ %2, %.lr.ph52 ], [ %60, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit26 ]
   %59 = phi ptr [ %.lcssa, %.lr.ph52 ], [ %88, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit26 ]
   %60 = add nsw i64 %.13349, 6
-  %61 = getelementptr inbounds [36 x i32], ptr %54, i64 0, i64 %60
+  %61 = getelementptr inbounds i32, ptr %54, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %._crit_edge53
@@ -1187,7 +1187,7 @@ define void @_ZNK10open_spiel7amazons12AmazonsState16GetDiagonalMovesEl(ptr dead
   %.099114 = phi i64 [ %2, %.lr.ph ], [ %17, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %16 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %17 = add nsw i64 %.099114, -7
-  %18 = getelementptr inbounds [36 x i32], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds i32, ptr %11, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %._crit_edge
@@ -1331,7 +1331,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %.1100123 = phi i64 [ %2, %.lr.ph126 ], [ %63, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit38 ]
   %62 = phi ptr [ %.lcssa, %.lr.ph126 ], [ %91, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit38 ]
   %63 = add nsw i64 %.1100123, -5
-  %64 = getelementptr inbounds [36 x i32], ptr %57, i64 0, i64 %63
+  %64 = getelementptr inbounds i32, ptr %57, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %._crit_edge127
@@ -1427,7 +1427,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit38:        ; preds = %_ZNSt6vectorIlSaIlE
   %.2101136 = phi i64 [ %2, %.lr.ph139 ], [ %101, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit48 ]
   %100 = phi ptr [ %.lcssa119, %.lr.ph139 ], [ %129, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit48 ]
   %101 = add nsw i64 %.2101136, 5
-  %102 = getelementptr inbounds [36 x i32], ptr %95, i64 0, i64 %101
+  %102 = getelementptr inbounds i32, ptr %95, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %._crit_edge140
@@ -1523,7 +1523,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit48:        ; preds = %_ZNSt6vectorIlSaIlE
   %.3102149 = phi i64 [ %2, %.lr.ph152 ], [ %139, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit58 ]
   %138 = phi ptr [ %.lcssa132, %.lr.ph152 ], [ %167, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit58 ]
   %139 = add nsw i64 %.3102149, 7
-  %140 = getelementptr inbounds [36 x i32], ptr %133, i64 0, i64 %139
+  %140 = getelementptr inbounds i32, ptr %133, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %._crit_edge153
@@ -1837,7 +1837,7 @@ define void @_ZN10open_spiel7amazons12AmazonsState13DoApplyActionEl(ptr noundef 
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %26 = getelementptr inbounds [36 x i32], ptr %25, i64 0, i64 %1
+  %26 = getelementptr inbounds i32, ptr %25, i64 %1
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %9, align 4
   %28 = load ptr, ptr %0, align 8
@@ -1921,15 +1921,15 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit:    ; preds = %24, %32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %51, ptr %52, align 8
   %sext10 = shl i64 %1, 32
-  %53 = ashr exact i64 %sext10, 32
-  %54 = getelementptr inbounds [36 x i32], ptr %25, i64 0, i64 %53
+  %53 = ashr exact i64 %sext10, 30
+  %54 = getelementptr inbounds i8, ptr %25, i64 %53
   store i32 0, ptr %54, align 4
   store i32 1, ptr %22, align 4
   br label %121
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %57 = getelementptr inbounds [36 x i32], ptr %56, i64 0, i64 %1
+  %57 = getelementptr inbounds i32, ptr %56, i64 %1
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %13, align 4
   store i32 0, ptr %14, align 4
@@ -2008,14 +2008,14 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit14:  ; preds = %64, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %84 = load i32, ptr %66, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [36 x i32], ptr %56, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr %56, i64 %85
   store i32 %.0.i11, ptr %86, align 4
   store i32 2, ptr %22, align 4
   br label %121
 
 87:                                               ; preds = %2
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %89 = getelementptr inbounds [36 x i32], ptr %88, i64 0, i64 %1
+  %89 = getelementptr inbounds i32, ptr %88, i64 %1
   %90 = load i32, ptr %89, align 4
   store i32 %90, ptr %17, align 4
   store i32 0, ptr %18, align 4
@@ -2041,8 +2041,8 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit14:  ; preds = %64, %71
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %97, ptr %98, align 8
   %sext = shl i64 %1, 32
-  %99 = ashr exact i64 %sext, 32
-  %100 = getelementptr inbounds [36 x i32], ptr %88, i64 0, i64 %99
+  %99 = ashr exact i64 %sext, 30
+  %100 = getelementptr inbounds i8, ptr %88, i64 %99
   store i32 3, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %102 = load i32, ptr %101, align 4
@@ -2208,8 +2208,8 @@ define void @_ZN10open_spiel7amazons12AmazonsState10UndoActionEil(ptr noundef no
   store i32 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %sext5 = shl i64 %2, 32
-  %13 = ashr exact i64 %sext5, 32
-  %14 = getelementptr inbounds [36 x i32], ptr %12, i64 0, i64 %13
+  %13 = ashr exact i64 %sext5, 30
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 %1, ptr %15, align 4
@@ -2272,8 +2272,8 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit:    ; preds = %17, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %sext6 = shl i64 %2, 32
-  %34 = ashr exact i64 %sext6, 32
-  %35 = getelementptr inbounds [36 x i32], ptr %33, i64 0, i64 %34
+  %34 = ashr exact i64 %sext6, 30
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
   store i32 %.0.i, ptr %35, align 4
   br label %.sink.split
 
@@ -2283,8 +2283,8 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit:    ; preds = %17, %20
   store i32 %37, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %sext = shl i64 %2, 32
-  %40 = ashr exact i64 %sext, 32
-  %41 = getelementptr inbounds [36 x i32], ptr %39, i64 0, i64 %40
+  %40 = ashr exact i64 %sext, 30
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
   store i32 0, ptr %41, align 4
   br label %.sink.split
 
@@ -2349,7 +2349,7 @@ define void @_ZNK10open_spiel7amazons12AmazonsState12LegalActionsEv(ptr dead_on_
   %23 = phi ptr [ null, %.preheader ], [ %87, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %24 = phi ptr [ null, %.preheader ], [ %88, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %25 = getelementptr inbounds nuw [36 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %1, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -3313,76 +3313,76 @@ define void @_ZNK10open_spiel7amazons12AmazonsState8ToStringB5cxx11Ev(ptr dead_o
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %24, %2
-  %indvars.iv17 = phi i64 [ 0, %2 ], [ %indvars.iv.next18, %24 ]
-  %9 = mul nuw nsw i64 %indvars.iv17, 6
-  br label %10
+.preheader:                                       ; preds = %21, %2
+  %indvars.iv17 = phi i64 [ 0, %2 ], [ %indvars.iv.next18, %21 ]
+  %.idx = mul nuw nsw i64 %indvars.iv17, 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  br label %9
 
-10:                                               ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %11 = add nuw nsw i64 %indvars.iv, %9
-  %12 = getelementptr inbounds nuw [36 x i32], ptr %6, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  invoke void @_ZN10open_spiel7amazons13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %13)
-          to label %14 unwind label %.loopexit
+9:                                                ; preds = %.preheader, %16
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %10 = load i32, ptr %gep, align 4
+  invoke void @_ZN10open_spiel7amazons13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %10)
+          to label %11 unwind label %.loopexit
 
-14:                                               ; preds = %10
-  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  store ptr %15, ptr %3, align 8
-  %17 = icmp sgt i64 %16, -1
-  br i1 %17, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %18
+11:                                               ; preds = %9
+  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
+  store ptr %12, ptr %3, align 8
+  %14 = icmp sgt i64 %13, -1
+  br i1 %14, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %15
 
-18:                                               ; preds = %14
+15:                                               ; preds = %11
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %14
-  store i64 %16, ptr %7, align 8
+_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %11
+  store i64 %13, ptr %7, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %19 unwind label %20
+          to label %16 unwind label %17
 
-19:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+16:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %22, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !17
 
-.loopexit:                                        ; preds = %10
+.loopexit:                                        ; preds = %9
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %23
 
-.loopexit.split-lp:                               ; preds = %23
+.loopexit.split-lp:                               ; preds = %20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %23
 
-20:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  br label %26
+  br label %23
 
-22:                                               ; preds = %19
+19:                                               ; preds = %16
   %.not = icmp eq i64 %indvars.iv17, 5
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %22, label %20
 
-23:                                               ; preds = %22
+20:                                               ; preds = %19
   store ptr @.str.29, ptr %5, align 8
   store i64 1, ptr %8, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %24 unwind label %.loopexit.split-lp
+          to label %21 unwind label %.loopexit.split-lp
 
-24:                                               ; preds = %23
+21:                                               ; preds = %20
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   br label %.preheader
 
-25:                                               ; preds = %22
+22:                                               ; preds = %19
   ret void
 
-26:                                               ; preds = %.loopexit, %.loopexit.split-lp, %20
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+23:                                               ; preds = %.loopexit, %.loopexit.split-lp, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   resume { ptr, i32 } %.pn
 }
@@ -3906,7 +3906,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 
 45:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   %indvars.iv = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ]
-  %46 = getelementptr inbounds nuw [36 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   br label %49
@@ -3916,7 +3916,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %47, %45 ], [ %48, %49 ]
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ 1, %49 ]
   %.078.i.i = phi i32 [ 0, %45 ], [ %54, %49 ]
-  %51 = getelementptr inbounds nuw [2 x i32], ptr %33, i64 0, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 4
   %53 = mul nsw i32 %52, %.078.i.i
   %54 = add nsw i32 %53, %indvars.iv.i.i.sroa.phi.sroa.speculated

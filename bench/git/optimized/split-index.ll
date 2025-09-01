@@ -134,7 +134,7 @@ init_split_index.exit:                            ; preds = %10, %18
 
 30:                                               ; preds = %.preheader, %32
   %.0811.i.i = phi i64 [ %33, %32 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %31 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %22, %31
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %32
 

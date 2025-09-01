@@ -2421,7 +2421,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %128, %139
 
 163:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit, %163
   %indvars.iv = phi i64 [ 0, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ], [ %indvars.iv.next, %163 ]
-  %164 = getelementptr inbounds nuw [3 x %class.btJacobianEntry], ptr %153, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw %class.btJacobianEntry, ptr %153, i64 %indvars.iv
   %165 = load float, ptr %17, align 4, !tbaa !51, !noalias !96
   %166 = load float, ptr %19, align 4, !tbaa !51, !noalias !96
   %167 = load float, ptr %20, align 4, !tbaa !51, !noalias !96
@@ -2452,7 +2452,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %128, %139
   %192 = fsub float %101, %191
   %193 = load float, ptr %77, align 4, !tbaa !51
   %194 = fsub float %102, %193
-  %195 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %2, i64 0, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
   %196 = load float, ptr %155, align 4, !tbaa !102
   %197 = load float, ptr %157, align 4, !tbaa !102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %164, ptr noundef nonnull align 16 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !7
@@ -2822,7 +2822,7 @@ define dso_local void @_ZN21btConeTwistConstraint23solveConstraintObsoleteER12bt
 
 250:                                              ; preds = %41, %_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125 ]
-  %251 = getelementptr inbounds nuw [3 x %class.btJacobianEntry], ptr %209, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw %class.btJacobianEntry, ptr %209, i64 %indvars.iv
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 80
   %253 = load float, ptr %252, align 4, !tbaa !114
   %254 = fdiv float 1.000000e+00, %253
@@ -6299,15 +6299,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConeTwistConstraint9serialize
 
 7:                                                ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i ]
-  %8 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %5, i64 0, i64 %indvars.iv.i.i
-  %9 = getelementptr inbounds nuw [3 x %struct.btVector3FloatData], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %6, i64 %indvars.iv.i.i
   br label %10
 
 10:                                               ; preds = %10, %7
   %indvars.iv.i.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i.i, %10 ]
-  %11 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
   %12 = load float, ptr %11, align 4, !tbaa !51
-  %13 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i
   store float %12, ptr %13, align 4, !tbaa !51
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -6325,9 +6325,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVe
 
 16:                                               ; preds = %16, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i
   %indvars.iv.i3.i = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i ], [ %indvars.iv.next.i4.i, %16 ]
-  %17 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv.i3.i
+  %17 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i3.i
   %18 = load float, ptr %17, align 4, !tbaa !51
-  %19 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv.i3.i
+  %19 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i3.i
   store float %18, ptr %19, align 4, !tbaa !51
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -6340,15 +6340,15 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
 
 22:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i17, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
   %indvars.iv.i.i13 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i18, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i17 ]
-  %23 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %20, i64 0, i64 %indvars.iv.i.i13
-  %24 = getelementptr inbounds nuw [3 x %struct.btVector3FloatData], ptr %21, i64 0, i64 %indvars.iv.i.i13
+  %23 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i.i13
+  %24 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %21, i64 %indvars.iv.i.i13
   br label %25
 
 25:                                               ; preds = %25, %22
   %indvars.iv.i.i.i14 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i.i15, %25 ]
-  %26 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %indvars.iv.i.i.i14
+  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.i14
   %27 = load float, ptr %26, align 4, !tbaa !51
-  %28 = getelementptr inbounds nuw [4 x float], ptr %24, i64 0, i64 %indvars.iv.i.i.i14
+  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i.i14
   store float %27, ptr %28, align 4, !tbaa !51
   %indvars.iv.next.i.i.i15 = add nuw nsw i64 %indvars.iv.i.i.i14, 1
   %exitcond.not.i.i.i16 = icmp eq i64 %indvars.iv.next.i.i.i15, 4
@@ -6366,9 +6366,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i20: ; preds = %_ZNK9bt
 
 31:                                               ; preds = %31, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i20
   %indvars.iv.i3.i21 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i20 ], [ %indvars.iv.next.i4.i22, %31 ]
-  %32 = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %indvars.iv.i3.i21
+  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i3.i21
   %33 = load float, ptr %32, align 4, !tbaa !51
-  %34 = getelementptr inbounds nuw [4 x float], ptr %30, i64 0, i64 %indvars.iv.i3.i21
+  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i3.i21
   store float %33, ptr %34, align 4, !tbaa !51
   %indvars.iv.next.i4.i22 = add nuw nsw i64 %indvars.iv.i3.i21, 1
   %exitcond.not.i5.i23 = icmp eq i64 %indvars.iv.next.i4.i22, 4
@@ -6648,23 +6648,23 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %.cmp = icmp eq i32 %41, 0
   %45 = select i1 %.cmp, i32 2, i32 %.urem
   %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %46
   %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
   %49 = load float, ptr %48, align 4, !tbaa !51
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %50
   %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
   %53 = load float, ptr %52, align 4, !tbaa !51
   %54 = fsub float %49, %53
   %55 = zext nneg i32 %45 to i64
-  %56 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %55
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %55
   %58 = load float, ptr %57, align 4, !tbaa !51
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
   %61 = tail call noundef float @sqrtf(float noundef %60) #23, !tbaa !67
   %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %46
+  %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !51
   %64 = fdiv float 5.000000e-01, %61
   %65 = getelementptr inbounds nuw float, ptr %56, i64 %50
@@ -6681,7 +6681,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %75 = load float, ptr %74, align 4, !tbaa !51
   %76 = fadd float %73, %75
   %77 = fmul float %64, %76
-  %78 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %50
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %50
   store float %77, ptr %78, align 4, !tbaa !51
   %79 = getelementptr inbounds nuw float, ptr %56, i64 %46
   %80 = load float, ptr %79, align 4, !tbaa !51
@@ -6689,7 +6689,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %82 = load float, ptr %81, align 4, !tbaa !51
   %83 = fadd float %80, %82
   %84 = fmul float %64, %83
-  %85 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %55
+  %85 = getelementptr inbounds nuw float, ptr %3, i64 %55
   store float %84, ptr %85, align 4, !tbaa !51
   %.pre = load float, ptr %3, align 16, !tbaa !51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

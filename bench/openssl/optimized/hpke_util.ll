@@ -83,7 +83,7 @@ define ptr @ossl_HPKE_KEM_INFO_find_curve(ptr noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.OSSL_HPKE_KEM_INFO, ptr @hpke_kem_tab, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = icmp eq ptr %6, null
@@ -131,7 +131,7 @@ define noundef ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %0) local_unn
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.OSSL_HPKE_KEM_INFO, ptr @hpke_kem_tab, i64 %indvars.iv
   %5 = load i16, ptr %4, align 8, !tbaa !15
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %3
@@ -157,7 +157,7 @@ define ptr @ossl_HPKE_KEM_INFO_find_random(ptr noundef %0) local_unnamed_addr #0
   %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.OSSL_HPKE_KEM_INFO, ptr @hpke_kem_tab, i64 %6
   %8 = select i1 %5, ptr null, ptr %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %8
@@ -176,7 +176,7 @@ define noundef ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %0) local_unn
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [3 x %struct.OSSL_HPKE_KDF_INFO], ptr @hpke_kdf_tab, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.OSSL_HPKE_KDF_INFO, ptr @hpke_kdf_tab, i64 %indvars.iv
   %5 = load i16, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %2
@@ -201,7 +201,7 @@ define ptr @ossl_HPKE_KDF_INFO_find_random(ptr noundef %0) local_unnamed_addr #0
   %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [3 x %struct.OSSL_HPKE_KDF_INFO], ptr @hpke_kdf_tab, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.OSSL_HPKE_KDF_INFO, ptr @hpke_kdf_tab, i64 %6
   %8 = select i1 %5, ptr null, ptr %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %8
@@ -218,7 +218,7 @@ define noundef ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %0) local_un
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw [4 x %struct.OSSL_HPKE_AEAD_INFO], ptr @hpke_aead_tab, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.OSSL_HPKE_AEAD_INFO, ptr @hpke_aead_tab, i64 %indvars.iv
   %5 = load i16, ptr %4, align 8, !tbaa !22
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %.loopexit, label %2
@@ -243,7 +243,7 @@ define ptr @ossl_HPKE_AEAD_INFO_find_random(ptr noundef %0) local_unnamed_addr #
   %4 = load i32, ptr %2, align 4, !tbaa !16
   %5 = icmp eq i32 %4, 1
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw [4 x %struct.OSSL_HPKE_AEAD_INFO], ptr @hpke_aead_tab, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.OSSL_HPKE_AEAD_INFO, ptr @hpke_aead_tab, i64 %6
   %8 = select i1 %5, ptr null, ptr %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %8
@@ -698,7 +698,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
 
 36:                                               ; preds = %34, %.preheader.i
   %.013.i = phi i64 [ 0, %.preheader.i ], [ %35, %34 ]
-  %37 = getelementptr inbounds nuw [4 x ptr], ptr %33, i64 0, i64 %.013.i
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %.013.i
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %38) #5
   %40 = icmp eq i32 %39, 0
@@ -732,7 +732,7 @@ synonyms_name2id.exit:                            ; preds = %36
 
 51:                                               ; preds = %49, %.preheader.i70
   %.013.i72 = phi i64 [ 0, %.preheader.i70 ], [ %50, %49 ]
-  %52 = getelementptr inbounds nuw [4 x ptr], ptr %48, i64 0, i64 %.013.i72
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %.013.i72
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %53) #5
   %55 = icmp eq i32 %54, 0
@@ -766,7 +766,7 @@ synonyms_name2id.exit76:                          ; preds = %51
 
 66:                                               ; preds = %64, %.preheader.i77
   %.013.i79 = phi i64 [ 0, %.preheader.i77 ], [ %65, %64 ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr %63, i64 0, i64 %.013.i79
+  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %.013.i79
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153125, ptr noundef %68) #5
   %70 = icmp eq i32 %69, 0

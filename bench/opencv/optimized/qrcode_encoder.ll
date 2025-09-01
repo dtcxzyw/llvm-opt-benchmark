@@ -337,7 +337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -360,7 +360,7 @@ define hidden noundef i32 @_ZN2cv17QRCodeEncoderImpl19findVersionCapacityEiiRKSt
 
 .lr.ph:                                           ; preds = %4
   %8 = sext i32 %2 to i64
-  %invariant.gep = getelementptr [4 x %"struct.cv::BlockParams"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %8
+  %invariant.gep = getelementptr %"struct.cv::BlockParams", ptr @_ZN2cvL21version_info_databaseE, i64 %8
   br label %11
 
 9:                                                ; preds = %11
@@ -372,7 +372,7 @@ define hidden noundef i32 @_ZN2cv17QRCodeEncoderImpl19findVersionCapacityEiiRKSt
   %.sroa.016.021 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
   %12 = load i32, ptr %.sroa.016.021, align 4, !tbaa !24
   %13 = sext i32 %12 to i64
-  %gep = getelementptr [41 x %"struct.cv::VersionInfo"], ptr %invariant.gep, i64 0, i64 %13, i32 2
+  %gep = getelementptr %"struct.cv::VersionInfo", ptr %invariant.gep, i64 %13, i32 2
   %14 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %gep, i64 4
@@ -465,7 +465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !33
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [4 x %"struct.cv::ECLevelCapacity"], ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL25version_capacity_databaseE, i64 2560), i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.cv::ECLevelCapacity", ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL25version_capacity_databaseE, i64 2560), i64 %30
   switch i32 %2, label %38 [
     i32 1, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
     i32 2, label %32
@@ -524,7 +524,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
   br i1 %48, label %.preheader, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 .preheader:                                       ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
-  %invariant.gep = getelementptr inbounds nuw [4 x %"struct.cv::ECLevelCapacity"], ptr @_ZN2cvL25version_capacity_databaseE, i64 0, i64 %30
+  %invariant.gep = getelementptr inbounds nuw %"struct.cv::ECLevelCapacity", ptr @_ZN2cvL25version_capacity_databaseE, i64 %30
   switch i32 %2, label %62 [
     i32 1, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us
     i32 2, label %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us40
@@ -534,7 +534,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us: ; preds = %.preheader, %50
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %50 ], [ 40, %.preheader ]
-  %gep.us = getelementptr inbounds nuw [41 x %"struct.cv::CharacterCapacity"], ptr %invariant.gep, i64 0, i64 %indvars.iv77
+  %gep.us = getelementptr inbounds nuw %"struct.cv::CharacterCapacity", ptr %invariant.gep, i64 %indvars.iv77
   %.0.i19.us = load i32, ptr %gep.us, align 16, !tbaa !24
   %49 = icmp sgt i32 %1, %.0.i19.us
   br i1 %49, label %.split.us, label %50
@@ -546,7 +546,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us40: ; preds = %.preheader, %54
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %54 ], [ 40, %.preheader ]
-  %52 = getelementptr inbounds nuw [41 x %"struct.cv::CharacterCapacity"], ptr %invariant.gep, i64 0, i64 %indvars.iv74, i32 0, i64 0, i32 0, i64 1
+  %52 = getelementptr inbounds nuw %"struct.cv::CharacterCapacity", ptr %invariant.gep, i64 %indvars.iv74, i32 0, i64 0, i32 0, i64 1
   %.0.i19.us42 = load i32, ptr %52, align 4, !tbaa !24
   %53 = icmp sgt i32 %1, %.0.i19.us42
   br i1 %53, label %.split.us, label %54
@@ -558,7 +558,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23.us50: ; preds = %.preheader, %58
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %58 ], [ 40, %.preheader ]
-  %56 = getelementptr inbounds nuw [41 x %"struct.cv::CharacterCapacity"], ptr %invariant.gep, i64 0, i64 %indvars.iv71, i32 0, i64 0, i32 0, i64 2
+  %56 = getelementptr inbounds nuw %"struct.cv::CharacterCapacity", ptr %invariant.gep, i64 %indvars.iv71, i32 0, i64 0, i32 0, i64 2
   %.0.i19.us52 = load i32, ptr %56, align 8, !tbaa !24
   %57 = icmp sgt i32 %1, %.0.i19.us52
   br i1 %57, label %.split.us, label %58
@@ -570,7 +570,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit23: ; preds = %.preheader, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 40, %.preheader ]
-  %60 = getelementptr inbounds nuw [41 x %"struct.cv::CharacterCapacity"], ptr %invariant.gep, i64 0, i64 %indvars.iv, i32 0, i64 0, i32 0, i64 3
+  %60 = getelementptr inbounds nuw %"struct.cv::CharacterCapacity", ptr %invariant.gep, i64 %indvars.iv, i32 0, i64 0, i32 0, i64 3
   %.0.i19 = load i32, ptr %60, align 4, !tbaa !24
   %61 = icmp sgt i32 %1, %.0.i19
   br i1 %61, label %.split.us, label %72
@@ -876,7 +876,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %34
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %50 = load i32, ptr %49, align 4, !tbaa !33
   %51 = sext i32 %50 to i64
-  %invariant.gep.i = getelementptr [4 x %"struct.cv::BlockParams"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %51
+  %invariant.gep.i = getelementptr %"struct.cv::BlockParams", ptr @_ZN2cvL21version_info_databaseE, i64 %51
   br label %54
 
 52:                                               ; preds = %54
@@ -888,7 +888,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %34
   %.sroa.016.021.i = phi ptr [ %.pr.pre, %.lr.ph.i ], [ %53, %52 ]
   %55 = load i32, ptr %.sroa.016.021.i, align 4, !tbaa !24
   %56 = sext i32 %55 to i64
-  %gep.i = getelementptr [41 x %"struct.cv::VersionInfo"], ptr %invariant.gep.i, i64 0, i64 %56, i32 2
+  %gep.i = getelementptr %"struct.cv::VersionInfo", ptr %invariant.gep.i, i64 %56, i32 2
   %57 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
@@ -1366,12 +1366,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %142, %139
   %150 = add i32 %149, 17
   store i32 %150, ptr %51, align 8, !tbaa !75
   %151 = sext i32 %.0 to i64
-  %152 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %151
+  %152 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %151
   store ptr %152, ptr %52, align 8, !tbaa !76
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load i32, ptr %53, align 4, !tbaa !33
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %153, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %153, i64 %155
   store ptr %156, ptr %54, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1801,12 +1801,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %3
   %19 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv17QRCodeEncoderImpl14formatGenerateEiRSt6vectorIhSaIhEE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17QRCodeEncoderImpl14formatGenerateEiRSt6vectorIhSaIhEE, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = or i32 %switch.load, %1
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 15)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %21
+  %22 = getelementptr inbounds i16, ptr @_ZN2cvL13formatInfoLUTE, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !95
   %24 = zext i16 %23 to i32
   br label %26
@@ -2289,7 +2289,7 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %3, %17
 
 _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %33
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !57
   %40 = zext i8 %39 to i16
   %41 = load i8, ptr %53, align 1, !tbaa !57
@@ -2297,7 +2297,7 @@ _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %33
   %.lhs.trunc.i.us = add nuw nsw i16 %42, %40
   %43 = urem i16 %.lhs.trunc.i.us, 255
   %44 = zext nneg i16 %43 to i64
-  %45 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !57
   %47 = sub nsw i64 %30, %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 %47
@@ -2318,7 +2318,7 @@ _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %33
 
 .preheader.us:                                    ; preds = %.lr.ph22.split.us
   %52 = zext i8 %32 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %52
   br label %33
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %_ZNSt6vectorIhSaIhEEC2ERKS1_.exit
@@ -3915,7 +3915,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12padBitStreamEv(ptr noundef nonnul
   %.025 = phi i32 [ %70, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit ], [ 0, %.lr.ph.preheader ]
   %50 = and i32 %.025, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv17QRCodeEncoderImpl12padBitStreamEv.pad_patterns, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv17QRCodeEncoderImpl12padBitStreamEv.pad_patterns, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %54 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -4119,7 +4119,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %.noexc
   %25 = add nsw i32 %.026.i, -1
   %.urem.i = urem i32 %25, 255
   %26 = zext nneg i32 %.urem.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !57
   store i8 %28, ptr %15, align 1, !tbaa !57
   invoke fastcc void @_ZN2cvL9gfPolyMulERKSt6vectorIhSaIhEES4_RS2_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -6424,9 +6424,9 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEER
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv93
   %48 = load i8, ptr %47, align 1, !tbaa !57
   %49 = icmp eq i8 %48, 0
-  %50 = getelementptr inbounds nuw [15 x i32], ptr @_ZZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEERNS_3MatEE9ys_format, i64 0, i64 %indvars.iv93
+  %50 = getelementptr inbounds nuw i32, ptr @_ZZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEERNS_3MatEE9ys_format, i64 %indvars.iv93
   %51 = load i32, ptr %50, align 4, !tbaa !24
-  %52 = getelementptr inbounds nuw [15 x i32], ptr @_ZZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEERNS_3MatEE9xs_format, i64 0, i64 %indvars.iv93
+  %52 = getelementptr inbounds nuw i32, ptr @_ZZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEERNS_3MatEE9xs_format, i64 %indvars.iv93
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %54 = load ptr, ptr %7, align 8, !tbaa !166
   %55 = load ptr, ptr %8, align 8, !tbaa !167
@@ -6547,9 +6547,9 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEER
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   %111 = load i8, ptr %110, align 1, !tbaa !57
   %112 = icmp eq i8 %111, 0
-  %113 = getelementptr inbounds nuw [18 x i32], ptr %indvars.iv100.sroa.phi, i64 0, i64 %indvars.iv96
+  %113 = getelementptr inbounds nuw i32, ptr %indvars.iv100.sroa.phi, i64 %indvars.iv96
   %114 = load i32, ptr %113, align 4, !tbaa !24
-  %115 = getelementptr inbounds nuw [18 x i32], ptr %indvars.iv100.sroa.phi110, i64 0, i64 %indvars.iv96
+  %115 = getelementptr inbounds nuw i32, ptr %indvars.iv100.sroa.phi110, i64 %indvars.iv96
   %116 = load i32, ptr %115, align 4, !tbaa !24
   %117 = load ptr, ptr %7, align 8, !tbaa !166
   %118 = load ptr, ptr %8, align 8, !tbaa !167
@@ -6918,7 +6918,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl17writeReservedAreaEv(ptr noundef n
   %indvars.iv318 = phi i64 [ 0, %.preheader245 ], [ %indvars.iv.next319, %.critedge9 ]
   %157 = load ptr, ptr %131, align 8, !tbaa !76
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  %159 = getelementptr inbounds nuw [7 x i32], ptr %158, i64 0, i64 %indvars.iv318
+  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv318
   %160 = load i32, ptr %159, align 4, !tbaa !24
   %.not = icmp eq i32 %160, 0
   br i1 %.not, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %.preheader244
@@ -6933,7 +6933,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   %indvars.iv314 = phi i64 [ %indvars.iv.next315, %.thread238 ], [ 0, %156 ]
   %161 = load ptr, ptr %131, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %163 = getelementptr inbounds nuw [7 x i32], ptr %162, i64 0, i64 %indvars.iv314
+  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv314
   %164 = load i32, ptr %163, align 4, !tbaa !24
   %.not146 = icmp eq i32 %164, 0
   br i1 %.not146, label %.critedge9, label %165
@@ -6944,7 +6944,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge9, %156
   br i1 %exitcond321.not, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %156, !llvm.loop !184
 
 165:                                              ; preds = %.preheader244
-  %166 = getelementptr inbounds nuw [7 x i32], ptr %162, i64 0, i64 %indvars.iv318
+  %166 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv318
   %167 = load i32, ptr %166, align 4, !tbaa !24
   br label %168
 
@@ -8048,7 +8048,7 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl17correctFormatInfoER
 
 .critedge:                                        ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i16, ptr @_ZN2cvL13formatInfoLUTE, i64 %indvars.iv
   %6 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef 2)
   %7 = icmp slt i32 %6, 4
   br i1 %7, label %8, label %4
@@ -8131,7 +8131,7 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERK
 
 .critedge.i:                                      ; preds = %47, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %47 ]
-  %48 = getelementptr inbounds nuw [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i16, ptr @_ZN2cvL13formatInfoLUTE, i64 %indvars.iv.i
   %49 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %48, ptr noundef nonnull align 2 dereferenceable(2) %6, i32 noundef 2)
   %50 = icmp sgt i32 %49, 3
   br i1 %50, label %47, label %51
@@ -8207,7 +8207,7 @@ _ZN2cv17QRCodeDecoderImpl17correctFormatInfoERt.exit: ; preds = %47, %51
 
 .critedge.i33:                                    ; preds = %89, %88
   %indvars.iv.i34 = phi i64 [ 0, %88 ], [ %indvars.iv.next.i35, %89 ]
-  %90 = getelementptr inbounds nuw [32 x i16], ptr @_ZN2cvL13formatInfoLUTE, i64 0, i64 %indvars.iv.i34
+  %90 = getelementptr inbounds nuw i16, ptr @_ZN2cvL13formatInfoLUTE, i64 %indvars.iv.i34
   %91 = call noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %90, ptr noundef nonnull align 2 dereferenceable(2) %7, i32 noundef 2)
   %92 = icmp slt i32 %91, 4
   br i1 %92, label %108, label %89
@@ -8257,7 +8257,7 @@ switch.lookup:                                    ; preds = %108, %._crit_edge
   %115 = and i16 %114, 3
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %117 = zext nneg i16 %115 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 0, i64 %117
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERKNS_3MatERi, i64 %117
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %116, align 4, !tbaa !238
   %118 = lshr i16 %113, 10
@@ -8341,7 +8341,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !229
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %67
+  %68 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %67
   %69 = tail call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #30
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 28
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -8352,7 +8352,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %.sroa.0288.0409 = phi ptr [ %69, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.0288.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.16.0408 = phi ptr [ %69, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.16.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.25.0407 = phi ptr [ %70, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %.sroa.25.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %73 = getelementptr inbounds nuw [7 x i32], ptr %71, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %.not = icmp eq i32 %74, 0
   br i1 %.not, label %.critedge, label %82
@@ -9953,7 +9953,7 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl15errorCorrectionERSt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !229
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %19
+  %20 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %19
   %21 = load i32, ptr %20, align 16, !tbaa !111
   %22 = icmp eq i32 %21, %16
   br i1 %22, label %24, label %23
@@ -9967,7 +9967,7 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl15errorCorrectionERSt
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !238
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
@@ -10006,8 +10006,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %41, %_ZNSt12_Vector
   br i1 %45, label %.lr.ph.preheader, label %.preheader197
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit
-  %46 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %19, i32 2
-  %47 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %46, i64 0, i64 %28
+  %46 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %19, i32 2
+  %47 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %46, i64 %28
   br label %.lr.ph
 
 .preheader197:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE7reserveEm.exit
@@ -10019,8 +10019,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %41, %_ZNSt12_Vector
   %.sroa.16.0.lcssa = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ], [ %.sroa.16.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.0161.0.lcssa = phi ptr [ %.sroa.16.2, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ], [ %.sroa.0161.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.064.lcssa = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ], [ %81, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %49 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %.pre-phi, i32 2
-  %50 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %49, i64 0, i64 %.pre-phi322
+  %49 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %.pre-phi, i32 2
+  %50 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %49, i64 %.pre-phi322
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load i32, ptr %51, align 4, !tbaa !29
   %53 = icmp sgt i32 %52, 0
@@ -10110,9 +10110,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %82 = add nuw nsw i32 %.089237, 1
   %83 = load i32, ptr %17, align 8, !tbaa !229
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %84, i32 2
+  %85 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %84, i32 2
   %86 = zext i32 %78 to i64
-  %87 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %85, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !27
   %90 = icmp slt i32 %82, %89
@@ -10232,9 +10232,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit118:       ; preds = %_ZNSt6vectorIiSaIiE
   %122 = add nuw nsw i32 %.090245, 1
   %123 = load i32, ptr %17, align 8, !tbaa !229
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %124, i32 2
+  %125 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %124, i32 2
   %126 = zext i32 %118 to i64
-  %127 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %125, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %129 = load i32, ptr %128, align 4, !tbaa !29
   %130 = icmp slt i32 %122, %129
@@ -10416,10 +10416,10 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit.us:       ; preds = %_ZNSt6vectorIhSaIhE
   %.284.lcssa = phi i64 [ %.082.lcssa, %.preheader185 ], [ 0, %.preheader191.lr.ph ], [ %.385, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit135 ]
   %181 = load i32, ptr %17, align 8, !tbaa !229
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %182, i32 2
+  %183 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %182, i32 2
   %184 = load i32, ptr %26, align 4, !tbaa !238
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %183, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %183, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !113
   %188 = icmp slt i32 %187, 1
   %brmerge = or i1 %.not182, %188
@@ -11227,11 +11227,11 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl20errorCorrectionBloc
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !229
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [41 x %"struct.cv::VersionInfo"], ptr @_ZN2cvL21version_info_databaseE, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds %"struct.cv::VersionInfo", ptr @_ZN2cvL21version_info_databaseE, i64 %10, i32 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !238
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [4 x %"struct.cv::BlockParams"], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.cv::BlockParams", ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !113
   %17 = sext i32 %16 to i64
   %18 = and i32 %16, 1
@@ -11292,7 +11292,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %36 = trunc i64 %.0124321 to i32
   %37 = srem i32 %36, 255
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr @_ZN2cvL6gf_expE, i64 %38
   %.pre400 = load i8, ptr %35, align 1, !tbaa !57
   br label %44
 
@@ -11316,17 +11316,17 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 47:                                               ; preds = %44
   %48 = load i8, ptr %39, align 1, !tbaa !57
   %49 = zext i8 %45 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !57
   %52 = zext i8 %51 to i16
   %53 = zext i8 %48 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !57
   %56 = zext i8 %55 to i16
   %.lhs.trunc.i = add nuw nsw i16 %56, %52
   %57 = urem i16 %.lhs.trunc.i, 255
   %58 = zext nneg i16 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit
 
@@ -11514,17 +11514,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 127:                                              ; preds = %.lr.ph328
   %128 = zext i8 %121 to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !57
   %131 = zext i8 %130 to i16
   %132 = zext i8 %124 to i64
-  %133 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !57
   %135 = zext i8 %134 to i16
   %.lhs.trunc.i171 = add nuw nsw i16 %135, %131
   %136 = urem i16 %.lhs.trunc.i171, 255
   %137 = zext nneg i16 %136 to i64
-  %138 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit173
 
@@ -11549,31 +11549,31 @@ _ZN2cvL5gfMulEhh.exit183:                         ; preds = %_ZNSt16allocator_tr
 
 .lr.ph332:                                        ; preds = %_ZN2cvL5gfMulEhh.exit183
   %145 = zext i8 %.0128340 to i64
-  %146 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !57
   %148 = zext i8 %147 to i16
   %.lhs.trunc.i178 = sub nuw nsw i16 510, %148
   %149 = urem i16 %.lhs.trunc.i178, 255
   %150 = zext nneg i16 %149 to i64
-  %151 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !57
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !57
   %156 = zext i8 %155 to i16
   %157 = zext i8 %.0126.lcssa to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !57
   %160 = zext i8 %159 to i16
   %.lhs.trunc.i181 = add nuw nsw i16 %156, %160
   %161 = urem i16 %.lhs.trunc.i181, 255
   %162 = zext nneg i16 %161 to i64
-  %163 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !57
   %165 = freeze i8 %164
   %166 = icmp eq i8 %165, 0
   %167 = zext i8 %165 to i64
-  %168 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %167
   %169 = getelementptr i8, ptr %74, i64 %.0131339
   br i1 %166, label %._crit_edge333, label %.lr.ph332.split
 
@@ -11604,13 +11604,13 @@ _ZN2cvL5gfMulEhh.exit183:                         ; preds = %_ZNSt16allocator_tr
   %175 = load i8, ptr %168, align 1, !tbaa !57
   %176 = zext i8 %175 to i16
   %177 = zext i8 %172 to i64
-  %178 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !57
   %180 = zext i8 %179 to i16
   %.lhs.trunc.i185 = add nuw nsw i16 %180, %176
   %181 = urem i16 %.lhs.trunc.i185, 255
   %182 = zext nneg i16 %181 to i64
-  %183 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit187
 
@@ -11733,10 +11733,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %209, %142
   %220 = trunc i64 %.0122353 to i32
   %221 = srem i32 %220, 255
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %222
+  %223 = getelementptr inbounds i8, ptr @_ZN2cvL6gf_expE, i64 %222
   %224 = load i8, ptr %223, align 1, !tbaa !57
   %225 = zext i8 %224 to i64
-  %226 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %225
   br label %228
 
 ._crit_edge348:                                   ; preds = %_ZN2cvL5gfMulEhh.exit196
@@ -11751,7 +11751,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %209, %142
 
 230:                                              ; preds = %228
   %231 = zext i8 %.0121344 to i64
-  %232 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !57
   %234 = zext i8 %233 to i16
   %235 = load i8, ptr %226, align 1, !tbaa !57
@@ -11759,7 +11759,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %209, %142
   %.lhs.trunc.i194 = add nuw nsw i16 %236, %234
   %237 = urem i16 %.lhs.trunc.i194, 255
   %238 = zext nneg i16 %237 to i64
-  %239 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit196
 
@@ -11917,29 +11917,29 @@ _ZN2cvL5gfDivEhh.exit206:                         ; preds = %_ZN2cvL5gfDivEhh.ex
   %297 = trunc i64 %296 to i32
   %298 = srem i32 %297, 255
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %299
+  %300 = getelementptr inbounds i8, ptr @_ZN2cvL6gf_expE, i64 %299
   %301 = load i8, ptr %300, align 1, !tbaa !57
   %302 = zext i8 %301 to i64
-  %303 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %302
   %304 = load i8, ptr %303, align 1, !tbaa !57
   %305 = zext i8 %304 to i16
   %.lhs.trunc.i204 = sub nuw nsw i16 510, %305
   %306 = urem i16 %.lhs.trunc.i204, 255
   %307 = zext nneg i16 %306 to i64
-  %308 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %307
   %309 = load i8, ptr %308, align 1, !tbaa !57
   %.pre414 = zext i8 %309 to i64
   br i1 %.not, label %.preheader, label %.lr.ph360.split.preheader
 
 .lr.ph360.split.preheader:                        ; preds = %_ZN2cvL5gfDivEhh.exit206
-  %310 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %.pre414
+  %310 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %.pre414
   %311 = load ptr, ptr %7, align 8, !tbaa !60
   %312 = getelementptr i8, ptr %311, i64 %.1135
   br label %.lr.ph360.split
 
 .preheader:                                       ; preds = %_ZN2cvL5gfMulEhh.exit210, %_ZN2cvL5gfDivEhh.exit206
   %.0109.lcssa = phi i8 [ 0, %_ZN2cvL5gfDivEhh.exit206 ], [ %329, %_ZN2cvL5gfMulEhh.exit210 ]
-  %313 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %.pre414
+  %313 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %.pre414
   br label %352
 
 .lr.ph360.split:                                  ; preds = %.lr.ph360.split.preheader, %_ZN2cvL5gfMulEhh.exit210
@@ -11950,7 +11950,7 @@ _ZN2cvL5gfDivEhh.exit206:                         ; preds = %_ZN2cvL5gfDivEhh.ex
 
 315:                                              ; preds = %.lr.ph360.split
   %316 = zext i8 %.0109358 to i64
-  %317 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %316
   %318 = load i8, ptr %317, align 1, !tbaa !57
   %319 = zext i8 %318 to i16
   %320 = load i8, ptr %310, align 1, !tbaa !57
@@ -11958,7 +11958,7 @@ _ZN2cvL5gfDivEhh.exit206:                         ; preds = %_ZN2cvL5gfDivEhh.ex
   %.lhs.trunc.i208 = add nuw nsw i16 %321, %319
   %322 = urem i16 %.lhs.trunc.i208, 255
   %323 = zext nneg i16 %322 to i64
-  %324 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %323
   %325 = load i8, ptr %324, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit210
 
@@ -11980,18 +11980,18 @@ _ZN2cvL5gfMulEhh.exit210:                         ; preds = %.lr.ph360.split, %3
 
 334:                                              ; preds = %331
   %335 = zext i8 %.0109.lcssa to i64
-  %336 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %335
   %337 = load i8, ptr %336, align 1, !tbaa !57
   %338 = zext i8 %337 to i16
   %339 = add nuw nsw i16 %338, 255
   %340 = zext i8 %.1108 to i64
-  %341 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %340
   %342 = load i8, ptr %341, align 1, !tbaa !57
   %343 = zext i8 %342 to i16
   %.lhs.trunc.i212 = sub nuw nsw i16 %339, %343
   %344 = urem i16 %.lhs.trunc.i212, 255
   %345 = zext nneg i16 %344 to i64
-  %346 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %345
   %347 = load i8, ptr %346, align 1, !tbaa !57
   br label %_ZN2cvL5gfDivEhh.exit214
 
@@ -12019,12 +12019,12 @@ _ZN2cvL5gfMulEhh.exit218:                         ; preds = %352
   %358 = trunc i64 %357 to i32
   %359 = srem i32 %358, 255
   %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %360
+  %361 = getelementptr inbounds i8, ptr @_ZN2cvL6gf_expE, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !57
   %363 = load i8, ptr %313, align 1, !tbaa !57
   %364 = zext i8 %363 to i16
   %365 = zext i8 %362 to i64
-  %366 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %365
   %367 = load i8, ptr %366, align 1, !tbaa !57
   %368 = zext i8 %367 to i16
   %.lhs.trunc.i216 = add nuw nsw i16 %368, %364
@@ -12036,21 +12036,21 @@ _ZN2cvL5gfMulEhh.exit218:                         ; preds = %352
 
 372:                                              ; preds = %_ZN2cvL5gfMulEhh.exit218
   %373 = zext nneg i16 %369 to i64
-  %374 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %373
   %375 = load i8, ptr %374, align 1, !tbaa !57
   %376 = xor i8 %375, 1
   %377 = zext i8 %.0107364 to i64
-  %378 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %377
+  %378 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %377
   %379 = load i8, ptr %378, align 1, !tbaa !57
   %380 = zext i8 %379 to i16
   %381 = zext i8 %376 to i64
-  %382 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %381
   %383 = load i8, ptr %382, align 1, !tbaa !57
   %384 = zext i8 %383 to i16
   %.lhs.trunc.i220 = add nuw nsw i16 %384, %380
   %385 = urem i16 %.lhs.trunc.i220, 255
   %386 = zext nneg i16 %385 to i64
-  %387 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %386
   %388 = load i8, ptr %387, align 1, !tbaa !57
   br label %_ZN2cvL5gfMulEhh.exit222
 
@@ -12338,7 +12338,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %37
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !57
   %43 = zext i8 %42 to i16
   %44 = load i8, ptr %54, align 1, !tbaa !57
@@ -12346,7 +12346,7 @@ _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %37
   %.lhs.trunc.i.us = add nuw nsw i16 %45, %43
   %46 = urem i16 %.lhs.trunc.i.us, 255
   %47 = zext nneg i16 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_expE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_expE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !57
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %50 = load i8, ptr %gep, align 1, !tbaa !57
@@ -12366,7 +12366,7 @@ _ZN2cvL5gfMulEhh.exit.us:                         ; preds = %37
 
 .preheader.us:                                    ; preds = %.lr.ph35.split.us
   %53 = zext i8 %36 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL6gf_logE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN2cvL6gf_logE, i64 %53
   %invariant.gep = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv40
   br label %37
 
@@ -12771,7 +12771,7 @@ define hidden void @_ZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_s
   %17 = sdiv i32 %16, 45
   %18 = srem i32 %16, 45
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds [45 x i8], ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !57
   %22 = load i64, ptr %12, align 8, !tbaa !21
   %23 = add i64 %22, 1
@@ -12804,7 +12804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %23
   store i8 0, ptr %35, align 1, !tbaa !57
   %36 = sext i32 %18 to i64
-  %37 = getelementptr inbounds [45 x i8], ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !57
   %39 = load i64, ptr %12, align 8, !tbaa !21
   %40 = add i64 %39, 1
@@ -12843,7 +12843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit13: ; preds = %_ZN
 54:                                               ; preds = %._crit_edge
   %55 = tail call noundef i32 @_ZN2cv17QRCodeDecoderImpl9Bitstream4nextEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 6)
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [45 x i8], ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 0, i64 %56
+  %57 = getelementptr inbounds i8, ptr @_ZZN2cv17QRCodeDecoderImpl11decodeAlphaERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !57
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !21

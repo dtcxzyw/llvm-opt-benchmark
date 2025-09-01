@@ -1996,13 +1996,13 @@ _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit.thread:    ; preds = %.preheader303
 
 352:                                              ; preds = %345, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE12emplace_backIJiRfEEERS0_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %345 ], [ %indvars.iv.next, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE12emplace_backIJiRfEEERS0_DpOT_.exit ]
-  %353 = getelementptr inbounds nuw [4 x float], ptr %350, i64 0, i64 %indvars.iv
+  %353 = getelementptr inbounds nuw float, ptr %350, i64 %indvars.iv
   %354 = load float, ptr %353, align 4
   %355 = fcmp une float %354, 0.000000e+00
   br i1 %355, label %356, label %391
 
 356:                                              ; preds = %352
-  %357 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 0, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw i8, ptr %351, i64 %indvars.iv
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i64
   %360 = getelementptr inbounds nuw %"class.std::vector.98", ptr %.sroa.0289.2, i64 %359
@@ -2234,7 +2234,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   %441 = getelementptr inbounds nuw i8, ptr %436, i64 4
   %442 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %440, ptr nonnull align 4 %441, i64 %442, i1 false)
-  %443 = getelementptr inbounds nuw [1024 x i8], ptr %440, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw i8, ptr %440, i64 %442
   store i8 0, ptr %443, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -4941,7 +4941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i72: ; preds = %_
   %159 = load ptr, ptr %16, align 8
   %160 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr align 1 %159, i64 %160, i1 false)
-  %161 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %56, i64 %160
   store i8 0, ptr %161, align 1
   %162 = ptrtoint ptr %153 to i64
   %163 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull %20, ptr noundef nonnull @.str.8, i32 noundef 0, i32 noundef 0)
@@ -5261,7 +5261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   %278 = load ptr, ptr %273, align 8
   %279 = zext i32 %spec.select.i98 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %61, ptr align 1 %278, i64 %279, i1 false)
-  %280 = getelementptr inbounds nuw [1024 x i8], ptr %61, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr %61, i64 %279
   store i8 0, ptr %280, align 1
   %281 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull %26, ptr noundef nonnull @.str.15, i32 noundef 1, i32 noundef 0)
           to label %282 unwind label %283
@@ -5805,7 +5805,7 @@ _ZN6Assimp11B3DImporter9ReadFloatEv.exit:         ; preds = %156
   %172 = getelementptr inbounds nuw i8, ptr %151, i64 %157
   %.0.copyload.i52 = load float, ptr %172, align 1
   store i64 %158, ptr %12, align 8
-  %173 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   store float %.0.copyload.i52, ptr %173, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6772,15 +6772,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 87:                                               ; preds = %82, %86
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %86 ]
-  %88 = getelementptr inbounds nuw [4 x float], ptr %85, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv
   %89 = load float, ptr %88, align 4
   %90 = fcmp une float %89, 0.000000e+00
   br i1 %90, label %86, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw [4 x float], ptr %85, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 36
-  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv
   store i8 %19, ptr %94, align 1
   store float %.0.copyload.i20, ptr %92, align 4
   %.pre = load ptr, ptr %9, align 8
@@ -8374,7 +8374,7 @@ _ZNSt10unique_ptrI10aiNodeAnimSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds 
   %273 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %274 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %273, ptr nonnull align 4 %182, i64 %274, i1 false)
-  %275 = getelementptr inbounds nuw [1024 x i8], ptr %273, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 %274
   store i8 0, ptr %275, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -10312,7 +10312,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -10364,7 +10364,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -10643,7 +10643,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -10662,7 +10662,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

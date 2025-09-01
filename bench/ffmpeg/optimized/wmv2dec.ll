@@ -76,14 +76,14 @@ define void @ff_wmv2_add_mb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 define internal fastcc void @wmv2_add_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw [12 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !52
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %38
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5712
-  %13 = getelementptr inbounds nuw [6 x i32], ptr %12, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4, !tbaa !52
   switch i32 %14, label %35 [
     i32 0, label %15
@@ -105,7 +105,7 @@ define internal fastcc void @wmv2_add_block(ptr noundef %0, ptr noundef %1, ptr 
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %2, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 5776
-  %25 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %24, i64 0, i64 %7
+  %25 = getelementptr inbounds nuw [64 x i16], ptr %24, i64 %7
   tail call void @ff_simple_idct84_add(ptr noundef %23, i64 noundef %20, ptr noundef nonnull %25) #7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %27 = load ptr, ptr %26, align 8, !tbaa !62
@@ -117,7 +117,7 @@ define internal fastcc void @wmv2_add_block(ptr noundef %0, ptr noundef %1, ptr 
   tail call void @ff_simple_idct48_add(ptr noundef %2, i64 noundef %29, ptr noundef %1) #7
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 5776
-  %32 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %31, i64 0, i64 %7
+  %32 = getelementptr inbounds nuw [64 x i16], ptr %31, i64 %7
   tail call void @ff_simple_idct48_add(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull %32) #7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %34 = load ptr, ptr %33, align 8, !tbaa !62
@@ -946,9 +946,9 @@ decode012.exit124:                                ; preds = %parse_mb_skip.exit,
   %410 = zext i1 %409 to i64
   %411 = icmp sgt i32 %408, 20
   %412 = zext i1 %411 to i64
-  %413 = add nuw nsw i64 %410, %412
-  %414 = getelementptr inbounds nuw [3 x [3 x i8]], ptr @wmv2_get_cbp_table_index.map, i64 0, i64 %413
-  %415 = getelementptr inbounds nuw [3 x i8], ptr %414, i64 0, i64 %.0.i123
+  %413 = getelementptr inbounds nuw [3 x i8], ptr @wmv2_get_cbp_table_index.map, i64 %410
+  %414 = getelementptr inbounds nuw [3 x i8], ptr %413, i64 %412
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 %.0.i123
   %416 = load i8, ptr %415, align 1, !tbaa !65
   %417 = zext i8 %416 to i32
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 5748
@@ -1514,7 +1514,7 @@ define internal range(i32 -2147483648, 1) i32 @wmv2_decode_mb(ptr noundef %0, pt
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 5748
   %42 = load i32, ptr %41, align 4, !tbaa !102
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [4 x ptr], ptr @ff_mb_non_intra_vlc, i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr @ff_mb_non_intra_vlc, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !130
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4184
   %47 = load i32, ptr %46, align 8, !tbaa !66
@@ -2094,7 +2094,7 @@ decode012.exit.i:                                 ; preds = %400, %385
 
 413:                                              ; preds = %decode012.exit.i, %._crit_edge.i
   %414 = phi i32 [ %.pre.i143, %._crit_edge.i ], [ %.0.i.i140, %decode012.exit.i ]
-  %415 = getelementptr inbounds nuw [6 x i32], ptr %373, i64 0, i64 %indvars.iv173
+  %415 = getelementptr inbounds nuw i32, ptr %373, i64 %indvars.iv173
   store i32 %414, ptr %415, align 4, !tbaa !52
   %.not38.i = icmp eq i32 %414, 0
   %416 = trunc nuw nsw i64 %indvars.iv173 to i32
@@ -2143,7 +2143,7 @@ decode012.exit44.i:                               ; preds = %417
   br i1 %.not40.not.i, label %decode012.exit44.thread.i, label %wmv2_decode_inter_block.exit.thread152.sink.split
 
 decode012.exit44.thread.i:                        ; preds = %442, %417
-  %447 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %374, i64 0, i64 %indvars.iv173
+  %447 = getelementptr inbounds nuw [64 x i16], ptr %374, i64 %indvars.iv173
   %448 = call i32 @ff_msmpeg4_decode_block(ptr noundef nonnull %0, ptr noundef nonnull %447, i32 noundef range(i32 -2147483648, 6) %416, i32 noundef 1, ptr noundef nonnull %419) #7
   %449 = icmp slt i32 %448, 0
   br i1 %449, label %wmv2_decode_inter_block.exit.thread, label %wmv2_decode_inter_block.exit.thread152.sink.split
@@ -2155,7 +2155,7 @@ wmv2_decode_inter_block.exit:                     ; preds = %413
 
 wmv2_decode_inter_block.exit.thread152.sink.split: ; preds = %442, %decode012.exit44.thread.i, %377
   %.sink193 = phi i32 [ -1, %377 ], [ 63, %decode012.exit44.thread.i ], [ 63, %442 ]
-  %452 = getelementptr inbounds nuw [12 x i32], ptr %375, i64 0, i64 %indvars.iv173
+  %452 = getelementptr inbounds nuw i32, ptr %375, i64 %indvars.iv173
   store i32 %.sink193, ptr %452, align 4, !tbaa !52
   br label %wmv2_decode_inter_block.exit.thread152
 

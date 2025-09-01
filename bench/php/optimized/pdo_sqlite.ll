@@ -805,7 +805,7 @@ zend_string_alloc.exit18:
   store i64 %7, ptr %13, align 8, !tbaa !99
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %2, i64 range(i64 -2147483648, 2147483648) %7, i1 false)
-  %15 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %7
   store i8 0, ptr %15, align 1, !tbaa !30
   store ptr %10, ptr %5, align 16, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -824,7 +824,7 @@ zend_string_alloc.exit18:
   store i64 %18, ptr %24, align 8, !tbaa !99
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %4, i64 range(i64 -2147483648, 2147483648) %18, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !30
   store ptr %21, ptr %17, align 16, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24

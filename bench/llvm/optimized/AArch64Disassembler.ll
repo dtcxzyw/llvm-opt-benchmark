@@ -22170,7 +22170,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL16DecodeMatrixTileILj2EEN
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [16 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 64), i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 64), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !91
   %.sroa.3.8.insert.ext.i = zext i16 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22400,7 +22400,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL16DecodeMatrixTileILj1EEN
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [16 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 32), i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 32), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !91
   %.sroa.3.8.insert.ext.i = zext i16 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22625,7 +22625,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL16DecodeMatrixTileILj3EEN
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [16 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 96), i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 96), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !91
   %.sroa.3.8.insert.ext.i = zext i16 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23115,7 +23115,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL16DecodeMatrixTileILj4EEN
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [16 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 128), i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL24MatrixZATileDecoderTable, i64 128), i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !91
   %.sroa.3.8.insert.ext.i = zext i16 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28759,9 +28759,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %46
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i.i, %54 ]
-  %55 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %55 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i.i
   %56 = load i64, ptr %55, align 8, !tbaa !18, !noalias !95
-  %57 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %57 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i
   %58 = load i64, ptr %57, align 8, !tbaa !18, !alias.scope !95
   %59 = and i64 %58, %56
   store i64 %59, ptr %57, align 8, !tbaa !18, !alias.scope !95
@@ -31016,9 +31016,9 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %49
 
 57:                                               ; preds = %57, %55
   %indvars.iv.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i.i, %57 ]
-  %58 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %58 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i.i
   %59 = load i64, ptr %58, align 8, !tbaa !18, !noalias !100
-  %60 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i.i
   %61 = load i64, ptr %60, align 8, !tbaa !18, !alias.scope !100
   %62 = and i64 %61, %59
   store i64 %62, ptr %60, align 8, !tbaa !18, !alias.scope !100

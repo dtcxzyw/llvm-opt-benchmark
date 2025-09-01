@@ -9327,7 +9327,7 @@ _ZN9grpc_core13RefCountedPtrINS_16HandshakeManagerEE5resetEPS1_.exit: ; preds = 
   %.not.i.i62 = phi i1 [ true, %_ZN9grpc_core13RefCountedPtrINS_16HandshakeManagerEE5resetEPS1_.exit ], [ false, %262 ]
   %.0813.i.i = phi i64 [ 0, %_ZN9grpc_core13RefCountedPtrINS_16HandshakeManagerEE5resetEPS1_.exit ], [ 1, %262 ]
   %.0912.i.i = phi i64 [ 2, %_ZN9grpc_core13RefCountedPtrINS_16HandshakeManagerEE5resetEPS1_.exit ], [ %.1.i.i, %262 ]
-  %257 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEJSt10unique_ptrINS0_23NewChttp2ServerListener16ActiveConnection16HandshakingStateENS0_16OrphanableDeleteEES3_EEmv.__found, i64 0, i64 %.0813.i.i
+  %257 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEJSt10unique_ptrINS0_23NewChttp2ServerListener16ActiveConnection16HandshakingStateENS0_16OrphanableDeleteEES3_EEmv.__found, i64 %.0813.i.i
   %258 = load i8, ptr %257, align 1, !tbaa !409, !range !69, !noundef !70
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %262
@@ -22486,7 +22486,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvo
   %.not.i.i.i.i.i.i.i = phi i1 [ true, %1 ], [ false, %12 ]
   %.0813.i.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ 1, %12 ]
   %.0912.i.i.i.i.i.i.i = phi i64 [ 2, %1 ], [ %.1.i.i.i.i.i.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt10unique_ptrIN9grpc_core23NewChttp2ServerListener16ActiveConnection16HandshakingStateENS1_16OrphanableDeleteEEJS6_NS1_13RefCountedPtrI21grpc_chttp2_transportEEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt10unique_ptrIN9grpc_core23NewChttp2ServerListener16ActiveConnection16HandshakingStateENS1_16OrphanableDeleteEEJS6_NS1_13RefCountedPtrI21grpc_chttp2_transportEEEEmv.__found, i64 %.0813.i.i.i.i.i.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !409, !range !69, !noundef !70
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12

@@ -4358,7 +4358,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 95:                                               ; preds = %93
   %96 = and i32 %88, 15
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [17 x i8], ptr @.str.2, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !65
   %100 = zext i8 %99 to i32
   %101 = zext nneg i32 %84 to i64
@@ -4387,7 +4387,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %117 = zext i8 %116 to i32
   %118 = lshr i32 %117, 4
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [17 x i8], ptr @.str.3, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !65
   %122 = sext i8 %121 to i32
   %123 = shl nuw nsw i32 1, %111
@@ -4482,7 +4482,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
 172:                                              ; preds = %170
   %173 = and i32 %165, 15
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [17 x i8], ptr @.str.2, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !65
   %177 = zext i8 %176 to i32
   %178 = zext nneg i32 %161 to i64
@@ -4511,7 +4511,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   %194 = zext i8 %193 to i32
   %195 = lshr i32 %194, 4
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw [17 x i8], ptr @.str.3, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !65
   %199 = sext i8 %198 to i32
   %200 = shl nuw nsw i32 1, %188
@@ -7509,7 +7509,7 @@ _ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErro
 
 35:                                               ; preds = %_ZNK6icu_7717RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode.exit
   %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds [158 x i8], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds i8, ptr %6, i64 %36
   store i8 0, ptr %37, align 1, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7)
@@ -8743,7 +8743,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
 25:                                               ; preds = %23
   %26 = and i32 %18, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [17 x i8], ptr @.str.2, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !65
   %30 = zext i8 %29 to i32
   %31 = sext i32 %16 to i64
@@ -8772,7 +8772,7 @@ define internal noundef i32 @_ZN6icu_7712_GLOBAL__N_115UTF8NFDIterator16nextRawC
   %47 = zext i8 %46 to i32
   %48 = lshr i32 %47, 4
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [17 x i8], ptr @.str.3, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !65
   %52 = sext i8 %51 to i32
   %53 = shl nuw nsw i32 1, %41

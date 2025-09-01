@@ -4458,7 +4458,7 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
   %4 = load i32, ptr %3, align 4, !tbaa !28
   %5 = icmp eq i32 %4, 3
   %6 = load i32, ptr %1, align 8, !tbaa !18
-  br i1 %5, label %7, label %89
+  br i1 %5, label %7, label %90
 
 7:                                                ; preds = %2
   %8 = add i32 %6, -1
@@ -4466,332 +4466,333 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
   br i1 %9, label %10, label %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
 
 10:                                               ; preds = %7
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %11
-  %13 = load i64, ptr %12, align 4
-  %.sroa.15.0.extract.shift22.i = lshr i64 %13, 32
+  %11 = zext nneg i32 %6 to i64
+  %12 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -8
+  %14 = load i64, ptr %13, align 4
+  %.sroa.15.0.extract.shift22.i = lshr i64 %14, 32
   %.sroa.15.0.extract.trunc23.i = trunc nuw i64 %.sroa.15.0.extract.shift22.i to i32
-  %14 = trunc i64 %13 to i32
+  %15 = trunc i64 %14 to i32
   br label %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
 
 _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %7, %10
-  %.sroa.014.0.i = phi i32 [ %14, %10 ], [ 0, %7 ]
+  %.sroa.014.0.i = phi i32 [ %15, %10 ], [ 0, %7 ]
   %.sroa.15.0.i = phi i32 [ %.sroa.15.0.extract.trunc23.i, %10 ], [ 0, %7 ]
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.014.0.i, i32 noundef %.sroa.15.0.i) #16
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.014.0.i, i32 noundef 1) #16
-          to label %15 unwind label %34
+          to label %16 unwind label %35
 
-15:                                               ; preds = %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
-  %16 = add nsw i32 %.sroa.15.0.i, -1
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %16, i32 noundef %.sroa.014.0.i, i32 noundef 1) #16
-          to label %17 unwind label %34
+16:                                               ; preds = %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
+  %17 = add nsw i32 %.sroa.15.0.i, -1
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %17, i32 noundef %.sroa.014.0.i, i32 noundef 1) #16
+          to label %18 unwind label %35
 
-17:                                               ; preds = %15
-  %18 = add nsw i32 %.sroa.15.0.i, -2
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %18) #16
-          to label %19 unwind label %34
+18:                                               ; preds = %16
+  %19 = add nsw i32 %.sroa.15.0.i, -2
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %19) #16
+          to label %20 unwind label %35
 
-19:                                               ; preds = %17
-  %20 = add nsw i32 %.sroa.014.0.i, -1
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %20, i32 noundef 1, i32 noundef 1, i32 noundef %18) #16
-          to label %21 unwind label %34
+20:                                               ; preds = %18
+  %21 = add nsw i32 %.sroa.014.0.i, -1
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %21, i32 noundef 1, i32 noundef 1, i32 noundef %19) #16
+          to label %22 unwind label %35
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !33
-  %25 = load ptr, ptr %22, align 8, !tbaa !13
-  %.not86 = icmp eq ptr %24, %25
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %26 = load ptr, ptr %23, align 8, !tbaa !13
+  %.not86 = icmp eq ptr %25, %26
   br i1 %.not86, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %21
-  %26 = ptrtoint ptr %24 to i64
+.lr.ph84:                                         ; preds = %22
   %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 2
-  %30 = add nsw i32 %.sroa.15.0.i, -3
-  %31 = add nsw i32 %.sroa.15.0.i, -6
-  br label %36
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  %31 = add nsw i32 %.sroa.15.0.i, -3
+  %32 = add nsw i32 %.sroa.15.0.i, -6
+  br label %37
 
-._crit_edge85:                                    ; preds = %43, %21
-  %32 = icmp eq i32 %.sroa.15.0.i, 7
-  %33 = select i1 %32, i32 6, i32 7
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 1, i32 noundef 7, i32 noundef %33) #16
-          to label %47 unwind label %84
+._crit_edge85:                                    ; preds = %44, %22
+  %33 = icmp eq i32 %.sroa.15.0.i, 7
+  %34 = select i1 %33, i32 6, i32 7
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 1, i32 noundef 7, i32 noundef %34) #16
+          to label %48 unwind label %85
 
-34:                                               ; preds = %19, %17, %15, %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %20, %18, %16, %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %87
 
-36:                                               ; preds = %.lr.ph84, %43
-  %.06382 = phi i64 [ 0, %.lr.ph84 ], [ %44, %43 ]
-  %37 = load ptr, ptr %22, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %.06382
-  %39 = load i32, ptr %38, align 4, !tbaa !8
-  %40 = add nsw i32 %39, -1
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %40, i32 noundef 1, i32 noundef 3, i32 noundef 2) #16
-          to label %41 unwind label %45
+37:                                               ; preds = %.lr.ph84, %44
+  %.06382 = phi i64 [ 0, %.lr.ph84 ], [ %45, %44 ]
+  %38 = load ptr, ptr %23, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.06382
+  %40 = load i32, ptr %39, align 4, !tbaa !8
+  %41 = add nsw i32 %40, -1
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %41, i32 noundef 1, i32 noundef 3, i32 noundef 2) #16
+          to label %42 unwind label %46
 
-41:                                               ; preds = %36
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %40, i32 noundef %30, i32 noundef 3, i32 noundef 2) #16
-          to label %42 unwind label %45
-
-42:                                               ; preds = %41
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %39, i32 noundef 3, i32 noundef 1, i32 noundef %31) #16
-          to label %43 unwind label %45
+42:                                               ; preds = %37
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %41, i32 noundef %31, i32 noundef 3, i32 noundef 2) #16
+          to label %43 unwind label %46
 
 43:                                               ; preds = %42
-  %44 = add nuw i64 %.06382, 1
-  %exitcond89.not = icmp eq i64 %44, %29
-  br i1 %exitcond89.not, label %._crit_edge85, label %36, !llvm.loop !34
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %40, i32 noundef 3, i32 noundef 1, i32 noundef %32) #16
+          to label %44 unwind label %46
 
-45:                                               ; preds = %42, %41, %36
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %43
+  %45 = add nuw i64 %.06382, 1
+  %exitcond89.not = icmp eq i64 %45, %30
+  br i1 %exitcond89.not, label %._crit_edge85, label %37, !llvm.loop !34
+
+46:                                               ; preds = %43, %42, %37
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %87
 
-47:                                               ; preds = %._crit_edge85
+48:                                               ; preds = %._crit_edge85
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 8, i32 noundef 1, i32 noundef 3, i32 noundef 5) #16
-          to label %48 unwind label %84
-
-48:                                               ; preds = %47
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 11, i32 noundef 1, i32 noundef 1, i32 noundef 3) #16
-          to label %49 unwind label %84
+          to label %49 unwind label %85
 
 49:                                               ; preds = %48
-  %50 = add nsw i32 %.sroa.014.0.i, -5
-  %51 = add nsw i32 %.sroa.15.0.i, -5
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %50, i32 noundef %51, i32 noundef 4, i32 noundef 4) #16
-          to label %52 unwind label %84
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 11, i32 noundef 1, i32 noundef 1, i32 noundef 3) #16
+          to label %50 unwind label %85
 
-52:                                               ; preds = %49
-  %53 = add nsw i32 %.sroa.014.0.i, -8
-  %54 = add nsw i32 %.sroa.15.0.i, -6
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %53, i32 noundef %54, i32 noundef 3, i32 noundef 5) #16
-          to label %55 unwind label %84
+50:                                               ; preds = %49
+  %51 = add nsw i32 %.sroa.014.0.i, -5
+  %52 = add nsw i32 %.sroa.15.0.i, -5
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef 4) #16
+          to label %53 unwind label %85
 
-55:                                               ; preds = %52
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %50, i32 noundef %54, i32 noundef 3, i32 noundef 1) #16
-          to label %56 unwind label %84
+53:                                               ; preds = %50
+  %54 = add nsw i32 %.sroa.014.0.i, -8
+  %55 = add nsw i32 %.sroa.15.0.i, -6
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %54, i32 noundef %55, i32 noundef 3, i32 noundef 5) #16
+          to label %56 unwind label %85
 
-56:                                               ; preds = %55
-  %57 = add nsw i32 %.sroa.014.0.i, -2
-  %58 = load i32, ptr %0, align 8, !tbaa !36
-  %59 = add nsw i32 %57, %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !43
-  %64 = load ptr, ptr %60, align 8, !tbaa !44
-  %65 = ptrtoint ptr %63 to i64
+56:                                               ; preds = %53
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %51, i32 noundef %55, i32 noundef 3, i32 noundef 1) #16
+          to label %57 unwind label %85
+
+57:                                               ; preds = %56
+  %58 = add nsw i32 %.sroa.014.0.i, -2
+  %59 = load i32, ptr %0, align 8, !tbaa !36
+  %60 = add nsw i32 %58, %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = sext i32 %60 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !43
+  %65 = load ptr, ptr %61, align 8, !tbaa !44
   %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %.not.i.i.i.i.i = icmp ugt i64 %67, %61
-  br i1 %.not.i.i.i.i.i, label %68, label %.invoke
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %.not.i.i.i.i.i = icmp ugt i64 %68, %62
+  br i1 %.not.i.i.i.i.i, label %69, label %.invoke
 
-68:                                               ; preds = %56
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %61
-  store i8 -1, ptr %69, align 1, !tbaa !5
-  %70 = icmp sgt i32 %.sroa.15.0.i, 9
-  br i1 %70, label %71, label %149
+69:                                               ; preds = %57
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 %62
+  store i8 -1, ptr %70, align 1, !tbaa !5
+  %71 = icmp sgt i32 %.sroa.15.0.i, 9
+  br i1 %71, label %72, label %150
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %0, align 8, !tbaa !36
-  %73 = mul nsw i32 %72, %18
-  %74 = add nsw i32 %73, 1
-  %75 = sext i32 %74 to i64
-  %76 = load ptr, ptr %62, align 8, !tbaa !43
-  %77 = load ptr, ptr %60, align 8, !tbaa !44
-  %78 = ptrtoint ptr %76 to i64
+72:                                               ; preds = %69
+  %73 = load i32, ptr %0, align 8, !tbaa !36
+  %74 = mul nsw i32 %73, %19
+  %75 = add nsw i32 %74, 1
+  %76 = sext i32 %75 to i64
+  %77 = load ptr, ptr %63, align 8, !tbaa !43
+  %78 = load ptr, ptr %61, align 8, !tbaa !44
   %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %.not.i.i.i.i.i74 = icmp ugt i64 %80, %75
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %.not.i.i.i.i.i74 = icmp ugt i64 %81, %76
   br i1 %.not.i.i.i.i.i74, label %_ZN5ZXing9BitMatrix3setEiib.exit76, label %.invoke
 
-.invoke:                                          ; preds = %71, %56
-  %81 = phi i64 [ %61, %56 ], [ %75, %71 ]
-  %82 = phi i64 [ %67, %56 ], [ %80, %71 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.114, i64 noundef %81, i64 noundef %82) #18
-          to label %.cont unwind label %84
+.invoke:                                          ; preds = %72, %57
+  %82 = phi i64 [ %62, %57 ], [ %76, %72 ]
+  %83 = phi i64 [ %68, %57 ], [ %81, %72 ]
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.114, i64 noundef %82, i64 noundef %83) #18
+          to label %.cont unwind label %85
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %71
-  %83 = getelementptr inbounds nuw i8, ptr %77, i64 %75
-  store i8 -1, ptr %83, align 1, !tbaa !5
-  br label %149
+_ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %72
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 %76
+  store i8 -1, ptr %84, align 1, !tbaa !5
+  br label %150
 
-84:                                               ; preds = %.invoke, %55, %52, %49, %48, %47, %._crit_edge85
-  %85 = landingpad { ptr, i32 }
+85:                                               ; preds = %.invoke, %56, %53, %50, %49, %48, %._crit_edge85
+  %86 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %87
 
-86:                                               ; preds = %45, %84, %34
-  %.pn68.pn = phi { ptr, i32 } [ %35, %34 ], [ %46, %45 ], [ %85, %84 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !44
-  %.not.i.i.i.i = icmp eq ptr %88, null
+87:                                               ; preds = %46, %85, %35
+  %.pn68.pn = phi { ptr, i32 } [ %36, %35 ], [ %47, %46 ], [ %86, %85 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !44
+  %.not.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split
 
-89:                                               ; preds = %2
-  %90 = icmp eq i32 %4, 2
-  %91 = select i1 %90, i32 2, i32 1
-  %92 = tail call i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 noundef %6, i32 noundef %91) #16
-  %.sroa.0.0.extract.trunc.i = trunc i64 %92 to i32
+90:                                               ; preds = %2
+  %91 = icmp eq i32 %4, 2
+  %92 = select i1 %91, i32 2, i32 1
+  %93 = tail call i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 noundef %6, i32 noundef %92) #16
+  %.sroa.0.0.extract.trunc.i = trunc i64 %93 to i32
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef %.sroa.0.0.extract.trunc.i) #16
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 0, i32 noundef 9, i32 noundef 9) #16
-          to label %93 unwind label %110
+          to label %94 unwind label %111
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %3, align 4, !tbaa !28
-  %95 = icmp eq i32 %94, 2
-  br i1 %95, label %143, label %96
+94:                                               ; preds = %90
+  %95 = load i32, ptr %3, align 4, !tbaa !28
+  %96 = icmp eq i32 %95, 2
+  br i1 %96, label %144, label %97
 
-96:                                               ; preds = %93
-  %97 = add nsw i32 %.sroa.0.0.extract.trunc.i, -8
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %97, i32 noundef 0, i32 noundef 8, i32 noundef 9) #16
-          to label %98 unwind label %110
+97:                                               ; preds = %94
+  %98 = add nsw i32 %.sroa.0.0.extract.trunc.i, -8
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %98, i32 noundef 0, i32 noundef 8, i32 noundef 9) #16
+          to label %99 unwind label %111
 
-98:                                               ; preds = %96
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %97, i32 noundef 9, i32 noundef 8) #16
-          to label %99 unwind label %110
+99:                                               ; preds = %97
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %98, i32 noundef 9, i32 noundef 8) #16
+          to label %100 unwind label %111
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !33
-  %103 = load ptr, ptr %100, align 8, !tbaa !13
-  %.not = icmp eq ptr %102, %103
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !33
+  %104 = load ptr, ptr %101, align 8, !tbaa !13
+  %.not = icmp eq ptr %103, %104
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %99
-  %104 = ptrtoint ptr %102 to i64
+.lr.ph:                                           ; preds = %100
   %105 = ptrtoint ptr %103 to i64
-  %106 = sub i64 %104, %105
-  %107 = ashr exact i64 %106, 2
-  %108 = add nsw i64 %107, -1
-  br label %112
+  %106 = ptrtoint ptr %104 to i64
+  %107 = sub i64 %105, %106
+  %108 = ashr exact i64 %107, 2
+  %109 = add nsw i64 %108, -1
+  br label %113
 
-._crit_edge:                                      ; preds = %119, %99
-  %109 = add nsw i32 %.sroa.0.0.extract.trunc.i, -17
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 6, i32 noundef 9, i32 noundef 1, i32 noundef %109) #16
-          to label %134 unwind label %141
+._crit_edge:                                      ; preds = %120, %100
+  %110 = add nsw i32 %.sroa.0.0.extract.trunc.i, -17
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 6, i32 noundef 9, i32 noundef 1, i32 noundef %110) #16
+          to label %135 unwind label %142
 
-110:                                              ; preds = %145, %143, %98, %96, %89
-  %111 = landingpad { ptr, i32 }
+111:                                              ; preds = %146, %144, %99, %97, %90
+  %112 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %147
 
-112:                                              ; preds = %.lr.ph, %119
-  %.05681 = phi i64 [ 0, %.lr.ph ], [ %120, %119 ]
-  %113 = load ptr, ptr %100, align 8, !tbaa !13
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %.05681
-  %115 = load i32, ptr %114, align 4, !tbaa !8
-  %116 = add nsw i32 %115, -2
-  %117 = icmp eq i64 %.05681, 0
-  %118 = icmp eq i64 %.05681, %108
-  br label %121
+113:                                              ; preds = %.lr.ph, %120
+  %.05681 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
+  %114 = load ptr, ptr %101, align 8, !tbaa !13
+  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %.05681
+  %116 = load i32, ptr %115, align 4, !tbaa !8
+  %117 = add nsw i32 %116, -2
+  %118 = icmp eq i64 %.05681, 0
+  %119 = icmp eq i64 %.05681, %109
+  br label %122
 
-119:                                              ; preds = %130
-  %120 = add nuw i64 %.05681, 1
-  %exitcond87.not = icmp eq i64 %120, %107
-  br i1 %exitcond87.not, label %._crit_edge, label %112, !llvm.loop !45
+120:                                              ; preds = %131
+  %121 = add nuw i64 %.05681, 1
+  %exitcond87.not = icmp eq i64 %121, %108
+  br i1 %exitcond87.not, label %._crit_edge, label %113, !llvm.loop !45
 
-121:                                              ; preds = %112, %130
-  %.080 = phi i64 [ 0, %112 ], [ %131, %130 ]
-  %122 = icmp eq i64 %.080, 0
-  br i1 %117, label %123, label %125
+122:                                              ; preds = %113, %131
+  %.080 = phi i64 [ 0, %113 ], [ %132, %131 ]
+  %123 = icmp eq i64 %.080, 0
+  br i1 %118, label %124, label %126
 
-123:                                              ; preds = %121
-  %124 = icmp eq i64 %.080, %108
-  %or.cond73 = or i1 %122, %124
-  br i1 %or.cond73, label %130, label %.thread
+124:                                              ; preds = %122
+  %125 = icmp eq i64 %.080, %109
+  %or.cond73 = or i1 %123, %125
+  br i1 %or.cond73, label %131, label %.thread
 
-125:                                              ; preds = %121
-  %or.cond = and i1 %118, %122
-  br i1 %or.cond, label %130, label %.thread
+126:                                              ; preds = %122
+  %or.cond = and i1 %119, %123
+  br i1 %or.cond, label %131, label %.thread
 
-.thread:                                          ; preds = %123, %125
-  %126 = load ptr, ptr %100, align 8, !tbaa !13
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %.080
-  %128 = load i32, ptr %127, align 4, !tbaa !8
-  %129 = add nsw i32 %128, -2
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %129, i32 noundef %116, i32 noundef 5, i32 noundef 5) #16
-          to label %130 unwind label %132
+.thread:                                          ; preds = %124, %126
+  %127 = load ptr, ptr %101, align 8, !tbaa !13
+  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %.080
+  %129 = load i32, ptr %128, align 4, !tbaa !8
+  %130 = add nsw i32 %129, -2
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %130, i32 noundef %117, i32 noundef 5, i32 noundef 5) #16
+          to label %131 unwind label %133
 
-130:                                              ; preds = %.thread, %123, %125
-  %131 = add nuw i64 %.080, 1
-  %exitcond.not = icmp eq i64 %131, %107
-  br i1 %exitcond.not, label %119, label %121, !llvm.loop !46
+131:                                              ; preds = %.thread, %124, %126
+  %132 = add nuw i64 %.080, 1
+  %exitcond.not = icmp eq i64 %132, %108
+  br i1 %exitcond.not, label %120, label %122, !llvm.loop !46
 
-132:                                              ; preds = %.thread
-  %133 = landingpad { ptr, i32 }
+133:                                              ; preds = %.thread
+  %134 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %147
 
-134:                                              ; preds = %._crit_edge
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 9, i32 noundef 6, i32 noundef %109, i32 noundef 1) #16
-          to label %135 unwind label %141
+135:                                              ; preds = %._crit_edge
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 9, i32 noundef 6, i32 noundef %110, i32 noundef 1) #16
+          to label %136 unwind label %142
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %1, align 8, !tbaa !18
-  %137 = icmp sgt i32 %136, 6
-  br i1 %137, label %138, label %149
+136:                                              ; preds = %135
+  %137 = load i32, ptr %1, align 8, !tbaa !18
+  %138 = icmp sgt i32 %137, 6
+  br i1 %138, label %139, label %150
 
-138:                                              ; preds = %135
-  %139 = add nsw i32 %.sroa.0.0.extract.trunc.i, -11
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %139, i32 noundef 0, i32 noundef 3, i32 noundef 6) #16
-          to label %140 unwind label %141
+139:                                              ; preds = %136
+  %140 = add nsw i32 %.sroa.0.0.extract.trunc.i, -11
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %140, i32 noundef 0, i32 noundef 3, i32 noundef 6) #16
+          to label %141 unwind label %142
 
-140:                                              ; preds = %138
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %139, i32 noundef 6, i32 noundef 3) #16
-          to label %149 unwind label %141
+141:                                              ; preds = %139
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %140, i32 noundef 6, i32 noundef 3) #16
+          to label %150 unwind label %142
 
-141:                                              ; preds = %140, %138, %134, %._crit_edge
-  %142 = landingpad { ptr, i32 }
+142:                                              ; preds = %141, %139, %135, %._crit_edge
+  %143 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %147
 
-143:                                              ; preds = %93
-  %144 = add nsw i32 %.sroa.0.0.extract.trunc.i, -9
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 9, i32 noundef 0, i32 noundef %144, i32 noundef 1) #16
-          to label %145 unwind label %110
+144:                                              ; preds = %94
+  %145 = add nsw i32 %.sroa.0.0.extract.trunc.i, -9
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 9, i32 noundef 0, i32 noundef %145, i32 noundef 1) #16
+          to label %146 unwind label %111
 
-145:                                              ; preds = %143
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef %144) #16
-          to label %149 unwind label %110
+146:                                              ; preds = %144
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 9, i32 noundef 1, i32 noundef %145) #16
+          to label %150 unwind label %111
 
-146:                                              ; preds = %132, %141, %110
-  %.pn66 = phi { ptr, i32 } [ %111, %110 ], [ %133, %132 ], [ %142, %141 ]
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !44
-  %.not.i.i.i.i77 = icmp eq ptr %148, null
+147:                                              ; preds = %133, %142, %111
+  %.pn66 = phi { ptr, i32 } [ %112, %111 ], [ %134, %133 ], [ %143, %142 ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !44
+  %.not.i.i.i.i77 = icmp eq ptr %149, null
   br i1 %.not.i.i.i.i77, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split
 
-149:                                              ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit76, %135, %140, %145, %68
+150:                                              ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit76, %136, %141, %146, %69
   ret void
 
-_ZN5ZXing9BitMatrixD2Ev.exit.sink.split:          ; preds = %146, %86
-  %.sink104 = phi ptr [ %88, %86 ], [ %148, %146 ]
-  %.pn68.pn.pn.ph = phi { ptr, i32 } [ %.pn68.pn, %86 ], [ %.pn66, %146 ]
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %151 = load ptr, ptr %150, align 8, !tbaa !47
-  %152 = ptrtoint ptr %151 to i64
-  %153 = ptrtoint ptr %.sink104 to i64
-  %154 = sub i64 %152, %153
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink104, i64 noundef %154) #17
+_ZN5ZXing9BitMatrixD2Ev.exit.sink.split:          ; preds = %147, %87
+  %.sink103 = phi ptr [ %89, %87 ], [ %149, %147 ]
+  %.pn68.pn.pn.ph = phi { ptr, i32 } [ %.pn68.pn, %87 ], [ %.pn66, %147 ]
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %152 = load ptr, ptr %151, align 8, !tbaa !47
+  %153 = ptrtoint ptr %152 to i64
+  %154 = ptrtoint ptr %.sink103 to i64
+  %155 = sub i64 %153, %154
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink103, i64 noundef %155) #17
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
-_ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split, %146, %86
-  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %86 ], [ %.pn66, %146 ], [ %.pn68.pn.pn.ph, %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split ]
+_ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split, %147, %87
+  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %87 ], [ %.pn66, %147 ], [ %.pn68.pn.pn.ph, %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split ]
   resume { ptr, i32 } %.pn68.pn.pn
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %1, label %28 [
+  switch i32 %1, label %29 [
     i32 0, label %3
     i32 1, label %9
     i32 2, label %15
@@ -4801,48 +4802,49 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 3:                                                ; preds = %2
   %4 = add i32 %0, -1
   %5 = icmp ult i32 %4, 32
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
   %7 = shl nuw nsw i32 %0, 2
   %8 = add nuw nsw i32 %7, 17
-  br label %28
+  br label %29
 
 9:                                                ; preds = %2
   %10 = add i32 %0, -1
   %11 = icmp ult i32 %10, 40
-  br i1 %11, label %12, label %28
+  br i1 %11, label %12, label %29
 
 12:                                               ; preds = %9
   %13 = shl nuw nsw i32 %0, 2
   %14 = add nuw nsw i32 %13, 17
-  br label %28
+  br label %29
 
 15:                                               ; preds = %2
   %16 = add i32 %0, -1
   %17 = icmp ult i32 %16, 4
-  br i1 %17, label %18, label %28
+  br i1 %17, label %18, label %29
 
 18:                                               ; preds = %15
   %19 = shl nuw nsw i32 %0, 1
   %20 = add nuw nsw i32 %19, 9
-  br label %28
+  br label %29
 
 21:                                               ; preds = %2
   %22 = add i32 %0, -1
   %23 = icmp ult i32 %22, 32
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %25
-  %27 = load i64, ptr %26, align 4
-  %.sroa.014.0.extract.trunc17 = trunc i64 %27 to i32
-  %.sroa.15.0.extract.shift22 = lshr i64 %27, 32
+  %25 = zext nneg i32 %0 to i64
+  %26 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 -8
+  %28 = load i64, ptr %27, align 4
+  %.sroa.014.0.extract.trunc17 = trunc i64 %28 to i32
+  %.sroa.15.0.extract.shift22 = lshr i64 %28, 32
   %.sroa.15.0.extract.trunc23 = trunc nuw i64 %.sroa.15.0.extract.shift22 to i32
-  br label %28
+  br label %29
 
-28:                                               ; preds = %2, %21, %15, %9, %3, %24, %18, %12, %6
+29:                                               ; preds = %2, %21, %15, %9, %3, %24, %18, %12, %6
   %.sroa.014.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.014.0.extract.trunc17, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
   %.sroa.15.0 = phi i32 [ %8, %6 ], [ %14, %12 ], [ %20, %18 ], [ %.sroa.15.0.extract.trunc23, %24 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ], [ 0, %21 ], [ 0, %2 ]
   %.sroa.15.0.insert.ext = zext i32 %.sroa.15.0 to i64

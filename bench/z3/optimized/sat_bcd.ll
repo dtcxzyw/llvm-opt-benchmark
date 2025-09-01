@@ -669,7 +669,7 @@ _ZN3sat8use_listD2Ev.exit:                        ; preds = %._crit_edge, %_ZN6v
   %49 = urem i32 %46, %48
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %51 = zext nneg i32 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"class.sat::literal", ptr %50, i64 %51
   %.sroa.0.0.copyload = load i32, ptr %52, align 4, !tbaa !24
   invoke void @_ZN3sat3bcd14pure_decomposeERNS_8use_listENS_7literalE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 %.sroa.0.0.copyload)
           to label %55 unwind label %53
@@ -3102,7 +3102,7 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev.exit: ; preds = %97, %._crit_edg
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 2352
   %119 = load i8, ptr %118, align 8, !tbaa !124, !range !63, !noundef !64
   %120 = zext nneg i8 %119 to i64
-  %121 = getelementptr inbounds nuw [2 x %"class.sat::clause_allocator"], ptr %117, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw %"class.sat::clause_allocator", ptr %117, i64 %120
   %122 = invoke noundef ptr @_ZN3sat16clause_allocator9mk_clauseEjPKNS_7literalEb(ptr noundef nonnull align 8 dereferenceable(568) %121, i32 noundef 2, ptr noundef nonnull %8, i1 noundef zeroext false)
           to label %123 unwind label %.loopexit.split-lp
 

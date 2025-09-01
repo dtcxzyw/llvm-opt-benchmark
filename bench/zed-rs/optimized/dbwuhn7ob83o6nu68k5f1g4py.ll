@@ -2758,7 +2758,7 @@ define internal fastcc void @"_ZN4core3ptr132drop_in_place$LT$call..room..Room..
 
 .lr.ph.i.i.i:                                     ; preds = %5, %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit.i.i.i"
   %.sroa.0.08.i.i.i = phi i64 [ %13, %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit.i.i.i" ], [ 0, %5 ]
-  %12 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %8, i64 0, i64 %.sroa.0.08.i.i.i
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %8, i64 %.sroa.0.08.i.i.i
   %13 = add nuw i64 %.sroa.0.08.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !789)

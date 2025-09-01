@@ -1694,7 +1694,7 @@ define internal fastcc ptr @escaped_pattern(ptr noundef readonly captures(none) 
   %7 = phi i8 [ %3, %.lr.ph ], [ %31, %strbuf_addch.exit16 ]
   %.018 = phi ptr [ %0, %.lr.ph ], [ %30, %strbuf_addch.exit16 ]
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !99
   %11 = and i8 %10, 8
   %.not6 = icmp eq i8 %11, 0

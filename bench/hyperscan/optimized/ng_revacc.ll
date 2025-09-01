@@ -174,7 +174,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.us.i: ; preds = %42, %
 
 80:                                               ; preds = %88, %78
   %.0710.i.i.i = phi i64 [ 0, %78 ], [ %89, %88 ]
-  %81 = getelementptr inbounds nuw [4 x i64], ptr %26, i64 0, i64 %.0710.i.i.i
+  %81 = getelementptr inbounds nuw i64, ptr %26, i64 %.0710.i.i.i
   %82 = load i64, ptr %81, align 8
   %.not.i.i.i = icmp eq i64 %82, 0
   br i1 %.not.i.i.i, label %88, label %83
@@ -199,7 +199,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %88, %83
 
 91:                                               ; preds = %99, %_ZNK3ue29CharReach10find_firstEv.exit.i
   %.0710.i.i88.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.i ], [ %100, %99 ]
-  %92 = getelementptr inbounds nuw [4 x i64], ptr %75, i64 0, i64 %.0710.i.i88.i
+  %92 = getelementptr inbounds nuw i64, ptr %75, i64 %.0710.i.i88.i
   %93 = load i64, ptr %92, align 8
   %.not.i.i89.i = icmp eq i64 %93, 0
   br i1 %.not.i.i89.i, label %99, label %94
@@ -224,7 +224,7 @@ _ZNK3ue29CharReach10find_firstEv.exit92.i:        ; preds = %99, %94
 
 .preheader.i.i:                                   ; preds = %.critedge.i, %104
   %.0710.i.i.i.i = phi i64 [ %105, %104 ], [ 0, %.critedge.i ]
-  %102 = getelementptr inbounds nuw [4 x i64], ptr %59, i64 0, i64 %.0710.i.i.i.i
+  %102 = getelementptr inbounds nuw i64, ptr %59, i64 %.0710.i.i.i.i
   %103 = load i64, ptr %102, align 8
   %.not.i.i.i.i = icmp eq i64 %103, 0
   br i1 %.not.i.i.i.i, label %104, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i
@@ -244,7 +244,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader: ; preds = %104, %_ZN
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader, %115
   %.0710.i.i4.i.i = phi i64 [ %116, %115 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader ]
-  %107 = getelementptr inbounds nuw [4 x i64], ptr %59, i64 0, i64 %.0710.i.i4.i.i
+  %107 = getelementptr inbounds nuw i64, ptr %59, i64 %.0710.i.i4.i.i
   %108 = load i64, ptr %107, align 8
   %.not.i.i5.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i5.i.i, label %115, label %109
@@ -265,7 +265,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i: ; preds = %_ZNK3ue29CharReach1
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i: ; preds = %115, %109
   %spec.select.i.i6.i.i = phi i64 [ %114, %109 ], [ 32, %115 ]
   %117 = lshr i64 %spec.select.i.i6.i.i, 6
-  %118 = getelementptr inbounds nuw [4 x i64], ptr %59, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i64, ptr %59, i64 %117
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %spec.select.i.i6.i.i, 63
   %121 = shl nuw i64 1, %120
@@ -295,7 +295,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i: ; preds = %115, %109
 
 .preheader.i93.i:                                 ; preds = %123, %140
   %.0710.i.i.i94.i = phi i64 [ %141, %140 ], [ 0, %123 ]
-  %138 = getelementptr inbounds nuw [4 x i64], ptr %60, i64 0, i64 %.0710.i.i.i94.i
+  %138 = getelementptr inbounds nuw i64, ptr %60, i64 %.0710.i.i.i94.i
   %139 = load i64, ptr %138, align 8
   %.not.i.i.i95.i = icmp eq i64 %139, 0
   br i1 %.not.i.i.i95.i, label %140, label %_ZNK3ue29CharReach10find_firstEv.exit.i96.i
@@ -315,7 +315,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i98.i.preheader: ; preds = %140, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i98.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i98.i.preheader, %151
   %.0710.i.i4.i99.i = phi i64 [ %152, %151 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i98.i.preheader ]
-  %143 = getelementptr inbounds nuw [4 x i64], ptr %60, i64 0, i64 %.0710.i.i4.i99.i
+  %143 = getelementptr inbounds nuw i64, ptr %60, i64 %.0710.i.i4.i99.i
   %144 = load i64, ptr %143, align 8
   %.not.i.i5.i100.i = icmp eq i64 %144, 0
   br i1 %.not.i.i5.i100.i, label %151, label %145
@@ -336,7 +336,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i98.i: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit105.i: ; preds = %151, %145
   %spec.select.i.i6.i102.i = phi i64 [ %150, %145 ], [ 32, %151 ]
   %153 = lshr i64 %spec.select.i.i6.i102.i, 6
-  %154 = getelementptr inbounds nuw [4 x i64], ptr %60, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i64, ptr %60, i64 %153
   %155 = load i64, ptr %154, align 8
   %156 = and i64 %spec.select.i.i6.i102.i, 63
   %157 = shl nuw i64 1, %156
@@ -357,7 +357,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit105.i: ; preds = %151, %145
 
 164:                                              ; preds = %173, %162
   %.0710.i.i106.i = phi i64 [ 0, %162 ], [ %174, %173 ]
-  %165 = getelementptr inbounds nuw [4 x i64], ptr %59, i64 0, i64 %.0710.i.i106.i
+  %165 = getelementptr inbounds nuw i64, ptr %59, i64 %.0710.i.i106.i
   %166 = load i64, ptr %165, align 8
   %.not.i.i107.i = icmp eq i64 %166, 0
   br i1 %.not.i.i107.i, label %173, label %167
@@ -383,7 +383,7 @@ _ZNK3ue29CharReach10find_firstEv.exit110.i:       ; preds = %173, %167
 
 176:                                              ; preds = %185, %_ZNK3ue29CharReach10find_firstEv.exit110.i
   %.0710.i.i111.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit110.i ], [ %186, %185 ]
-  %177 = getelementptr inbounds nuw [4 x i64], ptr %60, i64 0, i64 %.0710.i.i111.i
+  %177 = getelementptr inbounds nuw i64, ptr %60, i64 %.0710.i.i111.i
   %178 = load i64, ptr %177, align 8
   %.not.i.i112.i = icmp eq i64 %178, 0
   br i1 %.not.i.i112.i, label %185, label %179
@@ -480,7 +480,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit133.thread.us.i: ; preds = %.p
 
 224:                                              ; preds = %232, %222
   %.0710.i.i116.i = phi i64 [ 0, %222 ], [ %233, %232 ]
-  %225 = getelementptr inbounds nuw [4 x i64], ptr %188, i64 0, i64 %.0710.i.i116.i
+  %225 = getelementptr inbounds nuw i64, ptr %188, i64 %.0710.i.i116.i
   %226 = load i64, ptr %225, align 8
   %.not.i.i117.i = icmp eq i64 %226, 0
   br i1 %.not.i.i117.i, label %232, label %227
@@ -505,7 +505,7 @@ _ZNK3ue29CharReach10find_firstEv.exit120.i:       ; preds = %232, %227
 
 .preheader.i121.i:                                ; preds = %.critedge85.i, %237
   %.0710.i.i.i122.i = phi i64 [ %238, %237 ], [ 0, %.critedge85.i ]
-  %235 = getelementptr inbounds nuw [4 x i64], ptr %204, i64 0, i64 %.0710.i.i.i122.i
+  %235 = getelementptr inbounds nuw i64, ptr %204, i64 %.0710.i.i.i122.i
   %236 = load i64, ptr %235, align 8
   %.not.i.i.i123.i = icmp eq i64 %236, 0
   br i1 %.not.i.i.i123.i, label %237, label %_ZNK3ue29CharReach10find_firstEv.exit.i124.i
@@ -525,7 +525,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i126.i.preheader: ; preds = %237, %
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i126.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i126.i.preheader, %248
   %.0710.i.i4.i127.i = phi i64 [ %249, %248 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i126.i.preheader ]
-  %240 = getelementptr inbounds nuw [4 x i64], ptr %204, i64 0, i64 %.0710.i.i4.i127.i
+  %240 = getelementptr inbounds nuw i64, ptr %204, i64 %.0710.i.i4.i127.i
   %241 = load i64, ptr %240, align 8
   %.not.i.i5.i128.i = icmp eq i64 %241, 0
   br i1 %.not.i.i5.i128.i, label %248, label %242
@@ -546,7 +546,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i126.i: ; preds = %_ZNK3ue29CharRea
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit133.i: ; preds = %248, %242
   %spec.select.i.i6.i130.i = phi i64 [ %247, %242 ], [ 32, %248 ]
   %250 = lshr i64 %spec.select.i.i6.i130.i, 6
-  %251 = getelementptr inbounds nuw [4 x i64], ptr %204, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i64, ptr %204, i64 %250
   %252 = load i64, ptr %251, align 8
   %253 = and i64 %spec.select.i.i6.i130.i, 63
   %254 = shl nuw i64 1, %253
@@ -567,7 +567,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit133.i: ; preds = %248, %242
 
 261:                                              ; preds = %269, %259
   %.0710.i.i134.i = phi i64 [ 0, %259 ], [ %270, %269 ]
-  %262 = getelementptr inbounds nuw [4 x i64], ptr %204, i64 0, i64 %.0710.i.i134.i
+  %262 = getelementptr inbounds nuw i64, ptr %204, i64 %.0710.i.i134.i
   %263 = load i64, ptr %262, align 8
   %.not.i.i135.i = icmp eq i64 %263, 0
   br i1 %.not.i.i135.i, label %269, label %264
@@ -725,7 +725,7 @@ _ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit: ; preds = %.thread149
 
 338:                                              ; preds = %346, %336
   %.0710.i.i.i52 = phi i64 [ 0, %336 ], [ %347, %346 ]
-  %339 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i.i52
+  %339 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i.i52
   %340 = load i64, ptr %339, align 8
   %.not.i.i.i53 = icmp eq i64 %340, 0
   br i1 %.not.i.i.i53, label %346, label %341
@@ -750,7 +750,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i54:        ; preds = %346, %341
 
 349:                                              ; preds = %357, %_ZNK3ue29CharReach10find_firstEv.exit.i54
   %.0710.i.i78.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.i54 ], [ %358, %357 ]
-  %350 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i78.i
+  %350 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i78.i
   %351 = load i64, ptr %350, align 8
   %.not.i.i79.i = icmp eq i64 %351, 0
   br i1 %.not.i.i79.i, label %357, label %352
@@ -775,7 +775,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i54:        ; preds = %346, %341
 
 .preheader.i.i30:                                 ; preds = %.critedge.i29, %361
   %.0710.i.i.i.i31 = phi i64 [ %362, %361 ], [ 0, %.critedge.i29 ]
-  %359 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i.i.i31
+  %359 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i.i.i31
   %360 = load i64, ptr %359, align 8
   %.not.i.i.i.i32 = icmp eq i64 %360, 0
   br i1 %.not.i.i.i.i32, label %361, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i33
@@ -795,7 +795,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader: ; preds = %361, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader, %372
   %.0710.i.i4.i.i36 = phi i64 [ %373, %372 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader ]
-  %364 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i4.i.i36
+  %364 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i4.i.i36
   %365 = load i64, ptr %364, align 8
   %.not.i.i5.i.i37 = icmp eq i64 %365, 0
   br i1 %.not.i.i5.i.i37, label %372, label %366
@@ -816,7 +816,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i38: ; preds = %372, %366
   %spec.select.i.i6.i.i39 = phi i64 [ %371, %366 ], [ 32, %372 ]
   %374 = lshr i64 %spec.select.i.i6.i.i39, 6
-  %375 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw i64, ptr %5, i64 %374
   %376 = load i64, ptr %375, align 8
   %377 = and i64 %spec.select.i.i6.i.i39, 63
   %378 = shl nuw i64 1, %377
@@ -839,7 +839,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i38: ; preds = %372, %366
 
 .preheader.i83.i:                                 ; preds = %380, %390
   %.0710.i.i.i84.i = phi i64 [ %391, %390 ], [ 0, %380 ]
-  %388 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i.i84.i
+  %388 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i.i84.i
   %389 = load i64, ptr %388, align 8
   %.not.i.i.i85.i = icmp eq i64 %389, 0
   br i1 %.not.i.i.i85.i, label %390, label %_ZNK3ue29CharReach10find_firstEv.exit.i86.i
@@ -859,7 +859,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i88.i.preheader: ; preds = %390, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i88.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i88.i.preheader, %401
   %.0710.i.i4.i89.i = phi i64 [ %402, %401 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i88.i.preheader ]
-  %393 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i4.i89.i
+  %393 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i4.i89.i
   %394 = load i64, ptr %393, align 8
   %.not.i.i5.i90.i = icmp eq i64 %394, 0
   br i1 %.not.i.i5.i90.i, label %401, label %395
@@ -880,7 +880,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i88.i: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit95.i: ; preds = %401, %395
   %spec.select.i.i6.i92.i = phi i64 [ %400, %395 ], [ 32, %401 ]
   %403 = lshr i64 %spec.select.i.i6.i92.i, 6
-  %404 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw i64, ptr %6, i64 %403
   %405 = load i64, ptr %404, align 8
   %406 = and i64 %spec.select.i.i6.i92.i, 63
   %407 = shl nuw i64 1, %406
@@ -900,7 +900,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit95.i: ; preds = %401, %395
 
 414:                                              ; preds = %423, %412
   %.0710.i.i96.i = phi i64 [ 0, %412 ], [ %424, %423 ]
-  %415 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0710.i.i96.i
+  %415 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i96.i
   %416 = load i64, ptr %415, align 8
   %.not.i.i97.i = icmp eq i64 %416, 0
   br i1 %.not.i.i97.i, label %423, label %417
@@ -926,7 +926,7 @@ _ZNK3ue29CharReach10find_firstEv.exit100.i:       ; preds = %423, %417
 
 426:                                              ; preds = %435, %_ZNK3ue29CharReach10find_firstEv.exit100.i
   %.0710.i.i101.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit100.i ], [ %436, %435 ]
-  %427 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %.0710.i.i101.i
+  %427 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i101.i
   %428 = load i64, ptr %427, align 8
   %.not.i.i102.i = icmp eq i64 %428, 0
   br i1 %.not.i.i102.i, label %435, label %429
@@ -1069,7 +1069,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit123.thread.us.i: ; preds = %.p
 
 493:                                              ; preds = %501, %491
   %.0710.i.i106.i44 = phi i64 [ 0, %491 ], [ %502, %501 ]
-  %494 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i106.i44
+  %494 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i106.i44
   %495 = load i64, ptr %494, align 8
   %.not.i.i107.i45 = icmp eq i64 %495, 0
   br i1 %.not.i.i107.i45, label %501, label %496
@@ -1088,7 +1088,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit123.thread.us.i: ; preds = %.p
 
 .preheader.i111.i:                                ; preds = %.critedge75.i, %505
   %.0710.i.i.i112.i = phi i64 [ %506, %505 ], [ 0, %.critedge75.i ]
-  %503 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i.i112.i
+  %503 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i.i112.i
   %504 = load i64, ptr %503, align 8
   %.not.i.i.i113.i = icmp eq i64 %504, 0
   br i1 %.not.i.i.i113.i, label %505, label %_ZNK3ue29CharReach10find_firstEv.exit.i114.i
@@ -1108,7 +1108,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i116.i.preheader: ; preds = %505, %
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i116.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i116.i.preheader, %516
   %.0710.i.i4.i117.i = phi i64 [ %517, %516 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i116.i.preheader ]
-  %508 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i4.i117.i
+  %508 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i4.i117.i
   %509 = load i64, ptr %508, align 8
   %.not.i.i5.i118.i = icmp eq i64 %509, 0
   br i1 %.not.i.i5.i118.i, label %516, label %510
@@ -1129,7 +1129,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i116.i: ; preds = %_ZNK3ue29CharRea
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit123.i: ; preds = %516, %510
   %spec.select.i.i6.i120.i = phi i64 [ %515, %510 ], [ 32, %516 ]
   %518 = lshr i64 %spec.select.i.i6.i120.i, 6
-  %519 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %518
+  %519 = getelementptr inbounds nuw i64, ptr %7, i64 %518
   %520 = load i64, ptr %519, align 8
   %521 = and i64 %spec.select.i.i6.i120.i, 63
   %522 = shl nuw i64 1, %521
@@ -1150,7 +1150,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit123.i: ; preds = %516, %510
 
 529:                                              ; preds = %537, %527
   %.0710.i.i124.i = phi i64 [ 0, %527 ], [ %538, %537 ]
-  %530 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i124.i
+  %530 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i124.i
   %531 = load i64, ptr %530, align 8
   %.not.i.i125.i = icmp eq i64 %531, 0
   br i1 %.not.i.i125.i, label %537, label %532

@@ -927,7 +927,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i171: ; preds = %.noexc174, %
   %384 = srem i32 %383, %352
   %385 = sub nsw i32 %383, %384
   %386 = trunc i32 %385 to i8
-  %387 = getelementptr inbounds nuw [256 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %387 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 %386, ptr %387, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

@@ -1538,7 +1538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_
           to label %_ZN2cv4Mat_IdE3eyeEii.exit unwind label %515
 
 _ZN2cv4Mat_IdE3eyeEii.exit:                       ; preds = %497
-  %498 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %37, i64 0, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw %"class.cv::Mat", ptr %37, i64 %indvars.iv
   %499 = load ptr, ptr %43, align 8, !tbaa !40
   %500 = load ptr, ptr %499, align 8, !tbaa !54
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
@@ -1565,7 +1565,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %_ZN2cv4Mat_IdE3eyeE
           to label %_ZN2cv4Mat_IdE5zerosEii.exit unwind label %520
 
 _ZN2cv4Mat_IdE5zerosEii.exit:                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %510 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %38, i64 0, i64 %indvars.iv
+  %510 = getelementptr inbounds nuw %"class.cv::Mat", ptr %38, i64 %indvars.iv
   %511 = load ptr, ptr %44, align 8, !tbaa !40
   %512 = load ptr, ptr %511, align 8, !tbaa !54
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 24
@@ -1725,7 +1725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483: ; preds = %_Z
 
 574:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483, %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit
   %indvars.iv615 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit483 ], [ %indvars.iv.next616, %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit ]
-  %575 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %19, i64 0, i64 %indvars.iv615
+  %575 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %indvars.iv615
   %576 = load ptr, ptr %386, align 8, !tbaa !32
   %577 = load ptr, ptr %20, align 8, !tbaa !35
   %578 = ptrtoint ptr %576 to i64
@@ -1990,7 +1990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit487: ; preds = %_Z
   br i1 %645, label %661, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 661:                                              ; preds = %660
-  %662 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %19, i64 0, i64 %627
+  %662 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %627
   %663 = load ptr, ptr %662, align 8, !tbaa !63
   %664 = getelementptr inbounds nuw %"class.std::vector.8", ptr %663, i64 %indvars.iv623
   %665 = load ptr, ptr %561, align 8, !tbaa !75
@@ -2557,36 +2557,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494: ; preds = %_Z
 892:                                              ; preds = %874, %899
   %indvars.iv626 = phi i64 [ 0, %874 ], [ %indvars.iv.next627, %899 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  %893 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %37, i64 0, i64 %indvars.iv626
+  %893 = getelementptr inbounds nuw %"class.cv::Mat", ptr %37, i64 %indvars.iv626
   store i32 0, ptr %876, align 8, !tbaa !4
   store i32 0, ptr %877, align 4, !tbaa !9
   store i32 16842752, ptr %87, align 8, !tbaa !70
   store ptr %893, ptr %878, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  %894 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %38, i64 0, i64 %indvars.iv626
+  %894 = getelementptr inbounds nuw %"class.cv::Mat", ptr %38, i64 %indvars.iv626
   store i32 0, ptr %879, align 8, !tbaa !4
   store i32 0, ptr %880, align 4, !tbaa !9
   store i32 16842752, ptr %88, align 8, !tbaa !70
   store ptr %894, ptr %881, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
-  %895 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %39, i64 0, i64 %indvars.iv626
+  %895 = getelementptr inbounds nuw %"class.cv::Mat", ptr %39, i64 %indvars.iv626
   store i32 0, ptr %882, align 8, !tbaa !4
   store i32 0, ptr %883, align 4, !tbaa !9
   store i32 16842752, ptr %89, align 8, !tbaa !70
   store ptr %895, ptr %884, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
-  %896 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %40, i64 0, i64 %indvars.iv626
+  %896 = getelementptr inbounds nuw %"class.cv::Mat", ptr %40, i64 %indvars.iv626
   store i32 0, ptr %885, align 8, !tbaa !4
   store i32 0, ptr %886, align 4, !tbaa !9
   store i32 16842752, ptr %90, align 8, !tbaa !70
   store ptr %896, ptr %887, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  %897 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %85, i64 0, i64 %indvars.iv626
+  %897 = getelementptr inbounds nuw %"class.cv::Mat", ptr %85, i64 %indvars.iv626
   store i64 0, ptr %889, align 8
   store i32 33619968, ptr %91, align 8, !tbaa !70
   store ptr %897, ptr %888, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
-  %898 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %86, i64 0, i64 %indvars.iv626
+  %898 = getelementptr inbounds nuw %"class.cv::Mat", ptr %86, i64 %indvars.iv626
   store i64 0, ptr %891, align 8
   store i32 33619968, ptr %92, align 8, !tbaa !70
   store ptr %898, ptr %890, align 8, !tbaa !72
@@ -2927,13 +2927,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit503: ; preds = %_Z
   store i32 33619968, ptr %102, align 8, !tbaa !70
   store ptr %100, ptr %947, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
-  %1029 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %85, i64 0, i64 %990
+  %1029 = getelementptr inbounds nuw %"class.cv::Mat", ptr %85, i64 %990
   store i32 0, ptr %949, align 8, !tbaa !4
   store i32 0, ptr %950, align 4, !tbaa !9
   store i32 16842752, ptr %103, align 8, !tbaa !70
   store ptr %1029, ptr %951, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  %1030 = getelementptr inbounds nuw [3 x %"class.cv::Mat"], ptr %86, i64 0, i64 %990
+  %1030 = getelementptr inbounds nuw %"class.cv::Mat", ptr %86, i64 %990
   store i32 0, ptr %952, align 8, !tbaa !4
   store i32 0, ptr %953, align 4, !tbaa !9
   store i32 16842752, ptr %104, align 8, !tbaa !70

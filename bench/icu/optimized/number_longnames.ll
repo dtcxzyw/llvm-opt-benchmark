@@ -764,7 +764,7 @@ define void @_ZN6icu_776number4impl15LongNameHandler14forMeasureUnitERKNS_6Local
   %59 = add nuw nsw i32 %.015.i, %.018.i
   %60 = lshr i32 %59, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_18gGendersE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_18gGendersE, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !27
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %63) #24
   %.not22.i = icmp eq i32 %64, 0
@@ -2237,7 +2237,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
           to label %40 unwind label %45
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::SimpleModifier"], ptr %15, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %"class.icu_77::number::impl::SimpleModifier", ptr %15, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %16) #21
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 72
@@ -2334,7 +2334,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115getGenderStringEN6icu_771
   %27 = add nuw nsw i32 %.015, %.018
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_18gGendersE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_18gGendersE, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %31) #24
   %.not22 = icmp eq i32 %32, 0
@@ -3979,7 +3979,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
           to label %125 unwind label %121
 
 125:                                              ; preds = %117, %123
-  %126 = getelementptr inbounds nuw [12 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   store i32 0, ptr %126, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -4285,7 +4285,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
   %271 = add nuw nsw i32 %.015.i, %.018.i
   %272 = lshr i32 %271, 1
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_18gGendersE, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_18gGendersE, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !27
   %276 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %265, ptr noundef nonnull dereferenceable(1) %275) #24
   %.not22.i = icmp eq i32 %276, 0
@@ -4914,7 +4914,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit29.i: ; preds =
   br i1 %.not324, label %501, label %480
 
 480:                                              ; preds = %475
-  %481 = getelementptr inbounds nuw [12 x %"class.icu_77::UnicodeString"], ptr %39, i64 0, i64 %indvars.iv722, i32 1
+  %481 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %39, i64 %indvars.iv722, i32 1
   %482 = load i16, ptr %481, align 8, !tbaa !17
   %483 = and i16 %482, 1
   %.not325 = icmp eq i16 %483, 0
@@ -5308,7 +5308,7 @@ _ZNK6icu_7713UnicodeString7indexOfENS_14ConstChar16PtrEiii.exit.i: ; preds = %63
   %.0485.ph = phi i32 [ 1, %636 ], [ 4, %.noexc448 ], [ 4, %.noexc447 ], [ 4, %614 ], [ 2, %.noexc443 ], [ 2, %.noexc441 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %50) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  %646 = getelementptr inbounds nuw [12 x i32], ptr %24, i64 0, i64 %indvars.iv722
+  %646 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv722
   %647 = load i32, ptr %646, align 4, !tbaa !17
   %648 = icmp eq i32 %647, 0
   br i1 %648, label %649, label %650
@@ -5743,7 +5743,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit466: ; pr
 
 787:                                              ; preds = %785, %823
   %indvars.iv731 = phi i64 [ 0, %785 ], [ %indvars.iv.next732, %823 ]
-  %788 = getelementptr inbounds nuw [12 x i32], ptr %24, i64 0, i64 %indvars.iv731
+  %788 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv731
   %789 = load i32, ptr %788, align 4, !tbaa !17
   switch i32 %789, label %823 [
     i32 2, label %790
@@ -6510,7 +6510,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit43: ; pre
           to label %70 unwind label %75
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::SimpleModifier"], ptr %27, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"class.icu_77::number::impl::SimpleModifier", ptr %27, i64 %indvars.iv
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull align 8 dereferenceable(64) %28) #21
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
@@ -7251,7 +7251,7 @@ common.resume:                                    ; preds = %46, %13
 
 30:                                               ; preds = %21
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw [12 x %"class.icu_77::UnicodeString"], ptr %8, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %8, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i16, ptr %33, align 8, !tbaa !17
   %35 = and i16 %34, 1
@@ -7862,7 +7862,7 @@ _ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRu
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::SimpleModifier"], ptr %31, i64 0, i64 %.0.i
+  %32 = getelementptr inbounds nuw %"class.icu_77::number::impl::SimpleModifier", ptr %31, i64 %.0.i
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr %32, ptr %33, align 8, !tbaa !146
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -7876,7 +7876,7 @@ _ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRu
 define noundef nonnull ptr @_ZNK6icu_776number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(872) %0, i32 %1, i32 noundef %2) unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::SimpleModifier"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.icu_77::number::impl::SimpleModifier", ptr %4, i64 %5
   ret ptr %6
 }
 
@@ -7884,7 +7884,7 @@ define noundef nonnull ptr @_ZNK6icu_776number4impl15LongNameHandler11getModifie
 define noundef nonnull ptr @_ZThn8_NK6icu_776number4impl15LongNameHandler11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef readnone captures(ret: address, provenance) %0, i32 %1, i32 noundef %2) unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::SimpleModifier"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.icu_77::number::impl::SimpleModifier", ptr %4, i64 %5
   ret ptr %6
 }
 

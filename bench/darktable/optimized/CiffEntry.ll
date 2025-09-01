@@ -269,7 +269,7 @@ _ZN8rawspeed8OptionalINS_10ByteStreamEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_
 switch.lookup:                                    ; preds = %69
   %74 = lshr exact i16 %72, 11
   %75 = zext nneg i16 %74 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE.exit
 
@@ -325,7 +325,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN8rawspeed9CiffEntry15getElementShi
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -341,7 +341,7 @@ switch.lookup:
   %2 = load i16, ptr %1, align 2, !tbaa !19
   %3 = tail call i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 5)
   %4 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

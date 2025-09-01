@@ -216,7 +216,7 @@ define dso_local void @_ZN32btSphereSphereCollisionAlgorithm16processCollisionEP
 
 53:                                               ; preds = %53, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %54 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %52, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %52, i64 %indvars.iv.i
   tail call void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %10, ptr noundef nonnull align 8 dereferenceable(204) %54)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %49, align 8, !tbaa !34

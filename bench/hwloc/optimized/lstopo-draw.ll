@@ -1688,7 +1688,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
 61:                                               ; preds = %.thread323
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %63 = zext nneg i32 %.1203 to i64
-  %64 = getelementptr inbounds nuw [3 x [128 x i8]], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [128 x i8], ptr %62, i64 %63
   %65 = icmp eq i32 %60, 2
   %66 = select i1 %65, ptr @.str.25, ptr @.str.26
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %64, i64 noundef 128, ptr noundef nonnull @.str.24, ptr noundef nonnull %66) #28
@@ -1718,7 +1718,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %82 = call ptr @localtime(ptr noundef nonnull %8) #28
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %84 = zext nneg i32 %.2204 to i64
-  %85 = getelementptr inbounds nuw [3 x [128 x i8]], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [128 x i8], ptr %83, i64 %84
   %86 = call i64 @strftime(ptr noundef nonnull %85, i64 noundef 128, ptr noundef nonnull @.str.27, ptr noundef %82) #28
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #26
   %88 = trunc i64 %87 to i32
@@ -1938,7 +1938,7 @@ hwloc_get_next_obj_by_type.exit39.i:              ; preds = %177, %172
 
 186:                                              ; preds = %195, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %195 ]
-  %187 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %185, i64 0, i64 %indvars.iv.i
+  %187 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %185, i64 %indvars.iv.i
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 128
   %189 = load i32, ptr %188, align 4, !tbaa !91
   %190 = icmp ult i32 %189, %.0.i.lcssa
@@ -1972,7 +1972,7 @@ output_align_PU_textwidth.exit:                   ; preds = %174, %hwloc_get_nex
 
 switch.lookup:                                    ; preds = %output_align_PU_textwidth.exit
   %200 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %200
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.draw__children, i64 %200
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 
@@ -2021,18 +2021,18 @@ get_type_fun.exit:                                ; preds = %output_align_PU_tex
   %225 = getelementptr inbounds nuw i8, ptr %20, i64 76
   %226 = load i32, ptr %225, align 4, !tbaa !100
   %227 = load i32, ptr %18, align 8, !tbaa !96
-  %switch.tableidx330 = add i32 %227, -5
-  %228 = icmp ult i32 %switch.tableidx330, 13
-  br i1 %228, label %switch.lookup329, label %get_type_fun.exit245
+  %switch.tableidx329 = add i32 %227, -5
+  %228 = icmp ult i32 %switch.tableidx329, 13
+  br i1 %228, label %switch.lookup330, label %get_type_fun.exit245
 
-switch.lookup329:                                 ; preds = %224
-  %229 = zext nneg i32 %switch.tableidx330 to i64
-  %switch.gep331 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %229
+switch.lookup330:                                 ; preds = %224
+  %229 = zext nneg i32 %switch.tableidx329 to i64
+  %switch.gep331 = getelementptr inbounds nuw ptr, ptr @switch.table.draw__children, i64 %229
   %switch.load332 = load ptr, ptr %switch.gep331, align 8
   br label %get_type_fun.exit245
 
-get_type_fun.exit245:                             ; preds = %224, %switch.lookup329
-  %.0.i244 = phi ptr [ %switch.load332, %switch.lookup329 ], [ @normal_draw, %224 ]
+get_type_fun.exit245:                             ; preds = %224, %switch.lookup330
+  %.0.i244 = phi ptr [ %switch.load332, %switch.lookup330 ], [ @normal_draw, %224 ]
   tail call void %.0.i244(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 100, i32 noundef 0, i32 noundef 0) #28, !callees !97
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %231 = load i32, ptr %230, align 8, !tbaa !71
@@ -2094,7 +2094,7 @@ get_type_fun.exit245:                             ; preds = %224, %switch.lookup
   %263 = load ptr, ptr %256, align 8, !tbaa !103
   %264 = load ptr, ptr %246, align 8, !tbaa !8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 32
-  %266 = getelementptr inbounds nuw [3 x [128 x i8]], ptr %257, i64 0, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [128 x i8], ptr %257, i64 %indvars.iv
   %267 = trunc nuw i64 %indvars.iv to i32
   tail call void %263(ptr noundef nonnull %0, ptr noundef nonnull %265, i32 noundef %15, i32 noundef 100, i32 noundef %13, i32 noundef %.0215260, ptr noundef nonnull %266, ptr noundef null, i32 noundef %267) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2272,7 +2272,7 @@ define internal fastcc void @prepare_text(ptr noundef %0, ptr noundef %1) unname
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %21 = load i32, ptr %1, align 8, !tbaa !96
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [20 x i32], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !4
   %.not194 = icmp eq i32 %24, 0
   br i1 %.not194, label %.loopexit, label %25
@@ -2460,7 +2460,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   %138 = load i32, ptr %1, align 8, !tbaa !96
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw [20 x i32], ptr %137, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %137, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !4
   %.not200 = icmp ne i32 %141, 0
   %142 = icmp eq i32 %138, 18
@@ -2497,7 +2497,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %158 = add i32 %157, 1
   store i32 %158, ptr %15, align 4, !tbaa !90
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %156, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %156, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %162 = load i64, ptr %161, align 8, !tbaa !117
   call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %160, i64 noundef 128, i64 noundef %154, i64 noundef %162)
@@ -2518,7 +2518,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %170 = add i32 %169, 1
   store i32 %170, ptr %15, align 4, !tbaa !90
   %171 = zext i32 %169 to i64
-  %172 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %168, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %168, i64 %171
   %173 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %172, i64 noundef 128, ptr noundef nonnull @.str.40, ptr noundef nonnull %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %174
@@ -2540,7 +2540,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %184 = add i32 %183, 1
   store i32 %184, ptr %15, align 4, !tbaa !90
   %185 = zext i32 %183 to i64
-  %186 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %182, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %182, i64 %185
   %187 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %186, i64 noundef 128, ptr noundef nonnull @.str.44, ptr noundef nonnull %175, ptr noundef nonnull %176, ptr noundef nonnull %177) #28
   br label %276
 
@@ -2561,7 +2561,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %196 = add i32 %195, 1
   store i32 %196, ptr %15, align 4, !tbaa !90
   %197 = zext i32 %195 to i64
-  %198 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %194, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %194, i64 %197
   %199 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %198, i64 noundef 128, ptr noundef nonnull @.str.47, i64 noundef %193) #28
   br label %200
 
@@ -2576,7 +2576,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %205 = add i32 %204, 1
   store i32 %205, ptr %15, align 4, !tbaa !90
   %206 = zext i32 %204 to i64
-  %207 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %203, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %203, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %209 = load i64, ptr %208, align 8, !tbaa !117
   call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %207, i64 noundef 128, i64 noundef %201, i64 noundef %209)
@@ -2599,7 +2599,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %218 = add i32 %217, 1
   store i32 %218, ptr %15, align 4, !tbaa !90
   %219 = zext i32 %217 to i64
-  %220 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %216, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %216, i64 %219
   %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %220, i64 noundef 128, ptr noundef nonnull @.str.51, i64 noundef %215) #28
   br label %222
 
@@ -2614,7 +2614,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %227 = add i32 %226, 1
   store i32 %227, ptr %15, align 4, !tbaa !90
   %228 = zext i32 %226 to i64
-  %229 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %225, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %225, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %231 = load i64, ptr %230, align 8, !tbaa !117
   call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %229, i64 noundef 128, i64 noundef %223, i64 noundef %231)
@@ -2640,7 +2640,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %241 = add i32 %240, 1
   store i32 %241, ptr %15, align 4, !tbaa !90
   %242 = zext i32 %240 to i64
-  %243 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %239, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %239, i64 %242
   %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %243, i64 noundef 128, ptr noundef nonnull @.str.55, ptr noundef nonnull %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %245
@@ -2662,7 +2662,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %251 = add i32 %250, 1
   store i32 %251, ptr %15, align 4, !tbaa !90
   %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %249, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %249, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %255 = load i64, ptr %254, align 8, !tbaa !117
   call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %253, i64 noundef 128, i64 noundef %.0171225, i64 noundef %255)
@@ -2688,7 +2688,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %268 = add i32 %267, 1
   store i32 %268, ptr %15, align 4, !tbaa !90
   %269 = zext i32 %267 to i64
-  %270 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %266, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %266, i64 %269
   %271 = call i64 @strtol(ptr noundef nonnull captures(none) %257, ptr noundef null, i32 noundef 10) #28
   %272 = trunc i64 %271 to i32
   %273 = icmp sgt i32 %272, 1
@@ -2714,7 +2714,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %285 = add i32 %284, 1
   store i32 %285, ptr %15, align 4, !tbaa !90
   %286 = zext i32 %284 to i64
-  %287 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %283, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %283, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %289 = load i64, ptr %288, align 8, !tbaa !117
   call fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull %287, i64 noundef 128, i64 noundef %281, i64 noundef %289)
@@ -2742,7 +2742,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %301 = add i32 %300, 1
   store i32 %301, ptr %15, align 4, !tbaa !90
   %302 = zext i32 %300 to i64
-  %303 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %299, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %299, i64 %302
   %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %303, i64 noundef 128, ptr noundef nonnull @.str.67, ptr noundef nonnull %9) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %305
@@ -2762,7 +2762,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   %312 = add i32 %311, 1
   store i32 %312, ptr %15, align 4, !tbaa !90
   %313 = zext i32 %311 to i64
-  %314 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %310, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %310, i64 %313
   %315 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %314, i64 noundef 128, ptr noundef nonnull @.str.69, ptr noundef nonnull %10) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %316
@@ -2786,14 +2786,14 @@ lstopo_busid_snprintf.exit:                       ; preds = %49, %76, %87
   br i1 %.not221, label %326, label %322
 
 322:                                              ; preds = %321
-  %323 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %318, i64 0, i64 %indvars.iv
+  %323 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %318, i64 %indvars.iv
   %324 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %323) #26
   %325 = trunc i64 %324 to i32
   br label %326
 
 326:                                              ; preds = %322, %321
   %.3 = phi i32 [ %325, %322 ], [ %.2226, %321 ]
-  %327 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %318, i64 0, i64 %indvars.iv
+  %327 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %318, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %328 = load ptr, ptr %319, align 8, !tbaa !27
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 40
@@ -2939,7 +2939,7 @@ thread-pre-split:                                 ; preds = %4
   %.pr92 = load i32, ptr %3, align 8, !tbaa !96
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %48 = zext i32 %.pr92 to i64
-  %49 = getelementptr inbounds nuw [20 x i32], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !4
   %51 = icmp ne i32 %50, 0
   %52 = icmp ne i32 %12, 3
@@ -3008,7 +3008,7 @@ thread-pre-split100:                              ; preds = %66
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   %83 = load i32, ptr %3, align 8, !tbaa !96
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw [20 x i32], ptr %82, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !4
   %.not86 = icmp eq i32 %86, 0
   br i1 %.not86, label %.thread, label %87
@@ -3332,7 +3332,7 @@ define internal void @normal_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1332
   %27 = load i32, ptr %1, align 8, !tbaa !96
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [20 x i32], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = icmp ugt i32 %25, %30
   br i1 %31, label %32, label %33
@@ -3416,7 +3416,7 @@ define internal void @normal_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %79 = load i32, ptr %1, align 8, !tbaa !96
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw [20 x i32], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %78, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %.not25.i = icmp eq i32 %82, 0
   br i1 %.not25.i, label %draw_text.exit, label %.preheader.i
@@ -3436,7 +3436,7 @@ define internal void @normal_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2
 88:                                               ; preds = %88, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
   %89 = load ptr, ptr %85, align 8, !tbaa !103
-  %90 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %86, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %86, i64 %indvars.iv.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 132
   %92 = load i32, ptr %91, align 4, !tbaa !93
   %93 = add i32 %69, %92
@@ -3487,7 +3487,7 @@ define internal void @cache_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1332
   %25 = load i32, ptr %1, align 8, !tbaa !96
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [20 x i32], ptr %24, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = icmp ugt i32 %23, %28
   br i1 %29, label %30, label %31
@@ -3580,7 +3580,7 @@ define internal void @cache_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %81 = load i32, ptr %1, align 8, !tbaa !96
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw [20 x i32], ptr %80, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !4
   %.not25.i = icmp eq i32 %84, 0
   br i1 %.not25.i, label %draw_text.exit, label %.preheader.i
@@ -3600,7 +3600,7 @@ define internal void @cache_draw(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 90:                                               ; preds = %90, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %90 ]
   %91 = load ptr, ptr %87, align 8, !tbaa !103
-  %92 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %88, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %88, i64 %indvars.iv.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 132
   %94 = load i32, ptr %93, align 4, !tbaa !93
   %95 = add i32 %69, %94
@@ -3763,7 +3763,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %94 = load i32, ptr %1, align 8, !tbaa !96
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw [20 x i32], ptr %93, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !4
   %.not25.i = icmp eq i32 %97, 0
   br i1 %.not25.i, label %draw_text.exit, label %.preheader.i
@@ -3783,7 +3783,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
 103:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
   %104 = load ptr, ptr %100, align 8, !tbaa !103
-  %105 = getelementptr inbounds nuw [4 x %struct.lstopo_text_line], ptr %101, i64 0, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw %struct.lstopo_text_line, ptr %101, i64 %indvars.iv.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 132
   %107 = load i32, ptr %106, align 4, !tbaa !93
   %108 = add i32 %83, %107
@@ -4172,7 +4172,7 @@ define internal fastcc void @place_children(ptr noundef %0, ptr noundef readonly
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %22 = load i32, ptr %1, align 8, !tbaa !96
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [20 x i32], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   %27 = load i32, ptr %26, align 4, !tbaa !136
@@ -4351,7 +4351,7 @@ define internal fastcc void @place_children(ptr noundef %0, ptr noundef readonly
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1332
   %125 = load i32, ptr %118, align 8, !tbaa !96
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw [20 x i32], ptr %124, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !4
   %129 = icmp ugt i32 %123, %128
   br i1 %129, label %.thread325, label %130
@@ -4446,7 +4446,7 @@ define internal fastcc void @place_children(ptr noundef %0, ptr noundef readonly
 
 171:                                              ; preds = %169
   %172 = zext i32 %.pr.pre.i to i64
-  %173 = getelementptr inbounds nuw [20 x i32], ptr %144, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i32, ptr %144, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !4
   %175 = icmp ugt i32 %136, %174
   br i1 %175, label %176, label %thread-pre-split.i
@@ -4513,7 +4513,7 @@ thread-pre-split.i:                               ; preds = %176, %171, %169
 
 switch.lookup:                                    ; preds = %.lr.ph
   %196 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %196
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.draw__children, i64 %196
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 
@@ -4601,7 +4601,7 @@ get_type_fun.exit:                                ; preds = %.lr.ph, %switch.loo
 225:                                              ; preds = %223
   %226 = load i32, ptr %43, align 8, !tbaa !124
   %227 = zext i32 %.pr.pre.i297 to i64
-  %228 = getelementptr inbounds nuw [20 x i32], ptr %144, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr %144, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !4
   %230 = icmp ugt i32 %226, %229
   br i1 %230, label %231, label %thread-pre-split.i298
@@ -5383,7 +5383,7 @@ define internal fastcc ptr @next_child(ptr noundef readonly captures(none) %0, p
 49:                                               ; preds = %47
   %50 = load i32, ptr %20, align 8, !tbaa !124
   %51 = zext i32 %.pr.pre to i64
-  %52 = getelementptr inbounds nuw [20 x i32], ptr %21, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %21, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = icmp ugt i32 %50, %53
   br i1 %54, label %55, label %thread-pre-split
@@ -5923,7 +5923,7 @@ define internal fastcc void @draw__children(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %25
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.draw__children, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.draw__children, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 

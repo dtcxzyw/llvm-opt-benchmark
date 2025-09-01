@@ -431,7 +431,7 @@ define dso_local void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleE
   %.039 = phi i64 [ %1, %.lr.ph ], [ %31, %25 ]
   %.01838 = phi ptr [ %23, %.lr.ph ], [ %30, %25 ]
   %26 = and i64 %.039, 15
-  %27 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = or i8 %28, %24
   %30 = getelementptr inbounds i8, ptr %.01838, i64 -1

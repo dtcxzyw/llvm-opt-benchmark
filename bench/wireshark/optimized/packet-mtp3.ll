@@ -881,10 +881,10 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %40, %4
 
 switch.lookup:                                    ; preds = %proto_item_set_generated.exit
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mtp3, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mtp3, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep66 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_mtp3.2, i64 0, i64 %51
+  %switch.gep66 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mtp3.2, i64 %51
   %switch.load67 = load i32, ptr %switch.gep66, align 4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -1272,18 +1272,18 @@ dissect_mtp3_routing_label.exit:                  ; preds = %142, %168, %171, %1
   tail call void @tap_queue_packet(i32 noundef %258, ptr noundef %1, ptr noundef %7)
   %259 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %260 = load i32, ptr @mtp3_standard, align 4
-  %switch.tableidx69 = add i32 %260, -1
-  %261 = icmp ult i32 %switch.tableidx69, 4
-  br i1 %261, label %switch.lookup68, label %262
+  %switch.tableidx68 = add i32 %260, -1
+  %261 = icmp ult i32 %switch.tableidx68, 4
+  br i1 %261, label %switch.lookup69, label %262
 
 262:                                              ; preds = %dissect_mtp3_routing_label.exit
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, i32 noundef 686) #15
   unreachable
 
-switch.lookup68:                                  ; preds = %dissect_mtp3_routing_label.exit
+switch.lookup69:                                  ; preds = %dissect_mtp3_routing_label.exit
   %263 = and i8 %259, 15
-  %264 = zext nneg i32 %switch.tableidx69 to i64
-  %switch.gep70 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_mtp3.2, i64 0, i64 %264
+  %264 = zext nneg i32 %switch.tableidx68 to i64
+  %switch.gep70 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mtp3.2, i64 %264
   %switch.load71 = load i32, ptr %switch.gep70, align 4
   %265 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %switch.load71)
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1295,11 +1295,11 @@ switch.lookup68:                                  ; preds = %dissect_mtp3_routin
   %.not.i52 = icmp eq i32 %270, 0
   br i1 %.not.i52, label %271, label %dissect_mtp3_payload.exit
 
-271:                                              ; preds = %switch.lookup68
+271:                                              ; preds = %switch.lookup69
   %272 = tail call i32 @call_data_dissector(ptr noundef %265, ptr noundef %1, ptr noundef %2)
   br label %dissect_mtp3_payload.exit
 
-dissect_mtp3_payload.exit:                        ; preds = %switch.lookup68, %271
+dissect_mtp3_payload.exit:                        ; preds = %switch.lookup69, %271
   %273 = load i32, ptr @pref_mtp3_standard, align 4
   store i32 %273, ptr @mtp3_standard, align 4
   %274 = tail call i32 @tvb_captured_length(ptr noundef %0)

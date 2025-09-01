@@ -59,7 +59,7 @@ agxblen.exit.i.i:                                 ; preds = %18
 .thread:                                          ; preds = %agxblen.exit.i.i, %24
   %.val.i25.i.i176 = phi i8 [ %.val.i25.pre.i.i, %24 ], [ 0, %agxblen.exit.i.i ]
   %25 = zext i8 %.val.i25.i.i176 to i64
-  %26 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
   %27 = trunc i64 %19 to i8
   %28 = load i8, ptr %21, align 1, !tbaa !3
@@ -135,7 +135,7 @@ agxbsizeof.exit.i:                                ; preds = %44, %38
 
 53:                                               ; preds = %52
   %54 = zext i8 %.val.i15.i to i64
-  %55 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %54
   store i8 92, ptr %55, align 1, !tbaa !3
   %56 = load i8, ptr %35, align 1, !tbaa !3
   %57 = add i8 %56, 1
@@ -214,7 +214,7 @@ agxbsizeof.exit.i73:                              ; preds = %agxbputc.exit
 
 79:                                               ; preds = %78
   %80 = zext i8 %.val.i15.i78 to i64
-  %81 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %80
   store i8 %73, ptr %81, align 1, !tbaa !3
   %82 = load i8, ptr %35, align 1, !tbaa !3
   %83 = add i8 %82, 1
@@ -259,7 +259,7 @@ agxbputc.exit80:                                  ; preds = %79, %84
 
 98:                                               ; preds = %97
   %99 = zext i8 %.val.i15.i89 to i64
-  %100 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 %99
   store i8 %93, ptr %100, align 1, !tbaa !3
   %101 = load i8, ptr %35, align 1, !tbaa !3
   %102 = add i8 %101, 1
@@ -312,7 +312,7 @@ agxbsizeof.exit.i95:                              ; preds = %112
 
 119:                                              ; preds = %118
   %120 = zext i8 %.val.i15.i100 to i64
-  %121 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 %120
   store i8 92, ptr %121, align 1, !tbaa !3
   %122 = load i8, ptr %35, align 1, !tbaa !3
   %123 = add i8 %122, 1
@@ -392,7 +392,7 @@ agxbputc.exit102:                                 ; preds = %137, %137, %137, %1
 
 144:                                              ; preds = %143
   %145 = zext i8 %.val.i15.i113 to i64
-  %146 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 %145
   store i8 %138, ptr %146, align 1, !tbaa !3
   %147 = load i8, ptr %35, align 1, !tbaa !3
   %148 = add i8 %147, 1
@@ -469,7 +469,7 @@ agxbsizeof.exit.i.i119:                           ; preds = %162
 
 176:                                              ; preds = %175
   %177 = zext i8 %.val.i15.pre.i.i to i64
-  %178 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %4, i64 %177
   store i8 0, ptr %178, align 1, !tbaa !3
   br label %agxbputc.exit.i
 
@@ -506,7 +506,7 @@ agxblen.exit.i.i123:                              ; preds = %agxbdisown.exit
 .thread188:                                       ; preds = %agxblen.exit.i.i123, %188
   %.val.i25.i.i126191 = phi i8 [ %.val.i25.pre.i.i128, %188 ], [ 0, %agxblen.exit.i.i123 ]
   %189 = zext i8 %.val.i25.i.i126191 to i64
-  %190 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr %4, i64 %189
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr nonnull readonly align 1 %183, i64 %184, i1 false)
   %191 = trunc i64 %184 to i8
   %192 = load i8, ptr %163, align 1, !tbaa !3
@@ -568,7 +568,7 @@ agxblen.exit.i.i133:                              ; preds = %201
 
 214:                                              ; preds = %213
   %215 = zext i8 %.val.i25.i.i136 to i64
-  %216 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 %215
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %216, ptr nonnull readonly align 1 %2, i64 %202, i1 false)
   %217 = trunc i64 %202 to i8
   %218 = load i8, ptr %204, align 1, !tbaa !3
@@ -624,7 +624,7 @@ agxbsizeof.exit.i.i144:                           ; preds = %agxbput.exit139
 
 238:                                              ; preds = %237
   %239 = zext i8 %.val.i15.pre.i.i146 to i64
-  %240 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr %4, i64 %239
   store i8 0, ptr %240, align 1, !tbaa !3
   br label %agxbputc.exit.i148
 

@@ -47,7 +47,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3addEmm
   %20 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %.03847.us.us
   %21 = load <8 x i16>, ptr %20, align 16, !tbaa !13
   %22 = add <8 x i16> %21, %19
-  %23 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.03847.us.us
+  %23 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.03847.us.us
   store <8 x i16> %22, ptr %23, align 16, !tbaa !13
   %24 = add nuw nsw i64 %.03847.us.us, 1
   %exitcond57.not = icmp eq i64 %24, 4
@@ -80,7 +80,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3addEmm
   %36 = getelementptr inbounds nuw <2 x i64>, ptr %29, i64 %.03847
   %37 = load <4 x i32>, ptr %36, align 16, !tbaa !13
   %38 = add <4 x i32> %37, %35
-  %39 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.03847
+  %39 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.03847
   store <4 x i32> %38, ptr %39, align 16, !tbaa !13
   %40 = add nuw nsw i64 %.03847, 1
   %exitcond.not = icmp eq i64 %40, 4
@@ -120,7 +120,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3addEmm
   %59 = load <2 x i64>, ptr %58, align 16, !tbaa !13
   %60 = add <2 x i64> %59, %57
   %61 = and <2 x i64> %60, %43
-  %62 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.03751
+  %62 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.03751
   store <2 x i64> %61, ptr %62, align 16, !tbaa !13
   %63 = add nuw nsw i64 %.03751, 1
   %exitcond58.not = icmp eq i64 %63, 4
@@ -170,7 +170,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3subEmm
   %20 = getelementptr inbounds nuw <2 x i64>, ptr %16, i64 %.04252.us.us
   %21 = load <8 x i16>, ptr %20, align 16, !tbaa !13
   %22 = sub <8 x i16> %19, %21
-  %23 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.04252.us.us
+  %23 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.04252.us.us
   store <8 x i16> %22, ptr %23, align 16, !tbaa !13
   %24 = add nuw nsw i64 %.04252.us.us, 1
   %exitcond62.not = icmp eq i64 %24, 4
@@ -203,7 +203,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3subEmm
   %36 = getelementptr inbounds nuw <2 x i64>, ptr %29, i64 %.04252
   %37 = load <4 x i32>, ptr %36, align 16, !tbaa !13
   %38 = sub <4 x i32> %35, %37
-  %39 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.04252
+  %39 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.04252
   store <4 x i32> %38, ptr %39, align 16, !tbaa !13
   %40 = add nuw nsw i64 %.04252, 1
   %exitcond.not = icmp eq i64 %40, 4
@@ -248,7 +248,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE3subEmm
   %64 = and <2 x i64> %63, %43
   %65 = add <2 x i64> %64, %60
   %66 = and <2 x i64> %65, %43
-  %67 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %8, i64 0, i64 %.04356
+  %67 = getelementptr inbounds nuw <2 x i64>, ptr %8, i64 %.04356
   store <2 x i64> %66, ptr %67, align 16, !tbaa !13
   %68 = add nuw nsw i64 %.04356, 1
   %exitcond63.not = icmp eq i64 %68, 4
@@ -295,7 +295,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE2EE16clear
   %17 = getelementptr inbounds nuw <2 x i64>, ptr %12, i64 %.016
   %18 = load <2 x i64>, ptr %17, align 16, !tbaa !13
   %19 = and <2 x i64> %18, %8
-  %20 = getelementptr inbounds nuw [4 x <2 x i64>], ptr %4, i64 0, i64 %.016
+  %20 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.016
   store <2 x i64> %19, ptr %20, align 16, !tbaa !13
   %21 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %21, 4

@@ -284,7 +284,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit: ; preds = %.lr.ph.i.p
   %77 = mul nsw i32 %76, %74
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds float, ptr %75, i64 %78
-  %80 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   br label %.lr.ph.i54
 
@@ -559,7 +559,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_evalBSplineCurveEfPfS2_S2_.exit.i.i: ; preds = 
 
 .preheader97.i.i:                                 ; preds = %.preheader97.i.i.preheader, %147
   %indvars.iv105.i.i = phi i64 [ %indvars.iv.next106.i.i, %147 ], [ 0, %.preheader97.i.i.preheader ]
-  %141 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv105.i.i
+  %141 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv105.i.i
   %142 = load float, ptr %141, align 4
   %.idx.i.i = shl nuw nsw i64 %indvars.iv105.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
@@ -567,7 +567,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_evalBSplineCurveEfPfS2_S2_.exit.i.i: ; preds = 
 
 143:                                              ; preds = %143, %.preheader97.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader97.i.i ], [ %indvars.iv.next.i.i, %143 ]
-  %144 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i.i
   %145 = load float, ptr %144, align 4
   %146 = fmul float %142, %145
   %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
@@ -587,22 +587,22 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_evalBSplineCurveEfPfS2_S2_.exit.i.i: ; preds = 
 
 .preheader95.i.i:                                 ; preds = %148, %164
   %indvars.iv113.i.i = phi i64 [ %indvars.iv.next114.i.i, %164 ], [ 0, %148 ]
-  %149 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv113.i.i
+  %149 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv113.i.i
   %150 = load float, ptr %149, align 4
   %151 = shl nuw nsw i64 %indvars.iv113.i.i, 2
-  %152 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %indvars.iv113.i.i
+  %152 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv113.i.i
   %153 = load float, ptr %152, align 4
   br label %154
 
 154:                                              ; preds = %154, %.preheader95.i.i
   %indvars.iv109.i.i = phi i64 [ 0, %.preheader95.i.i ], [ %indvars.iv.next110.i.i, %154 ]
-  %155 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %indvars.iv109.i.i
+  %155 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv109.i.i
   %156 = load float, ptr %155, align 4
   %157 = fmul float %150, %156
   %158 = add nuw nsw i64 %indvars.iv109.i.i, %151
   %159 = getelementptr inbounds nuw float, ptr %5, i64 %158
   store float %157, ptr %159, align 4
-  %160 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv109.i.i
+  %160 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv109.i.i
   %161 = load float, ptr %160, align 4
   %162 = fmul float %153, %161
   %163 = getelementptr inbounds nuw float, ptr %6, i64 %158
@@ -624,29 +624,29 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_evalBSplineCurveEfPfS2_S2_.exit.i.i: ; preds = 
 
 .preheader.i.i:                                   ; preds = %165, %188
   %indvars.iv121.i.i = phi i64 [ %indvars.iv.next122.i.i, %188 ], [ 0, %165 ]
-  %167 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv121.i.i
+  %167 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv121.i.i
   %168 = load float, ptr %167, align 4
   %169 = shl nuw nsw i64 %indvars.iv121.i.i, 2
-  %170 = getelementptr inbounds nuw [4 x float], ptr %21, i64 0, i64 %indvars.iv121.i.i
+  %170 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv121.i.i
   %171 = load float, ptr %170, align 4
-  %172 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %indvars.iv121.i.i
+  %172 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv121.i.i
   %173 = load float, ptr %172, align 4
   br label %174
 
 174:                                              ; preds = %174, %.preheader.i.i
   %indvars.iv117.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next118.i.i, %174 ]
-  %175 = getelementptr inbounds nuw [4 x float], ptr %22, i64 0, i64 %indvars.iv117.i.i
+  %175 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv117.i.i
   %176 = load float, ptr %175, align 4
   %177 = fmul float %168, %176
   %178 = add nuw nsw i64 %indvars.iv117.i.i, %169
   %179 = getelementptr inbounds nuw float, ptr %7, i64 %178
   store float %177, ptr %179, align 4
-  %180 = getelementptr inbounds nuw [4 x float], ptr %20, i64 0, i64 %indvars.iv117.i.i
+  %180 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv117.i.i
   %181 = load float, ptr %180, align 4
   %182 = fmul float %171, %181
   %183 = getelementptr inbounds nuw float, ptr %8, i64 %178
   store float %182, ptr %183, align 4
-  %184 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv117.i.i
+  %184 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv117.i.i
   %185 = load float, ptr %184, align 4
   %186 = fmul float %173, %185
   %187 = getelementptr inbounds nuw float, ptr %9, i64 %178
@@ -1852,18 +1852,18 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 909:                                              ; preds = %909, %_ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i
   %indvars.iv.i88.i = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i ], [ %indvars.iv.next.i89.i, %909 ]
-  %910 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 0, i64 %indvars.iv.i88.i
+  %910 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 %indvars.iv.i88.i
   %911 = load i32, ptr %910, align 4
   %912 = sext i32 %911 to i64
-  %913 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %912
+  %913 = getelementptr inbounds float, ptr %11, i64 %912
   %914 = load float, ptr %913, align 4
-  %915 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 0, i64 %indvars.iv.i88.i
+  %915 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 %indvars.iv.i88.i
   %916 = load i32, ptr %915, align 4
   %917 = sext i32 %916 to i64
-  %918 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %917
+  %918 = getelementptr inbounds float, ptr %14, i64 %917
   %919 = load float, ptr %918, align 4
   %920 = fmul float %914, %919
-  %921 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 0, i64 %indvars.iv.i88.i
+  %921 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 %indvars.iv.i88.i
   %922 = load i32, ptr %921, align 4
   %923 = sext i32 %922 to i64
   %924 = getelementptr inbounds float, ptr %4, i64 %923
@@ -1874,21 +1874,21 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 .preheader147.i.i:                                ; preds = %909, %.preheader147.i.i
   %indvars.iv156.i.i = phi i64 [ %indvars.iv.next157.i.i, %.preheader147.i.i ], [ 0, %909 ]
-  %925 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 0, i64 %indvars.iv156.i.i
+  %925 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 %indvars.iv156.i.i
   %926 = load i32, ptr %925, align 4
   %927 = sext i32 %926 to i64
-  %928 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %927
+  %928 = getelementptr inbounds float, ptr %11, i64 %927
   %929 = load float, ptr %928, align 4
-  %930 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 0, i64 %indvars.iv156.i.i
+  %930 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 %indvars.iv156.i.i
   %931 = load i32, ptr %930, align 4
   %932 = sext i32 %931 to i64
-  %933 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %932
+  %933 = getelementptr inbounds float, ptr %14, i64 %932
   %934 = load float, ptr %933, align 4
   %935 = fmul float %929, %934
-  %936 = getelementptr inbounds nuw [8 x float], ptr %17, i64 0, i64 %indvars.iv156.i.i
+  %936 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv156.i.i
   %937 = load float, ptr %936, align 4
   %938 = fmul float %935, %937
-  %939 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 0, i64 %indvars.iv156.i.i
+  %939 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 %indvars.iv156.i.i
   %940 = load i32, ptr %939, align 4
   %941 = sext i32 %940 to i64
   %942 = getelementptr inbounds float, ptr %4, i64 %941
@@ -1908,30 +1908,30 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 .split.us.i.i:                                    ; preds = %944, %.split.us.i.i
   %indvars.iv164.i.i = phi i64 [ %indvars.iv.next165.i.i, %.split.us.i.i ], [ 0, %944 ]
-  %945 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 0, i64 %indvars.iv164.i.i
+  %945 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 %indvars.iv164.i.i
   %946 = load i32, ptr %945, align 4
-  %947 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 0, i64 %indvars.iv164.i.i
+  %947 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 %indvars.iv164.i.i
   %948 = load i32, ptr %947, align 4
-  %949 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 0, i64 %indvars.iv164.i.i
+  %949 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 %indvars.iv164.i.i
   %950 = load i32, ptr %949, align 4
   %951 = sext i32 %950 to i64
-  %952 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %951
+  %952 = getelementptr inbounds float, ptr %12, i64 %951
   %953 = load float, ptr %952, align 4
   %954 = sext i32 %948 to i64
-  %955 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %954
+  %955 = getelementptr inbounds float, ptr %14, i64 %954
   %956 = load float, ptr %955, align 4
   %957 = fmul float %953, %956
   %958 = sext i32 %946 to i64
   %959 = getelementptr inbounds float, ptr %5, i64 %958
   store float %957, ptr %959, align 4
-  %960 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %954
+  %960 = getelementptr inbounds float, ptr %15, i64 %954
   %961 = load float, ptr %960, align 4
-  %962 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %951
+  %962 = getelementptr inbounds float, ptr %11, i64 %951
   %963 = load float, ptr %962, align 4
   %964 = fmul float %961, %963
   %965 = getelementptr inbounds float, ptr %6, i64 %958
   store float %964, ptr %965, align 4
-  %966 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %951
+  %966 = getelementptr inbounds float, ptr %13, i64 %951
   %967 = load float, ptr %966, align 4
   %968 = fmul float %956, %967
   %969 = getelementptr inbounds float, ptr %7, i64 %958
@@ -1939,7 +1939,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   %970 = fmul float %953, %961
   %971 = getelementptr inbounds float, ptr %8, i64 %958
   store float %970, ptr %971, align 4
-  %972 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 %954
+  %972 = getelementptr inbounds float, ptr %16, i64 %954
   %973 = load float, ptr %972, align 4
   %974 = fmul float %963, %973
   %975 = getelementptr inbounds float, ptr %9, i64 %958
@@ -1950,34 +1950,34 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 .preheader.split152.us.i.i:                       ; preds = %.split.us.i.i, %.preheader.split152.us.i.i
   %indvars.iv172.i.i = phi i64 [ %indvars.iv.next173.i.i, %.preheader.split152.us.i.i ], [ 0, %.split.us.i.i ]
-  %976 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 0, i64 %indvars.iv172.i.i
+  %976 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 %indvars.iv172.i.i
   %977 = load i32, ptr %976, align 4
-  %978 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 0, i64 %indvars.iv172.i.i
+  %978 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 %indvars.iv172.i.i
   %979 = load i32, ptr %978, align 4
-  %980 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 0, i64 %indvars.iv172.i.i
+  %980 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 %indvars.iv172.i.i
   %981 = load i32, ptr %980, align 4
   %982 = sext i32 %981 to i64
-  %983 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %982
+  %983 = getelementptr inbounds float, ptr %12, i64 %982
   %984 = load float, ptr %983, align 4
   %985 = sext i32 %979 to i64
-  %986 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %985
+  %986 = getelementptr inbounds float, ptr %14, i64 %985
   %987 = load float, ptr %986, align 4
   %988 = fmul float %984, %987
-  %989 = getelementptr inbounds nuw [8 x float], ptr %17, i64 0, i64 %indvars.iv172.i.i
+  %989 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv172.i.i
   %990 = load float, ptr %989, align 4
   %991 = fmul float %988, %990
   %992 = sext i32 %977 to i64
   %993 = getelementptr inbounds float, ptr %5, i64 %992
   store float %991, ptr %993, align 4
-  %994 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %985
+  %994 = getelementptr inbounds float, ptr %15, i64 %985
   %995 = load float, ptr %994, align 4
-  %996 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %982
+  %996 = getelementptr inbounds float, ptr %11, i64 %982
   %997 = load float, ptr %996, align 4
   %998 = fmul float %995, %997
   %999 = fmul float %990, %998
   %1000 = getelementptr inbounds float, ptr %6, i64 %992
   store float %999, ptr %1000, align 4
-  %1001 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %982
+  %1001 = getelementptr inbounds float, ptr %13, i64 %982
   %1002 = load float, ptr %1001, align 4
   %1003 = fmul float %987, %1002
   %1004 = fmul float %990, %1003
@@ -1987,7 +1987,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   %1007 = fmul float %990, %1006
   %1008 = getelementptr inbounds float, ptr %8, i64 %992
   store float %1007, ptr %1008, align 4
-  %1009 = getelementptr inbounds [4 x float], ptr %16, i64 0, i64 %985
+  %1009 = getelementptr inbounds float, ptr %16, i64 %985
   %1010 = load float, ptr %1009, align 4
   %1011 = fmul float %997, %1010
   %1012 = fmul float %990, %1011
@@ -1999,25 +1999,25 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 .split.i.i:                                       ; preds = %944, %.split.i.i
   %indvars.iv160.i.i = phi i64 [ %indvars.iv.next161.i.i, %.split.i.i ], [ 0, %944 ]
-  %1014 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 0, i64 %indvars.iv160.i.i
+  %1014 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryGregory, i64 %indvars.iv160.i.i
   %1015 = load i32, ptr %1014, align 4
-  %1016 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 0, i64 %indvars.iv160.i.i
+  %1016 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezTRow, i64 %indvars.iv160.i.i
   %1017 = load i32, ptr %1016, align 4
-  %1018 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 0, i64 %indvars.iv160.i.i
+  %1018 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15boundaryBezSCol, i64 %indvars.iv160.i.i
   %1019 = load i32, ptr %1018, align 4
   %1020 = sext i32 %1019 to i64
-  %1021 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %1020
+  %1021 = getelementptr inbounds float, ptr %12, i64 %1020
   %1022 = load float, ptr %1021, align 4
   %1023 = sext i32 %1017 to i64
-  %1024 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %1023
+  %1024 = getelementptr inbounds float, ptr %14, i64 %1023
   %1025 = load float, ptr %1024, align 4
   %1026 = fmul float %1022, %1025
   %1027 = sext i32 %1015 to i64
   %1028 = getelementptr inbounds float, ptr %5, i64 %1027
   store float %1026, ptr %1028, align 4
-  %1029 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1023
+  %1029 = getelementptr inbounds float, ptr %15, i64 %1023
   %1030 = load float, ptr %1029, align 4
-  %1031 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %1020
+  %1031 = getelementptr inbounds float, ptr %11, i64 %1020
   %1032 = load float, ptr %1031, align 4
   %1033 = fmul float %1030, %1032
   %1034 = getelementptr inbounds float, ptr %6, i64 %1027
@@ -2028,28 +2028,28 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
 
 .preheader.split152.i.i:                          ; preds = %.split.i.i, %.preheader.split152.i.i
   %indvars.iv168.i.i = phi i64 [ %indvars.iv.next169.i.i, %.preheader.split152.i.i ], [ 0, %.split.i.i ]
-  %1035 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 0, i64 %indvars.iv168.i.i
+  %1035 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 %indvars.iv168.i.i
   %1036 = load i32, ptr %1035, align 4
-  %1037 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 0, i64 %indvars.iv168.i.i
+  %1037 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 %indvars.iv168.i.i
   %1038 = load i32, ptr %1037, align 4
-  %1039 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 0, i64 %indvars.iv168.i.i
+  %1039 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezSCol, i64 %indvars.iv168.i.i
   %1040 = load i32, ptr %1039, align 4
   %1041 = sext i32 %1040 to i64
-  %1042 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %1041
+  %1042 = getelementptr inbounds float, ptr %12, i64 %1041
   %1043 = load float, ptr %1042, align 4
   %1044 = sext i32 %1038 to i64
-  %1045 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %1044
+  %1045 = getelementptr inbounds float, ptr %14, i64 %1044
   %1046 = load float, ptr %1045, align 4
   %1047 = fmul float %1043, %1046
-  %1048 = getelementptr inbounds nuw [8 x float], ptr %17, i64 0, i64 %indvars.iv168.i.i
+  %1048 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv168.i.i
   %1049 = load float, ptr %1048, align 4
   %1050 = fmul float %1047, %1049
   %1051 = sext i32 %1036 to i64
   %1052 = getelementptr inbounds float, ptr %5, i64 %1051
   store float %1050, ptr %1052, align 4
-  %1053 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1044
+  %1053 = getelementptr inbounds float, ptr %15, i64 %1044
   %1054 = load float, ptr %1053, align 4
-  %1055 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %1041
+  %1055 = getelementptr inbounds float, ptr %11, i64 %1041
   %1056 = load float, ptr %1055, align 4
   %1057 = fmul float %1054, %1056
   %1058 = fmul float %1049, %1057
@@ -3247,7 +3247,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit79: ; preds = %.lr.ph.i
   %108 = mul nsw i32 %107, %105
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds float, ptr %106, i64 %109
-  %111 = getelementptr inbounds nuw [20 x float], ptr %19, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %112 = load float, ptr %111, align 4
   br i1 %brmerge, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit, label %.lr.ph.i80
 
@@ -3275,7 +3275,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit: ; preds =
   %.pre-phi149 = phi i64 [ %.pre148, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit ], [ %109, %103 ]
   %118 = phi ptr [ %.pre142, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit ], [ %106, %103 ]
   %119 = getelementptr inbounds float, ptr %118, i64 %.pre-phi149
-  %120 = getelementptr inbounds nuw [20 x float], ptr %20, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %121 = load float, ptr %120, align 4
   br i1 %brmerge126, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit88, label %.lr.ph.i85
 
@@ -3303,7 +3303,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit88: ; preds
   %.pre-phi153 = phi i64 [ %.pre152, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit88.loopexit ], [ %.pre-phi149, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit ]
   %127 = phi ptr [ %.pre145, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit88.loopexit ], [ %118, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit ]
   %128 = getelementptr inbounds float, ptr %127, i64 %.pre-phi153
-  %129 = getelementptr inbounds nuw [20 x float], ptr %21, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
   %130 = load float, ptr %129, align 4
   br i1 %brmerge128, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit94, label %.lr.ph.i91
 
@@ -3662,7 +3662,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE5ClearEv.exit118: ; preds = %.lr.ph.
   %153 = mul nsw i32 %152, %150
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds float, ptr %151, i64 %154
-  %156 = getelementptr inbounds nuw [20 x float], ptr %25, i64 0, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %157 = load float, ptr %156, align 4
   br i1 %brmerge, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit, label %.lr.ph.i119
 
@@ -3690,7 +3690,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit: ; preds =
   %.pre-phi257 = phi i64 [ %.pre256, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit ], [ %154, %148 ]
   %163 = phi ptr [ %.pre241, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit.loopexit ], [ %151, %148 ]
   %164 = getelementptr inbounds float, ptr %163, i64 %.pre-phi257
-  %165 = getelementptr inbounds nuw [20 x float], ptr %26, i64 0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
   %166 = load float, ptr %165, align 4
   br i1 %brmerge216, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127, label %.lr.ph.i124
 
@@ -3718,7 +3718,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127: ; pred
   %.pre-phi261 = phi i64 [ %.pre260, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127.loopexit ], [ %.pre-phi257, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit ]
   %172 = phi ptr [ %.pre244, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127.loopexit ], [ %163, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit ]
   %173 = getelementptr inbounds float, ptr %172, i64 %.pre-phi261
-  %174 = getelementptr inbounds nuw [20 x float], ptr %27, i64 0, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
   %175 = load float, ptr %174, align 4
   br i1 %brmerge218, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133, label %.lr.ph.i130
 
@@ -3746,7 +3746,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133: ; pred
   %.pre-phi265 = phi i64 [ %.pre264, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133.loopexit ], [ %.pre-phi261, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127 ]
   %181 = phi ptr [ %.pre247, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133.loopexit ], [ %172, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit127 ]
   %182 = getelementptr inbounds float, ptr %181, i64 %.pre-phi265
-  %183 = getelementptr inbounds nuw [20 x float], ptr %28, i64 0, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
   %184 = load float, ptr %183, align 4
   br i1 %brmerge220, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139, label %.lr.ph.i136
 
@@ -3774,7 +3774,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139: ; pred
   %.pre-phi269 = phi i64 [ %.pre268, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139.loopexit ], [ %.pre-phi265, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133 ]
   %190 = phi ptr [ %.pre250, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139.loopexit ], [ %181, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit133 ]
   %191 = getelementptr inbounds float, ptr %190, i64 %.pre-phi269
-  %192 = getelementptr inbounds nuw [20 x float], ptr %29, i64 0, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   %193 = load float, ptr %192, align 4
   br i1 %brmerge222, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit145, label %.lr.ph.i142
 
@@ -3802,7 +3802,7 @@ _ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit145: ; pred
   %.pre-phi273 = phi i64 [ %.pre272, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit145.loopexit ], [ %.pre-phi269, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139 ]
   %199 = phi ptr [ %.pre253, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit145.loopexit ], [ %190, %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit139 ]
   %200 = getelementptr inbounds float, ptr %199, i64 %.pre-phi273
-  %201 = getelementptr inbounds nuw [20 x float], ptr %30, i64 0, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
   %202 = load float, ptr %201, align 4
   br i1 %brmerge224, label %_ZN10OpenSubdiv6v3_6_03Osd13BufferAdapterIfE13AddWithWeightEPKff.exit151, label %.lr.ph.i148
 

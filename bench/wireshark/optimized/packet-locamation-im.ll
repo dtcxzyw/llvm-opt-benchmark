@@ -949,7 +949,7 @@ add_rms_values.exit122:                           ; preds = %145
 
 216:                                              ; preds = %213, %211
   %.0.i.i = phi i64 [ %212, %211 ], [ %215, %213 ]
-  %217 = getelementptr [240 x i8], ptr %7, i64 0, i64 %.0.i.i
+  %217 = getelementptr i8, ptr %7, i64 %.0.i.i
   %218 = sub i64 240, %.0.i.i
   %219 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0.i.i)
   %220 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %217, i64 noundef %218, i32 noundef 2, i64 noundef %219, ptr noundef nonnull @.str.185, i32 noundef %206)
@@ -1003,7 +1003,7 @@ add_rms_values.exit122:                           ; preds = %145
 .thread.i.i:                                      ; preds = %245, %241, %237
   %.0114126.i.i = phi i64 [ %.0114.i.i, %241 ], [ 0, %245 ], [ 0, %237 ]
   %246 = phi double [ %244, %241 ], [ 0.000000e+00, %245 ], [ 0.000000e+00, %237 ]
-  %247 = getelementptr [240 x i8], ptr %8, i64 0, i64 %222
+  %247 = getelementptr i8, ptr %8, i64 %222
   %248 = sub nsw i64 240, %222
   %249 = icmp ugt i32 %221, 240
   %250 = select i1 %249, i64 0, i64 %248
@@ -1016,7 +1016,7 @@ add_rms_values.exit122:                           ; preds = %145
   br i1 %255, label %256, label %263
 
 256:                                              ; preds = %.thread.i.i
-  %257 = getelementptr [240 x i8], ptr %8, i64 0, i64 %254
+  %257 = getelementptr i8, ptr %8, i64 %254
   %258 = sub nsw i64 240, %254
   %259 = call i64 @llvm.usub.sat.i64(i64 240, i64 %254)
   %260 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %257, i64 noundef %258, i32 noundef 2, i64 noundef %259, ptr noundef nonnull @.str.188, double noundef %246)
@@ -1031,7 +1031,7 @@ add_rms_values.exit122:                           ; preds = %145
 
 264:                                              ; preds = %263, %216
   %.0113.i.i = phi i64 [ %.1.i.i, %263 ], [ %222, %216 ]
-  %265 = getelementptr [240 x i8], ptr %8, i64 0, i64 %.0113.i.i
+  %265 = getelementptr i8, ptr %8, i64 %.0113.i.i
   %266 = sub nsw i64 240, %.0113.i.i
   %267 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0113.i.i)
   %268 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %265, i64 noundef %266, i32 noundef 2, i64 noundef %267, ptr noundef nonnull @.str.189)
@@ -1223,7 +1223,7 @@ check_ranges.exit.i:                              ; preds = %69, %66
   %82 = phi i32 [ %72, %check_ranges.exit.i ], [ %88, %81 ]
   %indvars.iv.i = phi i64 [ 0, %check_ranges.exit.i ], [ %indvars.iv.next.i, %81 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %82, i32 noundef 4)
-  %83 = getelementptr [8 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %83 = getelementptr i32, ptr %7, i64 %indvars.iv.i
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %2, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef 0)

@@ -956,9 +956,9 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 141:                                              ; preds = %139, %141
   %indvars.iv = phi i64 [ 0, %139 ], [ %indvars.iv.next, %141 ]
-  %142 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %140, i64 0, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw [6 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   store i64 %143, ptr %144, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -971,9 +971,9 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 147:                                              ; preds = %145, %161
   %indvars.iv91 = phi i64 [ 0, %145 ], [ %indvars.iv.next92, %161 ]
-  %148 = getelementptr inbounds nuw [6 x i64], ptr %9, i64 0, i64 %indvars.iv91
+  %148 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv91
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %140, i64 0, i64 %indvars.iv91
+  %150 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv91
   %151 = load i64, ptr %150, align 8
   %.not82 = icmp eq i64 %149, %151
   br i1 %.not82, label %161, label %152
@@ -1448,7 +1448,7 @@ define internal fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %0, i3
   %3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3096
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [6 x %struct.VFIOBAR], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.VFIOBAR, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -1472,7 +1472,7 @@ define internal fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %0, i3
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %21 = getelementptr inbounds [7 x %struct.PCIIORegion], ptr %20, i64 0, i64 %5
+  %21 = getelementptr inbounds %struct.PCIIORegion, ptr %20, i64 %5
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %24 = load ptr, ptr %23, align 8
@@ -2941,7 +2941,7 @@ define internal fastcc void @vfio_intx_disable(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %7, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %7, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %9, i1 noundef zeroext true) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -3063,7 +3063,7 @@ trace_vfio_intx_interrupt.exit:                   ; preds = %5, %13, %15, %21, %
 
 31:                                               ; preds = %31, %trace_vfio_intx_interrupt.exit
   %indvars.iv.i = phi i64 [ 0, %trace_vfio_intx_interrupt.exit ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %30, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %30, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %32, i1 noundef zeroext false) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -3127,7 +3127,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
 
 4:                                                ; preds = %15, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %15 ]
-  %5 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %3, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %3, i64 %indvars.iv.i
   %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @vfio_bar_quirk_finalize(ptr noundef %2, i32 noundef %6) #27
   tail call void @vfio_region_finalize(ptr noundef nonnull %5) #27
@@ -3172,7 +3172,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
   %indvars.iv25.i = phi i64 [ 0, %19 ], [ %indvars.iv.next26.i, %20 ]
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = getelementptr inbounds nuw [3 x %struct.VFIOVGARegion], ptr %22, i64 0, i64 %indvars.iv25.i
+  %23 = getelementptr inbounds nuw %struct.VFIOVGARegion, ptr %22, i64 %indvars.iv25.i
   tail call void @object_unparent(ptr noundef nonnull %23) #27
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 3
@@ -3349,9 +3349,9 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -3375,9 +3375,9 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 
 18:                                               ; preds = %12, %32
   %indvars.iv39 = phi i64 [ 0, %12 ], [ %indvars.iv.next40, %32 ]
-  %19 = getelementptr inbounds nuw [6 x i64], ptr %3, i64 0, i64 %indvars.iv39
+  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv39
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw [7 x %struct.PCIIORegion], ptr %4, i64 0, i64 %indvars.iv39
+  %21 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv39
   %22 = load i64, ptr %21, align 8
   %.not34 = icmp eq i64 %20, %22
   br i1 %.not34, label %32, label %23
@@ -3887,7 +3887,7 @@ trace_vfio_mdev.exit:                             ; preds = %41, %48, %50, %56, 
   %101 = load ptr, ptr %45, align 8
   %102 = trunc nuw nsw i64 %indvars.iv.i to i32
   %103 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.147, ptr noundef %101, i32 noundef %102) #27
-  %104 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %98, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %98, i64 %indvars.iv.i
   %105 = call i32 @vfio_region_setup(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %104, i32 noundef %102, ptr noundef %103) #27
   call void @g_free(ptr noundef %103) #27
   %.not53.i = icmp eq i32 %105, 0
@@ -4706,7 +4706,7 @@ vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.e
 
 74:                                               ; preds = %84, %vfio_pci_disable_rp_atomics.exit
   %indvars.iv.i = phi i64 [ 0, %vfio_pci_disable_rp_atomics.exit ], [ %indvars.iv.next.i, %84 ]
-  %75 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %73, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %73, i64 %indvars.iv.i
   %76 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @vfio_bar_quirk_exit(ptr noundef nonnull %4, i32 noundef %76) #27
   call void @vfio_region_exit(ptr noundef nonnull %75) #27
@@ -5082,7 +5082,7 @@ define internal fastcc void @vfio_bars_prepare(ptr noundef captures(none) %0) un
 
 6:                                                ; preds = %1, %vfio_bar_prepare.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_prepare.exit ]
-  %7 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %3, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
@@ -5345,7 +5345,7 @@ trace_vfio_msix_early_setup.exit:                 ; preds = %88, %100, %102, %10
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %117 = load i8, ptr %39, align 8
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %116, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %116, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %122 = load i8, ptr %121, align 8
@@ -5539,7 +5539,7 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
 252:                                              ; preds = %224
   %253 = add i32 %222, -2
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds [6 x %struct.VFIOBAR], ptr %116, i64 0, i64 %254
+  %255 = getelementptr inbounds %struct.VFIOBAR, ptr %116, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 73
   %257 = load i8, ptr %256, align 1, !range !6, !noundef !7
   %258 = trunc nuw i8 %257 to i1
@@ -5708,7 +5708,7 @@ define internal fastcc void @vfio_bars_register(ptr noundef %0) unnamed_addr #0 
 
 4:                                                ; preds = %1, %vfio_bar_register.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_register.exit ]
-  %5 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %2, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
@@ -6043,7 +6043,7 @@ define internal void @vfio_intx_mmap_enable(ptr noundef %0) #0 {
 
 16:                                               ; preds = %16, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %15, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %15, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %17, i1 noundef zeroext true) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -6254,7 +6254,7 @@ define internal fastcc void @vfio_bars_exit(ptr noundef %0) unnamed_addr #0 {
 
 3:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr inbounds nuw [6 x %struct.VFIOBAR], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %2, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @vfio_bar_quirk_exit(ptr noundef %0, i32 noundef %5) #27
   tail call void @vfio_region_exit(ptr noundef nonnull %4) #27

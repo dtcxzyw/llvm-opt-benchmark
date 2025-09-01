@@ -118,7 +118,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 37:                                               ; preds = %.thread551
   %38 = sext i32 %.0345 to i64
-  %39 = getelementptr inbounds [180 x i16], ptr @yypact, i64 0, i64 %38
+  %39 = getelementptr inbounds i16, ptr @yypact, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i32
   %42 = icmp eq i16 %40, -47
@@ -147,7 +147,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %.4 to i64
-  %55 = getelementptr inbounds nuw [307 x i8], ptr @yytranslate, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = sext i8 %56 to i32
   br label %58
@@ -161,14 +161,14 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr inbounds nuw [240 x i16], ptr @yycheck, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   %.not406 = icmp eq i32 %.0386, %64
   br i1 %.not406, label %65, label %74
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw [240 x i16], ptr @yytable, i64 0, i64 %61
+  %66 = getelementptr inbounds nuw i16, ptr @yytable, i64 %61
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i32
   %69 = icmp slt i16 %67, 1
@@ -185,7 +185,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 74:                                               ; preds = %58, %60, %37
   %.3 = phi i32 [ %.0340, %37 ], [ %.5, %58 ], [ %.5, %60 ]
-  %75 = getelementptr inbounds [180 x i8], ptr @yydefact, i64 0, i64 %38
+  %75 = getelementptr inbounds i8, ptr @yydefact, i64 %38
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
@@ -195,7 +195,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %.0384 = phi i32 [ %77, %74 ], [ %71, %70 ]
   %.7 = phi i32 [ %.3, %74 ], [ %.5, %70 ]
   %80 = sext i32 %.0384 to i64
-  %81 = getelementptr inbounds [137 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr @yyr2, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -1800,11 +1800,11 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
   store ptr %.sroa.048.0, ptr %744, align 8
   %.sroa.104.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %742, i64 24
   store i64 %86, ptr %.sroa.104.0..sroa_idx50, align 8
-  %745 = getelementptr inbounds [137 x i8], ptr @yyr1, i64 0, i64 %80
+  %745 = getelementptr inbounds i8, ptr @yyr1, i64 %80
   %746 = load i8, ptr %745, align 1
   %747 = sext i8 %746 to i64
   %748 = add nsw i64 %747, -68
-  %749 = getelementptr inbounds [28 x i16], ptr @yypgoto, i64 0, i64 %748
+  %749 = getelementptr inbounds i16, ptr @yypgoto, i64 %748
   %750 = load i16, ptr %749, align 2
   %751 = sext i16 %750 to i32
   %752 = load i8, ptr %743, align 1
@@ -1815,20 +1815,20 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
 
 755:                                              ; preds = %makeItemList.exit
   %756 = zext nneg i32 %754 to i64
-  %757 = getelementptr inbounds nuw [240 x i16], ptr @yycheck, i64 0, i64 %756
+  %757 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %756
   %758 = load i16, ptr %757, align 2
   %759 = sext i16 %758 to i32
   %760 = icmp eq i32 %759, %753
   br i1 %760, label %761, label %765
 
 761:                                              ; preds = %755
-  %762 = getelementptr inbounds nuw [240 x i16], ptr @yytable, i64 0, i64 %756
+  %762 = getelementptr inbounds nuw i16, ptr @yytable, i64 %756
   %763 = load i16, ptr %762, align 2
   %764 = sext i16 %763 to i32
   br label %9
 
 765:                                              ; preds = %755, %makeItemList.exit
-  %766 = getelementptr inbounds [28 x i8], ptr @yydefgoto, i64 0, i64 %748
+  %766 = getelementptr inbounds i8, ptr @yydefgoto, i64 %748
   %767 = load i8, ptr %766, align 1
   %768 = zext i8 %767 to i32
   br label %9

@@ -184356,7 +184356,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit664:          ; preds = %_ZNK5Yosys5RTLIL6Si
   %.sroa.18.sroa.0.1 = phi i8 [ %.sroa.18.sroa.0.01812, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit664 ], [ %.sroa.18.sroa.0.01812, %512 ], [ %.sroa.22.sroa.0.01805, %514 ], [ %.sroa.18.sroa.0.0.extract.trunc, %.thread ]
   %.sroa.18.sroa.23.sroa.0.1 = phi i24 [ %.sroa.18.sroa.23.sroa.0.018131850, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit664 ], [ %.sroa.18.sroa.23.sroa.0.018131850, %512 ], [ %.sroa.22.sroa.27.sroa.0.018061855, %514 ], [ %.sroa.18.sroa.23.0.extract.trunc, %.thread ]
   %.0325 = phi i64 [ 0, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit664 ], [ %.mux.mux, %512 ], [ 1, %514 ], [ %.mux.mux3940, %.thread ]
-  %516 = getelementptr inbounds nuw [4 x %"class.std::map.1272"], ptr %30, i64 0, i64 %.0325
+  %516 = getelementptr inbounds nuw %"class.std::map.1272", ptr %30, i64 %.0325
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %.sroa.01650.1, ptr %31, align 8, !tbaa !84
   %.sroa.18.sroa.23.0.insert.ext1704 = zext i24 %.sroa.18.sroa.23.sroa.0.1 to i32
@@ -184605,7 +184605,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
 
 .preheader:                                       ; preds = %.preheader.preheader, %561
   %indvars.iv3463 = phi i64 [ %indvars.iv.next3464, %561 ], [ 0, %.preheader.preheader ]
-  %692 = getelementptr inbounds nuw [4 x %"class.std::map.1272"], ptr %30, i64 0, i64 %indvars.iv3463, i32 0, i32 0, i32 1, i32 1
+  %692 = getelementptr inbounds nuw %"class.std::map.1272", ptr %30, i64 %indvars.iv3463, i32 0, i32 0, i32 1, i32 1
   %693 = load i64, ptr %692, align 8, !tbaa !414
   %694 = trunc i64 %693 to i32
   %.not3859.not.not.not = icmp ne i32 %694, %303
@@ -184660,7 +184660,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
 
 716:                                              ; preds = %.critedge490.preheader, %.critedge490
   %indvars.iv3470 = phi i64 [ 0, %.critedge490.preheader ], [ %indvars.iv.next3471, %.critedge490 ]
-  %717 = getelementptr inbounds nuw [4 x %"class.std::map.1272"], ptr %30, i64 0, i64 %indvars.iv3470
+  %717 = getelementptr inbounds nuw %"class.std::map.1272", ptr %30, i64 %indvars.iv3470
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 40
   %719 = load i64, ptr %718, align 8, !tbaa !414
   %720 = icmp eq i64 %719, 0

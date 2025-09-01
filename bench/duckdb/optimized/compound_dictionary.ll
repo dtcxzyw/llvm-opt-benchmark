@@ -282,7 +282,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
   %4 = icmp eq i64 %3, 15
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %4
-  br i1 %or.cond, label %40, label %5
+  br i1 %or.cond, label %39, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -293,47 +293,46 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
   %11 = add i64 %10, %8
   store i64 %11, ptr %9, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %3
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %3
   store ptr %1, ptr %13, align 8, !tbaa !28
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %15 = add i64 %3, 1
-  %16 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %15
-  store i64 %11, ptr %16, align 8, !tbaa !31
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !20
-  %20 = shl nuw i32 1, %19
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !19
-  %25 = shl nuw i32 1, %24
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %22, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !16
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %32 = load i32, ptr %1, align 4, !tbaa !14
-  %33 = icmp eq i32 %32, -558043680
-  br i1 %33, label %35, label %34
+  %14 = getelementptr i8, ptr %0, i64 280
+  %15 = getelementptr i64, ptr %14, i64 %3
+  store i64 %11, ptr %15, align 8, !tbaa !31
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !20
+  %19 = shl nuw i32 1, %18
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw i32, ptr %16, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load i32, ptr %22, align 4, !tbaa !19
+  %24 = shl nuw i32 1, %23
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %21, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !16
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
+  %31 = load i32, ptr %1, align 4, !tbaa !14
+  %32 = icmp eq i32 %31, -558043680
+  br i1 %32, label %34, label %33
 
-34:                                               ; preds = %5
-  %.0.copyload.i = load ptr, ptr %31, align 1
-  br label %35
+33:                                               ; preds = %5
+  %.0.copyload.i = load ptr, ptr %30, align 1
+  br label %34
 
-35:                                               ; preds = %5, %34
-  %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %34 ], [ %31, %5 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %37 = getelementptr inbounds nuw [16 x ptr], ptr %36, i64 0, i64 %3
-  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !32
-  %38 = load i64, ptr %0, align 8, !tbaa !24
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %0, align 8, !tbaa !24
-  br label %40
+34:                                               ; preds = %5, %33
+  %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %33 ], [ %30, %5 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %3
+  store ptr %.0.copyload.i.sink, ptr %36, align 8, !tbaa !32
+  %37 = load i64, ptr %0, align 8, !tbaa !24
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %0, align 8, !tbaa !24
+  br label %39
 
-40:                                               ; preds = %2, %35
-  %.0 = phi i32 [ 1, %35 ], [ 0, %2 ]
+39:                                               ; preds = %2, %34
+  %.0 = phi i32 [ 1, %34 ], [ 0, %2 ]
   ret i32 %.0
 }
 

@@ -571,7 +571,7 @@ define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noun
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %30 = add i32 %23, -1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr [1 x %struct.xfrm_offload], ptr %29, i64 0, i64 %31
+  %32 = getelementptr %struct.xfrm_offload, ptr %29, i64 %31
   br label %.thread
 
 .thread:                                          ; preds = %2, %28, %25, %21, %12
@@ -612,7 +612,7 @@ define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noun
   %55 = load i32, ptr %53, align 8
   %56 = add i32 %55, -1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr [6 x ptr], ptr %54, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 656
   %61 = load i8, ptr %60, align 8

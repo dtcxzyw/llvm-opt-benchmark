@@ -5033,7 +5033,7 @@ _ZNSt3mapIN3ue211ue2_literalESt4pairISt10shared_ptrINS0_8NGHolderEEjESt4lessIS1_
 
 843:                                              ; preds = %841, %839
   %.0813.i.i.i.i.i = phi i64 [ 0, %839 ], [ %842, %841 ]
-  %844 = getelementptr inbounds nuw [4 x i64], ptr %840, i64 0, i64 %.0813.i.i.i.i.i
+  %844 = getelementptr inbounds nuw i64, ptr %840, i64 %.0813.i.i.i.i.i
   %845 = load i64, ptr %844, align 8
   %.not.i.i.i220.i.i = icmp eq i64 %845, -1
   br i1 %.not.i.i.i220.i.i, label %841, label %_ZN3ue28containsISt3mapINS_11ue2_literalESt4pairISt10shared_ptrINS_8NGHolderEEjESt4lessIS2_ESaIS3_IKS2_S7_EEEEEbRKT_RKNSE_8key_typeE.exit.thread.i.i
@@ -5597,7 +5597,7 @@ _ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i
 
 128:                                              ; preds = %126, %124
   %.0813.i.i.i.i = phi i64 [ 0, %124 ], [ %127, %126 ]
-  %129 = getelementptr inbounds nuw [4 x i64], ptr %125, i64 0, i64 %.0813.i.i.i.i
+  %129 = getelementptr inbounds nuw i64, ptr %125, i64 %.0813.i.i.i.i
   %130 = load i64, ptr %129, align 8
   %.not.i.i.i.i = icmp eq i64 %130, -1
   br i1 %.not.i.i.i.i, label %126, label %.thread.i.i
@@ -10267,7 +10267,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 1708:                                             ; preds = %1706, %.lr.ph.i.i87.i
   %.0813.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i87.i ], [ %1707, %1706 ]
-  %1709 = getelementptr inbounds nuw [4 x i64], ptr %1705, i64 0, i64 %.0813.i.i.i.i.i
+  %1709 = getelementptr inbounds nuw i64, ptr %1705, i64 %.0813.i.i.i.i.i
   %1710 = load i64, ptr %1709, align 8, !noalias !377
   %.not.i.i.i.i88.i = icmp eq i64 %1710, -1
   br i1 %.not.i.i.i.i88.i, label %1706, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i.i.i
@@ -11649,7 +11649,7 @@ _ZNSt4pairIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderEN
 
 2186:                                             ; preds = %2184, %.lr.ph.i.i.i63.i
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i63.i ], [ %2185, %2184 ]
-  %2187 = getelementptr inbounds nuw [4 x i64], ptr %2183, i64 0, i64 %.0813.i.i.i.i.i.i
+  %2187 = getelementptr inbounds nuw i64, ptr %2183, i64 %.0813.i.i.i.i.i.i
   %2188 = load i64, ptr %2187, align 8
   %.not.i.i.i.i.i64.i = icmp eq i64 %2188, -1
   br i1 %.not.i.i.i.i.i64.i, label %2184, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i.i.i
@@ -11749,7 +11749,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i.i.i.i:     ; preds = %2186, %_ZNK3ue29Cha
 
 2219:                                             ; preds = %2217, %.lr.ph.i56.i.i.i
   %.0813.i.i.i58.i.i.i = phi i64 [ 0, %.lr.ph.i56.i.i.i ], [ %2218, %2217 ]
-  %2220 = getelementptr inbounds nuw [4 x i64], ptr %2216, i64 0, i64 %.0813.i.i.i58.i.i.i
+  %2220 = getelementptr inbounds nuw i64, ptr %2216, i64 %.0813.i.i.i58.i.i.i
   %2221 = load i64, ptr %2220, align 8
   %.not.i.i.i59.i.i.i = icmp eq i64 %2221, -1
   br i1 %.not.i.i.i59.i.i.i, label %2217, label %_ZNK3ue29CharReach3allEv.exit.thread.i60.i.i.i
@@ -14803,7 +14803,7 @@ _ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i
 
 115:                                              ; preds = %.preheader, %123
   %.0710.i.i.i = phi i64 [ %124, %123 ], [ 0, %.preheader ]
-  %116 = getelementptr inbounds nuw [4 x i64], ptr %96, i64 0, i64 %.0710.i.i.i
+  %116 = getelementptr inbounds nuw i64, ptr %96, i64 %.0710.i.i.i
   %117 = load i64, ptr %116, align 8, !noalias !587
   %.not.i.i85.i = icmp eq i64 %117, 0
   br i1 %.not.i.i85.i, label %123, label %118
@@ -65522,7 +65522,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L16lookForDoubleCutERKNS_8NGHo
 
 33:                                               ; preds = %31, %29
   %.0813.i.i.i = phi i64 [ 0, %29 ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw [4 x i64], ptr %30, i64 0, i64 %.0813.i.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %30, i64 %.0813.i.i.i
   %35 = load i64, ptr %34, align 8
   %.not.i.i.i = icmp eq i64 %35, -1
   br i1 %.not.i.i.i, label %31, label %_ZNK3ue29CharReach3allEv.exit.thread.i
@@ -65670,7 +65670,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %33, %54, %48, %_ZNK
 
 99:                                               ; preds = %107, %95
   %.0710.i.i.i = phi i64 [ 0, %95 ], [ %108, %107 ]
-  %100 = getelementptr inbounds nuw [4 x i64], ptr %78, i64 0, i64 %.0710.i.i.i
+  %100 = getelementptr inbounds nuw i64, ptr %78, i64 %.0710.i.i.i
   %101 = load i64, ptr %100, align 8
   %.not.i.i109.i = icmp eq i64 %101, 0
   br i1 %.not.i.i109.i, label %107, label %102
@@ -65762,7 +65762,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %107, %102
 
 146:                                              ; preds = %.preheader, %154
   %.0710.i.i112.i = phi i64 [ %155, %154 ], [ 0, %.preheader ]
-  %147 = getelementptr inbounds nuw [4 x i64], ptr %124, i64 0, i64 %.0710.i.i112.i
+  %147 = getelementptr inbounds nuw i64, ptr %124, i64 %.0710.i.i112.i
   %148 = load i64, ptr %147, align 8
   %.not.i.i113.i = icmp eq i64 %148, 0
   br i1 %.not.i.i113.i, label %154, label %149
@@ -66499,7 +66499,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 38:                                               ; preds = %.preheader60, %46
   %.0710.i.i = phi i64 [ %47, %46 ], [ 0, %.preheader60 ]
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.0710.i.i
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %.0710.i.i
   %40 = load i64, ptr %39, align 8
   %.not.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i, label %46, label %41
@@ -66581,7 +66581,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46, %41
 
 83:                                               ; preds = %.preheader57, %91
   %.0710.i.i41 = phi i64 [ %92, %91 ], [ 0, %.preheader57 ]
-  %84 = getelementptr inbounds nuw [4 x i64], ptr %63, i64 0, i64 %.0710.i.i41
+  %84 = getelementptr inbounds nuw i64, ptr %63, i64 %.0710.i.i41
   %85 = load i64, ptr %84, align 8
   %.not.i.i42 = icmp eq i64 %85, 0
   br i1 %.not.i.i42, label %91, label %86

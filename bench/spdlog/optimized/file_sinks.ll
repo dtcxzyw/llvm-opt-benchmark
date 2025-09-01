@@ -6477,7 +6477,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit: ; pre
 
 35:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit
   %36 = zext nneg i32 %22 to i64
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !158
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit
@@ -6541,7 +6541,7 @@ _ZN3fmt3v1113parse_contextIcE11next_arg_idEv.exit.i.i31: ; preds = %43
 
 63:                                               ; preds = %55
   %64 = zext nneg i32 %52 to i64
-  %65 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !158
   %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %.thread47
@@ -6586,7 +6586,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33: ; p
 
 79:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33
   %80 = zext nneg i32 %.038.i to i64
-  %81 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %10, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !158
   %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE15on_format_specsEiPKcS5_.exit
@@ -7403,7 +7403,7 @@ _ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   %.013.i = phi i64 [ %219, %.lr.ph.i ], [ 0, %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit89 ]
   %216 = getelementptr inbounds nuw i8, ptr %.0156, i64 %.013.i
   %217 = load i8, ptr %216, align 1, !tbaa !23
-  %218 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 0, i64 %.013.i
+  %218 = getelementptr inbounds nuw i8, ptr %25, i64 %.013.i
   store i8 %217, ptr %218, align 1, !tbaa !23
   %219 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %.013.i, %193

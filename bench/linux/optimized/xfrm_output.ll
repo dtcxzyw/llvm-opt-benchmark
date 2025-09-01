@@ -1096,7 +1096,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %726 = getelementptr inbounds nuw i8, ptr %716, i64 64
   %727 = add i32 %720, -1
   %728 = sext i32 %727 to i64
-  %729 = getelementptr [1 x %struct.xfrm_offload], ptr %726, i64 0, i64 %728
+  %729 = getelementptr %struct.xfrm_offload, ptr %726, i64 %728
   %730 = icmp eq ptr %729, null
   br i1 %730, label %.critedge, label %731
 

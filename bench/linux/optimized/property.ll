@@ -601,7 +601,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br i1 %119, label %.thread10, label %120, !llvm.loop !12
 
 120:                                              ; preds = %.preheader
-  %121 = getelementptr [6 x %struct.guid_t], ptr @prp_guids, i64 0, i64 %118
+  %121 = getelementptr %struct.guid_t, ptr @prp_guids, i64 %118
   %122 = call i32 @bcmp(ptr noundef dereferenceable(16) %33, ptr noundef dereferenceable(16) %121, i64 16)
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %.preheader, !llvm.loop !12
@@ -1603,7 +1603,7 @@ select.unfold34:                                  ; preds = %88, %92
   %156 = getelementptr i8, ptr %124, i64 %.idx28
   %157 = getelementptr i8, ptr %156, i64 8
   %158 = load i64, ptr %157, align 8
-  %159 = getelementptr [8 x i64], ptr %152, i64 0, i64 %155
+  %159 = getelementptr i64, ptr %152, i64 %155
   store i64 %158, ptr %159, align 8
   %160 = add nuw nsw i64 %155, 1
   %161 = icmp eq i64 %160, %153
@@ -1723,7 +1723,7 @@ select.unfold42:                                  ; preds = %175, %179
   %218 = getelementptr i8, ptr %187, i64 %.idx
   %219 = getelementptr i8, ptr %218, i64 8
   %220 = load i64, ptr %219, align 8
-  %221 = getelementptr [8 x i64], ptr %214, i64 0, i64 %217
+  %221 = getelementptr i64, ptr %214, i64 %217
   store i64 %220, ptr %221, align 8
   %222 = add nuw nsw i64 %217, 1
   %223 = icmp eq i64 %222, %215

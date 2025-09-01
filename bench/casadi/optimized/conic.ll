@@ -28762,7 +28762,7 @@ define noundef double @_ZNK6casadi5Conic14get_default_inEx(ptr nonnull readnone 
   br i1 %3, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK6casadi5Conic14get_default_inEx, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZNK6casadi5Conic14get_default_inEx, i64 %switch.tableidx
   %switch.load = load double, ptr %switch.gep, align 8
   br label %4
 

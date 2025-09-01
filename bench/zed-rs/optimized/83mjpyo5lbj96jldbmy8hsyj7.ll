@@ -9275,7 +9275,7 @@ common.resume:                                    ; preds = %36, %28, %102
   %46 = urem i64 %2, %15
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !nonnull !9, !noundef !9
-  %49 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %48, i64 0, i64 %46
+  %49 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %48, i64 %46
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h57316d04e3466c08E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %49)
   %50 = load i64, ptr %7, align 8, !range !15, !noundef !9
   %trunc = trunc nuw i64 %50 to i1
@@ -59888,7 +59888,7 @@ define void @"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDel
 
 46:                                               ; preds = %"_ZN4core3ptr57drop_in_place$LT$fuzzy..strings..StringMatchCandidate$GT$17hbe864f3e6d455471E.exit.i", %.lr.ph.i
   %.sroa.0.07.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %"_ZN4core3ptr57drop_in_place$LT$fuzzy..strings..StringMatchCandidate$GT$17hbe864f3e6d455471E.exit.i" ]
-  %47 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i64, i64 }], ptr %40, i64 0, i64 %.sroa.0.07.i
+  %47 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, i64 }, ptr %40, i64 %.sroa.0.07.i
   %48 = add nuw i64 %.sroa.0.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8692
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habb7f35c79960a00E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %47)
@@ -59925,7 +59925,7 @@ define void @"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDel
   br label %57
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i64, i64 }], ptr %40, i64 0, i64 %.sroa.0.1.i
+  %62 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, i64 }, ptr %40, i64 %.sroa.0.1.i
   %63 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr57drop_in_place$LT$fuzzy..strings..StringMatchCandidate$GT$17hbe864f3e6d455471E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %62) #43
           to label %57 unwind label %64
@@ -63245,7 +63245,7 @@ define void @"_ZN105_$LT$collab_ui..collab_panel..contact_finder..ContactFinderD
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8, !nonnull !9, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = getelementptr inbounds [0 x ptr], ptr %33, i64 0, i64 %2
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 656

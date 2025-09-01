@@ -632,7 +632,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %17, %19, %21, %23
 
 switch.lookup:                                    ; preds = %._crit_edge
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5faiss17AdditiveQuantizer18set_derived_valuesEv, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5faiss17AdditiveQuantizer18set_derived_valuesEv, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %51
 

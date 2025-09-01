@@ -1547,7 +1547,7 @@ _ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.exit: ; preds = %23
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds [0 x double], ptr %.val, i64 0, i64 %11
+  %36 = getelementptr inbounds double, ptr %.val, i64 %11
   %37 = call double @llvm.pow.f64(double 1.000000e+01, double %3)
   store double %37, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)

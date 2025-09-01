@@ -691,7 +691,7 @@ define internal zeroext i1 @V4L2_WaitDevice(ptr noundef %0) #1 {
   %9 = shl nuw i64 1, %8
   %10 = sdiv i32 %6, 64
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds i64, ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = add nsw i32 %6, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440

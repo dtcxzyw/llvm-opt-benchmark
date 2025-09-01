@@ -187,7 +187,7 @@ ResourceOwnerAddToHash.exit:                      ; preds = %55
 
 72:                                               ; preds = %.lr.ph58, %ResourceOwnerAddToHash.exit51
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next67, %ResourceOwnerAddToHash.exit51 ]
-  %73 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %69, i64 0, i64 %indvars.iv66
+  %73 = getelementptr inbounds nuw %struct.ResourceElem, ptr %69, i64 %indvars.iv66
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load ptr, ptr %75, align 8
@@ -267,7 +267,7 @@ define dso_local void @ResourceOwnerRemember(ptr noundef captures(none) %0, i64 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = zext nneg i8 %5 to i64
-  %13 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.ResourceElem, ptr %11, i64 %12
   store i64 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %14, align 8
@@ -305,7 +305,7 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
 16:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %17 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw %struct.ResourceElem, ptr %14, i64 %indvars.iv.next
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
   br i1 %19, label %20, label %24
@@ -321,8 +321,8 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
   br i1 %25, label %16, label %._crit_edge, !llvm.loop !9
 
 26:                                               ; preds = %20
-  %27 = add nsw i64 %15, -1
-  %28 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %27
+  %27 = getelementptr %struct.ResourceElem, ptr %14, i64 %15
+  %28 = getelementptr i8, ptr %27, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %29 = add i8 %13, -1
   store i8 %29, ptr %12, align 1
@@ -534,7 +534,7 @@ define internal fastcc void @ResourceOwnerReleaseInternal(ptr noundef %0, i32 no
   %51 = load ptr, ptr %29, align 8
   %52 = zext i32 %.237.i to i64
   %53 = getelementptr inbounds nuw %struct.ResourceElem, ptr %51, i64 %52
-  %54 = getelementptr inbounds nuw [32 x %struct.ResourceElem], ptr %30, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %struct.ResourceElem, ptr %30, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   %55 = add i32 %.237.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -643,91 +643,89 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %21
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %20
 
-.preheader:                                       ; preds = %38, %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %17 = load i32, ptr %16, align 8
-  %.not41 = icmp eq i32 %17, 0
+.preheader:                                       ; preds = %36, %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %16 = load i32, ptr %15, align 8
+  %.not41 = icmp eq i32 %16, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %43
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %41
 
-21:                                               ; preds = %.lr.ph, %38
-  %22 = phi i8 [ %12, %.lr.ph ], [ %39, %38 ]
-  %23 = phi i32 [ %13, %.lr.ph ], [ %41, %38 ]
-  %.038 = phi i32 [ 0, %.lr.ph ], [ %40, %38 ]
-  %24 = sext i32 %.038 to i64
-  %25 = getelementptr inbounds [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %1
-  br i1 %28, label %29, label %38
+20:                                               ; preds = %.lr.ph, %36
+  %21 = phi i8 [ %12, %.lr.ph ], [ %37, %36 ]
+  %.038 = phi i32 [ 0, %.lr.ph ], [ %38, %36 ]
+  %22 = sext i32 %.038 to i64
+  %23 = getelementptr inbounds %struct.ResourceElem, ptr %13, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, %1
+  br i1 %26, label %27, label %36
 
-29:                                               ; preds = %21
-  %30 = load i64, ptr %25, align 8
-  %31 = add nsw i32 %23, -1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [32 x %struct.ResourceElem], ptr %14, i64 0, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  %34 = load i8, ptr %11, align 1
-  %35 = add i8 %34, -1
-  store i8 %35, ptr %11, align 1
-  %36 = add i32 %.038, -1
-  %37 = load ptr, ptr %15, align 8
-  tail call void %37(i64 noundef %30) #10
+27:                                               ; preds = %20
+  %28 = load i64, ptr %23, align 8
+  %29 = zext i8 %21 to i64
+  %30 = getelementptr %struct.ResourceElem, ptr %13, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  %32 = load i8, ptr %11, align 1
+  %33 = add i8 %32, -1
+  store i8 %33, ptr %11, align 1
+  %34 = add i32 %.038, -1
+  %35 = load ptr, ptr %14, align 8
+  tail call void %35(i64 noundef %28) #10
   %.pre = load i8, ptr %11, align 1
-  br label %38
+  br label %36
 
-38:                                               ; preds = %21, %29
-  %39 = phi i8 [ %.pre, %29 ], [ %22, %21 ]
-  %.1 = phi i32 [ %36, %29 ], [ %.038, %21 ]
-  %40 = add i32 %.1, 1
-  %41 = zext i8 %39 to i32
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %21, label %.preheader, !llvm.loop !15
+36:                                               ; preds = %20, %27
+  %37 = phi i8 [ %.pre, %27 ], [ %21, %20 ]
+  %.1 = phi i32 [ %34, %27 ], [ %.038, %20 ]
+  %38 = add i32 %.1, 1
+  %39 = zext i8 %37 to i32
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %20, label %.preheader, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %58, %.preheader
+._crit_edge:                                      ; preds = %56, %.preheader
   store i8 0, ptr %3, align 8
   ret void
 
-43:                                               ; preds = %.lr.ph40, %58
-  %44 = phi i32 [ %17, %.lr.ph40 ], [ %59, %58 ]
-  %.03439 = phi i32 [ 0, %.lr.ph40 ], [ %60, %58 ]
-  %45 = load ptr, ptr %18, align 8
-  %46 = sext i32 %.03439 to i64
-  %47 = getelementptr inbounds %struct.ResourceElem, ptr %45, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %1
-  br i1 %50, label %51, label %58
+41:                                               ; preds = %.lr.ph40, %56
+  %42 = phi i32 [ %16, %.lr.ph40 ], [ %57, %56 ]
+  %.03439 = phi i32 [ 0, %.lr.ph40 ], [ %58, %56 ]
+  %43 = load ptr, ptr %17, align 8
+  %44 = sext i32 %.03439 to i64
+  %45 = getelementptr inbounds %struct.ResourceElem, ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, %1
+  br i1 %48, label %49, label %56
 
-51:                                               ; preds = %43
-  %52 = load i64, ptr %47, align 8
-  store i64 0, ptr %47, align 8
-  %53 = load ptr, ptr %18, align 8
-  %54 = getelementptr inbounds %struct.ResourceElem, ptr %53, i64 %46, i32 1
-  store ptr null, ptr %54, align 8
-  %55 = load i32, ptr %19, align 4
-  %56 = add i32 %55, -1
-  store i32 %56, ptr %19, align 4
-  %57 = load ptr, ptr %20, align 8
-  tail call void %57(i64 noundef %52) #10
-  %.pre42 = load i32, ptr %16, align 8
-  br label %58
+49:                                               ; preds = %41
+  %50 = load i64, ptr %45, align 8
+  store i64 0, ptr %45, align 8
+  %51 = load ptr, ptr %17, align 8
+  %52 = getelementptr inbounds %struct.ResourceElem, ptr %51, i64 %44, i32 1
+  store ptr null, ptr %52, align 8
+  %53 = load i32, ptr %18, align 4
+  %54 = add i32 %53, -1
+  store i32 %54, ptr %18, align 4
+  %55 = load ptr, ptr %19, align 8
+  tail call void %55(i64 noundef %50) #10
+  %.pre42 = load i32, ptr %15, align 8
+  br label %56
 
-58:                                               ; preds = %43, %51
-  %59 = phi i32 [ %44, %43 ], [ %.pre42, %51 ]
-  %60 = add nuw i32 %.03439, 1
-  %61 = icmp ult i32 %60, %59
-  br i1 %61, label %43, label %._crit_edge, !llvm.loop !16
+56:                                               ; preds = %41, %49
+  %57 = phi i32 [ %42, %41 ], [ %.pre42, %49 ]
+  %58 = add nuw i32 %.03439, 1
+  %59 = icmp ult i32 %58, %57
+  br i1 %59, label %41, label %._crit_edge, !llvm.loop !16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -976,7 +974,7 @@ define dso_local void @ResourceOwnerRememberLock(ptr noundef captures(none) %0, 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %9 = zext nneg i8 %4 to i64
-  %10 = getelementptr inbounds nuw [15 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   store ptr %1, ptr %10, align 8
   br label %11
 
@@ -1008,15 +1006,15 @@ define dso_local void @ResourceOwnerForgetLock(ptr noundef captures(none) %0, pt
 
 11:                                               ; preds = %9
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds nuw [15 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %9, !llvm.loop !20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw [15 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
-  %17 = add nsw i64 %8, -1
-  %18 = getelementptr inbounds [15 x ptr], ptr %7, i64 0, i64 %17
+  %16 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
+  %17 = getelementptr ptr, ptr %7, i64 %8
+  %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
   %20 = add nsw i8 %4, -1

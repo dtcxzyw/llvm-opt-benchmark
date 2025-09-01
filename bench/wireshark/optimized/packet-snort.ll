@@ -475,7 +475,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
   %89 = add nuw nsw i32 %86, 1
   store i32 %89, ptr %85, align 8
   %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr [8 x %struct.Alert_t], ptr %78, i64 0, i64 %90
+  %91 = getelementptr %struct.Alert_t, ptr %78, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %91, ptr noundef nonnull readonly align 8 dereferenceable(72) %15, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 
@@ -614,7 +614,7 @@ get_user_comment_string.exit.thread:              ; preds = %24, %23, %get_user_
 
 151:                                              ; preds = %.lr.ph, %snort_show_alert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %snort_show_alert.exit ]
-  %152 = getelementptr [8 x %struct.Alert_t], ptr %144, i64 0, i64 %indvars.iv
+  %152 = getelementptr %struct.Alert_t, ptr %144, i64 %indvars.iv
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %154 = load ptr, ptr %153, align 8
   %155 = load i8, ptr @snort_alert_in_reassembled_frame, align 1, !range !8, !noundef !9
@@ -696,7 +696,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %169
 .lr.ph.i49:                                       ; preds = %.preheader465.i, %add_alert_to_session_tree.exit.i
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %add_alert_to_session_tree.exit.i ], [ 0, %.preheader465.i ]
   %191 = load i32, ptr %148, align 4
-  %192 = getelementptr [8 x %struct.Alert_t], ptr %186, i64 0, i64 %indvars.iv.i50
+  %192 = getelementptr %struct.Alert_t, ptr %186, i64 %indvars.iv.i50
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 56
   store i32 %191, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 60
@@ -725,7 +725,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %169
   %207 = add nuw nsw i32 %204, 1
   store i32 %207, ptr %203, align 8
   %208 = zext nneg i32 %204 to i64
-  %209 = getelementptr [8 x %struct.Alert_t], ptr %196, i64 0, i64 %208
+  %209 = getelementptr %struct.Alert_t, ptr %196, i64 %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %209, ptr noundef readonly align 8 dereferenceable(72) %192, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit.i
 
@@ -1210,7 +1210,7 @@ proto_item_set_generated.exit364.i:               ; preds = %442, %439, %proto_i
 452:                                              ; preds = %proto_item_set_generated.exit367.i, %.lr.ph477.i
   %indvars.iv503.i = phi i64 [ 0, %.lr.ph477.i ], [ %indvars.iv.next504.i, %proto_item_set_generated.exit367.i ]
   %453 = load i32, ptr @hf_snort_rule_ip_var, align 4
-  %454 = getelementptr [6 x %struct.used_variable_t], ptr %448, i64 0, i64 %indvars.iv503.i
+  %454 = getelementptr %struct.used_variable_t, ptr %448, i64 %indvars.iv503.i
   %455 = load ptr, ptr %454, align 8
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %457 = load ptr, ptr %456, align 8
@@ -1241,7 +1241,7 @@ proto_item_set_generated.exit367.i:               ; preds = %462, %459, %452
 469:                                              ; preds = %proto_item_set_generated.exit370.i, %.lr.ph479.i
   %indvars.iv506.i = phi i64 [ 0, %.lr.ph479.i ], [ %indvars.iv.next507.i, %proto_item_set_generated.exit370.i ]
   %470 = load i32, ptr @hf_snort_rule_port_var, align 4
-  %471 = getelementptr [6 x %struct.used_variable_t], ptr %451, i64 0, i64 %indvars.iv506.i
+  %471 = getelementptr %struct.used_variable_t, ptr %451, i64 %indvars.iv506.i
   %472 = load ptr, ptr %471, align 8
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %474 = load ptr, ptr %473, align 8
@@ -1299,17 +1299,17 @@ proto_item_set_generated.exit370.i:               ; preds = %479, %476, %469
   %indvars.iv509.i = phi i64 [ 0, %.lr.ph484.i ], [ %indvars.iv.next510.i, %685 ]
   %.0285482.i = phi i32 [ 0, %.lr.ph484.i ], [ %.1286.i, %685 ]
   %.1293480.i = phi i32 [ %.0292.i, %.lr.ph484.i ], [ %.2294.i, %685 ]
-  %497 = getelementptr [30 x %struct.content_t], ptr %492, i64 0, i64 %indvars.iv509.i
+  %497 = getelementptr %struct.content_t, ptr %492, i64 %indvars.iv509.i
   %498 = load i32, ptr %497, align 8
   %499 = icmp ult i32 %498, 3
   br i1 %499, label %switch.lookup, label %685
 
 switch.lookup:                                    ; preds = %496
   %500 = zext nneg i32 %498 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.snort_dissector, i64 0, i64 %500
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.snort_dissector, i64 %500
   %switch.load = load ptr, ptr %switch.gep, align 8
   %501 = zext nneg i32 %498 to i64
-  %switch.gep186 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.snort_dissector.3, i64 0, i64 %501
+  %switch.gep186 = getelementptr inbounds nuw ptr, ptr @switch.table.snort_dissector.3, i64 %501
   %switch.load187 = load ptr, ptr %switch.gep186, align 8
   %.0283.i = load i32, ptr %switch.load, align 4
   %502 = getelementptr inbounds nuw i8, ptr %497, i64 16
@@ -1352,7 +1352,7 @@ switch.lookup:                                    ; preds = %496
 
 525:                                              ; preds = %522
   %526 = getelementptr inbounds nuw i8, ptr %.val324.i, i64 64
-  %527 = getelementptr [30 x %struct.content_t], ptr %526, i64 0, i64 %indvars.iv509.i
+  %527 = getelementptr %struct.content_t, ptr %526, i64 %indvars.iv509.i
   %528 = load i32, ptr %527, align 8
   %529 = icmp eq i32 %528, 2
   br i1 %529, label %530, label %566
@@ -1671,7 +1671,7 @@ get_content_match.exit.i:                         ; preds = %559, %532
   %indvars.iv512.i = phi i64 [ 0, %.lr.ph486.i ], [ %indvars.iv.next513.i, %proto_item_set_generated.exit378.i ]
   %690 = load i32, ptr @hf_snort_reference, align 4
   %691 = load ptr, ptr @g_snort_config, align 8
-  %692 = getelementptr [20 x ptr], ptr %495, i64 0, i64 %indvars.iv512.i
+  %692 = getelementptr ptr, ptr %495, i64 %indvars.iv512.i
   %693 = load ptr, ptr %692, align 8
   %694 = call ptr @expand_reference(ptr noundef %691, ptr noundef %693)
   %695 = call ptr @proto_tree_add_string(ptr noundef %253, i32 noundef %690, ptr noundef %.1.i, i32 noundef 0, i32 noundef 0, ptr noundef %694)
@@ -2629,7 +2629,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   %108 = add nuw nsw i32 %105, 1
   store i32 %108, ptr %104, align 8
   %109 = zext nneg i32 %105 to i64
-  %110 = getelementptr [8 x %struct.Alert_t], ptr %97, i64 0, i64 %109
+  %110 = getelementptr %struct.Alert_t, ptr %97, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %110, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 

@@ -1310,7 +1310,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.10907310164025772830.exit1
 
 38:                                               ; preds = %.lr.ph
   %39 = zext nneg i8 %19 to i64
-  %40 = getelementptr inbounds nuw [128 x { ptr, i64 }], ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN5uu_od8prn_char7C_CHARS17hb381dfc174836e9bE.llvm.10907310164025772830, i64 %39
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !align !34, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !9

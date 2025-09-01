@@ -54,7 +54,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   %.2153 = phi ptr [ %.160, %12 ], [ %20, %19 ]
   %14 = load i8, ptr %.2153, align 1
   %15 = or i8 %14, 32
-  %16 = getelementptr inbounds nuw [9 x i8], ptr @.str, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr @.str, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %15, %17
   br i1 %18, label %19, label %.critedge
@@ -98,7 +98,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   %.3155 = phi ptr [ %28, %25 ], [ %37, %36 ]
   %31 = load i8, ptr %.3155, align 1
   %32 = or i8 %31, 32
-  %33 = getelementptr inbounds nuw [4 x i8], ptr @.str.1, i64 0, i64 %indvars.iv217
+  %33 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %indvars.iv217
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %32, %34
   br i1 %35, label %36, label %.critedge3.thread
@@ -837,9 +837,9 @@ ifallzero.exit80.i:                               ; preds = %251
   br i1 %.not61.i, label %278, label %270
 
 270:                                              ; preds = %268
-  %271 = add nsw i32 %269, -1
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds [8 x i64], ptr @__const.decfloat.p10s, i64 0, i64 %272
+  %271 = sext i32 %269 to i64
+  %272 = getelementptr i64, ptr @__const.decfloat.p10s, i64 %271
+  %273 = getelementptr i8, ptr %272, i64 -8
   %274 = load i64, ptr %273, align 8
   %275 = sitofp i64 %274 to x86_fp80
   %276 = uitofp i32 %.2101106.i to x86_fp80

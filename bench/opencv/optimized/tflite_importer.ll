@@ -1332,7 +1332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %_ZNK13opencv_tflite6Tensor4typeEv.exit
   %138 = zext nneg i8 %118 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314TFLiteImporter11parseTensorERKN13opencv_tflite6TensorE, i64 0, i64 %138
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314TFLiteImporter11parseTensorERKN13opencv_tflite6TensorE, i64 %138
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK13opencv_tflite6Tensor4typeEv.exit.thread
 
@@ -4364,7 +4364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %266
   %274 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314estimateLayoutERKN13opencv_tflite6TensorE, i64 0, i64 %274
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314estimateLayoutERKN13opencv_tflite6TensorE, i64 %274
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN2cv3dnn14dnn4_v2024122314estimateLayoutERKN13opencv_tflite6TensorE.exit
 
@@ -6571,7 +6571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %22
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314estimateLayoutERKN13opencv_tflite6TensorE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314estimateLayoutERKN13opencv_tflite6TensorE, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 
@@ -14139,7 +14139,7 @@ _ZN2cv3dnn14dnn4_v20241223L14normalize_axisEii.exit: ; preds = %55
   %59 = and i32 %58, 4
   %60 = add nsw i32 %59, %38
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [4 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024122314TFLiteImporter11parseConcatERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %61
+  %62 = getelementptr inbounds i32, ptr @_ZZN2cv3dnn14dnn4_v2024122314TFLiteImporter11parseConcatERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !3
   store i32 %63, ptr %5, align 4, !tbaa !3
   br label %._crit_edge.i.i
@@ -14320,7 +14320,7 @@ _ZN2cv3dnn14dnn4_v20241223L14normalize_axisEii.exit: ; preds = %61
   %65 = select i1 %64, i32 5, i32 0
   %66 = add nsw i32 %65, %44
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [5 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024122314TFLiteImporter9parsePackERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %67
+  %68 = getelementptr inbounds i32, ptr @_ZZN2cv3dnn14dnn4_v2024122314TFLiteImporter9parsePackERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !3
   store i32 %69, ptr %6, align 4, !tbaa !3
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i45

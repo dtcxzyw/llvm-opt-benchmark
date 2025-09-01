@@ -483,7 +483,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw [8 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.open_spiel::chess_common::Offset", ptr %1, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1
@@ -647,7 +647,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw [2 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.open_spiel::chess_common::Offset", ptr %1, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1

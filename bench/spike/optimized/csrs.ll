@@ -1106,7 +1106,7 @@ define noundef zeroext i1 @_ZN13pmpaddr_csr_t14unlogged_writeEm(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 266616
   %6 = load i64, ptr %5, align 8, !tbaa !165
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %53, label %8
+  br i1 %7, label %52, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1130,57 +1130,58 @@ define noundef zeroext i1 @_ZN13pmpaddr_csr_t14unlogged_writeEm(ptr noundef nonn
   %26 = load i64, ptr %25, align 8, !tbaa !165
   %27 = icmp uge i64 %23, %26
   %or.cond = select i1 %27, i1 true, i1 %21
-  br i1 %or.cond, label %53, label %28
+  br i1 %or.cond, label %52, label %28
 
 28:                                               ; preds = %8
   %29 = add i64 %23, -63
   %30 = icmp ult i64 %29, -64
-  br i1 %30, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread, label %31
+  br i1 %30, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %9, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2176
-  %34 = load ptr, ptr %33, align 8, !tbaa !167
-  %35 = load ptr, ptr %34, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #30
-  %39 = and i64 %38, 4
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
-
-_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit:  ; preds = %31
-  %.pre4.i = load i64, ptr %22, align 8, !tbaa !164
+_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit:  ; preds = %28
+  %31 = load ptr, ptr %9, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 2176
+  %33 = load ptr, ptr %32, align 8, !tbaa !167
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(48) %33) #30
+  %38 = and i64 %37, 4
+  %.not.i = icmp eq i64 %38, 0
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !15
-  %40 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 2192
-  %41 = add i64 %.pre4.i, 1
-  %42 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %40, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !168
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %45 = load i8, ptr %44, align 8, !tbaa !163
-  %46 = and i8 %45, -104
-  %47 = icmp eq i8 %46, -120
-  br i1 %47, label %53, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
+  %.pre4.i = load i64, ptr %22, align 8, !tbaa !164
+  %39 = getelementptr i8, ptr %.pre.i, i64 2208
+  %40 = getelementptr %"class.std::shared_ptr.65", ptr %39, i64 %.pre4.i
+  %41 = load ptr, ptr %40, align 8, !tbaa !168
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %43 = load i8, ptr %42, align 8, !tbaa !163
+  %44 = and i8 %43, -104
+  %45 = icmp eq i8 %44, -120
+  %46 = select i1 %.not.i, i1 %45, i1 false
+  br i1 %46, label %52, label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit._ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread_crit_edge
 
-_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread: ; preds = %31, %28, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit
+_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit._ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread_crit_edge: ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit
+  %.pre = load ptr, ptr %3, align 8, !tbaa !6
+  br label %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
+
+_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread: ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit._ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread_crit_edge, %28
+  %47 = phi ptr [ %.pre, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit._ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread_crit_edge ], [ %24, %28 ]
   %48 = and i64 %1, 4611686018427387903
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %48, ptr %49, align 8, !tbaa !161
-  %50 = load ptr, ptr %3, align 8, !tbaa !6
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 176
-  %52 = load ptr, ptr %51, align 8, !tbaa !171
-  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %52)
-          to label %53 unwind label %54
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 176
+  %51 = load ptr, ptr %50, align 8, !tbaa !171
+  invoke void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %51)
+          to label %52 unwind label %53
 
-53:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit, %8, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread, %2
+52:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit, %8, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread, %2
   %.0 = phi i1 [ false, %2 ], [ false, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit ], [ false, %8 ], [ true, %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread ]
   ret i1 %.0
 
-54:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %_ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit.thread
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #32
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #32
   unreachable
 }
 
@@ -1201,52 +1202,33 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t19next_locked_and_torEv(ptr nounde
   %3 = load i64, ptr %2, align 8, !tbaa !164
   %4 = add i64 %3, -63
   %5 = icmp ult i64 %4, -64
-  br i1 %5, label %30, label %6
+  br i1 %5, label %23, label %._crit_edge
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2176
-  %10 = load ptr, ptr %9, align 8, !tbaa !167
-  %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(48) %10) #30
-  %15 = and i64 %14, 4
-  %.not = icmp eq i64 %15, 0
-  %.pre = load ptr, ptr %7, align 8, !tbaa !15
+._crit_edge:                                      ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2176
+  %9 = load ptr, ptr %8, align 8, !tbaa !167
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(48) %9) #30
+  %14 = and i64 %13, 4
+  %.not = icmp eq i64 %14, 0
+  %.pre = load ptr, ptr %6, align 8, !tbaa !15
   %.pre4 = load i64, ptr %2, align 8, !tbaa !164
-  br i1 %.not, label %16, label %._crit_edge
+  %15 = getelementptr i8, ptr %.pre, i64 2208
+  %16 = getelementptr %"class.std::shared_ptr.65", ptr %15, i64 %.pre4
+  %17 = load ptr, ptr %16, align 8, !tbaa !168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i8, ptr %18, align 8, !tbaa !163
+  %20 = and i8 %19, -104
+  %21 = icmp eq i8 %20, -120
+  %22 = select i1 %.not, i1 %21, i1 false
+  br label %23
 
-._crit_edge:                                      ; preds = %6
-  %.pre5 = add i64 %.pre4, 1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 2192
-  %.phi.trans.insert6 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %.phi.trans.insert, i64 0, i64 %.pre5
-  %.pre7 = load ptr, ptr %.phi.trans.insert6, align 8, !tbaa !168
-  %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %.pre7, i64 48
-  %.pre9 = load i8, ptr %.phi.trans.insert8, align 8, !tbaa !163
-  br label %24
-
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 2192
-  %18 = add i64 %.pre4, 1
-  %19 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %17, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !168
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load i8, ptr %21, align 8, !tbaa !163
-  %23 = icmp slt i8 %22, 0
-  br label %24
-
-24:                                               ; preds = %._crit_edge, %16
-  %25 = phi i8 [ %.pre9, %._crit_edge ], [ %22, %16 ]
-  %26 = phi i1 [ false, %._crit_edge ], [ %23, %16 ]
-  %27 = and i8 %25, 24
-  %28 = icmp eq i8 %27, 8
-  %29 = select i1 %26, i1 %28, i1 false
-  br label %30
-
-30:                                               ; preds = %1, %24
-  %.0 = phi i1 [ %29, %24 ], [ false, %1 ]
+23:                                               ; preds = %1, %._crit_edge
+  %.0 = phi i1 [ %22, %._crit_edge ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1272,29 +1254,28 @@ define noundef range(i64 0, -3) i64 @_ZNK13pmpaddr_csr_t14tor_base_paddrEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8, !tbaa !164
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %21, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2192
-  %9 = add i64 %3, -1
-  %10 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %8, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !168
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %13 = load i64, ptr %12, align 8, !tbaa !161
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !6
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 266624
-  %17 = load i64, ptr %16, align 8, !tbaa !166
-  %18 = add i64 %17, -2
-  %.neg.i.i = shl nsw i64 -1, %18
-  %19 = and i64 %.neg.i.i, %13
-  %20 = shl i64 %19, 2
-  br label %21
+  %8 = getelementptr i8, ptr %7, i64 2176
+  %9 = getelementptr %"class.std::shared_ptr.65", ptr %8, i64 %3
+  %10 = load ptr, ptr %9, align 8, !tbaa !168
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %12 = load i64, ptr %11, align 8, !tbaa !161
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !6
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 266624
+  %16 = load i64, ptr %15, align 8, !tbaa !166
+  %17 = add i64 %16, -2
+  %.neg.i.i = shl nsw i64 -1, %17
+  %18 = and i64 %.neg.i.i, %12
+  %19 = shl i64 %18, 2
+  br label %20
 
-21:                                               ; preds = %1, %5
-  %.0 = phi i64 [ %20, %5 ], [ 0, %1 ]
+20:                                               ; preds = %1, %5
+  %.0 = phi i64 [ %19, %5 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -1329,8 +1310,8 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t6match4Em(ptr noundef nonnull read
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !tbaa !163
   %5 = and i8 %4, 24
-  switch i8 %5, label %35 [
-    i8 0, label %58
+  switch i8 %5, label %34 [
+    i8 0, label %57
     i8 8, label %6
   ]
 
@@ -1343,65 +1324,64 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t6match4Em(ptr noundef nonnull read
 _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2192
-  %13 = add i64 %8, -1
-  %14 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %12, i64 0, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !168
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !161
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 266624
-  %21 = load i64, ptr %20, align 8, !tbaa !166
-  %22 = add i64 %21, -2
-  %.neg.i.i.i = shl nsw i64 -1, %22
-  %23 = and i64 %.neg.i.i.i, %17
-  %24 = shl i64 %23, 2
-  %.not = icmp ugt i64 %24, %1
-  br i1 %.not, label %58, label %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread
+  %12 = getelementptr i8, ptr %11, i64 2176
+  %13 = getelementptr %"class.std::shared_ptr.65", ptr %12, i64 %8
+  %14 = load ptr, ptr %13, align 8, !tbaa !168
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !161
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !6
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 266624
+  %20 = load i64, ptr %19, align 8, !tbaa !166
+  %21 = add i64 %20, -2
+  %.neg.i.i.i = shl nsw i64 -1, %21
+  %22 = and i64 %.neg.i.i.i, %16
+  %23 = shl i64 %22, 2
+  %.not = icmp ugt i64 %23, %1
+  br i1 %.not, label %57, label %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread
 
 _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread: ; preds = %6, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i64, ptr %25, align 8, !tbaa !161
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !6
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 266624
-  %30 = load i64, ptr %29, align 8, !tbaa !166
-  %31 = add i64 %30, -2
-  %.neg.i.i = shl nsw i64 -1, %31
-  %32 = and i64 %.neg.i.i, %26
-  %33 = shl i64 %32, 2
-  %34 = icmp ult i64 %1, %33
-  br label %58
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = load i64, ptr %24, align 8, !tbaa !161
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 266624
+  %29 = load i64, ptr %28, align 8, !tbaa !166
+  %30 = add i64 %29, -2
+  %.neg.i.i = shl nsw i64 -1, %30
+  %31 = and i64 %.neg.i.i, %25
+  %32 = shl i64 %31, 2
+  %33 = icmp ult i64 %1, %32
+  br label %57
 
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !161
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !6
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 266624
-  %41 = load i64, ptr %40, align 8, !tbaa !166
-  %42 = add i64 %41, -2
-  %.neg.i.i7 = shl nsw i64 -1, %42
-  %43 = and i64 %.neg.i.i7, %37
-  %44 = shl i64 %43, 2
-  %45 = xor i64 %44, %1
-  %46 = icmp ne i8 %5, 16
-  %47 = shl i64 %37, 1
-  %48 = zext i1 %46 to i64
-  %49 = or disjoint i64 %47, %48
-  %50 = xor i64 %.neg.i.i7, -1
-  %51 = or i64 %49, %50
-  %52 = sub i64 4611686018427387902, %51
-  %53 = and i64 %52, %51
-  %54 = xor i64 %53, -1
-  %55 = shl i64 %54, 2
-  %56 = and i64 %55, %45
-  %57 = icmp eq i64 %56, 0
-  br label %58
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load i64, ptr %35, align 8, !tbaa !161
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !6
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 266624
+  %40 = load i64, ptr %39, align 8, !tbaa !166
+  %41 = add i64 %40, -2
+  %.neg.i.i7 = shl nsw i64 -1, %41
+  %42 = and i64 %.neg.i.i7, %36
+  %43 = shl i64 %42, 2
+  %44 = xor i64 %43, %1
+  %45 = icmp ne i8 %5, 16
+  %46 = shl i64 %36, 1
+  %47 = zext i1 %45 to i64
+  %48 = or disjoint i64 %46, %47
+  %49 = xor i64 %.neg.i.i7, -1
+  %50 = or i64 %48, %49
+  %51 = sub i64 4611686018427387902, %50
+  %52 = and i64 %51, %50
+  %53 = xor i64 %52, -1
+  %54 = shl i64 %53, 2
+  %55 = and i64 %54, %44
+  %56 = icmp eq i64 %55, 0
+  br label %57
 
-58:                                               ; preds = %35, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ %57, %35 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ], [ %34, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread ]
+57:                                               ; preds = %34, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ %56, %34 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ], [ %33, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -1426,81 +1406,80 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonn
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2192
-  %16 = add i64 %10, -1
-  %17 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %15, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !168
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !161
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !6
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 266624
-  %24 = load i64, ptr %23, align 8, !tbaa !166
-  %25 = add i64 %24, -2
-  %.neg.i.i.i = shl nsw i64 -1, %25
-  %26 = and i64 %.neg.i.i.i, %20
-  %27 = shl i64 %26, 2
+  %15 = getelementptr i8, ptr %14, i64 2176
+  %16 = getelementptr %"class.std::shared_ptr.65", ptr %15, i64 %10
+  %17 = load ptr, ptr %16, align 8, !tbaa !168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = load i64, ptr %18, align 8, !tbaa !161
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 266624
+  %23 = load i64, ptr %22, align 8, !tbaa !166
+  %24 = add i64 %23, -2
+  %.neg.i.i.i = shl nsw i64 -1, %24
+  %25 = and i64 %.neg.i.i.i, %19
+  %26 = shl i64 %25, 2
   br label %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
 
 _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %8, %12
-  %.0.i = phi i64 [ %27, %12 ], [ 0, %8 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !161
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !6
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 266624
-  %33 = load i64, ptr %32, align 8, !tbaa !166
-  %34 = add i64 %33, -2
-  %.neg.i.i = shl nsw i64 -1, %34
-  %35 = and i64 %.neg.i.i, %29
-  %36 = shl i64 %35, 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %38 = load i8, ptr %37, align 8, !tbaa !163
-  %39 = and i8 %38, 24
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %72, label %41
+  %.0.i = phi i64 [ %26, %12 ], [ 0, %8 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = load i64, ptr %27, align 8, !tbaa !161
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 266624
+  %32 = load i64, ptr %31, align 8, !tbaa !166
+  %33 = add i64 %32, -2
+  %.neg.i.i = shl nsw i64 -1, %33
+  %34 = and i64 %.neg.i.i, %28
+  %35 = shl i64 %34, 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i8, ptr %36, align 8, !tbaa !163
+  %38 = and i8 %37, 24
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %71, label %40
 
-41:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
-  %42 = icmp eq i8 %39, 8
-  %43 = icmp uge i64 %1, %36
-  %44 = sub i64 0, %2
-  %45 = and i64 %1, %44
-  %46 = and i64 %.0.i, %44
-  %47 = icmp ult i64 %45, %46
-  %or.cond = or i1 %47, %43
-  br i1 %or.cond, label %53, label %48
+40:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit
+  %41 = icmp eq i8 %38, 8
+  %42 = icmp uge i64 %1, %35
+  %43 = sub i64 0, %2
+  %44 = and i64 %1, %43
+  %45 = and i64 %.0.i, %43
+  %46 = icmp ult i64 %44, %45
+  %or.cond = or i1 %46, %42
+  br i1 %or.cond, label %52, label %47
 
-48:                                               ; preds = %41
-  %49 = and i64 %36, %44
-  %50 = icmp ult i64 %45, %49
-  %51 = icmp uge i64 %1, %.0.i
-  %52 = and i1 %51, %50
-  br label %53
+47:                                               ; preds = %40
+  %48 = and i64 %35, %43
+  %49 = icmp ult i64 %44, %48
+  %50 = icmp uge i64 %1, %.0.i
+  %51 = and i1 %50, %49
+  br label %52
 
-53:                                               ; preds = %48, %41
-  %54 = phi i1 [ true, %41 ], [ %52, %48 ]
-  %55 = icmp ne i8 %39, 16
-  %56 = shl i64 %29, 1
-  %57 = zext i1 %55 to i64
-  %58 = or disjoint i64 %56, %57
-  %59 = xor i64 %.neg.i.i, -1
-  %60 = or i64 %58, %59
-  %61 = sub i64 2305843009213693950, %60
-  %62 = and i64 %61, %60
-  %63 = xor i64 %62, -1
-  %64 = shl i64 %63, 3
-  %65 = xor i64 %64, -1
-  %66 = and i64 %2, %65
-  %.not30 = icmp ne i64 %66, 0
-  %67 = xor i64 %36, %1
-  %68 = icmp ule i64 %2, %67
-  %69 = select i1 %.not30, i1 true, i1 %68
-  %70 = select i1 %42, i1 %54, i1 %69
-  %71 = xor i1 %70, true
-  br label %72
+52:                                               ; preds = %47, %40
+  %53 = phi i1 [ true, %40 ], [ %51, %47 ]
+  %54 = icmp ne i8 %38, 16
+  %55 = shl i64 %28, 1
+  %56 = zext i1 %54 to i64
+  %57 = or disjoint i64 %55, %56
+  %58 = xor i64 %.neg.i.i, -1
+  %59 = or i64 %57, %58
+  %60 = sub i64 2305843009213693950, %59
+  %61 = and i64 %60, %59
+  %62 = xor i64 %61, -1
+  %63 = shl i64 %62, 3
+  %64 = xor i64 %63, -1
+  %65 = and i64 %2, %64
+  %.not30 = icmp ne i64 %65, 0
+  %66 = xor i64 %35, %1
+  %67 = icmp ule i64 %2, %66
+  %68 = select i1 %.not30, i1 true, i1 %67
+  %69 = select i1 %41, i1 %53, i1 %68
+  %70 = xor i1 %69, true
+  br label %71
 
-72:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %53
-  %.0 = phi i1 [ %71, %53 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ]
+71:                                               ; preds = %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit, %52
+  %.0 = phi i1 [ %70, %52 ], [ false, %_ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit ]
   ret i1 %.0
 }
 
@@ -1694,7 +1673,7 @@ define noundef i64 @_ZNK12pmpcfg_csr_t4readEv(ptr noundef nonnull readonly align
 17:                                               ; preds = %.lr.ph, %17
   %.012 = phi i64 [ %5, %.lr.ph ], [ %27, %17 ]
   %.01011 = phi i64 [ 0, %.lr.ph ], [ %26, %17 ]
-  %18 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %16, i64 0, i64 %.012
+  %18 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %16, i64 %.012
   %19 = load ptr, ptr %18, align 8, !tbaa !168
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i8, ptr %20, align 8, !tbaa !163
@@ -1766,7 +1745,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   br i1 %44, label %45, label %64
 
 45:                                               ; preds = %.lr.ph.split.us
-  %46 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %42, i64 0, i64 %.04459.us
+  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %42, i64 %.04459.us
   %47 = load ptr, ptr %46, align 8, !tbaa !168
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load i8, ptr %48, align 8, !tbaa !163
@@ -1814,7 +1793,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   br i1 %68, label %69, label %91
 
 69:                                               ; preds = %.lr.ph.split.split.split
-  %70 = getelementptr inbounds nuw [64 x %"class.std::shared_ptr.65"], ptr %42, i64 0, i64 %.04459
+  %70 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %42, i64 %.04459
   %71 = load ptr, ptr %70, align 8, !tbaa !168
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i8, ptr %72, align 8, !tbaa !163
@@ -5476,7 +5455,7 @@ _ZN5csr_t5writeEm.exit112:                        ; preds = %_ZN5csr_t5writeEm.e
   %.035145 = phi i64 [ %544, %_ZN5csr_t5writeEm.exit114 ], [ 0, %_ZN5csr_t5writeEm.exit112.preheader ]
   %506 = load ptr, ptr %297, align 8, !tbaa !15
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 1096
-  %508 = getelementptr inbounds nuw [29 x %"class.std::shared_ptr.32"], ptr %507, i64 0, i64 %.035145
+  %508 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %507, i64 %.035145
   %509 = load ptr, ptr %508, align 8, !tbaa !176
   %510 = load ptr, ptr %509, align 8, !tbaa !3
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
@@ -5485,7 +5464,7 @@ _ZN5csr_t5writeEm.exit112:                        ; preds = %_ZN5csr_t5writeEm.e
   %514 = and i64 %513, -864691128455135233
   %515 = load ptr, ptr %297, align 8, !tbaa !15
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 1096
-  %517 = getelementptr inbounds nuw [29 x %"class.std::shared_ptr.32"], ptr %516, i64 0, i64 %.035145
+  %517 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %516, i64 %.035145
   %518 = load ptr, ptr %517, align 8, !tbaa !176
   %519 = load ptr, ptr %518, align 8, !tbaa !3
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 32
@@ -10495,7 +10474,7 @@ define noundef i64 @_ZNK14hstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !tbaa !269
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !176
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10515,7 +10494,7 @@ define noundef zeroext i1 @_ZN14hstateen_csr_t14unlogged_writeEm(ptr noundef non
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i8, ptr %8, align 8, !tbaa !269
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !176
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -10546,7 +10525,7 @@ define void @_ZNK14hstateen_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8, !tbaa !269
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !176
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10614,7 +10593,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i8, ptr %10, align 8, !tbaa !269
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !176
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10628,7 +10607,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3424
   %23 = load i8, ptr %10, align 8, !tbaa !269
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !176
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -10656,7 +10635,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i8, ptr %10, align 8, !tbaa !269
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %9, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !176
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10669,7 +10648,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 3296
   %24 = load i8, ptr %10, align 8, !tbaa !269
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !176
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -10692,7 +10671,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i8, ptr %43, align 8, !tbaa !269
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %42, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !176
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -10726,7 +10705,7 @@ define void @_ZNK14sstateen_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8, !tbaa !269
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !176
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10760,7 +10739,7 @@ _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i8, ptr %31, align 8, !tbaa !269
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [4 x %"class.std::shared_ptr.32"], ptr %30, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !176
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -11535,7 +11514,7 @@ define noundef i64 @_ZNK15scountovf_csr_t4readEv(ptr noundef nonnull readonly al
   %.0910 = phi i64 [ 0, %1 ], [ %31, %16 ]
   %17 = load ptr, ptr %2, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1096
-  %19 = getelementptr inbounds nuw [29 x %"class.std::shared_ptr.32"], ptr %18, i64 0, i64 %.0910
+  %19 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %18, i64 %.0910
   %20 = load ptr, ptr %19, align 8, !tbaa !176
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8

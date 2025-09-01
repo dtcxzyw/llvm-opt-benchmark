@@ -24,7 +24,7 @@ define ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [18 x %struct.AVLumaCoefficients], ptr @luma_coefficients, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVLumaCoefficients, ptr @luma_coefficients, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %.not = icmp eq i32 %6, 0
   %. = select i1 %.not, ptr null, ptr %5
@@ -42,7 +42,7 @@ define ptr @av_csp_primaries_desc_from_id(i32 noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [23 x %struct.AVColorPrimariesDesc], ptr @color_primaries, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.AVColorPrimariesDesc, ptr @color_primaries, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 16, !tbaa !10
   %.not = icmp eq i32 %7, 0
@@ -67,7 +67,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %1, %av_cmp_q.exit.thread103
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %av_cmp_q.exit.thread103 ]
-  %10 = getelementptr inbounds nuw [23 x %struct.AVColorPrimariesDesc], ptr @color_primaries, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.AVColorPrimariesDesc, ptr @color_primaries, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 16, !tbaa !10
   %.not = icmp eq i32 %12, 0
@@ -218,7 +218,7 @@ define double @av_csp_approximate_trc_gamma(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [19 x double], ptr @approximate_gamma, i64 0, i64 %4
+  %8 = getelementptr inbounds nuw double, ptr @approximate_gamma, i64 %4
   %9 = load double, ptr %8, align 8, !tbaa !16
   br label %10
 
@@ -234,7 +234,7 @@ define ptr @av_csp_trc_func_from_id(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @trc_funcs, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @trc_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   br label %7
 
@@ -250,7 +250,7 @@ define ptr @av_csp_trc_func_inv_from_id(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @trc_inv_funcs, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @trc_inv_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   br label %7
 
@@ -266,7 +266,7 @@ define ptr @av_csp_itu_eotf(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @eotf_funcs, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @eotf_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   br label %7
 
@@ -282,7 +282,7 @@ define ptr @av_csp_itu_eotf_inv(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @eotf_inv_funcs, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @eotf_inv_funcs, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   br label %7
 
@@ -1042,9 +1042,9 @@ define internal void @eotf_smpte_st428_1(double noundef %0, double noundef %1, p
 
 23:                                               ; preds = %15, %19
   %24 = phi nsz double [ %22, %19 ], [ 0.000000e+00, %15 ]
-  %25 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !16
-  %27 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !16
   %29 = fsub nsz double %26, %28
   %30 = tail call nsz double @llvm.fmuladd.f64(double %24, double %29, double %28)
@@ -1358,10 +1358,10 @@ define internal void @eotf_smpte_st428_1_inv(double noundef %0, double noundef %
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %30 ]
   %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !16
   %20 = fsub nsz double %17, %19
-  %21 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !16
   %23 = fsub nsz double %22, %19
   %24 = fdiv nsz double %20, %23

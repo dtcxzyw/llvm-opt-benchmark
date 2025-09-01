@@ -1152,7 +1152,7 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   %.not.i.i.i.i.i.i = phi i1 [ true, %93 ], [ false, %101 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %93 ], [ 1, %101 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %93 ], [ %.1.i.i.i.i.i.i, %101 ]
-  %96 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %96 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %97 = load i8, ptr %96, align 1, !tbaa !130, !range !89, !noundef !90
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %101

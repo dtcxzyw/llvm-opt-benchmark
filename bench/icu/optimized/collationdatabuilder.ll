@@ -156,7 +156,7 @@ define void @_ZN6icu_7728DataBuilderCollationIteratorC2ERNS_20CollationDataBuild
   %36 = add nuw nsw i32 %.sink.i, %35
   %37 = shl nuw nsw i32 %36, 13
   %38 = or disjoint i32 %37, 455
-  %39 = getelementptr inbounds nuw [67 x i32], ptr %29, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 %38, ptr %39, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
@@ -3940,7 +3940,7 @@ _ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit: ; preds = %.lr.ph
 
 _ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit.thread: ; preds = %57, %55, %_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit
   %.0.i56 = phi i32 [ %66, %_ZN6icu_7720CollationDataBuilder17encodeOneCEAsCE32El.exit ], [ %56, %55 ], [ %61, %57 ]
-  %67 = getelementptr inbounds nuw [31 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %.0.i56, ptr %67, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = icmp eq i64 %indvars.iv.next, %44
@@ -5524,7 +5524,7 @@ define void @_ZN6icu_7720CollationDataBuilder13buildMappingsERNS_13CollationData
 
 24:                                               ; preds = %18, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ]
-  %25 = getelementptr inbounds nuw [67 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !66
   %27 = load i32, ptr %20, align 8, !tbaa !120
   %28 = icmp slt i32 %27, -1
@@ -5566,7 +5566,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
 
 .preheader81:                                     ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit, %38
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %38 ], [ 19, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit ]
-  %39 = getelementptr inbounds nuw [67 x i32], ptr %5, i64 0, i64 %indvars.iv92
+  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv92
   %40 = load i32, ptr %39, align 4, !tbaa !66
   %41 = and i32 %40, 192
   %.not.not = icmp eq i32 %41, 192
@@ -5575,7 +5575,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
 .split.us:                                        ; preds = %38, %.split.us
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.split.us ], [ 0, %38 ]
   %.06384.us = phi i32 [ %45, %.split.us ], [ 44032, %38 ]
-  %42 = getelementptr inbounds nuw [67 x i32], ptr %5, i64 0, i64 %indvars.iv96
+  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv96
   %43 = load i32, ptr %42, align 4, !tbaa !66
   %44 = and i32 %43, 192
   %.not78.us = icmp eq i32 %44, 192
@@ -6563,7 +6563,7 @@ define linkonce_odr noundef i32 @_ZN6icu_7710CopyHelper8copyCE32Ej(ptr noundef n
 
 _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
   %.0.i104 = phi i64 [ %80, %70 ], [ %88, %86 ], [ %85, %81 ]
-  %89 = getelementptr inbounds nuw [31 x i64], ptr %29, i64 0, i64 %indvars.iv134
+  %89 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv134
   store i64 %.0.i104, ptr %89, align 8, !tbaa !89
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, %indvars.iv138
@@ -6571,7 +6571,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
 
 .sink.split:                                      ; preds = %_ZN6icu_779Collation10ceFromCE32Ej.exit105, %64, %61, %56, %45
   %.0.i.sink = phi i64 [ %55, %45 ], [ %63, %61 ], [ %60, %56 ], [ %39, %64 ], [ %39, %_ZN6icu_779Collation10ceFromCE32Ej.exit105 ]
-  %90 = getelementptr inbounds nuw [31 x i64], ptr %29, i64 0, i64 %indvars.iv138
+  %90 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv138
   store i64 %.0.i.sink, ptr %90, align 8, !tbaa !89
   br label %91
 
@@ -6647,7 +6647,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph112 ], [ 0, %127 ]
   %129 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv
   %130 = load i64, ptr %129, align 8, !tbaa !89
-  %131 = getelementptr inbounds nuw [31 x i64], ptr %116, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv
   store i64 %130, ptr %131, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv130
@@ -6655,7 +6655,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
 
 .sink.split153:                                   ; preds = %.lr.ph112, %127, %126
   %.sink = phi i64 [ %119, %126 ], [ %124, %127 ], [ %124, %.lr.ph112 ]
-  %132 = getelementptr inbounds nuw [31 x i64], ptr %116, i64 0, i64 %indvars.iv130
+  %132 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv130
   store i64 %.sink, ptr %132, align 8, !tbaa !89
   br label %133
 

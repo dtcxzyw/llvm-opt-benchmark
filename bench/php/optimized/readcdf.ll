@@ -629,7 +629,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
 
 163:                                              ; preds = %156
   %164 = add nuw nsw i64 %.087124.i.i, 1
-  %165 = getelementptr inbounds nuw [1024 x i8], ptr %15, i64 0, i64 %.087124.i.i
+  %165 = getelementptr inbounds nuw i8, ptr %15, i64 %.087124.i.i
   store i8 %154, ptr %165, align 1, !tbaa !39
   br label %166
 
@@ -645,7 +645,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %.087.lcssa.ph.i.i = phi i64 [ %.087124.i.i, %.lr.ph.i.i ], [ %.087124.i.i, %153 ], [ %.188.i.i, %166 ]
   %170 = icmp eq i64 %.087.lcssa.ph.i.i, 1024
   %spec.select111.i.i = select i1 %170, i64 1023, i64 %.087.lcssa.ph.i.i
-  %171 = getelementptr inbounds nuw [1024 x i8], ptr %15, i64 0, i64 %spec.select111.i.i
+  %171 = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select111.i.i
   store i8 0, ptr %171, align 1, !tbaa !39
   %172 = load i32, ptr %24, align 4, !tbaa !23
   %173 = and i32 %172, 1040
@@ -813,11 +813,11 @@ cdf_file_summary_info.exit.thread:                ; preds = %28, %31, %40, %48, 
 
 232:                                              ; preds = %229, %232
   %.061 = phi i64 [ 0, %229 ], [ %238, %232 ]
-  %233 = getelementptr inbounds nuw [32 x i16], ptr %231, i64 0, i64 %.061
+  %233 = getelementptr inbounds nuw i16, ptr %231, i64 %.061
   %234 = load i16, ptr %233, align 2, !tbaa !51
   %235 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %234) #7
   %236 = trunc i16 %235 to i8
-  %237 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %.061
+  %237 = getelementptr inbounds nuw i8, ptr %20, i64 %.061
   store i8 %236, ptr %237, align 1, !tbaa !39
   %238 = add nuw nsw i64 %.061, 1
   %exitcond.not = icmp eq i64 %238, 32
@@ -961,7 +961,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 
 3:                                                ; preds = %2, %._crit_edge
   %.02229 = phi i64 [ 0, %2 ], [ %35, %._crit_edge ]
-  %4 = getelementptr inbounds nuw [6 x %struct.sinfo], ptr @sectioninfo, i64 0, i64 %.02229
+  %4 = getelementptr inbounds nuw %struct.sinfo, ptr @sectioninfo, i64 %.02229
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !15
   %.not27 = icmp eq ptr %6, null
@@ -973,7 +973,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 
 8:                                                ; preds = %12
   %9 = add i64 %.02128, 1
-  %10 = getelementptr inbounds nuw [5 x ptr], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %12
@@ -981,7 +981,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 12:                                               ; preds = %.lr.ph, %8
   %13 = phi ptr [ %6, %.lr.ph ], [ %11, %8 ]
   %.02128 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
-  %14 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %.02128
+  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %.02128
   %15 = load i32, ptr %14, align 4, !tbaa !35
   %16 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %15) #7
   %17 = icmp sgt i32 %16, 0

@@ -5523,7 +5523,7 @@ define internal noundef nonnull ptr @opensafety_get_filter_type(ptr noundef read
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.opensafety_get_filter_type, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.opensafety_get_filter_type, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 

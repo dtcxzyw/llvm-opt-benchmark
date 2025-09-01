@@ -556,7 +556,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i:       ; preds = %42, %_ZN9Relocator1
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i:   ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 15
   %50 = zext nneg i8 %49 to i32
@@ -629,7 +629,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i26:     ; preds = %82, %80
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i.i26
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 15
   %90 = zext nneg i8 %89 to i32

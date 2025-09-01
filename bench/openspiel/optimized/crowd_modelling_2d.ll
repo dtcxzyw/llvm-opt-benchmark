@@ -6482,14 +6482,14 @@ _ZNKSt5arrayIiLm5EE2atEm.exit4.i:                 ; preds = %.noexc, %_ZNK10open
   %12 = phi ptr [ %5, %.noexc ], [ %68, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
   %13 = phi ptr [ %3, %.noexc ], [ %67, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
   %14 = load i32, ptr %6, align 4
-  %15 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %storemerge17
+  %15 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %storemerge17
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %14
   %18 = load i32, ptr %7, align 8
   %19 = add nsw i32 %17, %18
   %20 = srem i32 %19, %18
   %21 = load i32, ptr %8, align 8
-  %22 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %storemerge17
+  %22 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %storemerge17
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %21, %18
   %25 = add i32 %24, %23
@@ -6629,7 +6629,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2
 _ZNKSt5arrayIiLm5EE2atEm.exit4:                   ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %1
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %1
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6638,7 +6638,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit4:                   ; preds = %2
   %13 = srem i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %1
+  %16 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %1
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, %11
   %19 = add i32 %18, %17
@@ -7297,7 +7297,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
 _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %1
+  %81 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %1
   %82 = load i32, ptr %81, align 4
   %83 = add nsw i32 %82, %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -7306,7 +7306,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %76
   %87 = srem i32 %86, %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %1
+  %90 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %1
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %89, %85
   %93 = add i32 %92, %91
@@ -7348,7 +7348,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %76
 _ZNKSt5arrayIiLm5EE2atEm.exit24:                  ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %1
+  %109 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %1
   %110 = load i32, ptr %109, align 4
   %111 = add nsw i32 %110, %108
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -7357,7 +7357,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit24:                  ; preds = %104
   %115 = srem i32 %114, %113
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %1
+  %118 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %1
   %119 = load i32, ptr %118, align 4
   %120 = add i32 %117, %113
   %121 = add i32 %120, %119
@@ -7785,7 +7785,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit5:        ; preds = %4
   unreachable
 
 _ZNKSt5arrayIiLm5EE2atEm.exit:                    ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit5
-  %30 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %3
+  %30 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %3
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %33 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %31, ptr noundef nonnull %32)
@@ -7803,7 +7803,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit:                    ; preds = %_ZN4absl7debian211s
 _ZNKSt5arrayIiLm5EE2atEm.exit6:                   ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %36, ptr %39, align 8
-  %40 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %3
+  %40 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %3
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %43 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %41, ptr noundef nonnull %42)
@@ -8606,10 +8606,10 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7Rewards
   unreachable
 
 _ZNKSt5arrayIiLm5EE2atEm.exit33:                  ; preds = %._crit_edge
-  %72 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %69
+  %72 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %69
   %73 = load i32, ptr %72, align 4
   %74 = tail call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %75 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %69
+  %75 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %69
   %76 = load i32, ptr %75, align 4
   %77 = tail call i32 @llvm.abs.i32(i32 %76, i1 true)
   %78 = add nuw nsw i32 %77, %74
@@ -16959,7 +16959,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %8 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -1
   %9 = load i8, ptr %8, align 1, !noalias !129
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !noalias !129
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -16969,7 +16969,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %15 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -2
   %16 = load i8, ptr %15, align 1, !noalias !129
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !129
   %20 = and i8 %19, 8
   %.not9 = icmp eq i8 %20, 0
@@ -16979,7 +16979,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %22 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -3
   %23 = load i8, ptr %22, align 1, !noalias !129
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !noalias !129
   %27 = and i8 %26, 8
   %.not10 = icmp eq i8 %27, 0
@@ -16989,7 +16989,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %29 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i, i64 -4
   %30 = load i8, ptr %29, align 1, !noalias !129
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !129
   %34 = and i8 %33, 8
   %.not11 = icmp eq i8 %34, 0
@@ -17014,7 +17014,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %40 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i, i64 -1
   %41 = load i8, ptr %40, align 1, !noalias !129
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !noalias !129
   %45 = and i8 %44, 8
   %.not12 = icmp eq i8 %45, 0
@@ -17025,7 +17025,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %47 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i, i64 -1
   %48 = load i8, ptr %47, align 1, !noalias !129
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %49
   %51 = load i8, ptr %50, align 1, !noalias !129
   %52 = and i8 %51, 8
   %.not13 = icmp eq i8 %52, 0
@@ -17036,7 +17036,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian228StripTrailingAsciiWhitespace
   %54 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i, i64 -1
   %55 = load i8, ptr %54, align 1, !noalias !129
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %56
   %58 = load i8, ptr %57, align 1, !noalias !129
   %59 = and i8 %58, 8
   %.not14 = icmp eq i8 %59, 0
@@ -17092,7 +17092,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.02946.i.i.i = phi ptr [ %36, %35 ], [ %0, %.lr.ph.i.i.i.preheader ]
   %9 = load i8, ptr %.02946.i.i.i, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -17102,7 +17102,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 8
   %.not5 = icmp eq i8 %20, 0
@@ -17112,7 +17112,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
@@ -17122,7 +17122,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
@@ -17151,7 +17151,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
 40:                                               ; preds = %._crit_edge.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, 8
   %.not8 = icmp eq i8 %45, 0
@@ -17165,7 +17165,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 8
   %.not9 = icmp eq i8 %53, 0
@@ -17179,7 +17179,7 @@ define linkonce_odr { ptr, i64 } @_ZN4absl7debian227StripLeadingAsciiWhitespaceE
   %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = and i8 %60, 8
   %.not10 = icmp eq i8 %61, 0
@@ -19497,7 +19497,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE6insertIPZNKS1_16strings_intern
   %40 = phi i64 [ %64, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre17, %.preheader.preheader ]
   %41 = phi ptr [ %57, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %4, i64 0, i64 %.0
+  %42 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8

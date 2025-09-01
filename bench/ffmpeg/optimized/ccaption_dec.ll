@@ -272,13 +272,13 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
 
 111:                                              ; preds = %get_writing_screen.exit.i.i
   %112 = zext nneg i8 %98 to i64
-  %113 = getelementptr inbounds nuw [16 x i8], ptr @handle_pac.row_map, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @handle_pac.row_map, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !42
   %115 = and i8 %78, 31
   %116 = add i8 %114, -1
   store i8 %116, ptr %29, align 4, !tbaa !32
   %117 = zext nneg i8 %115 to i64
-  %118 = getelementptr inbounds nuw [32 x [3 x i8]], ptr @pac2_attribs, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [3 x i8], ptr @pac2_attribs, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !42
   store i8 %119, ptr %27, align 2, !tbaa !45
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 1
@@ -308,11 +308,11 @@ get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
 132:                                              ; preds = %129
   %133 = load i8, ptr %29, align 4, !tbaa !32
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i.i.i, i64 0, i64 %134
-  %136 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %125, i64 0, i64 %134
-  %137 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %126, i64 0, i64 %134
-  %138 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %127, i64 0, i64 %134
-  %139 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %128, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [33 x i8], ptr %.0.i.i.i, i64 %134
+  %136 = getelementptr inbounds nuw [33 x i8], ptr %125, i64 %134
+  %137 = getelementptr inbounds nuw [33 x i8], ptr %126, i64 %134
+  %138 = getelementptr inbounds nuw [33 x i8], ptr %127, i64 %134
+  %139 = getelementptr inbounds nuw [33 x i8], ptr %128, i64 %134
   %140 = zext nneg i8 %130 to i64
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 %140
   store i8 32, ptr %141, align 1, !tbaa !42
@@ -386,11 +386,11 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
 
 173:                                              ; preds = %get_writing_screen.exit.i126.i
   %174 = zext nneg i8 %79 to i64
-  %175 = add nsw i64 %174, -32
-  %176 = getelementptr inbounds [32 x [3 x i8]], ptr @pac2_attribs, i64 0, i64 %175
+  %175 = getelementptr [3 x i8], ptr @pac2_attribs, i64 %174
+  %176 = getelementptr i8, ptr %175, i64 -96
   %177 = load i8, ptr %176, align 1, !tbaa !42
   store i8 %177, ptr %27, align 2, !tbaa !45
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 1
+  %178 = getelementptr i8, ptr %175, i64 -95
   %179 = load i8, ptr %178, align 1, !tbaa !42
   store i8 %179, ptr %28, align 8, !tbaa !46
   %180 = load i8, ptr %29, align 4, !tbaa !32
@@ -407,15 +407,15 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
 
 189:                                              ; preds = %173
   %190 = zext i8 %180 to i64
-  %191 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i.i127.i, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw [33 x i8], ptr %.0.i.i127.i, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %.0.i.i127.i, i64 528
-  %193 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %192, i64 0, i64 %190
+  %193 = getelementptr inbounds nuw [33 x i8], ptr %192, i64 %190
   %194 = getelementptr inbounds nuw i8, ptr %.0.i.i127.i, i64 1584
-  %195 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %194, i64 0, i64 %190
+  %195 = getelementptr inbounds nuw [33 x i8], ptr %194, i64 %190
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i127.i, i64 1056
-  %197 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %196, i64 0, i64 %190
+  %197 = getelementptr inbounds nuw [33 x i8], ptr %196, i64 %190
   %198 = getelementptr inbounds nuw i8, ptr %.0.i.i127.i, i64 2112
-  %199 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %198, i64 0, i64 %190
+  %199 = getelementptr inbounds nuw [33 x i8], ptr %198, i64 %190
   %200 = zext nneg i8 %187 to i64
   %201 = getelementptr inbounds nuw i8, ptr %191, i64 %200
   store i8 32, ptr %201, align 1, !tbaa !42
@@ -450,7 +450,7 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
   %216 = lshr i8 %78, 1
   %217 = and i8 %216, 7
   %218 = zext nneg i8 %217 to i64
-  %219 = getelementptr inbounds nuw [8 x i8], ptr @bg_attribs, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr @bg_attribs, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !42
   store i8 %220, ptr %26, align 1, !tbaa !30
   br label %process_cc608.exit.thread
@@ -604,7 +604,7 @@ process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_ch
   store i64 %265, ptr %33, align 8, !tbaa !56
   store i64 %9, ptr %34, align 8, !tbaa !56
   %266 = sext i32 %.2100 to i64
-  %267 = getelementptr inbounds [2 x %struct.AVBPrint], ptr %35, i64 0, i64 %266
+  %267 = getelementptr inbounds %struct.AVBPrint, ptr %35, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !57
   %269 = load i8, ptr %268, align 1, !tbaa !42
   %.not119 = icmp eq i8 %269, 0
@@ -668,7 +668,7 @@ validate_cc_data_pair.exit.thread:                ; preds = %68, %73, %56, %48, 
   %.not109 = icmp eq i32 %291, 0
   %292 = zext i1 %.not109 to i32
   %293 = zext i1 %.not109 to i64
-  %294 = getelementptr inbounds nuw [2 x %struct.AVBPrint], ptr %290, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw %struct.AVBPrint, ptr %290, i64 %293
   %295 = load ptr, ptr %294, align 8, !tbaa !57
   %296 = load i8, ptr %295, align 1, !tbaa !42
   %.not110 = icmp eq i8 %296, 0
@@ -738,7 +738,7 @@ validate_cc_data_pair.exit.thread:                ; preds = %68, %73, %56, %48, 
   store i32 0, ptr %334, align 4, !tbaa !55
   %335 = getelementptr inbounds nuw i8, ptr %7, i64 5328
   %336 = sext i32 %.3 to i64
-  %337 = getelementptr inbounds [2 x %struct.AVBPrint], ptr %335, i64 0, i64 %336
+  %337 = getelementptr inbounds %struct.AVBPrint, ptr %335, i64 %336
   %338 = load ptr, ptr %337, align 8, !tbaa !57
   %339 = getelementptr inbounds nuw i8, ptr %7, i64 7428
   %340 = load i32, ptr %339, align 4, !tbaa !60
@@ -858,7 +858,7 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
   %8 = load i32, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5328
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [2 x %struct.AVBPrint], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.AVBPrint, ptr %9, i64 %10
   tail call void @av_bprint_clear(ptr noundef nonnull %11) #9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 2640
   %13 = load i16, ptr %12, align 2, !tbaa !51
@@ -888,8 +888,8 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
   br i1 %.not163, label %38, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %6, i64 0, i64 %indvars.iv218
-  %27 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %15, i64 0, i64 %indvars.iv218
+  %26 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv218
+  %27 = getelementptr inbounds nuw [33 x i8], ptr %15, i64 %indvars.iv218
   %28 = load i8, ptr %26, align 1, !tbaa !42
   %29 = icmp eq i8 %28, 32
   br i1 %29, label %.lr.ph, label %.critedge
@@ -940,11 +940,11 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
   br i1 %.not158, label %112, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %6, i64 0, i64 %indvars.iv231
-  %46 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %17, i64 0, i64 %indvars.iv231
-  %47 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %18, i64 0, i64 %indvars.iv231
-  %48 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %19, i64 0, i64 %indvars.iv231
-  %49 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %20, i64 0, i64 %indvars.iv231
+  %45 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv231
+  %46 = getelementptr inbounds nuw [33 x i8], ptr %17, i64 %indvars.iv231
+  %47 = getelementptr inbounds nuw [33 x i8], ptr %18, i64 %indvars.iv231
+  %48 = getelementptr inbounds nuw [33 x i8], ptr %19, i64 %indvars.iv231
+  %49 = getelementptr inbounds nuw [33 x i8], ptr %20, i64 %indvars.iv231
   %50 = load i8, ptr %45, align 1, !tbaa !42
   %51 = icmp eq i8 %50, 32
   br i1 %51, label %.lr.ph191, label %.critedge2
@@ -1013,7 +1013,7 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
 
 switch.lookup:                                    ; preds = %77
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.capture_screen, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %80
 
@@ -1047,7 +1047,7 @@ switch.lookup:                                    ; preds = %77
 
 switch.lookup238:                                 ; preds = %84
   %89 = zext nneg i8 %86 to i64
-  %switch.gep239 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.capture_screen.2, i64 0, i64 %89
+  %switch.gep239 = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen.2, i64 %89
   %switch.load240 = load ptr, ptr %switch.gep239, align 8
   br label %90
 
@@ -1063,7 +1063,7 @@ switch.lookup238:                                 ; preds = %84
 
 switch.lookup242:                                 ; preds = %90
   %95 = zext nneg i8 %92 to i64
-  %switch.gep243 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.capture_screen.3, i64 0, i64 %95
+  %switch.gep243 = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen.3, i64 %95
   %switch.load244 = load ptr, ptr %switch.gep243, align 8
   br label %96
 
@@ -1072,10 +1072,10 @@ switch.lookup242:                                 ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv226
   %98 = load i8, ptr %97, align 1, !tbaa !42
   %99 = sext i8 %98 to i64
-  %100 = getelementptr inbounds [4 x [128 x [4 x i8]]], ptr @charset_overrides, i64 0, i64 %99
+  %100 = getelementptr inbounds [128 x [4 x i8]], ptr @charset_overrides, i64 %99
   %101 = sext i8 %71 to i32
   %102 = sext i8 %71 to i64
-  %103 = getelementptr inbounds [128 x [4 x i8]], ptr %100, i64 0, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %100, i64 %102
   %104 = load i8, ptr %103, align 4, !tbaa !42
   %.not162 = icmp eq i8 %104, 0
   br i1 %.not162, label %106, label %105
@@ -1195,19 +1195,19 @@ get_writing_screen.exit:                          ; preds = %1, %4, %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   %19 = load i8, ptr %18, align 4, !tbaa !32
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [33 x i8], ptr %.0.i, i64 %20
   %22 = icmp ult i8 %17, 32
   br i1 %22, label %23, label %46
 
 23:                                               ; preds = %get_writing_screen.exit
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 528
-  %25 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %24, i64 0, i64 %20
+  %25 = getelementptr inbounds nuw [33 x i8], ptr %24, i64 %20
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1584
-  %27 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %26, i64 0, i64 %20
+  %27 = getelementptr inbounds nuw [33 x i8], ptr %26, i64 %20
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1056
-  %29 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %28, i64 0, i64 %20
+  %29 = getelementptr inbounds nuw [33 x i8], ptr %28, i64 %20
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2112
-  %31 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %30, i64 0, i64 %20
+  %31 = getelementptr inbounds nuw [33 x i8], ptr %30, i64 %20
   %32 = zext nneg i8 %17 to i64
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 %32
   store i8 0, ptr %33, align 1, !tbaa !42
@@ -1376,22 +1376,22 @@ get_writing_screen.exit:                          ; preds = %1, %4, %10
   %45 = add nsw i32 %44, %.154
   %46 = add nsw i32 %45, 1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %47
+  %48 = getelementptr inbounds [33 x i8], ptr %.0.i, i64 %47
   %49 = add nsw i32 %45, 2
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %50
+  %51 = getelementptr inbounds [33 x i8], ptr %.0.i, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %48, ptr noundef nonnull align 1 dereferenceable(32) %51, i64 32, i1 false)
-  %52 = getelementptr inbounds [16 x [33 x i8]], ptr %26, i64 0, i64 %47
-  %53 = getelementptr inbounds [16 x [33 x i8]], ptr %26, i64 0, i64 %50
+  %52 = getelementptr inbounds [33 x i8], ptr %26, i64 %47
+  %53 = getelementptr inbounds [33 x i8], ptr %26, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %52, ptr noundef nonnull align 1 dereferenceable(32) %53, i64 32, i1 false)
-  %54 = getelementptr inbounds [16 x [33 x i8]], ptr %27, i64 0, i64 %47
-  %55 = getelementptr inbounds [16 x [33 x i8]], ptr %27, i64 0, i64 %50
+  %54 = getelementptr inbounds [33 x i8], ptr %27, i64 %47
+  %55 = getelementptr inbounds [33 x i8], ptr %27, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %54, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
-  %56 = getelementptr inbounds [16 x [33 x i8]], ptr %28, i64 0, i64 %47
-  %57 = getelementptr inbounds [16 x [33 x i8]], ptr %28, i64 0, i64 %50
+  %56 = getelementptr inbounds [33 x i8], ptr %28, i64 %47
+  %57 = getelementptr inbounds [33 x i8], ptr %28, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %56, ptr noundef nonnull align 1 dereferenceable(32) %57, i64 32, i1 false)
-  %58 = getelementptr inbounds [16 x [33 x i8]], ptr %29, i64 0, i64 %47
-  %59 = getelementptr inbounds [16 x [33 x i8]], ptr %29, i64 0, i64 %50
+  %58 = getelementptr inbounds [33 x i8], ptr %29, i64 %47
+  %59 = getelementptr inbounds [33 x i8], ptr %29, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %58, ptr noundef nonnull align 1 dereferenceable(32) %59, i64 32, i1 false)
   %60 = load i16, ptr %24, align 2, !tbaa !51
   %61 = sext i16 %60 to i32
@@ -1576,19 +1576,19 @@ get_writing_screen.exit:                          ; preds = %3, %6, %12
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 5317
   %45 = load i8, ptr %44, align 1, !tbaa !48
   %46 = zext i8 %19 to i64
-  %47 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [33 x i8], ptr %.0.i, i64 %46
   %48 = icmp ult i8 %45, 32
   br i1 %48, label %49, label %74
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 528
-  %51 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %50, i64 0, i64 %46
+  %51 = getelementptr inbounds nuw [33 x i8], ptr %50, i64 %46
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1584
-  %53 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %52, i64 0, i64 %46
+  %53 = getelementptr inbounds nuw [33 x i8], ptr %52, i64 %46
   %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1056
-  %55 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %54, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw [33 x i8], ptr %54, i64 %46
   %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2112
-  %57 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %56, i64 0, i64 %46
+  %57 = getelementptr inbounds nuw [33 x i8], ptr %56, i64 %46
   %58 = zext nneg i8 %45 to i64
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 %58
   store i8 %1, ptr %59, align 1, !tbaa !42
@@ -1647,15 +1647,15 @@ write_char.exit:                                  ; preds = %79, %77, %71, %49, 
 86:                                               ; preds = %82
   %87 = load i8, ptr %18, align 4, !tbaa !32
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [33 x i8], ptr %.0.i, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %.0.i, i64 528
-  %91 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %90, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [33 x i8], ptr %90, i64 %88
   %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1584
-  %93 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %92, i64 0, i64 %88
+  %93 = getelementptr inbounds nuw [33 x i8], ptr %92, i64 %88
   %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1056
-  %95 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %94, i64 0, i64 %88
+  %95 = getelementptr inbounds nuw [33 x i8], ptr %94, i64 %88
   %96 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2112
-  %97 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %96, i64 0, i64 %88
+  %97 = getelementptr inbounds nuw [33 x i8], ptr %96, i64 %88
   %98 = zext nneg i8 %84 to i64
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 %98
   store i8 %2, ptr %99, align 1, !tbaa !42
@@ -1692,19 +1692,19 @@ write_char.exit31:                                ; preds = %114, %86, %write_ch
   %118 = load i8, ptr %117, align 1, !tbaa !48
   %119 = load i8, ptr %18, align 4, !tbaa !32
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %.0.i, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [33 x i8], ptr %.0.i, i64 %120
   %122 = icmp ult i8 %118, 32
   br i1 %122, label %123, label %146
 
 123:                                              ; preds = %write_char.exit31
   %124 = getelementptr inbounds nuw i8, ptr %.0.i, i64 528
-  %125 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %124, i64 0, i64 %120
+  %125 = getelementptr inbounds nuw [33 x i8], ptr %124, i64 %120
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1584
-  %127 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %126, i64 0, i64 %120
+  %127 = getelementptr inbounds nuw [33 x i8], ptr %126, i64 %120
   %128 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1056
-  %129 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %128, i64 0, i64 %120
+  %129 = getelementptr inbounds nuw [33 x i8], ptr %128, i64 %120
   %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2112
-  %131 = getelementptr inbounds nuw [16 x [33 x i8]], ptr %130, i64 0, i64 %120
+  %131 = getelementptr inbounds nuw [33 x i8], ptr %130, i64 %120
   %132 = zext nneg i8 %118 to i64
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 %132
   store i8 0, ptr %133, align 1, !tbaa !42

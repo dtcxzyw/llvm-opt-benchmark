@@ -391,7 +391,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw [3 x %"struct.cmUVProcessChainBuilder::StdioConfiguration"], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %4
   store i32 0, ptr %5, align 8, !tbaa !4
   br label %6
 
@@ -407,7 +407,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw [3 x %"struct.cmUVProcessChainBuilder::StdioConfiguration"], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %4
   store i32 1, ptr %5, align 8, !tbaa !4
   br label %6
 
@@ -422,7 +422,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [3 x %"struct.cmUVProcessChainBuilder::StdioConfiguration"], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %5
   store i32 2, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %7, align 4, !tbaa !10
@@ -444,7 +444,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 7:                                                ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw [3 x %"struct.cmUVProcessChainBuilder::StdioConfiguration"], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %8
   store i32 2, ptr %9, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %4, ptr %10, align 4, !tbaa !10
@@ -455,7 +455,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw [3 x %"struct.cmUVProcessChainBuilder::StdioConfiguration"], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %13
   store i32 0, ptr %14, align 8, !tbaa !4
   br label %_ZN23cmUVProcessChainBuilder17SetExternalStreamENS_6StreamEi.exit
 

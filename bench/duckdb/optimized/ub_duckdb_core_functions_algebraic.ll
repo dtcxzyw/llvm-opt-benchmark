@@ -2958,7 +2958,7 @@ _ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %_ZN6
 
 102:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   %103 = zext i8 %101 to i64
-  %104 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 %103
   %.sroa.0.0.copyload = load i64, ptr %104, align 16, !tbaa !44
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !44

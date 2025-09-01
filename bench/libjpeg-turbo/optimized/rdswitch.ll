@@ -147,7 +147,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 
 56:                                               ; preds = %42, %text_getc.exit26.i
   %57 = trunc i64 %.0.i to i32
-  %58 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -156,7 +156,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 59:                                               ; preds = %56
   store i64 %.0.i, ptr %5, align 8
   store i32 %.0.i24.i, ptr %4, align 4
-  %60 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv57
+  %60 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv57
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %62 = trunc nuw nsw i64 %indvars.iv57 to i32
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %6, i32 noundef %61, i32 noundef %2) #10
@@ -465,7 +465,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
 select.unfold:                                    ; preds = %74, %71
   %.1.i = phi i32 [ 32, %71 ], [ %spec.select, %74 ]
   %77 = trunc i64 %.0.i to i32
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = icmp eq i32 %.1.i, 32
@@ -710,7 +710,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 12:                                               ; preds = %8
   %13 = load i32, ptr %4, align 4, !tbaa !11
   %14 = call i32 @jpeg_quality_scaling(i32 noundef %13) #10
-  %15 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !11
   br label %16
 
@@ -728,7 +728,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 20:                                               ; preds = %6
   %21 = load i32, ptr %4, align 4, !tbaa !11
   %22 = call i32 @jpeg_quality_scaling(i32 noundef %21) #10
-  %23 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !11
   br label %.critedge
 

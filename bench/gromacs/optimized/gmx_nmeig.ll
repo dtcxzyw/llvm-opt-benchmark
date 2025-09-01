@@ -2604,12 +2604,12 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 
 .preheader.i:                                     ; preds = %1001, %.preheader.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.preheader.i ], [ 0, %1001 ]
-  %1018 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv45.i
+  %1018 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv45.i
   %1019 = load float, ptr %1018, align 4, !tbaa !65
   %1020 = fpext float %1019 to double
   %1021 = fdiv double 0x3FCF0BABC7038079, %1020
   %1022 = fptrunc double %1021 to float
-  %1023 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv45.i
+  %1023 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv45.i
   store float %1022, ptr %1023, align 4, !tbaa !65
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 3

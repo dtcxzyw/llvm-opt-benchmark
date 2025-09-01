@@ -36,7 +36,7 @@ define void @Sfm_TimNodeRequired(ptr noundef readonly captures(none) %0, ptr nou
   %15 = shl nsw i32 %14, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %.val, i64 %16
-  %18 = getelementptr inbounds nuw [6 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %17, ptr %18, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -677,7 +677,7 @@ define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr noundef captures(none) %0
   %29 = shl nsw i32 %28, 1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %.val53, i64 %30
-  %32 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   store ptr %31, ptr %32, align 8, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2087,7 +2087,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr noundef readonly captures(none) %0,
   %25 = shl nsw i32 %24, 1
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %.val34, i64 %26
-  %28 = getelementptr inbounds nuw [6 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %27, ptr %28, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2205,7 +2205,7 @@ Sfm_TimGateArrival.exit:                          ; preds = %Sfm_TimGateArrival.
 
 84:                                               ; preds = %70, %74
   %.sink = phi ptr [ %83, %74 ], [ %8, %70 ]
-  %85 = getelementptr inbounds nuw [6 x ptr], ptr %10, i64 0, i64 %indvars.iv58
+  %85 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv58
   store ptr %.sink, ptr %85, align 8, !tbaa !17
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61

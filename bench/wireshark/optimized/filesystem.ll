@@ -304,7 +304,7 @@ configuration_environment_variable.exit.i:        ; preds = %6, %1
   br i1 %29, label %get_current_executable_path.exit.i, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr [4097 x i8], ptr @get_current_executable_path.executable_path, i64 0, i64 %28
+  %31 = getelementptr i8, ptr @get_current_executable_path.executable_path, i64 %28
   store i8 0, ptr %31, align 1
   br label %get_current_executable_path.exit.i
 

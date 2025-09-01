@@ -1548,14 +1548,14 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 
 .split.us:                                        ; preds = %229, %.split.us
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %.split.us ], [ 0, %229 ]
-  %236 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv264
+  %236 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv264
   %237 = load float, ptr %236, align 4, !tbaa !159
   %238 = fmul float %230, %237
-  %239 = getelementptr inbounds nuw [4 x float], ptr %232, i64 0, i64 %indvars.iv264
+  %239 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv264
   %240 = load float, ptr %239, align 4, !tbaa !159
   %241 = fadd float %240, %238
   store float %241, ptr %239, align 4, !tbaa !159
-  %242 = getelementptr inbounds nuw [4 x float], ptr %234, i64 0, i64 %indvars.iv264
+  %242 = getelementptr inbounds nuw float, ptr %234, i64 %indvars.iv264
   %243 = load float, ptr %242, align 4, !tbaa !159
   %244 = fsub float %243, %238
   store float %244, ptr %242, align 4, !tbaa !159
@@ -1565,22 +1565,22 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 
 .split:                                           ; preds = %229, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %229 ]
-  %245 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %246 = load float, ptr %245, align 4, !tbaa !159
   %247 = fmul float %230, %246
-  %248 = getelementptr inbounds nuw [4 x float], ptr %232, i64 0, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv
   %249 = load float, ptr %248, align 4, !tbaa !159
   %250 = fadd float %249, %247
   store float %250, ptr %248, align 4, !tbaa !159
-  %251 = getelementptr inbounds nuw [4 x float], ptr %234, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw float, ptr %234, i64 %indvars.iv
   %252 = load float, ptr %251, align 4, !tbaa !159
   %253 = fsub float %252, %247
   store float %253, ptr %251, align 4, !tbaa !159
-  %254 = getelementptr inbounds nuw [3 x float], ptr %235, i64 0, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv
   %255 = load float, ptr %254, align 4, !tbaa !159
   %256 = fadd float %247, %255
   store float %256, ptr %254, align 4, !tbaa !159
-  %257 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
   %258 = load float, ptr %257, align 4, !tbaa !159
   %259 = fsub float %258, %247
   store float %259, ptr %257, align 4, !tbaa !159

@@ -27,7 +27,7 @@ define dso_local noalias noundef ptr @onig_st_init_table_with_size(ptr noundef %
 
 new_size.exit:                                    ; preds = %3
   %8 = zext nneg i32 %.0710.i to i64
-  %9 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr @primes, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = trunc i64 %10 to i32
   %12 = icmp slt i32 %11, 1
@@ -141,7 +141,7 @@ define dso_local noalias noundef ptr @onig_st_init_numtable_with_size(i32 nounde
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr @primes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -219,7 +219,7 @@ define dso_local noalias noundef ptr @onig_st_init_strtable_with_size(i32 nounde
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr @primes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -487,7 +487,7 @@ define dso_local range(i32 -5, 2) i32 @onig_st_insert(ptr noundef captures(none)
 
 new_size.exit.i:                                  ; preds = %53
   %58 = zext nneg i32 %.0710.i.i to i64
-  %59 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr @primes, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !6
   %61 = trunc i64 %60 to i32
   %62 = icmp slt i32 %61, 1
@@ -612,7 +612,7 @@ define dso_local void @onig_st_add_direct(ptr noundef captures(none) %0, i64 nou
 
 new_size.exit.i:                                  ; preds = %16
   %21 = zext nneg i32 %.0710.i.i to i64
-  %22 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr @primes, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = trunc i64 %23 to i32
   %25 = icmp slt i32 %24, 1

@@ -4153,7 +4153,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i: ; preds = %_ZNK6ve
 
 396:                                              ; preds = %392
   %397 = zext nneg i32 %394 to i64
-  %398 = getelementptr inbounds nuw [0 x ptr], ptr %391, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw ptr, ptr %391, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !44
   %400 = and i32 %393, -64
   %401 = add i32 %400, 64
@@ -7937,7 +7937,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEE13constant_foldEP
 
 2055:                                             ; preds = %1921, %1917, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i.i.i, %1898, %1894, %1892
   %2056 = zext nneg i32 %1890 to i64
-  %2057 = getelementptr inbounds nuw [0 x ptr], ptr %1887, i64 0, i64 %2056
+  %2057 = getelementptr inbounds nuw ptr, ptr %1887, i64 %2056
   %2058 = load ptr, ptr %2057, align 8, !tbaa !44
   %2059 = add i32 %.mask.i.i.i.i, 64
   %2060 = and i32 %1889, 63
@@ -15549,7 +15549,7 @@ _ZNK8datatype4util11is_accessorEP9func_decl.exit: ; preds = %_ZNK4decl13get_fami
 42:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.val39 = load ptr, ptr %37, align 8, !tbaa !374
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !410
   %45 = tail call noundef zeroext i1 @_ZNK11ast_manager15is_fully_interpEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %.val39, ptr noundef %44)
   br i1 %45, label %39, label %_ZNK8datatype4util11is_accessorEP9func_decl.exit.thread
@@ -15660,7 +15660,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc45, %._crit_e
 
 86:                                               ; preds = %67
   %.val38 = load ptr, ptr %46, align 8, !tbaa !374
-  %87 = getelementptr inbounds nuw [0 x ptr], ptr %58, i64 0, i64 %indvars.iv75
+  %87 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv75
   %88 = load ptr, ptr %87, align 8, !tbaa !410
   %89 = invoke noundef ptr @_ZN11ast_manager14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %.val38, ptr noundef %88)
           to label %90 unwind label %105
@@ -17796,7 +17796,7 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit174.thread.thread: ; preds = %.lr.ph2
 276:                                              ; preds = %.lr.ph, %286
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %286 ]
   %.064234 = phi i32 [ -1, %.lr.ph ], [ %.266.ph, %286 ]
-  %277 = getelementptr inbounds nuw [0 x ptr], ptr %275, i64 0, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv
   %278 = load ptr, ptr %277, align 8, !tbaa !410
   %279 = icmp eq ptr %10, %278
   %280 = trunc nuw i64 %indvars.iv to i32
@@ -17906,7 +17906,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i187:   ; preds = %.noexc192, %._crit_
 
 312:                                              ; preds = %293
   %.val108 = load ptr, ptr %11, align 8, !tbaa !374
-  %313 = getelementptr inbounds nuw [0 x ptr], ptr %291, i64 0, i64 %indvars.iv260
+  %313 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv260
   %314 = load ptr, ptr %313, align 8, !tbaa !410
   %315 = invoke noundef ptr @_ZN11ast_manager14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %.val108, ptr noundef %314)
           to label %316 unwind label %331
@@ -22274,7 +22274,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !217
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

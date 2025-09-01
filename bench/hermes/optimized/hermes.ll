@@ -3578,7 +3578,7 @@ invoke.cont43.lr.ph:                              ; preds = %for.cond.preheader
 
 invoke.cont43:                                    ; preds = %invoke.cont43.lr.ph, %for.inc
   %i.069 = phi i64 [ 0, %invoke.cont43.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %bufPrefix, i64 0, i64 %i.069
+  %arrayidx = getelementptr inbounds nuw i8, ptr %bufPrefix, i64 %i.069
   %26 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %26 to i64
   store i64 %conv, ptr %ref.tmp42, align 8, !alias.scope !31
@@ -7817,13 +7817,7 @@ invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph
   %9 = trunc i64 %i.033 to i32
   %conv22 = add i32 %8, %9
   %cmp.i10 = icmp ult i32 %conv22, 4096
-  br i1 %cmp.i10, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %invoke.cont18
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %idxprom.i = zext nneg i32 %conv22 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
-  br label %invoke.cont23
+  br i1 %cmp.i10, label %invoke.cont23, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont18
   %sub.i.i = add i32 %conv22, -4096
@@ -7835,14 +7829,15 @@ if.else.i:                                        ; preds = %invoke.cont18
   %and.i.i.i.i.i11 = and i64 %10, 281474976710655
   %11 = inttoptr i64 %and.i.i.i.i.i11 to ptr
   %rem.i.i = and i32 %conv22, 1023
-  %data_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i, i64 0, i64 %idxprom.i.i
   br label %invoke.cont23
 
-invoke.cont23:                                    ; preds = %if.else.i, %if.then.i
-  %retval.sroa.0.0.in.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %arrayidx.i.i, %if.else.i ]
-  %retval.sroa.0.0.i = load i64, ptr %retval.sroa.0.0.in.i, align 8
+invoke.cont23:                                    ; preds = %if.else.i, %invoke.cont18
+  %.sink.i = phi ptr [ %11, %if.else.i ], [ %7, %invoke.cont18 ]
+  %rem.i.sink.i = phi i32 [ %rem.i.i, %if.else.i ], [ %conv22, %invoke.cont18 ]
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
+  %idxprom.i.i = zext nneg i32 %rem.i.sink.i to i64
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i, i64 %idxprom.i.i
+  %retval.sroa.0.0.i = load i64, ptr %arrayidx.i.i, align 8
   %shr.i.mask.i = and i64 %retval.sroa.0.0.i, -281474976710656
   %cmp.i12 = icmp eq i64 %shr.i.mask.i, -844424930131968
   br i1 %cmp.i12, label %if.then, label %invoke.cont39
@@ -9331,7 +9326,7 @@ for.end:                                          ; preds = %for.inc, %if.end38
   %bf.load.i.i.i.i = load i32, ptr %31, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i
   %32 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call3.i = getelementptr inbounds nuw i8, ptr %32, i64 112
   %33 = load ptr, ptr %call3.i, align 8
@@ -9619,7 +9614,7 @@ for.end:                                          ; preds = %for.inc, %if.end52
   %bf.load.i.i.i.i = load i32, ptr %30, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i
   %31 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call3.i = getelementptr inbounds nuw i8, ptr %31, i64 112
   %32 = load ptr, ptr %call3.i, align 8

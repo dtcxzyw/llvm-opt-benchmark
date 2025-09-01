@@ -476,7 +476,7 @@ define void @_ZN6ollama5Model3new17hc33127d9fd2d33eeE(ptr dead_on_unwind noalias
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %59
   %.sroa.01.05.i.i.i.i = phi i64 [ %60, %59 ], [ 0, %.preheader.i.i.i.i ]
-  %56 = getelementptr inbounds nuw [0 x i8], ptr %54, i64 0, i64 %.sroa.01.05.i.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.01.05.i.i.i.i
   %57 = load i8, ptr %56, align 1, !alias.scope !93, !noalias !98, !noundef !5
   %58 = icmp eq i8 %57, 58
   br i1 %58, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %59

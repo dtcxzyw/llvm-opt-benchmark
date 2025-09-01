@@ -98,7 +98,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 24:                                               ; preds = %23
   %25 = add i64 %17, 4294967295
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds nuw [16384 x i8], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 92
   br i1 %29, label %38, label %30
@@ -110,7 +110,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 31:                                               ; preds = %30
   %32 = add i64 %17, 4294967294
   %33 = and i64 %32, 4294967295
-  %34 = getelementptr inbounds nuw [16384 x i8], ptr %4, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 92
   %37 = icmp eq i8 %28, 10
@@ -565,7 +565,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
 38:                                               ; preds = %37
   %39 = add i64 %32, 4294967295
   %40 = and i64 %39, 4294967295
-  %41 = getelementptr inbounds nuw [16384 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 92
   br i1 %43, label %52, label %44
@@ -577,7 +577,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
 45:                                               ; preds = %44
   %46 = add i64 %32, 4294967294
   %47 = and i64 %46, 4294967295
-  %48 = getelementptr inbounds nuw [16384 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 92
   %51 = icmp eq i8 %42, 10

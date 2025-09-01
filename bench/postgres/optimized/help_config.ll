@@ -43,12 +43,12 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [0 x ptr], ptr @GucContext_Names, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @GucContext_Names, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr @config_group_names, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr @config_group_names, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %16, ptr noundef %21) #4
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 36

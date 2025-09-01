@@ -102,7 +102,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
   %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #5
-  %11 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16, !tbaa !15
   %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #5
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -206,7 +206,7 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #5
-  %9 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -250,7 +250,7 @@ define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16, !tbaa !15
   tail call void @rb_gc_mark(i64 noundef %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -277,7 +277,7 @@ define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(
 .preheader.i:                                     ; preds = %3, %10
   %.0.i = phi i32 [ %11, %10 ], [ %5, %3 ]
   %6 = zext i32 %.0.i to i64
-  %7 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %6
   %8 = load i64, ptr %7, align 16, !tbaa !15
   %9 = icmp eq i64 %8, %4
   br i1 %9, label %find_last_event.exit, label %10
@@ -487,7 +487,7 @@ find_last_event.exit.thread:                      ; preds = %10, %find_last_even
 59:                                               ; preds = %find_last_event.exit.thread
   %60 = load i64, ptr %1, align 8, !tbaa !23
   %61 = zext nneg i32 %56 to i64
-  %62 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %61
   store i64 %60, ptr %62, align 16, !tbaa !15
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %0, ptr %63, align 8, !tbaa !17

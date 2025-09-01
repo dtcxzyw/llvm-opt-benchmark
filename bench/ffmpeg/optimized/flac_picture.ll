@@ -90,7 +90,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
 42:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %25, i64 %28, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  %44 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %28
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %28
   store i8 0, ptr %44, align 1, !tbaa !25
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_id3v2_mime_tags, i64 32), align 4, !tbaa !26
   %.not105157 = icmp eq i32 %45, 0
@@ -299,7 +299,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   store i32 %67, ptr %157, align 4, !tbaa !52
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 80
   %159 = zext nneg i32 %.091 to i64
-  %160 = getelementptr inbounds nuw [21 x ptr], ptr @ff_id3v2_picture_types, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !4
   %162 = call i32 @av_dict_set(ptr noundef nonnull %158, ptr noundef nonnull @.str.6, ptr noundef %161, i32 noundef 0) #7
   br i1 %.not107, label %166, label %163

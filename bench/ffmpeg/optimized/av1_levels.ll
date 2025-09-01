@@ -20,7 +20,7 @@ define ptr @ff_av1_guess_level(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 13:                                               ; preds = %7, %.thread
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %.thread ]
-  %14 = getelementptr inbounds nuw [14 x %struct.AV1LevelDescriptor], ptr @av1_levels, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.AV1LevelDescriptor, ptr @av1_levels, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !4
   %17 = icmp ugt i32 %8, %16

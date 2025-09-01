@@ -789,57 +789,51 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly captures(
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %62 = phi i64 [ %82, %.split.us ], [ 0, %.split.us.preheader ]
+  %62 = phi i64 [ %79, %.split.us ], [ 0, %.split.us.preheader ]
   %63 = trunc nuw nsw i64 %62 to i32
-  %64 = getelementptr [20 x i8], ptr %3, i64 0, i64 %62
+  %64 = getelementptr i8, ptr %3, i64 %62
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %67 = or disjoint i64 %62, 1
-  %68 = or disjoint i32 %63, 1
-  %69 = getelementptr [20 x i8], ptr %3, i64 0, i64 %67
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i32
-  %72 = or disjoint i64 %62, 2
-  %73 = or disjoint i32 %63, 2
-  %74 = getelementptr [20 x i8], ptr %3, i64 0, i64 %72
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i64 %62, 3
-  %78 = or disjoint i32 %63, 3
-  %79 = getelementptr [20 x i8], ptr %3, i64 0, i64 %77
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %63, i32 noundef %66, i32 noundef %68, i32 noundef %71, i32 noundef %73, i32 noundef %76, i32 noundef %78, i32 noundef %81) #7
-  %82 = add nuw nsw i64 %62, 4
-  %83 = icmp samesign ult i64 %62, 16
-  br i1 %83, label %.split.us, label %.split2.us, !llvm.loop !17
+  %67 = or disjoint i32 %63, 1
+  %68 = getelementptr i8, ptr %64, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = or disjoint i32 %63, 2
+  %72 = getelementptr i8, ptr %64, i64 2
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = or disjoint i32 %63, 3
+  %76 = getelementptr i8, ptr %64, i64 3
+  %77 = load i8, ptr %76, align 1
+  %78 = zext i8 %77 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %63, i32 noundef %66, i32 noundef %67, i32 noundef %70, i32 noundef %71, i32 noundef %74, i32 noundef %75, i32 noundef %78) #7
+  %79 = add nuw nsw i64 %62, 4
+  %80 = icmp samesign ult i64 %62, 16
+  br i1 %80, label %.split.us, label %.split2.us, !llvm.loop !17
 
 .split:                                           ; preds = %.split.preheader, %.split
-  %84 = phi i64 [ %105, %.split ], [ 0, %.split.preheader ]
-  %85 = trunc nuw nsw i64 %84 to i32
-  %86 = load ptr, ptr %55, align 8
-  %87 = getelementptr [20 x i8], ptr %3, i64 0, i64 %84
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i64 %84, 1
-  %91 = or disjoint i32 %85, 1
-  %92 = getelementptr [20 x i8], ptr %3, i64 0, i64 %90
+  %81 = phi i64 [ %99, %.split ], [ 0, %.split.preheader ]
+  %82 = trunc nuw nsw i64 %81 to i32
+  %83 = load ptr, ptr %55, align 8
+  %84 = getelementptr i8, ptr %3, i64 %81
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = or disjoint i32 %82, 1
+  %88 = getelementptr i8, ptr %84, i64 1
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %91 = or disjoint i32 %82, 2
+  %92 = getelementptr i8, ptr %84, i64 2
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
-  %95 = or disjoint i64 %84, 2
-  %96 = or disjoint i32 %85, 2
-  %97 = getelementptr [20 x i8], ptr %3, i64 0, i64 %95
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i32
-  %100 = or disjoint i64 %84, 3
-  %101 = or disjoint i32 %85, 3
-  %102 = getelementptr [20 x i8], ptr %3, i64 0, i64 %100
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %85, i32 noundef %89, i32 noundef %91, i32 noundef %94, i32 noundef %96, i32 noundef %99, i32 noundef %101, i32 noundef %104) #7
-  %105 = add nuw nsw i64 %84, 4
-  %106 = icmp samesign ult i64 %84, 16
-  br i1 %106, label %.split, label %.split2.us, !llvm.loop !17
+  %95 = or disjoint i32 %82, 3
+  %96 = getelementptr i8, ptr %84, i64 3
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %83, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %82, i32 noundef %86, i32 noundef %87, i32 noundef %90, i32 noundef %91, i32 noundef %94, i32 noundef %95, i32 noundef %98) #7
+  %99 = add nuw nsw i64 %81, 4
+  %100 = icmp samesign ult i64 %81, 16
+  br i1 %100, label %.split, label %.split2.us, !llvm.loop !17
 
 .split2.us:                                       ; preds = %.split, %.split.us
   ret void
@@ -1235,7 +1229,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 
 .split.us:                                        ; preds = %38, %.split.us
   %41 = phi i64 [ %46, %.split.us ], [ 0, %38 ]
-  %42 = getelementptr [10 x i16], ptr %39, i64 0, i64 %41
+  %42 = getelementptr i16, ptr %39, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
   %45 = trunc i64 %41 to i32
@@ -1251,7 +1245,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 
 .split4.us:                                       ; preds = %48, %.split4.us
   %51 = phi i64 [ %56, %.split4.us ], [ 0, %48 ]
-  %52 = getelementptr [11 x i16], ptr %49, i64 0, i64 %51
+  %52 = getelementptr i16, ptr %49, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = trunc i64 %51 to i32
@@ -1263,7 +1257,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 .split:                                           ; preds = %38, %.split
   %58 = phi i64 [ %64, %.split ], [ 0, %38 ]
   %59 = load ptr, ptr %40, align 8
-  %60 = getelementptr [10 x i16], ptr %39, i64 0, i64 %58
+  %60 = getelementptr i16, ptr %39, i64 %58
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = trunc i64 %58 to i32
@@ -1275,7 +1269,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly captures(
 .split4:                                          ; preds = %48, %.split4
   %66 = phi i64 [ %72, %.split4 ], [ 0, %48 ]
   %67 = load ptr, ptr %50, align 8
-  %68 = getelementptr [11 x i16], ptr %49, i64 0, i64 %66
+  %68 = getelementptr i16, ptr %49, i64 %66
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
   %71 = trunc i64 %66 to i32
@@ -2016,7 +2010,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %376 = load i32, ptr %13, align 4
   %377 = trunc i64 %375 to i16
   %378 = or disjoint i16 %377, 3072
-  %379 = getelementptr [20 x i8], ptr %373, i64 0, i64 %375
+  %379 = getelementptr i8, ptr %373, i64 %375
   %380 = load i8, ptr %379, align 1
   %381 = and i64 %375, 3
   %382 = icmp eq i64 %381, 0
@@ -2105,7 +2099,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %430 = phi i64 [ 0, %423 ], [ %436, %429 ]
   %431 = load i32, ptr %13, align 4
   %432 = trunc i64 %430 to i16
-  %433 = getelementptr [3 x i16], ptr %424, i64 0, i64 %430
+  %433 = getelementptr i16, ptr %424, i64 %430
   %434 = load i16, ptr %433, align 2
   %435 = sub nuw nsw i16 %425, %432
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %431, i16 noundef zeroext %435, i16 noundef zeroext %434)
@@ -2117,7 +2111,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %439 = phi i64 [ 0, %426 ], [ %445, %438 ]
   %440 = load i32, ptr %13, align 4
   %441 = trunc i64 %439 to i16
-  %442 = getelementptr [4 x i16], ptr %427, i64 0, i64 %439
+  %442 = getelementptr i16, ptr %427, i64 %439
   %443 = load i16, ptr %442, align 2
   %444 = sub nuw nsw i16 %428, %441
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %440, i16 noundef zeroext %444, i16 noundef zeroext %443)
@@ -2145,7 +2139,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %455 = phi i64 [ 0, %448 ], [ %461, %454 ]
   %456 = load i32, ptr %13, align 4
   %457 = trunc i64 %455 to i16
-  %458 = getelementptr [10 x i16], ptr %449, i64 0, i64 %455
+  %458 = getelementptr i16, ptr %449, i64 %455
   %459 = load i16, ptr %458, align 2
   %460 = sub nuw nsw i16 %450, %457
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %456, i16 noundef zeroext %460, i16 noundef zeroext %459)
@@ -2157,7 +2151,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %464 = phi i64 [ 0, %451 ], [ %470, %463 ]
   %465 = load i32, ptr %13, align 4
   %466 = trunc i64 %464 to i16
-  %467 = getelementptr [11 x i16], ptr %452, i64 0, i64 %464
+  %467 = getelementptr i16, ptr %452, i64 %464
   %468 = load i16, ptr %467, align 2
   %469 = sub nuw nsw i16 %453, %466
   tail call fastcc void @intel_c20_sram_write(ptr noundef %12, i32 noundef %465, i16 noundef zeroext %469, i16 noundef zeroext %468)
@@ -3076,7 +3070,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %55 = trunc i64 %53 to i16
   %56 = or disjoint i16 %55, 3072
   %57 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %54, i32 noundef 0, i16 noundef zeroext %56)
-  %58 = getelementptr [20 x i8], ptr %51, i64 0, i64 %53
+  %58 = getelementptr i8, ptr %51, i64 %53
   store i8 %57, ptr %58, align 1
   %59 = add nuw nsw i64 %53, 1
   %60 = icmp eq i64 %59, 20
@@ -3174,7 +3168,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %114 = phi i64 [ 0, %103 ], [ %120, %113 ]
   %115 = load i32, ptr %4, align 4
   %116 = trunc i64 %114 to i16
-  %117 = getelementptr [3 x i16], ptr %108, i64 0, i64 %114
+  %117 = getelementptr i16, ptr %108, i64 %114
   %118 = sub nuw nsw i16 %109, %116
   %119 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %115, i16 noundef zeroext %118)
   store i16 %119, ptr %117, align 2
@@ -3186,7 +3180,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %123 = phi i64 [ 0, %110 ], [ %129, %122 ]
   %124 = load i32, ptr %4, align 4
   %125 = trunc i64 %123 to i16
-  %126 = getelementptr [4 x i16], ptr %111, i64 0, i64 %123
+  %126 = getelementptr i16, ptr %111, i64 %123
   %127 = sub nuw nsw i16 %112, %125
   %128 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %124, i16 noundef zeroext %127)
   store i16 %128, ptr %126, align 2
@@ -3213,7 +3207,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %141 = phi i64 [ %147, %140 ], [ 0, %136 ]
   %142 = load i32, ptr %4, align 4
   %143 = trunc i64 %141 to i16
-  %144 = getelementptr [11 x i16], ptr %135, i64 0, i64 %141
+  %144 = getelementptr i16, ptr %135, i64 %141
   %145 = sub nuw nsw i16 %137, %143
   %146 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %142, i16 noundef zeroext %145)
   store i16 %146, ptr %144, align 2
@@ -3225,7 +3219,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %150 = phi i64 [ %156, %149 ], [ 0, %138 ]
   %151 = load i32, ptr %4, align 4
   %152 = trunc i64 %150 to i16
-  %153 = getelementptr [10 x i16], ptr %135, i64 0, i64 %150
+  %153 = getelementptr i16, ptr %135, i64 %150
   %154 = sub nuw nsw i16 %139, %152
   %155 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %151, i16 noundef zeroext %154)
   store i16 %155, ptr %153, align 2
@@ -3505,9 +3499,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 59:                                               ; preds = %94, %51
   %60 = phi i64 [ 0, %51 ], [ %95, %94 ]
-  %61 = getelementptr [20 x i8], ptr %52, i64 0, i64 %60
+  %61 = getelementptr i8, ptr %52, i64 %60
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr [20 x i8], ptr %53, i64 0, i64 %60
+  %63 = getelementptr i8, ptr %53, i64 %60
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %62 to i32
   %66 = icmp eq i8 %64, %62
@@ -3759,9 +3753,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .preheader28:                                     ; preds = %209, %253
   %217 = phi i64 [ %254, %253 ], [ 0, %209 ]
-  %218 = getelementptr [11 x i16], ptr %210, i64 0, i64 %217
+  %218 = getelementptr i16, ptr %210, i64 %217
   %219 = load i16, ptr %218, align 2
-  %220 = getelementptr [11 x i16], ptr %211, i64 0, i64 %217
+  %220 = getelementptr i16, ptr %211, i64 %217
   %221 = load i16, ptr %220, align 2
   %222 = icmp eq i16 %219, %221
   br i1 %222, label %253, label %223, !prof !9
@@ -3824,9 +3818,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %209, %292
   %256 = phi i64 [ %293, %292 ], [ 0, %209 ]
-  %257 = getelementptr [10 x i16], ptr %210, i64 0, i64 %256
+  %257 = getelementptr i16, ptr %210, i64 %256
   %258 = load i16, ptr %257, align 2
-  %259 = getelementptr [10 x i16], ptr %211, i64 0, i64 %256
+  %259 = getelementptr i16, ptr %211, i64 %256
   %260 = load i16, ptr %259, align 2
   %261 = icmp eq i16 %258, %260
   br i1 %261, label %292, label %262, !prof !9
@@ -3897,9 +3891,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 .loopexit27:                                      ; preds = %.loopexit27.preheader, %334
   %298 = phi i64 [ %335, %334 ], [ 0, %.loopexit27.preheader ]
-  %299 = getelementptr [3 x i16], ptr %168, i64 0, i64 %298
+  %299 = getelementptr i16, ptr %168, i64 %298
   %300 = load i16, ptr %299, align 2
-  %301 = getelementptr [3 x i16], ptr %166, i64 0, i64 %298
+  %301 = getelementptr i16, ptr %166, i64 %298
   %302 = load i16, ptr %301, align 2
   %303 = icmp eq i16 %300, %302
   br i1 %303, label %334, label %304, !prof !9
@@ -3962,9 +3956,9 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
 
 337:                                              ; preds = %374, %295
   %338 = phi i64 [ 0, %295 ], [ %375, %374 ]
-  %339 = getelementptr [4 x i16], ptr %296, i64 0, i64 %338
+  %339 = getelementptr i16, ptr %296, i64 %338
   %340 = load i16, ptr %339, align 2
-  %341 = getelementptr [4 x i16], ptr %297, i64 0, i64 %338
+  %341 = getelementptr i16, ptr %297, i64 %338
   %342 = load i16, ptr %341, align 2
   %343 = icmp eq i16 %340, %342
   br i1 %343, label %374, label %344, !prof !9

@@ -222,7 +222,7 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   %18 = trunc i64 %17 to i32
   %19 = sub i32 %8, %18
   %20 = and i32 %19, %11
-  %21 = getelementptr [32 x %struct.lbr_entry], ptr %16, i64 0, i64 %17
+  %21 = getelementptr %struct.lbr_entry, ptr %16, i64 %17
   %22 = load i64, ptr %21, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
           to label %26 [label %23], !srcloc !6
@@ -326,7 +326,7 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   %70 = trunc i64 %69 to i32
   %71 = sub i32 %8, %70
   %72 = and i32 %71, %11
-  %73 = getelementptr [32 x %struct.lbr_entry], ptr %16, i64 0, i64 %69
+  %73 = getelementptr %struct.lbr_entry, ptr %16, i64 %69
   %74 = load i64, ptr %73, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
           to label %78 [label %75], !srcloc !6
@@ -509,7 +509,7 @@ define dso_local void @intel_pmu_lbr_save(ptr noundef writeonly captures(none) %
   %22 = sext i32 %21 to i64
   %23 = sub i32 %.pre, %21
   %24 = and i32 %23, %8
-  %25 = getelementptr [32 x %struct.lbr_entry], ptr %20, i64 0, i64 %22
+  %25 = getelementptr %struct.lbr_entry, ptr %20, i64 %22
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
   %27 = add i32 %24, %26
   %28 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %27) #11, !srcloc !17
@@ -566,7 +566,7 @@ define dso_local void @intel_pmu_lbr_save(ptr noundef writeonly captures(none) %
   %55 = sext i32 %54 to i64
   %56 = sub i32 %.pre, %54
   %57 = and i32 %56, %8
-  %58 = getelementptr [32 x %struct.lbr_entry], ptr %20, i64 0, i64 %55
+  %58 = getelementptr %struct.lbr_entry, ptr %20, i64 %55
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
   %60 = add i32 %57, %59
   %61 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %60) #11, !srcloc !17
@@ -1192,7 +1192,7 @@ define dso_local void @release_lbr_buffers() local_unnamed_addr #0 align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call ptr @x86_get_pmu(i32 noundef %9) #11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
@@ -1253,7 +1253,7 @@ define dso_local void @reserve_lbr_buffers() local_unnamed_addr #0 align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call ptr @x86_get_pmu(i32 noundef %9) #11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
@@ -1979,7 +1979,7 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %29, 1
   %38 = sext i32 %29 to i64
-  %39 = getelementptr [64 x i32], ptr %4, i64 0, i64 %38
+  %39 = getelementptr i32, ptr %4, i64 %38
   store i32 %36, ptr %39, align 4
   br label %40
 
@@ -2034,7 +2034,7 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
 66:                                               ; preds = %.preheader.us, %66
   %67 = phi i64 [ %78, %66 ], [ 0, %.preheader.us ]
   %68 = phi i64 [ %77, %66 ], [ 0, %.preheader.us ]
-  %69 = getelementptr [64 x i32], ptr %4, i64 0, i64 %67
+  %69 = getelementptr i32, ptr %4, i64 %67
   %70 = load i32, ptr %69, align 4
   %71 = shl i32 %70, 1
   %72 = zext nneg i32 %71 to i64
@@ -2048,7 +2048,7 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
   br i1 %79, label %.loopexit.us, label %66, !llvm.loop !45
 
 .loopexit.us:                                     ; preds = %66
-  %80 = getelementptr [32 x i64], ptr %55, i64 0, i64 %61
+  %80 = getelementptr i64, ptr %55, i64 %61
   store i64 %77, ptr %80, align 8
   %81 = load i64, ptr %63, align 8
   %82 = and i64 %81, 8589934591
@@ -2064,7 +2064,7 @@ define dso_local void @intel_pmu_lbr_save_brstack(ptr noundef captures(none) %0,
   %88 = phi i32 [ %93, %.split ], [ 0, %.split.preheader ]
   %.idx = mul nsw i64 %87, 24
   %89 = getelementptr i8, ptr %60, i64 %.idx
-  %90 = getelementptr [32 x i64], ptr %59, i64 0, i64 %87
+  %90 = getelementptr i64, ptr %59, i64 %87
   store i64 0, ptr %90, align 8
   %91 = load i64, ptr %89, align 8
   %92 = and i64 %91, 8589934591
@@ -2180,7 +2180,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr noundef captures(none) %0)
   %18 = phi i64 [ 0, %13 ], [ %75, %73 ]
   %19 = phi i8 [ 0, %13 ], [ %64, %73 ]
   %20 = phi i32 [ 0, %13 ], [ %74, %73 ]
-  %21 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %18
+  %21 = getelementptr %struct.perf_branch_entry, ptr %14, i64 %18
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8
@@ -2200,7 +2200,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr noundef captures(none) %0)
   %33 = icmp slt i64 %24, 0
   %34 = select i1 %33, i32 2, i32 1
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr [16 x i32], ptr @arch_lbr_br_type_map, i64 0, i64 %35
+  %36 = getelementptr i32, ptr @arch_lbr_br_type_map, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, %34
   br label %44
@@ -2279,7 +2279,7 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr noundef captures(none) %0)
   %83 = phi i64 [ %76, %80 ], [ %115, %114 ]
   %84 = phi i32 [ 0, %80 ], [ %87, %114 ]
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %85
+  %86 = getelementptr %struct.perf_branch_entry, ptr %14, i64 %85
   %87 = add i32 %84, 1
   %88 = sext i32 %87 to i64
   br label %89
@@ -2303,12 +2303,12 @@ define internal fastcc void @intel_pmu_lbr_filter(ptr noundef captures(none) %0)
   %98 = phi i32 [ %106, %.preheader ], [ %87, %95 ]
   %99 = phi i32 [ %98, %.preheader ], [ %84, %95 ]
   %100 = sext i32 %99 to i64
-  %101 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %100
-  %102 = getelementptr [32 x %struct.perf_branch_entry], ptr %14, i64 0, i64 %97
+  %101 = getelementptr %struct.perf_branch_entry, ptr %14, i64 %100
+  %102 = getelementptr %struct.perf_branch_entry, ptr %14, i64 %97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %101, ptr noundef align 8 dereferenceable(24) %102, i64 24, i1 false)
-  %103 = getelementptr [32 x i64], ptr %81, i64 0, i64 %97
+  %103 = getelementptr i64, ptr %81, i64 %97
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr [32 x i64], ptr %81, i64 0, i64 %100
+  %105 = getelementptr i64, ptr %81, i64 %100
   store i64 %104, ptr %105, align 8
   %106 = add i32 %98, 1
   %107 = sext i32 %106 to i64
@@ -2598,7 +2598,7 @@ define internal fastcc void @intel_pmu_store_lbr(ptr noundef captures(none) %0, 
   %54 = phi i64 [ %32, %.thread5 ], [ %42, %44 ], [ %42, %52 ]
   %55 = phi i64 [ %29, %.thread5 ], [ %27, %44 ], [ %27, %52 ]
   %56 = phi i64 [ %34, %.thread5 ], [ %51, %44 ], [ %51, %52 ]
-  %57 = getelementptr [32 x %struct.perf_branch_entry], ptr %7, i64 0, i64 %10
+  %57 = getelementptr %struct.perf_branch_entry, ptr %7, i64 %10
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 8522825728

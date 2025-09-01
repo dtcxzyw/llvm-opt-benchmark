@@ -6974,7 +6974,7 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit: ; preds = %_ZNSt13unorder
   br i1 %560, label %561, label %564
 
 561:                                              ; preds = %557
-  %562 = getelementptr inbounds nuw [3 x %"class.Eigen::Matrix"], ptr %26, i64 0, i64 %indvars.iv
+  %562 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %26, i64 %indvars.iv
   store <2 x double> %.sroa.0590.0.copyload, ptr %562, align 8, !tbaa !34
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 16
   store double %.sroa.6592.0.copyload, ptr %563, align 8, !tbaa !40

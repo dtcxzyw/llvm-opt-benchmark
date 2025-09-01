@@ -836,7 +836,7 @@ switch.early.test522:                             ; preds = %222
   br label %584
 
 224:                                              ; preds = %switch.early.test522, %switch.early.test522, %222
-  %225 = getelementptr inbounds nuw [12 x float], ptr %13, i64 0, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
   %226 = invoke noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %.0.lcssa.i.i247, ptr noundef nonnull align 4 dereferenceable(4) %225, i1 noundef zeroext true)
           to label %227 unwind label %.loopexit535
 
@@ -2125,7 +2125,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   %716 = getelementptr inbounds nuw i8, ptr %.0150, i64 4
   %717 = load ptr, ptr %.sroa.0427.0624, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %716, ptr align 1 %717, i64 %712, i1 false)
-  %718 = getelementptr inbounds nuw [1024 x i8], ptr %716, i64 0, i64 %712
+  %718 = getelementptr inbounds nuw i8, ptr %716, i64 %712
   store i8 0, ptr %718, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2388,7 +2388,7 @@ thread-pre-split:                                 ; preds = %.loopexit532, %.loo
   store i32 %833, ptr %16, align 4
   %834 = load ptr, ptr %.sroa.0417.0615, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %659, ptr align 1 %834, i64 %830, i1 false)
-  %835 = getelementptr inbounds nuw [1024 x i8], ptr %659, i64 0, i64 %830
+  %835 = getelementptr inbounds nuw i8, ptr %659, i64 %830
   store i8 0, ptr %835, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit402
 
@@ -2824,7 +2824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

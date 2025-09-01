@@ -1245,7 +1245,7 @@ define void @pdfobj_flag(ptr noundef captures(none) %0, ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %9
   %11 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.pdfobj_flag, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pdfobj_flag, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 
@@ -1573,7 +1573,7 @@ define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr noundef nonn
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %.06379, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !30
@@ -4232,7 +4232,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %93, 
   br label %283
 
 281:                                              ; preds = %.lr.ph497
-  %282 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %.0306493
+  %282 = getelementptr inbounds nuw i8, ptr %5, i64 %.0306493
   store i8 %272, ptr %282, align 1, !tbaa !30
   br label %283
 
@@ -4259,7 +4259,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %93, 
   %.0284.lcssa = phi i1 [ false, %.lr.ph677 ], [ %288, %.critedge394.loopexit ]
   %.3313 = phi i64 [ %268, %.lr.ph677 ], [ %.3313.ph, %.critedge394.loopexit ]
   %.9 = phi ptr [ %265, %.lr.ph677 ], [ %.9.ph, %.critedge394.loopexit ]
-  %289 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %.0306.lcssa
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 %.0306.lcssa
   store i8 0, ptr %289, align 1, !tbaa !30
   %290 = load i32, ptr %256, align 8, !tbaa !109
   %291 = or i32 %290, 1
@@ -4273,7 +4273,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %93, 
 
 293:                                              ; preds = %292, %.critedge394
   %indvars.iv.i = phi i64 [ 0, %.critedge394 ], [ %indvars.iv.next.i, %292 ]
-  %294 = getelementptr inbounds nuw [46 x %struct.pdfname_action], ptr @pdfname_actions, i64 0, i64 %indvars.iv.i
+  %294 = getelementptr inbounds nuw %struct.pdfname_action, ptr @pdfname_actions, i64 %indvars.iv.i
   %295 = load ptr, ptr %294, align 16, !tbaa !110
   %296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %295) #27
   %.not.i405 = icmp eq i32 %296, 0
@@ -4315,7 +4315,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %93, 
   %315 = add nuw nsw i32 %306, 1
   store i32 %315, ptr %257, align 4, !tbaa !112
   %316 = zext nneg i32 %306 to i64
-  %317 = getelementptr inbounds nuw [64 x i32], ptr %258, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw i32, ptr %258, i64 %316
   store i32 %311, ptr %317, align 4, !tbaa !48
   br label %318
 
@@ -4697,7 +4697,7 @@ pdfobj_flag.exit412:                              ; preds = %handle_pdfname.exit
 480:                                              ; preds = %.critedge402.thread462, %495
   %.0304573 = phi i32 [ 0, %.critedge402.thread462 ], [ %.1305, %495 ]
   %.1307572 = phi i64 [ 0, %.critedge402.thread462 ], [ %496, %495 ]
-  %481 = getelementptr inbounds nuw [46 x %struct.pdfname_action], ptr @pdfname_actions, i64 0, i64 %.1307572
+  %481 = getelementptr inbounds nuw %struct.pdfname_action, ptr @pdfname_actions, i64 %.1307572
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
   %483 = load i32, ptr %482, align 8, !tbaa !113
   %484 = shl nuw i32 1, %483
@@ -6047,7 +6047,7 @@ dbg_printhex.exit149:                             ; preds = %66, %68
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv
   %91 = load i8, ptr %90, align 1, !tbaa !30
   %92 = xor i8 %91, %86
-  %93 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %92, ptr %93, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next, %82
@@ -9538,8 +9538,8 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
 
 17:                                               ; preds = %15
   %18 = shl nuw nsw i64 %.041, 6
-  %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds nuw [15360 x i8], ptr %5, i64 0, i64 %19
+  %19 = getelementptr i8, ptr %5, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -1
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 32
@@ -9599,7 +9599,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr noundef nonnull wr
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %37 ]
   %38 = getelementptr inbounds nuw i8, ptr %.02841.i, i64 %indvars.iv.i
   %39 = load i8, ptr %38, align 1, !tbaa !30
-  %40 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1, !tbaa !30
   %42 = xor i8 %41, %39
   store i8 %42, ptr %40, align 1, !tbaa !30
@@ -9628,7 +9628,7 @@ aes_128cbc_encrypt.exit:                          ; preds = %36, %._crit_edge.i
 47:                                               ; preds = %aes_128cbc_encrypt.exit, %47
   %indvars.iv8 = phi i64 [ 0, %aes_128cbc_encrypt.exit ], [ %indvars.iv.next9, %47 ]
   %.05 = phi i32 [ 0, %aes_128cbc_encrypt.exit ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw [15360 x i8], ptr %5, i64 0, i64 %indvars.iv8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv8
   %49 = load i8, ptr %48, align 1, !tbaa !30
   %50 = zext i8 %49 to i32
   %51 = add nuw nsw i32 %.05, %50

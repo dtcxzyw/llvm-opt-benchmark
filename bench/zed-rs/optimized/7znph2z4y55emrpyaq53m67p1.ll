@@ -2305,7 +2305,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %41 = urem i64 %2, %15
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %43, i64 0, i64 %41
+  %44 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %43, i64 %41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   %45 = cmpxchg ptr %44, i32 0, i32 1 acquire monotonic, align 4, !noalias !520
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %45, 1
@@ -7637,7 +7637,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$alloc..sync..Arc$LT$$u5b$$L
   br i1 %10, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$u5d$$GT$17h7be432b25cc08635E.exit.i.i", label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %8, i64 0, i64 %.sroa.0.0.i.i.i
+  %12 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %8, i64 %.sroa.0.0.i.i.i
   %13 = add i64 %.sroa.0.0.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %12)
           to label %9 unwind label %16, !noalias !1701
@@ -7653,7 +7653,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$alloc..sync..Arc$LT$$u5b$$L
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %8, i64 0, i64 %.sroa.0.1.i.i.i
+  %19 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %8, i64 %.sroa.0.1.i.i.i
   %20 = add i64 %.sroa.0.1.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %19) #41
           to label %14 unwind label %22, !noalias !1701
@@ -8060,7 +8060,7 @@ define hidden void @"_ZN4core3ptr302drop_in_place$LT$$LP$worktree..LocalSnapshot
   br i1 %27, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$u5d$$GT$17h7be432b25cc08635E.exit.i.i.i", label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %25, i64 0, i64 %.sroa.0.0.i.i.i.i
+  %29 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %25, i64 %.sroa.0.0.i.i.i.i
   %30 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %29)
           to label %26 unwind label %33, !noalias !1821
@@ -8076,7 +8076,7 @@ define hidden void @"_ZN4core3ptr302drop_in_place$LT$$LP$worktree..LocalSnapshot
   br label %31
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %25, i64 0, i64 %.sroa.0.1.i.i.i.i
+  %36 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %25, i64 %.sroa.0.1.i.i.i.i
   %37 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %36) #41
           to label %31 unwind label %38, !noalias !1821
@@ -8527,7 +8527,7 @@ define hidden void @"_ZN4core3ptr36drop_in_place$LT$worktree..Event$GT$17h822712
   br i1 %19, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$u5d$$GT$17h7be432b25cc08635E.exit.i.i.i", label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %17, i64 0, i64 %.sroa.0.0.i.i.i.i
+  %21 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %17, i64 %.sroa.0.0.i.i.i.i
   %22 = add i64 %.sroa.0.0.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %21)
           to label %18 unwind label %25, !noalias !1895
@@ -8543,7 +8543,7 @@ define hidden void @"_ZN4core3ptr36drop_in_place$LT$worktree..Event$GT$17h822712
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %17, i64 0, i64 %.sroa.0.1.i.i.i.i
+  %28 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %17, i64 %.sroa.0.1.i.i.i.i
   %29 = add i64 %.sroa.0.1.i.i.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %28) #41
           to label %23 unwind label %31, !noalias !1895
@@ -21810,7 +21810,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h542a33c157c76c
   br i1 %7, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$u5d$$GT$17h7be432b25cc08635E.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %5, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %9)
           to label %6 unwind label %13
@@ -21826,7 +21826,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h542a33c157c76c
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %5, i64 0, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %5, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %16) #41
           to label %11 unwind label %19
@@ -22681,7 +22681,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h891fbf8df3227b
 
 10:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$$LP$git..repository..RepoPath$C$git..repository..GitFileStatus$RP$$GT$17ha725a6d1b4e30b1bE.exit.i", %.lr.ph.i
   %.sroa.0.07.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %"_ZN4core3ptr87drop_in_place$LT$$LP$git..repository..RepoPath$C$git..repository..GitFileStatus$RP$$GT$17ha725a6d1b4e30b1bE.exit.i" ]
-  %11 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }], ptr %6, i64 0, i64 %.sroa.0.07.i
+  %11 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %6, i64 %.sroa.0.07.i
   %12 = add nuw i64 %.sroa.0.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !4767
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h617362434af9fdfaE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
@@ -22718,7 +22718,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h891fbf8df3227b
   br label %21
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }], ptr %6, i64 0, i64 %.sroa.0.1.i
+  %26 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %6, i64 %.sroa.0.1.i
   %27 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$$LP$git..repository..RepoPath$C$git..repository..GitFileStatus$RP$$GT$17ha725a6d1b4e30b1bE"(ptr noalias noundef align 8 dereferenceable(32) %26) #41
           to label %21 unwind label %29
@@ -22918,7 +22918,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h99e7bbe05b4c99
 
 10:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..ProjectEntryId$C$worktree..PathChange$RP$$GT$17hed56e334c326425eE.exit.i", %.lr.ph.i
   %.sroa.0.07.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %"_ZN4core3ptr118drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..ProjectEntryId$C$worktree..PathChange$RP$$GT$17hed56e334c326425eE.exit.i" ]
-  %11 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }], ptr %6, i64 0, i64 %.sroa.0.07.i
+  %11 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }, ptr %6, i64 %.sroa.0.07.i
   %12 = add nuw i64 %.sroa.0.07.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !4855)
   call void @llvm.experimental.noalias.scope.decl(metadata !4858)
@@ -22961,7 +22961,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h99e7bbe05b4c99
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }], ptr %6, i64 0, i64 %.sroa.0.1.i
+  %27 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }, ptr %6, i64 %.sroa.0.1.i
   %28 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..ProjectEntryId$C$worktree..PathChange$RP$$GT$17hed56e334c326425eE"(ptr noalias noundef align 8 dereferenceable(32) %27) #41
           to label %22 unwind label %30
@@ -26221,7 +26221,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
   br i1 %10, label %"_ZN4core3ptr110drop_in_place$LT$$u5b$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$u5d$$GT$17h7be432b25cc08635E.exit.i", label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %8, i64 0, i64 %.sroa.0.0.i.i
+  %12 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %8, i64 %.sroa.0.0.i.i
   %13 = add i64 %.sroa.0.0.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %12)
           to label %9 unwind label %16, !noalias !5603
@@ -26237,7 +26237,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }], ptr %8, i64 0, i64 %.sroa.0.1.i.i
+  %19 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { i64, [5 x i64] } } }, ptr %8, i64 %.sroa.0.1.i.i
   %20 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$$LP$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..GitRepositoryChange$RP$$GT$17h1e3a1f307474bba3E"(ptr noalias noundef align 8 dereferenceable(64) %19) #41
           to label %14 unwind label %22, !noalias !5603

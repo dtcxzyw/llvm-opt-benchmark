@@ -332,7 +332,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw [96 x i8], ptr %3, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !6
   %lhsv = load i64, ptr %3, align 16
   %.not48 = icmp eq i64 %lhsv, 32770348699510116
@@ -416,7 +416,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem14createInstanceERKNS_6LocaleER10
 40:                                               ; preds = %39
   %41 = load i32, ptr %4, align 4, !tbaa !22
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [96 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %3, i64 %42
   store i8 0, ptr %43, align 1, !tbaa !6
   br label %.loopexit105
 

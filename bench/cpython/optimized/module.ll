@@ -259,7 +259,7 @@ define hidden ptr @pysqlite_error_name(i32 noundef %0) local_unnamed_addr #0 {
   %.0689 = phi i32 [ %4, %8 ], [ 0, %1 ]
   %4 = add i32 %.0689, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %5
+  %6 = getelementptr %struct.anon, ptr @error_codes, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge10, label %8, !llvm.loop !10
@@ -1268,7 +1268,7 @@ define internal ptr @pysqlite_connect(ptr noundef %0, ptr noundef %1, i64 nounde
 
 22:                                               ; preds = %.lr.ph, %29
   %.02333 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %23 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %.02333
+  %23 = getelementptr ptr, ptr %21, i64 %.02333
   %24 = load ptr, ptr %23, align 8, !tbaa !36
   %25 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %24, ptr noundef nonnull @.str.118) #5
   %.not29 = icmp eq i32 %25, 0
@@ -1835,7 +1835,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_error_constants(ptr noundef %0)
 2:                                                ; preds = %7
   %3 = add i32 %.0913, 1
   %4 = sext i32 %3 to i64
-  %5 = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %4
+  %5 = getelementptr %struct.anon, ptr @error_codes, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !3
   %.not.not = icmp eq ptr %6, null
   br i1 %.not.not, label %14, label %7, !llvm.loop !61
@@ -2206,7 +2206,7 @@ define internal fastcc range(i32 -1, 4) i32 @get_threadsafety(ptr noundef readon
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.get_threadsafety, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_threadsafety, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 

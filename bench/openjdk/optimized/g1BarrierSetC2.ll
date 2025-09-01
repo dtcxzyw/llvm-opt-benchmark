@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC225g1_can_remove_pre_barrie
 
 14:                                               ; preds = %6
   %15 = zext i8 %4 to i64
-  %16 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = call noundef ptr @_ZN8GraphKit6memoryEj(ptr noundef nonnull align 8 dereferenceable(84) %1, i32 noundef %5) #6
@@ -482,7 +482,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit60:            ; preds = %_ZN4NodenwEm.exit.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %158, i32 1
+  %159 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %158, i32 1
   %160 = load i8, ptr %159, align 4
   %161 = load ptr, ptr %148, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -820,7 +820,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %92, i32 1
+  %93 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %92, i32 1
   %94 = load i8, ptr %93, align 4
   %95 = tail call noundef ptr @_ZN8IdealKit5storeEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbb(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %88, ptr noundef %7, ptr noundef %54, i8 noundef zeroext %94, i32 noundef 3, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #6
   tail call void @_ZN8IdealKit5else_Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #6
@@ -1146,7 +1146,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit74:            ; preds = %_ZN4NodenwEm.exit.i
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load i32, ptr %179, align 8
   %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %181, i32 1
+  %182 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %181, i32 1
   %183 = load i8, ptr %182, align 4
   %184 = call noundef ptr @_ZN8IdealKit4loadEP4NodeS1_PK4Type9BasicTypeibN7MemNode6MemOrdEN8LoadNode17ControlDependencyE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef %177, ptr noundef %172, ptr noundef nonnull %178, i8 noundef zeroext %183, i32 noundef 3, i1 noundef zeroext false, i32 noundef 0, i32 noundef 2) #6
   %185 = load ptr, ptr %173, align 8
@@ -2030,7 +2030,7 @@ define hidden void @_ZNK14G1BarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpa
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %57, i32 1
+  %58 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %57, i32 1
   %59 = load i8, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8

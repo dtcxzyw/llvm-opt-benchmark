@@ -679,7 +679,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %90, align 8, !noalias !112, !nonnull !5, !noundef !5
-  %104 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %103, i64 0, i64 %89
+  %104 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %103, i64 %89
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h31c16c1eae8438a1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %104)
           to label %106 unwind label %.thread.loopexit.i.i, !noalias !112
 
@@ -1457,7 +1457,7 @@ _ZN12actix_router8resource11ResourceDef12static_match17ha6df8f409b452456E.exit: 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load ptr, ptr %63, align 8, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds [0 x { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }], ptr %64, i64 0, i64 %44
+  %65 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %64, i64 %44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @_ZN5regex5regex6string5Regex11captures_at17hcf64cc62b312fedcE(ptr noalias noundef align 8 captures(none) dereferenceable(72) %6, ptr noalias noundef readonly align 8 dereferenceable(32) %65, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -1642,7 +1642,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17he30cb5ecf68a2f4fE(p
 
 .lr.ph.i.i.i:                                     ; preds = %79, %83
   %.05.i.i.i = phi i64 [ %84, %83 ], [ 0, %79 ]
-  %80 = getelementptr inbounds nuw [0 x i8], ptr %75, i64 0, i64 %.05.i.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 %.05.i.i.i
   %81 = load i8, ptr %80, align 1, !alias.scope !212, !noalias !208, !noundef !5
   %82 = icmp eq i8 %81, 123
   br i1 %82, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %83
@@ -1872,7 +1872,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %"_ZN4core3str21_$LT
 
 .lr.ph.i.i.i239:                                  ; preds = %155, %159
   %.05.i.i.i240 = phi i64 [ %160, %159 ], [ 0, %155 ]
-  %156 = getelementptr inbounds nuw [0 x i8], ptr %151, i64 0, i64 %.05.i.i.i240
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 %.05.i.i.i240
   %157 = load i8, ptr %156, align 1, !alias.scope !230, !noalias !235, !noundef !5
   %158 = icmp eq i8 %157, 123
   br i1 %158, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i242, label %159
@@ -2241,7 +2241,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i242: ; preds = %
 
 .lr.ph.i.i.i.i:                                   ; preds = %303, %307
   %.05.i.i.i.i = phi i64 [ %308, %307 ], [ 0, %303 ]
-  %304 = getelementptr inbounds nuw [0 x i8], ptr %299, i64 0, i64 %.05.i.i.i.i
+  %304 = getelementptr inbounds nuw i8, ptr %299, i64 %.05.i.i.i.i
   %305 = load i8, ptr %304, align 1, !alias.scope !306, !noalias !311, !noundef !5
   %306 = icmp eq i8 %305, 58
   br i1 %306, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %307
@@ -3472,8 +3472,8 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
 
 19:                                               ; preds = %.preheader.split.i.i.i
   %20 = add i64 %.sroa.01.0.i.i.i, 1
-  %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val6.i, i64 0, i64 %.sroa.01.0.i.i.i
-  %22 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val8.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i, i64 %.sroa.01.0.i.i.i
+  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8.i, i64 %.sroa.01.0.i.i.i
   %23 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !456
   br i1 %23, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 

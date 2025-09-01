@@ -3437,21 +3437,21 @@ switch.lookup:                                    ; preds = %211
   %264 = tail call noundef ptr %263(ptr noundef nonnull align 8 dereferenceable(16) %260) #9
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %266 = load i32, ptr %265, align 8
-  %switch.tableidx82 = add i32 %266, -145
-  %267 = icmp ult i32 %switch.tableidx82, 3
-  br i1 %267, label %switch.lookup81, label %.critedge
+  %switch.tableidx81 = add i32 %266, -145
+  %267 = icmp ult i32 %switch.tableidx81, 3
+  br i1 %267, label %switch.lookup82, label %.critedge
 
-switch.lookup81:                                  ; preds = %257
+switch.lookup82:                                  ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %269 = load i32, ptr %268, align 8
-  %270 = zext nneg i32 %switch.tableidx82 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 0, i64 %270
+  %270 = zext nneg i32 %switch.tableidx81 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 %270
   %switch.load = load i32, ptr %switch.gep, align 4
   %271 = and i32 %switch.load, %269
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %.critedge
 
-273:                                              ; preds = %switch.lookup81
+273:                                              ; preds = %switch.lookup82
   %274 = load ptr, ptr %3, align 8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %276 = load ptr, ptr %275, align 8
@@ -3462,7 +3462,7 @@ switch.lookup81:                                  ; preds = %257
   store ptr %274, ptr %275, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread69, %244, %248, %switch.lookup81, %218, %225, %232, %.thread
+.critedge:                                        ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread69, %244, %248, %switch.lookup82, %218, %225, %232, %.thread
   ret void
 }
 

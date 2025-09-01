@@ -114,7 +114,7 @@ define internal fastcc void @native_set_ldt(ptr noundef %0, i32 noundef %1) unna
   %20 = lshr i64 %7, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = zext i32 %6 to i64
-  %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
+  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, ptrtoint (ptr @gdt_page to i64)
   %26 = inttoptr i64 %25 to ptr

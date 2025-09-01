@@ -3138,49 +3138,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01214, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %49, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %48, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
   %36 = urem i64 %.020.i.i, 100
   %37 = shl nuw nsw i64 %36, 1
   %38 = udiv i64 %.020.i.i, 100
-  %39 = or disjoint i64 %37, 1
-  %40 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %37
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !45, !noalias !126
   %42 = zext i32 %.01819.i.i to i64
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 %42
   store i8 %41, ptr %43, align 1, !tbaa !45
-  %44 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %37
-  %45 = load i8, ptr %44, align 2, !tbaa !45, !noalias !126
-  %46 = add i32 %.01819.i.i, -1
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 %47
-  store i8 %45, ptr %48, align 1, !tbaa !45
-  %49 = add i32 %.01819.i.i, -2
-  %50 = icmp ugt i64 %.020.i.i, 9999
-  br i1 %50, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
+  %44 = load i8, ptr %39, align 2, !tbaa !45, !noalias !126
+  %45 = add i32 %.01819.i.i, -1
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 %46
+  store i8 %44, ptr %47, align 1, !tbaa !45
+  %48 = add i32 %.01819.i.i, -2
+  %49 = icmp ugt i64 %.020.i.i, 9999
+  br i1 %49, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i4.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %.0.lcssa.i.i = phi i64 [ %.01214, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
-  %51 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
-  br i1 %51, label %52, label %60
+  %50 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
+  br i1 %50, label %51, label %58
 
-52:                                               ; preds = %._crit_edge.i.i
-  %53 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !45, !noalias !126
-  %57 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 %56, ptr %57, align 1, !tbaa !45
-  %58 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %53
-  %59 = load i8, ptr %58, align 2, !tbaa !45, !noalias !126
+51:                                               ; preds = %._crit_edge.i.i
+  %52 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %55 = load i8, ptr %54, align 1, !tbaa !45, !noalias !126
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !45
+  %57 = load i8, ptr %53, align 2, !tbaa !45, !noalias !126
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-60:                                               ; preds = %._crit_edge.i.i
-  %61 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
-  %62 = or disjoint i8 %61, 48
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
+  %60 = or disjoint i8 %59, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %52, %60
-  %storemerge.i.i = phi i8 [ %62, %60 ], [ %59, %52 ]
+_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %51, %58
+  %storemerge.i.i = phi i8 [ %60, %58 ], [ %57, %51 ]
   store i8 %storemerge.i.i, ptr %30, align 1, !tbaa !45
   ret void
 }
@@ -3814,49 +3812,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01214, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %49, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %48, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
   %36 = urem i64 %.020.i.i, 100
   %37 = shl nuw nsw i64 %36, 1
   %38 = udiv i64 %.020.i.i, 100
-  %39 = or disjoint i64 %37, 1
-  %40 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %37
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !45, !noalias !134
   %42 = zext i32 %.01819.i.i to i64
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 %42
   store i8 %41, ptr %43, align 1, !tbaa !45
-  %44 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %37
-  %45 = load i8, ptr %44, align 2, !tbaa !45, !noalias !134
-  %46 = add i32 %.01819.i.i, -1
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 %47
-  store i8 %45, ptr %48, align 1, !tbaa !45
-  %49 = add i32 %.01819.i.i, -2
-  %50 = icmp ugt i64 %.020.i.i, 9999
-  br i1 %50, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
+  %44 = load i8, ptr %39, align 2, !tbaa !45, !noalias !134
+  %45 = add i32 %.01819.i.i, -1
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 %46
+  store i8 %44, ptr %47, align 1, !tbaa !45
+  %48 = add i32 %.01819.i.i, -2
+  %49 = icmp ugt i64 %.020.i.i, 9999
+  br i1 %49, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i4.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
   %.0.lcssa.i.i = phi i64 [ %.01214, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
-  %51 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
-  br i1 %51, label %52, label %60
+  %50 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
+  br i1 %50, label %51, label %58
 
-52:                                               ; preds = %._crit_edge.i.i
-  %53 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !45, !noalias !134
-  %57 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 %56, ptr %57, align 1, !tbaa !45
-  %58 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %53
-  %59 = load i8, ptr %58, align 2, !tbaa !45, !noalias !134
+51:                                               ; preds = %._crit_edge.i.i
+  %52 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %55 = load i8, ptr %54, align 1, !tbaa !45, !noalias !134
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !45
+  %57 = load i8, ptr %53, align 2, !tbaa !45, !noalias !134
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-60:                                               ; preds = %._crit_edge.i.i
-  %61 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
-  %62 = or disjoint i8 %61, 48
+58:                                               ; preds = %._crit_edge.i.i
+  %59 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
+  %60 = or disjoint i8 %59, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
-_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %52, %60
-  %storemerge.i.i = phi i8 [ %62, %60 ], [ %59, %52 ]
+_ZNSt7__cxx119to_stringEm.exit:                   ; preds = %51, %58
+  %storemerge.i.i = phi i8 [ %60, %58 ], [ %57, %51 ]
   store i8 %storemerge.i.i, ptr %30, align 1, !tbaa !45
   ret void
 }

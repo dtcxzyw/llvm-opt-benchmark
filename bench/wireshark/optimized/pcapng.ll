@@ -259,7 +259,7 @@ define void @register_pcapng_option_handler(i32 noundef %0, i32 noundef %1, ptr 
 
 11:                                               ; preds = %5, %10, %9, %8, %7, %6, %.sink.split.i
   %.0.ph = phi i64 [ 0, %.sink.split.i ], [ 6, %10 ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 1, %5 ]
-  %12 = getelementptr [7 x ptr], ptr @option_handlers, i64 0, i64 %.0.ph
+  %12 = getelementptr ptr, ptr @option_handlers, i64 %.0.ph
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -6160,7 +6160,7 @@ define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32
 
 switch.lookup:                                    ; preds = %14
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.write_wtap_epb_option, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.write_wtap_epb_option, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pcapng_compute_packet_verdict_option_size.exit
 
@@ -7123,7 +7123,7 @@ pcapng_compute_packet_hash_option_size.exit.i:    ; preds = %82
 
 switch.lookup:                                    ; preds = %82
   %91 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.write_wtap_epb_option, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.write_wtap_epb_option, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pcapng_compute_packet_hash_option_size.exit.thread.i
 

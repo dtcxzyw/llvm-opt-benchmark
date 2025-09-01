@@ -234,7 +234,7 @@ define hidden range(i32 0, 28) i32 @Curl_altsvc_load(ptr noundef %0, ptr noundef
   %68 = load ptr, ptr %8, align 8, !tbaa !18
   %69 = load i64, ptr %23, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr align 1 %68, i64 %69, i1 false)
-  %70 = getelementptr inbounds nuw [257 x i8], ptr %13, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 %69
   store i8 0, ptr %70, align 1, !tbaa !14
   %71 = call i64 @Curl_getdate_capped(ptr noundef nonnull %13) #12
   %72 = load i64, ptr %9, align 8, !tbaa !21

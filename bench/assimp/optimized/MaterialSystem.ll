@@ -644,7 +644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float
@@ -1212,7 +1212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fadd double %.025, %76
@@ -2883,7 +2883,7 @@ define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr noundef captures(none
   %36 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %37 = zext nneg i32 %spec.select.i.us to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr nonnull align 4 %31, i64 %37, i1 false)
-  %38 = getelementptr inbounds nuw [1024 x i8], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   store i8 0, ptr %38, align 1
   br label %_ZN8aiStringaSERKS_.exit.us
 
@@ -3024,7 +3024,7 @@ _ZNK8aiStringeqERKS_.exit.thread.us:              ; preds = %_ZN18aiMaterialProp
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %113 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr nonnull align 4 %112, i64 %113, i1 false)
-  %114 = getelementptr inbounds nuw [1024 x i8], ptr %111, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 %113
   store i8 0, ptr %114, align 1
   br label %_ZN8aiStringaSERKS_.exit
 

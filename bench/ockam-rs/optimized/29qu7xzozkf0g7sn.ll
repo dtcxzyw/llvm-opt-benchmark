@@ -3025,7 +3025,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.07.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1072
-  %31 = getelementptr inbounds nuw [0 x { [6 x i64] }], ptr %7, i64 0, i64 %.sroa.7.033
+  %31 = getelementptr inbounds nuw { [6 x i64] }, ptr %7, i64 %.sroa.7.033
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.sroa.0, i64 24, i1 false)
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %28, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -3182,7 +3182,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h21a9547
 15:                                               ; preds = %12
   %16 = lshr i32 %13, 26
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x i8], ptr @anon.04125823aee0bc4574c726506a5940a5.0.llvm.5387445467279837026, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @anon.04125823aee0bc4574c726506a5940a5.0.llvm.5387445467279837026, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !1118, !noundef !4
   %20 = load i64, ptr %6, align 8, !noundef !4
   %21 = load i64, ptr %7, align 8, !noundef !4
@@ -3575,7 +3575,7 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
 
 .lr.ph.i.us.i.i:                                  ; preds = %27, %31
   %.05.i.us.i.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.05.i.us.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.05.i.us.i.i
   %29 = load i8, ptr %28, align 1, !alias.scope !1185, !noalias !1184, !noundef !4
   %30 = icmp eq i8 %29, %23
   br i1 %30, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i, label %31
@@ -3632,7 +3632,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i: ; preds = %
 
 .lr.ph.i.i.i:                                     ; preds = %51, %55
   %.05.i.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.05.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %.05.i.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !1185, !noalias !1184, !noundef !4
   %54 = icmp eq i8 %53, %47
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %55
@@ -4008,7 +4008,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 15:                                               ; preds = %12
   %16 = lshr i32 %13, 26
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x i8], ptr @anon.04125823aee0bc4574c726506a5940a5.0.llvm.5387445467279837026, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @anon.04125823aee0bc4574c726506a5940a5.0.llvm.5387445467279837026, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !1311, !noundef !4
   %20 = load i64, ptr %6, align 8, !alias.scope !1288, !noalias !1291, !noundef !4
   %21 = load i64, ptr %7, align 8, !alias.scope !1288, !noalias !1291, !noundef !4

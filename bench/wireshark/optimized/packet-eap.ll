@@ -1986,7 +1986,7 @@ proto_item_set_generated.exit:                    ; preds = %320, %317, %314, %3
 
 switch.lookup573:                                 ; preds = %376
   %380 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_eap, i64 0, i64 %380
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_eap, i64 %380
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %381
 

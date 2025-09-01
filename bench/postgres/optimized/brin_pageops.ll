@@ -48,7 +48,7 @@ define dso_local noundef zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %
 24:                                               ; preds = %23
   %25 = call fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %4, i64 noundef %9, ptr noundef %12)
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %252, label %26
+  br i1 %.not, label %251, label %26
 
 26:                                               ; preds = %24
   %27 = icmp eq i32 %25, %4
@@ -87,406 +87,405 @@ define dso_local noundef zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %
 
 BufferGetPage.exit:                               ; preds = %33, %39
   %.0.i.i = phi ptr [ %38, %33 ], [ %44, %39 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %46 = zext i16 %5 to i64
-  %47 = add nsw i64 %46, -1
-  %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %50 = load i16, ptr %49, align 4
-  %51 = zext i16 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 6
-  %54 = load i16, ptr %53, align 2
-  %55 = icmp eq i16 %54, -3949
-  br i1 %55, label %56, label %68
+  %45 = zext i16 %5 to i64
+  %46 = getelementptr i8, ptr %.0.i.i, i64 20
+  %47 = getelementptr %struct.ItemIdData, ptr %46, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %49 = load i16, ptr %48, align 4
+  %50 = zext i16 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %53 = load i16, ptr %52, align 2
+  %54 = icmp eq i16 %53, -3949
+  br i1 %54, label %55, label %67
 
-56:                                               ; preds = %BufferGetPage.exit
-  %57 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val = load i16, ptr %57, align 4
-  %58 = icmp ult i16 %.val, 25
-  %59 = zext i16 %.val to i32
-  %60 = add nuw nsw i32 %59, 262120
-  %61 = lshr i32 %60, 2
-  %62 = trunc i32 %61 to i16
-  %.0.i = select i1 %58, i16 0, i16 %62
-  %63 = icmp ugt i16 %5, %.0.i
-  br i1 %63, label %68, label %64
+55:                                               ; preds = %BufferGetPage.exit
+  %56 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val = load i16, ptr %56, align 4
+  %57 = icmp ult i16 %.val, 25
+  %58 = zext i16 %.val to i32
+  %59 = add nuw nsw i32 %58, 262120
+  %60 = lshr i32 %59, 2
+  %61 = trunc i32 %60 to i16
+  %.0.i = select i1 %57, i16 0, i16 %61
+  %62 = icmp ugt i16 %5, %.0.i
+  br i1 %62, label %67, label %63
 
-64:                                               ; preds = %56
-  %65 = load i32, ptr %48, align 4
-  %66 = and i32 %65, 98304
-  %67 = icmp eq i32 %66, 32768
-  br i1 %67, label %75, label %68
+63:                                               ; preds = %55
+  %64 = load i32, ptr %47, align 4
+  %65 = and i32 %64, 98304
+  %66 = icmp eq i32 %65, 32768
+  br i1 %66, label %74, label %67
 
-68:                                               ; preds = %64, %56, %BufferGetPage.exit
+67:                                               ; preds = %63, %55, %BufferGetPage.exit
   tail call void @LockBuffer(i32 noundef %4, i32 noundef 0) #6
   %.not142 = icmp eq i32 %.0125, 0
-  br i1 %.not142, label %252, label %69
+  br i1 %.not142, label %251, label %68
 
-69:                                               ; preds = %68
-  %70 = load i8, ptr %12, align 1, !range !4, !noundef !5
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %73, label %72
+68:                                               ; preds = %67
+  %69 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %72, label %71
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   tail call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  br label %252
+  br label %251
 
-73:                                               ; preds = %69
+72:                                               ; preds = %68
   tail call fastcc void @brin_initialize_empty_new_buffer(ptr noundef %0, i32 noundef %.0125)
   tail call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  %74 = add i32 %.0126, 1
-  tail call void @FreeSpaceMapVacuumRange(ptr noundef %0, i32 noundef %.0126, i32 noundef %74) #6
-  br label %252
+  %73 = add i32 %.0126, 1
+  tail call void @FreeSpaceMapVacuumRange(ptr noundef %0, i32 noundef %.0126, i32 noundef %73) #6
+  br label %251
 
-75:                                               ; preds = %64
-  %76 = lshr i32 %65, 17
-  %77 = zext nneg i32 %76 to i64
-  %78 = and i32 %65, 32767
-  %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %79
-  %81 = tail call zeroext i1 @brin_tuples_equal(ptr noundef %80, i64 noundef %77, ptr noundef %6, i64 noundef %7) #6
-  br i1 %81, label %89, label %82
+74:                                               ; preds = %63
+  %75 = lshr i32 %64, 17
+  %76 = zext nneg i32 %75 to i64
+  %77 = and i32 %64, 32767
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %78
+  %80 = tail call zeroext i1 @brin_tuples_equal(ptr noundef %79, i64 noundef %76, ptr noundef %6, i64 noundef %7) #6
+  br i1 %80, label %88, label %81
 
-82:                                               ; preds = %75
+81:                                               ; preds = %74
   tail call void @LockBuffer(i32 noundef %4, i32 noundef 0) #6
   %.not139 = icmp eq i32 %.0125, 0
-  br i1 %.not139, label %252, label %83
+  br i1 %.not139, label %251, label %82
 
-83:                                               ; preds = %82
-  %84 = load i8, ptr %12, align 1, !range !4, !noundef !5
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %87, label %86
+82:                                               ; preds = %81
+  %83 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %86, label %85
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   tail call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  br label %252
+  br label %251
 
-87:                                               ; preds = %83
+86:                                               ; preds = %82
   tail call fastcc void @brin_initialize_empty_new_buffer(ptr noundef %0, i32 noundef %.0125)
   tail call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  %88 = add i32 %.0126, 1
-  tail call void @FreeSpaceMapVacuumRange(ptr noundef %0, i32 noundef %.0126, i32 noundef %88) #6
-  br label %252
+  %87 = add i32 %.0126, 1
+  tail call void @FreeSpaceMapVacuumRange(ptr noundef %0, i32 noundef %.0126, i32 noundef %87) #6
+  br label %251
 
-89:                                               ; preds = %75
-  %90 = load i16, ptr %49, align 4
-  %91 = zext i16 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %94 = load i16, ptr %93, align 2
-  %95 = and i16 %94, 1
-  %96 = icmp eq i16 %95, 0
-  br i1 %96, label %97, label %152
+88:                                               ; preds = %74
+  %89 = load i16, ptr %48, align 4
+  %90 = zext i16 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i16, ptr %92, align 2
+  %94 = and i16 %93, 1
+  %95 = icmp eq i16 %94, 0
+  br i1 %95, label %96, label %151
 
-97:                                               ; preds = %89
+96:                                               ; preds = %88
   %.not.i = icmp ugt i64 %9, %7
-  br i1 %.not.i, label %98, label %brin_can_do_samepage_update.exit.thread
+  br i1 %.not.i, label %97, label %brin_can_do_samepage_update.exit.thread
+
+97:                                               ; preds = %96
+  br i1 %32, label %98, label %104
 
 98:                                               ; preds = %97
-  br i1 %32, label %99, label %105
-
-99:                                               ; preds = %98
-  %100 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %101 = xor i32 %4, -1
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %102
-  %104 = load ptr, ptr %103, align 8
+  %99 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %100 = xor i32 %4, -1
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %103 = load ptr, ptr %102, align 8
   br label %brin_can_do_samepage_update.exit
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr @BufferBlocks, align 8
-  %107 = add nsw i32 %4, -1
-  %108 = sext i32 %107 to i64
-  %109 = shl nsw i64 %108, 13
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %109
+104:                                              ; preds = %97
+  %105 = load ptr, ptr @BufferBlocks, align 8
+  %106 = add nsw i32 %4, -1
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 13
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
   br label %brin_can_do_samepage_update.exit
 
-brin_can_do_samepage_update.exit:                 ; preds = %99, %105
-  %.0.i.i.i = phi ptr [ %104, %99 ], [ %110, %105 ]
-  %111 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.i) #6
-  %112 = sub nuw nsw i64 %9, %7
-  %.not140 = icmp ult i64 %111, %112
-  br i1 %.not140, label %152, label %brin_can_do_samepage_update.exit.thread
+brin_can_do_samepage_update.exit:                 ; preds = %98, %104
+  %.0.i.i.i = phi ptr [ %103, %98 ], [ %109, %104 ]
+  %110 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.i) #6
+  %111 = sub nuw nsw i64 %9, %7
+  %.not140 = icmp ult i64 %110, %111
+  br i1 %.not140, label %151, label %brin_can_do_samepage_update.exit.thread
 
-brin_can_do_samepage_update.exit.thread:          ; preds = %97, %brin_can_do_samepage_update.exit
-  %113 = load volatile i32, ptr @CritSectionCount, align 4
-  %114 = add i32 %113, 1
-  store volatile i32 %114, ptr @CritSectionCount, align 4
-  %115 = tail call zeroext i1 @PageIndexTupleOverwrite(ptr noundef nonnull %.0.i.i, i16 noundef zeroext %5, ptr noundef %8, i64 noundef %9) #6
-  br i1 %115, label %119, label %116
+brin_can_do_samepage_update.exit.thread:          ; preds = %96, %brin_can_do_samepage_update.exit
+  %112 = load volatile i32, ptr @CritSectionCount, align 4
+  %113 = add i32 %112, 1
+  store volatile i32 %113, ptr @CritSectionCount, align 4
+  %114 = tail call zeroext i1 @PageIndexTupleOverwrite(ptr noundef nonnull %.0.i.i, i16 noundef zeroext %5, ptr noundef %8, i64 noundef %9) #6
+  br i1 %114, label %118, label %115
 
-116:                                              ; preds = %brin_can_do_samepage_update.exit.thread
-  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %117)
-  %118 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+115:                                              ; preds = %brin_can_do_samepage_update.exit.thread
+  %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %116)
+  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 180, ptr noundef nonnull @__func__.brin_doupdate) #6
   unreachable
 
-119:                                              ; preds = %brin_can_do_samepage_update.exit.thread
+118:                                              ; preds = %brin_can_do_samepage_update.exit.thread
   tail call void @MarkBufferDirty(i32 noundef %4) #6
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 114
-  %123 = load i8, ptr %122, align 2
-  %124 = icmp eq i8 %123, 112
-  br i1 %124, label %125, label %143
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 114
+  %122 = load i8, ptr %121, align 2
+  %123 = icmp eq i8 %122, 112
+  br i1 %123, label %124, label %142
 
-125:                                              ; preds = %119
-  %126 = load i32, ptr @wal_level, align 4
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %136, label %128
+124:                                              ; preds = %118
+  %125 = load i32, ptr @wal_level, align 4
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %135, label %127
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %130 = load i32, ptr %129, align 8
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %143
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %142
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %143
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %142
 
-136:                                              ; preds = %132, %125
+135:                                              ; preds = %131, %124
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 %5, ptr %13, align 2
   tail call void @XLogBeginInsert() #6
   call void @XLogRegisterData(ptr noundef nonnull %13, i32 noundef 2) #6
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %4, i8 noundef zeroext 8) #6
-  %137 = trunc nuw nsw i64 %9 to i32
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %137) #6
-  %138 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext 48) #6
-  %139 = lshr i64 %138, 32
-  %140 = trunc nuw i64 %139 to i32
-  store i32 %140, ptr %.0.i.i, align 4
-  %141 = trunc i64 %138 to i32
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  store i32 %141, ptr %142, align 4
+  %136 = trunc nuw nsw i64 %9 to i32
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %136) #6
+  %137 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext 48) #6
+  %138 = lshr i64 %137, 32
+  %139 = trunc nuw i64 %138 to i32
+  store i32 %139, ptr %.0.i.i, align 4
+  %140 = trunc i64 %137 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  store i32 %140, ptr %141, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %143
+  br label %142
 
-143:                                              ; preds = %119, %128, %132, %136
-  %144 = load volatile i32, ptr @CritSectionCount, align 4
-  %145 = add i32 %144, -1
-  store volatile i32 %145, ptr @CritSectionCount, align 4
+142:                                              ; preds = %118, %127, %131, %135
+  %143 = load volatile i32, ptr @CritSectionCount, align 4
+  %144 = add i32 %143, -1
+  store volatile i32 %144, ptr @CritSectionCount, align 4
   call void @LockBuffer(i32 noundef %4, i32 noundef 0) #6
   %.not141 = icmp eq i32 %.0125, 0
-  br i1 %.not141, label %252, label %146
+  br i1 %.not141, label %251, label %145
 
-146:                                              ; preds = %143
-  %147 = load i8, ptr %12, align 1, !range !4, !noundef !5
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %150, label %149
+145:                                              ; preds = %142
+  %146 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %147 = trunc nuw i8 %146 to i1
+  br i1 %147, label %149, label %148
 
-149:                                              ; preds = %146
+148:                                              ; preds = %145
   call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  br label %252
+  br label %251
 
-150:                                              ; preds = %146
+149:                                              ; preds = %145
   call fastcc void @brin_initialize_empty_new_buffer(ptr noundef nonnull %0, i32 noundef %.0125)
   call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  %151 = add i32 %.0126, 1
-  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %.0126, i32 noundef %151) #6
-  br label %252
+  %150 = add i32 %.0126, 1
+  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %.0126, i32 noundef %150) #6
+  br label %251
 
-152:                                              ; preds = %brin_can_do_samepage_update.exit, %89
-  %153 = icmp eq i32 %.0125, 0
-  br i1 %153, label %154, label %155
+151:                                              ; preds = %brin_can_do_samepage_update.exit, %88
+  %152 = icmp eq i32 %.0125, 0
+  br i1 %152, label %153, label %154
 
-154:                                              ; preds = %152
+153:                                              ; preds = %151
   tail call void @LockBuffer(i32 noundef %4, i32 noundef 0) #6
-  br label %252
+  br label %251
 
-155:                                              ; preds = %152
-  %156 = icmp slt i32 %.0125, 0
-  br i1 %156, label %157, label %163
+154:                                              ; preds = %151
+  %155 = icmp slt i32 %.0125, 0
+  br i1 %155, label %156, label %162
 
-157:                                              ; preds = %155
-  %158 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %159 = xor i32 %.0125, -1
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw ptr, ptr %158, i64 %160
-  %162 = load ptr, ptr %161, align 8
+156:                                              ; preds = %154
+  %157 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %158 = xor i32 %.0125, -1
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %159
+  %161 = load ptr, ptr %160, align 8
   br label %BufferGetPage.exit132
 
-163:                                              ; preds = %155
-  %164 = load ptr, ptr @BufferBlocks, align 8
-  %165 = add nsw i32 %.0125, -1
-  %166 = zext nneg i32 %165 to i64
-  %167 = shl nuw nsw i64 %166, 13
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 %167
+162:                                              ; preds = %154
+  %163 = load ptr, ptr @BufferBlocks, align 8
+  %164 = add nsw i32 %.0125, -1
+  %165 = zext nneg i32 %164 to i64
+  %166 = shl nuw nsw i64 %165, 13
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 %166
   br label %BufferGetPage.exit132
 
-BufferGetPage.exit132:                            ; preds = %157, %163
-  %.0.i.i131 = phi ptr [ %162, %157 ], [ %168, %163 ]
-  %169 = tail call i32 @brinLockRevmapPageForUpdate(ptr noundef %2, i32 noundef %3) #6
-  %170 = load volatile i32, ptr @CritSectionCount, align 4
-  %171 = add i32 %170, 1
-  store volatile i32 %171, ptr @CritSectionCount, align 4
-  %172 = load i8, ptr %12, align 1, !range !4, !noundef !5
-  %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %180
+BufferGetPage.exit132:                            ; preds = %156, %162
+  %.0.i.i131 = phi ptr [ %161, %156 ], [ %167, %162 ]
+  %168 = tail call i32 @brinLockRevmapPageForUpdate(ptr noundef %2, i32 noundef %3) #6
+  %169 = load volatile i32, ptr @CritSectionCount, align 4
+  %170 = add i32 %169, 1
+  store volatile i32 %170, ptr @CritSectionCount, align 4
+  %171 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %172 = trunc nuw i8 %171 to i1
+  br i1 %172, label %173, label %179
 
-174:                                              ; preds = %BufferGetPage.exit132
+173:                                              ; preds = %BufferGetPage.exit132
   tail call void @PageInit(ptr noundef %.0.i.i131, i64 noundef 8192, i64 noundef 8) #6
-  %175 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 16
-  %176 = load i16, ptr %175, align 4
-  %177 = zext i16 %176 to i64
-  %178 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 %177
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 6
-  store i16 -3949, ptr %179, align 2
-  br label %180
+  %174 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 16
+  %175 = load i16, ptr %174, align 4
+  %176 = zext i16 %175 to i64
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 %176
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 6
+  store i16 -3949, ptr %178, align 2
+  br label %179
 
-180:                                              ; preds = %174, %BufferGetPage.exit132
+179:                                              ; preds = %173, %BufferGetPage.exit132
   tail call void @PageIndexTupleDeleteNoCompact(ptr noundef nonnull %.0.i.i, i16 noundef zeroext %5) #6
-  %181 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i131, ptr noundef %8, i64 noundef %9, i16 noundef zeroext 0, i32 noundef 0) #6
-  %182 = icmp eq i16 %181, 0
-  br i1 %182, label %183, label %186
+  %180 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i131, ptr noundef %8, i64 noundef %9, i16 noundef zeroext 0, i32 noundef 0) #6
+  %181 = icmp eq i16 %180, 0
+  br i1 %181, label %182, label %185
 
-183:                                              ; preds = %180
-  %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %184)
-  %185 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+182:                                              ; preds = %179
+  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %183)
+  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__.brin_doupdate) #6
   unreachable
 
-186:                                              ; preds = %180
+185:                                              ; preds = %179
   tail call void @MarkBufferDirty(i32 noundef %4) #6
   tail call void @MarkBufferDirty(i32 noundef %.0125) #6
-  br i1 %173, label %187, label %br_page_get_freespace.exit
+  br i1 %172, label %186, label %br_page_get_freespace.exit
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 16
-  %189 = load i16, ptr %188, align 4
-  %190 = zext i16 %189 to i64
-  %191 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 %190
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 6
-  %193 = load i16, ptr %192, align 2
-  %194 = icmp eq i16 %193, -3949
-  br i1 %194, label %195, label %br_page_get_freespace.exit
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 16
+  %188 = load i16, ptr %187, align 4
+  %189 = zext i16 %188 to i64
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 %189
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 6
+  %192 = load i16, ptr %191, align 2
+  %193 = icmp eq i16 %192, -3949
+  br i1 %193, label %194, label %br_page_get_freespace.exit
 
-195:                                              ; preds = %187
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 4
-  %197 = load i16, ptr %196, align 2
-  %198 = and i16 %197, 1
-  %.not.i134 = icmp eq i16 %198, 0
-  br i1 %.not.i134, label %199, label %br_page_get_freespace.exit
+194:                                              ; preds = %186
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 4
+  %196 = load i16, ptr %195, align 2
+  %197 = and i16 %196, 1
+  %.not.i134 = icmp eq i16 %197, 0
+  br i1 %.not.i134, label %198, label %br_page_get_freespace.exit
 
-199:                                              ; preds = %195
-  %200 = tail call i64 @PageGetFreeSpace(ptr noundef nonnull %.0.i.i131) #6
+198:                                              ; preds = %194
+  %199 = tail call i64 @PageGetFreeSpace(ptr noundef nonnull %.0.i.i131) #6
   br label %br_page_get_freespace.exit
 
-br_page_get_freespace.exit:                       ; preds = %199, %195, %187, %186
-  %.0127 = phi i64 [ 0, %186 ], [ %200, %199 ], [ 0, %195 ], [ 0, %187 ]
-  %201 = lshr i32 %.0126, 16
-  %.sroa.5.0.insert.ext = zext i16 %181 to i48
+br_page_get_freespace.exit:                       ; preds = %198, %194, %186, %185
+  %.0127 = phi i64 [ 0, %185 ], [ %199, %198 ], [ 0, %194 ], [ 0, %186 ]
+  %200 = lshr i32 %.0126, 16
+  %.sroa.5.0.insert.ext = zext i16 %180 to i48
   %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
-  %202 = shl i32 %.0126, 16
-  %.sroa.4.0.insert.shift = zext i32 %202 to i48
+  %201 = shl i32 %.0126, 16
+  %.sroa.4.0.insert.shift = zext i32 %201 to i48
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.0.0.insert.ext = zext nneg i32 %201 to i48
+  %.sroa.0.0.insert.ext = zext nneg i32 %200 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
-  tail call void @brinSetHeapBlockItemptr(i32 noundef %169, i32 noundef %1, i32 noundef %3, i48 %.sroa.0.0.insert.insert) #6
-  tail call void @MarkBufferDirty(i32 noundef %169) #6
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 114
-  %206 = load i8, ptr %205, align 2
-  %207 = icmp eq i8 %206, 112
-  br i1 %207, label %208, label %247
+  tail call void @brinSetHeapBlockItemptr(i32 noundef %168, i32 noundef %1, i32 noundef %3, i48 %.sroa.0.0.insert.insert) #6
+  tail call void @MarkBufferDirty(i32 noundef %168) #6
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 114
+  %205 = load i8, ptr %204, align 2
+  %206 = icmp eq i8 %205, 112
+  br i1 %206, label %207, label %246
 
-208:                                              ; preds = %br_page_get_freespace.exit
-  %209 = load i32, ptr @wal_level, align 4
-  %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %219, label %211
+207:                                              ; preds = %br_page_get_freespace.exit
+  %208 = load i32, ptr @wal_level, align 4
+  %209 = icmp sgt i32 %208, 0
+  br i1 %209, label %218, label %210
 
-211:                                              ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %213 = load i32, ptr %212, align 8
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %215, label %247
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %212 = load i32, ptr %211, align 8
+  %213 = icmp eq i32 %212, 0
+  br i1 %213, label %214, label %246
 
-215:                                              ; preds = %211
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %217 = load i32, ptr %216, align 8
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %247
+214:                                              ; preds = %210
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %216 = load i32, ptr %215, align 8
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %246
 
-219:                                              ; preds = %215, %208
+218:                                              ; preds = %214, %207
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %220 = shl nuw i8 %172, 7
-  %221 = or disjoint i8 %220, 32
-  %222 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %223 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i16 %181, ptr %223, align 4
-  store i32 %3, ptr %222, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %1, ptr %224, align 4
+  %219 = shl nuw i8 %171, 7
+  %220 = or disjoint i8 %219, 32
+  %221 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i16 %180, ptr %222, align 4
+  store i32 %3, ptr %221, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %1, ptr %223, align 4
   store i16 %5, ptr %14, align 4
   tail call void @XLogBeginInsert() #6
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 14) #6
-  %225 = select i1 %173, i8 14, i8 8
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.0125, i8 noundef zeroext %225) #6
-  %226 = trunc nuw nsw i64 %9 to i32
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %226) #6
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %169, i8 noundef zeroext 0) #6
+  %224 = select i1 %172, i8 14, i8 8
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.0125, i8 noundef zeroext %224) #6
+  %225 = trunc nuw nsw i64 %9 to i32
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %8, i32 noundef %225) #6
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %168, i8 noundef zeroext 0) #6
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %4, i8 noundef zeroext 8) #6
-  %227 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext %221) #6
-  %228 = lshr i64 %227, 32
-  %229 = trunc nuw i64 %228 to i32
-  store i32 %229, ptr %.0.i.i, align 4
-  %230 = trunc i64 %227 to i32
-  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  store i32 %230, ptr %231, align 4
-  store i32 %229, ptr %.0.i.i131, align 4
-  %232 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 4
-  store i32 %230, ptr %232, align 4
-  %233 = icmp slt i32 %169, 0
-  br i1 %233, label %234, label %240
+  %226 = call i64 @XLogInsert(i8 noundef zeroext 17, i8 noundef zeroext %220) #6
+  %227 = lshr i64 %226, 32
+  %228 = trunc nuw i64 %227 to i32
+  store i32 %228, ptr %.0.i.i, align 4
+  %229 = trunc i64 %226 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  store i32 %229, ptr %230, align 4
+  store i32 %228, ptr %.0.i.i131, align 4
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 4
+  store i32 %229, ptr %231, align 4
+  %232 = icmp slt i32 %168, 0
+  br i1 %232, label %233, label %239
 
-234:                                              ; preds = %219
-  %235 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %236 = xor i32 %169, -1
-  %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw ptr, ptr %235, i64 %237
-  %239 = load ptr, ptr %238, align 8
+233:                                              ; preds = %218
+  %234 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %235 = xor i32 %168, -1
+  %236 = zext nneg i32 %235 to i64
+  %237 = getelementptr inbounds nuw ptr, ptr %234, i64 %236
+  %238 = load ptr, ptr %237, align 8
   br label %BufferGetPage.exit136
 
-240:                                              ; preds = %219
-  %241 = load ptr, ptr @BufferBlocks, align 8
-  %242 = add nsw i32 %169, -1
-  %243 = sext i32 %242 to i64
-  %244 = shl nsw i64 %243, 13
-  %245 = getelementptr inbounds nuw i8, ptr %241, i64 %244
+239:                                              ; preds = %218
+  %240 = load ptr, ptr @BufferBlocks, align 8
+  %241 = add nsw i32 %168, -1
+  %242 = sext i32 %241 to i64
+  %243 = shl nsw i64 %242, 13
+  %244 = getelementptr inbounds nuw i8, ptr %240, i64 %243
   br label %BufferGetPage.exit136
 
-BufferGetPage.exit136:                            ; preds = %234, %240
-  %.0.i.i135 = phi ptr [ %239, %234 ], [ %245, %240 ]
-  store i32 %229, ptr %.0.i.i135, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 4
-  store i32 %230, ptr %246, align 4
+BufferGetPage.exit136:                            ; preds = %233, %239
+  %.0.i.i135 = phi ptr [ %238, %233 ], [ %244, %239 ]
+  store i32 %228, ptr %.0.i.i135, align 4
+  %245 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 4
+  store i32 %229, ptr %245, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %247
+  br label %246
 
-247:                                              ; preds = %br_page_get_freespace.exit, %211, %215, %BufferGetPage.exit136
-  %248 = load volatile i32, ptr @CritSectionCount, align 4
-  %249 = add i32 %248, -1
-  store volatile i32 %249, ptr @CritSectionCount, align 4
-  call void @LockBuffer(i32 noundef %169, i32 noundef 0) #6
+246:                                              ; preds = %br_page_get_freespace.exit, %210, %214, %BufferGetPage.exit136
+  %247 = load volatile i32, ptr @CritSectionCount, align 4
+  %248 = add i32 %247, -1
+  store volatile i32 %248, ptr @CritSectionCount, align 4
+  call void @LockBuffer(i32 noundef %168, i32 noundef 0) #6
   call void @LockBuffer(i32 noundef %4, i32 noundef 0) #6
   call void @UnlockReleaseBuffer(i32 noundef %.0125) #6
-  br i1 %173, label %250, label %252
+  br i1 %172, label %249, label %251
 
-250:                                              ; preds = %247
+249:                                              ; preds = %246
   call void @RecordPageWithFreeSpace(ptr noundef nonnull %0, i32 noundef %.0126, i64 noundef %.0127) #6
-  %251 = add i32 %.0126, 1
-  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %.0126, i32 noundef %251) #6
-  br label %252
+  %250 = add i32 %.0126, 1
+  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %.0126, i32 noundef %250) #6
+  br label %251
 
-252:                                              ; preds = %247, %250, %149, %86, %72, %143, %150, %82, %87, %68, %73, %24, %154
-  %.0 = phi i1 [ false, %154 ], [ false, %24 ], [ false, %72 ], [ false, %73 ], [ false, %68 ], [ false, %86 ], [ false, %87 ], [ false, %82 ], [ true, %149 ], [ true, %150 ], [ true, %143 ], [ true, %250 ], [ true, %247 ]
+251:                                              ; preds = %246, %249, %148, %85, %71, %142, %149, %81, %86, %67, %72, %24, %153
+  %.0 = phi i1 [ false, %153 ], [ false, %24 ], [ false, %71 ], [ false, %72 ], [ false, %67 ], [ false, %85 ], [ false, %86 ], [ false, %81 ], [ true, %148 ], [ true, %149 ], [ true, %142 ], [ true, %249 ], [ true, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.0
 }
@@ -1280,7 +1279,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br i1 %.not18, label %.loopexit, label %.critedge.lr.ph
 
 .critedge.lr.ph:                                  ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %25 = getelementptr i8, ptr %.0.i.i, i64 20
   br label %.critedge
 
 26:                                               ; preds = %.critedge
@@ -1291,27 +1290,26 @@ BufferGetPage.exit:                               ; preds = %4, %10
 .critedge:                                        ; preds = %.critedge.lr.ph, %26
   %.01519 = phi i16 [ 1, %.critedge.lr.ph ], [ %27, %26 ]
   %28 = zext i16 %.01519 to i64
-  %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 98304
-  %.not16 = icmp eq i32 %32, 0
-  br i1 %.not16, label %26, label %33
+  %29 = getelementptr %struct.ItemIdData, ptr %25, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 98304
+  %.not16 = icmp eq i32 %31, 0
+  br i1 %.not16, label %26, label %32
 
-33:                                               ; preds = %.critedge
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %35 = load i16, ptr %34, align 4
-  %36 = zext i16 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = load i16, ptr %38, align 2
-  %40 = or i16 %39, 1
-  store i16 %40, ptr %38, align 2
+32:                                               ; preds = %.critedge
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %34 = load i16, ptr %33, align 4
+  %35 = zext i16 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i16, ptr %37, align 2
+  %39 = or i16 %38, 1
+  store i16 %39, ptr %37, align 2
   tail call void @MarkBufferDirtyHint(i32 noundef %1, i1 noundef zeroext true) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %18, %33, %BufferGetPage.exit
-  %.0 = phi i1 [ true, %33 ], [ false, %BufferGetPage.exit ], [ false, %18 ], [ false, %26 ]
+.loopexit:                                        ; preds = %26, %18, %32, %BufferGetPage.exit
+  %.0 = phi i1 [ true, %32 ], [ false, %BufferGetPage.exit ], [ false, %18 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -1355,12 +1353,12 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %25 = getelementptr i8, ptr %.0.i.i, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   br label %27
 
 27:                                               ; preds = %.lr.ph, %select.unfold
-  %.03141 = phi i16 [ 1, %.lr.ph ], [ %52, %select.unfold ]
+  %.03141 = phi i16 [ 1, %.lr.ph ], [ %51, %select.unfold ]
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %30, label %29, !prof !6
@@ -1371,42 +1369,41 @@ BufferGetPage.exit:                               ; preds = %7, %13
 
 30:                                               ; preds = %29, %27
   %31 = zext i16 %.03141 to i64
-  %32 = add nsw i64 %31, -1
-  %33 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 98304
-  %.not33 = icmp eq i32 %35, 0
-  br i1 %.not33, label %select.unfold, label %36
+  %32 = getelementptr %struct.ItemIdData, ptr %25, i64 %31
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 98304
+  %.not33 = icmp eq i32 %34, 0
+  br i1 %.not33, label %select.unfold, label %35
 
-36:                                               ; preds = %30
-  %37 = lshr i32 %34, 17
-  %38 = zext nneg i32 %37 to i64
-  %39 = and i32 %34, 32767
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %40
-  %42 = call ptr @brin_copy_tuple(ptr noundef %41, i64 noundef %38, ptr noundef null, ptr noundef nonnull %5) #6
+35:                                               ; preds = %30
+  %36 = lshr i32 %33, 17
+  %37 = zext nneg i32 %36 to i64
+  %38 = and i32 %33, 32767
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %39
+  %41 = call ptr @brin_copy_tuple(ptr noundef %40, i64 noundef %37, ptr noundef null, ptr noundef nonnull %5) #6
   call void @LockBuffer(i32 noundef %3, i32 noundef 0) #6
-  %43 = load i32, ptr %42, align 4
-  %44 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %43, i32 noundef %3, i16 noundef zeroext %.03141, ptr noundef nonnull %42, i64 noundef %38, ptr noundef nonnull %42, i64 noundef %38, i1 noundef zeroext false)
-  %not. = xor i1 %44, true
-  %45 = sext i1 %not. to i16
-  %spec.select = add i16 %.03141, %45
+  %42 = load i32, ptr %41, align 4
+  %43 = call zeroext i1 @brin_doupdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %42, i32 noundef %3, i16 noundef zeroext %.03141, ptr noundef nonnull %41, i64 noundef %37, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext false)
+  %not. = xor i1 %43, true
+  %44 = sext i1 %not. to i16
+  %spec.select = add i16 %.03141, %44
   call void @LockBuffer(i32 noundef %3, i32 noundef 1) #6
-  %46 = load i16, ptr %26, align 4
-  %47 = zext i16 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 6
-  %50 = load i16, ptr %49, align 2
-  %51 = icmp eq i16 %50, -3949
-  br i1 %51, label %select.unfold, label %._crit_edge
+  %45 = load i16, ptr %26, align 4
+  %46 = zext i16 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 6
+  %49 = load i16, ptr %48, align 2
+  %50 = icmp eq i16 %49, -3949
+  br i1 %50, label %select.unfold, label %._crit_edge
 
-select.unfold:                                    ; preds = %36, %30
-  %.3.ph = phi i16 [ %.03141, %30 ], [ %spec.select, %36 ]
-  %52 = add i16 %.3.ph, 1
-  %.not = icmp ugt i16 %52, %24
+select.unfold:                                    ; preds = %35, %30
+  %.3.ph = phi i16 [ %.03141, %30 ], [ %spec.select, %35 ]
+  %51 = add i16 %.3.ph, 1
+  %.not = icmp ugt i16 %51, %24
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %select.unfold, %36, %BufferGetPage.exit
+._crit_edge:                                      ; preds = %select.unfold, %35, %BufferGetPage.exit
   call void @UnlockReleaseBuffer(i32 noundef %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

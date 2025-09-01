@@ -103,7 +103,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 31:                                               ; preds = %.thread319
   %32 = sext i32 %.0238 to i64
-  %33 = getelementptr inbounds [43 x i8], ptr @yypact, i64 0, i64 %32
+  %33 = getelementptr inbounds i8, ptr @yypact, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = sext i8 %34 to i32
   %36 = shl nuw i64 1, %32
@@ -144,7 +144,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %44 to i64
-  %54 = getelementptr inbounds nuw [268 x i8], ptr @yytranslate, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   br label %57
@@ -157,14 +157,14 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [42 x i8], ptr @yycheck, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
   %.not293 = icmp eq i32 %.0258, %63
   br i1 %.not293, label %64, label %74
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw [42 x i8], ptr @yytable, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw i8, ptr @yytable, i64 %60
   %66 = load i8, ptr %65, align 1
   %67 = sext i8 %66 to i32
   %68 = shl nuw nsw i64 1, %60
@@ -183,7 +183,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %3
 
 74:                                               ; preds = %57, %59, %31
-  %75 = getelementptr inbounds [43 x i8], ptr @yydefact, i64 0, i64 %32
+  %75 = getelementptr inbounds i8, ptr @yydefact, i64 %32
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = and i64 %36, 1410125546674
@@ -193,7 +193,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 79:                                               ; preds = %74, %70
   %.0260 = phi i32 [ %77, %74 ], [ %71, %70 ]
   %80 = sext i32 %.0260 to i64
-  %81 = getelementptr inbounds [30 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr @yyr2, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -552,11 +552,11 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store i32 %.sroa.76.0, ptr %.sroa.76.0..sroa_idx86, align 8
   %.sroa.89.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %284, i64 28
   store i32 %.sroa.89.0, ptr %.sroa.89.0..sroa_idx90, align 4
-  %287 = getelementptr inbounds [30 x i8], ptr @yyr1, i64 0, i64 %80
+  %287 = getelementptr inbounds i8, ptr @yyr1, i64 %80
   %288 = load i8, ptr %287, align 1
   %289 = sext i8 %288 to i64
   %290 = add nsw i64 %289, -17
-  %291 = getelementptr inbounds [17 x i8], ptr @yypgoto, i64 0, i64 %290
+  %291 = getelementptr inbounds i8, ptr @yypgoto, i64 %290
   %292 = load i8, ptr %291, align 1
   %293 = sext i8 %292 to i32
   %294 = load i8, ptr %285, align 1
@@ -567,17 +567,17 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 297:                                              ; preds = %282
   %298 = zext nneg i32 %296 to i64
-  %299 = getelementptr inbounds nuw [42 x i8], ptr @yycheck, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %298
   %300 = load i8, ptr %299, align 1
   %301 = icmp eq i8 %300, %294
   br i1 %301, label %302, label %304
 
 302:                                              ; preds = %297
-  %303 = getelementptr inbounds nuw [42 x i8], ptr @yytable, i64 0, i64 %298
+  %303 = getelementptr inbounds nuw i8, ptr @yytable, i64 %298
   br label %306
 
 304:                                              ; preds = %297, %282
-  %305 = getelementptr inbounds [17 x i8], ptr @yydefgoto, i64 0, i64 %290
+  %305 = getelementptr inbounds i8, ptr @yydefgoto, i64 %290
   br label %306
 
 306:                                              ; preds = %304, %302

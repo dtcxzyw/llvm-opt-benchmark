@@ -76,7 +76,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   %14 = add nsw i32 %12, -1
   store i32 %14, ptr %22, align 8, !tbaa !14
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !13
   switch i8 %17, label %.critedge51.backedge.i [
     i8 0, label %28
@@ -136,7 +136,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   %.val.i = load i32, ptr %10, align 8, !tbaa !17
   %.val52.i = load ptr, ptr %6, align 8, !tbaa !4
   %30 = sext i32 %.val.i to i64
@@ -236,7 +236,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   br i1 %71, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   store i32 %12, ptr %22, align 8, !tbaa !14
   store i8 5, ptr %73, align 1, !tbaa !13
   br label %.critedge233.preheader.i
@@ -293,7 +293,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   br i1 %102, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   store i32 %12, ptr %22, align 8, !tbaa !14
   store i8 7, ptr %104, align 1, !tbaa !13
   br label %.critedge233.preheader.i
@@ -325,7 +325,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
 118:                                              ; preds = %116
   store i32 %12, ptr %22, align 8, !tbaa !14
   %119 = zext nneg i32 %14 to i64
-  %120 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 %119
   store i8 8, ptr %120, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -356,7 +356,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   %134 = add nsw i32 %.sink675.i, 1
   store i32 %134, ptr %22, align 8, !tbaa !14
   %135 = sext i32 %.sink675.i to i64
-  %136 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %135
+  %136 = getelementptr inbounds i8, ptr %4, i64 %135
   store i8 %.sink.i, ptr %136, align 1, !tbaa !13
   %137 = load i32, ptr %23, align 4, !tbaa !18
   %138 = add nsw i32 %137, 1
@@ -428,7 +428,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %169 = add nsw i32 %166, 1
   store i32 %169, ptr %22, align 8, !tbaa !14
   %170 = sext i32 %166 to i64
-  %171 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %170
+  %171 = getelementptr inbounds i8, ptr %4, i64 %170
   store i8 9, ptr %171, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -477,7 +477,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %193 = add nsw i32 %190, 1
   store i32 %193, ptr %22, align 8, !tbaa !14
   %194 = sext i32 %190 to i64
-  %195 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %194
+  %195 = getelementptr inbounds i8, ptr %4, i64 %194
   store i8 10, ptr %195, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -508,7 +508,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
 209:                                              ; preds = %207
   store i32 %12, ptr %22, align 8, !tbaa !14
   %210 = zext nneg i32 %14 to i64
-  %211 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 %210
   store i8 11, ptr %211, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -553,7 +553,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %235 = add nsw i32 %232, 1
   store i32 %235, ptr %24, align 4, !tbaa !21
   %236 = sext i32 %232 to i64
-  %237 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %236
+  %237 = getelementptr inbounds i8, ptr %25, i64 %236
   store i8 %234, ptr %237, align 1, !tbaa !13
   %238 = load i32, ptr %22, align 8, !tbaa !14
   %239 = icmp eq i32 %238, 256
@@ -563,7 +563,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %241 = add nsw i32 %238, 1
   store i32 %241, ptr %22, align 8, !tbaa !14
   %242 = sext i32 %238 to i64
-  %243 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %242
+  %243 = getelementptr inbounds i8, ptr %4, i64 %242
   store i8 2, ptr %243, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -592,7 +592,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %257 = add nsw i32 %256, -1
   store i32 %257, ptr %24, align 4, !tbaa !21
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %258
+  %259 = getelementptr inbounds i8, ptr %25, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !13
   %261 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext %260)
   %exitcond.not.i = icmp ne i32 %13, 131071
@@ -614,7 +614,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i:
   %270 = add nsw i32 %267, 1
   store i32 %270, ptr %22, align 8, !tbaa !14
   %271 = sext i32 %267 to i64
-  %272 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %271
+  %272 = getelementptr inbounds i8, ptr %4, i64 %271
   store i8 3, ptr %272, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -664,7 +664,7 @@ switch.hole_check:                                ; preds = %.critedge233._crit_
 
 switch.lookup593:                                 ; preds = %switch.hole_check
   %290 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 0, i64 %290
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 %290
   %switch.load = load ptr, ptr %switch.gep, align 8
   %291 = load i32, ptr %23, align 4, !tbaa !18
   %292 = icmp sgt i32 %291, 0
@@ -738,7 +738,7 @@ switch.lookup593:                                 ; preds = %switch.hole_check
   %322 = add nsw i32 %.sink687.i, 1
   store i32 %322, ptr %22, align 8, !tbaa !14
   %323 = sext i32 %.sink687.i to i64
-  %324 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %323
+  %324 = getelementptr inbounds i8, ptr %4, i64 %323
   store i8 %.sink682.i, ptr %324, align 1, !tbaa !13
   br label %.critedge233.backedge.i
 
@@ -779,7 +779,7 @@ switch.lookup593:                                 ; preds = %switch.hole_check
 343:                                              ; preds = %341
   store i32 %12, ptr %22, align 8, !tbaa !14
   %344 = zext nneg i32 %14 to i64
-  %345 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw i8, ptr %4, i64 %344
   store i8 13, ptr %345, align 1, !tbaa !13
   %.pre510.i = load ptr, ptr %6, align 8, !tbaa !4
   %.pre511.i = load i32, ptr %10, align 8, !tbaa !17
@@ -1183,7 +1183,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i: ; 
 554:                                              ; preds = %552
   store i32 %12, ptr %22, align 8, !tbaa !14
   %555 = zext nneg i32 %14 to i64
-  %556 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %555
+  %556 = getelementptr inbounds nuw i8, ptr %4, i64 %555
   store i8 16, ptr %556, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1246,7 +1246,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i: ; 
 588:                                              ; preds = %586
   store i32 %12, ptr %22, align 8, !tbaa !14
   %589 = zext nneg i32 %14 to i64
-  %590 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %589
+  %590 = getelementptr inbounds nuw i8, ptr %4, i64 %589
   store i8 17, ptr %590, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1323,7 +1323,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i: ; 
 628:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i
   store i32 %12, ptr %22, align 8, !tbaa !14
   %629 = zext nneg i32 %14 to i64
-  %630 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %629
+  %630 = getelementptr inbounds nuw i8, ptr %4, i64 %629
   store i8 18, ptr %630, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1423,7 +1423,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i: ; 
   %675 = add nsw i32 %672, 1
   store i32 %675, ptr %22, align 8, !tbaa !14
   %676 = sext i32 %672 to i64
-  %677 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %676
+  %677 = getelementptr inbounds i8, ptr %4, i64 %676
   store i8 19, ptr %677, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1438,7 +1438,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i: ; 
   %683 = add nsw i32 %680, 1
   store i32 %683, ptr %22, align 8, !tbaa !14
   %684 = sext i32 %680 to i64
-  %685 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %684
+  %685 = getelementptr inbounds i8, ptr %4, i64 %684
   store i8 20, ptr %685, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1539,7 +1539,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.threa
   %730 = add nsw i32 %.sink693.i, 1
   store i32 %730, ptr %22, align 8, !tbaa !14
   %731 = sext i32 %.sink693.i to i64
-  %732 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %731
+  %732 = getelementptr inbounds i8, ptr %4, i64 %731
   store i8 %.sink688.i, ptr %732, align 1, !tbaa !13
   %733 = load i32, ptr %22, align 8, !tbaa !14
   %734 = icmp eq i32 %733, 256
@@ -1549,7 +1549,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.threa
   %736 = add nsw i32 %733, 1
   store i32 %736, ptr %22, align 8, !tbaa !14
   %737 = sext i32 %733 to i64
-  %738 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %737
+  %738 = getelementptr inbounds i8, ptr %4, i64 %737
   store i8 23, ptr %738, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -1611,7 +1611,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.threa
   %769 = add nsw i32 %766, 1
   store i32 %769, ptr %22, align 8, !tbaa !14
   %770 = sext i32 %766 to i64
-  %771 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %770
+  %771 = getelementptr inbounds i8, ptr %4, i64 %770
   store i8 24, ptr %771, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1672,7 +1672,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i: ; 
   %795 = add nsw i32 %792, 1
   store i32 %795, ptr %22, align 8, !tbaa !14
   %796 = sext i32 %792 to i64
-  %797 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %796
+  %797 = getelementptr inbounds i8, ptr %4, i64 %796
   store i8 25, ptr %797, align 1, !tbaa !13
   br label %.critedge233.preheader.i
 
@@ -1874,7 +1874,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit185.i: ; 
   %897 = add nsw i32 %894, 1
   store i32 %897, ptr %22, align 8, !tbaa !14
   %898 = sext i32 %894 to i64
-  %899 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %898
+  %899 = getelementptr inbounds i8, ptr %4, i64 %898
   store i8 26, ptr %899, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -1919,7 +1919,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i: ; 
 920:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i
   store i32 %12, ptr %22, align 8, !tbaa !14
   %921 = zext nneg i32 %14 to i64
-  %922 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %921
+  %922 = getelementptr inbounds nuw i8, ptr %4, i64 %921
   store i8 27, ptr %922, align 1, !tbaa !13
   %.val61.i = load i32, ptr %10, align 8, !tbaa !17
   %.val62.i = load ptr, ptr %6, align 8, !tbaa !4
@@ -2035,7 +2035,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %973 = add nsw i32 %970, 1
   store i32 %973, ptr %22, align 8, !tbaa !14
   %974 = sext i32 %970 to i64
-  %975 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %974
+  %975 = getelementptr inbounds i8, ptr %4, i64 %974
   store i8 28, ptr %975, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
@@ -2045,7 +2045,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %977 = add nsw i32 %976, -1
   store i32 %977, ptr %27, align 8, !tbaa !27
   %978 = sext i32 %977 to i64
-  %979 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %978
+  %979 = getelementptr inbounds i32, ptr %26, i64 %978
   %980 = load i32, ptr %979, align 4, !tbaa !28
   store i32 %980, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
@@ -2072,7 +2072,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %991 = add nsw i32 %990, -1
   store i32 %991, ptr %27, align 8, !tbaa !27
   %992 = sext i32 %991 to i64
-  %993 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %992
+  %993 = getelementptr inbounds i32, ptr %26, i64 %992
   %994 = load i32, ptr %993, align 4, !tbaa !28
   store i32 %994, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
@@ -2106,7 +2106,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %1008 = add nsw i32 %1005, 1
   store i32 %1008, ptr %22, align 8, !tbaa !14
   %1009 = sext i32 %1005 to i64
-  %1010 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %1009
+  %1010 = getelementptr inbounds i8, ptr %4, i64 %1009
   store i8 30, ptr %1010, align 1, !tbaa !13
   %1011 = load ptr, ptr %6, align 8, !tbaa !4
   %1012 = load i32, ptr %10, align 8, !tbaa !17
@@ -2121,7 +2121,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   %1017 = add nsw i32 %1016, -1
   store i32 %1017, ptr %27, align 8, !tbaa !27
   %1018 = sext i32 %1017 to i64
-  %1019 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %1018
+  %1019 = getelementptr inbounds i32, ptr %26, i64 %1018
   %1020 = load i32, ptr %1019, align 4, !tbaa !28
   store i32 %1020, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
@@ -2341,11 +2341,11 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
   store i32 %14, ptr %8, align 8, !tbaa !17
   %.pre = sext i32 %14 to i64
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 %.pre
-  %.pre88 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !13
+  %.pre89 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit: ; preds = %3, %13
-  %15 = phi i8 [ %12, %3 ], [ %.pre88, %13 ]
+  %15 = phi i8 [ %12, %3 ], [ %.pre89, %13 ]
   %.pre-phi = phi i64 [ %10, %3 ], [ %.pre, %13 ]
   %.val = phi i32 [ %9, %3 ], [ %14, %13 ]
   %16 = add i8 %15, -48
@@ -2561,8 +2561,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit.threa
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit41.thread: ; preds = %128, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit.thread, %63
   %.not2482 = icmp sgt i32 %.053.ph, 0
-  %or.cond84 = select i1 %.not.i, i1 %.not2482, i1 false
-  br i1 %or.cond84, label %.lr.ph, label %.critedge28
+  %or.cond85 = select i1 %.not.i, i1 %.not2482, i1 false
+  br i1 %or.cond85, label %.lr.ph, label %.critedge28
 
 .lr.ph:                                           ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit41.thread
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 396
@@ -2716,14 +2716,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit.thread: ; pr
   %213 = trunc nuw nsw i32 %212 to i8
   %214 = or disjoint i8 %213, 48
   %215 = add i64 %.015.i, -1
-  %216 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 %215
   store i8 %214, ptr %216, align 1, !tbaa !13
   %217 = udiv i32 %.0814.i, 10
   %.not.i47 = icmp ult i32 %.0814.i, 10
   br i1 %.not.i47, label %._crit_edge.i, label %.lr.ph.i46, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i46
-  %218 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 0, i64 %215
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 %215
   %219 = load i32, ptr %163, align 4, !tbaa !18
   %220 = icmp sgt i32 %219, 0
   br i1 %220, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread71, label %221
@@ -2965,7 +2965,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberE
   %56 = add nsw i32 %52, 1
   store i32 %56, ptr %51, align 8, !tbaa !27
   %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds [16 x i32], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds i32, ptr %55, i64 %57
   store i32 %47, ptr %58, align 4, !tbaa !28
   store i32 %54, ptr %2, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit

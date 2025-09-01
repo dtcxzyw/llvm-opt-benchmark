@@ -90,7 +90,7 @@ define dso_local i32 @put_var_int(ptr noundef readonly captures(none) %0, i64 no
   %10 = or i8 %9, -128
   %11 = add i32 %.017, -1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   store i8 %10, ptr %13, align 1, !tbaa !12
   %.not = icmp samesign ult i64 %8, 128
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
@@ -197,7 +197,7 @@ define dso_local i32 @reftable_encode_key(ptr noundef writeonly captures(none) %
   %19 = or i8 %18, -128
   %20 = add i32 %.017.i, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %21
   store i8 %19, ptr %22, align 1, !tbaa !12
   %.not.i = icmp samesign ult i64 %17, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -247,7 +247,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %42 = or i8 %41, -128
   %43 = add i32 %.017.i19, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 %44
   store i8 %42, ptr %45, align 1, !tbaa !12
   %.not.i21 = icmp samesign ult i64 %40, 128
   br i1 %.not.i21, label %._crit_edge.i23, label %.lr.ph.i18, !llvm.loop !16
@@ -1373,7 +1373,7 @@ define internal i32 @reftable_ref_record_encode(ptr noundef readonly captures(no
   %15 = or i8 %14, -128
   %16 = add i32 %.017.i, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !12
   %.not.i = icmp samesign ult i64 %13, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -1430,7 +1430,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %39 = or i8 %38, -128
   %40 = add i32 %.017.i.i, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 %41
   store i8 %39, ptr %42, align 1, !tbaa !12
   %.not.i.i = icmp samesign ult i64 %37, 128
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
@@ -2121,7 +2121,7 @@ define internal i32 @reftable_log_record_encode(ptr noundef readonly captures(no
   %32 = or i8 %31, -128
   %33 = add i32 %.017.i.i, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw [10 x i8], ptr %8, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 %34
   store i8 %32, ptr %35, align 1, !tbaa !12
   %.not.i.i = icmp samesign ult i64 %30, 128
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
@@ -2185,7 +2185,7 @@ encode_string.exit:                               ; preds = %40
   %60 = or i8 %59, -128
   %61 = add i32 %.017.i.i39, -1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 %62
   store i8 %60, ptr %63, align 1, !tbaa !12
   %.not.i.i41 = icmp samesign ult i64 %58, 128
   br i1 %.not.i.i41, label %._crit_edge.i.i42, label %.lr.ph.i.i38, !llvm.loop !16
@@ -2246,7 +2246,7 @@ encode_string.exit49:                             ; preds = %68
   %87 = or i8 %86, -128
   %88 = add i32 %.017.i, -1
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 %89
   store i8 %87, ptr %90, align 1, !tbaa !12
   %.not.i50 = icmp samesign ult i64 %85, 128
   br i1 %.not.i50, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -2304,7 +2304,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %114 = or i8 %113, -128
   %115 = add i32 %.017.i.i53, -1
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
   store i8 %114, ptr %117, align 1, !tbaa !12
   %.not.i.i55 = icmp samesign ult i64 %112, 128
   br i1 %.not.i.i55, label %._crit_edge.i.i56, label %.lr.ph.i.i52, !llvm.loop !16
@@ -2854,7 +2854,7 @@ define internal i32 @reftable_index_record_encode(ptr noundef readonly captures(
   %13 = or i8 %12, -128
   %14 = add i32 %.017.i, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   store i8 %13, ptr %16, align 1, !tbaa !12
   %.not.i = icmp samesign ult i64 %11, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -3116,7 +3116,7 @@ define internal i32 @reftable_obj_record_encode(ptr noundef readonly captures(no
   %20 = or i8 %19, -128
   %21 = add i32 %.017.i, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %22
   store i8 %20, ptr %23, align 1, !tbaa !12
   %.not.i = icmp samesign ult i64 %18, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -3174,7 +3174,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %44 = or i8 %43, -128
   %45 = add i32 %.017.i33, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %46
   store i8 %44, ptr %47, align 1, !tbaa !12
   %.not.i35 = icmp samesign ult i64 %42, 128
   br i1 %.not.i35, label %._crit_edge.i37, label %.lr.ph.i32, !llvm.loop !16
@@ -3236,7 +3236,7 @@ put_var_int.exit40:                               ; preds = %._crit_edge.i37
   %70 = or i8 %69, -128
   %71 = add i32 %.017.i43, -1
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 %72
   store i8 %70, ptr %73, align 1, !tbaa !12
   %.not.i45 = icmp samesign ult i64 %68, 128
   br i1 %.not.i45, label %._crit_edge.i47, label %.lr.ph.i42, !llvm.loop !16

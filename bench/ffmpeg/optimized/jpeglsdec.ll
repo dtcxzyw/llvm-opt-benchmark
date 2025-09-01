@@ -664,7 +664,7 @@ align_get_bits.exit:                              ; preds = %130
   %indvars.iv = phi i64 [ 0, %.preheader374 ], [ %indvars.iv.next, %183 ]
   %162 = getelementptr inbounds nuw i8, ptr %.2275380, i64 %indvars.iv
   %163 = getelementptr inbounds nuw i8, ptr %.2279379, i64 %indvars.iv
-  %164 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %165 = load i32, ptr %164, align 4, !tbaa !59
   %166 = trunc nuw nsw i64 %indvars.iv to i32
   %167 = tail call fastcc i32 @ls_decode_line(ptr noundef %.0282, ptr noundef nonnull %0, ptr noundef %162, ptr noundef %163, i32 noundef %165, i32 noundef %155, i32 noundef %148, i32 noundef %166, i32 noundef 8)
@@ -1068,7 +1068,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5908
   %19 = sext i32 %7 to i64
-  %20 = getelementptr inbounds [4 x i32], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds i32, ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4408
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5876
@@ -1228,7 +1228,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %.not258 = icmp eq i32 %121, 0
   %122 = load i32, ptr %20, align 4, !tbaa !59
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %123
+  %124 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !13
   br i1 %.not258, label %151, label %126
 
@@ -1278,7 +1278,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %142 = trunc nsw i64 %indvars.iv.next369 to i32
   %.pre = load i32, ptr %20, align 4, !tbaa !59
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert384 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert384 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %.phi.trans.insert
   %.pre385 = load i8, ptr %.phi.trans.insert384, align 1, !tbaa !13
   %.pre389 = zext nneg i8 %.pre385 to i32
   %.pre391 = shl nuw i32 1, %.pre389
@@ -1423,12 +1423,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %197 = icmp sle i32 %195, %196
   %198 = load i32, ptr %20, align 4, !tbaa !59
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %199
+  %200 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !13
   %202 = select i1 %197, i64 366, i64 365
-  %203 = getelementptr inbounds nuw [367 x i32], ptr %21, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i32, ptr %21, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !59
-  %.phi.trans.insert58.i = getelementptr inbounds nuw [367 x i32], ptr %.phi.trans.insert.i, i64 0, i64 %202
+  %.phi.trans.insert58.i = getelementptr inbounds nuw i32, ptr %.phi.trans.insert.i, i64 %202
   %.pre.i = load i32, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
   %205 = ashr i32 %.pre.i, 1
   %206 = select i1 %197, i32 %205, i32 0
@@ -1461,7 +1461,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   br i1 %or.cond.i, label %228, label %222
 
 222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw [367 x i32], ptr %24, i64 0, i64 %202
+  %223 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %224 = load i32, ptr %223, align 4, !tbaa !59
   %225 = shl nsw i32 %224, 1
   %226 = load i32, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
@@ -1481,7 +1481,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %233 = add nuw nsw i32 %230, 1
   %234 = lshr exact i32 %233, 1
   %235 = sub nsw i32 %.049.i, %234
-  %236 = getelementptr inbounds nuw [367 x i32], ptr %24, i64 0, i64 %202
+  %236 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %237 = load i32, ptr %236, align 4, !tbaa !59
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr %236, align 4, !tbaa !59
@@ -1512,7 +1512,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
 253:                                              ; preds = %244
   %254 = ashr i32 %247, 1
   store i32 %254, ptr %203, align 4, !tbaa !59
-  %255 = getelementptr inbounds nuw [367 x i32], ptr %24, i64 0, i64 %202
+  %255 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %256 = load i32, ptr %255, align 4, !tbaa !59
   %257 = ashr i32 %256, 1
   store i32 %257, ptr %255, align 4, !tbaa !59
@@ -1751,7 +1751,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
 364:                                              ; preds = %mid_pred.exit
   %365 = sub nsw i32 0, %353
   %366 = zext nneg i32 %365 to i64
-  %367 = getelementptr inbounds nuw [365 x i32], ptr %29, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw i32, ptr %29, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !59
   %369 = sub nsw i32 %.0.i293, %368
   %370 = load i32, ptr %30, align 4, !tbaa !68
@@ -1764,7 +1764,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
 
 374:                                              ; preds = %mid_pred.exit
   %375 = zext nneg i32 %353 to i64
-  %376 = getelementptr inbounds nuw [365 x i32], ptr %29, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i32, ptr %29, i64 %375
   %377 = load i32, ptr %376, align 4, !tbaa !59
   %378 = add nsw i32 %377, %.0.i293
   %379 = load i32, ptr %30, align 4, !tbaa !68
@@ -1876,10 +1876,10 @@ declare void @abort() local_unnamed_addr #4
 define internal fastcc i32 @ls_get_code_regular(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4408
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw [367 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = getelementptr inbounds nuw [367 x i32], ptr %8, i64 0, i64 %5
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %5
   %10 = load i32, ptr %9, align 4, !tbaa !59
   br label %11
 
@@ -1911,7 +1911,7 @@ define internal fastcc i32 @ls_get_code_regular(ptr noundef captures(none) %0, p
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1480
-  %31 = getelementptr inbounds nuw [367 x i32], ptr %30, i64 0, i64 %5
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %5
   %32 = load i32, ptr %31, align 4, !tbaa !59
   %33 = shl nsw i32 %32, 1
   %34 = load i32, ptr %6, align 4, !tbaa !59
@@ -1940,7 +1940,7 @@ define internal fastcc i32 @ls_get_code_regular(ptr noundef captures(none) %0, p
   %47 = load i32, ptr %46, align 4, !tbaa !102
   %48 = mul nsw i32 %47, %.1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 1480
-  %50 = getelementptr inbounds nuw [367 x i32], ptr %49, i64 0, i64 %5
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %5
   %51 = load i32, ptr %50, align 4, !tbaa !59
   %52 = add nsw i32 %51, %48
   store i32 %52, ptr %50, align 4, !tbaa !59
@@ -1973,7 +1973,7 @@ ff_jpegls_downscale_state.exit.i:                 ; preds = %57, %44
   %..i = tail call i32 @llvm.smax.i32(i32 %66, i32 %67)
   store i32 %..i, ptr %50, align 4, !tbaa !59
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 2948
-  %69 = getelementptr inbounds nuw [365 x i32], ptr %68, i64 0, i64 %5
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %5
   %70 = load i32, ptr %69, align 4, !tbaa !59
   %71 = icmp sgt i32 %70, -128
   br i1 %71, label %72, label %ff_jpegls_update_state_regular.exit
@@ -1992,7 +1992,7 @@ ff_jpegls_downscale_state.exit.i:                 ; preds = %57, %44
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %77, i32 0)
   store i32 %spec.select.i, ptr %50, align 4, !tbaa !59
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 2948
-  %79 = getelementptr inbounds nuw [365 x i32], ptr %78, i64 0, i64 %5
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %5
   %80 = load i32, ptr %79, align 4, !tbaa !59
   %81 = icmp slt i32 %80, 127
   br i1 %81, label %82, label %ff_jpegls_update_state_regular.exit
@@ -2031,7 +2031,7 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %18
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %19
   %20 = zext nneg i32 %.110.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !13
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %.1.i, %23

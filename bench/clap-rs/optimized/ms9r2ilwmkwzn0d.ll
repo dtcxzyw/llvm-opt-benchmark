@@ -2921,10 +2921,10 @@ define noundef nonnull ptr @"_ZN116_$LT$alloc..boxed..Box$LT$std..path..Path$GT$
 define { ptr, i64 } @_ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E(i8 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E.61, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E.61, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -2936,10 +2936,10 @@ define noundef zeroext i1 @"_ZN75_$LT$clap_builder..error..kind..ErrorKind$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !530, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @"switch.table._ZN75_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hde6d38cb46df2e55E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hde6d38cb46df2e55E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep9 = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN75_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hde6d38cb46df2e55E.62", i64 0, i64 %4
+  %switch.gep9 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$clap_builder..error..kind..ErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17hde6d38cb46df2e55E.62", i64 %4
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %5 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load10, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %5
@@ -8517,7 +8517,7 @@ define noundef nonnull align 8 dereferenceable(552) ptr @"_ZN116_$LT$clap_builde
 22:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h129976943f4a770fE.llvm.7008872586094235178.exit.i"
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !2212, !noalias !2213, !nonnull !7, !noundef !7
-  %25 = getelementptr inbounds [0 x { { i64, i64 }, { i64, [2 x i64] }, { i64, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i32, i32, i32, i8, i8, [2 x i8] }], ptr %24, i64 0, i64 %16
+  %25 = getelementptr inbounds { { i64, i64 }, { i64, [2 x i64] }, { i64, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i32, i32, i32, i8, i8, [2 x i8] }, ptr %24, i64 %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2199
   ret ptr %25
 }

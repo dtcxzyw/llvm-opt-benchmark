@@ -2172,7 +2172,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhN14ArchiveBuil
 
 130:                                              ; preds = %129, %127
   %indvars.iv.i.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i.i, %129 ]
-  %131 = getelementptr inbounds nuw [18 x i32], ptr @__const._ZNK27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 0, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw i32, ptr @__const._ZNK27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 %indvars.iv.i.i
   %132 = load i32, ptr %131, align 4
   %.not.i.i11 = icmp slt i32 %132, %128
   br i1 %.not.i.i11, label %129, label %_ZNK27ResizeableResourceHashtableIPhN14ArchiveBuilder13SourceObjInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS9_S9_EEE16calculate_resizeEb.exit.i
@@ -3184,7 +3184,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhS1_LN6AnyObj15
 
 73:                                               ; preds = %72, %70
   %indvars.iv.i.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i, %72 ]
-  %74 = getelementptr inbounds nuw [18 x i32], ptr @__const._ZNK27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 0, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw i32, ptr @__const._ZNK27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 %indvars.iv.i.i
   %75 = load i32, ptr %74, align 4
   %.not.i.i30 = icmp slt i32 %75, %71
   br i1 %.not.i.i30, label %72, label %_ZNK27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.exit.i
@@ -3281,15 +3281,15 @@ _ZN27ResizeableResourceHashtableIPhS0_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13E
   %115 = and i8 %113, 1
   %116 = xor i8 %115, 1
   %117 = zext nneg i8 %116 to i64
-  %118 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %114, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [23 x i32], ptr %114, i64 %117
   %119 = zext i32 %107 to i64
-  %120 = getelementptr inbounds nuw [23 x i32], ptr %118, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 836
-  %124 = getelementptr inbounds nuw [2 x [23 x i32]], ptr %123, i64 0, i64 %117
-  %125 = getelementptr inbounds nuw [23 x i32], ptr %124, i64 0, i64 %119
+  %124 = getelementptr inbounds nuw [23 x i32], ptr %123, i64 %117
+  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %119
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %111
   store i32 %127, ptr %125, align 4
@@ -6759,7 +6759,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #19
@@ -7068,7 +7068,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -7082,7 +7082,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -7148,7 +7148,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -7302,7 +7302,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger20ArchivedFiel
   %7 = and i32 %.sroa.21.0.copyload.i.i, 2
   %.not.i.i.i = icmp eq i32 %7, 0
   %8 = zext i16 %.sroa.1.0.copyload.i.i to i64
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = getelementptr inbounds nuw i64, ptr %10, i64 %8
   %.0.in.i.i.i = select i1 %.not.i.i.i, ptr %11, ptr %9
@@ -7449,7 +7449,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.2, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.2.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.2.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #19

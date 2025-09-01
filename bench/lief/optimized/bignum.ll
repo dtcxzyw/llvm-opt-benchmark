@@ -60,10 +60,10 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %26 = load ptr, ptr %1, align 8, !tbaa !12
   store ptr %26, ptr %25, align 8, !tbaa !13
   %27 = and i64 %15, 1
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !13
   %30 = xor i64 %27, 1
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = load i16, ptr %5, align 2, !tbaa !3
   %34 = zext i16 %33 to i64
@@ -1339,12 +1339,12 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_string(ptr noundef readon
 52:                                               ; preds = %39
   %53 = lshr i32 %48, 4
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @.str, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %.27191, i64 1
   store i8 %56, ptr %.27191, align 1, !tbaa !24
   %58 = and i64 %46, 15
-  %59 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @.str, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %.27191, i64 2
   store i8 %60, ptr %57, align 1, !tbaa !24
@@ -1577,90 +1577,91 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef captures(
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i32 %1, -17
   %or.cond = icmp ult i32 %5, -15
-  br i1 %or.cond, label %40, label %6
+  br i1 %or.cond, label %43, label %6
 
 6:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2484) %4, i8 0, i64 2484, i1 false)
   %7 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 2483, ptr noundef %2)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %40, label %9
+  br i1 %8, label %43, label %9
 
 9:                                                ; preds = %6
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
   switch i64 %10, label %11 [
-    i64 2482, label %40
+    i64 2482, label %43
     i64 0, label %.thread
   ]
 
 11:                                               ; preds = %9
-  %12 = add i64 %10, -1
-  %13 = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %12
+  %12 = getelementptr i8, ptr %4, i64 %10
+  %13 = getelementptr i8, ptr %12, i64 -1
   %14 = load i8, ptr %13, align 1, !tbaa !24
   %15 = icmp eq i8 %14, 10
   br i1 %15, label %16, label %.thread28
 
 16:                                               ; preds = %11
-  store i8 0, ptr %13, align 1, !tbaa !24
-  %.not24 = icmp eq i64 %12, 0
+  %17 = add i64 %10, -1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
+  store i8 0, ptr %18, align 1, !tbaa !24
+  %.not24 = icmp eq i64 %17, 0
   br i1 %.not24, label %.thread, label %..thread28_crit_edge
 
 ..thread28_crit_edge:                             ; preds = %16
-  %.pre = add i64 %10, -2
-  %.phi.trans.insert = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %.pre
-  %.pre32 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !24
+  %.phi.trans.insert = getelementptr i8, ptr %18, i64 -1
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !24
   br label %.thread28
 
 .thread28:                                        ; preds = %..thread28_crit_edge, %11
-  %17 = phi i8 [ %.pre32, %..thread28_crit_edge ], [ %14, %11 ]
-  %.pre-phi = phi i64 [ %.pre, %..thread28_crit_edge ], [ %12, %11 ]
-  %.02031 = phi i64 [ %12, %..thread28_crit_edge ], [ %10, %11 ]
-  %18 = icmp eq i8 %17, 13
-  br i1 %18, label %19, label %.thread
+  %19 = phi i8 [ %.pre, %..thread28_crit_edge ], [ %14, %11 ]
+  %.02031 = phi i64 [ %17, %..thread28_crit_edge ], [ %10, %11 ]
+  %20 = icmp eq i8 %19, 13
+  br i1 %20, label %21, label %.thread
 
-19:                                               ; preds = %.thread28
-  %20 = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %.pre-phi
-  store i8 0, ptr %20, align 1, !tbaa !24
+21:                                               ; preds = %.thread28
+  %22 = add i64 %.02031, -1
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
+  store i8 0, ptr %23, align 1, !tbaa !24
   br label %.thread
 
-.thread:                                          ; preds = %9, %19, %.thread28, %16
-  %.1 = phi i64 [ %.pre-phi, %19 ], [ %.02031, %.thread28 ], [ 0, %16 ], [ %10, %9 ]
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.1
-  %22 = zext nneg i32 %1 to i64
-  br label %23
+.thread:                                          ; preds = %9, %21, %.thread28, %16
+  %.1 = phi i64 [ %22, %21 ], [ %.02031, %.thread28 ], [ 0, %16 ], [ %10, %9 ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %.1
+  %25 = zext nneg i32 %1 to i64
+  br label %26
 
-23:                                               ; preds = %25, %.thread
-  %.0 = phi ptr [ %21, %.thread ], [ %26, %25 ]
-  %24 = icmp ugt ptr %.0, %4
-  br i1 %24, label %25, label %38
+26:                                               ; preds = %28, %.thread
+  %.0 = phi ptr [ %24, %.thread ], [ %29, %28 ]
+  %27 = icmp ugt ptr %.0, %4
+  br i1 %27, label %28, label %41
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.0, i64 -1
-  %27 = load i8, ptr %26, align 1, !tbaa !24
-  %28 = sext i8 %27 to i32
-  %29 = add i8 %27, -48
-  %or.cond.i = icmp ult i8 %29, 10
-  %30 = add nsw i32 %28, -48
-  %31 = zext nneg i32 %30 to i64
-  %storemerge.i = select i1 %or.cond.i, i64 %31, i64 255
-  %32 = add i8 %27, -65
-  %or.cond5.i = icmp ult i8 %32, 6
-  %33 = add nsw i32 %28, -55
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %30 = load i8, ptr %29, align 1, !tbaa !24
+  %31 = sext i8 %30 to i32
+  %32 = add i8 %30, -48
+  %or.cond.i = icmp ult i8 %32, 10
+  %33 = add nsw i32 %31, -48
   %34 = zext nneg i32 %33 to i64
-  %storemerge24.i = select i1 %or.cond5.i, i64 %34, i64 %storemerge.i
-  %35 = add i8 %27, -97
-  %or.cond8.i = icmp ult i8 %35, 6
-  %36 = add nsw i32 %28, -87
+  %storemerge.i = select i1 %or.cond.i, i64 %34, i64 255
+  %35 = add i8 %30, -65
+  %or.cond5.i = icmp ult i8 %35, 6
+  %36 = add nsw i32 %31, -55
   %37 = zext nneg i32 %36 to i64
-  %storemerge25.i = select i1 %or.cond8.i, i64 %37, i64 %storemerge24.i
-  %.not.i = icmp samesign ult i64 %storemerge25.i, %22
-  br i1 %.not.i, label %23, label %38, !llvm.loop !33
+  %storemerge24.i = select i1 %or.cond5.i, i64 %37, i64 %storemerge.i
+  %38 = add i8 %30, -97
+  %or.cond8.i = icmp ult i8 %38, 6
+  %39 = add nsw i32 %31, -87
+  %40 = zext nneg i32 %39 to i64
+  %storemerge25.i = select i1 %or.cond8.i, i64 %40, i64 %storemerge24.i
+  %.not.i = icmp samesign ult i64 %storemerge25.i, %25
+  br i1 %.not.i, label %26, label %41, !llvm.loop !33
 
-38:                                               ; preds = %25, %23
-  %39 = call i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0)
-  br label %40
+41:                                               ; preds = %28, %26
+  %42 = call i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0)
+  br label %43
 
-40:                                               ; preds = %9, %6, %3, %38
-  %.021 = phi i32 [ %39, %38 ], [ -4, %3 ], [ -2, %6 ], [ -8, %9 ]
+43:                                               ; preds = %9, %6, %3, %41
+  %.021 = phi i32 [ %42, %41 ], [ -4, %3 ], [ -2, %6 ], [ -8, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
 }
@@ -1676,47 +1677,46 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = add i32 %2, -17
   %or.cond = icmp ult i32 %7, -15
-  br i1 %or.cond, label %25, label %8
+  br i1 %or.cond, label %24, label %8
 
 8:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2484) %6, i8 0, i64 2484, i1 false)
   %9 = call i32 @mbedtls_mpi_write_string(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, i64 noundef 2482, ptr noundef nonnull %5)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %24
+  br i1 %.not, label %10, label %23
 
 10:                                               ; preds = %8
   %11 = icmp eq ptr %0, null
   %spec.store.select = select i1 %11, ptr @.str.1, ptr %0
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
-  %14 = add i64 %13, 1
-  %15 = getelementptr inbounds nuw [2484 x i8], ptr %6, i64 0, i64 %13
-  store i8 13, ptr %15, align 1, !tbaa !24
-  %16 = add i64 %13, 2
-  %17 = getelementptr inbounds nuw [2484 x i8], ptr %6, i64 0, i64 %14
-  store i8 10, ptr %17, align 1, !tbaa !24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
+  store i8 13, ptr %14, align 1, !tbaa !24
+  %15 = add i64 %13, 2
+  %16 = getelementptr i8, ptr %14, i64 1
+  store i8 10, ptr %16, align 1, !tbaa !24
   %.not21 = icmp eq ptr %3, null
-  br i1 %.not21, label %22, label %18
+  br i1 %.not21, label %21, label %17
 
-18:                                               ; preds = %10
-  %19 = call i64 @fwrite(ptr noundef nonnull %spec.store.select, i64 noundef 1, i64 noundef %12, ptr noundef nonnull %3)
-  %.not22 = icmp eq i64 %19, %12
-  br i1 %.not22, label %20, label %25
+17:                                               ; preds = %10
+  %18 = call i64 @fwrite(ptr noundef nonnull %spec.store.select, i64 noundef 1, i64 noundef %12, ptr noundef nonnull %3)
+  %.not22 = icmp eq i64 %18, %12
+  br i1 %.not22, label %19, label %24
 
-20:                                               ; preds = %18
-  %21 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %16, ptr noundef nonnull %3)
-  %.not23 = icmp eq i64 %21, %16
-  br i1 %.not23, label %24, label %25
+19:                                               ; preds = %17
+  %20 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %15, ptr noundef nonnull %3)
+  %.not23 = icmp eq i64 %20, %15
+  br i1 %.not23, label %23, label %24
 
-22:                                               ; preds = %10
-  %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %6)
+21:                                               ; preds = %10
+  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %6)
+  br label %23
+
+23:                                               ; preds = %21, %19, %8
   br label %24
 
-24:                                               ; preds = %22, %20, %8
-  br label %25
-
-25:                                               ; preds = %18, %20, %4, %24
-  %.0 = phi i32 [ %9, %24 ], [ -4, %4 ], [ -2, %20 ], [ -2, %18 ]
+24:                                               ; preds = %17, %19, %4, %23
+  %.0 = phi i32 [ %9, %23 ], [ -4, %4 ], [ -2, %19 ], [ -2, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -5626,7 +5626,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.preheader.preheade
   br label %mbedtls_mpi_mod_int.exit
 
 .critedge:                                        ; preds = %13, %28
-  %61 = getelementptr inbounds nuw [167 x i8], ptr @small_prime_gaps, i64 0, i64 %.01030
+  %61 = getelementptr inbounds nuw i8, ptr @small_prime_gaps, i64 %.01030
   %62 = load i8, ptr %61, align 1, !tbaa !24
   %63 = zext i8 %62 to i32
   %64 = add i32 %.031, %63
@@ -6946,7 +6946,7 @@ define hidden i32 @mbedtls_mpi_self_test(i32 noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %.critedge.preheader, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.critedge.preheader ]
-  %79 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @gcd_pairs, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [3 x i32], ptr @gcd_pairs, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = sext i32 %80 to i64
   %82 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %5, i64 noundef %81)

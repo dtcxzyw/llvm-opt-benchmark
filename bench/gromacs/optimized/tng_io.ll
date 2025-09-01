@@ -9827,7 +9827,7 @@ tng_file_input_numerical.exit.thread.i293.i:      ; preds = %tng_file_input_nume
 664:                                              ; preds = %658
   %665 = trunc i32 %660 to i8
   %indvars.iv.next.i317.i = add nuw nsw i64 %indvars.iv.i316.i, 1
-  %666 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 0, i64 %indvars.iv.i316.i
+  %666 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i316.i
   store i8 %665, ptr %666, align 1, !tbaa !13
   %sext.mask.i318.i = and i32 %660, 255
   %667 = icmp ne i32 %sext.mask.i318.i, 0
@@ -9880,7 +9880,7 @@ tng_freadstr.exit321.i:                           ; preds = %681, %679, %675, %6
 688:                                              ; preds = %682
   %689 = trunc i32 %684 to i8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %690 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 0, i64 %indvars.iv.i.i
+  %690 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i.i
   store i8 %689, ptr %690, align 1, !tbaa !13
   %sext.mask.i.i = and i32 %684, 255
   %691 = icmp ne i32 %sext.mask.i.i, 0
@@ -22896,7 +22896,7 @@ tng_file_input_numerical.exit380:                 ; preds = %316
 
 switch.lookup:                                    ; preds = %366
   %372 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tng_frame_gen_data_write, i64 0, i64 %372
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.tng_frame_gen_data_write, i64 %372
   %switch.load = load i64, ptr %switch.gep, align 8
   %373 = load i64, ptr %323, align 8, !tbaa !158
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -32223,7 +32223,7 @@ define internal fastcc void @tng_freadstr(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %8
   %15 = trunc i32 %10 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %15, ptr %16, align 1, !tbaa !13
   %sext.mask = and i32 %10, 255
   %17 = icmp ne i32 %sext.mask, 0

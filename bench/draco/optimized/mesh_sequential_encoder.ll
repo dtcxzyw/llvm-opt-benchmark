@@ -668,7 +668,7 @@ define noundef zeroext i1 @_ZN5draco21MeshSequentialEncoder24CompressAndEncodeIn
   %.sroa.027.253 = phi ptr [ %.sroa.027.059, %.lr.ph ], [ %.sroa.027.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.sroa.10.152 = phi ptr [ %.sroa.10.058, %.lr.ph ], [ %.sroa.10.2, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.sroa.14.251 = phi ptr [ %.sroa.14.056, %.lr.ph ], [ %.sroa.14.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %29 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.44"], ptr %26, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = sub nsw i32 %30, %.155
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)

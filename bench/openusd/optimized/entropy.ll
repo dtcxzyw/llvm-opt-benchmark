@@ -39,55 +39,55 @@ get_q_ctx.exit:                                   ; preds = %1, %5, %7
   %.0.i = phi i64 [ 0, %1 ], [ 1, %5 ], [ %..i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 27120
   %10 = load ptr, ptr %9, align 16
-  %11 = getelementptr inbounds nuw [4 x [5 x [13 x [3 x i16]]]], ptr @av1_default_txb_skip_cdfs, i64 0, i64 %.0.i
+  %11 = getelementptr inbounds nuw [5 x [13 x [3 x i16]]], ptr @av1_default_txb_skip_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(390) %10, ptr noundef nonnull align 2 dereferenceable(390) %11, i64 390, i1 false)
   %12 = load ptr, ptr %9, align 16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 390
-  %14 = getelementptr inbounds nuw [4 x [5 x [2 x [9 x [3 x i16]]]]], ptr @av1_default_eob_extra_cdfs, i64 0, i64 %.0.i
+  %14 = getelementptr inbounds nuw [5 x [2 x [9 x [3 x i16]]]], ptr @av1_default_eob_extra_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(540) %13, ptr noundef nonnull align 4 dereferenceable(540) %14, i64 540, i1 false)
   %15 = load ptr, ptr %9, align 16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 930
-  %17 = getelementptr inbounds nuw [4 x [2 x [3 x [3 x i16]]]], ptr @av1_default_dc_sign_cdfs, i64 0, i64 %.0.i
+  %17 = getelementptr inbounds nuw [2 x [3 x [3 x i16]]], ptr @av1_default_dc_sign_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(36) %17, i64 36, i1 false)
   %18 = load ptr, ptr %9, align 16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 5990
-  %20 = getelementptr inbounds nuw [4 x [5 x [2 x [21 x [5 x i16]]]]], ptr @av1_default_coeff_lps_multi_cdfs, i64 0, i64 %.0.i
+  %20 = getelementptr inbounds nuw [5 x [2 x [21 x [5 x i16]]]], ptr @av1_default_coeff_lps_multi_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(2100) %19, ptr noundef nonnull align 4 dereferenceable(2100) %20, i64 2100, i1 false)
   %21 = load ptr, ptr %9, align 16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1790
-  %23 = getelementptr inbounds nuw [4 x [5 x [2 x [42 x [5 x i16]]]]], ptr @av1_default_coeff_base_multi_cdfs, i64 0, i64 %.0.i
+  %23 = getelementptr inbounds nuw [5 x [2 x [42 x [5 x i16]]]], ptr @av1_default_coeff_base_multi_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(4200) %22, ptr noundef nonnull align 8 dereferenceable(4200) %23, i64 4200, i1 false)
   %24 = load ptr, ptr %9, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1470
-  %26 = getelementptr inbounds nuw [4 x [5 x [2 x [4 x [4 x i16]]]]], ptr @av1_default_coeff_base_eob_multi_cdfs, i64 0, i64 %.0.i
+  %26 = getelementptr inbounds nuw [5 x [2 x [4 x [4 x i16]]]], ptr @av1_default_coeff_base_eob_multi_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(320) %25, ptr noundef nonnull align 16 dereferenceable(320) %26, i64 320, i1 false)
   %27 = load ptr, ptr %9, align 16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 966
-  %29 = getelementptr inbounds nuw [4 x [2 x [2 x [6 x i16]]]], ptr @av1_default_eob_multi16_cdfs, i64 0, i64 %.0.i
+  %29 = getelementptr inbounds nuw [2 x [2 x [6 x i16]]], ptr @av1_default_eob_multi16_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %28, ptr noundef nonnull align 16 dereferenceable(48) %29, i64 48, i1 false)
   %30 = load ptr, ptr %9, align 16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1014
-  %32 = getelementptr inbounds nuw [4 x [2 x [2 x [7 x i16]]]], ptr @av1_default_eob_multi32_cdfs, i64 0, i64 %.0.i
+  %32 = getelementptr inbounds nuw [2 x [2 x [7 x i16]]], ptr @av1_default_eob_multi32_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(56) %32, i64 56, i1 false)
   %33 = load ptr, ptr %9, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1070
-  %35 = getelementptr inbounds nuw [4 x [2 x [2 x [8 x i16]]]], ptr @av1_default_eob_multi64_cdfs, i64 0, i64 %.0.i
+  %35 = getelementptr inbounds nuw [2 x [2 x [8 x i16]]], ptr @av1_default_eob_multi64_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %34, ptr noundef nonnull align 16 dereferenceable(64) %35, i64 64, i1 false)
   %36 = load ptr, ptr %9, align 16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1134
-  %38 = getelementptr inbounds nuw [4 x [2 x [2 x [9 x i16]]]], ptr @av1_default_eob_multi128_cdfs, i64 0, i64 %.0.i
+  %38 = getelementptr inbounds nuw [2 x [2 x [9 x i16]]], ptr @av1_default_eob_multi128_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %38, i64 72, i1 false)
   %39 = load ptr, ptr %9, align 16
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1206
-  %41 = getelementptr inbounds nuw [4 x [2 x [2 x [10 x i16]]]], ptr @av1_default_eob_multi256_cdfs, i64 0, i64 %.0.i
+  %41 = getelementptr inbounds nuw [2 x [2 x [10 x i16]]], ptr @av1_default_eob_multi256_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(80) %40, ptr noundef nonnull align 16 dereferenceable(80) %41, i64 80, i1 false)
   %42 = load ptr, ptr %9, align 16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1286
-  %44 = getelementptr inbounds nuw [4 x [2 x [2 x [11 x i16]]]], ptr @av1_default_eob_multi512_cdfs, i64 0, i64 %.0.i
+  %44 = getelementptr inbounds nuw [2 x [2 x [11 x i16]]], ptr @av1_default_eob_multi512_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(88) %43, ptr noundef nonnull align 8 dereferenceable(88) %44, i64 88, i1 false)
   %45 = load ptr, ptr %9, align 16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1374
-  %47 = getelementptr inbounds nuw [4 x [2 x [2 x [12 x i16]]]], ptr @av1_default_eob_multi1024_cdfs, i64 0, i64 %.0.i
+  %47 = getelementptr inbounds nuw [2 x [2 x [12 x i16]]], ptr @av1_default_eob_multi1024_cdfs, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(96) %46, ptr noundef nonnull align 16 dereferenceable(96) %47, i64 96, i1 false)
   ret void
 }
@@ -455,7 +455,7 @@ reset_cdf_symbol_counter.exit475.preheader:       ; preds = %28
 31:                                               ; preds = %reset_cdf_symbol_counter.exit475.preheader, %reset_cdf_symbol_counter.exit487
   %indvars.iv = phi i64 [ 0, %reset_cdf_symbol_counter.exit475.preheader ], [ %indvars.iv.next, %reset_cdf_symbol_counter.exit487 ]
   %32 = add nuw nsw i64 %indvars.iv, 2
-  %33 = getelementptr inbounds nuw [7 x [5 x [9 x i16]]], ptr %29, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [5 x [9 x i16]], ptr %29, i64 %indvars.iv
   %invariant.gep.i476 = getelementptr i16, ptr %33, i64 %32
   br label %34
 
@@ -469,7 +469,7 @@ reset_cdf_symbol_counter.exit475.preheader:       ; preds = %28
   br i1 %exitcond.not.i480, label %reset_cdf_symbol_counter.exit481, label %34, !llvm.loop !4
 
 reset_cdf_symbol_counter.exit481:                 ; preds = %34
-  %35 = getelementptr inbounds nuw [7 x [5 x [9 x i16]]], ptr %30, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [5 x [9 x i16]], ptr %30, i64 %indvars.iv
   %invariant.gep.i482 = getelementptr i16, ptr %35, i64 %32
   br label %36
 
@@ -678,7 +678,7 @@ reset_cdf_symbol_counter.exit571:                 ; preds = %51
 reset_cdf_symbol_counter.exit50.i:                ; preds = %reset_cdf_symbol_counter.exit92.i, %reset_cdf_symbol_counter.exit571
   %53 = phi i1 [ true, %reset_cdf_symbol_counter.exit571 ], [ false, %reset_cdf_symbol_counter.exit92.i ]
   %indvars.iv.i572 = phi i64 [ 0, %reset_cdf_symbol_counter.exit571 ], [ 1, %reset_cdf_symbol_counter.exit92.i ]
-  %54 = getelementptr inbounds nuw [2 x %struct.nmv_component], ptr %52, i64 0, i64 %indvars.iv.i572
+  %54 = getelementptr inbounds nuw %struct.nmv_component, ptr %52, i64 %indvars.iv.i572
   %invariant.gep.i45.i = getelementptr i8, ptr %54, i64 22
   store i16 0, ptr %invariant.gep.i45.i, align 2
   %invariant.gep.i51.i = getelementptr i8, ptr %54, i64 32
@@ -728,7 +728,7 @@ reset_nmv_counter.exit:                           ; preds = %reset_cdf_symbol_co
 reset_cdf_symbol_counter.exit50.i574:             ; preds = %reset_cdf_symbol_counter.exit92.i595, %reset_nmv_counter.exit
   %58 = phi i1 [ true, %reset_nmv_counter.exit ], [ false, %reset_cdf_symbol_counter.exit92.i595 ]
   %indvars.iv.i575 = phi i64 [ 0, %reset_nmv_counter.exit ], [ 1, %reset_cdf_symbol_counter.exit92.i595 ]
-  %59 = getelementptr inbounds nuw [2 x %struct.nmv_component], ptr %57, i64 0, i64 %indvars.iv.i575
+  %59 = getelementptr inbounds nuw %struct.nmv_component, ptr %57, i64 %indvars.iv.i575
   %invariant.gep.i45.i576 = getelementptr i8, ptr %59, i64 22
   store i16 0, ptr %invariant.gep.i45.i576, align 2
   %invariant.gep.i51.i577 = getelementptr i8, ptr %59, i64 32

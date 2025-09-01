@@ -4158,7 +4158,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 914:                                              ; preds = %.lr.ph1278, %956
   %indvars.iv1296 = phi i64 [ 0, %.lr.ph1278 ], [ %indvars.iv.next1297, %956 ]
-  %915 = getelementptr inbounds nuw [1 x ptr], ptr %913, i64 0, i64 %indvars.iv1296
+  %915 = getelementptr inbounds nuw ptr, ptr %913, i64 %indvars.iv1296
   %916 = load ptr, ptr %915, align 8, !tbaa !201
   %.not1205 = icmp eq ptr %916, null
   br i1 %.not1205, label %956, label %917
@@ -7748,7 +7748,7 @@ define internal void @zend_file_cache_serialize_attribute(ptr noundef captures(n
 
 123:                                              ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
-  %124 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %119, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %119, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !269
   %.not119 = icmp eq ptr %125, null
   br i1 %.not119, label %165, label %126
@@ -8265,7 +8265,7 @@ define internal fastcc void @zend_file_cache_serialize_ast(ptr noundef captures(
 16:                                               ; preds = %.lr.ph, %41
   %17 = phi i32 [ %12, %.lr.ph ], [ %42, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %18 = getelementptr inbounds nuw [1 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !285
   %.not104 = icmp eq ptr %19, null
   br i1 %.not104, label %41, label %20
@@ -8356,7 +8356,7 @@ zend_ast_is_decl.exit:                            ; preds = %45
 
 64:                                               ; preds = %.lr.ph118, %88
   %indvars.iv123 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next124, %88 ]
-  %65 = getelementptr inbounds nuw [1 x ptr], ptr %61, i64 0, i64 %indvars.iv123
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv123
   %66 = load ptr, ptr %65, align 8, !tbaa !285
   %.not = icmp eq ptr %66, null
   br i1 %.not, label %88, label %67
@@ -10193,7 +10193,7 @@ zend_file_cache_unserialize_interned.exit746:     ; preds = %716, %722, %732
 
 755:                                              ; preds = %.lr.ph770, %796
   %indvars.iv788 = phi i64 [ 0, %.lr.ph770 ], [ %indvars.iv.next789, %796 ]
-  %756 = getelementptr inbounds nuw [1 x ptr], ptr %754, i64 0, i64 %indvars.iv788
+  %756 = getelementptr inbounds nuw ptr, ptr %754, i64 %indvars.iv788
   %757 = load ptr, ptr %756, align 8, !tbaa !201
   %.not694 = icmp eq ptr %757, null
   br i1 %.not694, label %796, label %758
@@ -12737,7 +12737,7 @@ zend_file_cache_unserialize_interned.exit77:      ; preds = %59, %66, %76
 
 103:                                              ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
-  %104 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %100, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %100, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !269
   %.not73 = icmp eq ptr %105, null
   br i1 %.not73, label %144, label %106
@@ -13198,7 +13198,7 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr noundef capture
 15:                                               ; preds = %.lr.ph, %38
   %16 = phi i32 [ %11, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %17 = getelementptr inbounds nuw [1 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !285
   %.not87 = icmp eq ptr %18, null
   br i1 %.not87, label %38, label %19
@@ -13281,7 +13281,7 @@ zend_ast_is_decl.exit:                            ; preds = %42
 
 57:                                               ; preds = %.lr.ph98, %79
   %indvars.iv103 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next104, %79 ]
-  %58 = getelementptr inbounds nuw [1 x ptr], ptr %54, i64 0, i64 %indvars.iv103
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv103
   %59 = load ptr, ptr %58, align 8, !tbaa !285
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %79, label %60

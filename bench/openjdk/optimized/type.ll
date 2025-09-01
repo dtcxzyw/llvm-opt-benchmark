@@ -433,7 +433,7 @@ define hidden noundef ptr @_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandli
 
 8:                                                ; preds = %4
   %9 = zext i8 %6 to i64
-  %10 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %14
 
@@ -451,7 +451,7 @@ define hidden noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %4, i32 1
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 10
   br i1 %7, label %8, label %23
@@ -793,7 +793,7 @@ _ZN10TypeRawPtr4makeEPh.exit:                     ; preds = %35, %37
 
 50:                                               ; preds = %48
   %51 = zext i8 %3 to i64
-  %52 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
@@ -1864,7 +1864,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %176 = lshr i32 %175, 8
   %177 = and i32 %176, 255
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %182 = load i32, ptr %181, align 8
@@ -8451,7 +8451,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [38 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %26
   %28 = load i32, ptr %27, align 16
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV4Type, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
@@ -10297,7 +10297,7 @@ define hidden noundef nonnull ptr @_ZN9TypeTuple10make_rangeEP11ciSignatureN4Typ
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @type2size, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
@@ -10381,7 +10381,7 @@ _ZN9TypeTuple6fieldsEj.exit:                      ; preds = %28, %30
 
 52:                                               ; preds = %50
   %53 = zext nneg i8 %41 to i64
-  %54 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %53
   %55 = load ptr, ptr %54, align 8
   br label %.sink.split
 
@@ -10510,7 +10510,7 @@ define hidden noundef nonnull ptr @_ZN9TypeTuple11make_domainEP15ciInstanceKlass
 
 42:                                               ; preds = %29
   %43 = zext i8 %40 to i64
-  %44 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %43
   %45 = load ptr, ptr %44, align 8
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit
 
@@ -10628,7 +10628,7 @@ _ZN9TypeTuple6fieldsEj.exit37:                    ; preds = %65, %67
 
 101:                                              ; preds = %99
   %102 = zext nneg i8 %86 to i64
-  %103 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %102
   %104 = load ptr, ptr %103, align 8
   br label %_ZN4Type14get_const_typeEP6ciTypeNS_17InterfaceHandlingE.exit40
 
@@ -11553,7 +11553,7 @@ define hidden noundef nonnull ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %9, i32 1
+  %10 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %9, i32 1
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 10
   br i1 %12, label %13, label %_ZNK4Type24array_element_basic_typeEv.exit
@@ -11587,7 +11587,7 @@ define hidden noundef nonnull ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i
 _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %6, %13, %16, %19, %22, %25
   %.0.i = phi i8 [ 10, %13 ], [ 5, %16 ], [ 8, %19 ], [ 4, %22 ], [ %..i, %25 ], [ %11, %6 ]
   %28 = zext i8 %.0.i to i64
-  %29 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = mul i32 %30, %1
   %32 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %31) #17
@@ -11894,7 +11894,7 @@ define hidden noundef nonnull ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %5, i32 1
   %7 = load i8, ptr %6, align 4
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %_ZNK4Type24array_element_basic_typeEv.exit
@@ -12216,7 +12216,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZN12TypeVectMask4makeE9BasicTypej(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = zext i8 %0 to i64
-  %4 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef %5, i32 noundef %1) #17
   %7 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %6)
@@ -12418,11 +12418,11 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit:        ; preds = %9, %18
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw [6 x i32], ptr %33, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %40 = load i32, ptr %39, align 4
@@ -12627,7 +12627,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %30 = load i32, ptr %29, align 4
@@ -13574,11 +13574,11 @@ define hidden noundef ptr @_ZNK10TypeRawPtr5xmeetEPK4Type(ptr noundef nonnull re
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [6 x i32], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 2
   br i1 %18, label %19, label %22
@@ -13682,7 +13682,7 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw [6 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 96), i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 96), i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %71 = load i32, ptr %70, align 4
@@ -13753,7 +13753,7 @@ _ZN7TypePtr4makeEN4Type5TYPESENS_3PTREiPKS_i.exit: ; preds = %96, %98
 
 112:                                              ; preds = %108
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw [6 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 24), i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 24), i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = tail call noundef ptr @_ZN10TypeRawPtr4makeEN7TypePtr3PTRE(i32 noundef %115)
   br label %119
@@ -13809,7 +13809,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
@@ -15750,7 +15750,7 @@ define hidden void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14Ty
 
 _ZN7ciField11layout_typeEv.exit:                  ; preds = %136, %140
   %144 = phi i64 [ %143, %140 ], [ 12, %136 ]
-  %145 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @type2field, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = load i8, ptr @UseCompressedOops, align 1
   %148 = trunc i8 %147 to i1
@@ -15786,7 +15786,7 @@ _ZN7ciField11layout_typeEv.exit:                  ; preds = %136, %140
 
 _ZN7ciField11layout_typeEv.exit47:                ; preds = %155, %159
   %163 = phi i64 [ %162, %159 ], [ 12, %155 ]
-  %164 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr @type2field, i64 %163
   %165 = load i8, ptr %164, align 1
   %166 = load i8, ptr @UseCompressedOops, align 1
   %167 = trunc i8 %166 to i1
@@ -15925,11 +15925,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %13, %19, %21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [6 x i32], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -16044,11 +16044,11 @@ _ZNK7TypePtr17xmeet_speculativeEPKS_.exit49:      ; preds = %_ZNK10TypeOopPtr16m
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [6 x i32], ptr %95, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %95, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %102 = load i32, ptr %101, align 4
@@ -16146,7 +16146,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 232
@@ -16473,7 +16473,7 @@ _ZN10TypeAryPtr4makeEN7TypePtr3PTREPK7TypeAryP7ciKlassbiiPKS0_i.exit: ; preds = 
   %135 = lshr i32 %134, 8
   %136 = and i32 %135, 255
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr @_ZN7TypeInt3POSE, align 8
   %141 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %139, ptr noundef %140, i1 noundef zeroext false)
@@ -18275,11 +18275,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %3, %9, %11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [6 x i32], ptr %15, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
@@ -18720,11 +18720,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %22, %28, %30
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [6 x i32], ptr %34, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
   switch i32 %32, label %79 [
     i32 0, label %_ZNK10TypeOopPtr16meet_instance_idEi.exit
@@ -18821,11 +18821,11 @@ _ZNK7TypePtr11meet_offsetEi.exit106:              ; preds = %81, %87, %89
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %95 = load i32, ptr %94, align 8
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw [6 x i32], ptr %93, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %93, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %100 = load i32, ptr %99, align 4
@@ -18931,11 +18931,11 @@ _ZNK7TypePtr11meet_offsetEi.exit114:              ; preds = %146, %152, %154
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %156 = load i32, ptr %155, align 8
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %160 = load i32, ptr %159, align 8
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [6 x i32], ptr %158, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i32, ptr %158, i64 %161
   %163 = load i32, ptr %162, align 4
   store i32 %163, ptr %3, align 4
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -19348,7 +19348,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
@@ -21189,7 +21189,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %_ZN12arrayOopDes
   %29 = and i64 %25, %28
   %30 = shl nuw i64 %29, 3
   %31 = zext nneg i8 %.010 to i64
-  %32 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = udiv i64 %30, %34
@@ -21214,7 +21214,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr16narrow_size_typeEPK7TypeInt(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %13, i32 1
+  %14 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %13, i32 1
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 10
   br i1 %16, label %17, label %_ZNK4Type24array_element_basic_typeEv.exit
@@ -22954,11 +22954,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [6 x i32], ptr %27, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i32, ptr %33, align 8
@@ -23077,11 +23077,11 @@ _ZNK7TypePtr11meet_offsetEi.exit146:              ; preds = %87, %93, %95
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [6 x i32], ptr %99, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %99, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = load ptr, ptr %105, align 8
@@ -23204,11 +23204,11 @@ _ZNK7TypePtr11meet_offsetEi.exit157:              ; preds = %157, %163, %165
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %176 = load i32, ptr %175, align 8
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %180 = load i32, ptr %179, align 8
   %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw [6 x i32], ptr %178, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %178, i64 %181
   %183 = load i32, ptr %182, align 4
   store i32 %183, ptr %3, align 4
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -23339,11 +23339,11 @@ _ZNK7TypePtr11meet_offsetEi.exit170:              ; preds = %247, %253, %255
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %257 = load i32, ptr %256, align 8
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %261 = load i32, ptr %260, align 8
   %262 = zext i32 %261 to i64
-  %263 = getelementptr inbounds nuw [6 x i32], ptr %259, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i32, ptr %259, i64 %262
   %264 = load i32, ptr %263, align 4
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %266 = load i32, ptr %265, align 4
@@ -24118,7 +24118,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
@@ -25287,11 +25287,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %11, %17, %19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr %23, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %26
   %28 = load i32, ptr %27, align 4
   switch i32 %21, label %79 [
     i32 3, label %29
@@ -25411,11 +25411,11 @@ _ZNK7TypePtr11meet_offsetEi.exit49:               ; preds = %83, %89, %91
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [6 x i32], ptr %95, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %95, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %93, 0
   br i1 %101, label %.thread, label %104
@@ -25552,7 +25552,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
@@ -26175,7 +26175,7 @@ _ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE.exit: ; preds = %_ZN1
   %82 = lshr i32 %81, 8
   %83 = and i32 %82, 255
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %88 = load ptr, ptr %87, align 8
@@ -27320,11 +27320,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [6 x i32], ptr %27, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   switch i32 %25, label %59 [
     i32 0, label %241
@@ -27400,11 +27400,11 @@ _ZNK7TypePtr11meet_offsetEi.exit63:               ; preds = %63, %69, %71
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [6 x i32], ptr %75, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %3, align 4
   %81 = icmp slt i32 %77, 2
@@ -27543,11 +27543,11 @@ _ZNK7TypePtr11meet_offsetEi.exit68:               ; preds = %138, %144, %146
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %148 = load i32, ptr %147, align 8
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %152 = load i32, ptr %151, align 8
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw [6 x i32], ptr %150, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i32, ptr %150, i64 %153
   %155 = load i32, ptr %154, align 4
   %156 = icmp slt i32 %152, 2
   %157 = icmp slt i32 %148, 2
@@ -27911,7 +27911,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 240
@@ -28495,7 +28495,7 @@ switch.early.test:                                ; preds = %_ZNK4Type8make_ptrE
 
 16:                                               ; preds = %switch.early.test
   %17 = zext i32 %.fr to i64
-  %18 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %17, i32 1
+  %18 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %17, i32 1
   %19 = load i8, ptr %18, align 4
   %20 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %19) #17
   br label %21
@@ -28550,7 +28550,7 @@ switch.early.test.i:                              ; preds = %_ZNK4Type8make_ptrE
 
 19:                                               ; preds = %switch.early.test.i
   %20 = zext i32 %.fr.i to i64
-  %21 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %20, i32 1
+  %21 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %20, i32 1
   %22 = load i8, ptr %21, align 4
   %23 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %22) #17
   br label %_ZNK10TypeAryPtr13compute_klassEv.exit
@@ -29239,11 +29239,11 @@ _ZNK7TypePtr11meet_offsetEi.exit:                 ; preds = %15, %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [6 x i32], ptr %27, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   switch i32 %25, label %59 [
     i32 0, label %220
@@ -29325,11 +29325,11 @@ _ZNK7TypePtr11meet_offsetEi.exit64:               ; preds = %63, %69, %71
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load i32, ptr %81, align 8
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw [6 x i32], ptr %80, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %80, i64 %83
   %85 = load i32, ptr %84, align 4
   store i32 %85, ptr %4, align 4
   store ptr null, ptr %5, align 8
@@ -29416,11 +29416,11 @@ _ZNK7TypePtr11meet_offsetEi.exit68:               ; preds = %122, %128, %130
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %132 = load i32, ptr %131, align 8
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_meetE, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %136 = load i32, ptr %135, align 8
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw [6 x i32], ptr %134, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %134, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = icmp slt i32 %136, 2
   %141 = icmp slt i32 %132, 2
@@ -30539,7 +30539,7 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
@@ -30654,7 +30654,7 @@ switch.early.test:                                ; preds = %4
 
 10:                                               ; preds = %switch.early.test
   %11 = zext i32 %.fr to i64
-  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   %14 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %13) #17
   store ptr %14, ptr %2, align 8
@@ -30918,7 +30918,7 @@ define hidden noundef zeroext i8 @_ZNK8TypeFunc11return_typeEv(ptr noundef nonnu
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %14, i32 1
+  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14, i32 1
   %16 = load i8, ptr %15, align 4
   br label %17
 
@@ -31006,7 +31006,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7TypePtr10maybe_nullEv(ptr no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [6 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 72), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7TypePtr8ptr_meetE, i64 72), i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, %3
   ret i1 %7

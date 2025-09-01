@@ -244,10 +244,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !30, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !31, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee4c5972142001bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee4c5972142001bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee4c5972142001bE.7", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee4c5972142001bE.7", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -436,10 +436,10 @@ _ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.thread.i.i: ; preds = %58
   br i1 %exitcond.not.i.i.i, label %_ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.i.i, label %62
 
 62:                                               ; preds = %.preheader.i.i.i
-  %63 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0138.i, i64 0, i64 %.016.i.i.i
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.0138.i, i64 %.016.i.i.i
   %64 = load i8, ptr %63, align 1, !alias.scope !48, !noalias !49, !noundef !12
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i8], ptr @anon.0fab81ae22ac082524f9381e39901915.2, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @anon.0fab81ae22ac082524f9381e39901915.2, i64 %65
   %67 = load i8, ptr %66, align 1, !noalias !53, !noundef !12
   %68 = icmp eq i64 %.025.i.i.i, 12
   br i1 %68, label %74, label %69
@@ -471,7 +471,7 @@ _ZN4bstr4utf86decode17hfa8384f4885bb9c8E.exit.thread.i.i: ; preds = %58
   unreachable
 
 _ZN4bstr4utf811decode_step17hd73b69ac4a47e274E.exit.i.i.i: ; preds = %80
-  %85 = getelementptr inbounds nuw [0 x i8], ptr @anon.0fab81ae22ac082524f9381e39901915.5, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr @anon.0fab81ae22ac082524f9381e39901915.5, i64 %82
   %86 = load i8, ptr %85, align 1, !noalias !53, !noundef !12
   %87 = zext i8 %86 to i64
   %88 = add i64 %.016.i.i.i, 1

@@ -1841,8 +1841,8 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %indvars.iv36 = phi i64 [ 0, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %indvars.iv.next37, %68 ]
   %indvars.iv34 = phi i64 [ 1, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %indvars.iv.next35, %68 ]
   %.030 = phi float [ 0.000000e+00, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %.2, %68 ]
-  %39 = getelementptr inbounds nuw [3 x [3 x float]], ptr %31, i64 0, i64 %indvars.iv36
-  %40 = getelementptr inbounds nuw [3 x [3 x float]], ptr %38, i64 0, i64 %indvars.iv36
+  %39 = getelementptr inbounds nuw [3 x float], ptr %31, i64 %indvars.iv36
+  %40 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv36
   br label %69
 
 41:                                               ; preds = %68
@@ -1883,7 +1883,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 69:                                               ; preds = %.preheader, %89
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %89 ]
   %.128 = phi float [ %.030, %.preheader ], [ %.2, %89 ]
-  %70 = getelementptr inbounds nuw [3 x float], ptr %39, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
   %71 = load float, ptr %70, align 4, !tbaa !153
   %72 = fpext float %71 to double
   %73 = fmul double %72, 0x4043BD3CC9BE45DE
@@ -1894,7 +1894,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 
 77:                                               ; preds = %69
   %78 = fptrunc double %75 to float
-  %79 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
   %80 = load float, ptr %79, align 4, !tbaa !153
   %81 = fpext float %80 to double
   %82 = fmul double %81, 5.000000e-01
@@ -1958,7 +1958,7 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat20scaleBoxAndPositionsEv(ptr nound
 .preheader:                                       ; preds = %1, %28
   %indvars.iv58 = phi i64 [ 0, %1 ], [ %indvars.iv.next59, %28 ]
   %indvars.iv56 = phi i64 [ 1, %1 ], [ %indvars.iv.next57, %28 ]
-  %8 = getelementptr inbounds nuw [3 x [3 x float]], ptr %7, i64 0, i64 %indvars.iv58
+  %8 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %indvars.iv58
   %9 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv58
   br label %29
 
@@ -1999,9 +1999,9 @@ define void @_ZN3gmx24ParrinelloRahmanBarostat20scaleBoxAndPositionsEv(ptr nound
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
   %30 = load float, ptr %6, align 8, !tbaa !146
-  %31 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !153
-  %33 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !153
   %35 = tail call float @llvm.fmuladd.f32(float %30, float %32, float %34)
   store float %35, ptr %33, align 4, !tbaa !153

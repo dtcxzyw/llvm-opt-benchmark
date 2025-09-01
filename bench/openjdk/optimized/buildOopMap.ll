@@ -276,7 +276,7 @@ define hidden noundef ptr @_ZN7OopFlow13build_oop_mapEP4NodeiP13PhaseRegAllocPi(
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %indvars.iv171
+  %45 = getelementptr inbounds nuw ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %indvars.iv171
   %46 = load ptr, ptr %45, align 8
   br label %_ZN7OptoReg8as_VMRegEiii.exit
 
@@ -308,7 +308,7 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %44, %49, %53
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %66, i32 3
+  %67 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %66, i32 3
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %191
@@ -494,7 +494,7 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %44, %49, %53
 
 161:                                              ; preds = %.loopexit
   %162 = sext i16 %156 to i64
-  %163 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %162
+  %163 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %162
   %164 = load ptr, ptr %163, align 8
   br label %_ZN7OptoReg8as_VMRegEiii.exit120
 
@@ -615,7 +615,7 @@ _ZN7OptoReg8as_VMRegEiii.exit120:                 ; preds = %161, %165, %169, %1
 
 222:                                              ; preds = %220
   %223 = sext i16 %219 to i64
-  %224 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %223
+  %224 = getelementptr inbounds ptr, ptr @_ZN7OptoReg7opto2vmE, i64 %223
   %225 = load ptr, ptr %224, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit
 

@@ -56,12 +56,12 @@ define hidden void @luaT_init(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [25 x ptr], ptr @luaT_init.luaT_eventname, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @luaT_init.luaT_eventname, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr @luaS_new(ptr noundef %0, ptr noundef %5) #5
   %7 = load ptr, ptr %2, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %9 = getelementptr inbounds nuw [25 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %6, ptr %9, align 8, !tbaa !22
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -126,7 +126,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 480
   %17 = zext nneg i8 %6 to i64
-  %18 = getelementptr inbounds nuw [9 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   br label %19
 
 19:                                               ; preds = %13, %10, %7
@@ -140,7 +140,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 280
   %24 = zext i32 %2 to i64
-  %25 = getelementptr inbounds nuw [25 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0, ptr noundef %26) #5
   br label %30
@@ -206,14 +206,14 @@ define hidden ptr @luaT_objtypename(ptr noundef %0, ptr noundef readonly capture
 .thread:                                          ; preds = %..thread_crit_edge, %2, %5, %9
   %27 = phi i8 [ %.pre, %..thread_crit_edge ], [ %4, %2 ], [ 69, %5 ], [ 71, %9 ]
   %28 = and i8 %27, 15
-  %narrow = add nuw nsw i8 %28, 1
-  %29 = zext nneg i8 %narrow to i64
-  %30 = getelementptr inbounds nuw [12 x ptr], ptr @luaT_typenames_, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !4
+  %29 = zext nneg i8 %28 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr @luaT_typenames_, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !4
   br label %.thread18
 
 .thread18:                                        ; preds = %19, %25, %.thread
-  %.1 = phi ptr [ %31, %.thread ], [ %26, %25 ], [ %24, %19 ]
+  %.1 = phi ptr [ %32, %.thread ], [ %26, %25 ], [ %24, %19 ]
   ret ptr %.1
 }
 
@@ -409,7 +409,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %19 = zext nneg i8 %8 to i64
-  %20 = getelementptr inbounds nuw [9 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   br label %21
 
 21:                                               ; preds = %15, %12, %9
@@ -423,7 +423,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 280
   %26 = zext i32 %4 to i64
-  %27 = getelementptr inbounds nuw [25 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0.i, ptr noundef %28) #5
   br label %luaT_gettmbyobj.exit
@@ -463,7 +463,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
   %48 = load ptr, ptr %22, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 480
   %50 = zext nneg i8 %40 to i64
-  %51 = getelementptr inbounds nuw [9 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   br label %52
 
 52:                                               ; preds = %47, %44, %41
@@ -476,7 +476,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 280
   %56 = zext i32 %4 to i64
-  %57 = getelementptr inbounds nuw [25 x ptr], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !22
   %59 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0.i15, ptr noundef %58) #5
   br label %luaT_gettmbyobj.exit17

@@ -112,7 +112,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 .lr.ph:                                           ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit36
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_IntPush.exit36 ], [ 0, %Vec_IntPush.exit ]
   %.pre.i3953 = phi ptr [ %.pre.i3952, %Vec_IntPush.exit36 ], [ %.pre.i3954, %Vec_IntPush.exit ]
-  %48 = getelementptr inbounds nuw [0 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !35
   %50 = load i32, ptr %8, align 4, !tbaa !30
   %51 = load i32, ptr %6, align 8, !tbaa !27
@@ -215,7 +215,7 @@ define void @Cnf_SopConvertToVector(ptr noundef readonly captures(none) %0, i32 
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
   %.02123 = phi i32 [ %10, %7 ], [ %14, %11 ]
   %12 = srem i32 %.02123, 3
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %switch.selectcmp = icmp eq i32 %12, 1
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
   %switch.selectcmp40 = icmp eq i32 %12, 0
@@ -230,7 +230,7 @@ define void @Cnf_SopConvertToVector(ptr noundef readonly captures(none) %0, i32 
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.preheader ], [ 0, %11 ]
   %.02025 = phi i32 [ %18, %.preheader ], [ 0, %11 ]
   %15 = shl i32 %.02025, 2
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv29
+  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv29
   %17 = load i32, ptr %16, align 4, !tbaa !35
   %18 = or i32 %17, %15
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -927,12 +927,12 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
 
 216:                                              ; preds = %.lr.ph438, %216
   %indvars.iv504 = phi i64 [ 0, %.lr.ph438 ], [ %indvars.iv.next505, %216 ]
-  %217 = getelementptr inbounds nuw [0 x i32], ptr %215, i64 0, i64 %indvars.iv504
+  %217 = getelementptr inbounds nuw i32, ptr %215, i64 %indvars.iv504
   %218 = load i32, ptr %217, align 4, !tbaa !35
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds i32, ptr %207, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !35
-  %222 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv504
+  %222 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv504
   store i32 %221, ptr %222, align 4, !tbaa !35
   %indvars.iv.next505 = add nuw nsw i64 %indvars.iv504, 1
   %exitcond508.not = icmp eq i64 %indvars.iv.next505, %wide.trip.count507

@@ -1906,7 +1906,7 @@ define dso_local void @seq_put_hex_ll(ptr noundef captures(none) %0, ptr noundef
   %61 = phi i64 [ %59, %58 ], [ %71, %60 ]
   %62 = phi i64 [ %2, %58 ], [ %70, %60 ]
   %63 = and i64 %62, 15
-  %64 = getelementptr [0 x i8], ptr @hex_asc, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @hex_asc, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = load ptr, ptr %0, align 8
   %67 = load i64, ptr %48, align 8
@@ -2530,7 +2530,7 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr noundef writeon
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
+  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %4
   %22 = inttoptr i64 %21 to ptr
@@ -2602,8 +2602,8 @@ define dso_local ptr @seq_hlist_next_percpu(ptr noundef readonly captures(none) 
   %27 = phi i32 [ %50, %48 ], [ %24, %21 ]
   %28 = phi i64 [ %49, %48 ], [ %22, %21 ]
   %29 = shl i64 %28, 32
-  %30 = ashr exact i64 %29, 32
-  %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
+  %30 = ashr exact i64 %29, 29
+  %31 = getelementptr i8, ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %23
   %34 = inttoptr i64 %33 to ptr

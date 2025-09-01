@@ -134,7 +134,7 @@ thread-pre-split.i:                               ; preds = %14, %12
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %29, i32 2
+  %30 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %29, i32 2
   %31 = load i32, ptr %30, align 4, !tbaa !32
   %32 = icmp sgt i32 %31, 4
   br i1 %32, label %33, label %38
@@ -560,7 +560,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %9, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds i64, ptr %4, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8, !tbaa !69
@@ -578,7 +578,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %22 = shl nuw i64 1, %21
   %23 = sdiv i32 %19, 64
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds i64, ptr %4, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !69
   %27 = or i64 %22, %26
   store i64 %27, ptr %25, align 8, !tbaa !69
@@ -626,7 +626,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = sdiv i32 %46, 64
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %48
+  %49 = getelementptr inbounds i64, ptr %4, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !69
   %51 = srem i32 %46, 64
   %52 = zext nneg i32 %51 to i64
@@ -772,7 +772,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
 
 122:                                              ; preds = %120
   %123 = zext nneg i32 %121 to i64
-  %124 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %123, i32 2
+  %124 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %123, i32 2
   %125 = load i32, ptr %124, align 4, !tbaa !32
   %126 = icmp sgt i32 %125, 6
   br i1 %126, label %127, label %134
@@ -914,7 +914,7 @@ define internal void @connection_event_handler(i32 noundef %0, i16 signext %1, p
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4, !tbaa !32
   %12 = icmp sgt i32 %11, 6
   br i1 %12, label %13, label %19
@@ -1085,7 +1085,7 @@ define internal void @connection_handler(i32 %0, i16 signext %1, ptr noundef %2)
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4, !tbaa !32
   %9 = icmp sgt i32 %8, 3
   br i1 %9, label %10, label %19

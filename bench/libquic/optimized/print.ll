@@ -61,7 +61,7 @@ define hidden i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7
@@ -99,7 +99,7 @@ define hidden i32 @EVP_PKEY_print_private(ptr noundef %0, ptr noundef %1, i32 no
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7
@@ -137,7 +137,7 @@ define hidden i32 @EVP_PKEY_print_params(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7

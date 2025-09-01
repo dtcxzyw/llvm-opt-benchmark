@@ -5691,7 +5691,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i.i.i.i.i.i.i
   %348 = lshr i32 %.029.val30.i.i.i.i.i.i, 6
   %349 = and i32 %348, 1
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [2 x i64], ptr %347, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i64, ptr %347, i64 %350
   %352 = load i64, ptr %351, align 8, !tbaa !45
   %353 = and i32 %.029.val30.i.i.i.i.i.i, 63
   %354 = zext nneg i32 %353 to i64
@@ -5789,7 +5789,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i55.i.i.i.i.i
   %391 = lshr i32 %.val33.i.i.i.i.i.i, 6
   %392 = and i32 %391, 1
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw [2 x i64], ptr %390, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw i64, ptr %390, i64 %393
   %395 = load i64, ptr %394, align 8, !tbaa !45
   %396 = and i32 %.val33.i.i.i.i.i.i, 63
   %397 = zext nneg i32 %396 to i64
@@ -5887,7 +5887,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i73.i.i.i.i.i
   %434 = lshr i32 %.val36.i.i.i.i.i.i, 6
   %435 = and i32 %434, 1
   %436 = zext nneg i32 %435 to i64
-  %437 = getelementptr inbounds nuw [2 x i64], ptr %433, i64 0, i64 %436
+  %437 = getelementptr inbounds nuw i64, ptr %433, i64 %436
   %438 = load i64, ptr %437, align 8, !tbaa !45
   %439 = and i32 %.val36.i.i.i.i.i.i, 63
   %440 = zext nneg i32 %439 to i64
@@ -5985,7 +5985,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i91.i.i.i.i.i
   %477 = lshr i32 %.val39.i.i.i.i.i.i, 6
   %478 = and i32 %477, 1
   %479 = zext nneg i32 %478 to i64
-  %480 = getelementptr inbounds nuw [2 x i64], ptr %476, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i64, ptr %476, i64 %479
   %481 = load i64, ptr %480, align 8, !tbaa !45
   %482 = and i32 %.val39.i.i.i.i.i.i, 63
   %483 = zext nneg i32 %482 to i64
@@ -6107,7 +6107,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i109.i.i.i.i.
   %527 = lshr i32 %.029.val42.i.i.i.i.i.i, 6
   %528 = and i32 %527, 1
   %529 = zext nneg i32 %528 to i64
-  %530 = getelementptr inbounds nuw [2 x i64], ptr %526, i64 0, i64 %529
+  %530 = getelementptr inbounds nuw i64, ptr %526, i64 %529
   %531 = load i64, ptr %530, align 8, !tbaa !45
   %532 = and i32 %.029.val42.i.i.i.i.i.i, 63
   %533 = zext nneg i32 %532 to i64
@@ -6213,7 +6213,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i127.i.i.i.i.
   %574 = lshr i32 %.1.val44.i.i.i.i.i.i, 6
   %575 = and i32 %574, 1
   %576 = zext nneg i32 %575 to i64
-  %577 = getelementptr inbounds nuw [2 x i64], ptr %573, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw i64, ptr %573, i64 %576
   %578 = load i64, ptr %577, align 8, !tbaa !45
   %579 = and i32 %.1.val44.i.i.i.i.i.i, 63
   %580 = zext nneg i32 %579 to i64
@@ -6319,7 +6319,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i145.i.i.i.i.
   %621 = lshr i32 %.2.val46.i.i.i.i.i.i, 6
   %622 = and i32 %621, 1
   %623 = zext nneg i32 %622 to i64
-  %624 = getelementptr inbounds nuw [2 x i64], ptr %620, i64 0, i64 %623
+  %624 = getelementptr inbounds nuw i64, ptr %620, i64 %623
   %625 = load i64, ptr %624, align 8, !tbaa !45
   %626 = and i32 %.2.val46.i.i.i.i.i.i, 63
   %627 = zext nneg i32 %626 to i64
@@ -6473,7 +6473,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit:     ; preds = %671, %.sink.split.i
   %687 = lshr i32 %642, 6
   %688 = and i32 %687, 1
   %689 = zext nneg i32 %688 to i64
-  %690 = getelementptr inbounds nuw [2 x i64], ptr %686, i64 0, i64 %689
+  %690 = getelementptr inbounds nuw i64, ptr %686, i64 %689
   %691 = load i64, ptr %690, align 8, !tbaa !45
   %692 = or i64 %691, %685
   store i64 %692, ptr %690, align 8, !tbaa !45
@@ -6665,7 +6665,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit:   ; preds = %767
   %771 = lshr i32 %734, 6
   %772 = and i32 %771, 1
   %773 = zext nneg i32 %772 to i64
-  %774 = getelementptr inbounds nuw [2 x i64], ptr %770, i64 0, i64 %773
+  %774 = getelementptr inbounds nuw i64, ptr %770, i64 %773
   %775 = load i64, ptr %774, align 8, !tbaa !45
   %776 = and i32 %734, 63
   %777 = zext nneg i32 %776 to i64
@@ -6762,7 +6762,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit146: ; preds = %808
   %812 = lshr i32 %736, 6
   %813 = and i32 %812, 1
   %814 = zext nneg i32 %813 to i64
-  %815 = getelementptr inbounds nuw [2 x i64], ptr %811, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw i64, ptr %811, i64 %814
   %816 = load i64, ptr %815, align 8, !tbaa !45
   %817 = and i32 %736, 63
   %818 = zext nneg i32 %817 to i64
@@ -6864,13 +6864,13 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit.thread: ; preds = %825, %_ZL15i
   %882 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %879, i1 false)
   %883 = sub nsw i32 31, %882
   %884 = zext i32 %883 to i64
-  %885 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 0, i64 %884
+  %885 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 %884
   %886 = load ptr, ptr %885, align 8, !tbaa !609
   %887 = icmp eq ptr %886, %853
   br i1 %887, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.thread, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit
 
 _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit: ; preds = %881
-  %888 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 0, i64 %884
+  %888 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 %884
   %889 = load ptr, ptr %888, align 8, !tbaa !609
   %890 = load ptr, ptr %853, align 8, !tbaa !546
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 24
@@ -7205,7 +7205,7 @@ _ZN4llvm15SparseBitVectorILj128EE3setEj.exit194:  ; preds = %1002, %.sink.split.
   %1018 = lshr i32 %973, 6
   %1019 = and i32 %1018, 1
   %1020 = zext nneg i32 %1019 to i64
-  %1021 = getelementptr inbounds nuw [2 x i64], ptr %1017, i64 0, i64 %1020
+  %1021 = getelementptr inbounds nuw i64, ptr %1017, i64 %1020
   %1022 = load i64, ptr %1021, align 8, !tbaa !45
   %1023 = or i64 %1022, %1016
   store i64 %1023, ptr %1021, align 8, !tbaa !45
@@ -9216,13 +9216,13 @@ _ZL15isEFLAGSDefLiveRKN4llvm12MachineInstrE.exit39.thread.i.i: ; preds = %_ZL15i
   %1769 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1766, i1 false)
   %1770 = sub nsw i32 31, %1769
   %1771 = zext i32 %1770 to i64
-  %1772 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 0, i64 %1771
+  %1772 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.NOREXRegClasses, i64 %1771
   %1773 = load ptr, ptr %1772, align 8, !tbaa !609
   %1774 = icmp eq ptr %1773, %1740
   br i1 %1774, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass24sinkPostLoadHardenedInstERN4llvm12MachineInstrERNS1_15SmallPtrSetImplIPS2_EE.exit, label %_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i
 
 _ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.exit.i.i: ; preds = %1768
-  %1775 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 0, i64 %1771
+  %1775 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass17canHardenRegisterEN4llvm8RegisterE.GPRRegClasses, i64 %1771
   %1776 = load ptr, ptr %1775, align 8, !tbaa !609
   %1777 = load ptr, ptr %1740, align 8, !tbaa !546
   %1778 = getelementptr inbounds nuw i8, ptr %1777, i64 24
@@ -14563,7 +14563,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_131X86SpeculativeLoadHardeni
   %54 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 false)
   %55 = sub nsw i32 31, %54
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass21hardenValueInRegisterEN4llvm8RegisterERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocE.SubRegImms, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass21hardenValueInRegisterEN4llvm8RegisterERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocE.SubRegImms, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !326
   %59 = load ptr, ptr %14, align 8, !tbaa !199
   %60 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %59, ptr noundef nonnull %22, ptr nonnull @.str.44, i64 0) #20
@@ -14650,7 +14650,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %91 = call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 false)
   %92 = sub nsw i32 31, %91
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass21hardenValueInRegisterEN4llvm8RegisterERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocE.OrOpCodes, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @__const._ZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass21hardenValueInRegisterEN4llvm8RegisterERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_8DebugLocE.OrOpCodes, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !326
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %96 = load ptr, ptr %4, align 8, !tbaa !281

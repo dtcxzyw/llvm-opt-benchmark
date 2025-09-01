@@ -333,7 +333,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i: ; preds = %.lr.ph.sp
 
 .lr.ph.i.us.i:                                    ; preds = %.preheader.i.us.i, %29
   %.sroa.01.05.i.us.i = phi i64 [ %30, %29 ], [ 0, %.preheader.i.us.i ]
-  %26 = getelementptr inbounds nuw [0 x i8], ptr %21, i64 0, i64 %.sroa.01.05.i.us.i
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.05.i.us.i
   %27 = load i8, ptr %26, align 1, !alias.scope !184, !noalias !183, !noundef !18
   %28 = icmp eq i8 %27, %.pre92.i
   br i1 %28, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i, label %29
@@ -370,7 +370,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %42
   %.sroa.01.05.i.i = phi i64 [ %43, %42 ], [ 0, %.preheader.i.i ]
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %37, i64 0, i64 %.sroa.01.05.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.01.05.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !184, !noalias !183, !noundef !18
   %41 = icmp eq i8 %40, %.pre92.i
   br i1 %41, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i, label %42
@@ -819,7 +819,7 @@ define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17h398b6c5c2
   %32 = or disjoint i64 %30, %31
   %33 = call i64 @llvm.bswap.i64(i64 %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !263)
-  %34 = getelementptr [0 x i8], ptr %20, i64 0, i64 %26
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 %26
   store i8 -128, ptr %34, align 1, !alias.scope !266, !noalias !267
   %35 = icmp eq i8 %25, 63
   br i1 %35, label %._crit_edge.thread.i.i.i, label %._crit_edge.i.i.i

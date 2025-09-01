@@ -796,7 +796,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %9, %15, %17
   %42 = and i64 %31, %1
   %.not8 = icmp eq i64 %42, 0
   %43 = select i1 %.not8, ptr @.str.13, ptr @.str.12
-  %44 = getelementptr [0 x ptr], ptr @_ZN10JvmtiTrace12_event_namesE, i64 0, i64 %indvars.iv
+  %44 = getelementptr ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
   %.0.i = load ptr, ptr %44, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef %41, ptr noundef nonnull %43, ptr noundef %.0.i)
   br label %45
@@ -890,7 +890,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %8, %14, %16
   %34 = and i64 %29, %0
   %.not8 = icmp eq i64 %34, 0
   %35 = select i1 %.not8, ptr @.str.13, ptr @.str.12
-  %36 = getelementptr [0 x ptr], ptr @_ZN10JvmtiTrace12_event_namesE, i64 0, i64 %indvars.iv
+  %36 = getelementptr ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv
   %.0.i = load ptr, ptr %36, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %35, ptr noundef %.0.i)
   br label %37
@@ -2524,7 +2524,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %11, %17, %19
   %38 = add i32 %3, -50
   %or.cond.i = icmp ult i32 %38, 39
   %39 = zext nneg i32 %3 to i64
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN10JvmtiTrace12_event_namesE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %39
   %.0.in.i = select i1 %or.cond.i, ptr %40, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i = load ptr, ptr %.0.in.i, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.23, ptr noundef %36, ptr noundef nonnull %37, ptr noundef %.0.i)
@@ -3451,7 +3451,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

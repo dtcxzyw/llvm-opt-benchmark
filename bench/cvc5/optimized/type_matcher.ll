@@ -1056,8 +1056,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_
   %spec.select.i.i = add nuw i64 %.01979, %192
   %193 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %194 = ashr exact i64 %sext, 32
-  %195 = getelementptr inbounds [0 x ptr], ptr %193, i64 0, i64 %194
+  %194 = ashr exact i64 %sext, 29
+  %195 = getelementptr inbounds i8, ptr %193, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !25, !noalias !26
   store ptr %196, ptr %4, align 8, !tbaa !3, !alias.scope !26
   %197 = load i64, ptr %196, align 8, !noalias !26
@@ -1104,8 +1104,8 @@ _ZNK4cvc58internal8TypeNodeixEi.exit:             ; preds = %202, %208, %210
   %spec.select.i.i41 = add nuw i64 %.01979, %221
   %222 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %sext68 = shl i64 %spec.select.i.i41, 32
-  %223 = ashr exact i64 %sext68, 32
-  %224 = getelementptr inbounds [0 x ptr], ptr %222, i64 0, i64 %223
+  %223 = ashr exact i64 %sext68, 29
+  %224 = getelementptr inbounds i8, ptr %222, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !25, !noalias !29
   store ptr %225, ptr %5, align 8, !tbaa !3, !alias.scope !29
   %226 = load i64, ptr %225, align 8, !noalias !29

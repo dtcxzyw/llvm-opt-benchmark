@@ -1152,8 +1152,8 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %19
-  %27 = add i64 %7, -5
-  %28 = getelementptr inbounds [4097 x i8], ptr %1, i64 0, i64 %27
+  %27 = getelementptr i8, ptr %1, i64 %7
+  %28 = getelementptr i8, ptr %27, i64 -5
   %29 = load i8, ptr %28, align 1
   %.not6 = icmp eq i8 %29, 0
   br i1 %.not6, label %30, label %.thread
@@ -1629,7 +1629,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13
   %.0.tr.i.i = trunc i32 %.011.i.i to i8
   %.narrow.i.i = xor i8 %18, %.0.tr.i.i
   %19 = zext i8 %.narrow.i.i to i64
-  %20 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %.011.i.i, 8
   %23 = xor i32 %21, %22
@@ -1782,7 +1782,7 @@ define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr noundef capt
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %10, %.0.tr.i
   %11 = zext i8 %.narrow.i to i64
-  %12 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %.011.i, 8
   %15 = xor i32 %13, %14
@@ -1830,7 +1830,7 @@ define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0,
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11
@@ -3703,7 +3703,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
 102:                                              ; preds = %.lr.ph, %95
   %.0516 = phi i8 [ 0, %.lr.ph ], [ %96, %95 ]
   %103 = zext i8 %.0516 to i64
-  %104 = getelementptr inbounds nuw [12 x i8], ptr %94, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 %103
   %105 = load i64, ptr %13, align 8
   %106 = add nsw i64 %105, 1
   store i64 %106, ptr %13, align 8

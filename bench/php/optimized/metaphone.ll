@@ -2531,7 +2531,7 @@ zend_string_extend.exit852.i:                     ; preds = %1353, %zend_string_
   %.46.i = phi i64 [ %.10621954.i, %1341 ], [ %1343, %1353 ], [ %1343, %1374 ], [ %1343, %zend_string_alloc.exit.i849.i ]
   %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 24
   %1380 = add i64 %.2607955.i, 1
-  %1381 = getelementptr inbounds nuw [1 x i8], ptr %1379, i64 0, i64 %.2607955.i
+  %1381 = getelementptr inbounds nuw i8, ptr %1379, i64 %.2607955.i
   store i8 75, ptr %1381, align 1, !tbaa !8
   %1382 = getelementptr inbounds nuw i8, ptr %.8, i64 16
   store i64 %1380, ptr %1382, align 8, !tbaa !50
@@ -2825,7 +2825,7 @@ encode.exit894.thread.sink.split.i:               ; preds = %247, %zend_string_a
   %.14.ph.i = phi i64 [ %.10621954.i, %235 ], [ %.10621954.i, %374 ], [ %.10621954.i, %411 ], [ %.10621954.i, %336 ], [ %.10621954.i, %298 ], [ %.10621954.i, %encode.exit885.thread.i ], [ %.10621954.i, %476 ], [ %.10621954.i, %encode.exit891.thread.i ], [ %.10621954.i, %700 ], [ %.10621954.i, %.critedge697.i ], [ %.10621954.i, %.thread913.i ], [ %.10621954.i, %encode.exit897.thread.i ], [ %.10621954.i, %839 ], [ %.10621954.i, %883 ], [ %.10621954.i, %920 ], [ %.10621954.i, %957 ], [ %.10621954.i, %.thread920.i ], [ %.10621954.i, %1008 ], [ %.10621954.i, %1045 ], [ %.10621954.i, %.critedge699.i ], [ %.10621954.i, %1132 ], [ %.10621954.i, %1169 ], [ %.10621954.i, %1250 ], [ %.10621954.i, %1304 ], [ %.46.i, %zend_string_extend.exit852.i ], [ %.10621954.i, %1434 ], [ %.10621954.i, %1471 ], [ %.10621954.i, %1508 ], [ %237, %247 ], [ %237, %268 ], [ %237, %zend_string_alloc.exit.i.i ], [ %300, %310 ], [ %300, %331 ], [ %300, %zend_string_alloc.exit.i734.i ], [ %338, %348 ], [ %338, %369 ], [ %338, %zend_string_alloc.exit.i739.i ], [ %376, %386 ], [ %376, %407 ], [ %376, %zend_string_alloc.exit.i744.i ], [ %413, %423 ], [ %413, %444 ], [ %413, %zend_string_alloc.exit.i749.i ], [ %478, %488 ], [ %478, %509 ], [ %478, %zend_string_alloc.exit.i754.i ], [ %514, %524 ], [ %514, %545 ], [ %514, %zend_string_alloc.exit.i759.i ], [ %591, %601 ], [ %591, %622 ], [ %591, %zend_string_alloc.exit.i764.i ], [ %652, %662 ], [ %652, %683 ], [ %652, %zend_string_alloc.exit.i769.i ], [ %702, %712 ], [ %702, %733 ], [ %702, %zend_string_alloc.exit.i774.i ], [ %738, %748 ], [ %738, %769 ], [ %738, %zend_string_alloc.exit.i779.i ], [ %803, %813 ], [ %803, %834 ], [ %803, %zend_string_alloc.exit.i784.i ], [ %841, %851 ], [ %841, %872 ], [ %841, %zend_string_alloc.exit.i789.i ], [ %885, %895 ], [ %885, %916 ], [ %885, %zend_string_alloc.exit.i794.i ], [ %922, %932 ], [ %922, %953 ], [ %922, %zend_string_alloc.exit.i799.i ], [ %959, %969 ], [ %959, %990 ], [ %959, %zend_string_alloc.exit.i804.i ], [ %1010, %1020 ], [ %1010, %1041 ], [ %1010, %zend_string_alloc.exit.i809.i ], [ %1047, %1057 ], [ %1047, %1078 ], [ %1047, %zend_string_alloc.exit.i814.i ], [ %1083, %1093 ], [ %1083, %1114 ], [ %1083, %zend_string_alloc.exit.i819.i ], [ %1134, %1144 ], [ %1134, %1165 ], [ %1134, %zend_string_alloc.exit.i824.i ], [ %1171, %1181 ], [ %1171, %1202 ], [ %1171, %zend_string_alloc.exit.i829.i ], [ %1215, %1225 ], [ %1215, %1246 ], [ %1215, %zend_string_alloc.exit.i834.i ], [ %1252, %1262 ], [ %1252, %1283 ], [ %1252, %zend_string_alloc.exit.i839.i ], [ %1306, %1316 ], [ %1306, %1337 ], [ %1306, %zend_string_alloc.exit.i844.i ], [ %1384, %1392 ], [ %1384, %1413 ], [ %1384, %zend_string_alloc.exit.i854.i ], [ %1436, %1446 ], [ %1436, %1467 ], [ %1436, %zend_string_alloc.exit.i859.i ], [ %1473, %1483 ], [ %1473, %1504 ], [ %1473, %zend_string_alloc.exit.i864.i ], [ %1510, %1520 ], [ %1510, %1541 ], [ %1510, %zend_string_alloc.exit.i869.i ]
   %1545 = getelementptr inbounds nuw i8, ptr %.sink1024.i, i64 24
   %1546 = add i64 %.sink1023.i, %.2607955.i
-  %1547 = getelementptr inbounds nuw [1 x i8], ptr %1545, i64 0, i64 %.2607955.sink.i
+  %1547 = getelementptr inbounds nuw i8, ptr %1545, i64 %.2607955.sink.i
   store i8 %.sink1020.i, ptr %1547, align 1, !tbaa !8
   %1548 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store i64 %1546, ptr %1548, align 8, !tbaa !50
@@ -2927,7 +2927,7 @@ zend_string_extend.exit877.i:                     ; preds = %1570, %zend_string_
   %.7 = phi ptr [ %.6, %.critedge.i ], [ %1573, %1570 ], [ %1581, %1591 ], [ %1581, %zend_string_alloc.exit.i874.i ]
   %1595 = phi ptr [ %1557, %.critedge.i ], [ %1573, %1570 ], [ %1581, %1591 ], [ %1581, %zend_string_alloc.exit.i874.i ]
   %1596 = getelementptr inbounds nuw i8, ptr %1595, i64 24
-  %1597 = getelementptr inbounds nuw [1 x i8], ptr %1596, i64 0, i64 %.2607.lcssa.i
+  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 %.2607.lcssa.i
   store i8 0, ptr %1597, align 1, !tbaa !8
   br label %metaphone.exit
 

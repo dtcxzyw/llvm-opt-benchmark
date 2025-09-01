@@ -20,7 +20,7 @@ define internal void @_ZL23collect_features_hangulP21hb_ot_shape_planner_t(ptr n
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [4 x i32], ptr @_ZL15hangul_features, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @_ZL15hangul_features, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %5, i32 noundef 0, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -55,7 +55,7 @@ define internal noalias noundef ptr @_ZL18data_create_hangulPK18hb_ot_shape_plan
 
 .lr.ph.preheader.i.i.i.i.i.i.us:                  ; preds = %.preheader, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds nuw [4 x i32], ptr @_ZL15hangul_features, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL15hangul_features, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   br label %.lr.ph.i.i.i.i.i.i.us
 
@@ -96,7 +96,7 @@ _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enab
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.us:          ; preds = %24, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us
   %25 = phi i32 [ %21, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us ], [ 0, %24 ]
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %25, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1239,7 +1239,7 @@ define internal void @_ZL18setup_masks_hangulPK18hb_ot_shape_plan_tP11hb_buffer_
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 19
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.01113, i64 4
   %17 = load i32, ptr %16, align 4

@@ -1668,10 +1668,10 @@ define internal noundef zeroext i8 @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE.42, i64 0, i64 %8
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE.42, i64 %8
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN12_GLOBAL__N_123mapClangSyncScopeToLLVMEN5clang9SyncScopeE.exit
 

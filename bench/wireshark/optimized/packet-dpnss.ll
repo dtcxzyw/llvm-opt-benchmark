@@ -1224,7 +1224,7 @@ define internal fastcc range(i32 2, 4) i32 @dissect_dpnss_sic(ptr noundef %0, pt
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dpnss_sic, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dpnss_sic, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load i32, ptr %switch.load, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
@@ -1318,7 +1318,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noun
 29:                                               ; preds = %12
   %30 = zext nneg i32 %27 to i64
   %31 = load i32, ptr @hf_dpnss_sup_str, align 4
-  %32 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %30, i32 1
+  %32 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %30, i32 1
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %31, ptr noundef %0, i32 noundef %13, i32 noundef %23, ptr noundef %33)
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -1341,25 +1341,25 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noun
 37:                                               ; preds = %.lr.ph
   %38 = load i32, ptr %5, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %39, i32 3
+  %40 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %39, i32 3
   br label %.sink.split
 
 41:                                               ; preds = %.lr.ph
   %42 = load i32, ptr %5, align 4
   %43 = zext i32 %42 to i64
-  %44 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %43, i32 4
+  %44 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %43, i32 4
   br label %.sink.split
 
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %5, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %47, i32 5
+  %48 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %47, i32 5
   br label %.sink.split
 
 49:                                               ; preds = %.lr.ph
   %50 = load i32, ptr %5, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %51, i32 6
+  %52 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %51, i32 6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %41, %45, %49

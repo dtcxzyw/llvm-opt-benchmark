@@ -2508,7 +2508,7 @@ dictionary_load.exit:                             ; preds = %46, %._crit_edge221
 902:                                              ; preds = %902, %dictionary_load.exit
   %indvars.iv.i = phi i64 [ 0, %dictionary_load.exit ], [ %indvars.iv.next.i, %902 ]
   %903 = load ptr, ptr @build_dict.1, align 8
-  %904 = getelementptr [8 x ptr], ptr @__const.real_register_diameter_fields.ett_base, i64 0, i64 %indvars.iv.i
+  %904 = getelementptr ptr, ptr @__const.real_register_diameter_fields.ett_base, i64 %indvars.iv.i
   %905 = load ptr, ptr %904, align 8
   call void @g_ptr_array_add(ptr noundef %903, ptr noundef %905)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2877,7 +2877,7 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #16
   %30 = zext nneg i32 %spec.select to i64
   %31 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %30)
-  %32 = getelementptr [16 x i8], ptr %6, i64 0, i64 %30
+  %32 = getelementptr i8, ptr %6, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = load i32, ptr %5, align 4
   %35 = and i32 %34, 7
@@ -3286,7 +3286,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %95 = select i1 %.not135, ptr @.str.42, ptr @.str.41
   %96 = load i32, ptr %8, align 4
   %97 = and i64 %93, 15
-  %98 = getelementptr [16 x ptr], ptr @msgflags_str, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr @msgflags_str, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %16, align 8
   %101 = load ptr, ptr @dictionary.2, align 8
@@ -3805,7 +3805,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 97:                                               ; preds = %88, %74
   %98 = load i32, ptr %6, align 4
   %99 = zext nneg i32 %12 to i64
-  %100 = getelementptr [8 x ptr], ptr @avpflags_str, i64 0, i64 %99
+  %100 = getelementptr ptr, ptr @avpflags_str, i64 %99
   %101 = load ptr, ptr %100, align 8
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %78, ptr noundef nonnull @.str.65, ptr noundef %86, i32 noundef %98, i32 noundef %26, ptr noundef %101)
   br i1 %4, label %102, label %107

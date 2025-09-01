@@ -4410,7 +4410,7 @@ if.then17:                                        ; preds = %for.body12
   %call18 = call noundef i32 @_ZN4llvh3sys7Process15GetRandomNumberEv() #29
   %and = and i32 %call18, 15
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx = getelementptr inbounds nuw [17 x i8], ptr @.str.12, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @.str.12, i64 %idxprom
   %19 = load i8, ptr %arrayidx, align 1
   %20 = load ptr, ptr %ResultPath, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
@@ -5715,7 +5715,7 @@ if.end6.i:                                        ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6.i
   %4 = lshr exact i32 %2, 12
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
@@ -7523,7 +7523,7 @@ if.end6:                                          ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6
   %4 = lshr exact i32 %2, 12
   %5 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL11typeForModeEj.exit
 
@@ -8018,7 +8018,7 @@ if.end:                                           ; preds = %if.then7, %land.lhs
 switch.lookup:                                    ; preds = %if.end
   %12 = lshr exact i32 %10, 12
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL10direntTypeEP6dirent.exit
 
@@ -8153,7 +8153,7 @@ if.end6.i:                                        ; preds = %entry
 switch.lookup:                                    ; preds = %if.end6.i
   %6 = lshr exact i32 %4, 12
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvh3sys2fs15directory_entry6statusEv, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
 

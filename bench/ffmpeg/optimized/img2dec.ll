@@ -965,13 +965,13 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not162, label %69, label %71
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %62, ptr %70, align 8, !tbaa !103
   br label %78
 
 71:                                               ; preds = %67, %65, %63, %61
   %72 = load ptr, ptr %60, align 8, !tbaa !104
-  %73 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %74 = call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef %.0134, i32 noundef 1, ptr noundef null) #14
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %76, label %._crit_edge221
@@ -992,7 +992,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %79 = phi ptr [ %.pre223, %._crit_edge221 ], [ %62, %69 ]
   %80 = call i64 @avio_size(ptr noundef %79) #14
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %81, ptr %82, align 4, !tbaa !105
   %83 = load i32, ptr %59, align 8, !tbaa !87
   %.not163 = icmp eq i32 %83, 0
@@ -1094,7 +1094,7 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 126:                                              ; preds = %125, %123
   %indvars.iv.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i, %125 ]
-  %127 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @sizes, i64 0, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [2 x i32], ptr @sizes, i64 %indvars.iv.i
   %128 = load i32, ptr %127, align 8, !tbaa !105
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %130 = load i32, ptr %129, align 4, !tbaa !105
@@ -1315,7 +1315,7 @@ add_filename_as_pkt_side_data.exit:               ; preds = %221
 
 232:                                              ; preds = %226, %273
   %indvars.iv211 = phi i64 [ 0, %226 ], [ %indvars.iv.next212, %273 ]
-  %233 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv211
+  %233 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv211
   %234 = load ptr, ptr %233, align 8, !tbaa !103
   %.not179 = icmp eq ptr %234, null
   br i1 %.not179, label %273, label %235
@@ -1325,10 +1325,10 @@ add_filename_as_pkt_side_data.exit:               ; preds = %221
   %237 = load i32, ptr %227, align 8, !tbaa !123
   %238 = sext i32 %237 to i64
   %239 = getelementptr inbounds i8, ptr %236, i64 %238
-  %240 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv211
+  %240 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv211
   %241 = load i32, ptr %240, align 4, !tbaa !105
   %242 = call i32 @avio_read(ptr noundef nonnull %234, ptr noundef %239, i32 noundef %241) #14
-  %243 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv211
+  %243 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv211
   store i32 %242, ptr %243, align 4, !tbaa !105
   %244 = load i32, ptr %229, align 8, !tbaa !101
   %.not180 = icmp eq i32 %244, 0
@@ -1448,7 +1448,7 @@ thread-pre-split196:                              ; preds = %235, %252, %248
 
 303:                                              ; preds = %.preheader, %309
   %indvars.iv215 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next216, %309 ]
-  %304 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv215
+  %304 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv215
   %305 = load ptr, ptr %304, align 8, !tbaa !103
   %306 = load ptr, ptr %302, align 8, !tbaa !67
   %.not185 = icmp eq ptr %305, %306

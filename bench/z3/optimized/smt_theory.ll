@@ -482,7 +482,7 @@ _ZNK4decl14get_parametersEv.exit:                 ; preds = %44, %40, %_ZlsRSo6s
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8, i64 noundef 1)
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !64
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6theory11display_appERSoP3app(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %55)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -628,7 +628,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 
 65:                                               ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !64
   %68 = load ptr, ptr %13, align 8, !tbaa !52
   %.not.i24 = icmp eq ptr %68, null

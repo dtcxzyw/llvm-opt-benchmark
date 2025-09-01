@@ -185,8 +185,8 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [19 x i32], ptr @sr_tabs_init_once, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [19 x ptr], ptr @sr_tabs_init_funcs, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr @sr_tabs_init_once, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @sr_tabs_init_funcs, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = tail call i32 @pthread_once(ptr noundef nonnull %11, ptr noundef %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -201,13 +201,13 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %15, %.loopexit
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit ], [ 0, %15 ]
   %.141 = phi i32 [ %.2, %.loopexit ], [ %.024, %15 ]
-  %17 = getelementptr inbounds nuw [3 x %struct.FFTabInitData], ptr @nptwo_tabs_init_data, i64 0, i64 %indvars.iv47
+  %17 = getelementptr inbounds nuw %struct.FFTabInitData, ptr @nptwo_tabs_init_data, i64 %indvars.iv47
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %19
 
 19:                                               ; preds = %.preheader, %22
   %indvars.iv44 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next45, %22 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv44
   %21 = load i32, ptr %20, align 4, !tbaa !10
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %.loopexit, label %22
@@ -219,7 +219,7 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not34, label %24, label %19, !llvm.loop !12
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [3 x i32], ptr @nptwo_tabs_init_once, i64 0, i64 %indvars.iv47
+  %25 = getelementptr inbounds nuw i32, ptr @nptwo_tabs_init_once, i64 %indvars.iv47
   %26 = load ptr, ptr %17, align 8, !tbaa !13
   %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #16
   %28 = sdiv i32 %.141, %21
@@ -4113,7 +4113,7 @@ define internal i32 @ff_tx_fft_pfa_init_int32_c(ptr noundef %0, ptr readnone cap
 .lr.ph161:                                        ; preds = %.preheader149, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader149 ]
   %.0104159 = phi i64 [ %.1105, %.loopexit ], [ %2, %.preheader149 ]
-  %12 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = sdiv i32 %4, %13
   %15 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14)
@@ -5246,7 +5246,7 @@ define internal void @ff_tx_mdct_pfa_3xM_fwd_int32_c(ptr noundef readonly captur
   %137 = sub nsw i64 %136, %135
   %138 = lshr i64 %137, 31
   %139 = trunc i64 %138 to i32
-  %140 = getelementptr inbounds nuw [3 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i32 %139, ptr %141, align 4, !tbaa !50
   %142 = mul nsw i64 %133, %129
@@ -5450,7 +5450,7 @@ define internal i32 @ff_tx_mdct_pfa_init_int32_c(ptr noundef initializes((140, 1
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = urem i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [15 x i32], ptr %9, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !10
@@ -5760,7 +5760,7 @@ define internal void @ff_tx_mdct_pfa_5xM_fwd_int32_c(ptr noundef readonly captur
   %199 = sub nsw i64 %198, %197
   %200 = lshr i64 %199, 31
   %201 = trunc i64 %200 to i32
-  %202 = getelementptr inbounds nuw [5 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   store i32 %201, ptr %203, align 4, !tbaa !50
   %204 = mul nsw i64 %195, %191
@@ -6217,7 +6217,7 @@ define internal void @ff_tx_mdct_pfa_7xM_fwd_int32_c(ptr noundef readonly captur
   %261 = sub nsw i64 %260, %259
   %262 = lshr i64 %261, 31
   %263 = trunc i64 %262 to i32
-  %264 = getelementptr inbounds nuw [7 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %264 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
   store i32 %263, ptr %265, align 4, !tbaa !50
   %266 = mul nsw i64 %257, %253
@@ -6720,7 +6720,7 @@ define internal void @ff_tx_mdct_pfa_9xM_fwd_int32_c(ptr noundef readonly captur
   %309 = sub nsw i64 %308, %307
   %310 = lshr i64 %309, 31
   %311 = trunc i64 %310 to i32
-  %312 = getelementptr inbounds nuw [9 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %312 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   store i32 %311, ptr %313, align 4, !tbaa !50
   %314 = mul nsw i64 %305, %301
@@ -7434,7 +7434,7 @@ fft15.exit:                                       ; preds = %66
   %484 = sub nsw i64 %483, %482
   %485 = lshr i64 %484, 31
   %486 = trunc i64 %485 to i32
-  %487 = getelementptr inbounds nuw [15 x %struct.AVComplexInt32], ptr %6, i64 0, i64 %indvars.iv
+  %487 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
   store i32 %486, ptr %488, align 4, !tbaa !50
   %489 = mul nsw i64 %480, %476
@@ -7711,7 +7711,7 @@ define internal void @ff_tx_mdct_pfa_3xM_inv_int32_c(ptr noundef readonly captur
   %116 = sub nsw i64 %115, %114
   %117 = lshr i64 %116, 31
   %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds nuw [3 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   store i32 %118, ptr %119, align 8, !tbaa !48
   %120 = mul nsw i64 %112, %108
   %121 = mul nsw i64 %107, %113
@@ -8046,7 +8046,7 @@ define internal void @ff_tx_mdct_pfa_5xM_inv_int32_c(ptr noundef readonly captur
   %178 = sub nsw i64 %177, %176
   %179 = lshr i64 %178, 31
   %180 = trunc i64 %179 to i32
-  %181 = getelementptr inbounds nuw [5 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   store i32 %180, ptr %181, align 8, !tbaa !48
   %182 = mul nsw i64 %174, %170
   %183 = mul nsw i64 %169, %175
@@ -8467,7 +8467,7 @@ define internal void @ff_tx_mdct_pfa_7xM_inv_int32_c(ptr noundef readonly captur
   %240 = sub nsw i64 %239, %238
   %241 = lshr i64 %240, 31
   %242 = trunc i64 %241 to i32
-  %243 = getelementptr inbounds nuw [7 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   store i32 %242, ptr %243, align 8, !tbaa !48
   %244 = mul nsw i64 %236, %232
   %245 = mul nsw i64 %231, %237
@@ -8934,7 +8934,7 @@ define internal void @ff_tx_mdct_pfa_9xM_inv_int32_c(ptr noundef readonly captur
   %288 = sub nsw i64 %287, %286
   %289 = lshr i64 %288, 31
   %290 = trunc i64 %289 to i32
-  %291 = getelementptr inbounds nuw [9 x %struct.AVComplexInt32], ptr %5, i64 0, i64 %indvars.iv
+  %291 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %5, i64 %indvars.iv
   store i32 %290, ptr %291, align 8, !tbaa !48
   %292 = mul nsw i64 %284, %280
   %293 = mul nsw i64 %279, %285
@@ -9612,7 +9612,7 @@ fft15.exit:                                       ; preds = %68
   %463 = sub nsw i64 %462, %461
   %464 = lshr i64 %463, 31
   %465 = trunc i64 %464 to i32
-  %466 = getelementptr inbounds nuw [15 x %struct.AVComplexInt32], ptr %6, i64 0, i64 %indvars.iv
+  %466 = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %6, i64 %indvars.iv
   store i32 %465, ptr %466, align 8, !tbaa !48
   %467 = mul nsw i64 %459, %455
   %468 = mul nsw i64 %454, %460

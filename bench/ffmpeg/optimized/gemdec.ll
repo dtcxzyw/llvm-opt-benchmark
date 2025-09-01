@@ -491,7 +491,7 @@ bytestream2_get_be16.exit415:                     ; preds = %202, %206
 
 .preheader558:                                    ; preds = %222, %.preheader558
   %indvars.iv620 = phi i64 [ %indvars.iv.next621, %.preheader558 ], [ 0, %222 ]
-  %223 = getelementptr inbounds nuw [256 x i8], ptr @gem_gray, i64 0, i64 %indvars.iv620
+  %223 = getelementptr inbounds nuw i8, ptr @gem_gray, i64 %indvars.iv620
   %224 = load i8, ptr %223, align 1, !tbaa !16
   %225 = zext i8 %224 to i32
   %226 = mul nuw nsw i32 %225, 65793

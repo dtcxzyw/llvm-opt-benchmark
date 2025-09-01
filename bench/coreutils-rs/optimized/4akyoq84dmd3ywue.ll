@@ -2185,9 +2185,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %168, label %169, label %.invoke537, !prof !390
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds [0 x i8], ptr %139, i64 0, i64 %166
+  %170 = getelementptr inbounds i8, ptr %139, i64 %166
   %171 = load i8, ptr %170, align 1, !alias.scope !385, !noalias !391, !noundef !5
-  %172 = getelementptr inbounds [0 x i8], ptr %135, i64 0, i64 %167
+  %172 = getelementptr inbounds i8, ptr %135, i64 %167
   %173 = load i8, ptr %172, align 1, !alias.scope !383, !noalias !389, !noundef !5
   %.not.i257.us = icmp eq i8 %171, %173
   br i1 %.not.i257.us, label %.split.us, label %.split397.us
@@ -2247,9 +2247,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   unreachable
 
 191:                                              ; preds = %184
-  %192 = getelementptr inbounds [0 x i8], ptr %139, i64 0, i64 %.sroa.09.0.i
+  %192 = getelementptr inbounds i8, ptr %139, i64 %.sroa.09.0.i
   %193 = load i8, ptr %192, align 1, !alias.scope !385, !noalias !391, !noundef !5
-  %194 = getelementptr inbounds [0 x i8], ptr %135, i64 0, i64 %185
+  %194 = getelementptr inbounds i8, ptr %135, i64 %185
   %195 = load i8, ptr %194, align 1, !alias.scope !383, !noalias !389, !noundef !5
   %.not28.i = icmp eq i8 %193, %195
   br i1 %.not28.i, label %179, label %198
@@ -2668,7 +2668,7 @@ _ZN3std4path4Path4join17heee76c98e9934e10E.exit:  ; preds = %301
 
 .lr.ph.i.i196:                                    ; preds = %341, %345
   %.05.i.i = phi i64 [ %346, %345 ], [ 0, %341 ]
-  %342 = getelementptr inbounds nuw [0 x i8], ptr %.val, i64 0, i64 %.05.i.i
+  %342 = getelementptr inbounds nuw i8, ptr %.val, i64 %.05.i.i
   %343 = load i8, ptr %342, align 1, !alias.scope !457, !noundef !5
   %344 = icmp eq i8 %343, 47
   br i1 %344, label %.thread335.sink.split, label %345
@@ -2978,7 +2978,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %427
 
 .lr.ph.i.i215:                                    ; preds = %441, %445
   %.05.i.i216 = phi i64 [ %446, %445 ], [ 0, %441 ]
-  %442 = getelementptr inbounds nuw [0 x i8], ptr %435, i64 0, i64 %.05.i.i216
+  %442 = getelementptr inbounds nuw i8, ptr %435, i64 %.05.i.i216
   %443 = load i8, ptr %442, align 1, !alias.scope !494, !noundef !5
   %444 = icmp eq i8 %443, 47
   br i1 %444, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit219.thread345", label %445

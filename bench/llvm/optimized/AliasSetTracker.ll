@@ -2145,7 +2145,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_8LoadInstE(ptr noundef 
   %7 = lshr i16 %6, 7
   %8 = and i16 %7, 7
   %9 = zext nneg i16 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %9, i64 2
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %9, i64 2
   %11 = load i8, ptr %10, align 2, !tbaa !176, !range !54, !noundef !55
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %14
@@ -2345,7 +2345,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_9StoreInstE(ptr noundef
   %7 = lshr i16 %6, 7
   %8 = and i16 %7, 7
   %9 = zext nneg i16 %8 to i64
-  %10 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %9, i64 2
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %9, i64 2
   %11 = load i8, ptr %10, align 2, !tbaa !176, !range !54, !noundef !55
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %14
@@ -2550,7 +2550,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker3addEPNS_11InstructionE(ptr noun
   %17 = lshr i16 %16, 7
   %18 = and i16 %17, 7
   %19 = zext nneg i16 %18 to i64
-  %20 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %19, i64 2
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %19, i64 2
   %21 = load i8, ptr %20, align 2, !tbaa !176, !range !54, !noundef !55
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %24
@@ -2599,7 +2599,7 @@ _ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13A
   %42 = lshr i16 %41, 7
   %43 = and i16 %42, 7
   %44 = zext nneg i16 %43 to i64
-  %45 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %44, i64 2
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %44, i64 2
   %46 = load i8, ptr %45, align 2, !tbaa !176, !range !54, !noundef !55
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %49

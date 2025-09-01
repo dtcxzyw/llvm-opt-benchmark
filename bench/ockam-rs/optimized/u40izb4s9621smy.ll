@@ -295,7 +295,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.07.sroa.9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %.sroa.07.sroa.9, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.58.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.58.i)
-  %33 = getelementptr inbounds nuw [0 x { [20 x i64] }], ptr %6, i64 0, i64 %.sroa.7.033
+  %33 = getelementptr inbounds nuw { [20 x i64] }, ptr %6, i64 %.sroa.7.033
   store ptr %22, ptr %33, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %32, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -404,7 +404,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %.sroa.07.sroa.15, ptr noundef nonnull align 1 dereferenceable(33) %.sroa.5.sroa.5.i, i64 33, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.52.sroa.5.i.i)
-  %34 = getelementptr inbounds nuw [0 x { [28 x i64] }], ptr %5, i64 0, i64 %.sroa.7.031
+  %34 = getelementptr inbounds nuw { [28 x i64] }, ptr %5, i64 %.sroa.7.031
   store <32 x i8> %28, ptr %34, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i64 %25, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
@@ -862,7 +862,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %.sroa.07.sroa.15.i, ptr noundef nonnull align 1 dereferenceable(33) %.sroa.5.sroa.5.i.i, i64 33, i1 false), !noalias !91
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.52.sroa.5.i.i.i)
-  %36 = getelementptr inbounds nuw [0 x { [28 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031.i
+  %36 = getelementptr inbounds nuw { [28 x i64] }, ptr %7, i64 %.sroa.7.031.i
   store <32 x i8> %30, ptr %36, align 8, !noalias !91
   %.sroa.07.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i64 %27, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8, !noalias !91

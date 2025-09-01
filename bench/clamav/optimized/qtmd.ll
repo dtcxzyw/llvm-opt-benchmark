@@ -1304,7 +1304,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not12852050, label %._crit_edge2059, label %.lr.ph2058.preheader
 
 .lr.ph2058.preheader:                             ; preds = %517
-  %519 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %518
+  %519 = getelementptr inbounds nuw i8, ptr @extra_bits, i64 %518
   %520 = load i8, ptr %519, align 1, !tbaa !46
   br label %.lr.ph2058
 
@@ -1594,7 +1594,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not12722017, label %._crit_edge2059, label %.lr.ph2025.preheader
 
 .lr.ph2025.preheader:                             ; preds = %665
-  %667 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %666
+  %667 = getelementptr inbounds nuw i8, ptr @extra_bits, i64 %666
   %668 = load i8, ptr %667, align 1, !tbaa !46
   br label %.lr.ph2025
 
@@ -1885,7 +1885,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not12461951, label %._crit_edge1960, label %.lr.ph1959.preheader
 
 .lr.ph1959.preheader:                             ; preds = %813
-  %816 = getelementptr inbounds nuw [27 x i8], ptr @length_extra, i64 0, i64 %814
+  %816 = getelementptr inbounds nuw i8, ptr @length_extra, i64 %814
   %817 = load i8, ptr %816, align 1, !tbaa !46
   br label %.lr.ph1959
 
@@ -1983,7 +1983,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.33978.lcssa = phi i32 [ %.30975, %813 ], [ %856, %._crit_edge1960.loopexit ]
   %.49922.lcssa = phi ptr [ %.44917, %813 ], [ %.50923, %._crit_edge1960.loopexit ]
   %.49.lcssa = phi ptr [ %.44869, %813 ], [ %.50, %._crit_edge1960.loopexit ]
-  %861 = getelementptr inbounds nuw [27 x i8], ptr @length_base, i64 0, i64 %814
+  %861 = getelementptr inbounds nuw i8, ptr @length_base, i64 %814
   %862 = load i8, ptr %861, align 1, !tbaa !46
   %863 = zext i8 %862 to i32
   %864 = add i32 %.21096.lcssa, %863
@@ -2188,7 +2188,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not12591984, label %._crit_edge2059, label %.lr.ph1992.preheader
 
 .lr.ph1992.preheader:                             ; preds = %966
-  %968 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %967
+  %968 = getelementptr inbounds nuw i8, ptr @extra_bits, i64 %967
   %969 = load i8, ptr %968, align 1, !tbaa !46
   br label %.lr.ph1992
 
@@ -2291,7 +2291,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.22967 = phi i32 [ %.15960, %517 ], [ %.23968, %665 ], [ %.37982, %966 ], [ %559, %552 ], [ %707, %700 ], [ %1008, %1001 ]
   %.32905 = phi ptr [ %.21894, %517 ], [ %.33906, %665 ], [ %.55928, %966 ], [ %.27900, %552 ], [ %.39912, %700 ], [ %.61934, %1001 ]
   %.32857 = phi ptr [ %.21846, %517 ], [ %.33858, %665 ], [ %.55, %966 ], [ %.27852, %552 ], [ %.39864, %700 ], [ %.61, %1001 ]
-  %1013 = getelementptr inbounds nuw [42 x i32], ptr @position_base, i64 0, i64 %.sink
+  %1013 = getelementptr inbounds nuw i32, ptr @position_base, i64 %.sink
   %1014 = load i32, ptr %1013, align 4, !tbaa !57
   %1015 = add i32 %1014, %.31097.lcssa.sink
   %.01060 = add i32 %1015, 1

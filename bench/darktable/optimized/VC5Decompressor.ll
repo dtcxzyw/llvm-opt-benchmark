@@ -407,7 +407,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i.i.i, %74 ]
   %.067.i.i.i.i = phi i32 [ 0, %69 ], [ %84, %74 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %75 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next.i.i.i.i
+  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !35
   %77 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %57
   tail call void @llvm.assume(i1 %77)
@@ -434,7 +434,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i32.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i34.i, %85 ]
   %.067.i.i.i33.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %95, %85 ]
   %indvars.iv.next.i.i.i34.i = add nuw nsw i64 %indvars.iv.i.i.i32.i, 1
-  %86 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i.i.i34.i
+  %86 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i34.i
   %87 = load i32, ptr %86, align 4, !tbaa !35
   %88 = icmp samesign ult i64 %indvars.iv.i.i.i32.i, %57
   tail call void @llvm.assume(i1 %88)
@@ -547,7 +547,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i35 = phi i64 [ 0, %143 ], [ %indvars.iv.next.i.i.i.i37, %148 ]
   %.067.i.i.i.i36 = phi i32 [ 0, %143 ], [ %159, %148 ]
   %indvars.iv.next.i.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i.i35, 1
-  %149 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i.i.i.i37
+  %149 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i.i.i.i37
   %150 = load i32, ptr %149, align 4, !tbaa !35
   %151 = add nuw nsw i64 %indvars.iv.i.i.i.i35, %131
   %152 = icmp samesign ult i64 %151, %57
@@ -575,7 +575,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i33.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i35.i, %160 ]
   %.067.i.i.i34.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %171, %160 ]
   %indvars.iv.next.i.i.i35.i = add nuw nsw i64 %indvars.iv.i.i.i33.i, 1
-  %161 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.next.i.i.i35.i
+  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i.i.i35.i
   %162 = load i32, ptr %161, align 4, !tbaa !35
   %163 = add nuw nsw i64 %indvars.iv.i.i.i33.i, %131
   %164 = icmp samesign ult i64 %163, %57
@@ -631,7 +631,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i62 = phi i64 [ 0, %186 ], [ %indvars.iv.next.i.i.i.i64, %191 ]
   %.067.i.i.i.i63 = phi i32 [ 0, %186 ], [ %202, %191 ]
   %indvars.iv.next.i.i.i.i64 = add nuw nsw i64 %indvars.iv.i.i.i.i62, 1
-  %192 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.next.i.i.i.i64
+  %192 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i.i.i.i64
   %193 = load i32, ptr %192, align 4, !tbaa !35
   %194 = add nuw nsw i64 %indvars.iv.i.i.i.i62, %118
   %195 = icmp samesign ult i64 %194, %57
@@ -659,7 +659,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i33.i68 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i35.i70, %203 ]
   %.067.i.i.i34.i69 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_ENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %214, %203 ]
   %indvars.iv.next.i.i.i35.i70 = add nuw nsw i64 %indvars.iv.i.i.i33.i68, 1
-  %204 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i.i35.i70
+  %204 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.i.i35.i70
   %205 = load i32, ptr %204, align 4, !tbaa !35
   %206 = add nuw nsw i64 %indvars.iv.i.i.i33.i68, %118
   %207 = icmp samesign ult i64 %206, %57
@@ -877,7 +877,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i.i.i, %80 ]
   %.067.i.i.i.i = phi i32 [ 0, %68 ], [ %88, %80 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %81 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv.next.i.i.i.i
+  %81 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i.i.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !35
   %83 = icmp samesign ult i64 %indvars.iv.i.i.i.i, %56
   tail call void @llvm.assume(i1 %83)
@@ -900,7 +900,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i34.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i36.i, %89 ]
   %.067.i.i.i35.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %97, %89 ]
   %indvars.iv.next.i.i.i36.i = add nuw nsw i64 %indvars.iv.i.i.i34.i, 1
-  %90 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.next.i.i.i36.i
+  %90 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i.i.i36.i
   %91 = load i32, ptr %90, align 4, !tbaa !35
   %92 = icmp samesign ult i64 %indvars.iv.i.i.i34.i, %56
   tail call void @llvm.assume(i1 %92)
@@ -965,7 +965,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i25 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i.i27, %123 ]
   %.067.i.i.i.i26 = phi i32 [ 0, %.lr.ph ], [ %132, %123 ]
   %indvars.iv.next.i.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i.i25, 1
-  %124 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.next.i.i.i.i27
+  %124 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next.i.i.i.i27
   %125 = load i32, ptr %124, align 4, !tbaa !35
   %126 = add nuw nsw i64 %indvars.iv.i.i.i.i25, %122
   %127 = icmp samesign ult i64 %126, %56
@@ -989,7 +989,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i35.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i, %133 ]
   %.067.i.i.i36.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %142, %133 ]
   %indvars.iv.next.i.i.i37.i = add nuw nsw i64 %indvars.iv.i.i.i35.i, 1
-  %134 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next.i.i.i37.i
+  %134 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i.i.i37.i
   %135 = load i32, ptr %134, align 4, !tbaa !35
   %136 = add nuw nsw i64 %indvars.iv.i.i.i35.i, %122
   %137 = icmp samesign ult i64 %136, %56
@@ -1061,7 +1061,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i.i53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i.i.i55, %170 ]
   %.067.i.i.i.i54 = phi i32 [ 0, %._crit_edge ], [ %179, %170 ]
   %indvars.iv.next.i.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i.i53, 1
-  %171 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i.i.i.i55
+  %171 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i.i.i.i55
   %172 = load i32, ptr %171, align 4, !tbaa !35
   %173 = add nuw nsw i64 %indvars.iv.i.i.i.i53, %168
   %174 = icmp samesign ult i64 %173, %56
@@ -1085,7 +1085,7 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   %indvars.iv.i.i.i35.i58 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i60, %180 ]
   %.067.i.i.i36.i59 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %189, %180 ]
   %indvars.iv.next.i.i.i37.i60 = add nuw nsw i64 %indvars.iv.i.i.i35.i58, 1
-  %181 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i.i.i37.i60
+  %181 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i.i.i37.i60
   %182 = load i32, ptr %181, align 4, !tbaa !35
   %183 = add nuw nsw i64 %indvars.iv.i.i.i35.i58, %168
   %184 = icmp samesign ult i64 %183, %56
@@ -2328,7 +2328,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit60:         ; preds = %_ZN8rawspeed10ByteS
 .preheader:                                       ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit60
   %67 = load i16, ptr %27, align 8, !tbaa !224
   %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds nuw [4 x %"struct.rawspeed::VC5Decompressor::Channel"], ptr %26, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.rawspeed::VC5Decompressor::Channel", ptr %26, i64 %68
   %70 = zext i16 %spec.select.i.i.i.i.i.i59 to i32
   br label %127
 
@@ -2483,7 +2483,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit60:         ; preds = %_ZN8rawspeed10ByteS
   %130 = lshr i32 %70, %129
   %131 = trunc nuw nsw i32 %130 to i16
   %132 = and i16 %131, 3
-  %133 = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %69, i64 0, i64 %indvars.iv.next, i32 2
+  %133 = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %69, i64 %indvars.iv.next, i32 2
   store i16 %132, ptr %133, align 8, !tbaa !79
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %127, !llvm.loop !229
@@ -3775,18 +3775,18 @@ define hidden void @_ZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10Byte
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i16, ptr %8, align 2, !tbaa !41
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw [10 x i32], ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE21subband_wavelet_index, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE21subband_wavelet_index, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !35
-  %14 = getelementptr inbounds nuw [10 x i32], ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE18subband_band_index, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10ByteStreamEE18subband_band_index, i64 %11
   %15 = load i32, ptr %14, align 4, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %17 = load i16, ptr %9, align 8, !tbaa !224
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw [4 x %"struct.rawspeed::VC5Decompressor::Channel"], ptr %16, i64 0, i64 %18
-  %20 = add nsw i32 %13, 1
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %19, i64 0, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %19 = getelementptr inbounds nuw %"struct.rawspeed::VC5Decompressor::Channel", ptr %16, i64 %18
+  %20 = sext i32 %13 to i64
+  %21 = getelementptr %"class.rawspeed::VC5Decompressor::Wavelet", ptr %19, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 48
+  %23 = getelementptr i8, ptr %21, i64 88
   %24 = load i32, ptr %23, align 8, !tbaa !6
   %25 = shl nuw i32 1, %15
   %26 = and i32 %24, %25
@@ -3799,7 +3799,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10Byte
   unreachable
 
 29:                                               ; preds = %7
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %30 = getelementptr i8, ptr %21, i64 64
   %31 = sext i32 %15 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !70
   %33 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %32, i64 %31
@@ -3839,7 +3839,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor19parseLargeCodeblockENS_10Byte
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 104
   store i16 %43, ptr %48, align 8, !tbaa !283, !noalias !278
   %49 = load i32, ptr %22, align 8, !tbaa !203, !noalias !278
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %50 = getelementptr i8, ptr %21, i64 52
   %51 = load i32, ptr %50, align 4, !tbaa !204, !noalias !278
   %52 = tail call i32 @llvm.abs.i32(i32 %49, i1 false)
   %53 = zext i32 %52 to i64
@@ -3961,58 +3961,56 @@ _ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZNSt10unique_ptrIN
   %106 = or i32 %105, %25
   store i32 %106, ptr %23, align 8, !tbaa !6
   %107 = icmp eq i32 %106, 15
-  br i1 %107, label %108, label %129
+  br i1 %107, label %108, label %127
 
 108:                                              ; preds = %_ZN8rawspeed8OptionalItE5resetEv.exit
-  %109 = sext i32 %13 to i64
-  %110 = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %19, i64 0, i64 %109
-  %111 = icmp eq i32 %13, 0
-  %112 = zext i1 %111 to i8
-  %113 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #31, !noalias !294
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store ptr %22, ptr %114, align 8, !tbaa !281, !noalias !294
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 80
-  store i8 0, ptr %115, align 8, !tbaa !73, !noalias !294
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandE, i64 16), ptr %113, align 8, !tbaa !76, !noalias !294
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 88
-  store i8 %112, ptr %116, align 8, !tbaa !80, !noalias !294
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 89
-  store i8 %112, ptr %117, align 1, !tbaa !297, !noalias !294
-  %118 = getelementptr inbounds nuw i8, ptr %113, i64 160
-  store i8 0, ptr %118, align 8, !tbaa !73, !noalias !294
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 232
-  store i8 0, ptr %119, align 8, !tbaa !73, !noalias !294
-  %120 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %121 = load ptr, ptr %120, align 8, !tbaa !70
-  %122 = load ptr, ptr %121, align 8, !tbaa !71
-  store ptr %113, ptr %121, align 8, !tbaa !71
-  %.not.i.i.i29 = icmp eq ptr %122, null
+  %109 = icmp eq i32 %13, 0
+  %110 = zext i1 %109 to i8
+  %111 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #31, !noalias !294
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  store ptr %22, ptr %112, align 8, !tbaa !281, !noalias !294
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 80
+  store i8 0, ptr %113, align 8, !tbaa !73, !noalias !294
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandE, i64 16), ptr %111, align 8, !tbaa !76, !noalias !294
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 88
+  store i8 %110, ptr %114, align 8, !tbaa !80, !noalias !294
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 89
+  store i8 %110, ptr %115, align 1, !tbaa !297, !noalias !294
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 160
+  store i8 0, ptr %116, align 8, !tbaa !73, !noalias !294
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 232
+  store i8 0, ptr %117, align 8, !tbaa !73, !noalias !294
+  %118 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !70
+  %120 = load ptr, ptr %119, align 8, !tbaa !71
+  store ptr %111, ptr %119, align 8, !tbaa !71
+  %.not.i.i.i29 = icmp eq ptr %120, null
   br i1 %.not.i.i.i29, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30
 
 _ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30: ; preds = %108
-  %123 = load ptr, ptr %122, align 8, !tbaa !76
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  tail call void %125(ptr noundef nonnull align 8 dereferenceable(88) %122) #33
+  %121 = load ptr, ptr %120, align 8, !tbaa !76
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = load ptr, ptr %122, align 8
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(88) %120) #33
   br label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8rawspeed15VC5Decompressor7Wavelet12AbstractBandEEclEPS3_.exit.i.i.i30, %108
-  %126 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %127 = load i32, ptr %126, align 8, !tbaa !6
-  %128 = or i32 %127, 1
-  store i32 %128, ptr %126, align 8, !tbaa !6
-  br label %129
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %125 = load i32, ptr %124, align 8, !tbaa !6
+  %126 = or i32 %125, 1
+  store i32 %126, ptr %124, align 8, !tbaa !6
+  br label %127
 
-129:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
-  %130 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
-  %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %132, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
+127:                                              ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBandESt14default_deleteIS3_EED2Ev.exit, %_ZN8rawspeed8OptionalItE5resetEv.exit
+  %128 = load i8, ptr %3, align 4, !tbaa !103, !range !60, !noundef !21
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-132:                                              ; preds = %129
+130:                                              ; preds = %127
   store i8 0, ptr %3, align 4, !tbaa !103
   br label %_ZN8rawspeed8OptionalItE5resetEv.exit32
 
-_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %129, %132
+_ZN8rawspeed8OptionalItE5resetEv.exit32:          ; preds = %127, %130
   ret void
 }
 
@@ -4998,7 +4996,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor30createWaveletBandDecodingTas
 3:                                                ; preds = %2, %.critedge28
   %indvars.iv36 = phi i64 [ 3, %2 ], [ %indvars.iv.next37, %.critedge28 ]
   %4 = icmp eq i64 %indvars.iv36, 0
-  %invariant.gep = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %0, i64 0, i64 %indvars.iv36, i32 4
+  %invariant.gep = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36, i32 4
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader
 
@@ -5048,7 +5046,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor12decodeThreadERb(ptr noundef 
 3:                                                ; preds = %.critedge28.i, %2
   %indvars.iv36.i = phi i64 [ 3, %2 ], [ %indvars.iv.next37.i, %.critedge28.i ]
   %4 = icmp eq i64 %indvars.iv36.i, 0
-  %invariant.gep.i = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %0, i64 0, i64 %indvars.iv36.i, i32 4
+  %invariant.gep.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i, i32 4
   %5 = select i1 %4, i64 0, i64 3
   br label %.preheader.i
 
@@ -5156,7 +5154,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor6decodeEjjjj(ptr noundef nonnul
 19:                                               ; preds = %.critedge28.i.i, %18
   %indvars.iv36.i.i = phi i64 [ 3, %18 ], [ %indvars.iv.next37.i.i, %.critedge28.i.i ]
   %20 = icmp eq i64 %indvars.iv36.i.i, 0
-  %invariant.gep.i.i = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %0, i64 0, i64 %indvars.iv36.i.i, i32 4
+  %invariant.gep.i.i = getelementptr inbounds nuw %"class.rawspeed::VC5Decompressor::Wavelet", ptr %0, i64 %indvars.iv36.i.i, i32 4
   %21 = select i1 %20, i64 0, i64 3
   br label %.preheader.i.i
 
@@ -5851,9 +5849,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %wide.trip.count362 = zext nneg i32 %30 to i64
   %wide.trip.count = zext nneg i32 %umax to i64
   %132 = xor i64 %111, -1
-  %133 = ptrtoint ptr %110 to i64
-  %134 = add i64 %133, %132
-  %135 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %134
+  %133 = getelementptr i32, ptr %4, i64 %132
+  %134 = ptrtoint ptr %110 to i64
+  %135 = getelementptr i32, ptr %133, i64 %134
   br label %.preheader343.us
 
 .preheader343.us:                                 ; preds = %.preheader343.us.preheader, %._crit_edge.us

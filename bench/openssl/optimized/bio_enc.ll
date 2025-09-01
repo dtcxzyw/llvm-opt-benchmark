@@ -111,7 +111,7 @@ define internal i32 @enc_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %16 = phi i32 [ %11, %.lr.ph ], [ %24, %22 ]
   %.06375 = phi i32 [ %12, %.lr.ph ], [ %25, %22 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4384 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
   %19 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull %18, i32 noundef %.06375) #6
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %21, label %22
@@ -168,7 +168,7 @@ define internal i32 @enc_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %43 = phi i32 [ %55, %52 ], [ 0, %37 ]
   %.176 = phi i32 [ %53, %52 ], [ %41, %37 ]
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [4384 x i8], ptr %30, i64 0, i64 %44
+  %45 = getelementptr inbounds i8, ptr %30, i64 %44
   %46 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull %45, i32 noundef %.176) #6
   %47 = icmp slt i32 %46, 1
   br i1 %47, label %48, label %52
@@ -231,7 +231,7 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %17, i32 %2)
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds [4384 x i8], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %20, i64 %21, i1 false)
   %22 = getelementptr inbounds i8, ptr %1, i64 %21
@@ -560,7 +560,7 @@ define internal i64 @enc_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   %64 = phi i32 [ %59, %.lr.ph.i ], [ %71, %69 ]
   %.06375.i = phi i32 [ %60, %.lr.ph.i ], [ %72, %69 ]
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [4384 x i8], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds i8, ptr %62, i64 %65
   %67 = tail call i32 @BIO_write(ptr noundef %53, ptr noundef nonnull %66, i32 noundef %.06375.i) #6
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %enc_write.exit, label %69

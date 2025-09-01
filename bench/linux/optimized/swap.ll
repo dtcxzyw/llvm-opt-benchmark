@@ -750,7 +750,7 @@ define dso_local void @folio_rotate_reclaimable(ptr noundef %0) local_unnamed_ad
   %25 = add i8 %24, 1
   store i8 %25, ptr %22, align 8
   %26 = zext i8 %24 to i64
-  %27 = getelementptr [15 x ptr], ptr %23, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %23, i64 %26
   store ptr %0, ptr %27, align 8
   %28 = icmp eq i8 %25, 15
   br i1 %28, label %36, label %29
@@ -850,7 +850,7 @@ define internal void @lru_move_tail_fn(ptr noundef %0, ptr noundef %1) #1 align 
   %42 = shl i64 %40, 32
   %43 = ashr exact i64 %42, 32
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %27, i64 noundef %43) #12
-  %44 = getelementptr [4 x %struct.zone], ptr %41, i64 0, i64 %29
+  %44 = getelementptr %struct.zone, ptr %41, i64 %29
   %45 = add nuw nsw i32 %27, 1
   tail call void @__mod_zone_page_state(ptr noundef %44, i32 noundef %45, i64 noundef %40) #12
   %46 = getelementptr i8, ptr %1, i64 1
@@ -899,12 +899,12 @@ define internal void @lru_move_tail_fn(ptr noundef %0, ptr noundef %1) #1 align 
   %73 = zext i32 %.shrunk to i64
   %74 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %62, i64 noundef %74) #12
-  %75 = getelementptr [4 x %struct.zone], ptr %41, i64 0, i64 %64
+  %75 = getelementptr %struct.zone, ptr %41, i64 %64
   %76 = add nuw nsw i32 %62, 1
   tail call void @__mod_zone_page_state(ptr noundef %75, i32 noundef %76, i64 noundef %73) #12
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = zext nneg i32 %62 to i64
-  %79 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %78
+  %79 = getelementptr %struct.list_head, ptr %0, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   store ptr %77, ptr %80, align 8
@@ -978,7 +978,7 @@ define dso_local void @lru_note_cost(ptr noundef %0, i1 noundef zeroext %1, i32 
 define dso_local void @lru_note_cost_refault(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load i64, ptr %0, align 16
   %3 = lshr i64 %2, 58
-  %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @node_data, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i64, ptr %0, align 16
   %7 = load volatile i64, ptr %0, align 16
@@ -1032,7 +1032,7 @@ define dso_local void @folio_activate(ptr noundef %0) local_unnamed_addr #1 alig
   %20 = add i8 %19, 1
   store i8 %20, ptr %17, align 8
   %21 = zext i8 %19 to i64
-  %22 = getelementptr [15 x ptr], ptr %18, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %18, i64 %21
   store ptr %0, ptr %22, align 8
   %23 = icmp eq i8 %20, 15
   br i1 %23, label %31, label %24
@@ -1156,7 +1156,7 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
   %55 = shl i64 %53, 32
   %56 = ashr exact i64 %55, 32
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %40, i64 noundef %56) #12
-  %57 = getelementptr [4 x %struct.zone], ptr %54, i64 0, i64 %42
+  %57 = getelementptr %struct.zone, ptr %54, i64 %42
   %58 = add nuw nsw i32 %40, 1
   tail call void @__mod_zone_page_state(ptr noundef %57, i32 noundef %58, i64 noundef %53) #12
   %59 = getelementptr i8, ptr %1, i64 1
@@ -1205,7 +1205,7 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
   %86 = zext i32 %.shrunk to i64
   %87 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %75, i64 noundef %87) #12
-  %88 = getelementptr [4 x %struct.zone], ptr %54, i64 0, i64 %77
+  %88 = getelementptr %struct.zone, ptr %54, i64 %77
   %89 = add nuw nsw i32 %75, 1
   tail call void @__mod_zone_page_state(ptr noundef %88, i32 noundef %89, i64 noundef %86) #12
   %90 = icmp eq i32 %75, 4
@@ -1214,7 +1214,7 @@ define internal void @folio_activate_fn(ptr noundef %0, ptr noundef %1) #1 align
 91:                                               ; preds = %.thread3
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = zext nneg i32 %75 to i64
-  %94 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %93
+  %94 = getelementptr %struct.list_head, ptr %0, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %92, ptr %96, align 8
@@ -1287,19 +1287,19 @@ define dso_local void @folio_mark_accessed(ptr noundef %0) #1 align 16 {
 
 5:                                                ; preds = %1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 4, ptr elementtype(i8) %0) #12, !srcloc !37
-  br label %43
+  br label %42
 
 6:                                                ; preds = %1
   %7 = load volatile i64, ptr %0, align 8
   %8 = and i64 %7, 1048576
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %42
 
 10:                                               ; preds = %6
   %11 = load volatile i64, ptr %0, align 8
   %12 = and i64 %11, 256
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %42
 
 14:                                               ; preds = %10
   %15 = load volatile i64, ptr %0, align 8
@@ -1309,7 +1309,7 @@ define dso_local void @folio_mark_accessed(ptr noundef %0) #1 align 16 {
 
 18:                                               ; preds = %14
   tail call void @folio_activate(ptr noundef %0)
-  br label %42
+  br label %41
 
 19:                                               ; preds = %14
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !29
@@ -1317,48 +1317,47 @@ define dso_local void @folio_mark_accessed(ptr noundef %0) #1 align 16 {
   %20 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_fbatches) #13, !srcloc !45
   %21 = inttoptr i64 %20 to ptr
   %22 = load i8, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = zext i8 %22 to i64
-  br label %25
+  %23 = zext i8 %22 to i64
+  br label %24
 
-25:                                               ; preds = %28, %19
-  %26 = phi i64 [ %29, %28 ], [ %24, %19 ]
-  %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %28, label %.loopexit
+24:                                               ; preds = %27, %19
+  %25 = phi i64 [ %28, %27 ], [ %23, %19 ]
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %27, label %.loopexit
 
-28:                                               ; preds = %25
-  %29 = add nsw i64 %26, -1
-  %30 = getelementptr [15 x ptr], ptr %23, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %0
-  br i1 %32, label %33, label %25
+27:                                               ; preds = %24
+  %28 = add nsw i64 %25, -1
+  %29 = getelementptr ptr, ptr %21, i64 %25
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, %0
+  br i1 %31, label %32, label %24
 
-33:                                               ; preds = %28
-  %34 = getelementptr i8, ptr %0, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 1, ptr elementtype(i8) %34) #12, !srcloc !37
+32:                                               ; preds = %27
+  %33 = getelementptr i8, ptr %0, i64 1
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33, i32 1, ptr elementtype(i8) %33) #12, !srcloc !37
   br label %.loopexit, !llvm.loop !46
 
-.loopexit:                                        ; preds = %25, %33
-  %35 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_fbatches) #13, !srcloc !47
+.loopexit:                                        ; preds = %24, %32
+  %34 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_fbatches) #13, !srcloc !47
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !48
-  %36 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !35
-  %37 = icmp ult i8 %36, 2
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp eq i8 %36, 0
-  br i1 %38, label %42, label %39, !prof !10
+  %35 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !35
+  %36 = icmp ult i8 %35, 2
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp eq i8 %35, 0
+  br i1 %37, label %41, label %38, !prof !10
 
-39:                                               ; preds = %.loopexit
-  %40 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %41 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %40) #12, !srcloc !49
-  tail call void @llvm.write_register.i64(metadata !0, i64 %41)
-  br label %42
+38:                                               ; preds = %.loopexit
+  %39 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %40 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %39) #12, !srcloc !49
+  tail call void @llvm.write_register.i64(metadata !0, i64 %40)
+  br label %41
 
-42:                                               ; preds = %39, %.loopexit, %18
+41:                                               ; preds = %38, %.loopexit, %18
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 -5, ptr elementtype(i8) %0) #12, !srcloc !27
   tail call void @workingset_activation(ptr noundef %0) #12
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %10, %6, %5
+42:                                               ; preds = %41, %10, %6, %5
   ret void
 }
 
@@ -1378,7 +1377,7 @@ define dso_local void @folio_add_lru(ptr noundef %0) #1 align 16 {
   %7 = add i8 %6, 1
   store i8 %7, ptr %4, align 8
   %8 = zext i8 %6 to i64
-  %9 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %5, i64 %8
   store ptr %0, ptr %9, align 8
   %10 = icmp eq i8 %7, 15
   br i1 %10, label %18, label %11
@@ -1525,7 +1524,7 @@ define internal void @lru_add_fn(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %62 = getelementptr i8, ptr %0, i64 -13440
   %63 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %62, i32 noundef %50, i64 noundef %63) #12
-  %64 = getelementptr [4 x %struct.zone], ptr %62, i64 0, i64 %52
+  %64 = getelementptr %struct.zone, ptr %62, i64 %52
   %65 = add nuw nsw i32 %50, 1
   tail call void @__mod_zone_page_state(ptr noundef %64, i32 noundef %65, i64 noundef %61) #12
   %66 = icmp eq i32 %50, 4
@@ -1534,7 +1533,7 @@ define internal void @lru_add_fn(ptr noundef %0, ptr noundef %1) #1 align 16 {
 67:                                               ; preds = %.thread
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = zext nneg i32 %50 to i64
-  %70 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %69
+  %70 = getelementptr %struct.list_head, ptr %0, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %68, ptr %72, align 8
@@ -1612,7 +1611,7 @@ define dso_local void @folio_add_lru_vma(ptr noundef %0, ptr noundef readonly ca
   %14 = add i8 %13, 1
   store i8 %14, ptr %11, align 8
   %15 = zext i8 %13 to i64
-  %16 = getelementptr [15 x ptr], ptr %12, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %12, i64 %15
   store ptr %0, ptr %16, align 8
   %17 = icmp eq i8 %14, 15
   br i1 %17, label %25, label %18
@@ -1658,7 +1657,7 @@ declare dso_local void @mlock_new_folio(ptr noundef) local_unnamed_addr #0
 define dso_local void @lru_add_drain_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_fbatches to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -1758,7 +1757,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
   %8 = phi i64 [ %34, %31 ], [ 0, %5 ]
   %9 = phi ptr [ %33, %31 ], [ null, %5 ]
   %10 = phi i64 [ %32, %31 ], [ 0, %5 ]
-  %11 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %8
+  %11 = getelementptr ptr, ptr %6, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %9, null
   br i1 %13, label %23, label %14
@@ -1767,7 +1766,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
   %15 = getelementptr i8, ptr %9, i64 -13440
   %16 = load i64, ptr %12, align 16
   %17 = lshr i64 %16, 58
-  %18 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr @node_data, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %15, %19
   br i1 %20, label %31, label %21
@@ -1780,7 +1779,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
 23:                                               ; preds = %21, %.split.us
   %24 = load i64, ptr %12, align 16
   %25 = lshr i64 %24, 58
-  %26 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr @node_data, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 13440
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 13520
@@ -1802,7 +1801,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
   %38 = phi i64 [ %71, %68 ], [ 0, %5 ]
   %39 = phi ptr [ %70, %68 ], [ null, %5 ]
   %40 = phi i64 [ %69, %68 ], [ 0, %5 ]
-  %41 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %38
+  %41 = getelementptr ptr, ptr %6, i64 %38
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, i64 5, ptr elementtype(i64) %42) #12, !srcloc !55
   %44 = icmp ult i8 %43, 2
@@ -1818,7 +1817,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
   %49 = getelementptr i8, ptr %39, i64 -13440
   %50 = load i64, ptr %42, align 16
   %51 = lshr i64 %50, 58
-  %52 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %51
+  %52 = getelementptr ptr, ptr @node_data, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %49, %53
   br i1 %54, label %65, label %55
@@ -1831,7 +1830,7 @@ define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0,
 57:                                               ; preds = %55, %46
   %58 = load i64, ptr %42, align 16
   %59 = lshr i64 %58, 58
-  %60 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %59
+  %60 = getelementptr ptr, ptr @node_data, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 13440
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 13520
@@ -1976,7 +1975,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   %67 = shl i64 %65, 32
   %68 = ashr exact i64 %67, 32
   tail call void @__mod_node_page_state(ptr noundef %66, i32 noundef %52, i64 noundef %68) #12
-  %69 = getelementptr [4 x %struct.zone], ptr %66, i64 0, i64 %54
+  %69 = getelementptr %struct.zone, ptr %66, i64 %54
   %70 = add nuw nsw i32 %52, 1
   tail call void @__mod_zone_page_state(ptr noundef %69, i32 noundef %70, i64 noundef %65) #12
   %71 = getelementptr i8, ptr %1, i64 1
@@ -2038,7 +2037,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   %106 = zext i32 %.shrunk to i64
   %107 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %66, i32 noundef %95, i64 noundef %107) #12
-  %108 = getelementptr [4 x %struct.zone], ptr %66, i64 0, i64 %97
+  %108 = getelementptr %struct.zone, ptr %66, i64 %97
   %109 = add nuw nsw i32 %95, 1
   tail call void @__mod_zone_page_state(ptr noundef %108, i32 noundef %109, i64 noundef %106) #12
   %110 = icmp eq i32 %95, 4
@@ -2047,7 +2046,7 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
 111:                                              ; preds = %.thread2
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = zext nneg i32 %95 to i64
-  %114 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %113
+  %114 = getelementptr %struct.list_head, ptr %0, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %112, ptr %116, align 8
@@ -2107,12 +2106,12 @@ define internal void @lru_deactivate_file_fn(ptr noundef %0, ptr noundef %1) #1 
   %147 = zext i32 %.shrunk4 to i64
   %148 = sext i32 %.shrunk4 to i64
   tail call void @__mod_node_page_state(ptr noundef %66, i32 noundef %136, i64 noundef %148) #12
-  %149 = getelementptr [4 x %struct.zone], ptr %66, i64 0, i64 %138
+  %149 = getelementptr %struct.zone, ptr %66, i64 %138
   %150 = add nuw nsw i32 %136, 1
   tail call void @__mod_zone_page_state(ptr noundef %149, i32 noundef %150, i64 noundef %147) #12
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = zext nneg i32 %136 to i64
-  %153 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %152
+  %153 = getelementptr %struct.list_head, ptr %0, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   store ptr %151, ptr %154, align 8
@@ -2219,7 +2218,7 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
   %55 = shl i64 %53, 32
   %56 = ashr exact i64 %55, 32
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %40, i64 noundef %56) #12
-  %57 = getelementptr [4 x %struct.zone], ptr %54, i64 0, i64 %42
+  %57 = getelementptr %struct.zone, ptr %54, i64 %42
   %58 = add nuw nsw i32 %40, 1
   tail call void @__mod_zone_page_state(ptr noundef %57, i32 noundef %58, i64 noundef %53) #12
   %59 = getelementptr i8, ptr %1, i64 1
@@ -2269,7 +2268,7 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
   %86 = zext i32 %.shrunk to i64
   %87 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %54, i32 noundef %75, i64 noundef %87) #12
-  %88 = getelementptr [4 x %struct.zone], ptr %54, i64 0, i64 %77
+  %88 = getelementptr %struct.zone, ptr %54, i64 %77
   %89 = add nuw nsw i32 %75, 1
   tail call void @__mod_zone_page_state(ptr noundef %88, i32 noundef %89, i64 noundef %86) #12
   %90 = icmp eq i32 %75, 4
@@ -2278,7 +2277,7 @@ define internal void @lru_deactivate_fn(ptr noundef %0, ptr noundef %1) #1 align
 91:                                               ; preds = %.thread2
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = zext nneg i32 %75 to i64
-  %94 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %93
+  %94 = getelementptr %struct.list_head, ptr %0, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %92, ptr %96, align 8
@@ -2401,7 +2400,7 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
   %69 = shl i64 %67, 32
   %70 = ashr exact i64 %69, 32
   tail call void @__mod_node_page_state(ptr noundef %68, i32 noundef %54, i64 noundef %70) #12
-  %71 = getelementptr [4 x %struct.zone], ptr %68, i64 0, i64 %56
+  %71 = getelementptr %struct.zone, ptr %68, i64 %56
   %72 = add nuw nsw i32 %54, 1
   tail call void @__mod_zone_page_state(ptr noundef %71, i32 noundef %72, i64 noundef %67) #12
   %73 = getelementptr i8, ptr %1, i64 1
@@ -2453,7 +2452,7 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
   %101 = zext i32 %.shrunk to i64
   %102 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %68, i32 noundef %90, i64 noundef %102) #12
-  %103 = getelementptr [4 x %struct.zone], ptr %68, i64 0, i64 %92
+  %103 = getelementptr %struct.zone, ptr %68, i64 %92
   %104 = add nuw nsw i32 %90, 1
   tail call void @__mod_zone_page_state(ptr noundef %103, i32 noundef %104, i64 noundef %101) #12
   %105 = icmp eq i32 %90, 4
@@ -2462,7 +2461,7 @@ define internal void @lru_lazyfree_fn(ptr noundef %0, ptr noundef %1) #1 align 1
 106:                                              ; preds = %.thread2
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %108 = zext nneg i32 %90 to i64
-  %109 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %108
+  %109 = getelementptr %struct.list_head, ptr %0, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %107, ptr %111, align 8
@@ -2500,7 +2499,7 @@ define dso_local void @deactivate_file_folio(ptr noundef %0) local_unnamed_addr 
   %12 = add i8 %11, 1
   store i8 %12, ptr %9, align 8
   %13 = zext i8 %11 to i64
-  %14 = getelementptr [15 x ptr], ptr %10, i64 0, i64 %13
+  %14 = getelementptr ptr, ptr %10, i64 %13
   store ptr %0, ptr %14, align 8
   %15 = icmp eq i8 %12, 15
   br i1 %15, label %23, label %16
@@ -2571,7 +2570,7 @@ define dso_local void @folio_deactivate(ptr noundef %0) local_unnamed_addr #1 al
   %20 = add i8 %19, 1
   store i8 %20, ptr %17, align 8
   %21 = zext i8 %19 to i64
-  %22 = getelementptr [15 x ptr], ptr %18, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %18, i64 %21
   store ptr %0, ptr %22, align 8
   %23 = icmp eq i8 %20, 15
   br i1 %23, label %31, label %24
@@ -2662,7 +2661,7 @@ define dso_local void @folio_mark_lazyfree(ptr noundef %0) local_unnamed_addr #1
   %34 = add i8 %33, 1
   store i8 %34, ptr %31, align 8
   %35 = zext i8 %33 to i64
-  %36 = getelementptr [15 x ptr], ptr %32, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %32, i64 %35
   store ptr %0, ptr %36, align 8
   %37 = icmp eq i8 %34, 15
   br i1 %37, label %45, label %38
@@ -2811,7 +2810,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpu_fbatches to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -2898,7 +2897,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
 
 76:                                               ; preds = %72
   %77 = and i64 %73, 63
-  %78 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %77
+  %78 = getelementptr i64, ptr @__per_cpu_offset, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, ptrtoint (ptr @lru_add_drain_work to i64)
   %81 = inttoptr i64 %80 to ptr
@@ -3065,7 +3064,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 79:                                               ; preds = %77
   %80 = getelementptr i8, ptr %49, i64 -13440
   %81 = lshr i64 %74, 58
-  %82 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %81
+  %82 = getelementptr ptr, ptr @node_data, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %80, %83
   br i1 %84, label %95, label %85
@@ -3079,7 +3078,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
 87:                                               ; preds = %85, %77
   %88 = phi i64 [ %.pre, %85 ], [ %74, %77 ]
   %89 = lshr i64 %88, 58
-  %90 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %89
+  %90 = getelementptr ptr, ptr @node_data, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 13440
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 13520
@@ -3149,7 +3148,7 @@ define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef
   %135 = shl i64 %133, 32
   %136 = ashr exact i64 %135, 32
   call void @__mod_node_page_state(ptr noundef %134, i32 noundef %120, i64 noundef %136) #12
-  %137 = getelementptr [4 x %struct.zone], ptr %134, i64 0, i64 %122
+  %137 = getelementptr %struct.zone, ptr %134, i64 %122
   %138 = add nuw nsw i32 %120, 1
   call void @__mod_zone_page_state(ptr noundef %137, i32 noundef %138, i64 noundef %133) #12
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, i64 5) #12, !srcloc !104
@@ -3231,7 +3230,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal fastcc void @zone_stat_sub_folio(ptr noundef %0) unnamed_addr #5 align 16 {
   %2 = load i64, ptr %0, align 16
   %3 = lshr i64 %2, 58
-  %4 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @node_data, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i64, ptr %0, align 16
   %7 = and i64 %6, 64
@@ -3248,7 +3247,7 @@ define internal fastcc void @zone_stat_sub_folio(ptr noundef %0) unnamed_addr #5
   %14 = phi i64 [ %12, %9 ], [ 1, %1 ]
   %15 = lshr i64 %2, 56
   %16 = and i64 %15, 3
-  %17 = getelementptr [4 x %struct.zone], ptr %5, i64 0, i64 %16
+  %17 = getelementptr %struct.zone, ptr %5, i64 %16
   %18 = sub nsw i64 0, %14
   tail call void @mod_zone_page_state(ptr noundef %17, i32 noundef 7, i64 noundef %18) #12
   ret void
@@ -3309,7 +3308,7 @@ define dso_local void @folio_batch_remove_exceptionals(ptr noundef captures(none
 7:                                                ; preds = %19, %4
   %8 = phi i64 [ 0, %4 ], [ %21, %19 ]
   %9 = phi i32 [ 0, %4 ], [ %20, %19 ]
-  %10 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %8
+  %10 = getelementptr ptr, ptr %5, i64 %8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -3319,7 +3318,7 @@ define dso_local void @folio_batch_remove_exceptionals(ptr noundef captures(none
 15:                                               ; preds = %7
   %16 = add i32 %9, 1
   %17 = zext i32 %9 to i64
-  %18 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %5, i64 %17
   store ptr %11, ptr %18, align 8
   br label %19
 
@@ -3458,7 +3457,7 @@ define internal fastcc void @__page_cache_release(ptr noundef %0) unnamed_addr #
 
 5:                                                ; preds = %1
   %6 = lshr i64 %2, 58
-  %7 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @node_data, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 13520
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %9) #12
@@ -3519,7 +3518,7 @@ define internal fastcc void @__page_cache_release(ptr noundef %0) unnamed_addr #
   %45 = shl i64 %44, 32
   %46 = ashr exact i64 %45, 32
   tail call void @__mod_node_page_state(ptr noundef %8, i32 noundef %31, i64 noundef %46) #12
-  %47 = getelementptr [4 x %struct.zone], ptr %8, i64 0, i64 %33
+  %47 = getelementptr %struct.zone, ptr %8, i64 %33
   %48 = add nuw nsw i32 %31, 1
   tail call void @__mod_zone_page_state(ptr noundef %47, i32 noundef %48, i64 noundef %44) #12
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 5) #12, !srcloc !104
@@ -3567,11 +3566,11 @@ define internal fastcc void @__page_cache_release(ptr noundef %0) unnamed_addr #
   %72 = sub nsw i64 0, %71
   %73 = load i64, ptr %0, align 16
   %74 = lshr i64 %73, 58
-  %75 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %74
+  %75 = getelementptr ptr, ptr @node_data, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = lshr i64 %73, 56
   %78 = and i64 %77, 3
-  %79 = getelementptr [4 x %struct.zone], ptr %76, i64 0, i64 %78
+  %79 = getelementptr %struct.zone, ptr %76, i64 %78
   tail call void @mod_zone_page_state(ptr noundef %79, i32 noundef 7, i64 noundef %72) #12
   tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 544), i64 %71, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 544)) #12, !srcloc !110
   br label %80

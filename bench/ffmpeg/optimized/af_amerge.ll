@@ -148,7 +148,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %19, align 8, !tbaa !46
-  %28 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %27, ptr %28, align 8, !tbaa !47
   %29 = icmp sgt i32 %22, 1
   br i1 %29, label %30, label %34
@@ -248,7 +248,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 
 72:                                               ; preds = %.lr.ph120, %72
   %indvars.iv138 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next139, %72 ]
-  %73 = getelementptr inbounds nuw [64 x i32], ptr %71, i64 0, i64 %indvars.iv138
+  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv138
   %74 = trunc nuw nsw i64 %indvars.iv138 to i32
   store i32 %74, ptr %73, align 4, !tbaa !54
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
@@ -304,7 +304,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
   %98 = load i32, ptr %97, align 4, !tbaa !49
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %95, i64 %99
-  %101 = getelementptr inbounds nuw [64 x ptr], ptr %6, i64 0, i64 %indvars.iv141
+  %101 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv141
   store ptr %100, ptr %101, align 8, !tbaa !56
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
@@ -323,7 +323,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 .lr.ph127:                                        ; preds = %.preheader105, %113
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %113 ], [ 0, %.preheader105 ]
   %.1126 = phi i32 [ %.2, %113 ], [ %.0131, %.preheader105 ]
-  %104 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv146
+  %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv146
   %105 = load ptr, ptr %104, align 8, !tbaa !47
   %106 = call i32 @av_channel_layout_index_from_channel(ptr noundef %105, i32 noundef %.083130) #7
   %107 = icmp sgt i32 %106, -1
@@ -331,7 +331,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 
 108:                                              ; preds = %.lr.ph127
   %109 = add nsw i32 %.1126, 1
-  %110 = getelementptr inbounds nuw [64 x ptr], ptr %6, i64 0, i64 %indvars.iv146
+  %110 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv146
   %111 = load ptr, ptr %110, align 8, !tbaa !56
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store ptr %112, ptr %110, align 8, !tbaa !56
@@ -381,7 +381,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 129:                                              ; preds = %.lr.ph133, %125
   %indvars.iv150 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next151, %125 ]
   store ptr null, ptr %4, align 8, !tbaa !63
-  %130 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv150
+  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv150
   %131 = load ptr, ptr %130, align 8, !tbaa !47
   %132 = call i32 @ff_add_channel_layout(ptr noundef nonnull %4, ptr noundef %131) #7
   %133 = icmp slt i32 %132, 0
@@ -525,7 +525,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %52 = load ptr, ptr %21, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw [64 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %56 = call i32 @ff_inlink_consume_samples(ptr noundef %54, i32 noundef range(i32 1, 0) %.038.lcssa, i32 noundef range(i32 1, 0) %.038.lcssa, ptr noundef nonnull %55) #7
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %60
@@ -545,7 +545,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 60:                                               ; preds = %.lr.ph.i
   %61 = load ptr, ptr %55, align 8, !tbaa !69
   %62 = load ptr, ptr %61, align 8, !tbaa !71
-  %63 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   store ptr %62, ptr %63, align 8, !tbaa !71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %64 = load i32, ptr %25, align 8, !tbaa !65

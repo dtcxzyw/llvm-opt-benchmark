@@ -10603,7 +10603,7 @@ if.end6:                                          ; preds = %_ZN4node7tracingL13
 
 for.body:                                         ; preds = %if.end6, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb1EE5resetEPS1_.exit
   %i.016 = phi i64 [ 0, %if.end6 ], [ %inc, %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb1EE5resetEPS1_.exit ]
-  %arrayidx.i.i = getelementptr inbounds nuw [12 x %"class.node::BaseObjectPtrImpl"], ptr %binding_data_store_, i64 0, i64 %i.016
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.node::BaseObjectPtrImpl", ptr %binding_data_store_, i64 %i.016
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.not.i.i.i11 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i11, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb1EE5resetEPS1_.exit, label %land.lhs.true.i.i.i

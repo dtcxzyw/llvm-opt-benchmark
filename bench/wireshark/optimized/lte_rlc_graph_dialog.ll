@@ -4827,7 +4827,7 @@ _ZN9QtPrivate12QPodArrayOpsIdE10createHoleEN10QArrayData14GrowthPositionExx.exit
   br label %_ZN5QListIdE6appendEd.exit63
 
 _ZN5QListIdE6appendEd.exit63:                     ; preds = %286, %292, %_ZN9QtPrivate12QPodArrayOpsIdE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
-  %334 = getelementptr [512 x i32], ptr %270, i64 0, i64 %indvars.iv
+  %334 = getelementptr i32, ptr %270, i64 %indvars.iv
   %335 = load i32, ptr %334, align 4
   %336 = uitofp i32 %335 to double
   %337 = load i64, ptr %199, align 8

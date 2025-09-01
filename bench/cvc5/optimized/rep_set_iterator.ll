@@ -411,7 +411,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory14RepSetIterator13setQ
   %14 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !39, !noalias !67
   store ptr %18, ptr %3, align 8, !tbaa !41, !alias.scope !67
   %19 = load i64, ptr %18, align 8, !noalias !67
@@ -2264,8 +2264,8 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %40, %34, %31
   %spec.select.i.i = add nuw i64 %.09, %69
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %71 = ashr exact i64 %sext, 32
-  %72 = getelementptr inbounds [0 x ptr], ptr %70, i64 0, i64 %71
+  %71 = ashr exact i64 %sext, 29
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !39, !noalias !105
   store ptr %73, ptr %4, align 8, !tbaa !59, !alias.scope !105
   %74 = load i64, ptr %73, align 8, !noalias !105

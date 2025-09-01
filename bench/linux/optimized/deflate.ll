@@ -194,22 +194,22 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef cap
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 1
+  %46 = getelementptr %struct.config_s, ptr @configuration_table, i64 %45, i32 1
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45
+  %50 = getelementptr %struct.config_s, ptr @configuration_table, i64 %45
   %51 = load i16, ptr %50, align 16
   %52 = zext i16 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 180
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 2
+  %54 = getelementptr %struct.config_s, ptr @configuration_table, i64 %45, i32 2
   %55 = load i16, ptr %54, align 4
   %56 = zext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store i32 %56, ptr %57, align 8
-  %58 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 3
+  %58 = getelementptr %struct.config_s, ptr @configuration_table, i64 %45, i32 3
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 164
@@ -540,7 +540,7 @@ thread-pre-split:                                 ; preds = %165, %177
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %207 = load i32, ptr %206, align 4
   %208 = sext i32 %207 to i64
-  %209 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %208, i32 4
+  %209 = getelementptr %struct.config_s, ptr @configuration_table, i64 %208, i32 4
   %210 = load ptr, ptr %209, align 8
   %211 = tail call i32 %210(ptr noundef nonnull %6, i32 noundef %1) #10
   %212 = and i32 %211, -2

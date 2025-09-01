@@ -443,12 +443,12 @@ do_dump.exit.thread91:                            ; preds = %42
   %50 = load i8, ptr %.01218.i.i, align 1, !tbaa !18
   %51 = lshr i8 %50, 4
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @do_hex_dump.hexdig, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !18
   store i8 %54, ptr %6, align 1, !tbaa !18
   %55 = and i8 %50, 15
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @do_hex_dump.hexdig, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !18
   store i8 %58, ptr %46, align 1, !tbaa !18
   %59 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 2) #10, !callees !8
@@ -508,12 +508,12 @@ do_hex_dump.exit35.i.thread:                      ; preds = %70
   %76 = load i8, ptr %.01218.i30.i, align 1, !tbaa !18
   %77 = lshr i8 %76, 4
   %78 = zext nneg i8 %77 to i64
-  %79 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @do_hex_dump.hexdig, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !18
   store i8 %80, ptr %5, align 1, !tbaa !18
   %81 = and i8 %76, 15
   %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr inbounds nuw [17 x i8], ptr @do_hex_dump.hexdig, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @do_hex_dump.hexdig, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !18
   store i8 %84, ptr %72, align 1, !tbaa !18
   %85 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 2) #10, !callees !8
@@ -546,7 +546,7 @@ do_dump.exit:                                     ; preds = %do_hex_dump.exit35.
   br label %.critedge
 
 89:                                               ; preds = %30
-  %90 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %31
+  %90 = getelementptr inbounds nuw i8, ptr @tag2nbyte, i64 %31
   %91 = load i8, ptr %90, align 1, !tbaa !18
   %92 = sext i8 %91 to i32
   %.not72 = icmp eq i32 %.fr, 12
@@ -638,7 +638,7 @@ define hidden i32 @ASN1_STRING_to_UTF8(ptr noundef writeonly captures(none) %0, 
   br i1 %.not18, label %12, label %26
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw [31 x i8], ptr @tag2nbyte, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr @tag2nbyte, i64 %9
   %14 = load i8, ptr %13, align 1, !tbaa !18
   %15 = sext i8 %14 to i32
   %16 = or i32 %15, 4096
@@ -827,7 +827,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw [128 x i8], ptr @char_type, i64 0, i64 %63
+  %72 = getelementptr inbounds nuw i8, ptr @char_type, i64 %63
   %73 = load i8, ptr %72, align 1, !tbaa !18
   %74 = and i8 %73, %64
   br label %75
@@ -1000,7 +1000,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
 152:                                              ; preds = %.lr.ph, %186
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %186 ]
   %.154100 = phi i32 [ %.053103, %.lr.ph ], [ %187, %186 ]
-  %153 = getelementptr inbounds nuw [6 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %154 = load i8, ptr %153, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1010,7 +1010,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 156:                                              ; preds = %152
   %157 = zext nneg i8 %154 to i64
-  %158 = getelementptr inbounds nuw [128 x i8], ptr @char_type, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @char_type, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !18
   %160 = and i8 %159, %151
   br label %161

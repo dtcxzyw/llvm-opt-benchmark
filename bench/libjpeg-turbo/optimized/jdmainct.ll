@@ -182,7 +182,7 @@ alloc_funny_pointers.exit:                        ; preds = %61, %41
   %113 = mul i32 %112, %104
   %114 = mul nsw i32 %107, %.047
   %115 = tail call ptr %110(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %113, i32 noundef %114) #3
-  %116 = getelementptr inbounds nuw [10 x ptr], ptr %99, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
   store ptr %115, ptr %116, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = getelementptr inbounds nuw i8, ptr %.054, i64 96
@@ -251,7 +251,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   %34 = load ptr, ptr %33, align 8, !tbaa !57
   %35 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv76.i
   %36 = load ptr, ptr %35, align 8, !tbaa !57
-  %37 = getelementptr inbounds nuw [10 x ptr], ptr %23, i64 0, i64 %indvars.iv76.i
+  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv76.i
   %38 = load ptr, ptr %37, align 8, !tbaa !57
   %39 = mul nsw i32 %32, %24
   %40 = icmp sgt i32 %39, 0
@@ -378,7 +378,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %16 = load i32, ptr %15, align 8, !tbaa !69
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %19) #3
   %.not49 = icmp eq i32 %20, 0
@@ -410,7 +410,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %35 = load i32, ptr %34, align 8, !tbaa !69
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [2 x ptr], ptr %33, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 144
@@ -457,7 +457,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 136
   %68 = load i32, ptr %67, align 8, !tbaa !69
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [2 x ptr], ptr %66, i64 0, i64 %69
+  %70 = getelementptr inbounds ptr, ptr %66, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !51
   %wide.trip.count42.i = zext nneg i32 %60 to i64
   br label %72
@@ -529,7 +529,7 @@ set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58,
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %105 = load i32, ptr %104, align 8, !tbaa !69
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [2 x ptr], ptr %103, i64 0, i64 %106
+  %107 = getelementptr inbounds ptr, ptr %103, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !51
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 144

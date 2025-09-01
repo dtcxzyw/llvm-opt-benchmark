@@ -32,35 +32,33 @@ define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader30 ], [ 0, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 1
-  %9 = lshr exact i64 %indvars.iv, 2
-  %10 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %9
-  store i32 %8, ptr %10, align 4, !tbaa !12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
+  store i32 %8, ptr %9, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %11 = icmp samesign ult i64 %indvars.iv, 28
-  br i1 %11, label %.preheader30, label %.loopexit31, !llvm.loop !13
+  %10 = icmp samesign ult i64 %indvars.iv, 28
+  br i1 %10, label %.preheader30, label %.loopexit31, !llvm.loop !13
 
 .loopexit31:                                      ; preds = %.preheader30, %4
   %.not29 = icmp eq ptr %2, null
   br i1 %.not29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit31
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  br label %12
 
-13:                                               ; preds = %.preheader, %13
-  %indvars.iv35 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next36, %13 ]
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35
-  %15 = load i32, ptr %14, align 1
-  %16 = lshr exact i64 %indvars.iv35, 2
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %16
-  store i32 %15, ptr %17, align 4, !tbaa !15
+12:                                               ; preds = %.preheader, %12
+  %indvars.iv35 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next36, %12 ]
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35
+  %14 = load i32, ptr %13, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv35
+  store i32 %14, ptr %15, align 4, !tbaa !15
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 4
-  %18 = icmp samesign ult i64 %indvars.iv35, 12
-  br i1 %18, label %13, label %.loopexit, !llvm.loop !16
+  %16 = icmp samesign ult i64 %indvars.iv35, 12
+  br i1 %16, label %12, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %13, %.loopexit31
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store i32 0, ptr %19, align 8, !tbaa !17
+.loopexit:                                        ; preds = %12, %.loopexit31
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store i32 0, ptr %17, align 8, !tbaa !17
   ret i32 1
 }
 
@@ -92,7 +90,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %15 = getelementptr inbounds nuw i8, ptr %.17381, i64 1
   %16 = load i8, ptr %.17381, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = xor i8 %18, %16
   %20 = getelementptr inbounds nuw i8, ptr %.16883, i64 1
@@ -202,7 +200,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %indvars.iv105 = phi i64 [ 0, %61 ], [ %indvars.iv.next106, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 %indvars.iv105
   %65 = load i8, ptr %64, align 1, !tbaa !12
-  %66 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 0, i64 %indvars.iv105
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv105
   %67 = load i8, ptr %66, align 1, !tbaa !12
   %68 = xor i8 %67, %65
   %69 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 %indvars.iv105
@@ -232,14 +230,14 @@ define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly cap
   %8 = icmp ne ptr %1, null
   %9 = icmp ne ptr %2, null
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %10, label %46
+  br i1 %or.cond, label %10, label %44
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i64 -1, ptr %12, align 8, !tbaa !22
-  br i1 %9, label %13, label %39
+  br i1 %9, label %13, label %38
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -265,54 +263,52 @@ define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly cap
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader30.i ], [ 0, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 1
-  %25 = lshr exact i64 %indvars.iv.i, 2
-  %26 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %25
-  store i32 %24, ptr %26, align 4, !tbaa !12
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
+  store i32 %24, ptr %25, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %27 = icmp samesign ult i64 %indvars.iv.i, 28
-  br i1 %27, label %.preheader30.i, label %.loopexit31.i, !llvm.loop !13
+  %26 = icmp samesign ult i64 %indvars.iv.i, 28
+  br i1 %26, label %.preheader30.i, label %.loopexit31.i, !llvm.loop !13
 
 .loopexit31.i:                                    ; preds = %.preheader30.i, %22
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i32 0, ptr %29, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i32 %31, ptr %32, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 124
-  store i32 %34, ptr %35, align 4, !tbaa !15
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %37 = load i32, ptr %36, align 4, !tbaa !15
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 %37, ptr %38, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store i32 0, ptr %28, align 8, !tbaa !17
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %30 = load i32, ptr %29, align 4, !tbaa !15
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  store i32 %30, ptr %31, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %33 = load i32, ptr %32, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 124
+  store i32 %33, ptr %34, align 4, !tbaa !15
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %36 = load i32, ptr %35, align 4, !tbaa !15
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i32 %36, ptr %37, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %46
+  br label %44
 
-39:                                               ; preds = %10
+38:                                               ; preds = %10
   %.not.i27 = icmp eq ptr %1, null
   br i1 %.not.i27, label %chacha_init_key.exit32, label %.preheader30.i28
 
-.preheader30.i28:                                 ; preds = %39, %.preheader30.i28
-  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.preheader30.i28 ], [ 0, %39 ]
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i29
-  %41 = load i32, ptr %40, align 1
-  %42 = lshr exact i64 %indvars.iv.i29, 2
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %42
-  store i32 %41, ptr %43, align 4, !tbaa !12
+.preheader30.i28:                                 ; preds = %38, %.preheader30.i28
+  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.preheader30.i28 ], [ 0, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i29
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i29
+  store i32 %40, ptr %41, align 4, !tbaa !12
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 4
-  %44 = icmp samesign ult i64 %indvars.iv.i29, 28
-  br i1 %44, label %.preheader30.i28, label %chacha_init_key.exit32, !llvm.loop !13
+  %42 = icmp samesign ult i64 %indvars.iv.i29, 28
+  br i1 %42, label %.preheader30.i28, label %chacha_init_key.exit32, !llvm.loop !13
 
-chacha_init_key.exit32:                           ; preds = %.preheader30.i28, %39
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i32 0, ptr %45, align 8, !tbaa !17
-  br label %46
+chacha_init_key.exit32:                           ; preds = %.preheader30.i28, %38
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store i32 0, ptr %43, align 8, !tbaa !17
+  br label %44
 
-46:                                               ; preds = %.loopexit31.i, %chacha_init_key.exit32, %4
+44:                                               ; preds = %.loopexit31.i, %chacha_init_key.exit32, %4
   ret i32 1
 }
 

@@ -498,7 +498,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 140:                                              ; preds = %121, %149
   %141 = phi i1 [ true, %121 ], [ false, %149 ]
   %indvars.iv = phi i64 [ 0, %121 ], [ 1, %149 ]
-  %142 = getelementptr inbounds nuw [2 x double], ptr %122, i64 0, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv
   %143 = load double, ptr %142, align 8, !tbaa !54
   %144 = fcmp nsz une double %143, 0x7FEFFFFFFFFFFFFF
   br i1 %144, label %145, label %149
@@ -506,7 +506,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 145:                                              ; preds = %140
   %146 = load ptr, ptr %123, align 8, !tbaa !20
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = getelementptr inbounds nuw [2 x double], ptr %147, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw double, ptr %147, i64 %indvars.iv
   store double %143, ptr %148, align 8, !tbaa !54
   br label %149
 

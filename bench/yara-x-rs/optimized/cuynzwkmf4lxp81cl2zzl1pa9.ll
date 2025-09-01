@@ -12136,10 +12136,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$bincode..error..IntegerType$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2290, !noundef !6
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN64_$LT$bincode..error..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h724c22c6410ab25bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$bincode..error..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h724c22c6410ab25bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN64_$LT$bincode..error..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h724c22c6410ab25bE.553", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$bincode..error..IntegerType$u20$as$u20$core..fmt..Debug$GT$3fmt17h724c22c6410ab25bE.553", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -17616,10 +17616,10 @@ switch.hole_check:                                ; preds = %"_ZN5alloc3vec16Vec
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1296 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1296
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1296
   %switch.load = load i8, ptr %switch.gep, align 1
   %1297 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1687 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1297
+  %switch.gep1687 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1297
   %switch.load1688 = load i32, ptr %switch.gep1687, align 4
   %1298 = shl i32 %.sroa.4.0.copyload1372, 3
   %1299 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1276, i64 noundef %1278, i32 noundef %1279, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !3604
@@ -22023,7 +22023,7 @@ switch.lookup:
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %4 = load i64, ptr %3, align 8, !range !4464, !noundef !6
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.576, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.576, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %switch.load, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !6, !align !17, !noundef !6
@@ -22106,9 +22106,9 @@ _ZN6yara_x8compiler4emit27emit_map_integer_key_lookup17h2c121da986d5e135E.exit: 
           to label %.noexc11 unwind label %15
 
 .noexc11:                                         ; preds = %27
-  %switch.tableidx21 = add nsw i8 %28, -1
-  %29 = icmp ult i8 %switch.tableidx21, 6
-  %switch.shifted24 = lshr i8 47, %switch.tableidx21
+  %switch.tableidx20 = add nsw i8 %28, -1
+  %29 = icmp ult i8 %switch.tableidx20, 6
+  %switch.shifted24 = lshr i8 47, %switch.tableidx20
   %switch.lobit25 = trunc i8 %switch.shifted24 to i1
   %or.cond28 = select i1 %29, i1 %switch.lobit25, i1 false
   br i1 %or.cond28, label %.invoke18, label %.invoke
@@ -22122,10 +22122,10 @@ _ZN6yara_x8compiler4emit27emit_map_integer_key_lookup17h2c121da986d5e135E.exit: 
   unreachable
 
 .invoke18:                                        ; preds = %.noexc11, %.noexc
-  %switch.tableidx21.sink = phi i8 [ %switch.tableidx, %.noexc ], [ %switch.tableidx21, %.noexc11 ]
+  %switch.tableidx20.sink = phi i8 [ %switch.tableidx, %.noexc ], [ %switch.tableidx20, %.noexc11 ]
   %switch.table._ZN6yara_x8compiler4emit15emit_map_lookup17h51b6537ceb786f1cE.555.sink = phi ptr [ @switch.table._ZN6yara_x8compiler4emit15emit_map_lookup17h51b6537ceb786f1cE, %.noexc ], [ @switch.table._ZN6yara_x8compiler4emit15emit_map_lookup17h51b6537ceb786f1cE.555, %.noexc11 ]
-  %31 = zext nneg i8 %switch.tableidx21.sink to i64
-  %switch.gep26 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN6yara_x8compiler4emit15emit_map_lookup17h51b6537ceb786f1cE.555.sink, i64 0, i64 %31
+  %31 = zext nneg i8 %switch.tableidx20.sink to i64
+  %switch.gep26 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN6yara_x8compiler4emit15emit_map_lookup17h51b6537ceb786f1cE.555.sink, i64 %31
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %32 = getelementptr inbounds nuw i8, ptr %switch.load27, i64 16
   %33 = load ptr, ptr %32, align 8, !noalias !6, !nonnull !6, !align !17, !noundef !6
@@ -22303,10 +22303,10 @@ switch.hole_check:                                ; preds = %58
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %75 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %75
   %switch.load = load i8, ptr %switch.gep, align 1
   %76 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep378 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %76
+  %switch.gep378 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %76
   %switch.load379 = load i32, ptr %switch.gep378, align 4
   %77 = shl i32 %.sroa.7.0.copyload, 3
   %78 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %67, i64 noundef %69, i32 noundef %70, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !4526
@@ -22815,8 +22815,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder7if_else17h2be5256cead0ba47E.exit.i
   %.sroa.4236.0.copyload = load i8, ptr %.sroa.4236.0..sroa.692.16..sroa_idx, align 4, !noalias !4657
   %.val5.i = load ptr, ptr %112, align 8, !alias.scope !4508, !noalias !4744
   call void @llvm.experimental.noalias.scope.decl(metadata !4745), !noalias !4516
-  %switch.tableidx381 = add i8 %.sroa.4236.0.copyload, -1
-  %306 = icmp ult i8 %switch.tableidx381, 9
+  %switch.tableidx380 = add i8 %.sroa.4236.0.copyload, -1
+  %306 = icmp ult i8 %switch.tableidx380, 9
   br i1 %306, label %switch.hole_check382, label %307
 
 307:                                              ; preds = %switch.hole_check382, %_ZN6walrus16function_builder15InstrSeqBuilder7if_else17h2be5256cead0ba47E.exit.i
@@ -22824,17 +22824,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder7if_else17h2be5256cead0ba47E.exit.i
   unreachable
 
 switch.hole_check382:                             ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder7if_else17h2be5256cead0ba47E.exit.i
-  %switch.maskindex384 = zext nneg i8 %switch.tableidx381 to i16
+  %switch.maskindex384 = zext nneg i8 %switch.tableidx380 to i16
   %switch.shifted385 = lshr i16 495, %switch.maskindex384
   %switch.lobit386 = trunc i16 %switch.shifted385 to i1
   br i1 %switch.lobit386, label %switch.lookup383, label %307
 
 switch.lookup383:                                 ; preds = %switch.hole_check382
-  %308 = zext nneg i8 %switch.tableidx381 to i64
-  %switch.gep387 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %308
+  %308 = zext nneg i8 %switch.tableidx380 to i64
+  %switch.gep387 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %308
   %switch.load388 = load i8, ptr %switch.gep387, align 1
-  %309 = zext nneg i8 %switch.tableidx381 to i64
-  %switch.gep389 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %309
+  %309 = zext nneg i8 %switch.tableidx380 to i64
+  %switch.gep389 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %309
   %switch.load390 = load i32, ptr %switch.gep389, align 4
   %310 = shl i32 %.sroa.3235.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !4749), !noalias !4516
@@ -22934,8 +22934,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr nonnull readonly %.val5.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38, i32 %.sroa.3235.0.copyload, i1 noundef zeroext false), !noalias !4657
   %.val.i.i = load ptr, ptr %112, align 8, !noalias !4516
   call void @llvm.experimental.noalias.scope.decl(metadata !4781)
-  %switch.tableidx392 = add i8 %.sroa.8.0.copyload, -1
-  %353 = icmp ult i8 %switch.tableidx392, 9
+  %switch.tableidx391 = add i8 %.sroa.8.0.copyload, -1
+  %353 = icmp ult i8 %switch.tableidx391, 9
   br i1 %353, label %switch.hole_check393, label %354
 
 354:                                              ; preds = %switch.hole_check393, %"_ZN6yara_x8compiler4emit17emit_for_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h2baae9e5f1ac7191E.exit"
@@ -22943,17 +22943,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   unreachable
 
 switch.hole_check393:                             ; preds = %"_ZN6yara_x8compiler4emit17emit_for_in_range28_$u7b$$u7b$closure$u7d$$u7d$17h2baae9e5f1ac7191E.exit"
-  %switch.maskindex395 = zext nneg i8 %switch.tableidx392 to i16
+  %switch.maskindex395 = zext nneg i8 %switch.tableidx391 to i16
   %switch.shifted396 = lshr i16 495, %switch.maskindex395
   %switch.lobit397 = trunc i16 %switch.shifted396 to i1
   br i1 %switch.lobit397, label %switch.lookup394, label %354
 
 switch.lookup394:                                 ; preds = %switch.hole_check393
-  %355 = zext nneg i8 %switch.tableidx392 to i64
-  %switch.gep398 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %355
+  %355 = zext nneg i8 %switch.tableidx391 to i64
+  %switch.gep398 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %355
   %switch.load399 = load i8, ptr %switch.gep398, align 1
-  %356 = zext nneg i8 %switch.tableidx392 to i64
-  %switch.gep400 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %356
+  %356 = zext nneg i8 %switch.tableidx391 to i64
+  %switch.gep400 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %356
   %switch.load401 = load i32, ptr %switch.gep400, align 4
   %357 = shl i32 %.sroa.7326.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !4785), !noalias !4516
@@ -23079,8 +23079,8 @@ _ZN6yara_x8compiler4emit7set_var17hce32231238400647E.exit: ; preds = %"_ZN6yara_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.0..sroa_idx.i.i, i64 3, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !4818)
   call void @llvm.experimental.noalias.scope.decl(metadata !4821)
-  %switch.tableidx403 = add i8 %.sroa.614.0.copyload16.i.i, -1
-  %401 = icmp ult i8 %switch.tableidx403, 9
+  %switch.tableidx402 = add i8 %.sroa.614.0.copyload16.i.i, -1
+  %401 = icmp ult i8 %switch.tableidx402, 9
   br i1 %401, label %switch.hole_check404, label %402
 
 402:                                              ; preds = %switch.hole_check404, %399
@@ -23088,17 +23088,17 @@ _ZN6yara_x8compiler4emit7set_var17hce32231238400647E.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check404:                             ; preds = %399
-  %switch.maskindex406 = zext nneg i8 %switch.tableidx403 to i16
+  %switch.maskindex406 = zext nneg i8 %switch.tableidx402 to i16
   %switch.shifted407 = lshr i16 495, %switch.maskindex406
   %switch.lobit408 = trunc i16 %switch.shifted407 to i1
   br i1 %switch.lobit408, label %switch.lookup405, label %402
 
 switch.lookup405:                                 ; preds = %switch.hole_check404
-  %403 = zext nneg i8 %switch.tableidx403 to i64
-  %switch.gep409 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %403
+  %403 = zext nneg i8 %switch.tableidx402 to i64
+  %switch.gep409 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %403
   %switch.load410 = load i8, ptr %switch.gep409, align 1
-  %404 = zext nneg i8 %switch.tableidx403 to i64
-  %switch.gep411 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %404
+  %404 = zext nneg i8 %switch.tableidx402 to i64
+  %switch.gep411 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %404
   %switch.load412 = load i32, ptr %switch.gep411, align 4
   %405 = shl i32 %.sroa.5.0.copyload9.i.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !4826), !noalias !4516
@@ -23380,8 +23380,8 @@ _ZN6yara_x8compiler4emit7set_var17h1e14f464fc6111dfE.exit: ; preds = %"_ZN6yara_
   call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %38, i32 %.sroa.5.0.copyload9.i.i, i1 noundef zeroext false), !noalias !4919
   %.val44.i.i = load ptr, ptr %112, align 8, !noalias !4516
   call void @llvm.experimental.noalias.scope.decl(metadata !4932)
-  %switch.tableidx414 = add i8 %.sroa.531.0.copyload.i.i, -1
-  %540 = icmp ult i8 %switch.tableidx414, 9
+  %switch.tableidx413 = add i8 %.sroa.531.0.copyload.i.i, -1
+  %540 = icmp ult i8 %switch.tableidx413, 9
   br i1 %540, label %switch.hole_check415, label %541
 
 541:                                              ; preds = %switch.hole_check415, %_ZN6yara_x8compiler4emit7set_var17h1e14f464fc6111dfE.exit
@@ -23389,17 +23389,17 @@ _ZN6yara_x8compiler4emit7set_var17h1e14f464fc6111dfE.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check415:                             ; preds = %_ZN6yara_x8compiler4emit7set_var17h1e14f464fc6111dfE.exit
-  %switch.maskindex417 = zext nneg i8 %switch.tableidx414 to i16
+  %switch.maskindex417 = zext nneg i8 %switch.tableidx413 to i16
   %switch.shifted418 = lshr i16 495, %switch.maskindex417
   %switch.lobit419 = trunc i16 %switch.shifted418 to i1
   br i1 %switch.lobit419, label %switch.lookup416, label %541
 
 switch.lookup416:                                 ; preds = %switch.hole_check415
-  %542 = zext nneg i8 %switch.tableidx414 to i64
-  %switch.gep420 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %542
+  %542 = zext nneg i8 %switch.tableidx413 to i64
+  %switch.gep420 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %542
   %switch.load421 = load i8, ptr %switch.gep420, align 1
-  %543 = zext nneg i8 %switch.tableidx414 to i64
-  %switch.gep422 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %543
+  %543 = zext nneg i8 %switch.tableidx413 to i64
+  %switch.gep422 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %543
   %switch.load423 = load i32, ptr %switch.gep422, align 4
   %544 = shl i32 %.sroa.4.0.copyload.i.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !4936), !noalias !4516
@@ -25028,10 +25028,10 @@ switch.hole_check:                                ; preds = %122
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %126 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %126
   %switch.load = load i8, ptr %switch.gep, align 1
   %127 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1276 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %127
+  %switch.gep1276 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %127
   %switch.load1277 = load i32, ptr %switch.gep1276, align 4
   %128 = shl i32 %.sroa.31092.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !5627), !noalias !5607
@@ -25168,22 +25168,22 @@ _ZN6yara_x8compiler4emit7set_var17h805fab5e0dce2d7cE.exit: ; preds = %_ZN6walrus
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !5689)
   call void @llvm.experimental.noalias.scope.decl(metadata !5692)
-  %switch.tableidx1279 = add i8 %.sroa.9.0.copyload, -1
-  %175 = icmp ult i8 %switch.tableidx1279, 9
+  %switch.tableidx1278 = add i8 %.sroa.9.0.copyload, -1
+  %175 = icmp ult i8 %switch.tableidx1278, 9
   br i1 %175, label %switch.hole_check1280, label %.invoke
 
 switch.hole_check1280:                            ; preds = %.noexc
-  %switch.maskindex1282 = zext nneg i8 %switch.tableidx1279 to i16
+  %switch.maskindex1282 = zext nneg i8 %switch.tableidx1278 to i16
   %switch.shifted1283 = lshr i16 495, %switch.maskindex1282
   %switch.lobit1284 = trunc i16 %switch.shifted1283 to i1
   br i1 %switch.lobit1284, label %switch.lookup1281, label %.invoke
 
 switch.lookup1281:                                ; preds = %switch.hole_check1280
-  %176 = zext nneg i8 %switch.tableidx1279 to i64
-  %switch.gep1285 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %176
+  %176 = zext nneg i8 %switch.tableidx1278 to i64
+  %switch.gep1285 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %176
   %switch.load1286 = load i8, ptr %switch.gep1285, align 1
-  %177 = zext nneg i8 %switch.tableidx1279 to i64
-  %switch.gep1287 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %177
+  %177 = zext nneg i8 %switch.tableidx1278 to i64
+  %switch.gep1287 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %177
   %switch.load1288 = load i32, ptr %switch.gep1287, align 4
   %178 = shl i32 %.sroa.71105.0.copyload, 3
   %179 = invoke noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %169, i64 noundef %171, i32 noundef %172, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205)
@@ -25464,22 +25464,22 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   store i64 %274, ptr %264, align 8, !alias.scope !5799, !noalias !5802
   %.val43.i = load ptr, ptr %145, align 8, !noalias !5808
   call void @llvm.experimental.noalias.scope.decl(metadata !5809)
-  %switch.tableidx1290 = add i8 %.sroa.91140.0.copyload, -1
-  %275 = icmp ult i8 %switch.tableidx1290, 9
+  %switch.tableidx1289 = add i8 %.sroa.91140.0.copyload, -1
+  %275 = icmp ult i8 %switch.tableidx1289, 9
   br i1 %275, label %switch.hole_check1291, label %.invoke
 
 switch.hole_check1291:                            ; preds = %"_ZN6yara_x8compiler4emit17emit_for_in_array28_$u7b$$u7b$closure$u7d$$u7d$17h95dda792080922faE.exit.i"
-  %switch.maskindex1293 = zext nneg i8 %switch.tableidx1290 to i16
+  %switch.maskindex1293 = zext nneg i8 %switch.tableidx1289 to i16
   %switch.shifted1294 = lshr i16 495, %switch.maskindex1293
   %switch.lobit1295 = trunc i16 %switch.shifted1294 to i1
   br i1 %switch.lobit1295, label %switch.lookup1292, label %.invoke
 
 switch.lookup1292:                                ; preds = %switch.hole_check1291
-  %276 = zext nneg i8 %switch.tableidx1290 to i64
-  %switch.gep1296 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %276
+  %276 = zext nneg i8 %switch.tableidx1289 to i64
+  %switch.gep1296 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %276
   %switch.load1297 = load i8, ptr %switch.gep1296, align 1
-  %277 = zext nneg i8 %switch.tableidx1290 to i64
-  %switch.gep1298 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %277
+  %277 = zext nneg i8 %switch.tableidx1289 to i64
+  %switch.gep1298 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %277
   %switch.load1299 = load i32, ptr %switch.gep1298, align 4
   %278 = shl i32 %.sroa.71131.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !5812)
@@ -25616,22 +25616,22 @@ _ZN6yara_x8compiler4emit7set_var17hf3f679197031c454E.exit.i: ; preds = %312, %.n
   %.sroa.636.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.0..sroa_idx.i, i64 3, i1 false), !noalias !5808
   call void @llvm.experimental.noalias.scope.decl(metadata !5846)
-  %switch.tableidx1301 = add i8 %.sroa.614.0.copyload16.i, -1
-  %322 = icmp ult i8 %switch.tableidx1301, 9
+  %switch.tableidx1300 = add i8 %.sroa.614.0.copyload16.i, -1
+  %322 = icmp ult i8 %switch.tableidx1300, 9
   br i1 %322, label %switch.hole_check1302, label %.invoke
 
 switch.hole_check1302:                            ; preds = %320
-  %switch.maskindex1304 = zext nneg i8 %switch.tableidx1301 to i16
+  %switch.maskindex1304 = zext nneg i8 %switch.tableidx1300 to i16
   %switch.shifted1305 = lshr i16 495, %switch.maskindex1304
   %switch.lobit1306 = trunc i16 %switch.shifted1305 to i1
   br i1 %switch.lobit1306, label %switch.lookup1303, label %.invoke
 
 switch.lookup1303:                                ; preds = %switch.hole_check1302
-  %323 = zext nneg i8 %switch.tableidx1301 to i64
-  %switch.gep1307 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %323
+  %323 = zext nneg i8 %switch.tableidx1300 to i64
+  %switch.gep1307 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %323
   %switch.load1308 = load i8, ptr %switch.gep1307, align 1
-  %324 = zext nneg i8 %switch.tableidx1301 to i64
-  %switch.gep1309 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %324
+  %324 = zext nneg i8 %switch.tableidx1300 to i64
+  %switch.gep1309 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %324
   %switch.load1310 = load i32, ptr %switch.gep1309, align 4
   %325 = shl i32 %.sroa.5.0.copyload9.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !5849)
@@ -25950,22 +25950,22 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit.i50
 .noexc107:                                        ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit.i50
   %.val46.i = load ptr, ptr %145, align 8, !noalias !5808
   call void @llvm.experimental.noalias.scope.decl(metadata !5959)
-  %switch.tableidx1312 = add i8 %.sroa.531.0.copyload.i, -1
-  %460 = icmp ult i8 %switch.tableidx1312, 9
+  %switch.tableidx1311 = add i8 %.sroa.531.0.copyload.i, -1
+  %460 = icmp ult i8 %switch.tableidx1311, 9
   br i1 %460, label %switch.hole_check1313, label %.invoke
 
 switch.hole_check1313:                            ; preds = %.noexc107
-  %switch.maskindex1315 = zext nneg i8 %switch.tableidx1312 to i16
+  %switch.maskindex1315 = zext nneg i8 %switch.tableidx1311 to i16
   %switch.shifted1316 = lshr i16 495, %switch.maskindex1315
   %switch.lobit1317 = trunc i16 %switch.shifted1316 to i1
   br i1 %switch.lobit1317, label %switch.lookup1314, label %.invoke
 
 switch.lookup1314:                                ; preds = %switch.hole_check1313
-  %461 = zext nneg i8 %switch.tableidx1312 to i64
-  %switch.gep1318 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %461
+  %461 = zext nneg i8 %switch.tableidx1311 to i64
+  %switch.gep1318 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %461
   %switch.load1319 = load i8, ptr %switch.gep1318, align 1
-  %462 = zext nneg i8 %switch.tableidx1312 to i64
-  %switch.gep1320 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %462
+  %462 = zext nneg i8 %switch.tableidx1311 to i64
+  %switch.gep1320 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %462
   %switch.load1321 = load i32, ptr %switch.gep1320, align 4
   %463 = shl i32 %.sroa.4.0.copyload.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !5962)
@@ -26102,8 +26102,8 @@ _ZN6yara_x8compiler4emit7set_var17h3fb635760ae0c6c1E.exit.i: ; preds = %497, %.n
   call void @llvm.experimental.noalias.scope.decl(metadata !6013)
   call void @llvm.experimental.noalias.scope.decl(metadata !6016), !noalias !6019
   call void @llvm.experimental.noalias.scope.decl(metadata !6020), !noalias !6019
-  %switch.tableidx1323 = add i8 %.sroa.4.0.copyload, -1
-  %510 = icmp ult i8 %switch.tableidx1323, 9
+  %switch.tableidx1322 = add i8 %.sroa.4.0.copyload, -1
+  %510 = icmp ult i8 %switch.tableidx1322, 9
   br i1 %510, label %switch.hole_check1324, label %.invoke
 
 .invoke:                                          ; preds = %switch.hole_check1324, %.noexc116, %switch.hole_check1313, %.noexc107, %switch.hole_check1302, %320, %switch.hole_check1291, %"_ZN6yara_x8compiler4emit17emit_for_in_array28_$u7b$$u7b$closure$u7d$$u7d$17h95dda792080922faE.exit.i", %switch.hole_check1280, %.noexc, %switch.hole_check, %122
@@ -26114,17 +26114,17 @@ _ZN6yara_x8compiler4emit7set_var17h3fb635760ae0c6c1E.exit.i: ; preds = %497, %.n
   unreachable
 
 switch.hole_check1324:                            ; preds = %.noexc116
-  %switch.maskindex1326 = zext nneg i8 %switch.tableidx1323 to i16
+  %switch.maskindex1326 = zext nneg i8 %switch.tableidx1322 to i16
   %switch.shifted1327 = lshr i16 495, %switch.maskindex1326
   %switch.lobit1328 = trunc i16 %switch.shifted1327 to i1
   br i1 %switch.lobit1328, label %switch.lookup1325, label %.invoke
 
 switch.lookup1325:                                ; preds = %switch.hole_check1324
-  %511 = zext nneg i8 %switch.tableidx1323 to i64
-  %switch.gep1329 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %511
+  %511 = zext nneg i8 %switch.tableidx1322 to i64
+  %switch.gep1329 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %511
   %switch.load1330 = load i8, ptr %switch.gep1329, align 1
-  %512 = zext nneg i8 %switch.tableidx1323 to i64
-  %switch.gep1331 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %512
+  %512 = zext nneg i8 %switch.tableidx1322 to i64
+  %switch.gep1331 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %512
   %switch.load1332 = load i32, ptr %switch.gep1331, align 4
   %513 = shl i32 %.sroa.3.0.copyload1090, 3
   %514 = invoke noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %504, i64 noundef %506, i32 noundef %507, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205)
@@ -26167,7 +26167,7 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !6044), !noalias !6019
   %524 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.i.i, i64 16
   %525 = load i64, ptr %524, align 8, !range !4464, !noalias !6047, !noundef !6
-  %switch.gep1334 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.576, i64 0, i64 %525
+  %switch.gep1334 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.576, i64 %525
   %switch.load1335 = load ptr, ptr %switch.gep1334, align 8
   %526 = getelementptr inbounds nuw i8, ptr %switch.load1335, i64 16
   %527 = load ptr, ptr %526, align 8, !noalias !6049, !nonnull !6, !align !17, !noundef !6
@@ -27783,8 +27783,8 @@ _ZN6yara_x8compiler4emit17emit_for_in_array17h276f993668406225E.exit: ; preds = 
   %.sroa.51096.0.copyload = load i8, ptr %.sroa.51096.0..sroa_idx, align 4, !noalias !6697
   call void @llvm.experimental.noalias.scope.decl(metadata !6709)
   call void @llvm.experimental.noalias.scope.decl(metadata !6712)
-  %switch.tableidx1337 = add i8 %.sroa.51096.0.copyload, -1
-  %1087 = icmp ult i8 %switch.tableidx1337, 9
+  %switch.tableidx1336 = add i8 %.sroa.51096.0.copyload, -1
+  %1087 = icmp ult i8 %switch.tableidx1336, 9
   br i1 %1087, label %switch.hole_check1338, label %.invoke1272
 
 .invoke1272:                                      ; preds = %1509, %.noexc549, %.noexc543, %switch.hole_check1382, %.noexc531, %switch.hole_check1371, %1283, %switch.hole_check1360, %"_ZN6yara_x8compiler4emit15emit_for_in_map28_$u7b$$u7b$closure$u7d$$u7d$17h795821f00c3e35d9E.exit.i", %switch.hole_check1349, %.noexc14, %switch.hole_check1338, %1083
@@ -27796,17 +27796,17 @@ _ZN6yara_x8compiler4emit17emit_for_in_array17h276f993668406225E.exit: ; preds = 
   unreachable
 
 switch.hole_check1338:                            ; preds = %1083
-  %switch.maskindex1340 = zext nneg i8 %switch.tableidx1337 to i16
+  %switch.maskindex1340 = zext nneg i8 %switch.tableidx1336 to i16
   %switch.shifted1341 = lshr i16 495, %switch.maskindex1340
   %switch.lobit1342 = trunc i16 %switch.shifted1341 to i1
   br i1 %switch.lobit1342, label %switch.lookup1339, label %.invoke1272
 
 switch.lookup1339:                                ; preds = %switch.hole_check1338
-  %1089 = zext nneg i8 %switch.tableidx1337 to i64
-  %switch.gep1343 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1089
+  %1089 = zext nneg i8 %switch.tableidx1336 to i64
+  %switch.gep1343 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1089
   %switch.load1344 = load i8, ptr %switch.gep1343, align 1
-  %1090 = zext nneg i8 %switch.tableidx1337 to i64
-  %switch.gep1345 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1090
+  %1090 = zext nneg i8 %switch.tableidx1336 to i64
+  %switch.gep1345 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1090
   %switch.load1346 = load i32, ptr %switch.gep1345, align 4
   %1091 = shl i32 %.sroa.31095.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !6714), !noalias !6694
@@ -27943,22 +27943,22 @@ _ZN6yara_x8compiler4emit7set_var17hb7946d0f4a8b8644E.exit: ; preds = %_ZN6walrus
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i221)
   call void @llvm.experimental.noalias.scope.decl(metadata !6776)
   call void @llvm.experimental.noalias.scope.decl(metadata !6779)
-  %switch.tableidx1348 = add i8 %.sroa.91170.0.copyload, -1
-  %1138 = icmp ult i8 %switch.tableidx1348, 9
+  %switch.tableidx1347 = add i8 %.sroa.91170.0.copyload, -1
+  %1138 = icmp ult i8 %switch.tableidx1347, 9
   br i1 %1138, label %switch.hole_check1349, label %.invoke1272
 
 switch.hole_check1349:                            ; preds = %.noexc14
-  %switch.maskindex1351 = zext nneg i8 %switch.tableidx1348 to i16
+  %switch.maskindex1351 = zext nneg i8 %switch.tableidx1347 to i16
   %switch.shifted1352 = lshr i16 495, %switch.maskindex1351
   %switch.lobit1353 = trunc i16 %switch.shifted1352 to i1
   br i1 %switch.lobit1353, label %switch.lookup1350, label %.invoke1272
 
 switch.lookup1350:                                ; preds = %switch.hole_check1349
-  %1139 = zext nneg i8 %switch.tableidx1348 to i64
-  %switch.gep1354 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1139
+  %1139 = zext nneg i8 %switch.tableidx1347 to i64
+  %switch.gep1354 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1139
   %switch.load1355 = load i8, ptr %switch.gep1354, align 1
-  %1140 = zext nneg i8 %switch.tableidx1348 to i64
-  %switch.gep1356 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1140
+  %1140 = zext nneg i8 %switch.tableidx1347 to i64
+  %switch.gep1356 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1140
   %switch.load1357 = load i32, ptr %switch.gep1356, align 4
   %1141 = shl i32 %.sroa.71161.0.copyload, 3
   %1142 = invoke noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1132, i64 noundef %1134, i32 noundef %1135, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205)
@@ -28239,22 +28239,22 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   store i64 %1237, ptr %1227, align 8, !alias.scope !6886, !noalias !6889
   %.val43.i267 = load ptr, ptr %1108, align 8, !noalias !6895
   call void @llvm.experimental.noalias.scope.decl(metadata !6896)
-  %switch.tableidx1359 = add i8 %.sroa.91198.0.copyload, -1
-  %1238 = icmp ult i8 %switch.tableidx1359, 9
+  %switch.tableidx1358 = add i8 %.sroa.91198.0.copyload, -1
+  %1238 = icmp ult i8 %switch.tableidx1358, 9
   br i1 %1238, label %switch.hole_check1360, label %.invoke1272
 
 switch.hole_check1360:                            ; preds = %"_ZN6yara_x8compiler4emit15emit_for_in_map28_$u7b$$u7b$closure$u7d$$u7d$17h795821f00c3e35d9E.exit.i"
-  %switch.maskindex1362 = zext nneg i8 %switch.tableidx1359 to i16
+  %switch.maskindex1362 = zext nneg i8 %switch.tableidx1358 to i16
   %switch.shifted1363 = lshr i16 495, %switch.maskindex1362
   %switch.lobit1364 = trunc i16 %switch.shifted1363 to i1
   br i1 %switch.lobit1364, label %switch.lookup1361, label %.invoke1272
 
 switch.lookup1361:                                ; preds = %switch.hole_check1360
-  %1239 = zext nneg i8 %switch.tableidx1359 to i64
-  %switch.gep1365 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1239
+  %1239 = zext nneg i8 %switch.tableidx1358 to i64
+  %switch.gep1365 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1239
   %switch.load1366 = load i8, ptr %switch.gep1365, align 1
-  %1240 = zext nneg i8 %switch.tableidx1359 to i64
-  %switch.gep1367 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1240
+  %1240 = zext nneg i8 %switch.tableidx1358 to i64
+  %switch.gep1367 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1240
   %switch.load1368 = load i32, ptr %switch.gep1367, align 4
   %1241 = shl i32 %.sroa.71189.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !6899)
@@ -28391,22 +28391,22 @@ _ZN6yara_x8compiler4emit7set_var17h3bdabcdf61cfc5c1E.exit.i: ; preds = %1275, %.
   %.sroa.636.0..sroa_idx.i299 = getelementptr inbounds nuw i8, ptr %2, i64 133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.i220, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.0..sroa_idx.i299, i64 3, i1 false), !noalias !6895
   call void @llvm.experimental.noalias.scope.decl(metadata !6933)
-  %switch.tableidx1370 = add i8 %.sroa.614.0.copyload16.i292, -1
-  %1285 = icmp ult i8 %switch.tableidx1370, 9
+  %switch.tableidx1369 = add i8 %.sroa.614.0.copyload16.i292, -1
+  %1285 = icmp ult i8 %switch.tableidx1369, 9
   br i1 %1285, label %switch.hole_check1371, label %.invoke1272
 
 switch.hole_check1371:                            ; preds = %1283
-  %switch.maskindex1373 = zext nneg i8 %switch.tableidx1370 to i16
+  %switch.maskindex1373 = zext nneg i8 %switch.tableidx1369 to i16
   %switch.shifted1374 = lshr i16 495, %switch.maskindex1373
   %switch.lobit1375 = trunc i16 %switch.shifted1374 to i1
   br i1 %switch.lobit1375, label %switch.lookup1372, label %.invoke1272
 
 switch.lookup1372:                                ; preds = %switch.hole_check1371
-  %1286 = zext nneg i8 %switch.tableidx1370 to i64
-  %switch.gep1376 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1286
+  %1286 = zext nneg i8 %switch.tableidx1369 to i64
+  %switch.gep1376 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1286
   %switch.load1377 = load i8, ptr %switch.gep1376, align 1
-  %1287 = zext nneg i8 %switch.tableidx1370 to i64
-  %switch.gep1378 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1287
+  %1287 = zext nneg i8 %switch.tableidx1369 to i64
+  %switch.gep1378 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1287
   %switch.load1379 = load i32, ptr %switch.gep1378, align 4
   %1288 = shl i32 %.sroa.5.0.copyload9.i290, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !6936)
@@ -28725,22 +28725,22 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit.i31
 .noexc531:                                        ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit.i311
   %.val46.i319 = load ptr, ptr %1108, align 8, !noalias !6895
   call void @llvm.experimental.noalias.scope.decl(metadata !7046)
-  %switch.tableidx1381 = add i8 %.sroa.531.0.copyload.i298, -1
-  %1423 = icmp ult i8 %switch.tableidx1381, 9
+  %switch.tableidx1380 = add i8 %.sroa.531.0.copyload.i298, -1
+  %1423 = icmp ult i8 %switch.tableidx1380, 9
   br i1 %1423, label %switch.hole_check1382, label %.invoke1272
 
 switch.hole_check1382:                            ; preds = %.noexc531
-  %switch.maskindex1384 = zext nneg i8 %switch.tableidx1381 to i16
+  %switch.maskindex1384 = zext nneg i8 %switch.tableidx1380 to i16
   %switch.shifted1385 = lshr i16 495, %switch.maskindex1384
   %switch.lobit1386 = trunc i16 %switch.shifted1385 to i1
   br i1 %switch.lobit1386, label %switch.lookup1383, label %.invoke1272
 
 switch.lookup1383:                                ; preds = %switch.hole_check1382
-  %1424 = zext nneg i8 %switch.tableidx1381 to i64
-  %switch.gep1387 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %1424
+  %1424 = zext nneg i8 %switch.tableidx1380 to i64
+  %switch.gep1387 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %1424
   %switch.load1388 = load i8, ptr %switch.gep1387, align 1
-  %1425 = zext nneg i8 %switch.tableidx1381 to i64
-  %switch.gep1389 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %1425
+  %1425 = zext nneg i8 %switch.tableidx1380 to i64
+  %switch.gep1389 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %1425
   %switch.load1390 = load i32, ptr %switch.gep1389, align 4
   %1426 = shl i32 %.sroa.4.0.copyload.i296, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !7049)
@@ -28916,9 +28916,9 @@ _ZN6yara_x8compiler4emit7set_var17hd4c4e714dfdc0a68E.exit.i: ; preds = %1460, %.
           to label %.noexc543 unwind label %.loopexit.split-lp
 
 .noexc543:                                        ; preds = %1481
-  %switch.tableidx1392 = add nsw i8 %1482, -1
-  %1483 = icmp ult i8 %switch.tableidx1392, 6
-  %switch.shifted1395 = lshr i8 47, %switch.tableidx1392
+  %switch.tableidx1391 = add nsw i8 %1482, -1
+  %1483 = icmp ult i8 %switch.tableidx1391, 6
+  %switch.shifted1395 = lshr i8 47, %switch.tableidx1391
   %switch.lobit1396 = trunc i8 %switch.shifted1395 to i1
   %or.cond = select i1 %1483, i1 %switch.lobit1396, i1 false
   br i1 %or.cond, label %switch.lookup1394, label %.invoke1272
@@ -28932,14 +28932,14 @@ _ZN6yara_x8compiler4emit7set_var17hd4c4e714dfdc0a68E.exit.i: ; preds = %1460, %.
   unreachable
 
 switch.lookup1394:                                ; preds = %.noexc549, %.noexc543
-  %switch.tableidx1402.sink1412 = phi i8 [ %switch.tableidx1392, %.noexc543 ], [ %switch.tableidx1402, %.noexc549 ]
+  %switch.tableidx1401.sink1412 = phi i8 [ %switch.tableidx1391, %.noexc543 ], [ %switch.tableidx1401, %.noexc549 ]
   %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.589.sink = phi ptr [ @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.587, %.noexc543 ], [ @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.589, %.noexc549 ]
   %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.590.sink = phi ptr [ @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.588, %.noexc543 ], [ @switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.590, %.noexc549 ]
-  %1485 = zext nneg i8 %switch.tableidx1402.sink1412 to i64
-  %switch.gep1407 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.589.sink, i64 0, i64 %1485
+  %1485 = zext nneg i8 %switch.tableidx1401.sink1412 to i64
+  %switch.gep1407 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.589.sink, i64 %1485
   %switch.load1408 = load ptr, ptr %switch.gep1407, align 8
-  %1486 = zext nneg i8 %switch.tableidx1402.sink1412 to i64
-  %switch.gep1409 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.590.sink, i64 0, i64 %1486
+  %1486 = zext nneg i8 %switch.tableidx1401.sink1412 to i64
+  %switch.gep1409 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN6yara_x8compiler4emit16emit_for_in_expr17h6c0478b951368964E.590.sink, i64 %1486
   %switch.load1410 = load ptr, ptr %switch.gep1409, align 8
   %.sroa.11.0.i.i.i.i.i.i = load i64, ptr %switch.load1410, align 8, !noalias !7134, !noundef !6
   %.sroa.02.0.i.i.i.i.i.i = load ptr, ptr %switch.load1408, align 8, !noalias !7134, !nonnull !6, !align !17, !noundef !6
@@ -28973,9 +28973,9 @@ switch.lookup1394:                                ; preds = %.noexc549, %.noexc5
           to label %.noexc549 unwind label %.loopexit.split-lp
 
 .noexc549:                                        ; preds = %1499
-  %switch.tableidx1402 = add nsw i8 %1500, -1
-  %1501 = icmp ult i8 %switch.tableidx1402, 6
-  %switch.shifted1405 = lshr i8 47, %switch.tableidx1402
+  %switch.tableidx1401 = add nsw i8 %1500, -1
+  %1501 = icmp ult i8 %switch.tableidx1401, 6
+  %switch.shifted1405 = lshr i8 47, %switch.tableidx1401
   %switch.lobit1406 = trunc i8 %switch.shifted1405 to i1
   %or.cond1411 = select i1 %1501, i1 %switch.lobit1406, i1 false
   br i1 %or.cond1411, label %switch.lookup1394, label %.invoke1272
@@ -31081,10 +31081,10 @@ switch.hole_check:                                ; preds = %72
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %95 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %95
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %95
   %switch.load = load i8, ptr %switch.gep, align 1
   %96 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep467 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %96
+  %switch.gep467 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %96
   %switch.load468 = load i32, ptr %switch.gep467, align 4
   %97 = shl i32 %.sroa.7.0.copyload, 3
   %98 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %86, i64 noundef %88, i32 noundef %89, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !7920
@@ -31175,8 +31175,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr nonnull readonly %.val42.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %53, i32 %.sroa.7.0.copyload, i1 noundef zeroext false), !noalias !7912
   %.val45.i.i = load ptr, ptr %92, align 8, !noalias !7912
   call void @llvm.experimental.noalias.scope.decl(metadata !7949)
-  %switch.tableidx470 = add i8 %.sroa.9391.0.copyload, -1
-  %132 = icmp ult i8 %switch.tableidx470, 9
+  %switch.tableidx469 = add i8 %.sroa.9391.0.copyload, -1
+  %132 = icmp ult i8 %switch.tableidx469, 9
   br i1 %132, label %switch.hole_check471, label %133
 
 133:                                              ; preds = %switch.hole_check471, %"_ZN6yara_x8compiler4emit22emit_for_in_expr_tuple28_$u7b$$u7b$closure$u7d$$u7d$17hc41002fb3b3924c9E.exit"
@@ -31184,17 +31184,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   unreachable
 
 switch.hole_check471:                             ; preds = %"_ZN6yara_x8compiler4emit22emit_for_in_expr_tuple28_$u7b$$u7b$closure$u7d$$u7d$17hc41002fb3b3924c9E.exit"
-  %switch.maskindex473 = zext nneg i8 %switch.tableidx470 to i16
+  %switch.maskindex473 = zext nneg i8 %switch.tableidx469 to i16
   %switch.shifted474 = lshr i16 495, %switch.maskindex473
   %switch.lobit475 = trunc i16 %switch.shifted474 to i1
   br i1 %switch.lobit475, label %switch.lookup472, label %133
 
 switch.lookup472:                                 ; preds = %switch.hole_check471
-  %134 = zext nneg i8 %switch.tableidx470 to i64
-  %switch.gep476 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %134
+  %134 = zext nneg i8 %switch.tableidx469 to i64
+  %switch.gep476 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %134
   %switch.load477 = load i8, ptr %switch.gep476, align 1
-  %135 = zext nneg i8 %switch.tableidx470 to i64
-  %switch.gep478 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %135
+  %135 = zext nneg i8 %switch.tableidx469 to i64
+  %switch.gep478 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %135
   %switch.load479 = load i32, ptr %switch.gep478, align 4
   %136 = shl i32 %.sroa.8.0.copyload, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !7953), !noalias !7912
@@ -31314,8 +31314,8 @@ _ZN6yara_x8compiler4emit7set_var17h5bf9e69537f3608aE.exit: ; preds = %"_ZN6yara_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.636.0..sroa_idx.i.i, i64 3, i1 false), !noalias !7912
   call void @llvm.experimental.noalias.scope.decl(metadata !7985)
   call void @llvm.experimental.noalias.scope.decl(metadata !7988)
-  %switch.tableidx481 = add i8 %.sroa.614.0.copyload16.i.i, -1
-  %179 = icmp ult i8 %switch.tableidx481, 9
+  %switch.tableidx480 = add i8 %.sroa.614.0.copyload16.i.i, -1
+  %179 = icmp ult i8 %switch.tableidx480, 9
   br i1 %179, label %switch.hole_check482, label %180
 
 180:                                              ; preds = %switch.hole_check482, %177
@@ -31323,17 +31323,17 @@ _ZN6yara_x8compiler4emit7set_var17h5bf9e69537f3608aE.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check482:                             ; preds = %177
-  %switch.maskindex484 = zext nneg i8 %switch.tableidx481 to i16
+  %switch.maskindex484 = zext nneg i8 %switch.tableidx480 to i16
   %switch.shifted485 = lshr i16 495, %switch.maskindex484
   %switch.lobit486 = trunc i16 %switch.shifted485 to i1
   br i1 %switch.lobit486, label %switch.lookup483, label %180
 
 switch.lookup483:                                 ; preds = %switch.hole_check482
-  %181 = zext nneg i8 %switch.tableidx481 to i64
-  %switch.gep487 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %181
+  %181 = zext nneg i8 %switch.tableidx480 to i64
+  %switch.gep487 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %181
   %switch.load488 = load i8, ptr %switch.gep487, align 1
-  %182 = zext nneg i8 %switch.tableidx481 to i64
-  %switch.gep489 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %182
+  %182 = zext nneg i8 %switch.tableidx480 to i64
+  %switch.gep489 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %182
   %switch.load490 = load i32, ptr %switch.gep489, align 4
   %183 = shl i32 %.sroa.5.0.copyload9.i.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !7993), !noalias !7912
@@ -31615,8 +31615,8 @@ _ZN6yara_x8compiler4emit7set_var17h1673e6aee4dbc8c9E.exit: ; preds = %"_ZN6yara_
   call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %53, i32 %.sroa.5.0.copyload9.i.i, i1 noundef zeroext false), !noalias !8086
   %.val48.i.i = load ptr, ptr %92, align 8, !noalias !7912
   call void @llvm.experimental.noalias.scope.decl(metadata !8099)
-  %switch.tableidx492 = add i8 %.sroa.531.0.copyload.i.i, -1
-  %318 = icmp ult i8 %switch.tableidx492, 9
+  %switch.tableidx491 = add i8 %.sroa.531.0.copyload.i.i, -1
+  %318 = icmp ult i8 %switch.tableidx491, 9
   br i1 %318, label %switch.hole_check493, label %319
 
 319:                                              ; preds = %switch.hole_check493, %_ZN6yara_x8compiler4emit7set_var17h1673e6aee4dbc8c9E.exit
@@ -31624,17 +31624,17 @@ _ZN6yara_x8compiler4emit7set_var17h1673e6aee4dbc8c9E.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check493:                             ; preds = %_ZN6yara_x8compiler4emit7set_var17h1673e6aee4dbc8c9E.exit
-  %switch.maskindex495 = zext nneg i8 %switch.tableidx492 to i16
+  %switch.maskindex495 = zext nneg i8 %switch.tableidx491 to i16
   %switch.shifted496 = lshr i16 495, %switch.maskindex495
   %switch.lobit497 = trunc i16 %switch.shifted496 to i1
   br i1 %switch.lobit497, label %switch.lookup494, label %319
 
 switch.lookup494:                                 ; preds = %switch.hole_check493
-  %320 = zext nneg i8 %switch.tableidx492 to i64
-  %switch.gep498 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %320
+  %320 = zext nneg i8 %switch.tableidx491 to i64
+  %switch.gep498 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %320
   %switch.load499 = load i8, ptr %switch.gep498, align 1
-  %321 = zext nneg i8 %switch.tableidx492 to i64
-  %switch.gep500 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %321
+  %321 = zext nneg i8 %switch.tableidx491 to i64
+  %switch.gep500 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %321
   %switch.load501 = load i32, ptr %switch.gep500, align 4
   %322 = shl i32 %.sroa.4.0.copyload.i.i, 3
   call void @llvm.experimental.noalias.scope.decl(metadata !8103), !noalias !7912
@@ -31829,8 +31829,8 @@ common.resume:                                    ; preds = %758, %767, %714, %6
   store i64 %390, ptr %378, align 8, !alias.scope !8186, !noalias !8189
   call void @llvm.experimental.noalias.scope.decl(metadata !8193), !noalias !8169
   call void @llvm.experimental.noalias.scope.decl(metadata !8196), !noalias !8199
-  %switch.tableidx503 = add i8 %.sroa.5.0.copyload, -1
-  %391 = icmp ult i8 %switch.tableidx503, 9
+  %switch.tableidx502 = add i8 %.sroa.5.0.copyload, -1
+  %391 = icmp ult i8 %switch.tableidx502, 9
   br i1 %391, label %switch.hole_check504, label %392
 
 392:                                              ; preds = %switch.hole_check504, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb11bf0ae041e9bdE.exit.i"
@@ -31838,17 +31838,17 @@ common.resume:                                    ; preds = %758, %767, %714, %6
   unreachable
 
 switch.hole_check504:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb11bf0ae041e9bdE.exit.i"
-  %switch.maskindex506 = zext nneg i8 %switch.tableidx503 to i16
+  %switch.maskindex506 = zext nneg i8 %switch.tableidx502 to i16
   %switch.shifted507 = lshr i16 495, %switch.maskindex506
   %switch.lobit508 = trunc i16 %switch.shifted507 to i1
   br i1 %switch.lobit508, label %switch.lookup505, label %392
 
 switch.lookup505:                                 ; preds = %switch.hole_check504
-  %393 = zext nneg i8 %switch.tableidx503 to i64
-  %switch.gep509 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %393
+  %393 = zext nneg i8 %switch.tableidx502 to i64
+  %switch.gep509 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %393
   %switch.load510 = load i8, ptr %switch.gep509, align 1
-  %394 = zext nneg i8 %switch.tableidx503 to i64
-  %switch.gep511 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %394
+  %394 = zext nneg i8 %switch.tableidx502 to i64
+  %switch.gep511 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %394
   %switch.load512 = load i32, ptr %switch.gep511, align 4
   %395 = shl i32 %.sroa.4.0.copyload, 3
   %396 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %363, i64 noundef %371, i32 noundef %372, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !8206
@@ -34510,10 +34510,10 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %60
   %switch.load = load i8, ptr %switch.gep, align 1
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep330 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %61
+  %switch.gep330 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %61
   %switch.load331 = load i32, ptr %switch.gep330, align 4
   %62 = shl i32 %.sroa.4108.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9178)
@@ -34613,8 +34613,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   %.sroa.4112.0.copyload = load i8, ptr %.sroa.4112.0..sroa_idx, align 4
   %.val45 = load ptr, ptr %57, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9210)
-  %switch.tableidx333 = add i8 %.sroa.4112.0.copyload, -1
-  %101 = icmp ult i8 %switch.tableidx333, 9
+  %switch.tableidx332 = add i8 %.sroa.4112.0.copyload, -1
+  %101 = icmp ult i8 %switch.tableidx332, 9
   br i1 %101, label %switch.hole_check334, label %102
 
 102:                                              ; preds = %switch.hole_check334, %"_ZN6yara_x8compiler4emit18emit_of_expr_tuple28_$u7b$$u7b$closure$u7d$$u7d$17h562f860a371ae45eE.exit"
@@ -34622,17 +34622,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   unreachable
 
 switch.hole_check334:                             ; preds = %"_ZN6yara_x8compiler4emit18emit_of_expr_tuple28_$u7b$$u7b$closure$u7d$$u7d$17h562f860a371ae45eE.exit"
-  %switch.maskindex336 = zext nneg i8 %switch.tableidx333 to i16
+  %switch.maskindex336 = zext nneg i8 %switch.tableidx332 to i16
   %switch.shifted337 = lshr i16 495, %switch.maskindex336
   %switch.lobit338 = trunc i16 %switch.shifted337 to i1
   br i1 %switch.lobit338, label %switch.lookup335, label %102
 
 switch.lookup335:                                 ; preds = %switch.hole_check334
-  %103 = zext nneg i8 %switch.tableidx333 to i64
-  %switch.gep339 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %103
+  %103 = zext nneg i8 %switch.tableidx332 to i64
+  %switch.gep339 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %103
   %switch.load340 = load i8, ptr %switch.gep339, align 1
-  %104 = zext nneg i8 %switch.tableidx333 to i64
-  %switch.gep341 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %104
+  %104 = zext nneg i8 %switch.tableidx332 to i64
+  %switch.gep341 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %104
   %switch.load342 = load i32, ptr %switch.gep341, align 4
   %105 = shl i32 %.sroa.3111.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9213)
@@ -34758,8 +34758,8 @@ _ZN6yara_x8compiler4emit7set_var17hf9f314c730a86ed3E.exit: ; preds = %"_ZN6yara_
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %154 = load ptr, ptr %153, align 8, !nonnull !6, !align !7, !noundef !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9246)
-  %switch.tableidx344 = add i8 %.sroa.614.0.copyload16, -1
-  %155 = icmp ult i8 %switch.tableidx344, 9
+  %switch.tableidx343 = add i8 %.sroa.614.0.copyload16, -1
+  %155 = icmp ult i8 %switch.tableidx343, 9
   br i1 %155, label %switch.hole_check345, label %156
 
 156:                                              ; preds = %switch.hole_check345, %149
@@ -34767,17 +34767,17 @@ _ZN6yara_x8compiler4emit7set_var17hf9f314c730a86ed3E.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check345:                             ; preds = %149
-  %switch.maskindex347 = zext nneg i8 %switch.tableidx344 to i16
+  %switch.maskindex347 = zext nneg i8 %switch.tableidx343 to i16
   %switch.shifted348 = lshr i16 495, %switch.maskindex347
   %switch.lobit349 = trunc i16 %switch.shifted348 to i1
   br i1 %switch.lobit349, label %switch.lookup346, label %156
 
 switch.lookup346:                                 ; preds = %switch.hole_check345
-  %157 = zext nneg i8 %switch.tableidx344 to i64
-  %switch.gep350 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %157
+  %157 = zext nneg i8 %switch.tableidx343 to i64
+  %switch.gep350 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %157
   %switch.load351 = load i8, ptr %switch.gep350, align 1
-  %158 = zext nneg i8 %switch.tableidx344 to i64
-  %switch.gep352 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %158
+  %158 = zext nneg i8 %switch.tableidx343 to i64
+  %switch.gep352 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %158
   %switch.load353 = load i32, ptr %switch.gep352, align 4
   %159 = shl i32 %.sroa.5.0.copyload9, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9253)
@@ -35062,8 +35062,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   tail call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %.sroa.5.0.copyload9, i1 noundef zeroext false), !noalias !9274
   %.val48 = load ptr, ptr %57, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9358)
-  %switch.tableidx355 = add i8 %.sroa.531.0.copyload, -1
-  %294 = icmp ult i8 %switch.tableidx355, 9
+  %switch.tableidx354 = add i8 %.sroa.531.0.copyload, -1
+  %294 = icmp ult i8 %switch.tableidx354, 9
   br i1 %294, label %switch.hole_check356, label %295
 
 295:                                              ; preds = %switch.hole_check356, %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
@@ -35071,17 +35071,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   unreachable
 
 switch.hole_check356:                             ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
-  %switch.maskindex358 = zext nneg i8 %switch.tableidx355 to i16
+  %switch.maskindex358 = zext nneg i8 %switch.tableidx354 to i16
   %switch.shifted359 = lshr i16 495, %switch.maskindex358
   %switch.lobit360 = trunc i16 %switch.shifted359 to i1
   br i1 %switch.lobit360, label %switch.lookup357, label %295
 
 switch.lookup357:                                 ; preds = %switch.hole_check356
-  %296 = zext nneg i8 %switch.tableidx355 to i64
-  %switch.gep361 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %296
+  %296 = zext nneg i8 %switch.tableidx354 to i64
+  %switch.gep361 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %296
   %switch.load362 = load i8, ptr %switch.gep361, align 1
-  %297 = zext nneg i8 %switch.tableidx355 to i64
-  %switch.gep363 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %297
+  %297 = zext nneg i8 %switch.tableidx354 to i64
+  %switch.gep363 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %297
   %switch.load364 = load i32, ptr %switch.gep363, align 4
   %298 = shl i32 %.sroa.4.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9361)
@@ -35225,8 +35225,8 @@ _ZN6yara_x8compiler4emit7set_var17h0c3cc76604c8f3b2E.exit: ; preds = %"_ZN6yara_
   %351 = icmp ne ptr %.sroa.0118.sroa.5.0.copyload, null
   call void @llvm.assume(i1 %351)
   call void @llvm.experimental.noalias.scope.decl(metadata !9422)
-  %switch.tableidx366 = add i8 %.sroa.5209.0.copyload, -1
-  %352 = icmp ult i8 %switch.tableidx366, 9
+  %switch.tableidx365 = add i8 %.sroa.5209.0.copyload, -1
+  %352 = icmp ult i8 %switch.tableidx365, 9
   br i1 %352, label %switch.hole_check367, label %353
 
 353:                                              ; preds = %switch.hole_check367, %337
@@ -35234,17 +35234,17 @@ _ZN6yara_x8compiler4emit7set_var17h0c3cc76604c8f3b2E.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check367:                             ; preds = %337
-  %switch.maskindex369 = zext nneg i8 %switch.tableidx366 to i16
+  %switch.maskindex369 = zext nneg i8 %switch.tableidx365 to i16
   %switch.shifted370 = lshr i16 495, %switch.maskindex369
   %switch.lobit371 = trunc i16 %switch.shifted370 to i1
   br i1 %switch.lobit371, label %switch.lookup368, label %353
 
 switch.lookup368:                                 ; preds = %switch.hole_check367
-  %354 = zext nneg i8 %switch.tableidx366 to i64
-  %switch.gep372 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %354
+  %354 = zext nneg i8 %switch.tableidx365 to i64
+  %switch.gep372 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %354
   %switch.load373 = load i8, ptr %switch.gep372, align 1
-  %355 = zext nneg i8 %switch.tableidx366 to i64
-  %switch.gep374 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %355
+  %355 = zext nneg i8 %switch.tableidx365 to i64
+  %switch.gep374 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %355
   %switch.load375 = load i32, ptr %switch.gep374, align 4
   %356 = shl i32 %.sroa.3208.0.copyload, 3
   %357 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %343, i64 noundef %345, i32 noundef %346, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !9429
@@ -37252,10 +37252,10 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %59 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %59
   %switch.load = load i8, ptr %switch.gep, align 1
   %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep301 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %60
+  %switch.gep301 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %60
   %switch.load302 = load i32, ptr %switch.gep301, align 4
   %61 = shl i32 %.sroa.4106.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10258)
@@ -37355,8 +37355,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   %.sroa.4110.0.copyload = load i8, ptr %.sroa.4110.0..sroa_idx, align 4
   %.val45 = load ptr, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10290)
-  %switch.tableidx304 = add i8 %.sroa.4110.0.copyload, -1
-  %100 = icmp ult i8 %switch.tableidx304, 9
+  %switch.tableidx303 = add i8 %.sroa.4110.0.copyload, -1
+  %100 = icmp ult i8 %switch.tableidx303, 9
   br i1 %100, label %switch.hole_check305, label %101
 
 101:                                              ; preds = %switch.hole_check305, %"_ZN6yara_x8compiler4emit19emit_of_pattern_set28_$u7b$$u7b$closure$u7d$$u7d$17h24511604d63cda14E.exit"
@@ -37364,17 +37364,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   unreachable
 
 switch.hole_check305:                             ; preds = %"_ZN6yara_x8compiler4emit19emit_of_pattern_set28_$u7b$$u7b$closure$u7d$$u7d$17h24511604d63cda14E.exit"
-  %switch.maskindex307 = zext nneg i8 %switch.tableidx304 to i16
+  %switch.maskindex307 = zext nneg i8 %switch.tableidx303 to i16
   %switch.shifted308 = lshr i16 495, %switch.maskindex307
   %switch.lobit309 = trunc i16 %switch.shifted308 to i1
   br i1 %switch.lobit309, label %switch.lookup306, label %101
 
 switch.lookup306:                                 ; preds = %switch.hole_check305
-  %102 = zext nneg i8 %switch.tableidx304 to i64
-  %switch.gep310 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %102
+  %102 = zext nneg i8 %switch.tableidx303 to i64
+  %switch.gep310 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %102
   %switch.load311 = load i8, ptr %switch.gep310, align 1
-  %103 = zext nneg i8 %switch.tableidx304 to i64
-  %switch.gep312 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %103
+  %103 = zext nneg i8 %switch.tableidx303 to i64
+  %switch.gep312 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %103
   %switch.load313 = load i32, ptr %switch.gep312, align 4
   %104 = shl i32 %.sroa.3109.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10293)
@@ -37500,8 +37500,8 @@ _ZN6yara_x8compiler4emit7set_var17h6f0d0c2ff09996bfE.exit: ; preds = %"_ZN6yara_
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %153 = load ptr, ptr %152, align 8, !nonnull !6, !align !7, !noundef !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10325)
-  %switch.tableidx315 = add i8 %.sroa.614.0.copyload16, -1
-  %154 = icmp ult i8 %switch.tableidx315, 9
+  %switch.tableidx314 = add i8 %.sroa.614.0.copyload16, -1
+  %154 = icmp ult i8 %switch.tableidx314, 9
   br i1 %154, label %switch.hole_check316, label %155
 
 155:                                              ; preds = %switch.hole_check316, %148
@@ -37509,17 +37509,17 @@ _ZN6yara_x8compiler4emit7set_var17h6f0d0c2ff09996bfE.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check316:                             ; preds = %148
-  %switch.maskindex318 = zext nneg i8 %switch.tableidx315 to i16
+  %switch.maskindex318 = zext nneg i8 %switch.tableidx314 to i16
   %switch.shifted319 = lshr i16 495, %switch.maskindex318
   %switch.lobit320 = trunc i16 %switch.shifted319 to i1
   br i1 %switch.lobit320, label %switch.lookup317, label %155
 
 switch.lookup317:                                 ; preds = %switch.hole_check316
-  %156 = zext nneg i8 %switch.tableidx315 to i64
-  %switch.gep321 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %156
+  %156 = zext nneg i8 %switch.tableidx314 to i64
+  %switch.gep321 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %156
   %switch.load322 = load i8, ptr %switch.gep321, align 1
-  %157 = zext nneg i8 %switch.tableidx315 to i64
-  %switch.gep323 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %157
+  %157 = zext nneg i8 %switch.tableidx314 to i64
+  %switch.gep323 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %157
   %switch.load324 = load i32, ptr %switch.gep323, align 4
   %158 = shl i32 %.sroa.5.0.copyload9, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10332)
@@ -37804,8 +37804,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   tail call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %.sroa.5.0.copyload9, i1 noundef zeroext false), !noalias !10353
   %.val48 = load ptr, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10437)
-  %switch.tableidx326 = add i8 %.sroa.531.0.copyload, -1
-  %293 = icmp ult i8 %switch.tableidx326, 9
+  %switch.tableidx325 = add i8 %.sroa.531.0.copyload, -1
+  %293 = icmp ult i8 %switch.tableidx325, 9
   br i1 %293, label %switch.hole_check327, label %294
 
 294:                                              ; preds = %switch.hole_check327, %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
@@ -37813,17 +37813,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   unreachable
 
 switch.hole_check327:                             ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
-  %switch.maskindex329 = zext nneg i8 %switch.tableidx326 to i16
+  %switch.maskindex329 = zext nneg i8 %switch.tableidx325 to i16
   %switch.shifted330 = lshr i16 495, %switch.maskindex329
   %switch.lobit331 = trunc i16 %switch.shifted330 to i1
   br i1 %switch.lobit331, label %switch.lookup328, label %294
 
 switch.lookup328:                                 ; preds = %switch.hole_check327
-  %295 = zext nneg i8 %switch.tableidx326 to i64
-  %switch.gep332 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %295
+  %295 = zext nneg i8 %switch.tableidx325 to i64
+  %switch.gep332 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %295
   %switch.load333 = load i8, ptr %switch.gep332, align 1
-  %296 = zext nneg i8 %switch.tableidx326 to i64
-  %switch.gep334 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %296
+  %296 = zext nneg i8 %switch.tableidx325 to i64
+  %switch.gep334 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %296
   %switch.load335 = load i32, ptr %switch.gep334, align 4
   %297 = shl i32 %.sroa.4.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10440)
@@ -37967,8 +37967,8 @@ _ZN6yara_x8compiler4emit7set_var17h76cee15e737f18cdE.exit: ; preds = %"_ZN6yara_
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !10495, !noalias !10502
   call void @llvm.experimental.noalias.scope.decl(metadata !10504), !noalias !10475
   call void @llvm.experimental.noalias.scope.decl(metadata !10507), !noalias !10475
-  %switch.tableidx337 = add i8 %.sroa.4.0.copyload.i.i, -1
-  %350 = icmp ult i8 %switch.tableidx337, 9
+  %switch.tableidx336 = add i8 %.sroa.4.0.copyload.i.i, -1
+  %350 = icmp ult i8 %switch.tableidx336, 9
   br i1 %350, label %switch.hole_check338, label %351
 
 351:                                              ; preds = %switch.hole_check338, %336
@@ -37976,17 +37976,17 @@ _ZN6yara_x8compiler4emit7set_var17h76cee15e737f18cdE.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check338:                             ; preds = %336
-  %switch.maskindex340 = zext nneg i8 %switch.tableidx337 to i16
+  %switch.maskindex340 = zext nneg i8 %switch.tableidx336 to i16
   %switch.shifted341 = lshr i16 495, %switch.maskindex340
   %switch.lobit342 = trunc i16 %switch.shifted341 to i1
   br i1 %switch.lobit342, label %switch.lookup339, label %351
 
 switch.lookup339:                                 ; preds = %switch.hole_check338
-  %352 = zext nneg i8 %switch.tableidx337 to i64
-  %switch.gep343 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %352
+  %352 = zext nneg i8 %switch.tableidx336 to i64
+  %switch.gep343 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %352
   %switch.load344 = load i8, ptr %switch.gep343, align 1
-  %353 = zext nneg i8 %switch.tableidx337 to i64
-  %switch.gep345 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %353
+  %353 = zext nneg i8 %switch.tableidx336 to i64
+  %switch.gep345 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %353
   %switch.load346 = load i32, ptr %switch.gep345, align 4
   %354 = shl i32 %.sroa.3.0.copyload.i.i, 3
   %355 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %344, i64 noundef %346, i32 noundef %347, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !10511
@@ -40195,10 +40195,10 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %59 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %59
   %switch.load = load i8, ptr %switch.gep, align 1
   %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep277 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %60
+  %switch.gep277 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %60
   %switch.load278 = load i32, ptr %switch.gep277, align 4
   %61 = shl i32 %.sroa.494.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11399)
@@ -40298,8 +40298,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   %.sroa.498.0.copyload = load i8, ptr %.sroa.498.0..sroa_idx, align 4
   %.val45 = load ptr, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11431)
-  %switch.tableidx280 = add i8 %.sroa.498.0.copyload, -1
-  %100 = icmp ult i8 %switch.tableidx280, 9
+  %switch.tableidx279 = add i8 %.sroa.498.0.copyload, -1
+  %100 = icmp ult i8 %switch.tableidx279, 9
   br i1 %100, label %switch.hole_check281, label %101
 
 101:                                              ; preds = %switch.hole_check281, %"_ZN6yara_x8compiler4emit23emit_for_of_pattern_set28_$u7b$$u7b$closure$u7d$$u7d$17he872538d160fa175E.exit"
@@ -40307,17 +40307,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h6a9a774ab727fc7dE.exit.i.i
   unreachable
 
 switch.hole_check281:                             ; preds = %"_ZN6yara_x8compiler4emit23emit_for_of_pattern_set28_$u7b$$u7b$closure$u7d$$u7d$17he872538d160fa175E.exit"
-  %switch.maskindex283 = zext nneg i8 %switch.tableidx280 to i16
+  %switch.maskindex283 = zext nneg i8 %switch.tableidx279 to i16
   %switch.shifted284 = lshr i16 495, %switch.maskindex283
   %switch.lobit285 = trunc i16 %switch.shifted284 to i1
   br i1 %switch.lobit285, label %switch.lookup282, label %101
 
 switch.lookup282:                                 ; preds = %switch.hole_check281
-  %102 = zext nneg i8 %switch.tableidx280 to i64
-  %switch.gep286 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %102
+  %102 = zext nneg i8 %switch.tableidx279 to i64
+  %switch.gep286 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %102
   %switch.load287 = load i8, ptr %switch.gep286, align 1
-  %103 = zext nneg i8 %switch.tableidx280 to i64
-  %switch.gep288 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %103
+  %103 = zext nneg i8 %switch.tableidx279 to i64
+  %switch.gep288 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %103
   %switch.load289 = load i32, ptr %switch.gep288, align 4
   %104 = shl i32 %.sroa.397.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11434)
@@ -40443,8 +40443,8 @@ _ZN6yara_x8compiler4emit7set_var17h86ba0669c99d1564E.exit: ; preds = %"_ZN6yara_
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %153 = load ptr, ptr %152, align 8, !nonnull !6, !align !7, !noundef !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11466)
-  %switch.tableidx291 = add i8 %.sroa.614.0.copyload16, -1
-  %154 = icmp ult i8 %switch.tableidx291, 9
+  %switch.tableidx290 = add i8 %.sroa.614.0.copyload16, -1
+  %154 = icmp ult i8 %switch.tableidx290, 9
   br i1 %154, label %switch.hole_check292, label %155
 
 155:                                              ; preds = %switch.hole_check292, %148
@@ -40452,17 +40452,17 @@ _ZN6yara_x8compiler4emit7set_var17h86ba0669c99d1564E.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check292:                             ; preds = %148
-  %switch.maskindex294 = zext nneg i8 %switch.tableidx291 to i16
+  %switch.maskindex294 = zext nneg i8 %switch.tableidx290 to i16
   %switch.shifted295 = lshr i16 495, %switch.maskindex294
   %switch.lobit296 = trunc i16 %switch.shifted295 to i1
   br i1 %switch.lobit296, label %switch.lookup293, label %155
 
 switch.lookup293:                                 ; preds = %switch.hole_check292
-  %156 = zext nneg i8 %switch.tableidx291 to i64
-  %switch.gep297 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %156
+  %156 = zext nneg i8 %switch.tableidx290 to i64
+  %switch.gep297 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %156
   %switch.load298 = load i8, ptr %switch.gep297, align 1
-  %157 = zext nneg i8 %switch.tableidx291 to i64
-  %switch.gep299 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %157
+  %157 = zext nneg i8 %switch.tableidx290 to i64
+  %switch.gep299 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %157
   %switch.load300 = load i32, ptr %switch.gep299, align 4
   %158 = shl i32 %.sroa.5.0.copyload9, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11473)
@@ -40747,8 +40747,8 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   tail call fastcc void @_ZN6yara_x8compiler4emit13set_var_undef17h04dd485fcf4cbc75E(ptr %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 %.sroa.5.0.copyload9, i1 noundef zeroext false), !noalias !11494
   %.val48 = load ptr, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11578)
-  %switch.tableidx302 = add i8 %.sroa.531.0.copyload, -1
-  %293 = icmp ult i8 %switch.tableidx302, 9
+  %switch.tableidx301 = add i8 %.sroa.531.0.copyload, -1
+  %293 = icmp ult i8 %switch.tableidx301, 9
   br i1 %293, label %switch.hole_check303, label %294
 
 294:                                              ; preds = %switch.hole_check303, %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
@@ -40756,17 +40756,17 @@ _ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit: ; 
   unreachable
 
 switch.hole_check303:                             ; preds = %_ZN6walrus16function_builder15InstrSeqBuilder5instr17h750ebeb58cc2a193E.exit
-  %switch.maskindex305 = zext nneg i8 %switch.tableidx302 to i16
+  %switch.maskindex305 = zext nneg i8 %switch.tableidx301 to i16
   %switch.shifted306 = lshr i16 495, %switch.maskindex305
   %switch.lobit307 = trunc i16 %switch.shifted306 to i1
   br i1 %switch.lobit307, label %switch.lookup304, label %294
 
 switch.lookup304:                                 ; preds = %switch.hole_check303
-  %295 = zext nneg i8 %switch.tableidx302 to i64
-  %switch.gep308 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %295
+  %295 = zext nneg i8 %switch.tableidx301 to i64
+  %switch.gep308 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %295
   %switch.load309 = load i8, ptr %switch.gep308, align 1
-  %296 = zext nneg i8 %switch.tableidx302 to i64
-  %switch.gep310 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %296
+  %296 = zext nneg i8 %switch.tableidx301 to i64
+  %switch.gep310 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %296
   %switch.load311 = load i32, ptr %switch.gep310, align 4
   %297 = shl i32 %.sroa.4.0.copyload, 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11581)
@@ -40908,8 +40908,8 @@ _ZN6yara_x8compiler4emit7set_var17hf6ac97c1c3f76d3aE.exit: ; preds = %"_ZN6yara_
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !alias.scope !11636, !noalias !11643
   call void @llvm.experimental.noalias.scope.decl(metadata !11645), !noalias !11616
   call void @llvm.experimental.noalias.scope.decl(metadata !11648), !noalias !11616
-  %switch.tableidx313 = add i8 %.sroa.4.0.copyload.i.i, -1
-  %353 = icmp ult i8 %switch.tableidx313, 9
+  %switch.tableidx312 = add i8 %.sroa.4.0.copyload.i.i, -1
+  %353 = icmp ult i8 %switch.tableidx312, 9
   br i1 %353, label %switch.hole_check314, label %354
 
 354:                                              ; preds = %switch.hole_check314, %336
@@ -40917,17 +40917,17 @@ _ZN6yara_x8compiler4emit7set_var17hf6ac97c1c3f76d3aE.exit: ; preds = %"_ZN6yara_
   unreachable
 
 switch.hole_check314:                             ; preds = %336
-  %switch.maskindex316 = zext nneg i8 %switch.tableidx313 to i16
+  %switch.maskindex316 = zext nneg i8 %switch.tableidx312 to i16
   %switch.shifted317 = lshr i16 495, %switch.maskindex316
   %switch.lobit318 = trunc i16 %switch.shifted317 to i1
   br i1 %switch.lobit318, label %switch.lookup315, label %354
 
 switch.lookup315:                                 ; preds = %switch.hole_check314
-  %355 = zext nneg i8 %switch.tableidx313 to i64
-  %switch.gep319 = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %355
+  %355 = zext nneg i8 %switch.tableidx312 to i64
+  %switch.gep319 = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %355
   %switch.load320 = load i8, ptr %switch.gep319, align 1
-  %356 = zext nneg i8 %switch.tableidx313 to i64
-  %switch.gep321 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %356
+  %356 = zext nneg i8 %switch.tableidx312 to i64
+  %switch.gep321 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %356
   %switch.load322 = load i32, ptr %switch.gep321, align 4
   %357 = shl i32 %.sroa.3.0.copyload.i.i, 3
   %358 = call noundef align 8 dereferenceable(72) ptr @"_ZN124_$LT$walrus..tombstone_arena..TombstoneArena$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$id_arena..Id$LT$T$GT$$GT$$GT$9index_mut17h677dcea07d2d9261E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %347, i64 noundef %349, i32 noundef %350, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4900d9854284dd4f5ed0bb2d745a211.205), !noalias !11652
@@ -43385,10 +43385,10 @@ switch.hole_check:                                ; preds = %_ZN6walrus16functio
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %104 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i8], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E, i64 %104
   %switch.load = load i8, ptr %switch.gep, align 1
   %105 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 0, i64 %105
+  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6yara_x8compiler4emit8load_var17h12d2f4870e3543f9E.627, i64 %105
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   %106 = load ptr, ptr %23, align 8, !nonnull !6, !align !7, !noundef !6
   %107 = load i64, ptr %106, align 8, !noundef !6
@@ -83368,7 +83368,7 @@ define void @_ZN6yara_x8compiler6errors12CompileError9all_codes17h9fa49d7e5e8a61
 define { ptr, i64 } @_ZN6yara_x8compiler6errors12CompileError4code17h3dea76db3203ef62E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !14580, !noundef !6
-  %switch.gep = getelementptr inbounds nuw [46 x ptr], ptr @switch.table._ZN6yara_x8compiler6errors12CompileError4code17h3dea76db3203ef62E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6yara_x8compiler6errors12CompileError4code17h3dea76db3203ef62E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %3 = insertvalue { ptr, i64 } %2, i64 4, 1

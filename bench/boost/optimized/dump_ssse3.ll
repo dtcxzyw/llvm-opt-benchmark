@@ -44,7 +44,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   %16 = lshr i32 %15, 14
   %.lobit = and i32 %16, 1
   %17 = zext nneg i32 %.lobit to i64
-  %18 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %17
   %19 = load <2 x i64>, ptr %18, align 16, !tbaa !16
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 0, %20
@@ -269,7 +269,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %16 = lshr i32 %15, 14
   %.lobit = and i32 %16, 1
   %17 = zext nneg i32 %.lobit to i64
-  %18 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %17
   %19 = load <2 x i64>, ptr %18, align 16, !tbaa !16
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 0, %20
@@ -624,7 +624,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %16 = lshr i32 %15, 14
   %.lobit = and i32 %16, 1
   %17 = zext nneg i32 %.lobit to i64
-  %18 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %17
   %19 = load <2 x i64>, ptr %18, align 16, !tbaa !16
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 0, %20
@@ -889,7 +889,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %16 = lshr i32 %15, 14
   %.lobit = and i32 %16, 1
   %17 = zext nneg i32 %.lobit to i64
-  %18 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %17
   %19 = load <2 x i64>, ptr %18, align 16, !tbaa !16
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 0, %20
@@ -1420,7 +1420,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux32dump_data_char_ssse3_slow_ps
   %131 = lshr i32 %130, 14
   %.lobit = and i32 %131, 1
   %132 = zext nneg i32 %.lobit to i64
-  %133 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %132
   %.not45 = icmp eq i64 %.087.i.lcssa, 0
   br i1 %.not45, label %._crit_edge43, label %.lr.ph42
 
@@ -1793,7 +1793,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %231 = lshr i32 %230, 14
   %.lobit = and i32 %231, 1
   %232 = zext nneg i32 %.lobit to i64
-  %233 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %232
   %.not45 = icmp eq i64 %.087.i.lcssa, 0
   br i1 %.not45, label %._crit_edge43, label %.lr.ph42
 
@@ -2079,7 +2079,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %159 = lshr i32 %158, 14
   %.lobit = and i32 %159, 1
   %160 = zext nneg i32 %.lobit to i64
-  %161 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %160
   %.not45 = icmp eq i64 %.087.i.lcssa, 0
   br i1 %.not45, label %._crit_edge43, label %.lr.ph42
 
@@ -2455,7 +2455,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %231 = lshr i32 %230, 14
   %.lobit = and i32 %231, 1
   %232 = zext nneg i32 %.lobit to i64
-  %233 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 %232
   %.not45 = icmp eq i64 %.087.i.lcssa, 0
   br i1 %.not45, label %._crit_edge43, label %.lr.ph42
 

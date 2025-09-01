@@ -486,7 +486,7 @@ define void @_ZN3gmx21FileNameOptionStorageC2ERKNS_14FileNameOptionEPNS_21FileNa
 
 thread-pre-split:                                 ; preds = %45
   %47 = zext nneg i32 %35 to i64
-  %48 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3gmx12_GLOBAL__N_118sc_fileTypeMappingE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr @_ZN3gmx12_GLOBAL__N_118sc_fileTypeMappingE, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !80
   store i32 %49, ptr %15, align 8, !tbaa !59
   %50 = icmp sgt i32 %49, -1

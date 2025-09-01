@@ -178,7 +178,7 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %24 = sext i32 %14 to i64
-  %25 = getelementptr inbounds [3 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %28
@@ -188,31 +188,31 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
 
 28:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !34
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = add i32 %30, -1
   %34 = add i32 %33, %32
   %35 = sdiv i32 %34, %32
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !34
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !34
   %40 = add i32 %37, -1
   %41 = add i32 %40, %39
   %42 = sdiv i32 %41, %39
   %43 = mul nsw i32 %35, %19
   %44 = sdiv i32 %43, %3
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !34
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !34
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !45
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = shl nuw i32 1, %55
@@ -231,7 +231,7 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
   %66 = getelementptr inbounds i8, ptr %54, i64 %65
   %67 = mul nsw i64 %64, %50
   %68 = getelementptr inbounds i8, ptr %52, i64 %67
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !34
   %71 = sub nsw i32 %61, %63
   tail call void @av_image_copy_plane(ptr noundef %66, i32 noundef %46, ptr noundef %68, i32 noundef %49, i32 noundef %70, i32 noundef %71) #7

@@ -331,12 +331,12 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 
 163:                                              ; preds = %159, %163
   %indvars.iv = phi i64 [ 0, %159 ], [ %indvars.iv.next, %163 ]
-  %164 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 0, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv
   %165 = load i8, ptr %164, align 1, !tbaa !58
-  %166 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %167 = load i8, ptr %166, align 1, !tbaa !58
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 %168
   store i8 %165, ptr %169, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -379,15 +379,15 @@ define internal void @smear_borders8(ptr noundef readonly captures(none) %0, ptr
 
 10:                                               ; preds = %.lr.ph85, %._crit_edge82
   %indvars.iv94 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next95, %._crit_edge82 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv94
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv94
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv94
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv94
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv94
+  %16 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv94
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !55
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv94
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv94
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %19, align 4, !tbaa !45
   %22 = load i32, ptr %20, align 4, !tbaa !56
@@ -396,7 +396,7 @@ define internal void @smear_borders8(ptr noundef readonly captures(none) %0, ptr
   br i1 %24, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %10
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv94
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv94
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %27 = sext i32 %18 to i64
   br label %32
@@ -412,7 +412,7 @@ define internal void @smear_borders8(ptr noundef readonly captures(none) %0, ptr
   br i1 %30, label %.lr.ph78, label %._crit_edge
 
 .lr.ph78:                                         ; preds = %.preheader
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv94
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv94
   br label %53
 
 32:                                               ; preds = %.lr.ph, %32
@@ -471,7 +471,7 @@ define internal void @smear_borders8(ptr noundef readonly captures(none) %0, ptr
 .lr.ph81:                                         ; preds = %._crit_edge
   %67 = load i32, ptr %19, align 4, !tbaa !45
   %68 = sub i32 %67, %65
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv94
+  %69 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv94
   %70 = sext i32 %68 to i64
   br label %71
 
@@ -522,16 +522,16 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
 
 10:                                               ; preds = %.lr.ph109, %._crit_edge106
   %indvars.iv136 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next137, %._crit_edge106 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv136
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv136
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv136
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv136
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv136
+  %17 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv136
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv136
+  %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv136
   %21 = load i32, ptr %20, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !56
@@ -551,7 +551,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
 .preheader85.lr.ph.split.us:                      ; preds = %.preheader85.lr.ph
   %32 = zext nneg i32 %30 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv136
+  %34 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv136
   %35 = load i32, ptr %34, align 4, !tbaa !45
   %36 = sext i32 %35 to i64
   %invariant.gep = getelementptr i16, ptr %12, i64 %36
@@ -638,7 +638,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
   br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader86
-  %57 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv136
+  %57 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv136
   br label %58
 
 58:                                               ; preds = %.lr.ph, %58
@@ -671,7 +671,7 @@ define internal void @smear_borders16(ptr noundef readonly captures(none) %0, pt
 .lr.ph105:                                        ; preds = %._crit_edge
   %73 = load i32, ptr %20, align 4, !tbaa !45
   %74 = sub i32 %73, %71
-  %75 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv136
+  %75 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv136
   %76 = sext i32 %74 to i64
   br label %77
 
@@ -723,15 +723,15 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
 
 10:                                               ; preds = %.lr.ph104, %._crit_edge101
   %indvars.iv116 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next117, %._crit_edge101 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv116
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv116
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv116
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv116
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv116
+  %16 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv116
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !55
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv116
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv116
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %19, align 4, !tbaa !45
   %22 = load i32, ptr %20, align 4, !tbaa !56
@@ -741,7 +741,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
 
 .preheader89.lr.ph:                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv116
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv116
   %27 = sext i32 %18 to i64
   br label %.preheader89
 
@@ -756,7 +756,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   br i1 %30, label %.lr.ph98, label %.preheader90
 
 .lr.ph98:                                         ; preds = %.preheader91
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv116
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv116
   br label %74
 
 .preheader89:                                     ; preds = %.preheader89.lr.ph, %._crit_edge
@@ -835,7 +835,7 @@ define internal void @mirror_borders8(ptr noundef readonly captures(none) %0, pt
   br i1 %72, label %.lr.ph100, label %._crit_edge101
 
 .lr.ph100:                                        ; preds = %.preheader90
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv116
+  %73 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv116
   br label %90
 
 74:                                               ; preds = %.lr.ph98, %74
@@ -908,16 +908,16 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
 
 10:                                               ; preds = %.lr.ph104, %._crit_edge101
   %indvars.iv118 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next119, %._crit_edge101 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv118
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv118
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv118
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv118
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv118
+  %17 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv118
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv118
+  %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv118
   %21 = load i32, ptr %20, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !56
@@ -933,7 +933,7 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !54
   %32 = icmp sgt i32 %31, 0
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv118
+  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv118
   %34 = sext i32 %31 to i64
   %35 = sext i32 %19 to i64
   %36 = sext i32 %24 to i64
@@ -946,7 +946,7 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   br i1 %37, label %.lr.ph98, label %.preheader90
 
 .lr.ph98:                                         ; preds = %.preheader91
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv118
+  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv118
   br label %62
 
 .preheader89:                                     ; preds = %.preheader89.lr.ph, %._crit_edge
@@ -1008,7 +1008,7 @@ define internal void @mirror_borders16(ptr noundef readonly captures(none) %0, p
   br i1 %60, label %.lr.ph100, label %._crit_edge101
 
 .lr.ph100:                                        ; preds = %.preheader90
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv118
+  %61 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv118
   br label %79
 
 62:                                               ; preds = %.lr.ph98, %62
@@ -1084,17 +1084,17 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
 
 11:                                               ; preds = %.lr.ph67, %._crit_edge64
   %indvars.iv76 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next77, %._crit_edge64 ]
-  %12 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv76
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv76
   %13 = load ptr, ptr %12, align 8, !tbaa !62
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv76
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv76
   %15 = load i8, ptr %14, align 1, !tbaa !58
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv76
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv76
   %17 = load i32, ptr %16, align 4, !tbaa !45
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %8, i64 0, i64 %indvars.iv76
+  %19 = getelementptr inbounds nuw %struct.Borders, ptr %8, i64 %indvars.iv76
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !55
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv76
+  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv76
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %24 = load i32, ptr %22, align 4, !tbaa !45
   %25 = load i32, ptr %23, align 4, !tbaa !56
@@ -1103,7 +1103,7 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
   br i1 %27, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %11
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv76
+  %28 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv76
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %30 = sext i32 %21 to i64
   br label %35
@@ -1119,7 +1119,7 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
   br i1 %33, label %.lr.ph60, label %._crit_edge
 
 .lr.ph60:                                         ; preds = %.preheader
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv76
+  %34 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv76
   br label %52
 
 35:                                               ; preds = %.lr.ph, %35
@@ -1170,7 +1170,7 @@ define internal void @fixed_borders8(ptr noundef readonly captures(none) %0, ptr
 .lr.ph63:                                         ; preds = %._crit_edge
   %62 = load i32, ptr %22, align 4, !tbaa !45
   %63 = sub i32 %62, %60
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv76
+  %64 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv76
   %65 = sext i32 %63 to i64
   br label %66
 
@@ -1219,21 +1219,21 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
 
 14:                                               ; preds = %.lr.ph, %._crit_edge102
   %indvars.iv145 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next146, %._crit_edge102 ]
-  %15 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv145
+  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv145
   %16 = load ptr, ptr %15, align 8, !tbaa !62
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv145
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv145
   %18 = load i8, ptr %17, align 1, !tbaa !58
   %19 = zext i8 %18 to i32
   %20 = shl i32 %19, %9
   %21 = trunc i32 %20 to i16
-  %22 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %indvars.iv145
+  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv145
   %23 = load i32, ptr %22, align 4, !tbaa !45
   %24 = sdiv i32 %23, 2
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %11, i64 0, i64 %indvars.iv145
+  %26 = getelementptr inbounds nuw %struct.Borders, ptr %11, i64 %indvars.iv145
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !55
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv145
+  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv145
   %30 = load i32, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !56
@@ -1251,7 +1251,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
 
 .preheader76.lr.ph.split.us:                      ; preds = %.preheader76.lr.ph
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv145
+  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv145
   %42 = load i32, ptr %41, align 4, !tbaa !45
   %43 = sext i32 %42 to i64
   %invariant.op = sub nsw i64 %43, %40
@@ -1328,7 +1328,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   br i1 %60, label %.preheader74.lr.ph, label %.preheader77
 
 .preheader74.lr.ph:                               ; preds = %.preheader78
-  %61 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv145
+  %61 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv145
   %62 = load i32, ptr %61, align 4, !tbaa !45
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.preheader74.us.preheader, label %.preheader77
@@ -1362,7 +1362,7 @@ define internal void @fixed_borders16(ptr noundef readonly captures(none) %0, pt
   br i1 %68, label %.preheader.lr.ph, label %._crit_edge102
 
 .preheader.lr.ph:                                 ; preds = %.preheader77
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv145
+  %69 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv145
   %70 = load i32, ptr %69, align 4, !tbaa !45
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.preheader.us.preheader, label %._crit_edge102
@@ -1417,15 +1417,15 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
 
 10:                                               ; preds = %.lr.ph106, %._crit_edge103
   %indvars.iv119 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next120, %._crit_edge103 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv119
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv119
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv119
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv119
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv119
+  %16 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv119
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !55
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv119
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv119
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %19, align 4, !tbaa !45
   %22 = load i32, ptr %20, align 4, !tbaa !56
@@ -1435,7 +1435,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
 
 .preheader91.lr.ph:                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %26 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv119
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv119
   %27 = sext i32 %18 to i64
   br label %.preheader91
 
@@ -1450,7 +1450,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   br i1 %30, label %.lr.ph100, label %.preheader92
 
 .lr.ph100:                                        ; preds = %.preheader93
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv119
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv119
   br label %74
 
 .preheader91:                                     ; preds = %.preheader91.lr.ph, %._crit_edge
@@ -1530,7 +1530,7 @@ define internal void @reflect_borders8(ptr noundef readonly captures(none) %0, p
   br i1 %72, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader92
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv119
+  %73 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv119
   br label %89
 
 74:                                               ; preds = %.lr.ph100, %74
@@ -1602,16 +1602,16 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %.lr.ph108, %._crit_edge105
   %indvars.iv122 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next123, %._crit_edge105 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv122
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv122
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv122
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv122
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv122
+  %17 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv122
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv122
+  %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv122
   %21 = load i32, ptr %20, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !56
@@ -1627,7 +1627,7 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !54
   %32 = icmp sgt i32 %31, 0
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv122
+  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv122
   %34 = sext i32 %31 to i64
   %35 = sext i32 %19 to i64
   %36 = sext i32 %24 to i64
@@ -1640,7 +1640,7 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   br i1 %37, label %.lr.ph102, label %.preheader92
 
 .lr.ph102:                                        ; preds = %.preheader93
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv122
+  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv122
   br label %59
 
 .preheader91:                                     ; preds = %.preheader91.lr.ph, %._crit_edge
@@ -1703,7 +1703,7 @@ define internal void @reflect_borders16(ptr noundef readonly captures(none) %0, 
   br i1 %57, label %.lr.ph104, label %._crit_edge105
 
 .lr.ph104:                                        ; preds = %.preheader92
-  %58 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv122
+  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv122
   br label %75
 
 59:                                               ; preds = %.lr.ph102, %59
@@ -1777,15 +1777,15 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
 
 10:                                               ; preds = %.lr.ph115, %._crit_edge112
   %indvars.iv127 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next128, %._crit_edge112 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv127
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv127
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv127
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv127
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv127
+  %16 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv127
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !55
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv127
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv127
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %19, align 4, !tbaa !45
   %22 = load i32, ptr %20, align 4, !tbaa !56
@@ -1794,7 +1794,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   br i1 %24, label %.preheader100.lr.ph, label %.preheader102
 
 .preheader100.lr.ph:                              ; preds = %10
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv127
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv127
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %27 = sext i32 %18 to i64
   br label %.preheader100
@@ -1810,7 +1810,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   br i1 %30, label %.lr.ph109, label %.preheader101
 
 .lr.ph109:                                        ; preds = %.preheader102
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv127
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv127
   br label %82
 
 .preheader100:                                    ; preds = %.preheader100.lr.ph, %._crit_edge
@@ -1897,7 +1897,7 @@ define internal void @wrap_borders8(ptr noundef readonly captures(none) %0, ptr 
   br i1 %80, label %.lr.ph111, label %._crit_edge112
 
 .lr.ph111:                                        ; preds = %.preheader101
-  %81 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv127
+  %81 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv127
   br label %100
 
 82:                                               ; preds = %.lr.ph109, %82
@@ -1972,16 +1972,16 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
 
 10:                                               ; preds = %.lr.ph116, %._crit_edge113
   %indvars.iv130 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next131, %._crit_edge113 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv130
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv130
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv130
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv130
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv130
+  %17 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv130
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv130
+  %20 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv130
   %21 = load i32, ptr %20, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !56
@@ -1992,7 +1992,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
 .preheader100.lr.ph:                              ; preds = %10
   %26 = load i32, ptr %17, align 4, !tbaa !52
   %27 = icmp sgt i32 %26, 0
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv130
+  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %30 = sext i32 %26 to i64
   %31 = load i32, ptr %29, align 4, !tbaa !54
@@ -2011,7 +2011,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   br i1 %37, label %.lr.ph110, label %.preheader101
 
 .lr.ph110:                                        ; preds = %.preheader102
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv130
+  %38 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
   br label %64
 
 .preheader100:                                    ; preds = %.preheader100.lr.ph, %._crit_edge
@@ -2076,7 +2076,7 @@ define internal void @wrap_borders16(ptr noundef readonly captures(none) %0, ptr
   br i1 %62, label %.lr.ph112, label %._crit_edge113
 
 .lr.ph112:                                        ; preds = %.preheader101
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv130
+  %63 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
   br label %83
 
 64:                                               ; preds = %.lr.ph110, %64
@@ -2154,23 +2154,23 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
 
 11:                                               ; preds = %.lr.ph138, %._crit_edge135
   %indvars.iv163 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next164, %._crit_edge135 ]
-  %12 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv163
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv163
   %13 = load ptr, ptr %12, align 8, !tbaa !62
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv163
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv163
   %15 = load i8, ptr %14, align 1, !tbaa !58
-  %16 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv163
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv163
   %17 = load i32, ptr %16, align 4, !tbaa !45
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %8, i64 0, i64 %indvars.iv163
+  %19 = getelementptr inbounds nuw %struct.Borders, ptr %8, i64 %indvars.iv163
   %20 = load i32, ptr %19, align 4, !tbaa !52
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv163
+  %21 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv163
   %22 = load i32, ptr %21, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !54
   %25 = sub nsw i32 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !55
-  %28 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv163
+  %28 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv163
   %29 = load i32, ptr %28, align 4, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !56
@@ -2430,26 +2430,26 @@ define internal void @fade_borders16(ptr noundef readonly captures(none) %0, ptr
 
 16:                                               ; preds = %.lr.ph144, %._crit_edge141
   %indvars.iv177 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next178, %._crit_edge141 ]
-  %17 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv177
+  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv177
   %18 = load ptr, ptr %17, align 8, !tbaa !62
-  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv177
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv177
   %20 = load i8, ptr %19, align 1, !tbaa !58
   %21 = zext i8 %20 to i32
   %22 = shl i32 %21, %9
-  %23 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %indvars.iv177
+  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv177
   %24 = load i32, ptr %23, align 4, !tbaa !45
   %25 = sdiv i32 %24, 2
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %11, i64 0, i64 %indvars.iv177
+  %27 = getelementptr inbounds nuw %struct.Borders, ptr %11, i64 %indvars.iv177
   %28 = load i32, ptr %27, align 4, !tbaa !52
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv177
+  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv177
   %30 = load i32, ptr %29, align 4, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = sub nsw i32 %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i32, ptr %34, align 4, !tbaa !55
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv177
+  %36 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv177
   %37 = load i32, ptr %36, align 4, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !56
@@ -2681,19 +2681,19 @@ define internal void @margins_borders8(ptr noundef readonly captures(none) %0, p
 
 10:                                               ; preds = %.lr.ph145, %._crit_edge142
   %indvars.iv174 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next175, %._crit_edge142 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv174
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv174
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv174
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv174
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv174
+  %16 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv174
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !56
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv174
+  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv174
   %22 = load i32, ptr %21, align 4, !tbaa !45
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv174
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv174
   %24 = load i32, ptr %23, align 4, !tbaa !45
   %25 = sub nsw i32 %24, %20
   %26 = icmp slt i32 %18, %25
@@ -2897,13 +2897,13 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %.lr.ph167, %._crit_edge164
   %indvars.iv204 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next205, %._crit_edge164 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv204
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv204
   %12 = load ptr, ptr %11, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %indvars.iv204
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv204
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw [4 x %struct.Borders], ptr %7, i64 0, i64 %indvars.iv204
+  %17 = getelementptr inbounds nuw %struct.Borders, ptr %7, i64 %indvars.iv204
   %18 = load i32, ptr %17, align 4, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !54
@@ -2911,9 +2911,9 @@ define internal void @margins_borders16(ptr noundef readonly captures(none) %0, 
   %22 = load i32, ptr %21, align 4, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !56
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv204
+  %25 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv204
   %26 = load i32, ptr %25, align 4, !tbaa !45
-  %27 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv204
+  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv204
   %28 = load i32, ptr %27, align 4, !tbaa !45
   %29 = sub nsw i32 %28, %24
   %30 = icmp slt i32 %22, %29

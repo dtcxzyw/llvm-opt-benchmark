@@ -3081,7 +3081,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit.i:    ; preds = %64, %58, %56
   br i1 %69, label %"_ZZN2bv6solver23check_mul_invertibilityEP3appRK10ref_vectorI4expr11ast_managerEPS4_ENK3$_2clES9_.exit", label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !162
   %73 = load ptr, ptr %17, align 8, !tbaa !227
   %74 = load i32, ptr %16, align 8, !tbaa !173

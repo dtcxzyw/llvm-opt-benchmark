@@ -212,7 +212,7 @@ define hidden noundef zeroext i1 @SDL_InitJoysticks() local_unnamed_addr #1 {
 15:                                               ; preds = %7, %15
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %15 ]
   %.09 = phi i1 [ false, %7 ], [ %spec.select, %15 ]
-  %16 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 %18() #13
@@ -414,7 +414,7 @@ define hidden void @SDL_QuitJoysticks() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.preheader ], [ 2, %.preheader.preheader ]
-  %16 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv65
+  %16 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv65
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %19 = load ptr, ptr %18, align 8
@@ -878,7 +878,7 @@ define hidden noundef zeroext i1 @SDL_JoystickHandledByAnotherDriver(ptr noundef
 
 12:                                               ; preds = %5, %11
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %0, %14
   br i1 %15, label %20, label %16
@@ -937,7 +937,7 @@ define hidden zeroext i1 @SDL_HasJoystick_REAL() local_unnamed_addr #1 {
 6:                                                ; preds = %0, %6
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %6 ]
   %.09 = phi i32 [ 0, %0 ], [ %12, %6 ]
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -995,7 +995,7 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %.02435 = phi i32 [ 0, %1 ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1027,7 +1027,7 @@ define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(
 21:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge ], [ 0, %.preheader ]
   %.02539 = phi i32 [ %.126.lcssa, %._crit_edge ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv47
+  %22 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv47
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -1121,7 +1121,7 @@ define hidden ptr @SDL_GetJoystickVirtualGamepadInfoForID(i32 noundef %0) local_
 
 .preheader.i:                                     ; preds = %3, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1188,7 +1188,7 @@ define hidden ptr @SDL_GetJoystickNameForID_REAL(i32 noundef %0) local_unnamed_a
 
 .preheader.i.i:                                   ; preds = %8, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -1241,7 +1241,7 @@ SDL_GetJoystickVirtualGamepadInfoForID.exit.thread: ; preds = %1, %SDL_GetDriver
 
 .preheader.i:                                     ; preds = %SDL_GetJoystickVirtualGamepadInfoForID.exit.thread, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %SDL_GetJoystickVirtualGamepadInfoForID.exit.thread ]
-  %29 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -1331,7 +1331,7 @@ define hidden ptr @SDL_GetJoystickPathForID_REAL(i32 noundef %0) local_unnamed_a
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -1495,7 +1495,7 @@ define hidden noundef ptr @SDL_OpenJoystick_REAL(i32 noundef %0) local_unnamed_a
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1931,7 +1931,7 @@ SDL_JoystickAxesCenteredAtZero.exit.thread:       ; preds = %185, %189, %196, %S
 
 .preheader.i.i103:                                ; preds = %SDL_JoystickAxesCenteredAtZero.exit.thread, %._crit_edge.i.i
   %indvars.iv.i.i104 = phi i64 [ %indvars.iv.next.i.i105, %._crit_edge.i.i ], [ 0, %SDL_JoystickAxesCenteredAtZero.exit.thread ]
-  %203 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i104
+  %203 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i104
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8
@@ -2733,12 +2733,12 @@ SDL_PrivateJoystickAddSensor.exit39:              ; preds = %41, %33, %30, %SDL_
 
 .preheader:                                       ; preds = %.preheader40, %67
   %indvars.iv47 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next48, %67 ]
-  %62 = getelementptr inbounds nuw [3 x [3 x float]], ptr %61, i64 0, i64 %indvars.iv47
+  %62 = getelementptr inbounds nuw [3 x float], ptr %61, i64 %indvars.iv47
   br label %63
 
 63:                                               ; preds = %.preheader, %63
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
   %65 = load float, ptr %64, align 4
   %66 = fneg float %65
   store float %66, ptr %64, align 4
@@ -2857,7 +2857,7 @@ define hidden zeroext i1 @SDL_IsJoystickVirtual_REAL(i32 noundef %0) local_unnam
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -3642,7 +3642,7 @@ define hidden zeroext i1 @SDL_PrivateJoystickGetAutoGamepadMapping(i32 noundef %
 
 .preheader.i:                                     ; preds = %2, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4949,7 +4949,7 @@ define hidden ptr @SDL_GetJoystickName_REAL(ptr noundef %0) local_unnamed_addr #
 
 .preheader.i.i:                                   ; preds = %23, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -5420,7 +5420,7 @@ SDL_GetPlayerIndexForJoystickID.exit.thread:      ; preds = %36, %40, %SDL_GetPl
 
 .preheader.i:                                     ; preds = %48, %._crit_edge.i
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %._crit_edge.i ], [ 0, %48 ]
-  %49 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i30
+  %49 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i30
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -6236,7 +6236,7 @@ define hidden void @SDL_PrivateJoystickAdded(i32 noundef %0) local_unnamed_addr 
 
 .preheader.i:                                     ; preds = %3, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -7209,7 +7209,7 @@ define hidden void @SDL_UpdateJoysticks_REAL() local_unnamed_addr #1 {
 
 .preheader.i.i.i:                                 ; preds = %19, %._crit_edge.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %._crit_edge.i.i.i ], [ 0, %19 ]
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i.i
+  %20 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -7445,7 +7445,7 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %119 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
@@ -7501,7 +7501,7 @@ define hidden void @SDL_SetJoystickEventsEnabled_REAL(i1 noundef zeroext %0) loc
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [8 x i32], ptr @SDL_joystick_event_list, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i32, ptr @SDL_joystick_event_list, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   tail call void @SDL_SetEventEnabled_REAL(i32 noundef %4, i1 noundef zeroext %0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7520,7 +7520,7 @@ define hidden zeroext i1 @SDL_JoystickEventsEnabled_REAL() local_unnamed_addr #1
 
 1:                                                ; preds = %1, %0
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw [8 x i32], ptr @SDL_joystick_event_list, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw i32, ptr @SDL_joystick_event_list, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4
   %4 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8636,7 +8636,7 @@ define hidden { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef %0) local_
 
 .preheader.i:                                     ; preds = %1, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -8732,7 +8732,7 @@ define hidden zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef %0) local
 
 .preheader.i.i:                                   ; preds = %8, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -8849,7 +8849,7 @@ define hidden zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef %0) loca
 
 .preheader.i.i:                                   ; preds = %8, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -9221,7 +9221,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit:
 
 switch.lookup:                                    ; preds = %79
   %89 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table.SDL_GetJoystickGUIDType, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetJoystickGUIDType, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_IsJoystickWheel.exit
 
@@ -9366,7 +9366,7 @@ define hidden zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef %0) local_unna
 
 .preheader.i.i:                                   ; preds = %23, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -9519,7 +9519,7 @@ define hidden zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef %0) local_unn
 
 .preheader.i.i:                                   ; preds = %23, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr @SDL_joystick_drivers, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8

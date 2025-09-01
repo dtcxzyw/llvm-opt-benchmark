@@ -1406,7 +1406,7 @@ _ZN4llvm5ErrorD2Ev.exit92:                        ; preds = %_ZNKSt7__cxx1112bas
 121:                                              ; preds = %116
   %.sroa.02.0.insert.ext.i = and i64 %120, 4294967295
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !195
-  %122 = getelementptr inbounds nuw [65 x i8], ptr @.str.17, i64 0, i64 %.sroa.02.0.insert.ext.i
+  %122 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.sroa.02.0.insert.ext.i
   %123 = load i8, ptr %122, align 1, !tbaa !43, !noalias !195
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %125 = load i8, ptr %124, align 8, !alias.scope !195
@@ -1537,7 +1537,7 @@ _ZN4llvm8ExpectedImED2Ev.exit101:                 ; preds = %_ZL20readAbbreviate
 181:                                              ; preds = %177
   %.sroa.02.0.insert.ext.i102 = and i64 %180, 4294967295
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !201
-  %182 = getelementptr inbounds nuw [65 x i8], ptr @.str.17, i64 0, i64 %.sroa.02.0.insert.ext.i102
+  %182 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.sroa.02.0.insert.ext.i102
   %183 = load i8, ptr %182, align 1, !tbaa !43, !noalias !201
   %184 = load i8, ptr %159, align 8, !alias.scope !201
   %185 = and i8 %184, -2
@@ -2737,7 +2737,7 @@ _ZN4llvm5ErrorD2Ev.exit133:                       ; preds = %_ZNKSt7__cxx1112bas
 238:                                              ; preds = %233
   %.sroa.02.0.insert.ext.i = and i64 %237, 4294967295
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !304
-  %239 = getelementptr inbounds nuw [65 x i8], ptr @.str.17, i64 0, i64 %.sroa.02.0.insert.ext.i
+  %239 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.sroa.02.0.insert.ext.i
   %240 = load i8, ptr %239, align 1, !tbaa !43, !noalias !304
   %241 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %242 = load i8, ptr %241, align 8, !alias.scope !304
@@ -2899,7 +2899,7 @@ _ZN4llvm8ExpectedImED2Ev.exit142:                 ; preds = %_ZL20readAbbreviate
 321:                                              ; preds = %317
   %.sroa.02.0.insert.ext.i146 = and i64 %320, 4294967295
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !310
-  %322 = getelementptr inbounds nuw [65 x i8], ptr @.str.17, i64 0, i64 %.sroa.02.0.insert.ext.i146
+  %322 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.sroa.02.0.insert.ext.i146
   %323 = load i8, ptr %322, align 1, !tbaa !43, !noalias !310
   %324 = load i8, ptr %288, align 8, !alias.scope !310
   %325 = and i8 %324, -2
@@ -3474,7 +3474,7 @@ _ZN4llvm8ExpectedImED2Ev.exit203:                 ; preds = %529, %_ZNKSt14defau
 
 542:                                              ; preds = %536
   %543 = and i64 %541, 4294967295
-  %544 = getelementptr inbounds nuw [65 x i8], ptr @.str.17, i64 0, i64 %543
+  %544 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %543
   %545 = load i8, ptr %544, align 1, !tbaa !43
   %546 = sext i8 %545 to i64
   %547 = load i32, ptr %268, align 8, !tbaa !27

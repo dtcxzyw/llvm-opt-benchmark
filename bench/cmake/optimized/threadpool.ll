@@ -446,10 +446,10 @@ define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.2, i64 0, i64 %6
+  %switch.gep19 = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel.2, i64 %6
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load20

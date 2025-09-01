@@ -69,7 +69,7 @@ define internal noundef range(i32 -14, 1) i32 @mpi_init() #0 section ".init.text
 11:                                               ; preds = %8, %7, %6, %5, %4, %1
   %12 = phi i64 [ 8, %8 ], [ 4, %7 ], [ 3, %6 ], [ 2, %5 ], [ 1, %4 ], [ 0, %1 ]
   %13 = tail call ptr @mpi_alloc_set_ui(i64 noundef %12)
-  %14 = getelementptr [6 x ptr], ptr @constants, i64 0, i64 %2
+  %14 = getelementptr ptr, ptr @constants, i64 %2
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 48, ptr %15, align 8
@@ -93,7 +93,7 @@ define dso_local ptr @mpi_const(i32 noundef %0) #1 align 16 {
 
 5:                                                ; preds = %3, %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr [6 x ptr], ptr @constants, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @constants, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12

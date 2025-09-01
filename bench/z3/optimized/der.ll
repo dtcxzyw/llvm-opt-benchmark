@@ -3656,7 +3656,7 @@ _ZN13ast_fast_markILj2EE4markEP3ast.exit.i:       ; preds = %_ZN6bufferIP3astLb0
   br i1 %exitcond.not.i, label %326, label %310
 
 310:                                              ; preds = %309
-  %311 = getelementptr inbounds nuw [0 x ptr], ptr %307, i64 0, i64 %indvars.iv317.i
+  %311 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv317.i
   %312 = load ptr, ptr %311, align 8, !tbaa !24
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %313 = trunc nuw i64 %indvars.iv.next318.i to i32
@@ -11915,7 +11915,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16der_rewriter_cfgE11process_
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -14438,7 +14438,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16der_rewriter_cfgE11process_
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !24
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

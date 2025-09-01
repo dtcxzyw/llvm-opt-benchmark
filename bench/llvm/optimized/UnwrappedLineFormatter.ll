@@ -7629,14 +7629,14 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %17 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %17
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread: ; preds = %switch.lookup, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %18 = phi i16 [ %.pr, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split ], [ %11, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %switch.tableidx12 = add i16 %18, -1
-  %19 = icmp ult i16 %switch.tableidx12, 19
+  %switch.tableidx11 = add i16 %18, -1
+  %19 = icmp ult i16 %switch.tableidx11, 19
   br i1 %19, label %switch.hole_check13, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i:   ; preds = %switch.hole_check13, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
@@ -7655,21 +7655,21 @@ _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
 switch.hole_check13:                              ; preds = %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
-  %switch.maskindex15 = zext nneg i16 %switch.tableidx12 to i32
+  %switch.maskindex15 = zext nneg i16 %switch.tableidx11 to i32
   %switch.shifted16 = lshr i32 524225, %switch.maskindex15
   %switch.lobit17 = trunc i32 %switch.shifted16 to i1
   br i1 %switch.lobit17, label %switch.lookup14, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
 
 switch.lookup14:                                  ; preds = %switch.hole_check13
-  %24 = zext nneg i16 %switch.tableidx12 to i64
-  %switch.gep18 = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %24
+  %24 = zext nneg i16 %switch.tableidx11 to i64
+  %switch.gep18 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %24
   %switch.load19 = load i16, ptr %switch.gep18, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i: ; preds = %switch.lookup14, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
   %25 = phi i16 [ %.pr.i, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i ], [ %18, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i ], [ %switch.load19, %switch.lookup14 ]
-  %switch.tableidx21 = add i16 %25, -1
-  %26 = icmp ult i16 %switch.tableidx21, 19
+  %switch.tableidx20 = add i16 %25, -1
+  %26 = icmp ult i16 %switch.tableidx20, 19
   br i1 %26, label %switch.hole_check22, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i: ; preds = %switch.hole_check22, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
@@ -7688,14 +7688,14 @@ _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
 switch.hole_check22:                              ; preds = %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
-  %switch.maskindex24 = zext nneg i16 %switch.tableidx21 to i32
+  %switch.maskindex24 = zext nneg i16 %switch.tableidx20 to i32
   %switch.shifted25 = lshr i32 524225, %switch.maskindex24
   %switch.lobit26 = trunc i32 %switch.shifted25 to i1
   br i1 %switch.lobit26, label %switch.lookup23, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
 
 switch.lookup23:                                  ; preds = %switch.hole_check22
-  %31 = zext nneg i16 %switch.tableidx21 to i64
-  %switch.gep27 = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %31
+  %31 = zext nneg i16 %switch.tableidx20 to i64
+  %switch.gep27 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %31
   %switch.load28 = load i16, ptr %switch.gep27, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
@@ -7771,14 +7771,14 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %13
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread: ; preds = %switch.lookup, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %14 = phi i16 [ %.pr, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split ], [ %7, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %switch.load, %switch.lookup ]
-  %switch.tableidx8 = add i16 %14, -1
-  %15 = icmp ult i16 %switch.tableidx8, 19
+  %switch.tableidx7 = add i16 %14, -1
+  %15 = icmp ult i16 %switch.tableidx7, 19
   br i1 %15, label %switch.hole_check9, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i:   ; preds = %switch.hole_check9, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
@@ -7797,21 +7797,21 @@ _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
 switch.hole_check9:                               ; preds = %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
-  %switch.maskindex11 = zext nneg i16 %switch.tableidx8 to i32
+  %switch.maskindex11 = zext nneg i16 %switch.tableidx7 to i32
   %switch.shifted12 = lshr i32 524225, %switch.maskindex11
   %switch.lobit13 = trunc i32 %switch.shifted12 to i1
   br i1 %switch.lobit13, label %switch.lookup10, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
 
 switch.lookup10:                                  ; preds = %switch.hole_check9
-  %20 = zext nneg i16 %switch.tableidx8 to i64
-  %switch.gep14 = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %20
+  %20 = zext nneg i16 %switch.tableidx7 to i64
+  %switch.gep14 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %20
   %switch.load15 = load i16, ptr %switch.gep14, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i: ; preds = %switch.lookup10, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i
   %21 = phi i16 [ %.pr.i, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i ], [ %14, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i ], [ %switch.load15, %switch.lookup10 ]
-  %switch.tableidx17 = add i16 %21, -1
-  %22 = icmp ult i16 %switch.tableidx17, 19
+  %switch.tableidx16 = add i16 %21, -1
+  %22 = icmp ult i16 %switch.tableidx16, 19
   br i1 %22, label %switch.hole_check18, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i: ; preds = %switch.hole_check18, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
@@ -7830,21 +7830,21 @@ _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
 switch.hole_check18:                              ; preds = %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
-  %switch.maskindex20 = zext nneg i16 %switch.tableidx17 to i32
+  %switch.maskindex20 = zext nneg i16 %switch.tableidx16 to i32
   %switch.shifted21 = lshr i32 524225, %switch.maskindex20
   %switch.lobit22 = trunc i32 %switch.shifted21 to i1
   br i1 %switch.lobit22, label %switch.lookup19, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
 
 switch.lookup19:                                  ; preds = %switch.hole_check18
-  %27 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep23 = getelementptr inbounds nuw [19 x i16], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 0, i64 %27
+  %27 = zext nneg i16 %switch.tableidx16 to i64
+  %switch.gep23 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.84, i64 %27
   %switch.load24 = load i16, ptr %switch.gep23, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i: ; preds = %switch.lookup19, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i
   %28 = phi i16 [ %.pr.i.i, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.threadthread-pre-split.i.i ], [ %21, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i.i ], [ %switch.load24, %switch.lookup19 ]
-  %switch.tableidx26 = add i16 %28, -1
-  %29 = icmp ult i16 %switch.tableidx26, 19
+  %switch.tableidx25 = add i16 %28, -1
+  %29 = icmp ult i16 %switch.tableidx25, 19
   br i1 %29, label %switch.hole_check27, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i2.i.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i2.i.i: ; preds = %switch.hole_check27, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
@@ -7859,7 +7859,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit2.i4.i.i: ; preds = %_ZNK5clang5Token1
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_EEEbT_T0_DpT1_.exit
 
 switch.hole_check27:                              ; preds = %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
-  %switch.maskindex29 = zext nneg i16 %switch.tableidx26 to i32
+  %switch.maskindex29 = zext nneg i16 %switch.tableidx25 to i32
   %switch.shifted30 = lshr i32 524225, %switch.maskindex29
   %switch.lobit31 = trunc i32 %switch.shifted30 to i1
   br i1 %switch.lobit31, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_EEEbT_T0_DpT1_.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i2.i.i

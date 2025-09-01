@@ -1088,7 +1088,7 @@ _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18
   %480 = sdiv i8 %478, 4
   %481 = srem i8 %478, 4
   %482 = sext i8 %480 to i64
-  %483 = getelementptr inbounds [13 x i8], ptr @_ZZ4mainE6number, i64 0, i64 %482
+  %483 = getelementptr inbounds i8, ptr @_ZZ4mainE6number, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %484, ptr %4, align 1, !tbaa !18
@@ -1113,7 +1113,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit: ; preds = %491, %493
   %.0.i.i = phi ptr [ %492, %491 ], [ @_ZSt4cout, %493 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %495 = sext i8 %481 to i64
-  %496 = getelementptr inbounds [4 x i8], ptr @_ZZ4mainE4suit, i64 0, i64 %495
+  %496 = getelementptr inbounds i8, ptr @_ZZ4mainE4suit, i64 %495
   %497 = load i8, ptr %496, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %497, ptr %3, align 1, !tbaa !18

@@ -920,7 +920,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel8checkersl
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN10open_spiel8checkerslsERSoRKNS0_9CellStateE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel8checkerslsERSoRKNS0_9CellStateE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load)
   ret ptr %16
@@ -2360,10 +2360,10 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit.thread: ; preds = %2, 
 45:                                               ; preds = %40
   %sext65 = shl i64 %27, 32
   %46 = ashr exact i64 %sext65, 32
-  %47 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %.sroa.032.0.extract.trunc
-  %50 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %46
+  %50 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %46
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %.sroa.13.0.extract.trunc
   %53 = icmp sgt i32 %49, -1
@@ -2469,7 +2469,7 @@ common.resume:                                    ; preds = %38, %59, %72, %160,
 
 switch.lookup:                                    ; preds = %74
   %92 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2594,11 +2594,11 @@ _ZN10open_spiel8checkers13CheckersState26CrownStateIfLastRowReachedEiNS0_9CellSt
 144:                                              ; preds = %40
   %sext = shl i64 %27, 32
   %145 = ashr exact i64 %sext, 32
-  %146 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %145
+  %146 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = shl nsw i32 %147, 1
   %149 = add nsw i32 %148, %.sroa.032.0.extract.trunc
-  %150 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %145
+  %150 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %145
   %151 = load i32, ptr %150, align 4
   %152 = shl nsw i32 %151, 1
   %153 = add nsw i32 %152, %.sroa.13.0.extract.trunc
@@ -2668,9 +2668,9 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread: ; preds = %1
   %184 = load i32, ptr %183, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %switch.tableidx165 = add i32 %184, -1
-  %185 = icmp ult i32 %switch.tableidx165, 4
-  br i1 %185, label %switch.lookup164, label %186
+  %switch.tableidx164 = add i32 %184, -1
+  %185 = icmp ult i32 %switch.tableidx164, 4
+  br i1 %185, label %switch.lookup165, label %186
 
 186:                                              ; preds = %175
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
@@ -2700,9 +2700,9 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread: ; preds = %1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   br label %common.resume
 
-switch.lookup164:                                 ; preds = %175
-  %194 = zext nneg i32 %switch.tableidx165 to i64
-  %switch.gep166 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 0, i64 %194
+switch.lookup165:                                 ; preds = %175
+  %194 = zext nneg i32 %switch.tableidx164 to i64
+  %switch.gep166 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %194
   %switch.load167 = load i32, ptr %switch.gep166, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2716,11 +2716,11 @@ switch.lookup164:                                 ; preds = %175
   %202 = load i32, ptr %201, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %switch.tableidx169 = add i32 %202, -1
-  %203 = icmp ult i32 %switch.tableidx169, 4
-  br i1 %203, label %switch.lookup168, label %204
+  %switch.tableidx168 = add i32 %202, -1
+  %203 = icmp ult i32 %switch.tableidx168, 4
+  br i1 %203, label %switch.lookup169, label %204
 
-204:                                              ; preds = %switch.lookup164
+204:                                              ; preds = %switch.lookup165
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %205 unwind label %207
@@ -2748,9 +2748,9 @@ switch.lookup164:                                 ; preds = %175
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
   br label %common.resume
 
-switch.lookup168:                                 ; preds = %switch.lookup164
-  %212 = zext nneg i32 %switch.tableidx169 to i64
-  %switch.gep170 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 0, i64 %212
+switch.lookup169:                                 ; preds = %switch.lookup165
+  %212 = zext nneg i32 %switch.tableidx168 to i64
+  %switch.gep170 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel8checkers13CheckersState13DoApplyActionEl.2, i64 %212
   %switch.load171 = load i32, ptr %switch.gep170, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2761,7 +2761,7 @@ switch.lookup168:                                 ; preds = %switch.lookup164
   %.not.i.i78 = icmp eq ptr %214, %216
   br i1 %.not.i.i78, label %220, label %217
 
-217:                                              ; preds = %switch.lookup168
+217:                                              ; preds = %switch.lookup169
   store i64 %1, ptr %214, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 %197, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2774,7 +2774,7 @@ switch.lookup168:                                 ; preds = %switch.lookup164
   store ptr %219, ptr %213, align 8
   br label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit91
 
-220:                                              ; preds = %switch.lookup168
+220:                                              ; preds = %switch.lookup169
   %221 = load ptr, ptr %195, align 8
   %222 = ptrtoint ptr %214 to i64
   %223 = ptrtoint ptr %221 to i64
@@ -3198,11 +3198,11 @@ define void @_ZNK10open_spiel8checkers13CheckersState14ActionToStringB5cxx11Eil(
   %.sroa.8.8.extract.trunc = trunc nuw i64 %.sroa.8.8.extract.shift to i32
   %sext = shl i64 %15, 32
   %16 = ashr exact i64 %sext, 32
-  %17 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %16
   %18 = load i32, ptr %17, align 4
   %.neg16 = xor i32 %.sroa.8.8.extract.trunc, -1
   %19 = add nsw i32 %.sroa.8.8.extract.trunc, 1
-  %20 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %16
+  %20 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %16
   %21 = load i32, ptr %20, align 4
   %22 = mul nsw i32 %19, %21
   %23 = add nsw i32 %22, %.sroa.3.0.extract.trunc
@@ -3570,10 +3570,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119.thread:          ; preds = %.noexc74
   br label %.body
 
 83:                                               ; preds = %80, %67
-  %84 = getelementptr inbounds nuw [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4
   %86 = add nsw i32 %85, %54
-  %87 = getelementptr inbounds nuw [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, %59
   %90 = icmp sgt i32 %86, -1
@@ -4842,7 +4842,7 @@ define noundef range(i32 0, 5) i32 @_ZNK10open_spiel8checkers13CheckersState16Ob
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = icmp eq i32 %2, 0
   %7 = xor i32 %switch.load, 3
@@ -5443,7 +5443,7 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %67 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 0, i64 %67
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %67
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us
 
@@ -5457,10 +5457,10 @@ _ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 68:                                               ; preds = %68, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us
   %indvars.iv.i.i.us = phi i64 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us ], [ %indvars.iv.next.i.i.us, %68 ]
   %.078.i.i.us = phi i32 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit.us ], [ %74, %68 ]
-  %69 = getelementptr inbounds nuw [3 x i32], ptr %38, i64 0, i64 %indvars.iv.i.i.us
+  %69 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i.i.us
   %70 = load i32, ptr %69, align 4
   %71 = mul nsw i32 %70, %.078.i.i.us
-  %72 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i.i.us
+  %72 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i.us
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %71, %73
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
@@ -5489,18 +5489,18 @@ _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit.us: ; preds = %_ZNK10
   %85 = load ptr, ptr %51, align 8
   %86 = getelementptr inbounds i32, ptr %85, i64 %84
   %87 = load i32, ptr %86, align 4
-  %switch.tableidx55 = add i32 %87, -1
-  %88 = icmp ult i32 %switch.tableidx55, 4
-  br i1 %88, label %switch.lookup54, label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
+  %switch.tableidx54 = add i32 %87, -1
+  %88 = icmp ult i32 %switch.tableidx54, 4
+  br i1 %88, label %switch.lookup55, label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 
-switch.lookup54:                                  ; preds = %.lr.ph.split
-  %89 = zext nneg i32 %switch.tableidx55 to i64
-  %switch.gep56 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE.3, i64 0, i64 %89
+switch.lookup55:                                  ; preds = %.lr.ph.split
+  %89 = zext nneg i32 %switch.tableidx54 to i64
+  %switch.gep56 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10open_spiel8checkers13CheckersState17ObservationTensorEiN4absl7debian24SpanIfEE.3, i64 %89
   %switch.load57 = load i32, ptr %switch.gep56, align 4
   br label %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 
-_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit: ; preds = %switch.lookup54, %.lr.ph.split
-  %.05.i = phi i32 [ 4, %.lr.ph.split ], [ %switch.load57, %switch.lookup54 ]
+_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit: ; preds = %switch.lookup55, %.lr.ph.split
+  %.05.i = phi i32 [ 4, %.lr.ph.split ], [ %switch.load57, %switch.lookup55 ]
   store i32 %.05.i, ptr %18, align 4
   store i32 %.01722, ptr %53, align 4
   store i32 %.01621, ptr %54, align 4
@@ -5509,10 +5509,10 @@ _ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
 90:                                               ; preds = %90, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit ], [ %indvars.iv.next.i.i, %90 ]
   %.078.i.i = phi i32 [ 0, %_ZNK10open_spiel8checkers13CheckersState16ObservationPlaneENS0_9CellStateEi.exit ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw [3 x i32], ptr %38, i64 0, i64 %indvars.iv.i.i
+  %91 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i.i
   %92 = load i32, ptr %91, align 4
   %93 = mul nsw i32 %92, %.078.i.i
-  %94 = getelementptr inbounds nuw [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %94 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %93, %95
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5756,10 +5756,10 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
 41:                                               ; preds = %32
   %sext35 = shl i64 %14, 32
   %42 = ashr exact i64 %sext35, 32
-  %43 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %42
+  %43 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, %.sroa.0.0.extract.trunc
-  %46 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %42
+  %46 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %42
   %47 = load i32, ptr %46, align 4
   %48 = add nsw i32 %47, %.sroa.6.0.extract.trunc
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5783,11 +5783,11 @@ define void @_ZN10open_spiel8checkers13CheckersState10UndoActionEil(ptr noundef 
 63:                                               ; preds = %32
   %sext = shl i64 %14, 32
   %64 = ashr exact i64 %sext, 32
-  %65 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 0, i64 %64
+  %65 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_114kDirRowOffsetsE, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = shl nsw i32 %66, 1
   %68 = add nsw i32 %67, %.sroa.0.0.extract.trunc
-  %69 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 0, i64 %64
+  %69 = getelementptr inbounds i32, ptr @_ZN10open_spiel8checkers12_GLOBAL__N_117kDirColumnOffsetsE, i64 %64
   %70 = load i32, ptr %69, align 4
   %71 = shl nsw i32 %70, 1
   %72 = add nsw i32 %71, %.sroa.6.0.extract.trunc
@@ -9006,11 +9006,11 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc11 unwind label %62
+          to label %.noexc11 unwind label %58
 
 .noexc11:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45)
@@ -9026,7 +9026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %26 = zext nneg i32 %.lobit to i64
   %27 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26)
-          to label %28 unwind label %62
+          to label %28 unwind label %58
 
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %29 = icmp ugt i32 %4, 99
@@ -9038,65 +9038,61 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
   %.020.i = phi i32 [ %33, %.lr.ph.i12 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %46, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %44, %.lr.ph.i12 ], [ %30, %.lr.ph.preheader.i ]
   %31 = urem i32 %.020.i, 100
   %32 = shl nuw nsw i32 %31, 1
   %33 = udiv i32 %.020.i, 100
-  %34 = or disjoint i32 %32, 1
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %34 = zext nneg i32 %32 to i64
+  %35 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
-  %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 2
-  %43 = add i32 %.01819.i, -1
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
-  store i8 %42, ptr %45, align 1
-  %46 = add i32 %.01819.i, -2
-  %47 = icmp ugt i32 %.020.i, 9999
-  br i1 %47, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !56
+  %40 = load i8, ptr %35, align 2
+  %41 = add i32 %.01819.i, -1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
+  store i8 %40, ptr %43, align 1
+  %44 = add i32 %.01819.i, -2
+  %45 = icmp ugt i32 %.020.i, 9999
+  br i1 %45, label %.lr.ph.i12, label %._crit_edge.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i12, %28
   %.0.lcssa.i = phi i32 [ %4, %28 ], [ %33, %.lr.ph.i12 ]
-  %48 = icmp samesign ugt i32 %.0.lcssa.i, 9
-  br i1 %48, label %49, label %59
+  %46 = icmp samesign ugt i32 %.0.lcssa.i, 9
+  br i1 %46, label %47, label %55
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = shl nuw nsw i32 %.0.lcssa.i, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %54, ptr %55, align 1
-  %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 2
+47:                                               ; preds = %._crit_edge.i
+  %48 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %52, ptr %53, align 1
+  %54 = load i8, ptr %50, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
-  %61 = or disjoint i8 %60, 48
+55:                                               ; preds = %._crit_edge.i
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
+  %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
-  %storemerge.i = phi i8 [ %61, %59 ], [ %58, %49 ]
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %47, %55
+  %storemerge.i = phi i8 [ %57, %55 ], [ %54, %47 ]
   store i8 %storemerge.i, ptr %27, align 1
   ret void
 
-62:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %63 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %24, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %25, %24 ]
-  %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %64) #26
+.body:                                            ; preds = %24, %58
+  %eh.lpad-body = phi { ptr, i32 } [ %59, %58 ], [ %25, %24 ]
+  %60 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %60) #26
   unreachable
 }
 

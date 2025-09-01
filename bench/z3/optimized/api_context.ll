@@ -4646,7 +4646,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 87:                                               ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %88 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !431
   %90 = load ptr, ptr %9, align 8, !tbaa !180
   invoke void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(976) %90, ptr noundef %89, i32 noundef 3)
@@ -5922,7 +5922,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %5
 
 switch.lookup:                                    ; preds = %.thread.i
   %14 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.Z3_get_error_msg, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Z3_get_error_msg, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL14_get_error_msgP11_Z3_context13Z3_error_code.exit
 

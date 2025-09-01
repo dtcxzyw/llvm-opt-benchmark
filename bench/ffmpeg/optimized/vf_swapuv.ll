@@ -60,7 +60,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 22:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %16, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %16, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %.not16.i = icmp eq i32 %25, 0

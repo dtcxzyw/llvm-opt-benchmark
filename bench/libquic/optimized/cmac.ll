@@ -109,7 +109,7 @@ CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
 44:                                               ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
   store i8 -128, ptr %47, align 1, !tbaa !16
   %48 = load i32, ptr %15, align 8, !tbaa !6
   %49 = zext i32 %48 to i64
@@ -128,7 +128,7 @@ CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
 
 58:                                               ; preds = %58, %54
   %indvars.iv.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv.i
   %60 = load i8, ptr %59, align 1, !tbaa !16
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv.i
   %62 = load i8, ptr %61, align 1, !tbaa !16
@@ -332,7 +332,7 @@ define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   store i8 -128, ptr %11, align 1, !tbaa !16
   %12 = load i32, ptr %6, align 8, !tbaa !6
   %13 = zext i32 %12 to i64
@@ -351,7 +351,7 @@ define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 
 22:                                               ; preds = %18, %22
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !16

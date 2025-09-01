@@ -2157,7 +2157,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$diesel..mysql..connecti
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr62drop_in_place$LT$diesel..mysql..connection..bind..BindData$GT$17h625c5ae83204edcfE.exit"
   %.08 = phi i64 [ 0, %.lr.ph ], [ %12, %"_ZN4core3ptr62drop_in_place$LT$diesel..mysql..connection..bind..BindData$GT$17h625c5ae83204edcfE.exit" ]
-  %11 = getelementptr inbounds [0 x { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }], ptr %0, i64 0, i64 %.08
+  %11 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %0, i64 %.08
   %12 = add nuw i64 %.08, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !816)
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
@@ -2211,7 +2211,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$$u5b$diesel..mysql..connecti
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds [0 x { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }], ptr %0, i64 0, i64 %.1
+  %27 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %0, i64 %.1
   %28 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr62drop_in_place$LT$diesel..mysql..connection..bind..BindData$GT$17h625c5ae83204edcfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27) #50
           to label %22 unwind label %30
@@ -4111,9 +4111,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
   br i1 %46, label %47, label %.split204.us.invoke, !prof !1498
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.14.0.copyload, i64 0, i64 %42
+  %48 = getelementptr inbounds i8, ptr %.sroa.04.sroa.14.0.copyload, i64 %42
   %49 = load i8, ptr %48, align 1, !alias.scope !1493, !noalias !1499, !noundef !11
-  %50 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.12.0.copyload, i64 0, i64 %45
+  %50 = getelementptr inbounds i8, ptr %.sroa.04.sroa.12.0.copyload, i64 %45
   %51 = load i8, ptr %50, align 1, !alias.scope !1490, !noalias !1495, !noundef !11
   %.not26.i38.us = icmp eq i8 %49, %51
   br i1 %.not26.i38.us, label %.preheader106.us, label %52
@@ -4129,9 +4129,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
 
 57:                                               ; preds = %54
   %58 = add nuw i64 %.sroa.04.0.i36.us, 1
-  %59 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i36.us
+  %59 = getelementptr inbounds i8, ptr %.sroa.04.sroa.14.0.copyload, i64 %.sroa.04.0.i36.us
   %60 = load i8, ptr %59, align 1, !alias.scope !1493, !noalias !1499, !noundef !11
-  %61 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.12.0.copyload, i64 0, i64 %55
+  %61 = getelementptr inbounds i8, ptr %.sroa.04.sroa.12.0.copyload, i64 %55
   %62 = load i8, ptr %61, align 1, !alias.scope !1490, !noalias !1495, !noundef !11
   %.not.i43.us = icmp eq i8 %60, %62
   br i1 %.not.i43.us, label %38, label %63
@@ -4190,9 +4190,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
   br i1 %84, label %85, label %.split204.us.invoke, !prof !1498
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.14.0.copyload, i64 0, i64 %81
+  %86 = getelementptr inbounds i8, ptr %.sroa.04.sroa.14.0.copyload, i64 %81
   %87 = load i8, ptr %86, align 1, !alias.scope !1503, !noalias !1508, !noundef !11
-  %88 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.12.0.copyload, i64 0, i64 %83
+  %88 = getelementptr inbounds i8, ptr %.sroa.04.sroa.12.0.copyload, i64 %83
   %89 = load i8, ptr %88, align 1, !alias.scope !1500, !noalias !1505, !noundef !11
   %.not26.i.us = icmp eq i8 %87, %89
   br i1 %.not26.i.us, label %.preheader.us, label %90
@@ -4260,9 +4260,9 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
 
 119:                                              ; preds = %116
   %120 = add nuw i64 %.sroa.04.0.i.us, 1
-  %121 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.14.0.copyload, i64 0, i64 %.sroa.04.0.i.us
+  %121 = getelementptr inbounds i8, ptr %.sroa.04.sroa.14.0.copyload, i64 %.sroa.04.0.i.us
   %122 = load i8, ptr %121, align 1, !alias.scope !1503, !noalias !1508, !noundef !11
-  %123 = getelementptr inbounds [0 x i8], ptr %.sroa.04.sroa.12.0.copyload, i64 0, i64 %117
+  %123 = getelementptr inbounds i8, ptr %.sroa.04.sroa.12.0.copyload, i64 %117
   %124 = load i8, ptr %123, align 1, !alias.scope !1500, !noalias !1505, !noundef !11
   %.not.i.us = icmp eq i8 %122, %124
   br i1 %.not.i.us, label %.preheader105.us, label %125
@@ -6311,10 +6311,10 @@ default.unreachable:                              ; preds = %3
 define { i32, i32 } @"_ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE"(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE", i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %2 = zext nneg i8 %0 to i64
-  %switch.gep4 = getelementptr inbounds nuw [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE.82", i64 0, i64 %2
+  %switch.gep4 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE.82", i64 %2
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
   %4 = insertvalue { i32, i32 } %3, i32 %switch.load5, 1

@@ -8183,7 +8183,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd3d8d66d4f259da8E.exit.i: ; preds = %32
 
 .lr.ph.i.i.i:                                     ; preds = %40, %44
   %.05.i.i.i = phi i64 [ %45, %44 ], [ 0, %40 ]
-  %41 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.54.sroa.0.0.copyload.i, i64 0, i64 %.05.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.54.sroa.0.0.copyload.i, i64 %.05.i.i.i
   %42 = load i8, ptr %41, align 1, !alias.scope !1337, !noalias !1325, !noundef !7
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %44

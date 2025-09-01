@@ -155,7 +155,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %71
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %72
   %73 = zext nneg i32 %.110.i to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !37
   %76 = zext i8 %75 to i32
   %77 = or disjoint i32 %.1.i, 1
@@ -192,7 +192,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   br label %.thread
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw [3 x %struct.CodeBook], ptr %43, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.CodeBook, ptr %43, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   tail call void @av_freep(ptr noundef nonnull %95) #7
   %96 = icmp ugt i32 %.0136, 63161282
@@ -260,10 +260,10 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %135 = lshr i32 %113, %134
   %136 = and i32 %135, 1
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !39
   %140 = trunc i32 %139 to i16
-  %141 = getelementptr inbounds nuw [4 x i16], ptr %132, i64 0, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv.i
   store i16 %140, ptr %141, align 2, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -506,9 +506,9 @@ copy_superblock.exit188:                          ; preds = %.preheader14.i180, 
   %260 = lshr i32 %258, %259
   %261 = and i32 %260, 1
   %262 = sext i32 %.2309355 to i64
-  %263 = getelementptr inbounds [3 x [2 x i8]], ptr @decode_macroblock.transitions, i64 0, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr @decode_macroblock.transitions, i64 %262
   %264 = zext nneg i32 %261 to i64
-  %265 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !37
   %267 = sext i8 %266 to i32
   br label %._crit_edge.i194
@@ -517,7 +517,7 @@ copy_superblock.exit188:                          ; preds = %.preheader14.i180, 
   %.sroa.20.18 = phi i32 [ %spec.select.i26.i, %251 ], [ %spec.select.i.i190, %240 ]
   %.7 = phi i32 [ %267, %251 ], [ %.2309355, %240 ]
   %268 = sext i32 %.7 to i64
-  %269 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %268
+  %269 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %268
   %270 = load i32, ptr %269, align 8, !tbaa !49
   %.not.i.i = icmp eq i32 %270, 0
   br i1 %.not.i.i, label %get_bitsz.exit.i, label %271
@@ -582,7 +582,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
 
 305:                                              ; preds = %decode_macroblock.exit, %315
   %indvars.iv401 = phi i64 [ 0, %decode_macroblock.exit ], [ %indvars.iv.next402, %315 ]
-  %306 = getelementptr inbounds nuw [16 x i16], ptr @mask_matrix, i64 0, i64 %indvars.iv401
+  %306 = getelementptr inbounds nuw i16, ptr @mask_matrix, i64 %indvars.iv401
   %307 = load i16, ptr %306, align 2, !tbaa !53
   %308 = zext i16 %307 to i32
   %309 = and i32 %304, %308
@@ -667,7 +667,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %419 ], [ 0, %348 ]
   %.3310375 = phi i32 [ %.4, %419 ], [ %.2309.lcssa, %348 ]
   %.sroa.20.11374 = phi i32 [ %.sroa.20.12, %419 ], [ %.sroa.20.10, %348 ]
-  %352 = getelementptr inbounds nuw [16 x i16], ptr @mask_matrix, i64 0, i64 %indvars.iv406
+  %352 = getelementptr inbounds nuw i16, ptr @mask_matrix, i64 %indvars.iv406
   %353 = load i16, ptr %352, align 2, !tbaa !53
   %354 = zext i16 %353 to i32
   %355 = and i32 %.2129, %354
@@ -702,9 +702,9 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %376 = lshr i32 %374, %375
   %377 = and i32 %376, 1
   %378 = sext i32 %.3310375 to i64
-  %379 = getelementptr inbounds [3 x [2 x i8]], ptr @decode_macroblock.transitions, i64 0, i64 %378
+  %379 = getelementptr inbounds [2 x i8], ptr @decode_macroblock.transitions, i64 %378
   %380 = zext nneg i32 %377 to i64
-  %381 = getelementptr inbounds nuw [2 x i8], ptr %379, i64 0, i64 %380
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 %380
   %382 = load i8, ptr %381, align 1, !tbaa !37
   %383 = sext i8 %382 to i32
   br label %._crit_edge.i206
@@ -713,7 +713,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %.sroa.20.20 = phi i32 [ %spec.select.i26.i198, %367 ], [ %spec.select.i.i196, %356 ]
   %.8 = phi i32 [ %383, %367 ], [ %.3310375, %356 ]
   %384 = sext i32 %.8 to i64
-  %385 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %384
+  %385 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %384
   %386 = load i32, ptr %385, align 8, !tbaa !49
   %.not.i.i199 = icmp eq i32 %386, 0
   br i1 %.not.i.i199, label %get_bitsz.exit.i201, label %387
@@ -831,9 +831,9 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %450 = lshr i32 %448, %449
   %451 = and i32 %450, 1
   %452 = sext i32 %.6364 to i64
-  %453 = getelementptr inbounds [3 x [2 x i8]], ptr @decode_macroblock.transitions, i64 0, i64 %452
+  %453 = getelementptr inbounds [2 x i8], ptr @decode_macroblock.transitions, i64 %452
   %454 = zext nneg i32 %451 to i64
-  %455 = getelementptr inbounds nuw [2 x i8], ptr %453, i64 0, i64 %454
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 %454
   %456 = load i8, ptr %455, align 1, !tbaa !37
   %457 = sext i8 %456 to i32
   br label %._crit_edge.i223
@@ -842,7 +842,7 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %.sroa.20.22 = phi i32 [ %spec.select.i26.i215, %441 ], [ %spec.select.i.i213, %430 ]
   %.9 = phi i32 [ %457, %441 ], [ %.6364, %430 ]
   %458 = sext i32 %.9 to i64
-  %459 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %458
+  %459 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %458
   %460 = load i32, ptr %459, align 8, !tbaa !49
   %.not.i.i216 = icmp eq i32 %460, 0
   br i1 %.not.i.i216, label %get_bitsz.exit.i218, label %461

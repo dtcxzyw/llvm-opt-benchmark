@@ -66,7 +66,7 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %14, i32 2
+  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14, i32 2
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = icmp sgt i32 %16, 4
   br i1 %17, label %18, label %538
@@ -97,7 +97,7 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4, !tbaa !34
   %34 = icmp sgt i32 %33, 4
   br i1 %34, label %35, label %538
@@ -131,7 +131,7 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %51, i32 2
+  %52 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %51, i32 2
   %53 = load i32, ptr %52, align 4, !tbaa !34
   %54 = icmp sgt i32 %53, 4
   br i1 %54, label %55, label %67
@@ -168,7 +168,7 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
 
 72:                                               ; preds = %70
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %73, i32 2
+  %74 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %73, i32 2
   %75 = load i32, ptr %74, align 4, !tbaa !34
   %76 = icmp sgt i32 %75, 4
   br i1 %76, label %77, label %81
@@ -282,7 +282,7 @@ define internal i32 @ppr_mapper(ptr noundef %0, ptr noundef %1) #0 {
 
 121:                                              ; preds = %119
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %122, i32 2
+  %123 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %122, i32 2
   %124 = load i32, ptr %123, align 4, !tbaa !34
   %125 = icmp sgt i32 %124, 4
   br i1 %125, label %126, label %133

@@ -3568,7 +3568,7 @@ tailrecurse:                                      ; preds = %53, %4
   %22 = getelementptr inbounds i32, ptr %14, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = or i32 %23, %21
-  %25 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv50
   store i32 %24, ptr %25, align 4, !tbaa !3
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
@@ -3714,7 +3714,7 @@ define void @Abc_ZddPrintTest(ptr noundef %0) local_unnamed_addr #6 {
 3:                                                ; preds = %1, %Abc_ZddPermPrint.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %Abc_ZddPermPrint.exit ]
   %.018 = phi i32 [ 0, %1 ], [ %9, %Abc_ZddPermPrint.exit ]
-  %4 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 %indvars.iv
   %putchar.i = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i
 
@@ -4030,7 +4030,7 @@ define void @Abc_ZddPermTestInt(ptr noundef %0) local_unnamed_addr #6 {
 
 6:                                                ; preds = %1, %Abc_ZddPermPrint.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %Abc_ZddPermPrint.exit ]
-  %7 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 %indvars.iv
   %putchar.i = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i
 
@@ -4054,7 +4054,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   %.04279 = phi i32 [ 0, %.preheader ], [ %59, %Abc_ZddPermPrint.exit73 ]
   %12 = trunc nuw nsw i64 %indvars.iv87 to i32
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %12)
-  %14 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv87
+  %14 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 %indvars.iv87
   %putchar.i49 = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i50
 
@@ -4156,7 +4156,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %35
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv82 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next83, %45 ]
-  %46 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv82
+  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv82
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = ashr i32 %47, 16
   %49 = and i32 %47, 65535
@@ -4436,12 +4436,12 @@ Abc_Clock.exit72:                                 ; preds = %Abc_ZddManCreatePer
   br label %50
 
 .preheader:                                       ; preds = %50
-  %49 = getelementptr inbounds nuw [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStatesZdd.pXYZ, i64 0, i64 %indvars.iv101
+  %49 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @__const.Abc_EnumerateCubeStatesZdd.pXYZ, i64 %indvars.iv101
   br label %53
 
 50:                                               ; preds = %.preheader81, %50
   %indvars.iv90 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next91, %50 ]
-  %51 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %indvars.iv90
+  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv90
   %52 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %52, ptr %51, align 4, !tbaa !3
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -4450,17 +4450,17 @@ Abc_Clock.exit72:                                 ; preds = %Abc_ZddManCreatePer
 
 53:                                               ; preds = %.preheader, %53
   %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %53 ]
-  %54 = getelementptr inbounds nuw [9 x [2 x i32]], ptr %49, i64 0, i64 %indvars.iv93
+  %54 = getelementptr inbounds nuw [2 x i32], ptr %49, i64 %indvars.iv93
   %55 = load i32, ptr %54, align 8, !tbaa !3
-  %56 = add nsw i32 %55, -1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %57
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr i32, ptr %6, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 -4
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !3
-  %62 = add nsw i32 %61, -1
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %63
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr i32, ptr %6, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -4
   %65 = load i32, ptr %64, align 4, !tbaa !3
   store i32 %65, ptr %58, align 4, !tbaa !3
   store i32 %59, ptr %64, align 4, !tbaa !3
@@ -4524,7 +4524,7 @@ Abc_ZddPerm2Comb.exit.preheader:                  ; preds = %83
 
 Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.exit.preheader, %Abc_ZddPerm2Comb.exit
   %indvars.iv97 = phi i64 [ 0, %Abc_ZddPerm2Comb.exit.preheader ], [ %indvars.iv.next98, %Abc_ZddPerm2Comb.exit ]
-  %84 = getelementptr inbounds nuw [9 x i32], ptr %5, i64 0, i64 %indvars.iv97
+  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv97
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = ashr i32 %85, 16
   %87 = and i32 %85, 65535

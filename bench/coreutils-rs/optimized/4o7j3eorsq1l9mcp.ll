@@ -643,7 +643,7 @@ define internal fastcc void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20
   %17 = or disjoint i64 %15, %16
   %18 = tail call i64 @llvm.bswap.i64(i64 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %19 = getelementptr [0 x i8], ptr %1, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   store i8 -128, ptr %19, align 1, !alias.scope !10, !noalias !13
   %20 = icmp eq i8 %10, 63
   br i1 %20, label %._crit_edge.thread, label %._crit_edge
@@ -745,7 +745,7 @@ define internal fastcc void @"_ZN86_$LT$sha2..core_api..Sha512VarCore$u20$as$u20
   %18 = tail call i128 @llvm.bswap.i128(i128 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %19 = zext nneg i8 %10 to i64
-  %20 = getelementptr [0 x i8], ptr %1, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   store i8 -128, ptr %20, align 1, !alias.scope !39, !noalias !42
   %21 = icmp eq i8 %10, 127
   br i1 %21, label %._crit_edge.thread, label %._crit_edge
@@ -1311,7 +1311,7 @@ common.resume.i:                                  ; preds = %41, %22
   store <8 x i32> %.val.i, ptr %9, align 4, !noalias !196
   %31 = call i64 @llvm.bswap.i64(i64 %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
-  %32 = getelementptr [0 x i8], ptr %.sroa.5.0..sroa_idx, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.5.0..sroa_idx, i64 %26
   store i8 -128, ptr %32, align 1, !alias.scope !200, !noalias !201
   %33 = icmp eq i8 %18, 63
   br i1 %33, label %._crit_edge.thread.i.i.i, label %._crit_edge.i.i.i
@@ -1539,7 +1539,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %17 = xor i32 %15, %16
   %18 = zext nneg i32 %17 to i64
   %19 = shl i32 %12, 8
-  %20 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   %21 = load i32, ptr %20, align 4, !alias.scope !250, !noundef !9
   %22 = xor i32 %19, %21
   %23 = icmp eq ptr %13, %4
@@ -1582,7 +1582,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %15 = xor i32 %13, %14
   %16 = zext nneg i32 %15 to i64
   %17 = shl i32 %11, 8
-  %18 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   %19 = load i32, ptr %18, align 4, !alias.scope !261, !noundef !9
   %20 = xor i32 %17, %19
   %21 = lshr i64 %.03, 8
@@ -1624,7 +1624,7 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   %19 = xor i32 %18, %17
   %20 = zext nneg i32 %19 to i64
   %21 = shl i32 %15, 8
-  %22 = getelementptr inbounds nuw [256 x i32], ptr %1, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %20
   %23 = load i32, ptr %22, align 4, !alias.scope !272, !noalias !270, !noundef !9
   %24 = xor i32 %23, %21
   %25 = lshr i64 %.03.i, 8
@@ -2260,7 +2260,7 @@ define void @"_ZN76_$LT$uucore..features..sum..Md5$u20$as$u20$uucore..features..
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !446
   store <4 x i32> %.val, ptr %9, align 16, !noalias !446
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
-  %23 = getelementptr [0 x i8], ptr %14, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %18
   store i8 -128, ptr %23, align 1, !alias.scope !450, !noalias !451
   %24 = icmp eq i8 %17, 63
   br i1 %24, label %._crit_edge.thread.i, label %._crit_edge.i
@@ -2563,7 +2563,7 @@ define void @"_ZN77_$LT$uucore..features..sum..Sha1$u20$as$u20$uucore..features.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull readonly align 8 dereferenceable(20) %23, i64 20, i1 false), !noalias !542
   %24 = tail call i64 @llvm.bswap.i64(i64 %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
-  %25 = getelementptr [0 x i8], ptr %14, i64 0, i64 %17
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %17
   store i8 -128, ptr %25, align 1, !alias.scope !547, !noalias !548
   %26 = icmp eq i8 %16, 63
   br i1 %26, label %._crit_edge.thread.i, label %._crit_edge.i

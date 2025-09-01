@@ -2555,7 +2555,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540: ; p
 130:                                              ; preds = %128
   %131 = add nuw nsw i64 %35, 4294967100
   %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw [28 x i32], ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !4
   %135 = zext i32 %134 to i64
   store i64 %135, ptr %24, align 8, !tbaa !88

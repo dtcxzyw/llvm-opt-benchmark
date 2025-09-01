@@ -1642,7 +1642,7 @@ _ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEE29adoptInsteadAndCheckErro
 _ZNK6icu_777UVector11lastElementEv.exit:          ; preds = %240
   %244 = add nuw nsw i64 %238, 4294967231
   %245 = and i64 %244, 4294967295
-  %246 = getelementptr inbounds nuw [26 x ptr], ptr %10, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %10, i64 %245
   store ptr %243, ptr %246, align 8, !tbaa !61
   br label %.thread414
 
@@ -1699,8 +1699,8 @@ _ZNK6icu_7713UnicodeString10startsWithENS_14ConstChar16PtrEi.exit: ; preds = %24
 
 _ZNK6icu_777UVector11lastElementEv.exit320:       ; preds = %268
   %272 = zext nneg i16 %266 to i64
-  %273 = add nsw i64 %272, -65
-  %274 = getelementptr inbounds [26 x ptr], ptr %11, i64 0, i64 %273
+  %273 = getelementptr ptr, ptr %11, i64 %272
+  %274 = getelementptr i8, ptr %273, i64 -520
   store ptr %271, ptr %274, align 8, !tbaa !61
   br label %.thread414
 
@@ -2052,11 +2052,11 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   %indvars.iv = phi i64 [ %indvars.iv.next, %403 ], [ 0, %394 ]
   %.8200568 = phi i8 [ %.9201, %403 ], [ %.0192.lcssa651, %394 ]
   %.0207566 = phi ptr [ %spec.select301, %403 ], [ null, %394 ]
-  %395 = getelementptr inbounds nuw [26 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %395 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %396 = load ptr, ptr %395, align 8, !tbaa !61
   %.not283 = icmp eq ptr %396, null
   %spec.select301 = select i1 %.not283, ptr %.0207566, ptr %396
-  %397 = getelementptr inbounds nuw [26 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %397 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %398 = load ptr, ptr %397, align 8, !tbaa !61
   %399 = icmp ne ptr %398, null
   %400 = icmp ne ptr %spec.select301, null

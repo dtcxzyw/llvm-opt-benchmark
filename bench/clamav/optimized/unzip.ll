@@ -450,7 +450,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 67:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %66, i64 %63, i1 false)
-  %68 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %63
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 %63
   store i8 0, ptr %68, align 1, !tbaa !58
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %9) #13
   br label %69
@@ -557,11 +557,11 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 123:                                              ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %124 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !64
   %126 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %126, ptr noundef %125) #13
-  %127 = getelementptr inbounds nuw [10 x i64], ptr %119, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8, !tbaa !10
   %spec.select = call i64 @llvm.umin.i64(i64 %128, i64 255)
   %129 = load ptr, ptr %124, align 8, !tbaa !64
@@ -1121,7 +1121,7 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   %74 = mul i32 %73, %72
   %75 = lshr i32 %74, 8
   %76 = trunc i32 %75 to i8
-  %77 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1, !tbaa !58
   %79 = xor i8 %78, %76
   store i8 %79, ptr %77, align 1, !tbaa !58
@@ -1249,7 +1249,7 @@ select.unfold:                                    ; preds = %128, %123, %110, %1
   %149 = lshr i32 %148, 8
   %150 = trunc i32 %149 to i8
   %151 = xor i8 %144, %150
-  %152 = getelementptr inbounds nuw [8192 x i8], ptr %13, i64 0, i64 %.010930
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 %.010930
   store i8 %151, ptr %152, align 1, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %151, ptr %9, align 1, !tbaa !58
@@ -1907,7 +1907,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
 
 45:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %25, i64 %34, i1 false)
-  %46 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %34
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 %34
   store i8 0, ptr %46, align 1, !tbaa !58
   %47 = call i32 @cli_basename(ptr noundef nonnull %12, i64 noundef %34, ptr noundef nonnull %13) #13
   %.not158 = icmp eq i32 %47, 0
@@ -2345,10 +2345,10 @@ define range(i32 0, 23) i32 @unzip_search_add(ptr noundef captures(none) %0, ptr
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef %1, i64 noundef %2) #13
   %9 = load i32, ptr %4, align 8, !tbaa !62
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [10 x ptr], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = getelementptr inbounds [10 x i64], ptr %12, i64 0, i64 %10
+  %13 = getelementptr inbounds i64, ptr %12, i64 %10
   store i64 %2, ptr %13, align 8, !tbaa !10
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr %4, align 8, !tbaa !62

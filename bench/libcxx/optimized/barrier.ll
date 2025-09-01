@@ -108,7 +108,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
   %spec.store.select.us65 = select i1 %18, i64 0, i64 %.03368
   %19 = load ptr, ptr %12, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %19, i64 %spec.store.select.us65
-  %21 = getelementptr inbounds nuw [64 x %struct.anon], ptr %20, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv
   %22 = cmpxchg ptr %21, i8 %1, i8 %3 acq_rel acquire, align 1
   %23 = extractvalue { i8, i1 } %22, 1
   br i1 %23, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %.lr.ph
@@ -123,7 +123,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %12, align 8, !tbaa !9
   %29 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %28, i64 %spec.store.select.us66
-  %30 = getelementptr inbounds nuw [64 x %struct.anon], ptr %29, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.anon, ptr %29, i64 %indvars.iv
   %31 = cmpxchg ptr %30, i8 %3, i8 %4 acq_rel acquire, align 1
   %32 = extractvalue { i8, i1 } %31, 1
   br i1 %32, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, label %33
@@ -134,7 +134,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
   %spec.store.select.us = select i1 %35, i64 0, i64 %34
   %36 = load ptr, ptr %12, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %36, i64 %spec.store.select.us
-  %38 = getelementptr inbounds nuw [64 x %struct.anon], ptr %37, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.anon, ptr %37, i64 %indvars.iv
   %39 = cmpxchg ptr %38, i8 %1, i8 %3 acq_rel acquire, align 1
   %40 = extractvalue { i8, i1 } %39, 1
   br i1 %40, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %.lr.ph, !llvm.loop !18
@@ -149,14 +149,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
 
 43:                                               ; preds = %.split
   %44 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %42, i64 %16
-  %45 = getelementptr inbounds nuw [64 x %struct.anon], ptr %44, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.anon, ptr %44, i64 %indvars.iv
   %46 = cmpxchg ptr %45, i8 %1, i8 %4 acq_rel acquire, align 1
   %47 = extractvalue { i8, i1 } %46, 1
   br i1 %47, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, label %62
 
 48:                                               ; preds = %.split
   %49 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %42, i64 %spec.store.select
-  %50 = getelementptr inbounds nuw [64 x %struct.anon], ptr %49, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct.anon, ptr %49, i64 %indvars.iv
   %51 = cmpxchg ptr %50, i8 %1, i8 %3 acq_rel acquire, align 1
   %52 = extractvalue { i8, i1 } %51, 1
   br i1 %52, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %53
@@ -169,7 +169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__124__barrier_algorithm_ba
 56:                                               ; preds = %53
   %57 = load ptr, ptr %12, align 8, !tbaa !9
   %58 = getelementptr inbounds nuw %"struct.std::__1::__barrier_algorithm_base::__state_t", ptr %57, i64 %spec.store.select
-  %59 = getelementptr inbounds nuw [64 x %struct.anon], ptr %58, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i64 %indvars.iv
   %60 = cmpxchg ptr %59, i8 %3, i8 %4 acq_rel acquire, align 1
   %61 = extractvalue { i8, i1 } %60, 1
   br i1 %61, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, label %62

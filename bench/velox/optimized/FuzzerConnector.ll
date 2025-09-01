@@ -547,15 +547,15 @@ _ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i: ; preds = %invoke.cont.
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i
-  %4 = phi i64 [ %rem.i.i.i.i.i, %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i ], [ %rem.i.i10.i.i.i, %for.body.i.i.i ]
+  %store_forwarded = phi i64 [ %rem.i.i.i.i.i, %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i ], [ %rem.i.i10.i.i.i, %for.body.i.i.i ]
   %__i.011.i.i.i = phi i64 [ 1, %_ZN8facebook5velox12VectorFuzzer7OptionsC2ERKS2_.exit.i ], [ %inc.i.i.i, %for.body.i.i.i ]
-  %shr.i.i.i = lshr i64 %4, 30
-  %xor.i.i.i = xor i64 %shr.i.i.i, %4
+  %4 = getelementptr i64, ptr %rng_.i, i64 %__i.011.i.i.i
+  %shr.i.i.i = lshr i64 %store_forwarded, 30
+  %xor.i.i.i = xor i64 %shr.i.i.i, %store_forwarded
   %mul.i.i.i = mul nuw nsw i64 %xor.i.i.i, 1812433253
   %add.i.i.i = add nuw i64 %mul.i.i.i, %__i.011.i.i.i
   %rem.i.i10.i.i.i = and i64 %add.i.i.i, 4294967295
-  %arrayidx7.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_.i, i64 0, i64 %__i.011.i.i.i
-  store i64 %rem.i.i10.i.i.i, ptr %arrayidx7.i.i.i, align 8
+  store i64 %rem.i.i10.i.i.i, ptr %4, align 8
   %inc.i.i.i = add nuw nsw i64 %__i.011.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 624
   br i1 %exitcond.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !7

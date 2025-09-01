@@ -38,7 +38,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 
 11:                                               ; preds = %.preheader.preheader
   %12 = zext nneg i16 %9 to i64
-  %13 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !3
   %15 = zext i16 %14 to i32
   br label %40
@@ -50,7 +50,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 18:                                               ; preds = %16
   %19 = sub nuw nsw i16 180, %9
   %20 = zext nneg i16 %19 to i64
-  %21 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !3
   %23 = zext i16 %22 to i32
   br label %40
@@ -60,9 +60,9 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
-  %27 = add nsw i16 %9, -180
-  %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %28
+  %27 = zext nneg i16 %9 to i64
+  %28 = getelementptr i16, ptr @sin0_90_table, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -360
   %30 = load i16, ptr %29, align 2, !tbaa !3
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 0, %31
@@ -71,7 +71,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 33:                                               ; preds = %24
   %34 = sub nuw nsw i16 360, %9
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !3
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 0, %38
@@ -283,7 +283,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 16
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !14
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 4
@@ -292,7 +292,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 24:                                               ; preds = %15
   %25 = lshr i32 %0, 14
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 3
@@ -305,7 +305,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 33:                                               ; preds = %31
   %34 = lshr i32 %0, 12
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 2
@@ -314,7 +314,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 40:                                               ; preds = %31
   %41 = lshr i32 %0, 10
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !14
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 1
@@ -335,7 +335,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 53:                                               ; preds = %51
   %54 = lshr i32 %0, 8
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !14
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 1
@@ -344,7 +344,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 60:                                               ; preds = %51
   %61 = lshr i32 %0, 6
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !14
   %65 = lshr i8 %64, 1
   %narrow41 = add nuw i8 %65, 1
@@ -358,7 +358,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 69:                                               ; preds = %67
   %70 = lshr i32 %0, 4
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = lshr i8 %73, 2
   %narrow40 = add nuw nsw i8 %74, 1
@@ -368,7 +368,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 76:                                               ; preds = %67
   %77 = lshr i32 %0, 2
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !14
   %81 = lshr i8 %80, 3
   %narrow = add nuw nsw i8 %81, 1
@@ -377,7 +377,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 
 83:                                               ; preds = %47
   %84 = zext nneg i32 %0 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !14
   %87 = lshr i8 %86, 4
   %88 = zext nneg i8 %87 to i32
@@ -388,7 +388,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   %.sink43 = phi i32 [ 8, %9 ], [ 7, %7 ], [ %.47, %11 ]
   %90 = lshr i32 %0, %.sink46
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !14
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, %.sink43
@@ -614,7 +614,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 
 12:                                               ; preds = %1
   %13 = zext nneg i16 %10 to i64
-  %14 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !3
   %16 = zext i16 %15 to i32
   br label %41
@@ -626,7 +626,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 19:                                               ; preds = %17
   %20 = sub nuw nsw i16 180, %10
   %21 = zext nneg i16 %20 to i64
-  %22 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !3
   %24 = zext i16 %23 to i32
   br label %41
@@ -636,9 +636,9 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25
-  %28 = add nsw i16 %10, -180
-  %29 = zext nneg i16 %28 to i64
-  %30 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %29
+  %28 = zext nneg i16 %10 to i64
+  %29 = getelementptr i16, ptr @sin0_90_table, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -360
   %31 = load i16, ptr %30, align 2, !tbaa !3
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 0, %32
@@ -647,7 +647,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 34:                                               ; preds = %25
   %35 = sub nuw nsw i16 360, %10
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw [91 x i16], ptr @sin0_90_table, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !3
   %39 = zext i16 %38 to i32
   %40 = sub nsw i32 0, %39

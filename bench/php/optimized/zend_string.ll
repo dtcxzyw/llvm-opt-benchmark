@@ -301,7 +301,7 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 25
   store i8 0, ptr %15, align 1, !tbaa !12
   %16 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %10)
-  %17 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %indvars.iv
   store ptr %16, ptr %17, align 8, !tbaa !15
   %18 = icmp samesign ult i64 %indvars.iv, 128
   br i1 %18, label %19, label %23
@@ -325,7 +325,7 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
 
 26:                                               ; preds = %24, %26
   %indvars.iv18 = phi i64 [ 0, %24 ], [ %indvars.iv.next19, %26 ]
-  %27 = getelementptr inbounds nuw [80 x ptr], ptr @known_strings, i64 0, i64 %indvars.iv18
+  %27 = getelementptr inbounds nuw ptr, ptr @known_strings, i64 %indvars.iv18
   %28 = load ptr, ptr %27, align 8, !tbaa !20
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #19
   %30 = and i64 %29, -8
@@ -340,7 +340,7 @@ define dso_local void @zend_interned_strings_init() local_unnamed_addr #2 {
   store i64 %29, ptr %35, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 1 %28, i64 %29, i1 false)
-  %37 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %29
   store i8 0, ptr %37, align 1, !tbaa !12
   %38 = tail call ptr @zend_new_interned_string_permanent(ptr noundef nonnull %32)
   %39 = load ptr, ptr @zend_known_strings, align 8, !tbaa !17
@@ -533,7 +533,7 @@ zend_string_delref.exit.i:                        ; preds = %._crit_edge45
   store i64 %78, ptr %86, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %87, ptr nonnull align 1 %82, i64 %78, i1 false)
-  %88 = getelementptr inbounds nuw [1 x i8], ptr %87, i64 0, i64 %78
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %78
   store i8 0, ptr %88, align 1, !tbaa !12
   %89 = or disjoint i32 %83, 22
   store i32 %89, ptr %84, align 4, !tbaa !12
@@ -794,7 +794,7 @@ zend_string_init.exit:                            ; preds = %140, %142
   store i64 %1, ptr %148, align 8, !tbaa !4
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %149, ptr align 1 %0, i64 %1, i1 false)
-  %150 = getelementptr inbounds nuw [1 x i8], ptr %149, i64 0, i64 %1
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %1
   store i8 0, ptr %150, align 1, !tbaa !12
   store i64 %100, ptr %147, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1037,7 +1037,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   store i64 %1, ptr %143, align 8, !tbaa !4
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %144, ptr align 1 %0, i64 %1, i1 false)
-  %145 = getelementptr inbounds nuw [1 x i8], ptr %144, i64 0, i64 %1
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %1
   store i8 0, ptr %145, align 1, !tbaa !12
   store i64 %99, ptr %142, align 8, !tbaa !11
   br label %zend_interned_string_ht_lookup_ex.exit
@@ -1158,7 +1158,7 @@ zend_init_string_for_interning.exit:              ; preds = %._crit_edge
   store i64 %49, ptr %57, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 1 %53, i64 %49, i1 false)
-  %59 = getelementptr inbounds nuw [1 x i8], ptr %58, i64 0, i64 %49
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %49
   store i8 0, ptr %59, align 1, !tbaa !12
   %60 = or disjoint i32 %54, 150
   store i32 %60, ptr %55, align 4, !tbaa !12
@@ -1369,7 +1369,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %112, %zend_string_e
   store i64 %1, ptr %125, align 8, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %126, ptr align 1 %0, i64 %1, i1 false)
-  %127 = getelementptr inbounds nuw [1 x i8], ptr %126, i64 0, i64 %1
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %1
   store i8 0, ptr %127, align 1, !tbaa !12
   store i64 %100, ptr %124, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1572,7 +1572,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %111, %zend_string_e
   store i64 %1, ptr %124, align 8, !tbaa !4
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %125, ptr align 1 %0, i64 %1, i1 false)
-  %126 = getelementptr inbounds nuw [1 x i8], ptr %125, i64 0, i64 %1
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %1
   store i8 0, ptr %126, align 1, !tbaa !12
   store i64 %99, ptr %123, align 8, !tbaa !11
   br label %zend_interned_string_ht_lookup_ex.exit
@@ -1743,7 +1743,7 @@ zend_string_alloc.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 1 %0, i64 %1, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %2, i64 %3, i1 false)
-  %13 = getelementptr inbounds nuw [1 x i8], ptr %11, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %4
   store i8 0, ptr %13, align 1, !tbaa !12
   ret ptr %7
 }
@@ -1772,7 +1772,7 @@ zend_string_alloc.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %2, i64 %3, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %5, i1 false)
-  %17 = getelementptr inbounds nuw [1 x i8], ptr %14, i64 0, i64 %7
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %7
   store i8 0, ptr %17, align 1, !tbaa !12
   ret ptr %10
 }

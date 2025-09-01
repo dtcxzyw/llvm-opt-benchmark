@@ -190,7 +190,7 @@ define void @_ZN3zmq12v2_encoder_t13message_readyEv(ptr noundef nonnull align 8 
 .sink.split:                                      ; preds = %57, %61
   %.sink13 = phi i8 [ 0, %61 ], [ 1, %57 ]
   %62 = add nuw nsw i64 %.011, 1
-  %63 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %.011
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %.011
   store i8 %.sink13, ptr %63, align 1, !tbaa !22
   br label %64
 

@@ -1195,7 +1195,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing8IsInsideINS_6PointTIiEEEEbRKT_
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.cont ]
   %.025 = phi i32 [ 0, %2 ], [ %.0., %.cont ]
   %.01524 = phi i32 [ 0, %2 ], [ %..015, %.cont ]
-  %10 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %1, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !84
   %12 = sub nsw i32 %3, %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1203,7 +1203,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing8IsInsideINS_6PointTIiEEEEbRKT_
   %.neg = sub i32 %14, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = and i64 %indvars.iv.next, 3
-  %16 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %1, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !84
   %18 = sub nsw i32 %17, %11
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4

@@ -872,7 +872,7 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %35
   %168 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %152, i32 noundef %166, i64 noundef %167)
   %169 = zext i8 %165 to i32
   %170 = add i32 %166, %169
-  %171 = getelementptr [256 x i8], ptr %152, i64 0, i64 %167
+  %171 = getelementptr i8, ptr %152, i64 %167
   store i8 0, ptr %171, align 1
   store i8 3, ptr %153, align 2
   %172 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %170)
@@ -920,7 +920,7 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %35
   %198 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %196, i32 noundef %195, i64 noundef %197)
   %199 = zext i8 %194 to i32
   %200 = add i32 %195, %199
-  %201 = getelementptr [256 x i8], ptr %196, i64 0, i64 %197
+  %201 = getelementptr i8, ptr %196, i64 %197
   store i8 0, ptr %201, align 1
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %.not161.i = icmp eq i64 %indvars.iv.next.i88, %190
@@ -949,7 +949,7 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %35
   %212 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %210, i32 noundef %209, i64 noundef %211)
   %213 = zext i8 %208 to i32
   %214 = add i32 %209, %213
-  %215 = getelementptr [256 x i8], ptr %210, i64 0, i64 %211
+  %215 = getelementptr i8, ptr %210, i64 %211
   store i8 0, ptr %215, align 1
   %indvars.iv.next203.i = add nuw nsw i64 %indvars.iv202.i, 1
   %.not163.i = icmp eq i64 %indvars.iv.next203.i, %204
@@ -2125,7 +2125,7 @@ define internal fastcc void @dissect_config_3_frame(ptr noundef %0, ptr noundef 
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = add i32 %47, %49
   %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %50)
-  %52 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %52 = getelementptr i8, ptr %4, i64 %indvars.iv
   store i8 %51, ptr %52, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

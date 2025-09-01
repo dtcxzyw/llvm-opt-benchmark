@@ -572,7 +572,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %224 = trunc nuw nsw i32 %.9582706 to i8
   %225 = add nuw nsw i32 %.2383707, 1
   %226 = zext nneg i32 %.2383707 to i64
-  %227 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 %226
   store i8 %224, ptr %227, align 1
   %228 = load ptr, ptr %10, align 8
   %229 = call i32 %228(ptr noundef nonnull %0) #8
@@ -636,7 +636,7 @@ switch.early.test:                                ; preds = %236
   %239 = trunc nuw nsw i32 %.12585689 to i8
   %240 = add nuw nsw i32 %.5386690, 1
   %241 = zext nneg i32 %.5386690 to i64
-  %242 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 %241
   store i8 %239, ptr %242, align 1
   %243 = load ptr, ptr %10, align 8
   %244 = call i32 %243(ptr noundef nonnull %0) #8
@@ -664,7 +664,7 @@ switch.early.test:                                ; preds = %236
   %249 = trunc nuw nsw i32 %.14587683 to i8
   %250 = add nuw nsw i32 %.7388684, 1
   %251 = zext nneg i32 %.7388684 to i64
-  %252 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 %251
   store i8 %249, ptr %252, align 1
   %253 = load ptr, ptr %10, align 8
   %254 = call i32 %253(ptr noundef nonnull %0) #8
@@ -692,7 +692,7 @@ switch.early.test:                                ; preds = %236
   %259 = trunc nuw nsw i32 %.16677 to i8
   %260 = add nuw nsw i32 %.9390678, 1
   %261 = zext nneg i32 %.9390678 to i64
-  %262 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 %261
   store i8 %259, ptr %262, align 1
   %263 = load ptr, ptr %10, align 8
   %264 = call i32 %263(ptr noundef nonnull %0) #8
@@ -760,7 +760,7 @@ switch.early.test:                                ; preds = %236
   %281 = trunc nuw nsw i32 %.18697 to i8
   %282 = add nuw nsw i32 %.11698, 1
   %283 = zext nneg i32 %.11698 to i64
-  %284 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 %283
   store i8 %281, ptr %284, align 1
   %285 = load ptr, ptr %10, align 8
   %286 = call i32 %285(ptr noundef nonnull %0) #8
@@ -773,7 +773,7 @@ switch.early.test:                                ; preds = %236
   %.0378 = phi i32 [ 10, %218 ], [ 10, %.preheader616 ], [ 16, %230 ], [ 8, %.preheader619 ], [ 2, %.preheader621 ], [ 10, %223 ], [ 10, %221 ], [ 10, %220 ], [ %.1379699, %265 ], [ %.1379699, %278 ], [ %.1379699, %280 ], [ %.2380606, %.thread612 ], [ 16, %.thread598 ], [ 16, %238 ], [ 16, %switch.early.test ], [ 16, %232 ], [ 8, %248 ], [ 8, %246 ], [ 8, %245 ], [ 2, %258 ], [ 2, %256 ], [ 2, %255 ]
   %.1352 = phi i1 [ %.0351, %218 ], [ true, %.preheader616 ], [ false, %230 ], [ false, %.preheader619 ], [ false, %.preheader621 ], [ %.0351, %223 ], [ %.0351, %221 ], [ %.0351, %220 ], [ true, %.thread612 ], [ true, %280 ], [ true, %278 ], [ true, %265 ], [ false, %.thread598 ], [ false, %238 ], [ false, %switch.early.test ], [ false, %232 ], [ false, %248 ], [ false, %246 ], [ false, %245 ], [ false, %258 ], [ false, %256 ], [ false, %255 ]
   %287 = sext i32 %.4385 to i64
-  %288 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %287
+  %288 = getelementptr inbounds i8, ptr %5, i64 %287
   store i8 0, ptr %288, align 1
   %289 = call ptr @__errno() #8
   %290 = load i32, ptr %289, align 4
@@ -991,7 +991,7 @@ switch.early.test:                                ; preds = %236
   %373 = trunc i32 %.21718 to i8
   %374 = add nuw nsw i32 %.13719, 1
   %375 = zext nneg i32 %.13719 to i64
-  %376 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr %5, i64 %375
   store i8 %373, ptr %376, align 1
   %377 = load ptr, ptr %10, align 8
   %378 = call i32 %377(ptr noundef nonnull %0) #8
@@ -1007,7 +1007,7 @@ switch.early.test:                                ; preds = %236
 ._crit_edge726:                                   ; preds = %._crit_edge726.loopexit, %362
   %.21.lcssa = phi i32 [ %.20.lcssa, %362 ], [ %.22881, %._crit_edge726.loopexit ]
   %.13.lcssa = phi i64 [ 0, %362 ], [ %379, %._crit_edge726.loopexit ]
-  %380 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %.13.lcssa
+  %380 = getelementptr inbounds i8, ptr %5, i64 %.13.lcssa
   store i8 0, ptr %380, align 1
   %381 = call ptr @__errno() #8
   %382 = load i32, ptr %381, align 4

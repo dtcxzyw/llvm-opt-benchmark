@@ -6566,7 +6566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %95 = load ptr, ptr %5, align 8
   %96 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %93, ptr align 1 %95, i64 %96, i1 false)
-  %97 = getelementptr inbounds nuw [1024 x i8], ptr %93, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %96
   store i8 0, ptr %97, align 1
   %98 = load i32, ptr %90, align 4
   %99 = icmp eq i32 %98, %spec.select.i
@@ -6722,7 +6722,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %158 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %158, i64 %150, i1 false)
-  %159 = getelementptr inbounds nuw [1024 x i8], ptr %157, i64 0, i64 %150
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %150
   store i8 0, ptr %159, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -14280,7 +14280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

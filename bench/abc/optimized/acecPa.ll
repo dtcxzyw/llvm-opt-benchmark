@@ -125,7 +125,7 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   %27 = shl nuw i32 1, %26
   %28 = and i32 %25, %27
   %.not50 = icmp eq i32 %28, 0
-  %29 = getelementptr inbounds nuw [3 x i32], ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !29
   %31 = and i32 %30, 255
   %32 = xor i32 %31, 255

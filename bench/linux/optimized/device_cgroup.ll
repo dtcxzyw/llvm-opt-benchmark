@@ -651,7 +651,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %79 = getelementptr i8, ptr %15, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %81
+  %82 = getelementptr i8, ptr @_ctype, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = and i8 %83, 32
   %85 = icmp eq i8 %84, 0
@@ -681,7 +681,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %97 = phi i8 [ %88, %95 ], [ %102, %96 ]
   %98 = phi i64 [ 0, %95 ], [ %105, %96 ]
   %99 = phi ptr [ %87, %95 ], [ %101, %96 ]
-  %100 = getelementptr [12 x i8], ptr %5, i64 0, i64 %98
+  %100 = getelementptr i8, ptr %5, i64 %98
   store i8 %97, ptr %100, align 1
   %101 = getelementptr i8, ptr %99, i64 1
   %102 = load i8, ptr %101, align 1
@@ -729,7 +729,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %127 = phi i8 [ %.pre, %125 ], [ %132, %126 ]
   %128 = phi i64 [ 0, %125 ], [ %135, %126 ]
   %129 = phi ptr [ %116, %125 ], [ %131, %126 ]
-  %130 = getelementptr [12 x i8], ptr %5, i64 0, i64 %128
+  %130 = getelementptr i8, ptr %5, i64 %128
   store i8 %127, ptr %130, align 1
   %131 = getelementptr i8, ptr %129, i64 1
   %132 = load i8, ptr %131, align 1
@@ -750,7 +750,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %143 = phi ptr [ %121, %119 ], [ %131, %138 ]
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i64
-  %146 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %145
+  %146 = getelementptr i8, ptr @_ctype, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = and i8 %147, 32
   %149 = icmp eq i8 %148, 0

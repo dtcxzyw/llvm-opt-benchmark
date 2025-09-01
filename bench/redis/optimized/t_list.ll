@@ -2048,7 +2048,7 @@ define dso_local void @lindexCommand(ptr noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4, !tbaa !93
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !48
   %15 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %9, ptr noundef %14) #9
   %16 = icmp eq ptr %15, null
@@ -2681,7 +2681,7 @@ define dso_local void @popGenericCommand(ptr noundef %0, i32 noundef %1) local_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4, !tbaa !93
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x ptr], ptr %.sink, i64 0, i64 %19
+  %20 = getelementptr inbounds ptr, ptr %.sink, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pn = load ptr, ptr %21, align 8, !tbaa !83
   %.in50 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
@@ -3316,7 +3316,7 @@ define dso_local void @lposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %68 = load i32, ptr %67, align 4, !tbaa !93
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %69
+  %70 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !48
   call void @addReply(ptr noundef nonnull %0, ptr noundef %71) #9
   br label %.critedge107
@@ -3615,7 +3615,7 @@ listTypeReleaseIterator.exit:                     ; preds = %.critedge, %192
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %199 = load i32, ptr %198, align 4, !tbaa !93
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %200
+  %201 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !48
   call void @addReply(ptr noundef nonnull %0, ptr noundef %202) #9
   br label %203
@@ -4042,7 +4042,7 @@ define dso_local void @lmoveGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4, !tbaa !93
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !48
   %13 = tail call ptr @lookupKeyWriteOrReply(ptr noundef %0, ptr noundef %7, ptr noundef %12) #9
   %14 = icmp eq ptr %13, null

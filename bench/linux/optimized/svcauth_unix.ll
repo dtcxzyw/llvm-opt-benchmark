@@ -168,7 +168,7 @@ define dso_local void @svcauth_unix_purge(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -195,7 +195,7 @@ define dso_local void @svcauth_unix_info_release(ptr noundef readonly captures(n
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   %10 = load volatile ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr [0 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @__rcu_read_unlock() #19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -291,7 +291,7 @@ define dso_local i32 @unix_gid_cache_create(ptr noundef %0) local_unnamed_addr #
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #19
   %8 = tail call ptr @cache_create_net(ptr noundef nonnull @unix_gid_cache_template, ptr noundef %0) #19
@@ -338,7 +338,7 @@ define dso_local void @unix_gid_cache_destroy(ptr noundef %0) local_unnamed_addr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -371,7 +371,7 @@ define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 2536
   %13 = load volatile ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %14
+  %15 = getelementptr ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void @__rcu_read_unlock() #19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -430,7 +430,7 @@ define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr nounde
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 2536
   %47 = load volatile ptr, ptr %46, align 8
   %48 = zext i32 %45 to i64
-  %49 = getelementptr [0 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   tail call void @__rcu_read_unlock() #19
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -632,7 +632,7 @@ define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr nounde
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 2536
   %159 = load volatile ptr, ptr %158, align 8
   %160 = zext i32 %157 to i64
-  %161 = getelementptr [0 x ptr], ptr %159, i64 0, i64 %160
+  %161 = getelementptr ptr, ptr %159, i64 %160
   %162 = load ptr, ptr %161, align 8
   call void @__rcu_read_unlock() #19
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -684,7 +684,7 @@ define dso_local noundef range(i32 5, 9) i32 @svcauth_unix_set_client(ptr nounde
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 2536
   %190 = load volatile ptr, ptr %189, align 8
   %191 = zext i32 %188 to i64
-  %192 = getelementptr [0 x ptr], ptr %190, i64 0, i64 %191
+  %192 = getelementptr ptr, ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8
   call void @__rcu_read_unlock() #19
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
@@ -1203,7 +1203,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %52 = tail call i32 @llvm.bswap.i32(i32 %51)
   %53 = load ptr, ptr %43, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = getelementptr [0 x %struct.kgid_t], ptr %54, i64 0, i64 %48
+  %55 = getelementptr %struct.kgid_t, ptr %54, i64 %48
   store i32 %52, ptr %55, align 4
   %56 = add nuw nsw i64 %48, 1
   %57 = icmp samesign ult i64 %56, %47
@@ -1310,7 +1310,7 @@ define dso_local i32 @ip_map_cache_create(ptr noundef %0) local_unnamed_addr #0 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #19
   %8 = tail call ptr @cache_create_net(ptr noundef nonnull @ip_map_cache_template, ptr noundef %0) #19
@@ -1348,7 +1348,7 @@ define dso_local void @ip_map_cache_destroy(ptr noundef %0) local_unnamed_addr #
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1562,7 +1562,7 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   br i1 %74, label %75, label %.thread12
 
 75:                                               ; preds = %67
-  %76 = getelementptr [0 x %struct.kgid_t], ptr %62, i64 0, i64 %64
+  %76 = getelementptr %struct.kgid_t, ptr %62, i64 %64
   store i32 %72, ptr %76, align 4
   %77 = add nuw nsw i64 %64, 1
   %78 = icmp eq i64 %77, %61
@@ -1671,7 +1671,7 @@ define internal noundef i32 @unix_gid_show(ptr noundef %0, ptr readnone captures
   %32 = phi i64 [ 0, %28 ], [ %40, %31 ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = getelementptr [0 x %struct.kgid_t], ptr %34, i64 0, i64 %32
+  %35 = getelementptr %struct.kgid_t, ptr %34, i64 %32
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, -1
   %38 = load i32, ptr @overflowgid, align 4

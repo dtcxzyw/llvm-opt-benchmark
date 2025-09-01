@@ -182,7 +182,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %70, !llvm.loop !54
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %72 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 0, i64 %indvars.iv74.i
+  %72 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
   %73 = load i32, ptr %72, align 4, !tbaa !51
   br label %70
 
@@ -429,7 +429,7 @@ define range(i32 0, -1) i32 @Gia_ManEraStateHash(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !51
   %7 = and i64 %indvars.iv, 127
-  %8 = getelementptr inbounds nuw [128 x i32], ptr @Gia_ManEraStateHash.s_FPrimes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @Gia_ManEraStateHash.s_FPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !51
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -532,7 +532,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = and i64 %indvars.iv.i.i, 127
-  %38 = getelementptr inbounds nuw [128 x i32], ptr @Gia_ManEraStateHash.s_FPrimes, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @Gia_ManEraStateHash.s_FPrimes, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !51
   %40 = mul i32 %39, %36
   %41 = xor i32 %40, %.089.i.i
@@ -1182,9 +1182,9 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %52 = phi ptr [ %50, %49 ], [ %47, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %39, align 4, !tbaa !35
-  %55 = add nsw i32 %54, -1
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 %56
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr i32, ptr %53, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 -4
   store i32 0, ptr %57, align 4, !tbaa !51
   %58 = load ptr, ptr %0, align 8, !tbaa !3
   %59 = getelementptr i8, ptr %58, i64 16
@@ -1321,7 +1321,7 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %121 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i.i
   %122 = load i32, ptr %121, align 4, !tbaa !51
   %123 = and i64 %indvars.iv.i.i, 127
-  %124 = getelementptr inbounds nuw [128 x i32], ptr @Gia_ManEraStateHash.s_FPrimes, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i32, ptr @Gia_ManEraStateHash.s_FPrimes, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !51
   %126 = mul i32 %125, %122
   %127 = xor i32 %126, %.089.i.i
@@ -1888,7 +1888,7 @@ Abc_Clock.exit:                                   ; preds = %5, %11
   %31 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !51
   %33 = and i64 %indvars.iv.i, 127
-  %34 = getelementptr inbounds nuw [128 x i32], ptr @Gia_ManEraStateHash.s_FPrimes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @Gia_ManEraStateHash.s_FPrimes, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !51
   %36 = mul i32 %35, %32
   %37 = xor i32 %36, %.089.i

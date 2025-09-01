@@ -1045,14 +1045,14 @@ define hidden void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr
 
 7:                                                ; preds = %2, %18
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %18 ]
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %18
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(40) %13)
   %15 = tail call noundef ptr @_ZN3p2t14AdvancingFront11LocatePointEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %14)
@@ -1251,13 +1251,13 @@ _ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit: ; preds = %17, %_ZNS
   %.sroa.0.282 = phi ptr [ %.sroa.0.086, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0.5, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backEOS2_.exit25 ]
   %.sroa.11.281 = phi ptr [ %8, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.11.3, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backEOS2_.exit25 ]
   %.sroa.23.280 = phi ptr [ %.sroa.23.084, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.23.5, %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backEOS2_.exit25 ]
-  %42 = getelementptr inbounds nuw [3 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !range !11, !noundef !12
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EE9push_backEOS2_.exit25, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw [3 x ptr], ptr %40, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %.not.i.i16 = icmp eq ptr %.sroa.11.281, %.sroa.23.280
   br i1 %.not.i.i16, label %50, label %48

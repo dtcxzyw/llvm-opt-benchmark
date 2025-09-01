@@ -999,7 +999,7 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i:                ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.i.i:                                   ; preds = %133, %138
   %.0813.i.i.i.i = phi i64 [ %139, %138 ], [ 0, %133 ]
-  %140 = getelementptr inbounds nuw [4 x i64], ptr %19, i64 0, i64 %.0813.i.i.i.i
+  %140 = getelementptr inbounds nuw i64, ptr %19, i64 %.0813.i.i.i.i
   %141 = load i64, ptr %140, align 8
   %.not.i.i.i.i = icmp eq i64 %141, -1
   br i1 %.not.i.i.i.i, label %138, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i
@@ -1428,7 +1428,7 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i110:             ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader.i.i100:                                ; preds = %297, %307
   %.0813.i.i.i.i101 = phi i64 [ %308, %307 ], [ 0, %297 ]
-  %309 = getelementptr inbounds nuw [4 x i64], ptr %15, i64 0, i64 %.0813.i.i.i.i101
+  %309 = getelementptr inbounds nuw i64, ptr %15, i64 %.0813.i.i.i.i101
   %310 = load i64, ptr %309, align 8
   %.not.i.i.i.i102 = icmp eq i64 %310, -1
   br i1 %.not.i.i.i.i102, label %307, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i93
@@ -1815,7 +1815,7 @@ _ZN3ue2L22predsAreDelaySensitiveERKNS_11RoseInGraphENS_12graph_detail17vertex_de
 
 .preheader.i:                                     ; preds = %448, %451
   %.0813.i.i.i = phi i64 [ %452, %451 ], [ 0, %448 ]
-  %453 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.0813.i.i.i
+  %453 = getelementptr inbounds nuw i64, ptr %9, i64 %.0813.i.i.i
   %454 = load i64, ptr %453, align 8
   %.not.i.i.i = icmp eq i64 %454, -1
   br i1 %.not.i.i.i, label %451, label %.critedge.i
@@ -21711,7 +21711,7 @@ define internal fastcc void @_ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13Ro
 
 switch.lookup:                                    ; preds = %4
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3ue2L17makeRoseEodPrefixERKNS_8NGHolderERNS_13RoseBuildImplERSt3mapINS_8flat_setIjSt4lessIjESaIjEEEjS7_ISA_ESaISt4pairIKSA_jEEE, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 

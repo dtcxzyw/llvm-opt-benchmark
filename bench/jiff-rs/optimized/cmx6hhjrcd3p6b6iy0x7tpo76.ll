@@ -3802,10 +3802,10 @@ define void @"_ZN84_$LT$jiff..fmt..friendly..printer..SpanPrinter$u20$as$u20$cor
 define void @_ZN4jiff3fmt8friendly7printer11Designators3new17h7245a7cf2e08ab4aE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 4) %1) unnamed_addr #0 {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11Designators3new17h7245a7cf2e08ab4aE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt8friendly7printer11Designators3new17h7245a7cf2e08ab4aE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11Designators3new17h7245a7cf2e08ab4aE.53, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff3fmt8friendly7printer11Designators3new17h7245a7cf2e08ab4aE.53, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

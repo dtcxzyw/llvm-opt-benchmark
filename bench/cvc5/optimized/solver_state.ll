@@ -2601,7 +2601,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i58:  ; preds = %225, %219, %216
   %253 = icmp eq i32 %252, 2
   %254 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %255 = zext i1 %253 to i64
-  %256 = getelementptr inbounds nuw [0 x ptr], ptr %254, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !11, !noalias !103
   store ptr %257, ptr %19, align 8, !tbaa !13, !alias.scope !103
   %258 = load i64, ptr %257, align 8, !noalias !103
@@ -3970,7 +3970,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   store ptr %15, ptr %0, align 8, !tbaa !13
   %16 = load i64, ptr %15, align 8
@@ -4537,8 +4537,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %2, %28, %34, %36
 53:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit15
   %.not = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit15 ]
   %.016 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit15 ]
-  %54 = getelementptr inbounds nuw [2 x %"class.cvc5::internal::NodeTemplate"], ptr %50, i64 0, i64 %.016
-  %55 = getelementptr inbounds nuw [2 x %"class.cvc5::internal::NodeTemplate"], ptr %51, i64 0, i64 %.016
+  %54 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %50, i64 %.016
+  %55 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %51, i64 %.016
   %56 = load ptr, ptr %54, align 8, !tbaa !13
   %57 = load ptr, ptr %55, align 8, !tbaa !13
   %.not.i12 = icmp eq ptr %56, %57

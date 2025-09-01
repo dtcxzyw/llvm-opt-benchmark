@@ -70,8 +70,6 @@ $_ZN6hermes17parseIntWithRadixILb1EN4llvh8ArrayRefIcEEEENS_8OptValueIdEET0_i = c
 
 $_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE0EEEvPKc = comdat any
 
-$_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv = comdat any
-
 $_ZN6hermes6parser7JSLexer32consumeOneIdentifierPartNoEscapeILNS1_14IdentifierModeE0EEEbv = comdat any
 
 $_ZN6hermes11StringTable9getStringEN4llvh9StringRefE = comdat any
@@ -88,13 +86,9 @@ $_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE1EEEvPK
 
 $_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE2EEEvPKc = comdat any
 
-$_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv = comdat any
-
 $_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv = comdat any
 
 $_ZN6hermes6parser7JSLexer32consumeOneIdentifierPartNoEscapeILNS1_14IdentifierModeE1EEEbv = comdat any
-
-$_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv = comdat any
 
 $_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv = comdat any
 
@@ -560,7 +554,7 @@ $_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EE
 define hidden noundef ptr @_ZN6hermes6parser12tokenKindStrENS0_9TokenKindE(i32 noundef %kind) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i32 %kind to i64
-  %arrayidx = getelementptr inbounds nuw [122 x ptr], ptr @_ZN6hermes6parser12_GLOBAL__N_110g_tokenStrE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN6hermes6parser12_GLOBAL__N_110g_tokenStrE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }
@@ -1025,15 +1019,15 @@ entry:
   %bufferStart_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %LHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
-  %RHS4.i.i.i238 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 8
-  %LHSKind5.i.i.i239 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 16
-  %RHSKind6.i.i.i240 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 17
-  %RHS4.i.i.i160 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 8
-  %LHSKind5.i.i.i161 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 16
-  %RHSKind6.i.i.i162 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 17
-  %LHSKind.i.i.i199 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 16
-  %RHSKind.i.i.i200 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 17
-  %RHS4.i.i.i193 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 8
+  %RHS4.i.i.i235 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 8
+  %LHSKind5.i.i.i236 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 16
+  %RHSKind6.i.i.i237 = getelementptr inbounds nuw i8, ptr %ref.tmp741, i64 17
+  %RHS4.i.i.i157 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 8
+  %LHSKind5.i.i.i158 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 16
+  %RHSKind6.i.i.i159 = getelementptr inbounds nuw i8, ptr %ref.tmp729, i64 17
+  %LHSKind.i.i.i196 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 16
+  %RHSKind.i.i.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 17
+  %RHS4.i.i.i190 = getelementptr inbounds nuw i8, ptr %ref.tmp728, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -1157,8 +1151,8 @@ sw.bb:                                            ; preds = %for.cond
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  %token_.le332 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store i32 120, ptr %token_.le332, align 8
+  %token_.le329 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store i32 120, ptr %token_.le329, align 8
   br label %for.end
 
 if.else:                                          ; preds = %sw.bb
@@ -1447,8 +1441,8 @@ sw.bb233:                                         ; preds = %for.cond
   %arrayidx240 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %arrayidx240, align 1
   %cmp242 = icmp eq i8 %17, 125
-  %or.cond540 = select i1 %cmp668, i1 %cmp242, i1 false
-  br i1 %or.cond540, label %if.then243, label %if.else247
+  %or.cond537 = select i1 %cmp668, i1 %cmp242, i1 false
+  br i1 %or.cond537, label %if.then243, label %if.else247
 
 if.then243:                                       ; preds = %sw.bb233
   store i32 52, ptr %token_234, align 8
@@ -1604,8 +1598,8 @@ sw.bb378:                                         ; preds = %for.cond
   %add.ptr385 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %25 = load ptr, ptr %bufferEnd_.i.i.i115, align 8
   %cmp387.not = icmp ugt ptr %add.ptr385, %25
-  %or.cond260 = select i1 %cmp381, i1 true, i1 %cmp387.not
-  br i1 %or.cond260, label %if.else399, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
+  %or.cond257 = select i1 %cmp381, i1 true, i1 %cmp387.not
+  br i1 %or.cond257, label %if.else399, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %sw.bb378
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) @.str.45, i64 7)
@@ -1670,8 +1664,8 @@ sw.bb426:                                         ; preds = %for.cond, %for.cond
   br label %for.cond.backedge
 
 do.body:                                          ; preds = %do.body.preheader, %do.body.backedge
-  %incdec.ptr431330 = phi ptr [ %incdec.ptr431, %do.body.backedge ], [ %0, %do.body.preheader ]
-  %incdec.ptr431 = getelementptr inbounds nuw i8, ptr %incdec.ptr431330, i64 1
+  %incdec.ptr431327 = phi ptr [ %incdec.ptr431, %do.body.backedge ], [ %0, %do.body.preheader ]
+  %incdec.ptr431 = getelementptr inbounds nuw i8, ptr %incdec.ptr431327, i64 1
   store ptr %incdec.ptr431, ptr %curCharPtr_, align 8
   %31 = load i8, ptr %incdec.ptr431, align 1
   switch i8 %31, label %for.cond.backedge [
@@ -2126,21 +2120,7 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
-  switch i32 %grammarContext, label %if.else4.i131 [
-    i32 2, label %if.then.i130
-    i32 3, label %if.then3.i129
-  ]
-
-if.then.i130:                                     ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  br label %for.end
-
-if.then3.i129:                                    ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  br label %for.end
-
-if.else4.i131:                                    ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @_ZN6hermes6parser7JSLexer28scanIdentifierPartsInContextENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %grammarContext)
   br label %for.end
 
 if.else716:                                       ; preds = %_ZN6hermes6parser7JSLexer10decodeUTF8Ev.exit
@@ -2150,62 +2130,62 @@ if.else716:                                       ; preds = %_ZN6hermes6parser7J
 if.else719:                                       ; preds = %if.else716
   %67 = add i32 %retval.0.i.i123, -32
   %or.cond2 = icmp ult i32 %67, 95
-  %retval.sroa.0.0.copyload.i133 = load ptr, ptr %range_.i69, align 8
+  %retval.sroa.0.0.copyload.i130 = load ptr, ptr %range_.i69, align 8
   %conv732 = zext i32 %retval.0.i.i123 to i64
-  br i1 %or.cond2, label %_ZN4llvhplERKNS_5TwineES2_.exit201, label %_ZN4llvhplERKNS_5TwineES2_.exit246
+  br i1 %or.cond2, label %_ZN4llvhplERKNS_5TwineES2_.exit198, label %_ZN4llvhplERKNS_5TwineES2_.exit243
 
-_ZN4llvhplERKNS_5TwineES2_.exit201:               ; preds = %if.else719
+_ZN4llvhplERKNS_5TwineES2_.exit198:               ; preds = %if.else719
   %68 = ptrtoint ptr %ref.tmp731.sroa.0.0 to i64
   %ref.tmp731.sroa.0.0.insert.mask = and i64 %68, -256
   %ref.tmp731.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp731.sroa.0.0.insert.mask, %conv732
   %69 = inttoptr i64 %ref.tmp731.sroa.0.0.insert.insert to ptr
   store ptr @.str.49, ptr %ref.tmp729, align 8, !alias.scope !17
-  store ptr %69, ptr %RHS4.i.i.i160, align 8, !alias.scope !17
-  store i8 3, ptr %LHSKind5.i.i.i161, align 8, !alias.scope !17
-  store i8 8, ptr %RHSKind6.i.i.i162, align 1, !alias.scope !17
+  store ptr %69, ptr %RHS4.i.i.i157, align 8, !alias.scope !17
+  store i8 3, ptr %LHSKind5.i.i.i158, align 8, !alias.scope !17
+  store i8 8, ptr %RHSKind6.i.i.i159, align 1, !alias.scope !17
   store ptr %ref.tmp729, ptr %ref.tmp728, align 8, !alias.scope !22
-  store ptr @.str.50, ptr %RHS4.i.i.i193, align 8, !alias.scope !22
-  store i8 2, ptr %LHSKind.i.i.i199, align 8, !alias.scope !22
-  store i8 3, ptr %RHSKind.i.i.i200, align 1, !alias.scope !22
+  store ptr @.str.50, ptr %RHS4.i.i.i190, align 8, !alias.scope !22
+  store i8 2, ptr %LHSKind.i.i.i196, align 8, !alias.scope !22
+  store i8 3, ptr %RHSKind.i.i.i197, align 1, !alias.scope !22
   %70 = load ptr, ptr %curCharPtr_, align 8
   %71 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %71, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i133, ptr %70, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp728, i32 noundef 1) #20
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %71, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i130, ptr %70, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp728, i32 noundef 1) #20
   %72 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i.i203 = getelementptr inbounds nuw i8, ptr %72, i64 316
-  %73 = load i8, ptr %errorLimitReached_.i.i.i203, align 4
-  %tobool.i.i.i204 = trunc i8 %73 to i1
-  br i1 %tobool.i.i.i204, label %if.end.i.i206, label %for.cond.backedge
+  %errorLimitReached_.i.i.i200 = getelementptr inbounds nuw i8, ptr %72, i64 316
+  %73 = load i8, ptr %errorLimitReached_.i.i.i200, align 4
+  %tobool.i.i.i201 = trunc i8 %73 to i1
+  br i1 %tobool.i.i.i201, label %if.end.i.i203, label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %do.body, %_ZN4llvhplERKNS_5TwineES2_.exit201, %if.end.i.i206, %_ZN4llvhplERKNS_5TwineES2_.exit246, %if.end.i.i251, %if.end.i.i114, %_ZN4llvhplERKNS_5TwineES2_.exit109, %if.end.i.i, %if.else672, %if.else10, %sw.bb414, %if.then421, %sw.bb426, %if.then443, %if.then457, %if.then466, %if.then473, %if.then507, %if.end509, %if.else716
-  %ref.tmp731.sroa.0.0.be = phi ptr [ %ref.tmp731.sroa.0.0, %if.else716 ], [ %69, %if.end.i.i206 ], [ %69, %_ZN4llvhplERKNS_5TwineES2_.exit201 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i251 ], [ %ref.tmp731.sroa.0.0, %_ZN4llvhplERKNS_5TwineES2_.exit246 ], [ %ref.tmp731.sroa.0.0, %if.else10 ], [ %ref.tmp731.sroa.0.0, %sw.bb414 ], [ %ref.tmp731.sroa.0.0, %if.then421 ], [ %ref.tmp731.sroa.0.0, %sw.bb426 ], [ %ref.tmp731.sroa.0.0, %if.then443 ], [ %ref.tmp731.sroa.0.0, %if.then457 ], [ %ref.tmp731.sroa.0.0, %if.then466 ], [ %ref.tmp731.sroa.0.0, %if.then473 ], [ %ref.tmp731.sroa.0.0, %if.then507 ], [ %ref.tmp731.sroa.0.0, %if.end509 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i ], [ %ref.tmp731.sroa.0.0, %if.else672 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i114 ], [ %ref.tmp731.sroa.0.0, %_ZN4llvhplERKNS_5TwineES2_.exit109 ], [ %ref.tmp731.sroa.0.0, %do.body ]
+for.cond.backedge:                                ; preds = %do.body, %_ZN4llvhplERKNS_5TwineES2_.exit198, %if.end.i.i203, %_ZN4llvhplERKNS_5TwineES2_.exit243, %if.end.i.i248, %if.end.i.i114, %_ZN4llvhplERKNS_5TwineES2_.exit109, %if.end.i.i, %if.else672, %if.else10, %sw.bb414, %if.then421, %sw.bb426, %if.then443, %if.then457, %if.then466, %if.then473, %if.then507, %if.end509, %if.else716
+  %ref.tmp731.sroa.0.0.be = phi ptr [ %ref.tmp731.sroa.0.0, %if.else716 ], [ %69, %if.end.i.i203 ], [ %69, %_ZN4llvhplERKNS_5TwineES2_.exit198 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i248 ], [ %ref.tmp731.sroa.0.0, %_ZN4llvhplERKNS_5TwineES2_.exit243 ], [ %ref.tmp731.sroa.0.0, %if.else10 ], [ %ref.tmp731.sroa.0.0, %sw.bb414 ], [ %ref.tmp731.sroa.0.0, %if.then421 ], [ %ref.tmp731.sroa.0.0, %sw.bb426 ], [ %ref.tmp731.sroa.0.0, %if.then443 ], [ %ref.tmp731.sroa.0.0, %if.then457 ], [ %ref.tmp731.sroa.0.0, %if.then466 ], [ %ref.tmp731.sroa.0.0, %if.then473 ], [ %ref.tmp731.sroa.0.0, %if.then507 ], [ %ref.tmp731.sroa.0.0, %if.end509 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i ], [ %ref.tmp731.sroa.0.0, %if.else672 ], [ %ref.tmp731.sroa.0.0, %if.end.i.i114 ], [ %ref.tmp731.sroa.0.0, %_ZN4llvhplERKNS_5TwineES2_.exit109 ], [ %ref.tmp731.sroa.0.0, %do.body ]
   br label %for.cond, !llvm.loop !5
 
-if.end.i.i206:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit201
+if.end.i.i203:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit198
   %74 = load ptr, ptr %bufferEnd_.i.i.i115, align 8
   store ptr %74, ptr %curCharPtr_, align 8
   br label %for.cond.backedge
 
-_ZN4llvhplERKNS_5TwineES2_.exit246:               ; preds = %if.else719
+_ZN4llvhplERKNS_5TwineES2_.exit243:               ; preds = %if.else719
   store i64 %conv732, ptr %ref.tmp744, align 8
   store ptr @.str.51, ptr %ref.tmp741, align 8, !alias.scope !27
-  store ptr %ref.tmp744, ptr %RHS4.i.i.i238, align 8, !alias.scope !27
-  store i8 3, ptr %LHSKind5.i.i.i239, align 8, !alias.scope !27
-  store i8 15, ptr %RHSKind6.i.i.i240, align 1, !alias.scope !27
+  store ptr %ref.tmp744, ptr %RHS4.i.i.i235, align 8, !alias.scope !27
+  store i8 3, ptr %LHSKind5.i.i.i236, align 8, !alias.scope !27
+  store i8 15, ptr %RHSKind6.i.i.i237, align 1, !alias.scope !27
   %75 = load ptr, ptr %curCharPtr_, align 8
   %76 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %76, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i133, ptr %75, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp741, i32 noundef 1) #20
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %76, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i130, ptr %75, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp741, i32 noundef 1) #20
   %77 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i.i248 = getelementptr inbounds nuw i8, ptr %77, i64 316
-  %78 = load i8, ptr %errorLimitReached_.i.i.i248, align 4
-  %tobool.i.i.i249 = trunc i8 %78 to i1
-  br i1 %tobool.i.i.i249, label %if.end.i.i251, label %for.cond.backedge
+  %errorLimitReached_.i.i.i245 = getelementptr inbounds nuw i8, ptr %77, i64 316
+  %78 = load i8, ptr %errorLimitReached_.i.i.i245, align 4
+  %tobool.i.i.i246 = trunc i8 %78 to i1
+  br i1 %tobool.i.i.i246, label %if.end.i.i248, label %for.cond.backedge
 
-if.end.i.i251:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit246
+if.end.i.i248:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit243
   %79 = load ptr, ptr %bufferEnd_.i.i.i115, align 8
   store ptr %79, ptr %curCharPtr_, align 8
   br label %for.cond.backedge
 
-for.end:                                          ; preds = %if.end509, %if.else4.i131, %if.then3.i129, %if.then.i130, %cond.false.i, %cond.true.i, %if.else4.i, %if.then3.i, %if.then.i, %sw.bb13, %sw.bb19, %sw.bb25, %sw.bb31, %sw.bb37, %sw.bb43, %sw.bb49, %sw.bb55, %sw.bb61, %sw.bb658, %if.then670, %if.else702, %sw.bb707, %if.then8, %if.then, %if.else78, %if.then75, %if.then99, %if.else112, %if.then108, %if.then90, %if.then135, %if.else139, %if.then126, %if.then161, %if.else165, %if.then152, %if.then187, %if.else191, %if.then178, %if.then223, %if.else227, %if.then209, %if.else213, %if.else261, %if.then257, %if.else275, %if.then271, %if.then243, %if.else320, %if.else315, %if.then311, %if.then294, %if.then342, %if.else355, %if.then351, %if.then333, %if.else373, %if.then369, %if.then404, %if.else408, %_ZN4llvh9StringRefC2EPKc.exit761, %if.then487, %if.else491, %if.then481, %if.then529, %if.then543, %if.else547, %if.else552, %if.then520, %if.then575, %if.then589, %if.then603, %if.else607, %if.else612, %if.else618, %if.then566, %if.then648, %if.else652, %if.then637
+for.end:                                          ; preds = %if.end509, %cond.false.i, %cond.true.i, %if.else4.i, %if.then3.i, %if.then.i, %sw.bb13, %sw.bb19, %sw.bb25, %sw.bb31, %sw.bb37, %sw.bb43, %sw.bb49, %sw.bb55, %sw.bb61, %sw.bb658, %if.then670, %if.else702, %sw.bb707, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %if.then8, %if.then, %if.else78, %if.then75, %if.then99, %if.else112, %if.then108, %if.then90, %if.then135, %if.else139, %if.then126, %if.then161, %if.else165, %if.then152, %if.then187, %if.else191, %if.then178, %if.then223, %if.else227, %if.then209, %if.else213, %if.else261, %if.then257, %if.else275, %if.then271, %if.then243, %if.else320, %if.else315, %if.then311, %if.then294, %if.then342, %if.else355, %if.then351, %if.then333, %if.else373, %if.then369, %if.then404, %if.else408, %_ZN4llvh9StringRefC2EPKc.exit761, %if.then487, %if.else491, %if.then481, %if.then529, %if.then543, %if.else547, %if.else552, %if.then520, %if.then575, %if.then589, %if.then603, %if.else607, %if.else612, %if.else618, %if.then566, %if.then648, %if.else652, %if.then637
   %80 = load ptr, ptr %curCharPtr_, align 8
   %End.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %End.i.i, align 8
@@ -2215,13 +2195,13 @@ for.end:                                          ; preds = %if.end509, %if.else
   %storeTokens_.i = getelementptr inbounds nuw i8, ptr %this, i64 50
   %81 = load i8, ptr %storeTokens_.i, align 2
   %tobool.i = trunc i8 %81 to i1
-  br i1 %tobool.i, label %if.then.i255, label %_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit
+  br i1 %tobool.i, label %if.then.i252, label %_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit
 
-if.then.i255:                                     ; preds = %for.end
+if.then.i252:                                     ; preds = %for.end
   call void @_ZN6hermes6parser7JSLexer17storeCurrentTokenEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
   br label %_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit
 
-_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %for.end, %if.then.i255
+_ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %for.end, %if.then.i252
   %token_751 = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %token_751
 }
@@ -3082,6 +3062,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_6parser13RegExpLiteralEEEPT
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes6parser7JSLexer21scanPrivateIdentifierEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
 entry:
+  %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %curCharPtr_, align 8
@@ -3109,7 +3090,49 @@ if.else:                                          ; preds = %_ZN6hermes22isASCII
   br i1 %call6, label %if.then7, label %if.else8
 
 if.then7:                                         ; preds = %if.else
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %tmpStorage_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %5 = load ptr, ptr %tmpStorage_.i, align 8
+  %Size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %6 = load i32, ptr %Size.i.i.i, align 8
+  %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %5, i32 noundef %6)
+  %cmp.not.i = icmp eq i32 %call7.i, 1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then7
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %7 = zext nneg i32 %call7.i to i64
+  %8 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %7
+  %arrayidx.i.i = getelementptr i8, ptr %8, i64 -24
+  %9 = load ptr, ptr %arrayidx.i.i, align 8
+  store i32 %call7.i, ptr %token_.i, align 8
+  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %9, ptr %ident_.i.i, align 8
+  %10 = load ptr, ptr %this, align 8
+  %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
+  %11 = load ptr, ptr %curCharPtr_, align 8
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 17
+  store i8 1, ptr %RHSKind.i.i, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %10, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %11, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+if.else.i:                                        ; preds = %if.then7
+  %conv.i.i.i = zext i32 %6 to i64
+  %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %12 = load ptr, ptr %strTab_.i.i, align 8
+  %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr %5, i64 %conv.i.i.i)
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit: ; preds = %if.then.i, %if.else.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   br label %if.end12
 
 if.else8:                                         ; preds = %if.else
@@ -3118,21 +3141,21 @@ if.else8:                                         ; preds = %if.else
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.76, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  %5 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef 0, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #20
-  %6 = load ptr, ptr %this, align 8
-  %errorLimitReached_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 316
-  %7 = load i8, ptr %errorLimitReached_.i.i, align 4
-  %tobool.i.i = trunc i8 %7 to i1
+  %13 = load ptr, ptr %this, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 0, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 1) #20
+  %14 = load ptr, ptr %this, align 8
+  %errorLimitReached_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 316
+  %15 = load i8, ptr %errorLimitReached_.i.i, align 4
+  %tobool.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.else8
   %bufferEnd_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %8 = load ptr, ptr %bufferEnd_.i.i, align 8
-  store ptr %8, ptr %curCharPtr_, align 8
+  %16 = load ptr, ptr %bufferEnd_.i.i, align 8
+  store ptr %16, ptr %curCharPtr_, align 8
   br label %return
 
-if.end12:                                         ; preds = %if.then7, %if.then
+if.end12:                                         ; preds = %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit, %if.then
   %token_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 2, ptr %token_, align 8
   br label %return
@@ -4381,24 +4404,158 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer28scanIdentifierPartsInContextENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %grammarContext) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %ref.tmp17.i23 = alloca %"class.llvh::Twine", align 8
+  %ref.tmp17.i2 = alloca %"class.llvh::Twine", align 8
+  %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
+  %tmpStorage_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %Size.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 176
   switch i32 %grammarContext, label %if.else4 [
     i32 2, label %if.then
     i32 3, label %if.then3
   ]
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %0 = load ptr, ptr %tmpStorage_.i24, align 8
+  %1 = load i32, ptr %Size.i.i.i25, align 8
+  %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %0, i32 noundef %1)
+  %cmp.not.i = icmp eq i32 %call7.i, 1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %2 = zext nneg i32 %call7.i to i64
+  %3 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %2
+  %arrayidx.i.i = getelementptr i8, ptr %3, i64 -24
+  %4 = load ptr, ptr %arrayidx.i.i, align 8
+  store i32 %call7.i, ptr %token_.i, align 8
+  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %4, ptr %ident_.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
+  %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
+  %curCharPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %6 = load ptr, ptr %curCharPtr_.i, align 8
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 17
+  store i8 1, ptr %RHSKind.i.i, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
+
+if.else.i:                                        ; preds = %if.then
+  %conv.i.i.i = zext i32 %1 to i64
+  %token_18.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load ptr, ptr %strTab_.i.i, align 8
+  %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %0, i64 %conv.i.i.i)
+  store i32 1, ptr %token_18.i, align 8
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit: ; preds = %if.then.i, %if.else.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   br label %if.end5
 
 if.then3:                                         ; preds = %entry
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i2)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %8 = load ptr, ptr %tmpStorage_.i24, align 8
+  %9 = load i32, ptr %Size.i.i.i25, align 8
+  %call7.i5 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
+  %cmp.not.i6 = icmp eq i32 %call7.i5, 1
+  br i1 %cmp.not.i6, label %if.else.i17, label %if.then.i7
+
+if.then.i7:                                       ; preds = %if.then3
+  %token_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %10 = zext nneg i32 %call7.i5 to i64
+  %11 = getelementptr ptr, ptr %resWordIdent_.i.i9, i64 %10
+  %arrayidx.i.i10 = getelementptr i8, ptr %11, i64 -24
+  %12 = load ptr, ptr %arrayidx.i.i10, align 8
+  store i32 %call7.i5, ptr %token_.i8, align 8
+  %ident_.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %12, ptr %ident_.i.i11, align 8
+  %13 = load ptr, ptr %this, align 8
+  %range_.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i13 = load ptr, ptr %range_.i.i12, align 8
+  %curCharPtr_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %14 = load ptr, ptr %curCharPtr_.i14, align 8
+  %LHSKind.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 16
+  %RHSKind.i.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i2, i64 17
+  store i8 1, ptr %RHSKind.i.i16, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i2, align 8
+  store i8 3, ptr %LHSKind.i.i15, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i13, ptr %retval.sroa.0.0.copyload.i.i13, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i2, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
+
+if.else.i17:                                      ; preds = %if.then3
+  %conv.i.i.i18 = zext i32 %9 to i64
+  %token_18.i19 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %15 = load ptr, ptr %strTab_.i.i20, align 8
+  %call.i.i21 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i18)
+  store i32 1, ptr %token_18.i19, align 8
+  %ident_.i11.i22 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i21, ptr %ident_.i11.i22, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit: ; preds = %if.then.i7, %if.else.i17
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i2)
   br label %if.end5
 
 if.else4:                                         ; preds = %entry
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i23)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %16 = load ptr, ptr %tmpStorage_.i24, align 8
+  %17 = load i32, ptr %Size.i.i.i25, align 8
+  %call7.i26 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %16, i32 noundef %17)
+  %cmp.not.i27 = icmp eq i32 %call7.i26, 1
+  br i1 %cmp.not.i27, label %if.else.i38, label %if.then.i28
+
+if.then.i28:                                      ; preds = %if.else4
+  %token_.i29 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %18 = zext nneg i32 %call7.i26 to i64
+  %19 = getelementptr ptr, ptr %resWordIdent_.i.i30, i64 %18
+  %arrayidx.i.i31 = getelementptr i8, ptr %19, i64 -24
+  %20 = load ptr, ptr %arrayidx.i.i31, align 8
+  store i32 %call7.i26, ptr %token_.i29, align 8
+  %ident_.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %20, ptr %ident_.i.i32, align 8
+  %21 = load ptr, ptr %this, align 8
+  %range_.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i34 = load ptr, ptr %range_.i.i33, align 8
+  %curCharPtr_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %22 = load ptr, ptr %curCharPtr_.i35, align 8
+  %LHSKind.i.i36 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i23, i64 16
+  %RHSKind.i.i37 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i23, i64 17
+  store i8 1, ptr %RHSKind.i.i37, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i23, align 8
+  store i8 3, ptr %LHSKind.i.i36, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %21, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i34, ptr %retval.sroa.0.0.copyload.i.i34, ptr %22, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i23, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+if.else.i38:                                      ; preds = %if.else4
+  %conv.i.i.i39 = zext i32 %17 to i64
+  %token_18.i40 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i41 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %23 = load ptr, ptr %strTab_.i.i41, align 8
+  %call.i.i42 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr %16, i64 %conv.i.i.i39)
+  store i32 1, ptr %token_18.i40, align 8
+  %ident_.i11.i43 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i42, ptr %ident_.i11.i43, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit: ; preds = %if.then.i28, %if.else.i38
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i23)
   br label %if.end5
 
-if.end5:                                          ; preds = %if.then3, %if.else4, %if.then
+if.end5:                                          ; preds = %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
   ret void
 }
 
@@ -8369,9 +8526,11 @@ if.end:                                           ; preds = %if.then, %if.end.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE0EEEvPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %start) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %ref.tmp17.i59 = alloca %"class.llvh::Twine", align 8
   %buf.i.i = alloca [8 x i8], align 1
   %d.i.i = alloca ptr, align 8
   %at.addr.i = alloca ptr, align 8
+  %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -8430,7 +8589,49 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i, align 8
   %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %incdec.ptr, ptr %curCharPtr_, align 8
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %8 = load ptr, ptr %tmpStorage_.i, align 8
+  %9 = load i32, ptr %Size.i.i.i, align 8
+  %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
+  %cmp.not.i = icmp eq i32 %call7.i, 1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %10 = zext nneg i32 %call7.i to i64
+  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %12 = load ptr, ptr %arrayidx.i.i, align 8
+  store i32 %call7.i, ptr %token_.i, align 8
+  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %12, ptr %ident_.i.i, align 8
+  %13 = load ptr, ptr %this, align 8
+  %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
+  %14 = load ptr, ptr %curCharPtr_, align 8
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 17
+  store i8 1, ptr %RHSKind.i.i, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+if.else.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %conv.i.i.i = zext i32 %9 to i64
+  %token_18.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %15 = load ptr, ptr %strTab_.i.i, align 8
+  %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
+  store i32 1, ptr %token_18.i, align 8
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit: ; preds = %if.then.i, %if.else.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   br label %if.end37
 
 if.else:                                          ; preds = %lor.rhs
@@ -8441,7 +8642,7 @@ if.then20:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
-  %8 = load ptr, ptr %at.addr.i, align 8
+  %16 = load ptr, ptr %at.addr.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then23
@@ -8450,9 +8651,9 @@ if.then20:                                        ; preds = %if.else
 
 _ZN6hermes22isASCIIIdentifierStartEj.exit.i.i:    ; preds = %if.then20
   %or.i.i.i = or i32 %call.i, 32
-  %9 = add i32 %or.i.i.i, -97
-  %10 = icmp ult i32 %9, 26
-  br i1 %10, label %if.then23, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
+  %17 = add i32 %or.i.i.i, -97
+  %18 = icmp ult i32 %17, 26
+  br i1 %18, label %if.then23, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
 
 _ZN6hermes16isUnicodeIDStartEj.exit.i:            ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i
   %call1.i.i = call noundef zeroext i1 @_ZN6hermes19isUnicodeOnlyLetterEj(i32 noundef %call.i) #20
@@ -8468,47 +8669,47 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 
 _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   %call5.i = call noundef zeroext i1 @_ZN6hermes29isUnicodeConnectorPunctuationEj(i32 noundef %call.i) #20
-  %11 = and i32 %call.i, -2
-  %12 = icmp eq i32 %11, 8204
-  %spec.select.i = or i1 %12, %call5.i
+  %19 = and i32 %call.i, -2
+  %20 = icmp eq i32 %19, 8204
+  %spec.select.i = or i1 %20, %call5.i
   br i1 %spec.select.i, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.then20, %if.then20, %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  %tmpStorage_.i25 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %Size.i.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 0, ptr %Size.i.i.i26, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i27 = ptrtoint ptr %incdec.ptr to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i28 = ptrtoint ptr %start to i64
-  %sub.ptr.sub.i.i.i.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i.i28
-  %Capacity.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 180
-  %13 = load i32, ptr %Capacity.i.i.i.i30, align 4
-  %conv.i.i.i.i31 = zext i32 %13 to i64
-  %cmp.i.i.i32 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i29, %conv.i.i.i.i31
-  br i1 %cmp.i.i.i32, label %if.then.i.i.i38, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41
+  %tmpStorage_.i27 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %Size.i.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  store i32 0, ptr %Size.i.i.i28, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i29 = ptrtoint ptr %incdec.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i30 = ptrtoint ptr %start to i64
+  %sub.ptr.sub.i.i.i.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i29, %sub.ptr.rhs.cast.i.i.i.i.i30
+  %Capacity.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 180
+  %21 = load i32, ptr %Capacity.i.i.i.i32, align 4
+  %conv.i.i.i.i33 = zext i32 %21 to i64
+  %cmp.i.i.i34 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i31, %conv.i.i.i.i33
+  br i1 %cmp.i.i.i34, label %if.then.i.i.i40, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43
 
-if.then.i.i.i38:                                  ; preds = %if.then23
-  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i25, ptr noundef nonnull %add.ptr.i.i.i.i.i.i39, i64 noundef %sub.ptr.sub.i.i.i.i.i29, i64 noundef 1) #20
-  %.pre13.pre.i.i.i40 = load i32, ptr %Size.i.i.i26, align 8
-  %14 = zext i32 %.pre13.pre.i.i.i40 to i64
-  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41
+if.then.i.i.i40:                                  ; preds = %if.then23
+  %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i27, ptr noundef nonnull %add.ptr.i.i.i.i.i.i41, i64 noundef %sub.ptr.sub.i.i.i.i.i31, i64 noundef 1) #20
+  %.pre13.pre.i.i.i42 = load i32, ptr %Size.i.i.i28, align 8
+  %22 = zext i32 %.pre13.pre.i.i.i42 to i64
+  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43
 
-_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41: ; preds = %if.then23, %if.then.i.i.i38
-  %.pre13.i.i.i33 = phi i64 [ %14, %if.then.i.i.i38 ], [ 0, %if.then23 ]
-  %15 = load ptr, ptr %tmpStorage_.i25, align 8
-  %add.ptr.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre13.i.i.i33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i35, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
-  %.pre.i.i.i36 = load i32, ptr %Size.i.i.i26, align 8
-  %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i29 to i32
-  %conv.i12.i.i.i37 = add i32 %.pre.i.i.i36, %16
-  store i32 %conv.i12.i.i.i37, ptr %Size.i.i.i26, align 8
+_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43: ; preds = %if.then23, %if.then.i.i.i40
+  %.pre13.i.i.i35 = phi i64 [ %22, %if.then.i.i.i40 ], [ 0, %if.then23 ]
+  %23 = load ptr, ptr %tmpStorage_.i27, align 8
+  %add.ptr.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre13.i.i.i35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i37, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i31, i1 false)
+  %.pre.i.i.i38 = load i32, ptr %Size.i.i.i28, align 8
+  %24 = trunc i64 %sub.ptr.sub.i.i.i.i.i31 to i32
+  %conv.i12.i.i.i39 = add i32 %.pre.i.i.i38, %24
+  store i32 %conv.i12.i.i.i39, ptr %Size.i.i.i28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41
+if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43
   %sub.i.i = add i32 %call.i, 983040
   %shr.i.i = lshr i32 %sub.i.i, 10
   %and.i.i = and i32 %shr.i.i, 1023
@@ -8518,51 +8719,93 @@ if.else.i.i:                                      ; preds = %_ZN6hermes6parser7J
   %add2.i.i = or disjoint i32 %and1.i.i, 56320
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41
-  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41 ]
+if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43
+  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit43 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef %add2.sink.i.i) #20
-  %17 = load ptr, ptr %d.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i43 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i44 = ptrtoint ptr %buf.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i43, %sub.ptr.rhs.cast.i.i.i.i.i44
-  %18 = load i32, ptr %Capacity.i.i.i.i30, align 4
-  %conv.i.i.i.i47 = zext i32 %18 to i64
-  %19 = load i32, ptr %Size.i.i.i26, align 8
-  %conv.i5.i.i.i = zext i32 %19 to i64
-  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i47, %conv.i5.i.i.i
-  %cmp.i.i.i48 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i45, %sub.i.i.i
-  br i1 %cmp.i.i.i48, label %if.then.i.i.i54, label %if.end.i.i.i
+  %25 = load ptr, ptr %d.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i45 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i46 = ptrtoint ptr %buf.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i45, %sub.ptr.rhs.cast.i.i.i.i.i46
+  %26 = load i32, ptr %Capacity.i.i.i.i32, align 4
+  %conv.i.i.i.i49 = zext i32 %26 to i64
+  %27 = load i32, ptr %Size.i.i.i28, align 8
+  %conv.i5.i.i.i = zext i32 %27 to i64
+  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i49, %conv.i5.i.i.i
+  %cmp.i.i.i50 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i47, %sub.i.i.i
+  br i1 %cmp.i.i.i50, label %if.then.i.i.i56, label %if.end.i.i.i
 
-if.then.i.i.i54:                                  ; preds = %if.end.i.i
-  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i45, %conv.i5.i.i.i
-  %add.ptr.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i25, ptr noundef nonnull %add.ptr.i.i.i.i.i.i55, i64 noundef %add.i.i.i, i64 noundef 1) #20
-  %.pre13.pre.i.i.i56 = load i32, ptr %Size.i.i.i26, align 8
+if.then.i.i.i56:                                  ; preds = %if.end.i.i
+  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i47, %conv.i5.i.i.i
+  %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i27, ptr noundef nonnull %add.ptr.i.i.i.i.i.i57, i64 noundef %add.i.i.i, i64 noundef 1) #20
+  %.pre13.pre.i.i.i58 = load i32, ptr %Size.i.i.i28, align 8
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i54, %if.end.i.i
-  %.pre13.i.i.i49 = phi i32 [ %.pre13.pre.i.i.i56, %if.then.i.i.i54 ], [ %19, %if.end.i.i ]
-  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %17
+if.end.i.i.i:                                     ; preds = %if.then.i.i.i56, %if.end.i.i
+  %.pre13.i.i.i51 = phi i32 [ %.pre13.pre.i.i.i58, %if.then.i.i.i56 ], [ %27, %if.end.i.i ]
+  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %25
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %20 = load ptr, ptr %tmpStorage_.i25, align 8
-  %conv.i9.i.i.i50 = zext i32 %.pre13.i.i.i49 to i64
-  %add.ptr.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %20, i64 %conv.i9.i.i.i50
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i51, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i45, i1 false)
-  %.pre.i.i.i52 = load i32, ptr %Size.i.i.i26, align 8
+  %28 = load ptr, ptr %tmpStorage_.i27, align 8
+  %conv.i9.i.i.i52 = zext i32 %.pre13.i.i.i51 to i64
+  %add.ptr.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %28, i64 %conv.i9.i.i.i52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i53, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i47, i1 false)
+  %.pre.i.i.i54 = load i32, ptr %Size.i.i.i28, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
 
 _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i.i
-  %21 = phi i32 [ %.pre13.i.i.i49, %if.end.i.i.i ], [ %.pre.i.i.i52, %if.then.i.i.i.i ]
-  %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i45 to i32
-  %conv.i12.i.i.i53 = add i32 %21, %22
-  store i32 %conv.i12.i.i.i53, ptr %Size.i.i.i26, align 8
+  %29 = phi i32 [ %.pre13.i.i.i51, %if.end.i.i.i ], [ %.pre.i.i.i54, %if.then.i.i.i.i ]
+  %30 = trunc i64 %sub.ptr.sub.i.i.i.i.i47 to i32
+  %conv.i12.i.i.i55 = add i32 %29, %30
+  store i32 %conv.i12.i.i.i55, ptr %Size.i.i.i28, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_25 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr %8, ptr %curCharPtr_25, align 8
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  store ptr %16, ptr %curCharPtr_25, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i59)
+  call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %31 = load ptr, ptr %tmpStorage_.i27, align 8
+  %32 = load i32, ptr %Size.i.i.i28, align 8
+  %call7.i62 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
+  %cmp.not.i63 = icmp eq i32 %call7.i62, 1
+  br i1 %cmp.not.i63, label %if.else.i74, label %if.then.i64
+
+if.then.i64:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i65 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %33 = zext nneg i32 %call7.i62 to i64
+  %34 = getelementptr ptr, ptr %resWordIdent_.i.i66, i64 %33
+  %arrayidx.i.i67 = getelementptr i8, ptr %34, i64 -24
+  %35 = load ptr, ptr %arrayidx.i.i67, align 8
+  store i32 %call7.i62, ptr %token_.i65, align 8
+  %ident_.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %35, ptr %ident_.i.i68, align 8
+  %36 = load ptr, ptr %this, align 8
+  %range_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i70 = load ptr, ptr %range_.i.i69, align 8
+  %37 = load ptr, ptr %curCharPtr_25, align 8
+  %LHSKind.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 16
+  %RHSKind.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i59, i64 17
+  store i8 1, ptr %RHSKind.i.i73, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i59, align 8
+  store i8 3, ptr %LHSKind.i.i72, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i70, ptr %retval.sroa.0.0.copyload.i.i70, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i59, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80
+
+if.else.i74:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i75 = zext i32 %32 to i64
+  %token_18.i76 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i77, align 8
+  %call.i.i78 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i75)
+  store i32 1, ptr %token_18.i76, align 8
+  %ident_.i11.i79 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i78, ptr %ident_.i11.i79, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80: ; preds = %if.then.i64, %if.else.i74
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i59)
   br label %if.end37
 
 if.end27:                                         ; preds = %if.else, %_ZN6hermes19isUnicodeIDContinueEj.exit
@@ -8579,76 +8822,25 @@ if.end27:                                         ; preds = %if.else, %_ZN6herme
 
 if.then32:                                        ; preds = %if.end27
   %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call30, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %23 = load ptr, ptr %arrayidx.i, align 8
+  %39 = zext nneg i32 %call30 to i64
+  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call30, ptr %token_35, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %23, ptr %ident_.i, align 8
+  store ptr %41, ptr %ident_.i, align 8
   br label %if.end37
 
 if.else34:                                        ; preds = %if.end27
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %24 = load ptr, ptr %strTab_.i, align 8
-  %call.i57 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr %start, i64 %sub.ptr.sub)
+  %42 = load ptr, ptr %strTab_.i, align 8
+  %call.i81 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_35, align 8
-  %ident_.i58 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i57, ptr %ident_.i58, align 8
+  %ident_.i82 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i81, ptr %ident_.i82, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %if.else34, %if.then32, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %ref.tmp17 = alloca %"class.llvh::Twine", align 8
-  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %tmpStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %0 = load ptr, ptr %tmpStorage_, align 8
-  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %1 = load i32, ptr %Size.i.i, align 8
-  %call7 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %0, i32 noundef %1)
-  %cmp.not = icmp eq i32 %call7, 1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call7, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  store i32 %call7, ptr %token_, align 8
-  %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %2, ptr %ident_.i, align 8
-  %3 = load ptr, ptr %this, align 8
-  %range_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %4 = load ptr, ptr %curCharPtr_, align 8
-  %LHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 16
-  %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 17
-  store i8 1, ptr %RHSKind.i, align 1
-  store ptr @.str.413, ptr %ref.tmp17, align 8
-  store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %3, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.0.0.copyload.i, ptr %4, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, i32 noundef 4, i32 noundef 1) #20
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %conv.i.i = zext i32 %1 to i64
-  %token_18 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %strTab_.i, align 8
-  %call.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr %0, i64 %conv.i.i)
-  store i32 1, ptr %token_18, align 8
-  %ident_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i, ptr %ident_.i11, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+if.end37:                                         ; preds = %if.else34, %if.then32, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit80, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv.exit
   ret void
 }
 
@@ -15013,9 +15205,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE1EEEvPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %start) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %ref.tmp17.i60 = alloca %"class.llvh::Twine", align 8
   %buf.i.i = alloca [8 x i8], align 1
   %d.i.i = alloca ptr, align 8
   %at.addr.i = alloca ptr, align 8
+  %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -15078,7 +15272,49 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i, align 8
   %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %incdec.ptr, ptr %curCharPtr_, align 8
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %8 = load ptr, ptr %tmpStorage_.i, align 8
+  %9 = load i32, ptr %Size.i.i.i, align 8
+  %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
+  %cmp.not.i = icmp eq i32 %call7.i, 1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %10 = zext nneg i32 %call7.i to i64
+  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %12 = load ptr, ptr %arrayidx.i.i, align 8
+  store i32 %call7.i, ptr %token_.i, align 8
+  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %12, ptr %ident_.i.i, align 8
+  %13 = load ptr, ptr %this, align 8
+  %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
+  %14 = load ptr, ptr %curCharPtr_, align 8
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 17
+  store i8 1, ptr %RHSKind.i.i, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
+
+if.else.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %conv.i.i.i = zext i32 %9 to i64
+  %token_18.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %15 = load ptr, ptr %strTab_.i.i, align 8
+  %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
+  store i32 1, ptr %token_18.i, align 8
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit: ; preds = %if.then.i, %if.else.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   br label %if.end40
 
 if.else:                                          ; preds = %lor.rhs
@@ -15089,7 +15325,7 @@ if.then23:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
-  %8 = load ptr, ptr %at.addr.i, align 8
+  %16 = load ptr, ptr %at.addr.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then26
@@ -15098,9 +15334,9 @@ if.then23:                                        ; preds = %if.else
 
 _ZN6hermes22isASCIIIdentifierStartEj.exit.i.i:    ; preds = %if.then23
   %or.i.i.i = or i32 %call.i, 32
-  %9 = add i32 %or.i.i.i, -97
-  %10 = icmp ult i32 %9, 26
-  br i1 %10, label %if.then26, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
+  %17 = add i32 %or.i.i.i, -97
+  %18 = icmp ult i32 %17, 26
+  br i1 %18, label %if.then26, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
 
 _ZN6hermes16isUnicodeIDStartEj.exit.i:            ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i
   %call1.i.i = call noundef zeroext i1 @_ZN6hermes19isUnicodeOnlyLetterEj(i32 noundef %call.i) #20
@@ -15116,47 +15352,47 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 
 _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   %call5.i = call noundef zeroext i1 @_ZN6hermes29isUnicodeConnectorPunctuationEj(i32 noundef %call.i) #20
-  %11 = and i32 %call.i, -2
-  %12 = icmp eq i32 %11, 8204
-  %spec.select.i = or i1 %12, %call5.i
+  %19 = and i32 %call.i, -2
+  %20 = icmp eq i32 %19, 8204
+  %spec.select.i = or i1 %20, %call5.i
   br i1 %spec.select.i, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.then23, %if.then23, %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  %tmpStorage_.i26 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %Size.i.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 0, ptr %Size.i.i.i27, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i28 = ptrtoint ptr %incdec.ptr to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i29 = ptrtoint ptr %start to i64
-  %sub.ptr.sub.i.i.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i28, %sub.ptr.rhs.cast.i.i.i.i.i29
-  %Capacity.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 180
-  %13 = load i32, ptr %Capacity.i.i.i.i31, align 4
-  %conv.i.i.i.i32 = zext i32 %13 to i64
-  %cmp.i.i.i33 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i30, %conv.i.i.i.i32
-  br i1 %cmp.i.i.i33, label %if.then.i.i.i39, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42
+  %tmpStorage_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %Size.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  store i32 0, ptr %Size.i.i.i29, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i30 = ptrtoint ptr %incdec.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i31 = ptrtoint ptr %start to i64
+  %sub.ptr.sub.i.i.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i30, %sub.ptr.rhs.cast.i.i.i.i.i31
+  %Capacity.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 180
+  %21 = load i32, ptr %Capacity.i.i.i.i33, align 4
+  %conv.i.i.i.i34 = zext i32 %21 to i64
+  %cmp.i.i.i35 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i32, %conv.i.i.i.i34
+  br i1 %cmp.i.i.i35, label %if.then.i.i.i41, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44
 
-if.then.i.i.i39:                                  ; preds = %if.then26
-  %add.ptr.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i26, ptr noundef nonnull %add.ptr.i.i.i.i.i.i40, i64 noundef %sub.ptr.sub.i.i.i.i.i30, i64 noundef 1) #20
-  %.pre13.pre.i.i.i41 = load i32, ptr %Size.i.i.i27, align 8
-  %14 = zext i32 %.pre13.pre.i.i.i41 to i64
-  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42
+if.then.i.i.i41:                                  ; preds = %if.then26
+  %add.ptr.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i28, ptr noundef nonnull %add.ptr.i.i.i.i.i.i42, i64 noundef %sub.ptr.sub.i.i.i.i.i32, i64 noundef 1) #20
+  %.pre13.pre.i.i.i43 = load i32, ptr %Size.i.i.i29, align 8
+  %22 = zext i32 %.pre13.pre.i.i.i43 to i64
+  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44
 
-_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42: ; preds = %if.then26, %if.then.i.i.i39
-  %.pre13.i.i.i34 = phi i64 [ %14, %if.then.i.i.i39 ], [ 0, %if.then26 ]
-  %15 = load ptr, ptr %tmpStorage_.i26, align 8
-  %add.ptr.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre13.i.i.i34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i36, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
-  %.pre.i.i.i37 = load i32, ptr %Size.i.i.i27, align 8
-  %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
-  %conv.i12.i.i.i38 = add i32 %.pre.i.i.i37, %16
-  store i32 %conv.i12.i.i.i38, ptr %Size.i.i.i27, align 8
+_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44: ; preds = %if.then26, %if.then.i.i.i41
+  %.pre13.i.i.i36 = phi i64 [ %22, %if.then.i.i.i41 ], [ 0, %if.then26 ]
+  %23 = load ptr, ptr %tmpStorage_.i28, align 8
+  %add.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre13.i.i.i36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i38, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i32, i1 false)
+  %.pre.i.i.i39 = load i32, ptr %Size.i.i.i29, align 8
+  %24 = trunc i64 %sub.ptr.sub.i.i.i.i.i32 to i32
+  %conv.i12.i.i.i40 = add i32 %.pre.i.i.i39, %24
+  store i32 %conv.i12.i.i.i40, ptr %Size.i.i.i29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42
+if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44
   %sub.i.i = add i32 %call.i, 983040
   %shr.i.i = lshr i32 %sub.i.i, 10
   %and.i.i = and i32 %shr.i.i, 1023
@@ -15166,51 +15402,93 @@ if.else.i.i:                                      ; preds = %_ZN6hermes6parser7J
   %add2.i.i = or disjoint i32 %and1.i.i, 56320
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42
-  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42 ]
+if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44
+  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit44 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef %add2.sink.i.i) #20
-  %17 = load ptr, ptr %d.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i44 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i45 = ptrtoint ptr %buf.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i44, %sub.ptr.rhs.cast.i.i.i.i.i45
-  %18 = load i32, ptr %Capacity.i.i.i.i31, align 4
-  %conv.i.i.i.i48 = zext i32 %18 to i64
-  %19 = load i32, ptr %Size.i.i.i27, align 8
-  %conv.i5.i.i.i = zext i32 %19 to i64
-  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i48, %conv.i5.i.i.i
-  %cmp.i.i.i49 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i46, %sub.i.i.i
-  br i1 %cmp.i.i.i49, label %if.then.i.i.i55, label %if.end.i.i.i
+  %25 = load ptr, ptr %d.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i46 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i47 = ptrtoint ptr %buf.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i48 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i46, %sub.ptr.rhs.cast.i.i.i.i.i47
+  %26 = load i32, ptr %Capacity.i.i.i.i33, align 4
+  %conv.i.i.i.i50 = zext i32 %26 to i64
+  %27 = load i32, ptr %Size.i.i.i29, align 8
+  %conv.i5.i.i.i = zext i32 %27 to i64
+  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i50, %conv.i5.i.i.i
+  %cmp.i.i.i51 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i48, %sub.i.i.i
+  br i1 %cmp.i.i.i51, label %if.then.i.i.i57, label %if.end.i.i.i
 
-if.then.i.i.i55:                                  ; preds = %if.end.i.i
-  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i46, %conv.i5.i.i.i
-  %add.ptr.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i26, ptr noundef nonnull %add.ptr.i.i.i.i.i.i56, i64 noundef %add.i.i.i, i64 noundef 1) #20
-  %.pre13.pre.i.i.i57 = load i32, ptr %Size.i.i.i27, align 8
+if.then.i.i.i57:                                  ; preds = %if.end.i.i
+  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i48, %conv.i5.i.i.i
+  %add.ptr.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i28, ptr noundef nonnull %add.ptr.i.i.i.i.i.i58, i64 noundef %add.i.i.i, i64 noundef 1) #20
+  %.pre13.pre.i.i.i59 = load i32, ptr %Size.i.i.i29, align 8
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i55, %if.end.i.i
-  %.pre13.i.i.i50 = phi i32 [ %.pre13.pre.i.i.i57, %if.then.i.i.i55 ], [ %19, %if.end.i.i ]
-  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %17
+if.end.i.i.i:                                     ; preds = %if.then.i.i.i57, %if.end.i.i
+  %.pre13.i.i.i52 = phi i32 [ %.pre13.pre.i.i.i59, %if.then.i.i.i57 ], [ %27, %if.end.i.i ]
+  %cmp.not.i.i.i.i = icmp eq ptr %buf.i.i, %25
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %20 = load ptr, ptr %tmpStorage_.i26, align 8
-  %conv.i9.i.i.i51 = zext i32 %.pre13.i.i.i50 to i64
-  %add.ptr.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %20, i64 %conv.i9.i.i.i51
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i52, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i46, i1 false)
-  %.pre.i.i.i53 = load i32, ptr %Size.i.i.i27, align 8
+  %28 = load ptr, ptr %tmpStorage_.i28, align 8
+  %conv.i9.i.i.i53 = zext i32 %.pre13.i.i.i52 to i64
+  %add.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %28, i64 %conv.i9.i.i.i53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i54, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i48, i1 false)
+  %.pre.i.i.i55 = load i32, ptr %Size.i.i.i29, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
 
 _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i.i
-  %21 = phi i32 [ %.pre13.i.i.i50, %if.end.i.i.i ], [ %.pre.i.i.i53, %if.then.i.i.i.i ]
-  %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i46 to i32
-  %conv.i12.i.i.i54 = add i32 %21, %22
-  store i32 %conv.i12.i.i.i54, ptr %Size.i.i.i27, align 8
+  %29 = phi i32 [ %.pre13.i.i.i52, %if.end.i.i.i ], [ %.pre.i.i.i55, %if.then.i.i.i.i ]
+  %30 = trunc i64 %sub.ptr.sub.i.i.i.i.i48 to i32
+  %conv.i12.i.i.i56 = add i32 %29, %30
+  store i32 %conv.i12.i.i.i56, ptr %Size.i.i.i29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_28 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr %8, ptr %curCharPtr_28, align 8
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  store ptr %16, ptr %curCharPtr_28, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i60)
+  call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %31 = load ptr, ptr %tmpStorage_.i28, align 8
+  %32 = load i32, ptr %Size.i.i.i29, align 8
+  %call7.i63 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
+  %cmp.not.i64 = icmp eq i32 %call7.i63, 1
+  br i1 %cmp.not.i64, label %if.else.i75, label %if.then.i65
+
+if.then.i65:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i66 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i67 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %33 = zext nneg i32 %call7.i63 to i64
+  %34 = getelementptr ptr, ptr %resWordIdent_.i.i67, i64 %33
+  %arrayidx.i.i68 = getelementptr i8, ptr %34, i64 -24
+  %35 = load ptr, ptr %arrayidx.i.i68, align 8
+  store i32 %call7.i63, ptr %token_.i66, align 8
+  %ident_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %35, ptr %ident_.i.i69, align 8
+  %36 = load ptr, ptr %this, align 8
+  %range_.i.i70 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i71 = load ptr, ptr %range_.i.i70, align 8
+  %37 = load ptr, ptr %curCharPtr_28, align 8
+  %LHSKind.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 16
+  %RHSKind.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i60, i64 17
+  store i8 1, ptr %RHSKind.i.i74, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i60, align 8
+  store i8 3, ptr %LHSKind.i.i73, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i71, ptr %retval.sroa.0.0.copyload.i.i71, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i60, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81
+
+if.else.i75:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i76 = zext i32 %32 to i64
+  %token_18.i77 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i78 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i78, align 8
+  %call.i.i79 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i76)
+  store i32 1, ptr %token_18.i77, align 8
+  %ident_.i11.i80 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i79, ptr %ident_.i11.i80, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81: ; preds = %if.then.i65, %if.else.i75
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i60)
   br label %if.end40
 
 if.end30:                                         ; preds = %if.else, %_ZN6hermes19isUnicodeIDContinueEj.exit
@@ -15227,34 +15505,36 @@ if.end30:                                         ; preds = %if.else, %_ZN6herme
 
 if.then35:                                        ; preds = %if.end30
   %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call33, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %23 = load ptr, ptr %arrayidx.i, align 8
+  %39 = zext nneg i32 %call33 to i64
+  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call33, ptr %token_38, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %23, ptr %ident_.i, align 8
+  store ptr %41, ptr %ident_.i, align 8
   br label %if.end40
 
 if.else37:                                        ; preds = %if.end30
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %24 = load ptr, ptr %strTab_.i, align 8
-  %call.i58 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr %start, i64 %sub.ptr.sub)
+  %42 = load ptr, ptr %strTab_.i, align 8
+  %call.i82 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_38, align 8
-  %ident_.i59 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i58, ptr %ident_.i59, align 8
+  %ident_.i83 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i82, ptr %ident_.i83, align 8
   br label %if.end40
 
-if.end40:                                         ; preds = %if.else37, %if.then35, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+if.end40:                                         ; preds = %if.else37, %if.then35, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit81, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer22scanIdentifierFastPathILNS1_14IdentifierModeE2EEEvPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %start) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %ref.tmp17.i66 = alloca %"class.llvh::Twine", align 8
   %buf.i.i = alloca [8 x i8], align 1
   %d.i.i = alloca ptr, align 8
   %at.addr.i = alloca ptr, align 8
+  %ref.tmp17.i = alloca %"class.llvh::Twine", align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -15315,7 +15595,49 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then.i.i.i
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i, align 8
   %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %incdec.ptr, ptr %curCharPtr_, align 8
-  tail call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %8 = load ptr, ptr %tmpStorage_.i, align 8
+  %9 = load i32, ptr %Size.i.i.i, align 8
+  %call7.i = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %8, i32 noundef %9)
+  %cmp.not.i = icmp eq i32 %call7.i, 1
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %10 = zext nneg i32 %call7.i to i64
+  %11 = getelementptr ptr, ptr %resWordIdent_.i.i, i64 %10
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -24
+  %12 = load ptr, ptr %arrayidx.i.i, align 8
+  store i32 %call7.i, ptr %token_.i, align 8
+  %ident_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %12, ptr %ident_.i.i, align 8
+  %13 = load ptr, ptr %this, align 8
+  %range_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
+  %14 = load ptr, ptr %curCharPtr_, align 8
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17.i, i64 17
+  store i8 1, ptr %RHSKind.i.i, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i, align 8
+  store i8 3, ptr %LHSKind.i.i, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %13, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %14, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
+
+if.else.i:                                        ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
+  %conv.i.i.i = zext i32 %9 to i64
+  %token_18.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %15 = load ptr, ptr %strTab_.i.i, align 8
+  %call.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %8, i64 %conv.i.i.i)
+  store i32 1, ptr %token_18.i, align 8
+  %ident_.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i, ptr %ident_.i11.i, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit: ; preds = %if.then.i, %if.else.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
   br label %if.end39
 
 if.else:                                          ; preds = %lor.rhs
@@ -15326,7 +15648,7 @@ if.then22:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
-  %8 = load ptr, ptr %at.addr.i, align 8
+  %16 = load ptr, ptr %at.addr.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then25
@@ -15335,9 +15657,9 @@ if.then22:                                        ; preds = %if.else
 
 _ZN6hermes22isASCIIIdentifierStartEj.exit.i.i:    ; preds = %if.then22
   %or.i.i.i = or i32 %call.i, 32
-  %9 = add i32 %or.i.i.i, -97
-  %10 = icmp ult i32 %9, 26
-  br i1 %10, label %if.then25, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
+  %17 = add i32 %or.i.i.i, -97
+  %18 = icmp ult i32 %17, 26
+  br i1 %18, label %if.then25, label %_ZN6hermes16isUnicodeIDStartEj.exit.i
 
 _ZN6hermes16isUnicodeIDStartEj.exit.i:            ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i
   %call1.i.i = call noundef zeroext i1 @_ZN6hermes19isUnicodeOnlyLetterEj(i32 noundef %call.i) #20
@@ -15353,47 +15675,47 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 
 _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   %call5.i = call noundef zeroext i1 @_ZN6hermes29isUnicodeConnectorPunctuationEj(i32 noundef %call.i) #20
-  %11 = and i32 %call.i, -2
-  %12 = icmp eq i32 %11, 8204
-  %spec.select.i = or i1 %12, %call5.i
+  %19 = and i32 %call.i, -2
+  %20 = icmp eq i32 %19, 8204
+  %spec.select.i = or i1 %20, %call5.i
   br i1 %spec.select.i, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.then22, %if.then22, %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  %tmpStorage_.i26 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %Size.i.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store i32 0, ptr %Size.i.i.i27, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i28 = ptrtoint ptr %incdec.ptr to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i29 = ptrtoint ptr %start to i64
-  %sub.ptr.sub.i.i.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i28, %sub.ptr.rhs.cast.i.i.i.i.i29
-  %Capacity.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 180
-  %13 = load i32, ptr %Capacity.i.i.i.i31, align 4
-  %conv.i.i.i.i32 = zext i32 %13 to i64
-  %cmp.i.i.i33 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i30, %conv.i.i.i.i32
-  br i1 %cmp.i.i.i33, label %if.then.i.i.i42, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45
+  %tmpStorage_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %Size.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  store i32 0, ptr %Size.i.i.i29, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i30 = ptrtoint ptr %incdec.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i31 = ptrtoint ptr %start to i64
+  %sub.ptr.sub.i.i.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i30, %sub.ptr.rhs.cast.i.i.i.i.i31
+  %Capacity.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %this, i64 180
+  %21 = load i32, ptr %Capacity.i.i.i.i33, align 4
+  %conv.i.i.i.i34 = zext i32 %21 to i64
+  %cmp.i.i.i35 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i32, %conv.i.i.i.i34
+  br i1 %cmp.i.i.i35, label %if.then.i.i.i44, label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47
 
-if.then.i.i.i42:                                  ; preds = %if.then25
-  %add.ptr.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i26, ptr noundef nonnull %add.ptr.i.i.i.i.i.i43, i64 noundef %sub.ptr.sub.i.i.i.i.i30, i64 noundef 1) #20
-  %.pre13.pre.i.i.i44 = load i32, ptr %Size.i.i.i27, align 8
-  %14 = zext i32 %.pre13.pre.i.i.i44 to i64
-  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45
+if.then.i.i.i44:                                  ; preds = %if.then25
+  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %tmpStorage_.i28, ptr noundef nonnull %add.ptr.i.i.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i.i.i.i32, i64 noundef 1) #20
+  %.pre13.pre.i.i.i46 = load i32, ptr %Size.i.i.i29, align 8
+  %22 = zext i32 %.pre13.pre.i.i.i46 to i64
+  br label %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47
 
-_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45: ; preds = %if.then.i.i.i42, %if.then25
-  %.pre13.i.i.i35 = phi i64 [ %14, %if.then.i.i.i42 ], [ 0, %if.then25 ]
-  %15 = load ptr, ptr %tmpStorage_.i26, align 8
-  %add.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre13.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i39, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
-  %.pre.i.i.i40 = load i32, ptr %Size.i.i.i27, align 8
-  %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
-  %conv.i12.i.i.i41 = add i32 %.pre.i.i.i40, %16
-  store i32 %conv.i12.i.i.i41, ptr %Size.i.i.i27, align 8
+_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47: ; preds = %if.then.i.i.i44, %if.then25
+  %.pre13.i.i.i37 = phi i64 [ %22, %if.then.i.i.i44 ], [ 0, %if.then25 ]
+  %23 = load ptr, ptr %tmpStorage_.i28, align 8
+  %add.ptr.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %23, i64 %.pre13.i.i.i37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i41, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i32, i1 false)
+  %.pre.i.i.i42 = load i32, ptr %Size.i.i.i29, align 8
+  %24 = trunc i64 %sub.ptr.sub.i.i.i.i.i32 to i32
+  %conv.i12.i.i.i43 = add i32 %.pre.i.i.i42, %24
+  store i32 %conv.i12.i.i.i43, ptr %Size.i.i.i29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45
+if.else.i.i:                                      ; preds = %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47
   %sub.i.i = add i32 %call.i, 983040
   %shr.i.i = lshr i32 %sub.i.i, 10
   %and.i.i = and i32 %shr.i.i, 1023
@@ -15403,51 +15725,93 @@ if.else.i.i:                                      ; preds = %_ZN6hermes6parser7J
   %add2.i.i = or disjoint i32 %and1.i.i, 56320
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45
-  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45 ]
+if.end.i.i:                                       ; preds = %if.else.i.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47
+  %add2.sink.i.i = phi i32 [ %add2.i.i, %if.else.i.i ], [ %call.i, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit47 ]
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef %add2.sink.i.i) #20
-  %17 = load ptr, ptr %d.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i47 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i48 = ptrtoint ptr %buf.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i47, %sub.ptr.rhs.cast.i.i.i.i.i48
-  %18 = load i32, ptr %Capacity.i.i.i.i31, align 4
-  %conv.i.i.i.i51 = zext i32 %18 to i64
-  %19 = load i32, ptr %Size.i.i.i27, align 8
-  %conv.i5.i.i.i = zext i32 %19 to i64
-  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i51, %conv.i5.i.i.i
-  %cmp.i.i.i52 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i49, %sub.i.i.i
-  br i1 %cmp.i.i.i52, label %if.then.i.i.i61, label %if.end.i.i.i53
+  %25 = load ptr, ptr %d.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i49 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i50 = ptrtoint ptr %buf.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i49, %sub.ptr.rhs.cast.i.i.i.i.i50
+  %26 = load i32, ptr %Capacity.i.i.i.i33, align 4
+  %conv.i.i.i.i53 = zext i32 %26 to i64
+  %27 = load i32, ptr %Size.i.i.i29, align 8
+  %conv.i5.i.i.i = zext i32 %27 to i64
+  %sub.i.i.i = sub nsw i64 %conv.i.i.i.i53, %conv.i5.i.i.i
+  %cmp.i.i.i54 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i51, %sub.i.i.i
+  br i1 %cmp.i.i.i54, label %if.then.i.i.i63, label %if.end.i.i.i55
 
-if.then.i.i.i61:                                  ; preds = %if.end.i.i
-  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i49, %conv.i5.i.i.i
-  %add.ptr.i.i.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i26, ptr noundef nonnull %add.ptr.i.i.i.i.i.i62, i64 noundef %add.i.i.i, i64 noundef 1) #20
-  %.pre13.pre.i.i.i63 = load i32, ptr %Size.i.i.i27, align 8
-  br label %if.end.i.i.i53
+if.then.i.i.i63:                                  ; preds = %if.end.i.i
+  %add.i.i.i = add i64 %sub.ptr.sub.i.i.i.i.i51, %conv.i5.i.i.i
+  %add.ptr.i.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %tmpStorage_.i28, ptr noundef nonnull %add.ptr.i.i.i.i.i.i64, i64 noundef %add.i.i.i, i64 noundef 1) #20
+  %.pre13.pre.i.i.i65 = load i32, ptr %Size.i.i.i29, align 8
+  br label %if.end.i.i.i55
 
-if.end.i.i.i53:                                   ; preds = %if.then.i.i.i61, %if.end.i.i
-  %.pre13.i.i.i54 = phi i32 [ %.pre13.pre.i.i.i63, %if.then.i.i.i61 ], [ %19, %if.end.i.i ]
-  %cmp.not.i.i.i.i55 = icmp eq ptr %buf.i.i, %17
-  br i1 %cmp.not.i.i.i.i55, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, label %if.then.i.i.i.i56
+if.end.i.i.i55:                                   ; preds = %if.then.i.i.i63, %if.end.i.i
+  %.pre13.i.i.i56 = phi i32 [ %.pre13.pre.i.i.i65, %if.then.i.i.i63 ], [ %27, %if.end.i.i ]
+  %cmp.not.i.i.i.i57 = icmp eq ptr %buf.i.i, %25
+  br i1 %cmp.not.i.i.i.i57, label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, label %if.then.i.i.i.i58
 
-if.then.i.i.i.i56:                                ; preds = %if.end.i.i.i53
-  %20 = load ptr, ptr %tmpStorage_.i26, align 8
-  %conv.i9.i.i.i57 = zext i32 %.pre13.i.i.i54 to i64
-  %add.ptr.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %20, i64 %conv.i9.i.i.i57
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i58, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i49, i1 false)
-  %.pre.i.i.i59 = load i32, ptr %Size.i.i.i27, align 8
+if.then.i.i.i.i58:                                ; preds = %if.end.i.i.i55
+  %28 = load ptr, ptr %tmpStorage_.i28, align 8
+  %conv.i9.i.i.i59 = zext i32 %.pre13.i.i.i56 to i64
+  %add.ptr.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %28, i64 %conv.i9.i.i.i59
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i60, ptr nonnull align 1 %buf.i.i, i64 %sub.ptr.sub.i.i.i.i.i51, i1 false)
+  %.pre.i.i.i61 = load i32, ptr %Size.i.i.i29, align 8
   br label %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
 
-_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.i53, %if.then.i.i.i.i56
-  %21 = phi i32 [ %.pre13.i.i.i54, %if.end.i.i.i53 ], [ %.pre.i.i.i59, %if.then.i.i.i.i56 ]
-  %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i49 to i32
-  %conv.i12.i.i.i60 = add i32 %21, %22
-  store i32 %conv.i12.i.i.i60, ptr %Size.i.i.i27, align 8
+_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.i55, %if.then.i.i.i.i58
+  %29 = phi i32 [ %.pre13.i.i.i56, %if.end.i.i.i55 ], [ %.pre.i.i.i61, %if.then.i.i.i.i58 ]
+  %30 = trunc i64 %sub.ptr.sub.i.i.i.i.i51 to i32
+  %conv.i12.i.i.i62 = add i32 %29, %30
+  store i32 %conv.i12.i.i.i62, ptr %Size.i.i.i29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_27 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr %8, ptr %curCharPtr_27, align 8
-  call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  store ptr %16, ptr %curCharPtr_27, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i66)
+  call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
+  %31 = load ptr, ptr %tmpStorage_.i28, align 8
+  %32 = load i32, ptr %Size.i.i.i29, align 8
+  %call7.i69 = call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %31, i32 noundef %32)
+  %cmp.not.i70 = icmp eq i32 %call7.i69, 1
+  br i1 %cmp.not.i70, label %if.else.i81, label %if.then.i71
+
+if.then.i71:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %token_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %resWordIdent_.i.i73 = getelementptr inbounds nuw i8, ptr %this, i64 712
+  %33 = zext nneg i32 %call7.i69 to i64
+  %34 = getelementptr ptr, ptr %resWordIdent_.i.i73, i64 %33
+  %arrayidx.i.i74 = getelementptr i8, ptr %34, i64 -24
+  %35 = load ptr, ptr %arrayidx.i.i74, align 8
+  store i32 %call7.i69, ptr %token_.i72, align 8
+  %ident_.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %35, ptr %ident_.i.i75, align 8
+  %36 = load ptr, ptr %this, align 8
+  %range_.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %retval.sroa.0.0.copyload.i.i77 = load ptr, ptr %range_.i.i76, align 8
+  %37 = load ptr, ptr %curCharPtr_27, align 8
+  %LHSKind.i.i79 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 16
+  %RHSKind.i.i80 = getelementptr inbounds nuw i8, ptr %ref.tmp17.i66, i64 17
+  store i8 1, ptr %RHSKind.i.i80, align 1
+  store ptr @.str.413, ptr %ref.tmp17.i66, align 8
+  store i8 3, ptr %LHSKind.i.i79, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %36, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i77, ptr %retval.sroa.0.0.copyload.i.i77, ptr %37, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17.i66, i32 noundef 4, i32 noundef 1) #20
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87
+
+if.else.i81:                                      ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit
+  %conv.i.i.i82 = zext i32 %32 to i64
+  %token_18.i83 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %strTab_.i.i84 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %38 = load ptr, ptr %strTab_.i.i84, align 8
+  %call.i.i85 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr %31, i64 %conv.i.i.i82)
+  store i32 1, ptr %token_18.i83, align 8
+  %ident_.i11.i86 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i.i85, ptr %ident_.i11.i86, align 8
+  br label %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87
+
+_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87: ; preds = %if.then.i71, %if.else.i81
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i66)
   br label %if.end39
 
 if.end29:                                         ; preds = %if.else, %_ZN6hermes19isUnicodeIDContinueEj.exit
@@ -15464,76 +15828,25 @@ if.end29:                                         ; preds = %if.else, %_ZN6herme
 
 if.then34:                                        ; preds = %if.end29
   %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call32, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %23 = load ptr, ptr %arrayidx.i, align 8
+  %39 = zext nneg i32 %call32 to i64
+  %40 = getelementptr ptr, ptr %resWordIdent_.i, i64 %39
+  %arrayidx.i = getelementptr i8, ptr %40, i64 -24
+  %41 = load ptr, ptr %arrayidx.i, align 8
   store i32 %call32, ptr %token_37, align 8
   %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %23, ptr %ident_.i, align 8
+  store ptr %41, ptr %ident_.i, align 8
   br label %if.end39
 
 if.else36:                                        ; preds = %if.end29
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %24 = load ptr, ptr %strTab_.i, align 8
-  %call.i64 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr %start, i64 %sub.ptr.sub)
+  %42 = load ptr, ptr %strTab_.i, align 8
+  %call.i88 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr %start, i64 %sub.ptr.sub)
   store i32 1, ptr %token_37, align 8
-  %ident_.i65 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i64, ptr %ident_.i65, align 8
+  %ident_.i89 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr %call.i88, ptr %ident_.i89, align 8
   br label %if.end39
 
-if.end39:                                         ; preds = %if.else36, %if.then34, %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %ref.tmp17 = alloca %"class.llvh::Twine", align 8
-  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %tmpStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %0 = load ptr, ptr %tmpStorage_, align 8
-  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %1 = load i32, ptr %Size.i.i, align 8
-  %call7 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %0, i32 noundef %1)
-  %cmp.not = icmp eq i32 %call7, 1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call7, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  store i32 %call7, ptr %token_, align 8
-  %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %2, ptr %ident_.i, align 8
-  %3 = load ptr, ptr %this, align 8
-  %range_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %4 = load ptr, ptr %curCharPtr_, align 8
-  %LHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 16
-  %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 17
-  store i8 1, ptr %RHSKind.i, align 1
-  store ptr @.str.413, ptr %ref.tmp17, align 8
-  store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %3, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.0.0.copyload.i, ptr %4, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, i32 noundef 4, i32 noundef 1) #20
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %conv.i.i = zext i32 %1 to i64
-  %token_18 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %strTab_.i, align 8
-  %call.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr %0, i64 %conv.i.i)
-  store i32 1, ptr %token_18, align 8
-  %ident_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i, ptr %ident_.i11, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+if.end39:                                         ; preds = %if.else36, %if.then34, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit87, %_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv.exit
   ret void
 }
 
@@ -15880,57 +16193,6 @@ declare noundef zeroext i1 @_ZN6hermes22isUnicodeCombiningMarkEj(i32 noundef) lo
 declare noundef zeroext i1 @_ZN6hermes14isUnicodeDigitEj(i32 noundef) local_unnamed_addr #5
 
 declare noundef zeroext i1 @_ZN6hermes29isUnicodeConnectorPunctuationEj(i32 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %ref.tmp17 = alloca %"class.llvh::Twine", align 8
-  tail call void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  %tmpStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %0 = load ptr, ptr %tmpStorage_, align 8
-  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %1 = load i32, ptr %Size.i.i, align 8
-  %call7 = tail call noundef i32 @_ZN6hermes6parser7JSLexer16scanReservedWordEPKcj(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %0, i32 noundef %1)
-  %cmp.not = icmp eq i32 %call7, 1
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %resWordIdent_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
-  %sub.i = add nsw i32 %call7, -3
-  %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [46 x ptr], ptr %resWordIdent_.i, i64 0, i64 %idxprom.i
-  %2 = load ptr, ptr %arrayidx.i, align 8
-  store i32 %call7, ptr %token_, align 8
-  %ident_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %2, ptr %ident_.i, align 8
-  %3 = load ptr, ptr %this, align 8
-  %range_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
-  %curCharPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %4 = load ptr, ptr %curCharPtr_, align 8
-  %LHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 16
-  %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 17
-  store i8 1, ptr %RHSKind.i, align 1
-  store ptr @.str.413, ptr %ref.tmp17, align 8
-  store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %3, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.0.0.copyload.i, ptr %4, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, i32 noundef 4, i32 noundef 1) #20
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %conv.i.i = zext i32 %1 to i64
-  %token_18 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %strTab_.i, align 8
-  %call.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr %0, i64 %conv.i.i)
-  store i32 1, ptr %token_18, align 8
-  %ident_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %call.i, ptr %ident_.i11, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6parser7JSLexer22consumeIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 comdat align 2 {

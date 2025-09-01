@@ -3561,7 +3561,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h53d8ec283075983fE(ptr 
 
 .lr.ph.i.i.i:                                     ; preds = %14, %"_ZN4core3ptr71drop_in_place$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$17hf2b885c5aa0a5edbE.exit.i.i.i"
   %.07.i.i.i = phi i64 [ %21, %"_ZN4core3ptr71drop_in_place$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$17hf2b885c5aa0a5edbE.exit.i.i.i" ], [ 0, %14 ]
-  %20 = getelementptr inbounds [0 x { { { { ptr, i64 }, i64 } } }], ptr %16, i64 0, i64 %.07.i.i.i
+  %20 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %16, i64 %.07.i.i.i
   %21 = add nuw i64 %.07.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !847)
   call void @llvm.experimental.noalias.scope.decl(metadata !850)
@@ -3674,7 +3674,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17heedd53285a4f3b10E(ptr 
 
 .lr.ph.i.i.i:                                     ; preds = %14, %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E.llvm.9153531805506995525.exit.i.i.i"
   %.07.i.i.i = phi i64 [ %21, %"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h88ea2f3c67d5ac39E.llvm.9153531805506995525.exit.i.i.i" ], [ 0, %14 ]
-  %20 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %16, i64 0, i64 %.07.i.i.i
+  %20 = getelementptr inbounds { i64, [3 x i64] }, ptr %16, i64 %.07.i.i.i
   %21 = add nuw i64 %.07.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !900)
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16

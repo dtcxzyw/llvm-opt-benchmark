@@ -350,17 +350,17 @@ define hidden void @proto_register_cimd() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr [37 x i32], ptr @ett_index, i64 0, i64 %indvars.iv
+  %3 = getelementptr i32, ptr @ett_index, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr [38 x ptr], ptr %1, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv.next
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr [37 x i32], ptr @hf_index, i64 0, i64 %indvars.iv
+  %7 = getelementptr i32, ptr @hf_index, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr [37 x ptr], ptr @cimd_pc_handles, i64 0, i64 %indvars.iv
+  %9 = getelementptr ptr, ptr @cimd_pc_handles, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %5, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 37
@@ -547,7 +547,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 92:                                               ; preds = %85
   %93 = sext i32 %91 to i64
-  %94 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %93
+  %94 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %93
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef %0, ptr noundef %59, i32 noundef %91, i32 noundef %.035.i, i32 noundef %83)
   br label %96
@@ -644,11 +644,11 @@ define internal void @dissect_cimd_parameter(ptr noundef %0, ptr noundef %1, i32
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
+  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
   %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
@@ -667,11 +667,11 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
+  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
   %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
@@ -740,11 +740,11 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %7 = add i32 %3, 1
   %8 = sub i32 %4, %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %9
+  %10 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %9, i32 1
+  %14 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %9, i32 1
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %13, ptr noundef null, ptr noundef %15)
   %17 = load i32, ptr @hf_cimd_pcode_indicator, align 4
@@ -795,7 +795,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
 
 47:                                               ; preds = %31
   %48 = zext i8 %34 to i64
-  %49 = getelementptr [256 x i8], ptr @dissect_cimd_ud.latin_mapping, i64 0, i64 %48
+  %49 = getelementptr i8, ptr @dissect_cimd_ud.latin_mapping, i64 %48
   %50 = load i8, ptr %49, align 1
   br label %51
 
@@ -827,11 +827,11 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
+  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
   %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4

@@ -1043,7 +1043,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly captures(address
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ 0, %10 ], [ %13, %12 ]
-  %17 = getelementptr [32 x ptr], ptr %6, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %6, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %20 = load i8, ptr %19, align 2
@@ -1072,7 +1072,7 @@ define dso_local ptr @usb_find_alt_setting(ptr noundef readonly captures(address
 33:                                               ; preds = %30, %28
   %34 = phi i32 [ 0, %28 ], [ %31, %30 ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr [0 x %struct.usb_host_interface], ptr %29, i64 0, i64 %35
+  %36 = getelementptr %struct.usb_host_interface, ptr %29, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -1119,7 +1119,7 @@ define dso_local noundef ptr @usb_ifnum_to_if(ptr noundef readonly captures(none
 
 16:                                               ; preds = %13, %11
   %17 = phi i64 [ 0, %11 ], [ %14, %13 ]
-  %18 = getelementptr [32 x ptr], ptr %7, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2

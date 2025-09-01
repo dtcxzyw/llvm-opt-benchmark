@@ -534,7 +534,7 @@ hd_ringbuf_pop_back.exit:                         ; preds = %.lr.ph24.split
   %56 = load i32, ptr %55, align 4, !tbaa !30
   %57 = and i32 %56, 127
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [128 x ptr], ptr %1, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !64
   %.not13.i = icmp eq ptr %60, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -693,7 +693,7 @@ hd_ringbuf_get.exit:                              ; preds = %11
   br label %32
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %2
+  %25 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %2
   store ptr %25, ptr %0, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -949,7 +949,7 @@ emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %80 to i64
-  %93 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %92, i32 4
+  %93 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %92, i32 4
   %94 = load i32, ptr %93, align 4, !tbaa !86
   br label %name_hash.exit.i
 
@@ -1004,7 +1004,7 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %103, %102, %102, %1
   %.not.i76.i = icmp eq i32 %112, 2
   %113 = and i32 %.05982.i, 127
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw [128 x ptr], ptr %64, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw ptr, ptr %64, i64 %114
   %.01934.i.i.i = load ptr, ptr %115, align 8, !tbaa !64
   %.not35.i.i.i = icmp eq ptr %.01934.i.i.i, null
   br i1 %.not35.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.i.i.i
@@ -1170,7 +1170,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
 
 171:                                              ; preds = %186, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %168, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %186 ]
-  %172 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
+  %172 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %indvars.iv.i.i.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 120
   %174 = load i32, ptr %173, align 8, !tbaa !75
   %175 = icmp eq i32 %174, %80
@@ -1340,7 +1340,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %231
   br label %nghttp2_hd_table_get.exit.i
 
 242:                                              ; preds = %229
-  %243 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %.sroa.024.0.i89.i
+  %243 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %.sroa.024.0.i89.i
   br label %nghttp2_hd_table_get.exit.i
 
 nghttp2_hd_table_get.exit.i:                      ; preds = %242, %hd_ringbuf_get.exit.i.i
@@ -2359,7 +2359,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %193
   br label %.thread343
 
 204:                                              ; preds = %191
-  %205 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %187
+  %205 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %187
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 120
   br label %.thread343
@@ -3061,7 +3061,7 @@ hd_ringbuf_get.exit.i:                            ; preds = %13
   br label %nghttp2_hd_table_get.exit
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5
+  %27 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   br label %nghttp2_hd_table_get.exit
 
@@ -3580,7 +3580,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %12
   br label %hd_get_table_entry.exit
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %27 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %hd_ringbuf_get.exit.i.i, %26
@@ -3650,7 +3650,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %12
   br label %hd_get_table_entry.exit
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %27 = getelementptr inbounds nuw %struct.nghttp2_hd_static_entry, ptr @static_table, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %hd_ringbuf_get.exit.i.i, %26
@@ -4276,7 +4276,7 @@ hd_ringbuf_pop_back.exit:                         ; preds = %.lr.ph60.split, %52
   %74 = load i32, ptr %73, align 4, !tbaa !30
   %75 = and i32 %74, 127
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !64
   %.not13.i = icmp eq ptr %78, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -4454,7 +4454,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %125
 153:                                              ; preds = %142
   %154 = and i32 %3, 127
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %2, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !64
   %158 = icmp eq ptr %157, null
   br i1 %158, label %hd_map_insert.exit, label %159

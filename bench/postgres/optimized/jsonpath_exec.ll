@@ -3565,7 +3565,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   %indvars.iv = phi i64 [ 0, %.thread770 ], [ %indvars.iv.next, %684 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) @__const.executeDateTimeMethod.escontext.90, i64 16, i1 false)
-  %686 = getelementptr inbounds nuw [13 x ptr], ptr @executeDateTimeMethod.fmt_txt, i64 0, i64 %indvars.iv
+  %686 = getelementptr inbounds nuw ptr, ptr @executeDateTimeMethod.fmt_txt, i64 %indvars.iv
   %687 = load ptr, ptr %686, align 8
   %.not157.i = icmp eq ptr %687, null
   br i1 %.not157.i, label %688, label %694
@@ -3574,7 +3574,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   %689 = load ptr, ptr @TopMemoryContext, align 8
   %690 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %689, ptr @CurrentMemoryContext, align 8
-  %691 = getelementptr inbounds nuw [13 x ptr], ptr @executeDateTimeMethod.fmt_str, i64 0, i64 %indvars.iv
+  %691 = getelementptr inbounds nuw ptr, ptr @executeDateTimeMethod.fmt_str, i64 %indvars.iv
   %692 = load ptr, ptr %691, align 8
   %693 = call ptr @cstring_to_text(ptr noundef %692) #11
   store ptr %693, ptr %686, align 8

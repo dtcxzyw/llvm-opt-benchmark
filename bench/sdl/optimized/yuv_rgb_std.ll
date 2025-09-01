@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -99,7 +99,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i16
   %81 = shl nuw i16 %80, 8
@@ -109,7 +109,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %85 = lshr i32 %84, 6
   %86 = and i32 %85, 511
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i16
   %91 = shl nuw nsw i16 %90, 3
@@ -120,7 +120,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %96 = lshr i32 %95, 6
   %97 = and i32 %96, 511
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = lshr i8 %100, 3
   %102 = zext nneg i8 %101 to i16
@@ -136,7 +136,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %111 = lshr i32 %110, 6
   %112 = and i32 %111, 511
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i16
   %117 = shl nuw i16 %116, 8
@@ -145,7 +145,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %120 = lshr i32 %119, 6
   %121 = and i32 %120, 511
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i16
   %126 = shl nuw nsw i16 %125, 3
@@ -155,7 +155,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %130 = lshr i32 %129, 6
   %131 = and i32 %130, 511
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = lshr i8 %134, 3
   %136 = zext nneg i8 %135 to i16
@@ -170,7 +170,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %144 = lshr i32 %143, 6
   %145 = and i32 %144, 511
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i16
   %150 = shl nuw i16 %149, 8
@@ -179,7 +179,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %153 = lshr i32 %152, 6
   %154 = and i32 %153, 511
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i16
   %159 = shl nuw nsw i16 %158, 3
@@ -189,7 +189,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %163 = lshr i32 %162, 6
   %164 = and i32 %163, 511
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = lshr i8 %167, 3
   %169 = zext nneg i8 %168 to i16
@@ -205,7 +205,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %178 = lshr i32 %177, 6
   %179 = and i32 %178, 511
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i16
   %184 = shl nuw i16 %183, 8
@@ -214,7 +214,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %187 = lshr i32 %186, 6
   %188 = and i32 %187, 511
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i16
   %193 = shl nuw nsw i16 %192, 3
@@ -224,7 +224,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %197 = lshr i32 %196, 6
   %198 = and i32 %197, 511
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = lshr i8 %201, 3
   %203 = zext nneg i8 %202 to i16
@@ -281,7 +281,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i16
   %247 = shl nuw i16 %246, 8
@@ -290,7 +290,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %250 = lshr i32 %249, 6
   %251 = and i32 %250, 511
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i16
   %256 = shl nuw nsw i16 %255, 3
@@ -300,7 +300,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %260 = lshr i32 %259, 6
   %261 = and i32 %260, 511
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %262
   %264 = load i8, ptr %263, align 1
   %265 = lshr i8 %264, 3
   %266 = zext nneg i8 %265 to i16
@@ -315,7 +315,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %274 = lshr i32 %273, 6
   %275 = and i32 %274, 511
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %276
   %278 = load i8, ptr %277, align 1
   %279 = zext i8 %278 to i16
   %280 = shl nuw i16 %279, 8
@@ -324,7 +324,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %283 = lshr i32 %282, 6
   %284 = and i32 %283, 511
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %285
   %287 = load i8, ptr %286, align 1
   %288 = zext i8 %287 to i16
   %289 = shl nuw nsw i16 %288, 3
@@ -334,7 +334,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %293 = lshr i32 %292, 6
   %294 = and i32 %293, 511
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %295
   %297 = load i8, ptr %296, align 1
   %298 = lshr i8 %297, 3
   %299 = zext nneg i8 %298 to i16
@@ -414,7 +414,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %352 = lshr i32 %351, 6
   %353 = and i32 %352, 511
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %354
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i16
   %358 = shl nuw i16 %357, 8
@@ -423,7 +423,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %361 = lshr i32 %360, 6
   %362 = and i32 %361, 511
   %363 = zext nneg i32 %362 to i64
-  %364 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %363
+  %364 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %363
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i16
   %367 = shl nuw nsw i16 %366, 3
@@ -433,7 +433,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %371 = lshr i32 %370, 6
   %372 = and i32 %371, 511
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %373
   %375 = load i8, ptr %374, align 1
   %376 = lshr i8 %375, 3
   %377 = zext nneg i8 %376 to i16
@@ -450,7 +450,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %387 = lshr i32 %386, 6
   %388 = and i32 %387, 511
   %389 = zext nneg i32 %388 to i64
-  %390 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %389
   %391 = load i8, ptr %390, align 1
   %392 = zext i8 %391 to i16
   %393 = shl nuw i16 %392, 8
@@ -459,7 +459,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i16
   %402 = shl nuw nsw i16 %401, 3
@@ -469,7 +469,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %406 = lshr i32 %405, 6
   %407 = and i32 %406, 511
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %408
   %410 = load i8, ptr %409, align 1
   %411 = lshr i8 %410, 3
   %412 = zext nneg i8 %411 to i16
@@ -529,7 +529,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %455 = lshr i32 %454, 6
   %456 = and i32 %455, 511
   %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i16
   %461 = shl nuw i16 %460, 8
@@ -539,7 +539,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %465 = lshr i32 %464, 6
   %466 = and i32 %465, 511
   %467 = zext nneg i32 %466 to i64
-  %468 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %467
+  %468 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %467
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i16
   %471 = shl nuw nsw i16 %470, 3
@@ -549,7 +549,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %475 = lshr i32 %474, 6
   %476 = and i32 %475, 511
   %477 = zext nneg i32 %476 to i64
-  %478 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %477
   %479 = load i8, ptr %478, align 1
   %480 = lshr i8 %479, 3
   %481 = zext nneg i8 %480 to i16
@@ -564,7 +564,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge244.thread, label %.lr.ph243
@@ -650,7 +650,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   store i8 %79, ptr %.0216228, align 1
   %80 = add nsw i32 %67, 8192
@@ -658,7 +658,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %82 = lshr i32 %81, 6
   %83 = and i32 %82, 511
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds nuw i8, ptr %.0216228, i64 1
   store i8 %86, ptr %87, align 1
@@ -667,7 +667,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %90 = lshr i32 %89, 6
   %91 = and i32 %90, 511
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = getelementptr inbounds nuw i8, ptr %.0216228, i64 2
   store i8 %94, ptr %95, align 1
@@ -681,14 +681,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %103 = lshr i32 %102, 6
   %104 = and i32 %103, 511
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %105
   %107 = load i8, ptr %106, align 1
   store i8 %107, ptr %96, align 1
   %108 = add nsw i32 %80, %101
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = getelementptr inbounds nuw i8, ptr %.0216228, i64 4
   store i8 %113, ptr %114, align 1
@@ -696,7 +696,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %116 = lshr i32 %115, 6
   %117 = and i32 %116, 511
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = getelementptr inbounds nuw i8, ptr %.0216228, i64 5
   store i8 %120, ptr %121, align 1
@@ -709,14 +709,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %128 = lshr i32 %127, 6
   %129 = and i32 %128, 511
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %130
   %132 = load i8, ptr %131, align 1
   store i8 %132, ptr %.0217227, align 1
   %133 = add nsw i32 %80, %126
   %134 = lshr i32 %133, 6
   %135 = and i32 %134, 511
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = getelementptr inbounds nuw i8, ptr %.0217227, i64 1
   store i8 %138, ptr %139, align 1
@@ -724,7 +724,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %141 = lshr i32 %140, 6
   %142 = and i32 %141, 511
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = getelementptr inbounds nuw i8, ptr %.0217227, i64 2
   store i8 %145, ptr %146, align 1
@@ -738,14 +738,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %154 = lshr i32 %153, 6
   %155 = and i32 %154, 511
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %156
   %158 = load i8, ptr %157, align 1
   store i8 %158, ptr %147, align 1
   %159 = add nsw i32 %80, %152
   %160 = lshr i32 %159, 6
   %161 = and i32 %160, 511
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %162
   %164 = load i8, ptr %163, align 1
   %165 = getelementptr inbounds nuw i8, ptr %.0217227, i64 4
   store i8 %164, ptr %165, align 1
@@ -753,7 +753,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %167 = lshr i32 %166, 6
   %168 = and i32 %167, 511
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %169
   %171 = load i8, ptr %170, align 1
   %172 = getelementptr inbounds nuw i8, ptr %.0217227, i64 5
   store i8 %171, ptr %172, align 1
@@ -808,14 +808,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %209 = lshr i32 %208, 6
   %210 = and i32 %209, 511
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %211
   %213 = load i8, ptr %212, align 1
   store i8 %213, ptr %.0216.lcssa286, align 1
   %214 = add nsw i32 %207, %195
   %215 = lshr i32 %214, 6
   %216 = and i32 %215, 511
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %217
   %219 = load i8, ptr %218, align 1
   %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 1
   store i8 %219, ptr %220, align 1
@@ -823,7 +823,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %222 = lshr i32 %221, 6
   %223 = and i32 %222, 511
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 2
   store i8 %226, ptr %227, align 1
@@ -836,14 +836,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %234 = lshr i32 %233, 6
   %235 = and i32 %234, 511
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %236
   %238 = load i8, ptr %237, align 1
   store i8 %238, ptr %.0217.lcssa285, align 1
   %239 = add nsw i32 %232, %195
   %240 = lshr i32 %239, 6
   %241 = and i32 %240, 511
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 1
   store i8 %244, ptr %245, align 1
@@ -851,7 +851,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %247 = lshr i32 %246, 6
   %248 = and i32 %247, 511
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 2
   store i8 %251, ptr %252, align 1
@@ -929,14 +929,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %304 = lshr i32 %303, 6
   %305 = and i32 %304, 511
   %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %306
   %308 = load i8, ptr %307, align 1
   store i8 %308, ptr %.0220248, align 1
   %309 = add nsw i32 %302, %296
   %310 = lshr i32 %309, 6
   %311 = and i32 %310, 511
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %312
   %314 = load i8, ptr %313, align 1
   %315 = getelementptr inbounds nuw i8, ptr %.0220248, i64 1
   store i8 %314, ptr %315, align 1
@@ -944,7 +944,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %317 = lshr i32 %316, 6
   %318 = and i32 %317, 511
   %319 = zext nneg i32 %318 to i64
-  %320 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = getelementptr inbounds nuw i8, ptr %.0220248, i64 2
   store i8 %321, ptr %322, align 1
@@ -959,14 +959,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %331 = lshr i32 %330, 6
   %332 = and i32 %331, 511
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %333
   %335 = load i8, ptr %334, align 1
   store i8 %335, ptr %323, align 1
   %336 = add nsw i32 %329, %296
   %337 = lshr i32 %336, 6
   %338 = and i32 %337, 511
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %339
   %341 = load i8, ptr %340, align 1
   %342 = getelementptr inbounds nuw i8, ptr %.0220248, i64 4
   store i8 %341, ptr %342, align 1
@@ -974,7 +974,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %344 = lshr i32 %343, 6
   %345 = and i32 %344, 511
   %346 = zext nneg i32 %345 to i64
-  %347 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %346
   %348 = load i8, ptr %347, align 1
   %349 = getelementptr inbounds nuw i8, ptr %.0220248, i64 5
   store i8 %348, ptr %349, align 1
@@ -1032,7 +1032,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %391 = lshr i32 %390, 6
   %392 = and i32 %391, 511
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %393
   %395 = load i8, ptr %394, align 1
   store i8 %395, ptr %.0220.lcssa298, align 1
   %396 = add nsw i32 %389, %371
@@ -1040,7 +1040,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %398 = lshr i32 %397, 6
   %399 = and i32 %398, 511
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %400
   %402 = load i8, ptr %401, align 1
   %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 1
   store i8 %402, ptr %403, align 1
@@ -1048,7 +1048,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %405 = lshr i32 %404, 6
   %406 = and i32 %405, 511
   %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %407
   %409 = load i8, ptr %408, align 1
   %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 2
   store i8 %409, ptr %410, align 1
@@ -1061,7 +1061,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -1147,7 +1147,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
@@ -1156,7 +1156,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 16
@@ -1165,7 +1165,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 8
@@ -1183,7 +1183,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw i32 %115, 24
@@ -1191,7 +1191,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 16
@@ -1199,7 +1199,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 8
@@ -1216,7 +1216,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %142 = lshr i32 %141, 6
   %143 = and i32 %142, 511
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw i32 %147, 24
@@ -1224,7 +1224,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %150 = lshr i32 %149, 6
   %151 = and i32 %150, 511
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = shl nuw nsw i32 %155, 16
@@ -1232,7 +1232,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %158 = lshr i32 %157, 6
   %159 = and i32 %158, 511
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 8
@@ -1250,7 +1250,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %175 = lshr i32 %174, 6
   %176 = and i32 %175, 511
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
@@ -1258,7 +1258,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %183 = lshr i32 %182, 6
   %184 = and i32 %183, 511
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %185
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 16
@@ -1266,7 +1266,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %191 = lshr i32 %190, 6
   %192 = and i32 %191, 511
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 8
@@ -1325,7 +1325,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %237 = lshr i32 %236, 6
   %238 = and i32 %237, 511
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = shl nuw i32 %242, 24
@@ -1333,7 +1333,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %245 = lshr i32 %244, 6
   %246 = and i32 %245, 511
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 16
@@ -1341,7 +1341,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %253 = lshr i32 %252, 6
   %254 = and i32 %253, 511
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %255
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = shl nuw nsw i32 %258, 8
@@ -1358,7 +1358,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %269 = lshr i32 %268, 6
   %270 = and i32 %269, 511
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %271
   %273 = load i8, ptr %272, align 1
   %274 = zext i8 %273 to i32
   %275 = shl nuw i32 %274, 24
@@ -1366,7 +1366,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %277 = lshr i32 %276, 6
   %278 = and i32 %277, 511
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = shl nuw nsw i32 %282, 16
@@ -1374,7 +1374,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %285 = lshr i32 %284, 6
   %286 = and i32 %285, 511
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = shl nuw nsw i32 %290, 8
@@ -1456,7 +1456,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %346 = lshr i32 %345, 6
   %347 = and i32 %346, 511
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = shl nuw i32 %351, 24
@@ -1464,7 +1464,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %354 = lshr i32 %353, 6
   %355 = and i32 %354, 511
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 16
@@ -1472,7 +1472,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %362 = lshr i32 %361, 6
   %363 = and i32 %362, 511
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %364
   %366 = load i8, ptr %365, align 1
   %367 = zext i8 %366 to i32
   %368 = shl nuw nsw i32 %367, 8
@@ -1491,7 +1491,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %380 = lshr i32 %379, 6
   %381 = and i32 %380, 511
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %382
   %384 = load i8, ptr %383, align 1
   %385 = zext i8 %384 to i32
   %386 = shl nuw i32 %385, 24
@@ -1499,7 +1499,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %388 = lshr i32 %387, 6
   %389 = and i32 %388, 511
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %390
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
   %394 = shl nuw nsw i32 %393, 16
@@ -1507,7 +1507,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 8
@@ -1569,7 +1569,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %447 = lshr i32 %446, 6
   %448 = and i32 %447, 511
   %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %449
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i32
   %453 = shl nuw i32 %452, 24
@@ -1578,7 +1578,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = shl nuw nsw i32 %461, 16
@@ -1586,7 +1586,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %464 = lshr i32 %463, 6
   %465 = and i32 %464, 511
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32
   %470 = shl nuw nsw i32 %469, 8
@@ -1603,7 +1603,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -1689,7 +1689,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
@@ -1698,7 +1698,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 16
@@ -1707,7 +1707,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 8
@@ -1725,7 +1725,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw i32 %115, 24
@@ -1733,7 +1733,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 16
@@ -1741,7 +1741,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 8
@@ -1758,7 +1758,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %142 = lshr i32 %141, 6
   %143 = and i32 %142, 511
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw i32 %147, 24
@@ -1766,7 +1766,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %150 = lshr i32 %149, 6
   %151 = and i32 %150, 511
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = shl nuw nsw i32 %155, 16
@@ -1774,7 +1774,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %158 = lshr i32 %157, 6
   %159 = and i32 %158, 511
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 8
@@ -1792,7 +1792,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %175 = lshr i32 %174, 6
   %176 = and i32 %175, 511
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
@@ -1800,7 +1800,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %183 = lshr i32 %182, 6
   %184 = and i32 %183, 511
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %185
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 16
@@ -1808,7 +1808,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %191 = lshr i32 %190, 6
   %192 = and i32 %191, 511
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 8
@@ -1867,7 +1867,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %237 = lshr i32 %236, 6
   %238 = and i32 %237, 511
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = shl nuw i32 %242, 24
@@ -1875,7 +1875,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %245 = lshr i32 %244, 6
   %246 = and i32 %245, 511
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 16
@@ -1883,7 +1883,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %253 = lshr i32 %252, 6
   %254 = and i32 %253, 511
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %255
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = shl nuw nsw i32 %258, 8
@@ -1900,7 +1900,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %269 = lshr i32 %268, 6
   %270 = and i32 %269, 511
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %271
   %273 = load i8, ptr %272, align 1
   %274 = zext i8 %273 to i32
   %275 = shl nuw i32 %274, 24
@@ -1908,7 +1908,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %277 = lshr i32 %276, 6
   %278 = and i32 %277, 511
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = shl nuw nsw i32 %282, 16
@@ -1916,7 +1916,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %285 = lshr i32 %284, 6
   %286 = and i32 %285, 511
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = shl nuw nsw i32 %290, 8
@@ -1998,7 +1998,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %346 = lshr i32 %345, 6
   %347 = and i32 %346, 511
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = shl nuw i32 %351, 24
@@ -2006,7 +2006,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %354 = lshr i32 %353, 6
   %355 = and i32 %354, 511
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 16
@@ -2014,7 +2014,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %362 = lshr i32 %361, 6
   %363 = and i32 %362, 511
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %364
   %366 = load i8, ptr %365, align 1
   %367 = zext i8 %366 to i32
   %368 = shl nuw nsw i32 %367, 8
@@ -2033,7 +2033,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %380 = lshr i32 %379, 6
   %381 = and i32 %380, 511
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %382
   %384 = load i8, ptr %383, align 1
   %385 = zext i8 %384 to i32
   %386 = shl nuw i32 %385, 24
@@ -2041,7 +2041,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %388 = lshr i32 %387, 6
   %389 = and i32 %388, 511
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %390
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
   %394 = shl nuw nsw i32 %393, 16
@@ -2049,7 +2049,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 8
@@ -2111,7 +2111,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %447 = lshr i32 %446, 6
   %448 = and i32 %447, 511
   %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %449
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i32
   %453 = shl nuw i32 %452, 24
@@ -2120,7 +2120,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = shl nuw nsw i32 %461, 16
@@ -2128,7 +2128,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %464 = lshr i32 %463, 6
   %465 = and i32 %464, 511
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32
   %470 = shl nuw nsw i32 %469, 8
@@ -2145,7 +2145,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -2231,7 +2231,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 16
@@ -2240,7 +2240,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -2249,7 +2249,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %81, %90
@@ -2266,7 +2266,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 16
@@ -2274,7 +2274,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 8
@@ -2282,7 +2282,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %125 = lshr i32 %124, 6
   %126 = and i32 %125, 511
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %115, %123
@@ -2298,7 +2298,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %140 = lshr i32 %139, 6
   %141 = and i32 %140, 511
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 16
@@ -2306,7 +2306,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %148 = lshr i32 %147, 6
   %149 = and i32 %148, 511
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 8
@@ -2314,7 +2314,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %156 = lshr i32 %155, 6
   %157 = and i32 %156, 511
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %146, %154
@@ -2331,7 +2331,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %172 = lshr i32 %171, 6
   %173 = and i32 %172, 511
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 16
@@ -2339,7 +2339,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %180 = lshr i32 %179, 6
   %181 = and i32 %180, 511
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = shl nuw nsw i32 %185, 8
@@ -2347,7 +2347,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %188 = lshr i32 %187, 6
   %189 = and i32 %188, 511
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %190
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = or disjoint i32 %178, %186
@@ -2405,7 +2405,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %233 = lshr i32 %232, 6
   %234 = and i32 %233, 511
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 16
@@ -2413,7 +2413,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 8
@@ -2421,7 +2421,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %249 = lshr i32 %248, 6
   %250 = and i32 %249, 511
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = or disjoint i32 %239, %247
@@ -2437,7 +2437,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %264 = lshr i32 %263, 6
   %265 = and i32 %264, 511
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = shl nuw nsw i32 %269, 16
@@ -2445,7 +2445,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %272 = lshr i32 %271, 6
   %273 = and i32 %272, 511
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = shl nuw nsw i32 %277, 8
@@ -2453,7 +2453,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %280 = lshr i32 %279, 6
   %281 = and i32 %280, 511
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
   %286 = or disjoint i32 %270, %278
@@ -2534,7 +2534,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %340 = lshr i32 %339, 6
   %341 = and i32 %340, 511
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = zext i8 %344 to i32
   %346 = shl nuw nsw i32 %345, 16
@@ -2542,7 +2542,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %348 = lshr i32 %347, 6
   %349 = and i32 %348, 511
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %350
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
   %354 = shl nuw nsw i32 %353, 8
@@ -2550,7 +2550,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %356 = lshr i32 %355, 6
   %357 = and i32 %356, 511
   %358 = zext nneg i32 %357 to i64
-  %359 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %358
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = or disjoint i32 %346, %354
@@ -2568,7 +2568,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %373 = lshr i32 %372, 6
   %374 = and i32 %373, 511
   %375 = zext nneg i32 %374 to i64
-  %376 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %375
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = shl nuw nsw i32 %378, 16
@@ -2576,7 +2576,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %381 = lshr i32 %380, 6
   %382 = and i32 %381, 511
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %383
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = shl nuw nsw i32 %386, 8
@@ -2584,7 +2584,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %389 = lshr i32 %388, 6
   %390 = and i32 %389, 511
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %391
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
   %395 = or disjoint i32 %379, %387
@@ -2645,7 +2645,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %439 = lshr i32 %438, 6
   %440 = and i32 %439, 511
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %441
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
   %445 = shl nuw nsw i32 %444, 16
@@ -2654,7 +2654,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %448 = lshr i32 %447, 6
   %449 = and i32 %448, 511
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %450
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
   %454 = shl nuw nsw i32 %453, 8
@@ -2662,7 +2662,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = or disjoint i32 %445, %454
@@ -2678,7 +2678,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -2764,7 +2764,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 16
@@ -2773,7 +2773,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -2782,7 +2782,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %81, %90
@@ -2799,7 +2799,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 16
@@ -2807,7 +2807,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 8
@@ -2815,7 +2815,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %125 = lshr i32 %124, 6
   %126 = and i32 %125, 511
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %115, %123
@@ -2831,7 +2831,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %140 = lshr i32 %139, 6
   %141 = and i32 %140, 511
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 16
@@ -2839,7 +2839,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %148 = lshr i32 %147, 6
   %149 = and i32 %148, 511
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 8
@@ -2847,7 +2847,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %156 = lshr i32 %155, 6
   %157 = and i32 %156, 511
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %146, %154
@@ -2864,7 +2864,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %172 = lshr i32 %171, 6
   %173 = and i32 %172, 511
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 16
@@ -2872,7 +2872,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %180 = lshr i32 %179, 6
   %181 = and i32 %180, 511
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = shl nuw nsw i32 %185, 8
@@ -2880,7 +2880,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %188 = lshr i32 %187, 6
   %189 = and i32 %188, 511
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %190
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = or disjoint i32 %178, %186
@@ -2938,7 +2938,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %233 = lshr i32 %232, 6
   %234 = and i32 %233, 511
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 16
@@ -2946,7 +2946,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 8
@@ -2954,7 +2954,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %249 = lshr i32 %248, 6
   %250 = and i32 %249, 511
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = or disjoint i32 %239, %247
@@ -2970,7 +2970,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %264 = lshr i32 %263, 6
   %265 = and i32 %264, 511
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = shl nuw nsw i32 %269, 16
@@ -2978,7 +2978,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %272 = lshr i32 %271, 6
   %273 = and i32 %272, 511
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = shl nuw nsw i32 %277, 8
@@ -2986,7 +2986,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %280 = lshr i32 %279, 6
   %281 = and i32 %280, 511
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
   %286 = or disjoint i32 %270, %278
@@ -3067,7 +3067,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %340 = lshr i32 %339, 6
   %341 = and i32 %340, 511
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = zext i8 %344 to i32
   %346 = shl nuw nsw i32 %345, 16
@@ -3075,7 +3075,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %348 = lshr i32 %347, 6
   %349 = and i32 %348, 511
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %350
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
   %354 = shl nuw nsw i32 %353, 8
@@ -3083,7 +3083,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %356 = lshr i32 %355, 6
   %357 = and i32 %356, 511
   %358 = zext nneg i32 %357 to i64
-  %359 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %358
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = or disjoint i32 %346, %354
@@ -3101,7 +3101,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %373 = lshr i32 %372, 6
   %374 = and i32 %373, 511
   %375 = zext nneg i32 %374 to i64
-  %376 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %375
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = shl nuw nsw i32 %378, 16
@@ -3109,7 +3109,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %381 = lshr i32 %380, 6
   %382 = and i32 %381, 511
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %383
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = shl nuw nsw i32 %386, 8
@@ -3117,7 +3117,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %389 = lshr i32 %388, 6
   %390 = and i32 %389, 511
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %391
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
   %395 = or disjoint i32 %379, %387
@@ -3178,7 +3178,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %439 = lshr i32 %438, 6
   %440 = and i32 %439, 511
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %441
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
   %445 = shl nuw nsw i32 %444, 16
@@ -3187,7 +3187,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %448 = lshr i32 %447, 6
   %449 = and i32 %448, 511
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %450
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
   %454 = shl nuw nsw i32 %453, 8
@@ -3195,7 +3195,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = or disjoint i32 %445, %454
@@ -3211,7 +3211,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -3284,7 +3284,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %63 = lshr i32 %62, 6
   %64 = and i32 %63, 511
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i16
   %69 = shl nuw i16 %68, 8
@@ -3293,7 +3293,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %72 = lshr i32 %71, 6
   %73 = and i32 %72, 511
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i16
   %78 = shl nuw nsw i16 %77, 3
@@ -3303,7 +3303,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %82 = lshr i32 %81, 6
   %83 = and i32 %82, 511
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = lshr i8 %86, 3
   %88 = zext nneg i8 %87 to i16
@@ -3320,7 +3320,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %98 = lshr i32 %97, 6
   %99 = and i32 %98, 511
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i16
   %104 = shl nuw i16 %103, 8
@@ -3329,7 +3329,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %107 = lshr i32 %106, 6
   %108 = and i32 %107, 511
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i16
   %113 = shl nuw nsw i16 %112, 3
@@ -3339,7 +3339,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = lshr i8 %121, 3
   %123 = zext nneg i8 %122 to i16
@@ -3392,7 +3392,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %159 = lshr i32 %158, 6
   %160 = and i32 %159, 511
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i16
   %165 = shl nuw i16 %164, 8
@@ -3402,7 +3402,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %169 = lshr i32 %168, 6
   %170 = and i32 %169, 511
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i16
   %175 = shl nuw nsw i16 %174, 3
@@ -3412,7 +3412,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %179 = lshr i32 %178, 6
   %180 = and i32 %179, 511
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %181
   %183 = load i8, ptr %182, align 1
   %184 = lshr i8 %183, 3
   %185 = zext nneg i8 %184 to i16
@@ -3436,7 +3436,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph102:                                        ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not105 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -3503,7 +3503,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %65 = lshr i32 %64, 6
   %66 = and i32 %65, 511
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %67
   %69 = load i8, ptr %68, align 1
   store i8 %69, ptr %150, align 1
   %70 = add nsw i32 %63, %56
@@ -3511,7 +3511,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %72 = lshr i32 %71, 6
   %73 = and i32 %72, 511
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 7
   store i8 %76, ptr %77, align 1
@@ -3519,7 +3519,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %79 = lshr i32 %78, 6
   %80 = and i32 %79, 511
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 8
   store i8 %83, ptr %84, align 1
@@ -3556,14 +3556,14 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %104 = lshr i32 %103, 6
   %105 = and i32 %104, 511
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %106
   %108 = load i8, ptr %107, align 1
   store i8 %108, ptr %.08890.us, align 1
   %109 = add nsw i32 %102, %96
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 1
   store i8 %114, ptr %115, align 1
@@ -3571,7 +3571,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 2
   store i8 %121, ptr %122, align 1
@@ -3586,14 +3586,14 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %131 = lshr i32 %130, 6
   %132 = and i32 %131, 511
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %133
   %135 = load i8, ptr %134, align 1
   store i8 %135, ptr %123, align 1
   %136 = add nsw i32 %129, %96
   %137 = lshr i32 %136, 6
   %138 = and i32 %137, 511
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 4
   store i8 %141, ptr %142, align 1
@@ -3601,7 +3601,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %144 = lshr i32 %143, 6
   %145 = and i32 %144, 511
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = getelementptr inbounds nuw i8, ptr %.08890.us, i64 5
   store i8 %148, ptr %149, align 1
@@ -3652,7 +3652,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %184 = lshr i32 %183, 6
   %185 = and i32 %184, 511
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %186
   %188 = load i8, ptr %187, align 1
   store i8 %188, ptr %167, align 1
   %189 = add nsw i32 %182, %175
@@ -3660,7 +3660,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %191 = lshr i32 %190, 6
   %192 = and i32 %191, 511
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = getelementptr inbounds nuw i8, ptr %167, i64 1
   store i8 %195, ptr %196, align 1
@@ -3668,7 +3668,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %198 = lshr i32 %197, 6
   %199 = and i32 %198, 511
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %200
   %202 = load i8, ptr %201, align 1
   %203 = getelementptr inbounds nuw i8, ptr %167, i64 2
   store i8 %202, ptr %203, align 1
@@ -3683,7 +3683,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -3756,7 +3756,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %63 = lshr i32 %62, 6
   %64 = and i32 %63, 511
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw i32 %68, 24
@@ -3764,7 +3764,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %71 = lshr i32 %70, 6
   %72 = and i32 %71, 511
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 16
@@ -3772,7 +3772,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %79 = lshr i32 %78, 6
   %80 = and i32 %79, 511
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 8
@@ -3791,7 +3791,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %97 = lshr i32 %96, 6
   %98 = and i32 %97, 511
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = shl nuw i32 %102, 24
@@ -3799,7 +3799,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %105 = lshr i32 %104, 6
   %106 = and i32 %105, 511
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl nuw nsw i32 %110, 16
@@ -3807,7 +3807,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %113 = lshr i32 %112, 6
   %114 = and i32 %113, 511
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = shl nuw nsw i32 %118, 8
@@ -3862,7 +3862,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %157 = lshr i32 %156, 6
   %158 = and i32 %157, 511
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = shl nuw i32 %162, 24
@@ -3871,7 +3871,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %166 = lshr i32 %165, 6
   %167 = and i32 %166, 511
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = shl nuw nsw i32 %171, 16
@@ -3879,7 +3879,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %174 = lshr i32 %173, 6
   %175 = and i32 %174, 511
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 8
@@ -3901,7 +3901,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -3974,7 +3974,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %63 = lshr i32 %62, 6
   %64 = and i32 %63, 511
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw i32 %68, 24
@@ -3982,7 +3982,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %71 = lshr i32 %70, 6
   %72 = and i32 %71, 511
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 16
@@ -3990,7 +3990,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %79 = lshr i32 %78, 6
   %80 = and i32 %79, 511
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 8
@@ -4009,7 +4009,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %97 = lshr i32 %96, 6
   %98 = and i32 %97, 511
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = shl nuw i32 %102, 24
@@ -4017,7 +4017,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %105 = lshr i32 %104, 6
   %106 = and i32 %105, 511
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl nuw nsw i32 %110, 16
@@ -4025,7 +4025,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %113 = lshr i32 %112, 6
   %114 = and i32 %113, 511
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = shl nuw nsw i32 %118, 8
@@ -4080,7 +4080,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %157 = lshr i32 %156, 6
   %158 = and i32 %157, 511
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = shl nuw i32 %162, 24
@@ -4089,7 +4089,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %166 = lshr i32 %165, 6
   %167 = and i32 %166, 511
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = shl nuw nsw i32 %171, 16
@@ -4097,7 +4097,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %174 = lshr i32 %173, 6
   %175 = and i32 %174, 511
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 8
@@ -4123,7 +4123,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph96:                                         ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not99 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4190,7 +4190,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %65 = lshr i32 %64, 6
   %66 = and i32 %65, 511
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 16
@@ -4199,7 +4199,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %74 = lshr i32 %73, 6
   %75 = and i32 %74, 511
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
@@ -4207,7 +4207,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %82 = lshr i32 %81, 6
   %83 = and i32 %82, 511
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %71, %80
@@ -4247,7 +4247,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 16
@@ -4255,7 +4255,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 8
@@ -4263,7 +4263,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = or disjoint i32 %116, %124
@@ -4281,7 +4281,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %143 = lshr i32 %142, 6
   %144 = and i32 %143, 511
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 16
@@ -4289,7 +4289,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %151 = lshr i32 %150, 6
   %152 = and i32 %151, 511
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = shl nuw nsw i32 %156, 8
@@ -4297,7 +4297,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %159 = lshr i32 %158, 6
   %160 = and i32 %159, 511
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = or disjoint i32 %149, %157
@@ -4351,7 +4351,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %202 = lshr i32 %201, 6
   %203 = and i32 %202, 511
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = shl nuw nsw i32 %207, 16
@@ -4360,7 +4360,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %211 = lshr i32 %210, 6
   %212 = and i32 %211, 511
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   %217 = shl nuw nsw i32 %216, 8
@@ -4368,7 +4368,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %219 = lshr i32 %218, 6
   %220 = and i32 %219, 511
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %221
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = or disjoint i32 %208, %217
@@ -4390,7 +4390,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph96:                                         ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not99 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4457,7 +4457,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %65 = lshr i32 %64, 6
   %66 = and i32 %65, 511
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 16
@@ -4466,7 +4466,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %74 = lshr i32 %73, 6
   %75 = and i32 %74, 511
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
@@ -4474,7 +4474,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %82 = lshr i32 %81, 6
   %83 = and i32 %82, 511
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %71, %80
@@ -4514,7 +4514,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 16
@@ -4522,7 +4522,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 8
@@ -4530,7 +4530,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = or disjoint i32 %116, %124
@@ -4548,7 +4548,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %143 = lshr i32 %142, 6
   %144 = and i32 %143, 511
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 16
@@ -4556,7 +4556,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %151 = lshr i32 %150, 6
   %152 = and i32 %151, 511
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = shl nuw nsw i32 %156, 8
@@ -4564,7 +4564,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %159 = lshr i32 %158, 6
   %160 = and i32 %159, 511
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = or disjoint i32 %149, %157
@@ -4618,7 +4618,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %202 = lshr i32 %201, 6
   %203 = and i32 %202, 511
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = shl nuw nsw i32 %207, 16
@@ -4627,7 +4627,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %211 = lshr i32 %210, 6
   %212 = and i32 %211, 511
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   %217 = shl nuw nsw i32 %216, 8
@@ -4635,7 +4635,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %219 = lshr i32 %218, 6
   %220 = and i32 %219, 511
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %221
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = or disjoint i32 %208, %217
@@ -4653,7 +4653,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -4739,7 +4739,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i16
   %81 = shl nuw i16 %80, 8
@@ -4749,7 +4749,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %85 = lshr i32 %84, 6
   %86 = and i32 %85, 511
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i16
   %91 = shl nuw nsw i16 %90, 3
@@ -4760,7 +4760,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %96 = lshr i32 %95, 6
   %97 = and i32 %96, 511
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = lshr i8 %100, 3
   %102 = zext nneg i8 %101 to i16
@@ -4776,7 +4776,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %111 = lshr i32 %110, 6
   %112 = and i32 %111, 511
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i16
   %117 = shl nuw i16 %116, 8
@@ -4785,7 +4785,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %120 = lshr i32 %119, 6
   %121 = and i32 %120, 511
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i16
   %126 = shl nuw nsw i16 %125, 3
@@ -4795,7 +4795,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %130 = lshr i32 %129, 6
   %131 = and i32 %130, 511
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = lshr i8 %134, 3
   %136 = zext nneg i8 %135 to i16
@@ -4810,7 +4810,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %144 = lshr i32 %143, 6
   %145 = and i32 %144, 511
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i16
   %150 = shl nuw i16 %149, 8
@@ -4819,7 +4819,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %153 = lshr i32 %152, 6
   %154 = and i32 %153, 511
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i16
   %159 = shl nuw nsw i16 %158, 3
@@ -4829,7 +4829,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %163 = lshr i32 %162, 6
   %164 = and i32 %163, 511
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = lshr i8 %167, 3
   %169 = zext nneg i8 %168 to i16
@@ -4845,7 +4845,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %178 = lshr i32 %177, 6
   %179 = and i32 %178, 511
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i16
   %184 = shl nuw i16 %183, 8
@@ -4854,7 +4854,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %187 = lshr i32 %186, 6
   %188 = and i32 %187, 511
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i16
   %193 = shl nuw nsw i16 %192, 3
@@ -4864,7 +4864,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %197 = lshr i32 %196, 6
   %198 = and i32 %197, 511
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = lshr i8 %201, 3
   %203 = zext nneg i8 %202 to i16
@@ -4921,7 +4921,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i16
   %247 = shl nuw i16 %246, 8
@@ -4930,7 +4930,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %250 = lshr i32 %249, 6
   %251 = and i32 %250, 511
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %252
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i16
   %256 = shl nuw nsw i16 %255, 3
@@ -4940,7 +4940,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %260 = lshr i32 %259, 6
   %261 = and i32 %260, 511
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %262
   %264 = load i8, ptr %263, align 1
   %265 = lshr i8 %264, 3
   %266 = zext nneg i8 %265 to i16
@@ -4955,7 +4955,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %274 = lshr i32 %273, 6
   %275 = and i32 %274, 511
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %276
   %278 = load i8, ptr %277, align 1
   %279 = zext i8 %278 to i16
   %280 = shl nuw i16 %279, 8
@@ -4964,7 +4964,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %283 = lshr i32 %282, 6
   %284 = and i32 %283, 511
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %285
   %287 = load i8, ptr %286, align 1
   %288 = zext i8 %287 to i16
   %289 = shl nuw nsw i16 %288, 3
@@ -4974,7 +4974,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %293 = lshr i32 %292, 6
   %294 = and i32 %293, 511
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %295
   %297 = load i8, ptr %296, align 1
   %298 = lshr i8 %297, 3
   %299 = zext nneg i8 %298 to i16
@@ -5054,7 +5054,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %352 = lshr i32 %351, 6
   %353 = and i32 %352, 511
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %354
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i16
   %358 = shl nuw i16 %357, 8
@@ -5063,7 +5063,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %361 = lshr i32 %360, 6
   %362 = and i32 %361, 511
   %363 = zext nneg i32 %362 to i64
-  %364 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %363
+  %364 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %363
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i16
   %367 = shl nuw nsw i16 %366, 3
@@ -5073,7 +5073,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %371 = lshr i32 %370, 6
   %372 = and i32 %371, 511
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %373
   %375 = load i8, ptr %374, align 1
   %376 = lshr i8 %375, 3
   %377 = zext nneg i8 %376 to i16
@@ -5090,7 +5090,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %387 = lshr i32 %386, 6
   %388 = and i32 %387, 511
   %389 = zext nneg i32 %388 to i64
-  %390 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %389
   %391 = load i8, ptr %390, align 1
   %392 = zext i8 %391 to i16
   %393 = shl nuw i16 %392, 8
@@ -5099,7 +5099,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i16
   %402 = shl nuw nsw i16 %401, 3
@@ -5109,7 +5109,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %406 = lshr i32 %405, 6
   %407 = and i32 %406, 511
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %408
   %410 = load i8, ptr %409, align 1
   %411 = lshr i8 %410, 3
   %412 = zext nneg i8 %411 to i16
@@ -5169,7 +5169,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %455 = lshr i32 %454, 6
   %456 = and i32 %455, 511
   %457 = zext nneg i32 %456 to i64
-  %458 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %457
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i16
   %461 = shl nuw i16 %460, 8
@@ -5179,7 +5179,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %465 = lshr i32 %464, 6
   %466 = and i32 %465, 511
   %467 = zext nneg i32 %466 to i64
-  %468 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %467
+  %468 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %467
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i16
   %471 = shl nuw nsw i16 %470, 3
@@ -5189,7 +5189,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %475 = lshr i32 %474, 6
   %476 = and i32 %475, 511
   %477 = zext nneg i32 %476 to i64
-  %478 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %477
   %479 = load i8, ptr %478, align 1
   %480 = lshr i8 %479, 3
   %481 = zext nneg i8 %480 to i16
@@ -5204,7 +5204,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge244.thread, label %.lr.ph243
@@ -5290,7 +5290,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   store i8 %79, ptr %.0216228, align 1
   %80 = add nsw i32 %67, 8192
@@ -5298,7 +5298,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %82 = lshr i32 %81, 6
   %83 = and i32 %82, 511
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds nuw i8, ptr %.0216228, i64 1
   store i8 %86, ptr %87, align 1
@@ -5307,7 +5307,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %90 = lshr i32 %89, 6
   %91 = and i32 %90, 511
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = getelementptr inbounds nuw i8, ptr %.0216228, i64 2
   store i8 %94, ptr %95, align 1
@@ -5321,14 +5321,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %103 = lshr i32 %102, 6
   %104 = and i32 %103, 511
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %105
   %107 = load i8, ptr %106, align 1
   store i8 %107, ptr %96, align 1
   %108 = add nsw i32 %80, %101
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = getelementptr inbounds nuw i8, ptr %.0216228, i64 4
   store i8 %113, ptr %114, align 1
@@ -5336,7 +5336,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %116 = lshr i32 %115, 6
   %117 = and i32 %116, 511
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = getelementptr inbounds nuw i8, ptr %.0216228, i64 5
   store i8 %120, ptr %121, align 1
@@ -5349,14 +5349,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %128 = lshr i32 %127, 6
   %129 = and i32 %128, 511
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %130
   %132 = load i8, ptr %131, align 1
   store i8 %132, ptr %.0217227, align 1
   %133 = add nsw i32 %80, %126
   %134 = lshr i32 %133, 6
   %135 = and i32 %134, 511
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = getelementptr inbounds nuw i8, ptr %.0217227, i64 1
   store i8 %138, ptr %139, align 1
@@ -5364,7 +5364,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %141 = lshr i32 %140, 6
   %142 = and i32 %141, 511
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = getelementptr inbounds nuw i8, ptr %.0217227, i64 2
   store i8 %145, ptr %146, align 1
@@ -5378,14 +5378,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %154 = lshr i32 %153, 6
   %155 = and i32 %154, 511
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %156
   %158 = load i8, ptr %157, align 1
   store i8 %158, ptr %147, align 1
   %159 = add nsw i32 %80, %152
   %160 = lshr i32 %159, 6
   %161 = and i32 %160, 511
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %162
   %164 = load i8, ptr %163, align 1
   %165 = getelementptr inbounds nuw i8, ptr %.0217227, i64 4
   store i8 %164, ptr %165, align 1
@@ -5393,7 +5393,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %167 = lshr i32 %166, 6
   %168 = and i32 %167, 511
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %169
   %171 = load i8, ptr %170, align 1
   %172 = getelementptr inbounds nuw i8, ptr %.0217227, i64 5
   store i8 %171, ptr %172, align 1
@@ -5448,14 +5448,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %209 = lshr i32 %208, 6
   %210 = and i32 %209, 511
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %211
   %213 = load i8, ptr %212, align 1
   store i8 %213, ptr %.0216.lcssa286, align 1
   %214 = add nsw i32 %207, %195
   %215 = lshr i32 %214, 6
   %216 = and i32 %215, 511
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %217
   %219 = load i8, ptr %218, align 1
   %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 1
   store i8 %219, ptr %220, align 1
@@ -5463,7 +5463,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %222 = lshr i32 %221, 6
   %223 = and i32 %222, 511
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 2
   store i8 %226, ptr %227, align 1
@@ -5476,14 +5476,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %234 = lshr i32 %233, 6
   %235 = and i32 %234, 511
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %236
   %238 = load i8, ptr %237, align 1
   store i8 %238, ptr %.0217.lcssa285, align 1
   %239 = add nsw i32 %232, %195
   %240 = lshr i32 %239, 6
   %241 = and i32 %240, 511
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 1
   store i8 %244, ptr %245, align 1
@@ -5491,7 +5491,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %247 = lshr i32 %246, 6
   %248 = and i32 %247, 511
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 2
   store i8 %251, ptr %252, align 1
@@ -5569,14 +5569,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %304 = lshr i32 %303, 6
   %305 = and i32 %304, 511
   %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %306
   %308 = load i8, ptr %307, align 1
   store i8 %308, ptr %.0220248, align 1
   %309 = add nsw i32 %302, %296
   %310 = lshr i32 %309, 6
   %311 = and i32 %310, 511
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %312
   %314 = load i8, ptr %313, align 1
   %315 = getelementptr inbounds nuw i8, ptr %.0220248, i64 1
   store i8 %314, ptr %315, align 1
@@ -5584,7 +5584,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %317 = lshr i32 %316, 6
   %318 = and i32 %317, 511
   %319 = zext nneg i32 %318 to i64
-  %320 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = getelementptr inbounds nuw i8, ptr %.0220248, i64 2
   store i8 %321, ptr %322, align 1
@@ -5599,14 +5599,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %331 = lshr i32 %330, 6
   %332 = and i32 %331, 511
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %333
   %335 = load i8, ptr %334, align 1
   store i8 %335, ptr %323, align 1
   %336 = add nsw i32 %329, %296
   %337 = lshr i32 %336, 6
   %338 = and i32 %337, 511
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %339
   %341 = load i8, ptr %340, align 1
   %342 = getelementptr inbounds nuw i8, ptr %.0220248, i64 4
   store i8 %341, ptr %342, align 1
@@ -5614,7 +5614,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %344 = lshr i32 %343, 6
   %345 = and i32 %344, 511
   %346 = zext nneg i32 %345 to i64
-  %347 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %346
   %348 = load i8, ptr %347, align 1
   %349 = getelementptr inbounds nuw i8, ptr %.0220248, i64 5
   store i8 %348, ptr %349, align 1
@@ -5672,7 +5672,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %391 = lshr i32 %390, 6
   %392 = and i32 %391, 511
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %393
   %395 = load i8, ptr %394, align 1
   store i8 %395, ptr %.0220.lcssa298, align 1
   %396 = add nsw i32 %389, %371
@@ -5680,7 +5680,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %398 = lshr i32 %397, 6
   %399 = and i32 %398, 511
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %400
   %402 = load i8, ptr %401, align 1
   %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 1
   store i8 %402, ptr %403, align 1
@@ -5688,7 +5688,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %405 = lshr i32 %404, 6
   %406 = and i32 %405, 511
   %407 = zext nneg i32 %406 to i64
-  %408 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %407
   %409 = load i8, ptr %408, align 1
   %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 2
   store i8 %409, ptr %410, align 1
@@ -5701,7 +5701,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -5787,7 +5787,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
@@ -5796,7 +5796,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 16
@@ -5805,7 +5805,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 8
@@ -5823,7 +5823,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw i32 %115, 24
@@ -5831,7 +5831,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 16
@@ -5839,7 +5839,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 8
@@ -5856,7 +5856,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %142 = lshr i32 %141, 6
   %143 = and i32 %142, 511
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw i32 %147, 24
@@ -5864,7 +5864,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %150 = lshr i32 %149, 6
   %151 = and i32 %150, 511
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = shl nuw nsw i32 %155, 16
@@ -5872,7 +5872,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %158 = lshr i32 %157, 6
   %159 = and i32 %158, 511
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 8
@@ -5890,7 +5890,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %175 = lshr i32 %174, 6
   %176 = and i32 %175, 511
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
@@ -5898,7 +5898,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %183 = lshr i32 %182, 6
   %184 = and i32 %183, 511
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %185
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 16
@@ -5906,7 +5906,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %191 = lshr i32 %190, 6
   %192 = and i32 %191, 511
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 8
@@ -5965,7 +5965,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %237 = lshr i32 %236, 6
   %238 = and i32 %237, 511
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = shl nuw i32 %242, 24
@@ -5973,7 +5973,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %245 = lshr i32 %244, 6
   %246 = and i32 %245, 511
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 16
@@ -5981,7 +5981,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %253 = lshr i32 %252, 6
   %254 = and i32 %253, 511
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %255
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = shl nuw nsw i32 %258, 8
@@ -5998,7 +5998,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %269 = lshr i32 %268, 6
   %270 = and i32 %269, 511
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %271
   %273 = load i8, ptr %272, align 1
   %274 = zext i8 %273 to i32
   %275 = shl nuw i32 %274, 24
@@ -6006,7 +6006,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %277 = lshr i32 %276, 6
   %278 = and i32 %277, 511
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = shl nuw nsw i32 %282, 16
@@ -6014,7 +6014,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %285 = lshr i32 %284, 6
   %286 = and i32 %285, 511
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = shl nuw nsw i32 %290, 8
@@ -6096,7 +6096,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %346 = lshr i32 %345, 6
   %347 = and i32 %346, 511
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = shl nuw i32 %351, 24
@@ -6104,7 +6104,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %354 = lshr i32 %353, 6
   %355 = and i32 %354, 511
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 16
@@ -6112,7 +6112,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %362 = lshr i32 %361, 6
   %363 = and i32 %362, 511
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %364
   %366 = load i8, ptr %365, align 1
   %367 = zext i8 %366 to i32
   %368 = shl nuw nsw i32 %367, 8
@@ -6131,7 +6131,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %380 = lshr i32 %379, 6
   %381 = and i32 %380, 511
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %382
   %384 = load i8, ptr %383, align 1
   %385 = zext i8 %384 to i32
   %386 = shl nuw i32 %385, 24
@@ -6139,7 +6139,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %388 = lshr i32 %387, 6
   %389 = and i32 %388, 511
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %390
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
   %394 = shl nuw nsw i32 %393, 16
@@ -6147,7 +6147,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 8
@@ -6209,7 +6209,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %447 = lshr i32 %446, 6
   %448 = and i32 %447, 511
   %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %449
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i32
   %453 = shl nuw i32 %452, 24
@@ -6218,7 +6218,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = shl nuw nsw i32 %461, 16
@@ -6226,7 +6226,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %464 = lshr i32 %463, 6
   %465 = and i32 %464, 511
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32
   %470 = shl nuw nsw i32 %469, 8
@@ -6243,7 +6243,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -6329,7 +6329,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
@@ -6338,7 +6338,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 16
@@ -6347,7 +6347,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 8
@@ -6365,7 +6365,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %110 = lshr i32 %109, 6
   %111 = and i32 %110, 511
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw i32 %115, 24
@@ -6373,7 +6373,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %118 = lshr i32 %117, 6
   %119 = and i32 %118, 511
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 16
@@ -6381,7 +6381,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %126 = lshr i32 %125, 6
   %127 = and i32 %126, 511
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 8
@@ -6398,7 +6398,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %142 = lshr i32 %141, 6
   %143 = and i32 %142, 511
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw i32 %147, 24
@@ -6406,7 +6406,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %150 = lshr i32 %149, 6
   %151 = and i32 %150, 511
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = shl nuw nsw i32 %155, 16
@@ -6414,7 +6414,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %158 = lshr i32 %157, 6
   %159 = and i32 %158, 511
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 8
@@ -6432,7 +6432,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %175 = lshr i32 %174, 6
   %176 = and i32 %175, 511
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
@@ -6440,7 +6440,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %183 = lshr i32 %182, 6
   %184 = and i32 %183, 511
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %185
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 16
@@ -6448,7 +6448,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %191 = lshr i32 %190, 6
   %192 = and i32 %191, 511
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 8
@@ -6507,7 +6507,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %237 = lshr i32 %236, 6
   %238 = and i32 %237, 511
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = shl nuw i32 %242, 24
@@ -6515,7 +6515,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %245 = lshr i32 %244, 6
   %246 = and i32 %245, 511
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = shl nuw nsw i32 %250, 16
@@ -6523,7 +6523,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %253 = lshr i32 %252, 6
   %254 = and i32 %253, 511
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %255
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i32
   %259 = shl nuw nsw i32 %258, 8
@@ -6540,7 +6540,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %269 = lshr i32 %268, 6
   %270 = and i32 %269, 511
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %271
   %273 = load i8, ptr %272, align 1
   %274 = zext i8 %273 to i32
   %275 = shl nuw i32 %274, 24
@@ -6548,7 +6548,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %277 = lshr i32 %276, 6
   %278 = and i32 %277, 511
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i32
   %283 = shl nuw nsw i32 %282, 16
@@ -6556,7 +6556,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %285 = lshr i32 %284, 6
   %286 = and i32 %285, 511
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = shl nuw nsw i32 %290, 8
@@ -6638,7 +6638,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %346 = lshr i32 %345, 6
   %347 = and i32 %346, 511
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = shl nuw i32 %351, 24
@@ -6646,7 +6646,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %354 = lshr i32 %353, 6
   %355 = and i32 %354, 511
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   %360 = shl nuw nsw i32 %359, 16
@@ -6654,7 +6654,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %362 = lshr i32 %361, 6
   %363 = and i32 %362, 511
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %364
   %366 = load i8, ptr %365, align 1
   %367 = zext i8 %366 to i32
   %368 = shl nuw nsw i32 %367, 8
@@ -6673,7 +6673,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %380 = lshr i32 %379, 6
   %381 = and i32 %380, 511
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %382
   %384 = load i8, ptr %383, align 1
   %385 = zext i8 %384 to i32
   %386 = shl nuw i32 %385, 24
@@ -6681,7 +6681,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %388 = lshr i32 %387, 6
   %389 = and i32 %388, 511
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %390
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
   %394 = shl nuw nsw i32 %393, 16
@@ -6689,7 +6689,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %396 = lshr i32 %395, 6
   %397 = and i32 %396, 511
   %398 = zext nneg i32 %397 to i64
-  %399 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %398
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
   %402 = shl nuw nsw i32 %401, 8
@@ -6751,7 +6751,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %447 = lshr i32 %446, 6
   %448 = and i32 %447, 511
   %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %449
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i32
   %453 = shl nuw i32 %452, 24
@@ -6760,7 +6760,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = shl nuw nsw i32 %461, 16
@@ -6768,7 +6768,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %464 = lshr i32 %463, 6
   %465 = and i32 %464, 511
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32
   %470 = shl nuw nsw i32 %469, 8
@@ -6785,7 +6785,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -6871,7 +6871,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 16
@@ -6880,7 +6880,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -6889,7 +6889,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %81, %90
@@ -6906,7 +6906,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 16
@@ -6914,7 +6914,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 8
@@ -6922,7 +6922,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %125 = lshr i32 %124, 6
   %126 = and i32 %125, 511
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %115, %123
@@ -6938,7 +6938,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %140 = lshr i32 %139, 6
   %141 = and i32 %140, 511
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 16
@@ -6946,7 +6946,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %148 = lshr i32 %147, 6
   %149 = and i32 %148, 511
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 8
@@ -6954,7 +6954,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %156 = lshr i32 %155, 6
   %157 = and i32 %156, 511
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %146, %154
@@ -6971,7 +6971,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %172 = lshr i32 %171, 6
   %173 = and i32 %172, 511
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 16
@@ -6979,7 +6979,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %180 = lshr i32 %179, 6
   %181 = and i32 %180, 511
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = shl nuw nsw i32 %185, 8
@@ -6987,7 +6987,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %188 = lshr i32 %187, 6
   %189 = and i32 %188, 511
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %190
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = or disjoint i32 %178, %186
@@ -7045,7 +7045,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %233 = lshr i32 %232, 6
   %234 = and i32 %233, 511
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 16
@@ -7053,7 +7053,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 8
@@ -7061,7 +7061,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %249 = lshr i32 %248, 6
   %250 = and i32 %249, 511
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = or disjoint i32 %239, %247
@@ -7077,7 +7077,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %264 = lshr i32 %263, 6
   %265 = and i32 %264, 511
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = shl nuw nsw i32 %269, 16
@@ -7085,7 +7085,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %272 = lshr i32 %271, 6
   %273 = and i32 %272, 511
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = shl nuw nsw i32 %277, 8
@@ -7093,7 +7093,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %280 = lshr i32 %279, 6
   %281 = and i32 %280, 511
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
   %286 = or disjoint i32 %270, %278
@@ -7174,7 +7174,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %340 = lshr i32 %339, 6
   %341 = and i32 %340, 511
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = zext i8 %344 to i32
   %346 = shl nuw nsw i32 %345, 16
@@ -7182,7 +7182,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %348 = lshr i32 %347, 6
   %349 = and i32 %348, 511
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %350
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
   %354 = shl nuw nsw i32 %353, 8
@@ -7190,7 +7190,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %356 = lshr i32 %355, 6
   %357 = and i32 %356, 511
   %358 = zext nneg i32 %357 to i64
-  %359 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %358
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = or disjoint i32 %346, %354
@@ -7208,7 +7208,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %373 = lshr i32 %372, 6
   %374 = and i32 %373, 511
   %375 = zext nneg i32 %374 to i64
-  %376 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %375
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = shl nuw nsw i32 %378, 16
@@ -7216,7 +7216,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %381 = lshr i32 %380, 6
   %382 = and i32 %381, 511
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %383
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = shl nuw nsw i32 %386, 8
@@ -7224,7 +7224,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %389 = lshr i32 %388, 6
   %390 = and i32 %389, 511
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %391
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
   %395 = or disjoint i32 %379, %387
@@ -7285,7 +7285,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %439 = lshr i32 %438, 6
   %440 = and i32 %439, 511
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %441
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
   %445 = shl nuw nsw i32 %444, 16
@@ -7294,7 +7294,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %448 = lshr i32 %447, 6
   %449 = and i32 %448, 511
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %450
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
   %454 = shl nuw nsw i32 %453, 8
@@ -7302,7 +7302,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = or disjoint i32 %445, %454
@@ -7318,7 +7318,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -7404,7 +7404,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %75 = lshr i32 %74, 6
   %76 = and i32 %75, 511
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 16
@@ -7413,7 +7413,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %84 = lshr i32 %83, 6
   %85 = and i32 %84, 511
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
@@ -7422,7 +7422,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %93 = lshr i32 %92, 6
   %94 = and i32 %93, 511
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %81, %90
@@ -7439,7 +7439,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %109 = lshr i32 %108, 6
   %110 = and i32 %109, 511
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 16
@@ -7447,7 +7447,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %117 = lshr i32 %116, 6
   %118 = and i32 %117, 511
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 8
@@ -7455,7 +7455,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %125 = lshr i32 %124, 6
   %126 = and i32 %125, 511
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %115, %123
@@ -7471,7 +7471,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %140 = lshr i32 %139, 6
   %141 = and i32 %140, 511
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 16
@@ -7479,7 +7479,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %148 = lshr i32 %147, 6
   %149 = and i32 %148, 511
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 8
@@ -7487,7 +7487,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %156 = lshr i32 %155, 6
   %157 = and i32 %156, 511
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %146, %154
@@ -7504,7 +7504,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %172 = lshr i32 %171, 6
   %173 = and i32 %172, 511
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 16
@@ -7512,7 +7512,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %180 = lshr i32 %179, 6
   %181 = and i32 %180, 511
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = shl nuw nsw i32 %185, 8
@@ -7520,7 +7520,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %188 = lshr i32 %187, 6
   %189 = and i32 %188, 511
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %190
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = or disjoint i32 %178, %186
@@ -7578,7 +7578,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %233 = lshr i32 %232, 6
   %234 = and i32 %233, 511
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %235
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 16
@@ -7586,7 +7586,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %241 = lshr i32 %240, 6
   %242 = and i32 %241, 511
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %243
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
   %247 = shl nuw nsw i32 %246, 8
@@ -7594,7 +7594,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %249 = lshr i32 %248, 6
   %250 = and i32 %249, 511
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = or disjoint i32 %239, %247
@@ -7610,7 +7610,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %264 = lshr i32 %263, 6
   %265 = and i32 %264, 511
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = shl nuw nsw i32 %269, 16
@@ -7618,7 +7618,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %272 = lshr i32 %271, 6
   %273 = and i32 %272, 511
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = shl nuw nsw i32 %277, 8
@@ -7626,7 +7626,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %280 = lshr i32 %279, 6
   %281 = and i32 %280, 511
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
   %286 = or disjoint i32 %270, %278
@@ -7707,7 +7707,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %340 = lshr i32 %339, 6
   %341 = and i32 %340, 511
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = zext i8 %344 to i32
   %346 = shl nuw nsw i32 %345, 16
@@ -7715,7 +7715,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %348 = lshr i32 %347, 6
   %349 = and i32 %348, 511
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %350
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
   %354 = shl nuw nsw i32 %353, 8
@@ -7723,7 +7723,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %356 = lshr i32 %355, 6
   %357 = and i32 %356, 511
   %358 = zext nneg i32 %357 to i64
-  %359 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %358
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = or disjoint i32 %346, %354
@@ -7741,7 +7741,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %373 = lshr i32 %372, 6
   %374 = and i32 %373, 511
   %375 = zext nneg i32 %374 to i64
-  %376 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %375
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = shl nuw nsw i32 %378, 16
@@ -7749,7 +7749,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %381 = lshr i32 %380, 6
   %382 = and i32 %381, 511
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %383
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = shl nuw nsw i32 %386, 8
@@ -7757,7 +7757,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %389 = lshr i32 %388, 6
   %390 = and i32 %389, 511
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %391
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
   %395 = or disjoint i32 %379, %387
@@ -7818,7 +7818,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %439 = lshr i32 %438, 6
   %440 = and i32 %439, 511
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %441
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
   %445 = shl nuw nsw i32 %444, 16
@@ -7827,7 +7827,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %448 = lshr i32 %447, 6
   %449 = and i32 %448, 511
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %450
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
   %454 = shl nuw nsw i32 %453, 8
@@ -7835,7 +7835,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %456 = lshr i32 %455, 6
   %457 = and i32 %456, 511
   %458 = zext nneg i32 %457 to i64
-  %459 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %458
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
   %462 = or disjoint i32 %445, %454
@@ -7851,7 +7851,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.YUV2RGBParam], ptr @YUV2RGB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
   %13 = lshr i32 %5, 1
   %14 = lshr i32 %6, 1
   %15 = add i32 %1, -1
@@ -8314,7 +8314,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw [5 x %struct.RGB2YUVParam], ptr @RGB2YUV, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.RGB2YUVParam, ptr @RGB2YUV, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge163, label %.lr.ph162
@@ -8409,7 +8409,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %83 = lshr i32 %82, 6
   %84 = and i32 %83, 511
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %85
   %87 = load i8, ptr %86, align 1
   store i8 %87, ptr %.0129154.us, align 1
   %88 = getelementptr inbounds nuw i8, ptr %.0125158.us, i64 3
@@ -8430,7 +8430,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %103 = lshr i32 %102, 6
   %104 = and i32 %103, 511
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = getelementptr inbounds nuw i8, ptr %.0129154.us, i64 1
   store i8 %107, ptr %108, align 1
@@ -8451,7 +8451,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %123 = lshr i32 %122, 6
   %124 = and i32 %123, 511
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %125
   %127 = load i8, ptr %126, align 1
   store i8 %127, ptr %.0128155.us, align 1
   %128 = getelementptr inbounds nuw i8, ptr %.0130153.us, i64 3
@@ -8491,7 +8491,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %147 = lshr i32 %146, 6
   %148 = and i32 %147, 511
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = getelementptr inbounds nuw i8, ptr %.0128155.us, i64 1
   store i8 %151, ptr %152, align 1
@@ -8500,7 +8500,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %155 = and i32 %154, 511
   %156 = xor i32 %155, 256
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %157
   %159 = load i8, ptr %158, align 1
   store i8 %159, ptr %.0127156.us, align 1
   %160 = sdiv i32 %143, 4
@@ -8508,7 +8508,7 @@ define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %162 = and i32 %161, 511
   %163 = xor i32 %162, 256
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr @clampU8.lut, i64 %164
   %166 = load i8, ptr %165, align 1
   store i8 %166, ptr %.0126157.us, align 1
   %167 = getelementptr inbounds nuw i8, ptr %.0125158.us, i64 6

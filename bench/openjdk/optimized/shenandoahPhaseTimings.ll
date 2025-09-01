@@ -413,19 +413,19 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
 
 7:                                                ; preds = %.preheader160, %7
   %indvars.iv = phi i64 [ 0, %.preheader160 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds nuw [316 x double], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   store double -1.000000e+00, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 316
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !6
 
-.preheader:                                       ; preds = %7, %211
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %211 ], [ 0, %7 ]
+.preheader:                                       ; preds = %7, %203
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %203 ], [ 0, %7 ]
   %10 = trunc nuw nsw i64 %indvars.iv164 to i32
   %11 = tail call noundef zeroext i1 @_ZN22ShenandoahPhaseTimings15is_worker_phaseENS_5PhaseE(i32 noundef %10)
-  br i1 %11, label %12, label %211
+  br i1 %11, label %12, label %203
 
 12:                                               ; preds = %.preheader
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
@@ -464,7 +464,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, %32
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader ]
-  %29 = getelementptr inbounds nuw [9 x ptr], ptr %21, i64 0, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %32, label %31
@@ -479,8 +479,8 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
-  %33 = add nuw nsw i64 %indvars.iv164, 2
-  %34 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %33
+  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv164
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %13, ptr %34, align 8
   %35 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
   %36 = load i32, ptr %0, align 8
@@ -518,7 +518,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader: ; preds = %.lr.ph.i.i.i8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader, %54
   %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i87, %54 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader ]
-  %51 = getelementptr inbounds nuw [9 x ptr], ptr %43, i64 0, i64 %indvars.iv.i.i85
+  %51 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i85
   %52 = load ptr, ptr %51, align 8
   %.not.i.i86 = icmp eq ptr %52, null
   br i1 %.not.i.i86, label %54, label %53
@@ -533,400 +533,392 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84:     ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i88, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
-  %55 = add nuw nsw i64 %indvars.iv164, 3
-  %56 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %55
-  store ptr %35, ptr %56, align 8
-  %57 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %58 = load i32, ptr %0, align 8
-  store ptr null, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 %58, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr @.str.280, ptr %61, align 8
-  %62 = zext i32 %58 to i64
-  %63 = shl nuw nsw i64 %62, 3
-  %64 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %63, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %64, ptr %57, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %65, i8 0, i64 72, i1 false)
-  %66 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %67 = load i32, ptr %59, align 8
-  %.not.i.i.i90 = icmp eq i32 %67, 0
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store ptr %35, ptr %55, align 8
+  %56 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %57 = load i32, ptr %0, align 8
+  store ptr null, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 %57, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr @.str.280, ptr %60, align 8
+  %61 = zext i32 %57 to i64
+  %62 = shl nuw nsw i64 %61, 3
+  %63 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %62, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %63, ptr %56, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %64, i8 0, i64 72, i1 false)
+  %65 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %66 = load i32, ptr %58, align 8
+  %.not.i.i.i90 = icmp eq i32 %66, 0
   br i1 %.not.i.i.i90, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, label %.lr.ph.i.i.i91
 
 .lr.ph.i.i.i91:                                   ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, %.lr.ph.i.i.i91
   %indvars.iv.i.i.i92 = phi i64 [ %indvars.iv.next.i.i.i93, %.lr.ph.i.i.i91 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89 ]
-  %68 = load ptr, ptr %57, align 8
-  %69 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i.i.i92
-  store double %66, ptr %69, align 8
+  %67 = load ptr, ptr %56, align 8
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv.i.i.i92
+  store double %65, ptr %68, align 8
   %indvars.iv.next.i.i.i93 = add nuw nsw i64 %indvars.iv.i.i.i92, 1
-  %70 = load i32, ptr %59, align 8
-  %71 = zext i32 %70 to i64
-  %72 = icmp samesign ult i64 %indvars.iv.next.i.i.i93, %71
-  br i1 %72, label %.lr.ph.i.i.i91, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, !llvm.loop !8
+  %69 = load i32, ptr %58, align 8
+  %70 = zext i32 %69 to i64
+  %71 = icmp samesign ult i64 %indvars.iv.next.i.i.i93, %70
+  br i1 %71, label %.lr.ph.i.i.i91, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader: ; preds = %.lr.ph.i.i.i91, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, %76
-  %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i97, %76 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader ]
-  %73 = getelementptr inbounds nuw [9 x ptr], ptr %65, i64 0, i64 %indvars.iv.i.i95
-  %74 = load ptr, ptr %73, align 8
-  %.not.i.i96 = icmp eq ptr %74, null
-  br i1 %.not.i.i96, label %76, label %75
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, %75
+  %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i97, %75 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader ]
+  %72 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i.i95
+  %73 = load ptr, ptr %72, align 8
+  %.not.i.i96 = icmp eq ptr %73, null
+  br i1 %.not.i.i96, label %75, label %74
 
-75:                                               ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %74)
-  br label %76
+74:                                               ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %73)
+  br label %75
 
-76:                                               ; preds = %75, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
+75:                                               ; preds = %74, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
   %indvars.iv.next.i.i97 = add nuw nsw i64 %indvars.iv.i.i95, 1
   %exitcond.not.i.i98 = icmp eq i64 %indvars.iv.next.i.i97, 9
   br i1 %exitcond.not.i.i98, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %76
-  %77 = add nuw nsw i64 %indvars.iv164, 4
-  %78 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %77
-  store ptr %57, ptr %78, align 8
-  %79 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %80 = load i32, ptr %0, align 8
-  store ptr null, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 %80, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store ptr @.str.281, ptr %83, align 8
-  %84 = zext i32 %80 to i64
-  %85 = shl nuw nsw i64 %84, 3
-  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %85, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %86, ptr %79, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %87, i8 0, i64 72, i1 false)
-  %88 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %89 = load i32, ptr %81, align 8
-  %.not.i.i.i100 = icmp eq i32 %89, 0
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %75
+  %76 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store ptr %56, ptr %76, align 8
+  %77 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %78 = load i32, ptr %0, align 8
+  store ptr null, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i32 %78, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store ptr null, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  store ptr @.str.281, ptr %81, align 8
+  %82 = zext i32 %78 to i64
+  %83 = shl nuw nsw i64 %82, 3
+  %84 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %83, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %84, ptr %77, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %85, i8 0, i64 72, i1 false)
+  %86 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %87 = load i32, ptr %79, align 8
+  %.not.i.i.i100 = icmp eq i32 %87, 0
   br i1 %.not.i.i.i100, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, label %.lr.ph.i.i.i101
 
 .lr.ph.i.i.i101:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, %.lr.ph.i.i.i101
   %indvars.iv.i.i.i102 = phi i64 [ %indvars.iv.next.i.i.i103, %.lr.ph.i.i.i101 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99 ]
-  %90 = load ptr, ptr %79, align 8
-  %91 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv.i.i.i102
-  store double %88, ptr %91, align 8
+  %88 = load ptr, ptr %77, align 8
+  %89 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv.i.i.i102
+  store double %86, ptr %89, align 8
   %indvars.iv.next.i.i.i103 = add nuw nsw i64 %indvars.iv.i.i.i102, 1
-  %92 = load i32, ptr %81, align 8
-  %93 = zext i32 %92 to i64
-  %94 = icmp samesign ult i64 %indvars.iv.next.i.i.i103, %93
-  br i1 %94, label %.lr.ph.i.i.i101, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, !llvm.loop !8
+  %90 = load i32, ptr %79, align 8
+  %91 = zext i32 %90 to i64
+  %92 = icmp samesign ult i64 %indvars.iv.next.i.i.i103, %91
+  br i1 %92, label %.lr.ph.i.i.i101, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader: ; preds = %.lr.ph.i.i.i101, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, %98
-  %indvars.iv.i.i105 = phi i64 [ %indvars.iv.next.i.i107, %98 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader ]
-  %95 = getelementptr inbounds nuw [9 x ptr], ptr %87, i64 0, i64 %indvars.iv.i.i105
-  %96 = load ptr, ptr %95, align 8
-  %.not.i.i106 = icmp eq ptr %96, null
-  br i1 %.not.i.i106, label %98, label %97
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, %96
+  %indvars.iv.i.i105 = phi i64 [ %indvars.iv.next.i.i107, %96 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader ]
+  %93 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i.i105
+  %94 = load ptr, ptr %93, align 8
+  %.not.i.i106 = icmp eq ptr %94, null
+  br i1 %.not.i.i106, label %96, label %95
 
-97:                                               ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %96)
-  br label %98
+95:                                               ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %94)
+  br label %96
 
-98:                                               ; preds = %97, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
+96:                                               ; preds = %95, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 9
   br i1 %exitcond.not.i.i108, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %98
-  %99 = add nuw nsw i64 %indvars.iv164, 5
-  %100 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %99
-  store ptr %79, ptr %100, align 8
-  %101 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %102 = load i32, ptr %0, align 8
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %96
+  %97 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store ptr %77, ptr %97, align 8
+  %98 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %99 = load i32, ptr %0, align 8
+  store ptr null, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i32 %99, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr null, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr @.str.282, ptr %105, align 8
-  %106 = zext i32 %102 to i64
-  %107 = shl nuw nsw i64 %106, 3
-  %108 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %107, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %108, ptr %101, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, i8 0, i64 72, i1 false)
-  %110 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %111 = load i32, ptr %103, align 8
-  %.not.i.i.i110 = icmp eq i32 %111, 0
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr @.str.282, ptr %102, align 8
+  %103 = zext i32 %99 to i64
+  %104 = shl nuw nsw i64 %103, 3
+  %105 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %104, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %105, ptr %98, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %106, i8 0, i64 72, i1 false)
+  %107 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %108 = load i32, ptr %100, align 8
+  %.not.i.i.i110 = icmp eq i32 %108, 0
   br i1 %.not.i.i.i110, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, label %.lr.ph.i.i.i111
 
 .lr.ph.i.i.i111:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, %.lr.ph.i.i.i111
   %indvars.iv.i.i.i112 = phi i64 [ %indvars.iv.next.i.i.i113, %.lr.ph.i.i.i111 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109 ]
-  %112 = load ptr, ptr %101, align 8
-  %113 = getelementptr inbounds nuw double, ptr %112, i64 %indvars.iv.i.i.i112
-  store double %110, ptr %113, align 8
+  %109 = load ptr, ptr %98, align 8
+  %110 = getelementptr inbounds nuw double, ptr %109, i64 %indvars.iv.i.i.i112
+  store double %107, ptr %110, align 8
   %indvars.iv.next.i.i.i113 = add nuw nsw i64 %indvars.iv.i.i.i112, 1
-  %114 = load i32, ptr %103, align 8
-  %115 = zext i32 %114 to i64
-  %116 = icmp samesign ult i64 %indvars.iv.next.i.i.i113, %115
-  br i1 %116, label %.lr.ph.i.i.i111, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, !llvm.loop !8
+  %111 = load i32, ptr %100, align 8
+  %112 = zext i32 %111 to i64
+  %113 = icmp samesign ult i64 %indvars.iv.next.i.i.i113, %112
+  br i1 %113, label %.lr.ph.i.i.i111, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader: ; preds = %.lr.ph.i.i.i111, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, %120
-  %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i117, %120 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader ]
-  %117 = getelementptr inbounds nuw [9 x ptr], ptr %109, i64 0, i64 %indvars.iv.i.i115
-  %118 = load ptr, ptr %117, align 8
-  %.not.i.i116 = icmp eq ptr %118, null
-  br i1 %.not.i.i116, label %120, label %119
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, %117
+  %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i117, %117 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader ]
+  %114 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i115
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i116 = icmp eq ptr %115, null
+  br i1 %.not.i.i116, label %117, label %116
 
-119:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %118)
-  br label %120
+116:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %115)
+  br label %117
 
-120:                                              ; preds = %119, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
+117:                                              ; preds = %116, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
   %exitcond.not.i.i118 = icmp eq i64 %indvars.iv.next.i.i117, 9
   br i1 %exitcond.not.i.i118, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %120
-  %121 = add nuw nsw i64 %indvars.iv164, 6
-  %122 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %121
-  store ptr %101, ptr %122, align 8
-  %123 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %124 = load i32, ptr %0, align 8
-  store ptr null, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i32 %124, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store ptr null, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store ptr @.str.283, ptr %127, align 8
-  %128 = zext i32 %124 to i64
-  %129 = shl nuw nsw i64 %128, 3
-  %130 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %129, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %130, ptr %123, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %131, i8 0, i64 72, i1 false)
-  %132 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %133 = load i32, ptr %125, align 8
-  %.not.i.i.i120 = icmp eq i32 %133, 0
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %117
+  %118 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store ptr %98, ptr %118, align 8
+  %119 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %120 = load i32, ptr %0, align 8
+  store ptr null, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store i32 %120, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  store ptr null, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  store ptr @.str.283, ptr %123, align 8
+  %124 = zext i32 %120 to i64
+  %125 = shl nuw nsw i64 %124, 3
+  %126 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %125, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %126, ptr %119, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %127, i8 0, i64 72, i1 false)
+  %128 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %129 = load i32, ptr %121, align 8
+  %.not.i.i.i120 = icmp eq i32 %129, 0
   br i1 %.not.i.i.i120, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, label %.lr.ph.i.i.i121
 
 .lr.ph.i.i.i121:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, %.lr.ph.i.i.i121
   %indvars.iv.i.i.i122 = phi i64 [ %indvars.iv.next.i.i.i123, %.lr.ph.i.i.i121 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119 ]
-  %134 = load ptr, ptr %123, align 8
-  %135 = getelementptr inbounds nuw double, ptr %134, i64 %indvars.iv.i.i.i122
-  store double %132, ptr %135, align 8
+  %130 = load ptr, ptr %119, align 8
+  %131 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv.i.i.i122
+  store double %128, ptr %131, align 8
   %indvars.iv.next.i.i.i123 = add nuw nsw i64 %indvars.iv.i.i.i122, 1
-  %136 = load i32, ptr %125, align 8
-  %137 = zext i32 %136 to i64
-  %138 = icmp samesign ult i64 %indvars.iv.next.i.i.i123, %137
-  br i1 %138, label %.lr.ph.i.i.i121, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, !llvm.loop !8
+  %132 = load i32, ptr %121, align 8
+  %133 = zext i32 %132 to i64
+  %134 = icmp samesign ult i64 %indvars.iv.next.i.i.i123, %133
+  br i1 %134, label %.lr.ph.i.i.i121, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader: ; preds = %.lr.ph.i.i.i121, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, %142
-  %indvars.iv.i.i125 = phi i64 [ %indvars.iv.next.i.i127, %142 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader ]
-  %139 = getelementptr inbounds nuw [9 x ptr], ptr %131, i64 0, i64 %indvars.iv.i.i125
-  %140 = load ptr, ptr %139, align 8
-  %.not.i.i126 = icmp eq ptr %140, null
-  br i1 %.not.i.i126, label %142, label %141
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, %138
+  %indvars.iv.i.i125 = phi i64 [ %indvars.iv.next.i.i127, %138 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader ]
+  %135 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i.i125
+  %136 = load ptr, ptr %135, align 8
+  %.not.i.i126 = icmp eq ptr %136, null
+  br i1 %.not.i.i126, label %138, label %137
 
-141:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %140)
-  br label %142
+137:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %136)
+  br label %138
 
-142:                                              ; preds = %141, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
+138:                                              ; preds = %137, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
   %indvars.iv.next.i.i127 = add nuw nsw i64 %indvars.iv.i.i125, 1
   %exitcond.not.i.i128 = icmp eq i64 %indvars.iv.next.i.i127, 9
   br i1 %exitcond.not.i.i128, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %142
-  %143 = add nuw nsw i64 %indvars.iv164, 7
-  %144 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %143
-  store ptr %123, ptr %144, align 8
-  %145 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %146 = load i32, ptr %0, align 8
-  store ptr null, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i32 %146, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  store ptr null, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  store ptr @.str.284, ptr %149, align 8
-  %150 = zext i32 %146 to i64
-  %151 = shl nuw nsw i64 %150, 3
-  %152 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %151, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %152, ptr %145, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %153, i8 0, i64 72, i1 false)
-  %154 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %155 = load i32, ptr %147, align 8
-  %.not.i.i.i130 = icmp eq i32 %155, 0
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %138
+  %139 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  store ptr %119, ptr %139, align 8
+  %140 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %141 = load i32, ptr %0, align 8
+  store ptr null, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  store i32 %141, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  store ptr null, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  store ptr @.str.284, ptr %144, align 8
+  %145 = zext i32 %141 to i64
+  %146 = shl nuw nsw i64 %145, 3
+  %147 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %146, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %147, ptr %140, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %148, i8 0, i64 72, i1 false)
+  %149 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %150 = load i32, ptr %142, align 8
+  %.not.i.i.i130 = icmp eq i32 %150, 0
   br i1 %.not.i.i.i130, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, label %.lr.ph.i.i.i131
 
 .lr.ph.i.i.i131:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, %.lr.ph.i.i.i131
   %indvars.iv.i.i.i132 = phi i64 [ %indvars.iv.next.i.i.i133, %.lr.ph.i.i.i131 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129 ]
-  %156 = load ptr, ptr %145, align 8
-  %157 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv.i.i.i132
-  store double %154, ptr %157, align 8
+  %151 = load ptr, ptr %140, align 8
+  %152 = getelementptr inbounds nuw double, ptr %151, i64 %indvars.iv.i.i.i132
+  store double %149, ptr %152, align 8
   %indvars.iv.next.i.i.i133 = add nuw nsw i64 %indvars.iv.i.i.i132, 1
-  %158 = load i32, ptr %147, align 8
-  %159 = zext i32 %158 to i64
-  %160 = icmp samesign ult i64 %indvars.iv.next.i.i.i133, %159
-  br i1 %160, label %.lr.ph.i.i.i131, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, !llvm.loop !8
+  %153 = load i32, ptr %142, align 8
+  %154 = zext i32 %153 to i64
+  %155 = icmp samesign ult i64 %indvars.iv.next.i.i.i133, %154
+  br i1 %155, label %.lr.ph.i.i.i131, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader: ; preds = %.lr.ph.i.i.i131, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, %164
-  %indvars.iv.i.i135 = phi i64 [ %indvars.iv.next.i.i137, %164 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader ]
-  %161 = getelementptr inbounds nuw [9 x ptr], ptr %153, i64 0, i64 %indvars.iv.i.i135
-  %162 = load ptr, ptr %161, align 8
-  %.not.i.i136 = icmp eq ptr %162, null
-  br i1 %.not.i.i136, label %164, label %163
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, %159
+  %indvars.iv.i.i135 = phi i64 [ %indvars.iv.next.i.i137, %159 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader ]
+  %156 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i.i135
+  %157 = load ptr, ptr %156, align 8
+  %.not.i.i136 = icmp eq ptr %157, null
+  br i1 %.not.i.i136, label %159, label %158
 
-163:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %162)
-  br label %164
+158:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %157)
+  br label %159
 
-164:                                              ; preds = %163, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
+159:                                              ; preds = %158, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
   %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i135, 1
   %exitcond.not.i.i138 = icmp eq i64 %indvars.iv.next.i.i137, 9
   br i1 %exitcond.not.i.i138, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %164
-  %165 = add nuw nsw i64 %indvars.iv164, 8
-  %166 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %165
-  store ptr %145, ptr %166, align 8
-  %167 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %168 = load i32, ptr %0, align 8
-  store ptr null, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 %168, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  store ptr null, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store ptr @.str.285, ptr %171, align 8
-  %172 = zext i32 %168 to i64
-  %173 = shl nuw nsw i64 %172, 3
-  %174 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %173, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %174, ptr %167, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %175, i8 0, i64 72, i1 false)
-  %176 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %177 = load i32, ptr %169, align 8
-  %.not.i.i.i140 = icmp eq i32 %177, 0
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %159
+  %160 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  store ptr %140, ptr %160, align 8
+  %161 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %162 = load i32, ptr %0, align 8
+  store ptr null, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  store i32 %162, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store ptr null, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  store ptr @.str.285, ptr %165, align 8
+  %166 = zext i32 %162 to i64
+  %167 = shl nuw nsw i64 %166, 3
+  %168 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %167, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %168, ptr %161, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %161, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %169, i8 0, i64 72, i1 false)
+  %170 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %171 = load i32, ptr %163, align 8
+  %.not.i.i.i140 = icmp eq i32 %171, 0
   br i1 %.not.i.i.i140, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, label %.lr.ph.i.i.i141
 
 .lr.ph.i.i.i141:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, %.lr.ph.i.i.i141
   %indvars.iv.i.i.i142 = phi i64 [ %indvars.iv.next.i.i.i143, %.lr.ph.i.i.i141 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139 ]
-  %178 = load ptr, ptr %167, align 8
-  %179 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv.i.i.i142
-  store double %176, ptr %179, align 8
+  %172 = load ptr, ptr %161, align 8
+  %173 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv.i.i.i142
+  store double %170, ptr %173, align 8
   %indvars.iv.next.i.i.i143 = add nuw nsw i64 %indvars.iv.i.i.i142, 1
-  %180 = load i32, ptr %169, align 8
-  %181 = zext i32 %180 to i64
-  %182 = icmp samesign ult i64 %indvars.iv.next.i.i.i143, %181
-  br i1 %182, label %.lr.ph.i.i.i141, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, !llvm.loop !8
+  %174 = load i32, ptr %163, align 8
+  %175 = zext i32 %174 to i64
+  %176 = icmp samesign ult i64 %indvars.iv.next.i.i.i143, %175
+  br i1 %176, label %.lr.ph.i.i.i141, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader: ; preds = %.lr.ph.i.i.i141, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, %186
-  %indvars.iv.i.i145 = phi i64 [ %indvars.iv.next.i.i147, %186 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader ]
-  %183 = getelementptr inbounds nuw [9 x ptr], ptr %175, i64 0, i64 %indvars.iv.i.i145
-  %184 = load ptr, ptr %183, align 8
-  %.not.i.i146 = icmp eq ptr %184, null
-  br i1 %.not.i.i146, label %186, label %185
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, %180
+  %indvars.iv.i.i145 = phi i64 [ %indvars.iv.next.i.i147, %180 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader ]
+  %177 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i.i145
+  %178 = load ptr, ptr %177, align 8
+  %.not.i.i146 = icmp eq ptr %178, null
+  br i1 %.not.i.i146, label %180, label %179
 
-185:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %184)
-  br label %186
+179:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %178)
+  br label %180
 
-186:                                              ; preds = %185, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
+180:                                              ; preds = %179, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
   %indvars.iv.next.i.i147 = add nuw nsw i64 %indvars.iv.i.i145, 1
   %exitcond.not.i.i148 = icmp eq i64 %indvars.iv.next.i.i147, 9
   br i1 %exitcond.not.i.i148, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %186
-  %187 = add nuw nsw i64 %indvars.iv164, 9
-  %188 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %187
-  store ptr %167, ptr %188, align 8
-  %189 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
-  %190 = load i32, ptr %0, align 8
-  store ptr null, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store i32 %190, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store ptr null, ptr %192, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  store ptr @.str.286, ptr %193, align 8
-  %194 = zext i32 %190 to i64
-  %195 = shl nuw nsw i64 %194, 3
-  %196 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %195, i8 noundef zeroext 5, i32 noundef 0) #12
-  store ptr %196, ptr %189, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %189, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %197, i8 0, i64 72, i1 false)
-  %198 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %199 = load i32, ptr %191, align 8
-  %.not.i.i.i150 = icmp eq i32 %199, 0
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %180
+  %181 = getelementptr inbounds nuw i8, ptr %33, i64 72
+  store ptr %161, ptr %181, align 8
+  %182 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #12
+  %183 = load i32, ptr %0, align 8
+  store ptr null, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store i32 %183, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  store ptr null, ptr %185, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  store ptr @.str.286, ptr %186, align 8
+  %187 = zext i32 %183 to i64
+  %188 = shl nuw nsw i64 %187, 3
+  %189 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %188, i8 noundef zeroext 5, i32 noundef 0) #12
+  store ptr %189, ptr %182, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %190, i8 0, i64 72, i1 false)
+  %191 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %192 = load i32, ptr %184, align 8
+  %.not.i.i.i150 = icmp eq i32 %192, 0
   br i1 %.not.i.i.i150, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, label %.lr.ph.i.i.i151
 
 .lr.ph.i.i.i151:                                  ; preds = %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, %.lr.ph.i.i.i151
   %indvars.iv.i.i.i152 = phi i64 [ %indvars.iv.next.i.i.i153, %.lr.ph.i.i.i151 ], [ 0, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149 ]
-  %200 = load ptr, ptr %189, align 8
-  %201 = getelementptr inbounds nuw double, ptr %200, i64 %indvars.iv.i.i.i152
-  store double %198, ptr %201, align 8
+  %193 = load ptr, ptr %182, align 8
+  %194 = getelementptr inbounds nuw double, ptr %193, i64 %indvars.iv.i.i.i152
+  store double %191, ptr %194, align 8
   %indvars.iv.next.i.i.i153 = add nuw nsw i64 %indvars.iv.i.i.i152, 1
-  %202 = load i32, ptr %191, align 8
-  %203 = zext i32 %202 to i64
-  %204 = icmp samesign ult i64 %indvars.iv.next.i.i.i153, %203
-  br i1 %204, label %.lr.ph.i.i.i151, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, !llvm.loop !8
+  %195 = load i32, ptr %184, align 8
+  %196 = zext i32 %195 to i64
+  %197 = icmp samesign ult i64 %indvars.iv.next.i.i.i153, %196
+  br i1 %197, label %.lr.ph.i.i.i151, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader: ; preds = %.lr.ph.i.i.i151, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
 
-_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, %208
-  %indvars.iv.i.i155 = phi i64 [ %indvars.iv.next.i.i157, %208 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader ]
-  %205 = getelementptr inbounds nuw [9 x ptr], ptr %197, i64 0, i64 %indvars.iv.i.i155
-  %206 = load ptr, ptr %205, align 8
-  %.not.i.i156 = icmp eq ptr %206, null
-  br i1 %.not.i.i156, label %208, label %207
+_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154:    ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, %201
+  %indvars.iv.i.i155 = phi i64 [ %indvars.iv.next.i.i157, %201 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader ]
+  %198 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv.i.i155
+  %199 = load ptr, ptr %198, align 8
+  %.not.i.i156 = icmp eq ptr %199, null
+  br i1 %.not.i.i156, label %201, label %200
 
-207:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
-  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %206)
-  br label %208
+200:                                              ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
+  tail call void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %199)
+  br label %201
 
-208:                                              ; preds = %207, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
+201:                                              ; preds = %200, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i155, 1
   %exitcond.not.i.i158 = icmp eq i64 %indvars.iv.next.i.i157, 9
   br i1 %exitcond.not.i.i158, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154, !llvm.loop !9
 
-_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159:        ; preds = %208
-  %209 = add nuw nsw i64 %indvars.iv164, 10
-  %210 = getelementptr inbounds nuw [316 x ptr], ptr %5, i64 0, i64 %209
-  store ptr %189, ptr %210, align 8
-  br label %211
+_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159:        ; preds = %201
+  %202 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  store ptr %182, ptr %202, align 8
+  br label %203
 
-211:                                              ; preds = %.preheader, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159
+203:                                              ; preds = %.preheader, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 316
-  br i1 %exitcond167.not, label %212, label %.preheader, !llvm.loop !10
+  br i1 %exitcond167.not, label %204, label %.preheader, !llvm.loop !10
 
-212:                                              ; preds = %211
-  %213 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1632
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 30344
-  store ptr %215, ptr %216, align 8
+204:                                              ; preds = %203
+  %205 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 1632
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 30344
+  store ptr %207, ptr %208, align 8
   ret void
 }
 
@@ -979,7 +971,7 @@ define hidden noundef ptr @_ZN22ShenandoahPhaseTimings11worker_dataENS_5PhaseENS
   %5 = add nsw i32 %4, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27816
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw [316 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
@@ -1007,7 +999,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahPhaseTimings18is_root_work_phas
 define hidden void @_ZN22ShenandoahPhaseTimings14set_cycle_dataENS_5PhaseEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(30352) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [316 x double], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
   store double %2, ptr %6, align 8
   ret void
 }
@@ -1022,7 +1014,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(p
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw [316 x double], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %9
   store double %2, ptr %10, align 8
   br label %11
 
@@ -1043,8 +1035,8 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
 
 5:                                                ; preds = %.preheader, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %6 = add nuw nsw i64 %indvars.iv, 306
-  %7 = getelementptr inbounds nuw [316 x ptr], ptr %4, i64 0, i64 %6
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2448
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1069,7 +1061,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %5
 
 18:                                               ; preds = %22, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %22 ]
-  %19 = getelementptr inbounds nuw [9 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %22, label %21
@@ -1111,16 +1103,20 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   %8 = load i32, ptr %0, align 8
   %.not = icmp ne i32 %8, 0
   %or.cond.not = select i1 %6, i1 %.not, i1 false
-  br i1 %or.cond.not, label %.preheader.split, label %.split.us.thread
+  br i1 %or.cond.not, label %.preheader.split.preheader, label %.split.us.thread
 
-.preheader.split:                                 ; preds = %4, %._crit_edge.thread
-  %9 = phi i32 [ %32, %._crit_edge.thread ], [ 1, %4 ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.thread ], [ 1, %4 ]
-  %.03037 = phi double [ %.131, %._crit_edge.thread ], [ -1.000000e+00, %4 ]
-  %10 = add nuw nsw i64 %7, %indvars.iv42
-  %11 = getelementptr inbounds nuw [316 x ptr], ptr %2, i64 0, i64 %10
+.preheader.split.preheader:                       ; preds = %4
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %7
+  %invariant.gep = getelementptr double, ptr %3, i64 %indvars.iv45
+  br label %.preheader.split
+
+.preheader.split:                                 ; preds = %.preheader.split.preheader, %._crit_edge.thread
+  %10 = phi i32 [ 1, %.preheader.split.preheader ], [ %32, %._crit_edge.thread ]
+  %indvars.iv42 = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next43, %._crit_edge.thread ]
+  %.03037 = phi double [ -1.000000e+00, %.preheader.split.preheader ], [ %.131, %._crit_edge.thread ]
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv42
   %12 = load ptr, ptr %11, align 8
-  %.not39 = icmp eq i32 %9, 0
+  %.not39 = icmp eq i32 %10, 0
   br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.split, %22
@@ -1154,7 +1150,8 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   br i1 %26, label %27, label %._crit_edge.thread
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw [316 x double], ptr %3, i64 0, i64 %10
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv42
+  %28 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   store double %.1, ptr %28, align 8
   %29 = fcmp oeq double %.03037, -1.000000e+00
   br i1 %29, label %._crit_edge.thread, label %30
@@ -1175,15 +1172,16 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   br i1 %33, label %34, label %.split.us.thread
 
 34:                                               ; preds = %.split.us
-  %35 = getelementptr inbounds nuw [316 x double], ptr %3, i64 0, i64 %7
-  store double %.131, ptr %35, align 8
+  %35 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv45
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store double %.131, ptr %36, align 8
   br label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %4, %34, %.split.us
   %exitcond48.not = icmp eq i64 %7, 316
-  br i1 %exitcond48.not, label %36, label %4, !llvm.loop !15
+  br i1 %exitcond48.not, label %37, label %4, !llvm.loop !15
 
-36:                                               ; preds = %.split.us.thread
+37:                                               ; preds = %.split.us.thread
   ret void
 }
 
@@ -1198,13 +1196,13 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
 
 5:                                                ; preds = %1, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %6 = getelementptr inbounds nuw [316 x double], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = fcmp une double %7, -1.000000e+00
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw [316 x %class.HdrSeq], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %class.HdrSeq, ptr %3, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1213,7 +1211,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
   br label %14
 
 14:                                               ; preds = %9, %5
-  %15 = getelementptr inbounds nuw [316 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %17
@@ -1242,7 +1240,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %17
 
 27:                                               ; preds = %31, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %31 ]
-  %28 = getelementptr inbounds nuw [9 x ptr], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %31, label %30
@@ -1277,83 +1275,82 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 27816
   br label %5
 
-5:                                                ; preds = %2, %41
-  %indvars.iv37 = phi i64 [ 0, %2 ], [ %indvars.iv.next38, %41 ]
-  %6 = getelementptr inbounds nuw [316 x double], ptr %3, i64 0, i64 %indvars.iv37
+5:                                                ; preds = %2, %40
+  %indvars.iv36 = phi i64 [ 0, %2 ], [ %indvars.iv.next37, %40 ]
+  %6 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv36
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, 1.000000e+06
   %9 = fcmp ogt double %8, 0.000000e+00
-  br i1 %9, label %10, label %41
+  br i1 %9, label %10, label %40
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw [316 x ptr], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 0, i64 %indvars.iv37
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv36
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.289, ptr noundef %12, double noundef %8) #12
-  %13 = trunc nuw nsw i64 %indvars.iv37 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv36 to i32
   %14 = tail call noundef zeroext i1 @_ZN22ShenandoahPhaseTimings15is_worker_phaseENS_5PhaseE(i32 noundef %13)
-  br i1 %14, label %15, label %23
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %10
-  %16 = add nuw nsw i64 %indvars.iv37, 1
-  %17 = getelementptr inbounds nuw [316 x double], ptr %3, i64 0, i64 %16
-  %18 = load double, ptr %17, align 8
-  %19 = fmul double %18, 1.000000e+06
-  %20 = fcmp ogt double %19, 0.000000e+00
-  br i1 %20, label %21, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = fmul double %17, 1.000000e+06
+  %19 = fcmp ogt double %18, 0.000000e+00
+  br i1 %19, label %20, label %22
 
-21:                                               ; preds = %15
-  %22 = fdiv double %19, %8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.290, double noundef %22) #12
-  br label %23
+20:                                               ; preds = %15
+  %21 = fdiv double %18, %8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.290, double noundef %21) #12
+  br label %22
 
-23:                                               ; preds = %15, %21, %10
-  %24 = getelementptr inbounds nuw [316 x ptr], ptr %4, i64 0, i64 %indvars.iv37
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.loopexit, label %26
+22:                                               ; preds = %15, %20, %10
+  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv36
+  %24 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %.loopexit, label %25
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.291) #12
-  %27 = load i32, ptr %0, align 8
-  %.not35 = icmp eq i32 %27, 0
-  br i1 %.not35, label %.loopexit, label %.lr.ph
+  %26 = load i32, ptr %0, align 8
+  %.not34 = icmp eq i32 %26, 0
+  br i1 %.not34, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %26 ]
-  %28 = load ptr, ptr %24, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8
-  %32 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
-  %33 = fcmp une double %31, %32
-  br i1 %33, label %34, label %36
+.lr.ph:                                           ; preds = %25, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %25 ]
+  %27 = load ptr, ptr %23, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %30 = load double, ptr %29, align 8
+  %31 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #12
+  %32 = fcmp une double %30, %31
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %.lr.ph
-  %35 = fmul double %31, 1.000000e+06
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.292, double noundef %35) #12
-  br label %37
+33:                                               ; preds = %.lr.ph
+  %34 = fmul double %30, 1.000000e+06
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.292, double noundef %34) #12
+  br label %36
 
-36:                                               ; preds = %.lr.ph
+35:                                               ; preds = %.lr.ph
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294) #12
-  br label %37
+  br label %36
 
-37:                                               ; preds = %34, %36
+36:                                               ; preds = %33, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %0, align 8
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  %37 = load i32, ptr %0, align 8
+  %38 = zext i32 %37 to i64
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
+  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %37, %26, %23
+.loopexit:                                        ; preds = %36, %25, %22
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
-  br label %41
+  br label %40
 
-41:                                               ; preds = %5, %.loopexit
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next38, 316
-  br i1 %exitcond.not, label %42, label %5, !llvm.loop !20
+40:                                               ; preds = %5, %.loopexit
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next37, 316
+  br i1 %exitcond.not, label %41, label %5, !llvm.loop !20
 
-42:                                               ; preds = %41
+41:                                               ; preds = %40
   ret void
 }
 
@@ -1391,7 +1388,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStrea
 
 4:                                                ; preds = %2, %33
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %33 ]
-  %5 = getelementptr inbounds nuw [316 x %class.HdrSeq], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %class.HdrSeq, ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -1400,7 +1397,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStrea
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw [316 x ptr], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load double, ptr %14, align 8
@@ -1480,7 +1477,7 @@ define hidden void @_ZN30ShenandoahWorkerTimingsTrackerD2Ev(ptr noundef nonnull 
   %8 = add nsw i32 %7, %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 27816
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [316 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
@@ -1510,7 +1507,7 @@ define hidden void @_ZN30ShenandoahWorkerTimingsTrackerD2Ev(ptr noundef nonnull 
   %28 = tail call noundef i32 @_ZN4GCId7currentEv() #12
   %29 = load i32, ptr %13, align 8
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw [316 x ptr], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %.not.i.i = icmp eq i8 %33, 0
@@ -3331,7 +3328,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 
 11:                                               ; preds = %_ZN15WorkerDataArrayImE7set_allEm.exit, %15
   %indvars.iv = phi i64 [ 0, %_ZN15WorkerDataArrayImE7set_allEm.exit ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14

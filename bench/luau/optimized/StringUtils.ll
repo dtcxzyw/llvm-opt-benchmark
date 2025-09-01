@@ -821,7 +821,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt5arrayImLm256E
 _ZNSt5arrayImLm256EE4fillERKm.exit:               ; preds = %82
   %79 = load i8, ptr %65, align 1, !tbaa !14
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %5, i64 %80
   store i64 %.051157, ptr %81, align 8, !tbaa !31
   %.not55 = icmp ugt i64 %68, %.sroa.0111.1147
   br i1 %.not55, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.preheader, !llvm.loop !51
@@ -834,7 +834,7 @@ _ZNSt5arrayImLm256EE4fillERKm.exit:               ; preds = %82
   %85 = getelementptr i8, ptr %84, i64 -1
   %86 = load i8, ptr %85, align 1, !tbaa !14
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr %5, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !31
   %90 = load i8, ptr %65, align 1, !tbaa !14
   %91 = icmp ne i8 %90, %86

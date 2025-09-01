@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZN6parser5input5Input8is_joint17hb0a3d6423dc3
   %8 = and i64 %1, 63
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !nonnull !26, !noundef !26
-  %11 = getelementptr inbounds nuw [0 x i64], ptr %10, i64 0, i64 %3
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %3
   %12 = load i64, ptr %11, align 8, !noundef !26
   %13 = shl nuw i64 1, %8
   %14 = and i64 %12, %13
@@ -328,7 +328,7 @@ default.unreachable12:                            ; preds = %3
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i: ; preds = %23
   %28 = load ptr, ptr %17, align 8, !alias.scope !57, !noalias !47, !nonnull !26, !noundef !26
-  %29 = getelementptr inbounds [0 x i16], ptr %28, i64 0, i64 %25
+  %29 = getelementptr inbounds i16, ptr %28, i64 %25
   %30 = load i16, ptr %29, align 2, !range !15, !noalias !60, !noundef !26
   %31 = add nsw i16 %30, -125
   %switch.and.i = and i16 %31, -3
@@ -454,7 +454,7 @@ default.unreachable9:                             ; preds = %2
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i: ; preds = %21
   %26 = load ptr, ptr %15, align 8, !alias.scope !71, !noalias !65, !nonnull !26, !noundef !26
-  %27 = getelementptr inbounds [0 x i16], ptr %26, i64 0, i64 %23
+  %27 = getelementptr inbounds i16, ptr %26, i64 %23
   %28 = load i16, ptr %27, align 2, !range !15, !noalias !74, !noundef !26
   %29 = add nsw i16 %28, -125
   %switch.and.i = and i16 %29, -3
@@ -572,7 +572,7 @@ default.unreachable17:                            ; preds = %2
 
 "_ZN6parser9shortcuts7Builder5enter28_$u7b$$u7b$closure$u7d$$u7d$17hee2cccdcba164754E.exit.i.i.i.i": ; preds = %31
   %34 = load ptr, ptr %24, align 8, !alias.scope !82, !noalias !94, !nonnull !26, !noundef !26
-  %35 = getelementptr inbounds [0 x i16], ptr %34, i64 0, i64 %27
+  %35 = getelementptr inbounds i16, ptr %34, i64 %27
   %36 = load i16, ptr %35, align 2, !range !15, !noalias !85, !noundef !26
   %37 = add nsw i16 %36, -125
   %switch.and.i.i.i.i.i = and i16 %37, -3
@@ -702,7 +702,7 @@ define hidden void @_ZN6parser9shortcuts7Builder11eat_trivias17hbd61413dc3adee8f
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit: ; preds = %15
   %20 = load ptr, ptr %9, align 8, !alias.scope !98, !nonnull !26, !noundef !26
-  %21 = getelementptr inbounds [0 x i16], ptr %20, i64 0, i64 %17
+  %21 = getelementptr inbounds i16, ptr %20, i64 %17
   %22 = load i16, ptr %21, align 2, !range !15, !noalias !98, !noundef !26
   %23 = add nsw i16 %22, -125
   %switch.and = and i16 %23, -3
@@ -784,7 +784,7 @@ define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit: ; preds = %20
   %23 = load ptr, ptr %7, align 8, !alias.scope !104, !nonnull !26, !noundef !26
-  %24 = getelementptr inbounds [0 x i16], ptr %23, i64 0, i64 %14
+  %24 = getelementptr inbounds i16, ptr %23, i64 %14
   %25 = load i16, ptr %24, align 2, !range !15, !noalias !104, !noundef !26
   %26 = add nsw i16 %25, -125
   %switch.and = and i16 %26, -3
@@ -893,7 +893,7 @@ define hidden void @_ZN6parser9shortcuts7Builder14do_float_split17hd6bf0c8a0b232
 
 .lr.ph.i.i.i:                                     ; preds = %31, %35
   %.05.i.i.i = phi i64 [ %36, %35 ], [ 0, %31 ]
-  %32 = getelementptr inbounds nuw [0 x i8], ptr %27, i64 0, i64 %.05.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 %.05.i.i.i
   %33 = load i8, ptr %32, align 1, !alias.scope !119, !noalias !113, !noundef !26
   %34 = icmp eq i8 %33, 46
   br i1 %34, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %35

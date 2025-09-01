@@ -129,7 +129,7 @@ define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32
   %60 = getelementptr inbounds i8, ptr %2, i64 %59
   %61 = sub nsw i32 %21, %.0
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [64 x i8], ptr %12, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %12, i64 %62
   %64 = sext i32 %56 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %63, i64 %64, i1 false)
   br label %65
@@ -585,9 +585,9 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   %91 = trunc nuw nsw i64 %indvars.iv198 to i32
   %92 = urem i32 %91, %25
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %13, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !11
-  %96 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 0, i64 %indvars.iv198
+  %96 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv198
   store i8 %95, ptr %96, align 1, !tbaa !11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next199, %51

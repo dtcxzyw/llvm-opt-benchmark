@@ -1630,10 +1630,10 @@ _ZN10open_spiel14colored_trails12_GLOBAL__N_112CurrentScoreEiRKNS0_5BoardE.exit:
 40:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
   %.144 = phi i32 [ %34, %.preheader ], [ %.2, %76 ]
-  %41 = getelementptr inbounds nuw [4 x i32], ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_111kRowOffsetsE, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_111kRowOffsetsE, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, %24
-  %44 = getelementptr inbounds nuw [4 x i32], ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_114kColumnOffsetsE, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel14colored_trails12_GLOBAL__N_114kColumnOffsetsE, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, %25
   %47 = call noundef zeroext i1 @_ZNK10open_spiel14colored_trails5Board8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %43, i32 noundef %46)
@@ -3861,7 +3861,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE6insertIPZNKS1_16strings_intern
   %40 = phi i64 [ %64, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre17, %.preheader.preheader ]
   %41 = phi ptr [ %57, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %4, i64 0, i64 %.0
+  %42 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8

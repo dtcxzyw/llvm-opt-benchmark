@@ -350,7 +350,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %46, label %.lr.ph150, label %._crit_edge151
 
 .lr.ph150:                                        ; preds = %.preheader128
-  %50 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %6, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !30
   %wide.trip.count189 = zext nneg i32 %2 to i64
   br label %120
@@ -375,7 +375,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 .lr.ph158:                                        ; preds = %.preheader125
   %62 = zext nneg i32 %54 to i64
-  %63 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !30
   %wide.trip.count207 = zext nneg i32 %2 to i64
   br label %65
@@ -406,15 +406,15 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 .lr.ph143:                                        ; preds = %68
   %75 = zext nneg i32 %54 to i64
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %6, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !30
   %78 = zext nneg i32 %53 to i64
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %6, i64 %78
   br label %83
 
 .lr.ph145:                                        ; preds = %100
   %80 = zext nneg i32 %54 to i64
-  %81 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %6, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !30
   br label %109
 
@@ -524,7 +524,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %exitcond190.not, label %._crit_edge151, label %120, !llvm.loop !41
 
 ._crit_edge151:                                   ; preds = %120, %.preheader128
-  %123 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %49
+  %123 = getelementptr inbounds nuw ptr, ptr %6, i64 %49
   %124 = load ptr, ptr %123, align 8, !tbaa !30
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   tail call void @free(ptr noundef %14) #7

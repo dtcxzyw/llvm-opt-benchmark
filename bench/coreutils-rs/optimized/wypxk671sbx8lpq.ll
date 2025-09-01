@@ -340,7 +340,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = zext nneg i8 %.val3.i.i to i64
-  %9 = getelementptr inbounds nuw [10 x { ptr, i64 }], ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !72, !noundef !5
   %.not.i.i.i.i.i.i = icmp eq i64 %11, 1
@@ -369,7 +369,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 19:                                               ; preds = %.preheader.preheader
   %20 = zext nneg i8 %.val4.i.i to i64
-  %21 = getelementptr inbounds nuw [10 x { ptr, i64 }], ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.f4eead60594d9c7accfe52d4aae47f88.36, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !88, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %23, 2

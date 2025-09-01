@@ -687,7 +687,7 @@ define noundef range(i64 -44, 13) i64 @_ZN11duckdb_zstd18FSE_normalizeCountEPsjP
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjjE8rtbTable, i64 0, i64 %46
+  %52 = getelementptr inbounds nuw i32, ptr @_ZZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjjE8rtbTable, i64 %46
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = zext i32 %53 to i64
   %55 = shl i64 %54, %25
@@ -1061,7 +1061,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %59 = add nuw nsw i64 %58, %38
   %60 = lshr i64 %59, 16
   %61 = trunc nuw nsw i64 %60 to i32
-  %62 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !29
   %64 = zext i32 %63 to i64
   %65 = and i64 %64, %38
@@ -1137,7 +1137,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %107 = add nuw nsw i64 %106, %.sroa.0.0
   %108 = lshr i64 %107, 16
   %109 = trunc nuw nsw i64 %108 to i32
-  %110 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %108
+  %110 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !29
   %112 = zext i32 %111 to i64
   %113 = and i64 %112, %.sroa.0.0
@@ -1161,7 +1161,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %128 = add nuw nsw i64 %127, %.sroa.091.0
   %129 = lshr i64 %128, 16
   %130 = trunc nuw nsw i64 %129 to i32
-  %131 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %129
+  %131 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %129
   %132 = load i32, ptr %131, align 4, !tbaa !29
   %133 = zext i32 %132 to i64
   %134 = and i64 %133, %.sroa.091.0
@@ -1230,7 +1230,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %167 = add nuw nsw i64 %.sroa.0.2160, %166
   %168 = lshr i64 %167, 16
   %169 = trunc nuw nsw i64 %168 to i32
-  %170 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %168
+  %170 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %168
   %171 = load i32, ptr %170, align 4, !tbaa !29
   %172 = zext i32 %171 to i64
   %173 = and i64 %.sroa.0.2160, %172
@@ -1254,7 +1254,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %188 = add nuw nsw i64 %.sroa.091.2158, %187
   %189 = lshr i64 %188, 16
   %190 = trunc nuw nsw i64 %189 to i32
-  %191 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %189
+  %191 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %189
   %192 = load i32, ptr %191, align 4, !tbaa !29
   %193 = zext i32 %192 to i64
   %194 = and i64 %.sroa.091.2158, %193
@@ -1278,7 +1278,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %209 = add nuw nsw i64 %208, %182
   %210 = lshr i64 %209, 16
   %211 = trunc nuw nsw i64 %210 to i32
-  %212 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %210
+  %212 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %210
   %213 = load i32, ptr %212, align 4, !tbaa !29
   %214 = zext i32 %213 to i64
   %215 = and i64 %214, %182
@@ -1302,7 +1302,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %230 = add nuw nsw i64 %229, %203
   %231 = lshr i64 %230, 16
   %232 = trunc nuw nsw i64 %231 to i32
-  %233 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %231
+  %233 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %231
   %234 = load i32, ptr %233, align 4, !tbaa !29
   %235 = zext i32 %234 to i64
   %236 = and i64 %235, %203
@@ -1339,7 +1339,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %.sroa.82.2.lcssa = phi ptr [ %.sroa.82.1, %158 ], [ %.sroa.82.3, %161 ]
   %.sroa.0.2.lcssa = phi i64 [ %.sroa.0.1, %158 ], [ %224, %161 ]
   %256 = zext i16 %.val.i.i52 to i64
-  %257 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !29
   %259 = zext i32 %258 to i64
   %260 = and i64 %.sroa.0.2.lcssa, %259

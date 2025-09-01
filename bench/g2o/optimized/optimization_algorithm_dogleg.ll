@@ -2383,7 +2383,7 @@ define void @_ZNK3g2o27OptimizationAlgorithmDogleg12printVerboseERSo(ptr noundef
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi.exit
 
@@ -2419,7 +2419,7 @@ define noundef nonnull ptr @_ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3g2o27OptimizationAlgorithmDogleg12stepType2StrEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

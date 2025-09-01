@@ -135,9 +135,9 @@ Dbl.exit45:                                       ; preds = %37, %38
 
 54:                                               ; preds = %52, %54
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %55 = getelementptr i8, ptr %12, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %57 = getelementptr i8, ptr %13, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = xor i8 %58, %56
   store i8 %59, ptr %57, align 1
@@ -288,7 +288,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 32:                                               ; preds = %._crit_edge, %32
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 0, i64 %indvars.iv
+  %33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr i8, ptr %31, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1
@@ -305,7 +305,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 41:                                               ; preds = %38, %41
   %indvars.iv75 = phi i64 [ 0, %38 ], [ %indvars.iv.next76, %41 ]
-  %42 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 0, i64 %indvars.iv75
+  %42 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 %indvars.iv75
   %43 = load i8, ptr %42, align 1
   %44 = getelementptr i8, ptr %40, i64 %indvars.iv75
   %45 = load i8, ptr %44, align 1

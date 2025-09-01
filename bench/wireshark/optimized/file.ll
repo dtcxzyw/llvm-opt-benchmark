@@ -2825,7 +2825,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %12
 
 switch.lookup:                                    ; preds = %.lr.ph.i30, %46
   %53 = zext nneg i32 %47 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.cf_retap_packets, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cf_retap_packets, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %54
 

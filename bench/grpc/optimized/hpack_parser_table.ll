@@ -943,7 +943,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %28, %29, %.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1512
   %49 = tail call noundef i32 @_ZN9grpc_core20Histogram_1800000_409BucketForEi(i32 noundef %46)
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [40 x %"struct.std::atomic.21"], ptr %48, i64 0, i64 %50
+  %51 = getelementptr inbounds %"struct.std::atomic.21", ptr %48, i64 %50
   %52 = atomicrmw add ptr %51, i64 1 monotonic, align 8
   store i32 -1, ptr %12, align 4, !tbaa !36
   %.pre = load i32, ptr %1, align 8, !tbaa !35
@@ -2345,7 +2345,7 @@ define void @_ZN9grpc_core10HPackTable14StaticMementosC2Ev(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %20 = getelementptr inbounds nuw [61 x %"struct.grpc_core::(anonymous namespace)::StaticTableEntry"], ptr @_ZN9grpc_core12_GLOBAL__N_112kStaticTableE, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::StaticTableEntry", ptr @_ZN9grpc_core12_GLOBAL__N_112kStaticTableE, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %20, align 16, !tbaa !84, !noalias !81
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !84, !noalias !81
@@ -2446,7 +2446,7 @@ _ZN9grpc_core15metadata_detail19EncodableNameLookupIJNS_16HttpPathMetadataENS_21
 
 _ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i: ; preds = %40, %43, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %54 = getelementptr inbounds nuw [61 x %"struct.grpc_core::HPackTable::Memento"], ptr %0, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %0, i64 %indvars.iv
   %55 = load ptr, ptr %6, align 8, !tbaa !26
   store ptr %55, ptr %54, align 8, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -9615,7 +9615,7 @@ _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %.invoke, %16, %12, 
 
 _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %26, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
   %35 = phi i64 [ 0, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %34, %26 ]
-  %36 = getelementptr inbounds nuw [2 x %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable"], ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEEE6vtable, i64 %35
   store ptr %36, ptr %0, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %20, ptr %37, align 8, !tbaa !31

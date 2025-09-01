@@ -1410,7 +1410,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %indvars.iv = phi i64 [ 0, %1054 ], [ %indvars.iv.next, %1092 ]
   %1093 = getelementptr i8, ptr %.4.lcssa, i64 %indvars.iv
   %1094 = load i8, ptr %1093, align 1
-  %1095 = getelementptr [64 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %1095 = getelementptr i8, ptr %5, i64 %indvars.iv
   %1096 = load i8, ptr %1095, align 1
   %1097 = xor i8 %1096, %1094
   %1098 = getelementptr i8, ptr %.41708.lcssa, i64 %indvars.iv

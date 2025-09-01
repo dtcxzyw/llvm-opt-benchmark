@@ -3283,7 +3283,7 @@ _ZN4node4i18n12_GLOBAL__N_112EncodingNameENS_8encodingE.exit: ; preds = %sw.epil
 
 switch.lookup:                                    ; preds = %_ZN4node4i18n12_GLOBAL__N_112EncodingNameENS_8encodingE.exit
   %35 = zext nneg i32 %call25 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4node4i18n12_GLOBAL__N_19TranscodeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node4i18n12_GLOBAL__N_19TranscodeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %if.end48
 

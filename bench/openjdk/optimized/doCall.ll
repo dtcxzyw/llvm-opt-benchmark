@@ -155,7 +155,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %22, %9
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %28
   %30 = phi i32 [ %29, %28 ], [ %27, %_ZN8ciMethod4codeEv.exit.i ]
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %31
   %33 = load i32, ptr %32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2337,7 +2337,7 @@ declare noundef ptr @_ZN8GraphKit13cast_not_nullEP4Nodeb(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN8GraphKit8pop_nodeE9BasicType(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @type2size, i64 %3
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %29 [
     i32 1, label %6
@@ -2526,7 +2526,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @type2size, i64 %4
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %_ZN8GraphKit4pushEP4Node.exit [
     i32 1, label %7

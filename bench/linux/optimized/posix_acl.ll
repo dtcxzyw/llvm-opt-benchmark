@@ -798,7 +798,7 @@ define dso_local noundef ptr @posix_acl_from_mode(i16 noundef zeroext %0, i32 no
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %11 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %10, i64 6
+  %11 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 6
   %12 = load ptr, ptr %11, align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 56) #17
   %14 = icmp eq ptr %13, null
@@ -1825,7 +1825,7 @@ define dso_local i32 @posix_acl_to_xattr(ptr readnone captures(none) %0, ptr nou
   %23 = phi i32 [ 0, %19 ], [ %38, %35 ]
   %24 = phi ptr [ %20, %19 ], [ %39, %35 ]
   %25 = sext i32 %23 to i64
-  %26 = getelementptr [0 x %struct.posix_acl_entry], ptr %21, i64 0, i64 %25
+  %26 = getelementptr %struct.posix_acl_entry, ptr %21, i64 %25
   %27 = load i16, ptr %26, align 4
   store i16 %27, ptr %24, align 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 2
@@ -2292,7 +2292,7 @@ select.unfold:                                    ; preds = %9, %4
 23:                                               ; preds = %36, %21
   %24 = phi i32 [ 0, %21 ], [ %37, %36 ]
   %25 = sext i32 %24 to i64
-  %26 = getelementptr [0 x %struct.posix_acl_entry], ptr %22, i64 0, i64 %25
+  %26 = getelementptr %struct.posix_acl_entry, ptr %22, i64 %25
   %27 = load i16, ptr %26, align 4
   switch i16 %27, label %36 [
     i16 2, label %28
@@ -2914,7 +2914,7 @@ vfs_get_acl.exit.thread:                          ; preds = %29, %10, %25, %18, 
 56:                                               ; preds = %73, %53
   %57 = phi ptr [ %54, %53 ], [ %77, %73 ]
   %58 = phi i64 [ 0, %53 ], [ %76, %73 ]
-  %59 = getelementptr [0 x %struct.posix_acl_entry], ptr %55, i64 0, i64 %58
+  %59 = getelementptr %struct.posix_acl_entry, ptr %55, i64 %58
   %60 = load i16, ptr %59, align 4
   store i16 %60, ptr %57, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 2

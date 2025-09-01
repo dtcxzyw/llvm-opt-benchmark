@@ -3503,7 +3503,7 @@ define internal fastcc i32 @set_protocol_version(ptr noundef %0, ptr noundef non
 
 .preheader:                                       ; preds = %3, %4
   %.067.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %.067.i
+  %6 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067.i
   %7 = load ptr, ptr %6, align 16, !tbaa !38
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #25
   %9 = icmp eq i32 %8, 0
@@ -4974,7 +4974,7 @@ define internal fastcc i32 @protocol_from_string(ptr noundef nonnull readonly ca
 
 4:                                                ; preds = %1, %2
   %.067 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %.067
+  %5 = getelementptr inbounds nuw %struct.protocol_versions, ptr @protocol_from_string.versions, i64 %.067
   %6 = load ptr, ptr %5, align 16, !tbaa !38
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #25
   %8 = icmp eq i32 %7, 0

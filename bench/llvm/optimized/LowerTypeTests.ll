@@ -2452,7 +2452,7 @@ define dso_local void @_ZN4llvm14lowertypetests16ByteArrayBuilder8allocateERKSt3
 
 7:                                                ; preds = %20
   %8 = zext i32 %spec.select to i64
-  %9 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !45
   store i64 %10, ptr %3, align 8, !tbaa !45
   %11 = add i64 %10, %2
@@ -2470,10 +2470,10 @@ define dso_local void @_ZN4llvm14lowertypetests16ByteArrayBuilder8allocateERKSt3
 20:                                               ; preds = %5, %20
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %20 ]
   %.028 = phi i32 [ 0, %5 ], [ %spec.select, %20 ]
-  %21 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !45
   %23 = zext i32 %.028 to i64
-  %24 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !45
   %26 = icmp ult i64 %22, %25
   %27 = trunc nuw nsw i64 %indvars.iv to i32
@@ -8139,7 +8139,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZNSt6vectorImSaImE
 1874:                                             ; preds = %1886
   %1875 = getelementptr inbounds nuw i64, ptr %1833, i64 %1869
   %1876 = zext i32 %spec.select.i.i747 to i64
-  %1877 = getelementptr inbounds nuw [8 x i64], ptr %1839, i64 0, i64 %1876
+  %1877 = getelementptr inbounds nuw i64, ptr %1839, i64 %1876
   %1878 = load i64, ptr %1877, align 8, !tbaa !45
   store i64 %1878, ptr %1875, align 8, !tbaa !45
   %1879 = add i64 %1878, %1873
@@ -8155,10 +8155,10 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZNSt6vectorImSaImE
 1886:                                             ; preds = %1886, %1868
   %indvars.iv.i.i = phi i64 [ 1, %1868 ], [ %indvars.iv.next.i.i, %1886 ]
   %.028.i.i = phi i32 [ 0, %1868 ], [ %spec.select.i.i747, %1886 ]
-  %1887 = getelementptr inbounds nuw [8 x i64], ptr %1839, i64 0, i64 %indvars.iv.i.i
+  %1887 = getelementptr inbounds nuw i64, ptr %1839, i64 %indvars.iv.i.i
   %1888 = load i64, ptr %1887, align 8, !tbaa !45
   %1889 = zext i32 %.028.i.i to i64
-  %1890 = getelementptr inbounds nuw [8 x i64], ptr %1839, i64 0, i64 %1889
+  %1890 = getelementptr inbounds nuw i64, ptr %1839, i64 %1889
   %1891 = load i64, ptr %1890, align 8, !tbaa !45
   %1892 = icmp ult i64 %1888, %1891
   %1893 = trunc nuw nsw i64 %indvars.iv.i.i to i32

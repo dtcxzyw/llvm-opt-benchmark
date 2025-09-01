@@ -4129,7 +4129,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   %53 = load i32, ptr %52, align 4
   %54 = add nuw nsw i32 %.033, 1
   %55 = zext nneg i32 %.033 to i64
-  %56 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
   store i32 %53, ptr %56, align 4
   %57 = call i32 @get_log_level() #18
   %58 = icmp sgt i32 %57, 6
@@ -4168,7 +4168,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   %73 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %3, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.64, i32 noundef %72) #18
   %74 = load i32, ptr %71, align 4
   %75 = zext nneg i32 %.134 to i64
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
   store i32 %74, ptr %76, align 4
   %77 = call i32 @fork() #18
   %78 = icmp slt i32 %77, 0

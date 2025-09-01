@@ -45,14 +45,14 @@ cmpsuff.exit.i:                                   ; preds = %5
 
 cmpsuff.exit.thread.i:                            ; preds = %cmpsuff.exit.i, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.next.i
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
   br i1 %exitcond.i, label %get_array_index.exit.thread, label %5, !llvm.loop !10
 
 get_array_index.exit:                             ; preds = %cmpsuff.exit.i
   %14 = and i64 %indvars.iv.i, 4294967295
-  %15 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = tail call i32 %17(ptr noundef %0) #4
@@ -103,7 +103,7 @@ cmpsuff.exit.i:                                   ; preds = %6
 
 cmpsuff.exit.thread.i:                            ; preds = %cmpsuff.exit.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %indvars.iv.next.i
+  %13 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.next.i
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
   br i1 %exitcond.i, label %get_array_index.exit.thread, label %6, !llvm.loop !10
@@ -132,7 +132,7 @@ cmpsuff.exit.i19:                                 ; preds = %17
 
 cmpsuff.exit.thread.i20:                          ; preds = %cmpsuff.exit.i19, %17
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i17, 1
-  %24 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %indvars.iv.next.i21
+  %24 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %indvars.iv.next.i21
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %exitcond.i22 = icmp eq i64 %indvars.iv.next.i21, 12
   br i1 %exitcond.i22, label %get_array_index.exit25.thread, label %17, !llvm.loop !10
@@ -140,7 +140,7 @@ cmpsuff.exit.thread.i20:                          ; preds = %cmpsuff.exit.i19, %
 get_array_index.exit25.thread28:                  ; preds = %cmpsuff.exit.i, %cmpsuff.exit.i19
   %.01330.in = phi i64 [ %indvars.iv.i17, %cmpsuff.exit.i19 ], [ %indvars.iv.i, %cmpsuff.exit.i ]
   %26 = and i64 %.01330.in, 4294967295
-  %27 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %struct.anon, ptr @names, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = tail call i32 %29(ptr noundef %0) #4

@@ -175,7 +175,7 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %86, i32 2
+  %87 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %86, i32 2
   %88 = load i32, ptr %87, align 4, !tbaa !31
   %89 = icmp sgt i32 %88, 19
   br i1 %89, label %90, label %get_weights.exit

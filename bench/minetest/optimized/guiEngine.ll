@@ -8276,7 +8276,7 @@ _ZN15RenderingEngine16get_video_driverEv.exit:    ; preds = %land.lhs.true.i
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %m_textures = getelementptr inbounds nuw i8, ptr %this, i64 240
   %idxprom = zext i32 %layer to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.image_definition], ptr %m_textures, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.image_definition, ptr %m_textures, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !146
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then

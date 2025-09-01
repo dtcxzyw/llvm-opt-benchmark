@@ -2152,7 +2152,7 @@ define dso_local range(i32 -1, 1) i32 @sapi_register_post_entry(ptr noundef read
   store i64 %11, ptr %17, align 8, !tbaa !141
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %8, i64 range(i64 0, 4294967296) %11, i1 false)
-  %19 = getelementptr inbounds nuw [1 x i8], ptr %18, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
   store i8 0, ptr %19, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !20

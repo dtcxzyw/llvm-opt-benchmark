@@ -289,7 +289,7 @@ define void @Prs_NtkAddVerilogDirectives(ptr noundef readonly captures(none) %0)
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @s_VerTypes, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8, !tbaa !8
   %7 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %6, ptr noundef %5, ptr noundef null) #28
@@ -1689,7 +1689,7 @@ Prs_ManAlloc.exit.thread:                         ; preds = %3
 
 67:                                               ; preds = %67, %47
   %indvars.iv.i = phi i64 [ 1, %47 ], [ %indvars.iv.next.i, %67 ]
-  %68 = getelementptr inbounds nuw [18 x ptr], ptr @s_VerTypes, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw ptr, ptr @s_VerTypes, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !3
   %70 = load ptr, ptr %27, align 8, !tbaa !8
   %71 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %70, ptr noundef %69, ptr noundef null) #28
@@ -2150,7 +2150,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
 
 201:                                              ; preds = %196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %202 = getelementptr inbounds nuw [100 x ptr], ptr @s_VerNames, i64 0, i64 %indvars.iv.next.i.i
+  %202 = getelementptr inbounds nuw ptr, ptr @s_VerNames, i64 %indvars.iv.next.i.i
   %203 = load ptr, ptr %202, align 8, !tbaa !3
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 55
   br i1 %exitcond.i.i, label %Prs_ManIsKnownModule.exit.thread.i, label %196, !llvm.loop !60
@@ -9615,7 +9615,7 @@ Vec_PtrFreeP.exit:                                ; preds = %.critedge4, %345
   br i1 %exitcond.i, label %Prs_ManFindType.exit.thread, label %393, !llvm.loop !114
 
 393:                                              ; preds = %.lr.ph1209
-  %394 = getelementptr inbounds nuw [100 x %struct.Prs_VerInfo_t_], ptr @s_VerInfo, i64 0, i64 %indvars.iv.next.i
+  %394 = getelementptr inbounds nuw %struct.Prs_VerInfo_t_, ptr @s_VerInfo, i64 %indvars.iv.next.i
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8, !tbaa !115
   %397 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %396) #32
@@ -10807,7 +10807,7 @@ Prs_CreateSignalIn.exit.thread:                   ; preds = %Prs_CreateVerilogFi
   br i1 %exitcond.i865, label %Prs_ManFindType.exit868.thread, label %917, !llvm.loop !114
 
 917:                                              ; preds = %.lr.ph1230
-  %918 = getelementptr inbounds nuw [100 x %struct.Prs_VerInfo_t_], ptr @s_VerInfo, i64 0, i64 %indvars.iv.next.i864
+  %918 = getelementptr inbounds nuw %struct.Prs_VerInfo_t_, ptr @s_VerInfo, i64 %indvars.iv.next.i864
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 8
   %920 = load ptr, ptr %919, align 8, !tbaa !115
   %921 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %920) #32
@@ -15920,7 +15920,7 @@ Prs_ManUtilSkipComments.exit.i176:                ; preds = %.lr.ph38.i.i178, %1
 179:                                              ; preds = %177
   %180 = add nsw i32 %.267, -1
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw [3 x ptr], ptr %2, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw ptr, ptr %2, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !149
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %185 = load i32, ptr %184, align 4, !tbaa !20
@@ -15988,7 +15988,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %213 = sext i32 %211 to i64
   %214 = getelementptr inbounds i32, ptr %210, i64 %213
   store i32 %.062, ptr %214, align 4, !tbaa !23
-  %215 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %181
+  %215 = getelementptr inbounds nuw ptr, ptr %3, i64 %181
   %216 = load ptr, ptr %215, align 8, !tbaa !149
   %217 = shl nsw i32 %.270, 1
   %218 = or disjoint i32 %.0, %217
@@ -17228,11 +17228,11 @@ Prs_ManUtilSkipComments.exit.i223:                ; preds = %.lr.ph38.i.i225, %2
 .lr.ph388:                                        ; preds = %.preheader
   %262 = add nsw i32 %1, -1
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %263
+  %264 = getelementptr inbounds ptr, ptr %3, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !149
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %.phi.trans.insert.i276 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %267 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %263
+  %267 = getelementptr inbounds ptr, ptr %4, i64 %263
   %268 = load ptr, ptr %267, align 8, !tbaa !149
   %269 = shl nsw i32 %.3, 1
   %270 = or disjoint i32 %269, %.0
@@ -21279,31 +21279,29 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 
 ; Function Attrs: inlinehint nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @Prs_ManIsVerilogPrim(ptr noundef readonly captures(none) %0) unnamed_addr #13 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.185) #32
-  %.not714 = icmp eq i32 %2, 0
-  br i1 %.not714, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
+2:                                                ; preds = %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = getelementptr inbounds nuw %struct.Prs_VerPrim_t_, ptr @s_VerilogPrims, i64 %indvars.iv.next, i32 1
+  %4 = load ptr, ptr %3, align 8, !tbaa !161
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !161
+  br i1 %exitcond, label %.loopexit, label %5, !llvm.loop !163
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [16 x %struct.Prs_VerPrim_t_], ptr @s_VerilogPrims, i64 0, i64 %indvars.iv.next
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !162
+5:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %6 = phi ptr [ @.str.185, %1 ], [ %4, %2 ]
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #32
   %.not7 = icmp eq i32 %7, 0
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !161
+  br i1 %.not7, label %8, label %2
 
-._crit_edge:                                      ; preds = %3, %1
-  %.lcssa = phi ptr [ @s_VerilogPrims, %1 ], [ %4, %3 ]
-  %8 = load i32, ptr %.lcssa, align 16, !tbaa !164
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.Prs_VerPrim_t_, ptr @s_VerilogPrims, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 16, !tbaa !164
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.05 = phi i32 [ %8, %._crit_edge ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %2, %8
+  %.05 = phi i32 [ %10, %8 ], [ 0, %2 ]
   ret i32 %.05
 }
 
@@ -21814,10 +21812,10 @@ attributes #33 = { "function-inline-cost-multiplier"="2" }
 !158 = distinct !{!158, !19}
 !159 = distinct !{!159, !19}
 !160 = distinct !{!160, !19}
-!161 = distinct !{!161, !19}
-!162 = !{!163, !4, i64 8}
-!163 = !{!"Prs_VerPrim_t_", !15, i64 0, !4, i64 8}
-!164 = !{!163, !15, i64 0}
+!161 = !{!162, !4, i64 8}
+!162 = !{!"Prs_VerPrim_t_", !15, i64 0, !4, i64 8}
+!163 = distinct !{!163, !19}
+!164 = !{!162, !15, i64 0}
 !165 = !{!166, !166, i64 0}
 !166 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !167 = !{!168}

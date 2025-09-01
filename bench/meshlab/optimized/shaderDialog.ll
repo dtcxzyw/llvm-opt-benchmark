@@ -813,7 +813,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %144, %_ZN9QtPrivate
 
 switch.lookup:                                    ; preds = %150
   %154 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN12ShaderDialogC2EP10ShaderInfoP9QGLWidgetP7QWidget, i64 0, i64 %154
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ShaderDialogC2EP10ShaderInfoP9QGLWidgetP7QWidget, i64 %154
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15UniformVariable13getVarsNumberEi.exit
 
@@ -1007,7 +1007,7 @@ _ZN7QStringD2Ev.exit213:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN12ShaderDialog2trEPKcS1_i.exit214 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12ShaderDialog2trEPKcS1_i.exit214:             ; preds = %194
-  %195 = getelementptr inbounds nuw [4 x i32], ptr %161, i64 0, i64 %indvars.iv1077
+  %195 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv1077
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %197, i32 noundef 0, i32 noundef 10, i16 32)
@@ -1109,7 +1109,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
           to label %_ZN12ShaderDialog2trEPKcS1_i.exit228 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12ShaderDialog2trEPKcS1_i.exit228:             ; preds = %221
-  %222 = getelementptr inbounds nuw [4 x float], ptr %161, i64 0, i64 %indvars.iv1077
+  %222 = getelementptr inbounds nuw float, ptr %161, i64 %indvars.iv1077
   %223 = load float, ptr %222, align 4
   %224 = fpext float %223 to double
   invoke void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, double noundef %224, i32 noundef 0, i8 noundef signext 103, i32 noundef -1, i16 32)
@@ -1706,7 +1706,7 @@ _ZN7QStringD2Ev.exit309:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 368:                                              ; preds = %363
-  %369 = getelementptr inbounds nuw [4 x i32], ptr %160, i64 0, i64 %indvars.iv
+  %369 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv
   %370 = load i32, ptr %369, align 4
   br label %.invoke
 
@@ -1759,7 +1759,7 @@ _ZN7QStringD2Ev.exit309:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %391 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 391:                                              ; preds = %384
-  %392 = getelementptr inbounds nuw [4 x float], ptr %160, i64 0, i64 %indvars.iv
+  %392 = getelementptr inbounds nuw float, ptr %160, i64 %indvars.iv
   %393 = load float, ptr %392, align 4
   %394 = fmul float %393, 1.000000e+05
   %395 = fptosi float %394 to i32
@@ -7907,7 +7907,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i58, i64 60
   %106 = sext i32 %33 to i64
-  %107 = getelementptr inbounds [4 x i32], ptr %105, i64 0, i64 %106
+  %107 = getelementptr inbounds i32, ptr %105, i64 %106
   store i32 %90, ptr %107, align 4
   %108 = load ptr, ptr %20, align 8
   %109 = load atomic i32, ptr %108 monotonic, align 4
@@ -7988,7 +7988,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i73, i64 60
   %132 = sext i32 %33 to i64
-  %133 = getelementptr inbounds [4 x float], ptr %131, i64 0, i64 %132
+  %133 = getelementptr inbounds float, ptr %131, i64 %132
   store float %116, ptr %133, align 4
   %134 = load ptr, ptr %21, align 8
   %135 = load atomic i32, ptr %134 monotonic, align 4
@@ -8111,7 +8111,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i107, i64 60
   %173 = sext i32 %33 to i64
-  %174 = getelementptr inbounds [4 x i32], ptr %172, i64 0, i64 %173
+  %174 = getelementptr inbounds i32, ptr %172, i64 %173
   store i32 %157, ptr %174, align 4
   br label %_ZN7QStringD2Ev.exit
 
@@ -8165,7 +8165,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   %192 = fdiv float %191, 1.000000e+05
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i122, i64 60
   %194 = sext i32 %33 to i64
-  %195 = getelementptr inbounds [4 x float], ptr %193, i64 0, i64 %194
+  %195 = getelementptr inbounds float, ptr %193, i64 %194
   store float %192, ptr %195, align 4
   br label %_ZN7QStringD2Ev.exit
 

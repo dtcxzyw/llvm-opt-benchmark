@@ -749,7 +749,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 361:                                              ; preds = %358
   %362 = sext i32 %282 to i64
-  %363 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %362
+  %363 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %362
   %364 = load i32, ptr %363, align 4, !tbaa !11
   %365 = mul nsw i32 %364, %.sroa.0.0.lcssa
   %366 = add i32 %341, %365
@@ -788,7 +788,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %387 = sext i32 %.0431 to i64
   %388 = mul nsw i64 %386, %387
   %389 = zext nneg i32 %.2418 to i64
-  %390 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %389
   %391 = load i32, ptr %390, align 4, !tbaa !11
   %392 = sext i32 %391 to i64
   %393 = mul i64 %388, %392

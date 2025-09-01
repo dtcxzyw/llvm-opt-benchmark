@@ -479,7 +479,7 @@ define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %18 = fadd float %17, 4.000000e+01
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %18, i64 1
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds [200 x %struct.Group], ptr @g_rainData, i64 0, i64 %19
+  %20 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %19
   br label %22
 
 21:                                               ; preds = %22
@@ -506,7 +506,7 @@ define void @DestroyGroup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %3 = mul nsw i32 %0, 40
   %4 = add nsw i32 %3, %1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [200 x %struct.Group], ptr @g_rainData, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %5
   br label %8
 
 7:                                                ; preds = %8
@@ -561,7 +561,7 @@ define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   %26 = fadd float %25, 4.000000e+01
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %26, i64 1
   %27 = sext i32 %13 to i64
-  %28 = getelementptr inbounds [200 x %struct.Group], ptr @g_rainData, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %27
   br label %29
 
 29:                                               ; preds = %29, %.preheader
@@ -595,7 +595,7 @@ CreateGroup.exit:                                 ; preds = %29
   %39 = mul nuw nsw i32 %.024, 40
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [200 x %struct.Group], ptr @g_rainData, i64 0, i64 %41
+  %42 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %41
   br label %43
 
 43:                                               ; preds = %43, %.preheader23
@@ -625,7 +625,7 @@ DestroyGroup.exit:                                ; preds = %43
   %59 = fadd float %58, 4.000000e+01
   %.sroa.0.4.vec.insert.i15 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14, float %59, i64 1
   %60 = sext i32 %46 to i64
-  %61 = getelementptr inbounds [200 x %struct.Group], ptr @g_rainData, i64 0, i64 %60
+  %61 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %60
   br label %62
 
 62:                                               ; preds = %62, %DestroyGroup.exit
@@ -757,7 +757,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
 41:                                               ; preds = %1, %41
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %41 ]
   %.sroa.031.047 = phi <2 x float> [ <float 4.000000e+01, float 0.000000e+00>, %1 ], [ %.sroa.010.4.vec.insert.i, %41 ]
-  %42 = getelementptr inbounds nuw [360 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
   %.sroa.031.0.vec.extract = extractelement <2 x float> %.sroa.031.047, i64 0
   %.sroa.031.4.vec.extract = extractelement <2 x float> %.sroa.031.047, i64 1
   %43 = fadd float %.sroa.031.4.vec.extract, 3.200000e+01

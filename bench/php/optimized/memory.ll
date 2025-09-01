@@ -168,7 +168,7 @@ zend_string_init.exit:                            ; preds = %58, %62
   store i64 %12, ptr %70, align 8, !tbaa !25
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 1 %64, i64 %12, i1 false)
-  %72 = getelementptr inbounds nuw [1 x i8], ptr %71, i64 0, i64 %12
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %12
   store i8 0, ptr %72, align 1, !tbaa !29
   br label %zend_string_separate.exit
 
@@ -200,7 +200,7 @@ zend_string_separate.exit:                        ; preds = %zend_string_init.ex
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !25
-  %87 = getelementptr inbounds nuw [1 x i8], ptr %84, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %86
   store i8 0, ptr %87, align 1, !tbaa !29
   %88 = load i64, ptr %17, align 8, !tbaa !28
   %89 = add i64 %88, %2
@@ -607,7 +607,7 @@ zend_string_realloc.exit:                         ; preds = %56, %zend_string_al
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !25
-  %88 = getelementptr inbounds nuw [1 x i8], ptr %85, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
   store i8 0, ptr %88, align 1, !tbaa !29
   br label %90
 
@@ -1428,7 +1428,7 @@ php_stream_temp_seek.exit:                        ; preds = %99, %121
   %spec.store.select = call i64 @llvm.umin.i64(i64 %134, i64 15)
   %135 = getelementptr inbounds nuw i8, ptr %104, i64 98
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %135, ptr nonnull align 1 %2, i64 %spec.store.select, i1 false)
-  %136 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 0, i64 %spec.store.select
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %spec.store.select
   store i8 0, ptr %136, align 1, !tbaa !29
   store ptr @php_stream_rfc2397_ops, ptr %104, align 8, !tbaa !48
   %137 = load i8, ptr %2, align 1, !tbaa !29

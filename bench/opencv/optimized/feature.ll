@@ -5549,13 +5549,13 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature14CvHOGEvaluator16gen
 
 35:                                               ; preds = %35, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [4 x %"class.cv::Rect_"], ptr %2, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %2, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !151
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !153
   %40 = mul nsw i32 %39, %7
   %41 = add nsw i32 %40, %37
-  %42 = getelementptr inbounds nuw [4 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw %struct.anon, ptr %10, i64 %indvars.iv.i
   store i32 %41, ptr %42, align 4, !tbaa !185
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load i32, ptr %43, align 4, !tbaa !155
@@ -5720,13 +5720,13 @@ _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5
 
 104:                                              ; preds = %104, %102
   %indvars.iv.i63 = phi i64 [ 0, %102 ], [ %indvars.iv.next.i64, %104 ]
-  %105 = getelementptr inbounds nuw [4 x %"class.cv::Rect_"], ptr %3, i64 0, i64 %indvars.iv.i63
+  %105 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %3, i64 %indvars.iv.i63
   %106 = load i32, ptr %105, align 4, !tbaa !151
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !153
   %109 = mul nsw i32 %108, %7
   %110 = add nsw i32 %109, %106
-  %111 = getelementptr inbounds nuw [4 x %struct.anon], ptr %16, i64 0, i64 %indvars.iv.i63
+  %111 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %indvars.iv.i63
   store i32 %110, ptr %111, align 4, !tbaa !185
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %113 = load i32, ptr %112, align 4, !tbaa !155
@@ -5872,13 +5872,13 @@ _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5
 
 164:                                              ; preds = %164, %162
   %indvars.iv.i93 = phi i64 [ 0, %162 ], [ %indvars.iv.next.i94, %164 ]
-  %165 = getelementptr inbounds nuw [4 x %"class.cv::Rect_"], ptr %4, i64 0, i64 %indvars.iv.i93
+  %165 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %4, i64 %indvars.iv.i93
   %166 = load i32, ptr %165, align 4, !tbaa !151
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %168 = load i32, ptr %167, align 4, !tbaa !153
   %169 = mul nsw i32 %168, %7
   %170 = add nsw i32 %169, %166
-  %171 = getelementptr inbounds nuw [4 x %struct.anon], ptr %20, i64 0, i64 %indvars.iv.i93
+  %171 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv.i93
   store i32 %170, ptr %171, align 4, !tbaa !185
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %173 = load i32, ptr %172, align 4, !tbaa !155
@@ -6060,13 +6060,13 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7Feat
 
 14:                                               ; preds = %6, %14
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [4 x %"class.cv::Rect_"], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !151
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !153
   %19 = mul nsw i32 %18, %1
   %20 = add nsw i32 %19, %16
-  %21 = getelementptr inbounds nuw [4 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !185
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !155
@@ -6315,7 +6315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i27: ; preds = %
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit32:            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %78 = getelementptr inbounds nuw [4 x %"class.cv::Rect_"], ptr %0, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %0, i64 %indvars.iv
   %79 = load ptr, ptr %66, align 8, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
@@ -8855,7 +8855,7 @@ define linkonce_odr hidden noundef float @_ZN2cv6detail8tracking15contrib_featur
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %25 = sext i8 %13 to i64
-  %26 = getelementptr inbounds [4 x %struct.anon], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds %struct.anon, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !185
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds float, ptr %23, i64 %28

@@ -317,7 +317,7 @@ define ptr @Map_NodeReadCuts(ptr noundef readonly captures(none) %0) local_unnam
 define ptr @Map_NodeReadCutBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !64
   ret ptr %6
 }

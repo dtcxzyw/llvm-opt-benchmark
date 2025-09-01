@@ -417,7 +417,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i122: ; preds = %_ZNKSt6vector
   store ptr %166, ptr %19, align 8, !tbaa !48
   store ptr %167, ptr %105, align 8, !tbaa !50
   store ptr %167, ptr %106, align 8, !tbaa !51
-  %168 = getelementptr inbounds nuw [5 x %struct.test_config], ptr %18, i64 0, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw %struct.test_config, ptr %18, i64 %indvars.iv
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load i32, ptr %169, align 8, !tbaa !38
   %171 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13

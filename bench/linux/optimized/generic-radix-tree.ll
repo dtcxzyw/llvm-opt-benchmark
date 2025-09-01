@@ -50,7 +50,7 @@ define dso_local ptr @__genradix_ptr(ptr noundef %0, i64 noundef %1) #0 align 16
   %24 = mul nuw nsw i64 %23, 9
   %25 = add nuw nsw i64 %24, 12
   %26 = lshr i64 %20, %25
-  %27 = getelementptr [512 x ptr], ptr %19, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %19, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = shl nsw i64 -4096, %24
   %30 = xor i64 %29, -1
@@ -59,7 +59,7 @@ define dso_local ptr @__genradix_ptr(ptr noundef %0, i64 noundef %1) #0 align 16
   br i1 %32, label %.loopexit, label %17, !llvm.loop !6
 
 33:                                               ; preds = %17
-  %34 = getelementptr [4096 x i8], ptr %19, i64 0, i64 %20
+  %34 = getelementptr i8, ptr %19, i64 %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %33, %2
@@ -134,7 +134,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   %44 = add i64 %43, 12
   %45 = and i64 %44, 4294967295
   %46 = lshr i64 %40, %45
-  %47 = getelementptr [512 x ptr], ptr %41, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %41, i64 %46
   %48 = shl nsw i64 -1, %45
   %49 = xor i64 %48, -1
   %50 = and i64 %40, %49
@@ -180,7 +180,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge
-  %74 = getelementptr [4096 x i8], ptr %.lcssa5, i64 0, i64 %.lcssa
+  %74 = getelementptr i8, ptr %.lcssa5, i64 %.lcssa
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %55, %73
@@ -254,7 +254,7 @@ define dso_local ptr @__genradix_iter_peek(ptr noundef captures(none) %0, ptr no
   %47 = phi i64 [ %35, %33 ], [ %58, %56 ]
   %48 = phi i32 [ %43, %33 ], [ %57, %56 ]
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [512 x ptr], ptr %36, i64 0, i64 %49
+  %50 = getelementptr ptr, ptr %36, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %30
@@ -282,7 +282,7 @@ define dso_local ptr @__genradix_iter_peek(ptr noundef captures(none) %0, ptr no
   %62 = phi i64 [ %47, %30 ], [ %15, %26 ]
   %63 = phi ptr [ %51, %30 ], [ %19, %26 ]
   %64 = and i64 %62, 4095
-  %65 = getelementptr [4096 x i8], ptr %63, i64 0, i64 %64
+  %65 = getelementptr i8, ptr %63, i64 %64
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %14, %11, %.thread, %.loopexit, %6, %3
@@ -367,7 +367,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr noundef captures(none) %0, p
   %55 = phi i64 [ %44, %42 ], [ %67, %66 ]
   %56 = phi i32 [ %52, %42 ], [ %70, %66 ]
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr [512 x ptr], ptr %45, i64 0, i64 %57
+  %58 = getelementptr ptr, ptr %45, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %39
@@ -394,7 +394,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr noundef captures(none) %0, p
   %71 = phi i64 [ %55, %39 ], [ %35, %34 ]
   %72 = phi ptr [ %59, %39 ], [ %20, %34 ]
   %73 = and i64 %71, 4095
-  %74 = getelementptr [4096 x i8], ptr %72, i64 0, i64 %73
+  %74 = getelementptr i8, ptr %72, i64 %73
   br label %.thread
 
 .thread:                                          ; preds = %12, %61, %.loopexit, %7, %4
@@ -446,7 +446,7 @@ define internal fastcc void @genradix_free_recurse(ptr noundef %0, i32 noundef r
 
 6:                                                ; preds = %12, %4
   %7 = phi i64 [ 0, %4 ], [ %13, %12 ]
-  %8 = getelementptr [512 x ptr], ptr %0, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11

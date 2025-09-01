@@ -532,7 +532,7 @@ define void @Nwk_ManGraphPrepare(ptr noundef captures(none) initializes((200, 21
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4, !tbaa !53
   %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds [0 x i32], ptr %111, i64 0, i64 %115
+  %116 = getelementptr inbounds i32, ptr %111, i64 %115
   store i32 %110, ptr %116, align 4, !tbaa !42
   %117 = sext i32 %110 to i64
   %118 = getelementptr inbounds ptr, ptr %77, i64 %117
@@ -544,7 +544,7 @@ define void @Nwk_ManGraphPrepare(ptr noundef captures(none) initializes((200, 21
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4, !tbaa !53
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds [0 x i32], ptr %121, i64 0, i64 %125
+  %126 = getelementptr inbounds i32, ptr %121, i64 %125
   store i32 %120, ptr %126, align 4, !tbaa !42
   %127 = getelementptr inbounds nuw i8, ptr %.299138, i64 8
   %.299 = load ptr, ptr %127, align 8, !tbaa !35
@@ -976,7 +976,7 @@ define void @Nwk_ManGraphUpdate(ptr noundef captures(none) %0, ptr noundef captu
 22:                                               ; preds = %.lr.ph202, %Nwk_ManGraphListInsert.exit109
   %indvars.iv215 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next216, %Nwk_ManGraphListInsert.exit109 ]
   %23 = load ptr, ptr %7, align 8, !tbaa !27
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv215
+  %24 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv215
   %25 = load i32, ptr %24, align 4, !tbaa !42
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
@@ -999,7 +999,7 @@ define void @Nwk_ManGraphUpdate(ptr noundef captures(none) %0, ptr noundef captu
 36:                                               ; preds = %.lr.ph, %178
   %37 = phi i32 [ %32, %.lr.ph ], [ %179, %178 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %178 ]
-  %38 = getelementptr inbounds nuw [0 x i32], ptr %35, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !42
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %34, i64 %40
@@ -1306,7 +1306,7 @@ Nwk_ManGraphListInsert.exit:                      ; preds = %Nwk_ManGraphListAdd
 
 186:                                              ; preds = %190, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %190 ]
-  %187 = getelementptr inbounds nuw [0 x i32], ptr %183, i64 0, i64 %indvars.iv.i
+  %187 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv.i
   %188 = load i32, ptr %187, align 4, !tbaa !42
   %189 = icmp eq i32 %188, %185
   br i1 %189, label %._crit_edge.loopexit.i, label %190
@@ -1340,9 +1340,9 @@ Nwk_ManGraphListInsert.exit:                      ; preds = %Nwk_ManGraphListAdd
 196:                                              ; preds = %196, %.lr.ph21.i
   %indvars.iv25.i = phi i64 [ %195, %.lr.ph21.i ], [ %indvars.iv.next26.i, %196 ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %197 = getelementptr inbounds nuw [0 x i32], ptr %183, i64 0, i64 %indvars.iv.next26.i
+  %197 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv.next26.i
   %198 = load i32, ptr %197, align 4, !tbaa !42
-  %199 = getelementptr inbounds nuw [0 x i32], ptr %183, i64 0, i64 %indvars.iv25.i
+  %199 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv25.i
   store i32 %198, ptr %199, align 4, !tbaa !42
   %exitcond.not = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count
   br i1 %exitcond.not, label %Nwk_ManGraphVertexRemoveEdge.exit, label %196, !llvm.loop !63
@@ -1479,7 +1479,7 @@ Nwk_ManGraphListInsert.exit109:                   ; preds = %Nwk_ManGraphListAdd
 264:                                              ; preds = %.lr.ph207, %Nwk_ManGraphListInsert.exit173
   %indvars.iv226 = phi i64 [ 0, %.lr.ph207 ], [ %indvars.iv.next227, %Nwk_ManGraphListInsert.exit173 ]
   %265 = load ptr, ptr %16, align 8, !tbaa !27
-  %266 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv226
+  %266 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv226
   %267 = load i32, ptr %266, align 4, !tbaa !42
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds ptr, ptr %265, i64 %268
@@ -1502,7 +1502,7 @@ Nwk_ManGraphListInsert.exit109:                   ; preds = %Nwk_ManGraphListAdd
 278:                                              ; preds = %.lr.ph204, %420
   %279 = phi i32 [ %274, %.lr.ph204 ], [ %421, %420 ]
   %indvars.iv218 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next219, %420 ]
-  %280 = getelementptr inbounds nuw [0 x i32], ptr %277, i64 0, i64 %indvars.iv218
+  %280 = getelementptr inbounds nuw i32, ptr %277, i64 %indvars.iv218
   %281 = load i32, ptr %280, align 4, !tbaa !42
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds ptr, ptr %276, i64 %282
@@ -1809,7 +1809,7 @@ Nwk_ManGraphListInsert.exit147:                   ; preds = %Nwk_ManGraphListAdd
 
 428:                                              ; preds = %432, %.lr.ph.i153
   %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i153 ], [ %indvars.iv.next.i156, %432 ]
-  %429 = getelementptr inbounds nuw [0 x i32], ptr %425, i64 0, i64 %indvars.iv.i155
+  %429 = getelementptr inbounds nuw i32, ptr %425, i64 %indvars.iv.i155
   %430 = load i32, ptr %429, align 4, !tbaa !42
   %431 = icmp eq i32 %430, %427
   br i1 %431, label %._crit_edge.loopexit.i159, label %432
@@ -1843,9 +1843,9 @@ Nwk_ManGraphListInsert.exit147:                   ; preds = %Nwk_ManGraphListAdd
 438:                                              ; preds = %438, %.lr.ph21.i150
   %indvars.iv25.i151 = phi i64 [ %437, %.lr.ph21.i150 ], [ %indvars.iv.next26.i152, %438 ]
   %indvars.iv.next26.i152 = add nuw nsw i64 %indvars.iv25.i151, 1
-  %439 = getelementptr inbounds nuw [0 x i32], ptr %425, i64 0, i64 %indvars.iv.next26.i152
+  %439 = getelementptr inbounds nuw i32, ptr %425, i64 %indvars.iv.next26.i152
   %440 = load i32, ptr %439, align 4, !tbaa !42
-  %441 = getelementptr inbounds nuw [0 x i32], ptr %425, i64 0, i64 %indvars.iv25.i151
+  %441 = getelementptr inbounds nuw i32, ptr %425, i64 %indvars.iv25.i151
   store i32 %440, ptr %441, align 4, !tbaa !42
   %exitcond225.not = icmp eq i64 %indvars.iv.next26.i152, %wide.trip.count224
   br i1 %exitcond225.not, label %Nwk_ManGraphVertexRemoveEdge.exit160, label %438, !llvm.loop !63
@@ -2550,7 +2550,7 @@ define ptr @Nwk_ManGraphListFindMinEdge(ptr noundef readonly captures(none) %0, 
 9:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.01011 = phi ptr [ null, %.lr.ph ], [ %.1, %23 ]
-  %10 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !42
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %7, i64 %12
@@ -2619,7 +2619,7 @@ define ptr @Nwk_ManGraphListFindMin(ptr noundef readonly captures(none) %0, i32 
   %.133 = phi i32 [ %.039, %.lr.ph ], [ %.2, %._crit_edge45 ]
   %.22431 = phi ptr [ %.02237, %.lr.ph ], [ %.3, %._crit_edge45 ]
   %14 = icmp eq ptr %.22431, null
-  %.phi.trans.insert = getelementptr inbounds nuw [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %.pre46 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !42
   %.phi.trans.insert47 = sext i32 %.pre46 to i64
   %.phi.trans.insert48 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %.phi.trans.insert47
@@ -2680,7 +2680,7 @@ define void @Nwk_ManGraphSolve(ptr noundef captures(none) initializes((200, 216)
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.be, %.backedge.backedge ]
-  %6 = getelementptr inbounds nuw [17 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !42
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %5, label %8
@@ -2700,7 +2700,7 @@ define void @Nwk_ManGraphSolve(ptr noundef captures(none) initializes((200, 216)
 
 .critedge.preheader:                              ; preds = %5, %.critedge
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.critedge ], [ 2, %5 ]
-  %18 = getelementptr inbounds nuw [17 x i32], ptr %4, i64 0, i64 %indvars.iv47
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv47
   %19 = load i32, ptr %18, align 4, !tbaa !42
   %.not30 = icmp eq i32 %19, 0
   br i1 %.not30, label %.critedge, label %20
@@ -2733,7 +2733,7 @@ define void @Nwk_ManGraphSolve(ptr noundef captures(none) initializes((200, 216)
   %.133.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.2.i, %._crit_edge45.i ]
   %.22431.i = phi ptr [ %.02237.i, %.lr.ph.i ], [ %.3.i, %._crit_edge45.i ]
   %29 = icmp eq ptr %.22431.i, null
-  %.phi.trans.insert.i = getelementptr inbounds nuw [0 x i32], ptr %28, i64 0, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
   %.pre46.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !42
   %.phi.trans.insert47.i = sext i32 %.pre46.i to i64
   %.phi.trans.insert48.i = getelementptr inbounds ptr, ptr %21, i64 %.phi.trans.insert47.i
@@ -2784,7 +2784,7 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
 45:                                               ; preds = %59, %.lr.ph.i31
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i34, %59 ]
   %.01011.i = phi ptr [ null, %.lr.ph.i31 ], [ %.1.i, %59 ]
-  %46 = getelementptr inbounds nuw [0 x i32], ptr %44, i64 0, i64 %indvars.iv.i33
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i33
   %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %21, i64 %48

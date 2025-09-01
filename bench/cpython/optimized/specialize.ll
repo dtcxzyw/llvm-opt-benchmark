@@ -975,7 +975,7 @@ define hidden void @_PyCode_Quicken(ptr noundef captures(none) %0, i64 noundef %
   %6 = getelementptr %union._Py_CODEUNIT, ptr %0, i64 %.033
   %7 = load i8, ptr %6, align 2, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @_PyOpcode_Caches, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !4
   %.not28 = icmp eq i8 %10, 0
   br i1 %.not28, label %18, label %11
@@ -1036,7 +1036,7 @@ define hidden void @_Py_Specialize_LoadSuperAttr(i64 %0, i64 %1, ptr noundef cap
 13:                                               ; preds = %5, %4
   %14 = load i8, ptr %2, align 2, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
   store i8 %17, ptr %2, align 2, !tbaa !4
   %18 = getelementptr i8, ptr %2, i64 2
@@ -1744,7 +1744,7 @@ do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_insta
 .critedge:                                        ; preds = %.critedge.sink.split, %44, %31, %28, %26, %21, %18, %3, %282
   %283 = load i8, ptr %1, align 2, !tbaa !4
   %284 = zext i8 %283 to i64
-  %285 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %284
+  %285 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !4
   store i8 %286, ptr %1, align 2, !tbaa !4
   %287 = getelementptr i8, ptr %1, i64 2
@@ -2003,7 +2003,7 @@ specialize_dict_access.exit.thread:               ; preds = %93, %90, %80, %.thr
 Py_XDECREF.exit:                                  ; preds = %9, %8, %3, %specialize_dict_access.exit.thread, %.thread57, %96, %99
   %100 = load i8, ptr %1, align 2, !tbaa !4
   %101 = zext i8 %100 to i64
-  %102 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %101
+  %102 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !4
   store i8 %103, ptr %1, align 2, !tbaa !4
   %104 = getelementptr i8, ptr %1, i64 2
@@ -2166,7 +2166,7 @@ define hidden void @_Py_Specialize_LoadGlobal(ptr noundef %0, ptr noundef %1, pt
 54:                                               ; preds = %45, %43, %40, %38, %35, %30, %28, %21, %19, %11, %6, %4
   %55 = load i8, ptr %2, align 2, !tbaa !4
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !4
   store i8 %58, ptr %2, align 2, !tbaa !4
   %59 = getelementptr i8, ptr %2, i64 2
@@ -2390,7 +2390,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %92, %78, %66, %58, 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %78, %76, %66, %64, %58, %function_kind.exit.thread, %92, %90, %33, %44, %42, %25, %27, %17, %19, %9, %11
   %95 = load i8, ptr %2, align 2, !tbaa !4
   %96 = zext i8 %95 to i64
-  %97 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %96
+  %97 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !4
   store i8 %98, ptr %2, align 2, !tbaa !4
   %99 = getelementptr i8, ptr %2, i64 2
@@ -2469,7 +2469,7 @@ define hidden void @_Py_Specialize_StoreSubscr(i64 %0, i64 %1, ptr noundef captu
 22:                                               ; preds = %14, %10
   %23 = load i8, ptr %2, align 2, !tbaa !4
   %24 = zext i8 %23 to i64
-  %25 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %24
+  %25 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   store i8 %26, ptr %2, align 2, !tbaa !4
   %27 = getelementptr i8, ptr %2, i64 2
@@ -2496,7 +2496,7 @@ unspecialize.exit:                                ; preds = %22, %30
 36:                                               ; preds = %8
   %37 = load i8, ptr %2, align 2, !tbaa !4
   %38 = zext i8 %37 to i64
-  %39 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %38
+  %39 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !4
   store i8 %40, ptr %2, align 2, !tbaa !4
   %41 = getelementptr i8, ptr %2, i64 2
@@ -2533,7 +2533,7 @@ unspecialize.exit25:                              ; preds = %36, %44
 54:                                               ; preds = %50
   %55 = load i8, ptr %2, align 2, !tbaa !4
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !4
   store i8 %58, ptr %2, align 2, !tbaa !4
   %59 = getelementptr i8, ptr %2, i64 2
@@ -3047,7 +3047,7 @@ specialize_c_call.exit:                           ; preds = %Py_XDECREF.exit.thr
 specialize_c_call.exit.thread47:                  ; preds = %170, %167, %66, %62, %function_kind.exit.i, %14, %7, %194, %specialize_c_call.exit
   %202 = load i8, ptr %1, align 2, !tbaa !4
   %203 = zext i8 %202 to i64
-  %204 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %203
+  %204 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %203
   %205 = load i8, ptr %204, align 1, !tbaa !4
   store i8 %205, ptr %1, align 2, !tbaa !4
   %206 = getelementptr i8, ptr %1, i64 2
@@ -3263,7 +3263,7 @@ function_kind.exit.i18:                           ; preds = %44, %41, %35
 61:                                               ; preds = %31, %function_kind.exit.i, %24, %function_kind.exit.i18, %53
   %62 = load i8, ptr %1, align 2, !tbaa !4
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !4
   store i8 %65, ptr %1, align 2, !tbaa !4
   %66 = getelementptr i8, ptr %1, i64 2
@@ -3431,7 +3431,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
 
 53:                                               ; preds = %50, %44, %41, %35, %32, %13, %12
   %54 = sext i32 %3 to i64
-  %55 = getelementptr [26 x %struct._PyBinaryOpSpecializationDescr], ptr @compactlong_float_specs, i64 0, i64 %54
+  %55 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @compactlong_float_specs, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !172
   %.not.i = icmp eq ptr %57, null
@@ -3444,7 +3444,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
   br i1 %.not18.i, label %61, label %.sink.split.i
 
 61:                                               ; preds = %58, %53
-  %62 = getelementptr [26 x %struct._PyBinaryOpSpecializationDescr], ptr @float_compactlong_specs, i64 0, i64 %54
+  %62 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @float_compactlong_specs, i64 %54
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !172
   %.not19.i = icmp eq ptr %64, null
@@ -3457,7 +3457,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
   br i1 %.not20.i, label %68, label %.sink.split.i
 
 68:                                               ; preds = %65, %61
-  %69 = getelementptr [26 x %struct._PyBinaryOpSpecializationDescr], ptr @compactlongs_specs, i64 0, i64 %54
+  %69 = getelementptr %struct._PyBinaryOpSpecializationDescr, ptr @compactlongs_specs, i64 %54
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !172
   %.not21.i = icmp eq ptr %71, null
@@ -3481,7 +3481,7 @@ define hidden void @_Py_Specialize_BinaryOp(i64 %0, i64 %1, ptr noundef captures
 binary_op_extended_specialization.exit:           ; preds = %72, %68
   %77 = load i8, ptr %2, align 2, !tbaa !4
   %78 = zext i8 %77 to i64
-  %79 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %78
+  %79 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !4
   store i8 %80, ptr %2, align 2, !tbaa !4
   %81 = getelementptr i8, ptr %2, i64 2
@@ -3553,7 +3553,7 @@ define hidden void @_Py_Specialize_CompareOp(i64 %0, i64 %1, ptr noundef capture
 21:                                               ; preds = %18, %17, %11, %14, %4
   %22 = load i8, ptr %2, align 2, !tbaa !4
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4
   store i8 %25, ptr %2, align 2, !tbaa !4
   %26 = getelementptr i8, ptr %2, i64 2
@@ -3606,7 +3606,7 @@ define hidden void @_Py_Specialize_UnpackSequence(i64 %0, ptr noundef captures(n
 9:                                                ; preds = %6
   %10 = load i8, ptr %1, align 2, !tbaa !4
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %11
+  %12 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !4
   store i8 %13, ptr %1, align 2, !tbaa !4
   %14 = getelementptr i8, ptr %1, i64 2
@@ -3659,7 +3659,7 @@ unspecialize.exit:                                ; preds = %9, %17
 32:                                               ; preds = %29
   %33 = load i8, ptr %1, align 2, !tbaa !4
   %34 = zext i8 %33 to i64
-  %35 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !4
   store i8 %36, ptr %1, align 2, !tbaa !4
   %37 = getelementptr i8, ptr %1, i64 2
@@ -3692,7 +3692,7 @@ unspecialize.exit23:                              ; preds = %32, %40
 48:                                               ; preds = %28
   %49 = load i8, ptr %1, align 2, !tbaa !4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   store i8 %52, ptr %1, align 2, !tbaa !4
   %53 = getelementptr i8, ptr %1, i64 2
@@ -3821,7 +3821,7 @@ define hidden void @_Py_Specialize_Send(i64 %0, ptr noundef captures(none) %1) l
 16:                                               ; preds = %2, %7
   %17 = load i8, ptr %1, align 2, !tbaa !4
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !4
   store i8 %20, ptr %1, align 2, !tbaa !4
   %21 = getelementptr i8, ptr %1, i64 2
@@ -3902,7 +3902,7 @@ define hidden void @_Py_Specialize_ToBool(i64 %0, ptr noundef captures(none) %1)
 19:                                               ; preds = %.thread, %11
   %20 = load i8, ptr %1, align 2, !tbaa !4
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !4
   store i8 %23, ptr %1, align 2, !tbaa !4
   %24 = getelementptr i8, ptr %1, i64 2
@@ -4011,7 +4011,7 @@ define hidden void @_Py_Specialize_ContainsOp(i64 %0, ptr noundef captures(none)
 10:                                               ; preds = %7
   %11 = load i8, ptr %1, align 2, !tbaa !4
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   store i8 %14, ptr %1, align 2, !tbaa !4
   %15 = getelementptr i8, ptr %1, i64 2

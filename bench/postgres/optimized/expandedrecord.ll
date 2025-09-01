@@ -1226,7 +1226,7 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
   %28 = add nsw i32 %1, -1
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %29, i64 %30
   br i1 %3, label %80, label %32
 
 32:                                               ; preds = %27
@@ -1472,7 +1472,7 @@ define internal fastcc void @check_domain_for_new_field(ptr noundef %0, i32 noun
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %66, i64 0, i64 %58
+  %67 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %66, i64 %58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   %69 = load i8, ptr %68, align 2, !range !5, !noundef !6
   %70 = trunc nuw i8 %69 to i1
@@ -1564,7 +1564,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %76
   %28 = phi i32 [ %77, %76 ], [ %23, %.lr.ph ]
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %76 ], [ 0, %.lr.ph ]
-  %29 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %25, i64 0, i64 %indvars.iv58
+  %29 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv58
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 9
   %31 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
@@ -1656,7 +1656,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 .lr.ph.split:                                     ; preds = %.lr.ph, %131
   %80 = phi i32 [ %132, %131 ], [ %23, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %.lr.ph ]
-  %81 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %25, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 9
   %83 = load i8, ptr %82, align 1, !range !5, !noundef !6
   %84 = trunc nuw i8 %83 to i1
@@ -1877,7 +1877,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
 40:                                               ; preds = %.lr.ph, %65
   %41 = phi i32 [ %.pre75, %.lr.ph ], [ %66, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %42 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %37, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %37, i64 %indvars.iv
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !range !5, !noundef !6

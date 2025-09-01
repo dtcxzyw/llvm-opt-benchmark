@@ -510,7 +510,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h05
   %18 = add i64 %.sroa.8.0, 1
   %19 = load i8, ptr %.sroa.0.0, align 1, !noundef !12
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17hfd3ed7337fe6ee47E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17hfd3ed7337fe6ee47E, i64 %20
   %22 = load i8, ptr %21, align 1, !noundef !12
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %12, label %36
@@ -620,9 +620,9 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h05
   %61 = zext nneg i8 %60 to i64
   %62 = lshr i8 %19, 4
   %63 = zext nneg i8 %62 to i64
-  %64 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17h04c901a54599fe89E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17h04c901a54599fe89E, i64 %63
   %65 = load i8, ptr %64, align 1, !noalias !44, !noundef !12
-  %66 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17h04c901a54599fe89E, i64 0, i64 %61
+  %66 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17h04c901a54599fe89E, i64 %61
   %67 = load i8, ptr %66, align 1, !noalias !44, !noundef !12
   store i8 92, ptr %5, align 1, !noalias !44
   store i8 117, ptr %7, align 1, !noalias !44
@@ -1226,7 +1226,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$just..expression..E
 
 21:                                               ; preds = %19, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit.i42"
   %.0.i3964 = phi i64 [ 0, %19 ], [ %23, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit.i42" ]
-  %22 = getelementptr inbounds nuw [3 x ptr], ptr %20, i64 0, i64 %.0.i3964
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0.i3964
   %23 = add nuw nsw i64 %.0.i3964, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %24 = load ptr, ptr %22, align 8, !alias.scope !137, !noundef !12
@@ -1250,7 +1250,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$just..expression..E
   br i1 %29, label %common.resume, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw [3 x ptr], ptr %20, i64 0, i64 %.1.i41
+  %31 = getelementptr inbounds nuw ptr, ptr %20, i64 %.1.i41
   %32 = add nuw nsw i64 %.1.i41, 1
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E"(ptr noalias noundef align 8 dereferenceable(8) %31) #27
           to label %28 unwind label %33
@@ -1344,7 +1344,7 @@ common.resume:                                    ; preds = %28, %65, %61, %comm
 
 57:                                               ; preds = %55, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit.i"
   %.0.i63 = phi i64 [ 0, %55 ], [ 1, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit.i" ]
-  %58 = getelementptr inbounds nuw [2 x ptr], ptr %56, i64 0, i64 %.0.i63
+  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %.0.i63
   %59 = add nuw nsw i64 %.0.i63, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %60 = load ptr, ptr %58, align 8, !alias.scope !161, !noundef !12
@@ -1380,7 +1380,7 @@ common.resume:                                    ; preds = %28, %65, %61, %comm
 
 71:                                               ; preds = %69, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit53"
   %.0.i.i62 = phi i64 [ 0, %69 ], [ 1, %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$just..expression..Expression$GT$$GT$17h6b71dab28590c196E.exit53" ]
-  %72 = getelementptr inbounds nuw [2 x ptr], ptr %70, i64 0, i64 %.0.i.i62
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %.0.i.i62
   %73 = add nuw nsw i64 %.0.i.i62, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %74 = load ptr, ptr %72, align 8, !alias.scope !162, !noundef !12
@@ -2198,7 +2198,7 @@ define internal fastcc void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..Convert
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %.sroa.6.0.val, i64 %.sroa.6.0.val13, i1 false), !noalias !299
-  %24 = getelementptr inbounds nuw [0 x { [3 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031
+  %24 = getelementptr inbounds nuw { [3 x i64] }, ptr %7, i64 %.sroa.7.031
   store i64 %21, ptr %24, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %22, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -16350,7 +16350,7 @@ _ZN10serde_json3ser18format_escaped_str17hd9e140aaf5c70a48E.exit.i.i.i: ; preds 
 
 switch.lookup:                                    ; preds = %_ZN10serde_json3ser18format_escaped_str17hd9e140aaf5c70a48E.exit.i.i.i
   %14 = load i64, ptr %0, align 8, !range !3417, !alias.scope !3418, !noundef !12
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN60_$LT$just..thunk..Thunk$u20$as$u20$serde..ser..Serialize$GT$9serialize17h7906bab245a9adbbE", i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$just..thunk..Thunk$u20$as$u20$serde..ser..Serialize$GT$9serialize17h7906bab245a9adbbE", i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3421)
   %15 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.26.llvm.10588682083550974452, i64 noundef 1), !noalias !3424

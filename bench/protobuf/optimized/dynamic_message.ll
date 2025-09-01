@@ -255,7 +255,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %if.end17, %if.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %28 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %28 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %29 = load i32, ptr %arrayidx.i, align 4
   switch i32 %29, label %for.inc113 [
     i32 1, label %sw.bb
@@ -963,7 +963,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %if.then5.i.i
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i91, i64 2
   %63 = load i8, ptr %type_.i.i.i, align 2
   %idxprom.i.i = zext i8 %63 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %64 = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %64, label %if.end.i [
     i32 1, label %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit.thread
@@ -1053,7 +1053,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit23.i: ; preds = %if.then5.i
   %type_.i.i17.i = getelementptr inbounds nuw i8, ptr %add.ptr.i91, i64 2
   %75 = load i8, ptr %type_.i.i17.i, align 2
   %idxprom.i18.i = zext i8 %75 to i64
-  %arrayidx.i19.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i18.i
+  %arrayidx.i19.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i18.i
   %76 = load i32, ptr %arrayidx.i19.i, align 4
   switch i32 %76, label %if.end.i [
     i32 1, label %_ZN6google8protobuf12_GLOBAL__N_114FieldSpaceUsedEPKNS0_15FieldDescriptorE.exit
@@ -1440,7 +1440,7 @@ invoke.cont24:                                    ; preds = %.noexc47, %call1.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %28 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %28 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %29 = load i32, ptr %arrayidx.i, align 4
   %cmp26 = icmp eq i32 %29, 9
   br i1 %cmp26, label %invoke.cont30.invoke, label %if.else
@@ -1489,7 +1489,7 @@ if.then5.i.i.i.i61:                               ; preds = %.noexc64
 invoke.cont33:                                    ; preds = %.noexc64, %call1.i.i.i.i.noexc62, %if.then.i.i51, %if.else, %if.then5.i.i.i.i61
   %36 = load i8, ptr %type_.i.i, align 2
   %idxprom.i57 = zext i8 %36 to i64
-  %arrayidx.i58 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i57
+  %arrayidx.i58 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i57
   %37 = load i32, ptr %arrayidx.i58, align 4
   %cmp35 = icmp eq i32 %37, 10
   br i1 %cmp35, label %if.then36, label %for.inc
@@ -1559,7 +1559,7 @@ invoke.cont47:                                    ; preds = %.noexc89, %call1.i.
   %type_.i.i81 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %49 = load i8, ptr %type_.i.i81, align 2
   %idxprom.i82 = zext i8 %49 to i64
-  %arrayidx.i83 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i82
+  %arrayidx.i83 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i82
   %50 = load i32, ptr %arrayidx.i83, align 4
   switch i32 %50, label %for.inc [
     i32 1, label %sw.bb49
@@ -1887,7 +1887,7 @@ invoke.cont73:                                    ; preds = %.noexc173, %call1.i
   %type_.i.i165 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %94 = load i8, ptr %type_.i.i165, align 2
   %idxprom.i166 = zext i8 %94 to i64
-  %arrayidx.i167 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i166
+  %arrayidx.i167 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i166
   %95 = load i32, ptr %arrayidx.i167, align 4
   %cmp75 = icmp eq i32 %95, 9
   br i1 %cmp75, label %invoke.cont30.invoke, label %if.else85
@@ -1931,7 +1931,7 @@ if.then5.i.i.i.i190:                              ; preds = %.noexc193
 invoke.cont86:                                    ; preds = %.noexc193, %call1.i.i.i.i.noexc191, %if.then.i.i180, %if.else85, %if.then5.i.i.i.i190
   %101 = load i8, ptr %type_.i.i165, align 2
   %idxprom.i186 = zext i8 %101 to i64
-  %arrayidx.i187 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i186
+  %arrayidx.i187 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i186
   %102 = load i32, ptr %arrayidx.i187, align 4
   %cmp88 = icmp eq i32 %102, 10
   br i1 %cmp88, label %if.then89, label %for.inc
@@ -2082,7 +2082,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %for.body, %if.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %11 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 4
   %cmp13 = icmp eq i32 %12, 10
   br i1 %cmp13, label %land.lhs.true, label %for.inc

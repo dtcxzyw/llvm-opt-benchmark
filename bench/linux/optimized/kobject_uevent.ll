@@ -121,7 +121,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 
 23:                                               ; preds = %33, %.thread19
   %24 = phi i64 [ 0, %.thread19 ], [ %34, %33 ]
-  %25 = getelementptr [8 x ptr], ptr @kobject_actions, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr @kobject_actions, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strncmp(ptr noundef %26, ptr noundef %1, i64 noundef %21) #12
   %28 = icmp eq i32 %27, 0
@@ -222,7 +222,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 82:                                               ; preds = %79
   %83 = getelementptr i8, ptr %77, i64 1
   %84 = zext i8 %80 to i64
-  %85 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %84
+  %85 = getelementptr i8, ptr @_ctype, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 7
   %88 = icmp eq i8 %87, 0
@@ -263,7 +263,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 110:                                              ; preds = %107
   %111 = getelementptr i8, ptr %105, i64 1
   %112 = zext i8 %108 to i64
-  %113 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %112
+  %113 = getelementptr i8, ptr @_ctype, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = and i8 %114, 7
   %116 = icmp eq i8 %115, 0
@@ -318,7 +318,7 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr [8 x ptr], ptr @kobject_actions, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @kobject_actions, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %1, 1
   br i1 %7, label %8, label %.preheader49
@@ -532,7 +532,7 @@ define dso_local noundef range(i32 -12, 1) i32 @add_uevent_var(ptr noundef %0, p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2588
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [2048 x i8], ptr %9, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %9, i64 %12
   %14 = sub nsw i64 2048, %12
   %15 = call i32 @vsnprintf(ptr noundef %13, i64 noundef %14, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -553,13 +553,13 @@ define dso_local noundef range(i32 -12, 1) i32 @add_uevent_var(ptr noundef %0, p
   br label %32
 
 22:                                               ; preds = %8
-  %23 = getelementptr [2048 x i8], ptr %9, i64 0, i64 %18
+  %23 = getelementptr i8, ptr %9, i64 %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %4, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %4, align 8
   %27 = sext i32 %25 to i64
-  %28 = getelementptr [64 x ptr], ptr %24, i64 0, i64 %27
+  %28 = getelementptr ptr, ptr %24, i64 %27
   store ptr %23, ptr %28, align 8
   %29 = add i32 %15, 1
   %30 = load i32, ptr %10, align 4
@@ -588,9 +588,9 @@ define internal fastcc void @zap_modalias_env(ptr noundef nonnull captures(none)
 8:                                                ; preds = %19, %5
   %9 = phi i32 [ %3, %5 ], [ %15, %19 ]
   %10 = phi i64 [ 0, %5 ], [ %12, %19 ]
-  %11 = getelementptr [64 x ptr], ptr %6, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %6, i64 %10
   %12 = add nuw nsw i64 %10, 1
-  %13 = getelementptr [64 x ptr], ptr %6, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr %6, i64 %12
   br label %14
 
 14:                                               ; preds = %.loopexit, %8
@@ -636,10 +636,10 @@ define internal fastcc void @zap_modalias_env(ptr noundef nonnull captures(none)
 39:                                               ; preds = %39, %37
   %40 = phi i64 [ %10, %37 ], [ %41, %39 ]
   %41 = add nuw nsw i64 %40, 1
-  %42 = getelementptr [64 x ptr], ptr %6, i64 0, i64 %41
+  %42 = getelementptr ptr, ptr %6, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 %38
-  %45 = getelementptr [64 x ptr], ptr %6, i64 0, i64 %40
+  %45 = getelementptr ptr, ptr %6, i64 %40
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %2, align 8
   %47 = add i32 %46, -1

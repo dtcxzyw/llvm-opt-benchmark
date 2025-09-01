@@ -3590,7 +3590,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %i.05.i.i = phi i64 [ 0, %if.then5.i ], [ %inc.i.i, %for.body.i.i ]
   %2 = lshr i16 %number.addr.06.i.i, 12
   %idxprom.i.i = zext nneg i16 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZN4node9inspector8protocol12_GLOBAL__N_19hexDigitsE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol12_GLOBAL__N_19hexDigitsE, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %call.i4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(112) %dst, i8 noundef signext %3) #27
   %shl.i.i = shl i16 %number.addr.06.i.i, 4
@@ -3672,7 +3672,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %i.05.i.i = phi i64 [ 0, %if.then4.i ], [ %inc.i.i, %for.body.i.i ]
   %2 = lshr i16 %number.addr.06.i.i, 12
   %idxprom.i.i = zext nneg i16 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZN4node9inspector8protocol12_GLOBAL__N_19hexDigitsE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol12_GLOBAL__N_19hexDigitsE, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %call.i4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(112) %dst, i8 noundef signext %3) #27
   %shl.i.i = shl i16 %number.addr.06.i.i, 4
@@ -6153,21 +6153,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i64 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i3 = udiv i64 %__val.addr.016.i, 100
-  %add.i4 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i4
-  %0 = load i8, ptr %arrayidx.i, align 1
+  %0 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom.i
-  store i8 %0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
-  %1 = load i8, ptr %arrayidx2.i, align 2
+  store i8 %1, ptr %arrayidx1.i, align 1
+  %2 = load i8, ptr %0, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom4.i
-  store i8 %1, ptr %arrayidx5.i, align 1
+  store i8 %2, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
-  %cmp.i5 = icmp ugt i64 %__val.addr.016.i, 9999
-  br i1 %cmp.i5, label %while.body.i, label %while.end.i, !llvm.loop !161
+  %cmp.i4 = icmp ugt i64 %__val.addr.016.i, 9999
+  br i1 %cmp.i4, label %while.body.i, label %while.end.i, !llvm.loop !161
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i64 [ %__val, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %div.i3, %while.body.i ]
@@ -6176,22 +6175,21 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
-  %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
-  %2 = load i8, ptr %arrayidx11.i, align 1
+  %3 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %mul9.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %4 = load i8, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call1, i64 1
-  store i8 %2, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
-  %3 = load i8, ptr %arrayidx13.i, align 2
+  store i8 %4, ptr %arrayidx12.i, align 1
+  %5 = load i8, ptr %3, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %4, 48
+  %6 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %3, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %5, %if.then.i ]
   store i8 %storemerge.i, ptr %call1, align 1
   ret void
 }
@@ -10808,23 +10806,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i = urem i32 %__val.addr.016.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %div.i = udiv i32 %__val.addr.016.i, 100
-  %add.i9 = or disjoint i32 %mul.i, 1
-  %idxprom.i = zext nneg i32 %add.i9 to i64
-  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
-  %1 = load i8, ptr %arrayidx.i, align 1
+  %1 = zext nneg i32 %mul.i to i64
+  %2 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %3 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom1.i
-  store i8 %1, ptr %arrayidx2.i, align 1
-  %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
-  %2 = load i8, ptr %arrayidx4.i, align 2
+  store i8 %3, ptr %arrayidx2.i, align 1
+  %4 = load i8, ptr %2, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call6, i64 %idxprom6.i
-  store i8 %2, ptr %arrayidx7.i, align 1
+  store i8 %4, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
-  %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !229
+  %cmp.i9 = icmp ugt i32 %__val.addr.016.i, 9999
+  br i1 %cmp.i9, label %while.body.i, label %while.end.i, !llvm.loop !229
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
@@ -10833,24 +10829,22 @@ while.end.i:                                      ; preds = %while.body.i, %_ZNS
 
 if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
-  %add12.i = or disjoint i32 %mul11.i, 1
-  %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
-  %3 = load i8, ptr %arrayidx14.i, align 1
+  %5 = zext nneg i32 %mul11.i to i64
+  %6 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %5
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %7 = load i8, ptr %arrayidx14.i, align 1
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %call6, i64 1
-  store i8 %3, ptr %arrayidx15.i, align 1
-  %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
-  %4 = load i8, ptr %arrayidx17.i, align 2
+  store i8 %7, ptr %arrayidx15.i, align 1
+  %8 = load i8, ptr %6, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
-  %conv.i = or disjoint i8 %5, 48
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
+  %conv.i = or disjoint i8 %9, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %4, %if.then.i ]
+  %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ %8, %if.then.i ]
   store i8 %storemerge.i, ptr %call6, align 1
   ret void
 }
@@ -20073,7 +20067,7 @@ for.body.i:                                       ; preds = %_ZNSt6vectorIhSaIhE
   %or9.i = or disjoint i32 %shl5.i, %shl.i
   %shr.i = lshr i32 %conv.i, 2
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom.i
   %19 = load i8, ptr %arrayidx.i, align 1
   %20 = load ptr, ptr %_M_end_of_storage.i.i.i8, align 8
   %cmp.not.i.i.i9 = icmp eq ptr %14, %20
@@ -20145,7 +20139,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i:         ; preds = %_ZNSt6vectorIhSaIhE
   %shr11.i = lshr i32 %or9.i, 12
   %and.i = and i32 %shr11.i, 63
   %idxprom12.i = zext nneg i32 %and.i to i64
-  %arrayidx13.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom12.i
   %26 = load i8, ptr %arrayidx13.i, align 1
   %cmp.not.i.i39.i = icmp eq ptr %25, %24
   br i1 %cmp.not.i.i39.i, label %if.else.i.i42.i, label %if.then.i.i40.i
@@ -20216,7 +20210,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit67.i:       ; preds = %_ZNSt6vectorIhSaIhE
   %shr15.i = lshr i32 %18, 6
   %and16.i = and i32 %shr15.i, 63
   %idxprom17.i = zext nneg i32 %and16.i to i64
-  %arrayidx18.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom17.i
   %32 = load i8, ptr %arrayidx18.i, align 1
   %cmp.not.i.i70.i = icmp eq ptr %31, %30
   br i1 %cmp.not.i.i70.i, label %if.else.i.i73.i, label %if.then.i.i71.i
@@ -20286,7 +20280,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit98.i:       ; preds = %_ZNSt6vectorIhSaIhE
   %37 = phi ptr [ %incdec.ptr.i.i72.i, %if.then.i.i71.i ], [ %incdec.ptr.i.i.i91.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i94.i ]
   %and20.i = and i32 %conv8.i, 63
   %idxprom21.i = zext nneg i32 %and20.i to i64
-  %arrayidx22.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom21.i
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom21.i
   %38 = load i8, ptr %arrayidx22.i, align 1
   %cmp.not.i.i101.i = icmp eq ptr %37, %36
   br i1 %cmp.not.i.i101.i, label %if.else.i.i104.i, label %if.then.i.i102.i
@@ -20374,7 +20368,7 @@ if.then.i:                                        ; preds = %for.end.i
   %or35.i = or disjoint i32 %shl34.i, %shl30.i
   %shr37.i = lshr i32 %conv29.i, 2
   %idxprom38.i = zext nneg i32 %shr37.i to i64
-  %arrayidx39.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom38.i
   %45 = load i8, ptr %arrayidx39.i, align 1
   %_M_finish.i.i133.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %46 = load ptr, ptr %_M_finish.i.i133.i, align 8
@@ -20449,7 +20443,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit163.i:      ; preds = %_ZNSt6vectorIhSaIhE
   %shr41.i = lshr i32 %or35.i, 12
   %and42.i = and i32 %shr41.i, 63
   %idxprom43.i = zext nneg i32 %and42.i to i64
-  %arrayidx44.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom43.i
+  %arrayidx44.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom43.i
   %53 = load i8, ptr %arrayidx44.i, align 1
   %cmp.not.i.i166.i = icmp eq ptr %52, %51
   br i1 %cmp.not.i.i166.i, label %if.else.i.i169.i, label %if.then.i.i167.i
@@ -20520,7 +20514,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit194.i:      ; preds = %_ZNSt6vectorIhSaIhE
   %shr46.i = shl nuw nsw i32 %conv33.i, 2
   %and47.i = and i32 %shr46.i, 60
   %idxprom48.i = zext nneg i32 %and47.i to i64
-  %arrayidx49.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom48.i
+  %arrayidx49.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom48.i
   %59 = load i8, ptr %arrayidx49.i, align 4
   %cmp.not.i.i197.i = icmp eq ptr %58, %57
   br i1 %cmp.not.i.i197.i, label %if.else.i.i200.i, label %if.then.i.i198.i
@@ -20662,7 +20656,7 @@ if.then54.i:                                      ; preds = %if.end.i
   %shl58.i = shl nuw nsw i32 %conv57.i, 4
   %shr60.i = lshr i32 %conv57.i, 2
   %idxprom61.i = zext nneg i32 %shr60.i to i64
-  %arrayidx62.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom61.i
+  %arrayidx62.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom61.i
   %69 = load i8, ptr %arrayidx62.i, align 1
   %_M_finish.i.i259.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %70 = load ptr, ptr %_M_finish.i.i259.i, align 8
@@ -20736,7 +20730,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit289.i:      ; preds = %_ZNSt6vectorIhSaIhE
   %76 = phi ptr [ %incdec.ptr.i.i263.i, %if.then.i.i262.i ], [ %incdec.ptr.i.i.i282.i, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i285.i ]
   %and65.i = and i32 %shl58.i, 48
   %idxprom66.i = zext nneg i32 %and65.i to i64
-  %arrayidx67.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom66.i
+  %arrayidx67.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom66.i
   %77 = load i8, ptr %arrayidx67.i, align 16
   %cmp.not.i.i292.i = icmp eq ptr %76, %75
   br i1 %cmp.not.i.i292.i, label %if.else.i.i295.i, label %if.then.i.i293.i
@@ -22788,24 +22782,24 @@ for.body.i:                                       ; preds = %_ZN4node9inspector8
   %or9.i = or disjoint i32 %shl5.i, %shl.i
   %shr.i = lshr i32 %conv.i, 2
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom.i
   %17 = load i8, ptr %arrayidx.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %17) #27
   %shr10.i = lshr i32 %or9.i, 12
   %and.i = and i32 %shr10.i, 63
   %idxprom11.i = zext nneg i32 %and.i to i64
-  %arrayidx12.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom11.i
   %18 = load i8, ptr %arrayidx12.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %18) #27
   %shr13.i = lshr i32 %16, 6
   %and14.i = and i32 %shr13.i, 63
   %idxprom15.i = zext nneg i32 %and14.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom15.i
   %19 = load i8, ptr %arrayidx16.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %19) #27
   %and17.i = and i32 %conv8.i, 63
   %idxprom18.i = zext nneg i32 %and17.i to i64
-  %arrayidx19.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom18.i
   %20 = load i8, ptr %arrayidx19.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %20) #27
   %add.i = add i64 %add3.i, 3
@@ -22830,19 +22824,19 @@ if.then.i:                                        ; preds = %for.end.i
   %or32.i = or disjoint i32 %shl31.i, %shl27.i
   %shr33.i = lshr i32 %conv26.i, 2
   %idxprom34.i = zext nneg i32 %shr33.i to i64
-  %arrayidx35.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom34.i
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom34.i
   %23 = load i8, ptr %arrayidx35.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %23) #27
   %shr36.i = lshr i32 %or32.i, 12
   %and37.i = and i32 %shr36.i, 63
   %idxprom38.i = zext nneg i32 %and37.i to i64
-  %arrayidx39.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom38.i
   %24 = load i8, ptr %arrayidx39.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %24) #27
   %shr40.i = shl nuw nsw i32 %conv30.i, 2
   %and41.i = and i32 %shr40.i, 60
   %idxprom42.i = zext nneg i32 %and41.i to i64
-  %arrayidx43.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom42.i
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom42.i
   %25 = load i8, ptr %arrayidx43.i, align 4
   br label %if.end59.sink.split.i
 
@@ -22857,12 +22851,12 @@ if.then47.i:                                      ; preds = %if.end.i
   %shl51.i = shl nuw nsw i32 %conv50.i, 4
   %shr52.i = lshr i32 %conv50.i, 2
   %idxprom53.i = zext nneg i32 %shr52.i to i64
-  %arrayidx54.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom53.i
+  %arrayidx54.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom53.i
   %27 = load i8, ptr %arrayidx54.i, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %27) #27
   %and56.i = and i32 %shl51.i, 48
   %idxprom57.i = zext nneg i32 %and56.i to i64
-  %arrayidx58.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 0, i64 %idxprom57.i
+  %arrayidx58.i = getelementptr inbounds nuw i8, ptr @_ZN4node9inspector8protocol4json12_GLOBAL__N_112kBase64TableE, i64 %idxprom57.i
   %28 = load i8, ptr %arrayidx58.i, align 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext %28) #27
   br label %if.end59.sink.split.i

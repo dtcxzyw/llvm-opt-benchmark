@@ -469,261 +469,260 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp eq i32 %0, 716
-  br i1 %2, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv39 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
+2:                                                ; preds = %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv.next
+  %4 = load i32, ptr %3, align 16, !tbaa !25
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.thread, label %3, !llvm.loop !25
+  br i1 %exitcond, label %.thread, label %5, !llvm.loop !28
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %4, align 16, !tbaa !27
-  %6 = icmp eq i32 %5, %0
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+5:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %6 = phi i32 [ 716, %1 ], [ %4, %2 ]
+  %7 = icmp eq i32 %6, %0
+  br i1 %7, label %8, label %2
 
-._crit_edge:                                      ; preds = %3, %1
-  %indvars.iv.lcssa = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %.lcssa = phi ptr [ @OPENSSL_built_in_curves, %1 ], [ %4, %3 ]
-  %7 = tail call ptr @BN_CTX_new() #11
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv
+  %10 = tail call ptr @BN_CTX_new() #11
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
-9:                                                ; preds = %._crit_edge
+12:                                               ; preds = %8
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 450) #11
-  br label %99
+  br label %102
 
-10:                                               ; preds = %._crit_edge
-  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !31
-  %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 10
-  %17 = zext i8 %14 to i64
-  %18 = tail call ptr @BN_bin2bn(ptr noundef nonnull %16, i64 noundef %17, ptr noundef null) #11
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %27, label %19
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = load ptr, ptr %14, align 16, !tbaa !30
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i8, ptr %16, align 8, !tbaa !31
+  %18 = zext i8 %17 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 10
+  %20 = zext i8 %17 to i64
+  %21 = tail call ptr @BN_bin2bn(ptr noundef nonnull %19, i64 noundef %20, ptr noundef null) #11
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %30, label %22
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  %21 = tail call ptr @BN_bin2bn(ptr noundef nonnull %20, i64 noundef %17, ptr noundef null) #11
-  %.not84.i = icmp eq ptr %21, null
-  br i1 %.not84.i, label %27, label %22
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %24 = tail call ptr @BN_bin2bn(ptr noundef nonnull %23, i64 noundef %20, ptr noundef null) #11
+  %.not84.i = icmp eq ptr %24, null
+  br i1 %.not84.i, label %30, label %25
 
-22:                                               ; preds = %19
-  %23 = shl nuw nsw i32 %15, 1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %24
-  %26 = tail call ptr @BN_bin2bn(ptr noundef nonnull %25, i64 noundef %17, ptr noundef null) #11
-  %.not85.i = icmp eq ptr %26, null
-  br i1 %.not85.i, label %27, label %28
+25:                                               ; preds = %22
+  %26 = shl nuw nsw i32 %18, 1
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 %27
+  %29 = tail call ptr @BN_bin2bn(ptr noundef nonnull %28, i64 noundef %20, ptr noundef null) #11
+  %.not85.i = icmp eq ptr %29, null
+  br i1 %.not85.i, label %30, label %31
 
-27:                                               ; preds = %22, %19, %10
-  %.161.i = phi ptr [ %21, %22 ], [ null, %19 ], [ null, %10 ]
+30:                                               ; preds = %25, %22, %13
+  %.161.i = phi ptr [ %24, %25 ], [ null, %22 ], [ null, %13 ]
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 461) #11
-  br label %99
+  br label %102
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
-  %.not86.i = icmp eq ptr %30, null
-  br i1 %.not86.i, label %40, label %31
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %.not86.i = icmp eq ptr %33, null
+  br i1 %.not86.i, label %43, label %34
 
-31:                                               ; preds = %28
-  %32 = tail call ptr %30() #11
-  %33 = tail call ptr @ec_group_new(ptr noundef %32)
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread152.i, label %35
+34:                                               ; preds = %31
+  %35 = tail call ptr %33() #11
+  %36 = tail call ptr @ec_group_new(ptr noundef %35)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.thread152.i, label %38
 
-.thread152.i:                                     ; preds = %31
+.thread152.i:                                     ; preds = %34
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
-  br label %99
+  br label %102
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %33, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !19
-  %39 = tail call i32 %38(ptr noundef nonnull %33, ptr noundef nonnull %18, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %7) #11
-  %.not87.i = icmp eq i32 %39, 0
-  br i1 %.not87.i, label %87, label %44
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %36, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !19
+  %42 = tail call i32 %41(ptr noundef nonnull %36, ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %10) #11
+  %.not87.i = icmp eq i32 %42, 0
+  br i1 %.not87.i, label %90, label %47
 
-40:                                               ; preds = %28
-  %41 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %18, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %7)
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %44
+43:                                               ; preds = %31
+  %44 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noundef nonnull %29, ptr noundef nonnull %10)
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-43:                                               ; preds = %40
+46:                                               ; preds = %43
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 474) #11
-  br label %99
+  br label %102
 
-44:                                               ; preds = %40, %35
-  %.1.i = phi ptr [ %33, %35 ], [ %41, %40 ]
-  %45 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %48
+47:                                               ; preds = %43, %38
+  %.1.i = phi ptr [ %36, %38 ], [ %44, %43 ]
+  %48 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %51
 
-47:                                               ; preds = %44
+50:                                               ; preds = %47
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
-  br label %52
+  br label %55
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %.1.i, align 8, !tbaa !11
-  store ptr %49, ptr %45, align 8, !tbaa !23
-  %50 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %45) #11
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %51, label %EC_POINT_new.exit.i
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %.1.i, align 8, !tbaa !11
+  store ptr %52, ptr %48, align 8, !tbaa !23
+  %53 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %48) #11
+  %.not.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i, label %54, label %EC_POINT_new.exit.i
 
-51:                                               ; preds = %48
-  tail call void @free(ptr noundef nonnull %45) #11
-  br label %52
+54:                                               ; preds = %51
+  tail call void @free(ptr noundef nonnull %48) #11
+  br label %55
 
-52:                                               ; preds = %51, %47
+55:                                               ; preds = %54, %50
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 480) #11
   br label %.thread120.i
 
-EC_POINT_new.exit.i:                              ; preds = %48
-  %53 = mul nuw nsw i32 %15, 3
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %16, i64 %54
-  %56 = tail call ptr @BN_bin2bn(ptr noundef nonnull %55, i64 noundef %17, ptr noundef null) #11
-  %.not88.i = icmp eq ptr %56, null
-  br i1 %.not88.i, label %62, label %57
+EC_POINT_new.exit.i:                              ; preds = %51
+  %56 = mul nuw nsw i32 %18, 3
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 %57
+  %59 = tail call ptr @BN_bin2bn(ptr noundef nonnull %58, i64 noundef %20, ptr noundef null) #11
+  %.not88.i = icmp eq ptr %59, null
+  br i1 %.not88.i, label %65, label %60
 
-57:                                               ; preds = %EC_POINT_new.exit.i
-  %58 = shl nuw nsw i32 %15, 2
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %16, i64 %59
-  %61 = tail call ptr @BN_bin2bn(ptr noundef nonnull %60, i64 noundef %17, ptr noundef null) #11
-  %.not89.i = icmp eq ptr %61, null
-  br i1 %.not89.i, label %62, label %63
+60:                                               ; preds = %EC_POINT_new.exit.i
+  %61 = shl nuw nsw i32 %18, 2
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 %62
+  %64 = tail call ptr @BN_bin2bn(ptr noundef nonnull %63, i64 noundef %20, ptr noundef null) #11
+  %.not89.i = icmp eq ptr %64, null
+  br i1 %.not89.i, label %65, label %66
 
-62:                                               ; preds = %57, %EC_POINT_new.exit.i
+65:                                               ; preds = %60, %EC_POINT_new.exit.i
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 486) #11
   br label %.thread120.i
 
-63:                                               ; preds = %57
-  %64 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %.1.i, ptr noundef nonnull %45, ptr noundef nonnull %56, ptr noundef nonnull %61, ptr noundef nonnull %7)
-  %.not90.i = icmp eq i32 %64, 0
-  br i1 %.not90.i, label %65, label %66
+66:                                               ; preds = %60
+  %67 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %.1.i, ptr noundef nonnull %48, ptr noundef nonnull %59, ptr noundef nonnull %64, ptr noundef nonnull %10)
+  %.not90.i = icmp eq i32 %67, 0
+  br i1 %.not90.i, label %68, label %69
 
-65:                                               ; preds = %63
+68:                                               ; preds = %66
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 491) #11
   br label %.thread120.i
 
-66:                                               ; preds = %63
-  %67 = mul nuw nsw i32 %15, 5
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %16, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %71 = tail call ptr @BN_bin2bn(ptr noundef nonnull %69, i64 noundef %17, ptr noundef nonnull %70) #11
-  %.not91.i = icmp eq ptr %71, null
-  br i1 %.not91.i, label %78, label %72
+69:                                               ; preds = %66
+  %70 = mul nuw nsw i32 %18, 5
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %74 = tail call ptr @BN_bin2bn(ptr noundef nonnull %72, i64 noundef %20, ptr noundef nonnull %73) #11
+  %.not91.i = icmp eq ptr %74, null
+  br i1 %.not91.i, label %81, label %75
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
-  %74 = getelementptr inbounds nuw i8, ptr %12, i64 9
-  %75 = load i8, ptr %74, align 1, !tbaa !31
-  %76 = zext i8 %75 to i64
-  %77 = tail call i32 @BN_set_word(ptr noundef nonnull %73, i64 noundef %76) #11
-  %.not92.i = icmp eq i32 %77, 0
-  br i1 %.not92.i, label %78, label %79
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %78 = load i8, ptr %77, align 1, !tbaa !31
+  %79 = zext i8 %78 to i64
+  %80 = tail call i32 @BN_set_word(ptr noundef nonnull %76, i64 noundef %79) #11
+  %.not92.i = icmp eq i32 %80, 0
+  br i1 %.not92.i, label %81, label %82
 
-78:                                               ; preds = %72, %66
+81:                                               ; preds = %75, %69
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 496) #11
   br label %.thread120.i
 
-79:                                               ; preds = %72
+82:                                               ; preds = %75
   tail call void @CRYPTO_once(ptr noundef nonnull @built_in_curve_scalar_field_monts_once, ptr noundef nonnull @built_in_curve_scalar_field_monts_init) #11
-  %80 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
-  %.not93.i = icmp eq ptr %80, null
-  br i1 %.not93.i, label %85, label %81
+  %83 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8, !tbaa !33
+  %.not93.i = icmp eq ptr %83, null
+  br i1 %.not93.i, label %88, label %84
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.lcssa
-  %83 = load ptr, ptr %82, align 8, !tbaa !35
-  %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
-  store ptr %83, ptr %84, align 8, !tbaa !36
-  br label %85
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
+  %86 = load ptr, ptr %85, align 8, !tbaa !35
+  %87 = getelementptr inbounds nuw i8, ptr %.1.i, i64 72
+  store ptr %86, ptr %87, align 8, !tbaa !36
+  br label %88
 
-85:                                               ; preds = %81, %79
-  %86 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  store ptr %45, ptr %86, align 8, !tbaa !21
-  br label %99
+88:                                               ; preds = %84, %82
+  %89 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  store ptr %48, ptr %89, align 8, !tbaa !21
+  br label %102
 
-87:                                               ; preds = %35
+90:                                               ; preds = %38
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
   br label %.thread120.i
 
-.thread120.i:                                     ; preds = %87, %78, %65, %62, %52
-  %.0.ph141.i = phi ptr [ %33, %87 ], [ %.1.i, %62 ], [ %.1.i, %65 ], [ %.1.i, %78 ], [ %.1.i, %52 ]
-  %.058.ph139.i = phi ptr [ null, %87 ], [ %45, %62 ], [ %45, %65 ], [ %45, %78 ], [ null, %52 ]
-  %.065.ph131.i = phi ptr [ null, %87 ], [ null, %62 ], [ %61, %65 ], [ %61, %78 ], [ null, %52 ]
-  %.067.ph129.i = phi ptr [ null, %87 ], [ %56, %62 ], [ %56, %65 ], [ %56, %78 ], [ null, %52 ]
-  %88 = load ptr, ptr %.0.ph141.i, align 8, !tbaa !11
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !20
-  %.not9.i.i = icmp eq ptr %90, null
-  br i1 %.not9.i.i, label %92, label %91
+.thread120.i:                                     ; preds = %90, %81, %68, %65, %55
+  %.0.ph141.i = phi ptr [ %36, %90 ], [ %.1.i, %65 ], [ %.1.i, %68 ], [ %.1.i, %81 ], [ %.1.i, %55 ]
+  %.058.ph139.i = phi ptr [ null, %90 ], [ %48, %65 ], [ %48, %68 ], [ %48, %81 ], [ null, %55 ]
+  %.065.ph131.i = phi ptr [ null, %90 ], [ null, %65 ], [ %64, %68 ], [ %64, %81 ], [ null, %55 ]
+  %.067.ph129.i = phi ptr [ null, %90 ], [ %59, %65 ], [ %59, %68 ], [ %59, %81 ], [ null, %55 ]
+  %91 = load ptr, ptr %.0.ph141.i, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !20
+  %.not9.i.i = icmp eq ptr %93, null
+  br i1 %.not9.i.i, label %95, label %94
 
-91:                                               ; preds = %.thread120.i
-  tail call void %90(ptr noundef nonnull %.0.ph141.i) #11
-  br label %92
+94:                                               ; preds = %.thread120.i
+  tail call void %93(ptr noundef nonnull %.0.ph141.i) #11
+  br label %95
 
-92:                                               ; preds = %91, %.thread120.i
-  %93 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !21
-  %.not.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i.i, label %EC_GROUP_free.exit.i, label %95
+95:                                               ; preds = %94, %.thread120.i
+  %96 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !21
+  %.not.i.i.i = icmp eq ptr %97, null
+  br i1 %.not.i.i.i, label %EC_GROUP_free.exit.i, label %98
 
-95:                                               ; preds = %92
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %94) #11
-  tail call void @free(ptr noundef nonnull %94) #11
+98:                                               ; preds = %95
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %97) #11
+  tail call void @free(ptr noundef nonnull %97) #11
   br label %EC_GROUP_free.exit.i
 
-EC_GROUP_free.exit.i:                             ; preds = %95, %92
-  %96 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 16
-  tail call void @BN_free(ptr noundef nonnull %96) #11
-  %97 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 40
-  tail call void @BN_free(ptr noundef nonnull %97) #11
+EC_GROUP_free.exit.i:                             ; preds = %98, %95
+  %99 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 16
+  tail call void @BN_free(ptr noundef nonnull %99) #11
+  %100 = getelementptr inbounds nuw i8, ptr %.0.ph141.i, i64 40
+  tail call void @BN_free(ptr noundef nonnull %100) #11
   tail call void @free(ptr noundef nonnull %.0.ph141.i) #11
   %.not.i96.i = icmp eq ptr %.058.ph139.i, null
-  br i1 %.not.i96.i, label %99, label %98
+  br i1 %.not.i96.i, label %102, label %101
 
-98:                                               ; preds = %EC_GROUP_free.exit.i
+101:                                              ; preds = %EC_GROUP_free.exit.i
   tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %.058.ph139.i) #11
   tail call void @free(ptr noundef nonnull %.058.ph139.i) #11
-  br label %99
+  br label %102
 
-99:                                               ; preds = %98, %EC_GROUP_free.exit.i, %85, %43, %.thread152.i, %27, %9
-  %.2167.i = phi ptr [ null, %EC_GROUP_free.exit.i ], [ null, %98 ], [ null, %.thread152.i ], [ %.1.i, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
-  %.067106166.i = phi ptr [ %.067.ph129.i, %EC_GROUP_free.exit.i ], [ %.067.ph129.i, %98 ], [ null, %.thread152.i ], [ %56, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
-  %.065108165.i = phi ptr [ %.065.ph131.i, %EC_GROUP_free.exit.i ], [ %.065.ph131.i, %98 ], [ null, %.thread152.i ], [ %61, %85 ], [ null, %27 ], [ null, %43 ], [ null, %9 ]
-  %.063110164.i = phi ptr [ %26, %EC_GROUP_free.exit.i ], [ %26, %98 ], [ %26, %.thread152.i ], [ %26, %85 ], [ null, %27 ], [ %26, %43 ], [ null, %9 ]
-  %.060112163.i = phi ptr [ %21, %EC_GROUP_free.exit.i ], [ %21, %98 ], [ %21, %.thread152.i ], [ %21, %85 ], [ %.161.i, %27 ], [ %21, %43 ], [ null, %9 ]
-  %.059114162.i = phi ptr [ %18, %EC_GROUP_free.exit.i ], [ %18, %98 ], [ %18, %.thread152.i ], [ %18, %85 ], [ %18, %27 ], [ %18, %43 ], [ null, %9 ]
-  tail call void @BN_CTX_free(ptr noundef %7) #11
+102:                                              ; preds = %101, %EC_GROUP_free.exit.i, %88, %46, %.thread152.i, %30, %12
+  %.2167.i = phi ptr [ null, %EC_GROUP_free.exit.i ], [ null, %101 ], [ null, %.thread152.i ], [ %.1.i, %88 ], [ null, %30 ], [ null, %46 ], [ null, %12 ]
+  %.067106166.i = phi ptr [ %.067.ph129.i, %EC_GROUP_free.exit.i ], [ %.067.ph129.i, %101 ], [ null, %.thread152.i ], [ %59, %88 ], [ null, %30 ], [ null, %46 ], [ null, %12 ]
+  %.065108165.i = phi ptr [ %.065.ph131.i, %EC_GROUP_free.exit.i ], [ %.065.ph131.i, %101 ], [ null, %.thread152.i ], [ %64, %88 ], [ null, %30 ], [ null, %46 ], [ null, %12 ]
+  %.063110164.i = phi ptr [ %29, %EC_GROUP_free.exit.i ], [ %29, %101 ], [ %29, %.thread152.i ], [ %29, %88 ], [ null, %30 ], [ %29, %46 ], [ null, %12 ]
+  %.060112163.i = phi ptr [ %24, %EC_GROUP_free.exit.i ], [ %24, %101 ], [ %24, %.thread152.i ], [ %24, %88 ], [ %.161.i, %30 ], [ %24, %46 ], [ null, %12 ]
+  %.059114162.i = phi ptr [ %21, %EC_GROUP_free.exit.i ], [ %21, %101 ], [ %21, %.thread152.i ], [ %21, %88 ], [ %21, %30 ], [ %21, %46 ], [ null, %12 ]
+  tail call void @BN_CTX_free(ptr noundef %10) #11
   tail call void @BN_free(ptr noundef %.059114162.i) #11
   tail call void @BN_free(ptr noundef %.060112163.i) #11
   tail call void @BN_free(ptr noundef %.063110164.i) #11
   tail call void @BN_free(ptr noundef %.067106166.i) #11
   tail call void @BN_free(ptr noundef %.065108165.i) #11
-  %100 = icmp eq ptr %.2167.i, null
-  br i1 %100, label %.thread, label %101
+  %103 = icmp eq ptr %.2167.i, null
+  br i1 %103, label %.thread, label %104
 
-.thread:                                          ; preds = %.lr.ph, %99
+.thread:                                          ; preds = %2, %102
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 539) #11
-  br label %103
+  br label %106
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %.2167.i, i64 64
-  store i32 %0, ptr %102, align 8, !tbaa !22
-  br label %103
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %.2167.i, i64 64
+  store i32 %0, ptr %105, align 8, !tbaa !22
+  br label %106
 
-103:                                              ; preds = %101, %.thread
-  %.010 = phi ptr [ null, %.thread ], [ %.2167.i, %101 ]
+106:                                              ; preds = %104, %.thread
+  %.010 = phi ptr [ null, %.thread ], [ %.2167.i, %104 ]
   ret ptr %.010
 }
 
@@ -1473,14 +1472,14 @@ define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !30
   %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !44
-  %9 = load i32, ptr %3, align 16, !tbaa !27
+  %9 = load i32, ptr %3, align 16, !tbaa !25
   store i32 %9, ptr %7, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %umin
@@ -1513,7 +1512,7 @@ define internal void @built_in_curve_scalar_field_monts_init() #1 {
 
 .lr.ph:                                           ; preds = %3, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw [5 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %indvars.iv, i32 3
+  %8 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %indvars.iv, i32 3
   %9 = load ptr, ptr %8, align 16, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !31
@@ -1616,20 +1615,20 @@ attributes #13 = { noreturn nounwind }
 !22 = !{!12, !17, i64 64}
 !23 = !{!24, !13, i64 0}
 !24 = !{!"ec_point_st", !13, i64 0, !15, i64 8, !15, i64 32, !15, i64 56}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !17, i64 0}
-!28 = !{!"built_in_curve", !17, i64 0, !9, i64 4, !9, i64 12, !29, i64 16, !8, i64 24}
-!29 = !{!"p1 _ZTS10curve_data", !8, i64 0}
-!30 = !{!28, !29, i64 16}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"built_in_curve", !17, i64 0, !9, i64 4, !9, i64 12, !27, i64 16, !8, i64 24}
+!27 = !{!"p1 _ZTS10curve_data", !8, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!26, !27, i64 16}
 !31 = !{!9, !9, i64 0}
-!32 = !{!28, !8, i64 24}
+!32 = !{!26, !8, i64 24}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"p2 _ZTS14bn_mont_ctx_st", !8, i64 0}
 !35 = !{!18, !18, i64 0}
 !36 = !{!12, !18, i64 72}
 !37 = !{!7, !8, i64 16}
-!38 = distinct !{!38, !26}
+!38 = distinct !{!38, !29}
 !39 = !{!14, !14, i64 0}
 !40 = !{!7, !8, i64 32}
 !41 = !{!7, !8, i64 40}
@@ -1638,5 +1637,5 @@ attributes #13 = { noreturn nounwind }
 !44 = !{!45, !43, i64 8}
 !45 = !{!"", !17, i64 0, !43, i64 8}
 !46 = !{!45, !17, i64 0}
-!47 = distinct !{!47, !26}
-!48 = distinct !{!48, !26}
+!47 = distinct !{!47, !29}
+!48 = distinct !{!48, !29}

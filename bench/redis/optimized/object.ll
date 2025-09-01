@@ -274,7 +274,7 @@ define dso_local noundef ptr @createEmbeddedStringObject(ptr noundef readonly ca
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %1
   store i8 0, ptr %15, align 1, !tbaa !42
   br label %21
 
@@ -284,7 +284,7 @@ define dso_local noundef ptr @createEmbeddedStringObject(ptr noundef readonly ca
 
 17:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %0, i64 %1, i1 false)
-  %18 = getelementptr inbounds nuw [0 x i8], ptr %6, i64 0, i64 %1
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %1
   store i8 0, ptr %18, align 1, !tbaa !42
   br label %21
 
@@ -329,7 +329,7 @@ define dso_local noundef ptr @createStringObject(ptr noundef %0, i64 noundef %1)
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %1
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %17, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
@@ -339,7 +339,7 @@ define dso_local noundef ptr @createStringObject(ptr noundef %0, i64 noundef %1)
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %1
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %20, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
@@ -411,7 +411,7 @@ define dso_local noundef ptr @tryCreateStringObject(ptr noundef %0, i64 noundef 
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %1
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %17, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
@@ -421,7 +421,7 @@ define dso_local noundef ptr @tryCreateStringObject(ptr noundef %0, i64 noundef 
 
 19:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %1
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   store i8 0, ptr %20, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
@@ -458,7 +458,7 @@ define dso_local ptr @createStringObjectFromLongLongWithOptions(i64 noundef %0, 
   br i1 %or.cond3, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [10000 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 0, i64 %0
+  %6 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %7 = load ptr, ptr %6, align 8, !tbaa !44
   br label %39
 
@@ -504,13 +504,13 @@ define dso_local ptr @createStringObjectFromLongLongWithOptions(i64 noundef %0, 
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %16
   store i8 0, ptr %31, align 1, !tbaa !42
   br label %createStringObject.exit
 
 32:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 16 %3, i64 %16, i1 false)
-  %33 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %16
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 %16
   store i8 0, ptr %33, align 1, !tbaa !42
   br label %createStringObject.exit
 
@@ -542,7 +542,7 @@ define dso_local ptr @createStringObjectFromLongLong(i64 noundef %0) local_unnam
   br i1 %or.cond.i, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw [10000 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 0, i64 %0
+  %3 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   br label %createStringObjectFromLongLongWithOptions.exit
 
@@ -578,7 +578,7 @@ define dso_local ptr @createStringObjectFromLongLongForValue(i64 noundef %0) loc
   br i1 %or.cond.i, label %8, label %11
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw [10000 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 0, i64 %0
+  %9 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %0
   %10 = load ptr, ptr %9, align 8, !tbaa !44
   br label %createStringObjectFromLongLongWithOptions.exit
 
@@ -637,13 +637,13 @@ define dso_local noundef ptr @createStringObjectFromLongLongWithSds(i64 noundef 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %4
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %4
   store i8 0, ptr %19, align 1, !tbaa !42
   br label %createStringObjectFromLongLongWithOptions.exit
 
 20:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 16 %2, i64 %4, i1 false)
-  %21 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %4
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %4
   store i8 0, ptr %21, align 1, !tbaa !42
   br label %createStringObjectFromLongLongWithOptions.exit
 
@@ -695,13 +695,13 @@ define dso_local noundef ptr @createStringObjectFromLongDouble(x86_fp80 noundef 
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %6
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %6
   store i8 0, ptr %21, align 1, !tbaa !42
   br label %createStringObject.exit
 
 22:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 16 %3, i64 %6, i1 false)
-  %23 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %6
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 %6
   store i8 0, ptr %23, align 1, !tbaa !42
   br label %createStringObject.exit
 
@@ -863,13 +863,13 @@ sdslen.exit12:                                    ; preds = %38, %45, %48, %52, 
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %sdslen.exit12
-  %75 = getelementptr inbounds nuw [0 x i8], ptr %66, i64 0, i64 %.0.i11
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 %.0.i11
   store i8 0, ptr %75, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
 76:                                               ; preds = %sdslen.exit12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %40, i64 %.0.i11, i1 false)
-  %77 = getelementptr inbounds nuw [0 x i8], ptr %66, i64 0, i64 %.0.i11
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 %.0.i11
   store i8 0, ptr %77, align 1, !tbaa !42
   br label %createEmbeddedStringObject.exit
 
@@ -2321,7 +2321,7 @@ sdslen.exit.thread..thread_crit_edge:             ; preds = %sdslen.exit.thread
 55:                                               ; preds = %52
   call void @decrRefCount(ptr noundef nonnull %0)
   %56 = load i64, ptr %3, align 8, !tbaa !50
-  %57 = getelementptr inbounds [10000 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 0, i64 %56
+  %57 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   br label %createStringObjectFromLongLongForValue.exit
 
@@ -2364,7 +2364,7 @@ sdslen.exit.thread..thread_crit_edge:             ; preds = %sdslen.exit.thread
   br i1 %or.cond.i.i, label %78, label %81
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw [10000 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 0, i64 %71
+  %79 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), i64 %71
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   br label %createStringObjectFromLongLongForValue.exit
 
@@ -2464,7 +2464,7 @@ sdslen.exit37:                                    ; preds = %96, %100, %103, %10
   br label %createEmbeddedStringObject.exit
 
 createEmbeddedStringObject.exit:                  ; preds = %sdslen.exit37, %129
-  %130 = getelementptr inbounds nuw [0 x i8], ptr %121, i64 0, i64 %.0.i36
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 %.0.i36
   store i8 0, ptr %130, align 1, !tbaa !42
   call void @decrRefCount(ptr noundef nonnull %0)
   br label %createStringObjectFromLongLongForValue.exit
@@ -2743,13 +2743,13 @@ define dso_local noundef ptr @getDecodedObject(ptr noundef captures(ret: address
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %30, i64 0, i64 %24
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %24
   store i8 0, ptr %39, align 1, !tbaa !42
   br label %createStringObject.exit
 
 40:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 16 %2, i64 %24, i1 false)
-  %41 = getelementptr inbounds nuw [0 x i8], ptr %30, i64 0, i64 %24
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 %24
   store i8 0, ptr %41, align 1, !tbaa !42
   br label %createStringObject.exit
 
@@ -3596,7 +3596,7 @@ define dso_local noundef nonnull ptr @strEncoding(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.objectCommand, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.objectCommand, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -4884,7 +4884,7 @@ define dso_local void @objectCommand(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !195
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !192
@@ -4915,7 +4915,7 @@ objectCommandLookupOrReply.exit:                  ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !195
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %38
+  %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !192
@@ -4936,7 +4936,7 @@ objectCommandLookupOrReply.exit44:                ; preds = %33
 
 switch.lookup:                                    ; preds = %objectCommandLookupOrReply.exit44
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.objectCommand, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.objectCommand, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %strEncoding.exit
 
@@ -4957,7 +4957,7 @@ strEncoding.exit:                                 ; preds = %objectCommandLookup
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load i32, ptr %54, align 4, !tbaa !195
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %56
+  %57 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !192
@@ -4997,7 +4997,7 @@ objectCommandLookupOrReply.exit46:                ; preds = %51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %74 = load i32, ptr %73, align 4, !tbaa !195
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %75
+  %76 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !44
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !192

@@ -83201,10 +83201,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %21
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -83232,22 +83232,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %28, %26, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %32 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %32, -1
-  %33 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %33, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %32, -1
+  %33 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %33, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %34 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %34
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %34 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %35 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %35
+  %35 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %37
 
@@ -93289,10 +93289,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %21
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -93320,22 +93320,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %28, %26, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %32 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %32, -1
-  %33 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %33, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %32, -1
+  %33 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %33, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %34 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %34
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %34 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %35 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %35
+  %35 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %37
 
@@ -94225,10 +94225,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %22
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -94256,22 +94256,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %29, %27, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %33 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %33, -1
-  %34 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %34, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %33, -1
+  %34 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %34, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %35 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %35
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %35 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %36 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %36
+  %36 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %38
 
@@ -95159,10 +95159,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %22
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -95190,22 +95190,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %29, %27, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %33 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %33, -1
-  %34 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %34, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %33, -1
+  %34 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %34, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %35 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %35
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %35 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %36 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %36
+  %36 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %38
 
@@ -96962,10 +96962,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %20
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %20
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -96993,22 +96993,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %27, %25, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %31 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %31, -1
-  %32 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %32, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %31, -1
+  %32 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %32, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %33 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %33
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %33 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %33
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %34 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %34
+  %34 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %34
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %36
 
@@ -103471,7 +103471,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK7testing8internal15variant
   %.not.i.i = phi i1 [ false, %21 ], [ true, %3 ]
   %.0813.i.i = phi i64 [ 1, %21 ], [ 0, %3 ]
   %.0912.i.i = phi i64 [ %.1.i.i, %21 ], [ 2, %3 ]
-  %16 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i
+  %16 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !586, !range !41, !noundef !63
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %21
@@ -103547,7 +103547,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE7MatchesES3_.exit: ; preds = %_ZSt3getIiJ
   %.not.i.i28 = phi i1 [ false, %43 ], [ true, %3 ]
   %.0813.i.i29 = phi i64 [ 1, %43 ], [ 0, %3 ]
   %.0912.i.i30 = phi i64 [ %.1.i.i31, %43 ], [ 2, %3 ]
-  %38 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 0, i64 %.0813.i.i29
+  %38 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmv.__found, i64 %.0813.i.i29
   %39 = load i8, ptr %38, align 1, !tbaa !586, !range !41, !noundef !63
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %43
@@ -148856,9 +148856,9 @@ _ZN4absl6StatusD2Ev.exit110:                      ; preds = %_ZN4absl6StatusD2Ev
 
 .preheader:                                       ; preds = %_ZN4absl6StatusD2Ev.exit110, %145
   %.023236 = phi i64 [ 0, %_ZN4absl6StatusD2Ev.exit110 ], [ %146, %145 ]
-  %95 = getelementptr inbounds nuw [4 x %"class.absl::StatusOr.169"], ptr %2, i64 0, i64 %.023236
+  %95 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %2, i64 %.023236
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = getelementptr inbounds nuw [4 x %"class.absl::StatusOr.169"], ptr %5, i64 0, i64 %.023236
+  %97 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %5, i64 %.023236
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   br label %147
@@ -149401,7 +149401,7 @@ _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %223, %232, %_ZNKR4a
 
 283:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %284 = getelementptr inbounds nuw [4 x %"class.absl::StatusOr.169"], ptr %5, i64 0, i64 %.0235
+  %284 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %5, i64 %.0235
   %285 = load i64, ptr %95, align 8, !tbaa !29
   %286 = icmp eq i64 %285, 1
   %287 = load i64, ptr %284, align 8
@@ -158757,10 +158757,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %17
+  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %17
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -158788,22 +158788,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit: ; preds = %_Z
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = %24, %22, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
   %28 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx17 = add i32 %28, -1
-  %29 = icmp ult i32 %switch.tableidx17, 3
-  br i1 %29, label %switch.lookup16, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
+  %switch.tableidx16 = add i32 %28, -1
+  %29 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %29, label %switch.lookup17, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-switch.lookup16:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
-  %30 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %30
+switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
+  %30 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %30
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  %31 = zext nneg i32 %switch.tableidx17 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %31
+  %31 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %31
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup16
-  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup16 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
-  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup16 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8, %switch.lookup17
+  %.sroa.6.0.i9 = phi ptr [ %switch.load19, %switch.lookup17 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
+  %.sroa.0.0.i10 = phi i64 [ %switch.load21, %switch.lookup17 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8 ]
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %.sroa.6.0.i9, i64 noundef %.sroa.0.0.i10)
   br label %33
 
@@ -158858,10 +158858,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i: ; preds
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %24
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %24
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i
 
@@ -158891,22 +158891,22 @@ _ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i: ; preds =
 
 _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i: ; preds = %30, %28, %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i
   %34 = load i32, ptr @_ZZN4absl17internal_statusor15StringifyRandom12RandomBracesEvE13kRandomBraces, align 4, !tbaa !1770
-  %switch.tableidx6 = add i32 %34, -1
-  %35 = icmp ult i32 %switch.tableidx6, 3
-  br i1 %35, label %switch.lookup5, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
+  %switch.tableidx5 = add i32 %34, -1
+  %35 = icmp ult i32 %switch.tableidx5, 3
+  br i1 %35, label %switch.lookup6, label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
 
-switch.lookup5:                                   ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i
-  %36 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 0, i64 %36
+switch.lookup6:                                   ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i
+  %36 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %36
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
-  %37 = zext nneg i32 %switch.tableidx6 to i64
-  %switch.gep9 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 0, i64 %37
+  %37 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %37
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
 
-_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i, %switch.lookup5
-  %.sroa.6.0.i8.i.i = phi ptr [ %switch.load8, %switch.lookup5 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i ]
-  %.sroa.0.0.i9.i.i = phi i64 [ %switch.load10, %switch.lookup5 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i ]
+_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i: ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i, %switch.lookup6
+  %.sroa.6.0.i8.i.i = phi ptr [ %switch.load8, %switch.lookup6 ], [ @.str.265, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i ]
+  %.sroa.0.0.i9.i.i = phi i64 [ %switch.load10, %switch.lookup6 ], [ 1, %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i ]
   store i64 %.sroa.0.0.i9.i.i, ptr %7, align 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.6.0.i8.i.i, ptr %38, align 8

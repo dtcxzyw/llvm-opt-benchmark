@@ -7037,7 +7037,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit981:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %.2242 = phi i32 [ %.3243, %2725 ], [ %.12413589, %1893 ]
   %.3238 = phi ptr [ %.4239, %2725 ], [ %.2237, %1893 ]
   %2728 = sext i32 %.2242 to i64
-  %2729 = getelementptr inbounds [4 x %"struct.Yosys::RTLIL::IdString"], ptr %24, i64 0, i64 %2728
+  %2729 = getelementptr inbounds %"struct.Yosys::RTLIL::IdString", ptr %24, i64 %2728
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %2730 = load ptr, ptr %1205, align 8, !tbaa !88
   %2731 = load ptr, ptr %1204, align 8, !tbaa !85
@@ -7243,7 +7243,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1006:             ; preds = %_ZSt8_DestroyIPN5Yo
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit1008:            ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1006, %2805, %2812
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  %2816 = getelementptr inbounds [4 x %"struct.Yosys::RTLIL::IdString"], ptr %25, i64 0, i64 %2728
+  %2816 = getelementptr inbounds %"struct.Yosys::RTLIL::IdString", ptr %25, i64 %2728
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %2817 = load ptr, ptr %1205, align 8, !tbaa !88
   %2818 = load ptr, ptr %1204, align 8, !tbaa !85
@@ -7541,7 +7541,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1052:            ; preds = %2932, %2937, %2944
   br i1 %2931, label %2948, label %3138
 
 2948:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1052
-  %2949 = getelementptr inbounds [4 x %"struct.Yosys::RTLIL::IdString"], ptr %26, i64 0, i64 %2728
+  %2949 = getelementptr inbounds %"struct.Yosys::RTLIL::IdString", ptr %26, i64 %2728
   %2950 = load ptr, ptr %1205, align 8, !tbaa !88
   %2951 = load ptr, ptr %1204, align 8, !tbaa !85
   %2952 = ptrtoint ptr %2950 to i64

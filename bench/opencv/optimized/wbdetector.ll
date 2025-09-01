@@ -1393,7 +1393,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit172:                 ; preds = %446, %443, %441
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164
 
 ._crit_edge381:                                   ; preds = %._crit_edge378, %.preheader313
-  %464 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN2cv10xobjdetect14WBDetectorImpl5trainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.stages, i64 0, i64 %indvars.iv447
+  %464 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv10xobjdetect14WBDetectorImpl5trainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.stages, i64 %indvars.iv447
   %465 = load i32, ptr %464, align 4, !tbaa !65
   invoke void @_ZN2cv10xobjdetect9WaldBoost5resetEi(ptr noundef nonnull align 8 dereferenceable(128) %332, i32 noundef %465)
           to label %508 unwind label %.loopexit314

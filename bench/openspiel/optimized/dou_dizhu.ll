@@ -1617,13 +1617,13 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState10FormatDealB5cxx11Ev(ptr 
           to label %35 unwind label %.loopexit51
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw [3 x %"struct.std::array.26"], ptr %4, i64 0, i64 %indvars.iv67
+  %36 = getelementptr inbounds nuw %"struct.std::array.26", ptr %4, i64 %indvars.iv67
   br label %37
 
 37:                                               ; preds = %37, %35
   %.05.i = phi i64 [ 0, %35 ], [ %41, %37 ]
-  %38 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %36, i64 0, i64 %.05.i
-  %39 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %.05.i
+  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %36, i64 %.05.i
+  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %.05.i
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39) #27
   %41 = add nuw nsw i64 %.05.i, 1
   %.not.i = icmp eq i64 %41, 15
@@ -1663,13 +1663,13 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm15EED2Ev.exit:
           to label %47 unwind label %.loopexit.split-lp52.loopexit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw [3 x %"struct.std::array.26"], ptr %4, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.std::array.26", ptr %4, i64 %indvars.iv
   br label %49
 
 49:                                               ; preds = %49, %47
   %.05.i33 = phi i64 [ 0, %47 ], [ %53, %49 ]
-  %50 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %48, i64 0, i64 %.05.i33
-  %51 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %.05.i33
+  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %.05.i33
+  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %.05.i33
   %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51) #27
   %53 = add nuw nsw i64 %.05.i33, 1
   %.not.i34 = icmp eq i64 %53, 15
@@ -1726,7 +1726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, %85
   %indvars.iv71 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %indvars.iv.next72, %85 ]
-  %70 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %60, i64 0, i64 %indvars.iv71
+  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %60, i64 %indvars.iv71
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %70, ptr %3, align 8, !noalias !14
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %61, align 8, !noalias !14
@@ -1759,7 +1759,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit39: ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   store i64 %77, ptr %63, align 8
-  %80 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %64, i64 0, i64 %indvars.iv71
+  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %64, i64 %indvars.iv71
   %81 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #27
   %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #27
   store ptr %81, ptr %13, align 8
@@ -1823,7 +1823,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit41: ; preds = %90
   store i64 %92, ptr %67, align 8
-  %95 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %indvars.iv75
+  %95 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %indvars.iv75
   %96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #27
   %97 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #27
   store ptr %96, ptr %16, align 8
@@ -2511,13 +2511,13 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
 
 .preheader34:                                     ; preds = %10
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds %"struct.std::array.11", ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %2, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader34, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader34 ]
-  %15 = getelementptr inbounds nuw [15 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.us, label %._crit_edge.us
@@ -2539,8 +2539,8 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
   br i1 %22, label %18, label %._crit_edge.us, !llvm.loop !32
 
 .lr.ph.us:                                        ; preds = %.preheader.us
-  %23 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %0, i64 0, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   br label %18
 
@@ -2551,14 +2551,14 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
 
 .preheader:                                       ; preds = %.preheader34, %._crit_edge
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge ], [ 0, %.preheader34 ]
-  %26 = getelementptr inbounds nuw [15 x i32], ptr %13, i64 0, i64 %indvars.iv45
+  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv45
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %29 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %0, i64 0, i64 %indvars.iv45
-  %30 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %indvars.iv45
+  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %indvars.iv45
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 %indvars.iv45
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -2605,7 +2605,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm15EED2Ev.exit:
 
 .critedge:                                        ; preds = %.preheader
   store ptr @.str.26, ptr %5, align 8
-  %42 = getelementptr inbounds nuw [15 x %"class.std::__cxx11::basic_string"], ptr %0, i64 0, i64 %indvars.iv45
+  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %indvars.iv45
   store i64 4, ptr %14, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %._crit_edge unwind label %.loopexit.split-lp.loopexit
@@ -2729,7 +2729,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %0, i64 0, i64 %24
+  %25 = getelementptr inbounds %"struct.std::array.11", ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %27 = load ptr, ptr %26, align 8
   br label %46
@@ -2742,7 +2742,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %32 = add nsw i32 %31, %29
   %33 = srem i32 %32, 3
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %0, i64 0, i64 %34
+  %35 = getelementptr inbounds %"struct.std::array.11", ptr %0, i64 %34
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %36, i64 %indvars.iv, i32 1
   %38 = load i64, ptr %37, align 8
@@ -2750,7 +2750,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %40 = add i32 %39, -51
   %41 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %40)
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [15 x i32], ptr %35, i64 0, i64 %42
+  %43 = getelementptr inbounds i32, ptr %35, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -2763,7 +2763,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %47 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv13
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [15 x i32], ptr %25, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %25, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -2911,7 +2911,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState17ObservationStringB5cxx11
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %41 = zext nneg i32 %2 to i64
-  %42 = getelementptr inbounds nuw [3 x %"struct.std::array.11"], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"struct.std::array.11", ptr %40, i64 %41
   call void @_ZN10open_spiel9dou_dizhu16FormatSingleHandB5cxx11EN4absl7debian24SpanIKiEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr nonnull %42, i64 15)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %17, ptr %8, align 8, !noalias !35
@@ -3428,21 +3428,21 @@ _ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit: ; preds = %.lr.ph.i.i.i.i
 .preheader:                                       ; preds = %_ZN4absl7debian26c_fillINS0_4SpanIfEEdEEvRT_OT0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw [3 x %"struct.std::array.11"], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.std::array.11", ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %35
 
 35:                                               ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
   %36 = mul nuw nsw i64 %indvars.iv, 5
-  %37 = getelementptr inbounds nuw [15 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = trunc nuw nsw i64 %36 to i32
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds float, ptr %2, i64 %41
   store float 1.000000e+00, ptr %42, align 4
-  %43 = getelementptr inbounds nuw [15 x i32], ptr %34, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = trunc i64 %36 to i32
   %46 = add i32 %45, 69
@@ -3568,7 +3568,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit.i:         ; preds = %_ZNSt6vectorIlSaIlE
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %27 = load i32, ptr %26, align 4, !noalias !52
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds %"struct.std::array.11", ptr %25, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull readonly align 4 dereferenceable(60) %29, i64 60, i1 false), !noalias !52
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -3773,7 +3773,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   %indvars.iv = phi i64 [ 0, %.preheader28 ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23 ]
   %62 = phi ptr [ %.promoted44, %.preheader28 ], [ %91, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23 ]
   %63 = phi ptr [ %.promoted48, %.preheader28 ], [ %90, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23 ]
-  %64 = getelementptr inbounds nuw [54 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23, label %66
@@ -4042,7 +4042,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds %"struct.std::array.11", ptr %20, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) %24, i64 60, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -4076,7 +4076,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState14ChanceOutcomesEv(ptr dea
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %.01348 = phi i32 [ 0, %2 ], [ %7, %4 ]
-  %5 = getelementptr inbounds nuw [54 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, %.01348
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4258,7 +4258,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %.loopexit.split-lp,
   %indvars.iv93 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next94, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit ]
   %63 = phi ptr [ %.promoted61, %.preheader41 ], [ %94, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit ]
   %64 = phi ptr [ %.promoted65, %.preheader41 ], [ %93, %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit ]
-  %65 = getelementptr inbounds nuw [54 x i32], ptr %3, i64 0, i64 %indvars.iv93
+  %65 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv93
   %66 = load i32, ptr %65, align 4
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %_ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit, label %67
@@ -4480,15 +4480,15 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState15ApplyDealActionEi(ptr nou
   %39 = urem i64 %38, 3
   %40 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %.pre-phi28)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %42 = getelementptr inbounds nuw [3 x %"struct.std::array.11"], ptr %41, i64 0, i64 %39
+  %42 = getelementptr inbounds nuw %"struct.std::array.11", ptr %41, i64 %39
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds [15 x i32], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %48 = sext i32 %.pre-phi28 to i64
-  %49 = getelementptr inbounds [54 x i32], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds i32, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, -1
   store i32 %51, ptr %49, align 4
@@ -4556,7 +4556,7 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState15ApplyDealActionEi(ptr nou
 
 78:                                               ; preds = %.preheader, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %79 = getelementptr inbounds nuw [54 x i32], ptr %47, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %.not17 = icmp eq i32 %80, 0
   br i1 %.not17, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %81
@@ -4687,12 +4687,12 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState18ApplyBiddingActionEi(ptr 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
   %25 = load i32, ptr %22, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %21, i64 0, i64 %26
+  %27 = getelementptr inbounds %"struct.std::array.11", ptr %21, i64 %26
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [15 x i32], ptr %27, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %27, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -4915,7 +4915,7 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit: ; preds
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4
@@ -4954,14 +4954,14 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit: ; preds
 
 83:                                               ; preds = %77
   %84 = sext i32 %81 to i64
-  %85 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %84
+  %85 = getelementptr inbounds i32, ptr %55, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 1
   %88 = zext i1 %87 to i32
   %89 = add nsw i32 %81, 1
   %90 = srem i32 %89, 3
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %91
+  %92 = getelementptr inbounds i32, ptr %55, i64 %91
   %93 = load i32, ptr %92, align 4
   %.not.i = icmp eq i32 %93, 0
   br i1 %.not.i, label %94, label %101
@@ -4970,7 +4970,7 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit: ; preds
   %95 = add nsw i32 %81, 2
   %96 = srem i32 %95, 3
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %97
+  %98 = getelementptr inbounds i32, ptr %55, i64 %97
   %99 = load i32, ptr %98, align 4
   %.not14.i = icmp eq i32 %99, 0
   %100 = zext i1 %.not14.i to i32
@@ -5173,16 +5173,16 @@ define noundef zeroext i1 @_ZN10open_spiel9dou_dizhu13DouDizhuState13AfterPlayHa
   call void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind nonnull writable sret(%"struct.std::array.11") align 4 %4, i32 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [3 x %"struct.std::array.11"], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds %"struct.std::array.11", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %13
 
 13:                                               ; preds = %3, %22
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %22 ]
   %.024 = phi i1 [ true, %3 ], [ %24, %22 ]
-  %14 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds nuw [15 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %.not = icmp slt i32 %15, %17
   br i1 %.not, label %18, label %22
@@ -5209,7 +5209,7 @@ define noundef zeroext i1 @_ZN10open_spiel9dou_dizhu13DouDizhuState13AfterPlayHa
   store i32 %23, ptr %14, align 4
   %.not18 = icmp eq i32 %15, %17
   %24 = and i1 %.024, %.not18
-  %25 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, %17
   store i32 %27, ptr %25, align 4
@@ -5292,14 +5292,14 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv(ptr noundef nonn
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   %11 = zext i1 %10 to i32
   %12 = add nsw i32 %3, 1
   %13 = srem i32 %12, 3
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %24
@@ -5308,7 +5308,7 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv(ptr noundef nonn
   %18 = add nsw i32 %3, 2
   %19 = srem i32 %18, 3
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr %6, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not14 = icmp eq i32 %22, 0
   %23 = zext i1 %.not14 to i32

@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @ff_get_qtpalette(i32 noundef %0, ptr noundef %1, ptr
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ff_get_qtpalette, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_get_qtpalette, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %31
 

@@ -147,7 +147,7 @@ define hidden noundef nonnull ptr @_ZN2lp19lp_status_to_stringENS_9lp_statusE(i3
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

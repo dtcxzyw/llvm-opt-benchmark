@@ -1045,20 +1045,20 @@ from_directions.exit:                             ; preds = %38, %39, %40, %41, 
   %42 = xor i32 %4, -1
   %43 = and i32 %.0.i.sink, %42
   %44 = or i32 %43, %3
-  %switch.tableidx26 = add nsw i32 %44, -1
-  %45 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep27 = getelementptr inbounds nuw [15 x i32], ptr %switch.table.merge.3.sink, i64 0, i64 %45
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr i32, ptr %switch.table.merge.3.sink, i64 %45
+  %switch.gep27 = getelementptr i8, ptr %46, i64 -4
   %switch.load28 = load i32, ptr %switch.gep27, align 4
   store i32 %switch.load28, ptr %19, align 8, !tbaa !51
   %.not22.i = icmp eq ptr %5, null
-  br i1 %.not22.i, label %put.exit, label %46
+  br i1 %.not22.i, label %put.exit, label %47
 
-46:                                               ; preds = %from_directions.exit
-  %47 = getelementptr inbounds %struct.cell, ptr %17, i64 %18, i32 2
-  store ptr %5, ptr %47, align 8, !tbaa !55
+47:                                               ; preds = %from_directions.exit
+  %48 = getelementptr inbounds %struct.cell, ptr %17, i64 %18, i32 2
+  store ptr %5, ptr %48, align 8, !tbaa !55
   br label %put.exit
 
-put.exit:                                         ; preds = %46, %from_directions.exit, %6, %9
+put.exit:                                         ; preds = %47, %from_directions.exit, %6, %9
   ret void
 }
 

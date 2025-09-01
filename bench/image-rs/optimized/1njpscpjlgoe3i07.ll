@@ -2276,10 +2276,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   %3 = load i8, ptr %2, align 1, !range !446, !alias.scope !443, !noalias !447, !noundef !5
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE.117", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE.117", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !443
   ret i1 %6
@@ -2546,10 +2546,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !32, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !148, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h438f82f787bc143bE.112", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h438f82f787bc143bE.112", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3922,10 +3922,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %3 = load i8, ptr %2, align 1, !range !148, !alias.scope !590, !noalias !593, !noundef !5
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !590
   ret i1 %6
@@ -3952,10 +3952,10 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %12
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 %12
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !601
   br label %"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit"
@@ -5336,7 +5336,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice5ascii8is_ascii17hd613d
 
 26:                                               ; preds = %.preheader
   %27 = add nsw i64 %.sroa.6.0, -1
-  %28 = getelementptr inbounds nuw [0 x i8], ptr %0, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1, !noundef !5
   %30 = icmp sgt i8 %29, -1
   br i1 %30, label %.preheader, label %.loopexit
@@ -15674,7 +15674,7 @@ switch.lookup:                                    ; preds = %5
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %99 = load i8, ptr %98, align 8, !range !560, !noundef !5
   %100 = zext nneg i8 %99 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table._ZN4tiff7decoder3ifd5Entry3val17h90e771915f7c14d9E, i64 0, i64 %100
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4tiff7decoder3ifd5Entry3val17h90e771915f7c14d9E, i64 %100
   %switch.load = load i64, ptr %switch.gep, align 8
   %101 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 %switch.load)
   %102 = extractvalue { i64, i1 } %101, 0
@@ -18145,7 +18145,7 @@ switch.lookup:                                    ; preds = %5
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %115 = load i8, ptr %114, align 8, !range !560, !noundef !5
   %116 = zext nneg i8 %115 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table._ZN4tiff7decoder3ifd5Entry3val17h90e771915f7c14d9E, i64 0, i64 %116
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4tiff7decoder3ifd5Entry3val17h90e771915f7c14d9E, i64 %116
   %switch.load = load i64, ptr %switch.gep, align 8
   %117 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %107, i64 %switch.load)
   %118 = extractvalue { i64, i1 } %117, 0
@@ -20968,10 +20968,10 @@ define internal noundef zeroext i1 @"_ZN59_$LT$png..common..ColorType$u20$as$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4113, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE.115", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17ha166cdb27df82a8bE.115", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -22332,10 +22332,10 @@ define internal { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4627, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E.116", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E.116", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -22395,10 +22395,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$tiff..tags..PhotometricInterpreta
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !446, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE.117", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$tiff..tags..PhotometricInterpretation$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9347c8d0ac56e9dE.117", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -24035,10 +24035,10 @@ define noundef zeroext i1 @"_ZN81_$LT$image..codecs..pnm..decoder..PnmHeaderLine
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !148, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -24063,10 +24063,10 @@ define noundef zeroext i1 @"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSour
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %11
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 %11
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !4819
   br label %17
@@ -25289,7 +25289,7 @@ switch.lookup:                                    ; preds = %176
   %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.0.i3.i = select i1 %switch.not.i.i, i32 %.sroa.4.sroa.13.sroa.6.0..sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.val, i32 %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx.val
   %181 = zext nneg i8 %.sroa.58.0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %181
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %181
   %switch.load = load i64, ptr %switch.gep, align 8
   %182 = zext i32 %.0.i.i to i64
   %183 = zext i32 %.0.i3.i to i64
@@ -26365,7 +26365,7 @@ _ZN3std2io7BufRead9read_line17h2f86f39e78fc2343E.exit.i.i: ; preds = %.backedge.
 
 197:                                              ; preds = %.preheader.i.i.i
   %198 = add nsw i64 %.sroa.6.0.i.i.i, -1
-  %199 = getelementptr inbounds nuw [0 x i8], ptr %157, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr %157, i64 %198
   %200 = load i8, ptr %199, align 1, !alias.scope !5237, !noalias !5198, !noundef !5
   %201 = icmp sgt i8 %200, -1
   br i1 %201, label %.preheader.i.i.i, label %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i.i
@@ -26576,14 +26576,14 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread351.i.i: ; preds = 
 279:                                              ; preds = %271
   %280 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i, 255
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 %281
   %283 = load i8, ptr %282, align 1, !noalias !5282, !noundef !5
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hddb889325edf4c20E.exit.i.i.i.i.i"
 
 284:                                              ; preds = %271
   %285 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i, 255
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17heb4e91ca37dc8ab9E, i64 %286
   %288 = load i8, ptr %287, align 1, !noalias !5282, !noundef !5
   %289 = lshr i8 %288, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hddb889325edf4c20E.exit.i.i.i.i.i"
@@ -27600,7 +27600,7 @@ switch.lookup:                                    ; preds = %489
   %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx.val = load i32, ptr %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.0.i3.i = select i1 %switch.not.i.i, i32 %.sroa.4.sroa.13.0..sroa.4.0..sroa_idx.sroa_idx.val, i32 %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx.sroa_idx.val
   %496 = zext nneg i8 %.sroa.66.0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %496
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %496
   %switch.load = load i64, ptr %switch.gep, align 8
   %497 = zext i32 %.0.i.i to i64
   %498 = zext i32 %.0.i3.i to i64
@@ -28082,7 +28082,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h6a09a7965df17cbdE.exit.thread.i: ;
 
 110:                                              ; preds = %.preheader.i.i
   %111 = add nsw i64 %.sroa.6.0.i.i, -1
-  %112 = getelementptr inbounds nuw [0 x i8], ptr %88, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %88, i64 %111
   %113 = load i8, ptr %112, align 1, !alias.scope !5553, !noalias !5486, !noundef !5
   %114 = icmp sgt i8 %113, -1
   br i1 %114, label %.preheader.i.i, label %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i
@@ -28674,7 +28674,7 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = load i8, ptr %12, align 8, !range !598, !alias.scope !5682, !noundef !5
   %14 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = zext i32 %.0.i.i.i to i64
   %16 = zext i32 %.0.i3.i.i to i64
@@ -28822,7 +28822,7 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i8, ptr %12, align 8, !range !598, !alias.scope !5721, !noundef !5
   %14 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = zext i32 %.0.i.i.i to i64
   %16 = zext i32 %.0.i3.i.i to i64
@@ -31215,7 +31215,7 @@ define void @"_ZN87_$LT$image..codecs..pnm..decoder..U8$u20$as$u20$image..codecs
 
 54:                                               ; preds = %.preheader.i.i
   %55 = add nsw i64 %.sroa.6.0.i.i, -1
-  %56 = getelementptr inbounds nuw [0 x i8], ptr %31, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 %55
   %57 = load i8, ptr %56, align 1, !alias.scope !6131, !noalias !6130, !noundef !5
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %.preheader.i.i, label %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i
@@ -31624,7 +31624,7 @@ define void @"_ZN88_$LT$image..codecs..pnm..decoder..U16$u20$as$u20$image..codec
 
 55:                                               ; preds = %.preheader.i.i
   %56 = add nsw i64 %.sroa.6.0.i.i, -1
-  %57 = getelementptr inbounds nuw [0 x i8], ptr %32, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 %56
   %58 = load i8, ptr %57, align 1, !alias.scope !6227, !noalias !6226, !noundef !5
   %59 = icmp sgt i8 %58, -1
   br i1 %59, label %.preheader.i.i, label %_ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i
@@ -32345,7 +32345,7 @@ define noundef range(i8 0, 13) i8 @_ZN5image6codecs3tga6header9ImageType3new17h9
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN5image6codecs3tga6header9ImageType3new17h9f0b5c7f73c020b5E, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5image6codecs3tga6header9ImageType3new17h9f0b5c7f73c020b5E, i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -33298,10 +33298,10 @@ define { ptr, i64 } @_ZN5image5image11ImageFormat12to_mime_type17hbcab379f364dbe
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !6663, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5image5image11ImageFormat12to_mime_type17hbcab379f364dbe0eE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image11ImageFormat12to_mime_type17hbcab379f364dbe0eE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5image5image11ImageFormat12to_mime_type17hbcab379f364dbe0eE.120, i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5image5image11ImageFormat12to_mime_type17hbcab379f364dbe0eE.120, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -33312,10 +33312,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E(i8 noundef %0) unnamed_addr #17 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E.121, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image11ImageFormat14extensions_str17h9f4884680d107906E.121, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -33484,7 +33484,7 @@ switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8, !range !598, !alias.scope !6685, !noundef !5
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext i32 %.0.i.i to i64
   %9 = zext i32 %.0.i3.i to i64
@@ -33511,7 +33511,7 @@ switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i8, ptr %5, align 8, !range !598, !alias.scope !6696, !noundef !5
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hd6a458d65f001f1bE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext i32 %.0.i.i to i64
   %9 = zext i32 %.0.i3.i to i64
@@ -33616,10 +33616,10 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$image..image..ImageFormat$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !6663, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN62_$LT$image..image..ImageFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ac118df4977a9eeE.llvm.98706352026558795", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$image..image..ImageFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ac118df4977a9eeE.llvm.98706352026558795", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [15 x ptr], ptr @"switch.table._ZN62_$LT$image..image..ImageFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ac118df4977a9eeE.llvm.98706352026558795.122", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$image..image..ImageFormat$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ac118df4977a9eeE.llvm.98706352026558795.122", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

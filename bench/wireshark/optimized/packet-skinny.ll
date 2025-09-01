@@ -3108,7 +3108,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 8:                                                ; preds = %4, %8
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
   %.06374 = phi ptr [ null, %4 ], [ %spec.select, %8 ]
-  %9 = getelementptr [171 x %struct._skinny_opcode_map_t], ptr @skinny_opcode_map, i64 0, i64 %indvars.iv
+  %9 = getelementptr %struct._skinny_opcode_map_t, ptr @skinny_opcode_map, i64 %indvars.iv
   %10 = load i32, ptr %9, align 16
   %11 = icmp eq i32 %10, %7
   %spec.select = select i1 %11, ptr %9, ptr %.06374
@@ -3153,7 +3153,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %spec.store.select = select i1 %33, i32 0, i32 %32
   store i32 %spec.store.select, ptr @pi_current, align 4
   %34 = sext i32 %spec.store.select to i64
-  %35 = getelementptr [10 x %struct._skinny_info_t], ptr @pi_arr, i64 0, i64 %34
+  %35 = getelementptr %struct._skinny_info_t, ptr @pi_arr, i64 %34
   store ptr %35, ptr @si, align 8
   store i32 %7, ptr %35, align 8
   %36 = tail call ptr @val_to_str_ext(i32 noundef %7, ptr noundef nonnull @message_id_ext, ptr noundef nonnull @.str.1990)

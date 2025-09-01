@@ -391,7 +391,7 @@ thread-pre-split.i.i:                             ; preds = %.thread207.i.i, %._
 49:                                               ; preds = %_ZZN2qe10mbi_plugin10set_sharedEP4exprS2_EN8fun_procclEP3app.exit.i.i, %.lr.ph.i.i
   %50 = phi i32 [ %46, %.lr.ph.i.i ], [ %185, %_ZZN2qe10mbi_plugin10set_sharedEP4exprS2_EN8fun_procclEP3app.exit.i.i ]
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !39
   %54 = add nuw i32 %50, 1
   store i32 %54, ptr %45, align 8, !tbaa !38
@@ -1393,7 +1393,7 @@ thread-pre-split.i.i36:                           ; preds = %.thread242.i.i, %40
 412:                                              ; preds = %_ZZN2qe10mbi_plugin10set_sharedEP4exprS2_EN14intersect_procclEP3app.exit.i.i, %.lr.ph.i.i44
   %413 = phi i32 [ %409, %.lr.ph.i.i44 ], [ %560, %_ZZN2qe10mbi_plugin10set_sharedEP4exprS2_EN14intersect_procclEP3app.exit.i.i ]
   %414 = zext i32 %413 to i64
-  %415 = getelementptr inbounds nuw [0 x ptr], ptr %411, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw ptr, ptr %411, i64 %414
   %416 = load ptr, ptr %415, align 8, !tbaa !39
   %417 = add nuw i32 %413, 1
   store i32 %417, ptr %408, align 8, !tbaa !38
@@ -9431,9 +9431,9 @@ define hidden void @_ZN2qe9uflia_mbi15add_arith_dcertER5modelR10ref_vectorI4expr
 18:                                               ; preds = %.lr.ph, %.critedge34.backedge
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %19, %.critedge34.backedge ]
   %19 = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !39
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %19
+  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %19
   %23 = load ptr, ptr %22, align 8, !tbaa !39
   %24 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %21)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -15415,7 +15415,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 62:                                               ; preds = %.lr.ph, %140
   %63 = phi i32 [ %59, %.lr.ph ], [ %141, %140 ]
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !39
   %67 = add nuw i32 %63, 1
   store i32 %67, ptr %58, align 8, !tbaa !38

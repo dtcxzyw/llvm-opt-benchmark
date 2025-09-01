@@ -378,10 +378,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !15, !noundef !9
   %.val = load i8, ptr %2, align 1, !range !16, !noundef !9
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he38af31c61c915c4E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he38af31c61c915c4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he38af31c61c915c4E.92", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he38af31c61c915c4E.92", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -28678,7 +28678,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i: ; preds = 
 
 .lr.ph.i.us.i.i.i.i.i.i:                          ; preds = %.preheader.i.us.i.i.i.i.i.i, %980
   %.sroa.01.05.i.us.i.i.i.i.i.i = phi i64 [ %981, %980 ], [ 0, %.preheader.i.us.i.i.i.i.i.i ]
-  %977 = getelementptr inbounds nuw [0 x i8], ptr %972, i64 0, i64 %.sroa.01.05.i.us.i.i.i.i.i.i
+  %977 = getelementptr inbounds nuw i8, ptr %972, i64 %.sroa.01.05.i.us.i.i.i.i.i.i
   %978 = load i8, ptr %977, align 1, !alias.scope !5175, !noalias !5178, !noundef !9
   %979 = icmp eq i8 %978, %.pre92.i.i.i.i.i.i
   br i1 %979, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i, label %980
@@ -28715,7 +28715,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i, %993
   %.sroa.01.05.i.i.i.i.i.i.i = phi i64 [ %994, %993 ], [ 0, %.preheader.i.i.i.i.i.i.i ]
-  %990 = getelementptr inbounds nuw [0 x i8], ptr %988, i64 0, i64 %.sroa.01.05.i.i.i.i.i.i.i
+  %990 = getelementptr inbounds nuw i8, ptr %988, i64 %.sroa.01.05.i.i.i.i.i.i.i
   %991 = load i8, ptr %990, align 1, !alias.scope !5175, !noalias !5178, !noundef !9
   %992 = icmp eq i8 %991, %.pre92.i.i.i.i.i.i
   br i1 %992, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i, label %993

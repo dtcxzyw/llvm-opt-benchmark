@@ -2300,7 +2300,7 @@ define hidden void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb
   %16 = icmp eq i32 %15, 2
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = zext i1 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !84, !noalias !97
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -2320,7 +2320,7 @@ define hidden void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb
   %25 = icmp eq i32 %24, 2
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.046.0, i64 24
   %27 = zext i1 %25 to i64
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !84, !noalias !100
   %30 = load i64, ptr %22, align 8, !noalias !103
   %31 = trunc i64 %30 to i32
@@ -2330,7 +2330,7 @@ define hidden void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb
   %35 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %34)
   %36 = icmp eq i32 %35, 2
   %spec.select.i.i = select i1 %36, i64 2, i64 1
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds nuw ptr, ptr %26, i64 %spec.select.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !84, !noalias !103
   %39 = icmp eq ptr %29, %38
   br i1 %39, label %.critedge29.thread, label %.noexc37
@@ -2375,7 +2375,7 @@ define hidden void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb
   %61 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %60)
   %62 = icmp eq i32 %61, 2
   %spec.select.i.i31 = select i1 %62, i64 2, i64 1
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %spec.select.i.i31
+  %63 = getelementptr inbounds nuw ptr, ptr %26, i64 %spec.select.i.i31
   %64 = load ptr, ptr %63, align 8, !tbaa !84, !noalias !109
   %65 = load i64, ptr %22, align 8, !noalias !112
   %66 = trunc i64 %65 to i32
@@ -2385,7 +2385,7 @@ define hidden void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb
   %70 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %69)
   %71 = icmp eq i32 %70, 2
   %72 = zext i1 %71 to i64
-  %73 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr %26, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !84, !noalias !112
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !115
@@ -7487,7 +7487,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %19 = icmp eq i32 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = zext i1 %19 to i64
-  %22 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !84, !noalias !155
   %24 = load ptr, ptr %1, align 8, !tbaa !81, !noalias !158
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -7500,7 +7500,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %32 = icmp eq i32 %31, 2
   %spec.select.i.i = select i1 %32, i64 2, i64 1
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %spec.select.i.i
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %spec.select.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !84, !noalias !158
   %36 = icmp eq ptr %23, %35
   br i1 %36, label %.critedge125, label %.critedge145
@@ -7517,7 +7517,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %45 = icmp eq i32 %44, 2
   %spec.select.i.i146 = select i1 %45, i64 2, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %46, i64 0, i64 %spec.select.i.i146
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %spec.select.i.i146
   %48 = load ptr, ptr %47, align 8, !tbaa !84, !noalias !161
   br label %.critedge145.sink.split
 
@@ -7532,7 +7532,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %54 = icmp eq i32 %53, 2
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = zext i1 %54 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !84, !noalias !164
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
@@ -7552,7 +7552,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %72 = icmp eq i32 %71, 2
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %74 = zext i1 %72 to i64
-  %75 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !84, !noalias !167
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8
@@ -7572,7 +7572,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %90 = icmp eq i32 %89, 2
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %92 = zext i1 %90 to i64
-  %93 = getelementptr inbounds nuw [0 x ptr], ptr %91, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !84, !noalias !170
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i64, ptr %95, align 8, !noalias !173
@@ -7584,7 +7584,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %102 = icmp eq i32 %101, 2
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %104 = zext i1 %102 to i64
-  %105 = getelementptr inbounds nuw [0 x ptr], ptr %103, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !84, !noalias !173
   %107 = load ptr, ptr %1, align 8, !tbaa !81, !noalias !176
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -7597,7 +7597,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %115 = icmp eq i32 %114, 2
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %117 = zext i1 %115 to i64
-  %118 = getelementptr inbounds nuw [0 x ptr], ptr %116, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !84, !noalias !176
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i64, ptr %120, align 8, !noalias !179
@@ -7609,7 +7609,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %127 = icmp eq i32 %126, 2
   %spec.select.i.i159 = select i1 %127, i64 2, i64 1
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %129 = getelementptr inbounds nuw [0 x ptr], ptr %128, i64 0, i64 %spec.select.i.i159
+  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %spec.select.i.i159
   %130 = load ptr, ptr %129, align 8, !tbaa !84, !noalias !179
   %131 = icmp eq ptr %106, %130
   br i1 %131, label %.critedge133.thread, label %.critedge145
@@ -7626,7 +7626,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %140 = icmp eq i32 %139, 2
   %141 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %142 = zext i1 %140 to i64
-  %143 = getelementptr inbounds nuw [0 x ptr], ptr %141, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !84, !noalias !182
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load i64, ptr %145, align 8, !noalias !185
@@ -7638,7 +7638,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %152 = icmp eq i32 %151, 2
   %spec.select.i.i163 = select i1 %152, i64 2, i64 1
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %154 = getelementptr inbounds nuw [0 x ptr], ptr %153, i64 0, i64 %spec.select.i.i163
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %spec.select.i.i163
   %155 = load ptr, ptr %154, align 8, !tbaa !84, !noalias !185
   %156 = load ptr, ptr %1, align 8, !tbaa !81, !noalias !188
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -7651,7 +7651,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %164 = icmp eq i32 %163, 2
   %165 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %166 = zext i1 %164 to i64
-  %167 = getelementptr inbounds nuw [0 x ptr], ptr %165, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
   br label %.critedge145.sink.split
 
 .critedge145.sink.split:                          ; preds = %.critedge133.thread, %.critedge125
@@ -7668,7 +7668,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTem
   %175 = icmp eq i32 %174, 2
   %176 = getelementptr inbounds nuw i8, ptr %.sink238, i64 24
   %177 = zext i1 %175 to i64
-  %178 = getelementptr inbounds nuw [0 x ptr], ptr %176, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw ptr, ptr %176, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !84, !noalias !80
   %180 = icmp eq ptr %.sink, %179
   br label %.critedge145

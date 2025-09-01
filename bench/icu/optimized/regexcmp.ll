@@ -834,7 +834,7 @@ define void @_ZN6icu_7712RegexCompile7compileEP5UTextR11UParseErrorR10UErrorCode
 41:                                               ; preds = %.lr.ph79, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit59
   %.077 = phi i16 [ 1, %.lr.ph79 ], [ %.1, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit59 ]
   %42 = zext i16 %.077 to i64
-  %43 = getelementptr inbounds nuw [207 x %"struct.icu_77::RegexTableEl"], ptr @_ZN6icu_77L20gRuleParseStateTableE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.icu_77::RegexTableEl", ptr @_ZN6icu_77L20gRuleParseStateTableE, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i8, ptr %44, align 4, !tbaa !64
   %46 = zext i8 %45 to i32
@@ -879,7 +879,7 @@ define void @_ZN6icu_7712RegexCompile7compileEP5UTextR11UParseErrorR10UErrorCode
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 3024
   %64 = and i8 %55, 127
   %65 = zext nneg i8 %64 to i64
-  %66 = getelementptr inbounds nuw [3 x %"class.icu_77::UnicodeSet"], ptr %63, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %63, i64 %65
   %67 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %66, i32 noundef %52)
   %.not41 = icmp eq i8 %67, 0
   br i1 %.not41, label %..thread61_crit_edge, label %._crit_edge
@@ -992,7 +992,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %87, %102
   %126 = phi i32 [ %124, %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit ], [ %85, %83 ]
   %127 = zext i8 %82 to i16
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds [100 x i16], ptr %10, i64 0, i64 %128
+  %129 = getelementptr inbounds i16, ptr %10, i64 %128
   store i16 %127, ptr %129, align 2, !tbaa !60
   br label %130
 
@@ -1019,7 +1019,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %87, %102
 139:                                              ; preds = %134
   %140 = load i32, ptr %9, align 8, !tbaa !59
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [100 x i16], ptr %10, i64 0, i64 %141
+  %142 = getelementptr inbounds i16, ptr %10, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !60
   %144 = add nsw i32 %140, -1
   store i32 %144, ptr %9, align 8, !tbaa !59
@@ -1181,7 +1181,7 @@ _ZN6icu_7712RegexCompile5errorE10UErrorCode.exit59: ; preds = %161, %146, %139, 
   %231 = shl nuw nsw i32 1, %230
   %232 = lshr i32 %.08.i, 3
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [32 x i8], ptr %227, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr %227, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !17
   %236 = trunc nuw i32 %231 to i8
   %237 = or i8 %235, %236
@@ -6510,7 +6510,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit246:      ; preds = %_ZNK6icu_779UVector
   %116 = and i64 %40, 16777215
   %117 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !67
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %118, i64 0, i64 %116
+  %119 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %118, i64 %116
   %120 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %121 = load ptr, ptr %120, align 8, !tbaa !140
   %122 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %121, ptr noundef nonnull align 8 dereferenceable(200) %119)
@@ -6545,7 +6545,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit246:      ; preds = %_ZNK6icu_779UVector
   %132 = and i64 %40, 16777215
   %133 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !67
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = getelementptr inbounds nuw [13 x %"class.icu_77::UnicodeSet"], ptr %134, i64 0, i64 %132
+  %135 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %134, i64 %132
   %136 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(200) %135)
           to label %137 unwind label %147
 
@@ -7302,7 +7302,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit284:      ; preds = %.preheader305, %_ZN
   %471 = shl nuw nsw i32 1, %470
   %472 = lshr i32 %.08.i, 3
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw [32 x i8], ptr %465, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw i8, ptr %465, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !17
   %476 = trunc nuw i32 %471 to i8
   %477 = or i8 %475, %476
@@ -11469,7 +11469,7 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
 
 9:                                                ; preds = %9, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw [50 x i32], ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE19RECaseFixCodePoints, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE19RECaseFixCodePoints, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = icmp slt i32 %11, %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11480,9 +11480,9 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
   br i1 %.not42, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %13
-  %14 = getelementptr inbounds nuw [50 x i16], ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !60
-  %16 = getelementptr inbounds nuw [50 x i16], ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE22RECaseFixStringOffsets, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE22RECaseFixStringOffsets, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !60
   %18 = sext i16 %17 to i32
   %19 = tail call i16 @llvm.smax.i16(i16 %15, i16 1)
@@ -11494,7 +11494,7 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
   %.03034 = phi i32 [ %.1, %36 ], [ %18, %.lr.ph.preheader ]
   %20 = add nsw i32 %.03034, 1
   %21 = sext i32 %.03034 to i64
-  %22 = getelementptr inbounds [105 x i16], ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 0, i64 %21
+  %22 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !100
   %24 = zext i16 %23 to i32
   %25 = and i32 %24, 64512
@@ -11505,7 +11505,7 @@ define void @_ZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10Unicod
   %28 = shl nuw nsw i32 %24, 10
   %29 = add nsw i32 %.03034, 2
   %30 = sext i32 %20 to i64
-  %31 = getelementptr inbounds [105 x i16], ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 0, i64 %30
+  %31 = getelementptr inbounds i16, ptr @_ZZN6icu_7712RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !100
   %33 = zext i16 %32 to i32
   %34 = add nsw i32 %28, -56613888

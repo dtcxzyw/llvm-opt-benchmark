@@ -2698,7 +2698,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %81 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %82, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.016.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !66
   %85 = zext i32 %84 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %85
@@ -8889,7 +8889,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %81 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %82, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.016.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !66
   %85 = zext i32 %84 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %85
@@ -14387,7 +14387,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %78 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %79, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.016.i.i.i.i.i
+  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
   %81 = load i32, ptr %80, align 4, !tbaa !66
   %82 = zext i32 %81 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %82
@@ -21071,7 +21071,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %131 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %132, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %133 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = zext i32 %134 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %135
@@ -23077,7 +23077,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %131 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %132, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %133 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = zext i32 %134 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %135
@@ -23838,7 +23838,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %134 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %135, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %136 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.016.i.i.i.i.i
+  %136 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
   %137 = load i32, ptr %136, align 4, !tbaa !66
   %138 = zext i32 %137 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %138

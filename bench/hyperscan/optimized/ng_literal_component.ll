@@ -396,7 +396,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L15splitOffLiteralERNS_2NGERNS
 
 38:                                               ; preds = %46, %35
   %.0710.i.i.i = phi i64 [ 0, %35 ], [ %47, %46 ]
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %.0710.i.i.i
+  %39 = getelementptr inbounds nuw i64, ptr %14, i64 %.0710.i.i.i
   %40 = load i64, ptr %39, align 8
   %.not.i.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i.i, label %46, label %41
@@ -546,7 +546,7 @@ _ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9
 
 .preheader:                                       ; preds = %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %109
   %.0710.i.i.i67 = phi i64 [ %110, %109 ], [ 0, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ]
-  %102 = getelementptr inbounds nuw [4 x i64], ptr %70, i64 0, i64 %.0710.i.i.i67
+  %102 = getelementptr inbounds nuw i64, ptr %70, i64 %.0710.i.i.i67
   %103 = load i64, ptr %102, align 8
   %.not.i.i.i68 = icmp eq i64 %103, 0
   br i1 %.not.i.i.i68, label %109, label %104

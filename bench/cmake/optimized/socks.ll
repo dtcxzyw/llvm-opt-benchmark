@@ -1360,7 +1360,7 @@ thread-pre-split562.i.i:                          ; preds = %509
 
 531:                                              ; preds = %527
   %532 = zext nneg i8 %526 to i64
-  %533 = getelementptr inbounds nuw [9 x i32], ptr @do_SOCKS5.lookup, i64 0, i64 %532
+  %533 = getelementptr inbounds nuw i32, ptr @do_SOCKS5.lookup, i64 %532
   %534 = load i32, ptr %533, align 4, !tbaa !121
   br label %do_SOCKS5.exit.i
 

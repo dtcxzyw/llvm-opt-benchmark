@@ -95,7 +95,7 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
   %36 = getelementptr ptr, ptr %32, i64 %.05375
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = tail call ptr @_ctypes_get_ffi_type(ptr noundef nonnull %0, ptr noundef %37) #6
-  %39 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %.05375
+  %39 = getelementptr ptr, ptr %34, i64 %.05375
   store ptr %38, ptr %39, align 8, !tbaa !14
   %40 = add nuw nsw i64 %.05375, 1
   %exitcond.not = icmp eq i64 %40, %.val
@@ -104,7 +104,7 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge:                                      ; preds = %35, %31
   %.053.lcssa = phi i64 [ 0, %31 ], [ %.val, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  %42 = getelementptr [1 x ptr], ptr %41, i64 0, i64 %.053.lcssa
+  %42 = getelementptr ptr, ptr %41, i64 %.053.lcssa
   store ptr null, ptr %42, align 8, !tbaa !14
   %43 = load i32, ptr %3, align 8, !tbaa !36
   %44 = icmp slt i32 %43, 0

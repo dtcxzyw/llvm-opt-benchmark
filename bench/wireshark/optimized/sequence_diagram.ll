@@ -1738,7 +1738,7 @@ _ZN7QStringD2Ev.exit87:                           ; preds = %127, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = load ptr, ptr %25, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %150 = getelementptr [40 x %struct._address], ptr %149, i64 0, i64 %indvars.iv
+  %150 = getelementptr %struct._address, ptr %149, i64 %indvars.iv
   %151 = invoke ptr @address_to_display(ptr noundef null, ptr noundef %150)
           to label %152 unwind label %186
 

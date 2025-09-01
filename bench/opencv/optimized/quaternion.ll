@@ -7791,7 +7791,7 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us:  ; preds = %28, %.lr.ph71.split
 
 49:                                               ; preds = %49, %.lr.ph.i.us
   %indvars.iv.i.i6.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.i7.i.us, %49 ]
-  %50 = getelementptr inbounds nuw [4 x double], ptr %.02.i.us, i64 0, i64 %indvars.iv.i.i6.i.us
+  %50 = getelementptr inbounds nuw double, ptr %.02.i.us, i64 %indvars.iv.i.i6.i.us
   %51 = load double, ptr %50, align 8, !tbaa !71
   %52 = fmul double %48, %51
   store double %52, ptr %50, align 8, !tbaa !71
@@ -7915,7 +7915,7 @@ _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i37:   ; preds = %92
 
 113:                                              ; preds = %113, %.lr.ph.i39
   %indvars.iv.i.i11.i = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i.i12.i, %113 ]
-  %114 = getelementptr inbounds nuw [4 x double], ptr %.01.i, i64 0, i64 %indvars.iv.i.i11.i
+  %114 = getelementptr inbounds nuw double, ptr %.01.i, i64 %indvars.iv.i.i11.i
   %115 = load double, ptr %114, align 8, !tbaa !71
   %116 = fmul double %112, %115
   store double %116, ptr %114, align 8, !tbaa !71

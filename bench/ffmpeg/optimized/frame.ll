@@ -92,7 +92,7 @@ define void @av_frame_unref(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   tail call void @av_buffer_unref(ptr noundef nonnull %11) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -240,7 +240,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_get_buffer(ptr noundef %0, i32 no
 
 44:                                               ; preds = %47, %42
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %47 ]
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4, !tbaa !22
   %.not98.i = icmp eq i32 %46, 0
   br i1 %.not98.i, label %.critedge.i.preheader, label %47
@@ -264,10 +264,10 @@ define range(i32 -2147483648, 1) i32 @av_frame_get_buffer(ptr noundef %0, i32 no
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
   %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %.critedge.i ], [ 0, %.critedge.i.preheader ]
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv118.i
+  %57 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv118.i
   %58 = load i32, ptr %57, align 4, !tbaa !22
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv118.i
+  %60 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv118.i
   store i64 %59, ptr %60, align 8, !tbaa !39
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond121.not.i = icmp eq i64 %indvars.iv.next119.i, 4
@@ -282,7 +282,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_get_buffer(ptr noundef %0, i32 no
 65:                                               ; preds = %70, %61
   %indvars.iv122.i = phi i64 [ 0, %61 ], [ %indvars.iv.next123.i, %70 ]
   %.083111.i = phi i64 [ %64, %61 ], [ %71, %70 ]
-  %66 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv122.i
+  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv122.i
   %67 = load i64, ptr %66, align 8, !tbaa !39
   %68 = xor i64 %.083111.i, -1
   %69 = icmp ugt i64 %67, %68
@@ -324,7 +324,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_get_buffer(ptr noundef %0, i32 no
 
 88:                                               ; preds = %88, %.preheader.i
   %indvars.iv126.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next127.i, %88 ]
-  %89 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv126.i
+  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv126.i
   %90 = load ptr, ptr %89, align 8, !tbaa !47
   %.not100.i = icmp eq ptr %90, null
   %91 = mul nuw nsw i64 %indvars.iv126.i, %85
@@ -453,7 +453,7 @@ get_video_buffer.exit:                            ; preds = %29, %65, %16, %18, 
 152:                                              ; preds = %156, %.lr.ph.i
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i12, %156 ]
   %153 = tail call ptr @av_buffer_alloc(i64 noundef %143) #8
-  %154 = getelementptr inbounds nuw [8 x ptr], ptr %145, i64 0, i64 %indvars.iv.i11
+  %154 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.i11
   store ptr %153, ptr %154, align 8, !tbaa !42
   %.not78.i = icmp eq ptr %153, null
   br i1 %.not78.i, label %155, label %156
@@ -469,7 +469,7 @@ get_video_buffer.exit:                            ; preds = %29, %65, %16, %18, 
   %160 = add i64 %146, %159
   %161 = and i64 %160, %148
   %162 = inttoptr i64 %161 to ptr
-  %163 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.i11
+  %163 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i11
   store ptr %162, ptr %163, align 8, !tbaa !47
   %164 = load ptr, ptr %149, align 8, !tbaa !24
   %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv.i11
@@ -564,14 +564,14 @@ define range(i32 -2147483648, 1) i32 @av_frame_ref(ptr noundef initializes((104,
 
 32:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %.not86 = icmp eq ptr %34, null
   br i1 %.not86, label %38, label %35
 
 35:                                               ; preds = %32
   %36 = tail call ptr @av_buffer_ref(ptr noundef nonnull %34) #8
-  %37 = getelementptr inbounds nuw [8 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   store ptr %36, ptr %37, align 8, !tbaa !42
   %.not87 = icmp eq ptr %36, null
   br i1 %.not87, label %.thread112, label %38
@@ -996,13 +996,13 @@ define i32 @av_frame_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %35 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8, !tbaa !47
   %.not27.i = icmp eq ptr %36, null
   br i1 %.not27.i, label %frame_copy_video.exit, label %37
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %.not28.i = icmp eq ptr %39, null
   br i1 %.not28.i, label %frame_copy_video.exit, label %34
@@ -1190,8 +1190,8 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 48:                                               ; preds = %.preheader167, %47
   %indvars.iv = phi i64 [ 0, %.preheader167 ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw [8 x ptr], ptr %46, i64 0, i64 %indvars.iv
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %52 = tail call i32 @av_buffer_replace(ptr noundef nonnull %49, ptr noundef %51) #8
   %53 = icmp slt i32 %52, 0
@@ -1502,7 +1502,7 @@ define range(i32 0, 2) i32 @av_frame_is_writable(ptr noundef readonly captures(n
 .preheader23:                                     ; preds = %1, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %.01624 = phi i32 [ %.1, %13 ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %.not21 = icmp eq ptr %9, null
   br i1 %.not21, label %13, label %10
@@ -1563,7 +1563,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_make_writable(ptr noundef %0) loc
 .preheader23.i:                                   ; preds = %1, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %1 ]
   %.01624.i = phi i32 [ %.1.i, %14 ], [ 1, %1 ]
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %.not21.i = icmp eq ptr %10, null
   br i1 %.not21.i, label %14, label %11
@@ -1736,7 +1736,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
 
 24:                                               ; preds = %21, %36
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %36 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %.not67 = icmp eq ptr %26, null
   br i1 %.not67, label %.critedge, label %27
@@ -1967,7 +1967,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 
 .lr.ph.i.us:                                      ; preds = %66, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %66 ]
-  %62 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %49, i64 0, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %49, i64 %indvars.iv.i.us
   %63 = load i32, ptr %62, align 4, !tbaa !106
   %64 = zext i32 %63 to i64
   %65 = icmp eq i64 %indvars.iv65.i.us, %64
@@ -1981,7 +1981,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 67:                                               ; preds = %.lr.ph.i.us
   %68 = load i64, ptr %18, align 8, !tbaa !57
   %69 = lshr i64 %68, %61
-  %70 = getelementptr inbounds nuw [8 x i32], ptr %50, i64 0, i64 %indvars.iv65.i.us
+  %70 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv65.i.us
   %71 = load i32, ptr %70, align 4, !tbaa !22
   %72 = sext i32 %71 to i64
   %73 = mul i64 %69, %72
@@ -1995,7 +1995,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %81 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv65.i.us
   store i64 %80, ptr %81, align 8, !tbaa !39
   %indvars.iv.next66.i.us = add nuw nsw i64 %indvars.iv65.i.us, 1
-  %82 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.next66.i.us
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next66.i.us
   %83 = load ptr, ptr %82, align 8, !tbaa !47
   %.not.i.us = icmp eq ptr %83, null
   br i1 %.not.i.us, label %.loopexit, label %.lr.ph57.i.split.us.split, !llvm.loop !110
@@ -2026,7 +2026,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 
 .lr.ph.i:                                         ; preds = %.lr.ph57.i.split.split, %88
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %88 ], [ 0, %.lr.ph57.i.split.split ]
-  %89 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %49, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %49, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 4, !tbaa !106
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %88
@@ -2066,7 +2066,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %110 = mul i64 %109, 125613361
   %111 = lshr i64 %110, 27
   %112 = and i64 %111, 31
-  %113 = getelementptr inbounds nuw [32 x i8], ptr @ff_ctz_c.debruijn_ctz32, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !90
   %115 = zext i8 %114 to i32
   br label %116
@@ -2083,7 +2083,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 .lr.ph:                                           ; preds = %116, %131
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %116 ]
   %.068104 = phi i32 [ %132, %131 ], [ 2147483647, %116 ]
-  %119 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %120 = load i64, ptr %119, align 8, !tbaa !39
   %.not89 = icmp eq i64 %120, 0
   br i1 %.not89, label %131, label %121
@@ -2094,7 +2094,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %124 = mul i64 %123, 125613361
   %125 = lshr i64 %124, 27
   %126 = and i64 %125, 31
-  %127 = getelementptr inbounds nuw [32 x i8], ptr @ff_ctz_c.debruijn_ctz32, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !90
   %129 = zext i8 %128 to i32
   %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 %.068104)
@@ -2103,7 +2103,7 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 131:                                              ; preds = %.lr.ph, %121
   %132 = phi i32 [ %130, %121 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.next
+  %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %134 = load ptr, ptr %133, align 8, !tbaa !47
   %.not88 = icmp eq ptr %134, null
   br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !111
@@ -2149,13 +2149,13 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
 .lr.ph109:                                        ; preds = %145, %.lr.ph109
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph109 ], [ 0, %145 ]
   %158 = phi ptr [ %164, %.lr.ph109 ], [ %45, %145 ]
-  %159 = phi ptr [ %163, %.lr.ph109 ], [ %0, %145 ]
-  %160 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv120
+  %159 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv120
+  %160 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv120
   %161 = load i64, ptr %160, align 8, !tbaa !39
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 %161
   store ptr %162, ptr %159, align 8, !tbaa !47
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %163 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.next121
+  %163 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next121
   %164 = load ptr, ptr %163, align 8, !tbaa !47
   %.not90 = icmp eq ptr %164, null
   br i1 %.not90, label %._crit_edge110, label %.lr.ph109, !llvm.loop !112
@@ -2234,7 +2234,7 @@ define internal fastcc range(i32 -558323010, 1) i32 @calc_cropping_offsets(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw [4 x %struct.AVComponentDescriptor], ptr %9, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %9, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !106
   %34 = zext i32 %33 to i64
   %35 = icmp eq i64 %indvars.iv65, %34
@@ -2243,7 +2243,7 @@ define internal fastcc range(i32 -558323010, 1) i32 @calc_cropping_offsets(ptr n
 36:                                               ; preds = %.lr.ph
   %37 = load i64, ptr %10, align 8, !tbaa !57
   %38 = lshr i64 %37, %24
-  %39 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv65
+  %39 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv65
   %40 = load i32, ptr %39, align 4, !tbaa !22
   %41 = sext i32 %40 to i64
   %42 = mul i64 %38, %41
@@ -2257,7 +2257,7 @@ define internal fastcc range(i32 -558323010, 1) i32 @calc_cropping_offsets(ptr n
   %50 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv65
   store i64 %49, ptr %50, align 8, !tbaa !39
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %51 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv.next66
+  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next66
   %52 = load ptr, ptr %51, align 8, !tbaa !47
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %.thread47, label %13, !llvm.loop !110

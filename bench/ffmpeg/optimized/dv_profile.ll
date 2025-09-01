@@ -19,7 +19,7 @@ define void @ff_dv_print_profiles(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -108,7 +108,7 @@ define ptr @ff_dv_frame_profile(ptr noundef readonly captures(address_is_null) %
 
 .preheader:                                       ; preds = %.preheader.preheader, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.preheader.preheader ]
-  %40 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv
   %41 = load i32, ptr %40, align 8, !tbaa !38
   %42 = icmp eq i32 %41, %10
   br i1 %42, label %43, label %47
@@ -143,7 +143,7 @@ define ptr @ff_dv_frame_profile(ptr noundef readonly captures(address_is_null) %
 
 57:                                               ; preds = %53
   %58 = zext nneg i8 %9 to i64
-  %59 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %53, %49, %.thread, %17, %32, %4, %57
@@ -191,7 +191,7 @@ define ptr @av_dv_frame_profile(ptr noundef readonly captures(address_is_null, r
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.preheader.i.preheader ]
-  %25 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 8, !tbaa !38
   %27 = icmp eq i32 %26, %9
   br i1 %27, label %28, label %32
@@ -226,7 +226,7 @@ define ptr @av_dv_frame_profile(ptr noundef readonly captures(address_is_null, r
 
 42:                                               ; preds = %38
   %43 = zext nneg i8 %8 to i64
-  %44 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %43
   br label %ff_dv_frame_profile.exit
 
 ff_dv_frame_profile.exit:                         ; preds = %28, %3, %16, %20, %34, %38, %42
@@ -240,7 +240,7 @@ define ptr @av_dv_codec_profile(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 
 .split.us.i:                                      ; preds = %16, %3
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %16 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv27.i
+  %4 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv27.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !12
   %7 = icmp eq i32 %1, %6
@@ -279,7 +279,7 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 .split.us:                                        ; preds = %4, %21
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %21 ], [ 0, %4 ]
-  %9 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv27
+  %9 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !12
   %12 = icmp eq i32 %1, %11
@@ -305,7 +305,7 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 .split:                                           ; preds = %4, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %4 ]
   %.01620 = phi ptr [ %.1, %41 ], [ null, %4 ]
-  %22 = getelementptr inbounds nuw [10 x %struct.AVDVProfile], ptr @dv_profiles, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.AVDVProfile, ptr @dv_profiles, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !12
   %25 = icmp eq i32 %1, %24

@@ -623,10 +623,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !121, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h921c329d8cf430d4E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h921c329d8cf430d4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h921c329d8cf430d4E.53", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h921c329d8cf430d4E.53", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -662,10 +662,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !130, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbdf49f2b4280b6b9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbdf49f2b4280b6b9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbdf49f2b4280b6b9E.54", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbdf49f2b4280b6b9E.54", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -677,10 +677,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !130, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd8aa7b623f7fedbE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd8aa7b623f7fedbE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd8aa7b623f7fedbE.55", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdd8aa7b623f7fedbE.55", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4501,16 +4501,16 @@ switch.lookup:                                    ; preds = %70
 
 .noexc34.i.i:                                     ; preds = %.noexc33.i.i
   %113 = icmp eq i8 %112, 0
-  br i1 %113, label %switch.lookup331, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i"
+  br i1 %113, label %switch.lookup332, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i"
 
-switch.lookup331:                                 ; preds = %.noexc34.i.i
+switch.lookup332:                                 ; preds = %.noexc34.i.i
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.01.038.i.i, i64 208
   %115 = load i8, ptr %114, align 8, !range !1005, !alias.scope !1028, !noalias !1034, !noundef !3
   %116 = sub nsw i8 %115, %95
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i": ; preds = %switch.lookup331, %.noexc34.i.i
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %112, %.noexc34.i.i ], [ %116, %switch.lookup331 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i": ; preds = %switch.lookup332, %.noexc34.i.i
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %112, %.noexc34.i.i ], [ %116, %switch.lookup332 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1031
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1031
   br label %120
@@ -4600,16 +4600,16 @@ switch.lookup331:                                 ; preds = %.noexc34.i.i
 
 .noexc45.i.i:                                     ; preds = %.noexc44.i.i
   %143 = icmp eq i8 %142, 0
-  br i1 %143, label %switch.lookup334, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i39.i.i"
+  br i1 %143, label %switch.lookup335, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i39.i.i"
 
-switch.lookup334:                                 ; preds = %.noexc45.i.i
+switch.lookup335:                                 ; preds = %.noexc45.i.i
   %144 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i, i64 -8
   %145 = load i8, ptr %144, align 8, !range !1005, !alias.scope !1044, !noalias !1050, !noundef !3
   %146 = sub nsw i8 %145, %95
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i39.i.i"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i39.i.i": ; preds = %switch.lookup334, %.noexc45.i.i
-  %.sroa.0.0.i.i.i40.i.i = phi i8 [ %142, %.noexc45.i.i ], [ %146, %switch.lookup334 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i39.i.i": ; preds = %switch.lookup335, %.noexc45.i.i
+  %.sroa.0.0.i.i.i40.i.i = phi i8 [ %142, %.noexc45.i.i ], [ %146, %switch.lookup335 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1047
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1047
   br label %147
@@ -4766,16 +4766,16 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h03871ef2e20772a7E.exit: ; pre
 
 .noexc34.i.i67:                                   ; preds = %.noexc33.i.i66
   %191 = icmp eq i8 %190, 0
-  br i1 %191, label %switch.lookup337, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i.i"
+  br i1 %191, label %switch.lookup338, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i.i"
 
-switch.lookup337:                                 ; preds = %.noexc34.i.i67
+switch.lookup338:                                 ; preds = %.noexc34.i.i67
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.01.040.i.i, i64 208
   %193 = load i8, ptr %192, align 8, !range !1005, !alias.scope !1079, !noalias !1085, !noundef !3
   %194 = sub nsw i8 %174, %193
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i.i"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i.i": ; preds = %switch.lookup337, %.noexc34.i.i67
-  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %190, %.noexc34.i.i67 ], [ %194, %switch.lookup337 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i.i.i": ; preds = %switch.lookup338, %.noexc34.i.i67
+  %.sroa.0.0.i.i.i.i.i.i = phi i8 [ %190, %.noexc34.i.i67 ], [ %194, %switch.lookup338 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1082
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1082
   br label %198
@@ -4866,16 +4866,16 @@ switch.lookup337:                                 ; preds = %.noexc34.i.i67
 
 .noexc46.i.i:                                     ; preds = %.noexc45.i.i57
   %220 = icmp eq i8 %219, 0
-  br i1 %220, label %switch.lookup340, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i40.i.i"
+  br i1 %220, label %switch.lookup341, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i40.i.i"
 
-switch.lookup340:                                 ; preds = %.noexc46.i.i
+switch.lookup341:                                 ; preds = %.noexc46.i.i
   %221 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i39, i64 -8
   %222 = load i8, ptr %221, align 8, !range !1005, !alias.scope !1100, !noalias !1106, !noundef !3
   %223 = sub nsw i8 %174, %222
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i40.i.i"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i40.i.i": ; preds = %switch.lookup340, %.noexc46.i.i
-  %.sroa.0.0.i.i.i.i41.i.i = phi i8 [ %219, %.noexc46.i.i ], [ %223, %switch.lookup340 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i.i40.i.i": ; preds = %switch.lookup341, %.noexc46.i.i
+  %.sroa.0.0.i.i.i.i41.i.i = phi i8 [ %219, %.noexc46.i.i ], [ %223, %switch.lookup341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1103
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1103
   br label %224

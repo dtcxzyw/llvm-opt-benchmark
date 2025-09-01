@@ -1921,22 +1921,23 @@ define dso_local void @_ZNK4Luau6Lexeme8toStringB5cxx11Ev(ptr dead_on_unwind noa
 156:                                              ; preds = %153
   %157 = add nsw i32 %15, -290
   %or.cond = icmp ult i32 %157, 21
-  br i1 %or.cond, label %158, label %162
+  br i1 %or.cond, label %158, label %163
 
 158:                                              ; preds = %156
-  %159 = zext nneg i32 %157 to i64
-  %160 = getelementptr inbounds nuw [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !25
-  tail call void (ptr, ptr, ...) @_ZN4Luau6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.89, ptr noundef %161)
+  %159 = zext nneg i32 %15 to i64
+  %160 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %159
+  %161 = getelementptr i8, ptr %160, i64 -2320
+  %162 = load ptr, ptr %161, align 8, !tbaa !25
+  tail call void (ptr, ptr, ...) @_ZN4Luau6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.89, ptr noundef %162)
   br label %.critedge
 
-162:                                              ; preds = %156
+163:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.100, ptr noundef nonnull align 1 dereferenceable(1) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge
 
-.critedge:                                        ; preds = %150, %126, %118, %111, %104, %97, %90, %83, %76, %125, %117, %110, %103, %96, %89, %82, %._crit_edge.i.i158, %162, %158, %155, %152, %151, %.noexc.i175, %.noexc.i171, %.noexc.i167, %._crit_edge.i.i162, %._crit_edge.i.i154, %._crit_edge.i.i150, %._crit_edge.i.i146, %._crit_edge.i.i142, %._crit_edge.i.i138, %._crit_edge.i.i134, %._crit_edge.i.i130, %._crit_edge.i.i126, %._crit_edge.i.i122, %._crit_edge.i.i118, %._crit_edge.i.i114, %._crit_edge.i.i110, %._crit_edge.i.i106, %._crit_edge.i.i102, %._crit_edge.i.i98, %._crit_edge.i.i94, %._crit_edge.i.i90, %._crit_edge.i.i
+.critedge:                                        ; preds = %150, %126, %118, %111, %104, %97, %90, %83, %76, %125, %117, %110, %103, %96, %89, %82, %._crit_edge.i.i158, %163, %158, %155, %152, %151, %.noexc.i175, %.noexc.i171, %.noexc.i167, %._crit_edge.i.i162, %._crit_edge.i.i154, %._crit_edge.i.i150, %._crit_edge.i.i146, %._crit_edge.i.i142, %._crit_edge.i.i138, %._crit_edge.i.i134, %._crit_edge.i.i130, %._crit_edge.i.i126, %._crit_edge.i.i122, %._crit_edge.i.i118, %._crit_edge.i.i114, %._crit_edge.i.i110, %._crit_edge.i.i106, %._crit_edge.i.i102, %._crit_edge.i.i98, %._crit_edge.i.i94, %._crit_edge.i.i90, %._crit_edge.i.i
   ret void
 }
 
@@ -2094,8 +2095,8 @@ _ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC
 
 13:                                               ; preds = %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit, %21
   %indvars.iv = phi i64 [ 290, %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit ], [ %indvars.iv.next, %21 ]
-  %14 = add nsw i64 %indvars.iv, -290
-  %15 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %14
+  %14 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 -2320
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !42
@@ -3976,8 +3977,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer10isReservedERKNSt7__cxx1112b
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 290, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = add nsw i64 %indvars.iv, -290
-  %4 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %3
+  %3 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -2320
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5) #25
   %7 = icmp eq i32 %6, 0

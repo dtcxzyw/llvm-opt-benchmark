@@ -410,7 +410,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Luau15BytecodeBuilde
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
   %.078 = phi i32 [ %10, %.lr.ph ], [ -2128831035, %2 ]
-  %7 = getelementptr inbounds nuw [32 x i32], ptr %1, i64 0, i64 %.09
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.09
   %8 = load i32, ptr %7, align 4, !tbaa !19
   %9 = xor i32 %8, %.078
   %10 = mul i32 %9, 16777619
@@ -2612,7 +2612,7 @@ _ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.ex
 
 .lr.ph280:                                        ; preds = %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit172.preheader, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit176
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit176 ], [ 0, %_ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit172.preheader ]
-  %426 = getelementptr inbounds nuw [32 x i32], ptr %408, i64 0, i64 %indvars.iv
+  %426 = getelementptr inbounds nuw i32, ptr %408, i64 %indvars.iv
   %427 = load i32, ptr %426, align 4, !tbaa !19
   br label %428
 
@@ -3705,7 +3705,7 @@ _ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4
 .lr.ph.i.i:                                       ; preds = %_ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS2_14TableShapeHashESt8equal_toIS3_EE14rehash_if_fullERS6_.exit, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %_ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS2_14TableShapeHashESt8equal_toIS3_EE14rehash_if_fullERS6_.exit ]
   %.078.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ -2128831035, %_ZN4Luau6detail14DenseHashTableINS_15BytecodeBuilder10TableShapeESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS2_14TableShapeHashESt8equal_toIS3_EE14rehash_if_fullERS6_.exit ]
-  %18 = getelementptr inbounds nuw [32 x i32], ptr %1, i64 0, i64 %.09.i.i
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %.09.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = xor i32 %19, %.078.i.i
   %21 = mul i32 %20, 16777619
@@ -9020,7 +9020,7 @@ _ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.threa
 
 switch.lookup:                                    ; preds = %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit.thread
   %87 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 0, i64 %87
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 %87
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4LuauL17getBaseTypeStringEh.exit
 
@@ -9089,7 +9089,7 @@ _ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit155.th
 
 switch.lookup311:                                 ; preds = %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit155.thread
   %124 = zext nneg i8 %122 to i64
-  %switch.gep312 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 0, i64 %124
+  %switch.gep312 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 %124
   %switch.load313 = load ptr, ptr %switch.gep312, align 8
   br label %_ZN4LuauL17getBaseTypeStringEh.exit157
 
@@ -9149,7 +9149,7 @@ _ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit159.th
 
 switch.lookup314:                                 ; preds = %_ZNK4Luau15BytecodeBuilder22tryGetUserdataTypeNameE16LuauBytecodeType.exit159.thread
   %159 = zext nneg i8 %157 to i64
-  %switch.gep315 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 0, i64 %159
+  %switch.gep315 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 %159
   %switch.load316 = load ptr, ptr %switch.gep315, align 8
   br label %_ZN4LuauL17getBaseTypeStringEh.exit161
 
@@ -10813,7 +10813,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dea
 
 switch.lookup:                                    ; preds = %.lr.ph
   %30 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4LuauL17getBaseTypeStringEh.exit
 
@@ -12712,7 +12712,7 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread: ; 
 .lr.ph.i:                                         ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread, %.lr.ph.i
   %.09.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread ]
   %.078.i = phi i32 [ %23, %.lr.ph.i ], [ -2128831035, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread ]
-  %20 = getelementptr inbounds nuw [32 x i32], ptr %1, i64 0, i64 %.09.i
+  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %.09.i
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = xor i32 %21, %.078.i
   %23 = mul i32 %22, 16777619
@@ -12862,7 +12862,7 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread: ; 
 .lr.ph.i.i12:                                     ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread, %.lr.ph.i.i12
   %.09.i.i = phi i64 [ %41, %.lr.ph.i.i12 ], [ 0, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread ]
   %.078.i.i = phi i32 [ %40, %.lr.ph.i.i12 ], [ -2128831035, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder10TableShapeEEclERKS2_S5_.exit.thread ]
-  %37 = getelementptr inbounds nuw [32 x i32], ptr %28, i64 0, i64 %.09.i.i
+  %37 = getelementptr inbounds nuw i32, ptr %28, i64 %.09.i.i
   %38 = load i32, ptr %37, align 4, !tbaa !19
   %39 = xor i32 %38, %.078.i.i
   %40 = mul i32 %39, 16777619

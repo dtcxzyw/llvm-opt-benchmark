@@ -869,7 +869,7 @@ lor.end.i:                                        ; preds = %seterr.exit706, %sw
 
 if.then.i:                                        ; preds = %lor.end.i
   %15 = load i64, ptr %slen, align 8
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr %pbegin90.i, i64 0, i64 %14
+  %arrayidx.i = getelementptr inbounds i64, ptr %pbegin90.i, i64 %14
   store i64 %15, ptr %arrayidx.i, align 8
   br label %if.end.i
 
@@ -957,7 +957,7 @@ if.end17.i:                                       ; preds = %if.then16.i, %land.
 
 if.then20.i:                                      ; preds = %if.end17.i
   %26 = load i64, ptr %slen, align 8
-  %arrayidx22.i = getelementptr inbounds [10 x i64], ptr %pend82.i, i64 0, i64 %14
+  %arrayidx22.i = getelementptr inbounds i64, ptr %pend82.i, i64 %14
   store i64 %26, ptr %arrayidx22.i, align 8
   br label %if.end23.i
 
@@ -1362,7 +1362,7 @@ lor.end69.i:                                      ; preds = %seterr.exit517, %sw
 if.then80.i:                                      ; preds = %lor.end69.i
   %sub.i = add nsw i32 %conv73.i, -48
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx83.i = getelementptr inbounds nuw [10 x i64], ptr %pend82.i, i64 0, i64 %idxprom.i
+  %arrayidx83.i = getelementptr inbounds nuw i64, ptr %pend82.i, i64 %idxprom.i
   %73 = load i64, ptr %arrayidx83.i, align 8
   %cmp84.i = icmp eq i64 %73, 0
   %74 = load i32, ptr %error.i411, align 8
@@ -1445,7 +1445,7 @@ if.end4.i485:                                     ; preds = %if.end8.i.i497, %se
 
 doemit.exit505:                                   ; preds = %if.end88.i, %if.end4.i485
   %80 = phi i64 [ %73, %if.end88.i ], [ %.pre, %if.end4.i485 ]
-  %arrayidx92.i = getelementptr inbounds nuw [10 x i64], ptr %pbegin90.i, i64 0, i64 %idxprom.i
+  %arrayidx92.i = getelementptr inbounds nuw i64, ptr %pbegin90.i, i64 %idxprom.i
   %81 = load i64, ptr %arrayidx92.i, align 8
   %add.i = add nsw i64 %81, 1
   %cmp.i450 = icmp eq i64 %80, %add.i
@@ -2966,7 +2966,7 @@ sw.bb14.i:                                        ; preds = %if.end.i26
 
 if.then20.i:                                      ; preds = %sw.bb14.i
   %45 = load i64, ptr %slen, align 8
-  %arrayidx.i29 = getelementptr inbounds [10 x i64], ptr %pbegin93.i, i64 0, i64 %44
+  %arrayidx.i29 = getelementptr inbounds i64, ptr %pbegin93.i, i64 %44
   store i64 %45, ptr %arrayidx.i29, align 8
   br label %if.end22.i
 
@@ -3064,7 +3064,7 @@ if.end48.i:                                       ; preds = %if.then47.i, %land.
 
 if.then51.i:                                      ; preds = %if.end48.i
   %57 = load i64, ptr %slen, align 8
-  %arrayidx53.i = getelementptr inbounds [10 x i64], ptr %pend87.i, i64 0, i64 %44
+  %arrayidx53.i = getelementptr inbounds i64, ptr %pend87.i, i64 %44
   store i64 %57, ptr %arrayidx53.i, align 8
   br label %if.end54.i
 
@@ -3190,7 +3190,7 @@ sw.bb85.i:                                        ; preds = %if.end.i26, %if.end
   %and86.i = and i32 %c.0.i, -257
   %sub.i = add nsw i32 %and86.i, -48
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx88.i = getelementptr inbounds nuw [10 x i64], ptr %pend87.i, i64 0, i64 %idxprom.i
+  %arrayidx88.i = getelementptr inbounds nuw i64, ptr %pend87.i, i64 %idxprom.i
   %71 = load i64, ptr %arrayidx88.i, align 8
   %cmp89.not.i = icmp eq i64 %71, 0
   %72 = load i32, ptr %error.i414, align 8
@@ -3261,7 +3261,7 @@ if.end4.i278:                                     ; preds = %if.end8.i.i290, %se
 
 doemit.exit298:                                   ; preds = %if.then91.i, %if.end4.i278
   %78 = phi i64 [ %71, %if.then91.i ], [ %.pre432, %if.end4.i278 ]
-  %arrayidx95.i = getelementptr inbounds nuw [10 x i64], ptr %pbegin93.i, i64 0, i64 %idxprom.i
+  %arrayidx95.i = getelementptr inbounds nuw i64, ptr %pbegin93.i, i64 %idxprom.i
   %79 = load i64, ptr %arrayidx95.i, align 8
   %add.i27 = add nsw i64 %79, 1
   %cmp.i243 = icmp eq i64 %78, %add.i27
@@ -4034,7 +4034,7 @@ doemit.exit:                                      ; preds = %if.end.i, %if.then2
 
 for.body:                                         ; preds = %doemit.exit, %for.inc
   %indvars.iv = phi i64 [ 1, %doemit.exit ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx2 = getelementptr inbounds nuw [10 x i64], ptr %pbegin, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw i64, ptr %pbegin, i64 %indvars.iv
   %9 = load i64, ptr %arrayidx2, align 8
   %cmp3.not = icmp slt i64 %9, %pos
   br i1 %cmp3.not, label %if.end8, label %if.then4
@@ -4045,7 +4045,7 @@ if.then4:                                         ; preds = %for.body
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %for.body
-  %arrayidx10 = getelementptr inbounds nuw [10 x i64], ptr %pend, i64 0, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds nuw i64, ptr %pend, i64 %indvars.iv
   %10 = load i64, ptr %arrayidx10, align 8
   %cmp11.not = icmp slt i64 %10, %pos
   br i1 %cmp11.not, label %for.inc, label %if.then12

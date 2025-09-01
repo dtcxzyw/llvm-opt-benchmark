@@ -3776,7 +3776,7 @@ RB_SYMBOL_P.exit.thread11:                        ; preds = %rb_integer_type_p.e
 
 RSTRING_PTR.exit.us:                              ; preds = %RB_SYMBOL_P.exit.thread11, %38
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %38 ], [ 0, %RB_SYMBOL_P.exit.thread11 ]
-  %35 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %indvars.iv21
   %36 = load ptr, ptr %35, align 16, !tbaa !59
   %37 = call i32 @strncmp(ptr noundef %36, ptr noundef nonnull %32, i64 noundef %34) #12
   %.not.us = icmp eq i32 %37, 0
@@ -3798,7 +3798,7 @@ RB_SYMBOL_P.exit.thread11.split:                  ; preds = %RB_SYMBOL_P.exit.th
 
 RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.thread11.split, %39
   %indvars.iv = phi i64 [ 0, %RB_SYMBOL_P.exit.thread11.split ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 16, !tbaa !59
   %42 = call i32 @strncmp(ptr noundef %41, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %34) #12
   %.not = icmp eq i32 %42, 0
@@ -3806,7 +3806,7 @@ RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
 
 .split14.us:                                      ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit.us
   %43 = phi i64 [ %indvars.iv21, %RSTRING_PTR.exit.us ], [ %indvars.iv, %RSTRING_PTR.exit ]
-  %44 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %43, i32 1
   %45 = load i32, ptr %44, align 8, !tbaa !62
   br label %47
 

@@ -168,7 +168,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   %62 = load ptr, ptr %3, align 8, !tbaa !4
   %63 = load i8, ptr %62, align 1, !tbaa !11
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !11
   %.not58 = icmp eq i8 %66, 0
   br i1 %.not58, label %.loopexit83, label %67
@@ -203,7 +203,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   %79 = phi ptr [ %85, %84 ], [ %68, %.lr.ph95.preheader ]
   %80 = load i8, ptr %79, align 1, !tbaa !11
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !11
   %.not63 = icmp eq i8 %83, 0
   br i1 %.not63, label %.loopexit83, label %84
@@ -225,7 +225,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
 91:                                               ; preds = %._crit_edge96
   %92 = load i8, ptr %88, align 1, !tbaa !11
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !11
   %.not60 = icmp ne i8 %95, 0
   %96 = add i8 %92, -97
@@ -245,7 +245,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
 100:                                              ; preds = %97
   %101 = load i8, ptr %99, align 1, !tbaa !11
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !11
   %.not62 = icmp eq i8 %104, 0
   %105 = add nuw nsw i32 %.0, 30
@@ -263,7 +263,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   %110 = phi ptr [ %107, %106 ], [ %.promoted, %.lr.ph.preheader ]
   %111 = load i8, ptr %110, align 1, !tbaa !11
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @base64, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !11
   %.not57 = icmp eq i8 %114, 0
   br i1 %.not57, label %.loopexit83, label %106
@@ -303,7 +303,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
 .thread78:                                        ; preds = %121, %122, %126
   %128 = load i8, ptr %115, align 1, !tbaa !11
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @base64, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !11
   %.not56 = icmp eq i8 %131, 0
   %132 = add nuw nsw i32 %.0, 30
@@ -384,7 +384,7 @@ define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr noundef nonnull cap
   %.02033.i = phi ptr [ %.121.i, %29 ], [ %11, %.lr.ph.i.preheader ]
   %12 = load i8, ptr %.02033.i, align 1, !tbaa !11
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @ascii, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @ascii, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !11
   switch i8 %15, label %29 [
     i8 0, label %.lr.ph.preheader
@@ -488,7 +488,7 @@ define internal fastcc i64 @bid_get_line(ptr noundef %0, ptr noundef nonnull cap
   %.02033.i69 = phi ptr [ %.121.i70, %72 ], [ %57, %.lr.ph.i67.preheader ]
   %58 = load i8, ptr %.02033.i69, align 1, !tbaa !11
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @ascii, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @ascii, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !11
   switch i8 %61, label %72 [
     i8 0, label %get_line.exit73.thread
@@ -696,7 +696,7 @@ ensure_in_buff_size.exit:                         ; preds = %44
   %.02033.i = phi ptr [ %.121.i, %77 ], [ %.1242563, %.lr.ph.i.preheader ]
   %63 = load i8, ptr %.02033.i, align 1, !tbaa !11
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @ascii, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @ascii, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !11
   switch i8 %66, label %77 [
     i8 0, label %get_line.exit.thread
@@ -966,7 +966,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 185:                                              ; preds = %181
   %186 = load i8, ptr %.1242563, align 1, !tbaa !11
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %187
   %189 = load i8, ptr %188, align 1, !tbaa !11
   %190 = icmp eq i8 %189, 0
   %191 = icmp slt i64 %.034.i, 1
@@ -1011,7 +1011,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %.3246548 = phi ptr [ %252, %.thread324 ], [ %.0243562, %.lr.ph.preheader ]
   %206 = load i8, ptr %.0217550, align 1, !tbaa !11
   %207 = zext i8 %206 to i64
-  %208 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !11
   %.not277 = icmp eq i8 %209, 0
   br i1 %.not277, label %256, label %210
@@ -1020,7 +1020,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %211 = getelementptr inbounds nuw i8, ptr %.0217550, i64 1
   %212 = load i8, ptr %211, align 1, !tbaa !11
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %213
   %215 = load i8, ptr %214, align 1, !tbaa !11
   %.not278 = icmp eq i8 %215, 0
   br i1 %.not278, label %256, label %216
@@ -1045,7 +1045,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %229 = getelementptr inbounds nuw i8, ptr %.0217550, i64 2
   %230 = load i8, ptr %229, align 1, !tbaa !11
   %231 = zext i8 %230 to i64
-  %232 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !11
   %.not280 = icmp eq i8 %233, 0
   br i1 %.not280, label %256, label %234
@@ -1067,7 +1067,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %244 = getelementptr inbounds nuw i8, ptr %.0217550, i64 3
   %245 = load i8, ptr %244, align 1, !tbaa !11
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds nuw [256 x i8], ptr @uuchar, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw i8, ptr @uuchar, i64 %246
   %248 = load i8, ptr %247, align 1, !tbaa !11
   %.not281 = icmp eq i8 %248, 0
   br i1 %.not281, label %256, label %.thread324
@@ -1158,7 +1158,7 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %.8251553 = phi ptr [ %338, %.thread342 ], [ %.0243562, %.lr.ph557.preheader ]
   %287 = load i8, ptr %.4221555, align 1, !tbaa !11
   %288 = zext i8 %287 to i64
-  %289 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr @base64, i64 %288
   %290 = load i8, ptr %289, align 1, !tbaa !11
   %.not283 = icmp eq i8 %290, 0
   br i1 %.not283, label %.thread356, label %291
@@ -1167,17 +1167,17 @@ ensure_in_buff_size.exit309:                      ; preds = %107
   %292 = getelementptr inbounds nuw i8, ptr %.4221555, i64 1
   %293 = load i8, ptr %292, align 1, !tbaa !11
   %294 = zext i8 %293 to i64
-  %295 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw i8, ptr @base64, i64 %294
   %296 = load i8, ptr %295, align 1, !tbaa !11
   %.not284 = icmp eq i8 %296, 0
   br i1 %.not284, label %.thread356, label %297
 
 297:                                              ; preds = %291
-  %298 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %288
+  %298 = getelementptr inbounds nuw i32, ptr @base64num, i64 %288
   %299 = load i32, ptr %298, align 4, !tbaa !40
   %300 = shl i32 %299, 18
   %301 = getelementptr inbounds nuw i8, ptr %.4221555, i64 2
-  %302 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %294
+  %302 = getelementptr inbounds nuw i32, ptr @base64num, i64 %294
   %303 = load i32, ptr %302, align 4, !tbaa !40
   %304 = shl i32 %303, 12
   %305 = or i32 %304, %300
@@ -1195,13 +1195,13 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 313:                                              ; preds = %310
   %314 = zext i8 %311 to i64
-  %315 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr @base64, i64 %314
   %316 = load i8, ptr %315, align 1, !tbaa !11
   %.not285 = icmp eq i8 %316, 0
   br i1 %.not285, label %.thread356.thread, label %317
 
 317:                                              ; preds = %313
-  %318 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %314
+  %318 = getelementptr inbounds nuw i32, ptr @base64num, i64 %314
   %319 = load i32, ptr %318, align 4, !tbaa !40
   %320 = shl i32 %319, 6
   %321 = or i32 %320, %304
@@ -1220,14 +1220,14 @@ ensure_in_buff_size.exit309:                      ; preds = %107
 
 329:                                              ; preds = %325
   %330 = zext i8 %327 to i64
-  %331 = getelementptr inbounds nuw [256 x i8], ptr @base64, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw i8, ptr @base64, i64 %330
   %332 = load i8, ptr %331, align 1, !tbaa !11
   %.not286 = icmp eq i8 %332, 0
   br i1 %.not286, label %.thread356.thread, label %.thread342
 
 .thread342:                                       ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %.4221555, i64 4
-  %334 = getelementptr inbounds nuw [128 x i32], ptr @base64num, i64 0, i64 %330
+  %334 = getelementptr inbounds nuw i32, ptr @base64num, i64 %330
   %335 = load i32, ptr %334, align 4, !tbaa !40
   %336 = or i32 %335, %320
   %337 = trunc i32 %336 to i8

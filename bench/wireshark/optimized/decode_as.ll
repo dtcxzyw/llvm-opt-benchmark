@@ -386,7 +386,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr noundef read
   %indvars.iv114 = phi i32 [ %indvars.iv.next115, %16 ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %4 ]
   %.070100 = phi ptr [ %22, %16 ], [ %1, %4 ]
-  %9 = getelementptr [4 x i8], ptr @__const.read_set_decode_as_entries.delimiter, i64 0, i64 %indvars.iv
+  %9 = getelementptr i8, ptr @__const.read_set_decode_as_entries.delimiter, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = tail call ptr @strchr(ptr noundef %.070100, i32 noundef %11) #16
@@ -403,7 +403,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv111 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next112, %.lr.ph ]
-  %14 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv111
+  %14 = getelementptr ptr, ptr %5, i64 %indvars.iv111
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -415,7 +415,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr noundef read
   %18 = ptrtoint ptr %.070100 to i64
   %19 = sub i64 %17, %18
   %20 = tail call noalias ptr @g_strndup(ptr noundef %.070100, i64 noundef %19)
-  %21 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %21 = getelementptr ptr, ptr %5, i64 %indvars.iv
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %12, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -573,7 +573,7 @@ decode_build_reset_list.exit:                     ; preds = %75, %79, %81
 
 87:                                               ; preds = %.thread93, %87
   %indvars.iv107 = phi i64 [ 0, %.thread93 ], [ %indvars.iv.next108, %87 ]
-  %88 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv107
+  %88 = getelementptr ptr, ptr %5, i64 %indvars.iv107
   %89 = load ptr, ptr %88, align 8
   tail call void @g_free(ptr noundef %89)
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1

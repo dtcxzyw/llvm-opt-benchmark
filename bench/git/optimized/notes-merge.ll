@@ -151,7 +151,7 @@ define dso_local range(i32 -1, 2) i32 @notes_merge(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %23, %3
   %.0811.i.i = phi i64 [ 0, %3 ], [ %24, %23 ]
-  %22 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %22 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %20, %22
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %23
 
@@ -258,7 +258,7 @@ oidclr.exit:                                      ; preds = %23, %.split.loop.ex
 
 70:                                               ; preds = %72, %66
   %.0811.i.i85 = phi i64 [ 0, %66 ], [ %73, %72 ]
-  %71 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i85
+  %71 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i85
   %.not.i.i86 = icmp eq ptr %69, %71
   br i1 %.not.i.i86, label %.split.loop.exit9.i.i89, label %72
 
@@ -562,7 +562,7 @@ oidclr.exit90:                                    ; preds = %72, %.split.loop.ex
 
 212:                                              ; preds = %211
   %213 = add nsw i32 %.019.i.i.i.i, 1
-  %214 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 %209
+  %214 = getelementptr inbounds i8, ptr %11, i64 %209
   store i8 %208, ptr %214, align 1, !tbaa !77
   br label %215
 
@@ -844,7 +844,7 @@ diff_tree_remote.exit.i:                          ; preds = %308, %187
 
 340:                                              ; preds = %339
   %341 = add nsw i32 %.019.i.i.i32.i, 1
-  %342 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 %337
+  %342 = getelementptr inbounds i8, ptr %8, i64 %337
   store i8 %336, ptr %342, align 1, !tbaa !77
   br label %343
 
@@ -981,7 +981,7 @@ verify_notes_filepair.exit.thread.i35.i:          ; preds = %verify_notes_filepa
 
 400:                                              ; preds = %402, %396
   %.0811.i.i.i.i = phi i64 [ 0, %396 ], [ %403, %402 ]
-  %401 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %401 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i42.i.i = icmp eq ptr %399, %401
   br i1 %.not.i.i42.i.i, label %.split.loop.exit9.i.i.i.i, label %402
 

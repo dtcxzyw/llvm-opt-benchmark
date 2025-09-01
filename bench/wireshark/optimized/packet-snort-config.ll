@@ -94,7 +94,7 @@ skipWhiteSpace.exit.i:                            ; preds = %skipWhiteSpace.exit
 read_token.exit:                                  ; preds = %skipWhiteSpace.exit.i, %skipWhiteSpace.exit.i
   %26 = add i32 %.021.i, %.0.i.i
   %27 = tail call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %20, i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef 1024) #17, !alias.scope !10
-  %28 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %22
+  %28 = getelementptr i8, ptr @read_token.static_buffer, i64 %22
   store i8 0, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8
   %30 = sext i32 %26 to i64
@@ -134,7 +134,7 @@ skipWhiteSpace.exit.i23:                          ; preds = %32
 read_token.exit28:                                ; preds = %39, %39
   %44 = add i32 %38, %.021.i24
   %45 = tail call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %37, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef 1024) #17, !alias.scope !14
-  %46 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %40
+  %46 = getelementptr i8, ptr @read_token.static_buffer, i64 %40
   store i8 0, ptr %46, align 1
   %47 = load ptr, ptr %1, align 8
   %48 = sext i32 %44 to i64
@@ -174,7 +174,7 @@ skipWhiteSpace.exit.i31:                          ; preds = %50
 read_token.exit36:                                ; preds = %57, %57
   %62 = add i32 %56, %.021.i32
   %63 = tail call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %55, i64 noundef range(i64 -2147483648, 2147483648) %58, i64 noundef 1024) #17, !alias.scope !18
-  %64 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %58
+  %64 = getelementptr i8, ptr @read_token.static_buffer, i64 %58
   store i8 0, ptr %64, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -202,7 +202,7 @@ read_token.exit36:                                ; preds = %57, %57
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 2512
   %78 = load i32, ptr %68, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr [6 x %struct.used_variable_t], ptr %77, i64 0, i64 %79
+  %80 = getelementptr %struct.used_variable_t, ptr %77, i64 %79
   store ptr %76, ptr %80, align 8
   %81 = load ptr, ptr %10, align 8
   %.idx.i = shl nuw nsw i64 %79, 4
@@ -254,7 +254,7 @@ skipWhiteSpace.exit.i40:                          ; preds = %88
 read_token.exit45:                                ; preds = %95, %95
   %100 = add i32 %94, %.021.i41
   %101 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %93, i64 noundef range(i64 -2147483648, 2147483648) %96, i64 noundef 1024) #17, !alias.scope !22
-  %102 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %96
+  %102 = getelementptr i8, ptr @read_token.static_buffer, i64 %96
   store i8 0, ptr %102, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
@@ -282,7 +282,7 @@ read_token.exit45:                                ; preds = %95, %95
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %116 = load i32, ptr %106, align 4
   %117 = zext i32 %116 to i64
-  %118 = getelementptr [6 x %struct.used_variable_t], ptr %115, i64 0, i64 %117
+  %118 = getelementptr %struct.used_variable_t, ptr %115, i64 %117
   store ptr %114, ptr %118, align 8
   %119 = load ptr, ptr %8, align 8
   %.idx.i47 = shl nuw nsw i64 %117, 4
@@ -334,7 +334,7 @@ skipWhiteSpace.exit.i50:                          ; preds = %126
 read_token.exit55:                                ; preds = %133, %133
   %138 = add i32 %132, %.021.i51
   %139 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %131, i64 noundef range(i64 -2147483648, 2147483648) %134, i64 noundef 1024) #17, !alias.scope !26
-  %140 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %134
+  %140 = getelementptr i8, ptr @read_token.static_buffer, i64 %134
   store i8 0, ptr %140, align 1
   %141 = load ptr, ptr %1, align 8
   %142 = sext i32 %138 to i64
@@ -374,7 +374,7 @@ skipWhiteSpace.exit.i58:                          ; preds = %144
 read_token.exit63:                                ; preds = %151, %151
   %156 = add i32 %150, %.021.i59
   %157 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %149, i64 noundef range(i64 -2147483648, 2147483648) %152, i64 noundef 1024) #17, !alias.scope !30
-  %158 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %152
+  %158 = getelementptr i8, ptr @read_token.static_buffer, i64 %152
   store i8 0, ptr %158, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -402,7 +402,7 @@ read_token.exit63:                                ; preds = %151, %151
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 2512
   %172 = load i32, ptr %162, align 8
   %173 = zext i32 %172 to i64
-  %174 = getelementptr [6 x %struct.used_variable_t], ptr %171, i64 0, i64 %173
+  %174 = getelementptr %struct.used_variable_t, ptr %171, i64 %173
   store ptr %170, ptr %174, align 8
   %175 = load ptr, ptr %6, align 8
   %.idx.i65 = shl nuw nsw i64 %173, 4
@@ -452,7 +452,7 @@ skipWhiteSpace.exit.i69:                          ; preds = %skipWhiteSpace.exit
 
 read_token.exit74:                                ; preds = %skipWhiteSpace.exit.i69, %skipWhiteSpace.exit.i69
   %192 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %186, i64 noundef range(i64 -2147483648, 2147483648) %188, i64 noundef 1024) #17, !alias.scope !34
-  %193 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %188
+  %193 = getelementptr i8, ptr @read_token.static_buffer, i64 %188
   store i8 0, ptr %193, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -480,7 +480,7 @@ read_token.exit74:                                ; preds = %skipWhiteSpace.exit
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %207 = load i32, ptr %197, align 4
   %208 = zext i32 %207 to i64
-  %209 = getelementptr [6 x %struct.used_variable_t], ptr %206, i64 0, i64 %208
+  %209 = getelementptr %struct.used_variable_t, ptr %206, i64 %208
   store ptr %205, ptr %209, align 8
   %210 = load ptr, ptr %4, align 8
   %.idx.i76 = shl nuw nsw i64 %208, 4
@@ -536,7 +536,7 @@ skipWhiteSpace.exit.i:                            ; preds = %skipWhiteSpace.exit
 
 read_token.exit:                                  ; preds = %skipWhiteSpace.exit.i, %skipWhiteSpace.exit.i
   %13 = tail call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %7, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 1024) #17, !alias.scope !38
-  %14 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %9
+  %14 = getelementptr i8, ptr @read_token.static_buffer, i64 %9
   store i8 0, ptr %14, align 1
   %15 = load i8, ptr @read_token.static_buffer, align 16
   %.not = icmp eq i8 %15, 0
@@ -719,10 +719,10 @@ define internal fastcc void @parse_config_file(ptr noundef captures(none) %0, pt
 
 .preheader:                                       ; preds = %5
   %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %1)
-  %.not96 = icmp eq ptr %9, null
-  br i1 %.not96, label %.loopexit, label %.lr.ph98
+  %.not94 = icmp eq ptr %9, null
+  br i1 %.not94, label %.loopexit, label %.lr.ph96
 
-.lr.ph98:                                         ; preds = %.preheader
+.lr.ph96:                                         ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -737,9 +737,9 @@ define internal fastcc void @parse_config_file(ptr noundef captures(none) %0, pt
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %22
 
-22:                                               ; preds = %.lr.ph98, %parse_rule.exit.thread
-  %.02397 = phi i32 [ 0, %.lr.ph98 ], [ %23, %parse_rule.exit.thread ]
-  %23 = add i32 %.02397, 1
+22:                                               ; preds = %.lr.ph96, %parse_rule.exit.thread
+  %.02395 = phi i32 [ 0, %.lr.ph96 ], [ %23, %parse_rule.exit.thread ]
+  %23 = add i32 %.02395, 1
   %24 = load i8, ptr %7, align 16
   switch i8 %24, label %25 [
     i8 35, label %parse_rule.exit.thread
@@ -749,18 +749,18 @@ define internal fastcc void @parse_config_file(ptr noundef captures(none) %0, pt
 25:                                               ; preds = %22
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   %27 = trunc i64 %26 to i32
-  %.not2586 = icmp eq i32 %27, 0
-  br i1 %.not2586, label %.critedge.thread, label %.lr.ph
+  %.not2584 = icmp eq i32 %27, 0
+  br i1 %.not2584, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread:                                 ; preds = %.critedge5, %25
   store i8 0, ptr %7, align 16
   br label %parse_rule.exit.thread
 
 .lr.ph:                                           ; preds = %25, %.critedge5
-  %.087 = phi i32 [ %28, %.critedge5 ], [ %27, %25 ]
-  %28 = add i32 %.087, -1
+  %.085 = phi i32 [ %28, %.critedge5 ], [ %27, %25 ]
+  %28 = add i32 %.085, -1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %7, i64 %29
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %32 [
     i8 10, label %.critedge5
@@ -772,9 +772,9 @@ define internal fastcc void @parse_config_file(ptr noundef captures(none) %0, pt
   br i1 %.not25, label %.critedge.thread, label %.lr.ph, !llvm.loop !45
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %29
-  %34 = sext i32 %.087 to i64
-  %35 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %34
+  %33 = getelementptr i8, ptr %7, i64 %29
+  %34 = sext i32 %.085 to i64
+  %35 = getelementptr i8, ptr %7, i64 %34
   store i8 0, ptr %35, align 1
   br label %36
 
@@ -794,8 +794,8 @@ skipWhiteSpace.exit.i.i.preheader:                ; preds = %36
 .critedge.i.i.i:                                  ; preds = %36, %36
   %40 = add i32 %.0.i.i.i, 1
   %.phi.trans.insert = sext i32 %40 to i64
-  %.phi.trans.insert125 = getelementptr i8, ptr %7, i64 %.phi.trans.insert
-  %.pre = load i8, ptr %.phi.trans.insert125, align 1
+  %.phi.trans.insert123 = getelementptr i8, ptr %7, i64 %.phi.trans.insert
+  %.pre = load i8, ptr %.phi.trans.insert123, align 1
   br label %36, !llvm.loop !8
 
 skipWhiteSpace.exit.i.i:                          ; preds = %skipWhiteSpace.exit.i.i.preheader, %skipWhiteSpace.exit.i.i
@@ -812,7 +812,7 @@ skipWhiteSpace.exit.i.i:                          ; preds = %skipWhiteSpace.exit
 45:                                               ; preds = %skipWhiteSpace.exit.i.i, %skipWhiteSpace.exit.i.i
   %46 = add i32 %.021.i.i, %.0.i.i.i
   %47 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %39, i64 noundef range(i64 -2147483648, 2147483648) %41, i64 noundef 1024) #17, !alias.scope !46
-  %48 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %41
+  %48 = getelementptr i8, ptr @read_token.static_buffer, i64 %41
   store i8 0, ptr %48, align 1
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @read_token.static_buffer, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %49 = icmp eq i32 %bcmp.i, 0
@@ -950,9 +950,9 @@ default.unreachable:                              ; preds = %91
 parse_variables_line.exit:                        ; preds = %52, %read_token.exit34.i, %read_token.exit42.i, %.sink.split.i
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %7, ptr noundef nonnull dereferenceable(18) @.str.8, i64 18)
   %.not.i = icmp eq i32 %bcmp, 0
-  br i1 %.not.i, label %.preheader99, label %parse_references_prefix_file_line.exit.preheader
+  br i1 %.not.i, label %.preheader97, label %parse_references_prefix_file_line.exit.preheader
 
-.preheader99:                                     ; preds = %parse_variables_line.exit, %.critedge.i.i.i27
+.preheader97:                                     ; preds = %parse_variables_line.exit, %.critedge.i.i.i27
   %.0.i.i.i26 = phi i32 [ %105, %.critedge.i.i.i27 ], [ 0, %parse_variables_line.exit ]
   %101 = sext i32 %.0.i.i.i26 to i64
   %102 = getelementptr i8, ptr %14, i64 %101
@@ -962,13 +962,13 @@ parse_variables_line.exit:                        ; preds = %52, %read_token.exi
     i8 9, label %.critedge.i.i.i27
   ]
 
-skipWhiteSpace.exit.i.i29.preheader:              ; preds = %.preheader99
+skipWhiteSpace.exit.i.i29.preheader:              ; preds = %.preheader97
   %104 = getelementptr i8, ptr %14, i64 %101
   br label %skipWhiteSpace.exit.i.i29
 
-.critedge.i.i.i27:                                ; preds = %.preheader99, %.preheader99
+.critedge.i.i.i27:                                ; preds = %.preheader97, %.preheader97
   %105 = add i32 %.0.i.i.i26, 1
-  br label %.preheader99, !llvm.loop !8
+  br label %.preheader97, !llvm.loop !8
 
 skipWhiteSpace.exit.i.i29:                        ; preds = %skipWhiteSpace.exit.i.i29.preheader, %skipWhiteSpace.exit.i.i29
   %.021.i.i30 = phi i32 [ %109, %skipWhiteSpace.exit.i.i29 ], [ 0, %skipWhiteSpace.exit.i.i29.preheader ]
@@ -1050,47 +1050,47 @@ read_token.exit23.i:                              ; preds = %skipWhiteSpace.exit
 parse_references_prefix_file_line.exit.preheader: ; preds = %parse_variables_line.exit, %read_token.exit23.i
   br label %parse_references_prefix_file_line.exit
 
-parse_references_prefix_file_line.exit:           ; preds = %parse_references_prefix_file_line.exit.preheader, %.critedge.i.i44
-  %.0.i.i43 = phi i32 [ %143, %.critedge.i.i44 ], [ 0, %parse_references_prefix_file_line.exit.preheader ]
-  %139 = sext i32 %.0.i.i43 to i64
+parse_references_prefix_file_line.exit:           ; preds = %parse_references_prefix_file_line.exit.preheader, %.critedge.i.i43
+  %.0.i.i42 = phi i32 [ %143, %.critedge.i.i43 ], [ 0, %parse_references_prefix_file_line.exit.preheader ]
+  %139 = sext i32 %.0.i.i42 to i64
   %140 = getelementptr i8, ptr %7, i64 %139
   %141 = load i8, ptr %140, align 1
-  switch i8 %141, label %skipWhiteSpace.exit.i45.preheader [
-    i8 32, label %.critedge.i.i44
-    i8 9, label %.critedge.i.i44
+  switch i8 %141, label %skipWhiteSpace.exit.i44.preheader [
+    i8 32, label %.critedge.i.i43
+    i8 9, label %.critedge.i.i43
   ]
 
-skipWhiteSpace.exit.i45.preheader:                ; preds = %parse_references_prefix_file_line.exit
+skipWhiteSpace.exit.i44.preheader:                ; preds = %parse_references_prefix_file_line.exit
   %142 = getelementptr i8, ptr %7, i64 %139
-  br label %skipWhiteSpace.exit.i45
+  br label %skipWhiteSpace.exit.i44
 
-.critedge.i.i44:                                  ; preds = %parse_references_prefix_file_line.exit, %parse_references_prefix_file_line.exit
-  %143 = add i32 %.0.i.i43, 1
+.critedge.i.i43:                                  ; preds = %parse_references_prefix_file_line.exit, %parse_references_prefix_file_line.exit
+  %143 = add i32 %.0.i.i42, 1
   br label %parse_references_prefix_file_line.exit, !llvm.loop !8
 
-skipWhiteSpace.exit.i45:                          ; preds = %skipWhiteSpace.exit.i45.preheader, %skipWhiteSpace.exit.i45
-  %.021.i46 = phi i32 [ %147, %skipWhiteSpace.exit.i45 ], [ 0, %skipWhiteSpace.exit.i45.preheader ]
-  %144 = sext i32 %.021.i46 to i64
+skipWhiteSpace.exit.i44:                          ; preds = %skipWhiteSpace.exit.i44.preheader, %skipWhiteSpace.exit.i44
+  %.021.i45 = phi i32 [ %147, %skipWhiteSpace.exit.i44 ], [ 0, %skipWhiteSpace.exit.i44.preheader ]
+  %144 = sext i32 %.021.i45 to i64
   %145 = getelementptr i8, ptr %142, i64 %144
   %146 = load i8, ptr %145, align 1
-  %147 = add i32 %.021.i46, 1
-  switch i8 %146, label %skipWhiteSpace.exit.i45 [
-    i8 32, label %read_token.exit51
-    i8 0, label %read_token.exit51
+  %147 = add i32 %.021.i45, 1
+  switch i8 %146, label %skipWhiteSpace.exit.i44 [
+    i8 32, label %read_token.exit49
+    i8 0, label %read_token.exit49
   ]
 
-read_token.exit51:                                ; preds = %skipWhiteSpace.exit.i45, %skipWhiteSpace.exit.i45
-  %148 = add i32 %.021.i46, %.0.i.i43
+read_token.exit49:                                ; preds = %skipWhiteSpace.exit.i44, %skipWhiteSpace.exit.i44
+  %148 = add i32 %.021.i45, %.0.i.i42
   %149 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %142, i64 noundef range(i64 -2147483648, 2147483648) %144, i64 noundef 1024) #17, !alias.scope !51
-  %150 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %144
+  %150 = getelementptr i8, ptr @read_token.static_buffer, i64 %144
   store i8 0, ptr %150, align 1
   %char0.i = load i8, ptr @read_token.static_buffer, align 16
   %151 = icmp eq i8 %char0.i, 0
   br i1 %151, label %193, label %152
 
-152:                                              ; preds = %read_token.exit51
-  %bcmp59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.9, i64 7)
-  %.not.i31 = icmp eq i32 %bcmp59, 0
+152:                                              ; preds = %read_token.exit49
+  %bcmp57 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.9, i64 7)
+  %.not.i31 = icmp eq i32 %bcmp57, 0
   br i1 %.not.i31, label %153, label %193
 
 153:                                              ; preds = %152
@@ -1129,15 +1129,15 @@ skipWhiteSpace.exit.i:                            ; preds = %skipWhiteSpace.exit
 
 read_token.exit:                                  ; preds = %skipWhiteSpace.exit.i, %skipWhiteSpace.exit.i
   %166 = call ptr @__memcpy_chk(ptr noundef nonnull @read_token.static_buffer, ptr noundef %160, i64 noundef range(i64 -2147483648, 2147483648) %162, i64 noundef 1024) #17, !alias.scope !55
-  %167 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %162
+  %167 = getelementptr i8, ptr @read_token.static_buffer, i64 %162
   store i8 0, ptr %167, align 1
   %168 = load i8, ptr @read_token.static_buffer, align 16
   %.not33.i = icmp eq i8 %168, 0
   br i1 %.not33.i, label %193, label %169
 
 169:                                              ; preds = %read_token.exit
-  %bcmp60 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @read_token.static_buffer, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
-  %170 = icmp eq i32 %bcmp60, 0
+  %bcmp58 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @read_token.static_buffer, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
+  %170 = icmp eq i32 %bcmp58, 0
   br i1 %170, label %171, label %179
 
 171:                                              ; preds = %169
@@ -1170,8 +1170,8 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
 185:                                              ; preds = %183, %181, %177, %175
   %.1.i = phi ptr [ %184, %183 ], [ %182, %181 ], [ %176, %175 ], [ %178, %177 ]
   %186 = call noalias ptr @fopen(ptr noundef %.1.i, ptr noundef nonnull @.str.2)
-  %.not61 = icmp eq ptr %186, null
-  br i1 %.not61, label %187, label %188
+  %.not59 = icmp eq ptr %186, null
+  br i1 %.not59, label %187, label %188
 
 187:                                              ; preds = %185
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.3, ptr noundef %.1.i)
@@ -1193,9 +1193,9 @@ parse_include_file.exit:                          ; preds = %188, %189
   %192 = call i32 @fclose(ptr noundef nonnull %186)
   br label %parse_rule.exit.thread, !llvm.loop !44
 
-193:                                              ; preds = %read_token.exit51, %152, %187, %read_token.exit
-  %bcmp62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
-  %.not.i32 = icmp eq i32 %bcmp62, 0
+193:                                              ; preds = %read_token.exit49, %152, %187, %read_token.exit
+  %bcmp60 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
+  %.not.i32 = icmp eq i32 %bcmp60, 0
   br i1 %.not.i32, label %194, label %parse_rule.exit.thread
 
 194:                                              ; preds = %193
@@ -1407,7 +1407,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %285 = add i32 %.162.i, %284
   %286 = add i32 %285, %.164.neg121.i.i
   %287 = sext i32 %286 to i64
-  %288 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %287
+  %288 = getelementptr i8, ptr @process_rule_option.value, i64 %287
   store i8 0, ptr %288, align 1
   %289 = load i32, ptr %236, align 8
   %290 = icmp ult i32 %289, 30
@@ -1420,7 +1420,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %295 = add nuw nsw i32 %289, 1
   store i32 %295, ptr %236, align 8
   %296 = zext nneg i32 %289 to i64
-  %297 = getelementptr [30 x %struct.content_t], ptr %237, i64 0, i64 %296
+  %297 = getelementptr %struct.content_t, ptr %237, i64 %296
   %298 = call noalias ptr @g_strdup(ptr noundef %293)
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %298, ptr %299, align 8
@@ -1453,7 +1453,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %311 = add i32 %.162.i, %310
   %312 = add i32 %311, %.164.neg121.i.i
   %313 = sext i32 %312 to i64
-  %314 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %313
+  %314 = getelementptr i8, ptr @process_rule_option.value, i64 %313
   store i8 0, ptr %314, align 1
   %315 = getelementptr i8, ptr @process_rule_option.value, i64 %.060.i.i
   %316 = getelementptr i8, ptr %315, i64 1
@@ -1488,7 +1488,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %327 = add i32 %.162.i, %326
   %328 = add i32 %327, %.164.neg121.i.i
   %329 = sext i32 %328 to i64
-  %330 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %329
+  %330 = getelementptr i8, ptr @process_rule_option.value, i64 %329
   store i8 0, ptr %330, align 1
   call fastcc void @rule_add_pcre(ptr noundef %195)
   br label %process_rule_option.exit.i
@@ -1694,7 +1694,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %408 = add i32 %407, 1
   store i32 %408, ptr %232, align 8
   %409 = zext i32 %407 to i64
-  %410 = getelementptr [20 x ptr], ptr %233, i64 0, i64 %409
+  %410 = getelementptr ptr, ptr %233, i64 %409
   store ptr %406, ptr %410, align 8
   br label %process_rule_option.exit.i
 
@@ -1834,7 +1834,7 @@ define internal noundef i32 @delete_rule(ptr readnone captures(none) %0, ptr nou
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr [30 x %struct.content_t], ptr %15, i64 0, i64 %indvars.iv
+  %20 = getelementptr %struct.content_t, ptr %15, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22)
@@ -1849,7 +1849,7 @@ define internal noundef i32 @delete_rule(ptr readnone captures(none) %0, ptr nou
 
 28:                                               ; preds = %.lr.ph20, %28
   %indvars.iv23 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next24, %28 ]
-  %29 = getelementptr [20 x ptr], ptr %18, i64 0, i64 %indvars.iv23
+  %29 = getelementptr ptr, ptr %18, i64 %indvars.iv23
   %30 = load ptr, ptr %29, align 8
   tail call void @g_free(ptr noundef %30)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -2011,14 +2011,14 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
 21:                                               ; preds = %19
   %22 = add i32 %.033, 1
   %23 = sext i32 %.033 to i64
-  %24 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @content_convert_to_binary.binary_str, i64 %23
   store i8 %14, ptr %24, align 1
   br label %51
 
 25:                                               ; preds = %18
   %26 = add i32 %.033, 1
   %27 = sext i32 %.033 to i64
-  %28 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %27
+  %28 = getelementptr i8, ptr @content_convert_to_binary.binary_str, i64 %27
   store i8 %14, ptr %28, align 1
   br label %51
 
@@ -2031,7 +2031,7 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
 
 .preheader18.i:                                   ; preds = %31, %.preheader18.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader18.i ], [ 97, %31 ]
-  %32 = getelementptr [256 x i8], ptr @content_get_nibble_value.values, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv.i
   %33 = trunc i64 %indvars.iv.i to i8
   %34 = add i8 %33, -87
   store i8 %34, ptr %32, align 1
@@ -2041,7 +2041,7 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
 
 .preheader17.i:                                   ; preds = %.preheader18.i, %.preheader17.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.preheader17.i ], [ 65, %.preheader18.i ]
-  %35 = getelementptr [256 x i8], ptr @content_get_nibble_value.values, i64 0, i64 %indvars.iv23.i
+  %35 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv23.i
   %36 = trunc i64 %indvars.iv23.i to i8
   %37 = add i8 %36, -55
   store i8 %37, ptr %35, align 1
@@ -2051,7 +2051,7 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
 
 .preheader.i:                                     ; preds = %.preheader17.i, %.preheader.i
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.preheader.i ], [ 48, %.preheader17.i ]
-  %38 = getelementptr [256 x i8], ptr @content_get_nibble_value.values, i64 0, i64 %indvars.iv27.i
+  %38 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %indvars.iv27.i
   %39 = trunc i64 %indvars.iv27.i to i8
   %40 = add i8 %39, -48
   store i8 %40, ptr %38, align 1
@@ -2065,7 +2065,7 @@ define hidden i32 @content_convert_to_binary(ptr noundef captures(none) %0) loca
 
 content_get_nibble_value.exit:                    ; preds = %31, %41
   %42 = zext i8 %14 to i64
-  %43 = getelementptr [256 x i8], ptr @content_get_nibble_value.values, i64 0, i64 %42
+  %43 = getelementptr i8, ptr @content_get_nibble_value.values, i64 %42
   %44 = load i8, ptr %43, align 1
   br i1 %.038, label %45, label %51
 
@@ -2074,7 +2074,7 @@ content_get_nibble_value.exit:                    ; preds = %31, %41
   %47 = add i8 %44, %46
   %48 = add i32 %.033, 1
   %49 = sext i32 %.033 to i64
-  %50 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %49
+  %50 = getelementptr i8, ptr @content_convert_to_binary.binary_str, i64 %49
   store i8 %47, ptr %50, align 1
   br label %51
 
@@ -2239,7 +2239,7 @@ define internal fastcc void @rule_add_uricontent(ptr noundef %0, ptr noundef %1,
   %10 = add nuw nsw i32 %5, 1
   store i32 %10, ptr %4, align 8
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr [30 x %struct.content_t], ptr %9, i64 0, i64 %11
+  %12 = getelementptr %struct.content_t, ptr %9, i64 %11
   %13 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
@@ -2266,7 +2266,7 @@ define internal fastcc void @rule_add_pcre(ptr noundef %0) unnamed_addr #0 {
   %7 = add nuw nsw i32 %3, 1
   store i32 %7, ptr %2, align 8
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr [30 x %struct.content_t], ptr %6, i64 0, i64 %8
+  %9 = getelementptr %struct.content_t, ptr %6, i64 %8
   %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @process_rule_option.value, i64 1))
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8

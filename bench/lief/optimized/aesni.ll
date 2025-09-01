@@ -55,11 +55,11 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
   %8 = sub nuw nsw i64 15, %.012
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !13
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %.012
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.012
   store i8 %10, ptr %11, align 1, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %8
   %13 = load i8, ptr %12, align 1, !tbaa !13
-  %14 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.012
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.012
   store i8 %13, ptr %14, align 1, !tbaa !13
   %15 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %15, 16
@@ -72,7 +72,7 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr noundef writeonly captures(none) 
 17:                                               ; preds = %16, %17
   %.113 = phi i64 [ 0, %16 ], [ %22, %17 ]
   %18 = sub nuw nsw i64 15, %.113
-  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.113
   store i8 %20, ptr %21, align 1, !tbaa !13

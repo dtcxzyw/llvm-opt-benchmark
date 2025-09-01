@@ -19942,10 +19942,10 @@ define noundef zeroext i1 @_ZN18ty_python_semantic15module_resolver6module10Modu
 define { ptr, i64 } @_ZN18ty_python_semantic15module_resolver6module11KnownModule6as_str17hdd4b9a14719bfc0bE(i8 noundef range(i8 0, 13) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE.182", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE.182", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -20194,10 +20194,10 @@ define noundef zeroext i1 @"_ZN95_$LT$ty_python_semantic..module_resolver..modul
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1914, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [13 x ptr], ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE.182", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN95_$LT$ty_python_semantic..module_resolver..module..KnownModule$u20$as$u20$core..fmt..Display$GT$3fmt17ha14507cc72d4561bE.182", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

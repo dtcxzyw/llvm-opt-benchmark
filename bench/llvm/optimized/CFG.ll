@@ -9718,7 +9718,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %36 = load ptr, ptr %13, align 8, !tbaa !122
   %37 = zext nneg i16 %.pre193 to i64
   %38 = lshr i64 %37, 6
-  %39 = getelementptr inbounds nuw [5 x i64], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !388
   %41 = and i64 %37, 63
   %42 = shl nuw i64 1, %41
@@ -10752,7 +10752,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder9VisitStmtEPN5c
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -10899,7 +10899,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitInitList
   %10 = and i16 %9, 511
   %11 = zext nneg i16 %10 to i64
   %12 = lshr i64 %11, 6
-  %13 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !388
   %15 = and i64 %11, 63
   %16 = shl nuw i64 1, %15
@@ -11202,7 +11202,7 @@ _ZL22isFallthroughStatementPKN5clang14AttributedStmtE.exit: ; preds = %.lr.ph.i.
   %19 = and i32 %6, 511
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw [5 x i64], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !388
   %24 = and i64 %20, 63
   %25 = shl nuw i64 1, %24
@@ -11355,7 +11355,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitAddrLabe
   %13 = and i16 %12, 511
   %14 = zext nneg i16 %13 to i64
   %15 = lshr i64 %14, 6
-  %16 = getelementptr inbounds nuw [5 x i64], ptr %11, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %11, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !388
   %18 = and i64 %14, 63
   %19 = shl nuw i64 1, %18
@@ -11784,7 +11784,7 @@ _ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit: ; preds = %37, %_ZN12_GLO
   %64 = and i32 %8, 511
   %65 = zext nneg i32 %64 to i64
   %66 = lshr i64 %65, 6
-  %67 = getelementptr inbounds nuw [5 x i64], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !388
   %69 = and i64 %65, 63
   %70 = shl nuw i64 1, %69
@@ -12707,7 +12707,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCXXBindT
   %9 = and i16 %8, 511
   %10 = zext nneg i16 %9 to i64
   %11 = lshr i64 %10, 6
-  %12 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !388
   %14 = and i64 %10, 63
   %15 = shl nuw i64 1, %14
@@ -13414,7 +13414,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder26VisitCXXFunct
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -13975,7 +13975,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitCXXTypei
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -15344,7 +15344,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitGCCAsmSt
   %12 = and i16 %11, 511
   %13 = zext nneg i16 %12 to i64
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds nuw [5 x i64], ptr %10, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !388
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
@@ -16075,7 +16075,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitImplicit
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -16563,7 +16563,7 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %3, %17
   %24 = and i16 %23, 511
   %25 = zext nneg i16 %24 to i64
   %26 = lshr i64 %25, 6
-  %27 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %22, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !388
   %29 = and i64 %25, 63
   %30 = shl nuw i64 1, %29
@@ -16707,7 +16707,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitMemberEx
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -17627,7 +17627,7 @@ _ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit: ; preds = %_ZN12_GLOBAL__
   %47 = and i16 %46, 511
   %48 = zext nneg i16 %47 to i64
   %49 = lshr i64 %48, 6
-  %50 = getelementptr inbounds nuw [5 x i64], ptr %45, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %45, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !388
   %52 = and i64 %48, 63
   %53 = shl nuw i64 1, %52
@@ -18142,7 +18142,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCoroutin
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -18618,7 +18618,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder29VisitUnaryExp
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -18878,7 +18878,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitStmtExpr
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -19430,7 +19430,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitUnaryOpe
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -19894,7 +19894,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder22VisitArrayIni
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -20051,7 +20051,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendStmtEPN5clang8
   %7 = and i16 %6, 511
   %8 = zext nneg i16 %7 to i64
   %9 = lshr i64 %8, 6
-  %10 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !388
   %12 = and i64 %8, 63
   %13 = shl nuw i64 1, %12
@@ -26248,7 +26248,7 @@ _ZL28IsIntegerLiteralConstantExprPKN5clang4ExprE.exit.thread.i: ; preds = %_ZL28
 
 switch.lookup:                                    ; preds = %41
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL26tryNormalizeBinaryOperatorPKN5clang14BinaryOperatorE, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL26tryNormalizeBinaryOperatorPKN5clang14BinaryOperatorE, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %44
 
@@ -27476,7 +27476,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder14VisitNoRecurs
   %8 = and i16 %7, 511
   %9 = zext nneg i16 %8 to i64
   %10 = lshr i64 %9, 6
-  %11 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !388
   %13 = and i64 %9, 63
   %14 = shl nuw i64 1, %13
@@ -27756,7 +27756,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendCallEPN5clang8
   %7 = and i16 %6, 511
   %8 = zext nneg i16 %7 to i64
   %9 = lshr i64 %8, 6
-  %10 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !388
   %12 = and i64 %8, 63
   %13 = shl nuw i64 1, %12

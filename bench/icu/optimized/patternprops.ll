@@ -19,7 +19,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps8isSyntaxEi(i3
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = lshr i8 %8, 1
   %10 = and i8 %9, 1
@@ -37,10 +37,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps8isSyntaxEi(i3
   %16 = add nsw i32 %0, -8192
   %17 = lshr i32 %16, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_77L9index2000E, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9index2000E, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L10syntax2000E, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L10syntax2000E, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !6
   %24 = and i32 %0, 31
   %25 = lshr i32 %23, %24
@@ -75,7 +75,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps20isSyntaxOrWh
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = and i8 %8, 1
   br label %33
@@ -92,10 +92,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps20isSyntaxOrWh
   %15 = add nsw i32 %0, -8192
   %16 = lshr i32 %15, 5
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_77L9index2000E, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9index2000E, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !6
   %23 = and i32 %0, 31
   %24 = lshr i32 %22, %23
@@ -130,7 +130,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isWhiteSpace
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = lshr i8 %8, 2
   %10 = and i8 %9, 1
@@ -166,7 +166,7 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef r
 
 6:                                                ; preds = %.lr.ph
   %7 = zext nneg i16 %4 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = and i8 %9, 4
   %11 = icmp eq i8 %10, 0
@@ -226,7 +226,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
 
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %24 = zext nneg i16 %21 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = and i8 %26, 4
   %28 = icmp eq i8 %27, 0
@@ -280,7 +280,7 @@ define noundef ptr @_ZN6icu_7712PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef 
 
 8:                                                ; preds = %5
   %9 = zext nneg i16 %6 to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = and i8 %11, 4
   %13 = icmp eq i8 %12, 0
@@ -304,7 +304,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 
 23:                                               ; preds = %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread
   %24 = zext nneg i16 %21 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = and i8 %26, 4
   %28 = icmp eq i8 %27, 0
@@ -331,7 +331,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 
 37:                                               ; preds = %.lr.ph
   %38 = zext nneg i16 %35 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = and i8 %40, 4
   %42 = icmp eq i8 %41, 0
@@ -365,7 +365,7 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
 
 55:                                               ; preds = %50
   %56 = zext nneg i16 %53 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = and i8 %58, 4
   %60 = icmp eq i8 %59, 0
@@ -420,7 +420,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifier
 
 11:                                               ; preds = %7
   %12 = zext nneg i16 %8 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = and i8 %14, 1
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
@@ -437,10 +437,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifier
   %21 = add nsw i32 %9, -8192
   %22 = lshr i32 %21, 5
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_77L9index2000E, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9index2000E, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = and i32 %9, 31
   %30 = lshr i32 %28, %29
@@ -489,7 +489,7 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef r
 
 7:                                                ; preds = %.lr.ph
   %8 = zext nneg i16 %4 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_77L6latin1E, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L6latin1E, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = and i8 %10, 1
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
@@ -506,10 +506,10 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef r
   %17 = add nsw i32 %5, -8192
   %18 = lshr i32 %17, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_77L9index2000E, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN6icu_77L9index2000E, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22syntaxOrWhiteSpace2000E, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = and i32 %5, 31
   %26 = lshr i32 %24, %25

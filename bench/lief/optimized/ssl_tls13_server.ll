@@ -3220,7 +3220,7 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_binder_match(ptr nounde
 
 switch.lookup:                                    ; preds = %12
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %18
 
@@ -3258,9 +3258,9 @@ switch.lookup:                                    ; preds = %12
   br i1 %11, label %38, label %32
 
 32:                                               ; preds = %30
-  %switch.tableidx73 = add nsw i32 %4, -33554436
-  %33 = icmp ult i32 %switch.tableidx73, 15
-  %switch.maskindex75 = trunc i32 %switch.tableidx73 to i16
+  %switch.tableidx72 = add nsw i32 %4, -33554436
+  %33 = icmp ult i32 %switch.tableidx72, 15
+  %switch.maskindex75 = trunc i32 %switch.tableidx72 to i16
   %switch.shifted76 = lshr i16 29683, %switch.maskindex75
   %switch.lobit77 = trunc i16 %switch.shifted76 to i1
   %or.cond80 = select i1 %33, i1 %switch.lobit77, i1 false
@@ -3272,8 +3272,8 @@ switch.lookup:                                    ; preds = %12
   br label %38
 
 switch.lookup74:                                  ; preds = %32
-  %37 = zext nneg i32 %switch.tableidx73 to i64
-  %switch.gep78 = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %37
+  %37 = zext nneg i32 %switch.tableidx72 to i64
+  %switch.gep78 = getelementptr inbounds nuw i64, ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %37
   %switch.load79 = load i64, ptr %switch.gep78, align 8
   br label %38
 

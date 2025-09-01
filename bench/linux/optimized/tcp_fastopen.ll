@@ -187,7 +187,7 @@ define dso_local i32 @tcp_fastopen_get_cipher(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %16, %14
   %17 = phi i64 [ 0, %14 ], [ %27, %16 ]
-  %18 = getelementptr [2 x %struct.siphash_key_t], ptr %8, i64 0, i64 %17
+  %18 = getelementptr %struct.siphash_key_t, ptr %8, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %17 to i32
   %21 = shl i32 %20, 1
@@ -688,7 +688,7 @@ define dso_local ptr @tcp_try_fastopen(ptr noundef %0, ptr noundef %1, ptr nound
   %163 = phi i64 [ 0, %158 ], [ %188, %187 ]
   %.sroa.phi2 = phi ptr [ %19, %158 ], [ %.sroa.gep1, %187 ]
   %164 = phi ptr [ %8, %158 ], [ %7, %187 ]
-  %165 = getelementptr [2 x %struct.siphash_key_t], ptr %154, i64 0, i64 %163
+  %165 = getelementptr %struct.siphash_key_t, ptr %154, i64 %163
   %166 = load ptr, ptr %159, align 8
   %167 = load i32, ptr %166, align 8
   switch i32 %167, label %178 [
@@ -1145,7 +1145,7 @@ tcp_fastopen_cookie_check.exit:                   ; preds = %70, %40
 83:                                               ; preds = %79, %tcp_fastopen_cookie_check.exit
   %84 = phi i64 [ 0, %tcp_fastopen_cookie_check.exit ], [ %82, %79 ]
   %85 = or i32 %76, 256
-  %86 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %84, i64 6
+  %86 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %84, i64 6
   %87 = load ptr, ptr %86, align 16
   %88 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %87, i32 noundef %85, i64 noundef 56) #10
   store ptr %88, ptr %10, align 64

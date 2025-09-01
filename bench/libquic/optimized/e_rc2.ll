@@ -70,7 +70,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %.narrow.i = add i8 %24, %.0.in57.i
   %25 = zext i8 %.narrow.i to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @key_table, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv72.i
   store i8 %27, ptr %28, align 1, !tbaa !16
@@ -92,7 +92,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %38 = zext i8 %37 to i32
   %39 = and i32 %34, %38
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @key_table, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
   store i8 %42, ptr %36, align 1, !tbaa !16
   %.not61.i = icmp eq i32 %30, 128
@@ -111,7 +111,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %44 = load i8, ptr %gep.i, align 1, !tbaa !16
   %45 = xor i8 %44, %.1.in63.i
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @key_table, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next77.i
   store i8 %48, ptr %49, align 1, !tbaa !16

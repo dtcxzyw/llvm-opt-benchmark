@@ -89,13 +89,13 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   br label %171
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw [25 x %struct.KnownAEAD], ptr @_ZL6kAEADs, i64 0, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw %struct.KnownAEAD, ptr @_ZL6kAEADs, i64 %indvars.iv.next
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %10) #17
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %23 = getelementptr inbounds nuw %struct.KnownAEAD, ptr @_ZL6kAEADs, i64 %indvars.iv.next, i32 1
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   br label %25
 

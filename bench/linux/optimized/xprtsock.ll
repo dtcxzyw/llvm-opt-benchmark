@@ -374,7 +374,7 @@ xs_setup_xprt.exit:                               ; preds = %24, %26, %30, %31
   ]
 
 71:                                               ; preds = %68
-  %72 = getelementptr [6 x ptr], ptr %67, i64 0, i64 %69
+  %72 = getelementptr ptr, ptr %67, i64 %69
   %73 = load ptr, ptr %72, align 8
   tail call void @kfree(ptr noundef %73) #12
   br label %74
@@ -1923,7 +1923,7 @@ define internal void @xs_destroy(ptr noundef %0) #0 align 16 {
   ]
 
 18:                                               ; preds = %15
-  %19 = getelementptr [6 x ptr], ptr %14, i64 0, i64 %16
+  %19 = getelementptr ptr, ptr %14, i64 %16
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #12
   br label %21
@@ -2925,7 +2925,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr [6 x ptr], ptr %80, i64 0, i64 %82
+  %85 = getelementptr ptr, ptr %80, i64 %82
   %86 = load ptr, ptr %85, align 8
   tail call void @kfree(ptr noundef %86) #12
   br label %87
@@ -4108,7 +4108,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   ]
 
 105:                                              ; preds = %102
-  %106 = getelementptr [6 x ptr], ptr %101, i64 0, i64 %103
+  %106 = getelementptr ptr, ptr %101, i64 %103
   %107 = load ptr, ptr %106, align 8
   tail call void @kfree(ptr noundef %107) #12
   br label %108
@@ -5338,7 +5338,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   ]
 
 98:                                               ; preds = %95
-  %99 = getelementptr [6 x ptr], ptr %94, i64 0, i64 %96
+  %99 = getelementptr ptr, ptr %94, i64 %96
   %100 = load ptr, ptr %99, align 8
   tail call void @kfree(ptr noundef %100) #12
   br label %101
@@ -6091,7 +6091,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   ]
 
 68:                                               ; preds = %65
-  %69 = getelementptr [6 x ptr], ptr %64, i64 0, i64 %66
+  %69 = getelementptr ptr, ptr %64, i64 %66
   %70 = load ptr, ptr %69, align 8
   tail call void @kfree(ptr noundef %70) #12
   br label %71
@@ -6259,7 +6259,7 @@ define internal void @bc_destroy(ptr noundef %0) #0 align 16 {
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr [6 x ptr], ptr %2, i64 0, i64 %4
+  %7 = getelementptr ptr, ptr %2, i64 %4
   %8 = load ptr, ptr %7, align 8
   tail call void @kfree(ptr noundef %8) #12
   br label %9

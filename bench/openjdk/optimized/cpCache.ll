@@ -425,7 +425,7 @@ define hidden void @_ZN17ConstantPoolCache25set_direct_or_vtable_callEN9Bytecode
 
 switch.lookup:                                    ; preds = %26
   %38 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %38
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z11as_TosState9BasicType.exit
 
@@ -468,18 +468,18 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %26, %switch.lookup
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load i8, ptr %57, align 8
-  %switch.tableidx83 = add i8 %58, -4
-  %59 = icmp ult i8 %switch.tableidx83, 11
-  br i1 %59, label %switch.lookup82, label %_Z11as_TosState9BasicType.exit66
+  %switch.tableidx82 = add i8 %58, -4
+  %59 = icmp ult i8 %switch.tableidx82, 11
+  br i1 %59, label %switch.lookup83, label %_Z11as_TosState9BasicType.exit66
 
-switch.lookup82:                                  ; preds = %.thread
-  %60 = zext nneg i8 %switch.tableidx83 to i64
-  %switch.gep84 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %60
+switch.lookup83:                                  ; preds = %.thread
+  %60 = zext nneg i8 %switch.tableidx82 to i64
+  %switch.gep84 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %60
   %switch.load85 = load i8, ptr %switch.gep84, align 1
   br label %_Z11as_TosState9BasicType.exit66
 
-_Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lookup82
-  %.0.i65 = phi i8 [ %switch.load85, %switch.lookup82 ], [ 11, %.thread ]
+_Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lookup83
+  %.0.i65 = phi i8 [ %switch.load85, %switch.lookup83 ], [ 11, %.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 46
   %62 = load i16, ptr %61, align 2
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -502,18 +502,18 @@ _Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lo
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load i8, ptr %74, align 8
-  %switch.tableidx87 = add i8 %75, -4
-  %76 = icmp ult i8 %switch.tableidx87, 11
-  br i1 %76, label %switch.lookup86, label %_Z11as_TosState9BasicType.exit68
+  %switch.tableidx86 = add i8 %75, -4
+  %76 = icmp ult i8 %switch.tableidx86, 11
+  br i1 %76, label %switch.lookup87, label %_Z11as_TosState9BasicType.exit68
 
-switch.lookup86:                                  ; preds = %66
-  %77 = zext nneg i8 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %77
+switch.lookup87:                                  ; preds = %66
+  %77 = zext nneg i8 %switch.tableidx86 to i64
+  %switch.gep88 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %77
   %switch.load89 = load i8, ptr %switch.gep88, align 1
   br label %_Z11as_TosState9BasicType.exit68
 
-_Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup86
-  %.0.i67 = phi i8 [ %switch.load89, %switch.lookup86 ], [ 11, %66 ]
+_Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup87
+  %.0.i67 = phi i8 [ %switch.load89, %switch.lookup87 ], [ 11, %66 ]
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 46
   %79 = load i16, ptr %78, align 2
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -544,18 +544,18 @@ _Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load i8, ptr %96, align 8
-  %switch.tableidx91 = add i8 %97, -4
-  %98 = icmp ult i8 %switch.tableidx91, 11
-  br i1 %98, label %switch.lookup90, label %_Z11as_TosState9BasicType.exit70
+  %switch.tableidx90 = add i8 %97, -4
+  %98 = icmp ult i8 %switch.tableidx90, 11
+  br i1 %98, label %switch.lookup91, label %_Z11as_TosState9BasicType.exit70
 
-switch.lookup90:                                  ; preds = %.critedge
-  %99 = zext nneg i8 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %99
+switch.lookup91:                                  ; preds = %.critedge
+  %99 = zext nneg i8 %switch.tableidx90 to i64
+  %switch.gep92 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %99
   %switch.load93 = load i8, ptr %switch.gep92, align 1
   br label %_Z11as_TosState9BasicType.exit70
 
-_Z11as_TosState9BasicType.exit70:                 ; preds = %.critedge, %switch.lookup90
-  %.0.i69 = phi i8 [ %switch.load93, %switch.lookup90 ], [ 11, %.critedge ]
+_Z11as_TosState9BasicType.exit70:                 ; preds = %.critedge, %switch.lookup91
+  %.0.i69 = phi i8 [ %switch.load93, %switch.lookup91 ], [ 11, %.critedge ]
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 46
   %101 = load i16, ptr %100, align 2
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -668,7 +668,7 @@ define hidden void @_ZN17ConstantPoolCache15set_itable_callEN9Bytecodes4CodeEiP5
 
 switch.lookup:                                    ; preds = %6
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z11as_TosState9BasicType.exit
 
@@ -753,7 +753,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %3, %_ZN10Handl
 
 switch.lookup:                                    ; preds = %33
   %41 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %41
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z11as_TosState9BasicType.exit
 
@@ -2856,7 +2856,7 @@ _ZNK6HandleclEv.exit35:                           ; preds = %_ZN12ResourceMarkD2
 
 switch.lookup:                                    ; preds = %146
   %157 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %157
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 %157
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z11as_TosState9BasicType.exit
 
@@ -3395,7 +3395,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal15RuntimeDispatchILm2383942E
 _ZN14AccessInternal15BarrierResolverILm2383942EPFvP7oopDesclS2_ELNS_11BarrierTypeE1EE15resolve_barrierEv.exit: ; preds = %13, %10
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_, %10 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4, %13 ]
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink, i64 0, i64 %16
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.4.sink, i64 %16
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   store ptr %switch.load7, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   tail call void %switch.load7(ptr noundef %0, i64 noundef %1, ptr noundef %2) #12
@@ -3552,7 +3552,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -3741,7 +3741,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier31store_barrier_on_heap_oop_fieldEP
   %.not.i.i.i = icmp eq i64 %14, 0
   %15 = lshr i64 %3, 12
   %16 = and i64 %15, 15
-  %17 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %3, %19
@@ -3802,7 +3802,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %50 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %49, %55
@@ -3840,7 +3840,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i.i13 = icmp eq i64 %73, 0
   %74 = lshr i64 %3, 12
   %75 = and i64 %74, 15
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %3, %78
@@ -4008,7 +4008,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBa
   %8 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %9 = lshr i64 %8, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = zext nneg i32 %12 to i64
   %14 = shl i64 %7, %13
@@ -4319,7 +4319,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.5.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #12
@@ -4625,7 +4625,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -4639,7 +4639,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -4705,7 +4705,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55

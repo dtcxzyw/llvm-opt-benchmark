@@ -309,7 +309,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 114:                                              ; preds = %114, %.lr.ph177.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph177.i ], [ %indvars.iv.next.i, %114 ]
   %.0122162.i = phi i32 [ 0, %.lr.ph177.i ], [ %.1123.i, %114 ]
-  %115 = getelementptr inbounds nuw [3 x double], ptr %113, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv.i
   %116 = load double, ptr %115, align 8, !tbaa !14
   %117 = fcmp une double %116, 0.000000e+00
   %118 = zext i1 %117 to i32
@@ -370,10 +370,10 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 145:                                              ; preds = %145, %.preheader151.i
   %indvars.iv192.i = phi i64 [ 0, %.preheader151.i ], [ %indvars.iv.next193.i, %145 ]
   %.0114166.i = phi double [ 0.000000e+00, %.preheader151.i ], [ %148, %145 ]
-  %146 = getelementptr inbounds nuw [3 x double], ptr %144, i64 0, i64 %indvars.iv192.i
+  %146 = getelementptr inbounds nuw double, ptr %144, i64 %indvars.iv192.i
   %147 = load double, ptr %146, align 8, !tbaa !14
   %148 = fadd double %.0114166.i, %147
-  %149 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv192.i
+  %149 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv192.i
   %150 = load double, ptr %149, align 8, !tbaa !14
   %151 = fadd double %147, %150
   store double %151, ptr %149, align 8, !tbaa !14
@@ -405,10 +405,10 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 160:                                              ; preds = %160, %.preheader152.i
   %indvars.iv196.i = phi i64 [ 0, %.preheader152.i ], [ %indvars.iv.next197.i, %160 ]
-  %161 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv196.i
+  %161 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv196.i
   %162 = load double, ptr %161, align 8, !tbaa !14
   %163 = fdiv double %162, %157
-  %164 = getelementptr inbounds nuw [3 x double], ptr %159, i64 0, i64 %indvars.iv196.i
+  %164 = getelementptr inbounds nuw double, ptr %159, i64 %indvars.iv196.i
   store double %163, ptr %164, align 8, !tbaa !14
   %indvars.iv.next197.i = add nuw nsw i64 %indvars.iv196.i, 1
   %exitcond199.not.i = icmp eq i64 %indvars.iv.next197.i, 3
@@ -432,7 +432,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 171:                                              ; preds = %171, %.lr.ph181.i
   %indvars.iv201.i = phi i64 [ 0, %.lr.ph181.i ], [ %indvars.iv.next202.i, %171 ]
   %.0179.i = phi double [ 0.000000e+00, %.lr.ph181.i ], [ %174, %171 ]
-  %172 = getelementptr inbounds nuw [3 x double], ptr %170, i64 0, i64 %indvars.iv201.i
+  %172 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv201.i
   %173 = load double, ptr %172, align 8, !tbaa !14
   %174 = fadd double %.0179.i, %173
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
@@ -646,7 +646,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
 
 .thread35.i.i:                                    ; preds = %agxbsizeof.exit.thread.i.i
   %40 = zext nneg i8 %.val.i to i64
-  %41 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !13
   %42 = load i8, ptr %10, align 1, !tbaa !13
   %43 = add i8 %42, 1

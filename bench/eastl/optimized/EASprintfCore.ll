@@ -226,7 +226,7 @@ for.cond.preheader:                               ; preds = %if.then, %for.cond.
   %6 = add nuw nsw i64 %umin, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %buffer, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %6, i1 false)
   %7 = add i64 %3, %umin
-  %arrayidx8 = getelementptr inbounds nuw [512 x i8], ptr %buffer, i64 0, i64 %6
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %buffer, i64 %6
   store i8 0, ptr %arrayidx8, align 1
   %8 = load ptr, ptr @stdout, align 8
   %call9 = call i32 @fputs(ptr noundef nonnull %buffer, ptr noundef %8)

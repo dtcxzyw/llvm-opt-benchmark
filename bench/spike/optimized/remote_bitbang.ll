@@ -293,7 +293,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %.22754 = phi i1 [ %.4, %58 ], [ false, %11 ]
   %.02953 = phi i32 [ %.231, %58 ], [ 0, %11 ]
   %.23952 = phi i1 [ false, %58 ], [ %.037, %11 ]
-  %16 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %15
+  %16 = getelementptr inbounds i8, ptr %8, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !29
   switch i8 %17, label %45 [
     i8 66, label %49
@@ -363,7 +363,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %40 = or disjoint i8 %39, 48
   %41 = add i32 %.02953, 1
   %42 = zext i32 %.02953 to i64
-  %43 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %42
   store i8 %40, ptr %43, align 1, !tbaa !29
   br label %49
 

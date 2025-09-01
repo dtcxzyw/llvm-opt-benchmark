@@ -15308,7 +15308,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal5Token8toStringENS1_4KindE(
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @switch.table._ZN7jsonnet8internal5Token8toStringENS1_4KindE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7jsonnet8internal5Token8toStringENS1_4KindE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -23643,7 +23643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340: ; preds = %84
 
 switch.lookup:                                    ; preds = %834
   %852 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE, i64 0, i64 %852
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE, i64 %852
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %56, align 4, !tbaa !500
   %853 = load i8, ptr %45, align 1, !tbaa !137, !range !139, !noundef !140

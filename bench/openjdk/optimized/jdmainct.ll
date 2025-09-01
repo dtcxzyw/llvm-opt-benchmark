@@ -153,7 +153,7 @@ alloc_funny_pointers.exit:                        ; preds = %48, %27
   %100 = mul i32 %99, %91
   %101 = mul nsw i32 %94, %.032
   %102 = tail call ptr %97(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %100, i32 noundef %101) #2
-  %103 = getelementptr inbounds nuw [10 x ptr], ptr %86, i64 0, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
   store ptr %102, ptr %103, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = getelementptr inbounds nuw i8, ptr %.036, i64 96
@@ -220,7 +220,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   %36 = load ptr, ptr %21, align 8
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv76.i
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw [10 x ptr], ptr %22, i64 0, i64 %indvars.iv76.i
+  %39 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv76.i
   %40 = load ptr, ptr %39, align 8
   %41 = mul nsw i32 %32, %23
   %42 = icmp sgt i32 %41, 0
@@ -350,7 +350,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %19) #2
   %.not49 = icmp eq i32 %20, 0
@@ -382,7 +382,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [2 x ptr], ptr %33, i64 0, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -461,7 +461,7 @@ define internal void @process_data_context_main(ptr noundef %0, ptr noundef %1, 
 .lr.ph.i:                                         ; preds = %85
   %87 = load i32, ptr %67, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [2 x ptr], ptr %66, i64 0, i64 %88
+  %89 = getelementptr inbounds ptr, ptr %66, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv39.i
   %92 = load ptr, ptr %91, align 8
@@ -503,7 +503,7 @@ set_bottom_pointers.exit:                         ; preds = %._crit_edge.i, %58,
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [2 x ptr], ptr %107, i64 0, i64 %110
+  %111 = getelementptr inbounds ptr, ptr %107, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 128

@@ -1663,7 +1663,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %59
   %61 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.compact_struct_type_to_generic_type, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %compact_struct_type_to_generic_type.exit
 
@@ -1932,81 +1932,81 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
   store i32 %83, ptr %13, align 4
   %84 = load i8, ptr @show_internal_thrift_fields, align 1, !range !6, !noundef !7
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %switch.lookup, label %88
+  br i1 %85, label %switch.lookup, label %89
 
 switch.lookup:                                    ; preds = %82
-  %switch.tableidx = add nsw i32 %11, -13
-  %86 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_thrift_b_linear, i64 0, i64 %86
+  %86 = zext nneg i32 %11 to i64
+  %87 = getelementptr ptr, ptr @switch.table.dissect_thrift_b_linear, i64 %86
+  %switch.gep = getelementptr i8, ptr %87, i64 -104
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.096 = load i32, ptr %switch.load, align 4
-  %87 = call ptr @proto_tree_add_item_ret_int(ptr noundef %40, i32 noundef %.096, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %13)
+  %88 = call ptr @proto_tree_add_item_ret_int(ptr noundef %40, i32 noundef %.096, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %13)
   %.pr = load i32, ptr %13, align 4
-  br label %88
+  br label %89
 
-88:                                               ; preds = %switch.lookup, %82
-  %89 = phi i32 [ %.pr, %switch.lookup ], [ %83, %82 ]
-  %.0104 = phi ptr [ %87, %switch.lookup ], [ null, %82 ]
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %93
+89:                                               ; preds = %switch.lookup, %82
+  %90 = phi i32 [ %.pr, %switch.lookup ], [ %83, %82 ]
+  %.0104 = phi ptr [ %88, %switch.lookup ], [ null, %82 ]
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %94
 
-91:                                               ; preds = %88
-  %92 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0104, ptr noundef nonnull @ei_thrift_negative_length)
+92:                                               ; preds = %89
+  %93 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0104, ptr noundef nonnull @ei_thrift_negative_length)
   br label %.thread
 
-93:                                               ; preds = %88
-  %94 = add nuw i32 %.1101, 5
-  %.not114118.not = icmp eq i32 %89, 0
+94:                                               ; preds = %89
+  %95 = add nuw i32 %.1101, 5
+  %.not114118.not = icmp eq i32 %90, 0
   br i1 %.not114118.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %93
+.lr.ph:                                           ; preds = %94
   br i1 %43, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %98
-  %.0120.us = phi i32 [ %99, %98 ], [ 0, %.lr.ph ]
-  %.2102119.us = phi i32 [ %96, %98 ], [ %94, %.lr.ph ]
-  %95 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2102119.us, ptr noundef %4, i1 noundef zeroext false, ptr noundef %9)
-  %96 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %95, ptr noundef %4, i1 noundef zeroext false, ptr noundef %10)
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %.thread, label %98
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %99
+  %.0120.us = phi i32 [ %100, %99 ], [ 0, %.lr.ph ]
+  %.2102119.us = phi i32 [ %97, %99 ], [ %95, %.lr.ph ]
+  %96 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2102119.us, ptr noundef %4, i1 noundef zeroext false, ptr noundef %9)
+  %97 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %96, ptr noundef %4, i1 noundef zeroext false, ptr noundef %10)
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %.thread, label %99
 
-98:                                               ; preds = %.lr.ph.split.us
-  %99 = add nuw nsw i32 %.0120.us, 1
-  %100 = load i32, ptr %13, align 4
-  %.not114.us = icmp slt i32 %99, %100
+99:                                               ; preds = %.lr.ph.split.us
+  %100 = add nuw nsw i32 %.0120.us, 1
+  %101 = load i32, ptr %13, align 4
+  %.not114.us = icmp slt i32 %100, %101
   br i1 %.not114.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
-101:                                              ; preds = %.lr.ph.split
-  %102 = add nuw nsw i32 %.0120, 1
-  %103 = load i32, ptr %13, align 4
-  %.not114 = icmp slt i32 %102, %103
+102:                                              ; preds = %.lr.ph.split
+  %103 = add nuw nsw i32 %.0120, 1
+  %104 = load i32, ptr %13, align 4
+  %.not114 = icmp slt i32 %103, %104
   br i1 %.not114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %101
-  %.0120 = phi i32 [ %102, %101 ], [ 0, %.lr.ph ]
-  %.2102119 = phi i32 [ %104, %101 ], [ %94, %.lr.ph ]
-  %104 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2102119, ptr noundef %4, i1 noundef zeroext false, ptr noundef %10)
-  %105 = icmp slt i32 %104, 0
-  br i1 %105, label %.thread, label %101
+.lr.ph.split:                                     ; preds = %.lr.ph, %102
+  %.0120 = phi i32 [ %103, %102 ], [ 0, %.lr.ph ]
+  %.2102119 = phi i32 [ %105, %102 ], [ %95, %.lr.ph ]
+  %105 = call fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.2102119, ptr noundef %4, i1 noundef zeroext false, ptr noundef %10)
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %.thread, label %102
 
-._crit_edge:                                      ; preds = %101, %98, %93
-  %.2102.lcssa = phi i32 [ %94, %93 ], [ %96, %98 ], [ %104, %101 ]
-  %106 = icmp ne ptr %39, null
-  %107 = icmp sgt i32 %.2102.lcssa, 0
-  %or.cond = select i1 %106, i1 %107, i1 false
-  br i1 %or.cond, label %108, label %109
+._crit_edge:                                      ; preds = %102, %99, %94
+  %.2102.lcssa = phi i32 [ %95, %94 ], [ %97, %99 ], [ %105, %102 ]
+  %107 = icmp ne ptr %39, null
+  %108 = icmp sgt i32 %.2102.lcssa, 0
+  %or.cond = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond, label %109, label %110
 
-108:                                              ; preds = %._crit_edge
+109:                                              ; preds = %._crit_edge
   call void @proto_item_set_end(ptr noundef nonnull %39, ptr noundef %0, i32 noundef %.2102.lcssa)
-  br label %109
+  br label %110
 
-109:                                              ; preds = %108, %._crit_edge
-  %110 = load i32, ptr @proto_thrift, align 4
-  call void @p_set_proto_depth(ptr noundef %1, i32 noundef %110, i32 noundef %15)
+110:                                              ; preds = %109, %._crit_edge
+  %111 = load i32, ptr @proto_thrift, align 4
+  call void @p_set_proto_depth(ptr noundef %1, i32 noundef %111, i32 noundef %15)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %78, %62, %44, %36, %109, %91, %76, %58, %33
-  %.098 = phi i32 [ -2, %33 ], [ -2, %58 ], [ -2, %76 ], [ -2, %91 ], [ %.2102.lcssa, %109 ], [ %.0100, %36 ], [ -1, %44 ], [ -1, %62 ], [ -1, %78 ], [ %96, %.lr.ph.split.us ], [ %104, %.lr.ph.split ]
+.thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %78, %62, %44, %36, %110, %92, %76, %58, %33
+  %.098 = phi i32 [ -2, %33 ], [ -2, %58 ], [ -2, %76 ], [ -2, %92 ], [ %.2102.lcssa, %110 ], [ %.0100, %36 ], [ -1, %44 ], [ -1, %62 ], [ -1, %78 ], [ %97, %.lr.ph.split.us ], [ %105, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.098
 }
@@ -2438,7 +2438,7 @@ define internal fastcc range(i32 0, 17) i32 @compact_struct_type_to_generic_type
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.compact_struct_type_to_generic_type, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

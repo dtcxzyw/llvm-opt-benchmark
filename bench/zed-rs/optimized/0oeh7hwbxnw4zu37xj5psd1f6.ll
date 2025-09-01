@@ -511,7 +511,7 @@ define hidden void @"_ZN129_$LT$digest..core_api..ct_variable..CtVariableCoreWra
   %24 = or disjoint i64 %22, %23
   %25 = call i64 @llvm.bswap.i64(i64 %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %26 = getelementptr [0 x i8], ptr %1, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   store i8 -128, ptr %26, align 1, !alias.scope !95, !noalias !96
   %27 = icmp eq i8 %17, 63
   br i1 %27, label %._crit_edge.thread.i, label %._crit_edge.i
@@ -982,8 +982,8 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i: ; pred
   %.sink11.i6.i.i.i = phi i64 [ %.sink11.i4.i.i.i, %.lr.ph.i.i.i ], [ %.sink11.i.i.i.i, %133 ]
   %123 = phi i1 [ %117, %.lr.ph.i.i.i ], [ %136, %133 ]
   %.sink12.i.i.i.i = select i1 %123, ptr %119, ptr %37
-  %124 = add i64 %.sink11.i6.i.i.i, -1
-  %125 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i.i, i64 0, i64 %124
+  %124 = getelementptr i64, ptr %.sink12.i.i.i.i, i64 %.sink11.i6.i.i.i
+  %125 = getelementptr i8, ptr %124, i64 -8
   %126 = load i64, ptr %125, align 8, !noalias !235, !noundef !9
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %128, label %.loopexit
@@ -1303,8 +1303,8 @@ default.unreachable:                              ; preds = %188
   %.sink11.i6.i.i.i43 = phi i64 [ %.sink11.i4.i.i.i40, %.lr.ph.i.i.i42 ], [ %.sink11.i.i.i.i50, %227 ]
   %217 = phi i1 [ %211, %.lr.ph.i.i.i42 ], [ %230, %227 ]
   %.sink12.i.i.i.i44 = select i1 %217, ptr %213, ptr %27
-  %218 = add i64 %.sink11.i6.i.i.i43, -1
-  %219 = getelementptr inbounds [0 x i64], ptr %.sink12.i.i.i.i44, i64 0, i64 %218
+  %218 = getelementptr i64, ptr %.sink12.i.i.i.i44, i64 %.sink11.i6.i.i.i43
+  %219 = getelementptr i8, ptr %218, i64 -8
   %220 = load i64, ptr %219, align 8, !noalias !325, !noundef !9
   %221 = icmp eq i64 %220, 0
   br i1 %221, label %222, label %.loopexit.i
@@ -5089,7 +5089,7 @@ define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..
   %17 = or disjoint i64 %15, %16
   %18 = tail call i64 @llvm.bswap.i64(i64 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !899)
-  %19 = getelementptr [0 x i8], ptr %1, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   store i8 -128, ptr %19, align 1, !alias.scope !899, !noalias !902
   %20 = icmp eq i8 %10, 63
   br i1 %20, label %._crit_edge.thread, label %._crit_edge
@@ -5208,7 +5208,7 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN8indexmap3map
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %12, i64 0, i64 %6, i32 1
+  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %12, i64 %6, i32 1
   ret ptr %13
 
 14:                                               ; preds = %1

@@ -275,7 +275,7 @@ define noundef zeroext i1 @_ZN4base8FilePath11IsSeparatorEc(i8 noundef signext %
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.058 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058
+  %4 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058
   %5 = load i8, ptr %4, align 1, !tbaa !12
   %6 = icmp eq i8 %0, %5
   %7 = add nuw i64 %.058, 1
@@ -436,7 +436,7 @@ _ZN4base8FilePathaSERKS0_.exit:                   ; preds = %49
 
 .lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.preheader.i
   %.058.i.i = phi i64 [ %53, %52 ], [ 0, %.lr.ph.i.preheader.i ]
-  %54 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = icmp eq i8 %51, %55
   br i1 %56, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %52
@@ -911,7 +911,7 @@ define void @_ZNK4base8FilePath7DirNameEv(ptr dead_on_unwind noalias writable sr
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.preheader.i
   %.058.i.i = phi i64 [ %15, %14 ], [ 0, %.lr.ph.i.preheader.i ]
-  %16 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = icmp eq i8 %13, %17
   br i1 %18, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %14
@@ -933,7 +933,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit.i:          ; preds = %.lr.ph.i.i
 
 .lr.ph.i14.i:                                     ; preds = %22, %20
   %.058.i15.i = phi i64 [ %23, %22 ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15.i
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15.i
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = icmp eq i8 %21, %25
   br i1 %26, label %_ZN4base8FilePath11IsSeparatorEc.exit18.i, label %22
@@ -992,7 +992,7 @@ _ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit: ; preds = %_ZN4base8F
 
 .lr.ph.i21:                                       ; preds = %33, %36
   %.058.i = phi i64 [ %37, %36 ], [ 0, %33 ]
-  %38 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i
   %39 = load i8, ptr %38, align 1, !tbaa !12
   %40 = icmp eq i8 %35, %39
   br i1 %40, label %.invoke, label %36
@@ -1025,7 +1025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 .lr.ph.i.i31:                                     ; preds = %47, %.lr.ph.i.preheader.i28
   %.058.i.i32 = phi i64 [ %48, %47 ], [ 0, %.lr.ph.i.preheader.i28 ]
-  %49 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i32
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i32
   %50 = load i8, ptr %49, align 1, !tbaa !12
   %51 = icmp eq i8 %46, %50
   br i1 %51, label %_ZN4base8FilePath11IsSeparatorEc.exit.i34, label %47
@@ -1047,7 +1047,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit.i34:        ; preds = %.lr.ph.i.i31
 
 .lr.ph.i14.i37:                                   ; preds = %55, %53
   %.058.i15.i38 = phi i64 [ %56, %55 ], [ 0, %53 ]
-  %57 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15.i38
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15.i38
   %58 = load i8, ptr %57, align 1, !tbaa !12
   %59 = icmp eq i8 %54, %58
   br i1 %59, label %_ZN4base8FilePath11IsSeparatorEc.exit18.i41, label %55
@@ -1117,7 +1117,7 @@ define void @_ZNK4base8FilePath8BaseNameEv(ptr dead_on_unwind noalias writable s
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.preheader.i
   %.058.i.i = phi i64 [ %15, %14 ], [ 0, %.lr.ph.i.preheader.i ]
-  %16 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = icmp eq i8 %13, %17
   br i1 %18, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %14
@@ -1139,7 +1139,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit.i:          ; preds = %.lr.ph.i.i
 
 .lr.ph.i14.i:                                     ; preds = %22, %20
   %.058.i15.i = phi i64 [ %23, %22 ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15.i
+  %24 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15.i
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = icmp eq i8 %21, %25
   br i1 %26, label %_ZN4base8FilePath11IsSeparatorEc.exit18.i, label %22
@@ -1559,7 +1559,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 .lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.preheader.i
   %.058.i.i = phi i64 [ %43, %42 ], [ 0, %.lr.ph.i.preheader.i ]
-  %44 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %44 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %45 = load i8, ptr %44, align 1, !tbaa !12
   %46 = icmp eq i8 %41, %45
   br i1 %46, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %42
@@ -1581,7 +1581,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit.i:          ; preds = %.lr.ph.i.i
 
 .lr.ph.i14.i:                                     ; preds = %50, %48
   %.058.i15.i = phi i64 [ %51, %50 ], [ 0, %48 ]
-  %52 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15.i
+  %52 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15.i
   %53 = load i8, ptr %52, align 1, !tbaa !12
   %54 = icmp eq i8 %49, %53
   br i1 %54, label %_ZN4base8FilePath11IsSeparatorEc.exit18.i, label %50
@@ -1623,7 +1623,7 @@ _ZN4base8FilePath31StripTrailingSeparatorsInternalEv.exit: ; preds = %_ZN4base8F
 
 .lr.ph.i9:                                        ; preds = %62, %69
   %.058.i = phi i64 [ %70, %69 ], [ 0, %62 ]
-  %71 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i
+  %71 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i
   %72 = load i8, ptr %71, align 1, !tbaa !12
   %73 = icmp eq i8 %66, %72
   br i1 %73, label %_ZN4base8FilePath11IsSeparatorEc.exit, label %69
@@ -1723,7 +1723,7 @@ define void @_ZN4base8FilePath31StripTrailingSeparatorsInternalEv(ptr noundef no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %11
   %.058.i = phi i64 [ %12, %11 ], [ 0, %.lr.ph.i.preheader ]
-  %13 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i
   %14 = load i8, ptr %13, align 1, !tbaa !12
   %15 = icmp eq i8 %10, %14
   br i1 %15, label %_ZN4base8FilePath11IsSeparatorEc.exit, label %11
@@ -1748,7 +1748,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit:            ; preds = %.lr.ph.i
 
 .lr.ph.i14:                                       ; preds = %17, %19
   %.058.i15 = phi i64 [ %20, %19 ], [ 0, %17 ]
-  %21 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = icmp eq i8 %18, %22
   br i1 %23, label %_ZN4base8FilePath11IsSeparatorEc.exit18, label %19
@@ -2081,7 +2081,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %.0102.us = phi i64 [ %82, %81 ], [ 0, %67 ]
   %74 = load ptr, ptr %5, align 8, !tbaa !13
   %75 = load i64, ptr %69, align 8, !tbaa !9
-  %76 = getelementptr inbounds nuw [4 x ptr], ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 0, i64 %.0102.us
+  %76 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102.us
   %77 = load ptr, ptr %76, align 8, !tbaa !36
   %78 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #22
   %79 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %74, i64 %75, ptr nonnull %77, i64 %78)
@@ -2109,7 +2109,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %.0102 = phi i64 [ %93, %92 ], [ 0, %67 ]
   %86 = load ptr, ptr %5, align 8, !tbaa !13
   %87 = load i64, ptr %69, align 8, !tbaa !9
-  %88 = getelementptr inbounds nuw [4 x ptr], ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 0, i64 %.0102
+  %88 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_130kCommonDoubleExtensionSuffixesE, i64 %.0102
   %89 = load ptr, ptr %88, align 8, !tbaa !36
   %90 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #22
   %91 = invoke noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %86, i64 %87, ptr nonnull %89, i64 %90)
@@ -3252,7 +3252,7 @@ define noundef zeroext i1 @_ZNK4base8FilePath10IsAbsoluteEv(ptr noundef nonnull 
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.058.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %4 ]
-  %9 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = icmp eq i8 %6, %10
   %12 = add nuw i64 %.058.i.i, 1
@@ -3284,7 +3284,7 @@ define noundef zeroext i1 @_ZNK4base8FilePath17EndsWithSeparatorEv(ptr noundef n
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.058.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %5 ]
-  %12 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = icmp eq i8 %9, %13
   %15 = add nuw i64 %.058.i, 1
@@ -3322,7 +3322,7 @@ define void @_ZNK4base8FilePath21AsEndingWithSeparatorEv(ptr dead_on_unwind noal
 
 .lr.ph.i.i:                                       ; preds = %7, %14
   %.058.i.i = phi i64 [ %15, %14 ], [ 0, %7 ]
-  %16 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %16 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = icmp eq i8 %11, %17
   br i1 %18, label %_ZNK4base8FilePath17EndsWithSeparatorEv.exit, label %14
@@ -3447,7 +3447,7 @@ define void @_ZNK4base8FilePath23StripTrailingSeparatorsEv(ptr dead_on_unwind no
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.preheader.i
   %.058.i.i = phi i64 [ %16, %15 ], [ 0, %.lr.ph.i.preheader.i ]
-  %17 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i.i
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = icmp eq i8 %14, %18
   br i1 %19, label %_ZN4base8FilePath11IsSeparatorEc.exit.i, label %15
@@ -3469,7 +3469,7 @@ _ZN4base8FilePath11IsSeparatorEc.exit.i:          ; preds = %.lr.ph.i.i
 
 .lr.ph.i14.i:                                     ; preds = %23, %21
   %.058.i15.i = phi i64 [ %24, %23 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw [0 x i8], ptr @_ZN4base8FilePath11kSeparatorsE, i64 0, i64 %.058.i15.i
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4base8FilePath11kSeparatorsE, i64 %.058.i15.i
   %26 = load i8, ptr %25, align 1, !tbaa !12
   %27 = icmp eq i8 %22, %26
   br i1 %27, label %_ZN4base8FilePath11IsSeparatorEc.exit18.i, label %23

@@ -1217,7 +1217,7 @@ define noundef ptr @_ZN3net21QuicClientSessionBase17GetPromisedStreamEj(ptr noun
 
 11:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw [10 x %"class.base::ManualConstructor"], ptr %9, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %9, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8, !tbaa !105
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit, label %10

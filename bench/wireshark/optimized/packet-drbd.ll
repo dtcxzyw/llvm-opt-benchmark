@@ -896,7 +896,7 @@ drbd_ib_append_col_info.exit.i31:                 ; preds = %81, %78
 
 86:                                               ; preds = %85, %84
   %indvars.iv.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i.i, %85 ]
-  %87 = getelementptr [74 x %struct.value_payload_decoder], ptr @payload_decoders, i64 0, i64 %indvars.iv.i.i
+  %87 = getelementptr %struct.value_payload_decoder, ptr @payload_decoders, i64 %indvars.iv.i.i
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, %71
   br i1 %89, label %find_payload_decoder.exit.i, label %85
@@ -1210,7 +1210,7 @@ find_drbd_conversation.exit:                      ; preds = %.thread40.i, %64
 
 77:                                               ; preds = %76, %75
   %indvars.iv.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i, %76 ]
-  %78 = getelementptr [74 x %struct.value_payload_decoder], ptr @payload_decoders, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr %struct.value_payload_decoder, ptr @payload_decoders, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, %14
   br i1 %80, label %find_payload_decoder.exit, label %76

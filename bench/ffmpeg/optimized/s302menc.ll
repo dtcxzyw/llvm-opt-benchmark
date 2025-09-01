@@ -192,21 +192,21 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %52 = lshr i32 %51, 8
   %53 = and i32 %52, 255
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !41
   store i8 %56, ptr %.1111193.us, align 1, !tbaa !41
   %57 = load i32, ptr %.1109194.us, align 4, !tbaa !43
   %58 = lshr i32 %57, 16
   %59 = and i32 %58, 255
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 1
   store i8 %62, ptr %63, align 1, !tbaa !41
   %64 = load i32, ptr %.1109194.us, align 4, !tbaa !43
   %65 = lshr i32 %64, 24
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !41
   %69 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 2
   store i8 %68, ptr %69, align 1, !tbaa !41
@@ -215,7 +215,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %72 = lshr i32 %71, 4
   %73 = and i32 %72, 240
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %74
   %76 = load i8, ptr %75, align 16, !tbaa !41
   %77 = or i8 %76, %49
   %78 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 3
@@ -224,7 +224,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %80 = lshr i32 %79, 12
   %81 = and i32 %80, 255
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !41
   %85 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 4
   store i8 %84, ptr %85, align 1, !tbaa !41
@@ -232,14 +232,14 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %87 = lshr i32 %86, 20
   %88 = and i32 %87, 255
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 5
   store i8 %91, ptr %92, align 1, !tbaa !41
   %93 = load i32, ptr %70, align 4, !tbaa !43
   %94 = lshr i32 %93, 28
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !41
   %98 = getelementptr inbounds nuw i8, ptr %.1111193.us, i64 6
   store i8 %97, ptr %98, align 1, !tbaa !41
@@ -305,14 +305,14 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %123 = lshr i32 %122, 12
   %124 = and i32 %123, 255
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !41
   store i8 %127, ptr %.3179.us, align 1, !tbaa !41
   %128 = load i32, ptr %.1104181.us, align 4, !tbaa !43
   %129 = lshr i32 %128, 20
   %130 = and i32 %129, 255
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !41
   %134 = getelementptr inbounds nuw i8, ptr %.3179.us, i64 1
   store i8 %133, ptr %134, align 1, !tbaa !41
@@ -320,7 +320,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %136 = lshr i32 %135, 28
   %137 = or disjoint i32 %136, %120
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.3179.us, i64 2
   store i8 %140, ptr %141, align 1, !tbaa !41
@@ -329,7 +329,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %144 = lshr i32 %143, 12
   %145 = and i32 %144, 255
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !41
   %149 = getelementptr inbounds nuw i8, ptr %.3179.us, i64 3
   store i8 %148, ptr %149, align 1, !tbaa !41
@@ -337,14 +337,14 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %151 = lshr i32 %150, 20
   %152 = and i32 %151, 255
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !41
   %156 = getelementptr inbounds nuw i8, ptr %.3179.us, i64 4
   store i8 %155, ptr %156, align 1, !tbaa !41
   %157 = load i32, ptr %142, align 4, !tbaa !43
   %158 = lshr i32 %157, 28
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !41
   %162 = getelementptr inbounds nuw i8, ptr %.3179.us, i64 5
   store i8 %161, ptr %162, align 1, !tbaa !41
@@ -409,13 +409,13 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %186 = load i16, ptr %.1171.us, align 2, !tbaa !49
   %187 = and i16 %186, 255
   %188 = zext nneg i16 %187 to i64
-  %189 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !41
   store i8 %190, ptr %.5169.us, align 1, !tbaa !41
   %191 = load i16, ptr %.1171.us, align 2, !tbaa !49
   %192 = lshr i16 %191, 8
   %193 = zext nneg i16 %192 to i64
-  %194 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !41
   %196 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 1
   store i8 %195, ptr %196, align 1, !tbaa !41
@@ -424,7 +424,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %199 = shl i16 %198, 4
   %200 = and i16 %199, 240
   %201 = zext nneg i16 %200 to i64
-  %202 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %201
   %203 = load i8, ptr %202, align 16, !tbaa !41
   %204 = or i8 %203, %184
   %205 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 2
@@ -433,14 +433,14 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %207 = lshr i16 %206, 4
   %208 = and i16 %207, 255
   %209 = zext nneg i16 %208 to i64
-  %210 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !41
   %212 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 3
   store i8 %211, ptr %212, align 1, !tbaa !41
   %213 = load i16, ptr %197, align 2, !tbaa !49
   %214 = lshr i16 %213, 12
   %215 = zext nneg i16 %214 to i64
-  %216 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr @ff_reverse, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !41
   %218 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 4
   store i8 %217, ptr %218, align 1, !tbaa !41

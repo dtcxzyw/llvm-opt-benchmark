@@ -2055,11 +2055,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 256) i32 @_ZN8QuantLib8Calendar11WesternImpl12easterMondayEi(i32 noundef %y) local_unnamed_addr #7 align 2 {
 entry:
-  %sub = add nsw i32 %y, -1901
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [299 x i8], ptr @_ZZN8QuantLib8Calendar11WesternImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1, !tbaa !14
-  %conv = zext i8 %0 to i32
+  %0 = sext i32 %y to i64
+  %1 = getelementptr i8, ptr @_ZZN8QuantLib8Calendar11WesternImpl12easterMondayEiE12EasterMonday, i64 %0
+  %arrayidx = getelementptr i8, ptr %1, i64 -1901
+  %2 = load i8, ptr %arrayidx, align 1, !tbaa !14
+  %conv = zext i8 %2 to i32
   ret i32 %conv
 }
 
@@ -2075,11 +2075,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 256) i32 @_ZN8QuantLib8Calendar12OrthodoxImpl12easterMondayEi(i32 noundef %y) local_unnamed_addr #7 align 2 {
 entry:
-  %sub = add nsw i32 %y, -1901
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [299 x i8], ptr @_ZZN8QuantLib8Calendar12OrthodoxImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
-  %0 = load i8, ptr %arrayidx, align 1, !tbaa !14
-  %conv = zext i8 %0 to i32
+  %0 = sext i32 %y to i64
+  %1 = getelementptr i8, ptr @_ZZN8QuantLib8Calendar12OrthodoxImpl12easterMondayEiE12EasterMonday, i64 %0
+  %arrayidx = getelementptr i8, ptr %1, i64 -1901
+  %2 = load i8, ptr %arrayidx, align 1, !tbaa !14
+  %conv = zext i8 %2 to i32
   ret i32 %conv
 }
 

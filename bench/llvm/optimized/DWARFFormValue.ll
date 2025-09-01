@@ -457,7 +457,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DWARFFormValue11isFormClassENS0_
 
 13:                                               ; preds = %10
   %14 = zext nneg i16 %3 to i64
-  %15 = getelementptr inbounds nuw [46 x i32], ptr @_ZL17DWARF5FormClasses, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @_ZL17DWARF5FormClasses, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !30
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %_ZN4llvm5dwarf21doesFormBelongToClassENS0_4FormENS_14DWARFFormValue9FormClassEt.exit, label %18
@@ -512,7 +512,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5dwarf21doesFormBelongToClassENS0_4
 
 5:                                                ; preds = %3
   %6 = zext nneg i16 %0 to i64
-  %7 = getelementptr inbounds nuw [46 x i32], ptr @_ZL17DWARF5FormClasses, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZL17DWARF5FormClasses, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !30
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %25, label %10

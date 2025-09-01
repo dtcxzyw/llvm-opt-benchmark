@@ -536,7 +536,7 @@ define hidden i64 @_ZN12LIRGenerator19result_register_forEP9ValueTypeb(ptr nound
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0 = load i64, ptr %switch.load, align 8
   ret i64 %.sroa.0.0
@@ -882,7 +882,7 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %_ZN12arrayOopDesc20
 
 21:                                               ; preds = %_ZNK7LIR_Opr11is_constantEv.exit
   %22 = zext i8 %3 to i64
-  %23 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %17, align 8
   %26 = load ptr, ptr %25, align 8
@@ -2857,7 +2857,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63
   %107 = zext nneg i32 %103 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %107
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %108 = load ptr, ptr %100, align 8
@@ -3420,7 +3420,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit55
   %136 = zext nneg i32 %132 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %136
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %136
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %137 = load ptr, ptr %127, align 8
@@ -7055,7 +7055,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %17
 
 switch.lookup:                                    ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %28 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -8877,7 +8877,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit90
   %281 = zext nneg i32 %277 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %281
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %281
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %282 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 11) #9
@@ -9677,7 +9677,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit98
   %270 = zext nneg i32 %266 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %270
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %270
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %271 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 11) #9
@@ -9842,7 +9842,7 @@ define hidden void @_ZN12LIRGenerator14do_NewInstanceEP11NewInstance(ptr noundef
 
 switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -9935,7 +9935,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %17, %25
 
 switch.lookup:                                    ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %35 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %.sroa.023.0.copyload = load i64, ptr @_ZN8FrameMap11rcx_oop_oprE, align 8
@@ -10252,7 +10252,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZN7LIRItemC2EP11In
 
 switch.lookup:                                    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %36 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %.sroa.025.0.copyload = load i64, ptr @_ZN8FrameMap11rcx_oop_oprE, align 8
@@ -10783,7 +10783,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit6
 
 switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit62
   %227 = zext nneg i32 %223 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %227
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 %227
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0.i = load i64, ptr %switch.load, align 8
   %228 = load ptr, ptr %138, align 8
@@ -11678,7 +11678,7 @@ _ZN7LIRItem6resultEv.exit73:                      ; preds = %75, %80, %91
 
 switch.lookup:                                    ; preds = %97
   %101 = zext nneg i32 %.091 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %101
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %101
   %switch.load = load i32, ptr %switch.gep, align 4
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %103 = load ptr, ptr %102, align 8
@@ -11719,7 +11719,7 @@ switch.lookup:                                    ; preds = %97
 switch.lookup106:                                 ; preds = %122
   %127 = load ptr, ptr %123, align 8
   %128 = zext nneg i32 %.091 to i64
-  %switch.gep107 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %128
+  %switch.gep107 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %128
   %switch.load108 = load i32, ptr %switch.gep107, align 4
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %127, i32 noundef %switch.load108, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i71, ptr noundef null)
   call void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9ConditionE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1, i32 noundef %.091) #9
@@ -11743,7 +11743,7 @@ switch.lookup106:                                 ; preds = %122
   br i1 %spec.select.i, label %switch.lookup109, label %switch.lookup112
 
 switch.lookup109:                                 ; preds = %switch.lookup106
-  %switch.gep110 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %138
+  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   %144 = load i32, ptr %10, align 8
   %145 = and i32 %144, 2048
@@ -11755,7 +11755,7 @@ switch.lookup109:                                 ; preds = %switch.lookup106
   br label %149
 
 switch.lookup112:                                 ; preds = %switch.lookup106
-  %switch.gep113 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 0, i64 %138
+  %switch.gep113 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12LIRGenerator5do_IfEP2If.3, i64 %138
   %switch.load114 = load i32, ptr %switch.gep113, align 4
   call void @_ZN8LIR_List6branchE13LIR_ConditionP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(32) %137, i32 noundef %switch.load114, ptr noundef %143)
   br label %149

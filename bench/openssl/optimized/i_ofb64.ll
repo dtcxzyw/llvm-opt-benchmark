@@ -118,7 +118,7 @@ define void @IDEA_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr noun
   %80 = getelementptr inbounds nuw i8, ptr %.08288, i64 1
   %81 = load i8, ptr %.08288, align 1, !tbaa !7
   %82 = zext nneg i32 %.08189 to i64
-  %83 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !7
   %85 = xor i8 %84, %81
   %86 = getelementptr inbounds nuw i8, ptr %.08387, i64 1

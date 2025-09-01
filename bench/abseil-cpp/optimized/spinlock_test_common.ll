@@ -4881,7 +4881,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt6t
 99:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, %_ZN7testing15AssertionResultD2Ev.exit
   %.058 = phi i64 [ 1, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ %144, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %100 = getelementptr inbounds nuw [10 x i32], ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 0, i64 %.058
+  %100 = getelementptr inbounds nuw i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %.058
   %101 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, align 16, !tbaa !28, !noalias !147
   %102 = load i32, ptr %100, align 4, !tbaa !28, !noalias !147
   %103 = icmp eq i32 %101, %102
@@ -5093,7 +5093,7 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4a
   %.0926 = phi i64 [ %61, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ 0, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.preheader ]
   %22 = add nuw nsw i64 %.0926, %3
   %23 = urem i64 %22, 10
-  %24 = getelementptr inbounds nuw [10 x i32], ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !28
   %reass.sub = sub i32 %25, %0
   %26 = add i32 %reass.sub, 1640531527

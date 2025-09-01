@@ -748,7 +748,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread177.i.i.i, %
 172:                                              ; preds = %_ZN12_GLOBAL__N_118arith_degree_probe4procclEP3app.exit.i.i.i, %.lr.ph.i.i.i
   %173 = phi i32 [ %169, %.lr.ph.i.i.i ], [ %279, %_ZN12_GLOBAL__N_118arith_degree_probe4procclEP3app.exit.i.i.i ]
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw [0 x ptr], ptr %171, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw ptr, ptr %171, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !88
   %177 = add nuw i32 %173, 1
   store i32 %177, ptr %168, align 8, !tbaa !87
@@ -3089,7 +3089,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread165.i.i.i, %
 130:                                              ; preds = %230, %.lr.ph.i.i.i
   %131 = phi i32 [ %127, %.lr.ph.i.i.i ], [ %231, %230 ]
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [0 x ptr], ptr %129, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr %129, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !88
   %135 = add nuw i32 %131, 1
   store i32 %135, ptr %126, align 8, !tbaa !87
@@ -4067,7 +4067,7 @@ thread-pre-split.i.i:                             ; preds = %278, %._crit_edge.i
 108:                                              ; preds = %186, %.lr.ph.i.i
   %109 = phi i32 [ %105, %.lr.ph.i.i ], [ %187, %186 ]
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [0 x ptr], ptr %107, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !88
   %113 = add nuw i32 %109, 1
   store i32 %113, ptr %104, align 8, !tbaa !87
@@ -5272,7 +5272,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %284, %._crit_edge.i
 114:                                              ; preds = %192, %.lr.ph.i.i.i.i
   %115 = phi i32 [ %111, %.lr.ph.i.i.i.i ], [ %193, %192 ]
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [0 x ptr], ptr %113, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %113, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !88
   %119 = add nuw i32 %115, 1
   store i32 %119, ptr %110, align 8, !tbaa !87
@@ -6917,7 +6917,7 @@ _ZN12_GLOBAL__N_119is_non_nira_functorclEP3var.exit.i.i: ; preds = %_ZNK17arith_
 142:                                              ; preds = %_ZN12_GLOBAL__N_119is_non_nira_functorclEP3var.exit95.i.i, %.lr.ph.i.i
   %143 = phi i32 [ %139, %.lr.ph.i.i ], [ %249, %_ZN12_GLOBAL__N_119is_non_nira_functorclEP3var.exit95.i.i ]
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw [0 x ptr], ptr %141, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw ptr, ptr %141, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !88
   %147 = add nuw i32 %143, 1
   store i32 %147, ptr %138, align 8, !tbaa !87
@@ -7914,7 +7914,7 @@ thread-pre-split.i.i.i:                           ; preds = %.thread-pre-split_c
 111:                                              ; preds = %_ZN12_GLOBAL__N_19has_nlmulclEP3app.exit.i.i.i, %.lr.ph.i.i.i
   %112 = phi i32 [ %108, %.lr.ph.i.i.i ], [ %214, %_ZN12_GLOBAL__N_19has_nlmulclEP3app.exit.i.i.i ]
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [0 x ptr], ptr %110, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw ptr, ptr %110, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !88
   %116 = add nuw i32 %112, 1
   store i32 %116, ptr %107, align 8, !tbaa !87
@@ -9624,7 +9624,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %282, %._crit_edge.i
 114:                                              ; preds = %191, %.lr.ph.i.i.i.i
   %115 = phi i32 [ %111, %.lr.ph.i.i.i.i ], [ %192, %191 ]
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [0 x ptr], ptr %113, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %113, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !88
   %119 = add nuw i32 %115, 1
   store i32 %119, ptr %110, align 8, !tbaa !87

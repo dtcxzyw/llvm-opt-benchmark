@@ -1857,7 +1857,7 @@ define dso_local void @scsi_attach_vpd(ptr noundef %0) local_unnamed_addr #1 ali
 
 30:                                               ; preds = %102, %20
   %31 = phi i64 [ 4, %20 ], [ %103, %102 ]
-  %32 = getelementptr [0 x i8], ptr %21, i64 0, i64 %31
+  %32 = getelementptr i8, ptr %21, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %42
@@ -2170,7 +2170,7 @@ define dso_local range(i32 -2147483648, 2) i32 @scsi_report_opcode(ptr noundef %
   %19 = zext i8 %3 to i32
   %20 = lshr i32 %19, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [8 x i8], ptr @scsi_command_size_tbl, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @scsi_command_size_tbl, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 4

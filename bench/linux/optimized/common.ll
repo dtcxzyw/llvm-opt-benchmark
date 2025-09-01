@@ -295,7 +295,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 26:                                               ; preds = %37, %.preheader.us
   %27 = phi i64 [ %38, %37 ], [ 0, %.preheader.us ]
-  %28 = getelementptr [11 x %struct.resource], ptr %25, i64 0, i64 %27
+  %28 = getelementptr %struct.resource, ptr %25, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %37
@@ -329,7 +329,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 44:                                               ; preds = %.preheader, %55
   %45 = phi i64 [ %56, %55 ], [ 0, %.preheader ]
-  %46 = getelementptr [11 x %struct.resource], ptr %43, i64 0, i64 %45
+  %46 = getelementptr %struct.resource, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %55

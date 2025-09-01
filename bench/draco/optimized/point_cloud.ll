@@ -95,7 +95,7 @@ define noundef i32 @_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttr
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %"class.std::vector.2", ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = load ptr, ptr %8, align 8, !tbaa !11
@@ -121,7 +121,7 @@ define noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAtt
 _ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit.i: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %"class.std::vector.2", ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = load ptr, ptr %7, align 8, !tbaa !11
@@ -152,7 +152,7 @@ define noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAtt
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %"class.std::vector.2", ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   %12 = load ptr, ptr %9, align 8, !tbaa !11
@@ -171,7 +171,7 @@ _ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit: ; 
 18:                                               ; preds = %_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds %"class.std::vector.2", ptr %19, i64 %20
   %22 = sext i32 %2 to i64
   %23 = load ptr, ptr %21, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %22
@@ -193,7 +193,7 @@ define noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttri
 _ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit.i.i: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %"class.std::vector.2", ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = load ptr, ptr %7, align 8, !tbaa !11
@@ -233,7 +233,7 @@ define noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttri
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds %"class.std::vector.2", ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   %12 = load ptr, ptr %9, align 8, !tbaa !11
@@ -252,7 +252,7 @@ _ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit.i: 
 _ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeEi.exit: ; preds = %_ZNK5draco10PointCloud18NumNamedAttributesENS_17GeometryAttribute4TypeE.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds %"class.std::vector.2", ptr %18, i64 %19
   %21 = sext i32 %2 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %21
@@ -277,7 +277,7 @@ _ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeEi.exit.t
 define noundef ptr @_ZNK5draco10PointCloud27GetNamedAttributeByUniqueIdENS_17GeometryAttribute4TypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %"class.std::vector.2", ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = load ptr, ptr %6, align 8, !tbaa !11
@@ -752,7 +752,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS
 30:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds %"class.std::vector.2", ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !6
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -956,7 +956,7 @@ _ZN5draco16GeometryMetadata33DeleteAttributeMetadataByUniqueIdEi.exit: ; preds =
 60:                                               ; preds = %_ZN5draco16GeometryMetadata33DeleteAttributeMetadataByUniqueIdEi.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = sext i32 %18 to i64
-  %63 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds %"class.std::vector.2", ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !93
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !93
@@ -1088,7 +1088,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
 
 .preheader:                                       ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread, %._crit_edge
   %indvars.iv57 = phi i64 [ 0, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread ], [ %indvars.iv.next58, %._crit_edge ]
-  %117 = getelementptr inbounds nuw [5 x %"class.std::vector.2"], ptr %116, i64 0, i64 %indvars.iv57
+  %117 = getelementptr inbounds nuw %"class.std::vector.2", ptr %116, i64 %indvars.iv57
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !6
   %120 = load ptr, ptr %117, align 8, !tbaa !11
@@ -2438,9 +2438,9 @@ _ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE.exit: ; p
 
 35:                                               ; preds = %47, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %47 ]
-  %36 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   %37 = load float, ptr %36, align 4, !tbaa !154
-  %38 = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
   %39 = load float, ptr %38, align 4, !tbaa !154
   %40 = fcmp olt float %37, %39
   br i1 %40, label %41, label %42
@@ -2450,7 +2450,7 @@ _ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE.exit: ; p
   br label %42
 
 42:                                               ; preds = %41, %35
-  %43 = getelementptr inbounds nuw [3 x float], ptr %31, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   %44 = load float, ptr %43, align 4, !tbaa !154
   %45 = fcmp ogt float %37, %44
   br i1 %45, label %46, label %47

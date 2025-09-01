@@ -268,7 +268,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %130
   %142 = zext nneg i32 %136 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.negate_clause, i64 0, i64 %142
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.negate_clause, i64 %142
   %switch.load = load i32, ptr %switch.gep, align 4
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i32 %switch.load, ptr %143, align 8

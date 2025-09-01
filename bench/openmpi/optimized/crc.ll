@@ -1865,7 +1865,7 @@ define void @prte_initialize_crc_table() local_unnamed_addr #2 {
   br i1 %exitcond.not, label %7, label %3, !llvm.loop !46
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %indvars.iv
   store i32 %.1, ptr %8, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next, 256
@@ -1902,7 +1902,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !46
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %indvars.iv.i
   store i32 %.1.i, ptr %14, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -1957,7 +1957,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %26 = xor i32 %23, %25
   %27 = shl i32 %.15888, 8
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !21
   %31 = xor i32 %30, %27
   %exitcond.not = icmp eq i64 %.05090.idx, 3
@@ -1991,7 +1991,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %43 = xor i32 %41, %42
   %44 = shl i32 %.259102, 8
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !21
   %48 = xor i32 %47, %44
   %.not65 = icmp eq i64 %37, 0
@@ -2009,7 +2009,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %54 = xor i32 %50, %53
   %55 = shl i32 %.3109, 8
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !21
   %59 = xor i32 %58, %55
   %.not66 = icmp eq i64 %49, 0
@@ -2036,7 +2036,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %66 = xor i32 %64, %65
   %67 = shl i32 %.578, 8
   %68 = zext nneg i32 %66 to i64
-  %69 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !21
   %71 = xor i32 %70, %67
   %.not67 = icmp eq i64 %60, 0
@@ -2054,7 +2054,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %77 = xor i32 %73, %76
   %78 = shl i32 %.683, 8
   %79 = zext nneg i32 %77 to i64
-  %80 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !21
   %82 = xor i32 %81, %78
   %.not68 = icmp eq i64 %72, 0
@@ -2091,7 +2091,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   br i1 %exitcond.not.i, label %10, label %6, !llvm.loop !46
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %indvars.iv.i
   store i32 %.1.i, ptr %11, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -2141,7 +2141,7 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %21 = xor i32 %18, %20
   %22 = shl i32 %.12742, 8
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !21
   %26 = xor i32 %25, %22
   %exitcond.not = icmp eq i64 %.02444.idx, 3
@@ -2165,7 +2165,7 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %36 = xor i32 %32, %35
   %37 = shl i32 %.254, 8
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = xor i32 %40, %37
   %.not32 = icmp eq i64 %31, 0
@@ -2183,7 +2183,7 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %47 = xor i32 %43, %46
   %48 = shl i32 %.440, 8
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = xor i32 %51, %48
   %.not33 = icmp eq i64 %42, 0

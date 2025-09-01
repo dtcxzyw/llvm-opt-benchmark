@@ -131,7 +131,7 @@ define hidden void @opj_mct_decode(ptr noalias noundef captures(none) %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden double @opj_mct_getnorm(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [3 x double], ptr @opj_mct_norms, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw double, ptr @opj_mct_norms, i64 %2
   %4 = load double, ptr %3, align 8, !tbaa !13
   ret double %4
 }
@@ -323,7 +323,7 @@ define hidden void @opj_mct_decode_real(ptr noalias noundef captures(none) %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden double @opj_mct_getnorm_real(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [3 x double], ptr @opj_mct_norms_real, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw double, ptr @opj_mct_norms_real, i64 %2
   %4 = load double, ptr %3, align 8, !tbaa !13
   ret double %4
 }

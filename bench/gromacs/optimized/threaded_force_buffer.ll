@@ -903,7 +903,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE13addAtomT
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %9, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %7, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !56
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8, !tbaa !56
@@ -963,7 +963,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %7
   store i64 %.sroa.2.0.copyload, ptr %18, align 8
   %27 = sdiv i32 %26, 64
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !56
   %31 = srem i32 %26, 64
   %32 = zext nneg i32 %31 to i64
@@ -1133,7 +1133,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %.preheader.us ]
-  %35 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.std::vector.12", ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %34, i1 false), !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2008,7 +2008,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   store i64 %.sroa.22.0.copyload, ptr %44, align 8
   %114 = lshr i32 %.03875, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %2, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !56
   %118 = and i32 %.03875, 63
   %119 = zext nneg i32 %118 to i64
@@ -2473,7 +2473,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduce
 
 .preheader66.us.us:                               ; preds = %.preheader66.us.us.preheader, %._crit_edge76.split.us.us.us
   %indvars.iv107 = phi i64 [ 0, %.preheader66.us.us.preheader ], [ %indvars.iv.next108, %._crit_edge76.split.us.us.us ]
-  %44 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %42, i64 0, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw %"class.std::vector.12", ptr %42, i64 %indvars.iv107
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   br label %.preheader65.us.us.us
 
@@ -2489,7 +2489,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduce
   %49 = getelementptr inbounds %"class.std::unique_ptr", ptr %11, i64 %indvars.iv97
   %50 = load ptr, ptr %49, align 8, !tbaa !98
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
-  %52 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %51, i64 0, i64 %indvars.iv107
+  %52 = getelementptr inbounds nuw %"class.std::vector.12", ptr %51, i64 %indvars.iv107
   %53 = load ptr, ptr %52, align 8, !tbaa !43
   %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv102
   %55 = load float, ptr %54, align 4, !tbaa !50
@@ -2530,7 +2530,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduce
   %61 = getelementptr inbounds %"class.std::unique_ptr", ptr %11, i64 %indvars.iv111
   %62 = load ptr, ptr %61, align 8, !tbaa !98
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 272
-  %64 = getelementptr inbounds nuw [7 x float], ptr %63, i64 0, i64 %indvars.iv116
+  %64 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv116
   %65 = load float, ptr %64, align 4, !tbaa !50
   %66 = fadd float %65, %60
   store float %66, ptr %58, align 4, !tbaa !50
@@ -2629,7 +2629,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
   store i64 %.sroa.2.0.copyload, ptr %31, align 8
   %49 = lshr i64 %indvars.iv, 6
   %50 = and i64 %49, 67108863
-  %51 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %9, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !56
   %53 = and i64 %indvars.iv, 63
   %54 = shl nuw i64 1, %53
@@ -2644,7 +2644,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
   %59 = load ptr, ptr %58, align 8, !tbaa !49, !noalias !141
   %60 = add nsw i32 %.04761, 1
   %61 = sext i32 %.04761 to i64
-  %62 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %14, i64 %61
   store ptr %59, ptr %62, align 8, !tbaa !76
   br label %63
 
@@ -2687,7 +2687,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
   %75 = phi float [ %.promoted66.us, %.preheader.us ], [ %88, %74 ]
   %76 = phi float [ %.promoted65.us, %.preheader.us ], [ %85, %74 ]
   %77 = phi float [ %.promoted.us, %.preheader.us ], [ %82, %74 ]
-  %78 = getelementptr inbounds nuw [256 x ptr], ptr %14, i64 0, i64 %indvars.iv78
+  %78 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv78
   %79 = load ptr, ptr %78, align 8, !tbaa !76
   %80 = getelementptr inbounds %"class.gmx::BasicVector", ptr %79, i64 %indvars.iv83
   %81 = load float, ptr %80, align 4, !tbaa !50
@@ -2908,10 +2908,10 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE15re
 
 85:                                               ; preds = %85, %.preheader.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %85 ]
-  %86 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.i.us.i
+  %86 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.us.i
   %87 = load float, ptr %86, align 4, !tbaa !50
-  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i
-  %89 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i.us.i
+  %88 = getelementptr inbounds nuw [3 x float], ptr %82, i64 %indvars.iv.i.us.i
+  %89 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i.us.i
   %90 = load float, ptr %89, align 4, !tbaa !50
   %91 = fadd float %87, %90
   store float %91, ptr %89, align 4, !tbaa !50
@@ -3239,7 +3239,7 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferIA4_fE13addAtomToMaskEi(ptr noun
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %9, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %7, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !56
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8, !tbaa !56
@@ -3299,7 +3299,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %7
   store i64 %.sroa.2.0.copyload, ptr %18, align 8
   %27 = sdiv i32 %26, 64
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !56
   %31 = srem i32 %26, 64
   %32 = zext nneg i32 %31 to i64
@@ -3469,7 +3469,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %.preheader.us ]
-  %35 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.std::vector.12", ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %34, i1 false), !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4323,7 +4323,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   store i64 %.sroa.22.0.copyload, ptr %44, align 8
   %114 = lshr i32 %.03875, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [2 x i64], ptr %2, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %2, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !56
   %118 = and i32 %.03875, 63
   %119 = zext nneg i32 %118 to i64
@@ -4653,7 +4653,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlE
 
 .preheader66.us.us:                               ; preds = %.preheader66.us.us.preheader, %._crit_edge76.split.us.us.us
   %indvars.iv107 = phi i64 [ 0, %.preheader66.us.us.preheader ], [ %indvars.iv.next108, %._crit_edge76.split.us.us.us ]
-  %44 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %42, i64 0, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw %"class.std::vector.12", ptr %42, i64 %indvars.iv107
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   br label %.preheader65.us.us.us
 
@@ -4669,7 +4669,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlE
   %49 = getelementptr inbounds %"class.std::unique_ptr.64", ptr %11, i64 %indvars.iv97
   %50 = load ptr, ptr %49, align 8, !tbaa !173
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
-  %52 = getelementptr inbounds nuw [5 x %"class.std::vector.12"], ptr %51, i64 0, i64 %indvars.iv107
+  %52 = getelementptr inbounds nuw %"class.std::vector.12", ptr %51, i64 %indvars.iv107
   %53 = load ptr, ptr %52, align 8, !tbaa !43
   %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv102
   %55 = load float, ptr %54, align 4, !tbaa !50
@@ -4710,7 +4710,7 @@ define weak_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE21reduceEnergiesAndDvdlE
   %61 = getelementptr inbounds %"class.std::unique_ptr.64", ptr %11, i64 %indvars.iv111
   %62 = load ptr, ptr %61, align 8, !tbaa !173
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 272
-  %64 = getelementptr inbounds nuw [7 x float], ptr %63, i64 0, i64 %indvars.iv116
+  %64 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv116
   %65 = load float, ptr %64, align 4, !tbaa !50
   %66 = fadd float %65, %60
   store float %66, ptr %58, align 4, !tbaa !50
@@ -4809,7 +4809,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersIA4_fEEvNS_
   store i64 %.sroa.2.0.copyload, ptr %31, align 8
   %49 = lshr i64 %indvars.iv, 6
   %50 = and i64 %49, 67108863
-  %51 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %9, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !56
   %53 = and i64 %indvars.iv, 63
   %54 = shl nuw i64 1, %53
@@ -4824,7 +4824,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersIA4_fEEvNS_
   %59 = load ptr, ptr %58, align 8, !tbaa !49, !noalias !196
   %60 = add nsw i32 %.04761, 1
   %61 = sext i32 %.04761 to i64
-  %62 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %14, i64 %61
   store ptr %59, ptr %62, align 8, !tbaa !75
   br label %63
 
@@ -4867,7 +4867,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersIA4_fEEvNS_
   %75 = phi float [ %.promoted66.us, %.preheader.us ], [ %88, %74 ]
   %76 = phi float [ %.promoted65.us, %.preheader.us ], [ %85, %74 ]
   %77 = phi float [ %.promoted.us, %.preheader.us ], [ %82, %74 ]
-  %78 = getelementptr inbounds nuw [256 x ptr], ptr %14, i64 0, i64 %indvars.iv78
+  %78 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv78
   %79 = load ptr, ptr %78, align 8, !tbaa !75
   %80 = getelementptr inbounds [4 x float], ptr %79, i64 %indvars.iv83
   %81 = load float, ptr %80, align 4, !tbaa !50
@@ -5088,10 +5088,10 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferIA4_fE15reduceTemplatedINS
 
 85:                                               ; preds = %85, %.preheader.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %85 ]
-  %86 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv.i.us.i
+  %86 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.us.i
   %87 = load float, ptr %86, align 4, !tbaa !50
-  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %82, i64 0, i64 %indvars.iv.i.us.i
-  %89 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i.us.i
+  %88 = getelementptr inbounds nuw [3 x float], ptr %82, i64 %indvars.iv.i.us.i
+  %89 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i.us.i
   %90 = load float, ptr %89, align 4, !tbaa !50
   %91 = fadd float %87, %90
   store float %91, ptr %89, align 4, !tbaa !50

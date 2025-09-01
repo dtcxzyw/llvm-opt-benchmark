@@ -2346,7 +2346,7 @@ default.unreachable:                              ; preds = %45
 
 62:                                               ; preds = %50
   %63 = load ptr, ptr %39, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %64 = getelementptr inbounds nuw [0 x { [56 x i8], i8, [7 x i8] }], ptr %63, i64 0, i64 %49
+  %64 = getelementptr inbounds nuw { [56 x i8], i8, [7 x i8] }, ptr %63, i64 %49
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 56
   %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !374
   store i8 4, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !374
@@ -2386,7 +2386,7 @@ default.unreachable:                              ; preds = %45
 
 71:                                               ; preds = %53
   %72 = load ptr, ptr %35, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %73 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %72, i64 0, i64 %49
+  %73 = getelementptr inbounds nuw { i32, i32 }, ptr %72, i64 %49
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !374
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !noalias !374, !noundef !9
@@ -2397,7 +2397,7 @@ default.unreachable:                              ; preds = %45
 
 79:                                               ; preds = %71
   %80 = load ptr, ptr %25, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %81 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %80, i64 0, i64 %76
+  %81 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %80, i64 %76
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !noalias !374, !nonnull !9, !noundef !9
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -2517,7 +2517,7 @@ _ZN8smol_str4Repr3new17h6388da2e8565ddbeE.exit.i.i.i: ; preds = %101, %.noexc26
 
 120:                                              ; preds = %56
   %121 = load ptr, ptr %31, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %122 = getelementptr inbounds nuw [0 x { i32, i32, i8, [3 x i8] }], ptr %121, i64 0, i64 %49
+  %122 = getelementptr inbounds nuw { i32, i32, i8, [3 x i8] }, ptr %121, i64 %49
   %123 = load i32, ptr %122, align 4, !range !401, !noalias !374, !noundef !9
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %125 = load i8, ptr %124, align 4, !range !244, !noalias !374, !noundef !9
@@ -2555,7 +2555,7 @@ _ZN8smol_str4Repr3new17h6388da2e8565ddbeE.exit.i.i.i: ; preds = %101, %.noexc26
 
 138:                                              ; preds = %59
   %139 = load ptr, ptr %21, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %140 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %139, i64 0, i64 %49
+  %140 = getelementptr inbounds nuw { i32, i32 }, ptr %139, i64 %49
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !374
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4, !noalias !374, !noundef !9
@@ -2566,7 +2566,7 @@ _ZN8smol_str4Repr3new17h6388da2e8565ddbeE.exit.i.i.i: ; preds = %101, %.noexc26
 
 146:                                              ; preds = %138
   %147 = load ptr, ptr %25, align 8, !noalias !374, !nonnull !9, !noundef !9
-  %148 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %147, i64 0, i64 %143
+  %148 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %147, i64 %143
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !noalias !374, !nonnull !9, !noundef !9
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
@@ -2820,7 +2820,7 @@ default.unreachable:                              ; preds = %41
 
 58:                                               ; preds = %46
   %59 = load ptr, ptr %35, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %60 = getelementptr inbounds nuw [0 x { [24 x i8], i8, [7 x i8] }], ptr %59, i64 0, i64 %45
+  %60 = getelementptr inbounds nuw { [24 x i8], i8, [7 x i8] }, ptr %59, i64 %45
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 24
   %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !444
   store i8 4, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !444
@@ -2855,7 +2855,7 @@ default.unreachable:                              ; preds = %41
 
 64:                                               ; preds = %49
   %65 = load ptr, ptr %31, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %66 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %65, i64 0, i64 %45
+  %66 = getelementptr inbounds nuw { i32, i32 }, ptr %65, i64 %45
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !noalias !444, !noundef !9
   %69 = zext i32 %68 to i64
@@ -2865,7 +2865,7 @@ default.unreachable:                              ; preds = %41
 
 72:                                               ; preds = %64
   %73 = load ptr, ptr %23, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %74 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %73, i64 0, i64 %69
+  %74 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %73, i64 %69
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !noalias !444, !nonnull !9, !noundef !9
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -2934,7 +2934,7 @@ default.unreachable:                              ; preds = %41
 
 97:                                               ; preds = %52
   %98 = load ptr, ptr %27, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %99 = getelementptr inbounds nuw [0 x { i32, i32, i8, [3 x i8] }], ptr %98, i64 0, i64 %45
+  %99 = getelementptr inbounds nuw { i32, i32, i8, [3 x i8] }, ptr %98, i64 %45
   %100 = load i32, ptr %99, align 4, !range !401, !noalias !444, !noundef !9
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i8, ptr %101, align 4, !range !244, !noalias !444, !noundef !9
@@ -2947,7 +2947,7 @@ default.unreachable:                              ; preds = %41
 
 105:                                              ; preds = %55
   %106 = load ptr, ptr %19, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %107 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %106, i64 0, i64 %45
+  %107 = getelementptr inbounds nuw { i32, i32 }, ptr %106, i64 %45
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !noalias !444, !noundef !9
   %110 = zext i32 %109 to i64
@@ -2957,7 +2957,7 @@ default.unreachable:                              ; preds = %41
 
 113:                                              ; preds = %105
   %114 = load ptr, ptr %23, align 8, !noalias !444, !nonnull !9, !noundef !9
-  %115 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %114, i64 0, i64 %110
+  %115 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %114, i64 %110
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !noalias !444, !nonnull !9, !noundef !9
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16

@@ -7788,7 +7788,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
   %64 = call double @llvm.fmuladd.f64(double %63, double 1.024000e+03, double %58)
   %65 = fptoui double %64 to i32
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [0 x [10 x float]], ptr @_ZN2cv6detail8tracking10ColorNamesE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [10 x float], ptr @_ZN2cv6detail8tracking10ColorNamesE, i64 %66
   %68 = load ptr, ptr %31, align 8, !tbaa !130
   %69 = load ptr, ptr %32, align 8, !tbaa !131
   %70 = load i64, ptr %69, align 8, !tbaa !83
@@ -7806,9 +7806,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
 
 78:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %79 = getelementptr inbounds nuw [10 x float], ptr %67, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
   %80 = load float, ptr %79, align 4, !tbaa !7
-  %81 = getelementptr inbounds nuw [10 x float], ptr %73, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv
   store float %80, ptr %81, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10

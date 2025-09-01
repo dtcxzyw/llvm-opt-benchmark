@@ -4493,7 +4493,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %41 to i64
-  %76 = getelementptr inbounds nuw [2 x i32], ptr %21, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %21, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -4511,7 +4511,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
   %89 = lshr exact i64 %88, 3
-  %90 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %75
+  %90 = getelementptr inbounds nuw i32, ptr %0, i64 %75
   %91 = load i32, ptr %90, align 4
   %92 = trunc i64 %89 to i32
   %93 = add i32 %91, %92

@@ -751,7 +751,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw [6 x i64], ptr %2, i64 0, i64 %indvars.iv46
+  %42 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv46
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = load ptr, ptr %32, align 8, !tbaa !43
   %wide.trip.count44 = zext nneg i32 %35 to i64
@@ -780,7 +780,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
 ._crit_edge:                                      ; preds = %.lr.ph.split, %45, %.preheader.._crit_edge_crit_edge
   %50 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %44, %45 ], [ %41, %.lr.ph.split ]
   %51 = tail call i32 @Tru_ManInsert(ptr noundef nonnull %8, ptr noundef %50)
-  %52 = getelementptr inbounds nuw [16 x i32], ptr %34, i64 0, i64 %indvars.iv46
+  %52 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv46
   store i32 %51, ptr %52, align 4, !tbaa !16
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
@@ -905,7 +905,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define nonnull ptr @Tru_ManVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %Tru_ManReadOne.exit, label %7

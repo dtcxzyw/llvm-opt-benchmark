@@ -93,7 +93,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitOSMesa() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %2
   %.not16 = phi i1 [ true, %2 ], [ false, %0 ]
   %indvars.iv = phi i64 [ 1, %2 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw [3 x ptr], ptr @__const._glfwInitOSMesa.sonames, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @__const._glfwInitOSMesa.sonames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = tail call ptr @_glfwPlatformLoadModule(ptr noundef %4) #4
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133736), align 8, !tbaa !3
@@ -202,7 +202,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
 
 18:                                               ; preds = %3
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.11) #4
-  br label %95
+  br label %87
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -219,7 +219,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
   %.054 = phi ptr [ %24, %22 ], [ null, %19 ]
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133752), align 8, !tbaa !95
   %.not57 = icmp eq ptr %26, null
-  br i1 %.not57, label %72, label %27
+  br i1 %.not57, label %64, label %27
 
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -269,100 +269,92 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
   %48 = load i32, ptr %47, align 4, !tbaa !146
   %.not60 = icmp eq i32 %48, 0
   %or.cond = select i1 %.not59, i1 %.not60, i1 false
-  br i1 %or.cond, label %61, label %._crit_edge
+  br i1 %or.cond, label %55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44
-  %49 = or disjoint i32 %.0, 1
-  %50 = zext nneg i32 %.0 to i64
-  %51 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %50
-  store i32 54, ptr %51, align 8, !tbaa !141
-  %52 = add nuw nsw i32 %.0, 2
-  %53 = zext nneg i32 %49 to i64
-  %54 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %53
-  store i32 %46, ptr %54, align 4, !tbaa !141
-  %55 = add nuw nsw i32 %.0, 3
-  %56 = zext nneg i32 %52 to i64
-  %57 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %56
-  store i32 55, ptr %57, align 8, !tbaa !141
-  %58 = or disjoint i32 %.0, 4
-  %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %59
-  store i32 %48, ptr %60, align 4, !tbaa !141
-  br label %61
+  %49 = zext nneg i32 %.0 to i64
+  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %49
+  store i32 54, ptr %50, align 8, !tbaa !141
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 %46, ptr %51, align 4, !tbaa !141
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 55, ptr %52, align 8, !tbaa !141
+  %53 = or disjoint i32 %.0, 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 %48, ptr %54, align 4, !tbaa !141
+  br label %55
 
-61:                                               ; preds = %44, %._crit_edge
-  %.1 = phi i32 [ %58, %._crit_edge ], [ %.0, %44 ]
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !147
-  %.not61 = icmp eq i32 %63, 0
-  br i1 %.not61, label %.thread, label %71
+55:                                               ; preds = %44, %._crit_edge
+  %.1 = phi i32 [ %53, %._crit_edge ], [ %.0, %44 ]
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !147
+  %.not61 = icmp eq i32 %57, 0
+  br i1 %.not61, label %.thread, label %63
 
-.thread:                                          ; preds = %61
-  %64 = add nuw nsw i32 %.1, 1
-  %65 = zext nneg i32 %.1 to i64
-  %66 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %65
-  store i32 0, ptr %66, align 4, !tbaa !141
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %67
-  store i32 0, ptr %68, align 4, !tbaa !141
-  %69 = call ptr %26(ptr noundef nonnull %4, ptr noundef %.054) #4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store ptr %69, ptr %70, align 8, !tbaa !107
+.thread:                                          ; preds = %55
+  %58 = zext nneg i32 %.1 to i64
+  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %58
+  store i32 0, ptr %59, align 4, !tbaa !141
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 0, ptr %60, align 4, !tbaa !141
+  %61 = call ptr %26(ptr noundef nonnull %4, ptr noundef %.054) #4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store ptr %61, ptr %62, align 8, !tbaa !107
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %84
+  br label %76
 
-71:                                               ; preds = %61
+63:                                               ; preds = %55
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.12) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %95
+  br label %87
 
-72:                                               ; preds = %25
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %74 = load i32, ptr %73, align 4, !tbaa !144
-  %.not58 = icmp eq i32 %74, 0
-  br i1 %.not58, label %76, label %75
+64:                                               ; preds = %25
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %66 = load i32, ptr %65, align 4, !tbaa !144
+  %.not58 = icmp eq i32 %66, 0
+  br i1 %.not58, label %68, label %67
 
-75:                                               ; preds = %72
+67:                                               ; preds = %64
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.13) #4
-  br label %95
+  br label %87
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133744), align 8, !tbaa !94
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %79 = load i32, ptr %78, align 8, !tbaa !142
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %81 = load i32, ptr %80, align 4, !tbaa !143
-  %82 = tail call ptr %77(i32 noundef 6408, i32 noundef %79, i32 noundef %81, i32 noundef %15, ptr noundef %.054) #4
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store ptr %82, ptr %83, align 8, !tbaa !107
-  br label %84
+68:                                               ; preds = %64
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133744), align 8, !tbaa !94
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %71 = load i32, ptr %70, align 8, !tbaa !142
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %73 = load i32, ptr %72, align 4, !tbaa !143
+  %74 = tail call ptr %69(i32 noundef 6408, i32 noundef %71, i32 noundef %73, i32 noundef %15, ptr noundef %.054) #4
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store ptr %74, ptr %75, align 8, !tbaa !107
+  br label %76
 
-84:                                               ; preds = %.thread, %76
-  %85 = phi ptr [ %69, %.thread ], [ %82, %76 ]
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %88
+76:                                               ; preds = %.thread, %68
+  %77 = phi ptr [ %61, %.thread ], [ %74, %68 ]
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %80
 
-87:                                               ; preds = %84
+79:                                               ; preds = %76
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.14) #4
-  br label %95
+  br label %87
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @makeContextCurrentOSMesa, ptr %89, align 8, !tbaa !148
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @swapBuffersOSMesa, ptr %90, align 8, !tbaa !149
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @swapIntervalOSMesa, ptr %91, align 8, !tbaa !150
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @extensionSupportedOSMesa, ptr %92, align 8, !tbaa !151
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @getProcAddressOSMesa, ptr %93, align 8, !tbaa !152
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @destroyContextOSMesa, ptr %94, align 8, !tbaa !153
-  br label %95
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store ptr @makeContextCurrentOSMesa, ptr %81, align 8, !tbaa !148
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store ptr @swapBuffersOSMesa, ptr %82, align 8, !tbaa !149
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  store ptr @swapIntervalOSMesa, ptr %83, align 8, !tbaa !150
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store ptr @extensionSupportedOSMesa, ptr %84, align 8, !tbaa !151
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  store ptr @getProcAddressOSMesa, ptr %85, align 8, !tbaa !152
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store ptr @destroyContextOSMesa, ptr %86, align 8, !tbaa !153
+  br label %87
 
-95:                                               ; preds = %71, %88, %87, %75, %18
-  %.052 = phi i32 [ 0, %18 ], [ 0, %87 ], [ 1, %88 ], [ 0, %71 ], [ 0, %75 ]
+87:                                               ; preds = %63, %80, %79, %67, %18
+  %.052 = phi i32 [ 0, %18 ], [ 0, %79 ], [ 1, %80 ], [ 0, %63 ], [ 0, %67 ]
   ret i32 %.052
 }
 

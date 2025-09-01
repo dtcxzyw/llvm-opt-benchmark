@@ -6474,9 +6474,9 @@ define hidden void @proto_reg_handoff_ber() local_unnamed_addr #0 {
 9:                                                ; preds = %6, %0
   %10 = phi i32 [ %.pre, %6 ], [ %4, %0 ]
   %11 = zext i32 %10 to i64
-  %12 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %11
+  %12 = getelementptr %struct._value_string, ptr @syntax_names, i64 %11
   store i32 0, ptr %12, align 16
-  %13 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %11, i32 1
+  %13 = getelementptr %struct._value_string, ptr @syntax_names, i64 %11, i32 1
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @ber_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.303, ptr noundef %14)
@@ -6549,11 +6549,11 @@ define internal void @ber_add_syntax_name(ptr noundef %0, ptr readnone captures(
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %7
+  %8 = getelementptr %struct._value_string, ptr @syntax_names, i64 %7
   store i32 %4, ptr %8, align 16
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr [129 x %struct._value_string], ptr @syntax_names, i64 0, i64 %10, i32 1
+  %11 = getelementptr %struct._value_string, ptr @syntax_names, i64 %10, i32 1
   store ptr %0, ptr %11, align 8
   %12 = load i32, ptr %2, align 4
   %13 = add i32 %12, 1

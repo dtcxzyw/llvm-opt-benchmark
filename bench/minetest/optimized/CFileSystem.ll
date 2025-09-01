@@ -1940,7 +1940,7 @@ if.then.i:                                        ; preds = %_ZN3irr4core6string
 if.end16:                                         ; preds = %if.then.i, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit, %entry
   %type.0 = phi i64 [ 1, %entry ], [ 0, %_ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit ], [ 0, %if.then.i ]
   %WorkingDirectory17 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx19 = getelementptr inbounds nuw [2 x %"class.irr::core::string"], ptr %WorkingDirectory17, i64 0, i64 %type.0
+  %arrayidx19 = getelementptr inbounds nuw %"class.irr::core::string", ptr %WorkingDirectory17, i64 %type.0
   ret ptr %arrayidx19
 }
 

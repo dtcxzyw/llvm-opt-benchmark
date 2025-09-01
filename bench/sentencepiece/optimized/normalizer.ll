@@ -1506,14 +1506,14 @@ _ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEm
   %.01551 = phi i64 [ %66, %65 ], [ 0, %_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm.exit ]
   %.11750 = phi i32 [ %.218, %65 ], [ 0, %_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm.exit ]
   %61 = icmp eq i64 %.152, 0
-  %.phi.trans.insert55 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01551, i32 1
+  %.phi.trans.insert55 = getelementptr inbounds nuw %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type", ptr %6, i64 %.01551, i32 1
   %.pre = load i64, ptr %.phi.trans.insert55, align 8, !tbaa !130
   %62 = icmp ugt i64 %.pre, %.152
   %or.cond63 = select i1 %61, i1 true, i1 %62
   br i1 %or.cond63, label %.lr.ph._crit_edge, label %65
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01551
+  %63 = getelementptr inbounds nuw %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type", ptr %6, i64 %.01551
   %64 = load i32, ptr %63, align 16, !tbaa !128
   br label %65
 
@@ -2042,7 +2042,7 @@ define noundef i32 @_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchE
   %11 = load i8, ptr %2, align 1, !tbaa !81
   %12 = lshr i8 %11, 4
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw [17 x i8], ptr @.str.19, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !81
   %16 = sext i8 %15 to i32
   %.sroa.speculated28 = tail call i32 @llvm.smin.i32(i32 %16, i32 %10)
@@ -2198,7 +2198,7 @@ _ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEm
   %95 = load i8, ptr %2, align 1, !tbaa !81
   %96 = lshr i8 %95, 4
   %97 = zext nneg i8 %96 to i64
-  %98 = getelementptr inbounds nuw [17 x i8], ptr @.str.19, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !81
   %100 = sext i8 %99 to i32
   %.sroa.speculated23 = tail call i32 @llvm.smin.i32(i32 %100, i32 %94)
@@ -2207,7 +2207,7 @@ _ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEm
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03740 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %101 = getelementptr inbounds nuw [64 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %5, i64 0, i64 %indvars.iv, i32 1
+  %101 = getelementptr inbounds nuw %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type", ptr %5, i64 %indvars.iv, i32 1
   %102 = load i64, ptr %101, align 8, !tbaa !130
   %103 = trunc i64 %102 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.03740, i32 %103)

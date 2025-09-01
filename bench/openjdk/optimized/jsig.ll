@@ -81,12 +81,12 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
   br i1 %2, label %17, label %._crit_edge
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %16, i32 1
+  %18 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16, i32 1
   %19 = tail call i32 @sigismember(ptr noundef nonnull %18, i32 noundef %0) #9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %17
-  %20 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %20, align 8
@@ -127,7 +127,7 @@ call_os_signal.exit:                              ; preds = %29, %30
   %36 = tail call ptr %35(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %37
   store ptr %36, ptr %38, align 8
   %39 = call i32 @sigemptyset(ptr noundef nonnull %4) #9
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -227,7 +227,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %7, %
 
 18:                                               ; preds = %17
   %19 = zext nneg i32 %0 to i64
-  %20 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(152) %20, i64 152, i1 false)
   br label %21
 
@@ -237,7 +237,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %7, %
 
 22:                                               ; preds = %21
   %23 = zext nneg i32 %0 to i64
-  %24 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %24, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false)
   br label %25
 
@@ -278,7 +278,7 @@ call_os_sigaction.exit:                           ; preds = %30, %31
 
 40:                                               ; preds = %39
   %41 = zext nneg i32 %0 to i64
-  %42 = getelementptr inbounds nuw [65 x %struct.sigaction], ptr @sact, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
   %43 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
   br label %44
@@ -397,7 +397,7 @@ define ptr @JVM_get_signal_action(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @sigismember(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
   %.not = icmp eq i32 %2, 0
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.sigaction, ptr @sact, i64 %3
   %.0 = select i1 %.not, ptr null, ptr %4
   ret ptr %.0
 }

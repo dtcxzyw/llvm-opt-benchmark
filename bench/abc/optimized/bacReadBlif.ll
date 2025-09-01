@@ -123,7 +123,7 @@ Psr_ManAlloc.exit.thread:                         ; preds = %1
 
 31:                                               ; preds = %31, %4
   %indvars.iv.i = phi i64 [ 1, %4 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw ptr, ptr @s_BlifTypes, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = load ptr, ptr %25, align 8, !tbaa !20
   %35 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %34, ptr noundef %33, ptr noundef null) #18

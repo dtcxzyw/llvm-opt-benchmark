@@ -584,7 +584,7 @@ define internal fastcc ptr @declspec(ptr noundef nonnull writeonly captures(none
 
 .preheader6.i:                                    ; preds = %.backedge, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %.backedge ]
-  %14 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !70
   call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -27323,7 +27323,7 @@ define internal fastcc ptr @cast(ptr noundef nonnull %0, ptr noundef %1) unnamed
 
 .preheader6.i:                                    ; preds = %6, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -27414,7 +27414,7 @@ define internal fastcc zeroext i1 @is_typename(ptr noundef readonly captures(non
 
 .preheader6:                                      ; preds = %1, %.preheader6
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader6 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %5, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -28817,7 +28817,7 @@ define internal fastcc ptr @postfix(ptr noundef nonnull %0, ptr noundef %1) unna
 
 .preheader6.i:                                    ; preds = %14, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %20, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -29046,7 +29046,7 @@ is_typename.exit.thread:                          ; preds = %.preheader.i, %26, 
 
 .preheader6.i64:                                  ; preds = %137, %.preheader6.i64
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i66, %.preheader6.i64 ], [ 0, %137 ]
-  %143 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i65
+  %143 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i65
   %144 = load ptr, ptr %143, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %144, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
@@ -29218,7 +29218,7 @@ is_typename.exit68.thread:                        ; preds = %.preheader.i58, %15
 
 .preheader6.i51:                                  ; preds = %230, %.preheader6.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.preheader6.i51 ], [ 0, %230 ]
-  %236 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i52
+  %236 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i52
   %237 = load ptr, ptr %236, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %237, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
@@ -32401,7 +32401,7 @@ define internal fastcc noundef ptr @compound_stmt(ptr noundef nonnull writeonly 
 
 .preheader6.i:                                    ; preds = %14, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %14 ]
-  %18 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !70
   call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %19, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -34122,7 +34122,7 @@ define internal fastcc ptr @typeof_specifier(ptr noundef nonnull writeonly captu
 
 .preheader6.i:                                    ; preds = %2, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %9, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -24508,7 +24508,7 @@ define linkonce_odr dso_local void @_ZN4CGAL10Lazy_rep_0INS_8Vector_2INS_16Simpl
   %22 = phi i1 [ false, %2 ], [ true, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i.i ]
   %23 = phi i64 [ 0, %2 ], [ 1, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i.i ]
   %24 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %20, i64 %23
-  %25 = getelementptr inbounds nuw [2 x %"class.boost::multiprecision::number"], ptr %1, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %1, i64 %23
   store i64 0, ptr %24, align 16, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16

@@ -1298,7 +1298,7 @@ _ZNK15QListWidgetItem4textEv.exit:                ; preds = %3
   %28 = and i64 %19, 127
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr [128 x i8], ptr %27, i64 0, i64 %28
+  %31 = getelementptr i8, ptr %27, i64 %28
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
   %34 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QString, QString>>::Entry", ptr %30, i64 %33, i32 0, i32 0, i64 24
@@ -1384,7 +1384,7 @@ _ZNK5QHashI7QStringS0_E7isEmptyEv.exit:           ; preds = %2
   %21 = lshr i64 %18, 7
   %22 = and i64 %18, 127
   %23 = getelementptr %"struct.QHashPrivate::Span", ptr %20, i64 %21
-  %24 = getelementptr [128 x i8], ptr %23, i64 0, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 %22
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread, label %.lr.ph.i
@@ -1416,7 +1416,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   %42 = lshr i64 %spec.store.select.i.i, 7
   %43 = and i64 %spec.store.select.i.i, 127
   %44 = getelementptr %"struct.QHashPrivate::Span", ptr %20, i64 %42
-  %45 = getelementptr [128 x i8], ptr %44, i64 0, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 %43
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, -1
   br i1 %47, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread, label %.lr.ph.i, !llvm.loop !20
@@ -1440,7 +1440,7 @@ _ZN5QHashI7QStringS0_E6detachEv.exit:             ; preds = %_ZNK12QHashPrivate4
   %54 = lshr i64 %.018.lcssa.i18, 7
   %55 = getelementptr %"struct.QHashPrivate::Span", ptr %52, i64 %54
   %56 = and i64 %.018.lcssa.i18, 127
-  %57 = getelementptr [128 x i8], ptr %55, i64 0, i64 %56
+  %57 = getelementptr i8, ptr %55, i64 %56
   %58 = load i8, ptr %57, align 1
   %.not.i10 = icmp eq i8 %58, -1
   %spec.select = select i1 %.not.i10, i64 0, i64 %.018.lcssa.i18
@@ -2013,7 +2013,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 
 61:                                               ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
   %.02331 = phi i64 [ 0, %54 ], [ %163, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit ]
-  %62 = getelementptr [128 x i8], ptr %56, i64 0, i64 %.02331
+  %62 = getelementptr i8, ptr %56, i64 %.02331
   %63 = load i8, ptr %62, align 1
   %.not30 = icmp eq i8 %63, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit, label %64
@@ -2038,7 +2038,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %79 = lshr i64 %77, 7
   %80 = and i64 %77, 127
   %81 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %79
-  %82 = getelementptr [128 x i8], ptr %81, i64 0, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 %80
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, -1
   br i1 %84, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit, label %.lr.ph.i
@@ -2070,7 +2070,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   %100 = lshr i64 %spec.store.select.i.i, 7
   %101 = and i64 %spec.store.select.i.i, 127
   %102 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %100
-  %103 = getelementptr [128 x i8], ptr %102, i64 0, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 %101
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, -1
   br i1 %105, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !20
@@ -2150,7 +2150,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringS2_EEE6insertEm.exit: ; preds = %._crit_
   %140 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QString, QString>>::Entry", ptr %137, i64 %139
   %141 = load i8, ptr %140, align 1
   store i8 %141, ptr %112, align 1
-  %142 = getelementptr [128 x i8], ptr %110, i64 0, i64 %111
+  %142 = getelementptr i8, ptr %110, i64 %111
   store i8 %138, ptr %142, align 1
   %143 = load ptr, ptr %67, align 8
   store ptr %143, ptr %140, align 8

@@ -1785,7 +1785,7 @@ define noundef i32 @_ZN10open_spiel9solitaire12GetCardIndexENS0_8RankTypeENS0_8S
 
 switch.lookup:                                    ; preds = %9
   %23 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN10open_spiel9solitaire12GetCardIndexENS0_8RankTypeENS0_8SuitTypeE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9solitaire12GetCardIndexENS0_8RankTypeENS0_8SuitTypeE, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %24
 
@@ -8507,7 +8507,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit53: ; preds = %129, %
 
 switch.lookup:                                    ; preds = %122
   %136 = zext nneg i32 %117 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK10open_spiel9solitaire14SolitaireState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 0, i64 %136
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK10open_spiel9solitaire14SolitaireState17ObservationTensorEiN4absl7debian24SpanIfEE, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.noexc
 

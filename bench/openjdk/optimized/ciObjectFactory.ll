@@ -456,7 +456,7 @@ define hidden void @_ZN15ciObjectFactory19init_shared_objectsEv(ptr noundef nonn
 
 3:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 32, ptr noundef %6) #10
@@ -473,7 +473,7 @@ define hidden void @_ZN15ciObjectFactory19init_shared_objectsEv(ptr noundef nonn
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %2, align 8
   tail call void @_ZN12ciBaseObject9set_identEj(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %12) #10
-  %14 = getelementptr inbounds nuw [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 %indvars.iv
   store ptr %7, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
@@ -503,7 +503,7 @@ define hidden void @_ZN15ciObjectFactory19init_shared_objectsEv(ptr noundef nonn
   br label %25
 
 25:                                               ; preds = %24, %20
-  %26 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN6ciType12_basic_typesE, i64 0, i64 %indvars.iv56
+  %26 = getelementptr inbounds nuw ptr, ptr @_ZN6ciType12_basic_typesE, i64 %indvars.iv56
   store ptr %22, ptr %26, align 8
   %27 = load i32, ptr %2, align 8
   %28 = add nsw i32 %27, 1
@@ -2167,7 +2167,7 @@ define hidden noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef
 
 4:                                                ; preds = %2
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %33
 
@@ -2228,7 +2228,7 @@ declare noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1170 x ptr], ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZN15ciObjectFactory18_shared_ci_symbolsE, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -2295,7 +2295,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %16, %6
   %21 = mul i32 %20, 31
   %22 = urem i32 %21, 61
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [61 x ptr], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not9.i = icmp eq ptr %25, null
   br i1 %.not9.i, label %_ZN15ciObjectFactory13find_non_permEP7oopDesc.exit.thread.thread, label %.lr.ph.i.preheader
@@ -2441,7 +2441,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
   %21 = mul i32 %20, 31
   %22 = urem i32 %21, 61
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [61 x ptr], ptr %19, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not9 = icmp eq ptr %25, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader

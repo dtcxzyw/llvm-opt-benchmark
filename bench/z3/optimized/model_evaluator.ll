@@ -13058,7 +13058,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 53:                                               ; preds = %.lr.ph, %_ZZN3mev13evaluator_cfg14contains_redexEP4exprEN16has_redex_finderclEP3app.exit
   %54 = phi i32 [ %50, %.lr.ph ], [ %144, %_ZZN3mev13evaluator_cfg14contains_redexEP4exprEN16has_redex_finderclEP3app.exit ]
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !171
   %58 = add nuw i32 %54, 1
   store i32 %58, ptr %49, align 8, !tbaa !445
@@ -16680,7 +16680,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN3mev13evaluator_cfgEE11proce
 
 24:                                               ; preds = %20
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !171
   %28 = and i32 %21, -64
   %29 = add i32 %28, 64
@@ -22354,7 +22354,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN3mev13evaluator_cfgEE11proce
   %24 = load i32, ptr %9, align 8
   %25 = lshr i32 %24, 6
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !171
   %29 = and i32 %24, -64
   %30 = add i32 %29, 64

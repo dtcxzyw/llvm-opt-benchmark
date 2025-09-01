@@ -328,7 +328,7 @@ zend_string_alloc.exit35:
   store i64 %2, ptr %8, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %0, i64 %2, i1 false)
-  %10 = getelementptr inbounds nuw [1 x i8], ptr %9, i64 0, i64 %2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %2
   store i8 0, ptr %10, align 1, !tbaa !4
   %11 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %5, i1 noundef zeroext false) #26
   %12 = load i32, ptr %6, align 4, !tbaa !4
@@ -376,7 +376,7 @@ zend_string_alloc.exit:                           ; preds = %zend_string_release
   store i64 %23, ptr %29, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 1 %1, i64 %23, i1 false)
-  %31 = getelementptr inbounds nuw [1 x i8], ptr %30, i64 0, i64 %23
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %23
   store i8 0, ptr %31, align 1, !tbaa !4
   %32 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %26, i1 noundef zeroext false) #26
   %33 = load i32, ptr %27, align 4, !tbaa !4
@@ -599,7 +599,7 @@ define dso_local noundef ptr @phpdbg_get_color(ptr noundef readonly captures(non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @phpdbg_set_color(i32 noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %3
   store ptr %1, ptr %4, align 8, !tbaa !57
   ret void
 }
@@ -630,7 +630,7 @@ define dso_local void @phpdbg_set_color_ex(i32 noundef %0, ptr noundef readonly 
 phpdbg_get_color.exit:                            ; preds = %11, %9
   %colors.sink = phi ptr [ %.012.i, %9 ], [ @colors, %11 ]
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %14
   store ptr %colors.sink, ptr %15, align 8, !tbaa !57
   ret void
 }
@@ -935,7 +935,7 @@ zend_string_alloc.exit:                           ; preds = %3
   store i64 %30, ptr %36, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 1 %0, i64 %30, i1 false)
-  %38 = getelementptr inbounds nuw [1 x i8], ptr %37, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %30
   store i8 0, ptr %38, align 1, !tbaa !4
   %39 = call ptr @zend_lookup_class(ptr noundef nonnull %33) #26
   store ptr %39, ptr %2, align 8, !tbaa !92
@@ -1780,7 +1780,7 @@ define hidden ptr @phpdbg_short_zval_print(ptr noundef readonly captures(none) %
 
 40:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %41 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = icmp slt i8 %42, 32
   br i1 %43, label %44, label %45

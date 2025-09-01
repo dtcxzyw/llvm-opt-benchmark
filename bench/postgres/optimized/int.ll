@@ -282,7 +282,7 @@ define dso_local noundef i64 @int2vectorin(ptr noundef readonly captures(none) %
   %56 = trunc nsw i64 %30 to i16
   %57 = getelementptr inbounds nuw i8, ptr %.250, i64 24
   %58 = sext i32 %.05591 to i64
-  %59 = getelementptr inbounds [0 x i16], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds i16, ptr %57, i64 %58
   store i16 %56, ptr %59, align 2
   %60 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -368,7 +368,7 @@ define dso_local i64 @int2vectorout(ptr noundef readonly captures(none) %0) loca
 
 16:                                               ; preds = %14, %13
   %.1 = phi ptr [ %15, %14 ], [ %.01314, %13 ]
-  %17 = getelementptr inbounds nuw [0 x i16], ptr %12, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = tail call i32 @pg_itoa(i16 noundef signext %18, ptr noundef %.1) #13
   %20 = sext i32 %19 to i64

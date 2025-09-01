@@ -5006,7 +5006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
           to label %278 unwind label %318
 
 278:                                              ; preds = %277
-  %279 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %14, i64 0, i64 %.0
+  %279 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %14, i64 %.0
   %280 = load ptr, ptr %279, align 16, !tbaa !17
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %282 = icmp eq ptr %280, %281

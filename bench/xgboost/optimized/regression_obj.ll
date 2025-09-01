@@ -4617,7 +4617,7 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   %.2134189 = phi ptr [ %.1133, %_ZN4dmlc7isspaceEc.exit ], [ %19, %18 ]
   %13 = load i8, ptr %.2134189, align 1, !tbaa !13
   %14 = or i8 %13, 32
-  %15 = getelementptr inbounds nuw [9 x i8], ptr @.str.62, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr @.str.62, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %17 = icmp eq i8 %14, %16
   br i1 %17, label %18, label %.critedge
@@ -4661,7 +4661,7 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   %.4191 = phi ptr [ %27, %24 ], [ %36, %35 ]
   %30 = load i8, ptr %.4191, align 1, !tbaa !13
   %31 = or i8 %30, 32
-  %32 = getelementptr inbounds nuw [4 x i8], ptr @.str.63, i64 0, i64 %indvars.iv244
+  %32 = getelementptr inbounds nuw i8, ptr @.str.63, i64 %indvars.iv244
   %33 = load i8, ptr %32, align 1, !tbaa !13
   %34 = icmp eq i8 %31, %33
   br i1 %34, label %35, label %.critedge4.thread

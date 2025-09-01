@@ -491,9 +491,9 @@ define void @_ZNK5boost4urls13url_view_base9authorityEv(ptr dead_on_unwind noali
 
 47:                                               ; preds = %28, %47
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1, !tbaa !20
-  %50 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
   store i8 %49, ptr %50, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

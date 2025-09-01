@@ -55,10 +55,10 @@ define internal void @dct_unquantize_h263_intra_c(ptr noundef readonly captures(
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds [12 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !43
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 %25
+  %26 = getelementptr inbounds i8, ptr %20, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !46
   %28 = zext i8 %27 to i64
   %.not3133 = icmp eq i8 %27, 0
@@ -103,10 +103,10 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !43
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %8, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !46
   %16 = zext i8 %15 to i64
   %17 = sub nsw i32 0, %6
@@ -142,7 +142,7 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
 define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [12 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = icmp slt i32 %2, 4
   %.in.v = select i1 %9, i64 8, i64 12
@@ -164,7 +164,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
 
 17:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !46
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i16, ptr %1, i64 %20
@@ -220,7 +220,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
 define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [12 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3704
   %.not29 = icmp slt i32 %8, 0
@@ -234,7 +234,7 @@ define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures
 
 12:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !46
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %1, i64 %15
@@ -295,7 +295,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
 
 7:                                                ; preds = %4
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [32 x i8], ptr @ff_mpeg2_non_linear_qscale, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @ff_mpeg2_non_linear_qscale, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !46
   %11 = zext i8 %10 to i32
   br label %14
@@ -308,7 +308,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds [12 x i32], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = icmp slt i32 %2, 4
   %.in.v = select i1 %19, i64 8, i64 12
@@ -330,7 +330,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
 
 27:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %28 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1, !tbaa !46
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw i16, ptr %1, i64 %30
@@ -387,7 +387,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
 
 7:                                                ; preds = %4
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [32 x i8], ptr @ff_mpeg2_non_linear_qscale, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @ff_mpeg2_non_linear_qscale, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !46
   %11 = zext i8 %10 to i32
   br label %14
@@ -400,7 +400,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds [12 x i32], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = icmp slt i32 %2, 4
   %.in.v = select i1 %19, i64 8, i64 12
@@ -425,7 +425,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
 29:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03745 = phi i32 [ %25, %.lr.ph ], [ %.1, %57 ]
-  %30 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !46
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw i16, ptr %1, i64 %32
@@ -491,7 +491,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
 
 7:                                                ; preds = %4
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds [32 x i8], ptr @ff_mpeg2_non_linear_qscale, i64 0, i64 %8
+  %9 = getelementptr inbounds i8, ptr @ff_mpeg2_non_linear_qscale, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !46
   %11 = zext i8 %10 to i32
   br label %14
@@ -504,7 +504,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
   %.0 = phi i32 [ %11, %7 ], [ %13, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds [12 x i32], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3704
   %.not3537 = icmp slt i32 %18, 0
@@ -519,7 +519,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
 22:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.03139 = phi i32 [ -1, %.lr.ph ], [ %.1, %49 ]
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !46
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr %1, i64 %25

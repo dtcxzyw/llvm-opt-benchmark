@@ -904,7 +904,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !9
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !9
@@ -913,7 +913,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds nuw [0 x i64], ptr %43, i64 0, i64 %21
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -973,7 +973,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %67 = getelementptr inbounds nuw [0 x i64], ptr %66, i64 0, i64 %61
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !9
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !9
@@ -1013,7 +1013,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %52
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 
@@ -1096,7 +1096,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !9
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !9
@@ -1105,7 +1105,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds nuw [0 x i64], ptr %43, i64 0, i64 %21
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -1165,7 +1165,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %67 = getelementptr inbounds nuw [0 x i64], ptr %66, i64 0, i64 %61
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !9
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !9
@@ -1205,7 +1205,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %52
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 

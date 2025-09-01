@@ -11170,7 +11170,7 @@ lean_dec.exit84:                                  ; preds = %52, %51, %49, %lean
   tail call void @lean_free_object(ptr noundef nonnull %9) #6
   %54 = lshr i64 %29, 1
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %55, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
@@ -11476,7 +11476,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit77
 170:                                              ; preds = %144, %lean_dec.exit79
   %171 = lshr i64 %142, 1
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %173 = getelementptr inbounds nuw [0 x ptr], ptr %172, i64 0, i64 %171
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !tbaa !4
   %175 = ptrtoint ptr %174 to i64
   %176 = and i64 %175, 1

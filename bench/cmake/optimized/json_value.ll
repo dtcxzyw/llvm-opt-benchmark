@@ -9768,7 +9768,7 @@ define internal fastcc void @_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_
   %5 = phi i64 [ %24, %19 ], [ 0, %3 ]
   %.idx.i = shl nuw nsw i64 %5, 5
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
-  %7 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %.0.val, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.val, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !23
   %9 = load ptr, ptr %7, align 8, !tbaa !29
@@ -9930,7 +9930,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8Comments3hasENS_16CommentPl
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %5, i32 1
   %7 = load i64, ptr %6, align 8, !tbaa !25
   %8 = icmp ne i64 %7, 0
   br label %9
@@ -9957,7 +9957,7 @@ define dso_local void @_ZNK4Json5Value8Comments3getB5cxx11ENS_16CommentPlacement
 
 9:                                                ; preds = %3
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %5, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !23
   %13 = load ptr, ptr %11, align 8, !tbaa !29
@@ -10039,7 +10039,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit: 
 _ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit, %5
   %13 = phi ptr [ %8, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit ], [ %6, %5 ]
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = icmp eq ptr %16, %17
@@ -10371,7 +10371,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPla
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %6, i32 1
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %6, i32 1
   %8 = load i64, ptr %7, align 8, !tbaa !25
   %9 = icmp ne i64 %8, 0
   br label %_ZNK4Json5Value8Comments3hasENS_16CommentPlacementE.exit
@@ -10400,7 +10400,7 @@ define dso_local void @_ZNK4Json5Value10getCommentB5cxx11ENS_16CommentPlacementE
 
 10:                                               ; preds = %3
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !23, !alias.scope !96
   %14 = load ptr, ptr %12, align 8, !tbaa !29

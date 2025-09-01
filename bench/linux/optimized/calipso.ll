@@ -2413,7 +2413,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef reado
 define internal fastcc range(i32 -28, 268435722) i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = and i32 %1, 3
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [4 x i8], ptr @calipso_genopt.padding, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @calipso_genopt.padding, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = add i32 %1, %10

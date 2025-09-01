@@ -1652,7 +1652,7 @@ _ZNSt10shared_ptrIN4cvc58internal11LazyCDProofEEC2ERKS3_.exit: ; preds = %65, %7
   %128 = icmp eq i32 %127, 2
   %129 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %130 = zext i1 %128 to i64
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %129, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !28, !noalias !68
   store ptr %132, ptr %8, align 8, !tbaa !30, !alias.scope !68
   %133 = load i64, ptr %132, align 8, !noalias !68
@@ -1777,7 +1777,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %194 = icmp eq i32 %193, 2
   %spec.select.i.i = select i1 %194, i64 2, i64 1
   %195 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %196 = getelementptr inbounds nuw [0 x ptr], ptr %195, i64 0, i64 %spec.select.i.i
+  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %spec.select.i.i
   %197 = load ptr, ptr %196, align 8, !tbaa !28, !noalias !71
   store ptr %197, ptr %9, align 8, !tbaa !30, !alias.scope !71
   %198 = load i64, ptr %197, align 8, !noalias !71
@@ -1942,7 +1942,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit104: ; preds = %_ZN4cvc58internal1
   %269 = icmp eq i32 %268, 2
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %271 = zext i1 %269 to i64
-  %272 = getelementptr inbounds nuw [0 x ptr], ptr %270, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
   %273 = load ptr, ptr %272, align 8, !tbaa !28, !noalias !74
   store ptr %273, ptr %10, align 8, !tbaa !30, !alias.scope !74
   %274 = load i64, ptr %273, align 8, !noalias !74

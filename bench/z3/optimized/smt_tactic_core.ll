@@ -5027,7 +5027,7 @@ thread-pre-split:                                 ; preds = %.loopexit398, %_ZN7
   %715 = add i32 %714, -1
   %716 = getelementptr inbounds nuw i8, ptr %712, i64 32
   %717 = zext i32 %715 to i64
-  %718 = getelementptr inbounds nuw [0 x ptr], ptr %716, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw ptr, ptr %716, i64 %717
   %719 = load ptr, ptr %718, align 8, !tbaa !256
   %720 = getelementptr inbounds nuw i8, ptr %711, i64 864
   %721 = load ptr, ptr %720, align 8, !tbaa !416
@@ -5525,7 +5525,7 @@ _ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i307: ; preds = %.noexc312, %._crit_
   %903 = add i32 %902, -1
   %904 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %905 = zext i32 %903 to i64
-  %906 = getelementptr inbounds nuw [0 x ptr], ptr %904, i64 0, i64 %905
+  %906 = getelementptr inbounds nuw ptr, ptr %904, i64 %905
   %907 = load ptr, ptr %906, align 8, !tbaa !256
   invoke void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %900, ptr noundef %907, ptr noundef nonnull %358, ptr noundef null)
           to label %908 unwind label %394

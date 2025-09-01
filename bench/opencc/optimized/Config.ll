@@ -10517,7 +10517,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   store ptr %20, ptr %5, align 8, !tbaa !109
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE19ParseStringToStreamILj1ES2_S2_NS_25GenericInsituStringStreamIS2_EES7_EEvRT2_RT3_E6escape, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE19ParseStringToStreamILj1ES2_S2_NS_25GenericInsituStringStreamIS2_EES7_EEvRT2_RT3_E6escape, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !20
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %29, label %25, !prof !144
@@ -11641,7 +11641,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
   %202 = fdiv double %.7102645, 1.000000e+308
   %203 = sub nuw nsw i32 -308, %197
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !338
   %207 = fdiv double %202, %206
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
@@ -11652,7 +11652,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 
 210:                                              ; preds = %208
   %211 = zext nneg i32 %197 to i64
-  %212 = getelementptr inbounds nuw [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %211
   %213 = load double, ptr %212, align 8, !tbaa !338
   %214 = fmul double %.7102645, %213
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
@@ -11660,7 +11660,7 @@ _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE7ConsumeINS4_12Nu
 215:                                              ; preds = %208
   %216 = sub nsw i32 0, %197
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw double, ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 %217
   %219 = load double, ptr %218, align 8, !tbaa !338
   %220 = fdiv double %.7102645, %219
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit

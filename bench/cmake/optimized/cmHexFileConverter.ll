@@ -99,7 +99,7 @@ _ZL11ChompStrlenPKc.exit:                         ; preds = %20, %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = sext i8 %30 to i32
   %32 = call i32 @isxdigit(i32 noundef %31) #9
@@ -282,7 +282,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread79: ; preds = %62
 68:                                               ; preds = %62
   %69 = load i32, ptr %8, align 4, !tbaa !10
   %70 = trunc i32 %69 to i8
-  %71 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv30.i.i.us
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv30.i.i.us
   store i8 %70, ptr %71, align 1, !tbaa !4
   %indvars.iv.next31.i.i.us = add nuw nsw i64 %indvars.iv30.i.i.us, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -403,7 +403,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread85: ; preds = %101
 107:                                              ; preds = %101
   %108 = load i32, ptr %5, align 4, !tbaa !10
   %109 = trunc i32 %108 to i8
-  %110 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv30.i.i40.us
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv30.i.i40.us
   store i8 %109, ptr %110, align 1, !tbaa !4
   %indvars.iv.next31.i.i44.us = add nuw nsw i64 %indvars.iv30.i.i40.us, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

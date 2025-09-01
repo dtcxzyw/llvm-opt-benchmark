@@ -1014,7 +1014,7 @@ setLastError.exit:                                ; preds = %35, %39
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %63 = getelementptr inbounds nuw [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw %struct.AllowedPeerInfo, ptr @_peers, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   br label %67
 
@@ -1025,12 +1025,12 @@ setLastError.exit:                                ; preds = %35, %39
 
 67:                                               ; preds = %65, %.lr.ph.i
   %.09.i.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %65 ]
-  %68 = getelementptr inbounds nuw [16 x i8], ptr %.010.i, i64 0, i64 %.09.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %.010.i, i64 %.09.i.i
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 0, i64 %.09.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 %.09.i.i
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, %69
-  %73 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 0, i64 %.09.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %.09.i.i
   %74 = load i8, ptr %73, align 1
   %.not.i.i = icmp eq i8 %72, %74
   br i1 %.not.i.i, label %65, label %75
@@ -1834,7 +1834,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.023.i.i = phi ptr [ %.1.i.i, %83 ], [ null, %71 ]
   %85 = load i32, ptr @_peers_cnt, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %86
+  %87 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %86
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.022.i.i, ptr noundef nonnull %4) #13
@@ -1890,7 +1890,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %.not28.i.i = icmp eq ptr %.023.i.i, null
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111, i32 1
+  %112 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111, i32 1
   br i1 %.not28.i.i, label %159, label %113
 
 113:                                              ; preds = %109
@@ -1940,12 +1940,12 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %130 = sub nuw nsw i32 8, %.229.i.i.i
   %131 = shl nuw nsw i32 255, %130
   %132 = trunc i32 %131 to i8
-  %133 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i.i.i
   store i8 %132, ptr %133, align 1
   br label %parseAllowedMask.exit.i.i
 
 134:                                              ; preds = %.lr.ph.i.i.i
-  %135 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
+  %135 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i.i.i
   store i8 -1, ptr %135, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %136 = add nsw i32 %.229.i.i.i, -8
@@ -1953,7 +1953,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %.not39.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 parseAllowedMask.exit.i.i:                        ; preds = %134, %.thread.i.i.i
-  %137 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
+  %137 = getelementptr inbounds %struct.AllowedPeerInfo, ptr @_peers, i64 %111
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   br label %152
 
@@ -1986,9 +1986,9 @@ parseAllowedMask.exit.i.i:                        ; preds = %134, %.thread.i.i.i
 
 152:                                              ; preds = %152, %parseAllowedMask.exit.i.i
   %.053.i.i = phi i64 [ 0, %parseAllowedMask.exit.i.i ], [ %158, %152 ]
-  %153 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 0, i64 %.053.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %138, i64 %.053.i.i
   %154 = load i8, ptr %153, align 1
-  %155 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 0, i64 %.053.i.i
+  %155 = getelementptr inbounds nuw i8, ptr %137, i64 %.053.i.i
   %156 = load i8, ptr %155, align 1
   %157 = and i8 %156, %154
   store i8 %157, ptr %155, align 1
@@ -2589,7 +2589,7 @@ recv_fully.exit.thread:                           ; preds = %51, %recv_fully.exi
   br i1 %.not, label %.lr.ph.i43, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   store i8 0, ptr %75, align 1
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 112, ptr noundef nonnull @.str.21, ptr noundef nonnull %3, ptr noundef nonnull @.str.17) #13
   %77 = load i32, ptr @tlsIndex, align 4

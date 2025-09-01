@@ -125,10 +125,10 @@ define void @ff_rdt_calc_response_and_checksum(ptr noundef %0, ptr noundef write
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [37 x i8], ptr @ff_rdt_calc_response_and_checksum.xor_table, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr @ff_rdt_calc_response_and_checksum.xor_table, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !48
-  %13 = add nuw nsw i64 %indvars.iv, 8
-  %14 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %13
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 1, !tbaa !48
   %16 = xor i8 %15, %12
   store i8 %16, ptr %14, align 1, !tbaa !48

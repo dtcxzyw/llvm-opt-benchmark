@@ -483,33 +483,33 @@ define internal noundef i32 @threshold_slice(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %.loopexit ]
   %21 = load ptr, ptr %1, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %23 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !40
   %25 = sext i32 %24 to i64
   %26 = load ptr, ptr %12, align 8, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %28 = getelementptr inbounds nuw [8 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %13, align 8, !tbaa !77
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %33 = getelementptr inbounds nuw [8 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !40
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !40
-  %38 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !40
   %40 = mul nsw i32 %39, %2
   %41 = sdiv i32 %40, %3
   %42 = mul nsw i32 %39, %16
   %43 = sdiv i32 %42, %3
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds nuw [8 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !85
   %47 = mul nsw i64 %44, %30
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !85
   %51 = mul nsw i64 %44, %35
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
@@ -521,7 +521,7 @@ define internal noundef i32 @threshold_slice(ptr noundef readonly captures(none)
   br i1 %.not, label %57, label %61
 
 57:                                               ; preds = %20
-  %58 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !40
   %60 = sub nsw i32 %43, %41
   tail call void @av_image_copy_plane(ptr noundef %52, i32 noundef %34, ptr noundef %48, i32 noundef %29, i32 noundef %59, i32 noundef %60) #8
@@ -532,7 +532,7 @@ define internal noundef i32 @threshold_slice(ptr noundef readonly captures(none)
   br i1 %62, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %61
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !85
   %65 = mul nsw i64 %44, %25
   %66 = getelementptr inbounds i8, ptr %64, i64 %65

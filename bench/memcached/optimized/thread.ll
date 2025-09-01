@@ -1289,49 +1289,49 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
 
 166:                                              ; preds = %39, %166
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %166 ]
-  %167 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv
   %168 = load i64, ptr %167, align 8, !tbaa !159
-  %169 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %34, i64 0, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw %struct.slab_stats, ptr %34, i64 %indvars.iv
   %170 = load i64, ptr %169, align 8, !tbaa !159
   %171 = add i64 %170, %168
   store i64 %171, ptr %169, align 8, !tbaa !159
-  %172 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 1
+  %172 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 1
   %173 = load i64, ptr %172, align 8, !tbaa !161
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !161
   %176 = add i64 %175, %173
   store i64 %176, ptr %174, align 8, !tbaa !161
-  %177 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 2
+  %177 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 2
   %178 = load i64, ptr %177, align 8, !tbaa !162
   %179 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %180 = load i64, ptr %179, align 8, !tbaa !162
   %181 = add i64 %180, %178
   store i64 %181, ptr %179, align 8, !tbaa !162
-  %182 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 3
+  %182 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 3
   %183 = load i64, ptr %182, align 8, !tbaa !163
   %184 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %185 = load i64, ptr %184, align 8, !tbaa !163
   %186 = add i64 %185, %183
   store i64 %186, ptr %184, align 8, !tbaa !163
-  %187 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 4
+  %187 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 4
   %188 = load i64, ptr %187, align 8, !tbaa !164
   %189 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %190 = load i64, ptr %189, align 8, !tbaa !164
   %191 = add i64 %190, %188
   store i64 %191, ptr %189, align 8, !tbaa !164
-  %192 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 5
+  %192 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 5
   %193 = load i64, ptr %192, align 8, !tbaa !165
   %194 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %195 = load i64, ptr %194, align 8, !tbaa !165
   %196 = add i64 %195, %193
   store i64 %196, ptr %194, align 8, !tbaa !165
-  %197 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 6
+  %197 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 6
   %198 = load i64, ptr %197, align 8, !tbaa !166
   %199 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %200 = load i64, ptr %199, align 8, !tbaa !166
   %201 = add i64 %200, %198
   store i64 %201, ptr %199, align 8, !tbaa !166
-  %202 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %164, i64 0, i64 %indvars.iv, i32 7
+  %202 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %indvars.iv, i32 7
   %203 = load i64, ptr %202, align 8, !tbaa !167
   %204 = getelementptr inbounds nuw i8, ptr %169, i64 56
   %205 = load i64, ptr %204, align 8, !tbaa !167
@@ -1343,9 +1343,9 @@ define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6
 
 207:                                              ; preds = %.preheader, %207
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %207 ]
-  %208 = getelementptr inbounds nuw [256 x i64], ptr %165, i64 0, i64 %indvars.iv119
+  %208 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv119
   %209 = load i64, ptr %208, align 8, !tbaa !57
-  %210 = getelementptr inbounds nuw [256 x i64], ptr %35, i64 0, i64 %indvars.iv119
+  %210 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv119
   %211 = load i64, ptr %210, align 8, !tbaa !57
   %212 = add i64 %211, %209
   store i64 %212, ptr %210, align 8, !tbaa !57
@@ -1417,7 +1417,7 @@ define dso_local void @slab_stats_aggregate(ptr noundef readonly captures(none) 
   %17 = phi i64 [ 0, %2 ], [ %37, %11 ]
   %18 = phi i64 [ 0, %2 ], [ %40, %11 ]
   %19 = phi i64 [ 0, %2 ], [ %43, %11 ]
-  %20 = getelementptr inbounds nuw [64 x %struct.slab_stats], ptr %3, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.slab_stats, ptr %3, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !159
   %22 = add i64 %12, %21
   store i64 %22, ptr %1, align 8, !tbaa !159
@@ -1464,7 +1464,7 @@ define dso_local void @memcached_thread_init(i32 noundef %0, ptr noundef %1) loc
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
   %6 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

@@ -88,7 +88,7 @@ define hidden noundef i64 @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17he25c233c4a4a6d0fE(ptr noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -171,7 +171,7 @@ define hidden void @"_ZN15crossbeam_utils6atomic11atomic_cell19AtomicCell$LT$T$G
 define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17he0d909c5b3a39140E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = ptrtoint ptr %1 to i64
   %8 = urem i64 %7, 67
-  %9 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %8
   %10 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -3563,7 +3563,7 @@ common.resume:                                    ; preds = %.body, %427, %.thre
 
 .noexc1.i:                                        ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hda9220aaa345a177E.exit.i"
   %94 = load ptr, ptr %0, align 8, !noalias !488, !nonnull !4, !align !134, !noundef !4
-  %95 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %94, i64 0, i64 %.0.i.i.i
+  %95 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %94, i64 %.0.i.i.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %95, ptr %16, align 8, !alias.scope !488
   store ptr %34, ptr %52, align 8, !alias.scope !488
@@ -4522,7 +4522,7 @@ define internal fastcc void @"_ZN4moka4sync17value_initializer33ValueInitializer
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h900422f1314faabcE.exit.i": ; preds = %4
   %19 = load ptr, ptr %0, align 8, !noalias !703, !nonnull !4, !align !134, !noundef !4
-  %20 = getelementptr inbounds [0 x { { { i64 }, {} }, { i64 } }], ptr %19, i64 0, i64 %.0.i.i
+  %20 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %19, i64 %.0.i.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %5, align 8, !alias.scope !700, !noalias !697
@@ -6733,7 +6733,7 @@ define hidden void @"_ZN57_$LT$T$u20$as$u20$mini_lsm..table..bloom..BitSliceMut$
   %13 = trunc nuw nsw i64 %5 to i8
   %14 = shl nuw i8 1, %13
   %15 = xor i8 %14, -1
-  %16 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %4
   %17 = load i8, ptr %16, align 1, !noundef !4
   %18 = and i8 %17, %15
   store i8 %18, ptr %16, align 1
@@ -6750,7 +6750,7 @@ define hidden void @"_ZN57_$LT$T$u20$as$u20$mini_lsm..table..bloom..BitSliceMut$
   %22 = load ptr, ptr %0, align 8, !alias.scope !1029, !nonnull !4, !noundef !4
   %23 = trunc nuw nsw i64 %5 to i8
   %24 = shl nuw i8 1, %23
-  %25 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %4
   %26 = load i8, ptr %25, align 1, !noundef !4
   %27 = or i8 %26, %24
   store i8 %27, ptr %25, align 1

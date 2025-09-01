@@ -88,7 +88,7 @@ define internal i32 @ftr_parse(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %47, ptr %18, align 8, !tbaa !19
   %48 = load i8, ptr %21, align 1, !tbaa !24
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [15 x i8], ptr @ff_mpeg4audio_channels, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @ff_mpeg4audio_channels, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !23
   %52 = zext i8 %51 to i32
   %53 = load i32, ptr %22, align 8, !tbaa !26

@@ -63,7 +63,7 @@ define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.sroa.01.09, 1
-  %8 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.01.09
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.01.09
   store i8 61, ptr %8, align 1
   %exitcond11.not = icmp eq i64 %7, %5
   br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph

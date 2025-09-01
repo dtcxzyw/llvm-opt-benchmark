@@ -1553,9 +1553,9 @@ define range(i64 -554050779136, 554050782975) i64 @tj3JPEGBufSize(i32 noundef %0
   %12 = icmp eq i32 %2, -1
   %spec.store.select = select i1 %12, i32 0, i32 %2
   %13 = zext nneg i32 %spec.store.select to i64
-  %14 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !88
-  %16 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %13
   %17 = load i32, ptr %16, align 4, !tbaa !88
   %18 = icmp eq i32 %spec.store.select, 3
   br i1 %18, label %23, label %19
@@ -1604,10 +1604,10 @@ define range(i64 -554050779136, 554050782975) i64 @tjBufSize(i32 noundef %0, i32
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !88
   %.fr14 = freeze i32 %13
-  %14 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %11
   %15 = load i32, ptr %14, align 4, !tbaa !88
   %.fr13 = freeze i32 %15
   %16 = icmp eq i32 %2, 3
@@ -1701,12 +1701,12 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %15 = icmp slt i32 %0, 1
   %16 = zext nneg i32 %0 to i64
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %17
   %19 = add nsw i64 %16, -1
   %20 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
   %21 = icmp slt i32 %2, 1
   %22 = zext nneg i32 %2 to i64
-  %23 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %17
+  %23 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %17
   %24 = add nsw i64 %22, -1
   %25 = add nsw i32 %1, -1
   %26 = sub nsw i32 0, %1
@@ -1845,7 +1845,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
 10:                                               ; preds = %7
   %11 = zext nneg i32 %1 to i64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !88
   %15 = sdiv i32 %14, 8
   %16 = sext i32 %15 to i64
@@ -1898,7 +1898,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
 10:                                               ; preds = %7
   %11 = zext nneg i32 %1 to i64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !88
   %15 = sdiv i32 %14, 8
   %16 = sext i32 %15 to i64
@@ -1984,7 +1984,7 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !88
   %22 = sdiv i32 %21, 8
   %23 = sext i32 %22 to i64
@@ -2020,7 +2020,7 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
   %40 = phi i32 [ %38, %.thread ], [ 0, %.thread51 ]
   %41 = zext nneg i32 %3 to i64
   %42 = zext nneg i32 %4 to i64
-  %43 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !88
   %45 = sdiv i32 %44, 8
   %46 = sext i32 %45 to i64
@@ -2106,7 +2106,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %1 to i64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !88
   %15 = sdiv i32 %14, 8
   %16 = sext i32 %15 to i64
@@ -2167,7 +2167,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef
 10:                                               ; preds = %7
   %11 = zext nneg i32 %1 to i64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !88
   %15 = sdiv i32 %14, 8
   %16 = sext i32 %15 to i64
@@ -2416,7 +2416,7 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %5 to i64
-  %62 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !88
   %64 = mul nsw i32 %63, %2
   br label %65
@@ -2592,11 +2592,11 @@ define internal fastcc void @setCompDefaults(ptr noundef nonnull initializes((56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1756
   %4 = load i32, ptr %3, align 4, !tbaa !72
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr @pf2cs, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %7, ptr %8, align 4, !tbaa !102
-  %9 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %5
+  %9 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %5
   %10 = load i32, ptr %9, align 4, !tbaa !88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %10, ptr %11, align 8, !tbaa !103
@@ -2671,7 +2671,7 @@ define internal fastcc void @setCompDefaults(ptr noundef nonnull initializes((56
 
 switch.lookup:                                    ; preds = %44
   %58 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.setCompDefaults, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.setCompDefaults, i64 %58
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %59
 
@@ -2706,7 +2706,7 @@ switch.lookup:                                    ; preds = %44
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %73, ptr %74, align 4, !tbaa !115
   %75 = sext i32 %4 to i64
-  %76 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %75
+  %76 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !88
   %78 = sdiv i32 %77, 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2723,7 +2723,7 @@ switch.lookup:                                    ; preds = %44
   br i1 %86, label %94, label %87
 
 87:                                               ; preds = %71
-  %88 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %75
+  %88 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %75
   %89 = load i32, ptr %88, align 4, !tbaa !88
   %90 = sdiv i32 %89, 8
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 12
@@ -2737,7 +2737,7 @@ switch.lookup:                                    ; preds = %44
 94:                                               ; preds = %71
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 296
   store i32 %78, ptr %95, align 8, !tbaa !117
-  %96 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %75
+  %96 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %75
   %97 = load i32, ptr %96, align 4, !tbaa !88
   %98 = sdiv i32 %97, 8
   %99 = getelementptr inbounds nuw i8, ptr %80, i64 12
@@ -2887,7 +2887,7 @@ define range(i32 -1, 1) i32 @tj3Decompress8(ptr noundef %0, ptr noundef %1, i64 
 
 switch.lookup:                                    ; preds = %61
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -2953,7 +2953,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 119:                                              ; preds = %setDecompParameters.exit
   %120 = sext i32 %5 to i64
-  %121 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %120
+  %121 = getelementptr inbounds i32, ptr @pf2cs, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !88
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 %122, ptr %123, align 8, !tbaa !143
@@ -3056,7 +3056,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 173:                                              ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %175 = load i32, ptr %174, align 8, !tbaa !152
-  %176 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %120
+  %176 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %120
   %177 = load i32, ptr %176, align 4, !tbaa !88
   %178 = mul i32 %177, %175
   br label %179
@@ -3470,7 +3470,7 @@ tj3Init.exit:                                     ; preds = %33
 
 84:                                               ; preds = %80
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr @pf2cs, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !88
   br label %88
 
@@ -3602,12 +3602,12 @@ tj3Init.exit:                                     ; preds = %33
   store i32 %161, ptr %4, align 4, !tbaa !88
   %162 = load i32, ptr %89, align 4, !tbaa !166
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [17 x i32], ptr @cs2pf, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr @cs2pf, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !88
   store i32 %165, ptr %5, align 4, !tbaa !88
   %166 = load i32, ptr %2, align 4, !tbaa !88
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %167
+  %168 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !88
   %170 = mul nsw i32 %169, %166
   %171 = add nsw i32 %3, -1
@@ -3667,7 +3667,7 @@ tj3Init.exit:                                     ; preds = %33
   %201 = load i32, ptr %2, align 4, !tbaa !88
   %202 = load i32, ptr %5, align 4, !tbaa !88
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %203
+  %204 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !88
   %206 = mul nsw i32 %205, %201
   %207 = sext i32 %206 to i64
@@ -3700,7 +3700,7 @@ tj3Init.exit:                                     ; preds = %33
   %217 = load i32, ptr %2, align 4, !tbaa !88
   %218 = load i32, ptr %5, align 4, !tbaa !88
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %219
+  %220 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !88
   %222 = mul nsw i32 %221, %217
   %223 = sext i32 %222 to i64
@@ -3878,7 +3878,7 @@ tj3Init.exit:                                     ; preds = %25
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %6 to i64
-  %59 = getelementptr inbounds nuw [12 x i32], ptr @pf2cs, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr @pf2cs, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 584
   store i32 %60, ptr %61, align 8, !tbaa !143
@@ -3974,7 +3974,7 @@ tj3Init.exit:                                     ; preds = %25
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %101
-  %116 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %116 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %117 = load i32, ptr %116, align 4, !tbaa !88
   %118 = mul nsw i32 %117, %3
   br label %119
@@ -3990,7 +3990,7 @@ tj3Init.exit:                                     ; preds = %25
 
 .lr.ph:                                           ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %.0101, i64 40
-  %126 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %126 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %127 = load i32, ptr %126, align 4, !tbaa !88
   %128 = mul nsw i32 %127, %3
   %129 = sext i32 %128 to i64
@@ -4168,7 +4168,7 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %5 to i64
-  %62 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !88
   %64 = mul nsw i32 %63, %2
   br label %65
@@ -4462,7 +4462,7 @@ define range(i32 -1, 1) i32 @tj3Decompress12(ptr noundef %0, ptr noundef %1, i64
 
 switch.lookup:                                    ; preds = %61
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -4528,7 +4528,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 119:                                              ; preds = %setDecompParameters.exit
   %120 = sext i32 %5 to i64
-  %121 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %120
+  %121 = getelementptr inbounds i32, ptr @pf2cs, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !88
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 %122, ptr %123, align 8, !tbaa !143
@@ -4631,7 +4631,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 173:                                              ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %175 = load i32, ptr %174, align 8, !tbaa !152
-  %176 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %120
+  %176 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %120
   %177 = load i32, ptr %176, align 4, !tbaa !88
   %178 = mul i32 %177, %175
   br label %179
@@ -4994,7 +4994,7 @@ tj3Init.exit:                                     ; preds = %33
 
 84:                                               ; preds = %80
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr @pf2cs, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !88
   br label %88
 
@@ -5126,12 +5126,12 @@ tj3Init.exit:                                     ; preds = %33
   store i32 %161, ptr %4, align 4, !tbaa !88
   %162 = load i32, ptr %89, align 4, !tbaa !166
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [17 x i32], ptr @cs2pf, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr @cs2pf, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !88
   store i32 %165, ptr %5, align 4, !tbaa !88
   %166 = load i32, ptr %2, align 4, !tbaa !88
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %167
+  %168 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !88
   %170 = mul nsw i32 %169, %166
   %171 = add nsw i32 %3, -1
@@ -5192,7 +5192,7 @@ tj3Init.exit:                                     ; preds = %33
   %202 = load i32, ptr %2, align 4, !tbaa !88
   %203 = load i32, ptr %5, align 4, !tbaa !88
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %204
+  %205 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !88
   %207 = mul nsw i32 %206, %202
   %208 = sext i32 %207 to i64
@@ -5226,7 +5226,7 @@ tj3Init.exit:                                     ; preds = %33
   %219 = load i32, ptr %2, align 4, !tbaa !88
   %220 = load i32, ptr %5, align 4, !tbaa !88
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %221
+  %222 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !88
   %224 = mul nsw i32 %223, %219
   %225 = sext i32 %224 to i64
@@ -5385,7 +5385,7 @@ tj3Init.exit:                                     ; preds = %25
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %6 to i64
-  %59 = getelementptr inbounds nuw [12 x i32], ptr @pf2cs, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr @pf2cs, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 584
   store i32 %60, ptr %61, align 8, !tbaa !143
@@ -5481,7 +5481,7 @@ tj3Init.exit:                                     ; preds = %25
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %101
-  %116 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %116 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %117 = load i32, ptr %116, align 4, !tbaa !88
   %118 = mul nsw i32 %117, %3
   br label %119
@@ -5497,7 +5497,7 @@ tj3Init.exit:                                     ; preds = %25
 
 .lr.ph:                                           ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %.0101, i64 48
-  %126 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %126 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %127 = load i32, ptr %126, align 4, !tbaa !88
   %128 = mul nsw i32 %127, %3
   %129 = sext i32 %128 to i64
@@ -5668,7 +5668,7 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %5 to i64
-  %62 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !88
   %64 = mul nsw i32 %63, %2
   br label %65
@@ -5960,7 +5960,7 @@ define range(i32 -1, 1) i32 @tj3Decompress16(ptr noundef %0, ptr noundef %1, i64
 
 switch.lookup:                                    ; preds = %59
   %74 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -6026,7 +6026,7 @@ setDecompParameters.exit:                         ; preds = %59, %switch.lookup
 
 117:                                              ; preds = %setDecompParameters.exit
   %118 = sext i32 %5 to i64
-  %119 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %118
+  %119 = getelementptr inbounds i32, ptr @pf2cs, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !88
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 %120, ptr %121, align 8, !tbaa !143
@@ -6057,7 +6057,7 @@ setDecompParameters.exit:                         ; preds = %59, %switch.lookup
 138:                                              ; preds = %117
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %140 = load i32, ptr %139, align 8, !tbaa !152
-  %141 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %118
+  %141 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %118
   %142 = load i32, ptr %141, align 4, !tbaa !88
   %143 = mul i32 %142, %140
   br label %144
@@ -6311,7 +6311,7 @@ tj3Init.exit:                                     ; preds = %33
 
 84:                                               ; preds = %80
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %85
+  %86 = getelementptr inbounds i32, ptr @pf2cs, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !88
   br label %88
 
@@ -6443,12 +6443,12 @@ tj3Init.exit:                                     ; preds = %33
   store i32 %161, ptr %4, align 4, !tbaa !88
   %162 = load i32, ptr %89, align 4, !tbaa !166
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw [17 x i32], ptr @cs2pf, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr @cs2pf, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !88
   store i32 %165, ptr %5, align 4, !tbaa !88
   %166 = load i32, ptr %2, align 4, !tbaa !88
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %167
+  %168 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !88
   %170 = mul nsw i32 %169, %166
   %171 = add nsw i32 %3, -1
@@ -6509,7 +6509,7 @@ tj3Init.exit:                                     ; preds = %33
   %202 = load i32, ptr %2, align 4, !tbaa !88
   %203 = load i32, ptr %5, align 4, !tbaa !88
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %204
+  %205 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !88
   %207 = mul nsw i32 %206, %202
   %208 = sext i32 %207 to i64
@@ -6543,7 +6543,7 @@ tj3Init.exit:                                     ; preds = %33
   %219 = load i32, ptr %2, align 4, !tbaa !88
   %220 = load i32, ptr %5, align 4, !tbaa !88
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %221
+  %222 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !88
   %224 = mul nsw i32 %223, %219
   %225 = sext i32 %224 to i64
@@ -6702,7 +6702,7 @@ tj3Init.exit:                                     ; preds = %25
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %6 to i64
-  %59 = getelementptr inbounds nuw [12 x i32], ptr @pf2cs, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr @pf2cs, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 584
   store i32 %60, ptr %61, align 8, !tbaa !143
@@ -6798,7 +6798,7 @@ tj3Init.exit:                                     ; preds = %25
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %101
-  %116 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %116 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %117 = load i32, ptr %116, align 4, !tbaa !88
   %118 = mul nsw i32 %117, %3
   br label %119
@@ -6814,7 +6814,7 @@ tj3Init.exit:                                     ; preds = %25
 
 .lr.ph:                                           ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %.0101, i64 56
-  %126 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %58
+  %126 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %58
   %127 = load i32, ptr %126, align 4, !tbaa !88
   %128 = mul nsw i32 %127, %3
   %129 = sext i32 %128 to i64
@@ -7012,9 +7012,9 @@ processFlags.exit:                                ; preds = %38, %52
   %65 = icmp eq i32 %56, -1
   %spec.store.select.i = select i1 %65, i32 0, i32 %56
   %66 = zext nneg i32 %spec.store.select.i to i64
-  %67 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !88
-  %69 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %66
+  %69 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %66
   %70 = load i32, ptr %69, align 4, !tbaa !88
   %71 = icmp eq i32 %spec.store.select.i, 3
   br i1 %71, label %76, label %72
@@ -7364,7 +7364,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %115 = load i32, ptr %114, align 4, !tbaa !223
   %116 = shl i32 %115, 3
-  %117 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv330
+  %117 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv330
   store i32 %116, ptr %117, align 4, !tbaa !88
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %119 = load i32, ptr %118, align 8, !tbaa !224
@@ -7372,13 +7372,13 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %121 = load i32, ptr %120, align 8, !tbaa !117
   %122 = mul i32 %104, %121
   %123 = udiv i32 %122, %100
-  %124 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv330
+  %124 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv330
   store i32 %123, ptr %124, align 4, !tbaa !88
   %125 = getelementptr inbounds nuw i8, ptr %113, i64 12
   %126 = load i32, ptr %125, align 4, !tbaa !120
   %127 = mul i32 %111, %126
   %128 = udiv i32 %127, %107
-  %129 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv330
+  %129 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv330
   store i32 %128, ptr %129, align 4, !tbaa !88
   %.not247 = icmp eq i32 %116, %123
   %130 = shl i32 %119, 3
@@ -7386,14 +7386,14 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %or.cond252 = select i1 %.not247, i1 %.not248, i1 false
   %.1220 = select i1 %or.cond252, i32 %.0219277, i32 1
   %131 = shl nsw i32 %126, 3
-  %132 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %indvars.iv330
+  %132 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv330
   store i32 %131, ptr %132, align 4, !tbaa !88
   %133 = mul nsw i32 %131, %116
   %134 = add nsw i32 %133, %.0221276
   %135 = sext i32 %128 to i64
   %136 = shl nsw i64 %135, 3
   %137 = call noalias ptr @malloc(i64 noundef %136) #28
-  %138 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv330
+  %138 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv330
   store ptr %137, ptr %138, align 8, !tbaa !217
   %139 = icmp eq ptr %137, null
   br i1 %139, label %161, label %140
@@ -7493,12 +7493,12 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 .lr.ph291:                                        ; preds = %.lr.ph291.preheader, %._crit_edge287
   %indvars.iv338 = phi i64 [ 0, %.lr.ph291.preheader ], [ %indvars.iv.next339, %._crit_edge287 ]
   %.1215289 = phi ptr [ %169, %.lr.ph291.preheader ], [ %.2216.lcssa, %._crit_edge287 ]
-  %176 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %indvars.iv338
+  %176 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv338
   %177 = load i32, ptr %176, align 4, !tbaa !88
   %178 = sext i32 %177 to i64
   %179 = shl nsw i64 %178, 3
   %180 = call noalias ptr @malloc(i64 noundef %179) #28
-  %181 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv338
+  %181 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv338
   store ptr %180, ptr %181, align 8, !tbaa !217
   %182 = icmp eq ptr %180, null
   br i1 %182, label %187, label %.preheader261
@@ -7508,7 +7508,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br i1 %183, label %.lr.ph286, label %._crit_edge287
 
 .lr.ph286:                                        ; preds = %.preheader261
-  %184 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv338
+  %184 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv338
   %185 = load i32, ptr %184, align 4, !tbaa !88
   %186 = sext i32 %185 to i64
   %wide.trip.count336 = zext nneg i32 %177 to i64
@@ -7589,11 +7589,11 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %212 = load i32, ptr %211, align 4, !tbaa !120
   %213 = mul nsw i32 %212, %.2208310.us
   %214 = sdiv i32 %213, %.pre374
-  %215 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv365
+  %215 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv365
   %216 = load ptr, ptr %215, align 8, !tbaa !217
   %217 = sext i32 %214 to i64
   %218 = getelementptr inbounds ptr, ptr %216, i64 %217
-  %219 = getelementptr inbounds nuw [10 x ptr], ptr %14, i64 0, i64 %indvars.iv365
+  %219 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv365
   store ptr %218, ptr %219, align 8, !tbaa !217
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
@@ -7614,9 +7614,9 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %225 = mul nsw i32 %224, %.2208310
   %226 = load i32, ptr %199, align 4, !tbaa !222
   %227 = sdiv i32 %225, %226
-  %228 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %indvars.iv362
+  %228 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv362
   %229 = load i32, ptr %228, align 4, !tbaa !88
-  %230 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv362
+  %230 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv362
   %231 = load i32, ptr %230, align 4, !tbaa !88
   %232 = sub nsw i32 %231, %227
   %. = call i32 @llvm.smin.i32(i32 %229, i32 %232)
@@ -7624,14 +7624,14 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br i1 %233, label %.lr.ph297, label %.preheader
 
 .lr.ph297:                                        ; preds = %.preheader259
-  %234 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv362
+  %234 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv362
   %235 = load ptr, ptr %234, align 8, !tbaa !217
-  %236 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv362
+  %236 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv362
   %237 = load ptr, ptr %236, align 8, !tbaa !217
-  %238 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv362
+  %238 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv362
   %239 = load i32, ptr %238, align 4, !tbaa !88
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv362
+  %241 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv362
   %242 = load i32, ptr %241, align 4, !tbaa !88
   %243 = icmp slt i32 %239, %242
   %244 = sext i32 %227 to i64
@@ -7671,7 +7671,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %.lr.ph297.split, %._crit_edge295.us, %.preheader259
   %254 = icmp slt i32 %232, %229
-  %255 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv362
+  %255 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv362
   %256 = load ptr, ptr %255, align 8, !tbaa !217
   br i1 %254, label %.lr.ph304, label %._crit_edge305
 
@@ -7680,7 +7680,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %258 = add i32 %231, %257
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds ptr, ptr %256, i64 %259
-  %261 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv362
+  %261 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv362
   %262 = load i32, ptr %261, align 4, !tbaa !88
   %263 = sext i32 %262 to i64
   %264 = sext i32 %232 to i64
@@ -7709,7 +7709,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br i1 %exitcond361.not, label %._crit_edge305, label %268, !llvm.loop !234
 
 ._crit_edge305:                                   ; preds = %268, %.preheader
-  %272 = getelementptr inbounds nuw [10 x ptr], ptr %14, i64 0, i64 %indvars.iv362
+  %272 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv362
   store ptr %256, ptr %272, align 8, !tbaa !217
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %273 = load i32, ptr %93, align 4, !tbaa !219
@@ -7768,10 +7768,10 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 
 298:                                              ; preds = %.preheader417, %298
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %298 ], [ 0, %.preheader417 ]
-  %299 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv370
+  %299 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv370
   %300 = load ptr, ptr %299, align 8, !tbaa !217
   call void @free(ptr noundef %300) #26
-  %301 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv370
+  %301 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv370
   %302 = load ptr, ptr %301, align 8, !tbaa !217
   call void @free(ptr noundef %302) #26
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
@@ -7918,9 +7918,9 @@ processFlags.exit:                                ; preds = %36, %50
   %63 = icmp eq i32 %54, -1
   %spec.store.select.i = select i1 %63, i32 0, i32 %54
   %64 = zext nneg i32 %spec.store.select.i to i64
-  %65 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !88
-  %67 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %64
+  %67 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %64
   %68 = load i32, ptr %67, align 4, !tbaa !88
   %69 = icmp eq i32 %spec.store.select.i, 3
   br i1 %69, label %74, label %70
@@ -8027,7 +8027,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %1,
 39:                                               ; preds = %37
   %40 = zext nneg i32 %2 to i64
   %41 = zext nneg i32 %30 to i64
-  %42 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !88
   %44 = sdiv i32 %43, 8
   %45 = sext i32 %44 to i64
@@ -8056,7 +8056,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %37, %39
   %58 = phi i32 [ %30, %tj3YUVPlaneWidth.exit.thread ], [ %.pre, %tj3YUVPlaneWidth.exit ]
   %59 = zext nneg i32 %4 to i64
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !88
   %63 = sdiv i32 %62, 8
   %64 = sext i32 %63 to i64
@@ -8106,7 +8106,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %56, %.sink.split.i6
 88:                                               ; preds = %86
   %89 = zext nneg i32 %2 to i64
   %90 = zext nneg i32 %75 to i64
-  %91 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !88
   %.fr = freeze i32 %92
   %93 = sdiv i32 %.fr, 8
@@ -8146,7 +8146,7 @@ tjPlaneWidth.exit:                                ; preds = %tj3YUVPlaneWidth.ex
 111:                                              ; preds = %tjPlaneWidth.exit
   %112 = zext nneg i32 %4 to i64
   %113 = zext nneg i32 %108 to i64
-  %114 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !88
   %.fr69 = freeze i32 %115
   %116 = sdiv i32 %.fr69, 8
@@ -8344,9 +8344,9 @@ processFlags.exit:                                ; preds = %34, %48
   %61 = icmp eq i32 %52, -1
   %spec.store.select.i = select i1 %61, i32 0, i32 %52
   %62 = zext nneg i32 %spec.store.select.i to i64
-  %63 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !88
-  %65 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %62
+  %65 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %62
   %66 = load i32, ptr %65, align 4, !tbaa !88
   %67 = icmp eq i32 %spec.store.select.i, 3
   br i1 %67, label %72, label %68
@@ -8520,7 +8520,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 73:                                               ; preds = %71
   %74 = zext nneg i32 %5 to i64
-  %75 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !88
   %77 = mul nsw i32 %76, %2
   br label %78
@@ -8678,7 +8678,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   %159 = add i32 %158, 32
   %160 = zext i32 %159 to i64
   %161 = call noalias ptr @malloc(i64 noundef %160) #28
-  %162 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 0, i64 %indvars.iv342
+  %162 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv342
   store ptr %161, ptr %162, align 8, !tbaa !52
   %.not256 = icmp eq ptr %161, null
   br i1 %.not256, label %163, label %168
@@ -8693,7 +8693,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 168:                                              ; preds = %148
   %169 = call noalias ptr @malloc(i64 noundef %146) #28
-  %170 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv342
+  %170 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv342
   store ptr %169, ptr %170, align 8, !tbaa !217
   %.not257 = icmp eq ptr %169, null
   br i1 %.not257, label %175, label %.preheader266
@@ -8738,7 +8738,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   %192 = add i32 %191, 32
   %193 = zext i32 %192 to i64
   %194 = call noalias ptr @malloc(i64 noundef %193) #28
-  %195 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv342
+  %195 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv342
   store ptr %194, ptr %195, align 8, !tbaa !52
   %.not258 = icmp eq ptr %194, null
   br i1 %.not258, label %196, label %201
@@ -8755,7 +8755,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   %202 = sext i32 %190 to i64
   %203 = shl nsw i64 %202, 3
   %204 = call noalias ptr @malloc(i64 noundef %203) #28
-  %205 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv342
+  %205 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv342
   store ptr %204, ptr %205, align 8, !tbaa !217
   %.not259 = icmp eq ptr %204, null
   br i1 %.not259, label %211, label %.preheader265
@@ -8795,14 +8795,14 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 ._crit_edge282:                                   ; preds = %216, %.preheader265
   %222 = mul nsw i32 %154, %104
   %223 = sdiv i32 %222, %100
-  %224 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv342
+  %224 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv342
   store i32 %223, ptr %224, align 4, !tbaa !88
   %225 = mul nsw i32 %190, %110
   %226 = sdiv i32 %225, %106
   %227 = sext i32 %226 to i64
   %228 = shl nsw i64 %227, 3
   %229 = call noalias ptr @malloc(i64 noundef %228) #28
-  %230 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv342
+  %230 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv342
   store ptr %229, ptr %230, align 8, !tbaa !217
   %.not260 = icmp eq ptr %229, null
   br i1 %.not260, label %231, label %236
@@ -8918,16 +8918,16 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 .lr.ph297:                                        ; preds = %.lr.ph297.preheader, %.lr.ph297
   %indvars.iv347 = phi i64 [ 0, %.lr.ph297.preheader ], [ %indvars.iv.next348, %.lr.ph297 ]
   %.0220295 = phi ptr [ %270, %.lr.ph297.preheader ], [ %282, %.lr.ph297 ]
-  %271 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv347
+  %271 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv347
   %272 = load ptr, ptr %271, align 8, !tbaa !217
-  %273 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv347
+  %273 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv347
   %274 = load ptr, ptr %273, align 8, !tbaa !217
   %275 = getelementptr inbounds nuw i8, ptr %.0220295, i64 12
   %276 = load i32, ptr %275, align 4, !tbaa !120
   %277 = mul nsw i32 %276, %.3228299
   %278 = load i32, ptr %105, align 4, !tbaa !222
   %279 = sdiv i32 %277, %278
-  %280 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv347
+  %280 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv347
   %281 = load i32, ptr %280, align 4, !tbaa !88
   call void @jcopy_sample_rows(ptr noundef %272, i32 noundef 0, ptr noundef %274, i32 noundef %279, i32 noundef %276, i32 noundef %281) #26
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
@@ -8969,19 +8969,19 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 298:                                              ; preds = %297, %298
   %indvars.iv350 = phi i64 [ 0, %297 ], [ %indvars.iv.next351, %298 ]
-  %299 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv350
+  %299 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv350
   %300 = load ptr, ptr %299, align 8, !tbaa !217
   call void @free(ptr noundef %300) #26
-  %301 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 0, i64 %indvars.iv350
+  %301 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv350
   %302 = load ptr, ptr %301, align 8, !tbaa !52
   call void @free(ptr noundef %302) #26
-  %303 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %indvars.iv350
+  %303 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv350
   %304 = load ptr, ptr %303, align 8, !tbaa !217
   call void @free(ptr noundef %304) #26
-  %305 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv350
+  %305 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv350
   %306 = load ptr, ptr %305, align 8, !tbaa !52
   call void @free(ptr noundef %306) #26
-  %307 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv350
+  %307 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv350
   %308 = load ptr, ptr %307, align 8, !tbaa !217
   call void @free(ptr noundef %308) #26
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
@@ -9169,7 +9169,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %1, i32 n
 41:                                               ; preds = %39
   %42 = zext nneg i32 %2 to i64
   %43 = zext nneg i32 %32 to i64
-  %44 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !88
   %46 = sdiv i32 %45, 8
   %47 = sext i32 %46 to i64
@@ -9198,7 +9198,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %39, %41
   %60 = phi i32 [ %32, %tj3YUVPlaneWidth.exit.thread ], [ %.pre, %tj3YUVPlaneWidth.exit ]
   %61 = zext nneg i32 %4 to i64
   %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !88
   %65 = sdiv i32 %64, 8
   %66 = sext i32 %65 to i64
@@ -9248,7 +9248,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %58, %.sink.split.i6
 90:                                               ; preds = %88
   %91 = zext nneg i32 %2 to i64
   %92 = zext nneg i32 %77 to i64
-  %93 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !88
   %95 = sdiv i32 %94, 8
   %96 = sext i32 %95 to i64
@@ -9282,7 +9282,7 @@ tj3YUVPlaneWidth.exit73:                          ; preds = %90, %.sink.split.i7
 111:                                              ; preds = %tj3YUVPlaneWidth.exit73
   %112 = zext nneg i32 %4 to i64
   %113 = zext nneg i32 %108 to i64
-  %114 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !88
   %116 = sdiv i32 %115, 8
   %117 = sext i32 %116 to i64
@@ -9604,7 +9604,7 @@ define range(i32 -1, 1) i32 @tj3DecompressHeader(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %30
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -9960,7 +9960,7 @@ define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is
 
 .preheader:                                       ; preds = %6, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %6 ]
-  %18 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %indvars.iv
   %19 = load i32, ptr %18, align 8, !tbaa !255
   %20 = icmp eq i32 %19, %.sroa.0.0.extract.trunc
   br i1 %20, label %21, label %25
@@ -10119,7 +10119,7 @@ define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef captures(address_i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1836
   %73 = load i32, ptr %72, align 4, !tbaa !145
   %74 = sext i32 %62 to i64
-  %75 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %74
+  %75 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !88
   %77 = mul nsw i32 %76, %71
   %78 = add i32 %73, -1
@@ -10136,7 +10136,7 @@ define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef captures(address_i
   %85 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
   %86 = load i32, ptr %61, align 4, !tbaa !72
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %87
+  %88 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !88
   %90 = load i32, ptr %70, align 8, !tbaa !144
   %91 = mul nsw i32 %90, %89
@@ -10250,7 +10250,7 @@ define range(i32 -1, 1) i32 @tjDecompress2(ptr noundef %0, ptr noundef %1, i64 n
 
 37:                                               ; preds = %29, %50
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %50 ]
-  %38 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %indvars.iv
   %39 = load i32, ptr %38, align 8, !tbaa !255
   %40 = mul nsw i32 %39, %32
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -10329,7 +10329,7 @@ define range(i32 -1, 1) i32 @tjDecompress2(ptr noundef %0, ptr noundef %1, i64 n
 
 processFlags.exit:                                ; preds = %60, %72
   %74 = and i64 %indvars.iv, 4294967295
-  %75 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = call i32 @tj3SetScalingFactor(ptr noundef nonnull %0, i64 %76)
   %78 = icmp eq i32 %77, -1
@@ -10557,7 +10557,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUVPlanes8(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %65
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %80
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -10704,7 +10704,7 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 28
   %170 = load i32, ptr %169, align 4, !tbaa !223
   %171 = mul i32 %170, %159
-  %172 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv325
+  %172 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv325
   store i32 %171, ptr %172, align 4, !tbaa !88
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %174 = load i32, ptr %173, align 8, !tbaa !224
@@ -10724,7 +10724,7 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
 182:                                              ; preds = %179
   %183 = zext nneg i32 %175 to i64
   %184 = zext nneg i32 %176 to i64
-  %185 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !88
   %187 = sdiv i32 %186, 8
   %188 = sext i32 %187 to i64
@@ -10757,7 +10757,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
   %202 = phi i32 [ %176, %199 ], [ %.pre, %.sink.split.i ]
   %.0.i = phi i64 [ %.1.i, %199 ], [ 0, %.sink.split.i ]
   %203 = trunc nuw nsw i64 %.0.i to i32
-  %204 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv325
+  %204 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv325
   store i32 %203, ptr %204, align 4, !tbaa !88
   %205 = load i32, ptr %165, align 4, !tbaa !157
   %206 = icmp slt i32 %205, 1
@@ -10774,7 +10774,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
 211:                                              ; preds = %208
   %212 = zext nneg i32 %205 to i64
   %213 = zext nneg i32 %202 to i64
-  %214 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %213
   %215 = load i32, ptr %214, align 4, !tbaa !88
   %216 = sdiv i32 %215, 8
   %217 = sext i32 %216 to i64
@@ -10805,7 +10805,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
 tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i247
   %.0.i248 = phi i64 [ %.1.i249, %228 ], [ 0, %.sink.split.i247 ]
   %231 = trunc nuw nsw i64 %.0.i248 to i32
-  %232 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv325
+  %232 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv325
   store i32 %231, ptr %232, align 4, !tbaa !88
   %.not240 = icmp eq i32 %171, %203
   %233 = mul i32 %174, %159
@@ -10815,13 +10815,13 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   %234 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %235 = load i32, ptr %234, align 4, !tbaa !120
   %236 = mul nsw i32 %235, %159
-  %237 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv325
+  %237 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv325
   store i32 %236, ptr %237, align 4, !tbaa !88
   %238 = mul nsw i32 %236, %171
   %239 = add nsw i32 %238, %.0208271
   %240 = shl nuw nsw i64 %.0.i248, 3
   %241 = call noalias ptr @malloc(i64 noundef %240) #28
-  %242 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv325
+  %242 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv325
   store ptr %241, ptr %242, align 8, !tbaa !217
   %243 = icmp eq ptr %241, null
   br i1 %243, label %257, label %244
@@ -10918,12 +10918,12 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 .lr.ph286:                                        ; preds = %.lr.ph286.preheader, %._crit_edge282
   %indvars.iv333 = phi i64 [ 0, %.lr.ph286.preheader ], [ %indvars.iv.next334, %._crit_edge282 ]
   %.1210284 = phi ptr [ %267, %.lr.ph286.preheader ], [ %.2211.lcssa, %._crit_edge282 ]
-  %275 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv333
+  %275 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv333
   %276 = load i32, ptr %275, align 4, !tbaa !88
   %277 = sext i32 %276 to i64
   %278 = shl nsw i64 %277, 3
   %279 = call noalias ptr @malloc(i64 noundef %278) #28
-  %280 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv333
+  %280 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv333
   store ptr %279, ptr %280, align 8, !tbaa !217
   %281 = icmp eq ptr %279, null
   br i1 %281, label %286, label %.preheader259
@@ -10933,7 +10933,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   br i1 %282, label %.lr.ph281, label %._crit_edge282
 
 .lr.ph281:                                        ; preds = %.preheader259
-  %283 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv333
+  %283 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv333
   %284 = load i32, ptr %283, align 4, !tbaa !88
   %285 = sext i32 %284 to i64
   %wide.trip.count331 = zext nneg i32 %276 to i64
@@ -11042,21 +11042,21 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   %336 = load ptr, ptr %316, align 8, !tbaa !270
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load ptr, ptr %337, align 8, !tbaa !271
-  %339 = getelementptr inbounds nuw [10 x ptr], ptr %337, i64 0, i64 %indvars.iv348
+  %339 = getelementptr inbounds nuw ptr, ptr %337, i64 %indvars.iv348
   store ptr %338, ptr %339, align 8, !tbaa !271
   %340 = mul nsw i32 %332, %.2202296
   %341 = sdiv i32 %340, %.pre367
-  %342 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv348
+  %342 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv348
   store i32 %341, ptr %342, align 4, !tbaa !88
   br i1 %.0214.lcssa390, label %346, label %343
 
 343:                                              ; preds = %327
-  %344 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv348
+  %344 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv348
   %345 = load ptr, ptr %344, align 8, !tbaa !217
   br label %351
 
 346:                                              ; preds = %327
-  %347 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv348
+  %347 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv348
   %348 = load ptr, ptr %347, align 8, !tbaa !217
   %349 = sext i32 %341 to i64
   %350 = getelementptr inbounds ptr, ptr %348, i64 %349
@@ -11064,7 +11064,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 
 351:                                              ; preds = %346, %343
   %.sink365 = phi ptr [ %350, %346 ], [ %345, %343 ]
-  %352 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv348
+  %352 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv348
   store ptr %.sink365, ptr %352, align 8, !tbaa !217
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
@@ -11089,13 +11089,13 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   %356 = load i32, ptr %355, align 4, !tbaa !120
   %357 = mul nsw i32 %356, %.2202296
   %358 = sdiv i32 %357, %.pre367
-  %359 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv343
+  %359 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv343
   store i32 %358, ptr %359, align 4, !tbaa !88
-  %360 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv343
+  %360 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv343
   %361 = load ptr, ptr %360, align 8, !tbaa !217
   %362 = sext i32 %358 to i64
   %363 = getelementptr inbounds ptr, ptr %361, i64 %362
-  %364 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv343
+  %364 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv343
   store ptr %363, ptr %364, align 8, !tbaa !217
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
@@ -11113,11 +11113,11 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   %369 = load i32, ptr %368, align 4, !tbaa !120
   %370 = mul nsw i32 %369, %.2202296
   %371 = sdiv i32 %370, %.pre367
-  %372 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv338
+  %372 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv338
   store i32 %371, ptr %372, align 4, !tbaa !88
-  %373 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv338
+  %373 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv338
   %374 = load ptr, ptr %373, align 8, !tbaa !217
-  %375 = getelementptr inbounds nuw [10 x ptr], ptr %13, i64 0, i64 %indvars.iv338
+  %375 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv338
   store ptr %374, ptr %375, align 8, !tbaa !217
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
@@ -11143,11 +11143,11 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 .preheader:                                       ; preds = %.preheader258, %._crit_edge294
   %384 = phi i32 [ %405, %._crit_edge294 ], [ %382, %.preheader258 ]
   %indvars.iv358 = phi i64 [ %indvars.iv.next359, %._crit_edge294 ], [ 0, %.preheader258 ]
-  %385 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv358
+  %385 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv358
   %386 = load i32, ptr %385, align 4, !tbaa !88
-  %387 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv358
+  %387 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv358
   %388 = load i32, ptr %387, align 4, !tbaa !88
-  %389 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv358
+  %389 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv358
   %390 = load i32, ptr %389, align 4, !tbaa !88
   %391 = sub nsw i32 %388, %390
   %. = call i32 @llvm.smin.i32(i32 %386, i32 %391)
@@ -11155,11 +11155,11 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   br i1 %392, label %.lr.ph293, label %._crit_edge294
 
 .lr.ph293:                                        ; preds = %.preheader
-  %393 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv358
+  %393 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv358
   %394 = load ptr, ptr %393, align 8, !tbaa !217
-  %395 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv358
+  %395 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv358
   %396 = load ptr, ptr %395, align 8, !tbaa !217
-  %397 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv358
+  %397 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv358
   %398 = load i32, ptr %397, align 4, !tbaa !88
   %399 = sext i32 %398 to i64
   %400 = sext i32 %390 to i64
@@ -11221,10 +11221,10 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 
 420:                                              ; preds = %.preheader404, %420
   %indvars.iv361 = phi i64 [ %indvars.iv.next362, %420 ], [ 0, %.preheader404 ]
-  %421 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv361
+  %421 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv361
   %422 = load ptr, ptr %421, align 8, !tbaa !217
   call void @free(ptr noundef %422) #26
-  %423 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv361
+  %423 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv361
   %424 = load ptr, ptr %423, align 8, !tbaa !217
   call void @free(ptr noundef %424) #26
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
@@ -11306,7 +11306,7 @@ define range(i32 -1, 1) i32 @tjDecompressToYUVPlanes(ptr noundef %0, ptr noundef
 
 36:                                               ; preds = %28, %49
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %49 ]
-  %37 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8, !tbaa !255
   %39 = mul nsw i32 %38, %31
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -11385,7 +11385,7 @@ define range(i32 -1, 1) i32 @tjDecompressToYUVPlanes(ptr noundef %0, ptr noundef
 
 processFlags.exit:                                ; preds = %59, %71
   %73 = and i64 %indvars.iv, 4294967295
-  %74 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = call i32 @tj3SetScalingFactor(ptr noundef nonnull %0, i64 %75)
   %77 = icmp eq i32 %76, -1
@@ -11492,7 +11492,7 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUV8(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %30
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.tj3DecompressToYUV8, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tj3DecompressToYUV8, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %setDecompParameters.exit
 
@@ -11560,7 +11560,7 @@ setDecompParameters.exit:                         ; preds = %30, %switch.lookup
 91:                                               ; preds = %77
   %92 = zext nneg i32 %85 to i64
   %93 = zext nneg i32 %31 to i64
-  %94 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !88
   %96 = sdiv i32 %95, 8
   %97 = sext i32 %96 to i64
@@ -11591,7 +11591,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %91, %.sink.split.i
 110:                                              ; preds = %tj3YUVPlaneWidth.exit
   %111 = zext nneg i32 %88 to i64
   %112 = zext nneg i32 %106 to i64
-  %113 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !88
   %115 = sdiv i32 %114, 8
   %116 = sext i32 %115 to i64
@@ -11640,7 +11640,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %110, %.sink.split.i
 138:                                              ; preds = %136
   %139 = zext nneg i32 %85 to i64
   %140 = zext nneg i32 %125 to i64
-  %141 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !88
   %143 = sdiv i32 %142, 8
   %144 = sext i32 %143 to i64
@@ -11675,7 +11675,7 @@ tj3YUVPlaneWidth.exit91:                          ; preds = %138, %.sink.split.i
 160:                                              ; preds = %tj3YUVPlaneWidth.exit91
   %161 = zext nneg i32 %88 to i64
   %162 = zext nneg i32 %156 to i64
-  %163 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !88
   %165 = sdiv i32 %164, 8
   %166 = sext i32 %165 to i64
@@ -11809,7 +11809,7 @@ define range(i32 -1, 1) i32 @tjDecompressToYUV2(ptr noundef %0, ptr noundef %1, 
 
 36:                                               ; preds = %28, %49
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %49 ]
-  %37 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8, !tbaa !255
   %39 = mul nsw i32 %38, %31
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -11888,7 +11888,7 @@ define range(i32 -1, 1) i32 @tjDecompressToYUV2(ptr noundef %0, ptr noundef %1, 
 
 processFlags.exit:                                ; preds = %59, %71
   %73 = and i64 %indvars.iv, 4294967295
-  %74 = getelementptr inbounds nuw [16 x %struct.tjscalingfactor], ptr @sf, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr @sf, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = call i32 @tj3SetScalingFactor(ptr noundef nonnull %0, i64 %75)
   %77 = icmp eq i32 %76, -1
@@ -12055,7 +12055,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   br i1 %78, label %80, label %._crit_edge317
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %79
   %82 = load i32, ptr %81, align 4, !tbaa !88
   %83 = mul nsw i32 %82, %4
   br label %._crit_edge317
@@ -12093,7 +12093,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %97, ptr %101, align 8, !tbaa !289
   store ptr %98, ptr %100, align 8, !tbaa !291
-  %102 = getelementptr inbounds nuw [12 x i32], ptr @pf2cs, i64 0, i64 %79
+  %102 = getelementptr inbounds nuw i32, ptr @pf2cs, i64 %79
   %103 = load i32, ptr %102, align 4, !tbaa !88
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 %103, ptr %104, align 8, !tbaa !143
@@ -12129,7 +12129,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 126:                                              ; preds = %._crit_edge317
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %128 = load i32, ptr %127, align 8, !tbaa !152
-  %129 = getelementptr inbounds nuw [12 x i32], ptr @tjPixelSize, i64 0, i64 %79
+  %129 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %79
   %130 = load i32, ptr %129, align 4, !tbaa !88
   %131 = mul i32 %130, %128
   br label %132
@@ -12231,7 +12231,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %176 = add i32 %175, 32
   %177 = zext i32 %176 to i64
   %178 = call noalias ptr @malloc(i64 noundef %177) #28
-  %179 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 0, i64 %indvars.iv305
+  %179 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv305
   store ptr %178, ptr %179, align 8, !tbaa !52
   %.not233 = icmp eq ptr %178, null
   br i1 %.not233, label %180, label %185
@@ -12248,7 +12248,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %186 = sext i32 %174 to i64
   %187 = shl nsw i64 %186, 3
   %188 = call noalias ptr @malloc(i64 noundef %187) #28
-  %189 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv305
+  %189 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv305
   store ptr %188, ptr %189, align 8, !tbaa !217
   %.not234 = icmp eq ptr %188, null
   br i1 %.not234, label %195, label %.preheader240
@@ -12290,14 +12290,14 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %207 = load i32, ptr %206, align 8, !tbaa !117
   %208 = mul nsw i32 %207, %118
   %209 = sdiv i32 %208, %114
-  %210 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv305
+  %210 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv305
   store i32 %209, ptr %210, align 4, !tbaa !88
   %211 = mul nsw i32 %174, %124
   %212 = sdiv i32 %211, %120
   %213 = sext i32 %212 to i64
   %214 = shl nsw i64 %213, 3
   %215 = call noalias ptr @malloc(i64 noundef %214) #28
-  %216 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv305
+  %216 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv305
   store ptr %215, ptr %216, align 8, !tbaa !217
   %.not235 = icmp eq ptr %215, null
   br i1 %.not235, label %217, label %222
@@ -12404,16 +12404,16 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266
   %indvars.iv310 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next311, %.lr.ph266 ]
   %.0207263 = phi ptr [ %246, %.lr.ph266.preheader ], [ %258, %.lr.ph266 ]
-  %247 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv310
+  %247 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv310
   %248 = load ptr, ptr %247, align 8, !tbaa !217
   %249 = getelementptr inbounds nuw i8, ptr %.0207263, i64 12
   %250 = load i32, ptr %249, align 4, !tbaa !120
   %251 = mul nsw i32 %250, %.2213268
   %252 = load i32, ptr %119, align 4, !tbaa !267
   %253 = sdiv i32 %251, %252
-  %254 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv310
+  %254 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv310
   %255 = load ptr, ptr %254, align 8, !tbaa !217
-  %256 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv310
+  %256 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv310
   %257 = load i32, ptr %256, align 4, !tbaa !88
   call void @jcopy_sample_rows(ptr noundef %248, i32 noundef %253, ptr noundef %255, i32 noundef 0, i32 noundef %250, i32 noundef %257) #26
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
@@ -12460,13 +12460,13 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 
 277:                                              ; preds = %276, %277
   %indvars.iv313 = phi i64 [ 0, %276 ], [ %indvars.iv.next314, %277 ]
-  %278 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv313
+  %278 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv313
   %279 = load ptr, ptr %278, align 8, !tbaa !217
   call void @free(ptr noundef %279) #26
-  %280 = getelementptr inbounds nuw [10 x ptr], ptr %9, i64 0, i64 %indvars.iv313
+  %280 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv313
   %281 = load ptr, ptr %280, align 8, !tbaa !52
   call void @free(ptr noundef %281) #26
-  %282 = getelementptr inbounds nuw [10 x ptr], ptr %11, i64 0, i64 %indvars.iv313
+  %282 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv313
   %283 = load ptr, ptr %282, align 8, !tbaa !217
   call void @free(ptr noundef %283) #26
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
@@ -12531,10 +12531,10 @@ define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((
 23:                                               ; preds = %20
   %24 = load i32, ptr %5, align 4, !tbaa !72
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !88
   %28 = sdiv i32 %27, 8
-  %29 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %25
+  %29 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %25
   %30 = load i32, ptr %29, align 4, !tbaa !88
   %31 = sdiv i32 %30, 8
   br label %.critedge
@@ -12559,7 +12559,7 @@ define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((
   store i32 %38, ptr %40, align 4, !tbaa !315
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %38, ptr %41, align 8, !tbaa !316
-  %42 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %21, ptr %42, align 8, !tbaa !271
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !317
@@ -12573,7 +12573,7 @@ define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((
 45:                                               ; preds = %._crit_edge, %52
   %46 = phi i1 [ true, %._crit_edge ], [ false, %52 ]
   %indvars.iv47 = phi i64 [ 0, %._crit_edge ], [ 1, %52 ]
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr %44, i64 0, i64 %indvars.iv47
+  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv47
   %48 = load ptr, ptr %47, align 8, !tbaa !271
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %52
@@ -12762,7 +12762,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUV8(ptr noundef %0, ptr noundef %1, i32 n
 40:                                               ; preds = %38
   %41 = zext nneg i32 %4 to i64
   %42 = zext nneg i32 %31 to i64
-  %43 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !88
   %45 = sdiv i32 %44, 8
   %46 = sext i32 %45 to i64
@@ -12791,7 +12791,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %38, %40
   %59 = phi i32 [ %31, %tj3YUVPlaneWidth.exit.thread ], [ %.pre, %tj3YUVPlaneWidth.exit ]
   %60 = zext nneg i32 %6 to i64
   %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !88
   %64 = sdiv i32 %63, 8
   %65 = sext i32 %64 to i64
@@ -12841,7 +12841,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %57, %.sink.split.i6
 89:                                               ; preds = %87
   %90 = zext nneg i32 %4 to i64
   %91 = zext nneg i32 %76 to i64
-  %92 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !88
   %94 = sdiv i32 %93, 8
   %95 = sext i32 %94 to i64
@@ -12875,7 +12875,7 @@ tj3YUVPlaneWidth.exit71:                          ; preds = %89, %.sink.split.i6
 110:                                              ; preds = %tj3YUVPlaneWidth.exit71
   %111 = zext nneg i32 %6 to i64
   %112 = zext nneg i32 %107 to i64
-  %113 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !88
   %115 = sdiv i32 %114, 8
   %116 = sext i32 %115 to i64
@@ -13178,9 +13178,9 @@ define i64 @tj3TransformBufSize(ptr noundef captures(address_is_null) %0, ptr no
   %57 = icmp eq i32 %48, -1
   %spec.store.select.i = select i1 %57, i32 0, i32 %48
   %58 = zext nneg i32 %spec.store.select.i to i64
-  %59 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !88
-  %61 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %58
+  %61 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %58
   %62 = load i32, ptr %61, align 4, !tbaa !88
   %63 = icmp eq i32 %spec.store.select.i, 3
   br i1 %63, label %68, label %64
@@ -13389,11 +13389,11 @@ getDstSubsamp.exit:                               ; preds = %36, %41, %42, %43, 
 
 74:                                               ; preds = %67
   %75 = zext nneg i32 %.013.i to i64
-  %76 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !88
   %78 = srem i32 %48, %77
   %.not123 = icmp eq i32 %78, 0
-  %79 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %75
+  %79 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %75
   %80 = load i32, ptr %79, align 4, !tbaa !88
   br i1 %.not123, label %81, label %._crit_edge
 
@@ -13592,7 +13592,7 @@ define range(i32 -1, 1) i32 @tj3Transform(ptr noundef %0, ptr noundef %1, i64 no
 
 76:                                               ; preds = %67
   %77 = zext nneg i32 %70 to i64
-  %78 = getelementptr inbounds nuw [8 x i32], ptr @xformtypes, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr @xformtypes, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !88
   %80 = getelementptr inbounds nuw %struct.jpeg_transform_info, ptr %calloc, i64 %indvars.iv
   store i32 %79, ptr %80, align 8, !tbaa !326
@@ -13818,21 +13818,21 @@ getDstSubsamp.exit.thread.fold.split399:          ; preds = %174, %getDstSubsamp
 getDstSubsamp.exit.thread:                        ; preds = %174, %getDstSubsamp.exit.thread.fold.split399, %getDstSubsamp.exit.thread.fold.split, %176, %175
   %.013.i351 = phi i64 [ 4, %174 ], [ 6, %176 ], [ 1, %175 ], [ 5, %getDstSubsamp.exit.thread.fold.split ], [ %183, %getDstSubsamp.exit.thread.fold.split399 ]
   %184 = load i32, ptr %167, align 8, !tbaa !322
-  %185 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %.013.i351
+  %185 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %.013.i351
   %186 = load i32, ptr %185, align 4, !tbaa !88
   %187 = srem i32 %184, %186
   %.not329 = icmp eq i32 %187, 0
   br i1 %.not329, label %188, label %getDstSubsamp.exit.thread._crit_edge
 
 getDstSubsamp.exit.thread._crit_edge:             ; preds = %getDstSubsamp.exit.thread
-  %.phi.trans.insert = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %.013.i351
+  %.phi.trans.insert = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %.013.i351
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !88
   br label %split
 
 188:                                              ; preds = %getDstSubsamp.exit.thread
   %189 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %190 = load i32, ptr %189, align 4, !tbaa !323
-  %191 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %.013.i351
+  %191 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %.013.i351
   %192 = load i32, ptr %191, align 4, !tbaa !88
   %193 = srem i32 %190, %192
   %.not330 = icmp eq i32 %193, 0
@@ -14197,7 +14197,7 @@ define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef non
   %24 = load ptr, ptr %14, align 8, !tbaa !260
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !117
-  %27 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %indvars.iv152
+  %27 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %indvars.iv152
   %28 = load i32, ptr %27, align 4, !tbaa !88
   %29 = sdiv i32 %28, 8
   %30 = icmp eq i32 %26, %29
@@ -14207,7 +14207,7 @@ define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef non
 32:                                               ; preds = %23
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !120
-  %35 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %indvars.iv152
+  %35 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %indvars.iv152
   %36 = load i32, ptr %35, align 4, !tbaa !88
   %37 = sdiv i32 %36, 8
   %38 = icmp eq i32 %34, %37
@@ -14295,7 +14295,7 @@ define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef non
   br i1 %15, label %.lr.ph117, label %._crit_edge118
 
 .lr.ph117:                                        ; preds = %70
-  %71 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %indvars.iv152
+  %71 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %indvars.iv152
   %72 = load i32, ptr %71, align 4, !tbaa !88
   %73 = sdiv i32 %72, 8
   %74 = load i32, ptr %12, align 4, !tbaa !357
@@ -14608,9 +14608,9 @@ processFlags.exit:                                ; preds = %48, %63
   %104 = icmp eq i32 %96, -1
   %spec.store.select.i = select i1 %104, i32 0, i32 %96
   %105 = zext nneg i32 %spec.store.select.i to i64
-  %106 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUWidth, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !88
-  %108 = getelementptr inbounds nuw [7 x i32], ptr @tjMCUHeight, i64 0, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %105
   %109 = load i32, ptr %108, align 4, !tbaa !88
   %110 = icmp eq i32 %spec.store.select.i, 3
   br i1 %110, label %115, label %111

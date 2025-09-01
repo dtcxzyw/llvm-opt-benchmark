@@ -4714,7 +4714,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val6.i.i = load i32, ptr %11, align 16, !range !3193, !alias.scope !3194, !noalias !3199, !noundef !11
   %13 = zext nneg i32 %.val6.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN5serde3ser10Serializer11collect_seq17h8def920237cb2217E, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde3ser10Serializer11collect_seq17h8def920237cb2217E, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = add i64 %switch.load, %10
   %15 = icmp eq ptr %12, %5
@@ -5493,7 +5493,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val6.i.i = load i32, ptr %11, align 16, !range !3193, !alias.scope !3703, !noalias !3708, !noundef !11
   %13 = zext nneg i32 %.val6.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN5serde3ser10Serializer11collect_seq17h8def920237cb2217E, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5serde3ser10Serializer11collect_seq17h8def920237cb2217E, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = add i64 %switch.load, %10
   %15 = icmp eq ptr %12, %5

@@ -356,7 +356,7 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %31, i32 noundef 10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %indvars.iv.next, i32 1
+  %32 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv.next, i32 1
   %33 = load ptr, ptr %32, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond, label %.loopexit, label %29, !llvm.loop !6

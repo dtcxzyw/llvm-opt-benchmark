@@ -726,28 +726,28 @@ json_error.exit.i:                                ; preds = %67, %64
   store ptr %85, ptr %2, align 8
   %86 = load i8, ptr %83, align 1
   %87 = zext i8 %80 to i64
-  %88 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %87
   %89 = load i8, ptr %88, align 1
   %.not.i = icmp eq i8 %89, 0
   br i1 %.not.i, label %102, label %90
 
 90:                                               ; preds = %78
   %91 = zext i8 %82 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %91
   %93 = load i8, ptr %92, align 1
   %.not49.i = icmp eq i8 %93, 0
   br i1 %.not49.i, label %102, label %94
 
 94:                                               ; preds = %90
   %95 = zext i8 %84 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %95
   %97 = load i8, ptr %96, align 1
   %.not50.i = icmp eq i8 %97, 0
   br i1 %.not50.i, label %102, label %98
 
 98:                                               ; preds = %94
   %99 = zext i8 %86 to i64
-  %100 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %99
   %101 = load i8, ptr %100, align 1
   %.not51.i = icmp eq i8 %101, 0
   br i1 %.not51.i, label %102, label %106
@@ -769,12 +769,12 @@ json_error.exit46.i:                              ; preds = %105, %102
 106:                                              ; preds = %98
   %107 = sext i8 %84 to i64
   %108 = and i64 %107, 4294967295
-  %109 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = shl i8 %110, 4
   %112 = sext i8 %86 to i64
   %113 = and i64 %112, 4294967295
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @hex_conv, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = add i8 %115, -17
   %117 = add i8 %116, %111

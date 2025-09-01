@@ -2006,7 +2006,7 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 
 110:                                              ; preds = %106
   %111 = sext i8 %100 to i64
-  %112 = getelementptr inbounds [34 x ptr], ptr @ucnv_converterStaticData, i64 0, i64 %111
+  %112 = getelementptr inbounds ptr, ptr @ucnv_converterStaticData, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !83
   %.not70.i = icmp eq ptr %113, null
   br i1 %.not70.i, label %158, label %114

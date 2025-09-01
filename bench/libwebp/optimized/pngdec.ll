@@ -517,71 +517,70 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
-  %15 = phi ptr [ %43, %.loopexit ], [ %.pre, %.preheader.preheader ]
-  %.03553 = phi i32 [ %42, %.loopexit ], [ 0, %.preheader.preheader ]
+  %15 = phi ptr [ %46, %.loopexit ], [ %.pre, %.preheader.preheader ]
+  %.03553 = phi i32 [ %45, %.loopexit ], [ 0, %.preheader.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !36
-  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(22) @.str.6) #21
-  %.not3964 = icmp eq i32 %18, 0
-  br i1 %.not3964, label %._crit_edge66, label %.lr.ph
+  br label %21
 
-.lr.ph:                                           ; preds = %.preheader, %19
-  %indvars.iv65 = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv65, 1
+18:                                               ; preds = %21
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %19 = getelementptr inbounds nuw %struct.anon, ptr @kPNGMetadataMap, i64 %indvars.iv.next
+  %20 = load ptr, ptr %19, align 8, !tbaa !38
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.loopexit, label %19, !llvm.loop !38
+  br i1 %exitcond, label %.loopexit, label %21, !llvm.loop !40
 
-19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw [5 x %struct.anon], ptr @kPNGMetadataMap, i64 0, i64 %indvars.iv.next
-  %21 = load ptr, ptr %20, align 8, !tbaa !39
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %21) #21
-  %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %._crit_edge66, label %.lr.ph, !llvm.loop !38
+21:                                               ; preds = %.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
+  %22 = phi ptr [ @.str.6, %.preheader ], [ %20, %18 ]
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %22) #21
+  %.not39 = icmp eq i32 %23, 0
+  br i1 %.not39, label %24, label %18
 
-._crit_edge66:                                    ; preds = %19, %.preheader
-  %.lcssa = phi ptr [ @kPNGMetadataMap, %.preheader ], [ %20, %19 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !41
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !42
-  %.not40 = icmp eq ptr %26, null
-  br i1 %.not40, label %30, label %27
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw %struct.anon, ptr @kPNGMetadataMap, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !41
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %.not40 = icmp eq ptr %29, null
+  br i1 %.not40, label %33, label %30
 
-27:                                               ; preds = %._crit_edge66
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.4, ptr noundef nonnull %17) #19
+30:                                               ; preds = %24
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.4, ptr noundef nonnull %17) #19
   %.pre59 = load ptr, ptr %5, align 8, !tbaa !34
   br label %.loopexit
 
-30:                                               ; preds = %._crit_edge66
-  %31 = load i32, ptr %15, align 8, !tbaa !44
-  %.off = add i32 %31, -1
+33:                                               ; preds = %24
+  %34 = load i32, ptr %15, align 8, !tbaa !44
+  %.off = add i32 %34, -1
   %switch = icmp ult i32 %.off, 2
   %.029.in.v = select i1 %switch, i64 32, i64 24
   %.029.in = getelementptr inbounds nuw i8, ptr %15, i64 %.029.in.v
   %.029 = load i64, ptr %.029.in, align 8, !tbaa !45
-  %32 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !47
-  %36 = call i32 %33(ptr noundef %35, i64 noundef %.029, ptr noundef nonnull %25) #15
-  %.not41 = icmp eq i32 %36, 0
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !46
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !47
+  %39 = call i32 %36(ptr noundef %38, i64 noundef %.029, ptr noundef nonnull %28) #15
+  %.not41 = icmp eq i32 %39, 0
   %.pre60 = load ptr, ptr %5, align 8, !tbaa !34
   br i1 %.not41, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %30
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %38 = getelementptr inbounds nuw i8, ptr %.pre60, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !36
-  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %39) #19
+.critedge:                                        ; preds = %33
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !26
+  %41 = getelementptr inbounds nuw i8, ptr %.pre60, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !36
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.5, ptr noundef %42) #19
   br label %.loopexit48.sink.split
 
-.loopexit:                                        ; preds = %.lr.ph, %30, %27
-  %41 = phi ptr [ %.pre60, %30 ], [ %.pre59, %27 ], [ %15, %.lr.ph ]
-  %42 = add nuw i32 %.03553, 1
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  store ptr %43, ptr %5, align 8, !tbaa !34
-  %exitcond58.not = icmp eq i32 %42, %14
+.loopexit:                                        ; preds = %18, %33, %30
+  %44 = phi ptr [ %.pre60, %33 ], [ %.pre59, %30 ], [ %15, %18 ]
+  %45 = add nuw i32 %.03553, 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  store ptr %46, ptr %5, align 8, !tbaa !34
+  %exitcond58.not = icmp eq i32 %45, %14
   br i1 %exitcond58.not, label %._crit_edge, label %.preheader, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
@@ -589,19 +588,19 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %44 = call i32 @png_get_iCCP(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
-  %45 = icmp eq i32 %44, 4096
-  br i1 %45, label %46, label %.critedge47
+  %47 = call i32 @png_get_iCCP(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
+  %48 = icmp eq i32 %47, 4096
+  br i1 %48, label %49, label %.critedge47
 
-46:                                               ; preds = %._crit_edge
-  %47 = load ptr, ptr %8, align 8, !tbaa !13
-  %48 = load i32, ptr %9, align 4, !tbaa !11
-  %49 = zext i32 %48 to i64
-  %50 = call i32 @MetadataCopy(ptr noundef %47, i64 noundef %49, ptr noundef nonnull %10) #15
-  %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %51, label %.critedge47
+49:                                               ; preds = %._crit_edge
+  %50 = load ptr, ptr %8, align 8, !tbaa !13
+  %51 = load i32, ptr %9, align 4, !tbaa !11
+  %52 = zext i32 %51 to i64
+  %53 = call i32 @MetadataCopy(ptr noundef %50, i64 noundef %52, ptr noundef nonnull %10) #15
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %54, label %.critedge47
 
-.critedge47:                                      ; preds = %46, %._crit_edge
+.critedge47:                                      ; preds = %49, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -609,14 +608,14 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %12, label %11, label %.loopexit48, !llvm.loop !49
 
-51:                                               ; preds = %46
+54:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit48.sink.split
 
-.loopexit48.sink.split:                           ; preds = %.critedge, %51
+.loopexit48.sink.split:                           ; preds = %.critedge, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit48
 
@@ -868,15 +867,15 @@ attributes #21 = { nounwind willreturn memory(read) }
 !35 = !{!"p1 _ZTS15png_text_struct", !6, i64 0}
 !36 = !{!37, !14, i64 8}
 !37 = !{!"png_text_struct", !12, i64 0, !14, i64 8, !14, i64 16, !17, i64 24, !17, i64 32, !14, i64 40, !14, i64 48}
-!38 = distinct !{!38, !22}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"", !14, i64 0, !6, i64 8, !17, i64 16}
-!41 = !{!40, !17, i64 16}
+!38 = !{!39, !14, i64 0}
+!39 = !{!"", !14, i64 0, !6, i64 8, !17, i64 16}
+!40 = distinct !{!40, !22}
+!41 = !{!39, !17, i64 16}
 !42 = !{!43, !14, i64 0}
 !43 = !{!"MetadataPayload", !14, i64 0, !17, i64 8}
 !44 = !{!37, !12, i64 0}
 !45 = !{!17, !17, i64 0}
-!46 = !{!40, !6, i64 8}
+!46 = !{!39, !6, i64 8}
 !47 = !{!37, !14, i64 16}
 !48 = distinct !{!48, !22}
 !49 = distinct !{!49, !22}

@@ -1814,7 +1814,7 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   %51 = tail call i32 @errcode(i32 noundef 151388292) #10
   %52 = load i32, ptr %3, align 4
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [6 x ptr], ptr @recursion_errormsgs, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @recursion_errormsgs, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %44, align 8
   %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef %55, ptr noundef %56) #10

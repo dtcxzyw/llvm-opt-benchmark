@@ -552,7 +552,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit
   %.sroa.14.1198 = phi ptr [ %.sroa.14.0, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.14.2, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit78 ]
   %.sroa.0103.3197 = phi ptr [ %71, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0103.4, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backERKS2_.exit78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %94 = getelementptr inbounds nuw [6 x %"class.Eigen::Hyperplane"], ptr %6, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %"class.Eigen::Hyperplane", ptr %6, i64 %indvars.iv
   %95 = load ptr, ptr %1, align 8, !tbaa !15
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8

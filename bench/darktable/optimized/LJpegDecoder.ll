@@ -530,7 +530,7 @@ _ZNSt12_Vector_baseIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EE11
 
 .preheader:                                       ; preds = %.preheader.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %15 ]
-  %23 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %8, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %8, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !127
   %.not54 = icmp eq i32 %25, 1
@@ -1245,7 +1245,7 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 
 25:                                               ; preds = %19
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !150
   %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !150

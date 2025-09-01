@@ -695,7 +695,7 @@ _ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_t
 51:                                               ; preds = %.lr.ph, %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.20"], ptr %50, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.OT::OffsetTo.20", ptr %50, i64 %indvars.iv
   %53 = load i32, ptr %6, align 4, !tbaa !68
   %.not.i.i.i = icmp ult i32 %.0.i.i, %53
   %54 = load ptr, ptr %11, align 8
@@ -1020,7 +1020,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
 
 36:                                               ; preds = %_ZL9hb_memsetPvij.exit
   %37 = zext nneg i32 %.0.i to i64
-  %38 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb0EE9prime_forEj.prime_mod, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb0EE9prime_forEj.prime_mod, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !95
   br label %_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit
 
@@ -2281,7 +2281,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   br i1 %33, label %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit, label %34, !prof !37
 
 34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [32 x i32], ptr @__const._ZN12hb_hashmap_tIjjLb0EE9prime_forEj.prime_mod, i64 0, i64 %19
+  %35 = getelementptr inbounds nuw i32, ptr @__const._ZN12hb_hashmap_tIjjLb0EE9prime_forEj.prime_mod, i64 %19
   %36 = load i32, ptr %35, align 4, !tbaa !95
   br label %_ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit
 

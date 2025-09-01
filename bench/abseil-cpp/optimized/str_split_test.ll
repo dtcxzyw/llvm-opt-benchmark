@@ -14040,7 +14040,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %.02946.i.i.i.i = phi ptr [ %2549, %2548 ], [ %2511, %.lr.ph.i.i.i.preheader.i ]
   %2522 = load i8, ptr %.02946.i.i.i.i, align 1, !tbaa !28
   %2523 = zext i8 %2522 to i64
-  %2524 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2523
+  %2524 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2523
   %2525 = load i8, ptr %2524, align 1, !tbaa !28
   %2526 = and i8 %2525, 8
   %.not.i = icmp eq i8 %2526, 0
@@ -14050,7 +14050,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %2528 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %2529 = load i8, ptr %2528, align 1, !tbaa !28
   %2530 = zext i8 %2529 to i64
-  %2531 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2530
+  %2531 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2530
   %2532 = load i8, ptr %2531, align 1, !tbaa !28
   %2533 = and i8 %2532, 8
   %.not5.i = icmp eq i8 %2533, 0
@@ -14060,7 +14060,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %2535 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %2536 = load i8, ptr %2535, align 1, !tbaa !28
   %2537 = zext i8 %2536 to i64
-  %2538 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2537
+  %2538 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2537
   %2539 = load i8, ptr %2538, align 1, !tbaa !28
   %2540 = and i8 %2539, 8
   %.not6.i = icmp eq i8 %2540, 0
@@ -14070,7 +14070,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %2542 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   %2543 = load i8, ptr %2542, align 1, !tbaa !28
   %2544 = zext i8 %2543 to i64
-  %2545 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2544
+  %2545 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2544
   %2546 = load i8, ptr %2545, align 1, !tbaa !28
   %2547 = and i8 %2546, 8
   %.not7.i = icmp eq i8 %2547, 0
@@ -14099,7 +14099,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
 2553:                                             ; preds = %._crit_edge.i.i.i.i
   %2554 = load i8, ptr %.029.lcssa.i.i.i.i, align 1, !tbaa !28
   %2555 = zext i8 %2554 to i64
-  %2556 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2555
+  %2556 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2555
   %2557 = load i8, ptr %2556, align 1, !tbaa !28
   %2558 = and i8 %2557, 8
   %.not8.i = icmp eq i8 %2558, 0
@@ -14113,7 +14113,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %.1.i.i.i.i = phi ptr [ %2560, %2559 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %2562 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !28
   %2563 = zext i8 %2562 to i64
-  %2564 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2563
+  %2564 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2563
   %2565 = load i8, ptr %2564, align 1, !tbaa !28
   %2566 = and i8 %2565, 8
   %.not9.i = icmp eq i8 %2566, 0
@@ -14127,7 +14127,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i1301: ; preds = %
   %.2.i.i.i.i = phi ptr [ %2568, %2567 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %2570 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !28
   %2571 = zext i8 %2570 to i64
-  %2572 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2571
+  %2572 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2571
   %2573 = load i8, ptr %2572, align 1, !tbaa !28
   %2574 = and i8 %2573, 8
   %.not10.i = icmp eq i8 %2574, 0
@@ -14173,7 +14173,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2587 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -1
   %2588 = load i8, ptr %2587, align 1, !tbaa !28, !noalias !253
   %2589 = zext i8 %2588 to i64
-  %2590 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2589
+  %2590 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2589
   %2591 = load i8, ptr %2590, align 1, !tbaa !28, !noalias !253
   %2592 = and i8 %2591, 8
   %.not.i.i.i1559 = icmp eq i8 %2592, 0
@@ -14183,7 +14183,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2594 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -2
   %2595 = load i8, ptr %2594, align 1, !tbaa !28, !noalias !253
   %2596 = zext i8 %2595 to i64
-  %2597 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2596
+  %2597 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2596
   %2598 = load i8, ptr %2597, align 1, !tbaa !28, !noalias !253
   %2599 = and i8 %2598, 8
   %.not9.i.i.i = icmp eq i8 %2599, 0
@@ -14193,7 +14193,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2601 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -3
   %2602 = load i8, ptr %2601, align 1, !tbaa !28, !noalias !253
   %2603 = zext i8 %2602 to i64
-  %2604 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2603
+  %2604 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2603
   %2605 = load i8, ptr %2604, align 1, !tbaa !28, !noalias !253
   %2606 = and i8 %2605, 8
   %.not10.i.i.i1560 = icmp eq i8 %2606, 0
@@ -14203,7 +14203,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2608 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -4
   %2609 = load i8, ptr %2608, align 1, !tbaa !28, !noalias !253
   %2610 = zext i8 %2609 to i64
-  %2611 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2610
+  %2611 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2610
   %2612 = load i8, ptr %2611, align 1, !tbaa !28, !noalias !253
   %2613 = and i8 %2612, 8
   %.not11.i.i.i = icmp eq i8 %2613, 0
@@ -14232,7 +14232,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2619 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i.i, i64 -1
   %2620 = load i8, ptr %2619, align 1, !tbaa !28, !noalias !253
   %2621 = zext i8 %2620 to i64
-  %2622 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2621
+  %2622 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2621
   %2623 = load i8, ptr %2622, align 1, !tbaa !28, !noalias !253
   %2624 = and i8 %2623, 8
   %.not12.i.i.i = icmp eq i8 %2624, 0
@@ -14243,7 +14243,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2626 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i.i, i64 -1
   %2627 = load i8, ptr %2626, align 1, !tbaa !28, !noalias !253
   %2628 = zext i8 %2627 to i64
-  %2629 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2628
+  %2629 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2628
   %2630 = load i8, ptr %2629, align 1, !tbaa !28, !noalias !253
   %2631 = and i8 %2630, 8
   %.not13.i.i.i = icmp eq i8 %2631, 0
@@ -14254,7 +14254,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i1563,
   %2633 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i.i, i64 -1
   %2634 = load i8, ptr %2633, align 1, !tbaa !28, !noalias !253
   %2635 = zext i8 %2634 to i64
-  %2636 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %2635
+  %2636 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %2635
   %2637 = load i8, ptr %2636, align 1, !tbaa !28, !noalias !253
   %2638 = and i8 %2637, 8
   %.not14.i.i.i = icmp eq i8 %2638, 0
@@ -21106,7 +21106,7 @@ _ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByStringENS_10AllowE
   %26 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByStringENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre24, %.preheader.preheader ]
   %27 = phi ptr [ %46, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByStringENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %52, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByStringENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %28 = getelementptr inbounds nuw [16 x %struct.raw_view], ptr %4, i64 0, i64 %.0
+  %28 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
   store ptr %27, ptr %28, align 8, !tbaa !467
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %26, ptr %29, align 8, !tbaa !469
@@ -29469,7 +29469,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %41 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %42 = phi ptr [ %61, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %43 = getelementptr inbounds nuw [16 x %struct.raw_view.183], ptr %4, i64 0, i64 %.0
+  %43 = getelementptr inbounds nuw %struct.raw_view.183, ptr %4, i64 %.0
   store ptr %42, ptr %43, align 8, !tbaa !667
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !669
@@ -37261,7 +37261,7 @@ _ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_9ByAnyCharENS_10Allow
   %26 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_9ByAnyCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre24, %.preheader.preheader ]
   %27 = phi ptr [ %46, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_9ByAnyCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %52, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_9ByAnyCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %28 = getelementptr inbounds nuw [16 x %struct.raw_view.245], ptr %4, i64 0, i64 %.0
+  %28 = getelementptr inbounds nuw %struct.raw_view.245, ptr %4, i64 %.0
   store ptr %27, ptr %28, align 8, !tbaa !864
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %26, ptr %29, align 8, !tbaa !866
@@ -37926,7 +37926,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_14SkipWhitespaceESt17basic_st
   %17 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre65, %.preheader.preheader ]
   %18 = phi ptr [ %40, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %174, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_14SkipWhitespaceESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %19 = getelementptr inbounds nuw [16 x %struct.raw_view.250], ptr %4, i64 0, i64 %.0
+  %19 = getelementptr inbounds nuw %struct.raw_view.250, ptr %4, i64 %.0
   store ptr %18, ptr %19, align 8, !tbaa !877
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %17, ptr %20, align 8, !tbaa !879
@@ -38004,7 +38004,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %.02946.i.i.i.i = phi ptr [ %78, %77 ], [ %40, %.lr.ph.i.i.i.preheader.i ]
   %51 = load i8, ptr %.02946.i.i.i.i, align 1, !tbaa !28
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !28
   %55 = and i8 %54, 8
   %.not.i = icmp eq i8 %55, 0
@@ -38014,7 +38014,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !28
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !28
   %62 = and i8 %61, 8
   %.not5.i = icmp eq i8 %62, 0
@@ -38024,7 +38024,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %65 = load i8, ptr %64, align 1, !tbaa !28
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !28
   %69 = and i8 %68, 8
   %.not6.i = icmp eq i8 %69, 0
@@ -38034,7 +38034,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %71 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   %72 = load i8, ptr %71, align 1, !tbaa !28
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !28
   %76 = and i8 %75, 8
   %.not7.i = icmp eq i8 %76, 0
@@ -38063,7 +38063,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
 82:                                               ; preds = %._crit_edge.i.i.i.i
   %83 = load i8, ptr %.029.lcssa.i.i.i.i, align 1, !tbaa !28
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !28
   %87 = and i8 %86, 8
   %.not8.i = icmp eq i8 %87, 0
@@ -38077,7 +38077,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %.1.i.i.i.i = phi ptr [ %89, %88 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %91 = load i8, ptr %.1.i.i.i.i, align 1, !tbaa !28
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !28
   %95 = and i8 %94, 8
   %.not9.i = icmp eq i8 %95, 0
@@ -38091,7 +38091,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %34
   %.2.i.i.i.i = phi ptr [ %97, %96 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %99 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !28
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !28
   %103 = and i8 %102, 8
   %.not10.i = icmp eq i8 %103, 0
@@ -38137,7 +38137,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %116 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -1
   %117 = load i8, ptr %116, align 1, !tbaa !28, !noalias !880
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !28, !noalias !880
   %121 = and i8 %120, 8
   %.not.i.i.i16 = icmp eq i8 %121, 0
@@ -38147,7 +38147,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %123 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -2
   %124 = load i8, ptr %123, align 1, !tbaa !28, !noalias !880
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !28, !noalias !880
   %128 = and i8 %127, 8
   %.not9.i.i.i = icmp eq i8 %128, 0
@@ -38157,7 +38157,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %130 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -3
   %131 = load i8, ptr %130, align 1, !tbaa !28, !noalias !880
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !28, !noalias !880
   %135 = and i8 %134, 8
   %.not10.i.i.i = icmp eq i8 %135, 0
@@ -38167,7 +38167,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %137 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i.i, i64 -4
   %138 = load i8, ptr %137, align 1, !tbaa !28, !noalias !880
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !28, !noalias !880
   %142 = and i8 %141, 8
   %.not11.i.i.i = icmp eq i8 %142, 0
@@ -38196,7 +38196,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %148 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i.i, i64 -1
   %149 = load i8, ptr %148, align 1, !tbaa !28, !noalias !880
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !28, !noalias !880
   %153 = and i8 %152, 8
   %.not12.i.i.i = icmp eq i8 %153, 0
@@ -38207,7 +38207,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %155 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i.i, i64 -1
   %156 = load i8, ptr %155, align 1, !tbaa !28, !noalias !880
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !28, !noalias !880
   %160 = and i8 %159, 8
   %.not13.i.i.i = icmp eq i8 %160, 0
@@ -38218,7 +38218,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i:    ; preds = %.lr.ph.i.i.i.i, %_Z
   %162 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i.i, i64 -1
   %163 = load i8, ptr %162, align 1, !tbaa !28, !noalias !880
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %164
   %166 = load i8, ptr %165, align 1, !tbaa !28, !noalias !880
   %167 = and i8 %166, 8
   %.not14.i.i.i = icmp eq i8 %167, 0
@@ -39009,7 +39009,7 @@ _ZNK4absl16strings_internal8SplitterINS_8ByLengthENS_10AllowEmptyESt17basic_stri
   %41 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByLengthENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %42 = phi ptr [ %61, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByLengthENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_8ByLengthENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %43 = getelementptr inbounds nuw [16 x %struct.raw_view.257], ptr %4, i64 0, i64 %.0
+  %43 = getelementptr inbounds nuw %struct.raw_view.257, ptr %4, i64 %.0
   store ptr %42, ptr %43, align 8, !tbaa !923
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !925
@@ -41872,7 +41872,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %12 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !28, !noalias !986
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !28, !noalias !986
   %17 = and i8 %16, 8
   %.not.i.i = icmp eq i8 %17, 0
@@ -41882,7 +41882,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %19 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   %20 = load i8, ptr %19, align 1, !tbaa !28, !noalias !986
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !28, !noalias !986
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
@@ -41892,7 +41892,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   %27 = load i8, ptr %26, align 1, !tbaa !28, !noalias !986
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !28, !noalias !986
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
@@ -41902,7 +41902,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
   %34 = load i8, ptr %33, align 1, !tbaa !28, !noalias !986
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !28, !noalias !986
   %38 = and i8 %37, 8
   %.not11.i.i = icmp eq i8 %38, 0
@@ -41927,7 +41927,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %44 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
   %45 = load i8, ptr %44, align 1, !tbaa !28, !noalias !986
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !28, !noalias !986
   %49 = and i8 %48, 8
   %.not12.i.i = icmp eq i8 %49, 0
@@ -41938,7 +41938,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %51 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
   %52 = load i8, ptr %51, align 1, !tbaa !28, !noalias !986
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !28, !noalias !986
   %56 = and i8 %55, 8
   %.not13.i.i = icmp eq i8 %56, 0
@@ -41949,7 +41949,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl14SkipWhitespaceclESt
   %58 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
   %59 = load i8, ptr %58, align 1, !tbaa !28, !noalias !986
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !28, !noalias !986
   %63 = and i8 %62, 8
   %.not14.i.i = icmp eq i8 %63, 0
@@ -41996,7 +41996,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.02946.i.i.i = phi ptr [ %36, %35 ], [ %1, %.lr.ph.i.i.i.preheader ]
   %9 = load i8, ptr %.02946.i.i.i, align 1, !tbaa !28
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !28
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
@@ -42006,7 +42006,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !28
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !28
   %20 = and i8 %19, 8
   %.not5 = icmp eq i8 %20, 0
@@ -42016,7 +42016,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !28
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !28
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
@@ -42026,7 +42026,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %30 = load i8, ptr %29, align 1, !tbaa !28
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !28
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
@@ -42055,7 +42055,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
 40:                                               ; preds = %._crit_edge.i.i.i
   %41 = load i8, ptr %.029.lcssa.i.i.i, align 1, !tbaa !28
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !28
   %45 = and i8 %44, 8
   %.not8 = icmp eq i8 %45, 0
@@ -42069,7 +42069,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.1.i.i.i = phi ptr [ %47, %46 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %49 = load i8, ptr %.1.i.i.i, align 1, !tbaa !28
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !28
   %53 = and i8 %52, 8
   %.not9 = icmp eq i8 %53, 0
@@ -42083,7 +42083,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %.2.i.i.i = phi ptr [ %55, %54 ], [ %.029.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %57 = load i8, ptr %.2.i.i.i, align 1, !tbaa !28
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !28
   %61 = and i8 %60, 8
   %.not10 = icmp eq i8 %61, 0
@@ -211784,7 +211784,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   store i8 0, ptr %61, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %62 = getelementptr inbounds nuw [2 x %"class.std::__cxx11::basic_string"], ptr %0, i64 0, i64 %.024
+  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %.024
   %63 = load ptr, ptr %62, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = icmp eq ptr %63, %64
@@ -215193,7 +215193,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   ret void
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw [2 x %"class.std::basic_string_view"], ptr %0, i64 0, i64 %.04
+  %37 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %0, i64 %.04
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %38 = icmp eq i32 %33, 1
   br i1 %38, label %39, label %40
@@ -222137,7 +222137,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_9SkipEmptyESt17basic_string_v
   %45 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre41, %.preheader.preheader ]
   %46 = phi ptr [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %74, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %47 = getelementptr inbounds nuw [16 x %struct.raw_view.1887], ptr %4, i64 0, i64 %.0
+  %47 = getelementptr inbounds nuw %struct.raw_view.1887, ptr %4, i64 %.0
   store ptr %46, ptr %47, align 8, !tbaa !5242
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %45, ptr %48, align 8, !tbaa !5244
@@ -227188,7 +227188,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyENSt7__cxx1112bas
   %44 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEppEv.exit ], [ %.pre25, %.preheader.preheader ]
   %45 = phi ptr [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %73, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %46 = getelementptr inbounds nuw [16 x %struct.raw_view.1916], ptr %4, i64 0, i64 %.0
+  %46 = getelementptr inbounds nuw %struct.raw_view.1916, ptr %4, i64 %.0
   store ptr %45, ptr %46, align 8, !tbaa !5368
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %44, ptr %47, align 8, !tbaa !5370
@@ -257770,7 +257770,7 @@ _ZNK4absl16strings_internal8SplitterINS_17ByAsciiWhitespaceENS_10AllowEmptyESt17
   %40 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %41 = phi ptr [ %60, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %66, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw [16 x %struct.raw_view.1960], ptr %4, i64 0, i64 %.0
+  %42 = getelementptr inbounds nuw %struct.raw_view.1960, ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8, !tbaa !5822
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8, !tbaa !5824
@@ -258245,7 +258245,7 @@ _ZNK4absl16strings_internal8SplitterINS_17ByAsciiWhitespaceENS_9SkipEmptyESt17ba
   %44 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre41, %.preheader.preheader ]
   %45 = phi ptr [ %66, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %73, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_17ByAsciiWhitespaceENS_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %46 = getelementptr inbounds nuw [16 x %struct.raw_view.1964], ptr %4, i64 0, i64 %.0
+  %46 = getelementptr inbounds nuw %struct.raw_view.1964, ptr %4, i64 %.0
   store ptr %45, ptr %46, align 8, !tbaa !5839
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %44, ptr %47, align 8, !tbaa !5841

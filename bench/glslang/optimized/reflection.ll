@@ -2653,9 +2653,9 @@ define void @_ZN7glslang11TReflection24buildAttributeReflectionE11EShLanguageRKN
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2897,9 +2897,9 @@ define noundef zeroext i1 @_ZN7glslang11TReflection8addStageE11EShLanguageRKNS_1
 
 17:                                               ; preds = %17, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   store i32 %19, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3394,13 +3394,13 @@ define void @_ZN7glslang11TReflection4dumpEv(ptr noundef nonnull readonly align 
 
 _ZNK7glslang11TReflection12getLocalSizeEi.exit:   ; preds = %._crit_edge61, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %._crit_edge61 ]
-  %89 = getelementptr inbounds nuw [3 x i32], ptr %86, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = icmp ugt i32 %90, 1
   br i1 %91, label %_ZNK7glslang11TReflection12getLocalSizeEi.exit40, label %95
 
 _ZNK7glslang11TReflection12getLocalSizeEi.exit40: ; preds = %_ZNK7glslang11TReflection12getLocalSizeEi.exit
-  %92 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZN7glslang11TReflection4dumpEvE4axis, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw ptr, ptr @_ZZN7glslang11TReflection4dumpEvE4axis, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %93, i32 noundef %90)
   br label %95
@@ -13025,18 +13025,18 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser11mapToGlTypeE
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx32 = add i32 %69, -2
-  %70 = icmp ult i32 %switch.tableidx32, 3
-  br i1 %70, label %switch.lookup31, label %144
+  %switch.tableidx31 = add i32 %69, -2
+  %70 = icmp ult i32 %switch.tableidx31, 3
+  br i1 %70, label %switch.lookup32, label %144
 
 71:                                               ; preds = %54
   %72 = load ptr, ptr %1, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx36 = add i32 %75, -2
-  %76 = icmp ult i32 %switch.tableidx36, 3
-  br i1 %76, label %switch.lookup35, label %144
+  %switch.tableidx35 = add i32 %75, -2
+  %76 = icmp ult i32 %switch.tableidx35, 3
+  br i1 %76, label %switch.lookup36, label %144
 
 77:                                               ; preds = %50
   %78 = load ptr, ptr %1, align 8
@@ -13054,27 +13054,27 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser11mapToGlTypeE
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %85 = load ptr, ptr %84, align 8
   %86 = tail call noundef i32 %85(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx40 = add i32 %86, -2
-  %87 = icmp ult i32 %switch.tableidx40, 3
-  br i1 %87, label %switch.lookup39, label %144
+  %switch.tableidx39 = add i32 %86, -2
+  %87 = icmp ult i32 %switch.tableidx39, 3
+  br i1 %87, label %switch.lookup40, label %144
 
 88:                                               ; preds = %77
   %89 = load ptr, ptr %1, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx44 = add i32 %92, -2
-  %93 = icmp ult i32 %switch.tableidx44, 3
-  br i1 %93, label %switch.lookup43, label %144
+  %switch.tableidx43 = add i32 %92, -2
+  %93 = icmp ult i32 %switch.tableidx43, 3
+  br i1 %93, label %switch.lookup44, label %144
 
 94:                                               ; preds = %77
   %95 = load ptr, ptr %1, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx48 = add i32 %98, -2
-  %99 = icmp ult i32 %switch.tableidx48, 3
-  br i1 %99, label %switch.lookup47, label %144
+  %switch.tableidx47 = add i32 %98, -2
+  %99 = icmp ult i32 %switch.tableidx47, 3
+  br i1 %99, label %switch.lookup48, label %144
 
 100:                                              ; preds = %50
   %101 = load ptr, ptr %1, align 8
@@ -13092,27 +13092,27 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser11mapToGlTypeE
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx52 = add i32 %109, -2
-  %110 = icmp ult i32 %switch.tableidx52, 3
-  br i1 %110, label %switch.lookup51, label %144
+  %switch.tableidx51 = add i32 %109, -2
+  %110 = icmp ult i32 %switch.tableidx51, 3
+  br i1 %110, label %switch.lookup52, label %144
 
 111:                                              ; preds = %100
   %112 = load ptr, ptr %1, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 112
   %114 = load ptr, ptr %113, align 8
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx56 = add i32 %115, -2
-  %116 = icmp ult i32 %switch.tableidx56, 3
-  br i1 %116, label %switch.lookup55, label %144
+  %switch.tableidx55 = add i32 %115, -2
+  %116 = icmp ult i32 %switch.tableidx55, 3
+  br i1 %116, label %switch.lookup56, label %144
 
 117:                                              ; preds = %100
   %118 = load ptr, ptr %1, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 112
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx60 = add i32 %121, -2
-  %122 = icmp ult i32 %switch.tableidx60, 3
-  br i1 %122, label %switch.lookup59, label %144
+  %switch.tableidx59 = add i32 %121, -2
+  %122 = icmp ult i32 %switch.tableidx59, 3
+  br i1 %122, label %switch.lookup60, label %144
 
 123:                                              ; preds = %45
   %124 = getelementptr inbounds nuw i8, ptr %49, i64 96
@@ -13126,72 +13126,72 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser11mapToGlTypeE
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noundef i32 %131(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
-  %switch.tableidx64 = add i32 %132, -1
-  %133 = icmp ult i32 %switch.tableidx64, 13
-  br i1 %133, label %switch.lookup63, label %144
+  %switch.tableidx63 = add i32 %132, -1
+  %133 = icmp ult i32 %switch.tableidx63, 13
+  br i1 %133, label %switch.lookup64, label %144
 
 switch.lookup:                                    ; preds = %59
   %134 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE, i64 0, i64 %134
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE, i64 %134
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %144
 
-switch.lookup31:                                  ; preds = %65
-  %135 = zext nneg i32 %switch.tableidx32 to i64
-  %switch.gep33 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.6, i64 0, i64 %135
+switch.lookup32:                                  ; preds = %65
+  %135 = zext nneg i32 %switch.tableidx31 to i64
+  %switch.gep33 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.6, i64 %135
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   br label %144
 
-switch.lookup35:                                  ; preds = %71
-  %136 = zext nneg i32 %switch.tableidx36 to i64
-  %switch.gep37 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.7, i64 0, i64 %136
+switch.lookup36:                                  ; preds = %71
+  %136 = zext nneg i32 %switch.tableidx35 to i64
+  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.7, i64 %136
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   br label %144
 
-switch.lookup39:                                  ; preds = %82
-  %137 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep41 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.8, i64 0, i64 %137
+switch.lookup40:                                  ; preds = %82
+  %137 = zext nneg i32 %switch.tableidx39 to i64
+  %switch.gep41 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.8, i64 %137
   %switch.load42 = load i32, ptr %switch.gep41, align 4
   br label %144
 
-switch.lookup43:                                  ; preds = %88
-  %138 = zext nneg i32 %switch.tableidx44 to i64
-  %switch.gep45 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.9, i64 0, i64 %138
+switch.lookup44:                                  ; preds = %88
+  %138 = zext nneg i32 %switch.tableidx43 to i64
+  %switch.gep45 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.9, i64 %138
   %switch.load46 = load i32, ptr %switch.gep45, align 4
   br label %144
 
-switch.lookup47:                                  ; preds = %94
-  %139 = zext nneg i32 %switch.tableidx48 to i64
-  %switch.gep49 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.10, i64 0, i64 %139
+switch.lookup48:                                  ; preds = %94
+  %139 = zext nneg i32 %switch.tableidx47 to i64
+  %switch.gep49 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.10, i64 %139
   %switch.load50 = load i32, ptr %switch.gep49, align 4
   br label %144
 
-switch.lookup51:                                  ; preds = %105
-  %140 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep53 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.11, i64 0, i64 %140
+switch.lookup52:                                  ; preds = %105
+  %140 = zext nneg i32 %switch.tableidx51 to i64
+  %switch.gep53 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.11, i64 %140
   %switch.load54 = load i32, ptr %switch.gep53, align 4
   br label %144
 
-switch.lookup55:                                  ; preds = %111
-  %141 = zext nneg i32 %switch.tableidx56 to i64
-  %switch.gep57 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.12, i64 0, i64 %141
+switch.lookup56:                                  ; preds = %111
+  %141 = zext nneg i32 %switch.tableidx55 to i64
+  %switch.gep57 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.12, i64 %141
   %switch.load58 = load i32, ptr %switch.gep57, align 4
   br label %144
 
-switch.lookup59:                                  ; preds = %117
-  %142 = zext nneg i32 %switch.tableidx60 to i64
-  %switch.gep61 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.13, i64 0, i64 %142
+switch.lookup60:                                  ; preds = %117
+  %142 = zext nneg i32 %switch.tableidx59 to i64
+  %switch.gep61 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.13, i64 %142
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %144
 
-switch.lookup63:                                  ; preds = %128
-  %143 = zext nneg i32 %switch.tableidx64 to i64
-  %switch.gep65 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.14, i64 0, i64 %143
+switch.lookup64:                                  ; preds = %128
+  %143 = zext nneg i32 %switch.tableidx63 to i64
+  %switch.gep65 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang20TReflectionTraverser11mapToGlTypeERKNS_5TTypeE.14, i64 %143
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   br label %144
 
-144:                                              ; preds = %128, %switch.lookup63, %117, %switch.lookup59, %111, %switch.lookup55, %105, %switch.lookup51, %94, %switch.lookup47, %88, %switch.lookup43, %82, %switch.lookup39, %71, %switch.lookup35, %65, %switch.lookup31, %59, %switch.lookup, %123, %50, %100, %77, %54, %19, %2, %2, %2, %43, %41, %39, %37, %35, %33, %31, %29, %27, %7
-  %.0 = phi i32 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %12, %7 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %19 ], [ 0, %54 ], [ 0, %77 ], [ 0, %100 ], [ 0, %50 ], [ 0, %123 ], [ %switch.load, %switch.lookup ], [ 0, %59 ], [ %switch.load34, %switch.lookup31 ], [ 0, %65 ], [ %switch.load38, %switch.lookup35 ], [ 0, %71 ], [ %switch.load42, %switch.lookup39 ], [ 0, %82 ], [ %switch.load46, %switch.lookup43 ], [ 0, %88 ], [ %switch.load50, %switch.lookup47 ], [ 0, %94 ], [ %switch.load54, %switch.lookup51 ], [ 0, %105 ], [ %switch.load58, %switch.lookup55 ], [ 0, %111 ], [ %switch.load62, %switch.lookup59 ], [ 0, %117 ], [ %switch.load66, %switch.lookup63 ], [ 0, %128 ]
+144:                                              ; preds = %128, %switch.lookup64, %117, %switch.lookup60, %111, %switch.lookup56, %105, %switch.lookup52, %94, %switch.lookup48, %88, %switch.lookup44, %82, %switch.lookup40, %71, %switch.lookup36, %65, %switch.lookup32, %59, %switch.lookup, %123, %50, %100, %77, %54, %19, %2, %2, %2, %43, %41, %39, %37, %35, %33, %31, %29, %27, %7
+  %.0 = phi i32 [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %12, %7 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %19 ], [ 0, %54 ], [ 0, %77 ], [ 0, %100 ], [ 0, %50 ], [ 0, %123 ], [ %switch.load, %switch.lookup ], [ 0, %59 ], [ %switch.load34, %switch.lookup32 ], [ 0, %65 ], [ %switch.load38, %switch.lookup36 ], [ 0, %71 ], [ %switch.load42, %switch.lookup40 ], [ 0, %82 ], [ %switch.load46, %switch.lookup44 ], [ 0, %88 ], [ %switch.load50, %switch.lookup48 ], [ 0, %94 ], [ %switch.load54, %switch.lookup52 ], [ 0, %105 ], [ %switch.load58, %switch.lookup56 ], [ 0, %111 ], [ %switch.load62, %switch.lookup60 ], [ 0, %117 ], [ %switch.load66, %switch.lookup64 ], [ 0, %128 ]
   ret i32 %.0
 }
 

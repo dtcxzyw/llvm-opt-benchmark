@@ -432,9 +432,9 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not67, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = add nsw i32 %.pre81, -1
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [4112 x i8], ptr %15, i64 0, i64 %72
+  %71 = sext i32 %.pre81 to i64
+  %72 = getelementptr i8, ptr %15, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 -1
   %74 = load i8, ptr %73, align 1, !tbaa !40
   %75 = zext i8 %74 to i32
   %76 = sub nsw i32 %.pre81, %75
@@ -481,7 +481,7 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8404
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %23 = sub nsw i32 16, %18
   %24 = sext i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %1, i64 %24, i1 false)
@@ -531,7 +531,7 @@ define internal i32 @crypto_write(ptr noundef readonly captures(none) %0, ptr no
 54:                                               ; preds = %3
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8404
   %56 = sext i32 %7 to i64
-  %57 = getelementptr inbounds [16 x i8], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
   %58 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %1, i64 %58, i1 false)
   br label %59
@@ -713,7 +713,7 @@ define internal i32 @crypto_close(ptr noundef readonly captures(none) %0) #0 {
   %10 = sub nsw i32 16, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8404
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %14 = trunc i32 %10 to i8
   %15 = sext i32 %10 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 %14, i64 %15, i1 false)

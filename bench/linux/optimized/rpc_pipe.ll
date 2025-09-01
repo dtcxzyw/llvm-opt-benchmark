@@ -628,7 +628,7 @@ define dso_local i32 @rpc_add_pipe_dir_object(ptr noundef %0, ptr noundef %1, pt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -684,7 +684,7 @@ define dso_local void @rpc_remove_pipe_dir_object(ptr noundef %0, ptr noundef re
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -725,7 +725,7 @@ define dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef %0, ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -1031,7 +1031,7 @@ define dso_local noundef i32 @rpc_pipefs_init_net(ptr noundef %0) local_unnamed_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
@@ -1113,7 +1113,7 @@ define dso_local void @rpc_pipefs_exit_net(ptr noundef %0) local_unnamed_addr #0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -1129,7 +1129,7 @@ define dso_local ptr @rpc_get_sb_net(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1154,7 +1154,7 @@ define dso_local void @rpc_put_sb_net(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1181,7 +1181,7 @@ define dso_local zeroext i1 @gssd_running(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -2484,7 +2484,7 @@ define internal void @rpc_kill_sb(ptr noundef %0) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -2595,7 +2595,7 @@ define internal i32 @rpc_fill_super(ptr noundef initializes((20, 21), (24, 32), 
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24

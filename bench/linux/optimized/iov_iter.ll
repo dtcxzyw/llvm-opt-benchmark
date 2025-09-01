@@ -6794,7 +6794,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %53 = lshr i64 %50, %52
   %54 = and i64 %53, 63
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %56 = getelementptr [64 x ptr], ptr %55, i64 0, i64 %54
+  %56 = getelementptr ptr, ptr %55, i64 %54
   %57 = load volatile ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 3
@@ -6806,7 +6806,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
 63:                                               ; preds = %49
   %64 = lshr i64 %58, 2
   %65 = and i64 %64, 255
-  %66 = getelementptr [64 x ptr], ptr %55, i64 0, i64 %65
+  %66 = getelementptr ptr, ptr %55, i64 %65
   br label %67
 
 67:                                               ; preds = %63, %46
@@ -6889,7 +6889,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   store i8 %116, ptr %17, align 2
   %117 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %118 = zext i8 %116 to i64
-  %119 = getelementptr [64 x ptr], ptr %117, i64 0, i64 %118
+  %119 = getelementptr ptr, ptr %117, i64 %118
   %120 = load volatile ptr, ptr %119, align 8
   br label %121
 
@@ -6983,45 +6983,44 @@ define internal fastcc ptr @xas_next_entry(ptr noundef %0) unnamed_addr #8 align
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 63
   %19 = icmp eq i64 %18, %15
-  br i1 %19, label %20, label %.loopexit, !prof !11
+  br i1 %19, label %.preheader, label %.loopexit, !prof !11
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  br label %22
+.preheader:                                       ; preds = %12
+  %20 = getelementptr i8, ptr %3, i64 48
+  br label %21
 
-22:                                               ; preds = %35, %20
-  %23 = phi i8 [ %14, %20 ], [ %36, %35 ]
-  %24 = phi i64 [ %17, %20 ], [ %37, %35 ]
-  %25 = icmp eq i64 %24, -1
-  %26 = icmp eq i8 %23, 63
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.loopexit, label %27, !prof !132
+21:                                               ; preds = %.preheader, %33
+  %22 = phi i8 [ %34, %33 ], [ %14, %.preheader ]
+  %23 = phi i64 [ %35, %33 ], [ %17, %.preheader ]
+  %24 = icmp eq i64 %23, -1
+  %25 = icmp eq i8 %22, 63
+  %or.cond = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond, label %.loopexit, label %26, !prof !132
 
-27:                                               ; preds = %22
-  %28 = zext i8 %23 to i64
-  %29 = add nuw nsw i64 %28, 1
-  %30 = getelementptr [64 x ptr], ptr %21, i64 0, i64 %29
-  %31 = load volatile ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 3
-  %34 = icmp eq i64 %33, 2
-  br i1 %34, label %.loopexit, label %35, !prof !9
+26:                                               ; preds = %21
+  %27 = zext i8 %22 to i64
+  %28 = getelementptr ptr, ptr %20, i64 %27
+  %29 = load volatile ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = and i64 %30, 3
+  %32 = icmp eq i64 %31, 2
+  br i1 %32, label %.loopexit, label %33, !prof !9
 
-35:                                               ; preds = %27
-  %36 = add i8 %23, 1
-  store i8 %36, ptr %13, align 2
-  %37 = add nuw i64 %24, 1
-  store i64 %37, ptr %16, align 8
-  %38 = icmp eq ptr %31, null
-  br i1 %38, label %22, label %.loopexit4, !llvm.loop !133
+33:                                               ; preds = %26
+  %34 = add i8 %22, 1
+  store i8 %34, ptr %13, align 2
+  %35 = add nuw i64 %23, 1
+  store i64 %35, ptr %16, align 8
+  %36 = icmp eq ptr %29, null
+  br i1 %36, label %21, label %.loopexit4, !llvm.loop !133
 
-.loopexit:                                        ; preds = %27, %22, %12, %9, %1
-  %39 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #15
+.loopexit:                                        ; preds = %26, %21, %12, %9, %1
+  %37 = tail call ptr @xas_find(ptr noundef %0, i64 noundef -1) #15
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %35, %.loopexit
-  %40 = phi ptr [ %39, %.loopexit ], [ %31, %35 ]
-  ret ptr %40
+.loopexit4:                                       ; preds = %33, %.loopexit
+  %38 = phi ptr [ %37, %.loopexit ], [ %29, %33 ]
+  ret ptr %38
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -7314,7 +7313,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
   %50 = lshr i64 %47, %49
   %51 = and i64 %50, 63
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %53 = getelementptr [64 x ptr], ptr %52, i64 0, i64 %51
+  %53 = getelementptr ptr, ptr %52, i64 %51
   %54 = load volatile ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 3
@@ -7326,7 +7325,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
 60:                                               ; preds = %46
   %61 = lshr i64 %55, 2
   %62 = and i64 %61, 255
-  %63 = getelementptr [64 x ptr], ptr %52, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr %52, i64 %62
   br label %64
 
 64:                                               ; preds = %60, %43
@@ -7452,7 +7451,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
   store i8 %140, ptr %32, align 2
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %142 = zext i8 %140 to i64
-  %143 = getelementptr [64 x ptr], ptr %141, i64 0, i64 %142
+  %143 = getelementptr ptr, ptr %141, i64 %142
   %144 = load volatile ptr, ptr %143, align 8
   br label %145
 

@@ -486,7 +486,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader386:                                    ; preds = %120, %123
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %123 ], [ 0, %120 ]
-  %124 = getelementptr inbounds nuw [78 x %struct.anon], ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 0, i64 %indvars.iv478
+  %124 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv478
   %125 = load i64, ptr %124, align 16, !tbaa !83
   %126 = icmp eq i64 %122, %125
   br i1 %126, label %127, label %123
@@ -543,7 +543,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader388:                                    ; preds = %143, %147
   %indvars.iv474 = phi i64 [ %indvars.iv.next475, %147 ], [ 0, %143 ]
-  %148 = getelementptr inbounds nuw [78 x %struct.anon], ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 0, i64 %indvars.iv474
+  %148 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE6unique, i64 %indvars.iv474
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(1) %142) #9
   %.not215 = icmp eq i32 %150, 0
@@ -560,7 +560,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader390:                                    ; preds = %thread-pre-split347.thread, %.preheader390.backedge
   %.2406 = phi i32 [ %.2406.be, %.preheader390.backedge ], [ 0, %thread-pre-split347.thread ]
   %155 = zext nneg i32 %.2406 to i64
-  %156 = getelementptr inbounds nuw [35 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9fujialias, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9fujialias, i64 %155
   %157 = load i8, ptr %156, align 16, !tbaa !73
   %158 = icmp eq i8 %157, 64
   br i1 %158, label %159, label %163
@@ -598,7 +598,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader393:                                    ; preds = %thread-pre-split347.thread, %181
   %indvars.iv466 = phi i64 [ %indvars.iv.next467, %181 ], [ 0, %thread-pre-split347.thread ]
-  %170 = getelementptr inbounds nuw [35 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE11phase1alias, i64 0, i64 %indvars.iv466
+  %170 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE11phase1alias, i64 %indvars.iv466
   %171 = load i8, ptr %170, align 16, !tbaa !73
   %172 = icmp eq i8 %171, 64
   br i1 %172, label %173, label %175
@@ -629,7 +629,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .loopexit394:                                     ; preds = %.loopexit394.preheader, %193
   %indvars.iv470 = phi i64 [ %indvars.iv.next471, %193 ], [ 0, %.loopexit394.preheader ]
-  %182 = getelementptr inbounds nuw [10 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9leafalias, i64 0, i64 %indvars.iv470
+  %182 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9leafalias, i64 %indvars.iv470
   %183 = load i8, ptr %182, align 16, !tbaa !73
   %184 = icmp eq i8 %183, 64
   br i1 %184, label %185, label %187
@@ -658,7 +658,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader395:                                    ; preds = %thread-pre-split347.thread, %.preheader395.backedge
   %.5403 = phi i32 [ %.5403.be, %.preheader395.backedge ], [ 0, %thread-pre-split347.thread ]
   %194 = zext nneg i32 %.5403 to i64
-  %195 = getelementptr inbounds nuw [10 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9leafalias, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE9leafalias, i64 %194
   %196 = load i8, ptr %195, align 16, !tbaa !73
   %197 = icmp eq i8 %196, 64
   br i1 %197, label %198, label %202
@@ -719,7 +719,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 217:                                              ; preds = %.preheader567, %234
   %indvars.iv = phi i64 [ %indvars.iv.next, %234 ], [ 0, %.preheader567 ]
-  %218 = getelementptr inbounds nuw [9 x [24 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE21KonicaMinolta_aliases, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE21KonicaMinolta_aliases, i64 %indvars.iv
   %219 = load i8, ptr %218, align 8, !tbaa !73
   %220 = icmp eq i8 %219, 64
   br i1 %220, label %221, label %227
@@ -775,7 +775,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader:                                       ; preds = %235, %.preheader.backedge
   %.7417 = phi i32 [ %.7417.be, %.preheader.backedge ], [ 0, %235 ]
   %236 = zext nneg i32 %.7417 to i64
-  %237 = getelementptr inbounds nuw [42 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE10nikonalias, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE10nikonalias, i64 %236
   %238 = load i8, ptr %237, align 16, !tbaa !73
   %239 = icmp eq i8 %238, 64
   br i1 %239, label %240, label %244
@@ -810,7 +810,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader374:                                    ; preds = %235, %.preheader374.backedge
   %.8416 = phi i32 [ %.8416.be, %.preheader374.backedge ], [ 0, %235 ]
   %250 = zext nneg i32 %.8416 to i64
-  %251 = getelementptr inbounds nuw [75 x [32 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE8olyalias, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [32 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE8olyalias, i64 %250
   %252 = load i8, ptr %251, align 16, !tbaa !73
   %253 = icmp eq i8 %252, 64
   br i1 %253, label %254, label %258
@@ -877,7 +877,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 274:                                              ; preds = %.preheader549, %.backedge
   %.9415 = phi i32 [ %.9415.be, %.backedge ], [ 0, %.preheader549 ]
   %275 = zext nneg i32 %.9415 to i64
-  %276 = getelementptr inbounds nuw [132 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE8panalias, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE8panalias, i64 %275
   %277 = load i8, ptr %276, align 16, !tbaa !73
   %278 = icmp eq i8 %277, 64
   br i1 %278, label %279, label %283
@@ -954,7 +954,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 299:                                              ; preds = %.preheader551, %.backedge446
   %.10414 = phi i32 [ %.10414.be, %.backedge446 ], [ 0, %.preheader551 ]
   %300 = zext nneg i32 %.10414 to i64
-  %301 = getelementptr inbounds nuw [20 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE21SamsungPentax_aliases, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE21SamsungPentax_aliases, i64 %300
   %302 = load i8, ptr %301, align 16, !tbaa !73
   %303 = icmp eq i8 %302, 64
   br i1 %303, label %304, label %308
@@ -1000,7 +1000,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader378:                                    ; preds = %235, %.preheader378.backedge
   %.11413 = phi i32 [ %.11413.be, %.preheader378.backedge ], [ 0, %235 ]
   %317 = zext nneg i32 %.11413 to i64
-  %318 = getelementptr inbounds nuw [35 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE11phase1alias, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE11phase1alias, i64 %317
   %319 = load i8, ptr %318, align 16, !tbaa !73
   %320 = icmp eq i8 %319, 64
   br i1 %320, label %321, label %325
@@ -1108,7 +1108,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 .preheader380:                                    ; preds = %353, %.preheader380.backedge
   %.12412 = phi i32 [ %.12412.be, %.preheader380.backedge ], [ 0, %353 ]
   %357 = zext nneg i32 %.12412 to i64
-  %358 = getelementptr inbounds nuw [12 x [64 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE12samsungalias, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE12samsungalias, i64 %357
   %359 = load i8, ptr %358, align 16, !tbaa !73
   %360 = icmp eq i8 %359, 64
   br i1 %360, label %361, label %365
@@ -1153,7 +1153,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 .preheader382:                                    ; preds = %371, %374
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %374 ], [ 0, %371 ]
-  %375 = getelementptr inbounds nuw [100 x %struct.anon], ptr @_ZZN6LibRaw18GetNormalizedModelEvE7sonique, i64 0, i64 %indvars.iv486
+  %375 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw18GetNormalizedModelEvE7sonique, i64 %indvars.iv486
   %376 = load i64, ptr %375, align 16, !tbaa !83
   %377 = icmp eq i64 %373, %376
   br i1 %377, label %378, label %374
@@ -1183,7 +1183,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 387:                                              ; preds = %.backedge450, %386
   %.14409 = phi i32 [ 0, %386 ], [ %.14409.be, %.backedge450 ]
   %388 = zext nneg i32 %.14409 to i64
-  %389 = getelementptr inbounds nuw [24 x [16 x i8]], ptr @_ZZN6LibRaw18GetNormalizedModelEvE10kodakalias, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN6LibRaw18GetNormalizedModelEvE10kodakalias, i64 %388
   %390 = load i8, ptr %389, align 16, !tbaa !73
   %391 = icmp eq i8 %390, 64
   br i1 %391, label %392, label %396
@@ -1262,7 +1262,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 416:                                              ; preds = %413, %422
   %indvars.iv482 = phi i64 [ 0, %413 ], [ %indvars.iv.next483, %422 ]
-  %417 = getelementptr inbounds nuw [23 x ptr], ptr @_ZZN6LibRaw18GetNormalizedModelEvE15KodakMonochrome, i64 0, i64 %indvars.iv482
+  %417 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw18GetNormalizedModelEvE15KodakMonochrome, i64 %indvars.iv482
   %418 = load ptr, ptr %417, align 8, !tbaa !88
   %419 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %418) #9
   %420 = tail call i32 @strncmp(ptr noundef nonnull %117, ptr noundef nonnull %418, i64 noundef %419) #9
@@ -1649,7 +1649,7 @@ thread-pre-split347.thread:                       ; preds = %77, %58, %58, %58, 
 
 529:                                              ; preds = %527, %528
   %indvars.iv490 = phi i64 [ 0, %527 ], [ %indvars.iv.next491, %528 ]
-  %530 = getelementptr inbounds nuw [9 x %struct.anon.0], ptr @_ZZN6LibRaw18GetNormalizedModelEvE12Kodak_mounts, i64 0, i64 %indvars.iv490
+  %530 = getelementptr inbounds nuw %struct.anon.0, ptr @_ZZN6LibRaw18GetNormalizedModelEvE12Kodak_mounts, i64 %indvars.iv490
   %531 = load ptr, ptr %530, align 16, !tbaa !106
   %532 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %531) #9
   %533 = tail call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %531, i64 noundef %532) #9
@@ -2053,7 +2053,7 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 12:                                               ; preds = %.preheader37, %.loopexit34
   %indvars.iv49 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next50, %.loopexit34 ]
-  %13 = getelementptr inbounds nuw [64 x [5 x float]], ptr %11, i64 0, i64 %indvars.iv49
+  %13 = getelementptr inbounds nuw [5 x float], ptr %11, i64 %indvars.iv49
   %14 = load float, ptr %13, align 4, !tbaa !113
   %15 = fcmp reassoc nsz arcp contract afn une float %14, 0.000000e+00
   br i1 %15, label %16, label %.critedge
@@ -2065,10 +2065,10 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader33:                                     ; preds = %16, %.preheader33
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader33 ], [ 0, %16 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %18 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next46
+  %18 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.next46
   %19 = load float, ptr %18, align 4, !tbaa !113
   %20 = fptosi float %19 to i32
-  %21 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv45
+  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv45
   store i32 %20, ptr %21, align 4, !tbaa !112
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
   br i1 %exitcond48.not, label %.loopexit34, label %.preheader33, !llvm.loop !114
@@ -2080,10 +2080,10 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 .preheader35:                                     ; preds = %22, %.preheader35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader35 ], [ 0, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw [5 x float], ptr %13, i64 0, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.next
   %25 = load float, ptr %24, align 4, !tbaa !113
   %26 = fptosi float %25 to i32
-  %27 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !112
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit34, label %.preheader35, !llvm.loop !115
@@ -2106,9 +2106,9 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 .preheader32:                                     ; preds = %.critedge.thread62, %.preheader32
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.preheader32 ], [ 0, %.critedge.thread62 ]
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %indvars.iv53
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv53
   %32 = load i32, ptr %31, align 4, !tbaa !112
-  %33 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv53
+  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv53
   store i32 %32, ptr %33, align 4, !tbaa !112
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
@@ -2128,9 +2128,9 @@ define void @_ZN6LibRaw22SetStandardIlluminantsEjPKc(ptr noundef nonnull align 8
 
 .preheader:                                       ; preds = %36, %.preheader
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader ], [ 0, %36 ]
-  %39 = getelementptr inbounds nuw [4 x i32], ptr %37, i64 0, i64 %indvars.iv57
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv57
   %40 = load i32, ptr %39, align 4, !tbaa !112
-  %41 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv57
   store i32 %40, ptr %41, align 4, !tbaa !112
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4

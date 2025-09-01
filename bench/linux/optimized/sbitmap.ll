@@ -170,7 +170,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr noundef ca
   %48 = load ptr, ptr %32, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %43, 63
-  %51 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %50
+  %51 = getelementptr i64, ptr @__per_cpu_offset, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %49
   %54 = inttoptr i64 %53 to ptr
@@ -915,7 +915,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noun
 35:                                               ; preds = %31, %9
   %36 = phi i64 [ 0, %9 ], [ %34, %31 ]
   %37 = or i32 %4, 256
-  %38 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %36, i64 9
+  %38 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %36, i64 9
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_node_trace(ptr noundef %39, i32 noundef %37, i32 noundef %5, i64 noundef 512) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1438,7 +1438,7 @@ define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1,
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = sext i32 %41 to i64
-  %58 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %57
+  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %56
   %61 = inttoptr i64 %60 to ptr
@@ -1479,7 +1479,7 @@ define dso_local void @sbitmap_queue_clear(ptr noundef %0, i32 noundef %1, i32 n
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sext i32 %2 to i64
-  %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
+  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %24
   %29 = inttoptr i64 %28 to ptr
@@ -1560,7 +1560,7 @@ define dso_local void @sbitmap_queue_show(ptr noundef %0, ptr noundef %1) #0 ali
   %18 = load ptr, ptr %3, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %12, 63
-  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr

@@ -152,10 +152,10 @@ define internal noundef zeroext i1 @"_ZN61_$LT$parser..PrefixEntryPoint$u20$as$u
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !45, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN61_$LT$parser..PrefixEntryPoint$u20$as$u20$core..fmt..Debug$GT$3fmt17h51e28d6d0de1a7acE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN61_$LT$parser..PrefixEntryPoint$u20$as$u20$core..fmt..Debug$GT$3fmt17h51e28d6d0de1a7acE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN61_$LT$parser..PrefixEntryPoint$u20$as$u20$core..fmt..Debug$GT$3fmt17h51e28d6d0de1a7acE.13", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN61_$LT$parser..PrefixEntryPoint$u20$as$u20$core..fmt..Debug$GT$3fmt17h51e28d6d0de1a7acE.13", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -1483,7 +1483,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %73
 
 95:                                               ; preds = %"_ZN71_$LT$tt..buffer..Cursor$LT$Span$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0dfba8bc329212bE.exit"
   %96 = load ptr, ptr %72, align 8, !alias.scope !243, !noalias !246, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %96, i64 0, i64 %.sroa.7126.0245
+  %97 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %96, i64 %.sroa.7126.0245
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i64, ptr %98, align 8, !noalias !264, !noundef !4
   %100 = icmp ult i64 %.sroa.9131.0246, %99
@@ -1574,7 +1574,7 @@ default.unreachable:                              ; preds = %101
 
 133:                                              ; preds = %126
   %134 = load ptr, ptr %72, align 8, !alias.scope !272, !noalias !275, !nonnull !4, !noundef !4
-  %135 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %134, i64 0, i64 %.sroa.7126.0245
+  %135 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %134, i64 %.sroa.7126.0245
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load i64, ptr %136, align 8, !noalias !280, !noundef !4
   %138 = icmp ult i64 %.sroa.9131.0246, %137
@@ -1860,7 +1860,7 @@ default.unreachable:                              ; preds = %101
 
 224:                                              ; preds = %221
   %225 = load ptr, ptr %59, align 8, !alias.scope !326, !noalias !329, !nonnull !4, !noundef !4
-  %226 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %225, i64 0, i64 %.sroa.8.0235
+  %226 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %225, i64 %.sroa.8.0235
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load i64, ptr %227, align 8, !noalias !334, !noundef !4
   %229 = icmp ult i64 %.sroa.11.0234, %228
@@ -1928,7 +1928,7 @@ default.unreachable:                              ; preds = %101
   br i1 %254, label %255, label %.invoke, !prof !263
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds [0 x { { { { ptr, i64 } }, {} }, {} }], ptr %220, i64 0, i64 %.sroa.8.2231
+  %256 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %220, i64 %.sroa.8.2231
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i64, ptr %257, align 8, !noalias !338, !noundef !4
   %259 = icmp ult i64 %.sroa.11.2230, %258

@@ -392,7 +392,7 @@ define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %20
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.glslang_shader_preprocess, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.glslang_shader_preprocess, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16c_shader_profile17glslang_profile_t.exit
 
@@ -642,7 +642,7 @@ define void @glslang_program_add_shader(ptr noundef readonly captures(none) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [14 x %"class.std::__cxx11::list"], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::list", ptr %5, i64 %8
   %10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %4, ptr %11, align 8
@@ -671,7 +671,7 @@ _ZL14c_shader_stage15glslang_stage_t.exit:
   %narrow = tail call i32 @llvm.umin.i32(i32 %1, i32 14)
   %.0.i = zext nneg i32 %narrow to i64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %6 = getelementptr inbounds nuw [14 x ptr], ptr %5, i64 0, i64 %.0.i
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1920
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %2, i64 noundef %3) #15
@@ -689,7 +689,7 @@ _ZL14c_shader_stage15glslang_stage_t.exit:
   %.0.i = zext nneg i32 %narrow to i64
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %6 = getelementptr inbounds nuw [14 x ptr], ptr %5, i64 0, i64 %.0.i
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1888
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %2) #15

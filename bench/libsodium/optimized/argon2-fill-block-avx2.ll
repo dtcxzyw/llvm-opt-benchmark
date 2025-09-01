@@ -107,7 +107,7 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
 
 49:                                               ; preds = %47, %43
   %50 = phi i64 [ %48, %47 ], [ %44, %43 ]
-  %51 = getelementptr [128 x i64], ptr %5, i64 0, i64 %45
+  %51 = getelementptr i64, ptr %5, i64 %45
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr i64, ptr %24, i64 %indvars.iv.i
   store i64 %52, ptr %53, align 8
@@ -293,7 +293,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   %161 = load <4 x i64>, ptr %160, align 1
   %162 = xor <4 x i64> %161, %158
   store <4 x i64> %162, ptr %157, align 32
-  %163 = getelementptr [32 x <4 x i64>], ptr %4, i64 0, i64 %indvars.iv.i67
+  %163 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv.i67
   store <4 x i64> %162, ptr %163, align 32
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i68, 32
@@ -700,7 +700,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   %indvars.iv931.i = phi i64 [ %indvars.iv.next932.i, %.preheader.i ], [ 0, %.preheader916.i ]
   %532 = getelementptr <4 x i64>, ptr %10, i64 %indvars.iv931.i
   %533 = load <4 x i64>, ptr %532, align 32
-  %534 = getelementptr [32 x <4 x i64>], ptr %4, i64 0, i64 %indvars.iv931.i
+  %534 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv931.i
   %535 = load <4 x i64>, ptr %534, align 32
   %536 = xor <4 x i64> %535, %533
   store <4 x i64> %536, ptr %532, align 32
@@ -747,7 +747,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   %12 = getelementptr i8, ptr %2, i64 %8
   %13 = load <4 x i64>, ptr %12, align 1
   %14 = xor <4 x i64> %13, %11
-  %15 = getelementptr [32 x <4 x i64>], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv
   store <4 x i64> %14, ptr %15, align 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1158,7 +1158,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   %indvars.iv935 = phi i64 [ %indvars.iv.next936, %.preheader ], [ 0, %.preheader920 ]
   %388 = getelementptr <4 x i64>, ptr %0, i64 %indvars.iv935
   %389 = load <4 x i64>, ptr %388, align 32
-  %390 = getelementptr [32 x <4 x i64>], ptr %4, i64 0, i64 %indvars.iv935
+  %390 = getelementptr <4 x i64>, ptr %4, i64 %indvars.iv935
   %391 = load <4 x i64>, ptr %390, align 32
   %392 = xor <4 x i64> %391, %389
   store <4 x i64> %392, ptr %388, align 32

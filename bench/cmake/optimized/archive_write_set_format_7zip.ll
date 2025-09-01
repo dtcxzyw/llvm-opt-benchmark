@@ -1005,7 +1005,7 @@ enc_uint64.exit194.i:                             ; preds = %78, %72
   br label %enc_uint64.exit202.i
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds nuw [9 x i8], ptr %9, i64 0, i64 %indvars.iv.i195.i
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i195.i
   store i8 %91, ptr %96, align 1, !tbaa !46
   %97 = lshr i64 %.01217.i197.i, 8
   %98 = trunc nuw i32 %.01118.i196.i to i8
@@ -1063,7 +1063,7 @@ enc_uint64.exit210.i:                             ; preds = %104
   br label %enc_uint64.exit218.i
 
 122:                                              ; preds = %114
-  %123 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i211.i
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i211.i
   store i8 %118, ptr %123, align 1, !tbaa !46
   %124 = lshr i64 %.01217.i213.i, 8
   %125 = trunc nuw i32 %.01118.i212.i to i8
@@ -1180,7 +1180,7 @@ enc_uint64.exit226.i:                             ; preds = %._crit_edge.thread.
   br label %enc_uint64.exit234.i
 
 172:                                              ; preds = %164
-  %173 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i227.i
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i227.i
   store i8 %168, ptr %173, align 1, !tbaa !46
   %174 = lshr i64 %.01217.i229.i, 8
   %175 = trunc nuw i32 %.01118.i228.i to i8
@@ -1303,7 +1303,7 @@ enc_uint64.exit242.i:                             ; preds = %.thread423.i, %205,
   br label %enc_uint64.exit250.i
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %indvars.iv.i243.i
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i243.i
   store i8 %220, ptr %225, align 1, !tbaa !46
   %226 = lshr i64 %.01217.i245.i, 8
   %227 = trunc nuw i32 %.01118.i244.i to i8
@@ -2959,7 +2959,7 @@ define internal fastcc noundef i32 @enc_uint64(ptr noundef %0, i64 noundef %1) u
   br label %.loopexit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %8, ptr %13, align 1, !tbaa !46
   %14 = lshr i64 %.01217, 8
   %15 = trunc nuw i32 %.01118 to i8
@@ -3039,7 +3039,7 @@ enc_uint64.exit:                                  ; preds = %27, %7
   br label %enc_uint64.exit187
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw [9 x i8], ptr %19, i64 0, i64 %indvars.iv.i180
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i180
   store i8 %39, ptr %44, align 1, !tbaa !46
   %45 = lshr i64 %.01217.i182, 8
   %46 = trunc nuw i32 %.01118.i181 to i8
@@ -3080,7 +3080,7 @@ enc_uint64.exit187:                               ; preds = %43, %40
   br label %enc_uint64.exit195
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds nuw [9 x i8], ptr %18, i64 0, i64 %indvars.iv.i188
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i188
   store i8 %58, ptr %63, align 1, !tbaa !46
   %64 = lshr i64 %.01217.i190, 8
   %65 = trunc nuw i32 %.01118.i189 to i8
@@ -3152,7 +3152,7 @@ enc_uint64.exit203:                               ; preds = %enc_uint64.exit195
   br label %enc_uint64.exit211
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds nuw [9 x i8], ptr %16, i64 0, i64 %indvars.iv.i204
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i204
   store i8 %88, ptr %93, align 1, !tbaa !46
   %94 = lshr i64 %.01217.i206, 8
   %95 = trunc nuw i32 %.01118.i205 to i8
@@ -3192,7 +3192,7 @@ enc_uint64.exit211:                               ; preds = %92, %89
   br label %enc_uint64.exit219
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds nuw [9 x i8], ptr %15, i64 0, i64 %indvars.iv.i212
+  %111 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i212
   store i8 %106, ptr %111, align 1, !tbaa !46
   %112 = lshr i64 %.01217.i214, 8
   %113 = trunc nuw i32 %.01118.i213 to i8
@@ -3259,7 +3259,7 @@ enc_uint64.exit243:                               ; preds = %enc_uint64.exit235
   br label %enc_uint64.exit251
 
 137:                                              ; preds = %129
-  %138 = getelementptr inbounds nuw [9 x i8], ptr %11, i64 0, i64 %indvars.iv.i244
+  %138 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i244
   store i8 %133, ptr %138, align 1, !tbaa !46
   %139 = lshr i64 %.01217.i246, 8
   %140 = trunc nuw i32 %.01118.i245 to i8
@@ -3322,7 +3322,7 @@ enc_uint64.exit251:                               ; preds = %137, %134
 167:                                              ; preds = %.preheader, %171
   %indvars.iv = phi i64 [ 8, %.preheader ], [ %indvars.iv.next, %171 ]
   %168 = sub nuw nsw i64 8, %indvars.iv
-  %169 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %21, i64 %168
   %170 = load i8, ptr %169, align 1, !tbaa !46
   %.not176 = icmp eq i8 %170, 0
   br i1 %.not176, label %171, label %.split.loop.exit
@@ -3365,7 +3365,7 @@ enc_uint64.exit251:                               ; preds = %137, %134
   br label %enc_uint64.exit259
 
 187:                                              ; preds = %179
-  %188 = getelementptr inbounds nuw [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i252
+  %188 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i252
   store i8 %183, ptr %188, align 1, !tbaa !46
   %189 = lshr i64 %.01217.i254, 8
   %190 = trunc nuw i32 %.01118.i253 to i8
@@ -3404,7 +3404,7 @@ enc_uint64.exit259:                               ; preds = %187, %184
   br label %enc_uint64.exit267
 
 204:                                              ; preds = %196
-  %205 = getelementptr inbounds nuw [9 x i8], ptr %9, i64 0, i64 %indvars.iv.i260
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i260
   store i8 %200, ptr %205, align 1, !tbaa !46
   %206 = lshr i64 %.01217.i262, 8
   %207 = trunc nuw i32 %.01118.i261 to i8
@@ -3432,7 +3432,7 @@ enc_uint64.exit267:                               ; preds = %204, %201
   %214 = and i32 %.0144.lcssa, 15
   %215 = sub nsw i32 8, %214
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds [8 x i8], ptr %21, i64 0, i64 %216
+  %217 = getelementptr inbounds i8, ptr %21, i64 %216
   %218 = zext nneg i32 %214 to i64
   %219 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %217, i64 noundef %218, i32 noundef 1)
   %220 = trunc i64 %219 to i32
@@ -3464,7 +3464,7 @@ enc_uint64.exit267:                               ; preds = %204, %201
   br label %enc_uint64.exit275
 
 233:                                              ; preds = %225
-  %234 = getelementptr inbounds nuw [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i268
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i268
   store i8 %229, ptr %234, align 1, !tbaa !46
   %235 = lshr i64 %.01217.i270, 8
   %236 = trunc nuw i32 %.01118.i269 to i8
@@ -3605,7 +3605,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @make_time(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw [3 x i64], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !59
@@ -3644,7 +3644,7 @@ enc_uint64.exit:                                  ; preds = %4
   br label %enc_uint64.exit84
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i77
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i77
   store i8 %34, ptr %39, align 1, !tbaa !46
   %40 = lshr i64 %.01217.i79, 8
   %41 = trunc nuw i32 %.01118.i78 to i8
@@ -3713,7 +3713,7 @@ enc_uint64.exit100:                               ; preds = %50
   br label %enc_uint64.exit108
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i101
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i101
   store i8 %67, ptr %72, align 1, !tbaa !46
   %73 = lshr i64 %.01217.i103, 8
   %74 = trunc nuw i32 %.01118.i102 to i8
@@ -3826,7 +3826,7 @@ enc_uint64.exit124:                               ; preds = %.thread, %83, %._cr
 
 114:                                              ; preds = %.lr.ph164
   %115 = getelementptr inbounds nuw i8, ptr %.161162, i64 64
-  %116 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr %115, i64 0, i64 %17
+  %116 = getelementptr inbounds nuw %struct.anon.0, ptr %115, i64 %17
   %117 = load i64, ptr %116, align 8, !tbaa !56
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !58
@@ -3916,7 +3916,7 @@ enc_uint64.exit66:                                ; preds = %20
   br label %enc_uint64.exit74
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i67
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i67
   store i8 %31, ptr %36, align 1, !tbaa !46
   %37 = lshr i64 %.01217.i69, 8
   %38 = trunc nuw i32 %.01118.i68 to i8
@@ -3989,7 +3989,7 @@ enc_uint64.exit82:                                ; preds = %enc_uint64.exit74
   br label %enc_uint64.exit90
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds nuw [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i83
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i83
   store i8 %65, ptr %70, align 1, !tbaa !46
   %71 = lshr i64 %.01217.i85, 8
   %72 = trunc nuw i32 %.01118.i84 to i8

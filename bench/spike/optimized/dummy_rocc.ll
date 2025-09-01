@@ -177,7 +177,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %8 = lshr i32 %1, 20
   %9 = and i32 %8, 31
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = icmp samesign ugt i32 %9, 3
   br i1 %13, label %14, label %15
@@ -211,7 +211,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
   %.not = icmp eq i64 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 39056
   %26 = and i64 %23, 255
-  %27 = getelementptr inbounds nuw [256 x i64], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = icmp eq i64 %28, %23
   %or.cond.i = select i1 %.not, i1 %29, i1 false
@@ -219,7 +219,7 @@ define linkonce_odr noundef i64 @_ZN12dummy_rocc_t7custom0E11rocc_insn_tmm(ptr n
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 32912
-  %32 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %31, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %31, i64 %26
   %33 = load ptr, ptr %32, align 8, !tbaa !140
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %2
   %35 = load i64, ptr %34, align 8

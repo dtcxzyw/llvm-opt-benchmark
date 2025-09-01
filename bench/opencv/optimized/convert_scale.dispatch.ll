@@ -37,7 +37,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline18getCvtScaleAbsFuncEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 0, i64 %2
+  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }
@@ -431,10 +431,10 @@ _ZN2cv12cpu_baseline10cvtabs_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 define hidden noundef ptr @_ZN2cv12cpu_baseline19getConvertScaleFuncEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 7
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %4
   %6 = and i32 %0, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   ret ptr %9
 }
@@ -4266,10 +4266,10 @@ define hidden noundef ptr @_ZN2cv19getConvertScaleFuncEii(i32 noundef %0, i32 no
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv19getConvertScaleFuncEiiE24__cv_trace_location_fn24)
   %4 = and i32 %1, 7
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 %5
   %7 = and i32 %0, 7
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !161
@@ -4394,7 +4394,7 @@ _ZNK2cv11_InputArray6getMatEi.exit37:             ; preds = %35, %38
 .noexc38:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit37
   %40 = and i32 %39, 7
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline18getCvtScaleAbsFuncEiE14cvtScaleAbsTab, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !161

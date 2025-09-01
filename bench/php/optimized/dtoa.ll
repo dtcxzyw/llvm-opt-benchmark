@@ -310,7 +310,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %180 = ptrtoint ptr %.021 to i64
   %181 = sub i64 %179, %180
   %182 = zext nneg i32 %172 to i64
-  %183 = getelementptr inbounds nuw [10 x i64], ptr @lexbor_grisu2_gen.pow10, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i64, ptr @lexbor_grisu2_gen.pow10, i64 %182
   %184 = load i64, ptr %183, align 8, !tbaa !9
   %185 = shl i64 %184, %111
   %186 = icmp uge i64 %175, %110
@@ -391,7 +391,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
 222:                                              ; preds = %218
   %223 = sub nsw i32 1, %.1.i.i
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw [10 x i64], ptr @lexbor_grisu2_gen.pow10, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i64, ptr @lexbor_grisu2_gen.pow10, i64 %224
   %226 = load i64, ptr %225, align 8, !tbaa !9
   br label %227
 

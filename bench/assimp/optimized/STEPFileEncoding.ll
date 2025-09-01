@@ -189,7 +189,7 @@ _ZN6Assimp17HexOctetToDecimalEPKc.exit:           ; preds = %_ZN6Assimp17HexDigi
   %73 = zext i8 %71 to i64
   %74 = add nuw nsw i64 %73, 4294967264
   %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds nuw [224 x i16], ptr @_ZL13mac_codetable, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i16, ptr @_ZL13mac_codetable, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

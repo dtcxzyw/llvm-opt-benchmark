@@ -319,19 +319,19 @@ define hidden ptr @KMSDRM_FBFromBO(ptr noundef readonly captures(none) %0, ptr n
   %45 = load ptr, ptr @KMSDRM_gbm_bo_get_stride_for_plane, align 8
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = tail call i32 %45(ptr noundef %1, i32 noundef %46) #13
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %49 = load ptr, ptr @KMSDRM_gbm_bo_get_handle_for_plane, align 8
   %50 = tail call ptr %49(ptr noundef %1, i32 noundef %46) #13
   %51 = ptrtoint ptr %50 to i64
   %.sroa.013.0.extract.trunc = trunc i64 %51 to i32
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.sroa.013.0.extract.trunc, ptr %52, align 4
   %53 = load ptr, ptr @KMSDRM_gbm_bo_get_offset, align 8
   %54 = tail call i32 %53(ptr noundef %1, i32 noundef %46) #13
-  %55 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %35, ptr %56, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

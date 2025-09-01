@@ -955,7 +955,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
   br i1 %exitcond.not, label %25, label %18, !prof !177
 
 13:                                               ; preds = %._crit_edge
-  %14 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.018.lcssa
+  %14 = getelementptr inbounds i8, ptr %1, i64 %.018.lcssa
   %15 = trunc nuw nsw i64 %.017.lcssa to i8
   store i8 %15, ptr %14, align 1
   %16 = add nuw i64 %.018.lcssa, 1
@@ -967,7 +967,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
 
 18:                                               ; preds = %.lr.ph31
   %19 = trunc i64 %.01730 to i8
-  %20 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.01829
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.01829
   %21 = or i8 %19, -128
   store i8 %21, ptr %20, align 1
   %22 = add nuw nsw i64 %.01829, 1
@@ -1033,7 +1033,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
 
 16:                                               ; preds = %.lr.ph31.i
   %17 = trunc i64 %.01730.i to i8
-  %18 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %.01829.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !178
   %20 = add nuw nsw i64 %.01829.i, 1
@@ -1046,7 +1046,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
-  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !178
   %26 = add nuw nsw i64 %.01829.i, 2
@@ -1401,7 +1401,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
 
 16:                                               ; preds = %.lr.ph31.i
   %17 = trunc i64 %.01730.i to i8
-  %18 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %.01829.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.01829.i
   %19 = or i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !303
   %20 = add nuw nsw i64 %.01829.i, 1
@@ -1414,7 +1414,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
-  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %25 = trunc nuw nsw i64 %21 to i8
   store i8 %25, ptr %24, align 1, !alias.scope !303
   %26 = add nuw nsw i64 %.01829.i, 2
@@ -3234,7 +3234,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb8fa03a2de8b7392E.exit.i.i": ; preds = %.lr.ph.i.i
   %.val.i.i = load ptr, ptr %53, align 8, !alias.scope !582, !noalias !583, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds nuw [0 x { { ptr, i64 }, i64 }], ptr %.val.i.i, i64 0, i64 %.sroa.8.070.i.i
+  %71 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %.val.i.i, i64 %.sroa.8.070.i.i
   %72 = getelementptr i8, ptr %71, i64 16
   %.val39.i.i = load i64, ptr %72, align 8, !noalias !583, !noundef !5
   %73 = icmp ult i64 %.sroa.844.069.i.i, %.val39.i.i
@@ -3242,7 +3242,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h014bfdf486ac1d14E.exit.i.i": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb8fa03a2de8b7392E.exit.i.i"
   %.val38.i.i = load ptr, ptr %71, align 8, !noalias !583, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds nuw [0 x { ptr, [2 x i64] }], ptr %.val38.i.i, i64 0, i64 %.sroa.844.069.i.i
+  %74 = getelementptr inbounds nuw { ptr, [2 x i64] }, ptr %.val38.i.i, i64 %.sroa.844.069.i.i
   %75 = load ptr, ptr %74, align 8, !noalias !583, !noundef !5
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %79
@@ -3359,7 +3359,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hd6d1ecc23504af6eE.exit.i.i": ; preds = %.lr.ph.i159.i
   %.val.i160.i = load ptr, ptr %99, align 8, !alias.scope !594, !noalias !595, !nonnull !5, !noundef !5
-  %115 = getelementptr inbounds nuw [0 x { { ptr, i64 }, i64 }], ptr %.val.i160.i, i64 0, i64 %.sroa.8.073.i.i
+  %115 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %.val.i160.i, i64 %.sroa.8.073.i.i
   %116 = getelementptr i8, ptr %115, i64 16
   %.val42.i.i = load i64, ptr %116, align 8, !noalias !595, !noundef !5
   %117 = icmp ult i64 %.sroa.847.072.i.i, %.val42.i.i
@@ -3367,7 +3367,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h09bd0c66f7688fefE.exit.i.i": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hd6d1ecc23504af6eE.exit.i.i"
   %.val41.i.i = load ptr, ptr %115, align 8, !noalias !595, !nonnull !5, !noundef !5
-  %118 = getelementptr inbounds nuw [0 x { ptr, [12 x i64] }], ptr %.val41.i.i, i64 0, i64 %.sroa.847.072.i.i
+  %118 = getelementptr inbounds nuw { ptr, [12 x i64] }, ptr %.val41.i.i, i64 %.sroa.847.072.i.i
   %119 = load ptr, ptr %118, align 8, !noalias !595, !noundef !5
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %123
@@ -3516,7 +3516,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h6b79c96e0a1fd956E.exit.i.i": ; preds = %.lr.ph.i174.i
   %.val.i178.i = load ptr, ptr %148, align 8, !alias.scope !605, !noalias !606, !nonnull !5, !noundef !5
-  %165 = getelementptr inbounds nuw [0 x { { ptr, i64 }, i64 }], ptr %.val.i178.i, i64 0, i64 %.sroa.8.073.i172.i
+  %165 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %.val.i178.i, i64 %.sroa.8.073.i172.i
   %166 = getelementptr i8, ptr %165, i64 16
   %.val42.i179.i = load i64, ptr %166, align 8, !noalias !606, !noundef !5
   %167 = icmp ult i64 %.sroa.847.072.i175.i, %.val42.i179.i
@@ -3524,7 +3524,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h92a67e1ff8245e9cE.exit.i.i": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h6b79c96e0a1fd956E.exit.i.i"
   %.val41.i180.i = load ptr, ptr %165, align 8, !noalias !606, !nonnull !5, !noundef !5
-  %168 = getelementptr inbounds nuw [0 x { ptr, [2 x i64] }], ptr %.val41.i180.i, i64 0, i64 %.sroa.847.072.i175.i
+  %168 = getelementptr inbounds nuw { ptr, [2 x i64] }, ptr %.val41.i180.i, i64 %.sroa.847.072.i175.i
   %169 = load ptr, ptr %168, align 8, !noalias !606, !noundef !5
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %173

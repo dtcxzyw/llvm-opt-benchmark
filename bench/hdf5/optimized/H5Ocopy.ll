@@ -1242,7 +1242,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %317 = load ptr, ptr %1, align 8, !tbaa !18
   %318 = call i32 @H5F_get_high_bound(ptr noundef %317) #7
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds [7 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %319
+  %320 = getelementptr inbounds i32, ptr @H5O_obj_ver_bounds, i64 %319
   %321 = load i32, ptr %320, align 4, !tbaa !23
   %322 = icmp ult i32 %321, %316
   br i1 %322, label %323, label %327

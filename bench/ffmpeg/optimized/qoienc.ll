@@ -187,7 +187,7 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %82 = add nuw nsw i32 %79, %81
   %83 = and i32 %82, 63
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [64 x [4 x i8]], ptr %5, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %84
   %lhsv179 = load i32, ptr %85, align 4
   %.sroa.0.0..sroa.0.0.rhsv180 = load i32, ptr %.sroa.0, align 4
   %.not181 = icmp eq i32 %lhsv179, %.sroa.0.0..sroa.0.0.rhsv180

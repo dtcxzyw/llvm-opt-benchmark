@@ -94,7 +94,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -105,7 +105,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -116,7 +116,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -127,7 +127,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %4
+  %5 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -138,7 +138,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11memtypenameEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -148,7 +148,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -158,7 +158,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor12memtype2nameEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -168,7 +168,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
@@ -567,26 +567,26 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
 
 39:                                               ; preds = %36
   %40 = sext i32 %2 to i64
-  %41 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %40
+  %41 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %40
   %42 = zext nneg i32 %2 to i64
-  %43 = getelementptr inbounds nuw [9 x i8], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
   %44 = load i8, ptr %43, align 1
   %.not57 = icmp eq i8 %44, 0
   br i1 %.not57, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %50
 
 .thread:                                          ; preds = %35
   %45 = sext i32 %2 to i64
-  %46 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %45
+  %46 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %45
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds nuw [9 x i8], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not5760 = icmp eq i8 %49, 0
   br i1 %.not5760, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %.thread61
 
 50:                                               ; preds = %39
   %51 = sext i32 %7 to i64
-  %52 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %51
-  %53 = getelementptr inbounds [9 x i8], ptr %52, i64 0, i64 %51
+  %52 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %51
+  %53 = getelementptr inbounds i8, ptr %52, i64 %51
   %54 = load i8, ptr %53, align 1
   %.not58 = icmp eq i8 %54, 0
   br i1 %.not58, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %.thread61
@@ -1395,14 +1395,14 @@ define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nonnu
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3vcg3ply7PlyFile9typenamesE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #33
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN3vcg3ply7PlyFile12newtypenamesE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr @_ZN3vcg3ply7PlyFile12newtypenamesE, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #33
   %.not8 = icmp eq i32 %10, 0
@@ -1527,7 +1527,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %50
+  %51 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = tail call noalias ptr @calloc(i64 noundef %47, i64 noundef %53) #34
@@ -1562,7 +1562,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %22, %29, %31, %33, 
   %.03450 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
   %69 = load i32, ptr %63, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %70
+  %71 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = mul nsw i32 %72, %.03450
   %74 = sext i32 %73 to i64
@@ -1767,7 +1767,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %48
+  %49 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef %51) #34
@@ -1802,7 +1802,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %.03746 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
   %67 = load i32, ptr %61, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %68
+  %69 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = mul nsw i32 %70, %.03746
   %72 = sext i32 %71 to i64
@@ -1822,7 +1822,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %78 = load i32, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %82, ptr noundef %0)
@@ -1853,7 +1853,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %20, %27, %29, %31, 
   %99 = load i32, ptr %98, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %100
+  %101 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %103, ptr noundef %0)
@@ -2375,26 +2375,26 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit.i:      ; preds = %.lr.ph.i.i
 
 49:                                               ; preds = %46
   %50 = sext i32 %3 to i64
-  %51 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %50
+  %51 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %50
   %52 = zext nneg i32 %3 to i64
-  %53 = getelementptr inbounds nuw [9 x i8], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   %54 = load i8, ptr %53, align 1
   %.not57.i = icmp eq i8 %54, 0
   br i1 %.not57.i, label %.loopexit, label %60
 
 .thread.i:                                        ; preds = %45
   %55 = sext i32 %3 to i64
-  %56 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %55
+  %56 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %55
   %57 = zext nneg i32 %3 to i64
-  %58 = getelementptr inbounds nuw [9 x i8], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
   %59 = load i8, ptr %58, align 1
   %.not5760.i = icmp eq i8 %59, 0
   br i1 %.not5760.i, label %.loopexit, label %_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim.exit
 
 60:                                               ; preds = %49
   %61 = sext i32 %8 to i64
-  %62 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %61
-  %63 = getelementptr inbounds [9 x i8], ptr %62, i64 0, i64 %61
+  %62 = getelementptr inbounds [9 x i8], ptr @_ZN3vcg3plyL9CrossTypeE, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 %61
   %64 = load i8, ptr %63, align 1
   %.not58.i = icmp eq i8 %64, 0
   br i1 %.not58.i, label %.loopexit, label %_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim.exit
@@ -2944,7 +2944,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %163 = load i32, ptr %162, align 8
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %164
+  %165 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 160
   switch i32 %166, label %172 [
@@ -3355,7 +3355,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %307 = load i32, ptr %306, align 8
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %308
+  %309 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %308
   %310 = load i32, ptr %309, align 4
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 160
   switch i32 %310, label %316 [
@@ -3464,7 +3464,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = call noalias ptr @calloc(i64 noundef %33, i64 noundef %39) #34
@@ -3500,7 +3500,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
   %.01921 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
   %57 = load i32, ptr %49, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [9 x i32], ptr @_ZN3vcg3plyL8TypeSizeE, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr @_ZN3vcg3plyL8TypeSizeE, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %60, %.01921
   %62 = sext i32 %61 to i64
@@ -12478,8 +12478,8 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
   %6 = sext i32 %.0 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
-  switch i8 %8, label %76 [
-    i8 0, label %81
+  switch i8 %8, label %68 [
+    i8 0, label %73
     i8 60, label %9
   ]
 
@@ -12488,12 +12488,12 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
   %11 = trunc i64 %10 to i32
   %12 = add nsw i32 %.0, 5
   %13 = icmp slt i32 %12, %11
-  br i1 %13, label %14, label %76
+  br i1 %13, label %14, label %68
 
 14:                                               ; preds = %9
   %15 = getelementptr i8, ptr %7, i64 1
   %16 = load i8, ptr %15, align 1
-  switch i8 %16, label %76 [
+  switch i8 %16, label %68 [
     i8 116, label %17
     i8 84, label %17
   ]
@@ -12501,7 +12501,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
 17:                                               ; preds = %14, %14
   %18 = getelementptr i8, ptr %7, i64 2
   %19 = load i8, ptr %18, align 1
-  switch i8 %19, label %76 [
+  switch i8 %19, label %68 [
     i8 104, label %20
     i8 72, label %20
   ]
@@ -12509,7 +12509,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
 20:                                               ; preds = %17, %17
   %21 = getelementptr i8, ptr %7, i64 3
   %22 = load i8, ptr %21, align 1
-  switch i8 %22, label %76 [
+  switch i8 %22, label %68 [
     i8 105, label %23
     i8 73, label %23
   ]
@@ -12517,7 +12517,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
 23:                                               ; preds = %20, %20
   %24 = getelementptr i8, ptr %7, i64 4
   %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %76 [
+  switch i8 %25, label %68 [
     i8 115, label %26
     i8 83, label %26
   ]
@@ -12527,7 +12527,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 62
-  br i1 %30, label %.preheader81.outer, label %76
+  br i1 %30, label %.preheader81.outer, label %68
 
 .preheader81.outer:                               ; preds = %26, %36
   %indvars.iv.ph = phi i64 [ %37, %36 ], [ 0, %26 ]
@@ -12564,7 +12564,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph ], [ %33, %.preheader ]
   %39 = phi i8 [ %43, %.lr.ph ], [ %35, %.preheader ]
   %40 = sub nsw i64 %indvars.iv86, %33
-  %41 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds i8, ptr %5, i64 %40
   store i8 %39, ptr %41, align 1
   %indvars.iv.next87 = add nsw i64 %indvars.iv86, 1
   %42 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next87
@@ -12580,76 +12580,68 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly 
   %.1.lcssa = phi i32 [ %.066.ph, %.preheader ], [ %44, %._crit_edge.loopexit ]
   %45 = sub nsw i32 %.1.lcssa, %.066.ph
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds i8, ptr %5, i64 %46
   store i8 0, ptr %47, align 1
-  %48 = add nsw i32 %45, -4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 46
-  br i1 %52, label %53, label %69
+  %48 = getelementptr i8, ptr %47, i64 -4
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, 46
+  br i1 %50, label %51, label %61
 
-53:                                               ; preds = %._crit_edge
-  %54 = add nsw i32 %45, -3
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %55
-  %57 = load i8, ptr %56, align 1
-  switch i8 %57, label %69 [
-    i8 80, label %58
-    i8 112, label %58
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr i8, ptr %47, i64 -3
+  %53 = load i8, ptr %52, align 1
+  switch i8 %53, label %61 [
+    i8 80, label %54
+    i8 112, label %54
   ]
 
-58:                                               ; preds = %53, %53
-  %59 = add nsw i32 %45, -2
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1
-  switch i8 %62, label %69 [
-    i8 76, label %63
-    i8 108, label %63
+54:                                               ; preds = %51, %51
+  %55 = getelementptr i8, ptr %47, i64 -2
+  %56 = load i8, ptr %55, align 1
+  switch i8 %56, label %61 [
+    i8 76, label %57
+    i8 108, label %57
   ]
 
-63:                                               ; preds = %58, %58
-  %64 = add nsw i32 %45, -1
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %65
-  %67 = load i8, ptr %66, align 1
-  switch i8 %67, label %69 [
-    i8 89, label %68
-    i8 121, label %68
+57:                                               ; preds = %54, %54
+  %58 = getelementptr i8, ptr %47, i64 -1
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %61 [
+    i8 89, label %60
+    i8 121, label %60
   ]
 
-68:                                               ; preds = %63, %63
-  store i8 0, ptr %50, align 1
-  br label %69
+60:                                               ; preds = %57, %57
+  store i8 0, ptr %48, align 1
+  br label %61
 
-69:                                               ; preds = %63, %58, %53, %68, %._crit_edge
-  %70 = sext i32 %.068 to i64
-  %71 = getelementptr inbounds i8, ptr %2, i64 %70
-  store i8 0, ptr %71, align 1
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, ptr noundef nonnull %5) #28
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
-  %74 = trunc i64 %73 to i32
-  %75 = add nsw i32 %.0, 6
+61:                                               ; preds = %57, %54, %51, %60, %._crit_edge
+  %62 = sext i32 %.068 to i64
+  %63 = getelementptr inbounds i8, ptr %2, i64 %62
+  store i8 0, ptr %63, align 1
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, ptr noundef nonnull %5) #28
+  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
+  %66 = trunc i64 %65 to i32
+  %67 = add nsw i32 %.0, 6
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %69, %76
-  %.068.be = phi i32 [ %74, %69 ], [ %78, %76 ]
-  %.0.be = phi i32 [ %75, %69 ], [ %77, %76 ]
+.backedge.backedge:                               ; preds = %61, %68
+  %.068.be = phi i32 [ %66, %61 ], [ %70, %68 ]
+  %.0.be = phi i32 [ %67, %61 ], [ %69, %68 ]
   br label %.backedge, !llvm.loop !102
 
-76:                                               ; preds = %23, %20, %17, %14, %.backedge, %9, %26
-  %77 = add nsw i32 %.0, 1
-  %78 = add nsw i32 %.068, 1
-  %79 = sext i32 %.068 to i64
-  %80 = getelementptr inbounds i8, ptr %2, i64 %79
-  store i8 %8, ptr %80, align 1
+68:                                               ; preds = %23, %20, %17, %14, %.backedge, %9, %26
+  %69 = add nsw i32 %.0, 1
+  %70 = add nsw i32 %.068, 1
+  %71 = sext i32 %.068 to i64
+  %72 = getelementptr inbounds i8, ptr %2, i64 %71
+  store i8 %8, ptr %72, align 1
   br label %.backedge.backedge
 
-81:                                               ; preds = %.backedge
-  %82 = sext i32 %.068 to i64
-  %83 = getelementptr inbounds i8, ptr %2, i64 %82
-  store i8 0, ptr %83, align 1
+73:                                               ; preds = %.backedge
+  %74 = sext i32 %.068 to i64
+  %75 = getelementptr inbounds i8, ptr %2, i64 %74
+  store i8 0, ptr %75, align 1
   ret void
 }
 

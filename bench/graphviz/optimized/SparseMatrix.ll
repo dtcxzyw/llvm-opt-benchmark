@@ -83,7 +83,7 @@ define noalias ptr @SparseMatrix_transpose(ptr noundef readonly captures(address
 
 switch.lookup:                                    ; preds = %2
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.SparseMatrix_multiply3, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SparseMatrix_multiply3, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %size_of_matrix_type.exit.i
 
@@ -810,7 +810,7 @@ define noalias nonnull ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %1, i32
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.SparseMatrix_multiply3, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SparseMatrix_multiply3, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %size_of_matrix_type.exit
 
@@ -1467,7 +1467,7 @@ define noalias ptr @SparseMatrix_add(ptr noundef readonly captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %18
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.SparseMatrix_multiply3, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SparseMatrix_multiply3, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %size_of_matrix_type.exit.i
 
@@ -2247,7 +2247,7 @@ define void @SparseMatrix_export(ptr noundef captures(none) %0, ptr noundef read
 
 switch.lookup:                                    ; preds = %5
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SparseMatrix_export.1, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load) #17
   %12 = load i32, ptr %1, align 8, !tbaa !15
@@ -2444,17 +2444,17 @@ switch.lookup:                                    ; preds = %5
 98:                                               ; preds = %2
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %100 = load i32, ptr %99, align 8, !tbaa !17
-  %switch.tableidx61 = add i32 %100, -1
-  %101 = icmp ult i32 %switch.tableidx61, 8
-  %switch.maskindex63 = trunc i32 %switch.tableidx61 to i8
+  %switch.tableidx60 = add i32 %100, -1
+  %101 = icmp ult i32 %switch.tableidx60, 8
+  %switch.maskindex63 = trunc i32 %switch.tableidx60 to i8
   %switch.shifted64 = lshr i8 -117, %switch.maskindex63
   %switch.lobit65 = trunc i8 %switch.shifted64 to i1
   %or.cond68 = select i1 %101, i1 %switch.lobit65, i1 false
   br i1 %or.cond68, label %switch.lookup62, label %SparseMatrix_export_csr.exit
 
 switch.lookup62:                                  ; preds = %98
-  %102 = zext nneg i32 %switch.tableidx61 to i64
-  %switch.gep66 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.SparseMatrix_export.1, i64 0, i64 %102
+  %102 = zext nneg i32 %switch.tableidx60 to i64
+  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table.SparseMatrix_export.1, i64 %102
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load67) #17
   %104 = load i32, ptr %1, align 8, !tbaa !15
@@ -3713,7 +3713,7 @@ define ptr @SparseMatrix_multiply(ptr noundef readonly captures(none) %0, ptr no
 
 switch.lookup:                                    ; preds = %._crit_edge337
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.SparseMatrix_multiply3, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SparseMatrix_multiply3, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %size_of_matrix_type.exit.i
 
@@ -4403,7 +4403,7 @@ define noalias ptr @SparseMatrix_multiply3(ptr noundef readonly captures(none) %
 
 switch.lookup:                                    ; preds = %._crit_edge180
   %77 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.SparseMatrix_multiply3, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SparseMatrix_multiply3, i64 %77
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %size_of_matrix_type.exit.i
 

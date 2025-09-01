@@ -46395,7 +46395,7 @@ _ZN4absl6StatusC2ERKS0_.exit89:                   ; preds = %_ZN4absl6StatusC2ER
 
 .preheader:                                       ; preds = %_ZN4absl6StatusC2ERKS0_.exit89, %136
   %indvars.iv210 = phi i64 [ 0, %_ZN4absl6StatusC2ERKS0_.exit89 ], [ %indvars.iv.next211, %136 ]
-  %91 = getelementptr inbounds nuw [4 x %"class.absl::Status"], ptr %10, i64 0, i64 %indvars.iv210
+  %91 = getelementptr inbounds nuw %"class.absl::Status", ptr %10, i64 %indvars.iv210
   br label %137
 
 92:                                               ; preds = %136
@@ -46537,7 +46537,7 @@ _ZN4absl6StatusD2Ev.exit96:                       ; preds = %119, %_ZN4absl6Stat
 
 139:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %140 = getelementptr inbounds nuw [4 x %"class.absl::Status"], ptr %10, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw %"class.absl::Status", ptr %10, i64 %indvars.iv
   %141 = load i64, ptr %91, align 8, !tbaa !73
   %142 = load i64, ptr %140, align 8, !tbaa !73
   %143 = icmp eq i64 %141, %142

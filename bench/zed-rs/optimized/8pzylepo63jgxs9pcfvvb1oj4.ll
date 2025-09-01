@@ -2081,7 +2081,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i, i32 2
+  %112 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i, i32 2
   %113 = load i64, ptr %112, align 8, !noalias !546, !noundef !57
   %.sroa.0.013.i = and i64 %64, %113
   %114 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.013.i
@@ -2247,7 +2247,7 @@ _ZN4core3ptr19swap_nonoverlapping17h1369962ca2f005c3E.exit.loopexit.i: ; preds =
 .lr.ph.i8:                                        ; preds = %176, %_ZN4core3ptr19swap_nonoverlapping17h1369962ca2f005c3E.exit.loopexit.i
   %.val3.i17.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17h1369962ca2f005c3E.exit.loopexit.i ], [ %.val3.i16.i, %176 ]
   %188 = phi ptr [ %184, %_ZN4core3ptr19swap_nonoverlapping17h1369962ca2f005c3E.exit.loopexit.i ], [ %173, %176 ]
-  %189 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i17.i, i32 2
+  %189 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i17.i, i32 2
   %190 = load i64, ptr %189, align 8, !noalias !579, !noundef !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
   %191 = load i64, ptr %15, align 8, !alias.scope !584, !noundef !57
@@ -2847,7 +2847,7 @@ common.resume:                                    ; preds = %173, %125
   br label %common.resume
 
 175:                                              ; preds = %161
-  %176 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %170, i32 2
+  %176 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %170, i32 2
   %177 = load i64, ptr %176, align 8, !noundef !57
   %.sroa.0.013.i = and i64 %177, %6
   %178 = getelementptr inbounds i8, ptr %146, i64 %.sroa.0.013.i
@@ -3293,9 +3293,9 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   br i1 %41, label %42, label %.split132.us.invoke.i
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %37
+  %43 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %37
   %44 = load i8, ptr %43, align 1, !alias.scope !741, !noalias !746, !noundef !57
-  %45 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %40
+  %45 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %40
   %46 = load i8, ptr %45, align 1, !alias.scope !738, !noalias !743, !noundef !57
   %.not.i32.us.i = icmp eq i8 %44, %46
   br i1 %.not.i32.us.i, label %.preheader67.us.i, label %47
@@ -3311,9 +3311,9 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
 
 52:                                               ; preds = %49
   %53 = add nuw i64 %.sroa.04.0.i30.us.i, 1
-  %54 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i30.us.i
+  %54 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i30.us.i
   %55 = load i8, ptr %54, align 1, !alias.scope !741, !noalias !746, !noundef !57
-  %56 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %50
+  %56 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %50
   %57 = load i8, ptr %56, align 1, !alias.scope !738, !noalias !743, !noundef !57
   %.not24.i34.us.i = icmp eq i8 %55, %57
   br i1 %.not24.i34.us.i, label %33, label %58
@@ -3372,9 +3372,9 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   br i1 %79, label %80, label %.split132.us.invoke.i
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %77
+  %81 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %77
   %82 = load i8, ptr %81, align 1, !alias.scope !750, !noalias !755, !noundef !57
-  %83 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %78
+  %83 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %78
   %84 = load i8, ptr %83, align 1, !alias.scope !747, !noalias !752, !noundef !57
   %.not.i.us.i.us = icmp eq i8 %82, %84
   br i1 %.not.i.us.i.us, label %.preheader.us.i.us, label %.split.us
@@ -3442,9 +3442,9 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
 
 109:                                              ; preds = %106
   %110 = add nuw i64 %.sroa.04.0.i.us.i, 1
-  %111 = getelementptr inbounds [0 x i8], ptr %.sroa.14.0.copyload.i, i64 0, i64 %.sroa.04.0.i.us.i
+  %111 = getelementptr inbounds i8, ptr %.sroa.14.0.copyload.i, i64 %.sroa.04.0.i.us.i
   %112 = load i8, ptr %111, align 1, !alias.scope !750, !noalias !755, !noundef !57
-  %113 = getelementptr inbounds [0 x i8], ptr %.sroa.1240.0.copyload.i, i64 0, i64 %107
+  %113 = getelementptr inbounds i8, ptr %.sroa.1240.0.copyload.i, i64 %107
   %114 = load i8, ptr %113, align 1, !alias.scope !747, !noalias !752, !noundef !57
   %.not24.i.us.i = icmp eq i8 %112, %114
   br i1 %.not24.i.us.i, label %.preheader66.us.i, label %115
@@ -3757,7 +3757,7 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   ret void
 
 245:                                              ; preds = %225
-  %246 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }], ptr @anon.99ceb4ae43bdafd3ed780b1d4854c60a.82, i64 0, i64 %227, i32 1
+  %246 = getelementptr inbounds nuw { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.99ceb4ae43bdafd3ed780b1d4854c60a.82, i64 %227, i32 1
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 72
   %248 = load ptr, ptr %247, align 8, !alias.scope !795, !noalias !798, !nonnull !57, !noundef !57
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 80

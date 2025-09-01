@@ -452,7 +452,7 @@ define internal i32 @dissect_opsi_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 57:                                               ; preds = %52
   %58 = zext nneg i32 %53 to i64
-  %59 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %58
+  %59 = getelementptr %struct.opsi_attribute_handle_t, ptr @opsi_attributes, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %61, align 4
@@ -533,7 +533,7 @@ define internal fastcc range(i32 -1, 53) i32 @get_opsi_attribute_index(ptr nound
   %6 = sdiv i8 %.lhs.trunc, 2
   %.sext = zext nneg i8 %6 to i32
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %7
+  %8 = getelementptr %struct.opsi_attribute_handle_t, ptr @opsi_attributes, i64 %7
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
   %11 = icmp eq i32 %3, %10

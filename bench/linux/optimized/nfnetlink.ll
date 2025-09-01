@@ -83,7 +83,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nfnl_lock(i8 noundef zeroext %0) #0 align 16 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %2
+  %3 = getelementptr %struct.anon, ptr @table, i64 %2
   tail call void @mutex_lock(ptr noundef %3) #9
   ret void
 }
@@ -94,7 +94,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nfnl_unlock(i8 noundef zeroext %0) #0 align 16 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %2
+  %3 = getelementptr %struct.anon, ptr @table, i64 %2
   tail call void @mutex_unlock(ptr noundef %3) #9
   ret void
 }
@@ -137,17 +137,17 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %18
+  %19 = getelementptr %struct.anon, ptr @table, i64 %18
   tail call void @mutex_lock(ptr noundef %19) #9
   %20 = load i8, ptr %16, align 8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %21, i32 1
+  %22 = getelementptr %struct.anon, ptr @table, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %21
+  %26 = getelementptr %struct.anon, ptr @table, i64 %21
   tail call void @mutex_unlock(ptr noundef %26) #9
   br label %34
 
@@ -155,11 +155,11 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %28 = load i8, ptr %16, align 8
   %29 = zext i8 %28 to i64
-  %30 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %29, i32 1
+  %30 = getelementptr %struct.anon, ptr @table, i64 %29, i32 1
   store volatile ptr %0, ptr %30, align 8
   %31 = load i8, ptr %16, align 8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %32
+  %33 = getelementptr %struct.anon, ptr @table, i64 %32
   tail call void @mutex_unlock(ptr noundef %33) #9
   br label %34
 
@@ -173,15 +173,15 @@ define dso_local noundef i32 @nfnetlink_subsys_unregister(ptr noundef readonly c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
-  %5 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %4
+  %5 = getelementptr %struct.anon, ptr @table, i64 %4
   tail call void @mutex_lock(ptr noundef %5) #9
   %6 = load i8, ptr %2, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %7, i32 1
+  %8 = getelementptr %struct.anon, ptr @table, i64 %7, i32 1
   store ptr null, ptr %8, align 8
   %9 = load i8, ptr %2, align 8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %10
+  %11 = getelementptr %struct.anon, ptr @table, i64 %10
   tail call void @mutex_unlock(ptr noundef %11) #9
   tail call void @synchronize_rcu() #9
   ret i32 0
@@ -197,7 +197,7 @@ define dso_local i32 @nfnetlink_has_listeners(ptr noundef %0, i32 noundef %1) #0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #9
   %9 = load ptr, ptr %8, align 8
@@ -215,7 +215,7 @@ define dso_local i32 @nfnetlink_send(ptr noundef %0, ptr noundef %1, i32 noundef
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #9
   %13 = load ptr, ptr %12, align 8
@@ -233,7 +233,7 @@ define dso_local i32 @nfnetlink_set_err(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #9
   %11 = load ptr, ptr %10, align 8
@@ -251,7 +251,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nfnetlink_unicast(ptr noundef %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #9
   %10 = load ptr, ptr %9, align 8
@@ -269,7 +269,7 @@ define dso_local void @nfnetlink_broadcast(ptr noundef %0, ptr noundef %1, i32 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #9
   %12 = load ptr, ptr %11, align 8
@@ -295,8 +295,8 @@ define internal i32 @nfnetlink_init() #2 section ".init.text" align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %6, %1 ]
-  %3 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %2
-  %4 = getelementptr [13 x ptr], ptr @nfnl_lockdep_names, i64 0, i64 %2
+  %3 = getelementptr %struct.anon, ptr @table, i64 %2
+  %4 = getelementptr ptr, ptr @nfnl_lockdep_names, i64 %2
   %5 = load ptr, ptr %4, align 8
   tail call void @__mutex_init(ptr noundef %3, ptr noundef %5, ptr noundef nonnull @nfnl_lockdep_keys) #9
   %6 = add nuw nsw i64 %2, 1
@@ -325,7 +325,7 @@ define internal range(i32 -12, 1) i32 @nfnetlink_net_init(ptr noundef %0) #0 ali
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -363,7 +363,7 @@ define internal void @nfnetlink_net_exit_batch(ptr noundef readonly captures(add
   %6 = getelementptr i8, ptr %4, i64 2488
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #9
   %11 = load ptr, ptr %10, align 8
@@ -471,8 +471,8 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = zext nneg i16 %52 to i64
-  %64 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %63
-  %65 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %63, i32 1
+  %64 = getelementptr %struct.anon, ptr @table, i64 %63
+  %65 = getelementptr %struct.anon, ptr @table, i64 %63, i32 1
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 2536
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -740,7 +740,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   call void @__rcu_read_lock() #9
   %204 = load volatile ptr, ptr %66, align 8
   %205 = zext i32 %203 to i64
-  %206 = getelementptr [0 x ptr], ptr %204, i64 0, i64 %205
+  %206 = getelementptr ptr, ptr %204, i64 %205
   %207 = load ptr, ptr %206, align 8
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1026,7 +1026,7 @@ define internal noundef i32 @nfnetlink_bind(ptr readnone captures(none) %0, i32 
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr [10 x i32], ptr @nfnl_group2type, i64 0, i64 %6
+  %7 = getelementptr i32, ptr @nfnl_group2type, i64 %6
   %8 = load i32, ptr %7, align 4
   tail call void @__rcu_read_lock() #9
   %9 = trunc i32 %8 to i8
@@ -1036,7 +1036,7 @@ define internal noundef i32 @nfnetlink_bind(ptr readnone captures(none) %0, i32 
 11:                                               ; preds = %5
   %12 = and i32 %8, 15
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %13, i32 1
+  %14 = getelementptr %struct.anon, ptr @table, i64 %13, i32 1
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   tail call void @__rcu_read_unlock() #9
@@ -1088,7 +1088,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %16 = icmp ugt i16 %.fr14, 3327
   %17 = lshr i16 %.fr14, 8
   %18 = zext nneg i16 %17 to i64
-  %19 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %18, i32 1
+  %19 = getelementptr %struct.anon, ptr @table, i64 %18, i32 1
   %20 = zext nneg i16 %17 to i32
   %21 = and i16 %.fr14, 255
   %22 = zext nneg i16 %21 to i64
@@ -1099,7 +1099,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %29 = getelementptr i8, ptr %1, i64 20
-  %30 = getelementptr [13 x %struct.anon], ptr @table, i64 0, i64 %18
+  %30 = getelementptr %struct.anon, ptr @table, i64 %18
   br i1 %16, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %13
@@ -1147,7 +1147,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   call void @__rcu_read_lock() #9
   %51 = load volatile ptr, ptr %23, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr [0 x ptr], ptr %51, i64 0, i64 %52
+  %53 = getelementptr ptr, ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   call void @__rcu_read_unlock() #9
   %55 = load i16, ptr %14, align 4

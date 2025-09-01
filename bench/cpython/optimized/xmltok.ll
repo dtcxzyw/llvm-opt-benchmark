@@ -256,7 +256,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
 
 8:                                                ; preds = %4, %15
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %indvars.iv
+  %9 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !8
   switch i8 %10, label %11 [
     i8 28, label %15
@@ -283,11 +283,11 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
-  %21 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %21 = getelementptr i8, ptr %5, i64 %indvars.iv119
   store i8 1, ptr %21, align 1, !tbaa !8
-  %22 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
+  %22 = getelementptr i16, ptr %6, i64 %indvars.iv119
   store i16 -1, ptr %22, align 2, !tbaa !11
-  %23 = getelementptr [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv119
+  %23 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv119
   store i8 1, ptr %23, align 4, !tbaa !8
   %24 = getelementptr i8, ptr %23, i64 1
   store i8 0, ptr %24, align 1, !tbaa !8
@@ -305,11 +305,11 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
 29:                                               ; preds = %27
   %30 = trunc nsw i32 %18 to i8
   %31 = sub nsw i8 3, %30
-  %32 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %32 = getelementptr i8, ptr %5, i64 %indvars.iv119
   store i8 %31, ptr %32, align 1, !tbaa !8
-  %33 = getelementptr [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv119
+  %33 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv119
   store i8 0, ptr %33, align 4, !tbaa !8
-  %34 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
+  %34 = getelementptr i16, ptr %6, i64 %indvars.iv119
   store i16 0, ptr %34, align 2, !tbaa !11
   br label %116
 
@@ -319,7 +319,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %18 to i64
-  %39 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %38
+  %39 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !8
   switch i8 %40, label %41 [
     i8 28, label %42
@@ -331,9 +331,9 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   br i1 %.not107, label %42, label %.critedge
 
 42:                                               ; preds = %37, %37, %41
-  %43 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %43 = getelementptr i8, ptr %5, i64 %indvars.iv119
   store i8 %40, ptr %43, align 1, !tbaa !8
-  %44 = getelementptr [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv119
+  %44 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv119
   store i8 1, ptr %44, align 4, !tbaa !8
   %45 = trunc nuw nsw i32 %18 to i8
   %46 = getelementptr i8, ptr %44, i64 1
@@ -341,7 +341,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   %47 = icmp eq i32 %18, 0
   %48 = trunc nuw nsw i32 %18 to i16
   %49 = select i1 %47, i16 -1, i16 %48
-  %50 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
+  %50 = getelementptr i16, ptr %6, i64 %indvars.iv119
   store i16 %49, ptr %50, align 2, !tbaa !11
   br label %116
 
@@ -362,7 +362,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %18 to i64
-  %55 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %54
+  %55 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !8
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %60, label %checkCharRefNumber.exit
@@ -373,11 +373,11 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   br i1 %or.cond.i, label %60, label %checkCharRefNumber.exit
 
 60:                                               ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %53, %58
-  %61 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %61 = getelementptr i8, ptr %5, i64 %indvars.iv119
   store i8 0, ptr %61, align 1, !tbaa !8
-  %62 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
+  %62 = getelementptr i16, ptr %6, i64 %indvars.iv119
   store i16 -1, ptr %62, align 2, !tbaa !11
-  %63 = getelementptr [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv119
+  %63 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv119
   store i8 1, ptr %63, align 4, !tbaa !8
   %64 = getelementptr i8, ptr %63, i64 1
   store i8 0, ptr %64, align 1, !tbaa !8
@@ -389,7 +389,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
 
 66:                                               ; preds = %checkCharRefNumber.exit
   %67 = zext nneg i32 %52 to i64
-  %68 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %67
+  %68 = getelementptr i8, ptr @nmstrtPages, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !8
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 3
@@ -397,7 +397,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   %73 = and i32 %72, 7
   %74 = or disjoint i32 %71, %73
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %75
+  %76 = getelementptr i32, ptr @namingBitmap, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !13
   %78 = and i32 %18, 31
   %79 = shl nuw i32 1, %78
@@ -406,22 +406,22 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   br i1 %.not103, label %83, label %81
 
 81:                                               ; preds = %66
-  %82 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %82 = getelementptr i8, ptr %5, i64 %indvars.iv119
   store i8 22, ptr %82, align 1, !tbaa !8
   br label %96
 
 83:                                               ; preds = %66
-  %84 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %67
+  %84 = getelementptr i8, ptr @namePages, i64 %67
   %85 = load i8, ptr %84, align 1, !tbaa !8
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 %86, 3
   %88 = or disjoint i32 %87, %73
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %89
+  %90 = getelementptr i32, ptr @namingBitmap, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !13
   %92 = and i32 %91, %79
   %.not104 = icmp eq i32 %92, 0
-  %93 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %93 = getelementptr i8, ptr %5, i64 %indvars.iv119
   br i1 %.not104, label %95, label %94
 
 94:                                               ; preds = %83
@@ -433,7 +433,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   br label %96
 
 96:                                               ; preds = %94, %95, %81
-  %97 = getelementptr [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv119
+  %97 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv119
   %98 = getelementptr i8, ptr %97, i64 1
   %99 = icmp samesign ult i32 %18, 2048
   br i1 %99, label %100, label %104
@@ -468,7 +468,7 @@ PyExpat_XmlUtf8Encode.exit:                       ; preds = %100, %104
   store i8 %.sink, ptr %113, align 1, !tbaa !8
   store i8 %.0.i112, ptr %97, align 4, !tbaa !8
   %114 = trunc nuw i32 %18 to i16
-  %115 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
+  %115 = getelementptr i16, ptr %6, i64 %indvars.iv119
   store i16 %114, ptr %115, align 2, !tbaa !11
   br label %116
 
@@ -533,7 +533,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr noundef readon
 8:                                                ; preds = %2
   %9 = lshr i32 %7, 8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @namePages, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -541,7 +541,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr noundef readon
   %16 = and i32 %15, 7
   %17 = or disjoint i32 %14, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %18
+  %19 = getelementptr i32, ptr @namingBitmap, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !13
   %21 = and i32 %7, 31
   %22 = shl nuw i32 1, %21
@@ -566,7 +566,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr noundef read
 8:                                                ; preds = %2
   %9 = lshr i32 %7, 8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @nmstrtPages, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -574,7 +574,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr noundef read
   %16 = and i32 %15, 7
   %17 = or disjoint i32 %14, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %18
+  %19 = getelementptr i32, ptr @namingBitmap, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !13
   %21 = and i32 %7, 31
   %22 = shl nuw i32 1, %21
@@ -614,7 +614,7 @@ define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr noundef readonly capt
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %11
+  %12 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %checkCharRefNumber.exit, label %17
@@ -655,7 +655,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
   %18 = phi ptr [ %7, %.lr.ph ], [ %100, %95 ]
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr [256 x [4 x i8]], ptr %9, i64 0, i64 %20
+  %21 = getelementptr [4 x i8], ptr %9, i64 %20
   %22 = getelementptr i8, ptr %21, i64 1
   %23 = load i8, ptr %21, align 1, !tbaa !8
   %24 = sext i8 %23 to i32
@@ -751,7 +751,7 @@ PyExpat_XmlUtf8Encode.exit:                       ; preds = %26, %33, %37, %46, 
   %79 = load ptr, ptr %1, align 8, !tbaa !3
   %80 = load i8, ptr %79, align 1, !tbaa !8
   %81 = zext i8 %80 to i64
-  %82 = getelementptr [256 x i8], ptr %16, i64 0, i64 %81
+  %82 = getelementptr i8, ptr %16, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = zext i8 %83 to i64
   %85 = getelementptr i8, ptr %79, i64 %84
@@ -814,7 +814,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr noundef readonly captur
 16:                                               ; preds = %12
   %17 = load i8, ptr %14, align 1, !tbaa !8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x i16], ptr %8, i64 0, i64 %18
+  %19 = getelementptr i16, ptr %8, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !11
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %22, label %35
@@ -827,7 +827,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr noundef readonly captur
   %27 = load ptr, ptr %1, align 8, !tbaa !3
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = zext i8 %28 to i64
-  %30 = getelementptr [256 x i8], ptr %11, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %11, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %27, i64 %32
@@ -879,7 +879,7 @@ define hidden range(i32 0, 2) i32 @PyExpat_XmlInitEncoding(ptr noundef %0, ptr n
 
 .preheader.i:                                     ; preds = %3, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %3 ]
-  %5 = getelementptr [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr ptr, ptr @getEncodingIndex.encodingNames, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   br label %7
 
@@ -967,7 +967,7 @@ define internal void @initUpdatePosition(ptr readnone captures(none) %0, ptr nou
   %.023.i = phi ptr [ %1, %.lr.ph.i ], [ %.1.i, %50 ]
   %11 = load i8, ptr %.023.i, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 136), i64 0, i64 %12
+  %13 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 136), i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %46 [
     i8 5, label %15
@@ -1019,7 +1019,7 @@ define internal void @initUpdatePosition(ptr readnone captures(none) %0, ptr nou
 38:                                               ; preds = %31
   %39 = load i8, ptr %34, align 1, !tbaa !8
   %40 = zext i8 %39 to i64
-  %41 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 136), i64 0, i64 %40
+  %41 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 136), i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = icmp eq i8 %42, 10
   %44 = getelementptr i8, ptr %.023.i, i64 2
@@ -1384,7 +1384,7 @@ streqci.exit:                                     ; preds = %14
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i.preheader ]
-  %24 = getelementptr [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr ptr, ptr @getEncodingIndex.encodingNames, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   br label %26
 
@@ -1420,8 +1420,8 @@ streqci.exit:                                     ; preds = %14
 
 getEncodingIndex.exit:                            ; preds = %26
   %sext = shl i64 %indvars.iv.i, 32
-  %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr [7 x ptr], ptr @encodings, i64 0, i64 %34
+  %34 = ashr exact i64 %sext, 29
+  %35 = getelementptr i8, ptr @encodings, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   br label %getEncodingIndex.exit.thread
 
@@ -1449,7 +1449,7 @@ define hidden range(i32 0, 2) i32 @PyExpat_XmlInitEncodingNS(ptr noundef %0, ptr
 
 .preheader.i:                                     ; preds = %3, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %3 ]
-  %5 = getelementptr [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr ptr, ptr @getEncodingIndex.encodingNames, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   br label %7
 
@@ -1592,7 +1592,7 @@ streqci.exit:                                     ; preds = %14
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i.preheader ]
-  %24 = getelementptr [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr ptr, ptr @getEncodingIndex.encodingNames, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   br label %26
 
@@ -1628,8 +1628,8 @@ streqci.exit:                                     ; preds = %14
 
 getEncodingIndex.exit:                            ; preds = %26
   %sext = shl i64 %indvars.iv.i, 32
-  %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr [7 x ptr], ptr @encodingsNS, i64 0, i64 %34
+  %34 = ashr exact i64 %sext, 29
+  %35 = getelementptr i8, ptr @encodingsNS, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   br label %getEncodingIndex.exit.thread
 
@@ -1665,7 +1665,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i8, ptr %1, align 1, !tbaa !8
   %9 = zext i8 %8 to i64
-  %10 = getelementptr [256 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !8
   switch i8 %11, label %168 [
     i8 12, label %12
@@ -1715,7 +1715,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %18
   %25 = load i8, ptr %19, align 1, !tbaa !8
   %26 = zext i8 %25 to i64
-  %27 = getelementptr [256 x i8], ptr %7, i64 0, i64 %26
+  %27 = getelementptr i8, ptr %7, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !8
   switch i8 %28, label %36 [
     i8 16, label %29
@@ -1773,7 +1773,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0247313 = phi ptr [ %48, %56 ], [ %1, %.lr.ph315.preheader ]
   %49 = load i8, ptr %48, align 1, !tbaa !8
   %50 = zext i8 %49 to i64
-  %51 = getelementptr [256 x i8], ptr %7, i64 0, i64 %50
+  %51 = getelementptr i8, ptr %7, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   switch i8 %52, label %55 [
     i8 21, label %56
@@ -1865,7 +1865,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 93:                                               ; preds = %87
   %94 = load i8, ptr %88, align 1, !tbaa !8
   %95 = zext i8 %94 to i64
-  %96 = getelementptr [256 x i8], ptr %7, i64 0, i64 %95
+  %96 = getelementptr i8, ptr %7, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !8
   switch i8 %97, label %105 [
     i8 33, label %98
@@ -2055,7 +2055,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.2249311 = phi ptr [ %170, %.lr.ph ], [ %.3, %288 ]
   %183 = load i8, ptr %.2249311, align 1, !tbaa !8
   %184 = zext i8 %183 to i64
-  %185 = getelementptr [256 x i8], ptr %7, i64 0, i64 %184
+  %185 = getelementptr i8, ptr %7, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !8
   switch i8 %186, label %287 [
     i8 29, label %187
@@ -2182,7 +2182,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 230:                                              ; preds = %226
   %231 = load i8, ptr %225, align 1, !tbaa !8
   %232 = zext i8 %231 to i64
-  %233 = getelementptr [256 x i8], ptr %7, i64 0, i64 %232
+  %233 = getelementptr i8, ptr %7, i64 %232
   %234 = load i8, ptr %233, align 1, !tbaa !8
   switch i8 %234, label %288 [
     i8 29, label %235
@@ -2349,7 +2349,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i8, ptr %1, align 1, !tbaa !8
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i8], ptr %6, i64 0, i64 %8
+  %9 = getelementptr i8, ptr %6, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !8
   switch i8 %10, label %410 [
     i8 2, label %11
@@ -2376,7 +2376,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %11
   %18 = load i8, ptr %12, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [256 x i8], ptr %6, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %6, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %186 [
     i8 29, label %22
@@ -2470,7 +2470,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 61:                                               ; preds = %56
   %62 = load i8, ptr %57, align 1, !tbaa !8
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [256 x i8], ptr %6, i64 0, i64 %63
+  %64 = getelementptr i8, ptr %6, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
   switch i8 %65, label %80 [
     i8 27, label %66
@@ -2497,7 +2497,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %.0122.i.i = phi ptr [ %70, %.preheader.preheader.i.i ], [ %79, %78 ]
   %74 = load i8, ptr %.0122.i.i, align 1, !tbaa !8
-  %75 = getelementptr [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %75 = getelementptr i8, ptr @big2_scanCdataSection.CDATA_LSQB, i64 %indvars.iv.i.i
   %76 = load i8, ptr %75, align 1, !tbaa !8
   %77 = icmp eq i8 %74, %76
   br i1 %77, label %78, label %.sink.split.i.i
@@ -2533,7 +2533,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 89:                                               ; preds = %84
   %90 = load i8, ptr %85, align 1, !tbaa !8
   %91 = zext i8 %90 to i64
-  %92 = getelementptr [256 x i8], ptr %6, i64 0, i64 %91
+  %92 = getelementptr i8, ptr %6, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !8
   switch i8 %93, label %.loopexit.sink.split.i.i [
     i8 7, label %114
@@ -2619,7 +2619,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1123.i.i = phi ptr [ %125, %.lr.ph.i.i ], [ %182, %181 ]
   %137 = load i8, ptr %.1123.i.i, align 1, !tbaa !8
   %138 = zext i8 %137 to i64
-  %139 = getelementptr [256 x i8], ptr %6, i64 0, i64 %138
+  %139 = getelementptr i8, ptr %6, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !8
   switch i8 %140, label %.loopexit.sink.split.i.i [
     i8 11, label %179
@@ -2697,7 +2697,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1.pn131.i.i = phi ptr [ %.3132.i.i, %175 ], [ %.1123.i.i, %165 ]
   %169 = load i8, ptr %.3132.i.i, align 1, !tbaa !8
   %170 = zext i8 %169 to i64
-  %171 = getelementptr [256 x i8], ptr %6, i64 0, i64 %170
+  %171 = getelementptr i8, ptr %6, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !8
   switch i8 %172, label %.loopexit.sink.split.i.i [
     i8 21, label %175
@@ -2765,7 +2765,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1213299.i = phi ptr [ %188, %.lr.ph.i ], [ %333, %332 ]
   %203 = load i8, ptr %.1213299.i, align 1, !tbaa !8
   %204 = zext i8 %203 to i64
-  %205 = getelementptr [256 x i8], ptr %6, i64 0, i64 %204
+  %205 = getelementptr i8, ptr %6, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !8
   switch i8 %206, label %331 [
     i8 29, label %207
@@ -2867,7 +2867,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 242:                                              ; preds = %237
   %243 = load i8, ptr %238, align 1, !tbaa !8
   %244 = zext i8 %243 to i64
-  %245 = getelementptr [256 x i8], ptr %6, i64 0, i64 %244
+  %245 = getelementptr i8, ptr %6, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !8
   switch i8 %246, label %275 [
     i8 29, label %247
@@ -2959,7 +2959,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1213.pn316.i = phi ptr [ %.3317.i, %313 ], [ %.1213299.i, %276 ]
   %281 = load i8, ptr %.3317.i, align 1, !tbaa !8
   %282 = zext i8 %281 to i64
-  %283 = getelementptr [256 x i8], ptr %6, i64 0, i64 %282
+  %283 = getelementptr i8, ptr %6, i64 %282
   %284 = load i8, ptr %283, align 1, !tbaa !8
   switch i8 %284, label %317 [
     i8 29, label %285
@@ -3113,7 +3113,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 346:                                              ; preds = %340
   %347 = load i8, ptr %341, align 1, !tbaa !8
   %348 = zext i8 %347 to i64
-  %349 = getelementptr [256 x i8], ptr %6, i64 0, i64 %348
+  %349 = getelementptr i8, ptr %6, i64 %348
   %350 = load i8, ptr %349, align 1, !tbaa !8
   %351 = icmp eq i8 %350, 10
   %352 = getelementptr i8, ptr %1, i64 2
@@ -3249,7 +3249,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.2178 = phi ptr [ %.1, %.lr.ph ], [ %.3, %465 ]
   %421 = load i8, ptr %.2178, align 1, !tbaa !8
   %422 = zext i8 %421 to i64
-  %423 = getelementptr [256 x i8], ptr %6, i64 0, i64 %422
+  %423 = getelementptr i8, ptr %6, i64 %422
   %424 = load i8, ptr %423, align 1, !tbaa !8
   switch i8 %424, label %463 [
     i8 5, label %425
@@ -3378,7 +3378,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i8, ptr %1, align 1, !tbaa !8
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i8], ptr %6, i64 0, i64 %8
+  %9 = getelementptr i8, ptr %6, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !8
   switch i8 %10, label %78 [
     i8 4, label %11
@@ -3432,7 +3432,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
 36:                                               ; preds = %30
   %37 = load i8, ptr %31, align 1, !tbaa !8
   %38 = zext i8 %37 to i64
-  %39 = getelementptr [256 x i8], ptr %6, i64 0, i64 %38
+  %39 = getelementptr i8, ptr %6, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !8
   %41 = icmp eq i8 %40, 10
   %42 = getelementptr i8, ptr %1, i64 2
@@ -3521,7 +3521,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   %.299 = phi ptr [ %.085, %.lr.ph ], [ %109, %108 ]
   %89 = load i8, ptr %.299, align 1, !tbaa !8
   %90 = zext i8 %89 to i64
-  %91 = getelementptr [256 x i8], ptr %6, i64 0, i64 %90
+  %91 = getelementptr i8, ptr %6, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !8
   switch i8 %92, label %108 [
     i8 5, label %93
@@ -3605,7 +3605,7 @@ define internal range(i32 -2, 43) i32 @normal_ignoreSectionTok(ptr noundef %0, p
   %.05565 = phi ptr [ %1, %.lr.ph ], [ %.156, %82 ]
   %15 = load i8, ptr %.05565, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %9, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %9, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %80 [
     i8 5, label %19
@@ -3765,7 +3765,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   %.04961 = phi ptr [ %1, %.lr.ph ], [ %52, %51 ]
   %12 = load i8, ptr %.04961, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %50 [
     i8 5, label %51
@@ -3828,7 +3828,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
 37:                                               ; preds = %32
   %38 = load i8, ptr %33, align 1, !tbaa !8
   %39 = zext i8 %38 to i64
-  %40 = getelementptr [256 x i8], ptr %10, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %10, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = icmp eq i8 %41, 10
   %43 = getelementptr i8, ptr %1, i64 2
@@ -3893,7 +3893,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   %.05161 = phi ptr [ %1, %.lr.ph ], [ %54, %53 ]
   %12 = load i8, ptr %.05161, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %52 [
     i8 5, label %53
@@ -3966,7 +3966,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
 44:                                               ; preds = %39
   %45 = load i8, ptr %40, align 1, !tbaa !8
   %46 = zext i8 %45 to i64
-  %47 = getelementptr [256 x i8], ptr %10, i64 0, i64 %46
+  %47 = getelementptr i8, ptr %10, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !8
   %49 = icmp eq i8 %48, 10
   %50 = getelementptr i8, ptr %1, i64 2
@@ -4049,7 +4049,7 @@ define internal noundef i32 @normal_nameLength(ptr noundef readonly captures(non
   %.0 = phi ptr [ %1, %2 ], [ %16, %switch.lookup ]
   %5 = load i8, ptr %.0, align 1, !tbaa !8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr i8, ptr %3, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !8
   %switch.tableidx = add i8 %8, -5
   %9 = icmp ult i8 %switch.tableidx, 25
@@ -4070,7 +4070,7 @@ switch.hole_check:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table.normal_nameLength, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.normal_nameLength, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = getelementptr i8, ptr %.0, i64 %switch.load
   br label %4
@@ -4085,7 +4085,7 @@ define internal noundef ptr @normal_skipS(ptr noundef readonly captures(none) %0
   %.0 = phi ptr [ %1, %2 ], [ %10, %9 ]
   %5 = load i8, ptr %.0, align 1, !tbaa !8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr i8, ptr %3, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !8
   switch i8 %8, label %11 [
     i8 10, label %9
@@ -4114,7 +4114,7 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
   %.096 = getelementptr i8, ptr %.pn, i64 1
   %7 = load i8, ptr %.096, align 1, !tbaa !8
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i8], ptr %5, i64 0, i64 %8
+  %9 = getelementptr i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !8
   switch i8 %10, label %.backedge [
     i8 5, label %11
@@ -4322,7 +4322,7 @@ define internal i32 @normal_getAtts(ptr noundef readonly captures(none) %0, ptr 
 
 102:                                              ; preds = %98
   %103 = zext i8 %100 to i64
-  %104 = getelementptr [256 x i8], ptr %5, i64 0, i64 %103
+  %104 = getelementptr i8, ptr %5, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !8
   %106 = zext i8 %105 to i32
   %107 = icmp eq i32 %.0, %106
@@ -4477,7 +4477,7 @@ define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr re
 .loopexit.thread:                                 ; preds = %2, %.loopexit
   %.23451 = phi i32 [ %.234, %.loopexit ], [ 0, %2 ]
   %34 = sext i32 %.23451 to i64
-  %35 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %34
+  %35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !8
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %checkCharRefNumber.exit, label %40
@@ -4606,7 +4606,7 @@ define internal void @normal_updatePosition(ptr noundef readonly captures(none) 
   %.023 = phi ptr [ %1, %.lr.ph ], [ %.1, %51 ]
   %12 = load i8, ptr %.023, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %9, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %9, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %47 [
     i8 5, label %16
@@ -4658,7 +4658,7 @@ define internal void @normal_updatePosition(ptr noundef readonly captures(none) 
 39:                                               ; preds = %32
   %40 = load i8, ptr %35, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
-  %42 = getelementptr [256 x i8], ptr %9, i64 0, i64 %41
+  %42 = getelementptr i8, ptr %9, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = icmp eq i8 %43, 10
   %45 = getelementptr i8, ptr %.023, i64 2
@@ -4706,7 +4706,7 @@ define internal range(i32 0, 2) i32 @normal_isPublicId(ptr noundef readonly capt
   %.01418 = phi ptr [ %.01417, %.lr.ph ], [ %.014, %20 ]
   %12 = load i8, ptr %.01418, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %19 [
     i8 25, label %20
@@ -4886,7 +4886,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   %.04370 = phi ptr [ %2, %.lr.ph ], [ %.144, %60 ]
   %16 = load i8, ptr %.04370, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i8], ptr %10, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %10, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %58 [
     i8 5, label %20
@@ -4973,7 +4973,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   store ptr %47, ptr %4, align 8, !tbaa !3
   %53 = load i8, ptr %47, align 1, !tbaa !8
   %54 = zext i8 %53 to i64
-  %55 = getelementptr [256 x i8], ptr %10, i64 0, i64 %54
+  %55 = getelementptr i8, ptr %10, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !8
   switch i8 %56, label %57 [
     i8 21, label %.thread
@@ -5015,7 +5015,7 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i8, ptr %1, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %24 [
     i8 27, label %15
@@ -5051,7 +5051,7 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   %.pn42 = phi ptr [ %.02843, %38 ], [ %1, %20 ]
   %26 = load i8, ptr %.02843, align 1, !tbaa !8
   %27 = zext i8 %26 to i64
-  %28 = getelementptr [256 x i8], ptr %10, i64 0, i64 %27
+  %28 = getelementptr i8, ptr %10, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !8
   switch i8 %29, label %42 [
     i8 30, label %30
@@ -5070,7 +5070,7 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   %32 = getelementptr i8, ptr %.pn42, i64 2
   %33 = load i8, ptr %32, align 1, !tbaa !8
   %34 = zext i8 %33 to i64
-  %35 = getelementptr [256 x i8], ptr %10, i64 0, i64 %34
+  %35 = getelementptr i8, ptr %10, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !8
   switch i8 %36, label %.loopexit30 [
     i8 21, label %37
@@ -5117,7 +5117,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i8, ptr %1, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %50 [
     i8 29, label %16
@@ -5225,7 +5225,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   %.1183 = phi ptr [ %52, %.lr.ph ], [ %178, %177 ]
   %65 = load i8, ptr %.1183, align 1, !tbaa !8
   %66 = zext i8 %65 to i64
-  %67 = getelementptr [256 x i8], ptr %11, i64 0, i64 %66
+  %67 = getelementptr i8, ptr %11, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !8
   switch i8 %68, label %.loopexit163 [
     i8 29, label %69
@@ -5369,7 +5369,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   %.4190 = phi ptr [ %.5, %159 ], [ %113, %111 ]
   %118 = load i8, ptr %.4190, align 1, !tbaa !8
   %119 = zext i8 %118 to i64
-  %120 = getelementptr [256 x i8], ptr %11, i64 0, i64 %119
+  %120 = getelementptr i8, ptr %11, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
   switch i8 %121, label %157 [
     i8 5, label %122
@@ -5525,7 +5525,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i8, ptr %1, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %45 [
     i8 30, label %.loopexit.sink.split
@@ -5618,7 +5618,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %.1108 = phi ptr [ %47, %.lr.ph ], [ %90, %89 ]
   %59 = load i8, ptr %.1108, align 1, !tbaa !8
   %60 = zext i8 %59 to i64
-  %61 = getelementptr [256 x i8], ptr %10, i64 0, i64 %60
+  %61 = getelementptr i8, ptr %10, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
   switch i8 %62, label %.loopexit.sink.split [
     i8 18, label %87
@@ -5715,7 +5715,7 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i8, ptr %1, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %.loopexit.sink.split [
     i8 7, label %35
@@ -5801,7 +5801,7 @@ define internal fastcc range(i32 -20, 21) i32 @normal_scanPoundName(ptr noundef 
   %.1106 = phi ptr [ %46, %.lr.ph ], [ %87, %86 ]
   %58 = load i8, ptr %.1106, align 1, !tbaa !8
   %59 = zext i8 %58 to i64
-  %60 = getelementptr [256 x i8], ptr %10, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %10, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !8
   switch i8 %61, label %.loopexit.sink.split [
     i8 36, label %.loopexit.sink.split.loopexit132
@@ -5923,7 +5923,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   %.04958 = phi ptr [ %13, %.lr.ph ], [ %.1, %67 ]
   %23 = load i8, ptr %.04958, align 1, !tbaa !8
   %24 = zext i8 %23 to i64
-  %25 = getelementptr [256 x i8], ptr %17, i64 0, i64 %24
+  %25 = getelementptr i8, ptr %17, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !8
   switch i8 %26, label %65 [
     i8 5, label %27
@@ -6094,7 +6094,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i8, ptr %1, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %normal_scanCharRef.exit.sink.split [
     i8 19, label %45
@@ -6181,7 +6181,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 58:                                               ; preds = %53
   %59 = load i8, ptr %54, align 1, !tbaa !8
   %60 = zext i8 %59 to i64
-  %61 = getelementptr [256 x i8], ptr %10, i64 0, i64 %60
+  %61 = getelementptr i8, ptr %10, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = and i8 %62, -2
   %switch.i.i = icmp eq i8 %63, 24
@@ -6199,7 +6199,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   %.pn22.i.i = phi ptr [ %.01623.i.i, %73 ], [ %54, %.preheader.i.i ]
   %67 = load i8, ptr %.01623.i.i, align 1, !tbaa !8
   %68 = zext i8 %67 to i64
-  %69 = getelementptr [256 x i8], ptr %10, i64 0, i64 %68
+  %69 = getelementptr i8, ptr %10, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !8
   switch i8 %70, label %normal_scanCharRef.exit.sink.split [
     i8 25, label %73
@@ -6220,7 +6220,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 
 77:                                               ; preds = %50
   %78 = zext i8 %51 to i64
-  %79 = getelementptr [256 x i8], ptr %10, i64 0, i64 %78
+  %79 = getelementptr i8, ptr %10, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !8
   %cond.i = icmp eq i8 %80, 25
   br i1 %cond.i, label %.preheader.i, label %normal_scanCharRef.exit.sink.split
@@ -6236,7 +6236,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 84:                                               ; preds = %.preheader.i
   %85 = load i8, ptr %.021.i, align 1, !tbaa !8
   %86 = zext i8 %85 to i64
-  %87 = getelementptr [256 x i8], ptr %10, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %10, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !8
   switch i8 %88, label %normal_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -6269,7 +6269,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   %.1121 = phi ptr [ %92, %.lr.ph ], [ %135, %134 ]
   %104 = load i8, ptr %.1121, align 1, !tbaa !8
   %105 = zext i8 %104 to i64
-  %106 = getelementptr [256 x i8], ptr %10, i64 0, i64 %105
+  %106 = getelementptr i8, ptr %10, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !8
   switch i8 %107, label %normal_scanCharRef.exit.sink.split [
     i8 18, label %132
@@ -6383,7 +6383,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %.0117347 = phi i32 [ 0, %.lr.ph348 ], [ %.1118, %253 ]
   %22 = load i8, ptr %.promoted, align 1, !tbaa !8
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [256 x i8], ptr %10, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %10, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !8
   switch i8 %25, label %.thread.sink.split [
     i8 14, label %.thread154
@@ -6480,7 +6480,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 64:                                               ; preds = %59
   %65 = load i8, ptr %60, align 1, !tbaa !8
   %66 = zext i8 %65 to i64
-  %67 = getelementptr [256 x i8], ptr %10, i64 0, i64 %66
+  %67 = getelementptr i8, ptr %10, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !8
   switch i8 %68, label %.thread.sink.split [
     i8 7, label %91
@@ -6565,7 +6565,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %106 = phi ptr [ %112, %111 ], [ %102, %101 ]
   %107 = load i8, ptr %106, align 1, !tbaa !8
   %108 = zext i8 %107 to i64
-  %109 = getelementptr [256 x i8], ptr %10, i64 0, i64 %108
+  %109 = getelementptr i8, ptr %10, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !8
   switch i8 %110, label %.thread.sink.split [
     i8 14, label %.thread154.loopexit
@@ -6596,7 +6596,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 .lr.ph320.preheader:                              ; preds = %.thread154
   %120 = load i8, ptr %116, align 1, !tbaa !8
   %121 = zext i8 %120 to i64
-  %122 = getelementptr [256 x i8], ptr %10, i64 0, i64 %121
+  %122 = getelementptr i8, ptr %10, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !8
   %124 = and i8 %123, -2
   %or.cond698 = icmp eq i8 %124, 12
@@ -6605,7 +6605,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 .lr.ph320:                                        ; preds = %132
   %125 = load i8, ptr %133, align 1, !tbaa !8
   %126 = zext i8 %125 to i64
-  %127 = getelementptr [256 x i8], ptr %10, i64 0, i64 %126
+  %127 = getelementptr i8, ptr %10, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !8
   %129 = and i8 %128, -2
   %or.cond = icmp eq i8 %129, 12
@@ -6642,7 +6642,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %142 = phi ptr [ %180, %select.unfold ], [ %137, %.lr.ph320._crit_edge ]
   %143 = load i8, ptr %142, align 1, !tbaa !8
   %144 = zext i8 %143 to i64
-  %145 = getelementptr [256 x i8], ptr %10, i64 0, i64 %144
+  %145 = getelementptr i8, ptr %10, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !8
   %147 = icmp eq i8 %146, %.lcssa654
   br i1 %147, label %.thread161, label %148
@@ -6745,7 +6745,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 188:                                              ; preds = %.thread161
   %189 = load i8, ptr %184, align 1, !tbaa !8
   %190 = zext i8 %189 to i64
-  %191 = getelementptr [256 x i8], ptr %10, i64 0, i64 %190
+  %191 = getelementptr i8, ptr %10, i64 %190
   %192 = load i8, ptr %191, align 1, !tbaa !8
   switch i8 %192, label %.thread.sink.split [
     i8 21, label %193
@@ -6768,7 +6768,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %200 = phi ptr [ %199, %237 ], [ %184, %193 ]
   %201 = load i8, ptr %199, align 1, !tbaa !8
   %202 = zext i8 %201 to i64
-  %203 = getelementptr [256 x i8], ptr %10, i64 0, i64 %202
+  %203 = getelementptr i8, ptr %10, i64 %202
   %204 = load i8, ptr %203, align 1, !tbaa !8
   switch i8 %204, label %.thread.sink.split [
     i8 17, label %.loopexit181
@@ -7012,7 +7012,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   %.04867 = phi ptr [ %6, %.lr.ph ], [ %.250, %96 ]
   %15 = load i8, ptr %.04768, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %11, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %11, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %92 [
     i8 5, label %19
@@ -7149,7 +7149,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName2(ptr readnone capture
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @namePages, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !8
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
@@ -7163,7 +7163,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName2(ptr readnone capture
   %19 = and i32 %18, 1
   %20 = or disjoint i32 %19, %14
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %21
+  %22 = getelementptr i32, ptr @namingBitmap, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24
@@ -7183,7 +7183,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName3(ptr readnone capture
   %10 = and i32 %9, 15
   %11 = or disjoint i32 %10, %5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @namePages, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 3
@@ -7197,7 +7197,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName3(ptr readnone capture
   %24 = and i32 %23, 1
   %25 = or disjoint i32 %24, %19
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %26
+  %27 = getelementptr i32, ptr @namingBitmap, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !13
   %29 = and i32 %22, 31
   %30 = shl nuw i32 1, %29
@@ -7217,7 +7217,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt2(ptr readnone captu
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @nmstrtPages, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !8
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
@@ -7231,7 +7231,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt2(ptr readnone captu
   %19 = and i32 %18, 1
   %20 = or disjoint i32 %19, %14
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %21
+  %22 = getelementptr i32, ptr @namingBitmap, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24
@@ -7251,7 +7251,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt3(ptr readnone captu
   %10 = and i32 %9, 15
   %11 = or disjoint i32 %10, %5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @nmstrtPages, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 3
@@ -7265,7 +7265,7 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt3(ptr readnone captu
   %24 = and i32 %23, 1
   %25 = or disjoint i32 %24, %19
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %26
+  %27 = getelementptr i32, ptr @namingBitmap, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !13
   %29 = and i32 %22, 31
   %30 = shl nuw i32 1, %29
@@ -7447,7 +7447,7 @@ unicode_byte_type.exit:                           ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load i8, ptr %1, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr [256 x i8], ptr %18, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %18, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   switch i8 %22, label %unicode_byte_type.exit.thread [
     i8 12, label %23
@@ -7516,7 +7516,7 @@ unicode_byte_type.exit235:                        ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = load i8, ptr %30, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %40, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %40, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   switch i8 %44, label %unicode_byte_type.exit235.thread [
     i8 16, label %45
@@ -7579,7 +7579,7 @@ unicode_byte_type.exit235.thread:                 ; preds = %35, %35, %35, %35, 
 unicode_byte_type.exit238:                        ; preds = %62
   %66 = load i8, ptr %63, align 1, !tbaa !8
   %67 = zext i8 %66 to i64
-  %68 = getelementptr [256 x i8], ptr %61, i64 0, i64 %67
+  %68 = getelementptr i8, ptr %61, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !8
   switch i8 %69, label %unicode_byte_type.exit238.thread [
     i8 21, label %72
@@ -7690,7 +7690,7 @@ unicode_byte_type.exit241:                        ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = load i8, ptr %113, align 1, !tbaa !8
   %123 = zext i8 %122 to i64
-  %124 = getelementptr [256 x i8], ptr %121, i64 0, i64 %123
+  %124 = getelementptr i8, ptr %121, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !8
   switch i8 %125, label %unicode_byte_type.exit241.thread [
     i8 33, label %126
@@ -7778,7 +7778,7 @@ unicode_byte_type.exit.thread373:                 ; preds = %13, %13, %13, %13, 
 
 unicode_byte_type.exit.thread375:                 ; preds = %13, %16, %unicode_byte_type.exit
   %155 = zext i8 %15 to i64
-  %156 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %155
+  %156 = getelementptr i8, ptr @nmstrtPages, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !8
   %158 = zext i8 %157 to i32
   %159 = shl nuw nsw i32 %158, 3
@@ -7787,7 +7787,7 @@ unicode_byte_type.exit.thread375:                 ; preds = %13, %16, %unicode_b
   %162 = lshr i32 %161, 5
   %163 = or disjoint i32 %162, %159
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %164
+  %165 = getelementptr i32, ptr @namingBitmap, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !13
   %167 = and i32 %161, 31
   %168 = shl nuw i32 1, %167
@@ -7796,13 +7796,13 @@ unicode_byte_type.exit.thread375:                 ; preds = %13, %16, %unicode_b
   br i1 %.not222, label %170, label %180
 
 170:                                              ; preds = %unicode_byte_type.exit.thread375
-  %171 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %155
+  %171 = getelementptr i8, ptr @namePages, i64 %155
   %172 = load i8, ptr %171, align 1, !tbaa !8
   %173 = zext i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 3
   %175 = or disjoint i32 %174, %162
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %176
+  %177 = getelementptr i32, ptr @namingBitmap, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !13
   %179 = and i32 %178, %168
   %.not223 = icmp eq i32 %179, 0
@@ -7852,7 +7852,7 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
 unicode_byte_type.exit244:                        ; preds = %186
   %192 = load i8, ptr %.2214303, align 1, !tbaa !8
   %193 = zext i8 %192 to i64
-  %194 = getelementptr [256 x i8], ptr %185, i64 0, i64 %193
+  %194 = getelementptr i8, ptr %185, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !8
   switch i8 %195, label %unicode_byte_type.exit244.thread [
     i8 29, label %unicode_byte_type.exit244.thread384
@@ -7881,7 +7881,7 @@ unicode_byte_type.exit244:                        ; preds = %186
 
 unicode_byte_type.exit244.thread384:              ; preds = %186, %190, %unicode_byte_type.exit244
   %196 = zext i8 %189 to i64
-  %197 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %196
+  %197 = getelementptr i8, ptr @namePages, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !8
   %199 = zext i8 %198 to i32
   %200 = shl nuw nsw i32 %199, 3
@@ -7890,7 +7890,7 @@ unicode_byte_type.exit244.thread384:              ; preds = %186, %190, %unicode
   %203 = lshr i32 %202, 5
   %204 = or disjoint i32 %203, %200
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %205
+  %206 = getelementptr i32, ptr @namingBitmap, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !13
   %208 = and i32 %202, 31
   %209 = shl nuw i32 1, %208
@@ -7967,7 +7967,7 @@ unicode_byte_type.exit244.thread387:              ; preds = %186, %186, %186, %1
 unicode_byte_type.exit247:                        ; preds = %227
   %232 = load i8, ptr %222, align 1, !tbaa !8
   %233 = zext i8 %232 to i64
-  %234 = getelementptr [256 x i8], ptr %185, i64 0, i64 %233
+  %234 = getelementptr i8, ptr %185, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !8
   switch i8 %235, label %unicode_byte_type.exit247.thread [
     i8 29, label %unicode_byte_type.exit247.thread390
@@ -7983,7 +7983,7 @@ unicode_byte_type.exit247:                        ; preds = %227
 
 unicode_byte_type.exit247.thread390:              ; preds = %227, %230, %unicode_byte_type.exit247
   %236 = zext i8 %229 to i64
-  %237 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %236
+  %237 = getelementptr i8, ptr @namePages, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !8
   %239 = zext i8 %238 to i32
   %240 = shl nuw nsw i32 %239, 3
@@ -7992,7 +7992,7 @@ unicode_byte_type.exit247.thread390:              ; preds = %227, %230, %unicode
   %243 = lshr i32 %242, 5
   %244 = or disjoint i32 %243, %240
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %245
+  %246 = getelementptr i32, ptr @namingBitmap, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !13
   %248 = and i32 %242, 31
   %249 = shl nuw i32 1, %248
@@ -8137,7 +8137,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i8, ptr %1, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr %19, i64 0, i64 %21
+  %22 = getelementptr i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   switch i8 %23, label %unicode_byte_type.exit.thread369 [
     i8 2, label %24
@@ -8190,7 +8190,7 @@ unicode_byte_type.exit.i:                         ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load i8, ptr %25, align 1, !tbaa !8
   %37 = zext i8 %36 to i64
-  %38 = getelementptr [256 x i8], ptr %35, i64 0, i64 %37
+  %38 = getelementptr i8, ptr %35, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !8
   switch i8 %39, label %unicode_byte_type.exit.thread.i [
     i8 29, label %unicode_byte_type.exit.thread397.i
@@ -8207,7 +8207,7 @@ unicode_byte_type.exit.i:                         ; preds = %30
 unicode_byte_type.exit.thread397.i:               ; preds = %.unicode_byte_type.exit.thread397.i_crit_edge, %unicode_byte_type.exit.i, %33
   %40 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread397.i_crit_edge ], [ %36, %unicode_byte_type.exit.i ], [ %34, %33 ]
   %41 = zext i8 %32 to i64
-  %42 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %41
+  %42 = getelementptr i8, ptr @nmstrtPages, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 3
@@ -8215,7 +8215,7 @@ unicode_byte_type.exit.thread397.i:               ; preds = %.unicode_byte_type.
   %47 = lshr i32 %46, 5
   %48 = or disjoint i32 %47, %45
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %49
+  %50 = getelementptr i32, ptr @namingBitmap, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = and i32 %46, 31
   %53 = shl nuw i32 1, %52
@@ -8274,7 +8274,7 @@ unicode_byte_type.exit.thread400.i:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit172.i:                      ; preds = %73
   %76 = load i8, ptr %69, align 1, !tbaa !8
   %77 = zext i8 %76 to i64
-  %78 = getelementptr [256 x i8], ptr %35, i64 0, i64 %77
+  %78 = getelementptr i8, ptr %35, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !8
   switch i8 %79, label %unicode_byte_type.exit172.thread.i [
     i8 27, label %80
@@ -8307,7 +8307,7 @@ unicode_byte_type.exit172.i:                      ; preds = %73
 
 91:                                               ; preds = %.preheader.i.i
   %92 = load i8, ptr %.0132.i.i, align 1, !tbaa !8
-  %93 = getelementptr [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %93 = getelementptr i8, ptr @big2_scanCdataSection.CDATA_LSQB, i64 %indvars.iv.i.i
   %94 = load i8, ptr %93, align 1, !tbaa !8
   %95 = icmp eq i8 %92, %94
   br i1 %95, label %96, label %.sink.split.i.i
@@ -8368,7 +8368,7 @@ unicode_byte_type.exit172.thread.i:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit.i.i:                       ; preds = %106
   %111 = load i8, ptr %102, align 1, !tbaa !8
   %112 = zext i8 %111 to i64
-  %113 = getelementptr [256 x i8], ptr %35, i64 0, i64 %112
+  %113 = getelementptr i8, ptr %35, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !8
   switch i8 %114, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit.thread145.i.i
@@ -8381,7 +8381,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %106
 unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %109, %.unicode_byte_type.exit.thread145.i_crit_edge.i
   %115 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread145.i_crit_edge.i ], [ %111, %unicode_byte_type.exit.i.i ], [ %110, %109 ]
   %116 = zext i8 %108 to i64
-  %117 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %116
+  %117 = getelementptr i8, ptr @nmstrtPages, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !8
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 3
@@ -8389,7 +8389,7 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
   %122 = lshr i32 %121, 5
   %123 = or disjoint i32 %120, %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %124
+  %125 = getelementptr i32, ptr @namingBitmap, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !13
   %127 = and i32 %121, 31
   %128 = shl nuw i32 1, %127
@@ -8443,7 +8443,7 @@ unicode_byte_type.exit.thread148.i.i:             ; preds = %unicode_byte_type.e
 unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %142 = load i8, ptr %.070110.i.i, align 1, !tbaa !8
   %143 = zext i8 %142 to i64
-  %144 = getelementptr [256 x i8], ptr %35, i64 0, i64 %143
+  %144 = getelementptr i8, ptr %35, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !8
   switch i8 %145, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit78.thread151.i.i
@@ -8464,7 +8464,7 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %140, %.unicode_byte_type.exit78.thread151.i_crit_edge.i
   %146 = phi i8 [ %.pre385.i, %.unicode_byte_type.exit78.thread151.i_crit_edge.i ], [ %142, %unicode_byte_type.exit78.i.i ], [ %141, %140 ]
   %147 = zext i8 %139 to i64
-  %148 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %147
+  %148 = getelementptr i8, ptr @namePages, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !8
   %150 = zext i8 %149 to i32
   %151 = shl nuw nsw i32 %150, 3
@@ -8472,7 +8472,7 @@ unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.e
   %153 = lshr i32 %152, 5
   %154 = or disjoint i32 %151, %153
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %155
+  %156 = getelementptr i32, ptr @namingBitmap, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !13
   %158 = and i32 %152, 31
   %159 = shl nuw i32 1, %158
@@ -8506,7 +8506,7 @@ unicode_byte_type.exit78.thread154.i.i:           ; preds = %unicode_byte_type.e
 unicode_byte_type.exit81.i.i:                     ; preds = %.lr.ph114.i.i
   %170 = load i8, ptr %.2113.i.i, align 1, !tbaa !8
   %171 = zext i8 %170 to i64
-  %172 = getelementptr [256 x i8], ptr %35, i64 0, i64 %171
+  %172 = getelementptr i8, ptr %35, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !8
   switch i8 %173, label %.loopexit.sink.split.i.i [
     i8 21, label %176
@@ -8578,7 +8578,7 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
 unicode_byte_type.exit176.i:                      ; preds = %186
   %192 = load i8, ptr %.0156281.i, align 1, !tbaa !8
   %193 = zext i8 %192 to i64
-  %194 = getelementptr [256 x i8], ptr %61, i64 0, i64 %193
+  %194 = getelementptr i8, ptr %61, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !8
   switch i8 %195, label %unicode_byte_type.exit176.thread.i [
     i8 29, label %unicode_byte_type.exit176.thread404.i
@@ -8601,7 +8601,7 @@ unicode_byte_type.exit176.i:                      ; preds = %186
 unicode_byte_type.exit176.thread404.i:            ; preds = %.unicode_byte_type.exit176.thread404.i_crit_edge, %unicode_byte_type.exit176.i, %190
   %196 = phi i8 [ %.pre346, %.unicode_byte_type.exit176.thread404.i_crit_edge ], [ %192, %unicode_byte_type.exit176.i ], [ %191, %190 ]
   %197 = zext i8 %189 to i64
-  %198 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %197
+  %198 = getelementptr i8, ptr @namePages, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !8
   %200 = zext i8 %199 to i32
   %201 = shl nuw nsw i32 %200, 3
@@ -8609,7 +8609,7 @@ unicode_byte_type.exit176.thread404.i:            ; preds = %.unicode_byte_type.
   %203 = lshr i32 %202, 5
   %204 = or disjoint i32 %203, %201
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %205
+  %206 = getelementptr i32, ptr @namingBitmap, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !13
   %208 = and i32 %202, 31
   %209 = shl nuw i32 1, %208
@@ -8684,7 +8684,7 @@ unicode_byte_type.exit176.thread407.i:            ; preds = %unicode_byte_type.e
 unicode_byte_type.exit179.i:                      ; preds = %225
   %230 = load i8, ptr %221, align 1, !tbaa !8
   %231 = zext i8 %230 to i64
-  %232 = getelementptr [256 x i8], ptr %61, i64 0, i64 %231
+  %232 = getelementptr i8, ptr %61, i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !8
   switch i8 %233, label %unicode_byte_type.exit179.thread.i [
     i8 29, label %unicode_byte_type.exit179.thread410.i
@@ -8698,7 +8698,7 @@ unicode_byte_type.exit179.i:                      ; preds = %225
 unicode_byte_type.exit179.thread410.i:            ; preds = %.unicode_byte_type.exit179.thread410.i_crit_edge, %unicode_byte_type.exit179.i, %228
   %234 = phi i8 [ %.pre345, %.unicode_byte_type.exit179.thread410.i_crit_edge ], [ %230, %unicode_byte_type.exit179.i ], [ %229, %228 ]
   %235 = zext i8 %227 to i64
-  %236 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %235
+  %236 = getelementptr i8, ptr @nmstrtPages, i64 %235
   %237 = load i8, ptr %236, align 1, !tbaa !8
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 3
@@ -8706,7 +8706,7 @@ unicode_byte_type.exit179.thread410.i:            ; preds = %.unicode_byte_type.
   %241 = lshr i32 %240, 5
   %242 = or disjoint i32 %241, %239
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %243
+  %244 = getelementptr i32, ptr @namingBitmap, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !13
   %246 = and i32 %240, 31
   %247 = shl nuw i32 1, %246
@@ -8781,7 +8781,7 @@ unicode_byte_type.exit179.thread.i:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %266 = load i8, ptr %.2286.i, align 1, !tbaa !8
   %267 = zext i8 %266 to i64
-  %268 = getelementptr [256 x i8], ptr %61, i64 0, i64 %267
+  %268 = getelementptr i8, ptr %61, i64 %267
   %269 = load i8, ptr %268, align 1, !tbaa !8
   switch i8 %269, label %unicode_byte_type.exit182.thread.i [
     i8 29, label %unicode_byte_type.exit182.thread416.i
@@ -8800,7 +8800,7 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
 unicode_byte_type.exit182.thread416.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge, %264
   %270 = phi i8 [ %265, %264 ], [ %.pre344.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge ], [ %266, %unicode_byte_type.exit182.i ]
   %271 = phi i64 [ 255, %264 ], [ %263, %.lr.ph287.i.unicode_byte_type.exit182.thread416.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
-  %272 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %271
+  %272 = getelementptr i8, ptr @nmstrtPages, i64 %271
   %273 = load i8, ptr %272, align 1, !tbaa !8
   %274 = zext i8 %273 to i32
   %275 = shl nuw nsw i32 %274, 3
@@ -8808,7 +8808,7 @@ unicode_byte_type.exit182.thread416.i:            ; preds = %unicode_byte_type.e
   %277 = lshr i32 %276, 5
   %278 = or disjoint i32 %277, %275
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %279
+  %280 = getelementptr i32, ptr @namingBitmap, i64 %279
   %281 = load i32, ptr %280, align 4, !tbaa !13
   %282 = and i32 %276, 31
   %283 = shl nuw i32 1, %282
@@ -8926,7 +8926,7 @@ unicode_byte_type.exit115:                        ; preds = %327
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %331 = load i8, ptr %322, align 1, !tbaa !8
   %332 = zext i8 %331 to i64
-  %333 = getelementptr [256 x i8], ptr %330, i64 0, i64 %332
+  %333 = getelementptr i8, ptr %330, i64 %332
   %334 = load i8, ptr %333, align 1, !tbaa !8
   %.fr = freeze i8 %334
   %335 = icmp eq i8 %.fr, 10
@@ -9062,7 +9062,7 @@ unicode_byte_type.exit.thread369:                 ; preds = %14, %17, %unicode_b
 unicode_byte_type.exit118:                        ; preds = %389
   %395 = load i8, ptr %.2232, align 1, !tbaa !8
   %396 = zext i8 %395 to i64
-  %397 = getelementptr [256 x i8], ptr %388, i64 0, i64 %396
+  %397 = getelementptr i8, ptr %388, i64 %396
   %398 = load i8, ptr %397, align 1, !tbaa !8
   switch i8 %398, label %unicode_byte_type.exit118.thread375 [
     i8 5, label %399
@@ -9213,7 +9213,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i8, ptr %1, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr %19, i64 0, i64 %21
+  %22 = getelementptr i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   switch i8 %23, label %unicode_byte_type.exit.thread112 [
     i8 4, label %24
@@ -9286,7 +9286,7 @@ unicode_byte_type.exit95:                         ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %61 = load i8, ptr %52, align 1, !tbaa !8
   %62 = zext i8 %61 to i64
-  %63 = getelementptr [256 x i8], ptr %60, i64 0, i64 %62
+  %63 = getelementptr i8, ptr %60, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !8
   %.fr = freeze i8 %64
   %65 = icmp eq i8 %.fr, 10
@@ -9371,7 +9371,7 @@ unicode_byte_type.exit.thread112:                 ; preds = %14, %17, %unicode_b
 unicode_byte_type.exit98:                         ; preds = %92
   %98 = load i8, ptr %.2104, align 1, !tbaa !8
   %99 = zext i8 %98 to i64
-  %100 = getelementptr [256 x i8], ptr %91, i64 0, i64 %99
+  %100 = getelementptr i8, ptr %91, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !8
   switch i8 %101, label %unicode_byte_type.exit98.thread118 [
     i8 4, label %.sink.split
@@ -9457,7 +9457,7 @@ define internal range(i32 -2, 43) i32 @little2_ignoreSectionTok(ptr noundef read
 unicode_byte_type.exit:                           ; preds = %15
   %21 = load i8, ptr %.05459, align 1, !tbaa !8
   %22 = zext i8 %21 to i64
-  %23 = getelementptr [256 x i8], ptr %14, i64 0, i64 %22
+  %23 = getelementptr i8, ptr %14, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
   switch i8 %24, label %unicode_byte_type.exit.thread77 [
     i8 5, label %25
@@ -9630,7 +9630,7 @@ define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr noundef rea
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.05567, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %10, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
@@ -9698,7 +9698,7 @@ unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit60:                         ; preds = %38
   %41 = load i8, ptr %34, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %10, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
@@ -9776,7 +9776,7 @@ define internal range(i32 -4, 29) i32 @little2_entityValueTok(ptr noundef readon
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.05768, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %10, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
@@ -9854,7 +9854,7 @@ unicode_byte_type.exit.thread77:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit62:                         ; preds = %45
   %48 = load i8, ptr %41, align 1, !tbaa !8
   %49 = zext i8 %48 to i64
-  %50 = getelementptr [256 x i8], ptr %10, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %10, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
@@ -9966,7 +9966,7 @@ define internal i32 @little2_nameLength(ptr noundef readonly captures(none) %0, 
 unicode_byte_type.exit:                           ; preds = %4
   %9 = load i8, ptr %.0, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr [256 x i8], ptr %3, i64 0, i64 %10
+  %11 = getelementptr i8, ptr %3, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %switch.tableidx = add i8 %12, -5
   %13 = icmp ult i8 %switch.tableidx, 25
@@ -9990,7 +9990,7 @@ switch.hole_check:                                ; preds = %unicode_byte_type.e
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.big2_nameLength, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %unicode_byte_type.exit.thread16
 
@@ -10012,7 +10012,7 @@ unicode_byte_type.exit:                           ; preds = %2, %10
   %.011 = phi ptr [ %11, %10 ], [ %1, %2 ]
   %6 = load i8, ptr %.011, align 1, !tbaa !8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr i8, ptr %3, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !8
   switch i8 %9, label %unicode_byte_type.exit.thread [
     i8 10, label %10
@@ -10075,7 +10075,7 @@ unicode_byte_type.exit115.thread.backedge:        ; preds = %unicode_byte_type.e
 unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit115.thread
   %11 = load i8, ptr %.0104, align 1, !tbaa !8
   %12 = zext i8 %11 to i64
-  %13 = getelementptr [256 x i8], ptr %5, i64 0, i64 %12
+  %13 = getelementptr i8, ptr %5, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   switch i8 %14, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %15
@@ -10288,7 +10288,7 @@ unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.e
 
 105:                                              ; preds = %102
   %106 = zext i8 %103 to i64
-  %107 = getelementptr [256 x i8], ptr %5, i64 0, i64 %106
+  %107 = getelementptr i8, ptr %5, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !8
   %109 = zext i8 %108 to i32
   br label %unicode_byte_type.exit115
@@ -10469,7 +10469,7 @@ define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr r
 
 49:                                               ; preds = %.loopexit
   %50 = sext i32 %.239 to i64
-  %51 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %50
+  %51 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %checkCharRefNumber.exit, label %56
@@ -10682,7 +10682,7 @@ define internal void @little2_updatePosition(ptr noundef readonly captures(none)
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.033, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %9, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 5, label %18
@@ -10740,7 +10740,7 @@ unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit31:                         ; preds = %40
   %43 = load i8, ptr %36, align 1, !tbaa !8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr [256 x i8], ptr %9, i64 0, i64 %44
+  %45 = getelementptr i8, ptr %9, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !8
   %.fr = freeze i8 %46
   %47 = icmp eq i8 %.fr, 10
@@ -10796,7 +10796,7 @@ define internal range(i32 0, 2) i32 @little2_isPublicId(ptr noundef readonly cap
 unicode_byte_type.exit:                           ; preds = %11
   %15 = load i8, ptr %.02026, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %10, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.critedge..critedge.thread_crit_edge [
     i8 25, label %25
@@ -11133,7 +11133,7 @@ define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef range
 unicode_byte_type.exit:                           ; preds = %11
   %17 = load i8, ptr %.03458, align 1, !tbaa !8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x i8], ptr %10, i64 0, i64 %18
+  %19 = getelementptr i8, ptr %10, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !8
   switch i8 %20, label %unicode_byte_type.exit.thread44 [
     i8 5, label %21
@@ -11192,7 +11192,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit42:                         ; preds = %37
   %40 = load i8, ptr %32, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
-  %42 = getelementptr [256 x i8], ptr %10, i64 0, i64 %41
+  %42 = getelementptr i8, ptr %10, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !8
   switch i8 %43, label %unicode_byte_type.exit42.thread [
     i8 21, label %.thread
@@ -11240,7 +11240,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i8, ptr %1, align 1, !tbaa !8
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [256 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !8
   switch i8 %16, label %unicode_byte_type.exit.thread [
     i8 27, label %17
@@ -11286,7 +11286,7 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
 unicode_byte_type.exit43:                         ; preds = %27
   %31 = load i8, ptr %.03760, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr [256 x i8], ptr %26, i64 0, i64 %32
+  %33 = getelementptr i8, ptr %26, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !8
   switch i8 %34, label %unicode_byte_type.exit43.thread [
     i8 30, label %35
@@ -11311,7 +11311,7 @@ unicode_byte_type.exit46:                         ; preds = %37
   %40 = getelementptr i8, ptr %.pn59, i64 4
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %26, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %26, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   switch i8 %44, label %.loopexit47 [
     i8 21, label %45
@@ -11382,7 +11382,7 @@ unicode_byte_type.exit:                           ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i8, ptr %1, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [256 x i8], ptr %17, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %17, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %unicode_byte_type.exit.thread [
     i8 29, label %unicode_byte_type.exit.thread201
@@ -11395,7 +11395,7 @@ unicode_byte_type.exit:                           ; preds = %10
 
 unicode_byte_type.exit.thread201:                 ; preds = %15, %14, %unicode_byte_type.exit
   %22 = zext i8 %12 to i64
-  %23 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @nmstrtPages, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 3
@@ -11404,7 +11404,7 @@ unicode_byte_type.exit.thread201:                 ; preds = %15, %14, %unicode_b
   %29 = lshr i32 %28, 5
   %30 = or disjoint i32 %29, %26
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %31
+  %32 = getelementptr i32, ptr @namingBitmap, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !13
   %34 = and i32 %28, 31
   %35 = shl nuw i32 1, %34
@@ -11479,7 +11479,7 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
 unicode_byte_type.exit110:                        ; preds = %49
   %56 = load i8, ptr %.099153, align 1, !tbaa !8
   %57 = zext i8 %56 to i64
-  %58 = getelementptr [256 x i8], ptr %42, i64 0, i64 %57
+  %58 = getelementptr i8, ptr %42, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !8
   switch i8 %59, label %.loopexit119 [
     i8 29, label %unicode_byte_type.exit110.thread207
@@ -11499,7 +11499,7 @@ unicode_byte_type.exit110:                        ; preds = %49
 
 unicode_byte_type.exit110.thread207:              ; preds = %49, %54, %unicode_byte_type.exit110
   %60 = zext i8 %53 to i64
-  %61 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %60
+  %61 = getelementptr i8, ptr @namePages, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 3
@@ -11508,7 +11508,7 @@ unicode_byte_type.exit110.thread207:              ; preds = %49, %54, %unicode_b
   %67 = lshr i32 %66, 5
   %68 = or disjoint i32 %67, %64
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %69
+  %70 = getelementptr i32, ptr @namingBitmap, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !13
   %72 = and i32 %66, 31
   %73 = shl nuw i32 1, %72
@@ -11642,7 +11642,7 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
 unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %118 = load i8, ptr %.2154, align 1, !tbaa !8
   %119 = zext i8 %118 to i64
-  %120 = getelementptr [256 x i8], ptr %42, i64 0, i64 %119
+  %120 = getelementptr i8, ptr %42, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
   switch i8 %121, label %unicode_byte_type.exit114.thread213 [
     i8 5, label %122
@@ -11789,7 +11789,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i8, ptr %1, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %14, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread109
@@ -11805,7 +11805,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread109:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @nmstrtPages, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -11814,7 +11814,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr i32, ptr @namingBitmap, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -11871,7 +11871,7 @@ unicode_byte_type.exit.thread112:                 ; preds = %9, %9, %9, %9, %uni
 unicode_byte_type.exit65:                         ; preds = %43
   %49 = load i8, ptr %.05886, align 1, !tbaa !8
   %50 = zext i8 %49 to i64
-  %51 = getelementptr [256 x i8], ptr %38, i64 0, i64 %50
+  %51 = getelementptr i8, ptr %38, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   switch i8 %52, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit65.thread115
@@ -11887,7 +11887,7 @@ unicode_byte_type.exit65:                         ; preds = %43
 
 unicode_byte_type.exit65.thread115:               ; preds = %43, %47, %unicode_byte_type.exit65
   %53 = zext i8 %46 to i64
-  %54 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %53
+  %54 = getelementptr i8, ptr @namePages, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 3
@@ -11896,7 +11896,7 @@ unicode_byte_type.exit65.thread115:               ; preds = %43, %47, %unicode_b
   %60 = lshr i32 %59, 5
   %61 = or disjoint i32 %60, %57
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %62
+  %63 = getelementptr i32, ptr @namingBitmap, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !13
   %65 = and i32 %59, 31
   %66 = shl nuw i32 1, %65
@@ -11967,7 +11967,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i8, ptr %1, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %14, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread95
@@ -11979,7 +11979,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread95:                  ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @nmstrtPages, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -11988,7 +11988,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr i32, ptr @namingBitmap, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -12042,7 +12042,7 @@ unicode_byte_type.exit.thread98:                  ; preds = %unicode_byte_type.e
 unicode_byte_type.exit63:                         ; preds = %42
   %48 = load i8, ptr %.05678, align 1, !tbaa !8
   %49 = zext i8 %48 to i64
-  %50 = getelementptr [256 x i8], ptr %38, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %38, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   switch i8 %51, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit63.thread101
@@ -12064,7 +12064,7 @@ unicode_byte_type.exit63:                         ; preds = %42
 
 unicode_byte_type.exit63.thread101:               ; preds = %42, %46, %unicode_byte_type.exit63
   %52 = zext i8 %45 to i64
-  %53 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @namePages, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !8
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 3
@@ -12073,7 +12073,7 @@ unicode_byte_type.exit63.thread101:               ; preds = %42, %46, %unicode_b
   %59 = lshr i32 %58, 5
   %60 = or disjoint i32 %59, %56
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %61
+  %62 = getelementptr i32, ptr @namingBitmap, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !13
   %64 = and i32 %58, 31
   %65 = shl nuw i32 1, %64
@@ -12166,7 +12166,7 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr noundef re
 unicode_byte_type.exit:                           ; preds = %22
   %28 = load i8, ptr %.04044, align 1, !tbaa !8
   %29 = zext i8 %28 to i64
-  %30 = getelementptr [256 x i8], ptr %21, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %21, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !8
   switch i8 %31, label %unicode_byte_type.exit.thread56 [
     i8 5, label %32
@@ -12366,7 +12366,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i8, ptr %1, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %14, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %little2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread135
@@ -12379,7 +12379,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread135:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @nmstrtPages, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -12388,7 +12388,7 @@ unicode_byte_type.exit.thread135:                 ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr i32, ptr @namingBitmap, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -12450,7 +12450,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %62 = load i8, ptr %54, align 1, !tbaa !8
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [256 x i8], ptr %61, i64 0, i64 %63
+  %64 = getelementptr i8, ptr %61, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
   %66 = and i8 %65, -2
   %67 = icmp eq i8 %66, 24
@@ -12474,7 +12474,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %58
 unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
   %73 = load i8, ptr %.02233.i.i, align 1, !tbaa !8
   %74 = zext i8 %73 to i64
-  %75 = getelementptr [256 x i8], ptr %61, i64 0, i64 %74
+  %75 = getelementptr i8, ptr %61, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !8
   switch i8 %76, label %little2_scanCharRef.exit.sink.split [
     i8 25, label %79
@@ -12496,7 +12496,7 @@ unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit.i:                         ; preds = %50
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %84 = zext i8 %51 to i64
-  %85 = getelementptr [256 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr i8, ptr %83, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !8
   %cond.i = icmp eq i8 %86, 25
   br i1 %cond.i, label %.preheader.i, label %little2_scanCharRef.exit.sink.split
@@ -12518,7 +12518,7 @@ unicode_byte_type.exit.i:                         ; preds = %50
 unicode_byte_type.exit32.i:                       ; preds = %90
   %93 = load i8, ptr %.028.i, align 1, !tbaa !8
   %94 = zext i8 %93 to i64
-  %95 = getelementptr [256 x i8], ptr %83, i64 0, i64 %94
+  %95 = getelementptr i8, ptr %83, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !8
   switch i8 %96, label %little2_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -12556,7 +12556,7 @@ unicode_byte_type.exit32.i:                       ; preds = %90
 unicode_byte_type.exit68:                         ; preds = %99
   %105 = load i8, ptr %.060100, align 1, !tbaa !8
   %106 = zext i8 %105 to i64
-  %107 = getelementptr [256 x i8], ptr %38, i64 0, i64 %106
+  %107 = getelementptr i8, ptr %38, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !8
   switch i8 %108, label %little2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit68.thread141
@@ -12572,7 +12572,7 @@ unicode_byte_type.exit68:                         ; preds = %99
 
 unicode_byte_type.exit68.thread141:               ; preds = %99, %103, %unicode_byte_type.exit68
   %109 = zext i8 %102 to i64
-  %110 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %109
+  %110 = getelementptr i8, ptr @namePages, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !8
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 3
@@ -12581,7 +12581,7 @@ unicode_byte_type.exit68.thread141:               ; preds = %99, %103, %unicode_
   %116 = lshr i32 %115, 5
   %117 = or disjoint i32 %116, %113
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %118
+  %119 = getelementptr i32, ptr @namingBitmap, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !13
   %121 = and i32 %115, 31
   %122 = shl nuw i32 1, %121
@@ -12660,7 +12660,7 @@ define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr noundef readon
 unicode_byte_type.exit:                           ; preds = %11
   %17 = load i8, ptr %.promoted, align 1, !tbaa !8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [256 x i8], ptr %10, i64 0, i64 %18
+  %19 = getelementptr i8, ptr %10, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !8
   switch i8 %20, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit.thread520
@@ -12680,7 +12680,7 @@ unicode_byte_type.exit:                           ; preds = %11
 
 unicode_byte_type.exit.thread520:                 ; preds = %11, %15, %unicode_byte_type.exit
   %21 = zext i8 %14 to i64
-  %22 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @namePages, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 3
@@ -12689,7 +12689,7 @@ unicode_byte_type.exit.thread520:                 ; preds = %11, %15, %unicode_b
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %25
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @namingBitmap, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -12745,7 +12745,7 @@ unicode_byte_type.exit.thread523:                 ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit93:                         ; preds = %47
   %52 = load i8, ptr %43, align 1, !tbaa !8
   %53 = zext i8 %52 to i64
-  %54 = getelementptr [256 x i8], ptr %10, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %10, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   switch i8 %55, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit93.thread526
@@ -12757,7 +12757,7 @@ unicode_byte_type.exit93:                         ; preds = %47
 
 unicode_byte_type.exit93.thread526:               ; preds = %47, %50, %unicode_byte_type.exit93
   %56 = zext i8 %49 to i64
-  %57 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @nmstrtPages, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 3
@@ -12766,7 +12766,7 @@ unicode_byte_type.exit93.thread526:               ; preds = %47, %50, %unicode_b
   %63 = lshr i32 %62, 5
   %64 = or disjoint i32 %63, %60
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %65
+  %66 = getelementptr i32, ptr @namingBitmap, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !13
   %68 = and i32 %62, 31
   %69 = shl nuw i32 1, %68
@@ -12804,7 +12804,7 @@ unicode_byte_type.exit93.thread529:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit96:                         ; preds = %.lr.ph
   %85 = load i8, ptr %81, align 1, !tbaa !8
   %86 = zext i8 %85 to i64
-  %87 = getelementptr [256 x i8], ptr %10, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %10, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !8
   switch i8 %88, label %.thread.sink.split [
     i8 14, label %.thread111.loopexit
@@ -12843,7 +12843,7 @@ unicode_byte_type.exit96:                         ; preds = %.lr.ph
 unicode_byte_type.exit99:                         ; preds = %.lr.ph310
   %102 = load i8, ptr %98, align 1, !tbaa !8
   %103 = zext i8 %102 to i64
-  %104 = getelementptr [256 x i8], ptr %10, i64 0, i64 %103
+  %104 = getelementptr i8, ptr %10, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !8
   %106 = zext i8 %105 to i32
   %107 = and i32 %106, 254
@@ -12893,7 +12893,7 @@ unicode_byte_type.exit99.thread:                  ; preds = %unicode_byte_type.e
 122:                                              ; preds = %.lr.ph313
   %123 = load i8, ptr %119, align 1, !tbaa !8
   %124 = zext i8 %123 to i64
-  %125 = getelementptr [256 x i8], ptr %10, i64 0, i64 %124
+  %125 = getelementptr i8, ptr %10, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !8
   %127 = zext i8 %126 to i32
   br label %unicode_byte_type.exit102
@@ -12997,7 +12997,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 unicode_byte_type.exit105:                        ; preds = %163
   %166 = load i8, ptr %159, align 1, !tbaa !8
   %167 = zext i8 %166 to i64
-  %168 = getelementptr [256 x i8], ptr %10, i64 0, i64 %167
+  %168 = getelementptr i8, ptr %10, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !8
   switch i8 %169, label %.thread.sink.split [
     i8 21, label %170
@@ -13041,7 +13041,7 @@ unicode_byte_type.exit105:                        ; preds = %163
 unicode_byte_type.exit108:                        ; preds = %.lr.ph331
   %182 = load i8, ptr %176, align 1, !tbaa !8
   %183 = zext i8 %182 to i64
-  %184 = getelementptr [256 x i8], ptr %10, i64 0, i64 %183
+  %184 = getelementptr i8, ptr %10, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !8
   switch i8 %185, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit108.thread533
@@ -13061,7 +13061,7 @@ unicode_byte_type.exit108.thread533:              ; preds = %.lr.ph331, %unicode
   store ptr %176, ptr %5, align 8, !tbaa !3
   %187 = load i8, ptr %186, align 1, !tbaa !8
   %188 = zext i8 %187 to i64
-  %189 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %188
+  %189 = getelementptr i8, ptr @nmstrtPages, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !8
   %191 = zext i8 %190 to i32
   %192 = shl nuw nsw i32 %191, 3
@@ -13070,7 +13070,7 @@ unicode_byte_type.exit108.thread533:              ; preds = %.lr.ph331, %unicode
   %195 = lshr i32 %194, 5
   %196 = or disjoint i32 %195, %192
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %197
+  %198 = getelementptr i32, ptr @namingBitmap, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !13
   %200 = and i32 %194, 31
   %201 = shl nuw i32 1, %200
@@ -13231,7 +13231,7 @@ define internal fastcc i32 @initScan(ptr noundef readonly captures(none) %0, ptr
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   store ptr %45, ptr %9, align 8, !tbaa !43
   %46 = zext nneg i32 %2 to i64
-  %47 = getelementptr [4 x ptr], ptr %45, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !40
   %49 = tail call i32 %48(ptr noundef %45, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #14
   br label %104
@@ -13303,7 +13303,7 @@ define internal fastcc i32 @initScan(ptr noundef readonly captures(none) %0, ptr
   %81 = load ptr, ptr %80, align 8, !tbaa !43
   store ptr %81, ptr %9, align 8, !tbaa !43
   %82 = zext nneg i32 %2 to i64
-  %83 = getelementptr [4 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !40
   %85 = tail call i32 %84(ptr noundef %81, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #14
   br label %104
@@ -13330,7 +13330,7 @@ define internal fastcc i32 @initScan(ptr noundef readonly captures(none) %0, ptr
   %99 = load ptr, ptr %98, align 8, !tbaa !43
   store ptr %99, ptr %9, align 8, !tbaa !43
   %100 = zext nneg i32 %2 to i64
-  %101 = getelementptr [4 x ptr], ptr %99, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !40
   %103 = tail call i32 %102(ptr noundef %99, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #14
   br label %104
@@ -13421,7 +13421,7 @@ unicode_byte_type.exit:                           ; preds = %13
   %19 = getelementptr i8, ptr %1, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i8], ptr %18, i64 0, i64 %21
+  %22 = getelementptr i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !8
   switch i8 %23, label %unicode_byte_type.exit.thread [
     i8 12, label %24
@@ -13491,7 +13491,7 @@ unicode_byte_type.exit235:                        ; preds = %36
   %42 = getelementptr i8, ptr %1, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr [256 x i8], ptr %41, i64 0, i64 %44
+  %45 = getelementptr i8, ptr %41, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !8
   switch i8 %46, label %unicode_byte_type.exit235.thread [
     i8 16, label %47
@@ -13554,7 +13554,7 @@ unicode_byte_type.exit238:                        ; preds = %64
   %67 = getelementptr i8, ptr %.0212305, i64 3
   %68 = load i8, ptr %67, align 1, !tbaa !8
   %69 = zext i8 %68 to i64
-  %70 = getelementptr [256 x i8], ptr %63, i64 0, i64 %69
+  %70 = getelementptr i8, ptr %63, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !8
   switch i8 %71, label %unicode_byte_type.exit238.thread [
     i8 21, label %74
@@ -13665,7 +13665,7 @@ unicode_byte_type.exit241:                        ; preds = %120
   %123 = getelementptr i8, ptr %1, i64 3
   %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i64
-  %126 = getelementptr [256 x i8], ptr %122, i64 0, i64 %125
+  %126 = getelementptr i8, ptr %122, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !8
   switch i8 %127, label %unicode_byte_type.exit241.thread [
     i8 33, label %128
@@ -13753,7 +13753,7 @@ unicode_byte_type.exit.thread373:                 ; preds = %13, %13, %13, %13, 
 
 unicode_byte_type.exit.thread375:                 ; preds = %13, %15, %unicode_byte_type.exit
   %157 = zext i8 %14 to i64
-  %158 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %157
+  %158 = getelementptr i8, ptr @nmstrtPages, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !8
   %160 = zext i8 %159 to i32
   %161 = shl nuw nsw i32 %160, 3
@@ -13763,7 +13763,7 @@ unicode_byte_type.exit.thread375:                 ; preds = %13, %15, %unicode_b
   %165 = lshr i32 %164, 5
   %166 = or disjoint i32 %165, %161
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %167
+  %168 = getelementptr i32, ptr @namingBitmap, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !13
   %170 = and i32 %164, 31
   %171 = shl nuw i32 1, %170
@@ -13772,13 +13772,13 @@ unicode_byte_type.exit.thread375:                 ; preds = %13, %15, %unicode_b
   br i1 %.not222, label %173, label %183
 
 173:                                              ; preds = %unicode_byte_type.exit.thread375
-  %174 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %157
+  %174 = getelementptr i8, ptr @namePages, i64 %157
   %175 = load i8, ptr %174, align 1, !tbaa !8
   %176 = zext i8 %175 to i32
   %177 = shl nuw nsw i32 %176, 3
   %178 = or disjoint i32 %177, %165
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %179
+  %180 = getelementptr i32, ptr @namingBitmap, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !13
   %182 = and i32 %181, %171
   %.not223 = icmp eq i32 %182, 0
@@ -13829,7 +13829,7 @@ unicode_byte_type.exit244:                        ; preds = %189
   %195 = getelementptr i8, ptr %.2214303, i64 1
   %196 = load i8, ptr %195, align 1, !tbaa !8
   %197 = zext i8 %196 to i64
-  %198 = getelementptr [256 x i8], ptr %188, i64 0, i64 %197
+  %198 = getelementptr i8, ptr %188, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !8
   switch i8 %199, label %unicode_byte_type.exit244.thread [
     i8 29, label %unicode_byte_type.exit244.thread384
@@ -13858,7 +13858,7 @@ unicode_byte_type.exit244:                        ; preds = %189
 
 unicode_byte_type.exit244.thread384:              ; preds = %189, %192, %unicode_byte_type.exit244
   %200 = zext i8 %191 to i64
-  %201 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %200
+  %201 = getelementptr i8, ptr @namePages, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !8
   %203 = zext i8 %202 to i32
   %204 = shl nuw nsw i32 %203, 3
@@ -13868,7 +13868,7 @@ unicode_byte_type.exit244.thread384:              ; preds = %189, %192, %unicode
   %208 = lshr i32 %207, 5
   %209 = or disjoint i32 %208, %204
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %210
+  %211 = getelementptr i32, ptr @namingBitmap, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !13
   %213 = and i32 %207, 31
   %214 = shl nuw i32 1, %213
@@ -13946,7 +13946,7 @@ unicode_byte_type.exit247:                        ; preds = %232
   %237 = getelementptr i8, ptr %.2214303, i64 3
   %238 = load i8, ptr %237, align 1, !tbaa !8
   %239 = zext i8 %238 to i64
-  %240 = getelementptr [256 x i8], ptr %188, i64 0, i64 %239
+  %240 = getelementptr i8, ptr %188, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !8
   switch i8 %241, label %unicode_byte_type.exit247.thread [
     i8 29, label %unicode_byte_type.exit247.thread390
@@ -13962,7 +13962,7 @@ unicode_byte_type.exit247:                        ; preds = %232
 
 unicode_byte_type.exit247.thread390:              ; preds = %232, %234, %unicode_byte_type.exit247
   %242 = zext i8 %233 to i64
-  %243 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %242
+  %243 = getelementptr i8, ptr @namePages, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !8
   %245 = zext i8 %244 to i32
   %246 = shl nuw nsw i32 %245, 3
@@ -13972,7 +13972,7 @@ unicode_byte_type.exit247.thread390:              ; preds = %232, %234, %unicode
   %250 = lshr i32 %249, 5
   %251 = or disjoint i32 %250, %246
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %252
+  %253 = getelementptr i32, ptr @namingBitmap, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !13
   %255 = and i32 %249, 31
   %256 = shl nuw i32 1, %255
@@ -14118,7 +14118,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %20 = getelementptr i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i64
-  %23 = getelementptr [256 x i8], ptr %19, i64 0, i64 %22
+  %23 = getelementptr i8, ptr %19, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
   switch i8 %24, label %unicode_byte_type.exit.thread372 [
     i8 2, label %25
@@ -14173,7 +14173,7 @@ unicode_byte_type.exit.i:                         ; preds = %31
   %37 = getelementptr i8, ptr %1, i64 3
   %38 = load i8, ptr %37, align 1, !tbaa !8
   %39 = zext i8 %38 to i64
-  %40 = getelementptr [256 x i8], ptr %36, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %36, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !8
   switch i8 %41, label %unicode_byte_type.exit.thread.i [
     i8 29, label %unicode_byte_type.exit.thread398.i
@@ -14190,7 +14190,7 @@ unicode_byte_type.exit.i:                         ; preds = %31
 unicode_byte_type.exit.thread398.i:               ; preds = %.unicode_byte_type.exit.thread398.i_crit_edge, %unicode_byte_type.exit.i, %33
   %42 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread398.i_crit_edge ], [ %38, %unicode_byte_type.exit.i ], [ %35, %33 ]
   %43 = zext i8 %32 to i64
-  %44 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %43
+  %44 = getelementptr i8, ptr @nmstrtPages, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !8
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 3
@@ -14198,7 +14198,7 @@ unicode_byte_type.exit.thread398.i:               ; preds = %.unicode_byte_type.
   %49 = lshr i32 %48, 5
   %50 = or disjoint i32 %49, %47
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %51
+  %52 = getelementptr i32, ptr @namingBitmap, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !13
   %54 = and i32 %48, 31
   %55 = shl nuw i32 1, %54
@@ -14257,7 +14257,7 @@ unicode_byte_type.exit172.i:                      ; preds = %75
   %77 = getelementptr i8, ptr %1, i64 5
   %78 = load i8, ptr %77, align 1, !tbaa !8
   %79 = zext i8 %78 to i64
-  %80 = getelementptr [256 x i8], ptr %36, i64 0, i64 %79
+  %80 = getelementptr i8, ptr %36, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !8
   switch i8 %81, label %unicode_byte_type.exit172.thread.i [
     i8 27, label %82
@@ -14290,7 +14290,7 @@ unicode_byte_type.exit172.i:                      ; preds = %75
 92:                                               ; preds = %.preheader.i.i
   %93 = getelementptr i8, ptr %.0132.i.i, i64 1
   %94 = load i8, ptr %93, align 1, !tbaa !8
-  %95 = getelementptr [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %95 = getelementptr i8, ptr @big2_scanCdataSection.CDATA_LSQB, i64 %indvars.iv.i.i
   %96 = load i8, ptr %95, align 1, !tbaa !8
   %97 = icmp eq i8 %94, %96
   br i1 %97, label %98, label %.sink.split.i.i
@@ -14353,7 +14353,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %108
   %113 = getelementptr i8, ptr %1, i64 5
   %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = zext i8 %114 to i64
-  %116 = getelementptr [256 x i8], ptr %36, i64 0, i64 %115
+  %116 = getelementptr i8, ptr %36, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !8
   switch i8 %117, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit.thread145.i.i
@@ -14366,7 +14366,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %108
 unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.exit.i.i, %110, %.unicode_byte_type.exit.thread145.i_crit_edge.i
   %118 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread145.i_crit_edge.i ], [ %114, %unicode_byte_type.exit.i.i ], [ %112, %110 ]
   %119 = zext i8 %109 to i64
-  %120 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %119
+  %120 = getelementptr i8, ptr @nmstrtPages, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !8
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 3
@@ -14374,7 +14374,7 @@ unicode_byte_type.exit.thread145.i.i:             ; preds = %unicode_byte_type.e
   %125 = lshr i32 %124, 5
   %126 = or disjoint i32 %123, %125
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %127
+  %128 = getelementptr i32, ptr @namingBitmap, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = and i32 %124, 31
   %131 = shl nuw i32 1, %130
@@ -14430,7 +14430,7 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
   %145 = getelementptr i8, ptr %.pn109.i.i, i64 3
   %146 = load i8, ptr %145, align 1, !tbaa !8
   %147 = zext i8 %146 to i64
-  %148 = getelementptr [256 x i8], ptr %36, i64 0, i64 %147
+  %148 = getelementptr i8, ptr %36, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !8
   switch i8 %149, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit78.thread151.i.i
@@ -14451,7 +14451,7 @@ unicode_byte_type.exit78.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.exit78.i.i, %142, %.unicode_byte_type.exit78.thread151.i_crit_edge.i
   %150 = phi i8 [ %.pre386.i, %.unicode_byte_type.exit78.thread151.i_crit_edge.i ], [ %146, %unicode_byte_type.exit78.i.i ], [ %144, %142 ]
   %151 = zext i8 %141 to i64
-  %152 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %151
+  %152 = getelementptr i8, ptr @namePages, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !8
   %154 = zext i8 %153 to i32
   %155 = shl nuw nsw i32 %154, 3
@@ -14459,7 +14459,7 @@ unicode_byte_type.exit78.thread151.i.i:           ; preds = %unicode_byte_type.e
   %157 = lshr i32 %156, 5
   %158 = or disjoint i32 %155, %157
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %159
+  %160 = getelementptr i32, ptr @namingBitmap, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !13
   %162 = and i32 %156, 31
   %163 = shl nuw i32 1, %162
@@ -14493,7 +14493,7 @@ unicode_byte_type.exit81.i.i:                     ; preds = %.lr.ph114.i.i
   %173 = getelementptr i8, ptr %.070.pn112.i.i, i64 3
   %174 = load i8, ptr %173, align 1, !tbaa !8
   %175 = zext i8 %174 to i64
-  %176 = getelementptr [256 x i8], ptr %36, i64 0, i64 %175
+  %176 = getelementptr i8, ptr %36, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !8
   switch i8 %177, label %.loopexit.sink.split.i.i [
     i8 21, label %180
@@ -14567,7 +14567,7 @@ unicode_byte_type.exit176.i:                      ; preds = %190
   %196 = getelementptr i8, ptr %.0156281.i, i64 1
   %197 = load i8, ptr %196, align 1, !tbaa !8
   %198 = zext i8 %197 to i64
-  %199 = getelementptr [256 x i8], ptr %63, i64 0, i64 %198
+  %199 = getelementptr i8, ptr %63, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !8
   switch i8 %200, label %unicode_byte_type.exit176.thread.i [
     i8 29, label %unicode_byte_type.exit176.thread405.i
@@ -14590,7 +14590,7 @@ unicode_byte_type.exit176.i:                      ; preds = %190
 unicode_byte_type.exit176.thread405.i:            ; preds = %.unicode_byte_type.exit176.thread405.i_crit_edge, %unicode_byte_type.exit176.i, %193
   %201 = phi i8 [ %.pre349, %.unicode_byte_type.exit176.thread405.i_crit_edge ], [ %197, %unicode_byte_type.exit176.i ], [ %195, %193 ]
   %202 = zext i8 %192 to i64
-  %203 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %202
+  %203 = getelementptr i8, ptr @namePages, i64 %202
   %204 = load i8, ptr %203, align 1, !tbaa !8
   %205 = zext i8 %204 to i32
   %206 = shl nuw nsw i32 %205, 3
@@ -14598,7 +14598,7 @@ unicode_byte_type.exit176.thread405.i:            ; preds = %.unicode_byte_type.
   %208 = lshr i32 %207, 5
   %209 = or disjoint i32 %208, %206
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %210
+  %211 = getelementptr i32, ptr @namingBitmap, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !13
   %213 = and i32 %207, 31
   %214 = shl nuw i32 1, %213
@@ -14675,7 +14675,7 @@ unicode_byte_type.exit179.i:                      ; preds = %230
   %235 = getelementptr i8, ptr %.0156281.i, i64 3
   %236 = load i8, ptr %235, align 1, !tbaa !8
   %237 = zext i8 %236 to i64
-  %238 = getelementptr [256 x i8], ptr %63, i64 0, i64 %237
+  %238 = getelementptr i8, ptr %63, i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !8
   switch i8 %239, label %unicode_byte_type.exit179.thread.i [
     i8 29, label %unicode_byte_type.exit179.thread411.i
@@ -14689,7 +14689,7 @@ unicode_byte_type.exit179.i:                      ; preds = %230
 unicode_byte_type.exit179.thread411.i:            ; preds = %.unicode_byte_type.exit179.thread411.i_crit_edge, %unicode_byte_type.exit179.i, %232
   %240 = phi i8 [ %.pre347, %.unicode_byte_type.exit179.thread411.i_crit_edge ], [ %236, %unicode_byte_type.exit179.i ], [ %234, %232 ]
   %241 = zext i8 %231 to i64
-  %242 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %241
+  %242 = getelementptr i8, ptr @nmstrtPages, i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !8
   %244 = zext i8 %243 to i32
   %245 = shl nuw nsw i32 %244, 3
@@ -14697,7 +14697,7 @@ unicode_byte_type.exit179.thread411.i:            ; preds = %.unicode_byte_type.
   %247 = lshr i32 %246, 5
   %248 = or disjoint i32 %247, %245
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %249
+  %250 = getelementptr i32, ptr @namingBitmap, i64 %249
   %251 = load i32, ptr %250, align 4, !tbaa !13
   %252 = and i32 %246, 31
   %253 = shl nuw i32 1, %252
@@ -14774,7 +14774,7 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
   %272 = getelementptr i8, ptr %.0156.pn285.i, i64 3
   %273 = load i8, ptr %272, align 1, !tbaa !8
   %274 = zext i8 %273 to i64
-  %275 = getelementptr [256 x i8], ptr %63, i64 0, i64 %274
+  %275 = getelementptr i8, ptr %63, i64 %274
   %276 = load i8, ptr %275, align 1, !tbaa !8
   switch i8 %276, label %unicode_byte_type.exit182.thread.i [
     i8 29, label %unicode_byte_type.exit182.thread417.i
@@ -14793,7 +14793,7 @@ unicode_byte_type.exit182.i:                      ; preds = %.lr.ph287.i
 unicode_byte_type.exit182.thread417.i:            ; preds = %unicode_byte_type.exit182.i, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge, %269
   %277 = phi i8 [ %271, %269 ], [ %.pre345.pre, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge ], [ %273, %unicode_byte_type.exit182.i ]
   %278 = phi i64 [ 255, %269 ], [ %268, %.lr.ph287.i.unicode_byte_type.exit182.thread417.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit182.i ]
-  %279 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %278
+  %279 = getelementptr i8, ptr @nmstrtPages, i64 %278
   %280 = load i8, ptr %279, align 1, !tbaa !8
   %281 = zext i8 %280 to i32
   %282 = shl nuw nsw i32 %281, 3
@@ -14801,7 +14801,7 @@ unicode_byte_type.exit182.thread417.i:            ; preds = %unicode_byte_type.e
   %284 = lshr i32 %283, 5
   %285 = or disjoint i32 %284, %282
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %286
+  %287 = getelementptr i32, ptr @namingBitmap, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !13
   %289 = and i32 %283, 31
   %290 = shl nuw i32 1, %289
@@ -14919,7 +14919,7 @@ unicode_byte_type.exit115:                        ; preds = %334
   %337 = getelementptr i8, ptr %1, i64 3
   %338 = load i8, ptr %337, align 1, !tbaa !8
   %339 = zext i8 %338 to i64
-  %340 = getelementptr [256 x i8], ptr %336, i64 0, i64 %339
+  %340 = getelementptr i8, ptr %336, i64 %339
   %341 = load i8, ptr %340, align 1, !tbaa !8
   %.fr = freeze i8 %341
   %342 = icmp eq i8 %.fr, 10
@@ -15056,7 +15056,7 @@ unicode_byte_type.exit118:                        ; preds = %396
   %402 = getelementptr i8, ptr %.2233, i64 1
   %403 = load i8, ptr %402, align 1, !tbaa !8
   %404 = zext i8 %403 to i64
-  %405 = getelementptr [256 x i8], ptr %395, i64 0, i64 %404
+  %405 = getelementptr i8, ptr %395, i64 %404
   %406 = load i8, ptr %405, align 1, !tbaa !8
   switch i8 %406, label %unicode_byte_type.exit118.thread378 [
     i8 5, label %407
@@ -15208,7 +15208,7 @@ unicode_byte_type.exit:                           ; preds = %14
   %20 = getelementptr i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i64
-  %23 = getelementptr [256 x i8], ptr %19, i64 0, i64 %22
+  %23 = getelementptr i8, ptr %19, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
   switch i8 %24, label %unicode_byte_type.exit.thread112 [
     i8 4, label %25
@@ -15281,7 +15281,7 @@ unicode_byte_type.exit95:                         ; preds = %58
   %61 = getelementptr i8, ptr %1, i64 3
   %62 = load i8, ptr %61, align 1, !tbaa !8
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [256 x i8], ptr %60, i64 0, i64 %63
+  %64 = getelementptr i8, ptr %60, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
   %.fr = freeze i8 %65
   %66 = icmp eq i8 %.fr, 10
@@ -15367,7 +15367,7 @@ unicode_byte_type.exit98:                         ; preds = %93
   %99 = getelementptr i8, ptr %.2104, i64 1
   %100 = load i8, ptr %99, align 1, !tbaa !8
   %101 = zext i8 %100 to i64
-  %102 = getelementptr [256 x i8], ptr %92, i64 0, i64 %101
+  %102 = getelementptr i8, ptr %92, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !8
   switch i8 %103, label %unicode_byte_type.exit98.thread118 [
     i8 4, label %.sink.split
@@ -15454,7 +15454,7 @@ unicode_byte_type.exit:                           ; preds = %15
   %21 = getelementptr i8, ptr %.05459, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i64
-  %24 = getelementptr [256 x i8], ptr %14, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %14, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !8
   switch i8 %25, label %unicode_byte_type.exit.thread77 [
     i8 5, label %26
@@ -15627,7 +15627,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %13 = getelementptr i8, ptr %.05567, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %10, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
@@ -15695,7 +15695,7 @@ unicode_byte_type.exit60:                         ; preds = %38
   %40 = getelementptr i8, ptr %1, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %10, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
@@ -15773,7 +15773,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %13 = getelementptr i8, ptr %.05768, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %10, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
@@ -15851,7 +15851,7 @@ unicode_byte_type.exit62:                         ; preds = %45
   %47 = getelementptr i8, ptr %1, i64 3
   %48 = load i8, ptr %47, align 1, !tbaa !8
   %49 = zext i8 %48 to i64
-  %50 = getelementptr [256 x i8], ptr %10, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %10, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
@@ -15964,7 +15964,7 @@ unicode_byte_type.exit:                           ; preds = %4
   %9 = getelementptr i8, ptr %.0, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr i8, ptr %3, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %switch.tableidx = add i8 %13, -5
   %14 = icmp ult i8 %switch.tableidx, 25
@@ -15988,7 +15988,7 @@ switch.hole_check:                                ; preds = %unicode_byte_type.e
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i64], ptr @switch.table.big2_nameLength, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.big2_nameLength, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %unicode_byte_type.exit.thread16
 
@@ -16010,7 +16010,7 @@ unicode_byte_type.exit:                           ; preds = %2, %10
   %5 = getelementptr i8, ptr %.011, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr i8, ptr %3, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !8
   switch i8 %9, label %unicode_byte_type.exit.thread [
     i8 10, label %10
@@ -16073,7 +16073,7 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %11 = getelementptr i8, ptr %.pn, i64 3
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i8], ptr %5, i64 0, i64 %13
+  %14 = getelementptr i8, ptr %5, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !8
   switch i8 %15, label %unicode_byte_type.exit115.thread.backedge [
     i8 5, label %16
@@ -16292,7 +16292,7 @@ unicode_byte_type.exit.thread123:                 ; preds = %unicode_byte_type.e
 
 109:                                              ; preds = %105
   %110 = zext i8 %107 to i64
-  %111 = getelementptr [256 x i8], ptr %5, i64 0, i64 %110
+  %111 = getelementptr i8, ptr %5, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !8
   %113 = zext i8 %112 to i32
   br label %unicode_byte_type.exit115
@@ -16474,7 +16474,7 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr read
 
 49:                                               ; preds = %.loopexit
   %50 = sext i32 %.239 to i64
-  %51 = getelementptr [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 0, i64 %50
+  %51 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @latin1_encoding, i64 136), i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %checkCharRefNumber.exit, label %56
@@ -16687,7 +16687,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %13 = getelementptr i8, ptr %.033, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr %9, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !8
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 5, label %18
@@ -16745,7 +16745,7 @@ unicode_byte_type.exit31:                         ; preds = %40
   %42 = getelementptr i8, ptr %.033, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr [256 x i8], ptr %9, i64 0, i64 %44
+  %45 = getelementptr i8, ptr %9, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !8
   %.fr = freeze i8 %46
   %47 = icmp eq i8 %.fr, 10
@@ -16801,7 +16801,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %14 = getelementptr i8, ptr %.pn25, i64 3
   %15 = load i8, ptr %14, align 1, !tbaa !8
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [256 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr i8, ptr %10, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !8
   switch i8 %18, label %.critedge..critedge.thread_crit_edge [
     i8 25, label %28
@@ -17148,7 +17148,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %17 = getelementptr i8, ptr %.03458, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [256 x i8], ptr %10, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %10, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %unicode_byte_type.exit.thread44 [
     i8 5, label %22
@@ -17207,7 +17207,7 @@ unicode_byte_type.exit42:                         ; preds = %38
   %40 = getelementptr i8, ptr %.03458, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %10, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   switch i8 %44, label %unicode_byte_type.exit42.thread [
     i8 21, label %.thread
@@ -17255,7 +17255,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %12 = getelementptr i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !8
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [256 x i8], ptr %11, i64 0, i64 %14
+  %15 = getelementptr i8, ptr %11, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !8
   switch i8 %16, label %unicode_byte_type.exit.thread [
     i8 27, label %17
@@ -17301,7 +17301,7 @@ unicode_byte_type.exit43:                         ; preds = %27
   %30 = getelementptr i8, ptr %.pn59, i64 3
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr [256 x i8], ptr %26, i64 0, i64 %32
+  %33 = getelementptr i8, ptr %26, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !8
   switch i8 %34, label %unicode_byte_type.exit43.thread [
     i8 30, label %35
@@ -17326,7 +17326,7 @@ unicode_byte_type.exit46:                         ; preds = %37
   %40 = getelementptr i8, ptr %.pn59, i64 5
   %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i8], ptr %26, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %26, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !8
   switch i8 %44, label %.loopexit47 [
     i8 21, label %45
@@ -17398,7 +17398,7 @@ unicode_byte_type.exit:                           ; preds = %10
   %18 = getelementptr i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
-  %21 = getelementptr [256 x i8], ptr %17, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %17, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   switch i8 %22, label %unicode_byte_type.exit.thread [
     i8 29, label %unicode_byte_type.exit.thread201
@@ -17411,7 +17411,7 @@ unicode_byte_type.exit:                           ; preds = %10
 
 unicode_byte_type.exit.thread201:                 ; preds = %14, %13, %unicode_byte_type.exit
   %23 = zext i8 %11 to i64
-  %24 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @nmstrtPages, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 3
@@ -17421,7 +17421,7 @@ unicode_byte_type.exit.thread201:                 ; preds = %14, %13, %unicode_b
   %31 = lshr i32 %30, 5
   %32 = or disjoint i32 %31, %27
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %33
+  %34 = getelementptr i32, ptr @namingBitmap, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = and i32 %30, 31
   %37 = shl nuw i32 1, %36
@@ -17497,7 +17497,7 @@ unicode_byte_type.exit110:                        ; preds = %51
   %58 = getelementptr i8, ptr %.pn152, i64 3
   %59 = load i8, ptr %58, align 1, !tbaa !8
   %60 = zext i8 %59 to i64
-  %61 = getelementptr [256 x i8], ptr %44, i64 0, i64 %60
+  %61 = getelementptr i8, ptr %44, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !8
   switch i8 %62, label %.loopexit119 [
     i8 29, label %unicode_byte_type.exit110.thread207
@@ -17517,7 +17517,7 @@ unicode_byte_type.exit110:                        ; preds = %51
 
 unicode_byte_type.exit110.thread207:              ; preds = %51, %55, %unicode_byte_type.exit110
   %63 = zext i8 %54 to i64
-  %64 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @namePages, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 3
@@ -17527,7 +17527,7 @@ unicode_byte_type.exit110.thread207:              ; preds = %51, %55, %unicode_b
   %71 = lshr i32 %70, 5
   %72 = or disjoint i32 %71, %67
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %73
+  %74 = getelementptr i32, ptr @namingBitmap, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !13
   %76 = and i32 %70, 31
   %77 = shl nuw i32 1, %76
@@ -17663,7 +17663,7 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %123 = getelementptr i8, ptr %.2154, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i64
-  %126 = getelementptr [256 x i8], ptr %44, i64 0, i64 %125
+  %126 = getelementptr i8, ptr %44, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !8
   switch i8 %127, label %unicode_byte_type.exit114.thread213 [
     i8 5, label %128
@@ -17811,7 +17811,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread109
@@ -17827,7 +17827,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread109:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @nmstrtPages, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
@@ -17837,7 +17837,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %11, %unicode_by
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @namingBitmap, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -17895,7 +17895,7 @@ unicode_byte_type.exit65:                         ; preds = %45
   %51 = getelementptr i8, ptr %.pn85, i64 3
   %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = zext i8 %52 to i64
-  %54 = getelementptr [256 x i8], ptr %40, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %40, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !8
   switch i8 %55, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit65.thread115
@@ -17911,7 +17911,7 @@ unicode_byte_type.exit65:                         ; preds = %45
 
 unicode_byte_type.exit65.thread115:               ; preds = %45, %48, %unicode_byte_type.exit65
   %56 = zext i8 %47 to i64
-  %57 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %56
+  %57 = getelementptr i8, ptr @namePages, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 3
@@ -17921,7 +17921,7 @@ unicode_byte_type.exit65.thread115:               ; preds = %45, %48, %unicode_b
   %64 = lshr i32 %63, 5
   %65 = or disjoint i32 %64, %60
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %66
+  %67 = getelementptr i32, ptr @namingBitmap, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !13
   %69 = and i32 %63, 31
   %70 = shl nuw i32 1, %69
@@ -17993,7 +17993,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread95
@@ -18005,7 +18005,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread95:                  ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @nmstrtPages, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
@@ -18015,7 +18015,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %9, %11, %unicode_by
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @namingBitmap, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -18070,7 +18070,7 @@ unicode_byte_type.exit63:                         ; preds = %44
   %50 = getelementptr i8, ptr %.pn77, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i64
-  %53 = getelementptr [256 x i8], ptr %40, i64 0, i64 %52
+  %53 = getelementptr i8, ptr %40, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !8
   switch i8 %54, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit63.thread101
@@ -18092,7 +18092,7 @@ unicode_byte_type.exit63:                         ; preds = %44
 
 unicode_byte_type.exit63.thread101:               ; preds = %44, %47, %unicode_byte_type.exit63
   %55 = zext i8 %46 to i64
-  %56 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %55
+  %56 = getelementptr i8, ptr @namePages, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !8
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 3
@@ -18102,7 +18102,7 @@ unicode_byte_type.exit63.thread101:               ; preds = %44, %47, %unicode_b
   %63 = lshr i32 %62, 5
   %64 = or disjoint i32 %63, %59
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %65
+  %66 = getelementptr i32, ptr @namingBitmap, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !13
   %68 = and i32 %62, 31
   %69 = shl nuw i32 1, %68
@@ -18196,7 +18196,7 @@ unicode_byte_type.exit:                           ; preds = %22
   %28 = getelementptr i8, ptr %.04044, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !8
   %30 = zext i8 %29 to i64
-  %31 = getelementptr [256 x i8], ptr %21, i64 0, i64 %30
+  %31 = getelementptr i8, ptr %21, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !8
   switch i8 %32, label %unicode_byte_type.exit.thread56 [
     i8 5, label %33
@@ -18397,7 +18397,7 @@ unicode_byte_type.exit:                           ; preds = %9
   %15 = getelementptr i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !8
   switch i8 %19, label %big2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread135
@@ -18410,7 +18410,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread135:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @nmstrtPages, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
@@ -18420,7 +18420,7 @@ unicode_byte_type.exit.thread135:                 ; preds = %9, %11, %unicode_by
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr i32, ptr @namingBitmap, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !13
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -18482,7 +18482,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %60
   %63 = getelementptr i8, ptr %1, i64 5
   %64 = load i8, ptr %63, align 1, !tbaa !8
   %65 = zext i8 %64 to i64
-  %66 = getelementptr [256 x i8], ptr %62, i64 0, i64 %65
+  %66 = getelementptr i8, ptr %62, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !8
   %68 = and i8 %67, -2
   %69 = icmp eq i8 %68, 24
@@ -18506,7 +18506,7 @@ unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
   %74 = getelementptr i8, ptr %.pn32.i.i, i64 3
   %75 = load i8, ptr %74, align 1, !tbaa !8
   %76 = zext i8 %75 to i64
-  %77 = getelementptr [256 x i8], ptr %62, i64 0, i64 %76
+  %77 = getelementptr i8, ptr %62, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !8
   switch i8 %78, label %big2_scanCharRef.exit.sink.split [
     i8 25, label %81
@@ -18528,7 +18528,7 @@ unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit.i:                         ; preds = %51
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %86 = zext i8 %53 to i64
-  %87 = getelementptr [256 x i8], ptr %85, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %85, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !8
   %cond.i = icmp eq i8 %88, 25
   br i1 %cond.i, label %.preheader.i, label %big2_scanCharRef.exit.sink.split
@@ -18550,7 +18550,7 @@ unicode_byte_type.exit32.i:                       ; preds = %92
   %94 = getelementptr i8, ptr %.pn.i, i64 3
   %95 = load i8, ptr %94, align 1, !tbaa !8
   %96 = zext i8 %95 to i64
-  %97 = getelementptr [256 x i8], ptr %85, i64 0, i64 %96
+  %97 = getelementptr i8, ptr %85, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !8
   switch i8 %98, label %big2_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -18589,7 +18589,7 @@ unicode_byte_type.exit68:                         ; preds = %101
   %107 = getelementptr i8, ptr %.pn99, i64 3
   %108 = load i8, ptr %107, align 1, !tbaa !8
   %109 = zext i8 %108 to i64
-  %110 = getelementptr [256 x i8], ptr %40, i64 0, i64 %109
+  %110 = getelementptr i8, ptr %40, i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !8
   switch i8 %111, label %big2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit68.thread141
@@ -18605,7 +18605,7 @@ unicode_byte_type.exit68:                         ; preds = %101
 
 unicode_byte_type.exit68.thread141:               ; preds = %101, %104, %unicode_byte_type.exit68
   %112 = zext i8 %103 to i64
-  %113 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %112
+  %113 = getelementptr i8, ptr @namePages, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 3
@@ -18615,7 +18615,7 @@ unicode_byte_type.exit68.thread141:               ; preds = %101, %104, %unicode
   %120 = lshr i32 %119, 5
   %121 = or disjoint i32 %120, %116
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %122
+  %123 = getelementptr i32, ptr @namingBitmap, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !13
   %125 = and i32 %119, 31
   %126 = shl nuw i32 1, %125
@@ -18695,7 +18695,7 @@ unicode_byte_type.exit:                           ; preds = %11
   %17 = getelementptr i8, ptr %.promoted, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [256 x i8], ptr %10, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %10, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !8
   switch i8 %21, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit.thread537
@@ -18715,7 +18715,7 @@ unicode_byte_type.exit:                           ; preds = %11
 
 unicode_byte_type.exit.thread537:                 ; preds = %11, %14, %unicode_byte_type.exit
   %22 = zext i8 %13 to i64
-  %23 = getelementptr [256 x i8], ptr @namePages, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @namePages, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !8
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 3
@@ -18725,7 +18725,7 @@ unicode_byte_type.exit.thread537:                 ; preds = %11, %14, %unicode_b
   %30 = lshr i32 %29, 5
   %31 = or disjoint i32 %30, %26
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %32
+  %33 = getelementptr i32, ptr @namingBitmap, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !13
   %35 = and i32 %29, 31
   %36 = shl nuw i32 1, %35
@@ -18782,7 +18782,7 @@ unicode_byte_type.exit93:                         ; preds = %49
   %54 = getelementptr i8, ptr %.promoted, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i64
-  %57 = getelementptr [256 x i8], ptr %10, i64 0, i64 %56
+  %57 = getelementptr i8, ptr %10, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !8
   switch i8 %58, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit93.thread543
@@ -18794,7 +18794,7 @@ unicode_byte_type.exit93:                         ; preds = %49
 
 unicode_byte_type.exit93.thread543:               ; preds = %49, %51, %unicode_byte_type.exit93
   %59 = zext i8 %50 to i64
-  %60 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %59
+  %60 = getelementptr i8, ptr @nmstrtPages, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !8
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 3
@@ -18804,7 +18804,7 @@ unicode_byte_type.exit93.thread543:               ; preds = %49, %51, %unicode_b
   %67 = lshr i32 %66, 5
   %68 = or disjoint i32 %67, %63
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %69
+  %70 = getelementptr i32, ptr @namingBitmap, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !13
   %72 = and i32 %66, 31
   %73 = shl nuw i32 1, %72
@@ -18842,7 +18842,7 @@ unicode_byte_type.exit96:                         ; preds = %.lr.ph
   %88 = getelementptr i8, ptr %86, i64 3
   %89 = load i8, ptr %88, align 1, !tbaa !8
   %90 = zext i8 %89 to i64
-  %91 = getelementptr [256 x i8], ptr %10, i64 0, i64 %90
+  %91 = getelementptr i8, ptr %10, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !8
   switch i8 %92, label %.thread.sink.split [
     i8 14, label %.thread111.loopexit
@@ -18881,7 +18881,7 @@ unicode_byte_type.exit99:                         ; preds = %.lr.ph318
   %105 = getelementptr i8, ptr %103, i64 3
   %106 = load i8, ptr %105, align 1, !tbaa !8
   %107 = zext i8 %106 to i64
-  %108 = getelementptr [256 x i8], ptr %10, i64 0, i64 %107
+  %108 = getelementptr i8, ptr %10, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !8
   %110 = zext i8 %109 to i32
   %111 = and i32 %110, 254
@@ -18931,7 +18931,7 @@ unicode_byte_type.exit99.thread:                  ; preds = %unicode_byte_type.e
   %126 = getelementptr i8, ptr %123, i64 1
   %127 = load i8, ptr %126, align 1, !tbaa !8
   %128 = zext i8 %127 to i64
-  %129 = getelementptr [256 x i8], ptr %10, i64 0, i64 %128
+  %129 = getelementptr i8, ptr %10, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !8
   %131 = zext i8 %130 to i32
   br label %unicode_byte_type.exit102
@@ -19036,7 +19036,7 @@ unicode_byte_type.exit105:                        ; preds = %168
   %170 = getelementptr i8, ptr %123, i64 3
   %171 = load i8, ptr %170, align 1, !tbaa !8
   %172 = zext i8 %171 to i64
-  %173 = getelementptr [256 x i8], ptr %10, i64 0, i64 %172
+  %173 = getelementptr i8, ptr %10, i64 %172
   %174 = load i8, ptr %173, align 1, !tbaa !8
   switch i8 %174, label %.thread.sink.split [
     i8 21, label %175
@@ -19081,7 +19081,7 @@ unicode_byte_type.exit108:                        ; preds = %.lr.ph339
   %187 = getelementptr i8, ptr %182, i64 3
   %188 = load i8, ptr %187, align 1, !tbaa !8
   %189 = zext i8 %188 to i64
-  %190 = getelementptr [256 x i8], ptr %10, i64 0, i64 %189
+  %190 = getelementptr i8, ptr %10, i64 %189
   %191 = load i8, ptr %190, align 1, !tbaa !8
   switch i8 %191, label %.thread.sink.split [
     i8 29, label %unicode_byte_type.exit108.thread550
@@ -19099,7 +19099,7 @@ unicode_byte_type.exit108:                        ; preds = %.lr.ph339
 unicode_byte_type.exit108.thread550:              ; preds = %.lr.ph339, %unicode_byte_type.exit108, %184
   store ptr %181, ptr %5, align 8, !tbaa !3
   %192 = zext i8 %183 to i64
-  %193 = getelementptr [256 x i8], ptr @nmstrtPages, i64 0, i64 %192
+  %193 = getelementptr i8, ptr @nmstrtPages, i64 %192
   %194 = load i8, ptr %193, align 1, !tbaa !8
   %195 = zext i8 %194 to i32
   %196 = shl nuw nsw i32 %195, 3
@@ -19109,7 +19109,7 @@ unicode_byte_type.exit108.thread550:              ; preds = %.lr.ph339, %unicode
   %200 = lshr i32 %199, 5
   %201 = or disjoint i32 %200, %196
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr [320 x i32], ptr @namingBitmap, i64 0, i64 %202
+  %203 = getelementptr i32, ptr @namingBitmap, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !13
   %205 = and i32 %199, 31
   %206 = shl nuw i32 1, %205

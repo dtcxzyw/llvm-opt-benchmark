@@ -362,7 +362,7 @@ define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr nound
   %.053 = phi i64 [ %42, %39 ], [ 0, %.critedge49 ]
   %.14352 = phi i32 [ %.2, %39 ], [ %.04259, %.critedge49 ]
   %25 = phi ptr [ %41, %39 ], [ %.promoted, %.critedge49 ]
-  %26 = getelementptr inbounds nuw [1025 x i8], ptr %5, i64 0, i64 %.053
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 %.053
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 1
   %29 = icmp eq i8 %28, 0
@@ -1279,21 +1279,20 @@ define hidden void @_ZN2os19print_active_localeEP12outputStream(ptr noundef nonn
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = phi i32 [ 6, %1 ], [ %10, %2 ]
-  %4 = phi ptr [ @__const._ZN2os19print_active_localeEP12outputStream.categories, %1 ], [ %9, %2 ]
-  %5 = tail call ptr @setlocale(i32 noundef %3, ptr noundef null) #28
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %.not8 = icmp eq ptr %5, null
-  %8 = select i1 %.not8, ptr @.str.57, ptr %5
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.56, ptr noundef %7, ptr noundef nonnull %8) #28
+  %3 = phi i32 [ 6, %1 ], [ %9, %2 ]
+  %4 = tail call ptr @setlocale(i32 noundef %3, ptr noundef null) #28
+  %5 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %.not8 = icmp eq ptr %4, null
+  %7 = select i1 %.not8, ptr @.str.57, ptr %4
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.56, ptr noundef %6, ptr noundef nonnull %7) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw [8 x %struct.anon.2], ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 0, i64 %indvars.iv.next
-  %10 = load i32, ptr %9, align 16
+  %8 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv.next
+  %9 = load i32, ptr %8, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %11, label %2, !llvm.loop !14
+  br i1 %exitcond, label %10, label %2, !llvm.loop !14
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   ret void
 }
 
@@ -3127,7 +3126,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
   store i32 %58, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = zext i1 %1 to i64
-  %62 = getelementptr inbounds nuw [2 x %union.pthread_cond_t], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %60, i64 %61
   %63 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %62, ptr noundef nonnull %42, ptr noundef nonnull %5) #28
   br label %64
 
@@ -3207,7 +3206,7 @@ define hidden void @_ZN6Parker6unparkEv(ptr noundef nonnull align 8 dereferencea
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds [2 x %union.pthread_cond_t], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds %union.pthread_cond_t, ptr %11, i64 %12
   %14 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %13) #28
   br label %15
 

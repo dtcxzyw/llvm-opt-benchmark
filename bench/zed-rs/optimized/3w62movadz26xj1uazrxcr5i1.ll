@@ -124702,7 +124702,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h3fc
   br i1 %30, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc88ef4e53e4690d4E.llvm.17862517299867782409.exit.i", label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } } }], ptr %27, i64 0, i64 %.sroa.0.0.i.i.i
+  %32 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } } }, ptr %27, i64 %.sroa.0.0.i.i.i
   %33 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$project..lsp_command..signature_help..SignatureHelp$GT$17h7ac56d532196901cE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %32)
           to label %29 unwind label %36, !noalias !30288
@@ -124718,7 +124718,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h3fc
   br label %34
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } } }], ptr %27, i64 0, i64 %.sroa.0.1.i.i.i
+  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } } }, ptr %27, i64 %.sroa.0.1.i.i.i
   %40 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$project..lsp_command..signature_help..SignatureHelp$GT$17h7ac56d532196901cE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39) #32
           to label %34 unwind label %41, !noalias !30288
@@ -153392,7 +153392,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h3e9ad93d21bf4f27E(ptr 
   br i1 %19, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0400e95cd1064e57E.llvm.17862517299867782409.exit.i", label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %15, i64 0, i64 %.sroa.0.0.i.i.i
+  %21 = getelementptr inbounds { i64, [4 x i64] }, ptr %15, i64 %.sroa.0.0.i.i.i
   %22 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr153drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$GT$$GT$17h46d65635e6586fcaE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
           to label %18 unwind label %25, !noalias !35389
@@ -153408,7 +153408,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h3e9ad93d21bf4f27E(ptr 
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %15, i64 0, i64 %.sroa.0.1.i.i.i
+  %28 = getelementptr inbounds { i64, [4 x i64] }, ptr %15, i64 %.sroa.0.1.i.i.i
   %29 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr153drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$GT$$GT$17h46d65635e6586fcaE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28) #32
           to label %23 unwind label %30, !noalias !35389
@@ -153672,7 +153672,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb8fa63dd78dd6b6fE(ptr 
   br i1 %19, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0400e95cd1064e57E.llvm.17862517299867782409.exit.i", label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %15, i64 0, i64 %.sroa.0.0.i.i.i
+  %21 = getelementptr inbounds { i64, [4 x i64] }, ptr %15, i64 %.sroa.0.0.i.i.i
   %22 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr153drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$GT$$GT$17h46d65635e6586fcaE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
           to label %18 unwind label %25, !noalias !35510
@@ -153688,7 +153688,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb8fa63dd78dd6b6fE(ptr 
   br label %23
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds [0 x { i64, [4 x i64] }], ptr %15, i64 0, i64 %.sroa.0.1.i.i.i
+  %28 = getelementptr inbounds { i64, [4 x i64] }, ptr %15, i64 %.sroa.0.1.i.i.i
   %29 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr153drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$C$anyhow..Error$GT$$GT$$GT$17h46d65635e6586fcaE.llvm.17862517299867782409"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28) #32
           to label %23 unwind label %30, !noalias !35510

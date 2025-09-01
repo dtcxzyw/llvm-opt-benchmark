@@ -6104,7 +6104,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   %406 = lshr i16 %.val37.i35, 7
   %407 = and i16 %406, 7
   %408 = zext nneg i16 %407 to i64
-  %409 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %408, i64 4
+  %409 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %408, i64 4
   %410 = load i8, ptr %409, align 4, !tbaa !89, !range !49, !noundef !50
   %411 = trunc nuw i8 %410 to i1
   %412 = or i1 %405, %411
@@ -6244,7 +6244,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   %469 = lshr i16 %.val37.i, 7
   %470 = and i16 %469, 7
   %471 = zext nneg i16 %470 to i64
-  %472 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %471, i64 4
+  %472 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %471, i64 4
   %473 = load i8, ptr %472, align 4, !tbaa !89, !range !49, !noundef !50
   %474 = trunc nuw i8 %473 to i1
   %475 = or i1 %468, %474
@@ -12822,7 +12822,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   %449 = lshr i16 %.val37.i.i, 7
   %450 = and i16 %449, 7
   %451 = zext nneg i16 %450 to i64
-  %452 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %451, i64 4
+  %452 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %451, i64 4
   %453 = load i8, ptr %452, align 4, !tbaa !89, !range !49, !noalias !740, !noundef !50
   %454 = trunc nuw i8 %453 to i1
   %455 = or i1 %448, %454
@@ -13304,7 +13304,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   %615 = lshr i16 %.val37.i198.i, 7
   %616 = and i16 %615, 7
   %617 = zext nneg i16 %616 to i64
-  %618 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %617, i64 4
+  %618 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %617, i64 4
   %619 = load i8, ptr %618, align 4, !tbaa !89, !range !49, !noalias !735, !noundef !50
   %620 = trunc nuw i8 %619 to i1
   %621 = or i1 %614, %620
@@ -15900,7 +15900,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit: ; preds
   %38 = lshr i16 %.val37, 7
   %39 = and i16 %38, 7
   %40 = zext nneg i16 %39 to i64
-  %41 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %40, i64 4
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %40, i64 4
   %42 = load i8, ptr %41, align 4, !tbaa !89, !range !49, !noundef !50
   %43 = trunc nuw i8 %42 to i1
   %44 = or i1 %37, %43
@@ -17936,7 +17936,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit: ; preds
   %36 = lshr i16 %.val37, 7
   %37 = and i16 %36, 7
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %38, i64 4
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %38, i64 4
   %40 = load i8, ptr %39, align 4, !tbaa !89, !range !49, !noundef !50
   %41 = trunc nuw i8 %40 to i1
   %42 = or i1 %35, %41

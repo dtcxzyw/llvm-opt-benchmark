@@ -4725,7 +4725,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i: ; preds = %163, %_ZN4llvm23
 
 _ZNKSt5arrayIiLm25EE2atEm.exit:                   ; preds = %._crit_edge, %_ZNKSt5arrayIiLm25EE2atEm.exit
   %.096 = phi i64 [ 0, %._crit_edge ], [ %268, %_ZNKSt5arrayIiLm25EE2atEm.exit ]
-  %263 = getelementptr inbounds nuw [25 x i32], ptr %8, i64 0, i64 %.096
+  %263 = getelementptr inbounds nuw i32, ptr %8, i64 %.096
   %264 = load i32, ptr %263, align 4, !tbaa !396
   %265 = sext i32 %264 to i64
   %266 = getelementptr inbounds nuw ptr, ptr %203, i64 %.096

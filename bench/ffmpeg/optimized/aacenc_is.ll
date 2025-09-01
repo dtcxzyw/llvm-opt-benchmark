@@ -68,13 +68,13 @@ define void @ff_aac_search_for_is(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv38.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next39.i, %43 ]
   %.12730.i = phi i8 [ %.02632.i, %.preheader.i ], [ %.2.i, %43 ]
   %32 = add nuw nsw i64 %indvars.iv38.i, %30
-  %33 = getelementptr inbounds nuw [128 x i8], ptr %21, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !35
   %.not.i = icmp eq i8 %34, 0
   br i1 %.not.i, label %35, label %43
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw [128 x i32], ptr %22, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %32
   %37 = load i32, ptr %36, align 4, !tbaa !38
   %38 = icmp ult i32 %37, 12
   br i1 %38, label %39, label %43
@@ -94,7 +94,7 @@ define void @ff_aac_search_for_is(ptr noundef %0, ptr noundef readonly captures(
 
 ._crit_edge.i:                                    ; preds = %43
   %44 = zext nneg i32 %.02533.i to i64
-  %45 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %.02533.i, %47
@@ -153,7 +153,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
 .lr.ph:                                           ; preds = %.preheader190
   %73 = shl nsw i32 %.0137227, 4
   %74 = zext nneg i32 %.0137227 to i64
-  %75 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 %74
   %76 = zext nneg i32 %73 to i64
   br label %77
 
@@ -174,25 +174,25 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   br i1 %83, label %85, label %ff_sfdelta_can_remove_band.exit.thread
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds nuw [128 x i32], ptr %55, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw i32, ptr %55, i64 %84
   %87 = load i32, ptr %86, align 4, !tbaa !38
   %.not158 = icmp eq i32 %87, 13
   br i1 %.not158, label %ff_sfdelta_can_remove_band.exit.thread, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw [128 x i8], ptr %56, i64 0, i64 %84
+  %89 = getelementptr inbounds nuw i8, ptr %56, i64 %84
   %90 = load i8, ptr %89, align 1, !tbaa !35
   %.not159 = icmp eq i8 %90, 0
   br i1 %.not159, label %91, label %ff_sfdelta_can_remove_band.exit.thread
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw [128 x i32], ptr %57, i64 0, i64 %84
+  %92 = getelementptr inbounds nuw i32, ptr %57, i64 %84
   %93 = load i32, ptr %92, align 4, !tbaa !38
   %.not160 = icmp eq i32 %93, 13
   br i1 %.not160, label %ff_sfdelta_can_remove_band.exit.thread, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw i8, ptr %58, i64 %84
   %96 = load i8, ptr %95, align 1, !tbaa !35
   %.not161 = icmp eq i8 %96, 0
   %97 = icmp sgt i32 %.1154214, -1
@@ -203,7 +203,7 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 %84
   %100 = load i8, ptr %99, align 1, !tbaa !35
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw [128 x i32], ptr %59, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %59, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !38
   %104 = add nsw i32 %.1154214, -60
   %.not.i168 = icmp slt i32 %103, %104
@@ -249,9 +249,9 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
   %.1143194.us = phi float [ %.0142202.us, %.preheader.us ], [ %122, %115 ]
   %.1145193.us = phi float [ %.0144201.us, %.preheader.us ], [ %121, %115 ]
   %116 = add nuw nsw i64 %indvars.iv, %114
-  %117 = getelementptr inbounds nuw [1024 x float], ptr %62, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw float, ptr %62, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !68
-  %119 = getelementptr inbounds nuw [1024 x float], ptr %63, i64 0, i64 %116
+  %119 = getelementptr inbounds nuw float, ptr %63, i64 %116
   %120 = load float, ptr %119, align 4, !tbaa !68
   %121 = tail call nsz float @llvm.fmuladd.f32(float %118, float %118, float %.1145193.us)
   %122 = tail call nsz float @llvm.fmuladd.f32(float %120, float %120, float %.1143194.us)
@@ -300,16 +300,16 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
 .thread:                                          ; preds = %129, %._crit_edge205
   %130 = phi i32 [ %.sroa.5176.0.copyload, %._crit_edge205 ], [ %.sroa.4.0.copyload, %129 ]
   %131 = phi float [ %.sroa.7178.0.copyload, %._crit_edge205 ], [ %.sroa.6173.0.copyload, %129 ]
-  %132 = getelementptr inbounds nuw [128 x i8], ptr %64, i64 0, i64 %84
+  %132 = getelementptr inbounds nuw i8, ptr %64, i64 %84
   store i8 1, ptr %132, align 1, !tbaa !35
-  %133 = getelementptr inbounds nuw [128 x i8], ptr %65, i64 0, i64 %84
+  %133 = getelementptr inbounds nuw i8, ptr %65, i64 %84
   store i8 0, ptr %133, align 1, !tbaa !35
   %134 = fdiv nsz float %.0144.lcssa, %131
   %135 = tail call nsz float @llvm.sqrt.f32(float %134)
-  %136 = getelementptr inbounds nuw [128 x float], ptr %66, i64 0, i64 %84
+  %136 = getelementptr inbounds nuw float, ptr %66, i64 %84
   store float %135, ptr %136, align 4, !tbaa !68
   %137 = fdiv nsz float %.0144.lcssa, %.0142.lcssa
-  %138 = getelementptr inbounds nuw [128 x float], ptr %67, i64 0, i64 %84
+  %138 = getelementptr inbounds nuw float, ptr %67, i64 %84
   store float %137, ptr %138, align 4, !tbaa !68
   %139 = icmp sgt i32 %130, 0
   %140 = select i1 %139, i32 15, i32 14
@@ -333,25 +333,25 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i, %.pr
 ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98, %94, %91, %88, %85
   %.2151 = phi i32 [ %.1150215, %98 ], [ %.1150215, %94 ], [ %.1150215, %91 ], [ %.1150215, %88 ], [ %.1150215, %85 ], [ %144, %143 ], [ %.1150215, %129 ], [ %.1150215, %77 ]
   %.2 = phi i32 [ %.1217, %98 ], [ %.1217, %94 ], [ %.1217, %91 ], [ %.1217, %88 ], [ %.1217, %85 ], [ %145, %143 ], [ %.1217, %129 ], [ %.1217, %77 ]
-  %146 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 0, i64 %84
+  %146 = getelementptr inbounds nuw i8, ptr %58, i64 %84
   %147 = load i8, ptr %146, align 1, !tbaa !35
   %.not167 = icmp eq i8 %147, 0
   br i1 %.not167, label %148, label %155
 
 148:                                              ; preds = %ff_sfdelta_can_remove_band.exit.thread
-  %149 = getelementptr inbounds nuw [128 x i32], ptr %57, i64 0, i64 %84
+  %149 = getelementptr inbounds nuw i32, ptr %57, i64 %84
   %150 = load i32, ptr %149, align 4, !tbaa !38
   %151 = icmp ult i32 %150, 12
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw [128 x i32], ptr %59, i64 0, i64 %84
+  %153 = getelementptr inbounds nuw i32, ptr %59, i64 %84
   %154 = load i32, ptr %153, align 4, !tbaa !38
   br label %155
 
 155:                                              ; preds = %152, %148, %ff_sfdelta_can_remove_band.exit.thread
   %.2155 = phi i32 [ %.1154214, %ff_sfdelta_can_remove_band.exit.thread ], [ %154, %152 ], [ %.1154214, %148 ]
-  %156 = getelementptr inbounds nuw [128 x i8], ptr %64, i64 0, i64 %84
+  %156 = getelementptr inbounds nuw i8, ptr %64, i64 %84
   %157 = load i8, ptr %156, align 1, !tbaa !35
   %158 = zext i8 %157 to i32
   %159 = load ptr, ptr %61, align 16, !tbaa !67
@@ -377,7 +377,7 @@ ff_sfdelta_can_remove_band.exit.thread:           ; preds = %77, %129, %143, %98
   %.1150.lcssa = phi i32 [ %.0149225, %.preheader190.._crit_edge_crit_edge ], [ %.2151, %._crit_edge.loopexit ]
   %.1148.lcssa = phi i32 [ %.0147226, %.preheader190.._crit_edge_crit_edge ], [ %158, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0136228, %.preheader190.._crit_edge_crit_edge ], [ %.2, %._crit_edge.loopexit ]
-  %169 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 0, i64 %.pre-phi253
+  %169 = getelementptr inbounds nuw i8, ptr %60, i64 %.pre-phi253
   %170 = load i8, ptr %169, align 1, !tbaa !35
   %171 = zext i8 %170 to i32
   %172 = add nuw nsw i32 %.0137227, %171
@@ -420,7 +420,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 .preheader:                                       ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 286
   %20 = sext i32 %4 to i64
-  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !35
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %._crit_edge186, label %.lr.ph185
@@ -432,7 +432,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %26 = shl nsw i32 %4, 4
   %27 = add nsw i32 %26, %5
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [128 x i32], ptr %25, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr %25, i64 %28
   %30 = sitofp i32 %9 to float
   %31 = fdiv nsz float %7, %6
   %32 = tail call nsz float @llvm.sqrt.f32(float %31)
@@ -446,13 +446,13 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %40 = tail call nsz double @llvm.sqrt.f64(double %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 567256
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 5916
-  %43 = getelementptr inbounds [128 x i32], ptr %42, i64 0, i64 %28
+  %43 = getelementptr inbounds i32, ptr %42, i64 %28
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 38424
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 46656
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 53292
-  %47 = getelementptr inbounds [128 x i32], ptr %46, i64 0, i64 %28
+  %47 = getelementptr inbounds i32, ptr %46, i64 %28
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 52268
-  %49 = getelementptr inbounds [128 x i32], ptr %48, i64 0, i64 %28
+  %49 = getelementptr inbounds i32, ptr %48, i64 %28
   %50 = sext i32 %3 to i64
   %.pre = load ptr, ptr %36, align 16, !tbaa !67
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %37
@@ -475,7 +475,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %61 = load i32, ptr %29, align 4, !tbaa !38
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 5)
   %spec.select = add nsw i32 %62, -4
-  %63 = getelementptr inbounds [128 x %struct.FFPsyBand], ptr %57, i64 0, i64 %60, i32 2
+  %63 = getelementptr inbounds %struct.FFPsyBand, ptr %57, i64 %60, i32 2
   %64 = load float, ptr %63, align 4, !tbaa !76
   %.idx = shl nsw i64 %60, 4
   %65 = getelementptr i8, ptr %57, i64 2060
@@ -556,7 +556,7 @@ find_max_val.exit:                                ; preds = %.preheader.us.i, %.
   %.us-phi.i = phi float [ 0.000000e+00, %._crit_edge ], [ %.1..us.i, %.preheader.us.i ]
   %105 = sub nsw i32 308, %62
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [428 x float], ptr @ff_aac_pow34sf_tab, i64 0, i64 %106
+  %107 = getelementptr inbounds float, ptr @ff_aac_pow34sf_tab, i64 %106
   %108 = load float, ptr %107, align 4, !tbaa !68
   %109 = tail call nsz float @llvm.fmuladd.f32(float %.us-phi.i, float %108, float 0x3FD9F212E0000000)
   %110 = fptosi float %109 to i32
@@ -565,7 +565,7 @@ find_max_val.exit:                                ; preds = %.preheader.us.i, %.
 
 112:                                              ; preds = %find_max_val.exit
   %113 = zext nneg i32 %110 to i64
-  %114 = getelementptr inbounds nuw [14 x i8], ptr @aac_maxval_cb, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @aac_maxval_cb, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !35
   %116 = zext i8 %115 to i32
   br label %find_min_book.exit

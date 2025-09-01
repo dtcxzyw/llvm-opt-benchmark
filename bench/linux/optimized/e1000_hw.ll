@@ -4159,7 +4159,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 
 .preheader:                                       ; preds = %27, %30
   %33 = phi i64 [ %31, %30 ], [ 0, %27 ]
-  %34 = getelementptr [4 x i16], ptr @dsp_reg_array, i64 0, i64 %33
+  %34 = getelementptr i16, ptr @dsp_reg_array, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %5)
@@ -4294,7 +4294,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 
 .preheader39:                                     ; preds = %.preheader39.preheader, %96
   %99 = phi i64 [ %97, %96 ], [ 0, %.preheader39.preheader ]
-  %100 = getelementptr [4 x i16], ptr @dsp_reg_array, i64 0, i64 %99
+  %100 = getelementptr i16, ptr @dsp_reg_array, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %102, ptr noundef nonnull %6)
@@ -5856,7 +5856,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr noundef c
   br label %4
 
 4:                                                ; preds = %10, %1
-  %5 = phi i64 [ 0, %1 ], [ %18, %10 ]
+  %5 = phi i64 [ 0, %1 ], [ %13, %10 ]
   %6 = lshr exact i64 %5, 1
   %7 = trunc nuw nsw i64 %6 to i16
   %8 = call i32 @e1000_read_eeprom(ptr noundef %0, i16 noundef zeroext %7, i16 noundef zeroext 1, ptr noundef nonnull %2), !range !9
@@ -5865,50 +5865,44 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr noundef c
 
 10:                                               ; preds = %4
   %11 = load i16, ptr %2, align 2
-  %12 = trunc i16 %11 to i8
-  %13 = getelementptr [6 x i8], ptr %3, i64 0, i64 %5
-  store i8 %12, ptr %13, align 1
-  %14 = lshr i16 %11, 8
-  %15 = trunc nuw i16 %14 to i8
-  %16 = or disjoint i64 %5, 1
-  %17 = getelementptr [6 x i8], ptr %3, i64 0, i64 %16
-  store i8 %15, ptr %17, align 1
-  %18 = add nuw nsw i64 %5, 2
-  %19 = icmp samesign ult i64 %5, 4
-  br i1 %19, label %4, label %20, !llvm.loop !42
+  %12 = getelementptr i8, ptr %3, i64 %5
+  store i16 %11, ptr %12, align 1
+  %13 = add nuw nsw i64 %5, 2
+  %14 = icmp samesign ult i64 %5, 4
+  br i1 %14, label %4, label %15, !llvm.loop !42
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i32, ptr %21, align 8
-  switch i32 %22, label %33 [
-    i32 8, label %23
-    i32 10, label %23
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  switch i32 %17, label %28 [
+    i32 8, label %18
+    i32 10, label %18
   ]
 
-23:                                               ; preds = %20, %20
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr i8, ptr %24, i64 8
-  %26 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #7, !srcloc !5
-  %27 = and i32 %26, 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %33, label %29
+18:                                               ; preds = %15, %15
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr i8, ptr %19, i64 8
+  %21 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #7, !srcloc !5
+  %22 = and i32 %21, 4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %28, label %24
 
-29:                                               ; preds = %23
-  %30 = getelementptr i8, ptr %0, i64 255
-  %31 = load i8, ptr %30, align 1
-  %32 = xor i8 %31, 1
-  store i8 %32, ptr %30, align 1
-  br label %33
+24:                                               ; preds = %18
+  %25 = getelementptr i8, ptr %0, i64 255
+  %26 = load i8, ptr %25, align 1
+  %27 = xor i8 %26, 1
+  store i8 %27, ptr %25, align 1
+  br label %28
 
-33:                                               ; preds = %29, %23, %20
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %34, ptr noundef align 1 dereferenceable(6) %3, i64 6, i1 false)
+28:                                               ; preds = %24, %18, %15
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %29, ptr noundef align 1 dereferenceable(6) %3, i64 6, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %4, %33
-  %35 = phi i32 [ 0, %33 ], [ -1, %4 ]
+.loopexit:                                        ; preds = %4, %28
+  %30 = phi i32 [ 0, %28 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %35
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -6721,7 +6715,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   br label %60
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr [4 x i16], ptr @e1000_get_cable_length.agc_reg_array, i64 0, i64 %41
+  %25 = getelementptr i16, ptr @e1000_get_cable_length.agc_reg_array, i64 %41
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4)
@@ -6762,7 +6756,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
 50:                                               ; preds = %48, %45
   %51 = phi i16 [ %47, %45 ], [ %49, %48 ]
   %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr [128 x i16], ptr @e1000_igp_cable_length_table, i64 0, i64 %52
+  %53 = getelementptr i16, ptr @e1000_igp_cable_length_table, i64 %52
   %54 = add nsw i16 %51, -24
   %55 = icmp ult i16 %54, 104
   %.pre = load i16, ptr %53, align 2

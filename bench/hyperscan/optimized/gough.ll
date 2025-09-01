@@ -86,7 +86,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %0, ptr nou
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -103,7 +103,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %0, ptr nou
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -111,7 +111,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %0, ptr nou
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -152,7 +152,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %99
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %83
+  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i16
@@ -202,7 +202,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %123 = add i32 %116, -1
   store i32 %123, ptr %81, align 8
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %124
   store i32 0, ptr %125, align 8
   %.idx107.i = mul nuw nsw i64 %124, 24
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
@@ -220,7 +220,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br i1 %.not105.i, label %132, label %156
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %117
+  %133 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %117
   %134 = load i32, ptr %133, align 8
   switch i32 %134, label %153 [
     i32 2, label %135
@@ -360,7 +360,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr no
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -377,7 +377,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr no
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -385,7 +385,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr no
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -426,7 +426,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %99
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %83
+  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i16
@@ -476,7 +476,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %123 = add i32 %116, -1
   store i32 %123, ptr %81, align 8
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %124
   store i32 0, ptr %125, align 8
   %.idx107.i = mul nuw nsw i64 %124, 24
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
@@ -494,7 +494,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br i1 %.not105.i, label %132, label %153
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %117
+  %133 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %117
   %134 = load i32, ptr %133, align 8
   switch i32 %134, label %150 [
     i32 2, label %135
@@ -631,7 +631,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %0, ptr no
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -648,7 +648,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %0, ptr no
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -656,7 +656,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %0, ptr no
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -697,7 +697,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %99
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %83
+  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i16
@@ -744,7 +744,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %120 = add i32 %118, -1
   store i32 %120, ptr %81, align 8
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %121
   store i32 0, ptr %122, align 8
   %123 = ptrtoint ptr %116 to i64
   %124 = ptrtoint ptr %.091.i to i64
@@ -772,7 +772,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %137 = add i32 %118, -1
   store i32 %137, ptr %81, align 8
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %138
   store i32 0, ptr %139, align 8
   %.idx107.i = mul nuw nsw i64 %138, 24
   %140 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
@@ -790,7 +790,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br i1 %.not105.i, label %146, label %170
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %131
+  %147 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %131
   %148 = load i32, ptr %147, align 8
   switch i32 %148, label %167 [
     i32 2, label %149
@@ -930,7 +930,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %0, ptr n
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -947,7 +947,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %0, ptr n
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -955,7 +955,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %0, ptr n
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -996,7 +996,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br label %99
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %83
+  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i16
@@ -1043,7 +1043,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %120 = add i32 %118, -1
   store i32 %120, ptr %81, align 8
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %121
   store i32 0, ptr %122, align 8
   %123 = ptrtoint ptr %116 to i64
   %124 = ptrtoint ptr %.091.i to i64
@@ -1071,7 +1071,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %137 = add i32 %118, -1
   store i32 %137, ptr %81, align 8
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %138
   store i32 0, ptr %139, align 8
   %.idx107.i = mul nuw nsw i64 %138, 24
   %140 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
@@ -1089,7 +1089,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   br i1 %.not105.i, label %146, label %167
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %88, i64 0, i64 %131
+  %147 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %131
   %148 = load i32, ptr %147, align 8
   switch i32 %148, label %164 [
     i32 2, label %149
@@ -1226,7 +1226,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -1243,7 +1243,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -1251,7 +1251,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -1324,7 +1324,7 @@ nfaExecGough8_Q2i.exit.thread37:                  ; preds = %93
 
 109:                                              ; preds = %107
   %110 = zext i32 %.pre.pre to i64
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %90, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %90, i64 %110
   %112 = load i32, ptr %111, align 8
   switch i32 %112, label %125 [
     i32 2, label %113
@@ -1467,7 +1467,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
 
 58:                                               ; preds = %52
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -1484,7 +1484,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %51, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %struct.gough_report, ptr %51, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -1
@@ -1492,7 +1492,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
 
 72:                                               ; preds = %67
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %21, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %21, i64 %73
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -1565,7 +1565,7 @@ nfaExecGough16_Q2i.exit.thread37:                 ; preds = %93
 
 109:                                              ; preds = %107
   %110 = zext i32 %.pre.pre to i64
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %90, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %90, i64 %110
   %112 = load i32, ptr %111, align 8
   switch i32 %112, label %122 [
     i32 2, label %113
@@ -1742,7 +1742,7 @@ define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr noundef readon
 
 48:                                               ; preds = %42
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw [1 x i64], ptr %19, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %19, i64 %49
   %51 = load i64, ptr %50, align 8
   br label %52
 
@@ -1753,7 +1753,7 @@ define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr noundef readon
 
 55:                                               ; preds = %64, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %56 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %41, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct.gough_report, ptr %41, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, -1
@@ -1761,7 +1761,7 @@ define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr noundef readon
 
 60:                                               ; preds = %55
   %61 = zext i32 %58 to i64
-  %62 = getelementptr inbounds nuw [1 x i64], ptr %19, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %19, i64 %61
   %63 = load i64, ptr %62, align 8
   br label %64
 
@@ -1844,7 +1844,7 @@ define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr noundef reado
 
 45:                                               ; preds = %39
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw [1 x i64], ptr %26, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %26, i64 %46
   %48 = load i64, ptr %47, align 8
   br label %49
 
@@ -1855,7 +1855,7 @@ define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr noundef reado
 
 52:                                               ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %53 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %38, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %struct.gough_report, ptr %38, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, -1
@@ -1863,7 +1863,7 @@ define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr noundef reado
 
 57:                                               ; preds = %52
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw [1 x i64], ptr %26, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %26, i64 %58
   %60 = load i64, ptr %59, align 8
   br label %61
 
@@ -1944,7 +1944,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef reado
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %22, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw %struct.gough_report, ptr %22, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -1
@@ -1952,7 +1952,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef reado
 
 29:                                               ; preds = %24
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr %7, i64 %30
   %32 = load i64, ptr %31, align 8
   br label %33
 
@@ -2003,7 +2003,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr noundef read
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %22, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw %struct.gough_report, ptr %22, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -1
@@ -2011,7 +2011,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr noundef read
 
 29:                                               ; preds = %24
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr %7, i64 %30
   %32 = load i64, ptr %31, align 8
   br label %33
 
@@ -2095,7 +2095,7 @@ compressSomValue.exit.us.preheader:               ; preds = %.lr.ph
 
 compressSomValue.exit.us:                         ; preds = %compressSomValue.exit.us.preheader, %compressSomValue.exit.us
   %indvars.iv26 = phi i64 [ 0, %compressSomValue.exit.us.preheader ], [ %indvars.iv.next27, %compressSomValue.exit.us ]
-  %23 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv26
+  %23 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv26
   %24 = load i64, ptr %23, align 8
   %25 = trunc nuw i64 %indvars.iv26 to i32
   %26 = mul i32 %25, %22
@@ -2112,7 +2112,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
-  %33 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv21
+  %33 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv21
   %34 = load i64, ptr %33, align 8
   %35 = trunc nuw i64 %indvars.iv21 to i32
   %36 = mul i32 %35, %22
@@ -2129,7 +2129,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
-  %43 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = trunc nuw i64 %indvars.iv to i32
   %46 = mul i32 %45, %22
@@ -2182,7 +2182,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   %24 = icmp eq i16 %22, -1
   %25 = sub i64 %3, %23
   %.012.i.us = select i1 %24, i64 -1, i64 %25
-  %26 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv26
+  %26 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv26
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
@@ -2199,7 +2199,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   %33 = icmp eq i32 %31, -1
   %34 = sub i64 %3, %32
   %.012.i.us11 = select i1 %33, i64 -1, i64 %34
-  %35 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv21
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
@@ -2215,7 +2215,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   %41 = icmp eq i64 %40, -1
   %42 = sub i64 %3, %40
   %spec.select = select i1 %41, i64 -1, i64 %42
-  %43 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
@@ -2223,7 +2223,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv31
+  %44 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv31
   store i64 %3, ptr %44, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
@@ -2279,7 +2279,7 @@ compressSomValue.exit.us.preheader:               ; preds = %.lr.ph
 
 compressSomValue.exit.us:                         ; preds = %compressSomValue.exit.us.preheader, %compressSomValue.exit.us
   %indvars.iv26 = phi i64 [ 0, %compressSomValue.exit.us.preheader ], [ %indvars.iv.next27, %compressSomValue.exit.us ]
-  %23 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv26
+  %23 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv26
   %24 = load i64, ptr %23, align 8
   %25 = trunc nuw i64 %indvars.iv26 to i32
   %26 = mul i32 %25, %22
@@ -2296,7 +2296,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
-  %33 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv21
+  %33 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv21
   %34 = load i64, ptr %33, align 8
   %35 = trunc nuw i64 %indvars.iv21 to i32
   %36 = mul i32 %35, %22
@@ -2313,7 +2313,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
-  %43 = getelementptr inbounds nuw [1 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = trunc nuw i64 %indvars.iv to i32
   %46 = mul i32 %45, %22
@@ -2366,7 +2366,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   %24 = icmp eq i16 %22, -1
   %25 = sub i64 %3, %23
   %.012.i.us = select i1 %24, i64 -1, i64 %25
-  %26 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv26
+  %26 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv26
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
@@ -2383,7 +2383,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   %33 = icmp eq i32 %31, -1
   %34 = sub i64 %3, %32
   %.012.i.us11 = select i1 %33, i64 -1, i64 %34
-  %35 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv21
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
@@ -2399,7 +2399,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   %41 = icmp eq i64 %40, -1
   %42 = sub i64 %3, %40
   %spec.select = select i1 %41, i64 -1, i64 %42
-  %43 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
@@ -2407,7 +2407,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds nuw [1 x i64], ptr %7, i64 0, i64 %indvars.iv31
+  %44 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv31
   store i64 %3, ptr %44, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
@@ -2490,7 +2490,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0
   %45 = getelementptr inbounds nuw i8, ptr %.2130.i.us167, i64 1
   %46 = load i8, ptr %.2130.i.us167, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = shl i32 %44, %16
   %51 = zext i8 %49 to i32
@@ -2526,26 +2526,26 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0
   %69 = xor i64 %68, -1
   %70 = add i64 %60, %69
   %71 = zext i32 %63 to i64
-  %72 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %1, i64 %71
   store i64 %70, ptr %72, align 8
   br label %90
 
 73:                                               ; preds = %61
   %74 = zext i32 %65 to i64
-  %75 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %1, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = zext i32 %63 to i64
-  %78 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %1, i64 %77
   store i64 %76, ptr %78, align 8
   br label %90
 
 79:                                               ; preds = %61
   %80 = zext i32 %65 to i64
-  %81 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %1, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, -1
   %84 = zext i32 %63 to i64
-  %85 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %1, i64 %84
   br i1 %83, label %89, label %86
 
 86:                                               ; preds = %79
@@ -2588,7 +2588,7 @@ run_prog.exit.us165:                              ; preds = %61, %43
   %99 = getelementptr inbounds nuw i8, ptr %.2130.i.us389, i64 1
   %100 = load i8, ptr %.2130.i.us389, align 1
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %37, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = shl i32 %98, %16
   %105 = zext i8 %103 to i32
@@ -2624,26 +2624,26 @@ run_prog.exit.us165:                              ; preds = %61, %43
   %123 = xor i64 %122, -1
   %124 = add i64 %114, %123
   %125 = zext i32 %117 to i64
-  %126 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %125
   store i64 %124, ptr %126, align 8
   br label %144
 
 127:                                              ; preds = %115
   %128 = zext i32 %119 to i64
-  %129 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i64, ptr %1, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = zext i32 %117 to i64
-  %132 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %1, i64 %131
   store i64 %130, ptr %132, align 8
   br label %144
 
 133:                                              ; preds = %115
   %134 = zext i32 %119 to i64
-  %135 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr %1, i64 %134
   %136 = load i64, ptr %135, align 8
   %137 = icmp eq i64 %136, -1
   %138 = zext i32 %117 to i64
-  %139 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i64, ptr %1, i64 %138
   br i1 %137, label %143, label %140
 
 140:                                              ; preds = %133
@@ -2685,7 +2685,7 @@ run_prog.exit.us:                                 ; preds = %115, %.lr.ph391
   %156 = getelementptr inbounds nuw i8, ptr %.2130.i, i64 1
   %157 = load i8, ptr %.2130.i, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %37, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = shl i32 %155, %16
   %162 = zext i8 %160 to i32
@@ -2718,10 +2718,10 @@ run_prog.exit.us:                                 ; preds = %115, %.lr.ph391
 
 178:                                              ; preds = %172
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i64, ptr %1, i64 %179
   %181 = load i64, ptr %180, align 8
   %182 = zext i32 %174 to i64
-  %183 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i64, ptr %1, i64 %182
   store i64 %181, ptr %183, align 8
   br label %201
 
@@ -2730,17 +2730,17 @@ run_prog.exit.us:                                 ; preds = %115, %.lr.ph391
   %186 = xor i64 %185, -1
   %187 = add i64 %171, %186
   %188 = zext i32 %174 to i64
-  %189 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i64, ptr %1, i64 %188
   store i64 %187, ptr %189, align 8
   br label %201
 
 190:                                              ; preds = %172
   %191 = zext i32 %176 to i64
-  %192 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i64, ptr %1, i64 %191
   %193 = load i64, ptr %192, align 8
   %194 = icmp eq i64 %193, -1
   %195 = zext i32 %174 to i64
-  %196 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i64, ptr %1, i64 %195
   br i1 %194, label %197, label %198
 
 197:                                              ; preds = %190
@@ -2821,7 +2821,7 @@ run_prog.exit:                                    ; preds = %172, %154
 
 234:                                              ; preds = %228
   %235 = zext i32 %232 to i64
-  %236 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw i64, ptr %1, i64 %235
   %237 = load i64, ptr %236, align 8
   br label %238
 
@@ -2839,7 +2839,7 @@ run_prog.exit:                                    ; preds = %172, %154
   %.2126.i.ph.ph = phi i8 [ %204, %238 ], [ %.0124.i, %.loopexit ]
   %241 = icmp eq i32 %.5.ph.ph, -1
   %242 = zext i32 %.5.ph.ph to i64
-  %243 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i64, ptr %1, i64 %242
   br label %.outer
 
 244:                                              ; preds = %254
@@ -2849,7 +2849,7 @@ run_prog.exit:                                    ; preds = %172, %154
 
 245:                                              ; preds = %.lr.ph, %244
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %244 ]
-  %246 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %227, i64 0, i64 %indvars.iv
+  %246 = getelementptr inbounds nuw %struct.gough_report, ptr %227, i64 %indvars.iv
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %248 = load i32, ptr %247, align 4
   %249 = icmp eq i32 %248, -1
@@ -2857,7 +2857,7 @@ run_prog.exit:                                    ; preds = %172, %154
 
 250:                                              ; preds = %245
   %251 = zext i32 %248 to i64
-  %252 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i64, ptr %1, i64 %251
   %253 = load i64, ptr %252, align 8
   br label %254
 
@@ -2896,7 +2896,7 @@ run_prog.exit:                                    ; preds = %172, %154
   %265 = getelementptr inbounds nuw i8, ptr %.3131.i396, i64 1
   %266 = load i8, ptr %.3131.i396, align 1
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw [256 x i8], ptr %258, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr %258, i64 %267
   %269 = load i8, ptr %268, align 1
   %270 = shl i32 %264, %16
   %271 = zext i8 %269 to i32
@@ -2929,10 +2929,10 @@ run_prog.exit:                                    ; preds = %172, %154
 
 287:                                              ; preds = %281
   %288 = zext i32 %285 to i64
-  %289 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i64, ptr %1, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = zext i32 %283 to i64
-  %292 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw i64, ptr %1, i64 %291
   store i64 %290, ptr %292, align 8
   br label %310
 
@@ -2941,17 +2941,17 @@ run_prog.exit:                                    ; preds = %172, %154
   %295 = xor i64 %294, -1
   %296 = add i64 %280, %295
   %297 = zext i32 %283 to i64
-  %298 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw i64, ptr %1, i64 %297
   store i64 %296, ptr %298, align 8
   br label %310
 
 299:                                              ; preds = %281
   %300 = zext i32 %285 to i64
-  %301 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw i64, ptr %1, i64 %300
   %302 = load i64, ptr %301, align 8
   %303 = icmp eq i64 %302, -1
   %304 = zext i32 %283 to i64
-  %305 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw i64, ptr %1, i64 %304
   br i1 %303, label %306, label %307
 
 306:                                              ; preds = %299
@@ -2999,7 +2999,7 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph398
 
 323:                                              ; preds = %321
   %324 = zext i32 %.1395 to i64
-  %325 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw i64, ptr %1, i64 %324
   %326 = load i64, ptr %325, align 8
   br label %327
 
@@ -3040,7 +3040,7 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph398
 
 349:                                              ; preds = %343
   %350 = zext i32 %347 to i64
-  %351 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i64, ptr %1, i64 %350
   %352 = load i64, ptr %351, align 8
   br label %353
 
@@ -3057,7 +3057,7 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph398
 
 358:                                              ; preds = %.lr.ph185, %357
   %indvars.iv216 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next217, %357 ]
-  %359 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %342, i64 0, i64 %indvars.iv216
+  %359 = getelementptr inbounds nuw %struct.gough_report, ptr %342, i64 %indvars.iv216
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 4
   %361 = load i32, ptr %360, align 4
   %362 = icmp eq i32 %361, -1
@@ -3065,7 +3065,7 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph398
 
 363:                                              ; preds = %358
   %364 = zext i32 %361 to i64
-  %365 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw i64, ptr %1, i64 %364
   %366 = load i64, ptr %365, align 8
   br label %367
 
@@ -3178,10 +3178,10 @@ define internal fastcc zeroext i16 @goughEnableStarts(ptr noundef readonly captu
 
 28:                                               ; preds = %22
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw [1 x i64], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = zext i32 %24 to i64
-  %33 = getelementptr inbounds nuw [1 x i64], ptr %3, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %3, i64 %32
   store i64 %31, ptr %33, align 8
   br label %50
 
@@ -3189,17 +3189,17 @@ define internal fastcc zeroext i16 @goughEnableStarts(ptr noundef readonly captu
   %35 = zext i32 %26 to i64
   %36 = sub i64 %2, %35
   %37 = zext i32 %24 to i64
-  %38 = getelementptr inbounds nuw [1 x i64], ptr %3, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %37
   store i64 %36, ptr %38, align 8
   br label %50
 
 39:                                               ; preds = %22
   %40 = zext i32 %26 to i64
-  %41 = getelementptr inbounds nuw [1 x i64], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, -1
   %44 = zext i32 %24 to i64
-  %45 = getelementptr inbounds nuw [1 x i64], ptr %3, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %44
   br i1 %43, label %46, label %47
 
 46:                                               ; preds = %39
@@ -3272,10 +3272,10 @@ define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) 
 
 25:                                               ; preds = %19
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %5, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = zext i32 %21 to i64
-  %30 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %29
   store i64 %28, ptr %30, align 8
   br label %48
 
@@ -3284,17 +3284,17 @@ define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) 
   %33 = add i64 %15, %32
   %34 = sub i64 %18, %33
   %35 = zext i32 %21 to i64
-  %36 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %35
   store i64 %34, ptr %36, align 8
   br label %48
 
 37:                                               ; preds = %19
   %38 = zext i32 %23 to i64
-  %39 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %5, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, -1
   %42 = zext i32 %21 to i64
-  %43 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %5, i64 %42
   br i1 %41, label %44, label %45
 
 44:                                               ; preds = %37
@@ -3355,10 +3355,10 @@ run_prog_i.exit:                                  ; preds = %19
 
 64:                                               ; preds = %58
   %65 = zext i32 %62 to i64
-  %66 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %5, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = zext i32 %60 to i64
-  %69 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i64, ptr %5, i64 %68
   store i64 %67, ptr %69, align 8
   br label %86
 
@@ -3366,17 +3366,17 @@ run_prog_i.exit:                                  ; preds = %19
   %71 = zext i32 %62 to i64
   %72 = sub i64 %.reass.reass27, %71
   %73 = zext i32 %60 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %5, i64 %73
   store i64 %72, ptr %74, align 8
   br label %86
 
 75:                                               ; preds = %58
   %76 = zext i32 %62 to i64
-  %77 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, -1
   %80 = zext i32 %60 to i64
-  %81 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %5, i64 %80
   br i1 %79, label %82, label %83
 
 82:                                               ; preds = %75
@@ -3422,10 +3422,10 @@ run_prog_i.exit47:                                ; preds = %58
 
 96:                                               ; preds = %90
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %5, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = zext i32 %92 to i64
-  %101 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %5, i64 %100
   store i64 %99, ptr %101, align 8
   br label %119
 
@@ -3434,17 +3434,17 @@ run_prog_i.exit47:                                ; preds = %58
   %104 = add i64 %56, %103
   %105 = sub i64 %89, %104
   %106 = zext i32 %92 to i64
-  %107 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i64, ptr %5, i64 %106
   store i64 %105, ptr %107, align 8
   br label %119
 
 108:                                              ; preds = %90
   %109 = zext i32 %94 to i64
-  %110 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr %5, i64 %109
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, -1
   %113 = zext i32 %92 to i64
-  %114 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %5, i64 %113
   br i1 %112, label %115, label %116
 
 115:                                              ; preds = %108
@@ -3545,7 +3545,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %47 = getelementptr inbounds nuw i8, ptr %.2154.i137, i64 1
   %48 = load i8, ptr %.2154.i137, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = shl i32 %46, %23
   %53 = zext i8 %51 to i32
@@ -3578,10 +3578,10 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
 
 69:                                               ; preds = %63
   %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i64, ptr %1, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = zext i32 %65 to i64
-  %74 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %1, i64 %73
   store i64 %72, ptr %74, align 8
   br label %92
 
@@ -3590,17 +3590,17 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %77 = xor i64 %76, -1
   %78 = add i64 %62, %77
   %79 = zext i32 %65 to i64
-  %80 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %1, i64 %79
   store i64 %78, ptr %80, align 8
   br label %92
 
 81:                                               ; preds = %63
   %82 = zext i32 %67 to i64
-  %83 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i64, ptr %1, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = icmp eq i64 %84, -1
   %86 = zext i32 %65 to i64
-  %87 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i64, ptr %1, i64 %86
   br i1 %85, label %88, label %89
 
 88:                                               ; preds = %81
@@ -3715,7 +3715,7 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 
 141:                                              ; preds = %139
   %142 = zext i32 %.6136 to i64
-  %143 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i64, ptr %1, i64 %142
   %144 = load i64, ptr %143, align 8
   br label %145
 
@@ -3756,7 +3756,7 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 
 167:                                              ; preds = %161
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i64, ptr %1, i64 %168
   %170 = load i64, ptr %169, align 8
   br label %171
 
@@ -3773,7 +3773,7 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 
 176:                                              ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
-  %177 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %160, i64 0, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw %struct.gough_report, ptr %160, i64 %indvars.iv
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = icmp eq i32 %179, -1
@@ -3781,7 +3781,7 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 
 181:                                              ; preds = %176
   %182 = zext i32 %179 to i64
-  %183 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i64, ptr %1, i64 %182
   %184 = load i64, ptr %183, align 8
   br label %185
 
@@ -3833,7 +3833,7 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
   %202 = getelementptr inbounds nuw i8, ptr %.3155.i306, i64 1
   %203 = load i8, ptr %.3155.i306, align 1
   %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds nuw [256 x i8], ptr %192, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %192, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = shl i32 %201, %23
   %208 = zext i8 %206 to i32
@@ -3866,10 +3866,10 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
 
 224:                                              ; preds = %218
   %225 = zext i32 %222 to i64
-  %226 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i64, ptr %1, i64 %225
   %227 = load i64, ptr %226, align 8
   %228 = zext i32 %220 to i64
-  %229 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw i64, ptr %1, i64 %228
   store i64 %227, ptr %229, align 8
   br label %247
 
@@ -3878,17 +3878,17 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
   %232 = xor i64 %231, -1
   %233 = add i64 %217, %232
   %234 = zext i32 %220 to i64
-  %235 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i64, ptr %1, i64 %234
   store i64 %233, ptr %235, align 8
   br label %247
 
 236:                                              ; preds = %218
   %237 = zext i32 %222 to i64
-  %238 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw i64, ptr %1, i64 %237
   %239 = load i64, ptr %238, align 8
   %240 = icmp eq i64 %239, -1
   %241 = zext i32 %220 to i64
-  %242 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw i64, ptr %1, i64 %241
   br i1 %240, label %243, label %244
 
 243:                                              ; preds = %236
@@ -3999,7 +3999,7 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
 
 296:                                              ; preds = %294
   %297 = zext i32 %.1305 to i64
-  %298 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw i64, ptr %1, i64 %297
   %299 = load i64, ptr %298, align 8
   br label %300
 
@@ -4040,7 +4040,7 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
 
 322:                                              ; preds = %316
   %323 = zext i32 %320 to i64
-  %324 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i64, ptr %1, i64 %323
   %325 = load i64, ptr %324, align 8
   br label %326
 
@@ -4057,7 +4057,7 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
 
 331:                                              ; preds = %.lr.ph146, %330
   %indvars.iv174 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next175, %330 ]
-  %332 = getelementptr inbounds nuw [0 x %struct.gough_report], ptr %315, i64 0, i64 %indvars.iv174
+  %332 = getelementptr inbounds nuw %struct.gough_report, ptr %315, i64 %indvars.iv174
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = icmp eq i32 %334, -1
@@ -4065,7 +4065,7 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
 
 336:                                              ; preds = %331
   %337 = zext i32 %334 to i64
-  %338 = getelementptr inbounds nuw [1 x i64], ptr %1, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i64, ptr %1, i64 %337
   %339 = load i64, ptr %338, align 8
   br label %340
 

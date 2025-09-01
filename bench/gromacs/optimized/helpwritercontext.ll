@@ -2906,7 +2906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !88
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [11 x i8], ptr @_ZN3gmx12_GLOBAL__N_112g_titleCharsE, i64 0, i64 %44
+  %45 = getelementptr inbounds i8, ptr @_ZN3gmx12_GLOBAL__N_112g_titleCharsE, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %47, ptr %4, align 8, !tbaa !29

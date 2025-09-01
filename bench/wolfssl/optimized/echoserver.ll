@@ -374,7 +374,7 @@ thread-pre-split:                                 ; preds = %107
 
 136:                                              ; preds = %121
   %137 = zext nneg i32 %94 to i64
-  %138 = getelementptr inbounds nuw [257 x i8], ptr %7, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 %137
   store i8 0, ptr %138, align 1, !tbaa !36
   %139 = call i32 @fputs(ptr noundef nonnull %7, ptr noundef nonnull %.084)
   %140 = icmp slt i32 %139, 0

@@ -10746,18 +10746,18 @@ _ZN4llvm21ValueMapConstIteratorINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5Value
   br i1 %3628, label %3629, label %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i
 
 3629:                                             ; preds = %3626
-  %switch.tableidx2967 = add i8 %3627, -34
-  %3630 = icmp ult i8 %switch.tableidx2967, 52
-  br i1 %3630, label %switch.lookup2966, label %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i
+  %switch.tableidx2966 = add i8 %3627, -34
+  %3630 = icmp ult i8 %switch.tableidx2966, 52
+  br i1 %3630, label %switch.lookup2967, label %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i
 
-switch.lookup2966:                                ; preds = %3629
-  %switch.cast2968 = zext nneg i8 %switch.tableidx2967 to i52
+switch.lookup2967:                                ; preds = %3629
+  %switch.cast2968 = zext nneg i8 %switch.tableidx2966 to i52
   %switch.downshift2970 = lshr i52 2251799813685182, %switch.cast2968
   %switch.masked2971 = trunc i52 %switch.downshift2970 to i1
   br label %_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i
 
-_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i: ; preds = %3629, %switch.lookup2966, %3626, %.lr.ph.split.i1240
-  %.0.i.i.i1241 = phi i1 [ true, %.lr.ph.split.i1240 ], [ true, %3626 ], [ %switch.masked2971, %switch.lookup2966 ], [ true, %3629 ]
+_ZN4llvm16dyn_cast_or_nullINS_8CallBaseEKNS_5ValueEEEDaPT0_.exit.i: ; preds = %3629, %switch.lookup2967, %3626, %.lr.ph.split.i1240
+  %.0.i.i.i1241 = phi i1 [ true, %.lr.ph.split.i1240 ], [ true, %3626 ], [ %switch.masked2971, %switch.lookup2967 ], [ true, %3629 ]
   %3631 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 56
   %3632 = load ptr, ptr %3631, align 8, !tbaa !79
   %.not.i.i23.i1242 = icmp eq ptr %3632, null

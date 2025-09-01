@@ -221,7 +221,7 @@ _ZNK4llvm4Pass11getAnalysisINS_14RegionInfoPassEEERT_v.exit: ; preds = %.lr.ph.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 208
   %35 = add i32 %.08.i, 1
   %36 = zext i32 %.08.i to i64
-  %37 = getelementptr inbounds nuw [6 x ptr], ptr %30, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %36
   store ptr %34, ptr %37, align 8, !tbaa !28
   %.not.i = icmp eq ptr %32, %29
   br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %31
@@ -876,7 +876,7 @@ define dso_local void @_ZN4llvm10RegionPass17assignPassManagerERNS_7PMStackENS_1
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 208
   %43 = add i32 %.08.i, 1
   %44 = zext i32 %.08.i to i64
-  %45 = getelementptr inbounds nuw [6 x ptr], ptr %38, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %38, i64 %44
   store ptr %42, ptr %45, align 8, !tbaa !28
   %.not.i = icmp eq ptr %40, %37
   br i1 %.not.i, label %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit, label %39

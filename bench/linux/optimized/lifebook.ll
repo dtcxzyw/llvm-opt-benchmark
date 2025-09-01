@@ -400,7 +400,7 @@ define internal void @lifebook_set_resolution(ptr noundef %0, i32 noundef %1) #4
   %6 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %6 to i64
   %7 = select i1 %5, i64 4, i64 %.zext
-  %8 = getelementptr [5 x i8], ptr @lifebook_set_resolution.params, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @lifebook_set_resolution.params, i64 %7
   %9 = load i8, ptr %8, align 1
   store i8 %9, ptr %3, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16

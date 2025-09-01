@@ -314,14 +314,14 @@ define hidden void @proto_register_packetbb() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv9 = phi i64 [ 0, %0 ], [ %indvars.iv.next10, %1 ]
   %indvars.iv = phi i64 [ 13, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr [256 x i32], ptr @ett_packetbb_msg, i64 0, i64 %indvars.iv9
-  %3 = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr [525 x ptr], ptr @proto_register_packetbb.ett, i64 0, i64 %indvars.iv
-  store ptr %2, ptr %4, align 8
-  %5 = getelementptr [256 x i32], ptr @ett_packetbb_tlv, i64 0, i64 %indvars.iv9
+  %2 = getelementptr i32, ptr @ett_packetbb_msg, i64 %indvars.iv9
+  %3 = getelementptr ptr, ptr @proto_register_packetbb.ett, i64 %indvars.iv
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr i32, ptr @ett_packetbb_tlv, i64 %indvars.iv9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %6 = getelementptr [525 x ptr], ptr @proto_register_packetbb.ett, i64 0, i64 %3
-  store ptr %5, ptr %6, align 8
+  %5 = getelementptr ptr, ptr @proto_register_packetbb.ett, i64 %indvars.iv
+  %6 = getelementptr i8, ptr %5, i64 8
+  store ptr %4, ptr %6, align 8
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next10, 256
   br i1 %exitcond.not, label %7, label %1, !llvm.loop !6
@@ -508,7 +508,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   %94 = call ptr @val_to_str_const(i32 noundef %93, ptr noundef nonnull @msgheader_type_vals, ptr noundef nonnull @.str.178)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef nonnull @.str.177, ptr noundef %94)
   %95 = zext i8 %60 to i64
-  %96 = getelementptr [256 x i32], ptr @ett_packetbb_msg, i64 0, i64 %95
+  %96 = getelementptr i32, ptr @ett_packetbb_msg, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = call ptr @proto_item_add_subtree(ptr noundef %92, i32 noundef %97)
   %99 = load i32, ptr @hf_packetbb_msgheader, align 4
@@ -612,7 +612,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   %155 = zext nneg i32 %67 to i64
   %156 = shl nuw i8 %68, 3
   %157 = zext nneg i8 %.0.i35 to i64
-  %158 = getelementptr [4 x i32], ptr @hf_packetbb_addr_value, i64 0, i64 %157
+  %158 = getelementptr i32, ptr @hf_packetbb_addr_value, i64 %157
   br label %159
 
 159:                                              ; preds = %dissect_pbb_addressblock.exit.i, %.lr.ph.i
@@ -758,7 +758,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
 242:                                              ; preds = %237
   %243 = sub nsw i32 %67, %228
   %244 = sext i32 %243 to i64
-  %245 = getelementptr [16 x i8], ptr %5, i64 0, i64 %244
+  %245 = getelementptr i8, ptr %5, i64 %244
   %246 = zext i8 %227 to i64
   %247 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %245, i32 noundef %226, i64 noundef %246)
   %248 = sub nsw i32 %.0258.i.i, %228
@@ -852,7 +852,7 @@ dissect_pbb_addressblock.exit.thread.i:           ; preds = %263
 
 .lr.ph.i.i:                                       ; preds = %294
   %295 = zext nneg i8 %.0263.i.i to i64
-  %296 = getelementptr [16 x i8], ptr %5, i64 0, i64 %295
+  %296 = getelementptr i8, ptr %5, i64 %295
   %297 = zext i32 %.1259.i.i to i64
   %298 = sub nsw i32 %264, %.1266.i.i
   %299 = zext nneg i8 %.0263.i.i to i32
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %64 = load i32, ptr @hf_packetbb_tlv, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %64, ptr noundef %0, i32 noundef %.0172197, i32 noundef %63, i32 noundef 0)
   %66 = zext i8 %33 to i64
-  %67 = getelementptr [256 x i32], ptr @ett_packetbb_tlv, i64 0, i64 %66
+  %67 = getelementptr i32, ptr @ett_packetbb_tlv, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %68)
   switch i32 %6, label %71 [

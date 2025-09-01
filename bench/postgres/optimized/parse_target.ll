@@ -2223,19 +2223,19 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
 
 switch.lookup:                                    ; preds = %101
   %125 = zext nneg i32 %103 to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.FigureColnameInternal, i64 0, i64 %125
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.FigureColnameInternal, i64 %125
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.critedge135.sink.split
 
 switch.lookup276:                                 ; preds = %105
   %126 = zext nneg i32 %107 to i64
-  %switch.gep277 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.FigureColnameInternal.7, i64 0, i64 %126
+  %switch.gep277 = getelementptr inbounds nuw ptr, ptr @switch.table.FigureColnameInternal.7, i64 %126
   %switch.load278 = load ptr, ptr %switch.gep277, align 8
   br label %.critedge135.sink.split
 
 switch.lookup279:                                 ; preds = %117
   %127 = zext nneg i32 %119 to i64
-  %switch.gep280 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.FigureColnameInternal.8, i64 0, i64 %127
+  %switch.gep280 = getelementptr inbounds nuw ptr, ptr @switch.table.FigureColnameInternal.8, i64 %127
   %switch.load281 = load ptr, ptr %switch.gep280, align 8
   br label %.critedge135.sink.split
 

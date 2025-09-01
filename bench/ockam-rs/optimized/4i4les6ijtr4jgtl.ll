@@ -859,7 +859,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !124
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !124
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %11, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !124, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !124
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !124
@@ -1891,7 +1891,7 @@ default.unreachable:                              ; preds = %66
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !270
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !270
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %11, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !270, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !270
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !270
@@ -4673,7 +4673,7 @@ default.unreachable31:                            ; preds = %24, %3
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !619
   store <2 x i64> <i64 240, i64 16>, ptr %5, align 16, !noalias !619
-  %52 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %49
+  %52 = getelementptr inbounds nuw i64, ptr %5, i64 %49
   %53 = load i64, ptr %52, align 8, !noalias !619, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %11, i64 %53, i1 false), !noalias !619
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !619

@@ -465,10 +465,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1eedc16dfe7972a4E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1eedc16dfe7972a4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1eedc16dfe7972a4E.440", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1eedc16dfe7972a4E.440", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -480,7 +480,7 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !7, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h20d9d9b71c73efa5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h20d9d9b71c73efa5E", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 4)
   ret i1 %4
@@ -498,10 +498,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !8, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE.441", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70dd558fd424c16aE.441", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -566,10 +566,10 @@ switch.lookup:
   %.val = load i8, ptr %2, align 1, !range !16, !noundef !4
   %switch.tableidx = xor i8 %.val, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [256 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw [256 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E.442", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb3a10efe76d530e2E.442", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2527,7 +2527,7 @@ default.unreachable:                              ; preds = %5
 
 switch.lookup:                                    ; preds = %22
   %27 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit
 
@@ -2663,18 +2663,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread: ; pr
 
 60:                                               ; preds = %54
   %61 = and i16 %1, 15
-  %switch.tableidx22 = add nsw i16 %61, -6
-  %62 = icmp ult i16 %switch.tableidx22, 10
-  br i1 %62, label %switch.lookup21, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
+  %switch.tableidx21 = add nsw i16 %61, -6
+  %62 = icmp ult i16 %switch.tableidx21, 10
+  br i1 %62, label %switch.lookup22, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-switch.lookup21:                                  ; preds = %60
-  %63 = zext nneg i16 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %63
+switch.lookup22:                                  ; preds = %60
+  %63 = zext nneg i16 %switch.tableidx21 to i64
+  %switch.gep23 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %63
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup21, %60
-  %.0.i.i14 = phi i32 [ 0, %60 ], [ %switch.load24, %switch.lookup21 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup22, %60
+  %.0.i.i14 = phi i32 [ 0, %60 ], [ %switch.load24, %switch.lookup22 ]
   %64 = add nsw i16 %1, -112
   %65 = lshr i16 %64, 4
   %66 = zext nneg i16 %65 to i32
@@ -2753,7 +2753,7 @@ default.unreachable:                              ; preds = %5
 
 switch.lookup:                                    ; preds = %27
   %32 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit
 
@@ -2904,18 +2904,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread: ; pr
 
 65:                                               ; preds = %59
   %66 = and i16 %1, 15
-  %switch.tableidx22 = add nsw i16 %66, -6
-  %67 = icmp ult i16 %switch.tableidx22, 10
-  br i1 %67, label %switch.lookup21, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
+  %switch.tableidx21 = add nsw i16 %66, -6
+  %67 = icmp ult i16 %switch.tableidx21, 10
+  br i1 %67, label %switch.lookup22, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-switch.lookup21:                                  ; preds = %65
-  %68 = zext nneg i16 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %68
+switch.lookup22:                                  ; preds = %65
+  %68 = zext nneg i16 %switch.tableidx21 to i64
+  %switch.gep23 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %68
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup21, %65
-  %.0.i.i14 = phi i32 [ 0, %65 ], [ %switch.load24, %switch.lookup21 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %switch.lookup22, %65
+  %.0.i.i14 = phi i32 [ 0, %65 ], [ %switch.load24, %switch.lookup22 ]
   %69 = add nsw i16 %1, -112
   %70 = lshr i16 %69, 4
   %71 = zext nneg i16 %70 to i32
@@ -3062,7 +3062,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
 
 switch.lookup:                                    ; preds = %35
   %38 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -3245,7 +3245,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
 
 switch.lookup:                                    ; preds = %43
   %46 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -4025,7 +4025,7 @@ _ZN17cranelift_codegen3isa3x645lower16is_int_or_ref_ty17h72a65869bd6862dbE.exit.
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -5479,7 +5479,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %23 = load ptr, ptr %22, align 8, !alias.scope !752, !noalias !753, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %23, i64 0, i64 %17
+  %24 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %23, i64 %17
   %.sroa.0.0.copyload = load i8, ptr %24, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -5660,7 +5660,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %.pre31, i64 40
   %33 = load ptr, ptr %32, align 8, !alias.scope !777, !noalias !778, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %33, i64 0, i64 %27
+  %34 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %33, i64 %27
   %.sroa.0.0.copyload = load i8, ptr %34, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -5711,7 +5711,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit79": ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %55 = load ptr, ptr %54, align 8, !alias.scope !796, !noalias !797, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %55, i64 0, i64 %49
+  %56 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %55, i64 %49
   %.sroa.02.0.copyload = load i8, ptr %56, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 1
   %.sroa.53.0.copyload = load i8, ptr %.sroa.53.0..sroa_idx, align 1
@@ -5822,7 +5822,7 @@ default.unreachable:                              ; preds = %344, %310, %269, %2
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit82": ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %.pre30, i64 40
   %106 = load ptr, ptr %105, align 8, !alias.scope !817, !noalias !818, !nonnull !4, !noundef !4
-  %107 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %106, i64 0, i64 %100
+  %107 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %106, i64 %100
   %.sroa.06.0.copyload = load i8, ptr %107, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 1
   %.sroa.57.0.copyload = load i8, ptr %.sroa.57.0..sroa_idx, align 1
@@ -5923,7 +5923,7 @@ default.unreachable:                              ; preds = %344, %310, %269, %2
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit90": ; preds = %146
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %154 = load ptr, ptr %153, align 8, !alias.scope !838, !noalias !839, !nonnull !4, !noundef !4
-  %155 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %154, i64 0, i64 %148
+  %155 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %154, i64 %148
   %.sroa.010.0.copyload = load i8, ptr %155, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 1
   %.sroa.511.0.copyload = load i8, ptr %.sroa.511.0..sroa_idx, align 1
@@ -5978,7 +5978,7 @@ default.unreachable:                              ; preds = %344, %310, %269, %2
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit93": ; preds = %167
   %173 = getelementptr inbounds nuw i8, ptr %.pre32, i64 40
   %174 = load ptr, ptr %173, align 8, !alias.scope !852, !noalias !853, !nonnull !4, !noundef !4
-  %175 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %174, i64 0, i64 %168
+  %175 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %174, i64 %168
   %.sroa.017.0.copyload = load i8, ptr %175, align 8
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 1
   %.sroa.518.0.copyload = load i8, ptr %.sroa.518.0..sroa_idx, align 1
@@ -6086,7 +6086,7 @@ default.unreachable:                              ; preds = %344, %310, %269, %2
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit103": ; preds = %218
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %226 = load ptr, ptr %225, align 8, !alias.scope !876, !noalias !877, !nonnull !4, !noundef !4
-  %227 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %226, i64 0, i64 %220
+  %227 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %226, i64 %220
   %.sroa.021.0.copyload = load i8, ptr %227, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 1
   %.sroa.522.0.copyload = load i8, ptr %.sroa.522.0..sroa_idx, align 1
@@ -6249,7 +6249,7 @@ default.unreachable:                              ; preds = %344, %310, %269, %2
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit118": ; preds = %298
   %305 = getelementptr inbounds nuw i8, ptr %299, i64 40
   %306 = load ptr, ptr %305, align 8, !alias.scope !900, !noalias !901, !nonnull !4, !noundef !4
-  %307 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %306, i64 0, i64 %300
+  %307 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %306, i64 %300
   %.sroa.025.0.copyload = load i8, ptr %307, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 1
   %.sroa.526.0.copyload = load i8, ptr %.sroa.526.0..sroa_idx, align 1
@@ -6423,7 +6423,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %22 = load ptr, ptr %21, align 8, !alias.scope !927, !noalias !928, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %22, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %22, i64 %16
   %.sroa.0.0.copyload = load i8, ptr %23, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -6561,7 +6561,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.pre20, i64 40
   %24 = load ptr, ptr %23, align 8, !alias.scope !946, !noalias !947, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %24, i64 0, i64 %18
+  %25 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %24, i64 %18
   %.sroa.0.0.copyload = load i8, ptr %25, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -6612,7 +6612,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit43": ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %46 = load ptr, ptr %45, align 8, !alias.scope !965, !noalias !966, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %46, i64 0, i64 %40
+  %47 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %46, i64 %40
   %.sroa.02.0.copyload = load i8, ptr %47, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 1
   %.sroa.53.0.copyload = load i8, ptr %.sroa.53.0..sroa_idx, align 1
@@ -6672,7 +6672,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit44": ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %69 = load ptr, ptr %68, align 8, !alias.scope !981, !noalias !982, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %69, i64 0, i64 %63
+  %70 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %69, i64 %63
   %.sroa.06.0.copyload = load i8, ptr %70, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 1
   %.sroa.57.0.copyload = load i8, ptr %.sroa.57.0..sroa_idx, align 1
@@ -6777,7 +6777,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit52": ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %105 = load ptr, ptr %104, align 8, !alias.scope !998, !noalias !999, !nonnull !4, !noundef !4
-  %106 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %105, i64 0, i64 %99
+  %106 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %105, i64 %99
   %.sroa.012.0.copyload = load i8, ptr %106, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 1
   %.sroa.513.0.copyload = load i8, ptr %.sroa.513.0..sroa_idx, align 1
@@ -6827,7 +6827,7 @@ define internal fastcc range(i64 0, -4294967294) i64 @_ZN17cranelift_codegen3isa
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !1015, !noalias !1016, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %20, i64 0, i64 %14
+  %21 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %20, i64 %14
   %.sroa.0.0.copyload = load i8, ptr %21, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -6853,7 +6853,7 @@ define internal fastcc range(i64 0, -4294967294) i64 @_ZN17cranelift_codegen3isa
 
 switch.lookup:                                    ; preds = %26
   %31 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -6871,18 +6871,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   %39 = and i16 %1, 15
   %40 = or disjoint i16 %39, 112
   %.0.i.i.i57 = select i1 %38, i16 %1, i16 %40
-  %switch.tableidx20 = add nsw i16 %.0.i.i.i57, -118
-  %41 = icmp ult i16 %switch.tableidx20, 10
-  br i1 %41, label %switch.lookup19, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit"
+  %switch.tableidx19 = add nsw i16 %.0.i.i.i57, -118
+  %41 = icmp ult i16 %switch.tableidx19, 10
+  br i1 %41, label %switch.lookup20, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit"
 
-switch.lookup19:                                  ; preds = %37
-  %42 = zext nneg i16 %switch.tableidx20 to i64
-  %switch.gep21 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.445, i64 0, i64 %42
+switch.lookup20:                                  ; preds = %37
+  %42 = zext nneg i16 %switch.tableidx19 to i64
+  %switch.gep21 = getelementptr inbounds nuw i64, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code34constructor_put_masked_in_imm8_gpr17h614ed2ec9b6d76d0E.445, i64 %42
   %switch.load22 = load i64, ptr %switch.gep21, align 8
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit": ; preds = %switch.lookup19, %37
-  %.0.i.i = phi i64 [ 255, %37 ], [ %switch.load22, %switch.lookup19 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$25const_to_type_masked_imm817h30ef52b8c185c871E.exit": ; preds = %switch.lookup20, %37
+  %.0.i.i = phi i64 [ 255, %37 ], [ %switch.load22, %switch.lookup20 ]
   %43 = and i64 %.0.i.i, %.sroa.61.0.copyload
   %.sroa.4.0.insert.ext.i = shl nuw nsw i64 %43, 8
   %.sroa.4.0.insert.shift.i = and i64 %.sroa.4.0.insert.ext.i, 65280
@@ -6923,18 +6923,18 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
   unreachable
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
-  %switch.tableidx24 = add nsw i16 %.0.i.i.i.i, -118
-  %51 = icmp ult i16 %switch.tableidx24, 10
-  br i1 %51, label %switch.lookup23, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit"
+  %switch.tableidx23 = add nsw i16 %.0.i.i.i.i, -118
+  %51 = icmp ult i16 %switch.tableidx23, 10
+  br i1 %51, label %switch.lookup24, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit"
 
-switch.lookup23:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
-  %52 = zext nneg i16 %switch.tableidx24 to i64
-  %switch.gep25 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 0, i64 %52
+switch.lookup24:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
+  %52 = zext nneg i16 %switch.tableidx23 to i64
+  %switch.gep25 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 %52
   %switch.load26 = load i32, ptr %switch.gep25, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit": ; preds = %switch.lookup23, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
-  %.0.i.i59 = phi i32 [ 255, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit" ], [ %switch.load26, %switch.lookup23 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$15gpr_mem_imm_new17hf59f3fdfea14dc2dE.exit": ; preds = %switch.lookup24, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
+  %.0.i.i59 = phi i32 [ 255, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit" ], [ %switch.load26, %switch.lookup24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 8, ptr %4, align 4, !alias.scope !1021, !noalias !1024
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -8304,7 +8304,7 @@ default.unreachable:                              ; preds = %14
 
 switch.lookup:                                    ; preds = %19
   %24 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -8510,7 +8510,7 @@ default.unreachable:                              ; preds = %14
 
 switch.lookup:                                    ; preds = %19
   %24 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -13290,7 +13290,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24raw_operand_size_of_type17h26b3b98d2293807cE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 192
   %33 = load ptr, ptr %32, align 8, !alias.scope !1576, !noalias !1577, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds nuw [0 x i64], ptr %33, i64 0, i64 %27
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %27
   %35 = load i64, ptr %34, align 8, !noalias !1570, !noundef !4
   %36 = lshr i64 %35, 48
   %37 = trunc nuw i64 %36 to i16
@@ -13634,7 +13634,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24raw_operand_size_of_type17h26b3b98d2293807cE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 192
   %33 = load ptr, ptr %32, align 8, !alias.scope !1601, !noalias !1602, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds nuw [0 x i64], ptr %33, i64 0, i64 %27
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %27
   %35 = load i64, ptr %34, align 8, !noalias !1595, !noundef !4
   %36 = lshr i64 %35, 48
   %37 = trunc nuw i64 %36 to i16
@@ -13966,7 +13966,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %16 = load ptr, ptr %15, align 8, !alias.scope !1624, !noalias !1625, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw [0 x i64], ptr %16, i64 0, i64 %10
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %10
   %18 = load i64, ptr %17, align 8, !noalias !1618, !noundef !4
   %19 = lshr i64 %18, 48
   %20 = trunc nuw i64 %19 to i16
@@ -14043,7 +14043,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit.i": ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %50 = load ptr, ptr %49, align 8, !alias.scope !1639, !noalias !1640, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %50, i64 0, i64 %44
+  %51 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %50, i64 %44
   %.sroa.0.0.copyload.i = load i8, ptr %51, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 1
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 1
@@ -14119,7 +14119,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code33constructor_value32_z
 77:                                               ; preds = %67
   %78 = getelementptr inbounds nuw i8, ptr %.val, i64 1552
   %79 = load ptr, ptr %78, align 8, !alias.scope !1659, !noalias !1660, !nonnull !4, !noundef !4
-  %80 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %79, i64 0, i64 %73
+  %80 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %79, i64 %73
   %81 = load i8, ptr %80, align 8, !range !1662, !noalias !1663, !noundef !4
   %.not.i.i.i = icmp eq i8 %81, 7
   br i1 %.not.i.i.i, label %83, label %"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$19set_fact_if_missing17he276d0df470c75aeE.exit.i.i"
@@ -14174,7 +14174,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code33constructor_value32_z
 
 switch.lookup:                                    ; preds = %.thread
   %93 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %93
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -14199,18 +14199,18 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_operand_s
   %102 = and i16 %20, 15
   %103 = or disjoint i16 %102, 112
   %.0.i.i.i.i27 = select i1 %101, i16 %21, i16 %103
-  %switch.tableidx15 = add nsw i16 %.0.i.i.i.i27, -118
-  %104 = icmp ult i16 %switch.tableidx15, 10
-  br i1 %104, label %switch.lookup14, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
+  %switch.tableidx14 = add nsw i16 %.0.i.i.i.i27, -118
+  %104 = icmp ult i16 %switch.tableidx14, 10
+  br i1 %104, label %switch.lookup15, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-switch.lookup14:                                  ; preds = %100
-  %105 = zext nneg i16 %switch.tableidx15 to i64
-  %switch.gep16 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %105
+switch.lookup15:                                  ; preds = %100
+  %105 = zext nneg i16 %switch.tableidx14 to i64
+  %switch.gep16 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %105
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup14, %100
-  %.0.i.i.i28 = phi i32 [ 0, %100 ], [ %switch.load17, %switch.lookup14 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup15, %100
+  %.0.i.i.i28 = phi i32 [ 0, %100 ], [ %switch.load17, %switch.lookup15 ]
   %106 = tail call i16 @llvm.usub.sat.i16(i16 %21, i16 112)
   %107 = lshr i16 %106, 4
   %108 = zext nneg i16 %107 to i32
@@ -14564,7 +14564,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -14619,18 +14619,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %or.cond.not.i, label %84, label %133
 
 38:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx13 = add nsw i16 %.0.i.i.i.i, -118
-  %39 = icmp ult i16 %switch.tableidx13, 10
-  br i1 %39, label %switch.lookup12, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ty_bytes17h6c097aed9063dbaeE.exit"
+  %switch.tableidx12 = add nsw i16 %.0.i.i.i.i, -118
+  %39 = icmp ult i16 %switch.tableidx12, 10
+  br i1 %39, label %switch.lookup13, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ty_bytes17h6c097aed9063dbaeE.exit"
 
-switch.lookup12:                                  ; preds = %38
-  %40 = zext nneg i16 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %40
+switch.lookup13:                                  ; preds = %38
+  %40 = zext nneg i16 %switch.tableidx12 to i64
+  %switch.gep14 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %40
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ty_bytes17h6c097aed9063dbaeE.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ty_bytes17h6c097aed9063dbaeE.exit": ; preds = %switch.lookup12, %38
-  %.0.i.i.i.i14 = phi i32 [ 0, %38 ], [ %switch.load15, %switch.lookup12 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ty_bytes17h6c097aed9063dbaeE.exit": ; preds = %switch.lookup13, %38
+  %.0.i.i.i.i14 = phi i32 [ 0, %38 ], [ %switch.load15, %switch.lookup13 ]
   %41 = shl nuw nsw i32 %.0.i.i.i.i14, %17
   %cond = icmp eq i32 %41, 8
   br i1 %cond, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit", label %42
@@ -18181,7 +18181,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -18329,7 +18329,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %11
   %16 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -19050,7 +19050,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -20455,7 +20455,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %.thread
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -20723,18 +20723,18 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code27constructor_x64_movq_
   unreachable
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26": ; preds = %101
-  %switch.tableidx60 = add nsw i16 %.0.i.i.i.i, -118
-  %105 = icmp ult i16 %switch.tableidx60, 10
-  br i1 %105, label %switch.lookup59, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit"
+  %switch.tableidx59 = add nsw i16 %.0.i.i.i.i, -118
+  %105 = icmp ult i16 %switch.tableidx59, 10
+  br i1 %105, label %switch.lookup60, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit"
 
-switch.lookup59:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26"
-  %106 = zext nneg i16 %switch.tableidx60 to i64
-  %switch.gep61 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %106
+switch.lookup60:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26"
+  %106 = zext nneg i16 %switch.tableidx59 to i64
+  %switch.gep61 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %106
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit": ; preds = %switch.lookup59, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26"
-  %.0.i.i.i29 = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26" ], [ %switch.load62, %switch.lookup59 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit": ; preds = %switch.lookup60, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26"
+  %.0.i.i.i29 = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit26" ], [ %switch.load62, %switch.lookup60 ]
   %107 = shl nuw nsw i32 %.0.i.i.i29, %26
   %.fr.i = freeze i32 %107
   %108 = icmp eq i32 %.fr.i, 64
@@ -20782,18 +20782,18 @@ switch.lookup59:                                  ; preds = %"_ZN17cranelift_cod
   unreachable
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38": ; preds = %115
-  %switch.tableidx64 = add nsw i16 %.0.i.i.i.i, -118
-  %119 = icmp ult i16 %switch.tableidx64, 10
-  br i1 %119, label %switch.lookup63, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit45"
+  %switch.tableidx63 = add nsw i16 %.0.i.i.i.i, -118
+  %119 = icmp ult i16 %switch.tableidx63, 10
+  br i1 %119, label %switch.lookup64, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit45"
 
-switch.lookup63:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38"
-  %120 = zext nneg i16 %switch.tableidx64 to i64
-  %switch.gep65 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %120
+switch.lookup64:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38"
+  %120 = zext nneg i16 %switch.tableidx63 to i64
+  %switch.gep65 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %120
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit45"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit45": ; preds = %switch.lookup63, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38"
-  %.0.i.i.i41 = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38" ], [ %switch.load66, %switch.lookup63 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit45": ; preds = %switch.lookup64, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38"
+  %.0.i.i.i41 = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit38" ], [ %switch.load66, %switch.lookup64 ]
   %121 = shl nuw nsw i32 %.0.i.i.i41, %26
   %.fr.i42 = freeze i32 %121
   %122 = icmp eq i32 %.fr.i42, 64
@@ -21048,7 +21048,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -21062,18 +21062,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread", label %18
 
 18:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx7 = add nsw i16 %.0.i.i.i.i, -118
-  %19 = icmp ult i16 %switch.tableidx7, 10
-  br i1 %19, label %switch.lookup6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
+  %switch.tableidx6 = add nsw i16 %.0.i.i.i.i, -118
+  %19 = icmp ult i16 %switch.tableidx6, 10
+  br i1 %19, label %switch.lookup7, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-switch.lookup6:                                   ; preds = %18
-  %20 = zext nneg i16 %switch.tableidx7 to i64
-  %switch.gep8 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %20
+switch.lookup7:                                   ; preds = %18
+  %20 = zext nneg i16 %switch.tableidx6 to i64
+  %switch.gep8 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %20
   %switch.load9 = load i32, ptr %switch.gep8, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup6, %18
-  %.0.i.i3.i = phi i32 [ 0, %18 ], [ %switch.load9, %switch.lookup6 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup7, %18
+  %.0.i.i3.i = phi i32 [ 0, %18 ], [ %switch.load9, %switch.lookup7 ]
   %21 = shl nuw nsw i32 %.0.i.i3.i, %15
   %.fr.i = freeze i32 %21
   %22 = icmp eq i32 %.fr.i, 64
@@ -21106,18 +21106,18 @@ switch.lookup6:                                   ; preds = %18
   store i8 6, ptr %5, align 4, !alias.scope !2494
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %.sroa.41.0..sroa_idx.i.i, align 4, !alias.scope !2494
-  %switch.tableidx11 = add nsw i16 %.0.i.i.i.i, -118
-  %34 = icmp ult i16 %switch.tableidx11, 10
-  br i1 %34, label %switch.lookup10, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6
+  %switch.tableidx10 = add nsw i16 %.0.i.i.i.i, -118
+  %34 = icmp ult i16 %switch.tableidx10, 10
+  br i1 %34, label %switch.lookup11, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6
 
-switch.lookup10:                                  ; preds = %33
-  %35 = zext nneg i16 %switch.tableidx11 to i64
-  %switch.gep12 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %35
+switch.lookup11:                                  ; preds = %33
+  %35 = zext nneg i16 %switch.tableidx10 to i64
+  %switch.gep12 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %35
   %switch.load13 = load i32, ptr %switch.gep12, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6: ; preds = %switch.lookup10, %33
-  %.0.i.i.i7 = phi i32 [ 0, %33 ], [ %switch.load13, %switch.lookup10 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i6: ; preds = %switch.lookup11, %33
+  %.0.i.i.i7 = phi i32 [ 0, %33 ], [ %switch.load13, %switch.lookup11 ]
   %36 = shl nuw nsw i32 %.0.i.i.i7, %15
   %37 = icmp samesign ult i32 %36, 256
   br i1 %37, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7ty_bits17hd8bf470f3b603628E.exit", label %38
@@ -21155,7 +21155,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -21169,18 +21169,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %16, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread", label %17
 
 17:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx6 = add nsw i16 %.0.i.i.i.i, -118
-  %18 = icmp ult i16 %switch.tableidx6, 10
-  br i1 %18, label %switch.lookup5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
+  %switch.tableidx5 = add nsw i16 %.0.i.i.i.i, -118
+  %18 = icmp ult i16 %switch.tableidx5, 10
+  br i1 %18, label %switch.lookup6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-switch.lookup5:                                   ; preds = %17
-  %19 = zext nneg i16 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+switch.lookup6:                                   ; preds = %17
+  %19 = zext nneg i16 %switch.tableidx5 to i64
+  %switch.gep7 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup5, %17
-  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load8, %switch.lookup5 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup6, %17
+  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load8, %switch.lookup6 ]
   %20 = shl nuw nsw i32 %.0.i.i3.i, %14
   %.fr.i = freeze i32 %20
   %21 = icmp eq i32 %.fr.i, 64
@@ -21239,7 +21239,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -21253,18 +21253,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %16, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread", label %17
 
 17:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx9 = add nsw i16 %.0.i.i.i.i, -118
-  %18 = icmp ult i16 %switch.tableidx9, 10
-  br i1 %18, label %switch.lookup8, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
+  %switch.tableidx8 = add nsw i16 %.0.i.i.i.i, -118
+  %18 = icmp ult i16 %switch.tableidx8, 10
+  br i1 %18, label %switch.lookup9, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-switch.lookup8:                                   ; preds = %17
-  %19 = zext nneg i16 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+switch.lookup9:                                   ; preds = %17
+  %19 = zext nneg i16 %switch.tableidx8 to i64
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup8, %17
-  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup8 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup9, %17
+  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup9 ]
   %20 = shl nuw nsw i32 %.0.i.i3.i, %14
   %.fr.i = freeze i32 %20
   %21 = icmp eq i32 %.fr.i, 64
@@ -21346,7 +21346,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -21360,18 +21360,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %16, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread", label %17
 
 17:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx9 = add nsw i16 %.0.i.i.i.i, -118
-  %18 = icmp ult i16 %switch.tableidx9, 10
-  br i1 %18, label %switch.lookup8, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
+  %switch.tableidx8 = add nsw i16 %.0.i.i.i.i, -118
+  %18 = icmp ult i16 %switch.tableidx8, 10
+  br i1 %18, label %switch.lookup9, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-switch.lookup8:                                   ; preds = %17
-  %19 = zext nneg i16 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+switch.lookup9:                                   ; preds = %17
+  %19 = zext nneg i16 %switch.tableidx8 to i64
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup8, %17
-  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup8 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup9, %17
+  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup9 ]
   %20 = shl nuw nsw i32 %.0.i.i3.i, %14
   %.fr.i = freeze i32 %20
   %21 = icmp eq i32 %.fr.i, 64
@@ -21453,7 +21453,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -21467,18 +21467,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %16, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread", label %17
 
 17:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
-  %switch.tableidx9 = add nsw i16 %.0.i.i.i.i, -118
-  %18 = icmp ult i16 %switch.tableidx9, 10
-  br i1 %18, label %switch.lookup8, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
+  %switch.tableidx8 = add nsw i16 %.0.i.i.i.i, -118
+  %18 = icmp ult i16 %switch.tableidx8, 10
+  br i1 %18, label %switch.lookup9, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-switch.lookup8:                                   ; preds = %17
-  %19 = zext nneg i16 %switch.tableidx9 to i64
-  %switch.gep10 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+switch.lookup9:                                   ; preds = %17
+  %19 = zext nneg i16 %switch.tableidx8 to i64
+  %switch.gep10 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup8, %17
-  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup8 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit": ; preds = %switch.lookup9, %17
+  %.0.i.i3.i = phi i32 [ 0, %17 ], [ %switch.load11, %switch.lookup9 ]
   %20 = shl nuw nsw i32 %.0.i.i3.i, %14
   %.fr.i = freeze i32 %20
   %21 = icmp eq i32 %.fr.i, 64
@@ -22777,7 +22777,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -22948,7 +22948,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %21
   %24 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -38553,7 +38553,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -38903,7 +38903,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39042,7 +39042,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39081,7 +39081,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39120,7 +39120,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39159,7 +39159,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39198,7 +39198,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39239,7 +39239,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -39436,7 +39436,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -43084,7 +43084,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -43201,7 +43201,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -43318,7 +43318,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -43435,7 +43435,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -43552,7 +43552,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -43778,7 +43778,7 @@ switch.lookup:                                    ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.val40 = load i8, ptr %21, align 1, !range !6397, !alias.scope !6398, !noundef !4
   %22 = zext nneg i8 %.val40 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.457, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.457, i64 %22
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 83, ptr %12, align 8
@@ -43791,7 +43791,7 @@ switch.lookup:                                    ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val = load i8, ptr %24, align 2, !range !6397, !alias.scope !6398, !noundef !4
   %25 = zext nneg i8 %.val to i64
-  %switch.gep3 = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.457, i64 0, i64 %25
+  %switch.gep3 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E.457, i64 %25
   %switch.load4 = load i8, ptr %switch.gep3, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 84, ptr %11, align 8
@@ -44111,7 +44111,7 @@ define internal fastcc i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %17 = load ptr, ptr %16, align 8, !alias.scope !6410, !noalias !6411, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %11
   %19 = load i64, ptr %18, align 8, !noalias !6404, !noundef !4
   %20 = lshr i64 %19, 48
   %21 = trunc nuw i64 %20 to i16
@@ -44339,7 +44339,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %4
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 192
   %51 = load ptr, ptr %50, align 8, !alias.scope !6424, !noalias !6425, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds nuw [0 x i64], ptr %51, i64 0, i64 %45
+  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %45
   %53 = load i64, ptr %52, align 8, !noalias !6418, !noundef !4
   %54 = lshr i64 %53, 48
   %55 = trunc nuw i64 %54 to i16
@@ -44479,7 +44479,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit68"
   %93 = zext nneg i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %93
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 %93
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_emit_cmp_i12817h9ea53a68c171da94E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %42, ptr noalias noundef align 8 dereferenceable(16) %1, i8 %switch.load, i32 noundef %.sroa.3.0.extract.trunc, i32 noundef %.sroa.021.0.extract.trunc, i32 noundef %.sroa.326.0.extract.trunc, i32 noundef %.sroa.023.0.extract.trunc)
@@ -44573,7 +44573,7 @@ common.resume:                                    ; preds = %347, %326, %260, %1
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %123 = load ptr, ptr %122, align 8, !alias.scope !6441, !noalias !6442, !nonnull !4, !noundef !4
-  %124 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %123, i64 0, i64 %117
+  %124 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %123, i64 %117
   %.sroa.0.0.copyload = load i8, ptr %124, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -44615,7 +44615,7 @@ common.resume:                                    ; preds = %347, %326, %260, %1
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit73": ; preds = %134
   %140 = getelementptr inbounds nuw i8, ptr %100, i64 192
   %141 = load ptr, ptr %140, align 8, !alias.scope !6457, !noalias !6458, !nonnull !4, !noundef !4
-  %142 = getelementptr inbounds nuw [0 x i64], ptr %141, i64 0, i64 %135
+  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %135
   %143 = load i64, ptr %142, align 8, !noalias !6451, !noundef !4
   %144 = lshr i64 %143, 48
   %145 = trunc nuw i64 %144 to i16
@@ -44709,7 +44709,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %40, i8 %.0.i1.i.i, i32 noundef %.sroa.04.0.extract.trunc.i.i, ptr noalias noundef readonly align 4 dereferenceable(16) %41)
   %168 = zext nneg i8 %.0.val to i64
-  %switch.gep85 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %168
+  %switch.gep85 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 %168
   %switch.load86 = load i8, ptr %switch.gep85, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -44823,7 +44823,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i:
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit83": ; preds = %189
   %195 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %196 = load ptr, ptr %195, align 8, !alias.scope !6485, !noalias !6486, !nonnull !4, !noundef !4
-  %197 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %196, i64 0, i64 %190
+  %197 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %196, i64 %190
   %.sroa.07.0.copyload = load i8, ptr %197, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 1
   %.sroa.58.0.copyload = load i8, ptr %.sroa.58.0..sroa_idx, align 1
@@ -44967,7 +44967,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i8
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_x64_test17h6e5239909aa1a7deE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %37, i8 %.0.i1.i.i87, i32 noundef %.sroa.04.0.extract.trunc.i.i90, ptr noalias noundef readonly align 4 dereferenceable(16) %38)
   %243 = zext nneg i8 %.0.val to i64
-  %switch.gep88 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %243
+  %switch.gep88 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 %243
   %switch.load89 = load i8, ptr %switch.gep88, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -45156,7 +45156,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i1
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %34, i8 %.0.i1.i.i109, i32 noundef %.sroa.04.0.extract.trunc.i.i112, ptr noalias noundef readonly align 4 dereferenceable(16) %35)
   %287 = zext nneg i8 %.0.val to i64
-  %switch.gep91 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 0, i64 %287
+  %switch.gep91 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.460, i64 %287
   %switch.load92 = load i8, ptr %switch.gep91, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -45252,7 +45252,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread3.i.i1
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_cmp17h505d318546c9ee0aE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %31, i8 %.0.i1.i.i121, i32 noundef %.sroa.04.0.extract.trunc.i.i124, ptr noalias noundef readonly align 4 dereferenceable(16) %32)
   %309 = zext nneg i8 %.0.val to i64
-  %switch.gep94 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 0, i64 %309
+  %switch.gep94 = getelementptr inbounds nuw i8, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E.461, i64 %309
   %switch.load95 = load i8, ptr %switch.gep94, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -46777,7 +46777,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %58 = load ptr, ptr %57, align 8, !alias.scope !6670, !noalias !6671, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds nuw [0 x i64], ptr %58, i64 0, i64 %51
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %51
   %60 = load i64, ptr %59, align 8, !noalias !6664, !noundef !4
   %61 = lshr i64 %60, 48
   %62 = trunc nuw i64 %61 to i16
@@ -46800,7 +46800,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit56": ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %69 = load ptr, ptr %68, align 8, !alias.scope !6679, !noalias !6680, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds nuw [0 x i64], ptr %69, i64 0, i64 %51
+  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %51
   %71 = load i64, ptr %70, align 8, !noalias !6673, !noundef !4
   %72 = lshr i64 %71, 48
   %73 = trunc nuw i64 %72 to i16
@@ -46823,7 +46823,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit60": ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %80 = load ptr, ptr %79, align 8, !alias.scope !6688, !noalias !6689, !nonnull !4, !noundef !4
-  %81 = getelementptr inbounds nuw [0 x i64], ptr %80, i64 0, i64 %51
+  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %51
   %82 = load i64, ptr %81, align 8, !noalias !6682, !noundef !4
   %83 = lshr i64 %82, 48
   %84 = trunc nuw i64 %83 to i16
@@ -46846,7 +46846,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit64": ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %91 = load ptr, ptr %90, align 8, !alias.scope !6697, !noalias !6698, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds nuw [0 x i64], ptr %91, i64 0, i64 %51
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %51
   %93 = load i64, ptr %92, align 8, !noalias !6691, !noundef !4
   %94 = lshr i64 %93, 48
   %95 = trunc nuw i64 %94 to i16
@@ -46869,7 +46869,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit68": ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %102 = load ptr, ptr %101, align 8, !alias.scope !6706, !noalias !6707, !nonnull !4, !noundef !4
-  %103 = getelementptr inbounds nuw [0 x i64], ptr %102, i64 0, i64 %51
+  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %51
   %104 = load i64, ptr %103, align 8, !noalias !6700, !noundef !4
   %105 = lshr i64 %104, 48
   %106 = trunc nuw i64 %105 to i16
@@ -46892,7 +46892,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit72": ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %113 = load ptr, ptr %112, align 8, !alias.scope !6715, !noalias !6716, !nonnull !4, !noundef !4
-  %114 = getelementptr inbounds nuw [0 x i64], ptr %113, i64 0, i64 %51
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %51
   %115 = load i64, ptr %114, align 8, !noalias !6709, !noundef !4
   %116 = lshr i64 %115, 48
   %117 = trunc nuw i64 %116 to i16
@@ -46915,7 +46915,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit76": ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %124 = load ptr, ptr %123, align 8, !alias.scope !6724, !noalias !6725, !nonnull !4, !noundef !4
-  %125 = getelementptr inbounds nuw [0 x i64], ptr %124, i64 0, i64 %51
+  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %51
   %126 = load i64, ptr %125, align 8, !noalias !6718, !noundef !4
   %127 = lshr i64 %126, 48
   %128 = trunc nuw i64 %127 to i16
@@ -46938,7 +46938,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit80": ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %135 = load ptr, ptr %134, align 8, !alias.scope !6733, !noalias !6734, !nonnull !4, !noundef !4
-  %136 = getelementptr inbounds nuw [0 x i64], ptr %135, i64 0, i64 %51
+  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %51
   %137 = load i64, ptr %136, align 8, !noalias !6727, !noundef !4
   %138 = lshr i64 %137, 48
   %139 = trunc nuw i64 %138 to i16
@@ -46961,7 +46961,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit84": ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %146 = load ptr, ptr %145, align 8, !alias.scope !6742, !noalias !6743, !nonnull !4, !noundef !4
-  %147 = getelementptr inbounds nuw [0 x i64], ptr %146, i64 0, i64 %51
+  %147 = getelementptr inbounds nuw i64, ptr %146, i64 %51
   %148 = load i64, ptr %147, align 8, !noalias !6736, !noundef !4
   %149 = lshr i64 %148, 48
   %150 = trunc nuw i64 %149 to i16
@@ -46984,7 +46984,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit88": ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %157 = load ptr, ptr %156, align 8, !alias.scope !6751, !noalias !6752, !nonnull !4, !noundef !4
-  %158 = getelementptr inbounds nuw [0 x i64], ptr %157, i64 0, i64 %51
+  %158 = getelementptr inbounds nuw i64, ptr %157, i64 %51
   %159 = load i64, ptr %158, align 8, !noalias !6745, !noundef !4
   %160 = lshr i64 %159, 48
   %161 = trunc nuw i64 %160 to i16
@@ -47007,7 +47007,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit92": ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %168 = load ptr, ptr %167, align 8, !alias.scope !6760, !noalias !6761, !nonnull !4, !noundef !4
-  %169 = getelementptr inbounds nuw [0 x i64], ptr %168, i64 0, i64 %51
+  %169 = getelementptr inbounds nuw i64, ptr %168, i64 %51
   %170 = load i64, ptr %169, align 8, !noalias !6754, !noundef !4
   %171 = lshr i64 %170, 48
   %172 = trunc nuw i64 %171 to i16
@@ -47030,7 +47030,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit96": ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %179 = load ptr, ptr %178, align 8, !alias.scope !6769, !noalias !6770, !nonnull !4, !noundef !4
-  %180 = getelementptr inbounds nuw [0 x i64], ptr %179, i64 0, i64 %51
+  %180 = getelementptr inbounds nuw i64, ptr %179, i64 %51
   %181 = load i64, ptr %180, align 8, !noalias !6763, !noundef !4
   %182 = lshr i64 %181, 48
   %183 = trunc nuw i64 %182 to i16
@@ -47053,7 +47053,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit100": ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %190 = load ptr, ptr %189, align 8, !alias.scope !6778, !noalias !6779, !nonnull !4, !noundef !4
-  %191 = getelementptr inbounds nuw [0 x i64], ptr %190, i64 0, i64 %51
+  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %51
   %192 = load i64, ptr %191, align 8, !noalias !6772, !noundef !4
   %193 = lshr i64 %192, 48
   %194 = trunc nuw i64 %193 to i16
@@ -47076,7 +47076,7 @@ default.unreachable:                              ; preds = %4
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit104": ; preds = %196
   %200 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %201 = load ptr, ptr %200, align 8, !alias.scope !6787, !noalias !6788, !nonnull !4, !noundef !4
-  %202 = getelementptr inbounds nuw [0 x i64], ptr %201, i64 0, i64 %51
+  %202 = getelementptr inbounds nuw i64, ptr %201, i64 %51
   %203 = load i64, ptr %202, align 8, !noalias !6781, !noundef !4
   %204 = lshr i64 %203, 48
   %205 = trunc nuw i64 %204 to i16
@@ -50145,7 +50145,7 @@ default.unreachable:                              ; preds = %13
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -51215,7 +51215,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code17c
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %3
   %1006 = getelementptr inbounds nuw i8, ptr %1000, i64 40
   %1007 = load ptr, ptr %1006, align 8, !alias.scope !6982, !noalias !6983, !nonnull !4, !noundef !4
-  %1008 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1007, i64 0, i64 %1001
+  %1008 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1007, i64 %1001
   %.sroa.0.0.copyload = load i8, ptr %1008, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1008, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -53667,7 +53667,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4463": ; preds = %1852
   %1861 = getelementptr inbounds nuw i8, ptr %1855, i64 40
   %1862 = load ptr, ptr %1861, align 8, !alias.scope !7214, !noalias !7215, !nonnull !4, !noundef !4
-  %1863 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1862, i64 0, i64 %1856
+  %1863 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1862, i64 %1856
   %.sroa.09148.0.copyload = load i8, ptr %1863, align 8
   %.sroa.69151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1863, i64 4
   %.sroa.69151.0.copyload = load i32, ptr %.sroa.69151.0..sroa_idx, align 4
@@ -53740,7 +53740,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4464": ; preds = %1889
   %1898 = getelementptr inbounds nuw i8, ptr %1892, i64 40
   %1899 = load ptr, ptr %1898, align 8, !alias.scope !7233, !noalias !7234, !nonnull !4, !noundef !4
-  %1900 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1899, i64 0, i64 %1893
+  %1900 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1899, i64 %1893
   %.sroa.09152.0.copyload = load i8, ptr %1900, align 8
   %.sroa.59153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1900, i64 1
   %.sroa.59153.0.copyload = load i8, ptr %.sroa.59153.0..sroa_idx, align 1
@@ -53852,7 +53852,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4471": ; preds = %1934
   %1943 = getelementptr inbounds nuw i8, ptr %1937, i64 40
   %1944 = load ptr, ptr %1943, align 8, !alias.scope !7262, !noalias !7263, !nonnull !4, !noundef !4
-  %1945 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1944, i64 0, i64 %1938
+  %1945 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1944, i64 %1938
   %.sroa.09160.0.copyload = load i8, ptr %1945, align 8
   %.sroa.59161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1945, i64 1
   %.sroa.59161.0.copyload = load i8, ptr %.sroa.59161.0..sroa_idx, align 1
@@ -53964,7 +53964,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4478": ; preds = %1979
   %1988 = getelementptr inbounds nuw i8, ptr %1982, i64 40
   %1989 = load ptr, ptr %1988, align 8, !alias.scope !7291, !noalias !7292, !nonnull !4, !noundef !4
-  %1990 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %1989, i64 0, i64 %1983
+  %1990 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %1989, i64 %1983
   %.sroa.09168.0.copyload = load i8, ptr %1990, align 8
   %.sroa.59169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1990, i64 1
   %.sroa.59169.0.copyload = load i8, ptr %.sroa.59169.0..sroa_idx, align 1
@@ -54076,7 +54076,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4485": ; preds = %2024
   %2033 = getelementptr inbounds nuw i8, ptr %2027, i64 40
   %2034 = load ptr, ptr %2033, align 8, !alias.scope !7320, !noalias !7321, !nonnull !4, !noundef !4
-  %2035 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2034, i64 0, i64 %2028
+  %2035 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2034, i64 %2028
   %.sroa.09176.0.copyload = load i8, ptr %2035, align 8
   %.sroa.59177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2035, i64 1
   %.sroa.59177.0.copyload = load i8, ptr %.sroa.59177.0..sroa_idx, align 1
@@ -54265,7 +54265,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4505": ; preds = %2087
   %2096 = getelementptr inbounds nuw i8, ptr %2090, i64 40
   %2097 = load ptr, ptr %2096, align 8, !alias.scope !7384, !noalias !7385, !nonnull !4, !noundef !4
-  %2098 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2097, i64 0, i64 %2091
+  %2098 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2097, i64 %2091
   %.sroa.09190.0.copyload = load i8, ptr %2098, align 8
   %.sroa.69193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2098, i64 4
   %.sroa.69193.0.copyload = load i32, ptr %.sroa.69193.0..sroa_idx, align 4
@@ -54390,7 +54390,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4516": ; preds = %2131
   %2140 = getelementptr inbounds nuw i8, ptr %2134, i64 40
   %2141 = load ptr, ptr %2140, align 8, !alias.scope !7432, !noalias !7433, !nonnull !4, !noundef !4
-  %2142 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2141, i64 0, i64 %2135
+  %2142 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2141, i64 %2135
   %.sroa.09195.0.copyload = load i8, ptr %2142, align 8
   %.sroa.59196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2142, i64 1
   %.sroa.59196.0.copyload = load i8, ptr %.sroa.59196.0..sroa_idx, align 1
@@ -54501,7 +54501,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4521": ; preds = %2177
   %2186 = getelementptr inbounds nuw i8, ptr %2180, i64 40
   %2187 = load ptr, ptr %2186, align 8, !alias.scope !7456, !noalias !7457, !nonnull !4, !noundef !4
-  %2188 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2187, i64 0, i64 %2181
+  %2188 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2187, i64 %2181
   %.sroa.09203.0.copyload = load i8, ptr %2188, align 8
   %.sroa.59204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2188, i64 1
   %.sroa.59204.0.copyload = load i8, ptr %.sroa.59204.0..sroa_idx, align 1
@@ -54612,7 +54612,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4526": ; preds = %2223
   %2232 = getelementptr inbounds nuw i8, ptr %2226, i64 40
   %2233 = load ptr, ptr %2232, align 8, !alias.scope !7480, !noalias !7481, !nonnull !4, !noundef !4
-  %2234 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2233, i64 0, i64 %2227
+  %2234 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2233, i64 %2227
   %.sroa.09211.0.copyload = load i8, ptr %2234, align 8
   %.sroa.59212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2234, i64 1
   %.sroa.59212.0.copyload = load i8, ptr %.sroa.59212.0..sroa_idx, align 1
@@ -54714,7 +54714,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4531": ; preds = %2264
   %2273 = getelementptr inbounds nuw i8, ptr %2267, i64 40
   %2274 = load ptr, ptr %2273, align 8, !alias.scope !7499, !noalias !7500, !nonnull !4, !noundef !4
-  %2275 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2274, i64 0, i64 %2268
+  %2275 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2274, i64 %2268
   %.sroa.09219.0.copyload = load i8, ptr %2275, align 8
   %.sroa.59220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2275, i64 1
   %.sroa.59220.0.copyload = load i8, ptr %.sroa.59220.0..sroa_idx, align 1
@@ -54824,7 +54824,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4536": ; preds = %2309
   %2318 = getelementptr inbounds nuw i8, ptr %2312, i64 40
   %2319 = load ptr, ptr %2318, align 8, !alias.scope !7518, !noalias !7519, !nonnull !4, !noundef !4
-  %2320 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2319, i64 0, i64 %2313
+  %2320 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2319, i64 %2313
   %.sroa.09230.0.copyload = load i8, ptr %2320, align 8
   %.sroa.59231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2320, i64 1
   %.sroa.59231.0.copyload = load i8, ptr %.sroa.59231.0..sroa_idx, align 1
@@ -54882,7 +54882,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4540": ; preds = %2333
   %2342 = getelementptr inbounds nuw i8, ptr %2336, i64 40
   %2343 = load ptr, ptr %2342, align 8, !alias.scope !7532, !noalias !7533, !nonnull !4, !noundef !4
-  %2344 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2343, i64 0, i64 %2337
+  %2344 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2343, i64 %2337
   %.sroa.09237.0.copyload = load i8, ptr %2344, align 8
   %.sroa.59238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2344, i64 1
   %.sroa.59238.0.copyload = load i8, ptr %.sroa.59238.0..sroa_idx, align 1
@@ -55420,7 +55420,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4609": ; preds = %2512
   %2521 = getelementptr inbounds nuw i8, ptr %2515, i64 40
   %2522 = load ptr, ptr %2521, align 8, !alias.scope !7630, !noalias !7631, !nonnull !4, !noundef !4
-  %2523 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2522, i64 0, i64 %2516
+  %2523 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2522, i64 %2516
   %.sroa.09299.0.copyload = load i8, ptr %2523, align 8
   %.sroa.59300.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2523, i64 1
   %.sroa.59300.0.copyload = load i8, ptr %.sroa.59300.0..sroa_idx, align 1
@@ -55851,7 +55851,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4618": ; preds = %2673
   %2682 = getelementptr inbounds nuw i8, ptr %2676, i64 40
   %2683 = load ptr, ptr %2682, align 8, !alias.scope !7654, !noalias !7655, !nonnull !4, !noundef !4
-  %2684 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2683, i64 0, i64 %2677
+  %2684 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2683, i64 %2677
   %.sroa.09319.0.copyload = load i8, ptr %2684, align 8
   %.sroa.59320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2684, i64 1
   %.sroa.59320.0.copyload = load i8, ptr %.sroa.59320.0..sroa_idx, align 1
@@ -55890,7 +55890,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4619": ; preds = %2691
   %2700 = getelementptr inbounds nuw i8, ptr %2694, i64 40
   %2701 = load ptr, ptr %2700, align 8, !alias.scope !7668, !noalias !7669, !nonnull !4, !noundef !4
-  %2702 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2701, i64 0, i64 %2695
+  %2702 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2701, i64 %2695
   %.sroa.09324.0.copyload = load i8, ptr %2702, align 8
   %.sroa.59325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2702, i64 1
   %.sroa.59325.0.copyload = load i8, ptr %.sroa.59325.0..sroa_idx, align 1
@@ -55961,7 +55961,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4623": ; preds = %2720
   %2729 = getelementptr inbounds nuw i8, ptr %2723, i64 40
   %2730 = load ptr, ptr %2729, align 8, !alias.scope !7682, !noalias !7683, !nonnull !4, !noundef !4
-  %2731 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2730, i64 0, i64 %2724
+  %2731 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2730, i64 %2724
   %.sroa.09331.0.copyload = load i8, ptr %2731, align 8
   %2732 = icmp eq i8 %.sroa.09331.0.copyload, 30
   br i1 %2732, label %2737, label %2733
@@ -56017,7 +56017,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4627": ; preds = %2743
   %2752 = getelementptr inbounds nuw i8, ptr %2746, i64 40
   %2753 = load ptr, ptr %2752, align 8, !alias.scope !7696, !noalias !7697, !nonnull !4, !noundef !4
-  %2754 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2753, i64 0, i64 %2747
+  %2754 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2753, i64 %2747
   %.sroa.09339.0.copyload = load i8, ptr %2754, align 8
   %2755 = icmp eq i8 %.sroa.09339.0.copyload, 30
   br i1 %2755, label %2762, label %2756
@@ -56134,7 +56134,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4637": ; preds = %2787
   %2796 = getelementptr inbounds nuw i8, ptr %2790, i64 40
   %2797 = load ptr, ptr %2796, align 8, !alias.scope !7715, !noalias !7716, !nonnull !4, !noundef !4
-  %2798 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2797, i64 0, i64 %2791
+  %2798 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2797, i64 %2791
   %.sroa.09353.0.copyload = load i8, ptr %2798, align 8
   %.sroa.59354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2798, i64 1
   %.sroa.59354.0.copyload = load i8, ptr %.sroa.59354.0..sroa_idx, align 1
@@ -56188,7 +56188,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4641": ; preds = %2810
   %2819 = getelementptr inbounds nuw i8, ptr %2813, i64 40
   %2820 = load ptr, ptr %2819, align 8, !alias.scope !7729, !noalias !7730, !nonnull !4, !noundef !4
-  %2821 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2820, i64 0, i64 %2814
+  %2821 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2820, i64 %2814
   %.sroa.09361.0.copyload = load i8, ptr %2821, align 8
   %.sroa.59362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2821, i64 1
   %.sroa.59362.0.copyload = load i8, ptr %.sroa.59362.0..sroa_idx, align 1
@@ -56257,7 +56257,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4645": ; preds = %2836
   %2845 = getelementptr inbounds nuw i8, ptr %2839, i64 40
   %2846 = load ptr, ptr %2845, align 8, !alias.scope !7743, !noalias !7744, !nonnull !4, !noundef !4
-  %2847 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2846, i64 0, i64 %2840
+  %2847 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2846, i64 %2840
   %.sroa.09369.0.copyload = load i8, ptr %2847, align 8
   %.sroa.59370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2847, i64 1
   %.sroa.59370.0.copyload = load i8, ptr %.sroa.59370.0..sroa_idx, align 1
@@ -56310,7 +56310,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4649": ; preds = %2859
   %2868 = getelementptr inbounds nuw i8, ptr %2862, i64 40
   %2869 = load ptr, ptr %2868, align 8, !alias.scope !7757, !noalias !7758, !nonnull !4, !noundef !4
-  %2870 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %2869, i64 0, i64 %2863
+  %2870 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %2869, i64 %2863
   %.sroa.09377.0.copyload = load i8, ptr %2870, align 8
   %.sroa.59378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2870, i64 1
   %.sroa.59378.0.copyload = load i8, ptr %.sroa.59378.0..sroa_idx, align 1
@@ -57491,7 +57491,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4777": ; preds = %3240
   %3249 = getelementptr inbounds nuw i8, ptr %3243, i64 40
   %3250 = load ptr, ptr %3249, align 8, !alias.scope !7817, !noalias !7818, !nonnull !4, !noundef !4
-  %3251 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3250, i64 0, i64 %3244
+  %3251 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3250, i64 %3244
   %.sroa.09515.0.copyload = load i8, ptr %3251, align 8
   %.sroa.59516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3251, i64 1
   %.sroa.59516.0.copyload = load i8, ptr %.sroa.59516.0..sroa_idx, align 1
@@ -57566,7 +57566,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4786": ; preds = %3272
   %3281 = getelementptr inbounds nuw i8, ptr %3275, i64 40
   %3282 = load ptr, ptr %3281, align 8, !alias.scope !7831, !noalias !7832, !nonnull !4, !noundef !4
-  %3283 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3282, i64 0, i64 %3276
+  %3283 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3282, i64 %3276
   %.sroa.09505.0.copyload = load i8, ptr %3283, align 8
   %.sroa.59506.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3283, i64 1
   %.sroa.59506.0.copyload = load i8, ptr %.sroa.59506.0..sroa_idx, align 1
@@ -58711,7 +58711,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4930": ; preds = %3622
   %3631 = getelementptr inbounds nuw i8, ptr %3625, i64 40
   %3632 = load ptr, ptr %3631, align 8, !alias.scope !7973, !noalias !7974, !nonnull !4, !noundef !4
-  %3633 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3632, i64 0, i64 %3626
+  %3633 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3632, i64 %3626
   %.sroa.09636.0.copyload = load i8, ptr %3633, align 8
   %.sroa.59637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3633, i64 1
   %.sroa.59637.0.copyload = load i8, ptr %.sroa.59637.0..sroa_idx, align 1
@@ -58748,7 +58748,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4931": ; preds = %3641
   %3649 = getelementptr inbounds nuw i8, ptr %3643, i64 40
   %3650 = load ptr, ptr %3649, align 8, !alias.scope !7987, !noalias !7988, !nonnull !4, !noundef !4
-  %3651 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3650, i64 0, i64 %3644
+  %3651 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3650, i64 %3644
   %.sroa.09641.0.copyload = load i8, ptr %3651, align 8
   %.sroa.69644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3651, i64 4
   %.sroa.69644.0.copyload = load i32, ptr %.sroa.69644.0..sroa_idx, align 4
@@ -58974,7 +58974,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4952": ; preds = %3728
   %3737 = getelementptr inbounds nuw i8, ptr %3731, i64 40
   %3738 = load ptr, ptr %3737, align 8, !alias.scope !8029, !noalias !8030, !nonnull !4, !noundef !4
-  %3739 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3738, i64 0, i64 %3732
+  %3739 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3738, i64 %3732
   %.sroa.09661.0.copyload = load i8, ptr %3739, align 8
   %.sroa.59662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3739, i64 1
   %.sroa.59662.0.copyload = load i8, ptr %.sroa.59662.0..sroa_idx, align 1
@@ -59011,7 +59011,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4953": ; preds = %3746
   %3755 = getelementptr inbounds nuw i8, ptr %3749, i64 40
   %3756 = load ptr, ptr %3755, align 8, !alias.scope !8043, !noalias !8044, !nonnull !4, !noundef !4
-  %3757 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3756, i64 0, i64 %3750
+  %3757 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3756, i64 %3750
   %.sroa.09666.0.copyload = load i8, ptr %3757, align 8
   %.sroa.59667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3757, i64 1
   %.sroa.59667.0.copyload = load i8, ptr %.sroa.59667.0..sroa_idx, align 1
@@ -59302,7 +59302,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4986": ; preds = %3836
   %3845 = getelementptr inbounds nuw i8, ptr %3839, i64 40
   %3846 = load ptr, ptr %3845, align 8, !alias.scope !8163, !noalias !8164, !nonnull !4, !noundef !4
-  %3847 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3846, i64 0, i64 %3840
+  %3847 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3846, i64 %3840
   %.sroa.09677.0.copyload = load i8, ptr %3847, align 8
   %.sroa.69680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3847, i64 4
   %.sroa.69680.0.copyload = load i32, ptr %.sroa.69680.0..sroa_idx, align 4
@@ -59367,7 +59367,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4990": ; preds = %3863
   %3872 = getelementptr inbounds nuw i8, ptr %3866, i64 40
   %3873 = load ptr, ptr %3872, align 8, !alias.scope !8177, !noalias !8178, !nonnull !4, !noundef !4
-  %3874 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3873, i64 0, i64 %3867
+  %3874 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3873, i64 %3867
   %.sroa.09682.0.copyload = load i8, ptr %3874, align 8
   %3875 = icmp eq i8 %.sroa.09682.0.copyload, 30
   br i1 %3875, label %3876, label %3849
@@ -59425,7 +59425,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4994": ; preds = %3887
   %3896 = getelementptr inbounds nuw i8, ptr %3890, i64 40
   %3897 = load ptr, ptr %3896, align 8, !alias.scope !8191, !noalias !8192, !nonnull !4, !noundef !4
-  %3898 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3897, i64 0, i64 %3891
+  %3898 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3897, i64 %3891
   %.sroa.09690.0.copyload = load i8, ptr %3898, align 8
   %3899 = icmp eq i8 %.sroa.09690.0.copyload, 30
   br i1 %3899, label %3900, label %3849
@@ -59486,7 +59486,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4999": ; preds = %3912
   %3921 = getelementptr inbounds nuw i8, ptr %3915, i64 40
   %3922 = load ptr, ptr %3921, align 8, !alias.scope !8208, !noalias !8209, !nonnull !4, !noundef !4
-  %3923 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3922, i64 0, i64 %3916
+  %3923 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3922, i64 %3916
   %.sroa.09704.0.copyload = load i8, ptr %3923, align 8
   %.sroa.59705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3923, i64 1
   %.sroa.59705.0.copyload = load i8, ptr %.sroa.59705.0..sroa_idx, align 1
@@ -59547,7 +59547,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5000": ; preds = %3938
   %3947 = getelementptr inbounds nuw i8, ptr %3941, i64 40
   %3948 = load ptr, ptr %3947, align 8, !alias.scope !8227, !noalias !8228, !nonnull !4, !noundef !4
-  %3949 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3948, i64 0, i64 %3942
+  %3949 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3948, i64 %3942
   %.sroa.09709.0.copyload = load i8, ptr %3949, align 8
   %.sroa.59710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3949, i64 1
   %.sroa.59710.0.copyload = load i8, ptr %.sroa.59710.0..sroa_idx, align 1
@@ -59586,7 +59586,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5001": ; preds = %3956
   %3965 = getelementptr inbounds nuw i8, ptr %3959, i64 40
   %3966 = load ptr, ptr %3965, align 8, !alias.scope !8241, !noalias !8242, !nonnull !4, !noundef !4
-  %3967 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3966, i64 0, i64 %3960
+  %3967 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3966, i64 %3960
   %.sroa.09715.0.copyload = load i8, ptr %3967, align 8
   %.sroa.59716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3967, i64 1
   %.sroa.59716.0.copyload = load i8, ptr %.sroa.59716.0..sroa_idx, align 1
@@ -59623,7 +59623,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5002": ; preds = %3974
   %3983 = getelementptr inbounds nuw i8, ptr %3977, i64 40
   %3984 = load ptr, ptr %3983, align 8, !alias.scope !8255, !noalias !8256, !nonnull !4, !noundef !4
-  %3985 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %3984, i64 0, i64 %3978
+  %3985 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %3984, i64 %3978
   %.sroa.09720.0.copyload = load i8, ptr %3985, align 8
   %.sroa.59721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3985, i64 1
   %.sroa.59721.0.copyload = load i8, ptr %.sroa.59721.0..sroa_idx, align 1
@@ -59660,7 +59660,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5003": ; preds = %3992
   %4001 = getelementptr inbounds nuw i8, ptr %3995, i64 40
   %4002 = load ptr, ptr %4001, align 8, !alias.scope !8269, !noalias !8270, !nonnull !4, !noundef !4
-  %4003 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4002, i64 0, i64 %3996
+  %4003 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4002, i64 %3996
   %.sroa.09725.0.copyload = load i8, ptr %4003, align 8
   %4004 = icmp eq i8 %.sroa.09725.0.copyload, 30
   br i1 %4004, label %4005, label %3924
@@ -59701,7 +59701,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5004": ; preds = %4012
   %4021 = getelementptr inbounds nuw i8, ptr %4015, i64 40
   %4022 = load ptr, ptr %4021, align 8, !alias.scope !8283, !noalias !8284, !nonnull !4, !noundef !4
-  %4023 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4022, i64 0, i64 %4016
+  %4023 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4022, i64 %4016
   %.sroa.09730.0.copyload = load i8, ptr %4023, align 8
   %4024 = icmp eq i8 %.sroa.09730.0.copyload, 30
   br i1 %4024, label %4025, label %3924
@@ -59764,7 +59764,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5008": ; preds = %4041
   %4050 = getelementptr inbounds nuw i8, ptr %4044, i64 40
   %4051 = load ptr, ptr %4050, align 8, !alias.scope !8297, !noalias !8298, !nonnull !4, !noundef !4
-  %4052 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4051, i64 0, i64 %4045
+  %4052 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4051, i64 %4045
   %.sroa.09738.0.copyload = load i8, ptr %4052, align 8
   %4053 = icmp eq i8 %.sroa.09738.0.copyload, 30
   br i1 %4053, label %4054, label %3924
@@ -59825,7 +59825,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5013": ; preds = %4066
   %4075 = getelementptr inbounds nuw i8, ptr %4069, i64 40
   %4076 = load ptr, ptr %4075, align 8, !alias.scope !8314, !noalias !8315, !nonnull !4, !noundef !4
-  %4077 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4076, i64 0, i64 %4070
+  %4077 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4076, i64 %4070
   %.sroa.09746.0.copyload = load i8, ptr %4077, align 8
   %4078 = icmp eq i8 %.sroa.09746.0.copyload, 30
   br i1 %4078, label %4079, label %3924
@@ -61169,7 +61169,7 @@ default.unreachable:                              ; preds = %4471
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5131": ; preds = %4556
   %4565 = getelementptr inbounds nuw i8, ptr %4559, i64 40
   %4566 = load ptr, ptr %4565, align 8, !alias.scope !8377, !noalias !8378, !nonnull !4, !noundef !4
-  %4567 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4566, i64 0, i64 %4560
+  %4567 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4566, i64 %4560
   %.sroa.09895.0.copyload = load i8, ptr %4567, align 8
   %.sroa.59896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4567, i64 1
   %.sroa.59896.0.copyload = load i8, ptr %.sroa.59896.0..sroa_idx, align 1
@@ -61226,7 +61226,7 @@ default.unreachable:                              ; preds = %4471
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5135": ; preds = %4579
   %4588 = getelementptr inbounds nuw i8, ptr %4582, i64 40
   %4589 = load ptr, ptr %4588, align 8, !alias.scope !8391, !noalias !8392, !nonnull !4, !noundef !4
-  %4590 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4589, i64 0, i64 %4583
+  %4590 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4589, i64 %4583
   %.sroa.09902.0.copyload = load i8, ptr %4590, align 8
   %.sroa.59903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4590, i64 1
   %.sroa.59903.0.copyload = load i8, ptr %.sroa.59903.0..sroa_idx, align 1
@@ -61342,7 +61342,7 @@ default.unreachable:                              ; preds = %4471
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5142": ; preds = %4627
   %4636 = getelementptr inbounds nuw i8, ptr %4630, i64 40
   %4637 = load ptr, ptr %4636, align 8, !alias.scope !8405, !noalias !8406, !nonnull !4, !noundef !4
-  %4638 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4637, i64 0, i64 %4631
+  %4638 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4637, i64 %4631
   %.sroa.09875.0.copyload = load i8, ptr %4638, align 8
   %.sroa.59876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4638, i64 1
   %.sroa.59876.0.copyload = load i8, ptr %.sroa.59876.0..sroa_idx, align 1
@@ -61401,7 +61401,7 @@ default.unreachable:                              ; preds = %4471
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5146": ; preds = %4651
   %4660 = getelementptr inbounds nuw i8, ptr %4654, i64 40
   %4661 = load ptr, ptr %4660, align 8, !alias.scope !8419, !noalias !8420, !nonnull !4, !noundef !4
-  %4662 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4661, i64 0, i64 %4655
+  %4662 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4661, i64 %4655
   %.sroa.09882.0.copyload = load i8, ptr %4662, align 8
   %.sroa.59883.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4662, i64 1
   %.sroa.59883.0.copyload = load i8, ptr %.sroa.59883.0..sroa_idx, align 1
@@ -61548,7 +61548,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5159": ; preds = %4705
   %4714 = getelementptr inbounds nuw i8, ptr %4708, i64 40
   %4715 = load ptr, ptr %4714, align 8, !alias.scope !8448, !noalias !8449, !nonnull !4, !noundef !4
-  %4716 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4715, i64 0, i64 %4709
+  %4716 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4715, i64 %4709
   %.sroa.09862.0.copyload = load i8, ptr %4716, align 8
   %.sroa.59863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4716, i64 1
   %.sroa.59863.0.copyload = load i8, ptr %.sroa.59863.0..sroa_idx, align 1
@@ -61682,7 +61682,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5169": ; preds = %4757
   %4766 = getelementptr inbounds nuw i8, ptr %4760, i64 40
   %4767 = load ptr, ptr %4766, align 8, !alias.scope !8462, !noalias !8463, !nonnull !4, !noundef !4
-  %4768 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %4767, i64 0, i64 %4761
+  %4768 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %4767, i64 %4761
   %.sroa.09912.0.copyload = load i8, ptr %4768, align 8
   %.sroa.59913.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4768, i64 1
   %.sroa.59913.0.copyload = load i8, ptr %.sroa.59913.0..sroa_idx, align 1
@@ -65530,7 +65530,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5784": ; preds = %6073
   %6081 = getelementptr inbounds nuw i8, ptr %6075, i64 40
   %6082 = load ptr, ptr %6081, align 8, !alias.scope !9077, !noalias !9078, !nonnull !4, !noundef !4
-  %6083 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6082, i64 0, i64 %6076
+  %6083 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6082, i64 %6076
   %.sroa.010176.0.copyload = load i8, ptr %6083, align 8
   %.sroa.510177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6083, i64 1
   %.sroa.510177.0.copyload = load i8, ptr %.sroa.510177.0..sroa_idx, align 1
@@ -65645,7 +65645,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5785": ; preds = %6127
   %6136 = getelementptr inbounds nuw i8, ptr %6130, i64 40
   %6137 = load ptr, ptr %6136, align 8, !alias.scope !9091, !noalias !9092, !nonnull !4, !noundef !4
-  %6138 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6137, i64 0, i64 %6131
+  %6138 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6137, i64 %6131
   %.sroa.010192.0.copyload = load i8, ptr %6138, align 8
   %6139 = icmp eq i8 %.sroa.010192.0.copyload, 18
   br i1 %6139, label %6140, label %6125
@@ -65736,7 +65736,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5787": ; preds = %6158
   %6167 = getelementptr inbounds nuw i8, ptr %6161, i64 40
   %6168 = load ptr, ptr %6167, align 8, !alias.scope !9105, !noalias !9106, !nonnull !4, !noundef !4
-  %6169 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6168, i64 0, i64 %6162
+  %6169 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6168, i64 %6162
   %.sroa.010200.0.copyload = load i8, ptr %6169, align 8
   %6170 = icmp eq i8 %.sroa.010200.0.copyload, 18
   br i1 %6170, label %6171, label %6157
@@ -65831,7 +65831,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5789": ; preds = %6190
   %6199 = getelementptr inbounds nuw i8, ptr %6193, i64 40
   %6200 = load ptr, ptr %6199, align 8, !alias.scope !9119, !noalias !9120, !nonnull !4, !noundef !4
-  %6201 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6200, i64 0, i64 %6194
+  %6201 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6200, i64 %6194
   %.sroa.010208.0.copyload = load i8, ptr %6201, align 8
   %6202 = icmp eq i8 %.sroa.010208.0.copyload, 18
   br i1 %6202, label %6203, label %6189
@@ -65929,7 +65929,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5791": ; preds = %6223
   %6232 = getelementptr inbounds nuw i8, ptr %6226, i64 40
   %6233 = load ptr, ptr %6232, align 8, !alias.scope !9133, !noalias !9134, !nonnull !4, !noundef !4
-  %6234 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6233, i64 0, i64 %6227
+  %6234 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6233, i64 %6227
   %.sroa.010216.0.copyload = load i8, ptr %6234, align 8
   %6235 = icmp eq i8 %.sroa.010216.0.copyload, 18
   br i1 %6235, label %6236, label %6221
@@ -66020,7 +66020,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5793": ; preds = %6254
   %6263 = getelementptr inbounds nuw i8, ptr %6257, i64 40
   %6264 = load ptr, ptr %6263, align 8, !alias.scope !9147, !noalias !9148, !nonnull !4, !noundef !4
-  %6265 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6264, i64 0, i64 %6258
+  %6265 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6264, i64 %6258
   %.sroa.010224.0.copyload = load i8, ptr %6265, align 8
   %6266 = icmp eq i8 %.sroa.010224.0.copyload, 18
   br i1 %6266, label %6267, label %6253
@@ -66118,7 +66118,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5795": ; preds = %6287
   %6296 = getelementptr inbounds nuw i8, ptr %6290, i64 40
   %6297 = load ptr, ptr %6296, align 8, !alias.scope !9161, !noalias !9162, !nonnull !4, !noundef !4
-  %6298 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6297, i64 0, i64 %6291
+  %6298 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6297, i64 %6291
   %.sroa.010232.0.copyload = load i8, ptr %6298, align 8
   %6299 = icmp eq i8 %.sroa.010232.0.copyload, 18
   br i1 %6299, label %6300, label %6285
@@ -66209,7 +66209,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5797": ; preds = %6318
   %6327 = getelementptr inbounds nuw i8, ptr %6321, i64 40
   %6328 = load ptr, ptr %6327, align 8, !alias.scope !9175, !noalias !9176, !nonnull !4, !noundef !4
-  %6329 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6328, i64 0, i64 %6322
+  %6329 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6328, i64 %6322
   %.sroa.010240.0.copyload = load i8, ptr %6329, align 8
   %6330 = icmp eq i8 %.sroa.010240.0.copyload, 18
   br i1 %6330, label %6331, label %6317
@@ -66307,7 +66307,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5799": ; preds = %6351
   %6360 = getelementptr inbounds nuw i8, ptr %6354, i64 40
   %6361 = load ptr, ptr %6360, align 8, !alias.scope !9189, !noalias !9190, !nonnull !4, !noundef !4
-  %6362 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6361, i64 0, i64 %6355
+  %6362 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6361, i64 %6355
   %.sroa.010248.0.copyload = load i8, ptr %6362, align 8
   %6363 = icmp eq i8 %.sroa.010248.0.copyload, 18
   br i1 %6363, label %6364, label %6349
@@ -66398,7 +66398,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5801": ; preds = %6382
   %6391 = getelementptr inbounds nuw i8, ptr %6385, i64 40
   %6392 = load ptr, ptr %6391, align 8, !alias.scope !9203, !noalias !9204, !nonnull !4, !noundef !4
-  %6393 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6392, i64 0, i64 %6386
+  %6393 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6392, i64 %6386
   %.sroa.010256.0.copyload = load i8, ptr %6393, align 8
   %6394 = icmp eq i8 %.sroa.010256.0.copyload, 18
   br i1 %6394, label %6395, label %6381
@@ -67934,7 +67934,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6003": ; preds = %6879
   %6888 = getelementptr inbounds nuw i8, ptr %6882, i64 40
   %6889 = load ptr, ptr %6888, align 8, !alias.scope !9461, !noalias !9462, !nonnull !4, !noundef !4
-  %6890 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %6889, i64 0, i64 %6883
+  %6890 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %6889, i64 %6883
   %.sroa.010321.0.copyload = load i8, ptr %6890, align 8
   %.sroa.510322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6890, i64 1
   %.sroa.510322.0.copyload = load i8, ptr %.sroa.510322.0..sroa_idx, align 1
@@ -68274,7 +68274,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6019": ; preds = %6991
   %7000 = getelementptr inbounds nuw i8, ptr %6994, i64 40
   %7001 = load ptr, ptr %7000, align 8, !alias.scope !9480, !noalias !9481, !nonnull !4, !noundef !4
-  %7002 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7001, i64 0, i64 %6995
+  %7002 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7001, i64 %6995
   %.sroa.010354.0.copyload = load i8, ptr %7002, align 8
   %.sroa.510355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7002, i64 1
   %.sroa.510355.0.copyload = load i8, ptr %.sroa.510355.0..sroa_idx, align 1
@@ -68585,7 +68585,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6037": ; preds = %7096
   %7105 = getelementptr inbounds nuw i8, ptr %7099, i64 40
   %7106 = load ptr, ptr %7105, align 8, !alias.scope !9514, !noalias !9515, !nonnull !4, !noundef !4
-  %7107 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7106, i64 0, i64 %7100
+  %7107 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7106, i64 %7100
   %.sroa.010394.0.copyload = load i8, ptr %7107, align 8
   %.sroa.510395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7107, i64 1
   %.sroa.510395.0.copyload = load i8, ptr %.sroa.510395.0..sroa_idx, align 1
@@ -68622,7 +68622,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6038": ; preds = %7114
   %7123 = getelementptr inbounds nuw i8, ptr %7117, i64 40
   %7124 = load ptr, ptr %7123, align 8, !alias.scope !9528, !noalias !9529, !nonnull !4, !noundef !4
-  %7125 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7124, i64 0, i64 %7118
+  %7125 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7124, i64 %7118
   %.sroa.010399.0.copyload = load i8, ptr %7125, align 8
   %.sroa.710403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7125, i64 4
   %.sroa.710403.0.copyload = load i32, ptr %.sroa.710403.0..sroa_idx, align 4
@@ -68705,7 +68705,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6045": ; preds = %7146
   %7155 = getelementptr inbounds nuw i8, ptr %7149, i64 40
   %7156 = load ptr, ptr %7155, align 8, !alias.scope !9542, !noalias !9543, !nonnull !4, !noundef !4
-  %7157 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7156, i64 0, i64 %7150
+  %7157 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7156, i64 %7150
   %.sroa.010417.0.copyload = load i8, ptr %7157, align 8
   %.sroa.510418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7157, i64 1
   %.sroa.510418.0.copyload = load i8, ptr %.sroa.510418.0..sroa_idx, align 1
@@ -68742,7 +68742,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6046": ; preds = %7164
   %7173 = getelementptr inbounds nuw i8, ptr %7167, i64 40
   %7174 = load ptr, ptr %7173, align 8, !alias.scope !9556, !noalias !9557, !nonnull !4, !noundef !4
-  %7175 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7174, i64 0, i64 %7168
+  %7175 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7174, i64 %7168
   %.sroa.010422.0.copyload = load i8, ptr %7175, align 8
   %.sroa.710426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7175, i64 4
   %.sroa.710426.0.copyload = load i32, ptr %.sroa.710426.0..sroa_idx, align 4
@@ -69284,7 +69284,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6098": ; preds = %7350
   %7358 = getelementptr inbounds nuw i8, ptr %7352, i64 40
   %7359 = load ptr, ptr %7358, align 8, !alias.scope !9675, !noalias !9676, !nonnull !4, !noundef !4
-  %7360 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %7359, i64 0, i64 %7353
+  %7360 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7359, i64 %7353
   %.sroa.010495.0.copyload = load i8, ptr %7360, align 8
   %.sroa.510496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7360, i64 1
   %.sroa.510496.0.copyload = load i8, ptr %.sroa.510496.0..sroa_idx, align 1
@@ -74400,7 +74400,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6702": ; preds = %9005
   %9014 = getelementptr inbounds nuw i8, ptr %9008, i64 40
   %9015 = load ptr, ptr %9014, align 8, !alias.scope !10387, !noalias !10388, !nonnull !4, !noundef !4
-  %9016 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %9015, i64 0, i64 %9009
+  %9016 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %9015, i64 %9009
   %.sroa.010968.0.copyload = load i8, ptr %9016, align 8
   %.sroa.510969.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9016, i64 1
   %.sroa.510969.0.copyload = load i8, ptr %.sroa.510969.0..sroa_idx, align 1
@@ -74729,7 +74729,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6748": ; preds = %9112
   %9121 = getelementptr inbounds nuw i8, ptr %9115, i64 40
   %9122 = load ptr, ptr %9121, align 8, !alias.scope !10447, !noalias !10448, !nonnull !4, !noundef !4
-  %9123 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %9122, i64 0, i64 %9116
+  %9123 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %9122, i64 %9116
   %.sroa.011000.0.copyload = load i8, ptr %9123, align 8
   %.sroa.511001.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9123, i64 1
   %.sroa.511001.0.copyload = load i8, ptr %.sroa.511001.0..sroa_idx, align 1
@@ -75164,7 +75164,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x645lower4isle14gen
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %4
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %36 = load ptr, ptr %35, align 8, !alias.scope !10506, !noalias !10507, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %36, i64 0, i64 %30
+  %37 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %36, i64 %30
   %.sroa.0.0.copyload = load i8, ptr %37, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -75278,7 +75278,7 @@ common.resume:                                    ; preds = %265, %231, %240, %2
 75:                                               ; preds = %65
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 192
   %77 = load ptr, ptr %76, align 8, !alias.scope !10517, !noalias !10520, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds nuw [0 x i64], ptr %77, i64 0, i64 %68
+  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %68
   %79 = load i64, ptr %78, align 8, !noalias !10514, !noundef !4
   %80 = lshr i64 %79, 48
   %81 = trunc nuw i64 %80 to i16
@@ -75675,7 +75675,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
 "_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit.i": ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %186 = load ptr, ptr %185, align 8, !alias.scope !10580, !noalias !10581, !nonnull !4, !noundef !4
-  %187 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %186, i64 0, i64 %180
+  %187 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %186, i64 %180
   %188 = load i8, ptr %187, align 8, !range !10585, !noundef !4
   %189 = icmp eq i8 %188, 30
   br i1 %189, label %190, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit"
@@ -75724,7 +75724,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit92": ; preds = %205
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %212 = load ptr, ptr %211, align 8, !alias.scope !10596, !noalias !10597, !nonnull !4, !noundef !4
-  %213 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %212, i64 0, i64 %206
+  %213 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %212, i64 %206
   %.sroa.0108.0.copyload = load i8, ptr %213, align 8
   %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 1
   %.sroa.5109.0.copyload = load i8, ptr %.sroa.5109.0..sroa_idx, align 1
@@ -75755,7 +75755,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit93": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit._crit_edge"
   %219 = getelementptr inbounds nuw i8, ptr %204, i64 192
   %220 = load ptr, ptr %219, align 8, !alias.scope !10609, !noalias !10610, !nonnull !4, !noundef !4
-  %221 = getelementptr inbounds nuw [0 x i64], ptr %220, i64 0, i64 %214
+  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %214
   %222 = load i64, ptr %221, align 8, !noalias !10603, !noundef !4
   %223 = lshr i64 %222, 48
   %224 = trunc nuw i64 %223 to i16
@@ -76873,7 +76873,7 @@ define internal fastcc { i32, i32 } @_ZN17cranelift_codegen3isa3x645lower4isle14
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %19 = load ptr, ptr %18, align 8, !alias.scope !10714, !noalias !10715, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %19, i64 0, i64 %13
+  %20 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %19, i64 %13
   %.sroa.0.0.copyload = load i8, ptr %20, align 8
   %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.61.0.copyload = load i32, ptr %.sroa.61.0..sroa_idx, align 4
@@ -76936,7 +76936,7 @@ define internal fastcc { i32, i32 } @_ZN17cranelift_codegen3isa3x645lower4isle14
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit28": ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %48 = load ptr, ptr %47, align 8, !alias.scope !10731, !noalias !10732, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %48, i64 0, i64 %42
+  %49 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %48, i64 %42
   %.sroa.02.0.copyload = load i8, ptr %49, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.sroa.53.0.copyload = load i8, ptr %.sroa.53.0..sroa_idx, align 1
@@ -78448,7 +78448,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %21 = load ptr, ptr %20, align 8, !alias.scope !10916, !noalias !10917, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %21, i64 0, i64 %15
+  %22 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %21, i64 %15
   %.sroa.0.0.copyload = load i8, ptr %22, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -78501,7 +78501,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit"
   %37 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit"
 
@@ -78520,18 +78520,18 @@ switch.lookup:                                    ; preds = %"_ZN17cranelift_cod
 
 40:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit"
   %41 = and i16 %1, 15
-  %switch.tableidx20 = add nsw i16 %41, -6
-  %42 = icmp ult i16 %switch.tableidx20, 10
-  br i1 %42, label %switch.lookup19, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit"
+  %switch.tableidx19 = add nsw i16 %41, -6
+  %42 = icmp ult i16 %switch.tableidx19, 10
+  br i1 %42, label %switch.lookup20, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit"
 
-switch.lookup19:                                  ; preds = %40
-  %43 = zext nneg i16 %switch.tableidx20 to i64
-  %switch.gep21 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 0, i64 %43
+switch.lookup20:                                  ; preds = %40
+  %43 = zext nneg i16 %switch.tableidx19 to i64
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_mask_xmm_shift17hf06e455f8a46d25dE.462, i64 %43
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit": ; preds = %switch.lookup19, %40
-  %.0.i.i9 = phi i32 [ 255, %40 ], [ %switch.load22, %switch.lookup19 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19shift_amount_masked17hcf224fa0367bde44E.exit": ; preds = %switch.lookup20, %40
+  %.0.i.i9 = phi i32 [ 255, %40 ], [ %switch.load22, %switch.lookup20 ]
   %44 = trunc i64 %.sroa.61.0.copyload to i32
   %45 = and i32 %.0.i.i9, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -79884,7 +79884,7 @@ define internal fastcc i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated
   %switch.tableidx = add nsw i16 %.0.i.i.i.i, -118
   %19 = icmp ult i16 %switch.tableidx, 10
   %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %20
   %.val27 = load ptr, ptr %0, align 8, !nonnull !4, !align !17
   br label %.lr.ph.split.split
 
@@ -80041,18 +80041,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   %50 = and i16 %.tr74123, 15
   %51 = or disjoint i16 %50, 112
   %.0.i.i.i.i43 = select i1 %49, i16 %.tr74123, i16 %51
-  %switch.tableidx219 = add nsw i16 %.0.i.i.i.i43, -118
-  %52 = icmp ult i16 %switch.tableidx219, 10
-  br i1 %52, label %switch.lookup218, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i44
+  %switch.tableidx218 = add nsw i16 %.0.i.i.i.i43, -118
+  %52 = icmp ult i16 %switch.tableidx218, 10
+  br i1 %52, label %switch.lookup219, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i44
 
-switch.lookup218:                                 ; preds = %48
-  %53 = zext nneg i16 %switch.tableidx219 to i64
-  %switch.gep220 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %53
+switch.lookup219:                                 ; preds = %48
+  %53 = zext nneg i16 %switch.tableidx218 to i64
+  %switch.gep220 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %53
   %switch.load221 = load i32, ptr %switch.gep220, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i44
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i44: ; preds = %switch.lookup218, %48
-  %.0.i.i.i45 = phi i32 [ 0, %48 ], [ %switch.load221, %switch.lookup218 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i44: ; preds = %switch.lookup219, %48
+  %.0.i.i.i45 = phi i32 [ 0, %48 ], [ %switch.load221, %switch.lookup219 ]
   %54 = tail call i16 @llvm.usub.sat.i16(i16 %.tr74123, i16 112)
   %55 = lshr i16 %54, 4
   %56 = zext nneg i16 %55 to i32
@@ -80297,7 +80297,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !11306, !noalias !11307, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %20, i64 0, i64 %14
+  %21 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %20, i64 %14
   %.sroa.0.0.copyload = load i8, ptr %21, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -80342,7 +80342,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %37 = load ptr, ptr %36, align 8, !alias.scope !11317, !noalias !11318, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %31
   %39 = load i64, ptr %38, align 8, !noalias !11311, !noundef !4
   %40 = and i64 %39, 4575657221408423936
   %or.cond.not.i = icmp eq i64 %40, 36028797018963968
@@ -80365,7 +80365,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit15": ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %48 = load ptr, ptr %47, align 8, !alias.scope !11326, !noalias !11327, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds nuw [0 x i64], ptr %48, i64 0, i64 %42
+  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %42
   %50 = load i64, ptr %49, align 8, !noalias !11320, !noundef !4
   %51 = and i64 %50, 4575657221408423936
   %or.cond.not.i16 = icmp eq i64 %51, 36028797018963968
@@ -80388,7 +80388,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit21": ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %59 = load ptr, ptr %58, align 8, !alias.scope !11335, !noalias !11336, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds nuw [0 x i64], ptr %59, i64 0, i64 %53
+  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %53
   %61 = load i64, ptr %60, align 8, !noalias !11329, !noundef !4
   %62 = and i64 %61, 4575657221408423936
   %or.cond.not.i22 = icmp eq i64 %62, 36028797018963968
@@ -80421,7 +80421,7 @@ define internal fastcc noundef range(i8 1, 3) i8 @_ZN17cranelift_codegen3isa3x64
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit29": ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %76 = load ptr, ptr %75, align 8, !alias.scope !11350, !noalias !11351, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %76, i64 0, i64 %70
+  %77 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %76, i64 %70
   %.sroa.014.0.copyload = load i8, ptr %77, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 1
   %.sroa.515.0.copyload = load i8, ptr %.sroa.515.0..sroa_idx, align 1
@@ -80671,7 +80671,7 @@ define internal fastcc range(i64 36028779839094784, 36028784134062080) i64 @_ZN1
 
 switch.lookup:                                    ; preds = %14
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -81234,7 +81234,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 
 switch.lookup:                                    ; preds = %38
   %41 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i
 
@@ -81528,18 +81528,18 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code24constructor_cmove_or_
   unreachable
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i": ; preds = %120
-  %switch.tableidx13 = add i16 %2, -118
-  %124 = icmp ult i16 %switch.tableidx13, 10
-  br i1 %124, label %switch.lookup12, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i.i"
+  %switch.tableidx12 = add i16 %2, -118
+  %124 = icmp ult i16 %switch.tableidx12, 10
+  br i1 %124, label %switch.lookup13, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i.i"
 
-switch.lookup12:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i"
-  %125 = zext nneg i16 %switch.tableidx13 to i64
-  %switch.gep14 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %125
+switch.lookup13:                                  ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i"
+  %125 = zext nneg i16 %switch.tableidx12 to i64
+  %switch.gep14 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %125
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i.i"
 
-"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i.i": ; preds = %switch.lookup12, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i"
-  %.0.i.i.i.i.i = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i" ], [ %switch.load15, %switch.lookup12 ]
+"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i.i": ; preds = %switch.lookup13, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i"
+  %.0.i.i.i.i.i = phi i32 [ 0, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit28.i.i" ], [ %switch.load15, %switch.lookup13 ]
   %126 = add nsw i16 %2, -112
   %127 = lshr i16 %126, 4
   %128 = zext nneg i16 %127 to i32
@@ -82187,7 +82187,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
 
 switch.lookup:                                    ; preds = %30
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i
 
@@ -82399,18 +82399,18 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_bsr_or_el
   %78 = and i16 %2, 15
   %79 = or disjoint i16 %78, 112
   %.0.i.i.i.i = select i1 %77, i16 %2, i16 %79
-  %switch.tableidx8 = add nsw i16 %.0.i.i.i.i, -118
-  %80 = icmp ult i16 %switch.tableidx8, 10
-  br i1 %80, label %switch.lookup7, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
+  %switch.tableidx7 = add nsw i16 %.0.i.i.i.i, -118
+  %80 = icmp ult i16 %switch.tableidx7, 10
+  br i1 %80, label %switch.lookup8, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-switch.lookup7:                                   ; preds = %76
-  %81 = zext nneg i16 %switch.tableidx8 to i64
-  %switch.gep9 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %81
+switch.lookup8:                                   ; preds = %76
+  %81 = zext nneg i16 %switch.tableidx7 to i64
+  %switch.gep9 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %81
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup7, %76
-  %.0.i.i.i = phi i32 [ 0, %76 ], [ %switch.load10, %switch.lookup7 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ; preds = %switch.lookup8, %76
+  %.0.i.i.i = phi i32 [ 0, %76 ], [ %switch.load10, %switch.lookup8 ]
   %82 = call i16 @llvm.usub.sat.i16(i16 %2, i16 112)
   %83 = lshr i16 %82, 4
   %84 = zext nneg i16 %83 to i32
@@ -82473,7 +82473,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 
 switch.lookup:                                    ; preds = %14
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i
 
@@ -82555,18 +82555,18 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
   %43 = and i16 %1, 15
   %44 = or disjoint i16 %43, 112
   %.0.i.i.i.i.i.i = select i1 %42, i16 %1, i16 %44
-  %switch.tableidx4 = add nsw i16 %.0.i.i.i.i.i.i, -118
-  %45 = icmp ult i16 %switch.tableidx4, 10
-  br i1 %45, label %switch.lookup3, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i
+  %switch.tableidx3 = add nsw i16 %.0.i.i.i.i.i.i, -118
+  %45 = icmp ult i16 %switch.tableidx3, 10
+  br i1 %45, label %switch.lookup4, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i
 
-switch.lookup3:                                   ; preds = %41
-  %46 = zext nneg i16 %switch.tableidx4 to i64
-  %switch.gep5 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %46
+switch.lookup4:                                   ; preds = %41
+  %46 = zext nneg i16 %switch.tableidx3 to i64
+  %switch.gep5 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %46
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i: ; preds = %switch.lookup3, %41
-  %.0.i.i.i.i.i = phi i32 [ 0, %41 ], [ %switch.load6, %switch.lookup3 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i.i: ; preds = %switch.lookup4, %41
+  %.0.i.i.i.i.i = phi i32 [ 0, %41 ], [ %switch.load6, %switch.lookup4 ]
   %47 = tail call i16 @llvm.usub.sat.i16(i16 %1, i16 112)
   %48 = lshr i16 %47, 4
   %49 = zext nneg i16 %48 to i32
@@ -83513,7 +83513,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %32 = load ptr, ptr %31, align 8, !alias.scope !11827, !noalias !11828, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %32, i64 0, i64 %26
+  %33 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %32, i64 %26
   %.sroa.0.0.copyload = load i8, ptr %33, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -83561,7 +83561,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit25": ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %53 = load ptr, ptr %52, align 8, !alias.scope !11851, !noalias !11852, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %53, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %53, i64 %47
   %.sroa.058.0.copyload = load i8, ptr %54, align 8
   %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 1
   %.sroa.559.0.copyload = load i8, ptr %.sroa.559.0..sroa_idx, align 1
@@ -83979,7 +83979,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %32 = load ptr, ptr %31, align 8, !alias.scope !11881, !noalias !11882, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %32, i64 0, i64 %26
+  %33 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %32, i64 %26
   %.sroa.0.0.copyload = load i8, ptr %33, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -84027,7 +84027,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit25": ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %53 = load ptr, ptr %52, align 8, !alias.scope !11905, !noalias !11906, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %53, i64 0, i64 %47
+  %54 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %53, i64 %47
   %.sroa.058.0.copyload = load i8, ptr %54, align 8
   %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 1
   %.sroa.559.0.copyload = load i8, ptr %.sroa.559.0..sroa_idx, align 1
@@ -84616,7 +84616,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E.exit": ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %17 = load ptr, ptr %16, align 8, !alias.scope !11945, !noalias !11946, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw [0 x i64], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %11
   %19 = load i64, ptr %18, align 8, !noalias !11939, !noundef !4
   %20 = lshr i64 %19, 48
   %21 = trunc nuw i64 %20 to i16
@@ -86540,7 +86540,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit": ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %27 = load ptr, ptr %26, align 8, !alias.scope !12507, !noalias !12508, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %27, i64 0, i64 %21
+  %28 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %27, i64 %21
   %.sroa.0.0.copyload = load i8, ptr %28, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1
@@ -86670,7 +86670,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_reg_to_gp
 
 switch.lookup:                                    ; preds = %56
   %61 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i
 
@@ -86684,18 +86684,18 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i: ; preds =
   br i1 %66, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$23safe_divisor_from_imm6417h755a9b183f2bff38E.exit", label %67
 
 67:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i
-  %switch.tableidx26 = add nsw i16 %.0.i.i.i.i.i, -118
-  %68 = icmp ult i16 %switch.tableidx26, 10
-  br i1 %68, label %switch.lookup25, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i4.i
+  %switch.tableidx25 = add nsw i16 %.0.i.i.i.i.i, -118
+  %68 = icmp ult i16 %switch.tableidx25, 10
+  br i1 %68, label %switch.lookup26, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i4.i
 
-switch.lookup25:                                  ; preds = %67
-  %69 = zext nneg i16 %switch.tableidx26 to i64
-  %switch.gep27 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %69
+switch.lookup26:                                  ; preds = %67
+  %69 = zext nneg i16 %switch.tableidx25 to i64
+  %switch.gep27 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %69
   %switch.load28 = load i32, ptr %switch.gep27, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i4.i
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i4.i: ; preds = %switch.lookup25, %67
-  %.0.i.i.i5.i = phi i32 [ 0, %67 ], [ %switch.load28, %switch.lookup25 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i4.i: ; preds = %switch.lookup26, %67
+  %.0.i.i.i5.i = phi i32 [ 0, %67 ], [ %switch.load28, %switch.lookup26 ]
   %70 = shl nuw nsw i32 %.0.i.i.i5.i, %64
   %71 = and i32 %70, 56
   %72 = zext nneg i32 %71 to i64
@@ -90992,7 +90992,7 @@ define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN17cranelift_codegen3
 _ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E.exit: ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %11 = load ptr, ptr %10, align 8, !alias.scope !12619, !noalias !12620, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw [0 x i64], ptr %11, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %5
   %13 = load i64, ptr %12, align 8, !noalias !12613, !noundef !4
   %14 = lshr i64 %13, 48
   %15 = trunc nuw i64 %14 to i16
@@ -91034,7 +91034,7 @@ define internal fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle25
   br i1 %10, label %11, label %14, !prof !756
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %1
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %1
   %13 = load i32, ptr %12, align 4, !noundef !4
   ret i32 %13
 
@@ -91246,7 +91246,7 @@ define internal fastcc { i64, i64 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %27
   %32 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -91330,7 +91330,7 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2f93e25d49e63c1bE.exit": ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %13 = load ptr, ptr %12, align 8, !alias.scope !12669, !noalias !12672, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] }, i32, i8, [3 x i8] }], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i8, ptr %15, align 4, !range !234, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -91433,7 +91433,7 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hdc2a91296872b4ceE.exit.i": ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %13 = load ptr, ptr %12, align 8, !alias.scope !12696, !noalias !12699, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %13, i64 0, i64 %7
+  %14 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %13, i64 %7
   %15 = load i8, ptr %14, align 8, !range !7, !noalias !12702, !noundef !4
   %16 = icmp eq i8 %15, 3
   br i1 %16, label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17symbol_value_data17hc813d60c47cb521bE.exit", label %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17symbol_value_data17hc813d60c47cb521bE.exit.thread"
@@ -91777,7 +91777,7 @@ define internal fastcc i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
 "_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$4data17ha1e08378b6887975E.exit": ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %18 = load ptr, ptr %17, align 8, !alias.scope !12796, !noalias !12797, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %18, i64 0, i64 %12
+  %19 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %18, i64 %12
   %20 = load i8, ptr %19, align 8, !range !10585, !noundef !4
   %21 = icmp eq i8 %20, 30
   br i1 %21, label %22, label %29
@@ -91815,7 +91815,7 @@ define internal fastcc noundef i8 @"_ZN17cranelift_codegen3isa3x645lower4isle255
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -91854,7 +91854,7 @@ define internal fastcc noundef range(i16 0, -32767) i16 @"_ZN17cranelift_codegen
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i
 
@@ -91888,7 +91888,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -91928,7 +91928,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -91968,7 +91968,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92011,7 +92011,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
@@ -92056,7 +92056,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92092,7 +92092,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92128,7 +92128,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92142,18 +92142,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   br i1 %13, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5.thread, label %14
 
 14:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
-  %switch.tableidx5 = add nsw i16 %.0.i.i.i, -118
-  %15 = icmp ult i16 %switch.tableidx5, 10
-  br i1 %15, label %switch.lookup4, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
+  %switch.tableidx4 = add nsw i16 %.0.i.i.i, -118
+  %15 = icmp ult i16 %switch.tableidx4, 10
+  br i1 %15, label %switch.lookup5, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
 
-switch.lookup4:                                   ; preds = %14
-  %16 = zext nneg i16 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %16
+switch.lookup5:                                   ; preds = %14
+  %16 = zext nneg i16 %switch.tableidx4 to i64
+  %switch.gep6 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %16
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5: ; preds = %switch.lookup4, %14
-  %.0.i.i3 = phi i32 [ 0, %14 ], [ %switch.load7, %switch.lookup4 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5: ; preds = %switch.lookup5, %14
+  %.0.i.i3 = phi i32 [ 0, %14 ], [ %switch.load7, %switch.lookup5 ]
   %17 = shl nuw nsw i32 %.0.i.i3, %11
   %.fr = freeze i32 %17
   %18 = icmp eq i32 %.fr, 64
@@ -92183,7 +92183,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92197,18 +92197,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
   br i1 %13, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5.thread, label %14
 
 14:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
-  %switch.tableidx5 = add nsw i16 %.0.i.i.i, -118
-  %15 = icmp ult i16 %switch.tableidx5, 10
-  br i1 %15, label %switch.lookup4, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
+  %switch.tableidx4 = add nsw i16 %.0.i.i.i, -118
+  %15 = icmp ult i16 %switch.tableidx4, 10
+  br i1 %15, label %switch.lookup5, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
 
-switch.lookup4:                                   ; preds = %14
-  %16 = zext nneg i16 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %16
+switch.lookup5:                                   ; preds = %14
+  %16 = zext nneg i16 %switch.tableidx4 to i64
+  %switch.gep6 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %16
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5: ; preds = %switch.lookup4, %14
-  %.0.i.i3 = phi i32 [ 0, %14 ], [ %switch.load7, %switch.lookup4 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5: ; preds = %switch.lookup5, %14
+  %.0.i.i3 = phi i32 [ 0, %14 ], [ %switch.load7, %switch.lookup5 ]
   %17 = shl nuw nsw i32 %.0.i.i3, %11
   %.fr = freeze i32 %17
   %18 = icmp eq i32 %.fr, 16
@@ -92236,7 +92236,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92271,7 +92271,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
 
@@ -92309,7 +92309,7 @@ define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$i
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E", i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit4
 

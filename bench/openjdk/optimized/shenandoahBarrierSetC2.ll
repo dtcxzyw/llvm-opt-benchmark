@@ -518,7 +518,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_
 
 14:                                               ; preds = %6
   %15 = zext i8 %4 to i64
-  %16 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = call noundef ptr @_ZN8GraphKit6memoryEj(ptr noundef nonnull align 8 dereferenceable(84) %1, i32 noundef %5) #15
@@ -916,7 +916,7 @@ _ZN8IdealKit4AndIEP4NodeS1_.exit:                 ; preds = %_ZN4NodenwEm.exit.i
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load i32, ptr %180, align 8
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %182, i32 1
+  %183 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %182, i32 1
   %184 = load i8, ptr %183, align 4
   %185 = load ptr, ptr %148, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8

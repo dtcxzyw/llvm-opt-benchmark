@@ -467,7 +467,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBu
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 0, i64 %13
+  %18 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #16
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %19, i64 noundef %20) #16
@@ -808,7 +808,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13AR
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %24 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 0, i64 %19
+  %24 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %19
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %26, ptr %10, align 8, !tbaa !32

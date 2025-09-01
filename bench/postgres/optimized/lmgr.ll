@@ -880,7 +880,7 @@ ItemPointerIsValid.exit:                          ; preds = %3
 switch.lookup:                                    ; preds = %8
   %switch.tableidx = add i32 %2, -1
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.XactLockTableWaitErrorCb, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.XactLockTableWaitErrorCb, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = tail call i32 @set_errcontext_domain(ptr noundef null) #8
   %14 = load ptr, ptr %4, align 8
@@ -1634,7 +1634,7 @@ define dso_local ptr @GetLockNameFromTagType(i16 noundef zeroext %0) local_unnam
 
 3:                                                ; preds = %1
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr @LockTagTypeNames, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @LockTagTypeNames, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 

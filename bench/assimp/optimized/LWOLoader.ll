@@ -2210,7 +2210,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
 
 553:                                              ; preds = %544, %.loopexit516
   %indvars.iv = phi i64 [ 0, %544 ], [ %indvars.iv.next, %.loopexit516 ]
-  %554 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %554 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %555 = load i32, ptr %554, align 4
   %556 = icmp eq i32 %555, -1
   br i1 %556, label %572, label %557
@@ -2235,9 +2235,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   br label %.loopexit516
 
 .loopexit516:                                     ; preds = %.loopexit516.loopexit, %562
-  %568 = getelementptr inbounds nuw [8 x ptr], ptr %545, i64 0, i64 %indvars.iv
+  %568 = getelementptr inbounds nuw ptr, ptr %545, i64 %indvars.iv
   store ptr %561, ptr %568, align 8
-  %569 = getelementptr inbounds nuw [8 x ptr], ptr %16, i64 0, i64 %indvars.iv
+  %569 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   store ptr %561, ptr %569, align 8
   store i32 2, ptr %546, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2291,7 +2291,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
 
 590:                                              ; preds = %588, %.loopexit
   %indvars.iv818 = phi i64 [ 0, %588 ], [ %indvars.iv.next819, %.loopexit ]
-  %591 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv818
+  %591 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv818
   %592 = load i32, ptr %591, align 4
   %593 = icmp eq i32 %592, -1
   br i1 %593, label %605, label %594
@@ -2312,9 +2312,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %599
-  %601 = getelementptr inbounds nuw [8 x ptr], ptr %589, i64 0, i64 %indvars.iv818
+  %601 = getelementptr inbounds nuw ptr, ptr %589, i64 %indvars.iv818
   store ptr %598, ptr %601, align 8
-  %602 = getelementptr inbounds nuw [8 x ptr], ptr %17, i64 0, i64 %indvars.iv818
+  %602 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv818
   store ptr %598, ptr %602, align 8
   %indvars.iv.next819 = add nuw nsw i64 %indvars.iv818, 1
   %exitcond821.not = icmp eq i64 %indvars.iv.next819, 8
@@ -2439,13 +2439,13 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIj
 
 650:                                              ; preds = %642, %654
   %indvars.iv822 = phi i64 [ 0, %642 ], [ %indvars.iv.next823, %654 ]
-  %651 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv822
+  %651 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv822
   %652 = load i32, ptr %651, align 4
   %653 = icmp eq i32 %652, -1
   br i1 %653, label %667, label %654
 
 654:                                              ; preds = %650
-  %655 = getelementptr inbounds nuw [8 x ptr], ptr %16, i64 0, i64 %indvars.iv822
+  %655 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv822
   %656 = zext i32 %652 to i64
   %657 = load ptr, ptr %441, align 8
   %658 = getelementptr inbounds nuw %"struct.Assimp::LWO::UVChannel", ptr %657, i64 %656, i32 0, i32 3
@@ -2485,7 +2485,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIj
 
 676:                                              ; preds = %675, %694
   %indvars.iv826 = phi i64 [ 0, %675 ], [ %indvars.iv.next827, %694 ]
-  %677 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv826
+  %677 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv826
   %678 = load i32, ptr %677, align 4
   %679 = icmp eq i32 %678, -1
   br i1 %679, label %696, label %680
@@ -2496,7 +2496,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIj
   %683 = getelementptr inbounds nuw %"struct.Assimp::LWO::VColorChannel", ptr %682, i64 %681, i32 0, i32 3
   %684 = load ptr, ptr %683, align 8
   %685 = getelementptr inbounds nuw %class.aiColor4t, ptr %684, i64 %646
-  %686 = getelementptr inbounds nuw [8 x ptr], ptr %17, i64 0, i64 %indvars.iv826
+  %686 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv826
   %687 = load ptr, ptr %686, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %687, ptr noundef nonnull align 4 dereferenceable(16) %685, i64 16, i1 false)
   %688 = load ptr, ptr %6, align 8
@@ -2646,7 +2646,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIj
   %747 = getelementptr inbounds nuw i8, ptr %739, i64 4
   %748 = load ptr, ptr %735, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %747, ptr align 1 %748, i64 %743, i1 false)
-  %749 = getelementptr inbounds nuw [1024 x i8], ptr %747, i64 0, i64 %743
+  %749 = getelementptr inbounds nuw i8, ptr %747, i64 %743
   store i8 0, ptr %749, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -6077,7 +6077,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i32 %99, ptr %66, align 4
   %100 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr align 1 %.pre, i64 %96, i1 false)
-  %101 = getelementptr inbounds nuw [1024 x i8], ptr %100, i64 0, i64 %96
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %96
   store i8 0, ptr %101, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 

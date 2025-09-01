@@ -1000,7 +1000,7 @@ write_skip_frames.exit:                           ; preds = %49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [256 x i32], ptr %97, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4, !tbaa !74
   %118 = and i32 %117, 16777215
   call void @avio_wl32(ptr noundef nonnull %72, i32 noundef %118) #10
@@ -1081,7 +1081,7 @@ avi_stream2fourcc.exit:                           ; preds = %123
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv156 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next157, %.lr.ph153 ]
-  %155 = getelementptr inbounds nuw [256 x i32], ptr %97, i64 0, i64 %indvars.iv156
+  %155 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv156
   %156 = load i32, ptr %155, align 4, !tbaa !74
   %157 = shl i32 %156, 8
   call void @avio_wb32(ptr noundef nonnull %72, i32 noundef %157) #10

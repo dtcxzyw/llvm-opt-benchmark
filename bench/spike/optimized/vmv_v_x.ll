@@ -263,7 +263,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_v_xP11
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us110
@@ -657,7 +657,7 @@ define noundef i64 @_Z18fast_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us110
@@ -931,7 +931,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_v_xP
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us110
@@ -1207,7 +1207,7 @@ define noundef i64 @_Z20logged_rv64i_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %113 = and i64 %109, 31
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %112, i64 %113
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us110
@@ -1482,7 +1482,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_v_xP11
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = and i64 %109, 31
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %113, i64 0, i64 %112
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us129
@@ -1839,7 +1839,7 @@ define noundef i64 @_Z18fast_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %0,
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = and i64 %109, 31
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %113, i64 0, i64 %112
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us129
@@ -2194,7 +2194,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_v_xP
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = and i64 %109, 31
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %113, i64 0, i64 %112
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us129
@@ -2551,7 +2551,7 @@ define noundef i64 @_Z20logged_rv64e_vmv_v_xP11processor_t6insn_tm(ptr noundef %
   %111 = call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 61)
   %112 = and i64 %109, 31
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %114 = getelementptr inbounds nuw [32 x i64], ptr %113, i64 0, i64 %112
+  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
   switch i64 %111, label %.lr.ph.split [
     i64 0, label %.lr.ph.split.us
     i64 1, label %.lr.ph.split.us129

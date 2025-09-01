@@ -2264,7 +2264,7 @@ rb_darray_size.exit:                              ; preds = %40
   br i1 %42, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %rb_darray_size.exit
-  %43 = getelementptr [0 x i64], ptr %32, i64 0, i64 %.0122
+  %43 = getelementptr i64, ptr %32, i64 %.0122
   %44 = load i64, ptr %43, align 8, !tbaa !42
   br label %45
 
@@ -2497,7 +2497,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 .preheader:                                       ; preds = %.lr.ph, %131
   %132 = phi i1 [ false, %131 ], [ true, %.lr.ph ]
   %.1131204 = phi i64 [ 1, %131 ], [ 0, %.lr.ph ]
-  %133 = getelementptr [2 x [4 x i8]], ptr @rb_feature_p.so_ext, i64 0, i64 %.1131204
+  %133 = getelementptr [4 x i8], ptr @rb_feature_p.so_ext, i64 %.1131204
   %134 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(1) %133, i64 noundef 4) #6
   %135 = call i32 @rb_st_get_key(ptr noundef %.val167, i64 noundef %124, ptr noundef nonnull %8) #6
   %.not163 = icmp eq i32 %135, 0
@@ -3555,12 +3555,12 @@ is_rbext_path.exit:                               ; preds = %RSTRING_PTR.exit.i,
   %45 = phi i32 [ 0, %RARRAY_AREF.exit ], [ %44, %RSTRING_PTR.exit.i ], [ 1, %30 ]
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr [0 x i64], ptr %46, i64 0, i64 %47
+  %48 = getelementptr i64, ptr %46, i64 %47
   store i64 %17, ptr %48, align 8, !tbaa !42
   %49 = ashr i64 %8, 1
   %50 = xor i32 %45, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [0 x i64], ptr %46, i64 0, i64 %51
+  %52 = getelementptr i64, ptr %46, i64 %51
   store i64 %49, ptr %52, align 8, !tbaa !42
   store i64 %.cast, ptr %1, align 8, !tbaa !42
   br label %151
@@ -3596,7 +3596,7 @@ rb_darray_size.exit.lr.ph:                        ; preds = %55
 
 RARRAY_AREF.exit47.us78:                          ; preds = %rb_darray_size.exit.us85, %.lr.ph.split.us
   %.0427577.us = phi i64 [ 0, %.lr.ph.split.us ], [ %89, %rb_darray_size.exit.us85 ]
-  %65 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.0427577.us
+  %65 = getelementptr i64, ptr %58, i64 %.0427577.us
   %66 = load i64, ptr %65, align 8, !tbaa !42
   %67 = getelementptr i64, ptr %64, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !42
@@ -3644,7 +3644,7 @@ rb_darray_size.exit.us85:                         ; preds = %is_rbext_path.exit5
 
 RARRAY_AREF.exit47:                               ; preds = %.lr.ph, %rb_darray_size.exit
   %.0427577 = phi i64 [ %114, %rb_darray_size.exit ], [ 0, %.lr.ph ]
-  %90 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.0427577
+  %90 = getelementptr i64, ptr %58, i64 %.0427577
   %91 = load i64, ptr %90, align 8, !tbaa !42
   %92 = getelementptr i64, ptr %60, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !42
@@ -3765,7 +3765,7 @@ rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit
   %.364 = phi i64 [ %.363, %rb_darray_resize_capa_impl.exit.i ], [ %.365, %rb_darray_size.exit.i ]
   %136 = ashr i64 %8, 1
   %137 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %138 = getelementptr [0 x i64], ptr %137, i64 0, i64 %135
+  %138 = getelementptr i64, ptr %137, i64 %135
   store i64 %136, ptr %138, align 8, !tbaa !42
   %139 = load i64, ptr %.0, align 8, !tbaa !168
   %140 = add i64 %139, 1

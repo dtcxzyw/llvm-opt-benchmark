@@ -829,7 +829,7 @@ define void @_ZNK7rocksdb21FullFilterBlockReader8MayMatchEPNS_15MultiGetContext5
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %28, %25, %5
   %storemerge.lcssa.i.i = phi i64 [ %12, %5 ], [ %15, %28 ], [ %storemerge3.i.i, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 3584
-  %31 = getelementptr inbounds nuw [32 x ptr], ptr %30, i64 0, i64 %storemerge.lcssa.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %storemerge.lcssa.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !93
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 160
   %34 = load ptr, ptr %33, align 8, !tbaa !95
@@ -961,7 +961,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit51: ; preds = %74, %.loopexit136
   %.021146 = phi i32 [ 0, %.lr.ph ], [ %.122, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %.sroa.9.0145 = phi i64 [ %storemerge.lcssa.i.i46, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   %.sroa.20.0144 = phi i64 [ %66, %.lr.ph ], [ %.sroa.20.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %89 = getelementptr inbounds nuw [32 x ptr], ptr %79, i64 0, i64 %.sroa.9.0145
+  %89 = getelementptr inbounds nuw ptr, ptr %79, i64 %.sroa.9.0145
   %90 = load ptr, ptr %89, align 8, !tbaa !93
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   br i1 %.not34, label %92, label %96
@@ -969,7 +969,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit51: ; preds = %74, %.loopexit136
 92:                                               ; preds = %88
   %93 = add nsw i32 %.021146, 1
   %94 = sext i32 %.021146 to i64
-  %95 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %8, i64 %94
   store ptr %91, ptr %95, align 8, !tbaa !132
   br label %164
 
@@ -1104,7 +1104,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__
   %.0.i.i.i = select i1 %153, ptr %155, ptr %157
   %158 = add nsw i32 %.021146, 1
   %159 = sext i32 %.021146 to i64
-  %160 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw ptr, ptr %8, i64 %159
   store ptr %.0.i.i.i, ptr %160, align 8, !tbaa !132
   br label %164
 
@@ -1235,7 +1235,7 @@ _ZN7rocksdb10autovectorINS_5SliceELm32EED2Ev.exit: ; preds = %_ZN7rocksdb10autov
 201:                                              ; preds = %.lr.ph151, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit67
   %indvars.iv = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit67 ]
   %.sroa.6.0149 = phi i64 [ %storemerge.lcssa.i.i54, %.lr.ph151 ], [ %.lcssa.i65, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit67 ]
-  %202 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %203 = load i8, ptr %202, align 1, !tbaa !148, !range !35, !noundef !36
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %216, label %205
@@ -1755,7 +1755,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %4
 29:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.019 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %30 = getelementptr inbounds nuw [32 x ptr], ptr %26, i64 0, i64 %.sroa.8.019
+  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.019
   %31 = load ptr, ptr %30, align 8, !tbaa !93
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !137
@@ -1865,7 +1865,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %23, %5
 32:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.021 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = getelementptr inbounds nuw [32 x ptr], ptr %28, i64 0, i64 %.sroa.8.021
+  %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.8.021
   %34 = load ptr, ptr %33, align 8, !tbaa !93
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !137

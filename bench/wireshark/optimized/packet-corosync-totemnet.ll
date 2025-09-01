@@ -127,7 +127,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
 8:                                                ; preds = %6
   %9 = load i32, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [2 x i8], ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 0, i64 %10
+  %11 = getelementptr i8, ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 %10
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   %14 = sext i32 %7 to i64
@@ -155,7 +155,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %34, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
-  %25 = getelementptr [2 x i8], ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 0, i64 %indvars.iv
+  %25 = getelementptr i8, ptr @__const.dissect_corosynec_totemnet.check_crypt_type_list, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   %28 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8

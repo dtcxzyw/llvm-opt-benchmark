@@ -2807,13 +2807,13 @@ _ZN3gmx19StatePropagatorData12copyPositionEv.exit: ; preds = %159
 
 240:                                              ; preds = %.preheader, %245
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %245 ]
-  %241 = getelementptr inbounds nuw [3 x i32], ptr %238, i64 0, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw i32, ptr %238, i64 %indvars.iv
   %242 = load i32, ptr %241, align 4, !tbaa !277
   %.not = icmp eq i32 %242, 0
   br i1 %.not, label %245, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds nuw [3 x float], ptr %239, i64 0, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv
   store float 0.000000e+00, ptr %244, align 4, !tbaa !136
   br label %245
 

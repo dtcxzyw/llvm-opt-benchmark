@@ -352,34 +352,34 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = add nsw i32 %6, -1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [1000 x %struct.fetch_range_request], ptr %9, i64 0, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %16 = load i64, ptr %15, align 8
-  %17 = sub i64 0, %14
-  %18 = icmp eq i64 %16, %17
-  %19 = icmp ult i64 %16, 1048576
-  %or.cond.i = and i1 %19, %18
-  br i1 %or.cond.i, label %20, label %.lr.ph.i
+  %10 = zext nneg i32 %6 to i64
+  %11 = getelementptr %struct.fetch_range_request, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr i8, ptr %11, i64 -8
+  %15 = load i64, ptr %14, align 8
+  %16 = sub i64 0, %13
+  %17 = icmp eq i64 %15, %16
+  %18 = icmp ult i64 %15, 1048576
+  %or.cond.i = and i1 %18, %17
+  br i1 %or.cond.i, label %19, label %.lr.ph.i
 
-20:                                               ; preds = %8
-  %21 = load ptr, ptr %12, align 8
+19:                                               ; preds = %8
+  %20 = getelementptr i8, ptr %11, i64 -24
+  %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %1
   br i1 %22, label %23, label %.lr.ph.i
 
-23:                                               ; preds = %20
-  %24 = sub nuw nsw i64 1048576, %16
-  store i64 1048576, ptr %15, align 8
+23:                                               ; preds = %19
+  %24 = sub nuw nsw i64 1048576, %15
+  store i64 1048576, ptr %14, align 8
   %25 = sub nuw i64 %4, %24
   %.not48.i = icmp eq i64 %25, 0
   br i1 %.not48.i, label %libpq_queue_fetch_range.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %20, %3, %23
-  %.0.i8 = phi i64 [ %24, %23 ], [ 0, %3 ], [ 0, %20 ], [ 0, %8 ]
-  %.038.i7 = phi i64 [ %25, %23 ], [ %4, %3 ], [ %4, %20 ], [ %4, %8 ]
+.lr.ph.i:                                         ; preds = %8, %19, %3, %23
+  %.0.i8 = phi i64 [ %24, %23 ], [ 0, %3 ], [ 0, %19 ], [ 0, %8 ]
+  %.038.i7 = phi i64 [ %25, %23 ], [ %4, %3 ], [ %4, %19 ], [ %4, %8 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %27
 
@@ -399,7 +399,7 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
   %32 = phi i32 [ %.pre.i, %30 ], [ %28, %27 ]
   %33 = tail call i64 @llvm.umin.i64(i64 %.24049.i, i64 1048576)
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds [1000 x %struct.fetch_range_request], ptr %26, i64 0, i64 %34
+  %35 = getelementptr inbounds %struct.fetch_range_request, ptr %26, i64 %34
   store ptr %1, ptr %35, align 8
   %.idx.i = mul nsw i64 %34, 24
   %36 = getelementptr i8, ptr %26, i64 %.idx.i
@@ -428,36 +428,36 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = add nsw i32 %6, -1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [1000 x %struct.fetch_range_request], ptr %9, i64 0, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %14
-  %18 = icmp eq i64 %17, %2
-  %19 = icmp ult i64 %16, 1048576
-  %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %28
+  %10 = zext nneg i32 %6 to i64
+  %11 = getelementptr %struct.fetch_range_request, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -16
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr i8, ptr %11, i64 -8
+  %15 = load i64, ptr %14, align 8
+  %16 = add i64 %15, %13
+  %17 = icmp eq i64 %16, %2
+  %18 = icmp ult i64 %15, 1048576
+  %or.cond = and i1 %18, %17
+  br i1 %or.cond, label %19, label %28
 
-20:                                               ; preds = %8
-  %21 = load ptr, ptr %12, align 8
+19:                                               ; preds = %8
+  %20 = getelementptr i8, ptr %11, i64 -24
+  %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %1
   br i1 %22, label %23, label %28
 
-23:                                               ; preds = %20
-  %24 = sub nuw nsw i64 1048576, %16
+23:                                               ; preds = %19
+  %24 = sub nuw nsw i64 1048576, %15
   %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %24)
-  %25 = add nuw nsw i64 %., %16
-  store i64 %25, ptr %15, align 8
+  %25 = add nuw nsw i64 %., %15
+  store i64 %25, ptr %14, align 8
   %26 = add i64 %., %2
   %27 = sub i64 %3, %.
   br label %28
 
-28:                                               ; preds = %8, %20, %23, %4
-  %.038 = phi i64 [ %3, %4 ], [ %27, %23 ], [ %3, %20 ], [ %3, %8 ]
-  %.0 = phi i64 [ %2, %4 ], [ %26, %23 ], [ %2, %20 ], [ %2, %8 ]
+28:                                               ; preds = %8, %19, %23, %4
+  %.038 = phi i64 [ %3, %4 ], [ %27, %23 ], [ %3, %19 ], [ %3, %8 ]
+  %.0 = phi i64 [ %2, %4 ], [ %26, %23 ], [ %2, %19 ], [ %2, %8 ]
   %.not48 = icmp eq i64 %.038, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -481,7 +481,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
   %35 = phi i32 [ %.pre, %33 ], [ %31, %30 ]
   %36 = tail call i64 @llvm.umin.i64(i64 %.24049, i64 1048576)
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds [1000 x %struct.fetch_range_request], ptr %29, i64 0, i64 %37
+  %38 = getelementptr inbounds %struct.fetch_range_request, ptr %29, i64 %37
   store ptr %1, ptr %38, align 8
   %.idx = mul nsw i64 %37, 24
   %39 = getelementptr i8, ptr %29, i64 %.idx
@@ -692,7 +692,7 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 
 28:                                               ; preds = %.lr.ph, %appendArrayEscapedString.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %appendArrayEscapedString.exit ]
-  %29 = getelementptr inbounds nuw [1000 x %struct.fetch_range_request], ptr %16, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.fetch_range_request, ptr %16, i64 %indvars.iv
   %.not180 = icmp eq i64 %indvars.iv, 0
   br i1 %.not180, label %31, label %30
 
@@ -862,7 +862,7 @@ appendArrayEscapedString.exit:                    ; preds = %82, %83
   %108 = phi ptr [ %104, %.lr.ph150 ], [ %188, %186 ]
   %.0149 = phi i32 [ 0, %.lr.ph150 ], [ %.1, %186 ]
   %109 = sext i32 %.0149 to i64
-  %110 = getelementptr inbounds [1000 x %struct.fetch_range_request], ptr %105, i64 0, i64 %109
+  %110 = getelementptr inbounds %struct.fetch_range_request, ptr %105, i64 %109
   %111 = call i32 @PQresultStatus(ptr noundef nonnull %108) #10
   switch i32 %111, label %113 [
     i32 9, label %115

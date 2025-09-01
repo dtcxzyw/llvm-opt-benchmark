@@ -262,7 +262,7 @@ define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 der
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %73 ]
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %75 = load i8, ptr %74, align 1, !tbaa !4
-  %76 = getelementptr inbounds nuw [7 x i8], ptr %70, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
   store i8 %75, ptr %76, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -816,7 +816,7 @@ _ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %71, %100
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %101 ]
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %103 = load i8, ptr %102, align 1, !tbaa !4
-  %104 = getelementptr inbounds nuw [7 x i8], ptr %70, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
   store i8 %103, ptr %104, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

@@ -896,7 +896,7 @@ if.end107:                                        ; preds = %for.cond.preheader,
 if.then114:                                       ; preds = %if.end107
   %add111 = add nuw nsw i32 %rem, %t.0317
   %idxprom = zext nneg i32 %add111 to i64
-  %arrayidx = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr @uv__idna_toascii_label.alphabet, i64 %idxprom
   %33 = load i8, ptr %arrayidx, align 1
   %incdec.ptr115 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %incdec.ptr115, ptr %d, align 8
@@ -920,7 +920,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.then120:                                       ; preds = %for.end
   %idxprom121 = zext nneg i32 %q.0.lcssa to i64
-  %arrayidx122 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %idxprom121
+  %arrayidx122 = getelementptr inbounds nuw i8, ptr @uv__idna_toascii_label.alphabet, i64 %idxprom121
   %36 = load i8, ptr %arrayidx122, align 1
   %incdec.ptr123 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %incdec.ptr123, ptr %d, align 8

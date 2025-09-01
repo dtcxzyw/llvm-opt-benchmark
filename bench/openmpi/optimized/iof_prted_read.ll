@@ -61,7 +61,7 @@ define void @prte_iof_prted_read_handler(i32 noundef %0, i16 noundef signext %1,
 
 14:                                               ; preds = %3
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %15, i32 2
+  %16 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %15, i32 2
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.thread, label %29
@@ -303,7 +303,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
 
 124:                                              ; preds = %122
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %125, i32 2
+  %126 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %125, i32 2
   %127 = load i32, ptr %126, align 4, !tbaa !27
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %129, label %132
@@ -321,7 +321,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
 
 134:                                              ; preds = %132
   %135 = zext nneg i32 %133 to i64
-  %136 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %135, i32 2
+  %136 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %135, i32 2
   %137 = load i32, ptr %136, align 4, !tbaa !27
   %138 = icmp sgt i32 %137, 1
   br i1 %138, label %139, label %142
@@ -550,7 +550,7 @@ pmix_obj_run_destructors.exit162:                 ; preds = %.lr.ph.i159, %209
 
 248:                                              ; preds = %238
   %249 = zext nneg i32 %247 to i64
-  %250 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %249, i32 2
+  %250 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %249, i32 2
   %251 = load i32, ptr %250, align 4, !tbaa !27
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %253, label %257

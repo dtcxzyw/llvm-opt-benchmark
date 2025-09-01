@@ -821,7 +821,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
   %4 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %1, i64 0, i64 %6
+  %7 = getelementptr inbounds %"struct.metaspace::InUseChunkStats", ptr %1, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %7, align 8

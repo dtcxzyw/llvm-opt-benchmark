@@ -2225,7 +2225,7 @@ define hidden noundef nonnull ptr @pm_node_type_to_str(i16 noundef zeroext %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [151 x ptr], ptr @switch.table.pm_node_type_to_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pm_node_type_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

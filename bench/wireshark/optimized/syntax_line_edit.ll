@@ -2335,8 +2335,8 @@ _ZN7QString7prependEPKc.exit:                     ; preds = %_ZN7QString7prepend
   %80 = getelementptr i16, ptr %79, i64 %77
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
-  %switch.tableidx76 = add i16 %81, -9
-  %83 = icmp ult i16 %switch.tableidx76, 24
+  %switch.tableidx75 = add i16 %81, -9
+  %83 = icmp ult i16 %switch.tableidx75, 24
   br i1 %83, label %switch.hole_check77, label %84
 
 84:                                               ; preds = %switch.hole_check77, %75
@@ -2355,7 +2355,7 @@ _ZN7QString7prependEPKc.exit:                     ; preds = %_ZN7QString7prepend
   br label %switch.lookup78
 
 switch.hole_check77:                              ; preds = %75
-  %switch.maskindex79 = zext nneg i16 %switch.tableidx76 to i32
+  %switch.maskindex79 = zext nneg i16 %switch.tableidx75 to i32
   %switch.shifted80 = lshr i32 8388639, %switch.maskindex79
   %switch.lobit81 = trunc i32 %switch.shifted80 to i1
   br i1 %switch.lobit81, label %switch.lookup78, label %84

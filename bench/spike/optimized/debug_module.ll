@@ -899,7 +899,7 @@ define noundef zeroext i1 @_ZN14debug_module_t5storeEmmPKh(ptr noundef nonnull a
 
 _ZNK14debug_module_t14hart_availableEj.exit:      ; preds = %70
   %73 = and i64 %61, 1
-  %74 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !10, !range !14, !noundef !15
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %_ZNK14debug_module_t14hart_availableEj.exit.thread, label %79
@@ -948,7 +948,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %.loopexit
 
 103:                                              ; preds = %_ZNK14debug_module_t16selected_hart_idEv.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %105 = getelementptr inbounds nuw [1024 x i8], ptr %104, i64 0, i64 %.038
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.038
   %106 = load i8, ptr %105, align 1, !tbaa !67
   %107 = and i8 %106, 1
   %108 = icmp eq i8 %107, 0
@@ -961,7 +961,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %.loopexit
 
 111:                                              ; preds = %32
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %113 = getelementptr inbounds nuw [1024 x i8], ptr %112, i64 0, i64 %.038
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.038
   %114 = load i8, ptr %113, align 1, !tbaa !67
   %115 = and i8 %114, -2
   store i8 %115, ptr %113, align 1, !tbaa !67
@@ -975,7 +975,7 @@ _ZNK14debug_module_t16selected_hart_idEv.exit:    ; preds = %.loopexit
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store i8 1, ptr %120, align 1, !tbaa !202
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %122 = getelementptr inbounds nuw [1024 x i8], ptr %121, i64 0, i64 %.038
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %.038
   %123 = load i8, ptr %122, align 1, !tbaa !67
   %124 = and i8 %123, -3
   store i8 %124, ptr %122, align 1, !tbaa !67
@@ -1013,7 +1013,7 @@ define noundef zeroext i1 @_ZNK14debug_module_t14hart_availableEj(ptr noundef no
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %7 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   %8 = load i8, ptr %7, align 1, !tbaa !10, !range !14, !noundef !15
   %9 = trunc nuw i8 %8 to i1
   br label %10
@@ -1222,14 +1222,14 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %28 = lshr i64 %17, 12
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 39056
   %30 = and i64 %28, 255
-  %31 = getelementptr inbounds nuw [256 x i64], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !47
   %33 = icmp eq i64 %32, %28
   br i1 %33, label %34, label %40, !prof !212
 
 34:                                               ; preds = %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32912
-  %36 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %35, i64 0, i64 %30
+  %36 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %35, i64 %30
   %37 = load ptr, ptr %36, align 8, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %17
   %39 = load i8, ptr %38, align 1
@@ -1299,7 +1299,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %.not126 = icmp eq i64 %64, 0
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 39056
   %66 = and i64 %63, 255
-  %67 = getelementptr inbounds nuw [256 x i64], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %65, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !47
   %69 = icmp eq i64 %68, %63
   %or.cond.i = select i1 %.not126, i1 %69, i1 false
@@ -1307,7 +1307,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
 
 70:                                               ; preds = %.noexc53
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 32912
-  %72 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %71, i64 0, i64 %66
+  %72 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %71, i64 %66
   %73 = load ptr, ptr %72, align 8, !tbaa !213
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %17
   %75 = load i16, ptr %74, align 2
@@ -1371,7 +1371,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %.not125 = icmp eq i64 %97, 0
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 39056
   %99 = and i64 %96, 255
-  %100 = getelementptr inbounds nuw [256 x i64], ptr %98, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw i64, ptr %98, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !47
   %102 = icmp eq i64 %101, %96
   %or.cond.i59 = select i1 %.not125, i1 %102, i1 false
@@ -1379,7 +1379,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
 
 103:                                              ; preds = %.noexc65
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 32912
-  %105 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %104, i64 0, i64 %99
+  %105 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %104, i64 %99
   %106 = load ptr, ptr %105, align 8, !tbaa !213
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %17
   %108 = load i32, ptr %107, align 4
@@ -1442,7 +1442,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
   %.not = icmp eq i64 %129, 0
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 39056
   %131 = and i64 %128, 255
-  %132 = getelementptr inbounds nuw [256 x i64], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %130, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !47
   %134 = icmp eq i64 %133, %128
   %or.cond.i71 = select i1 %.not, i1 %134, i1 false
@@ -1450,7 +1450,7 @@ define void @_ZN14debug_module_t7sb_readEv(ptr noundef nonnull align 8 captures(
 
 135:                                              ; preds = %.noexc77
   %136 = getelementptr inbounds nuw i8, ptr %127, i64 32912
-  %137 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %136, i64 0, i64 %131
+  %137 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %136, i64 %131
   %138 = load ptr, ptr %137, align 8, !tbaa !213
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %17
   %140 = load i64, ptr %139, align 8
@@ -1600,14 +1600,14 @@ define void @_ZN14debug_module_t8sb_writeEv(ptr noundef nonnull align 8 captures
   %32 = lshr i64 %17, 12
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 41104
   %34 = and i64 %32, 255
-  %35 = getelementptr inbounds nuw [256 x i64], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !47
   %37 = icmp eq i64 %36, %32
   br i1 %37, label %.noexc, label %.noexc42, !prof !249
 
 .noexc:                                           ; preds = %24
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32912
-  %39 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %38, i64 0, i64 %34
+  %39 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !213
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %17
   store i8 %31, ptr %41, align 1
@@ -1689,7 +1689,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
   %74 = lshr i64 %17, 12
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 41104
   %76 = and i64 %74, 255
-  %77 = getelementptr inbounds nuw [256 x i64], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !47
   %79 = icmp eq i64 %78, %74
   %80 = and i64 %16, 1
@@ -1699,7 +1699,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
 
 .noexc47:                                         ; preds = %66
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 32912
-  %84 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %83, i64 0, i64 %76
+  %84 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %83, i64 %76
   %85 = load ptr, ptr %84, align 8, !tbaa !213
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %17
   store i16 %73, ptr %86, align 2
@@ -1760,7 +1760,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
   %109 = lshr i64 %17, 12
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 41104
   %111 = and i64 %109, 255
-  %112 = getelementptr inbounds nuw [256 x i64], ptr %110, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !47
   %114 = icmp eq i64 %113, %109
   %115 = and i64 %16, 3
@@ -1770,7 +1770,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
 
 .noexc53:                                         ; preds = %102
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 32912
-  %119 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %118, i64 0, i64 %111
+  %119 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %118, i64 %111
   %120 = load ptr, ptr %119, align 8, !tbaa !213
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %17
   store i32 %108, ptr %121, align 4
@@ -1836,7 +1836,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
   %150 = lshr i64 %17, 12
   %151 = getelementptr inbounds nuw i8, ptr %141, i64 41104
   %152 = and i64 %150, 255
-  %153 = getelementptr inbounds nuw [256 x i64], ptr %151, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %151, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !47
   %155 = icmp eq i64 %154, %150
   %156 = and i64 %16, 7
@@ -1846,7 +1846,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %.noexc62, %166, %16
 
 .noexc59:                                         ; preds = %137
   %159 = getelementptr inbounds nuw i8, ptr %141, i64 32912
-  %160 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %159, i64 0, i64 %152
+  %160 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %159, i64 %152
   %161 = load ptr, ptr %160, align 8, !tbaa !213
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %17
   store i64 %149, ptr %162, align 8
@@ -2347,7 +2347,7 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit: ; preds = 
 
 _ZNK14debug_module_t14hart_availableEj.exit:      ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit
   %298 = and i64 %286, 1
-  %299 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr %120, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !10, !range !14, !noundef !15
   %301 = trunc nuw i8 %300 to i1
   br i1 %301, label %_ZNK14debug_module_t14hart_availableEj.exit.thread, label %302
@@ -2724,7 +2724,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit134: ; preds = %528
   %557 = phi i1 [ true, %.preheader ], [ false, %556 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %556 ]
   %.3148 = phi i32 [ 0, %.preheader ], [ %563, %556 ]
-  %558 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 0, i64 %indvars.iv
+  %558 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
   %559 = load i8, ptr %558, align 1, !tbaa !10, !range !14, !noundef !15
   %560 = zext nneg i8 %559 to i32
   %561 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2768,7 +2768,7 @@ define noundef zeroext i1 @_ZN14debug_module_t24perform_abstract_commandEv(ptr n
 _ZNK14debug_module_t14hart_availableEj.exit:      ; preds = %9
   %13 = zext nneg i32 %11 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   %16 = load i8, ptr %15, align 1, !tbaa !10, !range !14, !noundef !15
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %_ZNK14debug_module_t14hart_availableEj.exit.thread, label %18
@@ -3162,7 +3162,7 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   store i32 %.sink143, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %218 = tail call noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr noundef nonnull align 8 dereferenceable(1372) %0)
-  %219 = getelementptr inbounds nuw [1024 x i8], ptr %217, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !67
   %221 = or i8 %220, 1
   store i8 %221, ptr %219, align 1, !tbaa !67
@@ -3640,7 +3640,7 @@ _ZNK14debug_module_t13hart_selectedEj.exit.thread: ; preds = %_ZNK14debug_module
 
 _ZNK14debug_module_t14hart_availableEj.exit:      ; preds = %182
   %186 = and i64 %183, 1
-  %187 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i8, ptr %137, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !10, !range !14, !noundef !15
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %_ZNK14debug_module_t14hart_availableEj.exit.thread, label %190
@@ -3665,13 +3665,13 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %_ZNK14debug_modul
 
 _ZNK14debug_module_t14hart_availableEj.exit113:   ; preds = %195
   %199 = and i64 %196, 1
-  %200 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr %137, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !10, !range !14, !noundef !15
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %_ZNK14debug_module_t14hart_availableEj.exit113.thread, label %209
 
 _ZNK14debug_module_t14hart_availableEj.exit113.thread: ; preds = %195, %_ZNK14debug_module_t14hart_availableEj.exit113
-  %203 = getelementptr inbounds nuw [1024 x i8], ptr %138, i64 0, i64 %196
+  %203 = getelementptr inbounds nuw i8, ptr %138, i64 %196
   %204 = load i8, ptr %203, align 1, !tbaa !67
   %205 = or i8 %204, 2
   store i8 %205, ptr %203, align 1, !tbaa !67
@@ -3694,7 +3694,7 @@ _ZNK14debug_module_t14hart_availableEj.exit113.thread: ; preds = %195, %_ZNK14de
 
 _ZNK14debug_module_t14hart_availableEj.exit115:   ; preds = %212
   %216 = and i64 %213, 1
-  %217 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr %137, i64 %216
   %218 = load i8, ptr %217, align 1, !tbaa !10, !range !14, !noundef !15
   %219 = trunc nuw i8 %218 to i1
   br i1 %219, label %_ZNK14debug_module_t14hart_availableEj.exit115.thread, label %_ZNK14debug_module_t13hart_selectedEj.exit.thread131

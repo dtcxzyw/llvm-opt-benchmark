@@ -840,7 +840,7 @@ stream_blob.exit.i.i:                             ; preds = %327, %321
 
 355:                                              ; preds = %.preheader205, %357
   %.0811.i.i.i.i.i = phi i64 [ %358, %357 ], [ 0, %.preheader205 ]
-  %356 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i.i
+  %356 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %347, %356
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %357
 
@@ -888,7 +888,7 @@ oidread.exit.i.i.i:                               ; preds = %357, %.split.loop.e
 
 377:                                              ; preds = %379, %371
   %.0811.i.i80.i.i.i = phi i64 [ 0, %371 ], [ %380, %379 ]
-  %378 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i80.i.i.i
+  %378 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i80.i.i.i
   %.not.i.i81.i.i.i = icmp eq ptr %376, %378
   br i1 %.not.i.i81.i.i.i, label %.split.loop.exit9.i.i84.i.i.i, label %379
 
@@ -1225,7 +1225,7 @@ use.exit93.i.i.i:                                 ; preds = %484
 
 526:                                              ; preds = %528, %.critedge.i.i.i
   %.0811.i.i95.i.i.i = phi i64 [ 0, %.critedge.i.i.i ], [ %529, %528 ]
-  %527 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i95.i.i.i
+  %527 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i95.i.i.i
   %.not.i.i96.i.i.i = icmp eq ptr %525, %527
   br i1 %.not.i.i96.i.i.i, label %.split.loop.exit9.i.i99.i.i.i, label %528
 

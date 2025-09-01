@@ -1281,7 +1281,7 @@ dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.
   %or.cond.i.i.i = icmp eq i32 %520, 2
   %521 = load ptr, ptr %22, align 8
   %522 = zext nneg i32 %519 to i64
-  %523 = getelementptr [6 x %struct._value_string], ptr @zbee_tlv_local_types_joined_status_str, i64 0, i64 %522, i32 1
+  %523 = getelementptr %struct._value_string, ptr @zbee_tlv_local_types_joined_status_str, i64 %522, i32 1
   %524 = load ptr, ptr %523, align 8
   br i1 %or.cond.i.i.i, label %525, label %530
 

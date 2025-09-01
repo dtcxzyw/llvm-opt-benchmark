@@ -142,10 +142,10 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
 82:                                               ; preds = %82, %.thread
   %83 = phi i64 [ 0, %.thread ], [ %89, %82 ]
   %84 = phi i32 [ 0, %.thread ], [ %87, %82 ]
-  %85 = getelementptr [13 x i32], ptr %3, i64 0, i64 %83
+  %85 = getelementptr i32, ptr %3, i64 %83
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, %84
-  %88 = getelementptr [13 x i32], ptr %74, i64 0, i64 %83
+  %88 = getelementptr i32, ptr %74, i64 %83
   store i32 %84, ptr %88, align 4
   %89 = add nuw nsw i64 %83, 1
   %90 = icmp eq i64 %89, %75
@@ -173,16 +173,16 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
 102:                                              ; preds = %102, %91
   %103 = phi i64 [ 0, %91 ], [ %114, %102 ]
   %104 = or disjoint i64 %103, %92
-  %105 = getelementptr [256 x i8], ptr %12, i64 0, i64 %104
+  %105 = getelementptr i8, ptr %12, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i64
   %108 = trunc i64 %104 to i8
-  %109 = getelementptr [13 x i32], ptr %74, i64 0, i64 %107
+  %109 = getelementptr i32, ptr %74, i64 %107
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
   %112 = zext i32 %110 to i64
-  %113 = getelementptr [256 x i8], ptr %80, i64 0, i64 %112
+  %113 = getelementptr i8, ptr %80, i64 %112
   store i8 %108, ptr %113, align 1
   %114 = add nuw nsw i64 %103, 1
   %115 = icmp eq i64 %114, 4
@@ -195,16 +195,16 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
 
 119:                                              ; preds = %119, %98
   %120 = phi i64 [ %100, %98 ], [ %130, %119 ]
-  %121 = getelementptr [256 x i8], ptr %12, i64 0, i64 %120
+  %121 = getelementptr i8, ptr %12, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   %124 = trunc i64 %120 to i8
-  %125 = getelementptr [13 x i32], ptr %74, i64 0, i64 %123
+  %125 = getelementptr i32, ptr %74, i64 %123
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 4
   %128 = zext i32 %126 to i64
-  %129 = getelementptr [256 x i8], ptr %99, i64 0, i64 %128
+  %129 = getelementptr i8, ptr %99, i64 %128
   store i8 %124, ptr %129, align 1
   %130 = add nuw nsw i64 %120, 1
   %131 = icmp eq i64 %130, %101
@@ -219,7 +219,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %135 = phi i64 [ 1, %.loopexit23 ], [ %265, %.loopexit17 ]
   %136 = phi i32 [ 0, %.loopexit23 ], [ %264, %.loopexit17 ]
   %137 = phi i32 [ %132, %.loopexit23 ], [ %262, %.loopexit17 ]
-  %138 = getelementptr [13 x i32], ptr %3, i64 0, i64 %135
+  %138 = getelementptr i32, ptr %3, i64 %135
   %139 = load i32, ptr %138, align 4
   %140 = trunc i64 %135 to i32
   %141 = shl nuw i32 1, %140
@@ -283,7 +283,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %172 = trunc i64 %170 to i32
   %173 = add i32 %137, %172
   %174 = sext i32 %173 to i64
-  %175 = getelementptr [256 x i8], ptr %133, i64 0, i64 %174
+  %175 = getelementptr i8, ptr %133, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = sext i32 %171 to i64
   %178 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %177
@@ -301,7 +301,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %186 = trunc i64 %184 to i32
   %187 = add i32 %137, %186
   %188 = sext i32 %187 to i64
-  %189 = getelementptr [256 x i8], ptr %133, i64 0, i64 %188
+  %189 = getelementptr i8, ptr %133, i64 %188
   %190 = load i8, ptr %189, align 1
   %191 = sext i32 %185 to i64
   %192 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %191
@@ -325,7 +325,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %204 = trunc i64 %202 to i32
   %205 = add i32 %137, %204
   %206 = sext i32 %205 to i64
-  %207 = getelementptr [256 x i8], ptr %133, i64 0, i64 %206
+  %207 = getelementptr i8, ptr %133, i64 %206
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i64
   %210 = shl nuw nsw i64 %209, 8
@@ -345,7 +345,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %221 = trunc i64 %219 to i32
   %222 = add i32 %137, %221
   %223 = sext i32 %222 to i64
-  %224 = getelementptr [256 x i8], ptr %133, i64 0, i64 %223
+  %224 = getelementptr i8, ptr %133, i64 %223
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i64
   %227 = shl nuw nsw i64 %226, 8
@@ -367,7 +367,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %239 = trunc i64 %237 to i32
   %240 = add i32 %137, %239
   %241 = sext i32 %240 to i64
-  %242 = getelementptr [256 x i8], ptr %133, i64 0, i64 %241
+  %242 = getelementptr i8, ptr %133, i64 %241
   %243 = load i8, ptr %242, align 1
   %244 = zext i8 %243 to i64
   %245 = shl nuw nsw i64 %244, 8
@@ -2375,7 +2375,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %34 = phi i32 [ %41, %31 ], [ %30, %29 ]
   %35 = phi i32 [ %40, %31 ], [ %27, %29 ]
   %36 = zext i32 %35 to i64
-  %37 = getelementptr [13 x i32], ptr %19, i64 0, i64 %36
+  %37 = getelementptr i32, ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   %40 = add i32 %35, -1
@@ -2400,7 +2400,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 53:                                               ; preds = %53, %51
   %54 = phi i64 [ 1, %51 ], [ %60, %53 ]
   %55 = phi i32 [ 0, %51 ], [ %58, %53 ]
-  %56 = getelementptr [13 x i32], ptr %19, i64 0, i64 %54
+  %56 = getelementptr i32, ptr %19, i64 %54
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, %55
   %59 = getelementptr i32, ptr %18, i64 %54
@@ -2426,7 +2426,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 70:                                               ; preds = %70, %67
   %71 = phi i64 [ 0, %67 ], [ %81, %70 ]
-  %72 = getelementptr [256 x i8], ptr %22, i64 0, i64 %71
+  %72 = getelementptr i8, ptr %22, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
   %75 = getelementptr i32, ptr %18, i64 %74
@@ -2435,7 +2435,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i32 %77, ptr %75, align 4
   %78 = trunc i64 %71 to i8
   %79 = zext i32 %76 to i64
-  %80 = getelementptr [256 x %struct.sortedSymbol_t], ptr %68, i64 0, i64 %79
+  %80 = getelementptr %struct.sortedSymbol_t, ptr %68, i64 %79
   store i8 %78, ptr %80, align 1
   %81 = add nuw nsw i64 %71, 1
   %82 = icmp eq i64 %81, %69
@@ -2454,7 +2454,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 87:                                               ; preds = %87, %85
   %88 = phi i64 [ 1, %85 ], [ %97, %87 ]
   %89 = phi i32 [ 0, %85 ], [ %95, %87 ]
-  %90 = getelementptr [13 x i32], ptr %19, i64 0, i64 %88
+  %90 = getelementptr i32, ptr %19, i64 %88
   %91 = load i32, ptr %90, align 4
   %92 = trunc i64 %88 to i32
   %93 = add i32 %84, %92
@@ -2481,7 +2481,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 .split.us:                                        ; preds = %.split.us.preheader, %.loopexit24.us
   %106 = phi i64 [ %117, %.loopexit24.us ], [ %104, %.split.us.preheader ]
-  %107 = getelementptr [12 x [13 x i32]], ptr %3, i64 0, i64 %106
+  %107 = getelementptr [13 x i32], ptr %3, i64 %106
   %108 = trunc i64 %106 to i32
   br label %109
 
@@ -6124,7 +6124,7 @@ define dso_local range(i32 0, 2) i32 @HUF_selectDecoder(i64 noundef %0, i64 noun
   %9 = phi i64 [ %7, %4 ], [ 15, %2 ]
   %10 = lshr i64 %0, 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr [16 x [2 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %9
+  %12 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %9
   %13 = load i32, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
@@ -6166,7 +6166,7 @@ define dso_local i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef %0, ptr noundef 
   %18 = phi i64 [ %16, %13 ], [ 15, %11 ]
   %19 = lshr i64 %2, 8
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr [16 x [2 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %18
+  %21 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %18
   %22 = load i32, ptr %21, align 16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
@@ -6258,7 +6258,7 @@ define dso_local i64 @HUF_decompress1X_DCtx_wksp(ptr noundef %0, ptr noundef %1,
   %25 = phi i64 [ %23, %20 ], [ 15, %18 ]
   %26 = lshr i64 %2, 8
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr [16 x [2 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %25
+  %28 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %25
   %29 = load i32, ptr %28, align 16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4
@@ -6394,7 +6394,7 @@ define dso_local i64 @HUF_decompress4X_hufOnly_wksp_bmi2(ptr noundef %0, ptr nou
   %19 = phi i64 [ %17, %14 ], [ 15, %12 ]
   %20 = lshr i64 %2, 8
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr [16 x [2 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %19
+  %22 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %19
   %23 = load i32, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4

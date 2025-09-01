@@ -172,7 +172,7 @@ sub_046:                                          ; preds = %.tail.thread
 
 27:                                               ; preds = %24
   %28 = zext i8 %strcmpload to i64
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !12
   %31 = and i8 %30, 2
   %.not41 = icmp eq i8 %31, 0
@@ -454,7 +454,7 @@ define dso_local i64 @trace_performance_enter() local_unnamed_addr #0 {
   %3 = tail call i64 @getnanotime()
   %4 = load i32, ptr @perf_indent, align 4, !tbaa !13
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %5
+  %6 = getelementptr inbounds i64, ptr @perf_start_times, i64 %5
   store i64 %3, ptr %6, align 8, !tbaa !21
   %7 = add nsw i32 %4, 1
   %8 = icmp ult i32 %7, 10
@@ -844,7 +844,7 @@ define dso_local void @trace_performance_leave_fl(ptr noundef %0, i32 noundef %1
   br i1 %.not6, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %11
+  %13 = getelementptr inbounds i64, ptr @perf_start_times, i64 %11
   %14 = load i64, ptr %13, align 8, !tbaa !21
   call void @llvm.va_start.p0(ptr nonnull %5)
   %15 = sub i64 %2, %14
@@ -1072,7 +1072,7 @@ strbuf_setlen.exit:                               ; preds = %7, %9
   %12 = tail call i64 @getnanotime()
   %13 = load i32, ptr @perf_indent, align 4, !tbaa !13
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [10 x i64], ptr @perf_start_times, i64 0, i64 %14
+  %15 = getelementptr inbounds i64, ptr @perf_start_times, i64 %14
   store i64 %12, ptr %15, align 8, !tbaa !21
   %16 = add nsw i32 %13, 1
   %17 = icmp ult i32 %16, 10

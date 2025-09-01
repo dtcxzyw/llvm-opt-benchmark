@@ -1795,49 +1795,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %226, %224, %220, %2
 
 .lr.ph.i4.i.i:                                    ; preds = %.lr.ph.i4.i.i, %.lr.ph.preheader.i.i.i
   %.020.i.i.i = phi i64 [ %240, %.lr.ph.i4.i.i ], [ %213, %.lr.ph.preheader.i.i.i ]
-  %.01819.i.i.i = phi i32 [ %251, %.lr.ph.i4.i.i ], [ %237, %.lr.ph.preheader.i.i.i ]
+  %.01819.i.i.i = phi i32 [ %250, %.lr.ph.i4.i.i ], [ %237, %.lr.ph.preheader.i.i.i ]
   %238 = urem i64 %.020.i.i.i, 100
   %239 = shl nuw nsw i64 %238, 1
   %240 = udiv i64 %.020.i.i.i, 100
-  %241 = or disjoint i64 %239, 1
-  %242 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %241
+  %241 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %239
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 1
   %243 = load i8, ptr %242, align 1, !tbaa !24, !noalias !82
   %244 = zext i32 %.01819.i.i.i to i64
   %245 = getelementptr inbounds nuw i8, ptr %232, i64 %244
   store i8 %243, ptr %245, align 1, !tbaa !24
-  %246 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %239
-  %247 = load i8, ptr %246, align 2, !tbaa !24, !noalias !82
-  %248 = add i32 %.01819.i.i.i, -1
-  %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw i8, ptr %232, i64 %249
-  store i8 %247, ptr %250, align 1, !tbaa !24
-  %251 = add i32 %.01819.i.i.i, -2
-  %252 = icmp ugt i64 %.020.i.i.i, 9999
-  br i1 %252, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !83
+  %246 = load i8, ptr %241, align 2, !tbaa !24, !noalias !82
+  %247 = add i32 %.01819.i.i.i, -1
+  %248 = zext i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %232, i64 %248
+  store i8 %246, ptr %249, align 1, !tbaa !24
+  %250 = add i32 %.01819.i.i.i, -2
+  %251 = icmp ugt i64 %.020.i.i.i, 9999
+  br i1 %251, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !83
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
   %.0.lcssa.i.i.i = phi i64 [ %213, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %240, %.lr.ph.i4.i.i ]
-  %253 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
-  br i1 %253, label %254, label %262
+  %252 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
+  br i1 %252, label %253, label %260
 
-254:                                              ; preds = %._crit_edge.i.i.i
-  %255 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %256 = or disjoint i64 %255, 1
-  %257 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %256
-  %258 = load i8, ptr %257, align 1, !tbaa !24, !noalias !82
-  %259 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  store i8 %258, ptr %259, align 1, !tbaa !24
-  %260 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %255
-  %261 = load i8, ptr %260, align 2, !tbaa !24, !noalias !82
+253:                                              ; preds = %._crit_edge.i.i.i
+  %254 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %255 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %254
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 1
+  %257 = load i8, ptr %256, align 1, !tbaa !24, !noalias !82
+  %258 = getelementptr inbounds nuw i8, ptr %232, i64 1
+  store i8 %257, ptr %258, align 1, !tbaa !24
+  %259 = load i8, ptr %255, align 2, !tbaa !24, !noalias !82
   br label %_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-262:                                              ; preds = %._crit_edge.i.i.i
-  %263 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
-  %264 = or disjoint i8 %263, 48
+260:                                              ; preds = %._crit_edge.i.i.i
+  %261 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
+  %262 = or disjoint i8 %261, 48
   br label %_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %254, %262
-  %storemerge.i.i.i = phi i8 [ %264, %262 ], [ %261, %254 ]
+_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %253, %260
+  %storemerge.i.i.i = phi i8 [ %262, %260 ], [ %259, %253 ]
   store i8 %storemerge.i.i.i, ptr %232, align 1, !tbaa !24
   ret void
 }
@@ -2315,49 +2313,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %69, %67, %63, %59, 
 
 .lr.ph.i4.i.i:                                    ; preds = %.lr.ph.i4.i.i, %.lr.ph.preheader.i.i.i
   %.020.i.i.i = phi i64 [ %83, %.lr.ph.i4.i.i ], [ %56, %.lr.ph.preheader.i.i.i ]
-  %.01819.i.i.i = phi i32 [ %94, %.lr.ph.i4.i.i ], [ %80, %.lr.ph.preheader.i.i.i ]
+  %.01819.i.i.i = phi i32 [ %93, %.lr.ph.i4.i.i ], [ %80, %.lr.ph.preheader.i.i.i ]
   %81 = urem i64 %.020.i.i.i, 100
   %82 = shl nuw nsw i64 %81, 1
   %83 = udiv i64 %.020.i.i.i, 100
-  %84 = or disjoint i64 %82, 1
-  %85 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %84
+  %84 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %86 = load i8, ptr %85, align 1, !tbaa !24, !noalias !95
   %87 = zext i32 %.01819.i.i.i to i64
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 %87
   store i8 %86, ptr %88, align 1, !tbaa !24
-  %89 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %82
-  %90 = load i8, ptr %89, align 2, !tbaa !24, !noalias !95
-  %91 = add i32 %.01819.i.i.i, -1
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %75, i64 %92
-  store i8 %90, ptr %93, align 1, !tbaa !24
-  %94 = add i32 %.01819.i.i.i, -2
-  %95 = icmp ugt i64 %.020.i.i.i, 9999
-  br i1 %95, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !83
+  %89 = load i8, ptr %84, align 2, !tbaa !24, !noalias !95
+  %90 = add i32 %.01819.i.i.i, -1
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %75, i64 %91
+  store i8 %89, ptr %92, align 1, !tbaa !24
+  %93 = add i32 %.01819.i.i.i, -2
+  %94 = icmp ugt i64 %.020.i.i.i, 9999
+  br i1 %94, label %.lr.ph.i4.i.i, label %._crit_edge.i.i.i, !llvm.loop !83
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i4.i.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
   %.0.lcssa.i.i.i = phi i64 [ %56, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %83, %.lr.ph.i4.i.i ]
-  %96 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
-  br i1 %96, label %97, label %105
+  %95 = icmp samesign ugt i64 %.0.lcssa.i.i.i, 9
+  br i1 %95, label %96, label %103
 
-97:                                               ; preds = %._crit_edge.i.i.i
-  %98 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %99 = or disjoint i64 %98, 1
-  %100 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !24, !noalias !95
-  %102 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store i8 %101, ptr %102, align 1, !tbaa !24
-  %103 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %98
-  %104 = load i8, ptr %103, align 2, !tbaa !24, !noalias !95
+96:                                               ; preds = %._crit_edge.i.i.i
+  %97 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %98 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !24, !noalias !95
+  %101 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  store i8 %100, ptr %101, align 1, !tbaa !24
+  %102 = load i8, ptr %98, align 2, !tbaa !24, !noalias !95
   br label %_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-105:                                              ; preds = %._crit_edge.i.i.i
-  %106 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
-  %107 = or disjoint i8 %106, 48
+103:                                              ; preds = %._crit_edge.i.i.i
+  %104 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
+  %105 = or disjoint i8 %104, 48
   br label %_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
-_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %97, %105
-  %storemerge.i.i.i = phi i8 [ %107, %105 ], [ %104, %97 ]
+_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit: ; preds = %96, %103
+  %storemerge.i.i.i = phi i8 [ %105, %103 ], [ %102, %96 ]
   store i8 %storemerge.i.i.i, ptr %75, align 1, !tbaa !24
   ret void
 }

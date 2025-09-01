@@ -126,7 +126,7 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %48 = add i32 %.sroa.6.046, 3
   %49 = call i32 @llvm.umin.i32(i32 %21, i32 %48)
   %50 = zext nneg i32 %47 to i64
-  %51 = getelementptr inbounds nuw [8 x float], ptr @amptable, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw float, ptr @amptable, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !46
   %53 = lshr i32 %49, 3
   %54 = zext nneg i32 %53 to i64
@@ -142,7 +142,7 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %58 = sub nuw nsw i64 9, %indvars.iv.i
   %59 = getelementptr inbounds nuw float, ptr %29, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !46
-  %61 = getelementptr inbounds nuw [16 x float], ptr %31, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4, !tbaa !46
   %63 = fneg nsz float %60
   %64 = call nsz float @llvm.fmuladd.f32(float %63, float %62, float %.02728.i)
@@ -169,17 +169,17 @@ define internal i32 @ra288_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %79 = fmul nsz double %77, %78
   %80 = fmul nsz double %79, 0x3E80000000000000
   %81 = zext nneg i32 %71 to i64
-  %82 = getelementptr inbounds nuw [128 x [5 x i16]], ptr @codetable, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [5 x i16], ptr @codetable, i64 %81
   br label %83
 
 83:                                               ; preds = %83, %65
   %indvars.iv32.i = phi i64 [ 0, %65 ], [ %indvars.iv.next33.i, %83 ]
-  %84 = getelementptr inbounds nuw [5 x i16], ptr %82, i64 0, i64 %indvars.iv32.i
+  %84 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv32.i
   %85 = load i16, ptr %84, align 2, !tbaa !49
   %86 = sitofp i16 %85 to double
   %87 = fmul nsz double %80, %86
   %88 = fptrunc nsz double %87 to float
-  %89 = getelementptr inbounds nuw [5 x float], ptr %5, i64 0, i64 %indvars.iv32.i
+  %89 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv32.i
   store float %88, ptr %89, align 4, !tbaa !46
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, 5
@@ -295,13 +295,13 @@ convolve.exit32.i:                                ; preds = %convolve.exit32.i, 
   %34 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %35 = load float, ptr %34, align 4, !tbaa !46
   %36 = fpext nsz float %35 to double
-  %37 = getelementptr inbounds nuw [37 x float], ptr %11, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4, !tbaa !46
   %39 = fpext nsz float %38 to double
   %40 = call nsz double @llvm.fmuladd.f64(double %36, double 5.625000e-01, double %39)
   %41 = fptrunc nsz double %40 to float
   store float %41, ptr %34, align 4, !tbaa !46
-  %42 = getelementptr inbounds nuw [37 x float], ptr %12, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4, !tbaa !46
   %44 = fadd nsz float %43, %41
   %45 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i

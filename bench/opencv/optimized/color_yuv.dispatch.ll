@@ -360,9 +360,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoYUVEPKhmPhmiiiibb(ptr noun
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline11cvtBGRtoYUVEPKhmPhmiiiibbE26__cv_trace_location_fn1981)
   %21 = select i1 %8, i32 2, i32 0
   %22 = zext i1 %9 to i8
-  switch i32 %6, label %59 [
+  switch i32 %6, label %63 [
     i32 0, label %23
-    i32 2, label %41
+    i32 2, label %43
   ]
 
 23:                                               ; preds = %10
@@ -372,226 +372,205 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoYUVEPKhmPhmiiiibb(ptr noun
   store i32 %21, ptr %24, align 4, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i8 %22, ptr %25, align 4, !tbaa !10
+  %.in.v.i = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_crb, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_yuv
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  br i1 %9, label %.split.us.i.preheader, label %.split.i.preheader
-
-.split.i.preheader:                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_yuv, i64 20, i1 false), !tbaa !11
-  br label %.split10.us.i
-
-.split.us.i.preheader:                            ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_crb, i64 20, i1 false), !tbaa !11
-  br label %.split10.us.i
-
-.split10.us.i:                                    ; preds = %.split.i.preheader, %.split.us.i.preheader
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 16 dereferenceable(20) %.in.v.i, i64 20, i1 false), !tbaa !11
   br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit, label %27
 
-27:                                               ; preds = %.split10.us.i
+27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 1868, ptr %26, align 4, !tbaa !11
-  store i32 4899, ptr %28, align 4, !tbaa !11
+  %29 = load i32, ptr %26, align 4, !tbaa !11
+  %30 = load i32, ptr %28, align 4, !tbaa !11
+  store i32 %30, ptr %26, align 4, !tbaa !11
+  store i32 %29, ptr %28, align 4, !tbaa !11
   br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit
 
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit: ; preds = %.split10.us.i, %27
+_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit: ; preds = %23, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !12
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %5, ptr %29, align 4, !tbaa !14
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %5, ptr %31, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEEEE, i64 16), ptr %16, align 8, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %0, ptr %30, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %1, ptr %31, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %2, ptr %32, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 %3, ptr %33, align 8, !tbaa !26
-  %34 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i32 %4, ptr %34, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr %18, ptr %35, align 8, !tbaa !28
-  %36 = mul nsw i32 %5, %4
-  %37 = sitofp i32 %36 to double
-  %38 = fmul double %37, 0x3EF0000000000000
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %38)
-          to label %40 unwind label %.body
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %0, ptr %32, align 8, !tbaa !17
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %1, ptr %33, align 8, !tbaa !24
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %2, ptr %34, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i64 %3, ptr %35, align 8, !tbaa !26
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i32 %4, ptr %36, align 8, !tbaa !27
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store ptr %18, ptr %37, align 8, !tbaa !28
+  %38 = mul nsw i32 %5, %4
+  %39 = sitofp i32 %38 to double
+  %40 = fmul double %39, 0x3EF0000000000000
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %40)
+          to label %42 unwind label %.body
 
 .body:                                            ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit
-  %39 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %84
+  br label %90
 
-40:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit
+42:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %77
+  br label %83
 
-41:                                               ; preds = %10
+43:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %7, ptr %19, align 4, !tbaa !29
-  %42 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 %21, ptr %42, align 4, !tbaa !31
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i8 %22, ptr %43, align 4, !tbaa !32
-  %44 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  br i1 %9, label %.split.us.i39.preheader, label %.split.i34.preheader
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 %21, ptr %44, align 4, !tbaa !31
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i8 %22, ptr %45, align 4, !tbaa !32
+  %.in.v.i34 = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_crb, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_yuv
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %46, ptr noundef nonnull align 16 dereferenceable(20) %.in.v.i34, i64 20, i1 false), !tbaa !11
+  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit, label %47
 
-.split.i34.preheader:                             ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_yuv, i64 20, i1 false), !tbaa !11
-  br label %.split10.us.i38
-
-.split.us.i39.preheader:                          ; preds = %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC1EiibE10coeffs_crb, i64 20, i1 false), !tbaa !11
-  br label %.split10.us.i38
-
-.split10.us.i38:                                  ; preds = %.split.i34.preheader, %.split.us.i39.preheader
-  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit, label %45
-
-45:                                               ; preds = %.split10.us.i38
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 1868, ptr %44, align 4, !tbaa !11
-  store i32 4899, ptr %46, align 4, !tbaa !11
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %49 = load i32, ptr %46, align 4, !tbaa !11
+  %50 = load i32, ptr %48, align 4, !tbaa !11
+  store i32 %50, ptr %46, align 4, !tbaa !11
+  store i32 %49, ptr %48, align 4, !tbaa !11
   br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
 
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit: ; preds = %.split10.us.i38, %45
+_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit: ; preds = %43, %47
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !12
-  %47 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %5, ptr %47, align 4, !tbaa !14
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %5, ptr %51, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEEEE, i64 16), ptr %14, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %0, ptr %48, align 8, !tbaa !33
-  %49 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %1, ptr %49, align 8, !tbaa !36
-  %50 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %2, ptr %50, align 8, !tbaa !37
-  %51 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %3, ptr %51, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i32 %4, ptr %52, align 8, !tbaa !39
-  %53 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %19, ptr %53, align 8, !tbaa !40
-  %54 = mul nsw i32 %5, %4
-  %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 0x3EF0000000000000
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %56)
-          to label %58 unwind label %.body43
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %0, ptr %52, align 8, !tbaa !33
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i64 %1, ptr %53, align 8, !tbaa !36
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %2, ptr %54, align 8, !tbaa !37
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i64 %3, ptr %55, align 8, !tbaa !38
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store i32 %4, ptr %56, align 8, !tbaa !39
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store ptr %19, ptr %57, align 8, !tbaa !40
+  %58 = mul nsw i32 %5, %4
+  %59 = sitofp i32 %58 to double
+  %60 = fmul double %59, 0x3EF0000000000000
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %60)
+          to label %62 unwind label %.body39
 
-.body43:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
-  %57 = landingpad { ptr, i32 }
+.body39:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %84
+  br label %90
 
-58:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
+62:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %77
+  br label %83
 
-59:                                               ; preds = %10
+63:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %7, ptr %20, align 4, !tbaa !41
-  %60 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %21, ptr %60, align 4, !tbaa !43
-  %61 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i8 %22, ptr %61, align 4, !tbaa !44
-  %62 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  br i1 %9, label %.split.us.i50.preheader, label %.split.i45.preheader
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 %21, ptr %64, align 4, !tbaa !43
+  %65 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i8 %22, ptr %65, align 4, !tbaa !44
+  %.in.v.i41 = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC1EiibE10coeffs_crb, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC1EiibE10coeffs_yuv
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 16 dereferenceable(20) %.in.v.i41, i64 20, i1 false), !tbaa !45
+  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit, label %67
 
-.split.i45.preheader:                             ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %62, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC1EiibE10coeffs_yuv, i64 20, i1 false), !tbaa !45
-  br label %.split10.us.i49
-
-.split.us.i50.preheader:                          ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %62, ptr noundef nonnull align 16 dereferenceable(20) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC1EiibE10coeffs_crb, i64 20, i1 false), !tbaa !45
-  br label %.split10.us.i49
-
-.split10.us.i49:                                  ; preds = %.split.i45.preheader, %.split.us.i50.preheader
-  br i1 %8, label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit, label %63
-
-63:                                               ; preds = %.split10.us.i49
-  %64 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  store float 0x3FBD2F1AA0000000, ptr %62, align 4, !tbaa !45
-  store float 0x3FD322D0E0000000, ptr %64, align 4, !tbaa !45
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %69 = load float, ptr %66, align 4, !tbaa !45
+  %70 = load float, ptr %68, align 4, !tbaa !45
+  store float %70, ptr %66, align 4, !tbaa !45
+  store float %69, ptr %68, align 4, !tbaa !45
   br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
 
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit: ; preds = %.split10.us.i49, %63
+_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit: ; preds = %63, %67
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %5, ptr %65, align 4, !tbaa !14
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %5, ptr %71, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEEEE, i64 16), ptr %12, align 8, !tbaa !15
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %0, ptr %66, align 8, !tbaa !47
-  %67 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %1, ptr %67, align 8, !tbaa !50
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %2, ptr %68, align 8, !tbaa !51
-  %69 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i64 %3, ptr %69, align 8, !tbaa !52
-  %70 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 %4, ptr %70, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %20, ptr %71, align 8, !tbaa !54
-  %72 = mul nsw i32 %5, %4
-  %73 = sitofp i32 %72 to double
-  %74 = fmul double %73, 0x3EF0000000000000
-  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %74)
-          to label %76 unwind label %.body54
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %0, ptr %72, align 8, !tbaa !47
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %1, ptr %73, align 8, !tbaa !50
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %2, ptr %74, align 8, !tbaa !51
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i64 %3, ptr %75, align 8, !tbaa !52
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 %4, ptr %76, align 8, !tbaa !53
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %20, ptr %77, align 8, !tbaa !54
+  %78 = mul nsw i32 %5, %4
+  %79 = sitofp i32 %78 to double
+  %80 = fmul double %79, 0x3EF0000000000000
+  invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %80)
+          to label %82 unwind label %.body46
 
-.body54:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
-  %75 = landingpad { ptr, i32 }
+.body46:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
+  %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %84
+  br label %90
 
-76:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
+82:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %77
+  br label %83
 
-77:                                               ; preds = %58, %76, %40
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !55
-  %.not.i = icmp eq i32 %79, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %80
+83:                                               ; preds = %62, %82, %42
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %85 = load i32, ptr %84, align 8, !tbaa !55
+  %.not.i = icmp eq i32 %85, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %86
 
-80:                                               ; preds = %77
+86:                                               ; preds = %83
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %17)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %81
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %87
 
-81:                                               ; preds = %80
-  %82 = landingpad { ptr, i32 }
+87:                                               ; preds = %86
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #16
+  %89 = extractvalue { ptr, i32 } %88, 0
+  call void @__clang_call_terminate(ptr %89) #16
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %77, %80
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %83, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-84:                                               ; preds = %.body54, %.body43, %.body
-  %.pn = phi { ptr, i32 } [ %39, %.body ], [ %57, %.body43 ], [ %75, %.body54 ]
+90:                                               ; preds = %.body46, %.body39, %.body
+  %.pn = phi { ptr, i32 } [ %41, %.body ], [ %61, %.body39 ], [ %81, %.body46 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %.pn
@@ -651,18 +630,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtYUVtoBGREPKhmPhmiiiibb(ptr noun
   store i32 %21, ptr %24, align 4, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %22, ptr %25, align 4, !tbaa !61
+  %.in.v.i = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_crb, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_yuv
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  br i1 %9, label %.split.us.preheader.i, label %.split.preheader.i
-
-.split.preheader.i:                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_yuv, i64 16, i1 false), !tbaa !11
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit
-
-.split.us.preheader.i:                            ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_crb, i64 16, i1 false), !tbaa !11
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit
-
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit: ; preds = %.split.preheader.i, %.split.us.preheader.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 16 dereferenceable(16) %.in.v.i, i64 16, i1 false), !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -687,7 +657,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit: ; preds = %.s
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %36)
           to label %38 unwind label %.body
 
-.body:                                            ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit
+.body:                                            ; preds = %23
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #15
@@ -696,7 +666,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %78
 
-38:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit
+38:                                               ; preds = %23
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -710,18 +680,9 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit: ; preds = %.s
   store i32 %21, ptr %40, align 4, !tbaa !72
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 %22, ptr %41, align 4, !tbaa !73
+  %.in.v.i34 = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_crb, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_yuv
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  br i1 %9, label %.split.us.preheader.i35, label %.split.preheader.i34
-
-.split.preheader.i34:                             ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_yuv, i64 16, i1 false), !tbaa !11
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit
-
-.split.us.preheader.i35:                          ; preds = %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC1EiibE10coeffs_crb, i64 16, i1 false), !tbaa !11
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit
-
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit: ; preds = %.split.preheader.i34, %.split.us.preheader.i35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %.in.v.i34, i64 16, i1 false), !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -744,9 +705,9 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit: ; preds = %.s
   %51 = sitofp i32 %50 to double
   %52 = fmul double %51, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %52)
-          to label %54 unwind label %.body36
+          to label %54 unwind label %.body35
 
-.body36:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit
+.body35:                                          ; preds = %39
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #15
@@ -755,7 +716,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %78
 
-54:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit
+54:                                               ; preds = %39
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -769,18 +730,9 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit: ; preds = %.s
   store i32 %21, ptr %56, align 4, !tbaa !84
   %57 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %22, ptr %57, align 4, !tbaa !85
+  %.in.v.i37 = select i1 %9, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC1EiibE10coeffs_cbr, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC1EiibE10coeffs_yuv
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  br i1 %9, label %.split.us.preheader.i39, label %.split.preheader.i38
-
-.split.preheader.i38:                             ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC1EiibE10coeffs_yuv, i64 16, i1 false), !tbaa !45
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit
-
-.split.us.preheader.i39:                          ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC1EiibE10coeffs_cbr, i64 16, i1 false), !tbaa !45
-  br label %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit
-
-_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit: ; preds = %.split.preheader.i38, %.split.us.preheader.i39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %.in.v.i37, i64 16, i1 false), !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -803,9 +755,9 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit: ; preds = %.s
   %67 = sitofp i32 %66 to double
   %68 = fmul double %67, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %68)
-          to label %70 unwind label %.body40
+          to label %70 unwind label %.body38
 
-.body40:                                          ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit
+.body38:                                          ; preds = %55
   %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #15
@@ -814,7 +766,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit: ; preds = %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %78
 
-70:                                               ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit
+70:                                               ; preds = %55
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -842,8 +794,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %71, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-78:                                               ; preds = %.body40, %.body36, %.body
-  %.pn = phi { ptr, i32 } [ %37, %.body ], [ %53, %.body36 ], [ %69, %.body40 ]
+78:                                               ; preds = %.body38, %.body35, %.body
+  %.pn = phi { ptr, i32 } [ %37, %.body ], [ %53, %.body35 ], [ %69, %.body38 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %.pn
@@ -1560,7 +1512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %31
   %51 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void %switch.load(ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %1, ptr noundef %0, ptr noundef %.035, ptr noundef %.034, i32 noundef %.033, i32 noundef %.0)
           to label %52 unwind label %59, !callees !162
@@ -11483,14 +11435,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -11687,14 +11639,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %191 = add nsw i32 %.165, 1
   %192 = and i32 %.165, 1
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %3, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %.15062, i64 %196
   %198 = add nsw i32 %.14764, 1
   %199 = and i32 %.14764, 1
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.15261, i64 %203
@@ -11755,14 +11707,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -11959,14 +11911,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %191 = add nsw i32 %.165, 1
   %192 = and i32 %.165, 1
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %3, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %.15062, i64 %196
   %198 = add nsw i32 %.14764, 1
   %199 = and i32 %.14764, 1
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.15261, i64 %203
@@ -12027,14 +11979,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -12239,14 +12191,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %195 = add nsw i32 %.165, 1
   %196 = and i32 %.165, 1
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i32, ptr %3, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %.15062, i64 %200
   %202 = add nsw i32 %.14764, 1
   %203 = and i32 %.14764, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i32, ptr %3, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %.15261, i64 %207
@@ -12307,14 +12259,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %38 = add nsw i32 %18, 1
   %39 = and i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %31, i64 %43
   %45 = add nsw i32 %20, 1
   %46 = and i32 %20, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !11
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %34, i64 %50
@@ -12519,14 +12471,14 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %195 = add nsw i32 %.165, 1
   %196 = and i32 %.165, 1
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i32, ptr %3, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %.15062, i64 %200
   %202 = add nsw i32 %.14764, 1
   %203 = and i32 %.14764, 1
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i32, ptr %3, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !11
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i8, ptr %.15261, i64 %207

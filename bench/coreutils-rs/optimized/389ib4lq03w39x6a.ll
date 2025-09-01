@@ -1210,7 +1210,7 @@ define void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..tr
 
 .lr.ph.i.i.i:                                     ; preds = %14, %18
   %.05.i.i.i = phi i64 [ %19, %18 ], [ 0, %14 ]
-  %15 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %.05.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.05.i.i.i
   %16 = load i8, ptr %15, align 1, !alias.scope !197, !noalias !191, !noundef !13
   %17 = icmp eq i8 %16, 45
   br i1 %17, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %18
@@ -1631,9 +1631,9 @@ _ZN5alloc5slice11stable_sort17h4e6e4256d427f6e3E.exit.i: ; preds = %74
   br i1 %91, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.split.i
-  %.phi.trans.insert.i = getelementptr inbounds [0 x { i64, i64 }], ptr %76, i64 0, i64 %.sroa.01.035.i, i32 1
+  %.phi.trans.insert.i = getelementptr inbounds { i64, i64 }, ptr %76, i64 %.sroa.01.035.i, i32 1
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !267
-  %92 = getelementptr inbounds [0 x { i64, i64 }], ptr %76, i64 0, i64 %90
+  %92 = getelementptr inbounds { i64, i64 }, ptr %76, i64 %90
   %93 = load i64, ptr %92, align 8, !noalias !267, !noundef !13
   %94 = add i64 %.pre.i, 1
   %.not.i77 = icmp ugt i64 %93, %94
@@ -2016,7 +2016,7 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   br i1 %16, label %17, label %.invoke.i, !prof !320
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i32], ptr %.pre.i, i64 0, i64 %.03671.i
+  %18 = getelementptr inbounds i32, ptr %.pre.i, i64 %.03671.i
   %19 = load i32, ptr %18, align 4, !range !250, !noalias !319, !noundef !13
   %20 = icmp eq i32 %19, 91
   %21 = add nuw i64 %.03671.i, 1
@@ -2027,7 +2027,7 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   br i1 %23, label %24, label %.invoke.i, !prof !320
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds [0 x i32], ptr %.pre.i, i64 0, i64 %21
+  %25 = getelementptr inbounds i32, ptr %.pre.i, i64 %21
   %26 = load i32, ptr %25, align 4, !range !250, !noalias !319, !noundef !13
   %27 = icmp eq i32 %26, 94
   br i1 %27, label %30, label %.backedge.i

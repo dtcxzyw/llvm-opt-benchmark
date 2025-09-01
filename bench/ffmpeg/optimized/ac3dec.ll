@@ -121,11 +121,11 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   %41 = or disjoint i64 %indvars.iv, 1
   %42 = getelementptr inbounds nuw i8, ptr %.168, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !12
-  %44 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %43, ptr %44, align 2, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %.168, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !12
-  %47 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %41
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   store i8 %46, ptr %47, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %48 = icmp samesign ult i64 %indvars.iv, 6
@@ -185,11 +185,11 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   %73 = or disjoint i64 %indvars.iv122, 1
   %74 = getelementptr inbounds nuw i8, ptr %.168, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !12
-  %76 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %indvars.iv122
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv122
   store i8 %75, ptr %76, align 2, !tbaa !12
   %77 = getelementptr inbounds nuw i8, ptr %.168, i64 %indvars.iv122
   %78 = load i8, ptr %77, align 1, !tbaa !12
-  %79 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %73
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %73
   store i8 %78, ptr %79, align 1, !tbaa !12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 2
   %80 = icmp samesign ult i64 %indvars.iv.next123, %71

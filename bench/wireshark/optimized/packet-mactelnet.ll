@@ -144,7 +144,7 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
 
 21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %indvars.iv.next
+  %22 = getelementptr %struct._value_string, ptr @clienttypenames, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.split.loop.exit, label %.preheader170, !llvm.loop !6
 

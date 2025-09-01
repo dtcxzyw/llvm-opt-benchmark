@@ -408,7 +408,7 @@ define void @YGNodeStyleSetFlex(ptr noundef %0, float noundef %1) local_unnamed_
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i
 
 15:                                               ; preds = %9
@@ -493,7 +493,7 @@ define float @YGNodeStyleGetFlex(ptr noundef readonly captures(none) %0) local_u
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %8
   br label %_ZNK8facebook4yoga5Style4flexEv.exit
 
 13:                                               ; preds = %7
@@ -531,7 +531,7 @@ _ZNK8facebook4yoga5Style4flexEv.exit.thread15:    ; preds = %_ZNK8facebook4yoga5
 
 29:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %27
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %27
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i7
 
 32:                                               ; preds = %_ZNK8facebook4yoga5Style4flexEv.exit.thread15
@@ -596,7 +596,7 @@ define void @YGNodeStyleSetFlexGrow(ptr noundef %0, float noundef %1) local_unna
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i
 
 15:                                               ; preds = %9
@@ -681,7 +681,7 @@ define float @YGNodeStyleGetFlexGrow(ptr noundef readonly captures(none) %0) loc
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %8
   br label %_ZNK8facebook4yoga5Style8flexGrowEv.exit
 
 13:                                               ; preds = %7
@@ -719,7 +719,7 @@ _ZNK8facebook4yoga5Style8flexGrowEv.exit.thread15: ; preds = %_ZNK8facebook4yoga
 
 29:                                               ; preds = %_ZNK8facebook4yoga5Style8flexGrowEv.exit.thread15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %27
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %27
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i7
 
 32:                                               ; preds = %_ZNK8facebook4yoga5Style8flexGrowEv.exit.thread15
@@ -784,7 +784,7 @@ define void @YGNodeStyleSetFlexShrink(ptr noundef %0, float noundef %1) local_un
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i
 
 15:                                               ; preds = %9
@@ -869,7 +869,7 @@ define float @YGNodeStyleGetFlexShrink(ptr noundef readonly captures(none) %0) l
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %8
   br label %_ZNK8facebook4yoga5Style10flexShrinkEv.exit
 
 13:                                               ; preds = %7
@@ -914,7 +914,7 @@ _ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread16: ; preds = %_ZNK8facebook4y
 
 33:                                               ; preds = %_ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %35 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %31
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %31
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i8
 
 36:                                               ; preds = %_ZNK8facebook4yoga5Style10flexShrinkEv.exit.thread16
@@ -1189,7 +1189,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9flexBasisEv(ptr noundef nonnul
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %22 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %18
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %18
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 23:                                               ; preds = %17
@@ -1280,7 +1280,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
   %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 1, !tbaa !4
   %8 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %8, label %9 [
@@ -1301,7 +1301,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 18:                                               ; preds = %12
@@ -1425,7 +1425,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetPosition(ptr noundef readonl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %4 = and i32 %1, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %5
   %.sroa.0.0.copyload.i = load i16, ptr %6, align 1, !tbaa !4
   %7 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %7, label %8 [
@@ -1446,7 +1446,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetPosition(ptr noundef readonl
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 17:                                               ; preds = %11
@@ -1537,7 +1537,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
   %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 1, !tbaa !4
   %8 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %8, label %9 [
@@ -1558,7 +1558,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 18:                                               ; preds = %12
@@ -1682,7 +1682,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetMargin(ptr noundef readonly 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = and i32 %1, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %5
   %.sroa.0.0.copyload.i = load i16, ptr %6, align 1, !tbaa !4
   %7 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %7, label %8 [
@@ -1703,7 +1703,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetMargin(ptr noundef readonly 
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 17:                                               ; preds = %11
@@ -1794,7 +1794,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
   %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 1, !tbaa !4
   %8 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %8, label %9 [
@@ -1815,7 +1815,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 18:                                               ; preds = %12
@@ -1932,7 +1932,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetPadding(ptr noundef readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = and i32 %1, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %5
   %.sroa.0.0.copyload.i = load i16, ptr %6, align 1, !tbaa !4
   %7 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %7, label %8 [
@@ -1953,7 +1953,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetPadding(ptr noundef readonly
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 17:                                               ; preds = %11
@@ -2036,7 +2036,7 @@ define void @YGNodeStyleSetBorder(ptr noundef %0, i32 noundef %1, float noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %7 = and i32 %1, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %6, i64 %8
   %.sroa.0.0.copyload.i.i = load i16, ptr %9, align 1, !tbaa !4
   %10 = and i16 %.sroa.0.0.copyload.i.i, 7
   switch i16 %10, label %11 [
@@ -2057,7 +2057,7 @@ define void @YGNodeStyleSetBorder(ptr noundef %0, i32 noundef %1, float noundef 
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %15
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %15
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i
 
 20:                                               ; preds = %14
@@ -2160,7 +2160,7 @@ define float @YGNodeStyleGetBorder(ptr noundef readonly captures(none) %0, i32 n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %4 = and i32 %1, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [9 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %5
   %.sroa.0.0.copyload.i = load i16, ptr %6, align 1, !tbaa !4
   %7 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %7, label %8 [
@@ -2181,7 +2181,7 @@ define float @YGNodeStyleGetBorder(ptr noundef readonly captures(none) %0, i32 n
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 17:                                               ; preds = %11
@@ -2254,7 +2254,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
   %4 = bitcast i32 %.sroa.07.0.extract.trunc to float
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw [3 x %"class.facebook::yoga::StyleValueHandle"], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 1, !tbaa !4
   %8 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %8, label %9 [
@@ -2275,7 +2275,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8faceboo
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 18:                                               ; preds = %12
@@ -2392,7 +2392,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetGap(ptr noundef readonly cap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = and i32 %1, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [3 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %5
   %.sroa.0.0.copyload.i = load i16, ptr %6, align 1, !tbaa !4
   %7 = and i16 %.sroa.0.0.copyload.i, 7
   switch i16 %7, label %8 [
@@ -2413,7 +2413,7 @@ define range(i64 0, 15028191233) i64 @YGNodeStyleGetGap(ptr noundef readonly cap
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i
 
 17:                                               ; preds = %11
@@ -2505,7 +2505,7 @@ define void @YGNodeStyleSetAspectRatio(ptr noundef %0, float noundef %1) local_u
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i.i.i
 
 15:                                               ; preds = %9
@@ -2592,7 +2592,7 @@ define float @YGNodeStyleGetAspectRatio(ptr noundef readonly captures(none) %0) 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %13 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
   br label %_ZNK8facebook4yoga5Style11aspectRatioEv.exit
 
 14:                                               ; preds = %8
@@ -2867,7 +2867,7 @@ define range(i64 0, 1099511627776) i64 @YGNodeStyleGetWidth(ptr noundef %0) loca
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !4
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -2904,7 +2904,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style9dimensionENS0_9DimensionE(ptr 
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -3336,7 +3336,7 @@ define range(i64 0, 1099511627776) i64 @YGNodeStyleGetMinWidth(ptr noundef %0) l
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 94
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !4
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -3373,7 +3373,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12minDimensionENS0_9DimensionE(
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -3782,7 +3782,7 @@ define range(i64 0, 1099511627776) i64 @YGNodeStyleGetMaxWidth(ptr noundef %0) l
 define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [2 x %"class.facebook::yoga::StyleValueHandle"], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"class.facebook::yoga::StyleValueHandle", ptr %3, i64 %4
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !4
   %6 = and i16 %.sroa.0.0.copyload, 7
   switch i16 %6, label %7 [
@@ -3819,7 +3819,7 @@ define linkonce_odr i64 @_ZNK8facebook4yoga5Style12maxDimensionENS0_9DimensionE(
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit
 
 26:                                               ; preds = %20
@@ -4281,7 +4281,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8facebook4yoga5Style12numbersEqualERK
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %16
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 21:                                               ; preds = %15
@@ -4342,7 +4342,7 @@ _ZNK8facebook4yoga14StyleValuePool9getNumberENS0_16StyleValueHandleE.exit.thread
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %48 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %44
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
 
 49:                                               ; preds = %43
@@ -4429,7 +4429,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8facebook4yoga5Style12lengthsEqualERK
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %19 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %15
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %15
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i
 
 20:                                               ; preds = %14
@@ -4521,7 +4521,7 @@ _ZNK8facebook4yoga14StyleValuePool9getLengthENS0_16StyleValueHandleE.exit: ; pre
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %58 = getelementptr inbounds nuw [4 x i32], ptr %57, i64 0, i64 %54
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %54
   br label %_ZNK8facebook4yoga16SmallValueBufferILm4EE5get32Et.exit.i12
 
 59:                                               ; preds = %53
@@ -4972,7 +4972,7 @@ define linkonce_odr hidden void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   store float %2, ptr %16, align 4, !tbaa !15
   br label %_ZN8facebook4yoga14StyleValuePool10storeValueERNS0_16StyleValueHandleEfNS2_4TypeE.exit
 
@@ -5045,7 +5045,7 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN8facebook4yoga16SmallValueBuf
 6:                                                ; preds = %2
   %7 = zext nneg i16 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
   store i32 %1, ptr %9, align 4, !tbaa !15
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
@@ -5511,7 +5511,7 @@ define linkonce_odr hidden void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
   store i32 0, ptr %23, align 4, !tbaa !15
   br label %_ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i
 
@@ -5560,7 +5560,7 @@ _ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i: ; preds = %_ZNSt6ve
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %46
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %46
   store i32 2, ptr %50, align 4, !tbaa !15
   br label %_ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i10
 
@@ -5609,7 +5609,7 @@ _ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i10: ; preds = %_ZNSt6
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %77 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %73
+  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %73
   store i32 1, ptr %77, align 4, !tbaa !15
   br label %_ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i16
 
@@ -5660,7 +5660,7 @@ _ZN8facebook4yoga16SmallValueBufferILm4EE7replaceEtj.exit.i16: ; preds = %_ZNSt6
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %106 = getelementptr inbounds nuw [4 x i32], ptr %105, i64 0, i64 %102
+  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %102
   store i32 %.sroa.023.0.extract.trunc, ptr %106, align 4, !tbaa !15
   br label %_ZN8facebook4yoga14StyleValuePool12storeKeywordERNS0_16StyleValueHandleENS2_7KeywordE.exit
 
@@ -5762,7 +5762,7 @@ define linkonce_odr hidden void @_ZN8facebook4yoga14StyleValuePool5storeERNS0_16
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 0, i64 %21
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
   store i32 %.sroa.04.0.extract.trunc, ptr %25, align 4, !tbaa !15
   br label %_ZN8facebook4yoga14StyleValuePool10storeValueERNS0_16StyleValueHandleEfNS2_4TypeE.exit
 

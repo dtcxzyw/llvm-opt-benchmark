@@ -1961,7 +1961,7 @@ define dso_local ptr @llvm_get_coerce_type(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %10, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -707,7 +707,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   br i1 %.not347, label %145, label %141
 
 141:                                              ; preds = %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit
-  %142 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE9scalevals, i64 0, i64 %138
+  %142 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE9scalevals, i64 %138
   %143 = load i32, ptr %142, align 4, !tbaa !16, !noalias !125
   %144 = add nsw i32 %143, %89
   br label %175
@@ -1029,9 +1029,9 @@ thread-pre-split:                                 ; preds = %_ZN8rawspeed11BitSt
 .preheader351:                                    ; preds = %.preheader351.preheader, %.preheader351
   %indvars.iv477 = phi i64 [ 0, %.preheader351.preheader ], [ %indvars.iv.next478, %.preheader351 ]
   %276 = and i64 %indvars.iv477, 1
-  %277 = getelementptr inbounds nuw [2 x i16], ptr %8, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw i16, ptr %8, i64 %276
   %278 = load i16, ptr %277, align 2, !tbaa !131
-  %279 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv477
+  %279 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv477
   store i16 %278, ptr %279, align 2, !tbaa !131
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
   %exitcond480.not = icmp eq i64 %indvars.iv.next478, 16
@@ -1046,9 +1046,9 @@ thread-pre-split:                                 ; preds = %_ZN8rawspeed11BitSt
 
 282:                                              ; preds = %280
   %283 = sext i32 %260 to i64
-  %284 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE12motionOffset, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE12motionOffset, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !16, !noalias !125
-  %286 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE15motionDoAverage, i64 0, i64 %283
+  %286 = getelementptr inbounds nuw i32, ptr @_ZZN8rawspeed21SamsungV2Decompressor21prepareBaselineValuesERNS_16BitStreamerMSB32EiiE15motionDoAverage, i64 %283
   %287 = load i32, ptr %286, align 4, !tbaa !16, !noalias !125
   %.fr = freeze i32 %287
   %.not62.i = icmp eq i32 %.fr, 0
@@ -1092,7 +1092,7 @@ thread-pre-split:                                 ; preds = %_ZN8rawspeed11BitSt
   %308 = zext nneg i32 %.0.i25.us to i64
   %309 = getelementptr inbounds nuw i16, ptr %307, i64 %308
   %310 = load i16, ptr %309, align 2, !tbaa !131
-  %311 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv469
+  %311 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv469
   store i16 %310, ptr %311, align 2, !tbaa !131
   %indvars.iv.next470 = add nuw nsw i64 %indvars.iv469, 1
   %exitcond472.not = icmp eq i64 %indvars.iv.next470, 16
@@ -1160,7 +1160,7 @@ thread-pre-split:                                 ; preds = %_ZN8rawspeed11BitSt
   %344 = add nuw nsw i32 %343, %342
   %345 = lshr i32 %344, 1
   %346 = trunc nuw i32 %345 to i16
-  %347 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %347 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
   store i16 %346, ptr %347, align 2, !tbaa !131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1337,7 +1337,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.cmp = icmp samesign ult i64 %indvars.iv481, 2
   %412 = select i1 %.cmp, i32 2, i32 %.urem
   %413 = select i1 %.not32.i, i32 %412, i32 %411
-  %414 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv481
+  %414 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv481
   %415 = load i32, ptr %414, align 4, !tbaa !16, !noalias !136
   switch i32 %415, label %468 [
     i32 0, label %416
@@ -1348,24 +1348,24 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
 
 416:                                              ; preds = %409
   %417 = zext nneg i32 %413 to i64
-  %418 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %.ptr345, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw %"struct.std::array.0", ptr %.ptr345, i64 %417
   %419 = load i32, ptr %418, align 8, !tbaa !16, !noalias !136
-  %420 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv481
+  %420 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv481
   store i32 %419, ptr %420, align 4, !tbaa !16, !noalias !136
   br label %469
 
 421:                                              ; preds = %409
   %422 = zext nneg i32 %413 to i64
-  %423 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %.ptr345, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw %"struct.std::array.0", ptr %.ptr345, i64 %422
   %424 = load i32, ptr %423, align 8, !tbaa !16, !noalias !136
   %425 = add nsw i32 %424, 1
-  %426 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv481
+  %426 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv481
   store i32 %425, ptr %426, align 4, !tbaa !16, !noalias !136
   br label %469
 
 427:                                              ; preds = %409
   %428 = zext nneg i32 %413 to i64
-  %429 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %.ptr345, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw %"struct.std::array.0", ptr %.ptr345, i64 %428
   %430 = load i32, ptr %429, align 8, !tbaa !16, !noalias !136
   %431 = icmp eq i32 %430, 0
   br i1 %431, label %432, label %433
@@ -1376,7 +1376,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
 
 433:                                              ; preds = %427
   %434 = add nsw i32 %430, -1
-  %435 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv481
+  %435 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv481
   store i32 %434, ptr %435, align 4, !tbaa !16, !noalias !136
   br label %469
 
@@ -1442,7 +1442,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %464 = trunc nuw nsw i64 %463 to i32
   %465 = add nsw i32 %462, -4
   %466 = shl i64 %461, 4
-  %467 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv481
+  %467 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv481
   store i32 %464, ptr %467, align 4, !tbaa !16, !noalias !136
   %.pre = zext nneg i32 %413 to i64
   br label %469
@@ -1456,7 +1456,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.0155.8 = phi i64 [ %466, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit139 ], [ %.sroa.0155.7428, %433 ], [ %.sroa.0155.7428, %421 ], [ %.sroa.0155.7428, %416 ]
   %.sroa.30.8 = phi i32 [ %465, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit139 ], [ %.sroa.30.7429, %433 ], [ %.sroa.30.7429, %421 ], [ %.sroa.30.7429, %416 ]
   %.sroa.72201.8 = phi i32 [ %.sroa.72201.18, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit139 ], [ %.sroa.72201.7430, %433 ], [ %.sroa.72201.7430, %421 ], [ %.sroa.72201.7430, %416 ]
-  %471 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %.ptr345, i64 0, i64 %.pre-phi
+  %471 = getelementptr inbounds nuw %"struct.std::array.0", ptr %.ptr345, i64 %.pre-phi
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 4
   %473 = load i32, ptr %472, align 4, !tbaa !16, !noalias !136
   store i32 %473, ptr %471, align 8, !tbaa !16, !noalias !136
@@ -1491,7 +1491,7 @@ _ZN8rawspeed21SamsungV2Decompressor17decodeDiffLengthsERNS_16BitStreamerMSB32Ei.
   %.sroa.0155.4432 = phi i64 [ %.sroa.0155.9, %_ZN8rawspeed21SamsungV2Decompressor17decodeDiffLengthsERNS_16BitStreamerMSB32Ei.exit ], [ %.sroa.0155.10, %_ZN8rawspeed21SamsungV2Decompressor7getDiffERNS_16BitStreamerMSB32Ej.exit ]
   %478 = lshr i64 %indvars.iv485, 2
   %479 = and i64 %478, 1073741823
-  %480 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i32, ptr %5, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !16, !noalias !136
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %_ZN8rawspeed21SamsungV2Decompressor7getDiffERNS_16BitStreamerMSB32Ej.exit, label %483
@@ -1572,7 +1572,7 @@ _ZN8rawspeed21SamsungV2Decompressor7getDiffERNS_16BitStreamerMSB32Ej.exit: ; pre
   %.sroa.30.10 = phi i32 [ %.sroa.30.4433, %477 ], [ %514, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit151 ]
   %.sroa.72201.10 = phi i32 [ %.sroa.72201.4434, %477 ], [ %.sroa.72201.19, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit151 ]
   %.0.i42 = phi i16 [ 0, %477 ], [ %518, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit151 ]
-  %519 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv485
+  %519 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv485
   store i16 %.0.i42, ptr %519, align 2, !tbaa !131, !noalias !136
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond488.not = icmp eq i64 %indvars.iv.next486, 16
@@ -1594,10 +1594,10 @@ _ZN8rawspeed21SamsungV2Decompressor7getDiffERNS_16BitStreamerMSB32Ej.exit: ; pre
   %527 = add nsw i32 %reass.sub, 1
   %528 = or disjoint i32 %524, %526
   %.024.i = select i1 %.not32.i, i32 %528, i32 %527
-  %529 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv489
+  %529 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv489
   %530 = load i16, ptr %529, align 2, !tbaa !131, !noalias !136
   %531 = zext nneg i32 %.024.i to i64
-  %532 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %531
+  %532 = getelementptr inbounds nuw i16, ptr %7, i64 %531
   store i16 %530, ptr %532, align 2, !tbaa !131, !noalias !136
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
   %exitcond492.not = icmp eq i64 %indvars.iv.next490, 16
@@ -1605,12 +1605,12 @@ _ZN8rawspeed21SamsungV2Decompressor7getDiffERNS_16BitStreamerMSB32Ej.exit: ; pre
 
 533:                                              ; preds = %.preheader, %533
   %indvars.iv493 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next494, %533 ]
-  %534 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv493
+  %534 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv493
   %535 = load i16, ptr %534, align 2, !tbaa !131
   %536 = sext i16 %535 to i32
   %537 = mul nsw i32 %521, %536
   %538 = add nsw i32 %537, %178
-  %539 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv493
+  %539 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv493
   store i32 %538, ptr %539, align 4, !tbaa !16
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %exitcond496.not = icmp eq i64 %indvars.iv.next494, 16
@@ -1640,10 +1640,10 @@ _ZN8rawspeed21SamsungV2Decompressor17decodeDifferencesERNS_16BitStreamerMSB32Ei.
 550:                                              ; preds = %_ZN8rawspeed21SamsungV2Decompressor17decodeDifferencesERNS_16BitStreamerMSB32Ei.exit, %550
   %indvars.iv501 = phi i64 [ %indvars.iv499, %_ZN8rawspeed21SamsungV2Decompressor17decodeDifferencesERNS_16BitStreamerMSB32Ei.exit ], [ %indvars.iv.next502, %550 ]
   %indvars.iv497 = phi i64 [ 0, %_ZN8rawspeed21SamsungV2Decompressor17decodeDifferencesERNS_16BitStreamerMSB32Ei.exit ], [ %indvars.iv.next498, %550 ]
-  %551 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv497
+  %551 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv497
   %552 = load i16, ptr %551, align 2, !tbaa !131
   %553 = zext i16 %552 to i32
-  %554 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv497
+  %554 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv497
   %555 = load i32, ptr %554, align 4, !tbaa !16
   %556 = add nsw i32 %555, %553
   %557 = icmp sgt i32 %556, %542

@@ -152,7 +152,7 @@ memcheck.exit:                                    ; preds = %18
   %.094129 = phi i1 [ false, %memcheck.exit ], [ %.195, %124 ]
   %.097128 = phi i32 [ 0, %memcheck.exit ], [ %.198116, %124 ]
   %.099127 = phi i32 [ 0, %memcheck.exit ], [ %.1100114, %124 ]
-  %41 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %34, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %34, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %44 = load i32, ptr %35, align 8, !tbaa !25
@@ -166,7 +166,7 @@ memcheck.exit:                                    ; preds = %18
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %struct.window_data, ptr %40, i64 %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
-  %54 = getelementptr inbounds nuw [64 x %struct.slab_stats_automove], ptr %14, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.slab_stats_automove, ptr %14, i64 %indvars.iv
   %55 = load i32, ptr %54, align 8, !tbaa !40
   %56 = shl i32 %55, 1
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -182,9 +182,9 @@ memcheck.exit:                                    ; preds = %18
 
 63:                                               ; preds = %39
   %64 = add i32 %.097128, %59
-  %65 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %13, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %13, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !41
-  %67 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %37, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %37, i64 %indvars.iv
   %68 = load i64, ptr %67, align 8, !tbaa !41
   %69 = icmp sgt i64 %66, %68
   br i1 %69, label %76, label %70

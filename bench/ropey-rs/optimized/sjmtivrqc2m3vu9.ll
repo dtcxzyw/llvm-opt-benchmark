@@ -328,7 +328,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !47
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x ptr], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -342,7 +342,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8, !prof !47
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x ptr], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -382,7 +382,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN80_$LT$smallve
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbeb9c33922d8d8bcE.llvm.16952314824741166450.exit": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hff352671a5492543E.llvm.16952314824741166450.exit"
-  %18 = getelementptr inbounds [0 x ptr], ptr %.sink8.i, i64 0, i64 %1
+  %18 = getelementptr inbounds ptr, ptr %.sink8.i, i64 %1
   ret ptr %18
 }
 
@@ -521,7 +521,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$smallve
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h45ec3214435d9227E.llvm.16952314824741166450.exit": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hc2d58eb60de132d3E.llvm.16952314824741166450.exit"
-  %19 = getelementptr inbounds [0 x ptr], ptr %.sink13.i, i64 0, i64 %1
+  %19 = getelementptr inbounds ptr, ptr %.sink13.i, i64 %1
   ret ptr %19
 }
 

@@ -1173,11 +1173,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEPK
   %13 = load double, ptr %12, align 8, !tbaa !3
   %14 = fsub double %11, %13
   %15 = fdiv double 1.000000e+00, %14
-  %16 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   store double %15, ptr %16, align 8, !tbaa !3
   %17 = fneg double %13
   %18 = fmul double %15, %17
-  %19 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !3
   %20 = fcmp une double %15, 1.000000e+00
   %21 = fcmp une double %18, 0.000000e+00
@@ -1256,11 +1256,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14CreateMinMaxOpERNS_10OpRcPtrVecEff
   %21 = load double, ptr %20, align 8, !tbaa !3
   %22 = fsub double %19, %21
   %23 = fdiv double 1.000000e+00, %22
-  %24 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
   store double %23, ptr %24, align 8, !tbaa !3
   %25 = fneg double %21
   %26 = fmul double %23, %25
-  %27 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i
   store double %26, ptr %27, align 8, !tbaa !3
   %28 = fcmp une double %23, 1.000000e+00
   %29 = fcmp une double %26, 0.000000e+00

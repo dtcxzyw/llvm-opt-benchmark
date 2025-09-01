@@ -978,7 +978,7 @@ define dso_local void @find_feature_nodes(ptr noundef %0, i1 noundef zeroext %1)
 
 switch.lookup:                                    ; preds = %54
   %60 = zext nneg i8 %56 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.find_feature_nodes, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.find_feature_nodes, i64 %60
   br label %61
 
 61:                                               ; preds = %switch.lookup, %58
@@ -4264,7 +4264,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
 
 564:                                              ; preds = %563, %568
   %indvars.iv = phi i64 [ 0, %563 ], [ %indvars.iv.next, %568 ]
-  %565 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %565 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %566 = load ptr, ptr %565, align 8
   %.not388 = icmp eq ptr %566, null
   br i1 %.not388, label %568, label %567

@@ -1600,7 +1600,7 @@ define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 
 
 switch.lookup:                                    ; preds = %43
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Abc_NtkSecFraig, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Abc_NtkSecFraig, i64 %49
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts50 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
   br label %50

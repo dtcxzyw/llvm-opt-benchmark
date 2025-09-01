@@ -281,7 +281,7 @@ define internal range(i32 0, 2) i32 @test_bad_dtls() #0 {
 .preheader:                                       ; preds = %106, %136
   %indvars.iv = phi i64 [ %indvars.iv.next, %136 ], [ 0, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = getelementptr inbounds nuw [35 x %struct.anon], ptr @tests, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct.anon, ptr @tests, i64 %indvars.iv
   %110 = load i64, ptr %109, align 16, !tbaa !11
   %111 = call fastcc i32 @send_record(ptr noundef %54, i8 noundef zeroext 23, i64 noundef %110, ptr noundef nonnull %109, i64 noundef 8)
   %112 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @.str.28, i32 noundef %111) #6

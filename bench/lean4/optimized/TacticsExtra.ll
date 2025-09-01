@@ -239,7 +239,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Init_TacticsExtra_0__Lean_Pars
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -14299,7 +14299,7 @@ lean_dec.exit235:                                 ; preds = %57, %56, %54, %lean
   %.0197403 = phi i64 [ %6, %.lr.ph ], [ %.1198, %483 ]
   %.0199402 = phi ptr [ %7, %.lr.ph ], [ %.1200, %483 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0199402, i64 24
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %.0197403
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.0197403
   %64 = load ptr, ptr %63, align 8, !tbaa !4
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, 1

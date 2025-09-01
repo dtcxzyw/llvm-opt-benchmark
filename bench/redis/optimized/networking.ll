@@ -773,7 +773,7 @@ define dso_local void @readQueryFromClient(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 25
   %9 = load i8, ptr %8, align 1, !tbaa !73
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [128 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 3016), i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3016), i64 %10
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 168
   %14 = load i32, ptr %13, align 8, !tbaa !81
@@ -3643,7 +3643,7 @@ define dso_local void @setDeferredAggregateLen(ptr noundef %0, ptr noundef %1, i
   br i1 %or.cond, label %16, label %21
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 0, i64 %2
+  %17 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 %2
   %18 = load ptr, ptr %17, align 8, !tbaa !147
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !6
@@ -3656,7 +3656,7 @@ define dso_local void @setDeferredAggregateLen(ptr noundef %0, ptr noundef %1, i
   br i1 %or.cond3, label %23, label %28
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81392), i64 0, i64 %2
+  %24 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81392), i64 %2
   %25 = load ptr, ptr %24, align 8, !tbaa !147
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !6
@@ -3669,7 +3669,7 @@ define dso_local void @setDeferredAggregateLen(ptr noundef %0, ptr noundef %1, i
   br i1 %or.cond5, label %30, label %35
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81648), i64 0, i64 %2
+  %31 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81648), i64 %2
   %32 = load ptr, ptr %31, align 8, !tbaa !147
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !6
@@ -3713,7 +3713,7 @@ define dso_local void @setDeferredArrayLen(ptr noundef %0, ptr noundef %1, i64 n
 11:                                               ; preds = %9
   %12 = icmp samesign ult i64 %2, 10
   %13 = select i1 %12, i64 4, i64 5
-  %14 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 0, i64 %2
+  %14 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 %2
   %15 = load ptr, ptr %14, align 8, !tbaa !147
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !6
@@ -3837,99 +3837,94 @@ define dso_local void @addReplyDouble(ptr noundef %0, double noundef %1) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !74
   %7 = icmp eq i32 %6, 3
-  br i1 %7, label %8, label %20
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 44, ptr %3, align 16, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %10 = call i32 @d2string(ptr noundef nonnull %9, i64 noundef 130, double noundef %1) #26
-  %11 = add nsw i32 %10, 1
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [131 x i8], ptr %3, i64 0, i64 %12
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr i8, ptr %3, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 1
   store i8 13, ptr %13, align 1, !tbaa !12
-  %14 = add nsw i32 %10, 2
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [131 x i8], ptr %3, i64 0, i64 %15
-  store i8 10, ptr %16, align 1, !tbaa !12
-  %17 = add nsw i32 %10, 3
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [131 x i8], ptr %3, i64 0, i64 %18
-  store i8 0, ptr %19, align 1, !tbaa !12
-  call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %18)
+  %14 = getelementptr i8, ptr %12, i64 2
+  store i8 10, ptr %14, align 1, !tbaa !12
+  %15 = add nsw i32 %10, 3
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  store i8 0, ptr %17, align 1, !tbaa !12
+  call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %59
+  br label %52
 
-20:                                               ; preds = %2
+18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  %22 = call i32 @d2string(ptr noundef nonnull %21, i64 noundef 5145, double noundef %1) #26
-  %23 = sext i32 %22 to i64
-  %24 = call i32 @digits10(i64 noundef %23) #26
-  %25 = sub nsw i32 4, %24
-  %26 = icmp slt i32 %24, 5
-  br i1 %26, label %28, label %27, !prof !5
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %20 = call i32 @d2string(ptr noundef nonnull %19, i64 noundef 5145, double noundef %1) #26
+  %21 = sext i32 %20 to i64
+  %22 = call i32 @digits10(i64 noundef %21) #26
+  %23 = sub nsw i32 4, %22
+  %24 = icmp slt i32 %22, 5
+  br i1 %24, label %26, label %25, !prof !5
 
-27:                                               ; preds = %20
+25:                                               ; preds = %18
   call void @_serverAssert(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 894) #26
   call void @abort() #27
   unreachable
 
-28:                                               ; preds = %20
-  %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw [5152 x i8], ptr %4, i64 0, i64 %29
-  store i8 36, ptr %30, align 1, !tbaa !12
-  %31 = icmp ne i32 %22, 0
-  %32 = icmp sgt i32 %24, 0
-  %33 = and i1 %31, %32
-  br i1 %33, label %.lr.ph.preheader, label %._crit_edge
+26:                                               ; preds = %18
+  %27 = zext nneg i32 %23 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
+  store i8 36, ptr %28, align 1, !tbaa !12
+  %29 = icmp ne i32 %20, 0
+  %30 = icmp sgt i32 %22, 0
+  %31 = and i1 %29, %30
+  br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %28
-  %34 = zext nneg i32 %24 to i64
+.lr.ph.preheader:                                 ; preds = %26
+  %32 = zext nneg i32 %22 to i64
+  %invariant.gep = getelementptr i8, ptr %4, i64 %27
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %28
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 13, ptr %35, align 1, !tbaa !12
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 10, ptr %36, align 2, !tbaa !12
-  %37 = add nsw i32 %22, 7
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [5152 x i8], ptr %4, i64 0, i64 %38
-  store i8 13, ptr %39, align 1, !tbaa !12
-  %40 = add nsw i32 %22, 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [5152 x i8], ptr %4, i64 0, i64 %41
-  store i8 10, ptr %42, align 1, !tbaa !12
-  %43 = add nsw i32 %22, 9
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [5152 x i8], ptr %4, i64 0, i64 %44
-  store i8 0, ptr %45, align 1, !tbaa !12
-  %46 = sub nsw i32 %43, %25
-  %47 = sext i32 %46 to i64
-  call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef %47)
+._crit_edge:                                      ; preds = %.lr.ph, %26
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 13, ptr %33, align 1, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  store i8 10, ptr %34, align 2, !tbaa !12
+  %35 = getelementptr i8, ptr %4, i64 %21
+  %36 = getelementptr i8, ptr %35, i64 7
+  store i8 13, ptr %36, align 1, !tbaa !12
+  %37 = getelementptr i8, ptr %35, i64 8
+  store i8 10, ptr %37, align 1, !tbaa !12
+  %38 = add nsw i32 %20, 9
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %4, i64 %39
+  store i8 0, ptr %40, align 1, !tbaa !12
+  %41 = sub nsw i32 %38, %23
+  %42 = sext i32 %41 to i64
+  call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %59
+  br label %52
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %34, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.030 = phi i32 [ %22, %.lr.ph.preheader ], [ %54, %.lr.ph ]
-  %48 = srem i32 %.030, 10
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [11 x i8], ptr @.str.24, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !12
-  %52 = add nuw nsw i64 %indvars.iv, %29
-  %53 = getelementptr inbounds nuw [5152 x i8], ptr %4, i64 0, i64 %52
-  store i8 %51, ptr %53, align 1, !tbaa !12
+  %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.030 = phi i32 [ %20, %.lr.ph.preheader ], [ %47, %.lr.ph ]
+  %43 = srem i32 %.030, 10
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr @.str.24, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !12
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  store i8 %46, ptr %gep, align 1, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %54 = sdiv i32 %.030, 10
-  %55 = add i32 %.030, -10
-  %56 = icmp ult i32 %55, -19
-  %57 = icmp samesign ugt i64 %indvars.iv, 1
-  %58 = and i1 %56, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !148
+  %47 = sdiv i32 %.030, 10
+  %48 = add i32 %.030, -10
+  %49 = icmp ult i32 %48, -19
+  %50 = icmp samesign ugt i64 %indvars.iv, 1
+  %51 = and i1 %49, %50
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
-59:                                               ; preds = %._crit_edge, %8
+52:                                               ; preds = %._crit_edge, %8
   ret void
 }
 
@@ -4067,17 +4062,15 @@ clientHasPendingReplies.exit.i:                   ; preds = %25
   store i8 36, ptr %4, align 16, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %60 = call i32 @ll2string(ptr noundef nonnull %59, i64 noundef 127, i64 noundef %2) #26
-  %61 = add nsw i32 %60, 1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %62
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr i8, ptr %4, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 1
   store i8 13, ptr %63, align 1, !tbaa !12
-  %64 = add nsw i32 %60, 2
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %65
-  store i8 10, ptr %66, align 1, !tbaa !12
-  %67 = add nsw i32 %60, 3
-  %68 = sext i32 %67 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %68)
+  %64 = getelementptr i8, ptr %62, i64 2
+  store i8 10, ptr %64, align 1, !tbaa !12
+  %65 = add nsw i32 %60, 3
+  %66 = sext i32 %65 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %66)
   br label %_addReplyLongLongBulk.exit
 
 _addReplyLongLongBulk.exit:                       ; preds = %51, %58
@@ -4216,10 +4209,10 @@ clientHasPendingReplies.exit.i:                   ; preds = %26
   %51 = load i32, ptr %1, align 8
   %52 = lshr i32 %51, 4
   %53 = and i32 %52, 15
-  switch i32 %53, label %128 [
+  switch i32 %53, label %123 [
     i32 0, label %54
     i32 8, label %54
-    i32 1, label %99
+    i32 1, label %97
   ]
 
 54:                                               ; preds = %50, %50
@@ -4291,78 +4284,73 @@ sdslen.exit:                                      ; preds = %64, %68, %72, %76
   store i8 36, ptr %4, align 16, !tbaa !12
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %89 = call i32 @ll2string(ptr noundef nonnull %88, i64 noundef 127, i64 noundef %.0.i17) #26
-  %90 = add nsw i32 %89, 1
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %91
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr i8, ptr %4, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 1
   store i8 13, ptr %92, align 1, !tbaa !12
-  %93 = add nsw i32 %89, 2
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %94
-  store i8 10, ptr %95, align 1, !tbaa !12
-  %96 = add nsw i32 %89, 3
-  %97 = sext i32 %96 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %97)
+  %93 = getelementptr i8, ptr %91, i64 2
+  store i8 10, ptr %93, align 1, !tbaa !12
+  %94 = add nsw i32 %89, 3
+  %95 = sext i32 %94 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %95)
   br label %_addReplyLongLongBulk.exit
 
 _addReplyLongLongBulk.exit:                       ; preds = %80, %87
   %.0.i1722 = phi i64 [ %.0.i1723, %80 ], [ %.0.i17, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %98 = load ptr, ptr %55, align 8, !tbaa !6
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef %98, i64 noundef %.0.i1722)
+  %96 = load ptr, ptr %55, align 8, !tbaa !6
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef %96, i64 noundef %.0.i1722)
   call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
   br label %_prepareClientToWrite.exit
 
-99:                                               ; preds = %50
+97:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !6
-  %102 = ptrtoint ptr %101 to i64
-  %103 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 34, i64 noundef %102) #26
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds nuw [34 x i8], ptr %5, i64 0, i64 %104
-  store i8 13, ptr %105, align 1, !tbaa !12
-  %106 = add nsw i64 %104, 1
-  %107 = getelementptr inbounds nuw [34 x i8], ptr %5, i64 0, i64 %106
-  store i8 10, ptr %107, align 1, !tbaa !12
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !6
+  %100 = ptrtoint ptr %99 to i64
+  %101 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 34, i64 noundef %100) #26
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 %102
+  store i8 13, ptr %103, align 1, !tbaa !12
+  %104 = getelementptr i8, ptr %103, i64 1
+  store i8 10, ptr %104, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %108 = icmp ult i32 %103, 32
-  br i1 %108, label %109, label %116
+  %105 = icmp ult i32 %101, 32
+  br i1 %105, label %106, label %113
 
-109:                                              ; preds = %99
-  %110 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %104
-  %111 = load ptr, ptr %110, align 8, !tbaa !147
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !6
-  %114 = icmp samesign ult i32 %103, 10
-  %115 = select i1 %114, i64 4, i64 5
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef %113, i64 noundef %115)
+106:                                              ; preds = %97
+  %107 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %102
+  %108 = load ptr, ptr %107, align 8, !tbaa !147
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !6
+  %111 = icmp samesign ult i32 %101, 10
+  %112 = select i1 %111, i64 4, i64 5
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef %110, i64 noundef %112)
   br label %_addReplyLongLongBulk.exit18
 
-116:                                              ; preds = %99
+113:                                              ; preds = %97
   store i8 36, ptr %3, align 16, !tbaa !12
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %118 = call i32 @ll2string(ptr noundef nonnull %117, i64 noundef 127, i64 noundef %104) #26
-  %119 = add nsw i32 %118, 1
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %120
-  store i8 13, ptr %121, align 1, !tbaa !12
-  %122 = add nsw i32 %118, 2
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %123
-  store i8 10, ptr %124, align 1, !tbaa !12
-  %125 = add nsw i32 %118, 3
-  %126 = sext i32 %125 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %126)
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %115 = call i32 @ll2string(ptr noundef nonnull %114, i64 noundef 127, i64 noundef %102) #26
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr i8, ptr %3, i64 %116
+  %118 = getelementptr i8, ptr %117, i64 1
+  store i8 13, ptr %118, align 1, !tbaa !12
+  %119 = getelementptr i8, ptr %117, i64 2
+  store i8 10, ptr %119, align 1, !tbaa !12
+  %120 = add nsw i32 %115, 3
+  %121 = sext i32 %120 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %121)
   br label %_addReplyLongLongBulk.exit18
 
-_addReplyLongLongBulk.exit18:                     ; preds = %109, %116
+_addReplyLongLongBulk.exit18:                     ; preds = %106, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %127 = add nsw i64 %104, 2
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %127)
+  %122 = add nsw i64 %102, 2
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %122)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_prepareClientToWrite.exit
 
-128:                                              ; preds = %50
+123:                                              ; preds = %50
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1103, ptr noundef nonnull @.str.4) #26
   tail call void @abort() #27
   unreachable
@@ -4486,17 +4474,15 @@ clientHasPendingReplies.exit.i:                   ; preds = %29
   store i8 58, ptr %3, align 16, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %55 = call i32 @ll2string(ptr noundef nonnull %54, i64 noundef 127, i64 noundef %1) #26
-  %56 = add nsw i32 %55, 1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %57
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr i8, ptr %3, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 1
   store i8 13, ptr %58, align 1, !tbaa !12
-  %59 = add nsw i32 %55, 2
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %60
-  store i8 10, ptr %61, align 1, !tbaa !12
-  %62 = add nsw i32 %55, 3
-  %63 = sext i32 %62 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %63)
+  %59 = getelementptr i8, ptr %57, i64 2
+  store i8 10, ptr %59, align 1, !tbaa !12
+  %60 = add nsw i32 %55, 3
+  %61 = sext i32 %60 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_prepareClientToWrite.exit
 
@@ -4516,12 +4502,12 @@ define internal fastcc void @_addReplyLongLongWithPrefix(ptr noundef %0, i64 nou
   br i1 %or.cond, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 0, i64 %1
+  %10 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 %1
   %11 = load ptr, ptr %10, align 8, !tbaa !147
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   tail call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef %13, i64 noundef %7)
-  br label %46
+  br label %44
 
 14:                                               ; preds = %3
   %15 = icmp eq i8 %2, 36
@@ -4529,12 +4515,12 @@ define internal fastcc void @_addReplyLongLongWithPrefix(ptr noundef %0, i64 nou
   br i1 %or.cond3, label %16, label %21
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 0, i64 %1
+  %17 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %1
   %18 = load ptr, ptr %17, align 8, !tbaa !147
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   tail call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef %20, i64 noundef %7)
-  br label %46
+  br label %44
 
 21:                                               ; preds = %14
   %22 = icmp eq i8 %2, 37
@@ -4542,12 +4528,12 @@ define internal fastcc void @_addReplyLongLongWithPrefix(ptr noundef %0, i64 nou
   br i1 %or.cond5, label %23, label %28
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81392), i64 0, i64 %1
+  %24 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81392), i64 %1
   %25 = load ptr, ptr %24, align 8, !tbaa !147
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !6
   tail call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef %27, i64 noundef %7)
-  br label %46
+  br label %44
 
 28:                                               ; preds = %21
   %29 = icmp eq i8 %2, 126
@@ -4555,31 +4541,29 @@ define internal fastcc void @_addReplyLongLongWithPrefix(ptr noundef %0, i64 nou
   br i1 %or.cond7, label %30, label %35
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81648), i64 0, i64 %1
+  %31 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81648), i64 %1
   %32 = load ptr, ptr %31, align 8, !tbaa !147
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !6
   tail call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef %34, i64 noundef %7)
-  br label %46
+  br label %44
 
 35:                                               ; preds = %28
   store i8 %2, ptr %4, align 16, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %37 = call i32 @ll2string(ptr noundef nonnull %36, i64 noundef 127, i64 noundef %1) #26
-  %38 = add nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %39
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr i8, ptr %4, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 1
   store i8 13, ptr %40, align 1, !tbaa !12
-  %41 = add nsw i32 %37, 2
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %42
-  store i8 10, ptr %43, align 1, !tbaa !12
-  %44 = add nsw i32 %37, 3
-  %45 = sext i32 %44 to i64
-  call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %45)
-  br label %46
+  %41 = getelementptr i8, ptr %39, i64 2
+  store i8 10, ptr %41, align 1, !tbaa !12
+  %42 = add nsw i32 %37, 3
+  %43 = sext i32 %42 to i64
+  call void @_addReplyToBufferOrList(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %43)
+  br label %44
 
-46:                                               ; preds = %35, %30, %23, %16, %9
+44:                                               ; preds = %35, %30, %23, %16, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -4817,17 +4801,15 @@ clientHasPendingReplies.exit.i:                   ; preds = %27
   store i8 42, ptr %3, align 16, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %62 = call i32 @ll2string(ptr noundef nonnull %61, i64 noundef 127, i64 noundef range(i64 0, -9223372036854775808) %1) #26
-  %63 = add nsw i32 %62, 1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %64
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i8, ptr %3, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 1
   store i8 13, ptr %65, align 1, !tbaa !12
-  %66 = add nsw i32 %62, 2
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %67
-  store i8 10, ptr %68, align 1, !tbaa !12
-  %69 = add nsw i32 %62, 3
-  %70 = sext i32 %69 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %70)
+  %66 = getelementptr i8, ptr %64, i64 2
+  store i8 10, ptr %66, align 1, !tbaa !12
+  %67 = add nsw i32 %62, 3
+  %68 = sext i32 %67 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %68)
   br label %_addReplyLongLongMBulk.exit
 
 _addReplyLongLongMBulk.exit:                      ; preds = %53, %60
@@ -5078,17 +5060,15 @@ clientHasPendingReplies.exit.i:                   ; preds = %25
   store i8 36, ptr %3, align 16, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %60 = call i32 @ll2string(ptr noundef nonnull %59, i64 noundef 127, i64 noundef %4) #26
-  %61 = add nsw i32 %60, 1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %62
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr i8, ptr %3, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 1
   store i8 13, ptr %63, align 1, !tbaa !12
-  %64 = add nsw i32 %60, 2
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %65
-  store i8 10, ptr %66, align 1, !tbaa !12
-  %67 = add nsw i32 %60, 3
-  %68 = sext i32 %67 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %68)
+  %64 = getelementptr i8, ptr %62, i64 2
+  store i8 10, ptr %64, align 1, !tbaa !12
+  %65 = add nsw i32 %60, 3
+  %66 = sext i32 %65 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %66)
   br label %_addReplyLongLongBulk.exit
 
 _addReplyLongLongBulk.exit:                       ; preds = %51, %58
@@ -5193,7 +5173,7 @@ clientHasPendingReplies.exit.i:                   ; preds = %24
 
 _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
   tail call void @sdsfree(ptr noundef %1) #26
-  br label %111
+  br label %109
 
 48:                                               ; preds = %2, %31, %clientHasPendingReplies.exit.i, %35, %38, %41, %44, %24, %21
   %49 = getelementptr inbounds i8, ptr %1, i64 -1
@@ -5252,7 +5232,7 @@ sdslen.exit:                                      ; preds = %53, %56, %60, %64, 
 73:                                               ; preds = %sdslen.exit, %.thread
   %74 = phi i64 [ 4, %.thread ], [ %., %sdslen.exit ]
   %.0.i91720 = phi i64 [ 0, %.thread ], [ %.0.i9.fr, %sdslen.exit ]
-  %75 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 0, i64 %.0.i91720
+  %75 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %.0.i91720
   %76 = load ptr, ptr %75, align 8, !tbaa !147
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !6
@@ -5263,68 +5243,66 @@ sdslen.exit:                                      ; preds = %53, %56, %60, %64, 
   store i8 36, ptr %3, align 16, !tbaa !12
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %81 = call i32 @ll2string(ptr noundef nonnull %80, i64 noundef 127, i64 noundef %.0.i9.fr) #26
-  %82 = add nsw i32 %81, 1
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %83
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr i8, ptr %3, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 1
   store i8 13, ptr %84, align 1, !tbaa !12
-  %85 = add nsw i32 %81, 2
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %86
-  store i8 10, ptr %87, align 1, !tbaa !12
-  %88 = add nsw i32 %81, 3
-  %89 = sext i32 %88 to i64
-  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %89)
+  %85 = getelementptr i8, ptr %83, i64 2
+  store i8 10, ptr %85, align 1, !tbaa !12
+  %86 = add nsw i32 %81, 3
+  %87 = sext i32 %86 to i64
+  call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %87)
   br label %_addReplyLongLongWithPrefix.exit
 
 _addReplyLongLongWithPrefix.exit:                 ; preds = %73, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %90 = load i8, ptr %49, align 1, !tbaa !12
-  %91 = zext i8 %90 to i32
-  %92 = and i32 %91, 7
-  switch i32 %92, label %sdslen.exit12 [
-    i32 0, label %93
-    i32 1, label %96
-    i32 2, label %100
-    i32 3, label %104
-    i32 4, label %108
+  %88 = load i8, ptr %49, align 1, !tbaa !12
+  %89 = zext i8 %88 to i32
+  %90 = and i32 %89, 7
+  switch i32 %90, label %sdslen.exit12 [
+    i32 0, label %91
+    i32 1, label %94
+    i32 2, label %98
+    i32 3, label %102
+    i32 4, label %106
   ]
 
-93:                                               ; preds = %_addReplyLongLongWithPrefix.exit
-  %94 = lshr i32 %91, 3
-  %95 = zext nneg i32 %94 to i64
+91:                                               ; preds = %_addReplyLongLongWithPrefix.exit
+  %92 = lshr i32 %89, 3
+  %93 = zext nneg i32 %92 to i64
   br label %sdslen.exit12
 
-96:                                               ; preds = %_addReplyLongLongWithPrefix.exit
-  %97 = getelementptr inbounds i8, ptr %1, i64 -3
-  %98 = load i8, ptr %97, align 1, !tbaa !12
-  %99 = zext i8 %98 to i64
+94:                                               ; preds = %_addReplyLongLongWithPrefix.exit
+  %95 = getelementptr inbounds i8, ptr %1, i64 -3
+  %96 = load i8, ptr %95, align 1, !tbaa !12
+  %97 = zext i8 %96 to i64
   br label %sdslen.exit12
 
-100:                                              ; preds = %_addReplyLongLongWithPrefix.exit
-  %101 = getelementptr inbounds i8, ptr %1, i64 -5
-  %102 = load i16, ptr %101, align 1, !tbaa !13
-  %103 = zext i16 %102 to i64
+98:                                               ; preds = %_addReplyLongLongWithPrefix.exit
+  %99 = getelementptr inbounds i8, ptr %1, i64 -5
+  %100 = load i16, ptr %99, align 1, !tbaa !13
+  %101 = zext i16 %100 to i64
   br label %sdslen.exit12
 
-104:                                              ; preds = %_addReplyLongLongWithPrefix.exit
-  %105 = getelementptr inbounds i8, ptr %1, i64 -9
-  %106 = load i32, ptr %105, align 1, !tbaa !15
-  %107 = zext i32 %106 to i64
+102:                                              ; preds = %_addReplyLongLongWithPrefix.exit
+  %103 = getelementptr inbounds i8, ptr %1, i64 -9
+  %104 = load i32, ptr %103, align 1, !tbaa !15
+  %105 = zext i32 %104 to i64
   br label %sdslen.exit12
 
-108:                                              ; preds = %_addReplyLongLongWithPrefix.exit
-  %109 = getelementptr inbounds i8, ptr %1, i64 -17
-  %110 = load i64, ptr %109, align 1, !tbaa !16
+106:                                              ; preds = %_addReplyLongLongWithPrefix.exit
+  %107 = getelementptr inbounds i8, ptr %1, i64 -17
+  %108 = load i64, ptr %107, align 1, !tbaa !16
   br label %sdslen.exit12
 
-sdslen.exit12:                                    ; preds = %_addReplyLongLongWithPrefix.exit, %93, %96, %100, %104, %108
-  %.0.i11 = phi i64 [ %95, %93 ], [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ %110, %108 ], [ 0, %_addReplyLongLongWithPrefix.exit ]
+sdslen.exit12:                                    ; preds = %_addReplyLongLongWithPrefix.exit, %91, %94, %98, %102, %106
+  %.0.i11 = phi i64 [ %93, %91 ], [ %97, %94 ], [ %101, %98 ], [ %105, %102 ], [ %108, %106 ], [ 0, %_addReplyLongLongWithPrefix.exit ]
   call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0.i11)
   call void @sdsfree(ptr noundef nonnull %1) #26
   call void @_addReplyToBufferOrList(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
-  br label %111
+  br label %109
 
-111:                                              ; preds = %sdslen.exit12, %_prepareClientToWrite.exit
+109:                                              ; preds = %sdslen.exit12, %_prepareClientToWrite.exit
   ret void
 }
 
@@ -5592,7 +5570,7 @@ define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly
 30:                                               ; preds = %28
   %31 = icmp samesign ult i32 %24, 7
   %32 = select i1 %31, i64 4, i64 5
-  %33 = getelementptr inbounds nuw [32 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 0, i64 %26
+  %33 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 80880), i64 %26
   %34 = load ptr, ptr %33, align 8, !tbaa !147
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !6
@@ -7186,7 +7164,7 @@ define dso_local void @freeClient(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %15
   %19 = load i8, ptr %12, align 8, !tbaa !72
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [128 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 1872), i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1872), i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 4, !tbaa !15
@@ -7411,7 +7389,7 @@ freeClientOriginalArgv.exit:                      ; preds = %freeClientArgv.exit
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %122 = load i32, ptr %121, align 8, !tbaa !202
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [4 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), i64 0, i64 %123
+  %124 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), i64 %123
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = sub i64 %125, %120
   store i64 %126, ptr %124, align 8, !tbaa !16
@@ -8302,7 +8280,7 @@ define dso_local range(i32 -1, 1) i32 @writeToClient(ptr noundef %0, i32 noundef
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %9 = load i8, ptr %8, align 1, !tbaa !73
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [128 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 4040), i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4040), i64 %10
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !16
@@ -13351,7 +13329,7 @@ declare void @unblockClientOnTimeout(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @unpauseActions(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [3 x %struct.pause_event], ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.pause_event, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !tbaa !244
   store i32 0, ptr %3, align 8, !tbaa !246
@@ -14361,7 +14339,7 @@ define dso_local noundef ptr @getClientTypeName(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.getClientTypeName, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.getClientTypeName, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -14441,7 +14419,7 @@ getClientType.exit:                               ; preds = %getClientOutputBuff
   %43 = phi i32 [ %..i, %.thread ], [ 0, %getClientOutputBufferMemoryUsage.exit.thread ], [ %.mux, %getClientOutputBufferMemoryUsage.exit ]
   %44 = freeze i64 %.0.i3946
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds nuw (i8, ptr @server, i64 6408), i64 0, i64 %45
+  %46 = getelementptr inbounds nuw %struct.clientBufferLimitsConfig, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6408), i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !264
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7112), align 8
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -14593,7 +14571,7 @@ define dso_local void @updatePausedActions() local_unnamed_addr #0 {
 8:                                                ; preds = %0, %18
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %18 ]
   %9 = phi i32 [ 0, %0 ], [ %19, %18 ]
-  %10 = getelementptr inbounds nuw [3 x %struct.pause_event], ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.pause_event, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !244
   %13 = icmp sgt i64 %12, %3
@@ -14668,7 +14646,7 @@ define dso_local void @unblockPostponedClients() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @pauseActions(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw [3 x %struct.pause_event], ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.pause_event, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1544), i64 %4
   store i32 %2, ptr %5, align 8, !tbaa !246
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !244

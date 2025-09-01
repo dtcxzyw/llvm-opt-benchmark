@@ -222,7 +222,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %.14574 = phi i8 [ %.246, %103 ], [ %.04476, %49 ]
   %55 = add nsw i32 %.03875, 1
   %56 = sext i32 %.03875 to i64
-  %57 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %56
+  %57 = getelementptr inbounds i16, ptr %4, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !28
   %59 = and i16 %58, -1024
   %60 = icmp ne i16 %59, -10240
@@ -232,7 +232,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 
 61:                                               ; preds = %.lr.ph
   %62 = sext i32 %55 to i64
-  %63 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds i16, ptr %4, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !28
   %65 = and i16 %64, -1024
   %66 = icmp eq i16 %65, -9216
@@ -260,7 +260,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 76:                                               ; preds = %75
   %77 = load i8, ptr %9, align 1, !tbaa !3
   %78 = sext i32 %.03977 to i64
-  %79 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %78
+  %79 = getelementptr inbounds i8, ptr %5, i64 %78
   store i8 %77, ptr %79, align 1, !tbaa !3
   %80 = icmp sgt i32 %.03977, -1
   br i1 %80, label %.lr.ph79.preheader, label %.loopexit
@@ -273,7 +273,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
   %indvars.iv = phi i64 [ %82, %.lr.ph79.preheader ], [ %83, %.lr.ph79 ]
   %83 = add nsw i64 %indvars.iv, -1
-  %84 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %85)
   %87 = trunc nuw i64 %indvars.iv to i32
@@ -323,7 +323,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %100, %94, %93, %89
   %106 = load i8, ptr %9, align 1, !tbaa !3
   %107 = add nsw i32 %.03977, 1
   %108 = sext i32 %.03977 to i64
-  %109 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %108
+  %109 = getelementptr inbounds i8, ptr %5, i64 %108
   store i8 %106, ptr %109, align 1, !tbaa !3
   br label %.thread
 

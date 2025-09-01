@@ -533,7 +533,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %209 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds %struct.dt_wb_data, ptr %208, i64 %210, i32 4
-  %212 = getelementptr inbounds nuw [4 x double], ptr %211, i64 0, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv
   store double %207, ptr %212, align 8, !tbaa !59
   call void @json_reader_end_element(ptr noundef %40) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -727,15 +727,15 @@ define void @dt_wb_preset_interpolate(ptr noundef readonly captures(none) %0, pt
 
 26:                                               ; preds = %19, %26
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [4 x double], ptr %22, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !59
   %29 = fdiv reassoc nsz arcp contract afn double %21, %28
-  %30 = getelementptr inbounds nuw [4 x double], ptr %23, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   %31 = load double, ptr %30, align 8, !tbaa !59
   %32 = fdiv reassoc nsz arcp contract afn double %20, %31
   %33 = fadd reassoc nsz arcp contract afn double %32, %29
   %34 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %33
-  %35 = getelementptr inbounds nuw [4 x double], ptr %24, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   store double %34, ptr %35, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

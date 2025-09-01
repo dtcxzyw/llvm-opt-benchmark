@@ -315,7 +315,7 @@ define internal void @cipher_hw_rc4_hmac_md5_init_mackey(ptr noundef %0, ptr nou
 
 12:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = xor i8 %14, 54
   store i8 %15, ptr %13, align 1, !tbaa !8
@@ -331,7 +331,7 @@ define internal void @cipher_hw_rc4_hmac_md5_init_mackey(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %16, %20
   %indvars.iv25 = phi i64 [ 0, %16 ], [ %indvars.iv.next26, %20 ]
-  %21 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv25
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv25
   %22 = load i8, ptr %21, align 1, !tbaa !8
   %23 = xor i8 %22, 106
   store i8 %23, ptr %21, align 1, !tbaa !8

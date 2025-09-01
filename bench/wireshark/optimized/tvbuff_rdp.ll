@@ -147,7 +147,7 @@ define internal fastcc noundef zeroext i1 @rdp8_decompress_segment(ptr noundef %
 
 23:                                               ; preds = %20
   %24 = zext i32 %21 to i64
-  %25 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %24
+  %25 = getelementptr i8, ptr %0, i64 %24
   %26 = zext i32 %.0.i to i64
   %27 = tail call ptr @tvb_memcpy(ptr noundef %10, ptr noundef %25, i32 noundef %.035.i, i64 noundef %26)
   br label %zgfx_write_history_buffer_tvb.exit
@@ -155,7 +155,7 @@ define internal fastcc noundef zeroext i1 @rdp8_decompress_segment(ptr noundef %
 28:                                               ; preds = %20
   %29 = sub i32 %12, %21
   %30 = zext i32 %21 to i64
-  %31 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %30
+  %31 = getelementptr i8, ptr %0, i64 %30
   %32 = zext i32 %29 to i64
   %33 = tail call ptr @tvb_memcpy(ptr noundef %10, ptr noundef %31, i32 noundef %.035.i, i64 noundef %32)
   %34 = add i32 %.0.i, %.035.i
@@ -738,11 +738,11 @@ zgfx_write_literal.exit155.thread:                ; preds = %270
   %275 = add i32 %271, 1
   store i32 %275, ptr %62, align 4
   %276 = zext i32 %271 to i64
-  %277 = getelementptr [65536 x i8], ptr %63, i64 0, i64 %276
+  %277 = getelementptr i8, ptr %63, i64 %276
   store i8 %274, ptr %277, align 1
   %278 = load i32, ptr %64, align 4
   %279 = zext i32 %278 to i64
-  %280 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %279
+  %280 = getelementptr i8, ptr %0, i64 %279
   store i8 %274, ptr %280, align 1
   %281 = load i32, ptr %64, align 4
   %282 = add i32 %281, 1
@@ -755,11 +755,11 @@ select.unfold:                                    ; preds = %bitstream_getbits.e
   %285 = add i32 %105, 1
   store i32 %285, ptr %62, align 4
   %286 = zext i32 %105 to i64
-  %287 = getelementptr [65536 x i8], ptr %63, i64 0, i64 %286
+  %287 = getelementptr i8, ptr %63, i64 %286
   store i8 %.0.i109, ptr %287, align 1
   %288 = load i32, ptr %64, align 4
   %289 = zext i32 %288 to i64
-  %290 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %289
+  %290 = getelementptr i8, ptr %0, i64 %289
   store i8 %.0.i109, ptr %290, align 1
   %291 = load i32, ptr %64, align 4
   %292 = add i32 %291, 1
@@ -921,14 +921,14 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
   %16 = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   %18 = zext i32 %5 to i64
-  %19 = getelementptr [65536 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr i8, ptr %17, i64 %18
   %20 = add i32 %15, %16
   %21 = icmp ult i32 %20, %12
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %8
   %23 = zext i32 %15 to i64
-  %24 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %0, i64 %23
   %25 = zext i32 %16 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %19, ptr noundef align 1 %24, i64 noundef range(i64 0, 4294967296) %25, i1 noundef false) #9
   br label %34
@@ -936,7 +936,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
 26:                                               ; preds = %8
   %27 = sub i32 %12, %15
   %28 = zext i32 %15 to i64
-  %29 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %28
+  %29 = getelementptr i8, ptr %0, i64 %28
   %30 = zext i32 %27 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %19, ptr noundef align 1 %29, i64 noundef range(i64 0, 4294967296) %30, i1 noundef false) #9
   %31 = getelementptr i8, ptr %19, i64 %30
@@ -963,7 +963,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
   %37 = tail call i32 @llvm.umin.i32(i32 %.05863, i32 %.05764)
   %38 = load i32, ptr %4, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr [65536 x i8], ptr %17, i64 0, i64 %39
+  %40 = getelementptr i8, ptr %17, i64 %39
   %41 = zext i32 %37 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.05665, ptr noundef align 1 %40, i64 noundef range(i64 0, 4294967296) %41, i1 noundef false) #9
   %42 = getelementptr i8, ptr %.05665, i64 %41
@@ -975,7 +975,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %45 = load i32, ptr %4, align 4
   %46 = zext i32 %45 to i64
-  %47 = getelementptr [65536 x i8], ptr %17, i64 0, i64 %46
+  %47 = getelementptr i8, ptr %17, i64 %46
   %48 = load i32, ptr %11, align 4
   %49 = icmp ugt i32 %2, %48
   br i1 %49, label %50, label %._crit_edge.i
@@ -1001,7 +1001,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
 
 58:                                               ; preds = %55
   %59 = zext i32 %56 to i64
-  %60 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %59
+  %60 = getelementptr i8, ptr %0, i64 %59
   %61 = zext i32 %.0.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %60, ptr noundef readonly align 1 %47, i64 noundef range(i64 0, 4294967296) %61, i1 noundef false) #9
   br label %zgfx_write_history_buffer.exit
@@ -1009,7 +1009,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_from_history(ptr noundef %
 62:                                               ; preds = %55
   %63 = sub i32 %48, %56
   %64 = zext i32 %56 to i64
-  %65 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %64
+  %65 = getelementptr i8, ptr %0, i64 %64
   %66 = zext i32 %63 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %65, ptr noundef readonly align 1 %47, i64 noundef range(i64 0, 4294967296) %66, i1 noundef false) #9
   %67 = getelementptr i8, ptr %47, i64 %66
@@ -1052,7 +1052,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_raw(ptr noundef %0, ptr no
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   %15 = zext i32 %5 to i64
-  %16 = getelementptr [65536 x i8], ptr %14, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %14, i64 %15
   %17 = load ptr, ptr %1, align 8
   %18 = load i32, ptr %10, align 8
   %19 = sext i32 %2 to i64
@@ -1074,7 +1074,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_raw(ptr noundef %0, ptr no
 
 31:                                               ; preds = %13
   %32 = zext i32 %26 to i64
-  %33 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %32
+  %33 = getelementptr i8, ptr %0, i64 %32
   %34 = load ptr, ptr %1, align 8
   %35 = load i32, ptr %10, align 8
   %36 = sext i32 %spec.select to i64
@@ -1104,7 +1104,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_raw(ptr noundef %0, ptr no
 
 52:                                               ; preds = %48
   %53 = zext i32 %47 to i64
-  %54 = getelementptr [2500000 x i8], ptr %0, i64 0, i64 %53
+  %54 = getelementptr i8, ptr %0, i64 %53
   %55 = load ptr, ptr %1, align 8
   %56 = load i32, ptr %10, align 8
   %57 = tail call ptr @tvb_memcpy(ptr noundef %55, ptr noundef %54, i32 noundef %56, i64 noundef %36)

@@ -1635,7 +1635,7 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %71, %66, %63
   %indvars.iv.i = phi i64 [ 0, %.noexc.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %77 = phi ptr [ %74, %.noexc.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %78 = phi ptr [ %75, %.noexc.i ], [ %100, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %79 = getelementptr inbounds nuw [9 x i16], ptr @_ZZN10open_spiel2go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 0, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i16, ptr @_ZZN10open_spiel2go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 %indvars.iv.i
   %.not.i.i = icmp eq ptr %77, %78
   br i1 %.not.i.i, label %82, label %80
 

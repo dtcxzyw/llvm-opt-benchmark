@@ -5285,7 +5285,7 @@ define dso_local range(i32 0, 4096) i32 @rb_io_oflags_fmode(i32 noundef %0) loca
 switch.lookup:
   %1 = and i32 %0, 3
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = lshr i32 %0, 4
   %4 = and i32 %3, 64
@@ -5308,7 +5308,7 @@ switch.lookup:
   %1 = tail call i32 @rb_io_modestr_fmode(ptr noundef %0)
   %2 = and i32 %1, 3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = shl i32 %1, 4
   %5 = and i32 %4, 1024
@@ -5635,7 +5635,7 @@ io_encname_bom_p.exit.thread:                     ; preds = %22, %29, %31, %io_e
 
 ruby_nonempty_memcpy.exit:                        ; preds = %35
   %36 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull readonly %.051, i64 noundef range(i64 1, 0) %.0, i64 noundef 43) #28, !alias.scope !120
-  %37 = getelementptr [43 x i8], ptr %6, i64 0, i64 %.0
+  %37 = getelementptr i8, ptr %6, i64 %.0
   store i8 0, ptr %37, align 1, !tbaa !76
   br label %38
 
@@ -5842,7 +5842,7 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
   %.0.i = phi i64 [ %34, %33 ], [ %36, %35 ]
   %37 = trunc i64 %.0.i to i32
   %38 = and i64 %.0.i, 3
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = lshr i32 %37, 4
   %40 = and i32 %39, 64
@@ -5866,7 +5866,7 @@ switch.lookup:                                    ; preds = %28
   store i32 %49, ptr %8, align 4, !tbaa !20
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
-  %switch.gep154 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %51
+  %switch.gep154 = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %51
   %switch.load155 = load i32, ptr %switch.gep154, align 4
   %52 = shl i32 %49, 4
   %53 = and i32 %52, 1024
@@ -6047,7 +6047,7 @@ rb_num2int_inline.exit97:                         ; preds = %118, %120
   store i64 %126, ptr %7, align 8, !tbaa !23
   %127 = and i32 %123, 3
   %128 = zext nneg i32 %127 to i64
-  %switch.gep157 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %128
+  %switch.gep157 = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %128
   %switch.load158 = load i32, ptr %switch.gep157, align 4
   %129 = lshr i32 %123, 4
   %130 = and i32 %129, 64
@@ -6501,7 +6501,7 @@ switch.lookup:                                    ; preds = %31, %34
   store i64 4, ptr %41, align 8, !tbaa !127
   %42 = and i32 %32, 3
   %43 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   %44 = shl i32 %32, 4
   %45 = and i32 %44, 1024
@@ -8347,7 +8347,7 @@ switch.lookup:                                    ; preds = %.tail, %.tail.threa
   %.0 = phi i64 [ %4, %3 ], [ %6, %.tail.thread ], [ %spec.select, %.tail ]
   %11 = and i32 %1, 3
   %12 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = lshr i32 %1, 4
   %14 = and i32 %13, 64
@@ -8559,7 +8559,7 @@ switch.lookup:                                    ; preds = %1
   %5 = load i32, ptr %4, align 4, !tbaa !34
   %6 = and i32 %5, 3
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !7
@@ -8588,7 +8588,7 @@ default.unreachable:                              ; preds = %11
 
 switch.lookup10:                                  ; preds = %switch.lookup
   %15 = zext nneg i32 %switch.load to i64
-  %switch.gep11 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.rb_io_stdio_file.17, i64 0, i64 %15
+  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_io_stdio_file.17, i64 %15
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   br label %rb_io_oflags_modestr.exit
 
@@ -10352,7 +10352,7 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
 
 rb_num2long_inline.exit27:                        ; preds = %43, %41, %33
   %.0.i26.sink = phi i64 [ %37, %33 ], [ %42, %41 ], [ %44, %43 ]
-  %45 = getelementptr [8 x i64], ptr %4, i64 0, i64 %28
+  %45 = getelementptr i64, ptr %4, i64 %28
   store i64 %.0.i26.sink, ptr %45, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = add i32 %27, -1
@@ -10872,7 +10872,7 @@ rb_scan_args_set.exit:                            ; preds = %34
 
 46:                                               ; preds = %43, %46
   %indvars.iv23 = phi i64 [ 0, %43 ], [ %indvars.iv.next24, %46 ]
-  %47 = getelementptr [4 x %struct.rb_fdset_t], ptr %45, i64 0, i64 %indvars.iv23
+  %47 = getelementptr %struct.rb_fdset_t, ptr %45, i64 %indvars.iv23
   call void @rb_fd_init(ptr noundef %47) #28
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
@@ -11371,7 +11371,7 @@ switch.lookup:                                    ; preds = %37
   %49 = call i32 @rb_io_modestr_fmode(ptr noundef %48)
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %49, 4
   %53 = and i32 %52, 1024
@@ -13963,7 +13963,7 @@ switch.lookup:                                    ; preds = %301
   %325 = load i32, ptr %324, align 4, !tbaa !34
   %326 = and i32 %325, 3
   %327 = zext nneg i32 %326 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %327
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %327
   %switch.load = load i32, ptr %switch.gep, align 4
   %328 = shl i32 %325, 4
   %329 = and i32 %328, 1024
@@ -30499,7 +30499,7 @@ define internal noundef i64 @select_end(i64 noundef %0) #0 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr [4 x %struct.rb_fdset_t], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr %struct.rb_fdset_t, ptr %3, i64 %indvars.iv
   tail call void @rb_fd_term(ptr noundef %5) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -33618,7 +33618,7 @@ rb_update_max_fd.exit:                            ; preds = %rb_update_max_fd.ex
   %40 = phi i32 [ %.pre, %rb_update_max_fd.exit.loopexit ], [ %21, %26 ]
   %41 = and i32 %40, 3
   %42 = zext nneg i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = load i64, ptr %5, align 8, !tbaa !23
   %44 = icmp eq i64 %43, 4

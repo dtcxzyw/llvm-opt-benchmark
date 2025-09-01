@@ -2161,7 +2161,7 @@ rb_native_mutex_lock.exit.i:                      ; preds = %19
   %41 = add i16 %40, 1
   store i16 %41, ptr %39, align 2, !tbaa !160
   %42 = zext i16 %40 to i64
-  %43 = getelementptr [0 x i16], ptr %38, i64 0, i64 %42
+  %43 = getelementptr i16, ptr %38, i64 %42
   store i16 %37, ptr %43, align 2, !tbaa !160
   %44 = load i64, ptr @nt_thread_stack_size.msz, align 8, !tbaa !145
   %.not.i12.i = icmp eq i64 %44, 0
@@ -4971,7 +4971,7 @@ rb_native_mutex_lock.exit.i.i.i:                  ; preds = %140
   %152 = add i16 %148, -1
   store i16 %152, ptr %150, align 2, !tbaa !160
   %153 = zext i16 %152 to i64
-  %154 = getelementptr [0 x i16], ptr %151, i64 0, i64 %153
+  %154 = getelementptr i16, ptr %151, i64 %153
   %155 = load i16, ptr %154, align 2, !tbaa !160
   %156 = zext i16 %155 to i64
   %157 = tail call fastcc ptr @nt_stack_chunk_get_stack_start(ptr noundef nonnull %145, i64 noundef range(i64 -65535, 65536) %156)
@@ -9205,7 +9205,7 @@ rb_fd_resize.exit:                                ; preds = %20, %22
   %27 = load ptr, ptr %26, align 8, !tbaa !304
   %28 = sdiv i32 %0, 64
   %29 = sext i32 %28 to i64
-  %30 = getelementptr [16 x i64], ptr %27, i64 0, i64 %29
+  %30 = getelementptr i64, ptr %27, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !145
   %32 = or i64 %31, %25
   store i64 %32, ptr %30, align 8, !tbaa !145
@@ -9227,7 +9227,7 @@ define dso_local void @rb_fd_clr(i32 noundef %0, ptr noundef nonnull readonly ca
   %10 = load ptr, ptr %9, align 8, !tbaa !304
   %11 = sdiv i32 %0, 64
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [16 x i64], ptr %10, i64 0, i64 %12
+  %13 = getelementptr i64, ptr %10, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !145
   %15 = and i64 %14, %8
   store i64 %15, ptr %13, align 8, !tbaa !145
@@ -9248,7 +9248,7 @@ define dso_local range(i32 0, 2) i32 @rb_fd_isset(i32 noundef %0, ptr noundef no
   %6 = load ptr, ptr %5, align 8, !tbaa !304
   %7 = sdiv i32 %0, 64
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [16 x i64], ptr %6, i64 0, i64 %8
+  %9 = getelementptr i64, ptr %6, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !145
   %11 = srem i32 %0, 64
   %12 = zext nneg i32 %11 to i64
@@ -20192,7 +20192,7 @@ ractor_sched_unlock_.exit.i:                      ; preds = %rb_native_cond_sign
 
 .lr.ph.i13:                                       ; preds = %rb_native_mutex_unlock.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %rb_native_mutex_unlock.exit.i ]
-  %166 = getelementptr [16 x %struct.epoll_event], ptr getelementptr inbounds nuw (i8, ptr @timer_th, i64 28), i64 0, i64 %indvars.iv.i
+  %166 = getelementptr %struct.epoll_event, ptr getelementptr inbounds nuw (i8, ptr @timer_th, i64 28), i64 %indvars.iv.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %168 = load ptr, ptr %167, align 4, !tbaa !44
   %169 = icmp eq ptr %168, null

@@ -518,7 +518,7 @@ parse_streaminfo.exit:                            ; preds = %63, %30
 
 232:                                              ; preds = %decode_subframe.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %decode_subframe.exit.i ]
-  %233 = getelementptr inbounds nuw [8 x ptr], ptr %228, i64 0, i64 %indvars.iv.i
+  %233 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.i
   %234 = load ptr, ptr %233, align 8, !tbaa !66
   %235 = load i32, ptr %158, align 8, !tbaa !37
   %236 = icmp eq i64 %indvars.iv.i, 0
@@ -1166,7 +1166,7 @@ decode_subframe.exit.i:                           ; preds = %567, %565, %561, %.
 
 617:                                              ; preds = %603
   %618 = sext i32 %.pre123 to i64
-  %619 = getelementptr inbounds [4 x ptr], ptr %222, i64 0, i64 %618
+  %619 = getelementptr inbounds ptr, ptr %222, i64 %618
   %620 = load ptr, ptr %619, align 8, !tbaa !84
   %621 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %622 = load i32, ptr %139, align 4, !tbaa !40
@@ -2242,43 +2242,43 @@ get_bits_long.exit.i:                             ; preds = %.split, %get_bits_l
   %85 = tail call i32 @llvm.umin.i32(i32 %59, i32 %84)
   store i32 %85, ptr %6, align 8, !tbaa !53
   %86 = icmp slt i32 %83, 0
-  br i1 %86, label %89, label %.preheader
+  br i1 %86, label %90, label %.preheader
 
 .preheader:                                       ; preds = %75
   %87 = xor i32 %67, 31
   %88 = zext nneg i32 %2 to i64
   %wide.trip.count81 = zext nneg i32 %2 to i64
-  br label %92
+  %89 = getelementptr i32, ptr %5, i64 %88
+  br label %93
 
-89:                                               ; preds = %75
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %91, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %83) #10
+90:                                               ; preds = %75
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %92 = load ptr, ptr %91, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %92, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %83) #10
   br label %lpc_analyze_remodulate.exit
 
-92:                                               ; preds = %.preheader, %92
-  %indvars.iv78 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next79, %92 ]
-  %93 = phi i32 [ %85, %.preheader ], [ %103, %92 ]
-  %94 = lshr i32 %93, 3
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %57, i64 %95
-  %97 = load i32, ptr %96, align 1, !tbaa !46
-  %98 = tail call i32 @llvm.bswap.i32(i32 %97)
-  %99 = and i32 %93, 7
-  %100 = shl i32 %98, %99
-  %101 = ashr i32 %100, %87
-  %102 = add i32 %93, %70
-  %103 = tail call i32 @llvm.umin.i32(i32 %59, i32 %102)
-  store i32 %103, ptr %6, align 8, !tbaa !53
-  %104 = xor i64 %indvars.iv78, -1
-  %105 = add nsw i64 %88, %104
-  %106 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %105
-  store i32 %101, ptr %106, align 4, !tbaa !45
+93:                                               ; preds = %.preheader, %93
+  %indvars.iv78 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next79, %93 ]
+  %94 = phi i32 [ %85, %.preheader ], [ %104, %93 ]
+  %95 = lshr i32 %94, 3
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %57, i64 %96
+  %98 = load i32, ptr %97, align 1, !tbaa !46
+  %99 = tail call i32 @llvm.bswap.i32(i32 %98)
+  %100 = and i32 %94, 7
+  %101 = shl i32 %99, %100
+  %102 = ashr i32 %101, %87
+  %103 = add i32 %94, %70
+  %104 = tail call i32 @llvm.umin.i32(i32 %59, i32 %103)
+  store i32 %104, ptr %6, align 8, !tbaa !53
+  %105 = xor i64 %indvars.iv78, -1
+  %106 = getelementptr i32, ptr %89, i64 %105
+  store i32 %102, ptr %106, align 4, !tbaa !45
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %107, label %92, !llvm.loop !112
+  br i1 %exitcond82.not, label %107, label %93, !llvm.loop !112
 
-107:                                              ; preds = %92
+107:                                              ; preds = %93
   %108 = tail call fastcc i32 @decode_residuals(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %lpc_analyze_remodulate.exit, label %110
@@ -2310,7 +2310,7 @@ get_bits_long.exit.i:                             ; preds = %.split, %get_bits_l
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %121
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %122
   %123 = zext nneg i32 %.110.i to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !46
   %126 = zext i8 %125 to i32
   %127 = add nsw i32 %.1.i, %3
@@ -2432,8 +2432,8 @@ get_bits_long.exit.i:                             ; preds = %.split, %get_bits_l
   %exitcond85.not.i = icmp eq i32 %184, %144
   br i1 %exitcond85.not.i, label %lpc_analyze_remodulate.exit, label %.preheader.i, !llvm.loop !120
 
-lpc_analyze_remodulate.exit:                      ; preds = %179, %._crit_edge.i, %143, %131, %.thread, %107, %89, %72
-  %.0 = phi i32 [ -1094995529, %72 ], [ -1094995529, %89 ], [ %108, %107 ], [ 0, %.thread ], [ 0, %131 ], [ 0, %143 ], [ 0, %._crit_edge.i ], [ 0, %179 ]
+lpc_analyze_remodulate.exit:                      ; preds = %179, %._crit_edge.i, %143, %131, %.thread, %107, %90, %72
+  %.0 = phi i32 [ -1094995529, %72 ], [ -1094995529, %90 ], [ %108, %107 ], [ 0, %.thread ], [ 0, %131 ], [ 0, %143 ], [ 0, %._crit_edge.i ], [ 0, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2535,42 +2535,42 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_subframe_lpc_33bps(
   %77 = tail call i32 @llvm.umin.i32(i32 %9, i32 %76)
   store i32 %77, ptr %7, align 8, !tbaa !53
   %78 = icmp slt i32 %75, 0
-  br i1 %78, label %81, label %.preheader
+  br i1 %78, label %82, label %.preheader
 
 .preheader:                                       ; preds = %67
   %79 = xor i32 %59, 31
   %80 = zext nneg i32 %3 to i64
-  br label %84
+  %81 = getelementptr i32, ptr %5, i64 %80
+  br label %85
 
-81:                                               ; preds = %67
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %75) #10
+82:                                               ; preds = %67
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %84 = load ptr, ptr %83, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %84, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %75) #10
   br label %107
 
-84:                                               ; preds = %.preheader, %84
-  %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %84 ]
-  %85 = phi i32 [ %77, %.preheader ], [ %95, %84 ]
-  %86 = lshr i32 %85, 3
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 %87
-  %89 = load i32, ptr %88, align 1, !tbaa !46
-  %90 = tail call i32 @llvm.bswap.i32(i32 %89)
-  %91 = and i32 %85, 7
-  %92 = shl i32 %90, %91
-  %93 = ashr i32 %92, %79
-  %94 = add i32 %85, %62
-  %95 = tail call i32 @llvm.umin.i32(i32 %9, i32 %94)
-  store i32 %95, ptr %7, align 8, !tbaa !53
-  %96 = xor i64 %indvars.iv40, -1
-  %97 = add nsw i64 %80, %96
-  %98 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %97
-  store i32 %93, ptr %98, align 4, !tbaa !45
+85:                                               ; preds = %.preheader, %85
+  %indvars.iv40 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next41, %85 ]
+  %86 = phi i32 [ %77, %.preheader ], [ %96, %85 ]
+  %87 = lshr i32 %86, 3
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 %88
+  %90 = load i32, ptr %89, align 1, !tbaa !46
+  %91 = tail call i32 @llvm.bswap.i32(i32 %90)
+  %92 = and i32 %86, 7
+  %93 = shl i32 %91, %92
+  %94 = ashr i32 %93, %79
+  %95 = add i32 %86, %62
+  %96 = tail call i32 @llvm.umin.i32(i32 %9, i32 %95)
+  store i32 %96, ptr %7, align 8, !tbaa !53
+  %97 = xor i64 %indvars.iv40, -1
+  %98 = getelementptr i32, ptr %81, i64 %97
+  store i32 %94, ptr %98, align 4, !tbaa !45
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
-  br i1 %exitcond44.not, label %99, label %84, !llvm.loop !122
+  br i1 %exitcond44.not, label %99, label %85, !llvm.loop !122
 
-99:                                               ; preds = %84
+99:                                               ; preds = %85
   %100 = tail call fastcc i32 @decode_residuals(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3)
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %107, label %102
@@ -2583,8 +2583,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_subframe_lpc_33bps(
   call void %104(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %3, i32 noundef %75, i32 noundef %106) #10
   br label %107
 
-107:                                              ; preds = %99, %102, %81, %64
-  %.0 = phi i32 [ -1094995529, %64 ], [ -1094995529, %81 ], [ 0, %102 ], [ %100, %99 ]
+107:                                              ; preds = %99, %102, %82, %64
+  %.0 = phi i32 [ -1094995529, %64 ], [ -1094995529, %82 ], [ 0, %102 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2818,7 +2818,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph117.split, %g
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %141
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %142
   %143 = zext nneg i32 %.110.i.i.i to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !46
   %146 = zext i8 %145 to i32
   %147 = add nuw nsw i32 %.1.i.i.i, %146

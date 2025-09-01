@@ -293,7 +293,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !10
   %86 = call i64 @strtoll(ptr noundef captures(none) %85, ptr noundef null, i32 noundef 0) #11
-  %87 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %.0256481
+  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %.0256481
   store i64 %86, ptr %87, align 8, !tbaa !12
   %88 = add nuw nsw i64 %.0256481, 1
   %exitcond.not = icmp eq i64 %88, %82
@@ -439,10 +439,10 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 .lr.ph484:                                        ; preds = %.preheader480, %.lr.ph484
   %.1257483 = phi i64 [ %160, %.lr.ph484 ], [ 0, %.preheader480 ]
   %160 = add nuw nsw i64 %.1257483, 1
-  %161 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i64, ptr %3, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !12
   %163 = trunc i64 %162 to i32
-  %164 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %.1257483
+  %164 = getelementptr inbounds nuw i32, ptr %8, i64 %.1257483
   store i32 %163, ptr %164, align 4, !tbaa !17
   %exitcond491.not = icmp eq i64 %160, %152
   br i1 %exitcond491.not, label %.lr.ph486, label %.lr.ph484, !llvm.loop !19
@@ -454,7 +454,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph486:                                        ; preds = %.lr.ph484, %165
   %.2485 = phi i64 [ %166, %165 ], [ 0, %.lr.ph484 ]
-  %167 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %.2485
+  %167 = getelementptr inbounds nuw i32, ptr %8, i64 %.2485
   %168 = load i32, ptr %167, align 4, !tbaa !17
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %165
@@ -469,7 +469,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread407
 
 ._crit_edge:                                      ; preds = %165, %.preheader480
-  %177 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %152
+  %177 = getelementptr inbounds nuw i32, ptr %8, i64 %152
   store i32 0, ptr %177, align 4, !tbaa !17
   %178 = load ptr, ptr @stdout, align 8, !tbaa !8
   %179 = call i32 @H5D_btree_debug(ptr noundef nonnull %59, i64 noundef %.0254406, ptr noundef %178, i32 noundef 0, i32 noundef 50, i32 noundef %150, ptr noundef nonnull %8) #11
@@ -1032,7 +1032,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 486:                                              ; preds = %484, %502
   %.3482 = phi i64 [ 0, %484 ], [ %503, %502 ]
-  %487 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.3482
+  %487 = getelementptr inbounds nuw i8, ptr %4, i64 %.3482
   %488 = load i8, ptr %487, align 1, !tbaa !16
   %489 = zext i8 %488 to i32
   %490 = add i8 %488, -127
@@ -1187,7 +1187,7 @@ define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.get_H5B2_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5B2_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1229,7 +1229,7 @@ define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_H5EA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5EA_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1259,7 +1259,7 @@ define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_H5FA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5FA_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

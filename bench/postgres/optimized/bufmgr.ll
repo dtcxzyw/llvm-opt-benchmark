@@ -475,13 +475,13 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
 
 .critedge.i:                                      ; preds = %5, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %5 ]
-  %12 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %14, label %11
 
 14:                                               ; preds = %.critedge.i
-  %15 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %15, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -492,7 +492,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   store i32 %18, ptr @PrivateRefCountClock, align 4
   %19 = and i32 %17, 7
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
   %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %8) #16
@@ -576,13 +576,13 @@ BufferTagsEqual.exit:                             ; preds = %50
 
 66:                                               ; preds = %65, %60
   %indvars.iv.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i, %65 ]
-  %67 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, %4
   br i1 %69, label %GetPrivateRefCountEntry.exit.thread5.i, label %65
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %66
-  %70 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GetPrivateRefCount.exit
 
@@ -749,13 +749,13 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
 
 .critedge:                                        ; preds = %0, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %6, label %3
 
 6:                                                ; preds = %.critedge
-  %7 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
   store ptr %7, ptr @ReservedRefCountEntry, align 8
   br label %22
 
@@ -766,7 +766,7 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
   store i32 %10, ptr @PrivateRefCountClock, align 4
   %11 = and i32 %9, 7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %12
   store ptr %13, ptr @ReservedRefCountEntry, align 8
   %14 = load ptr, ptr @PrivateRefCountHash, align 8
   %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %1) #16
@@ -803,13 +803,13 @@ define internal fastcc i32 @GetPrivateRefCount(i32 noundef %0) unnamed_addr #5 {
 
 4:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %GetPrivateRefCountEntry.exit.thread5, label %3
 
 GetPrivateRefCountEntry.exit.thread5:             ; preds = %4
-  %8 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
@@ -1665,7 +1665,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 20
   %48 = sext i32 %1 to i64
-  %49 = getelementptr inbounds [4 x i32], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds i32, ptr %47, i64 %48
   store i32 -1, ptr %49, align 4
   br label %._crit_edge229.i
 
@@ -1817,13 +1817,13 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 .critedge.i.i:                                    ; preds = %119, %128
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %128 ], [ 0, %119 ]
-  %129 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %129 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %130 = load i32, ptr %129, align 8
   %.not8.i.i = icmp eq i32 %130, 0
   br i1 %.not8.i.i, label %131, label %128
 
 131:                                              ; preds = %.critedge.i.i
-  %132 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   store ptr %132, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit.i
 
@@ -1834,7 +1834,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   store i32 %135, ptr @PrivateRefCountClock, align 4
   %136 = and i32 %134, 7
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %137
   store ptr %138, ptr @ReservedRefCountEntry, align 8
   %139 = load ptr, ptr @PrivateRefCountHash, align 8
   %140 = call ptr @hash_search(ptr noundef %139, ptr noundef nonnull %138, i32 noundef 1, ptr noundef nonnull %14) #16
@@ -2256,7 +2256,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   switch i32 %39, label %49 [
     i32 0, label %40
@@ -2292,7 +2292,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
   %53 = sext i32 %1 to i64
-  %54 = getelementptr inbounds [4 x i32], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds i32, ptr %52, i64 %53
   store i32 -1, ptr %54, align 4
   br label %55
 
@@ -2339,7 +2339,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   %indvars70 = trunc i64 %indvars.iv to i32
   %71 = add i32 %68, %indvars70
   %.not47 = icmp eq i32 %71, %61
-  %72 = getelementptr inbounds nuw [64 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   br i1 %.not47, label %ReleaseBuffer.exit, label %74
 
@@ -2776,13 +2776,13 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
 
 .critedge.i:                                      ; preds = %40, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 8
   %.not8.i = icmp eq i32 %46, 0
   br i1 %.not8.i, label %47, label %44
 
 47:                                               ; preds = %.critedge.i
-  %48 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %48, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -2793,7 +2793,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   store i32 %51, ptr @PrivateRefCountClock, align 4
   %52 = and i32 %50, 7
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %53
   store ptr %54, ptr @ReservedRefCountEntry, align 8
   %55 = load ptr, ptr @PrivateRefCountHash, align 8
   %56 = call ptr @hash_search(ptr noundef %55, ptr noundef nonnull %54, i32 noundef 1, ptr noundef nonnull %7) #16
@@ -3149,13 +3149,13 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
 
 .critedge.i:                                      ; preds = %35, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %35 ]
-  %40 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 8
   %.not8.i = icmp eq i32 %41, 0
   br i1 %.not8.i, label %42, label %39
 
 42:                                               ; preds = %.critedge.i
-  %43 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %43, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -3166,7 +3166,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   store i32 %46, ptr @PrivateRefCountClock, align 4
   %47 = and i32 %45, 7
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %48
   store ptr %49, ptr @ReservedRefCountEntry, align 8
   %50 = load ptr, ptr @PrivateRefCountHash, align 8
   %51 = call ptr @hash_search(ptr noundef %50, ptr noundef nonnull %49, i32 noundef 1, ptr noundef nonnull %6) #16
@@ -3611,7 +3611,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
 
 .thread147:                                       ; preds = %WaitReadBuffersCanStartIO.exit84
   %107 = sext i32 %.079111 to i64
-  %108 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %107
+  %108 = getelementptr inbounds i32, ptr %4, i64 %107
   store i32 %85, ptr %108, align 4
   br label %119
 
@@ -3627,7 +3627,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   call void @ResourceOwnerRemember(ptr noundef %112, i64 noundef %115, ptr noundef nonnull @buffer_io_resowner_desc) #16
   %.pre136 = load i32, ptr %84, align 4
   %116 = sext i32 %.079111 to i64
-  %117 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %116
+  %117 = getelementptr inbounds i32, ptr %4, i64 %116
   store i32 %.pre136, ptr %117, align 4
   %118 = icmp slt i32 %.pre136, 0
   br i1 %118, label %119, label %127
@@ -3654,7 +3654,7 @@ BufferGetBlock.exit86:                            ; preds = %119, %127
   %133 = phi i64 [ %120, %119 ], [ %116, %127 ]
   %.0.i85 = phi ptr [ %126, %119 ], [ %132, %127 ]
   %134 = add nuw i32 %.079111, 1
-  %135 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %133
+  %135 = getelementptr inbounds ptr, ptr %5, i64 %133
   store ptr %.0.i85, ptr %135, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %136 = trunc nsw i64 %indvars.iv to i32
@@ -3692,7 +3692,7 @@ BufferGetBlock.exit86:                            ; preds = %119, %127
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %229
   %indvars.iv132 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next133, %229 ]
-  %147 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv132
+  %147 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv132
   %148 = load i32, ptr %147, align 4
   br i1 %19, label %149, label %161
 
@@ -4417,13 +4417,13 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
 
 .critedge.i:                                      ; preds = %3, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %14, label %11
 
 14:                                               ; preds = %.critedge.i
-  %15 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %15, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -4434,7 +4434,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   store i32 %18, ptr @PrivateRefCountClock, align 4
   %19 = and i32 %17, 7
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
   %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %5) #16
@@ -4555,7 +4555,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds [256 x %struct.PendingWriteback], ptr %73, i64 0, i64 %77
+  %78 = getelementptr inbounds %struct.PendingWriteback, ptr %73, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %78, ptr noundef nonnull readonly align 4 dereferenceable(20) %6, i64 20, i1 false)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
@@ -4706,13 +4706,13 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
 
 19:                                               ; preds = %18, %13
   %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %18 ]
-  %20 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %GetPrivateRefCountEntry.exit.thread5.i, label %18
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %19
-  %23 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -5344,7 +5344,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv99
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @smgrnblocks_cached(ptr noundef nonnull %0, i32 noundef %17) #16
-  %19 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv99
+  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv99
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, -1
   br i1 %20, label %.thread.loopexit, label %21
@@ -5385,7 +5385,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %indvars.iv104 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next105, %.lr.ph86 ]
   %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv104
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv104
+  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv104
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv104
   %37 = load i32, ptr %36, align 4
@@ -5759,13 +5759,13 @@ BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %3
 
 59:                                               ; preds = %58, %55
   %indvars.iv.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i, %58 ]
-  %60 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, %57
   br i1 %62, label %GetPrivateRefCountEntry.exit.thread5.i, label %58
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %59
-  %63 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
@@ -5909,7 +5909,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %32 = load ptr, ptr %29, align 8
   %33 = trunc nuw nsw i64 %indvars.iv166 to i32
   %34 = tail call i32 @smgrnblocks_cached(ptr noundef %32, i32 noundef %33) #16
-  %35 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %indvars.iv166
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv166
   store i32 %34, ptr %35, align 4
   %36 = icmp eq i32 %34, -1
   br i1 %36, label %37, label %40
@@ -5965,7 +5965,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 55:                                               ; preds = %.preheader, %61
   %indvars.iv185 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next186, %61 ]
-  %56 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv185
+  %56 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv185
   %57 = load i32, ptr %56, align 4
   %.not127 = icmp eq i32 %57, -1
   br i1 %.not127, label %61, label %58
@@ -6495,13 +6495,13 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
 
 .critedge.i:                                      ; preds = %92, %94
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %92 ]
-  %95 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 8
   %.not8.i = icmp eq i32 %96, 0
   br i1 %.not8.i, label %97, label %94
 
 97:                                               ; preds = %.critedge.i
-  %98 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %98, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -6512,7 +6512,7 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
   store i32 %101, ptr @PrivateRefCountClock, align 4
   %102 = and i32 %100, 7
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %103
   store ptr %104, ptr @ReservedRefCountEntry, align 8
   %105 = load ptr, ptr @PrivateRefCountHash, align 8
   %106 = call ptr @hash_search(ptr noundef %105, ptr noundef nonnull %104, i32 noundef 1, ptr noundef nonnull %3) #16
@@ -6966,13 +6966,13 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
 
 .critedge.i:                                      ; preds = %bsearch.exit, %63
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ 0, %bsearch.exit ]
-  %64 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 8
   %.not8.i = icmp eq i32 %65, 0
   br i1 %.not8.i, label %66, label %63
 
 66:                                               ; preds = %.critedge.i
-  %67 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %67, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -6983,7 +6983,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   store i32 %70, ptr @PrivateRefCountClock, align 4
   %71 = and i32 %69, 7
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %72
   store ptr %73, ptr @ReservedRefCountEntry, align 8
   %74 = load ptr, ptr @PrivateRefCountHash, align 8
   %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %73, i32 noundef 1, ptr noundef nonnull %4) #16
@@ -7362,13 +7362,13 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
 
 .critedge.i:                                      ; preds = %16, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 8
   %.not8.i = icmp eq i32 %20, 0
   br i1 %.not8.i, label %21, label %18
 
 21:                                               ; preds = %.critedge.i
-  %22 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %22, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -7379,7 +7379,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
   store i32 %25, ptr @PrivateRefCountClock, align 4
   %26 = and i32 %24, 7
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %27
   store ptr %28, ptr @ReservedRefCountEntry, align 8
   %29 = load ptr, ptr @PrivateRefCountHash, align 8
   %30 = call ptr @hash_search(ptr noundef %29, ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull %3) #16
@@ -7593,7 +7593,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
 
 7:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %.loopexit.loopexit, label %6
@@ -7623,13 +7623,13 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
 
 .critedge.i:                                      ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 8
   %.not8.i = icmp eq i32 %22, 0
   br i1 %.not8.i, label %23, label %20
 
 23:                                               ; preds = %.critedge.i
-  %24 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   br label %ReservePrivateRefCountEntry.exit
 
 25:                                               ; preds = %20
@@ -7639,7 +7639,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   store i32 %27, ptr @PrivateRefCountClock, align 4
   %28 = and i32 %26, 7
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %29
   store ptr %30, ptr @ReservedRefCountEntry, align 8
   %31 = load ptr, ptr @PrivateRefCountHash, align 8
   %32 = call ptr @hash_search(ptr noundef %31, ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3) #16
@@ -7674,7 +7674,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %7
-  %48 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14, %11, %ReservePrivateRefCountEntry.exit
@@ -7959,13 +7959,13 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
 
 18:                                               ; preds = %17, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %17 ]
-  %19 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %0
   br i1 %21, label %GetPrivateRefCountEntry.exit.thread5.i, label %17
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %18
-  %22 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
@@ -8250,13 +8250,13 @@ define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_
 
 7:                                                ; preds = %6, %4
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %6 ]
-  %8 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %GetPrivateRefCountEntry.exit.thread5.i, label %6
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %7
-  %11 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %18
 
@@ -8318,13 +8318,13 @@ define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) loc
 
 13:                                               ; preds = %12, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %14 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %GetPrivateRefCountEntry.exit.thread5.i, label %12
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
-  %17 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
@@ -8441,13 +8441,13 @@ define dso_local zeroext i1 @IsBufferCleanupOK(i32 noundef %0) local_unnamed_add
 
 13:                                               ; preds = %12, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %14 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %GetPrivateRefCountEntry.exit.thread5.i, label %12
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
-  %17 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
@@ -8554,7 +8554,7 @@ define dso_local void @ScheduleBufferTagForWriteback(ptr noundef %0, i32 noundef
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds [256 x %struct.PendingWriteback], ptr %14, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.PendingWriteback, ptr %14, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   %.pre = load ptr, ptr %0, align 8
   %.pre9 = load i32, ptr %.pre, align 4
@@ -8597,7 +8597,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %14 = phi i32 [ %44, %._crit_edge ], [ %12, %6 ]
   %.094 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %6 ]
   %15 = sext i32 %.094 to i64
-  %16 = getelementptr inbounds [256 x %struct.PendingWriteback], ptr %7, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.PendingWriteback, ptr %7, i64 %15
   %.sroa.0.0.copyload = load i64, ptr %16, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
@@ -8620,7 +8620,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %.06181 = phi i32 [ %.162, %41 ], [ 1, %.lr.ph.preheader ]
   %21 = add i32 %.06082, %17
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [256 x %struct.PendingWriteback], ptr %7, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.PendingWriteback, ptr %7, i64 %22
   %24 = load i64, ptr %23, align 4
   %25 = getelementptr i8, ptr %23, i64 8
   %.val.i70 = load i32, ptr %25, align 4
@@ -9174,13 +9174,13 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
 
 .critedge.i:                                      ; preds = %1, %6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %9, label %6
 
 9:                                                ; preds = %.critedge.i
-  %10 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %10, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -9191,7 +9191,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   store i32 %13, ptr @PrivateRefCountClock, align 4
   %14 = and i32 %12, 7
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %15
   store ptr %16, ptr @ReservedRefCountEntry, align 8
   %17 = load ptr, ptr @PrivateRefCountHash, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %3) #16
@@ -9522,13 +9522,13 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
 
 .critedge.i:                                      ; preds = %2, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   %.not8.i = icmp eq i32 %10, 0
   br i1 %.not8.i, label %11, label %8
 
 11:                                               ; preds = %.critedge.i
-  %12 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %12, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -9539,7 +9539,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   store i32 %15, ptr @PrivateRefCountClock, align 4
   %16 = and i32 %14, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %17
   store ptr %18, ptr @ReservedRefCountEntry, align 8
   %19 = load ptr, ptr @PrivateRefCountHash, align 8
   %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %18, i32 noundef 1, ptr noundef nonnull %4) #16
@@ -9673,7 +9673,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %52
   %82 = add i32 %81, 1
   store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 8), align 8
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds [256 x %struct.PendingWriteback], ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 12), i64 0, i64 %83
+  %84 = getelementptr inbounds %struct.PendingWriteback, ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 12), i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %84, ptr noundef nonnull readonly align 4 dereferenceable(20) %34, i64 20, i1 false)
   %.pre.i = load ptr, ptr @BackendWritebackContext, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
@@ -9952,7 +9952,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
 
 10:                                               ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %8
   br i1 %13, label %GetPrivateRefCountEntry.exit.loopexit, label %9
@@ -9968,7 +9968,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit.loopexit:            ; preds = %10
-  %20 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountEntry.exit.loopexit, %14, %17

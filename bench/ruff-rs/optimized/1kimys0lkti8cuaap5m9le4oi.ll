@@ -59881,10 +59881,10 @@ define internal fastcc void @_ZN11ruff_linter5rules21flake8_comprehensions5rules
 
 switch.lookup:                                    ; preds = %2
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E", i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E", i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E.503", i64 0, i64 %27
+  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E.503", i64 %27
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %28 = tail call noundef align 8 dereferenceable(448) ptr @_ZN11ruff_linter8checkers3ast7Checker8semantic17h7feef6ca145aba79E(ptr noundef nonnull align 8 %0)
   %29 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel19has_builtin_binding17h174d49fd5fa315f1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %28, ptr noalias noundef nonnull readonly align 1 %switch.load46, i64 noundef %switch.load)
@@ -61111,10 +61111,10 @@ define noundef zeroext i1 @"_ZN133_$LT$ruff_linter..rules..flake8_comprehensions
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !991, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E.503", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN133_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension..ComprehensionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hd263435bd87887f5E.503", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

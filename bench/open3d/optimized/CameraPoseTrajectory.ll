@@ -1048,7 +1048,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit: ; pred
   br i1 %290, label %291, label %294
 
 291:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit
-  %292 = getelementptr inbounds nuw [5 x %"class.Eigen::Matrix"], ptr %6, i64 0, i64 %.0337
+  %292 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %6, i64 %.0337
   %293 = sub nuw nsw i64 %285, %289
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr %277, i64 noundef %293, ptr noundef nonnull align 8 dereferenceable(24) %292)
           to label %._ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEmRKS2_.exit_crit_edge unwind label %310

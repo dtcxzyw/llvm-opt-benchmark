@@ -8674,7 +8674,7 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
 
 switch.lookup:                                    ; preds = %98
   %104 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__get_token, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__get_token, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %9, align 8, !tbaa !213
   %105 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1

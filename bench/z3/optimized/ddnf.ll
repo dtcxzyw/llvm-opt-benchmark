@@ -3096,7 +3096,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 33:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %34 = load ptr, ptr %9, align 8, !tbaa !394
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !402
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %34, i32 noundef %37, ptr noundef %36)
@@ -8162,7 +8162,7 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %_ZN7obj_mapI4exprP3
 93:                                               ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.i, %.lr.ph.i
   %94 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %155, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.i ]
   %indvars.iv.i = phi i64 [ %91, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.i ]
-  %95 = getelementptr inbounds nuw [0 x ptr], ptr %90, i64 0, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8, !tbaa !481
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -8
@@ -10020,7 +10020,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7datalog4ddnf3imp13compile_rul
 
 30:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !481
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -8
@@ -10099,7 +10099,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
 
 70:                                               ; preds = %.lr.ph53, %91
   %indvars.iv57 = phi i64 [ %27, %.lr.ph53 ], [ %indvars.iv.next58, %91 ]
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv57
+  %71 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv57
   %72 = load ptr, ptr %71, align 8, !tbaa !481
   %73 = ptrtoint ptr %72 to i64
   %74 = and i64 %73, -8
@@ -10553,7 +10553,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp17compile_predicateEP3appR7
 
 22:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !404
   %25 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %24)
           to label %26 unwind label %52
@@ -10701,7 +10701,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 90:                                               ; preds = %.lr.ph50, %108
   %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %108 ]
-  %91 = getelementptr inbounds nuw [0 x ptr], ptr %81, i64 0, i64 %indvars.iv54
+  %91 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv54
   %92 = load ptr, ptr %91, align 8, !tbaa !404
   invoke void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %93 unwind label %118
@@ -11369,7 +11369,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 179:                                              ; preds = %.lr.ph, %197
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
-  %180 = getelementptr inbounds nuw [0 x ptr], ptr %171, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv
   %181 = load ptr, ptr %180, align 8, !tbaa !404
   invoke void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef %181, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %182 unwind label %207

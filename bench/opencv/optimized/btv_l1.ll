@@ -4719,7 +4719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24.i.i: ; preds = 
 
 1006:                                             ; preds = %991
   %1007 = zext nneg i32 %977 to i64
-  %1008 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZN12_GLOBAL__N_17upscaleERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5funcs, i64 0, i64 %1007
+  %1008 = getelementptr inbounds nuw ptr, ptr @_ZZN12_GLOBAL__N_17upscaleERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE5funcs, i64 %1007
   %1009 = load ptr, ptr %1008, align 8, !tbaa !159
   invoke void %1009(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %81, i32 noundef %976)
           to label %1010 unwind label %1041

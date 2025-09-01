@@ -901,7 +901,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %193 = and i32 %192, 1023
   %194 = zext nneg i32 %193 to i64
   %195 = icmp samesign ult i32 %193, 733
-  %196 = getelementptr inbounds nuw [733 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.21, i64 0, i64 %194
+  %196 = getelementptr inbounds nuw i8, ptr @anon.83dd8536bdca2e5c8688614313edd3af.21, i64 %194
   %197 = icmp ne i32 %105, 0
   %or.cond6.i.i = select i1 %197, i1 %109, i1 false
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1188,18 +1188,18 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %narrow = add nuw nsw i16 %191, 1
   %narrow111 = select i1 %409, i16 %narrow, i16 0
   %410 = zext nneg i16 %narrow111 to i64
-  %411 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.83, i64 0, i64 %410
+  %411 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.83, i64 %410
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %413 = icmp samesign ult i16 %191, 6
   %narrow112 = add nuw nsw i16 %191, 1
   %narrow113 = select i1 %413, i16 %narrow112, i16 0
   %414 = zext nneg i16 %narrow113 to i64
-  %415 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 %414
   %416 = icmp samesign ult i16 %191, 6
   %narrow114 = add nuw nsw i16 %191, 1
   %narrow115 = select i1 %416, i16 %narrow114, i16 0
   %417 = zext nneg i16 %narrow115 to i64
-  %418 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 %417
   %419 = icmp samesign ult i16 %191, 6
   %narrow116 = add nuw nsw i16 %191, 49
   %switch.offset101 = zext nneg i16 %narrow116 to i32
@@ -2335,7 +2335,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i77.i: ; preds = %7
   br i1 %758, label %759, label %.invoke.i, !prof !108
 
 759:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i77.i
-  %760 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 0, i64 %757
+  %760 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %757
   %761 = load ptr, ptr %760, align 8, !noalias !177, !nonnull !5, !align !56, !noundef !5
   %762 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !179, !noalias !188, !noundef !5
   %763 = load i64, ptr %93, align 8, !alias.scope !179, !noalias !188, !noundef !5
@@ -2381,7 +2381,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i.i: ; preds = %
   br i1 %782, label %783, label %.invoke.i, !prof !108
 
 783:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i.i
-  %784 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.73, i64 0, i64 %781
+  %784 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.73, i64 %781
   %785 = load ptr, ptr %784, align 8, !noalias !177, !nonnull !5, !align !56, !noundef !5
   %786 = getelementptr inbounds nuw i8, ptr %784, i64 8
   %787 = load i64, ptr %786, align 8, !noalias !177, !noundef !5
@@ -3313,7 +3313,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit78.i.i: ; preds = %.
   br i1 %1052, label %1053, label %.invoke.i, !prof !108
 
 1053:                                             ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit78.i.i
-  %1054 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 0, i64 %1051
+  %1054 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %1051
   %1055 = load ptr, ptr %1054, align 8, !noalias !361, !nonnull !5, !align !56, !noundef !5
   %1056 = load i64, ptr %93, align 8, !alias.scope !396, !noalias !405, !noundef !5
   %1057 = sub i64 %1056, %1048

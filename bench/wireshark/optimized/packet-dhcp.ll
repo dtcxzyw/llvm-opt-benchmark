@@ -3313,7 +3313,7 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr [19 x %struct._value_string], ptr @opt53_text, i64 0, i64 %indvars.iv.next, i32 1
+  %16 = getelementptr %struct._value_string, ptr @opt53_text, i64 %indvars.iv.next, i32 1
   %17 = load ptr, ptr %16, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 18
   br i1 %exitcond, label %.loopexit, label %13, !llvm.loop !9
@@ -3432,16 +3432,16 @@ define internal void @dhcp_init_protocol() #0 {
   %15 = getelementptr %struct.uat_dhcp_record_t, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %17
+  %18 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %17
   store ptr %13, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %21, i32 1
+  %22 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %21, i32 1
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %15, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %24, i32 2
+  %25 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %24, i32 2
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr @dhcpopt_basic_handle, align 8
   tail call void @dissector_change_uint(ptr noundef nonnull @.str.1505, i32 noundef %23, ptr noundef %26)
@@ -4220,7 +4220,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 define internal i32 @dissect_dhcpopt_basic_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i8, ptr %3, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %6
+  %7 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
 
@@ -4489,7 +4489,7 @@ define internal i32 @dissect_dhcpopt_param_request_list(ptr noundef %0, ptr read
   %8 = load i32, ptr @hf_dhcp_option_parameter_request_list_item, align 4
   %9 = zext i8 %7 to i32
   %10 = zext i8 %7 to i64
-  %11 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %10
+  %11 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %.011, i32 noundef 1, i32 noundef %9, ptr noundef nonnull @.str.2025, i32 noundef %9, ptr noundef %12)
   %14 = add i32 %.011, 1
@@ -4749,7 +4749,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %31, %28, %13
 
 36:                                               ; preds = %proto_item_set_hidden.exit.i
   %37 = zext nneg i8 %8 to i64
-  %38 = getelementptr [12 x %struct.opt_info], ptr @dissect_netware_ip_suboption.o63_opt, i64 0, i64 %37
+  %38 = getelementptr %struct.opt_info, ptr @dissect_netware_ip_suboption.o63_opt, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -5080,7 +5080,7 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
 
 .preheader213.i:                                  ; preds = %13, %33
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %13 ]
-  %30 = getelementptr [23 x %struct.opt82_info], ptr @dhcp_dhcp_decode_agent_info.o82_opt, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr %struct.opt82_info, ptr @dhcp_dhcp_decode_agent_info.o82_opt, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 16
   %32 = icmp eq i32 %31, %18
   br i1 %32, label %.split.loop.exit231.i, label %33
@@ -5121,7 +5121,7 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %45, %42, %41
-  %49 = getelementptr [23 x %struct.opt82_info], ptr @dhcp_dhcp_decode_agent_info.o82_opt, i64 0, i64 %indvars.iv.i, i32 1
+  %49 = getelementptr %struct.opt82_info, ptr @dhcp_dhcp_decode_agent_info.o82_opt, i64 %indvars.iv.i, i32 1
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 16
   %52 = icmp eq i32 %51, 0
@@ -7948,7 +7948,7 @@ define internal noundef zeroext i1 @dissect_packetcable_mta_vendor_id_heur(ptr n
 
 switch.lookup:                                    ; preds = %172
   %174 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_packetcable_mta_vendor_id_heur, i64 0, i64 %174
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_packetcable_mta_vendor_id_heur, i64 %174
   %switch.load = load ptr, ptr %switch.gep, align 8
   %175 = load i32, ptr %6, align 4
   %176 = zext i32 %175 to i64
@@ -8100,7 +8100,7 @@ switch.hole_check:                                ; preds = %16
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = zext i8 %17 to i32
   %.not34.i = icmp eq i32 %switch.load, %21
@@ -8195,8 +8195,8 @@ get_alcatel_suboption_len.exit.i:                 ; preds = %61, %60, %59
   br label %dissect_vendor_alcatel_suboption.exit
 
 get_alcatel_suboption_len.exit.thread.i:          ; preds = %get_alcatel_suboption_len.exit.i
-  %switch.tableidx51 = add i8 %31, -58
-  %64 = icmp ult i8 %switch.tableidx51, 9
+  %switch.tableidx50 = add i8 %31, -58
+  %64 = icmp ult i8 %switch.tableidx50, 9
   br i1 %64, label %switch.hole_check52, label %65
 
 65:                                               ; preds = %switch.hole_check52, %get_alcatel_suboption_len.exit.thread.i, %59
@@ -8204,17 +8204,17 @@ get_alcatel_suboption_len.exit.thread.i:          ; preds = %get_alcatel_subopti
   br label %dissect_vendor_alcatel_suboption.exit
 
 switch.hole_check52:                              ; preds = %get_alcatel_suboption_len.exit.thread.i
-  %switch.maskindex54 = zext nneg i8 %switch.tableidx51 to i16
+  %switch.maskindex54 = zext nneg i8 %switch.tableidx50 to i16
   %switch.shifted55 = lshr i16 449, %switch.maskindex54
   %switch.lobit56 = trunc i16 %switch.shifted55 to i1
   br i1 %switch.lobit56, label %switch.lookup53, label %65
 
 switch.lookup53:                                  ; preds = %switch.hole_check52
-  %67 = zext nneg i8 %switch.tableidx51 to i64
-  %switch.gep57 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.1, i64 0, i64 %67
+  %67 = zext nneg i8 %switch.tableidx50 to i64
+  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.1, i64 %67
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
-  %68 = zext nneg i8 %switch.tableidx51 to i64
-  %switch.gep59 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 0, i64 %68
+  %68 = zext nneg i8 %switch.tableidx50 to i64
+  %switch.gep59 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %68
   %switch.load60 = load i32, ptr %switch.gep59, align 4
   br label %69
 
@@ -8330,7 +8330,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
 
 54:                                               ; preds = %proto_item_set_hidden.exit.i
   %55 = zext i8 %18 to i64
-  %56 = getelementptr [195 x %struct.opt_info], ptr @dissect_vendor_pxeclient_suboption.o43pxeclient_opt, i64 0, i64 %55
+  %56 = getelementptr %struct.opt_info, ptr @dissect_vendor_pxeclient_suboption.o43pxeclient_opt, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
@@ -8658,7 +8658,7 @@ sub_041:                                          ; preds = %.tail35.thread
 
 88:                                               ; preds = %83
   %89 = zext nneg i8 %55 to i64
-  %90 = getelementptr [56 x %struct.opt_info], ptr @dissect_vendor_cablelabs_suboption.o43cablelabs_opt, i64 0, i64 %89
+  %90 = getelementptr %struct.opt_info, ptr @dissect_vendor_cablelabs_suboption.o43cablelabs_opt, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
@@ -9188,7 +9188,7 @@ define internal noundef zeroext i1 @dissect_cisco_vendor_info_heur(ptr noundef %
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_cisco_vendor_info_heur, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cisco_vendor_info_heur, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %41
 
@@ -9248,7 +9248,7 @@ define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %
 
 29:                                               ; preds = %27
   %30 = zext nneg i8 %5 to i64
-  %31 = getelementptr [6 x %struct.opt_info], ptr @dissect_vendor_cl_suboption.o125_cl_opt, i64 0, i64 %30
+  %31 = getelementptr %struct.opt_info, ptr @dissect_vendor_cl_suboption.o125_cl_opt, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -9343,7 +9343,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %30, %33
 
 38:                                               ; preds = %proto_item_set_hidden.exit
   %39 = zext nneg i8 %5 to i64
-  %40 = getelementptr [7 x %struct.opt_info], ptr @dissect_vendor_tr111_suboption.o125_tr111_opt, i64 0, i64 %39
+  %40 = getelementptr %struct.opt_info, ptr @dissect_vendor_tr111_suboption.o125_tr111_opt, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -9653,7 +9653,7 @@ define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noun
   br label %proto_item_set_visible.exit
 
 73:                                               ; preds = %54
-  %74 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %45
+  %74 = getelementptr %struct.opt_info, ptr @dhcp_opt, i64 %45
   %75 = icmp eq ptr %74, null
   br i1 %75, label %proto_item_set_visible.exit, label %76
 

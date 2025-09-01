@@ -1272,7 +1272,7 @@ define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_Mod
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv169
   %.0.copyload.i.i.i.i.i.i68.us = load i16, ptr %39, align 1
   %40 = zext i16 %.0.copyload.i.i.i.i.i.i68.us to i32
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv167
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv167
   store i32 %40, ptr %41, align 4, !tbaa !132
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count175
@@ -1305,7 +1305,7 @@ define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_Mod
   %.0.copyload.i.i.i.i.i.i68 = load i16, ptr %45, align 1
   %46 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i68)
   %47 = zext i16 %46 to i32
-  %48 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next, %wide.trip.count175
@@ -1348,7 +1348,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv179
   %.0.copyload.i.i.i.i.i.i74 = load i8, ptr %59, align 1
   %60 = zext i8 %.0.copyload.i.i.i.i.i.i74 to i32
-  %61 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv177
+  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv177
   store i32 %60, ptr %61, align 4, !tbaa !132
   %62 = add i8 %.0.copyload.i.i.i.i.i.i74, -13
   %or.cond = icmp ult i8 %62, -12
@@ -1379,15 +1379,15 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %51
 
 70:                                               ; preds = %67, %70
   %indvars.iv188 = phi i64 [ 0, %67 ], [ %indvars.iv.next189, %70 ]
-  %71 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv188
+  %71 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv188
   %72 = load i32, ptr %71, align 4, !tbaa !132
-  %73 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv188
+  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv188
   %74 = load i32, ptr %73, align 4, !tbaa !132
   %75 = icmp ult i32 %74, 13
   tail call void @llvm.assume(i1 %75)
   %76 = sub nuw nsw i32 12, %74
   %77 = lshr i32 %72, %76
-  %78 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv188
+  %78 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv188
   store i32 %77, ptr %78, align 4, !tbaa !132
   %79 = zext nneg i32 %74 to i64
   %80 = getelementptr inbounds nuw i8, ptr %53, i64 %79
@@ -1502,7 +1502,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   %indvars.iv193 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next194, %116 ]
   %.040136 = phi i32 [ 255, %.preheader ], [ %spec.select114, %116 ]
   %.041135 = phi i32 [ 268435455, %.preheader ], [ %spec.select, %116 ]
-  %117 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv193
+  %117 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv193
   %118 = load i32, ptr %117, align 4, !tbaa !132
   %.not = icmp ugt i32 %118, %.041135
   %spec.select = tail call i32 @llvm.umin.i32(i32 %118, i32 %.041135)
@@ -1518,7 +1518,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   %.sroa.17.4 = phi ptr [ %115, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ], [ %.sroa.17.1140, %97 ]
   %.sroa.11.2 = getelementptr inbounds nuw i8, ptr %.pn115, i64 1
   %120 = zext nneg i32 %spec.select114 to i64
-  %121 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i32, ptr %5, i64 %120
   store i32 -1, ptr %121, align 4, !tbaa !132
   %122 = add nuw nsw i32 %.043141, 1
   %exitcond198.not = icmp eq i32 %122, %25
@@ -2203,7 +2203,7 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDe
   %.sroa.16.3 = phi i32 [ %127, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %185, %178 ], [ %176, %174 ], [ %.sroa.16.2, %173 ], [ %.sroa.16.2, %170 ]
   %.0.i = phi i32 [ %124, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi.exit ], [ %.0.i.i, %178 ], [ -32768, %174 ], [ -32768, %173 ], [ 0, %170 ]
   %190 = and i64 %indvars.iv, 1
-  %191 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i32, ptr %3, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !132
   %193 = add nsw i32 %192, %.0.i
   store i32 %193, ptr %191, align 4, !tbaa !132

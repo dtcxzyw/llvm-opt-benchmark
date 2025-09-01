@@ -974,11 +974,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNKSt7__cxx1112bas
 
 379:                                              ; preds = %.preheader, %379
   %indvars.iv219 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next220, %379 ]
-  %380 = getelementptr inbounds nuw [3 x float], ptr %376, i64 0, i64 %indvars.iv219
+  %380 = getelementptr inbounds nuw float, ptr %376, i64 %indvars.iv219
   %381 = load float, ptr %380, align 4, !tbaa !50
   %382 = fmul float %370, %381
   %383 = load float, ptr %377, align 4, !tbaa !50
-  %384 = getelementptr inbounds nuw [3 x float], ptr %378, i64 0, i64 %indvars.iv219
+  %384 = getelementptr inbounds nuw float, ptr %378, i64 %indvars.iv219
   %385 = load float, ptr %384, align 4, !tbaa !50
   %386 = call float @llvm.fmuladd.f32(float %382, float %383, float %385)
   store float %386, ptr %384, align 4, !tbaa !50
@@ -1996,7 +1996,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !61
   %5 = add nuw nsw i32 %3, 1
   br label %64

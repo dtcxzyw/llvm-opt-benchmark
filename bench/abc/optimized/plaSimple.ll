@@ -591,7 +591,7 @@ Pla_ManExpendDirNum.exit.thread:                  ; preds = %44
 
 Pla_ManExpendDirNum.exit:                         ; preds = %61
   %63 = sext i32 %.1.i to i64
-  %64 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds i32, ptr %3, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !21
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !21
@@ -753,7 +753,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %160
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %179
   %indvars.iv = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next, %179 ]
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %164 = load i32, ptr %163, align 4, !tbaa !21
   %165 = shl nuw i32 1, %164
   %166 = xor i32 %165, %.1159
@@ -792,7 +792,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %160
   %182 = or i64 %143, %139
   store i64 %182, ptr %142, align 8, !tbaa !32
   %183 = zext nneg i32 %spec.store.select to i64
-  %184 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %6, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !21
   %186 = shl nuw i32 1, %185
   %187 = xor i32 %186, %.1159
@@ -902,7 +902,7 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
 
 248:                                              ; preds = %Pla_TtCountOnes.exit142, %254
   %indvars.iv194 = phi i64 [ 0, %Pla_TtCountOnes.exit142 ], [ %indvars.iv.next195, %254 ]
-  %249 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv194
+  %249 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv194
   %250 = load i32, ptr %249, align 4, !tbaa !21
   %.not113 = icmp eq i32 %250, 0
   br i1 %.not113, label %254, label %251
@@ -924,7 +924,7 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
 
 257:                                              ; preds = %255, %263
   %indvars.iv198 = phi i64 [ 0, %255 ], [ %indvars.iv.next199, %263 ]
-  %258 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv198
+  %258 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv198
   %259 = load i32, ptr %258, align 4, !tbaa !21
   %.not112 = icmp eq i32 %259, 0
   br i1 %.not112, label %263, label %260

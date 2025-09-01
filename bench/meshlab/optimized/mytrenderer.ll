@@ -2459,7 +2459,7 @@ _ZN7QStringC2EPKc.exit110:                        ; preds = %82
 
 113:                                              ; preds = %_ZN7QStringC2EPKc.exit110, %_ZN7QStringD2Ev.exit146
   %indvars.iv = phi i64 [ 0, %_ZN7QStringC2EPKc.exit110 ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit146 ]
-  %114 = getelementptr inbounds nuw [10 x %"class.SyntopiaCore::Math::Vector3"], ptr %23, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw %"class.SyntopiaCore::Math::Vector3", ptr %23, i64 %indvars.iv
   %115 = load float, ptr %114, align 4
   %116 = fpext float %115 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %25, double noundef %116, i8 noundef signext 103, i32 noundef 6)

@@ -215,7 +215,7 @@ define i32 @utrie2_get32_77(ptr noundef readonly captures(none) %0, i32 noundef 
 .thread.i:                                        ; preds = %145
   %151 = lshr i32 %1, 11
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [544 x i32], ptr %134, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i32, ptr %134, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !19
   %155 = lshr i32 %1, 5
   %156 = and i32 %155, 63
@@ -226,7 +226,7 @@ define i32 @utrie2_get32_77(ptr noundef readonly captures(none) %0, i32 noundef 
   %.020.i = phi i32 [ %150, %148 ], [ %157, %.thread.i ]
   %159 = getelementptr inbounds nuw i8, ptr %134, i64 2176
   %160 = sext i32 %.020.i to i64
-  %161 = getelementptr inbounds [35488 x i32], ptr %159, i64 0, i64 %160
+  %161 = getelementptr inbounds i32, ptr %159, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !19
   %163 = getelementptr inbounds nuw i8, ptr %134, i64 144128
   %164 = load ptr, ptr %163, align 8, !tbaa !24
@@ -310,7 +310,7 @@ _ZL5get32PK9UNewTrie2ia.exit:                     ; preds = %25
   %47 = add nsw i32 %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 2176
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds [35488 x i32], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 144128
   %53 = load ptr, ptr %52, align 8, !tbaa !24
@@ -1109,7 +1109,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %57 = load ptr, ptr %10, align 8, !tbaa !21
   %58 = lshr i32 %.0174292, 11
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [544 x i32], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !19
   br label %62
 
@@ -1178,8 +1178,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
 87:                                               ; preds = %.lr.ph.split.us
   %88 = load ptr, ptr %10, align 8, !tbaa !21
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 2176
-  %90 = add nsw i64 %indvars.iv319, %82
-  %91 = getelementptr inbounds [35488 x i32], ptr %89, i64 0, i64 %90
+  %90 = getelementptr i32, ptr %89, i64 %indvars.iv319
+  %91 = getelementptr i32, ptr %90, i64 %82
   %92 = load i32, ptr %91, align 4, !tbaa !19
   br label %93
 
@@ -1280,8 +1280,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
 124:                                              ; preds = %.lr.ph.split
   %125 = load ptr, ptr %10, align 8, !tbaa !21
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 2176
-  %127 = add nsw i64 %indvars.iv311, %82
-  %128 = getelementptr inbounds [35488 x i32], ptr %126, i64 0, i64 %127
+  %127 = getelementptr i32, ptr %126, i64 %indvars.iv311
+  %128 = getelementptr i32, ptr %127, i64 %82
   %129 = load i32, ptr %128, align 4, !tbaa !19
   br label %130
 

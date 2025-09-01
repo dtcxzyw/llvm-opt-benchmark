@@ -5060,12 +5060,12 @@ _ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit:        ; preds = %25, %28, %31, %34, 
 
 79:                                               ; preds = %79, %73
   %.05.i.i.i = phi i64 [ 0, %73 ], [ %86, %79 ]
-  %80 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i.i
+  %80 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i.i
   %81 = load i32, ptr %80, align 4, !tbaa !39
   %82 = mul i32 %81, %78
   %83 = lshr i32 %82, 27
   %84 = trunc nuw nsw i32 %83 to i8
-  %85 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i.i.i
   store i8 %84, ptr %85, align 1
   %86 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %86, 8
@@ -5080,8 +5080,8 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i: ; preds = %79
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i:    ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i
   %.079.i.i = phi i64 [ %98, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i ]
-  %91 = getelementptr inbounds nuw [8 x i32], ptr %90, i64 0, i64 %.079.i.i
-  %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.079.i.i
+  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.079.i.i
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 %.079.i.i
   %93 = load i8, ptr %92, align 1
   %94 = load i32, ptr %91, align 4, !tbaa !39
   %95 = zext nneg i8 %93 to i32
@@ -5309,12 +5309,12 @@ define void @_ZN6duckdb18ParquetBloomFilter12FilterInsertEm(ptr noundef nonnull 
 
 9:                                                ; preds = %9, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = lshr i32 %12, 27
   %14 = trunc nuw nsw i32 %13 to i8
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i.i
   store i8 %14, ptr %15, align 1
   %16 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, 8
@@ -5329,8 +5329,8 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
   %.05.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.05.i
-  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.05.i
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i
   %23 = load i8, ptr %22, align 1
   %24 = zext nneg i8 %23 to i32
   %25 = shl nuw i32 1, %24
@@ -5360,12 +5360,12 @@ define noundef zeroext i1 @_ZN6duckdb18ParquetBloomFilter11FilterCheckEm(ptr nou
 
 9:                                                ; preds = %9, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw i32, ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 %.05.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = mul i32 %11, %8
   %13 = lshr i32 %12, 27
   %14 = trunc nuw nsw i32 %13 to i8
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i.i
   store i8 %14, ptr %15, align 1
   %16 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, 8
@@ -5380,8 +5380,8 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
   %.079.i = phi i64 [ %28, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i ], [ 0, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader ]
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.079.i
-  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.079.i
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %.079.i
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.079.i
   %23 = load i8, ptr %22, align 1
   %24 = load i32, ptr %21, align 4, !tbaa !39
   %25 = zext nneg i8 %23 to i32
@@ -6683,49 +6683,47 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
 
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %29, %.lr.ph.i4 ], [ %1, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %40, %.lr.ph.i4 ], [ %26, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %39, %.lr.ph.i4 ], [ %26, %.lr.ph.preheader.i ]
   %27 = urem i64 %.020.i, 100
   %28 = shl nuw nsw i64 %27, 1
   %29 = udiv i64 %.020.i, 100
-  %30 = or disjoint i64 %28, 1
-  %31 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %30
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !12
   %33 = zext i32 %.01819.i to i64
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 %33
   store i8 %32, ptr %34, align 1, !tbaa !12
-  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %28
-  %36 = load i8, ptr %35, align 2, !tbaa !12
-  %37 = add i32 %.01819.i, -1
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %38
-  store i8 %36, ptr %39, align 1, !tbaa !12
-  %40 = add i32 %.01819.i, -2
-  %41 = icmp ugt i64 %.020.i, 9999
-  br i1 %41, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !226
+  %35 = load i8, ptr %30, align 2, !tbaa !12
+  %36 = add i32 %.01819.i, -1
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 %37
+  store i8 %35, ptr %38, align 1, !tbaa !12
+  %39 = add i32 %.01819.i, -2
+  %40 = icmp ugt i64 %.020.i, 9999
+  br i1 %40, label %.lr.ph.i4, label %._crit_edge.i, !llvm.loop !226
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i4 ]
-  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %42, label %43, label %51
+  %41 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %41, label %42, label %49
 
-43:                                               ; preds = %._crit_edge.i
-  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !12
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store i8 %47, ptr %48, align 1, !tbaa !12
-  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %44
-  %50 = load i8, ptr %49, align 2, !tbaa !12
+42:                                               ; preds = %._crit_edge.i
+  %43 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %44 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %46, ptr %47, align 1, !tbaa !12
+  %48 = load i8, ptr %44, align 2, !tbaa !12
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-51:                                               ; preds = %._crit_edge.i
-  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %53 = or disjoint i8 %52, 48
+49:                                               ; preds = %._crit_edge.i
+  %50 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %51 = or disjoint i8 %50, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %43, %51
-  %storemerge.i = phi i8 [ %53, %51 ], [ %50, %43 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %42, %49
+  %storemerge.i = phi i8 [ %51, %49 ], [ %48, %42 ]
   store i8 %storemerge.i, ptr %21, align 1, !tbaa !12
   ret void
 }

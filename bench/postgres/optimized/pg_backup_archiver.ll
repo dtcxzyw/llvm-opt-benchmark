@@ -3074,7 +3074,7 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 
 .lr.ph.us.i.i:                                    ; preds = %has_lock_conflicts.exit.thread50.us.i.i, %.lr.ph69.split.us.i.i
   %indvars.iv82.i.i = phi i64 [ %indvars.iv.next83.i.i, %has_lock_conflicts.exit.thread50.us.i.i ], [ 0, %.lr.ph69.split.us.i.i ]
-  %566 = getelementptr inbounds nuw [0 x ptr], ptr %559, i64 0, i64 %indvars.iv82.i.i
+  %566 = getelementptr inbounds nuw ptr, ptr %559, i64 %indvars.iv82.i.i
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 224
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 216
@@ -4948,7 +4948,7 @@ sanitize_line.exit:                               ; preds = %24, %20
 
 switch.lookup:                                    ; preds = %sanitize_line.exit
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.PrintTOCSummary, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PrintTOCSummary, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %39
 

@@ -6863,7 +6863,7 @@ _ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_8FunctionEEEE9visitEdge
   call void @llvm.assume(i1 %151)
   %152 = xor i32 %.09.i.i, 1
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [2 x i64], ptr %149, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i64, ptr %149, i64 %153
   %155 = load i64, ptr %154, align 8, !tbaa !234
   %.not.i.i93 = icmp eq i64 %155, 0
   %156 = add nuw nsw i32 %.09.i.i, 1
@@ -7965,7 +7965,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %41 = lshr i32 %1, 6
   %42 = and i32 %41, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !234
   %46 = and i64 %45, %39
   store i64 %46, ptr %44, align 8, !tbaa !234
@@ -7974,7 +7974,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 47:                                               ; preds = %47, %35
   %.not8.i = phi i1 [ true, %35 ], [ false, %47 ]
   %indvars.iv.i = phi i64 [ 0, %35 ], [ 1, %47 ]
-  %48 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
   %49 = load i64, ptr %48, align 8, !tbaa !234
   %.not.i = icmp eq i64 %49, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
@@ -8445,7 +8445,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %53 = lshr i32 %1, 6
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !234
   %58 = or i64 %57, %51
   store i64 %58, ptr %56, align 8, !tbaa !234

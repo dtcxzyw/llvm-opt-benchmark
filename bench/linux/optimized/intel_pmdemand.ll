@@ -175,7 +175,7 @@ define dso_local void @intel_pmdemand_update_port_clock(ptr noundef readonly cap
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = sext i32 %2 to i64
-  %11 = getelementptr [4 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr i32, ptr %9, i64 %10
   store i32 %3, ptr %11, align 4
   br label %12
 
@@ -469,7 +469,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
   %204 = getelementptr inbounds nuw i8, ptr %194, i64 1648
   %205 = load i32, ptr %204, align 8
   %206 = sext i32 %205 to i64
-  %207 = getelementptr [4 x i32], ptr %187, i64 0, i64 %206
+  %207 = getelementptr i32, ptr %187, i64 %206
   store i32 %203, ptr %207, align 4
   %.pre.i = load ptr, ptr %2, align 8
   br label %208
@@ -486,7 +486,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
 215:                                              ; preds = %215, %.loopexit.i
   %216 = phi i64 [ 0, %.loopexit.i ], [ %221, %215 ]
   %217 = phi i32 [ 0, %.loopexit.i ], [ %220, %215 ]
-  %218 = getelementptr [4 x i32], ptr %188, i64 0, i64 %216
+  %218 = getelementptr i32, ptr %188, i64 %216
   %219 = load i32, ptr %218, align 4
   %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 %217)
   %221 = add nuw nsw i64 %216, 1

@@ -663,7 +663,7 @@ _ZNK3ue29CharReachcoEv.exit:                      ; preds = %89
 
 94:                                               ; preds = %97, %_ZNK3ue29CharReachcoEv.exit
   %.0710.i.i = phi i64 [ 0, %_ZNK3ue29CharReachcoEv.exit ], [ %98, %97 ]
-  %95 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i
+  %95 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i
   %96 = load i64, ptr %95, align 8
   %.not.i.i = icmp eq i64 %96, 0
   br i1 %.not.i.i, label %97, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -706,7 +706,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
   br label %115
 
 108:                                              ; preds = %.lr.ph161
-  %109 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %106
+  %109 = getelementptr inbounds nuw i64, ptr %7, i64 %106
   %110 = load i64, ptr %109, align 8
   %111 = shl nsw i64 -2, %107
   %112 = and i64 %110, %111
@@ -724,7 +724,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %94
 
 117:                                              ; preds = %115
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %118 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0.i.i
+  %118 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i
   %119 = load i64, ptr %118, align 8
   %.not22.i.i = icmp eq i64 %119, 0
   br i1 %.not22.i.i, label %115, label %120, !llvm.loop !12
@@ -831,7 +831,7 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %7
 
 16:                                               ; preds = %19, %_ZNK3ue25depthcvjEv.exit
   %.0710.i.i = phi i64 [ 0, %_ZNK3ue25depthcvjEv.exit ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.0710.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %.0710.i.i
   %18 = load i64, ptr %17, align 8
   %.not.i.i12 = icmp eq i64 %18, 0
   br i1 %.not.i.i12, label %19, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -867,7 +867,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br label %36
 
 29:                                               ; preds = %.lr.ph49
-  %30 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %27
+  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = shl nsw i64 -2, %28
   %33 = and i64 %31, %32
@@ -885,7 +885,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
 
 38:                                               ; preds = %36
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %39 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.0.i.i
+  %39 = getelementptr inbounds nuw i64, ptr %4, i64 %.0.i.i
   %40 = load i64, ptr %39, align 8
   %.not22.i.i = icmp eq i64 %40, 0
   br i1 %.not22.i.i, label %36, label %41, !llvm.loop !12

@@ -1271,7 +1271,7 @@ _ZN6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depend
   %318 = phi ptr [ %346, %340 ], [ %311, %.lr.ph504 ]
   %319 = load ptr, ptr %0, align 8, !tbaa !3
   %320 = getelementptr inbounds nuw i8, ptr %318, i64 48
-  %321 = getelementptr inbounds nuw [0 x ptr], ptr %320, i64 0, i64 %indvars.iv
+  %321 = getelementptr inbounds nuw ptr, ptr %320, i64 %indvars.iv
   %322 = load ptr, ptr %321, align 8, !tbaa !138
   %323 = trunc nuw i64 %indvars.iv to i32
   %324 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %319, i32 noundef %323, ptr noundef %322)
@@ -4474,7 +4474,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !144
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

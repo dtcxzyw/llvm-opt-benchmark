@@ -314,7 +314,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
 
 51:                                               ; preds = %.thread59, %47
   %52 = phi i64 [ 0, %47 ], [ %71, %.thread59 ]
-  %53 = getelementptr [11 x %struct.resource], ptr %49, i64 0, i64 %52
+  %53 = getelementptr %struct.resource, ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 512
@@ -3170,7 +3170,7 @@ mii_rw.exit.thread:                               ; preds = %58, %1
 .backedge:                                        ; preds = %.backedge.backedge, %81
   %83 = phi i64 [ 0, %81 ], [ %.be351, %.backedge.backedge ]
   %84 = load i32, ptr %82, align 4
-  %85 = getelementptr [7 x %struct.anon.77], ptr @init_realtek_8211b.ri, i64 0, i64 %83
+  %85 = getelementptr %struct.anon.77, ptr @init_realtek_8211b.ri, i64 %83
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %88 = load i32, ptr %87, align 4
@@ -5453,7 +5453,7 @@ mii_rw.exit54:                                    ; preds = %855, %881, %941, %1
 .preheader:                                       ; preds = %1410, %.preheader.backedge
   %1414 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %1410 ]
   %1415 = load i32, ptr %355, align 4
-  %1416 = getelementptr [7 x %struct.anon.77], ptr @init_realtek_8211b.ri, i64 0, i64 %1414
+  %1416 = getelementptr %struct.anon.77, ptr @init_realtek_8211b.ri, i64 %1414
   %1417 = load i32, ptr %1416, align 8
   %1418 = getelementptr inbounds nuw i8, ptr %1416, i64 4
   %1419 = load i32, ptr %1418, align 4
@@ -8222,14 +8222,14 @@ define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr
   %52 = load i32, ptr %4, align 4
   %53 = zext i32 %52 to i64
   %54 = add nsw i64 %51, -1
-  %.split = getelementptr [8 x [15 x i32]], ptr @main_seedset, i64 0, i64 %53
-  %55 = getelementptr [15 x i32], ptr %.split, i64 0, i64 %54
+  %.split = getelementptr [15 x i32], ptr @main_seedset, i64 %53
+  %55 = getelementptr i32, ptr %.split, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1023
   %58 = trunc i64 %51 to i32
   %59 = shl i32 %58, 24
-  %.split1 = getelementptr [8 x [15 x i32]], ptr @gear_seedset, i64 0, i64 %53
-  %60 = getelementptr [15 x i32], ptr %.split1, i64 0, i64 %54
+  %.split1 = getelementptr [15 x i32], ptr @gear_seedset, i64 %53
+  %60 = getelementptr i32, ptr %.split1, i64 %54
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 12
   %63 = and i32 %62, 4190208
@@ -10775,7 +10775,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i1, %86
 
 125:                                              ; preds = %125, %123
   %126 = phi i64 [ 0, %123 ], [ %130, %125 ]
-  %127 = getelementptr [8 x %struct.msix_entry], ptr %124, i64 0, i64 %126
+  %127 = getelementptr %struct.msix_entry, ptr %124, i64 %126
   %128 = load i32, ptr %127, align 8
   %129 = tail call ptr @free_irq(i32 noundef %128, ptr noundef %0) #18
   %130 = add nuw nsw i64 %126, 1
@@ -11256,7 +11256,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %176 = zext i32 %175 to i64
   %177 = getelementptr i8, ptr %174, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 48
-  %179 = getelementptr [17 x %struct.bio_vec], ptr %178, i64 0, i64 %170
+  %179 = getelementptr %struct.bio_vec, ptr %178, i64 %170
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 12
@@ -12467,7 +12467,7 @@ define internal void @nv_get_stats64(ptr noundef %0, ptr noundef captures(none) 
   %21 = load ptr, ptr %3, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %17, 63
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = inttoptr i64 %26 to ptr
@@ -13872,7 +13872,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %177 = zext i32 %176 to i64
   %178 = getelementptr i8, ptr %175, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 48
-  %180 = getelementptr [17 x %struct.bio_vec], ptr %179, i64 0, i64 %171
+  %180 = getelementptr %struct.bio_vec, ptr %179, i64 %171
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i32, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 12
@@ -15915,7 +15915,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
 
 179:                                              ; preds = %193, %177
   %180 = phi i64 [ %194, %193 ], [ 0, %177 ]
-  %181 = getelementptr [7 x %struct.register_test], ptr @nv_registers_test, i64 0, i64 %180
+  %181 = getelementptr %struct.register_test, ptr @nv_registers_test, i64 %180
   %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
   %184 = getelementptr i8, ptr %178, i64 %183
@@ -15969,7 +15969,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
 
 214:                                              ; preds = %214, %212
   %215 = phi i64 [ 0, %212 ], [ %219, %214 ]
-  %216 = getelementptr [8 x %struct.msix_entry], ptr %213, i64 0, i64 %215
+  %216 = getelementptr %struct.msix_entry, ptr %213, i64 %215
   %217 = load i32, ptr %216, align 8
   %218 = tail call ptr @free_irq(i32 noundef %217, ptr noundef %0) #18
   %219 = add nuw nsw i64 %215, 1
@@ -16097,7 +16097,7 @@ nv_free_irq.exit:                                 ; preds = %226, %237
 
 287:                                              ; preds = %287, %285
   %288 = phi i64 [ 0, %285 ], [ %292, %287 ]
-  %289 = getelementptr [8 x %struct.msix_entry], ptr %286, i64 0, i64 %288
+  %289 = getelementptr %struct.msix_entry, ptr %286, i64 %288
   %290 = load i32, ptr %289, align 8
   %291 = tail call ptr @free_irq(i32 noundef %290, ptr noundef %0) #18
   %292 = add nuw nsw i64 %288, 1
@@ -18313,7 +18313,7 @@ define internal noundef i32 @nv_suspend(ptr noundef readonly captures(none) %0) 
   %17 = shl nuw nsw i64 %16, 2
   %18 = getelementptr i8, ptr %5, i64 %17
   %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #18, !srcloc !10
-  %20 = getelementptr [385 x i32], ptr %14, i64 0, i64 %16
+  %20 = getelementptr i32, ptr %14, i64 %16
   store i32 %19, ptr %20, align 4
   %21 = add nuw nsw i64 %16, 1
   %22 = load i32, ptr %13, align 4
@@ -18338,7 +18338,7 @@ define internal noundef range(i32 0, 2) i32 @nv_resume(ptr noundef %0) #2 align 
 
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %14, %8 ]
-  %10 = getelementptr [385 x i32], ptr %7, i64 0, i64 %9
+  %10 = getelementptr i32, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = shl nuw nsw i64 %9, 2
   %13 = getelementptr i8, ptr %5, i64 %12

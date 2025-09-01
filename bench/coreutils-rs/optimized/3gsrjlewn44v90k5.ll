@@ -579,14 +579,14 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
 73:                                               ; preds = %65
   %74 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i.i, 255
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %75
   %77 = load i8, ptr %76, align 1, !noalias !213, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i"
 
 78:                                               ; preds = %65
   %79 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i.i, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %80
   %82 = load i8, ptr %81, align 1, !noalias !213, !noundef !4
   %83 = lshr i8 %82, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i"
@@ -1062,14 +1062,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
 87:                                               ; preds = %79
   %88 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i.i.i, 255
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %89
   %91 = load i8, ptr %90, align 1, !noalias !358, !noundef !4
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i"
 
 92:                                               ; preds = %79
   %93 = and i32 %.sroa.4.0.i.ph10.i17.i.i.i.i.i.i.i.i, 255
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 %94
   %96 = load i8, ptr %95, align 1, !noalias !358, !noundef !4
   %97 = lshr i8 %96, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i"

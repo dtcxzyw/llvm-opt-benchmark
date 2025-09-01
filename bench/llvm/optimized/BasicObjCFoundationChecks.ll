@@ -5683,8 +5683,8 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZNK4llvm5APInt13ge
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.i
-  %83 = add nsw i64 %.0.i.i.i.i, -1
-  %84 = getelementptr inbounds nuw [6 x i8], ptr @_ZZL15GetCFNumberSizeRN5clang10ASTContextEmE9FixedSize, i64 0, i64 %83
+  %83 = getelementptr i8, ptr @_ZZL15GetCFNumberSizeRN5clang10ASTContextEmE9FixedSize, i64 %.0.i.i.i.i
+  %84 = getelementptr i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !9
   %86 = zext i8 %85 to i64
   br label %95
@@ -5695,7 +5695,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZNK4llvm5APInt13ge
   br i1 %88, label %switch.lookup, label %_ZN4llvm8dyn_castIN5clang4ento6nonloc11ConcreteIntENS2_4SValEEEDcRT0_.exit.i
 
 switch.lookup:                                    ; preds = %87
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang4ento5check7PreStmtINS_8CallExprEE10_checkStmtIN12_GLOBAL__N_115CFNumberCheckerEEEvPvPKNS_4StmtERNS0_14CheckerContextE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang4ento5check7PreStmtINS_8CallExprEE10_checkStmtIN12_GLOBAL__N_115CFNumberCheckerEEEvPvPKNS_4StmtERNS0_14CheckerContextE, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 %switch.load
   %.sroa.0.0.i.i = load i64, ptr %89, align 8, !tbaa !9

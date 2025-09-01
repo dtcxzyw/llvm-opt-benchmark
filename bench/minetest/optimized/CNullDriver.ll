@@ -3509,7 +3509,7 @@ entry:
   %lnot = xor i1 %flag, true
   %FeatureEnabled = getelementptr inbounds nuw i8, ptr %this, i64 1107
   %idxprom = zext i32 %feature to i64
-  %arrayidx = getelementptr inbounds nuw [39 x i8], ptr %FeatureEnabled, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %FeatureEnabled, i64 %idxprom
   %frombool2 = zext i1 %lnot to i8
   store i8 %frombool2, ptr %arrayidx, align 1, !tbaa !125
   ret void
@@ -9067,7 +9067,7 @@ land.lhs.true:                                    ; preds = %if.then.i.i.i.i, %_
 
 if.then4:                                         ; preds = %land.lhs.true
   %idxprom = and i64 %sub.ptr.div.i.i, 7
-  %arrayidx = getelementptr inbounds nuw [6 x ptr], ptr @_ZN3irr5videoL25sBuiltInMaterialTypeNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL25sBuiltInMaterialTypeNamesE, i64 %idxprom
   %15 = load ptr, ptr %arrayidx, align 8, !tbaa !118
   %tobool.not.i25 = icmp eq i64 %idxprom, 5
   br i1 %tobool.not.i25, label %if.then.i38, label %if.end.i26

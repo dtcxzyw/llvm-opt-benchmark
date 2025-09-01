@@ -8451,7 +8451,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i: ; preds = %129, 
   %157 = getelementptr inbounds i8, ptr %154, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !39, !noalias !314
   %159 = srem i64 %155, 8
-  %160 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %159
+  %160 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !39, !noalias !314
   %162 = or i8 %161, %158
   store i8 %162, ptr %157, align 1, !tbaa !39, !noalias !314
@@ -8524,7 +8524,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7c
   %197 = getelementptr inbounds i8, ptr %194, i64 %196
   %198 = load i8, ptr %197, align 1, !tbaa !39, !noalias !314
   %199 = srem i64 %195, 8
-  %200 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %199
+  %200 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !39, !noalias !314
   %202 = or i8 %201, %198
   store i8 %202, ptr %197, align 1, !tbaa !39, !noalias !314
@@ -8730,7 +8730,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i116: ; preds = %27
   %291 = getelementptr inbounds i8, ptr %288, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !39, !noalias !339
   %293 = srem i64 %289, 8
-  %294 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %293
+  %294 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %293
   %295 = load i8, ptr %294, align 1, !tbaa !39, !noalias !339
   %296 = or i8 %295, %292
   store i8 %296, ptr %291, align 1, !tbaa !39, !noalias !339
@@ -8801,7 +8801,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compu
   %329 = getelementptr inbounds i8, ptr %326, i64 %328
   %330 = load i8, ptr %329, align 1, !tbaa !39, !noalias !339
   %331 = srem i64 %327, 8
-  %332 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %331
+  %332 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %331
   %333 = load i8, ptr %332, align 1, !tbaa !39, !noalias !339
   %334 = or i8 %333, %330
   store i8 %334, ptr %329, align 1, !tbaa !39, !noalias !339
@@ -9007,7 +9007,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i162: ; preds = %40
   %423 = getelementptr inbounds i8, ptr %420, i64 %422
   %424 = load i8, ptr %423, align 1, !tbaa !39, !noalias !348
   %425 = srem i64 %421, 8
-  %426 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %425
+  %426 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %425
   %427 = load i8, ptr %426, align 1, !tbaa !39, !noalias !348
   %428 = or i8 %427, %424
   store i8 %428, ptr %423, align 1, !tbaa !39, !noalias !348
@@ -9078,7 +9078,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7comp
   %461 = getelementptr inbounds i8, ptr %458, i64 %460
   %462 = load i8, ptr %461, align 1, !tbaa !39, !noalias !348
   %463 = srem i64 %459, 8
-  %464 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %463
+  %464 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %463
   %465 = load i8, ptr %464, align 1, !tbaa !39, !noalias !348
   %466 = or i8 %465, %462
   store i8 %466, ptr %461, align 1, !tbaa !39, !noalias !348
@@ -9284,7 +9284,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i215: ; preds = %53
   %555 = getelementptr inbounds i8, ptr %552, i64 %554
   %556 = load i8, ptr %555, align 1, !tbaa !39, !noalias !357
   %557 = srem i64 %553, 8
-  %558 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %557
+  %558 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %557
   %559 = load i8, ptr %558, align 1, !tbaa !39, !noalias !357
   %560 = or i8 %559, %556
   store i8 %560, ptr %555, align 1, !tbaa !39, !noalias !357
@@ -9355,7 +9355,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7comp
   %593 = getelementptr inbounds i8, ptr %590, i64 %592
   %594 = load i8, ptr %593, align 1, !tbaa !39, !noalias !357
   %595 = srem i64 %591, 8
-  %596 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %595
+  %596 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %595
   %597 = load i8, ptr %596, align 1, !tbaa !39, !noalias !357
   %598 = or i8 %597, %594
   store i8 %598, ptr %593, align 1, !tbaa !39, !noalias !357
@@ -9561,7 +9561,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i268: ; preds = %66
   %687 = getelementptr inbounds i8, ptr %684, i64 %686
   %688 = load i8, ptr %687, align 1, !tbaa !39, !noalias !367
   %689 = srem i64 %685, 8
-  %690 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %689
+  %690 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %689
   %691 = load i8, ptr %690, align 1, !tbaa !39, !noalias !367
   %692 = or i8 %691, %688
   store i8 %692, ptr %687, align 1, !tbaa !39, !noalias !367
@@ -9632,7 +9632,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7co
   %725 = getelementptr inbounds i8, ptr %722, i64 %724
   %726 = load i8, ptr %725, align 1, !tbaa !39, !noalias !367
   %727 = srem i64 %723, 8
-  %728 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %727
+  %728 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %727
   %729 = load i8, ptr %728, align 1, !tbaa !39, !noalias !367
   %730 = or i8 %729, %726
   store i8 %730, ptr %725, align 1, !tbaa !39, !noalias !367
@@ -9838,7 +9838,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i321: ; preds = %79
   %819 = getelementptr inbounds i8, ptr %816, i64 %818
   %820 = load i8, ptr %819, align 1, !tbaa !39, !noalias !376
   %821 = srem i64 %817, 8
-  %822 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %821
+  %822 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %821
   %823 = load i8, ptr %822, align 1, !tbaa !39, !noalias !376
   %824 = or i8 %823, %820
   store i8 %824, ptr %819, align 1, !tbaa !39, !noalias !376
@@ -9909,7 +9909,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7comp
   %857 = getelementptr inbounds i8, ptr %854, i64 %856
   %858 = load i8, ptr %857, align 1, !tbaa !39, !noalias !376
   %859 = srem i64 %855, 8
-  %860 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %859
+  %860 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %859
   %861 = load i8, ptr %860, align 1, !tbaa !39, !noalias !376
   %862 = or i8 %861, %858
   store i8 %862, ptr %857, align 1, !tbaa !39, !noalias !376
@@ -10115,7 +10115,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i374: ; preds = %93
   %951 = getelementptr inbounds i8, ptr %948, i64 %950
   %952 = load i8, ptr %951, align 1, !tbaa !39, !noalias !385
   %953 = srem i64 %949, 8
-  %954 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %953
+  %954 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %953
   %955 = load i8, ptr %954, align 1, !tbaa !39, !noalias !385
   %956 = or i8 %955, %952
   store i8 %956, ptr %951, align 1, !tbaa !39, !noalias !385
@@ -10186,7 +10186,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7co
   %989 = getelementptr inbounds i8, ptr %986, i64 %988
   %990 = load i8, ptr %989, align 1, !tbaa !39, !noalias !385
   %991 = srem i64 %987, 8
-  %992 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %991
+  %992 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %991
   %993 = load i8, ptr %992, align 1, !tbaa !39, !noalias !385
   %994 = or i8 %993, %990
   store i8 %994, ptr %989, align 1, !tbaa !39, !noalias !385
@@ -10392,7 +10392,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i427: ; preds = %10
   %1083 = getelementptr inbounds i8, ptr %1080, i64 %1082
   %1084 = load i8, ptr %1083, align 1, !tbaa !39, !noalias !394
   %1085 = srem i64 %1081, 8
-  %1086 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1085
+  %1086 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1085
   %1087 = load i8, ptr %1086, align 1, !tbaa !39, !noalias !394
   %1088 = or i8 %1087, %1084
   store i8 %1088, ptr %1083, align 1, !tbaa !39, !noalias !394
@@ -10463,7 +10463,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7comp
   %1121 = getelementptr inbounds i8, ptr %1118, i64 %1120
   %1122 = load i8, ptr %1121, align 1, !tbaa !39, !noalias !394
   %1123 = srem i64 %1119, 8
-  %1124 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1123
+  %1124 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1123
   %1125 = load i8, ptr %1124, align 1, !tbaa !39, !noalias !394
   %1126 = or i8 %1125, %1122
   store i8 %1126, ptr %1121, align 1, !tbaa !39, !noalias !394
@@ -10669,7 +10669,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i480: ; preds = %11
   %1215 = getelementptr inbounds i8, ptr %1212, i64 %1214
   %1216 = load i8, ptr %1215, align 1, !tbaa !39, !noalias !403
   %1217 = srem i64 %1213, 8
-  %1218 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1217
+  %1218 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1217
   %1219 = load i8, ptr %1218, align 1, !tbaa !39, !noalias !403
   %1220 = or i8 %1219, %1216
   store i8 %1220, ptr %1215, align 1, !tbaa !39, !noalias !403
@@ -10740,7 +10740,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7co
   %1253 = getelementptr inbounds i8, ptr %1250, i64 %1252
   %1254 = load i8, ptr %1253, align 1, !tbaa !39, !noalias !403
   %1255 = srem i64 %1251, 8
-  %1256 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1255
+  %1256 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1255
   %1257 = load i8, ptr %1256, align 1, !tbaa !39, !noalias !403
   %1258 = or i8 %1257, %1254
   store i8 %1258, ptr %1253, align 1, !tbaa !39, !noalias !403
@@ -10946,7 +10946,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i533: ; preds = %13
   %1347 = getelementptr inbounds i8, ptr %1344, i64 %1346
   %1348 = load i8, ptr %1347, align 1, !tbaa !39, !noalias !412
   %1349 = srem i64 %1345, 8
-  %1350 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1349
+  %1350 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1349
   %1351 = load i8, ptr %1350, align 1, !tbaa !39, !noalias !412
   %1352 = or i8 %1351, %1348
   store i8 %1352, ptr %1347, align 1, !tbaa !39, !noalias !412
@@ -11017,7 +11017,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_
   %1385 = getelementptr inbounds i8, ptr %1382, i64 %1384
   %1386 = load i8, ptr %1385, align 1, !tbaa !39, !noalias !412
   %1387 = srem i64 %1383, 8
-  %1388 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1387
+  %1388 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1387
   %1389 = load i8, ptr %1388, align 1, !tbaa !39, !noalias !412
   %1390 = or i8 %1389, %1386
   store i8 %1390, ptr %1385, align 1, !tbaa !39, !noalias !412
@@ -11223,7 +11223,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i585: ; preds = %14
   %1480 = getelementptr inbounds i8, ptr %1477, i64 %1479
   %1481 = load i8, ptr %1480, align 1, !tbaa !39, !noalias !421
   %1482 = srem i64 %1478, 8
-  %1483 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1482
+  %1483 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1482
   %1484 = load i8, ptr %1483, align 1, !tbaa !39, !noalias !421
   %1485 = or i8 %1484, %1481
   store i8 %1485, ptr %1480, align 1, !tbaa !39, !noalias !421
@@ -11294,7 +11294,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   %1519 = getelementptr inbounds i8, ptr %1516, i64 %1518
   %1520 = load i8, ptr %1519, align 1, !tbaa !39, !noalias !421
   %1521 = srem i64 %1517, 8
-  %1522 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1521
+  %1522 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1521
   %1523 = load i8, ptr %1522, align 1, !tbaa !39, !noalias !421
   %1524 = or i8 %1523, %1520
   store i8 %1524, ptr %1519, align 1, !tbaa !39, !noalias !421
@@ -11500,7 +11500,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i636: ; preds = %15
   %1614 = getelementptr inbounds i8, ptr %1611, i64 %1613
   %1615 = load i8, ptr %1614, align 1, !tbaa !39, !noalias !432
   %1616 = srem i64 %1612, 8
-  %1617 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1616
+  %1617 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1616
   %1618 = load i8, ptr %1617, align 1, !tbaa !39, !noalias !432
   %1619 = or i8 %1618, %1615
   store i8 %1619, ptr %1614, align 1, !tbaa !39, !noalias !432
@@ -11571,7 +11571,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   %1653 = getelementptr inbounds i8, ptr %1650, i64 %1652
   %1654 = load i8, ptr %1653, align 1, !tbaa !39, !noalias !432
   %1655 = srem i64 %1651, 8
-  %1656 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %1655
+  %1656 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %1655
   %1657 = load i8, ptr %1656, align 1, !tbaa !39, !noalias !432
   %1658 = or i8 %1657, %1654
   store i8 %1658, ptr %1653, align 1, !tbaa !39, !noalias !432
@@ -12699,7 +12699,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i791: ; preds = %20
   %2105 = getelementptr inbounds i8, ptr %2102, i64 %2104
   %2106 = load i8, ptr %2105, align 1, !tbaa !39, !noalias !491
   %2107 = srem i64 %2103, 8
-  %2108 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2107
+  %2108 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2107
   %2109 = load i8, ptr %2108, align 1, !tbaa !39, !noalias !491
   %2110 = or i8 %2109, %2106
   store i8 %2110, ptr %2105, align 1, !tbaa !39, !noalias !491
@@ -12772,7 +12772,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_
   %2142 = getelementptr inbounds i8, ptr %2139, i64 %2141
   %2143 = load i8, ptr %2142, align 1, !tbaa !39, !noalias !491
   %2144 = srem i64 %2140, 8
-  %2145 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2144
+  %2145 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2144
   %2146 = load i8, ptr %2145, align 1, !tbaa !39, !noalias !491
   %2147 = or i8 %2146, %2143
   store i8 %2147, ptr %2142, align 1, !tbaa !39, !noalias !491
@@ -12994,7 +12994,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i842: ; preds = %22
   %2244 = getelementptr inbounds i8, ptr %2241, i64 %2243
   %2245 = load i8, ptr %2244, align 1, !tbaa !39, !noalias !500
   %2246 = srem i64 %2242, 8
-  %2247 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2246
+  %2247 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2246
   %2248 = load i8, ptr %2247, align 1, !tbaa !39, !noalias !500
   %2249 = or i8 %2248, %2245
   store i8 %2249, ptr %2244, align 1, !tbaa !39, !noalias !500
@@ -13067,7 +13067,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_
   %2281 = getelementptr inbounds i8, ptr %2278, i64 %2280
   %2282 = load i8, ptr %2281, align 1, !tbaa !39, !noalias !500
   %2283 = srem i64 %2279, 8
-  %2284 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2283
+  %2284 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2283
   %2285 = load i8, ptr %2284, align 1, !tbaa !39, !noalias !500
   %2286 = or i8 %2285, %2282
   store i8 %2286, ptr %2281, align 1, !tbaa !39, !noalias !500
@@ -13299,7 +13299,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i891: ; preds = %23
   %2387 = getelementptr inbounds i8, ptr %2384, i64 %2386
   %2388 = load i8, ptr %2387, align 1, !tbaa !39, !noalias !509
   %2389 = srem i64 %2385, 8
-  %2390 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2389
+  %2390 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2389
   %2391 = load i8, ptr %2390, align 1, !tbaa !39, !noalias !509
   %2392 = or i8 %2391, %2388
   store i8 %2392, ptr %2387, align 1, !tbaa !39, !noalias !509
@@ -13379,7 +13379,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
   %2425 = getelementptr inbounds i8, ptr %2422, i64 %2424
   %2426 = load i8, ptr %2425, align 1, !tbaa !39, !noalias !509
   %2427 = srem i64 %2423, 8
-  %2428 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2427
+  %2428 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2427
   %2429 = load i8, ptr %2428, align 1, !tbaa !39, !noalias !509
   %2430 = or i8 %2429, %2426
   store i8 %2430, ptr %2425, align 1, !tbaa !39, !noalias !509
@@ -13606,7 +13606,7 @@ _ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i944: ; preds = %25
   %2526 = getelementptr inbounds i8, ptr %2523, i64 %2525
   %2527 = load i8, ptr %2526, align 1, !tbaa !39, !noalias !518
   %2528 = srem i64 %2524, 8
-  %2529 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2528
+  %2529 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2528
   %2530 = load i8, ptr %2529, align 1, !tbaa !39, !noalias !518
   %2531 = or i8 %2530, %2527
   store i8 %2531, ptr %2526, align 1, !tbaa !39, !noalias !518
@@ -13682,7 +13682,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %2563 = getelementptr inbounds i8, ptr %2560, i64 %2562
   %2564 = load i8, ptr %2563, align 1, !tbaa !39, !noalias !518
   %2565 = srem i64 %2561, 8
-  %2566 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %2565
+  %2566 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %2565
   %2567 = load i8, ptr %2566, align 1, !tbaa !39, !noalias !518
   %2568 = or i8 %2567, %2564
   store i8 %2568, ptr %2563, align 1, !tbaa !39, !noalias !518
@@ -15780,7 +15780,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = srem i64 %27, 8
-  %32 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = xor i8 %33, -1
   %35 = and i8 %30, %34
@@ -15915,7 +15915,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !39
   %31 = srem i64 %27, 8
-  %32 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = or i8 %33, %30
   store i8 %34, ptr %29, align 1, !tbaa !39

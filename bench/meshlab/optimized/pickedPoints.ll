@@ -2458,8 +2458,8 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph: ; preds = %2
   br label %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit
 
 _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit
-  %11 = phi ptr [ %7, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %32, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
-  %.010 = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %30, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
+  %11 = phi ptr [ %7, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %29, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
+  %.010 = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit.lr.ph ], [ %27, %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.010
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -2475,32 +2475,32 @@ _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZNSt6vectorIP11Pic
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %28, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit
-  %indvars.iv17.i = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit ], [ %indvars.iv.next18.i, %28 ]
-  %20 = shl nuw nsw i64 %indvars.iv17.i, 2
-  br label %21
+.preheader.i:                                     ; preds = %25, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit
+  %indvars.iv17.i = phi i64 [ 0, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit ], [ %indvars.iv.next18.i, %25 ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv17.i, 4
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  br label %20
 
-21:                                               ; preds = %21, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %.01113.i = phi float [ 0.000000e+00, %.preheader.i ], [ %27, %21 ]
-  %22 = add nuw nsw i64 %indvars.iv.i, %20
-  %23 = getelementptr inbounds nuw [16 x float], ptr %1, i64 0, i64 %22
-  %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %26 = load float, ptr %25, align 4
-  %27 = tail call float @llvm.fmuladd.f32(float %24, float %26, float %.01113.i)
+20:                                               ; preds = %20, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %20 ]
+  %.01113.i = phi float [ 0.000000e+00, %.preheader.i ], [ %24, %20 ]
+  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %21 = load float, ptr %gep.i, align 4
+  %22 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %23 = load float, ptr %22, align 4
+  %24 = tail call float @llvm.fmuladd.f32(float %21, float %23, float %.01113.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %28, label %21, !llvm.loop !22
+  br i1 %exitcond.not.i, label %25, label %20, !llvm.loop !22
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv17.i
-  store float %27, ptr %29, align 4
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv17.i
+  store float %24, ptr %26, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 4
   br i1 %exitcond20.not.i, label %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit, label %.preheader.i, !llvm.loop !23
 
-_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit:     ; preds = %28
+_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit:     ; preds = %25
   %.fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2510,15 +2510,15 @@ _ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit:     ; preds = %28
   store float %.sroa.0.4.vec.extract, ptr %16, align 4
   %.sroa.3.8.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 0
   store float %.sroa.3.8.vec.extract, ptr %18, align 4
-  %30 = add nuw i64 %.010, 1
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %0, align 8
-  %33 = ptrtoint ptr %31 to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
-  %36 = ashr exact i64 %35, 3
-  %37 = icmp ult i64 %30, %36
-  br i1 %37, label %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit, label %._crit_edge, !llvm.loop !24
+  %27 = add nuw i64 %.010, 1
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %0, align 8
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = ashr exact i64 %32, 3
+  %34 = icmp ult i64 %27, %33
+  br i1 %34, label %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZNK3vcg8Matrix44IfEmlERKNS_6Point4IfEE.exit, %2
   ret void

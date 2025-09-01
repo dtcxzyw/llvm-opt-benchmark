@@ -1107,7 +1107,7 @@ _ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i: ; preds = %
   %61 = phi i32 [ %49, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %53, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i5.i = phi ptr [ %47, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %51, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPushClosureE6_tableE, i64 0, i64 %62
+  %63 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPushClosureE6_tableE, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %.0.i.i5.i) #25
   br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit
@@ -2048,7 +2048,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17PSParallelCompact25clear_data_covering_spaceENS_7SpaceIdE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %2
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -2362,7 +2362,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
 
 34:                                               ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %_ZN17PSParallelCompact25clear_data_covering_spaceENS_7SpaceIdE.exit
   %indvars.iv = phi i64 [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ], [ %indvars.iv.next, %_ZN17PSParallelCompact25clear_data_covering_spaceENS_7SpaceIdE.exit ]
-  %35 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
@@ -2767,9 +2767,9 @@ define hidden void @_ZN17PSParallelCompact21fill_dense_prefix_endENS_7SpaceIdE(i
 
 4:                                                ; preds = %1
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %5, i32 2
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %5
   %9 = load ptr, ptr %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load volatile ptr, ptr %10, align 8
@@ -2808,7 +2808,7 @@ define hidden void @_ZN17PSParallelCompact21fill_dense_prefix_endENS_7SpaceIdE(i
   br i1 %.not20, label %38, label %_ZN16ObjectStartArray16update_for_blockEPP12HeapWordImplS2_.exit
 
 38:                                               ; preds = %23
-  %39 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %5, i32 3
+  %39 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %5, i32 3
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
@@ -3105,7 +3105,7 @@ _ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.
 66:                                               ; preds = %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit, %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit75
   %indvars.iv = phi i64 [ 1, %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit ], [ %indvars.iv.next, %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit75 ]
   %.091 = phi i64 [ %.126.i, %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit ], [ %93, %_ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.exit75 ]
-  %67 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 16
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load ptr, ptr %69, align 8
@@ -3310,7 +3310,7 @@ _ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit: ; pre
   %indvars.iv98 = phi i64 [ 1, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %indvars.iv.next99, %237 ]
   %.06694 = phi ptr [ %201, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.1, %237 ]
   %.06793 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 8), %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.168, %237 ]
-  %203 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv98
+  %203 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv98
   %204 = load ptr, ptr %203, align 16
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %206 = load ptr, ptr %205, align 8
@@ -4508,13 +4508,13 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
 
 229:                                              ; preds = %239, %.lr.ph.i
   %.05.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %240, %239 ]
-  %230 = getelementptr inbounds nuw [1024 x %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry"], ptr %228, i64 0, i64 %.05.i.i.i, i32 1
+  %230 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %228, i64 %.05.i.i.i, i32 1
   %231 = load i64, ptr %230, align 8
   %.not.i.i.i = icmp eq i64 %231, 0
   br i1 %.not.i.i.i, label %239, label %232
 
 232:                                              ; preds = %229
-  %233 = getelementptr inbounds nuw [1024 x %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry"], ptr %228, i64 0, i64 %.05.i.i.i
+  %233 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %228, i64 %.05.i.i.i
   %234 = load i64, ptr %233, align 8
   %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
   %236 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %235, i64 %234, i32 4
@@ -6307,7 +6307,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %87
+  %88 = getelementptr inbounds ptr, ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %.0.i.i.i.i.i, ptr %11, i64 %84) #25
   %90 = getelementptr inbounds ptr, ptr %26, i64 %.0.i6.i.i.i.i
@@ -6476,7 +6476,7 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
   %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25.i.i, i64 12
   %194 = load i32, ptr %193, align 4
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %195
+  %196 = getelementptr inbounds ptr, ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 %195
   %197 = load ptr, ptr %196, align 8
   tail call void %197(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull %.0.i.i.i25.i.i, ptr %11, i64 %95) #25
   %198 = getelementptr inbounds ptr, ptr %136, i64 %.0.i6.i.i26.i.i
@@ -6498,7 +6498,7 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVj(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -6675,7 +6675,7 @@ _ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i: ; preds =
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %118
+  %119 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI22PCAdjustPointerClosureE6_tableE, i64 %118
   %120 = load ptr, ptr %119, align 8
   tail call void %120(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %.0.i.i.i.i) #25
   %121 = getelementptr inbounds ptr, ptr %59, i64 %.0.i4.i.i.i
@@ -7052,7 +7052,7 @@ _ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE4pushEm.exit: ; preds = %_ZN16Gene
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %37, align 8
   %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds [8 x i64], ptr %40, i64 0, i64 %120
+  %121 = getelementptr inbounds i64, ptr %40, i64 %120
   store i64 %.02333, ptr %121, align 8
   %122 = load i32, ptr %37, align 8
   %123 = icmp eq i32 %122, 8
@@ -7072,7 +7072,7 @@ _ZN17OverflowTaskQueueImL8MEMFLAGS5ELj131072EE4pushEm.exit: ; preds = %_ZN16Gene
 
 .lr.ph.i.i:                                       ; preds = %127, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %127 ]
-  %130 = getelementptr inbounds nuw [8 x i64], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %130 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i.i
   %131 = load i64, ptr %130, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.64, i64 noundef %131)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7130,7 +7130,7 @@ _ZN19ParallelCompactData10RegionData12claim_unsafeEv.exit: ; preds = %.lr.ph, %_
 
 .lr.ph.i:                                         ; preds = %147, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %147 ]
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %40, i64 0, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
   %151 = load i64, ptr %150, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.64, i64 noundef %151)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7714,7 +7714,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN17PSParallelCompact8space_idEPP12H
 
 2:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %3 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -7906,7 +7906,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %66, %69, %76, %96
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN17PSParallelCompact14first_src_addrEPP12HeapWordImplNS_7SpaceIdEm(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %4, i32 4
+  %5 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %4, i32 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 16
   %8 = icmp eq ptr %7, %0
@@ -8105,7 +8105,7 @@ define hidden void @_ZN17PSParallelCompact28decrement_destination_countsEP20ParC
   %12 = lshr i64 %11, 19
   %13 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %5, i64 %12
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %14, i32 1
+  %15 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %14, i32 1
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 524280
   %18 = ptrtoint ptr %17 to i64
@@ -8347,7 +8347,7 @@ define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN17PSParallelCompa
 43:                                               ; preds = %.loopexit, %.critedge57
   %.053 = phi i32 [ %42, %.critedge57 ], [ %81, %.loopexit ]
   %44 = zext i32 %.053 to i64
-  %45 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %44
   %46 = load ptr, ptr %45, align 16
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -8417,7 +8417,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact15partial_obj_endEPP12HeapWordI
 
 2:                                                ; preds = %11, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %11 ]
-  %3 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -8439,7 +8439,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact15partial_obj_endEPP12HeapWordI
 
 _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit: ; preds = %11, %.split.loop.exit8.i
   %.05.i = phi i64 [ %12, %.split.loop.exit8.i ], [ 4, %11 ]
-  %13 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i, i32 4
+  %13 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i, i32 4
   %14 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %15 = ptrtoint ptr %0 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -8513,7 +8513,7 @@ define hidden void @_ZN17PSParallelCompact11fill_regionEP20ParCompactionManagerR
 
 12:                                               ; preds = %21, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %21 ]
-  %13 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -8537,7 +8537,7 @@ _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit: ; preds = %21, %.split.lo
   %.05.i = phi i32 [ %22, %.split.loop.exit8.i ], [ 4, %21 ]
   store i32 %.05.i, ptr %4, align 4
   %23 = zext i32 %.05.i to i64
-  %24 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %23
   %25 = load ptr, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load volatile ptr, ptr %26, align 8
@@ -8657,7 +8657,7 @@ _ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit: ; preds = %6
 
 .preheader167:                                    ; preds = %99, %110
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %110 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 16
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load ptr, ptr %104, align 8
@@ -8679,7 +8679,7 @@ _ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit: ; preds = %6
 
 _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit.i: ; preds = %110, %.split.loop.exit8.i.i
   %.05.i.i = phi i64 [ %111, %.split.loop.exit8.i.i ], [ 4, %110 ]
-  %112 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i, i32 4
+  %112 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i, i32 4
   %113 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %114 = ptrtoint ptr %89 to i64
   %115 = ptrtoint ptr %113 to i64
@@ -8825,7 +8825,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %162, %165, %172, %1
 
 .preheader165:                                    ; preds = %_ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit, %206
   %indvars.iv.i.i106 = phi i64 [ %indvars.iv.next.i.i108, %206 ], [ 0, %_ZNK13ParMarkBitMap20find_obj_beg_reverseEPP12HeapWordImplS2_.exit ]
-  %198 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i106
+  %198 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i106
   %199 = load ptr, ptr %198, align 16
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %201 = load ptr, ptr %200, align 8
@@ -8847,7 +8847,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %162, %165, %172, %1
 
 _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit.i110: ; preds = %206, %.split.loop.exit8.i.i126
   %.05.i.i111 = phi i64 [ %207, %.split.loop.exit8.i.i126 ], [ 4, %206 ]
-  %208 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i111, i32 4
+  %208 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i111, i32 4
   %209 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %210 = ptrtoint ptr %209 to i64
   %211 = sub i64 %49, %210
@@ -9078,7 +9078,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit..critedge_crit_edge: 
 
 .preheader:                                       ; preds = %332, %342
   %indvars.iv.i.i132 = phi i64 [ %indvars.iv.next.i.i134, %342 ], [ 0, %332 ]
-  %334 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i132
+  %334 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i132
   %335 = load ptr, ptr %334, align 16
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 32
   %337 = load ptr, ptr %336, align 8
@@ -9100,7 +9100,7 @@ _ZNK13ParMarkBitMap12find_obj_begEPP12HeapWordImplS2_.exit..critedge_crit_edge: 
 
 _ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit.i136: ; preds = %342, %.split.loop.exit8.i.i152
   %.05.i.i137 = phi i64 [ %343, %.split.loop.exit8.i.i152 ], [ 4, %342 ]
-  %344 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i137, i32 4
+  %344 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i137, i32 4
   %345 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %346 = ptrtoint ptr %345 to i64
   %347 = sub i64 %.pre-phi208, %346
@@ -9444,7 +9444,7 @@ define hidden void @_ZN17PSParallelCompact22fill_and_update_regionEP20ParCompact
 
 8:                                                ; preds = %17, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %17 ]
-  %9 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i
+  %9 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i
   %10 = load ptr, ptr %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -9466,7 +9466,7 @@ define hidden void @_ZN17PSParallelCompact22fill_and_update_regionEP20ParCompact
 
 _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %17, %.split.loop.exit8.i.i.i
   %.05.i.i.i = phi i64 [ %18, %.split.loop.exit8.i.i.i ], [ 4, %17 ]
-  %19 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i, i32 1
+  %19 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %7 to i64
@@ -9482,7 +9482,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %17, %.
 
 28:                                               ; preds = %37, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i ], [ %indvars.iv.next.i.i, %37 ]
-  %29 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i
   %30 = load ptr, ptr %29, align 16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -9505,7 +9505,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %17, %.
 _ZN20MoveAndUpdateClosureC2EP13ParMarkBitMapm.exit: ; preds = %37, %.split.loop.exit8.i.i
   %.05.i.i = phi i64 [ %38, %.split.loop.exit8.i.i ], [ 4, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %40 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i, i32 3
+  %40 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i, i32 3
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -9536,7 +9536,7 @@ define hidden void @_ZN17PSParallelCompact29fill_and_update_shadow_regionEP20Par
 
 14:                                               ; preds = %23, %9
   %indvars.iv.i.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i.i, %23 ]
-  %15 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i
+  %15 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i
   %16 = load ptr, ptr %15, align 16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -9558,7 +9558,7 @@ define hidden void @_ZN17PSParallelCompact29fill_and_update_shadow_regionEP20Par
 
 _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %23, %.split.loop.exit8.i.i.i
   %.05.i.i.i = phi i64 [ %24, %.split.loop.exit8.i.i.i ], [ 4, %23 ]
-  %25 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i, i32 1
+  %25 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %13 to i64
@@ -9574,7 +9574,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %23, %.
 
 34:                                               ; preds = %43, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i ], [ %indvars.iv.next.i.i, %43 ]
-  %35 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
@@ -9597,7 +9597,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i: ; preds = %23, %.
 _ZN20MoveAndUpdateClosureC2EP13ParMarkBitMapm.exit: ; preds = %43, %.split.loop.exit8.i.i
   %.05.i.i = phi i64 [ %44, %.split.loop.exit8.i.i ], [ 4, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %46 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i, i32 3
+  %46 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i, i32 3
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -9617,7 +9617,7 @@ _ZN20MoveAndUpdateClosureC2EP13ParMarkBitMapm.exit: ; preds = %43, %.split.loop.
 
 56:                                               ; preds = %65, %51
   %indvars.iv.i.i.i.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i.i.i, %65 ]
-  %57 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i.i
+  %57 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i.i
   %58 = load ptr, ptr %57, align 16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
@@ -9639,7 +9639,7 @@ _ZN20MoveAndUpdateClosureC2EP13ParMarkBitMapm.exit: ; preds = %43, %.split.loop.
 
 _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i: ; preds = %65, %.split.loop.exit8.i.i.i.i
   %.05.i.i.i.i = phi i64 [ %66, %.split.loop.exit8.i.i.i.i ], [ 4, %65 ]
-  %67 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i.i, i32 1
+  %67 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i.i, i32 1
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %55 to i64
@@ -9655,7 +9655,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i: ; preds = %65, 
 
 76:                                               ; preds = %85, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i
   %indvars.iv.i.i.i11 = phi i64 [ 0, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i ], [ %indvars.iv.next.i.i.i13, %85 ]
-  %77 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i11
+  %77 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i11
   %78 = load ptr, ptr %77, align 16
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load ptr, ptr %79, align 8
@@ -9678,7 +9678,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i: ; preds = %65, 
 _ZN26MoveAndUpdateShadowClosureC2EP13ParMarkBitMapmm.exit: ; preds = %85, %.split.loop.exit8.i.i.i16
   %.05.i.i.i15 = phi i64 [ %86, %.split.loop.exit8.i.i.i16 ], [ 4, %85 ]
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %88 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i15, i32 3
+  %88 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i15, i32 3
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %87, align 8
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11175,7 +11175,7 @@ define linkonce_odr hidden void @_ZN20ParCompactionManager17MarkingStatsCache4pu
 
 15:                                               ; preds = %3
   %16 = and i64 %8, 1023
-  %17 = getelementptr inbounds nuw [1024 x %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry"], ptr %0, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -11211,7 +11211,7 @@ _ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit: ; preds = %22, %30
   %33 = and i64 %32, 65535
   %34 = sub nuw nsw i64 65536, %33
   %35 = and i64 %8, 1023
-  %36 = getelementptr inbounds nuw [1024 x %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry"], ptr %0, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -11867,7 +11867,7 @@ define linkonce_odr hidden void @_ZN17MarkFromRootsTask4workEj(ptr noundef nonnu
 
 16:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI20PCMarkAndPushClosureEEvPT_.exit.i, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI20PCMarkAndPushClosureEEvPT_.exit.i ]
-  %17 = getelementptr inbounds nuw [5 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -11898,7 +11898,7 @@ define linkonce_odr hidden void @_ZN17MarkFromRootsTask4workEj(ptr noundef nonnu
   %30 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
   %31 = shl nuw i64 1, %30
   %32 = xor i64 %31, %.0810.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [64 x ptr], ptr %27, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
   %34 = load ptr, ptr %4, align 8
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %33) #25
@@ -12226,7 +12226,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
 
 49:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i, %_ZN12ResourceMarkD2Ev.exit
   %indvars.iv.i4 = phi i64 [ 0, %_ZN12ResourceMarkD2Ev.exit ], [ %indvars.iv.next.i5, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i ]
-  %50 = getelementptr inbounds nuw [5 x ptr], ptr %47, i64 0, i64 %indvars.iv.i4
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i4
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -12257,7 +12257,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
   %63 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
   %64 = shl nuw i64 1, %63
   %65 = xor i64 %64, %.0810.i.i.i.i.i.i
-  %66 = getelementptr inbounds nuw [64 x ptr], ptr %60, i64 0, i64 %63
+  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
   %67 = load ptr, ptr @_ZL25pc_adjust_pointer_closure, align 8
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(16) @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull %66) #25
@@ -12320,90 +12320,89 @@ define linkonce_odr hidden void @_ZN13WeakProcessor4Task4workI17AlwaysTrueClosur
   %.sroa.8 = alloca i64, align 8
   %.sroa.12 = alloca i64, align 8
   %6 = alloca %class.WeakProcessorParTimeTracker, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr i8, ptr %0, i64 -24
   br label %9
 
-9:                                                ; preds = %4, %51
-  %indvars.iv = phi i64 [ 5, %4 ], [ %indvars.iv.next, %51 ]
+9:                                                ; preds = %4, %50
+  %indvars.iv = phi i64 [ 5, %4 ], [ %indvars.iv.next, %50 ]
   store i64 0, ptr %.sroa.4, align 8
   store i64 0, ptr %.sroa.8, align 8
   store i64 0, ptr %.sroa.12, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN27WeakProcessorParTimeTrackerC1EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %10, i32 noundef %11, i32 noundef %1) #25
-  %12 = add nsw i64 %indvars.iv, -5
-  %13 = getelementptr inbounds [10 x ptr], ptr %7, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
+  %12 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %15 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #25
-  br i1 %15, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
+  %14 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %5) #25
+  br i1 %14, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  br label %17
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %16
 
-17:                                               ; preds = %45, %.lr.ph.i.i.i
-  %18 = load i64, ptr %5, align 8
-  br label %19
+16:                                               ; preds = %44, %.lr.ph.i.i.i
+  %17 = load i64, ptr %5, align 8
+  br label %18
 
-19:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i, %17
-  %.0.i.i.i = phi i64 [ %18, %17 ], [ %42, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i ]
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.0.i.i.i
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 512
-  %25 = load volatile i64, ptr %24, align 8
-  %.not9.i.i.i.i.i = icmp eq i64 %25, 0
+18:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i, %16
+  %.0.i.i.i = phi i64 [ %17, %16 ], [ %41, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i ]
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %.0.i.i.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 512
+  %24 = load volatile i64, ptr %23, align 8
+  %.not9.i.i.i.i.i = icmp eq i64 %24, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %19, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
-  %.0810.i.i.i.i.i = phi i64 [ %28, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i ], [ %25, %19 ]
-  %26 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
-  %27 = shl nuw i64 1, %26
-  %28 = xor i64 %27, %.0810.i.i.i.i.i
-  %29 = getelementptr inbounds nuw [64 x ptr], ptr %23, i64 0, i64 %26
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %32
+.lr.ph.i.i.i.i.i:                                 ; preds = %18, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
+  %.0810.i.i.i.i.i = phi i64 [ %27, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i ], [ %24, %18 ]
+  %25 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
+  %26 = shl nuw i64 1, %25
+  %27 = xor i64 %26, %.0810.i.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %31
 
-32:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %33 = load ptr, ptr %2, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %30) #25
-  br i1 %35, label %36, label %39
+31:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %32 = load ptr, ptr %2, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %29) #25
+  br i1 %34, label %35, label %38
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %3, align 8
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %29) #25
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %28) #25
   br label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
 
-39:                                               ; preds = %32
-  store ptr null, ptr %29, align 8
+38:                                               ; preds = %31
+  store ptr null, ptr %28, align 8
   br label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
 
-_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i: ; preds = %39, %36, %.lr.ph.i.i.i.i.i
-  %.sink8.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.sroa.12, %36 ], [ %.sroa.8, %39 ], [ %.sroa.4, %.lr.ph.i.i.i.i.i ]
-  %40 = load i64, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
-  %.not.i.i.i.i.i = icmp eq i64 %27, %.0810.i.i.i.i.i
+_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i: ; preds = %38, %35, %.lr.ph.i.i.i.i.i
+  %.sink8.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.sroa.12, %35 ], [ %.sroa.8, %38 ], [ %.sroa.4, %.lr.ph.i.i.i.i.i ]
+  %39 = load i64, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
+  %.not.i.i.i.i.i = icmp eq i64 %26, %.0810.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
 
-_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %19
-  %42 = add i64 %.0.i.i.i, 1
-  %43 = load i64, ptr %8, align 8
-  %44 = icmp ult i64 %42, %43
-  br i1 %44, label %19, label %45, !llvm.loop !66
+_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %18
+  %41 = add i64 %.0.i.i.i, 1
+  %42 = load i64, ptr %7, align 8
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %18, label %44, !llvm.loop !66
 
-45:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i
-  %46 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #25
-  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit, !llvm.loop !67
+44:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEEEEEbT_.exit.i.i.i
+  %45 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %5) #25
+  br i1 %45, label %16, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit, !llvm.loop !67
 
-_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit: ; preds = %45
+_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit: ; preds = %44
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre = load i64, ptr %.sroa.4, align 8
   %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.24..pre = load i64, ptr %.sroa.8, align 8
   br label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
@@ -12412,25 +12411,25 @@ _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17A
   %.sroa.8.0..sroa.8.0..sroa.8.24. = phi i64 [ %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.24..pre, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit ], [ 0, %9 ]
   %.sroa.4.0..sroa.4.0..sroa.4.16. = phi i64 [ %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit.loopexit ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %47 = add i64 %.sroa.8.0..sroa.8.0..sroa.8.24., %.sroa.4.0..sroa.4.0..sroa.4.16.
-  call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %47) #25
-  %48 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %48, null
-  br i1 %.not, label %51, label %49
+  %46 = add i64 %.sroa.8.0..sroa.8.0..sroa.8.24., %.sroa.4.0..sroa.4.0..sroa.4.16.
+  call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %46) #25
+  %47 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %47, null
+  br i1 %.not, label %50, label %48
 
-49:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
+48:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
   %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32. = load i64, ptr %.sroa.12, align 8
-  %50 = add i64 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32., %47
-  call void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr noundef nonnull align 8 dereferenceable(96) %48, i32 noundef %1, i32 noundef %11, i64 noundef %.sroa.8.0..sroa.8.0..sroa.8.24., i64 noundef %50) #25
-  br label %51
+  %49 = add i64 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32., %46
+  call void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %1, i32 noundef %11, i64 noundef %.sroa.8.0..sroa.8.0..sroa.8.24., i64 noundef %49) #25
+  br label %50
 
-51:                                               ; preds = %49, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
+50:                                               ; preds = %48, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17AlwaysTrueClosure22PCAdjustPointerClosureEEEEvPT_.exit
   call void @_ZN27WeakProcessorParTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not22 = icmp eq i64 %indvars.iv.next, 15
-  br i1 %.not22, label %52, label %9
+  br i1 %.not22, label %51, label %9
 
-52:                                               ; preds = %51
+51:                                               ; preds = %50
   ret void
 }
 
@@ -12465,9 +12464,9 @@ define internal void @_ZZN17PSParallelCompact19forward_to_new_addrEvEN11ForwardT
 
 7:                                                ; preds = %2, %.loopexit58
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.loopexit58 ]
-  %8 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv, i32 2
   %11 = load ptr, ptr %10, align 16
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load volatile ptr, ptr %12, align 8
@@ -12911,7 +12910,7 @@ _ZN20ParCompactionManager5stealEiRm.exit.i:       ; preds = %.lr.ph.i.i.i
 
 52:                                               ; preds = %61, %_ZN20ParCompactionManager5stealEiRm.exit.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %_ZN20ParCompactionManager5stealEiRm.exit.i ], [ %indvars.iv.next.i.i.i.i.i, %61 ]
-  %53 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i.i.i
   %54 = load ptr, ptr %53, align 16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
@@ -12933,7 +12932,7 @@ _ZN20ParCompactionManager5stealEiRm.exit.i:       ; preds = %.lr.ph.i.i.i
 
 _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i: ; preds = %61, %.split.loop.exit8.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %62, %.split.loop.exit8.i.i.i.i.i ], [ 4, %61 ]
-  %63 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i.i.i, i32 1
+  %63 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i.i.i, i32 1
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %51 to i64
@@ -12947,7 +12946,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i: ; preds = %61
 
 70:                                               ; preds = %79, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i ], [ %indvars.iv.next.i.i.i.i, %79 ]
-  %71 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv.i.i.i.i
+  %71 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %indvars.iv.i.i.i.i
   %72 = load ptr, ptr %71, align 16
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
@@ -12969,7 +12968,7 @@ _ZN20MoveAndUpdateClosure25calculate_words_remainingEm.exit.i.i.i: ; preds = %61
 
 _ZN17PSParallelCompact22fill_and_update_regionEP20ParCompactionManagerm.exit.i: ; preds = %79, %.split.loop.exit8.i.i.i.i
   %.05.i.i.i.i = phi i64 [ %80, %.split.loop.exit8.i.i.i.i ], [ 4, %79 ]
-  %81 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %.05.i.i.i.i, i32 3
+  %81 = getelementptr inbounds nuw %class.SpaceInfo, ptr @_ZN17PSParallelCompact11_space_infoE, i64 %.05.i.i.i.i, i32 3
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %37, align 8
   store i64 0, ptr %38, align 8
@@ -13688,7 +13687,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.20.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #25
@@ -14434,7 +14433,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -14451,7 +14450,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -14529,7 +14528,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -14573,7 +14572,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -14587,7 +14586,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -14653,7 +14652,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -14722,7 +14721,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.21.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #25
@@ -14988,7 +14987,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -15005,7 +15004,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -15083,7 +15082,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -22242,90 +22241,89 @@ define linkonce_odr hidden void @_ZN13WeakProcessor4Task4workI17BoolObjectClosur
   %.sroa.8 = alloca i64, align 8
   %.sroa.12 = alloca i64, align 8
   %6 = alloca %class.WeakProcessorParTimeTracker, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr i8, ptr %0, i64 -24
   br label %9
 
-9:                                                ; preds = %4, %51
-  %indvars.iv = phi i64 [ 5, %4 ], [ %indvars.iv.next, %51 ]
+9:                                                ; preds = %4, %50
+  %indvars.iv = phi i64 [ 5, %4 ], [ %indvars.iv.next, %50 ]
   store i64 0, ptr %.sroa.4, align 8
   store i64 0, ptr %.sroa.8, align 8
   store i64 0, ptr %.sroa.12, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN27WeakProcessorParTimeTrackerC1EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %10, i32 noundef %11, i32 noundef %1) #25
-  %12 = add nsw i64 %indvars.iv, -5
-  %13 = getelementptr inbounds [10 x ptr], ptr %7, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
+  %12 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %15 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #25
-  br i1 %15, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
+  %14 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %5) #25
+  br i1 %14, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  br label %17
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %16
 
-17:                                               ; preds = %45, %.lr.ph.i.i.i
-  %18 = load i64, ptr %5, align 8
-  br label %19
+16:                                               ; preds = %44, %.lr.ph.i.i.i
+  %17 = load i64, ptr %5, align 8
+  br label %18
 
-19:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, %17
-  %.0.i.i.i = phi i64 [ %18, %17 ], [ %42, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i ]
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.0.i.i.i
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 512
-  %25 = load volatile i64, ptr %24, align 8
-  %.not9.i.i.i.i.i = icmp eq i64 %25, 0
+18:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, %16
+  %.0.i.i.i = phi i64 [ %17, %16 ], [ %41, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i ]
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %.0.i.i.i
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 512
+  %24 = load volatile i64, ptr %23, align 8
+  %.not9.i.i.i.i.i = icmp eq i64 %24, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %19, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
-  %.0810.i.i.i.i.i = phi i64 [ %28, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i ], [ %25, %19 ]
-  %26 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
-  %27 = shl nuw i64 1, %26
-  %28 = xor i64 %27, %.0810.i.i.i.i.i
-  %29 = getelementptr inbounds nuw [64 x ptr], ptr %23, i64 0, i64 %26
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %32
+.lr.ph.i.i.i.i.i:                                 ; preds = %18, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
+  %.0810.i.i.i.i.i = phi i64 [ %27, %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i ], [ %24, %18 ]
+  %25 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
+  %26 = shl nuw i64 1, %25
+  %27 = xor i64 %26, %.0810.i.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %31
 
-32:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %33 = load ptr, ptr %2, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %30) #25
-  br i1 %35, label %36, label %39
+31:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %32 = load ptr, ptr %2, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %29) #25
+  br i1 %34, label %35, label %38
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %3, align 8
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %29) #25
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %3, align 8
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %28) #25
   br label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
 
-39:                                               ; preds = %32
-  store ptr null, ptr %29, align 8
+38:                                               ; preds = %31
+  store ptr null, ptr %28, align 8
   br label %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i
 
-_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i: ; preds = %39, %36, %.lr.ph.i.i.i.i.i
-  %.sink8.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.sroa.12, %36 ], [ %.sroa.8, %39 ], [ %.sroa.4, %.lr.ph.i.i.i.i.i ]
-  %40 = load i64, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
-  %.not.i.i.i.i.i = icmp eq i64 %27, %.0810.i.i.i.i.i
+_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i: ; preds = %38, %35, %.lr.ph.i.i.i.i.i
+  %.sink8.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.sroa.12, %35 ], [ %.sroa.8, %38 ], [ %.sroa.4, %.lr.ph.i.i.i.i.i ]
+  %39 = load i64, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
+  %.not.i.i.i.i.i = icmp eq i64 %26, %.0810.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !153
 
-_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %19
-  %42 = add i64 %.0.i.i.i, 1
-  %43 = load i64, ptr %8, align 8
-  %44 = icmp ult i64 %42, %43
-  br i1 %44, label %19, label %45, !llvm.loop !154
+_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %18
+  %41 = add i64 %.0.i.i.i, 1
+  %42 = load i64, ptr %7, align 8
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %18, label %44, !llvm.loop !154
 
-45:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i
-  %46 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #25
-  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit, !llvm.loop !155
+44:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i
+  %45 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %5) #25
+  br i1 %45, label %16, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit, !llvm.loop !155
 
-_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit: ; preds = %45
+_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit: ; preds = %44
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre = load i64, ptr %.sroa.4, align 8
   %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.24..pre = load i64, ptr %.sroa.8, align 8
   br label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
@@ -22334,25 +22332,25 @@ _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17B
   %.sroa.8.0..sroa.8.0..sroa.8.24. = phi i64 [ %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.24..pre, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit ], [ 0, %9 ]
   %.sroa.4.0..sroa.4.0..sroa.4.16. = phi i64 [ %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit.loopexit ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %47 = add i64 %.sroa.8.0..sroa.8.0..sroa.8.24., %.sroa.4.0..sroa.4.0..sroa.4.16.
-  call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %47) #25
-  %48 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %48, null
-  br i1 %.not, label %51, label %49
+  %46 = add i64 %.sroa.8.0..sroa.8.0..sroa.8.24., %.sroa.4.0..sroa.4.0..sroa.4.16.
+  call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %46) #25
+  %47 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %47, null
+  br i1 %.not, label %50, label %48
 
-49:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
+48:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
   %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32. = load i64, ptr %.sroa.12, align 8
-  %50 = add i64 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32., %47
-  call void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr noundef nonnull align 8 dereferenceable(96) %48, i32 noundef %1, i32 noundef %11, i64 noundef %.sroa.8.0..sroa.8.0..sroa.8.24., i64 noundef %50) #25
-  br label %51
+  %49 = add i64 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.32., %46
+  call void @_ZN18WeakProcessorTimes19record_worker_itemsEjN13OopStorageSet6WeakIdEmm(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef %1, i32 noundef %11, i64 noundef %.sroa.8.0..sroa.8.0..sroa.8.24., i64 noundef %49) #25
+  br label %50
 
-51:                                               ; preds = %49, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
+50:                                               ; preds = %48, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure16DoNothingClosureEEEEvPT_.exit
   call void @_ZN27WeakProcessorParTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not22 = icmp eq i64 %indvars.iv.next, 15
-  br i1 %.not22, label %52, label %9
+  br i1 %.not22, label %51, label %9
 
-52:                                               ; preds = %51
+51:                                               ; preds = %50
   ret void
 }
 

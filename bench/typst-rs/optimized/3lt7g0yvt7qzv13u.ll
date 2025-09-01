@@ -3973,7 +3973,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 1235:                                             ; preds = %1229
   %1236 = extractvalue { ptr, i64 } %1228, 0
-  %1237 = getelementptr inbounds nuw [0 x { [4 x i8] }], ptr %1236, i64 0, i64 %1233
+  %1237 = getelementptr inbounds nuw { [4 x i8] }, ptr %1236, i64 %1233
   store i32 %1226, ptr %1237, align 1, !noalias !819
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !819
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !819

@@ -2264,7 +2264,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$channel..channel_store..Cha
 
 .lr.ph.i.i.i:                                     ; preds = %5, %"_ZN4core3ptr47drop_in_place$LT$proto..ChannelParticipants$GT$17h332ceebec7b348eeE.llvm.17231173475946515404.exit.i.i.i"
   %.sroa.0.08.i.i.i = phi i64 [ %12, %"_ZN4core3ptr47drop_in_place$LT$proto..ChannelParticipants$GT$17h332ceebec7b348eeE.llvm.17231173475946515404.exit.i.i.i" ], [ 0, %5 ]
-  %11 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %7, i64 0, i64 %.sroa.0.08.i.i.i
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %7, i64 %.sroa.0.08.i.i.i
   %12 = add nuw i64 %.sroa.0.08.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)

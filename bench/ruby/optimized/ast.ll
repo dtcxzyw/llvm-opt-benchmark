@@ -2382,7 +2382,7 @@ define internal fastcc i64 @node_children(i64 noundef %0, ptr noundef %1) unname
 
 809:                                              ; preds = %.lr.ph, %var_name.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %var_name.exit ]
-  %810 = getelementptr [0 x i64], ptr %808, i64 0, i64 %indvars.iv
+  %810 = getelementptr i64, ptr %808, i64 %indvars.iv
   %811 = load i64, ptr %810, align 8, !tbaa !47
   %.not.i = icmp eq i64 %811, 0
   br i1 %.not.i, label %var_name.exit, label %812

@@ -845,7 +845,7 @@ agxbsizeof.exit.i.i:                              ; preds = %_printXDot.exit
 
 31:                                               ; preds = %30
   %32 = zext i8 %.val.i15.pre.i.i to i64
-  %33 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
   store i8 0, ptr %33, align 1, !tbaa !15
   br label %agxbputc.exit.i
 
@@ -909,9 +909,9 @@ agxbsizeof.exit.i:                                ; preds = %9
   br label %agxblen.exit.i
 
 agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exit.i
-  %.0.i50.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %15, %13 ]
+  %.0.i53.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %15, %13 ]
   %.0.i43.i = phi i64 [ %12, %agxbsizeof.exit.i ], [ %17, %13 ]
-  %18 = sub i64 %.0.i50.i, %.0.i43.i
+  %18 = sub i64 %.0.i53.i, %.0.i43.i
   %19 = icmp ult i64 %18, %10
   br i1 %19, label %20, label %26
 
@@ -930,71 +930,75 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %agxbnext.exit.i
+  br label %33
 
 26:                                               ; preds = %24, %agxblen.exit.i
   %.val.i.i.i = phi i8 [ %.val.i.i, %agxblen.exit.i ], [ %.val.i.i.pre.i, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  br i1 %.not.i.i.i, label %30, label %27
+  br i1 %.not.i.i.i, label %28, label %agxblen.exit.thread.i.i
 
-27:                                               ; preds = %26
-  %28 = zext i8 %.val.i.i.i to i64
-  %29 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %28
+agxblen.exit.thread.i.i:                          ; preds = %26
+  %27 = zext i8 %.val.i.i.i to i64
   br label %agxbnext.exit.i
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !15
-  %33 = load ptr, ptr %0, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !15
+  %31 = load ptr, ptr %0, align 8, !tbaa !15
   br label %agxbnext.exit.i
 
-agxbnext.exit.i:                                  ; preds = %30, %27, %25
-  %.03655.i = phi i1 [ true, %25 ], [ false, %27 ], [ false, %30 ]
-  %35 = phi ptr [ %4, %25 ], [ %29, %27 ], [ %34, %30 ]
-  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #23
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %38, label %52
+agxbnext.exit.i:                                  ; preds = %28, %agxblen.exit.thread.i.i
+  %.0.i6.i.i = phi i64 [ %30, %28 ], [ %27, %agxblen.exit.thread.i.i ]
+  %.pn.i.i = phi ptr [ %31, %28 ], [ %0, %agxblen.exit.thread.i.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 %.0.i6.i.i
+  br label %33
 
-38:                                               ; preds = %agxbnext.exit.i
+33:                                               ; preds = %agxbnext.exit.i, %25
+  %.03658.i = phi i1 [ false, %agxbnext.exit.i ], [ true, %25 ]
+  %34 = phi ptr [ %32, %agxbnext.exit.i ], [ %4, %25 ]
+  %35 = call i32 @vsnprintf(ptr noundef %34, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #23
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %51
+
+37:                                               ; preds = %33
   %.val.i = load i8, ptr %11, align 1, !tbaa !15
   %.not.i = icmp eq i8 %.val.i, -1
-  br i1 %.not.i, label %47, label %39
+  br i1 %.not.i, label %46, label %38
 
-39:                                               ; preds = %38
-  br i1 %.03655.i, label %agxbnext.exit46.i, label %43
+38:                                               ; preds = %37
+  br i1 %.03658.i, label %agxbnext.exit49.i, label %42
 
-agxbnext.exit46.i:                                ; preds = %39
-  %40 = zext i8 %.val.i to i64
-  %41 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %40
-  %42 = zext nneg i32 %36 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 16 %4, i64 %42, i1 false)
+agxbnext.exit49.i:                                ; preds = %38
+  %39 = zext i8 %.val.i to i64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  %41 = zext nneg i32 %35 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 16 %4, i64 %41, i1 false)
   %.pre.i = load i8, ptr %11, align 1, !tbaa !15
-  br label %43
+  br label %42
 
-43:                                               ; preds = %agxbnext.exit46.i, %39
-  %44 = phi i8 [ %.pre.i, %agxbnext.exit46.i ], [ %.val.i, %39 ]
-  %45 = trunc i32 %36 to i8
-  %46 = add i8 %44, %45
-  store i8 %46, ptr %11, align 1, !tbaa !15
-  br label %52
+42:                                               ; preds = %agxbnext.exit49.i, %38
+  %43 = phi i8 [ %.pre.i, %agxbnext.exit49.i ], [ %.val.i, %38 ]
+  %44 = trunc i32 %35 to i8
+  %45 = add i8 %43, %44
+  store i8 %45, ptr %11, align 1, !tbaa !15
+  br label %51
 
-47:                                               ; preds = %38
-  %48 = zext nneg i32 %36 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !15
-  %51 = add i64 %50, %48
-  store i64 %51, ptr %49, align 8, !tbaa !15
-  br label %52
+46:                                               ; preds = %37
+  %47 = zext nneg i32 %35 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !15
+  %50 = add i64 %49, %47
+  store i64 %50, ptr %48, align 8, !tbaa !15
+  br label %51
 
-52:                                               ; preds = %47, %43, %agxbnext.exit.i
+51:                                               ; preds = %46, %42, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
-vagxbprint.exit:                                  ; preds = %8, %52
-  %.1.i = phi i32 [ %36, %52 ], [ %6, %8 ]
+vagxbprint.exit:                                  ; preds = %8, %51
+  %.1.i = phi i32 [ %35, %51 ], [ %6, %8 ]
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1.i
@@ -1109,7 +1113,7 @@ agxbsizeof.exit.i.i:                              ; preds = %36, %agxblen.exit.i
 
 43:                                               ; preds = %42
   %44 = zext i8 %.val.i15.i.i to i64
-  %45 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %44
   store i8 0, ptr %45, align 1, !tbaa !15
   %46 = load i8, ptr %34, align 1, !tbaa !15
   %47 = add i8 %46, 1
@@ -1197,7 +1201,7 @@ agxbsizeof.exit.i.i98:                            ; preds = %72, %agxblen.exit.i
 
 79:                                               ; preds = %78
   %80 = zext i8 %.val.i15.i.i103 to i64
-  %81 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %80
   store i8 0, ptr %81, align 1, !tbaa !15
   %82 = load i8, ptr %70, align 1, !tbaa !15
   %83 = add i8 %82, 1
@@ -1262,7 +1266,7 @@ agxbuse.exit110:                                  ; preds = %agxbclear.exit.thre
 
 switch.lookup:                                    ; preds = %100
   %112 = zext nneg i32 %107 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.jsonXDot, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsonXDot, i64 %112
   %switch.load = load ptr, ptr %switch.gep, align 8
   %113 = tail call i32 (ptr, ptr, ...) %1(ptr noundef %2, ptr noundef nonnull %switch.load) #23
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1583,7 +1587,7 @@ agxbputc.exit.i.i373.thread:                      ; preds = %99
 
 agxbputc.exit.i.i373:                             ; preds = %99
   %103 = zext i8 %.val.i6.pr.i.i376 to i64
-  %104 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %103
   store i8 0, ptr %104, align 1, !tbaa !15
   %105 = load i8, ptr %32, align 1, !tbaa !15
   %106 = add i8 %105, 1
@@ -1746,7 +1750,7 @@ agxbputc.exit.i51.i349.thread:                    ; preds = %157
 
 agxbputc.exit.i51.i349:                           ; preds = %157
   %161 = zext i8 %.val.i6.pr.i54.i352 to i64
-  %162 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 %161
   store i8 0, ptr %162, align 1, !tbaa !15
   %163 = load i8, ptr %32, align 1, !tbaa !15
   %164 = add i8 %163, 1
@@ -1944,7 +1948,7 @@ agxbputc.exit.i.i289.thread:                      ; preds = %226
 
 agxbputc.exit.i.i289:                             ; preds = %226
   %230 = zext i8 %.val.i6.pr.i.i292 to i64
-  %231 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %4, i64 %230
   store i8 0, ptr %231, align 1, !tbaa !15
   %232 = load i8, ptr %29, align 1, !tbaa !15
   %233 = add i8 %232, 1
@@ -2107,7 +2111,7 @@ agxbputc.exit.i51.i265.thread:                    ; preds = %284
 
 agxbputc.exit.i51.i265:                           ; preds = %284
   %288 = zext i8 %.val.i6.pr.i54.i268 to i64
-  %289 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 %288
   store i8 0, ptr %289, align 1, !tbaa !15
   %290 = load i8, ptr %29, align 1, !tbaa !15
   %291 = add i8 %290, 1
@@ -2305,7 +2309,7 @@ agxbputc.exit.i.i205.thread:                      ; preds = %353
 
 agxbputc.exit.i.i205:                             ; preds = %353
   %357 = zext i8 %.val.i6.pr.i.i208 to i64
-  %358 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw i8, ptr %5, i64 %357
   store i8 0, ptr %358, align 1, !tbaa !15
   %359 = load i8, ptr %26, align 1, !tbaa !15
   %360 = add i8 %359, 1
@@ -2468,7 +2472,7 @@ agxbputc.exit.i51.i181.thread:                    ; preds = %411
 
 agxbputc.exit.i51.i181:                           ; preds = %411
   %415 = zext i8 %.val.i6.pr.i54.i184 to i64
-  %416 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i8, ptr %5, i64 %415
   store i8 0, ptr %416, align 1, !tbaa !15
   %417 = load i8, ptr %26, align 1, !tbaa !15
   %418 = add i8 %417, 1
@@ -2666,7 +2670,7 @@ agxbputc.exit.i.i121.thread:                      ; preds = %480
 
 agxbputc.exit.i.i121:                             ; preds = %480
   %484 = zext i8 %.val.i6.pr.i.i124 to i64
-  %485 = getelementptr inbounds nuw [31 x i8], ptr %6, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw i8, ptr %6, i64 %484
   store i8 0, ptr %485, align 1, !tbaa !15
   %486 = load i8, ptr %23, align 1, !tbaa !15
   %487 = add i8 %486, 1
@@ -2829,7 +2833,7 @@ agxbputc.exit.i51.i97.thread:                     ; preds = %538
 
 agxbputc.exit.i51.i97:                            ; preds = %538
   %542 = zext i8 %.val.i6.pr.i54.i100 to i64
-  %543 = getelementptr inbounds nuw [31 x i8], ptr %6, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw i8, ptr %6, i64 %542
   store i8 0, ptr %543, align 1, !tbaa !15
   %544 = load i8, ptr %23, align 1, !tbaa !15
   %545 = add i8 %544, 1
@@ -2904,7 +2908,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %562, %agxblen.exit.
 
 567:                                              ; preds = %566
   %568 = zext i8 %.val.i15.i.i.i to i64
-  %569 = getelementptr inbounds nuw [31 x i8], ptr %9, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw i8, ptr %9, i64 %568
   store i8 0, ptr %569, align 1, !tbaa !15
   %570 = load i8, ptr %20, align 1, !tbaa !15
   %571 = add i8 %570, 1
@@ -2987,7 +2991,7 @@ agxbsizeof.exit.i.i98.i:                          ; preds = %591, %agxblen.exit.
 
 596:                                              ; preds = %595
   %597 = zext i8 %.val.i15.i.i103.i to i64
-  %598 = getelementptr inbounds nuw [31 x i8], ptr %9, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw i8, ptr %9, i64 %597
   store i8 0, ptr %598, align 1, !tbaa !15
   %599 = load i8, ptr %20, align 1, !tbaa !15
   %600 = add i8 %599, 1
@@ -3193,7 +3197,7 @@ agxbputc.exit.i.i38.thread:                       ; preds = %665
 
 agxbputc.exit.i.i38:                              ; preds = %665
   %669 = zext i8 %.val.i6.pr.i.i41 to i64
-  %670 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i8, ptr %7, i64 %669
   store i8 0, ptr %670, align 1, !tbaa !15
   %671 = load i8, ptr %17, align 1, !tbaa !15
   %672 = add i8 %671, 1
@@ -3356,7 +3360,7 @@ agxbputc.exit.i51.i.thread:                       ; preds = %723
 
 agxbputc.exit.i51.i:                              ; preds = %723
   %727 = zext i8 %.val.i6.pr.i54.i to i64
-  %728 = getelementptr inbounds nuw [31 x i8], ptr %7, i64 0, i64 %727
+  %728 = getelementptr inbounds nuw i8, ptr %7, i64 %727
   store i8 0, ptr %728, align 1, !tbaa !15
   %729 = load i8, ptr %17, align 1, !tbaa !15
   %730 = add i8 %729, 1
@@ -3405,7 +3409,7 @@ printPolyline.exit:                               ; preds = %612, %._crit_edge.i
 
 switch.lookup:                                    ; preds = %739
   %751 = zext nneg i32 %746 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.jsonXDot, i64 0, i64 %751
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsonXDot, i64 %751
   %switch.load = load ptr, ptr %switch.gep, align 8
   %752 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load) #23
   %753 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -3563,7 +3567,7 @@ agxbputc.exit.i.thread.i:                         ; preds = %806
 
 agxbputc.exit.i.i13:                              ; preds = %806
   %810 = zext i8 %.val4.i503 to i64
-  %811 = getelementptr inbounds nuw [31 x i8], ptr %8, i64 0, i64 %810
+  %811 = getelementptr inbounds nuw i8, ptr %8, i64 %810
   store i8 0, ptr %811, align 1, !tbaa !15
   %812 = load i8, ptr %14, align 1, !tbaa !15
   %813 = icmp eq i8 %812, -2
@@ -3960,7 +3964,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %142, %agxblen.exit.
 
 147:                                              ; preds = %146
   %148 = zext i8 %.val.i15.i.i.i to i64
-  %149 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 %148
   store i8 0, ptr %149, align 1, !tbaa !15
   %150 = load i8, ptr %13, align 1, !tbaa !15
   %151 = add i8 %150, 1
@@ -4101,7 +4105,7 @@ agxbsizeof.exit.i.i130.i:                         ; preds = %187, %agxblen.exit.
 
 192:                                              ; preds = %191
   %193 = zext i8 %.val.i15.i.i135.i to i64
-  %194 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %4, i64 %193
   store i8 0, ptr %194, align 1, !tbaa !15
   %195 = load i8, ptr %13, align 1, !tbaa !15
   %196 = add i8 %195, 1
@@ -4227,7 +4231,7 @@ jsonPolyline.exit149.i:                           ; preds = %231, %215
 
 switch.lookup:                                    ; preds = %235
   %247 = zext nneg i32 %242 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.jsonXDot, i64 0, i64 %247
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.jsonXDot, i64 %247
   %switch.load = load ptr, ptr %switch.gep, align 8
   %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %switch.load) #23
   %249 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -4416,7 +4420,7 @@ agxbputc.exit.i.thread.i:                         ; preds = %310
 
 agxbputc.exit.i.i16:                              ; preds = %310
   %314 = zext i8 %.val4.i72 to i64
-  %315 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 %314
   store i8 0, ptr %315, align 1, !tbaa !15
   %316 = load i8, ptr %10, align 1, !tbaa !15
   %317 = icmp eq i8 %316, -2
@@ -5574,7 +5578,7 @@ agxbsizeof.exit.i:                                ; preds = %19
 
 31:                                               ; preds = %30
   %32 = zext i8 %.val.i.i49 to i64
-  %33 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   store i8 %21, ptr %33, align 1, !tbaa !15
   %34 = load i8, ptr %16, align 1, !tbaa !15
   %35 = add i8 %34, 1
@@ -5655,7 +5659,7 @@ agxbsizeof.exit.i.i:                              ; preds = %.critedge37
 
 63:                                               ; preds = %62
   %64 = zext i8 %.val.i15.pre.i.i to i64
-  %65 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
   store i8 0, ptr %65, align 1, !tbaa !15
   %.pre = load ptr, ptr %4, align 8, !tbaa !15
   br label %agxbdisown.exit
@@ -5919,7 +5923,7 @@ agxbsizeof.exit.i.i:                              ; preds = %46, %agxblen.exit.i
 
 52:                                               ; preds = %51
   %53 = zext i8 %.val.i15.i.i to i64
-  %54 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %53
   store i8 0, ptr %54, align 1, !tbaa !15
   %55 = load i8, ptr %6, align 1, !tbaa !15
   %56 = add i8 %55, 1
@@ -6086,7 +6090,7 @@ agxbsizeof.exit.i.i43:                            ; preds = %108, %agxblen.exit.
 
 114:                                              ; preds = %113
   %115 = zext i8 %.val.i15.i.i48 to i64
-  %116 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %115
   store i8 0, ptr %116, align 1, !tbaa !15
   %117 = load i8, ptr %6, align 1, !tbaa !15
   %118 = add i8 %117, 1
@@ -6253,7 +6257,7 @@ agxbsizeof.exit.i.i84:                            ; preds = %170, %agxblen.exit.
 
 176:                                              ; preds = %175
   %177 = zext i8 %.val.i15.i.i89 to i64
-  %178 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 %177
   store i8 0, ptr %178, align 1, !tbaa !15
   %179 = load i8, ptr %6, align 1, !tbaa !15
   %180 = add i8 %179, 1
@@ -6420,7 +6424,7 @@ agxbsizeof.exit.i.i125:                           ; preds = %232, %agxblen.exit.
 
 238:                                              ; preds = %237
   %239 = zext i8 %.val.i15.i.i130 to i64
-  %240 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr %3, i64 %239
   store i8 0, ptr %240, align 1, !tbaa !15
   %241 = load i8, ptr %6, align 1, !tbaa !15
   %242 = add i8 %241, 1
@@ -6635,7 +6639,7 @@ agxbsizeof.exit.i.i:                              ; preds = %56, %agxblen.exit.i
 
 61:                                               ; preds = %60
   %62 = zext i8 %.val.i15.i.i to i64
-  %63 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %62
   store i8 0, ptr %63, align 1, !tbaa !15
   %64 = load i8, ptr %9, align 1, !tbaa !15
   %65 = add i8 %64, 1
@@ -6802,7 +6806,7 @@ agxbsizeof.exit.i.i44:                            ; preds = %118, %agxblen.exit.
 
 123:                                              ; preds = %122
   %124 = zext i8 %.val.i15.i.i49 to i64
-  %125 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 %124
   store i8 0, ptr %125, align 1, !tbaa !15
   %126 = load i8, ptr %9, align 1, !tbaa !15
   %127 = add i8 %126, 1
@@ -6884,7 +6888,7 @@ agxbsizeof.exit.i:                                ; preds = %8, %agxblen.exit.i
 
 15:                                               ; preds = %14
   %16 = zext i8 %.val.i15.i to i64
-  %17 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i8 91, ptr %17, align 1, !tbaa !15
   %18 = load i8, ptr %5, align 1, !tbaa !15
   %19 = add i8 %18, 1
@@ -6934,7 +6938,7 @@ agxbsizeof.exit.i45:                              ; preds = %29, %agxblen.exit.i
 
 36:                                               ; preds = %35
   %37 = zext i8 %.val.i15.i50 to i64
-  %38 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   store i8 40, ptr %38, align 1, !tbaa !15
   %39 = load i8, ptr %5, align 1, !tbaa !15
   %40 = add i8 %39, 1
@@ -7047,7 +7051,7 @@ agxbsizeof.exit.i56:                              ; preds = %76, %agxblen.exit.i
 
 83:                                               ; preds = %82
   %84 = zext i8 %.val.i15.i61 to i64
-  %85 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %84
   store i8 93, ptr %85, align 1, !tbaa !15
   %86 = load i8, ptr %73, align 1, !tbaa !15
   %87 = add i8 %86, 1
@@ -7097,7 +7101,7 @@ agxbsizeof.exit.i67:                              ; preds = %97, %agxblen.exit.i
 
 104:                                              ; preds = %103
   %105 = zext i8 %.val.i15.i72 to i64
-  %106 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %105
   store i8 41, ptr %106, align 1, !tbaa !15
   %107 = load i8, ptr %73, align 1, !tbaa !15
   %108 = add i8 %107, 1
@@ -7266,7 +7270,7 @@ agxbputc.exit.i.thread:                           ; preds = %51
 
 agxbputc.exit.i:                                  ; preds = %51
   %55 = zext i8 %.val.i6.pr.i to i64
-  %56 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
   store i8 0, ptr %56, align 1, !tbaa !15
   %57 = load i8, ptr %6, align 1, !tbaa !15
   %58 = add i8 %57, 1

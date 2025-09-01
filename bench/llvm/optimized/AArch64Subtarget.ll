@@ -14199,7 +14199,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   unreachable
 
 switch.lookup:                                    ; preds = %366
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm23AArch64GenSubtargetInfo17resolveSchedClassEjPKNS_12MachineInstrEPKNS_16TargetSchedModelE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm23AArch64GenSubtargetInfo17resolveSchedClassEjPKNS_12MachineInstrEPKNS_16TargetSchedModelE, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge42
 

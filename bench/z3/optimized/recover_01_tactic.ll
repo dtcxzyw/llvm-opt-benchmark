@@ -3763,7 +3763,7 @@ _ZNK17arith_recognizers7is_realEPK4sort.exit:     ; preds = %252, %_ZNK4decl13ge
   %278 = phi i32 [ 0, %.lr.ph179 ], [ %336, %334 ]
   %indvars.iv186 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next187, %334 ]
   %.062177 = phi i32 [ 1, %.lr.ph179 ], [ %.163, %334 ]
-  %279 = getelementptr inbounds nuw [0 x ptr], ptr %273, i64 0, i64 %indvars.iv186
+  %279 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv186
   %280 = load ptr, ptr %279, align 8, !tbaa !143
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4
@@ -6141,7 +6141,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17recover_01_tactic3imp10find_
   %18 = phi i32 [ 0, %.lr.ph ], [ %102, %101 ]
   %indvars.iv103 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next104, %101 ]
   %.04792 = phi i32 [ 1, %.lr.ph ], [ %.148.ph, %101 ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %indvars.iv103
+  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv103
   %20 = load ptr, ptr %19, align 8, !tbaa !143
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
@@ -6176,7 +6176,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17recover_01_tactic3imp10find_
 
 42:                                               ; preds = %.preheader, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63 ]
-  %43 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !143
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
@@ -6295,7 +6295,7 @@ _ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63: ; preds = %84, %83, %
 
 103:                                              ; preds = %.lr.ph96, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
   %indvars.iv108 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next109, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread ]
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %indvars.iv108
+  %104 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv108
   %105 = load ptr, ptr %104, align 8, !tbaa !143
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4

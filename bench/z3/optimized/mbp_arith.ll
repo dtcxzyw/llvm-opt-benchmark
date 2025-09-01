@@ -6391,7 +6391,7 @@ _ZN3mbp20arith_project_plugin3imp8is_arithEP4expr.exit312: ; preds = %.noexc311
 
 574:                                              ; preds = %568
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %575 = getelementptr inbounds nuw [0 x ptr], ptr %550, i64 0, i64 %indvars.iv512
+  %575 = getelementptr inbounds nuw ptr, ptr %550, i64 %indvars.iv512
   %576 = load ptr, ptr %575, align 8, !tbaa !98
   store ptr %576, ptr %32, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %33)

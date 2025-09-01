@@ -83,7 +83,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %23 = add nsw i32 %21, %.0101138
   %24 = srem i32 %23, %17
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [240 x i32], ptr %19, i64 0, i64 %25
+  %26 = getelementptr inbounds i32, ptr %19, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !39
   %28 = mul nsw i32 %27, %.0101138
   %29 = add nsw i32 %28, %.096139
@@ -111,24 +111,24 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
 .preheader18.i:                                   ; preds = %47, %._crit_edge
   %indvars.iv35.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36.i, %47 ]
   %.01728.i = phi i32 [ 0, %._crit_edge ], [ %45, %47 ]
-  %invariant.gep23.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv35.i
-  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %37, i64 0, i64 %indvars.iv35.i
+  %invariant.gep23.i = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv35.i
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv35.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %46, %.preheader18.i
   %indvars.iv31.i = phi i64 [ 0, %.preheader18.i ], [ %indvars.iv.next32.i, %46 ]
   %.126.i = phi i32 [ %.01728.i, %.preheader18.i ], [ %45, %46 ]
-  %gep24.i = getelementptr inbounds nuw [8 x [8 x [4 x i8]]], ptr %invariant.gep23.i, i64 0, i64 %indvars.iv31.i
-  %gep25.i = getelementptr inbounds nuw [8 x [8 x [4 x i8]]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv31.i
+  %gep24.i = getelementptr inbounds nuw [8 x [4 x i8]], ptr %invariant.gep23.i, i64 %indvars.iv31.i
+  %gep25.i = getelementptr inbounds nuw [8 x [4 x i8]], ptr %invariant.gep.i, i64 %indvars.iv31.i
   br label %38
 
 38:                                               ; preds = %38, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %38 ]
   %.221.i = phi i32 [ %.126.i, %.preheader.i ], [ %45, %38 ]
-  %gep.i = getelementptr inbounds nuw [8 x [4 x i8]], ptr %gep24.i, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %gep24.i, i64 %indvars.iv.i
   %39 = load i8, ptr %gep.i, align 1, !tbaa !48
   %40 = zext i8 %39 to i32
-  %gep20.i = getelementptr inbounds nuw [8 x [4 x i8]], ptr %gep25.i, i64 0, i64 %indvars.iv.i
+  %gep20.i = getelementptr inbounds nuw [4 x i8], ptr %gep25.i, i64 %indvars.iv.i
   %41 = load i8, ptr %gep20.i, align 1, !tbaa !48
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 %40, %42
@@ -184,7 +184,7 @@ get_badness.exit:                                 ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 988
   %69 = load i32, ptr %68, align 4, !tbaa !38
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [240 x i32], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds i32, ptr %67, i64 %70
   store i32 %45, ptr %71, align 4, !tbaa !39
   br label %125
 
@@ -201,7 +201,7 @@ get_badness.exit:                                 ; preds = %47
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 988
   %81 = load i32, ptr %80, align 4, !tbaa !38
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [240 x i32], ptr %79, i64 0, i64 %82
+  %83 = getelementptr inbounds i32, ptr %79, i64 %82
   store i32 0, ptr %83, align 4, !tbaa !39
   %.pre145 = fpext nsz float %76 to double
   br label %125
@@ -251,24 +251,24 @@ get_badness.exit:                                 ; preds = %47
 .preheader18.i114:                                ; preds = %115, %87
   %indvars.iv35.i115 = phi i64 [ 0, %87 ], [ %indvars.iv.next36.i132, %115 ]
   %.01728.i116 = phi i32 [ 0, %87 ], [ %113, %115 ]
-  %invariant.gep23.i117 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv35.i115
-  %invariant.gep.i118 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 0, i64 %indvars.iv35.i115
+  %invariant.gep23.i117 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv35.i115
+  %invariant.gep.i118 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv35.i115
   br label %.preheader.i119
 
 .preheader.i119:                                  ; preds = %114, %.preheader18.i114
   %indvars.iv31.i120 = phi i64 [ 0, %.preheader18.i114 ], [ %indvars.iv.next32.i130, %114 ]
   %.126.i121 = phi i32 [ %.01728.i116, %.preheader18.i114 ], [ %113, %114 ]
-  %gep24.i122 = getelementptr inbounds nuw [8 x [8 x [4 x i8]]], ptr %invariant.gep23.i117, i64 0, i64 %indvars.iv31.i120
-  %gep25.i123 = getelementptr inbounds nuw [8 x [8 x [4 x i8]]], ptr %invariant.gep.i118, i64 0, i64 %indvars.iv31.i120
+  %gep24.i122 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %invariant.gep23.i117, i64 %indvars.iv31.i120
+  %gep25.i123 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %invariant.gep.i118, i64 %indvars.iv31.i120
   br label %106
 
 106:                                              ; preds = %106, %.preheader.i119
   %indvars.iv.i124 = phi i64 [ 0, %.preheader.i119 ], [ %indvars.iv.next.i128, %106 ]
   %.221.i125 = phi i32 [ %.126.i121, %.preheader.i119 ], [ %113, %106 ]
-  %gep.i126 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %gep24.i122, i64 0, i64 %indvars.iv.i124
+  %gep.i126 = getelementptr inbounds nuw [4 x i8], ptr %gep24.i122, i64 %indvars.iv.i124
   %107 = load i8, ptr %gep.i126, align 1, !tbaa !48
   %108 = zext i8 %107 to i32
-  %gep20.i127 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %gep25.i123, i64 0, i64 %indvars.iv.i124
+  %gep20.i127 = getelementptr inbounds nuw [4 x i8], ptr %gep25.i123, i64 %indvars.iv.i124
   %109 = load i8, ptr %gep20.i127, align 1, !tbaa !48
   %110 = zext i8 %109 to i32
   %111 = sub nsw i32 %108, %110
@@ -299,7 +299,7 @@ get_badness.exit134:                              ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %15, i64 988
   %122 = load i32, ptr %121, align 4, !tbaa !38
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [240 x i32], ptr %120, i64 0, i64 %123
+  %124 = getelementptr inbounds i32, ptr %120, i64 %123
   store i32 %113, ptr %124, align 4, !tbaa !39
   %.pre = load ptr, ptr %59, align 8, !tbaa !53
   %.pre143.pre = load ptr, ptr %6, align 8, !tbaa !20
@@ -548,13 +548,13 @@ define internal noundef i32 @convert_frame_partial(ptr readnone captures(none) %
 
 .split.us:                                        ; preds = %67, %.split.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.split.us ], [ 0, %67 ]
-  %79 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv104
+  %79 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv104
   %80 = load i32, ptr %79, align 4, !tbaa !39
   %81 = trunc i32 %80 to i8
   %82 = load ptr, ptr %25, align 8, !tbaa !46
-  %83 = getelementptr inbounds [8 x [8 x [4 x i8]]], ptr %82, i64 0, i64 %77
-  %84 = getelementptr inbounds [8 x [4 x i8]], ptr %83, i64 0, i64 %78
-  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 0, i64 %indvars.iv104
+  %83 = getelementptr inbounds [8 x [4 x i8]], ptr %82, i64 %77
+  %84 = getelementptr inbounds [4 x i8], ptr %83, i64 %78
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv104
   store i8 %81, ptr %85, align 1, !tbaa !48
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 3
@@ -562,15 +562,15 @@ define internal noundef i32 @convert_frame_partial(ptr readnone captures(none) %
 
 .split:                                           ; preds = %67, %.split
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.split ], [ 0, %67 ]
-  %86 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv101
+  %86 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv101
   %87 = load i32, ptr %86, align 4, !tbaa !39
   %88 = sdiv i32 %87, %76
   store i32 %88, ptr %86, align 4, !tbaa !39
   %89 = trunc i32 %88 to i8
   %90 = load ptr, ptr %25, align 8, !tbaa !46
-  %91 = getelementptr inbounds [8 x [8 x [4 x i8]]], ptr %90, i64 0, i64 %77
-  %92 = getelementptr inbounds [8 x [4 x i8]], ptr %91, i64 0, i64 %78
-  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 0, i64 %indvars.iv101
+  %91 = getelementptr inbounds [8 x [4 x i8]], ptr %90, i64 %77
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %78
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv101
   store i8 %89, ptr %93, align 1, !tbaa !48
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next102, 3

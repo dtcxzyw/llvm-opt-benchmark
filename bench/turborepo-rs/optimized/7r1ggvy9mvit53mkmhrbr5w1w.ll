@@ -231,7 +231,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 0, i64 %22
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %22
   store i8 %3, ptr %90, align 1
   %91 = add nuw nsw i64 %22, 1
   store i64 %91, ptr %21, align 8
@@ -258,7 +258,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
 
 103:                                              ; preds = %93
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %105 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 0, i64 %99
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %99
   %106 = add i8 %97, 1
   store i8 %106, ptr %105, align 1
   %107 = load i64, ptr %26, align 8, !noundef !4
@@ -270,7 +270,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
   unreachable
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw [32 x i16], ptr %25, i64 0, i64 %107
+  %111 = getelementptr inbounds nuw i16, ptr %25, i64 %107
   store i16 %95, ptr %111, align 2
   store i8 0, ptr %96, align 8
   %112 = load i64, ptr %26, align 8, !noundef !4
@@ -318,7 +318,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
 
 135:                                              ; preds = %125
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %137 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 0, i64 %131
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %131
   %138 = add i8 %129, 1
   store i8 %138, ptr %137, align 1
   %139 = load i64, ptr %40, align 8, !noundef !4
@@ -330,7 +330,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   unreachable
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds nuw [32 x i16], ptr %39, i64 0, i64 %139
+  %143 = getelementptr inbounds nuw i16, ptr %39, i64 %139
   store i16 %127, ptr %143, align 2
   store i8 0, ptr %128, align 8
   %144 = load i64, ptr %40, align 8, !noundef !4
@@ -394,9 +394,9 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
   br label %.lr.ph.i
 
 164:                                              ; preds = %198
-  %165 = getelementptr inbounds nuw [16 x { i64, i64 }], ptr %0, i64 0, i64 %162, i32 1
+  %165 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %162, i32 1
   %166 = load i64, ptr %165, align 8, !noundef !4
-  %167 = getelementptr inbounds nuw [16 x { i64, i64 }], ptr %0, i64 0, i64 %45
+  %167 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %45
   store i64 %166, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i64 %48, ptr %168, align 8
@@ -439,7 +439,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
 179:                                              ; preds = %174
   %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx21.i, 16
   %180 = add nuw nsw i64 %.sroa.7.019.i, 1
-  %181 = getelementptr inbounds nuw [16 x { i64, i64 }], ptr %0, i64 0, i64 %.sroa.7.019.i
+  %181 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %.sroa.7.019.i
   %182 = load i64, ptr %181, align 8, !alias.scope !53, !noalias !57, !noundef !4
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %184 = load i64, ptr %183, align 8, !alias.scope !53, !noalias !57, !noundef !4
@@ -547,9 +547,9 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
   unreachable
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds nuw [16 x { i64, i64 }], ptr %0, i64 0, i64 %213, i32 1
+  %223 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %213, i32 1
   %224 = load i64, ptr %223, align 8, !noundef !4
-  %225 = getelementptr inbounds nuw [16 x { i64, i64 }], ptr %0, i64 0, i64 %206
+  %225 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %206
   store i64 %224, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i64 %53, ptr %226, align 8
@@ -584,7 +584,7 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %242 = getelementptr inbounds nuw [32 x i8], ptr %241, i64 0, i64 %238
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 %238
   %243 = add i8 %236, 1
   store i8 %243, ptr %242, align 1
   %244 = load i64, ptr %60, align 8, !noundef !4
@@ -596,7 +596,7 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
   unreachable
 
 247:                                              ; preds = %240
-  %248 = getelementptr inbounds nuw [32 x i16], ptr %59, i64 0, i64 %244
+  %248 = getelementptr inbounds nuw i16, ptr %59, i64 %244
   store i16 %231, ptr %248, align 2
   store i8 0, ptr %235, align 8
   %249 = load i64, ptr %60, align 8, !noundef !4
@@ -630,7 +630,7 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
 
 266:                                              ; preds = %252
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %268 = getelementptr inbounds nuw [32 x i8], ptr %267, i64 0, i64 %256
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 %256
   %269 = add i8 %254, 1
   store i8 %269, ptr %268, align 1
   %270 = load i64, ptr %60, align 8, !noundef !4
@@ -642,7 +642,7 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
   unreachable
 
 273:                                              ; preds = %266
-  %274 = getelementptr inbounds nuw [32 x i16], ptr %59, i64 0, i64 %270
+  %274 = getelementptr inbounds nuw i16, ptr %59, i64 %270
   store i16 %231, ptr %274, align 2
   %275 = load i8, ptr %253, align 8, !noundef !4
   %276 = add i8 %275, 1
@@ -744,14 +744,14 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(p
 
 30:                                               ; preds = %19
   %31 = zext i8 %21 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtCscmPyG4XWoQZ_3vte5table13STATE_CHANGES, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_RNvNtCscmPyG4XWoQZ_3vte5table13STATE_CHANGES, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !78, !noundef !4
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw [16 x [256 x i8]], ptr @_RNvNtCscmPyG4XWoQZ_3vte5table13STATE_CHANGES, i64 0, i64 %23
-  %37 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %31
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @_RNvNtCscmPyG4XWoQZ_3vte5table13STATE_CHANGES, i64 %23
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %31
   %38 = load i8, ptr %37, align 1, !noalias !78, !noundef !4
   br label %39
 

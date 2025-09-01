@@ -130,7 +130,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 34:                                               ; preds = %.thread336
   %35 = sext i32 %.0259 to i64
-  %36 = getelementptr inbounds [109 x i8], ptr @yypact, i64 0, i64 %35
+  %36 = getelementptr inbounds i8, ptr @yypact, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = icmp eq i8 %37, -36
@@ -159,7 +159,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %.4 to i64
-  %52 = getelementptr inbounds nuw [283 x i8], ptr @yytranslate, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   br label %55
@@ -173,14 +173,14 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw [81 x i8], ptr @yycheck, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i32
   %.not317 = icmp eq i32 %.0296, %61
   br i1 %.not317, label %62, label %67
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw [81 x i8], ptr @yytable, i64 0, i64 %58
+  %63 = getelementptr inbounds nuw i8, ptr @yytable, i64 %58
   %64 = load i8, ptr %63, align 1
   %65 = getelementptr inbounds nuw i8, ptr %.2288, i64 8
   %66 = load i64, ptr %3, align 8
@@ -189,14 +189,14 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 67:                                               ; preds = %55, %57, %34
   %.3 = phi i32 [ %.0258, %34 ], [ %.5, %55 ], [ %.5, %57 ]
-  %68 = getelementptr inbounds [109 x i8], ptr @yydefact, i64 0, i64 %35
+  %68 = getelementptr inbounds i8, ptr @yydefact, i64 %35
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %328, label %71
 
 71:                                               ; preds = %67
   %72 = sext i8 %69 to i64
-  %73 = getelementptr inbounds [83 x i8], ptr @yyr2, i64 0, i64 %72
+  %73 = getelementptr inbounds i8, ptr @yyr2, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = sext i8 %74 to i64
   %76 = sub nsw i64 1, %75
@@ -690,11 +690,11 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %306 = getelementptr inbounds i8, ptr %.2276, i64 %304
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store ptr %.sroa.079.0, ptr %307, align 8
-  %308 = getelementptr inbounds [83 x i8], ptr @yyr1, i64 0, i64 %72
+  %308 = getelementptr inbounds i8, ptr @yyr1, i64 %72
   %309 = load i8, ptr %308, align 1
   %310 = sext i8 %309 to i64
   %311 = add nsw i64 %310, -33
-  %312 = getelementptr inbounds [30 x i8], ptr @yypgoto, i64 0, i64 %311
+  %312 = getelementptr inbounds i8, ptr @yypgoto, i64 %311
   %313 = load i8, ptr %312, align 1
   %314 = sext i8 %313 to i32
   %315 = load i8, ptr %306, align 1
@@ -705,17 +705,17 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 318:                                              ; preds = %303
   %319 = zext nneg i32 %317 to i64
-  %320 = getelementptr inbounds nuw [81 x i8], ptr @yycheck, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = icmp eq i8 %321, %315
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %318
-  %324 = getelementptr inbounds nuw [81 x i8], ptr @yytable, i64 0, i64 %319
+  %324 = getelementptr inbounds nuw i8, ptr @yytable, i64 %319
   br label %327
 
 325:                                              ; preds = %318, %303
-  %326 = getelementptr inbounds [30 x i8], ptr @yydefgoto, i64 0, i64 %311
+  %326 = getelementptr inbounds i8, ptr @yydefgoto, i64 %311
   br label %327
 
 327:                                              ; preds = %325, %323

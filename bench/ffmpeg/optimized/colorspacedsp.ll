@@ -3299,14 +3299,14 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %.0164180.us = phi i32 [ %221, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %64 = and i32 %.0164180.us, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %8, i64 %65
   %67 = xor i32 %64, 1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %68
-  %70 = getelementptr inbounds nuw [2 x ptr], ptr %60, i64 0, i64 %65
-  %71 = getelementptr inbounds nuw [2 x ptr], ptr %60, i64 0, i64 %68
-  %72 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %65
-  %73 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %8, i64 %68
+  %70 = getelementptr inbounds nuw ptr, ptr %60, i64 %65
+  %71 = getelementptr inbounds nuw ptr, ptr %60, i64 %68
+  %72 = getelementptr inbounds nuw ptr, ptr %61, i64 %65
+  %73 = getelementptr inbounds nuw ptr, ptr %61, i64 %68
   br label %74
 
 74:                                               ; preds = %.preheader.us, %74
@@ -3607,14 +3607,14 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %.0210231.us = phi i32 [ %287, %._crit_edge230.us ], [ 0, %.preheader.lr.ph ]
   %67 = and i32 %.0210231.us, 1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %8, i64 %68
   %70 = xor i32 %67, 1
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %71
-  %73 = getelementptr inbounds nuw [2 x ptr], ptr %63, i64 0, i64 %68
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %63, i64 0, i64 %71
-  %75 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %68
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %8, i64 %71
+  %73 = getelementptr inbounds nuw ptr, ptr %63, i64 %68
+  %74 = getelementptr inbounds nuw ptr, ptr %63, i64 %71
+  %75 = getelementptr inbounds nuw ptr, ptr %64, i64 %68
+  %76 = getelementptr inbounds nuw ptr, ptr %64, i64 %71
   br label %77
 
 77:                                               ; preds = %.preheader.us, %77
@@ -3993,12 +3993,12 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %72 = getelementptr i8, ptr %.0331.us, i64 %43
   %73 = and i32 %.0298325.us, 1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %66, i64 %74
   %76 = xor i32 %73, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %77
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %74
-  %80 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr %66, i64 %77
+  %79 = getelementptr inbounds nuw ptr, ptr %67, i64 %74
+  %80 = getelementptr inbounds nuw ptr, ptr %67, i64 %77
   br label %81
 
 81:                                               ; preds = %.preheader.us, %81
@@ -4498,19 +4498,19 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %.0164180.us = phi i32 [ %219, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %69 = and i32 %.0164180.us, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %8, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = xor i32 %69, 1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %8, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !56
-  %77 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %70
+  %77 = getelementptr inbounds nuw ptr, ptr %61, i64 %70
   %78 = load ptr, ptr %77, align 8, !tbaa !56
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw ptr, ptr %61, i64 %74
   %80 = load ptr, ptr %79, align 8, !tbaa !56
-  %81 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %70
+  %81 = getelementptr inbounds nuw ptr, ptr %62, i64 %70
   %82 = load ptr, ptr %81, align 8, !tbaa !56
-  %83 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %74
+  %83 = getelementptr inbounds nuw ptr, ptr %62, i64 %74
   %84 = load ptr, ptr %83, align 8, !tbaa !56
   br label %85
 
@@ -4801,19 +4801,19 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %.0210231.us = phi i32 [ %281, %._crit_edge230.us ], [ 0, %.preheader.lr.ph ]
   %72 = and i32 %.0210231.us, 1
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %8, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !56
   %76 = xor i32 %72, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr %8, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %73
+  %80 = getelementptr inbounds nuw ptr, ptr %64, i64 %73
   %81 = load ptr, ptr %80, align 8, !tbaa !56
-  %82 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %77
+  %82 = getelementptr inbounds nuw ptr, ptr %64, i64 %77
   %83 = load ptr, ptr %82, align 8, !tbaa !56
-  %84 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %73
+  %84 = getelementptr inbounds nuw ptr, ptr %65, i64 %73
   %85 = load ptr, ptr %84, align 8, !tbaa !56
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %77
+  %86 = getelementptr inbounds nuw ptr, ptr %65, i64 %77
   %87 = load ptr, ptr %86, align 8, !tbaa !56
   br label %88
 
@@ -5180,15 +5180,15 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %79 = getelementptr inbounds nuw i16, ptr %.0331.us, i64 %44
   %80 = and i32 %.0298325.us, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %66, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = xor i32 %80, 1
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %66, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !56
-  %88 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %81
+  %88 = getelementptr inbounds nuw ptr, ptr %67, i64 %81
   %89 = load ptr, ptr %88, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %85
+  %90 = getelementptr inbounds nuw ptr, ptr %67, i64 %85
   %91 = load ptr, ptr %90, align 8, !tbaa !56
   br label %92
 
@@ -5649,19 +5649,19 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %.0164180.us = phi i32 [ %219, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %69 = and i32 %.0164180.us, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %8, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = xor i32 %69, 1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %8, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !56
-  %77 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %70
+  %77 = getelementptr inbounds nuw ptr, ptr %61, i64 %70
   %78 = load ptr, ptr %77, align 8, !tbaa !56
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw ptr, ptr %61, i64 %74
   %80 = load ptr, ptr %79, align 8, !tbaa !56
-  %81 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %70
+  %81 = getelementptr inbounds nuw ptr, ptr %62, i64 %70
   %82 = load ptr, ptr %81, align 8, !tbaa !56
-  %83 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %74
+  %83 = getelementptr inbounds nuw ptr, ptr %62, i64 %74
   %84 = load ptr, ptr %83, align 8, !tbaa !56
   br label %85
 
@@ -5952,19 +5952,19 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %.0210231.us = phi i32 [ %281, %._crit_edge230.us ], [ 0, %.preheader.lr.ph ]
   %72 = and i32 %.0210231.us, 1
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %8, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !56
   %76 = xor i32 %72, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr %8, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %73
+  %80 = getelementptr inbounds nuw ptr, ptr %64, i64 %73
   %81 = load ptr, ptr %80, align 8, !tbaa !56
-  %82 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %77
+  %82 = getelementptr inbounds nuw ptr, ptr %64, i64 %77
   %83 = load ptr, ptr %82, align 8, !tbaa !56
-  %84 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %73
+  %84 = getelementptr inbounds nuw ptr, ptr %65, i64 %73
   %85 = load ptr, ptr %84, align 8, !tbaa !56
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %77
+  %86 = getelementptr inbounds nuw ptr, ptr %65, i64 %77
   %87 = load ptr, ptr %86, align 8, !tbaa !56
   br label %88
 
@@ -6331,15 +6331,15 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %79 = getelementptr inbounds nuw i16, ptr %.0331.us, i64 %44
   %80 = and i32 %.0298325.us, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %66, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = xor i32 %80, 1
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %66, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !56
-  %88 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %81
+  %88 = getelementptr inbounds nuw ptr, ptr %67, i64 %81
   %89 = load ptr, ptr %88, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %85
+  %90 = getelementptr inbounds nuw ptr, ptr %67, i64 %85
   %91 = load ptr, ptr %90, align 8, !tbaa !56
   br label %92
 

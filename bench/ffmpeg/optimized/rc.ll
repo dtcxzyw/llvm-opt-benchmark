@@ -139,7 +139,7 @@ define void @ff_opus_rc_enc_cdf(ptr noundef captures(none) %0, i32 noundef %1, p
   %.110.i = select i1 %.not11.i, i32 %13, i32 %16
   %.1.i = select i1 %.not11.i, i32 0, i32 8
   %17 = zext nneg i32 %.110.i to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !22
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %.1.i, %20
@@ -345,7 +345,7 @@ define void @ff_opus_rc_enc_log(ptr noundef captures(none) %0, i32 noundef %1, i
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %13
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %14
   %15 = zext nneg i32 %.110.i to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !22
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %.1.i, %18
@@ -598,7 +598,7 @@ opus_rc_dec_update.exit:
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %4
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %5
   %6 = zext nneg i32 %.110.i to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !22
   %9 = zext i8 %8 to i32
   %10 = icmp ne i32 %2, 0
@@ -745,7 +745,7 @@ define void @ff_opus_rc_enc_uint(ptr noundef captures(none) %0, i32 noundef %1, 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %6
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %7
   %8 = zext nneg i32 %.110.i to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !22
   %11 = zext i8 %10 to i32
   %12 = icmp ne i32 %4, 0
@@ -1178,9 +1178,9 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = or disjoint i32 %18, 2
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %23
+  %22 = zext nneg i32 %19 to i64
+  %23 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 2, !tbaa !22
   %26 = zext i8 %25 to i32
   %27 = add nsw i32 %26, -1
@@ -1194,7 +1194,7 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
 31:                                               ; preds = %29
   %32 = lshr i32 %18, 4
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !22
   %36 = lshr i8 %35, 2
   %37 = zext nneg i8 %36 to i32
@@ -1207,7 +1207,7 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
 40:                                               ; preds = %38
   %41 = lshr i32 %18, 6
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !22
   %45 = lshr i8 %44, 1
   %46 = zext nneg i8 %45 to i32
@@ -1220,7 +1220,7 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
 49:                                               ; preds = %47
   %50 = lshr i32 %18, 8
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !22
   %54 = zext i8 %53 to i32
   br label %80
@@ -1231,7 +1231,7 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
   %spec.select.i.i = lshr i32 %19, %spec.select.i.v.i
   %spec.select7.i.i = select i1 %.not.i.i, i32 0, i32 8
   %56 = zext nneg i32 %spec.select.i.i to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !22
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %spec.select7.i.i, %59
@@ -1241,12 +1241,12 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
   %64 = add nuw nsw i32 %61, 8
   %65 = lshr i32 %63, %64
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !22
   %69 = zext i8 %68 to i32
   %70 = zext nneg i32 %63 to i64
   %71 = zext i8 %68 to i64
-  %72 = getelementptr inbounds nuw [257 x i32], ptr @ff_inverse, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @ff_inverse, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !34
   %74 = zext i32 %73 to i64
   %75 = mul nuw nsw i64 %70, %74
@@ -1282,9 +1282,9 @@ ff_sqrt.exit:                                     ; preds = %21, %80
   br i1 %94, label %95, label %103
 
 95:                                               ; preds = %89
-  %96 = add nsw i32 %92, -6
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %97
+  %96 = zext nneg i32 %93 to i64
+  %97 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %99 = load i8, ptr %98, align 2, !tbaa !22
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %100, -1
@@ -1298,7 +1298,7 @@ ff_sqrt.exit:                                     ; preds = %21, %80
 105:                                              ; preds = %103
   %106 = lshr i32 %93, 4
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !22
   %110 = lshr i8 %109, 2
   %111 = zext nneg i8 %110 to i32
@@ -1311,7 +1311,7 @@ ff_sqrt.exit:                                     ; preds = %21, %80
 114:                                              ; preds = %112
   %115 = lshr i32 %93, 6
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !22
   %119 = lshr i8 %118, 1
   %120 = zext nneg i8 %119 to i32
@@ -1324,7 +1324,7 @@ ff_sqrt.exit:                                     ; preds = %21, %80
 123:                                              ; preds = %121
   %124 = lshr i32 %93, 8
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !22
   %128 = zext i8 %127 to i32
   br label %154
@@ -1335,7 +1335,7 @@ ff_sqrt.exit:                                     ; preds = %21, %80
   %spec.select.i.i38 = lshr i32 %93, %spec.select.i.v.i37
   %spec.select7.i.i39 = select i1 %.not.i.i36, i32 0, i32 8
   %130 = zext nneg i32 %spec.select.i.i38 to i64
-  %131 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !22
   %133 = zext i8 %132 to i32
   %134 = add nuw nsw i32 %spec.select7.i.i39, %133
@@ -1345,12 +1345,12 @@ ff_sqrt.exit:                                     ; preds = %21, %80
   %138 = add nuw nsw i32 %135, 8
   %139 = lshr i32 %137, %138
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw [256 x i8], ptr @ff_sqrt_tab, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr @ff_sqrt_tab, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !22
   %143 = zext i8 %142 to i32
   %144 = zext nneg i32 %137 to i64
   %145 = zext i8 %142 to i64
-  %146 = getelementptr inbounds nuw [257 x i32], ptr @ff_inverse, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i32, ptr @ff_inverse, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !34
   %148 = zext i32 %147 to i64
   %149 = mul nuw nsw i64 %144, %148
@@ -2103,7 +2103,7 @@ define void @ff_opus_rc_enc_end(ptr noundef %0, ptr noundef captures(none) %1, i
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %7
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %8
   %9 = zext nneg i32 %.110.i to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !22
   %12 = zext i8 %11 to i32
   %13 = icmp ne i32 %5, 0

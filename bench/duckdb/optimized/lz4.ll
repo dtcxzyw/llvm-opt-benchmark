@@ -1771,7 +1771,7 @@ define noundef i32 @_ZN10duckdb_lz426LZ4_compress_fast_continueEPNS_12LZ4_stream
 
 24:                                               ; preds = %24, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %26, i32 %21)
   store i32 %storemerge.i, ptr %25, align 4, !tbaa !6
@@ -1941,7 +1941,7 @@ define noundef i32 @_ZN10duckdb_lz425LZ4_compress_forceExtDictEPNS_12LZ4_stream_
 
 15:                                               ; preds = %15, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw [4096 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !6
   %storemerge.i = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 %10)
   store i32 %storemerge.i, ptr %16, align 4, !tbaa !6
@@ -2772,14 +2772,14 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %377 = load i8, ptr %376, align 1, !tbaa !3
   %378 = getelementptr inbounds nuw i8, ptr %.4, i64 3
   store i8 %377, ptr %378, align 1, !tbaa !3
-  %379 = getelementptr inbounds nuw [8 x i32], ptr @_ZN10duckdb_lz4L10inc32tableE, i64 0, i64 %.0377
+  %379 = getelementptr inbounds nuw i32, ptr @_ZN10duckdb_lz4L10inc32tableE, i64 %.0377
   %380 = load i32, ptr %379, align 4, !tbaa !6
   %381 = zext i32 %380 to i64
   %382 = getelementptr inbounds nuw i8, ptr %.0370, i64 %381
   %383 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   %384 = load i32, ptr %382, align 1
   store i32 %384, ptr %383, align 1
-  %385 = getelementptr inbounds nuw [8 x i32], ptr @_ZN10duckdb_lz4L10dec64tableE, i64 0, i64 %.0377
+  %385 = getelementptr inbounds nuw i32, ptr @_ZN10duckdb_lz4L10dec64tableE, i64 %.0377
   %386 = load i32, ptr %385, align 4, !tbaa !6
   %387 = sext i32 %386 to i64
   %388 = sub nsw i64 0, %387
@@ -4403,14 +4403,14 @@ define internal fastcc void @_ZN10duckdb_lz4L23LZ4_memcpy_using_offsetEPhPKhS0_m
   %21 = load i8, ptr %20, align 1, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %21, ptr %22, align 1, !tbaa !3
-  %23 = getelementptr inbounds nuw [8 x i32], ptr @_ZN10duckdb_lz4L10inc32tableE, i64 0, i64 %3
+  %23 = getelementptr inbounds nuw i32, ptr @_ZN10duckdb_lz4L10inc32tableE, i64 %3
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %26, align 1
   store i32 %28, ptr %27, align 1
-  %29 = getelementptr inbounds nuw [8 x i32], ptr @_ZN10duckdb_lz4L10dec64tableE, i64 0, i64 %3
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN10duckdb_lz4L10dec64tableE, i64 %3
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = sext i32 %30 to i64
   %32 = sub nsw i64 0, %31

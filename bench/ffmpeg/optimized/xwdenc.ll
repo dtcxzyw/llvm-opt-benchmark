@@ -214,7 +214,7 @@ define internal range(i32 -2147483648, 1) i32 @xwd_encode_frame(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0153155 = phi ptr [ %88, %.lr.ph.preheader ], [ %110, %.lr.ph ]
-  %96 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4, !tbaa !35
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = call i32 @llvm.bswap.i32(i32 %98)

@@ -746,7 +746,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1, !tbaa !70
   %56 = getelementptr inbounds nuw i8, ptr %.03361, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1, !tbaa !70

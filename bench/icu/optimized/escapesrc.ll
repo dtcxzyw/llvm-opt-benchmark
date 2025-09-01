@@ -171,7 +171,7 @@ define dso_local noundef zeroext i1 @_Z10appendUtf8RNSt7__cxx1112basic_stringIcS
   br label %16
 
 ._crit_edge:                                      ; preds = %16, %4
-  %10 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %3
   store i8 0, ptr %10, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %7) #21
@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @_Z10appendUtf8RNSt7__cxx1112basic_stringIcS
   store i64 %18, ptr %2, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !14
-  %21 = getelementptr inbounds nuw [9 x i8], ptr %6, i64 0, i64 %.04959
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 %.04959
   store i8 %20, ptr %21, align 1, !tbaa !14
   %22 = add nuw i64 %.04959, 1
   %exitcond.not = icmp eq i64 %22, %3
@@ -653,7 +653,7 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
 
 53:                                               ; preds = %46
   %54 = zext nneg i8 %51 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZL10oldIllegal, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZL10oldIllegal, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !24, !range !26, !noundef !27
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %.thread109, label %.thread104
@@ -684,7 +684,7 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
 69:                                               ; preds = %67
   %70 = and i32 %64, 15
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [17 x i8], ptr @.str.10, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = zext i8 %73 to i32
   %75 = sext i32 %63 to i64
@@ -713,7 +713,7 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %91 = zext i8 %90 to i32
   %92 = lshr i32 %91, 4
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [17 x i8], ptr @.str.11, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !14
   %96 = sext i8 %95 to i32
   %97 = shl nuw nsw i32 1, %85

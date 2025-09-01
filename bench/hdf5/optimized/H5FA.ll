@@ -524,7 +524,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr noundef readonly captures(none) %0, i6
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !52
   %78 = and i64 %50, 7
-  %79 = getelementptr inbounds nuw [8 x i8], ptr @H5VM_bit_set_g, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @H5VM_bit_set_g, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !52
   %81 = and i8 %80, %77
   %.not84 = icmp eq i8 %81, 0
@@ -734,7 +734,7 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr noundef readonly captures(none) %0, i6
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !52
   %60 = and i64 %53, 7
-  %61 = getelementptr inbounds nuw [8 x i8], ptr @H5VM_bit_set_g, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr @H5VM_bit_set_g, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !52
   %63 = and i8 %62, %59
   %.not82 = icmp eq i8 %63, 0

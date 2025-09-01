@@ -8338,7 +8338,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %100, %102, %104,
   %131 = sitofp i32 %130 to double
   %132 = fcmp ogt double %118, %131
   %.0.i.i.i.i = select i1 %132, i32 0, i32 %130
-  %133 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %133 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %133, align 4, !tbaa !71, !alias.scope !173
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -9076,7 +9076,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %100, %102, %104,
   %131 = sitofp i32 %130 to double
   %132 = fcmp ogt double %118, %131
   %.0.i.i.i.i = select i1 %132, i32 0, i32 %130
-  %133 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %133 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %133, align 4, !tbaa !71, !alias.scope !207
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -13488,7 +13488,7 @@ _ZNKSt6vectorIN2cv3VecIiLi3EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %20
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %29 ], [ 0, %.preheader.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %31 = load i32, ptr %30, align 4, !tbaa !71
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %31, ptr %32, align 4, !tbaa !71
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -15637,7 +15637,7 @@ _ZNKSt6vectorIN2cv3VecIiLi4EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %20
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %29 ], [ 0, %.preheader.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %31 = load i32, ptr %30, align 4, !tbaa !71
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %31, ptr %32, align 4, !tbaa !71
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -17819,7 +17819,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %100, %102, %104,
   %132 = sitofp i32 %131 to double
   %133 = fcmp ogt double %119, %132
   %.0.i.i.i.i = select i1 %133, i32 0, i32 %131
-  %134 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %134, align 4, !tbaa !71, !alias.scope !610
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -18559,7 +18559,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %100, %102, %104,
   %132 = sitofp i32 %131 to double
   %133 = fcmp ogt double %119, %132
   %.0.i.i.i.i = select i1 %133, i32 0, i32 %131
-  %134 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %134, align 4, !tbaa !71, !alias.scope !640
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -26909,7 +26909,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %102, %104, %106,
   %134 = sitofp i32 %133 to double
   %135 = fcmp ogt double %121, %134
   %.0.i.i.i.i = select i1 %135, i32 0, i32 %133
-  %136 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %136, align 4, !tbaa !71, !alias.scope !1009
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -27655,7 +27655,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %102, %104, %106,
   %134 = sitofp i32 %133 to double
   %135 = fcmp ogt double %121, %134
   %.0.i.i.i.i = select i1 %135, i32 0, i32 %133
-  %136 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %136, align 4, !tbaa !71, !alias.scope !1039
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -36663,7 +36663,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %158, %160, %162,
   %189 = sitofp i32 %188 to double
   %190 = fcmp ogt double %176, %189
   %.0.i.i.i.i = select i1 %190, i32 0, i32 %188
-  %191 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %191, align 4, !tbaa !71, !alias.scope !1441
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -37699,7 +37699,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %158, %160, %162,
   %189 = sitofp i32 %188 to double
   %190 = fcmp ogt double %176, %189
   %.0.i.i.i.i = select i1 %190, i32 0, i32 %188
-  %191 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %191, align 4, !tbaa !71, !alias.scope !1480
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -48944,7 +48944,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %158, %160, %162,
   %190 = sitofp i32 %189 to double
   %191 = fcmp ogt double %177, %190
   %.0.i.i.i.i = select i1 %191, i32 0, i32 %189
-  %192 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %192 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %192, align 4, !tbaa !71, !alias.scope !2063
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -49982,7 +49982,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %158, %160, %162,
   %190 = sitofp i32 %189 to double
   %191 = fcmp ogt double %177, %190
   %.0.i.i.i.i = select i1 %191, i32 0, i32 %189
-  %192 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %192 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %192, align 4, !tbaa !71, !alias.scope !2102
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -61245,7 +61245,7 @@ _ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE6resizeEm.exit: ; preds = %161, %163, %165,
   %193 = sitofp i32 %192 to double
   %194 = fcmp ogt double %180, %193
   %.0.i.i.i.i = select i1 %194, i32 0, i32 %192
-  %195 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %195 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %195, align 4, !tbaa !71, !alias.scope !2678
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -62291,7 +62291,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE6resizeEm.exit: ; preds = %161, %163, %165,
   %193 = sitofp i32 %192 to double
   %194 = fcmp ogt double %180, %193
   %.0.i.i.i.i = select i1 %194, i32 0, i32 %192
-  %195 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %195 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 %.0.i.i.i.i, ptr %195, align 4, !tbaa !71, !alias.scope !2717
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4

@@ -849,7 +849,7 @@ define noalias noundef ptr @_ZN6Assimp14StandardShapes8MakeMeshERKSt6vectorI10ai
 
 switch.lookup:                                    ; preds = %8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6Assimp14StandardShapes8MakeMeshERKSt6vectorI10aiVector3tIfESaIS3_EEj, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp14StandardShapes8MakeMeshERKSt6vectorI10aiVector3tIfESaIS3_EEj, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %18
 

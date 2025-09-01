@@ -395,7 +395,7 @@ Vec_IntAlloc.exit:                                ; preds = %7, %12
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val3.i30.us, i64 %37, i32 1
   %39 = load i32, ptr %38, align 4, !tbaa !37
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv37
+  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv37
   store i32 %39, ptr %40, align 4, !tbaa !12
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %25
@@ -421,7 +421,7 @@ Vec_IntAlloc.exit:                                ; preds = %7, %12
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val3.i30.us, i64 %50, i32 1
   %52 = load i32, ptr %51, align 4, !tbaa !37
-  %53 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %52, ptr %53, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25

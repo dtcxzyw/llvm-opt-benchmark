@@ -2547,70 +2547,70 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !189
   %15 = tail call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #21
-  %switch.tableidx = add nsw i32 %15, -10
-  %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN5clang19PreprocessingRecord18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE, i64 0, i64 %16
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr i32, ptr @switch.table._ZN5clang19PreprocessingRecord18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE, i64 %16
+  %switch.gep = getelementptr i8, ptr %17, i64 -40
   %switch.load = load i32, ptr %switch.gep, align 4
-  br i1 %5, label %18, label %17
-
-17:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 8, !tbaa !195
-  br label %24
+  br i1 %5, label %19, label %18
 
 18:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sroa.0.0.copyload.i.i18 = load i32, ptr %19, align 4, !tbaa !195
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %21 = load i8, ptr %20, align 8, !tbaa !215, !range !168, !noundef !169
-  %22 = xor i8 %21, 1
-  %23 = zext nneg i8 %22 to i32
-  %spec.select = sub i32 %.sroa.0.0.copyload.i.i18, %23
-  br label %24
+  %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 8, !tbaa !195
+  br label %25
 
-24:                                               ; preds = %18, %17
-  %.sroa.019.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %17 ], [ %spec.select, %18 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %27 = load i64, ptr %26, align 8, !tbaa !11
-  %28 = add i64 %27, 48
-  store i64 %28, ptr %26, align 8, !tbaa !11
-  %29 = load ptr, ptr %25, align 8, !tbaa !26
-  %30 = ptrtoint ptr %29 to i64
-  %31 = add i64 %30, 7
-  %32 = and i64 %31, -8
-  %33 = add i64 %32, 48
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !27
-  %36 = ptrtoint ptr %35 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %33, %36
-  %37 = icmp ne ptr %29, null
-  %38 = and i1 %37, %.not.i.i.i.i.i
-  br i1 %38, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread, !prof !28
+19:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.sroa.0.0.copyload.i.i18 = load i32, ptr %20, align 4, !tbaa !195
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %22 = load i8, ptr %21, align 8, !tbaa !215, !range !168, !noundef !169
+  %23 = xor i8 %22, 1
+  %24 = zext nneg i8 %23 to i32
+  %spec.select = sub i32 %.sroa.0.0.copyload.i.i18, %24
+  br label %25
 
-_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread: ; preds = %24
-  %39 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %25, i64 noundef 48, i64 noundef 48, i8 3)
-  br label %43
+25:                                               ; preds = %19, %18
+  %.sroa.019.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %18 ], [ %spec.select, %19 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = load i64, ptr %27, align 8, !tbaa !11
+  %29 = add i64 %28, 48
+  store i64 %29, ptr %27, align 8, !tbaa !11
+  %30 = load ptr, ptr %26, align 8, !tbaa !26
+  %31 = ptrtoint ptr %30 to i64
+  %32 = add i64 %31, 7
+  %33 = and i64 %32, -8
+  %34 = add i64 %33, 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %37 = ptrtoint ptr %36 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %34, %37
+  %38 = icmp ne ptr %30, null
+  %39 = and i1 %38, %.not.i.i.i.i.i
+  br i1 %39, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread, !prof !28
 
-_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit: ; preds = %24
-  %40 = inttoptr i64 %33 to ptr
-  store ptr %40, ptr %25, align 8, !tbaa !26
-  %41 = inttoptr i64 %32 to ptr
-  %42 = icmp eq i64 %32, 0
-  br i1 %42, label %45, label %43
+_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread: ; preds = %25
+  %40 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %26, i64 noundef 48, i64 noundef 48, i8 3)
+  br label %44
 
-43:                                               ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit
-  %.0.i.i.i.i.i22 = phi ptr [ %39, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread ], [ %41, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ]
-  %44 = xor i1 %5, true
+_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit: ; preds = %25
+  %41 = inttoptr i64 %34 to ptr
+  store ptr %41, ptr %26, align 8, !tbaa !26
+  %42 = inttoptr i64 %33 to ptr
+  %43 = icmp eq i64 %33, 0
+  br i1 %43, label %46, label %44
+
+44:                                               ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit
+  %.0.i.i.i.i.i22 = phi ptr [ %40, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit.thread ], [ %42, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ]
+  %45 = xor i1 %5, true
   %.sroa.2.0.insert.ext = zext i32 %.sroa.019.0 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  tail call void @_ZN5clang18InclusionDirectiveC1ERNS_19PreprocessingRecordENS0_13InclusionKindEN4llvm9StringRefEbbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %switch.load, ptr %3, i64 %4, i1 noundef zeroext %44, i1 noundef zeroext %11, i64 %7, i64 %.sroa.0.0.insert.insert) #21
-  br label %45
+  tail call void @_ZN5clang18InclusionDirectiveC1ERNS_19PreprocessingRecordENS0_13InclusionKindEN4llvm9StringRefEbbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %switch.load, ptr %3, i64 %4, i1 noundef zeroext %45, i1 noundef zeroext %11, i64 %7, i64 %.sroa.0.0.insert.insert) #21
+  br label %46
 
-45:                                               ; preds = %43, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit
-  %46 = phi ptr [ %.0.i.i.i.i.i22, %43 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ]
-  %47 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %46)
+46:                                               ; preds = %44, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit
+  %47 = phi ptr [ %.0.i.i.i.i.i22, %44 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ]
+  %48 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %47)
   ret void
 }
 

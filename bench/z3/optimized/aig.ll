@@ -2978,7 +2978,7 @@ _ZNK6vectorIP3aigLb0EjE5emptyEv.exit:             ; preds = %_ZNK6vectorIP3aigLb
 
 .preheader:                                       ; preds = %.preheader.outer, %124
   %indvars.iv = phi i64 [ 1, %124 ], [ %indvars.iv.ph, %.preheader.outer ]
-  %62 = getelementptr inbounds nuw [2 x %class.aig_lit], ptr %35, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %class.aig_lit, ptr %35, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !24
   %64 = and i64 %63, -2
   %65 = inttoptr i64 %64 to ptr
@@ -3211,7 +3211,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47.preheader: ; pred
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 unwind label %199
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47.preheader
-  %165 = getelementptr inbounds nuw [2 x %class.aig_lit], ptr %35, i64 0, i64 %indvars.iv85
+  %165 = getelementptr inbounds nuw %class.aig_lit, ptr %35, i64 %indvars.iv85
   %166 = load ptr, ptr %165, align 8, !tbaa !9
   %167 = ptrtoint ptr %166 to i64
   %168 = and i64 %167, 1
@@ -4808,7 +4808,7 @@ _ZN11aig_manager3imp8expr2aig9is_cachedEP4expr.exit.thread: ; preds = %.lr.ph.i.
   %119 = load ptr, ptr %53, align 8, !tbaa !191
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = zext i32 %116 to i64
-  %122 = getelementptr inbounds nuw [0 x ptr], ptr %120, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !158
   %124 = add nuw i32 %116, 1
   store i32 %124, ptr %54, align 8, !tbaa !189

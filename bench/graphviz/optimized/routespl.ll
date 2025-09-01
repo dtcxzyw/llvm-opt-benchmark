@@ -1988,8 +1988,8 @@ bend.exit:                                        ; preds = %212, %get_cycle_cen
 .preheader94:                                     ; preds = %280, %.preheader94
   %.086102 = phi i64 [ %294, %.preheader94 ], [ 0, %280 ]
   %291 = sub nuw nsw i64 3, %.086102
-  %292 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %8, i64 0, i64 %291
-  %293 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086102
+  %292 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i64 %291
+  %293 = getelementptr inbounds nuw %struct.pointf_s, ptr %7, i64 %.086102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %292, ptr noundef nonnull align 16 dereferenceable(16) %293, i64 16, i1 false), !tbaa.struct !17
   %294 = add nuw nsw i64 %.086102, 1
   %exitcond.not = icmp eq i64 %294, 4

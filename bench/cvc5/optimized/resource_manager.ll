@@ -321,7 +321,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_8ResourceE(i32
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -337,7 +337,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit
 
@@ -1087,7 +1087,7 @@ _ZNSt5arrayImLm20EE4fillERKm.exit:                ; preds = %.lr.ph.i.i.i.i.i20
   br i1 %38, label %_ZN4cvc58internal9setWeightINS0_6theory11InferenceIdESt5arrayImLm392EEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRT0_.exit.thread, label %40
 
 _ZN4cvc58internal9setWeightINS0_6theory11InferenceIdESt5arrayImLm392EEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRT0_.exit.thread: ; preds = %.noexc
-  %39 = getelementptr inbounds nuw [392 x i64], ptr %16, i64 0, i64 %.0913.i
+  %39 = getelementptr inbounds nuw i64, ptr %16, i64 %.0913.i
   store i64 %33, ptr %39, align 8, !tbaa !3
   br label %63
 
@@ -1112,7 +1112,7 @@ _ZN4cvc58internal9setWeightINS0_6theory11InferenceIdESt5arrayImLm392EEEEbRKNSt7_
   br i1 %42, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
 switch.lookup:                                    ; preds = %_ZN4cvc58internal9setWeightINS0_6theory11InferenceIdESt5arrayImLm392EEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRT0_.exit
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %.0913.i25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 %.0913.i25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
@@ -1123,7 +1123,7 @@ _ZN4cvc58internal8toStringENS0_8ResourceE.exit.i: ; preds = %_ZN4cvc58internal9s
   br i1 %44, label %_ZN4cvc58internal9setWeightINS0_8ResourceESt5arrayImLm20EEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRT0_.exit.thread, label %46
 
 _ZN4cvc58internal9setWeightINS0_8ResourceESt5arrayImLm20EEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRT0_.exit.thread: ; preds = %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
-  %45 = getelementptr inbounds nuw [20 x i64], ptr %17, i64 0, i64 %.0913.i25
+  %45 = getelementptr inbounds nuw i64, ptr %17, i64 %.0913.i25
   store i64 %33, ptr %45, align 8, !tbaa !3
   br label %63
 
@@ -1810,7 +1810,7 @@ _ZN4cvc58internal13HistogramStatINS0_8ResourceEElsES2_.exit: ; preds = %19, %31,
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3224
-  %43 = getelementptr inbounds nuw [20 x i64], ptr %42, i64 0, i64 %4
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %4
   %44 = load i64, ptr %43, align 8, !tbaa !3
   call void @_ZN4cvc58internal15ResourceManager13spendResourceEm(ptr noundef nonnull align 8 dereferenceable(3392) %0, i64 noundef %44)
   ret void
@@ -1933,7 +1933,7 @@ _ZN4cvc58internal13HistogramStatINS0_6theory11InferenceIdEElsES3_.exit: ; preds 
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %43 = getelementptr inbounds nuw [392 x i64], ptr %42, i64 0, i64 %4
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %4
   %44 = load i64, ptr %43, align 8, !tbaa !3
   call void @_ZN4cvc58internal15ResourceManager13spendResourceEm(ptr noundef nonnull align 8 dereferenceable(3392) %0, i64 noundef %44)
   ret void
@@ -5394,7 +5394,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 
 switch.lookup:                                    ; preds = %65
   %70 = and i64 %67, 31
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %70
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 %70
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
@@ -5630,7 +5630,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit17: ; preds = %21, %20
 
 switch.lookup:                                    ; preds = %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit17
   %28 = and i64 %25, 31
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal12toStringImplINS0_8ResourceEEEDTcl8toStringfp_EERKT_i.exit.i
 

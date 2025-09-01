@@ -126,7 +126,7 @@ define internal i32 @xsub_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 45:                                               ; preds = %.preheader106, %45
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.preheader106 ]
   %.01011.i = phi i64 [ %52, %45 ], [ %10, %.preheader106 ]
-  %46 = getelementptr inbounds nuw [3 x i32], ptr @make_tc.tc_divs, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr @make_tc.tc_divs, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4, !tbaa !41
   %48 = sext i32 %47 to i64
   %49 = urem i64 %.01011.i, %48
@@ -146,7 +146,7 @@ make_tc.exit:                                     ; preds = %45
 .preheader:                                       ; preds = %make_tc.exit, %.preheader
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i65, %.preheader ], [ 0, %make_tc.exit ]
   %.01011.i64 = phi i64 [ %61, %.preheader ], [ %18, %make_tc.exit ]
-  %55 = getelementptr inbounds nuw [3 x i32], ptr @make_tc.tc_divs, i64 0, i64 %indvars.iv.i63
+  %55 = getelementptr inbounds nuw i32, ptr @make_tc.tc_divs, i64 %indvars.iv.i63
   %56 = load i32, ptr %55, align 4, !tbaa !41
   %57 = sext i32 %56 to i64
   %58 = urem i64 %.01011.i64, %57
@@ -566,7 +566,7 @@ define internal fastcc void @put_xsub_rle(ptr noundef nonnull captures(none) %0,
 
 5:                                                ; preds = %3
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @ff_log2_tab, i64 0, i64 %6
+  %7 = getelementptr inbounds i8, ptr @ff_log2_tab, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !46
   %9 = lshr i8 %8, 1
   %10 = zext nneg i8 %9 to i32

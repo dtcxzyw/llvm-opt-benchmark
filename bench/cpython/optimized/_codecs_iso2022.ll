@@ -1354,7 +1354,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 iso2022processesc.exit.thread150:                 ; preds = %97, %105
   %.05584.i = phi i64 [ %.055.i, %97 ], [ %.05583.i, %105 ]
   %.05682.i = phi i8 [ 66, %97 ], [ %.05681.i, %105 ]
-  %106 = getelementptr [8 x i8], ptr %0, i64 0, i64 %.05584.i
+  %106 = getelementptr i8, ptr %0, i64 %.05584.i
   store i8 %.05682.i, ptr %106, align 1, !tbaa !36
   %107 = sub i64 %.0142167, %61
   %108 = load ptr, ptr %2, align 8, !tbaa !39

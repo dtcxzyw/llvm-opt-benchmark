@@ -4055,7 +4055,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -4511,7 +4511,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
 
 14:                                               ; preds = %.lr.ph
   %15 = add i64 %.02035, 1
-  %16 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.02035
+  %16 = getelementptr inbounds ptr, ptr %5, i64 %.02035
   store ptr %.02134, ptr %16, align 8
   %17 = load volatile ptr, ptr %.02134, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
@@ -4550,7 +4550,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
 
 29:                                               ; preds = %.thread, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit
   %.036 = phi i64 [ 0, %.thread ], [ %63, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit ]
-  %30 = getelementptr inbounds [256 x ptr], ptr %5, i64 0, i64 %.036
+  %30 = getelementptr inbounds ptr, ptr %5, i64 %.036
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
@@ -5710,7 +5710,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_
 .lr.ph:                                           ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit
   %.03464 = phi i64 [ %161, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17safe_stats_removeEv.exit ], [ 0, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE33write_synchonize_on_visible_epochEP6Thread.exit ]
   %121 = icmp ult i64 %.03464, 256
-  %122 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %.03464
+  %122 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03464
   %123 = shl i64 %.03464, 32
   %sext = add i64 %123, -1099511627776
   %124 = ashr exact i64 %sext, 29

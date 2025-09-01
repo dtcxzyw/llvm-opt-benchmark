@@ -2491,7 +2491,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 
 327:                                              ; preds = %314
   %328 = zext nneg i32 %.0338 to i64
-  %329 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !94
   %331 = icmp eq ptr %330, null
   br i1 %331, label %332, label %350

@@ -35,7 +35,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   %9 = icmp slt i64 %indvars.iv, %7
   %10 = select i1 %9, float -1.000000e+00, float 1.000000e+00
   %11 = select i1 %.not, float 1.000000e+00, float %10
-  %12 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -46,11 +46,11 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   %.val29 = load <4 x float>, ptr %5, align 16, !tbaa !10
   %14 = fcmp olt <4 x float> %.val, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %0, i64 0, i64 %indvars.iv38
+  %16 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %0, i64 %indvars.iv38
   store <4 x i32> %15, ptr %16, align 16, !tbaa !10
   %17 = fcmp olt <4 x float> %.val29, zeroinitializer
   %18 = sext <4 x i1> %17 to <4 x i32>
-  %19 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %.ptr28, i64 0, i64 %indvars.iv38
+  %19 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %.ptr28, i64 %indvars.iv38
   store <4 x i32> %18, ptr %19, align 16, !tbaa !10
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count

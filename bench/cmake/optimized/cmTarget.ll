@@ -19050,7 +19050,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmTar
 
 switch.lookup:                                    ; preds = %271
   %274 = zext nneg i32 %272 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8cmTarget14AddLinkLibraryER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmTargetLinkLibraryType, i64 0, i64 %274
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8cmTarget14AddLinkLibraryER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmTargetLinkLibraryType, i64 %274
   %switch.load = load ptr, ptr %switch.gep, align 8
   %275 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %switch.load)
           to label %276 unwind label %269
@@ -39686,10 +39686,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %3
   %17 = zext nneg i32 %.0.val to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = zext nneg i32 %.0.val to i64
-  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget.148, i64 0, i64 %18
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK12_GLOBAL__N_116ReadOnlyProperty7messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTarget.148, i64 %18
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %9

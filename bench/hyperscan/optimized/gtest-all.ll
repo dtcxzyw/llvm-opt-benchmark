@@ -19541,7 +19541,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %_ZN7testing7Message
 
 switch.lookup:                                    ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit
   %28 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i
 
@@ -23192,7 +23192,7 @@ define hidden noundef ptr @_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestCol
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -23333,7 +23333,7 @@ define hidden void @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i3
 switch.lookup:                                    ; preds = %24
   %switch.tableidx = add i32 %0, -1
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit
 
@@ -44099,7 +44099,7 @@ _ZN7testing7MessagelsIA256_cEERS0_RKT_.exit.i:    ; preds = %_ZN7testing7Message
 
 54:                                               ; preds = %51
   %55 = and i64 %50, 2147483647
-  %56 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %55
   store i8 0, ptr %56, align 1
   %57 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %3) #56
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 1 dereferenceable(256) %3, i64 noundef %57)

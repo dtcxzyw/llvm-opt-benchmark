@@ -871,10 +871,10 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
 
 switch.lookup:                                    ; preds = %426
   %430 = zext nneg i32 %427 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.output_x11, i64 0, i64 %430
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.output_x11, i64 %430
   %switch.load = load i32, ptr %switch.gep, align 4
   %431 = zext nneg i32 %427 to i64
-  %switch.gep408 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.output_x11.11, i64 0, i64 %431
+  %switch.gep408 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.11, i64 %431
   %switch.load409 = load ptr, ptr %switch.gep408, align 8
   store i32 %switch.load, ptr %226, align 4, !tbaa !89
   %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load409)
@@ -961,10 +961,10 @@ switch.lookup:                                    ; preds = %426
 
 switch.lookup410:                                 ; preds = %456
   %460 = zext nneg i32 %457 to i64
-  %switch.gep411 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.output_x11.12, i64 0, i64 %460
+  %switch.gep411 = getelementptr inbounds nuw i32, ptr @switch.table.output_x11.12, i64 %460
   %switch.load412 = load i32, ptr %switch.gep411, align 4
   %461 = zext nneg i32 %457 to i64
-  %switch.gep413 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.output_x11.13, i64 0, i64 %461
+  %switch.gep413 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.13, i64 %461
   %switch.load414 = load ptr, ptr %switch.gep413, align 8
   store i32 %switch.load412, ptr %220, align 8, !tbaa !95
   %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load414)

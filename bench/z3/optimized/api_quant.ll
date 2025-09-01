@@ -4521,7 +4521,7 @@ define ptr @Z3_get_pattern(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = zext i32 %2 to i64
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !166
   br i1 %5, label %20, label %_ZN10z3_log_ctxD2Ev.exit, !prof !8
 

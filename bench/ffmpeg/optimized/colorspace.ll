@@ -81,7 +81,7 @@ define void @ff_matrix_invert_3x3(ptr noundef readonly captures(none) %0, ptr no
 
 59:                                               ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [3 x double], ptr %58, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
   %61 = load double, ptr %60, align 8, !tbaa !4
   %62 = fmul nsz double %57, %61
   store double %62, ptr %60, align 8, !tbaa !4
@@ -118,18 +118,18 @@ define void @ff_matrix_mul_3x3(ptr noundef writeonly captures(none) %0, ptr noun
 10:                                               ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
   %11 = load double, ptr %6, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !4
   %14 = load double, ptr %7, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !4
   %17 = fmul nsz double %14, %16
   %18 = tail call nsz double @llvm.fmuladd.f64(double %11, double %13, double %17)
   %19 = load double, ptr %8, align 8, !tbaa !4
-  %20 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !4
   %22 = tail call nsz double @llvm.fmuladd.f64(double %19, double %21, double %18)
-  %23 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   store double %22, ptr %23, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

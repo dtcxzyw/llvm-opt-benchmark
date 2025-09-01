@@ -657,7 +657,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %208, ptr %.1.i458, align 4
   %209 = getelementptr inbounds nuw i8, ptr %.1.i458, i64 8
   store ptr %209, ptr %174, align 8
-  %210 = getelementptr inbounds nuw [1024 x ptr], ptr %175, i64 0, i64 %indvars.iv542
+  %210 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv542
   %211 = load ptr, ptr %210, align 8
   %212 = load i32, ptr %.1.i458, align 4
   %213 = add i32 %212, -1
@@ -733,7 +733,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %251, ptr %.1.i465, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.1.i465, i64 8
   store ptr %252, ptr %179, align 8
-  %253 = getelementptr inbounds nuw [1024 x ptr], ptr %180, i64 0, i64 %indvars.iv545
+  %253 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv545
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %.1.i465, align 4
   %256 = add i32 %255, -1
@@ -798,7 +798,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %45, %47
   store i32 %289, ptr %.1.i472, align 4
   %290 = getelementptr inbounds nuw i8, ptr %.1.i472, i64 8
   store ptr %290, ptr %222, align 8
-  %291 = getelementptr inbounds nuw [1024 x ptr], ptr %223, i64 0, i64 %indvars.iv548
+  %291 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv548
   %292 = load ptr, ptr %291, align 8
   %293 = load i32, ptr %.1.i472, align 4
   %294 = add i32 %293, -1
@@ -1385,7 +1385,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   store i32 %581, ptr %.1.i480, align 4
   %582 = getelementptr inbounds nuw i8, ptr %.1.i480, i64 8
   store ptr %582, ptr %548, align 8
-  %583 = getelementptr inbounds nuw [1024 x ptr], ptr %1, i64 0, i64 %indvars.iv551
+  %583 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv551
   %584 = load ptr, ptr %583, align 8
   %585 = load i32, ptr %.1.i480, align 4
   %586 = add i32 %585, -1
@@ -1450,7 +1450,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   store i32 %619, ptr %.1.i487, align 4
   %620 = getelementptr inbounds nuw i8, ptr %.1.i487, i64 8
   store ptr %620, ptr %552, align 8
-  %621 = getelementptr inbounds nuw [1024 x ptr], ptr %553, i64 0, i64 %indvars.iv554
+  %621 = getelementptr inbounds nuw ptr, ptr %553, i64 %indvars.iv554
   %622 = load ptr, ptr %621, align 8
   %623 = load i32, ptr %.1.i487, align 4
   %624 = add i32 %623, -1

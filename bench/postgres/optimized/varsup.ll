@@ -268,7 +268,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
 120:                                              ; preds = %108
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 444
   %122 = zext nneg i8 %118 to i64
-  %123 = getelementptr inbounds nuw [64 x i32], ptr %121, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i32, ptr %121, i64 %122
   store i32 %.0, ptr %123, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %narrow = add nuw nsw i8 %118, 1

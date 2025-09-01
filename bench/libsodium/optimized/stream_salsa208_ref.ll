@@ -32,7 +32,7 @@ define dso_local noundef i32 @crypto_stream_salsa208(ptr noundef nonnull %0, i64
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.045 = phi i32 [ 1, %.lr.ph ], [ %17, %11 ]
-  %12 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %5, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %.045, %14
@@ -61,7 +61,7 @@ define dso_local noundef i32 @crypto_stream_salsa208(ptr noundef nonnull %0, i64
 
 23:                                               ; preds = %._crit_edge.thread, %23
   %indvars.iv55 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next56, %23 ]
-  %24 = getelementptr [64 x i8], ptr %6, i64 0, i64 %indvars.iv55
+  %24 = getelementptr i8, ptr %6, i64 %indvars.iv55
   %25 = load i8, ptr %24, align 1
   %26 = getelementptr i8, ptr %.034.lcssa64, i64 %indvars.iv55
   store i8 %25, ptr %26, align 1
@@ -116,7 +116,7 @@ define dso_local noundef i32 @crypto_stream_salsa208_xor(ptr noundef nonnull wri
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr i8, ptr %.04558, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr [64 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %7, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   %17 = xor i8 %16, %14
   %18 = getelementptr i8, ptr %.04360, i64 %indvars.iv
@@ -128,7 +128,7 @@ define dso_local noundef i32 @crypto_stream_salsa208_xor(ptr noundef nonnull wri
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 8, %12 ]
   %.057 = phi i32 [ %24, %.preheader ], [ 1, %12 ]
-  %19 = getelementptr [16 x i8], ptr %6, i64 0, i64 %indvars.iv70
+  %19 = getelementptr i8, ptr %6, i64 %indvars.iv70
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %.057, %21
@@ -161,7 +161,7 @@ define dso_local noundef i32 @crypto_stream_salsa208_xor(ptr noundef nonnull wri
   %indvars.iv74 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next75, %31 ]
   %32 = getelementptr i8, ptr %.045.lcssa83, i64 %indvars.iv74
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr [64 x i8], ptr %7, i64 0, i64 %indvars.iv74
+  %34 = getelementptr i8, ptr %7, i64 %indvars.iv74
   %35 = load i8, ptr %34, align 1
   %36 = xor i8 %35, %33
   %37 = getelementptr i8, ptr %.043.lcssa85, i64 %indvars.iv74

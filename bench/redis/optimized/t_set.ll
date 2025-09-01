@@ -3086,7 +3086,7 @@ define dso_local void @spopWithCountCommand(ptr noundef %0) local_unnamed_addr #
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !84
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %22
+  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %25 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %24) #10
   %26 = icmp eq ptr %25, null
@@ -3104,7 +3104,7 @@ define dso_local void @spopWithCountCommand(ptr noundef %0) local_unnamed_addr #
 31:                                               ; preds = %29
   %32 = load i32, ptr %20, align 4, !tbaa !84
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %33
+  %34 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !73
   call void @addReply(ptr noundef nonnull %0, ptr noundef %35) #10
   br label %245
@@ -4527,7 +4527,7 @@ define dso_local void @spopCommand(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4, !tbaa !84
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !73
   %20 = tail call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %19) #10
   %21 = icmp eq ptr %20, null
@@ -5142,7 +5142,7 @@ define dso_local void @srandmemberCommand(ptr noundef %0) local_unnamed_addr #0 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !84
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !73
   %23 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %22) #10
   %24 = icmp eq ptr %23, null
@@ -5543,7 +5543,7 @@ define dso_local void @sinterGenericCommand(ptr noundef %0, ptr noundef readonly
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %49 = load i32, ptr %48, align 4, !tbaa !84
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %50
+  %51 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !73
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %52) #10
   br label %309
@@ -6208,7 +6208,7 @@ define dso_local void @smembersCommand(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4, !tbaa !84
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 160), i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !73
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %19) #10
   br label %73

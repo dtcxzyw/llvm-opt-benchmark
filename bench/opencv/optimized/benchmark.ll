@@ -3691,10 +3691,10 @@ define linkonce_odr hidden void @_ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE(
 
 switch.lookup:                                    ; preds = %17
   %25 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = zext nneg i32 %21 to i64
-  %switch.gep29 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE.1, i64 0, i64 %26
+  %switch.gep29 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK8AlgoWrap4drawERN2cv3MatERKNS0_6Point_IiEE.1, i64 %26
   %switch.load30 = load i64, ptr %switch.gep29, align 8
   %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load30)
           to label %28 unwind label %23
@@ -4261,7 +4261,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrapC2ERKNSt7__cxx1112basic_stringIcSt1
 
 35:                                               ; preds = %32, %29
   %36 = phi i64 [ %34, %32 ], [ 5, %29 ]
-  %37 = getelementptr inbounds nuw [6 x %"class.cv::Scalar_"], ptr @_ZZL12getNextColorvE6colors, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr @_ZZL12getNextColorvE6colors, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %37, i64 32, i1 false), !tbaa !82
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7125,7 +7125,7 @@ _ZN2cv3PtrINS_7TrackerEEC2ERKS2_.exit:            ; preds = %2, %11, %14
   %indvars.iv.i.i.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.i.i, %38 ]
   %39 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i.i.i
   %40 = load double, ptr %39, align 8, !tbaa !82
-  %41 = getelementptr inbounds nuw [4 x double], ptr %36, i64 0, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i.i.i
   store double %40, ptr %41, align 8, !tbaa !82
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4

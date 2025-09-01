@@ -141,7 +141,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   %21 = mul i32 %18, 506832829
   %22 = lshr i32 %21, 22
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !17
   %.not5873.us = icmp eq i8 %25, 0
   br i1 %.not5873.us, label %._crit_edge.us, label %.lr.ph.us
@@ -149,7 +149,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph.us:                                        ; preds = %20, %30
   %26 = phi i64 [ %33, %30 ], [ %23, %20 ]
   %.04074.us = phi i32 [ %32, %30 ], [ %22, %20 ]
-  %27 = getelementptr inbounds nuw [1024 x i32], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = icmp eq i32 %28, %18
   br i1 %29, label %.loopexit.us, label %30
@@ -158,15 +158,15 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   %31 = add nuw nsw i32 %.04074.us, 1
   %32 = and i32 %31, 1023
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !17
   %.not58.us = icmp eq i8 %35, 0
   br i1 %.not58.us, label %._crit_edge.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %30, %20
   %.lcssa72.us = phi i64 [ %23, %20 ], [ %33, %30 ]
-  %36 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %.lcssa72.us
-  %37 = getelementptr inbounds nuw [1024 x i32], ptr %4, i64 0, i64 %.lcssa72.us
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.lcssa72.us
+  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %.lcssa72.us
   store i32 %18, ptr %37, align 4, !tbaa !3
   store i8 1, ptr %36, align 1, !tbaa !17
   %38 = add nsw i32 %.14877.us, 1
@@ -196,13 +196,13 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 .preheader:                                       ; preds = %._crit_edge87, %52
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %52 ], [ 0, %._crit_edge87 ]
   %.589 = phi i32 [ %.6, %52 ], [ 0, %._crit_edge87 ]
-  %44 = getelementptr inbounds nuw [1024 x i8], ptr %3, i64 0, i64 %indvars.iv94
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv94
   %45 = load i8, ptr %44, align 1, !tbaa !17
   %.not57 = icmp eq i8 %45, 0
   br i1 %.not57, label %52, label %46
 
 46:                                               ; preds = %.preheader
-  %47 = getelementptr inbounds nuw [1024 x i32], ptr %4, i64 0, i64 %indvars.iv94
+  %47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv94
   %48 = load i32, ptr %47, align 4, !tbaa !3
   %49 = sext i32 %.589 to i64
   %50 = getelementptr inbounds i32, ptr %1, i64 %49
@@ -535,7 +535,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
 
 SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i, %149
   %.0.i.us.i.i = phi i64 [ 0, %149 ], [ %154, %.preheader.i.us.i.i ]
-  %158 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %.0.i.us.i.i
+  %158 = getelementptr inbounds i32, ptr %6, i64 %.0.i.us.i.i
   %159 = load i32, ptr %158, align 4, !tbaa !3
   br label %160
 
@@ -607,7 +607,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
 
 SearchColorNoIdx.exit.i.i:                        ; preds = %.preheader.i.i.i, %184
   %.0.i.i.i = phi i64 [ 0, %184 ], [ %189, %.preheader.i.i.i ]
-  %193 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %.0.i.i.i
+  %193 = getelementptr inbounds i32, ptr %6, i64 %.0.i.i.i
   %194 = load i32, ptr %193, align 4, !tbaa !3
   br label %195
 
@@ -777,7 +777,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %277 = trunc nuw i64 %indvars.iv162.i to i32
   %278 = trunc i64 %indvars.iv162.i to i8
   %279 = zext i32 %.088132.i to i64
-  %280 = getelementptr inbounds nuw [256 x %struct.Sum], ptr %9, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %279
   store i8 %278, ptr %280, align 8, !tbaa !31
   %281 = mul i32 %3, %277
   %282 = add i32 %281, %255
@@ -840,7 +840,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %.087136.i = phi i32 [ 0, %.lr.ph.i ], [ %321, %308 ]
   %.290135.i = phi i32 [ 0, %.lr.ph.i ], [ %322, %308 ]
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr %8, i64 %310
   %312 = load i8, ptr %311, align 1, !tbaa !17
   %313 = shl i32 %.290135.i, 1
   %314 = sub i32 %305, %313
@@ -872,10 +872,10 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %.299.i = phi i32 [ %328, %326 ], [ %.198143.i, %.preheader.i26 ], [ %.198143.i, %._crit_edge.i ]
   %.196.i = phi i32 [ %.095144.i, %326 ], [ %301, %.preheader.i26 ], [ %301, %._crit_edge.i ]
   %329 = zext i32 %.sink.i to i64
-  %330 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %8, i64 %329
   store i8 %300, ptr %330, align 1, !tbaa !17
   %331 = add nsw i64 %indvars.iv174.i, -1
-  %332 = getelementptr inbounds nuw [256 x %struct.Sum], ptr %9, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %331
   %333 = load i64, ptr %332, align 8
   store i64 %333, ptr %.3146.i, align 4
   %.not.wide.i = icmp eq i64 %331, 0
@@ -889,7 +889,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
 336:                                              ; preds = %336, %.lr.ph141.i
   %indvars.iv165.i = phi i64 [ 0, %.lr.ph141.i ], [ %indvars.iv.next166.i, %336 ]
   %.4138.i = phi ptr [ %9, %.lr.ph141.i ], [ %spec.select111.i, %336 ]
-  %337 = getelementptr inbounds nuw [256 x %struct.Sum], ptr %9, i64 0, i64 %indvars.iv165.i
+  %337 = getelementptr inbounds nuw %struct.Sum, ptr %9, i64 %indvars.iv165.i
   %338 = load i8, ptr %337, align 8, !tbaa !31
   %339 = zext i8 %338 to i32
   %340 = add i32 %335, %339
@@ -919,7 +919,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %351 = add i32 %.097.i, %350
   %352 = urem i32 %351, %3
   %353 = zext i32 %352 to i64
-  %354 = getelementptr inbounds nuw [256 x i8], ptr %8, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw i8, ptr %8, i64 %353
   %355 = load i8, ptr %354, align 1, !tbaa !17
   %356 = zext i8 %355 to i64
   %357 = getelementptr inbounds nuw i32, ptr %2, i64 %356

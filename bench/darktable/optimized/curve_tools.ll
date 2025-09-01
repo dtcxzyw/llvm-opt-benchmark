@@ -620,7 +620,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define ptr @interpolate_set(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw [3 x ptr], ptr @spline_set, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @spline_set, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = tail call ptr %7(i32 noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret ptr %8
@@ -629,7 +629,7 @@ define ptr @interpolate_set(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 
 ; Function Attrs: nounwind uwtable
 define float @interpolate_val(i32 noundef %0, ptr noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr @spline_val, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr @spline_val, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = tail call reassoc nsz arcp contract afn float %9(i32 noundef %0, ptr noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4) #13
   ret float %10
@@ -675,17 +675,17 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
 
 23:                                               ; preds = %.preheader75, %23
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %19, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %19, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !19
   %26 = fmul reassoc nsz arcp contract afn float %25, %9
   %27 = fadd reassoc nsz arcp contract afn float %26, %8
-  %28 = getelementptr inbounds nuw [20 x float], ptr %3, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %27, ptr %28, align 4, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %30 = load float, ptr %29, align 4, !tbaa !21
   %31 = fmul reassoc nsz arcp contract afn float %30, %14
   %32 = fadd reassoc nsz arcp contract afn float %31, %13
-  %33 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -713,11 +713,11 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %46 = fptosi float %45 to i32
   %47 = add nsw i32 %.068, -1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [20 x float], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw float, ptr %3, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !6
   %51 = fmul reassoc nsz arcp contract afn float %50, %38
   %52 = fptosi float %51 to i32
-  %53 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %48
+  %53 = getelementptr inbounds nuw float, ptr %4, i64 %48
   %54 = load float, ptr %53, align 4, !tbaa !6
   %55 = fmul reassoc nsz arcp contract afn float %54, %44
   %56 = fptosi float %55 to i32
@@ -727,7 +727,7 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %60 = fptosi float %59 to i32
   %61 = load i32, ptr %0, align 4, !tbaa !26
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw [3 x ptr], ptr @spline_set, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr @spline_set, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !10
   %65 = call ptr %64(i32 noundef %.068, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %66 = icmp eq ptr %65, null
@@ -779,7 +779,7 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %89 = fmul reassoc nsz arcp contract afn float %88, %74
   %90 = load i32, ptr %0, align 4, !tbaa !26
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw [3 x ptr], ptr @spline_val, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr @spline_val, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !10
   %94 = call reassoc nsz arcp contract afn float %93(i32 noundef %.068, ptr noundef nonnull %3, float noundef %89, ptr noundef nonnull %4, ptr noundef nonnull %65) #13
   %95 = load i32, ptr %41, align 4, !tbaa !25

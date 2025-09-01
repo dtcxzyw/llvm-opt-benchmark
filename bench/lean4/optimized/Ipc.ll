@@ -9120,7 +9120,7 @@ lean_alloc_ctor.exit1484:                         ; preds = %1217
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1484
   %1226 = zext nneg i8 %.val1335 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 0, i64 %1226
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %1226
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1227
 
@@ -11719,7 +11719,7 @@ lean_alloc_ctor.exit1632:                         ; preds = %2206
 
 switch.lookup2177:                                ; preds = %lean_alloc_ctor.exit1632
   %2215 = zext nneg i8 %.val1336 to i64
-  %switch.gep2178 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 0, i64 %2215
+  %switch.gep2178 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lean_Lsp_Ipc_readResponseAs.11, i64 %2215
   %switch.load2179 = load ptr, ptr %switch.gep2178, align 8
   br label %2216
 
@@ -20997,7 +20997,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Lsp_Ipc_waitF
 
 9:                                                ; preds = %.lr.ph, %7
   %.01838 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01838
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01838
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1

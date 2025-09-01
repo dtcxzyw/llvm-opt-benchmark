@@ -1617,7 +1617,7 @@ read_office_art_record_header.exit:               ; preds = %13
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %.048100, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %43, i64 %38, i1 false)
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %38
   store i8 0, ptr %44, align 1, !tbaa !57
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1151, ptr noundef nonnull %6) #11
   %.pre = load i8, ptr %36, align 1, !tbaa !55
@@ -1936,7 +1936,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 51:                                               ; preds = %48
   %52 = zext nneg i16 %49 to i64
-  %53 = getelementptr inbounds nuw [2251 x ptr], ptr @OPCODE_NAMES, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr @OPCODE_NAMES, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   br label %55
 
@@ -2149,7 +2149,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %166
   %169 = zext nneg i8 %167 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images, i64 0, i64 %169
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cli_extract_xlm_macros_and_images, i64 %169
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %170
 
@@ -2161,7 +2161,7 @@ switch.lookup:                                    ; preds = %166
 
 switch.lookup355:                                 ; preds = %170
   %173 = zext nneg i8 %171 to i64
-  %switch.gep356 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 0, i64 %173
+  %switch.gep356 = getelementptr inbounds nuw ptr, ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 %173
   %switch.load357 = load ptr, ptr %switch.gep356, align 8
   br label %174
 
@@ -2437,12 +2437,12 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 -21, 65515) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %.not458 = icmp eq i32 %2, 0
-  br i1 %.not458, label %.thread386, label %.lr.ph
+  %.not462 = icmp eq i32 %2, 0
+  br i1 %.not462, label %.thread390, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %480
-  %.0271457 = phi i32 [ %.1, %480 ], [ 0, %3 ]
-  %6 = zext i32 %.0271457 to i64
+.lr.ph:                                           ; preds = %3, %464
+  %.0271461 = phi i32 [ %.1, %464 ], [ 0, %3 ]
+  %6 = zext i32 %.0271461 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !57
   %9 = and i8 %8, 127
@@ -2451,7 +2451,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %9 to i64
-  %13 = getelementptr inbounds nuw [126 x ptr], ptr @TOKENS, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @TOKENS, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1223, ptr noundef %14) #11
   %16 = icmp slt i32 %15, 0
@@ -2459,10 +2459,10 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 17:                                               ; preds = %11
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1224) #11
-  br label %.thread386
+  br label %.thread390
 
 18:                                               ; preds = %11, %.lr.ph
-  switch i8 %9, label %472 [
+  switch i8 %9, label %456 [
     i8 3, label %19
     i8 4, label %19
     i8 5, label %19
@@ -2483,45 +2483,45 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
     i8 33, label %141
     i8 65, label %141
     i8 97, label %141
-    i8 34, label %176
-    i8 66, label %176
-    i8 98, label %176
-    i8 35, label %216
-    i8 31, label %249
-    i8 38, label %261
-    i8 1, label %270
-    i8 36, label %303
-    i8 68, label %303
-    i8 37, label %342
-    i8 58, label %413
-    i8 90, label %413
-    i8 57, label %452
+    i8 34, label %168
+    i8 66, label %168
+    i8 98, label %168
+    i8 35, label %200
+    i8 31, label %233
+    i8 38, label %245
+    i8 1, label %254
+    i8 36, label %287
+    i8 68, label %287
+    i8 37, label %326
+    i8 58, label %397
+    i8 90, label %397
+    i8 57, label %436
   ]
 
 19:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18
-  %20 = add nuw i32 %.0271457, 1
-  br label %480
+  %20 = add nuw i32 %.0271461, 1
+  br label %464
 
 21:                                               ; preds = %18
-  %22 = add i32 %.0271457, 2
+  %22 = add i32 %.0271461, 2
   %.not345 = icmp ult i32 %22, %2
   br i1 %.not345, label %24, label %23
 
 23:                                               ; preds = %21
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1225) #11
-  br label %.thread386
+  br label %.thread390
 
 24:                                               ; preds = %21
   %25 = zext i32 %22 to i64
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !57
-  switch i8 %27, label %.thread357 [
+  switch i8 %27, label %.thread361 [
     i8 1, label %28
     i8 0, label %59
   ]
 
 28:                                               ; preds = %24
-  %29 = add nuw i32 %.0271457, 1
+  %29 = add nuw i32 %.0271461, 1
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !57
@@ -2529,7 +2529,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
   %34 = shl nsw i32 %33, 1
   %35 = add i32 %34, %22
   %.not346 = icmp ugt i32 %35, %2
-  br i1 %.not346, label %.thread357, label %36
+  br i1 %.not346, label %.thread361, label %36
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2537,10 +2537,10 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !62
   %37 = sext i32 %34 to i64
-  %38 = sub i32 %2, %.0271457
+  %38 = sub i32 %2, %.0271461
   %39 = zext i32 %38 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %37, i64 %39)
-  %40 = add i32 %.0271457, 3
+  %40 = add i32 %.0271461, 3
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
   %43 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %42, i64 noundef %spec.select, i16 noundef zeroext 1200, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
@@ -2572,58 +2572,58 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1210.sink) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread386
+  br label %.thread390
 
 56:                                               ; preds = %47, %45, %53
   %57 = trunc nuw i64 %spec.select to i32
   %58 = add i32 %40, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %480
+  br label %464
 
 59:                                               ; preds = %24
-  %60 = add nuw i32 %.0271457, 1
+  %60 = add nuw i32 %.0271461, 1
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !57
   %64 = sext i8 %63 to i32
   %65 = add i32 %22, %64
   %.not347 = icmp ugt i32 %65, %2
-  br i1 %.not347, label %.thread357, label %66
+  br i1 %.not347, label %.thread361, label %66
 
 66:                                               ; preds = %59
-  %67 = sub i32 %2, %.0271457
+  %67 = sub i32 %2, %.0271461
   %spec.select350 = call i32 @llvm.umin.i32(i32 %67, i32 %64)
   %.not348 = icmp eq i32 %spec.select350, 0
-  br i1 %.not348, label %.thread358, label %68
+  br i1 %.not348, label %.thread362, label %68
 
 68:                                               ; preds = %66
   %69 = zext i32 %spec.select350 to i64
   %70 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %69, ptr noundef nonnull %0)
   %71 = icmp ult i64 %70, %69
-  br i1 %71, label %74, label %.thread358
+  br i1 %71, label %74, label %.thread362
 
-.thread358:                                       ; preds = %66, %68
-  %72 = add i32 %.0271457, 3
+.thread362:                                       ; preds = %66, %68
+  %72 = add i32 %.0271461, 3
   %73 = add i32 %72, %spec.select350
-  br label %480
+  br label %464
 
 74:                                               ; preds = %68
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1210) #11
-  br label %.thread386
+  br label %.thread390
 
-.thread357:                                       ; preds = %24, %28, %59
+.thread361:                                       ; preds = %24, %28, %59
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1228) #11
-  br label %.thread386
+  br label %.thread390
 
 75:                                               ; preds = %18
-  %76 = add nuw i32 %.0271457, 1
+  %76 = add nuw i32 %.0271461, 1
   %.not341 = icmp ult i32 %76, %2
   br i1 %.not341, label %78, label %77
 
 77:                                               ; preds = %75
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1229) #11
-  br label %.thread386
+  br label %.thread390
 
 78:                                               ; preds = %75
   %79 = zext i32 %76 to i64
@@ -2634,16 +2634,16 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
   br i1 %.not342, label %106, label %83
 
 83:                                               ; preds = %78
-  %84 = add i32 %.0271457, 3
+  %84 = add i32 %.0271461, 3
   %.not343 = icmp ult i32 %84, %2
   br i1 %.not343, label %86, label %85
 
 85:                                               ; preds = %83
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1230) #11
-  br label %.thread386
+  br label %.thread390
 
 86:                                               ; preds = %83
-  %87 = add nuw i32 %.0271457, 2
+  %87 = add nuw i32 %.0271461, 2
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !57
@@ -2662,26 +2662,26 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 101:                                              ; preds = %86
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1232) #11
-  br label %.thread386
+  br label %.thread390
 
 102:                                              ; preds = %86
   %103 = shl nuw nsw i32 %98, 1
-  %104 = add i32 %.0271457, 4
+  %104 = add i32 %.0271461, 4
   %105 = add i32 %104, %103
-  br label %480
+  br label %464
 
 106:                                              ; preds = %78
-  %107 = add i32 %.0271457, 4
-  br label %480
+  %107 = add i32 %.0271461, 4
+  br label %464
 
 108:                                              ; preds = %18
-  %109 = add nuw i32 %.0271457, 1
+  %109 = add nuw i32 %.0271461, 1
   %.not339 = icmp ult i32 %109, %2
   br i1 %.not339, label %111, label %110
 
 110:                                              ; preds = %108
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1233) #11
-  br label %.thread386
+  br label %.thread390
 
 111:                                              ; preds = %108
   %112 = zext i32 %109 to i64
@@ -2695,23 +2695,23 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 118:                                              ; preds = %111
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1234) #11
-  br label %.thread386
+  br label %.thread390
 
 119:                                              ; preds = %111
-  %120 = add nuw i32 %.0271457, 2
-  br label %480
+  %120 = add nuw i32 %.0271461, 2
+  br label %464
 
 121:                                              ; preds = %18
-  %122 = add i32 %.0271457, 2
+  %122 = add i32 %.0271461, 2
   %.not338 = icmp ult i32 %122, %2
   br i1 %.not338, label %124, label %123
 
 123:                                              ; preds = %121
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1235) #11
-  br label %.thread386
+  br label %.thread390
 
 124:                                              ; preds = %121
-  %125 = add nuw i32 %.0271457, 1
+  %125 = add nuw i32 %.0271461, 1
   %126 = zext i32 %125 to i64
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !57
@@ -2728,23 +2728,23 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 138:                                              ; preds = %124
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1237) #11
-  br label %.thread386
+  br label %.thread390
 
 139:                                              ; preds = %124
-  %140 = add i32 %.0271457, 3
-  br label %480
+  %140 = add i32 %.0271461, 3
+  br label %464
 
 141:                                              ; preds = %18, %18, %18
-  %142 = add i32 %.0271457, 2
+  %142 = add i32 %.0271461, 2
   %.not336 = icmp ult i32 %142, %2
   br i1 %.not336, label %144, label %143
 
 143:                                              ; preds = %141
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1238) #11
-  br label %.thread386
+  br label %.thread390
 
 144:                                              ; preds = %141
-  %145 = add nuw i32 %.0271457, 1
+  %145 = add nuw i32 %.0271461, 1
   %146 = zext i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !57
@@ -2757,527 +2757,511 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
   %.masked337 = and i32 %149, 65535
   %155 = or i32 %154, %.masked337
   %156 = icmp samesign ult i32 %155, 380
-  br i1 %156, label %157, label %161
+  br i1 %156, label %.sink.split.i, label %157
 
 157:                                              ; preds = %144
-  %158 = zext nneg i32 %155 to i64
-  %159 = getelementptr inbounds nuw [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %158
-  %160 = load ptr, ptr %159, align 8, !tbaa !3
+  %158 = add nsw i32 %155, -32768
+  %or.cond.i = icmp ult i32 %158, 809
+  br i1 %or.cond.i, label %.sink.split.i, label %get_function_name.exit
+
+.sink.split.i:                                    ; preds = %157, %144
+  %.sink.i = phi i32 [ %155, %144 ], [ %158, %157 ]
+  %EXTENDED_FUNCTIONS.sink.i = phi ptr [ @FUNCTIONS, %144 ], [ @EXTENDED_FUNCTIONS, %157 ]
+  %159 = zext nneg i32 %.sink.i to i64
+  %160 = getelementptr inbounds nuw ptr, ptr %EXTENDED_FUNCTIONS.sink.i, i64 %159
+  %161 = load ptr, ptr %160, align 8, !tbaa !3
   br label %get_function_name.exit
 
-161:                                              ; preds = %144
-  %162 = icmp samesign ugt i32 %155, 32767
-  br i1 %162, label %163, label %get_function_name.exit
+get_function_name.exit:                           ; preds = %157, %.sink.split.i
+  %.0.i = phi ptr [ null, %157 ], [ %161, %.sink.split.i ]
+  %162 = icmp eq ptr %.0.i, null
+  %163 = select i1 %162, ptr @.str.1240, ptr %.0.i
+  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1239, ptr noundef nonnull %163, i32 noundef %155) #11
+  %165 = icmp sgt i32 %164, -1
+  br i1 %165, label %.thread371, label %167
 
-163:                                              ; preds = %161
-  %164 = add nsw i32 %155, -32768
-  %165 = icmp samesign ult i32 %164, 809
-  br i1 %165, label %166, label %get_function_name.exit
+.thread371:                                       ; preds = %get_function_name.exit
+  %166 = add i32 %.0271461, 3
+  br label %464
 
-166:                                              ; preds = %163
-  %167 = zext nneg i32 %164 to i64
-  %168 = getelementptr inbounds nuw [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %167
-  %169 = load ptr, ptr %168, align 8, !tbaa !3
-  br label %get_function_name.exit
-
-get_function_name.exit:                           ; preds = %157, %161, %163, %166
-  %.0.i = phi ptr [ %160, %157 ], [ %169, %166 ], [ null, %163 ], [ null, %161 ]
-  %170 = icmp eq ptr %.0.i, null
-  %171 = select i1 %170, ptr @.str.1240, ptr %.0.i
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1239, ptr noundef nonnull %171, i32 noundef %155) #11
-  %173 = icmp sgt i32 %172, -1
-  br i1 %173, label %.thread367, label %175
-
-.thread367:                                       ; preds = %get_function_name.exit
-  %174 = add i32 %.0271457, 3
-  br label %480
-
-175:                                              ; preds = %get_function_name.exit
+167:                                              ; preds = %get_function_name.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1241) #11
-  br label %.thread386
+  br label %.thread390
 
-176:                                              ; preds = %18, %18, %18
-  %177 = add i32 %.0271457, 3
-  %.not334 = icmp ult i32 %177, %2
-  br i1 %.not334, label %179, label %178
+168:                                              ; preds = %18, %18, %18
+  %169 = add i32 %.0271461, 3
+  %.not334 = icmp ult i32 %169, %2
+  br i1 %.not334, label %171, label %170
 
-178:                                              ; preds = %176
+170:                                              ; preds = %168
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1242) #11
-  br label %.thread386
+  br label %.thread390
 
-179:                                              ; preds = %176
-  %180 = add i32 %.0271457, 2
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 %181
-  %183 = load i8, ptr %182, align 1, !tbaa !57
-  %184 = sext i8 %183 to i32
-  %185 = zext i32 %177 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
-  %187 = load i8, ptr %186, align 1, !tbaa !57
-  %188 = zext i8 %187 to i32
-  %189 = shl nuw nsw i32 %188, 8
-  %.masked335 = and i32 %184, 65535
-  %190 = or i32 %189, %.masked335
-  %191 = icmp samesign ult i32 %190, 380
-  br i1 %191, label %192, label %196
+171:                                              ; preds = %168
+  %172 = add i32 %.0271461, 2
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 %173
+  %175 = load i8, ptr %174, align 1, !tbaa !57
+  %176 = sext i8 %175 to i32
+  %177 = zext i32 %169 to i64
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 %177
+  %179 = load i8, ptr %178, align 1, !tbaa !57
+  %180 = zext i8 %179 to i32
+  %181 = shl nuw nsw i32 %180, 8
+  %.masked335 = and i32 %176, 65535
+  %182 = or i32 %181, %.masked335
+  %183 = icmp samesign ult i32 %182, 380
+  br i1 %183, label %.sink.split.i354, label %184
 
-192:                                              ; preds = %179
-  %193 = zext nneg i32 %190 to i64
-  %194 = getelementptr inbounds nuw [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %193
-  %195 = load ptr, ptr %194, align 8, !tbaa !3
-  br label %get_function_name.exit353
+184:                                              ; preds = %171
+  %185 = add nsw i32 %182, -32768
+  %or.cond.i352 = icmp ult i32 %185, 809
+  br i1 %or.cond.i352, label %.sink.split.i354, label %get_function_name.exit357
 
-196:                                              ; preds = %179
-  %197 = icmp samesign ugt i32 %190, 32767
-  br i1 %197, label %198, label %get_function_name.exit353
+.sink.split.i354:                                 ; preds = %184, %171
+  %.sink.i355 = phi i32 [ %182, %171 ], [ %185, %184 ]
+  %EXTENDED_FUNCTIONS.sink.i356 = phi ptr [ @FUNCTIONS, %171 ], [ @EXTENDED_FUNCTIONS, %184 ]
+  %186 = zext nneg i32 %.sink.i355 to i64
+  %187 = getelementptr inbounds nuw ptr, ptr %EXTENDED_FUNCTIONS.sink.i356, i64 %186
+  %188 = load ptr, ptr %187, align 8, !tbaa !3
+  br label %get_function_name.exit357
 
-198:                                              ; preds = %196
-  %199 = add nsw i32 %190, -32768
-  %200 = icmp samesign ult i32 %199, 809
-  br i1 %200, label %201, label %get_function_name.exit353
+get_function_name.exit357:                        ; preds = %184, %.sink.split.i354
+  %.0.i353 = phi ptr [ null, %184 ], [ %188, %.sink.split.i354 ]
+  %189 = add nuw i32 %.0271461, 1
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 %190
+  %192 = load i8, ptr %191, align 1, !tbaa !57
+  %193 = sext i8 %192 to i32
+  %194 = icmp eq ptr %.0.i353, null
+  %195 = select i1 %194, ptr @.str.1240, ptr %.0.i353
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1243, i32 noundef %193, ptr noundef nonnull %195, i32 noundef %182) #11
+  %197 = icmp sgt i32 %196, -1
+  br i1 %197, label %.thread373, label %199
 
-201:                                              ; preds = %198
-  %202 = zext nneg i32 %199 to i64
-  %203 = getelementptr inbounds nuw [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %202
-  %204 = load ptr, ptr %203, align 8, !tbaa !3
-  br label %get_function_name.exit353
+.thread373:                                       ; preds = %get_function_name.exit357
+  %198 = icmp eq i32 %182, 32877
+  %spec.select351.v = select i1 %198, i32 13, i32 4
+  %spec.select351 = add i32 %spec.select351.v, %.0271461
+  br label %464
 
-get_function_name.exit353:                        ; preds = %192, %196, %198, %201
-  %.0.i352 = phi ptr [ %195, %192 ], [ %204, %201 ], [ null, %198 ], [ null, %196 ]
-  %205 = add nuw i32 %.0271457, 1
-  %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 %206
-  %208 = load i8, ptr %207, align 1, !tbaa !57
-  %209 = sext i8 %208 to i32
-  %210 = icmp eq ptr %.0.i352, null
-  %211 = select i1 %210, ptr @.str.1240, ptr %.0.i352
-  %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1243, i32 noundef %209, ptr noundef nonnull %211, i32 noundef %190) #11
-  %213 = icmp sgt i32 %212, -1
-  br i1 %213, label %.thread369, label %215
-
-.thread369:                                       ; preds = %get_function_name.exit353
-  %214 = icmp eq i32 %190, 32877
-  %spec.select351.v = select i1 %214, i32 13, i32 4
-  %spec.select351 = add i32 %spec.select351.v, %.0271457
-  br label %480
-
-215:                                              ; preds = %get_function_name.exit353
+199:                                              ; preds = %get_function_name.exit357
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1244) #11
-  br label %.thread386
+  br label %.thread390
 
-216:                                              ; preds = %18
-  %217 = add i32 %.0271457, 4
-  %.not333 = icmp ult i32 %217, %2
-  br i1 %.not333, label %219, label %218
+200:                                              ; preds = %18
+  %201 = add i32 %.0271461, 4
+  %.not333 = icmp ult i32 %201, %2
+  br i1 %.not333, label %203, label %202
 
-218:                                              ; preds = %216
+202:                                              ; preds = %200
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1245) #11
-  br label %.thread386
+  br label %.thread390
 
-219:                                              ; preds = %216
-  %220 = add nuw i32 %.0271457, 1
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 %221
-  %223 = load i8, ptr %222, align 1, !tbaa !57
-  %224 = sext i8 %223 to i32
-  %225 = add i32 %.0271457, 2
-  %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !57
-  %229 = sext i8 %228 to i32
-  %230 = shl nsw i32 %229, 8
-  %231 = or i32 %230, %224
-  %232 = add i32 %.0271457, 3
-  %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 %233
-  %235 = load i8, ptr %234, align 1, !tbaa !57
-  %236 = sext i8 %235 to i32
-  %237 = shl nsw i32 %236, 16
-  %238 = or i32 %231, %237
-  %239 = zext i32 %217 to i64
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !57
-  %242 = sext i8 %241 to i32
-  %243 = shl nsw i32 %242, 24
-  %244 = or i32 %238, %243
-  %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1246, i32 noundef %244) #11
-  %246 = icmp sgt i32 %245, -1
-  br i1 %246, label %.thread371, label %248
+203:                                              ; preds = %200
+  %204 = add nuw i32 %.0271461, 1
+  %205 = zext i32 %204 to i64
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 %205
+  %207 = load i8, ptr %206, align 1, !tbaa !57
+  %208 = sext i8 %207 to i32
+  %209 = add i32 %.0271461, 2
+  %210 = zext i32 %209 to i64
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 %210
+  %212 = load i8, ptr %211, align 1, !tbaa !57
+  %213 = sext i8 %212 to i32
+  %214 = shl nsw i32 %213, 8
+  %215 = or i32 %214, %208
+  %216 = add i32 %.0271461, 3
+  %217 = zext i32 %216 to i64
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 %217
+  %219 = load i8, ptr %218, align 1, !tbaa !57
+  %220 = sext i8 %219 to i32
+  %221 = shl nsw i32 %220, 16
+  %222 = or i32 %215, %221
+  %223 = zext i32 %201 to i64
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 %223
+  %225 = load i8, ptr %224, align 1, !tbaa !57
+  %226 = sext i8 %225 to i32
+  %227 = shl nsw i32 %226, 24
+  %228 = or i32 %222, %227
+  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1246, i32 noundef %228) #11
+  %230 = icmp sgt i32 %229, -1
+  br i1 %230, label %.thread375, label %232
 
-.thread371:                                       ; preds = %219
-  %247 = add i32 %.0271457, 5
-  br label %480
+.thread375:                                       ; preds = %203
+  %231 = add i32 %.0271461, 5
+  br label %464
 
-248:                                              ; preds = %219
+232:                                              ; preds = %203
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1247) #11
-  br label %.thread386
+  br label %.thread390
 
-249:                                              ; preds = %18
-  %250 = add i32 %.0271457, 8
-  %.not332 = icmp ult i32 %250, %2
-  br i1 %.not332, label %252, label %251
+233:                                              ; preds = %18
+  %234 = add i32 %.0271461, 8
+  %.not332 = icmp ult i32 %234, %2
+  br i1 %.not332, label %236, label %235
 
-251:                                              ; preds = %249
+235:                                              ; preds = %233
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1248) #11
-  br label %.thread386
+  br label %.thread390
 
-252:                                              ; preds = %249
-  %253 = add nuw i32 %.0271457, 1
-  %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 %254
-  %256 = load double, ptr %255, align 8, !tbaa !63
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1249, double noundef %256) #11
-  %258 = icmp sgt i32 %257, -1
-  br i1 %258, label %.thread373, label %260
+236:                                              ; preds = %233
+  %237 = add nuw i32 %.0271461, 1
+  %238 = zext i32 %237 to i64
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 %238
+  %240 = load double, ptr %239, align 8, !tbaa !63
+  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1249, double noundef %240) #11
+  %242 = icmp sgt i32 %241, -1
+  br i1 %242, label %.thread377, label %244
 
-.thread373:                                       ; preds = %252
-  %259 = add i32 %.0271457, 9
-  br label %480
+.thread377:                                       ; preds = %236
+  %243 = add i32 %.0271461, 9
+  br label %464
 
-260:                                              ; preds = %252
+244:                                              ; preds = %236
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1250) #11
-  br label %.thread386
+  br label %.thread390
 
-261:                                              ; preds = %18
-  %262 = add i32 %.0271457, 6
-  %.not331 = icmp ult i32 %262, %2
-  br i1 %.not331, label %264, label %263
+245:                                              ; preds = %18
+  %246 = add i32 %.0271461, 6
+  %.not331 = icmp ult i32 %246, %2
+  br i1 %.not331, label %248, label %247
 
-263:                                              ; preds = %261
+247:                                              ; preds = %245
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1251) #11
-  br label %.thread386
+  br label %.thread390
 
-264:                                              ; preds = %261
-  %265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1252) #11
-  %266 = icmp slt i32 %265, 0
-  br i1 %266, label %267, label %268
+248:                                              ; preds = %245
+  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1252) #11
+  %250 = icmp slt i32 %249, 0
+  br i1 %250, label %251, label %252
 
-267:                                              ; preds = %264
+251:                                              ; preds = %248
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1253) #11
-  br label %.thread386
+  br label %.thread390
 
-268:                                              ; preds = %264
-  %269 = add i32 %.0271457, 7
-  br label %480
+252:                                              ; preds = %248
+  %253 = add i32 %.0271461, 7
+  br label %464
 
-270:                                              ; preds = %18
-  %271 = add i32 %.0271457, 4
-  %.not328 = icmp ult i32 %271, %2
-  br i1 %.not328, label %273, label %272
+254:                                              ; preds = %18
+  %255 = add i32 %.0271461, 4
+  %.not328 = icmp ult i32 %255, %2
+  br i1 %.not328, label %257, label %256
 
-272:                                              ; preds = %270
+256:                                              ; preds = %254
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1254) #11
-  br label %.thread386
+  br label %.thread390
 
-273:                                              ; preds = %270
-  %274 = add nuw i32 %.0271457, 1
-  %275 = zext i32 %274 to i64
-  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %275
-  %277 = load i8, ptr %276, align 1, !tbaa !57
-  %278 = sext i8 %277 to i32
-  %279 = add i32 %.0271457, 2
-  %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds nuw i8, ptr %1, i64 %280
-  %282 = load i8, ptr %281, align 1, !tbaa !57
-  %283 = zext i8 %282 to i32
-  %284 = shl nuw nsw i32 %283, 8
-  %285 = add i32 %.0271457, 3
-  %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw i8, ptr %1, i64 %286
-  %288 = load i8, ptr %287, align 1, !tbaa !57
-  %289 = sext i8 %288 to i32
-  %290 = zext i32 %271 to i64
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !57
-  %293 = zext i8 %292 to i32
-  %294 = shl nuw nsw i32 %293, 8
-  %.masked329 = and i32 %278, 65535
-  %295 = or i32 %284, %.masked329
-  %296 = add nuw nsw i32 %295, 1
-  %.masked330 = and i32 %289, 65535
-  %297 = or i32 %294, %.masked330
-  %298 = add nuw nsw i32 %297, 1
-  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1255, i32 noundef %296, i32 noundef %298) #11
-  %300 = icmp sgt i32 %299, -1
-  br i1 %300, label %.thread375, label %302
+257:                                              ; preds = %254
+  %258 = add nuw i32 %.0271461, 1
+  %259 = zext i32 %258 to i64
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 %259
+  %261 = load i8, ptr %260, align 1, !tbaa !57
+  %262 = sext i8 %261 to i32
+  %263 = add i32 %.0271461, 2
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 %264
+  %266 = load i8, ptr %265, align 1, !tbaa !57
+  %267 = zext i8 %266 to i32
+  %268 = shl nuw nsw i32 %267, 8
+  %269 = add i32 %.0271461, 3
+  %270 = zext i32 %269 to i64
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 %270
+  %272 = load i8, ptr %271, align 1, !tbaa !57
+  %273 = sext i8 %272 to i32
+  %274 = zext i32 %255 to i64
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 %274
+  %276 = load i8, ptr %275, align 1, !tbaa !57
+  %277 = zext i8 %276 to i32
+  %278 = shl nuw nsw i32 %277, 8
+  %.masked329 = and i32 %262, 65535
+  %279 = or i32 %268, %.masked329
+  %280 = add nuw nsw i32 %279, 1
+  %.masked330 = and i32 %273, 65535
+  %281 = or i32 %278, %.masked330
+  %282 = add nuw nsw i32 %281, 1
+  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1255, i32 noundef %280, i32 noundef %282) #11
+  %284 = icmp sgt i32 %283, -1
+  br i1 %284, label %.thread379, label %286
 
-.thread375:                                       ; preds = %273
-  %301 = add i32 %.0271457, 5
-  br label %480
+.thread379:                                       ; preds = %257
+  %285 = add i32 %.0271461, 5
+  br label %464
 
-302:                                              ; preds = %273
+286:                                              ; preds = %257
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1256) #11
-  br label %.thread386
+  br label %.thread390
 
-303:                                              ; preds = %18, %18
-  %304 = add i32 %.0271457, 4
-  %.not322 = icmp ult i32 %304, %2
-  br i1 %.not322, label %306, label %305
+287:                                              ; preds = %18, %18
+  %288 = add i32 %.0271461, 4
+  %.not322 = icmp ult i32 %288, %2
+  br i1 %.not322, label %290, label %289
 
-305:                                              ; preds = %303
+289:                                              ; preds = %287
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1257) #11
-  br label %.thread386
+  br label %.thread390
 
-306:                                              ; preds = %303
-  %307 = add nuw i32 %.0271457, 1
-  %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 %308
-  %310 = load i8, ptr %309, align 1, !tbaa !57
-  %311 = sext i8 %310 to i32
-  %312 = add i32 %.0271457, 2
-  %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw i8, ptr %1, i64 %313
-  %315 = load i8, ptr %314, align 1, !tbaa !57
-  %316 = zext i8 %315 to i32
-  %317 = shl nuw nsw i32 %316, 8
-  %318 = add i32 %.0271457, 3
-  %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds nuw i8, ptr %1, i64 %319
-  %321 = load i8, ptr %320, align 1, !tbaa !57
-  %322 = sext i8 %321 to i32
-  %323 = zext i32 %304 to i64
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 %323
-  %325 = load i8, ptr %324, align 1, !tbaa !57
-  %326 = zext i8 %325 to i32
-  %327 = shl nuw nsw i32 %326, 8
-  %.masked323 = and i32 %311, 65535
-  %328 = or i32 %317, %.masked323
-  %329 = and i32 %328, 16384
-  %.not324 = icmp eq i32 %329, 0
-  %330 = select i1 %.not324, ptr @.str.1260, ptr @.str.1259
-  %331 = and i32 %328, 16383
-  %.lobit325 = lshr exact i32 %329, 14
-  %332 = xor i32 %.lobit325, 1
-  %333 = add nuw nsw i32 %332, %331
-  %.not326 = icmp samesign ult i32 %328, 32768
-  %334 = select i1 %.not326, ptr @.str.1260, ptr @.str.1259
-  %.masked327 = and i32 %322, 65535
-  %335 = or i32 %327, %.masked327
-  %336 = zext i1 %.not326 to i32
-  %337 = add nuw nsw i32 %335, %336
-  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %330, i32 noundef %333, ptr noundef nonnull %334, i32 noundef %337) #11
-  %339 = icmp sgt i32 %338, -1
-  br i1 %339, label %.thread377, label %341
+290:                                              ; preds = %287
+  %291 = add nuw i32 %.0271461, 1
+  %292 = zext i32 %291 to i64
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 %292
+  %294 = load i8, ptr %293, align 1, !tbaa !57
+  %295 = sext i8 %294 to i32
+  %296 = add i32 %.0271461, 2
+  %297 = zext i32 %296 to i64
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 %297
+  %299 = load i8, ptr %298, align 1, !tbaa !57
+  %300 = zext i8 %299 to i32
+  %301 = shl nuw nsw i32 %300, 8
+  %302 = add i32 %.0271461, 3
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 %303
+  %305 = load i8, ptr %304, align 1, !tbaa !57
+  %306 = sext i8 %305 to i32
+  %307 = zext i32 %288 to i64
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 %307
+  %309 = load i8, ptr %308, align 1, !tbaa !57
+  %310 = zext i8 %309 to i32
+  %311 = shl nuw nsw i32 %310, 8
+  %.masked323 = and i32 %295, 65535
+  %312 = or i32 %301, %.masked323
+  %313 = and i32 %312, 16384
+  %.not324 = icmp eq i32 %313, 0
+  %314 = select i1 %.not324, ptr @.str.1260, ptr @.str.1259
+  %315 = and i32 %312, 16383
+  %.lobit325 = lshr exact i32 %313, 14
+  %316 = xor i32 %.lobit325, 1
+  %317 = add nuw nsw i32 %316, %315
+  %.not326 = icmp samesign ult i32 %312, 32768
+  %318 = select i1 %.not326, ptr @.str.1260, ptr @.str.1259
+  %.masked327 = and i32 %306, 65535
+  %319 = or i32 %311, %.masked327
+  %320 = zext i1 %.not326 to i32
+  %321 = add nuw nsw i32 %319, %320
+  %322 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %314, i32 noundef %317, ptr noundef nonnull %318, i32 noundef %321) #11
+  %323 = icmp sgt i32 %322, -1
+  br i1 %323, label %.thread381, label %325
 
-.thread377:                                       ; preds = %306
-  %340 = add i32 %.0271457, 5
-  br label %480
+.thread381:                                       ; preds = %290
+  %324 = add i32 %.0271461, 5
+  br label %464
 
-341:                                              ; preds = %306
+325:                                              ; preds = %290
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1261) #11
-  br label %.thread386
+  br label %.thread390
 
-342:                                              ; preds = %18
-  %343 = add i32 %.0271457, 8
-  %.not311 = icmp ult i32 %343, %2
-  br i1 %.not311, label %345, label %344
+326:                                              ; preds = %18
+  %327 = add i32 %.0271461, 8
+  %.not311 = icmp ult i32 %327, %2
+  br i1 %.not311, label %329, label %328
 
-344:                                              ; preds = %342
+328:                                              ; preds = %326
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1262) #11
-  br label %.thread386
+  br label %.thread390
 
-345:                                              ; preds = %342
-  %346 = add nuw i32 %.0271457, 1
+329:                                              ; preds = %326
+  %330 = add nuw i32 %.0271461, 1
+  %331 = zext i32 %330 to i64
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 %331
+  %333 = load i8, ptr %332, align 1, !tbaa !57
+  %334 = sext i8 %333 to i32
+  %335 = add i32 %.0271461, 2
+  %336 = zext i32 %335 to i64
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 %336
+  %338 = load i8, ptr %337, align 1, !tbaa !57
+  %339 = zext i8 %338 to i32
+  %340 = shl nuw nsw i32 %339, 8
+  %341 = add i32 %.0271461, 3
+  %342 = zext i32 %341 to i64
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 %342
+  %344 = load i8, ptr %343, align 1, !tbaa !57
+  %345 = sext i8 %344 to i32
+  %346 = add i32 %.0271461, 4
   %347 = zext i32 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 %347
   %349 = load i8, ptr %348, align 1, !tbaa !57
-  %350 = sext i8 %349 to i32
-  %351 = add i32 %.0271457, 2
-  %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw i8, ptr %1, i64 %352
-  %354 = load i8, ptr %353, align 1, !tbaa !57
-  %355 = zext i8 %354 to i32
-  %356 = shl nuw nsw i32 %355, 8
-  %357 = add i32 %.0271457, 3
+  %350 = zext i8 %349 to i32
+  %351 = shl nuw nsw i32 %350, 8
+  %352 = add i32 %.0271461, 5
+  %353 = zext i32 %352 to i64
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 %353
+  %355 = load i8, ptr %354, align 1, !tbaa !57
+  %356 = sext i8 %355 to i32
+  %357 = add i32 %.0271461, 6
   %358 = zext i32 %357 to i64
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 %358
   %360 = load i8, ptr %359, align 1, !tbaa !57
-  %361 = sext i8 %360 to i32
-  %362 = add i32 %.0271457, 4
-  %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds nuw i8, ptr %1, i64 %363
-  %365 = load i8, ptr %364, align 1, !tbaa !57
-  %366 = zext i8 %365 to i32
-  %367 = shl nuw nsw i32 %366, 8
-  %368 = add i32 %.0271457, 5
-  %369 = zext i32 %368 to i64
-  %370 = getelementptr inbounds nuw i8, ptr %1, i64 %369
-  %371 = load i8, ptr %370, align 1, !tbaa !57
-  %372 = sext i8 %371 to i32
-  %373 = add i32 %.0271457, 6
-  %374 = zext i32 %373 to i64
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 %374
-  %376 = load i8, ptr %375, align 1, !tbaa !57
-  %377 = zext i8 %376 to i32
-  %378 = shl nuw nsw i32 %377, 8
-  %379 = add i32 %.0271457, 7
-  %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds nuw i8, ptr %1, i64 %380
-  %382 = load i8, ptr %381, align 1, !tbaa !57
-  %383 = sext i8 %382 to i32
-  %384 = zext i32 %343 to i64
-  %385 = getelementptr inbounds nuw i8, ptr %1, i64 %384
-  %386 = load i8, ptr %385, align 1, !tbaa !57
-  %387 = zext i8 %386 to i32
-  %388 = shl nuw nsw i32 %387, 8
-  %.masked312 = and i32 %350, 65535
-  %389 = or i32 %356, %.masked312
-  %390 = and i32 %389, 16384
-  %.not313 = icmp eq i32 %390, 0
-  %391 = select i1 %.not313, ptr @.str.1260, ptr @.str.1259
-  %392 = and i32 %389, 16383
-  %.lobit314 = lshr exact i32 %390, 14
-  %393 = xor i32 %.lobit314, 1
-  %394 = add nuw nsw i32 %393, %392
-  %.not315 = icmp samesign ult i32 %389, 32768
-  %395 = select i1 %.not315, ptr @.str.1260, ptr @.str.1259
-  %.masked316 = and i32 %361, 65535
-  %396 = or i32 %367, %.masked316
-  %397 = zext i1 %.not315 to i32
-  %398 = add nuw nsw i32 %396, %397
-  %.masked317 = and i32 %372, 65535
-  %399 = or i32 %378, %.masked317
-  %400 = and i32 %399, 16384
-  %.not318 = icmp eq i32 %400, 0
-  %401 = select i1 %.not318, ptr @.str.1260, ptr @.str.1259
-  %402 = and i32 %399, 16383
-  %.lobit319 = lshr exact i32 %400, 14
-  %403 = xor i32 %.lobit319, 1
-  %404 = add nuw nsw i32 %403, %402
-  %.not320 = icmp samesign ult i32 %399, 32768
-  %405 = select i1 %.not320, ptr @.str.1260, ptr @.str.1259
-  %.masked321 = and i32 %383, 65535
-  %406 = or i32 %388, %.masked321
-  %407 = zext i1 %.not320 to i32
-  %408 = add nuw nsw i32 %406, %407
-  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1263, ptr noundef nonnull %391, i32 noundef %394, ptr noundef nonnull %395, i32 noundef %398, ptr noundef nonnull %401, i32 noundef %404, ptr noundef nonnull %405, i32 noundef %408) #11
-  %410 = icmp sgt i32 %409, -1
-  br i1 %410, label %.thread379, label %412
+  %361 = zext i8 %360 to i32
+  %362 = shl nuw nsw i32 %361, 8
+  %363 = add i32 %.0271461, 7
+  %364 = zext i32 %363 to i64
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 %364
+  %366 = load i8, ptr %365, align 1, !tbaa !57
+  %367 = sext i8 %366 to i32
+  %368 = zext i32 %327 to i64
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 %368
+  %370 = load i8, ptr %369, align 1, !tbaa !57
+  %371 = zext i8 %370 to i32
+  %372 = shl nuw nsw i32 %371, 8
+  %.masked312 = and i32 %334, 65535
+  %373 = or i32 %340, %.masked312
+  %374 = and i32 %373, 16384
+  %.not313 = icmp eq i32 %374, 0
+  %375 = select i1 %.not313, ptr @.str.1260, ptr @.str.1259
+  %376 = and i32 %373, 16383
+  %.lobit314 = lshr exact i32 %374, 14
+  %377 = xor i32 %.lobit314, 1
+  %378 = add nuw nsw i32 %377, %376
+  %.not315 = icmp samesign ult i32 %373, 32768
+  %379 = select i1 %.not315, ptr @.str.1260, ptr @.str.1259
+  %.masked316 = and i32 %345, 65535
+  %380 = or i32 %351, %.masked316
+  %381 = zext i1 %.not315 to i32
+  %382 = add nuw nsw i32 %380, %381
+  %.masked317 = and i32 %356, 65535
+  %383 = or i32 %362, %.masked317
+  %384 = and i32 %383, 16384
+  %.not318 = icmp eq i32 %384, 0
+  %385 = select i1 %.not318, ptr @.str.1260, ptr @.str.1259
+  %386 = and i32 %383, 16383
+  %.lobit319 = lshr exact i32 %384, 14
+  %387 = xor i32 %.lobit319, 1
+  %388 = add nuw nsw i32 %387, %386
+  %.not320 = icmp samesign ult i32 %383, 32768
+  %389 = select i1 %.not320, ptr @.str.1260, ptr @.str.1259
+  %.masked321 = and i32 %367, 65535
+  %390 = or i32 %372, %.masked321
+  %391 = zext i1 %.not320 to i32
+  %392 = add nuw nsw i32 %390, %391
+  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1263, ptr noundef nonnull %375, i32 noundef %378, ptr noundef nonnull %379, i32 noundef %382, ptr noundef nonnull %385, i32 noundef %388, ptr noundef nonnull %389, i32 noundef %392) #11
+  %394 = icmp sgt i32 %393, -1
+  br i1 %394, label %.thread383, label %396
 
-.thread379:                                       ; preds = %345
-  %411 = add i32 %.0271457, 9
-  br label %480
+.thread383:                                       ; preds = %329
+  %395 = add i32 %.0271461, 9
+  br label %464
 
-412:                                              ; preds = %345
+396:                                              ; preds = %329
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1264) #11
-  br label %.thread386
+  br label %.thread390
 
-413:                                              ; preds = %18, %18
-  %414 = add i32 %.0271457, 6
-  %.not306 = icmp ult i32 %414, %2
-  br i1 %.not306, label %416, label %415
+397:                                              ; preds = %18, %18
+  %398 = add i32 %.0271461, 6
+  %.not306 = icmp ult i32 %398, %2
+  br i1 %.not306, label %400, label %399
 
-415:                                              ; preds = %413
+399:                                              ; preds = %397
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1265) #11
-  br label %.thread386
+  br label %.thread390
 
-416:                                              ; preds = %413
-  %417 = add i32 %.0271457, 3
-  %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds nuw i8, ptr %1, i64 %418
-  %420 = load i8, ptr %419, align 1, !tbaa !57
-  %421 = sext i8 %420 to i32
-  %422 = add i32 %.0271457, 4
-  %423 = zext i32 %422 to i64
-  %424 = getelementptr inbounds nuw i8, ptr %1, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !57
-  %426 = zext i8 %425 to i32
-  %427 = shl nuw nsw i32 %426, 8
-  %428 = add i32 %.0271457, 5
-  %429 = zext i32 %428 to i64
-  %430 = getelementptr inbounds nuw i8, ptr %1, i64 %429
-  %431 = load i8, ptr %430, align 1, !tbaa !57
-  %432 = sext i8 %431 to i32
-  %433 = zext i32 %414 to i64
-  %434 = getelementptr inbounds nuw i8, ptr %1, i64 %433
-  %435 = load i8, ptr %434, align 1, !tbaa !57
-  %436 = zext i8 %435 to i32
-  %437 = shl nuw nsw i32 %436, 8
-  %.masked307 = and i32 %421, 65535
-  %438 = or i32 %427, %.masked307
-  %439 = and i32 %438, 16384
-  %.not308 = icmp eq i32 %439, 0
-  %440 = select i1 %.not308, ptr @.str.1260, ptr @.str.1259
-  %441 = and i32 %438, 16383
-  %.lobit = lshr exact i32 %439, 14
-  %442 = xor i32 %.lobit, 1
-  %443 = add nuw nsw i32 %442, %441
-  %.not309 = icmp samesign ult i32 %438, 32768
-  %444 = select i1 %.not309, ptr @.str.1260, ptr @.str.1259
-  %.masked310 = and i32 %432, 65535
-  %445 = or i32 %437, %.masked310
-  %446 = zext i1 %.not309 to i32
-  %447 = add nuw nsw i32 %445, %446
-  %448 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %440, i32 noundef %443, ptr noundef nonnull %444, i32 noundef %447) #11
-  %449 = icmp sgt i32 %448, -1
-  br i1 %449, label %.thread381, label %451
+400:                                              ; preds = %397
+  %401 = add i32 %.0271461, 3
+  %402 = zext i32 %401 to i64
+  %403 = getelementptr inbounds nuw i8, ptr %1, i64 %402
+  %404 = load i8, ptr %403, align 1, !tbaa !57
+  %405 = sext i8 %404 to i32
+  %406 = add i32 %.0271461, 4
+  %407 = zext i32 %406 to i64
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 %407
+  %409 = load i8, ptr %408, align 1, !tbaa !57
+  %410 = zext i8 %409 to i32
+  %411 = shl nuw nsw i32 %410, 8
+  %412 = add i32 %.0271461, 5
+  %413 = zext i32 %412 to i64
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 %413
+  %415 = load i8, ptr %414, align 1, !tbaa !57
+  %416 = sext i8 %415 to i32
+  %417 = zext i32 %398 to i64
+  %418 = getelementptr inbounds nuw i8, ptr %1, i64 %417
+  %419 = load i8, ptr %418, align 1, !tbaa !57
+  %420 = zext i8 %419 to i32
+  %421 = shl nuw nsw i32 %420, 8
+  %.masked307 = and i32 %405, 65535
+  %422 = or i32 %411, %.masked307
+  %423 = and i32 %422, 16384
+  %.not308 = icmp eq i32 %423, 0
+  %424 = select i1 %.not308, ptr @.str.1260, ptr @.str.1259
+  %425 = and i32 %422, 16383
+  %.lobit = lshr exact i32 %423, 14
+  %426 = xor i32 %.lobit, 1
+  %427 = add nuw nsw i32 %426, %425
+  %.not309 = icmp samesign ult i32 %422, 32768
+  %428 = select i1 %.not309, ptr @.str.1260, ptr @.str.1259
+  %.masked310 = and i32 %416, 65535
+  %429 = or i32 %421, %.masked310
+  %430 = zext i1 %.not309 to i32
+  %431 = add nuw nsw i32 %429, %430
+  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1258, ptr noundef nonnull %424, i32 noundef %427, ptr noundef nonnull %428, i32 noundef %431) #11
+  %433 = icmp sgt i32 %432, -1
+  br i1 %433, label %.thread385, label %435
 
-.thread381:                                       ; preds = %416
-  %450 = add i32 %.0271457, 7
-  br label %480
+.thread385:                                       ; preds = %400
+  %434 = add i32 %.0271461, 7
+  br label %464
 
-451:                                              ; preds = %416
+435:                                              ; preds = %400
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1266) #11
-  br label %.thread386
+  br label %.thread390
 
-452:                                              ; preds = %18
-  %453 = add i32 %.0271457, 6
-  %.not = icmp ult i32 %453, %2
-  br i1 %.not, label %455, label %454
+436:                                              ; preds = %18
+  %437 = add i32 %.0271461, 6
+  %.not = icmp ult i32 %437, %2
+  br i1 %.not, label %439, label %438
 
-454:                                              ; preds = %452
+438:                                              ; preds = %436
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1267) #11
-  br label %.thread386
+  br label %.thread390
 
-455:                                              ; preds = %452
-  %456 = add i32 %.0271457, 3
-  %457 = zext i32 %456 to i64
-  %458 = getelementptr inbounds nuw i8, ptr %1, i64 %457
-  %459 = load i8, ptr %458, align 1, !tbaa !57
-  %460 = sext i8 %459 to i32
-  %461 = add i32 %.0271457, 4
-  %462 = zext i32 %461 to i64
-  %463 = getelementptr inbounds nuw i8, ptr %1, i64 %462
-  %464 = load i8, ptr %463, align 1, !tbaa !57
-  %465 = zext i8 %464 to i32
-  %466 = shl nuw nsw i32 %465, 8
-  %.masked = and i32 %460, 65535
-  %467 = or i32 %466, %.masked
-  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1268, i32 noundef %467) #11
-  %469 = icmp sgt i32 %468, -1
-  br i1 %469, label %.thread383, label %471
+439:                                              ; preds = %436
+  %440 = add i32 %.0271461, 3
+  %441 = zext i32 %440 to i64
+  %442 = getelementptr inbounds nuw i8, ptr %1, i64 %441
+  %443 = load i8, ptr %442, align 1, !tbaa !57
+  %444 = sext i8 %443 to i32
+  %445 = add i32 %.0271461, 4
+  %446 = zext i32 %445 to i64
+  %447 = getelementptr inbounds nuw i8, ptr %1, i64 %446
+  %448 = load i8, ptr %447, align 1, !tbaa !57
+  %449 = zext i8 %448 to i32
+  %450 = shl nuw nsw i32 %449, 8
+  %.masked = and i32 %444, 65535
+  %451 = or i32 %450, %.masked
+  %452 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1268, i32 noundef %451) #11
+  %453 = icmp sgt i32 %452, -1
+  br i1 %453, label %.thread387, label %455
 
-.thread383:                                       ; preds = %455
-  %470 = add i32 %.0271457, 7
-  br label %480
+.thread387:                                       ; preds = %439
+  %454 = add i32 %.0271461, 7
+  br label %464
 
-471:                                              ; preds = %455
+455:                                              ; preds = %439
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1269) #11
-  br label %.thread386
+  br label %.thread390
 
-472:                                              ; preds = %18
-  %473 = icmp samesign ult i8 %9, 126
-  br i1 %473, label %474, label %478
+456:                                              ; preds = %18
+  %457 = icmp samesign ult i8 %9, 126
+  br i1 %457, label %458, label %462
 
-474:                                              ; preds = %472
-  %475 = zext nneg i8 %9 to i64
-  %476 = getelementptr inbounds nuw [126 x ptr], ptr @TOKENS, i64 0, i64 %475
-  %477 = load ptr, ptr %476, align 8, !tbaa !3
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1270, ptr noundef %477) #11
-  br label %.thread386
+458:                                              ; preds = %456
+  %459 = zext nneg i8 %9 to i64
+  %460 = getelementptr inbounds nuw ptr, ptr @TOKENS, i64 %459
+  %461 = load ptr, ptr %460, align 8, !tbaa !3
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1270, ptr noundef %461) #11
+  br label %.thread390
 
-478:                                              ; preds = %472
-  %479 = zext nneg i8 %9 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1271, i32 noundef %479) #11
-  br label %.thread386
+462:                                              ; preds = %456
+  %463 = zext nneg i8 %9 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1271, i32 noundef %463) #11
+  br label %.thread390
 
-480:                                              ; preds = %19, %119, %139, %268, %106, %56, %.thread358, %102, %.thread367, %.thread369, %.thread371, %.thread373, %.thread375, %.thread377, %.thread379, %.thread381, %.thread383
-  %.1 = phi i32 [ %20, %19 ], [ %58, %56 ], [ %105, %102 ], [ %107, %106 ], [ %120, %119 ], [ %140, %139 ], [ %269, %268 ], [ %73, %.thread358 ], [ %174, %.thread367 ], [ %spec.select351, %.thread369 ], [ %247, %.thread371 ], [ %259, %.thread373 ], [ %301, %.thread375 ], [ %340, %.thread377 ], [ %411, %.thread379 ], [ %450, %.thread381 ], [ %470, %.thread383 ]
-  %481 = icmp ult i32 %.1, %2
-  br i1 %481, label %.lr.ph, label %.thread386
+464:                                              ; preds = %19, %119, %139, %252, %106, %56, %.thread362, %102, %.thread371, %.thread373, %.thread375, %.thread377, %.thread379, %.thread381, %.thread383, %.thread385, %.thread387
+  %.1 = phi i32 [ %20, %19 ], [ %58, %56 ], [ %105, %102 ], [ %107, %106 ], [ %120, %119 ], [ %140, %139 ], [ %253, %252 ], [ %73, %.thread362 ], [ %166, %.thread371 ], [ %spec.select351, %.thread373 ], [ %231, %.thread375 ], [ %243, %.thread377 ], [ %285, %.thread379 ], [ %324, %.thread381 ], [ %395, %.thread383 ], [ %434, %.thread385 ], [ %454, %.thread387 ]
+  %465 = icmp ult i32 %.1, %2
+  br i1 %465, label %.lr.ph, label %.thread390
 
-.thread386:                                       ; preds = %480, %3, %101, %85, %.thread, %474, %478, %471, %454, %451, %415, %412, %344, %341, %305, %302, %272, %267, %263, %260, %251, %248, %218, %215, %178, %175, %143, %138, %123, %118, %110, %77, %.thread357, %74, %23, %17
-  %.0 = phi i32 [ 26, %17 ], [ 26, %23 ], [ 26, %74 ], [ 26, %.thread357 ], [ 26, %77 ], [ 26, %110 ], [ 26, %118 ], [ 26, %123 ], [ 26, %138 ], [ 26, %143 ], [ 26, %175 ], [ 26, %178 ], [ 26, %215 ], [ 26, %218 ], [ 26, %248 ], [ 26, %251 ], [ 26, %260 ], [ 26, %263 ], [ 26, %267 ], [ 26, %272 ], [ 26, %302 ], [ 26, %305 ], [ 26, %341 ], [ 26, %344 ], [ 26, %412 ], [ 26, %415 ], [ 26, %451 ], [ 26, %454 ], [ 26, %471 ], [ 26, %478 ], [ 26, %474 ], [ 26, %.thread ], [ 26, %85 ], [ 26, %101 ], [ 0, %3 ], [ 0, %480 ]
+.thread390:                                       ; preds = %464, %3, %101, %85, %.thread, %458, %462, %455, %438, %435, %399, %396, %328, %325, %289, %286, %256, %251, %247, %244, %235, %232, %202, %199, %170, %167, %143, %138, %123, %118, %110, %77, %.thread361, %74, %23, %17
+  %.0 = phi i32 [ 26, %17 ], [ 26, %23 ], [ 26, %74 ], [ 26, %.thread361 ], [ 26, %77 ], [ 26, %110 ], [ 26, %118 ], [ 26, %123 ], [ 26, %138 ], [ 26, %143 ], [ 26, %167 ], [ 26, %170 ], [ 26, %199 ], [ 26, %202 ], [ 26, %232 ], [ 26, %235 ], [ 26, %244 ], [ 26, %247 ], [ 26, %251 ], [ 26, %256 ], [ 26, %286 ], [ 26, %289 ], [ 26, %325 ], [ 26, %328 ], [ 26, %396 ], [ 26, %399 ], [ 26, %435 ], [ 26, %438 ], [ 26, %455 ], [ 26, %462 ], [ 26, %458 ], [ 26, %.thread ], [ 26, %85 ], [ 26, %101 ], [ 0, %3 ], [ 0, %464 ]
   ret i32 %.0
 }
 

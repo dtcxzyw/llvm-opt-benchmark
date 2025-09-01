@@ -102178,7 +102178,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_NormCast_evalNormCas
   br label %lean_dec.exit117
 
 lean_dec.exit117:                                 ; preds = %43, %42, %40, %34
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.074249
+  %44 = getelementptr inbounds nuw ptr, ptr %15, i64 %.074249
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1
@@ -103108,7 +103108,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_NormCast_evalNormCas
   br label %lean_dec.exit117
 
 lean_dec.exit117:                                 ; preds = %43, %42, %40, %34
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %.074249
+  %44 = getelementptr inbounds nuw ptr, ptr %15, i64 %.074249
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %46, 1

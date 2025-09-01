@@ -1737,7 +1737,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
 59:                                               ; preds = %65, %57
   %60 = phi i32 [ 3, %57 ], [ %66, %65 ]
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr [5 x i8], ptr %9, i64 0, i64 %61
+  %62 = getelementptr i8, ptr %9, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 95
   br i1 %64, label %65, label %68
@@ -3549,7 +3549,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
 
 94:                                               ; preds = %133, %82
   %95 = phi i64 [ 0, %82 ], [ %136, %133 ]
-  %96 = getelementptr [5 x %struct.acpi_device_power_state], ptr %88, i64 0, i64 %95
+  %96 = getelementptr %struct.acpi_device_power_state, ptr %88, i64 %95
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 95, ptr %7, align 1
   store i8 80, ptr %89, align 1

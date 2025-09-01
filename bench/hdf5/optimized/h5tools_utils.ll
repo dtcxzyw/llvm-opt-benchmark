@@ -95,7 +95,7 @@ define void @parallel_print(ptr noundef readonly captures(none) %0, ...) local_u
 
 19:                                               ; preds = %10
   %20 = zext i32 %.pre to i64
-  %21 = getelementptr inbounds nuw [2048 x i8], ptr @outBuff, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @outBuff, i64 %20
   store i8 0, ptr %21, align 1, !tbaa !3
   %22 = call noalias ptr @tmpfile64()
   store ptr %22, ptr @overflow_file, align 8, !tbaa !6

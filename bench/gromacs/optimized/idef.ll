@@ -361,7 +361,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
 
 81:                                               ; preds = %76, %81
   %indvars.iv261 = phi i64 [ 0, %76 ], [ %indvars.iv.next262, %81 ]
-  %82 = getelementptr inbounds nuw [5 x float], ptr %79, i64 0, i64 %indvars.iv261
+  %82 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv261
   %83 = load float, ptr %82, align 4, !tbaa !15
   %84 = fpext float %83 to double
   %85 = trunc i64 %indvars.iv261 to i32
@@ -737,7 +737,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %.preheader ], [ 0, %3 ]
   %377 = icmp eq i64 %indvars.iv253, 0
   %378 = select i1 %377, ptr @.str.33, ptr @.str.34
-  %379 = getelementptr inbounds nuw [6 x float], ptr %2, i64 0, i64 %indvars.iv253
+  %379 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv253
   %380 = load float, ptr %379, align 4, !tbaa !15
   %381 = fpext float %380 to double
   %382 = trunc nuw nsw i64 %indvars.iv253 to i32
@@ -754,7 +754,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %indvars.iv257 = phi i64 [ 0, %375 ], [ %indvars.iv.next258, %384 ]
   %385 = icmp eq i64 %indvars.iv257, 0
   %386 = select i1 %385, ptr @.str.33, ptr @.str.34
-  %387 = getelementptr inbounds nuw [6 x float], ptr %376, i64 0, i64 %indvars.iv257
+  %387 = getelementptr inbounds nuw float, ptr %376, i64 %indvars.iv257
   %388 = load float, ptr %387, align 4, !tbaa !15
   %389 = fpext float %388 to double
   %390 = trunc nuw nsw i64 %indvars.iv257 to i32
@@ -830,7 +830,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %indvars.iv245 = phi i64 [ 0, %391 ], [ %indvars.iv.next246, %439 ]
   %440 = icmp eq i64 %indvars.iv245, 0
   %441 = select i1 %440, ptr @.str.33, ptr @.str.34
-  %442 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv245
+  %442 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv245
   %443 = load float, ptr %442, align 4, !tbaa !21
   %444 = fpext float %443 to double
   %445 = trunc nuw nsw i64 %indvars.iv245 to i32
@@ -849,7 +849,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %indvars.iv249 = phi i64 [ 0, %438 ], [ %indvars.iv.next250, %447 ]
   %448 = icmp eq i64 %indvars.iv249, 0
   %449 = select i1 %448, ptr @.str.33, ptr @.str.34
-  %450 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv249
+  %450 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv249
   %451 = load float, ptr %450, align 4, !tbaa !21
   %452 = fpext float %451 to double
   %453 = trunc nuw nsw i64 %indvars.iv249 to i32
@@ -947,7 +947,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
 
 505:                                              ; preds = %501, %505
   %indvars.iv = phi i64 [ 1, %501 ], [ %indvars.iv.next, %505 ]
-  %506 = getelementptr inbounds nuw [6 x float], ptr %2, i64 0, i64 %indvars.iv
+  %506 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %507 = load float, ptr %506, align 4, !tbaa !15
   %508 = fpext float %507 to double
   %509 = trunc i64 %indvars.iv to i32
@@ -961,7 +961,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(123) @.str.49, i8 noundef zeroext 2)
   %512 = sext i32 %1 to i64
-  %513 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %512
+  %513 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %512
   %514 = load ptr, ptr %513, align 16, !tbaa !26
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 395, ptr noundef nonnull @.str.50, i32 noundef %1, ptr noundef %514, ptr noundef nonnull @.str.49, i32 noundef 400) #22
           to label %515 unwind label %516
@@ -1232,7 +1232,7 @@ define void @_Z8pr_ilistP8_IO_FILEiPKcPKiRK15InteractionListbbPK9t_iparams(ptr n
 45:                                               ; preds = %43, %.lr.ph46.split.us.i
   %46 = add nuw nsw i32 %.04044.us.i, 1
   %47 = sext i32 %42 to i64
-  %48 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %47
+  %48 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %47
   %49 = load ptr, ptr %48, align 16, !tbaa !26
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %49)
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -1292,7 +1292,7 @@ define void @_Z8pr_ilistP8_IO_FILEiPKcPKiRK15InteractionListbbPK9t_iparams(ptr n
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %.04044.us47.i, i32 noundef %81) #20
   %86 = add nuw nsw i32 %.04044.us47.i, 1
   %87 = sext i32 %84 to i64
-  %88 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %87
+  %88 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %87
   %89 = load ptr, ptr %88, align 16, !tbaa !26
   %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %89)
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -1343,7 +1343,7 @@ define void @_Z8pr_ilistP8_IO_FILEiPKcPKiRK15InteractionListbbPK9t_iparams(ptr n
   %121 = getelementptr inbounds i32, ptr %3, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !37
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %123
+  %124 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %123
   %125 = load ptr, ptr %124, align 16, !tbaa !26
   %126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %125)
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -1428,7 +1428,7 @@ define void @_Z7pr_idefP8_IO_FILEiPKcPK6t_idefbb(ptr noundef %0, i32 noundef %1,
   %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv54
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %26
   %28 = load ptr, ptr %27, align 16, !tbaa !26
   %29 = trunc nuw nsw i64 %indvars.iv54 to i32
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.62, i32 noundef %29, ptr noundef %28) #20
@@ -1455,10 +1455,10 @@ define void @_Z7pr_idefP8_IO_FILEiPKcPK6t_idefbb(ptr noundef %0, i32 noundef %1,
 
 .split.us:                                        ; preds = %._crit_edge, %_ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %_ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us ], [ 0, %._crit_edge ]
-  %44 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv60, i32 1
+  %44 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv60, i32 1
   %45 = load ptr, ptr %44, align 8, !tbaa !49
   %46 = load ptr, ptr %41, align 8, !tbaa !45
-  %47 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %42, i64 0, i64 %indvars.iv60
+  %47 = getelementptr inbounds nuw %struct.t_ilist, ptr %42, i64 %indvars.iv60
   %48 = load ptr, ptr %43, align 8, !tbaa !46
   %49 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %9, ptr noundef %45)
   %50 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %49)
@@ -1491,7 +1491,7 @@ define void @_Z7pr_idefP8_IO_FILEiPKcPK6t_idefbb(ptr noundef %0, i32 noundef %1,
   %68 = getelementptr inbounds i32, ptr %46, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !37
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %70
+  %71 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %70
   %72 = load ptr, ptr %71, align 16, !tbaa !26
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %72)
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -1542,7 +1542,7 @@ define void @_Z7pr_idefP8_IO_FILEiPKcPK6t_idefbb(ptr noundef %0, i32 noundef %1,
   %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %.04044.us.us.i.us, i32 noundef %98) #20
   %103 = add nuw nsw i32 %.04044.us.us.i.us, 1
   %104 = sext i32 %101 to i64
-  %105 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %104
+  %105 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %104
   %106 = load ptr, ptr %105, align 16, !tbaa !26
   %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %106)
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -1591,7 +1591,7 @@ _ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us: ; preds =
   %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4, !tbaa !37
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %132
+  %133 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %132
   %134 = load ptr, ptr %133, align 16, !tbaa !26
   %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.62, i32 noundef -1, ptr noundef %134) #20
   %136 = load ptr, ptr %20, align 8, !tbaa !45
@@ -1608,10 +1608,10 @@ _ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us: ; preds =
 
 .split:                                           ; preds = %._crit_edge, %_ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit ], [ 0, %._crit_edge ]
-  %144 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv57, i32 1
+  %144 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv57, i32 1
   %145 = load ptr, ptr %144, align 8, !tbaa !49
   %146 = load ptr, ptr %41, align 8, !tbaa !45
-  %147 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %42, i64 0, i64 %indvars.iv57
+  %147 = getelementptr inbounds nuw %struct.t_ilist, ptr %42, i64 %indvars.iv57
   %148 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %9, ptr noundef %145)
   %149 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %148)
   %150 = load i32, ptr %147, align 8, !tbaa !50
@@ -1646,7 +1646,7 @@ _ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us: ; preds =
   %169 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %.04044.us47.i, i32 noundef %165) #20
   %170 = add nuw nsw i32 %.04044.us47.i, 1
   %171 = sext i32 %168 to i64
-  %172 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %171
+  %172 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %171
   %173 = load ptr, ptr %172, align 16, !tbaa !26
   %174 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %173)
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -1691,7 +1691,7 @@ _ZL10printIlistI7t_ilistEvP8_IO_FILEiPKcPKiRKT_bbPK9t_iparams.exit.us: ; preds =
   %199 = getelementptr inbounds i32, ptr %146, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !37
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %201
+  %202 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %201
   %203 = load ptr, ptr %202, align 16, !tbaa !26
   %204 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %203)
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
@@ -1751,7 +1751,7 @@ define void @_Z9init_idefP6t_idef(ptr noundef writeonly captures(none) initializ
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_ilist, ptr %3, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %7, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2123,7 +2123,7 @@ define void @_Z9done_idefP6t_idef(ptr noundef captures(none) %0) local_unnamed_a
 
 12:                                               ; preds = %12, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [95 x %struct.t_ilist], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %struct.t_ilist, ptr %10, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %14, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16

@@ -207,7 +207,7 @@ define void @dt_thumbtable_set_overlays_mode(ptr noundef captures(address_is_nul
 
 switch.lookup:                                    ; preds = %12
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_thumbs_get_overlays_class.exit
 
@@ -219,7 +219,7 @@ _thumbs_get_overlays_class.exit:                  ; preds = %12, %switch.lookup
 
 switch.lookup61:                                  ; preds = %_thumbs_get_overlays_class.exit
   %21 = zext nneg i32 %1 to i64
-  %switch.gep62 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 0, i64 %21
+  %switch.gep62 = getelementptr inbounds nuw ptr, ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %21
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   br label %_thumbs_get_overlays_class.exit54
 

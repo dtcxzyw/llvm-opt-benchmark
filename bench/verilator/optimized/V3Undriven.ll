@@ -907,7 +907,7 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN12VNUser2InUseD2
 .preheader20:                                     ; preds = %.preheader20.preheader, %._crit_edge
   %exitcond.not = phi i1 [ true, %._crit_edge ], [ false, %.preheader20.preheader ]
   %indvars.iv = phi i64 [ 2, %._crit_edge ], [ 1, %.preheader20.preheader ]
-  %24 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %2, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"class.std::vector", ptr %2, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !65
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !65
@@ -5676,7 +5676,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15UndrivenVisitor9getEntrypEP6AstV
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %"class.std::vector", ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !229
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16

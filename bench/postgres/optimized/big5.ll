@@ -24,14 +24,14 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 
 .preheader:                                       ; preds = %2, %4
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %4 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42
+  %5 = getelementptr inbounds nuw [2 x i16], ptr @b1c4, i64 %indvars.iv42
   %6 = load i16, ptr %5, align 4
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %.preheader
   store i8 -9, ptr %1, align 1
-  %9 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv42, i64 1
+  %9 = getelementptr inbounds nuw [2 x i16], ptr @b1c4, i64 %indvars.iv42, i64 1
   %10 = load i16, ptr %9, align 2
   %11 = or i16 %10, -32640
   br label %29
@@ -52,14 +52,14 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 
 .preheader32:                                     ; preds = %14, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %14 ]
-  %17 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv
   %18 = load i16, ptr %17, align 4
   %19 = icmp eq i16 %18, %0
   br i1 %19, label %20, label %16
 
 20:                                               ; preds = %.preheader32
   store i8 -10, ptr %1, align 1
-  %21 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv, i64 1
+  %21 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv, i64 1
   %22 = load i16, ptr %21, align 2
   %23 = or i16 %22, -32640
   br label %29
@@ -211,7 +211,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %8 ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw [7 x [2 x i16]], ptr @b2c3, i64 0, i64 %indvars.iv30
+  %9 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv30
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = icmp eq i16 %11, %3
@@ -228,7 +228,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 
 .preheader20:                                     ; preds = %2, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %2 ]
-  %16 = getelementptr inbounds nuw [4 x [2 x i16]], ptr @b1c4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i16], ptr @b1c4, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, %3

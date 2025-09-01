@@ -186,10 +186,10 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %54 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %.0102
   br label %55
 
-55:                                               ; preds = %.lr.ph140, %172
-  %.099139 = phi ptr [ null, %.lr.ph140 ], [ %.1100, %172 ]
-  %.0103138 = phi i32 [ 0, %.lr.ph140 ], [ %66, %172 ]
-  %.0104137 = phi double [ %51, %.lr.ph140 ], [ %.1105, %172 ]
+55:                                               ; preds = %.lr.ph140, %168
+  %.099139 = phi ptr [ null, %.lr.ph140 ], [ %.1100, %168 ]
+  %.0103138 = phi i32 [ 0, %.lr.ph140 ], [ %66, %168 ]
+  %.0104137 = phi double [ %51, %.lr.ph140 ], [ %.1105, %168 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !51
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #13
   %58 = load ptr, ptr %3, align 8, !tbaa !51
@@ -235,14 +235,14 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %88 = and i32 %87, 2
   %.not115 = icmp eq i32 %88, 0
-  br i1 %.not115, label %172, label %89
+  br i1 %.not115, label %168, label %89
 
 89:                                               ; preds = %86
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef %63, i32 noundef %57) #13
-  br label %172
+  br label %168
 
 90:                                               ; preds = %84
-  br i1 %.not, label %125, label %91
+  br i1 %.not, label %121, label %91
 
 91:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -256,190 +256,186 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %172
+  br label %168
 
 96:                                               ; preds = %91
-  %97 = add nsw i64 %93, 1
-  %98 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %93
-  store i8 46, ptr %98, align 1, !tbaa !56
-  %99 = add nsw i64 %93, 2
-  %100 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %97
-  store i8 120, ptr %100, align 1, !tbaa !56
-  %101 = add nsw i64 %93, 3
-  %102 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %99
-  store i8 109, ptr %102, align 1, !tbaa !56
-  %103 = add nsw i64 %93, 4
-  %104 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %101
-  store i8 112, ptr %104, align 1, !tbaa !56
-  %105 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %103
-  store i8 0, ptr %105, align 1, !tbaa !56
-  %106 = call ptr @dt_util_normalize_path(ptr noundef nonnull %5) #13
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 %93
+  store i8 46, ptr %97, align 1, !tbaa !56
+  %98 = getelementptr i8, ptr %97, i64 1
+  store i8 120, ptr %98, align 1, !tbaa !56
+  %99 = getelementptr i8, ptr %97, i64 2
+  store i8 109, ptr %99, align 1, !tbaa !56
+  %100 = getelementptr i8, ptr %97, i64 3
+  store i8 112, ptr %100, align 1, !tbaa !56
+  %101 = getelementptr i8, ptr %97, i64 4
+  store i8 0, ptr %101, align 1, !tbaa !56
+  %102 = call ptr @dt_util_normalize_path(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %107 = call i32 @stat(ptr noundef %106, ptr noundef nonnull %6) #13
-  call void @g_free(ptr noundef %106) #13
-  %.not116 = icmp eq i32 %107, 0
-  br i1 %.not116, label %108, label %124
+  %103 = call i32 @stat(ptr noundef %102, ptr noundef nonnull %6) #13
+  call void @g_free(ptr noundef %102) #13
+  %.not116 = icmp eq i32 %103, 0
+  br i1 %.not116, label %104, label %120
 
-108:                                              ; preds = %96
-  %109 = add nsw i64 %59, 2
-  %110 = load i64, ptr %53, align 8, !tbaa !57
-  %111 = icmp slt i64 %109, %110
-  br i1 %111, label %112, label %.thread127
+104:                                              ; preds = %96
+  %105 = add nsw i64 %59, 2
+  %106 = load i64, ptr %53, align 8, !tbaa !57
+  %107 = icmp slt i64 %105, %106
+  br i1 %107, label %108, label %.thread127
 
-112:                                              ; preds = %108
-  %113 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
-  store i32 %57, ptr %113, align 8, !tbaa !60
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store i64 %110, ptr %114, align 8, !tbaa !62
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store i64 %59, ptr %115, align 8, !tbaa !63
-  %116 = call noalias ptr @g_strdup(ptr noundef %63) #13
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store ptr %116, ptr %117, align 8, !tbaa !64
-  %118 = call noalias ptr @g_strdup(ptr noundef nonnull %5) #13
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  store ptr %118, ptr %119, align 8, !tbaa !65
-  %120 = call ptr @g_list_prepend(ptr noundef %.099139, ptr noundef nonnull %113) #13
-  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
-  %122 = and i32 %121, 2
-  %.not117 = icmp eq i32 %122, 0
-  br i1 %.not117, label %.thread127, label %123
+108:                                              ; preds = %104
+  %109 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  store i32 %57, ptr %109, align 8, !tbaa !60
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store i64 %106, ptr %110, align 8, !tbaa !62
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store i64 %59, ptr %111, align 8, !tbaa !63
+  %112 = call noalias ptr @g_strdup(ptr noundef %63) #13
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  store ptr %112, ptr %113, align 8, !tbaa !64
+  %114 = call noalias ptr @g_strdup(ptr noundef nonnull %5) #13
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 32
+  store ptr %114, ptr %115, align 8, !tbaa !65
+  %116 = call ptr @g_list_prepend(ptr noundef %.099139, ptr noundef nonnull %109) #13
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
+  %118 = and i32 %117, 2
+  %.not117 = icmp eq i32 %118, 0
+  br i1 %.not117, label %.thread127, label %119
 
-123:                                              ; preds = %112
+119:                                              ; preds = %108
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull %5, i32 noundef %57) #13
   br label %.thread127
 
-.thread127:                                       ; preds = %112, %123, %108
-  %.4.ph = phi ptr [ %120, %112 ], [ %120, %123 ], [ %.099139, %108 ]
+.thread127:                                       ; preds = %108, %119, %104
+  %.4.ph = phi ptr [ %116, %108 ], [ %116, %119 ], [ %.099139, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %125
+  br label %121
 
-124:                                              ; preds = %96
+120:                                              ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %172
+  br label %168
 
-125:                                              ; preds = %.thread127, %90
+121:                                              ; preds = %.thread127, %90
   %.2 = phi ptr [ %.099139, %90 ], [ %.4.ph, %.thread127 ]
-  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #15
-  %127 = getelementptr inbounds nuw i8, ptr %63, i64 %126
-  %.not142 = icmp eq i64 %126, 0
+  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #15
+  %123 = getelementptr inbounds nuw i8, ptr %63, i64 %122
+  %.not142 = icmp eq i64 %122, 0
   br i1 %.not142, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %125, %129
-  %.0101134 = phi ptr [ %130, %129 ], [ %127, %125 ]
-  %128 = load i8, ptr %.0101134, align 1, !tbaa !56
-  %.not118 = icmp eq i8 %128, 46
-  br i1 %.not118, label %.critedge, label %129
+.lr.ph:                                           ; preds = %121, %125
+  %.0101134 = phi ptr [ %126, %125 ], [ %123, %121 ]
+  %124 = load i8, ptr %.0101134, align 1, !tbaa !56
+  %.not118 = icmp eq i8 %124, 46
+  br i1 %.not118, label %.critedge, label %125
 
-129:                                              ; preds = %.lr.ph
-  %130 = getelementptr inbounds i8, ptr %.0101134, i64 -1
-  %131 = icmp ugt ptr %130, %63
-  br i1 %131, label %.lr.ph, label %.critedge
+125:                                              ; preds = %.lr.ph
+  %126 = getelementptr inbounds i8, ptr %.0101134, i64 -1
+  %127 = icmp ugt ptr %126, %63
+  br i1 %127, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %129, %125
-  %.0101.lcssa = phi ptr [ %127, %125 ], [ %130, %129 ], [ %.0101134, %.lr.ph ]
-  %132 = ptrtoint ptr %.0101.lcssa to i64
-  %133 = ptrtoint ptr %63 to i64
-  %134 = sub i64 %132, %133
-  %135 = add i64 %134, 5
-  %136 = call noalias ptr @calloc(i64 noundef %135, i64 noundef 1) #17
-  %.not119 = icmp eq ptr %136, null
-  br i1 %.not119, label %172, label %137
+.critedge:                                        ; preds = %.lr.ph, %125, %121
+  %.0101.lcssa = phi ptr [ %123, %121 ], [ %126, %125 ], [ %.0101134, %.lr.ph ]
+  %128 = ptrtoint ptr %.0101.lcssa to i64
+  %129 = ptrtoint ptr %63 to i64
+  %130 = sub i64 %128, %129
+  %131 = add i64 %130, 5
+  %132 = call noalias ptr @calloc(i64 noundef %131, i64 noundef 1) #17
+  %.not119 = icmp eq ptr %132, null
+  br i1 %.not119, label %168, label %133
 
-137:                                              ; preds = %.critedge
-  %138 = add i64 %134, 2
-  %139 = call i64 @g_strlcpy(ptr noundef nonnull %136, ptr noundef nonnull %63, i64 noundef %138) #13
-  %140 = getelementptr i8, ptr %136, i64 %134
-  %141 = getelementptr i8, ptr %140, i64 1
-  store i8 116, ptr %141, align 1, !tbaa !56
-  %142 = getelementptr inbounds nuw i8, ptr %136, i64 %138
-  store i8 120, ptr %142, align 1, !tbaa !56
-  %143 = getelementptr i8, ptr %140, i64 3
-  store i8 116, ptr %143, align 1, !tbaa !56
-  %144 = call i32 @g_file_test(ptr noundef nonnull %136, i32 noundef 16) #13
-  %.not120 = icmp eq i32 %144, 0
-  br i1 %.not120, label %145, label %149
+133:                                              ; preds = %.critedge
+  %134 = add i64 %130, 2
+  %135 = call i64 @g_strlcpy(ptr noundef nonnull %132, ptr noundef nonnull %63, i64 noundef %134) #13
+  %136 = getelementptr i8, ptr %132, i64 %130
+  %137 = getelementptr i8, ptr %136, i64 1
+  store i8 116, ptr %137, align 1, !tbaa !56
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 %134
+  store i8 120, ptr %138, align 1, !tbaa !56
+  %139 = getelementptr i8, ptr %136, i64 3
+  store i8 116, ptr %139, align 1, !tbaa !56
+  %140 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %.not120 = icmp eq i32 %140, 0
+  br i1 %.not120, label %141, label %145
 
-145:                                              ; preds = %137
-  store i8 84, ptr %141, align 1, !tbaa !56
-  store i8 88, ptr %142, align 1, !tbaa !56
-  store i8 84, ptr %143, align 1, !tbaa !56
-  %146 = call i32 @g_file_test(ptr noundef nonnull %136, i32 noundef 16) #13
-  %147 = icmp eq i32 %146, 0
-  %148 = select i1 %147, i32 0, i32 4096
-  br label %149
+141:                                              ; preds = %133
+  store i8 84, ptr %137, align 1, !tbaa !56
+  store i8 88, ptr %138, align 1, !tbaa !56
+  store i8 84, ptr %139, align 1, !tbaa !56
+  %142 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %143 = icmp eq i32 %142, 0
+  %144 = select i1 %143, i32 0, i32 4096
+  br label %145
 
-149:                                              ; preds = %145, %137
-  %.098 = phi i32 [ 4096, %137 ], [ %148, %145 ]
-  store i8 119, ptr %141, align 1, !tbaa !56
-  store i8 97, ptr %142, align 1, !tbaa !56
-  store i8 118, ptr %143, align 1, !tbaa !56
-  %150 = call i32 @g_file_test(ptr noundef nonnull %136, i32 noundef 16) #13
-  %.not121 = icmp eq i32 %150, 0
-  br i1 %.not121, label %153, label %.thread129
+145:                                              ; preds = %141, %133
+  %.098 = phi i32 [ 4096, %133 ], [ %144, %141 ]
+  store i8 119, ptr %137, align 1, !tbaa !56
+  store i8 97, ptr %138, align 1, !tbaa !56
+  store i8 118, ptr %139, align 1, !tbaa !56
+  %146 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %.not121 = icmp eq i32 %146, 0
+  br i1 %.not121, label %149, label %.thread129
 
-.thread129:                                       ; preds = %149
-  %151 = and i32 %65, -12289
-  %.0131 = or disjoint i32 %151, %.098
-  %152 = or disjoint i32 %.0131, 8192
-  br label %158
+.thread129:                                       ; preds = %145
+  %147 = and i32 %65, -12289
+  %.0131 = or disjoint i32 %147, %.098
+  %148 = or disjoint i32 %.0131, 8192
+  br label %154
 
-153:                                              ; preds = %149
-  store i8 87, ptr %141, align 1, !tbaa !56
-  store i8 65, ptr %142, align 1, !tbaa !56
-  store i8 86, ptr %143, align 1, !tbaa !56
-  %154 = call i32 @g_file_test(ptr noundef nonnull %136, i32 noundef 16) #13
-  %.fr = freeze i32 %154
-  %155 = icmp eq i32 %.fr, 0
-  %156 = and i32 %65, -12289
-  %masksel = select i1 %155, i32 0, i32 8192
-  %157 = or disjoint i32 %156, %masksel
-  %spec.select = or disjoint i32 %157, %.098
-  br label %158
+149:                                              ; preds = %145
+  store i8 87, ptr %137, align 1, !tbaa !56
+  store i8 65, ptr %138, align 1, !tbaa !56
+  store i8 86, ptr %139, align 1, !tbaa !56
+  %150 = call i32 @g_file_test(ptr noundef nonnull %132, i32 noundef 16) #13
+  %.fr = freeze i32 %150
+  %151 = icmp eq i32 %.fr, 0
+  %152 = and i32 %65, -12289
+  %masksel = select i1 %151, i32 0, i32 8192
+  %153 = or disjoint i32 %152, %masksel
+  %spec.select = or disjoint i32 %153, %.098
+  br label %154
 
-158:                                              ; preds = %153, %.thread129
-  %159 = phi i32 [ %152, %.thread129 ], [ %spec.select, %153 ]
-  %.not124 = icmp eq i32 %65, %159
-  br i1 %.not124, label %171, label %160
+154:                                              ; preds = %149, %.thread129
+  %155 = phi i32 [ %148, %.thread129 ], [ %spec.select, %149 ]
+  %.not124 = icmp eq i32 %65, %155
+  br i1 %.not124, label %167, label %156
 
-160:                                              ; preds = %158
+156:                                              ; preds = %154
+  %157 = load ptr, ptr %4, align 8, !tbaa !51
+  %158 = call i32 @sqlite3_bind_int(ptr noundef %157, i32 noundef 1, i32 noundef %155) #13
+  %159 = load ptr, ptr %4, align 8, !tbaa !51
+  %160 = call i32 @sqlite3_bind_int(ptr noundef %159, i32 noundef 2, i32 noundef %57) #13
   %161 = load ptr, ptr %4, align 8, !tbaa !51
-  %162 = call i32 @sqlite3_bind_int(ptr noundef %161, i32 noundef 1, i32 noundef %159) #13
+  %162 = call i32 @sqlite3_step(ptr noundef %161) #13
   %163 = load ptr, ptr %4, align 8, !tbaa !51
-  %164 = call i32 @sqlite3_bind_int(ptr noundef %163, i32 noundef 2, i32 noundef %57) #13
+  %164 = call i32 @sqlite3_reset(ptr noundef %163) #13
   %165 = load ptr, ptr %4, align 8, !tbaa !51
-  %166 = call i32 @sqlite3_step(ptr noundef %165) #13
-  %167 = load ptr, ptr %4, align 8, !tbaa !51
-  %168 = call i32 @sqlite3_reset(ptr noundef %167) #13
-  %169 = load ptr, ptr %4, align 8, !tbaa !51
-  %170 = call i32 @sqlite3_clear_bindings(ptr noundef %169) #13
-  br label %171
+  %166 = call i32 @sqlite3_clear_bindings(ptr noundef %165) #13
+  br label %167
 
-171:                                              ; preds = %160, %158
-  call void @free(ptr noundef nonnull %136) #13
-  br label %172
+167:                                              ; preds = %156, %154
+  call void @free(ptr noundef nonnull %132) #13
+  br label %168
 
-172:                                              ; preds = %124, %.thread, %.critedge, %171, %86, %89
-  %.1100 = phi ptr [ %.099139, %124 ], [ %.099139, %89 ], [ %.099139, %86 ], [ %.2, %171 ], [ %.2, %.critedge ], [ %.099139, %.thread ]
+168:                                              ; preds = %120, %.thread, %.critedge, %167, %86, %89
+  %.1100 = phi ptr [ %.099139, %120 ], [ %.099139, %89 ], [ %.099139, %86 ], [ %.2, %167 ], [ %.2, %.critedge ], [ %.099139, %.thread ]
+  %169 = load ptr, ptr %3, align 8, !tbaa !51
+  %170 = call i32 @sqlite3_step(ptr noundef %169) #13
+  %171 = icmp eq i32 %170, 100
+  br i1 %171, label %55, label %._crit_edge
+
+._crit_edge:                                      ; preds = %168, %31
+  %.099.lcssa = phi ptr [ null, %31 ], [ %.1100, %168 ]
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
+  call void @dt_database_release_transaction(ptr noundef %172) #13
   %173 = load ptr, ptr %3, align 8, !tbaa !51
-  %174 = call i32 @sqlite3_step(ptr noundef %173) #13
-  %175 = icmp eq i32 %174, 100
-  br i1 %175, label %55, label %._crit_edge
-
-._crit_edge:                                      ; preds = %172, %31
-  %.099.lcssa = phi ptr [ null, %31 ], [ %.1100, %172 ]
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !48
-  call void @dt_database_release_transaction(ptr noundef %176) #13
-  %177 = load ptr, ptr %3, align 8, !tbaa !51
-  %178 = call i32 @sqlite3_finalize(ptr noundef %177) #13
-  %179 = load ptr, ptr %4, align 8, !tbaa !51
-  %180 = call i32 @sqlite3_finalize(ptr noundef %179) #13
-  %181 = call ptr @g_list_reverse(ptr noundef %.099.lcssa) #13
+  %174 = call i32 @sqlite3_finalize(ptr noundef %173) #13
+  %175 = load ptr, ptr %4, align 8, !tbaa !51
+  %176 = call i32 @sqlite3_finalize(ptr noundef %175) #13
+  %177 = call ptr @g_list_reverse(ptr noundef %.099.lcssa) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %181
+  ret ptr %177
 }
 
 declare i32 @dt_image_get_xmp_mode(...) local_unnamed_addr #1

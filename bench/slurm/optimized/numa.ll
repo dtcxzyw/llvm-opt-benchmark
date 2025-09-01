@@ -107,7 +107,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %nodemask_isset_comp
   %.03386.i = phi ptr [ null, %27 ], [ %spec.select45.i, %nodemask_isset_compat.exit.i ]
   %.03685.i = phi ptr [ %3, %27 ], [ %55, %nodemask_isset_compat.exit.i ]
   %32 = lshr i64 %indvars.iv.i, 6
-  %33 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %indvars.iv.i, 60
   %36 = shl nuw nsw i64 1, %35
@@ -247,7 +247,7 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
   %49 = and i64 %48, 63
   %50 = shl nuw i64 1, %49
   %51 = lshr i64 %48, 6
-  %52 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %53, %50
   store i64 %54, ptr %52, align 8
@@ -454,7 +454,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %125 = and i64 %indvars.iv.i, 60
   %126 = shl nuw nsw i64 1, %125
   %127 = lshr i64 %indvars.iv.i, 6
-  %128 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw i64, ptr %0, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = or i64 %129, %126
   store i64 %130, ptr %128, align 8
@@ -467,7 +467,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %133 = and i64 %indvars.iv.i, 60
   %134 = shl nuw nsw i64 2, %133
   %135 = lshr i64 %indvars.iv.i, 6
-  %136 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw i64, ptr %0, i64 %135
   %137 = load i64, ptr %136, align 8
   %138 = or i64 %137, %134
   store i64 %138, ptr %136, align 8
@@ -481,7 +481,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %141 = and i64 %114, 62
   %142 = shl nuw nsw i64 1, %141
   %143 = lshr i64 %indvars.iv.i, 6
-  %144 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i64, ptr %0, i64 %143
   %145 = load i64, ptr %144, align 8
   %146 = or i64 %145, %142
   store i64 %146, ptr %144, align 8
@@ -495,7 +495,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %149 = and i64 %118, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %indvars.iv.i, 6
-  %152 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %0, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = or i64 %153, %150
   store i64 %154, ptr %152, align 8
@@ -606,7 +606,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   %197 = and i64 %.0, 63
   %198 = shl nuw i64 1, %197
   %199 = lshr i64 %.0, 6
-  %200 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i64, ptr %0, i64 %199
   %201 = load i64, ptr %200, align 8
   %202 = or i64 %201, %198
   store i64 %202, ptr %200, align 8

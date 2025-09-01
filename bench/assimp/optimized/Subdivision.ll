@@ -1047,7 +1047,7 @@ _ZNSt6vectorIN6Assimp6VertexESaIS1_EEC2EmRKS2_.exit: ; preds = %.noexc420, %64
 
 215:                                              ; preds = %215, %._crit_edge1265
   %indvars.iv.i.i.i = phi i64 [ 0, %._crit_edge1265 ], [ %indvars.iv.next.i.i.i, %215 ]
-  %216 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %213, i64 0, i64 %indvars.iv.i.i.i
+  %216 = getelementptr inbounds nuw %class.aiVector3t, ptr %213, i64 %indvars.iv.i.i.i
   %217 = load float, ptr %216, align 4, !noalias !17
   %218 = fmul float %177, %217
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 4
@@ -1058,7 +1058,7 @@ _ZNSt6vectorIN6Assimp6VertexESaIS1_EEC2EmRKS2_.exit: ; preds = %.noexc420, %64
   %224 = fmul float %177, %223
   %.sroa.0.0.vec.insert.i.i53.i.i.i = insertelement <2 x float> poison, float %218, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i.i, float %221, i64 1
-  %225 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %86, i64 0, i64 %indvars.iv.i.i.i
+  %225 = getelementptr inbounds nuw %class.aiVector3t, ptr %86, i64 %indvars.iv.i.i.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i.i, ptr %225, align 4, !alias.scope !17
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %225, i64 8
   store float %224, ptr %.sroa.46.0..sroa_idx.i.i.i, align 4, !alias.scope !17
@@ -1068,7 +1068,7 @@ _ZNSt6vectorIN6Assimp6VertexESaIS1_EEC2EmRKS2_.exit: ; preds = %.noexc420, %64
 
 226:                                              ; preds = %226, %.preheader.i.i.i
   %indvars.iv74.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next75.i.i.i, %226 ]
-  %227 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %214, i64 0, i64 %indvars.iv74.i.i.i
+  %227 = getelementptr inbounds nuw %class.aiColor4t, ptr %214, i64 %indvars.iv74.i.i.i
   %228 = load float, ptr %227, align 4, !noalias !17
   %229 = fmul float %177, %228
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 4
@@ -1084,7 +1084,7 @@ _ZNSt6vectorIN6Assimp6VertexESaIS1_EEC2EmRKS2_.exit: ; preds = %.noexc420, %64
   %.sroa.0.4.vec.insert.i.i58.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i.i, float %232, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %235, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i.i, float %238, i64 1
-  %239 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %90, i64 0, i64 %indvars.iv74.i.i.i
+  %239 = getelementptr inbounds nuw %class.aiColor4t, ptr %90, i64 %indvars.iv74.i.i.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i.i, ptr %239, align 8, !alias.scope !17
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %239, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !17
@@ -1144,14 +1144,14 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i.split: ; preds = %_ZNK6aiMesh24
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i.split.preheader, %260
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %260 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i.split.preheader ]
-  %258 = getelementptr inbounds nuw [8 x ptr], ptr %154, i64 0, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i
   %259 = load ptr, ptr %258, align 8
   %.not.i33.i.not = icmp eq ptr %259, null
   br i1 %.not.i33.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i.split, label %260
 
 260:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i.split
   %261 = getelementptr inbounds nuw %class.aiVector3t, ptr %259, i64 %245
-  %262 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i, i64 0, i64 %indvars.iv.i
+  %262 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %262, ptr noundef nonnull align 4 dereferenceable(12) %261, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -1159,14 +1159,14 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i.split: ; preds = %_ZNK6aiM
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i:            ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i.split, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i.split ]
-  %263 = getelementptr inbounds nuw [8 x ptr], ptr %155, i64 0, i64 %indvars.iv40.i
+  %263 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv40.i
   %264 = load ptr, ptr %263, align 8
   %.not.i34.i.not = icmp eq ptr %264, null
   br i1 %.not.i34.i.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit.split, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i
   %265 = getelementptr inbounds nuw %class.aiColor4t, ptr %264, i64 %245
-  %266 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i, i64 0, i64 %indvars.iv40.i
+  %266 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i, i64 %indvars.iv40.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %266, ptr noundef nonnull align 4 dereferenceable(16) %265, i64 16, i1 false)
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.i = icmp eq i64 %indvars.iv.next41.i, 8
@@ -1232,8 +1232,8 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit.split:        ; preds = %_ZNK6aiMesh15HasVer
 
 303:                                              ; preds = %303, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit.split
   %indvars.iv.i822 = phi i64 [ 0, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit.split ], [ %indvars.iv.next.i823, %303 ]
-  %304 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %174, i64 0, i64 %indvars.iv.i822
-  %305 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i, i64 0, i64 %indvars.iv.i822
+  %304 = getelementptr inbounds nuw %class.aiVector3t, ptr %174, i64 %indvars.iv.i822
+  %305 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i, i64 %indvars.iv.i822
   %306 = load float, ptr %304, align 4, !noalias !22
   %307 = load float, ptr %305, align 4, !noalias !22
   %308 = fadd float %306, %307
@@ -1249,7 +1249,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit.split:        ; preds = %_ZNK6aiMesh15HasVer
   %318 = fadd float %315, %317
   %.sroa.0.0.vec.insert.i.i61.i = insertelement <2 x float> poison, float %308, i64 0
   %.sroa.0.4.vec.insert.i.i62.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i, float %313, i64 1
-  %319 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %73, i64 0, i64 %indvars.iv.i822
+  %319 = getelementptr inbounds nuw %class.aiVector3t, ptr %73, i64 %indvars.iv.i822
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i, ptr %319, align 4, !alias.scope !22
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %319, i64 8
   store float %318, ptr %.sroa.47.0..sroa_idx.i, align 4, !alias.scope !22
@@ -1259,8 +1259,8 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit.split:        ; preds = %_ZNK6aiMesh15HasVer
 
 .preheader.i:                                     ; preds = %303, %.preheader.i
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %.preheader.i ], [ 0, %303 ]
-  %320 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %175, i64 0, i64 %indvars.iv77.i
-  %321 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i, i64 0, i64 %indvars.iv77.i
+  %320 = getelementptr inbounds nuw %class.aiColor4t, ptr %175, i64 %indvars.iv77.i
+  %321 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i, i64 %indvars.iv77.i
   %322 = load float, ptr %320, align 4, !noalias !22
   %323 = load float, ptr %321, align 4, !noalias !22
   %324 = fadd float %322, %323
@@ -1283,7 +1283,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit.split:        ; preds = %_ZNK6aiMesh15HasVer
   %.sroa.0.4.vec.insert.i.i66.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i, float %329, i64 1
   %.sroa.3.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %334, i64 0
   %.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i, float %339, i64 1
-  %340 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %85, i64 0, i64 %indvars.iv77.i
+  %340 = getelementptr inbounds nuw %class.aiColor4t, ptr %85, i64 %indvars.iv77.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i, ptr %340, align 8, !alias.scope !22
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %340, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !22
@@ -1530,14 +1530,14 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i435.split: ; preds = %_ZNK6aiMes
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i432.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i432.split.preheader, %453
   %indvars.iv.i433 = phi i64 [ %indvars.iv.next.i442, %453 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i432.split.preheader ]
-  %451 = getelementptr inbounds nuw [8 x ptr], ptr %370, i64 0, i64 %indvars.iv.i433
+  %451 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i433
   %452 = load ptr, ptr %451, align 8
   %.not.i33.i434.not = icmp eq ptr %452, null
   br i1 %.not.i33.i434.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i435.split, label %453
 
 453:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i432.split
   %454 = getelementptr inbounds nuw %class.aiVector3t, ptr %452, i64 %438
-  %455 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i424, i64 0, i64 %indvars.iv.i433
+  %455 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i424, i64 %indvars.iv.i433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %455, ptr noundef nonnull align 4 dereferenceable(12) %454, i64 12, i1 false)
   %indvars.iv.next.i442 = add nuw nsw i64 %indvars.iv.i433, 1
   %exitcond.i443 = icmp eq i64 %indvars.iv.next.i442, 8
@@ -1545,14 +1545,14 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i432.split: ; preds = %_ZNK6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i436:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i435.split, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i439
   %indvars.iv40.i437 = phi i64 [ %indvars.iv.next41.i440, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i439 ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i435.split ]
-  %456 = getelementptr inbounds nuw [8 x ptr], ptr %371, i64 0, i64 %indvars.iv40.i437
+  %456 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv40.i437
   %457 = load ptr, ptr %456, align 8
   %.not.i34.i438.not = icmp eq ptr %457, null
   br i1 %.not.i34.i438.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit444.split, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i439
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i439:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i436
   %458 = getelementptr inbounds nuw %class.aiColor4t, ptr %457, i64 %438
-  %459 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i425, i64 0, i64 %indvars.iv40.i437
+  %459 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i425, i64 %indvars.iv40.i437
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %459, ptr noundef nonnull align 4 dereferenceable(16) %458, i64 16, i1 false)
   %indvars.iv.next41.i440 = add nuw nsw i64 %indvars.iv40.i437, 1
   %exitcond43.i441 = icmp eq i64 %indvars.iv.next41.i440, 8
@@ -1595,14 +1595,14 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.split.preheader: ; pred
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.split.preheader, %471
   %indvars.iv.i454 = phi i64 [ %indvars.iv.next.i463, %471 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.split.preheader ]
-  %469 = getelementptr inbounds nuw [8 x ptr], ptr %370, i64 0, i64 %indvars.iv.i454
+  %469 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i454
   %470 = load ptr, ptr %469, align 8
   %.not.i33.i455.not = icmp eq ptr %470, null
   br i1 %.not.i33.i455.not, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i457.preheader, label %471
 
 471:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i453.split
   %472 = getelementptr inbounds nuw %class.aiVector3t, ptr %470, i64 %462
-  %473 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i445, i64 0, i64 %indvars.iv.i454
+  %473 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i445, i64 %indvars.iv.i454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %473, ptr noundef nonnull align 4 dereferenceable(12) %472, i64 12, i1 false)
   %indvars.iv.next.i463 = add nuw nsw i64 %indvars.iv.i454, 1
   %exitcond.i464 = icmp eq i64 %indvars.iv.next.i463, 8
@@ -1613,14 +1613,14 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i457.preheader: ; preds = %_ZNK6aiMesh24HasT
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i457:         ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i457.preheader, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i460
   %indvars.iv40.i458 = phi i64 [ %indvars.iv.next41.i461, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i460 ], [ 0, %_ZNK6aiMesh15HasVertexColorsEj.exit.i457.preheader ]
-  %474 = getelementptr inbounds nuw [8 x ptr], ptr %371, i64 0, i64 %indvars.iv40.i458
+  %474 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv40.i458
   %475 = load ptr, ptr %474, align 8
   %.not.i34.i459.not = icmp eq ptr %475, null
   br i1 %.not.i34.i459.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i460
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i460:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i457
   %476 = getelementptr inbounds nuw %class.aiColor4t, ptr %475, i64 %462
-  %477 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i446, i64 0, i64 %indvars.iv40.i458
+  %477 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i446, i64 %indvars.iv40.i458
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %477, ptr noundef nonnull align 4 dereferenceable(16) %476, i64 16, i1 false)
   %indvars.iv.next41.i461 = add nuw nsw i64 %indvars.iv40.i458, 1
   %exitcond43.i462 = icmp eq i64 %indvars.iv.next41.i461, 8
@@ -1685,8 +1685,8 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split:     ; preds = %_ZNK6aiMesh15HasVer
 
 514:                                              ; preds = %514, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split
   %indvars.iv.i836 = phi i64 [ 0, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split ], [ %indvars.iv.next.i840, %514 ]
-  %515 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i424, i64 0, i64 %indvars.iv.i836
-  %516 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i445, i64 0, i64 %indvars.iv.i836
+  %515 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i424, i64 %indvars.iv.i836
+  %516 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i445, i64 %indvars.iv.i836
   %517 = load float, ptr %515, align 4, !noalias !32
   %518 = load float, ptr %516, align 4, !noalias !32
   %519 = fadd float %517, %518
@@ -1702,7 +1702,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split:     ; preds = %_ZNK6aiMesh15HasVer
   %529 = fadd float %526, %528
   %.sroa.0.0.vec.insert.i.i61.i837 = insertelement <2 x float> poison, float %519, i64 0
   %.sroa.0.4.vec.insert.i.i62.i838 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i837, float %524, i64 1
-  %530 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %103, i64 0, i64 %indvars.iv.i836
+  %530 = getelementptr inbounds nuw %class.aiVector3t, ptr %103, i64 %indvars.iv.i836
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i838, ptr %530, align 4, !alias.scope !32
   %.sroa.47.0..sroa_idx.i839 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store float %529, ptr %.sroa.47.0..sroa_idx.i839, align 4, !alias.scope !32
@@ -1712,8 +1712,8 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split:     ; preds = %_ZNK6aiMesh15HasVer
 
 .preheader.i842:                                  ; preds = %514, %.preheader.i842
   %indvars.iv77.i843 = phi i64 [ %indvars.iv.next78.i849, %.preheader.i842 ], [ 0, %514 ]
-  %531 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i425, i64 0, i64 %indvars.iv77.i843
-  %532 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i446, i64 0, i64 %indvars.iv77.i843
+  %531 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i425, i64 %indvars.iv77.i843
+  %532 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i446, i64 %indvars.iv77.i843
   %533 = load float, ptr %531, align 4, !noalias !32
   %534 = load float, ptr %532, align 4, !noalias !32
   %535 = fadd float %533, %534
@@ -1736,7 +1736,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit465.split:     ; preds = %_ZNK6aiMesh15HasVer
   %.sroa.0.4.vec.insert.i.i66.i845 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i844, float %540, i64 1
   %.sroa.3.8.vec.insert.i.i.i846 = insertelement <2 x float> poison, float %545, i64 0
   %.sroa.3.12.vec.insert.i.i.i847 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i846, float %550, i64 1
-  %551 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %123, i64 0, i64 %indvars.iv77.i843
+  %551 = getelementptr inbounds nuw %class.aiColor4t, ptr %123, i64 %indvars.iv77.i843
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i845, ptr %551, align 8, !alias.scope !32
   %.sroa.4.0..sroa_idx.i848 = getelementptr inbounds nuw i8, ptr %551, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i847, ptr %.sroa.4.0..sroa_idx.i848, align 8, !alias.scope !32
@@ -1815,7 +1815,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit:               ; preds = %.preheader.i842
 
 590:                                              ; preds = %590, %_ZN6AssimpplERKNS_6VertexES2_.exit
   %indvars.iv.i.i.i479 = phi i64 [ 0, %_ZN6AssimpplERKNS_6VertexES2_.exit ], [ %indvars.iv.next.i.i.i483, %590 ]
-  %591 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %588, i64 0, i64 %indvars.iv.i.i.i479
+  %591 = getelementptr inbounds nuw %class.aiVector3t, ptr %588, i64 %indvars.iv.i.i.i479
   %592 = load float, ptr %591, align 4, !noalias !41
   %593 = fmul float %592, 5.000000e-01
   %594 = getelementptr inbounds nuw i8, ptr %591, i64 4
@@ -1826,7 +1826,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit:               ; preds = %.preheader.i842
   %599 = fmul float %598, 5.000000e-01
   %.sroa.0.0.vec.insert.i.i53.i.i.i480 = insertelement <2 x float> poison, float %593, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i.i481 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i.i480, float %596, i64 1
-  %600 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %124, i64 0, i64 %indvars.iv.i.i.i479
+  %600 = getelementptr inbounds nuw %class.aiVector3t, ptr %124, i64 %indvars.iv.i.i.i479
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i.i481, ptr %600, align 4, !alias.scope !41
   %.sroa.46.0..sroa_idx.i.i.i482 = getelementptr inbounds nuw i8, ptr %600, i64 8
   store float %599, ptr %.sroa.46.0..sroa_idx.i.i.i482, align 4, !alias.scope !41
@@ -1836,7 +1836,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit:               ; preds = %.preheader.i842
 
 601:                                              ; preds = %601, %.preheader.i.i.i485
   %indvars.iv74.i.i.i486 = phi i64 [ 0, %.preheader.i.i.i485 ], [ %indvars.iv.next75.i.i.i492, %601 ]
-  %602 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %589, i64 0, i64 %indvars.iv74.i.i.i486
+  %602 = getelementptr inbounds nuw %class.aiColor4t, ptr %589, i64 %indvars.iv74.i.i.i486
   %603 = load float, ptr %602, align 4, !noalias !41
   %604 = fmul float %603, 5.000000e-01
   %605 = getelementptr inbounds nuw i8, ptr %602, i64 4
@@ -1852,7 +1852,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit:               ; preds = %.preheader.i842
   %.sroa.0.4.vec.insert.i.i58.i.i.i488 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i.i487, float %607, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i.i489 = insertelement <2 x float> poison, float %610, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i.i490 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i.i489, float %613, i64 1
-  %614 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %128, i64 0, i64 %indvars.iv74.i.i.i486
+  %614 = getelementptr inbounds nuw %class.aiColor4t, ptr %128, i64 %indvars.iv74.i.i.i486
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i.i488, ptr %614, align 8, !alias.scope !41
   %.sroa.4.0..sroa_idx.i.i.i491 = getelementptr inbounds nuw i8, ptr %614, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i.i490, ptr %.sroa.4.0..sroa_idx.i.i.i491, align 8, !alias.scope !41
@@ -1963,8 +1963,8 @@ _ZN6Assimp6VertexmLEf.exit:                       ; preds = %601
 
 684:                                              ; preds = %684, %617
   %indvars.iv.i864 = phi i64 [ 0, %617 ], [ %indvars.iv.next.i868, %684 ]
-  %685 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %680, i64 0, i64 %indvars.iv.i864
-  %686 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %681, i64 0, i64 %indvars.iv.i864
+  %685 = getelementptr inbounds nuw %class.aiVector3t, ptr %680, i64 %indvars.iv.i864
+  %686 = getelementptr inbounds nuw %class.aiVector3t, ptr %681, i64 %indvars.iv.i864
   %687 = load float, ptr %685, align 4, !noalias !42
   %688 = load float, ptr %686, align 4, !noalias !42
   %689 = fadd float %687, %688
@@ -1980,7 +1980,7 @@ _ZN6Assimp6VertexmLEf.exit:                       ; preds = %601
   %699 = fadd float %696, %698
   %.sroa.0.0.vec.insert.i.i61.i865 = insertelement <2 x float> poison, float %689, i64 0
   %.sroa.0.4.vec.insert.i.i62.i866 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i865, float %694, i64 1
-  %700 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %129, i64 0, i64 %indvars.iv.i864
+  %700 = getelementptr inbounds nuw %class.aiVector3t, ptr %129, i64 %indvars.iv.i864
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i866, ptr %700, align 4, !alias.scope !42
   %.sroa.47.0..sroa_idx.i867 = getelementptr inbounds nuw i8, ptr %700, i64 8
   store float %699, ptr %.sroa.47.0..sroa_idx.i867, align 4, !alias.scope !42
@@ -1990,8 +1990,8 @@ _ZN6Assimp6VertexmLEf.exit:                       ; preds = %601
 
 701:                                              ; preds = %701, %.preheader.i870
   %indvars.iv77.i871 = phi i64 [ 0, %.preheader.i870 ], [ %indvars.iv.next78.i877, %701 ]
-  %702 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %682, i64 0, i64 %indvars.iv77.i871
-  %703 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %683, i64 0, i64 %indvars.iv77.i871
+  %702 = getelementptr inbounds nuw %class.aiColor4t, ptr %682, i64 %indvars.iv77.i871
+  %703 = getelementptr inbounds nuw %class.aiColor4t, ptr %683, i64 %indvars.iv77.i871
   %704 = load float, ptr %702, align 4, !noalias !42
   %705 = load float, ptr %703, align 4, !noalias !42
   %706 = fadd float %704, %705
@@ -2014,7 +2014,7 @@ _ZN6Assimp6VertexmLEf.exit:                       ; preds = %601
   %.sroa.0.4.vec.insert.i.i66.i873 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i872, float %711, i64 1
   %.sroa.3.8.vec.insert.i.i.i874 = insertelement <2 x float> poison, float %716, i64 0
   %.sroa.3.12.vec.insert.i.i.i875 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i874, float %721, i64 1
-  %722 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %133, i64 0, i64 %indvars.iv77.i871
+  %722 = getelementptr inbounds nuw %class.aiColor4t, ptr %133, i64 %indvars.iv77.i871
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i873, ptr %722, align 8, !alias.scope !42
   %.sroa.4.0..sroa_idx.i876 = getelementptr inbounds nuw i8, ptr %722, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i875, ptr %.sroa.4.0..sroa_idx.i876, align 8, !alias.scope !42
@@ -2120,7 +2120,7 @@ _ZN6Assimp6VertexpLERKS0_.exit495:                ; preds = %701
 
 778:                                              ; preds = %778, %735
   %indvars.iv.i.i.i508 = phi i64 [ 0, %735 ], [ %indvars.iv.next.i.i.i512, %778 ]
-  %779 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %776, i64 0, i64 %indvars.iv.i.i.i508
+  %779 = getelementptr inbounds nuw %class.aiVector3t, ptr %776, i64 %indvars.iv.i.i.i508
   %780 = load float, ptr %779, align 4, !noalias !52
   %781 = fmul float %739, %780
   %782 = getelementptr inbounds nuw i8, ptr %779, i64 4
@@ -2131,7 +2131,7 @@ _ZN6Assimp6VertexpLERKS0_.exit495:                ; preds = %701
   %787 = fmul float %739, %786
   %.sroa.0.0.vec.insert.i.i53.i.i.i509 = insertelement <2 x float> poison, float %781, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i.i510 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i.i509, float %784, i64 1
-  %788 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %352, i64 0, i64 %indvars.iv.i.i.i508
+  %788 = getelementptr inbounds nuw %class.aiVector3t, ptr %352, i64 %indvars.iv.i.i.i508
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i.i510, ptr %788, align 4, !alias.scope !52
   %.sroa.46.0..sroa_idx.i.i.i511 = getelementptr inbounds nuw i8, ptr %788, i64 8
   store float %787, ptr %.sroa.46.0..sroa_idx.i.i.i511, align 4, !alias.scope !52
@@ -2141,7 +2141,7 @@ _ZN6Assimp6VertexpLERKS0_.exit495:                ; preds = %701
 
 789:                                              ; preds = %789, %.preheader.i.i.i514
   %indvars.iv74.i.i.i515 = phi i64 [ 0, %.preheader.i.i.i514 ], [ %indvars.iv.next75.i.i.i521, %789 ]
-  %790 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %777, i64 0, i64 %indvars.iv74.i.i.i515
+  %790 = getelementptr inbounds nuw %class.aiColor4t, ptr %777, i64 %indvars.iv74.i.i.i515
   %791 = load float, ptr %790, align 4, !noalias !52
   %792 = fmul float %739, %791
   %793 = getelementptr inbounds nuw i8, ptr %790, i64 4
@@ -2157,7 +2157,7 @@ _ZN6Assimp6VertexpLERKS0_.exit495:                ; preds = %701
   %.sroa.0.4.vec.insert.i.i58.i.i.i517 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i.i516, float %795, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i.i518 = insertelement <2 x float> poison, float %798, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i.i519 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i.i518, float %801, i64 1
-  %802 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %356, i64 0, i64 %indvars.iv74.i.i.i515
+  %802 = getelementptr inbounds nuw %class.aiColor4t, ptr %356, i64 %indvars.iv74.i.i.i515
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i.i517, ptr %802, align 8, !alias.scope !52
   %.sroa.4.0..sroa_idx.i.i.i520 = getelementptr inbounds nuw i8, ptr %802, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i.i519, ptr %.sroa.4.0..sroa_idx.i.i.i520, align 8, !alias.scope !52
@@ -2897,7 +2897,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %1143, %.loopexit119
 
 1143:                                             ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %.loopexit1197
   %indvars.iv1448 = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %indvars.iv.next1449, %.loopexit1197 ]
-  %1144 = getelementptr inbounds nuw [8 x ptr], ptr %1132, i64 0, i64 %indvars.iv1448
+  %1144 = getelementptr inbounds nuw ptr, ptr %1132, i64 %indvars.iv1448
   %1145 = load ptr, ptr %1144, align 8
   %.not.i551 = icmp ne ptr %1145, null
   %1146 = load i32, ptr %1099, align 4
@@ -2922,11 +2922,11 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %1143, %.loopexit119
   br label %.loopexit1197
 
 .loopexit1197:                                    ; preds = %.loopexit1197.loopexit, %1153
-  %1154 = getelementptr inbounds nuw [8 x ptr], ptr %1133, i64 0, i64 %indvars.iv1448
+  %1154 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv1448
   store ptr %1152, ptr %1154, align 8
-  %1155 = getelementptr inbounds nuw [8 x i32], ptr %1134, i64 0, i64 %indvars.iv1448
+  %1155 = getelementptr inbounds nuw i32, ptr %1134, i64 %indvars.iv1448
   %1156 = load i32, ptr %1155, align 4
-  %1157 = getelementptr inbounds nuw [8 x i32], ptr %1135, i64 0, i64 %indvars.iv1448
+  %1157 = getelementptr inbounds nuw i32, ptr %1135, i64 %indvars.iv1448
   store i32 %1156, ptr %1157, align 4
   %indvars.iv.next1449 = add nuw nsw i64 %indvars.iv1448, 1
   %exitcond1451 = icmp eq i64 %indvars.iv.next1449, 8
@@ -2934,7 +2934,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader:   ; preds = %1143, %.loopexit119
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader, %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %indvars.iv1452 = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader ], [ %indvars.iv.next1453, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
-  %1158 = getelementptr inbounds nuw [8 x ptr], ptr %1140, i64 0, i64 %indvars.iv1452
+  %1158 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv1452
   %1159 = load ptr, ptr %1158, align 8
   %.not.i552 = icmp ne ptr %1159, null
   %1160 = load i32, ptr %1099, align 4
@@ -2975,7 +2975,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.loopexit:    ; preds = %1175
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.loopexit, %1175
-  %1176 = getelementptr inbounds nuw [8 x ptr], ptr %1141, i64 0, i64 %indvars.iv1452
+  %1176 = getelementptr inbounds nuw ptr, ptr %1141, i64 %indvars.iv1452
   store ptr %1174, ptr %1176, align 8
   %indvars.iv.next1453 = add nuw nsw i64 %indvars.iv1452, 1
   %exitcond1455 = icmp eq i64 %indvars.iv.next1453, 8
@@ -3086,7 +3086,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561: ; preds = %1229, %1223
 
 1223:                                             ; preds = %1229, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i559
   %indvars.iv.i560 = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i559 ], [ %indvars.iv.next.i564, %1229 ]
-  %1224 = getelementptr inbounds nuw [8 x ptr], ptr %1133, i64 0, i64 %indvars.iv.i560
+  %1224 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv.i560
   %1225 = load ptr, ptr %1224, align 8
   %.not.i26.i = icmp ne ptr %1225, null
   %1226 = load i32, ptr %1047, align 4
@@ -3095,7 +3095,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561: ; preds = %1229, %1223
   br i1 %1228, label %1229, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561
 
 1229:                                             ; preds = %1223
-  %1230 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1221, i64 0, i64 %indvars.iv.i560
+  %1230 = getelementptr inbounds nuw %class.aiVector3t, ptr %1221, i64 %indvars.iv.i560
   %1231 = getelementptr inbounds nuw %class.aiVector3t, ptr %1225, i64 %1202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1231, ptr noundef nonnull align 4 dereferenceable(12) %1230, i64 12, i1 false)
   %indvars.iv.next.i564 = add nuw nsw i64 %indvars.iv.i560, 1
@@ -3104,7 +3104,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561: ; preds = %1229, %1223
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i562:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i563, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561
   %indvars.iv33.i = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i561 ], [ %indvars.iv.next34.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i563 ]
-  %1232 = getelementptr inbounds nuw [8 x ptr], ptr %1141, i64 0, i64 %indvars.iv33.i
+  %1232 = getelementptr inbounds nuw ptr, ptr %1141, i64 %indvars.iv33.i
   %1233 = load ptr, ptr %1232, align 8
   %.not.i27.i = icmp ne ptr %1233, null
   %1234 = load i32, ptr %1047, align 4
@@ -3113,7 +3113,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i562:         ; preds = %_ZNK6aiMesh16HasTex
   br i1 %1236, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i563, label %_ZNK6Assimp6Vertex8SortBackEP6aiMeshj.exit
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i563:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i562
-  %1237 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1222, i64 0, i64 %indvars.iv33.i
+  %1237 = getelementptr inbounds nuw %class.aiColor4t, ptr %1222, i64 %indvars.iv33.i
   %1238 = getelementptr inbounds nuw %class.aiColor4t, ptr %1233, i64 %1202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1238, ptr noundef nonnull align 4 dereferenceable(16) %1237, i64 16, i1 false)
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
@@ -3357,7 +3357,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603: ; preds = %1360, %1354
 
 1354:                                             ; preds = %1360, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i600
   %indvars.iv.i601 = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i600 ], [ %indvars.iv.next.i610, %1360 ]
-  %1355 = getelementptr inbounds nuw [8 x ptr], ptr %1133, i64 0, i64 %indvars.iv.i601
+  %1355 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv.i601
   %1356 = load ptr, ptr %1355, align 8
   %.not.i26.i602 = icmp ne ptr %1356, null
   %1357 = load i32, ptr %1047, align 4
@@ -3366,7 +3366,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603: ; preds = %1360, %1354
   br i1 %1359, label %1360, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603
 
 1360:                                             ; preds = %1354
-  %1361 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1352, i64 0, i64 %indvars.iv.i601
+  %1361 = getelementptr inbounds nuw %class.aiVector3t, ptr %1352, i64 %indvars.iv.i601
   %1362 = getelementptr inbounds nuw %class.aiVector3t, ptr %1356, i64 %1333
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1362, ptr noundef nonnull align 4 dereferenceable(12) %1361, i64 12, i1 false)
   %indvars.iv.next.i610 = add nuw nsw i64 %indvars.iv.i601, 1
@@ -3375,7 +3375,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603: ; preds = %1360, %1354
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i604:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i607, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603
   %indvars.iv33.i605 = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i603 ], [ %indvars.iv.next34.i608, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i607 ]
-  %1363 = getelementptr inbounds nuw [8 x ptr], ptr %1141, i64 0, i64 %indvars.iv33.i605
+  %1363 = getelementptr inbounds nuw ptr, ptr %1141, i64 %indvars.iv33.i605
   %1364 = load ptr, ptr %1363, align 8
   %.not.i27.i606 = icmp ne ptr %1364, null
   %1365 = load i32, ptr %1047, align 4
@@ -3384,7 +3384,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i604:         ; preds = %_ZNK6aiMesh16HasTex
   br i1 %1367, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i607, label %_ZNK6Assimp6Vertex8SortBackEP6aiMeshj.exit612
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i607:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i604
-  %1368 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1353, i64 0, i64 %indvars.iv33.i605
+  %1368 = getelementptr inbounds nuw %class.aiColor4t, ptr %1353, i64 %indvars.iv33.i605
   %1369 = getelementptr inbounds nuw %class.aiColor4t, ptr %1364, i64 %1333
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1369, ptr noundef nonnull align 4 dereferenceable(16) %1368, i64 16, i1 false)
   %indvars.iv.next34.i608 = add nuw nsw i64 %indvars.iv33.i605, 1
@@ -3446,7 +3446,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622: ; preds = %1401, %1395
 
 1395:                                             ; preds = %1401, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i619
   %indvars.iv.i620 = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i619 ], [ %indvars.iv.next.i629, %1401 ]
-  %1396 = getelementptr inbounds nuw [8 x ptr], ptr %1133, i64 0, i64 %indvars.iv.i620
+  %1396 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv.i620
   %1397 = load ptr, ptr %1396, align 8
   %.not.i26.i621 = icmp ne ptr %1397, null
   %1398 = load i32, ptr %1047, align 4
@@ -3455,7 +3455,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622: ; preds = %1401, %1395
   br i1 %1400, label %1401, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622
 
 1401:                                             ; preds = %1395
-  %1402 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1393, i64 0, i64 %indvars.iv.i620
+  %1402 = getelementptr inbounds nuw %class.aiVector3t, ptr %1393, i64 %indvars.iv.i620
   %1403 = getelementptr inbounds nuw %class.aiVector3t, ptr %1397, i64 %1374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1403, ptr noundef nonnull align 4 dereferenceable(12) %1402, i64 12, i1 false)
   %indvars.iv.next.i629 = add nuw nsw i64 %indvars.iv.i620, 1
@@ -3464,7 +3464,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622: ; preds = %1401, %1395
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i623:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i626, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622
   %indvars.iv33.i624 = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i622 ], [ %indvars.iv.next34.i627, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i626 ]
-  %1404 = getelementptr inbounds nuw [8 x ptr], ptr %1141, i64 0, i64 %indvars.iv33.i624
+  %1404 = getelementptr inbounds nuw ptr, ptr %1141, i64 %indvars.iv33.i624
   %1405 = load ptr, ptr %1404, align 8
   %.not.i27.i625 = icmp ne ptr %1405, null
   %1406 = load i32, ptr %1047, align 4
@@ -3473,7 +3473,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i623:         ; preds = %_ZNK6aiMesh16HasTex
   br i1 %1408, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i626, label %_ZNK6Assimp6Vertex8SortBackEP6aiMeshj.exit631
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i626:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i623
-  %1409 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1394, i64 0, i64 %indvars.iv33.i624
+  %1409 = getelementptr inbounds nuw %class.aiColor4t, ptr %1394, i64 %indvars.iv33.i624
   %1410 = getelementptr inbounds nuw %class.aiColor4t, ptr %1405, i64 %1374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1410, ptr noundef nonnull align 4 dereferenceable(16) %1409, i64 16, i1 false)
   %indvars.iv.next34.i627 = add nuw nsw i64 %indvars.iv33.i624, 1
@@ -3558,14 +3558,14 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i643.split: ; preds = %_ZNK6aiMes
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i640.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i640.split.preheader, %1452
   %indvars.iv.i641 = phi i64 [ %indvars.iv.next.i650, %1452 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i640.split.preheader ]
-  %1450 = getelementptr inbounds nuw [8 x ptr], ptr %1132, i64 0, i64 %indvars.iv.i641
+  %1450 = getelementptr inbounds nuw ptr, ptr %1132, i64 %indvars.iv.i641
   %1451 = load ptr, ptr %1450, align 8
   %.not.i33.i642.not = icmp eq ptr %1451, null
   br i1 %.not.i33.i642.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i643.split, label %1452
 
 1452:                                             ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i640.split
   %1453 = getelementptr inbounds nuw %class.aiVector3t, ptr %1451, i64 %1437
-  %1454 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i632, i64 0, i64 %indvars.iv.i641
+  %1454 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i632, i64 %indvars.iv.i641
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1454, ptr noundef nonnull align 4 dereferenceable(12) %1453, i64 12, i1 false)
   %indvars.iv.next.i650 = add nuw nsw i64 %indvars.iv.i641, 1
   %exitcond.i651 = icmp eq i64 %indvars.iv.next.i650, 8
@@ -3573,14 +3573,14 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i640.split: ; preds = %_ZNK6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i644:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i643.split, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i647
   %indvars.iv40.i645 = phi i64 [ %indvars.iv.next41.i648, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i647 ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i643.split ]
-  %1455 = getelementptr inbounds nuw [8 x ptr], ptr %1140, i64 0, i64 %indvars.iv40.i645
+  %1455 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv40.i645
   %1456 = load ptr, ptr %1455, align 8
   %.not.i34.i646.not = icmp eq ptr %1456, null
   br i1 %.not.i34.i646.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit652.split, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i647
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i647:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i644
   %1457 = getelementptr inbounds nuw %class.aiColor4t, ptr %1456, i64 %1437
-  %1458 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i633, i64 0, i64 %indvars.iv40.i645
+  %1458 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i633, i64 %indvars.iv40.i645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1458, ptr noundef nonnull align 4 dereferenceable(16) %1457, i64 16, i1 false)
   %indvars.iv.next41.i648 = add nuw nsw i64 %indvars.iv40.i645, 1
   %exitcond43.i649 = icmp eq i64 %indvars.iv.next41.i648, 8
@@ -3672,14 +3672,14 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i664.split: ; preds = %_ZNK6aiMes
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i661.split: ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i661.split.preheader, %1490
   %indvars.iv.i662 = phi i64 [ %indvars.iv.next.i671, %1490 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i661.split.preheader ]
-  %1488 = getelementptr inbounds nuw [8 x ptr], ptr %1132, i64 0, i64 %indvars.iv.i662
+  %1488 = getelementptr inbounds nuw ptr, ptr %1132, i64 %indvars.iv.i662
   %1489 = load ptr, ptr %1488, align 8
   %.not.i33.i663.not = icmp eq ptr %1489, null
   br i1 %.not.i33.i663.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i664.split, label %1490
 
 1490:                                             ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i661.split
   %1491 = getelementptr inbounds nuw %class.aiVector3t, ptr %1489, i64 %1475
-  %1492 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i653, i64 0, i64 %indvars.iv.i662
+  %1492 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i653, i64 %indvars.iv.i662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1492, ptr noundef nonnull align 4 dereferenceable(12) %1491, i64 12, i1 false)
   %indvars.iv.next.i671 = add nuw nsw i64 %indvars.iv.i662, 1
   %exitcond.i672 = icmp eq i64 %indvars.iv.next.i671, 8
@@ -3687,14 +3687,14 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i661.split: ; preds = %_ZNK6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i665:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i664.split, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i668
   %indvars.iv40.i666 = phi i64 [ %indvars.iv.next41.i669, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i668 ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i664.split ]
-  %1493 = getelementptr inbounds nuw [8 x ptr], ptr %1140, i64 0, i64 %indvars.iv40.i666
+  %1493 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv40.i666
   %1494 = load ptr, ptr %1493, align 8
   %.not.i34.i667.not = icmp eq ptr %1494, null
   br i1 %.not.i34.i667.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i668
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i668:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i665
   %1495 = getelementptr inbounds nuw %class.aiColor4t, ptr %1494, i64 %1475
-  %1496 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i654, i64 0, i64 %indvars.iv40.i666
+  %1496 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i654, i64 %indvars.iv40.i666
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1496, ptr noundef nonnull align 4 dereferenceable(16) %1495, i64 16, i1 false)
   %indvars.iv.next41.i669 = add nuw nsw i64 %indvars.iv40.i666, 1
   %exitcond43.i670 = icmp eq i64 %indvars.iv.next41.i669, 8
@@ -3781,8 +3781,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i668:        ; preds = %_ZNK6aiMesh15HasVer
 
 1551:                                             ; preds = %1551, %1497
   %indvars.iv.i892 = phi i64 [ 0, %1497 ], [ %indvars.iv.next.i896, %1551 ]
-  %1552 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %955, i64 0, i64 %indvars.iv.i892
-  %1553 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1549, i64 0, i64 %indvars.iv.i892
+  %1552 = getelementptr inbounds nuw %class.aiVector3t, ptr %955, i64 %indvars.iv.i892
+  %1553 = getelementptr inbounds nuw %class.aiVector3t, ptr %1549, i64 %indvars.iv.i892
   %1554 = load float, ptr %1552, align 4, !noalias !72
   %1555 = load float, ptr %1553, align 4, !noalias !72
   %1556 = fadd float %1554, %1555
@@ -3798,7 +3798,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i668:        ; preds = %_ZNK6aiMesh15HasVer
   %1566 = fadd float %1563, %1565
   %.sroa.0.0.vec.insert.i.i61.i893 = insertelement <2 x float> poison, float %1556, i64 0
   %.sroa.0.4.vec.insert.i.i62.i894 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i893, float %1561, i64 1
-  %1567 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %940, i64 0, i64 %indvars.iv.i892
+  %1567 = getelementptr inbounds nuw %class.aiVector3t, ptr %940, i64 %indvars.iv.i892
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i894, ptr %1567, align 4, !alias.scope !72
   %.sroa.47.0..sroa_idx.i895 = getelementptr inbounds nuw i8, ptr %1567, i64 8
   store float %1566, ptr %.sroa.47.0..sroa_idx.i895, align 4, !alias.scope !72
@@ -3808,8 +3808,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i668:        ; preds = %_ZNK6aiMesh15HasVer
 
 1568:                                             ; preds = %1568, %.preheader.i898
   %indvars.iv77.i899 = phi i64 [ 0, %.preheader.i898 ], [ %indvars.iv.next78.i905, %1568 ]
-  %1569 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %956, i64 0, i64 %indvars.iv77.i899
-  %1570 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1550, i64 0, i64 %indvars.iv77.i899
+  %1569 = getelementptr inbounds nuw %class.aiColor4t, ptr %956, i64 %indvars.iv77.i899
+  %1570 = getelementptr inbounds nuw %class.aiColor4t, ptr %1550, i64 %indvars.iv77.i899
   %1571 = load float, ptr %1569, align 4, !noalias !72
   %1572 = load float, ptr %1570, align 4, !noalias !72
   %1573 = fadd float %1571, %1572
@@ -3832,7 +3832,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i668:        ; preds = %_ZNK6aiMesh15HasVer
   %.sroa.0.4.vec.insert.i.i66.i901 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i900, float %1578, i64 1
   %.sroa.3.8.vec.insert.i.i.i902 = insertelement <2 x float> poison, float %1583, i64 0
   %.sroa.3.12.vec.insert.i.i.i903 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i902, float %1588, i64 1
-  %1589 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %957, i64 0, i64 %indvars.iv77.i899
+  %1589 = getelementptr inbounds nuw %class.aiColor4t, ptr %957, i64 %indvars.iv77.i899
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i901, ptr %1589, align 8, !alias.scope !72
   %.sroa.4.0..sroa_idx.i904 = getelementptr inbounds nuw i8, ptr %1589, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i903, ptr %.sroa.4.0..sroa_idx.i904, align 8, !alias.scope !72
@@ -4157,8 +4157,8 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
 
 1768:                                             ; preds = %1768, %.loopexit
   %indvars.iv.i920 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i924, %1768 ]
-  %1769 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1764, i64 0, i64 %indvars.iv.i920
-  %1770 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1765, i64 0, i64 %indvars.iv.i920
+  %1769 = getelementptr inbounds nuw %class.aiVector3t, ptr %1764, i64 %indvars.iv.i920
+  %1770 = getelementptr inbounds nuw %class.aiVector3t, ptr %1765, i64 %indvars.iv.i920
   %1771 = load float, ptr %1769, align 4, !noalias !76
   %1772 = load float, ptr %1770, align 4, !noalias !76
   %1773 = fadd float %1771, %1772
@@ -4174,7 +4174,7 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
   %1783 = fadd float %1780, %1782
   %.sroa.0.0.vec.insert.i.i61.i921 = insertelement <2 x float> poison, float %1773, i64 0
   %.sroa.0.4.vec.insert.i.i62.i922 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i921, float %1778, i64 1
-  %1784 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %958, i64 0, i64 %indvars.iv.i920
+  %1784 = getelementptr inbounds nuw %class.aiVector3t, ptr %958, i64 %indvars.iv.i920
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i922, ptr %1784, align 4, !alias.scope !76
   %.sroa.47.0..sroa_idx.i923 = getelementptr inbounds nuw i8, ptr %1784, i64 8
   store float %1783, ptr %.sroa.47.0..sroa_idx.i923, align 4, !alias.scope !76
@@ -4184,8 +4184,8 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
 
 1785:                                             ; preds = %1785, %.preheader.i926
   %indvars.iv77.i927 = phi i64 [ 0, %.preheader.i926 ], [ %indvars.iv.next78.i933, %1785 ]
-  %1786 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1766, i64 0, i64 %indvars.iv77.i927
-  %1787 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1767, i64 0, i64 %indvars.iv77.i927
+  %1786 = getelementptr inbounds nuw %class.aiColor4t, ptr %1766, i64 %indvars.iv77.i927
+  %1787 = getelementptr inbounds nuw %class.aiColor4t, ptr %1767, i64 %indvars.iv77.i927
   %1788 = load float, ptr %1786, align 4, !noalias !76
   %1789 = load float, ptr %1787, align 4, !noalias !76
   %1790 = fadd float %1788, %1789
@@ -4208,7 +4208,7 @@ _ZNSt10_HashtableImSt4pairIKmN22CatmullClarkSubdivider4EdgeEESaIS4_ENSt8__detail
   %.sroa.0.4.vec.insert.i.i66.i929 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i928, float %1795, i64 1
   %.sroa.3.8.vec.insert.i.i.i930 = insertelement <2 x float> poison, float %1800, i64 0
   %.sroa.3.12.vec.insert.i.i.i931 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i930, float %1805, i64 1
-  %1806 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %962, i64 0, i64 %indvars.iv77.i927
+  %1806 = getelementptr inbounds nuw %class.aiColor4t, ptr %962, i64 %indvars.iv77.i927
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i929, ptr %1806, align 8, !alias.scope !76
   %.sroa.4.0..sroa_idx.i932 = getelementptr inbounds nuw i8, ptr %1806, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i931, ptr %.sroa.4.0..sroa_idx.i932, align 8, !alias.scope !76
@@ -4264,8 +4264,8 @@ _ZN6AssimpplERKNS_6VertexES2_.exit705:            ; preds = %1785
 
 1831:                                             ; preds = %1831, %_ZN6AssimpplERKNS_6VertexES2_.exit705
   %indvars.iv.i948 = phi i64 [ 0, %_ZN6AssimpplERKNS_6VertexES2_.exit705 ], [ %indvars.iv.next.i952, %1831 ]
-  %1832 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %978, i64 0, i64 %indvars.iv.i948
-  %1833 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %958, i64 0, i64 %indvars.iv.i948
+  %1832 = getelementptr inbounds nuw %class.aiVector3t, ptr %978, i64 %indvars.iv.i948
+  %1833 = getelementptr inbounds nuw %class.aiVector3t, ptr %958, i64 %indvars.iv.i948
   %1834 = load float, ptr %1832, align 4, !noalias !79
   %1835 = load float, ptr %1833, align 4, !noalias !79
   %1836 = fadd float %1834, %1835
@@ -4281,7 +4281,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit705:            ; preds = %1785
   %1846 = fadd float %1843, %1845
   %.sroa.0.0.vec.insert.i.i61.i949 = insertelement <2 x float> poison, float %1836, i64 0
   %.sroa.0.4.vec.insert.i.i62.i950 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i949, float %1841, i64 1
-  %1847 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %963, i64 0, i64 %indvars.iv.i948
+  %1847 = getelementptr inbounds nuw %class.aiVector3t, ptr %963, i64 %indvars.iv.i948
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i950, ptr %1847, align 4, !alias.scope !79
   %.sroa.47.0..sroa_idx.i951 = getelementptr inbounds nuw i8, ptr %1847, i64 8
   store float %1846, ptr %.sroa.47.0..sroa_idx.i951, align 4, !alias.scope !79
@@ -4291,8 +4291,8 @@ _ZN6AssimpplERKNS_6VertexES2_.exit705:            ; preds = %1785
 
 .preheader.i954:                                  ; preds = %1831, %.preheader.i954
   %indvars.iv77.i955 = phi i64 [ %indvars.iv.next78.i961, %.preheader.i954 ], [ 0, %1831 ]
-  %1848 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %979, i64 0, i64 %indvars.iv77.i955
-  %1849 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %962, i64 0, i64 %indvars.iv77.i955
+  %1848 = getelementptr inbounds nuw %class.aiColor4t, ptr %979, i64 %indvars.iv77.i955
+  %1849 = getelementptr inbounds nuw %class.aiColor4t, ptr %962, i64 %indvars.iv77.i955
   %1850 = load float, ptr %1848, align 4, !noalias !79
   %1851 = load float, ptr %1849, align 8, !noalias !79
   %1852 = fadd float %1850, %1851
@@ -4315,7 +4315,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit705:            ; preds = %1785
   %.sroa.0.4.vec.insert.i.i66.i957 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i956, float %1857, i64 1
   %.sroa.3.8.vec.insert.i.i.i958 = insertelement <2 x float> poison, float %1862, i64 0
   %.sroa.3.12.vec.insert.i.i.i959 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i958, float %1867, i64 1
-  %1868 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %980, i64 0, i64 %indvars.iv77.i955
+  %1868 = getelementptr inbounds nuw %class.aiColor4t, ptr %980, i64 %indvars.iv77.i955
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i957, ptr %1868, align 8, !alias.scope !79
   %.sroa.4.0..sroa_idx.i960 = getelementptr inbounds nuw i8, ptr %1868, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i959, ptr %.sroa.4.0..sroa_idx.i960, align 8, !alias.scope !79
@@ -4412,7 +4412,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split:     ; preds = %_ZNK6aiMesh15HasVer
 
 1906:                                             ; preds = %1906, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split ], [ %indvars.iv.next.i.i, %1906 ]
-  %1907 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %.ptr26.i653, i64 0, i64 %indvars.iv.i.i
+  %1907 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i653, i64 %indvars.iv.i.i
   %1908 = load float, ptr %1907, align 4, !noalias !90
   %1909 = fmul float %1881, %1908
   %1910 = getelementptr inbounds nuw i8, ptr %1907, i64 4
@@ -4423,7 +4423,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split:     ; preds = %_ZNK6aiMesh15HasVer
   %1915 = fmul float %1881, %1914
   %.sroa.0.0.vec.insert.i.i53.i.i = insertelement <2 x float> poison, float %1909, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i, float %1912, i64 1
-  %1916 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %984, i64 0, i64 %indvars.iv.i.i
+  %1916 = getelementptr inbounds nuw %class.aiVector3t, ptr %984, i64 %indvars.iv.i.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i, ptr %1916, align 4, !alias.scope !90
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1916, i64 8
   store float %1915, ptr %.sroa.46.0..sroa_idx.i.i, align 4, !alias.scope !90
@@ -4433,7 +4433,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split:     ; preds = %_ZNK6aiMesh15HasVer
 
 .preheader.i.i:                                   ; preds = %1906, %.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.preheader.i.i ], [ 0, %1906 ]
-  %1917 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %.ptr31.i654, i64 0, i64 %indvars.iv74.i.i
+  %1917 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i654, i64 %indvars.iv74.i.i
   %1918 = load float, ptr %1917, align 4, !noalias !90
   %1919 = fmul float %1881, %1918
   %1920 = getelementptr inbounds nuw i8, ptr %1917, i64 4
@@ -4449,7 +4449,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit673.split:     ; preds = %_ZNK6aiMesh15HasVer
   %.sroa.0.4.vec.insert.i.i58.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i, float %1922, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %1925, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i, float %1928, i64 1
-  %1929 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %996, i64 0, i64 %indvars.iv74.i.i
+  %1929 = getelementptr inbounds nuw %class.aiColor4t, ptr %996, i64 %indvars.iv74.i.i
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i, ptr %1929, align 8, !alias.scope !90
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1929, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !90
@@ -4506,7 +4506,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
 
 1954:                                             ; preds = %1954, %_ZN6AssimpmlERKNS_6VertexEf.exit
   %indvars.iv.i.i720 = phi i64 [ 0, %_ZN6AssimpmlERKNS_6VertexEf.exit ], [ %indvars.iv.next.i.i724, %1954 ]
-  %1955 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %978, i64 0, i64 %indvars.iv.i.i720
+  %1955 = getelementptr inbounds nuw %class.aiVector3t, ptr %978, i64 %indvars.iv.i.i720
   %1956 = load float, ptr %1955, align 4, !noalias !97
   %1957 = fmul float %1470, %1956
   %1958 = getelementptr inbounds nuw i8, ptr %1955, i64 4
@@ -4517,7 +4517,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
   %1963 = fmul float %1470, %1962
   %.sroa.0.0.vec.insert.i.i53.i.i721 = insertelement <2 x float> poison, float %1957, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i722 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i721, float %1960, i64 1
-  %1964 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %997, i64 0, i64 %indvars.iv.i.i720
+  %1964 = getelementptr inbounds nuw %class.aiVector3t, ptr %997, i64 %indvars.iv.i.i720
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i722, ptr %1964, align 4, !alias.scope !97
   %.sroa.46.0..sroa_idx.i.i723 = getelementptr inbounds nuw i8, ptr %1964, i64 8
   store float %1963, ptr %.sroa.46.0..sroa_idx.i.i723, align 4, !alias.scope !97
@@ -4527,7 +4527,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
 
 .preheader.i.i726:                                ; preds = %1954, %.preheader.i.i726
   %indvars.iv74.i.i727 = phi i64 [ %indvars.iv.next75.i.i733, %.preheader.i.i726 ], [ 0, %1954 ]
-  %1965 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %979, i64 0, i64 %indvars.iv74.i.i727
+  %1965 = getelementptr inbounds nuw %class.aiColor4t, ptr %979, i64 %indvars.iv74.i.i727
   %1966 = load float, ptr %1965, align 4, !noalias !97
   %1967 = fmul float %1470, %1966
   %1968 = getelementptr inbounds nuw i8, ptr %1965, i64 4
@@ -4543,7 +4543,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit:                 ; preds = %.preheader.i.i
   %.sroa.0.4.vec.insert.i.i58.i.i729 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i728, float %1970, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i730 = insertelement <2 x float> poison, float %1973, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i731 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i730, float %1976, i64 1
-  %1977 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1001, i64 0, i64 %indvars.iv74.i.i727
+  %1977 = getelementptr inbounds nuw %class.aiColor4t, ptr %1001, i64 %indvars.iv74.i.i727
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i729, ptr %1977, align 8, !alias.scope !97
   %.sroa.4.0..sroa_idx.i.i732 = getelementptr inbounds nuw i8, ptr %1977, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i731, ptr %.sroa.4.0..sroa_idx.i.i732, align 8, !alias.scope !97
@@ -4586,8 +4586,8 @@ _ZN6AssimpmlERKNS_6VertexEf.exit735:              ; preds = %.preheader.i.i726
 
 1990:                                             ; preds = %1990, %_ZN6AssimpmlERKNS_6VertexEf.exit735
   %indvars.iv.i976 = phi i64 [ 0, %_ZN6AssimpmlERKNS_6VertexEf.exit735 ], [ %indvars.iv.next.i980, %1990 ]
-  %1991 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %984, i64 0, i64 %indvars.iv.i976
-  %1992 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %997, i64 0, i64 %indvars.iv.i976
+  %1991 = getelementptr inbounds nuw %class.aiVector3t, ptr %984, i64 %indvars.iv.i976
+  %1992 = getelementptr inbounds nuw %class.aiVector3t, ptr %997, i64 %indvars.iv.i976
   %1993 = load float, ptr %1991, align 4, !noalias !98
   %1994 = load float, ptr %1992, align 4, !noalias !98
   %1995 = fadd float %1993, %1994
@@ -4603,7 +4603,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit735:              ; preds = %.preheader.i.i726
   %2005 = fadd float %2002, %2004
   %.sroa.0.0.vec.insert.i.i61.i977 = insertelement <2 x float> poison, float %1995, i64 0
   %.sroa.0.4.vec.insert.i.i62.i978 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i977, float %2000, i64 1
-  %2006 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1002, i64 0, i64 %indvars.iv.i976
+  %2006 = getelementptr inbounds nuw %class.aiVector3t, ptr %1002, i64 %indvars.iv.i976
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i978, ptr %2006, align 4, !alias.scope !98
   %.sroa.47.0..sroa_idx.i979 = getelementptr inbounds nuw i8, ptr %2006, i64 8
   store float %2005, ptr %.sroa.47.0..sroa_idx.i979, align 4, !alias.scope !98
@@ -4613,8 +4613,8 @@ _ZN6AssimpmlERKNS_6VertexEf.exit735:              ; preds = %.preheader.i.i726
 
 .preheader.i982:                                  ; preds = %1990, %.preheader.i982
   %indvars.iv77.i983 = phi i64 [ %indvars.iv.next78.i989, %.preheader.i982 ], [ 0, %1990 ]
-  %2007 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %996, i64 0, i64 %indvars.iv77.i983
-  %2008 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1001, i64 0, i64 %indvars.iv77.i983
+  %2007 = getelementptr inbounds nuw %class.aiColor4t, ptr %996, i64 %indvars.iv77.i983
+  %2008 = getelementptr inbounds nuw %class.aiColor4t, ptr %1001, i64 %indvars.iv77.i983
   %2009 = load float, ptr %2007, align 8, !noalias !98
   %2010 = load float, ptr %2008, align 8, !noalias !98
   %2011 = fadd float %2009, %2010
@@ -4637,7 +4637,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit735:              ; preds = %.preheader.i.i726
   %.sroa.0.4.vec.insert.i.i66.i985 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i984, float %2016, i64 1
   %.sroa.3.8.vec.insert.i.i.i986 = insertelement <2 x float> poison, float %2021, i64 0
   %.sroa.3.12.vec.insert.i.i.i987 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i986, float %2026, i64 1
-  %2027 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1006, i64 0, i64 %indvars.iv77.i983
+  %2027 = getelementptr inbounds nuw %class.aiColor4t, ptr %1006, i64 %indvars.iv77.i983
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i985, ptr %2027, align 8, !alias.scope !98
   %.sroa.4.0..sroa_idx.i988 = getelementptr inbounds nuw i8, ptr %2027, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i987, ptr %.sroa.4.0..sroa_idx.i988, align 8, !alias.scope !98
@@ -4694,7 +4694,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit737:            ; preds = %.preheader.i982
 
 2052:                                             ; preds = %2052, %_ZN6AssimpplERKNS_6VertexES2_.exit737
   %indvars.iv.i.i750 = phi i64 [ 0, %_ZN6AssimpplERKNS_6VertexES2_.exit737 ], [ %indvars.iv.next.i.i754, %2052 ]
-  %2053 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %955, i64 0, i64 %indvars.iv.i.i750
+  %2053 = getelementptr inbounds nuw %class.aiVector3t, ptr %955, i64 %indvars.iv.i.i750
   %2054 = load float, ptr %2053, align 4, !noalias !107
   %2055 = fmul float %1470, %2054
   %2056 = getelementptr inbounds nuw i8, ptr %2053, i64 4
@@ -4705,7 +4705,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit737:            ; preds = %.preheader.i982
   %2061 = fmul float %1470, %2060
   %.sroa.0.0.vec.insert.i.i53.i.i751 = insertelement <2 x float> poison, float %2055, i64 0
   %.sroa.0.4.vec.insert.i.i54.i.i752 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i53.i.i751, float %2058, i64 1
-  %2062 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1007, i64 0, i64 %indvars.iv.i.i750
+  %2062 = getelementptr inbounds nuw %class.aiVector3t, ptr %1007, i64 %indvars.iv.i.i750
   store <2 x float> %.sroa.0.4.vec.insert.i.i54.i.i752, ptr %2062, align 4, !alias.scope !107
   %.sroa.46.0..sroa_idx.i.i753 = getelementptr inbounds nuw i8, ptr %2062, i64 8
   store float %2061, ptr %.sroa.46.0..sroa_idx.i.i753, align 4, !alias.scope !107
@@ -4715,7 +4715,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit737:            ; preds = %.preheader.i982
 
 .preheader.i.i756:                                ; preds = %2052, %.preheader.i.i756
   %indvars.iv74.i.i757 = phi i64 [ %indvars.iv.next75.i.i763, %.preheader.i.i756 ], [ 0, %2052 ]
-  %2063 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %956, i64 0, i64 %indvars.iv74.i.i757
+  %2063 = getelementptr inbounds nuw %class.aiColor4t, ptr %956, i64 %indvars.iv74.i.i757
   %2064 = load float, ptr %2063, align 4, !noalias !107
   %2065 = fmul float %1470, %2064
   %2066 = getelementptr inbounds nuw i8, ptr %2063, i64 4
@@ -4731,7 +4731,7 @@ _ZN6AssimpplERKNS_6VertexES2_.exit737:            ; preds = %.preheader.i982
   %.sroa.0.4.vec.insert.i.i58.i.i759 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i57.i.i758, float %2068, i64 1
   %.sroa.3.8.vec.insert.i.i.i.i760 = insertelement <2 x float> poison, float %2071, i64 0
   %.sroa.3.12.vec.insert.i.i.i.i761 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i.i760, float %2074, i64 1
-  %2075 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1011, i64 0, i64 %indvars.iv74.i.i757
+  %2075 = getelementptr inbounds nuw %class.aiColor4t, ptr %1011, i64 %indvars.iv74.i.i757
   store <2 x float> %.sroa.0.4.vec.insert.i.i58.i.i759, ptr %2075, align 8, !alias.scope !107
   %.sroa.4.0..sroa_idx.i.i762 = getelementptr inbounds nuw i8, ptr %2075, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i.i761, ptr %.sroa.4.0..sroa_idx.i.i762, align 8, !alias.scope !107
@@ -4774,8 +4774,8 @@ _ZN6AssimpmlERKNS_6VertexEf.exit765:              ; preds = %.preheader.i.i756
 
 2088:                                             ; preds = %2088, %_ZN6AssimpmlERKNS_6VertexEf.exit765
   %indvars.iv.i1004 = phi i64 [ 0, %_ZN6AssimpmlERKNS_6VertexEf.exit765 ], [ %indvars.iv.next.i1008, %2088 ]
-  %2089 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1002, i64 0, i64 %indvars.iv.i1004
-  %2090 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1007, i64 0, i64 %indvars.iv.i1004
+  %2089 = getelementptr inbounds nuw %class.aiVector3t, ptr %1002, i64 %indvars.iv.i1004
+  %2090 = getelementptr inbounds nuw %class.aiVector3t, ptr %1007, i64 %indvars.iv.i1004
   %2091 = load float, ptr %2089, align 4, !noalias !108
   %2092 = load float, ptr %2090, align 4, !noalias !108
   %2093 = fadd float %2091, %2092
@@ -4791,7 +4791,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit765:              ; preds = %.preheader.i.i756
   %2103 = fadd float %2100, %2102
   %.sroa.0.0.vec.insert.i.i61.i1005 = insertelement <2 x float> poison, float %2093, i64 0
   %.sroa.0.4.vec.insert.i.i62.i1006 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i61.i1005, float %2098, i64 1
-  %2104 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %1012, i64 0, i64 %indvars.iv.i1004
+  %2104 = getelementptr inbounds nuw %class.aiVector3t, ptr %1012, i64 %indvars.iv.i1004
   store <2 x float> %.sroa.0.4.vec.insert.i.i62.i1006, ptr %2104, align 4, !alias.scope !108
   %.sroa.47.0..sroa_idx.i1007 = getelementptr inbounds nuw i8, ptr %2104, i64 8
   store float %2103, ptr %.sroa.47.0..sroa_idx.i1007, align 4, !alias.scope !108
@@ -4801,8 +4801,8 @@ _ZN6AssimpmlERKNS_6VertexEf.exit765:              ; preds = %.preheader.i.i756
 
 .preheader.i1010:                                 ; preds = %2088, %.preheader.i1010
   %indvars.iv77.i1011 = phi i64 [ %indvars.iv.next78.i1017, %.preheader.i1010 ], [ 0, %2088 ]
-  %2105 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1006, i64 0, i64 %indvars.iv77.i1011
-  %2106 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1011, i64 0, i64 %indvars.iv77.i1011
+  %2105 = getelementptr inbounds nuw %class.aiColor4t, ptr %1006, i64 %indvars.iv77.i1011
+  %2106 = getelementptr inbounds nuw %class.aiColor4t, ptr %1011, i64 %indvars.iv77.i1011
   %2107 = load float, ptr %2105, align 8, !noalias !108
   %2108 = load float, ptr %2106, align 8, !noalias !108
   %2109 = fadd float %2107, %2108
@@ -4825,7 +4825,7 @@ _ZN6AssimpmlERKNS_6VertexEf.exit765:              ; preds = %.preheader.i.i756
   %.sroa.0.4.vec.insert.i.i66.i1013 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i65.i1012, float %2114, i64 1
   %.sroa.3.8.vec.insert.i.i.i1014 = insertelement <2 x float> poison, float %2119, i64 0
   %.sroa.3.12.vec.insert.i.i.i1015 = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i.i1014, float %2124, i64 1
-  %2125 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %1016, i64 0, i64 %indvars.iv77.i1011
+  %2125 = getelementptr inbounds nuw %class.aiColor4t, ptr %1016, i64 %indvars.iv77.i1011
   store <2 x float> %.sroa.0.4.vec.insert.i.i66.i1013, ptr %2125, align 8, !alias.scope !108
   %.sroa.4.0..sroa_idx.i1016 = getelementptr inbounds nuw i8, ptr %2125, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i1015, ptr %.sroa.4.0..sroa_idx.i1016, align 8, !alias.scope !108
@@ -4908,7 +4908,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777: ; preds = %2160, %2154
 
 2154:                                             ; preds = %2160, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i774
   %indvars.iv.i775 = phi i64 [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i774 ], [ %indvars.iv.next.i784, %2160 ]
-  %2155 = getelementptr inbounds nuw [8 x ptr], ptr %1133, i64 0, i64 %indvars.iv.i775
+  %2155 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv.i775
   %2156 = load ptr, ptr %2155, align 8
   %.not.i26.i776 = icmp ne ptr %2156, null
   %2157 = load i32, ptr %1047, align 4
@@ -4917,7 +4917,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777: ; preds = %2160, %2154
   br i1 %2159, label %2160, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777
 
 2160:                                             ; preds = %2154
-  %2161 = getelementptr inbounds nuw [8 x %class.aiVector3t], ptr %2152, i64 0, i64 %indvars.iv.i775
+  %2161 = getelementptr inbounds nuw %class.aiVector3t, ptr %2152, i64 %indvars.iv.i775
   %2162 = getelementptr inbounds nuw %class.aiVector3t, ptr %2156, i64 %2133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2162, ptr noundef nonnull align 4 dereferenceable(12) %2161, i64 12, i1 false)
   %indvars.iv.next.i784 = add nuw nsw i64 %indvars.iv.i775, 1
@@ -4926,7 +4926,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777: ; preds = %2160, %2154
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i778:         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i781, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777
   %indvars.iv33.i779 = phi i64 [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.i777 ], [ %indvars.iv.next34.i782, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i781 ]
-  %2163 = getelementptr inbounds nuw [8 x ptr], ptr %1141, i64 0, i64 %indvars.iv33.i779
+  %2163 = getelementptr inbounds nuw ptr, ptr %1141, i64 %indvars.iv33.i779
   %2164 = load ptr, ptr %2163, align 8
   %.not.i27.i780 = icmp ne ptr %2164, null
   %2165 = load i32, ptr %1047, align 4
@@ -4935,7 +4935,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i778:         ; preds = %_ZNK6aiMesh16HasTex
   br i1 %2167, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i781, label %_ZNK6Assimp6Vertex8SortBackEP6aiMeshj.exit786
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i781:        ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i778
-  %2168 = getelementptr inbounds nuw [8 x %class.aiColor4t], ptr %2153, i64 0, i64 %indvars.iv33.i779
+  %2168 = getelementptr inbounds nuw %class.aiColor4t, ptr %2153, i64 %indvars.iv33.i779
   %2169 = getelementptr inbounds nuw %class.aiColor4t, ptr %2164, i64 %2133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2169, ptr noundef nonnull align 4 dereferenceable(16) %2168, i64 16, i1 false)
   %indvars.iv.next34.i782 = add nuw nsw i64 %indvars.iv33.i779, 1
@@ -5268,7 +5268,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -5320,7 +5320,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -5760,7 +5760,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -5779,7 +5779,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

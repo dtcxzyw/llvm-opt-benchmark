@@ -2964,7 +2964,7 @@ _ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i:              ; preds = %56, %.critedge.i._Z
   %59 = add i32 %58, 1
   store i32 %59, ptr %34, align 8
   %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw [5 x i32], ptr %38, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %38, i64 %60
   store i32 %57, ptr %61, align 4
   %62 = icmp ult ptr %1, %.0.i.i
   br i1 %62, label %thread-pre-split.i, label %.critedge.i, !llvm.loop !39
@@ -3051,7 +3051,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   %100 = add i32 %99, 1
   store i32 %100, ptr %88, align 4
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw [5 x i32], ptr %92, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %92, i64 %101
   store i32 %98, ptr %102, align 4
   %103 = icmp ult ptr %97, %90
   br i1 %103, label %93, label %.critedge5.i, !llvm.loop !41
@@ -3179,7 +3179,7 @@ _ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %50, %44, %41, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %54, ptr %31, align 8
-  %55 = getelementptr inbounds nuw [5 x i32], ptr %34, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   store i32 %.sink.i.i, ptr %55, align 4
   %56 = icmp ult ptr %1, %.0.i.i
   %57 = icmp samesign ult i64 %indvars.iv, 4
@@ -3326,7 +3326,7 @@ _ZN13hb_utf16_xe_tItE4nextEPKtS2_Pjj.exit72.i:    ; preds = %123, %118, %115, %1
   %128 = add nuw nsw i32 %107, 1
   store i32 %128, ptr %101, align 4
   %129 = zext nneg i32 %107 to i64
-  %130 = getelementptr inbounds nuw [5 x i32], ptr %105, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %105, i64 %129
   store i32 %.075.i, ptr %130, align 4
   %131 = icmp ult ptr %.0.i70.i, %103
   br i1 %131, label %106, label %.critedge5.i, !llvm.loop !45
@@ -3425,7 +3425,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %38, ptr %29, align 8
-  %39 = getelementptr inbounds nuw [5 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   store i32 %spec.store.select.i.i, ptr %39, align 4
   %40 = icmp ult ptr %1, %34
   %41 = icmp samesign ult i64 %indvars.iv, 4
@@ -3526,7 +3526,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   %84 = add nuw nsw i32 %77, 1
   store i32 %84, ptr %71, align 4
   %85 = zext nneg i32 %77 to i64
-  %86 = getelementptr inbounds nuw [5 x i32], ptr %75, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %75, i64 %85
   store i32 %spec.store.select.i72.i, ptr %86, align 4
   %87 = icmp ult ptr %83, %73
   br i1 %87, label %76, label %.critedge5.i, !llvm.loop !48
@@ -3620,7 +3620,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %37, ptr %29, align 8
-  %38 = getelementptr inbounds nuw [5 x i32], ptr %32, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   store i32 %36, ptr %38, align 4
   %39 = icmp ult ptr %1, %34
   %40 = icmp samesign ult i64 %indvars.iv, 4
@@ -3710,7 +3710,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   %79 = add nuw nsw i32 %73, 1
   store i32 %79, ptr %67, align 4
   %80 = zext nneg i32 %73 to i64
-  %81 = getelementptr inbounds nuw [5 x i32], ptr %71, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %71, i64 %80
   store i32 %78, ptr %81, align 4
   %82 = icmp ult ptr %76, %69
   br i1 %82, label %72, label %.critedge5.i, !llvm.loop !51
@@ -3802,7 +3802,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %34, ptr %27, align 8
-  %35 = getelementptr inbounds nuw [5 x i32], ptr %30, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   store i32 %33, ptr %35, align 4
   %36 = icmp ult ptr %1, %32
   %37 = icmp samesign ult i64 %indvars.iv, 4
@@ -3893,7 +3893,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   %76 = add nuw nsw i32 %71, 1
   store i32 %76, ptr %65, align 4
   %77 = zext nneg i32 %71 to i64
-  %78 = getelementptr inbounds nuw [5 x i32], ptr %69, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %77
   store i32 %75, ptr %78, align 4
   %79 = icmp ult ptr %74, %67
   br i1 %79, label %70, label %.critedge5.i, !llvm.loop !54
@@ -4176,7 +4176,7 @@ thread-pre-split:                                 ; preds = %129
   %136 = add nuw nsw i32 %130, 1
   store i32 %136, ptr %126, align 8
   %137 = zext nneg i32 %130 to i64
-  %138 = getelementptr inbounds nuw [5 x i32], ptr %127, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %127, i64 %137
   store i32 %135, ptr %138, align 4
   %.not94 = icmp eq i32 %132, 0
   br i1 %.not94, label %.critedge, label %thread-pre-split, !llvm.loop !63
@@ -4198,12 +4198,12 @@ thread-pre-split:                                 ; preds = %129
   br i1 %144, label %145, label %.critedge2
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds nuw [5 x i32], ptr %140, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4
   %148 = add nuw nsw i32 %143, 1
   store i32 %148, ptr %126, align 8
   %149 = zext nneg i32 %143 to i64
-  %150 = getelementptr inbounds nuw [5 x i32], ptr %141, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr %141, i64 %149
   store i32 %147, ptr %150, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load i32, ptr %122, align 8
@@ -4238,7 +4238,7 @@ thread-pre-split:                                 ; preds = %129
   %166 = add nuw nsw i32 %160, 1
   store i32 %166, ptr %154, align 4
   %167 = zext nneg i32 %160 to i64
-  %168 = getelementptr inbounds nuw [5 x i32], ptr %157, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr %157, i64 %167
   store i32 %165, ptr %168, align 4
   %169 = load i32, ptr %5, align 8
   %170 = zext i32 %169 to i64
@@ -4263,12 +4263,12 @@ thread-pre-split:                                 ; preds = %129
   br i1 %178, label %179, label %.critedge6
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw [5 x i32], ptr %174, i64 0, i64 %indvars.iv118
+  %180 = getelementptr inbounds nuw i32, ptr %174, i64 %indvars.iv118
   %181 = load i32, ptr %180, align 4
   %182 = add nuw nsw i32 %177, 1
   store i32 %182, ptr %154, align 4
   %183 = zext nneg i32 %177 to i64
-  %184 = getelementptr inbounds nuw [5 x i32], ptr %175, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %175, i64 %183
   store i32 %181, ptr %184, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %185 = load i32, ptr %172, align 4

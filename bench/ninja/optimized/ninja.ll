@@ -1334,7 +1334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i: ; preds = %_
 
 switch.lookup:                                    ; preds = %.noexc.i87.i
   %335 = zext nneg i32 %331 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 0, i64 %335
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 %335
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_116GuessParallelismEv.exit.i.i.i
 
@@ -4392,7 +4392,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DeferGuessParallelism7RefreshEv(
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_116GuessParallelismEv.exit
 
@@ -4429,7 +4429,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev(ptr no
 
 switch.lookup:                                    ; preds = %.noexc
   %9 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_121DeferGuessParallelismD2Ev, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_116GuessParallelismEv.exit.i
 

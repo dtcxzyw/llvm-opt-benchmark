@@ -462,7 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %157
   %172 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayE, i64 0, i64 %172
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayE, i64 %172
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %173
 
@@ -2620,7 +2620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 1053:                                             ; preds = %1057, %.preheader.i.i.i
   %.439.i.i.i = phi ptr [ %1050, %.preheader.i.i.i ], [ %1056, %1057 ]
   %1054 = getelementptr inbounds nuw i8, ptr %.439.i.i.i, i64 16
-  %1055 = getelementptr inbounds nuw [2 x ptr], ptr %1054, i64 0, i64 %1046
+  %1055 = getelementptr inbounds nuw ptr, ptr %1054, i64 %1046
   %1056 = load ptr, ptr %1055, align 8, !tbaa !105
   %.not47.i.i.i = icmp eq ptr %1056, null
   br i1 %.not47.i.i.i, label %.critedge4.i.i.i, label %1057

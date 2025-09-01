@@ -131,7 +131,7 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
 48:                                               ; preds = %.loopexit
   %49 = load i8, ptr %.146, align 1, !tbaa !7
   %50 = zext i8 %49 to i64
-  %51 = getelementptr [256 x i8], ptr @pm_integer_parse_digit_values, i64 0, i64 %50
+  %51 = getelementptr i8, ptr @pm_integer_parse_digit_values, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !7
   %53 = zext i8 %52 to i64
   %.04360 = getelementptr i8, ptr %.146, i64 1
@@ -153,7 +153,7 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
 60:                                               ; preds = %57
   %61 = mul nuw nsw i64 %.061, %55
   %62 = zext i8 %58 to i64
-  %63 = getelementptr [256 x i8], ptr @pm_integer_parse_digit_values, i64 0, i64 %62
+  %63 = getelementptr i8, ptr @pm_integer_parse_digit_values, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !7
   %65 = zext i8 %64 to i64
   %66 = add nuw nsw i64 %61, %65
@@ -173,7 +173,7 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
 
 72:                                               ; preds = %.lr.ph.i
   %73 = zext i8 %70 to i64
-  %74 = getelementptr [256 x i8], ptr @pm_integer_parse_digit_values, i64 0, i64 %73
+  %74 = getelementptr i8, ptr @pm_integer_parse_digit_values, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !7
   %76 = add i64 %.045.i, 1
   %77 = getelementptr i8, ptr %69, i64 %.045.i

@@ -812,10 +812,10 @@ define dso_local void @find_lateral_references(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.find_lateral_references, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.find_lateral_references, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   %30 = zext nneg i32 %27 to i64
-  %switch.gep15 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.find_lateral_references.5, i64 0, i64 %30
+  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table.find_lateral_references.5, i64 %30
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load
   %32 = load ptr, ptr %31, align 8
@@ -3900,9 +3900,9 @@ define dso_local void @match_foreign_keys_to_quals(ptr noundef %0) local_unnamed
   br label %154
 
 60:                                               ; preds = %48
-  %61 = getelementptr inbounds nuw [32 x i16], ptr %41, i64 0, i64 %indvars.iv173
+  %61 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv173
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds nuw [32 x i16], ptr %42, i64 0, i64 %indvars.iv173
+  %63 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv173
   %64 = load i16, ptr %63, align 2
   %65 = load ptr, ptr %43, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -3911,8 +3911,8 @@ define dso_local void @match_foreign_keys_to_quals(ptr noundef %0) local_unnamed
 
 .lr.ph157:                                        ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %68 = getelementptr inbounds nuw [32 x i32], ptr %44, i64 0, i64 %indvars.iv173
-  %69 = getelementptr inbounds nuw [32 x ptr], ptr %45, i64 0, i64 %indvars.iv173
+  %68 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv173
+  %69 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv173
   %70 = load i32, ptr %66, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph203, label %.critedge136
@@ -3930,7 +3930,7 @@ define dso_local void @match_foreign_keys_to_quals(ptr noundef %0) local_unnamed
   br i1 %78, label %81, label %.critedge137
 
 .critedge136:                                     ; preds = %.critedge137, %.lr.ph157, %60
-  %79 = getelementptr inbounds nuw [32 x ptr], ptr %45, i64 0, i64 %indvars.iv173
+  %79 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv173
   %80 = load ptr, ptr %79, align 8
   %.not128 = icmp eq ptr %80, null
   br i1 %.not128, label %154, label %151

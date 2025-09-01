@@ -962,7 +962,7 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit.i: ; preds = %8
   unreachable
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [0 x { ptr, i64 }], ptr %4, i64 0, i64 %.05.i
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %.05.i
   %22 = load ptr, ptr %21, align 8, !nonnull !16, !align !60, !noundef !16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !16

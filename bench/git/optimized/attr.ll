@@ -451,7 +451,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
 
 84:                                               ; preds = %st_add.exit95
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %86 = getelementptr inbounds nuw [0 x %struct.attr_state], ptr %85, i64 0, i64 %.075.lcssa120122
+  %86 = getelementptr inbounds nuw %struct.attr_state, ptr %85, i64 %.075.lcssa120122
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %.1, i64 %.177, i1 false)
   store ptr %86, ptr %81, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -494,7 +494,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
 102:                                              ; preds = %.lr.ph110, %102
   %.173109 = phi ptr [ %99, %.lr.ph110 ], [ %104, %102 ]
   %.074108 = phi i64 [ 0, %.lr.ph110 ], [ %105, %102 ]
-  %103 = getelementptr inbounds nuw [0 x %struct.attr_state], ptr %101, i64 0, i64 %.074108
+  %103 = getelementptr inbounds nuw %struct.attr_state, ptr %101, i64 %.074108
   %104 = call fastcc ptr @parse_attr(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %.173109, ptr noundef nonnull %103)
   %105 = add i64 %.074108, 1
   %106 = load i8, ptr %104, align 1, !tbaa !4
@@ -1445,7 +1445,7 @@ canon_mode.exit.thread.i.i:                       ; preds = %57, %48, %canon_mod
 
 75:                                               ; preds = %74, %73
   %indvars.iv.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i.i, %74 ]
-  %76 = getelementptr inbounds nuw [5 x %struct.anon], ptr @interned_mode_string.mode_string, i64 0, i64 %indvars.iv.i.i.i
+  %76 = getelementptr inbounds nuw %struct.anon, ptr @interned_mode_string.mode_string, i64 %indvars.iv.i.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !97
   %.not.i26.i.i = icmp eq i32 %77, %.2.i.i
   br i1 %.not.i26.i.i, label %78, label %74
@@ -2948,48 +2948,48 @@ define internal fastcc range(i32 0, -2147483648) i32 @fill_one(ptr noundef captu
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %9 = getelementptr i8, ptr %1, i64 24
   br label %10
 
 10:                                               ; preds = %.lr.ph, %macroexpand_one.exit
   %.019 = phi i32 [ %2, %.lr.ph ], [ %.1, %macroexpand_one.exit ]
-  %.01718 = phi i64 [ %5, %.lr.ph ], [ %11, %macroexpand_one.exit ]
-  %11 = add i64 %.01718, -1
-  %12 = getelementptr inbounds nuw [0 x %struct.attr_state], ptr %9, i64 0, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
-  %14 = load i32, ptr %13, align 4, !tbaa !22
-  %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %0, i64 %15, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
-  %18 = icmp eq ptr %17, @git_attr__unknown
-  br i1 %18, label %19, label %macroexpand_one.exit
+  %.01718 = phi i64 [ %5, %.lr.ph ], [ %32, %macroexpand_one.exit ]
+  %11 = getelementptr %struct.attr_state, ptr %9, i64 %.01718
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 4, !tbaa !22
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %0, i64 %14, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %17 = icmp eq ptr %16, @git_attr__unknown
+  br i1 %17, label %18, label %macroexpand_one.exit
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !33
-  store ptr %21, ptr %16, align 8, !tbaa !26
-  %22 = add nsw i32 %.019, -1
-  %23 = sext i32 %14 to i64
-  %24 = getelementptr inbounds %struct.all_attrs_item, ptr %0, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !113
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %macroexpand_one.exit, label %27
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  store ptr %20, ptr %15, align 8, !tbaa !26
+  %21 = add nsw i32 %.019, -1
+  %22 = sext i32 %13 to i64
+  %23 = getelementptr inbounds %struct.all_attrs_item, ptr %0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !113
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %macroexpand_one.exit, label %26
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !72
-  %30 = icmp eq ptr %29, @git_attr__true
-  br i1 %30, label %31, label %macroexpand_one.exit
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %29 = icmp eq ptr %28, @git_attr__true
+  br i1 %29, label %30, label %macroexpand_one.exit
 
-31:                                               ; preds = %27
-  %32 = tail call fastcc i32 @fill_one(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef range(i32 0, 2147483647) %22)
+30:                                               ; preds = %26
+  %31 = tail call fastcc i32 @fill_one(ptr noundef nonnull %0, ptr noundef nonnull %25, i32 noundef range(i32 0, 2147483647) %21)
   br label %macroexpand_one.exit
 
-macroexpand_one.exit:                             ; preds = %31, %27, %19, %10
-  %.1 = phi i32 [ %.019, %10 ], [ %32, %31 ], [ %22, %27 ], [ %22, %19 ]
+macroexpand_one.exit:                             ; preds = %30, %26, %18, %10
+  %.1 = phi i32 [ %.019, %10 ], [ %31, %30 ], [ %21, %26 ], [ %21, %18 ]
+  %32 = add i64 %.01718, -1
   %33 = icmp ne i32 %.1, 0
-  %34 = icmp ne i64 %11, 0
+  %34 = icmp ne i64 %32, 0
   %35 = and i1 %33, %34
   br i1 %35, label %10, label %._crit_edge, !llvm.loop !130
 

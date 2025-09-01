@@ -2600,7 +2600,7 @@ _ZZN12_GLOBAL__N_125RISCVOutgoingValueHandler17assignCustomValueERN4llvm12CallLo
 106:                                              ; preds = %112, %.critedge2
   %.0813.i.i.i = phi i64 [ 0, %.critedge2 ], [ %113, %112 ]
   %.0912.i.i.i = phi i64 [ 3, %.critedge2 ], [ %.1.i.i.i, %112 ]
-  %107 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 %.0813.i.i.i
   %108 = load i8, ptr %107, align 1, !tbaa !600, !range !91, !noundef !92
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %110, label %112
@@ -2771,7 +2771,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i:        ; preds = %166
 175:                                              ; preds = %181, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i
   %.0813.i.i.i.i = phi i64 [ 0, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i ], [ %182, %181 ]
   %.0912.i.i.i.i = phi i64 [ 3, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i ], [ %.1.i.i.i.i, %181 ]
-  %176 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i.i
+  %176 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 %.0813.i.i.i.i
   %177 = load i8, ptr %176, align 1, !tbaa !600, !range !91, !noundef !92
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %179, label %181
@@ -3169,7 +3169,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i:    ; preds = %1
 14:                                               ; preds = %20, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i ], [ %21, %20 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 3, %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i ], [ %.1.i.i.i.i.i.i, %20 ]
-  %15 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %16 = load i8, ptr %15, align 1, !tbaa !600, !range !91, !noundef !92
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %20
@@ -3504,7 +3504,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit:          ; preds = %.critedge
 57:                                               ; preds = %63, %.critedge2
   %.0813.i.i.i = phi i64 [ 0, %.critedge2 ], [ %64, %63 ]
   %.0912.i.i.i = phi i64 [ 3, %.critedge2 ], [ %.1.i.i.i, %63 ]
-  %58 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIlJN4llvm8RegisterEljEEmv.__found, i64 %.0813.i.i.i
   %59 = load i8, ptr %58, align 1, !tbaa !600, !range !91, !noundef !92
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %63
@@ -3626,7 +3626,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit53:        ; preds = %101
 109:                                              ; preds = %115, %_ZNK4llvm11CCValAssign9getLocRegEv.exit53
   %.0813.i.i.i54 = phi i64 [ 0, %_ZNK4llvm11CCValAssign9getLocRegEv.exit53 ], [ %116, %115 ]
   %.0912.i.i.i55 = phi i64 [ 3, %_ZNK4llvm11CCValAssign9getLocRegEv.exit53 ], [ %.1.i.i.i56, %115 ]
-  %110 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i54
+  %110 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 %.0813.i.i.i54
   %111 = load i8, ptr %110, align 1, !tbaa !600, !range !91, !noundef !92
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %115

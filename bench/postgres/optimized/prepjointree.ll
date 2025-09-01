@@ -82,7 +82,7 @@ define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) lo
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %22
   store i8 1, ptr %23, align 1
   br label %24
 

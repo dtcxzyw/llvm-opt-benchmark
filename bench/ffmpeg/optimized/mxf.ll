@@ -30,7 +30,7 @@ define range(i32 -1, 1) i32 @ff_mxf_decode_pixel_layout(ptr noundef readonly cap
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [14 x %struct.anon], ptr @ff_mxf_pixel_layouts, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @ff_mxf_pixel_layouts, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %6, i64 16)
   %.not = icmp eq i32 %bcmp, 0
@@ -62,30 +62,29 @@ define i32 @ff_mxf_get_content_package_rate(i64 %0) local_unnamed_addr #1 {
 
 .split.us.split:                                  ; preds = %.split.us, %av_cmp_q.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_cmp_q.exit.thread.us ], [ 0, %.split.us ]
-  %5 = phi i32 [ %16, %av_cmp_q.exit.thread.us ], [ 2, %.split.us ]
-  %6 = phi ptr [ %15, %av_cmp_q.exit.thread.us ], [ @mxf_content_package_rates, %.split.us ]
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load i64, ptr %7, align 4
-  %9 = ashr i64 %8, 32
-  %10 = mul nsw i64 %9, %2
-  %sext20.i.us = shl i64 %8, 32
-  %11 = ashr exact i64 %sext20.i.us, 32
-  %12 = mul nuw nsw i64 %11, %3
-  %.not.i.us = icmp eq i64 %10, %12
-  br i1 %.not.i.us, label %13, label %av_cmp_q.exit.thread.us
+  %5 = phi i32 [ %15, %av_cmp_q.exit.thread.us ], [ 2, %.split.us ]
+  %6 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv, i32 1
+  %7 = load i64, ptr %6, align 4
+  %8 = ashr i64 %7, 32
+  %9 = mul nsw i64 %8, %2
+  %sext20.i.us = shl i64 %7, 32
+  %10 = ashr exact i64 %sext20.i.us, 32
+  %11 = mul nuw nsw i64 %10, %3
+  %.not.i.us = icmp eq i64 %9, %11
+  br i1 %.not.i.us, label %12, label %av_cmp_q.exit.thread.us
 
-13:                                               ; preds = %.split.us.split
-  %.sroa.0.0.extract.trunc.i.us = trunc i64 %8 to i32
-  %14 = icmp ne i32 %.sroa.0.0.extract.trunc.i.us, 0
+12:                                               ; preds = %.split.us.split
+  %.sroa.0.0.extract.trunc.i.us = trunc i64 %7 to i32
+  %13 = icmp ne i32 %.sroa.0.0.extract.trunc.i.us, 0
   %.not8.unshifted.us = xor i32 %.sroa.0.0.extract.trunc.i.us, %.sroa.011.0.extract.trunc.i
   %.not8.us = icmp sgt i32 %.not8.unshifted.us, -1
-  %or.cond.us = and i1 %14, %.not8.us
+  %or.cond.us = and i1 %13, %.not8.us
   br i1 %or.cond.us, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread.us
 
-av_cmp_q.exit.thread.us:                          ; preds = %13, %.split.us.split
+av_cmp_q.exit.thread.us:                          ; preds = %12, %.split.us.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next
-  %16 = load i32, ptr %15, align 4, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv.next
+  %15 = load i32, ptr %14, align 4, !tbaa !12
   %exitcond = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond, label %av_cmp_q.exit.thread11, label %.split.us.split, !llvm.loop !15
 
@@ -93,73 +92,73 @@ av_cmp_q.exit.thread.us:                          ; preds = %13, %.split.us.spli
   br i1 %.not32, label %.split.split.us.preheader, label %.split.split
 
 .split.split.us.preheader:                        ; preds = %.split
-  %17 = mul nuw nsw i64 %2, 24
-  %.not.i.us1858 = icmp eq i64 %17, %3
+  %16 = mul nuw nsw i64 %2, 24
+  %.not.i.us1858 = icmp eq i64 %16, %3
   br i1 %.not.i.us1858, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread.us23
 
 .split.split.us:                                  ; preds = %av_cmp_q.exit.thread.us23
-  %18 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %19 = load i64, ptr %18, align 4
-  %20 = ashr i64 %19, 32
-  %21 = mul nuw nsw i64 %20, %2
-  %sext20.i.us17 = shl i64 %19, 32
-  %22 = ashr exact i64 %sext20.i.us17, 32
-  %23 = mul nsw i64 %22, %3
-  %.not.i.us18 = icmp eq i64 %21, %23
-  %24 = icmp ugt i64 %19, 4294967295
-  %or.cond30 = and i1 %.not.i.us18, %24
+  %17 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv.next47, i32 1
+  %18 = load i64, ptr %17, align 4
+  %19 = ashr i64 %18, 32
+  %20 = mul nuw nsw i64 %19, %2
+  %sext20.i.us17 = shl i64 %18, 32
+  %21 = ashr exact i64 %sext20.i.us17, 32
+  %22 = mul nsw i64 %21, %3
+  %.not.i.us18 = icmp eq i64 %20, %22
+  %23 = icmp ugt i64 %18, 4294967295
+  %or.cond30 = and i1 %.not.i.us18, %23
   br i1 %or.cond30, label %av_cmp_q.exit.thread11.loopexit, label %av_cmp_q.exit.thread.us23, !llvm.loop !15
 
 av_cmp_q.exit.thread.us23:                        ; preds = %.split.split.us.preheader, %.split.split.us
   %indvars.iv4659 = phi i64 [ %indvars.iv.next47, %.split.split.us ], [ 0, %.split.split.us.preheader ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv4659, 1
-  %25 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next47
   %exitcond49 = icmp eq i64 %indvars.iv.next47, 20
   br i1 %exitcond49, label %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge, label %.split.split.us, !llvm.loop !15
 
 .split.split:                                     ; preds = %.split, %av_cmp_q.exit.thread
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %av_cmp_q.exit.thread ], [ 0, %.split ]
-  %26 = phi i32 [ %39, %av_cmp_q.exit.thread ], [ 2, %.split ]
-  %27 = phi ptr [ %38, %av_cmp_q.exit.thread ], [ @mxf_content_package_rates, %.split ]
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = load i64, ptr %28, align 4
-  %.sroa.0.0.extract.trunc.i = trunc i64 %29 to i32
-  %30 = ashr i64 %29, 32
-  %31 = mul nsw i64 %30, %2
-  %sext20.i = shl i64 %29, 32
-  %32 = ashr exact i64 %sext20.i, 32
-  %33 = mul nsw i64 %32, %3
-  %.not.i = icmp eq i64 %31, %33
-  br i1 %.not.i, label %34, label %av_cmp_q.exit.thread
+  %24 = phi i32 [ %36, %av_cmp_q.exit.thread ], [ 2, %.split ]
+  %25 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv42, i32 1
+  %26 = load i64, ptr %25, align 4
+  %.sroa.0.0.extract.trunc.i = trunc i64 %26 to i32
+  %27 = ashr i64 %26, 32
+  %28 = mul nsw i64 %27, %2
+  %sext20.i = shl i64 %26, 32
+  %29 = ashr exact i64 %sext20.i, 32
+  %30 = mul nsw i64 %29, %3
+  %.not.i = icmp eq i64 %28, %30
+  br i1 %.not.i, label %31, label %av_cmp_q.exit.thread
 
-34:                                               ; preds = %.split.split
-  %35 = icmp ugt i64 %29, 4294967295
-  br i1 %35, label %av_cmp_q.exit.thread11, label %36
+31:                                               ; preds = %.split.split
+  %32 = icmp ugt i64 %26, 4294967295
+  br i1 %32, label %av_cmp_q.exit.thread11, label %33
 
-36:                                               ; preds = %34
-  %37 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 0
+33:                                               ; preds = %31
+  %34 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 0
   %.not8.unshifted = xor i32 %.sroa.0.0.extract.trunc.i, %.sroa.011.0.extract.trunc.i
   %.not8 = icmp sgt i32 %.not8.unshifted, -1
-  %or.cond = and i1 %37, %.not8
+  %or.cond = and i1 %34, %.not8
   br i1 %or.cond, label %av_cmp_q.exit.thread11, label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread:                             ; preds = %.split.split, %36
+av_cmp_q.exit.thread:                             ; preds = %.split.split, %33
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %38 = getelementptr inbounds nuw [21 x %struct.MXFContentPackageRate], ptr @mxf_content_package_rates, i64 0, i64 %indvars.iv.next43
-  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %35 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv.next43
+  %36 = load i32, ptr %35, align 4, !tbaa !12
   %exitcond45 = icmp eq i64 %indvars.iv.next43, 20
   br i1 %exitcond45, label %av_cmp_q.exit.thread11, label %.split.split, !llvm.loop !15
 
 av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge: ; preds = %av_cmp_q.exit.thread.us23
-  %40 = load i32, ptr %25, align 4, !tbaa !12
+  %37 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv.next47
+  %38 = load i32, ptr %37, align 4, !tbaa !12
   br label %av_cmp_q.exit.thread11, !llvm.loop !15
 
 av_cmp_q.exit.thread11.loopexit:                  ; preds = %.split.split.us
-  %41 = load i32, ptr %25, align 4, !tbaa !12
+  %39 = getelementptr inbounds nuw %struct.MXFContentPackageRate, ptr @mxf_content_package_rates, i64 %indvars.iv.next47
+  %40 = load i32, ptr %39, align 4, !tbaa !12
   br label %av_cmp_q.exit.thread11
 
-av_cmp_q.exit.thread11:                           ; preds = %av_cmp_q.exit.thread.us, %13, %36, %34, %av_cmp_q.exit.thread, %av_cmp_q.exit.thread11.loopexit, %.split.split.us.preheader, %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %40, %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge ], [ 2, %.split.split.us.preheader ], [ %41, %av_cmp_q.exit.thread11.loopexit ], [ %26, %36 ], [ %26, %34 ], [ %39, %av_cmp_q.exit.thread ], [ %5, %13 ], [ %16, %av_cmp_q.exit.thread.us ]
+av_cmp_q.exit.thread11:                           ; preds = %av_cmp_q.exit.thread.us, %12, %33, %31, %av_cmp_q.exit.thread, %av_cmp_q.exit.thread11.loopexit, %.split.split.us.preheader, %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge, %.split.us
+  %.us-phi = phi i32 [ 0, %.split.us ], [ %38, %av_cmp_q.exit.thread.us23.av_cmp_q.exit.thread11.loopexit_crit_edge ], [ 2, %.split.split.us.preheader ], [ %40, %av_cmp_q.exit.thread11.loopexit ], [ %24, %33 ], [ %24, %31 ], [ %36, %av_cmp_q.exit.thread ], [ %5, %12 ], [ %15, %av_cmp_q.exit.thread.us ]
   ret i32 %.us-phi
 }
 

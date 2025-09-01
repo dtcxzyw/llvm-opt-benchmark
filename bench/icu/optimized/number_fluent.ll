@@ -3842,8 +3842,8 @@ define linkonce_odr void @_ZN6icu_776number4impl24AutoAffixPatternProvider5setTo
 
 27:                                               ; preds = %27, %24
   %.07.i = phi i64 [ 0, %24 ], [ %44, %27 ]
-  %28 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::PropertiesAffixPatternProvider"], ptr %25, i64 0, i64 %.07.i
-  %29 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::PropertiesAffixPatternProvider"], ptr %26, i64 0, i64 %.07.i
+  %28 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %25, i64 %.07.i
+  %29 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %26, i64 %.07.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %31)

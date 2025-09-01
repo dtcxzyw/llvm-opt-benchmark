@@ -1005,7 +1005,7 @@ define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..
 
 2:                                                ; preds = %1, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit"
   %.08 = phi i64 [ 0, %1 ], [ %4, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit" ]
-  %3 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %0, i64 0, i64 %.08
+  %3 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %.08
   %4 = add nuw nsw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %5 = load ptr, ptr %3, align 8, !alias.scope !203, !noundef !4
@@ -1037,7 +1037,7 @@ define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$$u5b$core..option..
 
 .lr.ph:                                           ; preds = %14, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7"
   %.19 = phi i64 [ %18, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7" ], [ %4, %14 ]
-  %17 = getelementptr inbounds [32 x { ptr, ptr }], ptr %0, i64 0, i64 %.19
+  %17 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.19
   %18 = add i64 %.19, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %19 = load ptr, ptr %17, align 8, !alias.scope !213, !noundef !4
@@ -9617,7 +9617,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
   br i1 %30, label %40, label %31, !prof !1793
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.054.ph
+  %32 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i64 %.054.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1794)
   %33 = load ptr, ptr %32, align 8, !alias.scope !1794, !noundef !4
   %34 = icmp eq ptr %33, null
@@ -9780,7 +9780,7 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
 
 90:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit.i", %89
   %.08.i = phi i64 [ 0, %89 ], [ %92, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit.i" ]
-  %91 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.08.i
+  %91 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i64 %.08.i
   %92 = add nuw nsw i64 %.08.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1814)
   %93 = load ptr, ptr %91, align 8, !alias.scope !1817, !noundef !4
@@ -9809,7 +9809,7 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
 
 .lr.ph.i:                                         ; preds = %101, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7.i"
   %.19.i = phi i64 [ %105, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit7.i" ], [ %92, %101 ]
-  %104 = getelementptr inbounds [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.19.i
+  %104 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 %.19.i
   %105 = add i64 %.19.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1825)
   %106 = load ptr, ptr %104, align 8, !alias.scope !1828, !noundef !4
@@ -12458,7 +12458,7 @@ _ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit.i.i.i: ; preds 
   br i1 %59, label %60, label %63, !prof !2142
 
 60:                                               ; preds = %_ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE.exit.i.i.i
-  %61 = getelementptr inbounds nuw [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }], ptr %53, i64 0, i64 %58
+  %61 = getelementptr inbounds nuw { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }, ptr %53, i64 %58
   call void @llvm.experimental.noalias.scope.decl(metadata !2143)
   %62 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.10338052584253536188(ptr noundef nonnull align 8 %61, i8 noundef 4)
           to label %.noexc40.i.i unwind label %99

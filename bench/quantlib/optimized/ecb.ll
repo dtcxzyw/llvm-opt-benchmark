@@ -2108,14 +2108,14 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv2.i.i.i.i = sext i8 %5 to i32
   %call3.i.i.i.i = tail call i32 @toupper(i32 noundef %conv2.i.i.i.i) #29
   %conv4.i.i.i.i = trunc i32 %call3.i.i.i.i to i8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %lhsUpper.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhsUpper.i.i.i.i, i64 %indvars.iv.i.i.i.i
   store i8 %conv4.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !31
   %arrayidx.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %k.0.val, i64 %indvars.iv.i.i.i.i
   %6 = load i8, ptr %arrayidx.i7.i.i.i.i, align 1, !tbaa !31
   %conv7.i.i.i.i = sext i8 %6 to i32
   %call8.i.i.i.i = tail call i32 @toupper(i32 noundef %conv7.i.i.i.i) #29
   %conv9.i.i.i.i = trunc i32 %call8.i.i.i.i to i8
-  %arrayidx11.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %rhsUpper.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx11.i.i.i.i = getelementptr inbounds nuw i8, ptr %rhsUpper.i.i.i.i, i64 %indvars.iv.i.i.i.i
   store i8 %conv9.i.i.i.i, ptr %arrayidx11.i.i.i.i, align 1, !tbaa !31
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
@@ -2159,14 +2159,14 @@ for.body.i15.i.i.i:                               ; preds = %for.body.i15.i.i.i,
   %conv2.i18.i.i.i = sext i8 %11 to i32
   %call3.i19.i.i.i = tail call i32 @toupper(i32 noundef %conv2.i18.i.i.i) #29
   %conv4.i20.i.i.i = trunc i32 %call3.i19.i.i.i to i8
-  %arrayidx.i21.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %lhsUpper.i13.i.i.i, i64 0, i64 %indvars.iv.i16.i.i.i
+  %arrayidx.i21.i.i.i = getelementptr inbounds nuw i8, ptr %lhsUpper.i13.i.i.i, i64 %indvars.iv.i16.i.i.i
   store i8 %conv4.i20.i.i.i, ptr %arrayidx.i21.i.i.i, align 1, !tbaa !31
   %arrayidx.i7.i22.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp9.sroa.0.0.copyload.i.i.i, i64 %indvars.iv.i16.i.i.i
   %12 = load i8, ptr %arrayidx.i7.i22.i.i.i, align 1, !tbaa !31
   %conv7.i23.i.i.i = sext i8 %12 to i32
   %call8.i24.i.i.i = tail call i32 @toupper(i32 noundef %conv7.i23.i.i.i) #29
   %conv9.i25.i.i.i = trunc i32 %call8.i24.i.i.i to i8
-  %arrayidx11.i26.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %rhsUpper.i14.i.i.i, i64 0, i64 %indvars.iv.i16.i.i.i
+  %arrayidx11.i26.i.i.i = getelementptr inbounds nuw i8, ptr %rhsUpper.i14.i.i.i, i64 %indvars.iv.i16.i.i.i
   store i8 %conv9.i25.i.i.i, ptr %arrayidx11.i26.i.i.i, align 1, !tbaa !31
   %indvars.iv.next.i27.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i.i, 1
   %exitcond.not.i28.i.i.i = icmp eq i64 %indvars.iv.next.i27.i.i.i, 3
@@ -2822,14 +2822,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   %conv2.i.i.i.i.i.i.i.i = sext i8 %27 to i32
   %call3.i.i.i.i.i.i.i.i = tail call i32 @toupper(i32 noundef %conv2.i.i.i.i.i.i.i.i) #29
   %conv4.i.i.i.i.i.i.i.i = trunc i32 %call3.i.i.i.i.i.i.i.i to i8
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %lhsUpper.i.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhsUpper.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i8 %conv4.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !tbaa !31
   %arrayidx.i7.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %28 = load i8, ptr %arrayidx.i7.i.i.i.i.i.i.i.i, align 1, !tbaa !31
   %conv7.i.i.i.i.i.i.i.i = sext i8 %28 to i32
   %call8.i.i.i.i.i.i.i.i = tail call i32 @toupper(i32 noundef %conv7.i.i.i.i.i.i.i.i) #29
   %conv9.i.i.i.i.i.i.i.i = trunc i32 %call8.i.i.i.i.i.i.i.i to i8
-  %arrayidx11.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %rhsUpper.i.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %arrayidx11.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rhsUpper.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i8 %conv9.i.i.i.i.i.i.i.i, ptr %arrayidx11.i.i.i.i.i.i.i.i, align 1, !tbaa !31
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -2934,14 +2934,14 @@ for.body.i22.i.i.i.i.i.i.i:                       ; preds = %for.body.i22.i.i.i.
   %conv2.i25.i.i.i.i.i.i.i = sext i8 %45 to i32
   %call3.i26.i.i.i.i.i.i.i = tail call i32 @toupper(i32 noundef %conv2.i25.i.i.i.i.i.i.i) #29
   %conv4.i27.i.i.i.i.i.i.i = trunc i32 %call3.i26.i.i.i.i.i.i.i to i8
-  %arrayidx.i28.i.i.i.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %lhsUpper.i20.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i23.i.i.i.i.i.i.i
+  %arrayidx.i28.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhsUpper.i20.i.i.i.i.i.i.i, i64 %indvars.iv.i23.i.i.i.i.i.i.i
   store i8 %conv4.i27.i.i.i.i.i.i.i, ptr %arrayidx.i28.i.i.i.i.i.i.i, align 1, !tbaa !31
   %arrayidx.i7.i29.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val.i.i.i.i.i.i, i64 %indvars.iv.i23.i.i.i.i.i.i.i
   %46 = load i8, ptr %arrayidx.i7.i29.i.i.i.i.i.i.i, align 1, !tbaa !31
   %conv7.i30.i.i.i.i.i.i.i = sext i8 %46 to i32
   %call8.i31.i.i.i.i.i.i.i = tail call i32 @toupper(i32 noundef %conv7.i30.i.i.i.i.i.i.i) #29
   %conv9.i32.i.i.i.i.i.i.i = trunc i32 %call8.i31.i.i.i.i.i.i.i to i8
-  %arrayidx11.i33.i.i.i.i.i.i.i = getelementptr inbounds nuw [3 x i8], ptr %rhsUpper.i21.i.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i23.i.i.i.i.i.i.i
+  %arrayidx11.i33.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rhsUpper.i21.i.i.i.i.i.i.i, i64 %indvars.iv.i23.i.i.i.i.i.i.i
   store i8 %conv9.i32.i.i.i.i.i.i.i, ptr %arrayidx11.i33.i.i.i.i.i.i.i, align 1, !tbaa !31
   %indvars.iv.next.i34.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i23.i.i.i.i.i.i.i, 1
   %exitcond.not.i35.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i34.i.i.i.i.i.i.i, 3

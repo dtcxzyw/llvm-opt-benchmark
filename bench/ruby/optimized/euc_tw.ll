@@ -28,7 +28,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1, !tbaa !6
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @trans, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !6
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -44,17 +44,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %6
+  %17 = getelementptr inbounds nuw i32, ptr @EncLen_EUCTW, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = sub nsw i32 0, %18
   br label %56
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %9
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = load i8, ptr %4, align 1, !tbaa !6
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !6
   %27 = sext i8 %26 to i64
   %28 = icmp slt i8 %26, 0
@@ -70,11 +70,11 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   br i1 %33, label %56, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %27
+  %35 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %27
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %37 = load i8, ptr %22, align 1, !tbaa !6
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw [256 x i8], ptr %35, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !6
   %41 = sext i8 %40 to i64
   %42 = icmp slt i8 %40, 0
@@ -90,10 +90,10 @@ define internal range(i32 -2147483647, -2147483648) i32 @euctw_mbc_enc_len(ptr n
   br i1 %47, label %56, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw [4 x [256 x i8]], ptr @trans, i64 0, i64 %41
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 %41
   %50 = load i8, ptr %36, align 1, !tbaa !6
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr %49, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !6
   %54 = icmp eq i8 %53, -1
   %55 = select i1 %54, i32 4, i32 -1

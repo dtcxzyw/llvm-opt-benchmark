@@ -1481,7 +1481,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert, i64 0, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !10
   %5 = add nuw nsw i32 %3, 1
   br label %64
@@ -1653,7 +1653,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %10
 
 ._crit_edge.i:                                    ; preds = %51
   %.phi.trans.insert1.i = zext nneg i32 %52 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i, i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !10
   %54 = add nuw nsw i32 %52, 1
   br label %.noexc35
@@ -1842,7 +1842,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ;
 
 ._crit_edge.i45:                                  ; preds = %150
   %.phi.trans.insert1.i47 = zext nneg i32 %151 to i64
-  %.phi.trans.insert2.i48 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i46, i64 0, i64 %.phi.trans.insert1.i47
+  %.phi.trans.insert2.i48 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i46, i64 %.phi.trans.insert1.i47
   %.pre.i49 = load i64, ptr %.phi.trans.insert2.i48, align 8, !tbaa !10
   %153 = add nuw nsw i32 %151, 1
   br label %.noexc42

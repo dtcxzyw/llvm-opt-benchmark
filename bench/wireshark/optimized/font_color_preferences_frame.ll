@@ -4004,7 +4004,7 @@ define void @_ZN25FontColorPreferencesFrame9showEventEP10QShowEvent(ptr noundef 
 
 .split.i.i:                                       ; preds = %2
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [2 x ptr], ptr @_ZL14font_pangrams_, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @_ZL14font_pangrams_, i64 %12
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #21

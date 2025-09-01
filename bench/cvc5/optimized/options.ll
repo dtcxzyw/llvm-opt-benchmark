@@ -1603,7 +1603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = add i64 %.01045, 1
-  %79 = getelementptr inbounds nuw [840 x %struct.option], ptr @_ZN4cvc54mainL14cmdlineOptionsE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw %struct.option, ptr @_ZN4cvc54mainL14cmdlineOptionsE, i64 %78
   %80 = load ptr, ptr %79, align 16, !tbaa !40
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %._crit_edge, label %._crit_edge.i.i, !llvm.loop !52

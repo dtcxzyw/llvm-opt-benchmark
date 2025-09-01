@@ -1289,7 +1289,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
 
 34:                                               ; preds = %._crit_edge.i, %.lr.ph54.i
   %indvars.iv67.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next68.i, %._crit_edge.i ]
-  %35 = getelementptr inbounds nuw [8 x float], ptr %30, i64 0, i64 %indvars.iv67.i
+  %35 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv67.i
   %36 = load float, ptr %35, align 4, !tbaa !72
   %.not63.i = icmp eq i64 %indvars.iv67.i, 0
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1301,9 +1301,9 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %.052.i = phi float [ %36, %.lr.ph.i ], [ %44, %38 ]
-  %39 = getelementptr inbounds nuw [8 x float], ptr %33, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i
   %40 = load float, ptr %39, align 4, !tbaa !72
-  %41 = getelementptr inbounds nuw [8 x float], ptr %37, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
   %42 = load float, ptr %41, align 4, !tbaa !72
   %43 = fneg float %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %42, float %.052.i)
@@ -1314,17 +1314,17 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
 ._crit_edge.i:                                    ; preds = %38, %34
   %.0.lcssa.i = phi float [ %36, %34 ], [ %44, %38 ]
   %45 = getelementptr inbounds nuw [8 x float], ptr %27, i64 %indvars.iv67.i
-  %46 = getelementptr inbounds nuw [8 x float], ptr %45, i64 0, i64 %indvars.iv67.i
+  %46 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv67.i
   %47 = load float, ptr %46, align 4, !tbaa !72
   %48 = fdiv float %.0.lcssa.i, %47
-  %49 = getelementptr inbounds nuw [8 x float], ptr %33, i64 0, i64 %indvars.iv67.i
+  %49 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv67.i
   store float %48, ptr %49, align 4, !tbaa !72
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %indvars.iv76.i
   br i1 %exitcond71.not.i, label %.lr.ph59.i, label %34, !llvm.loop !102
 
 .lr.ph59.i:                                       ; preds = %._crit_edge.i
-  %50 = getelementptr inbounds nuw [8 x float], ptr %30, i64 0, i64 %indvars.iv76.i
+  %50 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv76.i
   %51 = load float, ptr %50, align 4, !tbaa !72
   %52 = fmul float %29, %51
   br label %53
@@ -1332,7 +1332,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
 53:                                               ; preds = %53, %.lr.ph59.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next73.i, %53 ]
   %.157.i = phi float [ %52, %.lr.ph59.i ], [ %57, %53 ]
-  %54 = getelementptr inbounds nuw [8 x float], ptr %33, i64 0, i64 %indvars.iv72.i
+  %54 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv72.i
   %55 = load float, ptr %54, align 4, !tbaa !72
   %56 = fneg float %55
   %57 = tail call float @llvm.fmuladd.f32(float %56, float %55, float %.157.i)
@@ -1348,7 +1348,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
 59:                                               ; preds = %._crit_edge60.i
   %60 = tail call float @sqrtf(float noundef %.1.lcssa.i) #23, !tbaa !54
   %61 = getelementptr inbounds nuw [8 x float], ptr %27, i64 %indvars.iv76.i
-  %62 = getelementptr inbounds nuw [8 x float], ptr %61, i64 0, i64 %indvars.iv76.i
+  %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv76.i
   store float %60, ptr %62, align 4, !tbaa !72
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 8

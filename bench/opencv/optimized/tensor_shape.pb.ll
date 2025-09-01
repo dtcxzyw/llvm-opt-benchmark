@@ -1399,7 +1399,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %61 = add nsw i32 %56, 1
   store i32 %61, ptr %10, align 8, !tbaa !58
   %62 = sext i32 %56 to i64
-  %63 = getelementptr inbounds [268435454 x ptr], ptr %60, i64 0, i64 %62
+  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !53
   br label %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit
 
@@ -1558,7 +1558,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.01420 to i64
-  %17 = getelementptr inbounds [268435454 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   store i8 18, ptr %.0.i15, align 1, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 1

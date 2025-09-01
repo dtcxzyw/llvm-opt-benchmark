@@ -1191,7 +1191,7 @@ dt_RGB_2_HSL.exit.i:                              ; preds = %_dt_RGB_2_Hue.exit.
 517:                                              ; preds = %_blendif_compute_factor.exit.i98, %dt_RGB_2_HSL.exit.i
   %.021.i = phi i64 [ 0, %dt_RGB_2_HSL.exit.i ], [ %551, %_blendif_compute_factor.exit.i98 ]
   %.01620.i = phi float [ 1.000000e+00, %dt_RGB_2_HSL.exit.i ], [ %550, %_blendif_compute_factor.exit.i98 ]
-  %518 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.021.i
+  %518 = getelementptr inbounds nuw float, ptr %7, i64 %.021.i
   %519 = load float, ptr %518, align 4, !tbaa !36, !noalias !121
   %520 = getelementptr inbounds nuw i32, ptr %9, i64 %.021.i
   %521 = load i32, ptr %520, align 4, !tbaa !111, !alias.scope !119, !noalias !124
@@ -2030,7 +2030,7 @@ _display_channel.exit:                            ; preds = %389, %367, %344, %3
 
 switch.lookup:                                    ; preds = %405
   %409 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [34 x ptr], ptr @switch.table.dt_develop_blendif_rgb_hsl_blend, i64 0, i64 %409
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_develop_blendif_rgb_hsl_blend, i64 %409
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_choose_blend_func.exit
 

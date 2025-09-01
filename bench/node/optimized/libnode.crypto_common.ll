@@ -2180,7 +2180,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = lshr i8 %1, 4
   %idxprom1.i = zext nneg i8 %2 to i64
-  %arrayidx2.i = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN4node6crypto12_GLOBAL__N_120AddFingerprintDigestEPKhjPc.hex, i64 0, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr @__const._ZN4node6crypto12_GLOBAL__N_120AddFingerprintDigestEPKhjPc.hex, i64 %idxprom1.i
   %3 = load i8, ptr %arrayidx2.i, align 1
   %4 = trunc nuw i64 %indvars.iv.i to i32
   %mul.i = mul i32 %4, 3
@@ -2189,7 +2189,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i8 %3, ptr %arrayidx4.i, align 1
   %5 = and i8 %1, 15
   %idxprom9.i = zext nneg i8 %5 to i64
-  %arrayidx10.i = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN4node6crypto12_GLOBAL__N_120AddFingerprintDigestEPKhjPc.hex, i64 0, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr @__const._ZN4node6crypto12_GLOBAL__N_120AddFingerprintDigestEPKhjPc.hex, i64 %idxprom9.i
   %6 = load i8, ptr %arrayidx10.i, align 1
   %add.i = add i32 %mul.i, 1
   %idxprom12.i = zext i32 %add.i to i64
@@ -4914,12 +4914,12 @@ if.else40:                                        ; preds = %if.else25
   store i8 48, ptr %arrayinit.element42, align 1
   %13 = lshr i8 %7, 4
   %idxprom = zext nneg i8 %13 to i64
-  %arrayidx46 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 0, i64 %idxprom
+  %arrayidx46 = getelementptr inbounds nuw i8, ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 %idxprom
   %14 = load i8, ptr %arrayidx46, align 1
   store i8 %14, ptr %arrayinit.element43, align 1
   %15 = and i8 %7, 15
   %idxprom50 = zext nneg i8 %15 to i64
-  %arrayidx51 = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 %idxprom50
   %16 = load i8, ptr %arrayidx51, align 1
   store i8 %16, ptr %arrayinit.element47, align 1
   %17 = load ptr, ptr %out, align 8

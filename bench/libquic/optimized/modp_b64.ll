@@ -29,7 +29,7 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %10 = getelementptr i8, ptr %6, i64 2
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = zext i8 %7 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZL2e0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %.14647, i64 1
   store i8 %14, ptr %.14647, align 1, !tbaa !3
@@ -40,7 +40,7 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %20 = lshr i32 %19, 4
   %21 = or disjoint i32 %20, %18
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %.14647, i64 2
   store i8 %24, ptr %15, align 1, !tbaa !3
@@ -50,12 +50,12 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %29 = zext nneg i8 %28 to i32
   %30 = or disjoint i32 %27, %29
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %.14647, i64 3
   store i8 %33, ptr %25, align 1, !tbaa !3
   %35 = zext i8 %11 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %.14647, i64 4
   store i8 %37, ptr %34, align 1, !tbaa !3
@@ -76,14 +76,14 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
   %44 = load i8, ptr %43, align 1, !tbaa !3
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @_ZL2e0, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   store i8 %47, ptr %.045, align 1, !tbaa !3
   %49 = shl i8 %44, 4
   %50 = and i8 %49, 48
   %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %51
   %53 = load i8, ptr %52, align 16, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   store i8 %53, ptr %48, align 1, !tbaa !3
@@ -99,7 +99,7 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %60 = getelementptr i8, ptr %58, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !3
   %62 = zext i8 %59 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @_ZL2e0, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   store i8 %64, ptr %.045, align 1, !tbaa !3
@@ -110,14 +110,14 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %70 = lshr i32 %69, 4
   %71 = or disjoint i32 %70, %68
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   store i8 %74, ptr %65, align 1, !tbaa !3
   %76 = shl nuw nsw i32 %69, 2
   %77 = and i32 %76, 60
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr @_ZL2e2, i64 %78
   %80 = load i8, ptr %79, align 4, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %.045, i64 3
   store i8 %80, ptr %75, align 1, !tbaa !3
@@ -178,24 +178,24 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %.0124129 = phi i64 [ %51, %47 ], [ 0, %17 ]
   %24 = load i8, ptr %.0131, align 1, !tbaa !3
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr @_ZL2d0, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %.0131, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @_ZL2d1, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !8
   %33 = or i32 %32, %27
   %34 = getelementptr inbounds nuw i8, ptr %.0131, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr @_ZL2d2, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !8
   %39 = or i32 %33, %38
   %40 = getelementptr inbounds nuw i8, ptr %.0131, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @_ZL2d3, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !8
   %45 = or i32 %39, %44
   %46 = icmp ugt i32 %45, 33554430
@@ -223,7 +223,7 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %.0.lcssa = phi ptr [ %1, %17 ], [ %52, %47 ]
   %53 = load i8, ptr %.0.lcssa, align 1, !tbaa !3
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr @_ZL2d0, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !8
   switch i32 %19, label %default.unreachable [
     i32 0, label %57
@@ -236,18 +236,18 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %58 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @_ZL2d1, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %64 = load i8, ptr %63, align 1, !tbaa !3
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr @_ZL2d2, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !8
   %68 = or i32 %62, %67
   %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 3
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr @_ZL2d3, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !8
   %74 = or i32 %68, %73
   %75 = or i32 %74, %56
@@ -278,7 +278,7 @@ define range(i64 -1, -4611686018427387904) i64 @modp_b64_decode(ptr noundef writ
   %84 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @_ZL2d1, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !8
   %89 = or i32 %88, %56
   %.sroa.0.0.extract.trunc26 = trunc i32 %89 to i8
@@ -292,12 +292,12 @@ default.unreachable:                              ; preds = %._crit_edge
   %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %92 = load i8, ptr %91, align 1, !tbaa !3
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @_ZL2d1, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !8
   %96 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   %97 = load i8, ptr %96, align 1, !tbaa !3
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr @_ZL2d2, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = or i32 %95, %100
   %102 = or i32 %101, %56

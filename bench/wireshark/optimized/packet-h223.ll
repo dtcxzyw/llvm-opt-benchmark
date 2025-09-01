@@ -389,11 +389,11 @@ define internal void @h223_set_mc(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %18 = load i32, ptr %17, align 4
   %.not10 = icmp eq i32 %18, 0
   %19 = zext i1 %.not10 to i64
-  %20 = getelementptr [2 x %struct.h223_call_direction_data], ptr %16, i64 0, i64 %19
+  %20 = getelementptr %struct.h223_call_direction_data, ptr %16, i64 %19
   %21 = tail call ptr @wmem_file_scope()
   %22 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %21, i64 noundef 24) #15
   %23 = zext nneg i8 %1 to i64
-  %24 = getelementptr [16 x ptr], ptr %20, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %.preheader.i
@@ -855,7 +855,7 @@ define internal fastcc i32 @dissect_mux_pdu_fragment(ptr noundef %0, i32 noundef
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr %4, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr [4 x ptr], ptr @attempt_mux_header_parse, i64 0, i64 %28
+  %29 = getelementptr ptr, ptr @attempt_mux_header_parse, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.0..0..0..0.32 = load volatile i32, ptr %9, align 4
   %31 = sub i32 %.0..0..0..0.32, %1
@@ -1138,11 +1138,11 @@ proto_item_set_generated.exit.i:                  ; preds = %124, %121, %118
   %143 = load i32, ptr %142, align 4
   %.not.i128.i = icmp eq i32 %143, 0
   %144 = zext i1 %.not.i128.i to i64
-  %145 = getelementptr [2 x %struct.h223_call_direction_data], ptr %141, i64 0, i64 %144
+  %145 = getelementptr %struct.h223_call_direction_data, ptr %141, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %147 = load i32, ptr %146, align 4
   %148 = zext nneg i8 %.0114.i to i64
-  %149 = getelementptr [16 x ptr], ptr %145, i64 0, i64 %148
+  %149 = getelementptr ptr, ptr %145, i64 %148
   %150 = load ptr, ptr %149, align 8
   br label %151
 
@@ -1502,7 +1502,7 @@ circuit_chain_lookup.exit:                        ; preds = %5, %13
   %35 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %34, i64 noundef 24) #15
   %.not.i = icmp eq i32 %3, 0
   %36 = zext i1 %.not.i to i64
-  %37 = getelementptr [2 x ptr], ptr %.0, i64 0, i64 %36
+  %37 = getelementptr ptr, ptr %.0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not30.i = icmp eq ptr %38, null
   br i1 %.not30.i, label %39, label %.preheader.i
@@ -1913,7 +1913,7 @@ circuit_chain_lookup.exit:                        ; preds = %27, %35
   %61 = load i32, ptr %44, align 4
   %.not.i = icmp eq i32 %60, 0
   %62 = zext i1 %.not.i to i64
-  %63 = getelementptr [2 x ptr], ptr %57, i64 0, i64 %62
+  %63 = getelementptr ptr, ptr %57, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %65
 
@@ -2114,7 +2114,7 @@ proto_item_set_generated.exit.i:                  ; preds = %134, %131, %123
   %158 = load i8, ptr %157, align 1
   %159 = xor i8 %158, %.0813.i.i
   %160 = zext i8 %159 to i64
-  %161 = getelementptr [256 x i8], ptr @crctable, i64 0, i64 %160
+  %161 = getelementptr i8, ptr @crctable, i64 %160
   %162 = load i8, ptr %161, align 1
   %.not10.i.i = icmp eq i32 %156, 0
   br i1 %.not10.i.i, label %h223_al2_crc8bit.exit.i, label %.lr.ph.i.i, !llvm.loop !20

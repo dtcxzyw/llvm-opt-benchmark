@@ -23,7 +23,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %.189128 = phi ptr [ %44, %39 ], [ %0, %4 ]
   %9 = load i8, ptr %.186129, align 1, !tbaa !4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @map2, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %12 to i32
   %.not105 = icmp sgt i8 %12, -1
@@ -33,7 +33,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %15 = getelementptr inbounds nuw i8, ptr %.186129, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @map2, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %20 = zext i8 %19 to i32
   %.not106 = icmp sgt i8 %19, -1
@@ -45,7 +45,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %24 = getelementptr inbounds nuw i8, ptr %.186129, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @map2, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = zext i8 %28 to i32
   %.not107 = icmp sgt i8 %28, -1
@@ -57,7 +57,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %33 = getelementptr inbounds nuw i8, ptr %.186129, i64 3
   %34 = load i8, ptr %33, align 1, !tbaa !4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @map2, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = zext i8 %37 to i32
   %.not108 = icmp sgt i8 %37, -1
@@ -85,7 +85,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
 49:                                               ; preds = %._crit_edge
   %50 = load i8, ptr %.186.lcssa, align 1, !tbaa !4
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @map2, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = zext i8 %53 to i32
   %.not95 = icmp sgt i8 %53, -1
@@ -95,7 +95,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %56 = getelementptr inbounds nuw i8, ptr %.186.lcssa, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !4
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @map2, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = zext i8 %60 to i32
   %.not96 = icmp sgt i8 %60, -1
@@ -107,7 +107,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %65 = getelementptr inbounds nuw i8, ptr %.186.lcssa, i64 2
   %66 = load i8, ptr %65, align 1, !tbaa !4
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @map2, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !4
   %70 = zext i8 %69 to i32
   %.not97 = icmp sgt i8 %69, -1
@@ -119,7 +119,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %74 = getelementptr inbounds nuw i8, ptr %.186.lcssa, i64 3
   %75 = load i8, ptr %74, align 1, !tbaa !4
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @map2, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !4
   %79 = zext i8 %78 to i32
   %.not98 = icmp sgt i8 %78, -1
@@ -159,7 +159,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %.085 = phi ptr [ %93, %.thread ], [ %.186.lcssa, %._crit_edge ], [ %1, %3 ]
   %95 = load i8, ptr %.085, align 1, !tbaa !4
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @map2, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !4
   %.not101141 = icmp sgt i8 %98, -1
   br i1 %.not101141, label %.lr.ph144, label %.loopexit.split.loop.exit
@@ -168,7 +168,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %100 = getelementptr inbounds nuw i8, ptr %.287142, i64 4
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr @map2, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !4
   %.not101 = icmp sgt i8 %104, -1
   br i1 %.not101, label %.lr.ph144, label %.loopexit.split.loop.exit
@@ -178,7 +178,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %105 = getelementptr inbounds nuw i8, ptr %.287142, i64 1
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @map2, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %.not102 = icmp sgt i8 %109, -1
   br i1 %.not102, label %110, label %.loopexit.split.loop.exit131
@@ -187,7 +187,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %111 = getelementptr inbounds nuw i8, ptr %.287142, i64 2
   %112 = load i8, ptr %111, align 1, !tbaa !4
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr @map2, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !4
   %.not103 = icmp sgt i8 %115, -1
   br i1 %.not103, label %116, label %.loopexit.split.loop.exit133
@@ -196,7 +196,7 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   %117 = getelementptr inbounds nuw i8, ptr %.287142, i64 3
   %118 = load i8, ptr %117, align 1, !tbaa !4
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [256 x i8], ptr @map2, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @map2, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !4
   %.not104 = icmp sgt i8 %121, -1
   br i1 %.not104, label %99, label %.loopexit.split.loop.exit135
@@ -301,28 +301,28 @@ define noundef ptr @av_base64_encode(ptr noundef %0, i32 noundef %1, ptr noundef
   %14 = add nsw i32 %.048, -3
   %15 = lshr i32 %12, 26
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [65 x i8], ptr @av_base64_encode.b64, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @av_base64_encode.b64, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %.03547, i64 1
   store i8 %18, ptr %.03547, align 1, !tbaa !4
   %20 = lshr i32 %12, 20
   %21 = and i32 %20, 63
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [65 x i8], ptr @av_base64_encode.b64, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @av_base64_encode.b64, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %.03547, i64 2
   store i8 %24, ptr %19, align 1, !tbaa !4
   %26 = lshr i32 %12, 14
   %27 = and i32 %26, 63
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [65 x i8], ptr @av_base64_encode.b64, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @av_base64_encode.b64, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %.03547, i64 3
   store i8 %30, ptr %25, align 1, !tbaa !4
   %32 = lshr i32 %12, 8
   %33 = and i32 %32, 63
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [65 x i8], ptr @av_base64_encode.b64, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @av_base64_encode.b64, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.03547, i64 4
   store i8 %36, ptr %31, align 1, !tbaa !4
@@ -371,7 +371,7 @@ define noundef ptr @av_base64_encode(ptr noundef %0, i32 noundef %1, ptr noundef
   %56 = lshr i32 %40, %.13360
   %57 = and i32 %56, 63
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [65 x i8], ptr @av_base64_encode.b64, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @av_base64_encode.b64, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %.13659, i64 1
   store i8 %60, ptr %.13659, align 1, !tbaa !4

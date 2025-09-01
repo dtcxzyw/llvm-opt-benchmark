@@ -742,14 +742,14 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %111, %115, %118
   %140 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = add i64 %.0.i, -1
-  %143 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 %142
   store i8 %141, ptr %143, align 1
   %144 = udiv i32 %.07.i, 10
   %.not.i31 = icmp ult i32 %.07.i, 10
   br i1 %.not.i31, label %145, label %137, !llvm.loop !16
 
 145:                                              ; preds = %137
-  %146 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 0, i64 %142
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 %142
   %147 = sub i64 11, %.0.i
   %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 %147

@@ -2185,7 +2185,7 @@ switch.hole_check:                                ; preds = %522
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %524 = zext nneg i16 %.074.i.i.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_pid_ext, i64 0, i64 %524
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %524
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit.i.i.i.i
 
@@ -2849,7 +2849,7 @@ define internal fastcc zeroext i8 @dissect_pid(ptr noundef %0, ptr noundef %1, p
 
 switch.lookup:                                    ; preds = %24
   %26 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_pid_ext, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit
 
@@ -3118,7 +3118,7 @@ switch.hole_check:                                ; preds = %36
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = zext nneg i16 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_pid_ext, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_pid_ext, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_pid_name.exit
 
@@ -3503,7 +3503,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
 
 .lr.ph276.i:                                      ; preds = %.loopexit203.i, %164
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %164 ], [ 0, %.loopexit203.i ]
-  %168 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv.i
+  %168 = getelementptr [16 x i8], ptr @knx_decryption_keys, i64 %indvars.iv.i
   %169 = call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %120, ptr noundef %168, ptr noundef %117, i32 noundef %118, ptr noundef readonly %115, i32 noundef range(i32 1, -2147483648) %11)
   %.not168.i = icmp eq ptr %169, null
   br i1 %.not168.i, label %164, label %.thread181.i

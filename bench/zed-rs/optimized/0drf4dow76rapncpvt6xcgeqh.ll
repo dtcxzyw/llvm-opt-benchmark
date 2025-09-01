@@ -5544,10 +5544,10 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h8fd688ab9e6911ecE.exit.i.i: ; preds =
 51:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h1658569b56c3b1a7E.exit.i.i"
   %52 = load ptr, ptr %1, align 8, !alias.scope !1023, !noalias !1026, !nonnull !4
   %.sink12.i.i.i.i = select i1 %48, ptr %52, ptr %1
-  %53 = add i64 %.sink11.i.i.i.i, -1
-  %54 = getelementptr inbounds [0 x { { i32, i32 } }], ptr %.sink12.i.i.i.i, i64 0, i64 %53
+  %53 = getelementptr { { i32, i32 } }, ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
+  %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i32, ptr %54, align 4, !range !519, !noalias !1029, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = getelementptr i8, ptr %53, i64 -4
   %57 = load i32, ptr %56, align 4, !noalias !1029, !noundef !4
   %58 = load i32, ptr %12, align 8, !range !519, !noalias !1029, !noundef !4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -12324,7 +12324,7 @@ default.unreachable:                              ; preds = %.noexc3.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %93
   %.sroa.01.05.i.i.i.i = phi i64 [ %94, %93 ], [ 0, %.preheader.i.i.i.i ]
-  %90 = getelementptr inbounds nuw [0 x i8], ptr %88, i64 0, i64 %.sroa.01.05.i.i.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %.sroa.01.05.i.i.i.i
   %91 = load i8, ptr %90, align 1, !alias.scope !2022, !noalias !2025, !noundef !4
   %92 = icmp eq i8 %91, 32
   br i1 %92, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %93

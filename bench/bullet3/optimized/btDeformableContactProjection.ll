@@ -5288,7 +5288,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit345: ; preds = %_ZN9bt
 
 511:                                              ; preds = %.preheader, %511
   %indvars.iv542 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next543, %511 ]
-  %512 = getelementptr inbounds nuw [3 x ptr], ptr %510, i64 0, i64 %indvars.iv542
+  %512 = getelementptr inbounds nuw ptr, ptr %510, i64 %indvars.iv542
   %513 = load ptr, ptr %512, align 8, !tbaa !265
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 128
   store i32 1, ptr %514, align 8, !tbaa !243
@@ -5311,7 +5311,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit345: ; preds = %_ZN9bt
 
 522:                                              ; preds = %.loopexit480, %.loopexit
   %indvars.iv550 = phi i64 [ 0, %.loopexit480 ], [ %indvars.iv.next551, %.loopexit ]
-  %523 = getelementptr inbounds nuw [3 x ptr], ptr %515, i64 0, i64 %indvars.iv550
+  %523 = getelementptr inbounds nuw ptr, ptr %515, i64 %indvars.iv550
   %524 = load ptr, ptr %523, align 8, !tbaa !265
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 136
   %526 = load i32, ptr %525, align 8, !tbaa !242
@@ -6237,7 +6237,7 @@ define dso_local void @_ZN29btDeformableContactProjection16checkConstraintsERK20
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv27 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
-  %21 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %20, i64 0, i64 %indvars.iv27
+  %21 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv27
   %22 = load float, ptr %21, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !45
@@ -6250,9 +6250,9 @@ define dso_local void @_ZN29btDeformableContactProjection16checkConstraintsERK20
 28:                                               ; preds = %.preheader.us, %28
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %28 ]
   %29 = phi float [ %.promoted.us, %.preheader.us ], [ %44, %28 ]
-  %30 = getelementptr inbounds nuw [3 x float], ptr %18, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !45
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !37
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %class.btVector3, ptr %10, i64 %34
@@ -6766,13 +6766,13 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94: ; preds 
 
 200:                                              ; preds = %188, %200
   %indvars.iv271 = phi i64 [ 0, %188 ], [ %indvars.iv.next272, %200 ]
-  %201 = getelementptr inbounds nuw [3 x ptr], ptr %194, i64 0, i64 %indvars.iv271
+  %201 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv271
   %202 = load ptr, ptr %201, align 8, !tbaa !265
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 128
   store i32 1, ptr %203, align 8, !tbaa !243
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 136
   %205 = load i32, ptr %204, align 8, !tbaa !242
-  %206 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv271
+  %206 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv271
   store i32 %205, ptr %206, align 4, !tbaa !37
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next272, 3
@@ -7012,7 +7012,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
 
 79:                                               ; preds = %.lr.ph99, %110
   %indvars.iv106 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next107, %110 ]
-  %80 = getelementptr inbounds nuw [3 x ptr], ptr %72, i64 0, i64 %indvars.iv106
+  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv106
   %81 = load ptr, ptr %80, align 8, !tbaa !265
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %83 = load float, ptr %82, align 8, !tbaa !174
@@ -7130,7 +7130,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
 
 161:                                              ; preds = %153, %192
   %indvars.iv112 = phi i64 [ 0, %153 ], [ %indvars.iv.next113, %192 ]
-  %162 = getelementptr inbounds nuw [3 x ptr], ptr %154, i64 0, i64 %indvars.iv112
+  %162 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv112
   %163 = load ptr, ptr %162, align 8, !tbaa !265
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 112
   %165 = load float, ptr %164, align 8, !tbaa !174

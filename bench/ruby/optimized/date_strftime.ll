@@ -205,7 +205,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %57 = load i8, ptr %45, align 1, !tbaa !10
   %58 = icmp eq i8 %57, 65
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr inbounds nuw [7 x [10 x i8]], ptr @date_strftime_with_tmx.days_l, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [10 x i8], ptr @date_strftime_with_tmx.days_l, i64 %59
   br i1 %58, label %61, label %.thread1524
 
 61:                                               ; preds = %56
@@ -230,9 +230,9 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
 73:                                               ; preds = %63
   %74 = load i8, ptr %45, align 1, !tbaa !10
   %75 = icmp eq i8 %74, 66
-  %76 = add nsw i32 %71, -1
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw [12 x [10 x i8]], ptr @date_strftime_with_tmx.months_l, i64 0, i64 %77
+  %76 = zext nneg i32 %71 to i64
+  %77 = getelementptr [10 x i8], ptr @date_strftime_with_tmx.months_l, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 -10
   br i1 %75, label %79, label %.thread1524
 
 79:                                               ; preds = %73

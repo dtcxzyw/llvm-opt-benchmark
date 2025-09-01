@@ -600,7 +600,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 
 35:                                               ; preds = %30, %28
   %36 = phi i64 [ 0, %28 ], [ %31, %30 ]
-  %37 = getelementptr [7 x i8], ptr %29, i64 0, i64 %36
+  %37 = getelementptr i8, ptr %29, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %30, label %.loopexit14
@@ -612,7 +612,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 
 43:                                               ; preds = %40, %33
   %44 = phi i64 [ 0, %33 ], [ %41, %40 ]
-  %45 = getelementptr [3 x i64], ptr %34, i64 0, i64 %44
+  %45 = getelementptr i64, ptr %34, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %40, label %.loopexit14

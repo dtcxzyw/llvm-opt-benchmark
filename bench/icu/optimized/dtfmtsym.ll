@@ -2177,7 +2177,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %520 = getelementptr inbounds nuw i8, ptr %.02061532, i64 8
   %521 = load i32, ptr %520, align 8, !tbaa !133
   %522 = zext i32 %521 to i64
-  %523 = getelementptr inbounds nuw [14 x [2 x i8]], ptr %150, i64 0, i64 %522
+  %523 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %522
   store i8 %519, ptr %523, align 2, !tbaa !23
   %524 = getelementptr inbounds nuw i8, ptr %496, i64 4
   %525 = load i32, ptr %524, align 4, !tbaa !12
@@ -12462,10 +12462,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTy
   %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.5, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink, i64 0, i64 %9
+  %switch.gep15 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink, i64 %9
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink, i64 0, i64 %10
+  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink, i64 %10
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load16
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -12518,10 +12518,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContex
   %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.8, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink, i64 0, i64 %9
+  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink, i64 %9
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep19 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink, i64 0, i64 %10
+  %switch.gep19 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink, i64 %10
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load18
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -12554,10 +12554,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContex
   %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.11, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink, i64 0, i64 %9
+  %switch.gep15 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink, i64 %9
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x i64], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink, i64 0, i64 %10
+  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink, i64 %10
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load16
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -15331,7 +15331,7 @@ define noundef range(i32 -128, 128) i32 @_ZN6icu_7717DateFormatSymbols19getPatte
 
 3:                                                ; preds = %1
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZL19gLookupPatternChars, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZL19gLookupPatternChars, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !23
   %7 = icmp eq i8 %6, -1
   %narrow = select i1 %7, i8 38, i8 %6
@@ -15375,7 +15375,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717DateFormatSymbols20isNumer
 
 _ZN6icu_7717DateFormatSymbols19getPatternCharIndexEDs.exit: ; preds = %2
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZL19gLookupPatternChars, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @_ZL19gLookupPatternChars, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !23
   %7 = icmp eq i8 %6, -1
   br i1 %7, label %_ZN6icu_7717DateFormatSymbols14isNumericFieldE16UDateFormatFieldi.exit, label %8
@@ -15634,7 +15634,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %8
 .lr.ph:                                           ; preds = %.preheader1, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN6icu_77L13dayPeriodKeysE, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L13dayPeriodKeysE, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !161
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %25, i32 noundef -1, i32 noundef 0)
           to label %26 unwind label %32

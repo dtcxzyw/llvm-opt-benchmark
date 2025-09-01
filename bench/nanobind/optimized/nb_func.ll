@@ -1581,7 +1581,7 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
 42:                                               ; preds = %.lr.ph, %42
   %.0230363 = phi i1 [ true, %.lr.ph ], [ %49, %42 ]
   %.0233362 = phi i64 [ 0, %.lr.ph ], [ %50, %42 ]
-  %43 = getelementptr inbounds nuw [1 x ptr], ptr %41, i64 0, i64 %.0233362
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %.0233362
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
@@ -1604,7 +1604,7 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
 
 56:                                               ; preds = %.lr.ph366, %_ZL10_Py_DECREFP7_object.exit
   %.0235364 = phi i64 [ 0, %.lr.ph366 ], [ %78, %_ZL10_Py_DECREFP7_object.exit ]
-  %57 = getelementptr inbounds nuw [1 x ptr], ptr %55, i64 0, i64 %.0235364
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0235364
   %58 = load ptr, ptr %57, align 8
   %59 = load i64, ptr %58, align 8
   %60 = add nsw i64 %59, 1
@@ -1966,7 +1966,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
   %211 = add nsw i64 %210, 1
   store i64 %211, ptr %209, align 8
   %212 = sub nuw nsw i64 %.0237379.us, %95
-  %213 = getelementptr inbounds nuw [1 x ptr], ptr %220, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %220, i64 %212
   store ptr %209, ptr %213, align 8
   %214 = add nuw nsw i64 %.0237379.us, 1
   %exitcond424.not = icmp eq i64 %214, %9
@@ -2884,7 +2884,7 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %27, %30
 
 65:                                               ; preds = %60, %62
   %.0 = phi ptr [ %61, %60 ], [ %56, %62 ]
-  %66 = getelementptr inbounds nuw [1 x ptr], ptr %50, i64 0, i64 %.071153
+  %66 = getelementptr inbounds nuw ptr, ptr %50, i64 %.071153
   store ptr %.0, ptr %66, align 8
   %67 = add i64 %.071153, 1
   %.pre = load i16, ptr %47, align 4
@@ -2915,7 +2915,7 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %27, %30
   store ptr %.274, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %.285, ptr %76, align 8
-  %77 = getelementptr inbounds nuw [1 x ptr], ptr %10, i64 0, i64 %indvars.iv177
+  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv177
   store ptr %32, ptr %77, align 8
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count
@@ -3541,14 +3541,14 @@ _ZN8nanobind6detail6Buffer8put_dstrEPKc.exit226:  ; preds = %228, %233
   %262 = getelementptr inbounds nuw i8, ptr @.str.39, i64 %261
   %263 = load i8, ptr %262, align 1
   %264 = add i64 %.0.i, -1
-  %265 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr %4, i64 %264
   store i8 %263, ptr %265, align 1
   %266 = udiv i32 %.07.i, 10
   %.not.i229 = icmp ult i32 %.07.i, 10
   br i1 %.not.i229, label %267, label %259, !llvm.loop !47
 
 267:                                              ; preds = %259
-  %268 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %264
+  %268 = getelementptr inbounds nuw i8, ptr %4, i64 %264
   %269 = sub i64 11, %.0.i
   %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 %269
@@ -3711,14 +3711,14 @@ _ZN8nanobind6detail6Buffer3putEc.exit242:         ; preds = %334, %338
   %346 = getelementptr inbounds nuw i8, ptr @.str.39, i64 %345
   %347 = load i8, ptr %346, align 1
   %348 = add i64 %.0.i244, -1
-  %349 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr %3, i64 %348
   store i8 %347, ptr %349, align 1
   %350 = udiv i32 %.07.i243, 10
   %.not.i245 = icmp ult i32 %.07.i243, 10
   br i1 %.not.i245, label %351, label %343, !llvm.loop !47
 
 351:                                              ; preds = %343
-  %352 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %348
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 %348
   %353 = add i32 %.0140, 1
   %354 = sub i64 11, %.0.i244
   %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
@@ -4512,14 +4512,14 @@ _ZN8nanobind6detail6Buffer3putEc.exit36:          ; preds = %.lr.ph62, %73
   %81 = getelementptr inbounds nuw i8, ptr @.str.39, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = add i64 %.0.i, -1
-  %84 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 %83
   store i8 %82, ptr %84, align 1
   %85 = udiv i32 %.07.i, 10
   %.not.i37 = icmp ult i32 %.07.i, 10
   br i1 %.not.i37, label %86, label %78, !llvm.loop !47
 
 86:                                               ; preds = %78
-  %87 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %83
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %83
   %88 = sub i64 11, %.0.i
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %88
@@ -5273,14 +5273,14 @@ _ZN8nanobind6detail6Buffer3putILm22EEEvRAT__Kc.exit: ; preds = %._crit_edge, %60
   %84 = getelementptr inbounds nuw i8, ptr @.str.39, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = add i64 %.0.i, -1
-  %87 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %86
   store i8 %85, ptr %87, align 1
   %88 = udiv i32 %.07.i, 10
   %.not.i54 = icmp ult i32 %.07.i, 10
   br i1 %.not.i54, label %89, label %81, !llvm.loop !47
 
 89:                                               ; preds = %81
-  %90 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %86
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 %86
   %91 = sub i64 11, %.0.i
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %91
@@ -5540,7 +5540,7 @@ _ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit77: ; preds = %._crit_edge131,
 
 207:                                              ; preds = %.lr.ph130, %_ZN8nanobind6objectD2Ev.exit95
   %.039128 = phi i64 [ 0, %.lr.ph130 ], [ %273, %_ZN8nanobind6objectD2Ev.exit95 ]
-  %208 = getelementptr inbounds nuw [1 x ptr], ptr %189, i64 0, i64 %.039128
+  %208 = getelementptr inbounds nuw ptr, ptr %189, i64 %.039128
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr ptr, ptr %190, i64 %.039128
   %211 = load ptr, ptr %210, align 8

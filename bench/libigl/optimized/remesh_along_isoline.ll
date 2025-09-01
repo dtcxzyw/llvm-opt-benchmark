@@ -366,10 +366,10 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE12emplace_backIJRiS6_dEEERS2_DpOT_.exit
 107:                                              ; preds = %90
   %108 = zext i1 %97 to i8
   %109 = sext i32 %.01081027 to i64
-  %110 = getelementptr inbounds [2 x i32], ptr %21, i64 0, i64 %109
+  %110 = getelementptr inbounds i32, ptr %21, i64 %109
   %111 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %111, ptr %110, align 4, !tbaa !40
-  %112 = getelementptr inbounds [2 x i8], ptr %20, i64 0, i64 %109
+  %112 = getelementptr inbounds i8, ptr %20, i64 %109
   store i8 %108, ptr %112, align 1, !tbaa !52
   %113 = add nsw i32 %.01081027, 1
   br label %114

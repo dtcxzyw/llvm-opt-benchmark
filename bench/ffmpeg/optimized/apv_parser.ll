@@ -111,11 +111,11 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %47 = load i8, ptr %46, align 4, !tbaa !43
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [5 x [5 x i32]], ptr @apv_format_table, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [5 x i32], ptr @apv_format_table, i64 %48
   %50 = add nuw nsw i32 %35, 4
   %51 = lshr i32 %50, 2
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [5 x i32], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !25
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %54, ptr %55, align 8, !tbaa !44

@@ -1018,7 +1018,7 @@ define internal fastcc void @_ZN9anthropic10get_header17h8ecd7fd9eb231eb8E(ptr d
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !117, !noalias !118, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %25, i64 0, i64 %.sroa.52.0.copyload.i.i, i32 1
+  %26 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %25, i64 %.sroa.52.0.copyload.i.i, i32 1
   %27 = tail call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %26)
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = icmp eq ptr %28, null

@@ -344,7 +344,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
 
 switch.lookup:                                    ; preds = %94
   %143 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 0, i64 %143
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 %143
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -355,18 +355,18 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
-  %switch.tableidx66 = add i32 %147, -1
-  %148 = icmp ult i32 %switch.tableidx66, 10
-  br i1 %148, label %switch.lookup65, label %150
+  %switch.tableidx65 = add i32 %147, -1
+  %148 = icmp ult i32 %switch.tableidx65, 10
+  br i1 %148, label %switch.lookup66, label %150
 
-switch.lookup65:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
-  %149 = zext nneg i32 %switch.tableidx66 to i64
-  %switch.gep67 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 0, i64 %149
+switch.lookup66:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
+  %149 = zext nneg i32 %switch.tableidx65 to i64
+  %switch.gep67 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE.84, i64 %149
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %150
 
-150:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup65
-  %.0.i.i40 = phi i32 [ %switch.load68, %switch.lookup65 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
+150:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit, %switch.lookup66
+  %.0.i.i40 = phi i32 [ %switch.load68, %switch.lookup66 ], [ -1, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ]
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store i32 %.0.i.i40, ptr %151, align 8
   %152 = load ptr, ptr %0, align 8

@@ -202,13 +202,13 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.03540 = phi i64 [ 0, %.lr.ph ], [ %55, %45 ]
   %46 = getelementptr inbounds nuw float, ptr %40, i64 %.03540
   %47 = load float, ptr %46, align 4, !tbaa !42
-  %48 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.03540
+  %48 = getelementptr inbounds nuw float, ptr %8, i64 %.03540
   %49 = load float, ptr %48, align 4, !tbaa !42
   %50 = fmul reassoc nsz arcp contract afn float %49, %47
-  %51 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.03540
+  %51 = getelementptr inbounds nuw float, ptr %9, i64 %.03540
   %52 = load float, ptr %51, align 4, !tbaa !42
   %53 = fadd reassoc nsz arcp contract afn float %50, %52
-  %54 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.03540
+  %54 = getelementptr inbounds nuw float, ptr %10, i64 %.03540
   store float %53, ptr %54, align 4, !tbaa !42
   %55 = add nuw nsw i64 %.03540, 1
   %exitcond.not = icmp eq i64 %55, 4
@@ -247,7 +247,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 74:                                               ; preds = %70, %58
   %75 = phi reassoc nsz arcp contract afn float [ %..i, %70 ], [ %68, %58 ]
-  %76 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.032.i
+  %76 = getelementptr inbounds nuw float, ptr %7, i64 %.032.i
   store float %75, ptr %76, align 4, !tbaa !42, !noalias !59
   %77 = add nuw nsw i64 %.032.i, 1
   %exitcond.not.i = icmp eq i64 %77, 4
@@ -413,7 +413,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [7 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

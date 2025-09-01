@@ -511,7 +511,7 @@ define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_han
 
 51:                                               ; preds = %57, %48
   %indvars.iv.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i, %57 ]
-  %52 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #24
   %55 = tail call i32 @strncmp(ptr noundef nonnull readonly %50, ptr noundef nonnull %53, i64 noundef %54) #24
@@ -803,7 +803,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit.i.i: 
 
 143:                                              ; preds = %136
   %144 = zext nneg i32 %137 to i64
-  %145 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !56
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
 
@@ -1265,7 +1265,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr @_ZL34tsi_fake_handshake_message_strings, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !56
   br label %13
 

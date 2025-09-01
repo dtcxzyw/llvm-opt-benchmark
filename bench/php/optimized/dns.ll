@@ -139,7 +139,7 @@ zend_string_alloc.exit:                           ; preds = %7
   store i64 %14, ptr %20, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 16 %3, i64 %14, i1 false)
-  %22 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
   store i8 0, ptr %22, align 1, !tbaa !4
   store ptr %17, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -283,7 +283,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   store i64 %39, ptr %45, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %.101, i64 %39, i1 false)
-  %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %39
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %39
   store i8 0, ptr %47, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -394,7 +394,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge
   store i64 %25, ptr %33, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %26, i64 %25, i1 false)
-  %35 = getelementptr inbounds nuw [1 x i8], ptr %34, i64 0, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %25
   store i8 0, ptr %35, align 1, !tbaa !4
   store ptr %30, ptr %1, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -438,7 +438,7 @@ zend_string_alloc.exit56:                         ; preds = %42
   store i64 %25, ptr %50, align 8, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 1 %26, i64 %25, i1 false)
-  %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %25
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %25
   store i8 0, ptr %52, align 1, !tbaa !4
   store ptr %47, ptr %1, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -460,7 +460,7 @@ zend_string_alloc.exit.i:                         ; preds = %42, %39, %37
   store i64 %54, ptr %60, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %.sink128, i64 %54, i1 false)
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %61, i64 0, i64 %54
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %54
   store i8 0, ptr %62, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -939,7 +939,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %22
 
 124:                                              ; preds = %128, %121
   %indvars.iv.i = phi i64 [ 0, %121 ], [ %indvars.iv.next.i, %128 ]
-  %125 = getelementptr inbounds nuw [3 x ptr], ptr %123, i64 0, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !4
   %.not.i = icmp eq ptr %126, null
   br i1 %.not.i, label %128, label %127
@@ -1386,7 +1386,7 @@ zend_try_array_init_size.exit:                    ; preds = %71
 
 167:                                              ; preds = %171, %165
   %indvars.iv.i = phi i64 [ 0, %165 ], [ %indvars.iv.next.i, %171 ]
-  %168 = getelementptr inbounds nuw [3 x ptr], ptr %109, i64 0, i64 %indvars.iv.i
+  %168 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i
   %169 = load ptr, ptr %168, align 8, !tbaa !4
   %.not.i234 = icmp eq ptr %169, null
   br i1 %.not.i234, label %171, label %170
@@ -1476,7 +1476,7 @@ _php_dns_free_res.exit:                           ; preds = %171
 
 197:                                              ; preds = %201, %195
   %indvars.iv.i238 = phi i64 [ 0, %195 ], [ %indvars.iv.next.i240, %201 ]
-  %198 = getelementptr inbounds nuw [3 x ptr], ptr %109, i64 0, i64 %indvars.iv.i238
+  %198 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i238
   %199 = load ptr, ptr %198, align 8, !tbaa !4
   %.not.i239 = icmp eq ptr %199, null
   br i1 %.not.i239, label %201, label %200
@@ -1612,7 +1612,7 @@ _php_dns_free_res.exit242:                        ; preds = %201
 
 252:                                              ; preds = %256, %.critedge17
   %indvars.iv.i243 = phi i64 [ 0, %.critedge17 ], [ %indvars.iv.next.i245, %256 ]
-  %253 = getelementptr inbounds nuw [3 x ptr], ptr %109, i64 0, i64 %indvars.iv.i243
+  %253 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i243
   %254 = load ptr, ptr %253, align 8, !tbaa !4
   %.not.i244 = icmp eq ptr %254, null
   br i1 %.not.i244, label %256, label %255
@@ -1935,7 +1935,7 @@ define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonn
 ._crit_edge548:                                   ; preds = %160
   %166 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %167 = sext i32 %164 to i64
-  %168 = getelementptr inbounds [1 x i8], ptr %166, i64 0, i64 %167
+  %168 = getelementptr inbounds i8, ptr %166, i64 %167
   store i8 0, ptr %168, align 1, !tbaa !4
   store i64 %167, ptr %143, align 8, !tbaa !15
   call void @add_assoc_str_ex(ptr noundef nonnull %6, ptr noundef nonnull @.str.40, i64 noundef 3, ptr noundef nonnull %140) #12
@@ -2618,7 +2618,7 @@ zend_try_array_init_size.exit144.thread:          ; preds = %51, %55, %40
 
 67:                                               ; preds = %71, %65
   %indvars.iv.i = phi i64 [ 0, %65 ], [ %indvars.iv.next.i, %71 ]
-  %68 = getelementptr inbounds nuw [3 x ptr], ptr %66, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %.not.i145 = icmp eq ptr %69, null
   br i1 %.not.i145, label %71, label %70
@@ -2667,7 +2667,7 @@ _php_dns_free_res.exit:                           ; preds = %71
 
 85:                                               ; preds = %89, %83
   %indvars.iv.i146 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i148, %89 ]
-  %86 = getelementptr inbounds nuw [3 x ptr], ptr %84, i64 0, i64 %indvars.iv.i146
+  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i146
   %87 = load ptr, ptr %86, align 8, !tbaa !4
   %.not.i147 = icmp eq ptr %87, null
   br i1 %.not.i147, label %89, label %88
@@ -2730,7 +2730,7 @@ _php_dns_free_res.exit150:                        ; preds = %89
 
 109:                                              ; preds = %113, %107
   %indvars.iv.i152 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i154, %113 ]
-  %110 = getelementptr inbounds nuw [3 x ptr], ptr %108, i64 0, i64 %indvars.iv.i152
+  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv.i152
   %111 = load ptr, ptr %110, align 8, !tbaa !4
   %.not.i153 = icmp eq ptr %111, null
   br i1 %.not.i153, label %113, label %112
@@ -2803,7 +2803,7 @@ _php_dns_free_res.exit156:                        ; preds = %113
 
 152:                                              ; preds = %156, %150
   %indvars.iv.i157 = phi i64 [ 0, %150 ], [ %indvars.iv.next.i159, %156 ]
-  %153 = getelementptr inbounds nuw [3 x ptr], ptr %151, i64 0, i64 %indvars.iv.i157
+  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i157
   %154 = load ptr, ptr %153, align 8, !tbaa !4
   %.not.i158 = icmp eq ptr %154, null
   br i1 %.not.i158, label %156, label %155
@@ -2840,7 +2840,7 @@ _php_dns_free_res.exit161:                        ; preds = %156
 
 165:                                              ; preds = %169, %._crit_edge198
   %indvars.iv.i162 = phi i64 [ 0, %._crit_edge198 ], [ %indvars.iv.next.i164, %169 ]
-  %166 = getelementptr inbounds nuw [3 x ptr], ptr %164, i64 0, i64 %indvars.iv.i162
+  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv.i162
   %167 = load ptr, ptr %166, align 8, !tbaa !4
   %.not.i163 = icmp eq ptr %167, null
   br i1 %.not.i163, label %169, label %168

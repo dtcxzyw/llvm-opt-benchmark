@@ -10533,7 +10533,7 @@ rb_type.exit.thread92:                            ; preds = %103
   br label %rb_type.exit.thread
 
 switch.lookup:                                    ; preds = %100
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_str_append_as_bytes, i64 0, i64 %101
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_str_append_as_bytes, i64 %101
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit.thread
 
@@ -16465,7 +16465,7 @@ is_ascii_string.exit:                             ; preds = %121, %enc_coderange
   %155 = load i8, ptr %.0273445, align 1, !tbaa !19
   %.not319 = icmp eq i32 %.0263446, 0
   %156 = zext i8 %155 to i64
-  %157 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %156
+  %157 = getelementptr i8, ptr @isspacetable, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !19
   %.not320 = icmp eq i8 %158, 0
   br i1 %.not319, label %163, label %159
@@ -18417,10 +18417,10 @@ RSTRING_PTR.exit356:                              ; preds = %266, %271
 
 switch.lookup:                                    ; preds = %274
   %276 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.enc_str_scrub, i64 0, i64 %276
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.enc_str_scrub, i64 %276
   %switch.load = load ptr, ptr %switch.gep, align 8
   %277 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep585 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.enc_str_scrub.10, i64 0, i64 %277
+  %switch.gep585 = getelementptr inbounds nuw i64, ptr @switch.table.enc_str_scrub.10, i64 %277
   %switch.load586 = load i64, ptr %switch.gep585, align 8
   br label %278
 
@@ -26262,7 +26262,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
 
 22:                                               ; preds = %.lr.ph42.i
   %23 = zext i8 %20 to i64
-  %24 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @isspacetable, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !19
   %.not31.i = icmp eq i8 %25, 0
   br i1 %.not31.i, label %.critedge.i, label %.critedge2.i
@@ -26380,7 +26380,7 @@ get_encoding.exit:                                ; preds = %rbimpl_rstring_getm
 
 21:                                               ; preds = %.lr.ph42.i
   %22 = zext i8 %19 to i64
-  %23 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @isspacetable, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !19
   %.not31.i = icmp eq i8 %24, 0
   br i1 %.not31.i, label %lstrip_offset.exit, label %.critedge2.i
@@ -27349,7 +27349,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
 
 22:                                               ; preds = %.lr.ph42.i
   %23 = zext i8 %20 to i64
-  %24 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @isspacetable, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !19
   %.not31.i = icmp eq i8 %25, 0
   br i1 %.not31.i, label %.critedge.i, label %.critedge2.i
@@ -27481,7 +27481,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
 
 22:                                               ; preds = %.lr.ph42.i
   %23 = zext i8 %20 to i64
-  %24 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @isspacetable, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !19
   %.not31.i = icmp eq i8 %25, 0
   br i1 %.not31.i, label %lstrip_offset.exit, label %.critedge2.i
@@ -28123,7 +28123,7 @@ tr_find.exit.thread133.us:                        ; preds = %tr_find.exit.us, %1
 
 151:                                              ; preds = %.lr.ph145.split.us
   %152 = zext nneg i8 %120 to i64
-  %153 = getelementptr [257 x i8], ptr %4, i64 0, i64 %152
+  %153 = getelementptr i8, ptr %4, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !19
   %.not67.us = icmp ne i8 %154, 0
   %155 = zext i1 %.not67.us to i64
@@ -28366,7 +28366,7 @@ RSTRING_END.exit:                                 ; preds = %rb_enc_asciicompat.
 
 48:                                               ; preds = %45
   %49 = zext nneg i8 %46 to i64
-  %50 = getelementptr [257 x i8], ptr %4, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %4, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !19
   %.not71 = icmp eq i8 %51, 0
   br i1 %.not71, label %52, label %88
@@ -28694,7 +28694,7 @@ rb_enc_asciicompat.exit:                          ; preds = %RSTRING_END.exit, %
 
 61:                                               ; preds = %.lr.ph152.split.us
   %62 = zext i8 %59 to i64
-  %63 = getelementptr [257 x i8], ptr %4, i64 0, i64 %62
+  %63 = getelementptr i8, ptr %4, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !19
   %.not103.us = icmp eq i8 %64, 0
   br i1 %.not103.us, label %65, label %67
@@ -28761,7 +28761,7 @@ rb_enc_asciicompat.exit:                          ; preds = %RSTRING_END.exit, %
 
 85:                                               ; preds = %84
   %86 = zext nneg i8 %80 to i64
-  %87 = getelementptr [257 x i8], ptr %4, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %4, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %.not99 = icmp eq i8 %88, 0
   br i1 %.not99, label %89, label %124
@@ -34920,10 +34920,10 @@ get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %33, %get_cached_reg
 
 switch.lookup:                                    ; preds = %get_cached_reg_grapheme_cluster.exit.thread
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 0, i64 %50
+  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %50
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   br label %51
 
@@ -36555,7 +36555,7 @@ rb_enc_str_coderange.exit:                        ; preds = %rb_str_check_dummy_
 
 46:                                               ; preds = %.lr.ph51
   %47 = zext i8 %44 to i64
-  %48 = getelementptr [256 x i8], ptr @isspacetable, i64 0, i64 %47
+  %48 = getelementptr i8, ptr @isspacetable, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !19
   %.not38 = icmp eq i8 %49, 0
   br i1 %.not38, label %.critedge, label %.critedge2
@@ -37168,7 +37168,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 .preheader435:                                    ; preds = %RSTRING_PTR.exit384, %.preheader435
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader435 ], [ 0, %RSTRING_PTR.exit384 ]
-  %93 = getelementptr [256 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %93 = getelementptr i32, ptr %7, i64 %indvars.iv
   store i32 1, ptr %93, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -37186,7 +37186,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 96:                                               ; preds = %.lr.ph
   %97 = zext nneg i32 %94 to i64
-  %98 = getelementptr [256 x i32], ptr %7, i64 0, i64 %97
+  %98 = getelementptr i32, ptr %7, i64 %97
   store i32 -1, ptr %98, align 4, !tbaa !49
   br label %107
 
@@ -37223,7 +37223,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 113:                                              ; preds = %111, %113
   %indvars.iv497 = phi i64 [ 0, %111 ], [ %indvars.iv.next498, %113 ]
-  %114 = getelementptr [256 x i32], ptr %7, i64 0, i64 %indvars.iv497
+  %114 = getelementptr i32, ptr %7, i64 %indvars.iv497
   %115 = load i32, ptr %114, align 4, !tbaa !49
   %.not356 = icmp eq i32 %115, -1
   %spec.store.select = select i1 %.not356, i32 -1, i32 %112
@@ -37245,7 +37245,7 @@ RSTRING_PTR.exit384:                              ; preds = %76, %81
 
 121:                                              ; preds = %.lr.ph454
   %122 = zext nneg i32 %116 to i64
-  %123 = getelementptr [256 x i32], ptr %7, i64 0, i64 %122
+  %123 = getelementptr i32, ptr %7, i64 %122
   store i32 %spec.select, ptr %123, align 4, !tbaa !49
   %124 = call i32 @rb_enc_codelen(i32 noundef %spec.select, ptr noundef %.0253) #29
   %.not334 = icmp eq i32 %124, 1
@@ -37373,7 +37373,7 @@ RSTRING_END.exit:                                 ; preds = %rb_enc_asciicompat.
 
 173:                                              ; preds = %168
   %174 = zext nneg i32 %165 to i64
-  %175 = getelementptr [256 x i32], ptr %7, i64 0, i64 %174
+  %175 = getelementptr i32, ptr %7, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !49
   br label %193
 
@@ -37588,7 +37588,7 @@ RB_FL_ABLE.exit.i396:                             ; preds = %RB_FL_ABLE.exit.i
   %263 = load i8, ptr %.1276485.us, align 1, !tbaa !19
   %264 = zext i8 %263 to i32
   %265 = zext i8 %263 to i64
-  %266 = getelementptr [256 x i32], ptr %7, i64 0, i64 %265
+  %266 = getelementptr i32, ptr %7, i64 %265
   %267 = load i32, ptr %266, align 4, !tbaa !49
   %.not344.us = icmp eq i32 %267, -1
   br i1 %.not344.us, label %270, label %268
@@ -37615,7 +37615,7 @@ RB_FL_ABLE.exit.i396:                             ; preds = %RB_FL_ABLE.exit.i
   %.6294484 = phi i32 [ %.7295, %279 ], [ %.0288, %.lr.ph488 ]
   %274 = load i8, ptr %.1276485, align 1, !tbaa !19
   %275 = zext i8 %274 to i64
-  %276 = getelementptr [256 x i32], ptr %7, i64 0, i64 %275
+  %276 = getelementptr i32, ptr %7, i64 %275
   %277 = load i32, ptr %276, align 4, !tbaa !49
   %.not344 = icmp eq i32 %277, -1
   br i1 %.not344, label %279, label %278
@@ -37686,7 +37686,7 @@ RB_FL_ABLE.exit.i396:                             ; preds = %RB_FL_ABLE.exit.i
 
 309:                                              ; preds = %306
   %310 = zext nneg i32 %303 to i64
-  %311 = getelementptr [256 x i32], ptr %7, i64 0, i64 %310
+  %311 = getelementptr i32, ptr %7, i64 %310
   %312 = load i32, ptr %311, align 4, !tbaa !49
   br label %329
 
@@ -38154,7 +38154,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %14
   br i1 %46, label %48, label %50
 
 48:                                               ; preds = %44
-  %49 = getelementptr [256 x i8], ptr %7, i64 0, i64 %47
+  %49 = getelementptr i8, ptr %7, i64 %47
   store i8 %42, ptr %49, align 1, !tbaa !19
   br label %.thread
 
@@ -38238,7 +38238,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %14
   br i1 %.not65, label %84, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr [256 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %80 = getelementptr i8, ptr %7, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1, !tbaa !19
   %82 = icmp ne i8 %81, 0
   %83 = zext i1 %82 to i8
@@ -38390,10 +38390,10 @@ get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %30, %get_cached_reg
 
 switch.lookup:                                    ; preds = %get_cached_reg_grapheme_cluster.exit.thread
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 %45
   %switch.load = load i64, ptr %switch.gep, align 8
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep53 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 0, i64 %46
+  %switch.gep53 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_str_each_grapheme_cluster_size.12, i64 %46
   %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %47
 

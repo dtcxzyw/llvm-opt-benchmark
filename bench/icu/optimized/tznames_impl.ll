@@ -1893,7 +1893,7 @@ define noundef ptr @_ZN6icu_7712ZNStringPool3getEPKDsR10UErrorCode(ptr noundef n
   %28 = phi ptr [ %20, %25 ], [ %12, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds [2000 x i16], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds i16, ptr %29, i64 %30
   %32 = tail call ptr @u_strcpy_77(ptr noundef nonnull %31, ptr noundef %1)
   %33 = add nsw i32 %11, 1
   %34 = load ptr, ptr %0, align 8, !tbaa !57
@@ -2798,7 +2798,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadTimeZoneNamesERKNS_13Unic
   %23 = load ptr, ptr %5, align 8, !tbaa !97
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #22, !srcloc !99
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds [129 x i16], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds i16, ptr %4, i64 %24
   store i16 0, ptr %25, align 2, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load ptr, ptr %26, align 8, !tbaa !91
@@ -2822,7 +2822,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadTimeZoneNamesERKNS_13Unic
 
 36:                                               ; preds = %41, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %41 ]
-  %37 = getelementptr inbounds nuw [7 x ptr], ptr %31, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = icmp eq ptr %38, @_ZN6icu_77L7NO_NAMEE
   br i1 %39, label %40, label %41
@@ -2932,7 +2932,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadMetaZoneNamesERKNS_13Unic
   %36 = load i32, ptr %17, align 4
   %37 = select i1 %33, i32 %36, i32 %35
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [129 x i16], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds i16, ptr %6, i64 %38
   store i16 0, ptr %39, align 2, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %41 = load ptr, ptr %40, align 8, !tbaa !90
@@ -3016,7 +3016,7 @@ _ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeS
 
 73:                                               ; preds = %78, %_ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeStringER10UErrorCode.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeStringER10UErrorCode.exit ], [ %indvars.iv.next.i, %78 ]
-  %74 = getelementptr inbounds nuw [7 x ptr], ptr %45, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !96
   %76 = icmp eq ptr %75, @_ZN6icu_77L7NO_NAMEE
   br i1 %76, label %77, label %78
@@ -3630,7 +3630,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
 
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [7 x ptr], ptr %11, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %11, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !96
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %29
@@ -3721,7 +3721,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
 
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [7 x ptr], ptr %11, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %11, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !96
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %29
@@ -4335,7 +4335,7 @@ define void @_ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode(pt
 27:                                               ; preds = %.backedge.i.i, %26
   %28 = phi i32 [ %40, %.backedge.i.i ], [ %21, %26 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.backedge.i.i ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !96
   %.not25.i.i = icmp eq ptr %30, null
   br i1 %.not25.i.i, label %.critedge28.i.i, label %31
@@ -4351,7 +4351,7 @@ switch.lookup:                                    ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %35, align 8, !tbaa !81
   %36 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %32, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -4420,7 +4420,7 @@ _ZN6icu_776ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exi
 63:                                               ; preds = %.backedge.i.i32, %62
   %64 = phi i32 [ %76, %.backedge.i.i32 ], [ %57, %62 ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i33, %.backedge.i.i32 ], [ 0, %62 ]
-  %65 = getelementptr inbounds nuw [7 x ptr], ptr %50, i64 0, i64 %indvars.iv.i27
+  %65 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i27
   %66 = load ptr, ptr %65, align 8, !tbaa !96
   %.not25.i.i28 = icmp eq ptr %66, null
   br i1 %.not25.i.i28, label %.critedge28.i.i36, label %67
@@ -4436,7 +4436,7 @@ switch.lookup64:                                  ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %56, ptr %71, align 8, !tbaa !81
   %72 = and i64 %indvars.iv.i27, 4294967295
-  %switch.gep65 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %72
+  %switch.gep65 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %72
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   store i32 %switch.load66, ptr %68, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull %66, ptr noundef nonnull %68, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -4825,7 +4825,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %17
 
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit: ; preds = %30
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw [7 x ptr], ptr %16, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %16, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !96
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
@@ -4922,7 +4922,7 @@ _ZN6icu_775MutexD2Ev.exit73:                      ; preds = %59, %61, %48
 
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74: ; preds = %68
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds nuw [7 x ptr], ptr %.254, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %.254, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !96
   %.not66 = icmp eq ptr %73, null
   br i1 %.not66, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit74.thread83
@@ -5041,7 +5041,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader10isMetaZoneEPKc.exit: ; preds =
 
 41:                                               ; preds = %46, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %46 ]
-  %42 = getelementptr inbounds nuw [7 x ptr], ptr %40, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, @_ZN6icu_77L7NO_NAMEE
   br i1 %44, label %45, label %46
@@ -5169,7 +5169,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit: ; preds 
 
 95:                                               ; preds = %100, %_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit
   %indvars.iv.i28 = phi i64 [ 0, %_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit ], [ %indvars.iv.next.i29, %100 ]
-  %96 = getelementptr inbounds nuw [7 x ptr], ptr %94, i64 0, i64 %indvars.iv.i28
+  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i28
   %97 = load ptr, ptr %96, align 8, !tbaa !96
   %98 = icmp eq ptr %97, @_ZN6icu_77L7NO_NAMEE
   br i1 %98, label %99, label %100
@@ -5532,7 +5532,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
 .preheader106:                                    ; preds = %.preheader106.outer, %27
   %indvars.iv = phi i64 [ 1, %27 ], [ %indvars.iv.ph, %.preheader106.outer ]
   store i32 0, ptr %3, align 4, !tbaa !13
-  %18 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN6icu_77L14TZDBNAMES_KEYSE, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L14TZDBNAMES_KEYSE, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !136
   %20 = call ptr @ures_getStringByKey_77(ptr noundef %11, ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %21 = load i32, ptr %3, align 4, !tbaa !13
@@ -6409,7 +6409,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
   %41 = load i32, ptr %40, align 4
   %42 = select i1 %37, i32 %41, i32 %39
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [129 x i16], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds i16, ptr %3, i64 %43
   store i16 0, ptr %44, align 2, !tbaa !42
   %45 = call signext i8 @uprv_isInvariantUString_77(ptr noundef nonnull %3, i32 noundef %42)
   %.not45 = icmp eq i8 %45, 0
@@ -6954,7 +6954,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i: ; preds = %45, %39,
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i: ; preds = %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i, %39, %33
   %.0.i13.i = phi i32 [ %.0.i.i, %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i ], [ 1, %33 ], [ 4, %39 ]
   %49 = zext nneg i32 %.0.i13.i to i64
-  %50 = getelementptr inbounds nuw [7 x ptr], ptr %15, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %15, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !96
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit
@@ -7015,7 +7015,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13: ; preds = %75, %6
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i15: ; preds = %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13, %69, %63
   %.0.i13.i16 = phi i32 [ %.0.i.i14, %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13 ], [ 1, %63 ], [ 4, %69 ]
   %79 = zext nneg i32 %.0.i13.i16 to i64
-  %80 = getelementptr inbounds nuw [7 x ptr], ptr %15, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %15, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !96
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit

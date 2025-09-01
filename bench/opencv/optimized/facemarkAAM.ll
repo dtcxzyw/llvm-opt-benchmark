@@ -4337,7 +4337,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %665 ], [ 0, %.preheader.i.i.i.i.i ]
   %666 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %667 = load i32, ptr %666, align 4, !tbaa !59
-  %668 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %668 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %667, ptr %668, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -4871,7 +4871,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i402: ; 
   %indvars.iv.i.i.i.i.i.i.i.i407 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i408, %801 ], [ 0, %.preheader.i.i.i.i.i404 ]
   %802 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i406, i64 %indvars.iv.i.i.i.i.i.i.i.i407
   %803 = load i32, ptr %802, align 4, !tbaa !59
-  %804 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i405, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i407
+  %804 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i405, i64 %indvars.iv.i.i.i.i.i.i.i.i407
   store i32 %803, ptr %804, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i408 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i407, 1
   %exitcond.not.i.i.i.i.i.i.i.i409 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i408, 3
@@ -10468,7 +10468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %260 ]
   %275 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i.i.i.i.i.i
   %276 = load i32, ptr %275, align 4, !tbaa !59
-  %277 = getelementptr inbounds nuw [3 x i32], ptr %273, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %277 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %276, ptr %277, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -19995,7 +19995,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %263 ], [ 0, %.preheader.i.i.i.i.i ]
   %264 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %265 = load i32, ptr %264, align 4, !tbaa !59
-  %266 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %266 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %265, ptr %266, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -21243,7 +21243,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i382: ; 
   %indvars.iv.i.i.i.i.i.i.i.i387 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i388, %753 ], [ 0, %.preheader.i.i.i.i.i384 ]
   %754 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i386, i64 %indvars.iv.i.i.i.i.i.i.i.i387
   %755 = load i32, ptr %754, align 4, !tbaa !59
-  %756 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i385, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i387
+  %756 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i385, i64 %indvars.iv.i.i.i.i.i.i.i.i387
   store i32 %755, ptr %756, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i388 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i387, 1
   %exitcond.not.i.i.i.i.i.i.i.i389 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i388, 3
@@ -22885,7 +22885,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i495: ; 
   %indvars.iv.i.i.i.i.i.i.i.i500 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i501, %1248 ], [ 0, %.preheader.i.i.i.i.i497 ]
   %1249 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i499, i64 %indvars.iv.i.i.i.i.i.i.i.i500
   %1250 = load i32, ptr %1249, align 4, !tbaa !59
-  %1251 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i498, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i500
+  %1251 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i498, i64 %indvars.iv.i.i.i.i.i.i.i.i500
   store i32 %1250, ptr %1251, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i501 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i500, 1
   %exitcond.not.i.i.i.i.i.i.i.i502 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i501, 3
@@ -26618,7 +26618,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIiLi3EEEEE8allocateERS3_m.exit.i.i.i.i: ; pre
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %214 ], [ 0, %.preheader.i.i.i.i.i ]
   %215 = getelementptr inbounds nuw i32, ptr %.sroa.08.012.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %216 = load i32, ptr %215, align 4, !tbaa !59
-  %217 = getelementptr inbounds nuw [3 x i32], ptr %.013.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %217 = getelementptr inbounds nuw i32, ptr %.013.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %216, ptr %217, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -35071,7 +35071,7 @@ _ZNKSt6vectorIN2cv3VecIiLi3EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %20
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %29 ], [ 0, %.preheader.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %31 = load i32, ptr %30, align 4, !tbaa !59
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %31, ptr %32, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -36512,7 +36512,7 @@ _ZNKSt6vectorIN2cv3VecIiLi3EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %22 ], [ 0, %.preheader.i.i.i.i.i ]
   %23 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !59
-  %25 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %24, ptr %25, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -36539,7 +36539,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi3EEES3_SaIS2_EET0_T_S6_S5_
   %indvars.iv.i.i.i.i.i.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i33, %29 ], [ 0, %.preheader.i.i.i.i.i29 ]
   %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   %31 = load i32, ptr %30, align 4, !tbaa !59
-  %32 = getelementptr inbounds nuw [3 x i32], ptr %.015.i.i.i.i.i30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i32
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   store i32 %31, ptr %32, align 4, !tbaa !59
   %indvars.iv.next.i.i.i.i.i.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i33, 3

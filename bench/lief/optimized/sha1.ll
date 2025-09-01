@@ -1267,7 +1267,7 @@ define hidden noundef i32 @mbedtls_sha1_finish(ptr noundef %0, ptr noundef write
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   store i8 -128, ptr %7, align 1, !tbaa !4
   %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
@@ -1380,7 +1380,7 @@ mbedtls_sha1_update.exit:                         ; preds = %3, %._crit_edge.i, 
   %20 = and i32 %19, 63
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   store i8 -128, ptr %23, align 1, !tbaa !4
   %24 = icmp samesign ult i32 %20, 56
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
@@ -1547,9 +1547,9 @@ mbedtls_sha1_update.exit:                         ; preds = %._crit_edge.i, %._c
   br i1 %exitcond.not, label %mbedtls_sha1_update.exit38.loopexit, label %25, !llvm.loop !18
 
 ._crit_edge.thread.i34:                           ; preds = %22
-  %47 = getelementptr inbounds nuw [3 x i64], ptr @sha1_test_buflen, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr @sha1_test_buflen, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw [3 x [57 x i8]], ptr @sha1_test_buf, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [57 x i8], ptr @sha1_test_buf, i64 %indvars.iv
   %50 = trunc i64 %48 to i32
   store i32 %50, ptr %4, align 4, !tbaa !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 1 %49, i64 %48, i1 false)
@@ -1563,7 +1563,7 @@ mbedtls_sha1_update.exit38:                       ; preds = %mbedtls_sha1_update
   %51 = phi i32 [ %.pre, %mbedtls_sha1_update.exit38.loopexit ], [ %50, %._crit_edge.thread.i34 ]
   %52 = and i32 %51, 63
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 %53
   store i8 -128, ptr %54, align 1, !tbaa !4
   %55 = icmp samesign ult i32 %52, 56
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
@@ -1610,7 +1610,7 @@ mbedtls_sha1_finish.exit:                         ; preds = %57, %60
   %80 = call i32 @llvm.bswap.i32(i32 %79)
   store i32 %80, ptr %17, align 16
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
-  %81 = getelementptr inbounds nuw [3 x [20 x i8]], ptr @sha1_test_sum, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [20 x i8], ptr @sha1_test_sum, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %81, i64 20)
   %.not25 = icmp eq i32 %bcmp, 0
   br i1 %.not25, label %82, label %85

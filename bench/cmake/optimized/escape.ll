@@ -92,12 +92,12 @@ switch.early.test:                                ; preds = %21
   store i8 37, ptr %6, align 1
   %32 = lshr i8 %.fr, 4
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw [17 x i8], ptr @__const.curl_easy_escape.hex, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @__const.curl_easy_escape.hex, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !8
   store i8 %35, ptr %19, align 1, !tbaa !8
   %36 = and i8 %.fr, 15
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw [17 x i8], ptr @__const.curl_easy_escape.hex, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @__const.curl_easy_escape.hex, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !8
   store i8 %39, ptr %20, align 1, !tbaa !8
   %40 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 3) #6
@@ -212,13 +212,13 @@ switch.early.test80.us.us.i.i:                    ; preds = %22
 
 26:                                               ; preds = %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %switch.early.test80.us.us.i.i, %22
   %27 = zext nneg i8 %.fr90.i.i to i64
-  %28 = add nsw i64 %27, -48
-  %29 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %28
+  %28 = getelementptr i8, ptr @hextable, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -48
   %30 = load i8, ptr %29, align 1, !tbaa !8
   %31 = shl i8 %30, 4
   %32 = zext nneg i8 %.fr91.i.i to i64
-  %33 = add nsw i64 %32, -48
-  %34 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %33
+  %33 = getelementptr i8, ptr @hextable, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -48
   %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = or i8 %31, %35
   br label %37
@@ -332,13 +332,13 @@ switch.early.test80.us.us.i:                      ; preds = %24
 
 28:                                               ; preds = %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %switch.early.test80.us.us.i, %24
   %29 = zext nneg i8 %.fr90.i to i64
-  %30 = add nsw i64 %29, -48
-  %31 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %30
+  %30 = getelementptr i8, ptr @hextable, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -48
   %32 = load i8, ptr %31, align 1, !tbaa !8
   %33 = shl i8 %32, 4
   %34 = zext nneg i8 %.fr91.i to i64
-  %35 = add nsw i64 %34, -48
-  %36 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %35
+  %35 = getelementptr i8, ptr @hextable, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 -48
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = or i8 %33, %37
   br label %39
@@ -479,13 +479,13 @@ switch.early.test80.us.us:                        ; preds = %21
 
 25:                                               ; preds = %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %switch.early.test80.us.us, %21
   %26 = zext nneg i8 %.fr90 to i64
-  %27 = add nsw i64 %26, -48
-  %28 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %27
+  %27 = getelementptr i8, ptr @hextable, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -48
   %29 = load i8, ptr %28, align 1, !tbaa !8
   %30 = shl i8 %29, 4
   %31 = zext nneg i8 %.fr91 to i64
-  %32 = add nsw i64 %31, -48
-  %33 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %32
+  %32 = getelementptr i8, ptr @hextable, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -48
   %34 = load i8, ptr %33, align 1, !tbaa !8
   %35 = or i8 %30, %34
   br label %36
@@ -561,13 +561,13 @@ switch.early.test80.us:                           ; preds = %47
 
 51:                                               ; preds = %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %switch.early.test80.us, %47
   %52 = zext nneg i8 %.fr to i64
-  %53 = add nsw i64 %52, -48
-  %54 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %53
+  %53 = getelementptr i8, ptr @hextable, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -48
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = shl i8 %55, 4
   %57 = zext nneg i8 %.fr87 to i64
-  %58 = add nsw i64 %57, -48
-  %59 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %58
+  %58 = getelementptr i8, ptr @hextable, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 -48
   %60 = load i8, ptr %59, align 1, !tbaa !8
   %61 = or i8 %56, %60
   br label %62
@@ -647,13 +647,13 @@ switch.early.test80:                              ; preds = %75
 
 79:                                               ; preds = %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %switch.early.test80, %75
   %80 = zext nneg i8 %.fr88 to i64
-  %81 = add nsw i64 %80, -48
-  %82 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %81
+  %81 = getelementptr i8, ptr @hextable, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 -48
   %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = shl i8 %83, 4
   %85 = zext nneg i8 %.fr89 to i64
-  %86 = add nsw i64 %85, -48
-  %87 = getelementptr inbounds [55 x i8], ptr @hextable, i64 0, i64 %86
+  %86 = getelementptr i8, ptr @hextable, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 -48
   %88 = load i8, ptr %87, align 1, !tbaa !8
   %89 = or i8 %84, %88
   br label %90

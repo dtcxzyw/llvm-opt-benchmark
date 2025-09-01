@@ -430,7 +430,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   store i64 0, ptr %53, align 8
   store i32 50397184, ptr %19, align 8, !tbaa !39
   store ptr %4, ptr %52, align 8, !tbaa !41
-  %170 = getelementptr inbounds nuw [4 x %"class.cv::Point_.0"], ptr %7, i64 0, i64 %indvars.iv141
+  %170 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %7, i64 %indvars.iv141
   %171 = load float, ptr %170, align 8, !tbaa !42
   %172 = insertelement <4 x float> poison, float %171, i64 0
   %173 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %172)
@@ -444,7 +444,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %178 = and i64 %indvars.iv.next142, 3
-  %179 = getelementptr inbounds nuw [4 x %"class.cv::Point_.0"], ptr %7, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %7, i64 %178
   %180 = load float, ptr %179, align 8, !tbaa !42
   %181 = insertelement <4 x float> poison, float %180, i64 0
   %182 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %181)

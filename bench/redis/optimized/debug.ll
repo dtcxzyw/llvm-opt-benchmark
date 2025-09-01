@@ -415,7 +415,7 @@ define dso_local void @xorDigest(ptr noundef captures(none) %0, ptr noundef %1, 
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !5
@@ -496,7 +496,7 @@ sdslen.exit:                                      ; preds = %2, %12, %15, %19, %
 
 31:                                               ; preds = %31, %sdslen.exit
   %indvars.iv.i = phi i64 [ 0, %sdslen.exit ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1, !tbaa !5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %35 = load i8, ptr %34, align 1, !tbaa !5
@@ -580,7 +580,7 @@ define dso_local void @mixDigest(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1, !tbaa !5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1, !tbaa !5
@@ -661,7 +661,7 @@ sdslen.exit:                                      ; preds = %2, %13, %16, %20, %
 
 32:                                               ; preds = %32, %sdslen.exit
   %indvars.iv.i.i = phi i64 [ 0, %sdslen.exit ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %34 = load i8, ptr %33, align 1, !tbaa !5
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %36 = load i8, ptr %35, align 1, !tbaa !5
@@ -763,7 +763,7 @@ define dso_local void @xorObjectDigest(ptr noundef %0, ptr noundef %1, ptr nound
 
 72:                                               ; preds = %72, %4
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %72 ]
-  %73 = getelementptr inbounds nuw [20 x i8], ptr %50, i64 0, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv.i.i
   %74 = load i8, ptr %73, align 1, !tbaa !5
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
   %76 = load i8, ptr %75, align 1, !tbaa !5
@@ -878,7 +878,7 @@ sdslen.exit:                                      ; preds = %.lr.ph184, %95, %98
 
 114:                                              ; preds = %114, %sdslen.exit
   %indvars.iv.i = phi i64 [ 0, %sdslen.exit ], [ %indvars.iv.next.i, %114 ]
-  %115 = getelementptr inbounds nuw [20 x i8], ptr %48, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i
   %116 = load i8, ptr %115, align 1, !tbaa !5
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %118 = load i8, ptr %117, align 1, !tbaa !5
@@ -956,7 +956,7 @@ xorDigest.exit:                                   ; preds = %114
 
 138:                                              ; preds = %138, %136
   %indvars.iv.i.i96 = phi i64 [ 0, %136 ], [ %indvars.iv.next.i.i97, %138 ]
-  %139 = getelementptr inbounds nuw [20 x i8], ptr %45, i64 0, i64 %indvars.iv.i.i96
+  %139 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i.i96
   %140 = load i8, ptr %139, align 1, !tbaa !5
   %141 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i96
   %142 = load i8, ptr %141, align 1, !tbaa !5
@@ -990,7 +990,7 @@ mixDigest.exit99:                                 ; preds = %138
 
 149:                                              ; preds = %149, %144
   %indvars.iv.i.i100 = phi i64 [ 0, %144 ], [ %indvars.iv.next.i.i101, %149 ]
-  %150 = getelementptr inbounds nuw [20 x i8], ptr %42, i64 0, i64 %indvars.iv.i.i100
+  %150 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i.i100
   %151 = load i8, ptr %150, align 1, !tbaa !5
   %152 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i100
   %153 = load i8, ptr %152, align 1, !tbaa !5
@@ -1012,7 +1012,7 @@ mixDigest.exit103:                                ; preds = %149
 155:                                              ; preds = %mixDigest.exit103, %mixDigest.exit99
   %156 = call i32 @fpconv_dtoa(double noundef %135, ptr noundef nonnull %53) #26
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds [128 x i8], ptr %53, i64 0, i64 %157
+  %158 = getelementptr inbounds i8, ptr %53, i64 %157
   store i8 0, ptr %158, align 1, !tbaa !5
   %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -1026,7 +1026,7 @@ mixDigest.exit103:                                ; preds = %149
 
 161:                                              ; preds = %161, %155
   %indvars.iv.i.i104 = phi i64 [ 0, %155 ], [ %indvars.iv.next.i.i105, %161 ]
-  %162 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 0, i64 %indvars.iv.i.i104
+  %162 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i.i104
   %163 = load i8, ptr %162, align 1, !tbaa !5
   %164 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i104
   %165 = load i8, ptr %164, align 1, !tbaa !5
@@ -1052,7 +1052,7 @@ mixDigest.exit107:                                ; preds = %161
 
 167:                                              ; preds = %167, %mixDigest.exit107
   %indvars.iv.i108 = phi i64 [ 0, %mixDigest.exit107 ], [ %indvars.iv.next.i109, %167 ]
-  %168 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 0, i64 %indvars.iv.i108
+  %168 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i108
   %169 = load i8, ptr %168, align 1, !tbaa !5
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i108
   %171 = load i8, ptr %170, align 1, !tbaa !5
@@ -1093,7 +1093,7 @@ xorDigest.exit111:                                ; preds = %167
   %183 = load double, ptr %182, align 8, !tbaa !31
   %184 = call i32 @fpconv_dtoa(double noundef %183, ptr noundef nonnull %53) #26
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [128 x i8], ptr %53, i64 0, i64 %185
+  %186 = getelementptr inbounds i8, ptr %53, i64 %185
   store i8 0, ptr %186, align 1, !tbaa !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   %187 = getelementptr inbounds i8, ptr %181, i64 -1
@@ -1149,7 +1149,7 @@ sdslen.exit113:                                   ; preds = %.lr.ph177, %191, %1
 
 210:                                              ; preds = %210, %sdslen.exit113
   %indvars.iv.i.i114 = phi i64 [ 0, %sdslen.exit113 ], [ %indvars.iv.next.i.i115, %210 ]
-  %211 = getelementptr inbounds nuw [20 x i8], ptr %34, i64 0, i64 %indvars.iv.i.i114
+  %211 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i114
   %212 = load i8, ptr %211, align 1, !tbaa !5
   %213 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i114
   %214 = load i8, ptr %213, align 1, !tbaa !5
@@ -1178,7 +1178,7 @@ mixDigest.exit117:                                ; preds = %210
 
 218:                                              ; preds = %218, %mixDigest.exit117
   %indvars.iv.i.i118 = phi i64 [ 0, %mixDigest.exit117 ], [ %indvars.iv.next.i.i119, %218 ]
-  %219 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 0, i64 %indvars.iv.i.i118
+  %219 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i.i118
   %220 = load i8, ptr %219, align 1, !tbaa !5
   %221 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv.i.i118
   %222 = load i8, ptr %221, align 1, !tbaa !5
@@ -1204,7 +1204,7 @@ mixDigest.exit121:                                ; preds = %218
 
 224:                                              ; preds = %224, %mixDigest.exit121
   %indvars.iv.i122 = phi i64 [ 0, %mixDigest.exit121 ], [ %indvars.iv.next.i123, %224 ]
-  %225 = getelementptr inbounds nuw [20 x i8], ptr %29, i64 0, i64 %indvars.iv.i122
+  %225 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv.i122
   %226 = load i8, ptr %225, align 1, !tbaa !5
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i122
   %228 = load i8, ptr %227, align 1, !tbaa !5
@@ -1300,7 +1300,7 @@ sdslen.exit127:                                   ; preds = %237, %243, %246, %2
 
 262:                                              ; preds = %262, %sdslen.exit127
   %indvars.iv.i.i128 = phi i64 [ 0, %sdslen.exit127 ], [ %indvars.iv.next.i.i129, %262 ]
-  %263 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 0, i64 %indvars.iv.i.i128
+  %263 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i.i128
   %264 = load i8, ptr %263, align 1, !tbaa !5
   %265 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i.i128
   %266 = load i8, ptr %265, align 1, !tbaa !5
@@ -1372,7 +1372,7 @@ sdslen.exit133:                                   ; preds = %mixDigest.exit131, 
 
 292:                                              ; preds = %292, %sdslen.exit133
   %indvars.iv.i.i134 = phi i64 [ 0, %sdslen.exit133 ], [ %indvars.iv.next.i.i135, %292 ]
-  %293 = getelementptr inbounds nuw [20 x i8], ptr %23, i64 0, i64 %indvars.iv.i.i134
+  %293 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i.i134
   %294 = load i8, ptr %293, align 1, !tbaa !5
   %295 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i.i134
   %296 = load i8, ptr %295, align 1, !tbaa !5
@@ -1404,7 +1404,7 @@ mixDigest.exit137:                                ; preds = %292
 
 300:                                              ; preds = %300, %299
   %indvars.iv.i138 = phi i64 [ 0, %299 ], [ %indvars.iv.next.i139, %300 ]
-  %301 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 0, i64 %indvars.iv.i138
+  %301 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i138
   %302 = load i8, ptr %301, align 1, !tbaa !5
   %303 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i138
   %304 = load i8, ptr %303, align 1, !tbaa !5
@@ -1429,7 +1429,7 @@ xorDigest.exit141:                                ; preds = %300
 
 307:                                              ; preds = %307, %306
   %indvars.iv.i142 = phi i64 [ 0, %306 ], [ %indvars.iv.next.i143, %307 ]
-  %308 = getelementptr inbounds nuw [20 x i8], ptr %19, i64 0, i64 %indvars.iv.i142
+  %308 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i142
   %309 = load i8, ptr %308, align 1, !tbaa !5
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i142
   %311 = load i8, ptr %310, align 1, !tbaa !5
@@ -1529,7 +1529,7 @@ sdslen.exit147:                                   ; preds = %320, %329, %332, %3
 
 348:                                              ; preds = %348, %sdslen.exit147
   %indvars.iv.i.i148 = phi i64 [ 0, %sdslen.exit147 ], [ %indvars.iv.next.i.i149, %348 ]
-  %349 = getelementptr inbounds nuw [20 x i8], ptr %16, i64 0, i64 %indvars.iv.i.i148
+  %349 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i.i148
   %350 = load i8, ptr %349, align 1, !tbaa !5
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i148
   %352 = load i8, ptr %351, align 1, !tbaa !5
@@ -1572,7 +1572,7 @@ mixDigest.exit151:                                ; preds = %348
 
 359:                                              ; preds = %359, %.lr.ph
   %indvars.iv.i.i152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i153, %359 ]
-  %360 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i152
+  %360 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i152
   %361 = load i8, ptr %360, align 1, !tbaa !5
   %362 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i152
   %363 = load i8, ptr %362, align 1, !tbaa !5
@@ -1602,7 +1602,7 @@ mixDigest.exit155:                                ; preds = %359
 
 368:                                              ; preds = %368, %mixDigest.exit155
   %indvars.iv.i.i156 = phi i64 [ 0, %mixDigest.exit155 ], [ %indvars.iv.next.i.i157, %368 ]
-  %369 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 0, i64 %indvars.iv.i.i156
+  %369 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i156
   %370 = load i8, ptr %369, align 1, !tbaa !5
   %371 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i156
   %372 = load i8, ptr %371, align 1, !tbaa !5
@@ -1669,7 +1669,7 @@ mixDigest.exit159:                                ; preds = %368
 
 391:                                              ; preds = %391, %387
   %indvars.iv.i160 = phi i64 [ 0, %387 ], [ %indvars.iv.next.i161, %391 ]
-  %392 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 0, i64 %indvars.iv.i160
+  %392 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i160
   %393 = load i8, ptr %392, align 1, !tbaa !5
   %394 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i160
   %395 = load i8, ptr %394, align 1, !tbaa !5
@@ -1706,7 +1706,7 @@ xorDigest.exit163:                                ; preds = %391
 
 401:                                              ; preds = %401, %400
   %indvars.iv.i164 = phi i64 [ 0, %400 ], [ %indvars.iv.next.i165, %401 ]
-  %402 = getelementptr inbounds nuw [20 x i8], ptr %6, i64 0, i64 %indvars.iv.i164
+  %402 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i164
   %403 = load i8, ptr %402, align 1, !tbaa !5
   %404 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i164
   %405 = load i8, ptr %404, align 1, !tbaa !5
@@ -2026,7 +2026,7 @@ define dso_local void @computeDatasetDigest(ptr noundef initializes((0, 20)) %0)
 
 24:                                               ; preds = %24, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %24 ]
-  %25 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   %26 = load i8, ptr %25, align 1, !tbaa !5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !5
@@ -2146,7 +2146,7 @@ sdslen.exit22:                                    ; preds = %sdslen.exit, %59, %
 
 78:                                               ; preds = %78, %sdslen.exit22
   %indvars.iv.i.i23 = phi i64 [ 0, %sdslen.exit22 ], [ %indvars.iv.next.i.i24, %78 ]
-  %79 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i23
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i23
   %80 = load i8, ptr %79, align 1, !tbaa !5
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i23
   %82 = load i8, ptr %81, align 1, !tbaa !5
@@ -2174,7 +2174,7 @@ mixDigest.exit26:                                 ; preds = %78
 
 85:                                               ; preds = %85, %mixDigest.exit26
   %indvars.iv.i = phi i64 [ 0, %mixDigest.exit26 ], [ %indvars.iv.next.i, %85 ]
-  %86 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %87 = load i8, ptr %86, align 1, !tbaa !5
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %89 = load i8, ptr %88, align 1, !tbaa !5
@@ -3237,7 +3237,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 390:                                              ; preds = %387, %390
   %indvars.iv = phi i64 [ 0, %387 ], [ %indvars.iv.next, %390 ]
   %.0508723 = phi ptr [ %388, %387 ], [ %394, %390 ]
-  %391 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %391 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %392 = load i8, ptr %391, align 1, !tbaa !5
   %393 = zext i8 %392 to i32
   %394 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0508723, ptr noundef nonnull @.str.167, i32 noundef %393) #26
@@ -3336,7 +3336,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 435:                                              ; preds = %.thread664, %435
   %indvars.iv779 = phi i64 [ 0, %.thread664 ], [ %indvars.iv.next780, %435 ]
   %.0514730 = phi ptr [ %430, %.thread664 ], [ %439, %435 ]
-  %436 = getelementptr inbounds nuw [20 x i8], ptr %12, i64 0, i64 %indvars.iv779
+  %436 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv779
   %437 = load i8, ptr %436, align 1, !tbaa !5
   %438 = zext i8 %437 to i32
   %439 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.0514730, ptr noundef nonnull @.str.167, i32 noundef %438) #26
@@ -4905,7 +4905,7 @@ bugReportStart.exit:                              ; preds = %1, %6
 
 70:                                               ; preds = %69, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
-  %71 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = call i32 @strcasecmp(ptr noundef %72, ptr noundef %68) #27
   %74 = icmp eq i32 %73, 0
@@ -5810,7 +5810,7 @@ define dso_local void @logCurrentClient(ptr noundef %0, ptr noundef %1) local_un
 
 63:                                               ; preds = %62, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
-  %64 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   %66 = tail call i32 @strcasecmp(ptr noundef %65, ptr noundef %61) #27
   %67 = icmp eq i32 %66, 0
@@ -6112,9 +6112,9 @@ openDirectLogFiledes.exit.thread:                 ; preds = %0, %openDirectLogFi
   %37 = call i64 @strtoul(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 16) #26
   %38 = sub i64 %37, %36
   %39 = sext i32 %.04360 to i64
-  %40 = getelementptr inbounds [128 x i64], ptr %3, i64 0, i64 %39
+  %40 = getelementptr inbounds i64, ptr %3, i64 %39
   store i64 %36, ptr %40, align 8, !tbaa !17
-  %41 = getelementptr inbounds [128 x i64], ptr %4, i64 0, i64 %39
+  %41 = getelementptr inbounds i64, ptr %4, i64 %39
   store i64 %38, ptr %41, align 8, !tbaa !17
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.305, i64 noundef %36, i64 noundef %38) #26
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
@@ -6132,10 +6132,10 @@ openDirectLogFiledes.exit.thread:                 ; preds = %0, %openDirectLogFi
   %indvars.iv = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next, %.lr.ph63 ]
   %.062 = phi i32 [ 0, %.lr.ph63.preheader ], [ %55, %.lr.ph63 ]
   %48 = call i64 @write(i32 noundef %10, ptr noundef nonnull @.str.306, i64 noundef 1) #26
-  %49 = getelementptr inbounds nuw [128 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !17
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds nuw [128 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !17
   %54 = call i32 @memtest_preserving_test(ptr noundef %51, i64 noundef %53, i32 noundef 1) #26
   %55 = add nsw i32 %54, %.062
@@ -6292,7 +6292,7 @@ define dso_local void @dumpX86Calls(ptr noundef %0, i64 noundef %1) local_unname
 
 23:                                               ; preds = %13
   %24 = and i64 %17, 255
-  %25 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %4, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !17
   %.not24 = icmp eq i64 %26, %17
   br i1 %.not24, label %29, label %27
@@ -6394,13 +6394,13 @@ define dso_local void @dumpCodeAroundEIP(ptr noundef %0) local_unnamed_addr #0 {
   %40 = load i8, ptr %.023.i, align 1, !tbaa !5
   %41 = lshr i8 %40, 4
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds nuw [17 x i8], ptr @__const.serverLogHexDump.charset, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @__const.serverLogHexDump.charset, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !5
   store i8 %44, ptr %.01822.i, align 1, !tbaa !5
   %45 = load i8, ptr %.023.i, align 1, !tbaa !5
   %46 = and i8 %45, 15
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [17 x i8], ptr @__const.serverLogHexDump.charset, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @__const.serverLogHexDump.charset, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !5
   %50 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 1
   store i8 %49, ptr %50, align 1, !tbaa !5
@@ -6461,7 +6461,7 @@ serverLogHexDump.exit:                            ; preds = %59, %37
 
 77:                                               ; preds = %67
   %78 = and i64 %71, 255
-  %79 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr %3, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !17
   %.not24.i = icmp eq i64 %80, %71
   br i1 %.not24.i, label %83, label %81
@@ -6527,13 +6527,13 @@ define dso_local void @serverLogHexDump(i32 noundef %0, ptr noundef %1, ptr noun
   %14 = load i8, ptr %.023, align 1, !tbaa !5
   %15 = lshr i8 %14, 4
   %16 = zext nneg i8 %15 to i64
-  %17 = getelementptr inbounds nuw [17 x i8], ptr @__const.serverLogHexDump.charset, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @__const.serverLogHexDump.charset, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !5
   store i8 %18, ptr %.01822, align 1, !tbaa !5
   %19 = load i8, ptr %.023, align 1, !tbaa !5
   %20 = and i8 %19, 15
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw [17 x i8], ptr @__const.serverLogHexDump.charset, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @__const.serverLogHexDump.charset, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !5
   %24 = getelementptr inbounds nuw i8, ptr %.01822, i64 1
   store i8 %23, ptr %24, align 1, !tbaa !5
@@ -6994,7 +6994,7 @@ define internal fastcc void @cmdTokenCollect(ptr noundef nonnull captures(none) 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr %5, align 8, !tbaa !180
   %15 = sext i32 %7 to i64
-  %16 = getelementptr inbounds [128 x ptr], ptr %0, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !21
   br label %17
 

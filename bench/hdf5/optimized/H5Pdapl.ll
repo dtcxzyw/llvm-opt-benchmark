@@ -1111,7 +1111,7 @@ define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1,
   br label %.thread55
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw [32 x i64], ptr %76, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv
   store i64 %79, ptr %85, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1794,14 +1794,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr noundef readonly
 
 18:                                               ; preds = %17
   %19 = lshr i64 %11, 56
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 56
   br label %66
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 48
@@ -1813,14 +1813,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr noundef readonly
 
 30:                                               ; preds = %29
   %31 = lshr i64 %11, 40
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !30
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 40
   br label %66
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %14
   %38 = load i8, ptr %37, align 1, !tbaa !30
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 32
@@ -1837,14 +1837,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr noundef readonly
 
 44:                                               ; preds = %43
   %45 = lshr i64 %11, 24
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !30
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 24
   br label %66
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %52 = load i8, ptr %51, align 1, !tbaa !30
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 16
@@ -1856,14 +1856,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr noundef readonly
 
 56:                                               ; preds = %55
   %57 = lshr i64 %11, 8
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 8
   br label %66
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %11
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %11
   %64 = load i8, ptr %63, align 1, !tbaa !30
   %65 = zext i8 %64 to i32
   br label %66
@@ -2008,14 +2008,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr noundef readonly
 
 18:                                               ; preds = %17
   %19 = lshr i64 %11, 56
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 56
   br label %66
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 48
@@ -2027,14 +2027,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr noundef readonly
 
 30:                                               ; preds = %29
   %31 = lshr i64 %11, 40
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !30
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 40
   br label %66
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %14
   %38 = load i8, ptr %37, align 1, !tbaa !30
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 32
@@ -2051,14 +2051,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr noundef readonly
 
 44:                                               ; preds = %43
   %45 = lshr i64 %11, 24
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !30
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 24
   br label %66
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %52 = load i8, ptr %51, align 1, !tbaa !30
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 16
@@ -2070,14 +2070,14 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr noundef readonly
 
 56:                                               ; preds = %55
   %57 = lshr i64 %11, 8
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 8
   br label %66
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %11
+  %63 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %11
   %64 = load i8, ptr %63, align 1, !tbaa !30
   %65 = zext i8 %64 to i32
   br label %66
@@ -2327,14 +2327,14 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
 
 18:                                               ; preds = %17
   %19 = lshr i64 %13, 56
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 56
   br label %H5VM_limit_enc_size.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 48
@@ -2346,14 +2346,14 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
 
 30:                                               ; preds = %29
   %31 = lshr i64 %13, 40
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !30
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 40
   br label %H5VM_limit_enc_size.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %14
   %38 = load i8, ptr %37, align 1, !tbaa !30
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 32
@@ -2370,14 +2370,14 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
 
 44:                                               ; preds = %43
   %45 = lshr i64 %13, 24
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !30
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 24
   br label %H5VM_limit_enc_size.exit
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %52 = load i8, ptr %51, align 1, !tbaa !30
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 16
@@ -2389,7 +2389,7 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
 
 56:                                               ; preds = %55
   %57 = lshr i64 %13, 8
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 8
@@ -2397,7 +2397,7 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr noundef readonly ca
 
 .thread45:                                        ; preds = %11, %55
   %.032404448 = phi i64 [ %13, %55 ], [ 0, %11 ]
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.032404448
+  %62 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %.032404448
   %63 = load i8, ptr %62, align 1, !tbaa !30
   %64 = zext i8 %63 to i32
   br label %H5VM_limit_enc_size.exit
@@ -2721,14 +2721,14 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
 
 18:                                               ; preds = %17
   %19 = lshr i64 %13, 56
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 56
   br label %H5VM_limit_enc_size.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %16
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %16
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 48
@@ -2740,14 +2740,14 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
 
 30:                                               ; preds = %29
   %31 = lshr i64 %13, 40
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !30
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, 40
   br label %H5VM_limit_enc_size.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %37 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %14
   %38 = load i8, ptr %37, align 1, !tbaa !30
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 32
@@ -2764,14 +2764,14 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
 
 44:                                               ; preds = %43
   %45 = lshr i64 %13, 24
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !30
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 24
   br label %H5VM_limit_enc_size.exit
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %42
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %42
   %52 = load i8, ptr %51, align 1, !tbaa !30
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 16
@@ -2783,7 +2783,7 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
 
 56:                                               ; preds = %55
   %57 = lshr i64 %13, 8
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %60, 8
@@ -2791,7 +2791,7 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr noundef readonly captu
 
 .thread45:                                        ; preds = %11, %55
   %.032404448 = phi i64 [ %13, %55 ], [ 0, %11 ]
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.032404448
+  %62 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %.032404448
   %63 = load i8, ptr %62, align 1, !tbaa !30
   %64 = zext i8 %63 to i32
   br label %H5VM_limit_enc_size.exit

@@ -2186,7 +2186,7 @@ zend_string_copy.exit:                            ; preds = %651, %657
 
 switch.lookup:                                    ; preds = %678
   %682 = zext nneg i32 %680 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.zif_proc_open, i64 0, i64 %682
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_proc_open, i64 %682
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %683
 

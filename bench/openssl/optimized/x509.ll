@@ -2205,7 +2205,7 @@ define dso_local range(i32 0, 2) i32 @x509_main(i32 noundef %0, ptr noundef %1) 
 .lr.ph1580:                                       ; preds = %776, %.lr.ph1580
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph1580 ], [ 0, %776 ]
   %780 = phi i32 [ %788, %.lr.ph1580 ], [ %778, %776 ]
-  %781 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %indvars.iv
+  %781 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   %782 = load i8, ptr %781, align 1, !tbaa !26
   %783 = zext i8 %782 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

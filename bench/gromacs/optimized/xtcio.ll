@@ -84,7 +84,7 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
 
 23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %24 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i
   %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %24)
   %.not25.not.i = icmp eq i32 %25, 0
   br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
@@ -272,7 +272,7 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
 
 24:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %25 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i
   %26 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %25)
   %.not25.not.i = icmp eq i32 %26, 0
   br i1 %.not25.not.i, label %27, label %_ZL9xtc_checkPKcbS0_i.exit.i
@@ -551,7 +551,7 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
 
 30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %31 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i
   %32 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %31)
   %.not25.not.i = icmp eq i32 %32, 0
   br i1 %.not25.not.i, label %33, label %_ZL9xtc_checkPKcbS0_i.exit.i

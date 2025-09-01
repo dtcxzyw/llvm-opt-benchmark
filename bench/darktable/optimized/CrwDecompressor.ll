@@ -190,15 +190,15 @@ define hidden void @_ZN8rawspeed15CrwDecompressorC2ENS_8RawImageEjNS_10Array1DRe
 
 14:                                               ; preds = %6
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw [3 x %"struct.std::array.72"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE15first_tree_ncpl, i64 0, i64 %15
-  %17 = getelementptr inbounds nuw [3 x %"struct.std::array.74"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE21first_tree_codevalues, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.std::array.72", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE15first_tree_ncpl, i64 %15
+  %17 = getelementptr inbounds nuw %"struct.std::array.74", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE21first_tree_codevalues, i64 %15
   invoke void @_ZN8rawspeed15CrwDecompressor11makeDecoderEPKhS2_(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::PrefixCodeLUTDecoder") align 8 %11, ptr noundef nonnull %16, ptr noundef nonnull %17)
           to label %.noexc40 unwind label %36
 
 .noexc40:                                         ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %19 = getelementptr inbounds nuw [3 x %"struct.std::array.72"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE16second_tree_ncpl, i64 0, i64 %15
-  %20 = getelementptr inbounds nuw [3 x %"struct.std::array.76"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE22second_tree_codevalues, i64 0, i64 %15
+  %19 = getelementptr inbounds nuw %"struct.std::array.72", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE16second_tree_ncpl, i64 %15
+  %20 = getelementptr inbounds nuw %"struct.std::array.76", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE22second_tree_codevalues, i64 %15
   invoke void @_ZN8rawspeed15CrwDecompressor11makeDecoderEPKhS2_(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::PrefixCodeLUTDecoder") align 8 %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
           to label %_ZN8rawspeed15CrwDecompressor14initHuffTablesEj.exit unwind label %21
 
@@ -353,12 +353,12 @@ define hidden void @_ZN8rawspeed15CrwDecompressor14initHuffTablesEj(ptr dead_on_
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [3 x %"struct.std::array.72"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE15first_tree_ncpl, i64 0, i64 %6
-  %8 = getelementptr inbounds nuw [3 x %"struct.std::array.74"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE21first_tree_codevalues, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.std::array.72", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE15first_tree_ncpl, i64 %6
+  %8 = getelementptr inbounds nuw %"struct.std::array.74", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE21first_tree_codevalues, i64 %6
   tail call void @_ZN8rawspeed15CrwDecompressor11makeDecoderEPKhS2_(ptr dead_on_unwind writable sret(%"class.rawspeed::PrefixCodeLUTDecoder") align 8 %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %10 = getelementptr inbounds nuw [3 x %"struct.std::array.72"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE16second_tree_ncpl, i64 0, i64 %6
-  %11 = getelementptr inbounds nuw [3 x %"struct.std::array.76"], ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE22second_tree_codevalues, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw %"struct.std::array.72", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE16second_tree_ncpl, i64 %6
+  %11 = getelementptr inbounds nuw %"struct.std::array.76", ptr @_ZZN8rawspeed15CrwDecompressor14initHuffTablesEjE22second_tree_codevalues, i64 %6
   invoke void @_ZN8rawspeed15CrwDecompressor11makeDecoderEPKhS2_(ptr dead_on_unwind nonnull writable sret(%"class.rawspeed::PrefixCodeLUTDecoder") align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
           to label %14 unwind label %12
 
@@ -1368,11 +1368,11 @@ _ZN8rawspeed15BitStreamerJPEGCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSeque
 56:                                               ; preds = %54, %52
   %.248 = phi i32 [ 0, %54 ], [ %.147228, %52 ]
   %.2 = phi i32 [ %55, %54 ], [ %.1229, %52 ]
-  %57 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2, !tbaa !163
   %59 = sext i16 %58 to i32
   %60 = and i64 %indvars.iv, 1
-  %61 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %63 = add nsw i32 %62, %59
   store i32 %63, ptr %61, align 4, !tbaa !17
@@ -1575,7 +1575,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
   tail call void @_ZN8rawspeed11BitStreamerINS_15BitStreamerJPEGENS_39BitStreamerForwardSequentialReplenisherIS1_EEE4fillEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 32)
   %10 = icmp sgt i32 %.061, 0
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw [2 x %"class.rawspeed::PrefixCodeLUTDecoder"], ptr %1, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.rawspeed::PrefixCodeLUTDecoder", ptr %1, i64 %11
   %13 = load i8, ptr %12, align 8, !tbaa !103, !range !91, !noundef !92
   %14 = trunc nuw i8 %13 to i1
   %15 = xor i1 %14, true
@@ -1708,7 +1708,7 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDe
   %.0.i39 = add nsw i32 %84, %82
   %85 = trunc nsw i32 %.0.i39 to i16
   %86 = sext i32 %62 to i64
-  %87 = getelementptr inbounds nuw [64 x i16], ptr %0, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i16, ptr %0, i64 %86
   store i16 %85, ptr %87, align 2, !tbaa !163
   br label %88
 

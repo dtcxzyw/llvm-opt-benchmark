@@ -478,7 +478,7 @@ define internal fastcc void @salsa20_8(ptr noundef captures(none) %0) unnamed_ad
 
 133:                                              ; preds = %.preheader, %133
   %.138 = phi i64 [ 0, %.preheader ], [ %139, %133 ]
-  %134 = getelementptr [16 x i32], ptr %2, i64 0, i64 %.138
+  %134 = getelementptr i32, ptr %2, i64 %.138
   %135 = load i32, ptr %134, align 4
   %136 = getelementptr i32, ptr %0, i64 %.138
   %137 = load i32, ptr %136, align 4

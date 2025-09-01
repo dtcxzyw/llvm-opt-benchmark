@@ -156,7 +156,7 @@ FASTCOVER_checkParameters.exit.thread:            ; preds = %29, %28, %6
 
 58:                                               ; preds = %49
   %59 = zext nneg i32 %17 to i64
-  %60 = getelementptr inbounds nuw [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %struct.FASTCOVER_accel_t, ptr @FASTCOVER_defaultAccelParameters, i64 %59
   %.sroa.0.0.copyload = load i64, ptr %60, align 8
   %61 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.4.0.copyload, double noundef 1.000000e+00, i32 noundef %14, i64 %.sroa.0.0.copyload)
   %62 = icmp ult i64 %61, -119
@@ -924,7 +924,7 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %95, i64 12, i1 false)
   %96 = zext nneg i32 %41 to i64
-  %97 = getelementptr inbounds nuw [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %struct.FASTCOVER_accel_t, ptr @FASTCOVER_defaultAccelParameters, i64 %96
   %.sroa.0.0.copyload = load i64, ptr %97, align 8
   %98 = call i32 @llvm.usub.sat.i32(i32 %43, i32 1)
   store i32 %98, ptr @g_displayLevel, align 4, !tbaa !10

@@ -239,7 +239,7 @@ find_frame_end.exit:                              ; preds = %25, %.preheader.i
 
 127:                                              ; preds = %131, %115
   %indvars.iv.i.i = phi i64 [ 0, %115 ], [ %indvars.iv.next.i.i, %131 ]
-  %128 = getelementptr inbounds nuw [17 x i8], ptr @unpack_parse_unit.valid_pu_types, i64 0, i64 %indvars.iv.i.i
+  %128 = getelementptr inbounds nuw i8, ptr @unpack_parse_unit.valid_pu_types, i64 %indvars.iv.i.i
   %129 = load i8, ptr %128, align 1, !tbaa !19
   %130 = icmp eq i8 %129, %120
   br i1 %130, label %.thread.i.i, label %131
@@ -288,7 +288,7 @@ unpack_parse_unit.exit.i:                         ; preds = %134, %.thread.i.i
 
 151:                                              ; preds = %155, %140
   %indvars.iv.i118.i = phi i64 [ 0, %140 ], [ %indvars.iv.next.i119.i, %155 ]
-  %152 = getelementptr inbounds nuw [17 x i8], ptr @unpack_parse_unit.valid_pu_types, i64 0, i64 %indvars.iv.i118.i
+  %152 = getelementptr inbounds nuw i8, ptr @unpack_parse_unit.valid_pu_types, i64 %indvars.iv.i118.i
   %153 = load i8, ptr %152, align 1, !tbaa !19
   %154 = icmp eq i8 %153, %144
   br i1 %154, label %.thread.i122.i, label %155

@@ -143,11 +143,11 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %46, %16
-  %47 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %indvars.iv54
+  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv54
   store ptr %11, ptr %47, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv54
+  %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv54
   store ptr %12, ptr %48, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv54
+  %49 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv54
   store ptr %13, ptr %49, align 8, !tbaa !20
   br i1 %10, label %9, label %50, !llvm.loop !21
 
@@ -179,7 +179,7 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 15:                                               ; preds = %2, %.loopexit
   %indvars.iv59 = phi i64 [ 31, %2 ], [ %indvars.iv.next60, %.loopexit ]
   %.04556 = phi i16 [ 32, %2 ], [ %55, %.loopexit ]
-  %16 = getelementptr inbounds nuw [32 x ptr], ptr %3, i64 0, i64 %indvars.iv59
+  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.loopexit, label %18, !llvm.loop !25

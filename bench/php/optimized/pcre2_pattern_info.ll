@@ -276,7 +276,7 @@ define dso_local range(i32 -55, 9) i32 @php_pcre2_pattern_info(ptr noundef %0, i
 
 switch.lookup:                                    ; preds = %3
   %122 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [27 x i32], ptr @switch.table.php_pcre2_pattern_info, i64 0, i64 %122
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.php_pcre2_pattern_info, i64 %122
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %123
 
@@ -417,7 +417,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 
 35:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33
   %36 = zext nneg i8 %34 to i64
-  %37 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !38
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %.057, i64 %39
@@ -432,7 +432,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 45:                                               ; preds = %41
   %46 = and i8 %43, 63
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_utf8_table4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_pcre2_utf8_table4, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !38
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 %50
@@ -440,7 +440,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 
 52:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33
   %53 = zext nneg i8 %34 to i64
-  %54 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !38
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %.057, i64 %56
@@ -470,7 +470,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 
 70:                                               ; preds = %33, %33, %33, %33, %33
   %71 = zext i8 %34 to i64
-  %72 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !38
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %.057, i64 1
@@ -511,7 +511,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 101:                                              ; preds = %80
   %102 = load i8, ptr %.057, align 1, !tbaa !38
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !38
   %106 = zext i8 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %.057, i64 %106
@@ -575,7 +575,7 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
 
 153:                                              ; preds = %33
   %154 = zext i8 %34 to i64
-  %155 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !38
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr %.057, i64 %157

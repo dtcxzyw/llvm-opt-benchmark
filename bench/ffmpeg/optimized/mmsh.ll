@@ -623,7 +623,7 @@ define internal fastcc range(i32 -1094995529, 65536) i32 @get_chunk_header(ptr n
 
 switch.lookup:                                    ; preds = %8
   %18 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.get_chunk_header, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_chunk_header, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load ptr, ptr %0, align 8, !tbaa !33
   %20 = call i32 @ffurl_read_complete(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %switch.load) #7

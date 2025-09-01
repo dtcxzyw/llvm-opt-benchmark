@@ -4205,9 +4205,9 @@ _ZN4llvm13LiveVariables27removeVirtualRegisterKilledENS_8RegisterERNS_12MachineI
   br i1 %.013.i.i.i, label %.critedge.i.i.i118, label %1486
 
 1486:                                             ; preds = %1484
-  %1487 = getelementptr inbounds nuw [2 x i64], ptr %1482, i64 0, i64 %indvars.iv.i.i.i
+  %1487 = getelementptr inbounds nuw i64, ptr %1482, i64 %indvars.iv.i.i.i
   %1488 = load i64, ptr %1487, align 8, !tbaa !45
-  %1489 = getelementptr inbounds nuw [2 x i64], ptr %1483, i64 0, i64 %indvars.iv.i.i.i
+  %1489 = getelementptr inbounds nuw i64, ptr %1483, i64 %indvars.iv.i.i.i
   %1490 = load i64, ptr %1489, align 8, !tbaa !45
   %1491 = or i64 %1490, %1488
   store i64 %1491, ptr %1487, align 8, !tbaa !45
@@ -4215,9 +4215,9 @@ _ZN4llvm13LiveVariables27removeVirtualRegisterKilledENS_8RegisterERNS_12MachineI
   br label %1497
 
 .critedge.i.i.i118:                               ; preds = %1484
-  %1492 = getelementptr inbounds nuw [2 x i64], ptr %1483, i64 0, i64 %indvars.iv.i.i.i
+  %1492 = getelementptr inbounds nuw i64, ptr %1483, i64 %indvars.iv.i.i.i
   %1493 = load i64, ptr %1492, align 8, !tbaa !45
-  %1494 = getelementptr inbounds nuw [2 x i64], ptr %1482, i64 0, i64 %indvars.iv.i.i.i
+  %1494 = getelementptr inbounds nuw i64, ptr %1482, i64 %indvars.iv.i.i.i
   %1495 = load i64, ptr %1494, align 8, !tbaa !45
   %1496 = or i64 %1495, %1493
   store i64 %1496, ptr %1494, align 8, !tbaa !45

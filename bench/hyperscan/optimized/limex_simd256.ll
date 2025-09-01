@@ -101,7 +101,7 @@ queue_prev_byte.exit:                             ; preds = %13, %18, %25
   %reass.sub = sub nsw i32 %61, %62
   %63 = add nsw i32 %reass.sub, 95
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %64
   %66 = load <4 x i64>, ptr %65, align 1
   %67 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %66, <4 x i64> %.pre21)
   %.not.i15.not = icmp eq i32 %67, 0
@@ -159,7 +159,7 @@ nfaExecLimEx256_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %98 = zext i8 %.0.i to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %31, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i64
   %102 = getelementptr inbounds nuw <4 x i64>, ptr %97, i64 %101
@@ -243,7 +243,7 @@ define hidden noundef signext i8 @nfaExecLimEx256_expandState(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %19 = zext i8 %4 to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw <4 x i64>, ptr %18, i64 %22
@@ -323,7 +323,7 @@ moNfaExpandState256.exit:                         ; preds = %13, %39
   %reass.sub = sub nsw i32 %67, %68
   %69 = add nsw i32 %reass.sub, 95
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %70
   %72 = load <4 x i64>, ptr %71, align 1
   %73 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %72, <4 x i64> %46)
   %.not.i9.not = icmp eq i32 %73, 0
@@ -434,7 +434,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_initCompressedState(ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %26 = zext i8 %3 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw <4 x i64>, ptr %25, i64 %29
@@ -690,7 +690,7 @@ moNfaReportCurrent256.exit:                       ; preds = %8, %18
   %102 = add i32 %96, -1
   store i32 %102, ptr %38, align 8
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %103
   store i32 0, ptr %104, align 8
   %105 = sub i64 %85, %65
   %.idx89 = mul nuw nsw i64 %103, 24
@@ -703,7 +703,7 @@ moNfaReportCurrent256.exit:                       ; preds = %8, %18
   br label %.thread
 
 110:                                              ; preds = %95
-  %111 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %.pre-phi
+  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %.pre-phi
   %112 = load i32, ptr %111, align 8
   switch i32 %112, label %118 [
     i32 2, label %113
@@ -791,7 +791,7 @@ moNfaReportCurrent256.exit:                       ; preds = %8, %18
   %reass.sub = sub nsw i32 %156, %157
   %158 = add nsw i32 %reass.sub, 95
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %159
   %161 = load <4 x i64>, ptr %160, align 1
   %162 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %161, <4 x i64> %136)
   %.not.i93.not = icmp eq i32 %162, 0
@@ -907,7 +907,7 @@ limexExpireExtendedState256.exit:                 ; preds = %210, %._crit_edge, 
   %220 = add i32 %217, -1
   store i32 %220, ptr %38, align 8
   %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %66, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %221
   store i32 0, ptr %222, align 8
   %223 = sub i64 %.074.lcssa, %65
   %.idx84 = mul nuw nsw i64 %221, 24
@@ -1192,13 +1192,13 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
 167:                                              ; preds = %165, %167
   %168 = phi i32 [ 0, %165 ], [ %173, %167 ]
   %indvars.iv = phi i64 [ 0, %165 ], [ %indvars.iv.next, %167 ]
-  %169 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %170 = load i64, ptr %169, align 8
   %171 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %170)
   %172 = trunc nuw nsw i64 %171 to i32
   %173 = add i32 %168, %172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %174 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next
+  %174 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   store i32 %173, ptr %174, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader629, label %167
@@ -1214,10 +1214,10 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
   %178 = extractvalue { i32, i32 } %176, 1
   %179 = lshr i32 %177, 1
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw i64, ptr %6, i64 %180
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %180
-  %184 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %180
+  %183 = getelementptr inbounds nuw i64, ptr %7, i64 %180
+  %184 = getelementptr inbounds nuw i32, ptr %8, i64 %180
   br label %185
 
 185:                                              ; preds = %repeatHasMatch.exit.thread, %175
@@ -1272,7 +1272,7 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
   %reass.sub = sub nsw i32 %221, %222
   %223 = add nsw i32 %reass.sub, 95
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %224
   %226 = load <4 x i64>, ptr %225, align 1
   %227 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %226, <4 x i64> %.057.i6652)
   %.not.i.i123 = icmp eq i32 %227, 0
@@ -1524,7 +1524,7 @@ processExceptional256.exit115.thread:             ; preds = %160, %156, %151, %1
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i7653
   %312 = load i8, ptr %311, align 1
   %313 = zext i8 %312 to i64
-  %314 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 %313
   %315 = load i8, ptr %314, align 1
   %316 = zext i8 %315 to i64
   %317 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %316
@@ -1750,13 +1750,13 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
 450:                                              ; preds = %448, %450
   %451 = phi i32 [ 0, %448 ], [ %456, %450 ]
   %indvars.iv699 = phi i64 [ 0, %448 ], [ %indvars.iv.next700, %450 ]
-  %452 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv699
+  %452 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv699
   %453 = load i64, ptr %452, align 8
   %454 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %453)
   %455 = trunc nuw nsw i64 %454 to i32
   %456 = add i32 %451, %455
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 1
-  %457 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv.next700
+  %457 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next700
   store i32 %456, ptr %457, align 4
   %exitcond702.not = icmp eq i64 %indvars.iv.next700, 3
   br i1 %exitcond702.not, label %.preheader627, label %450
@@ -1772,10 +1772,10 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
   %461 = extractvalue { i32, i32 } %459, 1
   %462 = lshr i32 %460, 1
   %463 = zext nneg i32 %462 to i64
-  %464 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw i64, ptr %9, i64 %463
   %465 = load i64, ptr %464, align 8
-  %466 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %463
-  %467 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %463
+  %466 = getelementptr inbounds nuw i64, ptr %10, i64 %463
+  %467 = getelementptr inbounds nuw i32, ptr %11, i64 %463
   br label %468
 
 468:                                              ; preds = %repeatHasMatch.exit179.thread, %458
@@ -1830,7 +1830,7 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
   %reass.sub683 = sub nsw i32 %504, %505
   %506 = add nsw i32 %reass.sub683, 95
   %507 = zext i32 %506 to i64
-  %508 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %507
   %509 = load <4 x i64>, ptr %508, align 1
   %510 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %509, <4 x i64> %.057.i666)
   %.not.i.i141 = icmp eq i32 %510, 0
@@ -2082,7 +2082,7 @@ processExceptional256.exit96.thread:              ; preds = %443, %439, %434, %4
   %594 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i667
   %595 = load i8, ptr %594, align 1
   %596 = zext i8 %595 to i64
-  %597 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %596
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 %596
   %598 = load i8, ptr %597, align 1
   %599 = zext i8 %598 to i64
   %600 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %599
@@ -2356,13 +2356,13 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
 753:                                              ; preds = %751, %753
   %754 = phi i32 [ 0, %751 ], [ %759, %753 ]
   %indvars.iv703 = phi i64 [ 0, %751 ], [ %indvars.iv.next704, %753 ]
-  %755 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %indvars.iv703
+  %755 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv703
   %756 = load i64, ptr %755, align 8
   %757 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %756)
   %758 = trunc nuw nsw i64 %757 to i32
   %759 = add i32 %754, %758
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
-  %760 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.next704
+  %760 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next704
   store i32 %759, ptr %760, align 4
   %exitcond706.not = icmp eq i64 %indvars.iv.next704, 3
   br i1 %exitcond706.not, label %.preheader, label %753
@@ -2378,10 +2378,10 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
   %764 = extractvalue { i32, i32 } %762, 1
   %765 = lshr i32 %763, 1
   %766 = zext nneg i32 %765 to i64
-  %767 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %766
+  %767 = getelementptr inbounds nuw i64, ptr %12, i64 %766
   %768 = load i64, ptr %767, align 8
-  %769 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %766
-  %770 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %766
+  %769 = getelementptr inbounds nuw i64, ptr %13, i64 %766
+  %770 = getelementptr inbounds nuw i32, ptr %14, i64 %766
   br label %771
 
 771:                                              ; preds = %repeatHasMatch.exit181.thread, %761
@@ -2436,7 +2436,7 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
   %reass.sub684 = sub nsw i32 %807, %808
   %809 = add nsw i32 %reass.sub684, 95
   %810 = zext i32 %809 to i64
-  %811 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %810
+  %811 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %810
   %812 = load <4 x i64>, ptr %811, align 1
   %813 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %812, <4 x i64> %.1310679)
   %.not.i.i160 = icmp eq i32 %813, 0
@@ -2688,7 +2688,7 @@ processExceptional256.exit.thread:                ; preds = %746, %742, %737, %7
   %897 = getelementptr inbounds nuw i8, ptr %1, i64 %.1305680
   %898 = load i8, ptr %897, align 1
   %899 = zext i8 %898 to i64
-  %900 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %899
+  %900 = getelementptr inbounds nuw i8, ptr %0, i64 %899
   %901 = load i8, ptr %900, align 1
   %902 = zext i8 %901 to i64
   %903 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %902
@@ -2884,7 +2884,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   %101 = add i32 %100, -1
   store i32 %101, ptr %40, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %102
   store i32 0, ptr %103, align 8
   %104 = load i64, ptr %5, align 8
   %105 = sub i64 %.0109156, %67
@@ -2927,7 +2927,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   %121 = add i32 %.pre176, -1
   store i32 %121, ptr %40, align 8
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %122
   store i32 0, ptr %123, align 8
   %124 = load i64, ptr %6, align 8
   %125 = sub i64 %.1110, %67
@@ -2956,7 +2956,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   %139 = add i32 %132, -1
   store i32 %139, ptr %40, align 8
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %140
   store i32 0, ptr %141, align 8
   %142 = sub i64 %89, %67
   %.idx128 = mul nuw nsw i64 %140, 24
@@ -2969,7 +2969,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   br label %.thread140
 
 147:                                              ; preds = %131
-  %148 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %133
+  %148 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %133
   %149 = load i32, ptr %148, align 8
   switch i32 %149, label %155 [
     i32 2, label %150
@@ -3057,7 +3057,7 @@ moNfaReportCurrent256.exit:                       ; preds = %10, %20
   %reass.sub = sub nsw i32 %193, %194
   %195 = add nsw i32 %reass.sub, 95
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %196
   %198 = load <4 x i64>, ptr %197, align 1
   %199 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %198, <4 x i64> %173)
   %.not.i132.not = icmp eq i32 %199, 0
@@ -3173,7 +3173,7 @@ limexExpireExtendedState256.exit:                 ; preds = %247, %._crit_edge, 
   %257 = add i32 %254, -1
   store i32 %257, ptr %40, align 8
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %69, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %258
   store i32 0, ptr %259, align 8
   %260 = sub i64 %.0109.lcssa, %67
   %.idx120 = mul nuw nsw i64 %258, 24
@@ -3438,13 +3438,13 @@ lshift64_m256.exit25:                             ; preds = %lshift64_m256.exit2
 161:                                              ; preds = %160, %161
   %162 = phi i32 [ 0, %160 ], [ %167, %161 ]
   %indvars.iv = phi i64 [ 0, %160 ], [ %indvars.iv.next, %161 ]
-  %163 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %164 = load i64, ptr %163, align 8
   %165 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %164)
   %166 = trunc nuw nsw i64 %165 to i32
   %167 = add i32 %162, %166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %168 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.next
+  %168 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   store i32 %167, ptr %168, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader452, label %161
@@ -3458,10 +3458,10 @@ lshift64_m256.exit25:                             ; preds = %lshift64_m256.exit2
   %170 = extractvalue { i32, i32 } %169, 0
   %171 = lshr i32 %170, 1
   %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw i64, ptr %7, i64 %172
   %174 = load i64, ptr %173, align 8
-  %175 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %172
-  %176 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %172
+  %175 = getelementptr inbounds nuw i64, ptr %8, i64 %172
+  %176 = getelementptr inbounds nuw i32, ptr %9, i64 %172
   br label %177
 
 177:                                              ; preds = %runException256.exit, %.preheader452
@@ -3515,7 +3515,7 @@ lshift64_m256.exit25:                             ; preds = %lshift64_m256.exit2
   %reass.sub = sub nsw i32 %213, %214
   %215 = add nsw i32 %reass.sub, 95
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %216
   %218 = load <4 x i64>, ptr %217, align 1
   %219 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %218, <4 x i64> %.057.i7464)
   %.not.i.i = icmp eq i32 %219, 0
@@ -3717,7 +3717,7 @@ runException256.exit:                             ; preds = %275, %234, %230, %2
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i8465
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i64
-  %293 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 %292
   %294 = load i8, ptr %293, align 1
   %295 = zext i8 %294 to i64
   %296 = getelementptr inbounds nuw <4 x i64>, ptr %17, i64 %295
@@ -3927,13 +3927,13 @@ lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit3
 422:                                              ; preds = %421, %422
   %423 = phi i32 [ 0, %421 ], [ %428, %422 ]
   %indvars.iv499 = phi i64 [ 0, %421 ], [ %indvars.iv.next500, %422 ]
-  %424 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %indvars.iv499
+  %424 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv499
   %425 = load i64, ptr %424, align 8
   %426 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %425)
   %427 = trunc nuw nsw i64 %426 to i32
   %428 = add i32 %423, %427
   %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
-  %429 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %indvars.iv.next500
+  %429 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next500
   store i32 %428, ptr %429, align 4
   %exitcond502.not = icmp eq i64 %indvars.iv.next500, 3
   br i1 %exitcond502.not, label %.preheader451, label %422
@@ -3947,10 +3947,10 @@ lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit3
   %431 = extractvalue { i32, i32 } %430, 0
   %432 = lshr i32 %431, 1
   %433 = zext nneg i32 %432 to i64
-  %434 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %433
+  %434 = getelementptr inbounds nuw i64, ptr %10, i64 %433
   %435 = load i64, ptr %434, align 8
-  %436 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %433
-  %437 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 0, i64 %433
+  %436 = getelementptr inbounds nuw i64, ptr %11, i64 %433
+  %437 = getelementptr inbounds nuw i32, ptr %12, i64 %433
   br label %438
 
 438:                                              ; preds = %runException256.exit119, %.preheader451
@@ -4004,7 +4004,7 @@ lshift64_m256.exit41:                             ; preds = %lshift64_m256.exit3
   %reass.sub483 = sub nsw i32 %474, %475
   %476 = add nsw i32 %reass.sub483, 95
   %477 = zext i32 %476 to i64
-  %478 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %477
   %479 = load <4 x i64>, ptr %478, align 1
   %480 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %479, <4 x i64> %.057.i471)
   %.not.i.i118 = icmp eq i32 %480, 0
@@ -4206,7 +4206,7 @@ runException256.exit119:                          ; preds = %536, %495, %491, %5
   %551 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i472
   %552 = load i8, ptr %551, align 1
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 %553
   %555 = load i8, ptr %554, align 1
   %556 = zext i8 %555 to i64
   %557 = getelementptr inbounds nuw <4 x i64>, ptr %17, i64 %556
@@ -4464,13 +4464,13 @@ lshift64_m256.exit57:                             ; preds = %lshift64_m256.exit5
 703:                                              ; preds = %702, %703
   %704 = phi i32 [ 0, %702 ], [ %709, %703 ]
   %indvars.iv503 = phi i64 [ 0, %702 ], [ %indvars.iv.next504, %703 ]
-  %705 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %indvars.iv503
+  %705 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv503
   %706 = load i64, ptr %705, align 8
   %707 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %706)
   %708 = trunc nuw nsw i64 %707 to i32
   %709 = add i32 %704, %708
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
-  %710 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv.next504
+  %710 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next504
   store i32 %709, ptr %710, align 4
   %exitcond506.not = icmp eq i64 %indvars.iv.next504, 3
   br i1 %exitcond506.not, label %.preheader, label %703
@@ -4484,10 +4484,10 @@ lshift64_m256.exit57:                             ; preds = %lshift64_m256.exit5
   %712 = extractvalue { i32, i32 } %711, 0
   %713 = lshr i32 %712, 1
   %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %714
+  %715 = getelementptr inbounds nuw i64, ptr %13, i64 %714
   %716 = load i64, ptr %715, align 8
-  %717 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %714
-  %718 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %714
+  %717 = getelementptr inbounds nuw i64, ptr %14, i64 %714
+  %718 = getelementptr inbounds nuw i32, ptr %15, i64 %714
   br label %719
 
 719:                                              ; preds = %runException256.exit129, %.preheader
@@ -4541,7 +4541,7 @@ lshift64_m256.exit57:                             ; preds = %lshift64_m256.exit5
   %reass.sub484 = sub nsw i32 %755, %756
   %757 = add nsw i32 %reass.sub484, 95
   %758 = zext i32 %757 to i64
-  %759 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %758
   %760 = load <4 x i64>, ptr %759, align 1
   %761 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %760, <4 x i64> %.1277478)
   %.not.i.i128 = icmp eq i32 %761, 0
@@ -4743,7 +4743,7 @@ runException256.exit129:                          ; preds = %817, %776, %772, %7
   %832 = getelementptr inbounds nuw i8, ptr %1, i64 %.1272479
   %833 = load i8, ptr %832, align 1
   %834 = zext i8 %833 to i64
-  %835 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %834
+  %835 = getelementptr inbounds nuw i8, ptr %0, i64 %834
   %836 = load i8, ptr %835, align 1
   %837 = zext i8 %836 to i64
   %838 = getelementptr inbounds nuw <4 x i64>, ptr %17, i64 %837
@@ -4904,7 +4904,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx256_QR(ptr noundef %0, ptr 
 75:                                               ; preds = %69, %70
   %76 = load i32, ptr %8, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %31, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw %struct.mq_item, ptr %31, i64 %77
   %79 = load i32, ptr %78, align 8
   switch i32 %79, label %85 [
     i32 2, label %80
@@ -4992,7 +4992,7 @@ nfaExecLimEx256_HandleEvent.exit:                 ; preds = %nfaExecLimEx256_Han
   %reass.sub = sub nsw i32 %122, %123
   %124 = add nsw i32 %reass.sub, 95
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %125
   %127 = load <4 x i64>, ptr %126, align 1
   %128 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %127, <4 x i64> %102)
   %.not.i81.not = icmp eq i32 %128, 0
@@ -5137,7 +5137,7 @@ limexExpireExtendedState256.exit:                 ; preds = %176, %._crit_edge, 
   %reass.sub136 = sub nsw i32 %205, %206
   %207 = add nsw i32 %reass.sub136, 95
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %208
   %210 = load <4 x i64>, ptr %209, align 1
   %211 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %210, <4 x i64> %.093124)
   %.not.i78.not = icmp eq i32 %211, 0
@@ -5246,10 +5246,10 @@ lazyTug256.exit:                                  ; preds = %repeatHasMatch.exit
 258:                                              ; preds = %lazyTug256.exit, %.thread
   %indvars.iv145 = phi i64 [ 0, %lazyTug256.exit ], [ %indvars.iv.next146, %.thread ]
   %.031.i133 = phi i32 [ 0, %lazyTug256.exit ], [ %288, %.thread ]
-  %259 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv145
+  %259 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv145
   %260 = load i64, ptr %259, align 8
   %.not35.i72128 = icmp eq i64 %260, 0
-  %.phi.trans.insert = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv145
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv145
   br i1 %.not35.i72128, label %..thread_crit_edge, label %.lr.ph131
 
 ..thread_crit_edge:                               ; preds = %258
@@ -5560,13 +5560,13 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
 153:                                              ; preds = %152, %153
   %154 = phi i32 [ 0, %152 ], [ %159, %153 ]
   %indvars.iv = phi i64 [ 0, %152 ], [ %indvars.iv.next, %153 ]
-  %155 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %156 = load i64, ptr %155, align 8
   %157 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %156)
   %158 = trunc nuw nsw i64 %157 to i32
   %159 = add i32 %154, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %160 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next
+  %160 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   store i32 %159, ptr %160, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader409, label %153
@@ -5580,10 +5580,10 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
   %162 = extractvalue { i32, i32 } %161, 0
   %163 = lshr i32 %162, 1
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i64, ptr %6, i64 %164
   %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %164
-  %168 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %164
+  %167 = getelementptr inbounds nuw i64, ptr %7, i64 %164
+  %168 = getelementptr inbounds nuw i32, ptr %8, i64 %164
   br label %169
 
 169:                                              ; preds = %runException256.exit, %.preheader409
@@ -5637,7 +5637,7 @@ lshift64_m256.exit24:                             ; preds = %lshift64_m256.exit2
   %reass.sub = sub nsw i32 %205, %206
   %207 = add nsw i32 %reass.sub, 95
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %208
   %210 = load <4 x i64>, ptr %209, align 1
   %211 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %210, <4 x i64> %.057.i6415)
   %.not.i.i = icmp eq i32 %211, 0
@@ -5839,7 +5839,7 @@ nfaExecLimEx256_Run_Exceptions.exit:              ; preds = %131, %280, %149
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i7416
   %282 = load i8, ptr %281, align 1
   %283 = zext i8 %282 to i64
-  %284 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 %283
   %285 = load i8, ptr %284, align 1
   %286 = zext i8 %285 to i64
   %287 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %286
@@ -6032,13 +6032,13 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
 406:                                              ; preds = %405, %406
   %407 = phi i32 [ 0, %405 ], [ %412, %406 ]
   %indvars.iv443 = phi i64 [ 0, %405 ], [ %indvars.iv.next444, %406 ]
-  %408 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %indvars.iv443
+  %408 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv443
   %409 = load i64, ptr %408, align 8
   %410 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %409)
   %411 = trunc nuw nsw i64 %410 to i32
   %412 = add i32 %407, %411
   %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
-  %413 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv.next444
+  %413 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next444
   store i32 %412, ptr %413, align 4
   %exitcond446.not = icmp eq i64 %indvars.iv.next444, 3
   br i1 %exitcond446.not, label %.preheader408, label %406
@@ -6052,10 +6052,10 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
   %415 = extractvalue { i32, i32 } %414, 0
   %416 = lshr i32 %415, 1
   %417 = zext nneg i32 %416 to i64
-  %418 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw i64, ptr %9, i64 %417
   %419 = load i64, ptr %418, align 8
-  %420 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %417
-  %421 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %417
+  %420 = getelementptr inbounds nuw i64, ptr %10, i64 %417
+  %421 = getelementptr inbounds nuw i32, ptr %11, i64 %417
   br label %422
 
 422:                                              ; preds = %runException256.exit116, %.preheader408
@@ -6109,7 +6109,7 @@ lshift64_m256.exit40:                             ; preds = %lshift64_m256.exit3
   %reass.sub433 = sub nsw i32 %458, %459
   %460 = add nsw i32 %reass.sub433, 95
   %461 = zext i32 %460 to i64
-  %462 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %461
+  %462 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %461
   %463 = load <4 x i64>, ptr %462, align 1
   %464 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %463, <4 x i64> %.057.i422)
   %.not.i.i115 = icmp eq i32 %464, 0
@@ -6311,7 +6311,7 @@ nfaExecLimEx256_Run_Exceptions.exit68:            ; preds = %384, %533, %402
   %534 = getelementptr inbounds nuw i8, ptr %1, i64 %.056.i423
   %535 = load i8, ptr %534, align 1
   %536 = zext i8 %535 to i64
-  %537 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 %536
   %538 = load i8, ptr %537, align 1
   %539 = zext i8 %538 to i64
   %540 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %539
@@ -6552,13 +6552,13 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
 679:                                              ; preds = %678, %679
   %680 = phi i32 [ 0, %678 ], [ %685, %679 ]
   %indvars.iv447 = phi i64 [ 0, %678 ], [ %indvars.iv.next448, %679 ]
-  %681 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %indvars.iv447
+  %681 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv447
   %682 = load i64, ptr %681, align 8
   %683 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %682)
   %684 = trunc nuw nsw i64 %683 to i32
   %685 = add i32 %680, %684
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
-  %686 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv.next448
+  %686 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next448
   store i32 %685, ptr %686, align 4
   %exitcond450.not = icmp eq i64 %indvars.iv.next448, 3
   br i1 %exitcond450.not, label %.preheader, label %679
@@ -6572,10 +6572,10 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
   %688 = extractvalue { i32, i32 } %687, 0
   %689 = lshr i32 %688, 1
   %690 = zext nneg i32 %689 to i64
-  %691 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %690
+  %691 = getelementptr inbounds nuw i64, ptr %12, i64 %690
   %692 = load i64, ptr %691, align 8
-  %693 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %690
-  %694 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %690
+  %693 = getelementptr inbounds nuw i64, ptr %13, i64 %690
+  %694 = getelementptr inbounds nuw i32, ptr %14, i64 %690
   br label %695
 
 695:                                              ; preds = %runException256.exit126, %.preheader
@@ -6629,7 +6629,7 @@ lshift64_m256.exit56:                             ; preds = %lshift64_m256.exit5
   %reass.sub434 = sub nsw i32 %731, %732
   %733 = add nsw i32 %reass.sub434, 95
   %734 = zext i32 %733 to i64
-  %735 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %734
+  %735 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %734
   %736 = load <4 x i64>, ptr %735, align 1
   %737 = call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %736, <4 x i64> %.1265429)
   %.not.i.i125 = icmp eq i32 %737, 0
@@ -6831,7 +6831,7 @@ nfaExecLimEx256_Run_Exceptions.exit74:            ; preds = %657, %806, %675
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 %.1260430
   %808 = load i8, ptr %807, align 1
   %809 = zext i8 %808 to i64
-  %810 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %809
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 %809
   %811 = load i8, ptr %810, align 1
   %812 = zext i8 %811 to i64
   %813 = getelementptr inbounds nuw <4 x i64>, ptr %16, i64 %812
@@ -6892,7 +6892,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_testEOD(ptr noundef %0,
   %reass.sub = sub nsw i32 %34, %35
   %36 = add nsw i32 %reass.sub, 95
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %37
   %39 = load <4 x i64>, ptr %38, align 1
   %40 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %39, <4 x i64> %.029)
   %.not.i12.not = icmp eq i32 %40, 0
@@ -7132,7 +7132,7 @@ define hidden noundef signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %0, i64 
   %reass.sub = sub nsw i32 %50, %51
   %52 = add nsw i32 %reass.sub, 95
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %53
   %55 = load <4 x i64>, ptr %54, align 1
   %56 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %55, <4 x i64> %.04152)
   %.not.i31.not = icmp eq i32 %56, 0
@@ -7431,13 +7431,13 @@ lshift64_m256.exit93:                             ; preds = %lshift64_m256.exit9
 139:                                              ; preds = %138, %139
   %140 = phi i32 [ 0, %138 ], [ %145, %139 ]
   %indvars.iv = phi i64 [ 0, %138 ], [ %indvars.iv.next, %139 ]
-  %141 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %142 = load i64, ptr %141, align 8
   %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
   %144 = trunc nuw nsw i64 %143 to i32
   %145 = add i32 %140, %144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %146 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next
+  %146 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   store i32 %145, ptr %146, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %139
@@ -7452,10 +7452,10 @@ lshift64_m256.exit93:                             ; preds = %lshift64_m256.exit9
   %149 = extractvalue { i32, i32 } %147, 1
   %150 = lshr i32 %148, 1
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %6, i64 %151
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %151
-  %155 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %151
+  %154 = getelementptr inbounds nuw i64, ptr %7, i64 %151
+  %155 = getelementptr inbounds nuw i32, ptr %8, i64 %151
   br label %156
 
 156:                                              ; preds = %196, %.preheader
@@ -7578,7 +7578,7 @@ processExceptional256.exit.thread:                ; preds = %133, %129, %125, %1
   %202 = getelementptr i8, ptr %201, i64 -1
   %203 = load i8, ptr %202, align 1
   %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i64
   %208 = getelementptr inbounds nuw <4 x i64>, ptr %9, i64 %207
@@ -7682,7 +7682,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAccept(ptr noundef %0
   %reass.sub = sub nsw i32 %48, %49
   %50 = add nsw i32 %reass.sub, 95
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %51
   %53 = load <4 x i64>, ptr %52, align 1
   %54 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %53, <4 x i64> %.02440)
   %.not.i14.not = icmp eq i32 %54, 0
@@ -7786,10 +7786,10 @@ lazyTug256.exit:                                  ; preds = %repeatHasMatch.exit
 101:                                              ; preds = %lazyTug256.exit, %.thread
   %indvars.iv52 = phi i64 [ 0, %lazyTug256.exit ], [ %indvars.iv.next53, %.thread ]
   %.031.i46 = phi i32 [ 0, %lazyTug256.exit ], [ %131, %.thread ]
-  %102 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv52
+  %102 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv52
   %103 = load i64, ptr %102, align 8
   %.not35.i42 = icmp eq i64 %103, 0
-  %.phi.trans.insert = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv52
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv52
   br i1 %.not35.i42, label %..thread_crit_edge, label %.lr.ph44
 
 ..thread_crit_edge:                               ; preds = %101
@@ -7924,7 +7924,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAnyAccept(ptr noundef
   %reass.sub = sub nsw i32 %45, %46
   %47 = add nsw i32 %reass.sub, 95
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %48
   %50 = load <4 x i64>, ptr %49, align 1
   %51 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %50, <4 x i64> %.027)
   %.not.i13.not = icmp eq i32 %51, 0
@@ -8072,7 +8072,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx256_zombie_status(ptr noundef %0,
   %reass.sub = sub nsw i32 %34, %35
   %36 = add nsw i32 %reass.sub, 95
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw [0 x i8], ptr @simd_onebit_masks, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @simd_onebit_masks, i64 %37
   %39 = load <4 x i64>, ptr %38, align 1
   %40 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %39, <4 x i64> %.130)
   %.not.i15.not = icmp eq i32 %40, 0
@@ -8200,10 +8200,10 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash256(pt
 9:                                                ; preds = %5, %.critedge.i.thread
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %.critedge.i.thread ]
   %.033.i23 = phi i32 [ 0, %5 ], [ %40, %.critedge.i.thread ]
-  %10 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not.i19 = icmp eq i64 %11, 0
-  %.phi.trans.insert = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   br i1 %.not.i19, label %..critedge.i.thread_crit_edge, label %.lr.ph21
 
 ..critedge.i.thread_crit_edge:                    ; preds = %9
@@ -8293,10 +8293,10 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts256(ptr nounde
 9:                                                ; preds = %5, %.critedge.i.thread
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %.critedge.i.thread ]
   %.033.i29 = phi i32 [ 0, %5 ], [ %40, %.critedge.i.thread ]
-  %10 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not.i23 = icmp eq i64 %11, 0
-  %.phi.trans.insert = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   br i1 %.not.i23, label %..critedge.i.thread_crit_edge, label %.lr.ph26
 
 ..critedge.i.thread_crit_edge:                    ; preds = %9

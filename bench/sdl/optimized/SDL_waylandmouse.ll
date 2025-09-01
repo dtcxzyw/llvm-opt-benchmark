@@ -500,7 +500,7 @@ default.unreachable:                              ; preds = %17
 
 Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %83, %79, %.thread.i61, %76, %72, %.thread.i56, %69, %65, %.thread.i51, %62, %58, %.thread.i46, %55, %51, %.thread.i41, %48, %44, %.thread.i36, %41, %37, %.thread.i31, %34, %30, %.thread.i26, %27, %23, %.thread.i, %20
   %.1.i65.sink = phi ptr [ null, %.thread.i ], [ %19, %23 ], [ null, %20 ], [ null, %.thread.i26 ], [ %19, %30 ], [ null, %27 ], [ null, %.thread.i31 ], [ %19, %37 ], [ null, %34 ], [ null, %.thread.i36 ], [ %19, %44 ], [ null, %41 ], [ null, %.thread.i41 ], [ %19, %51 ], [ null, %48 ], [ null, %.thread.i46 ], [ %19, %58 ], [ null, %55 ], [ null, %.thread.i51 ], [ %19, %65 ], [ null, %62 ], [ null, %.thread.i56 ], [ %19, %72 ], [ null, %69 ], [ null, %.thread.i61 ], [ %19, %79 ], [ null, %76 ], [ null, %.thread.i66 ], [ %19, %86 ], [ null, %83 ]
-  %90 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
   store ptr %.1.i65.sink, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -1294,7 +1294,7 @@ Wayland_FreeCursorThemes.exit:                    ; preds = %6, %1
 
 18:                                               ; preds = %Wayland_FreeCursorThemes.exit, %18
   %indvars.iv = phi i64 [ 0, %Wayland_FreeCursorThemes.exit ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   tail call void @Wayland_FreeCursor(ptr noundef %20)
   store ptr null, ptr %19, align 8
@@ -1376,7 +1376,7 @@ define hidden void @Wayland_SeatUpdateCursor(ptr noundef %0) local_unnamed_addr 
 
 22:                                               ; preds = %16
   %23 = zext i32 %18 to i64
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr @sys_cursors, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @Wayland_SeatSetCursor(ptr noundef nonnull %0, ptr noundef %25)
   br label %Wayland_SeatSetCursor.exit
@@ -1561,7 +1561,7 @@ define internal fastcc void @Wayland_SeatSetCursor(ptr noundef %0, ptr noundef r
 
 switch.lookup:                                    ; preds = %55
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table.Wayland_SeatSetCursor, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Wayland_SeatSetCursor, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Wayland_SetSystemCursorShape.exit
 

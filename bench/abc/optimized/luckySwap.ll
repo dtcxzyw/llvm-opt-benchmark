@@ -505,7 +505,7 @@ define void @Kit_TruthChangePhase_64bit(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph38:                                         ; preds = %.preheader
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds [6 x i64], ptr @mask0, i64 0, i64 %11
+  %12 = getelementptr inbounds i64, ptr @mask0, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = shl nuw nsw i32 1, %2
   %15 = zext nneg i32 %14 to i64
@@ -618,7 +618,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef captures(none) %0, i32 
 .lr.ph64:                                         ; preds = %10
   %12 = shl nuw nsw i32 1, %2
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %13
+  %14 = getelementptr inbounds [3 x i64], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !3
@@ -807,13 +807,13 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %.495.us = phi i32 [ %.3.us, %.lr.ph96.us ], [ %.5.us, %115 ]
   %.05994.us = phi i32 [ 0, %.lr.ph96.us ], [ %.160.us, %115 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %48 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next104
+  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next104
   %49 = load i32, ptr %48, align 4, !tbaa !9
   %.not67.us = icmp sgt i32 %47, %49
   br i1 %.not67.us, label %50, label %115
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv103
+  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv103
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv103
   %53 = load i8, ptr %52, align 1, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next104
@@ -897,7 +897,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   br i1 %11, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
 
 .lr.ph64.i.us:                                    ; preds = %97
-  %98 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %indvars.iv103
+  %98 = getelementptr inbounds nuw [3 x i64], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 %indvars.iv103
   %99 = load i64, ptr %98, align 8, !tbaa !3
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !3
@@ -940,7 +940,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
 117:                                              ; preds = %.lr.ph, %152
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %152 ]
   %.192 = phi i32 [ %.0, %.lr.ph ], [ %.2, %152 ]
-  %118 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4, !tbaa !9
   %120 = sub nsw i32 %.058, %119
   %.not69 = icmp slt i32 %119, %120
@@ -959,7 +959,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   br i1 %11, label %.lr.ph38.i, label %Kit_TruthChangePhase_64bit.exit
 
 .lr.ph38.i:                                       ; preds = %.preheader.i
-  %126 = getelementptr inbounds nuw [6 x i64], ptr @mask0, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i64, ptr @mask0, i64 %indvars.iv
   %127 = load i64, ptr %126, align 8, !tbaa !3
   %128 = zext nneg i32 %123 to i64
   %129 = xor i64 %127, -1
@@ -1214,7 +1214,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   br i1 %11, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
 
 .lr.ph64.i.us:                                    ; preds = %104
-  %105 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %indvars.iv126
+  %105 = getelementptr inbounds nuw [3 x i64], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 %indvars.iv126
   %106 = load i64, ptr %105, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !3
@@ -1289,7 +1289,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   br i1 %11, label %.lr.ph38.i, label %Kit_TruthChangePhase_64bit.exit
 
 .lr.ph38.i:                                       ; preds = %.preheader.i
-  %138 = getelementptr inbounds nuw [6 x i64], ptr @mask0, i64 0, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i64, ptr @mask0, i64 %indvars.iv
   %139 = load i64, ptr %138, align 8, !tbaa !3
   %140 = zext nneg i32 %135 to i64
   %141 = xor i64 %139, -1
@@ -1513,7 +1513,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
 .lr.ph64.i.us:                                    ; preds = %81
   %82 = trunc nuw nsw i64 %indvars.iv87 to i32
   %83 = shl nuw nsw i32 1, %82
-  %84 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %indvars.iv87
+  %84 = getelementptr inbounds nuw [3 x i64], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 %indvars.iv87
   %85 = load i64, ptr %84, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !3
@@ -1574,7 +1574,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
   br i1 %10, label %.lr.ph38.i, label %Kit_TruthChangePhase_64bit.exit
 
 .lr.ph38.i:                                       ; preds = %.preheader.i
-  %108 = getelementptr inbounds nuw [6 x i64], ptr @mask0, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i64, ptr @mask0, i64 %indvars.iv
   %109 = load i64, ptr %108, align 8, !tbaa !3
   %110 = trunc nuw nsw i64 %indvars.iv to i32
   %111 = shl nuw nsw i32 1, %110

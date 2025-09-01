@@ -99,13 +99,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_fmax_qP11p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %17 = lshr i64 %1, 20
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %18
   %.sroa.064.0.copyload = load i64, ptr %19, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %21
   %.sroa.060.0.copyload = load i64, ptr %22, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -182,7 +182,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_fmax_qP11p
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %48 ], [ 9223231299366420480, %38 ]
   %50 = lshr i64 %1, 7
   %51 = and i64 %50, 31
-  %52 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %51
   store i64 %.sroa.014.0.copyload.sink, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i137, align 8, !tbaa !22
@@ -312,13 +312,13 @@ define noundef i64 @_Z17fast_rv64i_fmax_qP11processor_t6insn_tm(ptr noundef capt
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %17 = lshr i64 %1, 20
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %18
   %.sroa.064.0.copyload = load i64, ptr %19, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %21
   %.sroa.060.0.copyload = load i64, ptr %22, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -395,7 +395,7 @@ define noundef i64 @_Z17fast_rv64i_fmax_qP11processor_t6insn_tm(ptr noundef capt
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %48 ], [ 9223231299366420480, %38 ]
   %50 = lshr i64 %1, 7
   %51 = and i64 %50, 31
-  %52 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %51
   store i64 %.sroa.014.0.copyload.sink, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i137, align 8, !tbaa !22
@@ -495,13 +495,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_fmax_qP1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %19 = lshr i64 %1, 20
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %20
   %.sroa.064.0.copyload = load i64, ptr %21, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
   %.sroa.060.0.copyload = load i64, ptr %24, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -604,7 +604,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_fmax_qP1
   %.sink173 = phi i64 [ %60, %56 ], [ %45, %.critedge2 ]
   %.sroa.014.0.copyload.sink = phi i64 [ %.sroa.014.0.copyload, %56 ], [ 0, %.critedge2 ]
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %56 ], [ 9223231299366420480, %.critedge2 ]
-  %65 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %.sink173
+  %65 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %.sink173
   store i64 %.sroa.014.0.copyload.sink, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i139 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i139, align 8, !tbaa !22
@@ -796,13 +796,13 @@ define noundef i64 @_Z19logged_rv64i_fmax_qP11processor_t6insn_tm(ptr noundef %0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %19 = lshr i64 %1, 20
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %20
   %.sroa.064.0.copyload = load i64, ptr %21, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
   %.sroa.060.0.copyload = load i64, ptr %24, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -905,7 +905,7 @@ define noundef i64 @_Z19logged_rv64i_fmax_qP11processor_t6insn_tm(ptr noundef %0
   %.sink173 = phi i64 [ %60, %56 ], [ %45, %.critedge2 ]
   %.sroa.014.0.copyload.sink = phi i64 [ %.sroa.014.0.copyload, %56 ], [ 0, %.critedge2 ]
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %56 ], [ 9223231299366420480, %.critedge2 ]
-  %65 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %.sink173
+  %65 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %.sink173
   store i64 %.sroa.014.0.copyload.sink, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i139 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i139, align 8, !tbaa !22
@@ -1003,13 +1003,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_fmax_qP11p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %17 = lshr i64 %1, 20
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %18
   %.sroa.064.0.copyload = load i64, ptr %19, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %21
   %.sroa.060.0.copyload = load i64, ptr %22, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -1086,7 +1086,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_fmax_qP11p
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %48 ], [ 9223231299366420480, %38 ]
   %50 = lshr i64 %1, 7
   %51 = and i64 %50, 31
-  %52 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %51
   store i64 %.sroa.014.0.copyload.sink, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i137, align 8, !tbaa !22
@@ -1190,13 +1190,13 @@ define noundef i64 @_Z17fast_rv64e_fmax_qP11processor_t6insn_tm(ptr noundef capt
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %17 = lshr i64 %1, 20
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %18
   %.sroa.064.0.copyload = load i64, ptr %19, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %21
   %.sroa.060.0.copyload = load i64, ptr %22, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -1273,7 +1273,7 @@ define noundef i64 @_Z17fast_rv64e_fmax_qP11processor_t6insn_tm(ptr noundef capt
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %48 ], [ 9223231299366420480, %38 ]
   %50 = lshr i64 %1, 7
   %51 = and i64 %50, 31
-  %52 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %16, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.float128_t, ptr %16, i64 %51
   store i64 %.sroa.014.0.copyload.sink, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i137, align 8, !tbaa !22
@@ -1373,13 +1373,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_fmax_qP1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %19 = lshr i64 %1, 20
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %20
   %.sroa.064.0.copyload = load i64, ptr %21, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
   %.sroa.060.0.copyload = load i64, ptr %24, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -1482,7 +1482,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_fmax_qP1
   %.sink173 = phi i64 [ %60, %56 ], [ %45, %.critedge2 ]
   %.sroa.014.0.copyload.sink = phi i64 [ %.sroa.014.0.copyload, %56 ], [ 0, %.critedge2 ]
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %56 ], [ 9223231299366420480, %.critedge2 ]
-  %65 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %.sink173
+  %65 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %.sink173
   store i64 %.sroa.014.0.copyload.sink, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i139 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i139, align 8, !tbaa !22
@@ -1588,13 +1588,13 @@ define noundef i64 @_Z19logged_rv64e_fmax_qP11processor_t6insn_tm(ptr noundef %0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %19 = lshr i64 %1, 20
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %20
   %.sroa.064.0.copyload = load i64, ptr %21, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.265.0.copyload = load i64, ptr %.sroa.265.0..sroa_idx, align 8, !tbaa !22
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
   %.sroa.060.0.copyload = load i64, ptr %24, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.261.0.copyload = load i64, ptr %.sroa.261.0..sroa_idx, align 8, !tbaa !22
@@ -1697,7 +1697,7 @@ define noundef i64 @_Z19logged_rv64e_fmax_qP11processor_t6insn_tm(ptr noundef %0
   %.sink173 = phi i64 [ %60, %56 ], [ %45, %.critedge2 ]
   %.sroa.014.0.copyload.sink = phi i64 [ %.sroa.014.0.copyload, %56 ], [ 0, %.critedge2 ]
   %.sroa.215.0.copyload.sink = phi i64 [ %.sroa.215.0.copyload, %56 ], [ 9223231299366420480, %.critedge2 ]
-  %65 = getelementptr inbounds nuw [32 x %struct.float128_t], ptr %18, i64 0, i64 %.sink173
+  %65 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %.sink173
   store i64 %.sroa.014.0.copyload.sink, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i139 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.sroa.215.0.copyload.sink, ptr %.sroa.2.0..sroa_idx.i139, align 8, !tbaa !22

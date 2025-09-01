@@ -224,7 +224,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %33 = load ptr, ptr %3, align 8
   %34 = mul i64 %.057.i.i.i, 3
   %35 = and i64 %34, 7
-  %36 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %33, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %33, i64 %35
   %37 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %36, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.057.i.i.i, ptr noundef nonnull align 128 dereferenceable(648) %33, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -241,7 +241,7 @@ _ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiag
 
 40:                                               ; preds = %45, %38
   %.08.i = phi i64 [ 0, %38 ], [ %46, %45 ]
-  %41 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %39, i64 0, i64 %.08.i, i32 2
+  %41 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %39, i64 %.08.i, i32 2
   %42 = load atomic i64, ptr %41 monotonic, align 8
   %43 = icmp ugt i64 %42, 1
   br i1 %43, label %44, label %45
@@ -397,7 +397,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %37 = load ptr, ptr %6, align 8
   %38 = mul i64 %.057.i.i, 3
   %39 = and i64 %38, 7
-  %40 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %37, i64 %39
   %41 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %37, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc unwind label %69
 
@@ -742,13 +742,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %31 = load ptr, ptr %27, align 8
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
-  %34 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %31, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = getelementptr inbounds [32 x ptr], ptr %37, i64 0, i64 %35
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
   store ptr %5, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -842,13 +842,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %31 = load ptr, ptr %27, align 8
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
-  %34 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %31, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %31, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = getelementptr inbounds [32 x ptr], ptr %37, i64 0, i64 %35
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
   store ptr %5, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -969,7 +969,7 @@ _ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDia
   %65 = load ptr, ptr %19, align 8
   %66 = mul i64 %.057.i.i, 3
   %67 = and i64 %66, 7
-  %68 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %65, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %65, i64 %67
   %69 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE3popEPvmRNS1_20concurrent_queue_repIS5_S8_EERNS7_ISC_EE(ptr noundef nonnull align 8 dereferenceable(33) %68, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %65, ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %.noexc unwind label %261
 
@@ -2851,7 +2851,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
 
 40:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %42 = getelementptr inbounds nuw [32 x ptr], ptr %41, i64 0, i64 %33
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %33
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %1, align 8
   br label %47

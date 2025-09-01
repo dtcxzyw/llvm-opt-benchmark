@@ -15,8 +15,8 @@ define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %0, ptr nounde
     i64 1, label %.thread.preheader
   ]
 
-.thread.preheader:                                ; preds = %11, %.preheader, %57, %4
-  %.358.ph = phi i64 [ 0, %.preheader ], [ %64, %57 ], [ 0, %4 ], [ 0, %11 ]
+.thread.preheader:                                ; preds = %11, %.preheader, %56, %4
+  %.358.ph = phi i64 [ 0, %.preheader ], [ %63, %56 ], [ 0, %4 ], [ 0, %11 ]
   br label %.thread
 
 .preheader:                                       ; preds = %4
@@ -32,7 +32,7 @@ define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %0, ptr nounde
   %10 = add i64 %2, -1
   br label %20
 
-11:                                               ; preds = %56
+11:                                               ; preds = %55
   %12 = add i64 %.04894, 2
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 400
@@ -46,110 +46,109 @@ define dso_local i32 @oid_pos(ptr noundef readonly captures(none) %0, ptr nounde
 20:                                               ; preds = %.lr.ph, %11
   %.04894 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %21 = tail call ptr %3(i64 noundef 0, ptr noundef %1) #4
-  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %.04894
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.04894
   %23 = load i8, ptr %22, align 1, !tbaa !35
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
-  %26 = or disjoint i64 %.04894, 1
-  %27 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !35
-  %29 = zext i8 %28 to i32
-  %30 = or disjoint i32 %25, %29
-  %31 = tail call ptr %3(i64 noundef %10, ptr noundef %1) #4
-  %32 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %.04894
-  %33 = load i8, ptr %32, align 1, !tbaa !35
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 8
-  %36 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %26
-  %37 = load i8, ptr %36, align 1, !tbaa !35
-  %38 = zext i8 %37 to i32
-  %39 = or disjoint i32 %35, %38
-  %40 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %.04894
-  %41 = load i8, ptr %40, align 1, !tbaa !35
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw nsw i32 %42, 8
-  %44 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 0, i64 %26
-  %45 = load i8, ptr %44, align 1, !tbaa !35
-  %46 = zext i8 %45 to i32
-  %47 = or disjoint i32 %43, %46
-  %48 = icmp samesign ult i32 %47, %30
-  br i1 %48, label %.loopexit, label %49
+  %26 = getelementptr i8, ptr %22, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !35
+  %28 = zext i8 %27 to i32
+  %29 = or disjoint i32 %25, %28
+  %30 = tail call ptr %3(i64 noundef %10, ptr noundef %1) #4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.04894
+  %32 = load i8, ptr %31, align 1, !tbaa !35
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %35 = getelementptr i8, ptr %31, i64 1
+  %36 = load i8, ptr %35, align 1, !tbaa !35
+  %37 = zext i8 %36 to i32
+  %38 = or disjoint i32 %34, %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.04894
+  %40 = load i8, ptr %39, align 1, !tbaa !35
+  %41 = zext i8 %40 to i32
+  %42 = shl nuw nsw i32 %41, 8
+  %43 = getelementptr i8, ptr %39, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !35
+  %45 = zext i8 %44 to i32
+  %46 = or disjoint i32 %42, %45
+  %47 = icmp samesign ult i32 %46, %29
+  br i1 %47, label %.loopexit, label %48
 
-49:                                               ; preds = %20
-  %50 = icmp samesign ult i32 %39, %47
-  br i1 %50, label %51, label %56
+48:                                               ; preds = %20
+  %49 = icmp samesign ult i32 %38, %46
+  br i1 %49, label %50, label %55
 
-51:                                               ; preds = %49
-  %52 = icmp ugt i64 %2, 2147483647
-  br i1 %52, label %53, label %index_pos_to_insert_pos.exit
+50:                                               ; preds = %48
+  %51 = icmp ugt i64 %2, 2147483647
+  br i1 %51, label %52, label %index_pos_to_insert_pos.exit
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef %2) #5
   unreachable
 
-index_pos_to_insert_pos.exit:                     ; preds = %51
-  %54 = trunc nuw nsw i64 %2 to i32
-  %55 = xor i32 %54, -1
+index_pos_to_insert_pos.exit:                     ; preds = %50
+  %53 = trunc nuw nsw i64 %2 to i32
+  %54 = xor i32 %53, -1
   br label %.loopexit
 
-56:                                               ; preds = %49
-  %.not69 = icmp eq i32 %30, %39
-  br i1 %.not69, label %11, label %57
+55:                                               ; preds = %48
+  %.not69 = icmp eq i32 %29, %38
+  br i1 %.not69, label %11, label %56
 
-57:                                               ; preds = %56
-  %58 = zext nneg i32 %30 to i64
-  %59 = zext nneg i32 %39 to i64
-  %60 = zext nneg i32 %47 to i64
-  %61 = sub nsw i64 %60, %58
-  %62 = mul i64 %61, %10
-  %63 = sub nsw i64 %59, %58
-  %64 = udiv i64 %62, %63
-  %65 = icmp ult i64 %64, %2
-  br i1 %65, label %.thread.preheader, label %66
+56:                                               ; preds = %55
+  %57 = zext nneg i32 %29 to i64
+  %58 = zext nneg i32 %38 to i64
+  %59 = zext nneg i32 %46 to i64
+  %60 = sub nsw i64 %59, %57
+  %61 = mul i64 %60, %10
+  %62 = sub nsw i64 %58, %57
+  %63 = udiv i64 %61, %62
+  %64 = icmp ult i64 %63, %2
+  br i1 %64, label %.thread.preheader, label %65
 
-66:                                               ; preds = %57
+65:                                               ; preds = %56
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @.str.1) #5
   unreachable
 
-.thread:                                          ; preds = %.thread.preheader, %70
-  %.358 = phi i64 [ %75, %70 ], [ %.358.ph, %.thread.preheader ]
-  %.052 = phi i64 [ %.254, %70 ], [ 0, %.thread.preheader ]
-  %.049 = phi i64 [ %.251, %70 ], [ %2, %.thread.preheader ]
-  %67 = tail call ptr %3(i64 noundef %.358, ptr noundef %1) #4
-  %68 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %67, ptr noundef nonnull readonly dereferenceable(32) %0, i64 noundef 32) #6
-  %.not70.not = icmp eq i32 %68, 0
-  br i1 %.not70.not, label %.thread75, label %70
+.thread:                                          ; preds = %.thread.preheader, %69
+  %.358 = phi i64 [ %74, %69 ], [ %.358.ph, %.thread.preheader ]
+  %.052 = phi i64 [ %.254, %69 ], [ 0, %.thread.preheader ]
+  %.049 = phi i64 [ %.251, %69 ], [ %2, %.thread.preheader ]
+  %66 = tail call ptr %3(i64 noundef %.358, ptr noundef %1) #4
+  %67 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %66, ptr noundef nonnull readonly dereferenceable(32) %0, i64 noundef 32) #6
+  %.not70.not = icmp eq i32 %67, 0
+  br i1 %.not70.not, label %.thread75, label %69
 
 .thread75:                                        ; preds = %.thread
-  %69 = trunc i64 %.358 to i32
+  %68 = trunc i64 %.358 to i32
   br label %.loopexit
 
-70:                                               ; preds = %.thread
-  %71 = icmp sgt i32 %68, 0
-  %72 = add i64 %.358, 1
-  %.254 = select i1 %71, i64 %.052, i64 %72
-  %.251 = select i1 %71, i64 %.358, i64 %.049
-  %73 = sub i64 %.251, %.254
-  %74 = lshr i64 %73, 1
-  %75 = add i64 %74, %.254
-  %76 = icmp ult i64 %.254, %.251
-  br i1 %76, label %.thread, label %77, !llvm.loop !36
+69:                                               ; preds = %.thread
+  %70 = icmp sgt i32 %67, 0
+  %71 = add i64 %.358, 1
+  %.254 = select i1 %70, i64 %.052, i64 %71
+  %.251 = select i1 %70, i64 %.358, i64 %.049
+  %72 = sub i64 %.251, %.254
+  %73 = lshr i64 %72, 1
+  %74 = add i64 %73, %.254
+  %75 = icmp ult i64 %.254, %.251
+  br i1 %75, label %.thread, label %76, !llvm.loop !36
 
-77:                                               ; preds = %70
-  %78 = icmp ugt i64 %.254, 2147483647
-  br i1 %78, label %79, label %index_pos_to_insert_pos.exit71
+76:                                               ; preds = %69
+  %77 = icmp ugt i64 %.254, 2147483647
+  br i1 %77, label %78, label %index_pos_to_insert_pos.exit71
 
-79:                                               ; preds = %77
+78:                                               ; preds = %76
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, i64 noundef %.254) #5
   unreachable
 
-index_pos_to_insert_pos.exit71:                   ; preds = %77
-  %80 = trunc nuw nsw i64 %.254 to i32
-  %81 = xor i32 %80, -1
+index_pos_to_insert_pos.exit71:                   ; preds = %76
+  %79 = trunc nuw nsw i64 %.254 to i32
+  %80 = xor i32 %79, -1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.thread75, %index_pos_to_insert_pos.exit, %4, %index_pos_to_insert_pos.exit71
-  %.0 = phi i32 [ %81, %index_pos_to_insert_pos.exit71 ], [ -1, %4 ], [ %55, %index_pos_to_insert_pos.exit ], [ %69, %.thread75 ], [ -1, %20 ]
+  %.0 = phi i32 [ %80, %index_pos_to_insert_pos.exit71 ], [ -1, %4 ], [ %54, %index_pos_to_insert_pos.exit ], [ %68, %.thread75 ], [ -1, %20 ]
   ret i32 %.0
 }
 

@@ -2237,9 +2237,9 @@ _ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %170, %_ZNK6icu_77
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %224 = load i32, ptr %223, align 8, !tbaa !92
-  %225 = add nsw i32 %224, -1
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds [31 x i64], ptr %222, i64 0, i64 %226
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr i64, ptr %222, i64 %225
+  %227 = getelementptr i8, ptr %226, i64 -8
   %228 = load i64, ptr %227, align 8, !tbaa !99
   %229 = trunc i64 %228 to i32
   %230 = add i32 %229, -1174405120
@@ -2293,9 +2293,9 @@ _ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %127, %_ZNK6icu_779U
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %261 = load i32, ptr %260, align 8, !tbaa !92
-  %262 = add nsw i32 %261, -1
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds [31 x i64], ptr %259, i64 0, i64 %263
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr i64, ptr %259, i64 %262
+  %264 = getelementptr i8, ptr %263, i64 -8
   store i64 %258, ptr %264, align 8, !tbaa !99
   br label %.thread143
 
@@ -3117,98 +3117,99 @@ define noundef i32 @_ZN6icu_7716CollationBuilder22findOrInsertNodeForCEsEiRPKcR1
   %10 = sext i32 %.promoted to i64
   br label %12
 
-.thread19:                                        ; preds = %26, %.preheader
+.thread19:                                        ; preds = %27, %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 0, ptr %11, align 8, !tbaa !99
   store i32 1, ptr %7, align 8, !tbaa !92
-  br label %44
+  br label %45
 
-12:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds [31 x i64], ptr %9, i64 0, i64 %indvars.iv.next
-  %14 = load i64, ptr %13, align 8, !tbaa !99
-  %15 = trunc i64 %14 to i32
-  %16 = add i32 %15, -1174405120
-  %17 = icmp ult i32 %16, -1073741824
-  br i1 %17, label %18, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread
+12:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %13 = getelementptr i64, ptr %9, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 -8
+  %15 = load i64, ptr %14, align 8, !tbaa !99
+  %16 = trunc i64 %15 to i32
+  %17 = add i32 %16, -1174405120
+  %18 = icmp ult i32 %17, -1073741824
+  br i1 %18, label %19, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread
 
-18:                                               ; preds = %12
-  %.not5.i = icmp ult i64 %14, 72057594037927936
-  br i1 %.not5.i, label %19, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+19:                                               ; preds = %12
+  %.not5.i = icmp ult i64 %15, 72057594037927936
+  br i1 %.not5.i, label %20, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
-19:                                               ; preds = %18
-  %20 = and i64 %14, 4278190080
-  %.not6.i = icmp eq i64 %20, 0
-  %.not7.i = icmp eq i64 %14, 0
-  %21 = select i1 %.not7.i, i32 15, i32 2
-  %22 = select i1 %.not6.i, i32 %21, i32 1
+20:                                               ; preds = %19
+  %21 = and i64 %15, 4278190080
+  %.not6.i = icmp eq i64 %21, 0
+  %.not7.i = icmp eq i64 %15, 0
+  %22 = select i1 %.not7.i, i32 15, i32 2
+  %23 = select i1 %.not6.i, i32 %22, i32 1
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
-_ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %18, %19
-  %23 = phi i32 [ %22, %19 ], [ 0, %18 ]
-  %.not14 = icmp sgt i32 %23, %1
-  br i1 %.not14, label %26, label %41
+_ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %19, %20
+  %24 = phi i32 [ %23, %20 ], [ 0, %19 ]
+  %.not14 = icmp sgt i32 %24, %1
+  br i1 %.not14, label %27, label %42
 
 _ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread: ; preds = %12
-  %24 = lshr i32 %15, 8
-  %25 = and i32 %24, 3
-  %.not1428 = icmp sgt i32 %25, %1
-  br i1 %.not1428, label %26, label %.thread
+  %25 = lshr i32 %16, 8
+  %26 = and i32 %25, 3
+  %.not1428 = icmp sgt i32 %26, %1
+  br i1 %.not1428, label %27, label %.thread
 
-26:                                               ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
-  %27 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %27, ptr %7, align 8, !tbaa !92
-  %28 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %28, label %.thread19, label %12, !llvm.loop !125
+27:                                               ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %28 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %28, ptr %7, align 8, !tbaa !92
+  %29 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %29, label %.thread19, label %12, !llvm.loop !125
 
 .thread:                                          ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread
-  %29 = add nsw i64 %14, -4629700417037541376
-  %30 = lshr i64 %29, 43
-  %31 = trunc nuw nsw i64 %30 to i32
-  %32 = and i32 %31, 1040384
-  %33 = lshr i64 %29, 42
-  %34 = trunc nuw nsw i64 %33 to i32
-  %35 = and i32 %34, 8128
-  %36 = or disjoint i32 %32, %35
-  %37 = trunc i64 %29 to i32
-  %38 = lshr i32 %37, 24
-  %39 = and i32 %38, 63
-  %40 = or disjoint i32 %36, %39
+  %30 = add nsw i64 %15, -4629700417037541376
+  %31 = lshr i64 %30, 43
+  %32 = trunc nuw nsw i64 %31 to i32
+  %33 = and i32 %32, 1040384
+  %34 = lshr i64 %30, 42
+  %35 = trunc nuw nsw i64 %34 to i32
+  %36 = and i32 %35, 8128
+  %37 = or disjoint i32 %33, %36
+  %38 = trunc i64 %30 to i32
+  %39 = lshr i32 %38, 24
+  %40 = and i32 %39, 63
+  %41 = or disjoint i32 %37, %40
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
 
-41:                                               ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
-  %.mask = and i64 %14, -72057594037927936
-  %42 = icmp eq i64 %.mask, -144115188075855872
-  br i1 %42, label %43, label %44
+42:                                               ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
+  %.mask = and i64 %15, -72057594037927936
+  %43 = icmp eq i64 %.mask, -144115188075855872
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store i32 16, ptr %3, align 4, !tbaa !20
   store ptr @.str.24, ptr %2, align 8, !tbaa !121
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
 
-44:                                               ; preds = %41, %.thread19
-  %.01822 = phi i64 [ 0, %.thread19 ], [ %14, %41 ]
-  %45 = phi i32 [ 0, %.thread19 ], [ %15, %41 ]
-  %46 = lshr i64 %.01822, 32
-  %47 = trunc nuw i64 %46 to i32
-  %48 = tail call noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %49 = icmp sgt i32 %1, 0
-  br i1 %49, label %50, label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
+45:                                               ; preds = %42, %.thread19
+  %.01822 = phi i64 [ 0, %.thread19 ], [ %15, %42 ]
+  %46 = phi i32 [ 0, %.thread19 ], [ %16, %42 ]
+  %47 = lshr i64 %.01822, 32
+  %48 = trunc nuw i64 %47 to i32
+  %49 = tail call noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %50 = icmp sgt i32 %1, 0
+  br i1 %50, label %51, label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
 
-50:                                               ; preds = %44
-  %51 = lshr i32 %45, 16
-  %52 = tail call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %48, i32 noundef %51, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
+51:                                               ; preds = %45
+  %52 = lshr i32 %46, 16
+  %53 = tail call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %49, i32 noundef %52, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not16.i = icmp eq i32 %1, 1
-  br i1 %.not16.i, label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit, label %53
+  br i1 %.not16.i, label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit, label %54
 
-53:                                               ; preds = %50
-  %54 = and i32 %45, 16191
-  %55 = tail call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %52, i32 noundef %54, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+54:                                               ; preds = %51
+  %55 = and i32 %46, 16191
+  %56 = tail call noundef i32 @_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %53, i32 noundef %55, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
 
-_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit: ; preds = %53, %50, %44, %.thread, %43, %4
-  %.012 = phi i32 [ 0, %4 ], [ %40, %.thread ], [ 0, %43 ], [ %48, %44 ], [ %55, %53 ], [ %52, %50 ]
+_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit: ; preds = %54, %51, %45, %.thread, %44, %4
+  %.012 = phi i32 [ 0, %4 ], [ %41, %.thread ], [ 0, %44 ], [ %49, %45 ], [ %56, %54 ], [ %53, %51 ]
   ret i32 %.012
 }
 
@@ -4074,9 +4075,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit133:      ; preds = %73
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %86 = load i32, ptr %85, align 8, !tbaa !92
-  %87 = add nsw i32 %86, -1
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [31 x i64], ptr %84, i64 0, i64 %88
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr i64, ptr %84, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 -8
   %90 = load i64, ptr %89, align 8, !tbaa !99
   %91 = icmp eq i32 %1, 0
   br i1 %91, label %92, label %103
@@ -4174,9 +4175,9 @@ _ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %122, %121, %118
   %140 = sext i32 %139 to i64
   %141 = add nsw i64 %138, %140
   %142 = load i32, ptr %85, align 8, !tbaa !92
-  %143 = add nsw i32 %142, -1
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [31 x i64], ptr %84, i64 0, i64 %144
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr i64, ptr %84, i64 %143
+  %145 = getelementptr i8, ptr %144, i64 -8
   store i64 %141, ptr %145, align 8, !tbaa !99
   br label %146
 
@@ -4677,7 +4678,7 @@ _ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89.lr.ph: ; preds = %.preh
 _ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89: ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89.lr.ph, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89
   %indvars.iv = phi i64 [ 0, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89.lr.ph ], [ %indvars.iv.next, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89 ]
   %.0115 = phi i32 [ 0, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89.lr.ph ], [ %19, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89 ]
-  %12 = getelementptr inbounds nuw [31 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !99
   %.fr = freeze i64 %13
   %14 = trunc i64 %.fr to i32
@@ -4863,7 +4864,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %26, %28
 95:                                               ; preds = %.lr.ph131, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
   %indvars.iv138 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next139, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread ]
   %.9128 = phi i64 [ %.058150, %.lr.ph131 ], [ %.10, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread ]
-  %96 = getelementptr inbounds nuw [31 x i64], ptr %94, i64 0, i64 %indvars.iv138
+  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv138
   %97 = load i64, ptr %96, align 8, !tbaa !99
   %98 = and i64 %97, -49153
   %99 = trunc i64 %98 to i32
@@ -6572,7 +6573,7 @@ define i32 @ucol_getUnsafeSet_77(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.03136 = phi i32 [ %.2, %32 ], [ 0, %.lr.ph ]
   %11 = add nsw i32 %.03136, 1
   %12 = sext i32 %.03136 to i64
-  %13 = getelementptr inbounds [512 x i16], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds i16, ptr %4, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !116
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64512
@@ -6583,7 +6584,7 @@ define i32 @ucol_getUnsafeSet_77(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 18:                                               ; preds = %.preheader
   %19 = sext i32 %11 to i64
-  %20 = getelementptr inbounds [512 x i16], ptr %4, i64 0, i64 %19
+  %20 = getelementptr inbounds i16, ptr %4, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !116
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 64512

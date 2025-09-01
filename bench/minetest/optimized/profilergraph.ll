@@ -725,7 +725,7 @@ for.body73:                                       ; preds = %for.cond.cleanup, %
 if.then80:                                        ; preds = %for.body73
   %inc = add nuw nsw i32 %next_color_i.0710, 1
   %idxprom = zext nneg i32 %next_color_i.0710 to i64
-  %arrayidx = getelementptr inbounds nuw [5 x %"class.irr::video::SColor"], ptr @_ZZNK13ProfilerGraph4drawEiiPN3irr5video12IVideoDriverEPNS0_3gui8IGUIFontEE13usable_colors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SColor", ptr @_ZZNK13ProfilerGraph4drawEiiPN3irr5video12IVideoDriverEPNS0_3gui8IGUIFontEE13usable_colors, i64 %idxprom
   %59 = load i32, ptr %arrayidx, align 4, !tbaa !61
   br label %if.end81
 

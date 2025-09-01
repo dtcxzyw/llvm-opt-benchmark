@@ -2275,7 +2275,7 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   br i1 %238, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit", label %239
 
 239:                                              ; preds = %237
-  %240 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %231, i64 0, i64 %.0.i.i
+  %240 = getelementptr inbounds nuw { ptr, ptr }, ptr %231, i64 %.0.i.i
   %241 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %240)
           to label %237 unwind label %244
@@ -2291,7 +2291,7 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   br label %242
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds [0 x { ptr, ptr }], ptr %231, i64 0, i64 %.1.i.i
+  %247 = getelementptr inbounds { ptr, ptr }, ptr %231, i64 %.1.i.i
   %248 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %247) #27
           to label %242 unwind label %249
@@ -2373,7 +2373,7 @@ common.resume:                                    ; preds = %40, %.body.i114, %.
   br i1 %269, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit116", label %270
 
 270:                                              ; preds = %268
-  %271 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %262, i64 0, i64 %.0.i.i112
+  %271 = getelementptr inbounds nuw { ptr, ptr }, ptr %262, i64 %.0.i.i112
   %272 = add nuw nsw i64 %.0.i.i112, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %271)
           to label %268 unwind label %275
@@ -2389,7 +2389,7 @@ common.resume:                                    ; preds = %40, %.body.i114, %.
   br label %273
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds [0 x { ptr, ptr }], ptr %262, i64 0, i64 %.1.i.i113
+  %278 = getelementptr inbounds { ptr, ptr }, ptr %262, i64 %.1.i.i113
   %279 = add i64 %.1.i.i113, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %278) #27
           to label %273 unwind label %280
@@ -3301,7 +3301,7 @@ define hidden void @"_ZN3hir11term_search7tactics13free_function28_$u7b$$u7b$clo
   br i1 %158, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit", label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %151, i64 0, i64 %.0.i.i
+  %160 = getelementptr inbounds nuw { ptr, ptr }, ptr %151, i64 %.0.i.i
   %161 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %160)
           to label %157 unwind label %164
@@ -3317,7 +3317,7 @@ define hidden void @"_ZN3hir11term_search7tactics13free_function28_$u7b$$u7b$clo
   br label %162
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds [0 x { ptr, ptr }], ptr %151, i64 0, i64 %.1.i.i
+  %167 = getelementptr inbounds { ptr, ptr }, ptr %151, i64 %.1.i.i
   %168 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %167) #27
           to label %162 unwind label %169
@@ -4003,7 +4003,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br i1 %171, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h015a6c85dddee006E.llvm.12053455592450410520.exit.i", label %172
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %169, i64 0, i64 %.0.i.i.i
+  %173 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %169, i64 %.0.i.i.i
   %174 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %173)
           to label %170 unwind label %177, !noalias !440
@@ -4019,7 +4019,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br label %175
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %169, i64 0, i64 %.1.i.i.i
+  %180 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %169, i64 %.1.i.i.i
   %181 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %180) #27
           to label %175 unwind label %182, !noalias !440
@@ -4071,7 +4071,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br i1 %198, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit", label %199
 
 199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %191, i64 0, i64 %.0.i.i
+  %200 = getelementptr inbounds nuw { ptr, ptr }, ptr %191, i64 %.0.i.i
   %201 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %200)
           to label %197 unwind label %204
@@ -4087,7 +4087,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br label %202
 
 206:                                              ; preds = %202
-  %207 = getelementptr inbounds [0 x { ptr, ptr }], ptr %191, i64 0, i64 %.1.i.i
+  %207 = getelementptr inbounds { ptr, ptr }, ptr %191, i64 %.1.i.i
   %208 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %207) #27
           to label %202 unwind label %209
@@ -4204,7 +4204,7 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
   br i1 %241, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit128", label %242
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %234, i64 0, i64 %.0.i.i124
+  %243 = getelementptr inbounds nuw { ptr, ptr }, ptr %234, i64 %.0.i.i124
   %244 = add nuw nsw i64 %.0.i.i124, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %243)
           to label %240 unwind label %247
@@ -4220,7 +4220,7 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
   br label %245
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds [0 x { ptr, ptr }], ptr %234, i64 0, i64 %.1.i.i125
+  %250 = getelementptr inbounds { ptr, ptr }, ptr %234, i64 %.1.i.i125
   %251 = add i64 %.1.i.i125, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %250) #27
           to label %245 unwind label %252
@@ -4431,7 +4431,7 @@ define hidden void @"_ZN3hir11term_search7tactics17struct_projection28_$u7b$$u7b
   br i1 %31, label %"_ZN4core3ptr59drop_in_place$LT$$u5b$hir..term_search..expr..Expr$u5d$$GT$17h23dd17a3c5f3f474E.llvm.12053455592450410520.exit.i", label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw [0 x { i32, [15 x i32] }], ptr %23, i64 0, i64 %.0.i.i
+  %33 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %23, i64 %.0.i.i
   %34 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h8c43c3086c0ef430E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(64) %33)
           to label %30 unwind label %37
@@ -4447,7 +4447,7 @@ define hidden void @"_ZN3hir11term_search7tactics17struct_projection28_$u7b$$u7b
   br label %35
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds [0 x { i32, [15 x i32] }], ptr %23, i64 0, i64 %.1.i.i
+  %40 = getelementptr inbounds { i32, [15 x i32] }, ptr %23, i64 %.1.i.i
   %41 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h8c43c3086c0ef430E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(64) %40) #27
           to label %35 unwind label %42
@@ -5258,7 +5258,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br i1 %156, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h015a6c85dddee006E.llvm.12053455592450410520.exit.i", label %157
 
 157:                                              ; preds = %155
-  %158 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %154, i64 0, i64 %.0.i.i.i
+  %158 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %154, i64 %.0.i.i.i
   %159 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %158)
           to label %155 unwind label %162, !noalias !634
@@ -5274,7 +5274,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br label %160
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %154, i64 0, i64 %.1.i.i.i
+  %165 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %154, i64 %.1.i.i.i
   %166 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %165) #27
           to label %160 unwind label %167, !noalias !634
@@ -5326,7 +5326,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br i1 %183, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit", label %184
 
 184:                                              ; preds = %182
-  %185 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %176, i64 0, i64 %.0.i.i
+  %185 = getelementptr inbounds nuw { ptr, ptr }, ptr %176, i64 %.0.i.i
   %186 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %185)
           to label %182 unwind label %189
@@ -5342,7 +5342,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7396764210926536793.ex
   br label %187
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds [0 x { ptr, ptr }], ptr %176, i64 0, i64 %.1.i.i
+  %192 = getelementptr inbounds { ptr, ptr }, ptr %176, i64 %.1.i.i
   %193 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %192) #27
           to label %187 unwind label %194
@@ -5418,7 +5418,7 @@ common.resume:                                    ; preds = %31, %.body.i103, %.
   br i1 %213, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4b250c4bd9ce147E.llvm.12053455592450410520.exit105", label %214
 
 214:                                              ; preds = %212
-  %215 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %206, i64 0, i64 %.0.i.i101
+  %215 = getelementptr inbounds nuw { ptr, ptr }, ptr %206, i64 %.0.i.i101
   %216 = add nuw nsw i64 %.0.i.i101, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %215)
           to label %212 unwind label %219
@@ -5434,7 +5434,7 @@ common.resume:                                    ; preds = %31, %.body.i103, %.
   br label %217
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds [0 x { ptr, ptr }], ptr %206, i64 0, i64 %.1.i.i102
+  %222 = getelementptr inbounds { ptr, ptr }, ptr %206, i64 %.1.i.i102
   %223 = add i64 %.1.i.i102, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %222) #27
           to label %217 unwind label %224
@@ -7223,7 +7223,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$$u5b$hir..Param$u5d$$GT$17hb
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit"
-  %5 = getelementptr inbounds [0 x { { ptr, ptr }, i64, i32, [1 x i32] }], ptr %0, i64 0, i64 %.0
+  %5 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %0, i64 %.0
   %6 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit" unwind label %9
@@ -7242,7 +7242,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$$u5b$hir..Param$u5d$$GT$17hb
   br label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7"
 
 11:                                               ; preds = %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7"
-  %12 = getelementptr inbounds [0 x { { ptr, ptr }, i64, i32, [1 x i32] }], ptr %0, i64 0, i64 %.1
+  %12 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %0, i64 %.1
   %13 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
           to label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7" unwind label %15
@@ -8348,7 +8348,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$chalk_ir..Ty$LT$hir_ty.
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h8c038d7809bad2d2E.exit"
   %.011 = phi i64 [ %5, %"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h8c038d7809bad2d2E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %.011
+  %4 = getelementptr inbounds ptr, ptr %0, i64 %.011
   %5 = add nuw i64 %.011, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1284)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1287)
@@ -8419,7 +8419,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$chalk_ir..Ty$LT$hir_ty.
   br label %21
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %.1
+  %26 = getelementptr inbounds ptr, ptr %0, i64 %.1
   %27 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h8c038d7809bad2d2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26) #27
           to label %21 unwind label %29
@@ -8471,7 +8471,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$alloc..vec..Vec$LT$hir.
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %0, i64 0, i64 %.0
+  %6 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
           to label %3 unwind label %11
@@ -8490,7 +8490,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$$u5b$alloc..vec..Vec$LT$hir.
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %0, i64 0, i64 %.1
+  %14 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #27
           to label %9 unwind label %17
@@ -9621,7 +9621,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 16:                                               ; preds = %15
   %17 = add nuw nsw i64 %.sroa.7.027, 1
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.013.028, i64 64
-  %19 = getelementptr inbounds nuw [0 x { [8 x i64] }], ptr %8, i64 0, i64 %.sroa.7.027
+  %19 = getelementptr inbounds nuw { [8 x i64] }, ptr %8, i64 %.sroa.7.027
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %20 = icmp eq i64 %13, 0
   br i1 %20, label %.thread, label %.lr.ph
@@ -10270,7 +10270,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br i1 %10, label %"_ZN4core3ptr41drop_in_place$LT$$u5b$hir..Param$u5d$$GT$17hb8a6da9fdef65f4dE.llvm.7396764210926536793.exit", label %11
 
 11:                                               ; preds = %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit.i"
-  %12 = getelementptr inbounds nuw [0 x { { ptr, ptr }, i64, i32, [1 x i32] }], ptr %2, i64 0, i64 %.0.i
+  %12 = getelementptr inbounds nuw { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %2, i64 %.0.i
   %13 = add nuw nsw i64 %.0.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
           to label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit.i" unwind label %15
@@ -10286,7 +10286,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7.i"
 
 17:                                               ; preds = %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7.i"
-  %18 = getelementptr inbounds [0 x { { ptr, ptr }, i64, i32, [1 x i32] }], ptr %2, i64 0, i64 %.1.i
+  %18 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %2, i64 %.1.i
   %19 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
           to label %"_ZN4core3ptr31drop_in_place$LT$hir..Param$GT$17h3c19b6c1f2106141E.exit7.i" unwind label %21
@@ -10328,7 +10328,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br i1 %11, label %"_ZN4core3ptr82drop_in_place$LT$$u5b$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$u5d$$GT$17h1c5034565e310c67E.llvm.7396764210926536793.exit", label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw [0 x { { i64, ptr, {} }, i64 }], ptr %2, i64 0, i64 %.0.i
+  %13 = getelementptr inbounds nuw { { i64, ptr, {} }, i64 }, ptr %2, i64 %.0.i
   %14 = add nuw nsw i64 %.0.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %10 unwind label %17
@@ -10344,7 +10344,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %2, i64 0, i64 %.1.i
+  %20 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %2, i64 %.1.i
   %21 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17h3e6395db924ce2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #27
           to label %15 unwind label %23
@@ -12412,7 +12412,7 @@ define hidden void @"_ZN83_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 22:                                               ; preds = %21
   %23 = add nuw nsw i64 %.sroa.7.027.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.013.028.i, i64 64
-  %25 = getelementptr inbounds nuw [0 x { [8 x i64] }], ptr %15, i64 0, i64 %.sroa.7.027.i
+  %25 = getelementptr inbounds nuw { [8 x i64] }, ptr %15, i64 %.sroa.7.027.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !2193
   %26 = icmp eq i64 %19, 0
   br i1 %26, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd4dee5c5bab50717E.llvm.7396764210926536793.exit", label %.lr.ph.i

@@ -327,7 +327,7 @@ _ZNK5Block8get_nodeEj.exit312:                    ; preds = %80, %82
 
 164:                                              ; preds = %162
   %165 = sext i32 %156 to i64
-  %166 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %165
+  %166 = getelementptr inbounds i8, ptr @must_clone, i64 %165
   %167 = load i8, ptr %166, align 1
   %.not296 = icmp eq i8 %167, 0
   br i1 %.not296, label %168, label %_ZN5Block9dominatesEPS_.exit.thread
@@ -1925,7 +1925,7 @@ _ZNK5Block3endEv.exit:                            ; preds = %84, %103
 
 166:                                              ; preds = %153, %158, %164, %133, %130
   %167 = sext i32 %63 to i64
-  %168 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %167
+  %168 = getelementptr inbounds i8, ptr @must_clone, i64 %167
   %169 = load i8, ptr %168, align 1
   %.not150 = icmp eq i8 %169, 0
   br i1 %.not150, label %.critedge, label %170
@@ -2008,7 +2008,7 @@ _ZNK5Block3endEv.exit:                            ; preds = %84, %103
   %214 = load ptr, ptr %213, align 8
   %215 = tail call noundef i32 %214(ptr noundef nonnull align 8 dereferenceable(64) %205) #8
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %216
+  %217 = getelementptr inbounds i8, ptr @must_clone, i64 %216
   %218 = load i8, ptr %217, align 1
   %.not152 = icmp eq i8 %218, 0
   br i1 %.not152, label %._crit_edge207, label %._crit_edge
@@ -2938,9 +2938,9 @@ _ZN5Block8map_nodeEP4Nodej.exit:                  ; preds = %26, %38
 .lr.ph.i:                                         ; preds = %_ZN5Block8map_nodeEP4Nodej.exit, %.lr.ph.i
   %.012.i = phi i32 [ %57, %.lr.ph.i ], [ %spec.store.select, %_ZN5Block8map_nodeEP4Nodej.exit ]
   %51 = zext i32 %.012.i to i64
-  %52 = getelementptr inbounds nuw [11 x i64], ptr %45, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %51
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %51
+  %54 = getelementptr inbounds nuw i64, ptr %8, i64 %51
   %55 = load i64, ptr %54, align 8
   %56 = or i64 %55, %53
   store i64 %56, ptr %54, align 8
@@ -3092,7 +3092,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %_ZN7RegMask6InsertE
   %136 = zext nneg i32 %135 to i64
   %137 = shl nuw i64 1, %136
   %138 = zext nneg i32 %134 to i64
-  %139 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i64, ptr %8, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = or i64 %140, %137
   store i64 %141, ptr %139, align 8
@@ -3267,9 +3267,9 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %188, %193
 .lr.ph.i60:                                       ; preds = %230, %.lr.ph.i60
   %.012.i61 = phi i32 [ %238, %.lr.ph.i60 ], [ %223, %230 ]
   %232 = zext i32 %.012.i61 to i64
-  %233 = getelementptr inbounds nuw [11 x i64], ptr %9, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i64, ptr %9, i64 %232
   %234 = load i64, ptr %233, align 8
-  %235 = getelementptr inbounds nuw [11 x i64], ptr %215, i64 0, i64 %232
+  %235 = getelementptr inbounds nuw i64, ptr %215, i64 %232
   %236 = load i64, ptr %235, align 8
   %237 = or i64 %236, %234
   store i64 %237, ptr %235, align 8
@@ -3303,7 +3303,7 @@ _ZN7RegMask2ORERKS_.exit63:                       ; preds = %.thread, %206
   %249 = trunc nuw nsw i64 %indvars.iv.i to i32
   %250 = lshr i32 %249, 6
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw i64, ptr %8, i64 %251
   %253 = load i64, ptr %252, align 8
   %254 = and i64 %indvars.iv.i, 63
   %255 = shl nuw i64 1, %254
@@ -3338,7 +3338,7 @@ _ZN7RegMask2ORERKS_.exit63:                       ; preds = %.thread, %206
   br label %_ZN7RegMask6InsertEi.exit.us.i
 
 _ZN7RegMask6InsertEi.exit.us.i:                   ; preds = %267, %264
-  %268 = getelementptr inbounds nuw [11 x i64], ptr %248, i64 0, i64 %251
+  %268 = getelementptr inbounds nuw i64, ptr %248, i64 %251
   %269 = load i64, ptr %268, align 8
   %270 = or i64 %269, %255
   store i64 %270, ptr %268, align 8
@@ -3354,7 +3354,7 @@ _ZN7RegMask6InsertEi.exit.us.i:                   ; preds = %267, %264
   %272 = trunc nuw nsw i64 %indvars.iv19.i to i32
   %273 = lshr i32 %272, 6
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw i64, ptr %8, i64 %274
   %276 = load i64, ptr %275, align 8
   %277 = and i64 %indvars.iv19.i, 63
   %278 = shl nuw i64 1, %277
@@ -3390,7 +3390,7 @@ _ZN7RegMask6InsertEi.exit.us.i:                   ; preds = %267, %264
   br label %_ZN7RegMask6InsertEi.exit.i
 
 _ZN7RegMask6InsertEi.exit.i:                      ; preds = %290, %287
-  %291 = getelementptr inbounds nuw [11 x i64], ptr %243, i64 0, i64 %274
+  %291 = getelementptr inbounds nuw i64, ptr %243, i64 %274
   %292 = load i64, ptr %291, align 8
   %293 = or i64 %292, %278
   store i64 %293, ptr %291, align 8
@@ -4324,7 +4324,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %488, %.thread239
   %491 = zext nneg i32 %490 to i64
   %492 = shl nuw i64 1, %491
   %493 = zext nneg i32 %487 to i64
-  %494 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw i64, ptr %8, i64 %493
   %495 = load i64, ptr %494, align 8
   %496 = or i64 %495, %492
   store i64 %496, ptr %494, align 8
@@ -4348,9 +4348,9 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %488, %.thread239
 .lr.ph.i223:                                      ; preds = %_ZN7RegMask6InsertEi.exit, %.lr.ph.i223
   %.012.i = phi i32 [ %513, %.lr.ph.i223 ], [ %spec.store.select, %_ZN7RegMask6InsertEi.exit ]
   %507 = zext i32 %.012.i to i64
-  %508 = getelementptr inbounds nuw [11 x i64], ptr %500, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i64, ptr %500, i64 %507
   %509 = load i64, ptr %508, align 8
-  %510 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %507
+  %510 = getelementptr inbounds nuw i64, ptr %8, i64 %507
   %511 = load i64, ptr %510, align 8
   %512 = or i64 %511, %509
   store i64 %512, ptr %510, align 8
@@ -4444,7 +4444,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %543, %547
   %559 = trunc nuw nsw i64 %indvars.iv.i226 to i32
   %560 = lshr i32 %559, 6
   %561 = zext nneg i32 %560 to i64
-  %562 = getelementptr inbounds nuw [11 x i64], ptr %8, i64 0, i64 %561
+  %562 = getelementptr inbounds nuw i64, ptr %8, i64 %561
   %563 = load i64, ptr %562, align 8
   %564 = and i64 %indvars.iv.i226, 63
   %565 = shl nuw i64 1, %564
@@ -4479,7 +4479,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %543, %547
   br label %_ZN7RegMask6InsertEi.exit.us.i
 
 _ZN7RegMask6InsertEi.exit.us.i:                   ; preds = %577, %574
-  %578 = getelementptr inbounds nuw [11 x i64], ptr %556, i64 0, i64 %561
+  %578 = getelementptr inbounds nuw i64, ptr %556, i64 %561
   %579 = load i64, ptr %578, align 8
   %580 = or i64 %579, %565
   store i64 %580, ptr %578, align 8

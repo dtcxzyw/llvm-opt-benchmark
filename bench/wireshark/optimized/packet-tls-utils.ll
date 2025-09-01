@@ -2470,7 +2470,7 @@ define hidden i32 @ssl_get_cipher_algo(ptr noundef readonly captures(none) %0) l
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -48
   %5 = sext i32 %4 to i64
-  %6 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @ciphers, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @gcry_cipher_map_name(ptr noundef %7) #32
   ret i32 %8
@@ -2491,7 +2491,7 @@ define hidden i32 @ssl_get_cipher_blocksize(ptr noundef readonly captures(none) 
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -48
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %8
+  %9 = getelementptr ptr, ptr @ciphers, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %10) #32
   %12 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %11)
@@ -3361,7 +3361,7 @@ tls_handshake_hash.exit:                          ; preds = %58, %ssl_md5_init.e
 133:                                              ; preds = %130
   %134 = add i32 %132, -48
   %135 = sext i32 %134 to i64
-  %136 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %135
+  %136 = getelementptr ptr, ptr @ciphers, i64 %135
   %137 = load ptr, ptr %136, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.539, ptr noundef nonnull @__func__.ssl_generate_keyring_material, ptr noundef %137)
   %138 = call i32 @gcry_cipher_map_name(ptr noundef readonly %137) #32
@@ -3436,7 +3436,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %.val247 = load i32, ptr %153, align 4
   %154 = add i32 %.val247, -64
   %155 = sext i32 %154 to i64
-  %156 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %155, i32 1
+  %156 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %155, i32 1
   %157 = load i32, ptr %156, align 8
   %158 = shl i32 %.1211, 1
   %159 = add i32 %.1211, %.0188
@@ -3470,7 +3470,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %.val248 = load i32, ptr %153, align 4
   %176 = add i32 %.val248, -64
   %177 = sext i32 %176 to i64
-  %178 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %177, i32 1
+  %178 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %177, i32 1
   %179 = load i32, ptr %178, align 8
   %180 = zext i32 %179 to i64
   %181 = getelementptr i8, ptr %170, i64 %180
@@ -3673,14 +3673,14 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %.val250 = load i32, ptr %153, align 4
   %241 = add i32 %.val250, -64
   %242 = sext i32 %241 to i64
-  %243 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %242, i32 1
+  %243 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %242, i32 1
   %244 = load i32, ptr %243, align 8
   %245 = zext i32 %244 to i64
   call void @ssl_print_data(ptr noundef nonnull @.str.558, ptr noundef nonnull %.1192, i64 noundef %245)
   %.val251 = load i32, ptr %153, align 4
   %246 = add i32 %.val251, -64
   %247 = sext i32 %246 to i64
-  %248 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %247, i32 1
+  %248 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %247, i32 1
   %249 = load i32, ptr %248, align 8
   %250 = zext i32 %249 to i64
   call void @ssl_print_data(ptr noundef nonnull @.str.559, ptr noundef %.1190, i64 noundef %250)
@@ -4500,7 +4500,7 @@ ssl_data_set.exit:                                ; preds = %17
   %.val66 = load i32, ptr %21, align 4
   %22 = add i32 %.val66, -64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %23, i32 1
+  %24 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %23, i32 1
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = tail call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %3, i64 noundef %26, i64 noundef 172) #31, !alias.scope !69
@@ -4600,7 +4600,7 @@ ssl_create_decompressor.exit:                     ; preds = %39, %45, %54, %55
 
 63:                                               ; preds = %ssl_create_decompressor.exit
   %64 = sext i32 %60 to i64
-  %65 = getelementptr [7 x i32], ptr @__const.ssl_cipher_init.gcry_modes, i64 0, i64 %64
+  %65 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %59, i32 noundef %1, i32 noundef %66, i32 noundef 0)
   %.not.i70 = icmp eq i32 %67, 0
@@ -4661,7 +4661,7 @@ ssl_cipher_init.exit:                             ; preds = %72, %74, %62
   br label %ssl_cipher_init.exit76
 
 90:                                               ; preds = %87
-  %91 = getelementptr [7 x i32], ptr @__const.ssl_cipher_init.gcry_modes, i64 0, i64 %.0
+  %91 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %.0
   %92 = load i32, ptr %91, align 8
   %93 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %88, i32 noundef %1, i32 noundef %92, i32 noundef 0)
   %.not.i72 = icmp eq i32 %93, 0
@@ -4702,7 +4702,7 @@ ssl_cipher_init.exit76:                           ; preds = %94, %89, %101
   %.val = load i32, ptr %105, align 4
   %106 = add i32 %.val, -64
   %107 = sext i32 %106 to i64
-  %108 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %107, i32 1
+  %108 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %107, i32 1
   %109 = load i32, ptr %108, align 8
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1239, i32 noundef %109)
   br label %110
@@ -4775,7 +4775,7 @@ define hidden noundef zeroext i1 @tls13_generate_keys(ptr noundef captures(none)
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, -48
   %25 = sext i32 %24 to i64
-  %26 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr @ciphers, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.539, ptr noundef nonnull @__func__.tls13_generate_keys, ptr noundef %27)
   %28 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %27) #32
@@ -4791,7 +4791,7 @@ define hidden noundef zeroext i1 @tls13_generate_keys(ptr noundef captures(none)
   %.val = load i32, ptr %32, align 4
   %33 = add i32 %.val, -64
   %34 = sext i32 %33 to i64
-  %35 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %34
+  %35 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %34
   %36 = load ptr, ptr %35, align 16
   %37 = tail call i32 @gcry_md_map_name(ptr noundef readonly %36) #32
   %.not73 = icmp eq i32 %37, 0
@@ -5600,7 +5600,7 @@ tls_decrypt_aead_record.exit:                     ; preds = %367, %368
   %.val = load i32, ptr %374, align 4
   %375 = add i32 %.val, -64
   %376 = sext i32 %375 to i64
-  %377 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %376, i32 1
+  %377 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %376, i32 1
   %378 = load i32, ptr %377, align 8
   %379 = icmp eq i32 %39, 1
   br i1 %379, label %380, label %._crit_edge
@@ -5620,7 +5620,7 @@ ssl_get_cipher_blocksize.exit:                    ; preds = %380, %380, %380, %3
   %382 = load i32, ptr %381, align 4
   %383 = add i32 %382, -48
   %384 = sext i32 %383 to i64
-  %385 = getelementptr [14 x ptr], ptr @ciphers, i64 0, i64 %384
+  %385 = getelementptr ptr, ptr @ciphers, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %386) #32
   %388 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %387)
@@ -6035,7 +6035,7 @@ define internal fastcc range(i32 -1, 1) i32 @ssl3_check_mac(ptr noundef captures
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -64
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %13
+  %14 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %13
   %15 = load ptr, ptr %14, align 16
   %16 = tail call i32 @gcry_md_map_name(ptr noundef readonly %15) #32
   %17 = call i32 @gcry_md_open(ptr noundef nonnull %6, i32 noundef %16, i32 noundef 0)
@@ -6162,7 +6162,7 @@ define internal fastcc range(i32 -1, 1) i32 @tls_check_mac(ptr noundef captures(
   %.val25 = load i32, ptr %10, align 4
   %11 = add i32 %.val25, -64
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %12
+  %13 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %12
   %14 = load ptr, ptr %13, align 16
   %15 = tail call i32 @gcry_md_map_name(ptr noundef readonly %14) #32
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1271, ptr noundef %14, i32 noundef %15)
@@ -6295,7 +6295,7 @@ define internal fastcc range(i32 -1, 1) i32 @dtls_check_mac(ptr noundef readonly
   %.val58 = load i32, ptr %17, align 4
   %18 = add i32 %.val58, -64
   %19 = sext i32 %18 to i64
-  %20 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %19
+  %20 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %19
   %21 = load ptr, ptr %20, align 16
   %22 = tail call i32 @gcry_md_map_name(ptr noundef readonly %21) #32
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1273, ptr noundef %21, i32 noundef %22)
@@ -7923,7 +7923,7 @@ define hidden void @tls13_key_update(ptr noundef captures(none) %0, i1 noundef z
   %.val = load i32, ptr %18, align 4
   %19 = add i32 %.val, -64
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %20
+  %21 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %20
   %22 = load ptr, ptr %21, align 16
   %23 = tail call i32 @gcry_md_map_name(ptr noundef readonly %22) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8293,7 +8293,7 @@ from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread1
 
 133:                                              ; preds = %from_hex.exit, %168
   %indvars.iv = phi i64 [ 0, %from_hex.exit ], [ %indvars.iv.next, %168 ]
-  %134 = getelementptr [13 x %struct.ssl_master_key_match_group], ptr %5, i64 0, i64 %indvars.iv
+  %134 = getelementptr %struct.ssl_master_key_match_group, ptr %5, i64 %indvars.iv
   %135 = load ptr, ptr %6, align 8
   %136 = load ptr, ptr %134, align 16
   %137 = call ptr @g_match_info_fetch_named(ptr noundef %135, ptr noundef %136)
@@ -12203,7 +12203,7 @@ ssl_dissect_hnd_hello_ext_ech.exit:               ; preds = %550, %474, %475, %4
 .preheader.i:                                     ; preds = %963, %967
   %968 = phi i1 [ false, %967 ], [ true, %963 ]
   %.081121.i = phi i64 [ 1, %967 ], [ 0, %963 ]
-  %969 = getelementptr [2 x %struct.ssl_alpn_prefix_match_protocol], ptr @ssl_alpn_prefix_match_protocols, i64 0, i64 %.081121.i
+  %969 = getelementptr %struct.ssl_alpn_prefix_match_protocol, ptr @ssl_alpn_prefix_match_protocols, i64 %.081121.i
   %970 = load ptr, ptr %969, align 16
   %971 = call i32 @g_str_has_prefix(ptr noundef nonnull %.084.lcssa.i, ptr noundef %970)
   %.not95.i = icmp eq i32 %971, 0
@@ -14121,7 +14121,7 @@ ssl_set_cipher.exit:                              ; preds = %79, %74, %ssl_find_
   %.val241 = load i32, ptr %126, align 4
   %127 = add i32 %.val241, -64
   %128 = sext i32 %127 to i64
-  %129 = getelementptr [6 x %struct.SslDigestAlgo], ptr @digests, i64 0, i64 %128
+  %129 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %128
   %130 = load ptr, ptr %129, align 16
   %131 = call i32 @gcry_md_map_name(ptr noundef readonly %130) #32
   %.not224 = icmp eq i32 %131, 0

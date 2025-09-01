@@ -135,7 +135,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
 .preheader:                                       ; preds = %.preheader114, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader114 ]
   %.189121 = phi ptr [ %.391.ph, %44 ], [ %.088, %.preheader114 ]
-  %23 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %indvars.iv
+  %23 = getelementptr %struct.headerLineParseMapping_t, ptr @headerLineParseMapping, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16
   %25 = call i64 @strlen(ptr noundef %24) #11
   %26 = call i32 @strncmp(ptr noundef %.189121, ptr noundef %24, i64 noundef %25) #11
@@ -232,7 +232,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldTS, ptr %59, align 8
   br label %60
 
@@ -243,7 +243,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldLost, ptr %64, align 8
   br label %65
 
@@ -254,7 +254,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr noundef captures(none) %0, pt
   br i1 %67, label %68, label %sub_0.i
 
 68:                                               ; preds = %65
-  %69 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldMsgType, ptr %69, align 8
   br label %sub_0.i
 
@@ -277,7 +277,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %75, label %76, label %.tail.thread.i
 
 76:                                               ; preds = %.tail.i
-  %77 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldID, ptr %77, align 8
   br label %.tail.thread.i
 
@@ -288,7 +288,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %.tail.thread.i
-  %81 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldLength, ptr %81, align 8
   br label %82
 
@@ -310,7 +310,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.critedge, !llvm.loop !10
 
 .thread109:                                       ; preds = %82
-  %88 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %88 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   store ptr @parseFieldData, ptr %88, align 8
   %89 = icmp samesign ult i64 %indvars.iv.i, 6
   %90 = and i1 %89, %52
@@ -1185,7 +1185,7 @@ stripTimeStamp.exit35:                            ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %10, ptr noundef nonnull align 16 dereferenceable(18) @__const.parseFieldTS.timeStampStringFull, i64 18, i1 false)
   %96 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef range(i64 0, 256) %95, i64 noundef 18) #12, !alias.scope !20
   %97 = sub nuw nsw i64 17, %59
-  %98 = getelementptr [18 x i8], ptr %10, i64 0, i64 %97
+  %98 = getelementptr i8, ptr %10, i64 %97
   %99 = add nuw nsw i64 %59, 1
   %100 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef nonnull %8, i64 noundef range(i64 0, 256) %59, i64 noundef %99) #12, !alias.scope !24
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 17
@@ -1384,7 +1384,7 @@ thread-pre-split:                                 ; preds = %22
   %13 = add i8 %12, 1
   store i8 %13, ptr %6, align 4
   %14 = zext i8 %12 to i64
-  %15 = getelementptr [8 x i8], ptr %7, i64 0, i64 %14
+  %15 = getelementptr i8, ptr %7, i64 %14
   store i8 %10, ptr %15, align 1
   %16 = icmp ult i8 %13, 8
   br i1 %16, label %17, label %.thread
@@ -1485,7 +1485,7 @@ define internal fastcc noundef zeroext i1 @cllog_read_common(ptr %.96.val, ptr n
 
 21:                                               ; preds = %.thread.i, %19
   %.044.i = phi ptr [ %.043.i, %.thread.i ], [ null, %19 ]
-  %22 = getelementptr [7 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr ptr, ptr %13, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %.not33.i = icmp eq ptr %23, null
   br i1 %.not33.i, label %26, label %24

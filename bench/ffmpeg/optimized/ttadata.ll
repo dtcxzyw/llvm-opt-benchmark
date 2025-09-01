@@ -30,9 +30,9 @@ define void @ff_tta_filter_init(ptr noundef writeonly captures(none) initializes
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %3, i8 0, i64 196, i1 false)
   store i32 %1, ptr %0, align 4, !tbaa !13
-  %4 = add nsw i32 %1, -1
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [41 x i32], ptr @ff_tta_shift_1, i64 0, i64 %5
+  %4 = sext i32 %1 to i64
+  %5 = getelementptr i32, ptr @ff_tta_shift_1, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 -4
   %7 = load i32, ptr %6, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4, !tbaa !15

@@ -1033,7 +1033,7 @@ define noundef range(i32 12, 17) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfac
 
 .preheader:                                       ; preds = %4, %195
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %195 ], [ 0, %4 ]
-  %27 = getelementptr inbounds nuw [4 x [4 x i32]], ptr @_ZZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_iE15pointsPerCorner, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_iE15pointsPerCorner, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %23, align 8
@@ -1279,7 +1279,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds 
 
 .preheader30:                                     ; preds = %4, %433
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i13, %433 ], [ 0, %4 ]
-  %200 = getelementptr inbounds nuw [3 x [4 x i32]], ptr @_ZZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints3IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_iE15pointsPerCorner, i64 0, i64 %indvars.iv.i11
+  %200 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints3IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_iE15pointsPerCorner, i64 %indvars.iv.i11
   %201 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i11
   %202 = load i32, ptr %201, align 4
   %203 = load ptr, ptr %23, align 8

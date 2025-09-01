@@ -195,16 +195,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 35:                                               ; preds = %45
   %36 = fmul float %51, 1.562500e-02
-  %37 = getelementptr inbounds nuw [2 x float], ptr %29, i64 0, i64 %indvars.iv62
+  %37 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv62
   store float %36, ptr %37, align 4, !tbaa !7
   %38 = fmul float %36, 2.000000e+00
-  %39 = getelementptr inbounds nuw [2 x float], ptr %30, i64 0, i64 %indvars.iv62
+  %39 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv62
   store float %38, ptr %39, align 4, !tbaa !7
   %40 = fmul float %36, 4.000000e+00
-  %41 = getelementptr inbounds nuw [2 x float], ptr %31, i64 0, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv62
   store float %40, ptr %41, align 4, !tbaa !7
   %42 = fmul float %36, 8.000000e+00
-  %43 = getelementptr inbounds nuw [2 x float], ptr %32, i64 0, i64 %indvars.iv62
+  %43 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv62
   store float %42, ptr %43, align 4, !tbaa !7
   %44 = fneg float %36
   br label %52
@@ -212,11 +212,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 45:                                               ; preds = %.preheader45, %45
   %indvars.iv = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next, %45 ]
   %.03946 = phi float [ 0.000000e+00, %.preheader45 ], [ %51, %45 ]
-  %46 = getelementptr inbounds nuw [64 x float], ptr %6, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !7
   %48 = fcmp oge float %47, 0.000000e+00
   %49 = select i1 %48, float 1.000000e+00, float -1.000000e+00
-  %50 = getelementptr inbounds nuw [64 x float], ptr %5, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   store float %49, ptr %50, align 4, !tbaa !7
   %51 = tail call float @llvm.fmuladd.f32(float %47, float %49, float %.03946)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -225,9 +225,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 52:                                               ; preds = %35, %52
   %indvars.iv54 = phi i64 [ 0, %35 ], [ %indvars.iv.next55, %52 ]
-  %53 = getelementptr inbounds nuw [64 x float], ptr %5, i64 0, i64 %indvars.iv54
+  %53 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv54
   %54 = load float, ptr %53, align 4, !tbaa !7
-  %55 = getelementptr inbounds nuw [64 x float], ptr %6, i64 0, i64 %indvars.iv54
+  %55 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv54
   %56 = load float, ptr %55, align 4, !tbaa !7
   %57 = tail call float @llvm.fmuladd.f32(float %44, float %54, float %56)
   store float %57, ptr %55, align 4, !tbaa !7
@@ -236,7 +236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %exitcond57.not, label %.preheader, label %52, !llvm.loop !29
 
 58:                                               ; preds = %.preheader
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %indvars.iv62
+  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv62
   store i64 %65, ptr %59, align 8, !tbaa !3
   br i1 %33, label %.preheader45, label %34, !llvm.loop !30
 
@@ -244,7 +244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader ], [ 0, %52 ]
   %.03649 = phi i64 [ %65, %.preheader ], [ 0, %52 ]
   %60 = shl i64 %.03649, 1
-  %61 = getelementptr inbounds nuw [64 x float], ptr %5, i64 0, i64 %indvars.iv58
+  %61 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv58
   %62 = load float, ptr %61, align 4, !tbaa !7
   %63 = fcmp ogt float %62, 0.000000e+00
   %64 = zext i1 %63 to i64
@@ -303,9 +303,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
 17:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %22
   %18 = phi i1 [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ false, %22 ]
   %indvars.iv18 = phi i64 [ 0, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 1, %22 ]
-  %19 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %indvars.iv18
+  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv18
   %20 = load i64, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw [2 x float], ptr %13, i64 0, i64 %indvars.iv18
+  %21 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv18
   br label %23
 
 22:                                               ; preds = %23

@@ -6110,7 +6110,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7
   %796 = and i64 %795, 63
   %797 = shl nuw i64 1, %796
   %798 = lshr i64 %795, 6
-  %799 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %798
+  %799 = getelementptr inbounds nuw i64, ptr %12, i64 %798
   %800 = load i64, ptr %799, align 8
   %801 = or i64 %797, %800
   store i64 %801, ptr %799, align 8
@@ -6132,7 +6132,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7
   %807 = load i8, ptr %806, align 8
   %808 = zext i8 %807 to i64
   %809 = lshr i64 %808, 6
-  %810 = getelementptr inbounds nuw [4 x i64], ptr %12, i64 0, i64 %809
+  %810 = getelementptr inbounds nuw i64, ptr %12, i64 %809
   %811 = load i64, ptr %810, align 8
   %812 = and i64 %808, 63
   %813 = shl nuw i64 1, %812
@@ -6368,7 +6368,7 @@ _ZN3ue2L12makeStateMapERKNS_7LitTrieERKSt6vectorINS_12graph_detail17vertex_descr
   %896 = and i64 %895, 63
   %897 = shl nuw i64 1, %896
   %898 = lshr i64 %895, 6
-  %899 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %898
+  %899 = getelementptr inbounds nuw i64, ptr %4, i64 %898
   %900 = load i64, ptr %899, align 8, !noalias !271
   %901 = or i64 %900, %897
   store i64 %901, ptr %899, align 8, !noalias !271
@@ -6384,7 +6384,7 @@ _ZN3ue2L12makeStateMapERKNS_7LitTrieERKSt6vectorINS_12graph_detail17vertex_descr
   %907 = and i64 %906, 63
   %908 = shl nuw i64 1, %907
   %909 = lshr i64 %906, 6
-  %910 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %909
+  %910 = getelementptr inbounds nuw i64, ptr %4, i64 %909
   %911 = load i64, ptr %910, align 8, !noalias !271
   %912 = or i64 %908, %911
   store i64 %912, ptr %910, align 8, !noalias !271
@@ -6625,7 +6625,7 @@ _ZN3ue2L11getAlphabetERKNS_7LitTrieEb.exit.i:     ; preds = %.noexc.i.i89, %._cr
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader51.i, %995
   %.0710.i.i33.i = phi i64 [ %996, %995 ], [ 0, %.preheader51.i ]
-  %993 = getelementptr inbounds nuw [4 x i64], ptr %.sroa.043.065.i, i64 0, i64 %.0710.i.i33.i
+  %993 = getelementptr inbounds nuw i64, ptr %.sroa.043.065.i, i64 %.0710.i.i33.i
   %994 = load i64, ptr %993, align 8
   %.not.i.i34.i = icmp eq i64 %994, 0
   br i1 %.not.i.i34.i, label %995, label %_ZNK3ue29CharReach10find_firstEv.exit37.i
@@ -6643,7 +6643,7 @@ _ZNK3ue29CharReach10find_firstEv.exit37.i:        ; preds = %_ZNK3ue29CharReach1
   br i1 %.not62.i, label %._crit_edge.i92, label %.lr.ph.i91.preheader
 
 .lr.ph.i91.preheader:                             ; preds = %_ZNK3ue29CharReach10find_firstEv.exit37.i
-  %1000 = getelementptr inbounds nuw [257 x i16], ptr %869, i64 0, i64 %999
+  %1000 = getelementptr inbounds nuw i16, ptr %869, i64 %999
   store i16 %.03166.i, ptr %1000, align 2
   %.not.i.i38.i361 = icmp samesign ult i64 %.0710.i.i33.i, 4
   br i1 %.not.i.i38.i361, label %.lr.ph, label %._crit_edge.i92
@@ -6665,7 +6665,7 @@ _ZNK3ue29CharReach10find_firstEv.exit37.i:        ; preds = %_ZNK3ue29CharReach1
   br label %1012
 
 1005:                                             ; preds = %.lr.ph
-  %1006 = getelementptr inbounds nuw [4 x i64], ptr %.sroa.043.065.i, i64 0, i64 %1003
+  %1006 = getelementptr inbounds nuw i64, ptr %.sroa.043.065.i, i64 %1003
   %1007 = load i64, ptr %1006, align 8
   %1008 = shl nsw i64 -2, %1004
   %1009 = and i64 %1007, %1008
@@ -6683,7 +6683,7 @@ _ZNK3ue29CharReach10find_firstEv.exit37.i:        ; preds = %_ZNK3ue29CharReach1
 
 1014:                                             ; preds = %1012
   %.0.i.i39.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %1015 = getelementptr inbounds nuw [4 x i64], ptr %.sroa.043.065.i, i64 0, i64 %.0.i.i39.i
+  %1015 = getelementptr inbounds nuw i64, ptr %.sroa.043.065.i, i64 %.0.i.i39.i
   %1016 = load i64, ptr %1015, align 8
   %.not22.i.i.i = icmp eq i64 %1016, 0
   br i1 %.not22.i.i.i, label %1012, label %1017, !llvm.loop !287
@@ -6697,7 +6697,7 @@ _ZNK3ue29CharReach9find_nextEm.exit.i:            ; preds = %1017, %1010
   %.sink117.i = phi i64 [ %1011, %1010 ], [ %1018, %1017 ]
   %1019 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink118.i, i1 true)
   %1020 = or disjoint i64 %1019, %.sink117.i
-  %1021 = getelementptr inbounds nuw [257 x i16], ptr %869, i64 0, i64 %1020
+  %1021 = getelementptr inbounds nuw i16, ptr %869, i64 %1020
   store i16 %.03166.i, ptr %1021, align 2
   br label %.lr.ph
 
@@ -7392,7 +7392,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   %1299 = getelementptr inbounds nuw i8, ptr %1264, i64 24
   %1300 = load i8, ptr %1299, align 8
   %1301 = zext i8 %1300 to i64
-  %1302 = getelementptr inbounds nuw [257 x i16], ptr %869, i64 0, i64 %1301
+  %1302 = getelementptr inbounds nuw i16, ptr %869, i64 %1301
   %1303 = load i16, ptr %1302, align 2
   %1304 = trunc i32 %1298 to i16
   %1305 = zext i16 %1303 to i64

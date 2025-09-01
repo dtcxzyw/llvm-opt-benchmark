@@ -85,7 +85,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
   %17 = phi ptr [ %52, %ptr_register_glob_fixedid.exit ], [ null, %.lr.ph.split.preheader ]
   %18 = phi i32 [ %53, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
   %.0522617728 = phi i64 [ %54, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
-  %19 = getelementptr inbounds nuw [0 x %struct.cli_apiglobal], ptr @cli_globals, i64 0, i64 %.0522617728
+  %19 = getelementptr inbounds nuw %struct.cli_apiglobal, ptr @cli_globals, i64 %.0522617728
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !35
   %22 = zext i32 %21 to i64
@@ -10883,7 +10883,7 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
 4968:                                             ; preds = %4965
   %4969 = add i32 %4956, -2
   %4970 = zext i32 %4969 to i64
-  %4971 = getelementptr inbounds nuw [65536 x i8], ptr %4954, i64 0, i64 %4970
+  %4971 = getelementptr inbounds nuw i8, ptr %4954, i64 %4970
   %4972 = load i16, ptr %4971, align 1, !tbaa !62
   %4973 = trunc nuw nsw i64 %4960 to i32
   %4974 = sub i32 %4956, %4973
@@ -11012,7 +11012,7 @@ cli_stack_free.exit12547:                         ; preds = %4952, %4962, %4967,
 5035:                                             ; preds = %5032
   %5036 = add i32 %5023, -2
   %5037 = zext i32 %5036 to i64
-  %5038 = getelementptr inbounds nuw [65536 x i8], ptr %5021, i64 0, i64 %5037
+  %5038 = getelementptr inbounds nuw i8, ptr %5021, i64 %5037
   %5039 = load i16, ptr %5038, align 1, !tbaa !62
   %5040 = trunc nuw nsw i64 %5027 to i32
   %5041 = sub i32 %5023, %5040
@@ -11149,7 +11149,7 @@ cli_stack_free.exit12543:                         ; preds = %5019, %5029, %5034,
 5106:                                             ; preds = %5103
   %5107 = add i32 %5094, -2
   %5108 = zext i32 %5107 to i64
-  %5109 = getelementptr inbounds nuw [65536 x i8], ptr %5092, i64 0, i64 %5108
+  %5109 = getelementptr inbounds nuw i8, ptr %5092, i64 %5108
   %5110 = load i16, ptr %5109, align 1, !tbaa !62
   %5111 = trunc nuw nsw i64 %5098 to i32
   %5112 = sub i32 %5094, %5111
@@ -11291,7 +11291,7 @@ cli_stack_free.exit12539:                         ; preds = %5090, %5100, %5105,
 5178:                                             ; preds = %5175
   %5179 = add i32 %5166, -2
   %5180 = zext i32 %5179 to i64
-  %5181 = getelementptr inbounds nuw [65536 x i8], ptr %5164, i64 0, i64 %5180
+  %5181 = getelementptr inbounds nuw i8, ptr %5164, i64 %5180
   %5182 = load i16, ptr %5181, align 1, !tbaa !62
   %5183 = trunc nuw nsw i64 %5170 to i32
   %5184 = sub i32 %5166, %5183
@@ -11434,7 +11434,7 @@ cli_stack_free.exit12535:                         ; preds = %5162, %5172, %5177,
 5251:                                             ; preds = %5248
   %5252 = add i32 %5239, -2
   %5253 = zext i32 %5252 to i64
-  %5254 = getelementptr inbounds nuw [65536 x i8], ptr %5237, i64 0, i64 %5253
+  %5254 = getelementptr inbounds nuw i8, ptr %5237, i64 %5253
   %5255 = load i16, ptr %5254, align 1, !tbaa !62
   %5256 = trunc nuw nsw i64 %5243 to i32
   %5257 = sub i32 %5239, %5256
@@ -11533,7 +11533,7 @@ cli_stack_free.exit12531:                         ; preds = %5235, %5245, %5250,
 5305:                                             ; preds = %5302
   %5306 = add i32 %5293, -2
   %5307 = zext i32 %5306 to i64
-  %5308 = getelementptr inbounds nuw [65536 x i8], ptr %5291, i64 0, i64 %5307
+  %5308 = getelementptr inbounds nuw i8, ptr %5291, i64 %5307
   %5309 = load i16, ptr %5308, align 1, !tbaa !62
   %5310 = trunc nuw nsw i64 %5297 to i32
   %5311 = sub i32 %5293, %5310
@@ -11623,7 +11623,7 @@ cli_stack_free.exit12527:                         ; preds = %5289, %5299, %5304,
 5355:                                             ; preds = %5352
   %5356 = add i32 %5343, -2
   %5357 = zext i32 %5356 to i64
-  %5358 = getelementptr inbounds nuw [65536 x i8], ptr %5341, i64 0, i64 %5357
+  %5358 = getelementptr inbounds nuw i8, ptr %5341, i64 %5357
   %5359 = load i16, ptr %5358, align 1, !tbaa !62
   %5360 = trunc nuw nsw i64 %5347 to i32
   %5361 = sub i32 %5343, %5360
@@ -11713,7 +11713,7 @@ cli_stack_free.exit12523:                         ; preds = %5339, %5349, %5354,
 5405:                                             ; preds = %5402
   %5406 = add i32 %5393, -2
   %5407 = zext i32 %5406 to i64
-  %5408 = getelementptr inbounds nuw [65536 x i8], ptr %5391, i64 0, i64 %5407
+  %5408 = getelementptr inbounds nuw i8, ptr %5391, i64 %5407
   %5409 = load i16, ptr %5408, align 1, !tbaa !62
   %5410 = trunc nuw nsw i64 %5397 to i32
   %5411 = sub i32 %5393, %5410
@@ -11803,7 +11803,7 @@ cli_stack_free.exit12519:                         ; preds = %5389, %5399, %5404,
 5455:                                             ; preds = %5452
   %5456 = add i32 %5443, -2
   %5457 = zext i32 %5456 to i64
-  %5458 = getelementptr inbounds nuw [65536 x i8], ptr %5441, i64 0, i64 %5457
+  %5458 = getelementptr inbounds nuw i8, ptr %5441, i64 %5457
   %5459 = load i16, ptr %5458, align 1, !tbaa !62
   %5460 = trunc nuw nsw i64 %5447 to i32
   %5461 = sub i32 %5443, %5460
@@ -11893,7 +11893,7 @@ cli_stack_free.exit12515:                         ; preds = %5439, %5449, %5454,
 5505:                                             ; preds = %5502
   %5506 = add i32 %5493, -2
   %5507 = zext i32 %5506 to i64
-  %5508 = getelementptr inbounds nuw [65536 x i8], ptr %5491, i64 0, i64 %5507
+  %5508 = getelementptr inbounds nuw i8, ptr %5491, i64 %5507
   %5509 = load i16, ptr %5508, align 1, !tbaa !62
   %5510 = trunc nuw nsw i64 %5497 to i32
   %5511 = sub i32 %5493, %5510
@@ -17405,7 +17405,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %7977 = getelementptr inbounds nuw i8, ptr %.013719, i64 32
   %7978 = load i16, ptr %7977, align 8, !tbaa !62
   %7979 = zext i16 %7978 to i64
-  %7980 = getelementptr inbounds nuw [0 x %struct.cli_apicall], ptr @cli_apicalls, i64 0, i64 %7979
+  %7980 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %7979
   %7981 = zext i16 %7978 to i32
   %.not9716 = icmp ugt i32 %96, %7981
   br i1 %.not9716, label %7982, label %.thread13776
@@ -17516,7 +17516,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8022 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8023 = load i16, ptr %8022, align 2, !tbaa !92
   %8024 = zext i16 %8023 to i64
-  %8025 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls0, i64 0, i64 %8024
+  %8025 = getelementptr inbounds nuw ptr, ptr @cli_apicalls0, i64 %8024
   %8026 = load ptr, ptr %8025, align 8, !tbaa !37
   %8027 = tail call i32 %8026(ptr noundef %1, i32 noundef %.77174, i32 noundef %.77165) #13
   %8028 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -17584,7 +17584,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8057 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8058 = load i16, ptr %8057, align 2, !tbaa !92
   %8059 = zext i16 %8058 to i64
-  %8060 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls1, i64 0, i64 %8059
+  %8060 = getelementptr inbounds nuw ptr, ptr @cli_apicalls1, i64 %8059
   %8061 = load ptr, ptr %8060, align 8, !tbaa !37
   br label %8063
 
@@ -17594,7 +17594,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
 8063:                                             ; preds = %.thread16542, %8062
   %8064 = phi i1 [ true, %.thread16542 ], [ false, %8062 ]
   %.1522717734 = phi i64 [ 0, %.thread16542 ], [ 1, %8062 ]
-  %8065 = getelementptr inbounds nuw [2 x %struct.anon], ptr @apisize_override, i64 0, i64 %.1522717734
+  %8065 = getelementptr inbounds nuw %struct.anon, ptr @apisize_override, i64 %.1522717734
   %8066 = load ptr, ptr %8065, align 16, !tbaa !93
   %8067 = icmp eq ptr %8061, %8066
   br i1 %8067, label %8068, label %8062
@@ -17733,7 +17733,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8126 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8127 = load i16, ptr %8126, align 2, !tbaa !92
   %8128 = zext i16 %8127 to i64
-  %8129 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls2, i64 0, i64 %8128
+  %8129 = getelementptr inbounds nuw ptr, ptr @cli_apicalls2, i64 %8128
   %8130 = load ptr, ptr %8129, align 8, !tbaa !37
   %8131 = tail call i32 %8130(ptr noundef %1, i32 noundef %.87092) #13
   %8132 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -17800,7 +17800,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8160 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8161 = load i16, ptr %8160, align 2, !tbaa !92
   %8162 = zext i16 %8161 to i64
-  %8163 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls3, i64 0, i64 %8162
+  %8163 = getelementptr inbounds nuw ptr, ptr @cli_apicalls3, i64 %8162
   %8164 = load ptr, ptr %8163, align 8, !tbaa !37
   %8165 = tail call ptr %8164(ptr noundef %1, i32 noundef %.87076) #13
   %8166 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8165, i32 noundef %.87076)
@@ -18045,7 +18045,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8269 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8270 = load i16, ptr %8269, align 2, !tbaa !92
   %8271 = zext i16 %8270 to i64
-  %8272 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls4, i64 0, i64 %8271
+  %8272 = getelementptr inbounds nuw ptr, ptr @cli_apicalls4, i64 %8271
   %8273 = load ptr, ptr %8272, align 8, !tbaa !37
   %8274 = tail call i32 %8273(ptr noundef %1, ptr noundef nonnull %8213, i32 noundef %.87053, i32 noundef %.87044, i32 noundef %.87035, i32 noundef %.87026) #13
   %8275 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -18069,7 +18069,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8284 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8285 = load i16, ptr %8284, align 2, !tbaa !92
   %8286 = zext i16 %8285 to i64
-  %8287 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls5, i64 0, i64 %8286
+  %8287 = getelementptr inbounds nuw ptr, ptr @cli_apicalls5, i64 %8286
   %8288 = load ptr, ptr %8287, align 8, !tbaa !37
   %8289 = tail call i32 %8288(ptr noundef %1) #13
   %8290 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -18179,7 +18179,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8336 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8337 = load i16, ptr %8336, align 2, !tbaa !92
   %8338 = zext i16 %8337 to i64
-  %8339 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls6, i64 0, i64 %8338
+  %8339 = getelementptr inbounds nuw ptr, ptr @cli_apicalls6, i64 %8338
   %8340 = load ptr, ptr %8339, align 8, !tbaa !37
   %8341 = tail call ptr %8340(ptr noundef %1, i32 noundef %.86965, i32 noundef %.86956) #13
   %8342 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8341, i32 noundef %.86956)
@@ -18333,7 +18333,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8407 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8408 = load i16, ptr %8407, align 2, !tbaa !92
   %8409 = zext i16 %8408 to i64
-  %8410 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls7, i64 0, i64 %8409
+  %8410 = getelementptr inbounds nuw ptr, ptr @cli_apicalls7, i64 %8409
   %8411 = load ptr, ptr %8410, align 8, !tbaa !37
   %8412 = tail call i32 %8411(ptr noundef %1, i32 noundef %.86926, i32 noundef %.86917, i32 noundef %.86908) #13
   %8413 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -18539,7 +18539,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8499 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8500 = load i16, ptr %8499, align 2, !tbaa !92
   %8501 = zext i16 %8500 to i64
-  %8502 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls8, i64 0, i64 %8501
+  %8502 = getelementptr inbounds nuw ptr, ptr @cli_apicalls8, i64 %8501
   %8503 = load ptr, ptr %8502, align 8, !tbaa !37
   %8504 = tail call i32 %8503(ptr noundef %1, ptr noundef nonnull %8459, i32 noundef %.86878, ptr noundef nonnull %8497, i32 noundef %.86869) #13
   %8505 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -18697,7 +18697,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8570 = getelementptr inbounds nuw i8, ptr %7980, i64 10
   %8571 = load i16, ptr %8570, align 2, !tbaa !92
   %8572 = zext i16 %8571 to i64
-  %8573 = getelementptr inbounds nuw [0 x ptr], ptr @cli_apicalls9, i64 0, i64 %8572
+  %8573 = getelementptr inbounds nuw ptr, ptr @cli_apicalls9, i64 %8572
   %8574 = load ptr, ptr %8573, align 8, !tbaa !37
   %8575 = tail call i32 %8574(ptr noundef %1, ptr noundef nonnull %8550, i32 noundef %.86791, i32 noundef %.86782) #13
   %8576 = getelementptr inbounds nuw i8, ptr %.013706, i64 16
@@ -18764,7 +18764,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8614 = zext i16 %8606 to i32
   %8615 = add i32 %8609, %8614
   %8616 = zext i32 %8615 to i64
-  %8617 = getelementptr inbounds nuw [65536 x i8], ptr %8613, i64 0, i64 %8616
+  %8617 = getelementptr inbounds nuw i8, ptr %8613, i64 %8616
   store i16 %.sroa.29.0, ptr %8617, align 1, !tbaa !62
   %8618 = zext i32 %8609 to i64
   %8619 = getelementptr inbounds nuw i8, ptr %8613, i64 %8618
@@ -18791,7 +18791,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
 8626:                                             ; preds = %8623
   %8627 = getelementptr inbounds nuw i8, ptr %8624, i64 16
   %8628 = zext i16 %8606 to i64
-  %8629 = getelementptr inbounds nuw [65536 x i8], ptr %8627, i64 0, i64 %8628
+  %8629 = getelementptr inbounds nuw i8, ptr %8627, i64 %8628
   store i16 %.sroa.29.0, ptr %8629, align 1, !tbaa !62
   %8630 = getelementptr inbounds nuw i8, ptr %8624, i64 8
   store i32 %8604, ptr %8630, align 8, !tbaa !83
@@ -22109,72 +22109,70 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @globaltypesize(i16 noundef zeroext %0) unnamed_addr #2 {
-  %2 = zext i16 %0 to i32
-  %3 = icmp ult i16 %0, 65
-  br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
+  %2 = icmp ult i16 %0, 65
+  br i1 %2, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
-  %accumulator.tr.lcssa = phi i32 [ 1, %1 ], [ %18, %tailrecurse ]
-  %.lcssa = phi i32 [ %2, %1 ], [ %19, %tailrecurse ]
-  %4 = add nuw nsw i32 %.lcssa, 7
-  %5 = lshr i32 %4, 3
+  %accumulator.tr.lcssa = phi i32 [ 1, %1 ], [ %16, %tailrecurse ]
+  %.tr.lcssa = phi i16 [ %0, %1 ], [ %15, %tailrecurse ]
+  %narrow = add nuw nsw i16 %.tr.lcssa, 7
+  %3 = lshr i16 %narrow, 3
+  %4 = zext nneg i16 %3 to i32
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
-  %6 = phi i32 [ %19, %tailrecurse ], [ %2, %1 ]
-  %.tr25 = phi i16 [ %17, %tailrecurse ], [ %0, %1 ]
-  %accumulator.tr24 = phi i32 [ %18, %tailrecurse ], [ 1, %1 ]
-  %7 = icmp ult i16 %.tr25, 69
-  br i1 %7, label %.loopexit, label %8
+  %.tr24 = phi i16 [ %15, %tailrecurse ], [ %0, %1 ]
+  %accumulator.tr23 = phi i32 [ %16, %tailrecurse ], [ 1, %1 ]
+  %5 = icmp ult i16 %.tr24, 69
+  br i1 %5, label %.loopexit, label %6
 
-8:                                                ; preds = %.lr.ph
-  %9 = add nsw i32 %6, -69
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.cli_bc_type], ptr @cli_apicall_types, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 8, !tbaa !107
-  switch i32 %12, label %.loopexit [
+6:                                                ; preds = %.lr.ph
+  %7 = zext i16 %.tr24 to i64
+  %8 = getelementptr %struct.cli_bc_type, ptr @cli_apicall_types, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -2208
+  %10 = load i32, ptr %9, align 8, !tbaa !107
+  switch i32 %10, label %.loopexit [
     i32 4, label %tailrecurse
-    i32 2, label %21
-    i32 3, label %21
+    i32 2, label %18
+    i32 3, label %18
   ]
 
-tailrecurse:                                      ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !109
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !110
-  %17 = load i16, ptr %16, align 2, !tbaa !69
-  %18 = mul i32 %14, %accumulator.tr24
-  %19 = zext i16 %17 to i32
-  %20 = icmp ult i16 %17, 65
-  br i1 %20, label %tailrecurse._crit_edge, label %.lr.ph
+tailrecurse:                                      ; preds = %6
+  %11 = getelementptr i8, ptr %8, i64 -2192
+  %12 = load i32, ptr %11, align 8, !tbaa !109
+  %13 = getelementptr i8, ptr %8, i64 -2200
+  %14 = load ptr, ptr %13, align 8, !tbaa !110
+  %15 = load i16, ptr %14, align 2, !tbaa !69
+  %16 = mul i32 %12, %accumulator.tr23
+  %17 = icmp ult i16 %15, 65
+  br i1 %17, label %tailrecurse._crit_edge, label %.lr.ph
 
-21:                                               ; preds = %8, %8
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !109
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph29
+18:                                               ; preds = %6, %6
+  %19 = getelementptr i8, ptr %8, i64 -2192
+  %20 = load i32, ptr %19, align 8, !tbaa !109
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph28
 
-.lr.ph29:                                         ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !110
-  %wide.trip.count = zext i32 %23 to i64
-  br label %26
+.lr.ph28:                                         ; preds = %18
+  %21 = getelementptr i8, ptr %8, i64 -2200
+  %22 = load ptr, ptr %21, align 8, !tbaa !110
+  %wide.trip.count = zext i32 %20 to i64
+  br label %23
 
-26:                                               ; preds = %.lr.ph29, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %26 ]
-  %.028 = phi i32 [ 0, %.lr.ph29 ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2, !tbaa !69
-  %29 = tail call fastcc i32 @globaltypesize(i16 noundef zeroext %28)
-  %30 = add i32 %29, %.028
+23:                                               ; preds = %.lr.ph28, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %23 ]
+  %.027 = phi i32 [ 0, %.lr.ph28 ], [ %27, %23 ]
+  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %25 = load i16, ptr %24, align 2, !tbaa !69
+  %26 = tail call fastcc i32 @globaltypesize(i16 noundef zeroext %25)
+  %27 = add i32 %26, %.027
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %26
+  br i1 %exitcond.not, label %.loopexit, label %23
 
-.loopexit:                                        ; preds = %8, %.lr.ph, %26, %21, %tailrecurse._crit_edge
-  %accumulator.tr22 = phi i32 [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ], [ %accumulator.tr24, %21 ], [ %accumulator.tr24, %26 ], [ %accumulator.tr24, %.lr.ph ], [ %accumulator.tr24, %8 ]
-  %.015 = phi i32 [ %5, %tailrecurse._crit_edge ], [ 0, %21 ], [ %30, %26 ], [ 0, %8 ], [ 8, %.lr.ph ]
+.loopexit:                                        ; preds = %6, %.lr.ph, %23, %18, %tailrecurse._crit_edge
+  %accumulator.tr22 = phi i32 [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ], [ %accumulator.tr23, %18 ], [ %accumulator.tr23, %23 ], [ %accumulator.tr23, %.lr.ph ], [ %accumulator.tr23, %6 ]
+  %.015 = phi i32 [ %4, %tailrecurse._crit_edge ], [ 0, %18 ], [ %27, %23 ], [ 0, %6 ], [ 8, %.lr.ph ]
   %accumulator.ret.tr = mul i32 %.015, %accumulator.tr22
   ret i32 %accumulator.ret.tr
 }

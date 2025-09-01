@@ -722,7 +722,7 @@ define hidden void @_ZN17CompilationPolicy11print_eventENS_9EventTypeEPK6MethodS
 
 switch.lookup:                                    ; preds = %5
   %11 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN17CompilationPolicy11print_eventENS_9EventTypeEPK6MethodS3_i9CompLevel, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17CompilationPolicy11print_eventENS_9EventTypeEPK6MethodS3_i9CompLevel, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 

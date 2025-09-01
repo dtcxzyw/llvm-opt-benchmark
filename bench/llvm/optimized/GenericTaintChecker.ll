@@ -54428,7 +54428,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %85, %83, %78, %76
 
 switch.lookup:                                    ; preds = %99
   %102 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZN12_GLOBAL__N_128taintPropagationExplainerTagERNS7_14CheckerContextESt6vectorIPKNS7_7SymExprESaISH_EESE_IiSaIiEEPKNS6_15LocationContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", i64 0, i64 %102
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZN12_GLOBAL__N_128taintPropagationExplainerTagERNS7_14CheckerContextESt6vectorIPKNS7_7SymExprESaISH_EESE_IiSaIiEEPKNS6_15LocationContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", i64 %102
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
 

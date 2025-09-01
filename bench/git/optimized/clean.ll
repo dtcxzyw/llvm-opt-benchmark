@@ -128,7 +128,7 @@ define dso_local void @list_config_color_interactive_slots(ptr noundef %0, ptr n
 
 4:                                                ; preds = %2, %10
   %.06 = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @color_interactive_slots, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw ptr, ptr @color_interactive_slots, i64 %.06
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
@@ -740,7 +740,7 @@ Q_.exit.i:                                        ; preds = %273, %270
 
 281:                                              ; preds = %Q_.exit.i
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds [6 x %struct.menu_item], ptr %7, i64 0, i64 %282, i32 3
+  %283 = getelementptr inbounds %struct.menu_item, ptr %7, i64 %282, i32 3
   %284 = load ptr, ptr %283, align 8, !tbaa !85
   %285 = call i32 %284() #16
   %.not10.i = icmp eq i32 %285, 10
@@ -1060,7 +1060,7 @@ define internal i32 @git_clean_config(ptr noundef %0, ptr noundef %1, ptr nounde
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds nuw [6 x [75 x i8]], ptr @clean_colors, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [75 x i8], ptr @clean_colors, i64 %26
   %28 = tail call i32 @color_parse(ptr noundef nonnull %1, ptr noundef nonnull %27) #16
   br label %37
 
@@ -2585,7 +2585,7 @@ prompt_help_cmd.exit:                             ; preds = %158, %_.exit.sink.s
 
 200:                                              ; preds = %197
   %201 = zext i8 %198 to i64
-  %202 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !90
   %204 = and i8 %203, 2
   %.not74.i = icmp eq i8 %204, 0

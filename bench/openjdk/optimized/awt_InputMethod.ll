@@ -785,7 +785,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %indvars.iv38.i = phi i64 [ 0, %156 ], [ %indvars.iv.next39.i, %158 ]
   %.08525.i = phi ptr [ %154, %156 ], [ %162, %158 ]
   store ptr %114, ptr %.08525.i, align 8
-  %159 = getelementptr inbounds nuw [7 x ptr], ptr @callback_funcs, i64 0, i64 %indvars.iv38.i
+  %159 = getelementptr inbounds nuw ptr, ptr @callback_funcs, i64 %indvars.iv38.i
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %.08525.i, i64 8
   store ptr %160, ptr %161, align 8

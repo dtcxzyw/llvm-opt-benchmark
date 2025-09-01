@@ -158,7 +158,7 @@ thread-pre-split.i.i:                             ; preds = %35, %thread-pre-spl
 43:                                               ; preds = %116, %.lr.ph.i.i
   %44 = phi i32 [ %40, %.lr.ph.i.i ], [ %117, %116 ]
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   %48 = add nuw i32 %44, 1
   store i32 %48, ptr %39, align 8, !tbaa !32
@@ -759,7 +759,7 @@ _ZNK9func_decl19is_left_associativeEv.exit.thread: ; preds = %_ZNK9func_decl14is
 
 28:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %29 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %30)
   %32 = load ptr, ptr %26, align 8, !tbaa !57
@@ -774,7 +774,7 @@ _ZNK9func_decl14is_associativeEv.exit50:          ; preds = %28
   br i1 %36, label %38, label %_ZNK9func_decl14is_associativeEv.exit50.thread
 
 _ZNK9func_decl14is_associativeEv.exit50.thread:   ; preds = %28, %_ZNK9func_decl14is_associativeEv.exit50
-  %37 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   br label %38
 
 38:                                               ; preds = %_ZNK9func_decl14is_associativeEv.exit50, %_ZNK9func_decl14is_associativeEv.exit50.thread

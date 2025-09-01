@@ -917,7 +917,7 @@ rvalue_stack_eagerly_release.exit:                ; preds = %RSTRING_END.exit, %
   %57 = phi ptr [ %69, %67 ], [ %53, %rvalue_stack_eagerly_release.exit ]
   %58 = load i8, ptr %57, align 1, !tbaa !62
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !63, !range !29, !noundef !30
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %json_eat_whitespace.exit.i
@@ -981,7 +981,7 @@ define internal fastcc i64 @json_parse_any(ptr noundef nonnull %0, ptr noundef %
   %11 = phi ptr [ %23, %21 ], [ %7, %2 ]
   %12 = load i8, ptr %11, align 1, !tbaa !62
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !63, !range !29, !noundef !30
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %json_eat_whitespace.exit
@@ -1594,7 +1594,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %289
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %291, %rbimpl_size_mul_or_raise.exit.i
-  %293 = getelementptr inbounds [64 x i8], ptr %4, i64 0, i64 %280
+  %293 = getelementptr inbounds i8, ptr %4, i64 %280
   store i8 0, ptr %293, align 1, !tbaa !62
   %294 = call double @rb_cstr_to_dbl(ptr noundef nonnull %4, i32 noundef 1) #20
   %295 = call i64 @rb_float_new(double noundef %294) #20
@@ -1655,7 +1655,7 @@ json_eat_whitespace.exit338.thread:               ; preds = %313
   %321 = phi ptr [ %333, %331 ], [ %314, %313 ]
   %322 = load i8, ptr %321, align 1, !tbaa !62
   %323 = zext i8 %322 to i64
-  %324 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %323
   %325 = load i8, ptr %324, align 1, !tbaa !63, !range !29, !noundef !30
   %326 = trunc nuw i8 %325 to i1
   br i1 %326, label %327, label %json_eat_whitespace.exit338
@@ -1742,7 +1742,7 @@ json_eat_whitespace.exit338:                      ; preds = %.lr.ph.i334, %331
   %370 = phi ptr [ %382, %380 ], [ %366, %.backedge ]
   %371 = load i8, ptr %370, align 1, !tbaa !62
   %372 = zext i8 %371 to i64
-  %373 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %372
   %374 = load i8, ptr %373, align 1, !tbaa !63, !range !29, !noundef !30
   %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %376, label %json_eat_whitespace.exit343
@@ -1884,7 +1884,7 @@ rvalue_stack_push.exit350:                        ; preds = %json_decode_array.e
   %444 = phi ptr [ %456, %454 ], [ %439, %438 ]
   %445 = load i8, ptr %444, align 1, !tbaa !62
   %446 = zext i8 %445 to i64
-  %447 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %446
+  %447 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %446
   %448 = load i8, ptr %447, align 1, !tbaa !63, !range !29, !noundef !30
   %449 = trunc nuw i8 %448 to i1
   br i1 %449, label %450, label %json_eat_whitespace.exit355
@@ -1950,7 +1950,7 @@ json_eat_whitespace.exit360.thread:               ; preds = %466
   %474 = phi ptr [ %486, %484 ], [ %467, %466 ]
   %475 = load i8, ptr %474, align 1, !tbaa !62
   %476 = zext i8 %475 to i64
-  %477 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %476
   %478 = load i8, ptr %477, align 1, !tbaa !63, !range !29, !noundef !30
   %479 = trunc nuw i8 %478 to i1
   br i1 %479, label %480, label %json_eat_whitespace.exit360
@@ -2039,7 +2039,7 @@ json_eat_whitespace.exit360:                      ; preds = %.lr.ph.i356, %484
   %523 = phi ptr [ %535, %533 ], [ %519, %517 ]
   %524 = load i8, ptr %523, align 1, !tbaa !62
   %525 = zext i8 %524 to i64
-  %526 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %525
   %527 = load i8, ptr %526, align 1, !tbaa !63, !range !29, !noundef !30
   %528 = trunc nuw i8 %527 to i1
   br i1 %528, label %529, label %json_eat_whitespace.exit365
@@ -2099,7 +2099,7 @@ json_eat_whitespace.exit365.thread:               ; preds = %517, %540, %json_ea
   %551 = phi ptr [ %563, %561 ], [ %547, %.backedge391 ]
   %552 = load i8, ptr %551, align 1, !tbaa !62
   %553 = zext i8 %552 to i64
-  %554 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %553
   %555 = load i8, ptr %554, align 1, !tbaa !63, !range !29, !noundef !30
   %556 = trunc nuw i8 %555 to i1
   br i1 %556, label %557, label %json_eat_whitespace.exit370
@@ -2185,7 +2185,7 @@ rvalue_stack_push.exit375:                        ; preds = %570, %582
   %595 = phi ptr [ %607, %605 ], [ %592, %591 ]
   %596 = load i8, ptr %595, align 1, !tbaa !62
   %597 = zext i8 %596 to i64
-  %598 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %597
   %599 = load i8, ptr %598, align 1, !tbaa !63, !range !29, !noundef !30
   %600 = trunc nuw i8 %599 to i1
   br i1 %600, label %601, label %json_eat_whitespace.exit380
@@ -2264,7 +2264,7 @@ json_eat_whitespace.exit380._crit_edge:           ; preds = %json_eat_whitespace
   %629 = phi ptr [ %641, %639 ], [ %625, %623 ]
   %630 = load i8, ptr %629, align 1, !tbaa !62
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw i8, ptr @whitespace, i64 %631
   %633 = load i8, ptr %632, align 1, !tbaa !63, !range !29, !noundef !30
   %634 = trunc nuw i8 %633 to i1
   br i1 %634, label %635, label %json_eat_whitespace.exit385
@@ -2406,7 +2406,7 @@ define internal fastcc i64 @json_parse_string(ptr noundef nonnull %0, ptr nounde
   %storemerge37 = phi ptr [ %286, %285 ], [ %7, %3 ]
   %11 = load i8, ptr %storemerge37, align 1, !tbaa !62
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @string_scan, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @string_scan, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !63, !range !29, !noundef !30
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %285, !prof !64
@@ -2554,7 +2554,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %55
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %76 = load i8, ptr %75, align 1, !tbaa !62
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !62
   %80 = icmp slt i8 %79, 0
   br i1 %80, label %.thread111.thread.i.i, label %81
@@ -2563,7 +2563,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %55
   %82 = getelementptr inbounds nuw i8, ptr %56, i64 3
   %83 = load i8, ptr %82, align 1, !tbaa !62
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !62
   %87 = icmp slt i8 %86, 0
   br i1 %87, label %.thread111.thread.i.i, label %88
@@ -2572,7 +2572,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %55
   %89 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %90 = load i8, ptr %89, align 1, !tbaa !62
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !62
   %94 = icmp slt i8 %93, 0
   br i1 %94, label %.thread111.thread.i.i, label %95
@@ -2581,7 +2581,7 @@ rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %55
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 5
   %97 = load i8, ptr %96, align 1, !tbaa !62
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !62
   %101 = icmp slt i8 %100, 0
   br i1 %101, label %.thread111.thread.i.i, label %unescape_unicode.exit.i.i
@@ -2629,7 +2629,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   %127 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %128 = load i8, ptr %127, align 1, !tbaa !62
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !62
   %132 = icmp slt i8 %131, 0
   br i1 %132, label %.thread111.thread120.i.i, label %133
@@ -2638,7 +2638,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   %134 = getelementptr inbounds nuw i8, ptr %56, i64 9
   %135 = load i8, ptr %134, align 1, !tbaa !62
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !62
   %139 = icmp slt i8 %138, 0
   br i1 %139, label %.thread111.thread120.i.i, label %140
@@ -2647,7 +2647,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   %141 = getelementptr inbounds nuw i8, ptr %56, i64 10
   %142 = load i8, ptr %141, align 1, !tbaa !62
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !62
   %146 = icmp slt i8 %145, 0
   br i1 %146, label %.thread111.thread120.i.i, label %147
@@ -2656,7 +2656,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   %148 = getelementptr inbounds nuw i8, ptr %56, i64 11
   %149 = load i8, ptr %148, align 1, !tbaa !62
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw [256 x i8], ptr @digit_values, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr @digit_values, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !62
   %153 = icmp slt i8 %152, 0
   br i1 %153, label %.thread111.thread120.i.i, label %154
@@ -3492,7 +3492,7 @@ define internal fastcc i64 @rsymbol_cache_fetch(ptr noundef nonnull %0, ptr noun
   %18 = add nuw nsw i32 %.03051, %.03650
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [63 x i64], ptr %16, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = tail call i64 @rb_sym2str(i64 noundef %22) #20
   %24 = inttoptr i64 %23 to ptr
@@ -3570,15 +3570,13 @@ rstring_cache_cmp.exit:                           ; preds = %RSTRING_PTR.exit.i,
 rvalue_cache_insert_at.exit:                      ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = zext nneg i32 %spec.select to i64
-  %57 = getelementptr inbounds nuw [63 x i64], ptr %55, i64 0, i64 %56
-  %58 = add nuw nsw i32 %spec.select, 1
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [63 x i64], ptr %55, i64 0, i64 %59
-  %61 = shl nuw nsw i64 %52, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %60, ptr noundef nonnull align 1 %57, i64 noundef %61, i1 noundef false) #20
-  %62 = load i32, ptr %0, align 8, !tbaa !81
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %0, align 8, !tbaa !81
+  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = shl nuw nsw i64 %52, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %58, ptr noundef nonnull align 1 %57, i64 noundef %59, i1 noundef false) #20
+  %60 = load i32, ptr %0, align 8, !tbaa !81
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %0, align 8, !tbaa !81
   store i64 %47, ptr %57, align 8, !tbaa !6
   br label %.thread
 
@@ -3619,7 +3617,7 @@ define internal fastcc i64 @rstring_cache_fetch(ptr noundef nonnull %0, ptr noun
   %18 = add nuw nsw i32 %.03051, %.03650
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [63 x i64], ptr %16, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -3695,15 +3693,13 @@ rstring_cache_cmp.exit:                           ; preds = %RSTRING_PTR.exit.i,
 rvalue_cache_insert_at.exit:                      ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = zext nneg i32 %spec.select to i64
-  %55 = getelementptr inbounds nuw [63 x i64], ptr %53, i64 0, i64 %54
-  %56 = add nuw nsw i32 %spec.select, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [63 x i64], ptr %53, i64 0, i64 %57
-  %59 = shl nuw nsw i64 %50, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %58, ptr noundef nonnull align 1 %55, i64 noundef %59, i1 noundef false) #20
-  %60 = load i32, ptr %0, align 8, !tbaa !81
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %0, align 8, !tbaa !81
+  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = shl nuw nsw i64 %50, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %56, ptr noundef nonnull align 1 %55, i64 noundef %57, i1 noundef false) #20
+  %58 = load i32, ptr %0, align 8, !tbaa !81
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %0, align 8, !tbaa !81
   store i64 %45, ptr %55, align 8, !tbaa !6
   br label %.thread
 

@@ -256,7 +256,7 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %47, i32 2
+  %48 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %47, i32 2
   %49 = load i32, ptr %48, align 4, !tbaa !51
   %50 = icmp sgt i32 %49, 4
   br i1 %50, label %51, label %52

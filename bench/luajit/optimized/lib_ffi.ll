@@ -839,7 +839,7 @@ define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr n
 33:                                               ; preds = %14
   %34 = tail call i64 @llvm.umax.i64(i64 %20, i64 -14)
   %spec.select = xor i64 %34, -1
-  %35 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
+  %35 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %36 = load ptr, ptr %35, align 8, !tbaa !45
   br label %37
 
@@ -1377,7 +1377,7 @@ ctype_raw.exit:                                   ; preds = %25
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 424
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.GCRef, ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !25
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24

@@ -283,7 +283,7 @@ define void @_ZNK2cv12MatAllocator8downloadEPNS_8UMatDataEPviPKmS5_S5_S5_(ptr no
 
 27:                                               ; preds = %25
   %28 = trunc nuw nsw i64 %23 to i32
-  %29 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv61
+  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv61
   store i32 %28, ptr %29, align 4, !tbaa !23
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
@@ -360,7 +360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %55 = mul i64 %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %.03156, i64 %55
   %57 = trunc nuw nsw i64 %31 to i32
-  %58 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -520,7 +520,7 @@ define void @_ZNK2cv12MatAllocator6uploadEPNS_8UMatDataEPKviPKmS6_S6_S6_(ptr non
 
 27:                                               ; preds = %25
   %28 = trunc nuw nsw i64 %23 to i32
-  %29 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv61
+  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv61
   store i32 %28, ptr %29, align 4, !tbaa !23
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %55 = mul i64 %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %.03156, i64 %55
   %57 = trunc nuw nsw i64 %31 to i32
-  %58 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -753,7 +753,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
 
 34:                                               ; preds = %32
   %35 = trunc nuw nsw i64 %30 to i32
-  %36 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv114
+  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv114
   store i32 %35, ptr %36, align 4, !tbaa !23
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -787,7 +787,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
   %50 = mul i64 %49, %44
   %51 = getelementptr inbounds nuw i8, ptr %.05076.us, i64 %50
   %52 = trunc nuw nsw i64 %38 to i32
-  %53 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv109
+  %53 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv109
   store i32 %52, ptr %53, align 4, !tbaa !23
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
@@ -826,7 +826,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
   %68 = mul i64 %67, %62
   %69 = getelementptr inbounds nuw i8, ptr %.05275.us82, i64 %68
   %70 = trunc nuw nsw i64 %56 to i32
-  %71 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv104
+  %71 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv104
   store i32 %70, ptr %71, align 4, !tbaa !23
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
@@ -911,7 +911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %101 = mul i64 %98, %100
   %102 = getelementptr inbounds nuw i8, ptr %.05076, i64 %101
   %103 = trunc nuw nsw i64 %73 to i32
-  %104 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 %103, ptr %104, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107

@@ -99,7 +99,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %if.end3, %for.cond
   %cmp4 = phi i1 [ true, %if.end3 ], [ false, %for.cond ]
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ 1, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %cmp6 = icmp eq i8 %0, %1
   br i1 %cmp6, label %if.then7, label %for.cond
@@ -138,7 +138,7 @@ for.cond23.us:                                    ; preds = %for.body25.us
 for.body25.us:                                    ; preds = %for.cond23.preheader.us, %for.cond23.us
   %cmp24.us = phi i1 [ true, %for.cond23.preheader.us ], [ false, %for.cond23.us ]
   %indvars.iv69 = phi i64 [ 0, %for.cond23.preheader.us ], [ 1, %for.cond23.us ]
-  %arrayidx29.us = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv69
+  %arrayidx29.us = getelementptr inbounds nuw i8, ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 %indvars.iv69
   %6 = load i8, ptr %arrayidx29.us, align 1
   %cmp31.us = icmp eq i8 %8, %6
   br i1 %cmp31.us, label %if.then38.us, label %for.cond23.us
@@ -184,7 +184,7 @@ for.cond23:                                       ; preds = %for.body25
 for.body25:                                       ; preds = %for.cond23.preheader, %for.cond23
   %cmp24 = phi i1 [ true, %for.cond23.preheader ], [ false, %for.cond23 ]
   %indvars.iv63 = phi i64 [ 0, %for.cond23.preheader ], [ 1, %for.cond23 ]
-  %arrayidx29 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv63
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 %indvars.iv63
   %11 = load i8, ptr %arrayidx29, align 1
   %cmp31 = icmp eq i8 %10, %11
   br i1 %cmp31, label %if.then38, label %for.cond23
@@ -313,7 +313,7 @@ for.body7.lr.ph:                                  ; preds = %for.body
 
 for.end:                                          ; preds = %for.body7.lr.ph, %for.body
   %c.0.lcssa = phi i64 [ 0, %for.body ], [ %cond, %for.body7.lr.ph ]
-  %arrayidx9 = getelementptr inbounds nuw [1025 x i8], ptr %buffer, i64 0, i64 %c.0.lcssa
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %buffer, i64 %c.0.lcssa
   store i8 0, ptr %arrayidx9, align 1
   call void @_ZN2EA6EAMain8InternalL13ReportDefaultEPKc(ptr noundef nonnull %buffer)
   %add11 = add i64 %cond, %i.018

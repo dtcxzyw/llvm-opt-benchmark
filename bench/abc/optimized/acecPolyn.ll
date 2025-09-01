@@ -533,7 +533,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i66, %Vec_In
   %58 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %59 = urem i32 %58, 7
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !52
   %63 = mul i32 %62, %57
   %64 = add i32 %63, %.012.i70
@@ -589,7 +589,7 @@ Hsh_VecManHash.exit:                              ; preds = %55, %47
   %86 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %87 = urem i32 %86, 7
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr @Hsh_VecManHash.s_Primes, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !52
   %91 = mul i32 %90, %85
   %92 = add i32 %91, %.012.i80
@@ -1787,7 +1787,7 @@ define void @Gia_PolynBuildOne(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 53:                                               ; preds = %40, %102
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %102 ]
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %51, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 0, ptr %56, align 4, !tbaa !30

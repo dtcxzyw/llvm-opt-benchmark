@@ -138,7 +138,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.
 
 52:                                               ; preds = %43
   %53 = zext nneg i32 %18 to i64
-  %54 = getelementptr inbounds nuw [11 x %"struct.duckdb_zstd::FASTCOVER_accel_t"], ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %"struct.duckdb_zstd::FASTCOVER_accel_t", ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %53
   %.sroa.011.0.copyload = load i64, ptr %54, align 8
   %55 = call fastcc noundef i64 @_ZN11duckdb_zstdL18FASTCOVER_ctx_initEPNS_15FASTCOVER_ctx_tEPKvPKmjjdjNS_17FASTCOVER_accel_tE(ptr noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.249.0.copyload, double noundef 1.000000e+00, i32 noundef %15, i64 %.sroa.011.0.copyload)
   %56 = icmp ult i64 %55, -119
@@ -927,7 +927,7 @@ define noundef i64 @_ZN11duckdb_zstd39ZDICT_optimizeTrainFromBuffer_fastCoverEPv
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %95, i64 12, i1 false)
   %96 = zext nneg i32 %41 to i64
-  %97 = getelementptr inbounds nuw [11 x %"struct.duckdb_zstd::FASTCOVER_accel_t"], ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw %"struct.duckdb_zstd::FASTCOVER_accel_t", ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %96
   %.sroa.0100.0.copyload = load i64, ptr %97, align 8
   %98 = call i32 @llvm.usub.sat.i32(i32 %43, i32 1)
   store i32 %98, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10

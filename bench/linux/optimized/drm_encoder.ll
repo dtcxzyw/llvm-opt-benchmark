@@ -174,7 +174,7 @@ define internal fastcc i32 @__drm_encoder_init(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %15
   %22 = sext i32 %3 to i64
-  %23 = getelementptr [9 x %struct.drm_prop_enum_list], ptr @drm_encoder_enum_list, i64 0, i64 %22, i32 1
+  %23 = getelementptr %struct.drm_prop_enum_list, ptr @drm_encoder_enum_list, i64 %22, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %12, align 8
   %26 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.1, ptr noundef %24, i32 noundef %25) #5

@@ -142,7 +142,7 @@ define hidden void @_ZN6Assimp3MD217LookupNormalIndexEhR10aiVector3tIfE(i8 nound
 6:                                                ; preds = %4, %2
   %.0 = phi i8 [ -95, %4 ], [ %0, %2 ]
   %7 = zext i8 %.0 to i64
-  %8 = getelementptr inbounds nuw [162 x [3 x float]], ptr @_ZL11g_avNormals, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x float], ptr @_ZL11g_avNormals, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   ret void
 }
@@ -1257,7 +1257,7 @@ _ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit174: ; preds = 
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %178 = and i64 %175, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull align 1 %167, i64 %178, i1 false)
-  %179 = getelementptr inbounds nuw [1024 x i8], ptr %177, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %178
   store i8 0, ptr %179, align 1
   store i32 %176, ptr %7, align 4
   %180 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull %7, ptr noundef nonnull @.str.28, i32 noundef 1, i32 noundef 0)
@@ -1586,7 +1586,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
 313:                                              ; preds = %283, %399
   %indvars.iv = phi i64 [ 0, %283 ], [ %indvars.iv.next, %399 ]
   %.1121226 = phi i32 [ %.0120228, %283 ], [ %407, %399 ]
-  %314 = getelementptr inbounds nuw [3 x i16], ptr %294, i64 0, i64 %indvars.iv
+  %314 = getelementptr inbounds nuw i16, ptr %294, i64 %indvars.iv
   %315 = load i16, ptr %314, align 1
   %316 = zext i16 %315 to i32
   %317 = load ptr, ptr %68, align 8
@@ -1668,7 +1668,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
 365:                                              ; preds = %330, %.noexc183
   %.0.i = phi i8 [ %361, %330 ], [ -95, %.noexc183 ]
   %366 = zext i8 %.0.i to i64
-  %367 = getelementptr inbounds nuw [162 x [3 x float]], ptr @_ZL11g_avNormals, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [3 x float], ptr @_ZL11g_avNormals, i64 %366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %359, ptr noundef nonnull align 4 dereferenceable(12) %367, i64 12, i1 false)
   %368 = load ptr, ptr %68, align 8
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 28
@@ -1677,7 +1677,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %.not150, label %399, label %371
 
 371:                                              ; preds = %365
-  %372 = getelementptr inbounds nuw [3 x i16], ptr %295, i64 0, i64 %indvars.iv
+  %372 = getelementptr inbounds nuw i16, ptr %295, i64 %indvars.iv
   %373 = load i16, ptr %372, align 1
   %374 = zext i16 %373 to i32
   %.not151 = icmp ugt i32 %370, %374

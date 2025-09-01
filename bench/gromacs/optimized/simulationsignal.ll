@@ -133,19 +133,19 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 
 .split.us:                                        ; preds = %5, %16
   %.012.us = phi i64 [ %18, %16 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.012.us
+  %11 = getelementptr inbounds nuw float, ptr %10, i64 %.012.us
   %12 = load float, ptr %11, align 4, !tbaa !22
   %13 = fptosi float %12 to i8
   %.not.us = icmp eq i8 %13, 0
   br i1 %.not.us, label %16, label %14
 
 14:                                               ; preds = %.split.us
-  %15 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012.us, i32 1
+  %15 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %6, i64 %.012.us, i32 1
   store i8 %13, ptr %15, align 1, !tbaa !48
   br label %16
 
 16:                                               ; preds = %14, %.split.us
-  %17 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012.us
+  %17 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %6, i64 %.012.us
   store i8 0, ptr %17, align 1, !tbaa !20
   %18 = add nuw nsw i64 %.012.us, 1
   %exitcond14.not = icmp eq i64 %18, 3
@@ -153,25 +153,25 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr noundef nonnull read
 
 .split:                                           ; preds = %5, %30
   %.012 = phi i64 [ %31, %30 ], [ 0, %5 ]
-  %19 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 2
+  %19 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %6, i64 %.012, i32 2
   %20 = load i8, ptr %19, align 1, !tbaa !50, !range !18, !noundef !19
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %.split
-  %23 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.012
+  %23 = getelementptr inbounds nuw float, ptr %10, i64 %.012
   %24 = load float, ptr %23, align 4, !tbaa !22
   %25 = fptosi float %24 to i8
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 1
+  %27 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %6, i64 %.012, i32 1
   store i8 %25, ptr %27, align 1, !tbaa !48
   br label %28
 
 28:                                               ; preds = %26, %22
-  %29 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012
+  %29 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %6, i64 %.012
   store i8 0, ptr %29, align 1, !tbaa !20
   br label %30
 
@@ -242,19 +242,19 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 
 .split.us.i:                                      ; preds = %29, %39
   %.012.us.i = phi i64 [ %41, %39 ], [ 0, %29 ]
-  %34 = getelementptr inbounds nuw [3 x float], ptr %33, i64 0, i64 %.012.us.i
+  %34 = getelementptr inbounds nuw float, ptr %33, i64 %.012.us.i
   %35 = load float, ptr %34, align 4, !tbaa !22
   %36 = fptosi float %35 to i8
   %.not.us.i = icmp eq i8 %36, 0
   br i1 %.not.us.i, label %39, label %37
 
 37:                                               ; preds = %.split.us.i
-  %38 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.us.i, i32 1
+  %38 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %30, i64 %.012.us.i, i32 1
   store i8 %36, ptr %38, align 1, !tbaa !48
   br label %39
 
 39:                                               ; preds = %37, %.split.us.i
-  %40 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.us.i
+  %40 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %30, i64 %.012.us.i
   store i8 0, ptr %40, align 1, !tbaa !20
   %41 = add nuw nsw i64 %.012.us.i, 1
   %exitcond14.not.i = icmp eq i64 %41, 3
@@ -262,25 +262,25 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
 
 .split.i:                                         ; preds = %29, %53
   %.012.i = phi i64 [ %54, %53 ], [ 0, %29 ]
-  %42 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 2
+  %42 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %30, i64 %.012.i, i32 2
   %43 = load i8, ptr %42, align 1, !tbaa !50, !range !18, !noundef !19
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %.split.i
-  %46 = getelementptr inbounds nuw [3 x float], ptr %33, i64 0, i64 %.012.i
+  %46 = getelementptr inbounds nuw float, ptr %33, i64 %.012.i
   %47 = load float, ptr %46, align 4, !tbaa !22
   %48 = fptosi float %47 to i8
   %.not.i1 = icmp eq i8 %48, 0
   br i1 %.not.i1, label %51, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 1
+  %50 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %30, i64 %.012.i, i32 1
   store i8 %48, ptr %50, align 1, !tbaa !48
   br label %51
 
 51:                                               ; preds = %49, %45
-  %52 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i
+  %52 = getelementptr inbounds nuw %"class.gmx::SimulationSignal", ptr %30, i64 %.012.i
   store i8 0, ptr %52, align 1, !tbaa !20
   br label %53
 

@@ -378,7 +378,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %23, %php_dom_follow
   store i64 %35, ptr %41, align 8, !tbaa !72
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr align 1 %33, i64 range(i64 -2147483648, 2147483648) %35, i1 false)
-  %43 = getelementptr inbounds nuw [1 x i8], ptr %42, i64 0, i64 %35
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %35
   store i8 0, ptr %43, align 1, !tbaa !38
   store ptr %38, ptr %1, align 8, !tbaa !38
   br label %44

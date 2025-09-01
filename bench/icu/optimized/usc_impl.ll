@@ -236,7 +236,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %45 = lshr i32 %.01720.i, 1
   %46 = add nsw i32 %45, %.121.i
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !22
   %.not18.i = icmp slt i32 %.071, %49
   %spec.select19.i = select i1 %.not18.i, i32 %.121.i, i32 %46
@@ -245,7 +245,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
 
 _ZL12getPairIndexi.exit:                          ; preds = %44
   %51 = sext i32 %spec.select19.i to i64
-  %52 = getelementptr inbounds [34 x i32], ptr @_ZL11pairedChars, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %.not.i = icmp eq i32 %53, %.071
   %spec.store.select.i = select i1 %.not.i, i32 %spec.select19.i, i32 -1
@@ -272,7 +272,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   %67 = srem i32 %66, 32
   store i32 %67, ptr %17, align 4, !tbaa !17
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %68
+  %69 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %68
   store i32 %spec.store.select.i, ptr %69, align 4, !tbaa !25
   %.idx.i = shl nsw i64 %68, 3
   %70 = getelementptr i8, ptr %16, i64 %.idx.i
@@ -293,7 +293,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   %76 = phi i32 [ %.promoted102, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
   %77 = phi i32 [ %58, %.lr.ph ], [ %86, %_ZL3popP10UScriptRun.exit ]
   %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %78
+  %79 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !25
   %.not84 = icmp eq i32 %80, %73
   br i1 %.not84, label %.critedge, label %81

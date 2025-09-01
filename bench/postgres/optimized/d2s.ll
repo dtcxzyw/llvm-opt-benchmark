@@ -96,7 +96,7 @@ define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef captu
   %46 = mul nsw i32 %45, 1217359
   %47 = lshr i32 %46, 19
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw [292 x [2 x i64]], ptr @DOUBLE_POW5_INV_SPLIT, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i64], ptr @DOUBLE_POW5_INV_SPLIT, i64 %48
   %.val.i = load i64, ptr %49, align 16
   %50 = getelementptr i8, ptr %49, i64 8
   %.val169.i = load i64, ptr %50, align 8
@@ -186,7 +186,7 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %105 = lshr i32 %104, 19
   %106 = add nsw i32 %102, %.0.i20
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds [326 x [2 x i64]], ptr @DOUBLE_POW5_SPLIT, i64 0, i64 %107
+  %108 = getelementptr inbounds [2 x i64], ptr @DOUBLE_POW5_SPLIT, i64 %107
   %.val170.i = load i64, ptr %108, align 16
   %109 = getelementptr i8, ptr %108, i64 8
   %.val171.i = load i64, ptr %109, align 8
@@ -828,93 +828,91 @@ to_chars_df.exit.i:                               ; preds = %379, %375
   %.2138.i = phi i32 [ %471, %456 ], [ %.1137.lcssa.i, %._crit_edge.i24 ]
   %.1135.i = phi i32 [ %.zext146.i, %456 ], [ %.0134.lcssa.i, %._crit_edge.i24 ]
   %473 = icmp samesign ugt i32 %.1135.i, 9
-  br i1 %473, label %474, label %487
+  br i1 %473, label %474, label %485
 
 474:                                              ; preds = %472
   %475 = shl nuw nsw i32 %.1135.i, 1
-  %476 = or disjoint i32 %475, 1
-  %477 = zext nneg i32 %476 to i64
-  %478 = getelementptr inbounds nuw [200 x i8], ptr @DIGIT_TABLE, i64 0, i64 %477
+  %476 = zext nneg i32 %475 to i64
+  %477 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %476
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 1
   %479 = load i8, ptr %478, align 1
   %480 = add i32 %.0129.i, %.0124.i
   %481 = sub i32 %480, %.2138.i
   %482 = zext i32 %481 to i64
   %483 = getelementptr inbounds nuw i8, ptr %1, i64 %482
   store i8 %479, ptr %483, align 1
-  %484 = zext nneg i32 %475 to i64
-  %485 = getelementptr inbounds nuw [200 x i8], ptr @DIGIT_TABLE, i64 0, i64 %484
-  %486 = load i8, ptr %485, align 2
-  br label %490
+  %484 = load i8, ptr %477, align 2
+  br label %488
 
-487:                                              ; preds = %472
-  %488 = trunc nuw nsw i32 %.1135.i to i8
-  %489 = or disjoint i8 %488, 48
-  br label %490
+485:                                              ; preds = %472
+  %486 = trunc nuw nsw i32 %.1135.i to i8
+  %487 = or disjoint i8 %486, 48
+  br label %488
 
-490:                                              ; preds = %487, %474
-  %.sink.i = phi i8 [ %489, %487 ], [ %486, %474 ]
-  %491 = zext nneg i32 %.0124.i to i64
-  %492 = getelementptr inbounds nuw i8, ptr %1, i64 %491
-  store i8 %.sink.i, ptr %492, align 1
-  %493 = icmp ugt i32 %.0129.i, 1
-  br i1 %493, label %494, label %497
+488:                                              ; preds = %485, %474
+  %.sink.i = phi i8 [ %487, %485 ], [ %484, %474 ]
+  %489 = zext nneg i32 %.0124.i to i64
+  %490 = getelementptr inbounds nuw i8, ptr %1, i64 %489
+  store i8 %.sink.i, ptr %490, align 1
+  %491 = icmp ugt i32 %.0129.i, 1
+  br i1 %491, label %492, label %495
 
-494:                                              ; preds = %490
-  %495 = getelementptr inbounds nuw i8, ptr %492, i64 1
-  store i8 46, ptr %495, align 1
-  %496 = add i32 %.0129.i, 1
-  br label %497
+492:                                              ; preds = %488
+  %493 = getelementptr inbounds nuw i8, ptr %490, i64 1
+  store i8 46, ptr %493, align 1
+  %494 = add i32 %.0129.i, 1
+  br label %495
 
-497:                                              ; preds = %494, %490
-  %.pn.i = phi i32 [ %496, %494 ], [ 1, %490 ]
+495:                                              ; preds = %492, %488
+  %.pn.i = phi i32 [ %494, %492 ], [ 1, %488 ]
   %.1.i25 = add i32 %.pn.i, %.0124.i
-  %498 = add i32 %.1.i25, 1
-  %499 = sext i32 %.1.i25 to i64
-  %500 = getelementptr inbounds i8, ptr %1, i64 %499
-  store i8 101, ptr %500, align 1
-  %501 = icmp slt i32 %232, 0
-  %502 = sext i32 %498 to i64
-  %503 = getelementptr inbounds i8, ptr %1, i64 %502
-  %504 = sub i32 1, %231
-  %spec.select = select i1 %501, i8 45, i8 43
-  %spec.select89 = select i1 %501, i32 %504, i32 %232
-  store i8 %spec.select, ptr %503, align 1
+  %496 = add i32 %.1.i25, 1
+  %497 = sext i32 %.1.i25 to i64
+  %498 = getelementptr inbounds i8, ptr %1, i64 %497
+  store i8 101, ptr %498, align 1
+  %499 = icmp slt i32 %232, 0
+  %500 = sext i32 %496 to i64
+  %501 = getelementptr inbounds i8, ptr %1, i64 %500
+  %502 = sub i32 1, %231
+  %spec.select = select i1 %499, i8 45, i8 43
+  %spec.select89 = select i1 %499, i32 %502, i32 %232
+  store i8 %spec.select, ptr %501, align 1
   %.2.i = add i32 %.1.i25, 2
-  %505 = icmp sgt i32 %spec.select89, 99
-  br i1 %505, label %506, label %521
+  %503 = icmp sgt i32 %spec.select89, 99
+  br i1 %503, label %504, label %519
 
-506:                                              ; preds = %497
-  %507 = urem i32 %spec.select89, 10
-  %508 = sext i32 %.2.i to i64
-  %509 = getelementptr inbounds i8, ptr %1, i64 %508
-  %510 = udiv i32 %spec.select89, 10
-  %511 = shl nuw nsw i32 %510, 1
-  %512 = zext nneg i32 %511 to i64
-  %513 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %512
-  %514 = load i16, ptr %513, align 2
-  store i16 %514, ptr %509, align 1
-  %515 = trunc nuw nsw i32 %507 to i8
-  %516 = or disjoint i8 %515, 48
-  %517 = add i32 %.1.i25, 4
-  %518 = sext i32 %517 to i64
-  %519 = getelementptr inbounds i8, ptr %1, i64 %518
-  store i8 %516, ptr %519, align 1
-  %520 = add i32 %.1.i25, 5
+504:                                              ; preds = %495
+  %505 = urem i32 %spec.select89, 10
+  %506 = sext i32 %.2.i to i64
+  %507 = getelementptr inbounds i8, ptr %1, i64 %506
+  %508 = udiv i32 %spec.select89, 10
+  %509 = shl nuw nsw i32 %508, 1
+  %510 = zext nneg i32 %509 to i64
+  %511 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %510
+  %512 = load i16, ptr %511, align 2
+  store i16 %512, ptr %507, align 1
+  %513 = trunc nuw nsw i32 %505 to i8
+  %514 = or disjoint i8 %513, 48
+  %515 = add i32 %.1.i25, 4
+  %516 = sext i32 %515 to i64
+  %517 = getelementptr inbounds i8, ptr %1, i64 %516
+  store i8 %514, ptr %517, align 1
+  %518 = add i32 %.1.i25, 5
   br label %copy_special_str.exit
 
-521:                                              ; preds = %497
-  %522 = sext i32 %.2.i to i64
-  %523 = getelementptr inbounds i8, ptr %1, i64 %522
-  %524 = shl i32 %spec.select89, 1
-  %525 = sext i32 %524 to i64
-  %526 = getelementptr inbounds i8, ptr @DIGIT_TABLE, i64 %525
-  %527 = load i16, ptr %526, align 2
-  store i16 %527, ptr %523, align 1
-  %528 = add i32 %.1.i25, 4
+519:                                              ; preds = %495
+  %520 = sext i32 %.2.i to i64
+  %521 = getelementptr inbounds i8, ptr %1, i64 %520
+  %522 = shl i32 %spec.select89, 1
+  %523 = sext i32 %522 to i64
+  %524 = getelementptr inbounds i8, ptr @DIGIT_TABLE, i64 %523
+  %525 = load i16, ptr %524, align 2
+  store i16 %525, ptr %521, align 1
+  %526 = add i32 %.1.i25, 4
   br label %copy_special_str.exit
 
-copy_special_str.exit:                            ; preds = %521, %506, %to_chars_df.exit.i, %20, %18, %14
-  %.0 = phi i32 [ 3, %14 ], [ %19, %18 ], [ %21, %20 ], [ %383, %to_chars_df.exit.i ], [ %520, %506 ], [ %528, %521 ]
+copy_special_str.exit:                            ; preds = %519, %504, %to_chars_df.exit.i, %20, %18, %14
+  %.0 = phi i32 [ 3, %14 ], [ %19, %18 ], [ %21, %20 ], [ %383, %to_chars_df.exit.i ], [ %518, %504 ], [ %526, %519 ]
   ret i32 %.0
 }
 

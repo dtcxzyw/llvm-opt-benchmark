@@ -251,7 +251,7 @@ define internal fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0) unnamed_ad
 
 39:                                               ; preds = %3
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw [6719 x %"struct.(anonymous namespace)::StaticDiagInfoRec"], ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagInfoRec", ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !11
   %43 = zext i16 %42 to i32
   %.not = icmp eq i32 %0, %43
@@ -344,7 +344,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [41 x %"struct.(anonymous namespace)::StaticDiagCategoryRec"], ptr @_ZL17CategoryNameTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %4
   %.val = load ptr, ptr %5, align 16, !tbaa !17
   %6 = getelementptr i8, ptr %5, i64 8
   %.val2 = load i8, ptr %6, align 8, !tbaa !20
@@ -1087,7 +1087,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13DiagnosticIDs14getDescriptionEj(ptr n
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %5, ptrtoint (ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE to i64)
   %7 = sdiv exact i64 %6, 10
-  %8 = getelementptr inbounds nuw [6719 x i32], ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !77
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_126StaticDiagInfoDescriptionsE, i64 %10
@@ -1582,7 +1582,7 @@ declare noundef zeroext i1 @_ZNK5clang17DiagnosticsEngine22isSuppressedViaMappin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumentationENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2, i32 3
+  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2, i32 3
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !132
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
@@ -1594,7 +1594,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs24getWarningOptionForGroupENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2
+  %3 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %2
   %.val = load i16, ptr %3, align 8, !tbaa !133
   %4 = zext i16 %.val to i64
   %5 = getelementptr inbounds nuw i8, ptr @_ZL21DiagGroupNamesStorage, i64 %4
@@ -1761,7 +1761,7 @@ _ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit: ; preds = %2
 18:                                               ; preds = %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit
   %.sroa.0.0.i13 = phi i32 [ %7, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread ], [ %.sroa.0.0.extract.trunc.i, %_ZNK5clang13DiagnosticIDs15getGroupForDiagEj.exit ]
   %19 = sext i32 %.sroa.0.0.i13 to i64
-  %20 = getelementptr inbounds [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %19
+  %20 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %19
   %.val.i2 = load i16, ptr %20, align 8, !tbaa !133
   %21 = zext i16 %.val.i2 to i64
   %22 = getelementptr inbounds nuw i8, ptr @_ZL21DiagGroupNamesStorage, i64 %21
@@ -2165,7 +2165,7 @@ _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEE
 _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit: ; preds = %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit.loopexit, %11, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit, %8
   %50 = phi ptr [ %.pre, %_ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit.loopexit ], [ %10, %11 ], [ %10, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %10, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i ], [ %10, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit ], [ null, %8 ]
   %51 = and i64 %6, 4294967295
-  %52 = getelementptr inbounds nuw [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %51
   %53 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %1, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %50)
   br label %54
 
@@ -2274,7 +2274,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %28, %31
   %.244.us = phi i1 [ %57, %.split.us ], [ %.024.lcssa, %.lr.ph46 ]
   %.02543.us = phi ptr [ %58, %.split.us ], [ %46, %.lr.ph46 ]
   %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %54
+  %55 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %54
   %56 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef null)
   %57 = and i1 %.244.us, %56
   %58 = getelementptr inbounds nuw i8, ptr %.02543.us, i64 2
@@ -2362,7 +2362,7 @@ _ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i:
 
 _ZN4llvm4copyINS_8ArrayRefIjEESt20back_insert_iteratorINS_15SmallVectorImplIjEEEEET0_OT_S7_.exit: ; preds = %_ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIjEEEaSERKj.exit.i.i.i.i.i.i, %.split28, %_ZNKSt8_Rb_treeIN5clang4diag5GroupESt4pairIKS2_St6vectorIjSaIjEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNKSt3mapIN5clang4diag5GroupESt6vectorIjSaIjEESt4lessIS2_ESaISt4pairIKS2_S5_EEE4findERS9_.exit.i, %_ZNK5clang4diag14CustomDiagInfo15getDiagsInGroupENS0_5GroupE.exit
   %95 = sext i16 %60 to i64
-  %96 = getelementptr inbounds [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %95
+  %96 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %95
   %97 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEEPNS0_14CustomDiagInfoE(i32 noundef %0, ptr noundef nonnull %96, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3)
   %98 = and i1 %.244, %97
   %99 = getelementptr inbounds nuw i8, ptr %.02543, i64 2
@@ -2394,7 +2394,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringR
   %13 = and i8 %11, -8
   %14 = or disjoint i8 %13, %12
   store i8 %14, ptr %10, align 4
-  %15 = getelementptr [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %8, i32 2
+  %15 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %8, i32 2
   %.val3.i = load i16, ptr %15, align 4, !tbaa !165
   call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val3.i, ptr nonnull readonly %0, ptr nonnull readonly %5)
   br label %16
@@ -2433,7 +2433,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llv
   %17 = and i8 %15, -9
   %18 = or disjoint i8 %17, %16
   store i8 %18, ptr %14, align 4
-  %19 = getelementptr [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %11, i32 2
+  %19 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %11, i32 2
   %.val.i = load i16, ptr %19, align 4, !tbaa !165
   call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val.i, ptr noundef nonnull byval(%class.anon.157) align 8 %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2455,7 +2455,7 @@ define dso_local void @_ZN5clang13DiagnosticIDs17getAllDiagnosticsENS_4diag6Flav
 
 6:                                                ; preds = %2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %7 = getelementptr inbounds nuw [6719 x %"struct.(anonymous namespace)::StaticDiagInfoRec"], ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagInfoRec", ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE, i64 %indvars.iv
   %8 = getelementptr i8, ptr %7, i64 2
   %.val = load i32, ptr %8, align 2
   %9 = and i32 %.val, 56
@@ -3045,7 +3045,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i: ; preds = %24
 _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.thread.i: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i, %24
   %spec.select.i4.i = phi i32 [ %29, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i ], [ 0, %24 ]
   %31 = zext nneg i32 %spec.select.i4.i to i64
-  %32 = getelementptr inbounds nuw [41 x %"struct.(anonymous namespace)::StaticDiagCategoryRec"], ptr @_ZL17CategoryNameTable, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %31
   %33 = getelementptr i8, ptr %32, i64 8
   %.val2.i.i = load i8, ptr %33, align 8, !tbaa !20
   %34 = icmp ult i8 %.val2.i.i, 4
@@ -3071,7 +3071,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10: ; preds = %_ZN5cl
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10, %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit.thread
   %spec.select.i3.i = phi i32 [ %.pre20, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10 ], [ 0, %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit.thread ]
   %37 = zext nneg i32 %spec.select.i3.i to i64
-  %38 = getelementptr inbounds nuw [41 x %"struct.(anonymous namespace)::StaticDiagCategoryRec"], ptr @_ZL17CategoryNameTable, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val2.i.i11 = load i8, ptr %39, align 8, !tbaa !20
   %40 = icmp eq i8 %.val2.i.i11, 17
@@ -3159,7 +3159,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
 _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.thread: ; preds = %1, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit
   %spec.select.i4 = phi i32 [ %6, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ 0, %1 ]
   %8 = zext nneg i32 %spec.select.i4 to i64
-  %9 = getelementptr inbounds nuw [41 x %"struct.(anonymous namespace)::StaticDiagCategoryRec"], ptr @_ZL17CategoryNameTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val2.i = load i8, ptr %10, align 8, !tbaa !20
   %11 = icmp ult i8 %.val2.i, 4
@@ -3193,7 +3193,7 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit, %1
   %spec.select.i3 = phi i32 [ %6, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ 0, %1 ]
   %8 = zext nneg i32 %spec.select.i3 to i64
-  %9 = getelementptr inbounds nuw [41 x %"struct.(anonymous namespace)::StaticDiagCategoryRec"], ptr @_ZL17CategoryNameTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val2.i = load i8, ptr %10, align 8, !tbaa !20
   %11 = icmp eq i8 %.val2.i, 17
@@ -4152,7 +4152,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !228
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !229
   br label %49
 
@@ -4623,7 +4623,7 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16
   %13 = and i8 %11, -8
   %14 = or disjoint i8 %13, %12
   store i8 %14, ptr %10, align 4
-  %15 = getelementptr [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %9, i32 2
+  %15 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %9, i32 2
   %.val6 = load i16, ptr %15, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs16setGroupSeverityEN4llvm9StringRefENS0_4diag8SeverityEE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val6, ptr %0, ptr nonnull %1)
   %16 = getelementptr inbounds nuw i8, ptr %.02, i64 2
@@ -4666,7 +4666,7 @@ define internal fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25
   %21 = or disjoint i8 %20, %19
   store i8 %21, ptr %17, align 4
   %22 = sext i16 %12 to i64
-  %23 = getelementptr [1073 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %22, i32 2
+  %23 = getelementptr %"struct.(anonymous namespace)::WarningOption", ptr @_ZL11OptionTable, i64 %22, i32 2
   %.val = load i16, ptr %23, align 4, !tbaa !165
   tail call fastcc void @"_ZL19forEachSubGroupImplIZN5clang13DiagnosticIDs25setGroupNoWarningsAsErrorEN4llvm9StringRefEbE3$_0EvPKN12_GLOBAL__N_113WarningOptionET_"(i16 %.val, ptr noundef nonnull byval(%class.anon.157) align 8 %0)
   %24 = getelementptr inbounds nuw i8, ptr %.02, i64 2

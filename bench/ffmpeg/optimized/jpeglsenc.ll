@@ -215,7 +215,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_picture_ls(ptr noundef %0,
   %79 = load i8, ptr %78, align 1, !tbaa !46
   %80 = zext i8 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %.2201, i64 %indvars.iv246
-  %82 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv246
+  %82 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv246
   %83 = load i32, ptr %82, align 4, !tbaa !34
   %84 = trunc nuw nsw i64 %indvars.iv246 to i32
   call fastcc void @ls_encode_line(ptr noundef %7, ptr noundef %6, ptr noundef %78, ptr noundef %81, i32 noundef %83, i32 noundef %73, i32 noundef 3, i32 noundef %84, i32 noundef 8)
@@ -259,7 +259,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_picture_ls(ptr noundef %0,
   %101 = load i8, ptr %100, align 1, !tbaa !46
   %102 = zext i8 %101 to i32
   %103 = getelementptr inbounds nuw i8, ptr %.3198, i64 %indvars.iv
-  %104 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !34
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @ls_encode_line(ptr noundef %7, ptr noundef %6, ptr noundef %100, ptr noundef %103, i32 noundef %105, i32 noundef %95, i32 noundef 3, i32 noundef %106, i32 noundef 8)
@@ -680,7 +680,7 @@ define internal fastcc void @ls_encode_line(ptr noundef nonnull %0, ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 5900
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 5908
   %23 = sext i32 %7 to i64
-  %24 = getelementptr inbounds [4 x i32], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -829,7 +829,7 @@ define internal fastcc void @ls_encode_line(ptr noundef nonnull %0, ptr noundef 
   %.lcssa = phi i1 [ true, %.preheader ], [ %.not264.not.not.not, %.critedge.loopexit ]
   %94 = load i32, ptr %24, align 4, !tbaa !34
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %95
+  %96 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !46
   %98 = zext nneg i8 %97 to i32
   %99 = shl nuw i32 1, %98
@@ -881,7 +881,7 @@ put_bits.exit.i:                                  ; preds = %121, %113, %103
   store i32 %122, ptr %25, align 4, !tbaa !39
   %123 = load i32, ptr %24, align 4, !tbaa !34
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %124
+  %125 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !46
   %127 = zext nneg i8 %126 to i32
   %.neg.i = shl nsw i32 -1, %127
@@ -893,7 +893,7 @@ put_bits.exit.i:                                  ; preds = %121, %113, %103
   %131 = add nsw i32 %123, 1
   store i32 %131, ptr %24, align 4, !tbaa !34
   %.pre.i = sext i32 %131 to i64
-  %.phi.trans.insert.i = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %.pre.i
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr @ff_log2_run, i64 %.pre.i
   %.pre42.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !46
   %.pre43.i = zext nneg i8 %.pre42.i to i32
   br label %132
@@ -989,7 +989,7 @@ put_bits.exit33.i:                                ; preds = %177, %172, %163
   store i32 %178, ptr %25, align 4, !tbaa !39
   %179 = load i32, ptr %24, align 4, !tbaa !34
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %180
+  %181 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %180
   %182 = load i8, ptr %181, align 1, !tbaa !46
   %.not25.i = icmp eq i8 %182, 0
   br i1 %.not25.i, label %ls_encode_run.exit.thread, label %183
@@ -1158,12 +1158,12 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
   %spec.select437 = add nsw i32 %.2240329, %260
   %261 = load i32, ptr %24, align 4, !tbaa !34
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [41 x i8], ptr @ff_log2_run, i64 0, i64 %262
+  %263 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !46
   %265 = select i1 %221, i64 366, i64 365
-  %266 = getelementptr inbounds nuw [367 x i32], ptr %31, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i32, ptr %31, i64 %265
   %267 = load i32, ptr %266, align 4, !tbaa !34
-  %.phi.trans.insert47.i = getelementptr inbounds nuw [367 x i32], ptr %.phi.trans.insert.i289, i64 0, i64 %265
+  %.phi.trans.insert47.i = getelementptr inbounds nuw i32, ptr %.phi.trans.insert.i289, i64 %265
   %.pre.i290 = load i32, ptr %.phi.trans.insert47.i, align 4, !tbaa !34
   %268 = ashr i32 %.pre.i290, 1
   %269 = select i1 %221, i32 %268, i32 0
@@ -1190,7 +1190,7 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
   br i1 %or.cond.i293, label %281, label %286
 
 281:                                              ; preds = %274
-  %282 = getelementptr inbounds nuw [367 x i32], ptr %32, i64 0, i64 %265
+  %282 = getelementptr inbounds nuw i32, ptr %32, i64 %265
   %283 = load i32, ptr %282, align 4, !tbaa !34
   %284 = shl nsw i32 %283, 1
   %285 = icmp slt i32 %284, %.pre.i290
@@ -1224,7 +1224,7 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
   br i1 %287, label %300, label %304
 
 300:                                              ; preds = %295
-  %301 = getelementptr inbounds nuw [367 x i32], ptr %32, i64 0, i64 %265
+  %301 = getelementptr inbounds nuw i32, ptr %32, i64 %265
   %302 = load i32, ptr %301, align 4, !tbaa !34
   %303 = add nsw i32 %302, 1
   store i32 %303, ptr %301, align 4, !tbaa !34
@@ -1246,7 +1246,7 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
 314:                                              ; preds = %304
   %315 = ashr i32 %310, 1
   store i32 %315, ptr %266, align 4, !tbaa !34
-  %316 = getelementptr inbounds nuw [367 x i32], ptr %32, i64 0, i64 %265
+  %316 = getelementptr inbounds nuw i32, ptr %32, i64 %265
   %317 = load i32, ptr %316, align 4, !tbaa !34
   %318 = ashr i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !34
@@ -1459,7 +1459,7 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
 416:                                              ; preds = %mid_pred.exit
   %417 = sub nsw i32 0, %405
   %418 = zext nneg i32 %417 to i64
-  %419 = getelementptr inbounds nuw [365 x i32], ptr %38, i64 0, i64 %418
+  %419 = getelementptr inbounds nuw i32, ptr %38, i64 %418
   %420 = load i32, ptr %419, align 4, !tbaa !34
   %421 = sub nsw i32 %.0.i313, %420
   %422 = load i32, ptr %29, align 4, !tbaa !66
@@ -1488,7 +1488,7 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
 
 436:                                              ; preds = %mid_pred.exit
   %437 = zext nneg i32 %405 to i64
-  %438 = getelementptr inbounds nuw [365 x i32], ptr %38, i64 0, i64 %437
+  %438 = getelementptr inbounds nuw i32, ptr %38, i64 %437
   %439 = load i32, ptr %438, align 4, !tbaa !34
   %440 = add nsw i32 %439, %.0.i313
   %441 = load i32, ptr %29, align 4, !tbaa !66
@@ -1579,9 +1579,9 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
   %.5347 = phi i32 [ %.5352, %._crit_edge376 ], [ %.5346, %._crit_edge377 ]
   %.7344 = phi i32 [ %.7351, %._crit_edge376 ], [ %.7345, %._crit_edge377 ]
   %479 = zext nneg i32 %.0 to i64
-  %480 = getelementptr inbounds nuw [367 x i32], ptr %.phi.trans.insert.i289, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert.i289, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !34
-  %482 = getelementptr inbounds nuw [367 x i32], ptr %31, i64 0, i64 %479
+  %482 = getelementptr inbounds nuw i32, ptr %31, i64 %479
   %483 = load i32, ptr %482, align 4, !tbaa !34
   br label %484
 
@@ -1599,7 +1599,7 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
   br i1 %or.cond.not.i, label %491, label %._crit_edge.i315
 
 491:                                              ; preds = %488
-  %492 = getelementptr inbounds nuw [367 x i32], ptr %32, i64 0, i64 %479
+  %492 = getelementptr inbounds nuw i32, ptr %32, i64 %479
   %493 = load i32, ptr %492, align 4, !tbaa !34
   %494 = shl nsw i32 %493, 1
   %495 = sub nsw i32 0, %481
@@ -1653,7 +1653,7 @@ mid_pred.exit:                                    ; preds = %409, %411, %412, %4
   store i32 %522, ptr %482, align 4, !tbaa !34
   %523 = load i32, ptr %28, align 4, !tbaa !70
   %524 = mul nsw i32 %523, %.1.i
-  %525 = getelementptr inbounds nuw [367 x i32], ptr %32, i64 0, i64 %479
+  %525 = getelementptr inbounds nuw i32, ptr %32, i64 %479
   %526 = load i32, ptr %525, align 4, !tbaa !34
   %527 = add nsw i32 %526, %524
   store i32 %527, ptr %525, align 4, !tbaa !34
@@ -1684,7 +1684,7 @@ ff_jpegls_downscale_state.exit.i.i:               ; preds = %531, %521
   %541 = sub nsw i32 0, %536
   %..i.i = tail call i32 @llvm.smax.i32(i32 %540, i32 %541)
   store i32 %..i.i, ptr %525, align 4, !tbaa !34
-  %542 = getelementptr inbounds nuw [365 x i32], ptr %38, i64 0, i64 %479
+  %542 = getelementptr inbounds nuw i32, ptr %38, i64 %479
   %543 = load i32, ptr %542, align 4, !tbaa !34
   %544 = icmp sgt i32 %543, -128
   br i1 %544, label %545, label %ls_encode_regular.exit
@@ -1702,7 +1702,7 @@ ff_jpegls_downscale_state.exit.i.i:               ; preds = %531, %521
   %550 = sub nsw i32 %535, %537
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %550, i32 0)
   store i32 %spec.select.i.i, ptr %525, align 4, !tbaa !34
-  %551 = getelementptr inbounds nuw [365 x i32], ptr %38, i64 0, i64 %479
+  %551 = getelementptr inbounds nuw i32, ptr %38, i64 %479
   %552 = load i32, ptr %551, align 4, !tbaa !34
   %553 = icmp slt i32 %552, 127
   br i1 %553, label %554, label %ls_encode_regular.exit

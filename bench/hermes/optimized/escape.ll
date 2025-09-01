@@ -2779,7 +2779,7 @@ for.body42.preheader:                             ; preds = %if.end37
 for.body42:                                       ; preds = %for.body42.preheader, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit162
   %32 = phi i32 [ %.pre, %for.body42.preheader ], [ %add.i161, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit162 ]
   %indvars.iv = phi i64 [ 0, %for.body42.preheader ], [ %indvars.iv.next, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit162 ]
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %octets, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %octets, i64 %indvars.iv
   %33 = load i8, ptr %arrayidx, align 1
   %34 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i126 = icmp ult i32 %32, %34
@@ -3876,7 +3876,7 @@ if.end111:                                        ; preds = %_ZNK6hermes2vm10Str
   %spec.select587 = select i1 %tobool.not.i239, ptr %itr.sroa.0.4553566576, ptr %add.ptr.i268
   %spec.select588.idx = select i1 %tobool.not.i239, i64 4, i64 0
   %spec.select588 = getelementptr inbounds nuw i8, ptr %itr.sroa.25.4556565578, i64 %spec.select588.idx
-  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %octets, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %octets, i64 %indvars.iv
   store i8 %conv104, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond608.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

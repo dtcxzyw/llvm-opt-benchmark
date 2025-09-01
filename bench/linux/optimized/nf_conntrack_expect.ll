@@ -158,7 +158,7 @@ define dso_local void @nf_ct_unlink_expect_report(ptr noundef %0, i32 %1, i32 %2
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 2536
   %49 = load volatile ptr, ptr %48, align 8
   %50 = zext i32 %47 to i64
-  %51 = getelementptr [0 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   tail call void @__rcu_read_unlock() #10
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -183,7 +183,7 @@ define dso_local void @nf_ct_unlink_expect_report(ptr noundef %0, i32 %1, i32 %2
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr [4 x i8], ptr %63, i64 0, i64 %66
+  %67 = getelementptr i8, ptr %63, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = add i8 %68, -1
   store i8 %69, ptr %67, align 1
@@ -280,7 +280,7 @@ define dso_local ptr @__nf_ct_expect_find(ptr noundef %0, ptr readnone captures(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -363,12 +363,12 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %15, %19
 
 57:                                               ; preds = %54, %50
   %58 = phi i64 [ 0, %50 ], [ %55, %54 ]
-  %59 = getelementptr [4 x i32], ptr %2, i64 0, i64 %58
+  %59 = getelementptr i32, ptr %2, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr [4 x i32], ptr %52, i64 0, i64 %58
+  %61 = getelementptr i32, ptr %52, i64 %58
   %62 = load i32, ptr %61, align 4
   %63 = xor i32 %62, %60
-  %64 = getelementptr [4 x i32], ptr %53, i64 0, i64 %58
+  %64 = getelementptr i32, ptr %53, i64 %58
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %63, %65
   %67 = icmp eq i32 %66, 0
@@ -499,7 +499,7 @@ define dso_local ptr @nf_ct_find_expectation(ptr noundef %0, ptr noundef readnon
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -589,12 +589,12 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %16, %20
 
 63:                                               ; preds = %60, %57
   %64 = phi i64 [ 0, %57 ], [ %61, %60 ]
-  %65 = getelementptr [4 x i32], ptr %2, i64 0, i64 %64
+  %65 = getelementptr i32, ptr %2, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr [4 x i32], ptr %58, i64 0, i64 %64
+  %67 = getelementptr i32, ptr %58, i64 %64
   %68 = load i32, ptr %67, align 4
   %69 = xor i32 %68, %66
-  %70 = getelementptr [4 x i32], ptr %59, i64 0, i64 %64
+  %70 = getelementptr i32, ptr %59, i64 %64
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %69, %71
   %73 = icmp eq i32 %72, 0
@@ -1263,12 +1263,12 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 173:                                              ; preds = %173, %.critedge
   %174 = phi i64 [ 0, %.critedge ], [ %181, %173 ]
-  %175 = getelementptr [4 x i32], ptr %168, i64 0, i64 %174
+  %175 = getelementptr i32, ptr %168, i64 %174
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr [4 x i32], ptr %72, i64 0, i64 %174
+  %177 = getelementptr i32, ptr %72, i64 %174
   %178 = load i32, ptr %177, align 4
   %179 = and i32 %178, %176
-  %180 = getelementptr [4 x i32], ptr %9, i64 0, i64 %174
+  %180 = getelementptr i32, ptr %9, i64 %174
   store i32 %179, ptr %180, align 4
   %181 = add nuw nsw i64 %174, 1
   %182 = icmp eq i64 %181, 4
@@ -1285,12 +1285,12 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
-  %190 = getelementptr [4 x i32], ptr %184, i64 0, i64 %189
+  %190 = getelementptr i32, ptr %184, i64 %189
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr [4 x i32], ptr %34, i64 0, i64 %189
+  %192 = getelementptr i32, ptr %34, i64 %189
   %193 = load i32, ptr %192, align 4
   %194 = xor i32 %193, %191
-  %195 = getelementptr [4 x i32], ptr %9, i64 0, i64 %189
+  %195 = getelementptr i32, ptr %9, i64 %189
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %194, %196
   %198 = icmp eq i32 %197, 0
@@ -1380,7 +1380,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 256:                                              ; preds = %247
   %257 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %258 = getelementptr [4 x i8], ptr %257, i64 0, i64 %252
+  %258 = getelementptr i8, ptr %257, i64 %252
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
   %261 = icmp ugt i32 %254, %260
@@ -1467,7 +1467,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 .thread25:                                        ; preds = %303, %305, %277, %306, %295, %293
   %308 = load i32, ptr %250, align 4
   %309 = zext i32 %308 to i64
-  %310 = getelementptr [4 x i8], ptr %257, i64 0, i64 %309
+  %310 = getelementptr i8, ptr %257, i64 %309
   %311 = load i8, ptr %310, align 1
   %312 = zext i8 %311 to i32
   %313 = load i32, ptr %253, align 4
@@ -1480,7 +1480,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %317 = getelementptr inbounds nuw i8, ptr %31, i64 2536
   %318 = load volatile ptr, ptr %317, align 8
   %319 = zext i32 %316 to i64
-  %320 = getelementptr [0 x ptr], ptr %318, i64 0, i64 %319
+  %320 = getelementptr ptr, ptr %318, i64 %319
   %321 = load ptr, ptr %320, align 8
   tail call void @__rcu_read_unlock() #10
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
@@ -1635,7 +1635,7 @@ nf_ct_expect_dst_hash.exit22:                     ; preds = %348, %356
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %409 = load i32, ptr %408, align 4
   %410 = zext i32 %409 to i64
-  %411 = getelementptr [4 x i8], ptr %407, i64 0, i64 %410
+  %411 = getelementptr i8, ptr %407, i64 %410
   %412 = load i8, ptr %411, align 1
   %413 = add i8 %412, 1
   store i8 %413, ptr %411, align 1
@@ -1662,7 +1662,7 @@ nf_ct_expect_dst_hash.exit22:                     ; preds = %348, %356
   %424 = getelementptr inbounds nuw i8, ptr %352, i64 2536
   %425 = load volatile ptr, ptr %424, align 8
   %426 = zext i32 %423 to i64
-  %427 = getelementptr [0 x ptr], ptr %425, i64 0, i64 %426
+  %427 = getelementptr ptr, ptr %425, i64 %426
   %428 = load ptr, ptr %427, align 8
   tail call void @__rcu_read_unlock() #10
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 4
@@ -1796,7 +1796,7 @@ define dso_local void @nf_ct_expect_iterate_destroy(ptr noundef readonly capture
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 2536
   %67 = load volatile ptr, ptr %66, align 8
   %68 = zext i32 %65 to i64
-  %69 = getelementptr [0 x ptr], ptr %67, i64 0, i64 %68
+  %69 = getelementptr ptr, ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8
   tail call void @__rcu_read_unlock() #10
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -1821,7 +1821,7 @@ define dso_local void @nf_ct_expect_iterate_destroy(ptr noundef readonly capture
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
-  %85 = getelementptr [4 x i8], ptr %81, i64 0, i64 %84
+  %85 = getelementptr i8, ptr %81, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = add i8 %86, -1
   store i8 %87, ptr %85, align 1

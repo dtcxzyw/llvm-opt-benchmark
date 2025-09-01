@@ -10685,7 +10685,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %40, %42
 
 switch.lookup:                                    ; preds = %49
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL25printIdxWithOrdinalSuffixRN4llvm11raw_ostreamEj, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL25printIdxWithOrdinalSuffixRN4llvm11raw_ostreamEj, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit
 
@@ -13152,7 +13152,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_124createOutOfBoundErrorMsgEN4llvm9
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #25
   %13 = load i8, ptr %1, align 1, !tbaa !91
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !808
   %17 = and i16 %16, 64
   %.not.i = icmp eq i16 %17, 0
@@ -13457,7 +13457,7 @@ define internal fastcc void @_ZL25printIdxWithOrdinalSuffixRN4llvm11raw_ostreamE
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL25printIdxWithOrdinalSuffixRN4llvm11raw_ostreamEj, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL25printIdxWithOrdinalSuffixRN4llvm11raw_ostreamEj, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit
 

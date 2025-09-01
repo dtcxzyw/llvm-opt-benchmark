@@ -1178,7 +1178,7 @@ define dso_local void @svc_recv(ptr noundef %0) #0 align 16 {
   br i1 %.not, label %22, label %71, !llvm.loop !59
 
 71:                                               ; preds = %70
-  %72 = getelementptr [260 x ptr], ptr %19, i64 0, i64 %18
+  %72 = getelementptr ptr, ptr %19, i64 %18
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   store ptr %72, ptr %73, align 8
   store ptr null, ptr %72, align 8

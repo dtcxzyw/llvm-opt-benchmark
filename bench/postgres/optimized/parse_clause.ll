@@ -4266,7 +4266,7 @@ define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 nou
   %.06481 = phi i32 [ 0, %.lr.ph ], [ %.165, %47 ]
   %.06780 = phi i32 [ 0, %.lr.ph ], [ %.168, %47 ]
   %.06979 = phi i32 [ 0, %.lr.ph ], [ %.170, %47 ]
-  %28 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 80
   %.val = load ptr, ptr %30, align 8

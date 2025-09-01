@@ -136,7 +136,7 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
   br i1 %exitcond.not.i.i, label %16, label %11, !llvm.loop !14
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i32, ptr @H5_crc_table, i64 %indvars.iv.i.i
   store i32 %.1.i.i, ptr %17, align 4, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond17.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -158,7 +158,7 @@ H5__checksum_crc_make_table.exit.i:               ; preds = %16
   %.1.tr.i = trunc i32 %.19.i to i8
   %.narrow.i = xor i8 %20, %.1.tr.i
   %21 = zext i8 %.narrow.i to i64
-  %22 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @H5_crc_table, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = lshr i32 %.19.i, 8
   %25 = xor i32 %23, %24

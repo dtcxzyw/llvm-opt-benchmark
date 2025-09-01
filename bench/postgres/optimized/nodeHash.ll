@@ -3526,7 +3526,7 @@ define dso_local void @ExecHashInitializeWorker(ptr noundef captures(none) %0, p
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr @ParallelWorkerNumber, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [0 x %struct.HashInstrumentation], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds %struct.HashInstrumentation, ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %17, ptr %18, align 8
   br label %19

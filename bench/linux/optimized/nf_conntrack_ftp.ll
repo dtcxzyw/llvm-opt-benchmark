@@ -97,39 +97,37 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_ftp_init() #0 sectio
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %5 = phi i32 [ %18, %4 ], [ 0, %.preheader ]
+  %5 = phi i32 [ %16, %4 ], [ 0, %.preheader ]
   %6 = shl i32 %5, 1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr [16 x %struct.nf_conntrack_helper], ptr @ftp, i64 0, i64 %7
+  %8 = getelementptr %struct.nf_conntrack_helper, ptr @ftp, i64 %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr [8 x i16], ptr @ports, i64 0, i64 %9
+  %10 = getelementptr i16, ptr @ports, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   tail call void @nf_ct_helper_init(ptr noundef %8, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str, i16 noundef zeroext 21, i16 noundef zeroext %11, i32 noundef %12, ptr noundef nonnull @ftp_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef nonnull @nf_ct_ftp_from_nlattr, ptr noundef null) #11
-  %13 = or disjoint i32 %6, 1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [16 x %struct.nf_conntrack_helper], ptr @ftp, i64 0, i64 %14
-  %16 = load i16, ptr %10, align 2
-  %17 = zext i16 %16 to i32
-  tail call void @nf_ct_helper_init(ptr noundef %15, i16 noundef zeroext 10, i16 noundef zeroext 6, ptr noundef nonnull @.str, i16 noundef zeroext 21, i16 noundef zeroext %16, i32 noundef %17, ptr noundef nonnull @ftp_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef nonnull @nf_ct_ftp_from_nlattr, ptr noundef null) #11
-  %18 = add nuw i32 %5, 1
-  %19 = load i32, ptr @ports_c, align 4
-  %20 = icmp ult i32 %18, %19
-  br i1 %20, label %4, label %21, !llvm.loop !5
+  %13 = getelementptr i8, ptr %8, i64 160
+  %14 = load i16, ptr %10, align 2
+  %15 = zext i16 %14 to i32
+  tail call void @nf_ct_helper_init(ptr noundef %13, i16 noundef zeroext 10, i16 noundef zeroext 6, ptr noundef nonnull @.str, i16 noundef zeroext 21, i16 noundef zeroext %14, i32 noundef %15, ptr noundef nonnull @ftp_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef nonnull @nf_ct_ftp_from_nlattr, ptr noundef null) #11
+  %16 = add nuw i32 %5, 1
+  %17 = load i32, ptr @ports_c, align 4
+  %18 = icmp ult i32 %16, %17
+  br i1 %18, label %4, label %19, !llvm.loop !5
 
-21:                                               ; preds = %4
-  %22 = shl i32 %19, 1
-  %23 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @ftp, i32 noundef %22) #11
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %27
+19:                                               ; preds = %4
+  %20 = shl i32 %17, 1
+  %21 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @ftp, i32 noundef %20) #11
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %23, label %25
 
-25:                                               ; preds = %21
-  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #12
-  br label %27
+23:                                               ; preds = %19
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #12
+  br label %25
 
-27:                                               ; preds = %25, %21
-  %28 = phi i32 [ %23, %25 ], [ 0, %21 ]
-  ret i32 %28
+25:                                               ; preds = %23, %19
+  %26 = phi i32 [ %21, %23 ], [ 0, %19 ]
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -255,14 +253,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %73 = add i32 %72, %60
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %75 = zext i1 %8 to i64
-  %76 = getelementptr [2 x i16], ptr %74, i64 0, i64 %75
+  %76 = getelementptr i16, ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
   br i1 %78, label %.loopexit45, label %79
 
 79:                                               ; preds = %59
   %80 = zext i16 %77 to i64
-  %.split = getelementptr [2 x [2 x i32]], ptr %26, i64 0, i64 %75
+  %.split = getelementptr [2 x i32], ptr %26, i64 %75
   br label %84
 
 81:                                               ; preds = %84
@@ -272,14 +270,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 84:                                               ; preds = %81, %79
   %85 = phi i64 [ 0, %79 ], [ %82, %81 ]
-  %86 = getelementptr [2 x i32], ptr %.split, i64 0, i64 %85
+  %86 = getelementptr i32, ptr %.split, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, %72
   br i1 %88, label %.loopexit44, label %81
 
 .loopexit45:                                      ; preds = %81, %59
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 44
-  %90 = getelementptr [2 x i16], ptr %89, i64 0, i64 %75
+  %90 = getelementptr i16, ptr %89, i64 %75
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
   %93 = icmp eq i16 %92, 0
@@ -301,14 +299,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %100, i64 16, i1 false)
   %101 = zext i32 %60 to i64
   %102 = add nsw i64 %101, -1
-  %.split19 = getelementptr [2 x [2 x %struct.ftp_search]], ptr @search, i64 0, i64 %75
+  %.split19 = getelementptr [2 x %struct.ftp_search], ptr @search, i64 %75
   %103 = icmp ugt i32 %60, 4
   br i1 %103, label %.split67.us, label %.split67
 
 .split67.us:                                      ; preds = %.loopexit44, %.thread30.us
   %104 = phi i1 [ false, %.thread30.us ], [ true, %.loopexit44 ]
   %105 = phi i64 [ 1, %.thread30.us ], [ 0, %.loopexit44 ]
-  %106 = getelementptr [2 x %struct.ftp_search], ptr %.split19, i64 0, i64 %105
+  %106 = getelementptr %struct.ftp_search, ptr %.split19, i64 %105
   %107 = load ptr, ptr %106, align 16
   %108 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %107, i64 noundef 4)
   %109 = icmp eq i32 %108, 0
@@ -323,7 +321,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 .split67:                                         ; preds = %.loopexit44, %.thread30
   %110 = phi i1 [ false, %.thread30 ], [ true, %.loopexit44 ]
   %111 = phi i64 [ 1, %.thread30 ], [ 0, %.loopexit44 ]
-  %112 = getelementptr [2 x %struct.ftp_search], ptr %.split19, i64 0, i64 %111
+  %112 = getelementptr %struct.ftp_search, ptr %.split19, i64 %111
   %113 = load ptr, ptr %112, align 16
   %114 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %113, i64 noundef %101)
   %.not39 = icmp eq i32 %114, 0
@@ -421,7 +419,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %167, label %173, label %168
 
 168:                                              ; preds = %163
-  %169 = getelementptr [2 x %struct.ftp_search], ptr %.split19, i64 0, i64 %105, i32 4
+  %169 = getelementptr %struct.ftp_search, ptr %.split19, i64 %105, i32 4
   %170 = load i32, ptr %169, align 4
   %171 = load i32, ptr %6, align 4
   %172 = call i32 %161(ptr noundef %0, i32 noundef %3, i32 noundef %170, i32 noundef %1, i32 noundef %171, i32 noundef %138, ptr noundef nonnull %142) #11
@@ -452,7 +450,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 183:                                              ; preds = %180
   %184 = zext i16 %181 to i64
-  %.split23 = getelementptr [2 x [2 x i32]], ptr %26, i64 0, i64 %75
+  %.split23 = getelementptr [2 x i32], ptr %26, i64 %75
   br label %188
 
 185:                                              ; preds = %188
@@ -462,7 +460,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
-  %190 = getelementptr [2 x i32], ptr %.split23, i64 0, i64 %189
+  %190 = getelementptr i32, ptr %.split23, i64 %189
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, %73
   br i1 %192, label %.loopexit, label %185
@@ -475,8 +473,8 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %.pre-phi = phi i64 [ 1, %193 ], [ 0, %180 ]
   %195 = add nuw nsw i16 %181, 1
   store i16 %195, ptr %76, align 2
-  %.split25 = getelementptr [2 x [2 x i32]], ptr %26, i64 0, i64 %75
-  %196 = getelementptr [2 x i32], ptr %.split25, i64 0, i64 %.pre-phi
+  %.split25 = getelementptr [2 x i32], ptr %26, i64 %75
+  %196 = getelementptr i32, ptr %.split25, i64 %.pre-phi
   store i32 %73, ptr %196, align 4
   br label %.loopexit
 
@@ -487,7 +485,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %201 = sub i32 %198, %200
   %202 = icmp sgt i32 %201, -1
   %203 = zext i1 %202 to i64
-  %204 = getelementptr [2 x i32], ptr %.split23, i64 0, i64 %203
+  %204 = getelementptr i32, ptr %.split23, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = sub i32 %205, %73
   %207 = icmp slt i32 %206, 0

@@ -434,7 +434,7 @@ Abc_TtCopy.exit:                                  ; preds = %3
 
 Abc_TtCopy.exit.split.split.us:                   ; preds = %Abc_TtCopy.exit, %Abc_TtFlip.exit.us16
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_TtFlip.exit.us16 ], [ 0, %Abc_TtCopy.exit ]
-  %15 = getelementptr inbounds nuw [16 x i32], ptr @__const.Ntk_SymTryRandomFlips.Rand, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @__const.Ntk_SymTryRandomFlips.Rand, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !50
   %17 = srem i32 %16, %12
   %18 = icmp slt i32 %17, 6
@@ -480,7 +480,7 @@ Abc_TtCopy.exit.split.split.us:                   ; preds = %Abc_TtCopy.exit, %A
   %30 = shl nuw nsw i32 1, %17
   %31 = zext nneg i32 %30 to i64
   %32 = sext i32 %17 to i64
-  %33 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %32
+  %33 = getelementptr inbounds i64, ptr @s_Truths6, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !59
   br label %35
 
@@ -604,7 +604,7 @@ Abc_TtCopy.exit38:                                ; preds = %15, %.lr.ph18.i.pre
   %37 = zext i32 %36 to i64
   %38 = shl i64 %35, %37
   %39 = sext i32 %33 to i64
-  %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %39
+  %40 = getelementptr inbounds i64, ptr @s_Truths6, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !59
   %42 = and i64 %38, %41
   %43 = and i64 %41, %35
@@ -624,7 +624,7 @@ Abc_TtCopy.exit38:                                ; preds = %15, %.lr.ph18.i.pre
   %49 = shl nuw nsw i32 1, %33
   %50 = zext nneg i32 %49 to i64
   %51 = sext i32 %33 to i64
-  %52 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %51
+  %52 = getelementptr inbounds i64, ptr @s_Truths6, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !59
   br label %54
 
@@ -893,7 +893,7 @@ Vec_MemHashAlloc.exit:                            ; preds = %Abc_PrimeCudd.exit.
   %51 = trunc i32 %50 to i8
   %52 = and i8 %51, 1
   %53 = or disjoint i8 %52, 48
-  %54 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %53, ptr %54, align 1, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1267,7 +1267,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i15.i, %Vec_
   %60 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i.i.i
   %61 = load i32, ptr %60, align 4, !tbaa !50
   %62 = and i64 %indvars.iv.i.i.i, 7
-  %63 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !50
   %65 = mul i32 %64, %61
   %66 = add i32 %65, %.012.i.i.i
@@ -1435,7 +1435,7 @@ Vec_MemHashResize.exit:                           ; preds = %Vec_IntPush.exit.i,
   %137 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   %138 = load i32, ptr %137, align 4, !tbaa !50
   %139 = and i64 %indvars.iv.i.i, 7
-  %140 = getelementptr inbounds nuw [8 x i32], ptr @Vec_MemHashKey.s_Primes, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !50
   %142 = mul i32 %141, %138
   %143 = add i32 %142, %.012.i.i22

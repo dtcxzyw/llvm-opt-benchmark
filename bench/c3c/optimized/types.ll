@@ -4872,7 +4872,7 @@ define dso_local range(i32 8, 129) i32 @type_kind_bitsize(i32 noundef %0) local_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.type_kind_bitsize, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.type_kind_bitsize, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5089,7 +5089,7 @@ define dso_local ptr @type_from_token(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table.type_from_token, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.type_from_token, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load ptr, ptr %switch.load, align 8
   ret ptr %.0
@@ -6517,7 +6517,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
 
 37:                                               ; preds = %31
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw [512 x ptr], ptr @type_find_common_ancestor.left_types, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv
   store ptr %35, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !26
@@ -6566,7 +6566,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
 
 56:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next75, %55 ]
-  %57 = getelementptr inbounds nuw [512 x ptr], ptr @type_find_common_ancestor.left_types, i64 0, i64 %indvars.iv74
+  %57 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv74
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %54, %58
   br i1 %59, label %.loopexit58, label %55

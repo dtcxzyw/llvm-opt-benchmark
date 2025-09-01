@@ -58,7 +58,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
 
 7:                                                ; preds = %.lr.ph57
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %14
@@ -81,7 +81,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %21, i32 2
+  %22 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %21, i32 2
   %23 = load i32, ptr %22, align 4, !tbaa !24
   %24 = icmp sgt i32 %23, 4
   br i1 %24, label %25, label %96
@@ -96,7 +96,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
 
 28:                                               ; preds = %27
   %29 = zext nneg i32 %18 to i64
-  %30 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %29, i32 2
+  %30 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %29, i32 2
   %31 = load i32, ptr %30, align 4, !tbaa !24
   %32 = icmp sgt i32 %31, 4
   br i1 %32, label %33, label %35
@@ -123,7 +123,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %44, i32 2
+  %45 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %44, i32 2
   %46 = load i32, ptr %45, align 4, !tbaa !24
   %47 = icmp sgt i32 %46, 4
   br i1 %47, label %48, label %96

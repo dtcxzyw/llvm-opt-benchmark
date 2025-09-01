@@ -68,7 +68,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
 29:                                               ; preds = %27
   %30 = and i8 %21, 7
   %31 = zext nneg i8 %30 to i64
-  %32 = getelementptr inbounds nuw [6 x i8], ptr %2, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !12
   %34 = add i8 %33, 1
   store i8 %34, ptr %32, align 1, !tbaa !12
@@ -94,7 +94,7 @@ define internal range(i32 0, 51) i32 @dvbsub_probe(ptr noundef readonly captures
 44:                                               ; preds = %._crit_edge, %44
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %44 ]
   %.057 = phi i32 [ 255, %._crit_edge ], [ %..0, %44 ]
-  %45 = getelementptr inbounds nuw [6 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1, !tbaa !12
   %47 = zext i8 %46 to i32
   %..0 = tail call i32 @llvm.umin.i32(i32 %.057, i32 %47)

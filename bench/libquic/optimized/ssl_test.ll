@@ -1350,7 +1350,7 @@ define internal fastcc noundef zeroext i1 @_ZL20TestCipherGetRFCNamev() unnamed_
 
 4:                                                ; preds = %0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
   %.01036 = phi i64 [ 0, %0 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16 ]
-  %5 = getelementptr inbounds nuw [15 x %struct.CIPHER_RFC_NAME_TEST], ptr @_ZL19kCipherRFCNameTests, i64 0, i64 %.01036
+  %5 = getelementptr inbounds nuw %struct.CIPHER_RFC_NAME_TEST, ptr @_ZL19kCipherRFCNameTests, i64 %.01036
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %2, ptr %1, align 8, !tbaa !62
   store i64 0, ptr %3, align 8, !tbaa !64

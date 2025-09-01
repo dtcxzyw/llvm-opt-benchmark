@@ -1934,7 +1934,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i: ; preds = %_ZNK6vect
 
 393:                                              ; preds = %389
   %394 = zext nneg i32 %391 to i64
-  %395 = getelementptr inbounds nuw [0 x ptr], ptr %388, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw ptr, ptr %388, i64 %394
   %396 = load ptr, ptr %395, align 8, !tbaa !146
   %397 = and i32 %390, -64
   %398 = add i32 %397, 64
@@ -5247,7 +5247,7 @@ _ZN12rewriter_tplIN6spacer12_GLOBAL__N_116mbc_rewriter_cfgEE18set_new_child_flag
 
 _ZN12rewriter_tplIN6spacer12_GLOBAL__N_116mbc_rewriter_cfgEE13constant_foldEP3appRN13rewriter_core5frameE.exit: ; preds = %1714, %1718, %1695, %1691, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %1689
   %1852 = zext nneg i32 %1687 to i64
-  %1853 = getelementptr inbounds nuw [0 x ptr], ptr %1684, i64 0, i64 %1852
+  %1853 = getelementptr inbounds nuw ptr, ptr %1684, i64 %1852
   %1854 = load ptr, ptr %1853, align 8, !tbaa !146
   %1855 = add i32 %.mask.i, 64
   %1856 = and i32 %1686, 63

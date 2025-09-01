@@ -217,7 +217,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %2, %7
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %15, align 4, !tbaa !13
   br label %19
@@ -451,7 +451,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %8, %3
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -499,7 +499,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %8, %3
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -641,7 +641,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %11, %6
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %19, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -684,7 +684,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %9, %4
 
 switch.lookup:                                    ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %17, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit
@@ -1315,7 +1315,7 @@ _ZN4llvm14RecordStreamer14getSymbolStateEPKNS_8MCSymbolE.exit: ; preds = %_ZNK4l
 
 switch.lookup:                                    ; preds = %_ZN4llvm14RecordStreamer14getSymbolStateEPKNS_8MCSymbolE.exit
   %169 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv, i64 0, i64 %169
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv, i64 %169
   %switch.load = load i32, ptr %switch.gep, align 4
   %.off = add nsw i32 %167, -2
   %switch = icmp ult i32 %.off, 3
@@ -1397,18 +1397,18 @@ _ZNK4llvm8MCSymbol7getNameEv.exit69:              ; preds = %181, %184
   br i1 %spec.select.i.i, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, label %207
 
 207:                                              ; preds = %205
-  %switch.tableidx175 = add nsw i32 %203, -2
-  %208 = icmp ult i32 %switch.tableidx175, 9
-  br i1 %208, label %switch.lookup174, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
+  %switch.tableidx174 = add nsw i32 %203, -2
+  %208 = icmp ult i32 %switch.tableidx174, 9
+  br i1 %208, label %switch.lookup175, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-switch.lookup174:                                 ; preds = %207
-  %209 = zext nneg i32 %switch.tableidx175 to i64
-  %switch.gep176 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.1, i64 0, i64 %209
+switch.lookup175:                                 ; preds = %207
+  %209 = zext nneg i32 %switch.tableidx174 to i64
+  %switch.gep176 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.1, i64 %209
   %switch.load177 = load i32, ptr %switch.gep176, align 4
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
-_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %switch.lookup174, %207, %205, %200, %.thread116
-  %.3 = phi i32 [ %.047111, %.thread116 ], [ 9, %200 ], [ 17, %205 ], [ 0, %207 ], [ %switch.load177, %switch.lookup174 ]
+_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %switch.lookup175, %207, %205, %200, %.thread116
+  %.3 = phi i32 [ %.047111, %.thread116 ], [ 9, %200 ], [ 17, %205 ], [ 0, %207 ], [ %switch.load177, %switch.lookup175 ]
   br i1 %spec.select112.in, label %.thread113, label %210
 
 210:                                              ; preds = %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
@@ -1619,7 +1619,7 @@ _ZN4llvm9StringMapINS_14RecordStreamer5StateENS_15MallocAllocatorEE21try_emplace
 
 switch.lookup179:                                 ; preds = %_ZN4llvm9StringMapINS_14RecordStreamer5StateENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS2_EEbENS_9StringRefEjDpOT_.exit
   %280 = zext nneg i32 %278 to i64
-  %switch.gep183 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 0, i64 %280
+  %switch.gep183 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14RecordStreamer21flushSymverDirectivesEv.2, i64 %280
   %switch.load184 = load i32, ptr %switch.gep183, align 4
   store i32 %switch.load184, ptr %277, align 4, !tbaa !13
   br label %_ZN4llvm14RecordStreamer11markDefinedERKNS_8MCSymbolE.exit

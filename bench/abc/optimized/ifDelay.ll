@@ -43,7 +43,7 @@ define i32 @If_CutDelaySop(ptr noundef readonly captures(none) %0, ptr noundef c
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %27 = zext nneg i32 %11 to i64
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = getelementptr i8, ptr %1, i64 16
   %.val57 = load i32, ptr %30, align 4, !tbaa !32
@@ -112,7 +112,7 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   %59 = and i64 %9, -4096
   %60 = or disjoint i64 %59, %58
   store i64 %60, ptr %4, align 4
-  %61 = getelementptr inbounds nuw [20 x double], ptr @If_CutDelaySop.GateDelays, i64 0, i64 %27
+  %61 = getelementptr inbounds nuw double, ptr @If_CutDelaySop.GateDelays, i64 %27
   %62 = load double, ptr %61, align 8, !tbaa !47
   %63 = fadd double %62, 5.000000e-01
   %64 = fptosi double %63 to i32
@@ -128,7 +128,7 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
 69:                                               ; preds = %.lr.ph75, %76
   %indvars.iv84 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next85, %76 ]
   %.074 = phi i32 [ 0, %.lr.ph75 ], [ %82, %76 ]
-  %70 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %indvars.iv84
+  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv84
   %71 = load i32, ptr %70, align 4, !tbaa !26
   %.val = load ptr, ptr %65, align 8, !tbaa !3
   %72 = getelementptr i8, ptr %.val, i64 8
@@ -158,10 +158,10 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
   %86 = and i64 %9, -4096
   %87 = or disjoint i64 %86, %85
   store i64 %87, ptr %4, align 4
-  %88 = getelementptr inbounds nuw [20 x double], ptr @If_CutDelaySop.GateDelays, i64 0, i64 %27
+  %88 = getelementptr inbounds nuw double, ptr @If_CutDelaySop.GateDelays, i64 %27
   %89 = load double, ptr %88, align 8, !tbaa !47
   %90 = zext nneg i32 %55 to i64
-  %91 = getelementptr inbounds nuw [20 x double], ptr @If_CutDelaySop.GateDelays, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw double, ptr @If_CutDelaySop.GateDelays, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !47
   %93 = fadd double %89, %92
   %94 = fadd double %93, 5.000000e-01
@@ -177,7 +177,7 @@ If_CutMaxCubeSize.exit:                           ; preds = %._crit_edge.us.i
 100:                                              ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %.270 = phi i32 [ 0, %.lr.ph ], [ %113, %107 ]
-  %101 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !26
   %.val55 = load ptr, ptr %96, align 8, !tbaa !3
   %103 = getelementptr i8, ptr %.val55, i64 8
@@ -696,7 +696,7 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr noundef readonly captures(none) 
   %8 = shl i64 %indvars.iv, 2
   %9 = and i64 %8, 4294967292
   %10 = shl nuw i64 1, %9
-  %11 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -770,7 +770,7 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %26 = lshr i64 %8, 24
   %27 = and i64 %26, 255
-  %28 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = getelementptr i8, ptr %1, i64 16
   %.val22 = load i32, ptr %30, align 4, !tbaa !32
@@ -796,7 +796,7 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw [0 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %.val.val, i64 %44
@@ -804,7 +804,7 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 92
   %48 = load float, ptr %47, align 4, !tbaa !28
   %49 = fptosi float %48 to i32
-  %50 = getelementptr inbounds nuw [15 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -821,7 +821,7 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   %51 = shl i64 %indvars.iv.i, 2
   %52 = and i64 %51, 4294967292
   %53 = shl nuw i64 1, %52
-  %54 = getelementptr inbounds nuw [15 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   store i64 %53, ptr %54, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1736,7 +1736,7 @@ define i32 @If_CutSopBalanceEvalIntInt(ptr noundef readonly captures(none) %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [15 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %12 = shl i32 %indvars.iv.tr, 1
   store i32 %12, ptr %11, align 4, !tbaa !26
@@ -2011,7 +2011,7 @@ Vec_IntPush.exit106:                              ; preds = %Vec_IntPush.exit106
   %92 = phi i32 [ %40, %.thread108 ], [ %38, %37 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %94 = zext nneg i32 %92 to i64
-  %95 = getelementptr inbounds nuw [16 x ptr], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !30
   %97 = getelementptr i8, ptr %1, i64 16
   %.val87 = load i32, ptr %97, align 4, !tbaa !32
@@ -2036,7 +2036,7 @@ Vec_IntPush.exit106:                              ; preds = %Vec_IntPush.exit106
 
 106:                                              ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw [0 x i32], ptr %105, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !26
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds ptr, ptr %.val.val, i64 %109
@@ -2044,7 +2044,7 @@ Vec_IntPush.exit106:                              ; preds = %Vec_IntPush.exit106
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 92
   %113 = load float, ptr %112, align 4, !tbaa !28
   %114 = fptosi float %113 to i32
-  %115 = getelementptr inbounds nuw [15 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %114, ptr %115, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %94
@@ -2110,7 +2110,7 @@ define i32 @If_CutLutBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %23 = lshr i64 %5, 24
   %24 = and i64 %23, 255
-  %25 = getelementptr inbounds nuw [16 x ptr], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !71
   %27 = ashr i32 %.val39, 1
   %28 = lshr i32 %6, 24
@@ -2180,7 +2180,7 @@ define i32 @If_CutLutBalancePinDelays(ptr noundef readonly captures(none) %0, pt
 64:                                               ; preds = %.lr.ph45, %64
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %64 ]
   %.044 = phi i32 [ -1, %.lr.ph45 ], [ %77, %64 ]
-  %65 = getelementptr inbounds nuw [0 x i32], ptr %44, i64 0, i64 %indvars.iv52
+  %65 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv52
   %66 = load i32, ptr %65, align 4, !tbaa !26
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %.val.val, i64 %67
@@ -2245,7 +2245,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %28 = lshr i64 %4, 24
   %29 = and i64 %28, 255
-  %30 = getelementptr inbounds nuw [16 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !71
   %32 = ashr i32 %.val65, 1
   %33 = lshr i32 %11, 24
@@ -2279,7 +2279,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %51 = load i8, ptr %50, align 1, !tbaa !49
   %52 = ashr i8 %51, 1
   %53 = sext i8 %52 to i64
-  %54 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %53
+  %54 = getelementptr inbounds i32, ptr %48, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !26
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %.val.val, i64 %56
@@ -2336,7 +2336,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %82 = load ptr, ptr %81, align 8, !tbaa !79
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  %84 = getelementptr inbounds nuw [16 x ptr], ptr %83, i64 0, i64 %29
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %29
   %85 = load ptr, ptr %84, align 8, !tbaa !80
   %86 = getelementptr i8, ptr %85, i64 8
   %.val3.i = load ptr, ptr %86, align 8, !tbaa !43
@@ -2369,7 +2369,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %100 = lshr i64 %.val70, 24
   %101 = and i64 %100, 255
-  %102 = getelementptr inbounds nuw [16 x ptr], ptr %99, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !80
   %104 = getelementptr i8, ptr %103, i64 8
   %.val3.i71 = load ptr, ptr %104, align 8, !tbaa !43
@@ -2449,7 +2449,7 @@ define i32 @If_LutDecEval(ptr noundef readonly captures(none) %0, ptr noundef ca
   %.05378 = phi i32 [ 0, %.lr.ph ], [ %.154, %59 ]
   %.05577 = phi i32 [ -1, %.lr.ph ], [ %.156, %59 ]
   %39 = phi i32 [ 0, %.lr.ph ], [ %60, %59 ]
-  %40 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %.val.val, i64 %42
@@ -2555,7 +2555,7 @@ define i32 @If_LutDecEval(ptr noundef readonly captures(none) %0, ptr noundef ca
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %93 = lshr i64 %9, 24
   %94 = and i64 %93, 255
-  %95 = getelementptr inbounds nuw [16 x ptr], ptr %92, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %96, null
   %.phi.trans.insert.i = getelementptr i8, ptr %1, i64 16
@@ -2584,7 +2584,7 @@ define i32 @If_LutDecEval(ptr noundef readonly captures(none) %0, ptr noundef ca
 If_CutTruthWR.exit.i:                             ; preds = %97, %89
   %114 = phi ptr [ %113, %97 ], [ null, %89 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %116 = getelementptr inbounds nuw [16 x i32], ptr %115, i64 0, i64 %94
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %94
   %117 = load i32, ptr %116, align 4, !tbaa !26
   %118 = and i32 %.val.pre.i, 1
   %.not.i7.i = icmp eq i32 %118, 0
@@ -2732,7 +2732,7 @@ define i32 @If_Lut2DecEval(ptr noundef readonly captures(none) %0, ptr noundef c
   %.05581 = phi i32 [ 0, %.lr.ph ], [ %.156, %59 ]
   %.05780 = phi i32 [ -1, %.lr.ph ], [ %.158, %59 ]
   %39 = phi i32 [ 0, %.lr.ph ], [ %60, %59 ]
-  %40 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %.val.val, i64 %42
@@ -2835,7 +2835,7 @@ define i32 @If_Lut2DecEval(ptr noundef readonly captures(none) %0, ptr noundef c
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %93 = lshr i64 %9, 24
   %94 = and i64 %93, 255
-  %95 = getelementptr inbounds nuw [16 x ptr], ptr %92, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %96, null
   %.phi.trans.insert.i = getelementptr i8, ptr %1, i64 16
@@ -2864,7 +2864,7 @@ define i32 @If_Lut2DecEval(ptr noundef readonly captures(none) %0, ptr noundef c
 If_CutTruthWR.exit.i:                             ; preds = %97, %88
   %114 = phi ptr [ %113, %97 ], [ null, %88 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %116 = getelementptr inbounds nuw [16 x i32], ptr %115, i64 0, i64 %94
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %94
   %117 = load i32, ptr %116, align 4, !tbaa !26
   %118 = and i32 %.val.pre.i, 1
   %.not.i7.i = icmp eq i32 %118, 0
@@ -2994,7 +2994,7 @@ define i32 @If_LutDecReEval(ptr noundef readonly captures(none) %0, ptr noundef 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.022 = phi i32 [ -1, %.lr.ph ], [ %42, %27 ]
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %.val.val, i64 %30

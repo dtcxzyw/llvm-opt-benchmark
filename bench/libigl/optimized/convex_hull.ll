@@ -18764,7 +18764,7 @@ _ZNK4CGAL12NT_converterIdNS_9cpp_floatEEclERKd.exit20: ; preds = %97, %_ZN5boost
 .noexc:                                           ; preds = %_ZNK4CGAL12NT_converterIdNS_9cpp_floatEEclERKd.exit20, %_ZN4CGAL9cpp_floatC2EOS0_.exit.i.i.i.i.i
   %99 = phi i64 [ %121, %_ZN4CGAL9cpp_floatC2EOS0_.exit.i.i.i.i.i ], [ 0, %_ZNK4CGAL12NT_converterIdNS_9cpp_floatEEclERKd.exit20 ]
   %100 = getelementptr inbounds nuw %"class.CGAL::cpp_float", ptr %0, i64 %99
-  %101 = getelementptr inbounds nuw [3 x %"class.CGAL::cpp_float"], ptr %4, i64 0, i64 %99
+  %101 = getelementptr inbounds nuw %"class.CGAL::cpp_float", ptr %4, i64 %99
   store i64 0, ptr %100, align 16, !tbaa !103
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 64
@@ -20076,7 +20076,7 @@ _ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_
 65:                                               ; preds = %_ZN4CGAL9cpp_floatC2EOS0_.exit.i.i4, %_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_9cpp_floatEEEEclENS_15Return_base_tagEOS3_S7_S7_.exit
   %66 = phi i64 [ 0, %_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianINS_9cpp_floatEEEEclENS_15Return_base_tagEOS3_S7_S7_.exit ], [ %88, %_ZN4CGAL9cpp_floatC2EOS0_.exit.i.i4 ]
   %67 = getelementptr inbounds nuw %"class.CGAL::cpp_float", ptr %0, i64 %66
-  %68 = getelementptr inbounds nuw [3 x %"class.CGAL::cpp_float"], ptr %5, i64 0, i64 %66
+  %68 = getelementptr inbounds nuw %"class.CGAL::cpp_float", ptr %5, i64 %66
   store i64 0, ptr %67, align 16, !tbaa !103
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 64
@@ -34914,16 +34914,16 @@ _ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEv
 _ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %105
   %106 = load i32, ptr %12, align 4, !tbaa !712
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %107
   %109 = load i32, ptr %13, align 4, !tbaa !712
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %110
   %112 = load i32, ptr %15, align 4, !tbaa !712
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %113
   %115 = load i32, ptr %17, align 4, !tbaa !712
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %116
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %118 = load i64, ptr %117, align 8, !tbaa !486, !noalias !719
   store i64 %118, ptr %0, align 8, !tbaa !486, !alias.scope !719
@@ -40530,16 +40530,16 @@ _ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEv
 _ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %105
   %106 = load i32, ptr %12, align 4, !tbaa !712
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %107
   %109 = load i32, ptr %13, align 4, !tbaa !712
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %110
   %112 = load i32, ptr %15, align 4, !tbaa !712
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %113
   %115 = load i32, ptr %17, align 4, !tbaa !712
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %116
   tail call void @llvm.experimental.noalias.scope.decl(metadata !873)
   %118 = load i64, ptr %117, align 8, !tbaa !486, !noalias !873
   store i64 %118, ptr %0, align 8, !tbaa !486, !alias.scope !873
@@ -46084,16 +46084,16 @@ _ZSt25__unguarded_linear_insertIPSt4pairIjjEN9__gnu_cxx5__ops14_Val_less_iterEEv
 _ZSt22__final_insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %105
   %106 = load i32, ptr %12, align 4, !tbaa !712
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %107
   %109 = load i32, ptr %13, align 4, !tbaa !712
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %110
   %112 = load i32, ptr %15, align 4, !tbaa !712
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %113
   %115 = load i32, ptr %17, align 4, !tbaa !712
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw [4 x %"struct.std::_List_iterator"], ptr %10, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw %"struct.std::_List_iterator", ptr %10, i64 %116
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1025)
   %118 = load i64, ptr %117, align 8, !tbaa !486, !noalias !1025
   store i64 %118, ptr %0, align 8, !tbaa !486, !alias.scope !1025
@@ -51367,8 +51367,8 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
 
 407:                                              ; preds = %407, %405
   %.05.i.i.i = phi i64 [ 0, %405 ], [ %411, %407 ]
-  %408 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %406, i64 0, i64 %.05.i.i.i
-  %409 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %19, i64 0, i64 %.05.i.i.i
+  %408 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %406, i64 %.05.i.i.i
+  %409 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %19, i64 %.05.i.i.i
   %410 = call noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSEOS8_(ptr noundef nonnull align 16 dereferenceable(64) %408, ptr noundef nonnull align 16 dereferenceable(64) %409) #28
   %411 = add nuw nsw i64 %.05.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %411, 3
@@ -51621,8 +51621,8 @@ _ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
 
 554:                                              ; preds = %.noexc, %_ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEED2Ev.exit82
   %.05.i.i.i.i.i = phi i64 [ 0, %_ZN4CGAL7PointC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEED2Ev.exit82 ], [ %558, %.noexc ]
-  %555 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %553, i64 0, i64 %.05.i.i.i.i.i
-  %556 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %18, i64 0, i64 %.05.i.i.i.i.i
+  %555 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %553, i64 %.05.i.i.i.i.i
+  %556 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %18, i64 %.05.i.i.i.i.i
   %557 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %555, ptr noundef nonnull align 16 dereferenceable(64) %556)
           to label %.noexc unwind label %.loopexit
 
@@ -52417,10 +52417,10 @@ _ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23
   %.sroa.12.0259 = phi i32 [ %121, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE9push_backERKSW_.exit81 ], [ %.sroa.12.0.copyload196, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE9push_backERKSW_.exit ]
   %.sroa.26.2258 = phi ptr [ %.sroa.26.7, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE9push_backERKSW_.exit81 ], [ %.sroa.26.6, %_ZNSt6vectorISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_23Convex_hull_face_base_2INS1_20Convex_hull_traits_3INS1_5EpickENS1_12Polyhedron_3IS7_NS1_18Polyhedron_items_3ENS1_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS1_28Triangulation_ds_face_base_2INS1_30Triangulation_data_structure_2INS1_25Convex_hull_vertex_base_2INS1_11GT3_for_CH3ISF_EENS1_30Triangulation_ds_vertex_base_2IvEEEENS5_ISF_NSG_IvEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE9push_backERKSW_.exit ]
   %104 = sext i32 %.sroa.12.0259 to i64
-  %105 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %104
+  %105 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !30
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0119.0260, i64 0, i64 %107
+  %108 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0119.0260, i64 %107
   %.sroa.0.0.copyload.i62 = load ptr, ptr %108, align 8, !tbaa !253
   %109 = load ptr, ptr %15, align 8, !tbaa !1212
   %.not10.i.i.i63 = icmp eq ptr %109, null
@@ -53322,7 +53322,7 @@ define linkonce_odr dso_local void @_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boo
 6:                                                ; preds = %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i, %4
   %7 = phi i64 [ 0, %4 ], [ %44, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i.i ]
   %8 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %0, i64 %7
-  %9 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %5, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %5, i64 %7
   store i64 0, ptr %8, align 16, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -53455,7 +53455,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8Vector_3INS_16Simple_cartesianIN5bo
 6:                                                ; preds = %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i, %4
   %7 = phi i64 [ 0, %4 ], [ %44, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i ]
   %8 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %0, i64 %7
-  %9 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %5, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %5, i64 %7
   store i64 0, ptr %8, align 16, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -54050,7 +54050,7 @@ _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8back
 _ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEC2EOSE_SH_SH_.exit: ; preds = %_ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEC2EOSE_SH_SH_.exit.preheader, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i
   %124 = phi i64 [ %161, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i ], [ 0, %_ZN4CGAL8VectorC3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEEEC2EOSE_SH_SH_.exit.preheader ]
   %125 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %0, i64 %124
-  %126 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %8, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %8, i64 %124
   store i64 0, ptr %125, align 16, !tbaa !103
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -54619,7 +54619,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL23CartesianKernelFunctors18Construc
 6:                                                ; preds = %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i, %4
   %7 = phi i64 [ 0, %4 ], [ %44, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2EOS8_.exit.i.i.i ]
   %8 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %0, i64 %7
-  %9 = getelementptr inbounds nuw [3 x %"class.boost::multiprecision::number"], ptr %5, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw %"class.boost::multiprecision::number", ptr %5, i64 %7
   store i64 0, ptr %8, align 16, !tbaa !103
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -55635,7 +55635,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   %.sroa.32.1321 = phi ptr [ %.sroa.32.0327, %.preheader268 ], [ %.sroa.32.6, %290 ]
   %54 = load ptr, ptr %48, align 8, !tbaa !242
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %55, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %55, i64 %indvars.iv
   %.sroa.0.0.copyload.i89 = load ptr, ptr %56, align 8, !tbaa !262
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i89, i64 52
   %58 = load i32, ptr %57, align 4, !tbaa !30
@@ -55733,7 +55733,7 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
   %113 = add i64 %112, 1
   store i64 %113, ptr %12, align 8, !tbaa !483
   %114 = zext nneg i32 %.0.i to i64
-  %115 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0.0.copyload.i89, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i89, i64 %114
   %.sroa.0.0.copyload.i95 = load ptr, ptr %115, align 8, !tbaa !253
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i95, i64 8
   %117 = load i32, ptr %116, align 4, !tbaa !30
@@ -55827,17 +55827,17 @@ _ZNSt6vectorIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_25Convex_h
 143:                                              ; preds = %106
   store i32 2, ptr %57, align 4, !tbaa !30
   %144 = zext nneg i32 %.0.i to i64
-  %145 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !30
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0.0.copyload.i89, i64 0, i64 %147
+  %148 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i89, i64 %147
   %.sroa.0.0.copyload.i98 = load ptr, ptr %148, align 8, !tbaa !253
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i98, i64 8
   store i32 2, ptr %149, align 4, !tbaa !30
-  %150 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %144
+  %150 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %144
   %151 = load i32, ptr %150, align 4, !tbaa !30
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0.0.copyload.i89, i64 0, i64 %152
+  %153 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i89, i64 %152
   %.sroa.0.0.copyload.i99 = load ptr, ptr %153, align 8, !tbaa !253
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i99, i64 8
   store i32 2, ptr %154, align 4, !tbaa !30
@@ -56052,17 +56052,17 @@ _ZN4CGAL13Convex_hull_38internal30Is_on_positive_side_of_plane_3INS_20Convex_hul
   %..i107 = select i1 %246, i32 1, i32 2
   %.0.i108 = select i1 %243, i32 0, i32 %..i107
   %247 = zext nneg i32 %.0.i108 to i64
-  %248 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !30
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0.0.copyload.i89, i64 0, i64 %250
+  %251 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i89, i64 %250
   %.sroa.0.0.copyload.i109 = load ptr, ptr %251, align 8, !tbaa !253
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i109, i64 8
   store i32 2, ptr %252, align 4, !tbaa !30
-  %253 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %247
+  %253 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %247
   %254 = load i32, ptr %253, align 4, !tbaa !30
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0.0.copyload.i89, i64 0, i64 %255
+  %256 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0.0.copyload.i89, i64 %255
   %.sroa.0.0.copyload.i110 = load ptr, ptr %256, align 8, !tbaa !253
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i110, i64 8
   store i32 2, ptr %257, align 4, !tbaa !30
@@ -56658,10 +56658,10 @@ define linkonce_odr dso_local void @_ZN4CGAL30Triangulation_data_structure_2INS_
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !1222
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !30
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %8, i64 0, i64 %14
+  %15 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %8, i64 %14
   %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8, !tbaa !253
   store ptr %8, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !262
   %16 = icmp eq ptr %4, %5
@@ -56703,10 +56703,10 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   %36 = add i64 %35, 1
   store i64 %36, ptr %34, align 8, !tbaa !261
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8, !tbaa !253
-  %37 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %11
+  %37 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %11
   %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %8, i64 0, i64 %39
+  %40 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %8, i64 %39
   %.sroa.0.0.copyload.i8.i.i = load ptr, ptr %40, align 8, !tbaa !253
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %23, align 8, !tbaa !253
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -56717,17 +56717,17 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr %8, ptr %43, align 8, !tbaa !262
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %45 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %44, i64 0, i64 %11
+  %45 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %44, i64 %11
   store ptr %23, ptr %45, align 8, !tbaa !262
   br label %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE20reset_or_create_faceISt14_List_iteratorINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultEST_ST_EELb0EEEEEESV_SV_iNSP_INSQ_INS1_ISD_NSE_ISL_EEEEST_ST_ST_EELb0EEERT_RKS11_.exit
 
 46:                                               ; preds = %6
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !242
-  %49 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %11
+  %49 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %11
   %50 = load i32, ptr %49, align 4, !tbaa !30
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %8, i64 0, i64 %51
+  %52 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %8, i64 %51
   %.sroa.0.0.copyload.i18.i = load ptr, ptr %52, align 8, !tbaa !253
   store ptr %.sroa.0.0.copyload.i, ptr %48, align 8, !tbaa !253
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -56740,7 +56740,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   store ptr %8, ptr %56, align 8, !tbaa !262
   %.sroa.0.0.copyload.i21 = load ptr, ptr %47, align 8, !tbaa !262
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %58 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %57, i64 0, i64 %11
+  %58 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %57, i64 %11
   store ptr %.sroa.0.0.copyload.i21, ptr %58, align 8, !tbaa !262
   %59 = load ptr, ptr %4, align 8, !tbaa !206
   br label %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE20reset_or_create_faceISt14_List_iteratorINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultEST_ST_EELb0EEEEEESV_SV_iNSP_INSQ_INS1_ISD_NSE_ISL_EEEEST_ST_ST_EELb0EEERT_RKS11_.exit
@@ -56766,10 +56766,10 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   %66 = getelementptr inbounds nuw i8, ptr %.pn52, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !1222
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %68
+  %69 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !30
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %65, i64 0, i64 %71
+  %72 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %65, i64 %71
   %.sroa.0.0.copyload.i22 = load ptr, ptr %72, align 8, !tbaa !253
   store ptr %65, ptr %.sroa.0.0.copyload.i22, align 8, !tbaa !262
   %73 = icmp eq ptr %.sroa.036.051, %5
@@ -56808,10 +56808,10 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   %90 = add i64 %89, 1
   store i64 %90, ptr %62, align 8, !tbaa !261
   %.sroa.0.0.copyload.i.i.i28 = load ptr, ptr %72, align 8, !tbaa !253
-  %91 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %68
+  %91 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %68
   %92 = load i32, ptr %91, align 4, !tbaa !30
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %65, i64 0, i64 %93
+  %94 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %65, i64 %93
   %.sroa.0.0.copyload.i8.i.i29 = load ptr, ptr %94, align 8, !tbaa !253
   store ptr %.sroa.0.0.copyload.i.i.i28, ptr %78, align 8, !tbaa !253
   %95 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -56822,17 +56822,17 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   store ptr %65, ptr %97, align 8, !tbaa !262
   %98 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %99 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %98, i64 0, i64 %68
+  %99 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %98, i64 %68
   store ptr %78, ptr %99, align 8, !tbaa !262
   br label %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE20reset_or_create_faceISt14_List_iteratorINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultEST_ST_EELb0EEEEEESV_SV_iNSP_INSQ_INS1_ISD_NSE_ISL_EEEEST_ST_ST_EELb0EEERT_RKS11_.exit31
 
 100:                                              ; preds = %63
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.036.051, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !242
-  %103 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %68
+  %103 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %68
   %104 = load i32, ptr %103, align 4, !tbaa !30
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %65, i64 0, i64 %105
+  %106 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %65, i64 %105
   %.sroa.0.0.copyload.i18.i24 = load ptr, ptr %106, align 8, !tbaa !253
   store ptr %.sroa.0.0.copyload.i22, ptr %102, align 8, !tbaa !253
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -56845,7 +56845,7 @@ _ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3
   store ptr %65, ptr %110, align 8, !tbaa !262
   %.sroa.0.0.copyload.i25 = load ptr, ptr %101, align 8, !tbaa !262
   %111 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %112 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %111, i64 0, i64 %68
+  %112 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %111, i64 %68
   store ptr %.sroa.0.0.copyload.i25, ptr %112, align 8, !tbaa !262
   %113 = load ptr, ptr %.sroa.036.051, align 8, !tbaa !206
   br label %_ZN4CGAL30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEE20reset_or_create_faceISt14_List_iteratorINS_8internal11CC_iteratorINS_17Compact_containerINSH_ISC_NSI_ISL_EEEENS_7DefaultEST_ST_EELb0EEEEEESV_SV_iNSP_INSQ_INS1_ISD_NSE_ISL_EEEEST_ST_ST_EELb0EEERT_RKS11_.exit31
@@ -57360,7 +57360,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i
   %198 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %199 = zext nneg i32 %218 to i64
-  %200 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %198, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %198, i64 %199
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %200, align 8, !tbaa !262, !noalias !1348
   %201 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i, %217
   br i1 %201, label %.loopexit1049, label %.lr.ph.i.i267, !llvm.loop !1354
@@ -57625,7 +57625,7 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   %.sroa.11915.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.6873.01404, i64 24
   %297 = zext nneg i32 %.sroa.14876.01405 to i64
-  %298 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %296, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %296, i64 %297
   %.sroa.0.0.copyload.i.i.i276 = load ptr, ptr %298, align 8, !tbaa !262, !noalias !1361
   %299 = getelementptr inbounds nuw i8, ptr %.sroa.6873.01404, i64 16
   %300 = load ptr, ptr %299, align 8, !tbaa !1218, !noalias !1361
@@ -57639,7 +57639,7 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
 305:                                              ; preds = %295
   %306 = icmp eq i32 %.sroa.14876.01405, 0
   %307 = zext i1 %306 to i64
-  %308 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.6873.01404, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %307
   %.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %308, align 8, !tbaa !253, !noalias !1361
   %309 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1218, !noalias !1361
   %310 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i, %309
@@ -57647,10 +57647,10 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   br label %326
 
 312:                                              ; preds = %295
-  %313 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %297
+  %313 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %297
   %314 = load i32, ptr %313, align 4, !tbaa !30, !noalias !1361
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.6873.01404, i64 0, i64 %315
+  %316 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %315
   %.sroa.0.0.copyload.i10.i.i.i = load ptr, ptr %316, align 8, !tbaa !253, !noalias !1361
   %317 = load ptr, ptr %.sroa.0.0.copyload.i.i.i276, align 8, !tbaa !1218, !noalias !1361
   %318 = icmp eq ptr %.sroa.0.0.copyload.i10.i.i.i, %317
@@ -57659,7 +57659,7 @@ _ZNSt6vectorIN4CGAL8internal8HDS_edgeINS1_22In_place_list_iteratorINS0_33Halfedg
   %321 = icmp eq ptr %.sroa.0.0.copyload.i10.i.i.i, %320
   %322 = select i1 %321, i64 1, i64 2
   %323 = select i1 %318, i64 0, i64 %322
-  %324 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %323
   %325 = load i32, ptr %324, align 4, !tbaa !30, !noalias !1361
   br label %326
 
@@ -58163,15 +58163,15 @@ _ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_
   %.sroa.19948.7 = phi ptr [ %.sroa.19948.11, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EE9push_backERKSP_.exit345 ], [ %.sroa.19948.4, %436 ]
   %.sroa.12945.2 = phi ptr [ %.sroa.12945.4, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EE9push_backERKSP_.exit345 ], [ %.sroa.12945.1, %436 ]
   %.sroa.0939.7 = phi ptr [ %.sroa.0939.11, %_ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_structure_2INS0_25Convex_hull_vertex_base_2INS0_11GT3_for_CH3INS0_20Convex_hull_traits_3INS0_5EpickENS0_12Polyhedron_3IS7_NS0_18Polyhedron_items_3ENS0_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS0_30Triangulation_ds_vertex_base_2IvEEEENS0_23Convex_hull_face_base_2ISF_NS0_28Triangulation_ds_face_base_2IvEEEEEEEESaISP_EE9push_backERKSP_.exit345 ], [ %.sroa.0939.4, %436 ]
-  %480 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %297
+  %480 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %297
   %481 = load i32, ptr %480, align 4, !tbaa !30
   %482 = sext i32 %481 to i64
-  %483 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.6873.01404, i64 0, i64 %482
+  %483 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %482
   %.sroa.0.0.copyload.i.i346 = load ptr, ptr %483, align 8, !tbaa !253
-  %484 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %297
+  %484 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %297
   %485 = load i32, ptr %484, align 4, !tbaa !30
   %486 = sext i32 %485 to i64
-  %487 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.6873.01404, i64 0, i64 %486
+  %487 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.6873.01404, i64 %486
   %.sroa.0.0.copyload.i.i347 = load ptr, ptr %487, align 8, !tbaa !253
   %.sroa.0.0.copyload.i.i348 = load ptr, ptr %.sroa.0.0.copyload.i.i347, align 8, !tbaa !262, !noalias !1381
   %488 = load ptr, ptr %.sroa.0.0.copyload.i.i348, align 8, !tbaa !1218, !noalias !1381
@@ -58181,7 +58181,7 @@ _ZNSt6vectorIN4CGAL8internal24TDS2_halfedge_descriptorINS0_30Triangulation_data_
   %492 = icmp eq ptr %.sroa.0.0.copyload.i.i347, %491
   %493 = select i1 %492, i64 1, i64 2
   %494 = select i1 %489, i64 0, i64 %493
-  %495 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %494
   %496 = load i32, ptr %495, align 4, !tbaa !30, !noalias !1381
   %497 = icmp eq ptr %.sroa.0.0.copyload.i.i348, %.sroa.6873.01404
   %498 = icmp eq i32 %496, %.sroa.14876.01405
@@ -58313,7 +58313,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %542 = icmp eq ptr %.sroa.0.0.copyload.i.i346, %541
   %543 = select i1 %542, i64 1, i64 2
   %544 = select i1 %539, i64 0, i64 %543
-  %545 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %544
+  %545 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %544
   %546 = load i32, ptr %545, align 4, !tbaa !30, !noalias !1389
   %547 = icmp eq ptr %.sroa.0.0.copyload.i.i366, %.sroa.0.0.copyload.i.i.i276
   %548 = icmp eq i32 %546, %.0.i.i.i
@@ -58518,7 +58518,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %619 = inttoptr i64 %617 to ptr
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 24
   %621 = zext nneg i32 %.sroa.14876.1 to i64
-  %622 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %620, i64 0, i64 %621
+  %622 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %620, i64 %621
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %622, align 8, !tbaa !262
   %623 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i, %619
   br i1 %623, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i, !llvm.loop !1397
@@ -58802,7 +58802,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %732 = getelementptr inbounds nuw i8, ptr %.sroa.042.0.copyload, i64 32
   store ptr %634, ptr %732, align 8, !tbaa !489
   %733 = sext i32 %.sroa.11751.01428 to i64
-  %734 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %733
+  %734 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %733
   %735 = load i32, ptr %734, align 4, !tbaa !30, !noalias !1403
   %736 = icmp eq i32 %.sroa.11751.01428, 2
   %737 = zext i1 %736 to i32
@@ -58837,7 +58837,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %.sroa.2708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %747, i64 8
   %.sroa.2708.0.copyload = load i32, ptr %.sroa.2708.0..sroa_idx, align 8
   %748 = sext i32 %.sroa.2708.0.copyload to i64
-  %749 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %748
+  %749 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %748
   %750 = load i32, ptr %749, align 4, !tbaa !30, !noalias !1406
   %751 = icmp eq ptr %.sroa.0707.0.copyload, null
   %752 = icmp eq i32 %.sroa.2708.0.copyload, 2
@@ -59016,7 +59016,7 @@ _ZN4CGAL29Halfedge_around_face_iteratorINS_30Triangulation_data_structure_2INS_2
   %825 = getelementptr inbounds nuw i8, ptr %823, i64 16
   store ptr %.sroa.030.01437, ptr %825, align 8, !tbaa !194
   %826 = sext i32 %.sroa.11700.01435 to i64
-  %827 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %826
+  %827 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %826
   %828 = load i32, ptr %827, align 4, !tbaa !30, !noalias !1409
   %829 = icmp eq i32 %828, %750
   %830 = zext i1 %829 to i32
@@ -59182,7 +59182,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i486: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i484
   %894 = getelementptr inbounds nuw i8, ptr %913, i64 24
   %895 = zext nneg i32 %914 to i64
-  %896 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %894, i64 0, i64 %895
+  %896 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %894, i64 %895
   %.sroa.0.0.copyload.i.i.i.i.i487 = load ptr, ptr %896, align 8, !tbaa !262, !noalias !1423
   %897 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i487, %913
   br i1 %897, label %.loopexit1016, label %.lr.ph.i.i483, !llvm.loop !1354
@@ -59267,7 +59267,7 @@ _ZNK4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2IN
 922:                                              ; preds = %_ZNK4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEneERKSQ_.exit.thread
   %923 = getelementptr inbounds nuw i8, ptr %.sroa.6636.01449, i64 24
   %924 = zext nneg i32 %.sroa.15.01448 to i64
-  %925 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %923, i64 0, i64 %924
+  %925 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %923, i64 %924
   %.sroa.0.0.copyload.i.i498 = load ptr, ptr %925, align 8, !tbaa !262
   %926 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i498, i64 24
   %927 = load ptr, ptr %926, align 8, !tbaa !242
@@ -59385,7 +59385,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %973 = inttoptr i64 %971 to ptr
   %974 = getelementptr inbounds nuw i8, ptr %973, i64 24
   %975 = zext nneg i32 %.sroa.15.1 to i64
-  %976 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %974, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %974, i64 %975
   %.sroa.0.0.copyload.i.i.i.i507 = load ptr, ptr %976, align 8, !tbaa !262
   %977 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i507, %973
   br i1 %977, label %_ZN4CGAL8internal22TDS2_halfedge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit, label %.split.i.i503, !llvm.loop !1397
@@ -59592,10 +59592,10 @@ _ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in
   %.sroa.2.0..0.i520.sroa_idx = getelementptr inbounds nuw i8, ptr %1064, i64 24
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..0.i520.sroa_idx, align 8
   %1065 = sext i32 %.sroa.2.0.copyload to i64
-  %1066 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %1065
+  %1066 = getelementptr inbounds i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 %1065
   %1067 = load i32, ptr %1066, align 4, !tbaa !30
   %1068 = sext i32 %1067 to i64
-  %1069 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator"], ptr %.sroa.0617.0.copyload, i64 0, i64 %1068
+  %1069 = getelementptr inbounds %"class.CGAL::internal::CC_iterator", ptr %.sroa.0617.0.copyload, i64 %1068
   %.sroa.0.0.copyload.i.i526 = load ptr, ptr %1069, align 8, !tbaa !253
   %.sroa.0.0.copyload.i.i527 = load ptr, ptr %.sroa.0.0.copyload.i.i526, align 8, !tbaa !262, !noalias !1433
   %1070 = load ptr, ptr %.sroa.0.0.copyload.i.i527, align 8, !tbaa !1218, !noalias !1433
@@ -59605,7 +59605,7 @@ _ZNSt13unordered_mapIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in
   %1074 = icmp eq ptr %.sroa.0.0.copyload.i.i526, %1073
   %1075 = select i1 %1074, i64 1, i64 2
   %1076 = select i1 %1071, i64 0, i64 %1075
-  %1077 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %1076
+  %1077 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 %1076
   %1078 = load i32, ptr %1077, align 4, !tbaa !30, !noalias !1433
   %1079 = ptrtoint ptr %.sroa.0.0.copyload.i.i527 to i64
   %1080 = load ptr, ptr %3, align 8, !tbaa !1335
@@ -60211,7 +60211,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.i: ; preds = %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %41 = zext nneg i32 %60 to i64
-  %42 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.262", ptr %40, i64 %41
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !262, !noalias !1438
   %43 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.i, %59
   br i1 %43, label %_ZN4CGAL5edgesINS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS4_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISC_NS_28Triangulation_ds_face_base_2IvEEEEEENS_14Iterator_rangeIN5boost12graph_traitsINS_30Triangulation_data_structure_2IT_T0_EEE13edge_iteratorEEERKSR_.exit, label %.lr.ph.i.i, !llvm.loop !1354
@@ -60371,7 +60371,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   %101 = inttoptr i64 %98 to ptr
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = sext i32 %100 to i64
-  %104 = getelementptr inbounds [3 x %"class.CGAL::internal::CC_iterator.262"], ptr %102, i64 0, i64 %103
+  %104 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.262", ptr %102, i64 %103
   %.sroa.0.0.copyload.i.i.i.i.us.i = load ptr, ptr %104, align 8, !tbaa !262
   %105 = icmp ugt ptr %.sroa.0.0.copyload.i.i.i.i.us.i, %101
   br i1 %105, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, label %.split.i.i.us.i, !llvm.loop !1397

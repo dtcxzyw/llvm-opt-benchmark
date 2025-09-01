@@ -154,7 +154,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr noundef readonly capture
 
 44:                                               ; preds = %51, %.loopexit10
   %45 = phi i64 [ %52, %51 ], [ 0, %.loopexit10 ]
-  %46 = getelementptr [3 x ptr], ptr @cache_types, i64 0, i64 %45
+  %46 = getelementptr ptr, ptr @cache_types, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8

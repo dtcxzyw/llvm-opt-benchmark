@@ -331,7 +331,7 @@ define dso_local ptr @snd_ctl_new1(ptr noundef readonly captures(address_is_null
   %30 = getelementptr i8, ptr %27, i64 %.idx
   %31 = getelementptr i8, ptr %30, i64 8
   store i32 %16, ptr %31, align 8
-  %32 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %27, i64 0, i64 %29
+  %32 = getelementptr %struct.snd_kcontrol_volatile, ptr %27, i64 %29
   store ptr null, ptr %32, align 8
   %33 = add nuw nsw i64 %29, 1
   %34 = icmp eq i64 %33, %26
@@ -595,7 +595,7 @@ define dso_local ptr @snd_ctl_find_id_locked(ptr noundef %0, ptr noundef readonl
 29:                                               ; preds = %35, %13
   %30 = phi i64 [ 0, %13 ], [ %39, %35 ]
   %31 = phi i64 [ %27, %13 ], [ %38, %35 ]
-  %32 = getelementptr [44 x i8], ptr %28, i64 0, i64 %30
+  %32 = getelementptr i8, ptr %28, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %41, label %35
@@ -956,7 +956,7 @@ define internal fastcc void @remove_hash_entries(ptr noundef %0, ptr noundef rea
 34:                                               ; preds = %40, %28
   %35 = phi i64 [ 0, %28 ], [ %44, %40 ]
   %36 = phi i64 [ %23, %28 ], [ %43, %40 ]
-  %37 = getelementptr [44 x i8], ptr %24, i64 0, i64 %35
+  %37 = getelementptr i8, ptr %24, i64 %35
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %46, label %40
@@ -1089,7 +1089,7 @@ define internal fastcc void @add_hash_entries(ptr noundef %0, ptr noundef %1) un
 39:                                               ; preds = %45, %35
   %40 = phi i64 [ 0, %35 ], [ %49, %45 ]
   %41 = phi i64 [ %32, %35 ], [ %48, %45 ]
-  %42 = getelementptr [44 x i8], ptr %33, i64 0, i64 %40
+  %42 = getelementptr i8, ptr %33, i64 %40
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %51, label %45
@@ -1363,7 +1363,7 @@ define dso_local i32 @snd_ctl_get_preferred_subdevice(ptr noundef %0, i32 nounde
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %21 = getelementptr [2 x i32], ptr %20, i64 0, i64 %13
+  %21 = getelementptr i32, ptr %20, i64 %13
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %.loopexit
@@ -2500,7 +2500,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
   %152 = trunc i64 %150 to i32
   %153 = and i32 %151, %152
   %154 = zext i32 %153 to i64
-  %155 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %126, i64 0, i64 %154
+  %155 = getelementptr %struct.snd_kcontrol_volatile, ptr %126, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %159
@@ -2569,7 +2569,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
   %197 = trunc i64 %195 to i32
   %198 = and i32 %196, %197
   %199 = zext i32 %198 to i64
-  %200 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %171, i64 0, i64 %199
+  %200 = getelementptr %struct.snd_kcontrol_volatile, ptr %171, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %206, label %203
@@ -2639,7 +2639,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
 .preheader:                                       ; preds = %230, %234
   %237 = phi i32 [ %235, %234 ], [ 0, %230 ]
   %238 = sext i32 %237 to i64
-  %239 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %225, i64 0, i64 %238
+  %239 = getelementptr %struct.snd_kcontrol_volatile, ptr %225, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   %242 = icmp eq ptr %240, %11
@@ -3297,7 +3297,7 @@ define internal noundef i32 @snd_ctl_release(ptr readnone captures(none) %0, ptr
 25:                                               ; preds = %32, %23
   %26 = phi i32 [ %21, %23 ], [ %33, %32 ]
   %27 = phi i64 [ 0, %23 ], [ %34, %32 ]
-  %28 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %24, i64 0, i64 %27
+  %28 = getelementptr %struct.snd_kcontrol_volatile, ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %4
   br i1 %30, label %31, label %32
@@ -3443,7 +3443,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_user(ptr 
 .preheader:                                       ; preds = %25, %29
   %32 = phi i32 [ %30, %29 ], [ 0, %25 ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %20, i64 0, i64 %33
+  %34 = getelementptr %struct.snd_kcontrol_volatile, ptr %20, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   %37 = icmp eq ptr %35, %0
@@ -3554,13 +3554,13 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly captures(addr
   %61 = trunc i64 %59 to i32
   %62 = and i32 %60, %61
   %63 = zext i32 %62 to i64
-  %64 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %29, i64 0, i64 %63
+  %64 = getelementptr %struct.snd_kcontrol_volatile, ptr %29, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %66
 
 66:                                               ; preds = %77, %58
   %67 = phi i64 [ 0, %58 ], [ %78, %77 ]
-  %68 = getelementptr [3 x %struct.anon.33], ptr @call_tlv_handler.pairs, i64 0, i64 %67
+  %68 = getelementptr %struct.anon.33, ptr @call_tlv_handler.pairs, i64 %67
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, %2
   br i1 %70, label %71, label %77
@@ -3809,7 +3809,7 @@ define internal fastcc i32 @snd_ctl_elem_info(ptr noundef readonly captures(addr
   %54 = and i32 %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %56 = zext i32 %54 to i64
-  %57 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %55, i64 0, i64 %56
+  %57 = getelementptr %struct.snd_kcontrol_volatile, ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %58, i64 64, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -4012,7 +4012,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_write(ptr nou
   %36 = and i32 %34, %35
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %38 = zext i32 %36 to i64
-  %39 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %37, i64 0, i64 %38
+  %39 = getelementptr %struct.snd_kcontrol_volatile, ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 2
@@ -4175,7 +4175,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
 .preheader:                                       ; preds = %25, %29
   %32 = phi i32 [ %30, %29 ], [ 0, %25 ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %20, i64 0, i64 %33
+  %34 = getelementptr %struct.snd_kcontrol_volatile, ptr %20, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   %37 = icmp eq ptr %35, %0
@@ -4221,14 +4221,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %66 = load i32, ptr %65, align 8
   %67 = zext nneg i32 %55 to i64
-  %68 = getelementptr [7 x i32], ptr @snd_ctl_check_elem_info.max_value_counts, i64 0, i64 %67
+  %68 = getelementptr i32, ptr @snd_ctl_check_elem_info.max_value_counts, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %66, -1
   %or.cond.not = icmp ult i32 %70, %69
   br i1 %or.cond.not, label %71, label %.thread14
 
 71:                                               ; preds = %64
-  %72 = getelementptr [7 x i32], ptr @value_sizes, i64 0, i64 %67
+  %72 = getelementptr i32, ptr @value_sizes, i64 %67
   %73 = load i32, ptr %72, align 4
   %74 = mul i32 %73, %66
   %75 = zext i32 %74 to i64
@@ -4268,7 +4268,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
   %99 = getelementptr i8, ptr %96, i64 %.idx
   %100 = getelementptr i8, ptr %99, i64 8
   store i32 %53, ptr %100, align 8
-  %101 = getelementptr [0 x %struct.snd_kcontrol_volatile], ptr %96, i64 0, i64 %98
+  %101 = getelementptr %struct.snd_kcontrol_volatile, ptr %96, i64 %98
   store ptr %0, ptr %101, align 8
   %102 = add nuw nsw i64 %98, 1
   %103 = icmp eq i64 %102, %76
@@ -5287,7 +5287,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
 73:                                               ; preds = %63
   %74 = extractvalue { ptr, i32, i64 } %67, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [128 x i64], ptr %61, i64 0, i64 %64
+  %76 = getelementptr i64, ptr %61, i64 %64
   store i64 %75, ptr %76, align 8
   %77 = add nuw nsw i64 %64, 1
   %78 = icmp eq i64 %77, %62
@@ -5359,7 +5359,7 @@ define internal fastcc range(i32 -14, 1) i32 @copy_ctl_value_to_user(ptr noundef
 
 16:                                               ; preds = %13, %10
   %17 = phi i64 [ 0, %10 ], [ %14, %13 ]
-  %18 = getelementptr [128 x i64], ptr %11, i64 0, i64 %17
+  %18 = getelementptr i64, ptr %11, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %21 = getelementptr i32, ptr %1, i64 %17

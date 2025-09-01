@@ -3425,7 +3425,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i:      ; preds = %.lr.ph.i.i, %_ZNSt6
 
 .preheader.i66:                                   ; preds = %247, %263
   %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i68, %263 ], [ 0, %247 ]
-  %252 = getelementptr inbounds nuw [25 x %struct.t_ftupd], ptr @_ZL5ftupd, i64 0, i64 %indvars.iv.i67
+  %252 = getelementptr inbounds nuw %struct.t_ftupd, ptr @_ZL5ftupd, i64 %indvars.iv.i67
   %253 = load i32, ptr %252, align 8, !tbaa !236
   %254 = icmp slt i32 %2, %253
   br i1 %254, label %255, label %263
@@ -4491,7 +4491,7 @@ _ZN3gmx11ISerializer11doRealArrayEPfi.exit347.i.i: ; preds = %.lr.ph.i343.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 1 dereferenceable(122) @.str.12, i8 noundef zeroext 2)
   %916 = sext i32 %266 to i64
-  %917 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %916
+  %917 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %916
   %918 = load ptr, ptr %917, align 16, !tbaa !240
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 2260, ptr noundef nonnull @.str.34, i32 noundef %266, ptr noundef %918, ptr noundef nonnull @.str.12, i32 noundef 2265) #31
           to label %919 unwind label %920
@@ -4813,7 +4813,7 @@ _ZL9do_symstrPN3gmx11ISerializerEPPPcP8t_symtab.exit.i: ; preds = %1002, %996
 
 switch.lookup:                                    ; preds = %1108
   %1112 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [47 x ptr], ptr @switch.table._ZL7do_mtopPN3gmx11ISerializerEP10gmx_mtop_ti, i64 0, i64 %1112
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL7do_mtopPN3gmx11ISerializerEP10gmx_mtop_ti, i64 %1112
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL23atomicnumber_to_elementi.exit.i.i.i
 
@@ -6587,7 +6587,7 @@ _ZL9do_strstrPN3gmx11ISerializerEiPPPcP8t_symtab.exit.i: ; preds = %_ZL9do_symst
 1880:                                             ; preds = %1907, %_ZL9do_strstrPN3gmx11ISerializerEiPPPcP8t_symtab.exit.i
   %indvars.iv.i128 = phi i64 [ 0, %_ZL9do_strstrPN3gmx11ISerializerEiPPPcP8t_symtab.exit.i ], [ %indvars.iv.next.i130, %1907 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1881 = getelementptr inbounds nuw [10 x %"class.std::vector.53"], ptr %1879, i64 0, i64 %indvars.iv.i128
+  %1881 = getelementptr inbounds nuw %"class.std::vector.53", ptr %1879, i64 %indvars.iv.i128
   %1882 = getelementptr inbounds nuw i8, ptr %1881, i64 8
   %1883 = load ptr, ptr %1882, align 8, !tbaa !342
   %1884 = load ptr, ptr %1881, align 8, !tbaa !344
@@ -6766,7 +6766,7 @@ define internal fastcc void @_ZL9do_ilistsPN3gmx11ISerializerEPSt5arrayI15Intera
 
 8:                                                ; preds = %.preheader27, %_ZNSt6vectorIiSaIiEE5clearEv.exit
   %indvars.iv32 = phi i64 [ 0, %.preheader27 ], [ %indvars.iv.next33, %_ZNSt6vectorIiSaIiEE5clearEv.exit ]
-  %9 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %1, i64 0, i64 %indvars.iv32
+  %9 = getelementptr inbounds nuw %struct.InteractionList, ptr %1, i64 %indvars.iv32
   %10 = load ptr, ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -6779,7 +6779,7 @@ define internal fastcc void @_ZL9do_ilistsPN3gmx11ISerializerEPSt5arrayI15Intera
 .preheader:                                       ; preds = %8, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %8 ]
   %.128 = phi i1 [ %.2, %23 ], [ false, %8 ]
-  %15 = getelementptr inbounds nuw [25 x %struct.t_ftupd], ptr @_ZL5ftupd, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.t_ftupd, ptr @_ZL5ftupd, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8, !tbaa !236
   %17 = icmp slt i32 %2, %16
   br i1 %17, label %18, label %23
@@ -7397,7 +7397,7 @@ define linkonce_odr void @_ZN13gmx_moltype_tC2ERKS_(ptr noundef nonnull align 8 
   %.idx.i = mul nuw nsw i64 %5, 24
   %.add7 = add nuw nsw i64 %.idx.i, 80
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 %.add7
-  %6 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %struct.InteractionList, ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !207
   %9 = load ptr, ptr %6, align 8, !tbaa !208
@@ -10638,7 +10638,7 @@ _ZNSt10unique_ptrI8t_lambdaSt14default_deleteIS0_EED2Ev.exit: ; preds = %808, %_
   br i1 %867, label %868, label %895
 
 868:                                              ; preds = %.split217.i
-  %869 = getelementptr inbounds nuw [7 x %"class.std::vector"], ptr %860, i64 0, i64 %indvars.iv231.i
+  %869 = getelementptr inbounds nuw %"class.std::vector", ptr %860, i64 %indvars.iv231.i
   %870 = zext nneg i32 %866 to i64
   %871 = getelementptr inbounds nuw i8, ptr %869, i64 8
   %872 = load ptr, ptr %871, align 8, !tbaa !470
@@ -10779,7 +10779,7 @@ _ZN3gmx11ISerializer11doBoolArrayEPbi.exit.i:     ; preds = %.noexc446, %898, %8
   br i1 %921, label %922, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit174.i
 
 922:                                              ; preds = %.split.i
-  %923 = getelementptr inbounds nuw [7 x %"class.std::vector"], ptr %919, i64 0, i64 %indvars.iv.i
+  %923 = getelementptr inbounds nuw %"class.std::vector", ptr %919, i64 %indvars.iv.i
   %924 = zext nneg i32 %.pre.i1945 to i64
   %925 = getelementptr inbounds nuw i8, ptr %923, i64 8
   %926 = load ptr, ptr %925, align 8, !tbaa !470
@@ -10888,7 +10888,7 @@ _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc452, %918, %
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %960, !llvm.loop !477
 
 .lr.ph.split.us215.i:                             ; preds = %.preheader.us.i
-  %964 = getelementptr inbounds nuw [7 x %"class.std::vector"], ptr %959, i64 0, i64 %indvars.iv228.i
+  %964 = getelementptr inbounds nuw %"class.std::vector", ptr %959, i64 %indvars.iv228.i
   %965 = load ptr, ptr %948, align 8, !tbaa !466
   %966 = load ptr, ptr %964, align 8, !tbaa !466
   br label %960
@@ -12189,7 +12189,7 @@ _ZL15do_expandedvalsPN3gmx11ISerializerEP10t_expandedP8t_lambdai.exit: ; preds =
 
 1581:                                             ; preds = %1579, %1586
   %indvars.iv = phi i64 [ 0, %1579 ], [ %indvars.iv.next, %1586 ]
-  %1582 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1580, i64 0, i64 %indvars.iv
+  %1582 = getelementptr inbounds nuw [3 x float], ptr %1580, i64 %indvars.iv
   %1583 = load ptr, ptr %0, align 8, !tbaa !19
   %1584 = getelementptr inbounds nuw i8, ptr %1583, i64 112
   %1585 = load ptr, ptr %1584, align 8
@@ -15587,7 +15587,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit210.thread.i:        ; preds = %2968
 3010:                                             ; preds = %2996
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %3011 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL16do_legacy_efieldPN3gmx11ISerializerEPNS_25KeyValueTreeObjectBuilderE.dimName, i64 0, i64 %indvars.iv.i832
+  %3011 = getelementptr inbounds nuw ptr, ptr @__const._ZL16do_legacy_efieldPN3gmx11ISerializerEPNS_25KeyValueTreeObjectBuilderE.dimName, i64 %indvars.iv.i832
   %3012 = load ptr, ptr %3011, align 8, !tbaa !219
   store ptr %2902, ptr %19, align 8, !tbaa !18
   %3013 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3012) #28
@@ -16738,7 +16738,7 @@ _ZL12do_swapgroupPN3gmx11ISerializerEP11t_swapGroup.exit.i: ; preds = %_ZNKSt7__
 
 .noexc911:                                        ; preds = %.noexc910, %_ZN3gmx11ISerializer10doIntArrayEPii.exit.i
   %indvars.iv.i854 = phi i64 [ %indvars.iv.next.i855, %_ZN3gmx11ISerializer10doIntArrayEPii.exit.i ], [ 0, %.noexc910 ]
-  %3422 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZL17do_swapcoords_tpxPN3gmx11ISerializerEP12t_swapcoordsi.order, i64 0, i64 %indvars.iv.i854
+  %3422 = getelementptr inbounds nuw i32, ptr @__const._ZL17do_swapcoords_tpxPN3gmx11ISerializerEP12t_swapcoordsi.order, i64 %indvars.iv.i854
   %3423 = load i32, ptr %3422, align 4, !tbaa !14
   %3424 = load ptr, ptr %3344, align 8, !tbaa !670
   %3425 = sext i32 %3423 to i64
@@ -16789,7 +16789,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i:      ; preds = %.noexc913, %.noexc9
   %indvars.iv108.i = phi i64 [ 1, %.noexc915 ], [ 0, %_ZN3gmx11ISerializer10doIntArrayEPii.exit.i ]
   %3444 = load ptr, ptr %3344, align 8, !tbaa !670
   %3445 = getelementptr inbounds nuw i8, ptr %3444, i64 120
-  %3446 = getelementptr inbounds nuw [2 x i32], ptr %3445, i64 0, i64 %indvars.iv108.i
+  %3446 = getelementptr inbounds nuw i32, ptr %3445, i64 %indvars.iv108.i
   %3447 = load ptr, ptr %0, align 8, !tbaa !19
   %3448 = getelementptr inbounds nuw i8, ptr %3447, i64 56
   %3449 = load ptr, ptr %3448, align 8
@@ -16799,7 +16799,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i:      ; preds = %.noexc913, %.noexc9
 .noexc914:                                        ; preds = %.preheader.i857
   %3450 = load ptr, ptr %3344, align 8, !tbaa !670
   %3451 = getelementptr inbounds nuw i8, ptr %3450, i64 152
-  %3452 = getelementptr inbounds nuw [2 x i32], ptr %3451, i64 0, i64 %indvars.iv108.i
+  %3452 = getelementptr inbounds nuw i32, ptr %3451, i64 %indvars.iv108.i
   %3453 = load ptr, ptr %0, align 8, !tbaa !19
   %3454 = getelementptr inbounds nuw i8, ptr %3453, i64 56
   %3455 = load ptr, ptr %3454, align 8

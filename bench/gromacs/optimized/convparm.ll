@@ -74,7 +74,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z28shouldConvertInteractionTypei(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %2, i32 5
+  %3 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %2, i32 5
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = zext i32 %4 to i64
   %6 = add i32 %0, -39
@@ -162,7 +162,7 @@ _ZNSt6vectorI9t_iparamsSaIS0_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIiSaIiE
 
 39:                                               ; preds = %.preheader, %_Z28shouldConvertInteractionTypei.exit.thread86
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_Z28shouldConvertInteractionTypei.exit.thread86 ]
-  %40 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %36, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.InteractionList, ptr %36, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !32
@@ -180,7 +180,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit75:              ; preds = %39, %44
   br i1 %or.cond.i, label %47, label %_Z28shouldConvertInteractionTypei.exit.thread86
 
 47:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit75
-  %48 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %48 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = and i32 %49, 7
   %or.cond.not = icmp eq i32 %50, 0
@@ -257,7 +257,7 @@ _ZNSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EED2Ev.e
 83:                                               ; preds = %_ZNSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EED2Ev.exit, %121
   %indvars.iv93 = phi i64 [ 0, %_ZNSt10unique_ptrISt5arrayI15InteractionListLm95EESt14default_deleteIS2_EED2Ev.exit ], [ %indvars.iv.next94, %121 ]
   %84 = load ptr, ptr %67, align 8, !tbaa !84
-  %85 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %84, i64 0, i64 %indvars.iv93
+  %85 = getelementptr inbounds nuw %struct.InteractionList, ptr %84, i64 %indvars.iv93
   %86 = load ptr, ptr %85, align 8, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !32
@@ -277,7 +277,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %83, %89
   br i1 %94, label %121, label %95
 
 95:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit77
-  %96 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv93, i32 5
+  %96 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv93, i32 5
   %97 = load i32, ptr %96, align 4, !tbaa !4
   %98 = zext i32 %97 to i64
   %99 = and i64 %98, 1
@@ -301,7 +301,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %83, %89
   br label %120
 
 104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv93, i32 2
+  %105 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv93, i32 2
   %106 = load i32, ptr %105, align 16, !tbaa !86
   %107 = icmp eq i32 %106, 1
   br i1 %107, label %108, label %112
@@ -423,7 +423,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
 .lr.ph:                                           ; preds = %7
   %20 = fpext float %2 to double
   %21 = sext i32 %0 to i64
-  %22 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21
+  %22 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -447,7 +447,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.not = icmp eq ptr %4, null
-  %42 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %21, i32 2
+  %42 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %21, i32 2
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %45
@@ -467,7 +467,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %45
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ %indvars.iv.i.i.be, %.backedge.i.i.backedge ]
   %.0239424.i.i = phi i1 [ true, %45 ], [ %.0239424.i.i.be, %.backedge.i.i.backedge ]
-  %48 = getelementptr inbounds nuw [12 x float], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i
   store float 0.000000e+00, ptr %48, align 4, !tbaa !91
   br i1 %.0239424.i.i, label %49, label %.thread.i.i
 
@@ -1960,7 +1960,7 @@ define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_check
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(132) @.str, i8 noundef zeroext 2)
   %14 = fpext float %0 to double
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %15, i32 1
+  %16 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %15, i32 1
   %17 = load ptr, ptr %16, align 8, !tbaa !107
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 74, ptr noundef nonnull @.str.14, double noundef %14, ptr noundef %3, ptr noundef %17) #19
           to label %18 unwind label %19
@@ -1983,7 +1983,7 @@ define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_check
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(132) @.str, i8 noundef zeroext 2)
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %24, i32 1
+  %25 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %24, i32 1
   %26 = load ptr, ptr %25, align 8, !tbaa !107
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 83, ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef %26, i32 noundef %8, i32 noundef %1) #19
           to label %27 unwind label %28

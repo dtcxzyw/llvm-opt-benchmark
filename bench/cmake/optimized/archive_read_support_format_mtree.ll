@@ -1924,7 +1924,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
 
 .lr.ph.i80.preheader:                             ; preds = %97
   %100 = zext i8 %78 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @bid_entry.safe_char, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @bid_entry.safe_char, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !38
   %.not.i81262 = icmp eq i8 %102, 0
   br i1 %.not.i81262, label %.lr.ph.i80._crit_edge, label %.lr.ph264
@@ -1932,7 +1932,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
 .lr.ph.i80:                                       ; preds = %.lr.ph264
   %103 = load i8, ptr %107, align 1, !tbaa !38
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds nuw [256 x i8], ptr @bid_entry.safe_char, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr @bid_entry.safe_char, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !38
   %.not.i81 = icmp eq i8 %106, 0
   br i1 %.not.i81, label %.lr.ph.i80._crit_edge, label %.lr.ph264, !llvm.loop !100
@@ -2013,7 +2013,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
 
 132:                                              ; preds = %.lr.ph91.i
   %133 = zext i8 %130 to i64
-  %134 = getelementptr inbounds nuw [256 x i8], ptr @bid_entry.safe_char, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr @bid_entry.safe_char, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !38
   %.not72.i = icmp eq i8 %135, 0
   br i1 %.not72.i, label %next_line.exit.thread, label %136
@@ -2336,7 +2336,7 @@ switch.hole_check:                                ; preds = %bid_keycmp.exit.thr
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %44 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.bid_keyword_list, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.bid_keyword_list, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   %45 = load ptr, ptr %switch.load, align 16, !tbaa !104
   %.not25.i = icmp eq ptr %45, null
@@ -3446,7 +3446,7 @@ define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr noundef nonnull w
 27:                                               ; preds = %25
   %28 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !45
   %30 = load i8, ptr %.1, align 1, !tbaa !38
   %31 = icmp eq i8 %30, 0
@@ -3725,93 +3725,93 @@ define internal fastcc i32 @parse_digest(ptr noundef %0, ptr noundef %1, ptr nou
 switch.lookup:
   %4 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %switch.tableidx = add nsw i32 %3, -1
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.parse_digest, i64 0, i64 %5
+  %5 = zext nneg i32 %3 to i64
+  %6 = getelementptr i64, ptr @switch.table.parse_digest, i64 %5
+  %switch.gep = getelementptr i8, ptr %6, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = or disjoint i64 %switch.load, 1
-  %7 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef %6) #21
-  %.not = icmp eq i64 %7, %switch.load
-  br i1 %.not, label %.preheader.preheader, label %10
+  %7 = or disjoint i64 %switch.load, 1
+  %8 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef %7) #21
+  %.not = icmp eq i64 %8, %switch.load
+  br i1 %.not, label %.preheader.preheader, label %11
 
 .preheader.preheader:                             ; preds = %switch.lookup
-  %8 = add nsw i64 %switch.load, -1
-  %9 = lshr i64 %8, 1
+  %9 = add nsw i64 %switch.load, -1
+  %10 = lshr i64 %9, 1
   br label %.preheader
 
-10:                                               ; preds = %switch.lookup
+11:                                               ; preds = %switch.lookup
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.71) #19
-  br label %41
+  br label %42
 
-.preheader:                                       ; preds = %.preheader.preheader, %32
-  %.02638 = phi i64 [ %38, %32 ], [ 0, %.preheader.preheader ]
-  %.02737 = phi i64 [ %37, %32 ], [ 0, %.preheader.preheader ]
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.02737
-  %12 = load i8, ptr %11, align 1, !tbaa !38
-  %13 = sext i8 %12 to i32
-  %14 = add i8 %12, -48
-  %or.cond.i = icmp ult i8 %14, 10
-  br i1 %or.cond.i, label %15, label %17
+.preheader:                                       ; preds = %.preheader.preheader, %33
+  %.02638 = phi i64 [ %39, %33 ], [ 0, %.preheader.preheader ]
+  %.02737 = phi i64 [ %38, %33 ], [ 0, %.preheader.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.02737
+  %13 = load i8, ptr %12, align 1, !tbaa !38
+  %14 = sext i8 %13 to i32
+  %15 = add i8 %13, -48
+  %or.cond.i = icmp ult i8 %15, 10
+  br i1 %or.cond.i, label %16, label %18
 
-15:                                               ; preds = %.preheader
-  %16 = add nsw i32 %13, -48
+16:                                               ; preds = %.preheader
+  %17 = add nsw i32 %14, -48
   br label %parse_hex_nibble.exit
 
-17:                                               ; preds = %.preheader
-  %18 = add i8 %12, -97
-  %or.cond5.i = icmp ult i8 %18, 6
-  %19 = add nsw i32 %13, -87
-  %spec.select.i = select i1 %or.cond5.i, i32 %19, i32 -1
+18:                                               ; preds = %.preheader
+  %19 = add i8 %13, -97
+  %or.cond5.i = icmp ult i8 %19, 6
+  %20 = add nsw i32 %14, -87
+  %spec.select.i = select i1 %or.cond5.i, i32 %20, i32 -1
   br label %parse_hex_nibble.exit
 
-parse_hex_nibble.exit:                            ; preds = %15, %17
-  %.0.i = phi i32 [ %16, %15 ], [ %spec.select.i, %17 ]
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !38
-  %22 = sext i8 %21 to i32
-  %23 = add i8 %21, -48
-  %or.cond.i32 = icmp ult i8 %23, 10
-  br i1 %or.cond.i32, label %24, label %26
+parse_hex_nibble.exit:                            ; preds = %16, %18
+  %.0.i = phi i32 [ %17, %16 ], [ %spec.select.i, %18 ]
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !38
+  %23 = sext i8 %22 to i32
+  %24 = add i8 %22, -48
+  %or.cond.i32 = icmp ult i8 %24, 10
+  br i1 %or.cond.i32, label %25, label %27
 
-24:                                               ; preds = %parse_hex_nibble.exit
-  %25 = add nsw i32 %22, -48
+25:                                               ; preds = %parse_hex_nibble.exit
+  %26 = add nsw i32 %23, -48
   br label %parse_hex_nibble.exit36
 
-26:                                               ; preds = %parse_hex_nibble.exit
-  %27 = add i8 %21, -97
-  %or.cond5.i33 = icmp ult i8 %27, 6
-  %28 = add nsw i32 %22, -87
-  %spec.select.i34 = select i1 %or.cond5.i33, i32 %28, i32 -1
+27:                                               ; preds = %parse_hex_nibble.exit
+  %28 = add i8 %22, -97
+  %or.cond5.i33 = icmp ult i8 %28, 6
+  %29 = add nsw i32 %23, -87
+  %spec.select.i34 = select i1 %or.cond5.i33, i32 %29, i32 -1
   br label %parse_hex_nibble.exit36
 
-parse_hex_nibble.exit36:                          ; preds = %24, %26
-  %.0.i35 = phi i32 [ %25, %24 ], [ %spec.select.i34, %26 ]
-  %29 = icmp eq i32 %.0.i, -1
-  %30 = icmp eq i32 %.0.i35, -1
-  %or.cond = select i1 %29, i1 true, i1 %30
-  br i1 %or.cond, label %31, label %32
-
-31:                                               ; preds = %parse_hex_nibble.exit36
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.72) #19
-  br label %41
+parse_hex_nibble.exit36:                          ; preds = %25, %27
+  %.0.i35 = phi i32 [ %26, %25 ], [ %spec.select.i34, %27 ]
+  %30 = icmp eq i32 %.0.i, -1
+  %31 = icmp eq i32 %.0.i35, -1
+  %or.cond = select i1 %30, i1 true, i1 %31
+  br i1 %or.cond, label %32, label %33
 
 32:                                               ; preds = %parse_hex_nibble.exit36
-  %33 = shl nsw i32 %.0.i, 4
-  %34 = or i32 %.0.i35, %33
-  %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.02638
-  store i8 %35, ptr %36, align 1, !tbaa !38
-  %37 = add nuw nsw i64 %.02737, 2
-  %38 = add nuw nsw i64 %.02638, 1
-  %exitcond.not = icmp eq i64 %.02638, %9
-  br i1 %exitcond.not, label %39, label %.preheader, !llvm.loop !112
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.72) #19
+  br label %42
 
-39:                                               ; preds = %32
-  %40 = call i32 @archive_entry_set_digest(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %4) #19
-  br label %41
+33:                                               ; preds = %parse_hex_nibble.exit36
+  %34 = shl nsw i32 %.0.i, 4
+  %35 = or i32 %.0.i35, %34
+  %36 = trunc i32 %35 to i8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %.02638
+  store i8 %36, ptr %37, align 1, !tbaa !38
+  %38 = add nuw nsw i64 %.02737, 2
+  %39 = add nuw nsw i64 %.02638, 1
+  %exitcond.not = icmp eq i64 %.02638, %10
+  br i1 %exitcond.not, label %40, label %.preheader, !llvm.loop !112
 
-41:                                               ; preds = %39, %31, %10
-  %.028 = phi i32 [ -20, %10 ], [ -20, %31 ], [ %40, %39 ]
+40:                                               ; preds = %33
+  %41 = call i32 @archive_entry_set_digest(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %4) #19
+  br label %42
+
+42:                                               ; preds = %40, %32, %11
+  %.028 = phi i32 [ -20, %11 ], [ -20, %32 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.028
 }

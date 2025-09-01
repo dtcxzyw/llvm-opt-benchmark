@@ -176,7 +176,7 @@ define noalias ptr @cli_getdsig(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 65:                                               ; preds = %61
   %66 = and i64 %62, 2147483647
-  %67 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 %66
   store i8 0, ptr %67, align 1, !tbaa !3
   %68 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.15) #17
   %.not36 = icmp eq ptr %68, null
@@ -405,7 +405,7 @@ define internal fastcc noundef ptr @cli_decodesig(ptr noundef readonly captures(
 
 20:                                               ; preds = %25, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %25 ]
-  %21 = getelementptr inbounds nuw [64 x i8], ptr @__const.cli_ndecode.ncodec, i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr @__const.cli_ndecode.ncodec, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = sext i8 %22 to i32
   %24 = icmp eq i32 %23, %19
@@ -584,7 +584,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv67, 1
   %41 = icmp eq i64 %indvars.iv.next, 7
   %42 = shl nuw nsw i64 %indvars.iv67, 5
-  %43 = getelementptr inbounds nuw [223 x i8], ptr %9, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 %42
   br i1 %41, label %.preheader.preheader, label %44
 
 44:                                               ; preds = %.lr.ph
@@ -603,9 +603,9 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv55 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next56, %.preheader ]
-  %48 = getelementptr inbounds nuw [223 x i8], ptr %8, i64 0, i64 %indvars.iv55
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv55
   %49 = load i8, ptr %48, align 1, !tbaa !3
-  %50 = getelementptr inbounds nuw [223 x i8], ptr %9, i64 0, i64 %indvars.iv55
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv55
   %51 = load i8, ptr %50, align 1, !tbaa !3
   %52 = xor i8 %51, %49
   store i8 %52, ptr %50, align 1, !tbaa !3

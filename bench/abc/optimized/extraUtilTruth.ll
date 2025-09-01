@@ -61,7 +61,7 @@ define ptr @Extra_TruthElementary(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond48.not, label %..loopexit27_crit_edge.us.us, label %14, !llvm.loop !10
 
 .preheader.us.us:                                 ; preds = %.lr.ph33.split.us.split.us
-  %16 = getelementptr inbounds nuw [5 x [2 x i32]], ptr @s_VarMasks, i64 0, i64 %indvars.iv49, i64 1
+  %16 = getelementptr inbounds nuw [2 x i32], ptr @s_VarMasks, i64 %indvars.iv49, i64 1
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv49
   %19 = load ptr, ptr %18, align 8, !tbaa !11
@@ -97,7 +97,7 @@ define void @Extra_TruthSwapAdjacentVars(ptr noundef writeonly captures(none) %0
 
 .lr.ph135:                                        ; preds = %10
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %13
+  %14 = getelementptr inbounds [3 x i32], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !3
@@ -531,7 +531,7 @@ define void @Extra_TruthStretch(ptr noundef captures(none) %0, ptr noundef captu
   br i1 %12, label %.lr.ph135.i, label %Extra_TruthSwapAdjacentVars.exit
 
 .lr.ph135.i:                                      ; preds = %21
-  %24 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds [3 x i32], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !3
@@ -776,7 +776,7 @@ define void @Extra_TruthShrink(ptr noundef captures(none) %0, ptr noundef captur
   br i1 %11, label %.lr.ph135.i, label %Extra_TruthSwapAdjacentVars.exit
 
 .lr.ph135.i:                                      ; preds = %18
-  %21 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv.next64
+  %21 = getelementptr inbounds [3 x i32], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 %indvars.iv.next64
   %22 = load i32, ptr %21, align 4, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !3
@@ -3365,7 +3365,7 @@ define i32 @Extra_TruthHash(ptr noundef readonly captures(none) %0, i32 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09 = phi i32 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %4 = getelementptr inbounds nuw [1024 x i32], ptr @Extra_TruthHash.HashPrimes, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr @Extra_TruthHash.HashPrimes, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
@@ -3635,7 +3635,7 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   br i1 %10, label %Extra_TruthSwapAdjacentVars.exit.us, label %.lr.ph135.i.us
 
 .lr.ph135.i.us:                                   ; preds = %112
-  %115 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv142
+  %115 = getelementptr inbounds nuw [3 x i32], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 %indvars.iv142
   %116 = load i32, ptr %115, align 4, !tbaa !3
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !3

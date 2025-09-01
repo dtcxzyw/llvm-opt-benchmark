@@ -269,7 +269,7 @@ ar_basename.exit:                                 ; preds = %.tail140.thread
 
 54:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0.i, i64 %52, i1 false)
-  %55 = getelementptr inbounds nuw [60 x i8], ptr %3, i64 0, i64 %52
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %52
   store i8 47, ptr %55, align 1, !tbaa !27
   br label %95
 
@@ -335,7 +335,7 @@ ar_basename.exit:                                 ; preds = %.tail140.thread
 
 87:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0.i, i64 %82, i1 false)
-  %88 = getelementptr inbounds nuw [60 x i8], ptr %3, i64 0, i64 %82
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 %82
   store i8 32, ptr %88, align 1, !tbaa !27
   br label %95
 

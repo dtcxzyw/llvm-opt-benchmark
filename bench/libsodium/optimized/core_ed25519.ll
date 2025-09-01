@@ -163,9 +163,9 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string(ptr nound
 10:                                               ; preds = %10, %.preheader.preheader.i
   %.022.i = phi i64 [ 0, %.preheader.preheader.i ], [ %15, %10 ]
   %11 = sub nuw nsw i64 47, %.022.i
-  %12 = getelementptr [96 x i8], ptr %7, i64 0, i64 %11
+  %12 = getelementptr i8, ptr %7, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr [64 x i8], ptr %6, i64 0, i64 %.022.i
+  %14 = getelementptr i8, ptr %6, i64 %.022.i
   store i8 %13, ptr %14, align 1
   %15 = add nuw nsw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %15, 48
@@ -212,9 +212,9 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
 16:                                               ; preds = %16, %.preheader.i
   %.022.i = phi i64 [ 0, %.preheader.i ], [ %21, %16 ]
   %17 = sub nuw nsw i64 %15, %.022.i
-  %18 = getelementptr [96 x i8], ptr %10, i64 0, i64 %17
+  %18 = getelementptr i8, ptr %10, i64 %17
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr [64 x i8], ptr %9, i64 0, i64 %.022.i
+  %20 = getelementptr i8, ptr %9, i64 %.022.i
   store i8 %19, ptr %20, align 1
   %21 = add nuw nsw i64 %.022.i, 1
   %exitcond.not.i = icmp eq i64 %21, 48

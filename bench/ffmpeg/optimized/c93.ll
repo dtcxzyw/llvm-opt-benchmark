@@ -47,11 +47,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = xor i32 %14, 1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %19
+  %20 = getelementptr inbounds ptr, ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = tail call i32 @ff_set_dimensions(ptr noundef %0, i32 noundef 320, i32 noundef 192) #7
   %23 = icmp slt i32 %22, 0

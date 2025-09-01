@@ -4012,8 +4012,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith8r
   %spec.select.i.i = add nuw i64 %.045, %64
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %66 = ashr exact i64 %sext, 32
-  %67 = getelementptr inbounds [0 x ptr], ptr %65, i64 0, i64 %66
+  %66 = ashr exact i64 %sext, 29
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !31, !noalias !81
   %69 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !84
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -4028,8 +4028,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith8r
   %spec.select.i.i34 = add nuw i64 %.045, %78
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %sext39 = shl i64 %spec.select.i.i34, 32
-  %80 = ashr exact i64 %sext39, 32
-  %81 = getelementptr inbounds [0 x ptr], ptr %79, i64 0, i64 %80
+  %80 = ashr exact i64 %sext39, 29
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !31, !noalias !84
   %.not40 = icmp eq ptr %68, %82
   br i1 %.not40, label %113, label %83
@@ -4050,8 +4050,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith8r
   %spec.select.i.i35 = add nuw i64 %.045, %93
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %sext41 = shl i64 %spec.select.i.i35, 32
-  %95 = ashr exact i64 %sext41, 32
-  %96 = getelementptr inbounds [0 x ptr], ptr %94, i64 0, i64 %95
+  %95 = ashr exact i64 %sext41, 29
+  %96 = getelementptr inbounds i8, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !31, !noalias !87
   store ptr %97, ptr %8, align 8, !tbaa !17, !alias.scope !87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
@@ -4068,8 +4068,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith8r
   %spec.select.i.i36 = add nuw i64 %.045, %107
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %sext42 = shl i64 %spec.select.i.i36, 32
-  %109 = ashr exact i64 %sext42, 32
-  %110 = getelementptr inbounds [0 x ptr], ptr %108, i64 0, i64 %109
+  %109 = ashr exact i64 %sext42, 29
+  %110 = getelementptr inbounds i8, ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !31, !noalias !90
   store ptr %111, ptr %9, align 8, !tbaa !17, !alias.scope !90
   %112 = call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith8rewriter18LeafNodeComparatorclENS0_12NodeTemplateILb0EEES6_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %8, ptr noundef nonnull %9)

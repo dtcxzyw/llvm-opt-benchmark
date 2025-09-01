@@ -32,18 +32,18 @@ define hidden void @SDL_GUIDToString_REAL(i64 %0, i64 %1, ptr noundef writeonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.019 = phi ptr [ %2, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %11 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [17 x i8], ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = getelementptr inbounds nuw i8, ptr %.019, i64 1
   store i8 %17, ptr %.019, align 1
   %19 = and i32 %13, 15
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [17 x i8], ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @SDL_GUIDToString_REAL.k_rgchHexToASCII, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.019, i64 2
   store i8 %22, ptr %18, align 1

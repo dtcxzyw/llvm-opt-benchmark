@@ -521,7 +521,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %57, %63, %65
   %83 = icmp eq i32 %82, 2
   %spec.select.i.i = select i1 %83, i64 2, i64 1
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %spec.select.i.i
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %spec.select.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !47, !noalias !44
   store ptr %86, ptr %20, align 8, !tbaa !39, !alias.scope !44
   %87 = load i64, ptr %86, align 8, !noalias !44
@@ -654,7 +654,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %133, %137, %143
   %155 = icmp eq i32 %154, 2
   %156 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %157 = zext i1 %155 to i64
-  %158 = getelementptr inbounds nuw [0 x ptr], ptr %156, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !47, !noalias !51
   store ptr %159, ptr %21, align 8, !tbaa !39, !alias.scope !51
   %160 = load i64, ptr %159, align 8, !noalias !51

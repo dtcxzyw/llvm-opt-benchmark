@@ -50,7 +50,7 @@ define noundef i32 @pmix_psensor_base_select() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph36
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4, !tbaa !28
   %13 = icmp sgt i32 %12, 4
   br i1 %13, label %14, label %16

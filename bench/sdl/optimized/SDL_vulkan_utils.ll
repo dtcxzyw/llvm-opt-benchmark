@@ -731,7 +731,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 200:                                              ; preds = %192, %199
   %indvars.iv326 = phi i64 [ 0, %192 ], [ %indvars.iv.next327, %199 ]
-  %201 = getelementptr inbounds nuw [4 x i32], ptr @alphaModes, i64 0, i64 %indvars.iv326
+  %201 = getelementptr inbounds nuw i32, ptr @alphaModes, i64 %indvars.iv326
   %202 = load i32, ptr %201, align 4
   %203 = and i32 %202, %198
   %.not239 = icmp eq i32 %203, 0

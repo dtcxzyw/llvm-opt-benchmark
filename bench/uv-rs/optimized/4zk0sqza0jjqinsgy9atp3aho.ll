@@ -10075,7 +10075,7 @@ define void @_ZN9uv_python11interpreter11Interpreter3key17h08a7fabb2ac76f5eE(ptr
   %42 = xor i64 %41, -9223372036854775808
   %43 = icmp ult i64 %42, 11
   %44 = select i1 %43, i64 %42, i64 8
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %44
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = invoke noundef i8 @_ZN16uv_platform_tags8platform8Platform4arch17h8fe1da0e2004b70cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %39)
@@ -10179,7 +10179,7 @@ switch.lookup:
   %4 = xor i64 %3, -9223372036854775808
   %5 = icmp ult i64 %4, 11
   %6 = select i1 %5, i64 %4, i64 8
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

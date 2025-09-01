@@ -49895,10 +49895,10 @@ define internal noundef zeroext i1 @"_ZN83_$LT$polars_parquet_format..thrift..pr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5693, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.461", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN83_$LT$polars_parquet_format..thrift..protocol..TType$u20$as$u20$core..fmt..Debug$GT$3fmt17h23adaa2e51f6e2c5E.461", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -87072,10 +87072,10 @@ switch.lookup:
   tail call void @llvm.assume(i1 %8)
   %narrow = select i1 %7, i32 %6, i32 12
   %9 = zext nneg i32 %narrow to i64
-  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..array..ArrayFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hd358e19c68fffbddE", i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..array..ArrayFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hd358e19c68fffbddE", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i32 %narrow to i64
-  %switch.gep4 = getelementptr inbounds nuw [23 x i64], ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..array..ArrayFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hd358e19c68fffbddE.462", i64 0, i64 %10
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..array..ArrayFunction$u20$as$u20$core..fmt..Display$GT$3fmt17hd358e19c68fffbddE.462", i64 %10
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -89970,10 +89970,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 16, !range !3569, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN94_$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h045191f479f6504aE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN94_$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h045191f479f6504aE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep5 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN94_$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h045191f479f6504aE.463", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h045191f479f6504aE.463", i64 %7
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -90965,10 +90965,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 8, !range !2103, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN98_$LT$polars_plan..dsl..function_expr..business..BusinessFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h665b974435d2408dE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN98_$LT$polars_plan..dsl..function_expr..business..BusinessFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h665b974435d2408dE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep5 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN98_$LT$polars_plan..dsl..function_expr..business..BusinessFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h665b974435d2408dE.464", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN98_$LT$polars_plan..dsl..function_expr..business..BusinessFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h665b974435d2408dE.464", i64 %7
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -101787,9 +101787,9 @@ switch.lookup:
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %0, align 8, !range !23948, !noundef !4
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN101_$LT$polars_plan..dsl..function_expr..rolling_by..RollingFunctionBy$u20$as$u20$core..fmt..Display$GT$3fmt17hc9acfbb3e0e4b235E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$polars_plan..dsl..function_expr..rolling_by..RollingFunctionBy$u20$as$u20$core..fmt..Display$GT$3fmt17hc9acfbb3e0e4b235E", i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep5 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN101_$LT$polars_plan..dsl..function_expr..rolling_by..RollingFunctionBy$u20$as$u20$core..fmt..Display$GT$3fmt17hc9acfbb3e0e4b235E.465", i64 0, i64 %5
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$polars_plan..dsl..function_expr..rolling_by..RollingFunctionBy$u20$as$u20$core..fmt..Display$GT$3fmt17hc9acfbb3e0e4b235E.465", i64 %5
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8

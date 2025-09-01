@@ -495,7 +495,7 @@ _ZNK10hb_array_tIKN2OT7IntTypeIjLj4EEEE9sub_arrayEjPj.exit.i: ; preds = %23
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 12
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw [1 x %"struct.OT::IntType"], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %34, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 8
@@ -1568,7 +1568,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4CBDT13accelerator_t13reference_p
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw [1 x %"struct.OT::IndexSubtableRecord"], ptr %37, i64 0, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw %"struct.OT::IndexSubtableRecord", ptr %37, i64 %indvars.iv.i.i
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 8
@@ -2047,7 +2047,7 @@ _ZNK2OT4sbix10get_strikeEj.exit:                  ; preds = %27, %37
 92:                                               ; preds = %.lr.ph
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %93 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i34, i64 8
-  %94 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.251"], ptr %93, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %"struct.OT::OffsetTo.251", ptr %93, i64 %indvars.iv
   br label %_ZNK2OT4sbix10get_strikeEj.exit38
 
 _ZNK2OT4sbix10get_strikeEj.exit38:                ; preds = %.lr.ph, %92
@@ -2140,7 +2140,7 @@ _ZNK2OT4sbix10get_strikeEj.exit38:                ; preds = %.lr.ph, %92
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %156 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i41, i64 8
   %157 = zext i32 %.022.lcssa to i64
-  %158 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.251"], ptr %156, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw %"struct.OT::OffsetTo.251", ptr %156, i64 %157
   br label %_ZNK2OT4sbix10get_strikeEj.exit45
 
 _ZNK2OT4sbix10get_strikeEj.exit45:                ; preds = %._crit_edge, %155
@@ -2213,7 +2213,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT10SBIXStrike14get_glyph_blobEjP9h
 30:                                               ; preds = %29
   %31 = add nuw i32 %.034, 1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.253"], ptr %27, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.OT::OffsetTo.253", ptr %27, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
@@ -2232,7 +2232,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT10SBIXStrike14get_glyph_blobEjP9h
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
   %51 = zext i32 %.034 to i64
-  %52 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.253"], ptr %27, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.OT::OffsetTo.253", ptr %27, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw i32 %54, 24
@@ -2492,7 +2492,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37: ; preds = 
 
 61:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
-  %62 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %42, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %"struct.OT::BitmapSizeTable", ptr %42, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
 
 _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = %43, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37, %61
@@ -2548,7 +2548,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = zext i32 %.023.lcssa to i64
-  %93 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %91, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw %"struct.OT::BitmapSizeTable", ptr %91, i64 %92
   br label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44
 
 _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44: ; preds = %90, %._crit_edge, %2
@@ -2583,7 +2583,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = add i32 %1, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw [1 x %"struct.OT::Offset.144"], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.OT::Offset.144", ptr %21, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw i32 %26, 24
@@ -2602,7 +2602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
   %42 = zext i32 %1 to i64
-  %43 = getelementptr inbounds nuw [1 x %"struct.OT::Offset.144"], ptr %21, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.OT::Offset.144", ptr %21, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw i32 %45, 24
@@ -2675,7 +2675,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = add i32 %1, 1
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw [1 x %"struct.OT::Offset.267"], ptr %107, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw %"struct.OT::Offset.267", ptr %107, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 8
@@ -2684,7 +2684,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT13IndexSubtable14get_image
   %116 = zext i8 %115 to i32
   %117 = or disjoint i32 %113, %116
   %118 = zext i32 %1 to i64
-  %119 = getelementptr inbounds nuw [1 x %"struct.OT::Offset.267"], ptr %107, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw %"struct.OT::Offset.267", ptr %107, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   %122 = shl nuw nsw i32 %121, 8
@@ -4043,7 +4043,7 @@ _ZNK2OT7ArrayOfINS_20BaseGlyphPaintRecordENS_7IntTypeIjLj4EEEE16sanitize_shallow
 
 61:                                               ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %62 = getelementptr inbounds nuw [1 x %"struct.OT::BaseGlyphPaintRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %"struct.OT::BaseGlyphPaintRecord", ptr %3, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 6
   %64 = load ptr, ptr %4, align 8
   %65 = ptrtoint ptr %63 to i64
@@ -7121,7 +7121,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_5PaintENS_7IntTypeIjLj4EEELb1EEES4_E16sanitize_s
 
 60:                                               ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
-  %61 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.173"], ptr %3, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %"struct.OT::OffsetTo.173", ptr %3, i64 %indvars.iv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load ptr, ptr %4, align 8
   %64 = ptrtoint ptr %62 to i64
@@ -7282,7 +7282,7 @@ _ZNK2OT7ArrayOfINS_10ClipRecordENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_san
 
 61:                                               ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %62 = getelementptr inbounds nuw [1 x %"struct.OT::ClipRecord"], ptr %3, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %"struct.OT::ClipRecord", ptr %3, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 7
   %64 = load ptr, ptr %4, align 8
   %65 = ptrtoint ptr %63 to i64
@@ -7659,7 +7659,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %116 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.305"], ptr %4, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw %"struct.OT::OffsetTo.305", ptr %4, i64 %indvars.iv
   %117 = call noundef zeroext i1 @_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjLj4EEELb1EEEJPKNS1_14VariationStoreEEEEDTcldtfp_8sanitizefpTspclsr3stdE7forwardIT0_Efp1_EEERKT_11hb_priorityILj1EEDpOSA_(ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(4) %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -8425,7 +8425,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21h
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %67 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %3, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %"struct.OT::BitmapSizeTable", ptr %3, i64 %indvars.iv
   %68 = tail call noundef zeroext i1 @_ZNK2OT15BitmapSizeTable8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -8535,7 +8535,7 @@ _ZNK2OT14UnsizedArrayOfINS_19IndexSubtableRecordEE16sanitize_shallowEP21hb_sanit
 
 .lr.ph.i.i.i:                                     ; preds = %68, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %68 ]
-  %69 = getelementptr inbounds nuw [1 x %"struct.OT::IndexSubtableRecord"], ptr %36, i64 0, i64 %indvars.iv.i.i.i
+  %69 = getelementptr inbounds nuw %"struct.OT::IndexSubtableRecord", ptr %36, i64 %indvars.iv.i.i.i
   %70 = tail call noundef zeroext i1 @_ZNK2OT19IndexSubtableRecord8sanitizeEP21hb_sanitize_context_tPKv(ptr noundef nonnull align 1 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(62) %1, ptr noundef nonnull align 1 dereferenceable(8) %36)
   br i1 %70, label %68, label %_ZN21hb_sanitize_context_t8dispatchIN2OT18IndexSubtableArrayEJRKNS1_7IntTypeIjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit.thread24
 
@@ -9066,7 +9066,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10SBIXStrikeENS_7IntTypeIjLj4EEELb1EEES4_E16sani
 
 67:                                               ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %122 ]
-  %68 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.251"], ptr %3, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %"struct.OT::OffsetTo.251", ptr %3, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load ptr, ptr %4, align 8
   %71 = ptrtoint ptr %69 to i64

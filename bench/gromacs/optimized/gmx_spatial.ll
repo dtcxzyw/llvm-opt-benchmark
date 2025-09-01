@@ -485,9 +485,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %152
 
 168:                                              ; preds = %.preheader403, %168
   %indvars.iv553 = phi i64 [ 2, %.preheader403 ], [ %indvars.iv.next554, %168 ]
-  %169 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv553
+  %169 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv553
   %170 = load double, ptr %169, align 8, !tbaa !59
-  %171 = getelementptr inbounds nuw [3 x double], ptr %8, i64 0, i64 %indvars.iv553
+  %171 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv553
   %172 = load double, ptr %171, align 8, !tbaa !59
   %173 = fsub double %170, %172
   %174 = fdiv double %173, %109
@@ -501,7 +501,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %152
   %180 = fdiv double %179, %109
   %181 = call double @llvm.ceil.f64(double %180)
   %182 = fptosi double %181 to i32
-  %183 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv553
+  %183 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv553
   store i32 %182, ptr %183, align 4, !tbaa !4
   %indvars.iv.next554 = add nsw i64 %indvars.iv553, -1
   %.not641 = icmp eq i64 %indvars.iv553, 0

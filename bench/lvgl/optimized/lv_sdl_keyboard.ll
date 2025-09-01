@@ -149,9 +149,9 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
   %.us-phi = phi ptr [ %.03446.us, %.lr.ph.split.us ], [ %.03446, %13 ]
   %18 = tail call ptr @lv_indev_get_driver_data(ptr noundef nonnull %.us-phi) #3
   %19 = load i32, ptr %0, align 8, !tbaa !16
-  switch i32 %19, label %49 [
+  switch i32 %19, label %48 [
     i32 768, label %20
-    i32 771, label %41
+    i32 771, label %40
   ]
 
 20:                                               ; preds = %.split.us
@@ -213,42 +213,41 @@ define void @lv_sdl_keyboard_handler(ptr noundef %0) local_unnamed_addr #0 {
   %.0.i.ph = phi i8 [ 19, %20 ], [ 19, %20 ], [ 3, %33 ], [ 2, %32 ], [ 11, %31 ], [ 9, %30 ], [ 10, %29 ], [ 127, %28 ], [ 8, %27 ], [ 27, %26 ], [ 18, %25 ], [ 17, %24 ], [ 20, %23 ]
   %35 = tail call i64 @lv_strlen(ptr noundef %18) #3
   %36 = icmp ult i64 %35, 31
-  br i1 %36, label %37, label %49
+  br i1 %36, label %37, label %48
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 %35
   store i8 %.0.i.ph, ptr %38, align 1, !tbaa !16
-  %39 = add nuw nsw i64 %35, 1
-  %40 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %39
-  store i8 0, ptr %40, align 1, !tbaa !16
-  br label %49
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store i8 0, ptr %39, align 1, !tbaa !16
+  br label %48
 
-41:                                               ; preds = %.split.us
-  %42 = tail call i64 @lv_strlen(ptr noundef %18) #3
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %44 = tail call i64 @lv_strlen(ptr noundef nonnull %43) #3
-  %45 = add i64 %44, %42
-  %46 = icmp ult i64 %45, 31
-  br i1 %46, label %47, label %49
+40:                                               ; preds = %.split.us
+  %41 = tail call i64 @lv_strlen(ptr noundef %18) #3
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %43 = tail call i64 @lv_strlen(ptr noundef nonnull %42) #3
+  %44 = add i64 %43, %41
+  %45 = icmp ult i64 %44, 31
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %41
-  %48 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %43) #3
-  br label %49
+46:                                               ; preds = %40
+  %47 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %42) #3
+  br label %48
 
-49:                                               ; preds = %37, %34, %41, %47, %.split.us
-  %50 = tail call i64 @lv_strlen(ptr noundef %18) #3
-  %.not3948 = icmp eq i64 %50, 0
+48:                                               ; preds = %37, %34, %40, %46, %.split.us
+  %49 = tail call i64 @lv_strlen(ptr noundef %18) #3
+  %.not3948 = icmp eq i64 %49, 0
   br i1 %.not3948, label %.critedge, label %.lr.ph50
 
-.lr.ph50:                                         ; preds = %49, %.lr.ph50
-  %.049 = phi i64 [ %51, %.lr.ph50 ], [ %50, %49 ]
+.lr.ph50:                                         ; preds = %48, %.lr.ph50
+  %.049 = phi i64 [ %50, %.lr.ph50 ], [ %49, %48 ]
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #3
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #3
-  %51 = add i64 %.049, -1
-  %.not39 = icmp eq i64 %51, 0
+  %50 = add i64 %.049, -1
+  %.not39 = icmp eq i64 %50, 0
   br i1 %.not39, label %.critedge, label %.lr.ph50, !llvm.loop !20
 
-.critedge:                                        ; preds = %16, %9, %.lr.ph50, %3, %49, %20, %1
+.critedge:                                        ; preds = %16, %9, %.lr.ph50, %3, %48, %20, %1
   ret void
 }
 

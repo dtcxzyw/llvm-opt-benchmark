@@ -577,7 +577,7 @@ define dso_local void @napi_gro_flush(ptr noundef %0, i1 noundef zeroext %1) #0 
   %18 = lshr i64 %16, %17
   %19 = add i32 %14, %15
   %20 = zext i32 %19 to i64
-  %21 = getelementptr [8 x %struct.gro_list], ptr %5, i64 0, i64 %20
+  %21 = getelementptr %struct.gro_list, ptr %5, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %21
@@ -1016,7 +1016,7 @@ define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr 
   %5 = and i32 %4, 7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr [8 x %struct.gro_list], ptr %6, i64 0, i64 %7
+  %8 = getelementptr %struct.gro_list, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %11 = load i16, ptr %10, align 8

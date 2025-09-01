@@ -1190,7 +1190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %40
 
 switch.lookup:                                    ; preds = %1
   %53 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12ConvertStyleENS0_5StyleE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12ConvertStyleENS0_5StyleE, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -4207,7 +4207,7 @@ _ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData5cloneEv.exit: ; preds = %_ZSt11ma
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData5cloneEv.exit
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %17, align 8, !tbaa !15
   br label %_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData6invertEv.exit
@@ -4225,7 +4225,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData6invertEv(ptr n
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 8, !tbaa !15
   br label %6
@@ -4244,7 +4244,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_5dev19FixedFunct
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [35 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -4263,7 +4263,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionE
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [35 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit
 
@@ -4276,7 +4276,7 @@ _ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit: ; preds = %
 
 switch.lookup1:                                   ; preds = %_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit
   %8 = zext nneg i32 %4 to i64
-  %switch.gep2 = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 0, i64 %8
+  %switch.gep2 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.1, i64 %8
   %switch.load3 = load i32, ptr %switch.gep2, align 4
   store i32 %switch.load3, ptr %3, align 8, !tbaa !15
   br label %_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData6invertEv.exit

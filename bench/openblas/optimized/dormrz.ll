@@ -162,7 +162,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %74 ]
   %.0216325 = phi ptr [ %.1217.lcssa, %._crit_edge ], [ %18, %74 ]
   %.0220324 = phi i32 [ %84, %._crit_edge ], [ 2, %74 ]
-  %82 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !3
   %spec.select275 = tail call i32 @llvm.smin.i32(i32 %83, i32 %.0220324)
   %84 = sub nsw i32 %.0220324, %spec.select275
@@ -170,7 +170,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %85, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph327
-  %86 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !7
   %88 = zext nneg i32 %spec.select275 to i64
   %89 = getelementptr i8, ptr %.0216325, i64 %88
@@ -291,7 +291,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv368 = phi i64 [ %indvars.iv.next369, %._crit_edge339 ], [ 0, %122 ]
   %.0343 = phi ptr [ %.1.lcssa, %._crit_edge339 ], [ %18, %122 ]
   %.0211342 = phi i32 [ %134, %._crit_edge339 ], [ 2, %122 ]
-  %132 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %indvars.iv368
+  %132 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv368
   %133 = load i32, ptr %132, align 4, !tbaa !3
   %spec.select276 = call i32 @llvm.smin.i32(i32 %133, i32 %.0211342)
   %134 = sub nsw i32 %.0211342, %spec.select276
@@ -299,7 +299,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %135, label %.lr.ph338.preheader, label %._crit_edge339
 
 .lr.ph338.preheader:                              ; preds = %.lr.ph345
-  %136 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv368
+  %136 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv368
   %137 = load ptr, ptr %136, align 8, !tbaa !7
   %138 = zext nneg i32 %spec.select276 to i64
   %139 = getelementptr i8, ptr %.0343, i64 %138

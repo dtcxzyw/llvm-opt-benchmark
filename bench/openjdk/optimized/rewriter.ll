@@ -630,7 +630,7 @@ define hidden void @_ZN8Rewriter11scan_methodEP6ThreadP6MethodbPb(ptr noundef no
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %23
   %29 = zext i8 %26 to i64
-  %30 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 15
   %33 = zext nneg i8 %32 to i32
@@ -649,7 +649,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %35
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %35, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
   %38 = phi i32 [ %36, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i ], [ %27, %35 ]
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 15
   %43 = zext nneg i8 %42 to i32
@@ -1242,7 +1242,7 @@ define hidden void @_ZN8Rewriter19rewrite_Object_initERK12methodHandleP10JavaThr
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %14
   %26 = zext i8 %23 to i64
-  %27 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 15
   %30 = zext nneg i8 %29 to i32

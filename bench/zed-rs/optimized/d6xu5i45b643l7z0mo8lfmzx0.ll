@@ -188,7 +188,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %28, align 8, !nonnull !4, !align !38, !noundef !4
-  %38 = getelementptr inbounds [0 x { i16, i16 }], ptr %37, i64 0, i64 %.sroa.018.0
+  %38 = getelementptr inbounds { i16, i16 }, ptr %37, i64 %.sroa.018.0
   %39 = load i16, ptr %38, align 2, !noundef !4
   %.not.not = icmp eq i16 %39, -1
   br i1 %.not.not, label %169, label %40
@@ -222,7 +222,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %59, i64 0, i64 %41, i32 2
+  %60 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %59, i64 %41, i32 2
   %61 = load ptr, ptr %60, align 8, !noundef !4
   %62 = icmp ne ptr %61, null
   %63 = load ptr, ptr %1, align 8, !noundef !4
@@ -270,7 +270,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
 
 78:                                               ; preds = %split
   %79 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %80 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %79, i64 0, i64 %41
+  %80 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %79, i64 %41
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -402,7 +402,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
 
 138:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67c58d224d555ad9E.exit15.i"
   %139 = load ptr, ptr %133, align 8, !alias.scope !43, !noalias !48, !nonnull !4, !noundef !4
-  %140 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }], ptr %139, i64 0, i64 %111, i32 1
+  %140 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %139, i64 %111, i32 1
   store i64 1, ptr %140, align 8, !noalias !48
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 %113, ptr %141, align 8, !noalias !48
@@ -449,7 +449,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
   br i1 %153, label %154, label %152
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds [0 x { i16, i16 }], ptr %149, i64 0, i64 %.sroa.0.0.i
+  %155 = getelementptr inbounds { i16, i16 }, ptr %149, i64 %.sroa.0.0.i
   %156 = load i16, ptr %155, align 2, !noalias !98, !noundef !4
   %157 = icmp eq i16 %156, -1
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 2
@@ -506,7 +506,7 @@ split:                                            ; preds = %67, %"_ZN71_$LT$htt
 175:                                              ; preds = %172
   %176 = trunc i64 %170 to i16
   %177 = load ptr, ptr %28, align 8, !nonnull !4, !align !38, !noundef !4
-  %178 = getelementptr inbounds [0 x { i16, i16 }], ptr %177, i64 0, i64 %.sroa.018.0
+  %178 = getelementptr inbounds { i16, i16 }, ptr %177, i64 %.sroa.018.0
   store i16 %176, ptr %178, align 2
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 2
   store i16 %13, ptr %179, align 2

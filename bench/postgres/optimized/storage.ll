@@ -378,16 +378,16 @@ RelationGetSmgr.exit54:                           ; preds = %32, %35
 41:                                               ; preds = %RelationGetSmgr.exit54
   %42 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef nonnull %0, i32 noundef %1) #8
   %43 = zext nneg i32 %.044 to i64
-  %44 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   store i32 %42, ptr %44, align 4
   %.not60 = icmp eq i32 %42, -1
   br i1 %.not60, label %50, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %43
+  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %43
   store i32 2, ptr %46, align 4
   %47 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 2) #8
-  %48 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %43
   store i32 %47, ptr %48, align 4
   %49 = add nuw nsw i32 %.044, 1
   br label %50
@@ -1057,7 +1057,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 31:                                               ; preds = %.preheader62, %27
   %.sink = phi i32 [ %28, %27 ], [ -1, %.preheader62 ]
   %.255 = phi i64 [ %30, %27 ], [ %.15468, %.preheader62 ]
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %.sink, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1110,7 +1110,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 52:                                               ; preds = %.preheader, %58
   %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %58 ]
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv80
   %54 = load i32, ptr %53, align 4
   %.not61 = icmp eq i32 %54, -1
   br i1 %.not61, label %58, label %55
@@ -1393,16 +1393,16 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %36 = load i32, ptr %20, align 4
   %37 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef %30, i32 noundef %36) #8
   %38 = zext nneg i32 %.0 to i64
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
   store i32 %37, ptr %39, align 4
   %.not61 = icmp eq i32 %37, -1
   br i1 %.not61, label %45, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %38
+  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %38
   store i32 1, ptr %41, align 4
   %42 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 1) #8
-  %43 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %38
+  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %38
   store i32 %42, ptr %43, align 4
   %44 = add nuw nsw i32 %.0, 1
   br label %45
@@ -1423,16 +1423,16 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %51 = load i32, ptr %20, align 4
   %52 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef %30, i32 noundef %51) #8
   %53 = zext nneg i32 %.1 to i64
-  %54 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %53
   store i32 %52, ptr %54, align 4
   %.not62 = icmp eq i32 %52, -1
   br i1 %.not62, label %59, label %.thread
 
 .thread:                                          ; preds = %50
-  %55 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %53
   store i32 2, ptr %55, align 4
   %56 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 2) #8
-  %57 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %53
   store i32 %56, ptr %57, align 4
   %58 = add nuw nsw i32 %.1, 1
   br label %60

@@ -430,7 +430,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %_ZNSt15bas
   %.0.i.i = phi i32 [ %50, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.thread.i.i ], [ %.sroa.11.0, %42 ], [ %54, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i ]
   %56 = trunc i32 %.0.i.i to i8
   %57 = add nuw nsw i64 %.0, 1
-  %58 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.0
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %.0
   store i8 %56, ptr %58, align 1, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.045.3, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !39

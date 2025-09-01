@@ -1151,7 +1151,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18BetaRiskSimulationC2ENS_4DateES1_dddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(5184) initializes((0, 32), (48, 56)) %this, i64 %start.coerce, i64 %end.coerce, double noundef %maxLoss, double noundef %lambda, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18BetaRiskSimulationC2ENS_4DateES1_dddd(ptr noundef nonnull align 8 captures(none) dereferenceable(5184) initializes((0, 32), (48, 56)) %this, i64 %start.coerce, i64 %end.coerce, double noundef %maxLoss, double noundef %lambda, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start = alloca %"class.QuantLib::Date", align 8
   %end = alloca %"class.QuantLib::Date", align 8
@@ -1174,15 +1174,15 @@ entry:
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
-  %0 = phi i64 [ 5489, %entry ], [ %rem.i.i10.i.i.i, %for.body.i.i.i ]
+  %store_forwarded = phi i64 [ 5489, %entry ], [ %rem.i.i10.i.i.i, %for.body.i.i.i ]
   %__i.011.i.i.i = phi i64 [ 1, %entry ], [ %inc.i.i.i, %for.body.i.i.i ]
-  %shr.i.i.i = lshr i64 %0, 30
-  %xor.i.i.i = xor i64 %shr.i.i.i, %0
+  %0 = getelementptr i64, ptr %rng_, i64 %__i.011.i.i.i
+  %shr.i.i.i = lshr i64 %store_forwarded, 30
+  %xor.i.i.i = xor i64 %shr.i.i.i, %store_forwarded
   %mul.i.i.i = mul nuw nsw i64 %xor.i.i.i, 1812433253
   %add.i.i.i = add nuw i64 %mul.i.i.i, %__i.011.i.i.i
   %rem.i.i10.i.i.i = and i64 %add.i.i.i, 4294967295
-  %arrayidx7.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %__i.011.i.i.i
-  store i64 %rem.i.i10.i.i.i, ptr %arrayidx7.i.i.i, align 8, !tbaa !3
+  store i64 %rem.i.i10.i.i.i, ptr %0, align 8, !tbaa !3
   %inc.i.i.i = add nuw nsw i64 %__i.011.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 624
   br i1 %exitcond.not.i.i.i, label %invoke.cont8, label %for.body.i.i.i, !llvm.loop !58
@@ -2331,15 +2331,14 @@ if.then.i33:                                      ; preds = %for.body.i.i.i.i10
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i33
   %14 = phi i64 [ %.pre.i.i, %if.then.i33 ], [ %15, %for.body.i.i ]
   %__k.014.i.i = phi i64 [ 0, %if.then.i33 ], [ %add.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %__k.014.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %__k.014.i.i
   %and.i.i = and i64 %14, -2147483648
   %add.i.i = add nuw nsw i64 %__k.014.i.i, 1
-  %arrayidx3.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %add.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %add.i.i
   %15 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !3
   %and4.i.i = and i64 %15, 2147483646
   %or.i.i = or disjoint i64 %and4.i.i, %and.i.i
-  %add6.i.i = add nuw nsw i64 %__k.014.i.i, 397
-  %arrayidx7.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %add6.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 3176
   %16 = load i64, ptr %arrayidx7.i.i, align 8, !tbaa !3
   %shr.i.i = lshr exact i64 %or.i.i, 1
   %xor.i.i = xor i64 %shr.i.i, %16
@@ -2358,15 +2357,14 @@ for.body16.preheader.i.i:                         ; preds = %for.body.i.i
 for.body16.i.i:                                   ; preds = %for.body16.i.i, %for.body16.preheader.i.i
   %17 = phi i64 [ %18, %for.body16.i.i ], [ %.pre17.i.i, %for.body16.preheader.i.i ]
   %__k12.015.i.i = phi i64 [ %add22.i.i, %for.body16.i.i ], [ 227, %for.body16.preheader.i.i ]
-  %arrayidx19.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %__k12.015.i.i
+  %arrayidx19.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %__k12.015.i.i
   %and20.i.i = and i64 %17, -2147483648
   %add22.i.i = add nuw nsw i64 %__k12.015.i.i, 1
-  %arrayidx23.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %add22.i.i
+  %arrayidx23.i.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %add22.i.i
   %18 = load i64, ptr %arrayidx23.i.i, align 8, !tbaa !3
   %and24.i.i = and i64 %18, 2147483646
   %or25.i.i = or disjoint i64 %and24.i.i, %and20.i.i
-  %add27.i.i = add nsw i64 %__k12.015.i.i, -227
-  %arrayidx28.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %add27.i.i
+  %arrayidx28.i.i = getelementptr i8, ptr %arrayidx19.i.i, i64 -1816
   %19 = load i64, ptr %arrayidx28.i.i, align 8, !tbaa !3
   %shr29.i.i = lshr exact i64 %or25.i.i, 1
   %xor30.i.i = xor i64 %shr29.i.i, %19
@@ -2398,7 +2396,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %23 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %13, %for.body.i.i.i.i10 ]
   %inc.i = add nuw nsw i64 %23, 1
   store i64 %inc.i, ptr %_M_p.i, align 8, !tbaa !59
-  %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %rng_, i64 0, i64 %23
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %rng_, i64 %23
   %24 = load i64, ptr %arrayidx.i, align 8, !tbaa !3
   %shr.i = lshr i64 %24, 11
   %and.i = and i64 %shr.i, 4294967295
@@ -3634,15 +3632,14 @@ if.then.i:                                        ; preds = %for.body.i.i
 for.body.i.i52:                                   ; preds = %for.body.i.i52, %if.then.i
   %4 = phi i64 [ %.pre.i.i, %if.then.i ], [ %5, %for.body.i.i52 ]
   %__k.014.i.i = phi i64 [ 0, %if.then.i ], [ %add.i.i, %for.body.i.i52 ]
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k.014.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k.014.i.i
   %and.i.i = and i64 %4, -2147483648
   %add.i.i = add nuw nsw i64 %__k.014.i.i, 1
-  %arrayidx3.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %add.i.i
   %5 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !3
   %and4.i.i = and i64 %5, 2147483646
   %or.i.i = or disjoint i64 %and4.i.i, %and.i.i
-  %add6.i.i = add nuw nsw i64 %__k.014.i.i, 397
-  %arrayidx7.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add6.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 3176
   %6 = load i64, ptr %arrayidx7.i.i, align 8, !tbaa !3
   %shr.i.i = lshr exact i64 %or.i.i, 1
   %xor.i.i = xor i64 %shr.i.i, %6
@@ -3661,15 +3658,14 @@ for.body16.preheader.i.i:                         ; preds = %for.body.i.i52
 for.body16.i.i:                                   ; preds = %for.body16.i.i, %for.body16.preheader.i.i
   %7 = phi i64 [ %8, %for.body16.i.i ], [ %.pre17.i.i, %for.body16.preheader.i.i ]
   %__k12.015.i.i = phi i64 [ %add22.i.i, %for.body16.i.i ], [ 227, %for.body16.preheader.i.i ]
-  %arrayidx19.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k12.015.i.i
+  %arrayidx19.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k12.015.i.i
   %and20.i.i = and i64 %7, -2147483648
   %add22.i.i = add nuw nsw i64 %__k12.015.i.i, 1
-  %arrayidx23.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add22.i.i
+  %arrayidx23.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %add22.i.i
   %8 = load i64, ptr %arrayidx23.i.i, align 8, !tbaa !3
   %and24.i.i = and i64 %8, 2147483646
   %or25.i.i = or disjoint i64 %and24.i.i, %and20.i.i
-  %add27.i.i = add nsw i64 %__k12.015.i.i, -227
-  %arrayidx28.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add27.i.i
+  %arrayidx28.i.i = getelementptr i8, ptr %arrayidx19.i.i, i64 -1816
   %9 = load i64, ptr %arrayidx28.i.i, align 8, !tbaa !3
   %shr29.i.i = lshr exact i64 %or25.i.i, 1
   %xor30.i.i = xor i64 %shr29.i.i, %9
@@ -3701,7 +3697,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %13 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %3, %for.body.i.i ]
   %inc.i = add nuw nsw i64 %13, 1
   store i64 %inc.i, ptr %_M_p.i, align 8, !tbaa !59
-  %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %13
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %13
   %14 = load i64, ptr %arrayidx.i, align 8, !tbaa !3
   %shr.i = lshr i64 %14, 11
   %and.i = and i64 %shr.i, 4294967295
@@ -3761,7 +3757,7 @@ if.then:                                          ; preds = %do.end18
   %mul24 = fmul double %mul22, %21
   br label %cleanup
 
-for.cond.cleanup.i.i44:                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119
+for.cond.cleanup.i.i44:                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117
   %div17.i.i45 = fdiv double %34, %conv16.i.i41
   %cmp18.i.i46 = fcmp ult double %div17.i.i45, 1.000000e+00
   br i1 %cmp18.i.i46, label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50, label %if.then.i.i47, !prof !96
@@ -3772,7 +3768,7 @@ for.body.i.i33:                                   ; preds = %do.end18, %for.body
   %__tmp.012.i.i35 = phi double [ %__tmp.012.i.i35.be, %for.body.i.i33.backedge ], [ 1.000000e+00, %do.end18 ]
   %__sum.011.i.i36 = phi double [ %__sum.011.i.i36.be, %for.body.i.i33.backedge ], [ 0.000000e+00, %do.end18 ]
   %cmp.i54 = icmp ugt i64 %22, 623
-  br i1 %cmp.i54, label %if.then.i68, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119
+  br i1 %cmp.i54, label %if.then.i68, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117
 
 if.then.i68:                                      ; preds = %for.body.i.i33
   %.pre.i.i69 = load i64, ptr %__urng, align 8, !tbaa !3
@@ -3781,74 +3777,72 @@ if.then.i68:                                      ; preds = %for.body.i.i33
 for.body.i.i70:                                   ; preds = %for.body.i.i70, %if.then.i68
   %23 = phi i64 [ %.pre.i.i69, %if.then.i68 ], [ %24, %for.body.i.i70 ]
   %__k.014.i.i71 = phi i64 [ 0, %if.then.i68 ], [ %add.i.i74, %for.body.i.i70 ]
-  %arrayidx.i.i72 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k.014.i.i71
+  %arrayidx.i.i72 = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k.014.i.i71
   %and.i.i73 = and i64 %23, -2147483648
   %add.i.i74 = add nuw nsw i64 %__k.014.i.i71, 1
-  %arrayidx3.i.i75 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add.i.i74
+  %arrayidx3.i.i75 = getelementptr inbounds nuw i64, ptr %__urng, i64 %add.i.i74
   %24 = load i64, ptr %arrayidx3.i.i75, align 8, !tbaa !3
   %and4.i.i76 = and i64 %24, 2147483646
   %or.i.i77 = or disjoint i64 %and4.i.i76, %and.i.i73
-  %add6.i.i78 = add nuw nsw i64 %__k.014.i.i71, 397
-  %arrayidx7.i.i79 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add6.i.i78
-  %25 = load i64, ptr %arrayidx7.i.i79, align 8, !tbaa !3
-  %shr.i.i80 = lshr exact i64 %or.i.i77, 1
-  %xor.i.i81 = xor i64 %shr.i.i80, %25
-  %and8.i.i82 = and i64 %24, 1
-  %tobool.not.i.i83 = icmp eq i64 %and8.i.i82, 0
-  %cond.i.i84 = select i1 %tobool.not.i.i83, i64 0, i64 2567483615
-  %xor9.i.i85 = xor i64 %xor.i.i81, %cond.i.i84
-  store i64 %xor9.i.i85, ptr %arrayidx.i.i72, align 8, !tbaa !3
-  %exitcond.not.i.i86 = icmp eq i64 %add.i.i74, 227
-  br i1 %exitcond.not.i.i86, label %for.body16.preheader.i.i87, label %for.body.i.i70, !llvm.loop !104
+  %arrayidx7.i.i78 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i72, i64 3176
+  %25 = load i64, ptr %arrayidx7.i.i78, align 8, !tbaa !3
+  %shr.i.i79 = lshr exact i64 %or.i.i77, 1
+  %xor.i.i80 = xor i64 %shr.i.i79, %25
+  %and8.i.i81 = and i64 %24, 1
+  %tobool.not.i.i82 = icmp eq i64 %and8.i.i81, 0
+  %cond.i.i83 = select i1 %tobool.not.i.i82, i64 0, i64 2567483615
+  %xor9.i.i84 = xor i64 %xor.i.i80, %cond.i.i83
+  store i64 %xor9.i.i84, ptr %arrayidx.i.i72, align 8, !tbaa !3
+  %exitcond.not.i.i85 = icmp eq i64 %add.i.i74, 227
+  br i1 %exitcond.not.i.i85, label %for.body16.preheader.i.i86, label %for.body.i.i70, !llvm.loop !104
 
-for.body16.preheader.i.i87:                       ; preds = %for.body.i.i70
-  %.pre17.i.i89 = load i64, ptr %arrayidx19.phi.trans.insert.i.i, align 8, !tbaa !3
-  br label %for.body16.i.i90
+for.body16.preheader.i.i86:                       ; preds = %for.body.i.i70
+  %.pre17.i.i88 = load i64, ptr %arrayidx19.phi.trans.insert.i.i, align 8, !tbaa !3
+  br label %for.body16.i.i89
 
-for.body16.i.i90:                                 ; preds = %for.body16.i.i90, %for.body16.preheader.i.i87
-  %26 = phi i64 [ %27, %for.body16.i.i90 ], [ %.pre17.i.i89, %for.body16.preheader.i.i87 ]
-  %__k12.015.i.i91 = phi i64 [ %add22.i.i94, %for.body16.i.i90 ], [ 227, %for.body16.preheader.i.i87 ]
-  %arrayidx19.i.i92 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k12.015.i.i91
-  %and20.i.i93 = and i64 %26, -2147483648
-  %add22.i.i94 = add nuw nsw i64 %__k12.015.i.i91, 1
-  %arrayidx23.i.i95 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add22.i.i94
-  %27 = load i64, ptr %arrayidx23.i.i95, align 8, !tbaa !3
-  %and24.i.i96 = and i64 %27, 2147483646
-  %or25.i.i97 = or disjoint i64 %and24.i.i96, %and20.i.i93
-  %add27.i.i98 = add nsw i64 %__k12.015.i.i91, -227
-  %arrayidx28.i.i99 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add27.i.i98
-  %28 = load i64, ptr %arrayidx28.i.i99, align 8, !tbaa !3
-  %shr29.i.i100 = lshr exact i64 %or25.i.i97, 1
-  %xor30.i.i101 = xor i64 %shr29.i.i100, %28
-  %and31.i.i102 = and i64 %27, 1
-  %tobool32.not.i.i103 = icmp eq i64 %and31.i.i102, 0
-  %cond33.i.i104 = select i1 %tobool32.not.i.i103, i64 0, i64 2567483615
-  %xor34.i.i105 = xor i64 %xor30.i.i101, %cond33.i.i104
-  store i64 %xor34.i.i105, ptr %arrayidx19.i.i92, align 8, !tbaa !3
-  %exitcond16.not.i.i106 = icmp eq i64 %add22.i.i94, 623
-  br i1 %exitcond16.not.i.i106, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i107, label %for.body16.i.i90, !llvm.loop !105
+for.body16.i.i89:                                 ; preds = %for.body16.i.i89, %for.body16.preheader.i.i86
+  %26 = phi i64 [ %27, %for.body16.i.i89 ], [ %.pre17.i.i88, %for.body16.preheader.i.i86 ]
+  %__k12.015.i.i90 = phi i64 [ %add22.i.i93, %for.body16.i.i89 ], [ 227, %for.body16.preheader.i.i86 ]
+  %arrayidx19.i.i91 = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k12.015.i.i90
+  %and20.i.i92 = and i64 %26, -2147483648
+  %add22.i.i93 = add nuw nsw i64 %__k12.015.i.i90, 1
+  %arrayidx23.i.i94 = getelementptr inbounds nuw i64, ptr %__urng, i64 %add22.i.i93
+  %27 = load i64, ptr %arrayidx23.i.i94, align 8, !tbaa !3
+  %and24.i.i95 = and i64 %27, 2147483646
+  %or25.i.i96 = or disjoint i64 %and24.i.i95, %and20.i.i92
+  %arrayidx28.i.i97 = getelementptr i8, ptr %arrayidx19.i.i91, i64 -1816
+  %28 = load i64, ptr %arrayidx28.i.i97, align 8, !tbaa !3
+  %shr29.i.i98 = lshr exact i64 %or25.i.i96, 1
+  %xor30.i.i99 = xor i64 %shr29.i.i98, %28
+  %and31.i.i100 = and i64 %27, 1
+  %tobool32.not.i.i101 = icmp eq i64 %and31.i.i100, 0
+  %cond33.i.i102 = select i1 %tobool32.not.i.i101, i64 0, i64 2567483615
+  %xor34.i.i103 = xor i64 %xor30.i.i99, %cond33.i.i102
+  store i64 %xor34.i.i103, ptr %arrayidx19.i.i91, align 8, !tbaa !3
+  %exitcond16.not.i.i104 = icmp eq i64 %add22.i.i93, 623
+  br i1 %exitcond16.not.i.i104, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i105, label %for.body16.i.i89, !llvm.loop !105
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i107: ; preds = %for.body16.i.i90
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i105: ; preds = %for.body16.i.i89
   %29 = load i64, ptr %arrayidx42.i.i, align 8, !tbaa !3
-  %and43.i.i109 = and i64 %29, -2147483648
+  %and43.i.i107 = and i64 %29, -2147483648
   %30 = load i64, ptr %__urng, align 8, !tbaa !3
-  %and46.i.i110 = and i64 %30, 2147483646
-  %or47.i.i111 = or disjoint i64 %and46.i.i110, %and43.i.i109
+  %and46.i.i108 = and i64 %30, 2147483646
+  %or47.i.i109 = or disjoint i64 %and46.i.i108, %and43.i.i107
   %31 = load i64, ptr %arrayidx49.i.i, align 8, !tbaa !3
-  %shr50.i.i113 = lshr exact i64 %or47.i.i111, 1
-  %xor51.i.i114 = xor i64 %shr50.i.i113, %31
-  %and52.i.i115 = and i64 %30, 1
-  %tobool53.not.i.i116 = icmp eq i64 %and52.i.i115, 0
-  %cond54.i.i117 = select i1 %tobool53.not.i.i116, i64 0, i64 2567483615
-  %xor55.i.i118 = xor i64 %xor51.i.i114, %cond54.i.i117
-  store i64 %xor55.i.i118, ptr %arrayidx42.i.i, align 8, !tbaa !3
-  br label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119
+  %shr50.i.i111 = lshr exact i64 %or47.i.i109, 1
+  %xor51.i.i112 = xor i64 %shr50.i.i111, %31
+  %and52.i.i113 = and i64 %30, 1
+  %tobool53.not.i.i114 = icmp eq i64 %and52.i.i113, 0
+  %cond54.i.i115 = select i1 %tobool53.not.i.i114, i64 0, i64 2567483615
+  %xor55.i.i116 = xor i64 %xor51.i.i112, %cond54.i.i115
+  store i64 %xor55.i.i116, ptr %arrayidx42.i.i, align 8, !tbaa !3
+  br label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119: ; preds = %for.body.i.i33, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i107
-  %32 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i107 ], [ %22, %for.body.i.i33 ]
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117: ; preds = %for.body.i.i33, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i105
+  %32 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i105 ], [ %22, %for.body.i.i33 ]
   %inc.i55 = add nuw nsw i64 %32, 1
   store i64 %inc.i55, ptr %_M_p.i, align 8, !tbaa !59
-  %arrayidx.i56 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %32
+  %arrayidx.i56 = getelementptr inbounds nuw i64, ptr %__urng, i64 %32
   %33 = load i64, ptr %arrayidx.i56, align 8, !tbaa !3
   %shr.i57 = lshr i64 %33, 11
   %and.i58 = and i64 %shr.i57, 4294967295
@@ -3870,10 +3864,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %cmp.not.i.i43 = icmp eq i64 %dec.i.i42, 0
   br i1 %cmp.not.i.i43, label %for.cond.cleanup.i.i44, label %for.body.i.i33.backedge
 
-for.body.i.i33.backedge:                          ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50
-  %__k.013.i.i34.be = phi i64 [ %dec.i.i42, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119 ], [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
-  %__tmp.012.i.i35.be = phi double [ %conv16.i.i41, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119 ], [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
-  %__sum.011.i.i36.be = phi double [ %34, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit119 ], [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
+for.body.i.i33.backedge:                          ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50
+  %__k.013.i.i34.be = phi i64 [ %dec.i.i42, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117 ], [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
+  %__tmp.012.i.i35.be = phi double [ %conv16.i.i41, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117 ], [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
+  %__sum.011.i.i36.be = phi double [ %34, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit117 ], [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit50 ]
   br label %for.body.i.i33, !llvm.loop !122
 
 if.then.i.i47:                                    ; preds = %for.cond.cleanup.i.i44
@@ -3958,15 +3952,14 @@ if.then.i:                                        ; preds = %for.body.i.i
 for.body.i.i36:                                   ; preds = %for.body.i.i36, %if.then.i
   %3 = phi i64 [ %.pre.i.i, %if.then.i ], [ %4, %for.body.i.i36 ]
   %__k.014.i.i = phi i64 [ 0, %if.then.i ], [ %add.i.i, %for.body.i.i36 ]
-  %arrayidx.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k.014.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k.014.i.i
   %and.i.i = and i64 %3, -2147483648
   %add.i.i = add nuw nsw i64 %__k.014.i.i, 1
-  %arrayidx3.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %add.i.i
   %4 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !3
   %and4.i.i = and i64 %4, 2147483646
   %or.i.i = or disjoint i64 %and4.i.i, %and.i.i
-  %add6.i.i = add nuw nsw i64 %__k.014.i.i, 397
-  %arrayidx7.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add6.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 3176
   %5 = load i64, ptr %arrayidx7.i.i, align 8, !tbaa !3
   %shr.i.i = lshr exact i64 %or.i.i, 1
   %xor.i.i = xor i64 %shr.i.i, %5
@@ -3985,15 +3978,14 @@ for.body16.preheader.i.i:                         ; preds = %for.body.i.i36
 for.body16.i.i:                                   ; preds = %for.body16.i.i, %for.body16.preheader.i.i
   %6 = phi i64 [ %7, %for.body16.i.i ], [ %.pre17.i.i, %for.body16.preheader.i.i ]
   %__k12.015.i.i = phi i64 [ %add22.i.i, %for.body16.i.i ], [ 227, %for.body16.preheader.i.i ]
-  %arrayidx19.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k12.015.i.i
+  %arrayidx19.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k12.015.i.i
   %and20.i.i = and i64 %6, -2147483648
   %add22.i.i = add nuw nsw i64 %__k12.015.i.i, 1
-  %arrayidx23.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add22.i.i
+  %arrayidx23.i.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %add22.i.i
   %7 = load i64, ptr %arrayidx23.i.i, align 8, !tbaa !3
   %and24.i.i = and i64 %7, 2147483646
   %or25.i.i = or disjoint i64 %and24.i.i, %and20.i.i
-  %add27.i.i = add nsw i64 %__k12.015.i.i, -227
-  %arrayidx28.i.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add27.i.i
+  %arrayidx28.i.i = getelementptr i8, ptr %arrayidx19.i.i, i64 -1816
   %8 = load i64, ptr %arrayidx28.i.i, align 8, !tbaa !3
   %shr29.i.i = lshr exact i64 %or25.i.i, 1
   %xor30.i.i = xor i64 %shr29.i.i, %8
@@ -4025,7 +4017,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %12 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %2, %for.body.i.i ]
   %inc.i = add nuw nsw i64 %12, 1
   store i64 %inc.i, ptr %_M_p.i, align 8, !tbaa !59
-  %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %12
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %__urng, i64 %12
   %13 = load i64, ptr %arrayidx.i, align 8, !tbaa !3
   %shr.i = lshr i64 %13, 11
   %and.i = and i64 %shr.i, 4294967295
@@ -4062,19 +4054,19 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   %__ret.0.i.i = phi double [ %call20.i.i, %if.then.i.i ], [ %div17.i.i, %for.cond.cleanup.i.i ]
   br label %for.body.i.i18
 
-for.cond.cleanup.i.i29:                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103
+for.cond.cleanup.i.i29:                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101
   %15 = tail call double @llvm.fmuladd.f64(double %__ret.0.i.i, double 2.000000e+00, double -1.000000e+00)
   %div17.i.i30 = fdiv double %28, %conv16.i.i26
   %cmp18.i.i31 = fcmp ult double %div17.i.i30, 1.000000e+00
   br i1 %cmp18.i.i31, label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit35, label %if.then.i.i32, !prof !96
 
-for.body.i.i18:                                   ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit
-  %16 = phi i64 [ %inc.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %inc.i39, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
-  %__k.013.i.i19 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %dec.i.i27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
-  %__tmp.012.i.i20 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %conv16.i.i26, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
-  %__sum.011.i.i21 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %28, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103 ]
+for.body.i.i18:                                   ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit
+  %16 = phi i64 [ %inc.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %inc.i39, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101 ]
+  %__k.013.i.i19 = phi i64 [ %spec.select.i.i, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %dec.i.i27, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101 ]
+  %__tmp.012.i.i20 = phi double [ 1.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %conv16.i.i26, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101 ]
+  %__sum.011.i.i21 = phi double [ 0.000000e+00, %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit ], [ %28, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101 ]
   %cmp.i38 = icmp ugt i64 %16, 623
-  br i1 %cmp.i38, label %if.then.i52, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103
+  br i1 %cmp.i38, label %if.then.i52, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101
 
 if.then.i52:                                      ; preds = %for.body.i.i18
   %.pre.i.i53 = load i64, ptr %__urng, align 8, !tbaa !3
@@ -4083,74 +4075,72 @@ if.then.i52:                                      ; preds = %for.body.i.i18
 for.body.i.i54:                                   ; preds = %for.body.i.i54, %if.then.i52
   %17 = phi i64 [ %.pre.i.i53, %if.then.i52 ], [ %18, %for.body.i.i54 ]
   %__k.014.i.i55 = phi i64 [ 0, %if.then.i52 ], [ %add.i.i58, %for.body.i.i54 ]
-  %arrayidx.i.i56 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k.014.i.i55
+  %arrayidx.i.i56 = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k.014.i.i55
   %and.i.i57 = and i64 %17, -2147483648
   %add.i.i58 = add nuw nsw i64 %__k.014.i.i55, 1
-  %arrayidx3.i.i59 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add.i.i58
+  %arrayidx3.i.i59 = getelementptr inbounds nuw i64, ptr %__urng, i64 %add.i.i58
   %18 = load i64, ptr %arrayidx3.i.i59, align 8, !tbaa !3
   %and4.i.i60 = and i64 %18, 2147483646
   %or.i.i61 = or disjoint i64 %and4.i.i60, %and.i.i57
-  %add6.i.i62 = add nuw nsw i64 %__k.014.i.i55, 397
-  %arrayidx7.i.i63 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add6.i.i62
-  %19 = load i64, ptr %arrayidx7.i.i63, align 8, !tbaa !3
-  %shr.i.i64 = lshr exact i64 %or.i.i61, 1
-  %xor.i.i65 = xor i64 %shr.i.i64, %19
-  %and8.i.i66 = and i64 %18, 1
-  %tobool.not.i.i67 = icmp eq i64 %and8.i.i66, 0
-  %cond.i.i68 = select i1 %tobool.not.i.i67, i64 0, i64 2567483615
-  %xor9.i.i69 = xor i64 %xor.i.i65, %cond.i.i68
-  store i64 %xor9.i.i69, ptr %arrayidx.i.i56, align 8, !tbaa !3
-  %exitcond.not.i.i70 = icmp eq i64 %add.i.i58, 227
-  br i1 %exitcond.not.i.i70, label %for.body16.preheader.i.i71, label %for.body.i.i54, !llvm.loop !104
+  %arrayidx7.i.i62 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i56, i64 3176
+  %19 = load i64, ptr %arrayidx7.i.i62, align 8, !tbaa !3
+  %shr.i.i63 = lshr exact i64 %or.i.i61, 1
+  %xor.i.i64 = xor i64 %shr.i.i63, %19
+  %and8.i.i65 = and i64 %18, 1
+  %tobool.not.i.i66 = icmp eq i64 %and8.i.i65, 0
+  %cond.i.i67 = select i1 %tobool.not.i.i66, i64 0, i64 2567483615
+  %xor9.i.i68 = xor i64 %xor.i.i64, %cond.i.i67
+  store i64 %xor9.i.i68, ptr %arrayidx.i.i56, align 8, !tbaa !3
+  %exitcond.not.i.i69 = icmp eq i64 %add.i.i58, 227
+  br i1 %exitcond.not.i.i69, label %for.body16.preheader.i.i70, label %for.body.i.i54, !llvm.loop !104
 
-for.body16.preheader.i.i71:                       ; preds = %for.body.i.i54
-  %.pre17.i.i73 = load i64, ptr %arrayidx19.phi.trans.insert.i.i, align 8, !tbaa !3
-  br label %for.body16.i.i74
+for.body16.preheader.i.i70:                       ; preds = %for.body.i.i54
+  %.pre17.i.i72 = load i64, ptr %arrayidx19.phi.trans.insert.i.i, align 8, !tbaa !3
+  br label %for.body16.i.i73
 
-for.body16.i.i74:                                 ; preds = %for.body16.i.i74, %for.body16.preheader.i.i71
-  %20 = phi i64 [ %21, %for.body16.i.i74 ], [ %.pre17.i.i73, %for.body16.preheader.i.i71 ]
-  %__k12.015.i.i75 = phi i64 [ %add22.i.i78, %for.body16.i.i74 ], [ 227, %for.body16.preheader.i.i71 ]
-  %arrayidx19.i.i76 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %__k12.015.i.i75
-  %and20.i.i77 = and i64 %20, -2147483648
-  %add22.i.i78 = add nuw nsw i64 %__k12.015.i.i75, 1
-  %arrayidx23.i.i79 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add22.i.i78
-  %21 = load i64, ptr %arrayidx23.i.i79, align 8, !tbaa !3
-  %and24.i.i80 = and i64 %21, 2147483646
-  %or25.i.i81 = or disjoint i64 %and24.i.i80, %and20.i.i77
-  %add27.i.i82 = add nsw i64 %__k12.015.i.i75, -227
-  %arrayidx28.i.i83 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %add27.i.i82
-  %22 = load i64, ptr %arrayidx28.i.i83, align 8, !tbaa !3
-  %shr29.i.i84 = lshr exact i64 %or25.i.i81, 1
-  %xor30.i.i85 = xor i64 %shr29.i.i84, %22
-  %and31.i.i86 = and i64 %21, 1
-  %tobool32.not.i.i87 = icmp eq i64 %and31.i.i86, 0
-  %cond33.i.i88 = select i1 %tobool32.not.i.i87, i64 0, i64 2567483615
-  %xor34.i.i89 = xor i64 %xor30.i.i85, %cond33.i.i88
-  store i64 %xor34.i.i89, ptr %arrayidx19.i.i76, align 8, !tbaa !3
-  %exitcond16.not.i.i90 = icmp eq i64 %add22.i.i78, 623
-  br i1 %exitcond16.not.i.i90, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i91, label %for.body16.i.i74, !llvm.loop !105
+for.body16.i.i73:                                 ; preds = %for.body16.i.i73, %for.body16.preheader.i.i70
+  %20 = phi i64 [ %21, %for.body16.i.i73 ], [ %.pre17.i.i72, %for.body16.preheader.i.i70 ]
+  %__k12.015.i.i74 = phi i64 [ %add22.i.i77, %for.body16.i.i73 ], [ 227, %for.body16.preheader.i.i70 ]
+  %arrayidx19.i.i75 = getelementptr inbounds nuw i64, ptr %__urng, i64 %__k12.015.i.i74
+  %and20.i.i76 = and i64 %20, -2147483648
+  %add22.i.i77 = add nuw nsw i64 %__k12.015.i.i74, 1
+  %arrayidx23.i.i78 = getelementptr inbounds nuw i64, ptr %__urng, i64 %add22.i.i77
+  %21 = load i64, ptr %arrayidx23.i.i78, align 8, !tbaa !3
+  %and24.i.i79 = and i64 %21, 2147483646
+  %or25.i.i80 = or disjoint i64 %and24.i.i79, %and20.i.i76
+  %arrayidx28.i.i81 = getelementptr i8, ptr %arrayidx19.i.i75, i64 -1816
+  %22 = load i64, ptr %arrayidx28.i.i81, align 8, !tbaa !3
+  %shr29.i.i82 = lshr exact i64 %or25.i.i80, 1
+  %xor30.i.i83 = xor i64 %shr29.i.i82, %22
+  %and31.i.i84 = and i64 %21, 1
+  %tobool32.not.i.i85 = icmp eq i64 %and31.i.i84, 0
+  %cond33.i.i86 = select i1 %tobool32.not.i.i85, i64 0, i64 2567483615
+  %xor34.i.i87 = xor i64 %xor30.i.i83, %cond33.i.i86
+  store i64 %xor34.i.i87, ptr %arrayidx19.i.i75, align 8, !tbaa !3
+  %exitcond16.not.i.i88 = icmp eq i64 %add22.i.i77, 623
+  br i1 %exitcond16.not.i.i88, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i89, label %for.body16.i.i73, !llvm.loop !105
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i91: ; preds = %for.body16.i.i74
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i89: ; preds = %for.body16.i.i73
   %23 = load i64, ptr %arrayidx42.i.i, align 8, !tbaa !3
-  %and43.i.i93 = and i64 %23, -2147483648
+  %and43.i.i91 = and i64 %23, -2147483648
   %24 = load i64, ptr %__urng, align 8, !tbaa !3
-  %and46.i.i94 = and i64 %24, 2147483646
-  %or47.i.i95 = or disjoint i64 %and46.i.i94, %and43.i.i93
+  %and46.i.i92 = and i64 %24, 2147483646
+  %or47.i.i93 = or disjoint i64 %and46.i.i92, %and43.i.i91
   %25 = load i64, ptr %arrayidx49.i.i, align 8, !tbaa !3
-  %shr50.i.i97 = lshr exact i64 %or47.i.i95, 1
-  %xor51.i.i98 = xor i64 %shr50.i.i97, %25
-  %and52.i.i99 = and i64 %24, 1
-  %tobool53.not.i.i100 = icmp eq i64 %and52.i.i99, 0
-  %cond54.i.i101 = select i1 %tobool53.not.i.i100, i64 0, i64 2567483615
-  %xor55.i.i102 = xor i64 %xor51.i.i98, %cond54.i.i101
-  store i64 %xor55.i.i102, ptr %arrayidx42.i.i, align 8, !tbaa !3
-  br label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103
+  %shr50.i.i95 = lshr exact i64 %or47.i.i93, 1
+  %xor51.i.i96 = xor i64 %shr50.i.i95, %25
+  %and52.i.i97 = and i64 %24, 1
+  %tobool53.not.i.i98 = icmp eq i64 %and52.i.i97, 0
+  %cond54.i.i99 = select i1 %tobool53.not.i.i98, i64 0, i64 2567483615
+  %xor55.i.i100 = xor i64 %xor51.i.i96, %cond54.i.i99
+  store i64 %xor55.i.i100, ptr %arrayidx42.i.i, align 8, !tbaa !3
+  br label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit103: ; preds = %for.body.i.i18, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i91
-  %26 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i91 ], [ %16, %for.body.i.i18 ]
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit101: ; preds = %for.body.i.i18, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i89
+  %26 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i89 ], [ %16, %for.body.i.i18 ]
   %inc.i39 = add nuw nsw i64 %26, 1
   store i64 %inc.i39, ptr %_M_p.i, align 8, !tbaa !59
-  %arrayidx.i40 = getelementptr inbounds nuw [624 x i64], ptr %__urng, i64 0, i64 %26
+  %arrayidx.i40 = getelementptr inbounds nuw i64, ptr %__urng, i64 %26
   %27 = load i64, ptr %arrayidx.i40, align 8, !tbaa !3
   %shr.i41 = lshr i64 %27, 11
   %and.i42 = and i64 %shr.i41, 4294967295
@@ -4222,15 +4212,14 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %1 = phi i64 [ %.pre.i, %if.then ], [ %2, %for.body.i ]
   %__k.014.i = phi i64 [ 0, %if.then ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %__k.014.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k.014.i
   %and.i = and i64 %1, -2147483648
   %add.i = add nuw nsw i64 %__k.014.i, 1
-  %arrayidx3.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %add.i
+  %arrayidx3.i = getelementptr inbounds nuw i64, ptr %this, i64 %add.i
   %2 = load i64, ptr %arrayidx3.i, align 8, !tbaa !3
   %and4.i = and i64 %2, 2147483646
   %or.i = or disjoint i64 %and4.i, %and.i
-  %add6.i = add nuw nsw i64 %__k.014.i, 397
-  %arrayidx7.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %add6.i
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 3176
   %3 = load i64, ptr %arrayidx7.i, align 8, !tbaa !3
   %shr.i = lshr exact i64 %or.i, 1
   %xor.i = xor i64 %shr.i, %3
@@ -4250,15 +4239,14 @@ for.body16.preheader.i:                           ; preds = %for.body.i
 for.body16.i:                                     ; preds = %for.body16.i, %for.body16.preheader.i
   %4 = phi i64 [ %5, %for.body16.i ], [ %.pre17.i, %for.body16.preheader.i ]
   %__k12.015.i = phi i64 [ %add22.i, %for.body16.i ], [ 227, %for.body16.preheader.i ]
-  %arrayidx19.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %__k12.015.i
+  %arrayidx19.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k12.015.i
   %and20.i = and i64 %4, -2147483648
   %add22.i = add nuw nsw i64 %__k12.015.i, 1
-  %arrayidx23.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %add22.i
+  %arrayidx23.i = getelementptr inbounds nuw i64, ptr %this, i64 %add22.i
   %5 = load i64, ptr %arrayidx23.i, align 8, !tbaa !3
   %and24.i = and i64 %5, 2147483646
   %or25.i = or disjoint i64 %and24.i, %and20.i
-  %add27.i = add nsw i64 %__k12.015.i, -227
-  %arrayidx28.i = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %add27.i
+  %arrayidx28.i = getelementptr i8, ptr %arrayidx19.i, i64 -1816
   %6 = load i64, ptr %arrayidx28.i, align 8, !tbaa !3
   %shr29.i = lshr exact i64 %or25.i, 1
   %xor30.i = xor i64 %shr29.i, %6
@@ -4292,7 +4280,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
   %10 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %0, %entry ]
   %inc = add nuw nsw i64 %10, 1
   store i64 %inc, ptr %_M_p, align 8, !tbaa !59
-  %arrayidx = getelementptr inbounds nuw [624 x i64], ptr %this, i64 0, i64 %10
+  %arrayidx = getelementptr inbounds nuw i64, ptr %this, i64 %10
   %11 = load i64, ptr %arrayidx, align 8, !tbaa !3
   %shr = lshr i64 %11, 11
   %and = and i64 %shr, 4294967295

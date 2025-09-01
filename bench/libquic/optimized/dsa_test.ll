@@ -68,126 +68,123 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone cap
 
 17:                                               ; preds = %17, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr @seed, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 4, !tbaa !11
   %20 = zext i8 %19 to i32
-  %21 = or disjoint i64 %indvars.iv.i, 1
-  %22 = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !11
-  %24 = zext i8 %23 to i32
-  %25 = or disjoint i64 %indvars.iv.i, 2
-  %26 = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 2, !tbaa !11
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i64 %indvars.iv.i, 3
-  %30 = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !11
-  %32 = zext i8 %31 to i32
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef %20, i32 noundef %24, i32 noundef %28, i32 noundef %32) #7
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !11
+  %23 = zext i8 %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %25 = load i8, ptr %24, align 2, !tbaa !11
+  %26 = zext i8 %25 to i32
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 3
+  %28 = load i8, ptr %27, align 1, !tbaa !11
+  %29 = zext i8 %28 to i32
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef %20, i32 noundef %23, i32 noundef %26, i32 noundef %29) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %34 = icmp samesign ult i64 %indvars.iv.i, 16
-  br i1 %34, label %17, label %35, !llvm.loop !12
+  %31 = icmp samesign ult i64 %indvars.iv.i, 16
+  br i1 %31, label %17, label %32, !llvm.loop !12
 
-35:                                               ; preds = %17
+32:                                               ; preds = %17
+  %33 = load i32, ptr %4, align 4, !tbaa !14
+  %34 = load i64, ptr %6, align 8, !tbaa !16
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef %33, i64 noundef %34) #7
   %36 = load i32, ptr %4, align 4, !tbaa !14
-  %37 = load i64, ptr %6, align 8, !tbaa !16
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef %36, i64 noundef %37) #7
-  %39 = load i32, ptr %4, align 4, !tbaa !14
-  %.not34.i = icmp eq i32 %39, 105
-  br i1 %.not34.i, label %43, label %40
+  %.not34.i = icmp eq i32 %36, 105
+  br i1 %.not34.i, label %40, label %37
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %42 = call i64 @fwrite(ptr nonnull @.str.5, i64 22, i64 1, ptr %41) #8
+37:                                               ; preds = %32
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %39 = call i64 @fwrite(ptr nonnull @.str.5, i64 22, i64 1, ptr %38) #8
   br label %test_generate.exit.thread
 
-43:                                               ; preds = %35
-  %44 = load i64, ptr %6, align 8, !tbaa !16
-  %.not35.i = icmp eq i64 %44, 2
-  br i1 %.not35.i, label %48, label %45
+40:                                               ; preds = %32
+  %41 = load i64, ptr %6, align 8, !tbaa !16
+  %.not35.i = icmp eq i64 %41, 2
+  br i1 %.not35.i, label %45, label %42
 
-45:                                               ; preds = %43
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %47 = call i64 @fwrite(ptr nonnull @.str.6, i64 14, i64 1, ptr %46) #8
+42:                                               ; preds = %40
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %44 = call i64 @fwrite(ptr nonnull @.str.6, i64 14, i64 1, ptr %43) #8
   br label %test_generate.exit.thread
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !18
-  %51 = call i64 @BN_bn2bin(ptr noundef %50, ptr noundef nonnull %5) #7
-  %52 = and i64 %51, 4294967295
-  %.not36.i = icmp eq i64 %52, 20
-  br i1 %.not36.i, label %53, label %54
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !18
+  %48 = call i64 @BN_bn2bin(ptr noundef %47, ptr noundef nonnull %5) #7
+  %49 = and i64 %48, 4294967295
+  %.not36.i = icmp eq i64 %49, 20
+  br i1 %.not36.i, label %50, label %51
 
-53:                                               ; preds = %48
+50:                                               ; preds = %45
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %5, ptr noundef nonnull dereferenceable(20) @fips_q, i64 20)
   %.not37.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not37.i, label %57, label %54
+  br i1 %.not37.i, label %54, label %51
 
-54:                                               ; preds = %53, %48
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %56 = call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr %55) #8
+51:                                               ; preds = %50, %45
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %53 = call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr %52) #8
   br label %test_generate.exit.thread
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !24
-  %60 = call i64 @BN_bn2bin(ptr noundef %59, ptr noundef nonnull %5) #7
-  %61 = and i64 %60, 4294967295
-  %.not38.i = icmp eq i64 %61, 64
-  br i1 %.not38.i, label %62, label %63
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !24
+  %57 = call i64 @BN_bn2bin(ptr noundef %56, ptr noundef nonnull %5) #7
+  %58 = and i64 %57, 4294967295
+  %.not38.i = icmp eq i64 %58, 64
+  br i1 %.not38.i, label %59, label %60
 
-62:                                               ; preds = %57
+59:                                               ; preds = %54
   %bcmp39.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %5, ptr noundef nonnull dereferenceable(64) @fips_p, i64 64)
   %.not40.i = icmp eq i32 %bcmp39.i, 0
-  br i1 %.not40.i, label %66, label %63
+  br i1 %.not40.i, label %63, label %60
 
-63:                                               ; preds = %62, %57
-  %64 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %65 = call i64 @fwrite(ptr nonnull @.str.8, i64 17, i64 1, ptr %64) #8
+60:                                               ; preds = %59, %54
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %62 = call i64 @fwrite(ptr nonnull @.str.8, i64 17, i64 1, ptr %61) #8
   br label %test_generate.exit.thread
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !25
-  %69 = call i64 @BN_bn2bin(ptr noundef %68, ptr noundef nonnull %5) #7
-  %70 = and i64 %69, 4294967295
-  %.not41.i = icmp eq i64 %70, 64
-  br i1 %.not41.i, label %71, label %72
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
+  %66 = call i64 @BN_bn2bin(ptr noundef %65, ptr noundef nonnull %5) #7
+  %67 = and i64 %66, 4294967295
+  %.not41.i = icmp eq i64 %67, 64
+  br i1 %.not41.i, label %68, label %69
 
-71:                                               ; preds = %66
+68:                                               ; preds = %63
   %bcmp42.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %5, ptr noundef nonnull dereferenceable(64) @fips_g, i64 64)
   %.not43.i = icmp eq i32 %bcmp42.i, 0
-  br i1 %.not43.i, label %75, label %72
+  br i1 %.not43.i, label %72, label %69
 
-72:                                               ; preds = %71, %66
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %74 = call i64 @fwrite(ptr nonnull @.str.9, i64 17, i64 1, ptr %73) #8
+69:                                               ; preds = %68, %63
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %71 = call i64 @fwrite(ptr nonnull @.str.9, i64 17, i64 1, ptr %70) #8
   br label %test_generate.exit.thread
 
-75:                                               ; preds = %71
-  %76 = call i32 @DSA_generate_key(ptr noundef nonnull %11) #7
-  %.not44.i = icmp eq i32 %76, 0
-  br i1 %.not44.i, label %test_generate.exit.thread, label %77
+72:                                               ; preds = %68
+  %73 = call i32 @DSA_generate_key(ptr noundef nonnull %11) #7
+  %.not44.i = icmp eq i32 %73, 0
+  br i1 %.not44.i, label %test_generate.exit.thread, label %74
 
-77:                                               ; preds = %75
-  %78 = call i32 @DSA_sign(i32 noundef 0, ptr noundef nonnull @fips_digest, i64 noundef 20, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %11) #7
-  %.not45.i = icmp eq i32 %78, 0
-  br i1 %.not45.i, label %test_generate.exit.thread, label %79
+74:                                               ; preds = %72
+  %75 = call i32 @DSA_sign(i32 noundef 0, ptr noundef nonnull @fips_digest, i64 noundef 20, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %11) #7
+  %.not45.i = icmp eq i32 %75, 0
+  br i1 %.not45.i, label %test_generate.exit.thread, label %76
 
-79:                                               ; preds = %77
-  %80 = load i32, ptr %8, align 4, !tbaa !14
-  %81 = zext i32 %80 to i64
-  %82 = call i32 @DSA_verify(i32 noundef 0, ptr noundef nonnull @fips_digest, i64 noundef 20, ptr noundef nonnull %7, i64 noundef %81, ptr noundef nonnull %11) #7
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %87, label %84
+76:                                               ; preds = %74
+  %77 = load i32, ptr %8, align 4, !tbaa !14
+  %78 = zext i32 %77 to i64
+  %79 = call i32 @DSA_verify(i32 noundef 0, ptr noundef nonnull @fips_digest, i64 noundef 20, ptr noundef nonnull %7, i64 noundef %78, ptr noundef nonnull %11) #7
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %84, label %81
 
-84:                                               ; preds = %79
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %86 = call i64 @fwrite(ptr nonnull @.str.10, i64 21, i64 1, ptr %85) #8
+81:                                               ; preds = %76
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !6
+  %83 = call i64 @fwrite(ptr nonnull @.str.10, i64 21, i64 1, ptr %82) #8
   br label %test_generate.exit.thread
 
-test_generate.exit.thread:                        ; preds = %2, %40, %45, %54, %63, %72, %84, %77, %75, %13
+test_generate.exit.thread:                        ; preds = %2, %37, %42, %51, %60, %69, %81, %74, %72, %13
   call void @DSA_free(ptr noundef %11) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -195,9 +192,9 @@ test_generate.exit.thread:                        ; preds = %2, %40, %45, %54, %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %97
+  br label %94
 
-87:                                               ; preds = %79
+84:                                               ; preds = %76
   call void @DSA_free(ptr noundef nonnull %11) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -205,41 +202,41 @@ test_generate.exit.thread:                        ; preds = %2, %40, %45, %54, %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %88 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig, i64 noundef 47, i32 noundef 1)
-  %.not1 = icmp eq i32 %88, 0
-  br i1 %.not1, label %97, label %89
+  %85 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig, i64 noundef 47, i32 noundef 1)
+  %.not1 = icmp eq i32 %85, 0
+  br i1 %.not1, label %94, label %86
 
-89:                                               ; preds = %87
-  %90 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_negative, i64 noundef 46, i32 noundef -1)
-  %.not2 = icmp eq i32 %90, 0
-  br i1 %.not2, label %97, label %91
+86:                                               ; preds = %84
+  %87 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_negative, i64 noundef 46, i32 noundef -1)
+  %.not2 = icmp eq i32 %87, 0
+  br i1 %.not2, label %94, label %88
 
-91:                                               ; preds = %89
-  %92 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_extra, i64 noundef 48, i32 noundef -1)
-  %.not3 = icmp eq i32 %92, 0
-  br i1 %.not3, label %97, label %93
+88:                                               ; preds = %86
+  %89 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_extra, i64 noundef 48, i32 noundef -1)
+  %.not3 = icmp eq i32 %89, 0
+  br i1 %.not3, label %94, label %90
 
-93:                                               ; preds = %91
-  %94 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_length, i64 noundef 49, i32 noundef -1)
-  %.not4 = icmp eq i32 %94, 0
-  br i1 %.not4, label %97, label %95
+90:                                               ; preds = %88
+  %91 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_length, i64 noundef 49, i32 noundef -1)
+  %.not4 = icmp eq i32 %91, 0
+  br i1 %.not4, label %94, label %92
 
-95:                                               ; preds = %93
-  %96 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_r, i64 noundef 47, i32 noundef 0)
-  %.not5 = icmp eq i32 %96, 0
-  br i1 %.not5, label %97, label %99
+92:                                               ; preds = %90
+  %93 = call fastcc i32 @test_verify(ptr noundef nonnull @fips_sig_bad_r, i64 noundef 47, i32 noundef 0)
+  %.not5 = icmp eq i32 %93, 0
+  br i1 %.not5, label %94, label %96
 
-97:                                               ; preds = %test_generate.exit.thread, %95, %93, %91, %89, %87
-  %98 = load ptr, ptr @stderr, align 8, !tbaa !6
-  call void @ERR_print_errors_fp(ptr noundef %98) #7
-  br label %100
+94:                                               ; preds = %test_generate.exit.thread, %92, %90, %88, %86, %84
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !6
+  call void @ERR_print_errors_fp(ptr noundef %95) #7
+  br label %97
 
-99:                                               ; preds = %95
+96:                                               ; preds = %92
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %100
+  br label %97
 
-100:                                              ; preds = %99, %97
-  %.0 = phi i32 [ 0, %99 ], [ 1, %97 ]
+97:                                               ; preds = %96, %94
+  %.0 = phi i32 [ 0, %96 ], [ 1, %94 ]
   ret i32 %.0
 }
 

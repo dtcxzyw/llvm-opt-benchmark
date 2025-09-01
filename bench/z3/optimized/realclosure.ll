@@ -9639,7 +9639,7 @@ define linkonce_odr hidden void @_ZN11realclosure7manager3imp7dec_refEPNS_9exten
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 3
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [3 x %class.ptr_vector], ptr %7, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %class.ptr_vector, ptr %7, i64 %11
   %13 = lshr i32 %9, 2
   %14 = load ptr, ptr %12, align 8, !tbaa !54
   %15 = zext nneg i32 %13 to i64

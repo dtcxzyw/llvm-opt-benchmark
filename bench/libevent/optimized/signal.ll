@@ -159,14 +159,14 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
 
 .lr.ph:                                           ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw [1024 x i8], ptr @evsig_cb.signals, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr @evsig_cb.signals, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = icmp ult i8 %12, 65
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %.lr.ph
   %15 = zext nneg i8 %12 to i64
-  %16 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -193,7 +193,7 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
 
 25:                                               ; preds = %.preheader42, %30
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %30 ], [ 0, %.preheader42 ]
-  %26 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %indvars.iv34
+  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv34
   %27 = load i32, ptr %26, align 4
   %.not29 = icmp eq i32 %27, 0
   br i1 %.not29, label %30, label %28

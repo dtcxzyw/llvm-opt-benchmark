@@ -135,7 +135,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %41
 
 41:                                               ; preds = %38, %35
-  %42 = getelementptr inbounds nuw [2 x ptr], ptr %18, i64 0, i64 %indvars.iv178
+  %42 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv178
   %43 = load ptr, ptr %42, align 8, !tbaa !20
   %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %45 = load ptr, ptr %44, align 8, !tbaa !43
@@ -362,7 +362,7 @@ split.thread:                                     ; preds = %.preheader162, %spl
 .preheader:                                       ; preds = %161, %163
   %.not172 = phi i1 [ false, %163 ], [ true, %161 ]
   %indvars.iv184 = phi i64 [ 1, %163 ], [ 0, %161 ]
-  %164 = getelementptr inbounds nuw [2 x ptr], ptr %18, i64 0, i64 %indvars.iv184
+  %164 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv184
   %165 = load ptr, ptr %164, align 8, !tbaa !20
   %166 = call i32 @av_audio_fifo_size(ptr noundef %165) #7
   %167 = load i32, ptr %58, align 8, !tbaa !46
@@ -457,7 +457,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %38
   %42 = zext nneg i32 %40 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.config_output, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %switch.load, ptr %43, align 8, !tbaa !47
@@ -472,7 +472,7 @@ switch.lookup:                                    ; preds = %38
 
 switch.lookup45:                                  ; preds = %44
   %48 = zext nneg i32 %40 to i64
-  %switch.gep46 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.config_output.1, i64 0, i64 %48
+  %switch.gep46 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.1, i64 %48
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %switch.load47, ptr %49, align 8, !tbaa !47

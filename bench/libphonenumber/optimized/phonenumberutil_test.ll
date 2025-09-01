@@ -55491,7 +55491,7 @@ define dso_local void @_ZN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPatte
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 8, !tbaa !149
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds [1 x ptr], ptr %49, i64 0, i64 %53
+  %54 = getelementptr inbounds ptr, ptr %49, i64 %53
   store ptr %47, ptr %54, align 8, !tbaa !151
   invoke void @_ZN4i18n12phonenumbers12NumberFormat11set_patternEPKc(ptr noundef nonnull align 8 dereferenceable(88) %47, ptr noundef nonnull @.str.82)
           to label %55 unwind label %66

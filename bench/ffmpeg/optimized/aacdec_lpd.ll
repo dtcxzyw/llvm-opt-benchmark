@@ -49,7 +49,7 @@ define range(i32 -1163346256, 1) i32 @ff_aac_parse_fac_data(ptr noundef writeonl
 
 30:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %31 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %26, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 %indvars.iv
   %32 = load i32, ptr %29, align 8, !tbaa !11
   %.promoted.i.i.i = load i32, ptr %27, align 8, !tbaa !4
   br label %33

@@ -583,7 +583,7 @@ define void @_ZN7glslang14TParseVersions27initializeExtensionBehaviorEv(ptr noun
 
 196:                                              ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
   %.01140 = phi i64 [ 0, %1 ], [ %221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  %197 = getelementptr inbounds nuw [3 x %struct.extensionData], ptr @__const._ZN7glslang14TParseVersions27initializeExtensionBehaviorEv.exts, i64 0, i64 %.01140
+  %197 = getelementptr inbounds nuw %struct.extensionData, ptr @__const._ZN7glslang14TParseVersions27initializeExtensionBehaviorEv.exts, i64 %.01140
   %198 = load ptr, ptr %197, align 16
   %199 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #15
   store ptr %199, ptr %2, align 8
@@ -6078,7 +6078,7 @@ thread-pre-split:                                 ; preds = %33, %29
 
 switch.lookup:                                    ; preds = %82
   %86 = zext nneg i32 %84 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions11getPreambleERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions11getPreambleERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %switch.load) #15
   br label %88
@@ -6101,7 +6101,7 @@ define noundef nonnull ptr @StageName(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -6125,7 +6125,7 @@ define void @_ZN7glslang14TParseVersions12requireStageERKNS_10TSourceLocE15EShLa
 
 switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %StageName.exit
 
@@ -6157,7 +6157,7 @@ define void @_ZN7glslang14TParseVersions12requireStageERKNS_10TSourceLocE11EShLa
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %StageName.exit.i
 
@@ -6188,7 +6188,7 @@ define void @_ZN7glslang14TParseVersions14requireProfileERKNS_10TSourceLocEiPKc(
 
 switch.lookup:                                    ; preds = %8
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit
 
@@ -6921,7 +6921,7 @@ define void @_ZN7glslang14TParseVersions17requireNotRemovedERKNS_10TSourceLocEii
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit
 
@@ -8465,7 +8465,7 @@ define void @_ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocE
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %StageName.exit.i
 
@@ -8539,7 +8539,7 @@ _ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiiPKPKcS5_.exit1
 
 switch.lookup37:                                  ; preds = %49
   %51 = zext nneg i32 %45 to i64
-  %switch.gep38 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 0, i64 %51
+  %switch.gep38 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions19checkExtensionStageERKNS_10TSourceLocEPKc.1, i64 %51
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %StageName.exit.i13
 
@@ -9773,7 +9773,7 @@ define void @_ZN7glslang14TParseVersions20explicitFloat64CheckERKNS_10TSourceLoc
 
 switch.lookup:                                    ; preds = %13
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
@@ -9846,7 +9846,7 @@ define void @_ZN7glslang14TParseVersions18float16OpaqueCheckERKNS_10TSourceLocEP
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
@@ -9972,7 +9972,7 @@ define void @_ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb(ptr 
 
 switch.lookup:                                    ; preds = %13
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang14TParseVersions10int64CheckERKNS_10TSourceLocEPKcb, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang11ProfileNameE8EProfile.exit.i
 
@@ -10732,49 +10732,47 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %.020.i = phi i64 [ %30, %.lr.ph.i11 ], [ %4, %.lr.ph.preheader.i ]
-  %.01819.i = phi i32 [ %41, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %40, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i ]
   %28 = urem i64 %.020.i, 100
   %29 = shl nuw nsw i64 %28, 1
   %30 = udiv i64 %.020.i, 100
-  %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %31
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %29
-  %37 = load i8, ptr %36, align 2
-  %38 = add i32 %.01819.i, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
-  store i8 %37, ptr %40, align 1
-  %41 = add i32 %.01819.i, -2
-  %42 = icmp ugt i64 %.020.i, 9999
-  br i1 %42, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !73
+  %36 = load i8, ptr %31, align 2
+  %37 = add i32 %.01819.i, -1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 %38
+  store i8 %36, ptr %39, align 1
+  %40 = add i32 %.01819.i, -2
+  %41 = icmp ugt i64 %.020.i, 9999
+  br i1 %41, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %4, %_ZNSt8__detail14__to_chars_lenIyEEjT_i.exit ], [ %30, %.lr.ph.i11 ]
-  %43 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %43, label %44, label %52
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %._crit_edge.i
-  %45 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 0, i64 %45
-  %51 = load i8, ptr %50, align 2
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store i8 %47, ptr %48, align 1
+  %49 = load i8, ptr %45, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %54 = or disjoint i8 %53, 48
+50:                                               ; preds = %._crit_edge.i
+  %51 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %52 = or disjoint i8 %51, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %44, %52
-  %storemerge.i = phi i8 [ %54, %52 ], [ %51, %44 ]
+_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit: ; preds = %43, %50
+  %storemerge.i = phi i8 [ %52, %50 ], [ %49, %43 ]
   store i8 %storemerge.i, ptr %25, align 1
   ret void
 }

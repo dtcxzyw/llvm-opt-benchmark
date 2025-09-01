@@ -1045,14 +1045,14 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 314:                                              ; preds = %312
   %315 = sext i32 %.03567.i to i64
-  %316 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 %315
+  %316 = getelementptr inbounds i8, ptr %5, i64 %315
   store i8 0, ptr %316, align 1
   br label %317
 
 317:                                              ; preds = %321, %314
   %.034.i = phi i32 [ 0, %314 ], [ %322, %321 ]
   %318 = sext i32 %.034.i to i64
-  %319 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 %318
+  %319 = getelementptr inbounds i8, ptr %5, i64 %318
   %320 = load i8, ptr %319, align 1
   switch i8 %320, label %321 [
     i8 0, label %.critedge.i
@@ -1079,7 +1079,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   unreachable
 
 329:                                              ; preds = %.critedge.i
-  %330 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %318
+  %330 = getelementptr inbounds nuw i8, ptr %5, i64 %318
   store i8 0, ptr %330, align 1
   %331 = call ptr @palloc0(i64 noundef 32) #23
   %332 = tail call ptr @__errno_location() #25
@@ -1135,7 +1135,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %354 = zext nneg i32 %.us-phi.i to i64
   %355 = trunc i32 %.us-phi71.i to i8
   %356 = add nuw nsw i32 %.us-phi.i, 1
-  %357 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %354
+  %357 = getelementptr inbounds nuw i8, ptr %5, i64 %354
   store i8 %355, ptr %357, align 1
   br label %.outer.i
 
@@ -2071,11 +2071,11 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 135:                                              ; preds = %133
   %136 = zext nneg i32 %86 to i64
-  %137 = getelementptr inbounds nuw [4 x ptr], ptr @xlogSourceNames, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw ptr, ptr @xlogSourceNames, i64 %136
   %138 = load ptr, ptr %137, align 8
   %139 = load i32, ptr @currentSource, align 4
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw [4 x ptr], ptr @xlogSourceNames, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr @xlogSourceNames, i64 %140
   %142 = load ptr, ptr %141, align 8
   %.b6569.i = load i1, ptr @lastSourceFailed, align 1
   %143 = select i1 %.b6569.i, ptr @.str.161, ptr @.str.162
@@ -4065,7 +4065,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
 xlogrecovery_redo.exit.i:                         ; preds = %374, %373, %372, %362, %332, %329
   %383 = load i8, ptr %275, align 1
   %384 = zext i8 %383 to i64
-  %385 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %384
   %386 = load ptr, ptr %385, align 8, !noalias !14
   %.not.i52.i = icmp eq ptr %386, null
   br i1 %.not.i52.i, label %387, label %GetRmgr.exit.i, !prof !17
@@ -4090,7 +4090,7 @@ GetRmgr.exit.i:                                   ; preds = %387, %xlogrecovery_
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 57
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i64
-  %397 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %396
   %398 = load ptr, ptr %397, align 8, !noalias !18
   %.not.i.i.i = icmp eq ptr %398, null
   br i1 %.not.i.i.i, label %399, label %GetRmgr.exit.i.i, !prof !17
@@ -5044,7 +5044,7 @@ define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unname
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 57
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %7
   %9 = load ptr, ptr %8, align 8, !noalias !32
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %GetRmgr.exit, !prof !17

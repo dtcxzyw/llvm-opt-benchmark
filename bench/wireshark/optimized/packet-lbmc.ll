@@ -4185,7 +4185,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 320:                                              ; preds = %.lr.ph
   %321 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.07481223, i32 noundef %319)
   %322 = zext i8 %.07211224 to i64
-  %323 = getelementptr [256 x i8], ptr %42, i64 0, i64 %322
+  %323 = getelementptr i8, ptr %42, i64 %322
   store i8 1, ptr %323, align 1
   switch i8 %.07211224, label %3042 [
     i8 1, label %324

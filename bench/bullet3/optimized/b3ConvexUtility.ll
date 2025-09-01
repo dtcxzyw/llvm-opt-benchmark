@@ -839,7 +839,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %176, %_ZNK20b3Al
   %.sroa.0503.4.vec.insert = insertelement <2 x float> %206, float %204, i64 1
   %207 = add nuw nsw i32 %.0171, 1
   %208 = zext nneg i32 %.0171 to i64
-  %209 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %9, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw %class.b3Vector3, ptr %9, i64 %208
   store <2 x float> %.sroa.0503.4.vec.insert, ptr %209, align 16
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 8
   store <2 x float> %.sroa.9.8.vec.insert, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !45
@@ -1578,9 +1578,9 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3E10deallocateEv.exit.i.i: ; preds = %
 
 529:                                              ; preds = %._crit_edge588, %529
   %indvars.iv643 = phi i64 [ 0, %._crit_edge588 ], [ %indvars.iv.next644, %529 ]
-  %530 = getelementptr inbounds nuw [4 x float], ptr %454, i64 0, i64 %indvars.iv643
+  %530 = getelementptr inbounds nuw float, ptr %454, i64 %indvars.iv643
   %531 = load float, ptr %530, align 4, !tbaa !56
-  %532 = getelementptr inbounds nuw [4 x float], ptr %319, i64 0, i64 %indvars.iv643
+  %532 = getelementptr inbounds nuw float, ptr %319, i64 %indvars.iv643
   store float %531, ptr %532, align 4, !tbaa !56
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next644, 4

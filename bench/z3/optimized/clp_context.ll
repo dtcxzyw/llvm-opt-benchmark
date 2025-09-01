@@ -1093,7 +1093,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 33:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %34 = load ptr, ptr %9, align 8, !tbaa !344
-  %35 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !351
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %34, i32 noundef %37, ptr noundef %36)
@@ -5583,11 +5583,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit102: ; preds = %167
   %183 = load ptr, ptr %90, align 8, !tbaa !221
   store ptr null, ptr %8, align 8, !tbaa !281
   store ptr %183, ptr %95, align 8, !tbaa !204
-  %184 = getelementptr inbounds nuw [0 x ptr], ptr %96, i64 0, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8, !tbaa !353
   %186 = load ptr, ptr %5, align 8, !tbaa !281
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
-  %188 = getelementptr inbounds nuw [0 x ptr], ptr %187, i64 0, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %indvars.iv
   %189 = load ptr, ptr %188, align 8, !tbaa !353
   %190 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %183, i32 noundef 0, i32 noundef 2, ptr noundef %185, ptr noundef %189)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit unwind label %208
@@ -5656,7 +5656,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %195, %196, %201
 
 213:                                              ; preds = %.lr.ph144, %234
   %indvars.iv159 = phi i64 [ %182, %.lr.ph144 ], [ %indvars.iv.next160, %234 ]
-  %214 = getelementptr inbounds nuw [0 x ptr], ptr %181, i64 0, i64 %indvars.iv159
+  %214 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv159
   %215 = load ptr, ptr %214, align 8, !tbaa !261
   %216 = ptrtoint ptr %215 to i64
   %217 = and i64 %216, -8
@@ -5770,7 +5770,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit11
 
 255:                                              ; preds = %.lr.ph148, %289
   %indvars.iv162 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next163, %289 ]
-  %256 = getelementptr inbounds nuw [0 x ptr], ptr %251, i64 0, i64 %indvars.iv162
+  %256 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv162
   %257 = load ptr, ptr %256, align 8, !tbaa !261
   %258 = ptrtoint ptr %257 to i64
   %259 = and i64 %258, -8

@@ -15218,7 +15218,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(non
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %2, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !91
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %55, ptr %56, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sub nsw i32 %1, %51
@@ -17728,7 +17728,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %29 = trunc i64 %28 to i32
   %30 = add nsw i32 %.282.ph, 1
   %31 = sext i32 %.282.ph to i64
-  %32 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %5, i64 %31
   store i32 %29, ptr %32, align 4, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   store i8 44, ptr %.069, align 1, !tbaa !101
@@ -17739,7 +17739,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %36 = trunc i64 %35 to i32
   %37 = add nsw i32 %.282.ph, 1
   %38 = sext i32 %.282.ph to i64
-  %39 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds i32, ptr %5, i64 %38
   store i32 %36, ptr %39, align 4, !tbaa !43
   br label %.outer305, !llvm.loop !260
 
@@ -17798,7 +17798,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   tail call void @Abc_ExactTest(i32 noundef %.083.ph298) #32
   tail call void @Abc_ExactStoreTest(i32 noundef %.083.ph298) #32
-  br label %101
+  br label %100
 
 69:                                               ; preds = %67
   %70 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
@@ -17816,77 +17816,77 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %wide.trip.count = zext i32 %75 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %88
-  %indvars.iv210 = phi i64 [ %74, %.lr.ph.preheader ], [ %indvars.iv.next211, %88 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %88 ]
-  %.4162 = phi i32 [ %.080.ph306, %.lr.ph.preheader ], [ %.5, %88 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %87
+  %indvars.iv210 = phi i64 [ %74, %.lr.ph.preheader ], [ %indvars.iv.next211, %87 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %87 ]
+  %.4162 = phi i32 [ %.080.ph306, %.lr.ph.preheader ], [ %.5, %87 ]
   %76 = icmp eq i64 %indvars.iv, 16
   br i1 %76, label %.loopexit.sink.split, label %77
 
 77:                                               ; preds = %.lr.ph
-  %78 = shl i64 %indvars.iv, 2
-  %79 = getelementptr inbounds [64 x i64], ptr %4, i64 0, i64 %78
+  %.idx = shl i64 %indvars.iv, 5
+  %78 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %indvars.iv.next211 = add nsw i64 %indvars.iv210, 1
-  %80 = trunc nsw i64 %indvars.iv.next211 to i32
-  store i32 %80, ptr @globalUtilOptind, align 4, !tbaa !43
-  %81 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv210
-  %82 = load ptr, ptr %81, align 8, !tbaa !91
-  %83 = call fastcc i32 @Abc_TtReadHex(ptr noundef nonnull %79, ptr noundef %82)
+  %79 = trunc nsw i64 %indvars.iv.next211 to i32
+  store i32 %79, ptr @globalUtilOptind, align 4, !tbaa !43
+  %80 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv210
+  %81 = load ptr, ptr %80, align 8, !tbaa !91
+  %82 = call fastcc i32 @Abc_TtReadHex(ptr noundef nonnull %78, ptr noundef %81)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = icmp eq i32 %.4162, 0
-  br i1 %84, label %88, label %85
+  %83 = icmp eq i32 %.4162, 0
+  br i1 %83, label %87, label %84
 
-85:                                               ; preds = %77
-  %86 = icmp sgt i32 %.4162, 8
-  br i1 %86, label %.loopexit.sink.split, label %87
+84:                                               ; preds = %77
+  %85 = icmp sgt i32 %.4162, 8
+  br i1 %85, label %.loopexit.sink.split, label %86
 
-87:                                               ; preds = %85
-  %.not106 = icmp eq i32 %.4162, %83
-  br i1 %.not106, label %88, label %.loopexit.sink.split
+86:                                               ; preds = %84
+  %.not106 = icmp eq i32 %.4162, %82
+  br i1 %.not106, label %87, label %.loopexit.sink.split
 
-88:                                               ; preds = %77, %87
-  %.5 = phi i32 [ %.4162, %87 ], [ %83, %77 ]
+87:                                               ; preds = %77, %86
+  %.5 = phi i32 [ %.4162, %86 ], [ %82, %77 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !261
 
-._crit_edge:                                      ; preds = %88, %72
-  %.4.lcssa = phi i32 [ %.080.ph306, %72 ], [ %.5, %88 ]
-  %.077.lcssa = phi i32 [ 0, %72 ], [ %75, %88 ]
+._crit_edge:                                      ; preds = %87, %72
+  %.4.lcssa = phi i32 [ %.080.ph306, %72 ], [ %.5, %87 ]
+  %.077.lcssa = phi i32 [ 0, %72 ], [ %75, %87 ]
   %.not101 = icmp eq i32 %.078.ph313, 0
   %.not102 = icmp eq i32 %.067.ph310, 0
-  %89 = select i1 %.not102, ptr null, ptr %5
-  %90 = add nsw i32 %.075.ph319, -1
-  br i1 %.not101, label %95, label %91
+  %88 = select i1 %.not102, ptr null, ptr %5
+  %89 = add nsw i32 %.075.ph319, -1
+  br i1 %.not101, label %94, label %90
 
-91:                                               ; preds = %._crit_edge
-  %92 = call ptr @Gia_ManFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %89, i32 noundef %.073.ph324, i32 noundef %90, i32 noundef %.083.ph298) #32
-  %.not105 = icmp eq ptr %92, null
-  br i1 %.not105, label %94, label %93
+90:                                               ; preds = %._crit_edge
+  %91 = call ptr @Gia_ManFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %88, i32 noundef %.073.ph324, i32 noundef %89, i32 noundef %.083.ph298) #32
+  %.not105 = icmp eq ptr %91, null
+  br i1 %.not105, label %93, label %92
 
-93:                                               ; preds = %91
-  call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef nonnull %92)
-  br label %101
+92:                                               ; preds = %90
+  call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef nonnull %91)
+  br label %100
 
-94:                                               ; preds = %91
+93:                                               ; preds = %90
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.1336)
-  br label %101
+  br label %100
 
-95:                                               ; preds = %._crit_edge
-  %96 = call ptr @Abc_NtkFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %89, i32 noundef %.073.ph324, i32 noundef %90, i32 noundef %.083.ph298) #32
-  %.not103 = icmp eq ptr %96, null
-  br i1 %.not103, label %98, label %97
+94:                                               ; preds = %._crit_edge
+  %95 = call ptr @Abc_NtkFindExact(ptr noundef nonnull %4, i32 noundef %.4.lcssa, i32 noundef %.077.lcssa, i32 noundef %.066, ptr noundef %88, i32 noundef %.073.ph324, i32 noundef %89, i32 noundef %.083.ph298) #32
+  %.not103 = icmp eq ptr %95, null
+  br i1 %.not103, label %97, label %96
 
-97:                                               ; preds = %95
-  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %96) #32
+96:                                               ; preds = %94
+  call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %95) #32
   call void @Abc_FrameClearVerifStatus(ptr noundef %0) #32
-  br label %101
+  br label %100
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.1337)
-  br label %101
+  br label %100
 
-.loopexit.sink.split:                             ; preds = %42, %8, %52, %18, %87, %85, %.lr.ph
-  %.str.1335.sink = phi ptr [ @.str.1333, %.lr.ph ], [ @.str.1334, %85 ], [ @.str.1335, %87 ], [ @.str.555, %8 ], [ @.str.536, %52 ], [ @.str.554, %42 ], [ @.str.1096, %18 ]
+.loopexit.sink.split:                             ; preds = %42, %8, %52, %18, %86, %84, %.lr.ph
+  %.str.1335.sink = phi ptr [ @.str.1333, %.lr.ph ], [ @.str.1334, %84 ], [ @.str.1335, %86 ], [ @.str.555, %8 ], [ @.str.536, %52 ], [ @.str.554, %42 ], [ @.str.1096, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1335.sink)
   br label %.loopexit
 
@@ -17899,20 +17899,20 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1342, i32 noundef %.176)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1343, i32 noundef %.073.ph324)
   %.not111 = icmp eq i32 %.078.ph313, 0
-  %99 = select i1 %.not111, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1344, ptr noundef nonnull %99)
+  %98 = select i1 %.not111, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1344, ptr noundef nonnull %98)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1345)
   %.not112 = icmp eq i32 %.083.ph298, 0
-  %100 = select i1 %.not112, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1346, ptr noundef nonnull %100)
+  %99 = select i1 %.not112, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1346, ptr noundef nonnull %99)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.755)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.908)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1347)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1348)
-  br label %101
+  br label %100
 
-101:                                              ; preds = %94, %93, %98, %97, %.loopexit, %68
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %68 ], [ 0, %97 ], [ 0, %98 ], [ 0, %93 ], [ 0, %94 ]
+100:                                              ; preds = %93, %92, %97, %96, %.loopexit, %68
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %68 ], [ 0, %96 ], [ 0, %97 ], [ 0, %92 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -26615,8 +26615,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr readnone captures(none)
 
 .lr.ph:                                           ; preds = %20, %35
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #35
-  %23 = add i64 %22, -1
-  %24 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %23
+  %23 = getelementptr i8, ptr %4, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -1
   %25 = load i8, ptr %24, align 1, !tbaa !101
   %26 = icmp eq i8 %25, 10
   br i1 %26, label %27, label %28
@@ -26627,8 +26627,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr readnone captures(none)
 
 28:                                               ; preds = %27, %.lr.ph
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #35
-  %30 = add i64 %29, -1
-  %31 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %30
+  %30 = getelementptr i8, ptr %4, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -1
   %32 = load i8, ptr %31, align 1, !tbaa !101
   %33 = icmp eq i8 %32, 13
   br i1 %33, label %34, label %35
@@ -33650,37 +33650,37 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   %68 = load i32, ptr %64, align 4, !tbaa !497
   %.not76 = icmp eq i32 %68, 0
   %69 = sext i32 %.ph to i64
-  %70 = getelementptr inbounds [33 x [33 x float]], ptr %65, i64 0, i64 %69
+  %70 = getelementptr inbounds [33 x float], ptr %65, i64 %69
   br label %71
 
-71:                                               ; preds = %.outer, %77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ %indvars.iv.ph, %.outer ]
-  %72 = getelementptr inbounds nuw [33 x float], ptr %70, i64 0, i64 %indvars.iv
-  %.in = select i1 %.not76, ptr %70, ptr %72
-  %73 = load float, ptr %.in, align 4, !tbaa !498
-  %74 = getelementptr inbounds nuw [32 x float], ptr %66, i64 0, i64 %indvars.iv
-  store float %73, ptr %74, align 4, !tbaa !498
-  %75 = load float, ptr %8, align 8, !tbaa !499
-  %76 = fcmp ult float %75, %73
-  br i1 %76, label %77, label %.thread
+71:                                               ; preds = %.outer, %76
+  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ %indvars.iv.ph, %.outer ]
+  %.in.idx = select i1 %.not76, i64 0, i64 %indvars.iv
+  %.in = getelementptr inbounds nuw float, ptr %70, i64 %.in.idx
+  %72 = load float, ptr %.in, align 4, !tbaa !498
+  %73 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
+  store float %72, ptr %73, align 4, !tbaa !498
+  %74 = load float, ptr %8, align 8, !tbaa !499
+  %75 = fcmp ult float %74, %72
+  br i1 %75, label %76, label %.thread
 
-77:                                               ; preds = %71
+76:                                               ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %78, label %71, label %._crit_edge, !llvm.loop !500
+  %77 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %77, label %71, label %._crit_edge, !llvm.loop !500
 
 .thread:                                          ; preds = %71
-  %79 = fpext float %75 to double
-  %80 = fpext float %73 to double
-  %81 = trunc nuw nsw i64 %indvars.iv to i32
-  %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2296, double noundef %79, double noundef %80, i32 noundef %81)
+  %78 = fpext float %74 to double
+  %79 = fpext float %72 to double
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
+  %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2296, double noundef %78, double noundef %79, i32 noundef %80)
   %.pre125 = load i32, ptr %54, align 8, !tbaa !488
   %.pre126 = sext i32 %.pre125 to i64
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv, 1
-  %83 = icmp slt i64 %indvars.iv.next142, %.pre126
-  br i1 %83, label %.outer, label %._crit_edge.thread144, !llvm.loop !500
+  %82 = icmp slt i64 %indvars.iv.next142, %.pre126
+  br i1 %82, label %.outer, label %._crit_edge.thread144, !llvm.loop !500
 
-._crit_edge:                                      ; preds = %77
+._crit_edge:                                      ; preds = %76
   br i1 %67, label %._crit_edge.thread, label %._crit_edge.thread144
 
 ._crit_edge.thread:                               ; preds = %61, %._crit_edge
@@ -33693,24 +33693,24 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %13, %18, %.loopexit.sink.split
-  %84 = phi i32 [ %.ph214, %.loopexit.sink.split ], [ %.ph214, %13 ], [ %34, %29 ], [ %.ph214, %18 ]
-  %85 = phi float [ %.ph208, %.loopexit.sink.split ], [ %.ph208, %29 ], [ %.ph208, %13 ], [ %23, %18 ]
+  %83 = phi i32 [ %.ph214, %.loopexit.sink.split ], [ %.ph214, %13 ], [ %34, %29 ], [ %.ph214, %18 ]
+  %84 = phi float [ %.ph208, %.loopexit.sink.split ], [ %.ph208, %29 ], [ %.ph208, %13 ], [ %23, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2297)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2298)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2299)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2300)
-  %86 = fpext float %85 to double
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2301, double noundef %86)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2302, i32 noundef %84)
+  %85 = fpext float %84 to double
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2301, double noundef %85)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2302, i32 noundef %83)
   %.not79 = icmp eq i32 %.ph219, 0
-  %87 = select i1 %.not79, ptr @.str.2304, ptr @.str.79
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2303, ptr noundef nonnull %87)
+  %86 = select i1 %.not79, ptr @.str.2304, ptr @.str.79
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2303, ptr noundef nonnull %86)
   %.not80 = icmp eq i32 %.ph223, 0
-  %88 = select i1 %.not80, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2161, ptr noundef nonnull %88)
+  %87 = select i1 %.not80, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2161, ptr noundef nonnull %87)
   %.not81 = icmp eq i32 %14, 0
-  %89 = select i1 %.not81, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2305, ptr noundef nonnull %89)
+  %88 = select i1 %.not81, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2305, ptr noundef nonnull %88)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.695)
   br label %._crit_edge.thread144
 
@@ -57081,7 +57081,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1696, ptr noundef %66)
   %77 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %66, ptr noundef nonnull @.str.2099, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #32
   store ptr %77, ptr %76, align 8, !tbaa !91
@@ -66293,7 +66293,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br i1 %172, label %173, label %178
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv339
+  %174 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv339
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1696, ptr noundef %164)
   %175 = call ptr @Extra_FileGetSimilarName(ptr noundef %164, ptr noundef nonnull @.str.2099, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #32
   store ptr %175, ptr %174, align 8, !tbaa !91
@@ -66815,7 +66815,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1696, ptr noundef %59)
   %70 = call ptr @Extra_FileGetSimilarName(ptr noundef %59, ptr noundef nonnull @.str.2099, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #32
   store ptr %70, ptr %69, align 8, !tbaa !91
@@ -69640,13 +69640,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
 .preheader519:                                    ; preds = %.preheader519.lr.ph, %553
   %indvars.iv534 = phi i64 [ 0, %.preheader519.lr.ph ], [ %indvars.iv.next535, %553 ]
   %indvars.iv532 = phi i64 [ 1, %.preheader519.lr.ph ], [ %indvars.iv.next533, %553 ]
-  %547 = getelementptr inbounds nuw [33 x [33 x float]], ptr %545, i64 0, i64 %indvars.iv534
+  %547 = getelementptr inbounds nuw [33 x float], ptr %545, i64 %indvars.iv534
   br label %548
 
 548:                                              ; preds = %.preheader519, %548
   %indvars.iv = phi i64 [ 0, %.preheader519 ], [ %indvars.iv.next, %548 ]
   %549 = load float, ptr %45, align 4, !tbaa !460
-  %550 = getelementptr inbounds nuw [33 x float], ptr %547, i64 0, i64 %indvars.iv
+  %550 = getelementptr inbounds nuw float, ptr %547, i64 %indvars.iv
   %551 = load float, ptr %550, align 4, !tbaa !498
   %552 = fadd float %549, %551
   store float %552, ptr %550, align 4, !tbaa !498
@@ -69684,13 +69684,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
 .preheader:                                       ; preds = %.preheader.lr.ph, %568
   %indvars.iv549 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next550, %568 ]
   %indvars.iv547 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next548, %568 ]
-  %562 = getelementptr inbounds nuw [33 x [33 x float]], ptr %560, i64 0, i64 %indvars.iv549
+  %562 = getelementptr inbounds nuw [33 x float], ptr %560, i64 %indvars.iv549
   br label %563
 
 563:                                              ; preds = %.preheader, %563
   %indvars.iv541 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next542, %563 ]
   %564 = load float, ptr %45, align 4, !tbaa !460
-  %565 = getelementptr inbounds nuw [33 x float], ptr %562, i64 0, i64 %indvars.iv541
+  %565 = getelementptr inbounds nuw float, ptr %562, i64 %indvars.iv541
   %566 = load float, ptr %565, align 4, !tbaa !498
   %567 = fsub float %566, %564
   store float %567, ptr %565, align 4, !tbaa !498
@@ -85553,7 +85553,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1696, ptr noundef %167)
   %178 = call ptr @Extra_FileGetSimilarName(ptr noundef %167, ptr noundef nonnull @.str.2099, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #32
   store ptr %178, ptr %177, align 8, !tbaa !91
@@ -95947,7 +95947,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   br i1 %exitcond74.not, label %..loopexit30_crit_edge.us.us, label %33, !llvm.loop !1426
 
 .preheader.us.us:                                 ; preds = %.lr.ph36.split.us.split.us
-  %35 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv75
+  %35 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv75
   %36 = load i32, ptr %35, align 4, !tbaa !43
   br label %33
 
@@ -96041,7 +96041,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   br i1 %exitcond72.not, label %..loopexit28_crit_edge.us.us, label %31, !llvm.loop !1429
 
 .preheader.us.us:                                 ; preds = %.lr.ph34.split.us.split.us
-  %33 = getelementptr inbounds nuw [5 x i32], ptr @__const.Vec_WrdStartTruthTables.Masks, i64 0, i64 %indvars.iv73
+  %33 = getelementptr inbounds nuw i32, ptr @__const.Vec_WrdStartTruthTables.Masks, i64 %indvars.iv73
   %34 = load i32, ptr %33, align 4, !tbaa !43
   br label %31
 

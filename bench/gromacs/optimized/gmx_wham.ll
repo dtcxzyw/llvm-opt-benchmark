@@ -1864,7 +1864,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
   %505 = sext i8 %504 to i32
   %506 = call i32 @isspace(i32 noundef %505) #33
   %507 = zext nneg i32 %.023.i.i to i64
-  %508 = getelementptr inbounds nuw [2 x i32], ptr %70, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i32, ptr %70, i64 %507
   store i32 %506, ptr %508, align 4, !tbaa !4
   %.not17.i.i = icmp eq i64 %indvars.iv.i.i, 0
   %.not18.i.i = icmp eq i32 %506, 0
@@ -1874,7 +1874,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNKSt7__cxx1112bas
 
 509:                                              ; preds = %.lr.ph.i.i
   %510 = zext nneg i32 %.pre.i.i to i64
-  %511 = getelementptr inbounds nuw [2 x i32], ptr %70, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw i32, ptr %70, i64 %510
   %512 = load i32, ptr %511, align 4, !tbaa !4
   %.not19.i.i = icmp eq i32 %512, 0
   %513 = zext i1 %.not19.i.i to i32
@@ -5289,7 +5289,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %_ZL30checkReactionC
 1888:                                             ; preds = %1887
   %1889 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 100), align 4, !tbaa !58
   %1890 = sext i32 %1889 to i64
-  %1891 = getelementptr inbounds [5 x ptr], ptr @__const._Z8gmx_whamiPPc.en_unit_label, i64 0, i64 %1890
+  %1891 = getelementptr inbounds ptr, ptr @__const._Z8gmx_whamiPPc.en_unit_label, i64 %1890
   %1892 = load ptr, ptr %1891, align 8, !tbaa !104
   %1893 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %1892) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %89, ptr noundef nonnull align 1 dereferenceable(19) @.str.242, i64 19, i1 false) #25
@@ -6254,8 +6254,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %.15 = phi ptr [ %.010, %31 ], [ %35, %.loopexit.loopexit ]
   %.1 = phi i32 [ %.02211, %31 ], [ %33, %.loopexit.loopexit ]
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #33
-  %39 = add i64 %38, -1
-  %40 = getelementptr inbounds nuw [2050 x i8], ptr %5, i64 0, i64 %39
+  %39 = getelementptr i8, ptr %5, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = icmp eq i8 %41, 10
   br i1 %42, label %43, label %44
@@ -8491,7 +8491,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.us.i: ; preds = %.split.us.us.i
 
 ._crit_edge.i.i225:                               ; preds = %665
   %.phi.trans.insert1.i.i = zext nneg i32 %662 to i64
-  %.phi.trans.insert2.i.i = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i.i
+  %.phi.trans.insert2.i.i = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i.i
   %.pre.i.i = load i64, ptr %.phi.trans.insert2.i.i, align 8, !tbaa !135
   %667 = add nuw nsw i32 %662, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit.i
@@ -8775,7 +8775,7 @@ _ZSt4sortIPdEvT_S1_.exit.thread36.i:              ; preds = %_ZN3gmx23UniformRea
 
 ._crit_edge.i296:                                 ; preds = %.lr.ph.i228
   %.phi.trans.insert1.i = zext nneg i32 %812 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i
   %.pre.i297 = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !135
   %814 = add nuw nsw i32 %812, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
@@ -9208,7 +9208,7 @@ _ZL18setRandomBsWeightsP16t_UmbrellaWindowiP15UmbrellaOptions.exit: ; preds = %9
 
 ._crit_edge.i319:                                 ; preds = %1047
   %.phi.trans.insert1.i320 = zext nneg i32 %1048 to i64
-  %.phi.trans.insert2.i321 = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i320
+  %.phi.trans.insert2.i321 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i320
   %.pre.i322 = load i64, ptr %.phi.trans.insert2.i321, align 8, !tbaa !135
   %1050 = add nuw nsw i32 %1048, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit325
@@ -9347,7 +9347,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1116 = phi i32 [ %1046, %._crit_edge.i.i.i235 ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit325 ]
   %1117 = phi i64 [ %948, %._crit_edge.i.i.i235 ], [ %1114, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit325 ]
   %1118 = and i64 %1117, 16383
-  %1119 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1118
+  %1119 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %1118
   %1120 = load float, ptr %1119, align 4, !tbaa !108
   %1121 = lshr i64 %1117, 14
   store i64 %1121, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8, !tbaa !218
@@ -9439,7 +9439,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 
 ._crit_edge.i312:                                 ; preds = %1166
   %.phi.trans.insert1.i313 = zext nneg i32 %1167 to i64
-  %.phi.trans.insert2.i314 = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i313
+  %.phi.trans.insert2.i314 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i313
   %.pre.i315 = load i64, ptr %.phi.trans.insert2.i314, align 8, !tbaa !135
   %1169 = add nuw nsw i32 %1167, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit318
@@ -9579,7 +9579,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1236 = phi i32 [ %1165, %._crit_edge.i.i117.us.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit318 ]
   %1237 = phi i64 [ %.pre.i.i118.us.i, %._crit_edge.i.i117.us.i ], [ %1233, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit318 ]
   %1238 = and i64 %1237, 16383
-  %1239 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1238
+  %1239 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %1238
   %1240 = load float, ptr %1239, align 4, !tbaa !108
   %1241 = lshr i64 %1237, 14
   store i64 %1241, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8, !tbaa !218
@@ -9660,7 +9660,7 @@ _ZL16searchCumulativePKdidPi.exit.us.i:           ; preds = %._crit_edge.i.loope
 
 ._crit_edge.i305:                                 ; preds = %1280
   %.phi.trans.insert1.i306 = zext nneg i32 %1281 to i64
-  %.phi.trans.insert2.i307 = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i306
+  %.phi.trans.insert2.i307 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i306
   %.pre.i308 = load i64, ptr %.phi.trans.insert2.i307, align 8, !tbaa !135
   %1283 = add nuw nsw i32 %1281, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit311
@@ -9800,7 +9800,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1350 = phi i32 [ %1279, %._crit_edge.i.i117.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit311 ]
   %1351 = phi i64 [ %.pre.i.i118.i, %._crit_edge.i.i117.i ], [ %1347, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit311 ]
   %1352 = and i64 %1351, 16383
-  %1353 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1352
+  %1353 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %1352
   %1354 = load float, ptr %1353, align 4, !tbaa !108
   %1355 = lshr i64 %1351, 14
   store i64 %1355, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8, !tbaa !218
@@ -9862,7 +9862,7 @@ _ZL16searchCumulativePKdidPi.exit.i:              ; preds = %1374, %1369, %_ZN3g
 
 ._crit_edge.i298:                                 ; preds = %1387
   %.phi.trans.insert1.i299 = zext nneg i32 %1383 to i64
-  %.phi.trans.insert2.i300 = getelementptr inbounds nuw [2 x i64], ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 0, i64 %.phi.trans.insert1.i299
+  %.phi.trans.insert2.i300 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 264), i64 %.phi.trans.insert1.i299
   %.pre.i301 = load i64, ptr %.phi.trans.insert2.i300, align 8, !tbaa !135
   %1389 = add nuw nsw i32 %1383, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit304
@@ -10003,7 +10003,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %1457 = phi i32 [ %1386, %._crit_edge.i.i120.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit304 ]
   %1458 = phi i64 [ %.pre.i.i121.i, %._crit_edge.i.i120.i ], [ %1453, %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit304 ]
   %1459 = and i64 %1458, 16383
-  %1460 = getelementptr inbounds nuw [16384 x float], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 0, i64 %1459
+  %1460 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %1459
   %1461 = load float, ptr %1460, align 4, !tbaa !108
   %1462 = lshr i64 %1458, 14
   store i64 %1462, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 296), align 8, !tbaa !218

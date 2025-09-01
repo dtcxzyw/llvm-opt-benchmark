@@ -2323,7 +2323,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 6, ptr %4, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %5, align 2, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i5:                                 ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2333,7 +2333,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 5, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %8, align 1, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i9:                                 ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2343,7 +2343,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 5, ptr %10, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %11, align 1, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i13:                                ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2353,7 +2353,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 7, ptr %13, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %14, align 1, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i17:                                ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2363,7 +2363,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 4, ptr %16, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %17, align 4, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i21:                                ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2373,7 +2373,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 5, ptr %19, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 21
   store i8 0, ptr %20, align 1, !tbaa !12
-  br label %84
+  br label %80
 
 ._crit_edge.i.i25:                                ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2383,7 +2383,7 @@ define hidden void @_ZN2cv5utils7logging18LogTagConfigParser8toStringB5cxx11ENS1
   store i64 7, ptr %22, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %23, align 1, !tbaa !12
-  br label %84
+  br label %80
 
 24:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
@@ -2431,7 +2431,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %38, %36, %32, %28, 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %44, ptr %0, align 8, !tbaa !3, !alias.scope !90
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %43, i8 noundef signext 45)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i unwind label %81
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i unwind label %77
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
   %45 = zext nneg i32 %.lobit.i to i64
@@ -2446,64 +2446,60 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i11.i, %.lr.ph.preheader.i.i
   %.020.i.i = phi i32 [ %52, %.lr.ph.i11.i ], [ %25, %.lr.ph.preheader.i.i ]
-  %.01819.i.i = phi i32 [ %65, %.lr.ph.i11.i ], [ %49, %.lr.ph.preheader.i.i ]
+  %.01819.i.i = phi i32 [ %63, %.lr.ph.i11.i ], [ %49, %.lr.ph.preheader.i.i ]
   %50 = urem i32 %.020.i.i, 100
   %51 = shl nuw nsw i32 %50, 1
   %52 = udiv i32 %.020.i.i, 100
-  %53 = or disjoint i32 %51, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %54
+  %53 = zext nneg i32 %51 to i64
+  %54 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !12, !noalias !90
   %57 = zext i32 %.01819.i.i to i64
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 %57
   store i8 %56, ptr %58, align 1, !tbaa !12
-  %59 = zext nneg i32 %51 to i64
-  %60 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %59
-  %61 = load i8, ptr %60, align 2, !tbaa !12, !noalias !90
-  %62 = add i32 %.01819.i.i, -1
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %47, i64 %63
-  store i8 %61, ptr %64, align 1, !tbaa !12
-  %65 = add i32 %.01819.i.i, -2
-  %66 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %66, label %.lr.ph.i11.i, label %._crit_edge.i.i29, !llvm.loop !94
+  %59 = load i8, ptr %54, align 2, !tbaa !12, !noalias !90
+  %60 = add i32 %.01819.i.i, -1
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 %61
+  store i8 %59, ptr %62, align 1, !tbaa !12
+  %63 = add i32 %.01819.i.i, -2
+  %64 = icmp ugt i32 %.020.i.i, 9999
+  br i1 %64, label %.lr.ph.i11.i, label %._crit_edge.i.i29, !llvm.loop !94
 
 ._crit_edge.i.i29:                                ; preds = %.lr.ph.i11.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i
   %.0.lcssa.i.i = phi i32 [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i ], [ %52, %.lr.ph.i11.i ]
-  %67 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
-  br i1 %67, label %68, label %78
+  %65 = icmp samesign ugt i32 %.0.lcssa.i.i, 9
+  br i1 %65, label %66, label %74
 
-68:                                               ; preds = %._crit_edge.i.i29
-  %69 = shl nuw nsw i32 %.0.lcssa.i.i, 1
-  %70 = or disjoint i32 %69, 1
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !12, !noalias !90
-  %74 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store i8 %73, ptr %74, align 1, !tbaa !12
-  %75 = zext nneg i32 %69 to i64
-  %76 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %75
-  %77 = load i8, ptr %76, align 2, !tbaa !12, !noalias !90
+66:                                               ; preds = %._crit_edge.i.i29
+  %67 = shl nuw nsw i32 %.0.lcssa.i.i, 1
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  %71 = load i8, ptr %70, align 1, !tbaa !12, !noalias !90
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  store i8 %71, ptr %72, align 1, !tbaa !12
+  %73 = load i8, ptr %69, align 2, !tbaa !12, !noalias !90
   br label %_ZNSt7__cxx119to_stringEi.exit
 
-78:                                               ; preds = %._crit_edge.i.i29
-  %79 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
-  %80 = or disjoint i8 %79, 48
+74:                                               ; preds = %._crit_edge.i.i29
+  %75 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
+  %76 = or disjoint i8 %75, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
-81:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
-  %82 = landingpad { ptr, i32 }
+77:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #24
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #24
   unreachable
 
-_ZNSt7__cxx119to_stringEi.exit:                   ; preds = %68, %78
-  %storemerge.i.i = phi i8 [ %80, %78 ], [ %77, %68 ]
+_ZNSt7__cxx119to_stringEi.exit:                   ; preds = %66, %74
+  %storemerge.i.i = phi i8 [ %76, %74 ], [ %73, %66 ]
   store i8 %storemerge.i.i, ptr %47, align 1, !tbaa !12
-  br label %84
+  br label %80
 
-84:                                               ; preds = %_ZNSt7__cxx119to_stringEi.exit, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
+80:                                               ; preds = %_ZNSt7__cxx119to_stringEi.exit, %._crit_edge.i.i25, %._crit_edge.i.i21, %._crit_edge.i.i17, %._crit_edge.i.i13, %._crit_edge.i.i9, %._crit_edge.i.i5, %._crit_edge.i.i
   ret void
 }
 

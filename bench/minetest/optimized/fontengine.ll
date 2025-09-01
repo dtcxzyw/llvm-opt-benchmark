@@ -1189,7 +1189,7 @@ if.end7:                                          ; preds = %if.then6, %if.then,
 if.then9:                                         ; preds = %if.end7
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
   %idxprom = zext i8 %7 to i64
-  %arrayidx = getelementptr inbounds nuw [3 x i32], ptr %m_default_size, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %m_default_size, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4, !tbaa !28
   store i32 %8, ptr %spec, align 8, !tbaa !48
   br label %if.end12
@@ -1208,25 +1208,25 @@ if.then.i.i.i:                                    ; preds = %if.end12
 _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %if.end12
   %m_font_cache = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv.i = zext i8 %7 to i64
-  %shl.i = shl nuw nsw i64 %conv.i, 2
   %10 = shl nuw nsw i64 %6, 1
   %shl4.i = and i64 %10, 254
-  %or.i = add nuw nsw i64 %shl.i, %shl4.i
   %conv7.i = and i64 %5, 255
-  %or8.i = add nuw nsw i64 %or.i, %conv7.i
-  %arrayidx14 = getelementptr inbounds nuw [12 x %"class.std::map"], ptr %m_font_cache, i64 0, i64 %or8.i
+  %.idx = mul nuw nsw i64 %conv.i, 192
+  %11 = getelementptr inbounds nuw i8, ptr %m_font_cache, i64 %.idx
+  %12 = getelementptr inbounds nuw %"class.std::map", ptr %11, i64 %shl4.i
+  %arrayidx14 = getelementptr inbounds nuw %"class.std::map", ptr %12, i64 %conv7.i
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 16
-  %11 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !22
+  %13 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
-  %cmp.not9.i.i.i = icmp eq ptr %11, null
+  %cmp.not9.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not9.i.i.i, label %if.end24, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit, %while.body.i.i.i
-  %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit ]
+  %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %13, %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 32
-  %12 = load i32, ptr %_M_storage.i.i.i.i.i, align 4, !tbaa !28
-  %cmp.i.i.i.i = icmp ult i32 %12, %9
+  %14 = load i32, ptr %_M_storage.i.i.i.i.i, align 4, !tbaa !28
+  %cmp.i.i.i.i = icmp ult i32 %14, %9
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.v.i.i.i
@@ -1240,13 +1240,13 @@ _ZNKSt8_Rb_treeIjSt4pairIKjPN3irr3gui8IGUIFontEESt10_Select1stIS6_ESt4lessIjESaI
 
 invoke.cont17:                                    ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjPN3irr3gui8IGUIFontEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %_M_storage.i.i.i14.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
-  %13 = load i32, ptr %_M_storage.i.i.i14.i.i, align 4, !tbaa !28
-  %cmp.i15.i.i = icmp ult i32 %9, %13
+  %15 = load i32, ptr %_M_storage.i.i.i14.i.i, align 4, !tbaa !28
+  %cmp.i15.i.i = icmp ult i32 %9, %15
   br i1 %cmp.i15.i.i, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont17
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
-  %14 = load ptr, ptr %second, align 8, !tbaa !39
+  %16 = load ptr, ptr %second, align 8, !tbaa !39
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit
 
 if.end24:                                         ; preds = %invoke.cont17, %_ZNKSt8_Rb_treeIjSt4pairIKjPN3irr3gui8IGUIFontEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit
@@ -1260,24 +1260,24 @@ invoke.cont26:                                    ; preds = %if.end24
 
 if.then29:                                        ; preds = %invoke.cont26
   %.not = icmp eq ptr @_ZTH11errorstream, null
-  br i1 %.not, label %_ZTW11errorstream.exit, label %15
+  br i1 %.not, label %_ZTW11errorstream.exit, label %17
 
-15:                                               ; preds = %if.then29
+17:                                               ; preds = %if.then29
   tail call void @_ZTH11errorstream()
   br label %_ZTW11errorstream.exit
 
-_ZTW11errorstream.exit:                           ; preds = %15, %if.then29
-  %16 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
-  %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA135_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %16, ptr noundef nonnull align 1 dereferenceable(135) @.str.19)
+_ZTW11errorstream.exit:                           ; preds = %17, %if.then29
+  %18 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @errorstream)
+  %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN9LogStreamlsIRA135_KcEER11StreamProxyOT_(ptr noundef nonnull align 8 dereferenceable(992) %18, ptr noundef nonnull align 1 dereferenceable(135) @.str.19)
           to label %invoke.cont30 unwind label %lpad25
 
 invoke.cont30:                                    ; preds = %_ZTW11errorstream.exit
-  %17 = load ptr, ptr %call31, align 8, !tbaa !51
-  %tobool.not.i = icmp eq ptr %17, null
+  %19 = load ptr, ptr %call31, align 8, !tbaa !51
+  %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %invoke.cont32, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont30
-  %call.i.i54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %call.i.i54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %invoke.cont32 unwind label %lpad25
 
 invoke.cont32:                                    ; preds = %if.then.i, %invoke.cont30
@@ -1285,10 +1285,10 @@ invoke.cont32:                                    ; preds = %if.then.i, %invoke.
   unreachable
 
 lpad25:                                           ; preds = %if.end34, %if.then.i, %_ZTW11errorstream.exit, %if.end24
-  %18 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i.i72 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_font_mutex) #24
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %20
 
 if.end34:                                         ; preds = %invoke.cont26
   %call42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIjPN3irr3gui8IGUIFontESt4lessIjESaISt4pairIKjS3_EEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx14, ptr noundef nonnull align 4 dereferenceable(4) %spec)
@@ -1299,7 +1299,7 @@ invoke.cont41:                                    ; preds = %if.end34
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41, %if.then22
-  %retval.0 = phi ptr [ %14, %if.then22 ], [ %call27, %invoke.cont41 ]
+  %retval.0 = phi ptr [ %16, %if.then22 ], [ %call27, %invoke.cont41 ]
   %call1.i.i.i.i.i66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_font_mutex) #24
   ret ptr %retval.0
 }
@@ -3114,9 +3114,9 @@ define dso_local noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr noundef
 entry:
   %cmp = icmp eq i8 %mode, 4
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
-  %idxprom = zext i8 %mode to i64
-  %arrayidx3 = getelementptr inbounds nuw [3 x i32], ptr %m_default_size, i64 0, i64 %idxprom
-  %retval.0.in = select i1 %cmp, ptr %m_default_size, ptr %arrayidx3
+  %narrow = select i1 %cmp, i8 0, i8 %mode
+  %retval.0.in.idx = zext i8 %narrow to i64
+  %retval.0.in = getelementptr inbounds nuw i32, ptr %m_default_size, i64 %retval.0.in.idx
   %retval.0 = load i32, ptr %retval.0.in, align 4, !tbaa !28
   ret i32 %retval.0
 }

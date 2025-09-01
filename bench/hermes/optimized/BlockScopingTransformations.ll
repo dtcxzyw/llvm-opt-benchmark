@@ -2886,7 +2886,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -2910,7 +2910,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -2967,7 +2967,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i171:                                ; preds = %for.inc.i.i.i176, %for.body.i
   %__i.06.i.i.i172 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i178, %for.inc.i.i.i176 ]
   %__n.05.i.i.i173 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
-  %arrayidx.i.i.i174 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i172
+  %arrayidx.i.i.i174 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i172
   %10 = load i8, ptr %arrayidx.i.i.i174, align 1
   %tobool.i.i.i175 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i175, label %if.then.i.i.i184, label %for.inc.i.i.i176
@@ -3006,7 +3006,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -3055,7 +3055,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -3079,7 +3079,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %18 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -3123,7 +3123,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %22 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -3147,7 +3147,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %23 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -3191,7 +3191,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i101:                                ; preds = %for.inc.i.i.i106, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100
   %__i.06.i.i.i102 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %inc.i.i.i108, %for.inc.i.i.i106 ]
   %__n.05.i.i.i103 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
-  %arrayidx.i.i.i104 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i102
+  %arrayidx.i.i.i104 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i102
   %27 = load i8, ptr %arrayidx.i.i.i104, align 1
   %tobool.i.i.i105 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i105, label %if.then.i.i.i133, label %for.inc.i.i.i106
@@ -3215,7 +3215,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i114:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, %for.inc.i.i8.i119
   %__i.06.i.i4.i115 = phi i64 [ %inc.i.i10.i121, %for.inc.i.i8.i119 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
   %__n.05.i.i5.i116 = phi i64 [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
-  %arrayidx.i.i6.i117 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i115
+  %arrayidx.i.i6.i117 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i115
   %28 = load i8, ptr %arrayidx.i.i6.i117, align 1
   %tobool.i.i7.i118 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i118, label %if.then.i.i15.i131, label %for.inc.i.i8.i119
@@ -3259,7 +3259,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i136:                                ; preds = %for.inc.i.i.i141, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135
   %__i.06.i.i.i137 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %inc.i.i.i143, %for.inc.i.i.i141 ]
   %__n.05.i.i.i138 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
-  %arrayidx.i.i.i139 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i137
+  %arrayidx.i.i.i139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i137
   %32 = load i8, ptr %arrayidx.i.i.i139, align 1
   %tobool.i.i.i140 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i140, label %if.then.i.i.i168, label %for.inc.i.i.i141
@@ -3283,7 +3283,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i149:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, %for.inc.i.i8.i154
   %__i.06.i.i4.i150 = phi i64 [ %inc.i.i10.i156, %for.inc.i.i8.i154 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
   %__n.05.i.i5.i151 = phi i64 [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
-  %arrayidx.i.i6.i152 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i150
+  %arrayidx.i.i6.i152 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i150
   %33 = load i8, ptr %arrayidx.i.i6.i152, align 1
   %tobool.i.i7.i153 = trunc i8 %33 to i1
   br i1 %tobool.i.i7.i153, label %if.then.i.i15.i166, label %for.inc.i.i8.i154
@@ -3333,7 +3333,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -3357,7 +3357,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -3414,7 +3414,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i171:                                ; preds = %for.inc.i.i.i176, %for.body.i
   %__i.06.i.i.i172 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i178, %for.inc.i.i.i176 ]
   %__n.05.i.i.i173 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
-  %arrayidx.i.i.i174 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i172
+  %arrayidx.i.i.i174 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i172
   %10 = load i8, ptr %arrayidx.i.i.i174, align 1
   %tobool.i.i.i175 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i175, label %if.then.i.i.i184, label %for.inc.i.i.i176
@@ -3453,7 +3453,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -3502,7 +3502,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -3526,7 +3526,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %18 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -3570,7 +3570,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %22 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -3594,7 +3594,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %23 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -3638,7 +3638,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i101:                                ; preds = %for.inc.i.i.i106, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100
   %__i.06.i.i.i102 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %inc.i.i.i108, %for.inc.i.i.i106 ]
   %__n.05.i.i.i103 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
-  %arrayidx.i.i.i104 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i102
+  %arrayidx.i.i.i104 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i102
   %27 = load i8, ptr %arrayidx.i.i.i104, align 1
   %tobool.i.i.i105 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i105, label %if.then.i.i.i133, label %for.inc.i.i.i106
@@ -3662,7 +3662,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i114:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, %for.inc.i.i8.i119
   %__i.06.i.i4.i115 = phi i64 [ %inc.i.i10.i121, %for.inc.i.i8.i119 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
   %__n.05.i.i5.i116 = phi i64 [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
-  %arrayidx.i.i6.i117 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i115
+  %arrayidx.i.i6.i117 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i115
   %28 = load i8, ptr %arrayidx.i.i6.i117, align 1
   %tobool.i.i7.i118 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i118, label %if.then.i.i15.i131, label %for.inc.i.i8.i119
@@ -3706,7 +3706,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i136:                                ; preds = %for.inc.i.i.i141, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135
   %__i.06.i.i.i137 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %inc.i.i.i143, %for.inc.i.i.i141 ]
   %__n.05.i.i.i138 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
-  %arrayidx.i.i.i139 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i137
+  %arrayidx.i.i.i139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i137
   %32 = load i8, ptr %arrayidx.i.i.i139, align 1
   %tobool.i.i.i140 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i140, label %if.then.i.i.i168, label %for.inc.i.i.i141
@@ -3730,7 +3730,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i149:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, %for.inc.i.i8.i154
   %__i.06.i.i4.i150 = phi i64 [ %inc.i.i10.i156, %for.inc.i.i8.i154 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
   %__n.05.i.i5.i151 = phi i64 [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
-  %arrayidx.i.i6.i152 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i150
+  %arrayidx.i.i6.i152 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i150
   %33 = load i8, ptr %arrayidx.i.i6.i152, align 1
   %tobool.i.i7.i153 = trunc i8 %33 to i1
   br i1 %tobool.i.i7.i153, label %if.then.i.i15.i166, label %for.inc.i.i8.i154
@@ -3780,7 +3780,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -3804,7 +3804,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -3861,7 +3861,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i171:                                ; preds = %for.inc.i.i.i176, %for.body.i
   %__i.06.i.i.i172 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i178, %for.inc.i.i.i176 ]
   %__n.05.i.i.i173 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
-  %arrayidx.i.i.i174 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i172
+  %arrayidx.i.i.i174 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i172
   %10 = load i8, ptr %arrayidx.i.i.i174, align 1
   %tobool.i.i.i175 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i175, label %if.then.i.i.i184, label %for.inc.i.i.i176
@@ -3900,7 +3900,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -3949,7 +3949,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %17 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -3973,7 +3973,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %18 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -4017,7 +4017,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %22 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -4041,7 +4041,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %23 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -4085,7 +4085,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i101:                                ; preds = %for.inc.i.i.i106, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100
   %__i.06.i.i.i102 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %inc.i.i.i108, %for.inc.i.i.i106 ]
   %__n.05.i.i.i103 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
-  %arrayidx.i.i.i104 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i102
+  %arrayidx.i.i.i104 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i102
   %27 = load i8, ptr %arrayidx.i.i.i104, align 1
   %tobool.i.i.i105 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i105, label %if.then.i.i.i133, label %for.inc.i.i.i106
@@ -4109,7 +4109,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i114:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, %for.inc.i.i8.i119
   %__i.06.i.i4.i115 = phi i64 [ %inc.i.i10.i121, %for.inc.i.i8.i119 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
   %__n.05.i.i5.i116 = phi i64 [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
-  %arrayidx.i.i6.i117 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i115
+  %arrayidx.i.i6.i117 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i115
   %28 = load i8, ptr %arrayidx.i.i6.i117, align 1
   %tobool.i.i7.i118 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i118, label %if.then.i.i15.i131, label %for.inc.i.i8.i119
@@ -4153,7 +4153,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i136:                                ; preds = %for.inc.i.i.i141, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135
   %__i.06.i.i.i137 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %inc.i.i.i143, %for.inc.i.i.i141 ]
   %__n.05.i.i.i138 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
-  %arrayidx.i.i.i139 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i137
+  %arrayidx.i.i.i139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i137
   %32 = load i8, ptr %arrayidx.i.i.i139, align 1
   %tobool.i.i.i140 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i140, label %if.then.i.i.i168, label %for.inc.i.i.i141
@@ -4177,7 +4177,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i149:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, %for.inc.i.i8.i154
   %__i.06.i.i4.i150 = phi i64 [ %inc.i.i10.i156, %for.inc.i.i8.i154 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
   %__n.05.i.i5.i151 = phi i64 [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
-  %arrayidx.i.i6.i152 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i150
+  %arrayidx.i.i6.i152 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i150
   %33 = load i8, ptr %arrayidx.i.i6.i152, align 1
   %tobool.i.i7.i153 = trunc i8 %33 to i1
   br i1 %tobool.i.i7.i153, label %if.then.i.i15.i166, label %for.inc.i.i8.i154
@@ -4227,7 +4227,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4251,7 +4251,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -4308,7 +4308,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i124:                                ; preds = %for.inc.i.i.i129, %for.body.i
   %__i.06.i.i.i125 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i131, %for.inc.i.i.i129 ]
   %__n.05.i.i.i126 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
-  %arrayidx.i.i.i127 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i125
+  %arrayidx.i.i.i127 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i125
   %10 = load i8, ptr %arrayidx.i.i.i127, align 1
   %tobool.i.i.i128 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i128, label %if.then.i.i.i137, label %for.inc.i.i.i129
@@ -4347,7 +4347,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -4396,7 +4396,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %17 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -4420,7 +4420,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %18 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -4464,7 +4464,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %22 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -4488,7 +4488,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %23 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -4532,7 +4532,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i89:                                 ; preds = %for.inc.i.i.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88
   %__i.06.i.i.i90 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %inc.i.i.i96, %for.inc.i.i.i94 ]
   %__n.05.i.i.i91 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
-  %arrayidx.i.i.i92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i90
+  %arrayidx.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i90
   %27 = load i8, ptr %arrayidx.i.i.i92, align 1
   %tobool.i.i.i93 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i93, label %if.then.i.i.i121, label %for.inc.i.i.i94
@@ -4556,7 +4556,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i102:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, %for.inc.i.i8.i107
   %__i.06.i.i4.i103 = phi i64 [ %inc.i.i10.i109, %for.inc.i.i8.i107 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
   %__n.05.i.i5.i104 = phi i64 [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
-  %arrayidx.i.i6.i105 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i103
+  %arrayidx.i.i6.i105 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i103
   %28 = load i8, ptr %arrayidx.i.i6.i105, align 1
   %tobool.i.i7.i106 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i106, label %if.then.i.i15.i119, label %for.inc.i.i8.i107
@@ -4606,7 +4606,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4630,7 +4630,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -4674,7 +4674,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -4698,7 +4698,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -4748,7 +4748,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4772,7 +4772,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -4816,7 +4816,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -4840,7 +4840,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -4890,7 +4890,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -4914,7 +4914,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -4958,7 +4958,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -4982,7 +4982,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -5026,7 +5026,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -5050,7 +5050,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -5100,7 +5100,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5124,7 +5124,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5168,7 +5168,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -5192,7 +5192,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -5236,7 +5236,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -5260,7 +5260,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -5310,7 +5310,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5334,7 +5334,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5378,7 +5378,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -5402,7 +5402,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -5446,7 +5446,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -5470,7 +5470,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -5514,7 +5514,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84
   %__i.06.i.i.i86 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i86
   %18 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i117, label %for.inc.i.i.i90
@@ -5538,7 +5538,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i98:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i8.i103
   %__i.06.i.i4.i99 = phi i64 [ %inc.i.i10.i105, %for.inc.i.i8.i103 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i5.i100 = phi i64 [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i6.i101 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i99
+  %arrayidx.i.i6.i101 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i99
   %19 = load i8, ptr %arrayidx.i.i6.i101, align 1
   %tobool.i.i7.i102 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i102, label %if.then.i.i15.i115, label %for.inc.i.i8.i103
@@ -5588,7 +5588,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5612,7 +5612,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5662,7 +5662,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5686,7 +5686,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5736,7 +5736,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5760,7 +5760,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5810,7 +5810,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5834,7 +5834,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5884,7 +5884,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -5908,7 +5908,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -5952,7 +5952,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -5976,7 +5976,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -6026,7 +6026,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6050,7 +6050,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6107,7 +6107,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %10 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -6146,7 +6146,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -6201,7 +6201,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6225,7 +6225,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6269,7 +6269,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -6293,7 +6293,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -6343,7 +6343,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6367,7 +6367,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6417,7 +6417,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6441,7 +6441,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6485,7 +6485,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -6509,7 +6509,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -6553,7 +6553,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -6577,7 +6577,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -6627,7 +6627,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6651,7 +6651,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6695,7 +6695,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -6719,7 +6719,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -6763,7 +6763,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -6787,7 +6787,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -6837,7 +6837,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6861,7 +6861,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6911,7 +6911,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -6935,7 +6935,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -6979,7 +6979,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -7003,7 +7003,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -7060,7 +7060,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %15 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -7099,7 +7099,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -7154,7 +7154,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7178,7 +7178,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7228,7 +7228,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7252,7 +7252,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7302,7 +7302,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7326,7 +7326,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7370,7 +7370,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -7394,7 +7394,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -7444,7 +7444,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7468,7 +7468,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7512,7 +7512,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -7536,7 +7536,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -7593,7 +7593,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %15 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -7632,7 +7632,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -7687,7 +7687,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7711,7 +7711,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7755,7 +7755,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -7779,7 +7779,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -7836,7 +7836,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %for.body.i
   %__i.06.i.i.i51 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i51
   %15 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i63, label %for.inc.i.i.i55
@@ -7875,7 +7875,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -7930,7 +7930,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -7954,7 +7954,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -7998,7 +7998,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -8022,7 +8022,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -8072,7 +8072,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8096,7 +8096,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8146,7 +8146,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8170,7 +8170,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8220,7 +8220,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8244,7 +8244,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8288,7 +8288,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -8312,7 +8312,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -8362,7 +8362,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8386,7 +8386,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8430,7 +8430,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -8454,7 +8454,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -8504,7 +8504,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8528,7 +8528,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8572,7 +8572,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -8596,7 +8596,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -8646,7 +8646,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8670,7 +8670,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8714,7 +8714,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -8738,7 +8738,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -8782,7 +8782,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -8806,7 +8806,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -8856,7 +8856,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -8880,7 +8880,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -8924,7 +8924,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -8948,7 +8948,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -8998,7 +8998,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9022,7 +9022,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9072,7 +9072,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9096,7 +9096,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9146,7 +9146,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9170,7 +9170,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9220,7 +9220,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9244,7 +9244,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9288,7 +9288,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -9312,7 +9312,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -9362,7 +9362,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9386,7 +9386,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9443,7 +9443,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %10 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -9482,7 +9482,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -9537,7 +9537,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9561,7 +9561,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9605,7 +9605,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -9629,7 +9629,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -9679,7 +9679,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9703,7 +9703,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9747,7 +9747,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -9771,7 +9771,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -9821,7 +9821,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9845,7 +9845,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -9889,7 +9889,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -9913,7 +9913,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -9963,7 +9963,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -9987,7 +9987,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -10031,7 +10031,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i23:                                 ; preds = %for.inc.i.i.i28, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i24 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i30, %for.inc.i.i.i28 ]
   %__n.05.i.i.i25 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i29, %for.inc.i.i.i28 ]
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i24
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i24
   %8 = load i8, ptr %arrayidx.i.i.i26, align 1
   %tobool.i.i.i27 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i27, label %if.then.i.i.i55, label %for.inc.i.i.i28
@@ -10055,7 +10055,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i36:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, %for.inc.i.i8.i41
   %__i.06.i.i4.i37 = phi i64 [ %inc.i.i10.i43, %for.inc.i.i8.i41 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32 ]
   %__n.05.i.i5.i38 = phi i64 [ %__n.1.i.i9.i42, %for.inc.i.i8.i41 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32 ]
-  %arrayidx.i.i6.i39 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i37
+  %arrayidx.i.i6.i39 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i37
   %9 = load i8, ptr %arrayidx.i.i6.i39, align 1
   %tobool.i.i7.i40 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i40, label %if.then.i.i15.i53, label %for.inc.i.i8.i41
@@ -10105,7 +10105,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -10129,7 +10129,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -10173,7 +10173,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i27:                                 ; preds = %for.inc.i.i.i32, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i28 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i34, %for.inc.i.i.i32 ]
   %__n.05.i.i.i29 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i33, %for.inc.i.i.i32 ]
-  %arrayidx.i.i.i30 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i28
+  %arrayidx.i.i.i30 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i28
   %8 = load i8, ptr %arrayidx.i.i.i30, align 1
   %tobool.i.i.i31 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i31, label %if.then.i.i.i59, label %for.inc.i.i.i32
@@ -10197,7 +10197,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i40:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, %for.inc.i.i8.i45
   %__i.06.i.i4.i41 = phi i64 [ %inc.i.i10.i47, %for.inc.i.i8.i45 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36 ]
   %__n.05.i.i5.i42 = phi i64 [ %__n.1.i.i9.i46, %for.inc.i.i8.i45 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36 ]
-  %arrayidx.i.i6.i43 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i41
+  %arrayidx.i.i6.i43 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i41
   %9 = load i8, ptr %arrayidx.i.i6.i43, align 1
   %tobool.i.i7.i44 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i44, label %if.then.i.i15.i57, label %for.inc.i.i8.i45
@@ -10241,7 +10241,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i62:                                 ; preds = %for.inc.i.i.i67, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61
   %__i.06.i.i.i63 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61 ], [ %inc.i.i.i69, %for.inc.i.i.i67 ]
   %__n.05.i.i.i64 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61 ], [ %__n.1.i.i.i68, %for.inc.i.i.i67 ]
-  %arrayidx.i.i.i65 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i63
+  %arrayidx.i.i.i65 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i63
   %13 = load i8, ptr %arrayidx.i.i.i65, align 1
   %tobool.i.i.i66 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i66, label %if.then.i.i.i94, label %for.inc.i.i.i67
@@ -10265,7 +10265,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i75:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, %for.inc.i.i8.i80
   %__i.06.i.i4.i76 = phi i64 [ %inc.i.i10.i82, %for.inc.i.i8.i80 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71 ]
   %__n.05.i.i5.i77 = phi i64 [ %__n.1.i.i9.i81, %for.inc.i.i8.i80 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71 ]
-  %arrayidx.i.i6.i78 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i76
+  %arrayidx.i.i6.i78 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i76
   %14 = load i8, ptr %arrayidx.i.i6.i78, align 1
   %tobool.i.i7.i79 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i79, label %if.then.i.i15.i92, label %for.inc.i.i8.i80
@@ -10309,7 +10309,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i97:                                 ; preds = %for.inc.i.i.i102, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96
   %__i.06.i.i.i98 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96 ], [ %inc.i.i.i104, %for.inc.i.i.i102 ]
   %__n.05.i.i.i99 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96 ], [ %__n.1.i.i.i103, %for.inc.i.i.i102 ]
-  %arrayidx.i.i.i100 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i98
+  %arrayidx.i.i.i100 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i98
   %18 = load i8, ptr %arrayidx.i.i.i100, align 1
   %tobool.i.i.i101 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i101, label %if.then.i.i.i129, label %for.inc.i.i.i102
@@ -10333,7 +10333,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i110:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, %for.inc.i.i8.i115
   %__i.06.i.i4.i111 = phi i64 [ %inc.i.i10.i117, %for.inc.i.i8.i115 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106 ]
   %__n.05.i.i5.i112 = phi i64 [ %__n.1.i.i9.i116, %for.inc.i.i8.i115 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106 ]
-  %arrayidx.i.i6.i113 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i111
+  %arrayidx.i.i6.i113 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i111
   %19 = load i8, ptr %arrayidx.i.i6.i113, align 1
   %tobool.i.i7.i114 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i114, label %if.then.i.i15.i127, label %for.inc.i.i8.i115
@@ -10390,7 +10390,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i167:                                ; preds = %for.inc.i.i.i172, %for.body.i
   %__i.06.i.i.i168 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i174, %for.inc.i.i.i172 ]
   %__n.05.i.i.i169 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i173, %for.inc.i.i.i172 ]
-  %arrayidx.i.i.i170 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i168
+  %arrayidx.i.i.i170 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i168
   %25 = load i8, ptr %arrayidx.i.i.i170, align 1
   %tobool.i.i.i171 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i171, label %if.then.i.i.i180, label %for.inc.i.i.i172
@@ -10429,7 +10429,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %27 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %27 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -10491,7 +10491,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i189:                                ; preds = %for.inc.i.i.i194, %for.body.i184
   %__i.06.i.i.i190 = phi i64 [ 0, %for.body.i184 ], [ %inc.i.i.i196, %for.inc.i.i.i194 ]
   %__n.05.i.i.i191 = phi i64 [ 3, %for.body.i184 ], [ %__n.1.i.i.i195, %for.inc.i.i.i194 ]
-  %arrayidx.i.i.i192 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i190
+  %arrayidx.i.i.i192 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i190
   %34 = load i8, ptr %arrayidx.i.i.i192, align 1
   %tobool.i.i.i193 = trunc i8 %34 to i1
   br i1 %tobool.i.i.i193, label %if.then.i.i.i228, label %for.inc.i.i.i194
@@ -10530,7 +10530,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i202:                               ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, %for.inc.i.i14.i207
   %__i.06.i.i10.i203 = phi i64 [ %inc.i.i16.i209, %for.inc.i.i14.i207 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198 ]
   %__n.05.i.i11.i204 = phi i64 [ %__n.1.i.i15.i208, %for.inc.i.i14.i207 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198 ]
-  %arrayidx.i.i12.i205 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i203
+  %arrayidx.i.i12.i205 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i203
   %36 = load i8, ptr %arrayidx.i.i12.i205, align 1
   %tobool.i.i13.i206 = trunc i8 %36 to i1
   br i1 %tobool.i.i13.i206, label %if.then.i.i21.i221, label %for.inc.i.i14.i207
@@ -10579,7 +10579,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230
   %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
   %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
-  %arrayidx.i.i.i135 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i133
+  %arrayidx.i.i.i135 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i133
   %41 = load i8, ptr %arrayidx.i.i.i135, align 1
   %tobool.i.i.i136 = trunc i8 %41 to i1
   br i1 %tobool.i.i.i136, label %if.then.i.i.i164, label %for.inc.i.i.i137
@@ -10603,7 +10603,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i145:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, %for.inc.i.i8.i150
   %__i.06.i.i4.i146 = phi i64 [ %inc.i.i10.i152, %for.inc.i.i8.i150 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141 ]
   %__n.05.i.i5.i147 = phi i64 [ %__n.1.i.i9.i151, %for.inc.i.i8.i150 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141 ]
-  %arrayidx.i.i6.i148 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i146
+  %arrayidx.i.i6.i148 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i146
   %42 = load i8, ptr %arrayidx.i.i6.i148, align 1
   %tobool.i.i7.i149 = trunc i8 %42 to i1
   br i1 %tobool.i.i7.i149, label %if.then.i.i15.i162, label %for.inc.i.i8.i150
@@ -10653,7 +10653,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -10677,7 +10677,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -10721,7 +10721,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i27:                                 ; preds = %for.inc.i.i.i32, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i28 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i34, %for.inc.i.i.i32 ]
   %__n.05.i.i.i29 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i33, %for.inc.i.i.i32 ]
-  %arrayidx.i.i.i30 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i28
+  %arrayidx.i.i.i30 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i28
   %8 = load i8, ptr %arrayidx.i.i.i30, align 1
   %tobool.i.i.i31 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i31, label %if.then.i.i.i59, label %for.inc.i.i.i32
@@ -10745,7 +10745,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i40:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, %for.inc.i.i8.i45
   %__i.06.i.i4.i41 = phi i64 [ %inc.i.i10.i47, %for.inc.i.i8.i45 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36 ]
   %__n.05.i.i5.i42 = phi i64 [ %__n.1.i.i9.i46, %for.inc.i.i8.i45 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36 ]
-  %arrayidx.i.i6.i43 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i41
+  %arrayidx.i.i6.i43 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i41
   %9 = load i8, ptr %arrayidx.i.i6.i43, align 1
   %tobool.i.i7.i44 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i44, label %if.then.i.i15.i57, label %for.inc.i.i8.i45
@@ -10789,7 +10789,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i62:                                 ; preds = %for.inc.i.i.i67, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61
   %__i.06.i.i.i63 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61 ], [ %inc.i.i.i69, %for.inc.i.i.i67 ]
   %__n.05.i.i.i64 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit61 ], [ %__n.1.i.i.i68, %for.inc.i.i.i67 ]
-  %arrayidx.i.i.i65 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i63
+  %arrayidx.i.i.i65 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i63
   %13 = load i8, ptr %arrayidx.i.i.i65, align 1
   %tobool.i.i.i66 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i66, label %if.then.i.i.i94, label %for.inc.i.i.i67
@@ -10813,7 +10813,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i75:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, %for.inc.i.i8.i80
   %__i.06.i.i4.i76 = phi i64 [ %inc.i.i10.i82, %for.inc.i.i8.i80 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71 ]
   %__n.05.i.i5.i77 = phi i64 [ %__n.1.i.i9.i81, %for.inc.i.i8.i80 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71 ]
-  %arrayidx.i.i6.i78 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i76
+  %arrayidx.i.i6.i78 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i76
   %14 = load i8, ptr %arrayidx.i.i6.i78, align 1
   %tobool.i.i7.i79 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i79, label %if.then.i.i15.i92, label %for.inc.i.i8.i80
@@ -10857,7 +10857,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i97:                                 ; preds = %for.inc.i.i.i102, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96
   %__i.06.i.i.i98 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96 ], [ %inc.i.i.i104, %for.inc.i.i.i102 ]
   %__n.05.i.i.i99 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit96 ], [ %__n.1.i.i.i103, %for.inc.i.i.i102 ]
-  %arrayidx.i.i.i100 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i98
+  %arrayidx.i.i.i100 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i98
   %18 = load i8, ptr %arrayidx.i.i.i100, align 1
   %tobool.i.i.i101 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i101, label %if.then.i.i.i129, label %for.inc.i.i.i102
@@ -10881,7 +10881,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i110:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, %for.inc.i.i8.i115
   %__i.06.i.i4.i111 = phi i64 [ %inc.i.i10.i117, %for.inc.i.i8.i115 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106 ]
   %__n.05.i.i5.i112 = phi i64 [ %__n.1.i.i9.i116, %for.inc.i.i8.i115 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106 ]
-  %arrayidx.i.i6.i113 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i111
+  %arrayidx.i.i6.i113 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i111
   %19 = load i8, ptr %arrayidx.i.i6.i113, align 1
   %tobool.i.i7.i114 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i114, label %if.then.i.i15.i127, label %for.inc.i.i8.i115
@@ -10938,7 +10938,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i167:                                ; preds = %for.inc.i.i.i172, %for.body.i
   %__i.06.i.i.i168 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i174, %for.inc.i.i.i172 ]
   %__n.05.i.i.i169 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i173, %for.inc.i.i.i172 ]
-  %arrayidx.i.i.i170 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i168
+  %arrayidx.i.i.i170 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i168
   %25 = load i8, ptr %arrayidx.i.i.i170, align 1
   %tobool.i.i.i171 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i171, label %if.then.i.i.i180, label %for.inc.i.i.i172
@@ -10977,7 +10977,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %27 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %27 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -11039,7 +11039,7 @@ for.body.i184:                                    ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i189:                                ; preds = %for.inc.i.i.i194, %for.body.i184
   %__i.06.i.i.i190 = phi i64 [ 0, %for.body.i184 ], [ %inc.i.i.i196, %for.inc.i.i.i194 ]
   %__n.05.i.i.i191 = phi i64 [ 3, %for.body.i184 ], [ %__n.1.i.i.i195, %for.inc.i.i.i194 ]
-  %arrayidx.i.i.i192 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i190
+  %arrayidx.i.i.i192 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i190
   %34 = load i8, ptr %arrayidx.i.i.i192, align 1
   %tobool.i.i.i193 = trunc i8 %34 to i1
   br i1 %tobool.i.i.i193, label %if.then.i.i.i228, label %for.inc.i.i.i194
@@ -11078,7 +11078,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i202:                               ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, %for.inc.i.i14.i207
   %__i.06.i.i10.i203 = phi i64 [ %inc.i.i16.i209, %for.inc.i.i14.i207 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198 ]
   %__n.05.i.i11.i204 = phi i64 [ %__n.1.i.i15.i208, %for.inc.i.i14.i207 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198 ]
-  %arrayidx.i.i12.i205 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i203
+  %arrayidx.i.i12.i205 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i203
   %36 = load i8, ptr %arrayidx.i.i12.i205, align 1
   %tobool.i.i13.i206 = trunc i8 %36 to i1
   br i1 %tobool.i.i13.i206, label %if.then.i.i21.i221, label %for.inc.i.i14.i207
@@ -11127,7 +11127,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i132:                                ; preds = %for.inc.i.i.i137, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230
   %__i.06.i.i.i133 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %inc.i.i.i139, %for.inc.i.i.i137 ]
   %__n.05.i.i.i134 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
-  %arrayidx.i.i.i135 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i133
+  %arrayidx.i.i.i135 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i133
   %41 = load i8, ptr %arrayidx.i.i.i135, align 1
   %tobool.i.i.i136 = trunc i8 %41 to i1
   br i1 %tobool.i.i.i136, label %if.then.i.i.i164, label %for.inc.i.i.i137
@@ -11151,7 +11151,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i145:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, %for.inc.i.i8.i150
   %__i.06.i.i4.i146 = phi i64 [ %inc.i.i10.i152, %for.inc.i.i8.i150 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141 ]
   %__n.05.i.i5.i147 = phi i64 [ %__n.1.i.i9.i151, %for.inc.i.i8.i150 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141 ]
-  %arrayidx.i.i6.i148 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i146
+  %arrayidx.i.i6.i148 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i146
   %42 = load i8, ptr %arrayidx.i.i6.i148, align 1
   %tobool.i.i7.i149 = trunc i8 %42 to i1
   br i1 %tobool.i.i7.i149, label %if.then.i.i15.i162, label %for.inc.i.i8.i150
@@ -11222,7 +11222,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -11246,7 +11246,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -11290,7 +11290,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %8 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -11314,7 +11314,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %9 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -11358,7 +11358,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %13 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -11382,7 +11382,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %14 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -11426,7 +11426,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i101:                                ; preds = %for.inc.i.i.i106, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100
   %__i.06.i.i.i102 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %inc.i.i.i108, %for.inc.i.i.i106 ]
   %__n.05.i.i.i103 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit100 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
-  %arrayidx.i.i.i104 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i102
+  %arrayidx.i.i.i104 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i102
   %18 = load i8, ptr %arrayidx.i.i.i104, align 1
   %tobool.i.i.i105 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i105, label %if.then.i.i.i133, label %for.inc.i.i.i106
@@ -11450,7 +11450,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i114:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, %for.inc.i.i8.i119
   %__i.06.i.i4.i115 = phi i64 [ %inc.i.i10.i121, %for.inc.i.i8.i119 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
   %__n.05.i.i5.i116 = phi i64 [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110 ]
-  %arrayidx.i.i6.i117 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i115
+  %arrayidx.i.i6.i117 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i115
   %19 = load i8, ptr %arrayidx.i.i6.i117, align 1
   %tobool.i.i7.i118 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i118, label %if.then.i.i15.i131, label %for.inc.i.i8.i119
@@ -11494,7 +11494,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i136:                                ; preds = %for.inc.i.i.i141, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135
   %__i.06.i.i.i137 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %inc.i.i.i143, %for.inc.i.i.i141 ]
   %__n.05.i.i.i138 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit135 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
-  %arrayidx.i.i.i139 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i137
+  %arrayidx.i.i.i139 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i137
   %23 = load i8, ptr %arrayidx.i.i.i139, align 1
   %tobool.i.i.i140 = trunc i8 %23 to i1
   br i1 %tobool.i.i.i140, label %if.then.i.i.i168, label %for.inc.i.i.i141
@@ -11518,7 +11518,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i149:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, %for.inc.i.i8.i154
   %__i.06.i.i4.i150 = phi i64 [ %inc.i.i10.i156, %for.inc.i.i8.i154 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
   %__n.05.i.i5.i151 = phi i64 [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145 ]
-  %arrayidx.i.i6.i152 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i150
+  %arrayidx.i.i6.i152 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i150
   %24 = load i8, ptr %arrayidx.i.i6.i152, align 1
   %tobool.i.i7.i153 = trunc i8 %24 to i1
   br i1 %tobool.i.i7.i153, label %if.then.i.i15.i166, label %for.inc.i.i8.i154
@@ -11568,7 +11568,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -11592,7 +11592,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -11636,7 +11636,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %8 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -11660,7 +11660,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %9 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -11723,7 +11723,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %for.body.i
   %__i.06.i.i.i16 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i16
   %5 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i28, label %for.inc.i.i.i20
@@ -11762,7 +11762,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -11811,7 +11811,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -11835,7 +11835,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -11892,7 +11892,7 @@ for.body.i32:                                     ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i37:                                 ; preds = %for.inc.i.i.i42, %for.body.i32
   %__i.06.i.i.i38 = phi i64 [ 0, %for.body.i32 ], [ %inc.i.i.i44, %for.inc.i.i.i42 ]
   %__n.05.i.i.i39 = phi i64 [ 3, %for.body.i32 ], [ %__n.1.i.i.i43, %for.inc.i.i.i42 ]
-  %arrayidx.i.i.i40 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i38
+  %arrayidx.i.i.i40 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i38
   %19 = load i8, ptr %arrayidx.i.i.i40, align 1
   %tobool.i.i.i41 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i41, label %if.then.i.i.i76, label %for.inc.i.i.i42
@@ -11931,7 +11931,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i50:                                ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46, %for.inc.i.i14.i55
   %__i.06.i.i10.i51 = phi i64 [ %inc.i.i16.i57, %for.inc.i.i14.i55 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46 ]
   %__n.05.i.i11.i52 = phi i64 [ %__n.1.i.i15.i56, %for.inc.i.i14.i55 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46 ]
-  %arrayidx.i.i12.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i51
+  %arrayidx.i.i12.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i51
   %21 = load i8, ptr %arrayidx.i.i12.i53, align 1
   %tobool.i.i13.i54 = trunc i8 %21 to i1
   br i1 %tobool.i.i13.i54, label %if.then.i.i21.i69, label %for.inc.i.i14.i55
@@ -11986,7 +11986,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12010,7 +12010,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12054,7 +12054,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -12078,7 +12078,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -12128,7 +12128,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12152,7 +12152,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12202,7 +12202,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12226,7 +12226,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12276,7 +12276,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12300,7 +12300,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12344,7 +12344,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -12368,7 +12368,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -12418,7 +12418,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12442,7 +12442,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12499,7 +12499,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %for.body.i
   %__i.06.i.i.i51 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i51
   %10 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i63, label %for.inc.i.i.i55
@@ -12538,7 +12538,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -12587,7 +12587,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -12611,7 +12611,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %18 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -12661,7 +12661,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12685,7 +12685,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12729,7 +12729,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -12753,7 +12753,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -12803,7 +12803,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12827,7 +12827,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12877,7 +12877,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12901,7 +12901,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -12951,7 +12951,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -12975,7 +12975,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13038,7 +13038,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %5 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -13077,7 +13077,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -13126,7 +13126,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13150,7 +13150,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13213,7 +13213,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %5 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -13252,7 +13252,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -13301,7 +13301,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13325,7 +13325,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13375,7 +13375,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13399,7 +13399,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13449,7 +13449,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13473,7 +13473,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13517,7 +13517,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -13541,7 +13541,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -13591,7 +13591,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13615,7 +13615,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13659,7 +13659,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -13683,7 +13683,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -13733,7 +13733,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13757,7 +13757,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13801,7 +13801,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -13825,7 +13825,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -13875,7 +13875,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13899,7 +13899,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -13949,7 +13949,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -13973,7 +13973,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14023,7 +14023,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14047,7 +14047,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14104,7 +14104,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %for.body.i
   %__i.06.i.i.i51 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i51
   %10 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i63, label %for.inc.i.i.i55
@@ -14143,7 +14143,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -14192,7 +14192,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -14216,7 +14216,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %18 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -14266,7 +14266,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14290,7 +14290,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14340,7 +14340,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14364,7 +14364,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14408,7 +14408,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -14432,7 +14432,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -14482,7 +14482,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14506,7 +14506,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14556,7 +14556,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14580,7 +14580,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14637,7 +14637,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %10 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -14676,7 +14676,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -14725,7 +14725,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -14749,7 +14749,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %18 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -14799,7 +14799,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -14823,7 +14823,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -14880,7 +14880,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %10 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -14919,7 +14919,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -14968,7 +14968,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -14992,7 +14992,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %18 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -15055,7 +15055,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i124:                                ; preds = %for.inc.i.i.i129, %for.body.i
   %__i.06.i.i.i125 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i131, %for.inc.i.i.i129 ]
   %__n.05.i.i.i126 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
-  %arrayidx.i.i.i127 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i125
+  %arrayidx.i.i.i127 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i125
   %5 = load i8, ptr %arrayidx.i.i.i127, align 1
   %tobool.i.i.i128 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i128, label %if.then.i.i.i137, label %for.inc.i.i.i129
@@ -15094,7 +15094,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -15143,7 +15143,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -15167,7 +15167,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -15211,7 +15211,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %17 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -15235,7 +15235,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %18 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -15279,7 +15279,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %22 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -15303,7 +15303,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %23 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -15347,7 +15347,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i89:                                 ; preds = %for.inc.i.i.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88
   %__i.06.i.i.i90 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %inc.i.i.i96, %for.inc.i.i.i94 ]
   %__n.05.i.i.i91 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
-  %arrayidx.i.i.i92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i90
+  %arrayidx.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i90
   %27 = load i8, ptr %arrayidx.i.i.i92, align 1
   %tobool.i.i.i93 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i93, label %if.then.i.i.i121, label %for.inc.i.i.i94
@@ -15371,7 +15371,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i102:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, %for.inc.i.i8.i107
   %__i.06.i.i4.i103 = phi i64 [ %inc.i.i10.i109, %for.inc.i.i8.i107 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
   %__n.05.i.i5.i104 = phi i64 [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
-  %arrayidx.i.i6.i105 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i103
+  %arrayidx.i.i6.i105 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i103
   %28 = load i8, ptr %arrayidx.i.i6.i105, align 1
   %tobool.i.i7.i106 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i106, label %if.then.i.i15.i119, label %for.inc.i.i8.i107
@@ -15421,7 +15421,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -15445,7 +15445,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -15489,7 +15489,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -15513,7 +15513,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -15576,7 +15576,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %for.body.i
   %__i.06.i.i.i86 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i86
   %5 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i98, label %for.inc.i.i.i90
@@ -15615,7 +15615,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -15664,7 +15664,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -15688,7 +15688,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -15732,7 +15732,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -15756,7 +15756,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %18 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -15800,7 +15800,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -15824,7 +15824,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %23 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -15874,7 +15874,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -15898,7 +15898,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -15942,7 +15942,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -15966,7 +15966,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -16016,7 +16016,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16040,7 +16040,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16090,7 +16090,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16114,7 +16114,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16158,7 +16158,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -16182,7 +16182,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -16232,7 +16232,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16256,7 +16256,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16306,7 +16306,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16330,7 +16330,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16380,7 +16380,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16404,7 +16404,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16454,7 +16454,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16478,7 +16478,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16522,7 +16522,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -16546,7 +16546,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -16596,7 +16596,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16620,7 +16620,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16664,7 +16664,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -16688,7 +16688,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -16738,7 +16738,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16762,7 +16762,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -16806,7 +16806,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -16830,7 +16830,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -16874,7 +16874,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -16898,7 +16898,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -16948,7 +16948,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -16972,7 +16972,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17022,7 +17022,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17046,7 +17046,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17096,7 +17096,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17120,7 +17120,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17164,7 +17164,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -17188,7 +17188,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -17238,7 +17238,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17262,7 +17262,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17306,7 +17306,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -17330,7 +17330,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -17380,7 +17380,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17404,7 +17404,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17448,7 +17448,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -17472,7 +17472,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -17522,7 +17522,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17546,7 +17546,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17590,7 +17590,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -17614,7 +17614,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -17658,7 +17658,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -17682,7 +17682,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -17726,7 +17726,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84
   %__i.06.i.i.i86 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i86
   %18 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i117, label %for.inc.i.i.i90
@@ -17750,7 +17750,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i98:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i8.i103
   %__i.06.i.i4.i99 = phi i64 [ %inc.i.i10.i105, %for.inc.i.i8.i103 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i5.i100 = phi i64 [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i6.i101 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i99
+  %arrayidx.i.i6.i101 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i99
   %19 = load i8, ptr %arrayidx.i.i6.i101, align 1
   %tobool.i.i7.i102 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i102, label %if.then.i.i15.i115, label %for.inc.i.i8.i103
@@ -17800,7 +17800,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -17824,7 +17824,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -17868,7 +17868,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -17892,7 +17892,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -17955,7 +17955,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %5 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -17994,7 +17994,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -18043,7 +18043,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -18067,7 +18067,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -18117,7 +18117,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -18141,7 +18141,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -18185,7 +18185,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -18209,7 +18209,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -18253,7 +18253,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -18277,7 +18277,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -18327,7 +18327,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -18351,7 +18351,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -18395,7 +18395,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -18419,7 +18419,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -18463,7 +18463,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -18487,7 +18487,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -18531,7 +18531,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84
   %__i.06.i.i.i86 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i86
   %18 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i117, label %for.inc.i.i.i90
@@ -18555,7 +18555,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i98:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i8.i103
   %__i.06.i.i4.i99 = phi i64 [ %inc.i.i10.i105, %for.inc.i.i8.i103 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i5.i100 = phi i64 [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i6.i101 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i99
+  %arrayidx.i.i6.i101 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i99
   %19 = load i8, ptr %arrayidx.i.i6.i101, align 1
   %tobool.i.i7.i102 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i102, label %if.then.i.i15.i115, label %for.inc.i.i8.i103
@@ -18605,7 +18605,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -18629,7 +18629,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -18673,7 +18673,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -18697,7 +18697,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -18754,7 +18754,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %for.body.i
   %__i.06.i.i.i86 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i86
   %15 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i98, label %for.inc.i.i.i90
@@ -18793,7 +18793,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -18842,7 +18842,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -18866,7 +18866,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %23 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -18916,7 +18916,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -18940,7 +18940,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -18984,7 +18984,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -19008,7 +19008,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -19052,7 +19052,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -19076,7 +19076,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -19126,7 +19126,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -19150,7 +19150,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -19194,7 +19194,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -19218,7 +19218,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -19262,7 +19262,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -19286,7 +19286,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -19330,7 +19330,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84
   %__i.06.i.i.i86 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i86
   %18 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i117, label %for.inc.i.i.i90
@@ -19354,7 +19354,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i98:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i8.i103
   %__i.06.i.i4.i99 = phi i64 [ %inc.i.i10.i105, %for.inc.i.i8.i103 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i5.i100 = phi i64 [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i6.i101 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i99
+  %arrayidx.i.i6.i101 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i99
   %19 = load i8, ptr %arrayidx.i.i6.i101, align 1
   %tobool.i.i7.i102 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i102, label %if.then.i.i15.i115, label %for.inc.i.i8.i103
@@ -19404,7 +19404,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -19428,7 +19428,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -19472,7 +19472,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -19496,7 +19496,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -19553,7 +19553,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %for.body.i
   %__i.06.i.i.i86 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i86
   %15 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i98, label %for.inc.i.i.i90
@@ -19592,7 +19592,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -19641,7 +19641,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -19665,7 +19665,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %23 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -19715,7 +19715,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -19739,7 +19739,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -19783,7 +19783,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i23:                                 ; preds = %for.inc.i.i.i28, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i24 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i30, %for.inc.i.i.i28 ]
   %__n.05.i.i.i25 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i29, %for.inc.i.i.i28 ]
-  %arrayidx.i.i.i26 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i24
+  %arrayidx.i.i.i26 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i24
   %8 = load i8, ptr %arrayidx.i.i.i26, align 1
   %tobool.i.i.i27 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i27, label %if.then.i.i.i55, label %for.inc.i.i.i28
@@ -19807,7 +19807,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i36:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, %for.inc.i.i8.i41
   %__i.06.i.i4.i37 = phi i64 [ %inc.i.i10.i43, %for.inc.i.i8.i41 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32 ]
   %__n.05.i.i5.i38 = phi i64 [ %__n.1.i.i9.i42, %for.inc.i.i8.i41 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32 ]
-  %arrayidx.i.i6.i39 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i37
+  %arrayidx.i.i6.i39 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i37
   %9 = load i8, ptr %arrayidx.i.i6.i39, align 1
   %tobool.i.i7.i40 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i40, label %if.then.i.i15.i53, label %for.inc.i.i8.i41
@@ -19864,7 +19864,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i93:                                 ; preds = %for.inc.i.i.i98, %for.body.i
   %__i.06.i.i.i94 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i100, %for.inc.i.i.i98 ]
   %__n.05.i.i.i95 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i99, %for.inc.i.i.i98 ]
-  %arrayidx.i.i.i96 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i94
+  %arrayidx.i.i.i96 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i94
   %15 = load i8, ptr %arrayidx.i.i.i96, align 1
   %tobool.i.i.i97 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i97, label %if.then.i.i.i106, label %for.inc.i.i.i98
@@ -19903,7 +19903,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -19965,7 +19965,7 @@ for.body.i110:                                    ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i115:                                ; preds = %for.inc.i.i.i120, %for.body.i110
   %__i.06.i.i.i116 = phi i64 [ 0, %for.body.i110 ], [ %inc.i.i.i122, %for.inc.i.i.i120 ]
   %__n.05.i.i.i117 = phi i64 [ 3, %for.body.i110 ], [ %__n.1.i.i.i121, %for.inc.i.i.i120 ]
-  %arrayidx.i.i.i118 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i116
+  %arrayidx.i.i.i118 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i116
   %24 = load i8, ptr %arrayidx.i.i.i118, align 1
   %tobool.i.i.i119 = trunc i8 %24 to i1
   br i1 %tobool.i.i.i119, label %if.then.i.i.i154, label %for.inc.i.i.i120
@@ -20004,7 +20004,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i128:                               ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124, %for.inc.i.i14.i133
   %__i.06.i.i10.i129 = phi i64 [ %inc.i.i16.i135, %for.inc.i.i14.i133 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124 ]
   %__n.05.i.i11.i130 = phi i64 [ %__n.1.i.i15.i134, %for.inc.i.i14.i133 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124 ]
-  %arrayidx.i.i12.i131 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i129
+  %arrayidx.i.i12.i131 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i129
   %26 = load i8, ptr %arrayidx.i.i12.i131, align 1
   %tobool.i.i13.i132 = trunc i8 %26 to i1
   br i1 %tobool.i.i13.i132, label %if.then.i.i21.i147, label %for.inc.i.i14.i133
@@ -20066,7 +20066,7 @@ for.body.i159:                                    ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i164:                                ; preds = %for.inc.i.i.i169, %for.body.i159
   %__i.06.i.i.i165 = phi i64 [ 0, %for.body.i159 ], [ %inc.i.i.i171, %for.inc.i.i.i169 ]
   %__n.05.i.i.i166 = phi i64 [ 3, %for.body.i159 ], [ %__n.1.i.i.i170, %for.inc.i.i.i169 ]
-  %arrayidx.i.i.i167 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i165
+  %arrayidx.i.i.i167 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i165
   %33 = load i8, ptr %arrayidx.i.i.i167, align 1
   %tobool.i.i.i168 = trunc i8 %33 to i1
   br i1 %tobool.i.i.i168, label %if.then.i.i.i203, label %for.inc.i.i.i169
@@ -20105,7 +20105,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i177:                               ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173, %for.inc.i.i14.i182
   %__i.06.i.i10.i178 = phi i64 [ %inc.i.i16.i184, %for.inc.i.i14.i182 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173 ]
   %__n.05.i.i11.i179 = phi i64 [ %__n.1.i.i15.i183, %for.inc.i.i14.i182 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173 ]
-  %arrayidx.i.i12.i180 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i178
+  %arrayidx.i.i12.i180 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i178
   %35 = load i8, ptr %arrayidx.i.i12.i180, align 1
   %tobool.i.i13.i181 = trunc i8 %35 to i1
   br i1 %tobool.i.i13.i181, label %if.then.i.i21.i196, label %for.inc.i.i14.i182
@@ -20154,7 +20154,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i58:                                 ; preds = %for.inc.i.i.i63, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205
   %__i.06.i.i.i59 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205 ], [ %inc.i.i.i65, %for.inc.i.i.i63 ]
   %__n.05.i.i.i60 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205 ], [ %__n.1.i.i.i64, %for.inc.i.i.i63 ]
-  %arrayidx.i.i.i61 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i59
+  %arrayidx.i.i.i61 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i59
   %40 = load i8, ptr %arrayidx.i.i.i61, align 1
   %tobool.i.i.i62 = trunc i8 %40 to i1
   br i1 %tobool.i.i.i62, label %if.then.i.i.i90, label %for.inc.i.i.i63
@@ -20178,7 +20178,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i71:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67, %for.inc.i.i8.i76
   %__i.06.i.i4.i72 = phi i64 [ %inc.i.i10.i78, %for.inc.i.i8.i76 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67 ]
   %__n.05.i.i5.i73 = phi i64 [ %__n.1.i.i9.i77, %for.inc.i.i8.i76 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67 ]
-  %arrayidx.i.i6.i74 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i72
+  %arrayidx.i.i6.i74 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i72
   %41 = load i8, ptr %arrayidx.i.i6.i74, align 1
   %tobool.i.i7.i75 = trunc i8 %41 to i1
   br i1 %tobool.i.i7.i75, label %if.then.i.i15.i88, label %for.inc.i.i8.i76
@@ -20228,7 +20228,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -20252,7 +20252,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -20296,7 +20296,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -20320,7 +20320,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -20370,7 +20370,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -20394,7 +20394,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -20451,7 +20451,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i124:                                ; preds = %for.inc.i.i.i129, %for.body.i
   %__i.06.i.i.i125 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i131, %for.inc.i.i.i129 ]
   %__n.05.i.i.i126 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
-  %arrayidx.i.i.i127 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i125
+  %arrayidx.i.i.i127 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i125
   %10 = load i8, ptr %arrayidx.i.i.i127, align 1
   %tobool.i.i.i128 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i128, label %if.then.i.i.i137, label %for.inc.i.i.i129
@@ -20490,7 +20490,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -20539,7 +20539,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %17 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -20563,7 +20563,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %18 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -20607,7 +20607,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %22 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -20631,7 +20631,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %23 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -20675,7 +20675,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i89:                                 ; preds = %for.inc.i.i.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88
   %__i.06.i.i.i90 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %inc.i.i.i96, %for.inc.i.i.i94 ]
   %__n.05.i.i.i91 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
-  %arrayidx.i.i.i92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i90
+  %arrayidx.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i90
   %27 = load i8, ptr %arrayidx.i.i.i92, align 1
   %tobool.i.i.i93 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i93, label %if.then.i.i.i121, label %for.inc.i.i.i94
@@ -20699,7 +20699,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i102:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, %for.inc.i.i8.i107
   %__i.06.i.i4.i103 = phi i64 [ %inc.i.i10.i109, %for.inc.i.i8.i107 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
   %__n.05.i.i5.i104 = phi i64 [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
-  %arrayidx.i.i6.i105 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i103
+  %arrayidx.i.i6.i105 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i103
   %28 = load i8, ptr %arrayidx.i.i6.i105, align 1
   %tobool.i.i7.i106 = trunc i8 %28 to i1
   br i1 %tobool.i.i7.i106, label %if.then.i.i15.i119, label %for.inc.i.i8.i107
@@ -20749,7 +20749,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -20773,7 +20773,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -20823,7 +20823,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -20847,7 +20847,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -20891,7 +20891,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -20915,7 +20915,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -20965,7 +20965,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -20989,7 +20989,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21046,7 +21046,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %for.body.i
   %__i.06.i.i.i51 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i51
   %10 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i63, label %for.inc.i.i.i55
@@ -21085,7 +21085,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -21134,7 +21134,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -21158,7 +21158,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %18 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -21208,7 +21208,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21232,7 +21232,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21282,7 +21282,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21306,7 +21306,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21350,7 +21350,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -21374,7 +21374,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -21424,7 +21424,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21448,7 +21448,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21498,7 +21498,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21522,7 +21522,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21566,7 +21566,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -21590,7 +21590,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -21640,7 +21640,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21664,7 +21664,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21708,7 +21708,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -21732,7 +21732,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -21782,7 +21782,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21806,7 +21806,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -21869,7 +21869,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.i
   %__i.06.i.i.i = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -21908,7 +21908,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -21970,7 +21970,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i30:                                 ; preds = %for.inc.i.i.i35, %for.body.i25
   %__i.06.i.i.i31 = phi i64 [ 0, %for.body.i25 ], [ %inc.i.i.i37, %for.inc.i.i.i35 ]
   %__n.05.i.i.i32 = phi i64 [ 3, %for.body.i25 ], [ %__n.1.i.i.i36, %for.inc.i.i.i35 ]
-  %arrayidx.i.i.i33 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i31
+  %arrayidx.i.i.i33 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i31
   %14 = load i8, ptr %arrayidx.i.i.i33, align 1
   %tobool.i.i.i34 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i34, label %if.then.i.i.i69, label %for.inc.i.i.i35
@@ -22009,7 +22009,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i43:                                ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39, %for.inc.i.i14.i48
   %__i.06.i.i10.i44 = phi i64 [ %inc.i.i16.i50, %for.inc.i.i14.i48 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39 ]
   %__n.05.i.i11.i45 = phi i64 [ %__n.1.i.i15.i49, %for.inc.i.i14.i48 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39 ]
-  %arrayidx.i.i12.i46 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i44
+  %arrayidx.i.i12.i46 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i44
   %16 = load i8, ptr %arrayidx.i.i12.i46, align 1
   %tobool.i.i13.i47 = trunc i8 %16 to i1
   br i1 %tobool.i.i13.i47, label %if.then.i.i21.i62, label %for.inc.i.i14.i48
@@ -22071,7 +22071,7 @@ for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i79:                                 ; preds = %for.inc.i.i.i84, %for.body.i74
   %__i.06.i.i.i80 = phi i64 [ 0, %for.body.i74 ], [ %inc.i.i.i86, %for.inc.i.i.i84 ]
   %__n.05.i.i.i81 = phi i64 [ 3, %for.body.i74 ], [ %__n.1.i.i.i85, %for.inc.i.i.i84 ]
-  %arrayidx.i.i.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i80
+  %arrayidx.i.i.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i80
   %23 = load i8, ptr %arrayidx.i.i.i82, align 1
   %tobool.i.i.i83 = trunc i8 %23 to i1
   br i1 %tobool.i.i.i83, label %if.then.i.i.i118, label %for.inc.i.i.i84
@@ -22110,7 +22110,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i92:                                ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, %for.inc.i.i14.i97
   %__i.06.i.i10.i93 = phi i64 [ %inc.i.i16.i99, %for.inc.i.i14.i97 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88 ]
   %__n.05.i.i11.i94 = phi i64 [ %__n.1.i.i15.i98, %for.inc.i.i14.i97 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88 ]
-  %arrayidx.i.i12.i95 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i93
+  %arrayidx.i.i12.i95 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i93
   %25 = load i8, ptr %arrayidx.i.i12.i95, align 1
   %tobool.i.i13.i96 = trunc i8 %25 to i1
   br i1 %tobool.i.i13.i96, label %if.then.i.i21.i111, label %for.inc.i.i14.i97
@@ -22172,7 +22172,7 @@ for.body.i123:                                    ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i128:                                ; preds = %for.inc.i.i.i133, %for.body.i123
   %__i.06.i.i.i129 = phi i64 [ 0, %for.body.i123 ], [ %inc.i.i.i135, %for.inc.i.i.i133 ]
   %__n.05.i.i.i130 = phi i64 [ 3, %for.body.i123 ], [ %__n.1.i.i.i134, %for.inc.i.i.i133 ]
-  %arrayidx.i.i.i131 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i129
+  %arrayidx.i.i.i131 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i129
   %32 = load i8, ptr %arrayidx.i.i.i131, align 1
   %tobool.i.i.i132 = trunc i8 %32 to i1
   br i1 %tobool.i.i.i132, label %if.then.i.i.i167, label %for.inc.i.i.i133
@@ -22211,7 +22211,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i141:                               ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137, %for.inc.i.i14.i146
   %__i.06.i.i10.i142 = phi i64 [ %inc.i.i16.i148, %for.inc.i.i14.i146 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137 ]
   %__n.05.i.i11.i143 = phi i64 [ %__n.1.i.i15.i147, %for.inc.i.i14.i146 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137 ]
-  %arrayidx.i.i12.i144 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i142
+  %arrayidx.i.i12.i144 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i142
   %34 = load i8, ptr %arrayidx.i.i12.i144, align 1
   %tobool.i.i13.i145 = trunc i8 %34 to i1
   br i1 %tobool.i.i13.i145, label %if.then.i.i21.i160, label %for.inc.i.i14.i146
@@ -22266,7 +22266,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -22290,7 +22290,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -22334,7 +22334,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %8 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -22358,7 +22358,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %9 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -22402,7 +22402,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %13 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -22426,7 +22426,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %14 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -22476,7 +22476,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -22500,7 +22500,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -22550,7 +22550,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -22574,7 +22574,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -22618,7 +22618,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %8 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -22642,7 +22642,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %9 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -22692,7 +22692,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -22716,7 +22716,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -22766,7 +22766,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -22790,7 +22790,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -22834,7 +22834,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %8 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -22858,7 +22858,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %9 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -22902,7 +22902,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %13 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -22926,7 +22926,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %14 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -22970,7 +22970,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i89:                                 ; preds = %for.inc.i.i.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88
   %__i.06.i.i.i90 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %inc.i.i.i96, %for.inc.i.i.i94 ]
   %__n.05.i.i.i91 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
-  %arrayidx.i.i.i92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i90
+  %arrayidx.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i90
   %18 = load i8, ptr %arrayidx.i.i.i92, align 1
   %tobool.i.i.i93 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i93, label %if.then.i.i.i121, label %for.inc.i.i.i94
@@ -22994,7 +22994,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i102:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, %for.inc.i.i8.i107
   %__i.06.i.i4.i103 = phi i64 [ %inc.i.i10.i109, %for.inc.i.i8.i107 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
   %__n.05.i.i5.i104 = phi i64 [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
-  %arrayidx.i.i6.i105 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i103
+  %arrayidx.i.i6.i105 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i103
   %19 = load i8, ptr %arrayidx.i.i6.i105, align 1
   %tobool.i.i7.i106 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i106, label %if.then.i.i15.i119, label %for.inc.i.i8.i107
@@ -23044,7 +23044,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23068,7 +23068,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23112,7 +23112,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %8 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -23136,7 +23136,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %9 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -23180,7 +23180,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %13 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -23204,7 +23204,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %14 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -23248,7 +23248,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i89:                                 ; preds = %for.inc.i.i.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88
   %__i.06.i.i.i90 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %inc.i.i.i96, %for.inc.i.i.i94 ]
   %__n.05.i.i.i91 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit88 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
-  %arrayidx.i.i.i92 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i90
+  %arrayidx.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i90
   %18 = load i8, ptr %arrayidx.i.i.i92, align 1
   %tobool.i.i.i93 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i93, label %if.then.i.i.i121, label %for.inc.i.i.i94
@@ -23272,7 +23272,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i102:                               ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, %for.inc.i.i8.i107
   %__i.06.i.i4.i103 = phi i64 [ %inc.i.i10.i109, %for.inc.i.i8.i107 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
   %__n.05.i.i5.i104 = phi i64 [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98 ]
-  %arrayidx.i.i6.i105 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i103
+  %arrayidx.i.i6.i105 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i103
   %19 = load i8, ptr %arrayidx.i.i6.i105, align 1
   %tobool.i.i7.i106 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i106, label %if.then.i.i15.i119, label %for.inc.i.i8.i107
@@ -23322,7 +23322,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23346,7 +23346,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23390,7 +23390,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i19:                                 ; preds = %for.inc.i.i.i24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i20 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i26, %for.inc.i.i.i24 ]
   %__n.05.i.i.i21 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
-  %arrayidx.i.i.i22 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i20
+  %arrayidx.i.i.i22 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i20
   %8 = load i8, ptr %arrayidx.i.i.i22, align 1
   %tobool.i.i.i23 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i23, label %if.then.i.i.i51, label %for.inc.i.i.i24
@@ -23414,7 +23414,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i32:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, %for.inc.i.i8.i37
   %__i.06.i.i4.i33 = phi i64 [ %inc.i.i10.i39, %for.inc.i.i8.i37 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
   %__n.05.i.i5.i34 = phi i64 [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28 ]
-  %arrayidx.i.i6.i35 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i33
+  %arrayidx.i.i6.i35 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i33
   %9 = load i8, ptr %arrayidx.i.i6.i35, align 1
   %tobool.i.i7.i36 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i36, label %if.then.i.i15.i49, label %for.inc.i.i8.i37
@@ -23458,7 +23458,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i54:                                 ; preds = %for.inc.i.i.i59, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53
   %__i.06.i.i.i55 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %inc.i.i.i61, %for.inc.i.i.i59 ]
   %__n.05.i.i.i56 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit53 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
-  %arrayidx.i.i.i57 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i55
+  %arrayidx.i.i.i57 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i55
   %13 = load i8, ptr %arrayidx.i.i.i57, align 1
   %tobool.i.i.i58 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i58, label %if.then.i.i.i86, label %for.inc.i.i.i59
@@ -23482,7 +23482,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i67:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, %for.inc.i.i8.i72
   %__i.06.i.i4.i68 = phi i64 [ %inc.i.i10.i74, %for.inc.i.i8.i72 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
   %__n.05.i.i5.i69 = phi i64 [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63 ]
-  %arrayidx.i.i6.i70 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i68
+  %arrayidx.i.i6.i70 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i68
   %14 = load i8, ptr %arrayidx.i.i6.i70, align 1
   %tobool.i.i7.i71 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i71, label %if.then.i.i15.i84, label %for.inc.i.i8.i72
@@ -23532,7 +23532,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23556,7 +23556,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23600,7 +23600,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -23624,7 +23624,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -23674,7 +23674,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23698,7 +23698,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23742,7 +23742,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -23766,7 +23766,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -23816,7 +23816,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23840,7 +23840,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23890,7 +23890,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -23914,7 +23914,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -23958,7 +23958,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -23982,7 +23982,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -24032,7 +24032,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24056,7 +24056,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24106,7 +24106,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24130,7 +24130,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24174,7 +24174,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -24198,7 +24198,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -24248,7 +24248,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24272,7 +24272,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24316,7 +24316,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -24340,7 +24340,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -24390,7 +24390,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24414,7 +24414,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24458,7 +24458,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -24482,7 +24482,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -24532,7 +24532,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24556,7 +24556,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24600,7 +24600,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -24624,7 +24624,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -24674,7 +24674,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24698,7 +24698,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24748,7 +24748,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24772,7 +24772,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24822,7 +24822,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24846,7 +24846,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -24890,7 +24890,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -24914,7 +24914,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -24964,7 +24964,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -24988,7 +24988,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25038,7 +25038,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25062,7 +25062,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25106,7 +25106,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -25130,7 +25130,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -25180,7 +25180,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25204,7 +25204,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25248,7 +25248,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -25272,7 +25272,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -25335,7 +25335,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %5 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -25374,7 +25374,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -25423,7 +25423,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25447,7 +25447,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25491,7 +25491,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -25515,7 +25515,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %18 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -25578,7 +25578,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %for.body.i
   %__i.06.i.i.i47 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i47
   %5 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i59, label %for.inc.i.i.i51
@@ -25617,7 +25617,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -25666,7 +25666,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25690,7 +25690,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25734,7 +25734,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %17 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -25758,7 +25758,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %18 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -25808,7 +25808,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25832,7 +25832,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -25876,7 +25876,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -25900,7 +25900,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -25950,7 +25950,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -25974,7 +25974,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26018,7 +26018,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -26042,7 +26042,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -26092,7 +26092,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26116,7 +26116,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26160,7 +26160,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -26184,7 +26184,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -26234,7 +26234,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26258,7 +26258,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26308,7 +26308,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26332,7 +26332,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26376,7 +26376,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -26400,7 +26400,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -26444,7 +26444,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -26468,7 +26468,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -26518,7 +26518,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26542,7 +26542,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26586,7 +26586,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -26610,7 +26610,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -26667,7 +26667,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %for.body.i
   %__i.06.i.i.i86 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i86
   %15 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i98, label %for.inc.i.i.i90
@@ -26706,7 +26706,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %17 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %17 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -26755,7 +26755,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %22 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %22 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -26779,7 +26779,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %23 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %23 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -26829,7 +26829,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26853,7 +26853,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -26897,7 +26897,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -26921,7 +26921,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -26971,7 +26971,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -26995,7 +26995,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27052,7 +27052,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %10 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -27091,7 +27091,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -27146,7 +27146,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27170,7 +27170,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27214,7 +27214,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -27238,7 +27238,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -27288,7 +27288,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27312,7 +27312,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27356,7 +27356,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -27380,7 +27380,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -27430,7 +27430,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27454,7 +27454,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27498,7 +27498,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i8 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i8
   %8 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i39, label %for.inc.i.i.i12
@@ -27522,7 +27522,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i20:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i8.i25
   %__i.06.i.i4.i21 = phi i64 [ %inc.i.i10.i27, %for.inc.i.i8.i25 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i5.i22 = phi i64 [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i6.i23 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i21
+  %arrayidx.i.i6.i23 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i21
   %9 = load i8, ptr %arrayidx.i.i6.i23, align 1
   %tobool.i.i7.i24 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i24, label %if.then.i.i15.i37, label %for.inc.i.i8.i25
@@ -27572,7 +27572,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27596,7 +27596,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27640,7 +27640,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -27664,7 +27664,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -27708,7 +27708,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i46:                                 ; preds = %for.inc.i.i.i51, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   %__i.06.i.i.i47 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %inc.i.i.i53, %for.inc.i.i.i51 ]
   %__n.05.i.i.i48 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
-  %arrayidx.i.i.i49 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i47
+  %arrayidx.i.i.i49 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i47
   %13 = load i8, ptr %arrayidx.i.i.i49, align 1
   %tobool.i.i.i50 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i50, label %if.then.i.i.i78, label %for.inc.i.i.i51
@@ -27732,7 +27732,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i59:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, %for.inc.i.i8.i64
   %__i.06.i.i4.i60 = phi i64 [ %inc.i.i10.i66, %for.inc.i.i8.i64 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
   %__n.05.i.i5.i61 = phi i64 [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55 ]
-  %arrayidx.i.i6.i62 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i60
+  %arrayidx.i.i6.i62 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i60
   %14 = load i8, ptr %arrayidx.i.i6.i62, align 1
   %tobool.i.i7.i63 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i63, label %if.then.i.i15.i76, label %for.inc.i.i8.i64
@@ -27782,7 +27782,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27806,7 +27806,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27856,7 +27856,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -27880,7 +27880,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -27924,7 +27924,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %8 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -27948,7 +27948,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %9 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -27992,7 +27992,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %__i.06.i.i.i51 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i51
   %13 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i82, label %for.inc.i.i.i55
@@ -28016,7 +28016,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i63:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i8.i68
   %__i.06.i.i4.i64 = phi i64 [ %inc.i.i10.i70, %for.inc.i.i8.i68 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i5.i65 = phi i64 [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i6.i66 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i64
+  %arrayidx.i.i6.i66 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i64
   %14 = load i8, ptr %arrayidx.i.i6.i66, align 1
   %tobool.i.i7.i67 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i67, label %if.then.i.i15.i80, label %for.inc.i.i8.i68
@@ -28060,7 +28060,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i85:                                 ; preds = %for.inc.i.i.i90, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84
   %__i.06.i.i.i86 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %inc.i.i.i92, %for.inc.i.i.i90 ]
   %__n.05.i.i.i87 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit84 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
-  %arrayidx.i.i.i88 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i86
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i86
   %18 = load i8, ptr %arrayidx.i.i.i88, align 1
   %tobool.i.i.i89 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i89, label %if.then.i.i.i117, label %for.inc.i.i.i90
@@ -28084,7 +28084,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i98:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, %for.inc.i.i8.i103
   %__i.06.i.i4.i99 = phi i64 [ %inc.i.i10.i105, %for.inc.i.i8.i103 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
   %__n.05.i.i5.i100 = phi i64 [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94 ]
-  %arrayidx.i.i6.i101 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i99
+  %arrayidx.i.i6.i101 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i99
   %19 = load i8, ptr %arrayidx.i.i6.i101, align 1
   %tobool.i.i7.i102 = trunc i8 %19 to i1
   br i1 %tobool.i.i7.i102, label %if.then.i.i15.i115, label %for.inc.i.i8.i103
@@ -28134,7 +28134,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -28158,7 +28158,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -28202,7 +28202,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i31:                                 ; preds = %for.inc.i.i.i36, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i32 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i38, %for.inc.i.i.i36 ]
   %__n.05.i.i.i33 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
-  %arrayidx.i.i.i34 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i32
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i32
   %8 = load i8, ptr %arrayidx.i.i.i34, align 1
   %tobool.i.i.i35 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i35, label %if.then.i.i.i63, label %for.inc.i.i.i36
@@ -28226,7 +28226,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i44:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, %for.inc.i.i8.i49
   %__i.06.i.i4.i45 = phi i64 [ %inc.i.i10.i51, %for.inc.i.i8.i49 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
   %__n.05.i.i5.i46 = phi i64 [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40 ]
-  %arrayidx.i.i6.i47 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i45
+  %arrayidx.i.i6.i47 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i45
   %9 = load i8, ptr %arrayidx.i.i6.i47, align 1
   %tobool.i.i7.i48 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i48, label %if.then.i.i15.i61, label %for.inc.i.i8.i49
@@ -28270,7 +28270,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i66:                                 ; preds = %for.inc.i.i.i71, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65
   %__i.06.i.i.i67 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %inc.i.i.i73, %for.inc.i.i.i71 ]
   %__n.05.i.i.i68 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit65 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i67
   %13 = load i8, ptr %arrayidx.i.i.i69, align 1
   %tobool.i.i.i70 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i70, label %if.then.i.i.i98, label %for.inc.i.i.i71
@@ -28294,7 +28294,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i79:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, %for.inc.i.i8.i84
   %__i.06.i.i4.i80 = phi i64 [ %inc.i.i10.i86, %for.inc.i.i8.i84 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
   %__n.05.i.i5.i81 = phi i64 [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75 ]
-  %arrayidx.i.i6.i82 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i80
+  %arrayidx.i.i6.i82 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i80
   %14 = load i8, ptr %arrayidx.i.i6.i82, align 1
   %tobool.i.i7.i83 = trunc i8 %14 to i1
   br i1 %tobool.i.i7.i83, label %if.then.i.i15.i96, label %for.inc.i.i8.i84
@@ -28344,7 +28344,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -28368,7 +28368,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -28425,7 +28425,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 for.body.i.i.i50:                                 ; preds = %for.inc.i.i.i55, %for.body.i
   %__i.06.i.i.i51 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i57, %for.inc.i.i.i55 ]
   %__n.05.i.i.i52 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i51
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i51
   %10 = load i8, ptr %arrayidx.i.i.i53, align 1
   %tobool.i.i.i54 = trunc i8 %10 to i1
   br i1 %tobool.i.i.i54, label %if.then.i.i.i63, label %for.inc.i.i.i55
@@ -28464,7 +28464,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %12 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %12 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -28513,7 +28513,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i15:                                 ; preds = %for.inc.i.i.i20, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i16 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i22, %for.inc.i.i.i20 ]
   %__n.05.i.i.i17 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
-  %arrayidx.i.i.i18 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i16
+  %arrayidx.i.i.i18 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i16
   %17 = load i8, ptr %arrayidx.i.i.i18, align 1
   %tobool.i.i.i19 = trunc i8 %17 to i1
   br i1 %tobool.i.i.i19, label %if.then.i.i.i47, label %for.inc.i.i.i20
@@ -28537,7 +28537,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i28:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, %for.inc.i.i8.i33
   %__i.06.i.i4.i29 = phi i64 [ %inc.i.i10.i35, %for.inc.i.i8.i33 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
   %__n.05.i.i5.i30 = phi i64 [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24 ]
-  %arrayidx.i.i6.i31 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i29
+  %arrayidx.i.i6.i31 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i29
   %18 = load i8, ptr %arrayidx.i.i6.i31, align 1
   %tobool.i.i7.i32 = trunc i8 %18 to i1
   br i1 %tobool.i.i7.i32, label %if.then.i.i15.i45, label %for.inc.i.i8.i33
@@ -28600,7 +28600,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %5 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -28639,7 +28639,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -28688,7 +28688,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -28712,7 +28712,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -28775,7 +28775,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 for.body.i.i.i7:                                  ; preds = %for.inc.i.i.i12, %for.body.i
   %__i.06.i.i.i8 = phi i64 [ 0, %for.body.i ], [ %inc.i.i.i14, %for.inc.i.i.i12 ]
   %__n.05.i.i.i9 = phi i64 [ 3, %for.body.i ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
-  %arrayidx.i.i.i10 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i.i8
+  %arrayidx.i.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i.i8
   %5 = load i8, ptr %arrayidx.i.i.i10, align 1
   %tobool.i.i.i11 = trunc i8 %5 to i1
   br i1 %tobool.i.i.i11, label %if.then.i.i.i20, label %for.inc.i.i.i12
@@ -28814,7 +28814,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9.i:                                  ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, %for.inc.i.i14.i
   %__i.06.i.i10.i = phi i64 [ %inc.i.i16.i, %for.inc.i.i14.i ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
   %__n.05.i.i11.i = phi i64 [ %__n.1.i.i15.i, %for.inc.i.i14.i ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16 ]
-  %arrayidx.i.i12.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10.i
+  %arrayidx.i.i12.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10.i
   %7 = load i8, ptr %arrayidx.i.i12.i, align 1
   %tobool.i.i13.i = trunc i8 %7 to i1
   br i1 %tobool.i.i13.i, label %if.then.i.i21.i, label %for.inc.i.i14.i
@@ -28863,7 +28863,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %__i.06.i.i.i = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -28887,7 +28887,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %13 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %13 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -28937,7 +28937,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -28961,7 +28961,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -29011,7 +29011,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -29035,7 +29035,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -29085,7 +29085,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %entry
   %__i.06.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %__n.05.i.i.i = phi i64 [ 3, %entry ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -29109,7 +29109,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i:                                  ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, %for.inc.i.i8.i
   %__i.06.i.i4.i = phi i64 [ %inc.i.i10.i, %for.inc.i.i8.i ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
   %__n.05.i.i5.i = phi i64 [ %__n.1.i.i9.i, %for.inc.i.i8.i ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i ]
-  %arrayidx.i.i6.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i
+  %arrayidx.i.i6.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i
   %4 = load i8, ptr %arrayidx.i.i6.i, align 1
   %tobool.i.i7.i = trunc i8 %4 to i1
   br i1 %tobool.i.i7.i, label %if.then.i.i15.i, label %for.inc.i.i8.i
@@ -29153,7 +29153,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingT
 for.body.i.i.i11:                                 ; preds = %for.inc.i.i.i16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %__i.06.i.i.i12 = phi i64 [ 0, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %inc.i.i.i18, %for.inc.i.i.i16 ]
   %__n.05.i.i.i13 = phi i64 [ 3, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
-  %arrayidx.i.i.i14 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i.i12
+  %arrayidx.i.i.i14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEmv.__found, i64 %__i.06.i.i.i12
   %8 = load i8, ptr %arrayidx.i.i.i14, align 1
   %tobool.i.i.i15 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i15, label %if.then.i.i.i43, label %for.inc.i.i.i16
@@ -29177,7 +29177,7 @@ _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4Nod
 for.body.i.i3.i24:                                ; preds = %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, %for.inc.i.i8.i29
   %__i.06.i.i4.i25 = phi i64 [ %inc.i.i10.i31, %for.inc.i.i8.i29 ], [ 0, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
   %__n.05.i.i5.i26 = phi i64 [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ], [ 3, %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20 ]
-  %arrayidx.i.i6.i27 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i4.i25
+  %arrayidx.i.i6.i27 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i4.i25
   %9 = load i8, ptr %arrayidx.i.i6.i27, align 1
   %tobool.i.i7.i28 = trunc i8 %9 to i1
   br i1 %tobool.i.i7.i28, label %if.then.i.i15.i41, label %for.inc.i.i8.i29
@@ -29239,7 +29239,7 @@ for.body:                                         ; preds = %entry, %if.end27
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body
   %__i.06.i.i = phi i64 [ 0, %for.body ], [ %inc.i.i, %for.inc.i.i ]
   %__n.05.i.i = phi i64 [ 3, %for.body ], [ %__n.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 0, i64 %__i.06.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEmv.__found, i64 %__i.06.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -29278,7 +29278,7 @@ _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7vari
 for.body.i.i9:                                    ; preds = %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit, %for.inc.i.i14
   %__i.06.i.i10 = phi i64 [ %inc.i.i16, %for.inc.i.i14 ], [ 0, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit ]
   %__n.05.i.i11 = phi i64 [ %__n.1.i.i15, %for.inc.i.i14 ], [ 3, %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit ]
-  %arrayidx.i.i12 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 0, i64 %__i.06.i.i10
+  %arrayidx.i.i12 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEmv.__found, i64 %__i.06.i.i10
   %7 = load i8, ptr %arrayidx.i.i12, align 1
   %tobool.i.i13 = trunc i8 %7 to i1
   br i1 %tobool.i.i13, label %if.then.i.i21, label %for.inc.i.i14

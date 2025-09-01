@@ -282,118 +282,117 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %14 = add i32 %13, %12
   %15 = srem i32 %14, 7
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [0 x ptr], ptr @pgtypes_date_weekdays_short, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr @pgtypes_date_weekdays_short, i64 %16
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %._crit_edge
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = phi ptr [ @.str, %3 ], [ %59, %._crit_edge ]
-  %19 = phi ptr [ @PGTYPESdate_fmt_asc.mapping, %3 ], [ %58, %._crit_edge ]
+  %18 = phi ptr [ @.str, %3 ], [ %58, %._crit_edge ]
   %.sroa.0.086 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
-  %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %18) #14
-  %.not6383 = icmp eq ptr %20, null
+  %19 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %18) #14
+  %.not6383 = icmp eq ptr %19, null
   br i1 %.not6383, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i32, ptr %21, align 8
-  br label %23
+  %20 = getelementptr inbounds nuw %struct.anon, ptr @PGTYPESdate_fmt_asc.mapping, i64 %indvars.iv, i32 1
+  %21 = load i32, ptr %20, align 8
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %56
-  %24 = phi ptr [ %20, %.lr.ph ], [ %57, %56 ]
-  %.sroa.0.184 = phi ptr [ %.sroa.0.086, %.lr.ph ], [ %.sroa.0.274, %56 ]
-  switch i32 %22, label %40 [
-    i32 2, label %25
-    i32 1, label %27
-    i32 4, label %29
-    i32 3, label %35
-    i32 6, label %48
-    i32 5, label %37
+22:                                               ; preds = %.lr.ph, %55
+  %23 = phi ptr [ %19, %.lr.ph ], [ %56, %55 ]
+  %.sroa.0.184 = phi ptr [ %.sroa.0.086, %.lr.ph ], [ %.sroa.0.274, %55 ]
+  switch i32 %21, label %39 [
+    i32 2, label %24
+    i32 1, label %26
+    i32 4, label %28
+    i32 3, label %34
+    i32 6, label %47
+    i32 5, label %36
   ]
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %17, align 8
-  br label %40
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %17, align 8
+  br label %39
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %11, align 4
-  br label %42
+26:                                               ; preds = %22
+  %27 = load i32, ptr %11, align 4
+  br label %41
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %10, align 8
-  %31 = add i32 %30, -1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [0 x ptr], ptr @months, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  br label %40
+28:                                               ; preds = %22
+  %29 = load i32, ptr %10, align 8
+  %30 = add i32 %29, -1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr @months, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  br label %39
 
-35:                                               ; preds = %23
-  %36 = load i32, ptr %10, align 8
-  br label %42
+34:                                               ; preds = %22
+  %35 = load i32, ptr %10, align 8
+  br label %41
 
-37:                                               ; preds = %23
-  %38 = load i32, ptr %9, align 4
-  %39 = srem i32 %38, 100
-  br label %42
+36:                                               ; preds = %22
+  %37 = load i32, ptr %9, align 4
+  %38 = srem i32 %37, 100
+  br label %41
 
-40:                                               ; preds = %25, %29, %23
-  %.sroa.0.2.ph = phi ptr [ @.str.6, %23 ], [ %34, %29 ], [ %26, %25 ]
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.2.ph) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.sroa.0.2.ph, i64 %41, i1 false)
-  br label %56
+39:                                               ; preds = %24, %28, %22
+  %.sroa.0.2.ph = phi ptr [ @.str.6, %22 ], [ %33, %28 ], [ %25, %24 ]
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.2.ph) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %.sroa.0.2.ph, i64 %40, i1 false)
+  br label %55
 
-42:                                               ; preds = %27, %35, %37
-  %.sink93 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %39, %37 ]
-  %43 = call ptr @pgtypes_alloc(i64 noundef 20) #12
-  %.not65.not = icmp eq ptr %43, null
-  br i1 %.not65.not, label %.critedge, label %44
+41:                                               ; preds = %26, %34, %36
+  %.sink93 = phi i32 [ %27, %26 ], [ %35, %34 ], [ %38, %36 ]
+  %42 = call ptr @pgtypes_alloc(i64 noundef 20) #12
+  %.not65.not = icmp eq ptr %42, null
+  br i1 %.not65.not, label %.critedge, label %43
 
-44:                                               ; preds = %42
-  %45 = ptrtoint ptr %.sroa.0.184 to i64
-  %.sroa.0.0.insert.mask = and i64 %45, -4294967296
+43:                                               ; preds = %41
+  %44 = ptrtoint ptr %.sroa.0.184 to i64
+  %.sroa.0.0.insert.mask = and i64 %44, -4294967296
   %.sroa.0.0.insert.ext = zext i32 %.sink93 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
   %.sroa.0.2.ph76 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
-  %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %43, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink93) #12
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %43, i64 %47, i1 false)
-  call void @free(ptr noundef nonnull %43) #12
-  br label %56
+  %45 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %42, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink93) #12
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %42, i64 %46, i1 false)
+  call void @free(ptr noundef nonnull %42) #12
+  br label %55
 
-48:                                               ; preds = %23
-  %49 = load i32, ptr %9, align 4
-  %50 = call ptr @pgtypes_alloc(i64 noundef 20) #12
-  %.not64.not = icmp eq ptr %50, null
-  br i1 %.not64.not, label %.critedge, label %51
+47:                                               ; preds = %22
+  %48 = load i32, ptr %9, align 4
+  %49 = call ptr @pgtypes_alloc(i64 noundef 20) #12
+  %.not64.not = icmp eq ptr %49, null
+  br i1 %.not64.not, label %.critedge, label %50
 
-51:                                               ; preds = %48
-  %52 = ptrtoint ptr %.sroa.0.184 to i64
-  %.sroa.0.0.insert.mask38 = and i64 %52, -4294967296
-  %.sroa.0.0.insert.ext37 = zext i32 %49 to i64
+50:                                               ; preds = %47
+  %51 = ptrtoint ptr %.sroa.0.184 to i64
+  %.sroa.0.0.insert.mask38 = and i64 %51, -4294967296
+  %.sroa.0.0.insert.ext37 = zext i32 %48 to i64
   %.sroa.0.0.insert.insert39 = or disjoint i64 %.sroa.0.0.insert.mask38, %.sroa.0.0.insert.ext37
-  %53 = inttoptr i64 %.sroa.0.0.insert.insert39 to ptr
-  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %49) #12
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %50, i64 %55, i1 false)
-  call void @free(ptr noundef nonnull %50) #12
-  br label %56
+  %52 = inttoptr i64 %.sroa.0.0.insert.insert39 to ptr
+  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %49, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %48) #12
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %49, i64 %54, i1 false)
+  call void @free(ptr noundef nonnull %49) #12
+  br label %55
 
-56:                                               ; preds = %51, %44, %40
-  %.sroa.0.274 = phi ptr [ %53, %51 ], [ %.sroa.0.2.ph76, %44 ], [ %.sroa.0.2.ph, %40 ]
-  %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %18) #14
-  %.not63 = icmp eq ptr %57, null
-  br i1 %.not63, label %._crit_edge, label %23, !llvm.loop !3
+55:                                               ; preds = %50, %43, %39
+  %.sroa.0.274 = phi ptr [ %52, %50 ], [ %.sroa.0.2.ph76, %43 ], [ %.sroa.0.2.ph, %39 ]
+  %56 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %18) #14
+  %.not63 = icmp eq ptr %56, null
+  br i1 %.not63, label %._crit_edge, label %22, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %56, %.preheader
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.086, %.preheader ], [ %.sroa.0.274, %56 ]
+._crit_edge:                                      ; preds = %55, %.preheader
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.086, %.preheader ], [ %.sroa.0.274, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw [7 x %struct.anon], ptr @PGTYPESdate_fmt_asc.mapping, i64 0, i64 %indvars.iv.next
-  %59 = load ptr, ptr %58, align 16
+  %57 = getelementptr inbounds nuw %struct.anon, ptr @PGTYPESdate_fmt_asc.mapping, i64 %indvars.iv.next
+  %58 = load ptr, ptr %57, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !5
 
-.critedge:                                        ; preds = %._crit_edge, %48, %42
-  %.4 = phi i32 [ -1, %42 ], [ -1, %48 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %47, %41
+  %.4 = phi i32 [ -1, %41 ], [ -1, %47 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
@@ -586,7 +585,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %86 = sext i32 %83 to i64
   %87 = getelementptr inbounds i8, ptr %52, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 %85
-  %89 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = tail call ptr @strncpy(ptr noundef nonnull %87, ptr noundef nonnull %88, i64 noundef %91) #12
@@ -640,7 +639,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.1200261.ph = phi i32 [ %.2201, %.loopexit328 ], [ 0, %.lr.ph263 ]
   %.0202260.ph = phi i32 [ %.1203, %.loopexit328 ], [ 0, %.lr.ph263 ]
   %110 = sext i32 %.0202260.ph to i64
-  %111 = getelementptr inbounds [3 x [2 x i32]], ptr %4, i64 0, i64 %110
+  %111 = getelementptr inbounds [2 x i32], ptr %4, i64 %110
   br label %112
 
 112:                                              ; preds = %.outer, %.thread317
@@ -661,7 +660,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 122:                                              ; preds = %112
   %123 = add i32 %.3192262, -1
   %124 = sext i32 %.0202260.ph to i64
-  %125 = getelementptr inbounds [3 x [2 x i32]], ptr %4, i64 0, i64 %124, i64 1
+  %125 = getelementptr inbounds [2 x i32], ptr %4, i64 %124, i64 1
   store i32 %123, ptr %125, align 4
   %126 = add i32 %.0202260.ph, 1
   br label %.loopexit328
@@ -692,7 +691,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 ._crit_edge.thread322:                            ; preds = %.thread317, %._crit_edge
   %.1203320325 = phi i32 [ %.1203, %._crit_edge ], [ %.0202260.ph, %.thread317 ]
   %135 = sext i32 %.1203320325 to i64
-  %136 = getelementptr inbounds [3 x [2 x i32]], ptr %4, i64 0, i64 %135, i64 1
+  %136 = getelementptr inbounds [2 x i32], ptr %4, i64 %135, i64 1
   store i32 %.3192262, ptr %136, align 4
   %137 = add i32 %.1203320325, 1
   br label %138
@@ -844,14 +843,14 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.sroa.2.0272 = phi i32 [ %.sroa.2.1, %223 ], [ 0, %.preheader350 ]
   %.sroa.9.0271 = phi i32 [ %.sroa.9.1, %223 ], [ 0, %.preheader350 ]
   %.sroa.19.0270 = phi i32 [ %.sroa.19.1, %223 ], [ 0, %.preheader350 ]
-  %199 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %4, i64 0, i64 %indvars.iv282
+  %199 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 %indvars.iv282
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %.1208, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 1
   store i8 0, ptr %204, align 1
-  %205 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv282
+  %205 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv282
   %206 = load i32, ptr %205, align 4
   %207 = icmp eq i32 %206, -1
   br i1 %207, label %208, label %216

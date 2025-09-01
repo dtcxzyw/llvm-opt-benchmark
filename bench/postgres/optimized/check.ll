@@ -611,7 +611,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
 
 .lr.ph6.i:                                        ; preds = %178, %.lr.ph6.preheader.i
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph6.preheader.i ], [ %indvars.iv.next.i15, %178 ]
-  %159 = getelementptr inbounds nuw [11 x %struct.DataTypesUsageChecks], ptr @data_types_usage_checks, i64 0, i64 %indvars.iv.i14
+  %159 = getelementptr inbounds nuw %struct.DataTypesUsageChecks, ptr @data_types_usage_checks, i64 %indvars.iv.i14
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load i32, ptr %160, align 16
   switch i32 %161, label %166 [
@@ -632,7 +632,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %._crit_edge.i7
   br i1 %169, label %178, label %170
 
 170:                                              ; preds = %166, %162, %.lr.ph6.i
-  %171 = getelementptr inbounds nuw [11 x %struct.DataTypesUsageChecks], ptr @data_types_usage_checks, i64 0, i64 %indvars.iv.i14, i32 2
+  %171 = getelementptr inbounds nuw %struct.DataTypesUsageChecks, ptr @data_types_usage_checks, i64 %indvars.iv.i14, i32 2
   %172 = load ptr, ptr %171, align 16
   %173 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.74, ptr noundef %172) #10
   %174 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i14

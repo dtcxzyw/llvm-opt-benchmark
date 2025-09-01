@@ -932,7 +932,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6
 
 .preheader111:                                    ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6_S6_.exit73, %79
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %79 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6_S6_.exit73 ]
-  %73 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv121
+  %73 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv121
   %74 = load float, ptr %73, align 4
   %.idx = shl nuw nsw i64 %indvars.iv121, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -940,7 +940,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6
 
 75:                                               ; preds = %.preheader111, %75
   %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %77 = load float, ptr %76, align 4
   %78 = fmul float %77, %74
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
@@ -960,22 +960,22 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6
 
 .preheader109:                                    ; preds = %.loopexit113, %95
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %95 ], [ 0, %.loopexit113 ]
-  %80 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv129
+  %80 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv129
   %81 = load float, ptr %80, align 4
   %82 = shl nuw nsw i64 %indvars.iv129, 2
-  %83 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv129
+  %83 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv129
   %84 = load float, ptr %83, align 4
   br label %85
 
 85:                                               ; preds = %.preheader109, %85
   %indvars.iv125 = phi i64 [ 0, %.preheader109 ], [ %indvars.iv.next126, %85 ]
-  %86 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv125
+  %86 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv125
   %87 = load float, ptr %86, align 4
   %88 = fmul float %87, %81
   %89 = add nuw nsw i64 %indvars.iv125, %82
   %90 = getelementptr inbounds nuw float, ptr %3, i64 %89
   store float %88, ptr %90, align 4
-  %91 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv125
+  %91 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv125
   %92 = load float, ptr %91, align 4
   %93 = fmul float %92, %84
   %94 = getelementptr inbounds nuw float, ptr %4, i64 %89
@@ -997,29 +997,29 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6
 
 .preheader:                                       ; preds = %96, %119
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %119 ], [ 0, %96 ]
-  %98 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv137
+  %98 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv137
   %99 = load float, ptr %98, align 4
   %100 = shl nuw nsw i64 %indvars.iv137, 2
-  %101 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv137
+  %101 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv137
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv137
+  %103 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv137
   %104 = load float, ptr %103, align 4
   br label %105
 
 105:                                              ; preds = %.preheader, %105
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %105 ]
-  %106 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %indvars.iv133
+  %106 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv133
   %107 = load float, ptr %106, align 4
   %108 = fmul float %107, %99
   %109 = add nuw nsw i64 %indvars.iv133, %100
   %110 = getelementptr inbounds nuw float, ptr %5, i64 %109
   store float %108, ptr %110, align 4
-  %111 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv133
+  %111 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv133
   %112 = load float, ptr %111, align 4
   %113 = fmul float %112, %102
   %114 = getelementptr inbounds nuw float, ptr %6, i64 %109
   store float %113, ptr %114, align 4
-  %115 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv133
+  %115 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv133
   %116 = load float, ptr %115, align 4
   %117 = fmul float %116, %104
   %118 = getelementptr inbounds nuw float, ptr %7, i64 %109
@@ -1609,18 +1609,18 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 106:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_S6_.exit124, %106
   %indvars.iv = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_S6_.exit124 ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %109
+  %110 = getelementptr inbounds float, ptr %9, i64 %109
   %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %114
+  %115 = getelementptr inbounds float, ptr %12, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = fmul float %111, %116
-  %118 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds float, ptr %2, i64 %120
@@ -1631,21 +1631,21 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader147:                                    ; preds = %106, %.preheader147
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.preheader147 ], [ 0, %106 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv156
+  %122 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv156
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %124
+  %125 = getelementptr inbounds float, ptr %9, i64 %124
   %126 = load float, ptr %125, align 4
-  %127 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv156
+  %127 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv156
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %129
+  %130 = getelementptr inbounds float, ptr %12, i64 %129
   %131 = load float, ptr %130, align 4
   %132 = fmul float %126, %131
-  %133 = getelementptr inbounds nuw [8 x float], ptr %15, i64 0, i64 %indvars.iv156
+  %133 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv156
   %134 = load float, ptr %133, align 4
   %135 = fmul float %132, %134
-  %136 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv156
+  %136 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv156
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds float, ptr %2, i64 %138
@@ -1665,30 +1665,30 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .split.us:                                        ; preds = %141, %.split.us
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.split.us ], [ 0, %141 ]
-  %142 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv164
+  %142 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv164
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv164
+  %144 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv164
   %145 = load i32, ptr %144, align 4
-  %146 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv164
+  %146 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv164
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %148
+  %149 = getelementptr inbounds float, ptr %10, i64 %148
   %150 = load float, ptr %149, align 4
   %151 = sext i32 %145 to i64
-  %152 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %151
+  %152 = getelementptr inbounds float, ptr %12, i64 %151
   %153 = load float, ptr %152, align 4
   %154 = fmul float %150, %153
   %155 = sext i32 %143 to i64
   %156 = getelementptr inbounds float, ptr %3, i64 %155
   store float %154, ptr %156, align 4
-  %157 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %151
+  %157 = getelementptr inbounds float, ptr %13, i64 %151
   %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %148
+  %159 = getelementptr inbounds float, ptr %9, i64 %148
   %160 = load float, ptr %159, align 4
   %161 = fmul float %158, %160
   %162 = getelementptr inbounds float, ptr %4, i64 %155
   store float %161, ptr %162, align 4
-  %163 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %148
+  %163 = getelementptr inbounds float, ptr %11, i64 %148
   %164 = load float, ptr %163, align 4
   %165 = fmul float %153, %164
   %166 = getelementptr inbounds float, ptr %5, i64 %155
@@ -1696,7 +1696,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
   %167 = fmul float %150, %158
   %168 = getelementptr inbounds float, ptr %6, i64 %155
   store float %167, ptr %168, align 4
-  %169 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %151
+  %169 = getelementptr inbounds float, ptr %14, i64 %151
   %170 = load float, ptr %169, align 4
   %171 = fmul float %160, %170
   %172 = getelementptr inbounds float, ptr %7, i64 %155
@@ -1707,34 +1707,34 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader.split152.us:                           ; preds = %.split.us, %.preheader.split152.us
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.split.us ]
-  %173 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv172
+  %173 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv172
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv172
+  %175 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv172
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv172
+  %177 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv172
   %178 = load i32, ptr %177, align 4
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %179
+  %180 = getelementptr inbounds float, ptr %10, i64 %179
   %181 = load float, ptr %180, align 4
   %182 = sext i32 %176 to i64
-  %183 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %182
+  %183 = getelementptr inbounds float, ptr %12, i64 %182
   %184 = load float, ptr %183, align 4
   %185 = fmul float %181, %184
-  %186 = getelementptr inbounds nuw [8 x float], ptr %15, i64 0, i64 %indvars.iv172
+  %186 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv172
   %187 = load float, ptr %186, align 4
   %188 = fmul float %185, %187
   %189 = sext i32 %174 to i64
   %190 = getelementptr inbounds float, ptr %3, i64 %189
   store float %188, ptr %190, align 4
-  %191 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %182
+  %191 = getelementptr inbounds float, ptr %13, i64 %182
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %179
+  %193 = getelementptr inbounds float, ptr %9, i64 %179
   %194 = load float, ptr %193, align 4
   %195 = fmul float %192, %194
   %196 = fmul float %187, %195
   %197 = getelementptr inbounds float, ptr %4, i64 %189
   store float %196, ptr %197, align 4
-  %198 = getelementptr inbounds [4 x float], ptr %11, i64 0, i64 %179
+  %198 = getelementptr inbounds float, ptr %11, i64 %179
   %199 = load float, ptr %198, align 4
   %200 = fmul float %184, %199
   %201 = fmul float %187, %200
@@ -1744,7 +1744,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
   %204 = fmul float %187, %203
   %205 = getelementptr inbounds float, ptr %6, i64 %189
   store float %204, ptr %205, align 4
-  %206 = getelementptr inbounds [4 x float], ptr %14, i64 0, i64 %182
+  %206 = getelementptr inbounds float, ptr %14, i64 %182
   %207 = load float, ptr %206, align 4
   %208 = fmul float %194, %207
   %209 = fmul float %187, %208
@@ -1756,25 +1756,25 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .split:                                           ; preds = %141, %.split
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %.split ], [ 0, %141 ]
-  %211 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv160
+  %211 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv160
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv160
+  %213 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv160
   %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv160
+  %215 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv160
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %217
+  %218 = getelementptr inbounds float, ptr %10, i64 %217
   %219 = load float, ptr %218, align 4
   %220 = sext i32 %214 to i64
-  %221 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %220
+  %221 = getelementptr inbounds float, ptr %12, i64 %220
   %222 = load float, ptr %221, align 4
   %223 = fmul float %219, %222
   %224 = sext i32 %212 to i64
   %225 = getelementptr inbounds float, ptr %3, i64 %224
   store float %223, ptr %225, align 4
-  %226 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %220
+  %226 = getelementptr inbounds float, ptr %13, i64 %220
   %227 = load float, ptr %226, align 4
-  %228 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %217
+  %228 = getelementptr inbounds float, ptr %9, i64 %217
   %229 = load float, ptr %228, align 4
   %230 = fmul float %227, %229
   %231 = getelementptr inbounds float, ptr %4, i64 %224
@@ -1785,28 +1785,28 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader.split152:                              ; preds = %.split, %.preheader.split152
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.split ]
-  %232 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv168
+  %232 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv168
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv168
+  %234 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv168
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv168
+  %236 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv168
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [4 x float], ptr %10, i64 0, i64 %238
+  %239 = getelementptr inbounds float, ptr %10, i64 %238
   %240 = load float, ptr %239, align 4
   %241 = sext i32 %235 to i64
-  %242 = getelementptr inbounds [4 x float], ptr %12, i64 0, i64 %241
+  %242 = getelementptr inbounds float, ptr %12, i64 %241
   %243 = load float, ptr %242, align 4
   %244 = fmul float %240, %243
-  %245 = getelementptr inbounds nuw [8 x float], ptr %15, i64 0, i64 %indvars.iv168
+  %245 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv168
   %246 = load float, ptr %245, align 4
   %247 = fmul float %244, %246
   %248 = sext i32 %233 to i64
   %249 = getelementptr inbounds float, ptr %3, i64 %248
   store float %247, ptr %249, align 4
-  %250 = getelementptr inbounds [4 x float], ptr %13, i64 0, i64 %241
+  %250 = getelementptr inbounds float, ptr %13, i64 %241
   %251 = load float, ptr %250, align 4
-  %252 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %238
+  %252 = getelementptr inbounds float, ptr %9, i64 %238
   %253 = load float, ptr %252, align 4
   %254 = fmul float %251, %253
   %255 = fmul float %246, %254
@@ -4494,7 +4494,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6
 
 .preheader111:                                    ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6_S6_.exit73, %79
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %79 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6_S6_.exit73 ]
-  %73 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv121
+  %73 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv121
   %74 = load double, ptr %73, align 8
   %.idx = shl nuw nsw i64 %indvars.iv121, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -4502,7 +4502,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6
 
 75:                                               ; preds = %.preheader111, %75
   %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %77 = load double, ptr %76, align 8
   %78 = fmul double %77, %74
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
@@ -4522,22 +4522,22 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6
 
 .preheader109:                                    ; preds = %.loopexit113, %95
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %95 ], [ 0, %.loopexit113 ]
-  %80 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv129
+  %80 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv129
   %81 = load double, ptr %80, align 8
   %82 = shl nuw nsw i64 %indvars.iv129, 2
-  %83 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv129
+  %83 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv129
   %84 = load double, ptr %83, align 8
   br label %85
 
 85:                                               ; preds = %.preheader109, %85
   %indvars.iv125 = phi i64 [ 0, %.preheader109 ], [ %indvars.iv.next126, %85 ]
-  %86 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv125
+  %86 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv125
   %87 = load double, ptr %86, align 8
   %88 = fmul double %87, %81
   %89 = add nuw nsw i64 %indvars.iv125, %82
   %90 = getelementptr inbounds nuw double, ptr %3, i64 %89
   store double %88, ptr %90, align 8
-  %91 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv125
+  %91 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv125
   %92 = load double, ptr %91, align 8
   %93 = fmul double %92, %84
   %94 = getelementptr inbounds nuw double, ptr %4, i64 %89
@@ -4559,29 +4559,29 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6
 
 .preheader:                                       ; preds = %96, %119
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %119 ], [ 0, %96 ]
-  %98 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv137
+  %98 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv137
   %99 = load double, ptr %98, align 8
   %100 = shl nuw nsw i64 %indvars.iv137, 2
-  %101 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv137
+  %101 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv137
   %102 = load double, ptr %101, align 8
-  %103 = getelementptr inbounds nuw [4 x double], ptr %14, i64 0, i64 %indvars.iv137
+  %103 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv137
   %104 = load double, ptr %103, align 8
   br label %105
 
 105:                                              ; preds = %.preheader, %105
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %105 ]
-  %106 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %indvars.iv133
+  %106 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv133
   %107 = load double, ptr %106, align 8
   %108 = fmul double %107, %99
   %109 = add nuw nsw i64 %indvars.iv133, %100
   %110 = getelementptr inbounds nuw double, ptr %5, i64 %109
   store double %108, ptr %110, align 8
-  %111 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv133
+  %111 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv133
   %112 = load double, ptr %111, align 8
   %113 = fmul double %112, %102
   %114 = getelementptr inbounds nuw double, ptr %6, i64 %109
   store double %113, ptr %114, align 8
-  %115 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv133
+  %115 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv133
   %116 = load double, ptr %115, align 8
   %117 = fmul double %116, %104
   %118 = getelementptr inbounds nuw double, ptr %7, i64 %109
@@ -5169,18 +5169,18 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 106:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_S6_.exit124, %106
   %indvars.iv = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_S6_.exit124 ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %109
+  %110 = getelementptr inbounds double, ptr %9, i64 %109
   %111 = load double, ptr %110, align 8
-  %112 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %114
+  %115 = getelementptr inbounds double, ptr %12, i64 %114
   %116 = load double, ptr %115, align 8
   %117 = fmul double %111, %116
-  %118 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds double, ptr %2, i64 %120
@@ -5191,21 +5191,21 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader147:                                    ; preds = %106, %.preheader147
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.preheader147 ], [ 0, %106 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv156
+  %122 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv156
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %124
+  %125 = getelementptr inbounds double, ptr %9, i64 %124
   %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv156
+  %127 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv156
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %129
+  %130 = getelementptr inbounds double, ptr %12, i64 %129
   %131 = load double, ptr %130, align 8
   %132 = fmul double %126, %131
-  %133 = getelementptr inbounds nuw [8 x double], ptr %15, i64 0, i64 %indvars.iv156
+  %133 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv156
   %134 = load double, ptr %133, align 8
   %135 = fmul double %132, %134
-  %136 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv156
+  %136 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv156
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds double, ptr %2, i64 %138
@@ -5225,30 +5225,30 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .split.us:                                        ; preds = %141, %.split.us
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.split.us ], [ 0, %141 ]
-  %142 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv164
+  %142 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv164
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv164
+  %144 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv164
   %145 = load i32, ptr %144, align 4
-  %146 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv164
+  %146 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv164
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %148
+  %149 = getelementptr inbounds double, ptr %10, i64 %148
   %150 = load double, ptr %149, align 8
   %151 = sext i32 %145 to i64
-  %152 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %151
+  %152 = getelementptr inbounds double, ptr %12, i64 %151
   %153 = load double, ptr %152, align 8
   %154 = fmul double %150, %153
   %155 = sext i32 %143 to i64
   %156 = getelementptr inbounds double, ptr %3, i64 %155
   store double %154, ptr %156, align 8
-  %157 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 %151
+  %157 = getelementptr inbounds double, ptr %13, i64 %151
   %158 = load double, ptr %157, align 8
-  %159 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %148
+  %159 = getelementptr inbounds double, ptr %9, i64 %148
   %160 = load double, ptr %159, align 8
   %161 = fmul double %158, %160
   %162 = getelementptr inbounds double, ptr %4, i64 %155
   store double %161, ptr %162, align 8
-  %163 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %148
+  %163 = getelementptr inbounds double, ptr %11, i64 %148
   %164 = load double, ptr %163, align 8
   %165 = fmul double %153, %164
   %166 = getelementptr inbounds double, ptr %5, i64 %155
@@ -5256,7 +5256,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
   %167 = fmul double %150, %158
   %168 = getelementptr inbounds double, ptr %6, i64 %155
   store double %167, ptr %168, align 8
-  %169 = getelementptr inbounds [4 x double], ptr %14, i64 0, i64 %151
+  %169 = getelementptr inbounds double, ptr %14, i64 %151
   %170 = load double, ptr %169, align 8
   %171 = fmul double %160, %170
   %172 = getelementptr inbounds double, ptr %7, i64 %155
@@ -5267,34 +5267,34 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader.split152.us:                           ; preds = %.split.us, %.preheader.split152.us
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.split.us ]
-  %173 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv172
+  %173 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv172
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv172
+  %175 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv172
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv172
+  %177 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv172
   %178 = load i32, ptr %177, align 4
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %179
+  %180 = getelementptr inbounds double, ptr %10, i64 %179
   %181 = load double, ptr %180, align 8
   %182 = sext i32 %176 to i64
-  %183 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %182
+  %183 = getelementptr inbounds double, ptr %12, i64 %182
   %184 = load double, ptr %183, align 8
   %185 = fmul double %181, %184
-  %186 = getelementptr inbounds nuw [8 x double], ptr %15, i64 0, i64 %indvars.iv172
+  %186 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv172
   %187 = load double, ptr %186, align 8
   %188 = fmul double %185, %187
   %189 = sext i32 %174 to i64
   %190 = getelementptr inbounds double, ptr %3, i64 %189
   store double %188, ptr %190, align 8
-  %191 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 %182
+  %191 = getelementptr inbounds double, ptr %13, i64 %182
   %192 = load double, ptr %191, align 8
-  %193 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %179
+  %193 = getelementptr inbounds double, ptr %9, i64 %179
   %194 = load double, ptr %193, align 8
   %195 = fmul double %192, %194
   %196 = fmul double %187, %195
   %197 = getelementptr inbounds double, ptr %4, i64 %189
   store double %196, ptr %197, align 8
-  %198 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %179
+  %198 = getelementptr inbounds double, ptr %11, i64 %179
   %199 = load double, ptr %198, align 8
   %200 = fmul double %184, %199
   %201 = fmul double %187, %200
@@ -5304,7 +5304,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
   %204 = fmul double %187, %203
   %205 = getelementptr inbounds double, ptr %6, i64 %189
   store double %204, ptr %205, align 8
-  %206 = getelementptr inbounds [4 x double], ptr %14, i64 0, i64 %182
+  %206 = getelementptr inbounds double, ptr %14, i64 %182
   %207 = load double, ptr %206, align 8
   %208 = fmul double %194, %207
   %209 = fmul double %187, %208
@@ -5316,25 +5316,25 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .split:                                           ; preds = %141, %.split
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %.split ], [ 0, %141 ]
-  %211 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 0, i64 %indvars.iv160
+  %211 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryGregory, i64 %indvars.iv160
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 0, i64 %indvars.iv160
+  %213 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezTRow, i64 %indvars.iv160
   %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 0, i64 %indvars.iv160
+  %215 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15boundaryBezSCol, i64 %indvars.iv160
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %217
+  %218 = getelementptr inbounds double, ptr %10, i64 %217
   %219 = load double, ptr %218, align 8
   %220 = sext i32 %214 to i64
-  %221 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %220
+  %221 = getelementptr inbounds double, ptr %12, i64 %220
   %222 = load double, ptr %221, align 8
   %223 = fmul double %219, %222
   %224 = sext i32 %212 to i64
   %225 = getelementptr inbounds double, ptr %3, i64 %224
   store double %223, ptr %225, align 8
-  %226 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 %220
+  %226 = getelementptr inbounds double, ptr %13, i64 %220
   %227 = load double, ptr %226, align 8
-  %228 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %217
+  %228 = getelementptr inbounds double, ptr %9, i64 %217
   %229 = load double, ptr %228, align 8
   %230 = fmul double %227, %229
   %231 = getelementptr inbounds double, ptr %4, i64 %224
@@ -5345,28 +5345,28 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader.split152:                              ; preds = %.split, %.preheader.split152
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.split ]
-  %232 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv168
+  %232 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 %indvars.iv168
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv168
+  %234 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 %indvars.iv168
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 0, i64 %indvars.iv168
+  %236 = getelementptr inbounds nuw i32, ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezSCol, i64 %indvars.iv168
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %238
+  %239 = getelementptr inbounds double, ptr %10, i64 %238
   %240 = load double, ptr %239, align 8
   %241 = sext i32 %235 to i64
-  %242 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %241
+  %242 = getelementptr inbounds double, ptr %12, i64 %241
   %243 = load double, ptr %242, align 8
   %244 = fmul double %240, %243
-  %245 = getelementptr inbounds nuw [8 x double], ptr %15, i64 0, i64 %indvars.iv168
+  %245 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv168
   %246 = load double, ptr %245, align 8
   %247 = fmul double %244, %246
   %248 = sext i32 %233 to i64
   %249 = getelementptr inbounds double, ptr %3, i64 %248
   store double %247, ptr %249, align 8
-  %250 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 %241
+  %250 = getelementptr inbounds double, ptr %13, i64 %241
   %251 = load double, ptr %250, align 8
-  %252 = getelementptr inbounds [4 x double], ptr %9, i64 0, i64 %238
+  %252 = getelementptr inbounds double, ptr %9, i64 %238
   %253 = load double, ptr %252, align 8
   %254 = fmul double %251, %253
   %255 = fmul double %246, %254
@@ -7331,7 +7331,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader111:                                    ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_S6_.exit73, %71
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %71 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_S6_.exit73 ]
-  %65 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv121
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv121
   %66 = load float, ptr %65, align 4
   %.idx = shl nuw nsw i64 %indvars.iv121, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -7339,7 +7339,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 67:                                               ; preds = %.preheader111, %67
   %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %69 = load float, ptr %68, align 4
   %70 = fmul float %69, %66
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
@@ -7359,22 +7359,22 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader109:                                    ; preds = %.loopexit113, %87
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %87 ], [ 0, %.loopexit113 ]
-  %72 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv129
+  %72 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv129
   %73 = load float, ptr %72, align 4
   %74 = shl nuw nsw i64 %indvars.iv129, 2
-  %75 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv129
+  %75 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv129
   %76 = load float, ptr %75, align 4
   br label %77
 
 77:                                               ; preds = %.preheader109, %77
   %indvars.iv125 = phi i64 [ 0, %.preheader109 ], [ %indvars.iv.next126, %77 ]
-  %78 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv125
+  %78 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv125
   %79 = load float, ptr %78, align 4
   %80 = fmul float %79, %73
   %81 = add nuw nsw i64 %indvars.iv125, %74
   %82 = getelementptr inbounds nuw float, ptr %3, i64 %81
   store float %80, ptr %82, align 4
-  %83 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv125
+  %83 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv125
   %84 = load float, ptr %83, align 4
   %85 = fmul float %84, %76
   %86 = getelementptr inbounds nuw float, ptr %4, i64 %81
@@ -7396,29 +7396,29 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
 
 .preheader:                                       ; preds = %88, %111
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %111 ], [ 0, %88 ]
-  %90 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv137
+  %90 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv137
   %91 = load float, ptr %90, align 4
   %92 = shl nuw nsw i64 %indvars.iv137, 2
-  %93 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %indvars.iv137
+  %93 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv137
   %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds nuw [4 x float], ptr %14, i64 0, i64 %indvars.iv137
+  %95 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv137
   %96 = load float, ptr %95, align 4
   br label %97
 
 97:                                               ; preds = %.preheader, %97
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %97 ]
-  %98 = getelementptr inbounds nuw [4 x float], ptr %13, i64 0, i64 %indvars.iv133
+  %98 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv133
   %99 = load float, ptr %98, align 4
   %100 = fmul float %99, %91
   %101 = add nuw nsw i64 %indvars.iv133, %92
   %102 = getelementptr inbounds nuw float, ptr %5, i64 %101
   store float %100, ptr %102, align 4
-  %103 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %indvars.iv133
+  %103 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv133
   %104 = load float, ptr %103, align 4
   %105 = fmul float %104, %94
   %106 = getelementptr inbounds nuw float, ptr %6, i64 %101
   store float %105, ptr %106, align 4
-  %107 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv133
+  %107 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv133
   %108 = load float, ptr %107, align 4
   %109 = fmul float %108, %96
   %110 = getelementptr inbounds nuw float, ptr %7, i64 %101
@@ -7900,7 +7900,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader111:                                    ; preds = %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_S6_.exit73, %71
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %71 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_S6_.exit73 ]
-  %65 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv121
+  %65 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv121
   %66 = load double, ptr %65, align 8
   %.idx = shl nuw nsw i64 %indvars.iv121, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
@@ -7908,7 +7908,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 67:                                               ; preds = %.preheader111, %67
   %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %69 = load double, ptr %68, align 8
   %70 = fmul double %69, %66
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
@@ -7928,22 +7928,22 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader109:                                    ; preds = %.loopexit113, %87
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %87 ], [ 0, %.loopexit113 ]
-  %72 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv129
+  %72 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv129
   %73 = load double, ptr %72, align 8
   %74 = shl nuw nsw i64 %indvars.iv129, 2
-  %75 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv129
+  %75 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv129
   %76 = load double, ptr %75, align 8
   br label %77
 
 77:                                               ; preds = %.preheader109, %77
   %indvars.iv125 = phi i64 [ 0, %.preheader109 ], [ %indvars.iv.next126, %77 ]
-  %78 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv125
+  %78 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv125
   %79 = load double, ptr %78, align 8
   %80 = fmul double %79, %73
   %81 = add nuw nsw i64 %indvars.iv125, %74
   %82 = getelementptr inbounds nuw double, ptr %3, i64 %81
   store double %80, ptr %82, align 8
-  %83 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv125
+  %83 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv125
   %84 = load double, ptr %83, align 8
   %85 = fmul double %84, %76
   %86 = getelementptr inbounds nuw double, ptr %4, i64 %81
@@ -7965,29 +7965,29 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
 
 .preheader:                                       ; preds = %88, %111
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %111 ], [ 0, %88 ]
-  %90 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv137
+  %90 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv137
   %91 = load double, ptr %90, align 8
   %92 = shl nuw nsw i64 %indvars.iv137, 2
-  %93 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv137
+  %93 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv137
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds nuw [4 x double], ptr %14, i64 0, i64 %indvars.iv137
+  %95 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv137
   %96 = load double, ptr %95, align 8
   br label %97
 
 97:                                               ; preds = %.preheader, %97
   %indvars.iv133 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next134, %97 ]
-  %98 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %indvars.iv133
+  %98 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv133
   %99 = load double, ptr %98, align 8
   %100 = fmul double %99, %91
   %101 = add nuw nsw i64 %indvars.iv133, %92
   %102 = getelementptr inbounds nuw double, ptr %5, i64 %101
   store double %100, ptr %102, align 8
-  %103 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %indvars.iv133
+  %103 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv133
   %104 = load double, ptr %103, align 8
   %105 = fmul double %104, %94
   %106 = getelementptr inbounds nuw double, ptr %6, i64 %101
   store double %105, ptr %106, align 8
-  %107 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv133
+  %107 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv133
   %108 = load double, ptr %107, align 8
   %109 = fmul double %108, %96
   %110 = getelementptr inbounds nuw double, ptr %7, i64 %101

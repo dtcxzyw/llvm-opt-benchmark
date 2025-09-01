@@ -1309,7 +1309,7 @@ define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfo40setLegalizeScala
   %6 = add i32 %1, -53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 10120
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.0"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !16
   %12 = zext i32 %11 to i64
@@ -1508,34 +1508,34 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
 
 .preheader:                                       ; preds = %1, %._crit_edge958
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge958 ]
-  %67 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector"], ptr %0, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %"class.llvm::SmallVector", ptr %0, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !16
   %.not955 = icmp eq i32 %69, 0
   br i1 %.not955, label %._crit_edge958, label %.lr.ph957
 
 .lr.ph957:                                        ; preds = %.preheader
-  %70 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.0"], ptr %37, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %37, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.5"], ptr %40, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %"class.llvm::SmallVector.5", ptr %40, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %76 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %46, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %46, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %82 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %53, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %53, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %88 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.0"], ptr %58, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %"class.llvm::SmallVector.0", ptr %58, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.5"], ptr %61, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %"class.llvm::SmallVector.5", ptr %61, i64 %indvars.iv
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -5726,7 +5726,7 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findScalarLegalAct
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 54656
-  %17 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %16, i64 0, i64 %14
+  %17 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %16, i64 %14
   %18 = lshr i64 %9, 24
   %19 = trunc i64 %18 to i16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -5752,7 +5752,7 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findScalarLegalAct
 
 _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit.thread: ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 54656
-  %30 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %29, i64 0, i64 %14
+  %30 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %29, i64 %14
   br label %58
 
 31:                                               ; preds = %15
@@ -5779,7 +5779,7 @@ _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegali
 
 _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit.thread89: ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 54656
-  %47 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %46, i64 0, i64 %14
+  %47 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %46, i64 %14
   br label %66
 
 .lr.ph.i.i.i.i:                                   ; preds = %39, %44
@@ -5809,7 +5809,7 @@ _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegali
   %.pre75 = trunc i64 %.pre73 to i16
   %55 = icmp eq i64 %.pre, 0
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 54656
-  %57 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %56, i64 0, i64 %.phi.trans.insert69
+  %57 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %56, i64 %.phi.trans.insert69
   br i1 %55, label %58, label %66
 
 58:                                               ; preds = %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit.thread, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit
@@ -5879,7 +5879,7 @@ _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegali
 
 _ZNK4llvm3LLT9isPointerEv.exit23.thread:          ; preds = %6
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 34416
-  %90 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.5"], ptr %89, i64 0, i64 %14
+  %90 = getelementptr inbounds nuw %"class.llvm::SmallVector.5", ptr %89, i64 %14
   br label %91
 
 91:                                               ; preds = %_ZNK4llvm3LLT9isPointerEv.exit23.thread, %_ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EELj1EEESt4hashItESt8equal_toItESaIS3_IKtS9_EEE4findERSE_.exit35
@@ -5990,7 +5990,7 @@ define dso_local { i8, i64 } @_ZNK4llvm19LegacyLegalizerInfo21findVectorLegalAct
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44536
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw [253 x %"class.llvm::SmallVector.5"], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.llvm::SmallVector.5", ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !16
   %.not = icmp ugt i32 %17, %11
@@ -6040,7 +6040,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %21, %32
 
 38:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 68824
-  %40 = getelementptr inbounds nuw [253 x %"class.std::unordered_map"], ptr %39, i64 0, i64 %14
+  %40 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %39, i64 %14
   %41 = trunc nuw i32 %29 to i16
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %43 = load i64, ptr %42, align 8, !tbaa !125

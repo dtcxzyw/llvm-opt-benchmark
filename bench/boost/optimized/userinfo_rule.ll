@@ -225,7 +225,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %20 = load i8, ptr %19, align 1, !tbaa !9
   %21 = and i8 %20, 3
   %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !10
   %25 = lshr i8 %20, 2
   %26 = zext nneg i8 %25 to i64
@@ -233,7 +233,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %28 = and i64 %27, %24
   %.not31.i.i.i.i.i.i.i = icmp eq i64 %28, 0
   %29 = sext i1 %.not31.i.i.i.i.i.i.i to i8
-  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !9
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, 16
@@ -259,7 +259,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %39 = load i8, ptr %.22336.i.i.i.i.i.i.i, align 1, !tbaa !9
   %40 = and i8 %39, 3
   %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !10
   %44 = lshr i8 %39, 2
   %45 = zext nneg i8 %44 to i64

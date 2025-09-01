@@ -745,7 +745,7 @@ smart_str_alloc.exit67:                           ; preds = %110, %115
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %138 = load i64, ptr %137, align 8, !tbaa !73
-  %139 = getelementptr inbounds nuw [1 x i8], ptr %136, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
   store i8 0, ptr %139, align 1, !tbaa !76
   %.pre96 = load ptr, ptr %1, align 8, !tbaa !70
   br label %smart_str_0.exit
@@ -3674,7 +3674,7 @@ zend_string_release.exit22:                       ; preds = %zend_hash_find_ptr.
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw [1 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !103
   %53 = add i32 %52, -2
   store i32 %53, ptr %51, align 4, !tbaa !103
@@ -4915,7 +4915,7 @@ zend_string_alloc.exit.i:                         ; preds = %136
   store i64 %142, ptr %148, align 8, !tbaa !73
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %149, ptr nonnull align 1 %141, i64 %142, i1 false)
-  %150 = getelementptr inbounds nuw [1 x i8], ptr %149, i64 0, i64 %142
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %142
   store i8 0, ptr %150, align 1, !tbaa !76
   %151 = call i32 @zend_get_executed_lineno() #26
   %152 = add i32 %151, -1
@@ -5117,7 +5117,7 @@ zend_string_alloc.exit.i223:                      ; preds = %220
   store i64 %226, ptr %232, align 8, !tbaa !73
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %233, ptr nonnull align 1 %225, i64 %226, i1 false)
-  %234 = getelementptr inbounds nuw [1 x i8], ptr %233, i64 0, i64 %226
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 %226
   store i8 0, ptr %234, align 1, !tbaa !76
   %235 = call i32 @zend_get_executed_lineno() #26
   %236 = add i32 %235, -1
@@ -5179,7 +5179,7 @@ zend_string_alloc.exit.i226:                      ; preds = %247
   store i64 %251, ptr %257, align 8, !tbaa !73
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %258, ptr nonnull align 1 %250, i64 %251, i1 false)
-  %259 = getelementptr inbounds nuw [1 x i8], ptr %258, i64 0, i64 %251
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 %251
   store i8 0, ptr %259, align 1, !tbaa !76
   %260 = call i32 @zend_get_executed_lineno() #26
   %261 = add i32 %260, -1
@@ -5264,7 +5264,7 @@ zend_string_alloc.exit.i229:                      ; preds = %286
   store i64 %292, ptr %298, align 8, !tbaa !73
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %299, ptr nonnull align 1 %291, i64 %292, i1 false)
-  %300 = getelementptr inbounds nuw [1 x i8], ptr %299, i64 0, i64 %292
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 %292
   store i8 0, ptr %300, align 1, !tbaa !76
   %301 = call i32 @zend_get_executed_lineno() #26
   %302 = add i32 %301, -1
@@ -5325,7 +5325,7 @@ zend_string_alloc.exit.i232:                      ; preds = %313
   store i64 %316, ptr %322, align 8, !tbaa !73
   %323 = getelementptr inbounds nuw i8, ptr %319, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %323, ptr nonnull align 1 %315, i64 %316, i1 false)
-  %324 = getelementptr inbounds nuw [1 x i8], ptr %323, i64 0, i64 %316
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 %316
   store i8 0, ptr %324, align 1, !tbaa !76
   %325 = call i32 @zend_get_executed_lineno() #26
   %326 = add i32 %325, -1
@@ -5393,7 +5393,7 @@ zend_string_alloc.exit.i235:                      ; preds = %343
   store i64 %349, ptr %355, align 8, !tbaa !73
   %356 = getelementptr inbounds nuw i8, ptr %352, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %356, ptr nonnull align 1 %348, i64 %349, i1 false)
-  %357 = getelementptr inbounds nuw [1 x i8], ptr %356, i64 0, i64 %349
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 %349
   store i8 0, ptr %357, align 1, !tbaa !76
   %358 = call i32 @zend_get_executed_lineno() #26
   %359 = add i32 %358, -1
@@ -5455,7 +5455,7 @@ zend_string_alloc.exit.i238:                      ; preds = %370
   store i64 %374, ptr %380, align 8, !tbaa !73
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %381, ptr nonnull align 1 %373, i64 %374, i1 false)
-  %382 = getelementptr inbounds nuw [1 x i8], ptr %381, i64 0, i64 %374
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 %374
   store i8 0, ptr %382, align 1, !tbaa !76
   %383 = call i32 @zend_get_executed_lineno() #26
   %384 = add i32 %383, -1
@@ -5544,7 +5544,7 @@ zend_string_alloc.exit.i241:                      ; preds = %411
   store i64 %417, ptr %423, align 8, !tbaa !73
   %424 = getelementptr inbounds nuw i8, ptr %420, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %424, ptr nonnull align 1 %416, i64 %417, i1 false)
-  %425 = getelementptr inbounds nuw [1 x i8], ptr %424, i64 0, i64 %417
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 %417
   store i8 0, ptr %425, align 1, !tbaa !76
   %426 = call i32 @zend_get_executed_lineno() #26
   %427 = add i32 %426, -1
@@ -5606,7 +5606,7 @@ zend_string_alloc.exit.i244:                      ; preds = %438
   store i64 %442, ptr %448, align 8, !tbaa !73
   %449 = getelementptr inbounds nuw i8, ptr %445, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %449, ptr nonnull align 1 %441, i64 %442, i1 false)
-  %450 = getelementptr inbounds nuw [1 x i8], ptr %449, i64 0, i64 %442
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 %442
   store i8 0, ptr %450, align 1, !tbaa !76
   %451 = call i32 @zend_get_executed_lineno() #26
   %452 = add i32 %451, -1
@@ -5681,7 +5681,7 @@ zend_string_alloc.exit.i247:                      ; preds = %474
   store i64 %480, ptr %486, align 8, !tbaa !73
   %487 = getelementptr inbounds nuw i8, ptr %483, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %487, ptr nonnull align 1 %479, i64 %480, i1 false)
-  %488 = getelementptr inbounds nuw [1 x i8], ptr %487, i64 0, i64 %480
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 %480
   store i8 0, ptr %488, align 1, !tbaa !76
   %489 = call i32 @zend_get_executed_lineno() #26
   %490 = add i32 %489, -1
@@ -5743,7 +5743,7 @@ zend_string_alloc.exit.i250:                      ; preds = %501
   store i64 %505, ptr %511, align 8, !tbaa !73
   %512 = getelementptr inbounds nuw i8, ptr %508, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %512, ptr nonnull align 1 %504, i64 %505, i1 false)
-  %513 = getelementptr inbounds nuw [1 x i8], ptr %512, i64 0, i64 %505
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 %505
   store i8 0, ptr %513, align 1, !tbaa !76
   %514 = call i32 @zend_get_executed_lineno() #26
   %515 = add i32 %514, -1
@@ -5944,7 +5944,7 @@ zend_string_alloc.exit.i:                         ; preds = %53
   store i64 %59, ptr %65, align 8, !tbaa !73
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 1 %58, i64 %59, i1 false)
-  %67 = getelementptr inbounds nuw [1 x i8], ptr %66, i64 0, i64 %59
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %59
   store i8 0, ptr %67, align 1, !tbaa !76
   %68 = tail call i32 @zend_get_executed_lineno() #26
   %69 = add i32 %68, -1
@@ -6006,7 +6006,7 @@ zend_string_alloc.exit.i37:                       ; preds = %80
   store i64 %84, ptr %90, align 8, !tbaa !73
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull align 1 %83, i64 %84, i1 false)
-  %92 = getelementptr inbounds nuw [1 x i8], ptr %91, i64 0, i64 %84
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %84
   store i8 0, ptr %92, align 1, !tbaa !76
   %93 = tail call i32 @zend_get_executed_lineno() #26
   %94 = add i32 %93, -1

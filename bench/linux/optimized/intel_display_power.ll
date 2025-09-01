@@ -692,17 +692,13 @@ define dso_local void @intel_display_power_set_target_dc_state(ptr noundef %0, i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   br label %20
 
-20:                                               ; preds = %34, %18
-  %21 = phi i64 [ 0, %18 ], [ %.pre-phi, %34 ]
-  %22 = phi i32 [ %1, %18 ], [ %35, %34 ]
-  %23 = getelementptr [4 x i32], ptr @sanitize_target_dc_state.states, i64 0, i64 %21
+20:                                               ; preds = %33, %18
+  %21 = phi i64 [ 0, %18 ], [ %35, %33 ]
+  %22 = phi i32 [ %1, %18 ], [ %34, %33 ]
+  %23 = getelementptr i32, ptr @sanitize_target_dc_state.states, i64 %21
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %._crit_edge
-
-._crit_edge:                                      ; preds = %20
-  %.pre = add nuw nsw i64 %21, 1
-  br label %34
+  br i1 %25, label %26, label %33
 
 26:                                               ; preds = %20
   %27 = load i32, ptr %19, align 8
@@ -711,19 +707,18 @@ define dso_local void @intel_display_power_set_target_dc_state(ptr noundef %0, i
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
-  %31 = add nuw nsw i64 %21, 1
-  %32 = getelementptr [4 x i32], ptr @sanitize_target_dc_state.states, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4
-  br label %34
+  %31 = getelementptr i8, ptr %23, i64 4
+  %32 = load i32, ptr %31, align 4
+  br label %33
 
-34:                                               ; preds = %._crit_edge, %30
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %31, %30 ]
-  %35 = phi i32 [ %22, %._crit_edge ], [ %33, %30 ]
-  %36 = icmp eq i64 %.pre-phi, 3
+33:                                               ; preds = %30, %20
+  %34 = phi i32 [ %22, %20 ], [ %32, %30 ]
+  %35 = add nuw nsw i64 %21, 1
+  %36 = icmp eq i64 %35, 3
   br i1 %36, label %37, label %20, !llvm.loop !21
 
-37:                                               ; preds = %34, %26
-  %38 = phi i32 [ %22, %26 ], [ %35, %34 ]
+37:                                               ; preds = %33, %26
+  %38 = phi i32 [ %22, %26 ], [ %34, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2764
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %38, %40
@@ -851,7 +846,7 @@ define internal fastcc void @__intel_display_power_get_domain(ptr noundef %0, i3
 
 .loopexit:                                        ; preds = %34, %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %45 = getelementptr [76 x i32], ptr %44, i64 0, i64 %6
+  %45 = getelementptr i32, ptr %44, i64 %6
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -960,7 +955,7 @@ define dso_local void @__intel_display_power_put_async(ptr noundef %0, i32 nound
   tail call void @mutex_lock(ptr noundef nonnull %10) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2824
   %12 = zext i32 %1 to i64
-  %13 = getelementptr [76 x i32], ptr %11, i64 0, i64 %12
+  %13 = getelementptr i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %17
@@ -1044,7 +1039,7 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2824
   %6 = zext i32 %1 to i64
-  %7 = getelementptr [76 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %22, !prof !15
@@ -1651,17 +1646,13 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
   store i32 %84, ptr %85, align 8
   br label %86
 
-86:                                               ; preds = %99, %83
-  %87 = phi i64 [ 0, %83 ], [ %.pre-phi, %99 ]
-  %88 = phi i32 [ 2, %83 ], [ %100, %99 ]
-  %89 = getelementptr [4 x i32], ptr @sanitize_target_dc_state.states, i64 0, i64 %87
+86:                                               ; preds = %98, %83
+  %87 = phi i64 [ 0, %83 ], [ %100, %98 ]
+  %88 = phi i32 [ 2, %83 ], [ %99, %98 ]
+  %89 = getelementptr i32, ptr @sanitize_target_dc_state.states, i64 %87
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %._crit_edge
-
-._crit_edge:                                      ; preds = %86
-  %.pre = add nuw nsw i64 %87, 1
-  br label %99
+  br i1 %91, label %92, label %98
 
 92:                                               ; preds = %86
   %93 = and i32 %88, %84
@@ -1669,19 +1660,18 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %92
-  %96 = add nuw nsw i64 %87, 1
-  %97 = getelementptr [4 x i32], ptr @sanitize_target_dc_state.states, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4
-  br label %99
+  %96 = getelementptr i8, ptr %89, i64 4
+  %97 = load i32, ptr %96, align 4
+  br label %98
 
-99:                                               ; preds = %._crit_edge, %95
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %96, %95 ]
-  %100 = phi i32 [ %88, %._crit_edge ], [ %98, %95 ]
-  %101 = icmp eq i64 %.pre-phi, 3
+98:                                               ; preds = %95, %86
+  %99 = phi i32 [ %88, %86 ], [ %97, %95 ]
+  %100 = add nuw nsw i64 %87, 1
+  %101 = icmp eq i64 %100, 3
   br i1 %101, label %102, label %86, !llvm.loop !21
 
-102:                                              ; preds = %99, %92
-  %103 = phi i32 [ %88, %92 ], [ %100, %99 ]
+102:                                              ; preds = %98, %92
+  %103 = phi i32 [ %88, %92 ], [ %99, %98 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2764
   store i32 %103, ptr %105, align 4
@@ -1866,7 +1856,7 @@ define dso_local void @gen9_dbuf_slices_update(ptr noundef %0, i8 noundef zeroex
   store i32 282600, ptr %34, align 4
   store i32 279296, ptr %35, align 4
   store i32 279300, ptr %36, align 4
-  %53 = getelementptr [4 x i32], ptr %3, i64 0, i64 %42
+  %53 = getelementptr i32, ptr %3, i64 %42
   %54 = load i32, ptr %53, align 4
   %55 = select i1 %52, i32 -2147483648, i32 0
   %56 = load ptr, ptr %38, align 8
@@ -2428,7 +2418,7 @@ define internal fastcc void @icl_display_core_init(ptr noundef %0, i1 noundef ze
   store i32 282600, ptr %63, align 4
   store i32 279296, ptr %64, align 4
   store i32 279300, ptr %65, align 4
-  %76 = getelementptr [4 x i32], ptr %3, i64 0, i64 %67
+  %76 = getelementptr i32, ptr %3, i64 %67
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr %32, align 8
   %79 = tail call i32 %78(ptr noundef nonnull %31, i32 %77, i1 noundef zeroext true) #10
@@ -4757,7 +4747,7 @@ define dso_local void @intel_display_power_debug(ptr noundef %0, ptr noundef %1)
 22:                                               ; preds = %16
   %23 = trunc i64 %17 to i32
   %24 = tail call ptr @intel_display_power_domain_str(i32 noundef %23)
-  %25 = getelementptr [76 x i32], ptr %9, i64 0, i64 %17
+  %25 = getelementptr i32, ptr %9, i64 %17
   %26 = load i32, ptr %25, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.96, ptr noundef nonnull %24, i32 noundef %26) #10
   br label %27

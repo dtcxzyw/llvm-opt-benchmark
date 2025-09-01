@@ -516,7 +516,7 @@ thread-pre-split:                                 ; preds = %7
 
 139:                                              ; preds = %139, %128
   %140 = phi i64 [ 0, %128 ], [ %144, %139 ]
-  %141 = getelementptr [4 x i32], ptr %3, i64 0, i64 %140
+  %141 = getelementptr i32, ptr %3, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 0)
   store i32 %143, ptr %141, align 4
@@ -536,7 +536,7 @@ thread-pre-split:                                 ; preds = %7
 
 153:                                              ; preds = %158
   %154 = add nuw nsw i64 %159, 1
-  %155 = getelementptr [73 x %struct._cache_table], ptr @cache_table, i64 0, i64 %154
+  %155 = getelementptr %struct._cache_table, ptr @cache_table, i64 %154
   %156 = load i8, ptr %155, align 4
   %157 = icmp eq i64 %154, 72
   br i1 %157, label %.loopexit, label %158, !llvm.loop !13
@@ -548,7 +548,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %161, label %162, label %153
 
 162:                                              ; preds = %158
-  %163 = getelementptr [73 x %struct._cache_table], ptr @cache_table, i64 0, i64 %159
+  %163 = getelementptr %struct._cache_table, ptr @cache_table, i64 %159
   br i1 %113, label %164, label %.loopexit
 
 164:                                              ; preds = %162
@@ -731,7 +731,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %25 = lshr i32 %22, 16
   %26 = and i32 %25, 255
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr [16 x i16], ptr @assocs, i64 0, i64 %27
+  %28 = getelementptr i16, ptr @assocs, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = lshr i32 %22, 8
@@ -747,7 +747,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %37 = lshr i32 %17, 12
   %38 = and i32 %37, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [16 x i16], ptr @assocs, i64 0, i64 %39
+  %40 = getelementptr i16, ptr @assocs, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = lshr i32 %17, 8
@@ -763,7 +763,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %49 = lshr i32 %18, 12
   %50 = and i32 %49, 15
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [16 x i16], ptr @assocs, i64 0, i64 %51
+  %52 = getelementptr i16, ptr @assocs, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = lshr i32 %18, 8
@@ -787,9 +787,9 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i3
   %69 = phi i32 [ %18, %62 ], [ %18, %48 ], [ %17, %36 ], [ %22, %24 ]
   %70 = and i32 %69, 255
   %71 = zext nneg i32 %0 to i64
-  %72 = getelementptr [4 x i8], ptr @types, i64 0, i64 %71
+  %72 = getelementptr i8, ptr @types, i64 %71
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr [4 x i8], ptr @levels, i64 0, i64 %71
+  %74 = getelementptr i8, ptr @levels, i64 %71
   %75 = load i8, ptr %74, align 1
   %76 = shl i8 %75, 5
   %77 = and i8 %73, 31
@@ -923,13 +923,13 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 8:                                                ; preds = %1
   %9 = sext i32 %0 to i64
-  %10 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %9
+  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = zext i32 %0 to i64
-  %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
+  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
   br label %17
 
 17:                                               ; preds = %.thread, %8
@@ -961,7 +961,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   store i32 %37, ptr %38, align 8
   %39 = and i32 %24, 31
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [4 x i32], ptr @cache_type_map, i64 0, i64 %40
+  %41 = getelementptr i32, ptr @cache_type_map, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %42, ptr %43, align 4
@@ -1111,7 +1111,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 141:                                              ; preds = %137
   %142 = and i64 %134, 63
-  %143 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %142
+  %143 = getelementptr i64, ptr @__per_cpu_offset, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, ptrtoint (ptr @cpu_info to i64)
   %146 = inttoptr i64 %145 to ptr
@@ -1143,7 +1143,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 164:                                              ; preds = %160
   %165 = and i64 %161, 63
-  %166 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %165
+  %166 = getelementptr i64, ptr @__per_cpu_offset, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, ptrtoint (ptr @cpu_info to i64)
   %169 = inttoptr i64 %168 to ptr
@@ -1202,7 +1202,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 203:                                              ; preds = %199
   %204 = and i64 %200, 63
-  %205 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %204
+  %205 = getelementptr i64, ptr @__per_cpu_offset, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = add i64 %206, ptrtoint (ptr @cpu_info to i64)
   %208 = inttoptr i64 %207 to ptr
@@ -1634,7 +1634,7 @@ define internal fastcc noundef i64 @store_cache_disable(ptr noundef readonly cap
 
 50:                                               ; preds = %65, %47
   %51 = phi i64 [ 0, %47 ], [ %66, %65 ]
-  %52 = getelementptr [4 x i8], ptr %48, i64 0, i64 %51
+  %52 = getelementptr i8, ptr %48, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %65, label %55
@@ -1839,7 +1839,7 @@ define internal fastcc void @amd_init_l3_cache(ptr noundef writeonly captures(no
 5:                                                ; preds = %2
   %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !41
   %7 = sext i32 %6 to i64
-  %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %7
+  %8 = getelementptr i64, ptr @__per_cpu_offset, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, ptrtoint (ptr @cpu_info to i64)
   %11 = inttoptr i64 %10 to ptr

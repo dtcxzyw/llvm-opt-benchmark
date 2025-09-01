@@ -3671,7 +3671,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us:   ; preds = %.preheader205.split
   %177 = load i8, ptr %.1101206.us.us, align 1, !tbaa !36
   %178 = zext i8 %177 to i64
   %179 = getelementptr inbounds nuw %"class.cv::Vec.36", ptr %173, i64 %178
-  %180 = getelementptr inbounds nuw [3 x float], ptr %179, i64 0, i64 %indvars.iv287
+  %180 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv287
   %181 = load float, ptr %180, align 4, !tbaa !7
   %182 = fadd float %181, 1.000000e+00
   store float %182, ptr %180, align 4, !tbaa !7
@@ -3693,7 +3693,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us.us211: ; preds = %.preheader205.spli
   %188 = zext i8 %187 to i64
   %189 = mul i64 %186, %188
   %190 = getelementptr inbounds nuw i8, ptr %173, i64 %189
-  %191 = getelementptr inbounds nuw [3 x float], ptr %190, i64 0, i64 %indvars.iv282
+  %191 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv282
   %192 = load float, ptr %191, align 4, !tbaa !7
   %193 = fadd float %192, 1.000000e+00
   store float %193, ptr %191, align 4, !tbaa !7
@@ -3715,7 +3715,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit.us:      ; preds = %.preheader205.split
   %201 = getelementptr inbounds nuw i8, ptr %173, i64 %200
   %202 = sext i32 %.recomposed to i64
   %203 = getelementptr inbounds %"class.cv::Vec.36", ptr %201, i64 %202
-  %204 = getelementptr inbounds nuw [3 x float], ptr %203, i64 0, i64 %indvars.iv277
+  %204 = getelementptr inbounds nuw float, ptr %203, i64 %indvars.iv277
   %205 = load float, ptr %204, align 4, !tbaa !7
   %206 = fadd float %205, 1.000000e+00
   store float %206, ptr %204, align 4, !tbaa !7
@@ -3752,7 +3752,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit:         ; preds = %.preheader205, %_ZN
   %220 = load i8, ptr %.1101206, align 1, !tbaa !36
   %221 = zext i8 %220 to i64
   %222 = getelementptr inbounds nuw %"class.cv::Vec.36", ptr %173, i64 %221
-  %223 = getelementptr inbounds nuw [3 x float], ptr %222, i64 0, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv
   %224 = load float, ptr %223, align 4, !tbaa !7
   %225 = fadd float %224, 1.000000e+00
   store float %225, ptr %223, align 4, !tbaa !7
@@ -4115,7 +4115,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %360, %361, %377, %3
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit175.us:   ; preds = %402, %397, %388
   %.0.i174.us = phi ptr [ %404, %402 ], [ %401, %397 ], [ %396, %388 ]
-  %405 = getelementptr inbounds nuw [3 x float], ptr %.0.i174.us, i64 0, i64 %indvars.iv307
+  %405 = getelementptr inbounds nuw float, ptr %.0.i174.us, i64 %indvars.iv307
   %406 = load float, ptr %405, align 4, !tbaa !7
   %407 = call float @llvm.fmuladd.f32(float %381, float %382, float %406)
   store float %407, ptr %405, align 4, !tbaa !7
@@ -4142,7 +4142,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us227.us:              ; preds = %.preheader.split.sp
   %414 = load i8, ptr %.194217.us226.us, align 1, !tbaa !36
   %415 = zext i8 %414 to i64
   %416 = getelementptr inbounds nuw %"class.cv::Vec.36", ptr %356, i64 %415
-  %417 = getelementptr inbounds nuw [3 x float], ptr %416, i64 0, i64 %indvars.iv302
+  %417 = getelementptr inbounds nuw float, ptr %416, i64 %indvars.iv302
   %418 = load float, ptr %417, align 4, !tbaa !7
   %419 = call float @llvm.fmuladd.f32(float %412, float %413, float %418)
   store float %419, ptr %417, align 4, !tbaa !7
@@ -4188,7 +4188,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us227:                 ; preds = %434, %425
   %440 = load i8, ptr %.194217.us226, align 1, !tbaa !36
   %441 = zext i8 %440 to i64
   %442 = getelementptr inbounds nuw %"class.cv::Vec.36", ptr %356, i64 %441
-  %443 = getelementptr inbounds nuw [3 x float], ptr %442, i64 0, i64 %indvars.iv297
+  %443 = getelementptr inbounds nuw float, ptr %442, i64 %indvars.iv297
   %444 = load float, ptr %443, align 4, !tbaa !7
   %445 = call float @llvm.fmuladd.f32(float %438, float %439, float %444)
   store float %445, ptr %443, align 4, !tbaa !7
@@ -4230,7 +4230,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %.preheader.split, %
   %462 = load i8, ptr %.194217, align 1, !tbaa !36
   %463 = zext i8 %462 to i64
   %464 = getelementptr inbounds nuw %"class.cv::Vec.36", ptr %356, i64 %463
-  %465 = getelementptr inbounds nuw [3 x float], ptr %464, i64 0, i64 %indvars.iv292
+  %465 = getelementptr inbounds nuw float, ptr %464, i64 %indvars.iv292
   %466 = load float, ptr %465, align 4, !tbaa !7
   %467 = call float @llvm.fmuladd.f32(float %460, float %461, float %466)
   store float %467, ptr %465, align 4, !tbaa !7
@@ -4336,7 +4336,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit177:              ; preds = %470
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us: ; preds = %490, %496, %500
   %.0.i179.ph = phi ptr [ %482, %490 ], [ %508, %500 ], [ %499, %496 ]
-  %509 = getelementptr inbounds nuw [3 x float], ptr %.0.i179.ph, i64 0, i64 %indvars.iv325
+  %509 = getelementptr inbounds nuw float, ptr %.0.i179.ph, i64 %indvars.iv325
   %510 = load float, ptr %509, align 4, !tbaa !7
   %511 = load ptr, ptr %261, align 8
   %512 = load i32, ptr %262, align 4
@@ -4346,7 +4346,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us: ; preds = %490, %496, %500
   br i1 %515, label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.us, label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.us: ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us
-  %invariant.gep247 = getelementptr inbounds nuw [3 x float], ptr %513, i64 0, i64 %indvars.iv325
+  %invariant.gep247 = getelementptr inbounds nuw float, ptr %513, i64 %indvars.iv325
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us: ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.us
@@ -4368,7 +4368,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split: ; preds = %_ZN2cv3Ma
   br i1 %521, label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.split.us, label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.split.us: ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split
-  %invariant.gep245 = getelementptr [3 x float], ptr %513, i64 0, i64 %indvars.iv325
+  %invariant.gep245 = getelementptr float, ptr %513, i64 %indvars.iv325
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us243
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us243: ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us243, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split.us.split.split.us
@@ -4392,7 +4392,7 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us:   ; preds = %_ZN2cv3Mat2atINS_3V
   %530 = getelementptr inbounds nuw i8, ptr %513, i64 %529
   %531 = sext i32 %.recomposed421 to i64
   %532 = getelementptr inbounds %"class.cv::Vec.36", ptr %530, i64 %531
-  %533 = getelementptr inbounds nuw [3 x float], ptr %532, i64 0, i64 %indvars.iv325
+  %533 = getelementptr inbounds nuw float, ptr %532, i64 %indvars.iv325
   %534 = load float, ptr %533, align 4, !tbaa !7
   %535 = fdiv float %534, %510
   store float %535, ptr %533, align 4, !tbaa !7
@@ -4401,10 +4401,10 @@ _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us:   ; preds = %_ZN2cv3Mat2atINS_3V
   br i1 %exitcond316.not, label %.split241.us, label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us, !llvm.loop !164
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit180.split: ; preds = %489
-  %537 = getelementptr inbounds nuw [3 x float], ptr %482, i64 0, i64 %indvars.iv325
+  %537 = getelementptr inbounds nuw float, ptr %482, i64 %indvars.iv325
   %538 = load float, ptr %537, align 4, !tbaa !7
   %539 = load ptr, ptr %263, align 8
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %539, i64 0, i64 %indvars.iv325
+  %invariant.gep = getelementptr inbounds nuw float, ptr %539, i64 %indvars.iv325
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183
 
 .split241.us:                                     ; preds = %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us243, %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit183.us.us

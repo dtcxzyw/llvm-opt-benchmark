@@ -53,7 +53,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %10 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -242,7 +242,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %13, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %13, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 9
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1

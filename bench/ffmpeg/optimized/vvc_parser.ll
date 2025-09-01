@@ -394,7 +394,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %54 = load i8, ptr %53, align 1, !tbaa !71
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw [64 x ptr], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !72
   %.not51.i.i = icmp eq ptr %57, null
   br i1 %.not51.i.i, label %58, label %60
@@ -409,7 +409,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 5
   %63 = load i8, ptr %62, align 1, !tbaa !74
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [16 x ptr], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !77
   %.not52.i.i = icmp eq ptr %66, null
   br i1 %.not52.i.i, label %67, label %.preheader.i
@@ -608,7 +608,7 @@ is_au_start.exit.i:                               ; preds = %150, %144, %139
   %157 = getelementptr inbounds nuw i8, ptr %66, i64 7
   %158 = load i8, ptr %157, align 1, !tbaa !102
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw [4 x i32], ptr %pix_fmts_10bit.sink.i.i.i, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr %pix_fmts_10bit.sink.i.i.i, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !33
   br label %get_format.exit.i.i
 
@@ -640,7 +640,7 @@ get_format.exit.i.i:                              ; preds = %.sink.split.i.i.i, 
   %178 = load i16, ptr %177, align 8, !tbaa !111
   %179 = zext i16 %178 to i32
   %180 = add nuw nsw i32 %179, %176
-  %181 = getelementptr inbounds nuw [4 x i8], ptr @set_parser_ctx.h266_sub_width_c, i64 0, i64 %.pre-phi.i.i
+  %181 = getelementptr inbounds nuw i8, ptr @set_parser_ctx.h266_sub_width_c, i64 %.pre-phi.i.i
   %182 = load i8, ptr %181, align 1, !tbaa !50
   %183 = zext i8 %182 to i32
   %184 = mul nuw nsw i32 %180, %183
@@ -654,7 +654,7 @@ get_format.exit.i.i:                              ; preds = %.sink.split.i.i.i, 
   %191 = load i16, ptr %190, align 4, !tbaa !114
   %192 = zext i16 %191 to i32
   %193 = add nuw nsw i32 %192, %189
-  %194 = getelementptr inbounds nuw [4 x i8], ptr @set_parser_ctx.h266_sub_height_c, i64 0, i64 %.pre-phi.i.i
+  %194 = getelementptr inbounds nuw i8, ptr @set_parser_ctx.h266_sub_height_c, i64 %.pre-phi.i.i
   %195 = load i8, ptr %194, align 1, !tbaa !50
   %196 = zext i8 %195 to i32
   %197 = mul nuw nsw i32 %193, %196

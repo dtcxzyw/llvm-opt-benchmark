@@ -206,9 +206,9 @@ kh_get_oid_map.exit24:                            ; preds = %43, %54
 
 78:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %79 = getelementptr inbounds nuw [0 x i32], ptr %74, i64 0, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
   %80 = load i32, ptr %79, align 4, !tbaa !15
-  %81 = getelementptr inbounds nuw [0 x i32], ptr %76, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = and i32 %82, %80
   %.not.i25 = icmp eq i32 %83, %80
@@ -422,9 +422,9 @@ kh_get_oid_map.exit37:                            ; preds = %43, %.critedge.i29
 
 86:                                               ; preds = %85, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %85 ]
-  %87 = getelementptr inbounds nuw [0 x i32], ptr %82, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4, !tbaa !15
-  %89 = getelementptr inbounds nuw [0 x i32], ptr %84, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 4, !tbaa !15
   %91 = and i32 %90, %88
   %.not.i38 = icmp eq i32 %91, %88
@@ -453,9 +453,9 @@ kh_get_oid_map.exit37:                            ; preds = %43, %.critedge.i29
 
 96:                                               ; preds = %95, %.lr.ph.i41
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.i41 ], [ %indvars.iv.next.i46, %95 ]
-  %97 = getelementptr inbounds nuw [0 x i32], ptr %93, i64 0, i64 %indvars.iv.i43
+  %97 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i43
   %98 = load i32, ptr %97, align 4, !tbaa !15
-  %99 = getelementptr inbounds nuw [0 x i32], ptr %94, i64 0, i64 %indvars.iv.i43
+  %99 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i43
   %100 = load i32, ptr %99, align 4, !tbaa !15
   %101 = and i32 %100, %98
   %.not.i44 = icmp eq i32 %101, %98
@@ -920,9 +920,9 @@ island_bitmap_new.exit.i:                         ; preds = %209
 
 230:                                              ; preds = %230, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %230 ]
-  %231 = getelementptr inbounds nuw [0 x i32], ptr %103, i64 0, i64 %indvars.iv.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i.i
   %232 = load i32, ptr %231, align 4, !tbaa !15
-  %233 = getelementptr inbounds nuw [0 x i32], ptr %229, i64 0, i64 %indvars.iv.i.i
+  %233 = getelementptr inbounds nuw i32, ptr %229, i64 %indvars.iv.i.i
   %234 = load i32, ptr %233, align 4, !tbaa !15
   %235 = or i32 %234, %232
   store i32 %235, ptr %233, align 4, !tbaa !15
@@ -1502,7 +1502,7 @@ create_or_get_island_marks.exit.i.i:              ; preds = %230, %._crit_edge.i
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %248 = lshr i32 %244, 5
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [0 x i32], ptr %247, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw i32, ptr %247, i64 %249
   %251 = load i32, ptr %250, align 4, !tbaa !15
   %252 = or i32 %246, %251
   store i32 %252, ptr %250, align 4, !tbaa !15
@@ -1727,7 +1727,7 @@ create_or_get_island_marks.exit34.i.i:            ; preds = %354, %._crit_edge.i
   %371 = getelementptr inbounds nuw i8, ptr %367, i64 4
   %372 = lshr i32 %368, 5
   %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds nuw [0 x i32], ptr %371, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw i32, ptr %371, i64 %373
   %375 = load i32, ptr %374, align 4, !tbaa !15
   %376 = or i32 %370, %375
   store i32 %376, ptr %374, align 4, !tbaa !15
@@ -2019,7 +2019,7 @@ _.exit:                                           ; preds = %23, %25
 
 30:                                               ; preds = %27, %52
   %indvars.iv67 = phi i64 [ 1, %27 ], [ %indvars.iv.next68, %52 ]
-  %31 = getelementptr inbounds nuw [16 x %struct.regmatch_t], ptr %6, i64 0, i64 %indvars.iv67
+  %31 = getelementptr inbounds nuw %struct.regmatch_t, ptr %6, i64 %indvars.iv67
   %32 = load i32, ptr %31, align 8, !tbaa !95
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %52, label %34
@@ -2672,9 +2672,9 @@ island_bitmap_new.exit.i:                         ; preds = %61
 
 84:                                               ; preds = %84, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %84 ]
-  %85 = getelementptr inbounds nuw [0 x i32], ptr %82, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i.i
   %86 = load i32, ptr %85, align 4, !tbaa !15
-  %87 = getelementptr inbounds nuw [0 x i32], ptr %83, i64 0, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i.i
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = or i32 %88, %86
   store i32 %89, ptr %87, align 4, !tbaa !15
@@ -2762,9 +2762,9 @@ island_bitmap_new.exit.i21:                       ; preds = %107
 
 129:                                              ; preds = %129, %.lr.ph.i.i16
   %indvars.iv.i.i18 = phi i64 [ 0, %.lr.ph.i.i16 ], [ %indvars.iv.next.i.i19, %129 ]
-  %130 = getelementptr inbounds nuw [0 x i32], ptr %92, i64 0, i64 %indvars.iv.i.i18
+  %130 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i.i18
   %131 = load i32, ptr %130, align 4, !tbaa !15
-  %132 = getelementptr inbounds nuw [0 x i32], ptr %128, i64 0, i64 %indvars.iv.i.i18
+  %132 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i.i18
   %133 = load i32, ptr %132, align 4, !tbaa !15
   %134 = or i32 %133, %131
   store i32 %134, ptr %132, align 4, !tbaa !15
@@ -2982,7 +2982,7 @@ oe_set_layer.exit:                                ; preds = %kh_get_oid_map.exit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %68 = lshr i32 %66, 5
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [0 x i32], ptr %67, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !15
   %72 = and i32 %66, 31
   %73 = shl nuw i32 1, %72

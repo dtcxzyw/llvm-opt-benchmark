@@ -666,7 +666,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 48:                                               ; preds = %46
   %49 = and i32 %40, 15
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @.str, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !18
   %53 = zext i8 %52 to i32
   %54 = sext i32 %41 to i64
@@ -821,7 +821,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 135:                                              ; preds = %133
   %136 = and i32 %128, 15
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @.str, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !18
   %140 = zext i8 %139 to i32
   %141 = sext i32 %129 to i64
@@ -948,7 +948,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 199:                                              ; preds = %196
   %200 = and i32 %189, 15
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr @.str, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !18
   %204 = zext i8 %203 to i32
   %205 = sext i32 %185 to i64
@@ -1129,7 +1129,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 298:                                              ; preds = %295
   %299 = and i32 %288, 15
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw i8, ptr @.str, i64 %300
   %302 = load i8, ptr %301, align 1, !tbaa !18
   %303 = zext i8 %302 to i32
   %304 = sext i32 %284 to i64
@@ -1287,7 +1287,7 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
 384:                                              ; preds = %381
   %385 = and i32 %375, 15
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr @.str, i64 %386
   %388 = load i8, ptr %387, align 1, !tbaa !18
   %389 = zext i8 %388 to i32
   %390 = sext i32 %371 to i64

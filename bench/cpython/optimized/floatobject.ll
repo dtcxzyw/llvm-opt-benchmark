@@ -1781,7 +1781,7 @@ define internal ptr @float_from_string_inner(ptr noundef %0, i64 noundef %1, ptr
   %.02127 = phi ptr [ %13, %12 ], [ %0, %3 ]
   %7 = load i8, ptr %.02127, align 1, !tbaa !28
   %8 = zext i8 %7 to i64
-  %9 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @_Py_ctype_table, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !53
   %11 = and i32 %10, 8
   %.not = icmp eq i32 %11, 0
@@ -1811,7 +1811,7 @@ define internal ptr @float_from_string_inner(ptr noundef %0, i64 noundef %1, ptr
 19:                                               ; preds = %.preheader
   %20 = load i8, ptr %17, align 1, !tbaa !28
   %21 = zext i8 %20 to i64
-  %22 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %21
+  %22 = getelementptr i32, ptr @_Py_ctype_table, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !53
   %24 = and i32 %23, 8
   %.not24 = icmp eq i32 %24, 0
@@ -2277,7 +2277,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCh
 42:                                               ; preds = %41
   %43 = fneg double %.val136
   %44 = sext i32 %2 to i64
-  %45 = getelementptr [0 x i32], ptr @_Py_SwappedOp, i64 0, i64 %44
+  %45 = getelementptr i32, ptr @_Py_SwappedOp, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !53
   br label %47
 
@@ -2901,7 +2901,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %0, ptr noun
 64:                                               ; preds = %63, %64
   %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %64 ]
   %.26387 = phi ptr [ %.162, %63 ], [ %67, %64 ]
-  %65 = getelementptr [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %65 = getelementptr i8, ptr %5, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1, !tbaa !28
   store i8 %66, ptr %.26387, align 1, !tbaa !28
   %67 = getelementptr i8, ptr %.26387, i64 %.0
@@ -5907,7 +5907,7 @@ define internal ptr @float_fromhex(ptr noundef %0, ptr noundef %1) #1 {
   %.0157 = phi ptr [ %5, %7 ], [ %15, %9 ]
   %10 = load i8, ptr %.0157, align 1, !tbaa !28
   %11 = zext i8 %10 to i64
-  %12 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %11
+  %12 = getelementptr i32, ptr @_Py_ctype_table, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = and i32 %13, 8
   %.not = icmp eq i32 %14, 0
@@ -5963,7 +5963,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %.4 = phi ptr [ %.3160, %31 ], [ %38, %32 ]
   %33 = load i8, ptr %.4, align 1, !tbaa !28
   %34 = zext i8 %33 to i64
-  %35 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %34
+  %35 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !53
   %37 = icmp sgt i32 %36, -1
   %38 = getelementptr i8, ptr %.4, i64 1
@@ -5978,7 +5978,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %.5 = getelementptr i8, ptr %.4.pn, i64 1
   %41 = load i8, ptr %.5, align 1, !tbaa !28
   %42 = zext i8 %41 to i64
-  %43 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %42
+  %43 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !53
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %.preheader211, label %.loopexit212, !llvm.loop !231
@@ -6093,7 +6093,7 @@ thread-pre-split:                                 ; preds = %20, %22
 
 .lr.ph219.preheader:                              ; preds = %82
   %94 = zext i8 %93 to i64
-  %95 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %94
+  %95 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !53
   br label %.lr.ph219
 
@@ -6134,7 +6134,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %108 = getelementptr i8, ptr %.v205, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !28
   %110 = zext i8 %109 to i64
-  %111 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %110
+  %111 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !53
   %113 = sitofp i32 %112 to double
   %114 = call double @llvm.fmuladd.f64(double %.1222, double 1.600000e+01, double %113)
@@ -6161,7 +6161,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %126 = getelementptr i8, ptr %.v209, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !28
   %128 = zext i8 %127 to i64
-  %129 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %128
+  %129 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !53
   %131 = sitofp i32 %130 to double
   %132 = call double @llvm.fmuladd.f64(double %.2227, double 1.600000e+01, double %131)
@@ -6177,7 +6177,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %137 = getelementptr i8, ptr %.v206, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !28
   %139 = zext i8 %138 to i64
-  %140 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %139
+  %140 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !53
   %142 = shl nuw nsw i32 2, %120
   %143 = sub nsw i32 16, %142
@@ -6211,7 +6211,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %160 = getelementptr i8, ptr %.v207, i64 %159
   %161 = load i8, ptr %160, align 1, !tbaa !28
   %162 = zext i8 %161 to i64
-  %163 = getelementptr [256 x i32], ptr @_CHAR_TO_HEX, i64 0, i64 %162
+  %163 = getelementptr i32, ptr @_CHAR_TO_HEX, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !53
   %165 = and i32 %164, 1
   %.not192 = icmp eq i32 %165, 0
@@ -6269,7 +6269,7 @@ thread-pre-split:                                 ; preds = %20, %22
   %.10 = phi ptr [ %.1158, %.critedge2.thread ], [ %188, %182 ]
   %183 = load i8, ptr %.10, align 1, !tbaa !28
   %184 = zext i8 %183 to i64
-  %185 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %184
+  %185 = getelementptr i32, ptr @_Py_ctype_table, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !53
   %187 = and i32 %186, 8
   %.not196 = icmp eq i32 %187, 0
@@ -6497,7 +6497,7 @@ _Py_convert_int_to_double.exit.i:                 ; preds = %11, %PyObject_TypeC
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %50, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !28
-  %63 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr i8, ptr %4, i64 %indvars.iv.i
   store i8 %62, ptr %63, align 1, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %64 = sitofp i32 %59 to double

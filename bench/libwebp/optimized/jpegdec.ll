@@ -407,7 +407,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %.0122.i = phi i64 [ 0, %.lr.ph124.preheader.i ], [ %73, %.lr.ph124.i ]
   %66 = load ptr, ptr %4, align 8, !tbaa !76
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0122.i
-  %68 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !73
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !71
@@ -487,7 +487,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %99, %77, %83, %89
-  %106 = getelementptr inbounds nuw [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw %struct.anon, ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 %indvars.iv
   %107 = load i32, ptr %106, align 16, !tbaa !85
   br i1 %exitcond, label %.critedge43.loopexit, label %77, !llvm.loop !86
 

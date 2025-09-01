@@ -795,7 +795,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %488 = load i8, ptr %487, align 1
   %489 = add nuw nsw i32 %469, 1
   %490 = zext nneg i32 %469 to i64
-  %491 = getelementptr [5 x i8], ptr %465, i64 0, i64 %490
+  %491 = getelementptr i8, ptr %465, i64 %490
   store i8 %488, ptr %491, align 1
   %.pre.i = load i16, ptr %470, align 2
   %.pre6.i = zext i16 %.pre.i to i32
@@ -909,7 +909,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %556 = load i8, ptr %555, align 1
   %557 = add nuw nsw i32 %537, 1
   %558 = zext nneg i32 %537 to i64
-  %559 = getelementptr [5 x i8], ptr %533, i64 0, i64 %558
+  %559 = getelementptr i8, ptr %533, i64 %558
   store i8 %556, ptr %559, align 1
   %.pre.i62 = load i16, ptr %538, align 2
   %.pre6.i63 = zext i16 %.pre.i62 to i32
@@ -1091,7 +1091,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
 
 55:                                               ; preds = %52, %50
   %56 = phi i64 [ 0, %50 ], [ %53, %52 ]
-  %57 = getelementptr [5 x i8], ptr %51, i64 0, i64 %56
+  %57 = getelementptr i8, ptr %51, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %63, label %60
@@ -1478,7 +1478,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %47 = load i8, ptr %46, align 1
   %48 = add nuw nsw i32 %28, 1
   %49 = zext nneg i32 %28 to i64
-  %50 = getelementptr [5 x i8], ptr %24, i64 0, i64 %49
+  %50 = getelementptr i8, ptr %24, i64 %49
   store i8 %47, ptr %50, align 1
   %.pre = load i16, ptr %29, align 2
   %.pre6 = zext i16 %.pre to i32

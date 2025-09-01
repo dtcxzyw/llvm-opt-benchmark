@@ -1757,7 +1757,7 @@ broken_check_hec.exit:                            ; preds = %144
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %476 = getelementptr inbounds nuw i8, ptr %spec.select.i981, i64 56
   %477 = zext nneg i32 %.0915 to i64
-  %478 = getelementptr [2 x [6 x i8]], ptr %476, i64 0, i64 %477
+  %478 = getelementptr [6 x i8], ptr %476, i64 %477
   store i32 1, ptr %475, align 8
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 6, ptr %479, align 4
@@ -1768,7 +1768,7 @@ broken_check_hec.exit:                            ; preds = %144
   %482 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %483 = sub nuw nsw i32 1, %.0915
   %484 = zext nneg i32 %483 to i64
-  %485 = getelementptr [2 x [6 x i8]], ptr %476, i64 0, i64 %484
+  %485 = getelementptr [6 x i8], ptr %476, i64 %484
   store i32 1, ptr %482, align 8
   %486 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 6, ptr %486, align 4
@@ -2331,7 +2331,7 @@ broken_check_hec.exit:                            ; preds = %144
 719:                                              ; preds = %716
   %720 = getelementptr inbounds nuw i8, ptr %.09131058, i64 52
   %721 = zext nneg i32 %.0915 to i64
-  %722 = getelementptr [2 x i16], ptr %720, i64 0, i64 %721
+  %722 = getelementptr i16, ptr %720, i64 %721
   %723 = load i16, ptr %722, align 2
   %724 = zext i16 %723 to i32
   %.not949 = icmp eq i32 %.1902, %724
@@ -2458,7 +2458,7 @@ broken_check_hec.exit:                            ; preds = %144
 
 793:                                              ; preds = %786
   %794 = zext nneg i32 %.0915 to i64
-  %795 = getelementptr [2 x %struct._reassembly_t], ptr %.09131058, i64 0, i64 %794, i32 2
+  %795 = getelementptr %struct._reassembly_t, ptr %.09131058, i64 %794, i32 2
   %796 = load i8, ptr %795, align 4
   %797 = trunc i8 %796 to i1
   %798 = xor i1 %.091610291142, %797
@@ -2599,7 +2599,7 @@ broken_check_hec.exit:                            ; preds = %144
   %878 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %879 = load i32, ptr %878, align 4
   %880 = zext nneg i32 %.0915 to i64
-  %881 = getelementptr [2 x %struct._reassembly_t], ptr %.09131058, i64 0, i64 %880
+  %881 = getelementptr %struct._reassembly_t, ptr %.09131058, i64 %880
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 4
   store i32 %879, ptr %882, align 4
   store i32 0, ptr %881, align 4
@@ -2627,7 +2627,7 @@ broken_check_hec.exit:                            ; preds = %144
   %894 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %895 = load i32, ptr %894, align 4
   %896 = zext nneg i32 %.0915 to i64
-  %897 = getelementptr [2 x %struct._reassembly_t], ptr %.09131058, i64 0, i64 %896
+  %897 = getelementptr %struct._reassembly_t, ptr %.09131058, i64 %896
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 4
   store i32 %895, ptr %898, align 4
   %899 = sub nsw i32 %853, %849
@@ -2691,7 +2691,7 @@ broken_check_hec.exit:                            ; preds = %144
 
 930:                                              ; preds = %924
   %931 = zext nneg i32 %.0915 to i64
-  %932 = getelementptr [2 x %struct._reassembly_t], ptr %.09131058, i64 0, i64 %931
+  %932 = getelementptr %struct._reassembly_t, ptr %.09131058, i64 %931
   %933 = load i32, ptr %932, align 4
   %.not956 = icmp eq i32 %933, 0
   br i1 %.not956, label %951, label %934

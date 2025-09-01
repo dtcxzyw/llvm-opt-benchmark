@@ -1720,7 +1720,7 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %577, %.critedge.loo
 
 783:                                              ; preds = %783, %776
   %indvars.iv.i = phi i64 [ 0, %776 ], [ %indvars.iv.next.i, %783 ]
-  %784 = getelementptr inbounds nuw [3 x float], ptr %782, i64 0, i64 %indvars.iv.i
+  %784 = getelementptr inbounds nuw float, ptr %782, i64 %indvars.iv.i
   %785 = load float, ptr %784, align 4, !tbaa !80
   %786 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i
   %787 = load float, ptr %786, align 4, !tbaa !80
@@ -1811,7 +1811,7 @@ _ZL10calc_rm_cmiPKiPK7t_atomsPA3_fPf.exit:        ; preds = %.lr.ph33.i, %._crit
 
 824:                                              ; preds = %824, %817
   %indvars.iv.i235 = phi i64 [ 0, %817 ], [ %indvars.iv.next.i236, %824 ]
-  %825 = getelementptr inbounds nuw [3 x float], ptr %823, i64 0, i64 %indvars.iv.i235
+  %825 = getelementptr inbounds nuw float, ptr %823, i64 %indvars.iv.i235
   %826 = load float, ptr %825, align 4, !tbaa !80
   %827 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i235
   %828 = load float, ptr %827, align 4, !tbaa !80
@@ -1996,9 +1996,9 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit250.preheader: ; preds = %_ZL14gmx_sfree_
   %indvars.iv410 = phi i64 [ 0, %899 ], [ %indvars.iv.next411, %911 ]
   %.1173345 = phi float [ %.0172350, %899 ], [ %919, %911 ]
   %912 = phi float [ %.promoted, %899 ], [ %920, %911 ]
-  %913 = getelementptr inbounds nuw [3 x float], ptr %905, i64 0, i64 %indvars.iv410
+  %913 = getelementptr inbounds nuw float, ptr %905, i64 %indvars.iv410
   %914 = load float, ptr %913, align 4, !tbaa !80
-  %915 = getelementptr inbounds nuw [3 x float], ptr %909, i64 0, i64 %indvars.iv410
+  %915 = getelementptr inbounds nuw float, ptr %909, i64 %indvars.iv410
   %916 = load float, ptr %915, align 4, !tbaa !80
   %917 = fsub float %914, %916
   %918 = fmul float %917, %917
@@ -2072,9 +2072,9 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit250._crit_edge: ; preds = %_ZL13gmx_snew_
 
 945:                                              ; preds = %.preheader297, %945
   %indvars.iv419 = phi i64 [ 0, %.preheader297 ], [ %indvars.iv.next420, %945 ]
-  %946 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv419
+  %946 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv419
   %947 = load float, ptr %946, align 4, !tbaa !80
-  %948 = getelementptr inbounds nuw [3 x float], ptr %941, i64 0, i64 %indvars.iv419
+  %948 = getelementptr inbounds nuw float, ptr %941, i64 %indvars.iv419
   %949 = load float, ptr %948, align 4, !tbaa !80
   %950 = fadd float %947, %949
   store float %950, ptr %948, align 4, !tbaa !80
@@ -2094,9 +2094,9 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit250._crit_edge: ; preds = %_ZL13gmx_snew_
 
 953:                                              ; preds = %.preheader294, %953
   %indvars.iv428 = phi i64 [ 0, %.preheader294 ], [ %indvars.iv.next429, %953 ]
-  %954 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv428
+  %954 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv428
   %955 = load float, ptr %954, align 4, !tbaa !80
-  %956 = getelementptr inbounds nuw [3 x float], ptr %952, i64 0, i64 %indvars.iv428
+  %956 = getelementptr inbounds nuw float, ptr %952, i64 %indvars.iv428
   %957 = load float, ptr %956, align 4, !tbaa !80
   %958 = fadd float %955, %957
   store float %958, ptr %956, align 4, !tbaa !80

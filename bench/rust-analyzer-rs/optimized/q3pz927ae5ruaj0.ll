@@ -707,7 +707,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !162
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds [0 x { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }], ptr %1, i64 0, i64 %0
+  %7 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -733,7 +733,7 @@ define hidden noundef nonnull align 4 dereferenceable(28) ptr @"_ZN80_$LT$smallv
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !163, !noalias !166, !nonnull !11
   %.sink5.i = select i1 %5, ptr %11, ptr %10
-  %12 = getelementptr inbounds [0 x { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }], ptr %.sink5.i, i64 0, i64 %1
+  %12 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, ptr %.sink5.i, i64 %1
   ret ptr %12
 }
 

@@ -43,7 +43,7 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_JoystickSupport
 
 5:                                                ; preds = %5, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [6 x i32], ptr @supported_device_ids, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -76,7 +76,7 @@ define internal ptr @SDL_HIDAPI_HapticDriverLg4ff_Open(ptr noundef %0) #0 {
 
 8:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw [6 x i32], ptr @supported_device_ids, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %6
   br i1 %11, label %SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit, label %7
@@ -125,7 +125,7 @@ SDL_HIDAPI_HapticDriverLg4ff_JoystickSupported.exit: ; preds = %8
 
 29:                                               ; preds = %34, %22
   %indvars.iv.i35 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i36, %34 ]
-  %30 = getelementptr inbounds nuw [4 x %struct.lg4ff_slot], ptr %24, i64 0, i64 %indvars.iv.i35
+  %30 = getelementptr inbounds nuw %struct.lg4ff_slot, ptr %24, i64 %indvars.iv.i35
   %31 = trunc nuw nsw i64 %indvars.iv.i35 to i32
   store i32 %31, ptr %30, align 8
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %30, ptr noundef %2)
@@ -367,7 +367,7 @@ define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect
 
 effect_is_periodic.exit.i:                        ; preds = %25, %22
   %29 = and i64 %indvars.iv, 4294967295
-  %30 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %11, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %11, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
@@ -457,7 +457,7 @@ lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_sl
 
 effect_is_periodic.exit.i:                        ; preds = %18, %16
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %8, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %8, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
@@ -521,7 +521,7 @@ lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %3, %lg4ff_effect_sl
 16:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
   %17 = tail call i64 @SDL_GetTicks_REAL() #8
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %8, i64 %18
   %20 = icmp sgt i32 %2, 0
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %22 = load i32, ptr %21, align 8
@@ -644,7 +644,7 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
 
 13:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %7, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 148
@@ -969,7 +969,7 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_ThreadFunction(ptr nou
   %46 = phi i32 [ %626, %lg4ff_update_state.exit.i ], [ 0, %28 ]
   %.090.i = phi i32 [ %.1.i, %lg4ff_update_state.exit.i ], [ %35, %28 ]
   %47 = phi i32 [ %627, %lg4ff_update_state.exit.i ], [ 0, %28 ]
-  %48 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %10, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw %struct.lg4ff_effect_state, ptr %10, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
@@ -2108,7 +2108,7 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
 649:                                              ; preds = %649, %631
   %indvars.iv132.i = phi i64 [ 1, %631 ], [ %indvars.iv.next133.i, %649 ]
   %.067114.i = phi i32 [ %648, %631 ], [ %669, %649 ]
-  %650 = getelementptr inbounds nuw [4 x %struct.lg4ff_effect_parameters], ptr %2, i64 0, i64 %indvars.iv132.i
+  %650 = getelementptr inbounds nuw %struct.lg4ff_effect_parameters, ptr %2, i64 %indvars.iv132.i
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 12
   %652 = load i32, ptr %651, align 4
   %653 = sext i32 %652 to i64
@@ -2149,8 +2149,8 @@ lg4ff_update_state.exit.i:                        ; preds = %606, %596, %577, %l
 
 674:                                              ; preds = %.preheader, %684
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %684 ], [ 0, %.preheader ]
-  %675 = getelementptr inbounds nuw [4 x %struct.lg4ff_slot], ptr %26, i64 0, i64 %indvars.iv135.i
-  %676 = getelementptr inbounds nuw [4 x %struct.lg4ff_effect_parameters], ptr %2, i64 0, i64 %indvars.iv135.i
+  %675 = getelementptr inbounds nuw %struct.lg4ff_slot, ptr %26, i64 %indvars.iv135.i
+  %676 = getelementptr inbounds nuw %struct.lg4ff_effect_parameters, ptr %2, i64 %indvars.iv135.i
   call fastcc void @lg4ff_update_slot(ptr noundef nonnull %675, ptr noundef %676)
   %677 = getelementptr inbounds nuw i8, ptr %675, i64 40
   %678 = load i8, ptr %677, align 4, !range !7, !noundef !8
@@ -2267,9 +2267,9 @@ define internal fastcc void @lg4ff_update_slot(ptr noundef %0, ptr noundef nonnu
 
 49:                                               ; preds = %45, %43, %.thread111
   %50 = phi i8 [ 0, %.thread111 ], [ %48, %45 ], [ -1, %43 ]
-  %51 = add nsw i32 %18, 2
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %52
+  %51 = sext i32 %18 to i64
+  %52 = getelementptr i8, ptr %4, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 2
   store i8 %50, ptr %53, align 1
   br label %176
 

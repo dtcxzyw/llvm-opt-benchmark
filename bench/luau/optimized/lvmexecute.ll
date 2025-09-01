@@ -11,12 +11,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TKey = type { %union.Value, [1 x i32], i32 }
 
 @_ZN6DFFlag19LuauPopIncompleteCiE = external local_unnamed_addr global %"struct.Luau::FValue", align 8
-@_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable = internal unnamed_addr constant <{ [83 x ptr], [173 x ptr] }> <{ [83 x ptr] [ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %52), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3804), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %54), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %61), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %74), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %84), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %94), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %105), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %149), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %209), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %230), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %258), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %270), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %598), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %640), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %293), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %455), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %698), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %731), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %780), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %847), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1041), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1169), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1235), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3464), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1241), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1259), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1277), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1628), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1720), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1454), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1674), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1766), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1812), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1879), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1946), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2042), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2216), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2249), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2279), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2305), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2331), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2388), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2513), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2542), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2583), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2605), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2627), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2649), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2671), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2699), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2719), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2769), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2809), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2839), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2865), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2920), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2960), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3052), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3192), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3756), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3229), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3263), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3276), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3338), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3434), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3480), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3491), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3507), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3560), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3570), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3571), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3597), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3636), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3674), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3715), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2993), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3830), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3846), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3869), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3895), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2138), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2445)], [173 x ptr] zeroinitializer }>, align 16
+@_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable = internal unnamed_addr constant <{ [83 x ptr], [173 x ptr] }> <{ [83 x ptr] [ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %52), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3802), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %54), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %61), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %74), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %84), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %94), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %105), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %149), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %209), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %230), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %258), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %270), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %598), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %640), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %293), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %455), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %698), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %731), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %780), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %847), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1041), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1169), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1235), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3462), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1241), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1259), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1277), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1628), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1720), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1454), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1674), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1766), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1812), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1879), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %1946), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2042), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2216), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2249), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2279), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2305), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2331), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2388), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2513), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2542), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2583), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2605), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2627), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2649), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2671), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2699), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2719), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2769), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2809), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2839), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2865), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2920), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2960), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3052), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3192), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3754), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3229), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3263), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3276), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3338), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3432), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3478), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3489), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3505), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3558), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3568), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3569), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3595), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3634), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3672), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3713), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2993), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3828), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3844), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3867), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %3893), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2138), ptr blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %2445)], [173 x ptr] zeroinitializer }>, align 16
 @luaO_nilobject_ = external hidden global %struct.lua_TValue, align 8
 @.str = private unnamed_addr constant [5 x i8] c"call\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"iterate over\00", align 1
 @luauF_table = external local_unnamed_addr constant [256 x ptr], align 16
-@_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable = internal unnamed_addr constant <{ [83 x ptr], [173 x ptr] }> <{ [83 x ptr] [ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %52), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4381), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %57), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %67), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %83), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %96), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %109), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %123), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %173), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %240), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %264), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %296), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %312), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %686), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %734), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %341), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %524), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %799), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %838), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %894), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %964), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1158), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1294), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1374), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3956), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1383), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1404), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1425), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1842), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1952), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1635), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1897), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2007), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2062), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2141), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2220), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2334), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2538), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2577), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2613), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2645), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2677), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2746), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2895), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2930), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2977), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3002), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3027), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3052), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3077), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3108), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3131), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3193), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3245), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3278), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3307), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3366), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3409), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3511), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3666), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4321), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3706), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3743), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3756), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3824), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3923), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3975), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3989), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4008), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4072), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4085), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4086), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4118), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4166), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4215), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4268), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3449), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4405), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4424), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4450), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4479), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2448), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2815)], [173 x ptr] zeroinitializer }>, align 16
+@_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable = internal unnamed_addr constant <{ [83 x ptr], [173 x ptr] }> <{ [83 x ptr] [ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %52), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4379), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %57), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %67), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %83), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %96), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %109), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %123), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %173), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %240), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %264), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %296), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %312), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %686), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %734), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %341), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %524), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %799), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %838), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %894), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %964), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1158), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1294), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1374), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3954), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1383), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1404), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1425), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1842), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1952), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1635), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %1897), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2007), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2062), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2141), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2220), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2334), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2538), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2577), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2613), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2645), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2677), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2746), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2895), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2930), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2977), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3002), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3027), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3052), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3077), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3108), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3131), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3193), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3245), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3278), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3307), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3366), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3409), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3511), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3666), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4319), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3706), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3743), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3756), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3824), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3921), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3973), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3987), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4006), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4070), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4083), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4084), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4116), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4164), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4213), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4266), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %3449), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4403), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4422), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4448), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %4477), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2448), ptr blockaddress(@_ZL12luau_executeILb0EEvP9lua_State, %2815)], [173 x ptr] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress noinline uwtable
 define hidden void @_Z13luau_callhookP9lua_StatePFvS0_P9lua_DebugEPv(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -249,7 +249,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %47 = load i32, ptr %.12898, align 4, !tbaa !61
   %48 = and i32 %47, 255
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x ptr], ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !62
   br label %.backedge.backedge
 
@@ -488,7 +488,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %217 = lshr i32 %211, 16
   %218 = and i32 %217, 255
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %216, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw %struct.lua_TValue, ptr %216, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 12
   %222 = load i32, ptr %221, align 4, !tbaa !63
   %223 = icmp eq i32 %222, 12
@@ -516,7 +516,7 @@ define internal fastcc void @_ZL12luau_executeILb1EEvP9lua_State(ptr noundef %0)
   %238 = lshr i32 %232, 16
   %239 = and i32 %238, 255
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %237, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw %struct.lua_TValue, ptr %237, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !30
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !77
@@ -1429,12 +1429,12 @@ thread-pre-split:                                 ; preds = %365, %360, %369, %3
   %813 = and i32 %812, 255
   %814 = zext nneg i32 %813 to i64
   %815 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %814
-  %816 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %806, i64 0, i64 %indvars.iv3447
+  %816 = getelementptr inbounds nuw %struct.lua_TValue, ptr %806, i64 %indvars.iv3447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %816, ptr noundef nonnull align 8 dereferenceable(16) %815, i64 16, i1 false), !tbaa.struct !64
   br label %832
 
 817:                                              ; preds = %807
-  %818 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %806, i64 0, i64 %indvars.iv3447
+  %818 = getelementptr inbounds nuw %struct.lua_TValue, ptr %806, i64 %indvars.iv3447
   %819 = lshr i32 %809, 16
   %820 = and i32 %819, 255
   %821 = zext nneg i32 %820 to i64
@@ -1449,8 +1449,8 @@ thread-pre-split:                                 ; preds = %365, %360, %369, %3
   %826 = lshr i32 %809, 16
   %827 = and i32 %826, 255
   %828 = zext nneg i32 %827 to i64
-  %829 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %805, i64 0, i64 %828
-  %830 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %806, i64 0, i64 %indvars.iv3447
+  %829 = getelementptr inbounds nuw %struct.lua_TValue, ptr %805, i64 %828
+  %830 = getelementptr inbounds nuw %struct.lua_TValue, ptr %806, i64 %indvars.iv3447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %830, ptr noundef nonnull align 8 dereferenceable(16) %829, i64 16, i1 false), !tbaa.struct !64
   br label %832
 
@@ -1654,7 +1654,7 @@ thread-pre-split:                                 ; preds = %365, %360, %369, %3
   %959 = load ptr, ptr %8, align 8, !tbaa !48
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 2856
   %961 = sext i32 %863 to i64
-  %962 = getelementptr inbounds [11 x ptr], ptr %960, i64 0, i64 %961
+  %962 = getelementptr inbounds ptr, ptr %960, i64 %961
   br label %963
 
 963:                                              ; preds = %958, %955
@@ -5465,12 +5465,12 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   %3332 = icmp slt i32 %3296, %3281
   br i1 %3332, label %.lr.ph3305.preheader, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.lr.ph3305, %.preheader3250, %3799, %3801, %3751, %3753, %3710, %3712, %2985, %2987, %._crit_edge3324, %2918, %757, %765, %769, %774, %677, %685, %689, %694, %523, %540, %544, %549, %499, %503, %507, %512, %258, %266, %269, %230, %248, %252, %257, %187, %191, %195, %200, %46, %52, %54, %61, %74, %84, %94, %140, %.critedge, %.critedge3146, %228, %286, %._crit_edge3468, %333, %350, %351, %382, %411, %438, %.thread3193, %._crit_edge3465, %580, %.thread3196, %632, %.critedge3152, %.critedge3154, %721, %.critedge3156, %.critedge3158, %845, %1131, %1167, %1225, %1235, %1256, %1274, %1293, %1297, %1318, %1321, %_Z10luai_veceqPKfS0_.exit.thread, %1348, %.critedge3162, %.thread3211, %1438, %1442, %1452, %1470, %1472, %1490, %1493, %1520, %1523, %.critedge3164, %.thread3216, %1610, %1614, %1624, %1644, %1656, %.critedge3166.thread, %1690, %1702, %.critedge3168.thread, %1736, %1748, %.critedge3170.thread, %1782, %1794, %.critedge3172.thread, %1832, %1841, %1868, %.thread3219, %1899, %1908, %1935, %.thread3221, %1965, %1973, %1987, %2004, %2031, %.thread3225.thread, %2061, %2069, %2083, %2100, %2127, %.thread3229.thread, %2158, %2168, %2205, %.critedge3182.thread.thread, %2237, %2245, %2270, %2275, %2296, %2301, %2322, %2327, %2347, %2352, %2376, %2384, %2404, %2409, %2433, %2441, %2461, %2467, %2501, %2509, %2530, %2538, %2576, %2579, %2603, %2625, %2647, %2669, %2697, %2716, %2732, %2736, %2758, %2765, %2791, %2795, %2799, %2805, %2837, %2863, %2957, %2989, %3048, %3100, %3111, %3143, %._crit_edge3320, %3168, %3225, %3259, %._crit_edge3309, %3430, %._crit_edge, %3474, %3480, %3501, %3557, %3560, %3588, %3593, %3613, %3618, %3632, %3672, %3826, %3830, %3862, %3888, %3914, %3537, %3532, %3651, %3636, %3690, %3674, %3731, %3715, %3772, %3756
-  %.12898.be = phi ptr [ %53, %52 ], [ %.12898, %3826 ], [ %55, %54 ], [ %73, %61 ], [ %75, %74 ], [ %85, %84 ], [ %95, %94 ], [ %112, %.critedge ], [ %112, %140 ], [ %156, %.critedge3146 ], [ %210, %228 ], [ %288, %._crit_edge3468 ], [ %287, %286 ], [ %599, %632 ], [ %599, %.critedge3152 ], [ %641, %.critedge3154 ], [ %304, %333 ], [ %304, %351 ], [ %304, %350 ], [ %304, %382 ], [ %304, %411 ], [ %304, %438 ], [ %304, %.thread3193 ], [ %466, %._crit_edge3465 ], [ %466, %580 ], [ %466, %.thread3196 ], [ %699, %721 ], [ %699, %.critedge3156 ], [ %732, %.critedge3158 ], [ %.22899.lcssa, %845 ], [ %1051, %1167 ], [ %1134, %1131 ], [ %1232, %1225 ], [ %1240, %1235 ], [ %3479, %3474 ], [ %1258, %1256 ], [ %1276, %1274 ], [ %1296, %1293 ], [ %1304, %1297 ], [ %1320, %1318 ], [ %1328, %1321 ], [ %1347, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1355, %1348 ], [ %1451, %1442 ], [ %1381, %.critedge3162 ], [ %1440, %1438 ], [ %1406, %.thread3211 ], [ %1453, %1452 ], [ %1651, %1644 ], [ %1664, %1656 ], [ %1673, %.critedge3166.thread ], [ %1743, %1736 ], [ %1756, %1748 ], [ %1765, %.critedge3170.thread ], [ %1471, %1470 ], [ %1478, %1472 ], [ %1492, %1490 ], [ %1500, %1493 ], [ %1522, %1520 ], [ %1529, %1523 ], [ %1623, %1614 ], [ %1554, %.critedge3164 ], [ %1612, %1610 ], [ %1578, %.thread3216 ], [ %1627, %1624 ], [ %1697, %1690 ], [ %1710, %1702 ], [ %1719, %.critedge3168.thread ], [ %1789, %1782 ], [ %1802, %1794 ], [ %1811, %.critedge3172.thread ], [ %1813, %1832 ], [ %1813, %1841 ], [ %1813, %1868 ], [ %1813, %.thread3219 ], [ %1880, %1899 ], [ %1880, %1908 ], [ %1880, %1935 ], [ %1880, %.thread3221 ], [ %1947, %1965 ], [ %1947, %1973 ], [ %1947, %1987 ], [ %1947, %2004 ], [ %1947, %2031 ], [ %1947, %.thread3225.thread ], [ %2043, %2061 ], [ %2043, %2069 ], [ %2043, %2083 ], [ %2043, %2100 ], [ %2043, %2127 ], [ %2043, %.thread3229.thread ], [ %2217, %2237 ], [ %2217, %2245 ], [ %2250, %2270 ], [ %2250, %2275 ], [ %2280, %2296 ], [ %2280, %2301 ], [ %2306, %2322 ], [ %2306, %2327 ], [ %2332, %2347 ], [ %2332, %2352 ], [ %2332, %2376 ], [ %2332, %2384 ], [ %2389, %2404 ], [ %2389, %2409 ], [ %2389, %2433 ], [ %2389, %2441 ], [ %2514, %2530 ], [ %2514, %2538 ], [ %2543, %2576 ], [ %2543, %2579 ], [ %2584, %2603 ], [ %2606, %2625 ], [ %2628, %2647 ], [ %2650, %2669 ], [ %2672, %2697 ], [ %2700, %2716 ], [ %2720, %2732 ], [ %2720, %2736 ], [ %2720, %2758 ], [ %2720, %2765 ], [ %2770, %2791 ], [ %2770, %2795 ], [ %2770, %2799 ], [ %2770, %2805 ], [ %2818, %2837 ], [ %2840, %2863 ], [ %2959, %2957 ], [ %2992, %2989 ], [ %3101, %3100 ], [ %3124, %3111 ], [ %3162, %3143 ], [ %3167, %._crit_edge3320 ], [ %3191, %3168 ], [ %3228, %3225 ], [ %3759, %3772 ], [ %3759, %3756 ], [ %3262, %3259 ], [ %3277, %._crit_edge3309 ], [ %3433, %3430 ], [ %3435, %._crit_edge ], [ %3487, %3480 ], [ %3506, %3501 ], [ %3559, %3557 ], [ %3508, %3537 ], [ %3508, %3532 ], [ %3561, %3560 ], [ %3572, %3588 ], [ %3572, %3593 ], [ %3598, %3613 ], [ %3598, %3618 ], [ %3598, %3632 ], [ %3673, %3672 ], [ %3637, %3651 ], [ %3637, %3636 ], [ %3677, %3690 ], [ %3677, %3674 ], [ %3718, %3731 ], [ %3718, %3715 ], [ %3051, %3048 ], [ %3845, %3830 ], [ %3868, %3862 ], [ %3894, %3888 ], [ %3920, %3914 ], [ %2139, %2158 ], [ %2139, %2168 ], [ %2139, %2205 ], [ %2139, %.critedge3182.thread.thread ], [ %2446, %2461 ], [ %2446, %2467 ], [ %2446, %2501 ], [ %2446, %2509 ], [ %.12898, %46 ], [ %156, %200 ], [ %156, %195 ], [ %156, %191 ], [ %156, %187 ], [ %231, %257 ], [ %231, %252 ], [ %231, %248 ], [ %231, %230 ], [ %259, %269 ], [ %259, %266 ], [ %259, %258 ], [ %466, %512 ], [ %466, %507 ], [ %466, %503 ], [ %466, %499 ], [ %466, %549 ], [ %466, %544 ], [ %466, %540 ], [ %466, %523 ], [ %641, %694 ], [ %641, %689 ], [ %641, %685 ], [ %641, %677 ], [ %732, %774 ], [ %732, %769 ], [ %732, %765 ], [ %732, %757 ], [ %2878, %2918 ], [ %2878, %._crit_edge3324 ], [ %2971, %2987 ], [ %2971, %2985 ], [ %3679, %3712 ], [ %3679, %3710 ], [ %3720, %3753 ], [ %3720, %3751 ], [ %3761, %3801 ], [ %3761, %3799 ], [ %3277, %.preheader3250 ], [ %3277, %.lr.ph3305 ]
-  %.02896.be = phi ptr [ %.02896, %52 ], [ %.02896, %3826 ], [ %.02896, %54 ], [ %.02896, %61 ], [ %.02896, %74 ], [ %.02896, %84 ], [ %.02896, %94 ], [ %.02896, %.critedge ], [ %.02896, %140 ], [ %.02896, %.critedge3146 ], [ %.02896, %228 ], [ %.02896, %._crit_edge3468 ], [ %.02896, %286 ], [ %.02896, %632 ], [ %.02896, %.critedge3152 ], [ %.02896, %.critedge3154 ], [ %.02896, %333 ], [ %.02896, %351 ], [ %.02896, %350 ], [ %.02896, %382 ], [ %.02896, %411 ], [ %.02896, %438 ], [ %.02896, %.thread3193 ], [ %.02896, %._crit_edge3465 ], [ %.02896, %580 ], [ %.02896, %.thread3196 ], [ %.02896, %721 ], [ %.02896, %.critedge3156 ], [ %.02896, %.critedge3158 ], [ %.02896, %845 ], [ %.02896, %1167 ], [ %1136, %1131 ], [ %1234, %1225 ], [ %.02896, %1235 ], [ %.02896, %3474 ], [ %.02896, %1256 ], [ %.02896, %1274 ], [ %.02896, %1293 ], [ %.02896, %1297 ], [ %.02896, %1318 ], [ %.02896, %1321 ], [ %.02896, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.02896, %1348 ], [ %.02896, %1442 ], [ %.02896, %.critedge3162 ], [ %.02896, %1438 ], [ %.02896, %.thread3211 ], [ %.02896, %1452 ], [ %.02896, %1644 ], [ %.02896, %1656 ], [ %.02896, %.critedge3166.thread ], [ %.02896, %1736 ], [ %.02896, %1748 ], [ %.02896, %.critedge3170.thread ], [ %.02896, %1470 ], [ %.02896, %1472 ], [ %.02896, %1490 ], [ %.02896, %1493 ], [ %.02896, %1520 ], [ %.02896, %1523 ], [ %.02896, %1614 ], [ %.02896, %.critedge3164 ], [ %.02896, %1610 ], [ %.02896, %.thread3216 ], [ %.02896, %1624 ], [ %.02896, %1690 ], [ %.02896, %1702 ], [ %.02896, %.critedge3168.thread ], [ %.02896, %1782 ], [ %.02896, %1794 ], [ %.02896, %.critedge3172.thread ], [ %.02896, %1832 ], [ %.02896, %1841 ], [ %.02896, %1868 ], [ %.02896, %.thread3219 ], [ %.02896, %1899 ], [ %.02896, %1908 ], [ %.02896, %1935 ], [ %.02896, %.thread3221 ], [ %.02896, %1965 ], [ %.02896, %1973 ], [ %.02896, %1987 ], [ %.02896, %2004 ], [ %.02896, %2031 ], [ %.02896, %.thread3225.thread ], [ %.02896, %2061 ], [ %.02896, %2069 ], [ %.02896, %2083 ], [ %.02896, %2100 ], [ %.02896, %2127 ], [ %.02896, %.thread3229.thread ], [ %.02896, %2237 ], [ %.02896, %2245 ], [ %.02896, %2270 ], [ %.02896, %2275 ], [ %.02896, %2296 ], [ %.02896, %2301 ], [ %.02896, %2322 ], [ %.02896, %2327 ], [ %.02896, %2347 ], [ %.02896, %2352 ], [ %.02896, %2376 ], [ %.02896, %2384 ], [ %.02896, %2404 ], [ %.02896, %2409 ], [ %.02896, %2433 ], [ %.02896, %2441 ], [ %.02896, %2530 ], [ %.02896, %2538 ], [ %.02896, %2576 ], [ %.02896, %2579 ], [ %.02896, %2603 ], [ %.02896, %2625 ], [ %.02896, %2647 ], [ %.02896, %2669 ], [ %.02896, %2697 ], [ %.02896, %2716 ], [ %.02896, %2732 ], [ %.02896, %2736 ], [ %.02896, %2758 ], [ %.02896, %2765 ], [ %.02896, %2791 ], [ %.02896, %2795 ], [ %.02896, %2799 ], [ %.02896, %2805 ], [ %.02896, %2837 ], [ %.02896, %2863 ], [ %.02896, %2957 ], [ %.02896, %2989 ], [ %.02896, %3100 ], [ %.02896, %3111 ], [ %.02896, %3143 ], [ %.02896, %._crit_edge3320 ], [ %.02896, %3168 ], [ %.02896, %3225 ], [ %.02896, %3772 ], [ %.02896, %3756 ], [ %.02896, %3259 ], [ %.02896, %._crit_edge3309 ], [ %.02896, %3430 ], [ %.02896, %._crit_edge ], [ %.02896, %3480 ], [ %.02896, %3501 ], [ %.02896, %3557 ], [ %.02896, %3537 ], [ %.02896, %3532 ], [ %.02896, %3560 ], [ %.02896, %3588 ], [ %.02896, %3593 ], [ %.02896, %3613 ], [ %.02896, %3618 ], [ %.02896, %3632 ], [ %.02896, %3672 ], [ %.02896, %3651 ], [ %.02896, %3636 ], [ %.02896, %3690 ], [ %.02896, %3674 ], [ %.02896, %3731 ], [ %.02896, %3715 ], [ %.02896, %3048 ], [ %.02896, %3830 ], [ %.02896, %3862 ], [ %.02896, %3888 ], [ %.02896, %3914 ], [ %.02896, %2158 ], [ %.02896, %2168 ], [ %.02896, %2205 ], [ %.02896, %.critedge3182.thread.thread ], [ %.02896, %2461 ], [ %.02896, %2467 ], [ %.02896, %2501 ], [ %.02896, %2509 ], [ %.02896, %46 ], [ %.02896, %200 ], [ %.02896, %195 ], [ %.02896, %191 ], [ %.02896, %187 ], [ %.02896, %257 ], [ %.02896, %252 ], [ %.02896, %248 ], [ %.02896, %230 ], [ %.02896, %269 ], [ %.02896, %266 ], [ %.02896, %258 ], [ %.02896, %512 ], [ %.02896, %507 ], [ %.02896, %503 ], [ %.02896, %499 ], [ %.02896, %549 ], [ %.02896, %544 ], [ %.02896, %540 ], [ %.02896, %523 ], [ %.02896, %694 ], [ %.02896, %689 ], [ %.02896, %685 ], [ %.02896, %677 ], [ %.02896, %774 ], [ %.02896, %769 ], [ %.02896, %765 ], [ %.02896, %757 ], [ %.02896, %2918 ], [ %.02896, %._crit_edge3324 ], [ %.02896, %2987 ], [ %.02896, %2985 ], [ %.02896, %3712 ], [ %.02896, %3710 ], [ %.02896, %3753 ], [ %.02896, %3751 ], [ %.02896, %3801 ], [ %.02896, %3799 ], [ %.02896, %.preheader3250 ], [ %.02896, %.lr.ph3305 ]
-  %.1.be = phi ptr [ %.1.fr, %52 ], [ %.11, %3826 ], [ %.1.fr, %54 ], [ %.1.fr, %61 ], [ %.1.fr, %74 ], [ %.1.fr, %84 ], [ %.1.fr, %94 ], [ %143, %.critedge ], [ %.1.fr, %140 ], [ %203, %.critedge3146 ], [ %.1.fr, %228 ], [ %292, %._crit_edge3468 ], [ %.1.fr, %286 ], [ %.1.fr, %632 ], [ %639, %.critedge3152 ], [ %697, %.critedge3154 ], [ %.1.fr, %333 ], [ %354, %351 ], [ %.1.fr, %350 ], [ %390, %382 ], [ %.1.fr, %411 ], [ %446, %438 ], [ %454, %.thread3193 ], [ %552, %._crit_edge3465 ], [ %589, %580 ], [ %597, %.thread3196 ], [ %.1.fr, %721 ], [ %730, %.critedge3156 ], [ %779, %.critedge3158 ], [ %846, %845 ], [ %1162, %1167 ], [ %1118, %1131 ], [ %1215, %1225 ], [ %.1.fr, %1235 ], [ %.9, %3474 ], [ %.1.fr, %1256 ], [ %.1.fr, %1274 ], [ %.1.fr, %1293 ], [ %.1.fr, %1297 ], [ %.1.fr, %1318 ], [ %.1.fr, %1321 ], [ %.1.fr, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1.fr, %1348 ], [ %1446, %1442 ], [ %.1.fr, %.critedge3162 ], [ %1427, %1438 ], [ %.1.fr, %.thread3211 ], [ %.1.fr, %1452 ], [ %.1.fr, %1644 ], [ %.1.fr, %1656 ], [ %1668, %.critedge3166.thread ], [ %.1.fr, %1736 ], [ %.1.fr, %1748 ], [ %1760, %.critedge3170.thread ], [ %.1.fr, %1470 ], [ %.1.fr, %1472 ], [ %.1.fr, %1490 ], [ %.1.fr, %1493 ], [ %.1.fr, %1520 ], [ %.1.fr, %1523 ], [ %1618, %1614 ], [ %.1.fr, %.critedge3164 ], [ %1599, %1610 ], [ %.1.fr, %.thread3216 ], [ %.1.fr, %1624 ], [ %.1.fr, %1690 ], [ %.1.fr, %1702 ], [ %1714, %.critedge3168.thread ], [ %.1.fr, %1782 ], [ %.1.fr, %1794 ], [ %1806, %.critedge3172.thread ], [ %.1.fr, %1832 ], [ %.1.fr, %1841 ], [ %1875, %1868 ], [ %1878, %.thread3219 ], [ %.1.fr, %1899 ], [ %.1.fr, %1908 ], [ %1942, %1935 ], [ %1945, %.thread3221 ], [ %.1.fr, %1965 ], [ %.1.fr, %1973 ], [ %.1.fr, %1987 ], [ %.1.fr, %2004 ], [ %2038, %2031 ], [ %2041, %.thread3225.thread ], [ %.1.fr, %2061 ], [ %.1.fr, %2069 ], [ %.1.fr, %2083 ], [ %.1.fr, %2100 ], [ %2134, %2127 ], [ %2137, %.thread3229.thread ], [ %.1.fr, %2237 ], [ %2248, %2245 ], [ %.1.fr, %2270 ], [ %2278, %2275 ], [ %.1.fr, %2296 ], [ %2304, %2301 ], [ %.1.fr, %2322 ], [ %2330, %2327 ], [ %.1.fr, %2347 ], [ %.1.fr, %2352 ], [ %2383, %2376 ], [ %2387, %2384 ], [ %.1.fr, %2404 ], [ %.1.fr, %2409 ], [ %2440, %2433 ], [ %2444, %2441 ], [ %.1.fr, %2530 ], [ %2541, %2538 ], [ %.1.fr, %2576 ], [ %2582, %2579 ], [ %.1.fr, %2603 ], [ %.1.fr, %2625 ], [ %.1.fr, %2647 ], [ %.1.fr, %2669 ], [ %2698, %2697 ], [ %.1.fr, %2716 ], [ %.1.fr, %2732 ], [ %.1.fr, %2736 ], [ %2764, %2758 ], [ %2768, %2765 ], [ %.1.fr, %2791 ], [ %2798, %2795 ], [ %.1.fr, %2799 ], [ %2808, %2805 ], [ %2838, %2837 ], [ %2864, %2863 ], [ %.1.fr, %2957 ], [ %.5, %2989 ], [ %.7, %3100 ], [ %.7, %3111 ], [ %.7, %3143 ], [ %.7, %._crit_edge3320 ], [ %3178, %3168 ], [ %.1.fr, %3225 ], [ %.1.fr, %3772 ], [ %.1.fr, %3756 ], [ %.1.fr, %3259 ], [ %3309, %._crit_edge3309 ], [ %.8, %3430 ], [ %3454, %._crit_edge ], [ %.1.fr, %3480 ], [ %.10, %3501 ], [ %.1.fr, %3557 ], [ %.1.fr, %3537 ], [ %.1.fr, %3532 ], [ %.1.fr, %3560 ], [ %.1.fr, %3588 ], [ %3596, %3593 ], [ %.1.fr, %3613 ], [ %.1.fr, %3618 ], [ %3635, %3632 ], [ %.1.fr, %3672 ], [ %.1.fr, %3651 ], [ %.1.fr, %3636 ], [ %.1.fr, %3690 ], [ %.1.fr, %3674 ], [ %.1.fr, %3731 ], [ %.1.fr, %3715 ], [ %.6, %3048 ], [ %.1.fr, %3830 ], [ %.1.fr, %3862 ], [ %.1.fr, %3888 ], [ %.1.fr, %3914 ], [ %.1.fr, %2158 ], [ %.1.fr, %2168 ], [ %2212, %2205 ], [ %2215, %.critedge3182.thread.thread ], [ %.1.fr, %2461 ], [ %.1.fr, %2467 ], [ %2508, %2501 ], [ %2512, %2509 ], [ %.2, %46 ], [ %.1.fr, %200 ], [ %.1.fr, %195 ], [ %.1.fr, %191 ], [ %.1.fr, %187 ], [ %.1.fr, %257 ], [ %.1.fr, %252 ], [ %.1.fr, %248 ], [ %.1.fr, %230 ], [ %.1.fr, %269 ], [ %.1.fr, %266 ], [ %.1.fr, %258 ], [ %.1.fr, %512 ], [ %.1.fr, %507 ], [ %.1.fr, %503 ], [ %.1.fr, %499 ], [ %.1.fr, %549 ], [ %.1.fr, %544 ], [ %.1.fr, %540 ], [ %.1.fr, %523 ], [ %.1.fr, %694 ], [ %.1.fr, %689 ], [ %.1.fr, %685 ], [ %.1.fr, %677 ], [ %.1.fr, %774 ], [ %.1.fr, %769 ], [ %.1.fr, %765 ], [ %.1.fr, %757 ], [ %.1.fr, %2918 ], [ %.1.fr, %._crit_edge3324 ], [ %.5, %2987 ], [ %.5, %2985 ], [ %.1.fr, %3712 ], [ %.1.fr, %3710 ], [ %.1.fr, %3753 ], [ %.1.fr, %3751 ], [ %.1.fr, %3801 ], [ %.1.fr, %3799 ], [ %.1.fr, %.preheader3250 ], [ %.1.fr, %.lr.ph3305 ]
-  %.0.be = phi ptr [ %.0, %52 ], [ %.0, %3826 ], [ %.0, %54 ], [ %.0, %61 ], [ %.0, %74 ], [ %.0, %84 ], [ %.0, %94 ], [ %.0, %.critedge ], [ %.0, %140 ], [ %.0, %.critedge3146 ], [ %.0, %228 ], [ %.0, %._crit_edge3468 ], [ %.0, %286 ], [ %.0, %632 ], [ %.0, %.critedge3152 ], [ %.0, %.critedge3154 ], [ %.0, %333 ], [ %.0, %351 ], [ %.0, %350 ], [ %.0, %382 ], [ %.0, %411 ], [ %.0, %438 ], [ %.0, %.thread3193 ], [ %.0, %._crit_edge3465 ], [ %.0, %580 ], [ %.0, %.thread3196 ], [ %.0, %721 ], [ %.0, %.critedge3156 ], [ %.0, %.critedge3158 ], [ %.0, %845 ], [ %.0, %1167 ], [ %1075, %1131 ], [ %1228, %1225 ], [ %.0, %1235 ], [ %.0, %3474 ], [ %.0, %1256 ], [ %.0, %1274 ], [ %.0, %1293 ], [ %.0, %1297 ], [ %.0, %1318 ], [ %.0, %1321 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1348 ], [ %.0, %1442 ], [ %.0, %.critedge3162 ], [ %.0, %1438 ], [ %.0, %.thread3211 ], [ %.0, %1452 ], [ %.0, %1644 ], [ %.0, %1656 ], [ %.0, %.critedge3166.thread ], [ %.0, %1736 ], [ %.0, %1748 ], [ %.0, %.critedge3170.thread ], [ %.0, %1470 ], [ %.0, %1472 ], [ %.0, %1490 ], [ %.0, %1493 ], [ %.0, %1520 ], [ %.0, %1523 ], [ %.0, %1614 ], [ %.0, %.critedge3164 ], [ %.0, %1610 ], [ %.0, %.thread3216 ], [ %.0, %1624 ], [ %.0, %1690 ], [ %.0, %1702 ], [ %.0, %.critedge3168.thread ], [ %.0, %1782 ], [ %.0, %1794 ], [ %.0, %.critedge3172.thread ], [ %.0, %1832 ], [ %.0, %1841 ], [ %.0, %1868 ], [ %.0, %.thread3219 ], [ %.0, %1899 ], [ %.0, %1908 ], [ %.0, %1935 ], [ %.0, %.thread3221 ], [ %.0, %1965 ], [ %.0, %1973 ], [ %.0, %1987 ], [ %.0, %2004 ], [ %.0, %2031 ], [ %.0, %.thread3225.thread ], [ %.0, %2061 ], [ %.0, %2069 ], [ %.0, %2083 ], [ %.0, %2100 ], [ %.0, %2127 ], [ %.0, %.thread3229.thread ], [ %.0, %2237 ], [ %.0, %2245 ], [ %.0, %2270 ], [ %.0, %2275 ], [ %.0, %2296 ], [ %.0, %2301 ], [ %.0, %2322 ], [ %.0, %2327 ], [ %.0, %2347 ], [ %.0, %2352 ], [ %.0, %2376 ], [ %.0, %2384 ], [ %.0, %2404 ], [ %.0, %2409 ], [ %.0, %2433 ], [ %.0, %2441 ], [ %.0, %2530 ], [ %.0, %2538 ], [ %.0, %2576 ], [ %.0, %2579 ], [ %.0, %2603 ], [ %.0, %2625 ], [ %.0, %2647 ], [ %.0, %2669 ], [ %.0, %2697 ], [ %.0, %2716 ], [ %.0, %2732 ], [ %.0, %2736 ], [ %.0, %2758 ], [ %.0, %2765 ], [ %.0, %2791 ], [ %.0, %2795 ], [ %.0, %2799 ], [ %.0, %2805 ], [ %.0, %2837 ], [ %.0, %2863 ], [ %.0, %2957 ], [ %.0, %2989 ], [ %.0, %3100 ], [ %.0, %3111 ], [ %.0, %3143 ], [ %.0, %._crit_edge3320 ], [ %.0, %3168 ], [ %.0, %3225 ], [ %.0, %3772 ], [ %.0, %3756 ], [ %.0, %3259 ], [ %.0, %._crit_edge3309 ], [ %.0, %3430 ], [ %.0, %._crit_edge ], [ %.0, %3480 ], [ %.0, %3501 ], [ %.0, %3557 ], [ %.0, %3537 ], [ %.0, %3532 ], [ %.0, %3560 ], [ %.0, %3588 ], [ %.0, %3593 ], [ %.0, %3613 ], [ %.0, %3618 ], [ %.0, %3632 ], [ %.0, %3672 ], [ %.0, %3651 ], [ %.0, %3636 ], [ %.0, %3690 ], [ %.0, %3674 ], [ %.0, %3731 ], [ %.0, %3715 ], [ %.0, %3048 ], [ %.0, %3830 ], [ %.0, %3862 ], [ %.0, %3888 ], [ %.0, %3914 ], [ %.0, %2158 ], [ %.0, %2168 ], [ %.0, %2205 ], [ %.0, %.critedge3182.thread.thread ], [ %.0, %2461 ], [ %.0, %2467 ], [ %.0, %2501 ], [ %.0, %2509 ], [ %.0, %46 ], [ %.0, %200 ], [ %.0, %195 ], [ %.0, %191 ], [ %.0, %187 ], [ %.0, %257 ], [ %.0, %252 ], [ %.0, %248 ], [ %.0, %230 ], [ %.0, %269 ], [ %.0, %266 ], [ %.0, %258 ], [ %.0, %512 ], [ %.0, %507 ], [ %.0, %503 ], [ %.0, %499 ], [ %.0, %549 ], [ %.0, %544 ], [ %.0, %540 ], [ %.0, %523 ], [ %.0, %694 ], [ %.0, %689 ], [ %.0, %685 ], [ %.0, %677 ], [ %.0, %774 ], [ %.0, %769 ], [ %.0, %765 ], [ %.0, %757 ], [ %.0, %2918 ], [ %.0, %._crit_edge3324 ], [ %.0, %2987 ], [ %.0, %2985 ], [ %.0, %3712 ], [ %.0, %3710 ], [ %.0, %3753 ], [ %.0, %3751 ], [ %.0, %3801 ], [ %.0, %3799 ], [ %.0, %.preheader3250 ], [ %.0, %.lr.ph3305 ]
-  %.be = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %52 ], [ %3829, %3826 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %54 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %61 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %74 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %84 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %94 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %140 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3146 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %228 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3468 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %286 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %632 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3152 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3154 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %333 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %351 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %350 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %382 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %411 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3193 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3465 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %580 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3196 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %721 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3156 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3158 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %845 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1167 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1131 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1225 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1235 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3474 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1256 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1274 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1293 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1297 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1318 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1321 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %_Z10luai_veceqPKfS0_.exit.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1348 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1442 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3162 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3211 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1452 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1644 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1656 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3166.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1736 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1748 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3170.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1470 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1472 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1490 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1493 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1520 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1523 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1614 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3164 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1610 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3216 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1624 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1690 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1702 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3168.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1782 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1794 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3172.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1832 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1841 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1868 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3219 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1899 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1908 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1935 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3221 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1965 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1973 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1987 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2004 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2031 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3225.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2061 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2069 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2083 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2100 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2127 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3229.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2237 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2245 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2270 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2275 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2296 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2301 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2322 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2327 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2347 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2352 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2376 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2384 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2404 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2409 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2433 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2441 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2530 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2538 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2576 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2579 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2603 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2625 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2647 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2669 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2697 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2716 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2732 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2736 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2758 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2791 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2795 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2799 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2805 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2837 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2863 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2957 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2989 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3100 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3111 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3143 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3320 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3168 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3225 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3772 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3756 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3259 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3309 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3430 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3480 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3501 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3557 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3537 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3532 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3560 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3588 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3593 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3613 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3618 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3632 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3672 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3651 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3636 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3690 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3674 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3731 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3715 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3048 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3830 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3862 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3888 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3914 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2158 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2168 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2205 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3182.thread.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2461 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2467 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2501 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2509 ], [ %51, %46 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %200 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %195 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %191 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %187 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %257 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %252 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %248 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %230 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %269 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %266 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %258 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %512 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %507 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %503 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %499 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %549 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %544 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %540 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %523 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %694 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %689 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %685 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %677 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %774 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %769 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %757 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2918 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3324 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2987 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2985 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3712 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3710 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3753 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3751 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3801 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3799 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.preheader3250 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.lr.ph3305 ]
+.backedge.backedge:                               ; preds = %.lr.ph3305, %.preheader3250, %3797, %3799, %3749, %3751, %3708, %3710, %2985, %2987, %._crit_edge3324, %2918, %757, %765, %769, %774, %677, %685, %689, %694, %523, %540, %544, %549, %499, %503, %507, %512, %258, %266, %269, %230, %248, %252, %257, %187, %191, %195, %200, %46, %52, %54, %61, %74, %84, %94, %140, %.critedge, %.critedge3146, %228, %286, %._crit_edge3468, %333, %350, %351, %382, %411, %438, %.thread3193, %._crit_edge3465, %580, %.thread3196, %632, %.critedge3152, %.critedge3154, %721, %.critedge3156, %.critedge3158, %845, %1131, %1167, %1225, %1235, %1256, %1274, %1293, %1297, %1318, %1321, %_Z10luai_veceqPKfS0_.exit.thread, %1348, %.critedge3162, %.thread3211, %1438, %1442, %1452, %1470, %1472, %1490, %1493, %1520, %1523, %.critedge3164, %.thread3216, %1610, %1614, %1624, %1644, %1656, %.critedge3166.thread, %1690, %1702, %.critedge3168.thread, %1736, %1748, %.critedge3170.thread, %1782, %1794, %.critedge3172.thread, %1832, %1841, %1868, %.thread3219, %1899, %1908, %1935, %.thread3221, %1965, %1973, %1987, %2004, %2031, %.thread3225.thread, %2061, %2069, %2083, %2100, %2127, %.thread3229.thread, %2158, %2168, %2205, %.critedge3182.thread.thread, %2237, %2245, %2270, %2275, %2296, %2301, %2322, %2327, %2347, %2352, %2376, %2384, %2404, %2409, %2433, %2441, %2461, %2467, %2501, %2509, %2530, %2538, %2576, %2579, %2603, %2625, %2647, %2669, %2697, %2716, %2732, %2736, %2758, %2765, %2791, %2795, %2799, %2805, %2837, %2863, %2957, %2989, %3048, %3100, %3111, %3143, %._crit_edge3320, %3168, %3225, %3259, %._crit_edge3309, %3428, %._crit_edge, %3472, %3478, %3499, %3555, %3558, %3586, %3591, %3611, %3616, %3630, %3670, %3824, %3828, %3860, %3886, %3912, %3535, %3530, %3649, %3634, %3688, %3672, %3729, %3713, %3770, %3754
+  %.12898.be = phi ptr [ %53, %52 ], [ %.12898, %3824 ], [ %55, %54 ], [ %73, %61 ], [ %75, %74 ], [ %85, %84 ], [ %95, %94 ], [ %112, %.critedge ], [ %112, %140 ], [ %156, %.critedge3146 ], [ %210, %228 ], [ %288, %._crit_edge3468 ], [ %287, %286 ], [ %599, %632 ], [ %599, %.critedge3152 ], [ %641, %.critedge3154 ], [ %304, %333 ], [ %304, %351 ], [ %304, %350 ], [ %304, %382 ], [ %304, %411 ], [ %304, %438 ], [ %304, %.thread3193 ], [ %466, %._crit_edge3465 ], [ %466, %580 ], [ %466, %.thread3196 ], [ %699, %721 ], [ %699, %.critedge3156 ], [ %732, %.critedge3158 ], [ %.22899.lcssa, %845 ], [ %1051, %1167 ], [ %1134, %1131 ], [ %1232, %1225 ], [ %1240, %1235 ], [ %3477, %3472 ], [ %1258, %1256 ], [ %1276, %1274 ], [ %1296, %1293 ], [ %1304, %1297 ], [ %1320, %1318 ], [ %1328, %1321 ], [ %1347, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1355, %1348 ], [ %1451, %1442 ], [ %1381, %.critedge3162 ], [ %1440, %1438 ], [ %1406, %.thread3211 ], [ %1453, %1452 ], [ %1651, %1644 ], [ %1664, %1656 ], [ %1673, %.critedge3166.thread ], [ %1743, %1736 ], [ %1756, %1748 ], [ %1765, %.critedge3170.thread ], [ %1471, %1470 ], [ %1478, %1472 ], [ %1492, %1490 ], [ %1500, %1493 ], [ %1522, %1520 ], [ %1529, %1523 ], [ %1623, %1614 ], [ %1554, %.critedge3164 ], [ %1612, %1610 ], [ %1578, %.thread3216 ], [ %1627, %1624 ], [ %1697, %1690 ], [ %1710, %1702 ], [ %1719, %.critedge3168.thread ], [ %1789, %1782 ], [ %1802, %1794 ], [ %1811, %.critedge3172.thread ], [ %1813, %1832 ], [ %1813, %1841 ], [ %1813, %1868 ], [ %1813, %.thread3219 ], [ %1880, %1899 ], [ %1880, %1908 ], [ %1880, %1935 ], [ %1880, %.thread3221 ], [ %1947, %1965 ], [ %1947, %1973 ], [ %1947, %1987 ], [ %1947, %2004 ], [ %1947, %2031 ], [ %1947, %.thread3225.thread ], [ %2043, %2061 ], [ %2043, %2069 ], [ %2043, %2083 ], [ %2043, %2100 ], [ %2043, %2127 ], [ %2043, %.thread3229.thread ], [ %2217, %2237 ], [ %2217, %2245 ], [ %2250, %2270 ], [ %2250, %2275 ], [ %2280, %2296 ], [ %2280, %2301 ], [ %2306, %2322 ], [ %2306, %2327 ], [ %2332, %2347 ], [ %2332, %2352 ], [ %2332, %2376 ], [ %2332, %2384 ], [ %2389, %2404 ], [ %2389, %2409 ], [ %2389, %2433 ], [ %2389, %2441 ], [ %2514, %2530 ], [ %2514, %2538 ], [ %2543, %2576 ], [ %2543, %2579 ], [ %2584, %2603 ], [ %2606, %2625 ], [ %2628, %2647 ], [ %2650, %2669 ], [ %2672, %2697 ], [ %2700, %2716 ], [ %2720, %2732 ], [ %2720, %2736 ], [ %2720, %2758 ], [ %2720, %2765 ], [ %2770, %2791 ], [ %2770, %2795 ], [ %2770, %2799 ], [ %2770, %2805 ], [ %2818, %2837 ], [ %2840, %2863 ], [ %2959, %2957 ], [ %2992, %2989 ], [ %3101, %3100 ], [ %3124, %3111 ], [ %3162, %3143 ], [ %3167, %._crit_edge3320 ], [ %3191, %3168 ], [ %3228, %3225 ], [ %3757, %3770 ], [ %3757, %3754 ], [ %3262, %3259 ], [ %3277, %._crit_edge3309 ], [ %3431, %3428 ], [ %3433, %._crit_edge ], [ %3485, %3478 ], [ %3504, %3499 ], [ %3557, %3555 ], [ %3506, %3535 ], [ %3506, %3530 ], [ %3559, %3558 ], [ %3570, %3586 ], [ %3570, %3591 ], [ %3596, %3611 ], [ %3596, %3616 ], [ %3596, %3630 ], [ %3671, %3670 ], [ %3635, %3649 ], [ %3635, %3634 ], [ %3675, %3688 ], [ %3675, %3672 ], [ %3716, %3729 ], [ %3716, %3713 ], [ %3051, %3048 ], [ %3843, %3828 ], [ %3866, %3860 ], [ %3892, %3886 ], [ %3918, %3912 ], [ %2139, %2158 ], [ %2139, %2168 ], [ %2139, %2205 ], [ %2139, %.critedge3182.thread.thread ], [ %2446, %2461 ], [ %2446, %2467 ], [ %2446, %2501 ], [ %2446, %2509 ], [ %.12898, %46 ], [ %156, %200 ], [ %156, %195 ], [ %156, %191 ], [ %156, %187 ], [ %231, %257 ], [ %231, %252 ], [ %231, %248 ], [ %231, %230 ], [ %259, %269 ], [ %259, %266 ], [ %259, %258 ], [ %466, %512 ], [ %466, %507 ], [ %466, %503 ], [ %466, %499 ], [ %466, %549 ], [ %466, %544 ], [ %466, %540 ], [ %466, %523 ], [ %641, %694 ], [ %641, %689 ], [ %641, %685 ], [ %641, %677 ], [ %732, %774 ], [ %732, %769 ], [ %732, %765 ], [ %732, %757 ], [ %2878, %2918 ], [ %2878, %._crit_edge3324 ], [ %2971, %2987 ], [ %2971, %2985 ], [ %3677, %3710 ], [ %3677, %3708 ], [ %3718, %3751 ], [ %3718, %3749 ], [ %3759, %3799 ], [ %3759, %3797 ], [ %3277, %.preheader3250 ], [ %3277, %.lr.ph3305 ]
+  %.02896.be = phi ptr [ %.02896, %52 ], [ %.02896, %3824 ], [ %.02896, %54 ], [ %.02896, %61 ], [ %.02896, %74 ], [ %.02896, %84 ], [ %.02896, %94 ], [ %.02896, %.critedge ], [ %.02896, %140 ], [ %.02896, %.critedge3146 ], [ %.02896, %228 ], [ %.02896, %._crit_edge3468 ], [ %.02896, %286 ], [ %.02896, %632 ], [ %.02896, %.critedge3152 ], [ %.02896, %.critedge3154 ], [ %.02896, %333 ], [ %.02896, %351 ], [ %.02896, %350 ], [ %.02896, %382 ], [ %.02896, %411 ], [ %.02896, %438 ], [ %.02896, %.thread3193 ], [ %.02896, %._crit_edge3465 ], [ %.02896, %580 ], [ %.02896, %.thread3196 ], [ %.02896, %721 ], [ %.02896, %.critedge3156 ], [ %.02896, %.critedge3158 ], [ %.02896, %845 ], [ %.02896, %1167 ], [ %1136, %1131 ], [ %1234, %1225 ], [ %.02896, %1235 ], [ %.02896, %3472 ], [ %.02896, %1256 ], [ %.02896, %1274 ], [ %.02896, %1293 ], [ %.02896, %1297 ], [ %.02896, %1318 ], [ %.02896, %1321 ], [ %.02896, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.02896, %1348 ], [ %.02896, %1442 ], [ %.02896, %.critedge3162 ], [ %.02896, %1438 ], [ %.02896, %.thread3211 ], [ %.02896, %1452 ], [ %.02896, %1644 ], [ %.02896, %1656 ], [ %.02896, %.critedge3166.thread ], [ %.02896, %1736 ], [ %.02896, %1748 ], [ %.02896, %.critedge3170.thread ], [ %.02896, %1470 ], [ %.02896, %1472 ], [ %.02896, %1490 ], [ %.02896, %1493 ], [ %.02896, %1520 ], [ %.02896, %1523 ], [ %.02896, %1614 ], [ %.02896, %.critedge3164 ], [ %.02896, %1610 ], [ %.02896, %.thread3216 ], [ %.02896, %1624 ], [ %.02896, %1690 ], [ %.02896, %1702 ], [ %.02896, %.critedge3168.thread ], [ %.02896, %1782 ], [ %.02896, %1794 ], [ %.02896, %.critedge3172.thread ], [ %.02896, %1832 ], [ %.02896, %1841 ], [ %.02896, %1868 ], [ %.02896, %.thread3219 ], [ %.02896, %1899 ], [ %.02896, %1908 ], [ %.02896, %1935 ], [ %.02896, %.thread3221 ], [ %.02896, %1965 ], [ %.02896, %1973 ], [ %.02896, %1987 ], [ %.02896, %2004 ], [ %.02896, %2031 ], [ %.02896, %.thread3225.thread ], [ %.02896, %2061 ], [ %.02896, %2069 ], [ %.02896, %2083 ], [ %.02896, %2100 ], [ %.02896, %2127 ], [ %.02896, %.thread3229.thread ], [ %.02896, %2237 ], [ %.02896, %2245 ], [ %.02896, %2270 ], [ %.02896, %2275 ], [ %.02896, %2296 ], [ %.02896, %2301 ], [ %.02896, %2322 ], [ %.02896, %2327 ], [ %.02896, %2347 ], [ %.02896, %2352 ], [ %.02896, %2376 ], [ %.02896, %2384 ], [ %.02896, %2404 ], [ %.02896, %2409 ], [ %.02896, %2433 ], [ %.02896, %2441 ], [ %.02896, %2530 ], [ %.02896, %2538 ], [ %.02896, %2576 ], [ %.02896, %2579 ], [ %.02896, %2603 ], [ %.02896, %2625 ], [ %.02896, %2647 ], [ %.02896, %2669 ], [ %.02896, %2697 ], [ %.02896, %2716 ], [ %.02896, %2732 ], [ %.02896, %2736 ], [ %.02896, %2758 ], [ %.02896, %2765 ], [ %.02896, %2791 ], [ %.02896, %2795 ], [ %.02896, %2799 ], [ %.02896, %2805 ], [ %.02896, %2837 ], [ %.02896, %2863 ], [ %.02896, %2957 ], [ %.02896, %2989 ], [ %.02896, %3100 ], [ %.02896, %3111 ], [ %.02896, %3143 ], [ %.02896, %._crit_edge3320 ], [ %.02896, %3168 ], [ %.02896, %3225 ], [ %.02896, %3770 ], [ %.02896, %3754 ], [ %.02896, %3259 ], [ %.02896, %._crit_edge3309 ], [ %.02896, %3428 ], [ %.02896, %._crit_edge ], [ %.02896, %3478 ], [ %.02896, %3499 ], [ %.02896, %3555 ], [ %.02896, %3535 ], [ %.02896, %3530 ], [ %.02896, %3558 ], [ %.02896, %3586 ], [ %.02896, %3591 ], [ %.02896, %3611 ], [ %.02896, %3616 ], [ %.02896, %3630 ], [ %.02896, %3670 ], [ %.02896, %3649 ], [ %.02896, %3634 ], [ %.02896, %3688 ], [ %.02896, %3672 ], [ %.02896, %3729 ], [ %.02896, %3713 ], [ %.02896, %3048 ], [ %.02896, %3828 ], [ %.02896, %3860 ], [ %.02896, %3886 ], [ %.02896, %3912 ], [ %.02896, %2158 ], [ %.02896, %2168 ], [ %.02896, %2205 ], [ %.02896, %.critedge3182.thread.thread ], [ %.02896, %2461 ], [ %.02896, %2467 ], [ %.02896, %2501 ], [ %.02896, %2509 ], [ %.02896, %46 ], [ %.02896, %200 ], [ %.02896, %195 ], [ %.02896, %191 ], [ %.02896, %187 ], [ %.02896, %257 ], [ %.02896, %252 ], [ %.02896, %248 ], [ %.02896, %230 ], [ %.02896, %269 ], [ %.02896, %266 ], [ %.02896, %258 ], [ %.02896, %512 ], [ %.02896, %507 ], [ %.02896, %503 ], [ %.02896, %499 ], [ %.02896, %549 ], [ %.02896, %544 ], [ %.02896, %540 ], [ %.02896, %523 ], [ %.02896, %694 ], [ %.02896, %689 ], [ %.02896, %685 ], [ %.02896, %677 ], [ %.02896, %774 ], [ %.02896, %769 ], [ %.02896, %765 ], [ %.02896, %757 ], [ %.02896, %2918 ], [ %.02896, %._crit_edge3324 ], [ %.02896, %2987 ], [ %.02896, %2985 ], [ %.02896, %3710 ], [ %.02896, %3708 ], [ %.02896, %3751 ], [ %.02896, %3749 ], [ %.02896, %3799 ], [ %.02896, %3797 ], [ %.02896, %.preheader3250 ], [ %.02896, %.lr.ph3305 ]
+  %.1.be = phi ptr [ %.1.fr, %52 ], [ %.11, %3824 ], [ %.1.fr, %54 ], [ %.1.fr, %61 ], [ %.1.fr, %74 ], [ %.1.fr, %84 ], [ %.1.fr, %94 ], [ %143, %.critedge ], [ %.1.fr, %140 ], [ %203, %.critedge3146 ], [ %.1.fr, %228 ], [ %292, %._crit_edge3468 ], [ %.1.fr, %286 ], [ %.1.fr, %632 ], [ %639, %.critedge3152 ], [ %697, %.critedge3154 ], [ %.1.fr, %333 ], [ %354, %351 ], [ %.1.fr, %350 ], [ %390, %382 ], [ %.1.fr, %411 ], [ %446, %438 ], [ %454, %.thread3193 ], [ %552, %._crit_edge3465 ], [ %589, %580 ], [ %597, %.thread3196 ], [ %.1.fr, %721 ], [ %730, %.critedge3156 ], [ %779, %.critedge3158 ], [ %846, %845 ], [ %1162, %1167 ], [ %1118, %1131 ], [ %1215, %1225 ], [ %.1.fr, %1235 ], [ %.9, %3472 ], [ %.1.fr, %1256 ], [ %.1.fr, %1274 ], [ %.1.fr, %1293 ], [ %.1.fr, %1297 ], [ %.1.fr, %1318 ], [ %.1.fr, %1321 ], [ %.1.fr, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1.fr, %1348 ], [ %1446, %1442 ], [ %.1.fr, %.critedge3162 ], [ %1427, %1438 ], [ %.1.fr, %.thread3211 ], [ %.1.fr, %1452 ], [ %.1.fr, %1644 ], [ %.1.fr, %1656 ], [ %1668, %.critedge3166.thread ], [ %.1.fr, %1736 ], [ %.1.fr, %1748 ], [ %1760, %.critedge3170.thread ], [ %.1.fr, %1470 ], [ %.1.fr, %1472 ], [ %.1.fr, %1490 ], [ %.1.fr, %1493 ], [ %.1.fr, %1520 ], [ %.1.fr, %1523 ], [ %1618, %1614 ], [ %.1.fr, %.critedge3164 ], [ %1599, %1610 ], [ %.1.fr, %.thread3216 ], [ %.1.fr, %1624 ], [ %.1.fr, %1690 ], [ %.1.fr, %1702 ], [ %1714, %.critedge3168.thread ], [ %.1.fr, %1782 ], [ %.1.fr, %1794 ], [ %1806, %.critedge3172.thread ], [ %.1.fr, %1832 ], [ %.1.fr, %1841 ], [ %1875, %1868 ], [ %1878, %.thread3219 ], [ %.1.fr, %1899 ], [ %.1.fr, %1908 ], [ %1942, %1935 ], [ %1945, %.thread3221 ], [ %.1.fr, %1965 ], [ %.1.fr, %1973 ], [ %.1.fr, %1987 ], [ %.1.fr, %2004 ], [ %2038, %2031 ], [ %2041, %.thread3225.thread ], [ %.1.fr, %2061 ], [ %.1.fr, %2069 ], [ %.1.fr, %2083 ], [ %.1.fr, %2100 ], [ %2134, %2127 ], [ %2137, %.thread3229.thread ], [ %.1.fr, %2237 ], [ %2248, %2245 ], [ %.1.fr, %2270 ], [ %2278, %2275 ], [ %.1.fr, %2296 ], [ %2304, %2301 ], [ %.1.fr, %2322 ], [ %2330, %2327 ], [ %.1.fr, %2347 ], [ %.1.fr, %2352 ], [ %2383, %2376 ], [ %2387, %2384 ], [ %.1.fr, %2404 ], [ %.1.fr, %2409 ], [ %2440, %2433 ], [ %2444, %2441 ], [ %.1.fr, %2530 ], [ %2541, %2538 ], [ %.1.fr, %2576 ], [ %2582, %2579 ], [ %.1.fr, %2603 ], [ %.1.fr, %2625 ], [ %.1.fr, %2647 ], [ %.1.fr, %2669 ], [ %2698, %2697 ], [ %.1.fr, %2716 ], [ %.1.fr, %2732 ], [ %.1.fr, %2736 ], [ %2764, %2758 ], [ %2768, %2765 ], [ %.1.fr, %2791 ], [ %2798, %2795 ], [ %.1.fr, %2799 ], [ %2808, %2805 ], [ %2838, %2837 ], [ %2864, %2863 ], [ %.1.fr, %2957 ], [ %.5, %2989 ], [ %.7, %3100 ], [ %.7, %3111 ], [ %.7, %3143 ], [ %.7, %._crit_edge3320 ], [ %3178, %3168 ], [ %.1.fr, %3225 ], [ %.1.fr, %3770 ], [ %.1.fr, %3754 ], [ %.1.fr, %3259 ], [ %3309, %._crit_edge3309 ], [ %.8, %3428 ], [ %3452, %._crit_edge ], [ %.1.fr, %3478 ], [ %.10, %3499 ], [ %.1.fr, %3555 ], [ %.1.fr, %3535 ], [ %.1.fr, %3530 ], [ %.1.fr, %3558 ], [ %.1.fr, %3586 ], [ %3594, %3591 ], [ %.1.fr, %3611 ], [ %.1.fr, %3616 ], [ %3633, %3630 ], [ %.1.fr, %3670 ], [ %.1.fr, %3649 ], [ %.1.fr, %3634 ], [ %.1.fr, %3688 ], [ %.1.fr, %3672 ], [ %.1.fr, %3729 ], [ %.1.fr, %3713 ], [ %.6, %3048 ], [ %.1.fr, %3828 ], [ %.1.fr, %3860 ], [ %.1.fr, %3886 ], [ %.1.fr, %3912 ], [ %.1.fr, %2158 ], [ %.1.fr, %2168 ], [ %2212, %2205 ], [ %2215, %.critedge3182.thread.thread ], [ %.1.fr, %2461 ], [ %.1.fr, %2467 ], [ %2508, %2501 ], [ %2512, %2509 ], [ %.2, %46 ], [ %.1.fr, %200 ], [ %.1.fr, %195 ], [ %.1.fr, %191 ], [ %.1.fr, %187 ], [ %.1.fr, %257 ], [ %.1.fr, %252 ], [ %.1.fr, %248 ], [ %.1.fr, %230 ], [ %.1.fr, %269 ], [ %.1.fr, %266 ], [ %.1.fr, %258 ], [ %.1.fr, %512 ], [ %.1.fr, %507 ], [ %.1.fr, %503 ], [ %.1.fr, %499 ], [ %.1.fr, %549 ], [ %.1.fr, %544 ], [ %.1.fr, %540 ], [ %.1.fr, %523 ], [ %.1.fr, %694 ], [ %.1.fr, %689 ], [ %.1.fr, %685 ], [ %.1.fr, %677 ], [ %.1.fr, %774 ], [ %.1.fr, %769 ], [ %.1.fr, %765 ], [ %.1.fr, %757 ], [ %.1.fr, %2918 ], [ %.1.fr, %._crit_edge3324 ], [ %.5, %2987 ], [ %.5, %2985 ], [ %.1.fr, %3710 ], [ %.1.fr, %3708 ], [ %.1.fr, %3751 ], [ %.1.fr, %3749 ], [ %.1.fr, %3799 ], [ %.1.fr, %3797 ], [ %.1.fr, %.preheader3250 ], [ %.1.fr, %.lr.ph3305 ]
+  %.0.be = phi ptr [ %.0, %52 ], [ %.0, %3824 ], [ %.0, %54 ], [ %.0, %61 ], [ %.0, %74 ], [ %.0, %84 ], [ %.0, %94 ], [ %.0, %.critedge ], [ %.0, %140 ], [ %.0, %.critedge3146 ], [ %.0, %228 ], [ %.0, %._crit_edge3468 ], [ %.0, %286 ], [ %.0, %632 ], [ %.0, %.critedge3152 ], [ %.0, %.critedge3154 ], [ %.0, %333 ], [ %.0, %351 ], [ %.0, %350 ], [ %.0, %382 ], [ %.0, %411 ], [ %.0, %438 ], [ %.0, %.thread3193 ], [ %.0, %._crit_edge3465 ], [ %.0, %580 ], [ %.0, %.thread3196 ], [ %.0, %721 ], [ %.0, %.critedge3156 ], [ %.0, %.critedge3158 ], [ %.0, %845 ], [ %.0, %1167 ], [ %1075, %1131 ], [ %1228, %1225 ], [ %.0, %1235 ], [ %.0, %3472 ], [ %.0, %1256 ], [ %.0, %1274 ], [ %.0, %1293 ], [ %.0, %1297 ], [ %.0, %1318 ], [ %.0, %1321 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1348 ], [ %.0, %1442 ], [ %.0, %.critedge3162 ], [ %.0, %1438 ], [ %.0, %.thread3211 ], [ %.0, %1452 ], [ %.0, %1644 ], [ %.0, %1656 ], [ %.0, %.critedge3166.thread ], [ %.0, %1736 ], [ %.0, %1748 ], [ %.0, %.critedge3170.thread ], [ %.0, %1470 ], [ %.0, %1472 ], [ %.0, %1490 ], [ %.0, %1493 ], [ %.0, %1520 ], [ %.0, %1523 ], [ %.0, %1614 ], [ %.0, %.critedge3164 ], [ %.0, %1610 ], [ %.0, %.thread3216 ], [ %.0, %1624 ], [ %.0, %1690 ], [ %.0, %1702 ], [ %.0, %.critedge3168.thread ], [ %.0, %1782 ], [ %.0, %1794 ], [ %.0, %.critedge3172.thread ], [ %.0, %1832 ], [ %.0, %1841 ], [ %.0, %1868 ], [ %.0, %.thread3219 ], [ %.0, %1899 ], [ %.0, %1908 ], [ %.0, %1935 ], [ %.0, %.thread3221 ], [ %.0, %1965 ], [ %.0, %1973 ], [ %.0, %1987 ], [ %.0, %2004 ], [ %.0, %2031 ], [ %.0, %.thread3225.thread ], [ %.0, %2061 ], [ %.0, %2069 ], [ %.0, %2083 ], [ %.0, %2100 ], [ %.0, %2127 ], [ %.0, %.thread3229.thread ], [ %.0, %2237 ], [ %.0, %2245 ], [ %.0, %2270 ], [ %.0, %2275 ], [ %.0, %2296 ], [ %.0, %2301 ], [ %.0, %2322 ], [ %.0, %2327 ], [ %.0, %2347 ], [ %.0, %2352 ], [ %.0, %2376 ], [ %.0, %2384 ], [ %.0, %2404 ], [ %.0, %2409 ], [ %.0, %2433 ], [ %.0, %2441 ], [ %.0, %2530 ], [ %.0, %2538 ], [ %.0, %2576 ], [ %.0, %2579 ], [ %.0, %2603 ], [ %.0, %2625 ], [ %.0, %2647 ], [ %.0, %2669 ], [ %.0, %2697 ], [ %.0, %2716 ], [ %.0, %2732 ], [ %.0, %2736 ], [ %.0, %2758 ], [ %.0, %2765 ], [ %.0, %2791 ], [ %.0, %2795 ], [ %.0, %2799 ], [ %.0, %2805 ], [ %.0, %2837 ], [ %.0, %2863 ], [ %.0, %2957 ], [ %.0, %2989 ], [ %.0, %3100 ], [ %.0, %3111 ], [ %.0, %3143 ], [ %.0, %._crit_edge3320 ], [ %.0, %3168 ], [ %.0, %3225 ], [ %.0, %3770 ], [ %.0, %3754 ], [ %.0, %3259 ], [ %.0, %._crit_edge3309 ], [ %.0, %3428 ], [ %.0, %._crit_edge ], [ %.0, %3478 ], [ %.0, %3499 ], [ %.0, %3555 ], [ %.0, %3535 ], [ %.0, %3530 ], [ %.0, %3558 ], [ %.0, %3586 ], [ %.0, %3591 ], [ %.0, %3611 ], [ %.0, %3616 ], [ %.0, %3630 ], [ %.0, %3670 ], [ %.0, %3649 ], [ %.0, %3634 ], [ %.0, %3688 ], [ %.0, %3672 ], [ %.0, %3729 ], [ %.0, %3713 ], [ %.0, %3048 ], [ %.0, %3828 ], [ %.0, %3860 ], [ %.0, %3886 ], [ %.0, %3912 ], [ %.0, %2158 ], [ %.0, %2168 ], [ %.0, %2205 ], [ %.0, %.critedge3182.thread.thread ], [ %.0, %2461 ], [ %.0, %2467 ], [ %.0, %2501 ], [ %.0, %2509 ], [ %.0, %46 ], [ %.0, %200 ], [ %.0, %195 ], [ %.0, %191 ], [ %.0, %187 ], [ %.0, %257 ], [ %.0, %252 ], [ %.0, %248 ], [ %.0, %230 ], [ %.0, %269 ], [ %.0, %266 ], [ %.0, %258 ], [ %.0, %512 ], [ %.0, %507 ], [ %.0, %503 ], [ %.0, %499 ], [ %.0, %549 ], [ %.0, %544 ], [ %.0, %540 ], [ %.0, %523 ], [ %.0, %694 ], [ %.0, %689 ], [ %.0, %685 ], [ %.0, %677 ], [ %.0, %774 ], [ %.0, %769 ], [ %.0, %765 ], [ %.0, %757 ], [ %.0, %2918 ], [ %.0, %._crit_edge3324 ], [ %.0, %2987 ], [ %.0, %2985 ], [ %.0, %3710 ], [ %.0, %3708 ], [ %.0, %3751 ], [ %.0, %3749 ], [ %.0, %3799 ], [ %.0, %3797 ], [ %.0, %.preheader3250 ], [ %.0, %.lr.ph3305 ]
+  %.be = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %52 ], [ %3827, %3824 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %54 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %61 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %74 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %84 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %94 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %140 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3146 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %228 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3468 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %286 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %632 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3152 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3154 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %333 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %351 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %350 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %382 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %411 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3193 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3465 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %580 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3196 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %721 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3156 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3158 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %845 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1167 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1131 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1225 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1235 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3472 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1256 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1274 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1293 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1297 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1318 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1321 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %_Z10luai_veceqPKfS0_.exit.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1348 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1442 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3162 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1438 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3211 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1452 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1644 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1656 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3166.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1736 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1748 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3170.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1470 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1472 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1490 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1493 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1520 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1523 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1614 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3164 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1610 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3216 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1624 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1690 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1702 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3168.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1782 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1794 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3172.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1832 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1841 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1868 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3219 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1899 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1908 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1935 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3221 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1965 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1973 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %1987 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2004 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2031 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3225.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2061 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2069 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2083 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2100 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2127 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.thread3229.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2237 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2245 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2270 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2275 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2296 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2301 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2322 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2327 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2347 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2352 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2376 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2384 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2404 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2409 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2433 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2441 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2530 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2538 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2576 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2579 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2603 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2625 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2647 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2669 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2697 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2716 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2732 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2736 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2758 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2791 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2795 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2799 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2805 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2837 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2863 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2957 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2989 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3100 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3111 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3143 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3320 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3168 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3225 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3770 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3754 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3259 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3309 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3428 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3478 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3499 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3555 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3535 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3530 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3558 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3586 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3591 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3611 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3616 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3630 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3670 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3649 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3634 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3688 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3672 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3729 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3713 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3048 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3828 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3860 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3886 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3912 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2158 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2168 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2205 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.critedge3182.thread.thread ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2461 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2467 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2501 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2509 ], [ %51, %46 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %200 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %195 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %191 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %187 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %257 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %252 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %248 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %230 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %269 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %266 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %258 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %512 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %507 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %503 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %499 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %549 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %544 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %540 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %523 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %694 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %689 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %685 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %677 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %774 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %769 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %765 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %757 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2918 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %._crit_edge3324 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2987 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %2985 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3710 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3708 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3751 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3749 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3799 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %3797 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.preheader3250 ], [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %.lr.ph3305 ]
   br label %.backedge
 
 .lr.ph3305.preheader:                             ; preds = %.preheader3250
@@ -5541,9 +5541,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   %3370 = getelementptr inbounds nuw i8, ptr %3348, i64 24
   br label %3371
 
-3371:                                             ; preds = %.lr.ph3297, %3412
-  %.029213295 = phi ptr [ %3364, %.lr.ph3297 ], [ %.12922, %3412 ]
-  %.029233294 = phi i32 [ 0, %.lr.ph3297 ], [ %3413, %3412 ]
+3371:                                             ; preds = %.lr.ph3297, %3410
+  %.029213295 = phi ptr [ %3364, %.lr.ph3297 ], [ %.12922, %3410 ]
+  %.029233294 = phi i32 [ 0, %.lr.ph3297 ], [ %3411, %3410 ]
   %3372 = sext i32 %.029233294 to i64
   %3373 = getelementptr inbounds i32, ptr %3339, i64 %3372
   %3374 = load i32, ptr %3373, align 4, !tbaa !61
@@ -5552,799 +5552,798 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   %3377 = lshr i32 %3374, 16
   %3378 = and i32 %3377, 255
   %3379 = zext nneg i32 %3378 to i64
-  %3380 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3379
-  %3381 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %3368, i64 0, i64 %3379
-  %3382 = select i1 %3376, ptr %3380, ptr %3381
-  %3383 = icmp eq ptr %.029213295, %3348
-  br i1 %3383, label %3384, label %.critedge3186
+  %.1.fr. = select i1 %3376, ptr %.1.fr, ptr %3368
+  %3380 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr., i64 %3379
+  %3381 = icmp eq ptr %.029213295, %3348
+  br i1 %3381, label %3382, label %.critedge3186
 
-3384:                                             ; preds = %3371
-  %3385 = getelementptr inbounds nuw i8, ptr %.029213295, i64 32
-  %3386 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %3385, i64 0, i64 %3372
-  %3387 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3386, ptr noundef %3382)
-  %.not3036 = icmp eq i32 %3387, 0
-  br i1 %.not3036, label %3388, label %3412
+3382:                                             ; preds = %3371
+  %3383 = getelementptr inbounds nuw i8, ptr %.029213295, i64 32
+  %3384 = getelementptr inbounds %struct.lua_TValue, ptr %3383, i64 %3372
+  %3385 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3384, ptr noundef %3380)
+  %.not3036 = icmp eq i32 %3385, 0
+  br i1 %.not3036, label %3386, label %3410
 
-3388:                                             ; preds = %3384
-  %3389 = load i8, ptr %3369, align 2, !tbaa !131
-  %3390 = icmp eq i8 %3389, 0
-  br i1 %3390, label %3391, label %.critedge3186
+3386:                                             ; preds = %3382
+  %3387 = load i8, ptr %3369, align 2, !tbaa !131
+  %3388 = icmp eq i8 %3387, 0
+  br i1 %3388, label %3389, label %.critedge3186
 
-3391:                                             ; preds = %3388
-  %3392 = load i8, ptr %3366, align 4, !tbaa !130
-  %3393 = zext i8 %3392 to i32
-  %3394 = load ptr, ptr %3353, align 8, !tbaa !65
-  %3395 = load ptr, ptr %3370, align 8, !tbaa !30
-  %3396 = call noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef %0, i32 noundef %3393, ptr noundef %3394, ptr noundef %3395)
-  store ptr %3396, ptr %3344, align 8, !tbaa !30
+3389:                                             ; preds = %3386
+  %3390 = load i8, ptr %3366, align 4, !tbaa !130
+  %3391 = zext i8 %3390 to i32
+  %3392 = load ptr, ptr %3353, align 8, !tbaa !65
+  %3393 = load ptr, ptr %3370, align 8, !tbaa !30
+  %3394 = call noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef %0, i32 noundef %3391, ptr noundef %3392, ptr noundef %3393)
+  store ptr %3394, ptr %3344, align 8, !tbaa !30
   store i32 7, ptr %3365, align 4, !tbaa !63
-  br label %3412
+  br label %3410
 
-.critedge3186:                                    ; preds = %3371, %3388
-  %3397 = getelementptr inbounds nuw i8, ptr %.029213295, i64 32
-  %3398 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %3397, i64 0, i64 %3372
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3398, ptr noundef nonnull align 8 dereferenceable(16) %3382, i64 16, i1 false), !tbaa.struct !64
-  %3399 = getelementptr inbounds nuw i8, ptr %3382, i64 12
-  %3400 = load i32, ptr %3399, align 4, !tbaa !63
-  %3401 = icmp sgt i32 %3400, 4
-  br i1 %3401, label %3402, label %3412
+.critedge3186:                                    ; preds = %3371, %3386
+  %3395 = getelementptr inbounds nuw i8, ptr %.029213295, i64 32
+  %3396 = getelementptr inbounds %struct.lua_TValue, ptr %3395, i64 %3372
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3396, ptr noundef nonnull align 8 dereferenceable(16) %3380, i64 16, i1 false), !tbaa.struct !64
+  %3397 = getelementptr inbounds nuw i8, ptr %3380, i64 12
+  %3398 = load i32, ptr %3397, align 4, !tbaa !63
+  %3399 = icmp sgt i32 %3398, 4
+  br i1 %3399, label %3400, label %3410
 
-3402:                                             ; preds = %.critedge3186
-  %3403 = getelementptr inbounds nuw i8, ptr %.029213295, i64 1
-  %3404 = load i8, ptr %3403, align 1, !tbaa !30
-  %3405 = and i8 %3404, 4
-  %.not3037 = icmp eq i8 %3405, 0
-  br i1 %.not3037, label %3412, label %3406
+3400:                                             ; preds = %.critedge3186
+  %3401 = getelementptr inbounds nuw i8, ptr %.029213295, i64 1
+  %3402 = load i8, ptr %3401, align 1, !tbaa !30
+  %3403 = and i8 %3402, 4
+  %.not3037 = icmp eq i8 %3403, 0
+  br i1 %.not3037, label %3410, label %3404
 
-3406:                                             ; preds = %3402
-  %3407 = load ptr, ptr %3382, align 8, !tbaa !30
-  %3408 = getelementptr inbounds nuw i8, ptr %3407, i64 1
-  %3409 = load i8, ptr %3408, align 1, !tbaa !30
-  %3410 = and i8 %3409, 3
-  %.not3038 = icmp eq i8 %3410, 0
-  br i1 %.not3038, label %3412, label %3411
+3404:                                             ; preds = %3400
+  %3405 = load ptr, ptr %3380, align 8, !tbaa !30
+  %3406 = getelementptr inbounds nuw i8, ptr %3405, i64 1
+  %3407 = load i8, ptr %3406, align 1, !tbaa !30
+  %3408 = and i8 %3407, 3
+  %.not3038 = icmp eq i8 %3408, 0
+  br i1 %.not3038, label %3410, label %3409
 
-3411:                                             ; preds = %3406
-  call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.029213295, ptr noundef nonnull %3407)
-  br label %3412
+3409:                                             ; preds = %3404
+  call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.029213295, ptr noundef nonnull %3405)
+  br label %3410
 
-3412:                                             ; preds = %.critedge3186, %3402, %3406, %3411, %3384, %3391
-  %.12924 = phi i32 [ %.029233294, %3384 ], [ -1, %3391 ], [ %.029233294, %3411 ], [ %.029233294, %3406 ], [ %.029233294, %3402 ], [ %.029233294, %.critedge3186 ]
-  %.12922 = phi ptr [ %.029213295, %3384 ], [ %3396, %3391 ], [ %.029213295, %3411 ], [ %.029213295, %3406 ], [ %.029213295, %3402 ], [ %.029213295, %.critedge3186 ]
-  %3413 = add nsw i32 %.12924, 1
-  %3414 = load i8, ptr %3366, align 4, !tbaa !130
-  %3415 = zext i8 %3414 to i32
-  %3416 = icmp slt i32 %3413, %3415
-  br i1 %3416, label %3371, label %._crit_edge3298, !llvm.loop !132
+3410:                                             ; preds = %.critedge3186, %3400, %3404, %3409, %3382, %3389
+  %.12924 = phi i32 [ %.029233294, %3382 ], [ -1, %3389 ], [ %.029233294, %3409 ], [ %.029233294, %3404 ], [ %.029233294, %3400 ], [ %.029233294, %.critedge3186 ]
+  %.12922 = phi ptr [ %.029213295, %3382 ], [ %3394, %3389 ], [ %.029213295, %3409 ], [ %.029213295, %3404 ], [ %.029213295, %3400 ], [ %.029213295, %.critedge3186 ]
+  %3411 = add nsw i32 %.12924, 1
+  %3412 = load i8, ptr %3366, align 4, !tbaa !130
+  %3413 = zext i8 %3412 to i32
+  %3414 = icmp slt i32 %3411, %3413
+  br i1 %3414, label %3371, label %._crit_edge3298, !llvm.loop !132
 
-._crit_edge3298:                                  ; preds = %3412, %3363
-  %.pre34513471 = phi i8 [ 0, %3363 ], [ %3414, %3412 ]
-  %.02921.lcssa = phi ptr [ %3364, %3363 ], [ %.12922, %3412 ]
-  %3417 = getelementptr inbounds nuw i8, ptr %.02921.lcssa, i64 6
-  store i8 0, ptr %3417, align 2, !tbaa !131
+._crit_edge3298:                                  ; preds = %3410, %3363
+  %.pre34513471 = phi i8 [ 0, %3363 ], [ %3412, %3410 ]
+  %.02921.lcssa = phi ptr [ %3364, %3363 ], [ %.12922, %3410 ]
+  %3415 = getelementptr inbounds nuw i8, ptr %.02921.lcssa, i64 6
+  store i8 0, ptr %3415, align 2, !tbaa !131
   %.not3034 = icmp eq ptr %3348, %.02921.lcssa
-  br i1 %.not3034, label %3430, label %3418
+  br i1 %.not3034, label %3428, label %3416
 
-3418:                                             ; preds = %._crit_edge3298
-  %3419 = load ptr, ptr %6, align 8, !tbaa !21
-  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 24
-  store ptr %3339, ptr %3420, align 8, !tbaa !27
-  %3421 = load ptr, ptr %8, align 8, !tbaa !48
-  %3422 = getelementptr inbounds nuw i8, ptr %3421, i64 72
-  %3423 = load i64, ptr %3422, align 8, !tbaa !98
-  %3424 = getelementptr inbounds nuw i8, ptr %3421, i64 64
-  %3425 = load i64, ptr %3424, align 8, !tbaa !99
-  %.not3035 = icmp ult i64 %3423, %3425
-  br i1 %.not3035, label %3428, label %3426
+3416:                                             ; preds = %._crit_edge3298
+  %3417 = load ptr, ptr %6, align 8, !tbaa !21
+  %3418 = getelementptr inbounds nuw i8, ptr %3417, i64 24
+  store ptr %3339, ptr %3418, align 8, !tbaa !27
+  %3419 = load ptr, ptr %8, align 8, !tbaa !48
+  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 72
+  %3421 = load i64, ptr %3420, align 8, !tbaa !98
+  %3422 = getelementptr inbounds nuw i8, ptr %3419, i64 64
+  %3423 = load i64, ptr %3422, align 8, !tbaa !99
+  %.not3035 = icmp ult i64 %3421, %3423
+  br i1 %.not3035, label %3426, label %3424
 
-3426:                                             ; preds = %3418
-  %3427 = call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
+3424:                                             ; preds = %3416
+  %3425 = call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.pre3451.pre = load i8, ptr %3366, align 4, !tbaa !130
+  br label %3426
+
+3426:                                             ; preds = %3416, %3424
+  %.pre3451 = phi i8 [ %.pre34513471, %3416 ], [ %.pre3451.pre, %3424 ]
+  %3427 = load ptr, ptr %7, align 8, !tbaa !4
   br label %3428
 
-3428:                                             ; preds = %3418, %3426
-  %.pre3451 = phi i8 [ %.pre34513471, %3418 ], [ %.pre3451.pre, %3426 ]
-  %3429 = load ptr, ptr %7, align 8, !tbaa !4
-  br label %3430
-
-3430:                                             ; preds = %3428, %._crit_edge3298
-  %3431 = phi i8 [ %.pre3451, %3428 ], [ %.pre34513471, %._crit_edge3298 ]
-  %.8 = phi ptr [ %3429, %3428 ], [ %.1.fr, %._crit_edge3298 ]
-  %3432 = zext i8 %3431 to i64
-  %3433 = getelementptr inbounds nuw i32, ptr %3339, i64 %3432
+3428:                                             ; preds = %3426, %._crit_edge3298
+  %3429 = phi i8 [ %.pre3451, %3426 ], [ %.pre34513471, %._crit_edge3298 ]
+  %.8 = phi ptr [ %3427, %3426 ], [ %.1.fr, %._crit_edge3298 ]
+  %3430 = zext i8 %3429 to i64
+  %3431 = getelementptr inbounds nuw i32, ptr %3339, i64 %3430
   br label %.backedge.backedge
 
-3434:                                             ; preds = %.backedge
-  %3435 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3436 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3437 = lshr i32 %3436, 8
-  %3438 = and i32 %3437, 255
-  %3439 = load ptr, ptr %6, align 8, !tbaa !21
-  %3440 = getelementptr inbounds nuw i8, ptr %3439, i64 24
-  store ptr %3435, ptr %3440, align 8, !tbaa !27
-  %3441 = load ptr, ptr %11, align 8, !tbaa !28
-  %3442 = load ptr, ptr %10, align 8, !tbaa !20
-  %3443 = ptrtoint ptr %3441 to i64
-  %3444 = ptrtoint ptr %3442 to i64
-  %3445 = sub i64 %3443, %3444
-  %3446 = getelementptr inbounds nuw i8, ptr %.0, i64 5
-  %3447 = load i8, ptr %3446, align 1, !tbaa !106
-  %3448 = zext i8 %3447 to i32
-  %3449 = add nuw nsw i32 %3438, %3448
-  %3450 = shl nuw nsw i32 %3449, 4
-  %3451 = zext nneg i32 %3450 to i64
-  %.not3033 = icmp sgt i64 %3445, %3451
-  br i1 %.not3033, label %3453, label %3452
+3432:                                             ; preds = %.backedge
+  %3433 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3434 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3435 = lshr i32 %3434, 8
+  %3436 = and i32 %3435, 255
+  %3437 = load ptr, ptr %6, align 8, !tbaa !21
+  %3438 = getelementptr inbounds nuw i8, ptr %3437, i64 24
+  store ptr %3433, ptr %3438, align 8, !tbaa !27
+  %3439 = load ptr, ptr %11, align 8, !tbaa !28
+  %3440 = load ptr, ptr %10, align 8, !tbaa !20
+  %3441 = ptrtoint ptr %3439 to i64
+  %3442 = ptrtoint ptr %3440 to i64
+  %3443 = sub i64 %3441, %3442
+  %3444 = getelementptr inbounds nuw i8, ptr %.0, i64 5
+  %3445 = load i8, ptr %3444, align 1, !tbaa !106
+  %3446 = zext i8 %3445 to i32
+  %3447 = add nuw nsw i32 %3436, %3446
+  %3448 = shl nuw nsw i32 %3447, 4
+  %3449 = zext nneg i32 %3448 to i64
+  %.not3033 = icmp sgt i64 %3443, %3449
+  br i1 %.not3033, label %3451, label %3450
 
-3452:                                             ; preds = %3434
-  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %3449)
+3450:                                             ; preds = %3432
+  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %3447)
   %.pre3450 = load ptr, ptr %10, align 8, !tbaa !20
-  br label %3453
+  br label %3451
 
-3453:                                             ; preds = %3434, %3452
-  %3454 = phi ptr [ %3442, %3434 ], [ %.pre3450, %3452 ]
-  %3455 = load ptr, ptr %7, align 8, !tbaa !4
-  %.not3360 = icmp eq i32 %3438, 0
+3451:                                             ; preds = %3432, %3450
+  %3452 = phi ptr [ %3440, %3432 ], [ %.pre3450, %3450 ]
+  %3453 = load ptr, ptr %7, align 8, !tbaa !4
+  %.not3360 = icmp eq i32 %3436, 0
   br i1 %.not3360, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %3453
-  %wide.trip.count = zext nneg i32 %3438 to i64
+.lr.ph.preheader:                                 ; preds = %3451
+  %wide.trip.count = zext nneg i32 %3436 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3456 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3455, i64 %indvars.iv
-  %3457 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3454, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3457, ptr noundef nonnull align 8 dereferenceable(16) %3456, i64 16, i1 false), !tbaa.struct !64
-  %3458 = getelementptr inbounds nuw i8, ptr %3456, i64 12
-  store i32 0, ptr %3458, align 4, !tbaa !63
+  %3454 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3453, i64 %indvars.iv
+  %3455 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3452, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3455, ptr noundef nonnull align 8 dereferenceable(16) %3454, i64 16, i1 false), !tbaa.struct !64
+  %3456 = getelementptr inbounds nuw i8, ptr %3454, i64 12
+  store i32 0, ptr %3456, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
-._crit_edge:                                      ; preds = %.lr.ph, %3453
-  %3459 = load ptr, ptr %6, align 8, !tbaa !21
-  store ptr %3454, ptr %3459, align 8, !tbaa !26
-  %3460 = load i8, ptr %3446, align 1, !tbaa !106
-  %3461 = zext i8 %3460 to i64
-  %3462 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3454, i64 %3461
-  %3463 = getelementptr inbounds nuw i8, ptr %3459, i64 16
-  store ptr %3462, ptr %3463, align 8, !tbaa !22
-  store ptr %3454, ptr %7, align 8, !tbaa !4
-  store ptr %3462, ptr %10, align 8, !tbaa !20
+._crit_edge:                                      ; preds = %.lr.ph, %3451
+  %3457 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %3452, ptr %3457, align 8, !tbaa !26
+  %3458 = load i8, ptr %3444, align 1, !tbaa !106
+  %3459 = zext i8 %3458 to i64
+  %3460 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3452, i64 %3459
+  %3461 = getelementptr inbounds nuw i8, ptr %3457, i64 16
+  store ptr %3460, ptr %3461, align 8, !tbaa !22
+  store ptr %3452, ptr %7, align 8, !tbaa !4
+  store ptr %3460, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
-3464:                                             ; preds = %.backedge
-  %3465 = load ptr, ptr %8, align 8, !tbaa !48
-  %3466 = getelementptr inbounds nuw i8, ptr %3465, i64 3296
-  %3467 = load ptr, ptr %3466, align 8, !tbaa !104
-  %.not3085 = icmp eq ptr %3467, null
-  br i1 %.not3085, label %3474, label %3468, !prof !70
+3462:                                             ; preds = %.backedge
+  %3463 = load ptr, ptr %8, align 8, !tbaa !48
+  %3464 = getelementptr inbounds nuw i8, ptr %3463, i64 3296
+  %3465 = load ptr, ptr %3464, align 8, !tbaa !104
+  %.not3085 = icmp eq ptr %3465, null
+  br i1 %.not3085, label %3472, label %3466, !prof !70
 
-3468:                                             ; preds = %3464
-  %3469 = load ptr, ptr %6, align 8, !tbaa !21
-  %3470 = getelementptr inbounds nuw i8, ptr %3469, i64 24
-  %3471 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  store ptr %3471, ptr %3470, align 8, !tbaa !27
-  call void %3467(ptr noundef nonnull %0, i32 noundef -1)
-  %3472 = load ptr, ptr %7, align 8, !tbaa !4
-  %3473 = load i8, ptr %9, align 1, !tbaa !25
-  %.not3086 = icmp eq i8 %3473, 0
-  br i1 %.not3086, label %3474, label %.loopexit3252.sink.split.sink.split
+3466:                                             ; preds = %3462
+  %3467 = load ptr, ptr %6, align 8, !tbaa !21
+  %3468 = getelementptr inbounds nuw i8, ptr %3467, i64 24
+  %3469 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  store ptr %3469, ptr %3468, align 8, !tbaa !27
+  call void %3465(ptr noundef nonnull %0, i32 noundef -1)
+  %3470 = load ptr, ptr %7, align 8, !tbaa !4
+  %3471 = load i8, ptr %9, align 1, !tbaa !25
+  %.not3086 = icmp eq i8 %3471, 0
+  br i1 %.not3086, label %3472, label %.loopexit3252.sink.split.sink.split
 
-3474:                                             ; preds = %3468, %3464
-  %.9 = phi ptr [ %3472, %3468 ], [ %.1.fr, %3464 ]
-  %3475 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3476 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3477 = ashr i32 %3476, 16
-  %3478 = sext i32 %3477 to i64
-  %3479 = getelementptr inbounds i32, ptr %3475, i64 %3478
+3472:                                             ; preds = %3466, %3462
+  %.9 = phi ptr [ %3470, %3466 ], [ %.1.fr, %3462 ]
+  %3473 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3474 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3475 = ashr i32 %3474, 16
+  %3476 = sext i32 %3475 to i64
+  %3477 = getelementptr inbounds i32, ptr %3473, i64 %3476
   br label %.backedge.backedge
 
-3480:                                             ; preds = %.backedge
-  %3481 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3482 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3483 = lshr i32 %3482, 8
-  %3484 = and i32 %3483, 255
-  %3485 = zext nneg i32 %3484 to i64
-  %3486 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3485
-  %3487 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
-  %3488 = load i32, ptr %3481, align 4, !tbaa !61
-  %3489 = zext i32 %3488 to i64
-  %3490 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3489
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3486, ptr noundef nonnull align 8 dereferenceable(16) %3490, i64 16, i1 false), !tbaa.struct !64
+3478:                                             ; preds = %.backedge
+  %3479 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3480 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3481 = lshr i32 %3480, 8
+  %3482 = and i32 %3481, 255
+  %3483 = zext nneg i32 %3482 to i64
+  %3484 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3483
+  %3485 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
+  %3486 = load i32, ptr %3479, align 4, !tbaa !61
+  %3487 = zext i32 %3486 to i64
+  %3488 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3487
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3484, ptr noundef nonnull align 8 dereferenceable(16) %3488, i64 16, i1 false), !tbaa.struct !64
   br label %.backedge.backedge
 
-3491:                                             ; preds = %.backedge
-  %3492 = load ptr, ptr %8, align 8, !tbaa !48
-  %3493 = getelementptr inbounds nuw i8, ptr %3492, i64 3296
-  %3494 = load ptr, ptr %3493, align 8, !tbaa !104
-  %.not3031 = icmp eq ptr %3494, null
-  br i1 %.not3031, label %3501, label %3495, !prof !70
+3489:                                             ; preds = %.backedge
+  %3490 = load ptr, ptr %8, align 8, !tbaa !48
+  %3491 = getelementptr inbounds nuw i8, ptr %3490, i64 3296
+  %3492 = load ptr, ptr %3491, align 8, !tbaa !104
+  %.not3031 = icmp eq ptr %3492, null
+  br i1 %.not3031, label %3499, label %3493, !prof !70
 
-3495:                                             ; preds = %3491
-  %3496 = load ptr, ptr %6, align 8, !tbaa !21
-  %3497 = getelementptr inbounds nuw i8, ptr %3496, i64 24
-  %3498 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  store ptr %3498, ptr %3497, align 8, !tbaa !27
-  call void %3494(ptr noundef nonnull %0, i32 noundef -1)
-  %3499 = load ptr, ptr %7, align 8, !tbaa !4
-  %3500 = load i8, ptr %9, align 1, !tbaa !25
-  %.not3032 = icmp eq i8 %3500, 0
-  br i1 %.not3032, label %3501, label %.loopexit3252.sink.split.sink.split
+3493:                                             ; preds = %3489
+  %3494 = load ptr, ptr %6, align 8, !tbaa !21
+  %3495 = getelementptr inbounds nuw i8, ptr %3494, i64 24
+  %3496 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  store ptr %3496, ptr %3495, align 8, !tbaa !27
+  call void %3492(ptr noundef nonnull %0, i32 noundef -1)
+  %3497 = load ptr, ptr %7, align 8, !tbaa !4
+  %3498 = load i8, ptr %9, align 1, !tbaa !25
+  %.not3032 = icmp eq i8 %3498, 0
+  br i1 %.not3032, label %3499, label %.loopexit3252.sink.split.sink.split
 
-3501:                                             ; preds = %3495, %3491
-  %.10 = phi ptr [ %3499, %3495 ], [ %.1.fr, %3491 ]
-  %3502 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3503 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3504 = ashr i32 %3503, 8
-  %3505 = sext i32 %3504 to i64
-  %3506 = getelementptr inbounds i32, ptr %3502, i64 %3505
+3499:                                             ; preds = %3493, %3489
+  %.10 = phi ptr [ %3497, %3493 ], [ %.1.fr, %3489 ]
+  %3500 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3501 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3502 = ashr i32 %3501, 8
+  %3503 = sext i32 %3502 to i64
+  %3504 = getelementptr inbounds i32, ptr %3500, i64 %3503
   br label %.backedge.backedge
 
-3507:                                             ; preds = %.backedge
-  %3508 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3509 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3510 = lshr i32 %3509, 8
-  %3511 = and i32 %3510, 255
-  %3512 = lshr i32 %3509, 24
-  %3513 = zext nneg i32 %3512 to i64
-  %3514 = getelementptr inbounds nuw i32, ptr %3508, i64 %3513
-  %3515 = load i32, ptr %3514, align 4, !tbaa !61
-  %3516 = lshr i32 %3515, 8
-  %3517 = and i32 %3516, 255
-  %3518 = zext nneg i32 %3517 to i64
-  %3519 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3518
-  %3520 = lshr i32 %3515, 16
-  %3521 = and i32 %3520, 255
-  %3522 = lshr i32 %3515, 24
-  %3523 = add nsw i32 %3522, -1
-  %3524 = icmp eq i32 %3521, 0
-  br i1 %3524, label %3525, label %3532
+3505:                                             ; preds = %.backedge
+  %3506 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3507 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3508 = lshr i32 %3507, 8
+  %3509 = and i32 %3508, 255
+  %3510 = lshr i32 %3507, 24
+  %3511 = zext nneg i32 %3510 to i64
+  %3512 = getelementptr inbounds nuw i32, ptr %3506, i64 %3511
+  %3513 = load i32, ptr %3512, align 4, !tbaa !61
+  %3514 = lshr i32 %3513, 8
+  %3515 = and i32 %3514, 255
+  %3516 = zext nneg i32 %3515 to i64
+  %3517 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3516
+  %3518 = lshr i32 %3513, 16
+  %3519 = and i32 %3518, 255
+  %3520 = lshr i32 %3513, 24
+  %3521 = add nsw i32 %3520, -1
+  %3522 = icmp eq i32 %3519, 0
+  br i1 %3522, label %3523, label %3530
 
-3525:                                             ; preds = %3507
-  %3526 = load ptr, ptr %10, align 8, !tbaa !20
-  %3527 = ptrtoint ptr %3526 to i64
-  %3528 = ptrtoint ptr %3519 to i64
-  %3529 = sub i64 %3527, %3528
-  %3530 = lshr exact i64 %3529, 4
-  %3531 = trunc i64 %3530 to i32
-  br label %3532
+3523:                                             ; preds = %3505
+  %3524 = load ptr, ptr %10, align 8, !tbaa !20
+  %3525 = ptrtoint ptr %3524 to i64
+  %3526 = ptrtoint ptr %3517 to i64
+  %3527 = sub i64 %3525, %3526
+  %3528 = lshr exact i64 %3527, 4
+  %3529 = trunc i64 %3528 to i32
+  br label %3530
 
-3532:                                             ; preds = %3507, %3525
-  %.in = phi i32 [ %3531, %3525 ], [ %3521, %3507 ]
-  %3533 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %3534 = load ptr, ptr %3533, align 8, !tbaa !65
-  %3535 = getelementptr inbounds nuw i8, ptr %3534, i64 5
-  %3536 = load i8, ptr %3535, align 1, !tbaa !79
-  %.not3030 = icmp eq i8 %3536, 0
-  br i1 %.not3030, label %.backedge.backedge, label %3537
+3530:                                             ; preds = %3505, %3523
+  %.in = phi i32 [ %3529, %3523 ], [ %3519, %3505 ]
+  %3531 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %3532 = load ptr, ptr %3531, align 8, !tbaa !65
+  %3533 = getelementptr inbounds nuw i8, ptr %3532, i64 5
+  %3534 = load i8, ptr %3533, align 1, !tbaa !79
+  %.not3030 = icmp eq i8 %3534, 0
+  br i1 %.not3030, label %.backedge.backedge, label %3535
 
-3537:                                             ; preds = %3532
-  %3538 = zext nneg i32 %3511 to i64
-  %3539 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %3538
-  %3540 = load ptr, ptr %3539, align 8, !tbaa !62
-  %3541 = add i32 %.in, -1
-  %3542 = load ptr, ptr %6, align 8, !tbaa !21
-  %3543 = getelementptr inbounds nuw i8, ptr %3542, i64 24
-  store ptr %3508, ptr %3543, align 8, !tbaa !27
-  %3544 = getelementptr inbounds nuw i8, ptr %3519, i64 16
-  %3545 = getelementptr inbounds nuw i8, ptr %3519, i64 32
-  %3546 = call noundef i32 %3540(ptr noundef %0, ptr noundef %3519, ptr noundef nonnull %3544, i32 noundef %3523, ptr noundef nonnull %3545, i32 noundef %3541)
-  %3547 = icmp sgt i32 %3546, -1
-  br i1 %3547, label %3548, label %.backedge.backedge
+3535:                                             ; preds = %3530
+  %3536 = zext nneg i32 %3509 to i64
+  %3537 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3536
+  %3538 = load ptr, ptr %3537, align 8, !tbaa !62
+  %3539 = add i32 %.in, -1
+  %3540 = load ptr, ptr %6, align 8, !tbaa !21
+  %3541 = getelementptr inbounds nuw i8, ptr %3540, i64 24
+  store ptr %3506, ptr %3541, align 8, !tbaa !27
+  %3542 = getelementptr inbounds nuw i8, ptr %3517, i64 16
+  %3543 = getelementptr inbounds nuw i8, ptr %3517, i64 32
+  %3544 = call noundef i32 %3538(ptr noundef %0, ptr noundef %3517, ptr noundef nonnull %3542, i32 noundef %3521, ptr noundef nonnull %3543, i32 noundef %3539)
+  %3545 = icmp sgt i32 %3544, -1
+  br i1 %3545, label %3546, label %.backedge.backedge
 
-3548:                                             ; preds = %3537
-  %3549 = icmp ult i32 %3515, 16777216
-  br i1 %3549, label %3550, label %3553
+3546:                                             ; preds = %3535
+  %3547 = icmp ult i32 %3513, 16777216
+  br i1 %3547, label %3548, label %3551
 
-3550:                                             ; preds = %3548
-  %3551 = zext nneg i32 %3546 to i64
-  %3552 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3519, i64 %3551
-  br label %3557
+3548:                                             ; preds = %3546
+  %3549 = zext nneg i32 %3544 to i64
+  %3550 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3517, i64 %3549
+  br label %3555
 
-3553:                                             ; preds = %3548
-  %3554 = load ptr, ptr %6, align 8, !tbaa !21
-  %3555 = getelementptr inbounds nuw i8, ptr %3554, i64 16
-  %3556 = load ptr, ptr %3555, align 8, !tbaa !22
-  br label %3557
+3551:                                             ; preds = %3546
+  %3552 = load ptr, ptr %6, align 8, !tbaa !21
+  %3553 = getelementptr inbounds nuw i8, ptr %3552, i64 16
+  %3554 = load ptr, ptr %3553, align 8, !tbaa !22
+  br label %3555
 
-3557:                                             ; preds = %3553, %3550
-  %3558 = phi ptr [ %3552, %3550 ], [ %3556, %3553 ]
-  store ptr %3558, ptr %10, align 8, !tbaa !20
-  %3559 = getelementptr inbounds nuw i8, ptr %3514, i64 4
+3555:                                             ; preds = %3551, %3548
+  %3556 = phi ptr [ %3550, %3548 ], [ %3554, %3551 ]
+  store ptr %3556, ptr %10, align 8, !tbaa !20
+  %3557 = getelementptr inbounds nuw i8, ptr %3512, i64 4
   br label %.backedge.backedge
 
-3560:                                             ; preds = %.backedge
-  %3561 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3562 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3563 = ashr i32 %3562, 8
-  %3564 = icmp slt i32 %3563, 8388607
-  %3565 = zext i1 %3564 to i32
-  %3566 = add nsw i32 %3563, %3565
-  %3567 = shl i32 %3566, 8
-  %3568 = and i32 %3562, 255
-  %3569 = or disjoint i32 %3567, %3568
-  store i32 %3569, ptr %.12898, align 4, !tbaa !61
+3558:                                             ; preds = %.backedge
+  %3559 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3560 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3561 = ashr i32 %3560, 8
+  %3562 = icmp slt i32 %3561, 8388607
+  %3563 = zext i1 %3562 to i32
+  %3564 = add nsw i32 %3561, %3563
+  %3565 = shl i32 %3564, 8
+  %3566 = and i32 %3560, 255
+  %3567 = or disjoint i32 %3565, %3566
+  store i32 %3567, ptr %.12898, align 4, !tbaa !61
   br label %.backedge.backedge
 
-3570:                                             ; preds = %.backedge
+3568:                                             ; preds = %.backedge
   unreachable
 
-3571:                                             ; preds = %.backedge
-  %3572 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3573 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3574 = lshr i32 %3573, 8
-  %3575 = and i32 %3574, 255
-  %3576 = zext nneg i32 %3575 to i64
-  %3577 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3576
-  %3578 = lshr i32 %3573, 16
-  %3579 = and i32 %3578, 255
-  %3580 = zext nneg i32 %3579 to i64
-  %3581 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3580
-  %3582 = lshr i32 %3573, 24
-  %3583 = zext nneg i32 %3582 to i64
-  %3584 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3583
-  %3585 = getelementptr inbounds nuw i8, ptr %3584, i64 12
-  %3586 = load i32, ptr %3585, align 4, !tbaa !63
-  %3587 = icmp eq i32 %3586, 3
-  br i1 %3587, label %3588, label %3593
+3569:                                             ; preds = %.backedge
+  %3570 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3571 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3572 = lshr i32 %3571, 8
+  %3573 = and i32 %3572, 255
+  %3574 = zext nneg i32 %3573 to i64
+  %3575 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3574
+  %3576 = lshr i32 %3571, 16
+  %3577 = and i32 %3576, 255
+  %3578 = zext nneg i32 %3577 to i64
+  %3579 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3578
+  %3580 = lshr i32 %3571, 24
+  %3581 = zext nneg i32 %3580 to i64
+  %3582 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3581
+  %3583 = getelementptr inbounds nuw i8, ptr %3582, i64 12
+  %3584 = load i32, ptr %3583, align 4, !tbaa !63
+  %3585 = icmp eq i32 %3584, 3
+  br i1 %3585, label %3586, label %3591
 
-3588:                                             ; preds = %3571
-  %3589 = load double, ptr %3581, align 8, !tbaa !30
-  %3590 = load double, ptr %3584, align 8, !tbaa !30
-  %3591 = fsub double %3589, %3590
-  store double %3591, ptr %3577, align 8, !tbaa !30
-  %3592 = getelementptr inbounds nuw i8, ptr %3577, i64 12
-  store i32 3, ptr %3592, align 4, !tbaa !63
+3586:                                             ; preds = %3569
+  %3587 = load double, ptr %3579, align 8, !tbaa !30
+  %3588 = load double, ptr %3582, align 8, !tbaa !30
+  %3589 = fsub double %3587, %3588
+  store double %3589, ptr %3575, align 8, !tbaa !30
+  %3590 = getelementptr inbounds nuw i8, ptr %3575, i64 12
+  store i32 3, ptr %3590, align 4, !tbaa !63
   br label %.backedge.backedge
 
-3593:                                             ; preds = %3571
-  %3594 = load ptr, ptr %6, align 8, !tbaa !21
-  %3595 = getelementptr inbounds nuw i8, ptr %3594, i64 24
-  store ptr %3572, ptr %3595, align 8, !tbaa !27
-  call void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %3577, ptr noundef %3581, ptr noundef nonnull %3584)
-  %3596 = load ptr, ptr %7, align 8, !tbaa !4
+3591:                                             ; preds = %3569
+  %3592 = load ptr, ptr %6, align 8, !tbaa !21
+  %3593 = getelementptr inbounds nuw i8, ptr %3592, i64 24
+  store ptr %3570, ptr %3593, align 8, !tbaa !27
+  call void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %3575, ptr noundef %3579, ptr noundef nonnull %3582)
+  %3594 = load ptr, ptr %7, align 8, !tbaa !4
   br label %.backedge.backedge
 
-3597:                                             ; preds = %.backedge
-  %3598 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3599 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3600 = lshr i32 %3599, 8
-  %3601 = and i32 %3600, 255
-  %3602 = zext nneg i32 %3601 to i64
-  %3603 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3602
-  %3604 = lshr i32 %3599, 16
-  %3605 = and i32 %3604, 255
-  %3606 = zext nneg i32 %3605 to i64
-  %3607 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3606
-  %3608 = lshr i32 %3599, 24
-  %3609 = zext nneg i32 %3608 to i64
-  %3610 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3609
-  %3611 = getelementptr inbounds nuw i8, ptr %3610, i64 12
-  %3612 = load i32, ptr %3611, align 4, !tbaa !63
-  switch i32 %3612, label %3632 [
-    i32 3, label %3613
-    i32 4, label %3618
+3595:                                             ; preds = %.backedge
+  %3596 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3597 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3598 = lshr i32 %3597, 8
+  %3599 = and i32 %3598, 255
+  %3600 = zext nneg i32 %3599 to i64
+  %3601 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3600
+  %3602 = lshr i32 %3597, 16
+  %3603 = and i32 %3602, 255
+  %3604 = zext nneg i32 %3603 to i64
+  %3605 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3604
+  %3606 = lshr i32 %3597, 24
+  %3607 = zext nneg i32 %3606 to i64
+  %3608 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3607
+  %3609 = getelementptr inbounds nuw i8, ptr %3608, i64 12
+  %3610 = load i32, ptr %3609, align 4, !tbaa !63
+  switch i32 %3610, label %3630 [
+    i32 3, label %3611
+    i32 4, label %3616
   ], !prof !80
 
-3613:                                             ; preds = %3597
-  %3614 = load double, ptr %3607, align 8, !tbaa !30
-  %3615 = load double, ptr %3610, align 8, !tbaa !30
-  %3616 = fdiv double %3614, %3615
-  store double %3616, ptr %3603, align 8, !tbaa !30
-  %3617 = getelementptr inbounds nuw i8, ptr %3603, i64 12
-  store i32 3, ptr %3617, align 4, !tbaa !63
+3611:                                             ; preds = %3595
+  %3612 = load double, ptr %3605, align 8, !tbaa !30
+  %3613 = load double, ptr %3608, align 8, !tbaa !30
+  %3614 = fdiv double %3612, %3613
+  store double %3614, ptr %3601, align 8, !tbaa !30
+  %3615 = getelementptr inbounds nuw i8, ptr %3601, i64 12
+  store i32 3, ptr %3615, align 4, !tbaa !63
   br label %.backedge.backedge
 
-3618:                                             ; preds = %3597
-  %3619 = load double, ptr %3607, align 8, !tbaa !30
-  %3620 = fptrunc double %3619 to float
-  %3621 = load float, ptr %3610, align 4, !tbaa !86
-  %3622 = fdiv float %3620, %3621
-  store float %3622, ptr %3603, align 4, !tbaa !86
-  %3623 = getelementptr inbounds nuw i8, ptr %3610, i64 4
-  %3624 = load float, ptr %3623, align 4, !tbaa !86
-  %3625 = fdiv float %3620, %3624
-  %3626 = getelementptr inbounds nuw i8, ptr %3603, i64 4
-  store float %3625, ptr %3626, align 4, !tbaa !86
-  %3627 = getelementptr inbounds nuw i8, ptr %3610, i64 8
-  %3628 = load float, ptr %3627, align 4, !tbaa !86
-  %3629 = fdiv float %3620, %3628
-  %3630 = getelementptr inbounds nuw i8, ptr %3603, i64 8
-  store float %3629, ptr %3630, align 4, !tbaa !86
-  %3631 = getelementptr inbounds nuw i8, ptr %3603, i64 12
-  store i32 4, ptr %3631, align 4, !tbaa !63
+3616:                                             ; preds = %3595
+  %3617 = load double, ptr %3605, align 8, !tbaa !30
+  %3618 = fptrunc double %3617 to float
+  %3619 = load float, ptr %3608, align 4, !tbaa !86
+  %3620 = fdiv float %3618, %3619
+  store float %3620, ptr %3601, align 4, !tbaa !86
+  %3621 = getelementptr inbounds nuw i8, ptr %3608, i64 4
+  %3622 = load float, ptr %3621, align 4, !tbaa !86
+  %3623 = fdiv float %3618, %3622
+  %3624 = getelementptr inbounds nuw i8, ptr %3601, i64 4
+  store float %3623, ptr %3624, align 4, !tbaa !86
+  %3625 = getelementptr inbounds nuw i8, ptr %3608, i64 8
+  %3626 = load float, ptr %3625, align 4, !tbaa !86
+  %3627 = fdiv float %3618, %3626
+  %3628 = getelementptr inbounds nuw i8, ptr %3601, i64 8
+  store float %3627, ptr %3628, align 4, !tbaa !86
+  %3629 = getelementptr inbounds nuw i8, ptr %3601, i64 12
+  store i32 4, ptr %3629, align 4, !tbaa !63
   br label %.backedge.backedge
 
-3632:                                             ; preds = %3597
-  %3633 = load ptr, ptr %6, align 8, !tbaa !21
-  %3634 = getelementptr inbounds nuw i8, ptr %3633, i64 24
-  store ptr %3598, ptr %3634, align 8, !tbaa !27
-  call void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %3603, ptr noundef %3607, ptr noundef nonnull %3610)
-  %3635 = load ptr, ptr %7, align 8, !tbaa !4
+3630:                                             ; preds = %3595
+  %3631 = load ptr, ptr %6, align 8, !tbaa !21
+  %3632 = getelementptr inbounds nuw i8, ptr %3631, i64 24
+  store ptr %3596, ptr %3632, align 8, !tbaa !27
+  call void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %3601, ptr noundef %3605, ptr noundef nonnull %3608)
+  %3633 = load ptr, ptr %7, align 8, !tbaa !4
   br label %.backedge.backedge
 
-3636:                                             ; preds = %.backedge
-  %3637 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3638 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3639 = lshr i32 %3638, 24
-  %3640 = zext nneg i32 %3639 to i64
-  %3641 = getelementptr inbounds nuw i32, ptr %3637, i64 %3640
-  %3642 = load i32, ptr %3641, align 4, !tbaa !61
-  %3643 = lshr i32 %3642, 8
-  %3644 = and i32 %3643, 255
-  %3645 = zext nneg i32 %3644 to i64
-  %3646 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3645
-  %3647 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %3648 = load ptr, ptr %3647, align 8, !tbaa !65
-  %3649 = getelementptr inbounds nuw i8, ptr %3648, i64 5
-  %3650 = load i8, ptr %3649, align 1, !tbaa !79
-  %.not3029 = icmp eq i8 %3650, 0
-  br i1 %.not3029, label %.backedge.backedge, label %3651
+3634:                                             ; preds = %.backedge
+  %3635 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3636 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3637 = lshr i32 %3636, 24
+  %3638 = zext nneg i32 %3637 to i64
+  %3639 = getelementptr inbounds nuw i32, ptr %3635, i64 %3638
+  %3640 = load i32, ptr %3639, align 4, !tbaa !61
+  %3641 = lshr i32 %3640, 8
+  %3642 = and i32 %3641, 255
+  %3643 = zext nneg i32 %3642 to i64
+  %3644 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3643
+  %3645 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %3646 = load ptr, ptr %3645, align 8, !tbaa !65
+  %3647 = getelementptr inbounds nuw i8, ptr %3646, i64 5
+  %3648 = load i8, ptr %3647, align 1, !tbaa !79
+  %.not3029 = icmp eq i8 %3648, 0
+  br i1 %.not3029, label %.backedge.backedge, label %3649
 
-3651:                                             ; preds = %3636
-  %3652 = lshr i32 %3642, 24
-  %3653 = add nsw i32 %3652, -1
-  %3654 = lshr i32 %3638, 8
-  %3655 = and i32 %3654, 255
-  %3656 = zext nneg i32 %3655 to i64
-  %3657 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %3656
-  %3658 = load ptr, ptr %3657, align 8, !tbaa !62
-  %3659 = lshr i32 %3638, 16
-  %3660 = and i32 %3659, 255
-  %3661 = zext nneg i32 %3660 to i64
-  %3662 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3661
-  %3663 = load ptr, ptr %6, align 8, !tbaa !21
-  %3664 = getelementptr inbounds nuw i8, ptr %3663, i64 24
-  store ptr %3637, ptr %3664, align 8, !tbaa !27
-  %3665 = call noundef i32 %3658(ptr noundef %0, ptr noundef %3646, ptr noundef %3662, i32 noundef %3653, ptr noundef null, i32 noundef 1)
-  %3666 = icmp sgt i32 %3665, -1
-  br i1 %3666, label %3667, label %.backedge.backedge
+3649:                                             ; preds = %3634
+  %3650 = lshr i32 %3640, 24
+  %3651 = add nsw i32 %3650, -1
+  %3652 = lshr i32 %3636, 8
+  %3653 = and i32 %3652, 255
+  %3654 = zext nneg i32 %3653 to i64
+  %3655 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3654
+  %3656 = load ptr, ptr %3655, align 8, !tbaa !62
+  %3657 = lshr i32 %3636, 16
+  %3658 = and i32 %3657, 255
+  %3659 = zext nneg i32 %3658 to i64
+  %3660 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3659
+  %3661 = load ptr, ptr %6, align 8, !tbaa !21
+  %3662 = getelementptr inbounds nuw i8, ptr %3661, i64 24
+  store ptr %3635, ptr %3662, align 8, !tbaa !27
+  %3663 = call noundef i32 %3656(ptr noundef %0, ptr noundef %3644, ptr noundef %3660, i32 noundef %3651, ptr noundef null, i32 noundef 1)
+  %3664 = icmp sgt i32 %3663, -1
+  br i1 %3664, label %3665, label %.backedge.backedge
 
-3667:                                             ; preds = %3651
-  %3668 = icmp ult i32 %3642, 16777216
-  br i1 %3668, label %3669, label %3672
+3665:                                             ; preds = %3649
+  %3666 = icmp ult i32 %3640, 16777216
+  br i1 %3666, label %3667, label %3670
 
-3669:                                             ; preds = %3667
-  %3670 = zext nneg i32 %3665 to i64
-  %3671 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3646, i64 %3670
-  store ptr %3671, ptr %10, align 8, !tbaa !20
-  br label %3672
+3667:                                             ; preds = %3665
+  %3668 = zext nneg i32 %3663 to i64
+  %3669 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3644, i64 %3668
+  store ptr %3669, ptr %10, align 8, !tbaa !20
+  br label %3670
 
-3672:                                             ; preds = %3669, %3667
-  %3673 = getelementptr inbounds nuw i8, ptr %3641, i64 4
+3670:                                             ; preds = %3667, %3665
+  %3671 = getelementptr inbounds nuw i8, ptr %3639, i64 4
   br label %.backedge.backedge
 
-3674:                                             ; preds = %.backedge
-  %3675 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3676 = lshr i32 %3675, 24
-  %3677 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
-  %3678 = zext nneg i32 %3676 to i64
-  %3679 = getelementptr i32, ptr %3677, i64 %3678
-  %3680 = getelementptr i8, ptr %3679, i64 -4
-  %3681 = load i32, ptr %3680, align 4, !tbaa !61
-  %3682 = lshr i32 %3681, 8
-  %3683 = and i32 %3682, 255
-  %3684 = zext nneg i32 %3683 to i64
-  %3685 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3684
-  %3686 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %3687 = load ptr, ptr %3686, align 8, !tbaa !65
-  %3688 = getelementptr inbounds nuw i8, ptr %3687, i64 5
-  %3689 = load i8, ptr %3688, align 1, !tbaa !79
-  %.not3028 = icmp eq i8 %3689, 0
-  br i1 %.not3028, label %.backedge.backedge, label %3690
+3672:                                             ; preds = %.backedge
+  %3673 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3674 = lshr i32 %3673, 24
+  %3675 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
+  %3676 = zext nneg i32 %3674 to i64
+  %3677 = getelementptr i32, ptr %3675, i64 %3676
+  %3678 = getelementptr i8, ptr %3677, i64 -4
+  %3679 = load i32, ptr %3678, align 4, !tbaa !61
+  %3680 = lshr i32 %3679, 8
+  %3681 = and i32 %3680, 255
+  %3682 = zext nneg i32 %3681 to i64
+  %3683 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3682
+  %3684 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %3685 = load ptr, ptr %3684, align 8, !tbaa !65
+  %3686 = getelementptr inbounds nuw i8, ptr %3685, i64 5
+  %3687 = load i8, ptr %3686, align 1, !tbaa !79
+  %.not3028 = icmp eq i8 %3687, 0
+  br i1 %.not3028, label %.backedge.backedge, label %3688
 
-3690:                                             ; preds = %3674
-  %3691 = lshr i32 %3681, 24
-  %3692 = add nsw i32 %3691, -1
-  %3693 = lshr i32 %3675, 8
-  %3694 = and i32 %3693, 255
-  %3695 = zext nneg i32 %3694 to i64
-  %3696 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %3695
-  %3697 = load ptr, ptr %3696, align 8, !tbaa !62
-  %3698 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3699 = load i32, ptr %3698, align 4, !tbaa !61
-  %3700 = zext i32 %3699 to i64
-  %3701 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3700
-  %3702 = lshr i32 %3675, 16
-  %3703 = and i32 %3702, 255
-  %3704 = zext nneg i32 %3703 to i64
-  %3705 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3704
-  %3706 = load ptr, ptr %6, align 8, !tbaa !21
-  %3707 = getelementptr inbounds nuw i8, ptr %3706, i64 24
-  store ptr %3677, ptr %3707, align 8, !tbaa !27
-  %3708 = call noundef i32 %3697(ptr noundef %0, ptr noundef %3685, ptr noundef %3705, i32 noundef %3692, ptr noundef %3701, i32 noundef 2)
-  %3709 = icmp sgt i32 %3708, -1
+3688:                                             ; preds = %3672
+  %3689 = lshr i32 %3679, 24
+  %3690 = add nsw i32 %3689, -1
+  %3691 = lshr i32 %3673, 8
+  %3692 = and i32 %3691, 255
+  %3693 = zext nneg i32 %3692 to i64
+  %3694 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3693
+  %3695 = load ptr, ptr %3694, align 8, !tbaa !62
+  %3696 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3697 = load i32, ptr %3696, align 4, !tbaa !61
+  %3698 = zext i32 %3697 to i64
+  %3699 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3698
+  %3700 = lshr i32 %3673, 16
+  %3701 = and i32 %3700, 255
+  %3702 = zext nneg i32 %3701 to i64
+  %3703 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3702
+  %3704 = load ptr, ptr %6, align 8, !tbaa !21
+  %3705 = getelementptr inbounds nuw i8, ptr %3704, i64 24
+  store ptr %3675, ptr %3705, align 8, !tbaa !27
+  %3706 = call noundef i32 %3695(ptr noundef %0, ptr noundef %3683, ptr noundef %3703, i32 noundef %3690, ptr noundef %3699, i32 noundef 2)
+  %3707 = icmp sgt i32 %3706, -1
+  br i1 %3707, label %3708, label %.backedge.backedge
+
+3708:                                             ; preds = %3688
+  %3709 = icmp ult i32 %3679, 16777216
   br i1 %3709, label %3710, label %.backedge.backedge
 
-3710:                                             ; preds = %3690
-  %3711 = icmp ult i32 %3681, 16777216
-  br i1 %3711, label %3712, label %.backedge.backedge
-
-3712:                                             ; preds = %3710
-  %3713 = zext nneg i32 %3708 to i64
-  %3714 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3685, i64 %3713
-  store ptr %3714, ptr %10, align 8, !tbaa !20
+3710:                                             ; preds = %3708
+  %3711 = zext nneg i32 %3706 to i64
+  %3712 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3683, i64 %3711
+  store ptr %3712, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
-3715:                                             ; preds = %.backedge
-  %3716 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3717 = lshr i32 %3716, 24
-  %3718 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
-  %3719 = zext nneg i32 %3717 to i64
-  %3720 = getelementptr i32, ptr %3718, i64 %3719
-  %3721 = getelementptr i8, ptr %3720, i64 -4
-  %3722 = load i32, ptr %3721, align 4, !tbaa !61
-  %3723 = lshr i32 %3722, 8
-  %3724 = and i32 %3723, 255
-  %3725 = zext nneg i32 %3724 to i64
-  %3726 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3725
-  %3727 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %3728 = load ptr, ptr %3727, align 8, !tbaa !65
-  %3729 = getelementptr inbounds nuw i8, ptr %3728, i64 5
-  %3730 = load i8, ptr %3729, align 1, !tbaa !79
-  %.not3027 = icmp eq i8 %3730, 0
-  br i1 %.not3027, label %.backedge.backedge, label %3731
+3713:                                             ; preds = %.backedge
+  %3714 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3715 = lshr i32 %3714, 24
+  %3716 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
+  %3717 = zext nneg i32 %3715 to i64
+  %3718 = getelementptr i32, ptr %3716, i64 %3717
+  %3719 = getelementptr i8, ptr %3718, i64 -4
+  %3720 = load i32, ptr %3719, align 4, !tbaa !61
+  %3721 = lshr i32 %3720, 8
+  %3722 = and i32 %3721, 255
+  %3723 = zext nneg i32 %3722 to i64
+  %3724 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3723
+  %3725 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %3726 = load ptr, ptr %3725, align 8, !tbaa !65
+  %3727 = getelementptr inbounds nuw i8, ptr %3726, i64 5
+  %3728 = load i8, ptr %3727, align 1, !tbaa !79
+  %.not3027 = icmp eq i8 %3728, 0
+  br i1 %.not3027, label %.backedge.backedge, label %3729
 
-3731:                                             ; preds = %3715
-  %3732 = lshr i32 %3722, 24
-  %3733 = add nsw i32 %3732, -1
-  %3734 = lshr i32 %3716, 8
-  %3735 = and i32 %3734, 255
-  %3736 = zext nneg i32 %3735 to i64
-  %3737 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %3736
-  %3738 = load ptr, ptr %3737, align 8, !tbaa !62
-  %3739 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3740 = load i32, ptr %3739, align 4, !tbaa !61
-  %3741 = zext i32 %3740 to i64
-  %3742 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3741
-  %3743 = lshr i32 %3716, 16
-  %3744 = and i32 %3743, 255
-  %3745 = zext nneg i32 %3744 to i64
-  %3746 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3745
-  %3747 = load ptr, ptr %6, align 8, !tbaa !21
-  %3748 = getelementptr inbounds nuw i8, ptr %3747, i64 24
-  store ptr %3718, ptr %3748, align 8, !tbaa !27
-  %3749 = call noundef i32 %3738(ptr noundef %0, ptr noundef %3726, ptr noundef %3746, i32 noundef %3733, ptr noundef %3742, i32 noundef 2)
-  %3750 = icmp sgt i32 %3749, -1
+3729:                                             ; preds = %3713
+  %3730 = lshr i32 %3720, 24
+  %3731 = add nsw i32 %3730, -1
+  %3732 = lshr i32 %3714, 8
+  %3733 = and i32 %3732, 255
+  %3734 = zext nneg i32 %3733 to i64
+  %3735 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3734
+  %3736 = load ptr, ptr %3735, align 8, !tbaa !62
+  %3737 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3738 = load i32, ptr %3737, align 4, !tbaa !61
+  %3739 = zext i32 %3738 to i64
+  %3740 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3739
+  %3741 = lshr i32 %3714, 16
+  %3742 = and i32 %3741, 255
+  %3743 = zext nneg i32 %3742 to i64
+  %3744 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3743
+  %3745 = load ptr, ptr %6, align 8, !tbaa !21
+  %3746 = getelementptr inbounds nuw i8, ptr %3745, i64 24
+  store ptr %3716, ptr %3746, align 8, !tbaa !27
+  %3747 = call noundef i32 %3736(ptr noundef %0, ptr noundef %3724, ptr noundef %3744, i32 noundef %3731, ptr noundef %3740, i32 noundef 2)
+  %3748 = icmp sgt i32 %3747, -1
+  br i1 %3748, label %3749, label %.backedge.backedge
+
+3749:                                             ; preds = %3729
+  %3750 = icmp ult i32 %3720, 16777216
   br i1 %3750, label %3751, label %.backedge.backedge
 
-3751:                                             ; preds = %3731
-  %3752 = icmp ult i32 %3722, 16777216
-  br i1 %3752, label %3753, label %.backedge.backedge
-
-3753:                                             ; preds = %3751
-  %3754 = zext nneg i32 %3749 to i64
-  %3755 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3726, i64 %3754
-  store ptr %3755, ptr %10, align 8, !tbaa !20
+3751:                                             ; preds = %3749
+  %3752 = zext nneg i32 %3747 to i64
+  %3753 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3724, i64 %3752
+  store ptr %3753, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
-3756:                                             ; preds = %.backedge
-  %3757 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3758 = lshr i32 %3757, 24
-  %3759 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
-  %3760 = zext nneg i32 %3758 to i64
-  %3761 = getelementptr i32, ptr %3759, i64 %3760
-  %3762 = getelementptr i8, ptr %3761, i64 -4
-  %3763 = load i32, ptr %3762, align 4, !tbaa !61
-  %3764 = lshr i32 %3763, 8
-  %3765 = and i32 %3764, 255
-  %3766 = zext nneg i32 %3765 to i64
-  %3767 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3766
-  %3768 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %3769 = load ptr, ptr %3768, align 8, !tbaa !65
-  %3770 = getelementptr inbounds nuw i8, ptr %3769, i64 5
-  %3771 = load i8, ptr %3770, align 1, !tbaa !79
-  %.not3041 = icmp eq i8 %3771, 0
-  br i1 %.not3041, label %.backedge.backedge, label %3772
+3754:                                             ; preds = %.backedge
+  %3755 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3756 = lshr i32 %3755, 24
+  %3757 = getelementptr inbounds nuw i8, ptr %.12898, i64 8
+  %3758 = zext nneg i32 %3756 to i64
+  %3759 = getelementptr i32, ptr %3757, i64 %3758
+  %3760 = getelementptr i8, ptr %3759, i64 -4
+  %3761 = load i32, ptr %3760, align 4, !tbaa !61
+  %3762 = lshr i32 %3761, 8
+  %3763 = and i32 %3762, 255
+  %3764 = zext nneg i32 %3763 to i64
+  %3765 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3764
+  %3766 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %3767 = load ptr, ptr %3766, align 8, !tbaa !65
+  %3768 = getelementptr inbounds nuw i8, ptr %3767, i64 5
+  %3769 = load i8, ptr %3768, align 1, !tbaa !79
+  %.not3041 = icmp eq i8 %3769, 0
+  br i1 %.not3041, label %.backedge.backedge, label %3770
 
-3772:                                             ; preds = %3756
-  %3773 = lshr i32 %3763, 24
-  %3774 = add nsw i32 %3773, -1
-  %3775 = lshr i32 %3757, 8
-  %3776 = and i32 %3775, 255
-  %3777 = zext nneg i32 %3776 to i64
-  %3778 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %3777
-  %3779 = load ptr, ptr %3778, align 8, !tbaa !62
-  %3780 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3781 = load i32, ptr %3780, align 4, !tbaa !61
-  %3782 = lshr i32 %3781, 8
-  %3783 = and i32 %3782, 255
-  %3784 = zext nneg i32 %3783 to i64
-  %3785 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3784
-  %3786 = and i32 %3781, 255
-  %3787 = zext nneg i32 %3786 to i64
-  %3788 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3787
-  %3789 = lshr i32 %3757, 16
-  %3790 = and i32 %3789, 255
-  %3791 = zext nneg i32 %3790 to i64
-  %3792 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3791
-  %3793 = load ptr, ptr %6, align 8, !tbaa !21
-  %3794 = getelementptr inbounds nuw i8, ptr %3793, i64 24
-  store ptr %3759, ptr %3794, align 8, !tbaa !27
-  %3795 = load ptr, ptr %10, align 8, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3795, ptr noundef nonnull align 8 dereferenceable(16) %3788, i64 16, i1 false), !tbaa.struct !64
-  %3796 = getelementptr inbounds nuw i8, ptr %3795, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3796, ptr noundef nonnull align 8 dereferenceable(16) %3785, i64 16, i1 false), !tbaa.struct !64
-  %3797 = call noundef i32 %3779(ptr noundef %0, ptr noundef %3767, ptr noundef %3792, i32 noundef %3774, ptr noundef nonnull %3795, i32 noundef 3)
-  %3798 = icmp sgt i32 %3797, -1
+3770:                                             ; preds = %3754
+  %3771 = lshr i32 %3761, 24
+  %3772 = add nsw i32 %3771, -1
+  %3773 = lshr i32 %3755, 8
+  %3774 = and i32 %3773, 255
+  %3775 = zext nneg i32 %3774 to i64
+  %3776 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %3775
+  %3777 = load ptr, ptr %3776, align 8, !tbaa !62
+  %3778 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3779 = load i32, ptr %3778, align 4, !tbaa !61
+  %3780 = lshr i32 %3779, 8
+  %3781 = and i32 %3780, 255
+  %3782 = zext nneg i32 %3781 to i64
+  %3783 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3782
+  %3784 = and i32 %3779, 255
+  %3785 = zext nneg i32 %3784 to i64
+  %3786 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3785
+  %3787 = lshr i32 %3755, 16
+  %3788 = and i32 %3787, 255
+  %3789 = zext nneg i32 %3788 to i64
+  %3790 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3789
+  %3791 = load ptr, ptr %6, align 8, !tbaa !21
+  %3792 = getelementptr inbounds nuw i8, ptr %3791, i64 24
+  store ptr %3757, ptr %3792, align 8, !tbaa !27
+  %3793 = load ptr, ptr %10, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3793, ptr noundef nonnull align 8 dereferenceable(16) %3786, i64 16, i1 false), !tbaa.struct !64
+  %3794 = getelementptr inbounds nuw i8, ptr %3793, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3794, ptr noundef nonnull align 8 dereferenceable(16) %3783, i64 16, i1 false), !tbaa.struct !64
+  %3795 = call noundef i32 %3777(ptr noundef %0, ptr noundef %3765, ptr noundef %3790, i32 noundef %3772, ptr noundef nonnull %3793, i32 noundef 3)
+  %3796 = icmp sgt i32 %3795, -1
+  br i1 %3796, label %3797, label %.backedge.backedge
+
+3797:                                             ; preds = %3770
+  %3798 = icmp ult i32 %3761, 16777216
   br i1 %3798, label %3799, label %.backedge.backedge
 
-3799:                                             ; preds = %3772
-  %3800 = icmp ult i32 %3763, 16777216
-  br i1 %3800, label %3801, label %.backedge.backedge
-
-3801:                                             ; preds = %3799
-  %3802 = zext nneg i32 %3797 to i64
-  %3803 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3767, i64 %3802
-  store ptr %3803, ptr %10, align 8, !tbaa !20
+3799:                                             ; preds = %3797
+  %3800 = zext nneg i32 %3795 to i64
+  %3801 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3765, i64 %3800
+  store ptr %3801, ptr %10, align 8, !tbaa !20
   br label %.backedge.backedge
 
-3804:                                             ; preds = %.backedge
-  %3805 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %3806 = load ptr, ptr %3805, align 8, !tbaa !30
-  %3807 = getelementptr inbounds nuw i8, ptr %3806, i64 104
-  %3808 = load ptr, ptr %3807, align 8, !tbaa !134
-  %3809 = getelementptr inbounds nuw i8, ptr %3806, i64 16
-  %3810 = load ptr, ptr %3809, align 8, !tbaa !33
-  %3811 = ptrtoint ptr %.12898 to i64
-  %3812 = ptrtoint ptr %3810 to i64
-  %3813 = sub i64 %3811, %3812
-  %3814 = lshr exact i64 %3813, 2
-  %3815 = and i64 %3814, 4294967295
-  %3816 = getelementptr inbounds nuw i8, ptr %3808, i64 %3815
-  %3817 = load i8, ptr %3816, align 1, !tbaa !30
-  %3818 = load ptr, ptr %8, align 8, !tbaa !48
-  %3819 = getelementptr inbounds nuw i8, ptr %3818, i64 3328
-  %3820 = load ptr, ptr %3819, align 8, !tbaa !135
-  %.not3143 = icmp eq ptr %3820, null
-  br i1 %.not3143, label %3826, label %3821
+3802:                                             ; preds = %.backedge
+  %3803 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %3804 = load ptr, ptr %3803, align 8, !tbaa !30
+  %3805 = getelementptr inbounds nuw i8, ptr %3804, i64 104
+  %3806 = load ptr, ptr %3805, align 8, !tbaa !134
+  %3807 = getelementptr inbounds nuw i8, ptr %3804, i64 16
+  %3808 = load ptr, ptr %3807, align 8, !tbaa !33
+  %3809 = ptrtoint ptr %.12898 to i64
+  %3810 = ptrtoint ptr %3808 to i64
+  %3811 = sub i64 %3809, %3810
+  %3812 = lshr exact i64 %3811, 2
+  %3813 = and i64 %3812, 4294967295
+  %3814 = getelementptr inbounds nuw i8, ptr %3806, i64 %3813
+  %3815 = load i8, ptr %3814, align 1, !tbaa !30
+  %3816 = load ptr, ptr %8, align 8, !tbaa !48
+  %3817 = getelementptr inbounds nuw i8, ptr %3816, i64 3328
+  %3818 = load ptr, ptr %3817, align 8, !tbaa !135
+  %.not3143 = icmp eq ptr %3818, null
+  br i1 %.not3143, label %3824, label %3819
 
-3821:                                             ; preds = %3804
-  %3822 = load ptr, ptr %6, align 8, !tbaa !21
-  %3823 = getelementptr inbounds nuw i8, ptr %3822, i64 24
-  store ptr %.12898, ptr %3823, align 8, !tbaa !27
-  call void @_Z13luau_callhookP9lua_StatePFvS0_P9lua_DebugEPv(ptr noundef nonnull %0, ptr noundef nonnull %3820, ptr noundef null)
-  %3824 = load ptr, ptr %7, align 8, !tbaa !4
-  %3825 = load i8, ptr %9, align 1, !tbaa !25
-  %.not3144 = icmp eq i8 %3825, 0
-  br i1 %.not3144, label %3826, label %.loopexit3252
+3819:                                             ; preds = %3802
+  %3820 = load ptr, ptr %6, align 8, !tbaa !21
+  %3821 = getelementptr inbounds nuw i8, ptr %3820, i64 24
+  store ptr %.12898, ptr %3821, align 8, !tbaa !27
+  call void @_Z13luau_callhookP9lua_StatePFvS0_P9lua_DebugEPv(ptr noundef nonnull %0, ptr noundef nonnull %3818, ptr noundef null)
+  %3822 = load ptr, ptr %7, align 8, !tbaa !4
+  %3823 = load i8, ptr %9, align 1, !tbaa !25
+  %.not3144 = icmp eq i8 %3823, 0
+  br i1 %.not3144, label %3824, label %.loopexit3252
 
-3826:                                             ; preds = %3821, %3804
-  %.11 = phi ptr [ %3824, %3821 ], [ %.1.fr, %3804 ]
-  %3827 = zext i8 %3817 to i64
-  %3828 = getelementptr inbounds nuw [256 x ptr], ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 0, i64 %3827
-  %3829 = load ptr, ptr %3828, align 8, !tbaa !62
+3824:                                             ; preds = %3819, %3802
+  %.11 = phi ptr [ %3822, %3819 ], [ %.1.fr, %3802 ]
+  %3825 = zext i8 %3815 to i64
+  %3826 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb1EEvP9lua_StateE14kDispatchTable, i64 %3825
+  %3827 = load ptr, ptr %3826, align 8, !tbaa !62
   br label %.backedge.backedge
 
-3830:                                             ; preds = %.backedge
-  %3831 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3832 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3833 = load i32, ptr %3831, align 4, !tbaa !61
-  %3834 = lshr i32 %3832, 8
-  %3835 = and i32 %3834, 255
-  %3836 = zext nneg i32 %3835 to i64
-  %3837 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3836, i32 2
-  %3838 = load i32, ptr %3837, align 4, !tbaa !63
-  %3839 = add nsw i32 %3838, -1
-  %3840 = xor i32 %3839, %3833
-  %3841 = icmp slt i32 %3840, 0
-  %3842 = ashr i32 %3832, 16
-  %3843 = select i1 %3841, i32 %3842, i32 1
-  %3844 = sext i32 %3843 to i64
-  %3845 = getelementptr inbounds i32, ptr %3831, i64 %3844
+3828:                                             ; preds = %.backedge
+  %3829 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3830 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3831 = load i32, ptr %3829, align 4, !tbaa !61
+  %3832 = lshr i32 %3830, 8
+  %3833 = and i32 %3832, 255
+  %3834 = zext nneg i32 %3833 to i64
+  %3835 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3834, i32 2
+  %3836 = load i32, ptr %3835, align 4, !tbaa !63
+  %3837 = add nsw i32 %3836, -1
+  %3838 = xor i32 %3837, %3831
+  %3839 = icmp slt i32 %3838, 0
+  %3840 = ashr i32 %3830, 16
+  %3841 = select i1 %3839, i32 %3840, i32 1
+  %3842 = sext i32 %3841 to i64
+  %3843 = getelementptr inbounds i32, ptr %3829, i64 %3842
   br label %.backedge.backedge
 
-3846:                                             ; preds = %.backedge
-  %3847 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3848 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3849 = load i32, ptr %3847, align 4, !tbaa !61
-  %3850 = lshr i32 %3848, 8
-  %3851 = and i32 %3850, 255
-  %3852 = zext nneg i32 %3851 to i64
-  %3853 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3852
-  %3854 = getelementptr inbounds nuw i8, ptr %3853, i64 12
-  %3855 = load i32, ptr %3854, align 4, !tbaa !63
-  %3856 = icmp eq i32 %3855, 1
-  br i1 %3856, label %3857, label %3862
+3844:                                             ; preds = %.backedge
+  %3845 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3846 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3847 = load i32, ptr %3845, align 4, !tbaa !61
+  %3848 = lshr i32 %3846, 8
+  %3849 = and i32 %3848, 255
+  %3850 = zext nneg i32 %3849 to i64
+  %3851 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3850
+  %3852 = getelementptr inbounds nuw i8, ptr %3851, i64 12
+  %3853 = load i32, ptr %3852, align 4, !tbaa !63
+  %3854 = icmp eq i32 %3853, 1
+  br i1 %3854, label %3855, label %3860
 
-3857:                                             ; preds = %3846
-  %3858 = load i32, ptr %3853, align 8, !tbaa !30
-  %3859 = and i32 %3849, 1
-  %3860 = icmp eq i32 %3858, %3859
-  %3861 = zext i1 %3860 to i32
-  br label %3862
+3855:                                             ; preds = %3844
+  %3856 = load i32, ptr %3851, align 8, !tbaa !30
+  %3857 = and i32 %3847, 1
+  %3858 = icmp eq i32 %3856, %3857
+  %3859 = zext i1 %3858 to i32
+  br label %3860
 
-3862:                                             ; preds = %3857, %3846
-  %3863 = phi i32 [ 0, %3846 ], [ %3861, %3857 ]
-  %3864 = lshr i32 %3849, 31
-  %.not3022 = icmp eq i32 %3863, %3864
-  %3865 = ashr i32 %3848, 16
-  %3866 = select i1 %.not3022, i32 1, i32 %3865
-  %3867 = sext i32 %3866 to i64
-  %3868 = getelementptr inbounds i32, ptr %3847, i64 %3867
+3860:                                             ; preds = %3855, %3844
+  %3861 = phi i32 [ 0, %3844 ], [ %3859, %3855 ]
+  %3862 = lshr i32 %3847, 31
+  %.not3022 = icmp eq i32 %3861, %3862
+  %3863 = ashr i32 %3846, 16
+  %3864 = select i1 %.not3022, i32 1, i32 %3863
+  %3865 = sext i32 %3864 to i64
+  %3866 = getelementptr inbounds i32, ptr %3845, i64 %3865
   br label %.backedge.backedge
 
-3869:                                             ; preds = %.backedge
-  %3870 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3871 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3872 = load i32, ptr %3870, align 4, !tbaa !61
-  %3873 = lshr i32 %3871, 8
-  %3874 = and i32 %3873, 255
-  %3875 = zext nneg i32 %3874 to i64
-  %3876 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3875
-  %3877 = getelementptr inbounds nuw i8, ptr %3876, i64 12
-  %3878 = load i32, ptr %3877, align 4, !tbaa !63
-  %3879 = icmp eq i32 %3878, 3
-  br i1 %3879, label %3880, label %3888
+3867:                                             ; preds = %.backedge
+  %3868 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3869 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3870 = load i32, ptr %3868, align 4, !tbaa !61
+  %3871 = lshr i32 %3869, 8
+  %3872 = and i32 %3871, 255
+  %3873 = zext nneg i32 %3872 to i64
+  %3874 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3873
+  %3875 = getelementptr inbounds nuw i8, ptr %3874, i64 12
+  %3876 = load i32, ptr %3875, align 4, !tbaa !63
+  %3877 = icmp eq i32 %3876, 3
+  br i1 %3877, label %3878, label %3886
 
-3880:                                             ; preds = %3869
-  %3881 = and i32 %3872, 16777215
-  %3882 = zext nneg i32 %3881 to i64
-  %3883 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3882
-  %3884 = load double, ptr %3876, align 8, !tbaa !30
-  %3885 = load double, ptr %3883, align 8, !tbaa !30
-  %3886 = fcmp oeq double %3884, %3885
-  %3887 = zext i1 %3886 to i32
-  br label %3888
+3878:                                             ; preds = %3867
+  %3879 = and i32 %3870, 16777215
+  %3880 = zext nneg i32 %3879 to i64
+  %3881 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3880
+  %3882 = load double, ptr %3874, align 8, !tbaa !30
+  %3883 = load double, ptr %3881, align 8, !tbaa !30
+  %3884 = fcmp oeq double %3882, %3883
+  %3885 = zext i1 %3884 to i32
+  br label %3886
 
-3888:                                             ; preds = %3880, %3869
-  %3889 = phi i32 [ 0, %3869 ], [ %3887, %3880 ]
-  %3890 = lshr i32 %3872, 31
-  %.not3021 = icmp eq i32 %3889, %3890
-  %3891 = ashr i32 %3871, 16
-  %3892 = select i1 %.not3021, i32 1, i32 %3891
-  %3893 = sext i32 %3892 to i64
-  %3894 = getelementptr inbounds i32, ptr %3870, i64 %3893
+3886:                                             ; preds = %3878, %3867
+  %3887 = phi i32 [ 0, %3867 ], [ %3885, %3878 ]
+  %3888 = lshr i32 %3870, 31
+  %.not3021 = icmp eq i32 %3887, %3888
+  %3889 = ashr i32 %3869, 16
+  %3890 = select i1 %.not3021, i32 1, i32 %3889
+  %3891 = sext i32 %3890 to i64
+  %3892 = getelementptr inbounds i32, ptr %3868, i64 %3891
   br label %.backedge.backedge
 
-3895:                                             ; preds = %.backedge
-  %3896 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
-  %3897 = load i32, ptr %.12898, align 4, !tbaa !61
-  %3898 = load i32, ptr %3896, align 4, !tbaa !61
-  %3899 = lshr i32 %3897, 8
-  %3900 = and i32 %3899, 255
-  %3901 = zext nneg i32 %3900 to i64
-  %3902 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3901
-  %3903 = getelementptr inbounds nuw i8, ptr %3902, i64 12
-  %3904 = load i32, ptr %3903, align 4, !tbaa !63
-  %3905 = icmp eq i32 %3904, 5
-  br i1 %3905, label %3906, label %3914
+3893:                                             ; preds = %.backedge
+  %3894 = getelementptr inbounds nuw i8, ptr %.12898, i64 4
+  %3895 = load i32, ptr %.12898, align 4, !tbaa !61
+  %3896 = load i32, ptr %3894, align 4, !tbaa !61
+  %3897 = lshr i32 %3895, 8
+  %3898 = and i32 %3897, 255
+  %3899 = zext nneg i32 %3898 to i64
+  %3900 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3899
+  %3901 = getelementptr inbounds nuw i8, ptr %3900, i64 12
+  %3902 = load i32, ptr %3901, align 4, !tbaa !63
+  %3903 = icmp eq i32 %3902, 5
+  br i1 %3903, label %3904, label %3912
 
-3906:                                             ; preds = %3895
-  %3907 = and i32 %3898, 16777215
-  %3908 = zext nneg i32 %3907 to i64
-  %3909 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3908
-  %3910 = load ptr, ptr %3902, align 8, !tbaa !30
-  %3911 = load ptr, ptr %3909, align 8, !tbaa !30
-  %3912 = icmp eq ptr %3910, %3911
-  %3913 = zext i1 %3912 to i32
-  br label %3914
+3904:                                             ; preds = %3893
+  %3905 = and i32 %3896, 16777215
+  %3906 = zext nneg i32 %3905 to i64
+  %3907 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.02896, i64 %3906
+  %3908 = load ptr, ptr %3900, align 8, !tbaa !30
+  %3909 = load ptr, ptr %3907, align 8, !tbaa !30
+  %3910 = icmp eq ptr %3908, %3909
+  %3911 = zext i1 %3910 to i32
+  br label %3912
 
-3914:                                             ; preds = %3906, %3895
-  %3915 = phi i32 [ 0, %3895 ], [ %3913, %3906 ]
-  %3916 = lshr i32 %3898, 31
-  %.not3020 = icmp eq i32 %3915, %3916
-  %3917 = ashr i32 %3897, 16
-  %3918 = select i1 %.not3020, i32 1, i32 %3917
-  %3919 = sext i32 %3918 to i64
-  %3920 = getelementptr inbounds i32, ptr %3896, i64 %3919
+3912:                                             ; preds = %3904, %3893
+  %3913 = phi i32 [ 0, %3893 ], [ %3911, %3904 ]
+  %3914 = lshr i32 %3896, 31
+  %.not3020 = icmp eq i32 %3913, %3914
+  %3915 = ashr i32 %3895, 16
+  %3916 = select i1 %.not3020, i32 1, i32 %3915
+  %3917 = sext i32 %3916 to i64
+  %3918 = getelementptr inbounds i32, ptr %3894, i64 %3917
   br label %.backedge.backedge
 
-.loopexit3252.sink.split.sink.split:              ; preds = %3495, %3468, %3056, %2964
-  %3921 = load ptr, ptr %6, align 8, !tbaa !21
+.loopexit3252.sink.split.sink.split:              ; preds = %3493, %3466, %3056, %2964
+  %3919 = load ptr, ptr %6, align 8, !tbaa !21
   br label %.loopexit3252.sink.split
 
 .loopexit3252.sink.split:                         ; preds = %1173, %1045, %.loopexit3252.sink.split.sink.split
-  %.sink3615 = phi ptr [ %3921, %.loopexit3252.sink.split.sink.split ], [ %.pre3464.pre, %1045 ], [ %.pre3460, %1173 ]
-  %3922 = getelementptr inbounds nuw i8, ptr %.sink3615, i64 24
-  %3923 = load ptr, ptr %3922, align 8, !tbaa !27
-  %3924 = getelementptr inbounds i8, ptr %3923, i64 -4
-  store ptr %3924, ptr %3922, align 8, !tbaa !27
+  %.sink3617 = phi ptr [ %3919, %.loopexit3252.sink.split.sink.split ], [ %.pre3464.pre, %1045 ], [ %.pre3460, %1173 ]
+  %3920 = getelementptr inbounds nuw i8, ptr %.sink3617, i64 24
+  %3921 = load ptr, ptr %3920, align 8, !tbaa !27
+  %3922 = getelementptr inbounds i8, ptr %3921, i64 -4
+  store ptr %3922, ptr %3920, align 8, !tbaa !27
   br label %.loopexit3252
 
-.loopexit3252:                                    ; preds = %3263, %3821, %2891, %1220, %1137, %41, %.loopexit3252.sink.split
+.loopexit3252:                                    ; preds = %3263, %3819, %2891, %1220, %1137, %41, %.loopexit3252.sink.split
   ret void
 
 .backedge:                                        ; preds = %.backedge.backedge, %21
@@ -6352,9 +6351,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   %.02896 = phi ptr [ %32, %21 ], [ %.02896.be, %.backedge.backedge ]
   %.1 = phi ptr [ %28, %21 ], [ %.1.be, %.backedge.backedge ]
   %.0 = phi ptr [ %27, %21 ], [ %.0.be, %.backedge.backedge ]
-  %3925 = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %21 ], [ %.be, %.backedge.backedge ]
+  %3923 = phi ptr [ blockaddress(@_ZL12luau_executeILb1EEvP9lua_State, %33), %21 ], [ %.be, %.backedge.backedge ]
   %.1.fr = freeze ptr %.1
-  indirectbr ptr %3925, [label %52, label %3804, label %54, label %61, label %74, label %84, label %94, label %105, label %149, label %209, label %230, label %258, label %270, label %598, label %640, label %293, label %455, label %698, label %731, label %780, label %847, label %1041, label %1169, label %1235, label %3464, label %1241, label %1259, label %1277, label %1628, label %1720, label %1454, label %1674, label %1766, label %1812, label %1879, label %1946, label %2042, label %2216, label %2249, label %2279, label %2305, label %2331, label %2388, label %2513, label %2542, label %2583, label %2605, label %2627, label %2649, label %2671, label %2699, label %2719, label %2769, label %2809, label %2839, label %2865, label %2920, label %2960, label %3052, label %3192, label %3756, label %3229, label %3263, label %3276, label %3338, label %3434, label %3480, label %3491, label %3507, label %3560, label %3570, label %3571, label %3597, label %3636, label %3674, label %3715, label %2993, label %3830, label %3846, label %3869, label %3895, label %2138, label %2445, label %33]
+  indirectbr ptr %3923, [label %52, label %3802, label %54, label %61, label %74, label %84, label %94, label %105, label %149, label %209, label %230, label %258, label %270, label %598, label %640, label %293, label %455, label %698, label %731, label %780, label %847, label %1041, label %1169, label %1235, label %3462, label %1241, label %1259, label %1277, label %1628, label %1720, label %1454, label %1674, label %1766, label %1812, label %1879, label %1946, label %2042, label %2216, label %2249, label %2279, label %2305, label %2331, label %2388, label %2513, label %2542, label %2583, label %2605, label %2627, label %2649, label %2671, label %2699, label %2719, label %2769, label %2809, label %2839, label %2865, label %2920, label %2960, label %3052, label %3192, label %3754, label %3229, label %3263, label %3276, label %3338, label %3432, label %3478, label %3489, label %3505, label %3558, label %3568, label %3569, label %3595, label %3634, label %3672, label %3713, label %2993, label %3828, label %3844, label %3867, label %3893, label %2138, label %2445, label %33]
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6426,12 +6425,12 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %56 = zext nneg i32 %55 to i64
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %52, %57, %67, %83, %96, %109, %158, %.critedge, %225, %.critedge3327, %259, %292, %308, %328, %._crit_edge3649, %381, %401, %405, %439, %471, %501, %.thread3374, %582, %624, %628, %662, %.thread3377, %720, %.critedge3333, %789, %.critedge3335, %822, %.critedge3337, %882, %.critedge3339, %959, %1250, %1289, %1366, %1374, %1398, %1419, %1441, %1448, %1472, %1478, %_Z10luai_veceqPKfS0_.exit.thread, %1511, %.critedge3343, %.thread3392, %1610, %1617, %1630, %1651, %1656, %1677, %1683, %1713, %1719, %.critedge3345, %.thread3397, %1815, %1822, %1835, %1858, %1873, %.critedge3347.thread, %1913, %1928, %.critedge3349.thread, %1968, %1983, %.critedge3351.thread, %2023, %2038, %.critedge3353.thread, %2082, %2094, %2124, %.thread3400, %2161, %2173, %2203, %.thread3402, %2239, %2250, %2267, %2287, %2317, %.thread3406.thread, %2353, %2364, %2381, %2401, %2431, %.thread3410.thread, %2468, %2481, %2521, %.critedge3363.thread.thread, %2559, %2570, %2598, %2606, %2630, %2638, %2662, %2670, %2693, %2701, %2728, %2739, %2762, %2770, %2797, %2808, %2831, %2840, %2877, %2888, %2912, %2923, %2964, %2970, %2997, %3022, %3047, %3072, %3103, %3125, %3144, %3151, %3176, %3186, %3215, %3222, %3229, %3238, %3273, %3302, %3362, %3403, %3438, %3445, %3504, %3559, %3573, %3608, %._crit_edge3506, %3639, %3699, %3736, %._crit_edge3495, %._crit_edge3491, %3916, %._crit_edge, %3966, %3975, %3999, %4058, %4064, %4068, %4072, %4103, %4111, %4134, %4142, %4159, %4202, %4207, %4211, %4256, %4260, %4264, %4309, %4313, %4317, %4369, %4373, %4377, %4403, %4405, %4440, %4469, %4498
-  %.sink.sink.be = phi i64 [ %56, %52 ], [ %66, %57 ], [ %82, %67 ], [ %95, %83 ], [ %108, %96 ], [ %122, %109 ], [ %161, %158 ], [ %172, %.critedge ], [ %228, %225 ], [ %239, %.critedge3327 ], [ %263, %259 ], [ %295, %292 ], [ %311, %308 ], [ %332, %328 ], [ %340, %._crit_edge3649 ], [ %384, %381 ], [ %404, %401 ], [ %416, %405 ], [ %455, %439 ], [ %479, %471 ], [ %517, %501 ], [ %523, %.thread3374 ], [ %585, %582 ], [ %627, %624 ], [ %639, %628 ], [ %679, %662 ], [ %685, %.thread3377 ], [ %727, %720 ], [ %733, %.critedge3333 ], [ %792, %789 ], [ %798, %.critedge3335 ], [ %829, %822 ], [ %837, %.critedge3337 ], [ %885, %882 ], [ %893, %.critedge3339 ], [ %963, %959 ], [ %1258, %1250 ], [ %1293, %1289 ], [ %1373, %1366 ], [ %1382, %1374 ], [ %1403, %1398 ], [ %1424, %1419 ], [ %1447, %1441 ], [ %1458, %1448 ], [ %1477, %1472 ], [ %1488, %1478 ], [ %1510, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1521, %1511 ], [ %1550, %.critedge3343 ], [ %1578, %.thread3392 ], [ %1615, %1610 ], [ %1629, %1617 ], [ %1634, %1630 ], [ %1655, %1651 ], [ %1665, %1656 ], [ %1682, %1677 ], [ %1693, %1683 ], [ %1718, %1713 ], [ %1728, %1719 ], [ %1756, %.critedge3345 ], [ %1783, %.thread3397 ], [ %1820, %1815 ], [ %1834, %1822 ], [ %1841, %1835 ], [ %1868, %1858 ], [ %1884, %1873 ], [ %1896, %.critedge3347.thread ], [ %1923, %1913 ], [ %1939, %1928 ], [ %1951, %.critedge3349.thread ], [ %1978, %1968 ], [ %1994, %1983 ], [ %2006, %.critedge3351.thread ], [ %2033, %2023 ], [ %2049, %2038 ], [ %2061, %.critedge3353.thread ], [ %2089, %2082 ], [ %2113, %2094 ], [ %2134, %2124 ], [ %2140, %.thread3400 ], [ %2168, %2161 ], [ %2192, %2173 ], [ %2213, %2203 ], [ %2219, %.thread3402 ], [ %2246, %2239 ], [ %2266, %2250 ], [ %2286, %2267 ], [ %2303, %2287 ], [ %2327, %2317 ], [ %2333, %.thread3406.thread ], [ %2360, %2353 ], [ %2380, %2364 ], [ %2400, %2381 ], [ %2417, %2401 ], [ %2441, %2431 ], [ %2447, %.thread3410.thread ], [ %2476, %2468 ], [ %2507, %2481 ], [ %2531, %2521 ], [ %2537, %.critedge3363.thread.thread ], [ %2569, %2559 ], [ %2576, %2570 ], [ %2605, %2598 ], [ %2612, %2606 ], [ %2637, %2630 ], [ %2644, %2638 ], [ %2669, %2662 ], [ %2676, %2670 ], [ %2700, %2693 ], [ %2717, %2701 ], [ %2738, %2728 ], [ %2745, %2739 ], [ %2769, %2762 ], [ %2786, %2770 ], [ %2807, %2797 ], [ %2814, %2808 ], [ %2839, %2831 ], [ %2866, %2840 ], [ %2887, %2877 ], [ %2894, %2888 ], [ %2922, %2912 ], [ %2929, %2923 ], [ %2969, %2964 ], [ %2976, %2970 ], [ %3001, %2997 ], [ %3026, %3022 ], [ %3051, %3047 ], [ %3076, %3072 ], [ %3107, %3103 ], [ %3130, %3125 ], [ %3150, %3144 ], [ %3165, %3151 ], [ %3185, %3176 ], [ %3192, %3186 ], [ %3221, %3215 ], [ %3228, %3222 ], [ %3237, %3229 ], [ %3244, %3238 ], [ %3277, %3273 ], [ %3306, %3302 ], [ %3365, %3362 ], [ %3408, %3403 ], [ %3444, %3438 ], [ %3448, %3445 ], [ %3510, %3504 ], [ %3563, %3559 ], [ %3589, %3573 ], [ %3630, %3608 ], [ %3638, %._crit_edge3506 ], [ %3665, %3639 ], [ %3705, %3699 ], [ %3742, %3736 ], [ %3805, %._crit_edge3495 ], [ %3823, %._crit_edge3491 ], [ %3922, %3916 ], [ %3955, %._crit_edge ], [ %3974, %3966 ], [ %3988, %3975 ], [ %4007, %3999 ], [ %4063, %4058 ], [ %4067, %4064 ], [ %4071, %4068 ], [ %4084, %4072 ], [ %4110, %4103 ], [ %4117, %4111 ], [ %4141, %4134 ], [ %4158, %4142 ], [ %4165, %4159 ], [ %4206, %4202 ], [ %4210, %4207 ], [ %4214, %4211 ], [ %4259, %4256 ], [ %4263, %4260 ], [ %4267, %4264 ], [ %4312, %4309 ], [ %4316, %4313 ], [ %4320, %4317 ], [ %4372, %4369 ], [ %4376, %4373 ], [ %4380, %4377 ], [ %4404, %4403 ], [ %4423, %4405 ], [ %4449, %4440 ], [ %4478, %4469 ], [ %4507, %4498 ]
-  %.13078.be = phi ptr [ %53, %52 ], [ %58, %57 ], [ %79, %67 ], [ %84, %83 ], [ %97, %96 ], [ %110, %109 ], [ %130, %158 ], [ %130, %.critedge ], [ %180, %225 ], [ %180, %.critedge3327 ], [ %241, %259 ], [ %265, %292 ], [ %297, %308 ], [ %329, %328 ], [ %333, %._crit_edge3649 ], [ %352, %381 ], [ %352, %401 ], [ %352, %405 ], [ %352, %439 ], [ %352, %471 ], [ %352, %501 ], [ %352, %.thread3374 ], [ %535, %582 ], [ %535, %624 ], [ %535, %628 ], [ %535, %662 ], [ %535, %.thread3377 ], [ %687, %720 ], [ %687, %.critedge3333 ], [ %735, %789 ], [ %735, %.critedge3335 ], [ %800, %822 ], [ %800, %.critedge3337 ], [ %839, %882 ], [ %839, %.critedge3339 ], [ %.23079.lcssa, %959 ], [ %1253, %1250 ], [ %1169, %1289 ], [ %1368, %1366 ], [ %1379, %1374 ], [ %1400, %1398 ], [ %1421, %1419 ], [ %1444, %1441 ], [ %1455, %1448 ], [ %1474, %1472 ], [ %1485, %1478 ], [ %1507, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1518, %1511 ], [ %1547, %.critedge3343 ], [ %1575, %.thread3392 ], [ %1612, %1610 ], [ %1626, %1617 ], [ %1631, %1630 ], [ %1652, %1651 ], [ %1662, %1656 ], [ %1679, %1677 ], [ %1690, %1683 ], [ %1715, %1713 ], [ %1725, %1719 ], [ %1753, %.critedge3345 ], [ %1780, %.thread3397 ], [ %1817, %1815 ], [ %1831, %1822 ], [ %1838, %1835 ], [ %1865, %1858 ], [ %1881, %1873 ], [ %1893, %.critedge3347.thread ], [ %1920, %1913 ], [ %1936, %1928 ], [ %1948, %.critedge3349.thread ], [ %1975, %1968 ], [ %1991, %1983 ], [ %2003, %.critedge3351.thread ], [ %2030, %2023 ], [ %2046, %2038 ], [ %2058, %.critedge3353.thread ], [ %2063, %2082 ], [ %2063, %2094 ], [ %2063, %2124 ], [ %2063, %.thread3400 ], [ %2142, %2161 ], [ %2142, %2173 ], [ %2142, %2203 ], [ %2142, %.thread3402 ], [ %2221, %2239 ], [ %2221, %2250 ], [ %2221, %2267 ], [ %2221, %2287 ], [ %2221, %2317 ], [ %2221, %.thread3406.thread ], [ %2335, %2353 ], [ %2335, %2364 ], [ %2335, %2381 ], [ %2335, %2401 ], [ %2335, %2431 ], [ %2335, %.thread3410.thread ], [ %2449, %2468 ], [ %2449, %2481 ], [ %2449, %2521 ], [ %2449, %.critedge3363.thread.thread ], [ %2539, %2559 ], [ %2539, %2570 ], [ %2578, %2598 ], [ %2578, %2606 ], [ %2614, %2630 ], [ %2614, %2638 ], [ %2646, %2662 ], [ %2646, %2670 ], [ %2678, %2693 ], [ %2678, %2701 ], [ %2678, %2728 ], [ %2678, %2739 ], [ %2747, %2762 ], [ %2747, %2770 ], [ %2747, %2797 ], [ %2747, %2808 ], [ %2816, %2831 ], [ %2816, %2840 ], [ %2816, %2877 ], [ %2816, %2888 ], [ %2896, %2912 ], [ %2896, %2923 ], [ %2931, %2964 ], [ %2931, %2970 ], [ %2978, %2997 ], [ %3003, %3022 ], [ %3028, %3047 ], [ %3053, %3072 ], [ %3078, %3103 ], [ %3109, %3125 ], [ %3132, %3144 ], [ %3132, %3151 ], [ %3132, %3176 ], [ %3132, %3186 ], [ %3194, %3215 ], [ %3194, %3222 ], [ %3194, %3229 ], [ %3194, %3238 ], [ %3254, %3273 ], [ %3279, %3302 ], [ %3320, %3362 ], [ %3405, %3403 ], [ %3441, %3438 ], [ %3420, %3445 ], [ %3507, %3504 ], [ %3560, %3559 ], [ %3586, %3573 ], [ %3627, %3608 ], [ %3635, %._crit_edge3506 ], [ %3662, %3639 ], [ %3702, %3699 ], [ %3739, %3736 ], [ %3757, %._crit_edge3495 ], [ %3757, %._crit_edge3491 ], [ %3919, %3916 ], [ %3924, %._crit_edge ], [ %3971, %3966 ], [ %3982, %3975 ], [ %4004, %3999 ], [ %4060, %4058 ], [ %4009, %4064 ], [ %4009, %4068 ], [ %4073, %4072 ], [ %4087, %4103 ], [ %4087, %4111 ], [ %4119, %4134 ], [ %4119, %4142 ], [ %4119, %4159 ], [ %4203, %4202 ], [ %4167, %4207 ], [ %4167, %4211 ], [ %4220, %4256 ], [ %4218, %4260 ], [ %4218, %4264 ], [ %4273, %4309 ], [ %4271, %4313 ], [ %4271, %4317 ], [ %4326, %4369 ], [ %4324, %4373 ], [ %4324, %4377 ], [ %.13078, %4403 ], [ %4420, %4405 ], [ %4446, %4440 ], [ %4475, %4469 ], [ %4504, %4498 ]
-  %.03076.be = phi ptr [ %.03076, %52 ], [ %.03076, %57 ], [ %.03076, %67 ], [ %.03076, %83 ], [ %.03076, %96 ], [ %.03076, %109 ], [ %.03076, %158 ], [ %.03076, %.critedge ], [ %.03076, %225 ], [ %.03076, %.critedge3327 ], [ %.03076, %259 ], [ %.03076, %292 ], [ %.03076, %308 ], [ %.03076, %328 ], [ %.03076, %._crit_edge3649 ], [ %.03076, %381 ], [ %.03076, %401 ], [ %.03076, %405 ], [ %.03076, %439 ], [ %.03076, %471 ], [ %.03076, %501 ], [ %.03076, %.thread3374 ], [ %.03076, %582 ], [ %.03076, %624 ], [ %.03076, %628 ], [ %.03076, %662 ], [ %.03076, %.thread3377 ], [ %.03076, %720 ], [ %.03076, %.critedge3333 ], [ %.03076, %789 ], [ %.03076, %.critedge3335 ], [ %.03076, %822 ], [ %.03076, %.critedge3337 ], [ %.03076, %882 ], [ %.03076, %.critedge3339 ], [ %.03076, %959 ], [ %1255, %1250 ], [ %.03076, %1289 ], [ %1370, %1366 ], [ %.03076, %1374 ], [ %.03076, %1398 ], [ %.03076, %1419 ], [ %.03076, %1441 ], [ %.03076, %1448 ], [ %.03076, %1472 ], [ %.03076, %1478 ], [ %.03076, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.03076, %1511 ], [ %.03076, %.critedge3343 ], [ %.03076, %.thread3392 ], [ %.03076, %1610 ], [ %.03076, %1617 ], [ %.03076, %1630 ], [ %.03076, %1651 ], [ %.03076, %1656 ], [ %.03076, %1677 ], [ %.03076, %1683 ], [ %.03076, %1713 ], [ %.03076, %1719 ], [ %.03076, %.critedge3345 ], [ %.03076, %.thread3397 ], [ %.03076, %1815 ], [ %.03076, %1822 ], [ %.03076, %1835 ], [ %.03076, %1858 ], [ %.03076, %1873 ], [ %.03076, %.critedge3347.thread ], [ %.03076, %1913 ], [ %.03076, %1928 ], [ %.03076, %.critedge3349.thread ], [ %.03076, %1968 ], [ %.03076, %1983 ], [ %.03076, %.critedge3351.thread ], [ %.03076, %2023 ], [ %.03076, %2038 ], [ %.03076, %.critedge3353.thread ], [ %.03076, %2082 ], [ %.03076, %2094 ], [ %.03076, %2124 ], [ %.03076, %.thread3400 ], [ %.03076, %2161 ], [ %.03076, %2173 ], [ %.03076, %2203 ], [ %.03076, %.thread3402 ], [ %.03076, %2239 ], [ %.03076, %2250 ], [ %.03076, %2267 ], [ %.03076, %2287 ], [ %.03076, %2317 ], [ %.03076, %.thread3406.thread ], [ %.03076, %2353 ], [ %.03076, %2364 ], [ %.03076, %2381 ], [ %.03076, %2401 ], [ %.03076, %2431 ], [ %.03076, %.thread3410.thread ], [ %.03076, %2468 ], [ %.03076, %2481 ], [ %.03076, %2521 ], [ %.03076, %.critedge3363.thread.thread ], [ %.03076, %2559 ], [ %.03076, %2570 ], [ %.03076, %2598 ], [ %.03076, %2606 ], [ %.03076, %2630 ], [ %.03076, %2638 ], [ %.03076, %2662 ], [ %.03076, %2670 ], [ %.03076, %2693 ], [ %.03076, %2701 ], [ %.03076, %2728 ], [ %.03076, %2739 ], [ %.03076, %2762 ], [ %.03076, %2770 ], [ %.03076, %2797 ], [ %.03076, %2808 ], [ %.03076, %2831 ], [ %.03076, %2840 ], [ %.03076, %2877 ], [ %.03076, %2888 ], [ %.03076, %2912 ], [ %.03076, %2923 ], [ %.03076, %2964 ], [ %.03076, %2970 ], [ %.03076, %2997 ], [ %.03076, %3022 ], [ %.03076, %3047 ], [ %.03076, %3072 ], [ %.03076, %3103 ], [ %.03076, %3125 ], [ %.03076, %3144 ], [ %.03076, %3151 ], [ %.03076, %3176 ], [ %.03076, %3186 ], [ %.03076, %3215 ], [ %.03076, %3222 ], [ %.03076, %3229 ], [ %.03076, %3238 ], [ %.03076, %3273 ], [ %.03076, %3302 ], [ %.03076, %3362 ], [ %.03076, %3403 ], [ %.03076, %3438 ], [ %.03076, %3445 ], [ %.03076, %3504 ], [ %.03076, %3559 ], [ %.03076, %3573 ], [ %.03076, %3608 ], [ %.03076, %._crit_edge3506 ], [ %.03076, %3639 ], [ %.03076, %3699 ], [ %.03076, %3736 ], [ %.03076, %._crit_edge3495 ], [ %.03076, %._crit_edge3491 ], [ %.03076, %3916 ], [ %.03076, %._crit_edge ], [ %.03076, %3966 ], [ %.03076, %3975 ], [ %.03076, %3999 ], [ %.03076, %4058 ], [ %.03076, %4064 ], [ %.03076, %4068 ], [ %.03076, %4072 ], [ %.03076, %4103 ], [ %.03076, %4111 ], [ %.03076, %4134 ], [ %.03076, %4142 ], [ %.03076, %4159 ], [ %.03076, %4202 ], [ %.03076, %4207 ], [ %.03076, %4211 ], [ %.03076, %4256 ], [ %.03076, %4260 ], [ %.03076, %4264 ], [ %.03076, %4309 ], [ %.03076, %4313 ], [ %.03076, %4317 ], [ %.03076, %4369 ], [ %.03076, %4373 ], [ %.03076, %4377 ], [ %.03076, %4403 ], [ %.03076, %4405 ], [ %.03076, %4440 ], [ %.03076, %4469 ], [ %.03076, %4498 ]
-  %.1.be = phi ptr [ %.1.fr, %52 ], [ %.1.fr, %57 ], [ %.1.fr, %67 ], [ %.1.fr, %83 ], [ %.1.fr, %96 ], [ %.1.fr, %109 ], [ %.1.fr, %158 ], [ %164, %.critedge ], [ %.1.fr, %225 ], [ %231, %.critedge3327 ], [ %.1.fr, %259 ], [ %.1.fr, %292 ], [ %.1.fr, %308 ], [ %.1.fr, %328 ], [ %337, %._crit_edge3649 ], [ %.1.fr, %381 ], [ %.1.fr, %401 ], [ %408, %405 ], [ %447, %439 ], [ %.1.fr, %471 ], [ %509, %501 ], [ %520, %.thread3374 ], [ %.1.fr, %582 ], [ %.1.fr, %624 ], [ %631, %628 ], [ %671, %662 ], [ %682, %.thread3377 ], [ %.1.fr, %720 ], [ %730, %.critedge3333 ], [ %.1.fr, %789 ], [ %795, %.critedge3335 ], [ %.1.fr, %822 ], [ %834, %.critedge3337 ], [ %.1.fr, %882 ], [ %890, %.critedge3339 ], [ %960, %959 ], [ %1237, %1250 ], [ %1284, %1289 ], [ %1341, %1366 ], [ %.1.fr, %1374 ], [ %.1.fr, %1398 ], [ %.1.fr, %1419 ], [ %.1.fr, %1441 ], [ %.1.fr, %1448 ], [ %.1.fr, %1472 ], [ %.1.fr, %1478 ], [ %.1.fr, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1.fr, %1511 ], [ %.1.fr, %.critedge3343 ], [ %.1.fr, %.thread3392 ], [ %1599, %1610 ], [ %1621, %1617 ], [ %.1.fr, %1630 ], [ %.1.fr, %1651 ], [ %.1.fr, %1656 ], [ %.1.fr, %1677 ], [ %.1.fr, %1683 ], [ %.1.fr, %1713 ], [ %.1.fr, %1719 ], [ %.1.fr, %.critedge3345 ], [ %.1.fr, %.thread3397 ], [ %1804, %1815 ], [ %1826, %1822 ], [ %.1.fr, %1835 ], [ %.1.fr, %1858 ], [ %.1.fr, %1873 ], [ %1888, %.critedge3347.thread ], [ %.1.fr, %1913 ], [ %.1.fr, %1928 ], [ %1943, %.critedge3349.thread ], [ %.1.fr, %1968 ], [ %.1.fr, %1983 ], [ %1998, %.critedge3351.thread ], [ %.1.fr, %2023 ], [ %.1.fr, %2038 ], [ %2053, %.critedge3353.thread ], [ %.1.fr, %2082 ], [ %.1.fr, %2094 ], [ %2131, %2124 ], [ %2137, %.thread3400 ], [ %.1.fr, %2161 ], [ %.1.fr, %2173 ], [ %2210, %2203 ], [ %2216, %.thread3402 ], [ %.1.fr, %2239 ], [ %.1.fr, %2250 ], [ %.1.fr, %2267 ], [ %.1.fr, %2287 ], [ %2324, %2317 ], [ %2330, %.thread3406.thread ], [ %.1.fr, %2353 ], [ %.1.fr, %2364 ], [ %.1.fr, %2381 ], [ %.1.fr, %2401 ], [ %2438, %2431 ], [ %2444, %.thread3410.thread ], [ %.1.fr, %2468 ], [ %.1.fr, %2481 ], [ %2528, %2521 ], [ %2534, %.critedge3363.thread.thread ], [ %.1.fr, %2559 ], [ %2573, %2570 ], [ %.1.fr, %2598 ], [ %2609, %2606 ], [ %.1.fr, %2630 ], [ %2641, %2638 ], [ %.1.fr, %2662 ], [ %2673, %2670 ], [ %.1.fr, %2693 ], [ %.1.fr, %2701 ], [ %2735, %2728 ], [ %2742, %2739 ], [ %.1.fr, %2762 ], [ %.1.fr, %2770 ], [ %2804, %2797 ], [ %2811, %2808 ], [ %.1.fr, %2831 ], [ %.1.fr, %2840 ], [ %2884, %2877 ], [ %2891, %2888 ], [ %.1.fr, %2912 ], [ %2926, %2923 ], [ %.1.fr, %2964 ], [ %2973, %2970 ], [ %.1.fr, %2997 ], [ %.1.fr, %3022 ], [ %.1.fr, %3047 ], [ %.1.fr, %3072 ], [ %3104, %3103 ], [ %.1.fr, %3125 ], [ %.1.fr, %3144 ], [ %.1.fr, %3151 ], [ %3182, %3176 ], [ %3189, %3186 ], [ %.1.fr, %3215 ], [ %3225, %3222 ], [ %.1.fr, %3229 ], [ %3241, %3238 ], [ %3274, %3273 ], [ %3303, %3302 ], [ %.1.fr, %3362 ], [ %.1.fr, %3403 ], [ %.4, %3438 ], [ %.4, %3445 ], [ %.5, %3504 ], [ %.6, %3559 ], [ %.6, %3573 ], [ %.6, %3608 ], [ %.6, %._crit_edge3506 ], [ %3649, %3639 ], [ %.1.fr, %3699 ], [ %.1.fr, %3736 ], [ %3789, %._crit_edge3495 ], [ %.1.fr, %._crit_edge3491 ], [ %.7, %3916 ], [ %3943, %._crit_edge ], [ %.8, %3966 ], [ %.1.fr, %3975 ], [ %.9, %3999 ], [ %.1.fr, %4058 ], [ %.1.fr, %4064 ], [ %.1.fr, %4068 ], [ %.1.fr, %4072 ], [ %.1.fr, %4103 ], [ %4114, %4111 ], [ %.1.fr, %4134 ], [ %.1.fr, %4142 ], [ %4162, %4159 ], [ %.1.fr, %4202 ], [ %.1.fr, %4207 ], [ %.1.fr, %4211 ], [ %.1.fr, %4256 ], [ %.1.fr, %4260 ], [ %.1.fr, %4264 ], [ %.1.fr, %4309 ], [ %.1.fr, %4313 ], [ %.1.fr, %4317 ], [ %.1.fr, %4369 ], [ %.1.fr, %4373 ], [ %.1.fr, %4377 ], [ %.10, %4403 ], [ %.1.fr, %4405 ], [ %.1.fr, %4440 ], [ %.1.fr, %4469 ], [ %.1.fr, %4498 ]
-  %.0.be = phi ptr [ %.0, %52 ], [ %.0, %57 ], [ %.0, %67 ], [ %.0, %83 ], [ %.0, %96 ], [ %.0, %109 ], [ %.0, %158 ], [ %.0, %.critedge ], [ %.0, %225 ], [ %.0, %.critedge3327 ], [ %.0, %259 ], [ %.0, %292 ], [ %.0, %308 ], [ %.0, %328 ], [ %.0, %._crit_edge3649 ], [ %.0, %381 ], [ %.0, %401 ], [ %.0, %405 ], [ %.0, %439 ], [ %.0, %471 ], [ %.0, %501 ], [ %.0, %.thread3374 ], [ %.0, %582 ], [ %.0, %624 ], [ %.0, %628 ], [ %.0, %662 ], [ %.0, %.thread3377 ], [ %.0, %720 ], [ %.0, %.critedge3333 ], [ %.0, %789 ], [ %.0, %.critedge3335 ], [ %.0, %822 ], [ %.0, %.critedge3337 ], [ %.0, %882 ], [ %.0, %.critedge3339 ], [ %.0, %959 ], [ %1193, %1250 ], [ %.0, %1289 ], [ %1354, %1366 ], [ %.0, %1374 ], [ %.0, %1398 ], [ %.0, %1419 ], [ %.0, %1441 ], [ %.0, %1448 ], [ %.0, %1472 ], [ %.0, %1478 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1511 ], [ %.0, %.critedge3343 ], [ %.0, %.thread3392 ], [ %.0, %1610 ], [ %.0, %1617 ], [ %.0, %1630 ], [ %.0, %1651 ], [ %.0, %1656 ], [ %.0, %1677 ], [ %.0, %1683 ], [ %.0, %1713 ], [ %.0, %1719 ], [ %.0, %.critedge3345 ], [ %.0, %.thread3397 ], [ %.0, %1815 ], [ %.0, %1822 ], [ %.0, %1835 ], [ %.0, %1858 ], [ %.0, %1873 ], [ %.0, %.critedge3347.thread ], [ %.0, %1913 ], [ %.0, %1928 ], [ %.0, %.critedge3349.thread ], [ %.0, %1968 ], [ %.0, %1983 ], [ %.0, %.critedge3351.thread ], [ %.0, %2023 ], [ %.0, %2038 ], [ %.0, %.critedge3353.thread ], [ %.0, %2082 ], [ %.0, %2094 ], [ %.0, %2124 ], [ %.0, %.thread3400 ], [ %.0, %2161 ], [ %.0, %2173 ], [ %.0, %2203 ], [ %.0, %.thread3402 ], [ %.0, %2239 ], [ %.0, %2250 ], [ %.0, %2267 ], [ %.0, %2287 ], [ %.0, %2317 ], [ %.0, %.thread3406.thread ], [ %.0, %2353 ], [ %.0, %2364 ], [ %.0, %2381 ], [ %.0, %2401 ], [ %.0, %2431 ], [ %.0, %.thread3410.thread ], [ %.0, %2468 ], [ %.0, %2481 ], [ %.0, %2521 ], [ %.0, %.critedge3363.thread.thread ], [ %.0, %2559 ], [ %.0, %2570 ], [ %.0, %2598 ], [ %.0, %2606 ], [ %.0, %2630 ], [ %.0, %2638 ], [ %.0, %2662 ], [ %.0, %2670 ], [ %.0, %2693 ], [ %.0, %2701 ], [ %.0, %2728 ], [ %.0, %2739 ], [ %.0, %2762 ], [ %.0, %2770 ], [ %.0, %2797 ], [ %.0, %2808 ], [ %.0, %2831 ], [ %.0, %2840 ], [ %.0, %2877 ], [ %.0, %2888 ], [ %.0, %2912 ], [ %.0, %2923 ], [ %.0, %2964 ], [ %.0, %2970 ], [ %.0, %2997 ], [ %.0, %3022 ], [ %.0, %3047 ], [ %.0, %3072 ], [ %.0, %3103 ], [ %.0, %3125 ], [ %.0, %3144 ], [ %.0, %3151 ], [ %.0, %3176 ], [ %.0, %3186 ], [ %.0, %3215 ], [ %.0, %3222 ], [ %.0, %3229 ], [ %.0, %3238 ], [ %.0, %3273 ], [ %.0, %3302 ], [ %.0, %3362 ], [ %.0, %3403 ], [ %.0, %3438 ], [ %.0, %3445 ], [ %.0, %3504 ], [ %.0, %3559 ], [ %.0, %3573 ], [ %.0, %3608 ], [ %.0, %._crit_edge3506 ], [ %.0, %3639 ], [ %.0, %3699 ], [ %.0, %3736 ], [ %.0, %._crit_edge3495 ], [ %.0, %._crit_edge3491 ], [ %.0, %3916 ], [ %.0, %._crit_edge ], [ %.0, %3966 ], [ %.0, %3975 ], [ %.0, %3999 ], [ %.0, %4058 ], [ %.0, %4064 ], [ %.0, %4068 ], [ %.0, %4072 ], [ %.0, %4103 ], [ %.0, %4111 ], [ %.0, %4134 ], [ %.0, %4142 ], [ %.0, %4159 ], [ %.0, %4202 ], [ %.0, %4207 ], [ %.0, %4211 ], [ %.0, %4256 ], [ %.0, %4260 ], [ %.0, %4264 ], [ %.0, %4309 ], [ %.0, %4313 ], [ %.0, %4317 ], [ %.0, %4369 ], [ %.0, %4373 ], [ %.0, %4377 ], [ %.0, %4403 ], [ %.0, %4405 ], [ %.0, %4440 ], [ %.0, %4469 ], [ %.0, %4498 ]
+.backedge.backedge:                               ; preds = %52, %57, %67, %83, %96, %109, %158, %.critedge, %225, %.critedge3327, %259, %292, %308, %328, %._crit_edge3649, %381, %401, %405, %439, %471, %501, %.thread3374, %582, %624, %628, %662, %.thread3377, %720, %.critedge3333, %789, %.critedge3335, %822, %.critedge3337, %882, %.critedge3339, %959, %1250, %1289, %1366, %1374, %1398, %1419, %1441, %1448, %1472, %1478, %_Z10luai_veceqPKfS0_.exit.thread, %1511, %.critedge3343, %.thread3392, %1610, %1617, %1630, %1651, %1656, %1677, %1683, %1713, %1719, %.critedge3345, %.thread3397, %1815, %1822, %1835, %1858, %1873, %.critedge3347.thread, %1913, %1928, %.critedge3349.thread, %1968, %1983, %.critedge3351.thread, %2023, %2038, %.critedge3353.thread, %2082, %2094, %2124, %.thread3400, %2161, %2173, %2203, %.thread3402, %2239, %2250, %2267, %2287, %2317, %.thread3406.thread, %2353, %2364, %2381, %2401, %2431, %.thread3410.thread, %2468, %2481, %2521, %.critedge3363.thread.thread, %2559, %2570, %2598, %2606, %2630, %2638, %2662, %2670, %2693, %2701, %2728, %2739, %2762, %2770, %2797, %2808, %2831, %2840, %2877, %2888, %2912, %2923, %2964, %2970, %2997, %3022, %3047, %3072, %3103, %3125, %3144, %3151, %3176, %3186, %3215, %3222, %3229, %3238, %3273, %3302, %3362, %3403, %3438, %3445, %3504, %3559, %3573, %3608, %._crit_edge3506, %3639, %3699, %3736, %._crit_edge3495, %._crit_edge3491, %3914, %._crit_edge, %3964, %3973, %3997, %4056, %4062, %4066, %4070, %4101, %4109, %4132, %4140, %4157, %4200, %4205, %4209, %4254, %4258, %4262, %4307, %4311, %4315, %4367, %4371, %4375, %4401, %4403, %4438, %4467, %4496
+  %.sink.sink.be = phi i64 [ %56, %52 ], [ %66, %57 ], [ %82, %67 ], [ %95, %83 ], [ %108, %96 ], [ %122, %109 ], [ %161, %158 ], [ %172, %.critedge ], [ %228, %225 ], [ %239, %.critedge3327 ], [ %263, %259 ], [ %295, %292 ], [ %311, %308 ], [ %332, %328 ], [ %340, %._crit_edge3649 ], [ %384, %381 ], [ %404, %401 ], [ %416, %405 ], [ %455, %439 ], [ %479, %471 ], [ %517, %501 ], [ %523, %.thread3374 ], [ %585, %582 ], [ %627, %624 ], [ %639, %628 ], [ %679, %662 ], [ %685, %.thread3377 ], [ %727, %720 ], [ %733, %.critedge3333 ], [ %792, %789 ], [ %798, %.critedge3335 ], [ %829, %822 ], [ %837, %.critedge3337 ], [ %885, %882 ], [ %893, %.critedge3339 ], [ %963, %959 ], [ %1258, %1250 ], [ %1293, %1289 ], [ %1373, %1366 ], [ %1382, %1374 ], [ %1403, %1398 ], [ %1424, %1419 ], [ %1447, %1441 ], [ %1458, %1448 ], [ %1477, %1472 ], [ %1488, %1478 ], [ %1510, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1521, %1511 ], [ %1550, %.critedge3343 ], [ %1578, %.thread3392 ], [ %1615, %1610 ], [ %1629, %1617 ], [ %1634, %1630 ], [ %1655, %1651 ], [ %1665, %1656 ], [ %1682, %1677 ], [ %1693, %1683 ], [ %1718, %1713 ], [ %1728, %1719 ], [ %1756, %.critedge3345 ], [ %1783, %.thread3397 ], [ %1820, %1815 ], [ %1834, %1822 ], [ %1841, %1835 ], [ %1868, %1858 ], [ %1884, %1873 ], [ %1896, %.critedge3347.thread ], [ %1923, %1913 ], [ %1939, %1928 ], [ %1951, %.critedge3349.thread ], [ %1978, %1968 ], [ %1994, %1983 ], [ %2006, %.critedge3351.thread ], [ %2033, %2023 ], [ %2049, %2038 ], [ %2061, %.critedge3353.thread ], [ %2089, %2082 ], [ %2113, %2094 ], [ %2134, %2124 ], [ %2140, %.thread3400 ], [ %2168, %2161 ], [ %2192, %2173 ], [ %2213, %2203 ], [ %2219, %.thread3402 ], [ %2246, %2239 ], [ %2266, %2250 ], [ %2286, %2267 ], [ %2303, %2287 ], [ %2327, %2317 ], [ %2333, %.thread3406.thread ], [ %2360, %2353 ], [ %2380, %2364 ], [ %2400, %2381 ], [ %2417, %2401 ], [ %2441, %2431 ], [ %2447, %.thread3410.thread ], [ %2476, %2468 ], [ %2507, %2481 ], [ %2531, %2521 ], [ %2537, %.critedge3363.thread.thread ], [ %2569, %2559 ], [ %2576, %2570 ], [ %2605, %2598 ], [ %2612, %2606 ], [ %2637, %2630 ], [ %2644, %2638 ], [ %2669, %2662 ], [ %2676, %2670 ], [ %2700, %2693 ], [ %2717, %2701 ], [ %2738, %2728 ], [ %2745, %2739 ], [ %2769, %2762 ], [ %2786, %2770 ], [ %2807, %2797 ], [ %2814, %2808 ], [ %2839, %2831 ], [ %2866, %2840 ], [ %2887, %2877 ], [ %2894, %2888 ], [ %2922, %2912 ], [ %2929, %2923 ], [ %2969, %2964 ], [ %2976, %2970 ], [ %3001, %2997 ], [ %3026, %3022 ], [ %3051, %3047 ], [ %3076, %3072 ], [ %3107, %3103 ], [ %3130, %3125 ], [ %3150, %3144 ], [ %3165, %3151 ], [ %3185, %3176 ], [ %3192, %3186 ], [ %3221, %3215 ], [ %3228, %3222 ], [ %3237, %3229 ], [ %3244, %3238 ], [ %3277, %3273 ], [ %3306, %3302 ], [ %3365, %3362 ], [ %3408, %3403 ], [ %3444, %3438 ], [ %3448, %3445 ], [ %3510, %3504 ], [ %3563, %3559 ], [ %3589, %3573 ], [ %3630, %3608 ], [ %3638, %._crit_edge3506 ], [ %3665, %3639 ], [ %3705, %3699 ], [ %3742, %3736 ], [ %3805, %._crit_edge3495 ], [ %3823, %._crit_edge3491 ], [ %3920, %3914 ], [ %3953, %._crit_edge ], [ %3972, %3964 ], [ %3986, %3973 ], [ %4005, %3997 ], [ %4061, %4056 ], [ %4065, %4062 ], [ %4069, %4066 ], [ %4082, %4070 ], [ %4108, %4101 ], [ %4115, %4109 ], [ %4139, %4132 ], [ %4156, %4140 ], [ %4163, %4157 ], [ %4204, %4200 ], [ %4208, %4205 ], [ %4212, %4209 ], [ %4257, %4254 ], [ %4261, %4258 ], [ %4265, %4262 ], [ %4310, %4307 ], [ %4314, %4311 ], [ %4318, %4315 ], [ %4370, %4367 ], [ %4374, %4371 ], [ %4378, %4375 ], [ %4402, %4401 ], [ %4421, %4403 ], [ %4447, %4438 ], [ %4476, %4467 ], [ %4505, %4496 ]
+  %.13078.be = phi ptr [ %53, %52 ], [ %58, %57 ], [ %79, %67 ], [ %84, %83 ], [ %97, %96 ], [ %110, %109 ], [ %130, %158 ], [ %130, %.critedge ], [ %180, %225 ], [ %180, %.critedge3327 ], [ %241, %259 ], [ %265, %292 ], [ %297, %308 ], [ %329, %328 ], [ %333, %._crit_edge3649 ], [ %352, %381 ], [ %352, %401 ], [ %352, %405 ], [ %352, %439 ], [ %352, %471 ], [ %352, %501 ], [ %352, %.thread3374 ], [ %535, %582 ], [ %535, %624 ], [ %535, %628 ], [ %535, %662 ], [ %535, %.thread3377 ], [ %687, %720 ], [ %687, %.critedge3333 ], [ %735, %789 ], [ %735, %.critedge3335 ], [ %800, %822 ], [ %800, %.critedge3337 ], [ %839, %882 ], [ %839, %.critedge3339 ], [ %.23079.lcssa, %959 ], [ %1253, %1250 ], [ %1169, %1289 ], [ %1368, %1366 ], [ %1379, %1374 ], [ %1400, %1398 ], [ %1421, %1419 ], [ %1444, %1441 ], [ %1455, %1448 ], [ %1474, %1472 ], [ %1485, %1478 ], [ %1507, %_Z10luai_veceqPKfS0_.exit.thread ], [ %1518, %1511 ], [ %1547, %.critedge3343 ], [ %1575, %.thread3392 ], [ %1612, %1610 ], [ %1626, %1617 ], [ %1631, %1630 ], [ %1652, %1651 ], [ %1662, %1656 ], [ %1679, %1677 ], [ %1690, %1683 ], [ %1715, %1713 ], [ %1725, %1719 ], [ %1753, %.critedge3345 ], [ %1780, %.thread3397 ], [ %1817, %1815 ], [ %1831, %1822 ], [ %1838, %1835 ], [ %1865, %1858 ], [ %1881, %1873 ], [ %1893, %.critedge3347.thread ], [ %1920, %1913 ], [ %1936, %1928 ], [ %1948, %.critedge3349.thread ], [ %1975, %1968 ], [ %1991, %1983 ], [ %2003, %.critedge3351.thread ], [ %2030, %2023 ], [ %2046, %2038 ], [ %2058, %.critedge3353.thread ], [ %2063, %2082 ], [ %2063, %2094 ], [ %2063, %2124 ], [ %2063, %.thread3400 ], [ %2142, %2161 ], [ %2142, %2173 ], [ %2142, %2203 ], [ %2142, %.thread3402 ], [ %2221, %2239 ], [ %2221, %2250 ], [ %2221, %2267 ], [ %2221, %2287 ], [ %2221, %2317 ], [ %2221, %.thread3406.thread ], [ %2335, %2353 ], [ %2335, %2364 ], [ %2335, %2381 ], [ %2335, %2401 ], [ %2335, %2431 ], [ %2335, %.thread3410.thread ], [ %2449, %2468 ], [ %2449, %2481 ], [ %2449, %2521 ], [ %2449, %.critedge3363.thread.thread ], [ %2539, %2559 ], [ %2539, %2570 ], [ %2578, %2598 ], [ %2578, %2606 ], [ %2614, %2630 ], [ %2614, %2638 ], [ %2646, %2662 ], [ %2646, %2670 ], [ %2678, %2693 ], [ %2678, %2701 ], [ %2678, %2728 ], [ %2678, %2739 ], [ %2747, %2762 ], [ %2747, %2770 ], [ %2747, %2797 ], [ %2747, %2808 ], [ %2816, %2831 ], [ %2816, %2840 ], [ %2816, %2877 ], [ %2816, %2888 ], [ %2896, %2912 ], [ %2896, %2923 ], [ %2931, %2964 ], [ %2931, %2970 ], [ %2978, %2997 ], [ %3003, %3022 ], [ %3028, %3047 ], [ %3053, %3072 ], [ %3078, %3103 ], [ %3109, %3125 ], [ %3132, %3144 ], [ %3132, %3151 ], [ %3132, %3176 ], [ %3132, %3186 ], [ %3194, %3215 ], [ %3194, %3222 ], [ %3194, %3229 ], [ %3194, %3238 ], [ %3254, %3273 ], [ %3279, %3302 ], [ %3320, %3362 ], [ %3405, %3403 ], [ %3441, %3438 ], [ %3420, %3445 ], [ %3507, %3504 ], [ %3560, %3559 ], [ %3586, %3573 ], [ %3627, %3608 ], [ %3635, %._crit_edge3506 ], [ %3662, %3639 ], [ %3702, %3699 ], [ %3739, %3736 ], [ %3757, %._crit_edge3495 ], [ %3757, %._crit_edge3491 ], [ %3917, %3914 ], [ %3922, %._crit_edge ], [ %3969, %3964 ], [ %3980, %3973 ], [ %4002, %3997 ], [ %4058, %4056 ], [ %4007, %4062 ], [ %4007, %4066 ], [ %4071, %4070 ], [ %4085, %4101 ], [ %4085, %4109 ], [ %4117, %4132 ], [ %4117, %4140 ], [ %4117, %4157 ], [ %4201, %4200 ], [ %4165, %4205 ], [ %4165, %4209 ], [ %4218, %4254 ], [ %4216, %4258 ], [ %4216, %4262 ], [ %4271, %4307 ], [ %4269, %4311 ], [ %4269, %4315 ], [ %4324, %4367 ], [ %4322, %4371 ], [ %4322, %4375 ], [ %.13078, %4401 ], [ %4418, %4403 ], [ %4444, %4438 ], [ %4473, %4467 ], [ %4502, %4496 ]
+  %.03076.be = phi ptr [ %.03076, %52 ], [ %.03076, %57 ], [ %.03076, %67 ], [ %.03076, %83 ], [ %.03076, %96 ], [ %.03076, %109 ], [ %.03076, %158 ], [ %.03076, %.critedge ], [ %.03076, %225 ], [ %.03076, %.critedge3327 ], [ %.03076, %259 ], [ %.03076, %292 ], [ %.03076, %308 ], [ %.03076, %328 ], [ %.03076, %._crit_edge3649 ], [ %.03076, %381 ], [ %.03076, %401 ], [ %.03076, %405 ], [ %.03076, %439 ], [ %.03076, %471 ], [ %.03076, %501 ], [ %.03076, %.thread3374 ], [ %.03076, %582 ], [ %.03076, %624 ], [ %.03076, %628 ], [ %.03076, %662 ], [ %.03076, %.thread3377 ], [ %.03076, %720 ], [ %.03076, %.critedge3333 ], [ %.03076, %789 ], [ %.03076, %.critedge3335 ], [ %.03076, %822 ], [ %.03076, %.critedge3337 ], [ %.03076, %882 ], [ %.03076, %.critedge3339 ], [ %.03076, %959 ], [ %1255, %1250 ], [ %.03076, %1289 ], [ %1370, %1366 ], [ %.03076, %1374 ], [ %.03076, %1398 ], [ %.03076, %1419 ], [ %.03076, %1441 ], [ %.03076, %1448 ], [ %.03076, %1472 ], [ %.03076, %1478 ], [ %.03076, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.03076, %1511 ], [ %.03076, %.critedge3343 ], [ %.03076, %.thread3392 ], [ %.03076, %1610 ], [ %.03076, %1617 ], [ %.03076, %1630 ], [ %.03076, %1651 ], [ %.03076, %1656 ], [ %.03076, %1677 ], [ %.03076, %1683 ], [ %.03076, %1713 ], [ %.03076, %1719 ], [ %.03076, %.critedge3345 ], [ %.03076, %.thread3397 ], [ %.03076, %1815 ], [ %.03076, %1822 ], [ %.03076, %1835 ], [ %.03076, %1858 ], [ %.03076, %1873 ], [ %.03076, %.critedge3347.thread ], [ %.03076, %1913 ], [ %.03076, %1928 ], [ %.03076, %.critedge3349.thread ], [ %.03076, %1968 ], [ %.03076, %1983 ], [ %.03076, %.critedge3351.thread ], [ %.03076, %2023 ], [ %.03076, %2038 ], [ %.03076, %.critedge3353.thread ], [ %.03076, %2082 ], [ %.03076, %2094 ], [ %.03076, %2124 ], [ %.03076, %.thread3400 ], [ %.03076, %2161 ], [ %.03076, %2173 ], [ %.03076, %2203 ], [ %.03076, %.thread3402 ], [ %.03076, %2239 ], [ %.03076, %2250 ], [ %.03076, %2267 ], [ %.03076, %2287 ], [ %.03076, %2317 ], [ %.03076, %.thread3406.thread ], [ %.03076, %2353 ], [ %.03076, %2364 ], [ %.03076, %2381 ], [ %.03076, %2401 ], [ %.03076, %2431 ], [ %.03076, %.thread3410.thread ], [ %.03076, %2468 ], [ %.03076, %2481 ], [ %.03076, %2521 ], [ %.03076, %.critedge3363.thread.thread ], [ %.03076, %2559 ], [ %.03076, %2570 ], [ %.03076, %2598 ], [ %.03076, %2606 ], [ %.03076, %2630 ], [ %.03076, %2638 ], [ %.03076, %2662 ], [ %.03076, %2670 ], [ %.03076, %2693 ], [ %.03076, %2701 ], [ %.03076, %2728 ], [ %.03076, %2739 ], [ %.03076, %2762 ], [ %.03076, %2770 ], [ %.03076, %2797 ], [ %.03076, %2808 ], [ %.03076, %2831 ], [ %.03076, %2840 ], [ %.03076, %2877 ], [ %.03076, %2888 ], [ %.03076, %2912 ], [ %.03076, %2923 ], [ %.03076, %2964 ], [ %.03076, %2970 ], [ %.03076, %2997 ], [ %.03076, %3022 ], [ %.03076, %3047 ], [ %.03076, %3072 ], [ %.03076, %3103 ], [ %.03076, %3125 ], [ %.03076, %3144 ], [ %.03076, %3151 ], [ %.03076, %3176 ], [ %.03076, %3186 ], [ %.03076, %3215 ], [ %.03076, %3222 ], [ %.03076, %3229 ], [ %.03076, %3238 ], [ %.03076, %3273 ], [ %.03076, %3302 ], [ %.03076, %3362 ], [ %.03076, %3403 ], [ %.03076, %3438 ], [ %.03076, %3445 ], [ %.03076, %3504 ], [ %.03076, %3559 ], [ %.03076, %3573 ], [ %.03076, %3608 ], [ %.03076, %._crit_edge3506 ], [ %.03076, %3639 ], [ %.03076, %3699 ], [ %.03076, %3736 ], [ %.03076, %._crit_edge3495 ], [ %.03076, %._crit_edge3491 ], [ %.03076, %3914 ], [ %.03076, %._crit_edge ], [ %.03076, %3964 ], [ %.03076, %3973 ], [ %.03076, %3997 ], [ %.03076, %4056 ], [ %.03076, %4062 ], [ %.03076, %4066 ], [ %.03076, %4070 ], [ %.03076, %4101 ], [ %.03076, %4109 ], [ %.03076, %4132 ], [ %.03076, %4140 ], [ %.03076, %4157 ], [ %.03076, %4200 ], [ %.03076, %4205 ], [ %.03076, %4209 ], [ %.03076, %4254 ], [ %.03076, %4258 ], [ %.03076, %4262 ], [ %.03076, %4307 ], [ %.03076, %4311 ], [ %.03076, %4315 ], [ %.03076, %4367 ], [ %.03076, %4371 ], [ %.03076, %4375 ], [ %.03076, %4401 ], [ %.03076, %4403 ], [ %.03076, %4438 ], [ %.03076, %4467 ], [ %.03076, %4496 ]
+  %.1.be = phi ptr [ %.1.fr, %52 ], [ %.1.fr, %57 ], [ %.1.fr, %67 ], [ %.1.fr, %83 ], [ %.1.fr, %96 ], [ %.1.fr, %109 ], [ %.1.fr, %158 ], [ %164, %.critedge ], [ %.1.fr, %225 ], [ %231, %.critedge3327 ], [ %.1.fr, %259 ], [ %.1.fr, %292 ], [ %.1.fr, %308 ], [ %.1.fr, %328 ], [ %337, %._crit_edge3649 ], [ %.1.fr, %381 ], [ %.1.fr, %401 ], [ %408, %405 ], [ %447, %439 ], [ %.1.fr, %471 ], [ %509, %501 ], [ %520, %.thread3374 ], [ %.1.fr, %582 ], [ %.1.fr, %624 ], [ %631, %628 ], [ %671, %662 ], [ %682, %.thread3377 ], [ %.1.fr, %720 ], [ %730, %.critedge3333 ], [ %.1.fr, %789 ], [ %795, %.critedge3335 ], [ %.1.fr, %822 ], [ %834, %.critedge3337 ], [ %.1.fr, %882 ], [ %890, %.critedge3339 ], [ %960, %959 ], [ %1237, %1250 ], [ %1284, %1289 ], [ %1341, %1366 ], [ %.1.fr, %1374 ], [ %.1.fr, %1398 ], [ %.1.fr, %1419 ], [ %.1.fr, %1441 ], [ %.1.fr, %1448 ], [ %.1.fr, %1472 ], [ %.1.fr, %1478 ], [ %.1.fr, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.1.fr, %1511 ], [ %.1.fr, %.critedge3343 ], [ %.1.fr, %.thread3392 ], [ %1599, %1610 ], [ %1621, %1617 ], [ %.1.fr, %1630 ], [ %.1.fr, %1651 ], [ %.1.fr, %1656 ], [ %.1.fr, %1677 ], [ %.1.fr, %1683 ], [ %.1.fr, %1713 ], [ %.1.fr, %1719 ], [ %.1.fr, %.critedge3345 ], [ %.1.fr, %.thread3397 ], [ %1804, %1815 ], [ %1826, %1822 ], [ %.1.fr, %1835 ], [ %.1.fr, %1858 ], [ %.1.fr, %1873 ], [ %1888, %.critedge3347.thread ], [ %.1.fr, %1913 ], [ %.1.fr, %1928 ], [ %1943, %.critedge3349.thread ], [ %.1.fr, %1968 ], [ %.1.fr, %1983 ], [ %1998, %.critedge3351.thread ], [ %.1.fr, %2023 ], [ %.1.fr, %2038 ], [ %2053, %.critedge3353.thread ], [ %.1.fr, %2082 ], [ %.1.fr, %2094 ], [ %2131, %2124 ], [ %2137, %.thread3400 ], [ %.1.fr, %2161 ], [ %.1.fr, %2173 ], [ %2210, %2203 ], [ %2216, %.thread3402 ], [ %.1.fr, %2239 ], [ %.1.fr, %2250 ], [ %.1.fr, %2267 ], [ %.1.fr, %2287 ], [ %2324, %2317 ], [ %2330, %.thread3406.thread ], [ %.1.fr, %2353 ], [ %.1.fr, %2364 ], [ %.1.fr, %2381 ], [ %.1.fr, %2401 ], [ %2438, %2431 ], [ %2444, %.thread3410.thread ], [ %.1.fr, %2468 ], [ %.1.fr, %2481 ], [ %2528, %2521 ], [ %2534, %.critedge3363.thread.thread ], [ %.1.fr, %2559 ], [ %2573, %2570 ], [ %.1.fr, %2598 ], [ %2609, %2606 ], [ %.1.fr, %2630 ], [ %2641, %2638 ], [ %.1.fr, %2662 ], [ %2673, %2670 ], [ %.1.fr, %2693 ], [ %.1.fr, %2701 ], [ %2735, %2728 ], [ %2742, %2739 ], [ %.1.fr, %2762 ], [ %.1.fr, %2770 ], [ %2804, %2797 ], [ %2811, %2808 ], [ %.1.fr, %2831 ], [ %.1.fr, %2840 ], [ %2884, %2877 ], [ %2891, %2888 ], [ %.1.fr, %2912 ], [ %2926, %2923 ], [ %.1.fr, %2964 ], [ %2973, %2970 ], [ %.1.fr, %2997 ], [ %.1.fr, %3022 ], [ %.1.fr, %3047 ], [ %.1.fr, %3072 ], [ %3104, %3103 ], [ %.1.fr, %3125 ], [ %.1.fr, %3144 ], [ %.1.fr, %3151 ], [ %3182, %3176 ], [ %3189, %3186 ], [ %.1.fr, %3215 ], [ %3225, %3222 ], [ %.1.fr, %3229 ], [ %3241, %3238 ], [ %3274, %3273 ], [ %3303, %3302 ], [ %.1.fr, %3362 ], [ %.1.fr, %3403 ], [ %.4, %3438 ], [ %.4, %3445 ], [ %.5, %3504 ], [ %.6, %3559 ], [ %.6, %3573 ], [ %.6, %3608 ], [ %.6, %._crit_edge3506 ], [ %3649, %3639 ], [ %.1.fr, %3699 ], [ %.1.fr, %3736 ], [ %3789, %._crit_edge3495 ], [ %.1.fr, %._crit_edge3491 ], [ %.7, %3914 ], [ %3941, %._crit_edge ], [ %.8, %3964 ], [ %.1.fr, %3973 ], [ %.9, %3997 ], [ %.1.fr, %4056 ], [ %.1.fr, %4062 ], [ %.1.fr, %4066 ], [ %.1.fr, %4070 ], [ %.1.fr, %4101 ], [ %4112, %4109 ], [ %.1.fr, %4132 ], [ %.1.fr, %4140 ], [ %4160, %4157 ], [ %.1.fr, %4200 ], [ %.1.fr, %4205 ], [ %.1.fr, %4209 ], [ %.1.fr, %4254 ], [ %.1.fr, %4258 ], [ %.1.fr, %4262 ], [ %.1.fr, %4307 ], [ %.1.fr, %4311 ], [ %.1.fr, %4315 ], [ %.1.fr, %4367 ], [ %.1.fr, %4371 ], [ %.1.fr, %4375 ], [ %.10, %4401 ], [ %.1.fr, %4403 ], [ %.1.fr, %4438 ], [ %.1.fr, %4467 ], [ %.1.fr, %4496 ]
+  %.0.be = phi ptr [ %.0, %52 ], [ %.0, %57 ], [ %.0, %67 ], [ %.0, %83 ], [ %.0, %96 ], [ %.0, %109 ], [ %.0, %158 ], [ %.0, %.critedge ], [ %.0, %225 ], [ %.0, %.critedge3327 ], [ %.0, %259 ], [ %.0, %292 ], [ %.0, %308 ], [ %.0, %328 ], [ %.0, %._crit_edge3649 ], [ %.0, %381 ], [ %.0, %401 ], [ %.0, %405 ], [ %.0, %439 ], [ %.0, %471 ], [ %.0, %501 ], [ %.0, %.thread3374 ], [ %.0, %582 ], [ %.0, %624 ], [ %.0, %628 ], [ %.0, %662 ], [ %.0, %.thread3377 ], [ %.0, %720 ], [ %.0, %.critedge3333 ], [ %.0, %789 ], [ %.0, %.critedge3335 ], [ %.0, %822 ], [ %.0, %.critedge3337 ], [ %.0, %882 ], [ %.0, %.critedge3339 ], [ %.0, %959 ], [ %1193, %1250 ], [ %.0, %1289 ], [ %1354, %1366 ], [ %.0, %1374 ], [ %.0, %1398 ], [ %.0, %1419 ], [ %.0, %1441 ], [ %.0, %1448 ], [ %.0, %1472 ], [ %.0, %1478 ], [ %.0, %_Z10luai_veceqPKfS0_.exit.thread ], [ %.0, %1511 ], [ %.0, %.critedge3343 ], [ %.0, %.thread3392 ], [ %.0, %1610 ], [ %.0, %1617 ], [ %.0, %1630 ], [ %.0, %1651 ], [ %.0, %1656 ], [ %.0, %1677 ], [ %.0, %1683 ], [ %.0, %1713 ], [ %.0, %1719 ], [ %.0, %.critedge3345 ], [ %.0, %.thread3397 ], [ %.0, %1815 ], [ %.0, %1822 ], [ %.0, %1835 ], [ %.0, %1858 ], [ %.0, %1873 ], [ %.0, %.critedge3347.thread ], [ %.0, %1913 ], [ %.0, %1928 ], [ %.0, %.critedge3349.thread ], [ %.0, %1968 ], [ %.0, %1983 ], [ %.0, %.critedge3351.thread ], [ %.0, %2023 ], [ %.0, %2038 ], [ %.0, %.critedge3353.thread ], [ %.0, %2082 ], [ %.0, %2094 ], [ %.0, %2124 ], [ %.0, %.thread3400 ], [ %.0, %2161 ], [ %.0, %2173 ], [ %.0, %2203 ], [ %.0, %.thread3402 ], [ %.0, %2239 ], [ %.0, %2250 ], [ %.0, %2267 ], [ %.0, %2287 ], [ %.0, %2317 ], [ %.0, %.thread3406.thread ], [ %.0, %2353 ], [ %.0, %2364 ], [ %.0, %2381 ], [ %.0, %2401 ], [ %.0, %2431 ], [ %.0, %.thread3410.thread ], [ %.0, %2468 ], [ %.0, %2481 ], [ %.0, %2521 ], [ %.0, %.critedge3363.thread.thread ], [ %.0, %2559 ], [ %.0, %2570 ], [ %.0, %2598 ], [ %.0, %2606 ], [ %.0, %2630 ], [ %.0, %2638 ], [ %.0, %2662 ], [ %.0, %2670 ], [ %.0, %2693 ], [ %.0, %2701 ], [ %.0, %2728 ], [ %.0, %2739 ], [ %.0, %2762 ], [ %.0, %2770 ], [ %.0, %2797 ], [ %.0, %2808 ], [ %.0, %2831 ], [ %.0, %2840 ], [ %.0, %2877 ], [ %.0, %2888 ], [ %.0, %2912 ], [ %.0, %2923 ], [ %.0, %2964 ], [ %.0, %2970 ], [ %.0, %2997 ], [ %.0, %3022 ], [ %.0, %3047 ], [ %.0, %3072 ], [ %.0, %3103 ], [ %.0, %3125 ], [ %.0, %3144 ], [ %.0, %3151 ], [ %.0, %3176 ], [ %.0, %3186 ], [ %.0, %3215 ], [ %.0, %3222 ], [ %.0, %3229 ], [ %.0, %3238 ], [ %.0, %3273 ], [ %.0, %3302 ], [ %.0, %3362 ], [ %.0, %3403 ], [ %.0, %3438 ], [ %.0, %3445 ], [ %.0, %3504 ], [ %.0, %3559 ], [ %.0, %3573 ], [ %.0, %3608 ], [ %.0, %._crit_edge3506 ], [ %.0, %3639 ], [ %.0, %3699 ], [ %.0, %3736 ], [ %.0, %._crit_edge3495 ], [ %.0, %._crit_edge3491 ], [ %.0, %3914 ], [ %.0, %._crit_edge ], [ %.0, %3964 ], [ %.0, %3973 ], [ %.0, %3997 ], [ %.0, %4056 ], [ %.0, %4062 ], [ %.0, %4066 ], [ %.0, %4070 ], [ %.0, %4101 ], [ %.0, %4109 ], [ %.0, %4132 ], [ %.0, %4140 ], [ %.0, %4157 ], [ %.0, %4200 ], [ %.0, %4205 ], [ %.0, %4209 ], [ %.0, %4254 ], [ %.0, %4258 ], [ %.0, %4262 ], [ %.0, %4307 ], [ %.0, %4311 ], [ %.0, %4315 ], [ %.0, %4367 ], [ %.0, %4371 ], [ %.0, %4375 ], [ %.0, %4401 ], [ %.0, %4403 ], [ %.0, %4438 ], [ %.0, %4467 ], [ %.0, %4496 ]
   br label %.backedge
 
 57:                                               ; preds = %.backedge
@@ -6695,7 +6694,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %248 = lshr i32 %242, 16
   %249 = and i32 %248, 255
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %247, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw %struct.lua_TValue, ptr %247, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 12
   %253 = load i32, ptr %252, align 4, !tbaa !63
   %254 = icmp eq i32 %253, 12
@@ -6726,7 +6725,7 @@ define internal fastcc void @_ZL12luau_executeILb0EEvP9lua_State(ptr noundef %0)
   %272 = lshr i32 %266, 16
   %273 = and i32 %272, 255
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %271, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw %struct.lua_TValue, ptr %271, i64 %274
   %276 = load ptr, ptr %275, align 8, !tbaa !30
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8, !tbaa !77
@@ -7724,12 +7723,12 @@ thread-pre-split:                                 ; preds = %422, %417, %426, %4
   %927 = and i32 %926, 255
   %928 = zext nneg i32 %927 to i64
   %929 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %928
-  %930 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %920, i64 0, i64 %indvars.iv3635
+  %930 = getelementptr inbounds nuw %struct.lua_TValue, ptr %920, i64 %indvars.iv3635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %930, ptr noundef nonnull align 8 dereferenceable(16) %929, i64 16, i1 false), !tbaa.struct !64
   br label %946
 
 931:                                              ; preds = %921
-  %932 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %920, i64 0, i64 %indvars.iv3635
+  %932 = getelementptr inbounds nuw %struct.lua_TValue, ptr %920, i64 %indvars.iv3635
   %933 = lshr i32 %923, 16
   %934 = and i32 %933, 255
   %935 = zext nneg i32 %934 to i64
@@ -7744,8 +7743,8 @@ thread-pre-split:                                 ; preds = %422, %417, %426, %4
   %940 = lshr i32 %923, 16
   %941 = and i32 %940, 255
   %942 = zext nneg i32 %941 to i64
-  %943 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %919, i64 0, i64 %942
-  %944 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %920, i64 0, i64 %indvars.iv3635
+  %943 = getelementptr inbounds nuw %struct.lua_TValue, ptr %919, i64 %942
+  %944 = getelementptr inbounds nuw %struct.lua_TValue, ptr %920, i64 %indvars.iv3635
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %944, ptr noundef nonnull align 8 dereferenceable(16) %943, i64 16, i1 false), !tbaa.struct !64
   br label %946
 
@@ -7952,7 +7951,7 @@ thread-pre-split:                                 ; preds = %422, %417, %426, %4
   %1076 = load ptr, ptr %26, align 8, !tbaa !48
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 2856
   %1078 = sext i32 %980 to i64
-  %1079 = getelementptr inbounds [11 x ptr], ptr %1077, i64 0, i64 %1078
+  %1079 = getelementptr inbounds ptr, ptr %1077, i64 %1078
   br label %1080
 
 1080:                                             ; preds = %1075, %1072
@@ -12209,9 +12208,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
   %3856 = getelementptr inbounds nuw i8, ptr %3834, i64 24
   br label %3857
 
-3857:                                             ; preds = %.lr.ph3482, %3898
-  %.031013480 = phi ptr [ %3850, %.lr.ph3482 ], [ %.13102, %3898 ]
-  %.031033479 = phi i32 [ 0, %.lr.ph3482 ], [ %3899, %3898 ]
+3857:                                             ; preds = %.lr.ph3482, %3896
+  %.031013480 = phi ptr [ %3850, %.lr.ph3482 ], [ %.13102, %3896 ]
+  %.031033479 = phi i32 [ 0, %.lr.ph3482 ], [ %3897, %3896 ]
   %3858 = sext i32 %.031033479 to i64
   %3859 = getelementptr inbounds i32, ptr %3825, i64 %3858
   %3860 = load i32, ptr %3859, align 4, !tbaa !61
@@ -12220,922 +12219,921 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
   %3863 = lshr i32 %3860, 16
   %3864 = and i32 %3863, 255
   %3865 = zext nneg i32 %3864 to i64
-  %3866 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3865
-  %3867 = getelementptr inbounds nuw [1 x %struct.lua_TValue], ptr %3854, i64 0, i64 %3865
-  %3868 = select i1 %3862, ptr %3866, ptr %3867
-  %3869 = icmp eq ptr %.031013480, %3834
-  br i1 %3869, label %3870, label %.critedge3367
+  %.1.fr. = select i1 %3862, ptr %.1.fr, ptr %3854
+  %3866 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr., i64 %3865
+  %3867 = icmp eq ptr %.031013480, %3834
+  br i1 %3867, label %3868, label %.critedge3367
 
-3870:                                             ; preds = %3857
-  %3871 = getelementptr inbounds nuw i8, ptr %.031013480, i64 32
-  %3872 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %3871, i64 0, i64 %3858
-  %3873 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3872, ptr noundef %3868)
-  %.not3216 = icmp eq i32 %3873, 0
-  br i1 %.not3216, label %3874, label %3898
+3868:                                             ; preds = %3857
+  %3869 = getelementptr inbounds nuw i8, ptr %.031013480, i64 32
+  %3870 = getelementptr inbounds %struct.lua_TValue, ptr %3869, i64 %3858
+  %3871 = call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %3870, ptr noundef %3866)
+  %.not3216 = icmp eq i32 %3871, 0
+  br i1 %.not3216, label %3872, label %3896
 
-3874:                                             ; preds = %3870
-  %3875 = load i8, ptr %3855, align 2, !tbaa !131
-  %3876 = icmp eq i8 %3875, 0
-  br i1 %3876, label %3877, label %.critedge3367
+3872:                                             ; preds = %3868
+  %3873 = load i8, ptr %3855, align 2, !tbaa !131
+  %3874 = icmp eq i8 %3873, 0
+  br i1 %3874, label %3875, label %.critedge3367
 
-3877:                                             ; preds = %3874
-  %3878 = load i8, ptr %3852, align 4, !tbaa !130
-  %3879 = zext i8 %3878 to i32
-  %3880 = load ptr, ptr %3839, align 8, !tbaa !65
-  %3881 = load ptr, ptr %3856, align 8, !tbaa !30
-  %3882 = call noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef %0, i32 noundef %3879, ptr noundef %3880, ptr noundef %3881)
-  store ptr %3882, ptr %3830, align 8, !tbaa !30
+3875:                                             ; preds = %3872
+  %3876 = load i8, ptr %3852, align 4, !tbaa !130
+  %3877 = zext i8 %3876 to i32
+  %3878 = load ptr, ptr %3839, align 8, !tbaa !65
+  %3879 = load ptr, ptr %3856, align 8, !tbaa !30
+  %3880 = call noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr noundef %0, i32 noundef %3877, ptr noundef %3878, ptr noundef %3879)
+  store ptr %3880, ptr %3830, align 8, !tbaa !30
   store i32 7, ptr %3851, align 4, !tbaa !63
-  br label %3898
+  br label %3896
 
-.critedge3367:                                    ; preds = %3857, %3874
-  %3883 = getelementptr inbounds nuw i8, ptr %.031013480, i64 32
-  %3884 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %3883, i64 0, i64 %3858
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3884, ptr noundef nonnull align 8 dereferenceable(16) %3868, i64 16, i1 false), !tbaa.struct !64
-  %3885 = getelementptr inbounds nuw i8, ptr %3868, i64 12
-  %3886 = load i32, ptr %3885, align 4, !tbaa !63
-  %3887 = icmp sgt i32 %3886, 4
-  br i1 %3887, label %3888, label %3898
+.critedge3367:                                    ; preds = %3857, %3872
+  %3881 = getelementptr inbounds nuw i8, ptr %.031013480, i64 32
+  %3882 = getelementptr inbounds %struct.lua_TValue, ptr %3881, i64 %3858
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3882, ptr noundef nonnull align 8 dereferenceable(16) %3866, i64 16, i1 false), !tbaa.struct !64
+  %3883 = getelementptr inbounds nuw i8, ptr %3866, i64 12
+  %3884 = load i32, ptr %3883, align 4, !tbaa !63
+  %3885 = icmp sgt i32 %3884, 4
+  br i1 %3885, label %3886, label %3896
 
-3888:                                             ; preds = %.critedge3367
-  %3889 = getelementptr inbounds nuw i8, ptr %.031013480, i64 1
-  %3890 = load i8, ptr %3889, align 1, !tbaa !30
-  %3891 = and i8 %3890, 4
-  %.not3217 = icmp eq i8 %3891, 0
-  br i1 %.not3217, label %3898, label %3892
+3886:                                             ; preds = %.critedge3367
+  %3887 = getelementptr inbounds nuw i8, ptr %.031013480, i64 1
+  %3888 = load i8, ptr %3887, align 1, !tbaa !30
+  %3889 = and i8 %3888, 4
+  %.not3217 = icmp eq i8 %3889, 0
+  br i1 %.not3217, label %3896, label %3890
 
-3892:                                             ; preds = %3888
-  %3893 = load ptr, ptr %3868, align 8, !tbaa !30
-  %3894 = getelementptr inbounds nuw i8, ptr %3893, i64 1
-  %3895 = load i8, ptr %3894, align 1, !tbaa !30
-  %3896 = and i8 %3895, 3
-  %.not3218 = icmp eq i8 %3896, 0
-  br i1 %.not3218, label %3898, label %3897
+3890:                                             ; preds = %3886
+  %3891 = load ptr, ptr %3866, align 8, !tbaa !30
+  %3892 = getelementptr inbounds nuw i8, ptr %3891, i64 1
+  %3893 = load i8, ptr %3892, align 1, !tbaa !30
+  %3894 = and i8 %3893, 3
+  %.not3218 = icmp eq i8 %3894, 0
+  br i1 %.not3218, label %3896, label %3895
 
-3897:                                             ; preds = %3892
-  call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.031013480, ptr noundef nonnull %3893)
-  br label %3898
+3895:                                             ; preds = %3890
+  call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.031013480, ptr noundef nonnull %3891)
+  br label %3896
 
-3898:                                             ; preds = %.critedge3367, %3888, %3892, %3897, %3870, %3877
-  %.13104 = phi i32 [ %.031033479, %3870 ], [ -1, %3877 ], [ %.031033479, %3897 ], [ %.031033479, %3892 ], [ %.031033479, %3888 ], [ %.031033479, %.critedge3367 ]
-  %.13102 = phi ptr [ %.031013480, %3870 ], [ %3882, %3877 ], [ %.031013480, %3897 ], [ %.031013480, %3892 ], [ %.031013480, %3888 ], [ %.031013480, %.critedge3367 ]
-  %3899 = add nsw i32 %.13104, 1
-  %3900 = load i8, ptr %3852, align 4, !tbaa !130
-  %3901 = zext i8 %3900 to i32
-  %3902 = icmp slt i32 %3899, %3901
-  br i1 %3902, label %3857, label %._crit_edge3483, !llvm.loop !150
+3896:                                             ; preds = %.critedge3367, %3886, %3890, %3895, %3868, %3875
+  %.13104 = phi i32 [ %.031033479, %3868 ], [ -1, %3875 ], [ %.031033479, %3895 ], [ %.031033479, %3890 ], [ %.031033479, %3886 ], [ %.031033479, %.critedge3367 ]
+  %.13102 = phi ptr [ %.031013480, %3868 ], [ %3880, %3875 ], [ %.031013480, %3895 ], [ %.031013480, %3890 ], [ %.031013480, %3886 ], [ %.031013480, %.critedge3367 ]
+  %3897 = add nsw i32 %.13104, 1
+  %3898 = load i8, ptr %3852, align 4, !tbaa !130
+  %3899 = zext i8 %3898 to i32
+  %3900 = icmp slt i32 %3897, %3899
+  br i1 %3900, label %3857, label %._crit_edge3483, !llvm.loop !150
 
-._crit_edge3483:                                  ; preds = %3898, %3849
-  %.pre36393652 = phi i8 [ 0, %3849 ], [ %3900, %3898 ]
-  %.03101.lcssa = phi ptr [ %3850, %3849 ], [ %.13102, %3898 ]
-  %3903 = getelementptr inbounds nuw i8, ptr %.03101.lcssa, i64 6
-  store i8 0, ptr %3903, align 2, !tbaa !131
+._crit_edge3483:                                  ; preds = %3896, %3849
+  %.pre36393652 = phi i8 [ 0, %3849 ], [ %3898, %3896 ]
+  %.03101.lcssa = phi ptr [ %3850, %3849 ], [ %.13102, %3896 ]
+  %3901 = getelementptr inbounds nuw i8, ptr %.03101.lcssa, i64 6
+  store i8 0, ptr %3901, align 2, !tbaa !131
   %.not3214 = icmp eq ptr %3834, %.03101.lcssa
-  br i1 %.not3214, label %3916, label %3904
+  br i1 %.not3214, label %3914, label %3902
 
-3904:                                             ; preds = %._crit_edge3483
-  %3905 = load ptr, ptr %6, align 8, !tbaa !21
-  %3906 = getelementptr inbounds nuw i8, ptr %3905, i64 24
-  store ptr %3825, ptr %3906, align 8, !tbaa !27
-  %3907 = load ptr, ptr %26, align 8, !tbaa !48
-  %3908 = getelementptr inbounds nuw i8, ptr %3907, i64 72
-  %3909 = load i64, ptr %3908, align 8, !tbaa !98
-  %3910 = getelementptr inbounds nuw i8, ptr %3907, i64 64
-  %3911 = load i64, ptr %3910, align 8, !tbaa !99
-  %.not3215 = icmp ult i64 %3909, %3911
-  br i1 %.not3215, label %3914, label %3912
+3902:                                             ; preds = %._crit_edge3483
+  %3903 = load ptr, ptr %6, align 8, !tbaa !21
+  %3904 = getelementptr inbounds nuw i8, ptr %3903, i64 24
+  store ptr %3825, ptr %3904, align 8, !tbaa !27
+  %3905 = load ptr, ptr %26, align 8, !tbaa !48
+  %3906 = getelementptr inbounds nuw i8, ptr %3905, i64 72
+  %3907 = load i64, ptr %3906, align 8, !tbaa !98
+  %3908 = getelementptr inbounds nuw i8, ptr %3905, i64 64
+  %3909 = load i64, ptr %3908, align 8, !tbaa !99
+  %.not3215 = icmp ult i64 %3907, %3909
+  br i1 %.not3215, label %3912, label %3910
 
-3912:                                             ; preds = %3904
-  %3913 = call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
+3910:                                             ; preds = %3902
+  %3911 = call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.pre3639.pre = load i8, ptr %3852, align 4, !tbaa !130
+  br label %3912
+
+3912:                                             ; preds = %3902, %3910
+  %.pre3639 = phi i8 [ %.pre36393652, %3902 ], [ %.pre3639.pre, %3910 ]
+  %3913 = load ptr, ptr %24, align 8, !tbaa !4
   br label %3914
 
-3914:                                             ; preds = %3904, %3912
-  %.pre3639 = phi i8 [ %.pre36393652, %3904 ], [ %.pre3639.pre, %3912 ]
-  %3915 = load ptr, ptr %24, align 8, !tbaa !4
-  br label %3916
-
-3916:                                             ; preds = %3914, %._crit_edge3483
-  %3917 = phi i8 [ %.pre3639, %3914 ], [ %.pre36393652, %._crit_edge3483 ]
-  %.7 = phi ptr [ %3915, %3914 ], [ %.1.fr, %._crit_edge3483 ]
-  %3918 = zext i8 %3917 to i64
-  %3919 = getelementptr inbounds nuw i32, ptr %3825, i64 %3918
-  %3920 = load i32, ptr %3919, align 4, !tbaa !61
-  %3921 = and i32 %3920, 255
-  %3922 = zext nneg i32 %3921 to i64
+3914:                                             ; preds = %3912, %._crit_edge3483
+  %3915 = phi i8 [ %.pre3639, %3912 ], [ %.pre36393652, %._crit_edge3483 ]
+  %.7 = phi ptr [ %3913, %3912 ], [ %.1.fr, %._crit_edge3483 ]
+  %3916 = zext i8 %3915 to i64
+  %3917 = getelementptr inbounds nuw i32, ptr %3825, i64 %3916
+  %3918 = load i32, ptr %3917, align 4, !tbaa !61
+  %3919 = and i32 %3918, 255
+  %3920 = zext nneg i32 %3919 to i64
   br label %.backedge.backedge
 
-3923:                                             ; preds = %.backedge
-  %3924 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %3925 = load i32, ptr %.13078, align 4, !tbaa !61
-  %3926 = lshr i32 %3925, 8
-  %3927 = and i32 %3926, 255
-  %3928 = load ptr, ptr %6, align 8, !tbaa !21
-  %3929 = getelementptr inbounds nuw i8, ptr %3928, i64 24
-  store ptr %3924, ptr %3929, align 8, !tbaa !27
-  %3930 = load ptr, ptr %28, align 8, !tbaa !28
-  %3931 = load ptr, ptr %25, align 8, !tbaa !20
-  %3932 = ptrtoint ptr %3930 to i64
-  %3933 = ptrtoint ptr %3931 to i64
-  %3934 = sub i64 %3932, %3933
-  %3935 = getelementptr inbounds nuw i8, ptr %.0, i64 5
-  %3936 = load i8, ptr %3935, align 1, !tbaa !106
-  %3937 = zext i8 %3936 to i32
-  %3938 = add nuw nsw i32 %3927, %3937
-  %3939 = shl nuw nsw i32 %3938, 4
-  %3940 = zext nneg i32 %3939 to i64
-  %.not3213 = icmp sgt i64 %3934, %3940
-  br i1 %.not3213, label %3942, label %3941
+3921:                                             ; preds = %.backedge
+  %3922 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %3923 = load i32, ptr %.13078, align 4, !tbaa !61
+  %3924 = lshr i32 %3923, 8
+  %3925 = and i32 %3924, 255
+  %3926 = load ptr, ptr %6, align 8, !tbaa !21
+  %3927 = getelementptr inbounds nuw i8, ptr %3926, i64 24
+  store ptr %3922, ptr %3927, align 8, !tbaa !27
+  %3928 = load ptr, ptr %28, align 8, !tbaa !28
+  %3929 = load ptr, ptr %25, align 8, !tbaa !20
+  %3930 = ptrtoint ptr %3928 to i64
+  %3931 = ptrtoint ptr %3929 to i64
+  %3932 = sub i64 %3930, %3931
+  %3933 = getelementptr inbounds nuw i8, ptr %.0, i64 5
+  %3934 = load i8, ptr %3933, align 1, !tbaa !106
+  %3935 = zext i8 %3934 to i32
+  %3936 = add nuw nsw i32 %3925, %3935
+  %3937 = shl nuw nsw i32 %3936, 4
+  %3938 = zext nneg i32 %3937 to i64
+  %.not3213 = icmp sgt i64 %3932, %3938
+  br i1 %.not3213, label %3940, label %3939
 
-3941:                                             ; preds = %3923
-  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %3938)
+3939:                                             ; preds = %3921
+  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %3936)
   %.pre3638 = load ptr, ptr %25, align 8, !tbaa !20
-  br label %3942
+  br label %3940
 
-3942:                                             ; preds = %3923, %3941
-  %3943 = phi ptr [ %3931, %3923 ], [ %.pre3638, %3941 ]
-  %3944 = load ptr, ptr %24, align 8, !tbaa !4
-  %.not3546 = icmp eq i32 %3927, 0
+3940:                                             ; preds = %3921, %3939
+  %3941 = phi ptr [ %3929, %3921 ], [ %.pre3638, %3939 ]
+  %3942 = load ptr, ptr %24, align 8, !tbaa !4
+  %.not3546 = icmp eq i32 %3925, 0
   br i1 %.not3546, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %3942
-  %wide.trip.count = zext nneg i32 %3927 to i64
+.lr.ph.preheader:                                 ; preds = %3940
+  %wide.trip.count = zext nneg i32 %3925 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3945 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3944, i64 %indvars.iv
-  %3946 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3943, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3946, ptr noundef nonnull align 8 dereferenceable(16) %3945, i64 16, i1 false), !tbaa.struct !64
-  %3947 = getelementptr inbounds nuw i8, ptr %3945, i64 12
-  store i32 0, ptr %3947, align 4, !tbaa !63
+  %3943 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3942, i64 %indvars.iv
+  %3944 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3941, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3944, ptr noundef nonnull align 8 dereferenceable(16) %3943, i64 16, i1 false), !tbaa.struct !64
+  %3945 = getelementptr inbounds nuw i8, ptr %3943, i64 12
+  store i32 0, ptr %3945, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !151
 
-._crit_edge:                                      ; preds = %.lr.ph, %3942
-  %3948 = load ptr, ptr %6, align 8, !tbaa !21
-  store ptr %3943, ptr %3948, align 8, !tbaa !26
-  %3949 = load i8, ptr %3935, align 1, !tbaa !106
-  %3950 = zext i8 %3949 to i64
-  %3951 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3943, i64 %3950
-  %3952 = getelementptr inbounds nuw i8, ptr %3948, i64 16
-  store ptr %3951, ptr %3952, align 8, !tbaa !22
-  store ptr %3943, ptr %24, align 8, !tbaa !4
-  store ptr %3951, ptr %25, align 8, !tbaa !20
-  %3953 = load i32, ptr %3924, align 4, !tbaa !61
-  %3954 = and i32 %3953, 255
-  %3955 = zext nneg i32 %3954 to i64
+._crit_edge:                                      ; preds = %.lr.ph, %3940
+  %3946 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %3941, ptr %3946, align 8, !tbaa !26
+  %3947 = load i8, ptr %3933, align 1, !tbaa !106
+  %3948 = zext i8 %3947 to i64
+  %3949 = getelementptr inbounds nuw %struct.lua_TValue, ptr %3941, i64 %3948
+  %3950 = getelementptr inbounds nuw i8, ptr %3946, i64 16
+  store ptr %3949, ptr %3950, align 8, !tbaa !22
+  store ptr %3941, ptr %24, align 8, !tbaa !4
+  store ptr %3949, ptr %25, align 8, !tbaa !20
+  %3951 = load i32, ptr %3922, align 4, !tbaa !61
+  %3952 = and i32 %3951, 255
+  %3953 = zext nneg i32 %3952 to i64
   br label %.backedge.backedge
 
-3956:                                             ; preds = %.backedge
-  %3957 = load ptr, ptr %26, align 8, !tbaa !48
-  %3958 = getelementptr inbounds nuw i8, ptr %3957, i64 3296
-  %3959 = load ptr, ptr %3958, align 8, !tbaa !104
-  %.not3265 = icmp eq ptr %3959, null
-  br i1 %.not3265, label %3966, label %3960, !prof !70
+3954:                                             ; preds = %.backedge
+  %3955 = load ptr, ptr %26, align 8, !tbaa !48
+  %3956 = getelementptr inbounds nuw i8, ptr %3955, i64 3296
+  %3957 = load ptr, ptr %3956, align 8, !tbaa !104
+  %.not3265 = icmp eq ptr %3957, null
+  br i1 %.not3265, label %3964, label %3958, !prof !70
 
-3960:                                             ; preds = %3956
-  %3961 = load ptr, ptr %6, align 8, !tbaa !21
-  %3962 = getelementptr inbounds nuw i8, ptr %3961, i64 24
-  %3963 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  store ptr %3963, ptr %3962, align 8, !tbaa !27
-  call void %3959(ptr noundef nonnull %0, i32 noundef -1)
-  %3964 = load ptr, ptr %24, align 8, !tbaa !4
-  %3965 = load i8, ptr %27, align 1, !tbaa !25
-  %.not3266 = icmp eq i8 %3965, 0
-  br i1 %.not3266, label %3966, label %.loopexit3432.sink.split
+3958:                                             ; preds = %3954
+  %3959 = load ptr, ptr %6, align 8, !tbaa !21
+  %3960 = getelementptr inbounds nuw i8, ptr %3959, i64 24
+  %3961 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  store ptr %3961, ptr %3960, align 8, !tbaa !27
+  call void %3957(ptr noundef nonnull %0, i32 noundef -1)
+  %3962 = load ptr, ptr %24, align 8, !tbaa !4
+  %3963 = load i8, ptr %27, align 1, !tbaa !25
+  %.not3266 = icmp eq i8 %3963, 0
+  br i1 %.not3266, label %3964, label %.loopexit3432.sink.split
 
-3966:                                             ; preds = %3960, %3956
-  %.8 = phi ptr [ %3964, %3960 ], [ %.1.fr, %3956 ]
-  %3967 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %3968 = load i32, ptr %.13078, align 4, !tbaa !61
-  %3969 = ashr i32 %3968, 16
-  %3970 = sext i32 %3969 to i64
-  %3971 = getelementptr inbounds i32, ptr %3967, i64 %3970
-  %3972 = load i32, ptr %3971, align 4, !tbaa !61
-  %3973 = and i32 %3972, 255
-  %3974 = zext nneg i32 %3973 to i64
+3964:                                             ; preds = %3958, %3954
+  %.8 = phi ptr [ %3962, %3958 ], [ %.1.fr, %3954 ]
+  %3965 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %3966 = load i32, ptr %.13078, align 4, !tbaa !61
+  %3967 = ashr i32 %3966, 16
+  %3968 = sext i32 %3967 to i64
+  %3969 = getelementptr inbounds i32, ptr %3965, i64 %3968
+  %3970 = load i32, ptr %3969, align 4, !tbaa !61
+  %3971 = and i32 %3970, 255
+  %3972 = zext nneg i32 %3971 to i64
   br label %.backedge.backedge
 
-3975:                                             ; preds = %.backedge
-  %3976 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %3977 = load i32, ptr %.13078, align 4, !tbaa !61
-  %3978 = lshr i32 %3977, 8
-  %3979 = and i32 %3978, 255
-  %3980 = zext nneg i32 %3979 to i64
-  %3981 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3980
-  %3982 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
-  %3983 = load i32, ptr %3976, align 4, !tbaa !61
-  %3984 = zext i32 %3983 to i64
-  %3985 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %3984
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3981, ptr noundef nonnull align 8 dereferenceable(16) %3985, i64 16, i1 false), !tbaa.struct !64
-  %3986 = load i32, ptr %3982, align 4, !tbaa !61
-  %3987 = and i32 %3986, 255
-  %3988 = zext nneg i32 %3987 to i64
+3973:                                             ; preds = %.backedge
+  %3974 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %3975 = load i32, ptr %.13078, align 4, !tbaa !61
+  %3976 = lshr i32 %3975, 8
+  %3977 = and i32 %3976, 255
+  %3978 = zext nneg i32 %3977 to i64
+  %3979 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %3978
+  %3980 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
+  %3981 = load i32, ptr %3974, align 4, !tbaa !61
+  %3982 = zext i32 %3981 to i64
+  %3983 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %3982
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3979, ptr noundef nonnull align 8 dereferenceable(16) %3983, i64 16, i1 false), !tbaa.struct !64
+  %3984 = load i32, ptr %3980, align 4, !tbaa !61
+  %3985 = and i32 %3984, 255
+  %3986 = zext nneg i32 %3985 to i64
   br label %.backedge.backedge
 
-3989:                                             ; preds = %.backedge
-  %3990 = load ptr, ptr %26, align 8, !tbaa !48
-  %3991 = getelementptr inbounds nuw i8, ptr %3990, i64 3296
-  %3992 = load ptr, ptr %3991, align 8, !tbaa !104
-  %.not3211 = icmp eq ptr %3992, null
-  br i1 %.not3211, label %3999, label %3993, !prof !70
+3987:                                             ; preds = %.backedge
+  %3988 = load ptr, ptr %26, align 8, !tbaa !48
+  %3989 = getelementptr inbounds nuw i8, ptr %3988, i64 3296
+  %3990 = load ptr, ptr %3989, align 8, !tbaa !104
+  %.not3211 = icmp eq ptr %3990, null
+  br i1 %.not3211, label %3997, label %3991, !prof !70
 
-3993:                                             ; preds = %3989
-  %3994 = load ptr, ptr %6, align 8, !tbaa !21
-  %3995 = getelementptr inbounds nuw i8, ptr %3994, i64 24
-  %3996 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  store ptr %3996, ptr %3995, align 8, !tbaa !27
-  call void %3992(ptr noundef nonnull %0, i32 noundef -1)
-  %3997 = load ptr, ptr %24, align 8, !tbaa !4
-  %3998 = load i8, ptr %27, align 1, !tbaa !25
-  %.not3212 = icmp eq i8 %3998, 0
-  br i1 %.not3212, label %3999, label %.loopexit3432.sink.split
+3991:                                             ; preds = %3987
+  %3992 = load ptr, ptr %6, align 8, !tbaa !21
+  %3993 = getelementptr inbounds nuw i8, ptr %3992, i64 24
+  %3994 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  store ptr %3994, ptr %3993, align 8, !tbaa !27
+  call void %3990(ptr noundef nonnull %0, i32 noundef -1)
+  %3995 = load ptr, ptr %24, align 8, !tbaa !4
+  %3996 = load i8, ptr %27, align 1, !tbaa !25
+  %.not3212 = icmp eq i8 %3996, 0
+  br i1 %.not3212, label %3997, label %.loopexit3432.sink.split
 
-3999:                                             ; preds = %3993, %3989
-  %.9 = phi ptr [ %3997, %3993 ], [ %.1.fr, %3989 ]
-  %4000 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4001 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4002 = ashr i32 %4001, 8
-  %4003 = sext i32 %4002 to i64
-  %4004 = getelementptr inbounds i32, ptr %4000, i64 %4003
-  %4005 = load i32, ptr %4004, align 4, !tbaa !61
-  %4006 = and i32 %4005, 255
-  %4007 = zext nneg i32 %4006 to i64
+3997:                                             ; preds = %3991, %3987
+  %.9 = phi ptr [ %3995, %3991 ], [ %.1.fr, %3987 ]
+  %3998 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %3999 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4000 = ashr i32 %3999, 8
+  %4001 = sext i32 %4000 to i64
+  %4002 = getelementptr inbounds i32, ptr %3998, i64 %4001
+  %4003 = load i32, ptr %4002, align 4, !tbaa !61
+  %4004 = and i32 %4003, 255
+  %4005 = zext nneg i32 %4004 to i64
   br label %.backedge.backedge
 
-4008:                                             ; preds = %.backedge
-  %4009 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4010 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4011 = lshr i32 %4010, 8
-  %4012 = and i32 %4011, 255
-  %4013 = lshr i32 %4010, 24
-  %4014 = zext nneg i32 %4013 to i64
-  %4015 = getelementptr inbounds nuw i32, ptr %4009, i64 %4014
-  %4016 = load i32, ptr %4015, align 4, !tbaa !61
-  %4017 = lshr i32 %4016, 8
-  %4018 = and i32 %4017, 255
-  %4019 = zext nneg i32 %4018 to i64
-  %4020 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4019
-  %4021 = lshr i32 %4016, 16
-  %4022 = and i32 %4021, 255
-  %4023 = lshr i32 %4016, 24
-  %4024 = add nsw i32 %4023, -1
-  %4025 = icmp eq i32 %4022, 0
-  br i1 %4025, label %4026, label %4033
+4006:                                             ; preds = %.backedge
+  %4007 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4008 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4009 = lshr i32 %4008, 8
+  %4010 = and i32 %4009, 255
+  %4011 = lshr i32 %4008, 24
+  %4012 = zext nneg i32 %4011 to i64
+  %4013 = getelementptr inbounds nuw i32, ptr %4007, i64 %4012
+  %4014 = load i32, ptr %4013, align 4, !tbaa !61
+  %4015 = lshr i32 %4014, 8
+  %4016 = and i32 %4015, 255
+  %4017 = zext nneg i32 %4016 to i64
+  %4018 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4017
+  %4019 = lshr i32 %4014, 16
+  %4020 = and i32 %4019, 255
+  %4021 = lshr i32 %4014, 24
+  %4022 = add nsw i32 %4021, -1
+  %4023 = icmp eq i32 %4020, 0
+  br i1 %4023, label %4024, label %4031
 
-4026:                                             ; preds = %4008
-  %4027 = load ptr, ptr %25, align 8, !tbaa !20
-  %4028 = ptrtoint ptr %4027 to i64
-  %4029 = ptrtoint ptr %4020 to i64
-  %4030 = sub i64 %4028, %4029
-  %4031 = lshr exact i64 %4030, 4
-  %4032 = trunc i64 %4031 to i32
-  br label %4033
+4024:                                             ; preds = %4006
+  %4025 = load ptr, ptr %25, align 8, !tbaa !20
+  %4026 = ptrtoint ptr %4025 to i64
+  %4027 = ptrtoint ptr %4018 to i64
+  %4028 = sub i64 %4026, %4027
+  %4029 = lshr exact i64 %4028, 4
+  %4030 = trunc i64 %4029 to i32
+  br label %4031
 
-4033:                                             ; preds = %4008, %4026
-  %.in3209 = phi i32 [ %4032, %4026 ], [ %4022, %4008 ]
-  %4034 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %4035 = load ptr, ptr %4034, align 8, !tbaa !65
-  %4036 = getelementptr inbounds nuw i8, ptr %4035, i64 5
-  %4037 = load i8, ptr %4036, align 1, !tbaa !79
-  %.not3210 = icmp eq i8 %4037, 0
-  br i1 %.not3210, label %4068, label %4038
+4031:                                             ; preds = %4006, %4024
+  %.in3209 = phi i32 [ %4030, %4024 ], [ %4020, %4006 ]
+  %4032 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %4033 = load ptr, ptr %4032, align 8, !tbaa !65
+  %4034 = getelementptr inbounds nuw i8, ptr %4033, i64 5
+  %4035 = load i8, ptr %4034, align 1, !tbaa !79
+  %.not3210 = icmp eq i8 %4035, 0
+  br i1 %.not3210, label %4066, label %4036
 
-4038:                                             ; preds = %4033
-  %4039 = zext nneg i32 %4012 to i64
-  %4040 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %4039
-  %4041 = load ptr, ptr %4040, align 8, !tbaa !62
-  %4042 = add i32 %.in3209, -1
-  %4043 = load ptr, ptr %6, align 8, !tbaa !21
-  %4044 = getelementptr inbounds nuw i8, ptr %4043, i64 24
-  store ptr %4009, ptr %4044, align 8, !tbaa !27
-  %4045 = getelementptr inbounds nuw i8, ptr %4020, i64 16
-  %4046 = getelementptr inbounds nuw i8, ptr %4020, i64 32
-  %4047 = call noundef i32 %4041(ptr noundef %0, ptr noundef %4020, ptr noundef nonnull %4045, i32 noundef %4024, ptr noundef nonnull %4046, i32 noundef %4042)
-  %4048 = icmp sgt i32 %4047, -1
-  br i1 %4048, label %4049, label %4064
+4036:                                             ; preds = %4031
+  %4037 = zext nneg i32 %4010 to i64
+  %4038 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4037
+  %4039 = load ptr, ptr %4038, align 8, !tbaa !62
+  %4040 = add i32 %.in3209, -1
+  %4041 = load ptr, ptr %6, align 8, !tbaa !21
+  %4042 = getelementptr inbounds nuw i8, ptr %4041, i64 24
+  store ptr %4007, ptr %4042, align 8, !tbaa !27
+  %4043 = getelementptr inbounds nuw i8, ptr %4018, i64 16
+  %4044 = getelementptr inbounds nuw i8, ptr %4018, i64 32
+  %4045 = call noundef i32 %4039(ptr noundef %0, ptr noundef %4018, ptr noundef nonnull %4043, i32 noundef %4022, ptr noundef nonnull %4044, i32 noundef %4040)
+  %4046 = icmp sgt i32 %4045, -1
+  br i1 %4046, label %4047, label %4062
 
-4049:                                             ; preds = %4038
-  %4050 = icmp ult i32 %4016, 16777216
-  br i1 %4050, label %4051, label %4054
+4047:                                             ; preds = %4036
+  %4048 = icmp ult i32 %4014, 16777216
+  br i1 %4048, label %4049, label %4052
 
-4051:                                             ; preds = %4049
-  %4052 = zext nneg i32 %4047 to i64
-  %4053 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4020, i64 %4052
-  br label %4058
+4049:                                             ; preds = %4047
+  %4050 = zext nneg i32 %4045 to i64
+  %4051 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4018, i64 %4050
+  br label %4056
 
-4054:                                             ; preds = %4049
-  %4055 = load ptr, ptr %6, align 8, !tbaa !21
-  %4056 = getelementptr inbounds nuw i8, ptr %4055, i64 16
-  %4057 = load ptr, ptr %4056, align 8, !tbaa !22
-  br label %4058
+4052:                                             ; preds = %4047
+  %4053 = load ptr, ptr %6, align 8, !tbaa !21
+  %4054 = getelementptr inbounds nuw i8, ptr %4053, i64 16
+  %4055 = load ptr, ptr %4054, align 8, !tbaa !22
+  br label %4056
 
-4058:                                             ; preds = %4054, %4051
-  %4059 = phi ptr [ %4053, %4051 ], [ %4057, %4054 ]
-  store ptr %4059, ptr %25, align 8, !tbaa !20
-  %4060 = getelementptr inbounds nuw i8, ptr %4015, i64 4
-  %4061 = load i32, ptr %4060, align 4, !tbaa !61
-  %4062 = and i32 %4061, 255
-  %4063 = zext nneg i32 %4062 to i64
+4056:                                             ; preds = %4052, %4049
+  %4057 = phi ptr [ %4051, %4049 ], [ %4055, %4052 ]
+  store ptr %4057, ptr %25, align 8, !tbaa !20
+  %4058 = getelementptr inbounds nuw i8, ptr %4013, i64 4
+  %4059 = load i32, ptr %4058, align 4, !tbaa !61
+  %4060 = and i32 %4059, 255
+  %4061 = zext nneg i32 %4060 to i64
   br label %.backedge.backedge
 
-4064:                                             ; preds = %4038
-  %4065 = load i32, ptr %4009, align 4, !tbaa !61
-  %4066 = and i32 %4065, 255
-  %4067 = zext nneg i32 %4066 to i64
+4062:                                             ; preds = %4036
+  %4063 = load i32, ptr %4007, align 4, !tbaa !61
+  %4064 = and i32 %4063, 255
+  %4065 = zext nneg i32 %4064 to i64
   br label %.backedge.backedge
 
-4068:                                             ; preds = %4033
-  %4069 = load i32, ptr %4009, align 4, !tbaa !61
-  %4070 = and i32 %4069, 255
-  %4071 = zext nneg i32 %4070 to i64
+4066:                                             ; preds = %4031
+  %4067 = load i32, ptr %4007, align 4, !tbaa !61
+  %4068 = and i32 %4067, 255
+  %4069 = zext nneg i32 %4068 to i64
   br label %.backedge.backedge
 
-4072:                                             ; preds = %.backedge
-  %4073 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4074 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4075 = ashr i32 %4074, 8
-  %4076 = icmp slt i32 %4075, 8388607
-  %4077 = zext i1 %4076 to i32
-  %4078 = add nsw i32 %4075, %4077
-  %4079 = shl i32 %4078, 8
-  %4080 = and i32 %4074, 255
-  %4081 = or disjoint i32 %4079, %4080
-  store i32 %4081, ptr %.13078, align 4, !tbaa !61
-  %4082 = load i32, ptr %4073, align 4, !tbaa !61
-  %4083 = and i32 %4082, 255
-  %4084 = zext nneg i32 %4083 to i64
+4070:                                             ; preds = %.backedge
+  %4071 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4072 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4073 = ashr i32 %4072, 8
+  %4074 = icmp slt i32 %4073, 8388607
+  %4075 = zext i1 %4074 to i32
+  %4076 = add nsw i32 %4073, %4075
+  %4077 = shl i32 %4076, 8
+  %4078 = and i32 %4072, 255
+  %4079 = or disjoint i32 %4077, %4078
+  store i32 %4079, ptr %.13078, align 4, !tbaa !61
+  %4080 = load i32, ptr %4071, align 4, !tbaa !61
+  %4081 = and i32 %4080, 255
+  %4082 = zext nneg i32 %4081 to i64
   br label %.backedge.backedge
 
-4085:                                             ; preds = %.backedge
+4083:                                             ; preds = %.backedge
   unreachable
 
-4086:                                             ; preds = %.backedge
-  %4087 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4088 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4089 = lshr i32 %4088, 8
-  %4090 = and i32 %4089, 255
-  %4091 = zext nneg i32 %4090 to i64
-  %4092 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4091
-  %4093 = lshr i32 %4088, 16
-  %4094 = and i32 %4093, 255
-  %4095 = zext nneg i32 %4094 to i64
-  %4096 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4095
-  %4097 = lshr i32 %4088, 24
-  %4098 = zext nneg i32 %4097 to i64
-  %4099 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4098
-  %4100 = getelementptr inbounds nuw i8, ptr %4099, i64 12
-  %4101 = load i32, ptr %4100, align 4, !tbaa !63
-  %4102 = icmp eq i32 %4101, 3
-  br i1 %4102, label %4103, label %4111
+4084:                                             ; preds = %.backedge
+  %4085 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4086 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4087 = lshr i32 %4086, 8
+  %4088 = and i32 %4087, 255
+  %4089 = zext nneg i32 %4088 to i64
+  %4090 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4089
+  %4091 = lshr i32 %4086, 16
+  %4092 = and i32 %4091, 255
+  %4093 = zext nneg i32 %4092 to i64
+  %4094 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4093
+  %4095 = lshr i32 %4086, 24
+  %4096 = zext nneg i32 %4095 to i64
+  %4097 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4096
+  %4098 = getelementptr inbounds nuw i8, ptr %4097, i64 12
+  %4099 = load i32, ptr %4098, align 4, !tbaa !63
+  %4100 = icmp eq i32 %4099, 3
+  br i1 %4100, label %4101, label %4109
 
-4103:                                             ; preds = %4086
-  %4104 = load double, ptr %4096, align 8, !tbaa !30
-  %4105 = load double, ptr %4099, align 8, !tbaa !30
-  %4106 = fsub double %4104, %4105
-  store double %4106, ptr %4092, align 8, !tbaa !30
-  %4107 = getelementptr inbounds nuw i8, ptr %4092, i64 12
-  store i32 3, ptr %4107, align 4, !tbaa !63
-  %4108 = load i32, ptr %4087, align 4, !tbaa !61
-  %4109 = and i32 %4108, 255
-  %4110 = zext nneg i32 %4109 to i64
+4101:                                             ; preds = %4084
+  %4102 = load double, ptr %4094, align 8, !tbaa !30
+  %4103 = load double, ptr %4097, align 8, !tbaa !30
+  %4104 = fsub double %4102, %4103
+  store double %4104, ptr %4090, align 8, !tbaa !30
+  %4105 = getelementptr inbounds nuw i8, ptr %4090, i64 12
+  store i32 3, ptr %4105, align 4, !tbaa !63
+  %4106 = load i32, ptr %4085, align 4, !tbaa !61
+  %4107 = and i32 %4106, 255
+  %4108 = zext nneg i32 %4107 to i64
   br label %.backedge.backedge
 
-4111:                                             ; preds = %4086
-  %4112 = load ptr, ptr %6, align 8, !tbaa !21
-  %4113 = getelementptr inbounds nuw i8, ptr %4112, i64 24
-  store ptr %4087, ptr %4113, align 8, !tbaa !27
-  call void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %4092, ptr noundef %4096, ptr noundef nonnull %4099)
-  %4114 = load ptr, ptr %24, align 8, !tbaa !4
-  %4115 = load i32, ptr %4087, align 4, !tbaa !61
-  %4116 = and i32 %4115, 255
-  %4117 = zext nneg i32 %4116 to i64
+4109:                                             ; preds = %4084
+  %4110 = load ptr, ptr %6, align 8, !tbaa !21
+  %4111 = getelementptr inbounds nuw i8, ptr %4110, i64 24
+  store ptr %4085, ptr %4111, align 8, !tbaa !27
+  call void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %4090, ptr noundef %4094, ptr noundef nonnull %4097)
+  %4112 = load ptr, ptr %24, align 8, !tbaa !4
+  %4113 = load i32, ptr %4085, align 4, !tbaa !61
+  %4114 = and i32 %4113, 255
+  %4115 = zext nneg i32 %4114 to i64
   br label %.backedge.backedge
 
-4118:                                             ; preds = %.backedge
-  %4119 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4120 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4121 = lshr i32 %4120, 8
-  %4122 = and i32 %4121, 255
-  %4123 = zext nneg i32 %4122 to i64
-  %4124 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4123
-  %4125 = lshr i32 %4120, 16
-  %4126 = and i32 %4125, 255
-  %4127 = zext nneg i32 %4126 to i64
-  %4128 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4127
-  %4129 = lshr i32 %4120, 24
-  %4130 = zext nneg i32 %4129 to i64
-  %4131 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4130
-  %4132 = getelementptr inbounds nuw i8, ptr %4131, i64 12
-  %4133 = load i32, ptr %4132, align 4, !tbaa !63
-  switch i32 %4133, label %4159 [
-    i32 3, label %4134
-    i32 4, label %4142
+4116:                                             ; preds = %.backedge
+  %4117 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4118 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4119 = lshr i32 %4118, 8
+  %4120 = and i32 %4119, 255
+  %4121 = zext nneg i32 %4120 to i64
+  %4122 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4121
+  %4123 = lshr i32 %4118, 16
+  %4124 = and i32 %4123, 255
+  %4125 = zext nneg i32 %4124 to i64
+  %4126 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4125
+  %4127 = lshr i32 %4118, 24
+  %4128 = zext nneg i32 %4127 to i64
+  %4129 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4128
+  %4130 = getelementptr inbounds nuw i8, ptr %4129, i64 12
+  %4131 = load i32, ptr %4130, align 4, !tbaa !63
+  switch i32 %4131, label %4157 [
+    i32 3, label %4132
+    i32 4, label %4140
   ], !prof !80
 
-4134:                                             ; preds = %4118
-  %4135 = load double, ptr %4128, align 8, !tbaa !30
-  %4136 = load double, ptr %4131, align 8, !tbaa !30
-  %4137 = fdiv double %4135, %4136
-  store double %4137, ptr %4124, align 8, !tbaa !30
-  %4138 = getelementptr inbounds nuw i8, ptr %4124, i64 12
-  store i32 3, ptr %4138, align 4, !tbaa !63
-  %4139 = load i32, ptr %4119, align 4, !tbaa !61
-  %4140 = and i32 %4139, 255
-  %4141 = zext nneg i32 %4140 to i64
+4132:                                             ; preds = %4116
+  %4133 = load double, ptr %4126, align 8, !tbaa !30
+  %4134 = load double, ptr %4129, align 8, !tbaa !30
+  %4135 = fdiv double %4133, %4134
+  store double %4135, ptr %4122, align 8, !tbaa !30
+  %4136 = getelementptr inbounds nuw i8, ptr %4122, i64 12
+  store i32 3, ptr %4136, align 4, !tbaa !63
+  %4137 = load i32, ptr %4117, align 4, !tbaa !61
+  %4138 = and i32 %4137, 255
+  %4139 = zext nneg i32 %4138 to i64
   br label %.backedge.backedge
 
-4142:                                             ; preds = %4118
-  %4143 = load double, ptr %4128, align 8, !tbaa !30
-  %4144 = fptrunc double %4143 to float
-  %4145 = load float, ptr %4131, align 4, !tbaa !86
-  %4146 = fdiv float %4144, %4145
-  store float %4146, ptr %4124, align 4, !tbaa !86
-  %4147 = getelementptr inbounds nuw i8, ptr %4131, i64 4
-  %4148 = load float, ptr %4147, align 4, !tbaa !86
-  %4149 = fdiv float %4144, %4148
-  %4150 = getelementptr inbounds nuw i8, ptr %4124, i64 4
-  store float %4149, ptr %4150, align 4, !tbaa !86
-  %4151 = getelementptr inbounds nuw i8, ptr %4131, i64 8
-  %4152 = load float, ptr %4151, align 4, !tbaa !86
-  %4153 = fdiv float %4144, %4152
-  %4154 = getelementptr inbounds nuw i8, ptr %4124, i64 8
-  store float %4153, ptr %4154, align 4, !tbaa !86
-  %4155 = getelementptr inbounds nuw i8, ptr %4124, i64 12
-  store i32 4, ptr %4155, align 4, !tbaa !63
-  %4156 = load i32, ptr %4119, align 4, !tbaa !61
-  %4157 = and i32 %4156, 255
-  %4158 = zext nneg i32 %4157 to i64
+4140:                                             ; preds = %4116
+  %4141 = load double, ptr %4126, align 8, !tbaa !30
+  %4142 = fptrunc double %4141 to float
+  %4143 = load float, ptr %4129, align 4, !tbaa !86
+  %4144 = fdiv float %4142, %4143
+  store float %4144, ptr %4122, align 4, !tbaa !86
+  %4145 = getelementptr inbounds nuw i8, ptr %4129, i64 4
+  %4146 = load float, ptr %4145, align 4, !tbaa !86
+  %4147 = fdiv float %4142, %4146
+  %4148 = getelementptr inbounds nuw i8, ptr %4122, i64 4
+  store float %4147, ptr %4148, align 4, !tbaa !86
+  %4149 = getelementptr inbounds nuw i8, ptr %4129, i64 8
+  %4150 = load float, ptr %4149, align 4, !tbaa !86
+  %4151 = fdiv float %4142, %4150
+  %4152 = getelementptr inbounds nuw i8, ptr %4122, i64 8
+  store float %4151, ptr %4152, align 4, !tbaa !86
+  %4153 = getelementptr inbounds nuw i8, ptr %4122, i64 12
+  store i32 4, ptr %4153, align 4, !tbaa !63
+  %4154 = load i32, ptr %4117, align 4, !tbaa !61
+  %4155 = and i32 %4154, 255
+  %4156 = zext nneg i32 %4155 to i64
   br label %.backedge.backedge
 
-4159:                                             ; preds = %4118
-  %4160 = load ptr, ptr %6, align 8, !tbaa !21
-  %4161 = getelementptr inbounds nuw i8, ptr %4160, i64 24
-  store ptr %4119, ptr %4161, align 8, !tbaa !27
-  call void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %4124, ptr noundef %4128, ptr noundef nonnull %4131)
-  %4162 = load ptr, ptr %24, align 8, !tbaa !4
-  %4163 = load i32, ptr %4119, align 4, !tbaa !61
-  %4164 = and i32 %4163, 255
-  %4165 = zext nneg i32 %4164 to i64
+4157:                                             ; preds = %4116
+  %4158 = load ptr, ptr %6, align 8, !tbaa !21
+  %4159 = getelementptr inbounds nuw i8, ptr %4158, i64 24
+  store ptr %4117, ptr %4159, align 8, !tbaa !27
+  call void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef nonnull %4122, ptr noundef %4126, ptr noundef nonnull %4129)
+  %4160 = load ptr, ptr %24, align 8, !tbaa !4
+  %4161 = load i32, ptr %4117, align 4, !tbaa !61
+  %4162 = and i32 %4161, 255
+  %4163 = zext nneg i32 %4162 to i64
   br label %.backedge.backedge
 
-4166:                                             ; preds = %.backedge
-  %4167 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4168 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4169 = lshr i32 %4168, 24
-  %4170 = zext nneg i32 %4169 to i64
-  %4171 = getelementptr inbounds nuw i32, ptr %4167, i64 %4170
-  %4172 = load i32, ptr %4171, align 4, !tbaa !61
-  %4173 = lshr i32 %4172, 8
-  %4174 = and i32 %4173, 255
-  %4175 = zext nneg i32 %4174 to i64
-  %4176 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4175
-  %4177 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %4178 = load ptr, ptr %4177, align 8, !tbaa !65
-  %4179 = getelementptr inbounds nuw i8, ptr %4178, i64 5
-  %4180 = load i8, ptr %4179, align 1, !tbaa !79
-  %.not3208 = icmp eq i8 %4180, 0
-  br i1 %.not3208, label %4211, label %4181
+4164:                                             ; preds = %.backedge
+  %4165 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4166 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4167 = lshr i32 %4166, 24
+  %4168 = zext nneg i32 %4167 to i64
+  %4169 = getelementptr inbounds nuw i32, ptr %4165, i64 %4168
+  %4170 = load i32, ptr %4169, align 4, !tbaa !61
+  %4171 = lshr i32 %4170, 8
+  %4172 = and i32 %4171, 255
+  %4173 = zext nneg i32 %4172 to i64
+  %4174 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4173
+  %4175 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %4176 = load ptr, ptr %4175, align 8, !tbaa !65
+  %4177 = getelementptr inbounds nuw i8, ptr %4176, i64 5
+  %4178 = load i8, ptr %4177, align 1, !tbaa !79
+  %.not3208 = icmp eq i8 %4178, 0
+  br i1 %.not3208, label %4209, label %4179
 
-4181:                                             ; preds = %4166
-  %4182 = lshr i32 %4172, 24
-  %4183 = add nsw i32 %4182, -1
-  %4184 = lshr i32 %4168, 8
-  %4185 = and i32 %4184, 255
-  %4186 = zext nneg i32 %4185 to i64
-  %4187 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %4186
-  %4188 = load ptr, ptr %4187, align 8, !tbaa !62
-  %4189 = lshr i32 %4168, 16
-  %4190 = and i32 %4189, 255
-  %4191 = zext nneg i32 %4190 to i64
-  %4192 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4191
-  %4193 = load ptr, ptr %6, align 8, !tbaa !21
-  %4194 = getelementptr inbounds nuw i8, ptr %4193, i64 24
-  store ptr %4167, ptr %4194, align 8, !tbaa !27
-  %4195 = call noundef i32 %4188(ptr noundef %0, ptr noundef %4176, ptr noundef %4192, i32 noundef %4183, ptr noundef null, i32 noundef 1)
-  %4196 = icmp sgt i32 %4195, -1
-  br i1 %4196, label %4197, label %4207
+4179:                                             ; preds = %4164
+  %4180 = lshr i32 %4170, 24
+  %4181 = add nsw i32 %4180, -1
+  %4182 = lshr i32 %4166, 8
+  %4183 = and i32 %4182, 255
+  %4184 = zext nneg i32 %4183 to i64
+  %4185 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4184
+  %4186 = load ptr, ptr %4185, align 8, !tbaa !62
+  %4187 = lshr i32 %4166, 16
+  %4188 = and i32 %4187, 255
+  %4189 = zext nneg i32 %4188 to i64
+  %4190 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4189
+  %4191 = load ptr, ptr %6, align 8, !tbaa !21
+  %4192 = getelementptr inbounds nuw i8, ptr %4191, i64 24
+  store ptr %4165, ptr %4192, align 8, !tbaa !27
+  %4193 = call noundef i32 %4186(ptr noundef %0, ptr noundef %4174, ptr noundef %4190, i32 noundef %4181, ptr noundef null, i32 noundef 1)
+  %4194 = icmp sgt i32 %4193, -1
+  br i1 %4194, label %4195, label %4205
 
-4197:                                             ; preds = %4181
-  %4198 = icmp ult i32 %4172, 16777216
-  br i1 %4198, label %4199, label %4202
+4195:                                             ; preds = %4179
+  %4196 = icmp ult i32 %4170, 16777216
+  br i1 %4196, label %4197, label %4200
 
-4199:                                             ; preds = %4197
-  %4200 = zext nneg i32 %4195 to i64
-  %4201 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4176, i64 %4200
-  store ptr %4201, ptr %25, align 8, !tbaa !20
-  br label %4202
+4197:                                             ; preds = %4195
+  %4198 = zext nneg i32 %4193 to i64
+  %4199 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4174, i64 %4198
+  store ptr %4199, ptr %25, align 8, !tbaa !20
+  br label %4200
 
-4202:                                             ; preds = %4199, %4197
-  %4203 = getelementptr inbounds nuw i8, ptr %4171, i64 4
-  %4204 = load i32, ptr %4203, align 4, !tbaa !61
-  %4205 = and i32 %4204, 255
-  %4206 = zext nneg i32 %4205 to i64
+4200:                                             ; preds = %4197, %4195
+  %4201 = getelementptr inbounds nuw i8, ptr %4169, i64 4
+  %4202 = load i32, ptr %4201, align 4, !tbaa !61
+  %4203 = and i32 %4202, 255
+  %4204 = zext nneg i32 %4203 to i64
   br label %.backedge.backedge
 
-4207:                                             ; preds = %4181
-  %4208 = load i32, ptr %4167, align 4, !tbaa !61
-  %4209 = and i32 %4208, 255
-  %4210 = zext nneg i32 %4209 to i64
+4205:                                             ; preds = %4179
+  %4206 = load i32, ptr %4165, align 4, !tbaa !61
+  %4207 = and i32 %4206, 255
+  %4208 = zext nneg i32 %4207 to i64
   br label %.backedge.backedge
 
-4211:                                             ; preds = %4166
-  %4212 = load i32, ptr %4167, align 4, !tbaa !61
-  %4213 = and i32 %4212, 255
-  %4214 = zext nneg i32 %4213 to i64
+4209:                                             ; preds = %4164
+  %4210 = load i32, ptr %4165, align 4, !tbaa !61
+  %4211 = and i32 %4210, 255
+  %4212 = zext nneg i32 %4211 to i64
   br label %.backedge.backedge
 
-4215:                                             ; preds = %.backedge
-  %4216 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4217 = lshr i32 %4216, 24
-  %4218 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
-  %4219 = zext nneg i32 %4217 to i64
-  %4220 = getelementptr i32, ptr %4218, i64 %4219
-  %4221 = getelementptr i8, ptr %4220, i64 -4
-  %4222 = load i32, ptr %4221, align 4, !tbaa !61
-  %4223 = lshr i32 %4222, 8
-  %4224 = and i32 %4223, 255
-  %4225 = zext nneg i32 %4224 to i64
-  %4226 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4225
-  %4227 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %4228 = load ptr, ptr %4227, align 8, !tbaa !65
-  %4229 = getelementptr inbounds nuw i8, ptr %4228, i64 5
-  %4230 = load i8, ptr %4229, align 1, !tbaa !79
-  %.not3207 = icmp eq i8 %4230, 0
-  br i1 %.not3207, label %4264, label %4231
+4213:                                             ; preds = %.backedge
+  %4214 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4215 = lshr i32 %4214, 24
+  %4216 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
+  %4217 = zext nneg i32 %4215 to i64
+  %4218 = getelementptr i32, ptr %4216, i64 %4217
+  %4219 = getelementptr i8, ptr %4218, i64 -4
+  %4220 = load i32, ptr %4219, align 4, !tbaa !61
+  %4221 = lshr i32 %4220, 8
+  %4222 = and i32 %4221, 255
+  %4223 = zext nneg i32 %4222 to i64
+  %4224 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4223
+  %4225 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %4226 = load ptr, ptr %4225, align 8, !tbaa !65
+  %4227 = getelementptr inbounds nuw i8, ptr %4226, i64 5
+  %4228 = load i8, ptr %4227, align 1, !tbaa !79
+  %.not3207 = icmp eq i8 %4228, 0
+  br i1 %.not3207, label %4262, label %4229
 
-4231:                                             ; preds = %4215
-  %4232 = lshr i32 %4222, 24
-  %4233 = add nsw i32 %4232, -1
-  %4234 = lshr i32 %4216, 8
-  %4235 = and i32 %4234, 255
-  %4236 = zext nneg i32 %4235 to i64
-  %4237 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %4236
-  %4238 = load ptr, ptr %4237, align 8, !tbaa !62
-  %4239 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4240 = load i32, ptr %4239, align 4, !tbaa !61
-  %4241 = zext i32 %4240 to i64
-  %4242 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4241
-  %4243 = lshr i32 %4216, 16
-  %4244 = and i32 %4243, 255
-  %4245 = zext nneg i32 %4244 to i64
-  %4246 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4245
-  %4247 = load ptr, ptr %6, align 8, !tbaa !21
-  %4248 = getelementptr inbounds nuw i8, ptr %4247, i64 24
-  store ptr %4218, ptr %4248, align 8, !tbaa !27
-  %4249 = call noundef i32 %4238(ptr noundef %0, ptr noundef %4226, ptr noundef %4246, i32 noundef %4233, ptr noundef %4242, i32 noundef 2)
-  %4250 = icmp sgt i32 %4249, -1
-  br i1 %4250, label %4251, label %4260
+4229:                                             ; preds = %4213
+  %4230 = lshr i32 %4220, 24
+  %4231 = add nsw i32 %4230, -1
+  %4232 = lshr i32 %4214, 8
+  %4233 = and i32 %4232, 255
+  %4234 = zext nneg i32 %4233 to i64
+  %4235 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4234
+  %4236 = load ptr, ptr %4235, align 8, !tbaa !62
+  %4237 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4238 = load i32, ptr %4237, align 4, !tbaa !61
+  %4239 = zext i32 %4238 to i64
+  %4240 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4239
+  %4241 = lshr i32 %4214, 16
+  %4242 = and i32 %4241, 255
+  %4243 = zext nneg i32 %4242 to i64
+  %4244 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4243
+  %4245 = load ptr, ptr %6, align 8, !tbaa !21
+  %4246 = getelementptr inbounds nuw i8, ptr %4245, i64 24
+  store ptr %4216, ptr %4246, align 8, !tbaa !27
+  %4247 = call noundef i32 %4236(ptr noundef %0, ptr noundef %4224, ptr noundef %4244, i32 noundef %4231, ptr noundef %4240, i32 noundef 2)
+  %4248 = icmp sgt i32 %4247, -1
+  br i1 %4248, label %4249, label %4258
 
-4251:                                             ; preds = %4231
-  %4252 = icmp ult i32 %4222, 16777216
-  br i1 %4252, label %4253, label %4256
+4249:                                             ; preds = %4229
+  %4250 = icmp ult i32 %4220, 16777216
+  br i1 %4250, label %4251, label %4254
 
-4253:                                             ; preds = %4251
-  %4254 = zext nneg i32 %4249 to i64
-  %4255 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4226, i64 %4254
-  store ptr %4255, ptr %25, align 8, !tbaa !20
-  br label %4256
+4251:                                             ; preds = %4249
+  %4252 = zext nneg i32 %4247 to i64
+  %4253 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4224, i64 %4252
+  store ptr %4253, ptr %25, align 8, !tbaa !20
+  br label %4254
 
-4256:                                             ; preds = %4253, %4251
-  %4257 = load i32, ptr %4220, align 4, !tbaa !61
-  %4258 = and i32 %4257, 255
-  %4259 = zext nneg i32 %4258 to i64
+4254:                                             ; preds = %4251, %4249
+  %4255 = load i32, ptr %4218, align 4, !tbaa !61
+  %4256 = and i32 %4255, 255
+  %4257 = zext nneg i32 %4256 to i64
   br label %.backedge.backedge
 
-4260:                                             ; preds = %4231
-  %4261 = load i32, ptr %4218, align 4, !tbaa !61
-  %4262 = and i32 %4261, 255
-  %4263 = zext nneg i32 %4262 to i64
+4258:                                             ; preds = %4229
+  %4259 = load i32, ptr %4216, align 4, !tbaa !61
+  %4260 = and i32 %4259, 255
+  %4261 = zext nneg i32 %4260 to i64
   br label %.backedge.backedge
 
-4264:                                             ; preds = %4215
-  %4265 = load i32, ptr %4218, align 4, !tbaa !61
-  %4266 = and i32 %4265, 255
-  %4267 = zext nneg i32 %4266 to i64
+4262:                                             ; preds = %4213
+  %4263 = load i32, ptr %4216, align 4, !tbaa !61
+  %4264 = and i32 %4263, 255
+  %4265 = zext nneg i32 %4264 to i64
   br label %.backedge.backedge
 
-4268:                                             ; preds = %.backedge
-  %4269 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4270 = lshr i32 %4269, 24
-  %4271 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
-  %4272 = zext nneg i32 %4270 to i64
-  %4273 = getelementptr i32, ptr %4271, i64 %4272
-  %4274 = getelementptr i8, ptr %4273, i64 -4
-  %4275 = load i32, ptr %4274, align 4, !tbaa !61
-  %4276 = lshr i32 %4275, 8
-  %4277 = and i32 %4276, 255
-  %4278 = zext nneg i32 %4277 to i64
-  %4279 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4278
-  %4280 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %4281 = load ptr, ptr %4280, align 8, !tbaa !65
-  %4282 = getelementptr inbounds nuw i8, ptr %4281, i64 5
-  %4283 = load i8, ptr %4282, align 1, !tbaa !79
-  %.not3206 = icmp eq i8 %4283, 0
-  br i1 %.not3206, label %4317, label %4284
+4266:                                             ; preds = %.backedge
+  %4267 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4268 = lshr i32 %4267, 24
+  %4269 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
+  %4270 = zext nneg i32 %4268 to i64
+  %4271 = getelementptr i32, ptr %4269, i64 %4270
+  %4272 = getelementptr i8, ptr %4271, i64 -4
+  %4273 = load i32, ptr %4272, align 4, !tbaa !61
+  %4274 = lshr i32 %4273, 8
+  %4275 = and i32 %4274, 255
+  %4276 = zext nneg i32 %4275 to i64
+  %4277 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4276
+  %4278 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %4279 = load ptr, ptr %4278, align 8, !tbaa !65
+  %4280 = getelementptr inbounds nuw i8, ptr %4279, i64 5
+  %4281 = load i8, ptr %4280, align 1, !tbaa !79
+  %.not3206 = icmp eq i8 %4281, 0
+  br i1 %.not3206, label %4315, label %4282
 
-4284:                                             ; preds = %4268
-  %4285 = lshr i32 %4275, 24
-  %4286 = add nsw i32 %4285, -1
-  %4287 = lshr i32 %4269, 8
-  %4288 = and i32 %4287, 255
-  %4289 = zext nneg i32 %4288 to i64
-  %4290 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %4289
-  %4291 = load ptr, ptr %4290, align 8, !tbaa !62
-  %4292 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4293 = load i32, ptr %4292, align 4, !tbaa !61
-  %4294 = zext i32 %4293 to i64
-  %4295 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4294
-  %4296 = lshr i32 %4269, 16
-  %4297 = and i32 %4296, 255
-  %4298 = zext nneg i32 %4297 to i64
-  %4299 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4298
-  %4300 = load ptr, ptr %6, align 8, !tbaa !21
-  %4301 = getelementptr inbounds nuw i8, ptr %4300, i64 24
-  store ptr %4271, ptr %4301, align 8, !tbaa !27
-  %4302 = call noundef i32 %4291(ptr noundef %0, ptr noundef %4279, ptr noundef %4299, i32 noundef %4286, ptr noundef %4295, i32 noundef 2)
-  %4303 = icmp sgt i32 %4302, -1
-  br i1 %4303, label %4304, label %4313
+4282:                                             ; preds = %4266
+  %4283 = lshr i32 %4273, 24
+  %4284 = add nsw i32 %4283, -1
+  %4285 = lshr i32 %4267, 8
+  %4286 = and i32 %4285, 255
+  %4287 = zext nneg i32 %4286 to i64
+  %4288 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4287
+  %4289 = load ptr, ptr %4288, align 8, !tbaa !62
+  %4290 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4291 = load i32, ptr %4290, align 4, !tbaa !61
+  %4292 = zext i32 %4291 to i64
+  %4293 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4292
+  %4294 = lshr i32 %4267, 16
+  %4295 = and i32 %4294, 255
+  %4296 = zext nneg i32 %4295 to i64
+  %4297 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4296
+  %4298 = load ptr, ptr %6, align 8, !tbaa !21
+  %4299 = getelementptr inbounds nuw i8, ptr %4298, i64 24
+  store ptr %4269, ptr %4299, align 8, !tbaa !27
+  %4300 = call noundef i32 %4289(ptr noundef %0, ptr noundef %4277, ptr noundef %4297, i32 noundef %4284, ptr noundef %4293, i32 noundef 2)
+  %4301 = icmp sgt i32 %4300, -1
+  br i1 %4301, label %4302, label %4311
 
-4304:                                             ; preds = %4284
-  %4305 = icmp ult i32 %4275, 16777216
-  br i1 %4305, label %4306, label %4309
+4302:                                             ; preds = %4282
+  %4303 = icmp ult i32 %4273, 16777216
+  br i1 %4303, label %4304, label %4307
 
-4306:                                             ; preds = %4304
-  %4307 = zext nneg i32 %4302 to i64
-  %4308 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4279, i64 %4307
-  store ptr %4308, ptr %25, align 8, !tbaa !20
-  br label %4309
+4304:                                             ; preds = %4302
+  %4305 = zext nneg i32 %4300 to i64
+  %4306 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4277, i64 %4305
+  store ptr %4306, ptr %25, align 8, !tbaa !20
+  br label %4307
 
-4309:                                             ; preds = %4306, %4304
-  %4310 = load i32, ptr %4273, align 4, !tbaa !61
-  %4311 = and i32 %4310, 255
-  %4312 = zext nneg i32 %4311 to i64
+4307:                                             ; preds = %4304, %4302
+  %4308 = load i32, ptr %4271, align 4, !tbaa !61
+  %4309 = and i32 %4308, 255
+  %4310 = zext nneg i32 %4309 to i64
   br label %.backedge.backedge
 
-4313:                                             ; preds = %4284
-  %4314 = load i32, ptr %4271, align 4, !tbaa !61
-  %4315 = and i32 %4314, 255
-  %4316 = zext nneg i32 %4315 to i64
+4311:                                             ; preds = %4282
+  %4312 = load i32, ptr %4269, align 4, !tbaa !61
+  %4313 = and i32 %4312, 255
+  %4314 = zext nneg i32 %4313 to i64
   br label %.backedge.backedge
 
-4317:                                             ; preds = %4268
-  %4318 = load i32, ptr %4271, align 4, !tbaa !61
-  %4319 = and i32 %4318, 255
-  %4320 = zext nneg i32 %4319 to i64
+4315:                                             ; preds = %4266
+  %4316 = load i32, ptr %4269, align 4, !tbaa !61
+  %4317 = and i32 %4316, 255
+  %4318 = zext nneg i32 %4317 to i64
   br label %.backedge.backedge
 
-4321:                                             ; preds = %.backedge
-  %4322 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4323 = lshr i32 %4322, 24
-  %4324 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
-  %4325 = zext nneg i32 %4323 to i64
-  %4326 = getelementptr i32, ptr %4324, i64 %4325
-  %4327 = getelementptr i8, ptr %4326, i64 -4
-  %4328 = load i32, ptr %4327, align 4, !tbaa !61
-  %4329 = lshr i32 %4328, 8
-  %4330 = and i32 %4329, 255
-  %4331 = zext nneg i32 %4330 to i64
-  %4332 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4331
-  %4333 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %4334 = load ptr, ptr %4333, align 8, !tbaa !65
-  %4335 = getelementptr inbounds nuw i8, ptr %4334, i64 5
-  %4336 = load i8, ptr %4335, align 1, !tbaa !79
-  %.not3221 = icmp eq i8 %4336, 0
-  br i1 %.not3221, label %4377, label %4337
+4319:                                             ; preds = %.backedge
+  %4320 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4321 = lshr i32 %4320, 24
+  %4322 = getelementptr inbounds nuw i8, ptr %.13078, i64 8
+  %4323 = zext nneg i32 %4321 to i64
+  %4324 = getelementptr i32, ptr %4322, i64 %4323
+  %4325 = getelementptr i8, ptr %4324, i64 -4
+  %4326 = load i32, ptr %4325, align 4, !tbaa !61
+  %4327 = lshr i32 %4326, 8
+  %4328 = and i32 %4327, 255
+  %4329 = zext nneg i32 %4328 to i64
+  %4330 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4329
+  %4331 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %4332 = load ptr, ptr %4331, align 8, !tbaa !65
+  %4333 = getelementptr inbounds nuw i8, ptr %4332, i64 5
+  %4334 = load i8, ptr %4333, align 1, !tbaa !79
+  %.not3221 = icmp eq i8 %4334, 0
+  br i1 %.not3221, label %4375, label %4335
 
-4337:                                             ; preds = %4321
-  %4338 = lshr i32 %4328, 24
-  %4339 = add nsw i32 %4338, -1
-  %4340 = lshr i32 %4322, 8
-  %4341 = and i32 %4340, 255
-  %4342 = zext nneg i32 %4341 to i64
-  %4343 = getelementptr inbounds nuw [256 x ptr], ptr @luauF_table, i64 0, i64 %4342
-  %4344 = load ptr, ptr %4343, align 8, !tbaa !62
-  %4345 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4346 = load i32, ptr %4345, align 4, !tbaa !61
-  %4347 = lshr i32 %4346, 8
-  %4348 = and i32 %4347, 255
-  %4349 = zext nneg i32 %4348 to i64
-  %4350 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4349
-  %4351 = and i32 %4346, 255
-  %4352 = zext nneg i32 %4351 to i64
-  %4353 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4352
-  %4354 = lshr i32 %4322, 16
-  %4355 = and i32 %4354, 255
-  %4356 = zext nneg i32 %4355 to i64
-  %4357 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4356
-  %4358 = load ptr, ptr %6, align 8, !tbaa !21
-  %4359 = getelementptr inbounds nuw i8, ptr %4358, i64 24
-  store ptr %4324, ptr %4359, align 8, !tbaa !27
-  %4360 = load ptr, ptr %25, align 8, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4360, ptr noundef nonnull align 8 dereferenceable(16) %4353, i64 16, i1 false), !tbaa.struct !64
-  %4361 = getelementptr inbounds nuw i8, ptr %4360, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4361, ptr noundef nonnull align 8 dereferenceable(16) %4350, i64 16, i1 false), !tbaa.struct !64
-  %4362 = call noundef i32 %4344(ptr noundef %0, ptr noundef %4332, ptr noundef %4357, i32 noundef %4339, ptr noundef nonnull %4360, i32 noundef 3)
-  %4363 = icmp sgt i32 %4362, -1
-  br i1 %4363, label %4364, label %4373
+4335:                                             ; preds = %4319
+  %4336 = lshr i32 %4326, 24
+  %4337 = add nsw i32 %4336, -1
+  %4338 = lshr i32 %4320, 8
+  %4339 = and i32 %4338, 255
+  %4340 = zext nneg i32 %4339 to i64
+  %4341 = getelementptr inbounds nuw ptr, ptr @luauF_table, i64 %4340
+  %4342 = load ptr, ptr %4341, align 8, !tbaa !62
+  %4343 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4344 = load i32, ptr %4343, align 4, !tbaa !61
+  %4345 = lshr i32 %4344, 8
+  %4346 = and i32 %4345, 255
+  %4347 = zext nneg i32 %4346 to i64
+  %4348 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4347
+  %4349 = and i32 %4344, 255
+  %4350 = zext nneg i32 %4349 to i64
+  %4351 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4350
+  %4352 = lshr i32 %4320, 16
+  %4353 = and i32 %4352, 255
+  %4354 = zext nneg i32 %4353 to i64
+  %4355 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4354
+  %4356 = load ptr, ptr %6, align 8, !tbaa !21
+  %4357 = getelementptr inbounds nuw i8, ptr %4356, i64 24
+  store ptr %4322, ptr %4357, align 8, !tbaa !27
+  %4358 = load ptr, ptr %25, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4358, ptr noundef nonnull align 8 dereferenceable(16) %4351, i64 16, i1 false), !tbaa.struct !64
+  %4359 = getelementptr inbounds nuw i8, ptr %4358, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4359, ptr noundef nonnull align 8 dereferenceable(16) %4348, i64 16, i1 false), !tbaa.struct !64
+  %4360 = call noundef i32 %4342(ptr noundef %0, ptr noundef %4330, ptr noundef %4355, i32 noundef %4337, ptr noundef nonnull %4358, i32 noundef 3)
+  %4361 = icmp sgt i32 %4360, -1
+  br i1 %4361, label %4362, label %4371
 
-4364:                                             ; preds = %4337
-  %4365 = icmp ult i32 %4328, 16777216
-  br i1 %4365, label %4366, label %4369
+4362:                                             ; preds = %4335
+  %4363 = icmp ult i32 %4326, 16777216
+  br i1 %4363, label %4364, label %4367
 
-4366:                                             ; preds = %4364
-  %4367 = zext nneg i32 %4362 to i64
-  %4368 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4332, i64 %4367
-  store ptr %4368, ptr %25, align 8, !tbaa !20
-  br label %4369
+4364:                                             ; preds = %4362
+  %4365 = zext nneg i32 %4360 to i64
+  %4366 = getelementptr inbounds nuw %struct.lua_TValue, ptr %4330, i64 %4365
+  store ptr %4366, ptr %25, align 8, !tbaa !20
+  br label %4367
 
-4369:                                             ; preds = %4366, %4364
-  %4370 = load i32, ptr %4326, align 4, !tbaa !61
-  %4371 = and i32 %4370, 255
-  %4372 = zext nneg i32 %4371 to i64
+4367:                                             ; preds = %4364, %4362
+  %4368 = load i32, ptr %4324, align 4, !tbaa !61
+  %4369 = and i32 %4368, 255
+  %4370 = zext nneg i32 %4369 to i64
   br label %.backedge.backedge
 
-4373:                                             ; preds = %4337
-  %4374 = load i32, ptr %4324, align 4, !tbaa !61
-  %4375 = and i32 %4374, 255
-  %4376 = zext nneg i32 %4375 to i64
+4371:                                             ; preds = %4335
+  %4372 = load i32, ptr %4322, align 4, !tbaa !61
+  %4373 = and i32 %4372, 255
+  %4374 = zext nneg i32 %4373 to i64
   br label %.backedge.backedge
 
-4377:                                             ; preds = %4321
-  %4378 = load i32, ptr %4324, align 4, !tbaa !61
-  %4379 = and i32 %4378, 255
-  %4380 = zext nneg i32 %4379 to i64
+4375:                                             ; preds = %4319
+  %4376 = load i32, ptr %4322, align 4, !tbaa !61
+  %4377 = and i32 %4376, 255
+  %4378 = zext nneg i32 %4377 to i64
   br label %.backedge.backedge
 
-4381:                                             ; preds = %.backedge
-  %4382 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %4383 = load ptr, ptr %4382, align 8, !tbaa !30
-  %4384 = getelementptr inbounds nuw i8, ptr %4383, i64 104
-  %4385 = load ptr, ptr %4384, align 8, !tbaa !134
-  %4386 = getelementptr inbounds nuw i8, ptr %4383, i64 16
-  %4387 = load ptr, ptr %4386, align 8, !tbaa !33
-  %4388 = ptrtoint ptr %.13078 to i64
-  %4389 = ptrtoint ptr %4387 to i64
-  %4390 = sub i64 %4388, %4389
-  %4391 = lshr exact i64 %4390, 2
-  %4392 = and i64 %4391, 4294967295
-  %4393 = getelementptr inbounds nuw i8, ptr %4385, i64 %4392
-  %4394 = load i8, ptr %4393, align 1, !tbaa !30
-  %4395 = load ptr, ptr %26, align 8, !tbaa !48
-  %4396 = getelementptr inbounds nuw i8, ptr %4395, i64 3328
-  %4397 = load ptr, ptr %4396, align 8, !tbaa !135
-  %.not3324 = icmp eq ptr %4397, null
-  br i1 %.not3324, label %4403, label %4398
+4379:                                             ; preds = %.backedge
+  %4380 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %4381 = load ptr, ptr %4380, align 8, !tbaa !30
+  %4382 = getelementptr inbounds nuw i8, ptr %4381, i64 104
+  %4383 = load ptr, ptr %4382, align 8, !tbaa !134
+  %4384 = getelementptr inbounds nuw i8, ptr %4381, i64 16
+  %4385 = load ptr, ptr %4384, align 8, !tbaa !33
+  %4386 = ptrtoint ptr %.13078 to i64
+  %4387 = ptrtoint ptr %4385 to i64
+  %4388 = sub i64 %4386, %4387
+  %4389 = lshr exact i64 %4388, 2
+  %4390 = and i64 %4389, 4294967295
+  %4391 = getelementptr inbounds nuw i8, ptr %4383, i64 %4390
+  %4392 = load i8, ptr %4391, align 1, !tbaa !30
+  %4393 = load ptr, ptr %26, align 8, !tbaa !48
+  %4394 = getelementptr inbounds nuw i8, ptr %4393, i64 3328
+  %4395 = load ptr, ptr %4394, align 8, !tbaa !135
+  %.not3324 = icmp eq ptr %4395, null
+  br i1 %.not3324, label %4401, label %4396
 
-4398:                                             ; preds = %4381
-  %4399 = load ptr, ptr %6, align 8, !tbaa !21
-  %4400 = getelementptr inbounds nuw i8, ptr %4399, i64 24
-  store ptr %.13078, ptr %4400, align 8, !tbaa !27
-  call void @_Z13luau_callhookP9lua_StatePFvS0_P9lua_DebugEPv(ptr noundef nonnull %0, ptr noundef nonnull %4397, ptr noundef null)
-  %4401 = load ptr, ptr %24, align 8, !tbaa !4
-  %4402 = load i8, ptr %27, align 1, !tbaa !25
-  %.not3325 = icmp eq i8 %4402, 0
-  br i1 %.not3325, label %4403, label %.loopexit3432
+4396:                                             ; preds = %4379
+  %4397 = load ptr, ptr %6, align 8, !tbaa !21
+  %4398 = getelementptr inbounds nuw i8, ptr %4397, i64 24
+  store ptr %.13078, ptr %4398, align 8, !tbaa !27
+  call void @_Z13luau_callhookP9lua_StatePFvS0_P9lua_DebugEPv(ptr noundef nonnull %0, ptr noundef nonnull %4395, ptr noundef null)
+  %4399 = load ptr, ptr %24, align 8, !tbaa !4
+  %4400 = load i8, ptr %27, align 1, !tbaa !25
+  %.not3325 = icmp eq i8 %4400, 0
+  br i1 %.not3325, label %4401, label %.loopexit3432
 
-4403:                                             ; preds = %4398, %4381
-  %.10 = phi ptr [ %4401, %4398 ], [ %.1.fr, %4381 ]
-  %4404 = zext i8 %4394 to i64
+4401:                                             ; preds = %4396, %4379
+  %.10 = phi ptr [ %4399, %4396 ], [ %.1.fr, %4379 ]
+  %4402 = zext i8 %4392 to i64
   br label %.backedge.backedge
 
-4405:                                             ; preds = %.backedge
-  %4406 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4407 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4408 = load i32, ptr %4406, align 4, !tbaa !61
-  %4409 = lshr i32 %4407, 8
-  %4410 = and i32 %4409, 255
-  %4411 = zext nneg i32 %4410 to i64
-  %4412 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4411, i32 2
-  %4413 = load i32, ptr %4412, align 4, !tbaa !63
-  %4414 = add nsw i32 %4413, -1
-  %4415 = xor i32 %4414, %4408
-  %4416 = icmp slt i32 %4415, 0
-  %4417 = ashr i32 %4407, 16
-  %4418 = select i1 %4416, i32 %4417, i32 1
-  %4419 = sext i32 %4418 to i64
-  %4420 = getelementptr inbounds i32, ptr %4406, i64 %4419
-  %4421 = load i32, ptr %4420, align 4, !tbaa !61
-  %4422 = and i32 %4421, 255
-  %4423 = zext nneg i32 %4422 to i64
+4403:                                             ; preds = %.backedge
+  %4404 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4405 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4406 = load i32, ptr %4404, align 4, !tbaa !61
+  %4407 = lshr i32 %4405, 8
+  %4408 = and i32 %4407, 255
+  %4409 = zext nneg i32 %4408 to i64
+  %4410 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4409, i32 2
+  %4411 = load i32, ptr %4410, align 4, !tbaa !63
+  %4412 = add nsw i32 %4411, -1
+  %4413 = xor i32 %4412, %4406
+  %4414 = icmp slt i32 %4413, 0
+  %4415 = ashr i32 %4405, 16
+  %4416 = select i1 %4414, i32 %4415, i32 1
+  %4417 = sext i32 %4416 to i64
+  %4418 = getelementptr inbounds i32, ptr %4404, i64 %4417
+  %4419 = load i32, ptr %4418, align 4, !tbaa !61
+  %4420 = and i32 %4419, 255
+  %4421 = zext nneg i32 %4420 to i64
   br label %.backedge.backedge
 
-4424:                                             ; preds = %.backedge
-  %4425 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4426 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4427 = load i32, ptr %4425, align 4, !tbaa !61
-  %4428 = lshr i32 %4426, 8
-  %4429 = and i32 %4428, 255
-  %4430 = zext nneg i32 %4429 to i64
-  %4431 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4430
-  %4432 = getelementptr inbounds nuw i8, ptr %4431, i64 12
-  %4433 = load i32, ptr %4432, align 4, !tbaa !63
-  %4434 = icmp eq i32 %4433, 1
-  br i1 %4434, label %4435, label %4440
+4422:                                             ; preds = %.backedge
+  %4423 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4424 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4425 = load i32, ptr %4423, align 4, !tbaa !61
+  %4426 = lshr i32 %4424, 8
+  %4427 = and i32 %4426, 255
+  %4428 = zext nneg i32 %4427 to i64
+  %4429 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4428
+  %4430 = getelementptr inbounds nuw i8, ptr %4429, i64 12
+  %4431 = load i32, ptr %4430, align 4, !tbaa !63
+  %4432 = icmp eq i32 %4431, 1
+  br i1 %4432, label %4433, label %4438
 
-4435:                                             ; preds = %4424
-  %4436 = load i32, ptr %4431, align 8, !tbaa !30
-  %4437 = and i32 %4427, 1
-  %4438 = icmp eq i32 %4436, %4437
-  %4439 = zext i1 %4438 to i32
-  br label %4440
+4433:                                             ; preds = %4422
+  %4434 = load i32, ptr %4429, align 8, !tbaa !30
+  %4435 = and i32 %4425, 1
+  %4436 = icmp eq i32 %4434, %4435
+  %4437 = zext i1 %4436 to i32
+  br label %4438
 
-4440:                                             ; preds = %4435, %4424
-  %4441 = phi i32 [ 0, %4424 ], [ %4439, %4435 ]
-  %4442 = lshr i32 %4427, 31
-  %.not3201 = icmp eq i32 %4441, %4442
-  %4443 = ashr i32 %4426, 16
-  %4444 = select i1 %.not3201, i32 1, i32 %4443
-  %4445 = sext i32 %4444 to i64
-  %4446 = getelementptr inbounds i32, ptr %4425, i64 %4445
-  %4447 = load i32, ptr %4446, align 4, !tbaa !61
-  %4448 = and i32 %4447, 255
-  %4449 = zext nneg i32 %4448 to i64
+4438:                                             ; preds = %4433, %4422
+  %4439 = phi i32 [ 0, %4422 ], [ %4437, %4433 ]
+  %4440 = lshr i32 %4425, 31
+  %.not3201 = icmp eq i32 %4439, %4440
+  %4441 = ashr i32 %4424, 16
+  %4442 = select i1 %.not3201, i32 1, i32 %4441
+  %4443 = sext i32 %4442 to i64
+  %4444 = getelementptr inbounds i32, ptr %4423, i64 %4443
+  %4445 = load i32, ptr %4444, align 4, !tbaa !61
+  %4446 = and i32 %4445, 255
+  %4447 = zext nneg i32 %4446 to i64
   br label %.backedge.backedge
 
-4450:                                             ; preds = %.backedge
-  %4451 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4452 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4453 = load i32, ptr %4451, align 4, !tbaa !61
-  %4454 = lshr i32 %4452, 8
-  %4455 = and i32 %4454, 255
-  %4456 = zext nneg i32 %4455 to i64
-  %4457 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4456
-  %4458 = getelementptr inbounds nuw i8, ptr %4457, i64 12
-  %4459 = load i32, ptr %4458, align 4, !tbaa !63
-  %4460 = icmp eq i32 %4459, 3
-  br i1 %4460, label %4461, label %4469
+4448:                                             ; preds = %.backedge
+  %4449 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4450 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4451 = load i32, ptr %4449, align 4, !tbaa !61
+  %4452 = lshr i32 %4450, 8
+  %4453 = and i32 %4452, 255
+  %4454 = zext nneg i32 %4453 to i64
+  %4455 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4454
+  %4456 = getelementptr inbounds nuw i8, ptr %4455, i64 12
+  %4457 = load i32, ptr %4456, align 4, !tbaa !63
+  %4458 = icmp eq i32 %4457, 3
+  br i1 %4458, label %4459, label %4467
 
-4461:                                             ; preds = %4450
-  %4462 = and i32 %4453, 16777215
-  %4463 = zext nneg i32 %4462 to i64
-  %4464 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4463
-  %4465 = load double, ptr %4457, align 8, !tbaa !30
-  %4466 = load double, ptr %4464, align 8, !tbaa !30
-  %4467 = fcmp oeq double %4465, %4466
-  %4468 = zext i1 %4467 to i32
-  br label %4469
+4459:                                             ; preds = %4448
+  %4460 = and i32 %4451, 16777215
+  %4461 = zext nneg i32 %4460 to i64
+  %4462 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4461
+  %4463 = load double, ptr %4455, align 8, !tbaa !30
+  %4464 = load double, ptr %4462, align 8, !tbaa !30
+  %4465 = fcmp oeq double %4463, %4464
+  %4466 = zext i1 %4465 to i32
+  br label %4467
 
-4469:                                             ; preds = %4461, %4450
-  %4470 = phi i32 [ 0, %4450 ], [ %4468, %4461 ]
-  %4471 = lshr i32 %4453, 31
-  %.not3200 = icmp eq i32 %4470, %4471
-  %4472 = ashr i32 %4452, 16
-  %4473 = select i1 %.not3200, i32 1, i32 %4472
-  %4474 = sext i32 %4473 to i64
-  %4475 = getelementptr inbounds i32, ptr %4451, i64 %4474
-  %4476 = load i32, ptr %4475, align 4, !tbaa !61
-  %4477 = and i32 %4476, 255
-  %4478 = zext nneg i32 %4477 to i64
+4467:                                             ; preds = %4459, %4448
+  %4468 = phi i32 [ 0, %4448 ], [ %4466, %4459 ]
+  %4469 = lshr i32 %4451, 31
+  %.not3200 = icmp eq i32 %4468, %4469
+  %4470 = ashr i32 %4450, 16
+  %4471 = select i1 %.not3200, i32 1, i32 %4470
+  %4472 = sext i32 %4471 to i64
+  %4473 = getelementptr inbounds i32, ptr %4449, i64 %4472
+  %4474 = load i32, ptr %4473, align 4, !tbaa !61
+  %4475 = and i32 %4474, 255
+  %4476 = zext nneg i32 %4475 to i64
   br label %.backedge.backedge
 
-4479:                                             ; preds = %.backedge
-  %4480 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
-  %4481 = load i32, ptr %.13078, align 4, !tbaa !61
-  %4482 = load i32, ptr %4480, align 4, !tbaa !61
-  %4483 = lshr i32 %4481, 8
-  %4484 = and i32 %4483, 255
-  %4485 = zext nneg i32 %4484 to i64
-  %4486 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4485
-  %4487 = getelementptr inbounds nuw i8, ptr %4486, i64 12
-  %4488 = load i32, ptr %4487, align 4, !tbaa !63
-  %4489 = icmp eq i32 %4488, 5
-  br i1 %4489, label %4490, label %4498
+4477:                                             ; preds = %.backedge
+  %4478 = getelementptr inbounds nuw i8, ptr %.13078, i64 4
+  %4479 = load i32, ptr %.13078, align 4, !tbaa !61
+  %4480 = load i32, ptr %4478, align 4, !tbaa !61
+  %4481 = lshr i32 %4479, 8
+  %4482 = and i32 %4481, 255
+  %4483 = zext nneg i32 %4482 to i64
+  %4484 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1.fr, i64 %4483
+  %4485 = getelementptr inbounds nuw i8, ptr %4484, i64 12
+  %4486 = load i32, ptr %4485, align 4, !tbaa !63
+  %4487 = icmp eq i32 %4486, 5
+  br i1 %4487, label %4488, label %4496
 
-4490:                                             ; preds = %4479
-  %4491 = and i32 %4482, 16777215
-  %4492 = zext nneg i32 %4491 to i64
-  %4493 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4492
-  %4494 = load ptr, ptr %4486, align 8, !tbaa !30
-  %4495 = load ptr, ptr %4493, align 8, !tbaa !30
-  %4496 = icmp eq ptr %4494, %4495
-  %4497 = zext i1 %4496 to i32
-  br label %4498
+4488:                                             ; preds = %4477
+  %4489 = and i32 %4480, 16777215
+  %4490 = zext nneg i32 %4489 to i64
+  %4491 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.03076, i64 %4490
+  %4492 = load ptr, ptr %4484, align 8, !tbaa !30
+  %4493 = load ptr, ptr %4491, align 8, !tbaa !30
+  %4494 = icmp eq ptr %4492, %4493
+  %4495 = zext i1 %4494 to i32
+  br label %4496
 
-4498:                                             ; preds = %4490, %4479
-  %4499 = phi i32 [ 0, %4479 ], [ %4497, %4490 ]
-  %4500 = lshr i32 %4482, 31
-  %.not3199 = icmp eq i32 %4499, %4500
-  %4501 = ashr i32 %4481, 16
-  %4502 = select i1 %.not3199, i32 1, i32 %4501
-  %4503 = sext i32 %4502 to i64
-  %4504 = getelementptr inbounds i32, ptr %4480, i64 %4503
-  %4505 = load i32, ptr %4504, align 4, !tbaa !61
-  %4506 = and i32 %4505, 255
-  %4507 = zext nneg i32 %4506 to i64
+4496:                                             ; preds = %4488, %4477
+  %4497 = phi i32 [ 0, %4477 ], [ %4495, %4488 ]
+  %4498 = lshr i32 %4480, 31
+  %.not3199 = icmp eq i32 %4497, %4498
+  %4499 = ashr i32 %4479, 16
+  %4500 = select i1 %.not3199, i32 1, i32 %4499
+  %4501 = sext i32 %4500 to i64
+  %4502 = getelementptr inbounds i32, ptr %4478, i64 %4501
+  %4503 = load i32, ptr %4502, align 4, !tbaa !61
+  %4504 = and i32 %4503, 255
+  %4505 = zext nneg i32 %4504 to i64
   br label %.backedge.backedge
 
-.loopexit3432.sink.split:                         ; preds = %3993, %3960, %3515, %3413, %1298, %1162
-  %4508 = load ptr, ptr %6, align 8, !tbaa !21
-  %4509 = getelementptr inbounds nuw i8, ptr %4508, i64 24
-  %4510 = load ptr, ptr %4509, align 8, !tbaa !27
-  %4511 = getelementptr inbounds i8, ptr %4510, i64 -4
-  store ptr %4511, ptr %4509, align 8, !tbaa !27
+.loopexit3432.sink.split:                         ; preds = %3991, %3958, %3515, %3413, %1298, %1162
+  %4506 = load ptr, ptr %6, align 8, !tbaa !21
+  %4507 = getelementptr inbounds nuw i8, ptr %4506, i64 24
+  %4508 = load ptr, ptr %4507, align 8, !tbaa !27
+  %4509 = getelementptr inbounds i8, ptr %4508, i64 -4
+  store ptr %4509, ptr %4507, align 8, !tbaa !27
   br label %.loopexit3432
 
-.loopexit3432:                                    ; preds = %3743, %1360, %4398, %3333, %1346, %1259, %.loopexit3432.sink.split, %11
+.loopexit3432:                                    ; preds = %3743, %1360, %4396, %3333, %1346, %1259, %.loopexit3432.sink.split, %11
   ret void
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge3434
@@ -13144,10 +13142,10 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
   %.03076 = phi ptr [ %48, %.backedge3434 ], [ %.03076.be, %.backedge.backedge ]
   %.1 = phi ptr [ %44, %.backedge3434 ], [ %.1.be, %.backedge.backedge ]
   %.0 = phi ptr [ %43, %.backedge3434 ], [ %.0.be, %.backedge.backedge ]
-  %4512 = getelementptr inbounds nuw [256 x ptr], ptr @_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable, i64 0, i64 %.sink.sink
+  %4510 = getelementptr inbounds nuw ptr, ptr @_ZZL12luau_executeILb0EEvP9lua_StateE14kDispatchTable, i64 %.sink.sink
   %.1.fr = freeze ptr %.1
-  %4513 = load ptr, ptr %4512, align 8, !tbaa !62
-  indirectbr ptr %4513, [label %52, label %4381, label %57, label %67, label %83, label %96, label %109, label %123, label %173, label %240, label %264, label %296, label %312, label %686, label %734, label %341, label %524, label %799, label %838, label %894, label %964, label %1158, label %1294, label %1374, label %3956, label %1383, label %1404, label %1425, label %1842, label %1952, label %1635, label %1897, label %2007, label %2062, label %2141, label %2220, label %2334, label %2538, label %2577, label %2613, label %2645, label %2677, label %2746, label %2895, label %2930, label %2977, label %3002, label %3027, label %3052, label %3077, label %3108, label %3131, label %3193, label %3245, label %3278, label %3307, label %3366, label %3409, label %3511, label %3666, label %4321, label %3706, label %3743, label %3756, label %3824, label %3923, label %3975, label %3989, label %4008, label %4072, label %4085, label %4086, label %4118, label %4166, label %4215, label %4268, label %3449, label %4405, label %4424, label %4450, label %4479, label %2448, label %2815]
+  %4511 = load ptr, ptr %4510, align 8, !tbaa !62
+  indirectbr ptr %4511, [label %52, label %4379, label %57, label %67, label %83, label %96, label %109, label %123, label %173, label %240, label %264, label %296, label %312, label %686, label %734, label %341, label %524, label %799, label %838, label %894, label %964, label %1158, label %1294, label %1374, label %3954, label %1383, label %1404, label %1425, label %1842, label %1952, label %1635, label %1897, label %2007, label %2062, label %2141, label %2220, label %2334, label %2538, label %2577, label %2613, label %2645, label %2677, label %2746, label %2895, label %2930, label %2977, label %3002, label %3027, label %3052, label %3077, label %3108, label %3131, label %3193, label %3245, label %3278, label %3307, label %3366, label %3409, label %3511, label %3666, label %4319, label %3706, label %3743, label %3756, label %3824, label %3921, label %3973, label %3987, label %4006, label %4070, label %4083, label %4084, label %4116, label %4164, label %4213, label %4266, label %3449, label %4403, label %4422, label %4448, label %4477, label %2448, label %2815]
 }
 
 ; Function Attrs: mustprogress uwtable

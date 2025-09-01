@@ -61,7 +61,7 @@ define noalias ptr @fdopen(i32 noundef %0, ptr noundef readonly captures(none) %
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %27 = sext i32 %0 to i64
-  %28 = getelementptr inbounds [3 x %struct.file_struct], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.file_struct, ptr %26, i64 %27
   br label %29
 
 29:                                               ; preds = %25, %21

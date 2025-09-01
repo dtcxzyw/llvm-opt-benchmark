@@ -68,7 +68,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly captures(address_is_nu
 14:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
   %.02635 = phi i32 [ 0, %.preheader ], [ %28, %26 ]
-  %15 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %13, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %13, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %18 = icmp slt i32 %17, 12
@@ -82,7 +82,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly captures(address_is_nu
 19:                                               ; preds = %14
   %narrow = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %spec.select = zext nneg i32 %narrow to i64
-  %20 = getelementptr inbounds nuw [12 x i8], ptr @kQuantToDitherAmp, i64 0, i64 %spec.select
+  %20 = getelementptr inbounds nuw i8, ptr @kQuantToDitherAmp, i64 %spec.select
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = zext i8 %21 to i32
   %23 = mul nuw nsw i32 %12, %22
@@ -434,14 +434,14 @@ define internal fastcc void @ReconstructRow(ptr noundef readonly captures(none) 
 99:                                               ; preds = %.thread169, %DoTransform.exit
   %indvars.iv202 = phi i64 [ 0, %.thread169 ], [ %indvars.iv.next203, %DoTransform.exit ]
   %.0148181 = phi i32 [ %72, %.thread169 ], [ %117, %DoTransform.exit ]
-  %100 = getelementptr inbounds nuw [16 x i16], ptr @kScan, i64 0, i64 %indvars.iv202
+  %100 = getelementptr inbounds nuw i16, ptr @kScan, i64 %indvars.iv202
   %101 = load i16, ptr %100, align 2, !tbaa !65
   %102 = zext i16 %101 to i64
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 %102
-  %104 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 0, i64 %indvars.iv202
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv202
   %105 = load i8, ptr %104, align 1, !tbaa !11
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw [0 x ptr], ptr @VP8PredLuma4, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr @VP8PredLuma4, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !45
   tail call void %108(ptr noundef nonnull %103) #7
   %.idx = shl nuw nsw i64 %indvars.iv202, 5
@@ -488,7 +488,7 @@ CheckMode.exit:                                   ; preds = %.thread, %73
   %121 = icmp eq i8 %119, 0
   %. = select i1 %.not, i64 %43, i64 %42
   %.0.i = select i1 %121, i64 %., i64 %120
-  %122 = getelementptr inbounds nuw [0 x ptr], ptr @VP8PredLuma16, i64 0, i64 %.0.i
+  %122 = getelementptr inbounds nuw ptr, ptr @VP8PredLuma16, i64 %.0.i
   %123 = load ptr, ptr %122, align 8, !tbaa !45
   tail call void %123(ptr noundef nonnull %8) #7
   %.not154 = icmp eq i32 %72, 0
@@ -499,7 +499,7 @@ CheckMode.exit:                                   ; preds = %.thread, %73
   %.1149183 = phi i32 [ %136, %DoTransform.exit159 ], [ %72, %CheckMode.exit ]
   %.idx222 = shl nuw nsw i64 %indvars.iv206, 5
   %124 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx222
-  %125 = getelementptr inbounds nuw [16 x i16], ptr @kScan, i64 0, i64 %indvars.iv206
+  %125 = getelementptr inbounds nuw i16, ptr @kScan, i64 %indvars.iv206
   %126 = load i16, ptr %125, align 2, !tbaa !65
   %127 = zext i16 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 %127
@@ -545,7 +545,7 @@ DoTransform.exit159:                              ; preds = %.preheader170, %130
   %141 = zext i8 %140 to i64
   %142 = icmp eq i8 %140, 0
   %.0.i160 = select i1 %142, i64 %.187.pre-phi, i64 %141
-  %143 = getelementptr inbounds nuw [0 x ptr], ptr @VP8PredChroma8, i64 0, i64 %.0.i160
+  %143 = getelementptr inbounds nuw ptr, ptr @VP8PredChroma8, i64 %.0.i160
   %144 = load ptr, ptr %143, align 8, !tbaa !45
   tail call void %144(ptr noundef nonnull %13) #7
   %145 = load ptr, ptr %143, align 8, !tbaa !45
@@ -674,7 +674,7 @@ define internal i32 @FinishRow(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr @kFilterExtraRows, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2880
@@ -925,10 +925,10 @@ FilterRow.exit:                                   ; preds = %DoFilter.exit.i, %5
   %171 = phi i32 [ %.pre.i.i, %163 ], [ %storemerge.i.i.i, %169 ]
   %indvars.iv.i.i = phi i64 [ 0, %163 ], [ %indvars.iv.next.i.i, %169 ]
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [55 x i32], ptr %154, i64 0, i64 %172
+  %173 = getelementptr inbounds i32, ptr %154, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !43
   %175 = sext i32 %170 to i64
-  %176 = getelementptr inbounds [55 x i32], ptr %154, i64 0, i64 %175
+  %176 = getelementptr inbounds i32, ptr %154, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !43
   %178 = sub i32 %174, %177
   %179 = and i32 %178, 2147483647
@@ -949,7 +949,7 @@ FilterRow.exit:                                   ; preds = %DoFilter.exit.i, %5
   %189 = lshr i32 %188, 8
   %190 = trunc i32 %189 to i8
   %191 = xor i8 %190, -128
-  %192 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %191, ptr %192, align 1, !tbaa !11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
@@ -977,10 +977,10 @@ Dither8x8.exit.i:                                 ; preds = %169
   %204 = phi i32 [ %.pre.i26.i, %Dither8x8.exit.i ], [ %storemerge.i.i29.i, %202 ]
   %indvars.iv.i28.i = phi i64 [ 0, %Dither8x8.exit.i ], [ %indvars.iv.next.i31.i, %202 ]
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds [55 x i32], ptr %154, i64 0, i64 %205
+  %206 = getelementptr inbounds i32, ptr %154, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !43
   %208 = sext i32 %203 to i64
-  %209 = getelementptr inbounds [55 x i32], ptr %154, i64 0, i64 %208
+  %209 = getelementptr inbounds i32, ptr %154, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !43
   %211 = sub i32 %207, %210
   %212 = and i32 %211, 2147483647
@@ -1001,7 +1001,7 @@ Dither8x8.exit.i:                                 ; preds = %169
   %222 = lshr i32 %221, 8
   %223 = trunc i32 %222 to i8
   %224 = xor i8 %223, -128
-  %225 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %indvars.iv.i28.i
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i28.i
   store i8 %224, ptr %225, align 1, !tbaa !11
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i32.i = icmp eq i64 %indvars.iv.next.i31.i, 64
@@ -1238,7 +1238,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 13:                                               ; preds = %10
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !33
   %14 = sext i32 %.pre to i64
-  %15 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @kFilterExtraRows, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = zext i8 %16 to i32
   %18 = icmp eq i32 %.pre, 2
@@ -1333,7 +1333,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not.i, label %80, label %72
 
 72:                                               ; preds = %.preheader.split.us.i
-  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 0, i64 %indvars.iv84.i
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv84.i
   %74 = load i8, ptr %73, align 1, !tbaa !11
   %75 = sext i8 %74 to i32
   %76 = load i32, ptr %70, align 4, !tbaa !112
@@ -1351,7 +1351,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 .split.us.us.i:                                   ; preds = %80, %77, %72
   %.048.us.i = phi i32 [ %75, %72 ], [ %79, %77 ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv84.i
+  %82 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %64, i64 %indvars.iv84.i
   %83 = tail call i32 @llvm.smax.i32(i32 %.048.us.i, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 63)
   %.not56.us.us.i = icmp slt i32 %.048.us.i, 1
@@ -1437,13 +1437,13 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 .split.i.us:                                      ; preds = %.split59.i.us, %.preheader.split.i.split.us
   %indvars.iv72.i.us = phi i64 [ 0, %.preheader.split.i.split.us ], [ %indvars.iv.next73.i.us, %.split59.i.us ]
-  %118 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv72.i.us
+  %118 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %64, i64 %indvars.iv72.i.us
   br label %119
 
 119:                                              ; preds = %145, %.split.i.us
   %.not55.i.us = phi i1 [ true, %.split.i.us ], [ false, %145 ]
   %indvars.iv.i.us = phi i64 [ 0, %.split.i.us ], [ 1, %145 ]
-  %120 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %118, i64 0, i64 %indvars.iv.i.us
+  %120 = getelementptr inbounds nuw %struct.VP8FInfo, ptr %118, i64 %indvars.iv.i.us
   br i1 %.not55.i.us, label %124, label %121
 
 121:                                              ; preds = %119
@@ -1516,17 +1516,17 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 .split.i.us45:                                    ; preds = %.split59.i.us56, %.preheader.split.i.split.split.us
   %indvars.iv72.i.us44 = phi i64 [ 0, %.preheader.split.i.split.split.us ], [ %indvars.iv.next73.i.us57, %.split59.i.us56 ]
-  %150 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 0, i64 %indvars.iv72.i.us44
+  %150 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv72.i.us44
   %151 = load i8, ptr %150, align 1, !tbaa !11
   %152 = sext i8 %151 to i32
-  %153 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv72.i.us44
+  %153 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %64, i64 %indvars.iv72.i.us44
   %.reass = add i32 %invariant.op, %152
   br label %154
 
 154:                                              ; preds = %180, %.split.i.us45
   %.not55.i.us47 = phi i1 [ true, %.split.i.us45 ], [ false, %180 ]
   %indvars.iv.i.us48 = phi i64 [ 0, %.split.i.us45 ], [ 1, %180 ]
-  %155 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %153, i64 0, i64 %indvars.iv.i.us48
+  %155 = getelementptr inbounds nuw %struct.VP8FInfo, ptr %153, i64 %indvars.iv.i.us48
   br i1 %.not55.i.us47, label %159, label %156
 
 156:                                              ; preds = %154
@@ -1589,17 +1589,17 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 
 .split.i:                                         ; preds = %.preheader.split.i.split, %.split59.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %.split59.i ], [ 0, %.preheader.split.i.split ]
-  %183 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 0, i64 %indvars.iv72.i
+  %183 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv72.i
   %184 = load i8, ptr %183, align 1, !tbaa !11
   %185 = sext i8 %184 to i32
-  %186 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %64, i64 0, i64 %indvars.iv72.i
+  %186 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %64, i64 %indvars.iv72.i
   %187 = add nsw i32 %115, %185
   br label %188
 
 188:                                              ; preds = %214, %.split.i
   %.not55.i = phi i1 [ true, %.split.i ], [ false, %214 ]
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ 1, %214 ]
-  %189 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %186, i64 0, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw %struct.VP8FInfo, ptr %186, i64 %indvars.iv.i
   br i1 %.not55.i, label %193, label %190
 
 190:                                              ; preds = %188
@@ -1801,7 +1801,7 @@ InitThreadContext.exit.thread:                    ; preds = %InitThreadContext.e
   %49 = mul nsw i64 %48, 800
   %50 = shl nsw i32 %25, 4
   %51 = sext i32 %36 to i64
-  %52 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %51
+  %52 = getelementptr inbounds i8, ptr @kFilterExtraRows, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !11
   %54 = zext i8 %53 to i32
   %55 = add nsw i32 %50, %54
@@ -1930,7 +1930,7 @@ AllocateMemory.exit.thread:                       ; preds = %.thread.i6, %114
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 2884
   store i32 %129, ptr %130, align 4, !tbaa !72
   %131 = sext i32 %88 to i64
-  %132 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %131
+  %132 = getelementptr inbounds i8, ptr @kFilterExtraRows, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !11
   %134 = zext i8 %133 to i32
   %135 = mul nsw i32 %127, %134

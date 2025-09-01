@@ -1154,7 +1154,7 @@ define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unna
   br label %80
 
 77:                                               ; preds = %67
-  %78 = getelementptr [5 x i32], ptr @user_ring_map, i64 0, i64 %68
+  %78 = getelementptr i32, ptr @user_ring_map, i64 %68
   %79 = load i32, ptr %78, align 4
   br label %80
 
@@ -1176,7 +1176,7 @@ define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unna
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 72
   %92 = zext i32 %81 to i64
-  %93 = getelementptr [0 x ptr], ptr %91, i64 0, i64 %92
+  %93 = getelementptr ptr, ptr %91, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread, label %96, !prof !6
@@ -2189,7 +2189,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 
 321:                                              ; preds = %318, %314
   %322 = zext i32 %24 to i64
-  %323 = getelementptr [9 x ptr], ptr %19, i64 0, i64 %322
+  %323 = getelementptr ptr, ptr %19, i64 %322
   store ptr %256, ptr %323, align 8
   %324 = load i32, ptr %261, align 8
   %325 = and i32 %324, 4
@@ -2245,7 +2245,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 355:                                              ; preds = %341
   %356 = icmp eq i32 %344, 0
   %357 = select i1 %356, i64 %346, i64 %345
-  %358 = getelementptr [9 x i64], ptr %21, i64 0, i64 %322
+  %358 = getelementptr i64, ptr %21, i64 %322
   store i64 %357, ptr %358, align 8
   %359 = icmp eq i64 %357, 0
   br i1 %359, label %360, label %367, !prof !6
@@ -2434,7 +2434,7 @@ define internal fastcc void @eb_release_vmas(ptr noundef captures(none) %0, i1 n
 54:                                               ; preds = %61, %52
   %55 = phi i32 [ %50, %52 ], [ %62, %61 ]
   %56 = phi i64 [ 0, %52 ], [ %63, %61 ]
-  %57 = getelementptr [9 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %61, label %60
@@ -3754,7 +3754,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @eb_capture_stage(ptr nound
   br i1 %54, label %72, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr [9 x ptr], ptr %9, i64 0, i64 %51
+  %56 = getelementptr ptr, ptr %9, i64 %51
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %57, ptr %58, align 8
@@ -3852,7 +3852,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 .loopexit39:                                      ; preds = %27, %19, %35
   %37 = phi ptr [ %36, %35 ], [ %23, %19 ], [ null, %27 ]
   %38 = tail call ptr @i915_request_create(ptr noundef %37) #13
-  %39 = getelementptr [9 x ptr], ptr %9, i64 0, i64 %20
+  %39 = getelementptr ptr, ptr %9, i64 %20
   store ptr %38, ptr %39, align 8
   %40 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %40, label %41, label %42
@@ -3982,7 +3982,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 .preheader36:                                     ; preds = %113, %.preheader36
   %116 = phi i64 [ %121, %.preheader36 ], [ 0, %113 ]
-  %117 = getelementptr [9 x ptr], ptr %9, i64 0, i64 %116
+  %117 = getelementptr ptr, ptr %9, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr ptr, ptr %111, i64 %116
   store ptr %118, ptr %119, align 8
@@ -4098,7 +4098,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 .thread31:                                        ; preds = %.thread35, %169, %173, %42
   %176 = phi ptr [ %174, %173 ], [ %21, %42 ], [ null, %169 ], [ null, %.thread35 ]
-  %177 = getelementptr [9 x ptr], ptr %17, i64 0, i64 %20
+  %177 = getelementptr ptr, ptr %17, i64 %20
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
@@ -4225,7 +4225,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 49:                                               ; preds = %44
   %50 = and i64 %46, 2147483647
-  %51 = getelementptr [9 x ptr], ptr %8, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %8, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %44, label %54, !llvm.loop !87
@@ -4254,7 +4254,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 69:                                               ; preds = %83, %66
   %70 = phi i64 [ %68, %66 ], [ %85, %83 ]
-  %71 = getelementptr [9 x ptr], ptr %8, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr %8, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %83, label %74
@@ -4370,7 +4370,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   br i1 %143, label %.loopexit32, label %.lr.ph
 
 144:                                              ; preds = %.lr.ph
-  %145 = getelementptr [9 x ptr], ptr %136, i64 0, i64 %153
+  %145 = getelementptr ptr, ptr %136, i64 %153
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.loopexit32, label %.lr.ph, !llvm.loop !90
@@ -4378,7 +4378,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 .lr.ph:                                           ; preds = %140, %144
   %148 = phi ptr [ %146, %144 ], [ %142, %140 ]
   %149 = phi i64 [ %153, %144 ], [ 0, %140 ]
-  %150 = getelementptr [9 x ptr], ptr %141, i64 0, i64 %149
+  %150 = getelementptr ptr, ptr %141, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 488
   store ptr %151, ptr %152, align 8
@@ -4392,7 +4392,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 .preheader:                                       ; preds = %.thread28, %162
   %157 = phi i32 [ %164, %162 ], [ 0, %.thread28 ]
   %158 = sext i32 %157 to i64
-  %159 = getelementptr [9 x ptr], ptr %130, i64 0, i64 %158
+  %159 = getelementptr ptr, ptr %130, i64 %158
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.loopexit32.thread74, label %162
@@ -4428,7 +4428,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 179:                                              ; preds = %311, %.loopexit32.thread74
   %indvars.iv = phi i64 [ %indvars.iv.next, %311 ], [ 0, %.loopexit32.thread74 ]
   %180 = phi i32 [ %312, %311 ], [ %170, %.loopexit32.thread74 ]
-  %181 = getelementptr [9 x ptr], ptr %171, i64 0, i64 %indvars.iv
+  %181 = getelementptr ptr, ptr %171, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.loopexit, label %184
@@ -4480,10 +4480,10 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
 
 208:                                              ; preds = %206
   %209 = load ptr, ptr %181, align 8
-  %210 = getelementptr [9 x ptr], ptr %174, i64 0, i64 %indvars.iv
+  %210 = getelementptr ptr, ptr %174, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr [9 x i64], ptr %175, i64 0, i64 %indvars.iv
+  %213 = getelementptr i64, ptr %175, i64 %indvars.iv
   %214 = load i64, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %209, i64 88
   %216 = load ptr, ptr %215, align 8
@@ -4656,7 +4656,7 @@ define internal fastcc void @eb_requests_get(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %1, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
-  %6 = getelementptr [9 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr ptr, ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -4708,7 +4708,7 @@ define internal fastcc i32 @eb_requests_add(ptr noundef readonly captures(none) 
 13:                                               ; preds = %89, %8
   %14 = phi i64 [ %12, %8 ], [ %91, %89 ]
   %15 = phi i32 [ %1, %8 ], [ %90, %89 ]
-  %16 = getelementptr [9 x ptr], ptr %9, i64 0, i64 %14
+  %16 = getelementptr ptr, ptr %9, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %89, label %19
@@ -4954,7 +4954,7 @@ define internal fastcc void @eb_requests_put(ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %1, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %1 ]
-  %6 = getelementptr [9 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr ptr, ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9

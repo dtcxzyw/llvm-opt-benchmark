@@ -750,9 +750,9 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
 
 19:                                               ; preds = %1
   %20 = and i32 %17, 63
-  %21 = add nuw nsw i32 %20, 1
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %22
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 8
   %24 = lshr i32 %17, 6
   %25 = zext nneg i32 %24 to i64
   %26 = sub nsw i64 0, %25

@@ -195,7 +195,7 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread166:                                       ; preds = %74
   %75 = zext nneg i32 %42 to i64
-  %76 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !57
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %77, ptr %78, align 8, !tbaa !50
@@ -215,7 +215,7 @@ define void @jinit_color_deconverter(ptr noundef %0) local_unnamed_addr #0 {
   %84 = phi i32 [ %.pre, %79 ], [ %42, %70 ]
   %.pr165 = phi i32 [ %.pr165.pre, %79 ], [ %.pr165.pre180, %70 ]
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !57
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %87, ptr %88, align 8, !tbaa !50
@@ -2985,7 +2985,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %20 = load i32, ptr %19, align 8, !tbaa !131
   %21 = and i32 %20, 3
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !62
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = load i32, ptr %25, align 8, !tbaa !68
@@ -3271,7 +3271,7 @@ define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %
   %10 = load i32, ptr %9, align 8, !tbaa !131
   %11 = and i32 %10, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !62
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8, !tbaa !68
@@ -3421,7 +3421,7 @@ define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0
   %10 = load i32, ptr %9, align 8, !tbaa !131
   %11 = and i32 %10, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr @dither_matrix, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !62
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8, !tbaa !68

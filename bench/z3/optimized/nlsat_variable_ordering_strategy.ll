@@ -860,7 +860,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i: ; preds = %2
 
 16:                                               ; preds = %_ZN5nlsat22vos_var_info_collector3imp7collectEN3sat7literalE.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN5nlsat22vos_var_info_collector3imp7collectEN3sat7literalE.exit.i.i ]
-  %17 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %15, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw %"class.sat::literal", ptr %15, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %17, align 4, !tbaa !25
   %18 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %19 = load ptr, ptr %8, align 8, !tbaa !43
@@ -889,7 +889,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i: ; preds = %2
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
-  %33 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -8

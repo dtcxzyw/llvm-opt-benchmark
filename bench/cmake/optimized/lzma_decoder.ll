@@ -211,9 +211,9 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %.sroa.230.13 = phi i32 [ %75, %69 ], [ %.sroa.230.121837, %66 ]
   %77 = lshr i32 %.sroa.0.13, 11
   %78 = zext i32 %.129871834 to i64
-  %79 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %1022, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i16], ptr %1022, i64 %78
   %80 = zext i32 %67 to i64
-  %81 = getelementptr inbounds nuw [16 x i16], ptr %79, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i16, ptr %79, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !59
   %83 = zext i16 %82 to i32
   %84 = mul i32 %77, %83
@@ -319,7 +319,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.0.15 = phi i32 [ %137, %136 ], [ %131, %130 ]
   %.sroa.230.15 = phi i32 [ %142, %136 ], [ %132, %130 ]
   %144 = lshr i32 %.sroa.0.15, 11
-  %145 = getelementptr inbounds nuw [12 x i16], ptr %1023, i64 0, i64 %78
+  %145 = getelementptr inbounds nuw i16, ptr %1023, i64 %78
   %146 = load i16, ptr %145, align 2, !tbaa !59
   %147 = zext i16 %146 to i32
   %148 = mul i32 %144, %147
@@ -363,7 +363,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %174 = trunc i32 %173 to i16
   %175 = add i16 %167, %174
   store i16 %175, ptr %1035, align 4, !tbaa !63
-  %176 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1039, i64 0, i64 %80
+  %176 = getelementptr inbounds nuw [8 x i16], ptr %1039, i64 %80
   %177 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %176, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %169, i32 %.sroa.230.16, ptr %.16) #8, !srcloc !64
   br label %210
 
@@ -402,7 +402,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %200 = trunc i32 %199 to i16
   %201 = add i16 %193, %200
   store i16 %201, ptr %1036, align 2, !tbaa !65
-  %202 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1038, i64 0, i64 %80
+  %202 = getelementptr inbounds nuw [8 x i16], ptr %1038, i64 %80
   %203 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %202, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %195, i32 %.sroa.230.17, ptr %.17) #8, !srcloc !66
   br label %210
 
@@ -424,7 +424,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %211 = tail call i32 @llvm.umin.i32(i32 %.131515, i32 5)
   %212 = add nsw i32 %211, -2
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %1040, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw [64 x i16], ptr %1040, i64 %213
   %215 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %214, i32 63, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %.sroa.0.18, i32 %.sroa.230.18, ptr %.18) #8, !srcloc !68
   %216 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %215, 0
   %217 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %215, 1
@@ -528,7 +528,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.0.24 = phi i32 [ %270, %269 ], [ %263, %267 ]
   %.sroa.230.24 = phi i32 [ %275, %269 ], [ %264, %267 ]
   %277 = lshr i32 %.sroa.0.24, 11
-  %278 = getelementptr inbounds nuw [12 x i16], ptr %1024, i64 0, i64 %78
+  %278 = getelementptr inbounds nuw i16, ptr %1024, i64 %78
   %279 = load i16, ptr %278, align 2, !tbaa !59
   %280 = zext i16 %279 to i32
   %281 = mul i32 %277, %280
@@ -558,8 +558,8 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.0.25 = phi i32 [ %290, %289 ], [ %281, %283 ]
   %.sroa.230.25 = phi i32 [ %295, %289 ], [ %.sroa.230.24, %283 ]
   %297 = lshr i32 %.sroa.0.25, 11
-  %298 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %1025, i64 0, i64 %78
-  %299 = getelementptr inbounds nuw [16 x i16], ptr %298, i64 0, i64 %80
+  %298 = getelementptr inbounds nuw [16 x i16], ptr %1025, i64 %78
+  %299 = getelementptr inbounds nuw i16, ptr %298, i64 %80
   %300 = load i16, ptr %299, align 2, !tbaa !59
   %301 = zext i16 %300 to i32
   %302 = mul i32 %297, %301
@@ -622,7 +622,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.0.27 = phi i32 [ %334, %333 ], [ %328, %327 ]
   %.sroa.230.27 = phi i32 [ %339, %333 ], [ %329, %327 ]
   %341 = lshr i32 %.sroa.0.27, 11
-  %342 = getelementptr inbounds nuw [12 x i16], ptr %1028, i64 0, i64 %78
+  %342 = getelementptr inbounds nuw i16, ptr %1028, i64 %78
   %343 = load i16, ptr %342, align 2, !tbaa !59
   %344 = zext i16 %343 to i32
   %345 = mul i32 %341, %344
@@ -660,7 +660,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.0.28 = phi i32 [ %359, %358 ], [ %353, %352 ]
   %.sroa.230.28 = phi i32 [ %364, %358 ], [ %354, %352 ]
   %366 = lshr i32 %.sroa.0.28, 11
-  %367 = getelementptr inbounds nuw [12 x i16], ptr %1029, i64 0, i64 %78
+  %367 = getelementptr inbounds nuw i16, ptr %1029, i64 %78
   %368 = load i16, ptr %367, align 2, !tbaa !59
   %369 = zext i16 %368 to i32
   %370 = mul i32 %366, %369
@@ -722,7 +722,7 @@ dict_get.exit1424:                                ; preds = %296
   %402 = trunc i32 %401 to i16
   %403 = add i16 %395, %402
   store i16 %403, ptr %1030, align 8, !tbaa !76
-  %404 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1034, i64 0, i64 %80
+  %404 = getelementptr inbounds nuw [8 x i16], ptr %1034, i64 %80
   %405 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %404, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %397, i32 %.sroa.230.29, ptr %.29) #8, !srcloc !77
   %406 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %405, 0
   %407 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %405, 1
@@ -765,7 +765,7 @@ dict_get.exit1424:                                ; preds = %296
   %432 = trunc i32 %431 to i16
   %433 = add i16 %425, %432
   store i16 %433, ptr %1031, align 2, !tbaa !78
-  %434 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1033, i64 0, i64 %80
+  %434 = getelementptr inbounds nuw [8 x i16], ptr %1033, i64 %80
   %435 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %434, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %427, i32 %.sroa.230.30, ptr %.30) #8, !srcloc !79
   %436 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %435, 0
   %437 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %435, 1
@@ -962,9 +962,9 @@ dict_get.exit1424:                                ; preds = %296
   %512 = lshr i32 %.sroa.0.33, 11
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 24576
   %514 = zext i32 %.0975 to i64
-  %515 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %513, i64 0, i64 %514
+  %515 = getelementptr inbounds nuw [16 x i16], ptr %513, i64 %514
   %516 = zext i32 %.01282 to i64
-  %517 = getelementptr inbounds nuw [16 x i16], ptr %515, i64 0, i64 %516
+  %517 = getelementptr inbounds nuw i16, ptr %515, i64 %516
   %518 = load i16, ptr %517, align 2, !tbaa !59
   %519 = zext i16 %518 to i32
   %520 = mul i32 %512, %519
@@ -1272,7 +1272,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %652 = lshr i32 %.sroa.0.42, 11
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 24960
   %654 = zext i32 %.17992 to i64
-  %655 = getelementptr inbounds nuw [12 x i16], ptr %653, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw i16, ptr %653, i64 %654
   %656 = load i16, ptr %655, align 2, !tbaa !59
   %657 = zext i16 %656 to i32
   %658 = mul i32 %652, %657
@@ -1347,7 +1347,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   store i16 %690, ptr %681, align 4, !tbaa !63
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %692 = zext i32 %.21284 to i64
-  %693 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %691, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw [8 x i16], ptr %691, i64 %692
   br label %732
 
 694:                                              ; preds = %679
@@ -1416,7 +1416,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   store i16 %722, ptr %713, align 2, !tbaa !65
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %724 = zext i32 %.31285 to i64
-  %725 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %723, i64 0, i64 %724
+  %725 = getelementptr inbounds nuw [8 x i16], ptr %723, i64 %724
   br label %732
 
 726:                                              ; preds = %711
@@ -1517,7 +1517,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %771 = tail call i32 @llvm.umin.i32(i32 %769, i32 5)
   %772 = add nsw i32 %771, -2
   %773 = zext i32 %772 to i64
-  %774 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %770, i64 0, i64 %773
+  %774 = getelementptr inbounds nuw [64 x i16], ptr %770, i64 %773
   br label %775
 
 775:                                              ; preds = %767, %.loopexit1610
@@ -1838,7 +1838,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %908 = lshr i32 %.sroa.0.61, 11
   %909 = add i32 %.341200, %.271272
   %910 = zext i32 %909 to i64
-  %911 = getelementptr inbounds nuw [16 x i16], ptr %894, i64 0, i64 %910
+  %911 = getelementptr inbounds nuw i16, ptr %894, i64 %910
   %912 = load i16, ptr %911, align 2, !tbaa !59
   %913 = zext i16 %912 to i32
   %914 = mul i32 %908, %913
@@ -2011,7 +2011,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %967 = lshr i32 %.sroa.0.66, 11
   %968 = getelementptr inbounds nuw i8, ptr %0, i64 24984
   %969 = zext i32 %.23998 to i64
-  %970 = getelementptr inbounds nuw [12 x i16], ptr %968, i64 0, i64 %969
+  %970 = getelementptr inbounds nuw i16, ptr %968, i64 %969
   %971 = load i16, ptr %970, align 2, !tbaa !59
   %972 = zext i16 %971 to i32
   %973 = mul i32 %967, %972
@@ -2071,9 +2071,9 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %993 = lshr i32 %.sroa.0.68, 11
   %994 = getelementptr inbounds nuw i8, ptr %0, i64 25056
   %995 = zext i32 %.24999 to i64
-  %996 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %994, i64 0, i64 %995
+  %996 = getelementptr inbounds nuw [16 x i16], ptr %994, i64 %995
   %997 = zext i32 %.51287 to i64
-  %998 = getelementptr inbounds nuw [16 x i16], ptr %996, i64 0, i64 %997
+  %998 = getelementptr inbounds nuw i16, ptr %996, i64 %997
   %999 = load i16, ptr %998, align 2, !tbaa !59
   %1000 = zext i16 %999 to i32
   %1001 = mul i32 %993, %1000
@@ -2234,7 +2234,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1067 = lshr i32 %.sroa.0.71, 11
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 25008
   %1069 = zext i32 %.261001 to i64
-  %1070 = getelementptr inbounds nuw [12 x i16], ptr %1068, i64 0, i64 %1069
+  %1070 = getelementptr inbounds nuw i16, ptr %1068, i64 %1069
   %1071 = load i16, ptr %1070, align 2, !tbaa !59
   %1072 = zext i16 %1071 to i32
   %1073 = mul i32 %1067, %1072
@@ -2302,7 +2302,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1098 = lshr i32 %.sroa.0.73, 11
   %1099 = getelementptr inbounds nuw i8, ptr %0, i64 25032
   %1100 = zext i32 %.271002 to i64
-  %1101 = getelementptr inbounds nuw [12 x i16], ptr %1099, i64 0, i64 %1100
+  %1101 = getelementptr inbounds nuw i16, ptr %1099, i64 %1100
   %1102 = load i16, ptr %1101, align 2, !tbaa !59
   %1103 = zext i16 %1102 to i32
   %1104 = mul i32 %1098, %1103
@@ -2405,7 +2405,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   store i16 %1142, ptr %1133, align 8, !tbaa !76
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 27244
   %1144 = zext i32 %.91291 to i64
-  %1145 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1143, i64 0, i64 %1144
+  %1145 = getelementptr inbounds nuw [8 x i16], ptr %1143, i64 %1144
   br label %1184
 
 1146:                                             ; preds = %1131
@@ -2474,7 +2474,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   store i16 %1174, ptr %1165, align 2, !tbaa !78
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   %1176 = zext i32 %.101292 to i64
-  %1177 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1175, i64 0, i64 %1176
+  %1177 = getelementptr inbounds nuw [8 x i16], ptr %1175, i64 %1176
   br label %1184
 
 1178:                                             ; preds = %1163
@@ -2772,8 +2772,8 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 .preheader119:                                    ; preds = %literal_init.exit, %35
   %indvars.iv134 = phi i64 [ 0, %literal_init.exit ], [ %indvars.iv.next135, %35 ]
-  %32 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %25, i64 0, i64 %indvars.iv134
-  %33 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %26, i64 0, i64 %indvars.iv134
+  %32 = getelementptr inbounds nuw [16 x i16], ptr %25, i64 %indvars.iv134
+  %33 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 %indvars.iv134
   br label %40
 
 .preheader118:                                    ; preds = %35
@@ -2781,13 +2781,13 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
   br label %.preheader117
 
 35:                                               ; preds = %40
-  %36 = getelementptr inbounds nuw [12 x i16], ptr %27, i64 0, i64 %indvars.iv134
+  %36 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv134
   store i16 1024, ptr %36, align 2, !tbaa !59
-  %37 = getelementptr inbounds nuw [12 x i16], ptr %28, i64 0, i64 %indvars.iv134
+  %37 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv134
   store i16 1024, ptr %37, align 2, !tbaa !59
-  %38 = getelementptr inbounds nuw [12 x i16], ptr %29, i64 0, i64 %indvars.iv134
+  %38 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv134
   store i16 1024, ptr %38, align 2, !tbaa !59
-  %39 = getelementptr inbounds nuw [12 x i16], ptr %30, i64 0, i64 %indvars.iv134
+  %39 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv134
   store i16 1024, ptr %39, align 2, !tbaa !59
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 12
@@ -2795,9 +2795,9 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 40:                                               ; preds = %.preheader119, %40
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv
   store i16 1024, ptr %41, align 2, !tbaa !59
-  %42 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
   store i16 1024, ptr %42, align 2, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2805,7 +2805,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 .preheader117:                                    ; preds = %.preheader118, %45
   %indvars.iv142 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next143, %45 ]
-  %43 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %34, i64 0, i64 %indvars.iv142
+  %43 = getelementptr inbounds nuw [64 x i16], ptr %34, i64 %indvars.iv142
   br label %46
 
 .preheader116:                                    ; preds = %45
@@ -2819,7 +2819,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 46:                                               ; preds = %.preheader117, %46
   %indvars.iv138 = phi i64 [ 0, %.preheader117 ], [ %indvars.iv.next139, %46 ]
-  %47 = getelementptr inbounds nuw [64 x i16], ptr %43, i64 0, i64 %indvars.iv138
+  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv138
   store i16 1024, ptr %47, align 2, !tbaa !59
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 64
@@ -2831,7 +2831,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 49:                                               ; preds = %.preheader116, %49
   %indvars.iv146 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next147, %49 ]
-  %50 = getelementptr inbounds nuw [114 x i16], ptr %44, i64 0, i64 %indvars.iv146
+  %50 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv146
   store i16 1024, ptr %50, align 2, !tbaa !59
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 114
@@ -2854,7 +2854,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 60:                                               ; preds = %.preheader115, %60
   %indvars.iv150 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next151, %60 ]
-  %61 = getelementptr inbounds nuw [16 x i16], ptr %48, i64 0, i64 %indvars.iv150
+  %61 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv150
   store i16 1024, ptr %61, align 2, !tbaa !59
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 16
@@ -2863,7 +2863,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 .preheader114:                                    ; preds = %51, %74
   %.0102130 = phi i32 [ 0, %51 ], [ %75, %74 ]
   %62 = zext i32 %.0102130 to i64
-  %63 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %56, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i16], ptr %56, i64 %62
   br label %66
 
 .preheader110:                                    ; preds = %74
@@ -2871,36 +2871,36 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
   br label %80
 
 .preheader113:                                    ; preds = %66
-  %65 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %57, i64 0, i64 %62
+  %65 = getelementptr inbounds nuw [8 x i16], ptr %57, i64 %62
   br label %69
 
 66:                                               ; preds = %.preheader114, %66
   %indvars.iv154 = phi i64 [ 0, %.preheader114 ], [ %indvars.iv.next155, %66 ]
-  %67 = getelementptr inbounds nuw [8 x i16], ptr %63, i64 0, i64 %indvars.iv154
+  %67 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv154
   store i16 1024, ptr %67, align 2, !tbaa !59
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 8
   br i1 %exitcond157.not, label %.preheader113, label %66, !llvm.loop !110
 
 .preheader112:                                    ; preds = %69
-  %68 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %58, i64 0, i64 %62
+  %68 = getelementptr inbounds nuw [8 x i16], ptr %58, i64 %62
   br label %72
 
 69:                                               ; preds = %.preheader113, %69
   %indvars.iv158 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next159, %69 ]
-  %70 = getelementptr inbounds nuw [8 x i16], ptr %65, i64 0, i64 %indvars.iv158
+  %70 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv158
   store i16 1024, ptr %70, align 2, !tbaa !59
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 8
   br i1 %exitcond161.not, label %.preheader112, label %69, !llvm.loop !111
 
 .preheader111:                                    ; preds = %72
-  %71 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %59, i64 0, i64 %62
+  %71 = getelementptr inbounds nuw [8 x i16], ptr %59, i64 %62
   br label %77
 
 72:                                               ; preds = %.preheader112, %72
   %indvars.iv162 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next163, %72 ]
-  %73 = getelementptr inbounds nuw [8 x i16], ptr %68, i64 0, i64 %indvars.iv162
+  %73 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv162
   store i16 1024, ptr %73, align 2, !tbaa !59
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 8
@@ -2914,7 +2914,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 77:                                               ; preds = %.preheader111, %77
   %indvars.iv166 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next167, %77 ]
-  %78 = getelementptr inbounds nuw [8 x i16], ptr %71, i64 0, i64 %indvars.iv166
+  %78 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv166
   store i16 1024, ptr %78, align 2, !tbaa !59
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 8
@@ -2926,7 +2926,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 80:                                               ; preds = %.preheader110, %80
   %indvars.iv170 = phi i64 [ 0, %.preheader110 ], [ %indvars.iv.next171, %80 ]
-  %81 = getelementptr inbounds nuw [256 x i16], ptr %64, i64 0, i64 %indvars.iv170
+  %81 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv170
   store i16 1024, ptr %81, align 2, !tbaa !59
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, 256
@@ -2941,7 +2941,7 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 85:                                               ; preds = %.preheader, %85
   %indvars.iv174 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next175, %85 ]
-  %86 = getelementptr inbounds nuw [256 x i16], ptr %79, i64 0, i64 %indvars.iv174
+  %86 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv174
   store i16 1024, ptr %86, align 2, !tbaa !59
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 256

@@ -448,10 +448,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %65
 
 117:                                              ; preds = %111, %117
   %indvars.iv = phi i64 [ 0, %111 ], [ %indvars.iv.next, %117 ]
-  %118 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %119 = load double, ptr %118, align 8, !tbaa !49
   %120 = fptrunc double %119 to float
-  %121 = getelementptr inbounds nuw [3 x float], ptr %116, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv
   store float %120, ptr %121, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -506,10 +506,10 @@ _ZL11string2dvecPcPd.exit133:                     ; preds = %127, %125
 
 134:                                              ; preds = %_ZL11string2dvecPcPd.exit133, %134
   %indvars.iv149 = phi i64 [ 0, %_ZL11string2dvecPcPd.exit133 ], [ %indvars.iv.next150, %134 ]
-  %135 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv149
+  %135 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv149
   %136 = load double, ptr %135, align 8, !tbaa !49
   %137 = fptrunc double %136 to float
-  %138 = getelementptr inbounds nuw [3 x float], ptr %133, i64 0, i64 %indvars.iv149
+  %138 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv149
   store float %137, ptr %138, align 4, !tbaa !53
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 3
@@ -2240,9 +2240,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
 136:                                              ; preds = %136, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %136 ]
   %.117.i = phi i1 [ %.019.i, %.preheader.i ], [ %.2.i, %136 ]
-  %137 = getelementptr inbounds nuw [3 x float], ptr %134, i64 0, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv.i
   %138 = load float, ptr %137, align 4, !tbaa !53
-  %139 = getelementptr inbounds nuw [3 x float], ptr %135, i64 0, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i
   %140 = load float, ptr %139, align 4, !tbaa !53
   %141 = fcmp oeq float %138, %140
   %.2.i = select i1 %141, i1 %.117.i, i1 false

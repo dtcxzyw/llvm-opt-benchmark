@@ -2978,7 +2978,7 @@ default.unreachable189:                           ; preds = %.noexc.i34, %.noexc
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !557, !nonnull !9, !align !10, !noundef !9
-  %67 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %66, i64 0, i64 %62
+  %67 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i64 %62
   %68 = load ptr, ptr %67, align 8, !noalias !557, !nonnull !9, !align !121, !noundef !9
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i64, ptr %69, align 8, !noalias !557, !noundef !9
@@ -3284,7 +3284,7 @@ default.unreachable189:                           ; preds = %.noexc.i34, %.noexc
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %157
   %.sroa.01.05.i.i.i.i = phi i64 [ %158, %157 ], [ 0, %.preheader.i.i.i.i ]
-  %154 = getelementptr inbounds nuw [0 x i8], ptr %152, i64 0, i64 %.sroa.01.05.i.i.i.i
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 %.sroa.01.05.i.i.i.i
   %155 = load i8, ptr %154, align 1, !alias.scope !615, !noalias !618, !noundef !9
   %156 = icmp eq i8 %155, 10
   br i1 %156, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %157

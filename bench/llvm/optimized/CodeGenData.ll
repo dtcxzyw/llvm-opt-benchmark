@@ -1012,7 +1012,7 @@ define dso_local void @_ZN4llvm25getCodeGenDataSectionNameB5cxx11ENS_14CGDataSec
 
 12:                                               ; preds = %10
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_123CodeGenDataSectNameCoffE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_123CodeGenDataSectNameCoffE, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #21
   %17 = icmp ugt i64 %16, 4611686018427387903
@@ -1029,7 +1029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %12
 20:                                               ; preds = %.thread, %10
   %21 = phi i64 [ %9, %.thread ], [ 4611686018427387903, %10 ]
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN12_GLOBAL__N_125CodeGenDataSectNameCommonE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_125CodeGenDataSectNameCommonE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !54
   %25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #21
   %26 = icmp ult i64 %21, %25

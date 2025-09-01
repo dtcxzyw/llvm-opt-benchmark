@@ -3211,7 +3211,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
   %1201 = phi i1 [ true, %.split95.us.us.i.i ], [ false, %.split78.us.us.preheader.i.i ]
   %1202 = phi i1 [ false, %.split95.us.us.i.i ], [ true, %.split78.us.us.preheader.i.i ]
   %1203 = zext i1 %1201 to i64
-  %1204 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE4core, i64 0, i64 %1203
+  %1204 = getelementptr inbounds nuw ptr, ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE4core, i64 %1203
   br i1 %1201, label %.preheader.us.us.us.i.i, label %.lr.ph.split.split.us.us.preheader.i.i
 
 .preheader.us.us.us.i.i:                          ; preds = %.split78.us.us.i.i, %1211
@@ -3290,7 +3290,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
   %fputc.us.us.us.i.i = call i32 @fputc(i32 10, ptr %142)
   %1234 = load ptr, ptr %1204, align 8, !tbaa !23
   %1235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.105, ptr noundef %1234) #23
-  %1236 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE2tp, i64 0, i64 %indvars.iv118.i.i
+  %1236 = getelementptr inbounds nuw ptr, ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE2tp, i64 %indvars.iv118.i.i
   %1237 = load ptr, ptr %1236, align 8, !tbaa !23
   %1238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.106, ptr noundef %1237) #23
   %1239 = fpext float %.151.us.us.us.us.i.i to double
@@ -3363,7 +3363,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit67.i:  ; preds = %.noexc391, %.lr.ph.
   %fputc.us.us.i.i = call i32 @fputc(i32 10, ptr %142)
   %1257 = load ptr, ptr %1204, align 8, !tbaa !23
   %1258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.105, ptr noundef %1257) #23
-  %1259 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE2tp, i64 0, i64 %indvars.iv110.i.i
+  %1259 = getelementptr inbounds nuw ptr, ptr @_ZZL9dump_dumpP8_IO_FILEiP10t_dr_statsE2tp, i64 %indvars.iv110.i.i
   %1260 = load ptr, ptr %1259, align 8, !tbaa !23
   %1261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.106, ptr noundef %1260) #23
   %1262 = fpext float %.us-phi113.i to double

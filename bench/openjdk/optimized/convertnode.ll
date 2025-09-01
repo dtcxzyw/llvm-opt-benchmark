@@ -429,7 +429,7 @@ define hidden noundef i32 @_ZNK11ConvertNode9ideal_regEv(ptr noundef nonnull rea
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %6, i32 4
+  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6, i32 4
   %8 = load i32, ptr %7, align 4
   ret i32 %8
 }

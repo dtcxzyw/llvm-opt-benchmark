@@ -606,7 +606,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit.i:    ; preds = %88, %81, %79
 
 93:                                               ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %94 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !51
   invoke void @_ZN15arith_eq_solver14prop_mod_constEP4exprjRK8rationalR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %95, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %96 unwind label %91

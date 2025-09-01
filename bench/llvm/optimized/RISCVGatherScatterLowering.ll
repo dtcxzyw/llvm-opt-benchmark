@@ -866,7 +866,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %237
   %242 = load ptr, ptr %54, align 8, !tbaa !197
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 104
   %244 = zext i16 %238 to i64
-  %245 = getelementptr inbounds nuw [234 x ptr], ptr %243, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !256
   %.not182.i = icmp eq ptr %246, null
   br i1 %.not182.i, label %_ZN12_GLOBAL__N_126RISCVGatherScatterLowering25tryCreateStridedLoadStoreEPN4llvm13IntrinsicInstE.exit, label %247

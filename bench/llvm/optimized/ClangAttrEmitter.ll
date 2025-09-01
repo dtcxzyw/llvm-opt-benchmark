@@ -47219,7 +47219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
 551:                                              ; preds = %551, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i
   %552 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i ], [ %562, %551 ]
   %553 = getelementptr inbounds nuw %"class.std::vector.154", ptr %112, i64 %552
-  %554 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %25, i64 0, i64 %552
+  %554 = getelementptr inbounds nuw %"class.std::vector.154", ptr %25, i64 %552
   %555 = load ptr, ptr %554, align 8, !tbaa !778, !noalias !799
   store ptr %555, ptr %553, align 8, !tbaa !778, !alias.scope !799
   %556 = getelementptr inbounds nuw i8, ptr %553, i64 8
@@ -47455,7 +47455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i: ; preds = 
 
 _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i: ; preds = %624
   %629 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %.sroa.3.0.copyload.i, i64 noundef %.sroa.480.0.copyload.i) #25, !noalias !784
-  %630 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %25, i64 0, i64 %.sroa.20.7.i.i
+  %630 = getelementptr inbounds nuw %"class.std::vector.154", ptr %25, i64 %.sroa.20.7.i.i
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 8
   %632 = load ptr, ptr %631, align 8, !tbaa !780, !noalias !784
   %633 = getelementptr inbounds nuw i8, ptr %630, i64 16
@@ -47699,7 +47699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 718:                                              ; preds = %718, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %719 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %729, %718 ]
   %720 = getelementptr inbounds nuw %"class.std::vector.154", ptr %119, i64 %719
-  %721 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %112, i64 0, i64 %719
+  %721 = getelementptr inbounds nuw %"class.std::vector.154", ptr %112, i64 %719
   %722 = load ptr, ptr %721, align 8, !tbaa !778
   store ptr %722, ptr %720, align 8, !tbaa !778
   %723 = getelementptr inbounds nuw i8, ptr %720, i64 8
@@ -47760,7 +47760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i: ; p
 748:                                              ; preds = %748, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i
   %749 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i ], [ %759, %748 ]
   %750 = getelementptr inbounds nuw %"class.std::vector.154", ptr %747, i64 %749
-  %751 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %119, i64 0, i64 %749
+  %751 = getelementptr inbounds nuw %"class.std::vector.154", ptr %119, i64 %749
   %752 = load ptr, ptr %751, align 8, !tbaa !778
   store ptr %752, ptr %750, align 8, !tbaa !778
   %753 = getelementptr inbounds nuw i8, ptr %750, i64 8
@@ -47838,7 +47838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
 787:                                              ; preds = %787, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i
   %788 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i ], [ %798, %787 ]
   %789 = getelementptr inbounds nuw %"class.std::vector.154", ptr %786, i64 %788
-  %790 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %119, i64 0, i64 %788
+  %790 = getelementptr inbounds nuw %"class.std::vector.154", ptr %119, i64 %788
   %791 = load ptr, ptr %790, align 8, !tbaa !778
   store ptr %791, ptr %789, align 8, !tbaa !778
   %792 = getelementptr inbounds nuw i8, ptr %789, i64 8
@@ -47905,7 +47905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i193: ; 
 817:                                              ; preds = %817, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i193
   %818 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i193 ], [ %828, %817 ]
   %819 = getelementptr inbounds nuw %"class.std::vector.154", ptr %815, i64 %818
-  %820 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %816, i64 0, i64 %818
+  %820 = getelementptr inbounds nuw %"class.std::vector.154", ptr %816, i64 %818
   %821 = load ptr, ptr %820, align 8, !tbaa !778, !alias.scope !815, !noalias !812
   store ptr %821, ptr %819, align 8, !tbaa !778, !alias.scope !812, !noalias !815
   %822 = getelementptr inbounds nuw i8, ptr %819, i64 8
@@ -48673,7 +48673,7 @@ _ZL25getPragmaAttributeSupportRKN4llvm12RecordKeeperE.exit.i: ; preds = %1149, %
   br i1 %1153, label %1224, label %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
 
 1154:                                             ; preds = %1143
-  %1155 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %1142, i64 0, i64 %.0.i119
+  %1155 = getelementptr inbounds nuw %"class.std::vector.154", ptr %1142, i64 %.0.i119
   %1156 = load ptr, ptr %1155, align 8, !tbaa !778
   %1157 = getelementptr inbounds nuw i8, ptr %1155, i64 8
   %1158 = load ptr, ptr %1157, align 8, !tbaa !780
@@ -96508,7 +96508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
 53:                                               ; preds = %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i
   %54 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i ], [ %64, %53 ]
   %55 = getelementptr inbounds nuw %"class.std::vector.154", ptr %32, i64 %54
-  %56 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %52, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %"class.std::vector.154", ptr %52, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !778
   store ptr %57, ptr %55, align 8, !tbaa !778
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -96553,7 +96553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i10.i.i.i: ; p
 71:                                               ; preds = %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i10.i.i.i
   %72 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i10.i.i.i ], [ %82, %71 ]
   %73 = getelementptr inbounds nuw %"class.std::vector.154", ptr %36, i64 %72
-  %74 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %32, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw %"class.std::vector.154", ptr %32, i64 %72
   %75 = load ptr, ptr %74, align 8, !tbaa !778
   store ptr %75, ptr %73, align 8, !tbaa !778
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -96787,7 +96787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
 160:                                              ; preds = %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
   %161 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i ], [ %171, %160 ]
   %162 = getelementptr inbounds nuw %"class.std::vector.154", ptr %141, i64 %161
-  %163 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %159, i64 0, i64 %161
+  %163 = getelementptr inbounds nuw %"class.std::vector.154", ptr %159, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !778
   store ptr %164, ptr %162, align 8, !tbaa !778
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -96840,7 +96840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i3.i: ; preds 
 185:                                              ; preds = %185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i3.i
   %186 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i3.i ], [ %196, %185 ]
   %187 = getelementptr inbounds nuw %"class.std::vector.154", ptr %145, i64 %186
-  %188 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %141, i64 0, i64 %186
+  %188 = getelementptr inbounds nuw %"class.std::vector.154", ptr %141, i64 %186
   %189 = load ptr, ptr %188, align 8, !tbaa !778
   store ptr %189, ptr %187, align 8, !tbaa !778
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -97272,7 +97272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i20: ; preds
 321:                                              ; preds = %321, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i20
   %322 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i20 ], [ %332, %321 ]
   %323 = getelementptr inbounds nuw %"class.std::vector.154", ptr %21, i64 %322
-  %324 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %320, i64 0, i64 %322
+  %324 = getelementptr inbounds nuw %"class.std::vector.154", ptr %320, i64 %322
   %325 = load ptr, ptr %324, align 8, !tbaa !778
   store ptr %325, ptr %323, align 8, !tbaa !778
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 8
@@ -97340,8 +97340,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i47: ; preds =
 
 351:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i47
   %.05.i.i48 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i47 ], [ %377, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i57 ]
-  %352 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %320, i64 0, i64 %.05.i.i48
-  %353 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %350, i64 0, i64 %.05.i.i48
+  %352 = getelementptr inbounds nuw %"class.std::vector.154", ptr %320, i64 %.05.i.i48
+  %353 = getelementptr inbounds nuw %"class.std::vector.154", ptr %350, i64 %.05.i.i48
   %354 = load ptr, ptr %352, align 8, !tbaa !778
   %355 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %356 = load ptr, ptr %355, align 8, !tbaa !780
@@ -97487,8 +97487,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i: ; preds = %
 
 406:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i
   %.05.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i ], [ %432, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i ]
-  %407 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %350, i64 0, i64 %.05.i.i
-  %408 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %21, i64 0, i64 %.05.i.i
+  %407 = getelementptr inbounds nuw %"class.std::vector.154", ptr %350, i64 %.05.i.i
+  %408 = getelementptr inbounds nuw %"class.std::vector.154", ptr %21, i64 %.05.i.i
   %409 = load ptr, ptr %407, align 8, !tbaa !778
   %410 = getelementptr inbounds nuw i8, ptr %407, i64 8
   %411 = load ptr, ptr %410, align 8, !tbaa !780
@@ -97750,7 +97750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 56:                                               ; preds = %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %57 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %67, %56 ]
   %58 = getelementptr inbounds nuw %"class.std::vector.154", ptr %54, i64 %57
-  %59 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %55, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw %"class.std::vector.154", ptr %55, i64 %57
   %60 = load ptr, ptr %59, align 8, !tbaa !778
   store ptr %60, ptr %58, align 8, !tbaa !778
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -97995,8 +97995,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %17
 
 45:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
   %.05.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %71, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i ]
-  %46 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %43, i64 0, i64 %.05.i
-  %47 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %44, i64 0, i64 %.05.i
+  %46 = getelementptr inbounds nuw %"class.std::vector.154", ptr %43, i64 %.05.i
+  %47 = getelementptr inbounds nuw %"class.std::vector.154", ptr %44, i64 %.05.i
   %48 = load ptr, ptr %46, align 8, !tbaa !778
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !780
@@ -98105,7 +98105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 21:                                               ; preds = %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %22 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %32, %21 ]
   %23 = getelementptr inbounds nuw %"class.std::vector.154", ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %20, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw %"class.std::vector.154", ptr %20, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !778
   store ptr %25, ptr %23, align 8, !tbaa !778
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -98292,7 +98292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 30:                                               ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %31 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %41, %30 ]
   %32 = getelementptr inbounds nuw %"class.std::vector.154", ptr %10, i64 %31
-  %33 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %29, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw %"class.std::vector.154", ptr %29, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !778
   store ptr %34, ptr %32, align 8, !tbaa !778
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -98421,8 +98421,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i: ; preds = %
 
 91:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i
   %.05.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i ], [ %117, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit.i.i ]
-  %92 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %89, i64 0, i64 %.05.i.i
-  %93 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %90, i64 0, i64 %.05.i.i
+  %92 = getelementptr inbounds nuw %"class.std::vector.154", ptr %89, i64 %.05.i.i
+  %93 = getelementptr inbounds nuw %"class.std::vector.154", ptr %90, i64 %.05.i.i
   %94 = load ptr, ptr %92, align 8, !tbaa !778
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !780
@@ -98628,7 +98628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
 20:                                               ; preds = %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %21 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ], [ %31, %20 ]
   %22 = getelementptr inbounds nuw %"class.std::vector.154", ptr %18, i64 %21
-  %23 = getelementptr inbounds nuw [8 x %"class.std::vector.154"], ptr %19, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %"class.std::vector.154", ptr %19, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !778
   store ptr %24, ptr %22, align 8, !tbaa !778
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8

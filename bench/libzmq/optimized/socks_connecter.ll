@@ -1669,7 +1669,7 @@ define void @_ZN3zmq17socks_connecter_t9out_eventEv(ptr noundef nonnull align 8 
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN3zmq17socks_connecter_t9out_eventEv, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3zmq17socks_connecter_t9out_eventEv, i64 %11
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %6

@@ -233,9 +233,9 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 34:                                               ; preds = %.outer, %.loopexit.thread
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.loopexit.thread ], [ %indvars.iv30.ph, %.outer ]
-  %35 = getelementptr inbounds nuw [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv30
+  %35 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv30
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %36 = getelementptr inbounds nuw [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv.next31
+  %36 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv.next31
   %37 = load double, ptr %35, align 8
   store double %37, ptr %2, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -250,9 +250,9 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
-  %43 = getelementptr inbounds nuw [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.Point, ptr %21, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
+  %44 = getelementptr inbounds nuw %struct.Point, ptr %21, i64 %indvars.iv.next
   %45 = load double, ptr %43, align 8
   store double %45, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -375,7 +375,7 @@ switch.early.test:                                ; preds = %1, %15
   %11 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %12 = add i32 %.01925, 1
   %13 = sext i32 %.01925 to i64
-  %14 = getelementptr inbounds [3 x ptr], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %2, i64 %13
   store ptr %11, ptr %14, align 8
   br label %15
 
@@ -2518,7 +2518,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %13) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1042, ptr noundef nonnull @__func__.test_enc_setup) #18
@@ -2534,7 +2534,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef %26, i32 noundef %21) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.test_enc_setup) #18
@@ -2550,7 +2550,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef %34, i32 noundef %29) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1052, ptr noundef nonnull @__func__.test_enc_setup) #18
@@ -2566,7 +2566,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %42, i32 noundef %37) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1057, ptr noundef nonnull @__func__.test_enc_setup) #18
@@ -2587,7 +2587,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %52, i32 noundef %47) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1065, ptr noundef nonnull @__func__.test_enc_setup) #18

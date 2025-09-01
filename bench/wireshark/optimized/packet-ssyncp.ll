@@ -167,7 +167,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = tail call ptr @wmem_file_scope()
   %34 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %33, i64 noundef 24) #6
   %35 = getelementptr inbounds nuw i8, ptr %.1143, i64 16
-  %36 = getelementptr [2 x i8], ptr %35, i64 0, i64 %11
+  %36 = getelementptr i8, ptr %35, i64 %11
   %37 = load i8, ptr %36, align 1, !range !6, !noundef !7
   %38 = trunc nuw i8 %37 to i1
   %39 = xor i8 %37, 1
@@ -179,7 +179,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %46
 
 41:                                               ; preds = %32
-  %42 = getelementptr [2 x i64], ptr %.1143, i64 0, i64 %11
+  %42 = getelementptr i64, ptr %.1143, i64 %11
   %43 = load i64, ptr %42, align 8
   %44 = sub i64 %12, %43
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -192,7 +192,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %48 = tail call ptr @wmem_file_scope()
   %49 = load i32, ptr @proto_ssyncp, align 4
   tail call void @p_add_proto_data(ptr noundef %48, ptr noundef %1, i32 noundef %49, i32 noundef 0, ptr noundef %34)
-  %50 = getelementptr [2 x i64], ptr %.1143, i64 0, i64 %11
+  %50 = getelementptr i64, ptr %.1143, i64 %11
   store i64 %12, ptr %50, align 8
   br label %51
 
@@ -365,23 +365,23 @@ proto_item_set_generated.exit:                    ; preds = %77, %74, %69, %51
   %140 = trunc i32 %137 to i16
   %141 = sub i16 %138, %140
   %142 = getelementptr inbounds nuw i8, ptr %.0142, i64 18
-  %143 = getelementptr [2 x i16], ptr %142, i64 0, i64 %11
+  %143 = getelementptr i16, ptr %142, i64 %11
   store i16 %141, ptr %143, align 2
   %144 = getelementptr inbounds nuw i8, ptr %.0142, i64 22
-  %145 = getelementptr [2 x i8], ptr %144, i64 0, i64 %11
+  %145 = getelementptr i8, ptr %144, i64 %11
   store i8 1, ptr %145, align 1
   %.not167 = icmp eq i16 %139, -1
   br i1 %.not167, label %157, label %146
 
 146:                                              ; preds = %129
   %147 = xor i64 %11, 1
-  %148 = getelementptr [2 x i8], ptr %144, i64 0, i64 %147
+  %148 = getelementptr i8, ptr %144, i64 %147
   %149 = load i8, ptr %148, align 1, !range !6, !noundef !7
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %146
-  %152 = getelementptr [2 x i16], ptr %142, i64 0, i64 %147
+  %152 = getelementptr i16, ptr %142, i64 %147
   %153 = load i16, ptr %152, align 2
   %.neg = sub i16 %140, %139
   %154 = add i16 %.neg, %153

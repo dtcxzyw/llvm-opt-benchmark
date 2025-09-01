@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%union.anon.502 = type { %"struct.cvc5::internal::Minisat::Lit" }
-%"struct.cvc5::internal::Minisat::Lit" = type { i32 }
 %"class.cvc5::internal::NodeTemplate.508" = type { ptr }
 %"class.cvc5::internal::NodeBuilder" = type <{ %"class.cvc5::internal::expr::NodeValue", [10 x ptr], ptr, ptr, i32, [4 x i8] }>
 %"class.cvc5::internal::expr::NodeValue" = type { i64, i64, ptr, [0 x ptr] }
@@ -41,6 +39,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.522" = type { i8 }
 %"struct.std::_Head_base.523" = type { %"class.cvc5::internal::NodeTemplate" }
 %"struct.std::_Head_base.524" = type { %"class.cvc5::internal::NodeTemplate" }
+%union.anon.502 = type { %"struct.cvc5::internal::Minisat::Lit" }
+%"struct.cvc5::internal::Minisat::Lit" = type { i32 }
 %"struct.std::pair.715" = type { %"class.cvc5::internal::NodeTemplate", ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.std::unordered_set.562" = type { %"class.std::_Hashtable.563" }
@@ -1314,8 +1314,8 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager11printClauseERKNS0_7
 7:                                                ; preds = %.lr.ph, %7
   %.08 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %sext = shl i64 %.08, 32
-  %8 = ashr exact i64 %sext, 32
-  %9 = getelementptr inbounds [0 x %union.anon.502], ptr %6, i64 0, i64 %8
+  %8 = ashr exact i64 %sext, 30
+  %9 = getelementptr inbounds i8, ptr %6, i64 %8
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4, !tbaa !173
   %10 = tail call i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.0.0.copyload.i)
   %11 = add nuw nsw i64 %.08, 1
@@ -1404,8 +1404,8 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager13getClauseNodeERKNS0
   %.032 = phi i64 [ 0, %.lr.ph ], [ %90, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %sext = shl i64 %.032, 32
-  %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds [0 x %union.anon.502], ptr %14, i64 0, i64 %33
+  %33 = ashr exact i64 %sext, 30
+  %34 = getelementptr inbounds i8, ptr %14, i64 %33
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4, !tbaa !173
   %35 = invoke i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.0.0.copyload.i)
           to label %36 unwind label %91
@@ -2151,7 +2151,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %53, %59, 
   %114 = icmp eq i32 %113, 2
   %115 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %116 = zext i1 %114 to i64
-  %117 = getelementptr inbounds nuw [0 x ptr], ptr %115, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !104, !noalias !211
   store ptr %118, ptr %5, align 8, !tbaa !105, !alias.scope !211
   %119 = load i64, ptr %118, align 8, !noalias !211
@@ -2598,7 +2598,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %54, %60, 
   %77 = icmp eq i32 %76, 2
   %78 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %79 = zext i1 %77 to i64
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %78, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !104, !noalias !221
   store ptr %81, ptr %7, align 8, !tbaa !105, !alias.scope !221
   %82 = load i64, ptr %81, align 8, !noalias !221
@@ -3678,7 +3678,7 @@ _ZN4cvc58internal11Cvc5ostreamlsIA33_cEERS1_RKT_.exit: ; preds = %_ZNSt16allocat
   %319 = icmp eq i32 %318, 2
   %320 = getelementptr inbounds nuw i8, ptr %312, i64 24
   %321 = zext i1 %319 to i64
-  %322 = getelementptr inbounds nuw [0 x ptr], ptr %320, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw ptr, ptr %320, i64 %321
   %323 = load ptr, ptr %322, align 8, !tbaa !104, !noalias !230
   store ptr %323, ptr %16, align 8, !tbaa !105, !alias.scope !230
   %324 = load i64, ptr %323, align 8, !noalias !230
@@ -3729,7 +3729,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %335, %329, %337
   %352 = icmp eq i32 %351, 2
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %354 = zext i1 %352 to i64
-  %355 = getelementptr inbounds nuw [0 x ptr], ptr %353, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw ptr, ptr %353, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !104, !noalias !233
   %357 = load i64, ptr %356, align 8, !noalias !233
   %358 = lshr i64 %357, 40
@@ -4566,7 +4566,7 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainERKNS0_7
 15:                                               ; preds = %.lr.ph, %_ZNSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE6insertEOS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE6insertEOS3_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw [0 x %union.anon.502], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %union.anon.502, ptr %14, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %16, align 4, !tbaa !173
   %17 = invoke i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.0.0.copyload.i)
           to label %18 unwind label %20
@@ -4940,7 +4940,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %99, %105,
   %164 = icmp eq i32 %163, 2
   %165 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %166 = zext i1 %164 to i64
-  %167 = getelementptr inbounds nuw [0 x ptr], ptr %165, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw ptr, ptr %165, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !104, !noalias !250
   store ptr %168, ptr %8, align 8, !tbaa !105, !alias.scope !250
   %169 = load i64, ptr %168, align 8, !noalias !250
@@ -5117,7 +5117,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit116: ; preds = %_ZN4cvc58internal1
   %.sroa.0240.0327 = phi ptr [ null, %.lr.ph ], [ %.sroa.0240.1, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
   %.sroa.10.0326 = phi ptr [ null, %.lr.ph ], [ %.sroa.10.1, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
   %.sroa.14.0325 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
-  %239 = getelementptr inbounds nuw [0 x %union.anon.502], ptr %236, i64 0, i64 %indvars.iv
+  %239 = getelementptr inbounds nuw %union.anon.502, ptr %236, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %239, align 4, !tbaa !173
   %240 = invoke i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.0.0.copyload.i)
           to label %241 unwind label %.loopexit302
@@ -5443,7 +5443,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit205: ; preds = %358, %
   %376 = icmp eq i32 %375, 2
   %377 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %378 = zext i1 %376 to i64
-  %379 = getelementptr inbounds nuw [0 x ptr], ptr %377, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw ptr, ptr %377, i64 %378
   %380 = load ptr, ptr %379, align 8, !tbaa !104, !noalias !263
   store ptr %380, ptr %12, align 8, !tbaa !105, !alias.scope !263
   %381 = load i64, ptr %380, align 8, !noalias !263
@@ -6888,7 +6888,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   %453 = icmp eq i32 %452, 2
   %454 = getelementptr inbounds nuw i8, ptr %405, i64 24
   %455 = zext i1 %453 to i64
-  %456 = getelementptr inbounds nuw [0 x ptr], ptr %454, i64 0, i64 %455
+  %456 = getelementptr inbounds nuw ptr, ptr %454, i64 %455
   %457 = load ptr, ptr %456, align 8, !tbaa !104, !noalias !288
   store ptr %457, ptr %19, align 8, !tbaa !105, !alias.scope !288
   %458 = load i64, ptr %457, align 8, !noalias !288
@@ -8410,7 +8410,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit71
   %281 = icmp eq i32 %280, 2
   %282 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %283 = zext i1 %281 to i64
-  %284 = getelementptr inbounds nuw [0 x ptr], ptr %282, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !104, !noalias !301
   store ptr %285, ptr %14, align 8, !tbaa !105, !alias.scope !301
   %286 = load i64, ptr %285, align 8, !noalias !301
@@ -10663,7 +10663,7 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofERKNS0
   %20 = phi ptr [ null, %.lr.ph ], [ %46, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
   %21 = phi ptr [ null, %.lr.ph ], [ %48, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
   %22 = phi ptr [ null, %.lr.ph ], [ %47, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit ]
-  %23 = getelementptr inbounds nuw [0 x %union.anon.502], ptr %13, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %union.anon.502, ptr %13, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4, !tbaa !173
   %24 = invoke i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.0.0.copyload.i)
           to label %25 unwind label %.loopexit98

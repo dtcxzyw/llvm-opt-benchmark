@@ -583,7 +583,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %51 = phi i32 [ %.promoted, %.lr.ph47 ], [ %49, %.lr.ph ]
   %indvars.iv46 = phi i64 [ %45, %.lr.ph47 ], [ %indvars.iv.next, %.lr.ph ]
   store i64 %34, ptr %47, align 8
-  %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %35, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw %struct.mq_item, ptr %35, i64 %48
   store i32 1, ptr %52, align 8
   %53 = sub i32 %51, %5
   %54 = icmp ult i32 %53, 2
@@ -951,7 +951,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %51 = phi i32 [ %.promoted, %.lr.ph63 ], [ %49, %.lr.ph ]
   %indvars.iv62 = phi i64 [ %45, %.lr.ph63 ], [ %indvars.iv.next, %.lr.ph ]
   store i64 %35, ptr %47, align 8
-  %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %4, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw %struct.mq_item, ptr %4, i64 %48
   store i32 1, ptr %52, align 8
   %53 = sub i32 %51, %6
   %54 = icmp ult i32 %53, 2

@@ -137,10 +137,10 @@ define hidden zeroext range(i8 0, 66) i8 @mbedtls_ecc_group_to_psa(i32 noundef %
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table.mbedtls_ecc_group_to_psa, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ecc_group_to_psa, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [13 x i8], ptr @switch.table.mbedtls_ecc_group_to_psa.1, i64 0, i64 %5
+  %switch.gep14 = getelementptr inbounds nuw i8, ptr @switch.table.mbedtls_ecc_group_to_psa.1, i64 %5
   %switch.load15 = load i8, ptr %switch.gep14, align 1
   br label %6
 

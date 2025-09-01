@@ -8101,7 +8101,7 @@ _ZNK14iexpr_inverter7uncnstrEP4expr.exit:         ; preds = %18
 43:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %44 = load ptr, ptr %38, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !187
   %47 = call noundef zeroext i1 @_ZNK11ast_manager15is_fully_interpEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %44, ptr noundef %46)
   br i1 %47, label %40, label %_ZNK8datatype4util11is_accessorEP9func_decl.exit.thread
@@ -8213,7 +8213,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc38, %._crit_e
 
 91:                                               ; preds = %71
   %92 = load ptr, ptr %56, align 8, !tbaa !29
-  %93 = getelementptr inbounds nuw [0 x ptr], ptr %57, i64 0, i64 %indvars.iv66
+  %93 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv66
   %94 = load ptr, ptr %93, align 8, !tbaa !187
   %95 = invoke noundef ptr @_ZN11ast_manager14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %92, ptr noundef %94)
           to label %96 unwind label %111
@@ -8377,7 +8377,7 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit.thread.thread: ; preds = %.lr.ph95, 
 20:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.04185 = phi i32 [ -1, %.lr.ph ], [ %.243.ph, %30 ]
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !187
   %23 = icmp eq ptr %5, %22
   %24 = trunc nuw i64 %indvars.iv to i32
@@ -8494,7 +8494,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i:      ; preds = %.noexc53, %._crit_e
 
 60:                                               ; preds = %41
   %61 = load ptr, ptr %35, align 8, !tbaa !29
-  %62 = getelementptr inbounds nuw [0 x ptr], ptr %36, i64 0, i64 %indvars.iv106
+  %62 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv106
   %63 = load ptr, ptr %62, align 8, !tbaa !187
   %64 = invoke noundef ptr @_ZN11ast_manager14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(976) %61, ptr noundef %63)
           to label %65 unwind label %80

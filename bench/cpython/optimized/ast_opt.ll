@@ -976,7 +976,7 @@ define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr noundef readonly captures
 .lr.ph33.i:                                       ; preds = %.lr.ph.i, %.critedge.i
   %27 = phi i64 [ %32, %.critedge.i ], [ %25, %.lr.ph.i ]
   %.0223032.i = phi i64 [ %33, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr [1 x ptr], ptr %24, i64 0, i64 %.0223032.i
+  %28 = getelementptr ptr, ptr %24, i64 %.0223032.i
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %.not25.i = icmp eq ptr %29, null
   br i1 %.not25.i, label %.critedge.i, label %30
@@ -1079,7 +1079,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_body(ptr noundef %0,
 .lr.ph64:                                         ; preds = %.lr.ph, %.critedge
   %22 = phi i64 [ %27, %.critedge ], [ %19, %.lr.ph ]
   %.0416163 = phi i64 [ %28, %.critedge ], [ 0, %.lr.ph ]
-  %23 = getelementptr [1 x ptr], ptr %20, i64 0, i64 %.0416163
+  %23 = getelementptr ptr, ptr %20, i64 %.0416163
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %.not46 = icmp eq ptr %24, null
   br i1 %.not46, label %.critedge, label %25
@@ -1198,7 +1198,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1303:                                       ; preds = %.lr.ph1300, %.critedge
   %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph1300 ]
   %.054812991302 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph1300 ]
-  %22 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.054812991302
+  %22 = getelementptr ptr, ptr %18, i64 %.054812991302
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %.not808 = icmp eq ptr %23, null
   br i1 %.not808, label %.critedge, label %24
@@ -1247,7 +1247,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1308:                                       ; preds = %.lr.ph1305, %.critedge818
   %43 = phi i64 [ %48, %.critedge818 ], [ %41, %.lr.ph1305 ]
   %.061413041307 = phi i64 [ %49, %.critedge818 ], [ 0, %.lr.ph1305 ]
-  %44 = getelementptr [1 x ptr], ptr %40, i64 0, i64 %.061413041307
+  %44 = getelementptr ptr, ptr %40, i64 %.061413041307
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %.not812 = icmp eq ptr %45, null
   br i1 %.not812, label %.critedge818, label %46
@@ -1300,7 +1300,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1293:                                       ; preds = %.lr.ph1290, %.critedge822
   %66 = phi i64 [ %71, %.critedge822 ], [ %64, %.lr.ph1290 ]
   %.061612891292 = phi i64 [ %72, %.critedge822 ], [ 0, %.lr.ph1290 ]
-  %67 = getelementptr [1 x ptr], ptr %63, i64 0, i64 %.061612891292
+  %67 = getelementptr ptr, ptr %63, i64 %.061612891292
   %68 = load ptr, ptr %67, align 8, !tbaa !42
   %.not799 = icmp eq ptr %68, null
   br i1 %.not799, label %.critedge822, label %69
@@ -1349,7 +1349,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1298:                                       ; preds = %.lr.ph1295, %.critedge826
   %88 = phi i64 [ %93, %.critedge826 ], [ %86, %.lr.ph1295 ]
   %.061712941297 = phi i64 [ %94, %.critedge826 ], [ 0, %.lr.ph1295 ]
-  %89 = getelementptr [1 x ptr], ptr %85, i64 0, i64 %.061712941297
+  %89 = getelementptr ptr, ptr %85, i64 %.061712941297
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   %.not803 = icmp eq ptr %90, null
   br i1 %.not803, label %.critedge826, label %91
@@ -1402,7 +1402,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1273:                                       ; preds = %.lr.ph1270, %.critedge830
   %111 = phi i64 [ %116, %.critedge830 ], [ %109, %.lr.ph1270 ]
   %.061912691272 = phi i64 [ %117, %.critedge830 ], [ 0, %.lr.ph1270 ]
-  %112 = getelementptr [1 x ptr], ptr %108, i64 0, i64 %.061912691272
+  %112 = getelementptr ptr, ptr %108, i64 %.061912691272
   %113 = load ptr, ptr %112, align 8, !tbaa !42
   %.not790 = icmp eq ptr %113, null
   br i1 %.not790, label %.critedge830, label %114
@@ -1437,7 +1437,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1278:                                       ; preds = %.lr.ph1275, %.critedge834
   %125 = phi i64 [ %130, %.critedge834 ], [ %123, %.lr.ph1275 ]
   %.062012741277 = phi i64 [ %131, %.critedge834 ], [ 0, %.lr.ph1275 ]
-  %126 = getelementptr [1 x ptr], ptr %122, i64 0, i64 %.062012741277
+  %126 = getelementptr ptr, ptr %122, i64 %.062012741277
   %127 = load ptr, ptr %126, align 8, !tbaa !34
   %.not792 = icmp eq ptr %127, null
   br i1 %.not792, label %.critedge834, label %128
@@ -1472,7 +1472,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1283:                                       ; preds = %.lr.ph1280, %.critedge838
   %139 = phi i64 [ %145, %.critedge838 ], [ %137, %.lr.ph1280 ]
   %.062212791282 = phi i64 [ %146, %.critedge838 ], [ 0, %.lr.ph1280 ]
-  %140 = getelementptr [1 x ptr], ptr %136, i64 0, i64 %.062212791282
+  %140 = getelementptr ptr, ptr %136, i64 %.062212791282
   %141 = load ptr, ptr %140, align 8, !tbaa !44
   %.not794 = icmp eq ptr %141, null
   br i1 %.not794, label %.critedge838, label %142
@@ -1516,7 +1516,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1288:                                       ; preds = %.lr.ph1285, %.critedge842
   %158 = phi i64 [ %163, %.critedge842 ], [ %156, %.lr.ph1285 ]
   %.062312841287 = phi i64 [ %164, %.critedge842 ], [ 0, %.lr.ph1285 ]
-  %159 = getelementptr [1 x ptr], ptr %155, i64 0, i64 %.062312841287
+  %159 = getelementptr ptr, ptr %155, i64 %.062312841287
   %160 = load ptr, ptr %159, align 8, !tbaa !34
   %.not797 = icmp eq ptr %160, null
   br i1 %.not797, label %.critedge842, label %161
@@ -1562,7 +1562,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1268:                                       ; preds = %.lr.ph1265, %.critedge846
   %178 = phi i64 [ %183, %.critedge846 ], [ %176, %.lr.ph1265 ]
   %.062512641267 = phi i64 [ %184, %.critedge846 ], [ 0, %.lr.ph1265 ]
-  %179 = getelementptr [1 x ptr], ptr %175, i64 0, i64 %.062512641267
+  %179 = getelementptr ptr, ptr %175, i64 %.062512641267
   %180 = load ptr, ptr %179, align 8, !tbaa !34
   %.not786 = icmp eq ptr %180, null
   br i1 %.not786, label %.critedge846, label %181
@@ -1597,7 +1597,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1263:                                       ; preds = %.lr.ph1260, %.critedge850
   %193 = phi i64 [ %198, %.critedge850 ], [ %191, %.lr.ph1260 ]
   %.062612591262 = phi i64 [ %199, %.critedge850 ], [ 0, %.lr.ph1260 ]
-  %194 = getelementptr [1 x ptr], ptr %190, i64 0, i64 %.062612591262
+  %194 = getelementptr ptr, ptr %190, i64 %.062612591262
   %195 = load ptr, ptr %194, align 8, !tbaa !34
   %.not783 = icmp eq ptr %195, null
   br i1 %.not783, label %.critedge850, label %196
@@ -1692,7 +1692,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1258:                                       ; preds = %.lr.ph1255, %.critedge854
   %240 = phi i64 [ %245, %.critedge854 ], [ %238, %.lr.ph1255 ]
   %.062812541257 = phi i64 [ %246, %.critedge854 ], [ 0, %.lr.ph1255 ]
-  %241 = getelementptr [1 x ptr], ptr %237, i64 0, i64 %.062812541257
+  %241 = getelementptr ptr, ptr %237, i64 %.062812541257
   %242 = load ptr, ptr %241, align 8, !tbaa !42
   %.not773 = icmp eq ptr %242, null
   br i1 %.not773, label %.critedge854, label %243
@@ -1748,7 +1748,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1248:                                       ; preds = %.lr.ph1245, %.critedge858
   %266 = phi i64 [ %271, %.critedge858 ], [ %264, %.lr.ph1245 ]
   %.062912441247 = phi i64 [ %272, %.critedge858 ], [ 0, %.lr.ph1245 ]
-  %267 = getelementptr [1 x ptr], ptr %263, i64 0, i64 %.062912441247
+  %267 = getelementptr ptr, ptr %263, i64 %.062912441247
   %268 = load ptr, ptr %267, align 8, !tbaa !31
   %.not767 = icmp eq ptr %268, null
   br i1 %.not767, label %.critedge858, label %269
@@ -1783,7 +1783,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1253:                                       ; preds = %.lr.ph1250, %.critedge862
   %280 = phi i64 [ %285, %.critedge862 ], [ %278, %.lr.ph1250 ]
   %.063112491252 = phi i64 [ %286, %.critedge862 ], [ 0, %.lr.ph1250 ]
-  %281 = getelementptr [1 x ptr], ptr %277, i64 0, i64 %.063112491252
+  %281 = getelementptr ptr, ptr %277, i64 %.063112491252
   %282 = load ptr, ptr %281, align 8, !tbaa !31
   %.not769 = icmp eq ptr %282, null
   br i1 %.not769, label %.critedge862, label %283
@@ -1838,7 +1838,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1238:                                       ; preds = %.lr.ph1235, %.critedge866
   %305 = phi i64 [ %310, %.critedge866 ], [ %303, %.lr.ph1235 ]
   %.063212341237 = phi i64 [ %311, %.critedge866 ], [ 0, %.lr.ph1235 ]
-  %306 = getelementptr [1 x ptr], ptr %302, i64 0, i64 %.063212341237
+  %306 = getelementptr ptr, ptr %302, i64 %.063212341237
   %307 = load ptr, ptr %306, align 8, !tbaa !31
   %.not761 = icmp eq ptr %307, null
   br i1 %.not761, label %.critedge866, label %308
@@ -1873,7 +1873,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1243:                                       ; preds = %.lr.ph1240, %.critedge870
   %319 = phi i64 [ %324, %.critedge870 ], [ %317, %.lr.ph1240 ]
   %.063412391242 = phi i64 [ %325, %.critedge870 ], [ 0, %.lr.ph1240 ]
-  %320 = getelementptr [1 x ptr], ptr %316, i64 0, i64 %.063412391242
+  %320 = getelementptr ptr, ptr %316, i64 %.063412391242
   %321 = load ptr, ptr %320, align 8, !tbaa !31
   %.not763 = icmp eq ptr %321, null
   br i1 %.not763, label %.critedge870, label %322
@@ -1915,7 +1915,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1228:                                       ; preds = %.lr.ph1225, %.critedge874
   %338 = phi i64 [ %343, %.critedge874 ], [ %336, %.lr.ph1225 ]
   %.063512241227 = phi i64 [ %344, %.critedge874 ], [ 0, %.lr.ph1225 ]
-  %339 = getelementptr [1 x ptr], ptr %335, i64 0, i64 %.063512241227
+  %339 = getelementptr ptr, ptr %335, i64 %.063512241227
   %340 = load ptr, ptr %339, align 8, !tbaa !31
   %.not755 = icmp eq ptr %340, null
   br i1 %.not755, label %.critedge874, label %341
@@ -1950,7 +1950,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1233:                                       ; preds = %.lr.ph1230, %.critedge878
   %352 = phi i64 [ %357, %.critedge878 ], [ %350, %.lr.ph1230 ]
   %.063712291232 = phi i64 [ %358, %.critedge878 ], [ 0, %.lr.ph1230 ]
-  %353 = getelementptr [1 x ptr], ptr %349, i64 0, i64 %.063712291232
+  %353 = getelementptr ptr, ptr %349, i64 %.063712291232
   %354 = load ptr, ptr %353, align 8, !tbaa !31
   %.not757 = icmp eq ptr %354, null
   br i1 %.not757, label %.critedge878, label %355
@@ -1992,7 +1992,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1218:                                       ; preds = %.lr.ph1215, %.critedge882
   %371 = phi i64 [ %376, %.critedge882 ], [ %369, %.lr.ph1215 ]
   %.063812141217 = phi i64 [ %377, %.critedge882 ], [ 0, %.lr.ph1215 ]
-  %372 = getelementptr [1 x ptr], ptr %368, i64 0, i64 %.063812141217
+  %372 = getelementptr ptr, ptr %368, i64 %.063812141217
   %373 = load ptr, ptr %372, align 8, !tbaa !31
   %.not750 = icmp eq ptr %373, null
   br i1 %.not750, label %.critedge882, label %374
@@ -2027,7 +2027,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1223:                                       ; preds = %.lr.ph1220, %.critedge886
   %385 = phi i64 [ %390, %.critedge886 ], [ %383, %.lr.ph1220 ]
   %.064012191222 = phi i64 [ %391, %.critedge886 ], [ 0, %.lr.ph1220 ]
-  %386 = getelementptr [1 x ptr], ptr %382, i64 0, i64 %.064012191222
+  %386 = getelementptr ptr, ptr %382, i64 %.064012191222
   %387 = load ptr, ptr %386, align 8, !tbaa !31
   %.not752 = icmp eq ptr %387, null
   br i1 %.not752, label %.critedge886, label %388
@@ -2061,7 +2061,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 
 .lr.ph1208:                                       ; preds = %.lr.ph1205, %.critedge890
   %.064112041207 = phi i64 [ %410, %.critedge890 ], [ 0, %.lr.ph1205 ]
-  %400 = getelementptr [1 x ptr], ptr %397, i64 0, i64 %.064112041207
+  %400 = getelementptr ptr, ptr %397, i64 %.064112041207
   %401 = load ptr, ptr %400, align 8, !tbaa !48
   %.not745 = icmp eq ptr %401, null
   br i1 %.not745, label %.critedge890, label %402
@@ -2104,7 +2104,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1213:                                       ; preds = %.lr.ph1210, %.critedge894
   %419 = phi i64 [ %424, %.critedge894 ], [ %417, %.lr.ph1210 ]
   %.064312091212 = phi i64 [ %425, %.critedge894 ], [ 0, %.lr.ph1210 ]
-  %420 = getelementptr [1 x ptr], ptr %416, i64 0, i64 %.064312091212
+  %420 = getelementptr ptr, ptr %416, i64 %.064312091212
   %421 = load ptr, ptr %420, align 8, !tbaa !31
   %.not747 = icmp eq ptr %421, null
   br i1 %.not747, label %.critedge894, label %422
@@ -2138,7 +2138,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 
 .lr.ph1198:                                       ; preds = %.lr.ph1195, %.critedge898
   %.064211941197 = phi i64 [ %444, %.critedge898 ], [ 0, %.lr.ph1195 ]
-  %434 = getelementptr [1 x ptr], ptr %431, i64 0, i64 %.064211941197
+  %434 = getelementptr ptr, ptr %431, i64 %.064211941197
   %435 = load ptr, ptr %434, align 8, !tbaa !48
   %.not741 = icmp eq ptr %435, null
   br i1 %.not741, label %.critedge898, label %436
@@ -2181,7 +2181,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1203:                                       ; preds = %.lr.ph1200, %.critedge902
   %453 = phi i64 [ %458, %.critedge902 ], [ %451, %.lr.ph1200 ]
   %.063911991202 = phi i64 [ %459, %.critedge902 ], [ 0, %.lr.ph1200 ]
-  %454 = getelementptr [1 x ptr], ptr %450, i64 0, i64 %.063911991202
+  %454 = getelementptr ptr, ptr %450, i64 %.063911991202
   %455 = load ptr, ptr %454, align 8, !tbaa !31
   %.not743 = icmp eq ptr %455, null
   br i1 %.not743, label %.critedge902, label %456
@@ -2238,7 +2238,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1178:                                       ; preds = %.lr.ph1175, %.critedge906
   %478 = phi i64 [ %483, %.critedge906 ], [ %476, %.lr.ph1175 ]
   %.063611741177 = phi i64 [ %484, %.critedge906 ], [ 0, %.lr.ph1175 ]
-  %479 = getelementptr [1 x ptr], ptr %475, i64 0, i64 %.063611741177
+  %479 = getelementptr ptr, ptr %475, i64 %.063611741177
   %480 = load ptr, ptr %479, align 8, !tbaa !31
   %.not729 = icmp eq ptr %480, null
   br i1 %.not729, label %.critedge906, label %481
@@ -2279,7 +2279,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   br i1 %495, label %496, label %.thread1017
 
 496:                                              ; preds = %493
-  %497 = getelementptr [1 x ptr], ptr %489, i64 0, i64 %.0633
+  %497 = getelementptr ptr, ptr %489, i64 %.0633
   %498 = load ptr, ptr %497, align 8, !tbaa !53
   %.not731 = icmp eq ptr %498, null
   br i1 %.not731, label %.critedge910, label %499
@@ -2315,7 +2315,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1183:                                       ; preds = %.lr.ph1180, %.critedge.i
   %513 = phi i64 [ %518, %.critedge.i ], [ %511, %.lr.ph1180 ]
   %.021.i11791182 = phi i64 [ %519, %.critedge.i ], [ 0, %.lr.ph1180 ]
-  %514 = getelementptr [1 x ptr], ptr %510, i64 0, i64 %.021.i11791182
+  %514 = getelementptr ptr, ptr %510, i64 %.021.i11791182
   %515 = load ptr, ptr %514, align 8, !tbaa !31
   %.not26.i = icmp eq ptr %515, null
   br i1 %.not26.i, label %.critedge.i, label %516
@@ -2354,7 +2354,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1188:                                       ; preds = %.lr.ph1185, %.critedge914
   %528 = phi i64 [ %533, %.critedge914 ], [ %526, %.lr.ph1185 ]
   %.063011841187 = phi i64 [ %534, %.critedge914 ], [ 0, %.lr.ph1185 ]
-  %529 = getelementptr [1 x ptr], ptr %525, i64 0, i64 %.063011841187
+  %529 = getelementptr ptr, ptr %525, i64 %.063011841187
   %530 = load ptr, ptr %529, align 8, !tbaa !31
   %.not733 = icmp eq ptr %530, null
   br i1 %.not733, label %.critedge914, label %531
@@ -2389,7 +2389,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1193:                                       ; preds = %.lr.ph1190, %.critedge918
   %542 = phi i64 [ %547, %.critedge918 ], [ %540, %.lr.ph1190 ]
   %.062711891192 = phi i64 [ %548, %.critedge918 ], [ 0, %.lr.ph1190 ]
-  %543 = getelementptr [1 x ptr], ptr %539, i64 0, i64 %.062711891192
+  %543 = getelementptr ptr, ptr %539, i64 %.062711891192
   %544 = load ptr, ptr %543, align 8, !tbaa !31
   %.not735 = icmp eq ptr %544, null
   br i1 %.not735, label %.critedge918, label %545
@@ -2424,7 +2424,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1158:                                       ; preds = %.lr.ph1155, %.critedge922
   %557 = phi i64 [ %562, %.critedge922 ], [ %555, %.lr.ph1155 ]
   %.062411541157 = phi i64 [ %563, %.critedge922 ], [ 0, %.lr.ph1155 ]
-  %558 = getelementptr [1 x ptr], ptr %554, i64 0, i64 %.062411541157
+  %558 = getelementptr ptr, ptr %554, i64 %.062411541157
   %559 = load ptr, ptr %558, align 8, !tbaa !31
   %.not721 = icmp eq ptr %559, null
   br i1 %.not721, label %.critedge922, label %560
@@ -2465,7 +2465,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   br i1 %574, label %575, label %.thread1031
 
 575:                                              ; preds = %572
-  %576 = getelementptr [1 x ptr], ptr %568, i64 0, i64 %.0621
+  %576 = getelementptr ptr, ptr %568, i64 %.0621
   %577 = load ptr, ptr %576, align 8, !tbaa !53
   %.not723 = icmp eq ptr %577, null
   br i1 %.not723, label %.critedge926, label %578
@@ -2501,7 +2501,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1163:                                       ; preds = %.lr.ph1160, %.critedge.i955
   %592 = phi i64 [ %597, %.critedge.i955 ], [ %590, %.lr.ph1160 ]
   %.021.i95111591162 = phi i64 [ %598, %.critedge.i955 ], [ 0, %.lr.ph1160 ]
-  %593 = getelementptr [1 x ptr], ptr %589, i64 0, i64 %.021.i95111591162
+  %593 = getelementptr ptr, ptr %589, i64 %.021.i95111591162
   %594 = load ptr, ptr %593, align 8, !tbaa !31
   %.not26.i953 = icmp eq ptr %594, null
   br i1 %.not26.i953, label %.critedge.i955, label %595
@@ -2540,7 +2540,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1168:                                       ; preds = %.lr.ph1165, %.critedge930
   %607 = phi i64 [ %612, %.critedge930 ], [ %605, %.lr.ph1165 ]
   %.061811641167 = phi i64 [ %613, %.critedge930 ], [ 0, %.lr.ph1165 ]
-  %608 = getelementptr [1 x ptr], ptr %604, i64 0, i64 %.061811641167
+  %608 = getelementptr ptr, ptr %604, i64 %.061811641167
   %609 = load ptr, ptr %608, align 8, !tbaa !31
   %.not725 = icmp eq ptr %609, null
   br i1 %.not725, label %.critedge930, label %610
@@ -2575,7 +2575,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1173:                                       ; preds = %.lr.ph1170, %.critedge934
   %621 = phi i64 [ %626, %.critedge934 ], [ %619, %.lr.ph1170 ]
   %.061511691172 = phi i64 [ %627, %.critedge934 ], [ 0, %.lr.ph1170 ]
-  %622 = getelementptr [1 x ptr], ptr %618, i64 0, i64 %.061511691172
+  %622 = getelementptr ptr, ptr %618, i64 %.061511691172
   %623 = load ptr, ptr %622, align 8, !tbaa !31
   %.not727 = icmp eq ptr %623, null
   br i1 %.not727, label %.critedge934, label %624
@@ -2648,7 +2648,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   br i1 %656, label %657, label %.thread975
 
 657:                                              ; preds = %654
-  %658 = getelementptr [1 x ptr], ptr %650, i64 0, i64 %.0549
+  %658 = getelementptr ptr, ptr %650, i64 %.0549
   %659 = load ptr, ptr %658, align 8, !tbaa !60
   %.not715 = icmp eq ptr %659, null
   br i1 %.not715, label %.critedge938, label %660
@@ -2685,7 +2685,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 .lr.ph1153:                                       ; preds = %.lr.ph, %.critedge.i961
   %675 = phi i64 [ %680, %.critedge.i961 ], [ %673, %.lr.ph ]
   %.022.i11501152 = phi i64 [ %681, %.critedge.i961 ], [ 0, %.lr.ph ]
-  %676 = getelementptr [1 x ptr], ptr %672, i64 0, i64 %.022.i11501152
+  %676 = getelementptr ptr, ptr %672, i64 %.022.i11501152
   %677 = load ptr, ptr %676, align 8, !tbaa !31
   %.not28.i = icmp eq ptr %677, null
   br i1 %.not28.i, label %.critedge.i961, label %678
@@ -2782,7 +2782,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph717:                                        ; preds = %.lr.ph714, %.critedge
   %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph714 ]
   %.0309713716 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph714 ]
-  %22 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.0309713716
+  %22 = getelementptr ptr, ptr %18, i64 %.0309713716
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %.not449 = icmp eq ptr %23, null
   br i1 %.not449, label %.critedge, label %24
@@ -2883,7 +2883,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph707:                                        ; preds = %.lr.ph704, %.critedge452
   %72 = phi i64 [ %77, %.critedge452 ], [ %70, %.lr.ph704 ]
   %.0339703706 = phi i64 [ %78, %.critedge452 ], [ 0, %.lr.ph704 ]
-  %73 = getelementptr [1 x ptr], ptr %69, i64 0, i64 %.0339703706
+  %73 = getelementptr ptr, ptr %69, i64 %.0339703706
   %74 = load ptr, ptr %73, align 8, !tbaa !34
   %.not435 = icmp eq ptr %74, null
   br i1 %.not435, label %.critedge452, label %75
@@ -2918,7 +2918,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph712:                                        ; preds = %.lr.ph709, %.critedge456
   %86 = phi i64 [ %91, %.critedge456 ], [ %84, %.lr.ph709 ]
   %.0341708711 = phi i64 [ %92, %.critedge456 ], [ 0, %.lr.ph709 ]
-  %87 = getelementptr [1 x ptr], ptr %83, i64 0, i64 %.0341708711
+  %87 = getelementptr ptr, ptr %83, i64 %.0341708711
   %88 = load ptr, ptr %87, align 8, !tbaa !34
   %.not437 = icmp eq ptr %88, null
   br i1 %.not437, label %.critedge456, label %89
@@ -2953,7 +2953,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph702:                                        ; preds = %.lr.ph699, %.critedge460
   %101 = phi i64 [ %106, %.critedge460 ], [ %99, %.lr.ph699 ]
   %.0342698701 = phi i64 [ %107, %.critedge460 ], [ 0, %.lr.ph699 ]
-  %102 = getelementptr [1 x ptr], ptr %98, i64 0, i64 %.0342698701
+  %102 = getelementptr ptr, ptr %98, i64 %.0342698701
   %103 = load ptr, ptr %102, align 8, !tbaa !34
   %.not433 = icmp eq ptr %103, null
   br i1 %.not433, label %.critedge460, label %104
@@ -3001,7 +3001,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   br i1 %123, label %124, label %.thread
 
 124:                                              ; preds = %121
-  %125 = getelementptr [1 x ptr], ptr %117, i64 0, i64 %.0344
+  %125 = getelementptr ptr, ptr %117, i64 %.0344
   %126 = load ptr, ptr %125, align 8, !tbaa !70
   %.not431 = icmp eq ptr %126, null
   br i1 %.not431, label %.critedge464, label %127
@@ -3034,7 +3034,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph697:                                        ; preds = %.lr.ph694, %.critedge.i
   %141 = phi i64 [ %146, %.critedge.i ], [ %139, %.lr.ph694 ]
   %.024.i693696 = phi i64 [ %147, %.critedge.i ], [ 0, %.lr.ph694 ]
-  %142 = getelementptr [1 x ptr], ptr %138, i64 0, i64 %.024.i693696
+  %142 = getelementptr ptr, ptr %138, i64 %.024.i693696
   %143 = load ptr, ptr %142, align 8, !tbaa !34
   %.not28.i = icmp eq ptr %143, null
   br i1 %.not28.i, label %.critedge.i, label %144
@@ -3092,7 +3092,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   br i1 %166, label %167, label %.thread
 
 167:                                              ; preds = %164
-  %168 = getelementptr [1 x ptr], ptr %160, i64 0, i64 %.0345
+  %168 = getelementptr ptr, ptr %160, i64 %.0345
   %169 = load ptr, ptr %168, align 8, !tbaa !70
   %.not428 = icmp eq ptr %169, null
   br i1 %.not428, label %.critedge468, label %170
@@ -3125,7 +3125,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph692:                                        ; preds = %.lr.ph689, %.critedge.i513
   %184 = phi i64 [ %189, %.critedge.i513 ], [ %182, %.lr.ph689 ]
   %.024.i506688691 = phi i64 [ %190, %.critedge.i513 ], [ 0, %.lr.ph689 ]
-  %185 = getelementptr [1 x ptr], ptr %181, i64 0, i64 %.024.i506688691
+  %185 = getelementptr ptr, ptr %181, i64 %.024.i506688691
   %186 = load ptr, ptr %185, align 8, !tbaa !34
   %.not28.i511 = icmp eq ptr %186, null
   br i1 %.not28.i511, label %.critedge.i513, label %187
@@ -3190,7 +3190,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   br i1 %213, label %214, label %.thread
 
 214:                                              ; preds = %211
-  %215 = getelementptr [1 x ptr], ptr %207, i64 0, i64 %.0347
+  %215 = getelementptr ptr, ptr %207, i64 %.0347
   %216 = load ptr, ptr %215, align 8, !tbaa !70
   %.not425 = icmp eq ptr %216, null
   br i1 %.not425, label %.critedge472, label %217
@@ -3223,7 +3223,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph687:                                        ; preds = %.lr.ph684, %.critedge.i524
   %231 = phi i64 [ %236, %.critedge.i524 ], [ %229, %.lr.ph684 ]
   %.024.i517683686 = phi i64 [ %237, %.critedge.i524 ], [ 0, %.lr.ph684 ]
-  %232 = getelementptr [1 x ptr], ptr %228, i64 0, i64 %.024.i517683686
+  %232 = getelementptr ptr, ptr %228, i64 %.024.i517683686
   %233 = load ptr, ptr %232, align 8, !tbaa !34
   %.not28.i522 = icmp eq ptr %233, null
   br i1 %.not28.i522, label %.critedge.i524, label %234
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   br i1 %256, label %257, label %.thread
 
 257:                                              ; preds = %254
-  %258 = getelementptr [1 x ptr], ptr %250, i64 0, i64 %.0348
+  %258 = getelementptr ptr, ptr %250, i64 %.0348
   %259 = load ptr, ptr %258, align 8, !tbaa !70
   %.not421 = icmp eq ptr %259, null
   br i1 %.not421, label %.critedge476, label %260
@@ -3314,7 +3314,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph682:                                        ; preds = %.lr.ph679, %.critedge.i535
   %274 = phi i64 [ %279, %.critedge.i535 ], [ %272, %.lr.ph679 ]
   %.024.i528678681 = phi i64 [ %280, %.critedge.i535 ], [ 0, %.lr.ph679 ]
-  %275 = getelementptr [1 x ptr], ptr %271, i64 0, i64 %.024.i528678681
+  %275 = getelementptr ptr, ptr %271, i64 %.024.i528678681
   %276 = load ptr, ptr %275, align 8, !tbaa !34
   %.not28.i533 = icmp eq ptr %276, null
   br i1 %.not28.i533, label %.critedge.i535, label %277
@@ -3391,7 +3391,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph677:                                        ; preds = %.lr.ph674, %.critedge480
   %309 = phi i64 [ %314, %.critedge480 ], [ %307, %.lr.ph674 ]
   %.0350673676 = phi i64 [ %315, %.critedge480 ], [ 0, %.lr.ph674 ]
-  %310 = getelementptr [1 x ptr], ptr %306, i64 0, i64 %.0350673676
+  %310 = getelementptr ptr, ptr %306, i64 %.0350673676
   %311 = load ptr, ptr %310, align 8, !tbaa !34
   %.not413 = icmp eq ptr %311, null
   br i1 %.not413, label %.critedge480, label %312
@@ -3445,7 +3445,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph667:                                        ; preds = %.lr.ph664, %.critedge484
   %330 = phi i64 [ %335, %.critedge484 ], [ %328, %.lr.ph664 ]
   %.0349663666 = phi i64 [ %336, %.critedge484 ], [ 0, %.lr.ph664 ]
-  %331 = getelementptr [1 x ptr], ptr %327, i64 0, i64 %.0349663666
+  %331 = getelementptr ptr, ptr %327, i64 %.0349663666
   %332 = load ptr, ptr %331, align 8, !tbaa !34
   %.not408 = icmp eq ptr %332, null
   br i1 %.not408, label %.critedge484, label %333
@@ -3480,7 +3480,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph672:                                        ; preds = %.lr.ph669, %.critedge488
   %344 = phi i64 [ %351, %.critedge488 ], [ %342, %.lr.ph669 ]
   %.0346668671 = phi i64 [ %352, %.critedge488 ], [ 0, %.lr.ph669 ]
-  %345 = getelementptr [1 x ptr], ptr %341, i64 0, i64 %.0346668671
+  %345 = getelementptr ptr, ptr %341, i64 %.0346668671
   %346 = load ptr, ptr %345, align 8, !tbaa !44
   %.not410 = icmp eq ptr %346, null
   br i1 %.not410, label %.critedge488, label %347
@@ -3535,7 +3535,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph662:                                        ; preds = %.lr.ph659, %.critedge492
   %370 = phi i64 [ %375, %.critedge492 ], [ %368, %.lr.ph659 ]
   %.0343658661 = phi i64 [ %376, %.critedge492 ], [ 0, %.lr.ph659 ]
-  %371 = getelementptr [1 x ptr], ptr %367, i64 0, i64 %.0343658661
+  %371 = getelementptr ptr, ptr %367, i64 %.0343658661
   %372 = load ptr, ptr %371, align 8, !tbaa !34
   %.not402 = icmp eq ptr %372, null
   br i1 %.not402, label %.critedge492, label %373
@@ -3636,7 +3636,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph657:                                        ; preds = %.lr.ph654, %.critedge496
   %418 = phi i64 [ %423, %.critedge496 ], [ %416, %.lr.ph654 ]
   %.0340653656 = phi i64 [ %424, %.critedge496 ], [ 0, %.lr.ph654 ]
-  %419 = getelementptr [1 x ptr], ptr %415, i64 0, i64 %.0340653656
+  %419 = getelementptr ptr, ptr %415, i64 %.0340653656
   %420 = load ptr, ptr %419, align 8, !tbaa !34
   %.not389 = icmp eq ptr %420, null
   br i1 %.not389, label %.critedge496, label %421
@@ -3671,7 +3671,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 .lr.ph652:                                        ; preds = %.lr.ph, %.critedge500
   %433 = phi i64 [ %438, %.critedge500 ], [ %431, %.lr.ph ]
   %.0310649651 = phi i64 [ %439, %.critedge500 ], [ 0, %.lr.ph ]
-  %434 = getelementptr [1 x ptr], ptr %430, i64 0, i64 %.0310649651
+  %434 = getelementptr ptr, ptr %430, i64 %.0310649651
   %435 = load ptr, ptr %434, align 8, !tbaa !34
   %.not386 = icmp eq ptr %435, null
   br i1 %.not386, label %.critedge500, label %436
@@ -3823,7 +3823,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_arguments(ptr nounde
 .lr.ph184:                                        ; preds = %.lr.ph, %.critedge
   %10 = phi i64 [ %21, %.critedge ], [ %8, %.lr.ph ]
   %.077181183 = phi i64 [ %22, %.critedge ], [ 0, %.lr.ph ]
-  %11 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.077181183
+  %11 = getelementptr ptr, ptr %6, i64 %.077181183
   %12 = load ptr, ptr %11, align 8, !tbaa !85
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge, label %13
@@ -3871,7 +3871,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_arguments(ptr nounde
 .lr.ph189:                                        ; preds = %.lr.ph186, %.critedge118
   %31 = phi i64 [ %42, %.critedge118 ], [ %29, %.lr.ph186 ]
   %.089185188 = phi i64 [ %43, %.critedge118 ], [ 0, %.lr.ph186 ]
-  %32 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %.089185188
+  %32 = getelementptr ptr, ptr %27, i64 %.089185188
   %33 = load ptr, ptr %32, align 8, !tbaa !85
   %.not105 = icmp eq ptr %33, null
   br i1 %.not105, label %.critedge118, label %34
@@ -3943,7 +3943,7 @@ astfold_arg.exit142:                              ; preds = %54, %51, %47, %.cri
 .lr.ph194:                                        ; preds = %.lr.ph191, %.critedge122
   %63 = phi i64 [ %74, %.critedge122 ], [ %61, %.lr.ph191 ]
   %.091190193 = phi i64 [ %75, %.critedge122 ], [ 0, %.lr.ph191 ]
-  %64 = getelementptr [1 x ptr], ptr %59, i64 0, i64 %.091190193
+  %64 = getelementptr ptr, ptr %59, i64 %.091190193
   %65 = load ptr, ptr %64, align 8, !tbaa !85
   %.not109 = icmp eq ptr %65, null
   br i1 %.not109, label %.critedge122, label %66
@@ -3990,7 +3990,7 @@ astfold_arg.exit142:                              ; preds = %54, %51, %47, %.cri
 .lr.ph199:                                        ; preds = %.lr.ph196, %.critedge126
   %83 = phi i64 [ %88, %.critedge126 ], [ %81, %.lr.ph196 ]
   %.090195198 = phi i64 [ %89, %.critedge126 ], [ 0, %.lr.ph196 ]
-  %84 = getelementptr [1 x ptr], ptr %80, i64 0, i64 %.090195198
+  %84 = getelementptr ptr, ptr %80, i64 %.090195198
   %85 = load ptr, ptr %84, align 8, !tbaa !34
   %.not111 = icmp eq ptr %85, null
   br i1 %.not111, label %.critedge126, label %86
@@ -4049,7 +4049,7 @@ astfold_arg.exit152.split:                        ; preds = %astfold_arg.exit152
 .lr.ph201:                                        ; preds = %astfold_arg.exit152.split, %.critedge130
   %108 = phi i64 [ %113, %.critedge130 ], [ %106, %astfold_arg.exit152.split ]
   %.078200 = phi i64 [ %114, %.critedge130 ], [ 0, %astfold_arg.exit152.split ]
-  %109 = getelementptr [1 x ptr], ptr %105, i64 0, i64 %.078200
+  %109 = getelementptr ptr, ptr %105, i64 %.078200
   %110 = load ptr, ptr %109, align 8, !tbaa !34
   %.not115 = icmp eq ptr %110, null
   br i1 %.not115, label %.critedge130, label %111
@@ -4105,7 +4105,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
 
 .lr.ph.i:                                         ; preds = %8, %11
   %.01317.i = phi i64 [ %12, %11 ], [ 0, %8 ]
-  %13 = getelementptr [1 x ptr], ptr %10, i64 0, i64 %.01317.i
+  %13 = getelementptr ptr, ptr %10, i64 %.01317.i
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load i32, ptr %14, align 8, !tbaa !68
   %.not.i27 = icmp eq i32 %15, 23
@@ -4127,7 +4127,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28.preheader, %.thread34.i
   %.0233941.i = phi i64 [ %17, %.thread34.i ], [ 0, %.lr.ph.i28.preheader ]
-  %18 = getelementptr [1 x ptr], ptr %10, i64 0, i64 %.0233941.i
+  %18 = getelementptr ptr, ptr %10, i64 %.0233941.i
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = load i32, ptr %19, align 8, !tbaa !68
   %.not.i29 = icmp eq i32 %20, 20
@@ -4147,7 +4147,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
 .lr.ph46.i:                                       ; preds = %.lr.ph43.i, %_Py_NewRef.exit.i
   %26 = phi i64 [ %35, %_Py_NewRef.exit.i ], [ %24, %.lr.ph43.i ]
   %.0244245.i = phi i64 [ %37, %_Py_NewRef.exit.i ], [ 0, %.lr.ph43.i ]
-  %27 = getelementptr [1 x ptr], ptr %10, i64 0, i64 %.0244245.i
+  %27 = getelementptr ptr, ptr %10, i64 %.0244245.i
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !28
@@ -4163,7 +4163,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
 
 _Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
   %35 = phi i64 [ %26, %.lr.ph46.i ], [ %.pre.i, %33 ]
-  %36 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.0244245.i
+  %36 = getelementptr ptr, ptr %23, i64 %.0244245.i
   store ptr %30, ptr %36, align 8, !tbaa !33
   %37 = add nuw nsw i64 %.0244245.i, 1
   %38 = icmp slt i64 %37, %35
@@ -4188,7 +4188,7 @@ _Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
 
 .lr.ph.i39:                                       ; preds = %.thread34.lr.ph.i31, %.thread34.i42
   %.0233941.i40 = phi i64 [ %46, %.thread34.i42 ], [ 0, %.thread34.lr.ph.i31 ]
-  %47 = getelementptr [1 x ptr], ptr %44, i64 0, i64 %.0233941.i40
+  %47 = getelementptr ptr, ptr %44, i64 %.0233941.i40
   %48 = load ptr, ptr %47, align 8, !tbaa !34
   %49 = load i32, ptr %48, align 8, !tbaa !68
   %.not.i41 = icmp eq i32 %49, 20
@@ -4208,7 +4208,7 @@ _Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
 .lr.ph46.i35:                                     ; preds = %.lr.ph43.i33, %_Py_NewRef.exit.i38
   %55 = phi i64 [ %64, %_Py_NewRef.exit.i38 ], [ %53, %.lr.ph43.i33 ]
   %.0244245.i36 = phi i64 [ %66, %_Py_NewRef.exit.i38 ], [ 0, %.lr.ph43.i33 ]
-  %56 = getelementptr [1 x ptr], ptr %44, i64 0, i64 %.0244245.i36
+  %56 = getelementptr ptr, ptr %44, i64 %.0244245.i36
   %57 = load ptr, ptr %56, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !28
@@ -4224,7 +4224,7 @@ _Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
 
 _Py_NewRef.exit.i38:                              ; preds = %62, %.lr.ph46.i35
   %64 = phi i64 [ %55, %.lr.ph46.i35 ], [ %.pre.i37, %62 ]
-  %65 = getelementptr [1 x ptr], ptr %52, i64 0, i64 %.0244245.i36
+  %65 = getelementptr ptr, ptr %52, i64 %.0244245.i36
   store ptr %59, ptr %65, align 8, !tbaa !33
   %66 = add nuw nsw i64 %.0244245.i36, 1
   %67 = icmp slt i64 %66, %64
@@ -4410,7 +4410,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph216:                                        ; preds = %.lr.ph213, %.critedge
   %25 = phi i64 [ %30, %.critedge ], [ %23, %.lr.ph213 ]
   %.097212215 = phi i64 [ %31, %.critedge ], [ 0, %.lr.ph213 ]
-  %26 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.097212215
+  %26 = getelementptr ptr, ptr %22, i64 %.097212215
   %27 = load ptr, ptr %26, align 8, !tbaa !98
   %.not138 = icmp eq ptr %27, null
   br i1 %.not138, label %.critedge, label %28
@@ -4445,7 +4445,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph206:                                        ; preds = %.lr.ph203, %.critedge144
   %40 = phi i64 [ %45, %.critedge144 ], [ %38, %.lr.ph203 ]
   %.0111202205 = phi i64 [ %46, %.critedge144 ], [ 0, %.lr.ph203 ]
-  %41 = getelementptr [1 x ptr], ptr %37, i64 0, i64 %.0111202205
+  %41 = getelementptr ptr, ptr %37, i64 %.0111202205
   %42 = load ptr, ptr %41, align 8, !tbaa !34
   %.not134 = icmp eq ptr %42, null
   br i1 %.not134, label %.critedge144, label %43
@@ -4480,7 +4480,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph211:                                        ; preds = %.lr.ph208, %.critedge148
   %54 = phi i64 [ %59, %.critedge148 ], [ %52, %.lr.ph208 ]
   %.0113207210 = phi i64 [ %60, %.critedge148 ], [ 0, %.lr.ph208 ]
-  %55 = getelementptr [1 x ptr], ptr %51, i64 0, i64 %.0113207210
+  %55 = getelementptr ptr, ptr %51, i64 %.0113207210
   %56 = load ptr, ptr %55, align 8, !tbaa !98
   %.not136 = icmp eq ptr %56, null
   br i1 %.not136, label %.critedge148, label %57
@@ -4522,7 +4522,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph196:                                        ; preds = %.lr.ph, %.critedge152
   %73 = phi i64 [ %78, %.critedge152 ], [ %71, %.lr.ph ]
   %.0114193195 = phi i64 [ %79, %.critedge152 ], [ 0, %.lr.ph ]
-  %74 = getelementptr [1 x ptr], ptr %70, i64 0, i64 %.0114193195
+  %74 = getelementptr ptr, ptr %70, i64 %.0114193195
   %75 = load ptr, ptr %74, align 8, !tbaa !98
   %.not130 = icmp eq ptr %75, null
   br i1 %.not130, label %.critedge152, label %76
@@ -4557,7 +4557,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph201:                                        ; preds = %.lr.ph198, %.critedge156
   %87 = phi i64 [ %92, %.critedge156 ], [ %85, %.lr.ph198 ]
   %.0112197200 = phi i64 [ %93, %.critedge156 ], [ 0, %.lr.ph198 ]
-  %88 = getelementptr [1 x ptr], ptr %84, i64 0, i64 %.0112197200
+  %88 = getelementptr ptr, ptr %84, i64 %.0112197200
   %89 = load ptr, ptr %88, align 8, !tbaa !98
   %.not132 = icmp eq ptr %89, null
   br i1 %.not132, label %.critedge156, label %90
@@ -4603,7 +4603,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
 .lr.ph221:                                        ; preds = %.lr.ph218, %.critedge160
   %107 = phi i64 [ %112, %.critedge160 ], [ %105, %.lr.ph218 ]
   %.098217220 = phi i64 [ %113, %.critedge160 ], [ 0, %.lr.ph218 ]
-  %108 = getelementptr [1 x ptr], ptr %104, i64 0, i64 %.098217220
+  %108 = getelementptr ptr, ptr %104, i64 %.098217220
   %109 = load ptr, ptr %108, align 8, !tbaa !98
   %.not140 = icmp eq ptr %109, null
   br i1 %.not140, label %.critedge160, label %110
@@ -4684,7 +4684,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_binop(ptr noundef captures(none
 
 .lr.ph.i:                                         ; preds = %24, %27
   %.01317.i = phi i64 [ %28, %27 ], [ 0, %24 ]
-  %29 = getelementptr [1 x ptr], ptr %26, i64 0, i64 %.01317.i
+  %29 = getelementptr ptr, ptr %26, i64 %.01317.i
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   %31 = load i32, ptr %30, align 8, !tbaa !68
   %.not.i = icmp eq i32 %31, 23
@@ -4893,7 +4893,7 @@ parse_literal.exit.i:                             ; preds = %99
   %110 = load i64, ptr %36, align 8, !tbaa !29
   %111 = add i64 %110, 1
   store i64 %111, ptr %36, align 8, !tbaa !29
-  %112 = getelementptr [1 x ptr], ptr %41, i64 0, i64 %110
+  %112 = getelementptr ptr, ptr %41, i64 %110
   store ptr %108, ptr %112, align 8, !tbaa !34
   br label %114
 
@@ -4923,7 +4923,7 @@ parse_literal.exit.thread.i:                      ; preds = %parse_literal.exit.
 
 120:                                              ; preds = %118
   %121 = add nsw i64 %.26670.i, 1
-  %122 = getelementptr [1 x ptr], ptr %42, i64 0, i64 %.037.i
+  %122 = getelementptr ptr, ptr %42, i64 %.037.i
   %123 = load ptr, ptr %122, align 8, !tbaa !34
   %.not157.i.i.i = icmp slt i64 %121, %.val.i
   br i1 %.not157.i.i.i, label %.lr.ph.i.i.i, label %parse_format.exit.thread.i
@@ -5494,7 +5494,7 @@ parse_format.exit.thread.i:                       ; preds = %parse_format.exit.i
   %290 = load i64, ptr %36, align 8, !tbaa !29
   %291 = add i64 %290, 1
   store i64 %291, ptr %36, align 8, !tbaa !29
-  %292 = getelementptr [1 x ptr], ptr %41, i64 0, i64 %290
+  %292 = getelementptr ptr, ptr %41, i64 %290
   store ptr %285, ptr %292, align 8, !tbaa !34
   br label %44
 
@@ -5717,7 +5717,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr noundef captures(no
 
 24:                                               ; preds = %2
   %25 = zext i32 %7 to i64
-  %26 = getelementptr [5 x ptr], ptr @fold_unaryop.ops, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr @fold_unaryop.ops, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !122
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !28
@@ -5779,7 +5779,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly captures(a
 6:                                                ; preds = %1, %3
   %7 = phi i64 [ %5, %3 ], [ -1, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 16
-  %9 = getelementptr [1 x i32], ptr %8, i64 0, i64 %7
+  %9 = getelementptr i32, ptr %8, i64 %7
   %10 = load i32, ptr %9, align 4, !tbaa !115
   %11 = add i32 %10, -9
   %or.cond = icmp ult i32 %11, 2
@@ -5787,7 +5787,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly captures(a
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %.24.val, i64 16
-  %14 = getelementptr [1 x ptr], ptr %13, i64 0, i64 %7
+  %14 = getelementptr ptr, ptr %13, i64 %7
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = tail call fastcc i32 @fold_iter(ptr noundef %15, ptr noundef %0)
   %.not = icmp eq i32 %16, 0
@@ -5898,7 +5898,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none
 
 .lr.ph.i:                                         ; preds = %.thread34.lr.ph.i, %.thread34.i
   %.0233941.i = phi i64 [ %12, %.thread34.i ], [ 0, %.thread34.lr.ph.i ]
-  %13 = getelementptr [1 x ptr], ptr %10, i64 0, i64 %.0233941.i
+  %13 = getelementptr ptr, ptr %10, i64 %.0233941.i
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load i32, ptr %14, align 8, !tbaa !68
   %.not.i = icmp eq i32 %15, 20
@@ -5918,7 +5918,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none
 .lr.ph46.i:                                       ; preds = %.lr.ph43.i, %_Py_NewRef.exit.i
   %21 = phi i64 [ %30, %_Py_NewRef.exit.i ], [ %19, %.lr.ph43.i ]
   %.0244245.i = phi i64 [ %32, %_Py_NewRef.exit.i ], [ 0, %.lr.ph43.i ]
-  %22 = getelementptr [1 x ptr], ptr %10, i64 0, i64 %.0244245.i
+  %22 = getelementptr ptr, ptr %10, i64 %.0244245.i
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !28
@@ -5934,7 +5934,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none
 
 _Py_NewRef.exit.i:                                ; preds = %28, %.lr.ph46.i
   %30 = phi i64 [ %21, %.lr.ph46.i ], [ %.pre.i, %28 ]
-  %31 = getelementptr [1 x ptr], ptr %18, i64 0, i64 %.0244245.i
+  %31 = getelementptr ptr, ptr %18, i64 %.0244245.i
   store ptr %25, ptr %31, align 8, !tbaa !33
   %32 = add nuw nsw i64 %.0244245.i, 1
   %33 = icmp slt i64 %32, %30
@@ -6279,7 +6279,7 @@ define internal fastcc i64 @check_complexity(ptr noundef readonly captures(none)
 12:                                               ; preds = %.lr.ph, %12
   %.019 = phi i64 [ 0, %.lr.ph ], [ %16, %12 ]
   %.01218 = phi i64 [ %8, %.lr.ph ], [ %15, %12 ]
-  %13 = getelementptr [1 x ptr], ptr %11, i64 0, i64 %.019
+  %13 = getelementptr ptr, ptr %11, i64 %.019
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = tail call fastcc i64 @check_complexity(ptr noundef %14, i64 noundef %.01218)
   %16 = add nuw nsw i64 %.019, 1

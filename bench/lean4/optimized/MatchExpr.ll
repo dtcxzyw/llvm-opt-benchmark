@@ -1339,7 +1339,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Term_MatchExpr_getFunNam
 
 19:                                               ; preds = %.lr.ph, %lean_inc.exit
   %.03263 = phi i64 [ %6, %.lr.ph ], [ %78, %lean_inc.exit ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.03263
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %.03263
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -4885,7 +4885,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_MatchE
 11:                                               ; preds = %.lr.ph, %194
   %.084167 = phi i64 [ %1, %.lr.ph ], [ %.2, %194 ]
   %.086166 = phi ptr [ %3, %.lr.ph ], [ %.288, %194 ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.084167
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %.084167
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -5565,7 +5565,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Term_MatchExpr_getParams___spe
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

@@ -193,7 +193,7 @@ define noundef ptr @zmq_z85_encode(ptr noundef writeonly captures(ret: address, 
   %17 = udiv i32 %13, %.025
   %18 = urem i32 %17, 85
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [86 x i8], ptr @_ZL7encoder, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZL7encoder, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !32
   %22 = add i32 %.224, 1
   %23 = zext i32 %.224 to i64
@@ -257,9 +257,9 @@ define noundef ptr @zmq_z85_decode(ptr noundef writeonly captures(ret: address, 
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = add nsw i8 %7, -32
-  %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw [96 x i8], ptr @_ZL7decoder, i64 0, i64 %15
+  %14 = zext nneg i8 %7 to i64
+  %15 = getelementptr i8, ptr @_ZL7decoder, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -32
   %17 = load i8, ptr %16, align 1, !tbaa !32
   %18 = zext i8 %17 to i32
   %19 = icmp eq i8 %17, -1

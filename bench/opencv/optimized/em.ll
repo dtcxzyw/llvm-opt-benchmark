@@ -489,7 +489,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %165
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds [4 x %"class.cv::Scalar_"], ptr %6, i64 0, i64 %215
+  %216 = getelementptr inbounds %"class.cv::Scalar_", ptr %6, i64 %215
   %.sroa.0.0.copyload = load double, ptr %216, align 16, !tbaa !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
@@ -669,7 +669,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %268, %275, %281
   %.0.i96 = phi ptr [ %270, %268 ], [ %280, %275 ], [ %293, %281 ]
   %294 = load i32, ptr %.0.i96, align 4, !tbaa !56
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds [4 x %"class.cv::Scalar_"], ptr %6, i64 0, i64 %295
+  %296 = getelementptr inbounds %"class.cv::Scalar_", ptr %6, i64 %295
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 %.sroa.0100.0.insert.insert, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %296, i32 noundef -1, i32 noundef 8, i32 noundef 0)
           to label %297 unwind label %298
 

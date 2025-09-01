@@ -1144,7 +1144,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %12, %_ZN17QArrayDat
   %37 = and i64 %34, 127
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr [128 x i8], ptr %36, i64 0, i64 %37
+  %40 = getelementptr i8, ptr %36, i64 %37
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %39, i64 %42
@@ -1488,7 +1488,7 @@ define linkonce_odr noundef ptr @_ZNK6QCacheIj5QListI7QStringEE6relinkERKj(ptr n
   %25 = lshr i64 %22, 7
   %26 = and i64 %22, 127
   %27 = getelementptr %"struct.QHashPrivate::Span", ptr %24, i64 %25
-  %28 = getelementptr [128 x i8], ptr %27, i64 0, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 %26
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, -1
   br i1 %30, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i
@@ -1512,7 +1512,7 @@ define linkonce_odr noundef ptr @_ZNK6QCacheIj5QListI7QStringEE6relinkERKj(ptr n
   %42 = lshr i64 %spec.store.select.i.i.i, 7
   %43 = and i64 %spec.store.select.i.i.i, 127
   %44 = getelementptr %"struct.QHashPrivate::Span", ptr %24, i64 %42
-  %45 = getelementptr [128 x i8], ptr %44, i64 0, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 %43
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, -1
   br i1 %47, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !16
@@ -1521,7 +1521,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i: ; pr
   %.pre7.i = and i64 %.01827.i.i, 127
   %.pre.i = lshr i64 %.01827.i.i, 7
   %.phi.trans.insert = getelementptr %"struct.QHashPrivate::Span", ptr %24, i64 %.pre.i
-  %.phi.trans.insert22 = getelementptr [128 x i8], ptr %.phi.trans.insert, i64 0, i64 %.pre7.i
+  %.phi.trans.insert22 = getelementptr i8, ptr %.phi.trans.insert, i64 %.pre7.i
   %.pre = load i8, ptr %.phi.trans.insert22, align 1
   %.not.i.i = icmp eq i8 %.pre, -1
   br i1 %.not.i.i, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit
@@ -2660,7 +2660,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6QCacheIj5QListI7QStringEE6removeERKj
   %26 = lshr i64 %23, 7
   %27 = and i64 %23, 127
   %28 = getelementptr %"struct.QHashPrivate::Span", ptr %25, i64 %26
-  %29 = getelementptr [128 x i8], ptr %28, i64 0, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 %27
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, -1
   br i1 %31, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i
@@ -2684,7 +2684,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6QCacheIj5QListI7QStringEE6removeERKj
   %43 = lshr i64 %spec.store.select.i.i.i, 7
   %44 = and i64 %spec.store.select.i.i.i, 127
   %45 = getelementptr %"struct.QHashPrivate::Span", ptr %25, i64 %43
-  %46 = getelementptr [128 x i8], ptr %45, i64 0, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 %44
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, -1
   br i1 %48, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !16
@@ -2693,7 +2693,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i: ; pr
   %.pre7.i = and i64 %.01827.i.i, 127
   %.pre.i = lshr i64 %.01827.i.i, 7
   %.phi.trans.insert = getelementptr %"struct.QHashPrivate::Span", ptr %25, i64 %.pre.i
-  %.phi.trans.insert17 = getelementptr [128 x i8], ptr %.phi.trans.insert, i64 0, i64 %.pre7.i
+  %.phi.trans.insert17 = getelementptr i8, ptr %.phi.trans.insert, i64 %.pre7.i
   %.pre = load i8, ptr %.phi.trans.insert17, align 1
   %.not.i.i = icmp eq i8 %.pre, -1
   br i1 %.not.i.i, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit
@@ -2740,7 +2740,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit: ; 
   %81 = lshr i64 %79, 7
   %82 = and i64 %79, 127
   %83 = getelementptr %"struct.QHashPrivate::Span", ptr %80, i64 %81
-  %84 = getelementptr [128 x i8], ptr %83, i64 0, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 %82
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, -1
   br i1 %86, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i6
@@ -2764,7 +2764,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit: ; 
   %98 = lshr i64 %spec.store.select.i.i.i8, 7
   %99 = and i64 %spec.store.select.i.i.i8, 127
   %100 = getelementptr %"struct.QHashPrivate::Span", ptr %80, i64 %98
-  %101 = getelementptr [128 x i8], ptr %100, i64 0, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 %99
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, -1
   br i1 %103, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i6, !llvm.loop !16
@@ -2832,7 +2832,7 @@ define linkonce_odr void @_ZN6QCacheIj5QListI7QStringEE4trimEx(ptr noundef align
   %40 = lshr i64 %38, 7
   %41 = and i64 %38, 127
   %42 = getelementptr %"struct.QHashPrivate::Span", ptr %39, i64 %40
-  %43 = getelementptr [128 x i8], ptr %42, i64 0, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 %41
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, -1
   br i1 %45, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i
@@ -2856,7 +2856,7 @@ define linkonce_odr void @_ZN6QCacheIj5QListI7QStringEE4trimEx(ptr noundef align
   %57 = lshr i64 %spec.store.select.i.i.i, 7
   %58 = and i64 %spec.store.select.i.i.i, 127
   %59 = getelementptr %"struct.QHashPrivate::Span", ptr %39, i64 %57
-  %60 = getelementptr [128 x i8], ptr %59, i64 0, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 %58
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, -1
   br i1 %62, label %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit, label %.lr.ph.i.i, !llvm.loop !16
@@ -2900,7 +2900,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4Nod
   %24 = lshr i64 %21, 7
   %25 = and i64 %21, 127
   %26 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %24
-  %27 = getelementptr [128 x i8], ptr %26, i64 0, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 %25
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit, label %.lr.ph.i
@@ -2929,7 +2929,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4Nod
   %41 = lshr i64 %spec.store.select.i.i, 7
   %42 = and i64 %spec.store.select.i.i, 127
   %43 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %41
-  %44 = getelementptr [128 x i8], ptr %43, i64 0, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 %42
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, -1
   br i1 %46, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !16
@@ -2939,7 +2939,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit: ; pred
   %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.loopexit_crit_edge ], [ %42, %38 ]
   %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
   %47 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr [128 x i8], ptr %47, i64 0, i64 %.pre-phi
+  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
   %49 = load i8, ptr %48, align 1
   %.not.i = icmp eq i8 %49, -1
   br i1 %.not.i, label %50, label %118
@@ -2985,7 +2985,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit: ; pred
   %75 = lshr i64 %72, 7
   %76 = and i64 %72, 127
   %77 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %75
-  %78 = getelementptr [128 x i8], ptr %77, i64 0, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 %76
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, -1
   br i1 %80, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit11, label %.lr.ph.i5
@@ -3009,7 +3009,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit: ; pred
   %92 = lshr i64 %spec.store.select.i.i7, 7
   %93 = and i64 %spec.store.select.i.i7, 127
   %94 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %92
-  %95 = getelementptr [128 x i8], ptr %94, i64 0, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 %93
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit11, label %.lr.ph.i5, !llvm.loop !16
@@ -3044,7 +3044,7 @@ _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit11: ; pr
   %113 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %111, i64 %112
   %114 = load i8, ptr %113, align 1
   store i8 %114, ptr %102, align 1
-  %115 = getelementptr [128 x i8], ptr %100, i64 0, i64 %101
+  %115 = getelementptr i8, ptr %100, i64 %101
   store i8 %109, ptr %115, align 1
   %116 = load i64, ptr %51, align 8
   %117 = add i64 %116, 1
@@ -3091,7 +3091,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %17 = and i64 %spec.store.select.i51, 127
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %16
-  %20 = getelementptr [128 x i8], ptr %19, i64 0, i64 %17
+  %20 = getelementptr i8, ptr %19, i64 %17
   %21 = load i8, ptr %20, align 1
   %.not52 = icmp eq i8 %21, -1
   br i1 %.not52, label %._crit_edge, label %.lr.ph55
@@ -3143,8 +3143,8 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
 
 54:                                               ; preds = %50
   %55 = getelementptr %"struct.QHashPrivate::Span", ptr %26, i64 %28
-  %56 = getelementptr [128 x i8], ptr %55, i64 0, i64 %27
-  %57 = getelementptr [128 x i8], ptr %55, i64 0, i64 %52
+  %56 = getelementptr i8, ptr %55, i64 %27
+  %57 = getelementptr i8, ptr %55, i64 %52
   store i8 %24, ptr %57, align 1
   store i8 -1, ptr %56, align 1
   br label %.loopexit
@@ -3171,7 +3171,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %68 = and i64 %spec.store.select.i, 127
   %69 = load ptr, ptr %6, align 8
   %70 = getelementptr %"struct.QHashPrivate::Span", ptr %69, i64 %67
-  %71 = getelementptr [128 x i8], ptr %70, i64 0, i64 %68
+  %71 = getelementptr i8, ptr %70, i64 %68
   %72 = load i8, ptr %71, align 1
   %.not = icmp eq i8 %72, -1
   br i1 %.not, label %._crit_edge, label %23
@@ -3185,7 +3185,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr %"struct.QHashPrivate::Span", ptr %73, i64 %4
-  %79 = getelementptr [128 x i8], ptr %78, i64 0, i64 %5
+  %79 = getelementptr i8, ptr %78, i64 %5
   %80 = load i8, ptr %79, align 1
   %.not48 = icmp eq i8 %80, -1
   br i1 %.not48, label %81, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit
@@ -3207,7 +3207,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %91 = lshr i64 %87, 7
   %92 = getelementptr %"struct.QHashPrivate::Span", ptr %90, i64 %91
   %93 = and i64 %87, 127
-  %94 = getelementptr [128 x i8], ptr %92, i64 0, i64 %93
+  %94 = getelementptr i8, ptr %92, i64 %93
   %95 = load i8, ptr %94, align 1
   %.not.i.i = icmp eq i8 %95, -1
   br i1 %.not.i.i, label %85, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit, !llvm.loop !24
@@ -3229,7 +3229,7 @@ _ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE5eraseEm(ptr noundef align 8 dereferenceable_or_null(138) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr [128 x i8], ptr %0, i64 0, i64 %1
+  %3 = getelementptr i8, ptr %0, i64 %1
   %4 = load i8, ptr %3, align 1
   store i8 -1, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3317,7 +3317,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4Nod
 
 11:                                               ; preds = %10, %4
   %12 = phi i8 [ %.pre, %10 ], [ %6, %4 ]
-  %13 = getelementptr [128 x i8], ptr %0, i64 0, i64 %3
+  %13 = getelementptr i8, ptr %0, i64 %3
   store i8 %12, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
@@ -3326,7 +3326,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4Nod
   %18 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %15, i64 %17
   %19 = load i8, ptr %18, align 1
   store i8 %19, ptr %5, align 1
-  %20 = getelementptr [128 x i8], ptr %1, i64 0, i64 %2
+  %20 = getelementptr i8, ptr %1, i64 %2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   store i8 -1, ptr %20, align 1
@@ -3651,7 +3651,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 
 53:                                               ; preds = %48, %180
   %.02333 = phi i64 [ 0, %48 ], [ %181, %180 ]
-  %54 = getelementptr [128 x i8], ptr %49, i64 0, i64 %.02333
+  %54 = getelementptr i8, ptr %49, i64 %.02333
   %55 = load i8, ptr %54, align 1
   %.not = icmp eq i8 %55, -1
   br i1 %.not, label %180, label %56
@@ -3680,7 +3680,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %77 = lshr i64 %75, 7
   %78 = and i64 %75, 127
   %79 = getelementptr %"struct.QHashPrivate::Span", ptr %76, i64 %77
-  %80 = getelementptr [128 x i8], ptr %79, i64 0, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 %78
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, -1
   br i1 %82, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit, label %.lr.ph.i
@@ -3709,7 +3709,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %94 = lshr i64 %spec.store.select.i.i, 7
   %95 = and i64 %spec.store.select.i.i, 127
   %96 = getelementptr %"struct.QHashPrivate::Span", ptr %76, i64 %94
-  %97 = getelementptr [128 x i8], ptr %96, i64 0, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 %95
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, -1
   br i1 %99, label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !16
@@ -3872,7 +3872,7 @@ _ZN12QHashPrivate4SpanIN6QCacheIj5QListI7QStringEE4NodeEE6insertEm.exit: ; preds
   %165 = getelementptr %"struct.QHashPrivate::Span<QCache<unsigned int, QList<QString>>::Node>::Entry", ptr %162, i64 %164
   %166 = load i8, ptr %165, align 1
   store i8 %166, ptr %101, align 1
-  %167 = getelementptr [128 x i8], ptr %100, i64 0, i64 %.pre-phi39
+  %167 = getelementptr i8, ptr %100, i64 %.pre-phi39
   store i8 %163, ptr %167, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) dereferenceable_or_null(40) %165, ptr noundef align 8 dereferenceable(40) %59, i64 16, i1 false)
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16

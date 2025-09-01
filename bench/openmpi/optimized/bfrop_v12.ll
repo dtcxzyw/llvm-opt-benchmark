@@ -2930,7 +2930,7 @@ define zeroext i16 @pmix12_v1_to_v2_datatype(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.pmix12_bfrop_get_data_type, i64 %5
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %6
 
@@ -2970,7 +2970,7 @@ define i32 @pmix12_bfrop_get_data_type(ptr noundef %0, ptr noundef %1, ptr nound
 
 switch.lookup:                                    ; preds = %11
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i16], ptr @switch.table.pmix12_bfrop_get_data_type, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.pmix12_bfrop_get_data_type, i64 %15
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.sink.split
 

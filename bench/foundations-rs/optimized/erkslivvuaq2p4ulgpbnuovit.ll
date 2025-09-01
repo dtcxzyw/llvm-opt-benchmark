@@ -781,10 +781,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !29, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !37, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha61be599e6387adeE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha61be599e6387adeE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha61be599e6387adeE.167", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha61be599e6387adeE.167", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -7613,7 +7613,7 @@ _ZN9trackable5error12ErrorKindExt5cause17h151105b410ef07ddE.exit: ; preds = %"_Z
 switch.lookup137:                                 ; preds = %65
   %.tr = trunc nuw nsw i64 %.val66 to i8
   %75 = shl nuw i8 %.tr, 4
-  %switch.gep138 = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN84_$LT$thrift_codec..data..set..Set$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17h8c439f413e0a10d5E.168", i64 0, i64 %.val
+  %switch.gep138 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN84_$LT$thrift_codec..data..set..Set$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17h8c439f413e0a10d5E.168", i64 %.val
   %switch.load139 = load i8, ptr %switch.gep138, align 1
   %76 = or disjoint i8 %switch.load139, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !642
@@ -7623,7 +7623,7 @@ switch.lookup137:                                 ; preds = %65
   br label %99
 
 switch.lookup:                                    ; preds = %65
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN84_$LT$thrift_codec..data..set..Set$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17h8c439f413e0a10d5E", i64 0, i64 %.val
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN84_$LT$thrift_codec..data..set..Set$u20$as$u20$thrift_codec..encode..CompactEncode$GT$14compact_encode17h8c439f413e0a10d5E", i64 %.val
   %switch.load = load i8, ptr %switch.gep, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !645
   store i8 %switch.load, ptr %7, align 1, !noalias !645

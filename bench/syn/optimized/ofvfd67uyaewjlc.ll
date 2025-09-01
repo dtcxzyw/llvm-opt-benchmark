@@ -2743,7 +2743,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit: ; preds = %15, %20, %2
 
 40:                                               ; preds = %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit, %40
   %41 = phi i64 [ 0, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit ], [ %43, %40 ]
-  %42 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %8, i64 %41
   store i32 %.0.i, ptr %42, align 4
   %43 = add nuw nsw i64 %41, 1
   %exitcond.not = icmp eq i64 %43, 3
@@ -3107,7 +3107,7 @@ common.resume:                                    ; preds = %.body15, %39
 
 114:                                              ; preds = %103
   %.val = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
-  %115 = getelementptr inbounds [0 x { i32, [9 x i32] }], ptr %.val, i64 0, i64 %49
+  %115 = getelementptr inbounds { i32, [9 x i32] }, ptr %.val, i64 %49
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..buffer..Entry$GT$17h45fc02ac67c0fcdcE.llvm.1271834235494842624"(ptr noalias noundef nonnull align 8 dereferenceable(40) %115)
           to label %116 unwind label %112
 
@@ -6079,7 +6079,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   br label %263
 
 256:                                              ; preds = %251
-  %257 = getelementptr inbounds nuw [39 x i64], ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 0, i64 %252
+  %257 = getelementptr inbounds nuw i64, ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 %252
   %258 = load i64, ptr %257, align 8, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %8, i64 %258, i1 false)
   %.0..0..0..0..0..0..pr = load i64, ptr %9, align 8
@@ -6088,7 +6088,7 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   br i1 %259, label %263, label %260
 
 260:                                              ; preds = %256
-  %261 = getelementptr inbounds [39 x i64], ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 0, i64 %.0..0..0..0..0..0..pr
+  %261 = getelementptr inbounds i64, ptr @anon.498ddb5d88a3ea875d9859ed069fa2d7.21, i64 %.0..0..0..0..0..0..pr
   %262 = load i64, ptr %261, align 8, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.035, ptr nonnull align 8 %9, i64 %262, i1 false)
   %.sroa.035.176..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.035, i64 176

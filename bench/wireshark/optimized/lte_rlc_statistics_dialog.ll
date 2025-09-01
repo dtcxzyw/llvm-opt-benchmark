@@ -3160,8 +3160,8 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load i16, ptr %82, align 8
   %84 = zext i16 %83 to i64
-  %85 = add nsw i64 %84, -1
-  %86 = getelementptr [2 x ptr], ptr %81, i64 0, i64 %85
+  %85 = getelementptr ptr, ptr %81, i64 %84
+  %86 = getelementptr i8, ptr %85, i64 -8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %129
@@ -3179,8 +3179,8 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(
 96:                                               ; preds = %89
   %97 = load i16, ptr %82, align 8
   %98 = zext i16 %97 to i64
-  %99 = add nsw i64 %98, -1
-  %100 = getelementptr [2 x ptr], ptr %81, i64 0, i64 %99
+  %99 = getelementptr ptr, ptr %81, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 -8
   store ptr %90, ptr %100, align 8
   br label %129
 
@@ -3194,8 +3194,8 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i64
-  %108 = add nsw i64 %107, -1
-  %109 = getelementptr [32 x ptr], ptr %104, i64 0, i64 %108
+  %108 = getelementptr ptr, ptr %104, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 -8
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %129
@@ -3216,8 +3216,8 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem6updateEPK17rlc_3gpp_tap_info(
 122:                                              ; preds = %112
   %123 = load i16, ptr %105, align 8
   %124 = zext i16 %123 to i64
-  %125 = add nsw i64 %124, -1
-  %126 = getelementptr [32 x ptr], ptr %104, i64 0, i64 %125
+  %125 = getelementptr ptr, ptr %104, i64 %124
+  %126 = getelementptr i8, ptr %125, i64 -8
   store ptr %113, ptr %126, align 8
   br label %129
 
@@ -4400,7 +4400,7 @@ _ZN7QStringD2Ev.exit210:                          ; preds = %.body144, %_ZN17QAr
 312:                                              ; preds = %309, %317
   %313 = phi i1 [ true, %309 ], [ false, %317 ]
   %indvars.iv = phi i64 [ 0, %309 ], [ 1, %317 ]
-  %314 = getelementptr [2 x ptr], ptr %310, i64 0, i64 %indvars.iv
+  %314 = getelementptr ptr, ptr %310, i64 %indvars.iv
   %315 = load ptr, ptr %314, align 8
   %.not33 = icmp eq ptr %315, null
   br i1 %.not33, label %317, label %316
@@ -4417,7 +4417,7 @@ _ZN7QStringD2Ev.exit210:                          ; preds = %.body144, %_ZN17QAr
 
 319:                                              ; preds = %.preheader, %323
   %indvars.iv225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next226, %323 ]
-  %320 = getelementptr [32 x ptr], ptr %311, i64 0, i64 %indvars.iv225
+  %320 = getelementptr ptr, ptr %311, i64 %indvars.iv225
   %321 = load ptr, ptr %320, align 8
   %.not32 = icmp eq ptr %321, null
   br i1 %.not32, label %323, label %322

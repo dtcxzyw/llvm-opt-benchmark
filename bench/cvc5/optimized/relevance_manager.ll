@@ -4609,8 +4609,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory16RelevanceManager22up
   %spec.select.i.i = add nsw i64 %29, %39
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %sext = shl i64 %spec.select.i.i, 32
-  %41 = ashr exact i64 %sext, 32
-  %42 = getelementptr inbounds [0 x ptr], ptr %40, i64 0, i64 %41
+  %41 = ashr exact i64 %sext, 29
+  %42 = getelementptr inbounds i8, ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !309, !noalias !425
   store ptr %43, ptr %5, align 8, !tbaa !299, !alias.scope !425
   %44 = load i64, ptr %43, align 8, !noalias !425
@@ -5782,7 +5782,7 @@ _ZN4cvc58internal6theory16RelevanceManager16computeRelevanceEv.exit: ; preds = %
   %28 = icmp eq i32 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = zext i1 %28 to i64
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !309, !noalias !431
   %33 = load ptr, ptr %1, align 8, !tbaa !323
   %.not.i6 = icmp eq ptr %33, %32
@@ -5969,7 +5969,7 @@ define hidden void @_ZN4cvc58internal6theory16RelevanceManager25getExplanationFo
   %14 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw [0 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !309, !noalias !441
   %19 = load ptr, ptr %2, align 8, !tbaa !323
   %.not.i = icmp eq ptr %19, %18

@@ -568,7 +568,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 
 33:                                               ; preds = %.lr.ph89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8
   %.not73.us = icmp eq ptr %35, null
   br i1 %.not73.us, label %.split85.us, label %.lr.ph89, !llvm.loop !11
@@ -576,7 +576,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 .lr.ph89:                                         ; preds = %.split.us, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.split.us ]
   %36 = phi ptr [ %35, %33 ], [ %32, %.split.us ]
-  %37 = phi ptr [ %34, %33 ], [ %30, %.split.us ]
+  %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   tail call void @_ZdaPv(ptr noundef nonnull %36) #14
   store ptr null, ptr %37, align 8
   %exitcond.not = icmp eq i64 %indvars.iv, 7
@@ -590,7 +590,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   %.06082 = phi i32 [ %.161, %55 ], [ 0, %27 ]
   %.281 = phi i1 [ %.4, %55 ], [ %.163, %27 ]
   %38 = zext i32 %.06082 to i64
-  %39 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %38
   %40 = load ptr, ptr %39, align 8
   %.not73 = icmp eq ptr %40, null
   br i1 %.not73, label %.split85.us, label %41
@@ -620,10 +620,10 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv122 = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next123, %.lr.ph ]
   %.058.in79 = phi i32 [ %.06082, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv122
+  %47 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv122
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %.058.in79 to i64
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %30, i64 %49
   store ptr %48, ptr %50, align 8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %51 = trunc nuw nsw i64 %indvars.iv122 to i32
@@ -659,7 +659,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 
 62:                                               ; preds = %.lr.ph108
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv.next128
+  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.next128
   %64 = load ptr, ptr %63, align 8
   %.not74.us = icmp eq ptr %64, null
   br i1 %.not74.us, label %.split102.us, label %.lr.ph108, !llvm.loop !13
@@ -667,7 +667,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 .lr.ph108:                                        ; preds = %.split100.us, %62
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %62 ], [ 0, %.split100.us ]
   %65 = phi ptr [ %64, %62 ], [ %61, %.split100.us ]
-  %66 = phi ptr [ %63, %62 ], [ %59, %.split100.us ]
+  %66 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv127
   tail call void @_ZdaPv(ptr noundef nonnull %65) #14
   store ptr null, ptr %66, align 8
   %exitcond132.not = icmp eq i64 %indvars.iv127, 7
@@ -681,7 +681,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   %.05798 = phi i32 [ %.1, %85 ], [ 0, %.split85.us ]
   %.597 = phi i1 [ %.7, %85 ], [ %.us-phi, %.split85.us ]
   %67 = zext i32 %.05798 to i64
-  %68 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw ptr, ptr %59, i64 %67
   %69 = load ptr, ptr %68, align 8
   %.not74 = icmp eq ptr %69, null
   br i1 %.not74, label %.split102.us, label %70
@@ -712,10 +712,10 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv133 = phi i64 [ %76, %.lr.ph95.preheader ], [ %indvars.iv.next134, %.lr.ph95 ]
   %.0.in93 = phi i32 [ %.05798, %.lr.ph95.preheader ], [ %81, %.lr.ph95 ]
-  %77 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv133
+  %77 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv133
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %.0.in93 to i64
-  %80 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %59, i64 %79
   store ptr %78, ptr %80, align 8
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %81 = trunc nuw nsw i64 %indvars.iv133 to i32
@@ -1136,7 +1136,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -1188,7 +1188,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -1478,7 +1478,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -1497,7 +1497,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

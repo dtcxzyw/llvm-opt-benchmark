@@ -239,7 +239,7 @@ list_head.exit:                                   ; preds = %51, %115
   %125 = load ptr, ptr %57, align 8
   %126 = getelementptr inbounds nuw i16, ptr %125, i64 %indvars.iv
   %127 = load i16, ptr %126, align 2
-  %128 = getelementptr inbounds nuw [0 x i32], ptr %121, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
   %131 = call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %130) #6
@@ -247,7 +247,7 @@ list_head.exit:                                   ; preds = %51, %115
   br i1 %.not141, label %132, label %137
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw [0 x i32], ptr %121, i64 0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
   %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %134)
   %135 = load i32, ptr %133, align 4
@@ -297,7 +297,7 @@ list_head.exit:                                   ; preds = %51, %115
   %166 = load ptr, ptr %72, align 8
   %167 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %166, i64 %indvars.iv
   call void @fmgr_info_cxt(i32 noundef %152, ptr noundef %167, ptr noundef %13) #6
-  %168 = getelementptr inbounds nuw [0 x i32], ptr %122, i64 0, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
   %169 = load i32, ptr %168, align 4
   %170 = load ptr, ptr %77, align 8
   %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv

@@ -4163,19 +4163,17 @@ define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %0, i32 noundef %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = sext i32 %1 to i64
   %7 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 31, i64 noundef %6) #20
-  %8 = add nsw i32 %7, 1
-  %9 = add nsw i32 %7, 2
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %10
-  store i8 13, ptr %11, align 1, !tbaa !18
-  %12 = add nsw i32 %7, 3
-  %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %13
-  store i8 10, ptr %14, align 1, !tbaa !18
-  %15 = sext i32 %12 to i64
-  %16 = call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %15) #20
-  %17 = icmp sgt i32 %1, 0
-  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr i8, ptr %4, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 1
+  store i8 13, ptr %10, align 1, !tbaa !18
+  %11 = add nsw i32 %7, 3
+  %12 = getelementptr i8, ptr %9, i64 2
+  store i8 10, ptr %12, align 1, !tbaa !18
+  %13 = sext i32 %11 to i64
+  %14 = call ptr @sdscatlen(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %13) #20
+  %15 = icmp sgt i32 %1, 0
+  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -4183,119 +4181,117 @@ define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %sdslen.exit22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %sdslen.exit22 ]
-  %.024 = phi ptr [ %16, %.lr.ph.preheader ], [ %79, %sdslen.exit22 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !116
-  %20 = call ptr @getDecodedObject(ptr noundef %19) #20
+  %.024 = phi ptr [ %14, %.lr.ph.preheader ], [ %75, %sdslen.exit22 ]
+  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !116
+  %18 = call ptr @getDecodedObject(ptr noundef %17) #20
   store i8 36, ptr %4, align 16, !tbaa !18
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !118
-  %23 = getelementptr inbounds i8, ptr %22, i64 -1
-  %24 = load i8, ptr %23, align 1, !tbaa !18
-  %25 = zext i8 %24 to i32
-  %26 = and i32 %25, 7
-  switch i32 %26, label %sdslen.exit [
-    i32 0, label %27
-    i32 1, label %30
-    i32 2, label %34
-    i32 3, label %38
-    i32 4, label %42
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !118
+  %21 = getelementptr inbounds i8, ptr %20, i64 -1
+  %22 = load i8, ptr %21, align 1, !tbaa !18
+  %23 = zext i8 %22 to i32
+  %24 = and i32 %23, 7
+  switch i32 %24, label %sdslen.exit [
+    i32 0, label %25
+    i32 1, label %28
+    i32 2, label %32
+    i32 3, label %36
+    i32 4, label %40
   ]
 
-27:                                               ; preds = %.lr.ph
-  %28 = lshr i32 %25, 3
-  %29 = zext nneg i32 %28 to i64
+25:                                               ; preds = %.lr.ph
+  %26 = lshr i32 %23, 3
+  %27 = zext nneg i32 %26 to i64
   br label %sdslen.exit
 
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %22, i64 -3
-  %32 = load i8, ptr %31, align 1, !tbaa !18
-  %33 = zext i8 %32 to i64
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds i8, ptr %20, i64 -3
+  %30 = load i8, ptr %29, align 1, !tbaa !18
+  %31 = zext i8 %30 to i64
   br label %sdslen.exit
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %22, i64 -5
-  %36 = load i16, ptr %35, align 1, !tbaa !19
-  %37 = zext i16 %36 to i64
+32:                                               ; preds = %.lr.ph
+  %33 = getelementptr inbounds i8, ptr %20, i64 -5
+  %34 = load i16, ptr %33, align 1, !tbaa !19
+  %35 = zext i16 %34 to i64
   br label %sdslen.exit
 
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %22, i64 -9
-  %40 = load i32, ptr %39, align 1, !tbaa !21
-  %41 = zext i32 %40 to i64
+36:                                               ; preds = %.lr.ph
+  %37 = getelementptr inbounds i8, ptr %20, i64 -9
+  %38 = load i32, ptr %37, align 1, !tbaa !21
+  %39 = zext i32 %38 to i64
   br label %sdslen.exit
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %22, i64 -17
-  %44 = load i64, ptr %43, align 1, !tbaa !22
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds i8, ptr %20, i64 -17
+  %42 = load i64, ptr %41, align 1, !tbaa !22
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %.lr.ph, %27, %30, %34, %38, %42
-  %.0.i = phi i64 [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %44, %42 ], [ 0, %.lr.ph ]
-  %45 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 31, i64 noundef %.0.i) #20
-  %46 = add nsw i32 %45, 1
-  %47 = add nsw i32 %45, 2
-  %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %48
-  store i8 13, ptr %49, align 1, !tbaa !18
-  %50 = add nsw i32 %45, 3
-  %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %51
-  store i8 10, ptr %52, align 1, !tbaa !18
-  %53 = sext i32 %50 to i64
-  %54 = call ptr @sdscatlen(ptr noundef %.024, ptr noundef nonnull %4, i64 noundef %53) #20
-  %55 = load ptr, ptr %21, align 8, !tbaa !118
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %57 = load i8, ptr %56, align 1, !tbaa !18
-  %58 = zext i8 %57 to i32
-  %59 = and i32 %58, 7
-  switch i32 %59, label %sdslen.exit22 [
-    i32 0, label %60
-    i32 1, label %63
-    i32 2, label %67
-    i32 3, label %71
-    i32 4, label %75
+sdslen.exit:                                      ; preds = %.lr.ph, %25, %28, %32, %36, %40
+  %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %.lr.ph ]
+  %43 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 31, i64 noundef %.0.i) #20
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr i8, ptr %4, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 1
+  store i8 13, ptr %46, align 1, !tbaa !18
+  %47 = add nsw i32 %43, 3
+  %48 = getelementptr i8, ptr %45, i64 2
+  store i8 10, ptr %48, align 1, !tbaa !18
+  %49 = sext i32 %47 to i64
+  %50 = call ptr @sdscatlen(ptr noundef %.024, ptr noundef nonnull %4, i64 noundef %49) #20
+  %51 = load ptr, ptr %19, align 8, !tbaa !118
+  %52 = getelementptr inbounds i8, ptr %51, i64 -1
+  %53 = load i8, ptr %52, align 1, !tbaa !18
+  %54 = zext i8 %53 to i32
+  %55 = and i32 %54, 7
+  switch i32 %55, label %sdslen.exit22 [
+    i32 0, label %56
+    i32 1, label %59
+    i32 2, label %63
+    i32 3, label %67
+    i32 4, label %71
   ]
 
-60:                                               ; preds = %sdslen.exit
-  %61 = lshr i32 %58, 3
-  %62 = zext nneg i32 %61 to i64
+56:                                               ; preds = %sdslen.exit
+  %57 = lshr i32 %54, 3
+  %58 = zext nneg i32 %57 to i64
+  br label %sdslen.exit22
+
+59:                                               ; preds = %sdslen.exit
+  %60 = getelementptr inbounds i8, ptr %51, i64 -3
+  %61 = load i8, ptr %60, align 1, !tbaa !18
+  %62 = zext i8 %61 to i64
   br label %sdslen.exit22
 
 63:                                               ; preds = %sdslen.exit
-  %64 = getelementptr inbounds i8, ptr %55, i64 -3
-  %65 = load i8, ptr %64, align 1, !tbaa !18
-  %66 = zext i8 %65 to i64
+  %64 = getelementptr inbounds i8, ptr %51, i64 -5
+  %65 = load i16, ptr %64, align 1, !tbaa !19
+  %66 = zext i16 %65 to i64
   br label %sdslen.exit22
 
 67:                                               ; preds = %sdslen.exit
-  %68 = getelementptr inbounds i8, ptr %55, i64 -5
-  %69 = load i16, ptr %68, align 1, !tbaa !19
-  %70 = zext i16 %69 to i64
+  %68 = getelementptr inbounds i8, ptr %51, i64 -9
+  %69 = load i32, ptr %68, align 1, !tbaa !21
+  %70 = zext i32 %69 to i64
   br label %sdslen.exit22
 
 71:                                               ; preds = %sdslen.exit
-  %72 = getelementptr inbounds i8, ptr %55, i64 -9
-  %73 = load i32, ptr %72, align 1, !tbaa !21
-  %74 = zext i32 %73 to i64
+  %72 = getelementptr inbounds i8, ptr %51, i64 -17
+  %73 = load i64, ptr %72, align 1, !tbaa !22
   br label %sdslen.exit22
 
-75:                                               ; preds = %sdslen.exit
-  %76 = getelementptr inbounds i8, ptr %55, i64 -17
-  %77 = load i64, ptr %76, align 1, !tbaa !22
-  br label %sdslen.exit22
-
-sdslen.exit22:                                    ; preds = %sdslen.exit, %60, %63, %67, %71, %75
-  %.0.i21 = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %sdslen.exit ]
-  %78 = call ptr @sdscatlen(ptr noundef %54, ptr noundef nonnull %55, i64 noundef %.0.i21) #20
-  %79 = call ptr @sdscatlen(ptr noundef %78, ptr noundef nonnull @.str.87, i64 noundef 2) #20
-  call void @decrRefCount(ptr noundef nonnull %20) #20
+sdslen.exit22:                                    ; preds = %sdslen.exit, %56, %59, %63, %67, %71
+  %.0.i21 = phi i64 [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ], [ 0, %sdslen.exit ]
+  %74 = call ptr @sdscatlen(ptr noundef %50, ptr noundef nonnull %51, i64 noundef %.0.i21) #20
+  %75 = call ptr @sdscatlen(ptr noundef %74, ptr noundef nonnull @.str.87, i64 noundef 2) #20
+  call void @decrRefCount(ptr noundef nonnull %18) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %sdslen.exit22, %3
-  %.0.lcssa = phi ptr [ %16, %3 ], [ %79, %sdslen.exit22 ]
+  %.0.lcssa = phi ptr [ %14, %3 ], [ %75, %sdslen.exit22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa
 }

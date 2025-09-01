@@ -1371,7 +1371,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
 43:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.097117 = phi i8 [ 0, %.lr.ph ], [ %.198, %56 ]
-  %44 = getelementptr inbounds nuw [0 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call signext i8 @get_typtype(i32 noundef %45) #8
   %47 = icmp eq i8 %46, 112

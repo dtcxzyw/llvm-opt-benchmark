@@ -885,7 +885,7 @@ cond.true.i:                                      ; preds = %if.then
 
 cond.false.i:                                     ; preds = %if.then
   %idxprom.i4.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i5.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 %idxprom.i4.i
   %6 = load i8, ptr %arrayidx.i5.i, align 1
   %div2.i6.i = lshr i32 %2, 3
   %idxprom1.i.i = zext nneg i32 %div2.i6.i to i64

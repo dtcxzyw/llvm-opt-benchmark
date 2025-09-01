@@ -5422,7 +5422,7 @@ _ZN2cv11checkScalarERKNS_11_InputArrayEiNS0_8KindFlagES3_.exit257: ; preds = %.n
 
 switch.lookup:                                    ; preds = %164
   %170 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN2cv7compareERKNS_11_InputArrayES2_RKNS_12_OutputArrayEi, i64 0, i64 %170
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv7compareERKNS_11_InputArrayES2_RKNS_12_OutputArrayEi, i64 %170
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %171
 
@@ -5712,7 +5712,7 @@ _ZNK2cv11_InputArray6getMatEi.exit281:            ; preds = %271, %274
 
 288:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit281
   %289 = zext nneg i32 %211 to i64
-  %290 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL10getCmpFuncEiE6cmpTab, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL10getCmpFuncEiE6cmpTab, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !3
   %.sroa.5.0.extract.shift = lshr i64 %279, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -5824,7 +5824,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %321, %_ZNK2cv3Mat8e
   %333 = add i64 %332, 1023
   %334 = udiv i64 %333, %332
   %335 = zext nneg i32 %211 to i64
-  %336 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL10getCmpFuncEiE6cmpTab, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL10getCmpFuncEiE6cmpTab, i64 %335
   %337 = load ptr, ptr %336, align 8, !tbaa !3
   br i1 %.0156, label %382, label %355
 
@@ -6071,7 +6071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297: ; preds = %_Z
 
 423:                                              ; preds = %420
   %424 = load double, ptr %30, align 8, !tbaa !41
-  %425 = getelementptr inbounds nuw [8 x double], ptr @_ZZN2cvL9getMinValEiE3tab, i64 0, i64 %335
+  %425 = getelementptr inbounds nuw double, ptr @_ZZN2cvL9getMinValEiE3tab, i64 %335
   %426 = load double, ptr %425, align 8, !tbaa !41
   %427 = fcmp olt double %424, %426
   br i1 %427, label %428, label %442
@@ -6106,7 +6106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297: ; preds = %_Z
   br label %493
 
 442:                                              ; preds = %423
-  %443 = getelementptr inbounds nuw [8 x double], ptr @_ZZN2cvL9getMaxValEiE3tab, i64 0, i64 %335
+  %443 = getelementptr inbounds nuw double, ptr @_ZZN2cvL9getMaxValEiE3tab, i64 %335
   %444 = load double, ptr %443, align 8, !tbaa !41
   %445 = fcmp ogt double %424, %444
   br i1 %445, label %446, label %460
@@ -6990,7 +6990,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.thr_comm, %195
 
 _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %231, %234
   %235 = zext nneg i32 %214 to i64
-  %236 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL14getInRangeFuncEiE10inRangeTab, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr @_ZZN2cvL14getInRangeFuncEiE10inRangeTab, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %8, ptr %18, align 16, !tbaa !56
@@ -7163,11 +7163,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %_Z
           to label %317 unwind label %330
 
 317:                                              ; preds = %314
-  %318 = getelementptr inbounds nuw [8 x double], ptr @_ZZN2cvL9getMinValEiE3tab, i64 0, i64 %235
+  %318 = getelementptr inbounds nuw double, ptr @_ZZN2cvL9getMinValEiE3tab, i64 %235
   %319 = load double, ptr %318, align 8, !tbaa !41
   %320 = insertelement <2 x double> poison, double %319, i64 0
   %321 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %320)
-  %322 = getelementptr inbounds nuw [8 x double], ptr @_ZZN2cvL9getMaxValEiE3tab, i64 0, i64 %235
+  %322 = getelementptr inbounds nuw double, ptr @_ZZN2cvL9getMaxValEiE3tab, i64 %235
   %323 = load double, ptr %322, align 8, !tbaa !41
   %324 = insertelement <2 x double> poison, double %323, i64 0
   %325 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %324)

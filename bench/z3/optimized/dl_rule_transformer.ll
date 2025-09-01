@@ -921,7 +921,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !241, !range !24, !noundef !25
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw [2 x %class.obj_hashtable.105], ptr %3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %class.obj_hashtable.105, ptr %3, i64 %25
   %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %28 = load ptr, ptr %0, align 8, !tbaa !242
   %29 = load ptr, ptr %27, align 8, !tbaa !243

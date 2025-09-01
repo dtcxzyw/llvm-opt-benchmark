@@ -916,7 +916,7 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #4 section ".init.t
 6:                                                ; preds = %.preheader
   %7 = add i32 %14, 1
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [183 x %struct.anon.3], ptr @scsi_static_device_list, i64 0, i64 %8
+  %9 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %8
   %10 = load ptr, ptr %9, align 16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %21, label %.preheader, !llvm.loop !16

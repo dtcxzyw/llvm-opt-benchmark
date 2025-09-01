@@ -23,13 +23,13 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %16 = shl i32 %14, %15
   %17 = lshr i32 %16, 23
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = zext i8 %20 to i32
   %22 = add i32 %6, %21
   %..i = tail call i32 @llvm.umin.i32(i32 %8, i32 %22)
   store i32 %..i, ptr %5, align 8, !tbaa !4
-  %23 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %18
   %24 = load i8, ptr %23, align 1, !tbaa !13
   %25 = icmp ugt i8 %24, 63
   br i1 %25, label %.critedge, label %26
@@ -37,7 +37,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
 26:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = zext nneg i8 %24 to i64
-  %29 = getelementptr inbounds nuw [64 x ptr], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.critedge, label %31
@@ -46,7 +46,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [16 x ptr], ptr %2, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !18
   %.not98 = icmp eq ptr %36, null
   br i1 %.not98, label %.critedge, label %37
@@ -191,7 +191,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %136
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %137
   %138 = zext nneg i32 %.110.i.i to i64
-  %139 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !13
   %141 = zext i8 %140 to i32
   %142 = add nuw nsw i32 %.1.i.i, %141
@@ -294,7 +294,7 @@ get_ue_golomb_long.exit:                          ; preds = %157, %161
   %.110.i.i124 = select i1 %.not11.i.i123, i32 %spec.select.i.i121, i32 %205
   %.1.i.i125 = select i1 %.not11.i.i123, i32 %spec.select12.i.i122, i32 %206
   %207 = zext nneg i32 %.110.i.i124 to i64
-  %208 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !13
   %210 = zext i8 %209 to i32
   %211 = add nuw nsw i32 %.1.i.i125, %210
@@ -355,7 +355,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %.0.i.i129 = phi i32 [ %227, %226 ], [ %247, %230 ], [ 0, %184 ]
   %248 = trunc i32 %.0.i.i129 to i16
   %249 = add i16 %248, -1
-  %250 = getelementptr inbounds nuw [440 x i16], ptr %183, i64 0, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw i16, ptr %183, i64 %indvars.iv
   store i16 %249, ptr %250, align 2, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -374,13 +374,13 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %260 = shl i32 %258, %259
   %261 = lshr i32 %260, 23
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !13
   %265 = zext i8 %264 to i32
   %266 = add i32 %251, %265
   %..i132 = tail call i32 @llvm.umin.i32(i32 %252, i32 %266)
   store i32 %..i132, ptr %5, align 8, !tbaa !4
-  %267 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %262
+  %267 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %262
   %268 = load i8, ptr %267, align 1, !tbaa !13
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 892
   store i8 %268, ptr %269, align 4, !tbaa !36
@@ -679,7 +679,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %1, align 4, !tbaa !20
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [64 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
@@ -688,7 +688,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !16
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [16 x ptr], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %.not83 = icmp eq ptr %16, null
   br i1 %.not83, label %.critedge, label %17
@@ -784,7 +784,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %62
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %63
   %64 = zext nneg i32 %.110.i to i64
-  %65 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !13
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %.1.i, 1
@@ -837,7 +837,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %.110.i92 = select i1 %.not11.i91, i32 %spec.select.i89, i32 %90
   %.1.i93 = select i1 %.not11.i91, i32 %spec.select12.i90, i32 %91
   %92 = zext nneg i32 %.110.i92 to i64
-  %93 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !13
   %95 = zext i8 %94 to i32
   %96 = or disjoint i32 %.1.i93, 1
@@ -871,7 +871,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %.110.i98 = select i1 %.not11.i97, i32 %spec.select.i95, i32 %105
   %.1.i99 = select i1 %.not11.i97, i32 %spec.select12.i96, i32 %106
   %107 = zext nneg i32 %.110.i98 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !13
   %110 = zext i8 %109 to i32
   %111 = or disjoint i32 %.1.i99, 1

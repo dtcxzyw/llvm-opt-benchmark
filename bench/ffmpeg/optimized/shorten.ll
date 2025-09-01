@@ -411,7 +411,7 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %198
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %199
   %200 = zext nneg i32 %.110.i.i.i to i64
-  %201 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %200
   %202 = load i8, ptr %201, align 1, !tbaa !48
   %203 = zext i8 %202 to i32
   %204 = add nuw nsw i32 %.1.i.i.i, %203
@@ -534,7 +534,7 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   %.110.i.i129.i = select i1 %.not11.i.i128.i, i32 %spec.select.i.i126.i, i32 %263
   %.1.i.i130.i = select i1 %.not11.i.i128.i, i32 %spec.select12.i.i127.i, i32 %264
   %265 = zext nneg i32 %.110.i.i129.i to i64
-  %266 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %265
   %267 = load i8, ptr %266, align 1, !tbaa !48
   %268 = zext i8 %267 to i32
   %269 = add nuw nsw i32 %.1.i.i130.i, %268
@@ -676,7 +676,7 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   %.110.i.i155.i = select i1 %.not11.i.i154.i, i32 %spec.select.i.i152.i, i32 %334
   %.1.i.i156.i = select i1 %.not11.i.i154.i, i32 %spec.select12.i.i153.i, i32 %335
   %336 = zext nneg i32 %.110.i.i155.i to i64
-  %337 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %336
   %338 = load i8, ptr %337, align 1, !tbaa !48
   %339 = zext i8 %338 to i32
   %340 = add nuw nsw i32 %.1.i.i156.i, %339
@@ -775,7 +775,7 @@ get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %3
   %.0106.i167.i = phi i32 [ %348, %344 ], [ %388, %378 ], [ %.125.i165.i, %389 ], [ -1, %354 ]
   store i32 %storemerge123.i166.i, ptr %75, align 8, !tbaa !45
   %391 = trunc i32 %.0106.i167.i to i8
-  %392 = getelementptr inbounds nuw [16384 x i8], ptr %323, i64 0, i64 %indvars.iv.i
+  %392 = getelementptr inbounds nuw i8, ptr %323, i64 %indvars.iv.i
   store i8 %391, ptr %392, align 1, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond253.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -844,7 +844,7 @@ get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %3
   br label %read_header.exit.thread
 
 419:                                              ; preds = %410
-  %420 = getelementptr inbounds nuw [8 x ptr], ptr %403, i64 0, i64 %indvars.iv49.i.i
+  %420 = getelementptr inbounds nuw ptr, ptr %403, i64 %indvars.iv49.i.i
   %narrow.i.i = tail call i32 @llvm.smax.i32(i32 %407, i32 1)
   %spec.select41.i.i = zext nneg i32 %narrow.i.i to i64
   %421 = tail call i32 @av_reallocp_array(ptr noundef nonnull %420, i64 noundef 4, i64 noundef %spec.select41.i.i) #8
@@ -852,7 +852,7 @@ get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %3
   br i1 %422, label %read_header.exit.thread, label %423
 
 423:                                              ; preds = %419
-  %424 = getelementptr inbounds nuw [8 x ptr], ptr %404, i64 0, i64 %indvars.iv49.i.i
+  %424 = getelementptr inbounds nuw ptr, ptr %404, i64 %indvars.iv49.i.i
   %425 = load i32, ptr %108, align 8, !tbaa !50
   %426 = load i32, ptr %181, align 4, !tbaa !57
   %427 = add nsw i32 %426, %425
@@ -884,7 +884,7 @@ get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %3
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.._crit_edge_crit_edge.i.i
   %.pre-phi55.i.i = phi i64 [ %.pre54.i.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %435, %.lr.ph.i.i ]
   %437 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %.pre-phi55.i.i
-  %438 = getelementptr inbounds nuw [8 x ptr], ptr %405, i64 0, i64 %indvars.iv49.i.i
+  %438 = getelementptr inbounds nuw ptr, ptr %405, i64 %indvars.iv49.i.i
   store ptr %437, ptr %438, align 8, !tbaa !65
   %indvars.iv.next50.i.i = add nuw nsw i64 %indvars.iv49.i.i, 1
   %439 = load i32, ptr %124, align 8, !tbaa !54
@@ -929,7 +929,7 @@ allocate_buffers.exit.i:                          ; preds = %._crit_edge.i.i, %.
 
 .preheader.i118.i:                                ; preds = %458, %.preheader.lr.ph.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next24.i.i, %458 ]
-  %454 = getelementptr inbounds nuw [8 x ptr], ptr %453, i64 0, i64 %indvars.iv23.i.i
+  %454 = getelementptr inbounds nuw ptr, ptr %453, i64 %indvars.iv23.i.i
   %455 = load ptr, ptr %454, align 8, !tbaa !65
   br label %456
 
@@ -1068,7 +1068,7 @@ init_offset.exit.i:                               ; preds = %445
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i396, i32 %523
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %524
   %525 = zext nneg i32 %.110.i.i to i64
-  %526 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %525
   %527 = load i8, ptr %526, align 1, !tbaa !48
   %528 = zext i8 %527 to i32
   %529 = add nuw nsw i32 %.1.i.i, %528
@@ -1212,7 +1212,7 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   %.110.i.i405 = select i1 %.not11.i.i404, i32 %spec.select.i.i402, i32 %593
   %.1.i.i406 = select i1 %.not11.i.i404, i32 %spec.select12.i.i403, i32 %594
   %595 = zext nneg i32 %.110.i.i405 to i64
-  %596 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %595
+  %596 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %595
   %597 = load i8, ptr %596, align 1, !tbaa !48
   %598 = zext i8 %597 to i32
   %599 = add nuw nsw i32 %.1.i.i406, %598
@@ -1356,7 +1356,7 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
   %.110.i.i432 = select i1 %.not11.i.i431, i32 %spec.select.i.i429, i32 %660
   %.1.i.i433 = select i1 %.not11.i.i431, i32 %spec.select12.i.i430, i32 %661
   %662 = zext nneg i32 %.110.i.i432 to i64
-  %663 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %662
+  %663 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %662
   %664 = load i8, ptr %663, align 1, !tbaa !48
   %665 = zext i8 %664 to i32
   %666 = add nuw nsw i32 %.1.i.i433, %665
@@ -1452,7 +1452,7 @@ get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i450, %._cri
   %.110.i.i459 = select i1 %.not11.i.i458, i32 %spec.select.i.i456, i32 %710
   %.1.i.i460 = select i1 %.not11.i.i458, i32 %spec.select12.i.i457, i32 %711
   %712 = zext nneg i32 %.110.i.i459 to i64
-  %713 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %712
+  %713 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %712
   %714 = load i8, ptr %713, align 1, !tbaa !48
   %715 = zext i8 %714 to i32
   %716 = add nuw nsw i32 %.1.i.i460, %715
@@ -1579,7 +1579,7 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %769
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %770
   %771 = zext nneg i32 %.110.i to i64
-  %772 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %771
+  %772 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %771
   %773 = load i8, ptr %772, align 1, !tbaa !48
   %774 = zext i8 %773 to i32
   %775 = add nuw nsw i32 %.1.i, %774
@@ -1638,7 +1638,7 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %.110.i.i486 = select i1 %.not11.i.i485, i32 %spec.select.i.i483, i32 %795
   %.1.i.i487 = select i1 %.not11.i.i485, i32 %spec.select12.i.i484, i32 %796
   %797 = zext nneg i32 %.110.i.i486 to i64
-  %798 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %797
+  %798 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %797
   %799 = load i8, ptr %798, align 1, !tbaa !48
   %800 = zext i8 %799 to i32
   %801 = add nuw nsw i32 %.1.i.i487, %800
@@ -1755,7 +1755,7 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %804, 
 
 860:                                              ; preds = %855
   %861 = sext i32 %508 to i64
-  %862 = getelementptr inbounds [8 x ptr], ptr %498, i64 0, i64 %861
+  %862 = getelementptr inbounds ptr, ptr %498, i64 %861
   %863 = load ptr, ptr %862, align 8, !tbaa !65
   %864 = load i32, ptr %863, align 4, !tbaa !40
   br label %887
@@ -1770,7 +1770,7 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %804, 
 
 .lr.ph736:                                        ; preds = %865
   %871 = sext i32 %508 to i64
-  %872 = getelementptr inbounds [8 x ptr], ptr %498, i64 0, i64 %871
+  %872 = getelementptr inbounds ptr, ptr %498, i64 %871
   %873 = load ptr, ptr %872, align 8, !tbaa !65
   %wide.trip.count = zext nneg i32 %858 to i64
   br label %874
@@ -1811,7 +1811,7 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %804, 
 
 .lr.ph738:                                        ; preds = %.preheader612
   %890 = sext i32 %508 to i64
-  %891 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %890
+  %891 = getelementptr inbounds ptr, ptr %500, i64 %890
   %892 = load ptr, ptr %891, align 8, !tbaa !65
   br label %893
 
@@ -1847,7 +1847,7 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %804, 
   %.110.i.i.i362 = select i1 %.not11.i.i.i361, i32 %spec.select.i.i.i359, i32 %909
   %.1.i.i.i363 = select i1 %.not11.i.i.i361, i32 %spec.select12.i.i.i360, i32 %910
   %911 = zext nneg i32 %.110.i.i.i362 to i64
-  %912 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %911
+  %912 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %911
   %913 = load i8, ptr %912, align 1, !tbaa !48
   %914 = zext i8 %913 to i32
   %915 = add nuw nsw i32 %.1.i.i.i363, %914
@@ -1991,7 +1991,7 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge: ; preds
   %.110.i.i81.i = select i1 %.not11.i.i80.i, i32 %spec.select.i.i78.i, i32 %979
   %.1.i.i82.i = select i1 %.not11.i.i80.i, i32 %spec.select12.i.i79.i, i32 %980
   %981 = zext nneg i32 %.110.i.i81.i to i64
-  %982 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %981
+  %982 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %981
   %983 = load i8, ptr %982, align 1, !tbaa !48
   %984 = zext i8 %983 to i32
   %985 = add nuw nsw i32 %.1.i.i82.i, %984
@@ -2110,7 +2110,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
 .lr.ph149.i:                                      ; preds = %._crit_edge.i375
   %1043 = sub nsw i32 0, %.0106.i.i374
   %1044 = sext i32 %508 to i64
-  %1045 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1044
+  %1045 = getelementptr inbounds ptr, ptr %500, i64 %1044
   %1046 = load ptr, ptr %1045, align 8, !tbaa !65
   %1047 = sext i32 %1043 to i64
   br label %1048
@@ -2144,7 +2144,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   br i1 %1059, label %.preheader129.lr.ph.i, label %decode_subframe_lpc.exit.thread
 
 .thread.i:                                        ; preds = %1041
-  %1060 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @fixed_coeffs, i64 0, i64 %857
+  %1060 = getelementptr inbounds nuw [3 x i32], ptr @fixed_coeffs, i64 %857
   %.not116.i = icmp eq i32 %.0106.i518551561, 0
   %.mux119.i = select i1 %.not116.i, i32 %.0281, i32 0
   %1061 = load i32, ptr %494, align 8, !tbaa !50
@@ -2159,7 +2159,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   %.069107123209.i = phi i32 [ %.0106.i518551561, %.thread.i ], [ %.0106.i201203.i568, %1056 ]
   %1064 = icmp sgt i32 %.069107123209.i, 0
   %1065 = sext i32 %508 to i64
-  %1066 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1065
+  %1066 = getelementptr inbounds ptr, ptr %500, i64 %1065
   %1067 = add nuw nsw i32 %.0285, 1
   %wide.trip.count182.i = zext nneg i32 %.069107123209.i to i64
   br label %.preheader129.i
@@ -2252,7 +2252,7 @@ decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, 
 
 .lr.ph742:                                        ; preds = %1107
   %1110 = sext i32 %508 to i64
-  %1111 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1110
+  %1111 = getelementptr inbounds ptr, ptr %500, i64 %1110
   %1112 = load ptr, ptr %1111, align 8, !tbaa !65
   %wide.trip.count883 = zext nneg i32 %1098 to i64
   br label %1116
@@ -2264,7 +2264,7 @@ decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, 
 
 .lr.ph745:                                        ; preds = %.preheader611
   %1113 = sext i32 %508 to i64
-  %1114 = getelementptr inbounds [8 x ptr], ptr %498, i64 0, i64 %1113
+  %1114 = getelementptr inbounds ptr, ptr %498, i64 %1113
   %1115 = load ptr, ptr %1114, align 8, !tbaa !65
   br label %1121
 
@@ -2326,7 +2326,7 @@ decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, 
 .sink.split:                                      ; preds = %1139, %1136, %1131
   %.sink = phi i32 [ %1135, %1131 ], [ %1145, %1139 ], [ 0, %1136 ]
   %1146 = sext i32 %508 to i64
-  %1147 = getelementptr inbounds [8 x ptr], ptr %498, i64 0, i64 %1146
+  %1147 = getelementptr inbounds ptr, ptr %498, i64 %1146
   %1148 = load ptr, ptr %1147, align 8, !tbaa !65
   %1149 = getelementptr i32, ptr %1148, i64 %.lcssa674
   %1150 = getelementptr i8, ptr %1149, i64 -4
@@ -2340,14 +2340,14 @@ decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %893, 
 
 .._crit_edge751_crit_edge:                        ; preds = %1151
   %.phi.trans.insert = sext i32 %508 to i64
-  %.phi.trans.insert905 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert905 = getelementptr inbounds ptr, ptr %500, i64 %.phi.trans.insert
   %.pre906 = load ptr, ptr %.phi.trans.insert905, align 8, !tbaa !65
   br label %._crit_edge751
 
 .lr.ph750:                                        ; preds = %1151
   %1154 = sub nsw i32 0, %1152
   %1155 = sext i32 %508 to i64
-  %1156 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1155
+  %1156 = getelementptr inbounds ptr, ptr %500, i64 %1155
   %1157 = load ptr, ptr %1156, align 8, !tbaa !65
   %1158 = sext i32 %1154 to i64
   br label %1159
@@ -2437,7 +2437,7 @@ fix_bitshift.exit:                                ; preds = %.lr.ph.i392, %.lr.p
   %1195 = load ptr, ptr %503, align 8, !tbaa !93
   %1196 = getelementptr inbounds nuw ptr, ptr %1195, i64 %indvars.iv895
   %1197 = load ptr, ptr %1196, align 8, !tbaa !94
-  %1198 = getelementptr inbounds nuw [8 x ptr], ptr %500, i64 0, i64 %indvars.iv895
+  %1198 = getelementptr inbounds nuw ptr, ptr %500, i64 %indvars.iv895
   br label %1199
 
 1199:                                             ; preds = %.lr.ph756, %1216
@@ -2583,11 +2583,11 @@ define internal noundef i32 @shorten_decode_close(ptr noundef readonly captures(
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr null, ptr %10, align 8, !tbaa !65
-  %11 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %11) #8
-  %12 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %12) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %4, align 8, !tbaa !54
@@ -2649,7 +2649,7 @@ define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef 
   %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %20
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %21
   %22 = zext nneg i32 %.110.i.i to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !48
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %.1.i.i, %25
@@ -3237,7 +3237,7 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %16
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %17
   %18 = zext nneg i32 %.110.i to i64
-  %19 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !48
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %.1.i, %21

@@ -4268,7 +4268,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.us
 
 ._crit_edge.i:                                    ; preds = %1094
   %.phi.trans.insert1.i = zext nneg i32 %1095 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw [2 x i64], ptr %76, i64 0, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %76, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !274
   %1097 = add nuw nsw i32 %1095, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit

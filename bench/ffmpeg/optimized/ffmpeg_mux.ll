@@ -1754,7 +1754,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   %146 = phi i64 [ 0, %140 ], [ %191, %.thread.i.i ]
   %.066.i.i = phi i64 [ -9223372036854775808, %140 ], [ %.1.i.i, %.thread.i.i ]
   %.04465.i.i = phi i32 [ 0, %140 ], [ %.042.i.i, %.thread.i.i ]
-  %147 = getelementptr inbounds nuw [7 x i64], ptr %144, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw i64, ptr %144, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !165
   %149 = add nuw nsw i32 %.04465.i.i, 1
   %150 = icmp eq i64 %148, -9223372036854775808
@@ -1782,7 +1782,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %.lr.ph.i.i
-  %161 = getelementptr inbounds nuw [7 x i64], ptr %144, i64 0, i64 %indvars.iv.i.i
+  %161 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv.i.i
   %162 = load i64, ptr %161, align 8, !tbaa !165
   br label %163
 
@@ -1803,9 +1803,9 @@ filesize.exit:                                    ; preds = %3, %16, %19
 
 174:                                              ; preds = %166
   %175 = call i64 @av_strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 512) #11
-  %176 = getelementptr inbounds nuw [8 x ptr], ptr @mux_log_debug_ts.desc, i64 0, i64 %146
+  %176 = getelementptr inbounds nuw ptr, ptr @mux_log_debug_ts.desc, i64 %146
   %177 = load ptr, ptr %176, align 8, !tbaa !111
-  %178 = getelementptr inbounds nuw [8 x ptr], ptr @mux_log_debug_ts.desc, i64 0, i64 %indvars.iv.i.i
+  %178 = getelementptr inbounds nuw ptr, ptr @mux_log_debug_ts.desc, i64 %indvars.iv.i.i
   %179 = load ptr, ptr %178, align 8, !tbaa !111
   %180 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %177, ptr noundef nonnull dereferenceable(1) %179) #13
   %.not53.i.i = icmp eq i32 %180, 0

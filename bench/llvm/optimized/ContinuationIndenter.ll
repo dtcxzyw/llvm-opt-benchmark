@@ -14592,7 +14592,7 @@ _ZNSt10unique_ptrIN5clang6format14BreakableTokenESt14default_deleteIS2_EED2Ev.ex
 
 switch.lookup:                                    ; preds = %23
   %31 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang6format20ContinuationIndenter20breakProtrudingTokenERKNS0_11FormatTokenERNS0_9LineStateEbbb, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang6format20ContinuationIndenter20breakProtrudingTokenERKNS0_11FormatTokenERNS0_9LineStateEbbb, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
 

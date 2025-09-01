@@ -639,7 +639,7 @@ define dso_local ptr @tcf_block_lookup(ptr noundef %0, i32 noundef %1) #0 align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1080,7 +1080,7 @@ thread-pre-split:                                 ; preds = %13
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 2536
   %48 = load volatile ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr [0 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   tail call void @__rcu_read_unlock() #14
   tail call void @idr_preload(i32 noundef 3264) #14
@@ -1391,7 +1391,7 @@ define internal fastcc ptr @tcf_block_refcnt_get(ptr noundef %0, i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1688,7 +1688,7 @@ define internal fastcc void @__tcf_block_put(ptr noundef %0, ptr noundef %1, ptr
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 2536
   %20 = load volatile ptr, ptr %19, align 8
   %21 = zext i32 %18 to i64
-  %22 = getelementptr [0 x ptr], ptr %20, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void @__rcu_read_unlock() #14
   tail call void @_raw_spin_lock(ptr noundef %23) #14
@@ -3102,7 +3102,7 @@ define dso_local void @tc_cleanup_offload_action(ptr noundef readonly captures(n
 15:                                               ; preds = %12, %.preheader
   %16 = add nuw i32 %5, 1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr [0 x %struct.flow_action_entry], ptr %2, i64 0, i64 %17
+  %18 = getelementptr %struct.flow_action_entry, ptr %2, i64 %17
   %19 = load i32, ptr %0, align 8
   %20 = icmp ult i32 %16, %19
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !62
@@ -3143,7 +3143,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
   %20 = phi i32 [ %15, %14 ], [ 0, %.preheader21.preheader ]
   %21 = phi i64 [ %79, %14 ], [ 0, %.preheader21.preheader ]
   %22 = sext i32 %20 to i64
-  %23 = getelementptr [0 x %struct.flow_action_entry], ptr %8, i64 0, i64 %22
+  %23 = getelementptr %struct.flow_action_entry, ptr %8, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 144
   call void @_raw_spin_lock_bh(ptr noundef nonnull %24) #14
   call void @__rcu_read_lock() #14
@@ -3274,7 +3274,7 @@ define dso_local i32 @tc_setup_action(ptr noundef %0, ptr noundef readonly captu
 93:                                               ; preds = %90, %.preheader
   %94 = add nuw i32 %83, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr [0 x %struct.flow_action_entry], ptr %8, i64 0, i64 %95
+  %96 = getelementptr %struct.flow_action_entry, ptr %8, i64 %95
   %97 = load i32, ptr %0, align 8
   %98 = icmp ult i32 %94, %97
   br i1 %98, label %.preheader, label %.thread20, !llvm.loop !62
@@ -4684,7 +4684,7 @@ define internal fastcc void @tcf_chain_flush(ptr noundef %0, i1 noundef zeroext 
   %46 = mul i32 %45, 1640531527
   %47 = lshr i32 %46, 25
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr [128 x %struct.hlist_head], ptr %12, i64 0, i64 %48
+  %49 = getelementptr %struct.hlist_head, ptr %12, i64 %48
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %11, align 8
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -4867,7 +4867,7 @@ define internal fastcc void @tcf_proto_signal_destroying(ptr %.56.val, ptr nound
   %38 = mul i32 %37, 1640531527
   %39 = lshr i32 %38, 25
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [128 x %struct.hlist_head], ptr %4, i64 0, i64 %40
+  %41 = getelementptr %struct.hlist_head, ptr %4, i64 %40
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -7785,7 +7785,7 @@ define internal noundef i32 @tcf_net_init(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   store i32 0, ptr %7, align 8
@@ -7805,7 +7805,7 @@ define internal void @tcf_net_exit(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -8217,7 +8217,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   %42 = mul i32 %38, 1640531527
   %43 = lshr i32 %42, 25
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [128 x %struct.hlist_head], ptr %41, i64 0, i64 %44
+  %45 = getelementptr %struct.hlist_head, ptr %41, i64 %44
   %46 = load volatile ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = getelementptr i8, ptr %46, i64 -88
@@ -8612,7 +8612,7 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
   %66 = mul i32 %65, 1640531527
   %67 = lshr i32 %66, 25
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr [128 x %struct.hlist_head], ptr %32, i64 0, i64 %68
+  %69 = getelementptr %struct.hlist_head, ptr %32, i64 %68
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %31, align 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 96

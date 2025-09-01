@@ -124,15 +124,15 @@ define noundef i64 @_Z17fast_rv64i_add_uwP11processor_t6insn_tm(ptr noundef capt
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = lshr i64 %1, 15
   %17 = and i64 %16, 31
-  %18 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %20 = and i64 %19, 4294967295
   %21 = lshr i64 %1, 20
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %15, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !14
   %25 = add i64 %20, %24
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %15, i64 0, i64 %13
+  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %13
   store i64 %25, ptr %26, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -183,12 +183,12 @@ define noundef i64 @_Z19logged_rv64i_add_uwP11processor_t6insn_tm(ptr noundef %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = lshr i64 %1, 15
   %15 = and i64 %14, 31
-  %16 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = and i64 %17, 4294967295
   %19 = lshr i64 %1, 20
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %13, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !14
   %23 = add i64 %18, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -206,7 +206,7 @@ define noundef i64 @_Z19logged_rv64i_add_uwP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %29
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw i64, ptr %13, i64 %26
   store i64 %23, ptr %30, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -395,13 +395,13 @@ define noundef i64 @_Z17fast_rv64e_add_uwP11processor_t6insn_tm(ptr noundef capt
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %22
+  %41 = getelementptr inbounds nuw i64, ptr %30, i64 %22
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = and i64 %42, 4294967295
-  %44 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %32
+  %44 = getelementptr inbounds nuw i64, ptr %30, i64 %32
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = add i64 %43, %45
-  %47 = getelementptr inbounds nuw [32 x i64], ptr %30, i64 0, i64 %13
+  %47 = getelementptr inbounds nuw i64, ptr %30, i64 %13
   store i64 %46, ptr %47, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -501,10 +501,10 @@ define noundef i64 @_Z19logged_rv64e_add_uwP11processor_t6insn_tm(ptr noundef %0
   unreachable
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %31, i64 0, i64 %23
+  %41 = getelementptr inbounds nuw i64, ptr %31, i64 %23
   %42 = load i64, ptr %41, align 8, !tbaa !14
   %43 = and i64 %42, 4294967295
-  %44 = getelementptr inbounds nuw [32 x i64], ptr %31, i64 0, i64 %33
+  %44 = getelementptr inbounds nuw i64, ptr %31, i64 %33
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = add i64 %43, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -520,7 +520,7 @@ define noundef i64 @_Z19logged_rv64e_add_uwP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %50
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %31, i64 0, i64 %14
+  %51 = getelementptr inbounds nuw i64, ptr %31, i64 %14
   store i64 %46, ptr %51, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

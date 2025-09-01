@@ -324,7 +324,7 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
   %38 = lshr i32 %37, 6
   %39 = or disjoint i32 %38, %36
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = add i32 %.03744.i.i, 1
   %44 = zext i32 %.03744.i.i to i64
@@ -342,7 +342,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %.sink58.i.i = phi i32 [ 2, %33 ], [ 1, %27 ], [ 1, %24 ]
   %.sink57.i.i = phi i32 [ %43, %33 ], [ %.03744.i.i, %27 ], [ %.03744.i.i, %24 ]
   %.1.i.i = phi i32 [ 0, %33 ], [ 2, %27 ], [ 1, %24 ]
-  %49 = getelementptr inbounds nuw [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %.sink.i.i
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %.sink.i.i
   %50 = load i8, ptr %49, align 1
   %51 = add i32 %.sink58.i.i, %.03744.i.i
   %52 = zext i32 %.sink57.i.i to i64
@@ -362,7 +362,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %55 = shl i8 %23, 4
   %56 = and i8 %55, 48
   %57 = zext nneg i8 %56 to i64
-  %58 = getelementptr inbounds nuw [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %57
   %59 = load i8, ptr %58, align 16
   %60 = add i32 %51, 1
   %61 = zext i32 %51 to i64
@@ -374,7 +374,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %64 = shl i8 %23, 2
   %65 = and i8 %64, 60
   %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr inbounds nuw [64 x i8], ptr @_ZN4pkpyL8base64enE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64enE, i64 %66
   %68 = load i8, ptr %67, align 4
   br label %._crit_edge.thread.sink.split.i.i
 
@@ -1131,7 +1131,7 @@ _ZN4pkpy7py_castIRNS_5BytesEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %12, %_
 
 29:                                               ; preds = %27
   %30 = zext nneg i8 %25 to i64
-  %31 = getelementptr inbounds nuw [128 x i8], ptr @_ZN4pkpyL8base64deE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN4pkpyL8base64deE, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, -1
   br i1 %33, label %_ZN4pkpyL13base64_decodeEPKcjPh.exit.i, label %34

@@ -3526,7 +3526,7 @@ _ZN2lp8lar_termC2ERK8rationaljS3_j.exit:          ; preds = %145
 
 switch.lookup:                                    ; preds = %_ZN2lp8lar_termC2ERK8rationaljS3_j.exit
   %149 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN3nla5order15generate_mon_olERKNS_5monicEjRK8rationaljS3_RKNS_6factorES6_jN2lp16lconstraint_kindE, i64 0, i64 %149
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3nla5order15generate_mon_olERKNS_5monicEjRK8rationaljS3_RKNS_6factorES6_jN2lp16lconstraint_kindE, i64 %149
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3nla6negateEN2lp16lconstraint_kindE.exit
 

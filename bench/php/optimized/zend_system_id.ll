@@ -131,14 +131,14 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = lshr i8 %27, 4
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = shl nuw nsw i64 %.01.i, 1
   %33 = getelementptr inbounds nuw i8, ptr @zend_system_id, i64 %32
   store i8 %31, ptr %33, align 2, !tbaa !4
   %34 = and i8 %27, 15
   %35 = zext nneg i8 %34 to i64
-  %36 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @php_hash_bin2hex.hexits, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %37, ptr %38, align 1, !tbaa !4

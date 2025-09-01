@@ -1943,7 +1943,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit30: ; preds = %78, %72, %68, %45
   %111 = icmp eq i32 %110, 2
   %spec.select.i.i = select i1 %111, i64 3, i64 2
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %112, i64 0, i64 %spec.select.i.i
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %spec.select.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !293, !noalias !290
   store ptr %114, ptr %6, align 8, !tbaa !259, !alias.scope !290
   %115 = load i64, ptr %114, align 8, !noalias !290

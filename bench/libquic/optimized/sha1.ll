@@ -174,7 +174,7 @@ define hidden noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initi
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
   store i8 -128, ptr %7, align 1, !tbaa !6
   %8 = add nuw nsw i64 %5, 1
   %9 = icmp ugt i32 %4, 55

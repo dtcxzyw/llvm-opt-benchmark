@@ -188,7 +188,7 @@ $_ZZN4llvm13hexDigitValueEcE3LUT = comdat any
 define dso_local noundef nonnull align 4 dereferenceable(26) ptr @_ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table._ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -7927,7 +7927,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
 
 65:                                               ; preds = %52
   %66 = zext i8 %53 to i64
-  %67 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !86
   %69 = sext i16 %68 to i64
   %70 = and i64 %69, 4294967295
@@ -7994,7 +7994,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
 
 .critedge.i91:                                    ; preds = %.lr.ph.i88
   %94 = zext i8 %92 to i64
-  %95 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !86, !noalias !88
   %97 = icmp eq i16 %96, -1
   %98 = icmp eq i8 %53, 48
@@ -8368,7 +8368,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = and i32 %26, 7
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [8 x i64], ptr @_ZZN4llvmL8powerOf5EPmjE16firstEightPowers, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr @_ZZN4llvmL8powerOf5EPmjE16firstEightPowers, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !36
   store i64 %30, ptr %10, align 16, !tbaa !36
   %.not54.i = icmp samesign ult i32 %26, 8
@@ -10069,7 +10069,7 @@ _ZN4llvmL9partAsHexEPcmjPKc.exit:                 ; preds = %97
   %108 = getelementptr inbounds i8, ptr %.0, i64 -1
   %109 = load i8, ptr %108, align 1, !tbaa !24
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !86
   %113 = sext i16 %112 to i64
   %114 = add nsw i64 %113, 1

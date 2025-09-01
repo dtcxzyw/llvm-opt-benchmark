@@ -1724,7 +1724,7 @@ define dso_local void @list_cmds_by_category(ptr noundef %0, ptr noundef %1) loc
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [19 x ptr], ptr @category_names, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @category_names, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %6) #23
   %.not17 = icmp eq i32 %7, 0

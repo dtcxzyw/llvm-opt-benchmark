@@ -5805,7 +5805,7 @@ _ZN14b3QuantizedBvhnwEm.exit:                     ; preds = %223
 
 376:                                              ; preds = %329, %402
   %indvars.iv227 = phi i64 [ 0, %329 ], [ %indvars.iv.next228, %402 ]
-  %377 = getelementptr inbounds nuw [4 x float], ptr %369, i64 0, i64 %indvars.iv227
+  %377 = getelementptr inbounds nuw float, ptr %369, i64 %indvars.iv227
   %378 = load float, ptr %377, align 4, !tbaa !123
   %379 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv227
   %380 = load float, ptr %379, align 4, !tbaa !151
@@ -5813,7 +5813,7 @@ _ZN14b3QuantizedBvhnwEm.exit:                     ; preds = %223
   br i1 %381, label %382, label %389
 
 382:                                              ; preds = %376
-  %383 = getelementptr inbounds nuw [4 x float], ptr %370, i64 0, i64 %indvars.iv227
+  %383 = getelementptr inbounds nuw float, ptr %370, i64 %indvars.iv227
   %384 = load float, ptr %383, align 4, !tbaa !123
   %385 = fpext float %384 to double
   %386 = fpext float %380 to double
@@ -5822,7 +5822,7 @@ _ZN14b3QuantizedBvhnwEm.exit:                     ; preds = %223
   br label %389
 
 389:                                              ; preds = %382, %376
-  %390 = getelementptr inbounds nuw [4 x float], ptr %372, i64 0, i64 %indvars.iv227
+  %390 = getelementptr inbounds nuw float, ptr %372, i64 %indvars.iv227
   %391 = load float, ptr %390, align 4, !tbaa !123
   %392 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv227
   %393 = load float, ptr %392, align 4, !tbaa !151
@@ -5830,7 +5830,7 @@ _ZN14b3QuantizedBvhnwEm.exit:                     ; preds = %223
   br i1 %394, label %395, label %402
 
 395:                                              ; preds = %389
-  %396 = getelementptr inbounds nuw [4 x float], ptr %373, i64 0, i64 %indvars.iv227
+  %396 = getelementptr inbounds nuw float, ptr %373, i64 %indvars.iv227
   %397 = load float, ptr %396, align 4, !tbaa !123
   %398 = fpext float %397 to double
   %399 = fpext float %393 to double
@@ -7903,7 +7903,7 @@ define dso_local noundef i32 @_ZNK16b3GpuNarrowPhase17getNumContactsGpuEv(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %6 = load i32, ptr %5, align 8, !tbaa !425
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !228
@@ -7919,7 +7919,7 @@ define dso_local noundef ptr @_ZN16b3GpuNarrowPhase14getContactsGpuEv(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %6 = load i32, ptr %5, align 8, !tbaa !425
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !229
@@ -7934,7 +7934,7 @@ define dso_local noundef nonnull ptr @_ZNK16b3GpuNarrowPhase14getContactsCPUEv(p
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %6 = load i32, ptr %5, align 8, !tbaa !425
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %11 = load ptr, ptr %10, align 8, !tbaa !88
@@ -8191,10 +8191,10 @@ define dso_local void @_ZN16b3GpuNarrowPhase15computeContactsEP7_cl_memiS1_i(ptr
   %.pre56 = load i32, ptr %.phi.trans.insert55, align 4, !tbaa !436
   %.phi.trans.insert47 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %.phi.trans.insert52 = sext i32 %18 to i64
-  %.phi.trans.insert53 = getelementptr inbounds [2 x ptr], ptr %.phi.trans.insert47, i64 0, i64 %.phi.trans.insert52
+  %.phi.trans.insert53 = getelementptr inbounds ptr, ptr %.phi.trans.insert47, i64 %.phi.trans.insert52
   %.pre54 = load ptr, ptr %.phi.trans.insert53, align 8, !tbaa !114
   %.phi.trans.insert48 = sext i32 %19 to i64
-  %.phi.trans.insert49 = getelementptr inbounds [2 x ptr], ptr %.phi.trans.insert47, i64 0, i64 %.phi.trans.insert48
+  %.phi.trans.insert49 = getelementptr inbounds ptr, ptr %.phi.trans.insert47, i64 %.phi.trans.insert48
   %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8, !tbaa !114
   %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %.pre46 = load ptr, ptr %.phi.trans.insert45, align 8, !tbaa !135

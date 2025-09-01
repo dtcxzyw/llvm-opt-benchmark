@@ -7275,7 +7275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
 71:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
   %72 = phi i32 [ %67, %.lr.ph ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %73
   store i8 0, ptr %74, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %69, ptr %7, align 8, !tbaa !30

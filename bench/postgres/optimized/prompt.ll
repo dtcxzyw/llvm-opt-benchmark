@@ -188,7 +188,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 60:                                               ; preds = %56
   %61 = call i64 @strcspn(ptr noundef nonnull %3, ptr noundef nonnull @.str.3) #11
-  %62 = getelementptr inbounds nuw [257 x i8], ptr %3, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %61
   store i8 0, ptr %62, align 1
   br label %176
 

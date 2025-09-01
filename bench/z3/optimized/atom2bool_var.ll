@@ -922,7 +922,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
 
 84:                                               ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %83, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !21
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
@@ -1444,7 +1444,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 64:                                               ; preds = %.lr.ph, %_ZN30collect_boolean_interface_proc7visitorclEP3app.exit
   %65 = phi i32 [ %61, %.lr.ph ], [ %150, %_ZN30collect_boolean_interface_proc7visitorclEP3app.exit ]
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !21
   %69 = add nuw i32 %65, 1
   store i32 %69, ptr %60, align 8, !tbaa !101
@@ -3775,7 +3775,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !130
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

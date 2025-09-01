@@ -18411,12 +18411,12 @@ _ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i42: ; 
   br i1 %469, label %471, label %527
 
 471:                                              ; preds = %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20handleDisconnectEdgeEjj.exit.i42
-  %switch.tableidx367 = add i32 %470, -1
-  %472 = icmp ult i32 %switch.tableidx367, 3
-  br i1 %472, label %switch.lookup366, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit.i117
+  %switch.tableidx366 = add i32 %470, -1
+  %472 = icmp ult i32 %switch.tableidx366, 3
+  br i1 %472, label %switch.lookup367, label %_ZN4llvm4PBQP8RegAlloc18RegAllocSolverImpl20removeFromCurrentSetEj.exit.i117
 
-switch.lookup366:                                 ; preds = %471
-  %switch.idx.cast368 = zext nneg i32 %switch.tableidx367 to i64
+switch.lookup367:                                 ; preds = %471
+  %switch.idx.cast368 = zext nneg i32 %switch.tableidx366 to i64
   %switch.idx.mult369 = mul nsw i64 %switch.idx.cast368, -48
   %473 = getelementptr i8, ptr %424, i64 %switch.idx.mult369
   %474 = getelementptr i8, ptr %473, i64 104
@@ -18426,9 +18426,9 @@ switch.lookup366:                                 ; preds = %471
   %.not42.i.i143 = icmp eq ptr %.041.i.i142, null
   br i1 %.not42.i.i143, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i167, label %.lr.ph.i.i144
 
-.lr.ph.i.i144:                                    ; preds = %switch.lookup366, %493
-  %.044.i.i145 = phi ptr [ %.0.i.i178, %493 ], [ %.041.i.i142, %switch.lookup366 ]
-  %.02243.i.i146 = phi ptr [ %.123.i.i177, %493 ], [ %476, %switch.lookup366 ]
+.lr.ph.i.i144:                                    ; preds = %switch.lookup367, %493
+  %.044.i.i145 = phi ptr [ %.0.i.i178, %493 ], [ %.041.i.i142, %switch.lookup367 ]
+  %.02243.i.i146 = phi ptr [ %.123.i.i177, %493 ], [ %476, %switch.lookup367 ]
   %477 = getelementptr inbounds nuw i8, ptr %.044.i.i145, i64 32
   %478 = load i32, ptr %477, align 4, !tbaa !130
   %479 = icmp ult i32 %478, %.0.i.i29
@@ -18485,9 +18485,9 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_n
   %.not.i.i179 = icmp eq ptr %.0.i.i178, null
   br i1 %.not.i.i179, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i167, label %.lr.ph.i.i144, !llvm.loop !924
 
-_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i167: ; preds = %493, %.lr.ph.i25.i.i159, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156, %switch.lookup366
-  %.sroa.037.0.i.i168 = phi ptr [ %.08.lcssa.i.i.i157, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156 ], [ %476, %switch.lookup366 ], [ %.08.lcssa.i.i.i157, %.lr.ph.i25.i.i159 ], [ %.123.i.i177, %493 ]
-  %.sroa.3.0.i.i169 = phi ptr [ %.02243.i.i146, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156 ], [ %476, %switch.lookup366 ], [ %.19.i28.i.i162, %.lr.ph.i25.i.i159 ], [ %.123.i.i177, %493 ]
+_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE11equal_rangeERKj.exit.i167: ; preds = %493, %.lr.ph.i25.i.i159, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156, %switch.lookup367
+  %.sroa.037.0.i.i168 = phi ptr [ %.08.lcssa.i.i.i157, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156 ], [ %476, %switch.lookup367 ], [ %.08.lcssa.i.i.i157, %.lr.ph.i25.i.i159 ], [ %.123.i.i177, %493 ]
+  %.sroa.3.0.i.i169 = phi ptr [ %.02243.i.i146, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPSt13_Rb_tree_nodeIjEPSt18_Rb_tree_node_baseRKj.exit.i.i156 ], [ %476, %switch.lookup367 ], [ %.19.i28.i.i162, %.lr.ph.i25.i.i159 ], [ %.123.i.i177, %493 ]
   %495 = getelementptr i8, ptr %473, i64 144
   %496 = getelementptr i8, ptr %473, i64 128
   %497 = load ptr, ptr %496, align 8, !tbaa !39

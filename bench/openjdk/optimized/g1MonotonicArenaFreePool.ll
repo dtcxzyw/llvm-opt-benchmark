@@ -393,11 +393,11 @@ define hidden void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_u
   %8 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load volatile i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

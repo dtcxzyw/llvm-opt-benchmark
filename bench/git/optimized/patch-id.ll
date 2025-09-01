@@ -170,7 +170,7 @@ define dso_local noundef i32 @cmd_patch_id(i32 noundef %0, ptr noundef %1, ptr n
 
 68:                                               ; preds = %70, %57
   %.0811.i.i.i = phi i64 [ 0, %57 ], [ %71, %70 ]
-  %69 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %69 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %58, %69
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %70
 
@@ -218,7 +218,7 @@ oidclr.exit.i:                                    ; preds = %70, %.split.loop.ex
 
 88:                                               ; preds = %90, %79
   %.0811.i.i.i.i = phi i64 [ 0, %79 ], [ %91, %90 ]
-  %89 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  %89 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %87, %89
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %90
 
@@ -406,7 +406,7 @@ skip_prefix.exit97.i.i:                           ; preds = %142
 158:                                              ; preds = %skip_prefix.exit97.i.i
   %159 = load i8, ptr %95, align 1, !tbaa !55
   %160 = zext i8 %159 to i64
-  %161 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %160
   %162 = load i8, ptr %161, align 1, !tbaa !55
   %163 = and i8 %162, 4
   %.not79.i.i = icmp eq i8 %163, 0
@@ -551,7 +551,7 @@ skip_prefix.exit97.i.i:                           ; preds = %142
   %.0710.i.i.i = phi ptr [ %.1.i.i.i, %231 ], [ %95, %222 ]
   %224 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 1
   %225 = zext i8 %223 to i64
-  %226 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !55
   %228 = and i8 %227, 1
   %.not8.i.i.i = icmp eq i8 %228, 0
@@ -606,7 +606,7 @@ scan_hunk_header.exit.thread.i.i:                 ; preds = %scan_hunk_header.ex
 
 249:                                              ; preds = %251, %scan_hunk_header.exit.thread.i.i
   %.0811.i.i100.i.i = phi i64 [ 0, %scan_hunk_header.exit.thread.i.i ], [ %252, %251 ]
-  %250 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i100.i.i
+  %250 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i100.i.i
   %.not.i.i101.i.i = icmp eq ptr %248, %250
   br i1 %.not.i.i101.i.i, label %.split.loop.exit9.i.i104.i.i, label %251
 

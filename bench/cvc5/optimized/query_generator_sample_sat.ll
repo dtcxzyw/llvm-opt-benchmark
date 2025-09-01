@@ -357,7 +357,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23QueryGe
   %42 = icmp eq i32 %41, 2
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %44 = zext i1 %42 to i64
-  %45 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !65, !noalias !62
   store ptr %46, ptr %19, align 8, !tbaa !59, !alias.scope !62
   %47 = load i64, ptr %46, align 8, !noalias !62
@@ -2881,7 +2881,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !65
   store ptr %15, ptr %0, align 8, !tbaa !59
   %16 = load i64, ptr %15, align 8
@@ -3003,8 +3003,8 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers23QueryGeneratorSampleS
   %31 = load ptr, ptr %30, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.not10.i.i.i.i = icmp eq ptr %31, null
-  %indvars.iv.sroa.gep2440 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %indvars.iv1438.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %indvars.iv.sroa.gep2441 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %indvars.iv1435.sroa.gep2450 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %indvars.iv1438.sroa.gep2452 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %indvars.iv1438.sroa.gep2453 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3294,8 +3294,8 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit150:         ; preds = %126, %_ZNSt13_Bit_i
 
 155:                                              ; preds = %137, %155
   %156 = phi i1 [ true, %137 ], [ false, %155 ]
-  %indvars.iv.sroa.phi = phi ptr [ %17, %137 ], [ %indvars.iv.sroa.gep2440, %155 ]
-  %indvars.iv.sroa.phi2442 = phi ptr [ %.sroa.0, %137 ], [ %.sroa.7, %155 ]
+  %indvars.iv.sroa.phi = phi ptr [ %17, %137 ], [ %indvars.iv.sroa.gep2441, %155 ]
+  %indvars.iv.sroa.phi2446 = phi ptr [ %.sroa.0, %137 ], [ %.sroa.7, %155 ]
   %157 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
   %.sroa.0.0.copyload.i.i159 = load ptr, ptr %157, align 8
   %.sroa.2.0..sroa_idx.i.i160 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 24
@@ -3313,7 +3313,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit150:         ; preds = %126, %_ZNSt13_Bit_i
   %166 = lshr i64 %165, %164
   %167 = trunc i64 %166 to i8
   %168 = and i8 %167, 1
-  store i8 %168, ptr %indvars.iv.sroa.phi2442, align 1, !tbaa !103
+  store i8 %168, ptr %indvars.iv.sroa.phi2446, align 1, !tbaa !103
   br i1 %156, label %155, label %169, !llvm.loop !169
 
 169:                                              ; preds = %155
@@ -3368,9 +3368,9 @@ _ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader: ; preds = %_ZNSt6vectorIbSaIb
 _ZNSt6vectorIbSaIbEE8pop_backEv.exit166:          ; preds = %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167
   %192 = phi i1 [ false, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167 ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader ]
   %indvars.iv1438.sroa.phi = phi ptr [ %indvars.iv1438.sroa.gep, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167 ], [ %17, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader ]
-  %indvars.iv1438.sroa.phi2445 = phi ptr [ %.sroa.7, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167 ], [ %.sroa.0, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader ]
+  %indvars.iv1438.sroa.phi2442 = phi ptr [ %.sroa.7, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167 ], [ %.sroa.0, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader ]
   %indvars.iv1438.sroa.phi2451 = phi ptr [ %indvars.iv1438.sroa.gep2452, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit167 ], [ %indvars.iv1438.sroa.gep2453, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit166.preheader ]
-  %193 = load i8, ptr %indvars.iv1438.sroa.phi2445, align 1, !tbaa !103, !range !105, !noundef !106
+  %193 = load i8, ptr %indvars.iv1438.sroa.phi2442, align 1, !tbaa !103, !range !105, !noundef !106
   %194 = trunc nuw i8 %193 to i1
   br i1 %194, label %195, label %198
 

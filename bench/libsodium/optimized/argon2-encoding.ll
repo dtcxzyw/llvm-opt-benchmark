@@ -396,7 +396,7 @@ define hidden i32 @_sodium_argon2_encode_string(ptr noundef %0, i64 noundef %1, 
   %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, 48
   %26 = add nsw i64 %.0.i, -1
-  %27 = getelementptr [10 x i8], ptr %6, i64 0, i64 %26
+  %27 = getelementptr i8, ptr %6, i64 %26
   store i8 %25, ptr %27, align 1
   %28 = udiv i32 %.09.i, 10
   %29 = icmp samesign ugt i32 %.09.i, 9
@@ -437,7 +437,7 @@ u32_to_string.exit:                               ; preds = %22
   %44 = trunc nuw nsw i32 %43 to i8
   %45 = or disjoint i8 %44, 48
   %46 = add nsw i64 %.0.i223, -1
-  %47 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
+  %47 = getelementptr i8, ptr %5, i64 %46
   store i8 %45, ptr %47, align 1
   %48 = udiv i32 %.09.i222, 10
   %49 = icmp ugt i32 %.09.i222, 9
@@ -446,7 +446,7 @@ u32_to_string.exit:                               ; preds = %22
   br i1 %51, label %42, label %u32_to_string.exit224, !llvm.loop !4
 
 u32_to_string.exit224:                            ; preds = %42
-  %52 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
+  %52 = getelementptr i8, ptr %5, i64 %46
   %53 = getelementptr i8, ptr %39, i64 3
   %54 = add i64 %36, -3
   %55 = sub i64 11, %.0.i223
@@ -576,7 +576,7 @@ define internal fastcc void @u32_to_string(ptr noundef nonnull %0, i32 noundef %
   %6 = trunc nuw nsw i32 %5 to i8
   %7 = or disjoint i8 %6, 48
   %8 = add nsw i64 %.0, -1
-  %9 = getelementptr [10 x i8], ptr %3, i64 0, i64 %8
+  %9 = getelementptr i8, ptr %3, i64 %8
   store i8 %7, ptr %9, align 1
   %10 = udiv i32 %.09, 10
   %11 = icmp ugt i32 %.09, 9
@@ -585,7 +585,7 @@ define internal fastcc void @u32_to_string(ptr noundef nonnull %0, i32 noundef %
   br i1 %13, label %4, label %14, !llvm.loop !4
 
 14:                                               ; preds = %4
-  %15 = getelementptr [10 x i8], ptr %3, i64 0, i64 %8
+  %15 = getelementptr i8, ptr %3, i64 %8
   %16 = sub i64 11, %.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %15, i64 noundef %16, i1 noundef false) #9
   %17 = getelementptr i8, ptr %0, i64 %16

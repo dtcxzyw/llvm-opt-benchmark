@@ -2833,7 +2833,7 @@ define noundef ptr @Cex_ManGenCex(ptr noundef readonly captures(none) %0, i32 no
   %34 = shl nuw i32 1, %33
   %35 = lshr i64 %indvars.iv, 5
   %36 = and i64 %35, 134217727
-  %37 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %16, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !34
   %39 = or i32 %38, %34
   store i32 %39, ptr %37, align 4, !tbaa !34
@@ -3269,7 +3269,7 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   %232 = shl nuw i32 1, %231
   %233 = lshr i64 %indvars.iv.i, 5
   %234 = and i64 %233, 134217727
-  %235 = getelementptr inbounds nuw [0 x i32], ptr %214, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw i32, ptr %214, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !34
   %237 = or i32 %236, %232
   store i32 %237, ptr %235, align 4, !tbaa !34

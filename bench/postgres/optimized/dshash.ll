@@ -231,7 +231,7 @@ define dso_local noundef ptr @dshash_find(ptr noundef captures(none) %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %15, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw %struct.dshash_partition, ptr %15, i64 %12
   %not. = xor i1 %2, true
   %17 = zext i1 %not. to i32
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef %17) #13
@@ -302,7 +302,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 .loopexit:                                        ; preds = %.loopexit.loopexit, %ensure_valid_bucket_pointers.exit
   %54 = phi ptr [ %.pre22, %.loopexit.loopexit ], [ %33, %ensure_valid_bucket_pointers.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %55, i64 0, i64 %12
+  %56 = getelementptr inbounds nuw %struct.dshash_partition, ptr %55, i64 %12
   tail call void @LWLockRelease(ptr noundef nonnull %56) #13
   br label %find_in_bucket.exit
 
@@ -339,7 +339,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
 20:                                               ; preds = %resize.exit, %3
   %21 = phi ptr [ %.pre, %resize.exit ], [ %14, %3 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %22, i64 0, i64 %12
+  %23 = getelementptr inbounds nuw %struct.dshash_partition, ptr %22, i64 %12
   %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #13
   %25 = load i64, ptr %15, align 8
   %26 = load ptr, ptr %13, align 8
@@ -412,7 +412,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 63:                                               ; preds = %.loopexit
   %64 = load ptr, ptr %13, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %65, i64 0, i64 %12
+  %66 = getelementptr inbounds nuw %struct.dshash_partition, ptr %65, i64 %12
   tail call void @LWLockRelease(ptr noundef nonnull %66) #13
   %67 = load i64, ptr %15, align 8
   %68 = add i64 %67, 1
@@ -422,7 +422,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %.044.i = phi i64 [ 0, %63 ], [ %82, %81 ]
   %70 = load ptr, ptr %13, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %71, i64 0, i64 %.044.i
+  %72 = getelementptr inbounds nuw %struct.dshash_partition, ptr %71, i64 %.044.i
   %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #13
   %74 = icmp eq i64 %.044.i, 0
   br i1 %74, label %75, label %81
@@ -504,7 +504,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %.248.i = phi i64 [ 0, %109 ], [ %120, %116 ]
   %117 = load ptr, ptr %13, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %119 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %118, i64 0, i64 %.248.i
+  %119 = getelementptr inbounds nuw %struct.dshash_partition, ptr %118, i64 %.248.i
   tail call void @LWLockRelease(ptr noundef nonnull %119) #13
   %120 = add nuw nsw i64 %.248.i, 1
   %exitcond49.not.i = icmp eq i64 %120, 128
@@ -564,7 +564,7 @@ define dso_local noundef zeroext i1 @dshash_delete_key(ptr noundef captures(none
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %14, i64 0, i64 %11
+  %15 = getelementptr inbounds nuw %struct.dshash_partition, ptr %14, i64 %11
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8
@@ -638,7 +638,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 delete_key_from_bucket.exit:                      ; preds = %39, %50
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %60, i64 0, i64 %11
+  %61 = getelementptr inbounds nuw %struct.dshash_partition, ptr %60, i64 %11
   tail call void @LWLockRelease(ptr noundef nonnull %61) #13
   ret i1 %.not.not.not.not.i.not.not.not.not.not
 }
@@ -693,7 +693,7 @@ delete_item.exit:                                 ; preds = %14, %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %35, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw %struct.dshash_partition, ptr %35, i64 %32
   tail call void @LWLockRelease(ptr noundef nonnull %36) #13
   ret void
 }
@@ -707,7 +707,7 @@ define dso_local void @dshash_release_lock(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %9, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw %struct.dshash_partition, ptr %9, i64 %6
   tail call void @LWLockRelease(ptr noundef nonnull %10) #13
   ret void
 }
@@ -880,7 +880,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = sext i32 %57 to i64
-  %64 = getelementptr inbounds [128 x %struct.dshash_partition], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds %struct.dshash_partition, ptr %62, i64 %63
   %65 = load i8, ptr %46, align 4, !range !12, !noundef !13
   %66 = xor i8 %65, 1
   %not.42 = zext nneg i8 %66 to i32
@@ -891,7 +891,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %2, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [128 x %struct.dshash_partition], ptr %71, i64 0, i64 %73
+  %74 = getelementptr inbounds %struct.dshash_partition, ptr %71, i64 %73
   tail call void @LWLockRelease(ptr noundef nonnull %74) #13
   store i32 %57, ptr %2, align 8
   %.pre51 = load ptr, ptr %0, align 8
@@ -940,7 +940,7 @@ define dso_local void @dshash_seq_term(ptr noundef readonly captures(none) %0) l
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = zext nneg i32 %3 to i64
-  %11 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.dshash_partition, ptr %9, i64 %10
   tail call void @LWLockRelease(ptr noundef nonnull %11) #13
   br label %12
 
@@ -1007,7 +1007,7 @@ define dso_local void @dshash_dump(ptr noundef captures(none) %0) local_unnamed_
   %.035 = phi i64 [ 0, %1 ], [ %8, %3 ]
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %5, i64 0, i64 %.035
+  %6 = getelementptr inbounds nuw %struct.dshash_partition, ptr %5, i64 %.035
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #13
   %8 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %8, 128
@@ -1096,7 +1096,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %.244 = phi i64 [ %55, %.preheader ], [ 0, %.loopexit ]
   %52 = load ptr, ptr %2, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = getelementptr inbounds nuw [128 x %struct.dshash_partition], ptr %53, i64 0, i64 %.244
+  %54 = getelementptr inbounds nuw %struct.dshash_partition, ptr %53, i64 %.244
   tail call void @LWLockRelease(ptr noundef nonnull %54) #13
   %55 = add nuw nsw i64 %.244, 1
   %exitcond47.not = icmp eq i64 %55, 128

@@ -1113,7 +1113,7 @@ define noundef ptr @_ZN3gmx29PositionCalculationCollection4Impl17createCalculati
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 
@@ -1282,7 +1282,7 @@ thread-pre-split:                                 ; preds = %8, %10, %12, %14, %
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL22index_type_for_poscalc11e_poscalc_t.exit
 
@@ -1612,7 +1612,7 @@ define noundef ptr @_ZN3gmx29PositionCalculationCollection17createCalculationE11
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -1681,7 +1681,7 @@ define noundef ptr @_ZN3gmx29PositionCalculationCollection25createCalculationFro
 
 switch.lookup:                                    ; preds = %3
   %11 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 
@@ -2660,7 +2660,7 @@ define internal fastcc noundef ptr @_ZL18create_simple_baseP17gmx_ana_poscalc_t(
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL18create_simple_baseP17gmx_ana_poscalc_t, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 

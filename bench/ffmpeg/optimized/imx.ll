@@ -190,7 +190,7 @@ bytestream2_get_byte.exit150:                     ; preds = %bytestream2_get_le1
 
 76:                                               ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw [32768 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1, !tbaa !42
   %79 = load ptr, ptr %7, align 8, !tbaa !41
   %80 = load i32, ptr %27, align 8, !tbaa !45
@@ -241,7 +241,7 @@ bytestream2_get_byte.exit152:                     ; preds = %.preheader184, %93
   %105 = add nsw i32 %102, 1
   store i32 %105, ptr %28, align 8, !tbaa !47
   %106 = sext i32 %102 to i64
-  %107 = getelementptr inbounds [32768 x i8], ptr %29, i64 0, i64 %106
+  %107 = getelementptr inbounds i8, ptr %29, i64 %106
   store i8 %.0.i151, ptr %107, align 1, !tbaa !42
   br label %108
 

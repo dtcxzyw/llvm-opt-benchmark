@@ -201,7 +201,7 @@ define hidden zeroext i16 @FLAC__bitreader_get_read_crc16(ptr noundef captures(n
   %28 = select i1 %24, i32 %27, i32 0
   %29 = xor i32 %28, %23
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !23
   %33 = zext i16 %32 to i32
   %34 = xor i32 %22, %33
@@ -269,7 +269,7 @@ crc16_update_block_.exit:                         ; preds = %36, %39
   %70 = and i32 %69, 255
   %71 = xor i32 %65, %70
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !23
   %75 = zext i16 %74 to i32
   %76 = xor i32 %64, %75
@@ -623,7 +623,7 @@ define internal fastcc range(i32 0, 2) i32 @bitreader_read_from_client_(ptr noun
   %30 = select i1 %26, i32 %29, i32 0
   %31 = xor i32 %30, %25
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i16, ptr @FLAC__crc16_table, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !23
   %35 = zext i16 %34 to i32
   %36 = xor i32 %24, %35

@@ -846,7 +846,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
   %53 = phi i32 [ %49, %46 ], [ -1, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %55 = zext i8 %13 to i64
-  %56 = getelementptr [256 x i32], ptr %54, i64 0, i64 %55
+  %56 = getelementptr i32, ptr %54, i64 %55
   store i32 %53, ptr %56, align 4
   call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #20
   br label %71
@@ -868,7 +868,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
   %65 = call i32 @uncore_device_to_die(ptr noundef nonnull %9) #20
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %67 = zext i8 %13 to i64
-  %68 = getelementptr [256 x i32], ptr %66, i64 0, i64 %67
+  %68 = getelementptr i32, ptr %66, i64 %67
   store i32 %65, ptr %68, align 4
   call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #20
   %69 = icmp eq i32 %65, -1
@@ -902,7 +902,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
 78:                                               ; preds = %.preheader.us, %85
   %79 = phi i64 [ %87, %85 ], [ 255, %.preheader.us ]
   %80 = phi i32 [ %86, %85 ], [ -1, %.preheader.us ]
-  %81 = getelementptr [256 x i32], ptr %77, i64 0, i64 %79
+  %81 = getelementptr i32, ptr %77, i64 %79
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %85
@@ -930,7 +930,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
 93:                                               ; preds = %.preheader20, %100
   %94 = phi i64 [ %102, %100 ], [ 0, %.preheader20 ]
   %95 = phi i32 [ %101, %100 ], [ -1, %.preheader20 ]
-  %96 = getelementptr [256 x i32], ptr %92, i64 0, i64 %94
+  %96 = getelementptr i32, ptr %92, i64 %94
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %99, label %100
@@ -2921,7 +2921,7 @@ define internal void @snbep_qpi_enable_event(ptr noundef readonly captures(none)
   %17 = sext i32 %15 to i64
   %18 = getelementptr %struct.pci_extra_dev, ptr %16, i64 %17
   %19 = sext i32 %14 to i64
-  %20 = getelementptr [4 x ptr], ptr %18, i64 0, i64 %19
+  %20 = getelementptr ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %46, label %23
@@ -3385,7 +3385,7 @@ define internal void @ivbep_uncore_irp_disable_event(ptr noundef readonly captur
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [4 x i32], ptr @ivbep_uncore_irp_ctls, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctls, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %5, align 8
   %12 = trunc i64 %11 to i32
@@ -3401,7 +3401,7 @@ define internal void @ivbep_uncore_irp_enable_event(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [4 x i32], ptr @ivbep_uncore_irp_ctls, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctls, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %5, align 8
   %12 = trunc i64 %11 to i32
@@ -3420,12 +3420,12 @@ define internal i64 @ivbep_uncore_irp_read_counter(ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [4 x i32], ptr @ivbep_uncore_irp_ctrs, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctrs, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @pci_read_config_dword(ptr noundef %5, i32 noundef %10, ptr noundef nonnull %3) #20
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [4 x i32], ptr @ivbep_uncore_irp_ctrs, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @ivbep_uncore_irp_ctrs, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3928,12 +3928,12 @@ define internal i64 @hswep_uncore_irp_read_counter(ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr [4 x i32], ptr @hswep_uncore_irp_ctrs, i64 0, i64 %8
+  %9 = getelementptr i32, ptr @hswep_uncore_irp_ctrs, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @pci_read_config_dword(ptr noundef %5, i32 noundef %10, ptr noundef nonnull %3) #20
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [4 x i32], ptr @hswep_uncore_irp_ctrs, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @hswep_uncore_irp_ctrs, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4270,7 +4270,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr noundef rea
 
 25:                                               ; preds = %21
   %26 = and i64 %22, 63
-  %27 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %26
+  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, ptrtoint (ptr @cpu_info to i64)
   %30 = inttoptr i64 %29 to ptr
@@ -4394,7 +4394,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %3 to i64
-  %22 = getelementptr [2 x i64], ptr @topology_size, i64 0, i64 %21
+  %22 = getelementptr i64, ptr @topology_size, i64 %21
   %.pre = load i32, ptr %6, align 4
   br label %23
 
@@ -5747,7 +5747,7 @@ define internal noundef i32 @icx_cha_hw_config(ptr noundef readonly captures(non
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr [40 x i64], ptr @icx_cha_msr_offsets, i64 0, i64 %13
+  %14 = getelementptr i64, ptr @icx_cha_msr_offsets, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = add i32 %16, 2917

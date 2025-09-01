@@ -485,7 +485,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115:       ; preds = %_ZL13gmx_snew_implI
 
 145:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115, %250
   %indvars.iv = phi i64 [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115 ], [ %indvars.iv.next, %250 ]
-  %146 = getelementptr inbounds nuw [17 x %struct.t_xvgrfile], ptr %8, i64 0, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !54
   %149 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %148) #14
@@ -1134,7 +1134,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151:       ; preds = %_ZNKSt7__cxx1112bas
 
 417:                                              ; preds = %416, %417
   %indvars.iv205 = phi i64 [ 0, %416 ], [ %indvars.iv.next206, %417 ]
-  %418 = getelementptr inbounds nuw [17 x %struct.t_xvgrfile], ptr %8, i64 0, i64 %indvars.iv205
+  %418 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv205
   %419 = load ptr, ptr %418, align 16, !tbaa !61
   %420 = load float, ptr %19, align 4, !tbaa !71
   %421 = fpext float %420 to double
@@ -1249,7 +1249,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151:       ; preds = %_ZNKSt7__cxx1112bas
 
 .preheader:                                       ; preds = %.preheader.preheader, %501
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %501 ], [ 0, %.preheader.preheader ]
-  %488 = getelementptr inbounds nuw [17 x %struct.t_xvgrfile], ptr %8, i64 0, i64 %indvars.iv212
+  %488 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv212
   %489 = load ptr, ptr %488, align 16, !tbaa !61
   invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %489)
           to label %490 unwind label %.loopexit166

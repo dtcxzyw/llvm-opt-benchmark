@@ -1002,13 +1002,13 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIhEEvNS_3MatES2_S2_
 
 68:                                               ; preds = %68, %67
   %indvars.iv.i.i.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i.i.i, %68 ]
-  %69 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   %70 = load i8, ptr %69, align 1, !tbaa !68, !noalias !71
   %71 = zext i8 %70 to i32
   %72 = mul nuw nsw i32 %62, %71
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
-  %75 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i
   store i8 %74, ptr %75, align 1, !tbaa !68, !alias.scope !71
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1031,13 +1031,13 @@ _ZN2cvmlIhLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit:     ; preds = %68
 
 84:                                               ; preds = %84, %_ZN2cvmlIhLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlIhLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %84 ]
-  %85 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i23
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i23
   %86 = load i8, ptr %85, align 1, !tbaa !68, !noalias !75
   %87 = zext i8 %86 to i32
   %88 = mul nuw nsw i32 %83, %87
   %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 255)
   %90 = trunc nuw i32 %89 to i8
-  %91 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i.i23
   store i8 %90, ptr %91, align 1, !tbaa !68, !alias.scope !75
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1184,13 +1184,13 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesItEEvNS_3MatES2_S2_
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.i.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i.i, %58 ]
-  %59 = getelementptr inbounds nuw [3 x i16], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i.i
   %60 = load i16, ptr %59, align 2, !tbaa !79, !noalias !84
   %61 = zext i16 %60 to i32
   %62 = mul nuw nsw i32 %52, %61
   %63 = tail call i32 @llvm.umin.i32(i32 %62, i32 65535)
   %64 = trunc nuw i32 %63 to i16
-  %65 = getelementptr inbounds nuw [3 x i16], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %65 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i.i.i
   store i16 %64, ptr %65, align 2, !tbaa !79, !alias.scope !84
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1213,13 +1213,13 @@ _ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit:     ; preds = %58
 
 74:                                               ; preds = %74, %_ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %74 ]
-  %75 = getelementptr inbounds nuw [3 x i16], ptr %4, i64 0, i64 %indvars.iv.i.i.i23
+  %75 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i.i23
   %76 = load i16, ptr %75, align 2, !tbaa !79, !noalias !88
   %77 = zext i16 %76 to i32
   %78 = mul nuw nsw i32 %73, %77
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 65535)
   %80 = trunc nuw i32 %79 to i16
-  %81 = getelementptr inbounds nuw [3 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %81 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i.i23
   store i16 %80, ptr %81, align 2, !tbaa !79, !alias.scope !88
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1366,10 +1366,10 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIfEEvNS_3MatES2_S2_
 
 60:                                               ; preds = %60, %59
   %indvars.iv.i.i.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i
   %62 = load float, ptr %61, align 4, !tbaa !92, !noalias !97
   %63 = fmul float %62, %54
-  %64 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
   store float %63, ptr %64, align 4, !tbaa !92, !alias.scope !97
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1392,10 +1392,10 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit:     ; preds = %60
 
 73:                                               ; preds = %73, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %73 ]
-  %74 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i23
+  %74 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i23
   %75 = load float, ptr %74, align 4, !tbaa !92, !noalias !101
   %76 = fmul float %75, %72
-  %77 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %77 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i23
   store float %76, ptr %77, align 4, !tbaa !92, !alias.scope !101
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1542,10 +1542,10 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIdEEvNS_3MatES2_S2_
 
 60:                                               ; preds = %60, %59
   %indvars.iv.i.i.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i
   %62 = load double, ptr %61, align 8, !tbaa !19, !noalias !108
   %63 = fmul double %62, %54
-  %64 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i.i.i
   store double %63, ptr %64, align 8, !tbaa !19, !alias.scope !108
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1568,10 +1568,10 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit:     ; preds = %60
 
 73:                                               ; preds = %73, %_ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %73 ]
-  %74 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i23
+  %74 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i23
   %75 = load double, ptr %74, align 8, !tbaa !19, !noalias !112
   %76 = fmul double %75, %72
-  %77 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv.i.i.i23
+  %77 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.i.i23
   store double %76, ptr %77, align 8, !tbaa !19, !alias.scope !112
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3

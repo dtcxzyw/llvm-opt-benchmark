@@ -948,7 +948,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
 15:                                               ; preds = %24, %3
   %.sroa.02.033 = phi i64 [ 0, %3 ], [ %26, %24 ]
   %.sroa.09.032 = phi i64 [ 0, %3 ], [ %.sroa.09.1.lcssa, %24 ]
-  %16 = getelementptr inbounds nuw [5 x { i64, i64 }], ptr %4, i64 0, i64 %.sroa.02.033
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i64 %.sroa.02.033
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
@@ -962,7 +962,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
 
 .lr.ph:                                           ; preds = %15, %41
   %.sroa.09.131 = phi i64 [ %31, %41 ], [ %.sroa.09.032, %15 ]
-  %.sroa.013.030 = phi i64 [ %48, %41 ], [ %17, %15 ]
+  %.sroa.013.030 = phi i64 [ %47, %41 ], [ %17, %15 ]
   %21 = icmp ult i64 %.sroa.09.131, 16
   br i1 %21, label %28, label %33, !prof !287
 
@@ -971,7 +971,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
   br i1 %23, label %24, label %27, !prof !287
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   store i8 45, ptr %25, align 1
   %26 = add nuw nsw i64 %.sroa.02.033, 1
   br label %15
@@ -981,7 +981,7 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
   unreachable
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 0, i64 %.sroa.09.131
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.09.131
   %30 = load i8, ptr %29, align 1, !noundef !4
   %31 = add nuw nsw i64 %.sroa.09.131, 1
   %32 = icmp ult i64 %.sroa.013.030, 36
@@ -994,30 +994,29 @@ define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.808
 34:                                               ; preds = %28
   %35 = lshr i8 %30, 4
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr %anon.bb923d0852cb747c4bf565c2f0bb4bc0.36.anon.bb923d0852cb747c4bf565c2f0bb4bc0.35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %anon.bb923d0852cb747c4bf565c2f0bb4bc0.36.anon.bb923d0852cb747c4bf565c2f0bb4bc0.35, i64 %36
   %38 = load i8, ptr %37, align 1, !noundef !4
-  %39 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %.sroa.013.030
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.013.030
   store i8 %38, ptr %39, align 1
   %.not20 = icmp eq i64 %.sroa.013.030, 35
-  br i1 %.not20, label %50, label %41, !prof !288
+  br i1 %.not20, label %49, label %41, !prof !288
 
 40:                                               ; preds = %28
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.013.030, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb923d0852cb747c4bf565c2f0bb4bc0.42) #25
   unreachable
 
 41:                                               ; preds = %34
-  %42 = add nuw nsw i64 %.sroa.013.030, 1
-  %43 = and i8 %30, 15
-  %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds nuw [16 x i8], ptr %anon.bb923d0852cb747c4bf565c2f0bb4bc0.36.anon.bb923d0852cb747c4bf565c2f0bb4bc0.35, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1, !noundef !4
-  %47 = getelementptr inbounds nuw [36 x i8], ptr %0, i64 0, i64 %42
-  store i8 %46, ptr %47, align 1
-  %48 = add nuw nsw i64 %.sroa.013.030, 2
-  %49 = icmp ult i64 %48, %19
-  br i1 %49, label %.lr.ph, label %._crit_edge
+  %42 = and i8 %30, 15
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %anon.bb923d0852cb747c4bf565c2f0bb4bc0.36.anon.bb923d0852cb747c4bf565c2f0bb4bc0.35, i64 %43
+  %45 = load i8, ptr %44, align 1, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 %45, ptr %46, align 1
+  %47 = add nuw nsw i64 %.sroa.013.030, 2
+  %48 = icmp ult i64 %47, %19
+  br i1 %48, label %.lr.ph, label %._crit_edge
 
-50:                                               ; preds = %34
+49:                                               ; preds = %34
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 36, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bb923d0852cb747c4bf565c2f0bb4bc0.44) #25
   unreachable
 }
@@ -1933,7 +1932,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 37:                                               ; preds = %41, %.lr.ph.i
   %38 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %42, %41 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  %39 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
   %40 = load i8, ptr %39, align 1, !noalias !457, !noundef !4
   switch i8 %40, label %43 [
     i8 32, label %41
@@ -2003,7 +2002,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 57:                                               ; preds = %53
   %.sroa.0.011.i.add = add nuw nsw i64 %.sroa.0.011.i.idx, 1
-  %58 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %51
+  %58 = getelementptr inbounds i8, ptr %36, i64 %51
   %59 = load i8, ptr %58, align 1, !noalias !473, !noundef !4
   %60 = add nuw i64 %51, 1
   store i64 %60, ptr %31, align 8, !alias.scope !475, !noalias !476
@@ -2046,7 +2045,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 73:                                               ; preds = %69
   %.sroa.0.011.i111.add = add nuw nsw i64 %.sroa.0.011.i111.idx, 1
-  %74 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %67
+  %74 = getelementptr inbounds i8, ptr %36, i64 %67
   %75 = load i8, ptr %74, align 1, !noalias !489, !noundef !4
   %76 = add nuw i64 %67, 1
   store i64 %76, ptr %31, align 8, !alias.scope !491, !noalias !492
@@ -2089,7 +2088,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 89:                                               ; preds = %85
   %.sroa.0.011.i116.add = add nuw nsw i64 %.sroa.0.011.i116.idx, 1
-  %90 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %83
+  %90 = getelementptr inbounds i8, ptr %36, i64 %83
   %91 = load i8, ptr %90, align 1, !noalias !505, !noundef !4
   %92 = add nuw i64 %83, 1
   store i64 %92, ptr %31, align 8, !alias.scope !507, !noalias !508

@@ -50,7 +50,7 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr @.str.2, ptr %16, align 8, !tbaa !24
   br label %28
 
@@ -59,17 +59,17 @@ define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, pt
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [7 x ptr], ptr @day_names_def, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr @day_names_def, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !24
   br label %28
 
 23:                                               ; preds = %17
   %24 = zext i8 %.049 to i64
-  %25 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %10, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 %24
   store i8 120, ptr %25, align 1, !tbaa !26
-  %26 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr %25, ptr %26, align 8, !tbaa !24
   %27 = add i8 %.049, 1
   br label %28
@@ -136,7 +136,7 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %4 ]
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !24
-  %7 = getelementptr inbounds nuw [56 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %6, ptr %7, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -405,7 +405,7 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.06383 = phi i8 [ 1, %.lr.ph ], [ %63, %59 ]
-  %60 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %56, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [20 x i8], ptr %56, i64 %indvars.iv
   %61 = zext i8 %.06383 to i32
   %62 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %60, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %61) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -474,7 +474,7 @@ get_month_length.exit80:                          ; preds = %72, %74, %77, %82
   %indvars.iv98 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next99, %93 ]
   %.164.in85 = phi i8 [ %narrow70, %.lr.ph87 ], [ %.164, %93 ]
   %.164 = add i8 %.164.in85, 1
-  %94 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %87, i64 0, i64 %indvars.iv98
+  %94 = getelementptr inbounds nuw [20 x i8], ptr %87, i64 %indvars.iv98
   %95 = zext i8 %.164 to i32
   %96 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %94, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %95) #5
   %97 = load ptr, ptr %10, align 8, !tbaa !29
@@ -488,7 +488,7 @@ get_month_length.exit80:                          ; preds = %72, %74, %77, %82
 101:                                              ; preds = %.lr.ph90, %101
   %indvars.iv102 = phi i32 [ 1, %.lr.ph90 ], [ %indvars.iv.next103, %101 ]
   %indvars.iv100 = phi i64 [ %92, %.lr.ph90 ], [ %indvars.iv.next101, %101 ]
-  %102 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %89, i64 0, i64 %indvars.iv100
+  %102 = getelementptr inbounds nuw [20 x i8], ptr %89, i64 %indvars.iv100
   %103 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %102, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv102) #5
   %104 = load ptr, ptr %10, align 8, !tbaa !29
   %105 = trunc i64 %indvars.iv100 to i32

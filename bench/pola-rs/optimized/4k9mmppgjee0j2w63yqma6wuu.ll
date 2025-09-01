@@ -90077,7 +90077,7 @@ switch.lookup:                                    ; preds = %111, %106
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6900
   %124 = load i8, ptr %46, align 1, !range !5242, !noalias !6900, !noundef !3
   %125 = zext nneg i8 %124 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN11polars_time6series15TemporalMethods7weekday17h6f67490f8353d8fcE, i64 0, i64 %125
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN11polars_time6series15TemporalMethods7weekday17h6f67490f8353d8fcE, i64 %125
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %15, align 8, !noalias !6900
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6900
@@ -124200,10 +124200,10 @@ define internal noundef zeroext i1 @"_ZN90_$LT$polars_core..datatypes..temporal.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !5242, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.605", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.605", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -127814,7 +127814,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !5242, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..fused..FusedOperator$u20$as$u20$core..fmt..Display$GT$3fmt17hdfd21fe55a180a9dE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..fused..FusedOperator$u20$as$u20$core..fmt..Display$GT$3fmt17hdfd21fe55a180a9dE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8

@@ -3322,7 +3322,7 @@ avio_r8.exit.i:                                   ; preds = %fill_buffer.exit.i,
   br i1 %95, label %.critedge.i, label %96
 
 96:                                               ; preds = %94, %93
-  %97 = getelementptr inbounds nuw [1024 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %92, ptr %97, align 1, !tbaa !33
   %exitcond.i = icmp eq i64 %indvars.iv.i, 1023
   br i1 %exitcond.i, label %._crit_edge120.i, label %98
@@ -3748,7 +3748,7 @@ avio_rl16.exit76:                                 ; preds = %avio_r8.exit.thread
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %74
   %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %75
   %76 = zext nneg i32 %.110.i to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !33
   %79 = zext i8 %78 to i16
   %80 = add nuw nsw i16 %79, 4
@@ -3986,7 +3986,7 @@ avio_rb16.exit76:                                 ; preds = %avio_r8.exit.thread
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %74
   %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %75
   %76 = zext nneg i32 %.110.i to i64
-  %77 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !33
   %79 = zext i8 %78 to i16
   %80 = add nuw nsw i16 %79, 4
@@ -4176,7 +4176,7 @@ define void @ffio_write_leb(ptr noundef captures(none) %0, i32 noundef %1) local
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %3
   %.1.i = select i1 %.not11.i, i16 %spec.select12.i, i16 %4
   %5 = zext nneg i32 %.110.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !33
   %8 = zext i8 %7 to i16
   %9 = or disjoint i16 %.1.i, 7

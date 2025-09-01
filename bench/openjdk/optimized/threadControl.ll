@@ -267,7 +267,7 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i:                                         ; preds = %27, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %27 ]
-  %36 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i8 @isSameObject(ptr noundef %28, ptr noundef nonnull %21, ptr noundef %37) #6
   %.not.i = icmp eq i8 %38, 0
@@ -2173,12 +2173,12 @@ define hidden range(i32 0, 189) i32 @threadControl_addDebugThread(ptr noundef %0
   %6 = tail call ptr @getEnv() #6
   %7 = load i32, ptr @debugThreadCount, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @debugThreads, i64 %8
   store ptr null, ptr %9, align 8
   tail call void @saveGlobalRef(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %9) #6
   %10 = load i32, ptr @debugThreadCount, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr @debugThreads, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
@@ -2215,7 +2215,7 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_isDebugThread(ptr noundef
 
 .lr.ph:                                           ; preds = %1, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %0, ptr noundef %11) #6
   %.not = icmp eq i8 %12, 0
@@ -4390,14 +4390,14 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 .lr.ph.i:                                         ; preds = %12, %30
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %30 ], [ 1, %12 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %12 ]
-  %18 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 @isSameObject(ptr noundef %14, ptr noundef %13, ptr noundef %19) #6
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @tossGlobalRef(ptr noundef %14, ptr noundef nonnull %22) #6
   %24 = load i32, ptr @debugThreadCount, align 4
@@ -4413,9 +4413,9 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.i, %.lr.ph22.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph22.i ]
   %indvars.iv31.i = phi i64 [ %indvars.iv28.i, %.lr.ph22.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph22.i ]
-  %27 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv31.i
+  %27 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv31.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv34.i
+  %29 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv34.i
   store ptr %28, ptr %29, align 8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1

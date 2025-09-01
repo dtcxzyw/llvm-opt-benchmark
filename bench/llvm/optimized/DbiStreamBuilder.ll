@@ -743,7 +743,7 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder12addDbgStreamENS0_13DbgHea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0, i8 0, i64 36, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = zext i16 %2 to i64
-  %10 = getelementptr inbounds nuw [11 x %"class.std::optional.38"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.std::optional.38", ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i8, ptr %11, align 8, !tbaa !105, !range !107, !noundef !108
   %13 = trunc nuw i8 %12 to i1

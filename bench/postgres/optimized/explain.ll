@@ -3969,10 +3969,10 @@ define internal fastcc void @ExplainNode(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %134
   %138 = zext nneg i32 %136 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ExplainNode, i64 0, i64 %138
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode, i64 %138
   %switch.load = load ptr, ptr %switch.gep, align 8
   %139 = zext nneg i32 %136 to i64
-  %switch.gep1336 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ExplainNode.20, i64 0, i64 %139
+  %switch.gep1336 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.20, i64 %139
   %switch.load1337 = load ptr, ptr %switch.gep1336, align 8
   br label %140
 
@@ -4397,7 +4397,7 @@ explain_get_index_name.exit:                      ; preds = %268, %.thread.i
 
 switch.lookup1338:                                ; preds = %307
   %311 = zext nneg i32 %309 to i64
-  %switch.gep1339 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ExplainNode.21, i64 0, i64 %311
+  %switch.gep1339 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.21, i64 %311
   %switch.load1340 = load ptr, ptr %switch.gep1339, align 8
   br label %312
 
@@ -4770,7 +4770,7 @@ plan_is_disabled.exit:                            ; preds = %410, %.critedge.i
 493:                                              ; preds = %.lr.ph, %544
   %494 = phi i32 [ %489, %.lr.ph ], [ %545, %544 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %544 ]
-  %495 = getelementptr inbounds nuw [0 x %struct.Instrumentation], ptr %491, i64 0, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw %struct.Instrumentation, ptr %491, i64 %indvars.iv
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 232
   %497 = load double, ptr %496, align 8
   %498 = fcmp ugt double %497, 0.000000e+00
@@ -5417,7 +5417,7 @@ ExplainIndentText.exit.i:                         ; preds = %794, %787
   %indvars.iv.i790 = phi i64 [ %indvars.iv.next.i791, %867 ], [ 0, %.preheader.i ]
   %815 = phi ptr [ %868, %867 ], [ %812, %.preheader.i ]
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
-  %817 = getelementptr inbounds nuw [0 x %struct.BitmapHeapScanInstrumentation], ptr %816, i64 0, i64 %indvars.iv.i790
+  %817 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %816, i64 %indvars.iv.i790
   %818 = load i64, ptr %817, align 8
   %819 = icmp eq i64 %818, 0
   br i1 %819, label %820, label %824
@@ -6849,7 +6849,7 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
   %indvars.iv.i857 = phi i64 [ %indvars.iv.next.i858, %1606 ], [ 0, %.preheader.i855 ]
   %1558 = phi ptr [ %1607, %1606 ], [ %1555, %.preheader.i855 ]
   %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 8
-  %1560 = getelementptr inbounds nuw [0 x %struct.AggregateInstrumentation], ptr %1559, i64 0, i64 %indvars.iv.i857
+  %1560 = getelementptr inbounds nuw %struct.AggregateInstrumentation, ptr %1559, i64 %indvars.iv.i857
   %1561 = load i64, ptr %1560, align 8
   %1562 = icmp eq i64 %1561, 0
   br i1 %1562, label %1606, label %1563
@@ -7186,7 +7186,7 @@ ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
   %indvars.iv.i874 = phi i64 [ %indvars.iv.next.i876, %1778 ], [ 0, %.preheader.i872 ]
   %1738 = phi ptr [ %1779, %1778 ], [ %1735, %.preheader.i872 ]
   %1739 = getelementptr inbounds nuw i8, ptr %1738, i64 8
-  %1740 = getelementptr inbounds nuw [0 x %struct.TuplesortInstrumentation], ptr %1739, i64 0, i64 %indvars.iv.i874
+  %1740 = getelementptr inbounds nuw %struct.TuplesortInstrumentation, ptr %1739, i64 %indvars.iv.i874
   %1741 = load i32, ptr %1740, align 8
   %1742 = icmp eq i32 %1741, 0
   br i1 %1742, label %1778, label %1743
@@ -7338,7 +7338,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
   %indvars.iv.i883 = phi i64 [ %indvars.iv.next.i885, %1854 ], [ 0, %.preheader.i881 ]
   %1822 = phi ptr [ %1855, %1854 ], [ %1819, %.preheader.i881 ]
   %1823 = getelementptr inbounds nuw i8, ptr %1822, i64 8
-  %1824 = getelementptr inbounds nuw [0 x %struct.IncrementalSortInfo], ptr %1823, i64 0, i64 %indvars.iv.i883
+  %1824 = getelementptr inbounds nuw %struct.IncrementalSortInfo, ptr %1823, i64 %indvars.iv.i883
   %1825 = load i64, ptr %1824, align 8
   %1826 = icmp eq i64 %1825, 0
   br i1 %1826, label %1854, label %1827
@@ -7497,10 +7497,10 @@ show_upper_qual.exit889:                          ; preds = %1895
 
 switch.lookup1341:                                ; preds = %1905
   %1910 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1342 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ExplainNode.22, i64 0, i64 %1910
+  %switch.gep1342 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.22, i64 %1910
   %switch.load1343 = load ptr, ptr %switch.gep1342, align 8
   %1911 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1344 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ExplainNode.23, i64 0, i64 %1911
+  %switch.gep1344 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.23, i64 %1911
   %switch.load1345 = load ptr, ptr %switch.gep1344, align 8
   br label %1912
 
@@ -7970,7 +7970,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
   %.sroa.17.285.i = phi i32 [ %.sroa.17.0.i, %.lr.ph.i903 ], [ %2152, %2144 ]
   %.sroa.31.284.i = phi i64 [ %.sroa.31.0.i, %.lr.ph.i903 ], [ %2158, %2144 ]
   %.sroa.25.283.i = phi i32 [ %.sroa.25.0.i, %.lr.ph.i903 ], [ %2155, %2144 ]
-  %2145 = getelementptr inbounds nuw [0 x %struct.HashInstrumentation], ptr %2143, i64 0, i64 %indvars.iv.i905
+  %2145 = getelementptr inbounds nuw %struct.HashInstrumentation, ptr %2143, i64 %indvars.iv.i905
   %2146 = load i32, ptr %2145, align 8
   %.sroa.0.2..i = call i32 @llvm.smax.i32(i32 %.sroa.0.288.i, i32 %2146)
   %2147 = getelementptr inbounds nuw i8, ptr %2145, i64 4
@@ -8344,7 +8344,7 @@ ExplainIndentText.exit92.i:                       ; preds = %2320, %2313
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %2391 ], [ 0, %.preheader.i913 ]
   %2336 = phi ptr [ %2392, %2391 ], [ %2332, %.preheader.i913 ]
   %2337 = getelementptr inbounds nuw i8, ptr %2336, i64 8
-  %2338 = getelementptr inbounds nuw [0 x %struct.MemoizeInstrumentation], ptr %2337, i64 0, i64 %indvars.iv103.i
+  %2338 = getelementptr inbounds nuw %struct.MemoizeInstrumentation, ptr %2337, i64 %indvars.iv103.i
   %2339 = getelementptr inbounds nuw i8, ptr %2338, i64 8
   %2340 = load i64, ptr %2339, align 8
   %2341 = icmp eq i64 %2340, 0
@@ -8536,7 +8536,7 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
   %2428 = load ptr, ptr %2424, align 8
   %2429 = getelementptr inbounds nuw i8, ptr %2428, i64 304
   %2430 = load i32, ptr %2429, align 8
-  %2431 = getelementptr inbounds nuw [0 x %struct.JitInstrumentation], ptr %2425, i64 0, i64 %indvars.iv1054
+  %2431 = getelementptr inbounds nuw %struct.JitInstrumentation, ptr %2425, i64 %indvars.iv1054
   call fastcc void @ExplainPrintJIT(ptr noundef nonnull %4, i32 noundef %2430, ptr noundef %2431)
   call fastcc void @ExplainCloseWorker(i32 noundef %2427, ptr noundef nonnull %4)
   %indvars.iv.next1055 = add nuw nsw i64 %indvars.iv1054, 1
@@ -8610,7 +8610,7 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
 2466:                                             ; preds = %.lr.ph1009, %2484
   %2467 = phi i32 [ %2463, %.lr.ph1009 ], [ %2485, %2484 ]
   %indvars.iv1057 = phi i64 [ 0, %.lr.ph1009 ], [ %indvars.iv.next1058, %2484 ]
-  %2468 = getelementptr inbounds nuw [0 x %struct.Instrumentation], ptr %2465, i64 0, i64 %indvars.iv1057
+  %2468 = getelementptr inbounds nuw %struct.Instrumentation, ptr %2465, i64 %indvars.iv1057
   %2469 = getelementptr inbounds nuw i8, ptr %2468, i64 232
   %2470 = load double, ptr %2469, align 8
   %2471 = fcmp ugt double %2470, 0.000000e+00

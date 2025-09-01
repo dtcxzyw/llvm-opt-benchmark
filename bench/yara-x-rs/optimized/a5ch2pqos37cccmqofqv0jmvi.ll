@@ -79457,7 +79457,7 @@ define noundef range(i8 0, 18) i8 @"_ZN87_$LT$yara_x..modules..protos..macho..Cp
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i8], ptr @"switch.table._ZN87_$LT$yara_x..modules..protos..macho..CpuArmSubType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hab6d4e578e52f4e1E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN87_$LT$yara_x..modules..protos..macho..CpuArmSubType$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217hab6d4e578e52f4e1E", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -79558,7 +79558,7 @@ switch.lookup:
   %2 = alloca [24 x i8], align 8
   %3 = load i8, ptr %1, align 1, !range !3782, !noundef !3
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN95_$LT$yara_x..modules..protos..macho..CpuArmSubType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hd3ee138557ac2ae3E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN95_$LT$yara_x..modules..protos..macho..CpuArmSubType$u20$as$u20$protobuf..enum_full..EnumFull$GT$10descriptor17hd3ee138557ac2ae3E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3783)
@@ -94636,10 +94636,10 @@ switch.lookup:                                    ; preds = %138
   %.sroa.53.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i40, align 8, !noalias !4709
   %144 = zext nneg i8 %.val8 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE", i64 0, i64 %144
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE", i64 %144
   %switch.load = load ptr, ptr %switch.gep, align 8
   %145 = zext nneg i8 %.val8 to i64
-  %switch.gep92 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE.625", i64 0, i64 %145
+  %switch.gep92 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE.625", i64 %145
   %switch.load93 = load i64, ptr %switch.gep92, align 8
   %146 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load93
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3a6e1e3f3f262f47E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 1 %switch.load, ptr noundef nonnull readonly %146, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.215f301ce771400005d504a43175a162.114)
@@ -94837,10 +94837,10 @@ switch.lookup:                                    ; preds = %33, %28
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !4747
   %37 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE", i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE", i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   %38 = zext nneg i8 %.val to i64
-  %switch.gep23 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE.625", i64 0, i64 %38
+  %switch.gep23 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN6yara_x7modules6dotnet6parser140_$LT$impl$u20$core..convert..From$LT$$RF$yara_x..modules..dotnet..parser..Method$GT$$u20$for$u20$yara_x..modules..protos..dotnet..Method$GT$4from17h30e2f71055207d9dE.625", i64 %38
   %switch.load24 = load i64, ptr %switch.gep23, align 8
   %39 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load24
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3a6e1e3f3f262f47E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 1 %switch.load, ptr noundef nonnull readonly %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.215f301ce771400005d504a43175a162.114)

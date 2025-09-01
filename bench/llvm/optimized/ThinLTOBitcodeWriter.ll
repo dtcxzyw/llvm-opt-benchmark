@@ -1700,7 +1700,7 @@ _ZN4llvm11SmallVectorIPNS_6MDNodeELj2EED2Ev.exit.i.i: ; preds = %553, %_ZN4llvm1
 
 switch.lookup:                                    ; preds = %579
   %601 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm24ThinLTOBitcodeWriterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 0, i64 %601
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm24ThinLTOBitcodeWriterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 %601
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.i.i
 

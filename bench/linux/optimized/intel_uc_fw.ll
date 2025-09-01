@@ -238,7 +238,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
 
 30:                                               ; preds = %21
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr [3 x %struct.fw_blobs_by_type], ptr @blobs_all, i64 0, i64 %31
+  %32 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %31
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8
@@ -560,7 +560,7 @@ default.unreachable71:                            ; preds = %110, %63, %204
   %.pre = load ptr, ptr %15, align 8
   %.pre40 = load i32, ptr %0, align 8
   %.phi.trans.insert = zext i32 %.pre40 to i64
-  %.phi.trans.insert41 = getelementptr [3 x %struct.fw_blobs_by_type], ptr @blobs_all, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert41 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %.phi.trans.insert
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 16
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert41, i64 8
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 8
@@ -1010,7 +1010,7 @@ define dso_local noundef i32 @intel_uc_fw_fetch(ptr noundef %0) local_unnamed_ad
   %46 = select i1 %45, i32 34, i32 %37
   %47 = load i32, ptr %0, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr [3 x %struct.fw_blobs_by_type], ptr @blobs_all, i64 0, i64 %48
+  %49 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %48
   %50 = load ptr, ptr %49, align 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i32, ptr %51, align 8

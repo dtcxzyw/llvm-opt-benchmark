@@ -85,7 +85,7 @@ define void @_ZN17grpc_event_engine12experimental22HandleToStringInternalB5cxx11
   %16 = lshr i64 %1, %15
   %17 = shl i64 %16, 1
   %18 = and i64 %17, 510
-  %19 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 %18
   %20 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 %20
   %22 = load i16, ptr %19, align 2
@@ -139,7 +139,7 @@ _ZN4absl12lts_2024072216strings_internal22ExtractStringificationINS0_3HexEEESt17
   %41 = lshr i64 %2, %40
   %42 = shl i64 %41, 1
   %43 = and i64 %42, 510
-  %44 = getelementptr inbounds nuw [513 x i8], ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2024072216numbers_internal9kHexTableE, i64 %43
   %45 = shl nuw nsw i64 %indvars.iv.i.i.i.i14, 1
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 %45
   %47 = load i16, ptr %44, align 2

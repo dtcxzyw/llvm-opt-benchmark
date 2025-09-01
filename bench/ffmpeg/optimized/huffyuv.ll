@@ -29,7 +29,7 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !4
@@ -37,34 +37,34 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-.critedge.preheader:                              ; preds = %22
+.critedge.preheader:                              ; preds = %23
   br i1 %6, label %.lr.ph32.preheader, label %.loopexit
 
 .lr.ph32.preheader:                               ; preds = %.critedge.preheader
   %wide.trip.count37 = zext nneg i32 %2 to i64
   br label %.lr.ph32
 
-14:                                               ; preds = %._crit_edge, %22
-  %15 = phi i32 [ 0, %._crit_edge ], [ %23, %22 ]
-  %.02330 = phi i32 [ 32, %._crit_edge ], [ %24, %22 ]
-  %16 = zext nneg i32 %.02330 to i64
-  %17 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !4
-  %19 = add i32 %15, %18
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %22, label %21
+14:                                               ; preds = %._crit_edge, %23
+  %.02330 = phi i32 [ 32, %._crit_edge ], [ %26, %23 ]
+  %15 = zext nneg i32 %.02330 to i64
+  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !4
+  %18 = getelementptr inbounds nuw i32, ptr %5, i64 %15
+  %19 = load i32, ptr %18, align 4, !tbaa !4
+  %20 = add i32 %19, %17
+  %21 = and i32 %20, 1
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %23, label %22
 
-21:                                               ; preds = %14
+22:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str) #4
   br label %.loopexit
 
-22:                                               ; preds = %14
-  %23 = lshr exact i32 %19, 1
-  %24 = add nsw i32 %.02330, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %25
-  store i32 %23, ptr %26, align 4, !tbaa !4
+23:                                               ; preds = %14
+  %24 = lshr exact i32 %20, 1
+  %25 = getelementptr i8, ptr %18, i64 -4
+  store i32 %24, ptr %25, align 4, !tbaa !4
+  %26 = add nsw i32 %.02330, -1
   %27 = icmp samesign ult i32 %.02330, 2
   br i1 %27, label %.critedge.preheader, label %14, !llvm.loop !11
 
@@ -77,7 +77,7 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
 
 30:                                               ; preds = %.lr.ph32
   %31 = zext i8 %29 to i64
-  %32 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !4
@@ -90,8 +90,8 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %.loopexit, label %.lr.ph32, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.critedge, %.critedge.preheader, %21
-  %.1 = phi i32 [ -1094995529, %21 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %.critedge.preheader, %22
+  %.1 = phi i32 [ -1094995529, %22 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

@@ -58,18 +58,18 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %21 = zext i1 %20 to i32
   %22 = load i32, ptr %7, align 8
   %23 = ashr i32 %22, %21
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = zext i1 %20 to i64
-  %27 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %26
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %26
+  %31 = getelementptr inbounds nuw i32, ptr %11, i64 %26
   %32 = load i32, ptr %31, align 4
   %33 = sub i32 %23, %30
   %34 = add i32 %33, %32
-  %35 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %26
+  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %26
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, %23
   %38 = add i32 %37, %23
@@ -83,7 +83,7 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %19
-  %46 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %26
+  %46 = getelementptr inbounds nuw i32, ptr %12, i64 %26
   %47 = load i32, ptr %46, align 4
   %48 = sub nsw i32 %37, %47
   %49 = sext i32 %47 to i64
@@ -176,18 +176,18 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %96 = zext i1 %95 to i32
   %97 = load i32, ptr %13, align 8
   %98 = ashr i32 %97, %96
-  %99 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv66
+  %99 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv66
   %100 = load ptr, ptr %99, align 8
   %101 = zext i1 %95 to i64
-  %102 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %15, i64 %101
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %101
+  %104 = getelementptr inbounds nuw i32, ptr %16, i64 %101
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %101
+  %106 = getelementptr inbounds nuw i32, ptr %17, i64 %101
   %107 = load i32, ptr %106, align 4
   %108 = sub i32 %98, %105
   %109 = add i32 %108, %107
-  %110 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %101
+  %110 = getelementptr inbounds nuw i32, ptr %0, i64 %101
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, %98
   %113 = add i32 %112, %98
@@ -198,7 +198,7 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   br i1 %117, label %.lr.ph.i56, label %._crit_edge.i53
 
 .lr.ph.i56:                                       ; preds = %94
-  %118 = getelementptr inbounds nuw [2 x i32], ptr %18, i64 0, i64 %101
+  %118 = getelementptr inbounds nuw i32, ptr %18, i64 %101
   %119 = load i32, ptr %118, align 4
   %120 = sub nsw i32 %112, %119
   %121 = sext i32 %119 to i64
@@ -343,18 +343,18 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %31 = select i1 %28, i32 %8, i32 0
   %32 = ashr i32 %1, %31
   %33 = zext i1 %28 to i64
-  %34 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %9, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, %30
-  %37 = getelementptr inbounds nuw [2 x i32], ptr %19, i64 0, i64 %33
+  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %33
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %36, %38
-  %40 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %33
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %33
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, %32
-  %43 = getelementptr inbounds nuw [3 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %21, i64 0, i64 %33
+  %45 = getelementptr inbounds nuw i32, ptr %21, i64 %33
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %42, %32
   %48 = ptrtoint ptr %44 to i64
@@ -367,7 +367,7 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %27
-  %55 = getelementptr inbounds nuw [2 x i32], ptr %22, i64 0, i64 %33
+  %55 = getelementptr inbounds nuw i32, ptr %22, i64 %33
   %56 = load i32, ptr %55, align 4
   %57 = sub nsw i32 %42, %56
   %58 = sext i32 %56 to i64
@@ -462,18 +462,18 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %107 = select i1 %104, i32 %8, i32 0
   %108 = ashr i32 %1, %107
   %109 = zext i1 %104 to i64
-  %110 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %9, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, %106
-  %113 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %109
+  %113 = getelementptr inbounds nuw i32, ptr %23, i64 %109
   %114 = load i32, ptr %113, align 4
   %115 = sub i32 %112, %114
-  %116 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %109
+  %116 = getelementptr inbounds nuw i32, ptr %0, i64 %109
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, %108
-  %119 = getelementptr inbounds nuw [3 x ptr], ptr %24, i64 0, i64 %indvars.iv82
+  %119 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv82
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 0, i64 %109
+  %121 = getelementptr inbounds nuw i32, ptr %25, i64 %109
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %118, %108
   %124 = sext i32 %108 to i64
@@ -483,7 +483,7 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   br i1 %127, label %.lr.ph.i72, label %._crit_edge.i69
 
 .lr.ph.i72:                                       ; preds = %103
-  %128 = getelementptr inbounds nuw [2 x i32], ptr %26, i64 0, i64 %109
+  %128 = getelementptr inbounds nuw i32, ptr %26, i64 %109
   %129 = load i32, ptr %128, align 4
   %130 = sub nsw i32 %118, %129
   %131 = sext i32 %129 to i64
@@ -822,19 +822,19 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next, %._crit_edge ]
   %19 = icmp ne i64 %indvars.iv, 0
   %20 = zext i1 %19 to i64
-  %21 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %24 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %20
-  %29 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %20
-  %30 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %20
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %29 = getelementptr inbounds nuw i32, ptr %11, i64 %20
+  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %20
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -871,19 +871,19 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %indvars.iv73 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next74, %._crit_edge68 ]
   %51 = icmp ne i64 %indvars.iv73, 0
   %52 = zext i1 %51 to i64
-  %53 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %15, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph67, label %._crit_edge68
 
 .lr.ph67:                                         ; preds = %50
-  %56 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv73
+  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv73
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv73
+  %58 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv73
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %52
-  %61 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %52
-  %62 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %52
+  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %52
+  %61 = getelementptr inbounds nuw i32, ptr %16, i64 %52
+  %62 = getelementptr inbounds nuw i32, ptr %17, i64 %52
   br label %63
 
 63:                                               ; preds = %.lr.ph67, %63
@@ -1787,18 +1787,18 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %36 = icmp ne i64 %indvars.iv.i, 0
   %37 = zext i1 %36 to i64
-  %38 = getelementptr inbounds nuw [2 x i32], ptr %29, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %29, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %35
-  %41 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %37
-  %46 = getelementptr inbounds nuw [2 x i32], ptr %30, i64 0, i64 %37
+  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %37
+  %46 = getelementptr inbounds nuw i32, ptr %30, i64 %37
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %36, i64 36, i64 32
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
   br label %47
@@ -1837,18 +1837,18 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next74.i, %._crit_edge68.i ]
   %67 = icmp ne i64 %indvars.iv73.i, 0
   %68 = zext i1 %67 to i64
-  %69 = getelementptr inbounds nuw [2 x i32], ptr %33, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %33, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph67.i, label %._crit_edge68.i
 
 .lr.ph67.i:                                       ; preds = %66
-  %72 = getelementptr inbounds nuw [3 x ptr], ptr %32, i64 0, i64 %indvars.iv73.i
+  %72 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv73.i
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw [3 x ptr], ptr %31, i64 0, i64 %indvars.iv73.i
+  %74 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv73.i
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %68
-  %77 = getelementptr inbounds nuw [2 x i32], ptr %34, i64 0, i64 %68
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %68
+  %77 = getelementptr inbounds nuw i32, ptr %34, i64 %68
   %.sroa.sel24.v.sroa.sel.v.sroa.sel.v = select i1 %67, i64 36, i64 32
   %.sroa.sel24.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel24.v.sroa.sel.v.sroa.sel.v
   br label %78

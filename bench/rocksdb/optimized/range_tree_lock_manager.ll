@@ -5218,7 +5218,7 @@ define void @_ZN7rocksdb20RangeTreeLockManager9GetStatusEv(ptr dead_on_unwind no
   %10 = phi i64 [ %.promoted12, %2 ], [ %33, %32 ]
   %11 = phi i64 [ %.promoted10, %2 ], [ %34, %32 ]
   %12 = phi i64 [ %.promoted, %2 ], [ %35, %32 ]
-  %13 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !279
   %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(21) @.str.40) #30
   %16 = icmp eq i32 %15, 0
@@ -5284,7 +5284,7 @@ define void @_ZThn8_N7rocksdb20RangeTreeLockManager9GetStatusEv(ptr dead_on_unwi
   %9 = phi i64 [ %.promoted12.i, %2 ], [ %32, %31 ]
   %10 = phi i64 [ %.promoted10.i, %2 ], [ %33, %31 ]
   %11 = phi i64 [ %.promoted.i, %2 ], [ %34, %31 ]
-  %12 = getelementptr inbounds nuw [19 x %struct.__toku_engine_status_row], ptr %3, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.__toku_engine_status_row, ptr %3, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !279, !noalias !284
   %14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(21) @.str.40) #30, !noalias !284
   %15 = icmp eq i32 %14, 0

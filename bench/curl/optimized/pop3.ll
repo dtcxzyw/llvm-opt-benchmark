@@ -188,7 +188,7 @@ pop3_parse_custom_request.exit.thread:            ; preds = %9, %pop3_parse_cust
 
 49:                                               ; preds = %59, %47
   %.015.i.i.i.i = phi i64 [ 0, %47 ], [ %60, %59 ]
-  %50 = getelementptr inbounds nuw [18 x %struct.pop3_cmd], ptr @pop3cmds, i64 0, i64 %.015.i.i.i.i
+  %50 = getelementptr inbounds nuw %struct.pop3_cmd, ptr @pop3cmds, i64 %.015.i.i.i.i
   %51 = load ptr, ptr %50, align 16, !tbaa !91
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i16, ptr %52, align 8, !tbaa !93
@@ -1658,8 +1658,8 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
 22:                                               ; preds = %10, %22
   %.02227 = phi i64 [ 0, %10 ], [ %29, %22 ]
   %23 = shl nuw nsw i64 %.02227, 1
-  %24 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %23
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %.02227
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.02227
   %26 = load i8, ptr %25, align 1, !tbaa !7
   %27 = zext i8 %26 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %24, i64 noundef 3, ptr noundef nonnull @.str.10, i32 noundef %27) #6

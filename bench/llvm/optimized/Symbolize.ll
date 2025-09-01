@@ -7015,7 +7015,7 @@ _ZN4llvm9symbolize12_GLOBAL__N_123getGNUDebuglinkContentsEPKNS_6object10ObjectFi
 
 switch.lookup:                                    ; preds = %91
   %95 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN4llvm9symbolize14LLVMSymbolizer21lookUpDebuglinkObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6object10ObjectFileES9_, i64 0, i64 %95
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm9symbolize14LLVMSymbolizer21lookUpDebuglinkObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6object10ObjectFileES9_, i64 %95
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i
 

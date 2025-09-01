@@ -168,9 +168,9 @@ define internal range(i32 0, 2) i32 @test_ige_garble_forwards() #0 {
 10:                                               ; preds = %0, %10
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %10 ]
   %.015 = phi i64 [ 0, %0 ], [ %spec.select, %10 ]
-  %11 = getelementptr inbounds nuw [10240 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !4
-  %13 = getelementptr inbounds nuw [10240 x i8], ptr @plaintext, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr @plaintext, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = icmp eq i8 %12, %14
   %16 = zext i1 %15 to i64
@@ -249,9 +249,9 @@ define internal i32 @test_bi_ige_garble1() #0 {
 13:                                               ; preds = %0, %13
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %13 ]
   %.09 = phi i64 [ 0, %0 ], [ %spec.select, %13 ]
-  %14 = getelementptr inbounds nuw [10240 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = getelementptr inbounds nuw [10240 x i8], ptr @plaintext, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr @plaintext, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = icmp eq i8 %15, %17
   %19 = zext i1 %18 to i64
@@ -298,9 +298,9 @@ define internal i32 @test_bi_ige_garble2() #0 {
 13:                                               ; preds = %0, %13
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %13 ]
   %.09 = phi i64 [ 0, %0 ], [ %spec.select, %13 ]
-  %14 = getelementptr inbounds nuw [10240 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = getelementptr inbounds nuw [10240 x i8], ptr @plaintext, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr @plaintext, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = icmp eq i8 %15, %17
   %19 = zext i1 %18 to i64
@@ -346,9 +346,9 @@ define internal i32 @test_bi_ige_garble3() #0 {
 12:                                               ; preds = %0, %12
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %12 ]
   %.09 = phi i64 [ 0, %0 ], [ %spec.select, %12 ]
-  %13 = getelementptr inbounds nuw [10240 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1, !tbaa !4
-  %15 = getelementptr inbounds nuw [10240 x i8], ptr @plaintext, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr @plaintext, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = icmp eq i8 %14, %16
   %18 = zext i1 %17 to i64
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [2 x %struct.ige_test], ptr @ige_test_vectors, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.ige_test, ptr @ige_test_vectors, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -444,7 +444,7 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   %3 = alloca %struct.aes_key_st, align 4
   %4 = alloca [64 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [2 x %struct.bi_ige_test], ptr @bi_ige_test_vectors, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.bi_ige_test, ptr @bi_ige_test_vectors, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

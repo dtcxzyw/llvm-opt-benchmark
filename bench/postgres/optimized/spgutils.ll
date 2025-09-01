@@ -177,7 +177,7 @@ define dso_local noundef zeroext i1 @spgproperty(i32 noundef %0, i32 noundef %1,
 22:                                               ; preds = %.lr.ph, %51
   %23 = phi i32 [ %19, %.lr.ph ], [ %52, %51 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 80
   %.val = load ptr, ptr %26, align 8
@@ -337,8 +337,8 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
 36:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
   %.05570.i = phi ptr [ %29, %.lr.ph.i ], [ %.1.i, %56 ]
-  %37 = add nsw i64 %indvars.iv.i, -1
-  %38 = getelementptr inbounds [0 x i16], ptr %33, i64 0, i64 %37
+  %37 = getelementptr i16, ptr %33, i64 %indvars.iv.i
+  %38 = getelementptr i8, ptr %37, i64 -2
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %41, label %56
@@ -762,7 +762,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %38, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %38, i64 %indvars.iv
   store i32 -1, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp samesign ult i64 %indvars.iv.next, %39
@@ -854,7 +854,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %49, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %49, i64 %indvars.iv.i
   store i32 -1, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -1062,7 +1062,7 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %24 = and i32 %1, 7
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [8 x %struct.SpGistLastUsedPage], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %31
@@ -1305,7 +1305,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
 
 49:                                               ; preds = %SpGistInitBuffer.exit.us42
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr inbounds nuw [8 x %struct.SpGistLastUsedPage], ptr %8, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %8, i64 %50
   store i32 %47, ptr %51, align 4
   br i1 %29, label %58, label %52
 
@@ -1371,9 +1371,9 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
   br i1 %.not, label %.split41, label %89
 
 89:                                               ; preds = %SpGistInitBuffer.exit
-  %90 = or disjoint i32 %88, 4
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [8 x %struct.SpGistLastUsedPage], ptr %8, i64 0, i64 %91
+  %90 = zext nneg i32 %88 to i64
+  %91 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %8, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store i32 %87, ptr %92, align 4
   br i1 %69, label %93, label %99
 
@@ -1397,7 +1397,7 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
   %.0.i.i = phi ptr [ %98, %93 ], [ %104, %99 ]
   %106 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #10
   %107 = trunc i64 %106 to i32
-  %108 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %91, i64 36
   store i32 %107, ptr %108, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %68) #10
   br label %.split.split
@@ -1487,7 +1487,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %.1 = or disjoint i32 %.0, %29
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = zext nneg i32 %.1 to i64
-  %32 = getelementptr inbounds nuw [8 x %struct.SpGistLastUsedPage], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %30, i64 %31
   %33 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #10
   %34 = trunc i64 %33 to i32
   %35 = load i32, ptr %32, align 4
@@ -1548,7 +1548,7 @@ define dso_local void @SpGistInitMetapage(ptr noundef %0) local_unnamed_addr #0 
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [8 x %struct.SpGistLastUsedPage], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %9, i64 %indvars.iv
   store i32 -1, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2270,7 +2270,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 2
   %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %60, label %13
+  br i1 %.not, label %58, label %13
 
 13:                                               ; preds = %6
   %14 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #10
@@ -2278,7 +2278,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   %16 = add i64 %3, 7
   %17 = and i64 %16, -8
   %.not54 = icmp ult i64 %15, %17
-  br i1 %.not54, label %60, label %18
+  br i1 %.not54, label %58, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr i8, ptr %1, i64 12
@@ -2290,30 +2290,29 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   %24 = trunc i32 %23 to i16
   %.0.i = select i1 %20, i16 0, i16 %24
   %.not55 = icmp eq ptr %4, null
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = getelementptr i8, ptr %1, i64 20
   br i1 %.not55, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %18
   %.not5764.us = icmp eq i16 %.0.i, 0
   br i1 %.not5764.us, label %.split70.us, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.split.us, %35
-  %.14965.us = phi i16 [ %36, %35 ], [ 1, %.split.us ]
+.lr.ph.us:                                        ; preds = %.split.us, %34
+  %.14965.us = phi i16 [ %35, %34 ], [ 1, %.split.us ]
   %26 = zext i16 %.14965.us to i64
-  %27 = add nsw i64 %26, -1
-  %28 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %27
-  %.val61.us = load i32, ptr %28, align 4
-  %29 = and i32 %.val61.us, 32767
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 3
-  %34 = icmp eq i32 %33, 3
-  br i1 %34, label %._crit_edge.us, label %35
+  %27 = getelementptr %struct.ItemIdData, ptr %25, i64 %26
+  %.val61.us = load i32, ptr %27, align 4
+  %28 = and i32 %.val61.us, 32767
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, 3
+  %33 = icmp eq i32 %32, 3
+  br i1 %33, label %._crit_edge.us, label %34
 
-35:                                               ; preds = %.lr.ph.us
-  %36 = add i16 %.14965.us, 1
-  %.not57.us = icmp ugt i16 %36, %.0.i
+34:                                               ; preds = %.lr.ph.us
+  %35 = add i16 %.14965.us, 1
+  %.not57.us = icmp ugt i16 %35, %.0.i
   br i1 %.not57.us, label %.split70.us, label %.lr.ph.us, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
@@ -2322,89 +2321,88 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 
 .split:                                           ; preds = %18
   %.promoted = load i16, ptr %4, align 2
-  br label %37
+  br label %36
 
-37:                                               ; preds = %50, %.split
-  %38 = phi i16 [ 0, %50 ], [ %.promoted, %.split ]
-  %spec.select = tail call i16 @llvm.umax.i16(i16 %38, i16 1)
+36:                                               ; preds = %48, %.split
+  %37 = phi i16 [ 0, %48 ], [ %.promoted, %.split ]
+  %spec.select = tail call i16 @llvm.umax.i16(i16 %37, i16 1)
   %.not5764 = icmp ugt i16 %spec.select, %.0.i
   br i1 %.not5764, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %48
-  %.14965 = phi i16 [ %49, %48 ], [ %spec.select, %37 ]
-  %39 = zext i16 %.14965 to i64
-  %40 = add nsw i64 %39, -1
-  %41 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %40
-  %.val61 = load i32, ptr %41, align 4
-  %42 = and i32 %.val61, 32767
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 3
-  %47 = icmp eq i32 %46, 3
-  br i1 %47, label %._crit_edge, label %48
+.lr.ph:                                           ; preds = %36, %46
+  %.14965 = phi i16 [ %47, %46 ], [ %spec.select, %36 ]
+  %38 = zext i16 %.14965 to i64
+  %39 = getelementptr %struct.ItemIdData, ptr %25, i64 %38
+  %.val61 = load i32, ptr %39, align 4
+  %40 = and i32 %.val61, 32767
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 3
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %._crit_edge, label %46
 
-48:                                               ; preds = %.lr.ph
-  %49 = add i16 %.14965, 1
-  %.not57 = icmp ugt i16 %49, %.0.i
+46:                                               ; preds = %.lr.ph
+  %47 = add i16 %.14965, 1
+  %.not57 = icmp ugt i16 %47, %.0.i
   br i1 %.not57, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not58 = icmp eq i16 %.14965, 0
   br i1 %.not58, label %._crit_edge.thread, label %.critedge
 
-._crit_edge.thread:                               ; preds = %48, %37, %._crit_edge
-  %.not59 = icmp eq i16 %38, 0
-  br i1 %.not59, label %.split70.us, label %50
+._crit_edge.thread:                               ; preds = %46, %36, %._crit_edge
+  %.not59 = icmp eq i16 %37, 0
+  br i1 %.not59, label %.split70.us, label %48
 
-50:                                               ; preds = %._crit_edge.thread
+48:                                               ; preds = %._crit_edge.thread
   store i16 0, ptr %4, align 2
-  br label %37
+  br label %36
 
-.split70.us:                                      ; preds = %._crit_edge.thread, %35, %.split.us, %._crit_edge.us
+.split70.us:                                      ; preds = %._crit_edge.thread, %34, %.split.us, %._crit_edge.us
   store i16 0, ptr %11, align 2
-  br label %60
+  br label %58
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge.us
   %.us-phi = phi i16 [ %.14965.us, %._crit_edge.us ], [ %.14965, %._crit_edge ]
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %1, i16 noundef zeroext %.us-phi) #10
-  %51 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %.us-phi, i32 noundef 0) #10
-  %.not60 = icmp eq i16 %51, 0
-  br i1 %.not60, label %57, label %52
+  %49 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %.us-phi, i32 noundef 0) #10
+  %.not60 = icmp eq i16 %49, 0
+  br i1 %.not60, label %55, label %50
 
-52:                                               ; preds = %.critedge
-  %53 = load i16, ptr %11, align 2
-  %54 = add i16 %53, -1
-  store i16 %54, ptr %11, align 2
-  br i1 %.not55, label %66, label %55
+50:                                               ; preds = %.critedge
+  %51 = load i16, ptr %11, align 2
+  %52 = add i16 %51, -1
+  store i16 %52, ptr %11, align 2
+  br i1 %.not55, label %64, label %53
 
-55:                                               ; preds = %52
-  %56 = add i16 %51, 1
-  store i16 %56, ptr %4, align 2
-  br label %66
+53:                                               ; preds = %50
+  %54 = add i16 %49, 1
+  store i16 %54, ptr %4, align 2
+  br label %64
 
-57:                                               ; preds = %.critedge
-  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %58)
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
+55:                                               ; preds = %.critedge
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1271, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #10
   unreachable
 
-60:                                               ; preds = %.split70.us, %13, %6
-  %61 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #10
-  %62 = icmp ne i16 %61, 0
-  %or.cond = or i1 %5, %62
-  br i1 %or.cond, label %66, label %63
+58:                                               ; preds = %.split70.us, %13, %6
+  %59 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #10
+  %60 = icmp ne i16 %59, 0
+  %or.cond = or i1 %5, %60
+  br i1 %or.cond, label %64, label %61
 
-63:                                               ; preds = %60
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
+61:                                               ; preds = %58
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %62)
+  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1283, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #10
   unreachable
 
-66:                                               ; preds = %60, %55, %52
-  %.046 = phi i16 [ %51, %52 ], [ %51, %55 ], [ %61, %60 ]
+64:                                               ; preds = %58, %53, %50
+  %.046 = phi i16 [ %49, %50 ], [ %49, %53 ], [ %59, %58 ]
   ret i16 %.046
 }
 

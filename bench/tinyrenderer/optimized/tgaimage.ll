@@ -465,7 +465,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph96 ], [ 0, %.preheader ]
   %.494 = phi i64 [ %46, %.lr.ph96 ], [ %.243101, %.preheader ]
-  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv118
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv118
   %45 = load i8, ptr %44, align 1, !tbaa !48
   %46 = add i64 %.494, 1
   %47 = load ptr, ptr %11, align 8, !tbaa !18
@@ -528,7 +528,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 .lr.ph:                                           ; preds = %.preheader77, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader77 ]
   %.886 = phi i64 [ %77, %.lr.ph ], [ %.690, %.preheader77 ]
-  %75 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %76 = load i8, ptr %75, align 1, !tbaa !48
   %77 = add i64 %.886, 1
   %78 = load ptr, ptr %11, align 8, !tbaa !18

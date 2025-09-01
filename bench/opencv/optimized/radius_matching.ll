@@ -329,7 +329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %198
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %89
-  %93 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_ZL6imagesB5cxx11, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL6imagesB5cxx11, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 16, !tbaa !4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !12

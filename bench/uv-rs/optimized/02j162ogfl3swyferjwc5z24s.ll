@@ -2758,10 +2758,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
   %.val = load i8, ptr %2, align 1, !range !779, !noundef !9
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2cbf00abd057fff3E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2cbf00abd057fff3E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2cbf00abd057fff3E.100", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2cbf00abd057fff3E.100", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4255,9 +4255,9 @@ switch.lookup:                                    ; preds = %44
   store i64 %74, ptr %8, align 8, !noalias !1139
   %75 = call noundef i8 @"_ZN75_$LT$uv_platform_tags..tags..TagCompatibility$u20$as$u20$core..cmp..Ord$GT$3cmp17hdc9efab3d9a850acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !1142
   %76 = icmp eq i8 %75, 0
-  br i1 %76, label %switch.lookup28, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i15"
+  br i1 %76, label %switch.lookup29, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i15"
 
-switch.lookup28:                                  ; preds = %71
+switch.lookup29:                                  ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 208
   %78 = load i8, ptr %77, align 8, !range !1087, !alias.scope !1133, !noalias !1143, !noundef !9
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 208
@@ -4265,8 +4265,8 @@ switch.lookup28:                                  ; preds = %71
   %81 = sub nsw i8 %78, %80
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i15"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i15": ; preds = %switch.lookup28, %71
-  %.sroa.0.0.i.i.i16 = phi i8 [ %75, %71 ], [ %81, %switch.lookup28 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i15": ; preds = %switch.lookup29, %71
+  %.sroa.0.0.i.i.i16 = phi i8 [ %75, %71 ], [ %81, %switch.lookup29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1139
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1139
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h1ecebc7bd5e99903E.llvm.12666800708361764188.exit18"
@@ -4317,9 +4317,9 @@ switch.lookup28:                                  ; preds = %71
   store i64 %101, ptr %6, align 8, !noalias !1166
   %102 = call noundef i8 @"_ZN75_$LT$uv_platform_tags..tags..TagCompatibility$u20$as$u20$core..cmp..Ord$GT$3cmp17hdc9efab3d9a850acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6), !noalias !1169
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %switch.lookup31, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i22"
+  br i1 %103, label %switch.lookup32, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i22"
 
-switch.lookup31:                                  ; preds = %98
+switch.lookup32:                                  ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 208
   %105 = load i8, ptr %104, align 8, !range !1087, !alias.scope !1160, !noalias !1170, !noundef !9
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 208
@@ -4327,8 +4327,8 @@ switch.lookup31:                                  ; preds = %98
   %108 = sub nsw i8 %105, %107
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i22"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i22": ; preds = %switch.lookup31, %98
-  %.sroa.0.0.i.i.i23 = phi i8 [ %102, %98 ], [ %108, %switch.lookup31 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i22": ; preds = %switch.lookup32, %98
+  %.sroa.0.0.i.i.i23 = phi i8 [ %102, %98 ], [ %108, %switch.lookup32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1166
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1166
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h1ecebc7bd5e99903E.llvm.12666800708361764188.exit25"
@@ -4542,9 +4542,9 @@ switch.lookup:                                    ; preds = %37
   store i64 %64, ptr %6, align 8, !noalias !1233
   %65 = call noundef i8 @"_ZN75_$LT$uv_platform_tags..tags..TagCompatibility$u20$as$u20$core..cmp..Ord$GT$3cmp17hdc9efab3d9a850acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %6), !noalias !1236
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %switch.lookup20, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i5"
+  br i1 %66, label %switch.lookup21, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i5"
 
-switch.lookup20:                                  ; preds = %61
+switch.lookup21:                                  ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %68 = load i8, ptr %67, align 8, !range !1087, !alias.scope !1230, !noalias !1237, !noundef !9
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 208
@@ -4552,8 +4552,8 @@ switch.lookup20:                                  ; preds = %61
   %71 = sub nsw i8 %68, %70
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i5"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i5": ; preds = %switch.lookup20, %61
-  %.sroa.0.0.i.i.i6 = phi i8 [ %65, %61 ], [ %71, %switch.lookup20 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i5": ; preds = %switch.lookup21, %61
+  %.sroa.0.0.i.i.i6 = phi i8 [ %65, %61 ], [ %71, %switch.lookup21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1233
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1233
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h1ecebc7bd5e99903E.llvm.12666800708361764188.exit8"
@@ -4598,9 +4598,9 @@ switch.lookup20:                                  ; preds = %61
   store i64 %86, ptr %4, align 8, !noalias !1258
   %87 = call noundef i8 @"_ZN75_$LT$uv_platform_tags..tags..TagCompatibility$u20$as$u20$core..cmp..Ord$GT$3cmp17hdc9efab3d9a850acE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1261
   %88 = icmp eq i8 %87, 0
-  br i1 %88, label %switch.lookup23, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i12"
+  br i1 %88, label %switch.lookup24, label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i12"
 
-switch.lookup23:                                  ; preds = %83
+switch.lookup24:                                  ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %90 = load i8, ptr %89, align 8, !range !1087, !alias.scope !1253, !noalias !1262, !noundef !9
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 208
@@ -4608,8 +4608,8 @@ switch.lookup23:                                  ; preds = %83
   %93 = sub nsw i8 %90, %92
   br label %"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i12"
 
-"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i12": ; preds = %switch.lookup23, %83
-  %.sroa.0.0.i.i.i13 = phi i8 [ %87, %83 ], [ %93, %switch.lookup23 ]
+"_ZN15uv_distribution5index20registry_wheel_index18RegistryWheelIndex5index28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0653a5e828be870cE.exit.i.i12": ; preds = %switch.lookup24, %83
+  %.sroa.0.0.i.i.i13 = phi i8 [ %87, %83 ], [ %93, %switch.lookup24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1258
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1258
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h1ecebc7bd5e99903E.llvm.12666800708361764188.exit15"

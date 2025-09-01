@@ -2744,7 +2744,7 @@ extend_span_with_token.exit:                      ; preds = %47, %48
 
 125:                                              ; preds = %105, %89
   %.sink.i = phi ptr [ %109, %105 ], [ %90, %89 ]
-  %126 = getelementptr inbounds nuw [127 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   store ptr %.sink.i, ptr %126, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2931,7 +2931,7 @@ expand_.exit.i:                                   ; preds = %149, %145
   store i32 %222, ptr %.1.i106.i, align 4
   %223 = getelementptr inbounds nuw i8, ptr %.1.i106.i, i64 8
   store ptr %223, ptr %194, align 8
-  %224 = getelementptr inbounds nuw [127 x ptr], ptr %6, i64 0, i64 %indvars.iv138.i
+  %224 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv138.i
   %225 = load ptr, ptr %224, align 8
   %226 = load i32, ptr %.1.i106.i, align 4
   %227 = add i32 %226, -1
@@ -3329,7 +3329,7 @@ switch.early.test:                                ; preds = %85
 113:                                              ; preds = %104
   %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %115
   switch i32 %79, label %120 [
     i32 7, label %117
     i32 12, label %117
@@ -6418,7 +6418,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr nou
 42:                                               ; preds = %36
   %43 = and i16 %40, 255
   %44 = zext nneg i16 %43 to i64
-  %45 = getelementptr inbounds nuw [41 x i32], ptr @sema_analyse_attribute.attribute_domain, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr @sema_analyse_attribute.attribute_domain, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, %3
   %.not.i = icmp eq i32 %47, %3
@@ -11584,7 +11584,7 @@ switch.lookup:                                    ; preds = %140, %131, %141
   %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %141 ], [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %140 ]
   %143 = select i1 %4, i64 2, i64 0
   %144 = select i1 %3, i64 1, i64 %143
-  %switch.gep263 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table.sema_create_synthetic_main.13.sink, i64 0, i64 %144
+  %switch.gep263 = getelementptr inbounds nuw ptr, ptr %switch.table.sema_create_synthetic_main.13.sink, i64 %144
   %switch.load264 = load ptr, ptr %switch.gep263, align 8
   %145 = tail call ptr @symtab_preset(ptr noundef nonnull %switch.load264, i32 noundef 73) #10
   %146 = tail call ptr @sema_find_symbol(ptr noundef %0, ptr noundef %145) #10

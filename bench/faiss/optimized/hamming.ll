@@ -2098,7 +2098,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 39:                                               ; preds = %39, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %40, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2121,17 +2121,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %39
 
 43:                                               ; preds = %43, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %43 ]
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %44 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %44, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %43, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
-  %45 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %45, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %46 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %46, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -2163,9 +2163,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
 
 48:                                               ; preds = %.preheader138, %48
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %.preheader138 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = add i32 %52, %50
   store i32 %53, ptr %51, align 4, !tbaa !14
@@ -2193,7 +2193,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %48
   %60 = load i32, ptr %59, align 4, !tbaa !10
   %61 = xor i32 %42, %60
   %62 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %63 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %62, ptr %63, align 4, !tbaa !10
   %64 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %64, 8
@@ -2215,36 +2215,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %66 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %66 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %66, i64 32, i1 false)
-  %67 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %67 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %67, i64 32, i1 false)
   br label %68
 
 68:                                               ; preds = %68, %65
   %.029.i = phi i64 [ 0, %65 ], [ %81, %68 ]
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %69 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %70 = load i32, ptr %69, align 4, !tbaa !14
-  %71 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %71 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %72 = load i32, ptr %71, align 4, !tbaa !14
   %73 = icmp ult i32 %70, %72
   %..i = tail call i32 @llvm.umin.i32(i32 %70, i32 %72)
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %74 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %74, align 4, !tbaa !14
   %.pn.i = select i1 %73, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %75 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %76 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %75, ptr %76, align 4, !tbaa !14
   %77 = tail call i32 @llvm.umax.i32(i32 %70, i32 %72)
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %77, ptr %78, align 4, !tbaa !14
   %.pn27.i = select i1 %73, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %79 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %79, ptr %80, align 4, !tbaa !14
   %81 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %81, 8
@@ -2274,8 +2274,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %82 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %83 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %82 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %83 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %82, i64 32, i1 false)
@@ -2286,9 +2286,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %96 ]
   %85 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %97, %96 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %98, %96 ]
-  %86 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %86 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %87 = load i32, ptr %86, align 4, !tbaa !10
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %88 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %89 = load i32, ptr %88, align 4, !tbaa !10
   %90 = zext i32 %89 to i64
   %91 = icmp sgt i32 %85, %87
@@ -2322,7 +2322,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 99:                                               ; preds = %99, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %99 ]
-  %100 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %100 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %100, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -2334,14 +2334,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %99, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %99 ]
-  %101 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %101 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %102
 
 102:                                              ; preds = %102, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %102 ]
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %103 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %104 = load i32, ptr %103, align 4, !tbaa !14
-  %105 = getelementptr inbounds nuw [8 x i32], ptr %101, i64 0, i64 %indvars.iv.i113
+  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.i113
   %106 = load i32, ptr %105, align 4, !tbaa !14
   %107 = add i32 %106, %104
   store i32 %107, ptr %105, align 4, !tbaa !14
@@ -2363,8 +2363,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %102
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %109 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %110 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %109 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %110 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %109, i64 32, i1 false)
@@ -2380,9 +2380,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %102
 
 111:                                              ; preds = %.preheader, %159
   %.088150 = phi i64 [ 0, %.preheader ], [ %160, %159 ]
-  %112 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %112 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %113 = load i32, ptr %112, align 4, !tbaa !10
-  %114 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %114 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %115 = load i32, ptr %114, align 4, !tbaa !10
   %116 = load i32, ptr %5, align 4, !tbaa !10
   %117 = zext i32 %115 to i64
@@ -2663,7 +2663,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 39:                                               ; preds = %39, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %40, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2688,7 +2688,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %39
 
 44:                                               ; preds = %44, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %44 ]
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %45 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %45, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -2726,9 +2726,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %44
 
 47:                                               ; preds = %.preheader138, %47
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %.preheader138 ]
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !14
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !14
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !14
@@ -2756,7 +2756,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %47
   %59 = load i32, ptr %58, align 4, !tbaa !10
   %60 = xor i32 %42, %59
   %61 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %60)
-  %62 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %62 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %61, ptr %62, align 4, !tbaa !10
   %63 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %63, 8
@@ -2788,26 +2788,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %47
 
 66:                                               ; preds = %66, %64
   %.029.i = phi i64 [ 0, %64 ], [ %79, %66 ]
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %67 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %68 = load i32, ptr %67, align 4, !tbaa !14
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %69 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %70 = load i32, ptr %69, align 4, !tbaa !14
   %71 = icmp ult i32 %68, %70
   %..i = tail call i32 @llvm.umin.i32(i32 %68, i32 %70)
-  %72 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %72 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %72, align 4, !tbaa !14
   %.pn.i = select i1 %71, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %73 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %74 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %74 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %73, ptr %74, align 4, !tbaa !14
   %75 = tail call i32 @llvm.umax.i32(i32 %68, i32 %70)
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %76 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %75, ptr %76, align 4, !tbaa !14
   %.pn27.i = select i1 %71, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %77 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %77, ptr %78, align 4, !tbaa !14
   %79 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %79, 8
@@ -2847,9 +2847,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %93 ]
   %82 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %94, %93 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %95, %93 ]
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %83 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %84 = load i32, ptr %83, align 4, !tbaa !10
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %85 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %86 = load i32, ptr %85, align 4, !tbaa !10
   %87 = zext i32 %86 to i64
   %88 = icmp sgt i32 %82, %84
@@ -2881,7 +2881,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 96:                                               ; preds = %96, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %96 ]
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %97 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %97, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -2898,9 +2898,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %96, %_ZN5faiss11sim
 
 99:                                               ; preds = %99, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %99 ]
-  %100 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %100 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %101 = load i32, ptr %100, align 4, !tbaa !14
-  %102 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %102 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %103 = load i32, ptr %102, align 4, !tbaa !14
   %104 = add i32 %103, %101
   store i32 %104, ptr %102, align 4, !tbaa !14
@@ -2935,9 +2935,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %99
 
 107:                                              ; preds = %.preheader, %155
   %.088150 = phi i64 [ 0, %.preheader ], [ %156, %155 ]
-  %108 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %108 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %109 = load i32, ptr %108, align 4, !tbaa !10
-  %110 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %110 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %111 = load i32, ptr %110, align 4, !tbaa !10
   %112 = load i32, ptr %5, align 4, !tbaa !10
   %113 = zext i32 %111 to i64
@@ -3159,13 +3159,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -3202,8 +3202,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %45
   %39 = phi i1 [ true, %.preheader140.preheader ], [ false, %45 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %45 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %45 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %45 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %45 ]
   br label %46
 
 40:                                               ; preds = %45
@@ -3221,7 +3221,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 41:                                               ; preds = %41, %40
   %indvars.iv.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %42, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3251,17 +3251,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
 
 48:                                               ; preds = %48, %46
   %indvars.iv.i.i104 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i105, %48 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %49 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %48, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
-  %50 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %51 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %51, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -3286,9 +3286,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
 
 .preheader138:                                    ; preds = %70, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %70 ]
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !14
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = add i32 %55, %53
   store i32 %56, ptr %54, align 4, !tbaa !14
@@ -3304,7 +3304,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 58:                                               ; preds = %.preheader139, %70
   %59 = phi i1 [ true, %.preheader139 ], [ false, %70 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %70 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %70 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %70 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -3325,7 +3325,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = xor i32 %44, %65
   %67 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %66)
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %68 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %67, ptr %68, align 4, !tbaa !10
   %69 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %69, 8
@@ -3348,36 +3348,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %73 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %73 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %73, i64 32, i1 false)
-  %74 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %74 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %74, i64 32, i1 false)
   br label %75
 
 75:                                               ; preds = %75, %71
   %.029.i = phi i64 [ 0, %71 ], [ %88, %75 ]
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %76 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %77 = load i32, ptr %76, align 4, !tbaa !14
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = icmp ult i32 %77, %79
   %..i = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
-  %81 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %81 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %81, align 4, !tbaa !14
   %.pn.i = select i1 %80, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %82 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %83 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %82, ptr %83, align 4, !tbaa !14
   %84 = tail call i32 @llvm.umax.i32(i32 %77, i32 %79)
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %84, ptr %85, align 4, !tbaa !14
   %.pn27.i = select i1 %80, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %86 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %86, ptr %87, align 4, !tbaa !14
   %88 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %88, 8
@@ -3419,9 +3419,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %91
 
@@ -3430,9 +3430,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %103 ]
   %92 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %104, %103 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %105, %103 ]
-  %93 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %93 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %94 = load i32, ptr %93, align 4, !tbaa !10
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %95 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %96 = load i32, ptr %95, align 4, !tbaa !10
   %97 = zext i32 %96 to i64
   %98 = icmp sgt i32 %92, %94
@@ -3476,7 +3476,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 108:                                              ; preds = %108, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %108 ]
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %109 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %107, ptr %109, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -3489,14 +3489,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %108, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %111 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %108 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %108 ]
-  %112 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %112 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %113
 
 113:                                              ; preds = %113, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %113 ]
-  %114 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %114 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %115 = load i32, ptr %114, align 4, !tbaa !14
-  %116 = getelementptr inbounds nuw [8 x i32], ptr %112, i64 0, i64 %indvars.iv.i113
+  %116 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i113
   %117 = load i32, ptr %116, align 4, !tbaa !14
   %118 = add i32 %117, %115
   store i32 %118, ptr %116, align 4, !tbaa !14
@@ -3528,9 +3528,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %113
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %122
 
@@ -3541,9 +3541,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %113
 
 122:                                              ; preds = %.split, %170
   %.088153 = phi i64 [ 0, %.split ], [ %171, %170 ]
-  %123 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %123 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %124 = load i32, ptr %123, align 4, !tbaa !10
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %125 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %126 = load i32, ptr %125, align 4, !tbaa !10
   %127 = load i32, ptr %5, align 4, !tbaa !10
   %128 = zext i32 %126 to i64
@@ -3803,8 +3803,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %46
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %46 ]
-  %39 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %40 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %39 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %40 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %47
 
 41:                                               ; preds = %46
@@ -3822,7 +3822,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 42:                                               ; preds = %42, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %43, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3854,17 +3854,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
 
 49:                                               ; preds = %49, %47
   %indvars.iv.i.i104 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i105, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %49, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
-  %51 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %39, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %39, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %51, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %52 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %40, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %40, i64 %indvars.iv
   store i32 0, ptr %52, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -3889,9 +3889,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
 
 .preheader138:                                    ; preds = %73, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %73 ]
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !14
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
   %57 = add i32 %56, %54
   store i32 %57, ptr %55, align 4, !tbaa !14
@@ -3916,8 +3916,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %62 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %63 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %62 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %63 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %74
 
 64:                                               ; preds = %59, %64
@@ -3928,7 +3928,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %68 = load i32, ptr %67, align 4, !tbaa !10
   %69 = xor i32 %45, %68
   %70 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %69)
-  %71 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %71 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %70, ptr %71, align 4, !tbaa !10
   %72 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %72, 8
@@ -3953,36 +3953,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %76 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %62, i64 0, i64 %indvars.iv182
+  %76 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %62, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %76, i64 32, i1 false)
-  %77 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %63, i64 0, i64 %indvars.iv182
+  %77 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %63, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %77, i64 32, i1 false)
   br label %78
 
 78:                                               ; preds = %78, %74
   %.029.i = phi i64 [ 0, %74 ], [ %91, %78 ]
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %79 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %80 = load i32, ptr %79, align 4, !tbaa !14
-  %81 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %81 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %82 = load i32, ptr %81, align 4, !tbaa !14
   %83 = icmp ult i32 %80, %82
   %..i = tail call i32 @llvm.umin.i32(i32 %80, i32 %82)
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %84 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %84, align 4, !tbaa !14
   %.pn.i = select i1 %83, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %85 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %86 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %86 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %85, ptr %86, align 4, !tbaa !14
   %87 = tail call i32 @llvm.umax.i32(i32 %80, i32 %82)
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %88 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %87, ptr %88, align 4, !tbaa !14
   %.pn27.i = select i1 %83, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %89 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %89, ptr %90, align 4, !tbaa !14
   %91 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %91, 8
@@ -4023,9 +4023,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %93
 
@@ -4034,9 +4034,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %105 ]
   %94 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %106, %105 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %107, %105 ]
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %95 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %96 = load i32, ptr %95, align 4, !tbaa !10
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %97 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %98 = load i32, ptr %97, align 4, !tbaa !10
   %99 = zext i32 %98 to i64
   %100 = icmp sgt i32 %94, %96
@@ -4082,14 +4082,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 110:                                              ; preds = %110, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %110 ]
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %111 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %109, ptr %111, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %110, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %110
-  %112 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %112 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %114
 
 113:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -4101,14 +4101,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %110
 114:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %115 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %116 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %112, i64 0, i64 %indvars.iv192
+  %116 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %112, i64 %indvars.iv192
   br label %117
 
 117:                                              ; preds = %117, %114
   %indvars.iv.i113 = phi i64 [ 0, %114 ], [ %indvars.iv.next.i114, %117 ]
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %118 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %119 = load i32, ptr %118, align 4, !tbaa !14
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %indvars.iv.i113
+  %120 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i113
   %121 = load i32, ptr %120, align 4, !tbaa !14
   %122 = add i32 %121, %119
   store i32 %122, ptr %120, align 4, !tbaa !14
@@ -4139,9 +4139,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %117
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %125
 
@@ -4154,9 +4154,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %117
 
 125:                                              ; preds = %.split, %173
   %.088153 = phi i64 [ 0, %.split ], [ %174, %173 ]
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %126 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %127 = load i32, ptr %126, align 4, !tbaa !10
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %128 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %129 = load i32, ptr %128, align 4, !tbaa !10
   %130 = load i32, ptr %5, align 4, !tbaa !10
   %131 = zext i32 %129 to i64
@@ -4788,7 +4788,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 39:                                               ; preds = %39, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %40, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -4811,17 +4811,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %39
 
 43:                                               ; preds = %43, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %43 ]
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %44 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %44, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %43, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
-  %45 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %45, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %46 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %46, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -4853,9 +4853,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
 
 48:                                               ; preds = %.preheader138, %48
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %.preheader138 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = add i32 %52, %50
   store i32 %53, ptr %51, align 4, !tbaa !14
@@ -4884,7 +4884,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %48
   %61 = xor i64 %42, %60
   %62 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %61)
   %63 = trunc nuw nsw i64 %62 to i32
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %64 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %63, ptr %64, align 4, !tbaa !10
   %65 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %65, 8
@@ -4906,36 +4906,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %67 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %67 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %67, i64 32, i1 false)
-  %68 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %68 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %68, i64 32, i1 false)
   br label %69
 
 69:                                               ; preds = %69, %66
   %.029.i = phi i64 [ 0, %66 ], [ %82, %69 ]
-  %70 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %70 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %71 = load i32, ptr %70, align 4, !tbaa !14
-  %72 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %72 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %73 = load i32, ptr %72, align 4, !tbaa !14
   %74 = icmp ult i32 %71, %73
   %..i = tail call i32 @llvm.umin.i32(i32 %71, i32 %73)
-  %75 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %75 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %75, align 4, !tbaa !14
   %.pn.i = select i1 %74, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %76 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %77 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %76, ptr %77, align 4, !tbaa !14
   %78 = tail call i32 @llvm.umax.i32(i32 %71, i32 %73)
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %79 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %78, ptr %79, align 4, !tbaa !14
   %.pn27.i = select i1 %74, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %80 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %81 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %81 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %80, ptr %81, align 4, !tbaa !14
   %82 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %82, 8
@@ -4965,8 +4965,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %83 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %84 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %83 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %84 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %83, i64 32, i1 false)
@@ -4977,9 +4977,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %97 ]
   %86 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %98, %97 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %99, %97 ]
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %87 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %88 = load i32, ptr %87, align 4, !tbaa !10
-  %89 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %89 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %90 = load i32, ptr %89, align 4, !tbaa !10
   %91 = zext i32 %90 to i64
   %92 = icmp sgt i32 %86, %88
@@ -5013,7 +5013,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 100:                                              ; preds = %100, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %100 ]
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %101 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %101, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -5025,14 +5025,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %100, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %100 ]
-  %102 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %102 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %103
 
 103:                                              ; preds = %103, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %103 ]
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %104 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %105 = load i32, ptr %104, align 4, !tbaa !14
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %102, i64 0, i64 %indvars.iv.i113
+  %106 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.i113
   %107 = load i32, ptr %106, align 4, !tbaa !14
   %108 = add i32 %107, %105
   store i32 %108, ptr %106, align 4, !tbaa !14
@@ -5054,8 +5054,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %103
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %110 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %111 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %110 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %111 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %110, i64 32, i1 false)
@@ -5071,9 +5071,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %103
 
 112:                                              ; preds = %.preheader, %160
   %.088150 = phi i64 [ 0, %.preheader ], [ %161, %160 ]
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %113 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %114 = load i32, ptr %113, align 4, !tbaa !10
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %115 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %116 = load i32, ptr %115, align 4, !tbaa !10
   %117 = load i32, ptr %5, align 4, !tbaa !10
   %118 = zext i32 %116 to i64
@@ -5352,7 +5352,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 39:                                               ; preds = %39, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %40, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -5377,7 +5377,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %39
 
 44:                                               ; preds = %44, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %44 ]
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %45 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %45, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -5415,9 +5415,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %44
 
 47:                                               ; preds = %.preheader138, %47
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %.preheader138 ]
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !14
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !14
   %52 = add i32 %51, %49
   store i32 %52, ptr %50, align 4, !tbaa !14
@@ -5446,7 +5446,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %47
   %60 = xor i64 %42, %59
   %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %62 = trunc nuw nsw i64 %61 to i32
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %63 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %62, ptr %63, align 4, !tbaa !10
   %64 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %64, 8
@@ -5478,26 +5478,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %47
 
 67:                                               ; preds = %67, %65
   %.029.i = phi i64 [ 0, %65 ], [ %80, %67 ]
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %69 = load i32, ptr %68, align 4, !tbaa !14
-  %70 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %70 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %71 = load i32, ptr %70, align 4, !tbaa !14
   %72 = icmp ult i32 %69, %71
   %..i = tail call i32 @llvm.umin.i32(i32 %69, i32 %71)
-  %73 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %73 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %73, align 4, !tbaa !14
   %.pn.i = select i1 %72, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %74 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %75 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %75 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %74, ptr %75, align 4, !tbaa !14
   %76 = tail call i32 @llvm.umax.i32(i32 %69, i32 %71)
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %77 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %76, ptr %77, align 4, !tbaa !14
   %.pn27.i = select i1 %72, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %78 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %79 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %78, ptr %79, align 4, !tbaa !14
   %80 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %80, 8
@@ -5537,9 +5537,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %94 ]
   %83 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %95, %94 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %96, %94 ]
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %84 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %85 = load i32, ptr %84, align 4, !tbaa !10
-  %86 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %86 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %87 = load i32, ptr %86, align 4, !tbaa !10
   %88 = zext i32 %87 to i64
   %89 = icmp sgt i32 %83, %85
@@ -5571,7 +5571,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 97:                                               ; preds = %97, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %97 ]
-  %98 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %98 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %98, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -5588,9 +5588,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %97, %_ZN5faiss11sim
 
 100:                                              ; preds = %100, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %100 ]
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %101 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %102 = load i32, ptr %101, align 4, !tbaa !14
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %103 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %104 = load i32, ptr %103, align 4, !tbaa !14
   %105 = add i32 %104, %102
   store i32 %105, ptr %103, align 4, !tbaa !14
@@ -5625,9 +5625,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %100
 
 108:                                              ; preds = %.preheader, %156
   %.088150 = phi i64 [ 0, %.preheader ], [ %157, %156 ]
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %109 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %110 = load i32, ptr %109, align 4, !tbaa !10
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %111 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %112 = load i32, ptr %111, align 4, !tbaa !10
   %113 = load i32, ptr %5, align 4, !tbaa !10
   %114 = zext i32 %112 to i64
@@ -5850,13 +5850,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -5893,8 +5893,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %45
   %39 = phi i1 [ true, %.preheader140.preheader ], [ false, %45 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %45 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %45 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %45 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %45 ]
   br label %46
 
 40:                                               ; preds = %45
@@ -5912,7 +5912,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 41:                                               ; preds = %41, %40
   %indvars.iv.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %42, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -5942,17 +5942,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
 
 48:                                               ; preds = %48, %46
   %indvars.iv.i.i104 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i105, %48 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %49 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %48, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
-  %50 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %51 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %51, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -5977,9 +5977,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
 
 .preheader138:                                    ; preds = %71, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %71 ]
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !14
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = add i32 %55, %53
   store i32 %56, ptr %54, align 4, !tbaa !14
@@ -5995,7 +5995,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 58:                                               ; preds = %.preheader139, %71
   %59 = phi i1 [ true, %.preheader139 ], [ false, %71 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %71 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %71 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %71 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -6017,7 +6017,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %66 = xor i64 %44, %65
   %67 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %66)
   %68 = trunc nuw nsw i64 %67 to i32
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %69 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %68, ptr %69, align 4, !tbaa !10
   %70 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %70, 8
@@ -6040,36 +6040,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %74 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %74 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %74, i64 32, i1 false)
-  %75 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %75 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %75, i64 32, i1 false)
   br label %76
 
 76:                                               ; preds = %76, %72
   %.029.i = phi i64 [ 0, %72 ], [ %89, %76 ]
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %77 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %78 = load i32, ptr %77, align 4, !tbaa !14
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %79 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = icmp ult i32 %78, %80
   %..i = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %82 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %82, align 4, !tbaa !14
   %.pn.i = select i1 %81, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %83 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %84 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %83, ptr %84, align 4, !tbaa !14
   %85 = tail call i32 @llvm.umax.i32(i32 %78, i32 %80)
-  %86 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %86 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %85, ptr %86, align 4, !tbaa !14
   %.pn27.i = select i1 %81, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %87 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %88 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %87, ptr %88, align 4, !tbaa !14
   %89 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %89, 8
@@ -6111,9 +6111,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %92
 
@@ -6122,9 +6122,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %104 ]
   %93 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %105, %104 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %106, %104 ]
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %94 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %95 = load i32, ptr %94, align 4, !tbaa !10
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %96 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %97 = load i32, ptr %96, align 4, !tbaa !10
   %98 = zext i32 %97 to i64
   %99 = icmp sgt i32 %93, %95
@@ -6168,7 +6168,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 109:                                              ; preds = %109, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %109 ]
-  %110 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %110 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %108, ptr %110, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -6181,14 +6181,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %109, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %112 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %109 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %109 ]
-  %113 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %113 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %114
 
 114:                                              ; preds = %114, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %114 ]
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %115 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %116 = load i32, ptr %115, align 4, !tbaa !14
-  %117 = getelementptr inbounds nuw [8 x i32], ptr %113, i64 0, i64 %indvars.iv.i113
+  %117 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i113
   %118 = load i32, ptr %117, align 4, !tbaa !14
   %119 = add i32 %118, %116
   store i32 %119, ptr %117, align 4, !tbaa !14
@@ -6220,9 +6220,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %114
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %123
 
@@ -6233,9 +6233,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %114
 
 123:                                              ; preds = %.split, %171
   %.088153 = phi i64 [ 0, %.split ], [ %172, %171 ]
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %124 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %125 = load i32, ptr %124, align 4, !tbaa !10
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %126 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %127 = load i32, ptr %126, align 4, !tbaa !10
   %128 = load i32, ptr %5, align 4, !tbaa !10
   %129 = zext i32 %127 to i64
@@ -6496,8 +6496,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %46
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %46 ]
-  %39 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %40 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %39 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %40 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %47
 
 41:                                               ; preds = %46
@@ -6515,7 +6515,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 42:                                               ; preds = %42, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %43, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -6547,17 +6547,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
 
 49:                                               ; preds = %49, %47
   %indvars.iv.i.i104 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i105, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %49, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
-  %51 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %39, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %39, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %51, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %52 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %40, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %40, i64 %indvars.iv
   store i32 0, ptr %52, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -6582,9 +6582,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
 
 .preheader138:                                    ; preds = %74, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %74 ]
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !14
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
   %57 = add i32 %56, %54
   store i32 %57, ptr %55, align 4, !tbaa !14
@@ -6609,8 +6609,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %62 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %63 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %62 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %63 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %75
 
 64:                                               ; preds = %59, %64
@@ -6622,7 +6622,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %69 = xor i64 %45, %68
   %70 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %69)
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %72 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %71, ptr %72, align 4, !tbaa !10
   %73 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %73, 8
@@ -6647,36 +6647,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %77 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %62, i64 0, i64 %indvars.iv182
+  %77 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %62, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %77, i64 32, i1 false)
-  %78 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %63, i64 0, i64 %indvars.iv182
+  %78 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %63, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %78, i64 32, i1 false)
   br label %79
 
 79:                                               ; preds = %79, %75
   %.029.i = phi i64 [ 0, %75 ], [ %92, %79 ]
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %81 = load i32, ptr %80, align 4, !tbaa !14
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %82 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %83 = load i32, ptr %82, align 4, !tbaa !14
   %84 = icmp ult i32 %81, %83
   %..i = tail call i32 @llvm.umin.i32(i32 %81, i32 %83)
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %85, align 4, !tbaa !14
   %.pn.i = select i1 %84, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %86 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %86, ptr %87, align 4, !tbaa !14
   %88 = tail call i32 @llvm.umax.i32(i32 %81, i32 %83)
-  %89 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %89 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %88, ptr %89, align 4, !tbaa !14
   %.pn27.i = select i1 %84, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %90 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %91 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %91 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %90, ptr %91, align 4, !tbaa !14
   %92 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %92, 8
@@ -6717,9 +6717,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %94
 
@@ -6728,9 +6728,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %106 ]
   %95 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %107, %106 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %108, %106 ]
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %96 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %97 = load i32, ptr %96, align 4, !tbaa !10
-  %98 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %98 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %99 = load i32, ptr %98, align 4, !tbaa !10
   %100 = zext i32 %99 to i64
   %101 = icmp sgt i32 %95, %97
@@ -6776,14 +6776,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 111:                                              ; preds = %111, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %111 ]
-  %112 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %112 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %110, ptr %112, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %111, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %111
-  %113 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %113 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %115
 
 114:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -6795,14 +6795,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %111
 115:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %116 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %117 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %113, i64 0, i64 %indvars.iv192
+  %117 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %113, i64 %indvars.iv192
   br label %118
 
 118:                                              ; preds = %118, %115
   %indvars.iv.i113 = phi i64 [ 0, %115 ], [ %indvars.iv.next.i114, %118 ]
-  %119 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %119 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %120 = load i32, ptr %119, align 4, !tbaa !14
-  %121 = getelementptr inbounds nuw [8 x i32], ptr %117, i64 0, i64 %indvars.iv.i113
+  %121 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv.i113
   %122 = load i32, ptr %121, align 4, !tbaa !14
   %123 = add i32 %122, %120
   store i32 %123, ptr %121, align 4, !tbaa !14
@@ -6833,9 +6833,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %118
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %126
 
@@ -6848,9 +6848,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %118
 
 126:                                              ; preds = %.split, %174
   %.088153 = phi i64 [ 0, %.split ], [ %175, %174 ]
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %127 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %128 = load i32, ptr %127, align 4, !tbaa !10
-  %129 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %129 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %130 = load i32, ptr %129, align 4, !tbaa !10
   %131 = load i32, ptr %5, align 4, !tbaa !10
   %132 = zext i32 %130 to i64
@@ -7498,7 +7498,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 40:                                               ; preds = %40, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %40 ]
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %41, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -7522,17 +7522,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %40
 
 45:                                               ; preds = %45, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %45 ]
-  %46 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %46 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %46, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %45, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %45
-  %47 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %47, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %48 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %48, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -7564,9 +7564,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %45
 
 50:                                               ; preds = %.preheader138, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.preheader138 ]
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4, !tbaa !14
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !14
   %55 = add i32 %54, %52
   store i32 %55, ptr %53, align 4, !tbaa !14
@@ -7601,7 +7601,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %50
   %69 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %68)
   %70 = trunc nuw nsw i64 %69 to i32
   %71 = add nuw nsw i32 %70, %65
-  %72 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %72 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %71, ptr %72, align 4, !tbaa !10
   %73 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %73, 8
@@ -7623,36 +7623,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %75 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %75 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %75, i64 32, i1 false)
-  %76 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %76 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %76, i64 32, i1 false)
   br label %77
 
 77:                                               ; preds = %77, %74
   %.029.i = phi i64 [ 0, %74 ], [ %90, %77 ]
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %79 = load i32, ptr %78, align 4, !tbaa !14
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %81 = load i32, ptr %80, align 4, !tbaa !14
   %82 = icmp ult i32 %79, %81
   %..i = tail call i32 @llvm.umin.i32(i32 %79, i32 %81)
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %83 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %83, align 4, !tbaa !14
   %.pn.i = select i1 %82, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %84 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %84, ptr %85, align 4, !tbaa !14
   %86 = tail call i32 @llvm.umax.i32(i32 %79, i32 %81)
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %86, ptr %87, align 4, !tbaa !14
   %.pn27.i = select i1 %82, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %88 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %89 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %89 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %88, ptr %89, align 4, !tbaa !14
   %90 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %90, 8
@@ -7682,8 +7682,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %91 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %92 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %91 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %92 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %91, i64 32, i1 false)
@@ -7694,9 +7694,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %105 ]
   %94 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %106, %105 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %107, %105 ]
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %95 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %96 = load i32, ptr %95, align 4, !tbaa !10
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %97 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %98 = load i32, ptr %97, align 4, !tbaa !10
   %99 = zext i32 %98 to i64
   %100 = icmp sgt i32 %94, %96
@@ -7730,7 +7730,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 108:                                              ; preds = %108, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %108 ]
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %109 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %109, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -7742,14 +7742,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %108, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %108 ]
-  %110 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %110 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %111
 
 111:                                              ; preds = %111, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %111 ]
-  %112 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %112 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %113 = load i32, ptr %112, align 4, !tbaa !14
-  %114 = getelementptr inbounds nuw [8 x i32], ptr %110, i64 0, i64 %indvars.iv.i113
+  %114 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv.i113
   %115 = load i32, ptr %114, align 4, !tbaa !14
   %116 = add i32 %115, %113
   store i32 %116, ptr %114, align 4, !tbaa !14
@@ -7772,8 +7772,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %111
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %119 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %120 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %119 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %120 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %119, i64 32, i1 false)
@@ -7789,9 +7789,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %111
 
 121:                                              ; preds = %.preheader, %169
   %.088150 = phi i64 [ 0, %.preheader ], [ %170, %169 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %122 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %123 = load i32, ptr %122, align 4, !tbaa !10
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %124 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %125 = load i32, ptr %124, align 4, !tbaa !10
   %126 = load i32, ptr %5, align 4, !tbaa !10
   %127 = zext i32 %125 to i64
@@ -8077,7 +8077,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 40:                                               ; preds = %40, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %40 ]
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %41, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -8103,7 +8103,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %40
 
 46:                                               ; preds = %46, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %47 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %47, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -8141,9 +8141,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %46
 
 49:                                               ; preds = %.preheader138, %49
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %49 ], [ 0, %.preheader138 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !14
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %54 = add i32 %53, %51
   store i32 %54, ptr %52, align 4, !tbaa !14
@@ -8178,7 +8178,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %49
   %68 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %67)
   %69 = trunc nuw nsw i64 %68 to i32
   %70 = add nuw nsw i32 %69, %64
-  %71 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %71 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %70, ptr %71, align 4, !tbaa !10
   %72 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %72, 8
@@ -8210,26 +8210,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %49
 
 75:                                               ; preds = %75, %73
   %.029.i = phi i64 [ 0, %73 ], [ %88, %75 ]
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %76 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %77 = load i32, ptr %76, align 4, !tbaa !14
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = icmp ult i32 %77, %79
   %..i = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
-  %81 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %81 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %81, align 4, !tbaa !14
   %.pn.i = select i1 %80, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %82 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %83 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %82, ptr %83, align 4, !tbaa !14
   %84 = tail call i32 @llvm.umax.i32(i32 %77, i32 %79)
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %84, ptr %85, align 4, !tbaa !14
   %.pn27.i = select i1 %80, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %86 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %86, ptr %87, align 4, !tbaa !14
   %88 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %88, 8
@@ -8269,9 +8269,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %102 ]
   %91 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %103, %102 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %104, %102 ]
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %92 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %93 = load i32, ptr %92, align 4, !tbaa !10
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %94 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %95 = load i32, ptr %94, align 4, !tbaa !10
   %96 = zext i32 %95 to i64
   %97 = icmp sgt i32 %91, %93
@@ -8303,7 +8303,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 105:                                              ; preds = %105, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %105 ]
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %106 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %106, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -8320,9 +8320,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %105, %_ZN5faiss11si
 
 108:                                              ; preds = %108, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %108 ]
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %109 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %110 = load i32, ptr %109, align 4, !tbaa !14
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %111 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %112 = load i32, ptr %111, align 4, !tbaa !14
   %113 = add i32 %112, %110
   store i32 %113, ptr %111, align 4, !tbaa !14
@@ -8358,9 +8358,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %108
 
 117:                                              ; preds = %.preheader, %165
   %.088150 = phi i64 [ 0, %.preheader ], [ %166, %165 ]
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %118 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %119 = load i32, ptr %118, align 4, !tbaa !10
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %120 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %121 = load i32, ptr %120, align 4, !tbaa !10
   %122 = load i32, ptr %5, align 4, !tbaa !10
   %123 = zext i32 %121 to i64
@@ -8589,13 +8589,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -8633,8 +8633,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %47
   %40 = phi i1 [ true, %.preheader140.preheader ], [ false, %47 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %47 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %47 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %47 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %47 ]
   br label %48
 
 41:                                               ; preds = %47
@@ -8652,7 +8652,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 42:                                               ; preds = %42, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %43, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -8683,17 +8683,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
 
 50:                                               ; preds = %50, %48
   %indvars.iv.i.i104 = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i105, %50 ]
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %51, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %50, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %50
-  %52 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %52, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %53 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %53, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -8718,9 +8718,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %50
 
 .preheader138:                                    ; preds = %79, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %79 ]
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = add i32 %57, %55
   store i32 %58, ptr %56, align 4, !tbaa !14
@@ -8736,7 +8736,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 60:                                               ; preds = %.preheader139, %79
   %61 = phi i1 [ true, %.preheader139 ], [ false, %79 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %79 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %79 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %79 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -8764,7 +8764,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %74 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %73)
   %75 = trunc nuw nsw i64 %74 to i32
   %76 = add nuw nsw i32 %75, %70
-  %77 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %77 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %76, ptr %77, align 4, !tbaa !10
   %78 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %78, 8
@@ -8787,36 +8787,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %82 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %82 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %82, i64 32, i1 false)
-  %83 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %83 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %83, i64 32, i1 false)
   br label %84
 
 84:                                               ; preds = %84, %80
   %.029.i = phi i64 [ 0, %80 ], [ %97, %84 ]
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %86 = load i32, ptr %85, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = icmp ult i32 %86, %88
   %..i = tail call i32 @llvm.umin.i32(i32 %86, i32 %88)
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %90, align 4, !tbaa !14
   %.pn.i = select i1 %89, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %91 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %91, ptr %92, align 4, !tbaa !14
   %93 = tail call i32 @llvm.umax.i32(i32 %86, i32 %88)
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %93, ptr %94, align 4, !tbaa !14
   %.pn27.i = select i1 %89, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %95 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %96 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %95, ptr %96, align 4, !tbaa !14
   %97 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %97, 8
@@ -8858,9 +8858,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %100
 
@@ -8869,9 +8869,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %112 ]
   %101 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %113, %112 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %114, %112 ]
-  %102 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %102 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %103 = load i32, ptr %102, align 4, !tbaa !10
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %104 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %105 = load i32, ptr %104, align 4, !tbaa !10
   %106 = zext i32 %105 to i64
   %107 = icmp sgt i32 %101, %103
@@ -8915,7 +8915,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 117:                                              ; preds = %117, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %117 ]
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %118 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %116, ptr %118, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -8928,14 +8928,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %117, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %120 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %117 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %117 ]
-  %121 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %121 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %122
 
 122:                                              ; preds = %122, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %122 ]
-  %123 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %123 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %124 = load i32, ptr %123, align 4, !tbaa !14
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %121, i64 0, i64 %indvars.iv.i113
+  %125 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i113
   %126 = load i32, ptr %125, align 4, !tbaa !14
   %127 = add i32 %126, %124
   store i32 %127, ptr %125, align 4, !tbaa !14
@@ -8968,9 +8968,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %122
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %132
 
@@ -8981,9 +8981,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %122
 
 132:                                              ; preds = %.split, %180
   %.088153 = phi i64 [ 0, %.split ], [ %181, %180 ]
-  %133 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %133 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %134 = load i32, ptr %133, align 4, !tbaa !10
-  %135 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %135 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %136 = load i32, ptr %135, align 4, !tbaa !10
   %137 = load i32, ptr %5, align 4, !tbaa !10
   %138 = zext i32 %136 to i64
@@ -9251,8 +9251,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %48
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %48 ]
-  %40 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %41 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %40 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %41 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %49
 
 42:                                               ; preds = %48
@@ -9270,7 +9270,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 43:                                               ; preds = %43, %42
   %indvars.iv.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %44, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -9303,17 +9303,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %43
 
 51:                                               ; preds = %51, %49
   %indvars.iv.i.i104 = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.i105, %51 ]
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %52, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %51, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %51
-  %53 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %40, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %40, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %53, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %54 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %41, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %41, i64 %indvars.iv
   store i32 0, ptr %54, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -9338,9 +9338,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %51
 
 .preheader138:                                    ; preds = %82, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %82 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = add i32 %58, %56
   store i32 %59, ptr %57, align 4, !tbaa !14
@@ -9365,8 +9365,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %64 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %65 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %64 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %65 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %83
 
 66:                                               ; preds = %61, %66
@@ -9384,7 +9384,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %77 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = add nuw nsw i32 %78, %73
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %80 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %79, ptr %80, align 4, !tbaa !10
   %81 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %81, 8
@@ -9409,36 +9409,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %85 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %64, i64 0, i64 %indvars.iv182
+  %85 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %64, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %85, i64 32, i1 false)
-  %86 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %65, i64 0, i64 %indvars.iv182
+  %86 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %65, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %86, i64 32, i1 false)
   br label %87
 
 87:                                               ; preds = %87, %83
   %.029.i = phi i64 [ 0, %83 ], [ %100, %87 ]
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %88 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %89 = load i32, ptr %88, align 4, !tbaa !14
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %91 = load i32, ptr %90, align 4, !tbaa !14
   %92 = icmp ult i32 %89, %91
   %..i = tail call i32 @llvm.umin.i32(i32 %89, i32 %91)
-  %93 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %93 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %93, align 4, !tbaa !14
   %.pn.i = select i1 %92, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %94 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %95 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %94, ptr %95, align 4, !tbaa !14
   %96 = tail call i32 @llvm.umax.i32(i32 %89, i32 %91)
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %97 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %96, ptr %97, align 4, !tbaa !14
   %.pn27.i = select i1 %92, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %98 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %99 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %98, ptr %99, align 4, !tbaa !14
   %100 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %100, 8
@@ -9479,9 +9479,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %102
 
@@ -9490,9 +9490,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %114 ]
   %103 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %115, %114 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %116, %114 ]
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %104 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %105 = load i32, ptr %104, align 4, !tbaa !10
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %106 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %107 = load i32, ptr %106, align 4, !tbaa !10
   %108 = zext i32 %107 to i64
   %109 = icmp sgt i32 %103, %105
@@ -9538,14 +9538,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 119:                                              ; preds = %119, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %119 ]
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %120 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %118, ptr %120, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %119, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %119
-  %121 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %121 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %123
 
 122:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -9557,14 +9557,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %119
 123:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %124 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %125 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %121, i64 0, i64 %indvars.iv192
+  %125 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %121, i64 %indvars.iv192
   br label %126
 
 126:                                              ; preds = %126, %123
   %indvars.iv.i113 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i114, %126 ]
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %127 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %128 = load i32, ptr %127, align 4, !tbaa !14
-  %129 = getelementptr inbounds nuw [8 x i32], ptr %125, i64 0, i64 %indvars.iv.i113
+  %129 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i113
   %130 = load i32, ptr %129, align 4, !tbaa !14
   %131 = add i32 %130, %128
   store i32 %131, ptr %129, align 4, !tbaa !14
@@ -9596,9 +9596,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %126
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %135
 
@@ -9611,9 +9611,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %126
 
 135:                                              ; preds = %.split, %183
   %.088153 = phi i64 [ 0, %.split ], [ %184, %183 ]
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %136 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %137 = load i32, ptr %136, align 4, !tbaa !10
-  %138 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %138 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %139 = load i32, ptr %138, align 4, !tbaa !10
   %140 = load i32, ptr %5, align 4, !tbaa !10
   %141 = zext i32 %139 to i64
@@ -10278,7 +10278,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 41:                                               ; preds = %41, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %42, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -10303,17 +10303,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
 
 47:                                               ; preds = %47, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %47 ]
-  %48 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %48 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %48, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %47, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %47
-  %49 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %49, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %50 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %50, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -10345,9 +10345,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %47
 
 52:                                               ; preds = %.preheader138, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader138 ]
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !14
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
   %57 = add i32 %56, %54
   store i32 %57, ptr %55, align 4, !tbaa !14
@@ -10387,7 +10387,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %52
   %76 = xor i32 %46, %75
   %77 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %76)
   %78 = add nuw nsw i32 %73, %77
-  %79 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %79 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %78, ptr %79, align 4, !tbaa !10
   %80 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %80, 8
@@ -10409,36 +10409,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %82 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %82 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %82, i64 32, i1 false)
-  %83 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %83 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %83, i64 32, i1 false)
   br label %84
 
 84:                                               ; preds = %84, %81
   %.029.i = phi i64 [ 0, %81 ], [ %97, %84 ]
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %86 = load i32, ptr %85, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = icmp ult i32 %86, %88
   %..i = tail call i32 @llvm.umin.i32(i32 %86, i32 %88)
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %90, align 4, !tbaa !14
   %.pn.i = select i1 %89, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %91 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %91, ptr %92, align 4, !tbaa !14
   %93 = tail call i32 @llvm.umax.i32(i32 %86, i32 %88)
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %93, ptr %94, align 4, !tbaa !14
   %.pn27.i = select i1 %89, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %95 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %96 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %95, ptr %96, align 4, !tbaa !14
   %97 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %97, 8
@@ -10468,8 +10468,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %98 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %99 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %98 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %99 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %98, i64 32, i1 false)
@@ -10480,9 +10480,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %112 ]
   %101 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %113, %112 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %114, %112 ]
-  %102 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %102 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %103 = load i32, ptr %102, align 4, !tbaa !10
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %104 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %105 = load i32, ptr %104, align 4, !tbaa !10
   %106 = zext i32 %105 to i64
   %107 = icmp sgt i32 %101, %103
@@ -10516,7 +10516,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 115:                                              ; preds = %115, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %115 ]
-  %116 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %116 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %116, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -10528,14 +10528,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %115, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %115 ]
-  %117 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %117 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %118
 
 118:                                              ; preds = %118, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %118 ]
-  %119 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %119 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %120 = load i32, ptr %119, align 4, !tbaa !14
-  %121 = getelementptr inbounds nuw [8 x i32], ptr %117, i64 0, i64 %indvars.iv.i113
+  %121 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv.i113
   %122 = load i32, ptr %121, align 4, !tbaa !14
   %123 = add i32 %122, %120
   store i32 %123, ptr %121, align 4, !tbaa !14
@@ -10559,8 +10559,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %118
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %127 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %128 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %127 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %128 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %127, i64 32, i1 false)
@@ -10576,9 +10576,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %118
 
 129:                                              ; preds = %.preheader, %177
   %.088150 = phi i64 [ 0, %.preheader ], [ %178, %177 ]
-  %130 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %130 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %131 = load i32, ptr %130, align 4, !tbaa !10
-  %132 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %132 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %133 = load i32, ptr %132, align 4, !tbaa !10
   %134 = load i32, ptr %5, align 4, !tbaa !10
   %135 = zext i32 %133 to i64
@@ -10870,7 +10870,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 41:                                               ; preds = %41, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %42, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -10897,7 +10897,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
 
 48:                                               ; preds = %48, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %48 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %49 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -10935,9 +10935,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %48
 
 51:                                               ; preds = %.preheader138, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader138 ]
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !14
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = add i32 %55, %53
   store i32 %56, ptr %54, align 4, !tbaa !14
@@ -10977,7 +10977,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %51
   %75 = xor i32 %46, %74
   %76 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %75)
   %77 = add nuw nsw i32 %72, %76
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %78 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %77, ptr %78, align 4, !tbaa !10
   %79 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %79, 8
@@ -11009,26 +11009,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %51
 
 82:                                               ; preds = %82, %80
   %.029.i = phi i64 [ 0, %80 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %83 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %84 = load i32, ptr %83, align 4, !tbaa !14
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %86 = load i32, ptr %85, align 4, !tbaa !14
   %87 = icmp ult i32 %84, %86
   %..i = tail call i32 @llvm.umin.i32(i32 %84, i32 %86)
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %88 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %88, align 4, !tbaa !14
   %.pn.i = select i1 %87, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %89 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %89, ptr %90, align 4, !tbaa !14
   %91 = tail call i32 @llvm.umax.i32(i32 %84, i32 %86)
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %91, ptr %92, align 4, !tbaa !14
   %.pn27.i = select i1 %87, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %93 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %93, ptr %94, align 4, !tbaa !14
   %95 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %95, 8
@@ -11068,9 +11068,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %109 ]
   %98 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %110, %109 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %111, %109 ]
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %99 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %100 = load i32, ptr %99, align 4, !tbaa !10
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %101 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %102 = load i32, ptr %101, align 4, !tbaa !10
   %103 = zext i32 %102 to i64
   %104 = icmp sgt i32 %98, %100
@@ -11102,7 +11102,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 112:                                              ; preds = %112, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %112 ]
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %113 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %113, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -11119,9 +11119,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %112, %_ZN5faiss11si
 
 115:                                              ; preds = %115, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %115 ]
-  %116 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %116 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %117 = load i32, ptr %116, align 4, !tbaa !14
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %118 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %119 = load i32, ptr %118, align 4, !tbaa !14
   %120 = add i32 %119, %117
   store i32 %120, ptr %118, align 4, !tbaa !14
@@ -11158,9 +11158,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %115
 
 125:                                              ; preds = %.preheader, %173
   %.088150 = phi i64 [ 0, %.preheader ], [ %174, %173 ]
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %126 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %127 = load i32, ptr %126, align 4, !tbaa !10
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %128 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %129 = load i32, ptr %128, align 4, !tbaa !10
   %130 = load i32, ptr %5, align 4, !tbaa !10
   %131 = zext i32 %129 to i64
@@ -11394,13 +11394,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -11439,8 +11439,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %49
   %41 = phi i1 [ true, %.preheader140.preheader ], [ false, %49 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %49 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %49 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %49 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %49 ]
   br label %50
 
 42:                                               ; preds = %49
@@ -11458,7 +11458,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 43:                                               ; preds = %43, %42
   %indvars.iv.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %44, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -11490,17 +11490,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %43
 
 52:                                               ; preds = %52, %50
   %indvars.iv.i.i104 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i105, %52 ]
-  %53 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %53 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %53, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %52, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %52
-  %54 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %55 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %55, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -11525,9 +11525,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %52
 
 .preheader138:                                    ; preds = %86, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %86 ]
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = add i32 %59, %57
   store i32 %60, ptr %58, align 4, !tbaa !14
@@ -11543,7 +11543,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 62:                                               ; preds = %.preheader139, %86
   %63 = phi i1 [ true, %.preheader139 ], [ false, %86 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %86 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %86 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %86 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -11576,7 +11576,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %81 = xor i32 %48, %80
   %82 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %81)
   %83 = add nuw nsw i32 %78, %82
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %84 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %83, ptr %84, align 4, !tbaa !10
   %85 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %85, 8
@@ -11599,36 +11599,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %89 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %89 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %89, i64 32, i1 false)
-  %90 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %90 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %90, i64 32, i1 false)
   br label %91
 
 91:                                               ; preds = %91, %87
   %.029.i = phi i64 [ 0, %87 ], [ %104, %91 ]
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %93 = load i32, ptr %92, align 4, !tbaa !14
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %95 = load i32, ptr %94, align 4, !tbaa !14
   %96 = icmp ult i32 %93, %95
   %..i = tail call i32 @llvm.umin.i32(i32 %93, i32 %95)
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %97 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %97, align 4, !tbaa !14
   %.pn.i = select i1 %96, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %98 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %99 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %98, ptr %99, align 4, !tbaa !14
   %100 = tail call i32 @llvm.umax.i32(i32 %93, i32 %95)
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %101 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %100, ptr %101, align 4, !tbaa !14
   %.pn27.i = select i1 %96, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %102 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %103 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %102, ptr %103, align 4, !tbaa !14
   %104 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %104, 8
@@ -11670,9 +11670,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %107
 
@@ -11681,9 +11681,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %119 ]
   %108 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %120, %119 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %121, %119 ]
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %109 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %110 = load i32, ptr %109, align 4, !tbaa !10
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %111 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %112 = load i32, ptr %111, align 4, !tbaa !10
   %113 = zext i32 %112 to i64
   %114 = icmp sgt i32 %108, %110
@@ -11727,7 +11727,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 124:                                              ; preds = %124, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %124 ]
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %125 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %123, ptr %125, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -11740,14 +11740,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %124, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %127 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %124 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %124 ]
-  %128 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %128 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %129
 
 129:                                              ; preds = %129, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %129 ]
-  %130 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %130 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %131 = load i32, ptr %130, align 4, !tbaa !14
-  %132 = getelementptr inbounds nuw [8 x i32], ptr %128, i64 0, i64 %indvars.iv.i113
+  %132 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i113
   %133 = load i32, ptr %132, align 4, !tbaa !14
   %134 = add i32 %133, %131
   store i32 %134, ptr %132, align 4, !tbaa !14
@@ -11781,9 +11781,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %129
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %140
 
@@ -11794,9 +11794,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %129
 
 140:                                              ; preds = %.split, %188
   %.088153 = phi i64 [ 0, %.split ], [ %189, %188 ]
-  %141 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %141 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %142 = load i32, ptr %141, align 4, !tbaa !10
-  %143 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %143 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %144 = load i32, ptr %143, align 4, !tbaa !10
   %145 = load i32, ptr %5, align 4, !tbaa !10
   %146 = zext i32 %144 to i64
@@ -12070,8 +12070,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %50
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %50 ]
-  %41 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %42 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %41 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %42 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %51
 
 43:                                               ; preds = %50
@@ -12089,7 +12089,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 44:                                               ; preds = %44, %43
   %indvars.iv.i.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.i, %44 ]
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %45, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -12123,17 +12123,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %44
 
 53:                                               ; preds = %53, %51
   %indvars.iv.i.i104 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.i105, %53 ]
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %54 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %54, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %53, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %53
-  %55 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %41, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %41, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %55, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %56 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %42, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %42, i64 %indvars.iv
   store i32 0, ptr %56, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -12158,9 +12158,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %53
 
 .preheader138:                                    ; preds = %89, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %89 ]
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4, !tbaa !14
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !14
   %61 = add i32 %60, %58
   store i32 %61, ptr %59, align 4, !tbaa !14
@@ -12185,8 +12185,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %66 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %67 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %66 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %67 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %90
 
 68:                                               ; preds = %63, %68
@@ -12209,7 +12209,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %84 = xor i32 %49, %83
   %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %84)
   %86 = add nuw nsw i32 %81, %85
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %87 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %86, ptr %87, align 4, !tbaa !10
   %88 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %88, 8
@@ -12234,36 +12234,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %92 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %66, i64 0, i64 %indvars.iv182
+  %92 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %66, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %92, i64 32, i1 false)
-  %93 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %67, i64 0, i64 %indvars.iv182
+  %93 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %67, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %93, i64 32, i1 false)
   br label %94
 
 94:                                               ; preds = %94, %90
   %.029.i = phi i64 [ 0, %90 ], [ %107, %94 ]
-  %95 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %95 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %96 = load i32, ptr %95, align 4, !tbaa !14
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %97 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %98 = load i32, ptr %97, align 4, !tbaa !14
   %99 = icmp ult i32 %96, %98
   %..i = tail call i32 @llvm.umin.i32(i32 %96, i32 %98)
-  %100 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %100 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %100, align 4, !tbaa !14
   %.pn.i = select i1 %99, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %101 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %102 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %102 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %101, ptr %102, align 4, !tbaa !14
   %103 = tail call i32 @llvm.umax.i32(i32 %96, i32 %98)
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %104 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %103, ptr %104, align 4, !tbaa !14
   %.pn27.i = select i1 %99, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %105 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %106 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %105, ptr %106, align 4, !tbaa !14
   %107 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %107, 8
@@ -12304,9 +12304,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %109
 
@@ -12315,9 +12315,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %121 ]
   %110 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %122, %121 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %123, %121 ]
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %111 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %112 = load i32, ptr %111, align 4, !tbaa !10
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %113 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %114 = load i32, ptr %113, align 4, !tbaa !10
   %115 = zext i32 %114 to i64
   %116 = icmp sgt i32 %110, %112
@@ -12363,14 +12363,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 126:                                              ; preds = %126, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %126 ]
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %127 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %125, ptr %127, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %126, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %126
-  %128 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %128 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %130
 
 129:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -12382,14 +12382,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %126
 130:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %131 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %132 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %128, i64 0, i64 %indvars.iv192
+  %132 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %128, i64 %indvars.iv192
   br label %133
 
 133:                                              ; preds = %133, %130
   %indvars.iv.i113 = phi i64 [ 0, %130 ], [ %indvars.iv.next.i114, %133 ]
-  %134 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %134 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %135 = load i32, ptr %134, align 4, !tbaa !14
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %132, i64 0, i64 %indvars.iv.i113
+  %136 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv.i113
   %137 = load i32, ptr %136, align 4, !tbaa !14
   %138 = add i32 %137, %135
   store i32 %138, ptr %136, align 4, !tbaa !14
@@ -12422,9 +12422,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %133
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %143
 
@@ -12437,9 +12437,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %133
 
 143:                                              ; preds = %.split, %191
   %.088153 = phi i64 [ 0, %.split ], [ %192, %191 ]
-  %144 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %144 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %145 = load i32, ptr %144, align 4, !tbaa !10
-  %146 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %146 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %147 = load i32, ptr %146, align 4, !tbaa !10
   %148 = load i32, ptr %5, align 4, !tbaa !10
   %149 = zext i32 %147 to i64
@@ -13122,7 +13122,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 42:                                               ; preds = %42, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %43, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -13148,17 +13148,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
 
 49:                                               ; preds = %49, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %49, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
-  %51 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %51, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %52 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %52, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -13190,9 +13190,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %49
 
 54:                                               ; preds = %.preheader138, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.preheader138 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = add i32 %58, %56
   store i32 %59, ptr %57, align 4, !tbaa !14
@@ -13239,7 +13239,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %54
   %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
   %86 = trunc nuw nsw i64 %85 to i32
   %87 = add nuw nsw i32 %81, %86
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %88 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %87, ptr %88, align 4, !tbaa !10
   %89 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %89, 8
@@ -13261,36 +13261,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %91 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %91 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %91, i64 32, i1 false)
-  %92 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %92 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %92, i64 32, i1 false)
   br label %93
 
 93:                                               ; preds = %93, %90
   %.029.i = phi i64 [ 0, %90 ], [ %106, %93 ]
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %95 = load i32, ptr %94, align 4, !tbaa !14
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %96 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %97 = load i32, ptr %96, align 4, !tbaa !14
   %98 = icmp ult i32 %95, %97
   %..i = tail call i32 @llvm.umin.i32(i32 %95, i32 %97)
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %99 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %99, align 4, !tbaa !14
   %.pn.i = select i1 %98, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %100 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %101 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %100, ptr %101, align 4, !tbaa !14
   %102 = tail call i32 @llvm.umax.i32(i32 %95, i32 %97)
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %103 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %102, ptr %103, align 4, !tbaa !14
   %.pn27.i = select i1 %98, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %104 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %105 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %105 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %104, ptr %105, align 4, !tbaa !14
   %106 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %106, 8
@@ -13320,8 +13320,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %107 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %108 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %107 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %108 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %107, i64 32, i1 false)
@@ -13332,9 +13332,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %121 ]
   %110 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %122, %121 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %123, %121 ]
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %111 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %112 = load i32, ptr %111, align 4, !tbaa !10
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %113 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %114 = load i32, ptr %113, align 4, !tbaa !10
   %115 = zext i32 %114 to i64
   %116 = icmp sgt i32 %110, %112
@@ -13368,7 +13368,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 124:                                              ; preds = %124, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %124 ]
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %125 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %125, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -13380,14 +13380,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %124, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %124 ]
-  %126 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %126 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %127
 
 127:                                              ; preds = %127, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %127 ]
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %128 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %129 = load i32, ptr %128, align 4, !tbaa !14
-  %130 = getelementptr inbounds nuw [8 x i32], ptr %126, i64 0, i64 %indvars.iv.i113
+  %130 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i113
   %131 = load i32, ptr %130, align 4, !tbaa !14
   %132 = add i32 %131, %129
   store i32 %132, ptr %130, align 4, !tbaa !14
@@ -13412,8 +13412,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %127
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %137 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %138 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %137 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %138 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %137, i64 32, i1 false)
@@ -13429,9 +13429,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %127
 
 139:                                              ; preds = %.preheader, %187
   %.088150 = phi i64 [ 0, %.preheader ], [ %188, %187 ]
-  %140 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %140 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %141 = load i32, ptr %140, align 4, !tbaa !10
-  %142 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %142 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %143 = load i32, ptr %142, align 4, !tbaa !10
   %144 = load i32, ptr %5, align 4, !tbaa !10
   %145 = zext i32 %143 to i64
@@ -13731,7 +13731,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 42:                                               ; preds = %42, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %43, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -13759,7 +13759,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
 
 50:                                               ; preds = %50, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %50 ]
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %51, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -13797,9 +13797,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %50
 
 53:                                               ; preds = %.preheader138, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader138 ]
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = add i32 %57, %55
   store i32 %58, ptr %56, align 4, !tbaa !14
@@ -13846,7 +13846,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %53
   %84 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = add nuw nsw i32 %80, %85
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %87 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %86, ptr %87, align 4, !tbaa !10
   %88 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %88, 8
@@ -13878,26 +13878,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %53
 
 91:                                               ; preds = %91, %89
   %.029.i = phi i64 [ 0, %89 ], [ %104, %91 ]
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %93 = load i32, ptr %92, align 4, !tbaa !14
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %95 = load i32, ptr %94, align 4, !tbaa !14
   %96 = icmp ult i32 %93, %95
   %..i = tail call i32 @llvm.umin.i32(i32 %93, i32 %95)
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %97 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %97, align 4, !tbaa !14
   %.pn.i = select i1 %96, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %98 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %99 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %98, ptr %99, align 4, !tbaa !14
   %100 = tail call i32 @llvm.umax.i32(i32 %93, i32 %95)
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %101 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %100, ptr %101, align 4, !tbaa !14
   %.pn27.i = select i1 %96, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %102 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %103 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %102, ptr %103, align 4, !tbaa !14
   %104 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %104, 8
@@ -13937,9 +13937,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %118 ]
   %107 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %119, %118 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %120, %118 ]
-  %108 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %108 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %109 = load i32, ptr %108, align 4, !tbaa !10
-  %110 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %110 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %111 = load i32, ptr %110, align 4, !tbaa !10
   %112 = zext i32 %111 to i64
   %113 = icmp sgt i32 %107, %109
@@ -13971,7 +13971,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 121:                                              ; preds = %121, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %121 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %122 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %122, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -13988,9 +13988,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %121, %_ZN5faiss11si
 
 124:                                              ; preds = %124, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %124 ]
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %125 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %126 = load i32, ptr %125, align 4, !tbaa !14
-  %127 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %127 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %128 = load i32, ptr %127, align 4, !tbaa !14
   %129 = add i32 %128, %126
   store i32 %129, ptr %127, align 4, !tbaa !14
@@ -14028,9 +14028,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %124
 
 135:                                              ; preds = %.preheader, %183
   %.088150 = phi i64 [ 0, %.preheader ], [ %184, %183 ]
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %136 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %137 = load i32, ptr %136, align 4, !tbaa !10
-  %138 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %138 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %139 = load i32, ptr %138, align 4, !tbaa !10
   %140 = load i32, ptr %5, align 4, !tbaa !10
   %141 = zext i32 %139 to i64
@@ -14271,13 +14271,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -14317,8 +14317,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %51
   %42 = phi i1 [ true, %.preheader140.preheader ], [ false, %51 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %51 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %51 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %51 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %51 ]
   br label %52
 
 43:                                               ; preds = %51
@@ -14336,7 +14336,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 44:                                               ; preds = %44, %43
   %indvars.iv.i.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.i, %44 ]
-  %45 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %45, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -14369,17 +14369,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %44
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i104 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i105, %54 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %55 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %55, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %54, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %54
-  %56 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %57 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %57, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -14404,9 +14404,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %54
 
 .preheader138:                                    ; preds = %95, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %95 ]
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !14
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = add i32 %61, %59
   store i32 %62, ptr %60, align 4, !tbaa !14
@@ -14422,7 +14422,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 64:                                               ; preds = %.preheader139, %95
   %65 = phi i1 [ true, %.preheader139 ], [ false, %95 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %95 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %95 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %95 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -14462,7 +14462,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %90 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %89)
   %91 = trunc nuw nsw i64 %90 to i32
   %92 = add nuw nsw i32 %86, %91
-  %93 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %93 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %92, ptr %93, align 4, !tbaa !10
   %94 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %94, 8
@@ -14485,36 +14485,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %98 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %98 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %98, i64 32, i1 false)
-  %99 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %99 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %99, i64 32, i1 false)
   br label %100
 
 100:                                              ; preds = %100, %96
   %.029.i = phi i64 [ 0, %96 ], [ %113, %100 ]
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %101 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %102 = load i32, ptr %101, align 4, !tbaa !14
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %103 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %104 = load i32, ptr %103, align 4, !tbaa !14
   %105 = icmp ult i32 %102, %104
   %..i = tail call i32 @llvm.umin.i32(i32 %102, i32 %104)
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %106 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %106, align 4, !tbaa !14
   %.pn.i = select i1 %105, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %107 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %108 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %108 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %107, ptr %108, align 4, !tbaa !14
   %109 = tail call i32 @llvm.umax.i32(i32 %102, i32 %104)
-  %110 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %110 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %109, ptr %110, align 4, !tbaa !14
   %.pn27.i = select i1 %105, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %111 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %112 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %112 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %111, ptr %112, align 4, !tbaa !14
   %113 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %113, 8
@@ -14556,9 +14556,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %116
 
@@ -14567,9 +14567,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %128 ]
   %117 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %129, %128 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %130, %128 ]
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %118 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %119 = load i32, ptr %118, align 4, !tbaa !10
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %120 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %121 = load i32, ptr %120, align 4, !tbaa !10
   %122 = zext i32 %121 to i64
   %123 = icmp sgt i32 %117, %119
@@ -14613,7 +14613,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 133:                                              ; preds = %133, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %133 ]
-  %134 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %134 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %132, ptr %134, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -14626,14 +14626,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %133, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %136 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %133 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %133 ]
-  %137 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %137 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %138
 
 138:                                              ; preds = %138, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %138 ]
-  %139 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %139 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %140 = load i32, ptr %139, align 4, !tbaa !14
-  %141 = getelementptr inbounds nuw [8 x i32], ptr %137, i64 0, i64 %indvars.iv.i113
+  %141 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.i113
   %142 = load i32, ptr %141, align 4, !tbaa !14
   %143 = add i32 %142, %140
   store i32 %143, ptr %141, align 4, !tbaa !14
@@ -14668,9 +14668,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %138
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %150
 
@@ -14681,9 +14681,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %138
 
 150:                                              ; preds = %.split, %198
   %.088153 = phi i64 [ 0, %.split ], [ %199, %198 ]
-  %151 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %151 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %152 = load i32, ptr %151, align 4, !tbaa !10
-  %153 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %153 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %154 = load i32, ptr %153, align 4, !tbaa !10
   %155 = load i32, ptr %5, align 4, !tbaa !10
   %156 = zext i32 %154 to i64
@@ -14965,8 +14965,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %52
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %52 ]
-  %42 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %43 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %42 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %43 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %53
 
 44:                                               ; preds = %52
@@ -14984,7 +14984,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 45:                                               ; preds = %45, %44
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.i, %45 ]
-  %46 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %46, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -15019,17 +15019,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %45
 
 55:                                               ; preds = %55, %53
   %indvars.iv.i.i104 = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i105, %55 ]
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %56 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %56, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %55, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %55
-  %57 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %42, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %42, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %57, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %58 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %43, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %43, i64 %indvars.iv
   store i32 0, ptr %58, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -15054,9 +15054,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %55
 
 .preheader138:                                    ; preds = %98, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %98 ]
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !14
-  %61 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = add i32 %62, %60
   store i32 %63, ptr %61, align 4, !tbaa !14
@@ -15081,8 +15081,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %68 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %69 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %68 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %69 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %99
 
 70:                                               ; preds = %65, %70
@@ -15112,7 +15112,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %93 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %92)
   %94 = trunc nuw nsw i64 %93 to i32
   %95 = add nuw nsw i32 %89, %94
-  %96 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %96 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %95, ptr %96, align 4, !tbaa !10
   %97 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %97, 8
@@ -15137,36 +15137,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %101 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %68, i64 0, i64 %indvars.iv182
+  %101 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %68, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %101, i64 32, i1 false)
-  %102 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %69, i64 0, i64 %indvars.iv182
+  %102 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %69, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %102, i64 32, i1 false)
   br label %103
 
 103:                                              ; preds = %103, %99
   %.029.i = phi i64 [ 0, %99 ], [ %116, %103 ]
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %104 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %105 = load i32, ptr %104, align 4, !tbaa !14
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %106 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %107 = load i32, ptr %106, align 4, !tbaa !14
   %108 = icmp ult i32 %105, %107
   %..i = tail call i32 @llvm.umin.i32(i32 %105, i32 %107)
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %109 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %109, align 4, !tbaa !14
   %.pn.i = select i1 %108, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %110 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %111 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %110, ptr %111, align 4, !tbaa !14
   %112 = tail call i32 @llvm.umax.i32(i32 %105, i32 %107)
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %113 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %112, ptr %113, align 4, !tbaa !14
   %.pn27.i = select i1 %108, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %114 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %115 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %114, ptr %115, align 4, !tbaa !14
   %116 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %116, 8
@@ -15207,9 +15207,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %118
 
@@ -15218,9 +15218,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %130 ]
   %119 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %131, %130 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %132, %130 ]
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %120 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %121 = load i32, ptr %120, align 4, !tbaa !10
-  %122 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %122 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %123 = load i32, ptr %122, align 4, !tbaa !10
   %124 = zext i32 %123 to i64
   %125 = icmp sgt i32 %119, %121
@@ -15266,14 +15266,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 135:                                              ; preds = %135, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %135 ]
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %136 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %134, ptr %136, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %135, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %135
-  %137 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %137 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %139
 
 138:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -15285,14 +15285,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %135
 139:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %140 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %141 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %137, i64 0, i64 %indvars.iv192
+  %141 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %137, i64 %indvars.iv192
   br label %142
 
 142:                                              ; preds = %142, %139
   %indvars.iv.i113 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i114, %142 ]
-  %143 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %143 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %144 = load i32, ptr %143, align 4, !tbaa !14
-  %145 = getelementptr inbounds nuw [8 x i32], ptr %141, i64 0, i64 %indvars.iv.i113
+  %145 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i113
   %146 = load i32, ptr %145, align 4, !tbaa !14
   %147 = add i32 %146, %144
   store i32 %147, ptr %145, align 4, !tbaa !14
@@ -15326,9 +15326,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %142
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %153
 
@@ -15341,9 +15341,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %142
 
 153:                                              ; preds = %.split, %201
   %.088153 = phi i64 [ 0, %.split ], [ %202, %201 ]
-  %154 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %154 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %155 = load i32, ptr %154, align 4, !tbaa !10
-  %156 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %156 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %157 = load i32, ptr %156, align 4, !tbaa !10
   %158 = load i32, ptr %5, align 4, !tbaa !10
   %159 = zext i32 %157 to i64
@@ -16081,7 +16081,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 46:                                               ; preds = %46, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %47, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -16111,17 +16111,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %46
 
 57:                                               ; preds = %57, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %57 ]
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %58 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %58, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %57, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %57
-  %59 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %60 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %60, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -16153,9 +16153,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %57
 
 62:                                               ; preds = %.preheader138, %62
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %.preheader138 ]
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !14
-  %65 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 4, !tbaa !14
   %67 = add i32 %66, %64
   store i32 %67, ptr %65, align 4, !tbaa !14
@@ -16226,7 +16226,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %62
   %117 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
   %118 = trunc nuw nsw i64 %117 to i32
   %119 = add nuw nsw i32 %113, %118
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %120 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %119, ptr %120, align 4, !tbaa !10
   %121 = add nuw nsw i64 %.094146, 1
   %exitcond172.not = icmp eq i64 %121, 8
@@ -16248,36 +16248,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %123 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv173
+  %123 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %123, i64 32, i1 false)
-  %124 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv173
+  %124 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv173
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %124, i64 32, i1 false)
   br label %125
 
 125:                                              ; preds = %125, %122
   %.029.i = phi i64 [ 0, %122 ], [ %138, %125 ]
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %126 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %127 = load i32, ptr %126, align 4, !tbaa !14
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %128 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %129 = load i32, ptr %128, align 4, !tbaa !14
   %130 = icmp ult i32 %127, %129
   %..i = tail call i32 @llvm.umin.i32(i32 %127, i32 %129)
-  %131 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %131 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %131, align 4, !tbaa !14
   %.pn.i = select i1 %130, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %132 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %133 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %133 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %132, ptr %133, align 4, !tbaa !14
   %134 = tail call i32 @llvm.umax.i32(i32 %127, i32 %129)
-  %135 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %135 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %134, ptr %135, align 4, !tbaa !14
   %.pn27.i = select i1 %130, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %136 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %137 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %137 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %136, ptr %137, align 4, !tbaa !14
   %138 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %138, 8
@@ -16307,8 +16307,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split152.us.us.us, %.preheader142.split.us
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.split152.us.us.us ], [ 0, %.preheader142.split.us ]
   %.promoted.us162 = phi i32 [ %.promoted.us159, %.split152.us.us.us ], [ %.promoted, %.preheader142.split.us ]
-  %139 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv190
-  %140 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv190
+  %139 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv190
+  %140 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv190
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %139, i64 32, i1 false)
@@ -16319,9 +16319,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %153 ]
   %142 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %154, %153 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %155, %153 ]
-  %143 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %143 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %144 = load i32, ptr %143, align 4, !tbaa !10
-  %145 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %145 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %146 = load i32, ptr %145, align 4, !tbaa !10
   %147 = zext i32 %146 to i64
   %148 = icmp sgt i32 %142, %144
@@ -16355,7 +16355,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 156:                                              ; preds = %156, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %156 ]
-  %157 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %157 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre200, ptr %157, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -16367,14 +16367,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %156, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %156 ]
-  %158 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv180
+  %158 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv180
   br label %159
 
 159:                                              ; preds = %159, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %159 ]
-  %160 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %160 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %161 = load i32, ptr %160, align 4, !tbaa !14
-  %162 = getelementptr inbounds nuw [8 x i32], ptr %158, i64 0, i64 %indvars.iv.i113
+  %162 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv.i113
   %163 = load i32, ptr %162, align 4, !tbaa !14
   %164 = add i32 %163, %161
   store i32 %164, ptr %162, align 4, !tbaa !14
@@ -16403,8 +16403,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %159
 
 .preheader:                                       ; preds = %.preheader142, %.split152
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %.split152 ], [ 0, %.preheader142 ]
-  %173 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv185
-  %174 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv185
+  %173 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv185
+  %174 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv185
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %173, i64 32, i1 false)
@@ -16420,9 +16420,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %159
 
 175:                                              ; preds = %.preheader, %223
   %.088150 = phi i64 [ 0, %.preheader ], [ %224, %223 ]
-  %176 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %176 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %177 = load i32, ptr %176, align 4, !tbaa !10
-  %178 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %178 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %179 = load i32, ptr %178, align 4, !tbaa !10
   %180 = load i32, ptr %5, align 4, !tbaa !10
   %181 = zext i32 %179 to i64
@@ -16750,7 +16750,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 46:                                               ; preds = %46, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %47, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -16782,7 +16782,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %46
 
 58:                                               ; preds = %58, %.preheader140
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader140 ], [ %indvars.iv.next.i.i105, %58 ]
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %59 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %59, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
@@ -16820,9 +16820,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %58
 
 61:                                               ; preds = %.preheader138, %61
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %.preheader138 ]
-  %62 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4, !tbaa !14
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 4, !tbaa !14
   %66 = add i32 %65, %63
   store i32 %66, ptr %64, align 4, !tbaa !14
@@ -16893,7 +16893,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %61
   %116 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %115)
   %117 = trunc nuw nsw i64 %116 to i32
   %118 = add nuw nsw i32 %112, %117
-  %119 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094146
+  %119 = getelementptr inbounds nuw i32, ptr %17, i64 %.094146
   store i32 %118, ptr %119, align 4, !tbaa !10
   %120 = add nuw nsw i64 %.094146, 1
   %exitcond.not = icmp eq i64 %120, 8
@@ -16925,26 +16925,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %61
 
 123:                                              ; preds = %123, %121
   %.029.i = phi i64 [ 0, %121 ], [ %136, %123 ]
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %124 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %125 = load i32, ptr %124, align 4, !tbaa !14
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %126 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %127 = load i32, ptr %126, align 4, !tbaa !14
   %128 = icmp ult i32 %125, %127
   %..i = tail call i32 @llvm.umin.i32(i32 %125, i32 %127)
-  %129 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %129 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %129, align 4, !tbaa !14
   %.pn.i = select i1 %128, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %130 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %131 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %131 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %130, ptr %131, align 4, !tbaa !14
   %132 = tail call i32 @llvm.umax.i32(i32 %125, i32 %127)
-  %133 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %133 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %132, ptr %133, align 4, !tbaa !14
   %.pn27.i = select i1 %128, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %134 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %135 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %135 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %134, ptr %135, align 4, !tbaa !14
   %136 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %136, 8
@@ -16984,9 +16984,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us160 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %.promoted.us159, %150 ]
   %139 = phi i32 [ %.promoted.us162, %.preheader.us ], [ %151, %150 ]
   %.088150.us.us.us = phi i64 [ 0, %.preheader.us ], [ %152, %150 ]
-  %140 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150.us.us.us
+  %140 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150.us.us.us
   %141 = load i32, ptr %140, align 4, !tbaa !10
-  %142 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150.us.us.us
+  %142 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150.us.us.us
   %143 = load i32, ptr %142, align 4, !tbaa !10
   %144 = zext i32 %143 to i64
   %145 = icmp sgt i32 %139, %141
@@ -17018,7 +17018,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 153:                                              ; preds = %153, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %153 ]
-  %154 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %154 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %.pre195, ptr %154, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -17035,9 +17035,9 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %153, %_ZN5faiss11si
 
 156:                                              ; preds = %156, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %156 ]
-  %157 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %157 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %158 = load i32, ptr %157, align 4, !tbaa !14
-  %159 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv.i113
+  %159 = getelementptr inbounds nuw i32, ptr %indvars.iv178.sroa.phi, i64 %indvars.iv.i113
   %160 = load i32, ptr %159, align 4, !tbaa !14
   %161 = add i32 %160, %158
   store i32 %161, ptr %159, align 4, !tbaa !14
@@ -17079,9 +17079,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %156
 
 171:                                              ; preds = %.preheader, %219
   %.088150 = phi i64 [ 0, %.preheader ], [ %220, %219 ]
-  %172 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088150
+  %172 = getelementptr inbounds nuw i32, ptr %24, i64 %.088150
   %173 = load i32, ptr %172, align 4, !tbaa !10
-  %174 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088150
+  %174 = getelementptr inbounds nuw i32, ptr %23, i64 %.088150
   %175 = load i32, ptr %174, align 4, !tbaa !10
   %176 = load i32, ptr %5, align 4, !tbaa !10
   %177 = zext i32 %175 to i64
@@ -17346,13 +17346,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %23 = alloca [8 x i32], align 16
   %24 = alloca [8 x i32], align 16
   %.not = icmp eq i32 %0, 0
-  %indvars.iv178.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv193.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv184.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv178.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv200.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv207.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv178.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv184.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv184.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv178.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv200.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv207.sroa.gep255 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge173, label %.lr.ph172
@@ -17396,8 +17396,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %59
   %46 = phi i1 [ true, %.preheader140.preheader ], [ false, %59 ]
-  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep240, %59 ]
-  %indvars.iv178.sroa.phi245 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep247, %59 ]
+  %indvars.iv178.sroa.phi = phi ptr [ %13, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep242, %59 ]
+  %indvars.iv178.sroa.phi248 = phi ptr [ %12, %.preheader140.preheader ], [ %indvars.iv178.sroa.gep250, %59 ]
   br label %60
 
 47:                                               ; preds = %59
@@ -17415,7 +17415,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 48:                                               ; preds = %48, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %48 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -17452,17 +17452,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %48
 
 62:                                               ; preds = %62, %60
   %indvars.iv.i.i104 = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i105, %62 ]
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %63 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %63, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %62, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %62
-  %64 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi245, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi248, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %64, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %65 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv178.sroa.phi, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv178.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %65, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -17487,9 +17487,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %62
 
 .preheader138:                                    ; preds = %127, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %127 ]
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 4, !tbaa !14
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %69 = load i32, ptr %68, align 4, !tbaa !14
   %70 = add i32 %69, %67
   store i32 %70, ptr %68, align 4, !tbaa !14
@@ -17505,7 +17505,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
 72:                                               ; preds = %.preheader139, %127
   %73 = phi i1 [ true, %.preheader139 ], [ false, %127 ]
   %indvars.iv184.sroa.phi = phi ptr [ %13, %.preheader139 ], [ %indvars.iv184.sroa.gep241, %127 ]
-  %indvars.iv184.sroa.phi248 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep250, %127 ]
+  %indvars.iv184.sroa.phi245 = phi ptr [ %12, %.preheader139 ], [ %indvars.iv184.sroa.gep247, %127 ]
   %indvars.iv184 = phi i64 [ 0, %.preheader139 ], [ 8, %127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv184, %invariant.op
@@ -17569,7 +17569,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %122 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %121)
   %123 = trunc nuw nsw i64 %122 to i32
   %124 = add nuw nsw i32 %118, %123
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %125 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %124, ptr %125, align 4, !tbaa !10
   %126 = add nuw nsw i64 %.094147, 1
   %exitcond.not = icmp eq i64 %126, 8
@@ -17592,36 +17592,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %130 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi248, i64 0, i64 %indvars.iv181
+  %130 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi245, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %130, i64 32, i1 false)
-  %131 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv184.sroa.phi, i64 0, i64 %indvars.iv181
+  %131 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv184.sroa.phi, i64 %indvars.iv181
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %131, i64 32, i1 false)
   br label %132
 
 132:                                              ; preds = %132, %128
   %.029.i = phi i64 [ 0, %128 ], [ %145, %132 ]
-  %133 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %133 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %134 = load i32, ptr %133, align 4, !tbaa !14
-  %135 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %135 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %136 = load i32, ptr %135, align 4, !tbaa !14
   %137 = icmp ult i32 %134, %136
   %..i = tail call i32 @llvm.umin.i32(i32 %134, i32 %136)
-  %138 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %138 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %138, align 4, !tbaa !14
   %.pn.i = select i1 %137, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %139 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %140 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %140 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %139, ptr %140, align 4, !tbaa !14
   %141 = tail call i32 @llvm.umax.i32(i32 %134, i32 %136)
-  %142 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %142 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %141, ptr %142, align 4, !tbaa !14
   %.pn27.i = select i1 %137, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %143 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %144 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %144 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %143, ptr %144, align 4, !tbaa !14
   %145 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %145, 8
@@ -17663,9 +17663,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi, i64 0, i64 %indvars.iv204
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv207.sroa.phi254, i64 0, i64 %indvars.iv204
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv207.sroa.phi254, i64 %indvars.iv204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %148
 
@@ -17674,9 +17674,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %160 ]
   %149 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %161, %160 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %162, %160 ]
-  %150 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %150 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %151 = load i32, ptr %150, align 4, !tbaa !10
-  %152 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %152 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %153 = load i32, ptr %152, align 4, !tbaa !10
   %154 = zext i32 %153 to i64
   %155 = icmp sgt i32 %149, %151
@@ -17720,7 +17720,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 165:                                              ; preds = %165, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %165 ]
-  %166 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %166 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %164, ptr %166, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
@@ -17733,14 +17733,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %165, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %168 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ true, %165 ]
   %indvars.iv190 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ], [ 0, %165 ]
-  %169 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv193.sroa.phi, i64 0, i64 %indvars.iv190
+  %169 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv193.sroa.phi, i64 %indvars.iv190
   br label %170
 
 170:                                              ; preds = %170, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader
   %indvars.iv.i113 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ %indvars.iv.next.i114, %170 ]
-  %171 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %171 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %172 = load i32, ptr %171, align 4, !tbaa !14
-  %173 = getelementptr inbounds nuw [8 x i32], ptr %169, i64 0, i64 %indvars.iv.i113
+  %173 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i113
   %174 = load i32, ptr %173, align 4, !tbaa !14
   %175 = add i32 %174, %172
   store i32 %175, ptr %173, align 4, !tbaa !14
@@ -17779,9 +17779,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %170
   %indvars.iv197 = phi i64 [ 0, %.preheader ], [ 1, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi, i64 0, i64 %indvars.iv197
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv200.sroa.phi251, i64 0, i64 %indvars.iv197
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv200.sroa.phi251, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %186
 
@@ -17792,9 +17792,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %170
 
 186:                                              ; preds = %.split, %234
   %.088153 = phi i64 [ 0, %.split ], [ %235, %234 ]
-  %187 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %187 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %188 = load i32, ptr %187, align 4, !tbaa !10
-  %189 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %189 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %190 = load i32, ptr %189, align 4, !tbaa !10
   %191 = load i32, ptr %5, align 4, !tbaa !10
   %192 = zext i32 %190 to i64
@@ -18104,8 +18104,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader140:                                    ; preds = %.preheader140.preheader, %60
   %indvars.iv178 = phi i64 [ 0, %.preheader140.preheader ], [ %indvars.iv.next179, %60 ]
-  %46 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv178
-  %47 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv178
+  %46 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv178
+  %47 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv178
   br label %61
 
 48:                                               ; preds = %60
@@ -18123,7 +18123,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 49:                                               ; preds = %49, %48
   %indvars.iv.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -18162,17 +18162,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %49
 
 63:                                               ; preds = %63, %61
   %indvars.iv.i.i104 = phi i64 [ 0, %61 ], [ %indvars.iv.next.i.i105, %63 ]
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i104
+  %64 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i104
   store i32 2147483647, ptr %64, align 4, !tbaa !14
   %indvars.iv.next.i.i105 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i106 = icmp eq i64 %indvars.iv.next.i.i105, 8
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %63, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %63
-  %65 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %46, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %46, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %65, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %66 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %47, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %47, i64 %indvars.iv
   store i32 0, ptr %66, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -18197,9 +18197,9 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %63
 
 .preheader138:                                    ; preds = %130, %.preheader138
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader138 ], [ 0, %130 ]
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %68 = load i32, ptr %67, align 4, !tbaa !14
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %70 = load i32, ptr %69, align 4, !tbaa !14
   %71 = add i32 %70, %68
   store i32 %71, ptr %69, align 4, !tbaa !14
@@ -18224,8 +18224,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %76 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv185
-  %77 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv185
+  %76 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv185
+  %77 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv185
   br label %131
 
 78:                                               ; preds = %73, %78
@@ -18279,7 +18279,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   %125 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %124)
   %126 = trunc nuw nsw i64 %125 to i32
   %127 = add nuw nsw i32 %121, %126
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.094147
+  %128 = getelementptr inbounds nuw i32, ptr %17, i64 %.094147
   store i32 %127, ptr %128, align 4, !tbaa !10
   %129 = add nuw nsw i64 %.094147, 1
   %exitcond181.not = icmp eq i64 %129, 8
@@ -18304,36 +18304,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0136, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %133 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %76, i64 0, i64 %indvars.iv182
+  %133 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %76, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %133, i64 32, i1 false)
-  %134 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %77, i64 0, i64 %indvars.iv182
+  %134 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %77, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %134, i64 32, i1 false)
   br label %135
 
 135:                                              ; preds = %135, %131
   %.029.i = phi i64 [ 0, %131 ], [ %148, %135 ]
-  %136 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %136 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %137 = load i32, ptr %136, align 4, !tbaa !14
-  %138 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %138 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %139 = load i32, ptr %138, align 4, !tbaa !14
   %140 = icmp ult i32 %137, %139
   %..i = tail call i32 @llvm.umin.i32(i32 %137, i32 %139)
-  %141 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %141 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %141, align 4, !tbaa !14
   %.pn.i = select i1 %140, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %142 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %143 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %143 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %142, ptr %143, align 4, !tbaa !14
   %144 = tail call i32 @llvm.umax.i32(i32 %137, i32 %139)
-  %145 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %145 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %144, ptr %145, align 4, !tbaa !14
   %.pn27.i = select i1 %140, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %146 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %147 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %147 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %146, ptr %147, align 4, !tbaa !14
   %148 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i108 = icmp eq i64 %148, 8
@@ -18374,9 +18374,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us161.us, %.split155.us.us.us ], [ %.promoted.us168, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi, i64 0, i64 %indvars.iv208
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep157.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv212.sroa.phi250, i64 0, i64 %indvars.iv208
+  %gep157.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv212.sroa.phi250, i64 %indvars.iv208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157.us.us, i64 32, i1 false)
   br label %150
 
@@ -18385,9 +18385,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us162.us = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %.promoted.us161.us, %162 ]
   %151 = phi i32 [ %.promoted.us163.us, %.split.us.us.us ], [ %163, %162 ]
   %.088153.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %164, %162 ]
-  %152 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153.us.us.us
+  %152 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153.us.us.us
   %153 = load i32, ptr %152, align 4, !tbaa !10
-  %154 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153.us.us.us
+  %154 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153.us.us.us
   %155 = load i32, ptr %154, align 4, !tbaa !10
   %156 = zext i32 %155 to i64
   %157 = icmp sgt i32 %151, %153
@@ -18433,14 +18433,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 167:                                              ; preds = %167, %.preheader143
   %indvars.iv.i.i109 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next.i.i110, %167 ]
-  %168 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i109
+  %168 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i109
   store i32 %166, ptr %168, align 4, !tbaa !14
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 8
   br i1 %exitcond.not.i.i111, label %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, label %167, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %167
-  %169 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv195
+  %169 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv195
   br label %171
 
 170:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit116
@@ -18452,14 +18452,14 @@ _ZN5faiss11simd8uint32C2Ej.exit112.preheader:     ; preds = %167
 171:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit112.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit116
   %172 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
   %indvars.iv192 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit112.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit116 ]
-  %173 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %169, i64 0, i64 %indvars.iv192
+  %173 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %169, i64 %indvars.iv192
   br label %174
 
 174:                                              ; preds = %174, %171
   %indvars.iv.i113 = phi i64 [ 0, %171 ], [ %indvars.iv.next.i114, %174 ]
-  %175 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i113
+  %175 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i113
   %176 = load i32, ptr %175, align 4, !tbaa !14
-  %177 = getelementptr inbounds nuw [8 x i32], ptr %173, i64 0, i64 %indvars.iv.i113
+  %177 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv.i113
   %178 = load i32, ptr %177, align 4, !tbaa !14
   %179 = add i32 %178, %176
   store i32 %179, ptr %177, align 4, !tbaa !14
@@ -18497,9 +18497,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %174
   %indvars.iv200 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next201, %.split155 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi, i64 0, i64 %indvars.iv200
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep157 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv204.sroa.phi247, i64 0, i64 %indvars.iv200
+  %gep157 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv204.sroa.phi247, i64 %indvars.iv200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep157, i64 32, i1 false)
   br label %189
 
@@ -18512,9 +18512,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit116:           ; preds = %174
 
 189:                                              ; preds = %.split, %237
   %.088153 = phi i64 [ 0, %.split ], [ %238, %237 ]
-  %190 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.088153
+  %190 = getelementptr inbounds nuw i32, ptr %24, i64 %.088153
   %191 = load i32, ptr %190, align 4, !tbaa !10
-  %192 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.088153
+  %192 = getelementptr inbounds nuw i32, ptr %23, i64 %.088153
   %193 = load i32, ptr %192, align 4, !tbaa !10
   %194 = load i32, ptr %5, align 4, !tbaa !10
   %195 = zext i32 %193 to i64
@@ -19301,7 +19301,7 @@ default.unreachable93:                            ; preds = %2
   %110 = load i8, ptr %109, align 1, !tbaa !14
   %111 = xor i8 %110, %108
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !14
   %115 = zext i8 %114 to i32
   %116 = add nsw i32 %.7, %115
@@ -19315,7 +19315,7 @@ default.unreachable93:                            ; preds = %2
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = xor i8 %121, %119
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !14
   %126 = zext i8 %125 to i32
   %127 = add nsw i32 %.9, %126
@@ -19329,7 +19329,7 @@ default.unreachable93:                            ; preds = %2
   %132 = load i8, ptr %131, align 1, !tbaa !14
   %133 = xor i8 %132, %130
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !14
   %137 = zext i8 %136 to i32
   %138 = add nsw i32 %.10, %137
@@ -19343,7 +19343,7 @@ default.unreachable93:                            ; preds = %2
   %143 = load i8, ptr %142, align 1, !tbaa !14
   %144 = xor i8 %143, %141
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !14
   %148 = zext i8 %147 to i32
   %149 = add nsw i32 %.11, %148
@@ -19357,7 +19357,7 @@ default.unreachable93:                            ; preds = %2
   %154 = load i8, ptr %153, align 1, !tbaa !14
   %155 = xor i8 %154, %152
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !14
   %159 = zext i8 %158 to i32
   %160 = add nsw i32 %.12, %159
@@ -19371,7 +19371,7 @@ default.unreachable93:                            ; preds = %2
   %165 = load i8, ptr %164, align 1, !tbaa !14
   %166 = xor i8 %165, %163
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !14
   %170 = zext i8 %169 to i32
   %171 = add nsw i32 %.13, %170
@@ -19383,7 +19383,7 @@ default.unreachable93:                            ; preds = %2
   %174 = load i8, ptr %105, align 1, !tbaa !14
   %175 = xor i8 %174, %173
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !14
   %179 = zext i8 %178 to i32
   %180 = add nsw i32 %.14, %179
@@ -19470,7 +19470,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 46:                                               ; preds = %46, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %47, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -19492,17 +19492,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %46
 
 49:                                               ; preds = %49, %.preheader141
   %indvars.iv.i.i105 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next.i.i106, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i105
+  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i105
   store i32 2147483647, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 8
   br i1 %exitcond.not.i.i107, label %_ZN5faiss11simd8uint32C2Ej.exit108, label %49, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %49
-  %51 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %51, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %52 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv
   store i32 0, ptr %52, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -19534,9 +19534,9 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %49
 
 54:                                               ; preds = %.preheader139, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.preheader139 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !14
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = add i32 %58, %56
   store i32 %59, ptr %57, align 4, !tbaa !14
@@ -19562,7 +19562,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %54
   %64 = mul i64 %63, %31
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
   %66 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %65)
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.095147
+  %67 = getelementptr inbounds nuw i32, ptr %17, i64 %.095147
   store i32 %66, ptr %67, align 4, !tbaa !10
   %68 = add nuw nsw i64 %.095147, 1
   %exitcond173.not = icmp eq i64 %68, 8
@@ -19584,36 +19584,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0137, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %70 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv174
+  %70 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv174
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %70, i64 32, i1 false)
-  %71 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv174
+  %71 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %71, i64 32, i1 false)
   br label %72
 
 72:                                               ; preds = %72, %69
   %.029.i = phi i64 [ 0, %69 ], [ %85, %72 ]
-  %73 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %73 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %74 = load i32, ptr %73, align 4, !tbaa !14
-  %75 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %75 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %77 = icmp ult i32 %74, %76
   %..i = tail call i32 @llvm.umin.i32(i32 %74, i32 %76)
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %78, align 4, !tbaa !14
   %.pn.i = select i1 %77, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %79 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %79, ptr %80, align 4, !tbaa !14
   %81 = tail call i32 @llvm.umax.i32(i32 %74, i32 %76)
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %82 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %81, ptr %82, align 4, !tbaa !14
   %.pn27.i = select i1 %77, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %83 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %84 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %83, ptr %84, align 4, !tbaa !14
   %85 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i109 = icmp eq i64 %85, 8
@@ -19643,8 +19643,8 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
 .preheader.us:                                    ; preds = %.split153.us.us.us, %.preheader143.split.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.split153.us.us.us ], [ 0, %.preheader143.split.us ]
   %.promoted.us163 = phi i32 [ %.promoted.us160, %.split153.us.us.us ], [ %.promoted, %.preheader143.split.us ]
-  %86 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv191
-  %87 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv191
+  %86 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv191
+  %87 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv191
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %86, i64 32, i1 false)
@@ -19655,9 +19655,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us161 = phi i32 [ %.promoted.us163, %.preheader.us ], [ %.promoted.us160, %100 ]
   %89 = phi i32 [ %.promoted.us163, %.preheader.us ], [ %101, %100 ]
   %.089151.us.us.us = phi i64 [ 0, %.preheader.us ], [ %102, %100 ]
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089151.us.us.us
+  %90 = getelementptr inbounds nuw i32, ptr %24, i64 %.089151.us.us.us
   %91 = load i32, ptr %90, align 4, !tbaa !10
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089151.us.us.us
+  %92 = getelementptr inbounds nuw i32, ptr %23, i64 %.089151.us.us.us
   %93 = load i32, ptr %92, align 4, !tbaa !10
   %94 = zext i32 %93 to i64
   %95 = icmp sgt i32 %89, %91
@@ -19691,7 +19691,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 103:                                              ; preds = %103, %.preheader144
   %indvars.iv.i.i110 = phi i64 [ 0, %.preheader144 ], [ %indvars.iv.next.i.i111, %103 ]
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i110
+  %104 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i110
   store i32 %.pre201, ptr %104, align 4, !tbaa !14
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, 8
@@ -19703,14 +19703,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 _ZN5faiss11simd8uint32C2Ej.exit113.preheader:     ; preds = %103, %_ZN5faiss11simd8uint32pLERKS0_.exit117
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %_ZN5faiss11simd8uint32pLERKS0_.exit117 ], [ 0, %103 ]
-  %105 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv181
+  %105 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv181
   br label %106
 
 106:                                              ; preds = %106, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader
   %indvars.iv.i114 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader ], [ %indvars.iv.next.i115, %106 ]
-  %107 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i114
+  %107 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i114
   %108 = load i32, ptr %107, align 4, !tbaa !14
-  %109 = getelementptr inbounds nuw [8 x i32], ptr %105, i64 0, i64 %indvars.iv.i114
+  %109 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i114
   %110 = load i32, ptr %109, align 4, !tbaa !14
   %111 = add i32 %110, %108
   store i32 %111, ptr %109, align 4, !tbaa !14
@@ -19728,8 +19728,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %106
 
 .preheader:                                       ; preds = %.preheader143, %.split153
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.split153 ], [ 0, %.preheader143 ]
-  %112 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %13, i64 0, i64 %indvars.iv186
-  %113 = getelementptr inbounds nuw [3 x %"struct.faiss::simd8uint32"], ptr %12, i64 0, i64 %indvars.iv186
+  %112 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %13, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %12, i64 %indvars.iv186
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %112, i64 32, i1 false)
@@ -19745,9 +19745,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %106
 
 114:                                              ; preds = %.preheader, %162
   %.089151 = phi i64 [ 0, %.preheader ], [ %163, %162 ]
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089151
+  %115 = getelementptr inbounds nuw i32, ptr %24, i64 %.089151
   %116 = load i32, ptr %115, align 4, !tbaa !10
-  %117 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089151
+  %117 = getelementptr inbounds nuw i32, ptr %23, i64 %.089151
   %118 = load i32, ptr %117, align 4, !tbaa !10
   %119 = load i32, ptr %5, align 4, !tbaa !10
   %120 = zext i32 %118 to i64
@@ -20030,7 +20030,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 46:                                               ; preds = %46, %.loopexit
   %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 8, ptr %47, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -20054,7 +20054,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %46
 
 50:                                               ; preds = %50, %.preheader141
   %indvars.iv.i.i105 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next.i.i106, %50 ]
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i105
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i105
   store i32 2147483647, ptr %51, align 4, !tbaa !14
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 8
@@ -20092,9 +20092,9 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %50
 
 53:                                               ; preds = %.preheader139, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader139 ]
-  %54 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !14
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = add i32 %57, %55
   store i32 %58, ptr %56, align 4, !tbaa !14
@@ -20120,7 +20120,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %53
   %63 = mul i64 %62, %31
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 %63
   %65 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %64)
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.095147
+  %66 = getelementptr inbounds nuw i32, ptr %17, i64 %.095147
   store i32 %65, ptr %66, align 4, !tbaa !10
   %67 = add nuw nsw i64 %.095147, 1
   %exitcond.not = icmp eq i64 %67, 8
@@ -20152,26 +20152,26 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %53
 
 70:                                               ; preds = %70, %68
   %.029.i = phi i64 [ 0, %68 ], [ %83, %70 ]
-  %71 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %71 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %72 = load i32, ptr %71, align 4, !tbaa !14
-  %73 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %73 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %74 = load i32, ptr %73, align 4, !tbaa !14
   %75 = icmp ult i32 %72, %74
   %..i = tail call i32 @llvm.umin.i32(i32 %72, i32 %74)
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %76 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %76, align 4, !tbaa !14
   %.pn.i = select i1 %75, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %77 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %78 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %78 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %77, ptr %78, align 4, !tbaa !14
   %79 = tail call i32 @llvm.umax.i32(i32 %72, i32 %74)
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %79, ptr %80, align 4, !tbaa !14
   %.pn27.i = select i1 %75, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %81 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %82 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %81, ptr %82, align 4, !tbaa !14
   %83 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i109 = icmp eq i64 %83, 8
@@ -20211,9 +20211,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us161 = phi i32 [ %.promoted.us163, %.preheader.us ], [ %.promoted.us160, %97 ]
   %86 = phi i32 [ %.promoted.us163, %.preheader.us ], [ %98, %97 ]
   %.089151.us.us.us = phi i64 [ 0, %.preheader.us ], [ %99, %97 ]
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089151.us.us.us
+  %87 = getelementptr inbounds nuw i32, ptr %24, i64 %.089151.us.us.us
   %88 = load i32, ptr %87, align 4, !tbaa !10
-  %89 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089151.us.us.us
+  %89 = getelementptr inbounds nuw i32, ptr %23, i64 %.089151.us.us.us
   %90 = load i32, ptr %89, align 4, !tbaa !10
   %91 = zext i32 %90 to i64
   %92 = icmp sgt i32 %86, %88
@@ -20245,7 +20245,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 100:                                              ; preds = %100, %.preheader144
   %indvars.iv.i.i110 = phi i64 [ 0, %.preheader144 ], [ %indvars.iv.next.i.i111, %100 ]
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i110
+  %101 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i110
   store i32 %.pre196, ptr %101, align 4, !tbaa !14
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, 8
@@ -20262,9 +20262,9 @@ _ZN5faiss11simd8uint32C2Ej.exit113.preheader:     ; preds = %100, %_ZN5faiss11si
 
 103:                                              ; preds = %103, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader
   %indvars.iv.i114 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader ], [ %indvars.iv.next.i115, %103 ]
-  %104 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i114
+  %104 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i114
   %105 = load i32, ptr %104, align 4, !tbaa !14
-  %106 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv179.sroa.phi, i64 0, i64 %indvars.iv.i114
+  %106 = getelementptr inbounds nuw i32, ptr %indvars.iv179.sroa.phi, i64 %indvars.iv.i114
   %107 = load i32, ptr %106, align 4, !tbaa !14
   %108 = add i32 %107, %105
   store i32 %108, ptr %106, align 4, !tbaa !14
@@ -20295,9 +20295,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %103
 
 110:                                              ; preds = %.preheader, %158
   %.089151 = phi i64 [ 0, %.preheader ], [ %159, %158 ]
-  %111 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089151
+  %111 = getelementptr inbounds nuw i32, ptr %24, i64 %.089151
   %112 = load i32, ptr %111, align 4, !tbaa !10
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089151
+  %113 = getelementptr inbounds nuw i32, ptr %23, i64 %.089151
   %114 = load i32, ptr %113, align 4, !tbaa !10
   %115 = load i32, ptr %5, align 4, !tbaa !10
   %116 = zext i32 %114 to i64
@@ -20524,13 +20524,13 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
   %30 = add nsw i32 %27, %29
   %31 = sext i32 %30 to i64
   %.not = icmp eq i32 %0, 0
-  %indvars.iv179.sroa.gep241 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %indvars.iv185.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv194.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv185.sroa.gep242 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %indvars.iv179.sroa.gep243 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %indvars.iv201.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv208.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %indvars.iv179.sroa.gep248 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %indvars.iv185.sroa.gep251 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv185.sroa.gep248 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv179.sroa.gep251 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %indvars.iv201.sroa.gep253 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %indvars.iv208.sroa.gep256 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %.not, label %._crit_edge174, label %.lr.ph173
@@ -20567,8 +20567,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader141:                                    ; preds = %.preheader141.preheader, %51
   %46 = phi i1 [ true, %.preheader141.preheader ], [ false, %51 ]
-  %indvars.iv179.sroa.phi = phi ptr [ %13, %.preheader141.preheader ], [ %indvars.iv179.sroa.gep241, %51 ]
-  %indvars.iv179.sroa.phi246 = phi ptr [ %12, %.preheader141.preheader ], [ %indvars.iv179.sroa.gep248, %51 ]
+  %indvars.iv179.sroa.phi = phi ptr [ %13, %.preheader141.preheader ], [ %indvars.iv179.sroa.gep243, %51 ]
+  %indvars.iv179.sroa.phi249 = phi ptr [ %12, %.preheader141.preheader ], [ %indvars.iv179.sroa.gep251, %51 ]
   br label %52
 
 47:                                               ; preds = %51
@@ -20586,7 +20586,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 48:                                               ; preds = %48, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %48 ]
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 16, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -20615,17 +20615,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %48
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i105 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i106, %54 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i105
+  %55 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i105
   store i32 2147483647, ptr %55, align 4, !tbaa !14
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 8
   br i1 %exitcond.not.i.i107, label %_ZN5faiss11simd8uint32C2Ej.exit108, label %54, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %54
-  %56 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv179.sroa.phi246, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv179.sroa.phi249, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %57 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv179.sroa.phi, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv179.sroa.phi, i64 %indvars.iv
   store i32 0, ptr %57, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -20650,9 +20650,9 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %54
 
 .preheader139:                                    ; preds = %74, %.preheader139
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader139 ], [ 0, %74 ]
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !14
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = add i32 %61, %59
   store i32 %62, ptr %60, align 4, !tbaa !14
@@ -20668,7 +20668,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
 64:                                               ; preds = %.preheader140, %74
   %65 = phi i1 [ true, %.preheader140 ], [ false, %74 ]
   %indvars.iv185.sroa.phi = phi ptr [ %13, %.preheader140 ], [ %indvars.iv185.sroa.gep242, %74 ]
-  %indvars.iv185.sroa.phi249 = phi ptr [ %12, %.preheader140 ], [ %indvars.iv185.sroa.gep251, %74 ]
+  %indvars.iv185.sroa.phi246 = phi ptr [ %12, %.preheader140 ], [ %indvars.iv185.sroa.gep248, %74 ]
   %indvars.iv185 = phi i64 [ 0, %.preheader140 ], [ 8, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.reass = add nuw nsw i64 %indvars.iv185, %invariant.op
@@ -20687,7 +20687,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   %69 = mul i64 %68, %31
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 %69
   %71 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %70)
-  %72 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.095148
+  %72 = getelementptr inbounds nuw i32, ptr %17, i64 %.095148
   store i32 %71, ptr %72, align 4, !tbaa !10
   %73 = add nuw nsw i64 %.095148, 1
   %exitcond.not = icmp eq i64 %73, 8
@@ -20710,36 +20710,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0137, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %77 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv185.sroa.phi249, i64 0, i64 %indvars.iv182
+  %77 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv185.sroa.phi246, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %77, i64 32, i1 false)
-  %78 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv185.sroa.phi, i64 0, i64 %indvars.iv182
+  %78 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv185.sroa.phi, i64 %indvars.iv182
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %78, i64 32, i1 false)
   br label %79
 
 79:                                               ; preds = %79, %75
   %.029.i = phi i64 [ 0, %75 ], [ %92, %79 ]
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %80 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %81 = load i32, ptr %80, align 4, !tbaa !14
-  %82 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %82 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %83 = load i32, ptr %82, align 4, !tbaa !14
   %84 = icmp ult i32 %81, %83
   %..i = tail call i32 @llvm.umin.i32(i32 %81, i32 %83)
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %85, align 4, !tbaa !14
   %.pn.i = select i1 %84, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %86 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %87 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %87 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %86, ptr %87, align 4, !tbaa !14
   %88 = tail call i32 @llvm.umax.i32(i32 %81, i32 %83)
-  %89 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %89 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %88, ptr %89, align 4, !tbaa !14
   %.pn27.i = select i1 %84, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %90 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %91 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %91 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %90, ptr %91, align 4, !tbaa !14
   %92 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i109 = icmp eq i64 %92, 8
@@ -20781,9 +20781,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us164.us = phi i32 [ %.promoted.us162.us, %.split156.us.us.us ], [ %.promoted.us169, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv208.sroa.phi, i64 0, i64 %indvars.iv205
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv208.sroa.phi, i64 %indvars.iv205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep158.us.us = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv208.sroa.phi255, i64 0, i64 %indvars.iv205
+  %gep158.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv208.sroa.phi255, i64 %indvars.iv205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep158.us.us, i64 32, i1 false)
   br label %95
 
@@ -20792,9 +20792,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us164.us, %.split.us.us.us ], [ %.promoted.us162.us, %107 ]
   %96 = phi i32 [ %.promoted.us164.us, %.split.us.us.us ], [ %108, %107 ]
   %.089154.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %109, %107 ]
-  %97 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089154.us.us.us
+  %97 = getelementptr inbounds nuw i32, ptr %24, i64 %.089154.us.us.us
   %98 = load i32, ptr %97, align 4, !tbaa !10
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089154.us.us.us
+  %99 = getelementptr inbounds nuw i32, ptr %23, i64 %.089154.us.us.us
   %100 = load i32, ptr %99, align 4, !tbaa !10
   %101 = zext i32 %100 to i64
   %102 = icmp sgt i32 %96, %98
@@ -20838,7 +20838,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 112:                                              ; preds = %112, %.preheader144
   %indvars.iv.i.i110 = phi i64 [ 0, %.preheader144 ], [ %indvars.iv.next.i.i111, %112 ]
-  %113 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i110
+  %113 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i110
   store i32 %111, ptr %113, align 4, !tbaa !14
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, 8
@@ -20851,14 +20851,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 _ZN5faiss11simd8uint32C2Ej.exit113.preheader:     ; preds = %112, %_ZN5faiss11simd8uint32pLERKS0_.exit117
   %115 = phi i1 [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit117 ], [ true, %112 ]
   %indvars.iv191 = phi i64 [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit117 ], [ 0, %112 ]
-  %116 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv194.sroa.phi, i64 0, i64 %indvars.iv191
+  %116 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %indvars.iv194.sroa.phi, i64 %indvars.iv191
   br label %117
 
 117:                                              ; preds = %117, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader
   %indvars.iv.i114 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader ], [ %indvars.iv.next.i115, %117 ]
-  %118 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i114
+  %118 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i114
   %119 = load i32, ptr %118, align 4, !tbaa !14
-  %120 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %indvars.iv.i114
+  %120 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i114
   %121 = load i32, ptr %120, align 4, !tbaa !14
   %122 = add i32 %121, %119
   store i32 %122, ptr %120, align 4, !tbaa !14
@@ -20886,9 +20886,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %117
   %indvars.iv198 = phi i64 [ 0, %.preheader ], [ 1, %.split156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv201.sroa.phi, i64 0, i64 %indvars.iv198
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv201.sroa.phi, i64 %indvars.iv198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep158 = getelementptr inbounds nuw [2 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv201.sroa.phi252, i64 0, i64 %indvars.iv198
+  %gep158 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv201.sroa.phi252, i64 %indvars.iv198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep158, i64 32, i1 false)
   br label %125
 
@@ -20899,9 +20899,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %117
 
 125:                                              ; preds = %.split, %173
   %.089154 = phi i64 [ 0, %.split ], [ %174, %173 ]
-  %126 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089154
+  %126 = getelementptr inbounds nuw i32, ptr %24, i64 %.089154
   %127 = load i32, ptr %126, align 4, !tbaa !10
-  %128 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089154
+  %128 = getelementptr inbounds nuw i32, ptr %23, i64 %.089154
   %129 = load i32, ptr %128, align 4, !tbaa !10
   %130 = load i32, ptr %5, align 4, !tbaa !10
   %131 = zext i32 %129 to i64
@@ -21166,8 +21166,8 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 .preheader141:                                    ; preds = %.preheader141.preheader, %52
   %indvars.iv179 = phi i64 [ 0, %.preheader141.preheader ], [ %indvars.iv.next180, %52 ]
-  %46 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv179
-  %47 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv179
+  %46 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv179
+  %47 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv179
   br label %53
 
 48:                                               ; preds = %52
@@ -21185,7 +21185,7 @@ define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj
 
 49:                                               ; preds = %49, %48
   %indvars.iv.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
   store i32 32, ptr %50, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -21216,17 +21216,17 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %49
 
 55:                                               ; preds = %55, %53
   %indvars.iv.i.i105 = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i106, %55 ]
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %14, i64 0, i64 %indvars.iv.i.i105
+  %56 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i105
   store i32 2147483647, ptr %56, align 4, !tbaa !14
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 8
   br i1 %exitcond.not.i.i107, label %_ZN5faiss11simd8uint32C2Ej.exit108, label %55, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %55
-  %57 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %46, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %46, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %57, ptr noundef nonnull align 4 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %58 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %47, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %47, i64 %indvars.iv
   store i32 0, ptr %58, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
@@ -21251,9 +21251,9 @@ _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %55
 
 .preheader139:                                    ; preds = %77, %.preheader139
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader139 ], [ 0, %77 ]
-  %59 = getelementptr inbounds nuw [8 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !14
-  %61 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = add i32 %62, %60
   store i32 %63, ptr %61, align 4, !tbaa !14
@@ -21278,8 +21278,8 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0137, ptr noundef nonnull align 16 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(32) %15, i64 32, i1 false)
-  %68 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %12, i64 0, i64 %indvars.iv186
-  %69 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv186
+  %68 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %12, i64 %indvars.iv186
+  %69 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv186
   br label %78
 
 70:                                               ; preds = %65, %70
@@ -21288,7 +21288,7 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   %72 = mul i64 %71, %31
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   %74 = tail call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %73)
-  %75 = getelementptr inbounds nuw [8 x i32], ptr %17, i64 0, i64 %.095148
+  %75 = getelementptr inbounds nuw i32, ptr %17, i64 %.095148
   store i32 %74, ptr %75, align 4, !tbaa !10
   %76 = add nuw nsw i64 %.095148, 1
   %exitcond182.not = icmp eq i64 %76, 8
@@ -21313,36 +21313,36 @@ _ZN5faiss11simd8uint32pLERKS0_.exit:              ; preds = %.preheader139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0137, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %80 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %68, i64 0, i64 %indvars.iv183
+  %80 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %68, i64 %indvars.iv183
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %80, i64 32, i1 false)
-  %81 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %69, i64 0, i64 %indvars.iv183
+  %81 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %69, i64 %indvars.iv183
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %81, i64 32, i1 false)
   br label %82
 
 82:                                               ; preds = %82, %78
   %.029.i = phi i64 [ 0, %78 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.029.i
+  %83 = getelementptr inbounds nuw i32, ptr %11, i64 %.029.i
   %84 = load i32, ptr %83, align 4, !tbaa !14
-  %85 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.029.i
+  %85 = getelementptr inbounds nuw i32, ptr %9, i64 %.029.i
   %86 = load i32, ptr %85, align 4, !tbaa !14
   %87 = icmp ult i32 %84, %86
   %..i = tail call i32 @llvm.umin.i32(i32 %84, i32 %86)
-  %88 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %.029.i
+  %88 = getelementptr inbounds nuw i32, ptr %18, i64 %.029.i
   store i32 %..i, ptr %88, align 4, !tbaa !14
   %.pn.i = select i1 %87, ptr %10, ptr %8
-  %.in.i = getelementptr inbounds nuw [8 x i32], ptr %.pn.i, i64 0, i64 %.029.i
+  %.in.i = getelementptr inbounds nuw i32, ptr %.pn.i, i64 %.029.i
   %89 = load i32, ptr %.in.i, align 4, !tbaa !14
-  %90 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %.029.i
+  %90 = getelementptr inbounds nuw i32, ptr %19, i64 %.029.i
   store i32 %89, ptr %90, align 4, !tbaa !14
   %91 = tail call i32 @llvm.umax.i32(i32 %84, i32 %86)
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %20, i64 0, i64 %.029.i
+  %92 = getelementptr inbounds nuw i32, ptr %20, i64 %.029.i
   store i32 %91, ptr %92, align 4, !tbaa !14
   %.pn27.i = select i1 %87, ptr %8, ptr %10
-  %.in26.i = getelementptr inbounds nuw [8 x i32], ptr %.pn27.i, i64 0, i64 %.029.i
+  %.in26.i = getelementptr inbounds nuw i32, ptr %.pn27.i, i64 %.029.i
   %93 = load i32, ptr %.in26.i, align 4, !tbaa !14
-  %94 = getelementptr inbounds nuw [8 x i32], ptr %21, i64 0, i64 %.029.i
+  %94 = getelementptr inbounds nuw i32, ptr %21, i64 %.029.i
   store i32 %93, ptr %94, align 4, !tbaa !14
   %95 = add nuw nsw i64 %.029.i, 1
   %exitcond.not.i109 = icmp eq i64 %95, 8
@@ -21383,9 +21383,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us164.us = phi i32 [ %.promoted.us162.us, %.split156.us.us.us ], [ %.promoted.us169, %.preheader.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv213.sroa.phi, i64 0, i64 %indvars.iv209
+  %gep.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv213.sroa.phi, i64 %indvars.iv209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep.us.us, i64 32, i1 false)
-  %gep158.us.us = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv213.sroa.phi251, i64 0, i64 %indvars.iv209
+  %gep158.us.us = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv213.sroa.phi251, i64 %indvars.iv209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep158.us.us, i64 32, i1 false)
   br label %97
 
@@ -21394,9 +21394,9 @@ _ZN5faiss18cmplt_min_max_fastENS_11simd8uint32ES0_S0_S0_RS0_S1_S1_S1_.exit: ; pr
   %.promoted.us163.us = phi i32 [ %.promoted.us164.us, %.split.us.us.us ], [ %.promoted.us162.us, %109 ]
   %98 = phi i32 [ %.promoted.us164.us, %.split.us.us.us ], [ %110, %109 ]
   %.089154.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %111, %109 ]
-  %99 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089154.us.us.us
+  %99 = getelementptr inbounds nuw i32, ptr %24, i64 %.089154.us.us.us
   %100 = load i32, ptr %99, align 4, !tbaa !10
-  %101 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089154.us.us.us
+  %101 = getelementptr inbounds nuw i32, ptr %23, i64 %.089154.us.us.us
   %102 = load i32, ptr %101, align 4, !tbaa !10
   %103 = zext i32 %102 to i64
   %104 = icmp sgt i32 %98, %100
@@ -21442,14 +21442,14 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 
 114:                                              ; preds = %114, %.preheader144
   %indvars.iv.i.i110 = phi i64 [ 0, %.preheader144 ], [ %indvars.iv.next.i.i111, %114 ]
-  %115 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i.i110
+  %115 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i110
   store i32 %113, ptr %115, align 4, !tbaa !14
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, 8
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113.preheader, label %114, !llvm.loop !176
 
 _ZN5faiss11simd8uint32C2Ej.exit113.preheader:     ; preds = %114
-  %116 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %13, i64 0, i64 %indvars.iv196
+  %116 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %13, i64 %indvars.iv196
   br label %118
 
 117:                                              ; preds = %_ZN5faiss11simd8uint32pLERKS0_.exit117
@@ -21461,14 +21461,14 @@ _ZN5faiss11simd8uint32C2Ej.exit113.preheader:     ; preds = %114
 118:                                              ; preds = %_ZN5faiss11simd8uint32C2Ej.exit113.preheader, %_ZN5faiss11simd8uint32pLERKS0_.exit117
   %119 = phi i1 [ true, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader ], [ false, %_ZN5faiss11simd8uint32pLERKS0_.exit117 ]
   %indvars.iv193 = phi i64 [ 0, %_ZN5faiss11simd8uint32C2Ej.exit113.preheader ], [ 1, %_ZN5faiss11simd8uint32pLERKS0_.exit117 ]
-  %120 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %116, i64 0, i64 %indvars.iv193
+  %120 = getelementptr inbounds nuw %"struct.faiss::simd8uint32", ptr %116, i64 %indvars.iv193
   br label %121
 
 121:                                              ; preds = %121, %118
   %indvars.iv.i114 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i115, %121 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr %22, i64 0, i64 %indvars.iv.i114
+  %122 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i114
   %123 = load i32, ptr %122, align 4, !tbaa !14
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %120, i64 0, i64 %indvars.iv.i114
+  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i114
   %125 = load i32, ptr %124, align 4, !tbaa !14
   %126 = add i32 %125, %123
   store i32 %126, ptr %124, align 4, !tbaa !14
@@ -21495,9 +21495,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %121
   %indvars.iv201 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next202, %.split156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %gep = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv205.sroa.phi, i64 0, i64 %indvars.iv201
+  %gep = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv205.sroa.phi, i64 %indvars.iv201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %gep, i64 32, i1 false)
-  %gep158 = getelementptr inbounds nuw [4 x [2 x %"struct.faiss::simd8uint32"]], ptr %indvars.iv205.sroa.phi248, i64 0, i64 %indvars.iv201
+  %gep158 = getelementptr inbounds nuw [2 x %"struct.faiss::simd8uint32"], ptr %indvars.iv205.sroa.phi248, i64 %indvars.iv201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %gep158, i64 32, i1 false)
   br label %128
 
@@ -21510,9 +21510,9 @@ _ZN5faiss11simd8uint32pLERKS0_.exit117:           ; preds = %121
 
 128:                                              ; preds = %.split, %176
   %.089154 = phi i64 [ 0, %.split ], [ %177, %176 ]
-  %129 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %.089154
+  %129 = getelementptr inbounds nuw i32, ptr %24, i64 %.089154
   %130 = load i32, ptr %129, align 4, !tbaa !10
-  %131 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %.089154
+  %131 = getelementptr inbounds nuw i32, ptr %23, i64 %.089154
   %132 = load i32, ptr %131, align 4, !tbaa !10
   %133 = load i32, ptr %5, align 4, !tbaa !10
   %134 = zext i32 %132 to i64

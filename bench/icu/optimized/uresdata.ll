@@ -472,7 +472,7 @@ declare void @udata_close_77(ptr noundef) local_unnamed_addr #3
 define range(i32 -128, 128) i32 @res_getPublicType_77(i32 noundef %0) local_unnamed_addr #4 {
   %2 = lshr i32 %0, 28
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12gPublicTypes, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr @_ZL12gPublicTypes, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = sext i8 %5 to i32
   ret i32 %6
@@ -777,7 +777,7 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7717ResourceDataValue7getTypeE
   %3 = load i32, ptr %2, align 8, !tbaa !37
   %4 = lshr i32 %3, 28
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12gPublicTypes, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZL12gPublicTypes, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !13
   %8 = sext i8 %7 to i32
   ret i32 %8

@@ -272,7 +272,7 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
 
 105:                                              ; preds = %103
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %76, i64 %90, i1 false)
-  %106 = getelementptr inbounds nuw [8192 x i8], ptr %7, i64 0, i64 %90
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 %90
   store i8 0, ptr %106, align 1, !tbaa !21
   %107 = call i64 @Curl_is_absolute_url(ptr noundef nonnull %7, ptr noundef null, i64 noundef 0, i1 noundef zeroext false) #6
   %.not96.i = icmp eq i64 %107, 0

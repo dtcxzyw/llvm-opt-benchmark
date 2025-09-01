@@ -1742,7 +1742,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %230, %228, %160
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %239 = add i64 %238, 1
-  %240 = getelementptr inbounds [100 x %struct.epoll_event], ptr getelementptr inbounds nuw (i8, ptr @_ZL11g_epoll_set, i64 4), i64 0, i64 %238
+  %240 = getelementptr inbounds %struct.epoll_event, ptr getelementptr inbounds nuw (i8, ptr @_ZL11g_epoll_set, i64 4), i64 %238
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load ptr, ptr %241, align 4, !tbaa !32, !noalias !112
   %243 = icmp eq ptr %242, @_ZL16global_wakeup_fd
@@ -2055,7 +2055,7 @@ _ZN9grpc_core7ExecCtx3GetEv.exit73.i.invoke:      ; preds = %.invoke, %.noexc81,
 .noexc88:                                         ; preds = %.noexc87, %.noexc86
   %.sink.i = phi i8 [ 0, %.noexc86 ], [ 1, %.noexc87 ]
   %.1.i = phi i1 [ false, %.noexc86 ], [ %356, %.noexc87 ]
-  %357 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %.05888.i
+  %357 = getelementptr inbounds nuw i8, ptr %8, i64 %.05888.i
   store i8 %.sink.i, ptr %357, align 1, !tbaa !126
   %358 = add nuw i64 %.05888.i, 1
   %359 = load i64, ptr @_ZL19g_num_neighborhoods, align 8
@@ -2086,7 +2086,7 @@ _ZN9grpc_core7ExecCtx3GetEv.exit75.i:             ; preds = %361, %._crit_edge.i
 .lr.ph91.i:                                       ; preds = %.preheader.i, %374
   %364 = phi i64 [ %375, %374 ], [ %359, %.preheader.i ]
   %.05690.i = phi i64 [ %376, %374 ], [ 0, %.preheader.i ]
-  %365 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %.05690.i
+  %365 = getelementptr inbounds nuw i8, ptr %8, i64 %.05690.i
   %366 = load i8, ptr %365, align 1, !tbaa !126, !range !46, !noundef !47
   %367 = trunc nuw i8 %366 to i1
   br i1 %367, label %374, label %368

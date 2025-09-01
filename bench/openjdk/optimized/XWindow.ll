@@ -48,32 +48,28 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %3, %1
   %6 = load i32, ptr @keymapTable, align 16
   %.not911 = icmp eq i32 %6, 0
-  br i1 %.not911, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not911, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
-  %7 = icmp eq i32 %6, %0
-  br i1 %7, label %.lr.ph._crit_edge, label %.lr.ph19
-
-.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv18 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
-  %8 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next
+7:                                                ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %8 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 8
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph19
-  %10 = icmp eq i32 %9, %0
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph19, !llvm.loop !6
+.lr.ph:                                           ; preds = %5, %7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %5 ]
+  %10 = phi i32 [ %9, %7 ], [ %6, %5 ]
+  %11 = icmp eq i32 %10, %0
+  br i1 %11, label %12, label %7
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi ptr [ @keymapTable, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %12 = load i64, ptr %11, align 8
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv, i32 1
+  %14 = load i64, ptr %13, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph19, %5, %3, %.lr.ph._crit_edge
-  %.07 = phi i64 [ %12, %.lr.ph._crit_edge ], [ 65406, %3 ], [ 0, %5 ], [ 0, %.lr.ph19 ]
+.loopexit:                                        ; preds = %7, %5, %3, %12
+  %.07 = phi i64 [ %14, %12 ], [ 65406, %3 ], [ 0, %5 ], [ 0, %7 ]
   ret i64 %.07
 }
 
@@ -192,13 +188,13 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i1 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i1, 1
-  %12 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.next.i
   %13 = load i32, ptr %12, align 8
   %.not16.i = icmp eq i32 %13, 0
   br i1 %.not16.i, label %.keysymToAWTKeyCode.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.next.i, i32 1
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %4
   br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !8
@@ -383,33 +379,29 @@ define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr noundef readnone
 7:                                                ; preds = %5, %3
   %8 = load i32, ptr @keymapTable, align 16
   %.not911.i = icmp eq i32 %8, 0
-  br i1 %.not911.i, label %awt_getX11KeySym.exit, label %.lr.ph.i.preheader
+  br i1 %.not911.i, label %awt_getX11KeySym.exit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %7
-  %9 = icmp eq i32 %8, %2
-  br i1 %9, label %.lr.ph.i._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i2 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i2, 1
-  %10 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
+9:                                                ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %10 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.next.i
   %11 = load i32, ptr %10, align 8
   %.not9.i = icmp eq i32 %11, 0
   br i1 %.not9.i, label %awt_getX11KeySym.exit, label %.lr.ph.i, !llvm.loop !6
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %12 = icmp eq i32 %11, %2
-  br i1 %12, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %7, %9
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %7 ]
+  %12 = phi i32 [ %11, %9 ], [ %8, %7 ]
+  %13 = icmp eq i32 %12, %2
+  br i1 %13, label %14, label %9
 
-.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa = phi ptr [ @keymapTable, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = trunc i64 %14 to i32
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.i, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = trunc i64 %16 to i32
   br label %awt_getX11KeySym.exit
 
-awt_getX11KeySym.exit:                            ; preds = %.lr.ph, %5, %7, %.lr.ph.i._crit_edge
-  %.07.i = phi i32 [ %15, %.lr.ph.i._crit_edge ], [ 65406, %5 ], [ 0, %7 ], [ 0, %.lr.ph ]
+awt_getX11KeySym.exit:                            ; preds = %9, %5, %7, %14
+  %.07.i = phi i32 [ %17, %14 ], [ 65406, %5 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.07.i
 }
 

@@ -355,9 +355,9 @@ _ZL13get_mark_typej.exit.i:                       ; preds = %159
 
 _ZL18get_consonant_typej.exit.i:                  ; preds = %.fold.split.i.i, %164, %162, %_ZL13get_mark_typej.exit.i, %_ZL13get_mark_typej.exit.i, %_ZL13get_mark_typej.exit.i
   %.0.i46.i = phi i64 [ 1, %_ZL13get_mark_typej.exit.i ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 1, %_ZL13get_mark_typej.exit.i ], [ 3, %162 ], [ %..i47.i, %164 ], [ 2, %.fold.split.i.i ]
-  %167 = getelementptr inbounds nuw [5 x i32], ptr @_ZL22thai_above_start_state, i64 0, i64 %.0.i46.i
+  %167 = getelementptr inbounds nuw i32, ptr @_ZL22thai_above_start_state, i64 %.0.i46.i
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds nuw [5 x i32], ptr @_ZL22thai_below_start_state, i64 0, i64 %.0.i46.i
+  %169 = getelementptr inbounds nuw i32, ptr @_ZL22thai_below_start_state, i64 %.0.i46.i
   %170 = load i32, ptr %169, align 4
   %171 = trunc nuw i64 %indvars.iv.i to i32
   br label %231
@@ -365,11 +365,11 @@ _ZL18get_consonant_typej.exit.i:                  ; preds = %.fold.split.i.i, %1
 select.unfold.i:                                  ; preds = %159, %156, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i
   %.0.i.ph.i = phi i64 [ 0, %switch.early.test.i.i ], [ 0, %switch.early.test.i.i ], [ 1, %156 ], [ 0, %.lr.ph.i ], [ 0, %switch.early.test.i.i ], [ 2, %159 ]
   %172 = zext i32 %.08.i to i64
-  %173 = getelementptr inbounds nuw [4 x [3 x %struct.thai_above_state_machine_edge_t]], ptr @_ZL24thai_above_state_machine, i64 0, i64 %172
-  %174 = getelementptr inbounds nuw [3 x %struct.thai_above_state_machine_edge_t], ptr %173, i64 0, i64 %.0.i.ph.i
+  %173 = getelementptr inbounds nuw [3 x %struct.thai_above_state_machine_edge_t], ptr @_ZL24thai_above_state_machine, i64 %172
+  %174 = getelementptr inbounds nuw %struct.thai_above_state_machine_edge_t, ptr %173, i64 %.0.i.ph.i
   %175 = zext i32 %.0377.i to i64
-  %176 = getelementptr inbounds nuw [3 x [3 x %struct.thai_below_state_machine_edge_t]], ptr @_ZL24thai_below_state_machine, i64 0, i64 %175
-  %177 = getelementptr inbounds nuw [3 x %struct.thai_below_state_machine_edge_t], ptr %176, i64 0, i64 %.0.i.ph.i
+  %176 = getelementptr inbounds nuw [3 x %struct.thai_below_state_machine_edge_t], ptr @_ZL24thai_below_state_machine, i64 %175
+  %177 = getelementptr inbounds nuw %struct.thai_below_state_machine_edge_t, ptr %176, i64 %.0.i.ph.i
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 4

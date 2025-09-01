@@ -2916,7 +2916,7 @@ define internal void @_ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv
 43:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit220
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit220 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %44 = getelementptr inbounds nuw [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3064,7 +3064,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %86, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %97 = getelementptr inbounds nuw [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv, i64 1
+  %97 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv, i64 1
   %98 = load double, ptr %97, align 8, !tbaa !68
   %99 = call noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %98, i32 noundef %46)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %5, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.62, double noundef %99, double noundef 5.000000e-02, double noundef 1.000000e-04)
@@ -3210,7 +3210,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit102:         ; preds = %138, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i100
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %149 = getelementptr inbounds nuw [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv, i64 2
+  %149 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv, i64 2
   %150 = load double, ptr %149, align 8, !tbaa !68
   %151 = call noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %150, i32 noundef %46)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.62, double noundef %151, double noundef 2.500000e-02, double noundef 1.000000e-04)
@@ -3356,7 +3356,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %190, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i116
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %201 = getelementptr inbounds nuw [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv, i64 3
+  %201 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv, i64 3
   %202 = load double, ptr %201, align 8, !tbaa !68
   %203 = call noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %202, i32 noundef %46)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, double noundef %203, double noundef 1.000000e-02, double noundef 1.000000e-04)
@@ -3502,7 +3502,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %242, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i132
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %253 = getelementptr inbounds nuw [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv, i64 4
+  %253 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv, i64 4
   %254 = load double, ptr %253, align 8, !tbaa !68
   %255 = call noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %254, i32 noundef %46)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.62, double noundef %255, double noundef 1.000000e-03, double noundef 1.000000e-04)

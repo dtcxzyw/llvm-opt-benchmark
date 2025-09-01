@@ -543,7 +543,7 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit:    ; preds = %144
 
 159:                                              ; preds = %.lr.ph, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
-  %160 = getelementptr inbounds nuw [0 x ptr], ptr %157, i64 0, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv
   %161 = load ptr, ptr %160, align 8, !tbaa !87
   %162 = ptrtoint ptr %161 to i64
   %163 = and i64 %162, -8
@@ -942,7 +942,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i170:     ; preds = %.noexc171
 316:                                              ; preds = %.lr.ph278, %379
   %317 = phi ptr [ null, %.lr.ph278 ], [ %380, %379 ]
   %indvars.iv298 = phi i64 [ %303, %.lr.ph278 ], [ %indvars.iv.next299, %379 ]
-  %318 = getelementptr inbounds nuw [0 x ptr], ptr %302, i64 0, i64 %indvars.iv298
+  %318 = getelementptr inbounds nuw ptr, ptr %302, i64 %indvars.iv298
   %319 = load ptr, ptr %318, align 8, !tbaa !87
   %320 = ptrtoint ptr %319 to i64
   %321 = and i64 %320, -8
@@ -1839,7 +1839,7 @@ _ZN6vectorIbLb0EjE5resetEv.exit:                  ; preds = %_ZN6vectorIP3appLb1
 67:                                               ; preds = %.lr.ph269, %select.unfold
   %indvars.iv294 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next295, %select.unfold ]
   %.092268 = phi i8 [ 0, %.lr.ph269 ], [ %.294.ph, %select.unfold ]
-  %68 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv294
+  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv294
   %69 = load ptr, ptr %68, align 8, !tbaa !87
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, -8
@@ -1972,7 +1972,7 @@ _ZNK7datalog15dataflow_engineINS_17reachability_infoEE8get_factEP9func_decl.exit
 
 .lr.ph:                                           ; preds = %128, %250
   %indvars.iv = phi i64 [ %indvars.iv.next, %250 ], [ 0, %128 ]
-  %131 = getelementptr inbounds nuw [0 x ptr], ptr %64, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8, !tbaa !87
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, -8
@@ -2408,7 +2408,7 @@ _ZNK6vectorIP3appLb1EjE4sizeEv.exit:              ; preds = %._crit_edge, %318
 
 323:                                              ; preds = %.lr.ph271, %354
   %indvars.iv296 = phi i64 [ %311, %.lr.ph271 ], [ %indvars.iv.next297, %354 ]
-  %324 = getelementptr inbounds nuw [0 x ptr], ptr %310, i64 0, i64 %indvars.iv296
+  %324 = getelementptr inbounds nuw ptr, ptr %310, i64 %indvars.iv296
   %325 = load ptr, ptr %324, align 8, !tbaa !87
   %326 = ptrtoint ptr %325 to i64
   %327 = and i64 %326, -8
@@ -4224,7 +4224,7 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %1
 
 31:                                               ; preds = %.lr.ph, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backERKS2_.exit ]
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !87
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -8
@@ -4646,7 +4646,7 @@ _ZN6vectorIPN7datalog4ruleELb0EjE9push_backERKS2_.exit: ; preds = %121, %_ZN6vec
   store i8 1, ptr %190, align 1, !tbaa !79
   %194 = load i32, ptr %22, align 8, !tbaa !19
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %21, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw %class.hashtable, ptr %21, i64 %195
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %187, ptr %4, align 8, !tbaa !67
   call void @_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(20) %196, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -4665,7 +4665,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8, !tbaa !19
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !217
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !218
@@ -4710,7 +4710,7 @@ _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eq
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
   %.pre-phi = phi i64 [ %.pre170, %._crit_edge.loopexit ], [ %5, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
   %24 = phi i32 [ %.pre168, %._crit_edge.loopexit ], [ %4, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %25 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %.pre-phi
+  %25 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %.pre-phi
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = icmp eq i32 %27, 0
@@ -5182,7 +5182,7 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
 
 212:                                              ; preds = %211, %.lr.ph.i23
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i, %211 ]
-  %213 = getelementptr inbounds nuw [0 x ptr], ptr %205, i64 0, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv.i
   %214 = load ptr, ptr %213, align 8, !tbaa !87
   %215 = ptrtoint ptr %214 to i64
   %216 = and i64 %215, -8
@@ -5268,7 +5268,7 @@ _ZNK7datalog11fact_readerINS_17reachability_infoEE3getEj.exit.i: ; preds = %.lr.
   %250 = load i32, ptr %3, align 8, !tbaa !19
   %.not16 = icmp eq i32 %250, 0
   %251 = zext i1 %.not16 to i64
-  %252 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 12
   %254 = load i32, ptr %253, align 4, !tbaa !29
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -6689,7 +6689,7 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   store i8 1, ptr %121, align 1, !tbaa !79
   %122 = load i32, ptr %18, align 8, !tbaa !19
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %17, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw %class.hashtable, ptr %17, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 12
   %126 = load i32, ptr %125, align 4, !tbaa !29
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -6962,7 +6962,7 @@ define linkonce_odr hidden void @_ZN7datalog15dataflow_engineINS_17reachability_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8, !tbaa !19
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !217
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !218
@@ -7005,7 +7005,7 @@ _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eq
 ._crit_edge119:                                   ; preds = %._crit_edge119.loopexit, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
   %.pre-phi = phi i64 [ %.pre146, %._crit_edge119.loopexit ], [ %5, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
   %22 = phi i32 [ %.pre144, %._crit_edge119.loopexit ], [ %4, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %23 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %.pre-phi
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = icmp eq i32 %25, 0
@@ -7151,7 +7151,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   %79 = load i32, ptr %3, align 8, !tbaa !19
   %.not13 = icmp eq i32 %79, 0
   %80 = zext i1 %.not13 to i64
-  %81 = getelementptr inbounds nuw [2 x %class.hashtable], ptr %2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %class.hashtable, ptr %2, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 68
   %83 = load i32, ptr %82, align 4, !tbaa !85
   %.not.i19 = icmp eq i32 %83, 0
@@ -7166,7 +7166,7 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20.preheader, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit ], [ 0, %.lr.ph.i20.preheader ]
-  %88 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i
   %89 = load ptr, ptr %88, align 8, !tbaa !87
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %90, -8

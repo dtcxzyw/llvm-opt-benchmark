@@ -750,7 +750,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
 
 19:                                               ; preds = %18, %19
   %20 = phi i64 [ 0, %18 ], [ %22, %19 ]
-  %21 = getelementptr inbounds nuw [63 x { { ptr, ptr }, { i64 } }], ptr %4, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %4, i64 %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = add nuw nsw i64 %20, 1
   %exitcond.not = icmp eq i64 %22, 63
@@ -1618,7 +1618,7 @@ define hidden void @"_ZN84_$LT$crossbeam_deque..deque..Injector$LT$T$GT$$u20$as$
 
 3:                                                ; preds = %1, %3
   %4 = phi i64 [ 0, %1 ], [ %6, %3 ]
-  %5 = getelementptr inbounds nuw [63 x { { ptr, ptr }, { i64 } }], ptr %2, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw { { ptr, ptr }, { i64 } }, ptr %2, i64 %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = add nuw nsw i64 %4, 1
   %exitcond.not = icmp eq i64 %6, 63

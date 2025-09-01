@@ -4244,7 +4244,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10dl_context13collect_queryEP9
 
 23:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !644
   %26 = trunc nuw i64 %indvars.iv to i32
   %27 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %12, i32 noundef %26, ptr noundef %25)

@@ -315,7 +315,7 @@ define hidden void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr noundef 
   %7 = zext i1 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = zext i1 %6 to i64
-  %10 = getelementptr inbounds nuw [2 x %class.MemRegion], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %class.MemRegion, ptr %8, i64 %9
   %.sroa.01.0.copyload = load ptr, ptr %10, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8

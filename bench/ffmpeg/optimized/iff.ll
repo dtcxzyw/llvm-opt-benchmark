@@ -250,7 +250,7 @@ define internal i32 @decode_init(ptr noundef %0) #0 {
   %130 = getelementptr inbounds nuw i8, ptr %.0183185.i, i64 2
   %131 = load i16, ptr %.0183185.i, align 1, !tbaa !30
   %132 = tail call i16 @llvm.bswap.i16(i16 %131)
-  %133 = getelementptr inbounds nuw [16 x i16], ptr %127, i64 0, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv.i
   store i16 %132, ptr %133, align 2, !tbaa !47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1008,7 +1008,7 @@ thread-pre-split:                                 ; preds = %187, %190, %184, %1
 
 .lr.ph1378:                                       ; preds = %.preheader1172
   %215 = icmp samesign ugt i64 %indvars.iv1555, 7
-  %216 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1555
+  %216 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1555
   br i1 %215, label %decodeplane8.exit.us, label %.lr.ph1378.split.preheader
 
 .lr.ph1378.split.preheader:                       ; preds = %.lr.ph1378
@@ -1151,7 +1151,7 @@ decodeplane8.exit.loopexit:                       ; preds = %236
   %299 = tail call i64 @llvm.smin.i64(i64 %gepdiff817, i64 %298)
   %300 = trunc i64 %299 to i32
   %301 = load ptr, ptr %271, align 8, !tbaa !53
-  %302 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1558
+  %302 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1558
   br label %303
 
 303:                                              ; preds = %303, %297
@@ -1322,7 +1322,7 @@ decodeplane8.exit832:                             ; preds = %.loopexit1171, %.lr
   %400 = sub i64 %381, %399
   %401 = tail call i64 @llvm.smin.i64(i64 %400, i64 %398)
   %402 = trunc i64 %401 to i32
-  %403 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1543
+  %403 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1543
   br label %404
 
 404:                                              ; preds = %404, %396
@@ -1432,7 +1432,7 @@ decodeplane8.exit838:                             ; preds = %404, %395
   %461 = tail call i64 @llvm.smin.i64(i64 %460, i64 %458)
   %462 = trunc i64 %461 to i32
   %463 = load ptr, ptr %432, align 8, !tbaa !53
-  %464 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1546
+  %464 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1546
   br label %465
 
 465:                                              ; preds = %465, %456
@@ -1506,7 +1506,7 @@ decodeplane8.exit844:                             ; preds = %465, %455
   %505 = sub i64 %439, %504
   %506 = tail call i64 @llvm.smin.i64(i64 %505, i64 %503)
   %507 = trunc i64 %506 to i32
-  %508 = getelementptr inbounds nuw [32 x [64 x i32]], ptr @plane32_lut, i64 0, i64 %indvars.iv1549
+  %508 = getelementptr inbounds nuw [64 x i32], ptr @plane32_lut, i64 %indvars.iv1549
   br label %509
 
 509:                                              ; preds = %509, %.lr.ph1357
@@ -1900,7 +1900,7 @@ decode_byterun.exit:                              ; preds = %715, %.lr.ph1289, %
 734:                                              ; preds = %731
   %735 = load i32, ptr %7, align 8, !tbaa !35
   %736 = load ptr, ptr %656, align 8, !tbaa !37
-  %737 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1531
+  %737 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1531
   br label %738
 
 738:                                              ; preds = %738, %734
@@ -2120,7 +2120,7 @@ decode_byterun.exit880:                           ; preds = %833, %780, %.crited
   %840 = load ptr, ptr %762, align 8, !tbaa !51
   %841 = load ptr, ptr %765, align 8, !tbaa !37
   %842 = load i32, ptr %7, align 8, !tbaa !35
-  %843 = getelementptr inbounds nuw [32 x [64 x i32]], ptr @plane32_lut, i64 0, i64 %indvars.iv1540
+  %843 = getelementptr inbounds nuw [64 x i32], ptr @plane32_lut, i64 %indvars.iv1540
   br label %844
 
 844:                                              ; preds = %844, %decode_byterun.exit880
@@ -2426,7 +2426,7 @@ decode_byterun.exit908:                           ; preds = %994, %.lr.ph1300, %
   %1014 = load i32, ptr %7, align 8, !tbaa !35
   %1015 = load ptr, ptr %932, align 8, !tbaa !37
   %1016 = load ptr, ptr %930, align 8, !tbaa !53
-  %1017 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1534
+  %1017 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1534
   br label %1018
 
 1018:                                             ; preds = %1018, %1013
@@ -2620,7 +2620,7 @@ decode_byterun.exit935:                           ; preds = %1100, %1047, %.crit
   %.promoted13071310 = phi ptr [ %.promoted130713111314, %1047 ], [ %.promoted13071309.lcssa, %.critedge.i918 ], [ %1101, %1100 ]
   %1107 = load ptr, ptr %923, align 8, !tbaa !37
   %1108 = load i32, ptr %7, align 8, !tbaa !35
-  %1109 = getelementptr inbounds nuw [32 x [64 x i32]], ptr @plane32_lut, i64 0, i64 %indvars.iv1537
+  %1109 = getelementptr inbounds nuw [64 x i32], ptr @plane32_lut, i64 %indvars.iv1537
   br label %1110
 
 1110:                                             ; preds = %1110, %decode_byterun.exit935
@@ -2951,7 +2951,7 @@ decode_byterun.exit961:                           ; preds = %1231, %1178, %.crit
 
 .lr.ph1263:                                       ; preds = %.preheader1196
   %1295 = icmp samesign ugt i64 %indvars.iv1525, 7
-  %1296 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1525
+  %1296 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1525
   br i1 %1295, label %decodeplane8.exit967.us, label %.lr.ph1263.split.preheader
 
 .lr.ph1263.split.preheader:                       ; preds = %.lr.ph1263
@@ -3094,7 +3094,7 @@ decodeplane8.exit967.loopexit:                    ; preds = %1316
   %1379 = tail call i64 @llvm.smin.i64(i64 %gepdiff, i64 %1378)
   %1380 = trunc i64 %1379 to i32
   %1381 = load ptr, ptr %1351, align 8, !tbaa !53
-  %1382 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1528
+  %1382 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1528
   br label %1383
 
 1383:                                             ; preds = %1383, %1377
@@ -3535,7 +3535,7 @@ decode_byterun2.exit:                             ; preds = %decode_byterun2.exi
 
 .lr.ph:                                           ; preds = %decode_byterun2.exit
   %1595 = icmp samesign ugt i64 %indvars.iv, 7
-  %1596 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv
+  %1596 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv
   br i1 %1595, label %decodeplane8.exit989.us, label %.lr.ph.split
 
 decodeplane8.exit989.us:                          ; preds = %.lr.ph, %decodeplane8.exit989.us
@@ -6004,7 +6004,7 @@ decode_short_horizontal_delta.exit:               ; preds = %.critedge.i1086, %2
 
 2663:                                             ; preds = %.lr.ph1394
   %2664 = load i32, ptr %7, align 8, !tbaa !35
-  %2665 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1561
+  %2665 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1561
   br label %2666
 
 2666:                                             ; preds = %2666, %2663
@@ -6223,7 +6223,7 @@ decodeplane8.exit1109:                            ; preds = %2666, %2662
 2778:                                             ; preds = %.lr.ph1413
   %2779 = load i32, ptr %7, align 8, !tbaa !35
   %2780 = load ptr, ptr %2763, align 8, !tbaa !53
-  %2781 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @plane8_lut, i64 0, i64 %indvars.iv1576
+  %2781 = getelementptr inbounds nuw [256 x i64], ptr @plane8_lut, i64 %indvars.iv1576
   br label %2782
 
 2782:                                             ; preds = %2782, %2778

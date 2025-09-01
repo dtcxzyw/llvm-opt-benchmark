@@ -1227,8 +1227,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %indvars.iv.i = phi i64 [ 2, %206 ], [ %indvars.iv.next.i, %218 ]
   %219 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv.i
   %220 = load i32, ptr %219, align 4, !tbaa !39, !noalias !56
-  %221 = add nsw i64 %indvars.iv.i, -2
-  %222 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %221
+  %221 = getelementptr i32, ptr %7, i64 %indvars.iv.i
+  %222 = getelementptr i8, ptr %221, i64 -8
   store i32 %220, ptr %222, align 4, !tbaa !39, !noalias !56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

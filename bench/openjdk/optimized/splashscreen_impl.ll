@@ -1057,7 +1057,7 @@ SplashGetInstance.exit:                           ; preds = %1
 
 .preheader:                                       ; preds = %6, %10
   %.02835 = phi i64 [ %11, %10 ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw [3 x %struct.FILEFORMAT], ptr @formats, i64 0, i64 %.02835
+  %12 = getelementptr inbounds nuw %struct.FILEFORMAT, ptr @formats, i64 %.02835
   %13 = load i32, ptr %12, align 16
   %14 = icmp eq i32 %9, %13
   br i1 %14, label %17, label %10

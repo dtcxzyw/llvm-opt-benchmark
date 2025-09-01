@@ -537,7 +537,7 @@ thread-pre-split.i.i.i:                           ; preds = %9, %12
   %14 = phi ptr [ %16, %12 ], [ %.sroa.015.029, %9 ]
   %15 = add i64 %13, -1
   %16 = getelementptr inbounds i8, ptr %14, i64 -8
-  %17 = getelementptr inbounds nuw [14 x i8], ptr %11, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   %18 = load i8, ptr %17, align 1, !tbaa !28
   %.not.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i, label %12, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit, !prof !29, !llvm.loop !30
@@ -569,7 +569,7 @@ thread-pre-split.i.i.i:                           ; preds = %9, %12
   %34 = icmp ne ptr %23, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 -112
-  %36 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %35, i64 0, i64 %33
+  %36 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %35, i64 %33
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit: ; preds = %thread-pre-split.i.i.i, %.critedge.i.i.i.i, %29
@@ -1023,7 +1023,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %110, %113
   %115 = phi ptr [ %117, %113 ], [ %.sroa.079.097152, %110 ]
   %116 = add nsw i64 %114, -1
   %117 = getelementptr inbounds i8, ptr %115, i64 -8
-  %118 = getelementptr inbounds nuw [14 x i8], ptr %112, i64 0, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 %116
   %119 = load i8, ptr %118, align 1, !tbaa !28
   %.not.i.i.i.i = icmp eq i8 %119, 0
   br i1 %.not.i.i.i.i, label %113, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i, !prof !29, !llvm.loop !30
@@ -1055,7 +1055,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %110, %113
   %135 = icmp ne ptr %124, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %135)
   %136 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i, i64 -112
-  %137 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %136, i64 0, i64 %134
+  %137 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %136, i64 %134
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i
 
 _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i: ; preds = %thread-pre-split.i.i.i.i, %130
@@ -1340,7 +1340,7 @@ _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_E
 
 19:                                               ; preds = %25, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i
   %.08.i2.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %26, %25 ]
-  %20 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i2.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i2.i.i.i.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !35
   %22 = icmp ult i64 %18, %21
   br i1 %22, label %23, label %25, !prof !29
@@ -1518,7 +1518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 24:                                               ; preds = %28, %22
   %.08.i.i2.i.i.i = phi i64 [ 0, %22 ], [ %29, %28 ]
-  %25 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %.08.i.i2.i.i.i
+  %25 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i2.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !35
   %27 = icmp ult i64 %23, %26
   br i1 %27, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i, label %28, !prof !29
@@ -1543,7 +1543,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %32 = add i64 %.014.i3.i.i.i, -2
   %33 = udiv i64 %.0.i4.i.i.i, 100
   %34 = urem i64 %.0.i4.i.i.i, 100
-  %35 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 %32
   store i16 %36, ptr %37, align 1
@@ -1554,7 +1554,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   %spec.select.i.i10.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %spec.select.i.i11.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %30, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %32, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %23, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
-  %39 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
+  %39 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %40 = load i16, ptr %39, align 2, !tbaa !67
   %41 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %41, label %42, label %43, !prof !29

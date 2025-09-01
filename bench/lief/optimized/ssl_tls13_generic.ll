@@ -482,8 +482,8 @@ switch.lookup:                                    ; preds = %75
 103:                                              ; preds = %100
   store i32 %.086.ph.i, ptr %4, align 4, !tbaa !59
   %trunc.i = trunc i32 %.086.ph.i to i8
-  %switch.tableidx57 = add i8 %trunc.i, -3
-  %104 = icmp ult i8 %switch.tableidx57, 16
+  %switch.tableidx56 = add i8 %trunc.i, -3
+  %104 = icmp ult i8 %switch.tableidx56, 16
   br i1 %104, label %switch.hole_check, label %105
 
 105:                                              ; preds = %switch.hole_check, %103
@@ -493,14 +493,14 @@ switch.lookup:                                    ; preds = %75
   br label %110
 
 switch.hole_check:                                ; preds = %103
-  %switch.maskindex = zext nneg i8 %switch.tableidx57 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx56 to i16
   %switch.shifted = lshr i16 -6169, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup58, label %105
 
 switch.lookup58:                                  ; preds = %switch.hole_check
-  %109 = zext nneg i8 %switch.tableidx57 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.mbedtls_ssl_tls13_process_certificate_verify, i64 0, i64 %109
+  %109 = zext nneg i8 %switch.tableidx56 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_ssl_tls13_process_certificate_verify, i64 %109
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %110
 
@@ -1846,7 +1846,7 @@ define hidden noundef i32 @mbedtls_ssl_tls13_generate_and_write_xxdh_key_exchang
 
 switch.lookup:                                    ; preds = %5
   %17 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.mbedtls_ssl_tls13_generate_and_write_xxdh_key_exchange, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_generate_and_write_xxdh_key_exchange, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %8, align 8, !tbaa !20
   store i16 29187, ptr %9, align 2, !tbaa !53

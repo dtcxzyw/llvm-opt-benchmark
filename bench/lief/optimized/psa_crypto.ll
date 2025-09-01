@@ -6946,7 +6946,7 @@ switch.hole_check:                                ; preds = %32
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %39 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %40
 
@@ -6989,14 +6989,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %66 = icmp eq i8 %41, 0
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %switch.tableidx328 = add nsw i32 %34, -3
-  %67 = icmp ult i32 %switch.tableidx328, 16
-  %switch.maskindex331 = trunc nsw i32 %switch.tableidx328 to i16
+  %switch.tableidx327 = add nsw i32 %34, -3
+  %67 = icmp ult i32 %switch.tableidx327, 16
+  %switch.maskindex331 = trunc nsw i32 %switch.tableidx327 to i16
   %switch.shifted332 = lshr i16 -6169, %switch.maskindex331
   %switch.lobit333 = trunc i16 %switch.shifted332 to i1
   %or.cond = select i1 %67, i1 %switch.lobit333, i1 false
-  %68 = zext nneg i32 %switch.tableidx328 to i64
-  %switch.gep334 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %68
+  %68 = zext nneg i32 %switch.tableidx327 to i64
+  %switch.gep334 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %68
   br label %69
 
 69:                                               ; preds = %135, %47
@@ -7244,8 +7244,8 @@ psa_key_derivation_hkdf_read.exit:                ; preds = %69, %70, %80, %93, 
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = and i32 %.0.i, 255
   %trunc.i59 = trunc i32 %.0.i to i8
-  %switch.tableidx337 = add i8 %trunc.i59, -3
-  %140 = icmp ult i8 %switch.tableidx337, 16
+  %switch.tableidx336 = add i8 %trunc.i59, -3
+  %140 = icmp ult i8 %switch.tableidx336, 16
   br i1 %140, label %switch.hole_check338, label %141
 
 141:                                              ; preds = %switch.hole_check338, %137
@@ -7254,14 +7254,14 @@ psa_key_derivation_hkdf_read.exit:                ; preds = %69, %70, %80, %93, 
   br label %145
 
 switch.hole_check338:                             ; preds = %137
-  %switch.maskindex340 = zext nneg i8 %switch.tableidx337 to i16
+  %switch.maskindex340 = zext nneg i8 %switch.tableidx336 to i16
   %switch.shifted341 = lshr i16 -6169, %switch.maskindex340
   %switch.lobit342 = trunc i16 %switch.shifted341 to i1
   br i1 %switch.lobit342, label %switch.lookup339, label %141
 
 switch.lookup339:                                 ; preds = %switch.hole_check338
-  %144 = zext nneg i8 %switch.tableidx337 to i64
-  %switch.gep343 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %144
+  %144 = zext nneg i8 %switch.tableidx336 to i64
+  %switch.gep343 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %144
   %switch.load344 = load i8, ptr %switch.gep343, align 1
   br label %145
 
@@ -7303,29 +7303,29 @@ switch.lookup339:                                 ; preds = %switch.hole_check33
   br i1 %15, label %psa_crypto_local_output_alloc.exit.thread124, label %.outer.split.i.preheader.preheader
 
 .outer.split.i.preheader.preheader:               ; preds = %150
-  %switch.tableidx346 = add i8 %trunc.i59, -3
-  %170 = icmp ult i8 %switch.tableidx346, 16
-  %switch.maskindex349 = zext nneg i8 %switch.tableidx346 to i16
+  %switch.tableidx345 = add i8 %trunc.i59, -3
+  %170 = icmp ult i8 %switch.tableidx345, 16
+  %switch.maskindex349 = zext nneg i8 %switch.tableidx345 to i16
   %switch.shifted350 = lshr i16 -6169, %switch.maskindex349
   %switch.lobit351 = trunc i16 %switch.shifted350 to i1
-  %171 = zext nneg i8 %switch.tableidx346 to i64
-  %switch.gep352 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %171
-  %switch.tableidx355 = add nsw i32 %139, -3
-  %172 = icmp ult i32 %switch.tableidx355, 16
-  %switch.maskindex358 = trunc nsw i32 %switch.tableidx355 to i16
+  %171 = zext nneg i8 %switch.tableidx345 to i64
+  %switch.gep352 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %171
+  %switch.tableidx354 = add nsw i32 %139, -3
+  %172 = icmp ult i32 %switch.tableidx354, 16
+  %switch.maskindex358 = trunc nsw i32 %switch.tableidx354 to i16
   %switch.shifted359 = lshr i16 -6169, %switch.maskindex358
   %switch.lobit360 = trunc i16 %switch.shifted359 to i1
   %or.cond363 = select i1 %172, i1 %switch.lobit360, i1 false
-  %173 = zext nneg i32 %switch.tableidx355 to i64
-  %switch.gep361 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %173
-  %switch.tableidx365 = add nsw i32 %139, -3
-  %174 = icmp ult i32 %switch.tableidx365, 16
-  %switch.maskindex368 = trunc nsw i32 %switch.tableidx365 to i16
+  %173 = zext nneg i32 %switch.tableidx354 to i64
+  %switch.gep361 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %173
+  %switch.tableidx364 = add nsw i32 %139, -3
+  %174 = icmp ult i32 %switch.tableidx364, 16
+  %switch.maskindex368 = trunc nsw i32 %switch.tableidx364 to i16
   %switch.shifted369 = lshr i16 -6169, %switch.maskindex368
   %switch.lobit370 = trunc i16 %switch.shifted369 to i1
   %or.cond373 = select i1 %174, i1 %switch.lobit370, i1 false
-  %175 = zext nneg i32 %switch.tableidx365 to i64
-  %switch.gep371 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %175
+  %175 = zext nneg i32 %switch.tableidx364 to i64
+  %switch.gep371 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %175
   br label %.outer.split.i.preheader
 
 .outer.split.i.preheader:                         ; preds = %.outer.split.i.preheader.preheader, %.outer.i
@@ -8407,7 +8407,7 @@ define internal fastcc i32 @psa_key_derivation_setup_kdf(ptr noundef writeonly c
 switch.lookup:                                    ; preds = %10
   %14 = icmp eq i32 %11, 0
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table.psa_key_derivation_setup_kdf, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_setup_kdf, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -8628,7 +8628,7 @@ select.unfold:                                    ; preds = %14, %14, %13, %13, 
 
 switch.lookup:                                    ; preds = %28
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %43
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %44
 
@@ -8670,8 +8670,8 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %44
 
 60:                                               ; preds = %59
   %trunc152.i = trunc i32 %.0.i to i8
-  %switch.tableidx70 = add i8 %trunc152.i, -3
-  %61 = icmp ult i8 %switch.tableidx70, 16
+  %switch.tableidx69 = add i8 %trunc152.i, -3
+  %61 = icmp ult i8 %switch.tableidx69, 16
   br i1 %61, label %switch.hole_check, label %62
 
 62:                                               ; preds = %switch.hole_check, %60
@@ -8680,14 +8680,14 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %44
   br label %66
 
 switch.hole_check:                                ; preds = %60
-  %switch.maskindex72 = zext nneg i8 %switch.tableidx70 to i16
+  %switch.maskindex72 = zext nneg i8 %switch.tableidx69 to i16
   %switch.shifted73 = lshr i16 -6169, %switch.maskindex72
   %switch.lobit74 = trunc i16 %switch.shifted73 to i1
   br i1 %switch.lobit74, label %switch.lookup71, label %62
 
 switch.lookup71:                                  ; preds = %switch.hole_check
-  %65 = zext nneg i8 %switch.tableidx70 to i64
-  %switch.gep75 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %65
+  %65 = zext nneg i8 %switch.tableidx69 to i64
+  %switch.gep75 = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_input_internal.33, i64 %65
   %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %66
 
@@ -8726,9 +8726,9 @@ switch.lookup71:                                  ; preds = %switch.hole_check
   %80 = load i8, ptr %79, align 1
   %81 = or i8 %80, 1
   store i8 %81, ptr %79, align 1
-  %switch.tableidx78 = add nsw i32 %21, -3
-  %82 = icmp ult i32 %switch.tableidx78, 16
-  %switch.maskindex81 = trunc nsw i32 %switch.tableidx78 to i16
+  %switch.tableidx77 = add nsw i32 %21, -3
+  %82 = icmp ult i32 %switch.tableidx77, 16
+  %switch.maskindex81 = trunc nsw i32 %switch.tableidx77 to i16
   %switch.shifted82 = lshr i16 -6169, %switch.maskindex81
   %switch.lobit83 = trunc i16 %switch.shifted82 to i1
   %or.cond86 = select i1 %82, i1 %switch.lobit83, i1 false
@@ -8740,8 +8740,8 @@ switch.lookup71:                                  ; preds = %switch.hole_check
   br label %87
 
 switch.lookup80:                                  ; preds = %74
-  %86 = zext nneg i32 %switch.tableidx78 to i64
-  %switch.gep84 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %86
+  %86 = zext nneg i32 %switch.tableidx77 to i64
+  %switch.gep84 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %86
   %switch.load85 = load i8, ptr %switch.gep84, align 1
   br label %87
 
@@ -8861,8 +8861,8 @@ psa_mac_update.exit.thread.i:                     ; preds = %psa_mac_update.exit
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %trunc.i = trunc i32 %.0.i to i8
-  %switch.tableidx88 = add i8 %trunc.i, -3
-  %130 = icmp ult i8 %switch.tableidx88, 16
+  %switch.tableidx87 = add i8 %trunc.i, -3
+  %130 = icmp ult i8 %switch.tableidx87, 16
   br i1 %130, label %switch.hole_check89, label %131
 
 131:                                              ; preds = %switch.hole_check89, %128
@@ -8871,14 +8871,14 @@ psa_mac_update.exit.thread.i:                     ; preds = %psa_mac_update.exit
   br label %135
 
 switch.hole_check89:                              ; preds = %128
-  %switch.maskindex91 = zext nneg i8 %switch.tableidx88 to i16
+  %switch.maskindex91 = zext nneg i8 %switch.tableidx87 to i16
   %switch.shifted92 = lshr i16 -6169, %switch.maskindex91
   %switch.lobit93 = trunc i16 %switch.shifted92 to i1
   br i1 %switch.lobit93, label %switch.lookup90, label %131
 
 switch.lookup90:                                  ; preds = %switch.hole_check89
-  %134 = zext nneg i8 %switch.tableidx88 to i64
-  %switch.gep94 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.33, i64 0, i64 %134
+  %134 = zext nneg i8 %switch.tableidx87 to i64
+  %switch.gep94 = getelementptr inbounds nuw i64, ptr @switch.table.psa_key_derivation_input_internal.33, i64 %134
   %switch.load95 = load i64, ptr %switch.gep94, align 8
   br label %135
 
@@ -8891,8 +8891,8 @@ switch.lookup90:                                  ; preds = %switch.hole_check89
 
 138:                                              ; preds = %._crit_edge155.i, %.thread.i
   %trunc153.pre-phi.i = phi i8 [ %.pre156.i, %._crit_edge155.i ], [ %trunc152.i, %.thread.i ]
-  %switch.tableidx97 = add i8 %trunc153.pre-phi.i, -3
-  %139 = icmp ult i8 %switch.tableidx97, 16
+  %switch.tableidx96 = add i8 %trunc153.pre-phi.i, -3
+  %139 = icmp ult i8 %switch.tableidx96, 16
   br i1 %139, label %switch.hole_check98, label %140
 
 140:                                              ; preds = %switch.hole_check98, %138
@@ -8901,14 +8901,14 @@ switch.lookup90:                                  ; preds = %switch.hole_check89
   br label %144
 
 switch.hole_check98:                              ; preds = %138
-  %switch.maskindex100 = zext nneg i8 %switch.tableidx97 to i16
+  %switch.maskindex100 = zext nneg i8 %switch.tableidx96 to i16
   %switch.shifted101 = lshr i16 -6169, %switch.maskindex100
   %switch.lobit102 = trunc i16 %switch.shifted101 to i1
   br i1 %switch.lobit102, label %switch.lookup99, label %140
 
 switch.lookup99:                                  ; preds = %switch.hole_check98
-  %143 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep103 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.34, i64 0, i64 %143
+  %143 = zext nneg i8 %switch.tableidx96 to i64
+  %switch.gep103 = getelementptr inbounds nuw i8, ptr @switch.table.psa_key_derivation_input_internal.34, i64 %143
   %switch.load104 = load i8, ptr %switch.gep103, align 1
   br label %144
 
@@ -10112,7 +10112,7 @@ psa_is_dh_key_size_valid.exit.thread.fold.split:  ; preds = %10
   br label %psa_is_dh_key_size_valid.exit.thread
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.psa_validate_key_type_and_size_for_key_generation, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_validate_key_type_and_size_for_key_generation, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %psa_is_dh_key_size_valid.exit.thread
 
@@ -11858,7 +11858,7 @@ switch.early.test138:                             ; preds = %8
 
 switch.lookup:                                    ; preds = %54
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -12164,7 +12164,7 @@ switch.early.test224:                             ; preds = %.critedge
 
 switch.lookup:                                    ; preds = %70
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %85
 
@@ -12187,9 +12187,9 @@ switch.lookup:                                    ; preds = %70
 
 92:                                               ; preds = %90
   %93 = and i32 %2, 33554687
-  %switch.tableidx250 = add nsw i32 %93, -33554435
-  %94 = icmp ult i32 %switch.tableidx250, 16
-  %switch.maskindex252 = trunc i32 %switch.tableidx250 to i16
+  %switch.tableidx249 = add nsw i32 %93, -33554435
+  %94 = icmp ult i32 %switch.tableidx249, 16
+  %switch.maskindex252 = trunc i32 %switch.tableidx249 to i16
   %switch.shifted253 = lshr i16 -6169, %switch.maskindex252
   %switch.lobit254 = trunc i16 %switch.shifted253 to i1
   %or.cond257 = select i1 %94, i1 %switch.lobit254, i1 false
@@ -12211,8 +12211,8 @@ switch.lookup:                                    ; preds = %70
   br label %107
 
 switch.lookup251:                                 ; preds = %92
-  %106 = zext nneg i32 %switch.tableidx250 to i64
-  %switch.gep255 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 0, i64 %106
+  %106 = zext nneg i32 %switch.tableidx249 to i64
+  %switch.gep255 = getelementptr inbounds nuw i32, ptr @switch.table.psa_key_policy_algorithm_intersection.35, i64 %106
   %switch.load256 = load i32, ptr %switch.gep255, align 4
   br label %107
 

@@ -1569,7 +1569,7 @@ _ZN7ciField11layout_typeEv.exit.thread:           ; preds = %183
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %193 = load i8, ptr %192, align 8
   %194 = zext i8 %193 to i64
-  %195 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr @type2field, i64 %194
   %196 = load i8, ptr %195, align 1
   %197 = icmp eq i8 %196, 12
   br i1 %197, label %_ZN7ciField4typeEv.exit, label %215
@@ -1613,7 +1613,7 @@ _ZN7ciField4typeEv.exit69:                        ; preds = %_ZNK10ciMetadata9is
 215:                                              ; preds = %_ZN7ciField11layout_typeEv.exit.thread, %_ZN7ciField11layout_typeEv.exit
   %216 = phi i8 [ %196, %_ZN7ciField11layout_typeEv.exit.thread ], [ %190, %_ZN7ciField11layout_typeEv.exit ]
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %217
   %219 = load ptr, ptr %218, align 8
   br label %220
 
@@ -2067,7 +2067,7 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode18prepare_array_copyEP8Phase
   %92 = load ptr, ptr %91, align 8
   store ptr %92, ptr %8, align 8
   %93 = zext i8 %73 to i64
-  %94 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %95, i1 true)
   %97 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -2930,7 +2930,7 @@ define hidden noundef ptr @_ZN13ArrayCopyNode18array_copy_forwardEP8PhaseGVNbRP4
 
 .lr.ph:                                           ; preds = %32
   %79 = zext i8 %11 to i64
-  %80 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %79
   %81 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3267,7 +3267,7 @@ define hidden noundef ptr @_ZN13ArrayCopyNode19array_copy_backwardEP8PhaseGVNbRP
 
 .lr.ph:                                           ; preds = %.preheader
   %35 = zext i8 %11 to i64
-  %36 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %35
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -4578,7 +4578,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %64, %_ZN12ar
   %72 = phi i8 [ %70, %68 ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %64 ]
   %73 = phi i32 [ %71, %68 ], [ %62, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %65, %64 ]
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %78 = load i32, ptr %77, align 8
@@ -4630,7 +4630,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %64, %_ZN12ar
 define hidden noundef i32 @_ZN13ArrayCopyNode36get_partial_inline_vector_lane_countE9BasicTypei(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr @ArrayOperationPartialInlineSize, align 8
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = sdiv i64 %3, %7

@@ -2843,7 +2843,7 @@ _ZNSt12__shared_ptrIKN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %298 = getelementptr inbounds nuw i8, ptr %279, i64 240
   %299 = load ptr, ptr %278, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %298, ptr align 1 %299, i64 %293, i1 false)
-  %300 = getelementptr inbounds nuw [1024 x i8], ptr %298, i64 0, i64 %293
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 %293
   store i8 0, ptr %300, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3123,7 +3123,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEiET0_T_S9_
 
 switch.lookup:                                    ; preds = %._crit_edge308
   %417 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6Assimp11DXFImporter13ConvertMeshesEP7aiSceneRNS_3DXF8FileDataE, i64 0, i64 %417
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp11DXFImporter13ConvertMeshesEP7aiSceneRNS_3DXF8FileDataE, i64 %417
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %418
 
@@ -4550,7 +4550,7 @@ define hidden void @_ZN6Assimp11DXFImporter17GenerateHierarchyEP7aiSceneRNS_3DXF
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 240
   %41 = zext nneg i32 %spec.select.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %40, i64 %41, i1 false)
-  %42 = getelementptr inbounds nuw [1024 x i8], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %41
   store i8 0, ptr %42, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -7062,7 +7062,7 @@ _ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit.loopexit: ; preds = %.lr.
 
 _ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit: ; preds = %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit.loopexit, %163
   %.0.lcssa.i.i = phi i64 [ 0, %163 ], [ %175, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit.loopexit ]
-  %176 = getelementptr inbounds nuw [256 x %class.aiColor4t], ptr @_ZL20g_aclrDxfIndexColors, i64 0, i64 %.0.lcssa.i.i
+  %176 = getelementptr inbounds nuw %class.aiColor4t, ptr @_ZL20g_aclrDxfIndexColors, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 16 dereferenceable(16) %176, i64 16, i1 false)
   br label %177
 
@@ -7356,7 +7356,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %281, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %304 = getelementptr inbounds nuw [4 x %class.aiVector3t], ptr %17, i64 0, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %indvars.iv
   %305 = load ptr, ptr %262, align 8
   %306 = load ptr, ptr %265, align 8
   %.not.i48 = icmp eq ptr %305, %306
@@ -7977,7 +7977,7 @@ _ZNK6Assimp3DXF10LineReader16ValueAsSignedIntEv.exit: ; preds = %._crit_edge.i.i
 80:                                               ; preds = %_ZNK6Assimp3DXF10LineReader16ValueAsSignedIntEv.exit
   %81 = add i32 %.06778, 1
   %82 = zext i32 %.06778 to i64
-  %83 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %8, i64 %82
   store i32 %.0.i.i, ptr %83, align 4
   br label %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit
 
@@ -7985,7 +7985,7 @@ _ZNK6Assimp3DXF10LineReader16ValueAsSignedIntEv.exit: ; preds = %._crit_edge.i.i
   %85 = sub nsw i32 0, %.0.i.i
   %86 = add i32 %.06778, 1
   %87 = zext i32 %.06778 to i64
-  %88 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %8, i64 %87
   store i32 %85, ptr %88, align 4
   br label %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit
 
@@ -8017,7 +8017,7 @@ _ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit40.loopexit: ; preds = %.l
 
 _ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit40: ; preds = %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit40.loopexit, %89
   %.0.lcssa.i.i39 = phi i64 [ 0, %89 ], [ %101, %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit40.loopexit ]
-  %102 = getelementptr inbounds nuw [256 x %class.aiColor4t], ptr @_ZL20g_aclrDxfIndexColors, i64 0, i64 %.0.lcssa.i.i39
+  %102 = getelementptr inbounds nuw %class.aiColor4t, ptr @_ZL20g_aclrDxfIndexColors, i64 %.0.lcssa.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %102, i64 16, i1 false)
   br label %_ZNK6Assimp3DXF10LineReader18ValueAsUnsignedIntEv.exit
 
@@ -8137,7 +8137,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %120, %_ZNSt6vectorI
 
 146:                                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %indvars.iv.next, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %147 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %161
@@ -10430,7 +10430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

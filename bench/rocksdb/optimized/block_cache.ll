@@ -733,9 +733,8 @@ define linkonce_odr noundef ptr @_ZN7rocksdb21BasicTypedCacheHelperINS_12Block_k
 define noundef ptr @_ZN7rocksdb18GetCacheItemHelperENS_9BlockTypeENS_9CacheTierE(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %.not = icmp eq i8 %1, 0
   %3 = zext i8 %0 to i64
-  %4 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN7rocksdb12_GLOBAL__N_132kCacheItemFullHelperForBlockTypeE, i64 0, i64 %3
-  %5 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN7rocksdb12_GLOBAL__N_133kCacheItemBasicHelperForBlockTypeE, i64 0, i64 %3
-  %.0.in = select i1 %.not, ptr %5, ptr %4
+  %.0.in.v = select i1 %.not, ptr @_ZN7rocksdb12_GLOBAL__N_133kCacheItemBasicHelperForBlockTypeE, ptr @_ZN7rocksdb12_GLOBAL__N_132kCacheItemFullHelperForBlockTypeE
+  %.0.in = getelementptr inbounds nuw ptr, ptr %.0.in.v, i64 %3
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !100
   ret ptr %.0
 }

@@ -519,7 +519,7 @@ PyUnicode_READ.exit:                              ; preds = %16, %20, %24
 37:                                               ; preds = %35
   %38 = lshr i32 %.0.i, 8
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_bmp_encmap, i64 0, i64 %39
+  %40 = getelementptr %struct.unim_index, ptr @big5hkscs_bmp_encmap, i64 %39
   %41 = load ptr, ptr %40, align 16, !tbaa !54
   %.not102 = icmp eq ptr %41, null
   br i1 %.not102, label %86, label %42
@@ -593,7 +593,7 @@ PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
   %79 = or disjoint i32 %78, %77
   %80 = and i32 %79, 3
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr [4 x i16], ptr @big5hkscs_pairenc_table, i64 0, i64 %81
+  %82 = getelementptr i16, ptr @big5hkscs_pairenc_table, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !51
   br label %.thread123
 
@@ -646,7 +646,7 @@ PyUnicode_READ.exit117:                           ; preds = %69, %65, %61
   %109 = lshr i32 %.0.i, 8
   %110 = and i32 %109, 255
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_nonbmp_encmap, i64 0, i64 %111
+  %112 = getelementptr %struct.unim_index, ptr @big5hkscs_nonbmp_encmap, i64 %111
   %113 = load ptr, ptr %112, align 16, !tbaa !54
   %.not = icmp eq ptr %113, null
   br i1 %.not, label %.thread129, label %114
@@ -794,7 +794,7 @@ define internal range(i64 -4, 2) i64 @big5hkscs_decode(ptr readnone captures(non
 
 56:                                               ; preds = %31, %38, %45, %48, %27, %25
   %57 = zext i8 %15 to i64
-  %58 = getelementptr [256 x %struct.dbcs_index], ptr @big5hkscs_decmap, i64 0, i64 %57
+  %58 = getelementptr %struct.dbcs_index, ptr @big5hkscs_decmap, i64 %57
   %59 = load ptr, ptr %58, align 16, !tbaa !62
   %.not175 = icmp eq ptr %59, null
   %.phi.trans.insert = getelementptr i8, ptr %14, i64 1

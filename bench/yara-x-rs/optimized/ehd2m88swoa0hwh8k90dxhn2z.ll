@@ -79336,9 +79336,9 @@ _ZN10der_parser3ber3ber16BerObjectContent8as_slice17h745c00981514d12bE.exit.i.i.
           to label %155 unwind label %.thread7.i.i.i.i, !noalias !10137
 
 switch.lookup:                                    ; preds = %115
-  %switch.gep = getelementptr inbounds nuw [26 x i64], ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.467, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.467, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep492 = getelementptr inbounds nuw [26 x i64], ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.468, i64 0, i64 %switch.tableidx
+  %switch.gep492 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.468, i64 %switch.tableidx
   %switch.load493 = load i64, ptr %switch.gep492, align 8
   %.sroa.0.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.376.0..sroa_idx.i.i.i.i, i64 %switch.load
   %.sroa.0.0.i.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i, align 8, !alias.scope !10148, !noalias !10151, !nonnull !4, !align !265, !noundef !4
@@ -80109,9 +80109,9 @@ _ZN10num_bigint7biguint7BigUint13from_bytes_be17h5a0b0b8edf6e3db5E.exit.i.i.i.i:
   %297 = load i64, ptr %.sroa.3244.0..sroa_idx, align 8, !range !9827, !alias.scope !10202, !noalias !10205, !noundef !4
   %298 = add nsw i64 %297, -2
   %299 = call i64 @llvm.umin.i64(i64 %298, i64 27)
-  %switch.tableidx495 = add nsw i64 %299, -2
-  %300 = icmp ult i64 %switch.tableidx495, 26
-  %switch.maskindex497 = trunc nsw i64 %switch.tableidx495 to i32
+  %switch.tableidx494 = add nsw i64 %299, -2
+  %300 = icmp ult i64 %switch.tableidx494, 26
+  %switch.maskindex497 = trunc nsw i64 %switch.tableidx494 to i32
   %switch.shifted498 = lshr i32 40959879, %switch.maskindex497
   %switch.lobit499 = trunc i32 %switch.shifted498 to i1
   %or.cond504 = select i1 %300, i1 %switch.lobit499, i1 false
@@ -80128,9 +80128,9 @@ _ZN10der_parser3ber3ber16BerObjectContent8as_slice17h745c00981514d12bE.exit: ; p
           to label %307 unwind label %305
 
 switch.lookup496:                                 ; preds = %296
-  %switch.gep500 = getelementptr inbounds nuw [26 x i64], ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.467, i64 0, i64 %switch.tableidx495
+  %switch.gep500 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.467, i64 %switch.tableidx494
   %switch.load501 = load i64, ptr %switch.gep500, align 8
-  %switch.gep502 = getelementptr inbounds nuw [26 x i64], ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.468, i64 0, i64 %switch.tableidx495
+  %switch.gep502 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6yara_x7modules5utils4asn110SignerInfo11parse_inner17h720594f0995b815cE.468, i64 %switch.tableidx494
   %switch.load503 = load i64, ptr %switch.gep502, align 8
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3244.0..sroa_idx, i64 %switch.load501
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !10202, !noalias !10205, !nonnull !4, !align !265, !noundef !4

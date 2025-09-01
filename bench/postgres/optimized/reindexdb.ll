@@ -679,7 +679,7 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   %48 = icmp eq i32 %.097, 1
   %or.cond = and i1 %11, %48
   %49 = zext nneg i32 %.097 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.reindex_one_database, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.reindex_one_database, i64 %49
   br label %50
 
 50:                                               ; preds = %104, %44

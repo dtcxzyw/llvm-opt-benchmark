@@ -553,7 +553,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i89.i: ; preds = %201
-  %208 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN12_GLOBAL__N_113readSixImagesEPKcbR11EnvmapImageRN7Imf_3_46HeaderERNS4_12RgbaChannelsEE9faceNames, i64 0, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw ptr, ptr @_ZZN12_GLOBAL__N_113readSixImagesEPKcbR11EnvmapImageRN7Imf_3_46HeaderERNS4_12RgbaChannelsEE9faceNames, i64 %indvars.iv.i
   %209 = load ptr, ptr %208, align 8, !tbaa !51
   %210 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #15
   %211 = icmp ne i64 %205, %31

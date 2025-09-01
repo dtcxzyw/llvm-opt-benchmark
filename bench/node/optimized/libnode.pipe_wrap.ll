@@ -531,10 +531,10 @@ do.body34:                                        ; preds = %_ZNK2v820FunctionCa
 
 switch.lookup:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %32 = zext nneg i32 %call31 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4node8PipeWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4node8PipeWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = zext nneg i32 %call31 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4node8PipeWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE.4, i64 0, i64 %33
+  %switch.gep14 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4node8PipeWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE.4, i64 %33
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   %call36 = tail call noalias noundef nonnull dereferenceable(424) ptr @_Znwm(i64 noundef 424) #17
   %values_.i82 = getelementptr inbounds nuw i8, ptr %args, i64 8

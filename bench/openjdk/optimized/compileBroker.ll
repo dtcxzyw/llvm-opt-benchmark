@@ -1870,7 +1870,7 @@ thread-pre-split:                                 ; preds = %26, %11
 
 .preheader.i:                                     ; preds = %.preheader.i, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %41 ]
-  %63 = getelementptr inbounds nuw [74 x ptr], ptr @_ZL18phase_descriptions, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw ptr, ptr @_ZL18phase_descriptions, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef i32 @_ZN13CompilerEvent10PhaseEvent12get_phase_idEPKcbbb(ptr noundef %64, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6192,7 +6192,7 @@ _ZN12ResourceMarkD2Ev.exit169:                    ; preds = %346, %348
 
 switch.lookup:                                    ; preds = %363
   %372 = zext nneg i32 %368 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN13CompileBroker25invoke_compiler_on_methodEP11CompileTask, i64 0, i64 %372
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13CompileBroker25invoke_compiler_on_methodEP11CompileTask, i64 %372
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %13, ptr noundef %367) #20
   %.pr237 = load ptr, ptr %350, align 8
@@ -7139,7 +7139,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN12method
 
 58:                                               ; preds = %45, %40
   tail call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(17) @_ZN13CompileBroker24_t_bailedout_compilationE, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  br label %263
+  br label %251
 
 59:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %60 = load i8, ptr %5, align 1
@@ -7174,7 +7174,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN12method
   %80 = add i32 %79, 1
   store i32 %80, ptr @_ZN13CompileBroker24_total_invalidated_countE, align 4
   tail call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(17) @_ZN13CompileBroker26_t_invalidated_compilationE, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  br label %263
+  br label %251
 
 81:                                               ; preds = %59
   %82 = load ptr, ptr @_ZN13CompileBroker23_perf_total_compilationE, align 8
@@ -7224,7 +7224,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN12method
   store i32 %114, ptr @_ZN13CompileBroker28_sum_standard_bytes_compiledE, align 4
   %115 = add i32 %35, -1
   %or.cond = icmp ult i32 %115, 4
-  br i1 %or.cond, label %129, label %_ZN13CompileBroker8compilerEi.exit.thread
+  br i1 %or.cond, label %119, label %_ZN13CompileBroker8compilerEi.exit.thread
 
 .thread:                                          ; preds = %97
   call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(17) @_ZN13CompileBroker18_t_osr_compilationE, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
@@ -7235,243 +7235,228 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN12method
   %or.cond57 = icmp ult i32 %118, 4
   br i1 %or.cond57, label %119, label %_ZN13CompileBroker8compilerEi.exit.thread
 
-119:                                              ; preds = %.thread
-  %120 = zext nneg i32 %118 to i64
-  %121 = getelementptr inbounds nuw [4 x %class.CompilerStatistics], ptr @_ZN13CompileBroker16_stats_per_levelE, i64 0, i64 %120
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %124, %105
-  store i32 %125, ptr %123, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 60
-  %127 = load i32, ptr %126, align 4
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %126, align 4
-  br label %138
-
-129:                                              ; preds = %106
-  %130 = zext nneg i32 %115 to i64
-  %131 = getelementptr inbounds nuw [4 x %class.CompilerStatistics], ptr @_ZN13CompileBroker16_stats_per_levelE, i64 0, i64 %130
-  call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+119:                                              ; preds = %106, %.thread
+  %.sink90 = phi i64 [ -40, %.thread ], [ -72, %106 ]
+  %.sink88 = phi i64 [ -16, %.thread ], [ -48, %106 ]
+  %.sink84 = phi i64 [ -12, %.thread ], [ -44, %106 ]
+  %120 = phi i32 [ %118, %.thread ], [ %115, %106 ]
+  %121 = zext nneg i32 %35 to i64
+  %122 = getelementptr %class.CompilerStatistics, ptr @_ZN13CompileBroker16_stats_per_levelE, i64 %121
+  %123 = getelementptr i8, ptr %122, i64 %.sink90
+  call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
+  %124 = getelementptr i8, ptr %122, i64 %.sink88
+  %125 = load i32, ptr %124, align 8
+  %126 = add i32 %125, %105
+  store i32 %126, ptr %124, align 8
+  %127 = getelementptr i8, ptr %122, i64 %.sink84
+  %128 = load i32, ptr %127, align 4
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %127, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %131 = load i32, ptr %130, align 4
+  %132 = getelementptr i8, ptr %122, i64 -8
   %133 = load i32, ptr %132, align 8
-  %134 = add i32 %133, %105
+  %134 = add i32 %133, %131
   store i32 %134, ptr %132, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 28
-  %136 = load i32, ptr %135, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %135, align 4
-  br label %138
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %136 = load i32, ptr %135, align 8
+  %137 = getelementptr i8, ptr %122, i64 -4
+  %138 = load i32, ptr %137, align 4
+  %139 = add i32 %138, %136
+  store i32 %139, ptr %137, align 4
+  %140 = icmp eq i32 %35, 4
+  br i1 %140, label %_ZN13CompileBroker8compilerEi.exit, label %.thread59
 
-138:                                              ; preds = %119, %129
-  %139 = phi ptr [ %131, %129 ], [ %121, %119 ]
-  %140 = phi i32 [ %115, %129 ], [ %118, %119 ]
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 64
-  %144 = load i32, ptr %143, align 8
-  %145 = add i32 %144, %142
-  store i32 %145, ptr %143, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %147 = load i32, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %139, i64 68
-  %149 = load i32, ptr %148, align 4
-  %150 = add i32 %149, %147
-  store i32 %150, ptr %148, align 4
-  %151 = icmp eq i32 %35, 4
-  br i1 %151, label %_ZN13CompileBroker8compilerEi.exit, label %.thread59
+.thread59:                                        ; preds = %119
+  %.not100 = icmp eq i32 %120, 3
+  br i1 %.not100, label %_ZN13CompileBroker8compilerEi.exit.thread, label %_ZN13CompileBroker8compilerEi.exit
 
-.thread59:                                        ; preds = %138
-  %152 = icmp samesign ult i32 %140, 3
-  br i1 %152, label %_ZN13CompileBroker8compilerEi.exit, label %_ZN13CompileBroker8compilerEi.exit.thread
-
-_ZN13CompileBroker8compilerEi.exit:               ; preds = %138, %.thread59
-  %.0.i.in = phi ptr [ @_ZN13CompileBroker10_compilersE, %.thread59 ], [ getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), %138 ]
+_ZN13CompileBroker8compilerEi.exit:               ; preds = %119, %.thread59
+  %.0.i.in = phi ptr [ @_ZN13CompileBroker10_compilersE, %.thread59 ], [ getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), %119 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not55 = icmp eq ptr %.0.i, null
-  br i1 %.not55, label %_ZN13CompileBroker8compilerEi.exit.thread, label %153
+  br i1 %.not55, label %_ZN13CompileBroker8compilerEi.exit.thread, label %141
 
-153:                                              ; preds = %_ZN13CompileBroker8compilerEi.exit
+141:                                              ; preds = %_ZN13CompileBroker8compilerEi.exit
   %. = select i1 %.not, i64 24, i64 56
-  %.88 = select i1 %.not, i64 48, i64 80
-  %.89 = select i1 %.not, i64 52, i64 84
-  %154 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.
-  call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.88
-  %156 = load i32, ptr %155, align 8
-  %157 = add i32 %156, %105
-  store i32 %157, ptr %155, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.89
-  %159 = load i32, ptr %158, align 4
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %158, align 4
-  %161 = load i32, ptr %141, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
-  %163 = load i32, ptr %162, align 8
-  %164 = add i32 %163, %161
-  store i32 %164, ptr %162, align 8
-  %165 = load i32, ptr %146, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
-  %167 = load i32, ptr %166, align 4
-  %168 = add i32 %167, %165
-  store i32 %168, ptr %166, align 4
+  %.98 = select i1 %.not, i64 48, i64 80
+  %.99 = select i1 %.not, i64 52, i64 84
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.
+  call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.98
+  %144 = load i32, ptr %143, align 8
+  %145 = add i32 %144, %105
+  store i32 %145, ptr %143, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.99
+  %147 = load i32, ptr %146, align 4
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %146, align 4
+  %149 = load i32, ptr %130, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
+  %151 = load i32, ptr %150, align 8
+  %152 = add i32 %151, %149
+  store i32 %152, ptr %150, align 8
+  %153 = load i32, ptr %135, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
+  %155 = load i32, ptr %154, align 4
+  %156 = add i32 %155, %153
+  store i32 %156, ptr %154, align 4
   br label %_ZN13CompileBroker8compilerEi.exit.thread
 
-_ZN13CompileBroker8compilerEi.exit.thread:        ; preds = %.thread, %106, %.thread59, %153, %_ZN13CompileBroker8compilerEi.exit, %93
-  %169 = load i8, ptr @UsePerfData, align 1
-  %170 = trunc i8 %169 to i1
-  br i1 %170, label %.sink.split, label %208
+_ZN13CompileBroker8compilerEi.exit.thread:        ; preds = %.thread, %106, %.thread59, %141, %_ZN13CompileBroker8compilerEi.exit, %93
+  %157 = load i8, ptr @UsePerfData, align 1
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %.sink.split, label %196
 
 .sink.split:                                      ; preds = %_ZN13CompileBroker8compilerEi.exit.thread
-  %171 = load ptr, ptr @_ZN13CompileBroker17_perf_last_methodE, align 8
-  call void @_ZN10PerfString10set_stringEPKc(ptr noundef nonnull align 8 dereferenceable(52) %171, ptr noundef %37) #20
-  %172 = load ptr, ptr @_ZN13CompileBroker23_perf_last_compile_typeE, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %37, i64 160
-  %174 = load i32, ptr %173, align 4
+  %159 = load ptr, ptr @_ZN13CompileBroker17_perf_last_methodE, align 8
+  call void @_ZN10PerfString10set_stringEPKc(ptr noundef nonnull align 8 dereferenceable(52) %159, ptr noundef %37) #20
+  %160 = load ptr, ptr @_ZN13CompileBroker23_perf_last_compile_typeE, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %37, i64 160
+  %162 = load i32, ptr %161, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 40
+  %165 = load ptr, ptr %164, align 8
+  store i64 %163, ptr %165, align 8
+  %166 = load ptr, ptr @_ZN13CompileBroker23_perf_last_compile_sizeE, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 34
+  %170 = load i16, ptr %169, align 2
+  %171 = zext i16 %170 to i32
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %173 = load i32, ptr %172, align 4
+  %174 = add nsw i32 %173, %171
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds nuw i8, ptr %172, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %177 = load ptr, ptr %176, align 8
   store i64 %175, ptr %177, align 8
-  %178 = load ptr, ptr @_ZN13CompileBroker23_perf_last_compile_sizeE, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 34
-  %182 = load i16, ptr %181, align 2
-  %183 = zext i16 %182 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %185 = load i32, ptr %184, align 4
-  %186 = add nsw i32 %185, %183
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds nuw i8, ptr %178, i64 40
-  %189 = load ptr, ptr %188, align 8
-  store i64 %187, ptr %189, align 8
-  %190 = load i64, ptr %1, align 8
+  %178 = load i64, ptr %1, align 8
   %_ZN13CompileBroker26_perf_standard_compilationE.val = load ptr, ptr @_ZN13CompileBroker26_perf_standard_compilationE, align 8
   %_ZN13CompileBroker21_perf_osr_compilationE.val = load ptr, ptr @_ZN13CompileBroker21_perf_osr_compilationE, align 8
-  %191 = select i1 %.not, ptr %_ZN13CompileBroker26_perf_standard_compilationE.val, ptr %_ZN13CompileBroker21_perf_osr_compilationE.val
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 40
-  %193 = load ptr, ptr %192, align 8
-  %194 = load i64, ptr %193, align 8
-  %195 = add nsw i64 %194, %190
-  store i64 %195, ptr %193, align 8
+  %179 = select i1 %.not, ptr %_ZN13CompileBroker26_perf_standard_compilationE.val, ptr %_ZN13CompileBroker21_perf_osr_compilationE.val
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
+  %181 = load ptr, ptr %180, align 8
+  %182 = load i64, ptr %181, align 8
+  %183 = add nsw i64 %182, %178
+  store i64 %183, ptr %181, align 8
   %_ZN13CompileBroker33_perf_sum_standard_bytes_compiledE.val = load ptr, ptr @_ZN13CompileBroker33_perf_sum_standard_bytes_compiledE, align 8
   %_ZN13CompileBroker28_perf_sum_osr_bytes_compiledE.val = load ptr, ptr @_ZN13CompileBroker28_perf_sum_osr_bytes_compiledE, align 8
-  %196 = select i1 %.not, ptr %_ZN13CompileBroker33_perf_sum_standard_bytes_compiledE.val, ptr %_ZN13CompileBroker28_perf_sum_osr_bytes_compiledE.val
-  %197 = load ptr, ptr %179, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 34
-  %199 = load i16, ptr %198, align 2
-  %200 = zext i16 %199 to i32
-  %201 = load i32, ptr %184, align 4
-  %202 = add nsw i32 %201, %200
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %205 = load ptr, ptr %204, align 8
-  %206 = load i64, ptr %205, align 8
-  %207 = add nsw i64 %206, %203
-  store i64 %207, ptr %205, align 8
-  br label %208
+  %184 = select i1 %.not, ptr %_ZN13CompileBroker33_perf_sum_standard_bytes_compiledE.val, ptr %_ZN13CompileBroker28_perf_sum_osr_bytes_compiledE.val
+  %185 = load ptr, ptr %167, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 34
+  %187 = load i16, ptr %186, align 2
+  %188 = zext i16 %187 to i32
+  %189 = load i32, ptr %172, align 4
+  %190 = add nsw i32 %189, %188
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %193 = load ptr, ptr %192, align 8
+  %194 = load i64, ptr %193, align 8
+  %195 = add nsw i64 %194, %191
+  store i64 %195, ptr %193, align 8
+  br label %196
 
-208:                                              ; preds = %.sink.split, %_ZN13CompileBroker8compilerEi.exit.thread
-  %209 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %210 = load i32, ptr %209, align 4
-  %211 = load i32, ptr @_ZN13CompileBroker17_sum_nmethod_sizeE, align 4
-  %212 = add i32 %211, %210
-  store i32 %212, ptr @_ZN13CompileBroker17_sum_nmethod_sizeE, align 4
-  %213 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %214 = load i32, ptr %213, align 8
-  %215 = load i32, ptr @_ZN13CompileBroker22_sum_nmethod_code_sizeE, align 4
-  %216 = add i32 %215, %214
-  store i32 %216, ptr @_ZN13CompileBroker22_sum_nmethod_code_sizeE, align 4
-  %217 = load i32, ptr @_ZN13CompileBroker20_total_compile_countE, align 4
-  %218 = add i32 %217, 1
-  store i32 %218, ptr @_ZN13CompileBroker20_total_compile_countE, align 4
-  %219 = load i8, ptr @UsePerfData, align 1
-  %220 = trunc i8 %219 to i1
-  br i1 %220, label %221, label %240
+196:                                              ; preds = %.sink.split, %_ZN13CompileBroker8compilerEi.exit.thread
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %198 = load i32, ptr %197, align 4
+  %199 = load i32, ptr @_ZN13CompileBroker17_sum_nmethod_sizeE, align 4
+  %200 = add i32 %199, %198
+  store i32 %200, ptr @_ZN13CompileBroker17_sum_nmethod_sizeE, align 4
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %202 = load i32, ptr %201, align 8
+  %203 = load i32, ptr @_ZN13CompileBroker22_sum_nmethod_code_sizeE, align 4
+  %204 = add i32 %203, %202
+  store i32 %204, ptr @_ZN13CompileBroker22_sum_nmethod_code_sizeE, align 4
+  %205 = load i32, ptr @_ZN13CompileBroker20_total_compile_countE, align 4
+  %206 = add i32 %205, 1
+  store i32 %206, ptr @_ZN13CompileBroker20_total_compile_countE, align 4
+  %207 = load i8, ptr @UsePerfData, align 1
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %209, label %228
 
-221:                                              ; preds = %208
-  %222 = load ptr, ptr @_ZN13CompileBroker22_perf_sum_nmethod_sizeE, align 8
-  %223 = sext i32 %210 to i64
-  %224 = getelementptr inbounds nuw i8, ptr %222, i64 40
+209:                                              ; preds = %196
+  %210 = load ptr, ptr @_ZN13CompileBroker22_perf_sum_nmethod_sizeE, align 8
+  %211 = sext i32 %198 to i64
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 40
+  %213 = load ptr, ptr %212, align 8
+  %214 = load i64, ptr %213, align 8
+  %215 = add nsw i64 %214, %211
+  store i64 %215, ptr %213, align 8
+  %216 = load ptr, ptr @_ZN13CompileBroker27_perf_sum_nmethod_code_sizeE, align 8
+  %217 = load i32, ptr %201, align 8
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 40
+  %220 = load ptr, ptr %219, align 8
+  %221 = load i64, ptr %220, align 8
+  %222 = add nsw i64 %221, %218
+  store i64 %222, ptr %220, align 8
+  %223 = load ptr, ptr @_ZN13CompileBroker25_perf_total_compile_countE, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 40
   %225 = load ptr, ptr %224, align 8
   %226 = load i64, ptr %225, align 8
-  %227 = add nsw i64 %226, %223
+  %227 = add nsw i64 %226, 1
   store i64 %227, ptr %225, align 8
-  %228 = load ptr, ptr @_ZN13CompileBroker27_perf_sum_nmethod_code_sizeE, align 8
-  %229 = load i32, ptr %213, align 8
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds nuw i8, ptr %228, i64 40
-  %232 = load ptr, ptr %231, align 8
-  %233 = load i64, ptr %232, align 8
-  %234 = add nsw i64 %233, %230
-  store i64 %234, ptr %232, align 8
-  %235 = load ptr, ptr @_ZN13CompileBroker25_perf_total_compile_countE, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 40
-  %237 = load ptr, ptr %236, align 8
-  %238 = load i64, ptr %237, align 8
-  %239 = add nsw i64 %238, 1
-  store i64 %239, ptr %237, align 8
-  br label %240
+  br label %228
 
-240:                                              ; preds = %221, %208
-  %241 = load i8, ptr @UsePerfData, align 1
-  %242 = trunc i8 %241 to i1
-  br i1 %.not, label %253, label %243
+228:                                              ; preds = %209, %196
+  %229 = load i8, ptr @UsePerfData, align 1
+  %230 = trunc i8 %229 to i1
+  br i1 %.not, label %241, label %231
 
-243:                                              ; preds = %240
-  br i1 %242, label %244, label %250
+231:                                              ; preds = %228
+  br i1 %230, label %232, label %238
 
-244:                                              ; preds = %243
-  %245 = load ptr, ptr @_ZN13CompileBroker29_perf_total_osr_compile_countE, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 40
-  %247 = load ptr, ptr %246, align 8
-  %248 = load i64, ptr %247, align 8
-  %249 = add nsw i64 %248, 1
-  store i64 %249, ptr %247, align 8
-  br label %250
+232:                                              ; preds = %231
+  %233 = load ptr, ptr @_ZN13CompileBroker29_perf_total_osr_compile_countE, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 40
+  %235 = load ptr, ptr %234, align 8
+  %236 = load i64, ptr %235, align 8
+  %237 = add nsw i64 %236, 1
+  store i64 %237, ptr %235, align 8
+  br label %238
 
-250:                                              ; preds = %244, %243
-  %251 = load i32, ptr @_ZN13CompileBroker24_total_osr_compile_countE, align 4
-  %252 = add i32 %251, 1
-  store i32 %252, ptr @_ZN13CompileBroker24_total_osr_compile_countE, align 4
-  br label %263
+238:                                              ; preds = %232, %231
+  %239 = load i32, ptr @_ZN13CompileBroker24_total_osr_compile_countE, align 4
+  %240 = add i32 %239, 1
+  store i32 %240, ptr @_ZN13CompileBroker24_total_osr_compile_countE, align 4
+  br label %251
 
-253:                                              ; preds = %240
-  br i1 %242, label %254, label %260
+241:                                              ; preds = %228
+  br i1 %230, label %242, label %248
 
-254:                                              ; preds = %253
-  %255 = load ptr, ptr @_ZN13CompileBroker34_perf_total_standard_compile_countE, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 40
-  %257 = load ptr, ptr %256, align 8
-  %258 = load i64, ptr %257, align 8
-  %259 = add nsw i64 %258, 1
-  store i64 %259, ptr %257, align 8
-  br label %260
+242:                                              ; preds = %241
+  %243 = load ptr, ptr @_ZN13CompileBroker34_perf_total_standard_compile_countE, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 40
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i64, ptr %245, align 8
+  %247 = add nsw i64 %246, 1
+  store i64 %247, ptr %245, align 8
+  br label %248
 
-260:                                              ; preds = %254, %253
-  %261 = load i32, ptr @_ZN13CompileBroker29_total_standard_compile_countE, align 4
-  %262 = add i32 %261, 1
-  store i32 %262, ptr @_ZN13CompileBroker29_total_standard_compile_countE, align 4
-  br label %263
+248:                                              ; preds = %242, %241
+  %249 = load i32, ptr @_ZN13CompileBroker29_total_standard_compile_countE, align 4
+  %250 = add i32 %249, 1
+  store i32 %250, ptr @_ZN13CompileBroker29_total_standard_compile_countE, align 4
+  br label %251
 
-263:                                              ; preds = %78, %260, %250, %58
-  %264 = load i8, ptr @UsePerfData, align 1
-  %265 = trunc i8 %264 to i1
-  br i1 %265, label %266, label %267
+251:                                              ; preds = %78, %248, %238, %58
+  %252 = load i8, ptr @UsePerfData, align 1
+  %253 = trunc i8 %252 to i1
+  br i1 %253, label %254, label %255
 
-266:                                              ; preds = %263
+254:                                              ; preds = %251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %37, i8 0, i64 160, i1 false)
-  br label %267
+  br label %255
 
-267:                                              ; preds = %266, %263
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %268
+255:                                              ; preds = %254, %251
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %256
 
-268:                                              ; preds = %267
+256:                                              ; preds = %255
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #20
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %267, %268
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %255, %256
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
   ret void
 }
@@ -7663,7 +7648,7 @@ define hidden void @_ZN13CompileBroker11print_timesEbb(i1 noundef zeroext %0, i1
 13:                                               ; preds = %.preheader, %22
   %14 = phi i1 [ false, %22 ], [ true, %.preheader ]
   %indvars.iv = phi i64 [ 1, %22 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13CompileBroker10_compilersE, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZN13CompileBroker10_compilersE, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not59 = icmp eq ptr %16, null
   br i1 %.not59, label %22, label %17
@@ -7700,11 +7685,11 @@ define hidden void @_ZN13CompileBroker11print_timesEbb(i1 noundef zeroext %0, i1
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph ], [ 1, %29 ]
-  %31 = add nsw i64 %indvars.iv64, -1
-  %32 = getelementptr inbounds [4 x %class.CompilerStatistics], ptr @_ZN13CompileBroker16_stats_per_levelE, i64 0, i64 %31
+  %31 = getelementptr %class.CompilerStatistics, ptr @_ZN13CompileBroker16_stats_per_levelE, i64 %indvars.iv64
+  %32 = getelementptr i8, ptr %31, i64 -72
   %33 = trunc nuw nsw i64 %indvars.iv64 to i32
   %34 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.108, i32 noundef %33) #20
-  call void @_ZN13CompileBroker11print_timesEPKcP18CompilerStatistics(ptr noundef nonnull %3, ptr noundef nonnull %32)
+  call void @_ZN13CompileBroker11print_timesEPKcP18CompilerStatistics(ptr noundef nonnull %3, ptr noundef %32)
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %35 = call noundef signext i8 @_ZN17CompilationPolicy21highest_compile_levelEv() #20
   %36 = sext i8 %35 to i64
@@ -8430,7 +8415,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm598084EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #20
@@ -8837,7 +8822,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -8854,7 +8839,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier63blocking_keep_alive_load_b
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -8932,7 +8917,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -8978,7 +8963,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -8995,7 +8980,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier46keep_alive_load_barrier_on
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -9073,7 +9058,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -9408,7 +9393,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #20
@@ -9512,7 +9497,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -9526,7 +9511,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -9592,7 +9577,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -10977,7 +10962,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.3.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.3, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.3.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.3.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #20

@@ -711,7 +711,7 @@ thread-pre-split63.i.thread-pre-split63.thread.i_crit_edge: ; preds = %thread-pr
 thread-pre-split63.thread.i:                      ; preds = %thread-pre-split63.i.thread-pre-split63.thread.i_crit_edge, %290
   %.pre-phi76 = phi i32 [ %.pre75, %thread-pre-split63.i.thread-pre-split63.thread.i_crit_edge ], [ %270, %290 ]
   %297 = zext nneg i32 %.pre-phi76 to i64
-  %298 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw [26 x i8], ptr @topath, i64 %297
   br label %299
 
 299:                                              ; preds = %thread-pre-split63.thread.i, %thread-pre-split63.i
@@ -974,7 +974,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %45 = load i32, ptr @to_tempfile, align 4, !tbaa !4
   %.not60 = icmp eq i32 %45, 0
   %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [26 x i8], ptr @topath, i64 %46
   %48 = select i1 %.not60, ptr null, ptr %47
   %49 = tail call i32 @checkout_entry_ca(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @state, ptr noundef %48, ptr noundef null) #13
   %50 = lshr i32 %49, 31
@@ -1132,7 +1132,7 @@ define internal fastcc void @write_tempfile_record(ptr noundef %0, ptr noundef %
 
 .preheader23:                                     ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 1, %2 ]
-  %6 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [26 x i8], ptr @topath, i64 %indvars.iv
   %7 = load i8, ptr %6, align 2, !tbaa !57
   %.not17 = icmp eq i8 %7, 0
   br i1 %.not17, label %5, label %.preheader
@@ -1148,7 +1148,7 @@ define internal fastcc void @write_tempfile_record(ptr noundef %0, ptr noundef %
   br label %12
 
 12:                                               ; preds = %9, %.preheader
-  %13 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv28
+  %13 = getelementptr inbounds nuw [26 x i8], ptr @topath, i64 %indvars.iv28
   %14 = load i8, ptr %13, align 2, !tbaa !57
   %.not21 = icmp eq i8 %14, 0
   %15 = load ptr, ptr @stdout, align 8, !tbaa !52
@@ -1169,7 +1169,7 @@ define internal fastcc void @write_tempfile_record(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %2
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %22
+  %23 = getelementptr inbounds [26 x i8], ptr @topath, i64 %22
   %24 = load i8, ptr %23, align 2, !tbaa !57
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %.critedge.preheader, label %25
@@ -1194,7 +1194,7 @@ define internal fastcc void @write_tempfile_record(ptr noundef %0, ptr noundef %
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.critedge ], [ 0, %.critedge.preheader ]
-  %33 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv32
+  %33 = getelementptr inbounds nuw [26 x i8], ptr @topath, i64 %indvars.iv32
   store i8 0, ptr %33, align 2, !tbaa !57
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 4

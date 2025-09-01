@@ -325,8 +325,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 65:                                               ; preds = %65, %61
   %.05.i.i = phi i64 [ 0, %61 ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %64, i64 0, i64 %.05.i.i
-  %67 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %8, i64 0, i64 %.05.i.i
+  %66 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %64, i64 %.05.i.i
+  %67 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %8, i64 %.05.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !49
   store i32 %68, ptr %66, align 4, !tbaa !49
   %69 = add nuw nsw i64 %.05.i.i, 1
@@ -439,8 +439,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 63:                                               ; preds = %63, %59
   %.05.i.i = phi i64 [ 0, %59 ], [ %67, %63 ]
-  %64 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %62, i64 0, i64 %.05.i.i
-  %65 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %6, i64 0, i64 %.05.i.i
+  %64 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %62, i64 %.05.i.i
+  %65 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %6, i64 %.05.i.i
   %66 = load i32, ptr %65, align 4, !tbaa !49
   store i32 %66, ptr %64, align 4, !tbaa !49
   %67 = add nuw nsw i64 %.05.i.i, 1
@@ -616,8 +616,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %29, i64 0, i64 %.05.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %30, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %29, i64 %.05.i.i.i.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !49
   store i32 %34, ptr %32, align 4, !tbaa !49
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1

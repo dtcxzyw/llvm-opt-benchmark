@@ -186,10 +186,10 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader ]
   %.sroa.12.2109.us = phi i32 [ %.sroa.12.4.us, %._crit_edge.us ], [ %.sroa.12.1, %.preheader ]
   %119 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv
-  %120 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1, !tbaa !30
   %122 = sext i8 %121 to i32
-  %123 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !31
   %125 = sext i16 %124 to i32
   br label %126
@@ -203,7 +203,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %127 = tail call i32 @llvm.smax.i32(i32 %.066106.us, i32 0)
   %128 = tail call i32 @llvm.umin.i32(i32 %127, i32 88)
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [89 x i8], ptr @size_table, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr @size_table, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !30
   %132 = zext i8 %131 to i32
   %133 = lshr i32 %.sroa.12.3104.us, 3
@@ -235,14 +235,14 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %..i76.us = tail call i32 @llvm.smin.i32(i32 %153, i32 5785)
   %.0.i77.us = select i1 %154, i32 0, i32 %..i76.us
   %155 = zext nneg i32 %.0.i77.us to i64
-  %156 = getelementptr inbounds nuw [11572 x i16], ptr @predict_table, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i16, ptr @predict_table, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !31
   %158 = zext i16 %157 to i32
   %.not74.us = icmp eq i32 %141, %147
   br i1 %.not74.us, label %165, label %159
 
 159:                                              ; preds = %149
-  %160 = getelementptr inbounds nuw [89 x i16], ptr @ff_adpcm_step_table, i64 0, i64 %129
+  %160 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %129
   %161 = load i16, ptr %160, align 2, !tbaa !31
   %162 = sext i16 %161 to i32
   %163 = ashr i32 %162, %144
@@ -277,9 +277,9 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %182 = trunc nsw i32 %.165.us to i16
   store i16 %182, ptr %.067105.us, align 2, !tbaa !31
   %183 = getelementptr inbounds nuw i16, ptr %.067105.us, i64 %118
-  %184 = add nsw i32 %132, -2
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds [6 x ptr], ptr @step_index_tables, i64 0, i64 %185
+  %184 = zext i8 %131 to i64
+  %185 = getelementptr ptr, ptr @step_index_tables, i64 %184
+  %186 = getelementptr i8, ptr %185, i64 -16
   %187 = load ptr, ptr %186, align 8, !tbaa !38
   %188 = sext i32 %.062.us to i64
   %189 = getelementptr inbounds i8, ptr %187, i64 %188
@@ -324,7 +324,7 @@ define internal void @predict_table_init() #3 {
 2:                                                ; preds = %.preheader, %11
   %indvars.iv31 = phi i64 [ %indvars.iv29, %.preheader ], [ %indvars.iv.next32, %11 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
-  %3 = getelementptr inbounds nuw [89 x i16], ptr @ff_adpcm_step_table, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i16, ptr @ff_adpcm_step_table, i64 %indvars.iv
   %4 = load i16, ptr %3, align 2, !tbaa !31
   %5 = sext i16 %4 to i32
   br label %6
@@ -344,7 +344,7 @@ define internal void @predict_table_init() #3 {
 
 11:                                               ; preds = %6
   %12 = trunc i32 %spec.select to i16
-  %13 = getelementptr inbounds nuw [11572 x i16], ptr @predict_table, i64 0, i64 %indvars.iv31
+  %13 = getelementptr inbounds nuw i16, ptr @predict_table, i64 %indvars.iv31
   store i16 %12, ptr %13, align 2, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 64

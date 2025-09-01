@@ -519,7 +519,7 @@ _ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; p
   %99 = fdiv float 2.048000e+03, %98
   %100 = load ptr, ptr %73, align 8, !tbaa !93
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 256
-  %102 = getelementptr inbounds nuw [4 x float], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv
   store float %99, ptr %102, align 4, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

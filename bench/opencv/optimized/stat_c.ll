@@ -124,9 +124,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %53
 
 36:                                               ; preds = %20
-  %37 = add nsw i32 %19, -1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %38
+  %37 = zext nneg i32 %19 to i64
+  %38 = getelementptr double, ptr %3, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -8
   %40 = load double, ptr %39, align 8, !tbaa !25
   store double %40, ptr %3, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -410,9 +410,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %73
 
 56:                                               ; preds = %35
-  %57 = add nsw i32 %33, -1
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %58
+  %57 = zext nneg i32 %33 to i64
+  %58 = getelementptr double, ptr %5, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load double, ptr %59, align 8, !tbaa !25
   store double %60, ptr %5, align 8, !tbaa !25
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -645,11 +645,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 68:                                               ; preds = %47
   %69 = add nsw i32 %45, -1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw double, ptr %5, i64 %70
   %72 = load double, ptr %71, align 8, !tbaa !25
   store double %72, ptr %5, align 8, !tbaa !25
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %74 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %70
+  %74 = getelementptr inbounds nuw double, ptr %6, i64 %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   %75 = load double, ptr %74, align 8, !tbaa !25
   store double %75, ptr %6, align 8, !tbaa !25

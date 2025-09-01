@@ -317,8 +317,8 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 5:                                                ; preds = %5, %1
   %6 = phi i64 [ 0, %1 ], [ %12, %5 ]
   %7 = tail call i32 @__SCT__cond_resched() #22
-  %8 = getelementptr [8 x %struct.symtab], ptr %2, i64 0, i64 %6
-  %9 = getelementptr [8 x ptr], ptr @destroy_f, i64 0, i64 %6
+  %8 = getelementptr %struct.symtab, ptr %2, i64 %6
+  %9 = getelementptr ptr, ptr @destroy_f, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @hashtab_map(ptr noundef %8, ptr noundef %10, ptr noundef null) #22
   tail call void @hashtab_destroy(ptr noundef %8) #22
@@ -328,7 +328,7 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 
 14:                                               ; preds = %14, %3
   %15 = phi i64 [ 0, %3 ], [ %18, %14 ]
-  %16 = getelementptr [8 x ptr], ptr %4, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %4, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @kvfree(ptr noundef %17) #22
   %18 = add nuw nsw i64 %15, 1
@@ -356,7 +356,7 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 31:                                               ; preds = %.loopexit12, %20
   %32 = phi i64 [ 0, %20 ], [ %84, %.loopexit12 ]
   %33 = tail call i32 @__SCT__cond_resched() #22
-  %34 = getelementptr [9 x ptr], ptr %30, i64 0, i64 %32
+  %34 = getelementptr ptr, ptr %30, i64 %32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit12, label %37
@@ -1170,7 +1170,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 
 92:                                               ; preds = %89, %.thread
   %93 = phi i64 [ 0, %.thread ], [ %90, %89 ]
-  %94 = getelementptr [19 x %struct.policydb_compat_info], ptr @policydb_compat, i64 0, i64 %93
+  %94 = getelementptr %struct.policydb_compat_info, ptr @policydb_compat, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %88
   br i1 %96, label %97, label %89
@@ -1223,7 +1223,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   store ptr %124, ptr %1, align 8
   %125 = add i64 %117, -8
   store i64 %125, ptr %6, align 8
-  %126 = getelementptr [8 x %struct.symtab], ptr %110, i64 0, i64 %116
+  %126 = getelementptr %struct.symtab, ptr %110, i64 %116
   %127 = tail call i32 @symtab_init(ptr noundef %126, i32 noundef %123) #22
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %.thread78
@@ -1268,7 +1268,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   br i1 %149, label %.loopexit100, label %150
 
 150:                                              ; preds = %148
-  %151 = getelementptr [8 x ptr], ptr @read_f, i64 0, i64 %116
+  %151 = getelementptr ptr, ptr @read_f, i64 %116
   %152 = load ptr, ptr %151, align 8
   br label %156
 
@@ -2234,19 +2234,19 @@ define internal fastcc i32 @policydb_index(ptr noundef initializes((264, 272)) %
 
 42:                                               ; preds = %39, %37
   %43 = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %44 = getelementptr [8 x %struct.symtab], ptr %2, i64 0, i64 %43
+  %44 = getelementptr %struct.symtab, ptr %2, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 3
   %49 = tail call noalias ptr @kvmalloc_node(i64 noundef %48, i32 noundef 3520, i32 noundef -1) #26
-  %50 = getelementptr [8 x ptr], ptr %38, i64 0, i64 %43
+  %50 = getelementptr ptr, ptr %38, i64 %43
   store ptr %49, ptr %50, align 8
   %51 = icmp eq ptr %49, null
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %42
-  %53 = getelementptr [8 x ptr], ptr @index_f, i64 0, i64 %43
+  %53 = getelementptr ptr, ptr @index_f, i64 %43
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @hashtab_map(ptr noundef %44, ptr noundef %54, ptr noundef %0) #22
   %56 = icmp eq i32 %55, 0
@@ -2288,7 +2288,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr noundef nonnull re
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr [9 x ptr], ptr %10, i64 0, i64 %12
+  %22 = getelementptr ptr, ptr %10, i64 %12
   %23 = icmp eq i64 %12, 1
   %24 = trunc nuw i64 %12 to i32
   br label %25
@@ -3279,7 +3279,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
 
 39:                                               ; preds = %36, %30
   %40 = phi i64 [ 0, %30 ], [ %37, %36 ]
-  %41 = getelementptr [19 x %struct.policydb_compat_info], ptr @policydb_compat, i64 0, i64 %40
+  %41 = getelementptr %struct.policydb_compat_info, ptr @policydb_compat, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %35
   br i1 %43, label %44, label %36
@@ -3364,7 +3364,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 85:                                               ; preds = %81
-  %86 = getelementptr [8 x %struct.symtab], ptr %76, i64 0, i64 %82
+  %86 = getelementptr %struct.symtab, ptr %76, i64 %82
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -3379,7 +3379,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   %95 = load i64, ptr %19, align 8
   %96 = add i64 %95, -8
   store i64 %96, ptr %19, align 8
-  %97 = getelementptr [8 x ptr], ptr @write_f, i64 0, i64 %82
+  %97 = getelementptr ptr, ptr @write_f, i64 %82
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @hashtab_map(ptr noundef %86, ptr noundef %98, ptr noundef nonnull %3) #22
   %100 = icmp eq i32 %99, 0
@@ -3655,7 +3655,7 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
 
 20:                                               ; preds = %.loopexit, %17
   %21 = phi i64 [ 0, %17 ], [ %618, %.loopexit ]
-  %22 = getelementptr [9 x ptr], ptr %18, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit168, label %.preheader

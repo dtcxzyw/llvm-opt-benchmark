@@ -502,7 +502,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev.exit: ; preds = %_Z
 
 25:                                               ; preds = %19
   %26 = urem i64 %24, 262139
-  %27 = getelementptr inbounds nuw [262139 x i32], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %26
   %.01419.i = load i32, ptr %27, align 4, !tbaa !31
   %.not20.i = icmp eq i32 %.01419.i, -1
   br i1 %.not20.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap4FindEPv.exit, label %.lr.ph.i
@@ -994,7 +994,7 @@ define dso_local i64 @_ZN4absl24synchronization_internal11GraphCycles5GetIdEPv(p
   %5 = ptrtoint ptr %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %7 = urem i64 %5, 262139
-  %8 = getelementptr inbounds nuw [262139 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
   %.01419.i = load i32, ptr %8, align 4, !tbaa !31
   %.not20.i = icmp eq i32 %.01419.i, -1
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.i
@@ -1170,7 +1170,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIPNS1_4NodeEE9push_backERKS4
   store i32 %84, ptr %52, align 8, !tbaa !10
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 128
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 136
-  %87 = getelementptr inbounds nuw [262139 x i32], ptr %86, i64 0, i64 %7
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %7
   %88 = load i32, ptr %87, align 4, !tbaa !31
   %89 = load ptr, ptr %85, align 8, !tbaa !27
   %.val.i22 = load ptr, ptr %89, align 8, !tbaa !19
@@ -1228,7 +1228,7 @@ define dso_local void @_ZN4absl24synchronization_internal11GraphCycles10RemoveNo
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %6 = urem i64 %4, 262139
-  %7 = getelementptr inbounds nuw [262139 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !31
   %.not27.i = icmp eq i32 %8, -1
   br i1 %.not27.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_110PointerMap6RemoveEPv.exit.thread, label %.lr.ph.i

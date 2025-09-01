@@ -2256,7 +2256,7 @@ define dso_local void @_ZN4llvm3sys18unregisterHandlersEv() local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load i32, ptr %4, align 8, !tbaa !166
   %6 = tail call i32 @sigaction(i32 noundef %5, ptr noundef nonnull %3, ptr noundef null) #27
@@ -2565,7 +2565,7 @@ _ZL17CreateSigAltStackv.exit:                     ; preds = %12, %16, %19, %37
   store i32 -939524096, ptr %38, align 8, !tbaa !179
   %45 = call i32 @sigemptyset(ptr noundef nonnull %39) #27
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %46
   %48 = call i32 @sigaction(i32 noundef %43, ptr noundef nonnull %4, ptr noundef nonnull %47) #27
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 152
   store i32 %43, ptr %49, align 8, !tbaa !166
@@ -2590,7 +2590,7 @@ _ZL17CreateSigAltStackv.exit:                     ; preds = %12, %16, %19, %37
   store i32 -939524096, ptr %40, align 8, !tbaa !179
   %56 = call i32 @sigemptyset(ptr noundef nonnull %41) #27
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %57
   %59 = call i32 @sigaction(i32 noundef %54, ptr noundef nonnull %3, ptr noundef nonnull %58) #27
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 152
   store i32 %54, ptr %60, align 8, !tbaa !166
@@ -2609,7 +2609,7 @@ _ZL17CreateSigAltStackv.exit:                     ; preds = %12, %16, %19, %37
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = call i32 @sigemptyset(ptr noundef nonnull %65) #27
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %67
   %69 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %2, ptr noundef nonnull %68) #27
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 152
   store i32 13, ptr %70, align 8, !tbaa !166
@@ -2626,7 +2626,7 @@ _ZL17CreateSigAltStackv.exit:                     ; preds = %12, %16, %19, %37
   store i32 134217728, ptr %72, align 8, !tbaa !179
   %75 = call i32 @sigemptyset(ptr noundef nonnull %73) #27
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %76
   %78 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %1, ptr noundef nonnull %77) #27
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 152
   store i32 10, ptr %79, align 8, !tbaa !166
@@ -3049,7 +3049,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
   %.073 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select72, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %53 = getelementptr inbounds nuw [256 x ptr], ptr @_ZZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamEiE10StackTrace, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamEiE10StackTrace, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !11
   %55 = call i32 @dladdr(ptr noundef %54, ptr noundef nonnull %7) #27
   %56 = load ptr, ptr %7, align 8, !tbaa !193
@@ -3079,7 +3079,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
 66:                                               ; preds = %.lr.ph76, %_ZN4llvm11raw_ostreamlsEc.exit57
   %indvars.iv78 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next79, %_ZN4llvm11raw_ostreamlsEc.exit57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %67 = getelementptr inbounds nuw [256 x ptr], ptr @_ZZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamEiE10StackTrace, i64 0, i64 %indvars.iv78
+  %67 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm3sys15PrintStackTraceERNS_11raw_ostreamEiE10StackTrace, i64 %indvars.iv78
   %68 = load ptr, ptr %67, align 8, !tbaa !11
   %69 = call i32 @dladdr(ptr noundef %68, ptr noundef nonnull %8) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3649,7 +3649,7 @@ define internal void @_ZL13SignalHandleri(i32 noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw [16 x %struct.anon.82], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %struct.anon.82, ptr @_ZL20RegisteredSignalInfo, i64 %indvars.iv.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load i32, ptr %7, align 8, !tbaa !166
   %9 = tail call i32 @sigaction(i32 noundef %8, ptr noundef nonnull %6, ptr noundef null) #27

@@ -3616,14 +3616,14 @@ define internal range(i32 0, 2) i32 @_ellipse_events_button_pressed(ptr noundef 
 
 262:                                              ; preds = %244, %272
   %indvars.iv = phi i64 [ 0, %244 ], [ %indvars.iv.next, %272 ]
-  %263 = getelementptr inbounds nuw [5 x i32], ptr %247, i64 0, i64 %indvars.iv
+  %263 = getelementptr inbounds nuw i32, ptr %247, i64 %indvars.iv
   %264 = load i32, ptr %263, align 4, !tbaa !30
   %265 = load i32, ptr %134, align 8, !tbaa !25
   %266 = icmp eq i32 %264, %265
   br i1 %266, label %267, label %272
 
 267:                                              ; preds = %262
-  %268 = getelementptr inbounds nuw [5 x ptr], ptr %248, i64 0, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv
   %269 = load ptr, ptr %268, align 8, !tbaa !181
   %270 = tail call i64 @gtk_toggle_button_get_type() #14
   %271 = call ptr @g_type_check_instance_cast(ptr noundef %269, i64 noundef %270) #12

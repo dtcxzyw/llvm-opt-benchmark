@@ -231,13 +231,13 @@ define dso_local void @RmgrStartup() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0, %9
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %9 ]
-  %3 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [256 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv, i32 4
+  %6 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv, i32 4
   %7 = load ptr, ptr %6, align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -261,13 +261,13 @@ define dso_local void @RmgrCleanup() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0, %9
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %9 ]
-  %3 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw [256 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv, i32 5
+  %6 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv, i32 5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -352,7 +352,7 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
 
 26:                                               ; preds = %18
   %27 = zext i8 %0 to i64
-  %28 = getelementptr inbounds nuw [256 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %27
   %29 = load ptr, ptr %28, align 16
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.preheader, label %30
@@ -374,7 +374,7 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
 
 .preheader:                                       ; preds = %26, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %26 ]
-  %38 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 16
   %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %49, label %40
@@ -440,7 +440,7 @@ define dso_local noundef i64 @pg_get_wal_resource_managers(ptr noundef %0) local
 
 11:                                               ; preds = %1, %20
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %20 ]
-  %12 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 16
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %20, label %GetRmgr.exit

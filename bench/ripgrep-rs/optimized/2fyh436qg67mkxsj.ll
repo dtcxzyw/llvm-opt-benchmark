@@ -682,7 +682,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$grep_printer..hyperlink..For
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i"
   %.09.i.i.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %3, i64 0, i64 %.09.i.i.i
+  %7 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.09.i.i.i
   %8 = add nuw i64 %.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
   %9 = load i64, ptr %7, align 8, !range !222, !alias.scope !351, !noalias !344, !noundef !5
@@ -748,7 +748,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$$u5b$grep_printer..hyperlink
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit"
   %.09 = phi i64 [ %5, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %0, i64 0, i64 %.09
+  %4 = getelementptr inbounds { i64, [2 x i64] }, ptr %0, i64 %.09
   %5 = add nuw i64 %.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %6 = load i64, ptr %4, align 8, !range !222, !alias.scope !394, !noundef !5
@@ -808,7 +808,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..Hyp
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i"
   %.09.i.i.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %3, i64 0, i64 %.09.i.i.i
+  %7 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.09.i.i.i
   %8 = add nuw i64 %.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %9 = load i64, ptr %7, align 8, !range !222, !alias.scope !432, !noalias !425, !noundef !5
@@ -906,7 +906,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$grep_printer..hyperlink..Hyp
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN4core3ptr66drop_in_place$LT$grep_printer..hyperlink..HyperlinkEnvironment$GT$17hb504671f7f2301d8E.llvm.1773065985454848448.exit", %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i.i"
   %.09.i.i.i.i = phi i64 [ %22, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$grep_printer..hyperlink..HyperlinkEnvironment$GT$17hb504671f7f2301d8E.llvm.1773065985454848448.exit" ]
-  %21 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %17, i64 0, i64 %.09.i.i.i.i
+  %21 = getelementptr inbounds { i64, [2 x i64] }, ptr %17, i64 %.09.i.i.i.i
   %22 = add nuw i64 %.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   %23 = load i64, ptr %21, align 8, !range !222, !alias.scope !523, !noalias !516, !noundef !5
@@ -1131,7 +1131,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$grep_prin
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i"
   %.09.i.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %3, i64 0, i64 %.09.i.i
+  %7 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.09.i.i
   %8 = add nuw i64 %.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %9 = load i64, ptr %7, align 8, !range !222, !alias.scope !660, !noalias !651, !noundef !5
@@ -1571,7 +1571,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i"
   %.09.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$grep_printer..hyperlink..Part$GT$17h197ff2a898514434E.llvm.1773065985454848448.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds [0 x { i64, [2 x i64] }], ptr %3, i64 0, i64 %.09.i
+  %7 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.09.i
   %8 = add nuw i64 %.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !793)
   %9 = load i64, ptr %7, align 8, !range !222, !alias.scope !796, !noundef !5

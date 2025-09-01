@@ -74,7 +74,7 @@ define noundef i32 @ossl_blake2b_init(ptr noundef captures(none) initializes((0,
   %8 = shl nuw nsw i64 %.09.i, 3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %.val.i = load i64, ptr %9, align 1
-  %10 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %.09.i
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i
   %11 = load i64, ptr %10, align 8, !tbaa !10
   %12 = xor i64 %11, %.val.i
   store i64 %12, ptr %10, align 8, !tbaa !10
@@ -103,7 +103,7 @@ define noundef i32 @ossl_blake2b_init_key(ptr noundef captures(none) initializes
   %10 = shl nuw nsw i64 %.09.i, 3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %.val.i = load i64, ptr %11, align 1
-  %12 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %.09.i
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i
   %13 = load i64, ptr %12, align 8, !tbaa !10
   %14 = xor i64 %13, %.val.i
   store i64 %14, ptr %12, align 8, !tbaa !10
@@ -244,9 +244,9 @@ define internal fastcc void @blake2b_compress(ptr noundef captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %24
 
-24:                                               ; preds = %.preheader, %1469
-  %.034 = phi i64 [ %1471, %1469 ], [ %2, %.preheader ]
-  %.0 = phi ptr [ %1470, %1469 ], [ %1, %.preheader ]
+24:                                               ; preds = %.preheader, %1468
+  %.034 = phi i64 [ %1470, %1468 ], [ %2, %.preheader ]
+  %.0 = phi ptr [ %1469, %1468 ], [ %1, %.preheader ]
   %.sroa.0.0.copyload = load i64, ptr %.0, align 1
   %.sroa.12.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..0.sroa_idx, align 1
@@ -1804,28 +1804,27 @@ define internal fastcc void @blake2b_compress(ptr noundef captures(none) %0, ptr
 
 1459:                                             ; preds = %24, %1459
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %1459 ]
-  %1460 = or disjoint i64 %indvars.iv, 8
-  %1461 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %1460
+  %1460 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 64
   %1462 = load i64, ptr %1461, align 8, !tbaa !10
-  %1463 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %1463 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %1464 = load i64, ptr %1463, align 8, !tbaa !10
   %1465 = xor i64 %1464, %1462
-  %1466 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv
-  %1467 = load i64, ptr %1466, align 8, !tbaa !10
-  %1468 = xor i64 %1465, %1467
-  store i64 %1468, ptr %1466, align 8, !tbaa !10
-  store i64 %1468, ptr %1463, align 8, !tbaa !10
+  %1466 = load i64, ptr %1460, align 8, !tbaa !10
+  %1467 = xor i64 %1465, %1466
+  store i64 %1467, ptr %1460, align 8, !tbaa !10
+  store i64 %1467, ptr %1463, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %1469, label %1459, !llvm.loop !17
+  br i1 %exitcond.not, label %1468, label %1459, !llvm.loop !17
 
-1469:                                             ; preds = %1459
-  %1470 = getelementptr inbounds nuw i8, ptr %.0, i64 %4
-  %1471 = sub i64 %.034, %4
-  %.not = icmp eq i64 %1471, 0
-  br i1 %.not, label %1472, label %24, !llvm.loop !18
+1468:                                             ; preds = %1459
+  %1469 = getelementptr inbounds nuw i8, ptr %.0, i64 %4
+  %1470 = sub i64 %.034, %4
+  %.not = icmp eq i64 %1470, 0
+  br i1 %.not, label %1471, label %24, !llvm.loop !18
 
-1472:                                             ; preds = %1469
+1471:                                             ; preds = %1468
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1864,7 +1863,7 @@ define noundef i32 @ossl_blake2b_final(ptr noundef %0, ptr noundef initializes((
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = shl nuw nsw i64 %indvars.iv, 3
   %20 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %19
-  %21 = getelementptr inbounds nuw [8 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !10
   store i64 %22, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

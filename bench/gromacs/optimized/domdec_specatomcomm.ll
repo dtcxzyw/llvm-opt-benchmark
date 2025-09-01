@@ -95,13 +95,13 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   %indvars.iv223 = phi i64 [ %22, %.lr.ph209 ], [ %indvars.iv.next224, %.loopexit177 ]
   %.0207 = phi i32 [ %11, %.lr.ph209 ], [ %.1, %.loopexit177 ]
   %indvars.iv.next224 = add nsw i64 %indvars.iv223, -1
-  %24 = getelementptr inbounds nuw [3 x i32], ptr %12, i64 0, i64 %indvars.iv.next224
+  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next224
   %25 = load i32, ptr %24, align 4, !tbaa !116
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds i32, ptr %13, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !116
   %29 = icmp sgt i32 %28, 2
-  %30 = getelementptr inbounds nuw [3 x [2 x %struct.gmx_specatsend_t]], ptr %14, i64 0, i64 %indvars.iv.next224
+  %30 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %14, i64 %indvars.iv.next224
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !117
   br i1 %29, label %33, label %183
@@ -136,9 +136,9 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   %60 = trunc i64 %59 to i32
   %61 = trunc nuw nsw i64 %indvars.iv.next224 to i32
   tail call void @_Z17dd_sendrecv2_rvecPK12gmx_domdec_tiPA3_fiS3_iS3_iS3_i(ptr noundef nonnull %0, i32 noundef %61, ptr noundef %43, i32 noundef %32, ptr noundef %39, i32 noundef %51, ptr noundef %41, i32 noundef %36, ptr noundef %52, i32 noundef %60)
-  %62 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %26
+  %62 = getelementptr inbounds i32, ptr %18, i64 %26
   %63 = icmp eq i32 %25, 0
-  %64 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %26
+  %64 = getelementptr inbounds i32, ptr %5, i64 %26
   %65 = load i32, ptr %62, align 4, !tbaa !116
   %66 = icmp eq i32 %65, 0
   br label %67
@@ -159,21 +159,21 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   br i1 %73, label %.thread163, label %.thread165
 
 .thread165:                                       ; preds = %70, %69
-  %74 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %30, i64 0, i64 %indvars.iv220
+  %74 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %30, i64 %indvars.iv220
   br label %78
 
 .thread163:                                       ; preds = %69, %70
   %75 = load i8, ptr %17, align 1, !tbaa !122, !range !123, !noundef !124
   %76 = trunc nuw i8 %75 to i1
   %spec.select = and i1 %63, %76
-  %77 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %30, i64 0, i64 %indvars.iv220
+  %77 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %30, i64 %indvars.iv220
   %or.cond.not = or i1 %19, %spec.select
   br i1 %or.cond.not, label %101, label %78
 
 78:                                               ; preds = %.thread165, %.thread163
   %79 = phi ptr [ %74, %.thread165 ], [ %77, %.thread163 ]
   %80 = load ptr, ptr %79, align 8, !tbaa !125
-  %81 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %30, i64 0, i64 %indvars.iv220, i32 0, i32 0, i32 0, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %30, i64 %indvars.iv220, i32 0, i32 0, i32 0, i32 0, i32 1
   %82 = load ptr, ptr %81, align 8, !tbaa !125
   %.not170187 = icmp eq ptr %80, %82
   br i1 %.not170187, label %.loopexit, label %.lr.ph190
@@ -501,18 +501,18 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
 28:                                               ; preds = %.lr.ph341, %277
   %indvars.iv375 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next376, %277 ]
   %.0211338 = phi i32 [ %16, %.lr.ph341 ], [ %.1, %277 ]
-  %29 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv375
+  %29 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv375
   %30 = load i32, ptr %29, align 4, !tbaa !116
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %18, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !116
   %34 = icmp sgt i32 %33, 2
   br i1 %34, label %35, label %191
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %20, align 8, !tbaa !119
-  %37 = getelementptr inbounds nuw [3 x [2 x %struct.gmx_specatsend_t]], ptr %19, i64 0, i64 %indvars.iv375
-  %38 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 %31
+  %37 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %19, i64 %indvars.iv375
+  %38 = getelementptr inbounds i32, ptr %22, i64 %31
   %39 = icmp eq i32 %30, 0
   %40 = getelementptr inbounds [3 x float], ptr %2, i64 %31
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -577,10 +577,10 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
 
 81:                                               ; preds = %79, %81
   %indvars.iv358 = phi i64 [ 0, %79 ], [ %indvars.iv.next359, %81 ]
-  %82 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv358
+  %82 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv358
   %83 = load float, ptr %82, align 4, !tbaa !126
   %84 = fneg float %83
-  %85 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv358
+  %85 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv358
   store float %84, ptr %85, align 4, !tbaa !126
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, 3
@@ -590,12 +590,12 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %.pn414.in = phi i8 [ %71, %70 ], [ %80, %81 ]
   %.pn414 = trunc nuw i8 %.pn414.in to i1
   %.0219.shrunk.ph = and i1 %39, %.pn414
-  %86 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %37, i64 0, i64 %indvars.iv364
+  %86 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %37, i64 %indvars.iv364
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   br label %.split316
 
 .split316.us:                                     ; preds = %75, %68
-  %88 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %37, i64 0, i64 %indvars.iv364
+  %88 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %37, i64 %indvars.iv364
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %88, align 8, !tbaa !125
   %91 = load ptr, ptr %89, align 8, !tbaa !125
@@ -815,7 +815,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   br label %277
 
 191:                                              ; preds = %28
-  %192 = getelementptr inbounds nuw [3 x [2 x %struct.gmx_specatsend_t]], ptr %19, i64 0, i64 %indvars.iv375
+  %192 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %19, i64 %indvars.iv375
   %193 = load ptr, ptr %20, align 8, !tbaa !119
   %194 = icmp eq i32 %30, 0
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -1057,16 +1057,16 @@ define noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaI
   %indvars.iv436 = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next437, %53 ]
   %.0380 = phi i32 [ %28, %.lr.ph ], [ %73, %53 ]
   %indvars.iv.next437 = add nsw i64 %indvars.iv436, -1
-  %42 = getelementptr inbounds nuw [3 x i32], ptr %32, i64 0, i64 %indvars.iv.next437
+  %42 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.next437
   %43 = load i32, ptr %42, align 4, !tbaa !116
   %44 = load i32, ptr %33, align 8, !tbaa !148
   %45 = icmp slt i32 %43, %44
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds [3 x i32], ptr %34, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr %34, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !116
   %49 = icmp ne i32 %48, 2
-  %50 = getelementptr inbounds nuw [3 x [2 x [2 x i32]]], ptr %2, i64 0, i64 %indvars.iv.next437
-  %51 = getelementptr inbounds [3 x i32], ptr %36, i64 0, i64 %46
+  %50 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %2, i64 %indvars.iv.next437
+  %51 = getelementptr inbounds i32, ptr %36, i64 %46
   %52 = trunc nuw nsw i64 %indvars.iv.next437 to i32
   br label %55
 
@@ -1107,7 +1107,7 @@ define noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaI
   %.0218.sroa.phi = phi ptr [ %.0218.sroa.gep, %67 ], [ %.0218.sroa.gep333, %65 ], [ %.0218.sroa.gep333, %62 ]
   %.0218.sroa.phi335 = phi ptr [ %.0218.sroa.gep336, %67 ], [ %.0218.sroa.gep337, %65 ], [ %.0218.sroa.gep337, %62 ]
   %.0218 = phi ptr [ %9, %67 ], [ %10, %65 ], [ %10, %62 ]
-  %69 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %50, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [2 x i32], ptr %50, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %70
   store ptr %69, ptr %12, align 8
@@ -1293,7 +1293,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %.2406 = phi i32 [ %.0.lcssa, %.lr.ph408 ], [ %214, %._crit_edge402 ]
   %.0220405 = phi i32 [ %4, %.lr.ph408 ], [ %460, %._crit_edge402 ]
   %.0222404 = phi i32 [ 0, %.lr.ph408 ], [ %405, %._crit_edge402 ]
-  %164 = getelementptr inbounds nuw [3 x i32], ptr %135, i64 0, i64 %indvars.iv449
+  %164 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv449
   %165 = load i32, ptr %164, align 4, !tbaa !116
   %166 = load i32, ptr %136, align 8, !tbaa !148
   %.not249 = icmp slt i32 %165, %166
@@ -1301,16 +1301,16 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
 
 167:                                              ; preds = %163
   %168 = sext i32 %165 to i64
-  %169 = getelementptr inbounds [3 x i32], ptr %137, i64 0, i64 %168
+  %169 = getelementptr inbounds i32, ptr %137, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !116
   %171 = icmp sgt i32 %170, 2
   br label %172
 
 172:                                              ; preds = %167, %163
   %173 = phi i1 [ true, %163 ], [ %171, %167 ]
-  %174 = getelementptr inbounds nuw [3 x [2 x %struct.gmx_specatsend_t]], ptr %141, i64 0, i64 %indvars.iv449
-  %175 = getelementptr inbounds nuw [3 x [2 x [2 x i32]]], ptr %2, i64 0, i64 %indvars.iv449
-  %176 = getelementptr inbounds nuw [3 x [2 x i32]], ptr %149, i64 0, i64 %indvars.iv449
+  %174 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %141, i64 %indvars.iv449
+  %175 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %2, i64 %indvars.iv449
+  %176 = getelementptr inbounds nuw [2 x i32], ptr %149, i64 %indvars.iv449
   %177 = zext i1 %173 to i64
   %178 = trunc nuw nsw i64 %indvars.iv449 to i32
   %179 = trunc nuw nsw i64 %indvars.iv449 to i32
@@ -1352,8 +1352,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %190
   br label %203
 
 203:                                              ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %190
-  %204 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %174, i64 0, i64 %indvars.iv442
-  %205 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %175, i64 0, i64 %indvars.iv442
+  %204 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %174, i64 %indvars.iv442
+  %205 = getelementptr inbounds nuw [2 x i32], ptr %175, i64 %indvars.iv442
   %206 = load i32, ptr %205, align 8, !tbaa !116
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %208 = load i32, ptr %207, align 4, !tbaa !116
@@ -1427,7 +1427,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit269:             ; preds = %_ZNSt6vectorIiSaIiE
   %.not.i.i.i.i.i = phi i1 [ true, %228 ], [ false, %243 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %228 ], [ 1, %243 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %228 ], [ %.1.i.i.i.i.i, %243 ]
-  %238 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %238 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %239 = load i8, ptr %238, align 1, !tbaa !157, !range !123, !noundef !124
   %240 = trunc nuw i8 %239 to i1
   br i1 %240, label %241, label %243
@@ -1724,11 +1724,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit284:       ; preds = %331, %_ZNSt6vectorI
 
 381:                                              ; preds = %._crit_edge389
   %382 = sub nuw nsw i64 1, %indvars.iv442
-  %383 = getelementptr inbounds nuw [2 x i32], ptr %176, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw i32, ptr %176, i64 %382
   %384 = load i32, ptr %383, align 4, !tbaa !116
   %385 = load i32, ptr %.0218.sroa.gep336, align 4, !tbaa !116
   %386 = load i32, ptr %9, align 4, !tbaa !116
-  %387 = getelementptr inbounds nuw [2 x i32], ptr %176, i64 0, i64 %indvars.iv442
+  %387 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv442
   %388 = load i32, ptr %387, align 4, !tbaa !116
   %389 = load i32, ptr %150, align 4, !tbaa !116
   %390 = load i32, ptr %11, align 4, !tbaa !116

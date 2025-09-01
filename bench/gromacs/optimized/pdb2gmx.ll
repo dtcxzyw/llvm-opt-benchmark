@@ -3338,7 +3338,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit953:              ; preds = %_ZNKSt7__cxx1112bas
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %311 = load i32, ptr %310, align 8, !tbaa !176
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN12_GLOBAL__N_116c_waterTypeNamesE, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_116c_waterTypeNamesE, i64 %312
   %314 = load ptr, ptr %313, align 8, !tbaa !143
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 4400
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 4448
@@ -5046,7 +5046,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1054:             ; preds = %_ZNKSt7__cxx1112bas
   %877 = load i32, ptr %876, align 8, !tbaa !239
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %878 = sext i32 %877 to i64
-  %879 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN12_GLOBAL__N_141c_chainSeparationTypeNotificationMessagesE, i64 0, i64 %878
+  %879 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_141c_chainSeparationTypeNotificationMessagesE, i64 %878
   %880 = load ptr, ptr %879, align 8, !tbaa !143
   %881 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.291, ptr noundef %880)
   %882 = load i32, ptr %725, align 8, !tbaa !232
@@ -5562,7 +5562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1083: ; preds = %_
 sub_0:                                            ; preds = %1077
   %1083 = load i32, ptr %983, align 4, !tbaa !259
   %1084 = sext i32 %1083 to i64
-  %1085 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN12_GLOBAL__N_116c_mergeTypeNamesE, i64 0, i64 %1084
+  %1085 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_116c_mergeTypeNamesE, i64 %1084
   %1086 = load ptr, ptr %1085, align 8, !tbaa !143
   %1087 = load i8, ptr %1086, align 1
   switch i8 %1087, label %.thread2299 [
@@ -8472,10 +8472,10 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1244:             ; preds = %_ZNKSt7__cxx1112bas
   %.not8.i.i.i = phi i1 [ false, %2409 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]
   %.sroa.02.012.i.i.i = phi i32 [ 0, %2409 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]
   %2419 = zext nneg i32 %.sroa.02.012.i.i.i to i64
-  %2420 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_12LysineStatesE.lysineStateLongNames, i64 0, i64 %2419
+  %2420 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_12LysineStatesE.lysineStateLongNames, i64 %2419
   %2421 = load ptr, ptr %2420, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  %2422 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 0, i64 %2419
+  %2422 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 %2419
   %2423 = load ptr, ptr %2422, align 8, !tbaa !143
   store ptr %2023, ptr %81, align 8, !tbaa !50
   %2424 = icmp eq ptr %2423, null
@@ -8713,7 +8713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i.i.i: ; preds 
 _ZN12_GLOBAL__N_19get_lystpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2413
   %2485 = load i32, ptr %82, align 4, !tbaa !144
   %2486 = sext i32 %2485 to i64
-  %2487 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 0, i64 %2486
+  %2487 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_12LysineStatesE.lysineStateNames, i64 %2486
   %2488 = load ptr, ptr %2487, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %2489 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %120, ptr noundef %2488)
@@ -8783,10 +8783,10 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   %.not8.i.i89.i = phi i1 [ false, %2512 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i98.i ]
   %.sroa.02.012.i.i90.i = phi i32 [ 0, %2512 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i98.i ]
   %2522 = zext nneg i32 %.sroa.02.012.i.i90.i to i64
-  %2523 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_14ArginineStatesE.arginineStatesLongNames, i64 0, i64 %2522
+  %2523 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_14ArginineStatesE.arginineStatesLongNames, i64 %2522
   %2524 = load ptr, ptr %2523, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %2525 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 0, i64 %2522
+  %2525 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 %2522
   %2526 = load ptr, ptr %2525, align 8, !tbaa !143
   store ptr %2025, ptr %77, align 8, !tbaa !50
   %2527 = icmp eq ptr %2526, null
@@ -9024,7 +9024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i.i93.i: ; pred
 _ZN12_GLOBAL__N_19get_argtpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2516
   %2588 = load i32, ptr %78, align 4, !tbaa !144
   %2589 = sext i32 %2588 to i64
-  %2590 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 0, i64 %2589
+  %2590 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_14ArginineStatesE.arginineStatesNames, i64 %2589
   %2591 = load ptr, ptr %2590, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %2592 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %120, ptr noundef %2591)
@@ -9094,10 +9094,10 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   %.not8.i.i108.i = phi i1 [ false, %2615 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i117.i ]
   %.sroa.02.012.i.i109.i = phi i32 [ 0, %2615 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i117.i ]
   %2625 = zext nneg i32 %.sroa.02.012.i.i109.i to i64
-  %2626 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15GlutamineStatesE.glutamineStateLongNames, i64 0, i64 %2625
+  %2626 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15GlutamineStatesE.glutamineStateLongNames, i64 %2625
   %2627 = load ptr, ptr %2626, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  %2628 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 0, i64 %2625
+  %2628 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 %2625
   %2629 = load ptr, ptr %2628, align 8, !tbaa !143
   store ptr %2027, ptr %73, align 8, !tbaa !50
   %2630 = icmp eq ptr %2629, null
@@ -9335,7 +9335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i.i112.i: ; pre
 _ZN12_GLOBAL__N_19get_glntpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2619
   %2691 = load i32, ptr %74, align 4, !tbaa !144
   %2692 = sext i32 %2691 to i64
-  %2693 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 0, i64 %2692
+  %2693 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamineStatesE.glutamineStateNames, i64 %2692
   %2694 = load ptr, ptr %2693, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %2695 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %120, ptr noundef %2694)
@@ -9405,10 +9405,10 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   %.not8.i.i127.i = phi i1 [ false, %2718 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i136.i ]
   %.sroa.02.012.i.i128.i = phi i32 [ 0, %2718 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i136.i ]
   %2728 = zext nneg i32 %.sroa.02.012.i.i128.i to i64
-  %2729 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15AspartateStatesE.aspartateStateLongNames, i64 0, i64 %2728
+  %2729 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15AspartateStatesE.aspartateStateLongNames, i64 %2728
   %2730 = load ptr, ptr %2729, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  %2731 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 0, i64 %2728
+  %2731 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 %2728
   %2732 = load ptr, ptr %2731, align 8, !tbaa !143
   store ptr %2029, ptr %69, align 8, !tbaa !50
   %2733 = icmp eq ptr %2732, null
@@ -9646,7 +9646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i.i131.i: ; pre
 _ZN12_GLOBAL__N_19get_asptpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2722
   %2794 = load i32, ptr %70, align 4, !tbaa !144
   %2795 = sext i32 %2794 to i64
-  %2796 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 0, i64 %2795
+  %2796 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15AspartateStatesE.aspartateStateNames, i64 %2795
   %2797 = load ptr, ptr %2796, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %2798 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %120, ptr noundef %2797)
@@ -9720,10 +9720,10 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
   %.not8.i.i146.i = phi i1 [ false, %2822 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i155.i ]
   %.sroa.02.012.i.i147.i = phi i32 [ 0, %2822 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i155.i ]
   %2832 = zext nneg i32 %.sroa.02.012.i.i147.i to i64
-  %2833 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15GlutamateStatesE.glutamateStateLongNames, i64 0, i64 %2832
+  %2833 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringENS_15GlutamateStatesE.glutamateStateLongNames, i64 %2832
   %2834 = load ptr, ptr %2833, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  %2835 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 0, i64 %2832
+  %2835 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 %2832
   %2836 = load ptr, ptr %2835, align 8, !tbaa !143
   store ptr %2031, ptr %65, align 8, !tbaa !50
   %2837 = icmp eq ptr %2836, null
@@ -9961,7 +9961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i.i150.i: ; pre
 _ZN12_GLOBAL__N_19get_glutpEiN3gmx8ArrayRefIK9RtpRenameEE.exit.i: ; preds = %2826
   %2898 = load i32, ptr %66, align 4, !tbaa !144
   %2899 = sext i32 %2898 to i64
-  %2900 = getelementptr inbounds nuw [2 x ptr], ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 0, i64 %2899
+  %2900 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_117enumValueToStringENS_15GlutamateStatesE.glutamateStateNames, i64 %2899
   %2901 = load ptr, ptr %2900, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %2902 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %120, ptr noundef %2901)
@@ -10042,7 +10042,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2937:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i172.i, %2928
   %indvars.iv.i.i.i = phi i64 [ 0, %2928 ], [ %indvars.iv.next.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i172.i ]
-  %2938 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringE15HistidineStates.histidineStatesLongNames, i64 0, i64 %indvars.iv.i.i.i
+  %2938 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_121enumValueToLongStringE15HistidineStates.histidineStatesLongNames, i64 %indvars.iv.i.i.i
   %2939 = load ptr, ptr %2938, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %2940 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32

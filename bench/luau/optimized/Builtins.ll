@@ -1897,7 +1897,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
 
 65:                                               ; preds = %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 %66
   store i8 1, ptr %67, align 1, !tbaa !61
   br label %68
 
@@ -1967,7 +1967,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
 
 99:                                               ; preds = %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66.thread
   %100 = zext nneg i32 %97 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 %100
   store i8 1, ptr %101, align 1, !tbaa !61
   br label %102
 
@@ -1996,13 +1996,13 @@ define linkonce_odr dso_local void @_ZN4Luau10AstVisitorD2Ev(ptr noundef nonnull
 define dso_local { i64, i32 } @_ZN4Luau7Compile14getBuiltinInfoEi(i32 noundef %0) local_unnamed_addr #6 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [90 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [90 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.2, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.2, i64 %2
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %3 = zext nneg i32 %0 to i64
-  %switch.gep4 = getelementptr inbounds nuw [90 x i32], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.3, i64 0, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.3, i64 %3
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %.sroa.01.0.insert.insert = or disjoint i64 %switch.load3, %switch.load
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.01.0.insert.insert, 0
@@ -2756,7 +2756,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile14BuiltinVisit
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !61, !range !29, !noundef !30
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %.thread, label %35

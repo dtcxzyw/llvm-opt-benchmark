@@ -1890,7 +1890,7 @@ dsdKernelFindContainingComponent.exit:            ; preds = %.lr.ph1223, %.lr.ph
   %865 = load ptr, ptr %864, align 8, !tbaa !24
   %866 = add nsw i32 %.05491018, 1
   %867 = sext i32 %.05491018 to i64
-  %868 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelDecompose_rec.pNonOverlap, i64 0, i64 %867
+  %868 = getelementptr inbounds ptr, ptr @dsdKernelDecompose_rec.pNonOverlap, i64 %867
   store ptr %865, ptr %868, align 8, !tbaa !24
   br label %869
 
@@ -1996,9 +1996,9 @@ dsdKernelFindContainingComponent.exit835:         ; preds = %903
   %920 = sext i32 %919 to i64
   %921 = getelementptr inbounds nuw i8, ptr %909, i64 32
   store i64 %920, ptr %921, align 8, !tbaa !71
-  %922 = getelementptr inbounds nuw [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv.next10901226
+  %922 = getelementptr inbounds nuw ptr, ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 %indvars.iv.next10901226
   store ptr %909, ptr %922, align 8, !tbaa !24
-  %923 = getelementptr inbounds nuw [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv.next10901226
+  %923 = getelementptr inbounds nuw i8, ptr @dsdKernelDecompose_rec.pMarkedPols, i64 %indvars.iv.next10901226
   store i8 %918, ptr %923, align 1, !tbaa !39
   %indvars.iv.next1090 = add nuw nsw i64 %indvars.iv.next10901226, 1
   %924 = getelementptr inbounds nuw i8, ptr %909, i64 40
@@ -2080,7 +2080,7 @@ dsdKernelFindContainingComponent.exit842:         ; preds = %.lr.ph1229, %.lr.ph
 .lr.ph1032:                                       ; preds = %.preheader, %.lr.ph1032
   %indvars.iv1091 = phi i64 [ %indvars.iv.next1092, %.lr.ph1032 ], [ 1, %.preheader ]
   %.05421030 = phi ptr [ %964, %.lr.ph1032 ], [ %228, %.preheader ]
-  %963 = getelementptr inbounds nuw [1000 x ptr], ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 0, i64 %indvars.iv1091
+  %963 = getelementptr inbounds nuw ptr, ptr @dsdKernelDecompose_rec.pMarkedLeft, i64 %indvars.iv1091
   %964 = load ptr, ptr %963, align 8, !tbaa !24
   %indvars.iv.next1092 = add nuw nsw i64 %indvars.iv1091, 1
   %.not682 = icmp eq ptr %964, %.0545.lcssa
@@ -2093,7 +2093,7 @@ dsdKernelFindContainingComponent.exit842:         ; preds = %.lr.ph1229, %.lr.ph
   br i1 %or.cond, label %968, label %.thread1165
 
 968:                                              ; preds = %965
-  %969 = getelementptr inbounds nuw [1000 x i8], ptr @dsdKernelDecompose_rec.pMarkedPols, i64 0, i64 %indvars.iv1091
+  %969 = getelementptr inbounds nuw i8, ptr @dsdKernelDecompose_rec.pMarkedPols, i64 %indvars.iv1091
   %970 = load i8, ptr %969, align 1, !tbaa !39
   %971 = sext i8 %970 to i32
   %972 = load i32, ptr %.05421030, align 8, !tbaa !25
@@ -2180,7 +2180,7 @@ dsdKernelFindContainingComponent.exit842:         ; preds = %.lr.ph1229, %.lr.ph
 1027:                                             ; preds = %1025
   %1028 = add nsw i32 %.05766.i, 1
   %1029 = sext i32 %.05766.i to i64
-  %1030 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %1029
+  %1030 = getelementptr inbounds ptr, ptr @dsdKernelFindCommonComponents.Common, i64 %1029
   store ptr %995, ptr %1030, align 8, !tbaa !24
   br label %1031
 
@@ -2424,7 +2424,7 @@ define internal fastcc i32 @dsdKernelFindCommonComponents(ptr noundef readonly c
 55:                                               ; preds = %53
   %56 = add nsw i32 %.05766, 1
   %57 = sext i32 %.05766 to i64
-  %58 = getelementptr inbounds [1000 x ptr], ptr @dsdKernelFindCommonComponents.Common, i64 0, i64 %57
+  %58 = getelementptr inbounds ptr, ptr @dsdKernelFindCommonComponents.Common, i64 %57
   store ptr %21, ptr %58, align 8, !tbaa !24
   br label %61
 

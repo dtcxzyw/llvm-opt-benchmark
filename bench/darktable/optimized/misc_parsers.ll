@@ -133,7 +133,7 @@ define void @_ZN6LibRaw10nikon_3700Ev(ptr noundef nonnull align 8 dereferenceabl
 
 26:                                               ; preds = %1, %37
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %37 ]
-  %27 = getelementptr inbounds nuw [4 x %struct.anon], ptr @_ZZN6LibRaw10nikon_3700EvE5table, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw10nikon_3700EvE5table, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !76
   %29 = icmp eq i32 %28, %22
   br i1 %29, label %30, label %37
@@ -181,7 +181,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10minolta_z2Ev(ptr noundef nonnull
 14:                                               ; preds = %1, %14
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
   %.07 = phi i32 [ 0, %1 ], [ %spec.select, %14 ]
-  %15 = getelementptr inbounds nuw [424 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !75
   %.not = icmp ne i8 %16, 0
   %17 = zext i1 %.not to i32
@@ -973,7 +973,7 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %85, %92, %99
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %122 = load ptr, ptr %121, align 8
   %123 = call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull %6, i64 noundef 64, i64 noundef 1)
-  %124 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %26
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 %26
   store i8 0, ptr %124, align 1, !tbaa !75
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -986,7 +986,7 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %85, %92, %99
 
 .preheader34:                                     ; preds = %120, %133
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %120 ]
-  %131 = getelementptr inbounds nuw [12 x [4 x i8]], ptr @_ZZN6LibRaw10parse_riffEiE3mon, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6LibRaw10parse_riffEiE3mon, i64 %indvars.iv
   %132 = call i32 @strcasecmp(ptr noundef nonnull %131, ptr noundef nonnull %7) #16
   %.not31 = icmp eq i32 %132, 0
   br i1 %.not31, label %.critedge5.split.loop.exit46, label %133
@@ -1057,7 +1057,7 @@ define void @_ZN6LibRaw13get_timestampEi(ptr noundef nonnull align 8 captures(no
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   store i8 %12, ptr %13, align 1, !tbaa !75
   %.not3 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not3, label %.loopexit, label %.preheader, !llvm.loop !109
@@ -1326,7 +1326,7 @@ define void @_ZN6LibRaw12parse_rolleiEv(ptr noundef nonnull align 8 dereferencea
 
 switch.lookup:                                    ; preds = %89
   %93 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6LibRaw12parse_rolleiEv, i64 0, i64 %93
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6LibRaw12parse_rolleiEv, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %25, align 8, !tbaa !90
   br label %94
@@ -1549,7 +1549,7 @@ define void @_ZN6LibRaw13parse_kyoceraEv(ptr noundef nonnull align 8 dereference
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %16 = trunc i32 %15 to i8
-  %17 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 %indvars.iv.next.i
+  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next.i
   store i8 %16, ptr %17, align 1, !tbaa !75
   %.not3.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not3.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !109
@@ -1595,103 +1595,104 @@ _ZN6LibRaw13get_timestampEi.exit:                 ; preds = %.loopexit.i, %24, %
   %40 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %41 = add i32 %40, -7
   %or.cond = icmp ult i32 %41, 13
-  br i1 %or.cond, label %42, label %48
+  br i1 %or.cond, label %42, label %49
 
 42:                                               ; preds = %_ZN6LibRaw13get_timestampEi.exit
-  %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds nuw [13 x i16], ptr @_ZZN6LibRaw13parse_kyoceraEvE5table, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !120
-  %46 = uitofp i16 %45 to float
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 192552
-  store float %46, ptr %47, align 8, !tbaa !121
-  br label %48
+  %43 = zext nneg i32 %40 to i64
+  %44 = getelementptr i16, ptr @_ZZN6LibRaw13parse_kyoceraEvE5table, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 -14
+  %46 = load i16, ptr %45, align 2, !tbaa !120
+  %47 = uitofp i16 %46 to float
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192552
+  store float %47, ptr %48, align 8, !tbaa !121
+  br label %49
 
-48:                                               ; preds = %42, %_ZN6LibRaw13get_timestampEi.exit
-  %49 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %50 = uitofp i32 %49 to float
-  %51 = fmul reassoc nsz arcp contract afn float %50, 1.250000e-01
-  %or.cond.i.i = fcmp reassoc nsz arcp contract afn ogt float %51, 6.400000e+01
-  %exp2 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %51)
-  %52 = fmul reassoc nsz arcp contract afn float %exp2, 0x3F10624DE0000000
-  %53 = select i1 %or.cond.i.i, float 0.000000e+00, float %52
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192556
-  store float %53, ptr %54, align 4, !tbaa !93
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 153176
-  br label %56
+49:                                               ; preds = %42, %_ZN6LibRaw13get_timestampEi.exit
+  %50 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %51 = uitofp i32 %50 to float
+  %52 = fmul reassoc nsz arcp contract afn float %51, 1.250000e-01
+  %or.cond.i.i = fcmp reassoc nsz arcp contract afn ogt float %52, 6.400000e+01
+  %exp2 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %52)
+  %53 = fmul reassoc nsz arcp contract afn float %exp2, 0x3F10624DE0000000
+  %54 = select i1 %or.cond.i.i, float 0.000000e+00, float %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 192556
+  store float %54, ptr %55, align 4, !tbaa !93
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 153176
+  br label %57
 
-56:                                               ; preds = %48, %56
-  %.013 = phi i32 [ 0, %48 ], [ %63, %56 ]
-  %57 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %58 = uitofp i32 %57 to float
-  %59 = lshr i32 %.013, 1
-  %60 = xor i32 %59, %.013
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [4 x float], ptr %55, i64 0, i64 %61
-  store float %58, ptr %62, align 4, !tbaa !91
-  %63 = add nuw nsw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %63, 4
-  br i1 %exitcond.not, label %64, label %56, !llvm.loop !122
+57:                                               ; preds = %49, %57
+  %.013 = phi i32 [ 0, %49 ], [ %64, %57 ]
+  %58 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %59 = uitofp i32 %58 to float
+  %60 = lshr i32 %.013, 1
+  %61 = xor i32 %60, %.013
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw float, ptr %56, i64 %62
+  store float %59, ptr %63, align 4, !tbaa !91
+  %64 = add nuw nsw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %64, 4
+  br i1 %exitcond.not, label %65, label %57, !llvm.loop !122
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %4, align 8, !tbaa !6
-  %66 = load ptr, ptr %65, align 8, !tbaa !71
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(8) %65, i64 noundef 88, i32 noundef 0)
-  %70 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %71 = uitofp i32 %70 to float
-  %72 = fmul reassoc nsz arcp contract afn float %71, 6.250000e-02
-  %or.cond.i.i9 = fcmp reassoc nsz arcp contract afn ogt float %72, 6.400000e+01
-  %exp211 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %72)
-  %73 = select reassoc nsz arcp contract afn i1 %or.cond.i.i9, float 0.000000e+00, float %exp211
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 192560
-  store float %73, ptr %74, align 8, !tbaa !113
-  %75 = load ptr, ptr %4, align 8, !tbaa !6
-  %76 = load ptr, ptr %75, align 8, !tbaa !71
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef 112, i32 noundef 0)
-  %80 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %81 = uitofp i32 %80 to float
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 192564
-  store float %81, ptr %82, align 4, !tbaa !114
-  %83 = load ptr, ptr %4, align 8, !tbaa !6
-  %84 = load ptr, ptr %83, align 8, !tbaa !71
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noundef i32 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, i64 noundef 104, i32 noundef 0)
-  %88 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %89 = uitofp i32 %88 to float
-  %90 = fmul reassoc nsz arcp contract afn float %89, 6.250000e-02
-  %or.cond.i.i10 = fcmp reassoc nsz arcp contract afn ogt float %90, 6.400000e+01
-  %exp212 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %90)
-  %91 = select reassoc nsz arcp contract afn i1 %or.cond.i.i10, float 0.000000e+00, float %exp212
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store float %91, ptr %92, align 8, !tbaa !123
-  %93 = load ptr, ptr %4, align 8, !tbaa !6
-  %94 = load ptr, ptr %93, align 8, !tbaa !71
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = call noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(8) %93, i64 noundef 124, i32 noundef 0)
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %99 = load ptr, ptr %4, align 8, !tbaa !6
-  %100 = call noundef i32 @_ZN6LibRaw6streadEPcmP26LibRaw_abstract_datastream(ptr noundef nonnull %98, i64 noundef 32, ptr noundef %99)
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 7, ptr %101, align 2, !tbaa !124
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 2, ptr %102, align 8, !tbaa !125
-  %103 = load i8, ptr %98, align 8, !tbaa !75
-  %.not = icmp eq i8 %103, 0
-  br i1 %.not, label %107, label %104
+65:                                               ; preds = %57
+  %66 = load ptr, ptr %4, align 8, !tbaa !6
+  %67 = load ptr, ptr %66, align 8, !tbaa !71
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef 88, i32 noundef 0)
+  %71 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %72 = uitofp i32 %71 to float
+  %73 = fmul reassoc nsz arcp contract afn float %72, 6.250000e-02
+  %or.cond.i.i9 = fcmp reassoc nsz arcp contract afn ogt float %73, 6.400000e+01
+  %exp211 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %73)
+  %74 = select reassoc nsz arcp contract afn i1 %or.cond.i.i9, float 0.000000e+00, float %exp211
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 192560
+  store float %74, ptr %75, align 8, !tbaa !113
+  %76 = load ptr, ptr %4, align 8, !tbaa !6
+  %77 = load ptr, ptr %76, align 8, !tbaa !71
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef 112, i32 noundef 0)
+  %81 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %82 = uitofp i32 %81 to float
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 192564
+  store float %82, ptr %83, align 4, !tbaa !114
+  %84 = load ptr, ptr %4, align 8, !tbaa !6
+  %85 = load ptr, ptr %84, align 8, !tbaa !71
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %87 = load ptr, ptr %86, align 8
+  %88 = call noundef i32 %87(ptr noundef nonnull align 8 dereferenceable(8) %84, i64 noundef 104, i32 noundef 0)
+  %89 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %90 = uitofp i32 %89 to float
+  %91 = fmul reassoc nsz arcp contract afn float %90, 6.250000e-02
+  %or.cond.i.i10 = fcmp reassoc nsz arcp contract afn ogt float %91, 6.400000e+01
+  %exp212 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %91)
+  %92 = select reassoc nsz arcp contract afn i1 %or.cond.i.i10, float 0.000000e+00, float %exp212
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  store float %92, ptr %93, align 8, !tbaa !123
+  %94 = load ptr, ptr %4, align 8, !tbaa !6
+  %95 = load ptr, ptr %94, align 8, !tbaa !71
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, i64 noundef 124, i32 noundef 0)
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %100 = load ptr, ptr %4, align 8, !tbaa !6
+  %101 = call noundef i32 @_ZN6LibRaw6streadEPcmP26LibRaw_abstract_datastream(ptr noundef nonnull %99, i64 noundef 32, ptr noundef %100)
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 7, ptr %102, align 2, !tbaa !124
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 2, ptr %103, align 8, !tbaa !125
+  %104 = load i8, ptr %99, align 8, !tbaa !75
+  %.not = icmp eq i8 %104, 0
+  br i1 %.not, label %108, label %105
 
-104:                                              ; preds = %64
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1338
-  store i16 7, ptr %105, align 2, !tbaa !126
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 2, ptr %106, align 8, !tbaa !127
-  br label %107
+105:                                              ; preds = %65
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1338
+  store i16 7, ptr %106, align 2, !tbaa !126
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  store i16 2, ptr %107, align 8, !tbaa !127
+  br label %108
 
-107:                                              ; preds = %104, %64
+108:                                              ; preds = %105, %65
   ret void
 }
 
@@ -1859,7 +1860,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10nikon_e995Ev(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [256 x i32], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !128
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !128
@@ -1874,10 +1875,10 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw10nikon_e995Ev(ptr noundef nonnull
 
 .preheader:                                       ; preds = %9, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %9 ]
-  %21 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN6LibRaw10nikon_e995Ev.often, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZN6LibRaw10nikon_e995Ev.often, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !75
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !128
   %26 = icmp slt i32 %25, 200
   br i1 %26, label %27, label %20

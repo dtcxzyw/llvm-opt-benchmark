@@ -146,17 +146,17 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %35 = add i32 %34, 40
   %36 = and i32 %35, 63
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [64 x i32], ptr %28, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %40 = add i32 %34, 9
   %41 = and i32 %40, 63
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [64 x i32], ptr %28, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !25
   %45 = add i32 %44, %39
   %46 = and i32 %34, 63
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [64 x i32], ptr %28, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %28, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !25
   %49 = add i32 %34, 1
   store i32 %49, ptr %29, align 8, !tbaa !35

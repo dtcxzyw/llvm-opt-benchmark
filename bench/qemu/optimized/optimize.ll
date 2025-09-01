@@ -113,7 +113,7 @@ define dso_local void @tcg_optimize(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %init_ts_info.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %init_ts_info.exit.i.i ]
-  %33 = getelementptr inbounds nuw [0 x i64], ptr %31, i64 0, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.i
   %34 = load i64, ptr %33, align 8
   %35 = inttoptr i64 %34 to ptr
   %36 = load ptr, ptr %14, align 8
@@ -220,7 +220,7 @@ init_arguments.exit.i:                            ; preds = %init_ts_info.exit.i
 
 86:                                               ; preds = %108, %.lr.ph.i32.i
   %indvars.iv.i33.i = phi i64 [ %84, %.lr.ph.i32.i ], [ %indvars.iv.next.i36.i, %108 ]
-  %87 = getelementptr inbounds nuw [0 x i64], ptr %83, i64 0, i64 %indvars.iv.i33.i
+  %87 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv.i33.i
   %88 = load i64, ptr %87, align 8
   %89 = inttoptr i64 %88 to ptr
   %90 = getelementptr i8, ptr %89, i64 48
@@ -277,10 +277,10 @@ copy_propagate.exit.i:                            ; preds = %108, %init_argument
   %112 = lshr i32 %111, 24
   %113 = lshr i32 %111, 16
   %114 = and i32 %113, 255
-  %115 = add nuw nsw i32 %112, 1
-  %116 = add nuw nsw i32 %115, %114
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [0 x i64], ptr %110, i64 0, i64 %117
+  %115 = add nuw nsw i32 %114, %112
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr inbounds nuw i64, ptr %110, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8
   %120 = inttoptr i64 %119 to ptr
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
@@ -315,7 +315,7 @@ copy_propagate.exit.i:                            ; preds = %108, %init_argument
 137:                                              ; preds = %130
   %138 = load ptr, ptr %2, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 672
-  %140 = getelementptr inbounds nuw [512 x %struct.TCGTemp], ptr %139, i64 0, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw %struct.TCGTemp, ptr %139, i64 %indvars.iv.i
   %141 = getelementptr i8, ptr %140, i64 48
   %.val.i631 = load ptr, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %.val.i631, i64 8
@@ -531,7 +531,7 @@ remove_mem_copy_all.exit.i:                       ; preds = %219, %194
 
 .lr.ph44.i:                                       ; preds = %reset_ts.exit, %.lr.ph44.preheader.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next49.i, %reset_ts.exit ]
-  %225 = getelementptr inbounds nuw [0 x i64], ptr %110, i64 0, i64 %indvars.iv48.i
+  %225 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv48.i
   %226 = load i64, ptr %225, align 8
   %227 = inttoptr i64 %226 to ptr
   %228 = getelementptr i8, ptr %227, i64 48
@@ -671,7 +671,7 @@ fold_call.exit:                                   ; preds = %reset_ts.exit, %224
 
 280:                                              ; preds = %19
   %281 = zext nneg i32 %23 to i64
-  %282 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %281
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = zext i8 %284 to i32
@@ -689,7 +689,7 @@ fold_call.exit:                                   ; preds = %reset_ts.exit, %224
 
 291:                                              ; preds = %init_ts_info.exit.i, %.lr.ph.i80
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.i80 ], [ %indvars.iv.next.i84, %init_ts_info.exit.i ]
-  %292 = getelementptr inbounds nuw [0 x i64], ptr %290, i64 0, i64 %indvars.iv.i82
+  %292 = getelementptr inbounds nuw i64, ptr %290, i64 %indvars.iv.i82
   %293 = load i64, ptr %292, align 8
   %294 = inttoptr i64 %293 to ptr
   %295 = load ptr, ptr %14, align 8
@@ -796,7 +796,7 @@ init_arguments.exit:                              ; preds = %init_ts_info.exit.i
 
 345:                                              ; preds = %367, %.lr.ph.i87
   %indvars.iv.i88 = phi i64 [ %343, %.lr.ph.i87 ], [ %indvars.iv.next.i93, %367 ]
-  %346 = getelementptr inbounds nuw [0 x i64], ptr %342, i64 0, i64 %indvars.iv.i88
+  %346 = getelementptr inbounds nuw i64, ptr %342, i64 %indvars.iv.i88
   %347 = load i64, ptr %346, align 8
   %348 = inttoptr i64 %347 to ptr
   %349 = getelementptr i8, ptr %348, i64 48
@@ -1093,7 +1093,7 @@ swap_commutative.exit.i._crit_edge.i.thread:      ; preds = %392, %arg_is_const_
   %406 = load i32, ptr %.076705, align 8
   %407 = and i32 %406, 255
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %408, i32 1
+  %409 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %408, i32 1
   %410 = load i8, ptr %409, align 8
   %.not.i.i96 = icmp eq i8 %410, 0
   br i1 %.not.i.i96, label %fold_add.exit, label %.lr.ph.i.i97
@@ -1104,7 +1104,7 @@ swap_commutative.exit.i._crit_edge.i.thread:      ; preds = %392, %arg_is_const_
 
 411:                                              ; preds = %411, %.lr.ph.i.i97
   %indvars.iv.i.i99 = phi i64 [ 0, %.lr.ph.i.i97 ], [ %indvars.iv.next.i.i100, %411 ]
-  %412 = getelementptr inbounds nuw [0 x i64], ptr %373, i64 0, i64 %indvars.iv.i.i99
+  %412 = getelementptr inbounds nuw i64, ptr %373, i64 %indvars.iv.i.i99
   %413 = load i64, ptr %412, align 8
   %414 = inttoptr i64 %413 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %414)
@@ -1166,7 +1166,7 @@ fold_xi_to_x.exit.i117:                           ; preds = %arg_is_const_val.ex
   %438 = load i32, ptr %.076705, align 8
   %439 = and i32 %438, 255
   %440 = zext nneg i32 %439 to i64
-  %441 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %440, i32 1
+  %441 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %440, i32 1
   %442 = load i8, ptr %441, align 8
   %.not.i.i109 = icmp eq i8 %442, 0
   br i1 %.not.i.i109, label %fold_add.exit, label %.lr.ph.i.i110
@@ -1178,7 +1178,7 @@ fold_xi_to_x.exit.i117:                           ; preds = %arg_is_const_val.ex
 
 444:                                              ; preds = %444, %.lr.ph.i.i110
   %indvars.iv.i.i112 = phi i64 [ 0, %.lr.ph.i.i110 ], [ %indvars.iv.next.i.i113, %444 ]
-  %445 = getelementptr inbounds nuw [0 x i64], ptr %443, i64 0, i64 %indvars.iv.i.i112
+  %445 = getelementptr inbounds nuw i64, ptr %443, i64 %indvars.iv.i.i112
   %446 = load i64, ptr %445, align 8
   %447 = inttoptr i64 %446 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %447)
@@ -1583,7 +1583,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   %.027.i = phi i64 [ 0, %630 ], [ 0, %623 ], [ %.026.i, %627 ]
   %634 = and i32 %599, 255
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %635, i32 1
+  %636 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %635, i32 1
   %637 = load i8, ptr %636, align 8
   %638 = icmp eq i8 %637, 1
   call void @llvm.assume(i1 %638)
@@ -1687,7 +1687,7 @@ arg_is_const_val.exit.thread.i:                   ; preds = %arg_is_const_val.ex
   %695 = load i32, ptr %.076705, align 8
   %696 = and i32 %695, 255
   %697 = zext nneg i32 %696 to i64
-  %698 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %697, i32 1
+  %698 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %697, i32 1
   %699 = load i8, ptr %698, align 8
   %700 = icmp eq i8 %699, 1
   call void @llvm.assume(i1 %700)
@@ -1750,7 +1750,7 @@ fold_const1.exit.i:                               ; preds = %718
   %732 = load i32, ptr %.076705, align 8
   %733 = and i32 %732, 255
   %734 = zext nneg i32 %733 to i64
-  %735 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %734, i32 1
+  %735 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %734, i32 1
   %736 = load i8, ptr %735, align 8
   %737 = icmp eq i8 %736, 1
   call void @llvm.assume(i1 %737)
@@ -1770,7 +1770,7 @@ fold_const1.exit.i:                               ; preds = %718
   %744 = load i32, ptr %.076705, align 8
   %745 = and i32 %744, 255
   %746 = zext nneg i32 %745 to i64
-  %747 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %746, i32 1
+  %747 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %746, i32 1
   %748 = load i8, ptr %747, align 8
   %749 = icmp eq i8 %748, 1
   call void @llvm.assume(i1 %749)
@@ -1985,7 +1985,7 @@ deposit64.exit72.i:                               ; preds = %843
   %862 = load i32, ptr %.076705, align 8
   %863 = and i32 %862, 255
   %864 = zext nneg i32 %863 to i64
-  %865 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %864, i32 1
+  %865 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %864, i32 1
   %866 = load i8, ptr %865, align 8
   %867 = icmp eq i8 %866, 1
   call void @llvm.assume(i1 %867)
@@ -2077,7 +2077,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
   %916 = load i32, ptr %.076705, align 8
   %917 = and i32 %916, 255
   %918 = zext nneg i32 %917 to i64
-  %919 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %918, i32 1
+  %919 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %918, i32 1
   %920 = load i8, ptr %919, align 8
   %.not.i.i145 = icmp eq i8 %920, 0
   br i1 %.not.i.i145, label %fold_add.exit, label %.lr.ph.i.i146
@@ -2088,7 +2088,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
 
 921:                                              ; preds = %921, %.lr.ph.i.i146
   %indvars.iv.i.i148 = phi i64 [ 0, %.lr.ph.i.i146 ], [ %indvars.iv.next.i.i149, %921 ]
-  %922 = getelementptr inbounds nuw [0 x i64], ptr %891, i64 0, i64 %indvars.iv.i.i148
+  %922 = getelementptr inbounds nuw i64, ptr %891, i64 %indvars.iv.i.i148
   %923 = load i64, ptr %922, align 8
   %924 = inttoptr i64 %923 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %924)
@@ -2121,7 +2121,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
 940:                                              ; preds = %925
   %941 = and i32 %932, 255
   %942 = zext nneg i32 %941 to i64
-  %943 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %942, i32 1
+  %943 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %942, i32 1
   %944 = load i8, ptr %943, align 8
   %.not.i.i155 = icmp eq i8 %944, 0
   br i1 %.not.i.i155, label %fold_add.exit, label %.lr.ph.i.i156
@@ -2132,7 +2132,7 @@ fold_xi_to_x.exit.i153:                           ; preds = %arg_is_const_val.ex
 
 945:                                              ; preds = %945, %.lr.ph.i.i156
   %indvars.iv.i.i158 = phi i64 [ 0, %.lr.ph.i.i156 ], [ %indvars.iv.next.i.i159, %945 ]
-  %946 = getelementptr inbounds nuw [0 x i64], ptr %926, i64 0, i64 %indvars.iv.i.i158
+  %946 = getelementptr inbounds nuw i64, ptr %926, i64 %indvars.iv.i.i158
   %947 = load i64, ptr %946, align 8
   %948 = inttoptr i64 %947 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %948)
@@ -2216,7 +2216,7 @@ args_are_copies.exit.thread.i:                    ; preds = %981, %args_are_copi
   %986 = load i32, ptr %.076705, align 8
   %987 = and i32 %986, 255
   %988 = zext nneg i32 %987 to i64
-  %989 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %988, i32 1
+  %989 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %988, i32 1
   %990 = load i8, ptr %989, align 8
   %.not.i.i169 = icmp eq i8 %990, 0
   br i1 %.not.i.i169, label %fold_add.exit, label %.lr.ph.i.i170
@@ -2227,7 +2227,7 @@ args_are_copies.exit.thread.i:                    ; preds = %981, %args_are_copi
 
 991:                                              ; preds = %991, %.lr.ph.i.i170
   %indvars.iv.i.i172 = phi i64 [ 0, %.lr.ph.i.i170 ], [ %indvars.iv.next.i.i173, %991 ]
-  %992 = getelementptr inbounds nuw [0 x i64], ptr %950, i64 0, i64 %indvars.iv.i.i172
+  %992 = getelementptr inbounds nuw i64, ptr %950, i64 %indvars.iv.i.i172
   %993 = load i64, ptr %992, align 8
   %994 = inttoptr i64 %993 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %994)
@@ -2353,7 +2353,7 @@ swap_commutative.exit.i._crit_edge.i183.thread:   ; preds = %1015, %arg_is_const
   %.val11.i = load i64, ptr %996, align 8
   %1044 = and i32 %.val.i186, 255
   %1045 = zext nneg i32 %1044 to i64
-  %1046 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1045, i32 1
+  %1046 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1045, i32 1
   %1047 = load i8, ptr %1046, align 8
   %1048 = icmp eq i8 %1047, 1
   call void @llvm.assume(i1 %1048)
@@ -2464,7 +2464,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   %1110 = load i32, ptr %.076705, align 8
   %1111 = and i32 %1110, 255
   %1112 = zext nneg i32 %1111 to i64
-  %1113 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1112, i32 1
+  %1113 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1112, i32 1
   %1114 = load i8, ptr %1113, align 8
   %1115 = icmp eq i8 %1114, 1
   call void @llvm.assume(i1 %1115)
@@ -2565,7 +2565,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
   %1178 = load i32, ptr %.076705, align 8
   %1179 = and i32 %1178, 255
   %1180 = zext nneg i32 %1179 to i64
-  %1181 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1180, i32 1
+  %1181 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1180, i32 1
   %1182 = load i8, ptr %1181, align 8
   %.not.i.i202 = icmp eq i8 %1182, 0
   br i1 %.not.i.i202, label %fold_add.exit, label %.lr.ph.i.i203
@@ -2576,7 +2576,7 @@ fold_affected_mask.exit.i:                        ; preds = %extract64.exit26.i,
 
 1183:                                             ; preds = %1183, %.lr.ph.i.i203
   %indvars.iv.i.i205 = phi i64 [ 0, %.lr.ph.i.i203 ], [ %indvars.iv.next.i.i206, %1183 ]
-  %1184 = getelementptr inbounds nuw [0 x i64], ptr %1136, i64 0, i64 %indvars.iv.i.i205
+  %1184 = getelementptr inbounds nuw i64, ptr %1136, i64 %indvars.iv.i.i205
   %1185 = load i64, ptr %1184, align 8
   %1186 = inttoptr i64 %1185 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1186)
@@ -2662,7 +2662,7 @@ fold_affected_mask.exit.i214:                     ; preds = %.thread.i212, %.thr
   %.02332.i = phi i64 [ %1207, %.thread35.i ], [ %1211, %.thread.i212 ]
   %1219 = and i32 %1205, 255
   %1220 = zext nneg i32 %1219 to i64
-  %1221 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1220, i32 1
+  %1221 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1220, i32 1
   %1222 = load i8, ptr %1221, align 8
   %1223 = icmp eq i8 %1222, 1
   call void @llvm.assume(i1 %1223)
@@ -2777,7 +2777,7 @@ fold_affected_mask.exit.i222:                     ; preds = %.thread.i225, %.thr
   %.01622.i = phi i64 [ %1266, %.thread23.i ], [ %1265, %.thread26.i ], [ %1269, %.thread.i225 ]
   %1276 = and i32 %1263, 255
   %1277 = zext nneg i32 %1276 to i64
-  %1278 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1277, i32 1
+  %1278 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1277, i32 1
   %1279 = load i8, ptr %1278, align 8
   %1280 = icmp eq i8 %1279, 1
   call void @llvm.assume(i1 %1280)
@@ -2853,7 +2853,7 @@ fold_tcg_ld.exit:                                 ; preds = %1300, %1300, %1302,
   %.0.i230 = phi i64 [ 0, %1302 ], [ -32768, %1303 ], [ 0, %1304 ], [ -2147483648, %1305 ], [ 0, %1306 ], [ -128, %1300 ], [ -128, %1300 ]
   %1308 = and i32 %1301, 255
   %1309 = zext nneg i32 %1308 to i64
-  %1310 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1309, i32 1
+  %1310 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1309, i32 1
   %1311 = load i8, ptr %1310, align 8
   %1312 = icmp eq i8 %1311, 1
   call void @llvm.assume(i1 %1312)
@@ -2899,7 +2899,7 @@ fold_tcg_ld.exit:                                 ; preds = %1300, %1300, %1302,
   %1340 = load i32, ptr %.076705, align 8
   %1341 = and i32 %1340, 255
   %1342 = zext nneg i32 %1341 to i64
-  %1343 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1342, i32 1
+  %1343 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1342, i32 1
   %1344 = load i8, ptr %1343, align 8
   %.not.i.i236 = icmp eq i8 %1344, 0
   br i1 %.not.i.i236, label %fold_add.exit, label %.lr.ph.i.i237
@@ -2911,7 +2911,7 @@ fold_tcg_ld.exit:                                 ; preds = %1300, %1300, %1302,
 
 1346:                                             ; preds = %1346, %.lr.ph.i.i237
   %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i240, %1346 ]
-  %1347 = getelementptr inbounds nuw [0 x i64], ptr %1345, i64 0, i64 %indvars.iv.i.i239
+  %1347 = getelementptr inbounds nuw i64, ptr %1345, i64 %indvars.iv.i.i239
   %1348 = load i64, ptr %1347, align 8
   %1349 = inttoptr i64 %1348 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1349)
@@ -3301,7 +3301,7 @@ swap_commutative.exit.i295:                       ; preds = %1516, %1512
   %1527 = load i64, ptr %1492, align 8
   %1528 = sub nuw nsw i32 4, %1524
   %1529 = zext nneg i32 %1528 to i64
-  %1530 = getelementptr inbounds nuw [0 x i64], ptr %1492, i64 0, i64 %1529
+  %1530 = getelementptr inbounds nuw i64, ptr %1492, i64 %1529
   %1531 = load i64, ptr %1530, align 8
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %2, ptr noundef nonnull %.076705, i64 noundef %1527, i64 noundef %1531)
   br label %fold_add.exit
@@ -3426,7 +3426,7 @@ swap_commutative.exit.i295:                       ; preds = %1516, %1512
   %1594 = load i32, ptr %.076705, align 8
   %1595 = and i32 %1594, 255
   %1596 = zext nneg i32 %1595 to i64
-  %1597 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1596, i32 1
+  %1597 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1596, i32 1
   %1598 = load i8, ptr %1597, align 8
   %1599 = icmp eq i8 %1598, 1
   call void @llvm.assume(i1 %1599)
@@ -3527,7 +3527,7 @@ fold_xi_to_x.exit.i317:                           ; preds = %arg_is_const_val.ex
   %1650 = load i32, ptr %.076705, align 8
   %1651 = and i32 %1650, 255
   %1652 = zext nneg i32 %1651 to i64
-  %1653 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1652, i32 1
+  %1653 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1652, i32 1
   %1654 = load i8, ptr %1653, align 8
   %.not.i.i309 = icmp eq i8 %1654, 0
   br i1 %.not.i.i309, label %fold_add.exit, label %.lr.ph.i.i310
@@ -3538,7 +3538,7 @@ fold_xi_to_x.exit.i317:                           ; preds = %arg_is_const_val.ex
 
 1655:                                             ; preds = %1655, %.lr.ph.i.i310
   %indvars.iv.i.i312 = phi i64 [ 0, %.lr.ph.i.i310 ], [ %indvars.iv.next.i.i313, %1655 ]
-  %1656 = getelementptr inbounds nuw [0 x i64], ptr %1624, i64 0, i64 %indvars.iv.i.i312
+  %1656 = getelementptr inbounds nuw i64, ptr %1624, i64 %indvars.iv.i.i312
   %1657 = load i64, ptr %1656, align 8
   %1658 = inttoptr i64 %1657 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1658)
@@ -3615,7 +3615,7 @@ swap_commutative.exit.i._crit_edge.i327.thread:   ; preds = %1678, %arg_is_const
   %1689 = load i32, ptr %.076705, align 8
   %1690 = and i32 %1689, 255
   %1691 = zext nneg i32 %1690 to i64
-  %1692 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1691, i32 1
+  %1692 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1691, i32 1
   %1693 = load i8, ptr %1692, align 8
   %.not.i.i330 = icmp eq i8 %1693, 0
   br i1 %.not.i.i330, label %fold_add.exit, label %.lr.ph.i.i331
@@ -3626,7 +3626,7 @@ swap_commutative.exit.i._crit_edge.i327.thread:   ; preds = %1678, %arg_is_const
 
 1694:                                             ; preds = %1694, %.lr.ph.i.i331
   %indvars.iv.i.i333 = phi i64 [ 0, %.lr.ph.i.i331 ], [ %indvars.iv.next.i.i334, %1694 ]
-  %1695 = getelementptr inbounds nuw [0 x i64], ptr %1660, i64 0, i64 %indvars.iv.i.i333
+  %1695 = getelementptr inbounds nuw i64, ptr %1660, i64 %indvars.iv.i.i333
   %1696 = load i64, ptr %1695, align 8
   %1697 = inttoptr i64 %1696 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1697)
@@ -3760,7 +3760,7 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
   %1763 = load i32, ptr %.076705, align 8
   %1764 = and i32 %1763, 255
   %1765 = zext nneg i32 %1764 to i64
-  %1766 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1765, i32 1
+  %1766 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1765, i32 1
   %1767 = load i8, ptr %1766, align 8
   %.not.i.i351 = icmp eq i8 %1767, 0
   br i1 %.not.i.i351, label %fold_add.exit, label %.lr.ph.i.i352
@@ -3771,7 +3771,7 @@ swap_commutative.exit.i348:                       ; preds = %1715, %1712
 
 1768:                                             ; preds = %1768, %.lr.ph.i.i352
   %indvars.iv.i.i354 = phi i64 [ 0, %.lr.ph.i.i352 ], [ %indvars.iv.next.i.i355, %1768 ]
-  %1769 = getelementptr inbounds nuw [0 x i64], ptr %1701, i64 0, i64 %indvars.iv.i.i354
+  %1769 = getelementptr inbounds nuw i64, ptr %1701, i64 %indvars.iv.i.i354
   %1770 = load i64, ptr %1769, align 8
   %1771 = inttoptr i64 %1770 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %1771)
@@ -3894,7 +3894,7 @@ fold_xi_to_not.exit.i375:                         ; preds = %1807, %1805, %1804
   %.val9.i = load i64, ptr %1773, align 8
   %1821 = and i32 %.val.i371, 255
   %1822 = zext nneg i32 %1821 to i64
-  %1823 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1822, i32 1
+  %1823 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1822, i32 1
   %1824 = load i8, ptr %1823, align 8
   %1825 = icmp eq i8 %1824, 1
   call void @llvm.assume(i1 %1825)
@@ -3948,7 +3948,7 @@ fold_const1.exit.i384:                            ; preds = %1838
   %1857 = load i32, ptr %.076705, align 8
   %1858 = and i32 %1857, 255
   %1859 = zext nneg i32 %1858 to i64
-  %1860 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1859, i32 1
+  %1860 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1859, i32 1
   %1861 = load i8, ptr %1860, align 8
   %1862 = icmp eq i8 %1861, 1
   call void @llvm.assume(i1 %1862)
@@ -4099,7 +4099,7 @@ fold_xi_to_not.exit.i404:                         ; preds = %1917, %1915, %1914
   %.val9.i399 = load i64, ptr %1883, align 8
   %1931 = and i32 %.val.i398, 255
   %1932 = zext nneg i32 %1931 to i64
-  %1933 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1932, i32 1
+  %1933 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1932, i32 1
   %1934 = load i8, ptr %1933, align 8
   %1935 = icmp eq i8 %1934, 1
   call void @llvm.assume(i1 %1935)
@@ -4138,7 +4138,7 @@ fold_xi_to_not.exit.i404:                         ; preds = %1917, %1915, %1914
   %1952 = load i32, ptr %.076705, align 8
   %1953 = and i32 %1952, 255
   %1954 = zext nneg i32 %1953 to i64
-  %1955 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1954
+  %1955 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1954
   %1956 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
   %1957 = getelementptr inbounds nuw i8, ptr %1955, i64 8
   %1958 = load i8, ptr %1957, align 8
@@ -4146,8 +4146,8 @@ fold_xi_to_not.exit.i404:                         ; preds = %1917, %1915, %1914
   %1960 = getelementptr inbounds nuw i8, ptr %1955, i64 9
   %1961 = load i8, ptr %1960, align 1
   %1962 = zext i8 %1961 to i64
-  %1963 = add nuw nsw i64 %1962, %1959
-  %1964 = getelementptr inbounds nuw [0 x i64], ptr %1956, i64 0, i64 %1963
+  %1963 = getelementptr inbounds nuw i64, ptr %1956, i64 %1959
+  %1964 = getelementptr inbounds nuw i64, ptr %1963, i64 %1962
   %1965 = load i64, ptr %1964, align 8
   %1966 = trunc i64 %1965 to i32
   %1967 = lshr i32 %1966, 4
@@ -4180,7 +4180,7 @@ fold_qemu_ld_1reg.exit:                           ; preds = %1951, %1973, %1977
   %1981 = load i32, ptr %.076705, align 8
   %1982 = and i32 %1981, 255
   %1983 = zext nneg i32 %1982 to i64
-  %1984 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %1983, i32 1
+  %1984 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %1983, i32 1
   %1985 = load i8, ptr %1984, align 8
   %1986 = icmp eq i8 %1985, 1
   call void @llvm.assume(i1 %1986)
@@ -4214,7 +4214,7 @@ fold_qemu_ld_1reg.exit:                           ; preds = %1951, %1973, %1977
   %2005 = load i32, ptr %.076705, align 8
   %2006 = and i32 %2005, 255
   %2007 = zext nneg i32 %2006 to i64
-  %2008 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2007
+  %2008 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2007
   %2009 = getelementptr inbounds nuw i8, ptr %.076705, i64 32
   %2010 = getelementptr inbounds nuw i8, ptr %2008, i64 8
   %2011 = load i8, ptr %2010, align 8
@@ -4222,8 +4222,8 @@ fold_qemu_ld_1reg.exit:                           ; preds = %1951, %1973, %1977
   %2013 = getelementptr inbounds nuw i8, ptr %2008, i64 9
   %2014 = load i8, ptr %2013, align 1
   %2015 = zext i8 %2014 to i64
-  %2016 = add nuw nsw i64 %2015, %2012
-  %2017 = getelementptr inbounds nuw [0 x i64], ptr %2009, i64 0, i64 %2016
+  %2016 = getelementptr inbounds nuw i64, ptr %2009, i64 %2012
+  %2017 = getelementptr inbounds nuw i64, ptr %2016, i64 %2015
   %2018 = load i64, ptr %2017, align 8
   %2019 = trunc i64 %2018 to i32
   %2020 = lshr i32 %2019, 4
@@ -4256,7 +4256,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
   %2034 = load i32, ptr %.076705, align 8
   %2035 = and i32 %2034, 255
   %2036 = zext nneg i32 %2035 to i64
-  %2037 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2036, i32 1
+  %2037 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2036, i32 1
   %2038 = load i8, ptr %2037, align 8
   %2039 = icmp eq i8 %2038, 1
   call void @llvm.assume(i1 %2039)
@@ -4291,7 +4291,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
   %2058 = load i32, ptr %.076705, align 8
   %2059 = and i32 %2058, 255
   %2060 = zext nneg i32 %2059 to i64
-  %2061 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2060, i32 1
+  %2061 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2060, i32 1
   %2062 = load i8, ptr %2061, align 8
   %.not.i.i425 = icmp eq i8 %2062, 0
   br i1 %.not.i.i425, label %fold_add.exit, label %.lr.ph.i.i426
@@ -4303,7 +4303,7 @@ fold_qemu_ld_1reg.exit424:                        ; preds = %2004, %2026, %2030
 
 2064:                                             ; preds = %2064, %.lr.ph.i.i426
   %indvars.iv.i.i428 = phi i64 [ 0, %.lr.ph.i.i426 ], [ %indvars.iv.next.i.i429, %2064 ]
-  %2065 = getelementptr inbounds nuw [0 x i64], ptr %2063, i64 0, i64 %indvars.iv.i.i428
+  %2065 = getelementptr inbounds nuw i64, ptr %2063, i64 %indvars.iv.i.i428
   %2066 = load i64, ptr %2065, align 8
   %2067 = inttoptr i64 %2066 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2067)
@@ -4381,7 +4381,7 @@ fold_const2.exit.i447:                            ; preds = %2079
   %2100 = load i32, ptr %.076705, align 8
   %2101 = and i32 %2100, 255
   %2102 = zext nneg i32 %2101 to i64
-  %2103 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2102, i32 1
+  %2103 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2102, i32 1
   %2104 = load i8, ptr %2103, align 8
   %.not.i.i438 = icmp eq i8 %2104, 0
   br i1 %.not.i.i438, label %fold_add.exit, label %.lr.ph.i.i439
@@ -4392,7 +4392,7 @@ fold_const2.exit.i447:                            ; preds = %2079
 
 2105:                                             ; preds = %2105, %.lr.ph.i.i439
   %indvars.iv.i.i441 = phi i64 [ 0, %.lr.ph.i.i439 ], [ %indvars.iv.next.i.i442, %2105 ]
-  %2106 = getelementptr inbounds nuw [0 x i64], ptr %2070, i64 0, i64 %indvars.iv.i.i441
+  %2106 = getelementptr inbounds nuw i64, ptr %2070, i64 %indvars.iv.i.i441
   %2107 = load i64, ptr %2106, align 8
   %2108 = inttoptr i64 %2107 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2108)
@@ -4482,7 +4482,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   %2153 = load i32, ptr %.076705, align 8
   %2154 = and i32 %2153, 255
   %2155 = zext nneg i32 %2154 to i64
-  %2156 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2155, i32 1
+  %2156 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2155, i32 1
   %2157 = load i8, ptr %2156, align 8
   %2158 = icmp eq i8 %2157, 1
   call void @llvm.assume(i1 %2158)
@@ -4539,7 +4539,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   %.val37.i = load i64, ptr %2112, align 8
   %2186 = and i32 %2184, 255
   %2187 = zext nneg i32 %2186 to i64
-  %2188 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2187, i32 1
+  %2188 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2187, i32 1
   %2189 = load i8, ptr %2188, align 8
   %2190 = icmp eq i8 %2189, 1
   call void @llvm.assume(i1 %2190)
@@ -4574,7 +4574,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   %.val39.i = load i64, ptr %2112, align 8
   %2209 = and i32 %2184, 255
   %2210 = zext nneg i32 %2209 to i64
-  %2211 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2210, i32 1
+  %2211 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2210, i32 1
   %2212 = load i8, ptr %2211, align 8
   %2213 = icmp eq i8 %2212, 1
   call void @llvm.assume(i1 %2213)
@@ -4600,7 +4600,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
 2226:                                             ; preds = %2203, %.thread
   %2227 = and i32 %2184, 255
   %2228 = zext nneg i32 %2227 to i64
-  %2229 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2228, i32 1
+  %2229 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2228, i32 1
   %2230 = load i8, ptr %2229, align 8
   %.not.i.i452 = icmp eq i8 %2230, 0
   br i1 %.not.i.i452, label %fold_add.exit, label %.lr.ph.i.i453
@@ -4611,7 +4611,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
 
 2231:                                             ; preds = %2231, %.lr.ph.i.i453
   %indvars.iv.i.i455 = phi i64 [ 0, %.lr.ph.i.i453 ], [ %indvars.iv.next.i.i456, %2231 ]
-  %2232 = getelementptr inbounds nuw [0 x i64], ptr %2112, i64 0, i64 %indvars.iv.i.i455
+  %2232 = getelementptr inbounds nuw i64, ptr %2112, i64 %indvars.iv.i.i455
   %2233 = load i64, ptr %2232, align 8
   %2234 = inttoptr i64 %2233 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2234)
@@ -4659,7 +4659,7 @@ fold_xi_to_x.exit.i463:                           ; preds = %arg_is_const_val.ex
   %.val21.i = load i64, ptr %2237, align 8
   %2256 = and i32 %.val.i468, 255
   %2257 = zext nneg i32 %2256 to i64
-  %2258 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2257, i32 1
+  %2258 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2257, i32 1
   %2259 = load i8, ptr %2258, align 8
   %2260 = icmp eq i8 %2259, 1
   call void @llvm.assume(i1 %2260)
@@ -4821,7 +4821,7 @@ arg_is_const_val.exit.thread.i470:                ; preds = %arg_is_const_val.ex
   %2336 = load i32, ptr %.076705, align 8
   %2337 = and i32 %2336, 255
   %2338 = zext nneg i32 %2337 to i64
-  %2339 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2338, i32 1
+  %2339 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2338, i32 1
   %2340 = load i8, ptr %2339, align 8
   %2341 = icmp eq i8 %2340, 1
   call void @llvm.assume(i1 %2341)
@@ -4882,7 +4882,7 @@ swap_commutative.exit.i484:                       ; preds = %2364, %2361
   %2370 = load i32, ptr %.076705, align 8
   %2371 = and i32 %2370, 255
   %2372 = zext nneg i32 %2371 to i64
-  %2373 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2372, i32 1
+  %2373 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2372, i32 1
   %2374 = load i8, ptr %2373, align 8
   %.not.i.i485 = icmp eq i8 %2374, 0
   br i1 %.not.i.i485, label %fold_add.exit, label %.lr.ph.i.i486
@@ -4894,7 +4894,7 @@ swap_commutative.exit.i484:                       ; preds = %2364, %2361
 
 2376:                                             ; preds = %2376, %.lr.ph.i.i486
   %indvars.iv.i.i488 = phi i64 [ 0, %.lr.ph.i.i486 ], [ %indvars.iv.next.i.i489, %2376 ]
-  %2377 = getelementptr inbounds nuw [0 x i64], ptr %2375, i64 0, i64 %indvars.iv.i.i488
+  %2377 = getelementptr inbounds nuw i64, ptr %2375, i64 %indvars.iv.i.i488
   %2378 = load i64, ptr %2377, align 8
   %2379 = inttoptr i64 %2378 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2379)
@@ -5012,7 +5012,7 @@ swap_commutative.exit24.i:                        ; preds = %2425, %2421
   %2430 = load i32, ptr %.076705, align 8
   %2431 = and i32 %2430, 255
   %2432 = zext nneg i32 %2431 to i64
-  %2433 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2432, i32 1
+  %2433 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2432, i32 1
   %2434 = load i8, ptr %2433, align 8
   %.not.i.i509 = icmp eq i8 %2434, 0
   br i1 %.not.i.i509, label %fold_add.exit, label %.lr.ph.i.i510
@@ -5023,7 +5023,7 @@ swap_commutative.exit24.i:                        ; preds = %2425, %2421
 
 2435:                                             ; preds = %2435, %.lr.ph.i.i510
   %indvars.iv.i.i512 = phi i64 [ 0, %.lr.ph.i.i510 ], [ %indvars.iv.next.i.i513, %2435 ]
-  %2436 = getelementptr inbounds nuw [0 x i64], ptr %2381, i64 0, i64 %indvars.iv.i.i512
+  %2436 = getelementptr inbounds nuw i64, ptr %2381, i64 %indvars.iv.i.i512
   %2437 = load i64, ptr %2436, align 8
   %2438 = inttoptr i64 %2437 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2438)
@@ -5202,7 +5202,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   %2515 = load i32, ptr %.076705, align 8
   %2516 = and i32 %2515, 255
   %2517 = zext nneg i32 %2516 to i64
-  %2518 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2517, i32 1
+  %2518 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2517, i32 1
   %2519 = load i8, ptr %2518, align 8
   %.not.i.i529 = icmp eq i8 %2519, 0
   br i1 %.not.i.i529, label %fold_add.exit, label %.lr.ph.i.i530
@@ -5213,7 +5213,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
 
 2520:                                             ; preds = %2520, %.lr.ph.i.i530
   %indvars.iv.i.i532 = phi i64 [ 0, %.lr.ph.i.i530 ], [ %indvars.iv.next.i.i533, %2520 ]
-  %2521 = getelementptr inbounds nuw [0 x i64], ptr %2440, i64 0, i64 %indvars.iv.i.i532
+  %2521 = getelementptr inbounds nuw i64, ptr %2440, i64 %indvars.iv.i.i532
   %2522 = load i64, ptr %2521, align 8
   %2523 = inttoptr i64 %2522 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2523)
@@ -5339,7 +5339,7 @@ sextract64.exit37.i:                              ; preds = %.split27.i
   %2590 = load i32, ptr %.076705, align 8
   %2591 = and i32 %2590, 255
   %2592 = zext nneg i32 %2591 to i64
-  %2593 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2592, i32 1
+  %2593 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2592, i32 1
   %2594 = load i8, ptr %2593, align 8
   %2595 = icmp eq i8 %2594, 1
   call void @llvm.assume(i1 %2595)
@@ -5500,7 +5500,7 @@ fold_xi_to_x.exit.i572:                           ; preds = %arg_is_const_val.ex
   %2677 = load i32, ptr %.076705, align 8
   %2678 = and i32 %2677, 255
   %2679 = zext nneg i32 %2678 to i64
-  %2680 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2679, i32 1
+  %2680 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2679, i32 1
   %2681 = load i8, ptr %2680, align 8
   %.not.i.i564 = icmp eq i8 %2681, 0
   br i1 %.not.i.i564, label %fold_add.exit, label %.lr.ph.i.i565
@@ -5511,7 +5511,7 @@ fold_xi_to_x.exit.i572:                           ; preds = %arg_is_const_val.ex
 
 2682:                                             ; preds = %2682, %.lr.ph.i.i565
   %indvars.iv.i.i567 = phi i64 [ 0, %.lr.ph.i.i565 ], [ %indvars.iv.next.i.i568, %2682 ]
-  %2683 = getelementptr inbounds nuw [0 x i64], ptr %2621, i64 0, i64 %indvars.iv.i.i567
+  %2683 = getelementptr inbounds nuw i64, ptr %2621, i64 %indvars.iv.i.i567
   %2684 = load i64, ptr %2683, align 8
   %2685 = inttoptr i64 %2684 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2685)
@@ -5590,7 +5590,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   %2715 = load i32, ptr %.076705, align 8
   %2716 = and i32 %2715, 255
   %2717 = zext nneg i32 %2716 to i64
-  %2718 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2717, i32 1
+  %2718 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2717, i32 1
   %2719 = load i8, ptr %2718, align 8
   %.not.i.i588 = icmp eq i8 %2719, 0
   br i1 %.not.i.i588, label %fold_add.exit, label %.lr.ph.i.i589
@@ -5602,7 +5602,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
 
 2721:                                             ; preds = %2721, %.lr.ph.i.i589
   %indvars.iv.i.i591 = phi i64 [ 0, %.lr.ph.i.i589 ], [ %indvars.iv.next.i.i592, %2721 ]
-  %2722 = getelementptr inbounds nuw [0 x i64], ptr %2720, i64 0, i64 %indvars.iv.i.i591
+  %2722 = getelementptr inbounds nuw i64, ptr %2720, i64 %indvars.iv.i.i591
   %2723 = load i64, ptr %2722, align 8
   %2724 = inttoptr i64 %2723 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2724)
@@ -5692,7 +5692,7 @@ finish_ebb.exit:                                  ; preds = %2752, %2727
   %2758 = load i32, ptr %.076705, align 8
   %2759 = and i32 %2758, 255
   %2760 = zext nneg i32 %2759 to i64
-  %2761 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %2760, i32 1
+  %2761 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %2760, i32 1
   %2762 = load i8, ptr %2761, align 8
   %.not.i607 = icmp eq i8 %2762, 0
   br i1 %.not.i607, label %fold_add.exit, label %.lr.ph.i608
@@ -5704,7 +5704,7 @@ finish_ebb.exit:                                  ; preds = %2752, %2727
 
 2764:                                             ; preds = %2764, %.lr.ph.i608
   %indvars.iv.i610 = phi i64 [ 0, %.lr.ph.i608 ], [ %indvars.iv.next.i611, %2764 ]
-  %2765 = getelementptr inbounds nuw [0 x i64], ptr %2763, i64 0, i64 %indvars.iv.i610
+  %2765 = getelementptr inbounds nuw i64, ptr %2763, i64 %indvars.iv.i610
   %2766 = load i64, ptr %2765, align 8
   %2767 = inttoptr i64 %2766 to ptr
   call fastcc void @reset_ts(ptr noundef nonnull %2, ptr noundef %2767)
@@ -5890,7 +5890,7 @@ fold_affected_mask.exit:                          ; preds = %.loopexit.fold_affe
   %77 = load i32, ptr %1, align 8
   %78 = and i32 %77, 255
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %79, i32 1
+  %80 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %79, i32 1
   %81 = load i8, ptr %80, align 8
   %82 = icmp eq i8 %81, 1
   tail call void @llvm.assume(i1 %82)
@@ -6110,7 +6110,7 @@ fold_affected_mask.exit:                          ; preds = %60
   %77 = load i32, ptr %1, align 8
   %78 = and i32 %77, 255
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %79, i32 1
+  %80 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %79, i32 1
   %81 = load i8, ptr %80, align 8
   %82 = icmp eq i8 %81, 1
   tail call void @llvm.assume(i1 %82)
@@ -6501,7 +6501,7 @@ fold_const1.exit:                                 ; preds = %2
   %.val6 = load i64, ptr %20, align 8
   %21 = and i32 %.val, 255
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %22, i32 1
+  %23 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %22, i32 1
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 1
   tail call void @llvm.assume(i1 %25)
@@ -6659,7 +6659,7 @@ fold_xx_to_x.exit:                                ; preds = %.lr.ph.i.i.i, %41
   %63 = load i32, ptr %1, align 8
   %64 = and i32 %63, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %65, i32 1
+  %66 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %65, i32 1
   %67 = load i8, ptr %66, align 8
   %68 = icmp eq i8 %67, 1
   tail call void @llvm.assume(i1 %68)
@@ -6849,7 +6849,7 @@ fold_ix_to_not.exit:                              ; preds = %45, %48, %50
   %.val13 = load i64, ptr %3, align 8
   %63 = and i32 %.val, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %64, i32 1
+  %65 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %64, i32 1
   %66 = load i8, ptr %65, align 8
   %67 = icmp eq i8 %66, 1
   tail call void @llvm.assume(i1 %67)
@@ -6913,7 +6913,7 @@ define internal fastcc void @fold_setcond(ptr noundef nonnull %0, ptr noundef no
   %21 = load i32, ptr %1, align 8
   %22 = and i32 %21, 255
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %23, i32 1
+  %24 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %23, i32 1
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 1
   tail call void @llvm.assume(i1 %26)
@@ -7101,7 +7101,7 @@ fold_xi_to_not.exit:                              ; preds = %55, %58, %60
   %77 = load i32, ptr %1, align 8
   %78 = and i32 %77, 255
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %79, i32 1
+  %80 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %79, i32 1
   %81 = load i8, ptr %80, align 8
   %82 = icmp eq i8 %81, 1
   tail call void @llvm.assume(i1 %82)
@@ -7787,7 +7787,7 @@ ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
 
 switch.lookup:                                    ; preds = %.loopexit
   %25 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.tcg_opt_gen_mov, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tcg_opt_gen_mov, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = load i32, ptr %1, align 8
   %27 = and i32 %26, -256
@@ -8144,7 +8144,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   %88 = load i32, ptr %1, align 8
   %89 = and i32 %88, 255
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %90, i32 1
+  %91 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %90, i32 1
   %92 = load i8, ptr %91, align 8
   %.not.i = icmp eq i8 %92, 0
   br i1 %.not.i, label %finish_folding.exit, label %.lr.ph.i
@@ -8155,7 +8155,7 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
 
 93:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
-  %94 = getelementptr inbounds nuw [0 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   %95 = load i64, ptr %94, align 8
   %96 = inttoptr i64 %95 to ptr
   tail call fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %96)
@@ -8545,24 +8545,24 @@ arg_is_const_val.exit:                            ; preds = %.loopexit
   br i1 %91, label %92, label %do_constant_folding_cond_eq.exit
 
 92:                                               ; preds = %arg_is_const_val.exit
-  %switch.tableidx29 = add i32 %3, -10
-  %93 = icmp ult i32 %switch.tableidx29, 4
-  br i1 %93, label %switch.lookup28, label %do_constant_folding_cond_eq.exit
+  %switch.tableidx28 = add i32 %3, -10
+  %93 = icmp ult i32 %switch.tableidx28, 4
+  br i1 %93, label %switch.lookup29, label %do_constant_folding_cond_eq.exit
 
 switch.lookup:                                    ; preds = %args_are_copies.exit
   %94 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.do_constant_folding_cond, i64 0, i64 %94
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.do_constant_folding_cond, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %do_constant_folding_cond_eq.exit
 
-switch.lookup28:                                  ; preds = %92
-  %95 = zext nneg i32 %switch.tableidx29 to i64
-  %switch.gep30 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %95
+switch.lookup29:                                  ; preds = %92
+  %95 = zext nneg i32 %switch.tableidx28 to i64
+  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table.do_constant_folding_cond2, i64 %95
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %do_constant_folding_cond_eq.exit
 
-do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup28, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
-  %.1 = phi i32 [ %47, %do_constant_folding_cond_32.exit ], [ %76, %do_constant_folding_cond_64.exit ], [ -1, %12 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ %switch.load, %switch.lookup ], [ %switch.load31, %switch.lookup28 ], [ -1, %92 ]
+do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup29, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
+  %.1 = phi i32 [ %47, %do_constant_folding_cond_32.exit ], [ %76, %do_constant_folding_cond_64.exit ], [ -1, %12 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ %switch.load, %switch.lookup ], [ %switch.load31, %switch.lookup29 ], [ -1, %92 ]
   ret i32 %.1
 }
 
@@ -8884,7 +8884,7 @@ do_constant_folding_cond_eq.exit:                 ; preds = %args_are_copies.exi
 
 switch.lookup:                                    ; preds = %93
   %140 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.do_constant_folding_cond2, i64 0, i64 %140
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.do_constant_folding_cond2, i64 %140
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -9046,7 +9046,7 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.fold_setcond_zmask, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.fold_setcond_zmask, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = load i64, ptr %4, align 8
   %32 = sub nsw i32 0, %switch.load
@@ -9359,7 +9359,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   %27 = and i64 %25, %26
   %28 = sub i64 0, %27
   %29 = zext nneg i32 %.010 to i64
-  %30 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %29, i32 1
+  %30 = getelementptr inbounds nuw %struct.TCGOpDef, ptr @tcg_op_defs, i64 %29, i32 1
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 1
   tail call void @llvm.assume(i1 %32)

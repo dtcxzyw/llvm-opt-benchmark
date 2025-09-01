@@ -746,7 +746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit38: ; preds
   store i32 %95, ptr %18, align 8, !tbaa !65
   %96 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
   %97 = zext i32 %1 to i64
-  %98 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !91
   %100 = sext i32 %99 to i64
   %101 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %96, i64 noundef %100, i1 noundef zeroext false) #9

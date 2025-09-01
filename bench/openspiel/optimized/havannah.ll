@@ -1373,7 +1373,7 @@ define noundef i32 @_ZNK10open_spiel8havannah13HavannahState4Cell10NumCornersEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i8, ptr %2, align 2
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [64 x i32], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -1383,7 +1383,7 @@ define noundef i32 @_ZNK10open_spiel8havannah13HavannahState4Cell8NumEdgesEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw [64 x i32], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -1620,7 +1620,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.pr
 
 113:                                              ; preds = %113, %110
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %113 ], [ 0, %110 ]
-  %114 = getelementptr inbounds nuw [6 x %"struct.open_spiel::havannah::Move"], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_116neighbor_offsetsE, i64 0, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw %"struct.open_spiel::havannah::Move", ptr @_ZN10open_spiel8havannah12_GLOBAL__N_116neighbor_offsetsE, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.us.i.i = load i8, ptr %114, align 2, !noalias !6
   %.sroa.2.0..sroa_idx.us.i.i = getelementptr inbounds nuw i8, ptr %114, i64 1
   %.sroa.2.0.copyload.us.i.i = load i8, ptr %.sroa.2.0..sroa_idx.us.i.i, align 1, !noalias !6
@@ -1645,7 +1645,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.pr
   %129 = load ptr, ptr %6, align 8, !alias.scope !6
   %130 = getelementptr %"struct.std::array.35", ptr %129, i64 %indvars.iv30.i.i
   %131 = getelementptr %"struct.std::array.35", ptr %130, i64 %108
-  %132 = getelementptr inbounds nuw [6 x %"struct.open_spiel::havannah::Move"], ptr %131, i64 0, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw %"struct.open_spiel::havannah::Move", ptr %131, i64 %indvars.iv.i.i
   %133 = shl i32 %128, 16
   %.sroa.3.0.insert.shift.us.i.i = select i1 %or.cond27.i.i.us.i.i, i32 %133, i32 -131072
   %.sroa.2.0.insert.ext.us.i.i = shl i32 %118, 8
@@ -3894,7 +3894,7 @@ _ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit: ; preds = 
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %.06.i, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ %66, %67 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ 1, %67 ]
   %.078.i.i = phi i32 [ 0, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ %72, %67 ]
-  %69 = getelementptr inbounds nuw [2 x i32], ptr %40, i64 0, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i.i
   %70 = load i32, ptr %69, align 4
   %71 = mul nsw i32 %70, %.078.i.i
   %72 = add nsw i32 %71, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -4716,7 +4716,7 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFS
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr inbounds %"struct.std::array.35", ptr %29, i64 %28
   %31 = sext i32 %25 to i64
-  %32 = getelementptr inbounds [6 x %"struct.open_spiel::havannah::Move"], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds %"struct.open_spiel::havannah::Move", ptr %30, i64 %31
   %33 = add nsw i32 %25, -1
   %34 = add nsw i32 %25, 1
   %35 = tail call noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFSERKNS0_4MoveEii(ptr noundef nonnull align 8 dereferenceable(122) %0, ptr noundef nonnull align 2 dereferenceable(4) %32, i32 noundef %33, i32 noundef %34)

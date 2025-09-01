@@ -2231,7 +2231,7 @@ _ZN11QStringListlsERK7QString.exit234:            ; preds = %_ZN11QStringListlsE
   %259 = icmp eq i32 %258, 10
   %260 = select i1 %259, i32 0, i32 %258
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw [10 x %class.QString], ptr @_ZN16TransferFunction10defaultTFsE, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw %class.QString, ptr @_ZN16TransferFunction10defaultTFsE, i64 %261
   invoke void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %262)
           to label %_ZN11QStringListlsERK7QString.exit234 unwind label %.loopexit
 

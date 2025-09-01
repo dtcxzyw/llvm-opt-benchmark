@@ -86,7 +86,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %32 to i64
-  %43 = getelementptr [10 x i32], ptr %2, i64 0, i64 %42
+  %43 = getelementptr i32, ptr %2, i64 %42
   store i32 %41, ptr %43, align 4
   br label %20
 
@@ -96,7 +96,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %26 to i64
-  %48 = getelementptr [10 x i32], ptr %2, i64 0, i64 %47
+  %48 = getelementptr i32, ptr %2, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -110,10 +110,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 54:                                               ; preds = %52
   %55 = add nsw i32 %26, -1
   %56 = zext nneg i32 %26 to i64
-  %57 = getelementptr [10 x i32], ptr %2, i64 0, i64 %56
+  %57 = getelementptr i32, ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr [10 x i32], ptr %2, i64 0, i64 %59
+  %60 = getelementptr i32, ptr %2, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, %58
   store i32 %62, ptr %60, align 4
@@ -126,10 +126,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 65:                                               ; preds = %63
   %66 = add nsw i32 %26, -1
   %67 = zext nneg i32 %26 to i64
-  %68 = getelementptr [10 x i32], ptr %2, i64 0, i64 %67
+  %68 = getelementptr i32, ptr %2, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr [10 x i32], ptr %2, i64 0, i64 %70
+  %71 = getelementptr i32, ptr %2, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, %69
   store i32 %73, ptr %71, align 4
@@ -142,10 +142,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 76:                                               ; preds = %74
   %77 = add nsw i32 %26, -1
   %78 = zext nneg i32 %26 to i64
-  %79 = getelementptr [10 x i32], ptr %2, i64 0, i64 %78
+  %79 = getelementptr i32, ptr %2, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = zext nneg i32 %77 to i64
-  %82 = getelementptr [10 x i32], ptr %2, i64 0, i64 %81
+  %82 = getelementptr i32, ptr %2, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = xor i32 %83, %80
   store i32 %84, ptr %82, align 4
@@ -158,10 +158,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 87:                                               ; preds = %85
   %88 = add nsw i32 %26, -1
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr [10 x i32], ptr %2, i64 0, i64 %89
+  %90 = getelementptr i32, ptr %2, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = zext nneg i32 %26 to i64
-  %93 = getelementptr [10 x i32], ptr %2, i64 0, i64 %92
+  %93 = getelementptr i32, ptr %2, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %91, %94
   %96 = zext i1 %95 to i32
@@ -175,10 +175,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 99:                                               ; preds = %97
   %100 = add nsw i32 %26, -1
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr [10 x i32], ptr %2, i64 0, i64 %101
+  %102 = getelementptr i32, ptr %2, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = zext nneg i32 %26 to i64
-  %105 = getelementptr [10 x i32], ptr %2, i64 0, i64 %104
+  %105 = getelementptr i32, ptr %2, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = icmp ne i32 %103, %106
   %108 = zext i1 %107 to i32

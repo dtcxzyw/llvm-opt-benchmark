@@ -1913,7 +1913,7 @@ Vec_StrPush.exit23.i:                             ; preds = %136, %Vec_StrGrow.e
   %.11531.i = phi i32 [ %148, %144 ], [ %.11531.i.ph, %.preheader ]
   %145 = urem i32 %.11531.i, 10
   %146 = trunc nuw nsw i32 %145 to i8
-  %147 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %146, ptr %147, align 1, !tbaa !69
   %148 = udiv i32 %.11531.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1924,7 +1924,7 @@ Vec_StrPush.exit23.i:                             ; preds = %136, %Vec_StrGrow.e
 149:                                              ; preds = %Vec_StrPush.exit30.i, %.preheader.i
   %indvars.iv37.i = phi i64 [ %indvars.iv35.i, %.preheader.i ], [ %indvars.iv.next38.i, %Vec_StrPush.exit30.i ]
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, -1
-  %150 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv.next38.i
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next38.i
   %151 = load i8, ptr %150, align 1, !tbaa !69
   %152 = add i8 %151, 48
   %153 = load i32, ptr %8, align 4, !tbaa !65
@@ -4401,7 +4401,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = zext nneg i32 %1 to i64
-  %51 = getelementptr inbounds nuw [8 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !38
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %51, align 4, !tbaa !38
@@ -7544,7 +7544,7 @@ declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #1
 define void @Str_MuxDelayPrint_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.Str_Edg_t_, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !136
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %common.ret, label %13
@@ -7612,7 +7612,7 @@ common.ret21:                                     ; preds = %32, %common.ret
 define i32 @Str_MuxDelayEdge_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.Str_Edg_t_, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !136
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %._crit_edge
@@ -7718,7 +7718,7 @@ define void @Str_MuxCreate(ptr noundef writeonly captures(none) initializes((12,
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %28 = load i32, ptr %gep, align 4, !tbaa !38
   %29 = and i32 %28, 1
-  %30 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %25, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %25, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %29, ptr %31, align 4, !tbaa !141
   %32 = load i32, ptr %gep, align 4, !tbaa !38
@@ -7773,7 +7773,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define i32 @Str_MuxToGia_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.Str_Edg_t_, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !136
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %Str_ObjDelay.exit
@@ -7976,7 +7976,7 @@ define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readon
   %51 = getelementptr inbounds %struct.Str_Mux_t_, ptr %0, i64 %50, i32 4
   %52 = and i32 %48, 1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %51, i64 0, i64 %53, i32 1
+  %54 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %51, i64 %53, i32 1
   %55 = load i32, ptr %54, align 4, !tbaa !141
   %56 = xor i32 %55, %.0107
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -7989,7 +7989,7 @@ define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readon
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %58 = xor i32 %45, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %57, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !136
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !141
@@ -7999,7 +7999,7 @@ define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readon
   %67 = load i32, ptr %66, align 4, !tbaa !145
   %68 = getelementptr inbounds %struct.Str_Mux_t_, ptr %0, i64 %31, i32 4
   %69 = zext nneg i32 %43 to i64
-  %70 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %68, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !136
   store i32 %71, ptr %60, align 4, !tbaa !136
   store i32 0, ptr %62, align 4, !tbaa !141
@@ -8007,7 +8007,7 @@ define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %72, ptr %70, align 4, !tbaa !136
   %73 = getelementptr inbounds %struct.Str_Mux_t_, ptr %0, i64 %37, i32 4
   %74 = zext nneg i32 %44 to i64
-  %75 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %73, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %73, i64 %74
   store i32 %61, ptr %75, align 4, !tbaa !136
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !141
@@ -8245,7 +8245,7 @@ define void @Str_MuxChangeUndo(ptr noundef writeonly captures(none) %0, ptr noun
 define range(i32 0, 2) i32 @Str_MuxFindPathEdge_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds %struct.Str_Edg_t_, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !136
   %9 = icmp sgt i32 %8, 0
   %.pre19 = load i32, ptr %0, align 4, !tbaa !139
@@ -8357,7 +8357,7 @@ define range(i32 -1, 2) i32 @Str_MuxFindPath_rec(ptr noundef readonly captures(n
 define ptr @Str_MuxFindBranching(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.Str_Edg_t_, ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !136
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %.loopexit, label %.sink.split
@@ -8481,13 +8481,13 @@ define range(i32 0, 2) i32 @Str_MuxTryOnce(ptr noundef %0, ptr readnone captures
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %41 = xor i32 %39, 1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %47 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %31, i32 4
   %48 = zext nneg i32 %38 to i64
-  %49 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -8516,7 +8516,7 @@ define range(i32 0, 2) i32 @Str_MuxTryOnce(ptr noundef %0, ptr readnone captures
   %66 = load i32, ptr %46, align 4, !tbaa !145
   %67 = getelementptr inbounds %struct.Str_Mux_t_, ptr %2, i64 %59, i32 4
   %68 = zext nneg i32 %61 to i64
-  %69 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %67, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !136
   store i32 %70, ptr %43, align 4, !tbaa !136
   store i32 0, ptr %44, align 4, !tbaa !141
@@ -8647,7 +8647,7 @@ Str_MuxChangeOnce.exit:                           ; preds = %75, %._crit_edge.i
 define range(i32 0, 2) i32 @Str_MuxRestruct_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.Str_Edg_t_, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !136
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %.thread, label %.sink.split
@@ -8766,7 +8766,7 @@ define i32 @Str_MuxRestructure2(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %32 = load i32, ptr %gep.i, align 4, !tbaa !38
   %33 = and i32 %32, 1
-  %34 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %29, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %29, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %33, ptr %35, align 4, !tbaa !141
   %36 = ashr i32 %32, 1
@@ -8892,7 +8892,7 @@ define i32 @Str_MuxRestructure1(ptr noundef %0, ptr noundef captures(none) %1, i
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %32 = load i32, ptr %gep.i, align 4, !tbaa !38
   %33 = and i32 %32, 1
-  %34 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %29, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %29, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %33, ptr %35, align 4, !tbaa !141
   %36 = ashr i32 %32, 1
@@ -9018,7 +9018,7 @@ define i32 @Str_MuxRestructureArea(ptr noundef %0, ptr noundef readonly captures
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %32 = load i32, ptr %gep.i, align 4, !tbaa !38
   %33 = and i32 %32, 1
-  %34 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %29, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %29, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %33, ptr %35, align 4, !tbaa !141
   %36 = ashr i32 %32, 1
@@ -9216,7 +9216,7 @@ define range(i32 -2147483647, 3) i32 @Str_MuxRestructArea_rec(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [3 x %struct.Str_Edg_t_], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.Str_Edg_t_, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !136
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %77, label %13
@@ -9256,7 +9256,7 @@ define range(i32 -2147483647, 3) i32 @Str_MuxRestructArea_rec(ptr noundef %0, pt
   %36 = getelementptr inbounds %struct.Str_Mux_t_, ptr %19, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %38 = zext i1 %30 to i64
-  %39 = getelementptr inbounds nuw [3 x %struct.Str_Edg_t_], ptr %37, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %struct.Str_Edg_t_, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !136
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds %struct.Str_Mux_t_, ptr %36, i64 %41

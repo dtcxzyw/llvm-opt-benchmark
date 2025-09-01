@@ -2981,13 +2981,13 @@ define noundef range(i32 24, 146) i32 @_ZN11DataPrinter8hexCharsEv() local_unnam
 
 switch.lookup:                                    ; preds = %0
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN11DataPrinter8hexCharsEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = zext nneg i32 %1 to i64
-  %switch.gep4 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN11DataPrinter8hexCharsEv.1, i64 0, i64 %5
+  %switch.gep4 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv.1, i64 %5
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %6 = zext nneg i32 %1 to i64
-  %switch.gep6 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN11DataPrinter8hexCharsEv.2, i64 0, i64 %6
+  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv.2, i64 %6
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   %7 = mul nuw nsw i32 %switch.load7, %switch.load5
   %8 = or disjoint i32 %7, %switch.load

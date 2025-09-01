@@ -118,7 +118,7 @@ sub_1121:                                         ; preds = %sub_1, %sub_0120.th
 
 .split.us:                                        ; preds = %38, %53
   %indvars.iv153 = phi i64 [ %indvars.iv.next154.pre-phi, %53 ], [ 0, %38 ]
-  %42 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv153
+  %42 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %indvars.iv153
   %43 = load ptr, ptr %42, align 16, !tbaa !13
   br label %44
 
@@ -165,7 +165,7 @@ isTestSkipped.exit.thread.loopexit.us:            ; preds = %49
 isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.exit.thread
   %68 = phi i1 [ false, %isTestSkipped.exit.thread ], [ true, %38 ]
   %indvars.iv150 = phi i64 [ 1, %isTestSkipped.exit.thread ], [ 0, %38 ]
-  %69 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv150
+  %69 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %indvars.iv150
   %70 = load ptr, ptr %69, align 16, !tbaa !13
   %71 = tail call i64 @clock() #12
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -235,7 +235,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   %indvars.iv144 = phi i64 [ 0, %.lr.ph ], [ 1, %142 ]
   %.172128 = phi i32 [ %.071174, %.lr.ph ], [ %.2, %142 ]
   %.174127 = phi ptr [ %.073170, %.lr.ph ], [ %.275, %142 ]
-  %110 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv144
+  %110 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %indvars.iv144
   %111 = load ptr, ptr %110, align 16, !tbaa !13
   %112 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %111) #11
   %113 = add i64 %112, 1
@@ -321,7 +321,7 @@ lowercase.exit102:                                ; preds = %120, %108, %116
 
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa194 to i64
-  %151 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %150, i32 1
+  %151 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %150, i32 1
   %152 = load ptr, ptr %151, align 8, !tbaa !18
   %153 = call i32 %152(i32 noundef %.172.lcssa196, ptr noundef %.174.lcssa195) #12
   br label %159

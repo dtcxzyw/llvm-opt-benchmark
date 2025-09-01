@@ -2053,7 +2053,7 @@ define void @_ZN5faiss20fourcc_inv_printableB5cxx11Ej(ptr dead_on_unwind noalias
 
 7:                                                ; preds = %._crit_edge.i.i, %38
   %indvars.iv = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next, %38 ]
-  %8 = getelementptr inbounds nuw [5 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !14
   %10 = add i8 %9, -32
   %or.cond = icmp ult i8 %10, 95

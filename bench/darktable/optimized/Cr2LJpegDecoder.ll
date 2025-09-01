@@ -461,7 +461,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.0116, label %51, label %43
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %42, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %42, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !124
   %.not59 = icmp eq i32 %46, 1
@@ -537,7 +537,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.040120, label %81, label %90
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds nuw [4 x %"struct.rawspeed::JpegComponentInfo"], ptr %42, i64 0, i64 %indvars.iv125
+  %82 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %42, i64 %indvars.iv125
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !124
   %85 = icmp eq i32 %84, 1
@@ -1191,7 +1191,7 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 
 25:                                               ; preds = %19
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !155
   %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !155

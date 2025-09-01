@@ -1123,7 +1123,7 @@ define dso_local void @_ZN7doctest6detail7tlssPopEv(ptr dead_on_unwind noalias w
 
 21:                                               ; preds = %10
   %22 = and i64 %14, 31
-  %23 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   store i8 0, ptr %23, align 1, !tbaa !38, !alias.scope !54
   %24 = trunc i64 %14 to i8
   %25 = sub nuw nsw i8 23, %24
@@ -1178,7 +1178,7 @@ define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   store i8 0, ptr %6, align 1, !tbaa !38
   %7 = trunc nuw nsw i32 %1 to i8
   %8 = sub nuw nsw i8 23, %7
@@ -1234,7 +1234,7 @@ define dso_local void @_ZN7doctest6String7setSizeEj(ptr noundef nonnull align 8 
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   store i8 0, ptr %8, align 1, !tbaa !38
   %9 = trunc i32 %1 to i8
   %10 = sub i8 23, %9
@@ -1273,7 +1273,7 @@ define dso_local void @_ZN7doctest6String4copyERKS0_(ptr noundef nonnull writeon
 
 11:                                               ; preds = %7
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
   %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
@@ -1352,7 +1352,7 @@ define dso_local void @_ZN7doctest6StringC2EPKc(ptr noundef nonnull writeonly al
 
 6:                                                ; preds = %2
   %7 = and i64 %3, 31
-  %8 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   store i8 0, ptr %8, align 1, !tbaa !38
   %9 = trunc i64 %3 to i8
   %10 = sub nuw nsw i8 23, %9
@@ -1393,7 +1393,7 @@ define dso_local void @_ZN7doctest6StringC2EPKcj(ptr noundef nonnull writeonly a
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   store i8 0, ptr %7, align 1, !tbaa !38
   %8 = trunc nuw nsw i32 %2 to i8
   %9 = sub nuw nsw i8 23, %8
@@ -1431,7 +1431,7 @@ define dso_local void @_ZN7doctest6StringC2ERSij(ptr noundef nonnull align 8 der
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   store i8 0, ptr %7, align 1, !tbaa !38
   %8 = trunc nuw nsw i32 %2 to i8
   %9 = sub nuw nsw i8 23, %8
@@ -1483,7 +1483,7 @@ define dso_local void @_ZN7doctest6StringC2ERKS0_(ptr noundef nonnull writeonly 
 
 11:                                               ; preds = %7
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
   %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
@@ -1557,7 +1557,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6St
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !38
   %23 = trunc nuw nsw i32 %18 to i8
   %24 = sub nuw nsw i8 23, %23
@@ -1823,7 +1823,7 @@ define dso_local void @_ZNO7doctest6String6substrEjj(ptr dead_on_unwind noalias 
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 0, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   store i8 0, ptr %22, align 1, !tbaa !38
   %23 = trunc i32 %.sroa.speculated to i8
   %24 = sub i8 23, %23
@@ -1867,7 +1867,7 @@ define dso_local void @_ZNKR7doctest6String6substrEjj(ptr dead_on_unwind noalias
 
 17:                                               ; preds = %4
   %18 = zext nneg i32 %.sroa.speculated to i64
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
   %20 = trunc nuw nsw i32 %.sroa.speculated to i8
   %21 = sub nuw nsw i8 23, %20
@@ -2123,7 +2123,7 @@ define dso_local void @_ZN7doctestplERKNS_6StringES2_(ptr dead_on_unwind noalias
 
 13:                                               ; preds = %9
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !38
   %16 = trunc nuw nsw i32 %11 to i8
   %17 = sub nuw nsw i8 23, %16
@@ -2176,7 +2176,7 @@ _ZN7doctest6StringC2ERKS0_.exit5.thread:          ; preds = %30
 
 38:                                               ; preds = %34
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !38
   %41 = trunc nuw nsw i32 %36 to i8
   %42 = sub nuw nsw i8 23, %41
@@ -2397,7 +2397,7 @@ define dso_local void @_ZN7doctest8ContainsC2ERKNS_6StringE(ptr noundef nonnull 
 
 11:                                               ; preds = %7
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
   %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
@@ -2614,7 +2614,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest5Col
 
 switch.lookup:                                    ; preds = %13
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN7doctest5ColorlsERSoNS0_4EnumE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7doctest5ColorlsERSoNS0_4EnumE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -3038,7 +3038,7 @@ _ZN7doctest6StringC2EPKc.exit:
 define dso_local void @_ZN7doctest8toStringEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.doctest::String") align 8 captures(none) initializes((23, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #18 {
 _ZN7doctest6StringC2EPKc.exit:
   %2 = select i1 %1, i64 4, i64 5
-  %3 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   store i8 0, ptr %3, align 1, !tbaa !38
   %4 = trunc nuw nsw i64 %2 to i8
   %5 = sub nuw nsw i8 23, %4
@@ -3638,7 +3638,7 @@ _ZN7doctest6StringC2EPKc.exit:
   %.not = icmp eq i64 %9, 0
   %10 = select i1 %.not, ptr @.str, ptr @.str.233
   %11 = lshr exact i64 %9, 31
-  %12 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   store i8 0, ptr %12, align 2, !tbaa !38
   %13 = trunc nuw nsw i64 %11 to i8
   %14 = sub nuw nsw i8 23, %13
@@ -4668,7 +4668,7 @@ define dso_local void @_ZN7doctest6detail7SubcaseC2ERKNS_6StringEPKci(ptr nounde
 
 13:                                               ; preds = %9
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !38
   %16 = trunc nuw nsw i32 %11 to i8
   %17 = sub nuw nsw i8 23, %16
@@ -4823,7 +4823,7 @@ _ZN7doctest6detail7Subcase12checkFiltersEv.exit:  ; preds = %92, %73
 
 109:                                              ; preds = %105
   %110 = zext nneg i32 %107 to i64
-  %111 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %48, i64 %110
   store i8 0, ptr %111, align 1, !tbaa !38
   %112 = trunc nuw nsw i32 %107 to i8
   %113 = sub nuw nsw i8 23, %112
@@ -5280,7 +5280,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE5clearEv.exit: ; preds = %_ZN7d
 
 332:                                              ; preds = %328
   %333 = zext nneg i32 %330 to i64
-  %334 = getelementptr inbounds nuw [24 x i8], ptr %321, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %321, i64 %333
   store i8 0, ptr %334, align 1, !tbaa !38
   %335 = trunc nuw nsw i32 %330 to i8
   %336 = sub nuw nsw i8 23, %335
@@ -5790,7 +5790,7 @@ define dso_local void @_ZN7doctest6detail6ResultC2EbRKNS_6StringE(ptr noundef no
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !38
   %17 = trunc nuw nsw i32 %12 to i8
   %18 = sub nuw nsw i8 23, %17
@@ -5854,7 +5854,7 @@ define dso_local void @_ZN7doctest6detail8TestCaseC2EPFvvEPKcjRKNS0_9TestSuiteER
 
 17:                                               ; preds = %7
   %18 = and i64 %14, 31
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
   %20 = trunc i64 %14 to i8
   %21 = sub nuw nsw i8 23, %20
@@ -5949,7 +5949,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %17, %.noexc
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 %71
   store i8 0, ptr %72, align 1, !tbaa !38
   %73 = trunc nuw nsw i32 %68 to i8
   %74 = sub nuw nsw i8 23, %73
@@ -6128,7 +6128,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6d
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !38
   %23 = trunc nuw nsw i32 %18 to i8
   %24 = sub nuw nsw i8 23, %23
@@ -6200,7 +6200,7 @@ _ZN7doctest6String8allocateEj.exit.i.i.i:         ; preds = %25, %20
 
 60:                                               ; preds = %56
   %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 %61
   store i8 0, ptr %62, align 1, !tbaa !38
   %63 = trunc nuw nsw i32 %58 to i8
   %64 = sub nuw nsw i8 23, %63
@@ -6284,7 +6284,7 @@ _ZN7doctest6StringaSERKS0_.exit:                  ; preds = %2
 
 107:                                              ; preds = %103
   %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %90, i64 %108
   store i8 0, ptr %109, align 1, !tbaa !38
   %110 = trunc nuw nsw i32 %105 to i8
   %111 = sub nuw nsw i8 23, %110
@@ -6365,7 +6365,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6d
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 31
-  %18 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
   %19 = trunc i64 %13 to i8
   %20 = sub nuw nsw i8 23, %19
@@ -7379,7 +7379,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
 
 42:                                               ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %43 = and i64 %39, 31
-  %44 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   store i8 0, ptr %44, align 1, !tbaa !38
   %45 = trunc i64 %39 to i8
   %46 = sub nuw nsw i8 23, %45
@@ -7669,7 +7669,7 @@ define dso_local void @_ZN7doctest10AssertDataC2ENS_10assertType4EnumEPKciS4_S4_
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
   %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
@@ -7730,7 +7730,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumE
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
   %20 = trunc nuw nsw i32 %15 to i8
   %21 = sub nuw nsw i8 23, %20
@@ -7810,7 +7810,7 @@ _ZN7doctest10AssertData14StringContainsC2ERKNS_6StringE.exit: ; preds = %12, %_Z
 
 57:                                               ; preds = %53
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 %58
   store i8 0, ptr %59, align 1, !tbaa !38
   %60 = trunc nuw nsw i32 %55 to i8
   %61 = sub nuw nsw i8 23, %60
@@ -7891,7 +7891,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumE
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
   %20 = trunc nuw nsw i32 %15 to i8
   %21 = sub nuw nsw i8 23, %20
@@ -7979,7 +7979,7 @@ _ZN7doctest8ContainsC2ERKS0_.exit:                ; preds = %12, %_ZN7doctest6St
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %.sroa.8.0.copyload to i64
-  %55 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !38
   %56 = trunc nuw nsw i32 %.sroa.8.0.copyload to i8
   %57 = sub nuw nsw i8 23, %56
@@ -8076,7 +8076,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6Result
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !38
   %25 = trunc nuw nsw i32 %20 to i8
   %26 = sub nuw nsw i8 23, %25
@@ -8596,7 +8596,7 @@ _ZN7doctest6StringD2Ev.exit27:                    ; preds = %_ZN7doctest6StringD
   %129 = getelementptr inbounds nuw i8, ptr %.pre35, i64 184
   %130 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
   %131 = and i64 %130, 31
-  %132 = getelementptr inbounds nuw [32 x %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic"], ptr %129, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %129, i64 %131
   %133 = atomicrmw add ptr %132, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !73
   br label %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit
@@ -8638,7 +8638,7 @@ _ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit: ; preds = %124, 
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 2232
   %154 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
   %155 = and i64 %154, 31
-  %156 = getelementptr inbounds nuw [32 x %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic"], ptr %153, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %153, i64 %155
   %157 = atomicrmw add ptr %156, i32 1 seq_cst, align 4
   br label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
 
@@ -8843,7 +8843,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest6StringC
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !38
   %40 = trunc nuw nsw i32 %35 to i8
   %41 = sub nuw nsw i8 23, %40
@@ -9085,7 +9085,7 @@ _ZN7doctest6StringD2Ev.exit36:                    ; preds = %_ZN7doctest6StringC
 
 139:                                              ; preds = %135
   %140 = zext nneg i32 %137 to i64
-  %141 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %121, i64 %140
   store i8 0, ptr %141, align 1, !tbaa !38
   %142 = trunc nuw nsw i32 %137 to i8
   %143 = sub nuw nsw i8 23, %142
@@ -9501,7 +9501,7 @@ _ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit: ; preds = %._cri
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
   %38 = and i64 %37, 31
-  %39 = getelementptr inbounds nuw [32 x %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic"], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %36, i64 %38
   %40 = atomicrmw add ptr %39, i32 1 seq_cst, align 4
   %41 = load i32, ptr %26, align 4, !tbaa !318
   %42 = and i32 %41, 1
@@ -9513,7 +9513,7 @@ _ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit: ; preds = %._cri
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2232
   %47 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
   %48 = and i64 %47, 31
-  %49 = getelementptr inbounds nuw [32 x %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic"], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %46, i64 %48
   %50 = atomicrmw add ptr %49, i32 1 seq_cst, align 4
   br label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
 
@@ -9656,7 +9656,7 @@ _ZN7doctest6detail15MultiLaneAtomicIiEC2Ev.exit5.i: ; preds = %17
 
 39:                                               ; preds = %34
   %40 = and i64 %36, 31
-  %41 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !38
   %42 = trunc i64 %36 to i8
   %43 = sub nuw nsw i8 23, %42
@@ -9896,7 +9896,7 @@ _ZN7doctest6StringaSERKS0_.exit.thread:           ; preds = %98
 
 105:                                              ; preds = %101
   %106 = zext nneg i32 %103 to i64
-  %107 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 %106
   store i8 0, ptr %107, align 1, !tbaa !38
   %108 = trunc nuw nsw i32 %103 to i8
   %109 = sub nuw nsw i8 23, %108
@@ -10042,7 +10042,7 @@ _ZN7doctest6StringD2Ev.exit372.thread432:         ; preds = %.noexc354, %_ZN7doc
 
 158:                                              ; preds = %154
   %159 = zext nneg i32 %156 to i64
-  %160 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr %141, i64 %159
   store i8 0, ptr %160, align 1, !tbaa !38
   %161 = trunc nuw nsw i32 %156 to i8
   %162 = sub nuw nsw i8 23, %161
@@ -11702,7 +11702,7 @@ define dso_local void @_ZN7doctest7Context16applyCommandLineEiPKPKc(ptr noundef 
 
 10:                                               ; preds = %5
   %11 = and i64 %7, 31
-  %12 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   store i8 0, ptr %12, align 1, !tbaa !38
   %13 = trunc i64 %7 to i8
   %14 = sub nuw nsw i8 23, %13
@@ -12003,7 +12003,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
 
 .preheader.split.us:                              ; preds = %.preheader, %24
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %24 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv70
+  %19 = getelementptr inbounds nuw [5 x i8], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 %indvars.iv70
   %20 = load i8, ptr %19, align 1, !tbaa !38
   %21 = sext i8 %20 to i32
   %22 = call i32 @tolower(i32 noundef %21) #52
@@ -12016,7 +12016,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   br i1 %exitcond73, label %.critedge, label %.preheader.split.us, !llvm.loop !356
 
 25:                                               ; preds = %.preheader.split.us
-  %26 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv70
+  %26 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 %indvars.iv70
   %27 = load i8, ptr %26, align 2, !tbaa !38
   %28 = sext i8 %27 to i32
   %29 = call i32 @tolower(i32 noundef %28) #52
@@ -12040,7 +12040,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
 
 .preheader.split:                                 ; preds = %.preheader, %.loopexit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.thread ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [5 x i8], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !tbaa !38
   %37 = sext i8 %36 to i32
   %38 = call i32 @tolower(i32 noundef %37) #52
@@ -12068,7 +12068,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   br i1 %47, label %.split.us, label %.loopexit58.thread
 
 .loopexit58.thread:                               ; preds = %.preheader.split, %.loopexit58
-  %48 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [6 x i8], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 %indvars.iv
   %49 = load i8, ptr %48, align 2, !tbaa !38
   %50 = sext i8 %49 to i32
   %51 = call i32 @tolower(i32 noundef %50) #52
@@ -12254,7 +12254,7 @@ _ZN7doctest6StringC2EPKc.exit:
 
 16:                                               ; preds = %_ZN7doctest6StringC2EPKc.exit
   %17 = and i64 %13, 31
-  %18 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
   %19 = trunc i64 %13 to i8
   %20 = sub nuw nsw i8 23, %19
@@ -12307,7 +12307,7 @@ _ZN7doctest6StringC2EPKc.exit:
 
 39:                                               ; preds = %35
   %40 = and i64 %36, 31
-  %41 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !38
   %42 = trunc i64 %36 to i8
   %43 = sub nuw nsw i8 23, %42
@@ -13744,7 +13744,7 @@ _ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__g
 
 465:                                              ; preds = %461
   %466 = and i64 %462, 31
-  %467 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw i8, ptr %10, i64 %466
   store i8 0, ptr %467, align 1, !tbaa !38
   %468 = trunc i64 %462 to i8
   %469 = sub nuw nsw i8 23, %468
@@ -14117,9 +14117,9 @@ _ZNSt6vectorIN7doctest6StringESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN7d
 
 604:                                              ; preds = %604, %_ZNSt6vectorIN7doctest6StringESaIS1_EE5clearEv.exit
   %.01.i = phi i64 [ 0, %_ZNSt6vectorIN7doctest6StringESaIS1_EE5clearEv.exit ], [ %609, %604 ]
-  %605 = getelementptr inbounds nuw [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.01.i
+  %605 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.01.i
   %606 = load i32, ptr %605, align 16, !tbaa !393
-  %607 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 0, i64 %.01.i
+  %607 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.01.i
   %608 = call i32 @sigaction(i32 noundef %606, ptr noundef nonnull %3, ptr noundef nonnull %607) #49
   %609 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %609, 6
@@ -14143,9 +14143,9 @@ _ZN7doctest12_GLOBAL__N_121FatalConditionHandlerC2Ev.exit: ; preds = %604
 
 .preheader.i:                                     ; preds = %611, %.preheader.i
   %.05.i = phi i64 [ %618, %.preheader.i ], [ 0, %611 ]
-  %614 = getelementptr inbounds nuw [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.05.i
+  %614 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
   %615 = load i32, ptr %614, align 16, !tbaa !393
-  %616 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 0, i64 %.05.i
+  %616 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
   %617 = call i32 @sigaction(i32 noundef %615, ptr noundef nonnull %616, ptr noundef null) #49
   %618 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i227 = icmp eq i64 %618, 6
@@ -14979,9 +14979,9 @@ define internal fastcc void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandlerD2E
 
 .preheader.i:                                     ; preds = %0, %.preheader.i
   %.05.i = phi i64 [ %7, %.preheader.i ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.05.i
+  %3 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
   %4 = load i32, ptr %3, align 16, !tbaa !393
-  %5 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 0, i64 %.05.i
+  %5 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
   %6 = tail call i32 @sigaction(i32 noundef %4, ptr noundef nonnull %5, ptr noundef null) #49
   %7 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %7, 6
@@ -15328,7 +15328,7 @@ _ZN7doctest12_GLOBAL__N_112getReportersEv.exit:   ; preds = %9, %12, %14
 
 20:                                               ; preds = %_ZN7doctest12_GLOBAL__N_112getReportersEv.exit
   %21 = and i64 %17, 31
-  %22 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !38
   %23 = trunc i64 %17 to i8
   %24 = sub nuw nsw i8 23, %23
@@ -15437,7 +15437,7 @@ _ZN7doctest12_GLOBAL__N_112getListenersEv.exit:   ; preds = %54, %57, %59
 
 65:                                               ; preds = %_ZN7doctest12_GLOBAL__N_112getListenersEv.exit
   %66 = and i64 %62, 31
-  %67 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 %66
   store i8 0, ptr %67, align 1, !tbaa !38
   %68 = trunc i64 %62 to i8
   %69 = sub nuw nsw i8 23, %68
@@ -15946,7 +15946,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
 
 34:                                               ; preds = %29
   %35 = and i64 %31, 31
-  %36 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !38
   %37 = trunc i64 %31 to i8
   %38 = sub nuw nsw i8 23, %37
@@ -16296,7 +16296,7 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
 
 39:                                               ; preds = %36
   %40 = and i64 %34, 31
-  %41 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !38
   %42 = trunc i64 %34 to i8
   %43 = sub nuw nsw i8 23, %42
@@ -16555,7 +16555,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSi
 
 7:                                                ; preds = %1, %5
   %.01336 = phi i64 [ 0, %1 ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.01336
+  %8 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.01336
   %9 = load i32, ptr %8, align 16, !tbaa !393
   %.not = icmp eq i32 %0, %9
   br i1 %.not, label %.thread, label %5
@@ -16577,9 +16577,9 @@ define internal void @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler12handleSi
 
 .preheader.i:                                     ; preds = %.loopexit34, %.preheader.i
   %.05.i = phi i64 [ %18, %.preheader.i ], [ 0, %.loopexit34 ]
-  %14 = getelementptr inbounds nuw [6 x %"struct.doctest::(anonymous namespace)::SignalDefs"], ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 0, i64 %.05.i
+  %14 = getelementptr inbounds nuw %"struct.doctest::(anonymous namespace)::SignalDefs", ptr @_ZN7doctest12_GLOBAL__N_110signalDefsE, i64 %.05.i
   %15 = load i32, ptr %14, align 16, !tbaa !393
-  %16 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 0, i64 %.05.i
+  %16 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZN7doctest12_GLOBAL__N_121FatalConditionHandler13oldSigActionsE, i64 %.05.i
   %17 = tail call i32 @sigaction(i32 noundef %15, ptr noundef nonnull %16, ptr noundef null) #49
   %18 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %18, 6
@@ -16678,7 +16678,7 @@ _ZN7doctest12_GLOBAL__N_121FatalConditionHandler5resetEv.exit: ; preds = %.loope
 
 58:                                               ; preds = %52
   %59 = and i64 %55, 31
-  %60 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 %59
   store i8 0, ptr %60, align 1, !tbaa !38
   %61 = trunc i64 %55 to i8
   %62 = sub nuw nsw i8 23, %61
@@ -17051,7 +17051,7 @@ _ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit: ; 
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
   %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
@@ -17327,7 +17327,7 @@ _ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit: ; preds =
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 %71
   store i8 0, ptr %72, align 1, !tbaa !38
   %73 = trunc nuw nsw i32 %68 to i8
   %74 = sub nuw nsw i8 23, %73
@@ -17447,7 +17447,7 @@ _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_
 
 123:                                              ; preds = %119
   %124 = zext nneg i32 %121 to i64
-  %125 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i67, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i67, i64 %124
   store i8 0, ptr %125, align 1, !tbaa !38
   %126 = trunc nuw nsw i32 %121 to i8
   %127 = sub nuw nsw i8 23, %126
@@ -17692,7 +17692,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw [24 x i8], ptr %.014, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 %13
   store i8 0, ptr %14, align 1, !tbaa !38
   %15 = trunc nuw nsw i32 %10 to i8
   %16 = sub nuw nsw i8 23, %15
@@ -30888,7 +30888,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporter13subcase_startERK
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
   %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19
@@ -32868,7 +32868,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw [24 x i8], ptr %.014, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 %13
   store i8 0, ptr %14, align 1, !tbaa !38
   %15 = trunc nuw nsw i32 %10 to i8
   %16 = sub nuw nsw i8 23, %15
@@ -33199,7 +33199,7 @@ _ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit: ; preds = %_Z
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
   %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
@@ -37096,7 +37096,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter13subcase_startE
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
   %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19
@@ -39564,7 +39564,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt4pairIiN7doctest6StringEES0
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
   %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19

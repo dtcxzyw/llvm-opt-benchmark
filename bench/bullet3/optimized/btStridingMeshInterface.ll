@@ -1085,9 +1085,9 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
 
 237:                                              ; preds = %237, %233
   %indvars.iv.i = phi i64 [ 0, %233 ], [ %indvars.iv.next.i, %237 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %235, i64 0, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv.i
   %239 = load float, ptr %238, align 4, !tbaa !15
-  %240 = getelementptr inbounds nuw [4 x float], ptr %236, i64 0, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw float, ptr %236, i64 %indvars.iv.i
   store float %239, ptr %240, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

@@ -6857,7 +6857,7 @@ switch.lookup:                                    ; preds = %invoke.cont21
   %19 = zext nneg i32 %13 to i64
   %reltable.shift = shl nuw nsw i64 %19, 2
   %reltable.intrinsic = call ptr @llvm.load.relative.i64(ptr nonnull @reltable._ZL17push_craft_recipeP9lua_StateP8IGameDefPK15CraftDefinitionRK11CraftOutput, i64 %reltable.shift)
-  %switch.gep97 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL17push_craft_recipeP9lua_StateP8IGameDefPK15CraftDefinitionRK11CraftOutput.62, i64 0, i64 %19
+  %switch.gep97 = getelementptr inbounds nuw i64, ptr @switch.table._ZL17push_craft_recipeP9lua_StateP8IGameDefPK15CraftDefinitionRK11CraftOutput.62, i64 %19
   %switch.load98 = load i64, ptr %switch.gep97, align 8
   br label %sw.default.invoke
 

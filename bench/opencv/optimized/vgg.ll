@@ -810,28 +810,28 @@ define hidden void @_ZN2cv11xfeatures2d8VGG_ImplC2Eifbbfb(ptr noundef nonnull al
 
 switch.lookup:                                    ; preds = %8
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.10, i64 0, i64 %47
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.10, i64 %47
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.11, i64 0, i64 %48
+  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.11, i64 %48
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep17 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.12, i64 0, i64 %49
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.12, i64 %49
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.13, i64 0, i64 %50
+  %switch.gep19 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.13, i64 %50
   %switch.load20 = load i32, ptr %switch.gep19, align 4
   %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.14, i64 0, i64 %51
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.14, i64 %51
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.15, i64 0, i64 %52
+  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.15, i64 %52
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep25 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.16, i64 0, i64 %53
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.16, i64 %53
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   invoke void @_ZN2cv11xfeatures2d8VGG_Impl10ini_paramsEiiPKjjS3_iiS3_jS3_(ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %switch.load, i32 noundef 4096, ptr noundef nonnull %switch.load14, i32 noundef %switch.load16, ptr noundef nonnull %switch.load18, i32 noundef %switch.load20, i32 noundef %switch.load22, ptr noundef nonnull %switch.load24, i32 noundef 2, ptr noundef nonnull %switch.load26)
           to label %67 unwind label %44
@@ -1312,28 +1312,28 @@ define hidden void @_ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb(ptr noundef nonnull al
 
 switch.lookup:                                    ; preds = %7
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.10, i64 0, i64 %26
+  %switch.gep14 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.10, i64 %26
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep16 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.11, i64 0, i64 %27
+  %switch.gep16 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.11, i64 %27
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.12, i64 0, i64 %28
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.12, i64 %28
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.13, i64 0, i64 %29
+  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.13, i64 %29
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep22 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.14, i64 0, i64 %30
+  %switch.gep22 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.14, i64 %30
   %switch.load23 = load i32, ptr %switch.gep22, align 4
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.15, i64 0, i64 %31
+  %switch.gep24 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.15, i64 %31
   %switch.load25 = load ptr, ptr %switch.gep24, align 8
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep26 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.16, i64 0, i64 %32
+  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv11xfeatures2d8VGG_ImplC1Eifbbfb.16, i64 %32
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   invoke void @_ZN2cv11xfeatures2d8VGG_Impl10ini_paramsEiiPKjjS3_iiS3_jS3_(ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %switch.load, i32 noundef 4096, ptr noundef nonnull %switch.load15, i32 noundef %switch.load17, ptr noundef nonnull %switch.load19, i32 noundef %switch.load21, i32 noundef %switch.load23, ptr noundef nonnull %switch.load25, i32 noundef 2, ptr noundef nonnull %switch.load27)
           to label %46 unwind label %23

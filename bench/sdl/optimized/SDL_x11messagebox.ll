@@ -326,7 +326,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
 
 63:                                               ; preds = %62, %60
   %indvars.iv.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i, %62 ]
-  %64 = getelementptr inbounds nuw [9 x ptr], ptr @g_MessageBoxFont, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw ptr, ptr @g_MessageBoxFont, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @X11_XCreateFontSet, align 8
   %67 = load ptr, ptr %29, align 8
@@ -387,7 +387,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = or disjoint i32 %94, %97
-  %99 = getelementptr inbounds nuw [5 x i32], ptr %84, i64 0, i64 %indvars.iv58.i
+  %99 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv58.i
   store i32 %98, ptr %99, align 4
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next59.i, 5
@@ -580,7 +580,7 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   %.0155187.i = phi i32 [ 64, %.lr.ph.i ], [ %222, %GetTextWidthHeight.exit174.i ]
   %187 = load ptr, ptr %177, align 8
   %188 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv201.i
-  %189 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %178, i64 0, i64 %indvars.iv201.i
+  %189 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %178, i64 %indvars.iv201.i
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store ptr %188, ptr %190, align 8
   %191 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv201.i, i32 2
@@ -739,7 +739,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
 281:                                              ; preds = %281, %.lr.ph195.i
   %indvars.iv204.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next205.i, %281 ]
   %.1152192.i = phi i32 [ %.0151.i, %.lr.ph195.i ], [ %.2153.i, %281 ]
-  %282 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %276, i64 0, i64 %indvars.iv204.i
+  %282 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %276, i64 %indvars.iv204.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   store i32 %.1152192.i, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 20
@@ -1562,7 +1562,7 @@ GetHitButtonIndex.exit113.thread.i:               ; preds = %667, %670, %GetHitB
 
 .lr.ph111.i.i:                                    ; preds = %.preheader.i.i, %811
   %indvars.iv113.i.i = phi i64 [ %indvars.iv.next114.i.i, %811 ], [ 0, %.preheader.i.i ]
-  %738 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %553, i64 0, i64 %indvars.iv113.i.i
+  %738 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %553, i64 %indvars.iv113.i.i
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 32
   %740 = load ptr, ptr %739, align 8
   %741 = load i32, ptr %740, align 8

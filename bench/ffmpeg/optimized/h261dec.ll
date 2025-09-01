@@ -1170,7 +1170,7 @@ decode_mv_component.exit131.i.i:                  ; preds = %496, %493, %491, %g
 
 h261_decode_block.exit.i.i:                       ; preds = %686, %599, %582
   %.2123.i.lcssa.sink.i.i = phi i32 [ %.2123.i.i.i, %686 ], [ 0, %599 ], [ -1, %582 ]
-  %687 = getelementptr inbounds nuw [12 x i32], ptr %152, i64 0, i64 %indvars.iv.i.i
+  %687 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i.i
   store i32 %.2123.i.lcssa.sink.i.i, ptr %687, align 4, !tbaa !27
   %688 = shl nsw i32 %.197155.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

@@ -128,7 +128,7 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %17
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.hash_write_trailer, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hash_write_trailer, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit
 

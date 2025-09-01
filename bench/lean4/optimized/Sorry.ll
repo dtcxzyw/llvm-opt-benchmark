@@ -2492,7 +2492,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_visitFndBody___spec__1(
   br label %lean_dec.exit155
 
 lean_dec.exit155:                                 ; preds = %18, %17, %15, %9
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.0114280
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0114280
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -7509,7 +7509,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_collect
   br label %lean_dec.exit49
 
 lean_dec.exit49:                                  ; preds = %18, %17, %15, %9
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.03685
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03685
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -8935,7 +8935,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_updateSorryDep___spec__1(ptr nou
   %.098238 = phi i64 [ %2, %.lr.ph ], [ %33, %330 ]
   %.0100237 = phi ptr [ %3, %.lr.ph ], [ %.1101, %330 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0100237, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.098238
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.098238
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1

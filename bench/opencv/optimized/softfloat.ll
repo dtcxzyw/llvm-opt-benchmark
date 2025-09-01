@@ -127,7 +127,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr noundef nonnull writeonly align 4 captures
   %.1.i.i = select i1 %16, i8 %17, i8 %spec.select12.i.i
   %19 = lshr i32 %.19.i.i, 24
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !3, !alias.scope !6, !noalias !9
   %23 = add nsw i8 %.1.i.i, -1
   %24 = add i8 %23, %22
@@ -204,7 +204,7 @@ define void @_ZN2cv9softfloatC2Em(ptr noundef nonnull writeonly align 4 captures
   %.2.i.i = select i1 %7, i32 %9, i32 %.1.i.i
   %10 = lshr i32 %.2.i.i, 24
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3, !noalias !15
   %14 = add i8 %13, %.214.i.i
   %15 = add i8 %14, -40
@@ -330,7 +330,7 @@ define void @_ZN2cv9softfloatC2El(ptr noundef nonnull writeonly align 4 captures
   %.2.i.i = select i1 %9, i32 %11, i32 %.1.i.i
   %12 = lshr i32 %.2.i.i, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !3, !noalias !21
   %16 = add i8 %15, %.214.i.i
   %17 = add i8 %16, -40
@@ -479,7 +479,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias wr
   %.1.i.i.i = select i1 %25, i8 %26, i8 %spec.select12.i.i.i
   %28 = lshr i32 %.19.i.i.i, 24
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !3, !noalias !24
   %32 = add nsw i8 %.1.i.i.i, -8
   %33 = add i8 %32, %31
@@ -618,7 +618,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i.i = select i1 %33, i8 %34, i8 %spec.select12.i.i.i
   %36 = lshr i32 %.19.i.i.i, 24
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !3, !noalias !39
   %40 = add nsw i8 %.1.i.i.i, -8
   %41 = add i8 %40, %39
@@ -652,7 +652,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i72.i = select i1 %53, i8 %54, i8 %spec.select12.i.i70.i
   %56 = lshr i32 %.19.i.i71.i, 24
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !3, !noalias !39
   %60 = add nsw i8 %.1.i.i72.i, -8
   %61 = add i8 %60, %59
@@ -857,7 +857,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i.i = select i1 %29, i8 %30, i8 %spec.select12.i.i.i
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !3, !noalias !42
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
@@ -891,7 +891,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i77.i = select i1 %49, i8 %50, i8 %spec.select12.i.i75.i
   %52 = lshr i32 %.19.i.i76.i, 24
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !3, !noalias !42
   %56 = add nsw i8 %.1.i.i77.i, -8
   %57 = add i8 %56, %55
@@ -1092,7 +1092,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i.i = select i1 %27, i8 %28, i8 %spec.select12.i.i.i
   %30 = lshr i32 %.19.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !3, !noalias !45
   %34 = add nsw i8 %.1.i.i.i, -8
   %35 = add i8 %34, %33
@@ -1130,7 +1130,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
   %.1.i.i109.i = select i1 %48, i8 %49, i8 %spec.select12.i.i107.i
   %51 = lshr i32 %.19.i.i108.i, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !3, !noalias !45
   %55 = add nsw i8 %.1.i.i109.i, -8
   %56 = add i8 %55, %54
@@ -1578,7 +1578,7 @@ define void @_ZN2cv10softdoubleC2Ej(ptr noundef nonnull writeonly align 8 captur
   %.1.i.i = select i1 %6, i8 %7, i8 %spec.select12.i.i
   %9 = lshr i32 %.19.i.i, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !3, !noalias !54
   %13 = add nuw nsw i8 %.1.i.i, 21
   %14 = add i8 %13, %12
@@ -1654,7 +1654,7 @@ define void @_ZN2cv10softdoubleC2Ei(ptr noundef nonnull writeonly align 8 captur
   %.1.i.i = select i1 %8, i8 %9, i8 %spec.select12.i.i
   %11 = lshr i32 %.19.i.i, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3, !noalias !60
   %15 = add nuw nsw i8 %.1.i.i, 21
   %16 = add i8 %15, %14
@@ -2500,7 +2500,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias writable wri
   %.2.i.i.i = select i1 %31, i32 %33, i32 %.1.i.i.i
   %34 = lshr i32 %.2.i.i.i, 24
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !3, !noalias !75
   %38 = add nsw i8 %.214.i.i.i, -11
   %39 = add i8 %38, %37
@@ -2539,7 +2539,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias writable wri
   %.2.i.i80.i = select i1 %52, i32 %54, i32 %.1.i.i78.i
   %55 = lshr i32 %.2.i.i80.i, 24
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !3, !noalias !75
   %59 = add nsw i8 %.214.i.i79.i, -11
   %60 = add i8 %59, %58
@@ -2746,7 +2746,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable wri
   %.2.i.i.i = select i1 %27, i32 %29, i32 %.1.i.i.i
   %30 = lshr i32 %.2.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !3, !noalias !78
   %34 = add nsw i8 %.214.i.i.i, -11
   %35 = add i8 %34, %33
@@ -2785,7 +2785,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable wri
   %.2.i.i102.i = select i1 %48, i32 %50, i32 %.1.i.i100.i
   %51 = lshr i32 %.2.i.i102.i, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !3, !noalias !78
   %55 = add nsw i8 %.214.i.i101.i, -11
   %56 = add i8 %55, %54
@@ -3030,7 +3030,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %.2.i.i = select i1 %28, i32 %30, i32 %.1.i.i
   %31 = lshr i32 %.2.i.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = add nsw i8 %.214.i.i, -11
   %36 = add i8 %35, %34
@@ -3073,7 +3073,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %.2.i.i132 = select i1 %50, i32 %52, i32 %.1.i.i130
   %53 = lshr i32 %.2.i.i132, 24
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !3
   %57 = add nsw i8 %.214.i.i131, -11
   %58 = add i8 %57, %56
@@ -3579,7 +3579,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias wri
   %.1.i.i.i.i = select i1 %44, i8 %45, i8 %spec.select12.i.i.i.i
   %47 = lshr i32 %.19.i.i.i.i, 24
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !3, !noalias !92
   %51 = add nsw i8 %.1.i.i.i.i, -8
   %52 = add i8 %51, %50
@@ -3613,7 +3613,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias wri
   %.1.i.i172.i.i = select i1 %64, i8 %65, i8 %spec.select12.i.i170.i.i
   %67 = lshr i32 %.19.i.i171.i.i, 24
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !3, !noalias !92
   %71 = add nsw i8 %.1.i.i172.i.i, -8
   %72 = add i8 %71, %70
@@ -3667,7 +3667,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias wri
   %.1.i.i178.i.i = select i1 %99, i8 %100, i8 %spec.select12.i.i176.i.i
   %102 = lshr i32 %.19.i.i177.i.i, 24
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !3, !noalias !92
   %106 = add nsw i8 %.1.i.i178.i.i, -8
   %107 = add i8 %106, %105
@@ -3829,7 +3829,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   %.2.i.i.i = select i1 %195, i32 %197, i32 %.1.i.i.i
   %198 = lshr i32 %.2.i.i.i, 24
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !3, !noalias !92
   %202 = add i8 %.214.i.i.i, %201
   %203 = add i8 %202, -1
@@ -4089,7 +4089,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias w
   %.2.i.i.i.i = select i1 %42, i32 %44, i32 %.1.i.i.i.i
   %45 = lshr i32 %.2.i.i.i.i, 24
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !3, !noalias !99
   %49 = add nsw i8 %.214.i.i.i.i, -11
   %50 = add i8 %49, %48
@@ -4128,7 +4128,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias w
   %.2.i.i226.i.i = select i1 %63, i32 %65, i32 %.1.i.i224.i.i
   %66 = lshr i32 %.2.i.i226.i.i, 24
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !3, !noalias !99
   %70 = add nsw i8 %.214.i.i225.i.i, -11
   %71 = add i8 %70, %69
@@ -4212,7 +4212,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias w
   %.2.i.i240.i.i = select i1 %120, i32 %122, i32 %.1.i.i238.i.i
   %123 = lshr i32 %.2.i.i240.i.i, 24
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !3, !noalias !99
   %127 = add nsw i8 %.214.i.i239.i.i, -11
   %128 = add i8 %127, %126
@@ -4401,7 +4401,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %169, %167, %162, %1
   %.2.i.i.i = select i1 %222, i32 %224, i32 %.1.i.i.i
   %225 = lshr i32 %.2.i.i.i, 24
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !3, !noalias !99
   %229 = add i8 %.214.i.i.i, %228
   %230 = add i8 %229, -1
@@ -4644,7 +4644,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %.1.i.i.i = select i1 %29, i8 %30, i8 %spec.select12.i.i.i
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !3, !noalias !100
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
@@ -4669,9 +4669,9 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %52 = and i64 %51, 14
   %53 = or disjoint i64 %52, %47
   %54 = lshr i32 %50, 12
-  %55 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %53
   %56 = load i16, ptr %55, align 2, !tbaa !103, !noalias !100
-  %57 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %53
   %58 = load i16, ptr %57, align 2, !tbaa !103, !noalias !100
   %59 = zext i16 %58 to i32
   %60 = and i32 %54, 65535
@@ -4848,7 +4848,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %.2.i.i.i = select i1 %28, i32 %30, i32 %.1.i.i.i
   %31 = lshr i32 %.2.i.i.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !3, !noalias !105
   %35 = add nsw i8 %.214.i.i.i, -11
   %36 = add i8 %35, %34
@@ -4870,9 +4870,9 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %48 = and i64 %47, 14
   %49 = or disjoint i64 %48, %43
   %50 = lshr i32 %46, 12
-  %51 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %49
   %52 = load i16, ptr %51, align 2, !tbaa !103, !noalias !105
-  %53 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %49
   %54 = load i16, ptr %53, align 2, !tbaa !103, !noalias !105
   %55 = zext i16 %54 to i32
   %56 = and i32 %50, 65535
@@ -5177,7 +5177,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %.1.i.i.i = select i1 %87, i8 %88, i8 %spec.select12.i.i.i
   %90 = lshr i32 %.19.i.i.i, 24
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !3, !noalias !133
   %94 = add nsw i8 %.1.i.i.i, -8
   %95 = add i8 %94, %93
@@ -5365,7 +5365,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %183, %184
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %186 = and i64 %.0.i.i16, 63
-  %187 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i64, ptr @_ZN2cvL6expTabE, i64 %186
   %188 = load i64, ptr %187, align 8, !tbaa !144
   store i64 %188, ptr %16, align 8, !tbaa !27, !alias.scope !145
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -5809,7 +5809,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %157, %158
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %159 = and i64 %.0.i.i.i, 63
-  %160 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i64, ptr @_ZN2cvL6expTabE, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !144
   store i64 %161, ptr %15, align 8, !tbaa !27, !alias.scope !207
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -5994,11 +5994,11 @@ define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind n
 
 .critedge:                                        ; preds = %2, %32
   store i32 2147483647, ptr %0, align 4, !tbaa !12, !alias.scope !240
-  br label %85
+  br label %83
 
 _ZNK2cv9softfloateqERKS0_.exit.thread25:          ; preds = %33, %32
   store i32 -8388608, ptr %0, align 4, !tbaa !12, !alias.scope !245
-  br label %85
+  br label %83
 
 _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   %34 = lshr i32 %23, 15
@@ -6010,20 +6010,18 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %38, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %39 = shl nuw nsw i32 %35, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %40
   %42 = load i64, ptr %41, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = or disjoint i32 %39, 1
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !144
-  store i64 %46, ptr %5, align 8, !tbaa !27, !alias.scope !248
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !144
+  store i64 %44, ptr %5, align 8, !tbaa !27, !alias.scope !248
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %47 = icmp eq i32 %35, 255
-  br i1 %47, label %48, label %56
+  %45 = icmp eq i32 %35, 255
+  br i1 %45, label %46, label %54
 
-48:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
+46:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !251
@@ -6032,61 +6030,61 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  %49 = load i64, ptr %6, align 8, !tbaa !27, !noalias !254
-  %50 = load i64, ptr %7, align 8, !tbaa !27, !noalias !254
-  %51 = icmp slt i64 %49, 0
-  %.unshifted.i.i.i7 = xor i64 %50, %49
-  %52 = icmp sgt i64 %.unshifted.i.i.i7, -1
-  br i1 %52, label %53, label %54
+  %47 = load i64, ptr %6, align 8, !tbaa !27, !noalias !254
+  %48 = load i64, ptr %7, align 8, !tbaa !27, !noalias !254
+  %49 = icmp slt i64 %47, 0
+  %.unshifted.i.i.i7 = xor i64 %48, %47
+  %50 = icmp sgt i64 %.unshifted.i.i.i7, -1
+  br i1 %50, label %51, label %52
 
-53:                                               ; preds = %48
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !257
+51:                                               ; preds = %46
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %47, i64 noundef %48, i1 noundef zeroext %49), !alias.scope !257
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-54:                                               ; preds = %48
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !257
+52:                                               ; preds = %46
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %47, i64 noundef %48, i1 noundef zeroext %49), !alias.scope !257
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %53, %54
-  %55 = load i64, ptr %3, align 8, !tbaa !27
-  store i64 %55, ptr %6, align 8, !tbaa !27
+_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %51, %52
+  %53 = load i64, ptr %3, align 8, !tbaa !27
+  store i64 %53, ptr %6, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %1, align 4, !tbaa !12
-  br label %56
+  br label %54
 
-56:                                               ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
-  %57 = phi i32 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %23, %_ZN2cv10softdoublemIERKS0_.exit ]
+54:                                               ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
+  %55 = phi i32 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %23, %_ZN2cv10softdoublemIERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %58 = lshr i32 %57, 23
-  %59 = and i32 %58, 255
-  %60 = zext nneg i32 %59 to i64
-  %61 = add nsw i64 %60, -127
-  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %61)
+  %56 = lshr i32 %55, 23
+  %57 = and i32 %56, 255
+  %58 = zext nneg i32 %57 to i64
+  %59 = add nsw i64 %58, -127
+  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %59)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  %62 = load i64, ptr %14, align 8, !tbaa !27, !noalias !260
-  %63 = icmp slt i64 %62, 0
-  %.unshifted.i.i = xor i64 %62, %42
-  %64 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %64, label %65, label %66
+  %60 = load i64, ptr %14, align 8, !tbaa !27, !noalias !260
+  %61 = icmp slt i64 %60, 0
+  %.unshifted.i.i = xor i64 %60, %42
+  %62 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %62, label %63, label %64
 
-65:                                               ; preds = %56
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !263
+63:                                               ; preds = %54
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %60, i64 noundef %42, i1 noundef zeroext %61), !alias.scope !263
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-66:                                               ; preds = %56
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !263
+64:                                               ; preds = %54
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %60, i64 noundef %42, i1 noundef zeroext %61), !alias.scope !263
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %63, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -6096,22 +6094,22 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 3)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %67 = load i64, ptr %13, align 8, !tbaa !27, !noalias !266
-  %68 = load i64, ptr %16, align 8, !tbaa !27, !noalias !266
-  %69 = icmp slt i64 %67, 0
-  %.unshifted.i.i8 = xor i64 %68, %67
-  %70 = icmp sgt i64 %.unshifted.i.i8, -1
-  br i1 %70, label %71, label %72
+  %65 = load i64, ptr %13, align 8, !tbaa !27, !noalias !266
+  %66 = load i64, ptr %16, align 8, !tbaa !27, !noalias !266
+  %67 = icmp slt i64 %65, 0
+  %.unshifted.i.i8 = xor i64 %66, %65
+  %68 = icmp sgt i64 %.unshifted.i.i8, -1
+  br i1 %68, label %69, label %70
 
-71:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !269
+69:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %65, i64 noundef %66, i1 noundef zeroext %67), !alias.scope !269
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
-72:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !269
+70:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %65, i64 noundef %66, i1 noundef zeroext %67), !alias.scope !269
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
-_ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %71, %72
+_ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %69, %70
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -6119,39 +6117,39 @@ _ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %71, %72
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %73 = load i64, ptr %12, align 8, !tbaa !27, !noalias !272
-  %74 = load i64, ptr %20, align 8, !tbaa !27, !noalias !272
-  %75 = icmp slt i64 %73, 0
-  %.unshifted.i.i10 = xor i64 %74, %73
-  %76 = icmp sgt i64 %.unshifted.i.i10, -1
-  br i1 %76, label %77, label %78
+  %71 = load i64, ptr %12, align 8, !tbaa !27, !noalias !272
+  %72 = load i64, ptr %20, align 8, !tbaa !27, !noalias !272
+  %73 = icmp slt i64 %71, 0
+  %.unshifted.i.i10 = xor i64 %72, %71
+  %74 = icmp sgt i64 %.unshifted.i.i10, -1
+  br i1 %74, label %75, label %76
 
-77:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !275
+75:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %71, i64 noundef %72, i1 noundef zeroext %73), !alias.scope !275
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-78:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !275
+76:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %71, i64 noundef %72, i1 noundef zeroext %73), !alias.scope !275
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %77, %78
+_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %75, %76
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  %79 = load i64, ptr %11, align 8, !tbaa !27, !noalias !278
-  %80 = load i64, ptr %6, align 8, !tbaa !27, !noalias !278
-  %81 = icmp slt i64 %79, 0
-  %.unshifted.i.i11 = xor i64 %80, %79
-  %82 = icmp sgt i64 %.unshifted.i.i11, -1
-  br i1 %82, label %83, label %84
+  %77 = load i64, ptr %11, align 8, !tbaa !27, !noalias !278
+  %78 = load i64, ptr %6, align 8, !tbaa !27, !noalias !278
+  %79 = icmp slt i64 %77, 0
+  %.unshifted.i.i11 = xor i64 %78, %77
+  %80 = icmp sgt i64 %.unshifted.i.i11, -1
+  br i1 %80, label %81, label %82
 
-83:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !281
+81:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %77, i64 noundef %78, i1 noundef zeroext %79), !alias.scope !281
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
-84:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !281
+82:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %77, i64 noundef %78, i1 noundef zeroext %79), !alias.scope !281
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
-_ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
+_ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -6169,9 +6167,9 @@ _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %85
+  br label %83
 
-85:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit12, %_ZNK2cv9softfloateqERKS0_.exit.thread25, %.critedge
+83:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit12, %_ZNK2cv9softfloateqERKS0_.exit.thread25, %.critedge
   ret void
 }
 
@@ -6253,11 +6251,11 @@ define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind
 
 .critedge:                                        ; preds = %2, %51
   store i64 9223372036854775807, ptr %0, align 8, !tbaa !27, !alias.scope !284
-  br label %213
+  br label %211
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread69:        ; preds = %52, %51
   store i64 -4503599627370496, ptr %0, align 8, !tbaa !27, !alias.scope !289
-  br label %213
+  br label %211
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   %53 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7 acquire, align 8
@@ -6271,7 +6269,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 
 57:                                               ; preds = %55
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, i32 noundef 1)
-          to label %58 unwind label %139
+          to label %58 unwind label %137
 
 58:                                               ; preds = %57
   %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A7)
@@ -6293,7 +6291,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 -4616189618054758400, ptr %4, align 8, !tbaa !27, !alias.scope !292
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 2)
-          to label %66 unwind label %141
+          to label %66 unwind label %139
 
 66:                                               ; preds = %65
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -6318,7 +6316,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 4607182418800017408, ptr %6, align 8, !tbaa !27, !alias.scope !295
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
-          to label %74 unwind label %143
+          to label %74 unwind label %141
 
 74:                                               ; preds = %73
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -6343,7 +6341,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !300
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 4)
-          to label %82 unwind label %145
+          to label %82 unwind label %143
 
 82:                                               ; preds = %81
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -6368,7 +6366,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 4607182418800017408, ptr %10, align 8, !tbaa !27, !alias.scope !303
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 5)
-          to label %90 unwind label %147
+          to label %90 unwind label %145
 
 90:                                               ; preds = %89
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -6393,7 +6391,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 -4616189618054758400, ptr %12, align 8, !tbaa !27, !alias.scope !308
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 6)
-          to label %98 unwind label %149
+          to label %98 unwind label %147
 
 98:                                               ; preds = %97
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -6418,7 +6416,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 4607182418800017408, ptr %14, align 8, !tbaa !27, !alias.scope !311
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 7)
-          to label %106 unwind label %151
+          to label %106 unwind label %149
 
 106:                                              ; preds = %105
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -6443,7 +6441,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   store i64 -4616189618054758400, ptr %16, align 8, !tbaa !27, !alias.scope !316
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 8)
-          to label %114 unwind label %153
+          to label %114 unwind label %151
 
 114:                                              ; preds = %113
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -6464,20 +6462,18 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %121, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %122 = shl nuw nsw i32 %119, 1
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %123
   %125 = load i64, ptr %124, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %126 = or disjoint i32 %122, 1
-  %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %127
-  %129 = load i64, ptr %128, align 8, !tbaa !144
-  store i64 %129, ptr %19, align 8, !tbaa !27, !alias.scope !319
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %127 = load i64, ptr %126, align 8, !tbaa !144
+  store i64 %127, ptr %19, align 8, !tbaa !27, !alias.scope !319
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %130 = icmp eq i32 %119, 255
-  br i1 %130, label %131, label %155
+  %128 = icmp eq i32 %119, 255
+  br i1 %128, label %129, label %153
 
-131:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
+129:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 -4616189618054758400, ptr %22, align 8, !tbaa !27, !alias.scope !322
@@ -6486,122 +6482,122 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  %132 = load i64, ptr %20, align 8, !tbaa !27, !noalias !325
-  %133 = load i64, ptr %21, align 8, !tbaa !27, !noalias !325
-  %134 = icmp slt i64 %132, 0
-  %.unshifted.i.i.i36 = xor i64 %133, %132
-  %135 = icmp sgt i64 %.unshifted.i.i.i36, -1
-  br i1 %135, label %136, label %137
+  %130 = load i64, ptr %20, align 8, !tbaa !27, !noalias !325
+  %131 = load i64, ptr %21, align 8, !tbaa !27, !noalias !325
+  %132 = icmp slt i64 %130, 0
+  %.unshifted.i.i.i36 = xor i64 %131, %130
+  %133 = icmp sgt i64 %.unshifted.i.i.i36, -1
+  br i1 %133, label %134, label %135
 
-136:                                              ; preds = %131
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %132, i64 noundef %133, i1 noundef zeroext %134), !alias.scope !328
+134:                                              ; preds = %129
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %130, i64 noundef %131, i1 noundef zeroext %132), !alias.scope !328
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-137:                                              ; preds = %131
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %132, i64 noundef %133, i1 noundef zeroext %134), !alias.scope !328
+135:                                              ; preds = %129
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %130, i64 noundef %131, i1 noundef zeroext %132), !alias.scope !328
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %136, %137
-  %138 = load i64, ptr %3, align 8, !tbaa !27
-  store i64 %138, ptr %20, align 8, !tbaa !27
+_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
+  %136 = load i64, ptr %3, align 8, !tbaa !27
+  store i64 %136, ptr %20, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.pre = load i64, ptr %1, align 8, !tbaa !27
-  br label %155
+  br label %153
 
-139:                                              ; preds = %57
-  %140 = landingpad { ptr, i32 }
+137:                                              ; preds = %57
+  %138 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #14
-  br label %214
+  br label %212
 
-141:                                              ; preds = %65
-  %142 = landingpad { ptr, i32 }
+139:                                              ; preds = %65
+  %140 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
-  br label %214
+  br label %212
 
-143:                                              ; preds = %73
-  %144 = landingpad { ptr, i32 }
+141:                                              ; preds = %73
+  %142 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
-  br label %214
+  br label %212
 
-145:                                              ; preds = %81
-  %146 = landingpad { ptr, i32 }
+143:                                              ; preds = %81
+  %144 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
-  br label %214
+  br label %212
 
-147:                                              ; preds = %89
-  %148 = landingpad { ptr, i32 }
+145:                                              ; preds = %89
+  %146 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
-  br label %214
+  br label %212
 
-149:                                              ; preds = %97
-  %150 = landingpad { ptr, i32 }
+147:                                              ; preds = %97
+  %148 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
-  br label %214
+  br label %212
 
-151:                                              ; preds = %105
-  %152 = landingpad { ptr, i32 }
+149:                                              ; preds = %105
+  %150 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
-  br label %214
+  br label %212
 
-153:                                              ; preds = %113
-  %154 = landingpad { ptr, i32 }
+151:                                              ; preds = %113
+  %152 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
-  br label %214
+  br label %212
 
-155:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
-  %156 = phi i64 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %116, %_ZN2cv10softdoublemIERKS0_.exit ]
+153:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
+  %154 = phi i64 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %116, %_ZN2cv10softdoublemIERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %157 = lshr i64 %156, 52
-  %158 = and i64 %157, 2047
-  %159 = add nsw i64 %158, -1023
-  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %159)
+  %155 = lshr i64 %154, 52
+  %156 = and i64 %155, 2047
+  %157 = add nsw i64 %156, -1023
+  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %157)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %160 = load i64, ptr %27, align 8, !tbaa !27, !noalias !331
-  %161 = icmp slt i64 %160, 0
-  %.unshifted.i.i = xor i64 %160, %125
-  %162 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %162, label %163, label %164
+  %158 = load i64, ptr %27, align 8, !tbaa !27, !noalias !331
+  %159 = icmp slt i64 %158, 0
+  %.unshifted.i.i = xor i64 %158, %125
+  %160 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %160, label %161, label %162
 
-163:                                              ; preds = %155
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %160, i64 noundef %125, i1 noundef zeroext %161), !alias.scope !334
+161:                                              ; preds = %153
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %158, i64 noundef %125, i1 noundef zeroext %159), !alias.scope !334
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-164:                                              ; preds = %155
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %160, i64 noundef %125, i1 noundef zeroext %161), !alias.scope !334
+162:                                              ; preds = %153
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %158, i64 noundef %125, i1 noundef zeroext %159), !alias.scope !334
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %163, %164
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %161, %162
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -6611,76 +6607,76 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %163, %164
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  %165 = load i64, ptr %35, align 8, !tbaa !27, !noalias !337
-  %166 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !tbaa !27, !noalias !337
-  %167 = icmp slt i64 %165, 0
-  %.unshifted.i.i37 = xor i64 %166, %165
-  %168 = icmp sgt i64 %.unshifted.i.i37, -1
-  br i1 %168, label %169, label %170
+  %163 = load i64, ptr %35, align 8, !tbaa !27, !noalias !337
+  %164 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !tbaa !27, !noalias !337
+  %165 = icmp slt i64 %163, 0
+  %.unshifted.i.i37 = xor i64 %164, %163
+  %166 = icmp sgt i64 %.unshifted.i.i37, -1
+  br i1 %166, label %167, label %168
 
-169:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %165, i64 noundef %166, i1 noundef zeroext %167), !alias.scope !340
+167:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !340
   br label %_ZNK2cv10softdoubleplERKS0_.exit38
 
-170:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %165, i64 noundef %166, i1 noundef zeroext %167), !alias.scope !340
+168:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !340
   br label %_ZNK2cv10softdoubleplERKS0_.exit38
 
-_ZNK2cv10softdoubleplERKS0_.exit38:               ; preds = %169, %170
+_ZNK2cv10softdoubleplERKS0_.exit38:               ; preds = %167, %168
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !343)
-  %171 = load i64, ptr %33, align 8, !tbaa !27, !noalias !343
-  %172 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !tbaa !27, !noalias !343
-  %173 = icmp slt i64 %171, 0
-  %.unshifted.i.i39 = xor i64 %172, %171
-  %174 = icmp sgt i64 %.unshifted.i.i39, -1
-  br i1 %174, label %175, label %176
+  %169 = load i64, ptr %33, align 8, !tbaa !27, !noalias !343
+  %170 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !tbaa !27, !noalias !343
+  %171 = icmp slt i64 %169, 0
+  %.unshifted.i.i39 = xor i64 %170, %169
+  %172 = icmp sgt i64 %.unshifted.i.i39, -1
+  br i1 %172, label %173, label %174
 
-175:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %171, i64 noundef %172, i1 noundef zeroext %173), !alias.scope !346
+173:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !346
   br label %_ZNK2cv10softdoubleplERKS0_.exit40
 
-176:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %171, i64 noundef %172, i1 noundef zeroext %173), !alias.scope !346
+174:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !346
   br label %_ZNK2cv10softdoubleplERKS0_.exit40
 
-_ZNK2cv10softdoubleplERKS0_.exit40:               ; preds = %175, %176
+_ZNK2cv10softdoubleplERKS0_.exit40:               ; preds = %173, %174
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
-  %177 = load i64, ptr %31, align 8, !tbaa !27, !noalias !349
-  %178 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !tbaa !27, !noalias !349
-  %179 = icmp slt i64 %177, 0
-  %.unshifted.i.i41 = xor i64 %178, %177
-  %180 = icmp sgt i64 %.unshifted.i.i41, -1
-  br i1 %180, label %181, label %182
+  %175 = load i64, ptr %31, align 8, !tbaa !27, !noalias !349
+  %176 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !tbaa !27, !noalias !349
+  %177 = icmp slt i64 %175, 0
+  %.unshifted.i.i41 = xor i64 %176, %175
+  %178 = icmp sgt i64 %.unshifted.i.i41, -1
+  br i1 %178, label %179, label %180
 
-181:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %177, i64 noundef %178, i1 noundef zeroext %179), !alias.scope !352
+179:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !352
   br label %_ZNK2cv10softdoubleplERKS0_.exit42
 
-182:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %177, i64 noundef %178, i1 noundef zeroext %179), !alias.scope !352
+180:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !352
   br label %_ZNK2cv10softdoubleplERKS0_.exit42
 
-_ZNK2cv10softdoubleplERKS0_.exit42:               ; preds = %181, %182
+_ZNK2cv10softdoubleplERKS0_.exit42:               ; preds = %179, %180
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  %183 = load i64, ptr %26, align 8, !tbaa !27, !noalias !355
-  %184 = load i64, ptr %29, align 8, !tbaa !27, !noalias !355
-  %185 = icmp slt i64 %183, 0
-  %.unshifted.i.i43 = xor i64 %184, %183
-  %186 = icmp sgt i64 %.unshifted.i.i43, -1
-  br i1 %186, label %187, label %188
+  %181 = load i64, ptr %26, align 8, !tbaa !27, !noalias !355
+  %182 = load i64, ptr %29, align 8, !tbaa !27, !noalias !355
+  %183 = icmp slt i64 %181, 0
+  %.unshifted.i.i43 = xor i64 %182, %181
+  %184 = icmp sgt i64 %.unshifted.i.i43, -1
+  br i1 %184, label %185, label %186
 
-187:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %183, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !358
+185:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !358
   br label %_ZNK2cv10softdoubleplERKS0_.exit44
 
-188:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %183, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !358
+186:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !358
   br label %_ZNK2cv10softdoubleplERKS0_.exit44
 
-_ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %187, %188
+_ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %185, %186
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -6690,76 +6686,76 @@ _ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %187, %188
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  %189 = load i64, ptr %42, align 8, !tbaa !27, !noalias !361
-  %190 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !tbaa !27, !noalias !361
-  %191 = icmp slt i64 %189, 0
-  %.unshifted.i.i45 = xor i64 %190, %189
-  %192 = icmp sgt i64 %.unshifted.i.i45, -1
-  br i1 %192, label %193, label %194
+  %187 = load i64, ptr %42, align 8, !tbaa !27, !noalias !361
+  %188 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !tbaa !27, !noalias !361
+  %189 = icmp slt i64 %187, 0
+  %.unshifted.i.i45 = xor i64 %188, %187
+  %190 = icmp sgt i64 %.unshifted.i.i45, -1
+  br i1 %190, label %191, label %192
 
-193:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !364
+191:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !364
   br label %_ZNK2cv10softdoubleplERKS0_.exit46
 
-194:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !364
+192:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !364
   br label %_ZNK2cv10softdoubleplERKS0_.exit46
 
-_ZNK2cv10softdoubleplERKS0_.exit46:               ; preds = %193, %194
+_ZNK2cv10softdoubleplERKS0_.exit46:               ; preds = %191, %192
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  %195 = load i64, ptr %40, align 8, !tbaa !27, !noalias !367
-  %196 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !tbaa !27, !noalias !367
-  %197 = icmp slt i64 %195, 0
-  %.unshifted.i.i47 = xor i64 %196, %195
-  %198 = icmp sgt i64 %.unshifted.i.i47, -1
-  br i1 %198, label %199, label %200
+  %193 = load i64, ptr %40, align 8, !tbaa !27, !noalias !367
+  %194 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !tbaa !27, !noalias !367
+  %195 = icmp slt i64 %193, 0
+  %.unshifted.i.i47 = xor i64 %194, %193
+  %196 = icmp sgt i64 %.unshifted.i.i47, -1
+  br i1 %196, label %197, label %198
 
-199:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !370
+197:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !370
   br label %_ZNK2cv10softdoubleplERKS0_.exit48
 
-200:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !370
+198:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !370
   br label %_ZNK2cv10softdoubleplERKS0_.exit48
 
-_ZNK2cv10softdoubleplERKS0_.exit48:               ; preds = %199, %200
+_ZNK2cv10softdoubleplERKS0_.exit48:               ; preds = %197, %198
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !373)
-  %201 = load i64, ptr %38, align 8, !tbaa !27, !noalias !373
-  %202 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !tbaa !27, !noalias !373
-  %203 = icmp slt i64 %201, 0
-  %.unshifted.i.i49 = xor i64 %202, %201
-  %204 = icmp sgt i64 %.unshifted.i.i49, -1
-  br i1 %204, label %205, label %206
+  %199 = load i64, ptr %38, align 8, !tbaa !27, !noalias !373
+  %200 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !tbaa !27, !noalias !373
+  %201 = icmp slt i64 %199, 0
+  %.unshifted.i.i49 = xor i64 %200, %199
+  %202 = icmp sgt i64 %.unshifted.i.i49, -1
+  br i1 %202, label %203, label %204
 
-205:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !376
+203:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !376
   br label %_ZNK2cv10softdoubleplERKS0_.exit50
 
-206:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !376
+204:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !376
   br label %_ZNK2cv10softdoubleplERKS0_.exit50
 
-_ZNK2cv10softdoubleplERKS0_.exit50:               ; preds = %205, %206
+_ZNK2cv10softdoubleplERKS0_.exit50:               ; preds = %203, %204
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  %207 = load i64, ptr %25, align 8, !tbaa !27, !noalias !379
-  %208 = load i64, ptr %36, align 8, !tbaa !27, !noalias !379
-  %209 = icmp slt i64 %207, 0
-  %.unshifted.i.i51 = xor i64 %208, %207
-  %210 = icmp sgt i64 %.unshifted.i.i51, -1
-  br i1 %210, label %211, label %212
+  %205 = load i64, ptr %25, align 8, !tbaa !27, !noalias !379
+  %206 = load i64, ptr %36, align 8, !tbaa !27, !noalias !379
+  %207 = icmp slt i64 %205, 0
+  %.unshifted.i.i51 = xor i64 %206, %205
+  %208 = icmp sgt i64 %.unshifted.i.i51, -1
+  br i1 %208, label %209, label %210
 
-211:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %207, i64 noundef %208, i1 noundef zeroext %209), !alias.scope !382
+209:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %205, i64 noundef %206, i1 noundef zeroext %207), !alias.scope !382
   br label %_ZNK2cv10softdoubleplERKS0_.exit52
 
-212:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %207, i64 noundef %208, i1 noundef zeroext %209), !alias.scope !382
+210:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %205, i64 noundef %206, i1 noundef zeroext %207), !alias.scope !382
   br label %_ZNK2cv10softdoubleplERKS0_.exit52
 
-_ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %211, %212
+_ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %209, %210
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -6782,13 +6778,13 @@ _ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %211, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %213
+  br label %211
 
-213:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit52, %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, %.critedge
+211:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit52, %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, %.critedge
   ret void
 
-214:                                              ; preds = %153, %151, %149, %147, %145, %143, %141, %139
-  %.pn30.pn = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ]
+212:                                              ; preds = %151, %149, %147, %145, %143, %141, %139, %137
+  %.pn30.pn = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   resume { ptr, i32 } %.pn30.pn
 }
 
@@ -8497,7 +8493,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
   %.1.i = select i1 %23, i8 %24, i8 %spec.select12.i
   %26 = lshr i32 %.19.i, 24
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = add nsw i8 %.1.i, -8
   %31 = add i8 %30, %29
@@ -8865,7 +8861,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_
   %.1.i = select i1 %8, i8 %9, i8 %spec.select12.i
   %11 = lshr i32 %.19.i, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = add nsw i8 %.1.i, -1
   %16 = add i8 %15, %14
@@ -9211,7 +9207,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %.2.i = select i1 %28, i32 %30, i32 %.1.i
   %31 = lshr i32 %.2.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %35 = add i8 %34, -11
   %36 = add i8 %35, %.214.i
@@ -9361,7 +9357,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
   %.2.i = select i1 %9, i32 %11, i32 %.1.i
   %12 = lshr i32 %.2.i, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = add nsw i8 %.214.i, -1
   %17 = add i8 %16, %15

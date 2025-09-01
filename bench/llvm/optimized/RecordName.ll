@@ -1937,7 +1937,7 @@ _ZN4llvm11SmallStringILj256EE6appendENS_9StringRefE.exit: ; preds = %_ZN4llvm15S
   %.019.i = phi i64 [ %90, %.thread.i ], [ %74, %.thread.i.preheader ]
   %.117.i = phi ptr [ %89, %.thread.i ], [ %29, %.thread.i.preheader ]
   %86 = and i64 %.019.i, 15
-  %87 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !23, !noalias !139
   %89 = getelementptr inbounds i8, ptr %.117.i, i64 -1
   store i8 %88, ptr %89, align 1, !tbaa !23, !noalias !139

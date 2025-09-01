@@ -14,7 +14,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
 7:                                                ; preds = %4, %7
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
   %8 = trunc i64 %indvars.iv to i8
-  %9 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr i8, ptr %5, i64 %indvars.iv
   store i8 %8, ptr %9, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -27,7 +27,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
 .preheader68:                                     ; preds = %7, %.preheader68
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader68 ], [ 0, %7 ]
   %.05770 = phi i8 [ %.narrow65, %.preheader68 ], [ 0, %7 ]
-  %10 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv88
+  %10 = getelementptr i8, ptr %5, i64 %indvars.iv88
   %11 = load i8, ptr %10, align 1
   %.tr = add i8 %11, %.05770
   %12 = urem i64 %indvars.iv88, %1
@@ -35,7 +35,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %14 = load i8, ptr %13, align 1
   %.narrow65 = add i8 %.tr, %14
   %15 = zext i8 %.narrow65 to i64
-  %16 = getelementptr [256 x i8], ptr %5, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %5, i64 %15
   %17 = load i8, ptr %16, align 1
   store i8 %17, ptr %10, align 1
   store i8 %11, ptr %16, align 1
@@ -52,18 +52,18 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %18 = add nuw nsw i32 %.275, 1
   %19 = and i32 %18, 255
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [256 x i8], ptr %5, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %5, i64 %20
   %22 = load i8, ptr %21, align 1
   %.narrow67 = add i8 %22, %.15874
   %23 = zext i8 %.narrow67 to i64
-  %24 = getelementptr [256 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1
   store i8 %25, ptr %21, align 1
   store i8 %22, ptr %24, align 1
   %26 = load i8, ptr %21, align 1
   %.narrow63 = add i8 %26, %22
   %27 = zext i8 %.narrow63 to i64
-  %28 = getelementptr [256 x i8], ptr %5, i64 0, i64 %27
+  %28 = getelementptr i8, ptr %5, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = load i8, ptr %.05476, align 1
   %31 = xor i8 %30, %29
@@ -99,20 +99,20 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %41 = add nuw nsw i32 %.382, 1
   %42 = and i32 %41, 255
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr [256 x i8], ptr %5, i64 0, i64 %43
+  %44 = getelementptr i8, ptr %5, i64 %43
   %45 = load i8, ptr %44, align 1
   %.narrow66 = add i8 %45, %.25981
   %46 = zext i8 %.narrow66 to i64
-  %47 = getelementptr [256 x i8], ptr %5, i64 0, i64 %46
+  %47 = getelementptr i8, ptr %5, i64 %46
   %48 = load i8, ptr %47, align 1
   store i8 %48, ptr %44, align 1
   store i8 %45, ptr %47, align 1
-  %49 = getelementptr [4 x i8], ptr %6, i64 0, i64 %indvars.iv91
+  %49 = getelementptr i8, ptr %6, i64 %indvars.iv91
   %50 = load i8, ptr %49, align 1
   %51 = load i8, ptr %44, align 1
   %.narrow = add i8 %51, %45
   %52 = zext i8 %.narrow to i64
-  %53 = getelementptr [256 x i8], ptr %5, i64 0, i64 %52
+  %53 = getelementptr i8, ptr %5, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = xor i8 %54, %50
   %56 = load i8, ptr %.183, align 1

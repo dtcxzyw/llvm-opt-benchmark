@@ -179,7 +179,7 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
 
 40:                                               ; preds = %ttml_get_display_alignment.exit.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.ttml_encode_init, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ttml_encode_init, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   %42 = zext nneg i32 %.sroa.7.0.copyload.i to i64
   %43 = tail call i64 @av_rescale(i64 noundef %42, i64 noundef 100, i64 noundef %20) #8

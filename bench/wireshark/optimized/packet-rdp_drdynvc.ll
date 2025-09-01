@@ -413,7 +413,7 @@ dissect_rdp_vlength.exit417:                      ; preds = %67, %79
 
 102:                                              ; preds = %101, %94
   %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i, %101 ]
-  %103 = getelementptr [15 x %struct.drdynvc_know_channel_def], ptr @knownChannels, i64 0, i64 %indvars.iv.i
+  %103 = getelementptr %struct.drdynvc_know_channel_def, ptr @knownChannels, i64 %indvars.iv.i
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 @strcmp(ptr noundef %104, ptr noundef readonly %99) #8
   %106 = icmp eq i32 %105, 0

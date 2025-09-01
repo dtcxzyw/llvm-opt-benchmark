@@ -4410,7 +4410,7 @@ define range(i32 -1, 1) i32 @H5S_set_version(ptr noundef %0, ptr noundef capture
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #10
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [7 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr @H5O_sdspace_ver_bounds, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !62
   %25 = icmp ugt i32 %20, %24
   br i1 %25, label %30, label %26
@@ -4418,7 +4418,7 @@ define range(i32 -1, 1) i32 @H5S_set_version(ptr noundef %0, ptr noundef capture
 26:                                               ; preds = %18
   %27 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #10
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [7 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr @H5O_sdspace_ver_bounds, i64 %28
   br label %30
 
 30:                                               ; preds = %18, %26
@@ -4426,7 +4426,7 @@ define range(i32 -1, 1) i32 @H5S_set_version(ptr noundef %0, ptr noundef capture
   %31 = load i32, ptr %.in, align 4, !tbaa !62
   %32 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #10
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [7 x i32], ptr @H5O_sdspace_ver_bounds, i64 0, i64 %33
+  %34 = getelementptr inbounds i32, ptr @H5O_sdspace_ver_bounds, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !62
   %36 = icmp ugt i32 %31, %35
   br i1 %36, label %37, label %41

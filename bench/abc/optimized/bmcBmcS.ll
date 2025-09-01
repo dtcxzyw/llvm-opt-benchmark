@@ -2918,7 +2918,7 @@ Vec_IntGrow.exit39:                               ; preds = %Vec_IntPush.exit, %
   %58 = fptrunc double %57 to float
   store float %58, ptr %48, align 8, !tbaa !80
   %59 = call ptr @satoko_create() #24
-  %60 = getelementptr inbounds nuw [100 x ptr], ptr %49, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   store ptr %59, ptr %60, align 8, !tbaa !81
   call void @satoko_configure(ptr noundef %59, ptr noundef nonnull %3) #24
   %61 = load ptr, ptr %60, align 8, !tbaa !81
@@ -3055,7 +3055,7 @@ Vec_IntErase.exit17:                              ; preds = %Vec_IntErase.exit, 
 33:                                               ; preds = %.lr.ph, %38
   %34 = phi ptr [ %28, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %35 = getelementptr inbounds nuw [100 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !81
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %38, label %37
@@ -4684,7 +4684,7 @@ define ptr @Bmcs_ManGenerateCex(ptr noundef readonly captures(none) %0, i32 noun
   %23 = getelementptr i8, ptr %0, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = sext i32 %3 to i64
-  %26 = getelementptr inbounds [100 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
   %27 = getelementptr i8, ptr %0, i64 72
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 20
   br label %29
@@ -5636,9 +5636,9 @@ Abc_Clock.exit:                                   ; preds = %2, %13
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw [100 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !81
-  %52 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %10, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %10, i64 %indvars.iv
   store ptr %51, ptr %52, align 8, !tbaa !140
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 -1, ptr %53, align 8, !tbaa !144
@@ -5738,7 +5738,7 @@ Abc_Clock.exit:                                   ; preds = %2, %13
 89:                                               ; preds = %.lr.ph272, %Bmcs_ManAddCnf.exit
   %90 = phi i32 [ %84, %.lr.ph272 ], [ %116, %Bmcs_ManAddCnf.exit ]
   %indvars.iv334 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next335, %Bmcs_ManAddCnf.exit ]
-  %91 = getelementptr inbounds nuw [100 x ptr], ptr %32, i64 0, i64 %indvars.iv334
+  %91 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv334
   %92 = load ptr, ptr %91, align 8, !tbaa !81
   %93 = load i32, ptr %33, align 4, !tbaa !121
   %94 = load i32, ptr %34, align 8, !tbaa !84
@@ -6036,7 +6036,7 @@ Abc_Clock.exit204:                                ; preds = %Bmcs_ManPerform_Sol
 
 .lr.ph.i205:                                      ; preds = %195
   %212 = sext i32 %.9 to i64
-  %213 = getelementptr inbounds [100 x ptr], ptr %32, i64 0, i64 %212
+  %213 = getelementptr inbounds ptr, ptr %32, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %206, i64 20
   br label %215
 
@@ -6238,7 +6238,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i209, %260
 
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
   %indvars.iv337 = phi i64 [ 0, %.lr.ph324.preheader ], [ %indvars.iv.next338, %.lr.ph324 ]
-  %297 = getelementptr inbounds nuw [100 x %struct.Par_ThData_t_], ptr %10, i64 0, i64 %indvars.iv337
+  %297 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %10, i64 %indvars.iv337
   store ptr null, ptr %297, align 8, !tbaa !140
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
   store i32 1, ptr %298, align 8, !tbaa !143

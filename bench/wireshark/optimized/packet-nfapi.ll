@@ -3399,52 +3399,55 @@ define internal void @nfapi_tag_vals_fn(ptr noundef %0, i32 noundef %1) #1 {
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr [308 x %struct.tlv_t], ptr @configuration_tags, i64 0, i64 %4
+  %5 = getelementptr %struct.tlv_t, ptr @configuration_tags, i64 %4
   br label %look_up_tlv.exit
 
 6:                                                ; preds = %2
   %7 = add i32 %1, -4096
   %or.cond3.i = icmp ult i32 %7, 14
-  br i1 %or.cond3.i, label %8, label %11
+  br i1 %or.cond3.i, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr [14 x %struct.tlv_t], ptr @nfapi_tags, i64 0, i64 %9
+  %9 = zext nneg i32 %1 to i64
+  %10 = getelementptr %struct.tlv_t, ptr @nfapi_tags, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -98304
   br label %look_up_tlv.exit
 
-11:                                               ; preds = %6
-  %12 = add i32 %1, -8192
-  %or.cond5.i = icmp ult i32 %12, 92
-  br i1 %or.cond5.i, label %13, label %16
+12:                                               ; preds = %6
+  %13 = add i32 %1, -8192
+  %or.cond5.i = icmp ult i32 %13, 92
+  br i1 %or.cond5.i, label %14, label %18
 
-13:                                               ; preds = %11
-  %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr [92 x %struct.tlv_t], ptr @p7_tags, i64 0, i64 %14
+14:                                               ; preds = %12
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr %struct.tlv_t, ptr @p7_tags, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -196608
   br label %look_up_tlv.exit
 
-16:                                               ; preds = %11
-  %17 = add i32 %1, -12288
-  %or.cond7.i = icmp ult i32 %17, 27
-  br i1 %or.cond7.i, label %18, label %look_up_tlv.exit.thread
+18:                                               ; preds = %12
+  %19 = add i32 %1, -12288
+  %or.cond7.i = icmp ult i32 %19, 27
+  br i1 %or.cond7.i, label %20, label %look_up_tlv.exit.thread
 
-18:                                               ; preds = %16
-  %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr [27 x %struct.tlv_t], ptr @p4_tags, i64 0, i64 %19
+20:                                               ; preds = %18
+  %21 = zext nneg i32 %1 to i64
+  %22 = getelementptr %struct.tlv_t, ptr @p4_tags, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -294912
   br label %look_up_tlv.exit
 
-look_up_tlv.exit:                                 ; preds = %3, %8, %13, %18
-  %.0.i = phi ptr [ %5, %3 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ]
+look_up_tlv.exit:                                 ; preds = %3, %8, %14, %20
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %8 ], [ %17, %14 ], [ %23, %20 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %look_up_tlv.exit.thread, label %21
+  br i1 %.not, label %look_up_tlv.exit.thread, label %24
 
-21:                                               ; preds = %look_up_tlv.exit
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %23 = load ptr, ptr %22, align 8
+24:                                               ; preds = %look_up_tlv.exit
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %26 = load ptr, ptr %25, align 8
   br label %look_up_tlv.exit.thread
 
-look_up_tlv.exit.thread:                          ; preds = %look_up_tlv.exit, %16, %21
-  %.str.1636.sink = phi ptr [ %23, %21 ], [ @.str.1636, %16 ], [ @.str.1636, %look_up_tlv.exit ]
-  %24 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1635, ptr noundef %.str.1636.sink, i32 noundef %1)
+look_up_tlv.exit.thread:                          ; preds = %look_up_tlv.exit, %18, %24
+  %.str.1636.sink = phi ptr [ %26, %24 ], [ @.str.1636, %18 ], [ @.str.1636, %look_up_tlv.exit ]
+  %27 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1635, ptr noundef %.str.1636.sink, i32 noundef %1)
   ret void
 }
 
@@ -9709,7 +9712,7 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   %12 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %13 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %122, label %14
+  br i1 %.not, label %124, label %14
 
 14:                                               ; preds = %2
   %15 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
@@ -9728,9 +9731,9 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   %25 = add i32 %20, %19
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %117
-  %.090 = phi i32 [ %.182, %117 ], [ 0, %.lr.ph.preheader ]
-  %.06289 = phi i32 [ %.163, %117 ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %119
+  %.090 = phi i32 [ %.182, %119 ], [ 0, %.lr.ph.preheader ]
+  %.06289 = phi i32 [ %.163, %119 ], [ %25, %.lr.ph.preheader ]
   %26 = call i32 @ptvcursor_current_offset(ptr noundef %0)
   %27 = icmp slt i32 %26, %.06289
   br i1 %27, label %28, label %.critedge
@@ -9740,209 +9743,211 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   %30 = call i32 @ptvcursor_current_offset(ptr noundef %0)
   %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %29, i32 noundef %30)
   %32 = icmp eq i16 %31, 8248
-  br i1 %32, label %52, label %.split
+  br i1 %32, label %54, label %.split
 
 .split:                                           ; preds = %28
-  %33 = zext i16 %31 to i32
   %or.cond.i = icmp ult i16 %31, 308
-  br i1 %or.cond.i, label %34, label %37
+  br i1 %or.cond.i, label %33, label %36
 
-34:                                               ; preds = %.split
-  %35 = zext nneg i16 %31 to i64
-  %36 = getelementptr [308 x %struct.tlv_t], ptr @configuration_tags, i64 0, i64 %35
+33:                                               ; preds = %.split
+  %34 = zext nneg i16 %31 to i64
+  %35 = getelementptr %struct.tlv_t, ptr @configuration_tags, i64 %34
   br label %look_up_tlv.exit
 
-37:                                               ; preds = %.split
-  %38 = add nsw i32 %33, -4096
-  %or.cond3.i = icmp ult i32 %38, 14
-  br i1 %or.cond3.i, label %39, label %42
+36:                                               ; preds = %.split
+  %37 = add i16 %31, -4096
+  %or.cond3.i = icmp ult i16 %37, 14
+  br i1 %or.cond3.i, label %38, label %42
 
-39:                                               ; preds = %37
-  %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr [14 x %struct.tlv_t], ptr @nfapi_tags, i64 0, i64 %40
+38:                                               ; preds = %36
+  %39 = zext nneg i16 %31 to i64
+  %40 = getelementptr %struct.tlv_t, ptr @nfapi_tags, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -98304
   br label %look_up_tlv.exit
 
-42:                                               ; preds = %37
-  %43 = add nsw i32 %33, -8192
-  %or.cond5.i = icmp ult i32 %43, 92
-  br i1 %or.cond5.i, label %44, label %47
+42:                                               ; preds = %36
+  %43 = add i16 %31, -8192
+  %or.cond5.i = icmp ult i16 %43, 92
+  br i1 %or.cond5.i, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr [92 x %struct.tlv_t], ptr @p7_tags, i64 0, i64 %45
+  %45 = zext nneg i16 %31 to i64
+  %46 = getelementptr %struct.tlv_t, ptr @p7_tags, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -196608
   br label %look_up_tlv.exit
 
-47:                                               ; preds = %42
-  %48 = add nsw i32 %33, -12288
-  %or.cond7.i = icmp ult i32 %48, 27
-  br i1 %or.cond7.i, label %49, label %look_up_tlv.exit.thread
+48:                                               ; preds = %42
+  %49 = add i16 %31, -12288
+  %or.cond7.i = icmp ult i16 %49, 27
+  br i1 %or.cond7.i, label %50, label %look_up_tlv.exit.thread
 
-49:                                               ; preds = %47
-  %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr [27 x %struct.tlv_t], ptr @p4_tags, i64 0, i64 %50
+50:                                               ; preds = %48
+  %51 = zext nneg i16 %31 to i64
+  %52 = getelementptr %struct.tlv_t, ptr @p4_tags, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 -294912
   br label %look_up_tlv.exit
 
-52:                                               ; preds = %28
+54:                                               ; preds = %28
   %.not73 = icmp eq i32 %.090, 0
-  br i1 %.not73, label %look_up_tlv.exit.thread83, label %53
+  br i1 %.not73, label %look_up_tlv.exit.thread83, label %55
 
-53:                                               ; preds = %52
+55:                                               ; preds = %54
   call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %look_up_tlv.exit.thread83
 
-look_up_tlv.exit.thread83:                        ; preds = %52, %53
-  %54 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
-  %55 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %54, ptr noundef nonnull @.str.2121, i32 noundef %.090)
-  %56 = add i32 %.090, 1
-  br label %57
+look_up_tlv.exit.thread83:                        ; preds = %54, %55
+  %56 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
+  %57 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %56, ptr noundef nonnull @.str.2121, i32 noundef %.090)
+  %58 = add i32 %.090, 1
+  br label %59
 
-look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
-  %phi.call = phi ptr [ %36, %34 ], [ %41, %39 ], [ %46, %44 ], [ %51, %49 ]
+look_up_tlv.exit:                                 ; preds = %50, %44, %38, %33
+  %phi.call = phi ptr [ %35, %33 ], [ %41, %38 ], [ %47, %44 ], [ %53, %50 ]
   %.not74 = icmp eq ptr %phi.call, null
-  br i1 %.not74, label %look_up_tlv.exit.thread, label %57
+  br i1 %.not74, label %look_up_tlv.exit.thread, label %59
 
-57:                                               ; preds = %look_up_tlv.exit.thread83, %look_up_tlv.exit
-  %.188 = phi i32 [ %56, %look_up_tlv.exit.thread83 ], [ %.090, %look_up_tlv.exit ]
+59:                                               ; preds = %look_up_tlv.exit.thread83, %look_up_tlv.exit
+  %.188 = phi i32 [ %58, %look_up_tlv.exit.thread83 ], [ %.090, %look_up_tlv.exit ]
   %phi.call87 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p7_tags, i64 1344), %look_up_tlv.exit.thread83 ], [ %phi.call, %look_up_tlv.exit ]
-  %58 = getelementptr inbounds nuw i8, ptr %phi.call87, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %.not75 = icmp eq ptr %59, null
-  br i1 %.not75, label %look_up_tlv.exit.thread, label %60
+  %60 = getelementptr inbounds nuw i8, ptr %phi.call87, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not75 = icmp eq ptr %61, null
+  br i1 %.not75, label %look_up_tlv.exit.thread, label %62
 
-60:                                               ; preds = %57
-  %61 = load i16, ptr %phi.call87, align 8
-  %62 = icmp eq i16 %61, %31
-  %spec.select = select i1 %62, ptr %59, ptr @.str.1636
+62:                                               ; preds = %59
+  %63 = load i16, ptr %phi.call87, align 8
+  %64 = icmp eq i16 %63, %31
+  %spec.select = select i1 %64, ptr %61, ptr @.str.1636
   br label %look_up_tlv.exit.thread
 
-look_up_tlv.exit.thread:                          ; preds = %47, %60, %57, %look_up_tlv.exit
-  %.182 = phi i32 [ %.188, %57 ], [ %.090, %look_up_tlv.exit ], [ %.188, %60 ], [ %.090, %47 ]
-  %.065 = phi ptr [ @.str.1636, %57 ], [ @.str.1636, %look_up_tlv.exit ], [ %spec.select, %60 ], [ @.str.1636, %47 ]
-  %63 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
-  %64 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %63, ptr noundef nonnull @.str.1815, ptr noundef nonnull %.065)
-  %65 = load i32, ptr @ett_nfapi_tl, align 4
-  %66 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %65, ptr noundef nonnull @.str.1978)
-  %67 = load i32, ptr @hf_nfapi_tl_tag, align 4
-  %68 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0)
-  %69 = load i32, ptr @hf_nfapi_tl_length, align 4
+look_up_tlv.exit.thread:                          ; preds = %48, %62, %59, %look_up_tlv.exit
+  %.182 = phi i32 [ %.188, %59 ], [ %.090, %look_up_tlv.exit ], [ %.188, %62 ], [ %.090, %48 ]
+  %.065 = phi ptr [ @.str.1636, %59 ], [ @.str.1636, %look_up_tlv.exit ], [ %spec.select, %62 ], [ @.str.1636, %48 ]
+  %65 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
+  %66 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %65, ptr noundef nonnull @.str.1815, ptr noundef nonnull %.065)
+  %67 = load i32, ptr @ett_nfapi_tl, align 4
+  %68 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %67, ptr noundef nonnull @.str.1978)
+  %69 = load i32, ptr @hf_nfapi_tl_tag, align 4
   %70 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0)
+  %71 = load i32, ptr @hf_nfapi_tl_length, align 4
+  %72 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef 0)
   call void @ptvcursor_pop_subtree(ptr noundef %0)
-  br i1 %32, label %71, label %80
+  br i1 %32, label %73, label %82
 
-71:                                               ; preds = %look_up_tlv.exit.thread
+73:                                               ; preds = %look_up_tlv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %72 = load i32, ptr @hf_nfapi_handle, align 4
-  %73 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0)
-  %74 = load i32, ptr @hf_nfapi_rnti, align 4
-  %75 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
-  %76 = load i32, ptr %4, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %dissect_rx_ue_info_value.exit
+  %74 = load i32, ptr @hf_nfapi_handle, align 4
+  %75 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  %76 = load i32, ptr @hf_nfapi_rnti, align 4
+  %77 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %76, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
+  %78 = load i32, ptr %4, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %dissect_rx_ue_info_value.exit
 
-78:                                               ; preds = %71
-  %79 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %75, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1982)
+80:                                               ; preds = %73
+  %81 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %77, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1982)
   br label %dissect_rx_ue_info_value.exit
 
-dissect_rx_ue_info_value.exit:                    ; preds = %71, %78
+dissect_rx_ue_info_value.exit:                    ; preds = %73, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %117
+  br label %119
 
-80:                                               ; preds = %look_up_tlv.exit.thread
-  %81 = icmp eq i16 %31, 8228
-  %82 = icmp ne i32 %.182, 0
-  %or.cond = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond, label %83, label %108
+82:                                               ; preds = %look_up_tlv.exit.thread
+  %83 = icmp eq i16 %31, 8228
+  %84 = icmp ne i32 %.182, 0
+  %or.cond = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond, label %85, label %110
 
-83:                                               ; preds = %80
+85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %84 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
-  %85 = call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %86 = call zeroext i16 @tvb_get_ntohs(ptr noundef %84, i32 noundef %85)
-  store i16 %86, ptr %6, align 2
+  %86 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %87 = call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %88 = call zeroext i16 @tvb_get_ntohs(ptr noundef %86, i32 noundef %87)
+  store i16 %88, ptr %6, align 2
   call void @wmem_array_append(ptr noundef %10, ptr noundef nonnull %6, i32 noundef 1)
-  %87 = load i32, ptr @hf_nfapi_length, align 4
-  %88 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %87, i32 noundef 2, i32 noundef 0)
-  %89 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
-  %90 = call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %89, i32 noundef %90)
-  %92 = load i32, ptr @hf_nfapi_data_offset, align 4
-  %93 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %94 = load i32, ptr @hf_nfapi_ul_cqi, align 4
-  %95 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0)
-  %96 = load i32, ptr @hf_nfapi_timing_advance, align 4
-  %97 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef 0)
-  %.not76 = icmp eq i16 %91, 0
-  br i1 %.not76, label %107, label %98
+  %89 = load i32, ptr @hf_nfapi_length, align 4
+  %90 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef 0)
+  %91 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %92 = call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %93 = call zeroext i16 @tvb_get_ntohs(ptr noundef %91, i32 noundef %92)
+  %94 = load i32, ptr @hf_nfapi_data_offset, align 4
+  %95 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %94, i32 noundef 2, i32 noundef 0)
+  %96 = load i32, ptr @hf_nfapi_ul_cqi, align 4
+  %97 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0)
+  %98 = load i32, ptr @hf_nfapi_timing_advance, align 4
+  %99 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %98, i32 noundef 2, i32 noundef 0)
+  %.not76 = icmp eq i16 %93, 0
+  br i1 %.not76, label %109, label %100
 
-98:                                               ; preds = %83
-  %99 = zext i16 %91 to i32
-  %100 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
-  %101 = call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %102 = call i32 @tvb_reported_length_remaining(ptr noundef %100, i32 noundef %101)
+100:                                              ; preds = %85
+  %101 = zext i16 %93 to i32
+  %102 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
   %103 = call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %104 = add i32 %103, %102
-  %105 = icmp eq i32 %.06289, %104
-  %106 = add i32 %7, %99
-  %spec.select77 = select i1 %105, i32 %106, i32 %.06289
-  br label %107
+  %104 = call i32 @tvb_reported_length_remaining(ptr noundef %102, i32 noundef %103)
+  %105 = call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %106 = add i32 %105, %104
+  %107 = icmp eq i32 %.06289, %106
+  %108 = add i32 %7, %101
+  %spec.select77 = select i1 %107, i32 %108, i32 %.06289
+  br label %109
 
-107:                                              ; preds = %98, %83
-  %.264 = phi i32 [ %.06289, %83 ], [ %spec.select77, %98 ]
+109:                                              ; preds = %100, %85
+  %.264 = phi i32 [ %.06289, %85 ], [ %spec.select77, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %117
+  br label %119
 
-108:                                              ; preds = %80
-  %109 = icmp eq i16 %31, 8229
-  br i1 %109, label %110, label %117
+110:                                              ; preds = %82
+  %111 = icmp eq i16 %31, 8229
+  br i1 %111, label %112, label %119
 
-110:                                              ; preds = %108
+112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %111 = load i32, ptr @hf_nfapi_timing_advance_r9, align 4
-  %112 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3)
-  %113 = load i32, ptr %3, align 4
-  %114 = icmp ugt i32 %113, 7690
-  br i1 %114, label %115, label %dissect_rx_indication_rel9_value.exit
+  %113 = load i32, ptr @hf_nfapi_timing_advance_r9, align 4
+  %114 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3)
+  %115 = load i32, ptr %3, align 4
+  %116 = icmp ugt i32 %115, 7690
+  br i1 %116, label %117, label %dissect_rx_indication_rel9_value.exit
 
-115:                                              ; preds = %110
-  %116 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %112, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2123)
+117:                                              ; preds = %112
+  %118 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %114, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2123)
   br label %dissect_rx_indication_rel9_value.exit
 
-dissect_rx_indication_rel9_value.exit:            ; preds = %110, %115
+dissect_rx_indication_rel9_value.exit:            ; preds = %112, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %117
+  br label %119
 
-117:                                              ; preds = %107, %dissect_rx_indication_rel9_value.exit, %108, %dissect_rx_ue_info_value.exit
-  %.163 = phi i32 [ %.06289, %dissect_rx_ue_info_value.exit ], [ %.264, %107 ], [ %.06289, %dissect_rx_indication_rel9_value.exit ], [ %.06289, %108 ]
+119:                                              ; preds = %109, %dissect_rx_indication_rel9_value.exit, %110, %dissect_rx_ue_info_value.exit
+  %.163 = phi i32 [ %.06289, %dissect_rx_ue_info_value.exit ], [ %.264, %109 ], [ %.06289, %dissect_rx_indication_rel9_value.exit ], [ %.06289, %110 ]
   call void @ptvcursor_pop_subtree(ptr noundef %0)
-  %118 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
-  %119 = call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %120 = call i32 @tvb_reported_length_remaining(ptr noundef %118, i32 noundef %119)
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph, label %.critedge, !llvm.loop !10
+  %120 = call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %121 = call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %122 = call i32 @tvb_reported_length_remaining(ptr noundef %120, i32 noundef %121)
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph, %117, %14
+.critedge:                                        ; preds = %.lr.ph, %119, %14
   call void @ptvcursor_pop_subtree(ptr noundef %0)
   call void @ptvcursor_pop_subtree(ptr noundef %0)
-  br label %122
+  br label %124
 
-122:                                              ; preds = %.critedge, %2
-  %123 = call i32 @wmem_array_get_count(ptr noundef %10)
-  %.not94 = icmp eq i32 %123, 0
+124:                                              ; preds = %.critedge, %2
+  %125 = call i32 @wmem_array_get_count(ptr noundef %10)
+  %.not94 = icmp eq i32 %125, 0
   br i1 %.not94, label %._crit_edge, label %.lr.ph93
 
-.lr.ph93:                                         ; preds = %122, %.lr.ph93
-  %.292 = phi i32 [ %129, %.lr.ph93 ], [ 0, %122 ]
-  %124 = load i32, ptr @hf_nfapi_pdu, align 4
-  %125 = call ptr @wmem_array_index(ptr noundef %10, i32 noundef %.292)
-  %126 = load i16, ptr %125, align 2
-  %127 = zext i16 %126 to i32
-  %128 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %124, i32 noundef %127, i32 noundef 0)
-  %129 = add nuw i32 %.292, 1
-  %130 = call i32 @wmem_array_get_count(ptr noundef %10)
-  %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph93, label %._crit_edge, !llvm.loop !11
+.lr.ph93:                                         ; preds = %124, %.lr.ph93
+  %.292 = phi i32 [ %131, %.lr.ph93 ], [ 0, %124 ]
+  %126 = load i32, ptr @hf_nfapi_pdu, align 4
+  %127 = call ptr @wmem_array_index(ptr noundef %10, i32 noundef %.292)
+  %128 = load i16, ptr %127, align 2
+  %129 = zext i16 %128 to i32
+  %130 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %126, i32 noundef %129, i32 noundef 0)
+  %131 = add nuw i32 %.292, 1
+  %132 = call i32 @wmem_array_get_count(ptr noundef %10)
+  %133 = icmp ult i32 %131, %132
+  br i1 %133, label %.lr.ph93, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph93, %122
+._crit_edge:                                      ; preds = %.lr.ph93, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -13601,7 +13606,7 @@ define internal fastcc void @dissect_tlv_list(ptr noundef %0, ptr noundef %1, i3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %7
 
-7:                                                ; preds = %.lr.ph, %74
+7:                                                ; preds = %.lr.ph, %77
   %8 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
   %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %8, i32 noundef %9)
@@ -13609,128 +13614,136 @@ define internal fastcc void @dissect_tlv_list(ptr noundef %0, ptr noundef %1, i3
   %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %13 = add i32 %12, 2
   %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %11, i32 noundef %13)
-  %15 = zext i16 %10 to i32
   %or.cond.i = icmp ult i16 %10, 308
-  br i1 %or.cond.i, label %16, label %19
+  br i1 %or.cond.i, label %15, label %18
 
-16:                                               ; preds = %7
-  %17 = zext nneg i16 %10 to i64
-  %18 = getelementptr [308 x %struct.tlv_t], ptr @configuration_tags, i64 0, i64 %17
+15:                                               ; preds = %7
+  %16 = zext nneg i16 %10 to i64
+  %17 = getelementptr %struct.tlv_t, ptr @configuration_tags, i64 %16
   br label %look_up_tlv.exit
 
-19:                                               ; preds = %7
-  %20 = add nsw i32 %15, -4096
-  %or.cond3.i = icmp ult i32 %20, 14
-  br i1 %or.cond3.i, label %21, label %24
+18:                                               ; preds = %7
+  %19 = add i16 %10, -4096
+  %or.cond3.i = icmp ult i16 %19, 14
+  br i1 %or.cond3.i, label %20, label %24
 
-21:                                               ; preds = %19
-  %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr [14 x %struct.tlv_t], ptr @nfapi_tags, i64 0, i64 %22
+20:                                               ; preds = %18
+  %21 = zext nneg i16 %10 to i64
+  %22 = getelementptr %struct.tlv_t, ptr @nfapi_tags, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -98304
   br label %look_up_tlv.exit
 
-24:                                               ; preds = %19
-  %25 = add nsw i32 %15, -8192
-  %or.cond5.i = icmp ult i32 %25, 92
-  br i1 %or.cond5.i, label %26, label %29
+24:                                               ; preds = %18
+  %25 = add i16 %10, -8192
+  %or.cond5.i = icmp ult i16 %25, 92
+  br i1 %or.cond5.i, label %26, label %30
 
 26:                                               ; preds = %24
-  %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr [92 x %struct.tlv_t], ptr @p7_tags, i64 0, i64 %27
+  %27 = zext nneg i16 %10 to i64
+  %28 = getelementptr %struct.tlv_t, ptr @p7_tags, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -196608
   br label %look_up_tlv.exit
 
-29:                                               ; preds = %24
-  %30 = add nsw i32 %15, -12288
-  %or.cond7.i = icmp ult i32 %30, 27
-  br i1 %or.cond7.i, label %31, label %look_up_tlv.exit.thread
+30:                                               ; preds = %24
+  %31 = add i16 %10, -12288
+  %or.cond7.i = icmp ult i16 %31, 27
+  br i1 %or.cond7.i, label %32, label %look_up_tlv.exit.thread
 
-31:                                               ; preds = %29
-  %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr [27 x %struct.tlv_t], ptr @p4_tags, i64 0, i64 %32
+32:                                               ; preds = %30
+  %33 = zext nneg i16 %10 to i64
+  %34 = getelementptr %struct.tlv_t, ptr @p4_tags, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -294912
   br label %look_up_tlv.exit
 
-look_up_tlv.exit:                                 ; preds = %16, %21, %26, %31
-  %.0.i = phi ptr [ %18, %16 ], [ %23, %21 ], [ %28, %26 ], [ %33, %31 ]
+look_up_tlv.exit:                                 ; preds = %15, %20, %26, %32
+  %.0.i = phi ptr [ %17, %15 ], [ %23, %20 ], [ %29, %26 ], [ %35, %32 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %look_up_tlv.exit.thread, label %34
+  br i1 %.not, label %look_up_tlv.exit.thread.thread, label %36
 
-34:                                               ; preds = %look_up_tlv.exit
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not43 = icmp eq ptr %36, null
-  br i1 %.not43, label %look_up_tlv.exit.thread, label %37
+36:                                               ; preds = %look_up_tlv.exit
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %.not43 = icmp eq ptr %38, null
+  br i1 %.not43, label %look_up_tlv.exit.thread.thread, label %39
 
-37:                                               ; preds = %34
-  %38 = load i16, ptr %.0.i, align 8
-  %39 = icmp eq i16 %38, %10
-  br i1 %39, label %40, label %look_up_tlv.exit.thread
+39:                                               ; preds = %36
+  %40 = load i16, ptr %.0.i, align 8
+  %41 = icmp eq i16 %40, %10
+  br i1 %41, label %42, label %look_up_tlv.exit.thread.thread
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @ett_nfapi_tlv_tree, align 4
-  %42 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %41, ptr noundef nonnull @.str.1815, ptr noundef nonnull %36)
-  %43 = load i32, ptr @ett_nfapi_tl, align 4
-  %44 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %43, ptr noundef nonnull @.str.1978)
-  %45 = load i32, ptr @hf_nfapi_tl_tag, align 4
-  %46 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0)
-  %47 = load i32, ptr @hf_nfapi_tl_length, align 4
+42:                                               ; preds = %39
+  %43 = load i32, ptr @ett_nfapi_tlv_tree, align 4
+  %44 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %43, ptr noundef nonnull @.str.1815, ptr noundef nonnull %38)
+  %45 = load i32, ptr @ett_nfapi_tl, align 4
+  %46 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %45, ptr noundef nonnull @.str.1978)
+  %47 = load i32, ptr @hf_nfapi_tl_tag, align 4
   %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
+  %49 = load i32, ptr @hf_nfapi_tl_length, align 4
+  %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
-  %49 = zext i16 %14 to i32
+  %51 = zext i16 %14 to i32
   %.not44 = icmp eq i16 %14, 0
-  br i1 %.not44, label %74, label %50
+  br i1 %.not44, label %77, label %52
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %.not45 = icmp eq ptr %52, null
-  br i1 %.not45, label %.sink.split, label %53
+52:                                               ; preds = %42
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %.not45 = icmp eq ptr %54, null
+  br i1 %.not45, label %.sink.split, label %55
 
-53:                                               ; preds = %50
-  %54 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
-  %55 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %56 = tail call ptr @tvb_new_subset_length(ptr noundef %54, i32 noundef %55, i32 noundef %49)
-  %57 = load ptr, ptr %6, align 8
-  %58 = tail call ptr @ptvcursor_tree(ptr noundef %0)
-  %59 = tail call ptr @ptvcursor_new(ptr noundef %57, ptr noundef %58, ptr noundef %56, i32 noundef 0)
-  tail call void %52(ptr noundef %59, ptr noundef %1)
-  %60 = tail call i32 @ptvcursor_current_offset(ptr noundef %59)
-  %.not46 = icmp eq i32 %60, %49
-  br i1 %.not46, label %63, label %61
+55:                                               ; preds = %52
+  %56 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %57 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %58 = tail call ptr @tvb_new_subset_length(ptr noundef %56, i32 noundef %57, i32 noundef %51)
+  %59 = load ptr, ptr %6, align 8
+  %60 = tail call ptr @ptvcursor_tree(ptr noundef %0)
+  %61 = tail call ptr @ptvcursor_new(ptr noundef %59, ptr noundef %60, ptr noundef %58, i32 noundef 0)
+  tail call void %54(ptr noundef %61, ptr noundef %1)
+  %62 = tail call i32 @ptvcursor_current_offset(ptr noundef %61)
+  %.not46 = icmp eq i32 %62, %51
+  br i1 %.not46, label %65, label %63
 
-61:                                               ; preds = %53
-  %62 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_invalid_tlv_length, ptr noundef nonnull @.str.1976)
-  br label %63
+63:                                               ; preds = %55
+  %64 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_invalid_tlv_length, ptr noundef nonnull @.str.1976)
+  br label %65
 
-63:                                               ; preds = %61, %53
-  tail call void @ptvcursor_free(ptr noundef %59)
+65:                                               ; preds = %63, %55
+  tail call void @ptvcursor_free(ptr noundef %61)
   br label %.sink.split
 
-look_up_tlv.exit.thread:                          ; preds = %29, %37, %34, %look_up_tlv.exit
-  %64 = icmp ugt i16 %10, -4097
-  %65 = load i32, ptr @ett_nfapi_tlv_tree, align 4
-  %.str.1977..str.1636 = select i1 %64, ptr @.str.1977, ptr @.str.1636
-  %66 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %.str.1977..str.1636)
-  %67 = load i32, ptr @ett_nfapi_tl, align 4
-  %68 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %67, ptr noundef nonnull @.str.1978)
-  %69 = load i32, ptr @hf_nfapi_tl_tag, align 4
-  %70 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0)
-  %71 = load i32, ptr @hf_nfapi_tl_length, align 4
-  %72 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef 0)
+look_up_tlv.exit.thread:                          ; preds = %30
+  %66 = icmp ugt i16 %10, -4097
+  br i1 %66, label %67, label %look_up_tlv.exit.thread.thread
+
+look_up_tlv.exit.thread.thread:                   ; preds = %look_up_tlv.exit, %36, %39, %look_up_tlv.exit.thread
+  br label %67
+
+67:                                               ; preds = %look_up_tlv.exit.thread, %look_up_tlv.exit.thread.thread
+  %.str.1636.sink = phi ptr [ @.str.1636, %look_up_tlv.exit.thread.thread ], [ @.str.1977, %look_up_tlv.exit.thread ]
+  %68 = load i32, ptr @ett_nfapi_tlv_tree, align 4
+  %69 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %68, ptr noundef nonnull %.str.1636.sink)
+  %70 = load i32, ptr @ett_nfapi_tl, align 4
+  %71 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %70, ptr noundef nonnull @.str.1978)
+  %72 = load i32, ptr @hf_nfapi_tl_tag, align 4
+  %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 2, i32 noundef 0)
+  %74 = load i32, ptr @hf_nfapi_tl_length, align 4
+  %75 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0)
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
-  %73 = zext i16 %14 to i32
+  %76 = zext i16 %14 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %50, %63, %look_up_tlv.exit.thread
-  %.sink = phi i32 [ %73, %look_up_tlv.exit.thread ], [ %49, %63 ], [ %49, %50 ]
+.sink.split:                                      ; preds = %52, %65, %67
+  %.sink = phi i32 [ %76, %67 ], [ %51, %65 ], [ %51, %52 ]
   tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %.sink)
-  br label %74
+  br label %77
 
-74:                                               ; preds = %.sink.split, %40
+77:                                               ; preds = %.sink.split, %42
   tail call void @ptvcursor_pop_subtree(ptr noundef %0)
-  %75 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %76 = icmp slt i32 %75, %2
-  br i1 %76, label %7, label %._crit_edge, !llvm.loop !19
+  %78 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %79 = icmp slt i32 %78, %2
+  br i1 %79, label %7, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %74, %3
+._crit_edge:                                      ; preds = %77, %3
   ret void
 }
 

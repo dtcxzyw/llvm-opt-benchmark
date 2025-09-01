@@ -609,7 +609,7 @@ define void @Init_ossl_asn1() local_unnamed_addr #0 {
 
 28:                                               ; preds = %0, %38
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %38 ]
-  %29 = getelementptr inbounds nuw [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.ossl_asn1_info_t, ptr @ossl_asn1_info, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16, !tbaa !27
   %31 = load i8, ptr %30, align 1, !tbaa !30
   %32 = icmp eq i8 %31, 91
@@ -3181,7 +3181,7 @@ decode_time.exit.i:                               ; preds = %282
   br label %int_ossl_asn1_decode0_prim.exit
 
 309:                                              ; preds = %303
-  %310 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %299, i32 1
+  %310 = getelementptr inbounds %struct.ossl_asn1_info_t, ptr @ossl_asn1_info, i64 %299, i32 1
   %311 = load ptr, ptr %310, align 8, !tbaa !89
   %312 = load i64, ptr %311, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

@@ -16,7 +16,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %8 = mul nsw i32 %7, 12
   %9 = add nsw i32 %8, %6
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [144 x ptr], ptr @fmt_pair_to_conv_functions, i64 0, i64 %10
+  %11 = getelementptr inbounds ptr, ptr @fmt_pair_to_conv_functions, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %33, label %13
@@ -71,7 +71,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
 
 switch.lookup:                                    ; preds = %28
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.swri_audio_convert_alloc, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_audio_convert_alloc, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %switch.load, ptr %32, align 8, !tbaa !14
@@ -185,7 +185,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.091112 = phi i32 [ 0, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %27 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
@@ -217,7 +217,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv128 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next129, %.lr.ph117 ]
   %.092114 = phi i32 [ 0, %.lr.ph117.preheader ], [ %42, %.lr.ph117 ]
-  %38 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv128
+  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv128
   %39 = load ptr, ptr %38, align 8, !tbaa !15
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i32
@@ -347,14 +347,14 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   %100 = load i32, ptr %80, align 4, !tbaa !20
   %101 = mul nsw i32 %100, %99
   %102 = zext nneg i32 %94 to i64
-  %103 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %2, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !15
   br label %105
 
 105:                                              ; preds = %90, %98
   %106 = phi i32 [ %101, %98 ], [ 0, %90 ]
   %107 = phi ptr [ %104, %98 ], [ %77, %90 ]
-  %108 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv138
+  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv138
   %109 = load ptr, ptr %108, align 8, !tbaa !15
   %.not108 = icmp eq ptr %109, null
   br i1 %.not108, label %117, label %110

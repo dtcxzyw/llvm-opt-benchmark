@@ -408,7 +408,7 @@ strmap_get_size.exit55:                           ; preds = %strmap_get_size.exi
 ._crit_edge65:                                    ; preds = %.lr.ph64, %86
   %100 = load i32, ptr %80, align 8, !tbaa !40
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw [28 x ptr], ptr @type_short_descriptions, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw ptr, ptr @type_short_descriptions, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !48
   %104 = call i32 @fputs(ptr noundef %103, ptr noundef %spec.select)
   %105 = call i32 @fputc(i32 noundef 0, ptr noundef %spec.select)
@@ -604,7 +604,7 @@ define dso_local void @merge_get_conflicted_files(ptr noundef readonly captures(
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = trunc nuw nsw i64 %23 to i32
   store i32 %25, ptr %24, align 4, !tbaa !74
-  %26 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %13, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.version_info, ptr %13, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %28 = load i16, ptr %27, align 4, !tbaa !76
   %29 = zext i16 %28 to i32
@@ -877,7 +877,7 @@ record_conflicted_index_entries.exit.thread:      ; preds = %strmap_empty.exit.i
   br label %128
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %111, i64 0, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw %struct.version_info, ptr %111, i64 %indvars.iv.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 36
   %122 = load i16, ptr %121, align 4, !tbaa !76
   %123 = zext i16 %122 to i32
@@ -1012,11 +1012,11 @@ define dso_local void @merge_finalize(ptr noundef readonly captures(none) %0, pt
 .split.us.i:                                      ; preds = %32, %11
   %exitcond89.not.i = phi i1 [ true, %32 ], [ false, %11 ]
   %indvars.iv86.i = phi i64 [ 2, %32 ], [ 1, %11 ]
-  %22 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %14, i64 0, i64 %indvars.iv86.i
+  %22 = getelementptr inbounds nuw %struct.strintmap, ptr %14, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %22, i32 noundef 0) #19
-  %23 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %15, i64 0, i64 %indvars.iv86.i
+  %23 = getelementptr inbounds nuw %struct.strmap, ptr %15, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %23, i32 noundef 0) #19, !callees !128
-  %24 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %16, i64 0, i64 %indvars.iv86.i
+  %24 = getelementptr inbounds nuw %struct.strintmap, ptr %16, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %24, i32 noundef 0) #19
   %25 = load i32, ptr %17, align 8, !tbaa !129
   %26 = zext i32 %25 to i64
@@ -1026,13 +1026,13 @@ define dso_local void @merge_finalize(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond.us.i, label %32, label %27
 
 27:                                               ; preds = %.split.us.i
-  %28 = getelementptr inbounds nuw [3 x %struct.strset], ptr %18, i64 0, i64 %indvars.iv86.i
+  %28 = getelementptr inbounds nuw %struct.strset, ptr %18, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %28, i32 noundef 0) #19
-  %29 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %19, i64 0, i64 %indvars.iv86.i
+  %29 = getelementptr inbounds nuw %struct.strmap, ptr %19, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %29, i32 noundef 1) #19, !callees !128
-  %30 = getelementptr inbounds nuw [3 x %struct.strset], ptr %20, i64 0, i64 %indvars.iv86.i
+  %30 = getelementptr inbounds nuw %struct.strset, ptr %20, i64 %indvars.iv86.i
   tail call void @strmap_clear(ptr noundef nonnull %30, i32 noundef 0) #19
-  %31 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %21, i64 0, i64 %indvars.iv86.i
+  %31 = getelementptr inbounds nuw %struct.strmap, ptr %21, i64 %indvars.iv86.i
   tail call void @partial_clear_dir_rename_count(ptr noundef nonnull %31) #19
   tail call void @strmap_clear(ptr noundef nonnull %31, i32 noundef 1) #19
   br label %32
@@ -1046,7 +1046,7 @@ define dso_local void @merge_finalize(ptr noundef readonly captures(none) %0, pt
 
 34:                                               ; preds = %34, %.preheader.i
   %indvars.iv90.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next91.i, %34 ]
-  %35 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %33, i64 0, i64 %indvars.iv90.i
+  %35 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %33, i64 %indvars.iv90.i
   tail call void @strmap_clear(ptr noundef nonnull %35, i32 noundef 0) #19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   tail call void @strmap_clear(ptr noundef nonnull %36, i32 noundef 0) #19
@@ -1281,11 +1281,11 @@ define internal fastcc void @merge_start(ptr noundef captures(none) %0, ptr noun
 .split.i:                                         ; preds = %48, %26
   %exitcond.not.i = phi i1 [ true, %48 ], [ false, %26 ]
   %indvars.iv.i = phi i64 [ 2, %48 ], [ 1, %26 ]
-  %38 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %29, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw %struct.strintmap, ptr %29, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %38, i32 noundef 0) #19
-  %39 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %30, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw %struct.strmap, ptr %30, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %39, i32 noundef 0) #19, !callees !128
-  %40 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %31, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw %struct.strintmap, ptr %31, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %40, i32 noundef 0) #19
   %41 = load i32, ptr %32, align 8, !tbaa !129
   %42 = zext i32 %41 to i64
@@ -1295,13 +1295,13 @@ define internal fastcc void @merge_start(ptr noundef captures(none) %0, ptr noun
   br i1 %or.cond.i, label %48, label %43
 
 43:                                               ; preds = %.split.i
-  %44 = getelementptr inbounds nuw [3 x %struct.strset], ptr %33, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw %struct.strset, ptr %33, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %44, i32 noundef 0) #19
-  %45 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %34, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.strmap, ptr %34, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %45, i32 noundef 1) #19, !callees !128
-  %46 = getelementptr inbounds nuw [3 x %struct.strset], ptr %35, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw %struct.strset, ptr %35, i64 %indvars.iv.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %46, i32 noundef 0) #19
-  %47 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %36, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw %struct.strmap, ptr %36, i64 %indvars.iv.i
   tail call void @partial_clear_dir_rename_count(ptr noundef nonnull %47) #19
   br label %48
 
@@ -1310,7 +1310,7 @@ define internal fastcc void @merge_start(ptr noundef captures(none) %0, ptr noun
 
 49:                                               ; preds = %49, %.preheader.i
   %indvars.iv90.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next91.i, %49 ]
-  %50 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %37, i64 0, i64 %indvars.iv90.i
+  %50 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %37, i64 %indvars.iv90.i
   tail call void @strmap_partial_clear(ptr noundef nonnull %50, i32 noundef 0) #19
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   tail call void @strmap_partial_clear(ptr noundef nonnull %51, i32 noundef 0) #19
@@ -1361,23 +1361,23 @@ clear_or_reinit_internal_opts.exit:               ; preds = %49
 
 75:                                               ; preds = %62, %75
   %indvars.iv = phi i64 [ 1, %62 ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %67, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw %struct.strintmap, ptr %67, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %76, ptr noundef nonnull %66, i32 noundef 0) #19
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store i32 0, ptr %77, align 8, !tbaa !142
-  %78 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %68, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %struct.strmap, ptr %68, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %78, ptr noundef null, i32 noundef 1) #19
-  %79 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %69, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %struct.strmap, ptr %69, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %79, ptr noundef null, i32 noundef 0) #19
-  %80 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %70, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw %struct.strintmap, ptr %70, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %80, ptr noundef nonnull %66, i32 noundef 0) #19
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store i32 -1, ptr %81, align 8, !tbaa !142
-  %82 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %71, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw %struct.strmap, ptr %71, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %82, ptr noundef null, i32 noundef 1) #19
-  %83 = getelementptr inbounds nuw [3 x %struct.strset], ptr %72, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %struct.strset, ptr %72, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %83, ptr noundef null, i32 noundef 1) #19
-  %84 = getelementptr inbounds nuw [3 x %struct.strset], ptr %73, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw %struct.strset, ptr %73, i64 %indvars.iv
   tail call void @strmap_init_with_options(ptr noundef nonnull %84, ptr noundef null, i32 noundef 0) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1385,7 +1385,7 @@ clear_or_reinit_internal_opts.exit:               ; preds = %49
 
 85:                                               ; preds = %.preheader, %85
   %indvars.iv64 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next65, %85 ]
-  %86 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %74, i64 0, i64 %indvars.iv64
+  %86 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %74, i64 %indvars.iv64
   tail call void @strmap_init_with_options(ptr noundef nonnull %86, ptr noundef nonnull %66, i32 noundef 0) #19
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
   store i32 0, ptr %87, align 8, !tbaa !142
@@ -1623,15 +1623,15 @@ strmap_get_size.exit.i.i:                         ; preds = %110
   %.0116207.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.1117.lcssa.i.i, %.backedge.i.i.backedge ]
   %.0121206.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %.0121206.i.i.be, %.backedge.i.i.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %124 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %118, i64 0, i64 %indvars.iv215.i.i
+  %124 = getelementptr inbounds nuw %struct.strintmap, ptr %118, i64 %indvars.iv215.i.i
   call void @hashmap_iter_init(ptr noundef nonnull %124, ptr noundef nonnull %25) #19
   %125 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
-  %126 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %119, i64 0, i64 %indvars.iv215.i.i
+  %126 = getelementptr inbounds nuw %struct.strmap, ptr %119, i64 %indvars.iv215.i.i
   %.not134.not181.not.i.i = icmp eq ptr %125, null
   br i1 %.not134.not181.not.i.i, label %._crit_edge186.i.i, label %.lr.ph185.i.i
 
 .lr.ph185.i.i:                                    ; preds = %.backedge.i.i
-  %127 = getelementptr inbounds nuw [3 x %struct.strset], ptr %120, i64 0, i64 %indvars.iv215.i.i
+  %127 = getelementptr inbounds nuw %struct.strset, ptr %120, i64 %indvars.iv215.i.i
   %.idx.i.i = mul nuw nsw i64 %indvars.iv215.i.i, 144
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i
   br label %129
@@ -1693,7 +1693,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 ._crit_edge186.i.i:                               ; preds = %150, %133, %.backedge.i.i
   %.not134.not.lcssa.i.i = phi i1 [ false, %.backedge.i.i ], [ true, %133 ], [ false, %150 ]
   %.1125.i.i = phi i32 [ 1, %.backedge.i.i ], [ 0, %133 ], [ 1, %150 ]
-  %152 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %122, i64 0, i64 %indvars.iv215.i.i
+  %152 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %122, i64 %indvars.iv215.i.i
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 72
   store i32 %.1125.i.i, ptr %153, align 8, !tbaa !131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %152, i64 72, i1 false), !tbaa.struct !156
@@ -1738,7 +1738,7 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 
 174:                                              ; preds = %172
   %175 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %176 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %175, i64 0, i64 %indvars.iv215.i.i
+  %176 = getelementptr inbounds nuw %struct.version_info, ptr %175, i64 %indvars.iv215.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %166, ptr noundef nonnull readonly align 4 dereferenceable(32) %176, i64 32, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %178 = load i32, ptr %177, align 4, !tbaa !80
@@ -1809,12 +1809,12 @@ strmap_get_size.exit.i.i:                         ; preds = %110
 .critedge.i.i:                                    ; preds = %202, %197, %195
   %207 = and i32 %.0115191.i.i, 1
   %.not145.i.i = icmp eq i32 %207, 0
-  %208 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %194, i64 0, i64 %indvars.iv.i.i
+  %208 = getelementptr inbounds nuw %struct.version_info, ptr %194, i64 %indvars.iv.i.i
   %.0112.i.i = select i1 %.not145.i.i, ptr null, ptr %208
   %209 = load ptr, ptr %0, align 8, !tbaa !14
   %210 = getelementptr inbounds nuw %struct.tree_desc, ptr %27, i64 %indvars.iv.i.i
   %211 = call ptr @fill_tree_descriptor(ptr noundef %209, ptr noundef nonnull %210, ptr noundef %.0112.i.i) #19
-  %212 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %indvars.iv.i.i
+  %212 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
   store ptr %211, ptr %212, align 8, !tbaa !158
   br label %213
 
@@ -1910,7 +1910,7 @@ traverse_trees_wrapper.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
 
 259:                                              ; preds = %259, %traverse_trees_wrapper.exit.i.i
   %indvars.iv211.i.i = phi i64 [ 0, %traverse_trees_wrapper.exit.i.i ], [ %indvars.iv.next212.i.i, %259 ]
-  %260 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %indvars.iv211.i.i
+  %260 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv211.i.i
   %261 = load ptr, ptr %260, align 8, !tbaa !158
   call void @free(ptr noundef %261) #19
   %indvars.iv.next212.i.i = add nuw nsw i64 %indvars.iv211.i.i, 1
@@ -1944,7 +1944,7 @@ traverse_trees_wrapper.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   %269 = load ptr, ptr %56, align 8, !tbaa !118
   %270 = call ptr @strmap_get(ptr noundef %269, ptr noundef %268) #19
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 64
-  %272 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %271, i64 0, i64 %indvars.iv215.i.i
+  %272 = getelementptr inbounds nuw %struct.version_info, ptr %271, i64 %indvars.iv215.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %270, ptr noundef nonnull readonly align 4 dereferenceable(32) %272, i64 32, i1 false)
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 32
   %274 = load i32, ptr %273, align 4, !tbaa !80
@@ -2203,18 +2203,18 @@ possible_renames.exit.thread.i:                   ; preds = %possible_renames.ex
 .preheader123.i:                                  ; preds = %._crit_edge.i, %.preheader124.i
   %exitcond149.not.i = phi i1 [ false, %.preheader124.i ], [ true, %._crit_edge.i ]
   %indvars.iv146.i = phi i64 [ 1, %.preheader124.i ], [ 2, %._crit_edge.i ]
-  %373 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %324, i64 0, i64 %indvars.iv146.i
+  %373 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %324, i64 %indvars.iv146.i
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 12
   %375 = load i32, ptr %374, align 4, !tbaa !181
   %376 = icmp sgt i32 %375, 0
   br i1 %376, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader123.i
-  %377 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %369, i64 0, i64 %indvars.iv146.i
+  %377 = getelementptr inbounds nuw %struct.strintmap, ptr %369, i64 %indvars.iv146.i
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 64
-  %379 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %370, i64 0, i64 %indvars.iv146.i
-  %380 = getelementptr inbounds nuw [3 x %struct.strset], ptr %371, i64 0, i64 %indvars.iv146.i
-  %381 = getelementptr inbounds nuw [3 x %struct.strset], ptr %372, i64 0, i64 %indvars.iv146.i
+  %379 = getelementptr inbounds nuw %struct.strmap, ptr %370, i64 %indvars.iv146.i
+  %380 = getelementptr inbounds nuw %struct.strset, ptr %371, i64 %indvars.iv146.i
+  %381 = getelementptr inbounds nuw %struct.strset, ptr %372, i64 %indvars.iv146.i
   br label %382
 
 382:                                              ; preds = %possibly_cache_new_pair.exit.i, %.lr.ph.i
@@ -2408,8 +2408,8 @@ st_mult.exit.i:                                   ; preds = %.critedge.i
   %indvars.iv.i.sroa.phi = phi ptr [ %indvars.iv.i.sroa.gep, %470 ], [ %indvars.iv.i.sroa.gep98, %compute_collisions.exit.i ]
   %indvars.iv.i = phi i64 [ 1, %470 ], [ 2, %compute_collisions.exit.i ]
   %473 = xor i64 %indvars.iv.i, 3
-  %474 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %471, i64 0, i64 %473
-  %475 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %324, i64 0, i64 %indvars.iv.i
+  %474 = getelementptr inbounds nuw %struct.strmap, ptr %471, i64 %473
+  %475 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %324, i64 %indvars.iv.i
   call void @strmap_init_with_options(ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null, i32 noundef 0) #19
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 40
   %477 = load i8, ptr %476, align 8
@@ -2833,9 +2833,9 @@ _.exit.i.i:                                       ; preds = %660, %649
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %.0161.i.i, ptr %15, align 16, !tbaa !48
   %696 = sext i32 %668 to i64
-  %697 = getelementptr inbounds [3 x ptr], ptr %15, i64 0, i64 %696
+  %697 = getelementptr inbounds ptr, ptr %15, i64 %696
   store ptr %.0161.i.i, ptr %697, align 8, !tbaa !48
-  %698 = getelementptr inbounds nuw [3 x ptr], ptr %15, i64 0, i64 %690
+  %698 = getelementptr inbounds nuw ptr, ptr %15, i64 %690
   store ptr %.0163.i.i, ptr %698, align 8, !tbaa !48
   %699 = load ptr, ptr %56, align 8, !tbaa !118
   %700 = load ptr, ptr %15, align 16, !tbaa !48
@@ -2863,7 +2863,7 @@ _.exit.i.i:                                       ; preds = %660, %649
 
 721:                                              ; preds = %695
   %722 = getelementptr inbounds nuw i8, ptr %.0166.i.i, i64 64
-  %723 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %722, i64 0, i64 %690
+  %723 = getelementptr inbounds nuw %struct.version_info, ptr %722, i64 %690
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %723, ptr noundef nonnull align 4 dereferenceable(40) %16, i64 40, i1 false)
   %.not188.i.i = icmp eq i32 %719, 0
   br i1 %.not188.i.i, label %724, label %728
@@ -2935,8 +2935,8 @@ _.exit200.i.i:                                    ; preds = %744, %738
 
 746:                                              ; preds = %734
   %747 = sext i32 %668 to i64
-  %748 = getelementptr inbounds [3 x %struct.version_info], ptr %735, i64 0, i64 %747
-  %749 = getelementptr inbounds [3 x %struct.version_info], ptr %684, i64 0, i64 %747
+  %748 = getelementptr inbounds %struct.version_info, ptr %735, i64 %747
+  %749 = getelementptr inbounds %struct.version_info, ptr %684, i64 %747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %748, ptr noundef nonnull align 8 dereferenceable(40) %749, i64 40, i1 false)
   %750 = load i16, ptr %674, align 8
   %751 = trunc i32 %669 to i16
@@ -2944,7 +2944,7 @@ _.exit200.i.i:                                    ; preds = %744, %738
   %753 = and i16 %752, 28
   %754 = or i16 %750, %753
   store i16 %754, ptr %674, align 8
-  %755 = getelementptr inbounds [3 x ptr], ptr %737, i64 0, i64 %747
+  %755 = getelementptr inbounds ptr, ptr %737, i64 %747
   store ptr %.0161.i.i, ptr %755, align 8, !tbaa !48
   br label %.thread32.i.i
 
@@ -2997,7 +2997,7 @@ process_renames.exit.i:                           ; preds = %.thread34.i.i, %763
 768:                                              ; preds = %.preheader198, %._crit_edge132.i
   %exitcond156.not.i = phi i1 [ true, %._crit_edge132.i ], [ false, %.preheader198 ]
   %indvars.iv153.i = phi i64 [ 2, %._crit_edge132.i ], [ 1, %.preheader198 ]
-  %769 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %324, i64 0, i64 %indvars.iv153.i
+  %769 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %324, i64 %indvars.iv153.i
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 12
   %771 = load i32, ptr %770, align 4, !tbaa !181
   %772 = icmp sgt i32 %771, 0
@@ -3036,7 +3036,7 @@ process_renames.exit.i:                           ; preds = %.thread34.i.i, %763
 
 785:                                              ; preds = %785, %.loopexit.i
   %indvars.iv157.i = phi i64 [ 1, %.loopexit.i ], [ %indvars.iv.next158.i, %785 ]
-  %786 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %324, i64 0, i64 %indvars.iv157.i
+  %786 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %324, i64 %indvars.iv157.i
   %787 = load ptr, ptr %786, align 8, !tbaa !185
   call void @free(ptr noundef %787) #19
   call void @diff_queue_init(ptr noundef nonnull %786) #19
@@ -3095,11 +3095,11 @@ detect_and_process_renames.exit:                  ; preds = %788, %.preheader.i
 .split.i:                                         ; preds = %822, %799
   %exitcond.not.i65 = phi i1 [ true, %822 ], [ false, %799 ]
   %indvars.iv.i66 = phi i64 [ 2, %822 ], [ 1, %799 ]
-  %812 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %803, i64 0, i64 %indvars.iv.i66
+  %812 = getelementptr inbounds nuw %struct.strintmap, ptr %803, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %812, i32 noundef 0) #19
-  %813 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %804, i64 0, i64 %indvars.iv.i66
+  %813 = getelementptr inbounds nuw %struct.strmap, ptr %804, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %813, i32 noundef 0) #19, !callees !128
-  %814 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %805, i64 0, i64 %indvars.iv.i66
+  %814 = getelementptr inbounds nuw %struct.strintmap, ptr %805, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %814, i32 noundef 0) #19
   %815 = load i32, ptr %806, align 8, !tbaa !129
   %816 = zext i32 %815 to i64
@@ -3109,13 +3109,13 @@ detect_and_process_renames.exit:                  ; preds = %788, %.preheader.i
   br i1 %or.cond.i67, label %822, label %817
 
 817:                                              ; preds = %.split.i
-  %818 = getelementptr inbounds nuw [3 x %struct.strset], ptr %807, i64 0, i64 %indvars.iv.i66
+  %818 = getelementptr inbounds nuw %struct.strset, ptr %807, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %818, i32 noundef 0) #19
-  %819 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %808, i64 0, i64 %indvars.iv.i66
+  %819 = getelementptr inbounds nuw %struct.strmap, ptr %808, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %819, i32 noundef 1) #19, !callees !128
-  %820 = getelementptr inbounds nuw [3 x %struct.strset], ptr %809, i64 0, i64 %indvars.iv.i66
+  %820 = getelementptr inbounds nuw %struct.strset, ptr %809, i64 %indvars.iv.i66
   call void @strmap_partial_clear(ptr noundef nonnull %820, i32 noundef 0) #19
-  %821 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %810, i64 0, i64 %indvars.iv.i66
+  %821 = getelementptr inbounds nuw %struct.strmap, ptr %810, i64 %indvars.iv.i66
   call void @partial_clear_dir_rename_count(ptr noundef nonnull %821) #19
   br label %822
 
@@ -3124,7 +3124,7 @@ detect_and_process_renames.exit:                  ; preds = %788, %.preheader.i
 
 823:                                              ; preds = %823, %.preheader.i68
   %indvars.iv90.i = phi i64 [ 1, %.preheader.i68 ], [ %indvars.iv.next91.i, %823 ]
-  %824 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %811, i64 0, i64 %indvars.iv90.i
+  %824 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %811, i64 %indvars.iv90.i
   call void @strmap_partial_clear(ptr noundef nonnull %824, i32 noundef 0) #19
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 80
   call void @strmap_partial_clear(ptr noundef nonnull %825, i32 noundef 0) #19
@@ -3349,7 +3349,7 @@ strmap_get_size.exit54.i:                         ; preds = %strmap_get_size.exi
   %indvars.iv.i.i88 = phi i64 [ %indvars.iv.next.i.i89, %939 ], [ 0, %.preheader ]
   %923 = trunc nuw nsw i64 %indvars.iv.i.i88 to i32
   %924 = shl nuw nsw i32 1, %923
-  %925 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %902, i64 0, i64 %indvars.iv.i.i88
+  %925 = getelementptr inbounds nuw %struct.version_info, ptr %902, i64 %indvars.iv.i.i88
   %926 = load i16, ptr %898, align 8
   %927 = lshr i16 %926, 2
   %928 = and i16 %927, 7
@@ -3627,7 +3627,7 @@ record_entry_for_tree.exit.i.i:                   ; preds = %1045, %1043
   br i1 %.not328.i.i, label %1080, label %1087
 
 1080:                                             ; preds = %1072
-  %1081 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1071, i64 0, i64 %indvars.iv397.i.i
+  %1081 = getelementptr inbounds nuw %struct.version_info, ptr %1071, i64 %indvars.iv397.i.i
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 36
   store i16 0, ptr %1082, align 4, !tbaa !76
   %1083 = call ptr @null_oid() #19
@@ -3680,7 +3680,7 @@ record_entry_for_tree.exit.i.i:                   ; preds = %1045, %1043
   br i1 %.not298.i.i, label %1112, label %1119
 
 1112:                                             ; preds = %1104
-  %1113 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1103, i64 0, i64 %indvars.iv.i62.i
+  %1113 = getelementptr inbounds nuw %struct.version_info, ptr %1103, i64 %indvars.iv.i62.i
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 36
   store i16 0, ptr %1114, align 4, !tbaa !76
   %1115 = call ptr @null_oid() #19
@@ -3765,7 +3765,7 @@ _.exit.i.i78:                                     ; preds = %1129, %1120
   %1155 = icmp eq i16 %1134, 768
   %1156 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 64
   %1157 = select i1 %1155, i64 2, i64 1
-  %1158 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1156, i64 0, i64 %1157
+  %1158 = getelementptr inbounds nuw %struct.version_info, ptr %1156, i64 %1157
   %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %1160 = load i16, ptr %1159, align 4, !tbaa !76
   %1161 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 36
@@ -4085,7 +4085,7 @@ record_entry_for_tree.exit340.i.i:                ; preds = %1292, %1285
   %1341 = or i16 %1340, %1339
   store i16 %1341, ptr %1132, align 8
   %1342 = zext nneg i32 %.0276.i.i to i64
-  %1343 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1303, i64 0, i64 %1342
+  %1343 = getelementptr inbounds nuw %struct.version_info, ptr %1303, i64 %1342
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 36
   store i16 %1325, ptr %1344, align 4, !tbaa !76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1343, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false)
@@ -4179,7 +4179,7 @@ _.exit352.i.i:                                    ; preds = %1363, %_.exit349.i.
   %1372 = select i1 %.not306.i.i, i32 %1368, i32 0
   %1373 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 64
   %1374 = zext nneg i32 %1372 to i64
-  %1375 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1373, i64 0, i64 %1374
+  %1375 = getelementptr inbounds nuw %struct.version_info, ptr %1373, i64 %1374
   %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 36
   %1377 = load i16, ptr %1376, align 4, !tbaa !76
   %1378 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 36
@@ -4204,7 +4204,7 @@ _.exit352.i.i:                                    ; preds = %1363, %_.exit349.i.
 
 1389:                                             ; preds = %1366
   %1390 = zext nneg i32 %1368 to i64
-  %1391 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1373, i64 0, i64 %1390
+  %1391 = getelementptr inbounds nuw %struct.version_info, ptr %1373, i64 %1390
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.merge_ort_internal.merge_base_abbrev, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4311,7 +4311,7 @@ blob_unchanged.exit:                              ; preds = %1404, %1406, %1408,
 
 1432:                                             ; preds = %1429
   %1433 = zext nneg i32 %1368 to i64
-  %1434 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1373, i64 0, i64 %1433
+  %1434 = getelementptr inbounds nuw %struct.version_info, ptr %1373, i64 %1433
   %bcmp.i.i66.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1373, ptr noundef nonnull readonly dereferenceable(32) %1434, i64 32)
   %.not.i353.not.i.i = icmp eq i32 %bcmp.i.i66.i, 0
   br i1 %.not.i353.not.i.i, label %1476, label %1435
@@ -4335,7 +4335,7 @@ _.exit356.i.i:                                    ; preds = %1437, %1435
   %1441 = icmp eq i16 %1440, 16
   %1442 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 64
   %1443 = select i1 %1441, i64 2, i64 1
-  %1444 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %1442, i64 0, i64 %1443
+  %1444 = getelementptr inbounds nuw %struct.version_info, ptr %1442, i64 %1443
   %1445 = getelementptr inbounds nuw i8, ptr %1444, i64 36
   %1446 = load i16, ptr %1445, align 4, !tbaa !76
   %1447 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 36
@@ -4707,11 +4707,11 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
 .split.i:                                         ; preds = %91, %53
   %exitcond.not.i = phi i1 [ true, %91 ], [ false, %53 ]
   %indvars.iv.i = phi i64 [ 2, %91 ], [ 1, %53 ]
-  %81 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %72, i64 0, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw %struct.strintmap, ptr %72, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %81, i32 noundef 0) #19
-  %82 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %73, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw %struct.strmap, ptr %73, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %82, i32 noundef 0) #19, !callees !128
-  %83 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %74, i64 0, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw %struct.strintmap, ptr %74, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %83, i32 noundef 0) #19
   %84 = load i32, ptr %75, align 8, !tbaa !129
   %85 = zext i32 %84 to i64
@@ -4721,13 +4721,13 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond.i, label %91, label %86
 
 86:                                               ; preds = %.split.i
-  %87 = getelementptr inbounds nuw [3 x %struct.strset], ptr %76, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw %struct.strset, ptr %76, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %87, i32 noundef 0) #19
-  %88 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %77, i64 0, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw %struct.strmap, ptr %77, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %88, i32 noundef 1) #19, !callees !128
-  %89 = getelementptr inbounds nuw [3 x %struct.strset], ptr %78, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw %struct.strset, ptr %78, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %89, i32 noundef 0) #19
-  %90 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %79, i64 0, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw %struct.strmap, ptr %79, i64 %indvars.iv.i
   call void @partial_clear_dir_rename_count(ptr noundef nonnull %90) #19
   br label %91
 
@@ -4736,7 +4736,7 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
 
 92:                                               ; preds = %92, %.preheader.i
   %indvars.iv90.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next91.i, %92 ]
-  %93 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %80, i64 0, i64 %indvars.iv90.i
+  %93 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %80, i64 %indvars.iv90.i
   call void @strmap_partial_clear(ptr noundef nonnull %93, i32 noundef 0) #19
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 80
   call void @strmap_partial_clear(ptr noundef nonnull %94, i32 noundef 0) #19
@@ -5268,7 +5268,7 @@ traverse_path_len.exit:                           ; preds = %65
   %221 = sub nuw nsw i32 3, %220
   %222 = getelementptr inbounds nuw i8, ptr %186, i64 264
   %223 = zext nneg i32 %221 to i64
-  %224 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %222, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw %struct.strintmap, ptr %222, i64 %223
   %225 = tail call ptr @strmap_put(ptr noundef nonnull %224, ptr noundef %14, ptr noundef nonnull inttoptr (i64 2 to ptr)) #19
   br label %226
 
@@ -5341,13 +5341,13 @@ collect_rename_info.exit:                         ; preds = %241, %235, %218, %2
 
 254:                                              ; preds = %254, %collect_rename_info.exit
   %indvars.iv.i = phi i64 [ 0, %collect_rename_info.exit ], [ %indvars.iv.next.i, %254 ]
-  %255 = getelementptr inbounds nuw [3 x ptr], ptr %252, i64 0, i64 %indvars.iv.i
+  %255 = getelementptr inbounds nuw ptr, ptr %252, i64 %indvars.iv.i
   store ptr %77, ptr %255, align 8, !tbaa !48
   %256 = getelementptr inbounds nuw %struct.name_entry, ptr %3, i64 %indvars.iv.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 52
   %258 = load i32, ptr %257, align 4, !tbaa !251
   %259 = trunc i32 %258 to i16
-  %260 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %253, i64 0, i64 %indvars.iv.i
+  %260 = getelementptr inbounds nuw %struct.version_info, ptr %253, i64 %indvars.iv.i
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 36
   store i16 %259, ptr %261, align 4, !tbaa !76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %260, ptr noundef nonnull readonly align 4 dereferenceable(32) %256, i64 32, i1 false)
@@ -5432,7 +5432,7 @@ setup_path_info.exit:                             ; preds = %265, %279
 306:                                              ; preds = %300
   %307 = getelementptr inbounds nuw i8, ptr %12, i64 1080
   %308 = zext nneg i32 %.0193 to i64
-  %309 = getelementptr inbounds nuw [3 x %struct.deferred_traversal_data], ptr %307, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw %struct.deferred_traversal_data, ptr %307, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 72
   %311 = load i32, ptr %310, align 8, !tbaa !131
   %.not209 = icmp eq i32 %311, 0
@@ -5533,7 +5533,7 @@ st_add.exit221:                                   ; preds = %st_add.exit
   %354 = load ptr, ptr %10, align 8, !tbaa !14
   %355 = getelementptr inbounds nuw %struct.tree_desc, ptr %7, i64 %indvars.iv
   %356 = call ptr @fill_tree_descriptor(ptr noundef %354, ptr noundef nonnull %355, ptr noundef %.0) #19
-  %357 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %356, ptr %357, align 8, !tbaa !158
   br label %358
 
@@ -5577,7 +5577,7 @@ st_add.exit221:                                   ; preds = %st_add.exit
 
 371:                                              ; preds = %367, %371
   %indvars.iv236 = phi i64 [ 0, %367 ], [ %indvars.iv.next237, %371 ]
-  %372 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv236
+  %372 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv236
   %373 = load ptr, ptr %372, align 8, !tbaa !158
   call void @free(ptr noundef %373) #19
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
@@ -5687,7 +5687,7 @@ define internal fastcc void @add_pair(ptr noundef readonly captures(none) %0, pt
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1768
-  %15 = getelementptr inbounds nuw [3 x %struct.strset], ptr %14, i64 0, i64 %12
+  %15 = getelementptr inbounds nuw %struct.strset, ptr %14, i64 %12
   %16 = tail call i32 @strmap_contains(ptr noundef nonnull %15, ptr noundef %2) #19
   %.not44 = icmp eq i32 %16, 0
   br i1 %.not44, label %.critedge, label %62
@@ -5698,7 +5698,7 @@ define internal fastcc void @add_pair(ptr noundef readonly captures(none) %0, pt
 
 .thread:                                          ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 1960
-  %20 = getelementptr inbounds nuw [3 x %struct.strset], ptr %19, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw %struct.strset, ptr %19, i64 %12
   tail call void @strmap_remove(ptr noundef nonnull %20, ptr noundef %2, i32 noundef 0) #19
   br label %._crit_edge46
 
@@ -5709,21 +5709,21 @@ define internal fastcc void @add_pair(ptr noundef readonly captures(none) %0, pt
 ._crit_edge46:                                    ; preds = %21, %.thread
   %23 = phi i64 [ 1, %.thread ], [ 2, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 864
-  %25 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds nuw %struct.strintmap, ptr %24, i64 %12
   %26 = inttoptr i64 %23 to ptr
   %27 = tail call ptr @strmap_put(ptr noundef nonnull %25, ptr noundef %2, ptr noundef nonnull %26) #19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21, %._crit_edge46
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 1576
-  %29 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %28, i64 0, i64 %12
+  %29 = getelementptr inbounds nuw %struct.strmap, ptr %28, i64 %12
   %30 = tail call i32 @strmap_contains(ptr noundef nonnull %29, ptr noundef %2) #19
   %.not42 = icmp eq i32 %30, 0
   br i1 %.not42, label %31, label %62
 
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 1960
-  %33 = getelementptr inbounds nuw [3 x %struct.strset], ptr %32, i64 0, i64 %12
+  %33 = getelementptr inbounds nuw %struct.strset, ptr %32, i64 %12
   %34 = tail call i32 @strmap_contains(ptr noundef nonnull %33, ptr noundef %2) #19
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %.critedge, label %62
@@ -5760,7 +5760,7 @@ define internal fastcc void @add_pair(ptr noundef readonly captures(none) %0, pt
   tail call void @fill_filespec(ptr noundef %51, ptr noundef %53, i32 noundef 1, i16 noundef zeroext %56) #19
   %57 = load ptr, ptr %8, align 8, !tbaa !118
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
-  %59 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %10, i64 0, i64 %12
+  %59 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %10, i64 %12
   %60 = tail call ptr @mem_pool_calloc(ptr noundef nonnull %58, i64 noundef 1, i64 noundef 24) #19
   store ptr %37, ptr %60, align 8, !tbaa !188
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -5893,7 +5893,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_regular_renames(ptr noundef r
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1576
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.strmap, ptr %8, i64 %9
   call void @hashmap_iter_init(ptr noundef nonnull %10, ptr noundef nonnull %3) #19
   %11 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #19
   %.not12.i = icmp eq ptr %11, null
@@ -5901,7 +5901,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_regular_renames(ptr noundef r
 
 .lr.ph.i:                                         ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 864
-  %13 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw %struct.strintmap, ptr %12, i64 %9
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i
@@ -5915,7 +5915,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_regular_renames(ptr noundef r
 
 ._crit_edge.i:                                    ; preds = %14, %2
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1960
-  %19 = getelementptr inbounds nuw [3 x %struct.strset], ptr %18, i64 0, i64 %9
+  %19 = getelementptr inbounds nuw %struct.strset, ptr %18, i64 %9
   call void @hashmap_iter_init(ptr noundef nonnull %19, ptr noundef nonnull %3) #19
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #19
   %.not1114.i = icmp eq ptr %20, null
@@ -5923,7 +5923,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_regular_renames(ptr noundef r
 
 .lr.ph17.i:                                       ; preds = %._crit_edge.i
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 864
-  %22 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %21, i64 0, i64 %9
+  %22 = getelementptr inbounds nuw %struct.strintmap, ptr %21, i64 %9
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph17.i
@@ -5946,7 +5946,7 @@ prune_cached_from_relevant.exit:                  ; preds = %23, %._crit_edge.i
 
 31:                                               ; preds = %prune_cached_from_relevant.exit
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 864
-  %33 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %32, i64 0, i64 %9
+  %33 = getelementptr inbounds nuw %struct.strintmap, ptr %32, i64 %9
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
@@ -5964,7 +5964,7 @@ possible_side_renames.exit:                       ; preds = %31
   br i1 %.not51, label %.lr.ph.i34, label %59
 
 .lr.ph.i34:                                       ; preds = %possible_side_renames.exit
-  %40 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
+  %40 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %7, i64 %9
   %41 = load ptr, ptr %40, align 8, !tbaa !185
   %wide.trip.count.i = zext nneg i32 %29 to i64
   br label %42
@@ -6008,7 +6008,7 @@ possible_side_renames.exit:                       ; preds = %31
 
 59:                                               ; preds = %possible_side_renames.exit
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 480
-  %61 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %60, i64 0, i64 %9
+  %61 = getelementptr inbounds nuw %struct.strmap, ptr %60, i64 %9
   call void @partial_clear_dir_rename_count(ptr noundef nonnull %61) #19
   %62 = load ptr, ptr %0, align 8, !tbaa !14
   call void @repo_diff_setup(ptr noundef %62, ptr noundef nonnull %4) #19
@@ -6035,14 +6035,14 @@ possible_side_renames.exit:                       ; preds = %31
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 276
   store i32 2048, ptr %76, align 4, !tbaa !287
   call void @diff_setup_done(ptr noundef nonnull %4) #19
-  %77 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
+  %77 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %7, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !288
   %78 = load ptr, ptr %0, align 8, !tbaa !14
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 3354, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %78) #19
   %79 = load ptr, ptr %5, align 8, !tbaa !118
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %82 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %81, i64 0, i64 %9
+  %82 = getelementptr inbounds nuw %struct.strintmap, ptr %81, i64 %9
   call void @diffcore_rename_extended(ptr noundef nonnull %4, ptr noundef nonnull %80, ptr noundef nonnull %33, ptr noundef nonnull %82, ptr noundef nonnull %61, ptr noundef nonnull %10) #19
   %83 = load ptr, ptr %0, align 8, !tbaa !14
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3361, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %83) #19
@@ -6140,7 +6140,7 @@ define internal fastcc void @possibly_cache_new_pair(ptr noundef %0, ptr noundef
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.strintmap, ptr %10, i64 %11
   %13 = load ptr, ptr %1, align 8, !tbaa !188
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !191
@@ -6167,7 +6167,7 @@ strintmap_get.exit:                               ; preds = %17, %20
 
 .thread:                                          ; preds = %strintmap_get.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %27 = getelementptr inbounds nuw [3 x %struct.strset], ptr %26, i64 0, i64 %11
+  %27 = getelementptr inbounds nuw %struct.strset, ptr %26, i64 %11
   %28 = load ptr, ptr %1, align 8, !tbaa !188
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !191
@@ -6190,7 +6190,7 @@ strintmap_get.exit:                               ; preds = %17, %20
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %39 = zext nneg i32 %2 to i64
-  %40 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %struct.strmap, ptr %38, i64 %39
   %41 = load ptr, ptr %1, align 8, !tbaa !188
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !191
@@ -6207,10 +6207,10 @@ strintmap_get.exit:                               ; preds = %17, %20
 50:                                               ; preds = %45
   %51 = tail call ptr @xstrdup(ptr noundef nonnull %3) #19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %53 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %52, i64 0, i64 %.033
+  %53 = getelementptr inbounds nuw %struct.strmap, ptr %52, i64 %.033
   %54 = tail call ptr @strmap_put(ptr noundef nonnull %53, ptr noundef %49, ptr noundef %51) #19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %56 = getelementptr inbounds nuw [3 x %struct.strset], ptr %55, i64 0, i64 %.033
+  %56 = getelementptr inbounds nuw %struct.strset, ptr %55, i64 %.033
   %57 = tail call i32 @strset_add(ptr noundef nonnull %56, ptr noundef %51) #19
   br label %58
 
@@ -6222,10 +6222,10 @@ strintmap_get.exit:                               ; preds = %17, %20
   %62 = tail call ptr @xstrdup(ptr noundef %.032) #19
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %64 = zext nneg i32 %2 to i64
-  %65 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %63, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw %struct.strmap, ptr %63, i64 %64
   %66 = tail call ptr @strmap_put(ptr noundef nonnull %65, ptr noundef %61, ptr noundef %62) #19
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %68 = getelementptr inbounds nuw [3 x %struct.strset], ptr %67, i64 0, i64 %64
+  %68 = getelementptr inbounds nuw %struct.strset, ptr %67, i64 %64
   %69 = tail call i32 @strset_add(ptr noundef nonnull %68, ptr noundef %62) #19
   tail call void @free(ptr noundef %66) #19
   br label %84
@@ -6242,10 +6242,10 @@ strintmap_get.exit:                               ; preds = %17, %20
   %76 = load ptr, ptr %75, align 8, !tbaa !191
   %77 = tail call ptr @xstrdup(ptr noundef nonnull %3) #19
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %79 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %78, i64 0, i64 %.033
+  %79 = getelementptr inbounds nuw %struct.strmap, ptr %78, i64 %.033
   %80 = tail call ptr @strmap_put(ptr noundef nonnull %79, ptr noundef %76, ptr noundef %77) #19
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %82 = getelementptr inbounds nuw [3 x %struct.strset], ptr %81, i64 0, i64 %.033
+  %82 = getelementptr inbounds nuw %struct.strset, ptr %81, i64 %.033
   %83 = tail call i32 @strset_add(ptr noundef nonnull %82, ptr noundef %77) #19
   br label %84
 
@@ -6346,7 +6346,7 @@ define internal fastcc void @get_provisional_directory_renames(ptr noundef reado
   %7 = load ptr, ptr %6, align 8, !tbaa !118
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 480
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw %struct.strmap, ptr %8, i64 %9
   call void @hashmap_iter_init(ptr noundef nonnull %10, ptr noundef nonnull %4) #19
   %11 = call ptr @hashmap_iter_next(ptr noundef nonnull %4) #19
   %.not45 = icmp eq ptr %11, null
@@ -6354,7 +6354,7 @@ define internal fastcc void @get_provisional_directory_renames(ptr noundef reado
 
 .lr.ph48:                                         ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 672
-  %13 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %12, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw %struct.strmap, ptr %12, i64 %9
   br label %14
 
 14:                                               ; preds = %.lr.ph48, %._crit_edge.thread
@@ -6439,7 +6439,7 @@ define internal fastcc range(i32 0, 2) i32 @collect_renames(ptr noundef readonly
   %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !181
   %17 = icmp sgt i32 %16, 0
@@ -6857,7 +6857,7 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   br i1 %.not143.i, label %224, label %231
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %215, i64 0, i64 %indvars.iv174.i
+  %225 = getelementptr inbounds nuw %struct.version_info, ptr %215, i64 %indvars.iv174.i
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 36
   store i16 0, ptr %226, align 4, !tbaa !76
   %227 = call ptr @null_oid() #19
@@ -6920,17 +6920,17 @@ check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i
   %261 = and i16 %260, 3
   %262 = getelementptr inbounds nuw i8, ptr %.0.i41, i64 184
   %263 = zext nneg i16 %261 to i64
-  %264 = getelementptr inbounds nuw [3 x ptr], ptr %262, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw ptr, ptr %262, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !48
   %266 = getelementptr inbounds nuw i8, ptr %247, i64 184
-  %267 = getelementptr inbounds nuw [3 x ptr], ptr %266, i64 0, i64 %263
+  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %263
   store ptr %265, ptr %267, align 8, !tbaa !48
   %268 = getelementptr inbounds nuw i8, ptr %.0.i41, i64 64
-  %269 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %268, i64 0, i64 %263
+  %269 = getelementptr inbounds nuw %struct.version_info, ptr %268, i64 %263
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 36
   %271 = load i16, ptr %270, align 4, !tbaa !76
   %272 = getelementptr inbounds nuw i8, ptr %247, i64 64
-  %273 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %272, i64 0, i64 %263
+  %273 = getelementptr inbounds nuw %struct.version_info, ptr %272, i64 %263
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 36
   store i16 %271, ptr %274, align 4, !tbaa !76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %273, ptr noundef nonnull readonly align 4 dereferenceable(32) %269, i64 32, i1 false)
@@ -8221,7 +8221,7 @@ create_ce_mode.exit:                              ; preds = %22, %29, %31, %31, 
 
 53:                                               ; preds = %45
   %54 = tail call ptr @make_empty_cache_entry(ptr noundef nonnull %4, i64 noundef 14) #19
-  %55 = getelementptr inbounds nuw [3 x %struct.version_info], ptr %21, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.version_info, ptr %21, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i16, ptr %56, align 4, !tbaa !76
   %58 = zext i16 %57 to i32

@@ -913,7 +913,7 @@ FI_to_Fi.exit.i:                                  ; preds = %70
 
 switch.lookup:                                    ; preds = %72
   %76 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table.dissect_iso7816_atr, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.dissect_iso7816_atr, i64 %76
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %FI_to_Fi.exit.thread.i
 

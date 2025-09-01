@@ -7650,7 +7650,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %41, label %switch.lookup, label %43
 
 switch.lookup:                                    ; preds = %40
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK10open_spiel9gin_rummy13GinRummyState14ActionToStringB5cxx11Eil, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK10open_spiel9gin_rummy13GinRummyState14ActionToStringB5cxx11Eil, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %switch.load)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %38
@@ -8174,7 +8174,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %100 = load i32, ptr %99, align 8
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [8 x %"class.absl::debian2::string_view"], ptr @_ZN10open_spiel9gin_rummy13GinRummyState12kPhaseStringE, i64 0, i64 %101
+  %102 = getelementptr inbounds %"class.absl::debian2::string_view", ptr @_ZN10open_spiel9gin_rummy13GinRummyState12kPhaseStringE, i64 %101
   %.sroa.014.0.copyload = load ptr, ptr %102, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -20201,7 +20201,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %160 = load i32, ptr %159, align 8
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds [8 x %"class.absl::debian2::string_view"], ptr @_ZN10open_spiel9gin_rummy13GinRummyState12kPhaseStringE, i64 0, i64 %161
+  %162 = getelementptr inbounds %"class.absl::debian2::string_view", ptr @_ZN10open_spiel9gin_rummy13GinRummyState12kPhaseStringE, i64 %161
   %.sroa.021.0.copyload = load ptr, ptr %162, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8

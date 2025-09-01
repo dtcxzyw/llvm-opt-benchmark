@@ -14446,10 +14446,10 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4096, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.5622335530288609448", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.5622335530288609448", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.5622335530288609448.145", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb86a1836d3eaf5abE.llvm.5622335530288609448.145", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -60258,9 +60258,9 @@ switch.lookup:                                    ; preds = %2
   %174 = add nsw i64 %.val263, -4
   %175 = icmp ult i64 %174, 7
   %176 = select i1 %175, i64 %174, i64 1
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN71_$LT$uv_resolver..lock..LockErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h8f107c75c35dea51E", i64 0, i64 %176
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$uv_resolver..lock..LockErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h8f107c75c35dea51E", i64 %176
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep592 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN71_$LT$uv_resolver..lock..LockErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h8f107c75c35dea51E.146", i64 0, i64 %176
+  %switch.gep592 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$uv_resolver..lock..LockErrorKind$u20$as$u20$core..fmt..Display$GT$3fmt17h8f107c75c35dea51E.146", i64 %176
   %switch.load593 = load ptr, ptr %switch.gep592, align 8
   store ptr %switch.load593, ptr %93, align 8
   %177 = getelementptr inbounds nuw i8, ptr %93, i64 8

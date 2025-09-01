@@ -2229,7 +2229,7 @@ _ZN3sat15model_converter14add_elim_stackERNS0_5entryE.exit: ; preds = %_ZN15ref_
 68:                                               ; preds = %63
   %69 = load ptr, ptr %2, align 8, !tbaa !176
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  %71 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %70, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"class.sat::literal", ptr %70, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %71, align 4, !tbaa !9
   br label %_ZNK3sat14clause_wrapperixEj.exit
 

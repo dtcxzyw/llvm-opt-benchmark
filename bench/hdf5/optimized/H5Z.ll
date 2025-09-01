@@ -1432,10 +1432,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
 
 46:                                               ; preds = %.lr.ph, %46
   %.03696 = phi i64 [ 0, %.lr.ph ], [ %51, %46 ]
-  %47 = getelementptr inbounds nuw [33 x i32], ptr %45, i64 0, i64 %.03696
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.03696
   %48 = load i32, ptr %47, align 4, !tbaa !43
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [33 x i64], ptr %5, i64 0, i64 %.03696
+  %50 = getelementptr inbounds nuw i64, ptr %5, i64 %.03696
   store i64 %49, ptr %50, align 8, !tbaa !10
   %51 = add nuw nsw i64 %.03696, 1
   %exitcond.not = icmp eq i64 %51, %44

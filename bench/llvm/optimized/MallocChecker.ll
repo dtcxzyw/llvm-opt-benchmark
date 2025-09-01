@@ -14070,7 +14070,7 @@ define internal void @_ZNK12_GLOBAL__N_113MallocChecker17checkKernelMallocEN4llv
 
 switch.lookup:                                    ; preds = %31
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK12_GLOBAL__N_113MallocChecker17checkKernelMallocEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK12_GLOBAL__N_113MallocChecker17checkKernelMallocEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS4_9CallEventERNS4_14CheckerContextE, i64 %37
   %switch.load = load i64, ptr %switch.gep, align 8
   store i8 1, ptr %28, align 8, !tbaa !398, !noalias !991
   store i64 %switch.load, ptr %27, align 8, !tbaa !84, !noalias !991
@@ -16765,7 +16765,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %126, %128
 _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %138, %140
   %143 = phi ptr [ %.pre, %138 ], [ %142, %140 ]
   %.0.i.i56 = phi ptr [ %139, %138 ], [ %1, %140 ]
-  %144 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %69, i64 0, i64 %.sroa.074.0
+  %144 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %69, i64 %.sroa.074.0
   %.sroa.0.0.copyload.i = load ptr, ptr %144, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %144, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !84
@@ -17697,7 +17697,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit25: ; preds =
 
 41:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit25
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %43 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %42, i64 0, i64 %.sroa.070.0.extract.trunc98
+  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %42, i64 %.sroa.070.0.extract.trunc98
   %44 = load ptr, ptr %43, align 8, !tbaa !1112
   %.not105 = icmp eq ptr %44, null
   br i1 %.not105, label %45, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -17705,7 +17705,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit25: ; preds =
 45:                                               ; preds = %41
   %46 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %47, i64 0, i64 %.sroa.070.0.extract.trunc98
+  %48 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %47, i64 %.sroa.070.0.extract.trunc98
   %.sroa.07.0.copyload = load ptr, ptr %48, align 8, !tbaa !82
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !84
@@ -18809,7 +18809,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit8: ; preds = 
 
 34:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %36 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %35, i64 0, i64 %.sroa.029.0
+  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %35, i64 %.sroa.029.0
   %37 = load ptr, ptr %36, align 8, !tbaa !1112
   %.not38 = icmp eq ptr %37, null
   br i1 %.not38, label %38, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -18817,7 +18817,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit8: ; preds = 
 38:                                               ; preds = %34
   %39 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %40, i64 0, i64 %.sroa.029.0
+  %41 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %40, i64 %.sroa.029.0
   %.sroa.01.0.copyload = load ptr, ptr %41, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !84
@@ -19132,7 +19132,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14: ; preds =
 35:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = and i64 %23, 4294967295
-  %38 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !1112
   %.not38 = icmp eq ptr %39, null
   br i1 %.not38, label %40, label %_ZSt11make_uniqueIN5clang4ento22PathSensitiveBugReportEJRNS1_7BugTypeEPKcRPNS1_12ExplodedNodeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -19140,7 +19140,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14: ; preds =
 40:                                               ; preds = %35
   %41 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %42, i64 0, i64 %37
+  %43 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %42, i64 %37
   %.sroa.01.0.copyload = load ptr, ptr %43, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !84
@@ -20376,7 +20376,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22: ; preds =
 
 44:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %46 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %45, i64 0, i64 %.sroa.063.0.extract.trunc82
+  %46 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %45, i64 %.sroa.063.0.extract.trunc82
   %47 = load ptr, ptr %46, align 8, !tbaa !1112
   %.not83 = icmp eq ptr %47, null
   br i1 %.not83, label %48, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -20384,7 +20384,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22: ; preds =
 48:                                               ; preds = %44
   %49 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %51 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %50, i64 0, i64 %.sroa.063.0.extract.trunc82
+  %51 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %50, i64 %.sroa.063.0.extract.trunc82
   %.sroa.04.0.copyload = load ptr, ptr %51, align 8, !tbaa !82
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !84
@@ -20930,7 +20930,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17: ; preds =
 
 41:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %43 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %42, i64 0, i64 %.sroa.040.0.extract.trunc51
+  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %42, i64 %.sroa.040.0.extract.trunc51
   %44 = load ptr, ptr %43, align 8, !tbaa !1112
   %.not67 = icmp eq ptr %44, null
   br i1 %.not67, label %45, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -20938,7 +20938,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17: ; preds =
 45:                                               ; preds = %41
   %46 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %47, i64 0, i64 %.sroa.040.0.extract.trunc51
+  %48 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %47, i64 %.sroa.040.0.extract.trunc51
   %.sroa.04.0.copyload = load ptr, ptr %48, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !84
@@ -25855,7 +25855,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
 
 switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailed16getMessageForArgB5cxx11EPKN5clang4ExprEj, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailed16getMessageForArgB5cxx11EPKN5clang4ExprEj, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit
 
@@ -35858,14 +35858,14 @@ _ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exi
 
 _ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.thread70.i.i: ; preds = %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.i.i, %584
   %.sroa.049.0.extract.trunc78.i.i = phi i64 [ %.sroa.0.0.i.i.i, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.i.i ], [ 2, %584 ]
-  %589 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %542, i64 0, i64 %.sroa.049.0.extract.trunc78.i.i
+  %589 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %542, i64 %.sroa.049.0.extract.trunc78.i.i
   %590 = load ptr, ptr %589, align 8, !tbaa !1112
   %.not79.i.i = icmp eq ptr %590, null
   br i1 %.not79.i.i, label %591, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.i.i
 
 591:                                              ; preds = %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.thread70.i.i
   %592 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
-  %593 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %543, i64 0, i64 %.sroa.049.0.extract.trunc78.i.i
+  %593 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %543, i64 %.sroa.049.0.extract.trunc78.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %593, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %593, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !84
@@ -41929,7 +41929,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds
 58:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %60 = and i64 %47, 4294967295
-  %61 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !1112
   %.not46.i = icmp eq ptr %62, null
   br i1 %.not46.i, label %63, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit.i
@@ -41937,7 +41937,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds
 63:                                               ; preds = %58
   %64 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %66 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %65, i64 0, i64 %60
+  %66 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %65, i64 %60
   %.sroa.01.0.copyload.i = load ptr, ptr %66, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !84
@@ -46133,7 +46133,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12: ; preds =
 33:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %35 = and i64 %21, 4294967295
-  %36 = getelementptr inbounds nuw [6 x %"class.std::unique_ptr.881"], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.881", ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !1112
   %.not34 = icmp eq ptr %37, null
   br i1 %.not34, label %38, label %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -46141,7 +46141,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12: ; preds =
 38:                                               ; preds = %33
   %39 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = getelementptr inbounds nuw [6 x %"class.clang::ento::CheckerNameRef"], ptr %40, i64 0, i64 %35
+  %41 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %40, i64 %35
   %.sroa.01.0.copyload = load ptr, ptr %41, align 8, !tbaa !82
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !84

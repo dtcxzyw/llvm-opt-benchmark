@@ -111,7 +111,7 @@ define dso_local void @list_config_color_decorate_slots(ptr noundef %0, ptr noun
 
 4:                                                ; preds = %2, %10
   %.06 = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %5 = getelementptr inbounds nuw [7 x ptr], ptr @color_decorate_slots, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw ptr, ptr @color_decorate_slots, i64 %.06
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
@@ -143,7 +143,7 @@ define dso_local i32 @parse_decorate_color_config(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr inbounds nuw [7 x [75 x i8]], ptr @decoration_colors, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [75 x i8], ptr @decoration_colors, i64 %10
   %12 = tail call i32 @color_parse(ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %13
 
@@ -617,7 +617,7 @@ add_name_decoration.exit:                         ; preds = %96
 
 111:                                              ; preds = %108, %127
   %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %127 ]
-  %112 = getelementptr inbounds nuw [9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw %struct.ref_namespace_info, ptr @ref_namespace, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 8, !tbaa !34
   %.not49 = icmp eq i32 %114, 0
@@ -936,7 +936,7 @@ current_pointed_by_HEAD.exit:                     ; preds = %33, %47, %50, %35, 
   %58 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %2) #15
   %.not.i95 = icmp eq i32 %58, 0
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw [7 x [75 x i8]], ptr @decoration_colors, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [75 x i8], ptr @decoration_colors, i64 %59
   %.0.i96 = select i1 %.not.i95, ptr @.str.13, ptr %60
   %61 = load i8, ptr %.2102, align 1, !tbaa !32
   %.not90 = icmp eq i8 %61, 0
@@ -1006,7 +1006,7 @@ show_name.exit:                                   ; preds = %75, %80
   %92 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %2) #15
   %.not.i97 = icmp eq i32 %92, 0
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw [7 x [75 x i8]], ptr @decoration_colors, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [75 x i8], ptr @decoration_colors, i64 %93
   %.0.i98 = select i1 %.not.i97, ptr @.str.13, ptr %94
   %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i98) #16
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.0.i98, i64 noundef %95) #15

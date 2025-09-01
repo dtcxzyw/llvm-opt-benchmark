@@ -676,7 +676,7 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6r
 34:                                               ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %34
   %indvars.iv = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit ], [ %indvars.iv.next, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = getelementptr inbounds nuw [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt6PrimesE, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !18
   call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %36, i32 noundef %0, ptr nonnull %1)
   %37 = load ptr, ptr %9, align 8, !tbaa !46

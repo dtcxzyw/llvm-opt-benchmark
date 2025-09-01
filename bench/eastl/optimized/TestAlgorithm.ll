@@ -6455,7 +6455,7 @@ _ZN5eastl8for_eachIPi22SetIncrementalIntegersIiEEET0_T_S5_S4_.exit: ; preds = %f
 
 for.body1732:                                     ; preds = %_ZN5eastl8for_eachIPi22SetIncrementalIntegersIiEEET0_T_S5_S4_.exit, %for.inc1739
   %i1691.113486 = phi i64 [ %inc1740, %for.inc1739 ], [ 0, %_ZN5eastl8for_eachIPi22SetIncrementalIntegersIiEEET0_T_S5_S4_.exit ]
-  %arrayidx.i2846 = getelementptr inbounds nuw [1000 x i32], ptr %intArray1716, i64 0, i64 %i1691.113486
+  %arrayidx.i2846 = getelementptr inbounds nuw i32, ptr %intArray1716, i64 %i1691.113486
   %482 = load i32, ptr %arrayidx.i2846, align 4
   %conv1735 = trunc nuw nsw i64 %i1691.113486 to i32
   %cmp1736.not = icmp eq i32 %482, %conv1735
@@ -6761,7 +6761,7 @@ for.body.i3040:                                   ; preds = %for.end1827, %for.b
 
 for.body1840:                                     ; preds = %for.body.i3040, %for.inc1847
   %indvars.iv14055 = phi i64 [ %indvars.iv.next14056, %for.inc1847 ], [ 0, %for.body.i3040 ]
-  %arrayidx.i3045 = getelementptr inbounds nuw [1000 x i32], ptr %intArray1831, i64 0, i64 %indvars.iv14055
+  %arrayidx.i3045 = getelementptr inbounds nuw i32, ptr %intArray1831, i64 %indvars.iv14055
   %513 = load i32, ptr %arrayidx.i3045, align 4
   %514 = zext i32 %513 to i64
   %cmp1844.not = icmp eq i64 %indvars.iv14055, %514
@@ -13429,7 +13429,7 @@ _ZN10TestObjectD2Ev.exit7144:                     ; preds = %for.body3921
   %1387 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i7151 = add nsw i64 %1387, 1
   store i64 %inc.i7151, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %arrayidx3930 = getelementptr inbounds nuw [10 x %struct.TestObject], ptr %toArray23907, i64 0, i64 %indvars.iv14092
+  %arrayidx3930 = getelementptr inbounds nuw %struct.TestObject, ptr %toArray23907, i64 %indvars.iv14092
   store i32 5, ptr %arrayidx3930, align 8
   %mMagicValue.i7154 = getelementptr inbounds nuw i8, ptr %arrayidx3930, i64 16
   %1388 = load i32, ptr %mMagicValue.i7154, align 8
@@ -17846,7 +17846,7 @@ for.body5122:                                     ; preds = %for.cond5120.prehea
   %shr.i.i10018 = lshr i64 %add.i.i10017, 32
   %xor.i.i = xor i64 %add5.i.i, %shr.i.i10018
   %rem.i = urem i64 %xor.i.i, 6
-  %arrayidx5124 = getelementptr inbounds nuw [6 x i64], ptr %intArray15117, i64 0, i64 %i5119.013699
+  %arrayidx5124 = getelementptr inbounds nuw i64, ptr %intArray15117, i64 %i5119.013699
   store i64 %rem.i, ptr %arrayidx5124, align 8
   %cmp.i.i10019 = icmp eq i64 %add5.i.i, %shr.i.i10018
   %1859 = mul i64 %xor.i.i, 6364136223846793005
@@ -17857,7 +17857,7 @@ for.body5122:                                     ; preds = %for.cond5120.prehea
   %shr.i.i10023 = lshr i64 %add.i.i10020, 32
   %xor.i.i10024 = xor i64 %add5.i.i10022, %shr.i.i10023
   %rem.i10025 = urem i64 %xor.i.i10024, 6
-  %arrayidx5126 = getelementptr inbounds nuw [6 x i64], ptr %intArray25118, i64 0, i64 %i5119.013699
+  %arrayidx5126 = getelementptr inbounds nuw i64, ptr %intArray25118, i64 %i5119.013699
   store i64 %rem.i10025, ptr %arrayidx5126, align 8
   %inc5128 = add nuw nsw i64 %i5119.013699, 1
   %exitcond14097.not = icmp eq i64 %inc5128, 6

@@ -1407,7 +1407,7 @@ sub_0.i:                                          ; preds = %12, %12
 
 24:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 dereferenceable(4096) %2, ptr nonnull align 1 %.val, i64 %11, i1 false)
-  %25 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %11
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   store i8 0, ptr %25, align 1, !tbaa !20
   br label %_ZN5cmsysL21RemoveTrailingSlashesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA4096_cRS5_.exit
 
@@ -10475,7 +10475,7 @@ define dso_local i64 @_ZN5cmsys11SystemTools11ReadSymlinkERKNSt7__cxx1112basic_s
 
 9:                                                ; preds = %2
   %10 = and i64 %5, 2147483647
-  %11 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   store i8 0, ptr %11, align 1, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !18

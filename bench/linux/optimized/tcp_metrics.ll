@@ -434,9 +434,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
 
 .preheader68:                                     ; preds = %.preheader69, %.preheader68
   %65 = phi i64 [ %71, %.preheader68 ], [ 0, %.preheader69 ]
-  %66 = getelementptr [4 x i32], ptr %61, i64 0, i64 %65
+  %66 = getelementptr i32, ptr %61, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr [4 x i32], ptr %4, i64 0, i64 %65
+  %68 = getelementptr i32, ptr %4, i64 %65
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   %71 = add nuw nsw i64 %65, 1
@@ -456,9 +456,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
 
 .preheader67:                                     ; preds = %75, %.preheader67
   %80 = phi i64 [ %86, %.preheader67 ], [ 0, %75 ]
-  %81 = getelementptr [4 x i32], ptr %76, i64 0, i64 %80
+  %81 = getelementptr i32, ptr %76, i64 %80
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr [4 x i32], ptr %5, i64 0, i64 %80
+  %83 = getelementptr i32, ptr %5, i64 %80
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %82, %84
   %86 = add nuw nsw i64 %80, 1
@@ -516,9 +516,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
 
 .preheader65:                                     ; preds = %.preheader66, %.preheader65
   %120 = phi i64 [ %126, %.preheader65 ], [ 0, %.preheader66 ]
-  %121 = getelementptr [4 x i32], ptr %116, i64 0, i64 %120
+  %121 = getelementptr i32, ptr %116, i64 %120
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr [4 x i32], ptr %4, i64 0, i64 %120
+  %123 = getelementptr i32, ptr %4, i64 %120
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %122, %124
   %126 = add nuw nsw i64 %120, 1
@@ -538,9 +538,9 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
 
 .preheader64:                                     ; preds = %130, %.preheader64
   %135 = phi i64 [ %141, %.preheader64 ], [ 0, %130 ]
-  %136 = getelementptr [4 x i32], ptr %131, i64 0, i64 %135
+  %136 = getelementptr i32, ptr %131, i64 %135
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr [4 x i32], ptr %5, i64 0, i64 %135
+  %138 = getelementptr i32, ptr %5, i64 %135
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %137, %139
   %141 = add nuw nsw i64 %135, 1
@@ -904,9 +904,9 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
 
 .preheader20:                                     ; preds = %48, %.preheader20
   %54 = phi i64 [ %60, %.preheader20 ], [ 0, %48 ]
-  %55 = getelementptr [4 x i32], ptr %50, i64 0, i64 %54
+  %55 = getelementptr i32, ptr %50, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr [4 x i32], ptr %3, i64 0, i64 %54
+  %57 = getelementptr i32, ptr %3, i64 %54
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %56, %58
   %60 = add nuw nsw i64 %54, 1
@@ -926,9 +926,9 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
 
 .preheader:                                       ; preds = %64, %.preheader
   %69 = phi i64 [ %75, %.preheader ], [ 0, %64 ]
-  %70 = getelementptr [4 x i32], ptr %65, i64 0, i64 %69
+  %70 = getelementptr i32, ptr %65, i64 %69
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr [4 x i32], ptr %4, i64 0, i64 %69
+  %72 = getelementptr i32, ptr %4, i64 %69
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %71, %73
   %75 = add nuw nsw i64 %69, 1
@@ -1596,9 +1596,9 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
 
 .preheader45:                                     ; preds = %.split.us, %.preheader45
   %98 = phi i64 [ %104, %.preheader45 ], [ 0, %.split.us ]
-  %99 = getelementptr [4 x i32], ptr %94, i64 0, i64 %98
+  %99 = getelementptr i32, ptr %94, i64 %98
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr [4 x i32], ptr %6, i64 0, i64 %98
+  %101 = getelementptr i32, ptr %6, i64 %98
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %100, %102
   %104 = add nuw nsw i64 %98, 1
@@ -1618,9 +1618,9 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
 
 .preheader:                                       ; preds = %108, %.preheader
   %113 = phi i64 [ %119, %.preheader ], [ 0, %108 ]
-  %114 = getelementptr [4 x i32], ptr %109, i64 0, i64 %113
+  %114 = getelementptr i32, ptr %109, i64 %113
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr [4 x i32], ptr %5, i64 0, i64 %113
+  %116 = getelementptr i32, ptr %5, i64 %113
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %115, %117
   %119 = add nuw nsw i64 %113, 1
@@ -1652,9 +1652,9 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
 
 .preheader46:                                     ; preds = %.split, %.preheader46
   %135 = phi i64 [ %141, %.preheader46 ], [ 0, %.split ]
-  %136 = getelementptr [4 x i32], ptr %131, i64 0, i64 %135
+  %136 = getelementptr i32, ptr %131, i64 %135
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr [4 x i32], ptr %6, i64 0, i64 %135
+  %138 = getelementptr i32, ptr %6, i64 %135
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %137, %139
   %141 = add nuw nsw i64 %135, 1
@@ -2095,9 +2095,9 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 145:                                              ; preds = %145, %142
   %146 = phi i64 [ 0, %142 ], [ %152, %145 ]
-  %147 = getelementptr [4 x i32], ptr %137, i64 0, i64 %146
+  %147 = getelementptr i32, ptr %137, i64 %146
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr [4 x i32], ptr %6, i64 0, i64 %146
+  %149 = getelementptr i32, ptr %6, i64 %146
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %148, %150
   %152 = add nuw nsw i64 %146, 1
@@ -2123,9 +2123,9 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 165:                                              ; preds = %165, %162
   %166 = phi i64 [ 0, %162 ], [ %172, %165 ]
-  %167 = getelementptr [4 x i32], ptr %157, i64 0, i64 %166
+  %167 = getelementptr i32, ptr %157, i64 %166
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr [4 x i32], ptr %5, i64 0, i64 %166
+  %169 = getelementptr i32, ptr %5, i64 %166
   %170 = load i32, ptr %169, align 4
   %171 = icmp eq i32 %168, %170
   %172 = add nuw nsw i64 %166, 1
@@ -2175,9 +2175,9 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 199:                                              ; preds = %199, %196
   %200 = phi i64 [ 0, %196 ], [ %206, %199 ]
-  %201 = getelementptr [4 x i32], ptr %191, i64 0, i64 %200
+  %201 = getelementptr i32, ptr %191, i64 %200
   %202 = load i32, ptr %201, align 4
-  %203 = getelementptr [4 x i32], ptr %6, i64 0, i64 %200
+  %203 = getelementptr i32, ptr %6, i64 %200
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %202, %204
   %206 = add nuw nsw i64 %200, 1
@@ -2310,7 +2310,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @tcp_metrics_fill_info(ptr 
 53:                                               ; preds = %select.unfold, %51
   %54 = phi i64 [ 0, %51 ], [ %83, %select.unfold ]
   %55 = phi i32 [ 0, %51 ], [ %82, %select.unfold ]
-  %56 = getelementptr [5 x i32], ptr %52, i64 0, i64 %54
+  %56 = getelementptr i32, ptr %52, i64 %54
   %57 = load volatile i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %select.unfold, label %59

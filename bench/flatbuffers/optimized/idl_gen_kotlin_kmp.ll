@@ -46349,7 +46349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95.split: ; preds 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %201 = zext nneg i32 %199 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZZNK11flatbuffers6kotlin18KotlinKMPGenerator20GenerateTableCreatorERNS_9StructDefERNS_10CodeWriterENS_10IDLOptionsEENKUlvE_clEv, i64 0, i64 %201
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZZNK11flatbuffers6kotlin18KotlinKMPGenerator20GenerateTableCreatorERNS_9StructDefERNS_10CodeWriterENS_10IDLOptionsEENKUlvE_clEv, i64 %201
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN11flatbuffers6SizeOfENS_8BaseTypeE.exit
 

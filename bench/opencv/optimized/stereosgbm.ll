@@ -6300,7 +6300,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
 
 111:                                              ; preds = %114, %.preheader37.i
   %indvars.iv.i = phi i64 [ 0, %.preheader37.i ], [ %indvars.iv.next.i, %114 ]
-  %112 = getelementptr inbounds nuw [4 x %"class.cv::Mat"], ptr %15, i64 0, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw %"class.cv::Mat", ptr %15, i64 %indvars.iv.i
   %113 = load i32, ptr %108, align 4, !tbaa !29
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %112, i32 noundef %107, i32 noundef %113, i32 noundef 3)
           to label %114 unwind label %115
@@ -6367,7 +6367,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   %138 = trunc nuw nsw i64 %indvars.iv41.i to i32
   %139 = sdiv i32 %138, %98
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds [4 x %"class.cv::Mat"], ptr %15, i64 0, i64 %140
+  %141 = getelementptr inbounds %"class.cv::Mat", ptr %15, i64 %140
   %142 = srem i32 %138, %98
   %143 = add nsw i32 %142, %105
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16

@@ -426,7 +426,7 @@ sub_2:                                            ; preds = %sub_1
   %159 = add nsw i32 %.0456563, -1
   %160 = and i32 %.0457562, 63
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr @b64t, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !9
   %164 = getelementptr inbounds nuw i8, ptr %.4490560, i64 1
   store i8 %163, ptr %.4490560, align 1, !tbaa !9
@@ -465,7 +465,7 @@ sub_2:                                            ; preds = %sub_1
   %183 = add nsw i32 %.0454572, -1
   %184 = and i32 %.0455571, 63
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr @b64t, i64 %185
   %187 = load i8, ptr %186, align 1, !tbaa !9
   %188 = getelementptr inbounds nuw i8, ptr %.5491569, i64 1
   store i8 %187, ptr %.5491569, align 1, !tbaa !9
@@ -504,7 +504,7 @@ sub_2:                                            ; preds = %sub_1
   %207 = add nsw i32 %.0452581, -1
   %208 = and i32 %.0453580, 63
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw i8, ptr @b64t, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !9
   %212 = getelementptr inbounds nuw i8, ptr %.6492578, i64 1
   store i8 %211, ptr %.6492578, align 1, !tbaa !9
@@ -543,7 +543,7 @@ sub_2:                                            ; preds = %sub_1
   %231 = add nsw i32 %.0450590, -1
   %232 = and i32 %.0451589, 63
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr @b64t, i64 %233
   %235 = load i8, ptr %234, align 1, !tbaa !9
   %236 = getelementptr inbounds nuw i8, ptr %.7493587, i64 1
   store i8 %235, ptr %.7493587, align 1, !tbaa !9
@@ -582,7 +582,7 @@ sub_2:                                            ; preds = %sub_1
   %255 = add nsw i32 %.0448599, -1
   %256 = and i32 %.0449598, 63
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr @b64t, i64 %257
   %259 = load i8, ptr %258, align 1, !tbaa !9
   %260 = getelementptr inbounds nuw i8, ptr %.8494596, i64 1
   store i8 %259, ptr %.8494596, align 1, !tbaa !9
@@ -621,7 +621,7 @@ sub_2:                                            ; preds = %sub_1
   %279 = add nsw i32 %.0446608, -1
   %280 = and i32 %.0447607, 63
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr @b64t, i64 %281
   %283 = load i8, ptr %282, align 1, !tbaa !9
   %284 = getelementptr inbounds nuw i8, ptr %.9495605, i64 1
   store i8 %283, ptr %.9495605, align 1, !tbaa !9
@@ -660,7 +660,7 @@ sub_2:                                            ; preds = %sub_1
   %303 = add nsw i32 %.0444617, -1
   %304 = and i32 %.0445616, 63
   %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw i8, ptr @b64t, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !9
   %308 = getelementptr inbounds nuw i8, ptr %.10496614, i64 1
   store i8 %307, ptr %.10496614, align 1, !tbaa !9
@@ -699,7 +699,7 @@ sub_2:                                            ; preds = %sub_1
   %327 = add nsw i32 %.0442626, -1
   %328 = and i32 %.0443625, 63
   %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr @b64t, i64 %329
   %331 = load i8, ptr %330, align 1, !tbaa !9
   %332 = getelementptr inbounds nuw i8, ptr %.11497623, i64 1
   store i8 %331, ptr %.11497623, align 1, !tbaa !9
@@ -738,7 +738,7 @@ sub_2:                                            ; preds = %sub_1
   %351 = add nsw i32 %.0440635, -1
   %352 = and i32 %.0441634, 63
   %353 = zext nneg i32 %352 to i64
-  %354 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw i8, ptr @b64t, i64 %353
   %355 = load i8, ptr %354, align 1, !tbaa !9
   %356 = getelementptr inbounds nuw i8, ptr %.12498632, i64 1
   store i8 %355, ptr %.12498632, align 1, !tbaa !9
@@ -777,7 +777,7 @@ sub_2:                                            ; preds = %sub_1
   %375 = add nsw i32 %.0438644, -1
   %376 = and i32 %.0439643, 63
   %377 = zext nneg i32 %376 to i64
-  %378 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %377
+  %378 = getelementptr inbounds nuw i8, ptr @b64t, i64 %377
   %379 = load i8, ptr %378, align 1, !tbaa !9
   %380 = getelementptr inbounds nuw i8, ptr %.13499641, i64 1
   store i8 %379, ptr %.13499641, align 1, !tbaa !9
@@ -816,7 +816,7 @@ sub_2:                                            ; preds = %sub_1
   %399 = add nsw i32 %.0436653, -1
   %400 = and i32 %.0437652, 63
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i8, ptr @b64t, i64 %401
   %403 = load i8, ptr %402, align 1, !tbaa !9
   %404 = getelementptr inbounds nuw i8, ptr %.14500650, i64 1
   store i8 %403, ptr %.14500650, align 1, !tbaa !9
@@ -855,7 +855,7 @@ sub_2:                                            ; preds = %sub_1
   %423 = add nsw i32 %.0434662, -1
   %424 = and i32 %.0435661, 63
   %425 = zext nneg i32 %424 to i64
-  %426 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i8, ptr @b64t, i64 %425
   %427 = load i8, ptr %426, align 1, !tbaa !9
   %428 = getelementptr inbounds nuw i8, ptr %.15501659, i64 1
   store i8 %427, ptr %.15501659, align 1, !tbaa !9
@@ -894,7 +894,7 @@ sub_2:                                            ; preds = %sub_1
   %447 = add nsw i32 %.0432671, -1
   %448 = and i32 %.0433670, 63
   %449 = zext nneg i32 %448 to i64
-  %450 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw i8, ptr @b64t, i64 %449
   %451 = load i8, ptr %450, align 1, !tbaa !9
   %452 = getelementptr inbounds nuw i8, ptr %.16502668, i64 1
   store i8 %451, ptr %.16502668, align 1, !tbaa !9
@@ -933,7 +933,7 @@ sub_2:                                            ; preds = %sub_1
   %471 = add nsw i32 %.0430680, -1
   %472 = and i32 %.0431679, 63
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw i8, ptr @b64t, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !9
   %476 = getelementptr inbounds nuw i8, ptr %.17503677, i64 1
   store i8 %475, ptr %.17503677, align 1, !tbaa !9
@@ -972,7 +972,7 @@ sub_2:                                            ; preds = %sub_1
   %495 = add nsw i32 %.0428689, -1
   %496 = and i32 %.0429688, 63
   %497 = zext nneg i32 %496 to i64
-  %498 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw i8, ptr @b64t, i64 %497
   %499 = load i8, ptr %498, align 1, !tbaa !9
   %500 = getelementptr inbounds nuw i8, ptr %.18504686, i64 1
   store i8 %499, ptr %.18504686, align 1, !tbaa !9
@@ -1011,7 +1011,7 @@ sub_2:                                            ; preds = %sub_1
   %519 = add nsw i32 %.0426698, -1
   %520 = and i32 %.0427697, 63
   %521 = zext nneg i32 %520 to i64
-  %522 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw i8, ptr @b64t, i64 %521
   %523 = load i8, ptr %522, align 1, !tbaa !9
   %524 = getelementptr inbounds nuw i8, ptr %.19505695, i64 1
   store i8 %523, ptr %.19505695, align 1, !tbaa !9
@@ -1050,7 +1050,7 @@ sub_2:                                            ; preds = %sub_1
   %543 = add nsw i32 %.0424707, -1
   %544 = and i32 %.0425706, 63
   %545 = zext nneg i32 %544 to i64
-  %546 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw i8, ptr @b64t, i64 %545
   %547 = load i8, ptr %546, align 1, !tbaa !9
   %548 = getelementptr inbounds nuw i8, ptr %.20506704, i64 1
   store i8 %547, ptr %.20506704, align 1, !tbaa !9
@@ -1089,7 +1089,7 @@ sub_2:                                            ; preds = %sub_1
   %567 = add nsw i32 %.0422716, -1
   %568 = and i32 %.0423715, 63
   %569 = zext nneg i32 %568 to i64
-  %570 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @b64t, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !9
   %572 = getelementptr inbounds nuw i8, ptr %.21507713, i64 1
   store i8 %571, ptr %.21507713, align 1, !tbaa !9
@@ -1128,7 +1128,7 @@ sub_2:                                            ; preds = %sub_1
   %591 = add nsw i32 %.0420725, -1
   %592 = and i32 %.0421724, 63
   %593 = zext nneg i32 %592 to i64
-  %594 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw i8, ptr @b64t, i64 %593
   %595 = load i8, ptr %594, align 1, !tbaa !9
   %596 = getelementptr inbounds nuw i8, ptr %.22508722, i64 1
   store i8 %595, ptr %.22508722, align 1, !tbaa !9
@@ -1167,7 +1167,7 @@ sub_2:                                            ; preds = %sub_1
   %615 = add nsw i32 %.0418734, -1
   %616 = and i32 %.0419733, 63
   %617 = zext nneg i32 %616 to i64
-  %618 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %617
+  %618 = getelementptr inbounds nuw i8, ptr @b64t, i64 %617
   %619 = load i8, ptr %618, align 1, !tbaa !9
   %620 = getelementptr inbounds nuw i8, ptr %.23509731, i64 1
   store i8 %619, ptr %.23509731, align 1, !tbaa !9
@@ -1206,7 +1206,7 @@ sub_2:                                            ; preds = %sub_1
   %639 = add nsw i32 %.0416743, -1
   %640 = and i32 %.0417742, 63
   %641 = zext nneg i32 %640 to i64
-  %642 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw i8, ptr @b64t, i64 %641
   %643 = load i8, ptr %642, align 1, !tbaa !9
   %644 = getelementptr inbounds nuw i8, ptr %.24740, i64 1
   store i8 %643, ptr %.24740, align 1, !tbaa !9
@@ -1235,7 +1235,7 @@ sub_2:                                            ; preds = %sub_1
   %653 = add nsw i32 %.0752, -1
   %654 = and i32 %.0415751, 63
   %655 = zext nneg i32 %654 to i64
-  %656 = getelementptr inbounds nuw [64 x i8], ptr @b64t, i64 0, i64 %655
+  %656 = getelementptr inbounds nuw i8, ptr @b64t, i64 %655
   %657 = load i8, ptr %656, align 1, !tbaa !9
   %658 = getelementptr inbounds nuw i8, ptr %.25749, i64 1
   store i8 %657, ptr %.25749, align 1, !tbaa !9
@@ -1358,7 +1358,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   %7 = sub i64 256, %5
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 %1)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %0, i64 %8, i1 false)
   %11 = add i64 %8, %5
   store i64 %11, ptr %4, align 8, !tbaa !17
@@ -1371,7 +1371,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   %15 = load i64, ptr %4, align 8, !tbaa !17
   %16 = and i64 %15, 127
   store i64 %16, ptr %4, align 8, !tbaa !17
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %17, i64 %16, i1 false)
   br label %18
 
@@ -1428,7 +1428,7 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   %.15869 = phi i64 [ %.158, %35 ], [ 128, %.preheader ], [ %29, %27 ]
   %36 = load i64, ptr %4, align 8, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %38 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %.170, i64 %.15869, i1 false)
   %39 = add i64 %36, %.15869
   %40 = icmp ugt i64 %39, 127
@@ -1474,7 +1474,7 @@ define internal fastcc noundef nonnull ptr @sha512_finish_ctx(ptr noundef nonnul
   %.v = select i1 %.inv, i64 112, i64 240
   %14 = sub i64 %.v, %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 16 @fillbuf, i64 %14, i1 false)
   %17 = shl i64 %7, 3
   %18 = shl i64 %7, 59
@@ -1498,8 +1498,8 @@ define internal fastcc noundef nonnull ptr @sha512_finish_ctx(ptr noundef nonnul
   %36 = or disjoint i64 %33, %35
   %37 = lshr i64 %17, 56
   %38 = or i64 %36, %37
-  %39 = or disjoint i64 %.v, 8
-  %40 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %39
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 %.v
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %38, ptr %40, align 1, !tbaa !11
   %41 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %7, i64 3)
   %42 = shl i64 %41, 56
@@ -1523,24 +1523,23 @@ define internal fastcc noundef nonnull ptr @sha512_finish_ctx(ptr noundef nonnul
   %60 = or disjoint i64 %57, %59
   %61 = lshr i64 %41, 56
   %62 = or i64 %60, %61
-  %63 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %.v
-  store i64 %62, ptr %63, align 1, !tbaa !11
-  %64 = add nuw nsw i64 %.v, 16
-  tail call fastcc void @sha512_process_block(ptr noundef nonnull %15, i64 noundef %64, ptr noundef %0)
-  br label %65
+  store i64 %62, ptr %39, align 1, !tbaa !11
+  %63 = add nuw nsw i64 %.v, 16
+  tail call fastcc void @sha512_process_block(ptr noundef nonnull %15, i64 noundef %63, ptr noundef %0)
+  br label %64
 
-65:                                               ; preds = %._crit_edge, %65
-  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %67 = load i64, ptr %66, align 8, !tbaa !11
-  %68 = tail call i64 @llvm.bswap.i64(i64 %67)
-  %69 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 %68, ptr %69, align 8, !tbaa !11
+64:                                               ; preds = %._crit_edge, %64
+  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %64 ]
+  %65 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %66 = load i64, ptr %65, align 8, !tbaa !11
+  %67 = tail call i64 @llvm.bswap.i64(i64 %66)
+  %68 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  store i64 %67, ptr %68, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %70, label %65
+  br i1 %exitcond.not, label %69, label %64
 
-70:                                               ; preds = %65
+69:                                               ; preds = %64
   ret ptr %1
 }
 
@@ -1651,7 +1650,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %.1141 = phi ptr [ %.0162, %.lr.ph ], [ %34, %30 ]
   %31 = load i64, ptr %.1141, align 8, !tbaa !11
   %32 = tail call i64 @llvm.bswap.i64(i64 %31)
-  %33 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %32, ptr %33, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %.1141, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1661,20 +1660,20 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
 35:                                               ; preds = %.preheader139, %35
   %36 = phi i64 [ %.pre, %.preheader139 ], [ %51, %35 ]
   %indvars.iv181 = phi i64 [ 16, %.preheader139 ], [ %indvars.iv.next182, %35 ]
-  %37 = add nsw i64 %indvars.iv181, -2
-  %38 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %37
+  %37 = getelementptr i64, ptr %4, i64 %indvars.iv181
+  %38 = getelementptr i8, ptr %37, i64 -16
   %39 = load i64, ptr %38, align 8, !tbaa !11
   %40 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 45)
   %41 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 3)
   %42 = xor i64 %40, %41
   %43 = lshr i64 %39, 6
   %44 = xor i64 %42, %43
-  %45 = add nsw i64 %indvars.iv181, -7
-  %46 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %45
+  %45 = getelementptr i64, ptr %4, i64 %indvars.iv181
+  %46 = getelementptr i8, ptr %45, i64 -56
   %47 = load i64, ptr %46, align 8, !tbaa !11
   %48 = add i64 %44, %47
-  %49 = add nsw i64 %indvars.iv181, -15
-  %50 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %49
+  %49 = getelementptr i64, ptr %4, i64 %indvars.iv181
+  %50 = getelementptr i8, ptr %49, i64 -120
   %51 = load i64, ptr %50, align 8, !tbaa !11
   %52 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 63)
   %53 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 56)
@@ -1683,7 +1682,7 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %56 = xor i64 %54, %55
   %57 = add i64 %48, %36
   %58 = add i64 %57, %56
-  %59 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %indvars.iv181
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv181
   store i64 %58, ptr %59, align 8, !tbaa !11
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 80
@@ -1708,9 +1707,9 @@ define internal fastcc void @sha512_process_block(ptr noundef readonly captures(
   %66 = xor i64 %.1132146, -1
   %67 = and i64 %.1136144, %66
   %68 = or i64 %65, %67
-  %69 = getelementptr inbounds nuw [80 x i64], ptr @K, i64 0, i64 %indvars.iv185
+  %69 = getelementptr inbounds nuw i64, ptr @K, i64 %indvars.iv185
   %70 = load i64, ptr %69, align 8, !tbaa !11
-  %71 = getelementptr inbounds nuw [80 x i64], ptr %4, i64 0, i64 %indvars.iv185
+  %71 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv185
   %72 = load i64, ptr %71, align 8, !tbaa !11
   %73 = add i64 %68, %.1138143
   %74 = add i64 %73, %64

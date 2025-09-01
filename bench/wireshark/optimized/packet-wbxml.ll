@@ -3060,7 +3060,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
 136:                                              ; preds = %133
   %137 = and i32 %41, 3
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr [3 x ptr], ptr %35, i64 0, i64 %138
+  %139 = getelementptr ptr, ptr %35, i64 %138
   %140 = load ptr, ptr %139, align 8
   %.not449 = icmp eq ptr %140, null
   br i1 %.not449, label %143, label %141
@@ -5249,7 +5249,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
 118:                                              ; preds = %115
   %119 = and i32 %33, 3
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr [3 x ptr], ptr %30, i64 0, i64 %120
+  %121 = getelementptr ptr, ptr %30, i64 %120
   %122 = load ptr, ptr %121, align 8
   %.not284 = icmp eq ptr %122, null
   br i1 %.not284, label %125, label %123

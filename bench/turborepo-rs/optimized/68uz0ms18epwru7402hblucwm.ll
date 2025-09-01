@@ -2884,7 +2884,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %33 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }], ptr %32, i64 0, i64 %17
+  %33 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %32, i64 %17
   invoke void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBT_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEE8try_lockCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %33)
           to label %35 unwind label %.loopexit
 
@@ -3361,7 +3361,7 @@ define void @_RNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB5_8IntoIterTNtNtN
   br i1 %16, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBI_EECsff1zCjKRl2o_13turborepo_env.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } } }, { { { { i64, ptr, {} }, i64 } } } }], ptr %3, i64 0, i64 %.sroa.0.0.i
+  %18 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } } }, { { { { i64, ptr, {} }, i64 } } } }, ptr %3, i64 %.sroa.0.0.i
   %19 = add nuw nsw i64 %.sroa.0.0.i, 1
   invoke fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBH_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(48) %18)
           to label %15 unwind label %22
@@ -3377,7 +3377,7 @@ define void @_RNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB5_8IntoIterTNtNtN
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } } }, { { { { i64, ptr, {} }, i64 } } } }], ptr %3, i64 0, i64 %.sroa.0.1.i
+  %25 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { i64, ptr, {} }, i64 } } } }, ptr %3, i64 %.sroa.0.1.i
   %26 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBH_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(48) %25) #19
           to label %20 unwind label %27

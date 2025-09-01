@@ -657,7 +657,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 33:                                               ; preds = %26, %32, %24
   %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %32 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %71
+  br label %68
 
 34:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -673,7 +673,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %44
 
-39:                                               ; preds = %50
+39:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -681,86 +681,86 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
 40:                                               ; preds = %22
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %67
 
 42:                                               ; preds = %34
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %66
 
-44:                                               ; preds = %35, %50
-  %indvars.iv57 = phi i64 [ 0, %35 ], [ %indvars.iv.next58, %50 ]
+44:                                               ; preds = %35, %49
+  %indvars.iv57 = phi i64 [ 0, %35 ], [ %indvars.iv.next58, %49 ]
   %45 = trunc nuw nsw i64 %indvars.iv57 to i32
   %46 = uitofp nneg i32 %45 to float
   %47 = fmul float %46, 5.000000e+00
   %48 = fadd float %47, -2.250000e+01
-  %49 = mul nuw nsw i64 %indvars.iv57, 10
-  br label %51
+  %.idx = mul nuw nsw i64 %indvars.iv57, 80
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
+  br label %50
 
-50:                                               ; preds = %63
+49:                                               ; preds = %60
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 10
   br i1 %exitcond60.not, label %39, label %44, !llvm.loop !32
 
-51:                                               ; preds = %44, %63
-  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %63 ]
+50:                                               ; preds = %44, %60
+  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %8)
-          to label %52 unwind label %64
+          to label %51 unwind label %61
 
-52:                                               ; preds = %51
+51:                                               ; preds = %50
   store i32 2, ptr %8, align 8, !tbaa !21
-  %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = uitofp nneg i32 %53 to float
-  %55 = fmul float %54, 0x3FC99999A0000000
-  %56 = fadd float %48, %55
-  %57 = fadd float %54, 5.000000e-01
-  store float %56, ptr %38, align 4, !tbaa !15
-  store float %57, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
+  %53 = uitofp nneg i32 %52 to float
+  %54 = fmul float %53, 0x3FC99999A0000000
+  %55 = fadd float %48, %54
+  %56 = fadd float %53, 5.000000e-01
+  store float %55, ptr %38, align 4, !tbaa !15
+  store float %56, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.02.0.copyload = load i32, ptr %16, align 4
-  %58 = invoke i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %8)
-          to label %59 unwind label %66
+  %57 = invoke i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %8)
+          to label %58 unwind label %63
 
-59:                                               ; preds = %52
-  %60 = add nuw nsw i64 %indvars.iv, %49
-  %61 = getelementptr inbounds nuw [100 x %struct.b2BodyId], ptr %23, i64 0, i64 %60
-  store i64 %58, ptr %61, align 8
-  %62 = invoke i64 @b2CreatePolygonShape(i64 %58, ptr noundef nonnull %7, ptr noundef nonnull %6)
-          to label %63 unwind label %66
+58:                                               ; preds = %51
+  %gep = getelementptr inbounds nuw %struct.b2BodyId, ptr %invariant.gep, i64 %indvars.iv
+  store i64 %57, ptr %gep, align 8
+  %59 = invoke i64 @b2CreatePolygonShape(i64 %57, ptr noundef nonnull %7, ptr noundef nonnull %6)
+          to label %60 unwind label %63
 
-63:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %50, label %51, !llvm.loop !34
+  br i1 %exitcond.not, label %49, label %50, !llvm.loop !34
 
-64:                                               ; preds = %51
-  %65 = landingpad { ptr, i32 }
+61:                                               ; preds = %50
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %65
 
-66:                                               ; preds = %59, %52
-  %67 = landingpad { ptr, i32 }
+63:                                               ; preds = %58, %51
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %65
 
-68:                                               ; preds = %66, %64
-  %.pn47 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+65:                                               ; preds = %63, %61
+  %.pn47 = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %69
+  br label %66
 
-69:                                               ; preds = %68, %42
-  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %68 ], [ %43, %42 ]
+66:                                               ; preds = %65, %42
+  %.pn47.pn = phi { ptr, i32 } [ %.pn47, %65 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %70
+  br label %67
 
-70:                                               ; preds = %69, %40
-  %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %69 ], [ %41, %40 ]
+67:                                               ; preds = %66, %40
+  %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %66 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %71
+  br label %68
 
-71:                                               ; preds = %70, %33
-  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn.pn, %70 ], [ %.pn.pn.pn, %33 ]
+68:                                               ; preds = %67, %33
+  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn47.pn.pn, %67 ], [ %.pn.pn.pn, %33 ]
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   resume { ptr, i32 } %.pn47.pn.pn.pn
 }
@@ -946,7 +946,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
 
 23:                                               ; preds = %1, %27
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %27 ]
-  %24 = getelementptr inbounds nuw [150 x %struct.b2BodyId], ptr %6, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.b2BodyId, ptr %6, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8, !tbaa !53
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %27, label %26
@@ -1008,7 +1008,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
   %.sroa.04.0.copyload = load i32, ptr %20, align 4
   %47 = call i64 @b2CreateBody(i32 %.sroa.04.0.copyload, ptr noundef nonnull %5)
   %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds [150 x %struct.b2BodyId], ptr %6, i64 0, i64 %48
+  %49 = getelementptr inbounds %struct.b2BodyId, ptr %6, i64 %48
   store i64 %47, ptr %49, align 8
   %50 = load i32, ptr %11, align 4, !tbaa !35
   %51 = icmp eq i32 %50, 0
@@ -1128,7 +1128,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack8UpdateUIEv(ptr noundef no
 
 44:                                               ; preds = %47, %42
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %47 ]
-  %45 = getelementptr inbounds nuw [8 x %struct.b2BodyId], ptr %43, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw %struct.b2BodyId, ptr %43, i64 %indvars.iv.i
   %.sroa.01.0.copyload.i = load i32, ptr %45, align 8, !tbaa !62
   %.not.i = icmp eq i32 %.sroa.01.0.copyload.i, 0
   br i1 %.not.i, label %47, label %46
@@ -1199,14 +1199,14 @@ _ZN13VerticalStack14DestroyBulletsEv.exit:        ; preds = %47
 
 .critedge.i:                                      ; preds = %64, %.critedge.lr.ph.i
   %indvars.iv.i11 = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i13, %64 ]
-  %65 = add nuw nsw i64 %indvars.iv.i11, %63
-  %66 = getelementptr inbounds nuw [150 x %struct.b2BodyId], ptr %56, i64 0, i64 %65
+  %65 = getelementptr inbounds nuw %struct.b2BodyId, ptr %56, i64 %indvars.iv.i11
+  %66 = getelementptr inbounds nuw %struct.b2BodyId, ptr %65, i64 %63
   %67 = load i32, ptr %66, align 8, !tbaa !53
   %.not.i12 = icmp eq i32 %67, 0
   br i1 %.not.i12, label %64, label %68
 
 68:                                               ; preds = %.critedge.i
-  %69 = getelementptr inbounds nuw [150 x %struct.b2BodyId], ptr %56, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw %struct.b2BodyId, ptr %65, i64 %63
   %.sroa.0.0.copyload.i = load i64, ptr %69, align 8
   call void @b2DestroyBody(i64 %.sroa.0.0.copyload.i)
   store i64 0, ptr %69, align 8
@@ -1241,7 +1241,7 @@ _ZN13VerticalStack11DestroyBodyEv.exit:           ; preds = %.loopexit.i, %.preh
 
 78:                                               ; preds = %81, %76
   %indvars.iv.i15 = phi i64 [ 0, %76 ], [ %indvars.iv.next.i24, %81 ]
-  %79 = getelementptr inbounds nuw [8 x %struct.b2BodyId], ptr %77, i64 0, i64 %indvars.iv.i15
+  %79 = getelementptr inbounds nuw %struct.b2BodyId, ptr %77, i64 %indvars.iv.i15
   %.sroa.01.0.copyload.i16 = load i32, ptr %79, align 8, !tbaa !62
   %.not.i17 = icmp eq i32 %.sroa.01.0.copyload.i16, 0
   br i1 %.not.i17, label %81, label %80
@@ -1376,7 +1376,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
   br label %39
 
 39:                                               ; preds = %37, %35
-  %40 = getelementptr inbounds nuw [8 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.b2BodyId, ptr %15, i64 %indvars.iv
   store i64 %32, ptr %40, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2079,7 +2079,7 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
 
 62:                                               ; preds = %1, %66
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %66 ]
-  %63 = getelementptr inbounds nuw [9 x %struct.b2BodyId], ptr %9, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %struct.b2BodyId, ptr %9, i64 %indvars.iv
   %64 = load i32, ptr %63, align 8, !tbaa !53
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %66, label %65
@@ -2199,7 +2199,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 
 25:                                               ; preds = %23, %25
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
   %.sroa.042.0.copyload = load <2 x float>, ptr %26, align 8
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.042.0.copyload, i64 0
   %27 = fmul float %.sroa.0.0.vec.extract.i, 2.500000e-01
@@ -2208,7 +2208,7 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   %28 = fmul float %.sroa.0.4.vec.extract.i, 2.500000e-01
   %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %28, i64 1
   store <2 x float> %.sroa.02.4.vec.insert.i, ptr %26, align 8
-  %29 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv
   %.sroa.039.0.copyload = load <2 x float>, ptr %29, align 8
   %.sroa.0.0.vec.extract.i87 = extractelement <2 x float> %.sroa.039.0.copyload, i64 0
   %30 = fmul float %.sroa.0.0.vec.extract.i87, 2.500000e-01
@@ -2303,17 +2303,17 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %65 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv96
+  %65 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv96
   %66 = load i64, ptr %65, align 8
   store i64 %66, ptr %9, align 16
-  %67 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv96
+  %67 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv96
   %68 = load i64, ptr %67, align 8
   store i64 %68, ptr %41, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %69 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv.next97
+  %69 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv.next97
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %42, align 16
-  %71 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv.next97
+  %71 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv.next97
   %72 = load i64, ptr %71, align 8
   store i64 %72, ptr %43, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2371,14 +2371,14 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
 
 88:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %89 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv100
+  %89 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv100
   %90 = load float, ptr %89, align 8, !tbaa !19
   %91 = fneg float %90
   store float %91, ptr %12, align 16, !tbaa !19
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %93 = load float, ptr %92, align 4, !tbaa !20
   store float %93, ptr %44, align 4, !tbaa !20
-  %94 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv100
+  %94 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv100
   %95 = load float, ptr %94, align 8, !tbaa !19
   %96 = fneg float %95
   store float %96, ptr %45, align 8, !tbaa !19
@@ -2386,14 +2386,14 @@ define linkonce_odr dso_local void @_ZN4ArchC2ER8Settings(ptr noundef nonnull al
   %98 = load float, ptr %97, align 4, !tbaa !20
   store float %98, ptr %46, align 4, !tbaa !20
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %99 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %3, i64 0, i64 %indvars.iv.next101
+  %99 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv.next101
   %100 = load float, ptr %99, align 8, !tbaa !19
   %101 = fneg float %100
   store float %101, ptr %47, align 16, !tbaa !19
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %103 = load float, ptr %102, align 4, !tbaa !20
   store float %103, ptr %48, align 4, !tbaa !20
-  %104 = getelementptr inbounds nuw [9 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv.next101
+  %104 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv.next101
   %105 = load float, ptr %104, align 8, !tbaa !19
   %106 = fneg float %105
   store float %106, ptr %49, align 8, !tbaa !19

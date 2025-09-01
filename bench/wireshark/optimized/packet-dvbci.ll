@@ -1561,7 +1561,7 @@ define hidden void @proto_register_dvbci() local_unnamed_addr #1 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @spdu_table, align 8
-  %4 = getelementptr [7 x %struct._spdu_info_t], ptr @spdu_info, i64 0, i64 %indvars.iv
+  %4 = getelementptr %struct._spdu_info_t, ptr @spdu_info, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -1578,7 +1578,7 @@ define hidden void @proto_register_dvbci() local_unnamed_addr #1 {
 11:                                               ; preds = %9, %11
   %indvars.iv16 = phi i64 [ 0, %9 ], [ %indvars.iv.next17, %11 ]
   %12 = load ptr, ptr @apdu_table, align 8
-  %13 = getelementptr [92 x %struct._apdu_info_t], ptr @apdu_info, i64 0, i64 %indvars.iv16
+  %13 = getelementptr %struct._apdu_info_t, ptr @apdu_info, i64 %indvars.iv16
   %14 = load i32, ptr %13, align 16
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr

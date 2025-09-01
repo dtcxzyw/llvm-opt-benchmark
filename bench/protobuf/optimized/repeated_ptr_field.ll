@@ -199,7 +199,7 @@ if.end46:                                         ; preds = %if.end.i.i.i, %_ZSt
   %current_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load i32, ptr %current_size_, align 8
   %idxprom = sext i32 %21 to i64
-  %arrayidx51 = getelementptr inbounds [268435454 x ptr], ptr %elements50, i64 0, i64 %idxprom
+  %arrayidx51 = getelementptr inbounds ptr, ptr %elements50, i64 %idxprom
   ret ptr %arrayidx51
 }
 
@@ -374,7 +374,7 @@ if.then21.i:                                      ; preds = %if.else18.i
   %add.i = add nsw i32 %5, 1
   store i32 %add.i, ptr %current_size_.i7.i, align 8
   %idxprom.i = sext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit
 
@@ -388,7 +388,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   %add31.i = add nsw i32 %11, 1
   store i32 %add31.i, ptr %current_size_.i7.i, align 8
   %idxprom33.i = sext i32 %11 to i64
-  %arrayidx34.i = getelementptr inbounds [268435454 x ptr], ptr %elements29.i, i64 0, i64 %idxprom33.i
+  %arrayidx34.i = getelementptr inbounds ptr, ptr %elements29.i, i64 %idxprom33.i
   %call35.i = tail call noundef ptr %factory(ptr noundef %0)
   store ptr %call35.i, ptr %arrayidx34.i, align 8
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIPFPvPNS0_5ArenaEEEEPDaT_.exit
@@ -433,10 +433,10 @@ for.body.lr.ph:                                   ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %4, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [268435454 x ptr], ptr %elements, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds ptr, ptr %elements, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %7 = sub nsw i64 %indvars.iv, %5
-  %arrayidx8 = getelementptr inbounds [268435454 x ptr], ptr %elements, i64 0, i64 %7
+  %arrayidx8 = getelementptr inbounds ptr, ptr %elements, i64 %7
   store ptr %6, ptr %arrayidx8, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %2, align 8
@@ -527,7 +527,7 @@ if.then21.i:                                      ; preds = %if.else18.i
   %add.i = add nsw i32 %6, 1
   store i32 %add.i, ptr %current_size_.i7.i, align 8
   %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   br label %"_ZN6google8protobuf8internal20RepeatedPtrFieldBase11AddInternalIZNS2_10AddMessageEPKNS0_11MessageLiteEE3$_0EEPDaT_.exit"
 
@@ -541,7 +541,7 @@ if.end25.i:                                       ; preds = %if.else18.i, %if.th
   %add31.i = add nsw i32 %12, 1
   store i32 %add31.i, ptr %current_size_.i7.i, align 8
   %idxprom33.i = sext i32 %12 to i64
-  %arrayidx34.i = getelementptr inbounds [268435454 x ptr], ptr %elements29.i, i64 0, i64 %idxprom33.i
+  %arrayidx34.i = getelementptr inbounds ptr, ptr %elements29.i, i64 %idxprom33.i
   %vtable.i13.i = load ptr, ptr %prototype, align 8
   %vfn.i14.i = getelementptr inbounds nuw i8, ptr %vtable.i13.i, i64 16
   %13 = load ptr, ptr %vfn.i14.i, align 8

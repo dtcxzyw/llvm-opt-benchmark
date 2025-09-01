@@ -11416,7 +11416,7 @@ _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread101: ; p
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread: ; preds = %54
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !3441, !noalias !3445, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds [0 x { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }], ptr %68, i64 0, i64 %55
+  %69 = getelementptr inbounds { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }, ptr %68, i64 %55
   br label %73
 
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit: ; preds = %63
@@ -11764,7 +11764,7 @@ _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread184: ; p
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread: ; preds = %111
   %124 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %125 = load ptr, ptr %124, align 8, !alias.scope !3503, !noalias !3507, !nonnull !4, !noundef !4
-  %126 = getelementptr inbounds [0 x { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }], ptr %125, i64 0, i64 %112
+  %126 = getelementptr inbounds { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }, ptr %125, i64 %112
   br label %138
 
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit: ; preds = %120
@@ -12396,7 +12396,7 @@ _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread741.i: ;
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.thread.i: ; preds = %214
   %227 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %228 = load ptr, ptr %227, align 8, !alias.scope !3630, !noalias !3634, !nonnull !4, !noundef !4
-  %229 = getelementptr inbounds [0 x { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }], ptr %228, i64 0, i64 %215
+  %229 = getelementptr inbounds { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }, ptr %228, i64 %215
   br label %232
 
 _ZN5gimli4read6abbrev13Abbreviations3get17hd53087f1b1f6fd2dE.exit.i: ; preds = %223
@@ -13350,7 +13350,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(112) ptr @_ZN5gim
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }], ptr %24, i64 0, i64 %5
+  %25 = getelementptr inbounds { { i64, [11 x i64] }, i64, i16, i8, [5 x i8] }, ptr %24, i64 %5
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h7fc05527e723d6e7E.exit"
 }
 
@@ -18996,7 +18996,7 @@ _ZN5gimli4read4line7LineRow7execute17h6d33499332f9b955E.exit.thread.i: ; preds =
 
 .loopexit:                                        ; preds = %.lr.ph.i.i478, %821
   %.pn697 = phi i64 [ %822, %821 ], [ %798, %.lr.ph.i.i478 ]
-  %.0337 = getelementptr inbounds [0 x { i64, { i8, [63 x i8] } }], ptr %795, i64 0, i64 %.pn697, i32 1
+  %.0337 = getelementptr inbounds { i64, { i8, [63 x i8] } }, ptr %795, i64 %.pn697, i32 1
   %823 = load i8, ptr %.0337, align 8, !range !3522, !noundef !4
   %824 = icmp eq i8 %823, 0
   br i1 %824, label %826, label %.thread675
@@ -19038,7 +19038,7 @@ _ZN5gimli4read4line7LineRow7execute17h6d33499332f9b955E.exit.thread.i: ; preds =
 
 843:                                              ; preds = %835
   %844 = load ptr, ptr %218, align 8, !nonnull !4, !noundef !4
-  %845 = getelementptr inbounds [0 x i64], ptr %844, i64 0, i64 %840
+  %845 = getelementptr inbounds i64, ptr %844, i64 %840
   %846 = load i64, ptr %845, align 8, !noundef !4
   store i64 %846, ptr %741, align 8
   %847 = getelementptr inbounds nuw i8, ptr %.0337, i64 32
@@ -19152,7 +19152,7 @@ _ZN5gimli4read4line7LineRow7execute17h6d33499332f9b955E.exit.thread.i: ; preds =
 
 883:                                              ; preds = %234
   %884 = load ptr, ptr %203, align 8, !nonnull !4, !noundef !4
-  %885 = getelementptr inbounds [0 x i64], ptr %884, i64 0, i64 %238
+  %885 = getelementptr inbounds i64, ptr %884, i64 %238
   %886 = load i64, ptr %885, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)

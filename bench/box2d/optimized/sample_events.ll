@@ -611,7 +611,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnelC2ER8Settings(ptr noundef n
 
 86:                                               ; preds = %90, %80
   %indvars.iv.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i, %90 ]
-  %87 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 0, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.i
   %88 = load i8, ptr %87, align 1, !tbaa !62, !range !13, !noundef !14
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %91, label %90
@@ -631,7 +631,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnelC2ER8Settings(ptr noundef n
           to label %.noexc59 unwind label %.loopexit.split-lp
 
 .noexc59:                                         ; preds = %91
-  %96 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 0, i64 %93
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 %93
   store i8 1, ptr %96, align 1, !tbaa !62
   %97 = load float, ptr %82, align 8, !tbaa !60
   %98 = fneg float %97
@@ -782,7 +782,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel4StepER8Settings(ptr nounde
   %.sink = phi i64 [ %33, %30 ], [ %28, %25 ]
   %sext = shl i64 %.sink, 32
   %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %3, i64 %34
   store i8 1, ptr %35, align 1, !tbaa !62
   br label %36
 
@@ -805,7 +805,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel4StepER8Settings(ptr nounde
 
 47:                                               ; preds = %.preheader, %59
   %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %59 ]
-  %48 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 0, i64 %indvars.iv37
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv37
   %49 = load i8, ptr %48, align 1, !tbaa !62, !range !13, !noundef !14
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %59
@@ -826,7 +826,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel4StepER8Settings(ptr nounde
   br label %_ZN12SensorFunnel14DestroyElementEi.exit
 
 _ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %54, %56
-  %58 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %indvars.iv37
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv37
   store i8 0, ptr %58, align 1, !tbaa !62
   br label %59
 
@@ -846,7 +846,7 @@ _ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %54, %56
 
 .preheader45:                                     ; preds = %60, %69
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %69 ], [ 0, %60 ]
-  %66 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
   %67 = load i8, ptr %66, align 1, !tbaa !62, !range !13, !noundef !14
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %70, label %69
@@ -882,7 +882,7 @@ _ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %54, %56
 
 83:                                               ; preds = %78, %75
   %.pre-phi.i = phi i64 [ %80, %78 ], [ %76, %75 ]
-  %84 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 0, i64 %.pre-phi.i
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre-phi.i
   store i8 1, ptr %84, align 1, !tbaa !62
   %85 = load float, ptr %71, align 8, !tbaa !60
   %86 = fneg float %85
@@ -948,7 +948,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel8UpdateUIEv(ptr noundef non
 
 22:                                               ; preds = %34, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %34 ]
-  %23 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1, !tbaa !62, !range !13, !noundef !14
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %34
@@ -959,7 +959,7 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel8UpdateUIEv(ptr noundef non
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw [32 x %class.Donut], ptr %21, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw %class.Donut, ptr %21, i64 %indvars.iv.i
   call void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 dereferenceable(113) %30)
   br label %33
 
@@ -994,7 +994,7 @@ _ZN12SensorFunnel5ClearEv.exit:                   ; preds = %34
 
 42:                                               ; preds = %54, %38
   %indvars.iv.i3 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i4, %54 ]
-  %43 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 0, i64 %indvars.iv.i3
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i3
   %44 = load i8, ptr %43, align 1, !tbaa !62, !range !13, !noundef !14
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %54
@@ -1005,7 +1005,7 @@ _ZN12SensorFunnel5ClearEv.exit:                   ; preds = %34
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw [32 x %class.Donut], ptr %41, i64 0, i64 %indvars.iv.i3
+  %50 = getelementptr inbounds nuw %class.Donut, ptr %41, i64 %indvars.iv.i3
   call void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 dereferenceable(113) %50)
   br label %53
 
@@ -1609,7 +1609,7 @@ define linkonce_odr dso_local void @_ZN10FootSensorC2ER8Settings(ptr noundef non
 25:                                               ; preds = %19, %25
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %25 ]
   %.03344 = phi float [ 1.000000e+01, %19 ], [ %27, %25 ]
-  %26 = getelementptr inbounds nuw [20 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv
   store float %.03344, ptr %26, align 8, !tbaa !15
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float 0.000000e+00, ptr %.sroa.413.0..sroa_idx, align 4, !tbaa !15
@@ -2327,7 +2327,7 @@ define linkonce_odr dso_local void @_ZN12ContactEventC2ER8Settings(ptr noundef n
 
 59:                                               ; preds = %35, %59
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw [20 x %struct.BodyUserData], ptr %38, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.BodyUserData, ptr %38, i64 %indvars.iv
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %61, ptr %60, align 4, !tbaa !124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2641,7 +2641,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI13b
 
 132:                                              ; preds = %.lr.ph486, %139
   %indvars.iv514 = phi i64 [ 0, %.lr.ph486 ], [ %indvars.iv.next515, %139 ]
-  %133 = getelementptr inbounds nuw [2 x %struct.b2ManifoldPoint], ptr %61, i64 0, i64 %indvars.iv514
+  %133 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %61, i64 %indvars.iv514
   %.sroa.0134.0.copyload = load <2 x float>, ptr %133, align 4
   %.sroa.7138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 36
   %.sroa.7138.0.copyload = load float, ptr %.sroa.7138.0..sroa_idx, align 8, !tbaa !15
@@ -2775,7 +2775,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 176:                                              ; preds = %.lr.ph, %183
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %183 ]
-  %177 = getelementptr inbounds nuw [2 x %struct.b2ManifoldPoint], ptr %59, i64 0, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %59, i64 %indvars.iv
   %.sroa.0107.0.copyload = load <2 x float>, ptr %177, align 4
   %.sroa.7110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 36
   %.sroa.7110.0.copyload = load float, ptr %.sroa.7110.0..sroa_idx, align 8, !tbaa !15
@@ -2867,7 +2867,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 .lr.ph495:                                        ; preds = %.lr.ph495.preheader, %226
   %indvars.iv529 = phi i64 [ 0, %.lr.ph495.preheader ], [ %indvars.iv.next530, %226 ]
-  %214 = getelementptr inbounds nuw [20 x %struct.b2ShapeId], ptr %4, i64 0, i64 %indvars.iv529
+  %214 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %4, i64 %indvars.iv529
   %215 = load i32, ptr %214, align 8, !tbaa !148
   %216 = icmp eq i32 %215, %.sroa.0171.sroa.0.0.extract.trunc
   br i1 %216, label %217, label %226
@@ -2892,7 +2892,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 .critedge:                                        ; preds = %226, %.preheader453
   %227 = sext i32 %.0319497 to i64
-  %228 = getelementptr inbounds [20 x %struct.b2ShapeId], ptr %4, i64 0, i64 %227
+  %228 = getelementptr inbounds %struct.b2ShapeId, ptr %4, i64 %227
   store i64 %.sroa.0171.0.copyload, ptr %228, align 8
   %229 = add nsw i32 %.0319497, 1
   br label %.loopexit
@@ -2904,7 +2904,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 232:                                              ; preds = %230
   %233 = load i32, ptr %196, align 4, !tbaa !124
   %234 = sext i32 %.0318498 to i64
-  %235 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %234
+  %235 = getelementptr inbounds i32, ptr %3, i64 %234
   store i32 %233, ptr %235, align 4, !tbaa !82
   %236 = add nsw i32 %.0318498, 1
   br label %.loopexit
@@ -2953,7 +2953,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 .lr.ph492:                                        ; preds = %.lr.ph492.preheader, %268
   %indvars.iv524 = phi i64 [ 0, %.lr.ph492.preheader ], [ %indvars.iv.next525, %268 ]
-  %256 = getelementptr inbounds nuw [20 x %struct.b2ShapeId], ptr %4, i64 0, i64 %indvars.iv524
+  %256 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %4, i64 %indvars.iv524
   %257 = load i32, ptr %256, align 8, !tbaa !148
   %258 = icmp eq i32 %257, %.sroa.20.sroa.0.0.extract.trunc
   br i1 %258, label %259, label %268
@@ -2978,7 +2978,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 .critedge411:                                     ; preds = %268, %.preheader454
   %269 = sext i32 %.0319497 to i64
-  %270 = getelementptr inbounds [20 x %struct.b2ShapeId], ptr %4, i64 0, i64 %269
+  %270 = getelementptr inbounds %struct.b2ShapeId, ptr %4, i64 %269
   store i64 %.sroa.20.0.copyload, ptr %270, align 8
   %271 = add nsw i32 %.0319497, 1
   br label %.loopexit
@@ -2990,7 +2990,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 274:                                              ; preds = %272
   %275 = load i32, ptr %238, align 4, !tbaa !124
   %276 = sext i32 %.0318498 to i64
-  %277 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %276
+  %277 = getelementptr inbounds i32, ptr %3, i64 %276
   store i32 %275, ptr %277, align 4, !tbaa !82
   %278 = add nsw i32 %.0318498, 1
   br label %.loopexit
@@ -3014,10 +3014,10 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 283:                                              ; preds = %.lr.ph502, %383
   %indvars.iv537 = phi i64 [ 0, %.lr.ph502 ], [ %indvars.iv.next538, %383 ]
-  %284 = getelementptr inbounds nuw [20 x i32], ptr %3, i64 0, i64 %indvars.iv537
+  %284 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv537
   %285 = load i32, ptr %284, align 4, !tbaa !82
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds [20 x %struct.b2BodyId], ptr %68, i64 0, i64 %286
+  %287 = getelementptr inbounds %struct.b2BodyId, ptr %68, i64 %286
   %.sroa.054.0.copyload = load i32, ptr %287, align 8, !tbaa !82
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 4
   %.sroa.9.sroa.0.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
@@ -3278,7 +3278,7 @@ _ZNSt6vectorI13b2ContactDataSaIS0_EE6resizeEm.exit421: ; preds = %._ZNSt6vectorI
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %387
   %indvars.iv542 = phi i64 [ 0, %.lr.ph504.preheader ], [ %indvars.iv.next543, %387 ]
-  %386 = getelementptr inbounds nuw [20 x %struct.b2ShapeId], ptr %4, i64 0, i64 %indvars.iv542
+  %386 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %4, i64 %indvars.iv542
   %.sroa.04.0.copyload = load i64, ptr %386, align 8
   invoke void @b2DestroyShape(i64 %.sroa.04.0.copyload, i1 noundef zeroext false)
           to label %387 unwind label %388
@@ -3448,7 +3448,7 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
 
 8:                                                ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw [20 x %struct.b2BodyId], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.b2BodyId, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !157
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %13, label %12
@@ -3555,7 +3555,7 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.06.0.copyload = load i32, ptr %92, align 4
   %93 = call i64 @b2CreateBody(i32 %.sroa.06.0.copyload, ptr noundef nonnull %2)
-  %94 = getelementptr inbounds nuw [20 x %struct.b2BodyId], ptr %7, i64 0, i64 %89
+  %94 = getelementptr inbounds nuw %struct.b2BodyId, ptr %7, i64 %89
   store i64 %93, ptr %94, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3)
@@ -4187,7 +4187,7 @@ define linkonce_odr dso_local void @_ZN10Platformer4StepER8Settings(ptr noundef 
 
 22:                                               ; preds = %35, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %23 = getelementptr inbounds nuw [4 x %struct.b2ContactData], ptr %3, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.b2ContactData, ptr %3, i64 %indvars.iv
   %.sroa.023.0.copyload = load i64, ptr %23, align 16
   %24 = call i64 @b2Shape_GetBody(i64 %.sroa.023.0.copyload)
   %.sroa.024.0.extract.trunc = trunc i64 %24 to i32
@@ -4799,11 +4799,11 @@ define linkonce_odr dso_local void @_ZN8BodyMove12CreateBodiesEv(ptr noundef non
   %21 = call i64 @b2CreateBody(i32 %.sroa.010.0.copyload, ptr noundef nonnull %5)
   %22 = load i32, ptr %8, align 4, !tbaa !188
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [50 x %struct.b2BodyId], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds %struct.b2BodyId, ptr %10, i64 %23
   store i64 %21, ptr %24, align 8
   %25 = load i32, ptr %8, align 4, !tbaa !188
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [50 x i8], ptr %13, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %13, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !62
   %28 = srem i32 %25, 4
   switch i32 %28, label %38 [
@@ -4813,19 +4813,19 @@ define linkonce_odr dso_local void @_ZN8BodyMove12CreateBodiesEv(ptr noundef non
   ]
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds [50 x %struct.b2BodyId], ptr %10, i64 0, i64 %26
+  %30 = getelementptr inbounds %struct.b2BodyId, ptr %10, i64 %26
   %.sroa.07.0.copyload = load i64, ptr %30, align 8
   %31 = call i64 @b2CreateCapsuleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %2)
   br label %43
 
 32:                                               ; preds = %18
-  %33 = getelementptr inbounds [50 x %struct.b2BodyId], ptr %10, i64 0, i64 %26
+  %33 = getelementptr inbounds %struct.b2BodyId, ptr %10, i64 %26
   %.sroa.05.0.copyload = load i64, ptr %33, align 8
   %34 = call i64 @b2CreateCircleShape(i64 %.sroa.05.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %3)
   br label %43
 
 35:                                               ; preds = %18
-  %36 = getelementptr inbounds [50 x %struct.b2BodyId], ptr %10, i64 0, i64 %26
+  %36 = getelementptr inbounds %struct.b2BodyId, ptr %10, i64 %26
   %.sroa.03.0.copyload = load i64, ptr %36, align 8
   %37 = call i64 @b2CreatePolygonShape(i64 %.sroa.03.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %4)
   br label %43
@@ -4836,7 +4836,7 @@ define linkonce_odr dso_local void @_ZN8BodyMove12CreateBodiesEv(ptr noundef non
   store float 0x3FB99999A0000000, ptr %14, align 4, !tbaa !202
   %39 = load i32, ptr %8, align 4, !tbaa !188
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [50 x %struct.b2BodyId], ptr %10, i64 0, i64 %40
+  %41 = getelementptr inbounds %struct.b2BodyId, ptr %10, i64 %40
   %.sroa.01.0.copyload = load i64, ptr %41, align 8
   %42 = call i64 @b2CreatePolygonShape(i64 %.sroa.01.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -627,7 +627,7 @@ lean_array_get.exit.thread104:                    ; preds = %69
   br label %lean_dec.exit.i
 
 lean_dec.exit.i:                                  ; preds = %82, %81, %79, %73
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %70
+  %83 = getelementptr inbounds nuw ptr, ptr %13, i64 %70
   %84 = load ptr, ptr %83, align 8, !tbaa !4
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, 1
@@ -829,7 +829,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_PremiseSelection_random___spec__
 6:                                                ; preds = %.lr.ph, %17
   %.01427 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
   %.01626 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01427
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01427
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -1223,7 +1223,7 @@ lean_dec.exit89:                                  ; preds = %139
 148:                                              ; preds = %159, %.lr.ph.i
   %.01427.i = phi i64 [ 0, %.lr.ph.i ], [ %161, %159 ]
   %.01626.i = phi ptr [ %100, %.lr.ph.i ], [ %160, %159 ]
-  %149 = getelementptr inbounds nuw [0 x ptr], ptr %147, i64 0, i64 %.01427.i
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %.01427.i
   %150 = load ptr, ptr %149, align 8, !tbaa !4
   %151 = ptrtoint ptr %150 to i64
   %152 = and i64 %151, 1
@@ -1627,7 +1627,7 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
 26:                                               ; preds = %37, %.lr.ph.i
   %.01427.i = phi i64 [ %.val, %.lr.ph.i ], [ %39, %37 ]
   %.01626.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.01427.i
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01427.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -7009,7 +7009,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_PremiseSelection_evalSuggestPremise
   %.02047 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02246 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02246, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02047
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02047
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

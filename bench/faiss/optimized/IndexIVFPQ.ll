@@ -4744,25 +4744,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
 113:                                              ; preds = %108, %100
   %114 = phi i32 [ %112, %108 ], [ 99999999, %100 ]
   %115 = zext nneg i32 %.087155.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %14, i64 %115
   store i64 %.089154.i.i.i.i, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %75, %38
   %118 = zext i1 %117 to i32
   %119 = add nuw nsw i32 %.087155.i.i.i.i, %118
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %14, i64 %120
   store i64 %76, ptr %121, align 8, !tbaa !16
   %122 = icmp slt i32 %88, %38
   %123 = zext i1 %122 to i32
   %124 = add nuw nsw i32 %119, %123
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %14, i64 %125
   store i64 %89, ptr %126, align 8, !tbaa !16
   %127 = icmp slt i32 %101, %38
   %128 = zext i1 %127 to i32
   %129 = add nuw nsw i32 %124, %128
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i64, ptr %14, i64 %130
   store i64 %102, ptr %131, align 8, !tbaa !16
   %132 = icmp slt i32 %114, %38
   %133 = zext i1 %132 to i32
@@ -4947,7 +4947,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %226 = load i64, ptr %225, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %228 = load i64, ptr %227, align 8, !tbaa !180
-  %229 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091159.i.i.i.i
+  %229 = getelementptr inbounds nuw i64, ptr %14, i64 %.091159.i.i.i.i
   %230 = load i64, ptr %229, align 8, !tbaa !16
   %231 = trunc i64 %228 to i32
   %232 = shl nuw i32 1, %231
@@ -5186,25 +5186,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 369:                                              ; preds = %363, %355
   %370 = phi i32 [ %368, %363 ], [ 99999999, %355 ]
   %371 = zext nneg i32 %.087155.i.i35.i.i to i64
-  %372 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i64, ptr %13, i64 %371
   store i64 %.089154.i.i36.i.i, ptr %372, align 8, !tbaa !16
   %373 = icmp slt i32 %328, %38
   %374 = zext i1 %373 to i32
   %375 = add nuw nsw i32 %.087155.i.i35.i.i, %374
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i64, ptr %13, i64 %376
   store i64 %329, ptr %377, align 8, !tbaa !16
   %378 = icmp slt i32 %342, %38
   %379 = zext i1 %378 to i32
   %380 = add nuw nsw i32 %375, %379
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i64, ptr %13, i64 %381
   store i64 %343, ptr %382, align 8, !tbaa !16
   %383 = icmp slt i32 %356, %38
   %384 = zext i1 %383 to i32
   %385 = add nuw nsw i32 %380, %384
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %357, ptr %387, align 8, !tbaa !16
   %388 = icmp slt i32 %370, %38
   %389 = zext i1 %388 to i32
@@ -5389,7 +5389,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %482 = load i64, ptr %481, align 8, !tbaa !161
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %484 = load i64, ptr %483, align 8, !tbaa !180
-  %485 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091159.i.i43.i.i
+  %485 = getelementptr inbounds nuw i64, ptr %13, i64 %.091159.i.i43.i.i
   %486 = load i64, ptr %485, align 8, !tbaa !16
   %487 = trunc i64 %484 to i32
   %488 = shl nuw i32 1, %487
@@ -5655,25 +5655,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 652:                                              ; preds = %640, %632
   %653 = phi i32 [ %651, %640 ], [ 99999999, %632 ]
   %654 = zext nneg i32 %.087159.i.i.i.i to i64
-  %655 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw i64, ptr %12, i64 %654
   store i64 %.089158.i.i.i.i, ptr %655, align 8, !tbaa !16
   %656 = icmp slt i32 %593, %38
   %657 = zext i1 %656 to i32
   %658 = add nuw nsw i32 %.087159.i.i.i.i, %657
   %659 = zext nneg i32 %658 to i64
-  %660 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i64, ptr %12, i64 %659
   store i64 %594, ptr %660, align 8, !tbaa !16
   %661 = icmp slt i32 %613, %38
   %662 = zext i1 %661 to i32
   %663 = add nuw nsw i32 %658, %662
   %664 = zext nneg i32 %663 to i64
-  %665 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw i64, ptr %12, i64 %664
   store i64 %614, ptr %665, align 8, !tbaa !16
   %666 = icmp slt i32 %633, %38
   %667 = zext i1 %666 to i32
   %668 = add nuw nsw i32 %663, %667
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i64, ptr %12, i64 %669
   store i64 %634, ptr %670, align 8, !tbaa !16
   %671 = icmp slt i32 %653, %38
   %672 = zext i1 %671 to i32
@@ -5858,7 +5858,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %765 = load i64, ptr %764, align 8, !tbaa !161
   %766 = getelementptr inbounds nuw i8, ptr %763, i64 32
   %767 = load i64, ptr %766, align 8, !tbaa !180
-  %768 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091163.i.i.i.i
+  %768 = getelementptr inbounds nuw i64, ptr %12, i64 %.091163.i.i.i.i
   %769 = load i64, ptr %768, align 8, !tbaa !16
   %770 = trunc i64 %767 to i32
   %771 = shl nuw i32 1, %770
@@ -6152,25 +6152,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 963:                                              ; preds = %946, %938
   %964 = phi i32 [ %962, %946 ], [ 99999999, %938 ]
   %965 = zext nneg i32 %.087163.i.i.i.i to i64
-  %966 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %965
+  %966 = getelementptr inbounds nuw i64, ptr %11, i64 %965
   store i64 %.089162.i.i.i.i, ptr %966, align 8, !tbaa !16
   %967 = icmp slt i32 %889, %38
   %968 = zext i1 %967 to i32
   %969 = add nuw nsw i32 %.087163.i.i.i.i, %968
   %970 = zext nneg i32 %969 to i64
-  %971 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw i64, ptr %11, i64 %970
   store i64 %890, ptr %971, align 8, !tbaa !16
   %972 = icmp slt i32 %914, %38
   %973 = zext i1 %972 to i32
   %974 = add nuw nsw i32 %969, %973
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw i64, ptr %11, i64 %975
   store i64 %915, ptr %976, align 8, !tbaa !16
   %977 = icmp slt i32 %939, %38
   %978 = zext i1 %977 to i32
   %979 = add nuw nsw i32 %974, %978
   %980 = zext nneg i32 %979 to i64
-  %981 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %980
+  %981 = getelementptr inbounds nuw i64, ptr %11, i64 %980
   store i64 %940, ptr %981, align 8, !tbaa !16
   %982 = icmp slt i32 %964, %38
   %983 = zext i1 %982 to i32
@@ -6355,7 +6355,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1076 = load i64, ptr %1075, align 8, !tbaa !161
   %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 32
   %1078 = load i64, ptr %1077, align 8, !tbaa !180
-  %1079 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091167.i.i.i.i
+  %1079 = getelementptr inbounds nuw i64, ptr %11, i64 %.091167.i.i.i.i
   %1080 = load i64, ptr %1079, align 8, !tbaa !16
   %1081 = trunc i64 %1078 to i32
   %1082 = shl nuw i32 1, %1081
@@ -6684,25 +6684,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 1309:                                             ; preds = %1285, %1277
   %1310 = phi i32 [ %1308, %1285 ], [ 99999999, %1277 ]
   %1311 = zext nneg i32 %.087167.i.i.i.i to i64
-  %1312 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1311
+  %1312 = getelementptr inbounds nuw i64, ptr %10, i64 %1311
   store i64 %.089166.i.i.i.i, ptr %1312, align 8, !tbaa !16
   %1313 = icmp slt i32 %1214, %38
   %1314 = zext i1 %1313 to i32
   %1315 = add nuw nsw i32 %.087167.i.i.i.i, %1314
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1316
+  %1317 = getelementptr inbounds nuw i64, ptr %10, i64 %1316
   store i64 %1215, ptr %1317, align 8, !tbaa !16
   %1318 = icmp slt i32 %1246, %38
   %1319 = zext i1 %1318 to i32
   %1320 = add nuw nsw i32 %1315, %1319
   %1321 = zext nneg i32 %1320 to i64
-  %1322 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1321
+  %1322 = getelementptr inbounds nuw i64, ptr %10, i64 %1321
   store i64 %1247, ptr %1322, align 8, !tbaa !16
   %1323 = icmp slt i32 %1278, %38
   %1324 = zext i1 %1323 to i32
   %1325 = add nuw nsw i32 %1320, %1324
   %1326 = zext nneg i32 %1325 to i64
-  %1327 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1326
+  %1327 = getelementptr inbounds nuw i64, ptr %10, i64 %1326
   store i64 %1279, ptr %1327, align 8, !tbaa !16
   %1328 = icmp slt i32 %1310, %38
   %1329 = zext i1 %1328 to i32
@@ -6887,7 +6887,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1422 = load i64, ptr %1421, align 8, !tbaa !161
   %1423 = getelementptr inbounds nuw i8, ptr %1420, i64 32
   %1424 = load i64, ptr %1423, align 8, !tbaa !180
-  %1425 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091171.i.i.i.i
+  %1425 = getelementptr inbounds nuw i64, ptr %10, i64 %.091171.i.i.i.i
   %1426 = load i64, ptr %1425, align 8, !tbaa !16
   %1427 = trunc i64 %1424 to i32
   %1428 = shl nuw i32 1, %1427
@@ -7327,25 +7327,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 1766:                                             ; preds = %1718, %1710
   %1767 = phi i32 [ %1765, %1718 ], [ 99999999, %1710 ]
   %1768 = zext nneg i32 %.087183.i.i.i.i to i64
-  %1769 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1768
+  %1769 = getelementptr inbounds nuw i64, ptr %9, i64 %1768
   store i64 %.089182.i.i.i.i, ptr %1769, align 8, !tbaa !16
   %1770 = icmp slt i32 %1599, %38
   %1771 = zext i1 %1770 to i32
   %1772 = add nuw nsw i32 %.087183.i.i.i.i, %1771
   %1773 = zext nneg i32 %1772 to i64
-  %1774 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1773
+  %1774 = getelementptr inbounds nuw i64, ptr %9, i64 %1773
   store i64 %1600, ptr %1774, align 8, !tbaa !16
   %1775 = icmp slt i32 %1655, %38
   %1776 = zext i1 %1775 to i32
   %1777 = add nuw nsw i32 %1772, %1776
   %1778 = zext nneg i32 %1777 to i64
-  %1779 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1778
+  %1779 = getelementptr inbounds nuw i64, ptr %9, i64 %1778
   store i64 %1656, ptr %1779, align 8, !tbaa !16
   %1780 = icmp slt i32 %1711, %38
   %1781 = zext i1 %1780 to i32
   %1782 = add nuw nsw i32 %1777, %1781
   %1783 = zext nneg i32 %1782 to i64
-  %1784 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1783
+  %1784 = getelementptr inbounds nuw i64, ptr %9, i64 %1783
   store i64 %1712, ptr %1784, align 8, !tbaa !16
   %1785 = icmp slt i32 %1767, %38
   %1786 = zext i1 %1785 to i32
@@ -7530,7 +7530,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1879 = load i64, ptr %1878, align 8, !tbaa !161
   %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 32
   %1881 = load i64, ptr %1880, align 8, !tbaa !180
-  %1882 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091187.i.i.i.i
+  %1882 = getelementptr inbounds nuw i64, ptr %9, i64 %.091187.i.i.i.i
   %1883 = load i64, ptr %1882, align 8, !tbaa !16
   %1884 = trunc i64 %1881 to i32
   %1885 = shl nuw i32 1, %1884
@@ -7807,25 +7807,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 2056:                                             ; preds = %2053, %2045
   %2057 = phi i32 [ %2055, %2053 ], [ 99999999, %2045 ]
   %2058 = zext nneg i32 %.087151.i.i.i.i to i64
-  %2059 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2058
+  %2059 = getelementptr inbounds nuw i64, ptr %7, i64 %2058
   store i64 %.089150.i.i.i.i, ptr %2059, align 8, !tbaa !16
   %2060 = icmp slt i32 %2024, %38
   %2061 = zext i1 %2060 to i32
   %2062 = add nuw nsw i32 %.087151.i.i.i.i, %2061
   %2063 = zext nneg i32 %2062 to i64
-  %2064 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2063
+  %2064 = getelementptr inbounds nuw i64, ptr %7, i64 %2063
   store i64 %2025, ptr %2064, align 8, !tbaa !16
   %2065 = icmp slt i32 %2035, %38
   %2066 = zext i1 %2065 to i32
   %2067 = add nuw nsw i32 %2062, %2066
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2068
+  %2069 = getelementptr inbounds nuw i64, ptr %7, i64 %2068
   store i64 %2036, ptr %2069, align 8, !tbaa !16
   %2070 = icmp slt i32 %2046, %38
   %2071 = zext i1 %2070 to i32
   %2072 = add nuw nsw i32 %2067, %2071
   %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2073
+  %2074 = getelementptr inbounds nuw i64, ptr %7, i64 %2073
   store i64 %2047, ptr %2074, align 8, !tbaa !16
   %2075 = icmp slt i32 %2057, %38
   %2076 = zext i1 %2075 to i32
@@ -8010,7 +8010,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2169 = load i64, ptr %2168, align 8, !tbaa !161
   %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 32
   %2171 = load i64, ptr %2170, align 8, !tbaa !180
-  %2172 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091155.i.i.i.i
+  %2172 = getelementptr inbounds nuw i64, ptr %7, i64 %.091155.i.i.i.i
   %2173 = load i64, ptr %2172, align 8, !tbaa !16
   %2174 = trunc i64 %2171 to i32
   %2175 = shl nuw i32 1, %2174
@@ -10360,7 +10360,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %51 = load float, ptr %32, align 8, !tbaa !178
   %52 = load i64, ptr %47, align 8, !tbaa !161
   %53 = load i64, ptr %48, align 8, !tbaa !180
-  %54 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.us.i
+  %54 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.us.i
   %55 = load i64, ptr %54, align 8, !tbaa !16
   %56 = trunc i64 %53 to i32
   %57 = shl nuw i32 1, %56
@@ -10493,25 +10493,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 132:                                              ; preds = %127, %119
   %133 = phi i32 [ %131, %127 ], [ 99999999, %119 ]
   %134 = zext nneg i32 %.087231.i.i to i64
-  %135 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr %13, i64 %134
   store i64 %.089230.i.i, ptr %135, align 8, !tbaa !16
   %136 = icmp slt i32 %94, %17
   %137 = zext i1 %136 to i32
   %138 = add nuw nsw i32 %.087231.i.i, %137
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %13, i64 %139
   store i64 %95, ptr %140, align 8, !tbaa !16
   %141 = icmp slt i32 %107, %17
   %142 = zext i1 %141 to i32
   %143 = add nuw nsw i32 %138, %142
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i64, ptr %13, i64 %144
   store i64 %108, ptr %145, align 8, !tbaa !16
   %146 = icmp slt i32 %120, %17
   %147 = zext i1 %146 to i32
   %148 = add nuw nsw i32 %143, %147
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %13, i64 %149
   store i64 %121, ptr %150, align 8, !tbaa !16
   %151 = icmp slt i32 %133, %17
   %152 = zext i1 %151 to i32
@@ -11025,7 +11025,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i:
   %408 = load float, ptr %32, align 8, !tbaa !178
   %409 = load i64, ptr %47, align 8, !tbaa !161
   %410 = load i64, ptr %48, align 8, !tbaa !180
-  %411 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.i
+  %411 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.i
   %412 = load i64, ptr %411, align 8, !tbaa !16
   %413 = trunc i64 %410 to i32
   %414 = shl nuw i32 1, %413
@@ -11361,7 +11361,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %581 = load float, ptr %562, align 8, !tbaa !178
   %582 = load i64, ptr %577, align 8, !tbaa !161
   %583 = load i64, ptr %578, align 8, !tbaa !180
-  %584 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.us.i116
+  %584 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.us.i116
   %585 = load i64, ptr %584, align 8, !tbaa !16
   %586 = trunc i64 %583 to i32
   %587 = shl nuw i32 1, %586
@@ -11498,25 +11498,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 666:                                              ; preds = %660, %652
   %667 = phi i32 [ %665, %660 ], [ 99999999, %652 ]
   %668 = zext nneg i32 %.087231.i.i39 to i64
-  %669 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw i64, ptr %12, i64 %668
   store i64 %.089230.i.i40, ptr %669, align 8, !tbaa !16
   %670 = icmp slt i32 %625, %17
   %671 = zext i1 %670 to i32
   %672 = add nuw nsw i32 %.087231.i.i39, %671
   %673 = zext nneg i32 %672 to i64
-  %674 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw i64, ptr %12, i64 %673
   store i64 %626, ptr %674, align 8, !tbaa !16
   %675 = icmp slt i32 %639, %17
   %676 = zext i1 %675 to i32
   %677 = add nuw nsw i32 %672, %676
   %678 = zext nneg i32 %677 to i64
-  %679 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw i64, ptr %12, i64 %678
   store i64 %640, ptr %679, align 8, !tbaa !16
   %680 = icmp slt i32 %653, %17
   %681 = zext i1 %680 to i32
   %682 = add nuw nsw i32 %677, %681
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i64, ptr %12, i64 %683
   store i64 %654, ptr %684, align 8, !tbaa !16
   %685 = icmp slt i32 %667, %17
   %686 = zext i1 %685 to i32
@@ -12030,7 +12030,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i1
   %942 = load float, ptr %562, align 8, !tbaa !178
   %943 = load i64, ptr %577, align 8, !tbaa !161
   %944 = load i64, ptr %578, align 8, !tbaa !180
-  %945 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.i49
+  %945 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.i49
   %946 = load i64, ptr %945, align 8, !tbaa !16
   %947 = trunc i64 %944 to i32
   %948 = shl nuw i32 1, %947
@@ -12369,7 +12369,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1118 = load float, ptr %1099, align 8, !tbaa !178
   %1119 = load i64, ptr %1114, align 8, !tbaa !161
   %1120 = load i64, ptr %1115, align 8, !tbaa !180
-  %1121 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.us.i
+  %1121 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.us.i
   %1122 = load i64, ptr %1121, align 8, !tbaa !16
   %1123 = trunc i64 %1120 to i32
   %1124 = shl nuw i32 1, %1123
@@ -12530,25 +12530,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 1227:                                             ; preds = %1215, %1207
   %1228 = phi i32 [ %1226, %1215 ], [ 99999999, %1207 ]
   %1229 = zext nneg i32 %.087235.i.i to i64
-  %1230 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1229
+  %1230 = getelementptr inbounds nuw i64, ptr %11, i64 %1229
   store i64 %.089234.i.i, ptr %1230, align 8, !tbaa !16
   %1231 = icmp slt i32 %1168, %17
   %1232 = zext i1 %1231 to i32
   %1233 = add nuw nsw i32 %.087235.i.i, %1232
   %1234 = zext nneg i32 %1233 to i64
-  %1235 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1234
+  %1235 = getelementptr inbounds nuw i64, ptr %11, i64 %1234
   store i64 %1169, ptr %1235, align 8, !tbaa !16
   %1236 = icmp slt i32 %1188, %17
   %1237 = zext i1 %1236 to i32
   %1238 = add nuw nsw i32 %1233, %1237
   %1239 = zext nneg i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1239
+  %1240 = getelementptr inbounds nuw i64, ptr %11, i64 %1239
   store i64 %1189, ptr %1240, align 8, !tbaa !16
   %1241 = icmp slt i32 %1208, %17
   %1242 = zext i1 %1241 to i32
   %1243 = add nuw nsw i32 %1238, %1242
   %1244 = zext nneg i32 %1243 to i64
-  %1245 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1244
+  %1245 = getelementptr inbounds nuw i64, ptr %11, i64 %1244
   store i64 %1209, ptr %1245, align 8, !tbaa !16
   %1246 = icmp slt i32 %1228, %17
   %1247 = zext i1 %1246 to i32
@@ -13062,7 +13062,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i3
   %1503 = load float, ptr %1099, align 8, !tbaa !178
   %1504 = load i64, ptr %1114, align 8, !tbaa !161
   %1505 = load i64, ptr %1115, align 8, !tbaa !180
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.i
+  %1506 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.i
   %1507 = load i64, ptr %1506, align 8, !tbaa !16
   %1508 = trunc i64 %1505 to i32
   %1509 = shl nuw i32 1, %1508
@@ -13409,7 +13409,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1687 = load float, ptr %1668, align 8, !tbaa !178
   %1688 = load i64, ptr %1683, align 8, !tbaa !161
   %1689 = load i64, ptr %1684, align 8, !tbaa !180
-  %1690 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.us.i
+  %1690 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.us.i
   %1691 = load i64, ptr %1690, align 8, !tbaa !16
   %1692 = trunc i64 %1689 to i32
   %1693 = shl nuw i32 1, %1692
@@ -13590,25 +13590,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 1816:                                             ; preds = %1799, %1791
   %1817 = phi i32 [ %1815, %1799 ], [ 99999999, %1791 ]
   %1818 = zext nneg i32 %.087239.i.i to i64
-  %1819 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1818
+  %1819 = getelementptr inbounds nuw i64, ptr %10, i64 %1818
   store i64 %.089238.i.i, ptr %1819, align 8, !tbaa !16
   %1820 = icmp slt i32 %1742, %17
   %1821 = zext i1 %1820 to i32
   %1822 = add nuw nsw i32 %.087239.i.i, %1821
   %1823 = zext nneg i32 %1822 to i64
-  %1824 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1823
+  %1824 = getelementptr inbounds nuw i64, ptr %10, i64 %1823
   store i64 %1743, ptr %1824, align 8, !tbaa !16
   %1825 = icmp slt i32 %1767, %17
   %1826 = zext i1 %1825 to i32
   %1827 = add nuw nsw i32 %1822, %1826
   %1828 = zext nneg i32 %1827 to i64
-  %1829 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1828
+  %1829 = getelementptr inbounds nuw i64, ptr %10, i64 %1828
   store i64 %1768, ptr %1829, align 8, !tbaa !16
   %1830 = icmp slt i32 %1792, %17
   %1831 = zext i1 %1830 to i32
   %1832 = add nuw nsw i32 %1827, %1831
   %1833 = zext nneg i32 %1832 to i64
-  %1834 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1833
+  %1834 = getelementptr inbounds nuw i64, ptr %10, i64 %1833
   store i64 %1793, ptr %1834, align 8, !tbaa !16
   %1835 = icmp slt i32 %1817, %17
   %1836 = zext i1 %1835 to i32
@@ -14122,7 +14122,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i4
   %2092 = load float, ptr %1668, align 8, !tbaa !178
   %2093 = load i64, ptr %1683, align 8, !tbaa !161
   %2094 = load i64, ptr %1684, align 8, !tbaa !180
-  %2095 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.i
+  %2095 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.i
   %2096 = load i64, ptr %2095, align 8, !tbaa !16
   %2097 = trunc i64 %2094 to i32
   %2098 = shl nuw i32 1, %2097
@@ -14476,7 +14476,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2283 = load float, ptr %2264, align 8, !tbaa !178
   %2284 = load i64, ptr %2279, align 8, !tbaa !161
   %2285 = load i64, ptr %2280, align 8, !tbaa !180
-  %2286 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.us.i
+  %2286 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.us.i
   %2287 = load i64, ptr %2286, align 8, !tbaa !16
   %2288 = trunc i64 %2285 to i32
   %2289 = shl nuw i32 1, %2288
@@ -14685,25 +14685,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 2440:                                             ; preds = %2416, %2408
   %2441 = phi i32 [ %2439, %2416 ], [ 99999999, %2408 ]
   %2442 = zext nneg i32 %.087243.i.i to i64
-  %2443 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2442
+  %2443 = getelementptr inbounds nuw i64, ptr %9, i64 %2442
   store i64 %.089242.i.i, ptr %2443, align 8, !tbaa !16
   %2444 = icmp slt i32 %2345, %17
   %2445 = zext i1 %2444 to i32
   %2446 = add nuw nsw i32 %.087243.i.i, %2445
   %2447 = zext nneg i32 %2446 to i64
-  %2448 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2447
+  %2448 = getelementptr inbounds nuw i64, ptr %9, i64 %2447
   store i64 %2346, ptr %2448, align 8, !tbaa !16
   %2449 = icmp slt i32 %2377, %17
   %2450 = zext i1 %2449 to i32
   %2451 = add nuw nsw i32 %2446, %2450
   %2452 = zext nneg i32 %2451 to i64
-  %2453 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2452
+  %2453 = getelementptr inbounds nuw i64, ptr %9, i64 %2452
   store i64 %2378, ptr %2453, align 8, !tbaa !16
   %2454 = icmp slt i32 %2409, %17
   %2455 = zext i1 %2454 to i32
   %2456 = add nuw nsw i32 %2451, %2455
   %2457 = zext nneg i32 %2456 to i64
-  %2458 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2457
+  %2458 = getelementptr inbounds nuw i64, ptr %9, i64 %2457
   store i64 %2410, ptr %2458, align 8, !tbaa !16
   %2459 = icmp slt i32 %2441, %17
   %2460 = zext i1 %2459 to i32
@@ -15217,7 +15217,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i6
   %2716 = load float, ptr %2264, align 8, !tbaa !178
   %2717 = load i64, ptr %2279, align 8, !tbaa !161
   %2718 = load i64, ptr %2280, align 8, !tbaa !180
-  %2719 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.i
+  %2719 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.i
   %2720 = load i64, ptr %2719, align 8, !tbaa !16
   %2721 = trunc i64 %2718 to i32
   %2722 = shl nuw i32 1, %2721
@@ -15586,7 +15586,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2922 = load float, ptr %2903, align 8, !tbaa !178
   %2923 = load i64, ptr %2918, align 8, !tbaa !161
   %2924 = load i64, ptr %2919, align 8, !tbaa !180
-  %2925 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.us.i
+  %2925 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.us.i
   %2926 = load i64, ptr %2925, align 8, !tbaa !16
   %2927 = trunc i64 %2924 to i32
   %2928 = shl nuw i32 1, %2927
@@ -15891,25 +15891,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 3175:                                             ; preds = %3127, %3119
   %3176 = phi i32 [ %3174, %3127 ], [ 99999999, %3119 ]
   %3177 = zext nneg i32 %.087259.i.i to i64
-  %3178 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3177
+  %3178 = getelementptr inbounds nuw i64, ptr %8, i64 %3177
   store i64 %.089258.i.i, ptr %3178, align 8, !tbaa !16
   %3179 = icmp slt i32 %3008, %17
   %3180 = zext i1 %3179 to i32
   %3181 = add nuw nsw i32 %.087259.i.i, %3180
   %3182 = zext nneg i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw i64, ptr %8, i64 %3182
   store i64 %3009, ptr %3183, align 8, !tbaa !16
   %3184 = icmp slt i32 %3064, %17
   %3185 = zext i1 %3184 to i32
   %3186 = add nuw nsw i32 %3181, %3185
   %3187 = zext nneg i32 %3186 to i64
-  %3188 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3187
+  %3188 = getelementptr inbounds nuw i64, ptr %8, i64 %3187
   store i64 %3065, ptr %3188, align 8, !tbaa !16
   %3189 = icmp slt i32 %3120, %17
   %3190 = zext i1 %3189 to i32
   %3191 = add nuw nsw i32 %3186, %3190
   %3192 = zext nneg i32 %3191 to i64
-  %3193 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3192
+  %3193 = getelementptr inbounds nuw i64, ptr %8, i64 %3192
   store i64 %3121, ptr %3193, align 8, !tbaa !16
   %3194 = icmp slt i32 %3176, %17
   %3195 = zext i1 %3194 to i32
@@ -16423,7 +16423,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i7
   %3451 = load float, ptr %2903, align 8, !tbaa !178
   %3452 = load i64, ptr %2918, align 8, !tbaa !161
   %3453 = load i64, ptr %2919, align 8, !tbaa !180
-  %3454 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.i
+  %3454 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.i
   %3455 = load i64, ptr %3454, align 8, !tbaa !16
   %3456 = trunc i64 %3453 to i32
   %3457 = shl nuw i32 1, %3456
@@ -16809,7 +16809,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %3670 = load float, ptr %3651, align 8, !tbaa !178
   %3671 = load i64, ptr %3666, align 8, !tbaa !161
   %3672 = load i64, ptr %3667, align 8, !tbaa !180
-  %3673 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.us.i
+  %3673 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.us.i
   %3674 = load i64, ptr %3673, align 8, !tbaa !16
   %3675 = trunc i64 %3672 to i32
   %3676 = shl nuw i32 1, %3675
@@ -16934,25 +16934,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 3743:                                             ; preds = %3740, %3732
   %3744 = phi i32 [ %3742, %3740 ], [ 99999999, %3732 ]
   %3745 = zext nneg i32 %.087227.i.i to i64
-  %3746 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3745
+  %3746 = getelementptr inbounds nuw i64, ptr %6, i64 %3745
   store i64 %.089226.i.i, ptr %3746, align 8, !tbaa !16
   %3747 = icmp slt i32 %3711, %17
   %3748 = zext i1 %3747 to i32
   %3749 = add nuw nsw i32 %.087227.i.i, %3748
   %3750 = zext nneg i32 %3749 to i64
-  %3751 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3750
+  %3751 = getelementptr inbounds nuw i64, ptr %6, i64 %3750
   store i64 %3712, ptr %3751, align 8, !tbaa !16
   %3752 = icmp slt i32 %3722, %17
   %3753 = zext i1 %3752 to i32
   %3754 = add nuw nsw i32 %3749, %3753
   %3755 = zext nneg i32 %3754 to i64
-  %3756 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3755
+  %3756 = getelementptr inbounds nuw i64, ptr %6, i64 %3755
   store i64 %3723, ptr %3756, align 8, !tbaa !16
   %3757 = icmp slt i32 %3733, %17
   %3758 = zext i1 %3757 to i32
   %3759 = add nuw nsw i32 %3754, %3758
   %3760 = zext nneg i32 %3759 to i64
-  %3761 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3760
+  %3761 = getelementptr inbounds nuw i64, ptr %6, i64 %3760
   store i64 %3734, ptr %3761, align 8, !tbaa !16
   %3762 = icmp slt i32 %3744, %17
   %3763 = zext i1 %3762 to i32
@@ -17466,7 +17466,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i9
   %4019 = load float, ptr %3651, align 8, !tbaa !178
   %4020 = load i64, ptr %3666, align 8, !tbaa !161
   %4021 = load i64, ptr %3667, align 8, !tbaa !180
-  %4022 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.i
+  %4022 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.i
   %4023 = load i64, ptr %4022, align 8, !tbaa !16
   %4024 = trunc i64 %4021 to i32
   %4025 = shl nuw i32 1, %4024
@@ -17946,7 +17946,7 @@ default.unreachable93:                            ; preds = %2
   %110 = load i8, ptr %109, align 1, !tbaa !72
   %111 = xor i8 %110, %108
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !72
   %115 = zext i8 %114 to i32
   %116 = add nsw i32 %.7, %115
@@ -17960,7 +17960,7 @@ default.unreachable93:                            ; preds = %2
   %121 = load i8, ptr %120, align 1, !tbaa !72
   %122 = xor i8 %121, %119
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !72
   %126 = zext i8 %125 to i32
   %127 = add nsw i32 %.9, %126
@@ -17974,7 +17974,7 @@ default.unreachable93:                            ; preds = %2
   %132 = load i8, ptr %131, align 1, !tbaa !72
   %133 = xor i8 %132, %130
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !72
   %137 = zext i8 %136 to i32
   %138 = add nsw i32 %.10, %137
@@ -17988,7 +17988,7 @@ default.unreachable93:                            ; preds = %2
   %143 = load i8, ptr %142, align 1, !tbaa !72
   %144 = xor i8 %143, %141
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !72
   %148 = zext i8 %147 to i32
   %149 = add nsw i32 %.11, %148
@@ -18002,7 +18002,7 @@ default.unreachable93:                            ; preds = %2
   %154 = load i8, ptr %153, align 1, !tbaa !72
   %155 = xor i8 %154, %152
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !72
   %159 = zext i8 %158 to i32
   %160 = add nsw i32 %.12, %159
@@ -18016,7 +18016,7 @@ default.unreachable93:                            ; preds = %2
   %165 = load i8, ptr %164, align 1, !tbaa !72
   %166 = xor i8 %165, %163
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !72
   %170 = zext i8 %169 to i32
   %171 = add nsw i32 %.13, %170
@@ -18028,7 +18028,7 @@ default.unreachable93:                            ; preds = %2
   %174 = load i8, ptr %105, align 1, !tbaa !72
   %175 = xor i8 %174, %173
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !72
   %179 = zext i8 %178 to i32
   %180 = add nsw i32 %.14, %179
@@ -19631,25 +19631,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
 113:                                              ; preds = %108, %100
   %114 = phi i32 [ %112, %108 ], [ 99999999, %100 ]
   %115 = zext nneg i32 %.087155.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %14, i64 %115
   store i64 %.089154.i.i.i.i, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %75, %38
   %118 = zext i1 %117 to i32
   %119 = add nuw nsw i32 %.087155.i.i.i.i, %118
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %14, i64 %120
   store i64 %76, ptr %121, align 8, !tbaa !16
   %122 = icmp slt i32 %88, %38
   %123 = zext i1 %122 to i32
   %124 = add nuw nsw i32 %119, %123
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %14, i64 %125
   store i64 %89, ptr %126, align 8, !tbaa !16
   %127 = icmp slt i32 %101, %38
   %128 = zext i1 %127 to i32
   %129 = add nuw nsw i32 %124, %128
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i64, ptr %14, i64 %130
   store i64 %102, ptr %131, align 8, !tbaa !16
   %132 = icmp slt i32 %114, %38
   %133 = zext i1 %132 to i32
@@ -19834,7 +19834,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %226 = load i64, ptr %225, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %228 = load i64, ptr %227, align 8, !tbaa !180
-  %229 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091159.i.i.i.i
+  %229 = getelementptr inbounds nuw i64, ptr %14, i64 %.091159.i.i.i.i
   %230 = load i64, ptr %229, align 8, !tbaa !16
   %231 = trunc i64 %228 to i32
   %232 = shl nuw i32 1, %231
@@ -20073,25 +20073,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 369:                                              ; preds = %363, %355
   %370 = phi i32 [ %368, %363 ], [ 99999999, %355 ]
   %371 = zext nneg i32 %.087155.i.i35.i.i to i64
-  %372 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i64, ptr %13, i64 %371
   store i64 %.089154.i.i36.i.i, ptr %372, align 8, !tbaa !16
   %373 = icmp slt i32 %328, %38
   %374 = zext i1 %373 to i32
   %375 = add nuw nsw i32 %.087155.i.i35.i.i, %374
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i64, ptr %13, i64 %376
   store i64 %329, ptr %377, align 8, !tbaa !16
   %378 = icmp slt i32 %342, %38
   %379 = zext i1 %378 to i32
   %380 = add nuw nsw i32 %375, %379
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i64, ptr %13, i64 %381
   store i64 %343, ptr %382, align 8, !tbaa !16
   %383 = icmp slt i32 %356, %38
   %384 = zext i1 %383 to i32
   %385 = add nuw nsw i32 %380, %384
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %357, ptr %387, align 8, !tbaa !16
   %388 = icmp slt i32 %370, %38
   %389 = zext i1 %388 to i32
@@ -20276,7 +20276,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %482 = load i64, ptr %481, align 8, !tbaa !161
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %484 = load i64, ptr %483, align 8, !tbaa !180
-  %485 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091159.i.i43.i.i
+  %485 = getelementptr inbounds nuw i64, ptr %13, i64 %.091159.i.i43.i.i
   %486 = load i64, ptr %485, align 8, !tbaa !16
   %487 = trunc i64 %484 to i32
   %488 = shl nuw i32 1, %487
@@ -20542,25 +20542,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 652:                                              ; preds = %640, %632
   %653 = phi i32 [ %651, %640 ], [ 99999999, %632 ]
   %654 = zext nneg i32 %.087159.i.i.i.i to i64
-  %655 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw i64, ptr %12, i64 %654
   store i64 %.089158.i.i.i.i, ptr %655, align 8, !tbaa !16
   %656 = icmp slt i32 %593, %38
   %657 = zext i1 %656 to i32
   %658 = add nuw nsw i32 %.087159.i.i.i.i, %657
   %659 = zext nneg i32 %658 to i64
-  %660 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i64, ptr %12, i64 %659
   store i64 %594, ptr %660, align 8, !tbaa !16
   %661 = icmp slt i32 %613, %38
   %662 = zext i1 %661 to i32
   %663 = add nuw nsw i32 %658, %662
   %664 = zext nneg i32 %663 to i64
-  %665 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw i64, ptr %12, i64 %664
   store i64 %614, ptr %665, align 8, !tbaa !16
   %666 = icmp slt i32 %633, %38
   %667 = zext i1 %666 to i32
   %668 = add nuw nsw i32 %663, %667
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i64, ptr %12, i64 %669
   store i64 %634, ptr %670, align 8, !tbaa !16
   %671 = icmp slt i32 %653, %38
   %672 = zext i1 %671 to i32
@@ -20745,7 +20745,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %765 = load i64, ptr %764, align 8, !tbaa !161
   %766 = getelementptr inbounds nuw i8, ptr %763, i64 32
   %767 = load i64, ptr %766, align 8, !tbaa !180
-  %768 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091163.i.i.i.i
+  %768 = getelementptr inbounds nuw i64, ptr %12, i64 %.091163.i.i.i.i
   %769 = load i64, ptr %768, align 8, !tbaa !16
   %770 = trunc i64 %767 to i32
   %771 = shl nuw i32 1, %770
@@ -21039,25 +21039,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 963:                                              ; preds = %946, %938
   %964 = phi i32 [ %962, %946 ], [ 99999999, %938 ]
   %965 = zext nneg i32 %.087163.i.i.i.i to i64
-  %966 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %965
+  %966 = getelementptr inbounds nuw i64, ptr %11, i64 %965
   store i64 %.089162.i.i.i.i, ptr %966, align 8, !tbaa !16
   %967 = icmp slt i32 %889, %38
   %968 = zext i1 %967 to i32
   %969 = add nuw nsw i32 %.087163.i.i.i.i, %968
   %970 = zext nneg i32 %969 to i64
-  %971 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw i64, ptr %11, i64 %970
   store i64 %890, ptr %971, align 8, !tbaa !16
   %972 = icmp slt i32 %914, %38
   %973 = zext i1 %972 to i32
   %974 = add nuw nsw i32 %969, %973
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw i64, ptr %11, i64 %975
   store i64 %915, ptr %976, align 8, !tbaa !16
   %977 = icmp slt i32 %939, %38
   %978 = zext i1 %977 to i32
   %979 = add nuw nsw i32 %974, %978
   %980 = zext nneg i32 %979 to i64
-  %981 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %980
+  %981 = getelementptr inbounds nuw i64, ptr %11, i64 %980
   store i64 %940, ptr %981, align 8, !tbaa !16
   %982 = icmp slt i32 %964, %38
   %983 = zext i1 %982 to i32
@@ -21242,7 +21242,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1076 = load i64, ptr %1075, align 8, !tbaa !161
   %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 32
   %1078 = load i64, ptr %1077, align 8, !tbaa !180
-  %1079 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091167.i.i.i.i
+  %1079 = getelementptr inbounds nuw i64, ptr %11, i64 %.091167.i.i.i.i
   %1080 = load i64, ptr %1079, align 8, !tbaa !16
   %1081 = trunc i64 %1078 to i32
   %1082 = shl nuw i32 1, %1081
@@ -21571,25 +21571,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 1309:                                             ; preds = %1285, %1277
   %1310 = phi i32 [ %1308, %1285 ], [ 99999999, %1277 ]
   %1311 = zext nneg i32 %.087167.i.i.i.i to i64
-  %1312 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1311
+  %1312 = getelementptr inbounds nuw i64, ptr %10, i64 %1311
   store i64 %.089166.i.i.i.i, ptr %1312, align 8, !tbaa !16
   %1313 = icmp slt i32 %1214, %38
   %1314 = zext i1 %1313 to i32
   %1315 = add nuw nsw i32 %.087167.i.i.i.i, %1314
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1316
+  %1317 = getelementptr inbounds nuw i64, ptr %10, i64 %1316
   store i64 %1215, ptr %1317, align 8, !tbaa !16
   %1318 = icmp slt i32 %1246, %38
   %1319 = zext i1 %1318 to i32
   %1320 = add nuw nsw i32 %1315, %1319
   %1321 = zext nneg i32 %1320 to i64
-  %1322 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1321
+  %1322 = getelementptr inbounds nuw i64, ptr %10, i64 %1321
   store i64 %1247, ptr %1322, align 8, !tbaa !16
   %1323 = icmp slt i32 %1278, %38
   %1324 = zext i1 %1323 to i32
   %1325 = add nuw nsw i32 %1320, %1324
   %1326 = zext nneg i32 %1325 to i64
-  %1327 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1326
+  %1327 = getelementptr inbounds nuw i64, ptr %10, i64 %1326
   store i64 %1279, ptr %1327, align 8, !tbaa !16
   %1328 = icmp slt i32 %1310, %38
   %1329 = zext i1 %1328 to i32
@@ -21774,7 +21774,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1422 = load i64, ptr %1421, align 8, !tbaa !161
   %1423 = getelementptr inbounds nuw i8, ptr %1420, i64 32
   %1424 = load i64, ptr %1423, align 8, !tbaa !180
-  %1425 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091171.i.i.i.i
+  %1425 = getelementptr inbounds nuw i64, ptr %10, i64 %.091171.i.i.i.i
   %1426 = load i64, ptr %1425, align 8, !tbaa !16
   %1427 = trunc i64 %1424 to i32
   %1428 = shl nuw i32 1, %1427
@@ -22214,25 +22214,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 1766:                                             ; preds = %1718, %1710
   %1767 = phi i32 [ %1765, %1718 ], [ 99999999, %1710 ]
   %1768 = zext nneg i32 %.087183.i.i.i.i to i64
-  %1769 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1768
+  %1769 = getelementptr inbounds nuw i64, ptr %9, i64 %1768
   store i64 %.089182.i.i.i.i, ptr %1769, align 8, !tbaa !16
   %1770 = icmp slt i32 %1599, %38
   %1771 = zext i1 %1770 to i32
   %1772 = add nuw nsw i32 %.087183.i.i.i.i, %1771
   %1773 = zext nneg i32 %1772 to i64
-  %1774 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1773
+  %1774 = getelementptr inbounds nuw i64, ptr %9, i64 %1773
   store i64 %1600, ptr %1774, align 8, !tbaa !16
   %1775 = icmp slt i32 %1655, %38
   %1776 = zext i1 %1775 to i32
   %1777 = add nuw nsw i32 %1772, %1776
   %1778 = zext nneg i32 %1777 to i64
-  %1779 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1778
+  %1779 = getelementptr inbounds nuw i64, ptr %9, i64 %1778
   store i64 %1656, ptr %1779, align 8, !tbaa !16
   %1780 = icmp slt i32 %1711, %38
   %1781 = zext i1 %1780 to i32
   %1782 = add nuw nsw i32 %1777, %1781
   %1783 = zext nneg i32 %1782 to i64
-  %1784 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1783
+  %1784 = getelementptr inbounds nuw i64, ptr %9, i64 %1783
   store i64 %1712, ptr %1784, align 8, !tbaa !16
   %1785 = icmp slt i32 %1767, %38
   %1786 = zext i1 %1785 to i32
@@ -22417,7 +22417,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1879 = load i64, ptr %1878, align 8, !tbaa !161
   %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 32
   %1881 = load i64, ptr %1880, align 8, !tbaa !180
-  %1882 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091187.i.i.i.i
+  %1882 = getelementptr inbounds nuw i64, ptr %9, i64 %.091187.i.i.i.i
   %1883 = load i64, ptr %1882, align 8, !tbaa !16
   %1884 = trunc i64 %1881 to i32
   %1885 = shl nuw i32 1, %1884
@@ -22694,25 +22694,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 2056:                                             ; preds = %2053, %2045
   %2057 = phi i32 [ %2055, %2053 ], [ 99999999, %2045 ]
   %2058 = zext nneg i32 %.087151.i.i.i.i to i64
-  %2059 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2058
+  %2059 = getelementptr inbounds nuw i64, ptr %7, i64 %2058
   store i64 %.089150.i.i.i.i, ptr %2059, align 8, !tbaa !16
   %2060 = icmp slt i32 %2024, %38
   %2061 = zext i1 %2060 to i32
   %2062 = add nuw nsw i32 %.087151.i.i.i.i, %2061
   %2063 = zext nneg i32 %2062 to i64
-  %2064 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2063
+  %2064 = getelementptr inbounds nuw i64, ptr %7, i64 %2063
   store i64 %2025, ptr %2064, align 8, !tbaa !16
   %2065 = icmp slt i32 %2035, %38
   %2066 = zext i1 %2065 to i32
   %2067 = add nuw nsw i32 %2062, %2066
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2068
+  %2069 = getelementptr inbounds nuw i64, ptr %7, i64 %2068
   store i64 %2036, ptr %2069, align 8, !tbaa !16
   %2070 = icmp slt i32 %2046, %38
   %2071 = zext i1 %2070 to i32
   %2072 = add nuw nsw i32 %2067, %2071
   %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2073
+  %2074 = getelementptr inbounds nuw i64, ptr %7, i64 %2073
   store i64 %2047, ptr %2074, align 8, !tbaa !16
   %2075 = icmp slt i32 %2057, %38
   %2076 = zext i1 %2075 to i32
@@ -22897,7 +22897,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2169 = load i64, ptr %2168, align 8, !tbaa !161
   %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 32
   %2171 = load i64, ptr %2170, align 8, !tbaa !180
-  %2172 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091155.i.i.i.i
+  %2172 = getelementptr inbounds nuw i64, ptr %7, i64 %.091155.i.i.i.i
   %2173 = load i64, ptr %2172, align 8, !tbaa !16
   %2174 = trunc i64 %2171 to i32
   %2175 = shl nuw i32 1, %2174
@@ -23825,7 +23825,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %51 = load float, ptr %32, align 8, !tbaa !713
   %52 = load i64, ptr %47, align 8, !tbaa !161
   %53 = load i64, ptr %48, align 8, !tbaa !180
-  %54 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.us.i
+  %54 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.us.i
   %55 = load i64, ptr %54, align 8, !tbaa !16
   %56 = trunc i64 %53 to i32
   %57 = shl nuw i32 1, %56
@@ -23958,25 +23958,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 132:                                              ; preds = %127, %119
   %133 = phi i32 [ %131, %127 ], [ 99999999, %119 ]
   %134 = zext nneg i32 %.087231.i.i to i64
-  %135 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr %13, i64 %134
   store i64 %.089230.i.i, ptr %135, align 8, !tbaa !16
   %136 = icmp slt i32 %94, %17
   %137 = zext i1 %136 to i32
   %138 = add nuw nsw i32 %.087231.i.i, %137
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %13, i64 %139
   store i64 %95, ptr %140, align 8, !tbaa !16
   %141 = icmp slt i32 %107, %17
   %142 = zext i1 %141 to i32
   %143 = add nuw nsw i32 %138, %142
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i64, ptr %13, i64 %144
   store i64 %108, ptr %145, align 8, !tbaa !16
   %146 = icmp slt i32 %120, %17
   %147 = zext i1 %146 to i32
   %148 = add nuw nsw i32 %143, %147
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %13, i64 %149
   store i64 %121, ptr %150, align 8, !tbaa !16
   %151 = icmp slt i32 %133, %17
   %152 = zext i1 %151 to i32
@@ -24490,7 +24490,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i:
   %408 = load float, ptr %32, align 8, !tbaa !713
   %409 = load i64, ptr %47, align 8, !tbaa !161
   %410 = load i64, ptr %48, align 8, !tbaa !180
-  %411 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.i
+  %411 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.i
   %412 = load i64, ptr %411, align 8, !tbaa !16
   %413 = trunc i64 %410 to i32
   %414 = shl nuw i32 1, %413
@@ -24826,7 +24826,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %581 = load float, ptr %562, align 8, !tbaa !713
   %582 = load i64, ptr %577, align 8, !tbaa !161
   %583 = load i64, ptr %578, align 8, !tbaa !180
-  %584 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.us.i116
+  %584 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.us.i116
   %585 = load i64, ptr %584, align 8, !tbaa !16
   %586 = trunc i64 %583 to i32
   %587 = shl nuw i32 1, %586
@@ -24963,25 +24963,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 666:                                              ; preds = %660, %652
   %667 = phi i32 [ %665, %660 ], [ 99999999, %652 ]
   %668 = zext nneg i32 %.087231.i.i39 to i64
-  %669 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw i64, ptr %12, i64 %668
   store i64 %.089230.i.i40, ptr %669, align 8, !tbaa !16
   %670 = icmp slt i32 %625, %17
   %671 = zext i1 %670 to i32
   %672 = add nuw nsw i32 %.087231.i.i39, %671
   %673 = zext nneg i32 %672 to i64
-  %674 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw i64, ptr %12, i64 %673
   store i64 %626, ptr %674, align 8, !tbaa !16
   %675 = icmp slt i32 %639, %17
   %676 = zext i1 %675 to i32
   %677 = add nuw nsw i32 %672, %676
   %678 = zext nneg i32 %677 to i64
-  %679 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw i64, ptr %12, i64 %678
   store i64 %640, ptr %679, align 8, !tbaa !16
   %680 = icmp slt i32 %653, %17
   %681 = zext i1 %680 to i32
   %682 = add nuw nsw i32 %677, %681
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i64, ptr %12, i64 %683
   store i64 %654, ptr %684, align 8, !tbaa !16
   %685 = icmp slt i32 %667, %17
   %686 = zext i1 %685 to i32
@@ -25495,7 +25495,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i1
   %942 = load float, ptr %562, align 8, !tbaa !713
   %943 = load i64, ptr %577, align 8, !tbaa !161
   %944 = load i64, ptr %578, align 8, !tbaa !180
-  %945 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.i49
+  %945 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.i49
   %946 = load i64, ptr %945, align 8, !tbaa !16
   %947 = trunc i64 %944 to i32
   %948 = shl nuw i32 1, %947
@@ -25834,7 +25834,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1118 = load float, ptr %1099, align 8, !tbaa !713
   %1119 = load i64, ptr %1114, align 8, !tbaa !161
   %1120 = load i64, ptr %1115, align 8, !tbaa !180
-  %1121 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.us.i
+  %1121 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.us.i
   %1122 = load i64, ptr %1121, align 8, !tbaa !16
   %1123 = trunc i64 %1120 to i32
   %1124 = shl nuw i32 1, %1123
@@ -25995,25 +25995,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 1227:                                             ; preds = %1215, %1207
   %1228 = phi i32 [ %1226, %1215 ], [ 99999999, %1207 ]
   %1229 = zext nneg i32 %.087235.i.i to i64
-  %1230 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1229
+  %1230 = getelementptr inbounds nuw i64, ptr %11, i64 %1229
   store i64 %.089234.i.i, ptr %1230, align 8, !tbaa !16
   %1231 = icmp slt i32 %1168, %17
   %1232 = zext i1 %1231 to i32
   %1233 = add nuw nsw i32 %.087235.i.i, %1232
   %1234 = zext nneg i32 %1233 to i64
-  %1235 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1234
+  %1235 = getelementptr inbounds nuw i64, ptr %11, i64 %1234
   store i64 %1169, ptr %1235, align 8, !tbaa !16
   %1236 = icmp slt i32 %1188, %17
   %1237 = zext i1 %1236 to i32
   %1238 = add nuw nsw i32 %1233, %1237
   %1239 = zext nneg i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1239
+  %1240 = getelementptr inbounds nuw i64, ptr %11, i64 %1239
   store i64 %1189, ptr %1240, align 8, !tbaa !16
   %1241 = icmp slt i32 %1208, %17
   %1242 = zext i1 %1241 to i32
   %1243 = add nuw nsw i32 %1238, %1242
   %1244 = zext nneg i32 %1243 to i64
-  %1245 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1244
+  %1245 = getelementptr inbounds nuw i64, ptr %11, i64 %1244
   store i64 %1209, ptr %1245, align 8, !tbaa !16
   %1246 = icmp slt i32 %1228, %17
   %1247 = zext i1 %1246 to i32
@@ -26527,7 +26527,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i3
   %1503 = load float, ptr %1099, align 8, !tbaa !713
   %1504 = load i64, ptr %1114, align 8, !tbaa !161
   %1505 = load i64, ptr %1115, align 8, !tbaa !180
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.i
+  %1506 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.i
   %1507 = load i64, ptr %1506, align 8, !tbaa !16
   %1508 = trunc i64 %1505 to i32
   %1509 = shl nuw i32 1, %1508
@@ -26874,7 +26874,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1687 = load float, ptr %1668, align 8, !tbaa !713
   %1688 = load i64, ptr %1683, align 8, !tbaa !161
   %1689 = load i64, ptr %1684, align 8, !tbaa !180
-  %1690 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.us.i
+  %1690 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.us.i
   %1691 = load i64, ptr %1690, align 8, !tbaa !16
   %1692 = trunc i64 %1689 to i32
   %1693 = shl nuw i32 1, %1692
@@ -27055,25 +27055,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 1816:                                             ; preds = %1799, %1791
   %1817 = phi i32 [ %1815, %1799 ], [ 99999999, %1791 ]
   %1818 = zext nneg i32 %.087239.i.i to i64
-  %1819 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1818
+  %1819 = getelementptr inbounds nuw i64, ptr %10, i64 %1818
   store i64 %.089238.i.i, ptr %1819, align 8, !tbaa !16
   %1820 = icmp slt i32 %1742, %17
   %1821 = zext i1 %1820 to i32
   %1822 = add nuw nsw i32 %.087239.i.i, %1821
   %1823 = zext nneg i32 %1822 to i64
-  %1824 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1823
+  %1824 = getelementptr inbounds nuw i64, ptr %10, i64 %1823
   store i64 %1743, ptr %1824, align 8, !tbaa !16
   %1825 = icmp slt i32 %1767, %17
   %1826 = zext i1 %1825 to i32
   %1827 = add nuw nsw i32 %1822, %1826
   %1828 = zext nneg i32 %1827 to i64
-  %1829 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1828
+  %1829 = getelementptr inbounds nuw i64, ptr %10, i64 %1828
   store i64 %1768, ptr %1829, align 8, !tbaa !16
   %1830 = icmp slt i32 %1792, %17
   %1831 = zext i1 %1830 to i32
   %1832 = add nuw nsw i32 %1827, %1831
   %1833 = zext nneg i32 %1832 to i64
-  %1834 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1833
+  %1834 = getelementptr inbounds nuw i64, ptr %10, i64 %1833
   store i64 %1793, ptr %1834, align 8, !tbaa !16
   %1835 = icmp slt i32 %1817, %17
   %1836 = zext i1 %1835 to i32
@@ -27587,7 +27587,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i4
   %2092 = load float, ptr %1668, align 8, !tbaa !713
   %2093 = load i64, ptr %1683, align 8, !tbaa !161
   %2094 = load i64, ptr %1684, align 8, !tbaa !180
-  %2095 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.i
+  %2095 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.i
   %2096 = load i64, ptr %2095, align 8, !tbaa !16
   %2097 = trunc i64 %2094 to i32
   %2098 = shl nuw i32 1, %2097
@@ -27941,7 +27941,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2283 = load float, ptr %2264, align 8, !tbaa !713
   %2284 = load i64, ptr %2279, align 8, !tbaa !161
   %2285 = load i64, ptr %2280, align 8, !tbaa !180
-  %2286 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.us.i
+  %2286 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.us.i
   %2287 = load i64, ptr %2286, align 8, !tbaa !16
   %2288 = trunc i64 %2285 to i32
   %2289 = shl nuw i32 1, %2288
@@ -28150,25 +28150,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 2440:                                             ; preds = %2416, %2408
   %2441 = phi i32 [ %2439, %2416 ], [ 99999999, %2408 ]
   %2442 = zext nneg i32 %.087243.i.i to i64
-  %2443 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2442
+  %2443 = getelementptr inbounds nuw i64, ptr %9, i64 %2442
   store i64 %.089242.i.i, ptr %2443, align 8, !tbaa !16
   %2444 = icmp slt i32 %2345, %17
   %2445 = zext i1 %2444 to i32
   %2446 = add nuw nsw i32 %.087243.i.i, %2445
   %2447 = zext nneg i32 %2446 to i64
-  %2448 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2447
+  %2448 = getelementptr inbounds nuw i64, ptr %9, i64 %2447
   store i64 %2346, ptr %2448, align 8, !tbaa !16
   %2449 = icmp slt i32 %2377, %17
   %2450 = zext i1 %2449 to i32
   %2451 = add nuw nsw i32 %2446, %2450
   %2452 = zext nneg i32 %2451 to i64
-  %2453 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2452
+  %2453 = getelementptr inbounds nuw i64, ptr %9, i64 %2452
   store i64 %2378, ptr %2453, align 8, !tbaa !16
   %2454 = icmp slt i32 %2409, %17
   %2455 = zext i1 %2454 to i32
   %2456 = add nuw nsw i32 %2451, %2455
   %2457 = zext nneg i32 %2456 to i64
-  %2458 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2457
+  %2458 = getelementptr inbounds nuw i64, ptr %9, i64 %2457
   store i64 %2410, ptr %2458, align 8, !tbaa !16
   %2459 = icmp slt i32 %2441, %17
   %2460 = zext i1 %2459 to i32
@@ -28682,7 +28682,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i6
   %2716 = load float, ptr %2264, align 8, !tbaa !713
   %2717 = load i64, ptr %2279, align 8, !tbaa !161
   %2718 = load i64, ptr %2280, align 8, !tbaa !180
-  %2719 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.i
+  %2719 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.i
   %2720 = load i64, ptr %2719, align 8, !tbaa !16
   %2721 = trunc i64 %2718 to i32
   %2722 = shl nuw i32 1, %2721
@@ -29051,7 +29051,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2922 = load float, ptr %2903, align 8, !tbaa !713
   %2923 = load i64, ptr %2918, align 8, !tbaa !161
   %2924 = load i64, ptr %2919, align 8, !tbaa !180
-  %2925 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.us.i
+  %2925 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.us.i
   %2926 = load i64, ptr %2925, align 8, !tbaa !16
   %2927 = trunc i64 %2924 to i32
   %2928 = shl nuw i32 1, %2927
@@ -29356,25 +29356,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 3175:                                             ; preds = %3127, %3119
   %3176 = phi i32 [ %3174, %3127 ], [ 99999999, %3119 ]
   %3177 = zext nneg i32 %.087259.i.i to i64
-  %3178 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3177
+  %3178 = getelementptr inbounds nuw i64, ptr %8, i64 %3177
   store i64 %.089258.i.i, ptr %3178, align 8, !tbaa !16
   %3179 = icmp slt i32 %3008, %17
   %3180 = zext i1 %3179 to i32
   %3181 = add nuw nsw i32 %.087259.i.i, %3180
   %3182 = zext nneg i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw i64, ptr %8, i64 %3182
   store i64 %3009, ptr %3183, align 8, !tbaa !16
   %3184 = icmp slt i32 %3064, %17
   %3185 = zext i1 %3184 to i32
   %3186 = add nuw nsw i32 %3181, %3185
   %3187 = zext nneg i32 %3186 to i64
-  %3188 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3187
+  %3188 = getelementptr inbounds nuw i64, ptr %8, i64 %3187
   store i64 %3065, ptr %3188, align 8, !tbaa !16
   %3189 = icmp slt i32 %3120, %17
   %3190 = zext i1 %3189 to i32
   %3191 = add nuw nsw i32 %3186, %3190
   %3192 = zext nneg i32 %3191 to i64
-  %3193 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3192
+  %3193 = getelementptr inbounds nuw i64, ptr %8, i64 %3192
   store i64 %3121, ptr %3193, align 8, !tbaa !16
   %3194 = icmp slt i32 %3176, %17
   %3195 = zext i1 %3194 to i32
@@ -29888,7 +29888,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i7
   %3451 = load float, ptr %2903, align 8, !tbaa !713
   %3452 = load i64, ptr %2918, align 8, !tbaa !161
   %3453 = load i64, ptr %2919, align 8, !tbaa !180
-  %3454 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.i
+  %3454 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.i
   %3455 = load i64, ptr %3454, align 8, !tbaa !16
   %3456 = trunc i64 %3453 to i32
   %3457 = shl nuw i32 1, %3456
@@ -30274,7 +30274,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %3670 = load float, ptr %3651, align 8, !tbaa !713
   %3671 = load i64, ptr %3666, align 8, !tbaa !161
   %3672 = load i64, ptr %3667, align 8, !tbaa !180
-  %3673 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.us.i
+  %3673 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.us.i
   %3674 = load i64, ptr %3673, align 8, !tbaa !16
   %3675 = trunc i64 %3672 to i32
   %3676 = shl nuw i32 1, %3675
@@ -30399,25 +30399,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 3743:                                             ; preds = %3740, %3732
   %3744 = phi i32 [ %3742, %3740 ], [ 99999999, %3732 ]
   %3745 = zext nneg i32 %.087227.i.i to i64
-  %3746 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3745
+  %3746 = getelementptr inbounds nuw i64, ptr %6, i64 %3745
   store i64 %.089226.i.i, ptr %3746, align 8, !tbaa !16
   %3747 = icmp slt i32 %3711, %17
   %3748 = zext i1 %3747 to i32
   %3749 = add nuw nsw i32 %.087227.i.i, %3748
   %3750 = zext nneg i32 %3749 to i64
-  %3751 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3750
+  %3751 = getelementptr inbounds nuw i64, ptr %6, i64 %3750
   store i64 %3712, ptr %3751, align 8, !tbaa !16
   %3752 = icmp slt i32 %3722, %17
   %3753 = zext i1 %3752 to i32
   %3754 = add nuw nsw i32 %3749, %3753
   %3755 = zext nneg i32 %3754 to i64
-  %3756 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3755
+  %3756 = getelementptr inbounds nuw i64, ptr %6, i64 %3755
   store i64 %3723, ptr %3756, align 8, !tbaa !16
   %3757 = icmp slt i32 %3733, %17
   %3758 = zext i1 %3757 to i32
   %3759 = add nuw nsw i32 %3754, %3758
   %3760 = zext nneg i32 %3759 to i64
-  %3761 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3760
+  %3761 = getelementptr inbounds nuw i64, ptr %6, i64 %3760
   store i64 %3734, ptr %3761, align 8, !tbaa !16
   %3762 = icmp slt i32 %3744, %17
   %3763 = zext i1 %3762 to i32
@@ -30931,7 +30931,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i9
   %4019 = load float, ptr %3651, align 8, !tbaa !713
   %4020 = load i64, ptr %3666, align 8, !tbaa !161
   %4021 = load i64, ptr %3667, align 8, !tbaa !180
-  %4022 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.i
+  %4022 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.i
   %4023 = load i64, ptr %4022, align 8, !tbaa !16
   %4024 = trunc i64 %4021 to i32
   %4025 = shl nuw i32 1, %4024
@@ -32810,25 +32810,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
 113:                                              ; preds = %108, %100
   %114 = phi i32 [ %112, %108 ], [ 99999999, %100 ]
   %115 = zext nneg i32 %.087155.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %14, i64 %115
   store i64 %.089154.i.i.i.i, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %75, %38
   %118 = zext i1 %117 to i32
   %119 = add nuw nsw i32 %.087155.i.i.i.i, %118
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %14, i64 %120
   store i64 %76, ptr %121, align 8, !tbaa !16
   %122 = icmp slt i32 %88, %38
   %123 = zext i1 %122 to i32
   %124 = add nuw nsw i32 %119, %123
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %14, i64 %125
   store i64 %89, ptr %126, align 8, !tbaa !16
   %127 = icmp slt i32 %101, %38
   %128 = zext i1 %127 to i32
   %129 = add nuw nsw i32 %124, %128
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i64, ptr %14, i64 %130
   store i64 %102, ptr %131, align 8, !tbaa !16
   %132 = icmp slt i32 %114, %38
   %133 = zext i1 %132 to i32
@@ -33013,7 +33013,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %226 = load i64, ptr %225, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %228 = load i64, ptr %227, align 8, !tbaa !180
-  %229 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091159.i.i.i.i
+  %229 = getelementptr inbounds nuw i64, ptr %14, i64 %.091159.i.i.i.i
   %230 = load i64, ptr %229, align 8, !tbaa !16
   %231 = trunc i64 %228 to i32
   %232 = shl nuw i32 1, %231
@@ -33252,25 +33252,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 369:                                              ; preds = %363, %355
   %370 = phi i32 [ %368, %363 ], [ 99999999, %355 ]
   %371 = zext nneg i32 %.087155.i.i36.i.i to i64
-  %372 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i64, ptr %13, i64 %371
   store i64 %.089154.i.i37.i.i, ptr %372, align 8, !tbaa !16
   %373 = icmp slt i32 %328, %38
   %374 = zext i1 %373 to i32
   %375 = add nuw nsw i32 %.087155.i.i36.i.i, %374
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i64, ptr %13, i64 %376
   store i64 %329, ptr %377, align 8, !tbaa !16
   %378 = icmp slt i32 %342, %38
   %379 = zext i1 %378 to i32
   %380 = add nuw nsw i32 %375, %379
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i64, ptr %13, i64 %381
   store i64 %343, ptr %382, align 8, !tbaa !16
   %383 = icmp slt i32 %356, %38
   %384 = zext i1 %383 to i32
   %385 = add nuw nsw i32 %380, %384
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %357, ptr %387, align 8, !tbaa !16
   %388 = icmp slt i32 %370, %38
   %389 = zext i1 %388 to i32
@@ -33455,7 +33455,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %482 = load i64, ptr %481, align 8, !tbaa !161
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %484 = load i64, ptr %483, align 8, !tbaa !180
-  %485 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091159.i.i44.i.i
+  %485 = getelementptr inbounds nuw i64, ptr %13, i64 %.091159.i.i44.i.i
   %486 = load i64, ptr %485, align 8, !tbaa !16
   %487 = trunc i64 %484 to i32
   %488 = shl nuw i32 1, %487
@@ -33721,25 +33721,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 652:                                              ; preds = %640, %632
   %653 = phi i32 [ %651, %640 ], [ 99999999, %632 ]
   %654 = zext nneg i32 %.087159.i.i.i.i to i64
-  %655 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw i64, ptr %12, i64 %654
   store i64 %.089158.i.i.i.i, ptr %655, align 8, !tbaa !16
   %656 = icmp slt i32 %593, %38
   %657 = zext i1 %656 to i32
   %658 = add nuw nsw i32 %.087159.i.i.i.i, %657
   %659 = zext nneg i32 %658 to i64
-  %660 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i64, ptr %12, i64 %659
   store i64 %594, ptr %660, align 8, !tbaa !16
   %661 = icmp slt i32 %613, %38
   %662 = zext i1 %661 to i32
   %663 = add nuw nsw i32 %658, %662
   %664 = zext nneg i32 %663 to i64
-  %665 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw i64, ptr %12, i64 %664
   store i64 %614, ptr %665, align 8, !tbaa !16
   %666 = icmp slt i32 %633, %38
   %667 = zext i1 %666 to i32
   %668 = add nuw nsw i32 %663, %667
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i64, ptr %12, i64 %669
   store i64 %634, ptr %670, align 8, !tbaa !16
   %671 = icmp slt i32 %653, %38
   %672 = zext i1 %671 to i32
@@ -33924,7 +33924,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %765 = load i64, ptr %764, align 8, !tbaa !161
   %766 = getelementptr inbounds nuw i8, ptr %763, i64 32
   %767 = load i64, ptr %766, align 8, !tbaa !180
-  %768 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091163.i.i.i.i
+  %768 = getelementptr inbounds nuw i64, ptr %12, i64 %.091163.i.i.i.i
   %769 = load i64, ptr %768, align 8, !tbaa !16
   %770 = trunc i64 %767 to i32
   %771 = shl nuw i32 1, %770
@@ -34218,25 +34218,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 963:                                              ; preds = %946, %938
   %964 = phi i32 [ %962, %946 ], [ 99999999, %938 ]
   %965 = zext nneg i32 %.087163.i.i.i.i to i64
-  %966 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %965
+  %966 = getelementptr inbounds nuw i64, ptr %11, i64 %965
   store i64 %.089162.i.i.i.i, ptr %966, align 8, !tbaa !16
   %967 = icmp slt i32 %889, %38
   %968 = zext i1 %967 to i32
   %969 = add nuw nsw i32 %.087163.i.i.i.i, %968
   %970 = zext nneg i32 %969 to i64
-  %971 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw i64, ptr %11, i64 %970
   store i64 %890, ptr %971, align 8, !tbaa !16
   %972 = icmp slt i32 %914, %38
   %973 = zext i1 %972 to i32
   %974 = add nuw nsw i32 %969, %973
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw i64, ptr %11, i64 %975
   store i64 %915, ptr %976, align 8, !tbaa !16
   %977 = icmp slt i32 %939, %38
   %978 = zext i1 %977 to i32
   %979 = add nuw nsw i32 %974, %978
   %980 = zext nneg i32 %979 to i64
-  %981 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %980
+  %981 = getelementptr inbounds nuw i64, ptr %11, i64 %980
   store i64 %940, ptr %981, align 8, !tbaa !16
   %982 = icmp slt i32 %964, %38
   %983 = zext i1 %982 to i32
@@ -34421,7 +34421,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1076 = load i64, ptr %1075, align 8, !tbaa !161
   %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 32
   %1078 = load i64, ptr %1077, align 8, !tbaa !180
-  %1079 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091167.i.i.i.i
+  %1079 = getelementptr inbounds nuw i64, ptr %11, i64 %.091167.i.i.i.i
   %1080 = load i64, ptr %1079, align 8, !tbaa !16
   %1081 = trunc i64 %1078 to i32
   %1082 = shl nuw i32 1, %1081
@@ -34750,25 +34750,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 1309:                                             ; preds = %1285, %1277
   %1310 = phi i32 [ %1308, %1285 ], [ 99999999, %1277 ]
   %1311 = zext nneg i32 %.087167.i.i.i.i to i64
-  %1312 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1311
+  %1312 = getelementptr inbounds nuw i64, ptr %10, i64 %1311
   store i64 %.089166.i.i.i.i, ptr %1312, align 8, !tbaa !16
   %1313 = icmp slt i32 %1214, %38
   %1314 = zext i1 %1313 to i32
   %1315 = add nuw nsw i32 %.087167.i.i.i.i, %1314
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1316
+  %1317 = getelementptr inbounds nuw i64, ptr %10, i64 %1316
   store i64 %1215, ptr %1317, align 8, !tbaa !16
   %1318 = icmp slt i32 %1246, %38
   %1319 = zext i1 %1318 to i32
   %1320 = add nuw nsw i32 %1315, %1319
   %1321 = zext nneg i32 %1320 to i64
-  %1322 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1321
+  %1322 = getelementptr inbounds nuw i64, ptr %10, i64 %1321
   store i64 %1247, ptr %1322, align 8, !tbaa !16
   %1323 = icmp slt i32 %1278, %38
   %1324 = zext i1 %1323 to i32
   %1325 = add nuw nsw i32 %1320, %1324
   %1326 = zext nneg i32 %1325 to i64
-  %1327 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1326
+  %1327 = getelementptr inbounds nuw i64, ptr %10, i64 %1326
   store i64 %1279, ptr %1327, align 8, !tbaa !16
   %1328 = icmp slt i32 %1310, %38
   %1329 = zext i1 %1328 to i32
@@ -34953,7 +34953,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1422 = load i64, ptr %1421, align 8, !tbaa !161
   %1423 = getelementptr inbounds nuw i8, ptr %1420, i64 32
   %1424 = load i64, ptr %1423, align 8, !tbaa !180
-  %1425 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091171.i.i.i.i
+  %1425 = getelementptr inbounds nuw i64, ptr %10, i64 %.091171.i.i.i.i
   %1426 = load i64, ptr %1425, align 8, !tbaa !16
   %1427 = trunc i64 %1424 to i32
   %1428 = shl nuw i32 1, %1427
@@ -35393,25 +35393,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 1766:                                             ; preds = %1718, %1710
   %1767 = phi i32 [ %1765, %1718 ], [ 99999999, %1710 ]
   %1768 = zext nneg i32 %.087183.i.i.i.i to i64
-  %1769 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1768
+  %1769 = getelementptr inbounds nuw i64, ptr %9, i64 %1768
   store i64 %.089182.i.i.i.i, ptr %1769, align 8, !tbaa !16
   %1770 = icmp slt i32 %1599, %38
   %1771 = zext i1 %1770 to i32
   %1772 = add nuw nsw i32 %.087183.i.i.i.i, %1771
   %1773 = zext nneg i32 %1772 to i64
-  %1774 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1773
+  %1774 = getelementptr inbounds nuw i64, ptr %9, i64 %1773
   store i64 %1600, ptr %1774, align 8, !tbaa !16
   %1775 = icmp slt i32 %1655, %38
   %1776 = zext i1 %1775 to i32
   %1777 = add nuw nsw i32 %1772, %1776
   %1778 = zext nneg i32 %1777 to i64
-  %1779 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1778
+  %1779 = getelementptr inbounds nuw i64, ptr %9, i64 %1778
   store i64 %1656, ptr %1779, align 8, !tbaa !16
   %1780 = icmp slt i32 %1711, %38
   %1781 = zext i1 %1780 to i32
   %1782 = add nuw nsw i32 %1777, %1781
   %1783 = zext nneg i32 %1782 to i64
-  %1784 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1783
+  %1784 = getelementptr inbounds nuw i64, ptr %9, i64 %1783
   store i64 %1712, ptr %1784, align 8, !tbaa !16
   %1785 = icmp slt i32 %1767, %38
   %1786 = zext i1 %1785 to i32
@@ -35596,7 +35596,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1879 = load i64, ptr %1878, align 8, !tbaa !161
   %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 32
   %1881 = load i64, ptr %1880, align 8, !tbaa !180
-  %1882 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091187.i.i.i.i
+  %1882 = getelementptr inbounds nuw i64, ptr %9, i64 %.091187.i.i.i.i
   %1883 = load i64, ptr %1882, align 8, !tbaa !16
   %1884 = trunc i64 %1881 to i32
   %1885 = shl nuw i32 1, %1884
@@ -35873,25 +35873,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 2056:                                             ; preds = %2053, %2045
   %2057 = phi i32 [ %2055, %2053 ], [ 99999999, %2045 ]
   %2058 = zext nneg i32 %.087151.i.i.i.i to i64
-  %2059 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2058
+  %2059 = getelementptr inbounds nuw i64, ptr %7, i64 %2058
   store i64 %.089150.i.i.i.i, ptr %2059, align 8, !tbaa !16
   %2060 = icmp slt i32 %2024, %38
   %2061 = zext i1 %2060 to i32
   %2062 = add nuw nsw i32 %.087151.i.i.i.i, %2061
   %2063 = zext nneg i32 %2062 to i64
-  %2064 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2063
+  %2064 = getelementptr inbounds nuw i64, ptr %7, i64 %2063
   store i64 %2025, ptr %2064, align 8, !tbaa !16
   %2065 = icmp slt i32 %2035, %38
   %2066 = zext i1 %2065 to i32
   %2067 = add nuw nsw i32 %2062, %2066
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2068
+  %2069 = getelementptr inbounds nuw i64, ptr %7, i64 %2068
   store i64 %2036, ptr %2069, align 8, !tbaa !16
   %2070 = icmp slt i32 %2046, %38
   %2071 = zext i1 %2070 to i32
   %2072 = add nuw nsw i32 %2067, %2071
   %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2073
+  %2074 = getelementptr inbounds nuw i64, ptr %7, i64 %2073
   store i64 %2047, ptr %2074, align 8, !tbaa !16
   %2075 = icmp slt i32 %2057, %38
   %2076 = zext i1 %2075 to i32
@@ -36076,7 +36076,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2169 = load i64, ptr %2168, align 8, !tbaa !161
   %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 32
   %2171 = load i64, ptr %2170, align 8, !tbaa !180
-  %2172 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091155.i.i.i.i
+  %2172 = getelementptr inbounds nuw i64, ptr %7, i64 %.091155.i.i.i.i
   %2173 = load i64, ptr %2172, align 8, !tbaa !16
   %2174 = trunc i64 %2171 to i32
   %2175 = shl nuw i32 1, %2174
@@ -37007,7 +37007,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %51 = load float, ptr %32, align 8, !tbaa !1205
   %52 = load i64, ptr %47, align 8, !tbaa !161
   %53 = load i64, ptr %48, align 8, !tbaa !180
-  %54 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.us.i
+  %54 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.us.i
   %55 = load i64, ptr %54, align 8, !tbaa !16
   %56 = trunc i64 %53 to i32
   %57 = shl nuw i32 1, %56
@@ -37140,25 +37140,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 132:                                              ; preds = %127, %119
   %133 = phi i32 [ %131, %127 ], [ 99999999, %119 ]
   %134 = zext nneg i32 %.087231.i.i to i64
-  %135 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr %13, i64 %134
   store i64 %.089230.i.i, ptr %135, align 8, !tbaa !16
   %136 = icmp slt i32 %94, %17
   %137 = zext i1 %136 to i32
   %138 = add nuw nsw i32 %.087231.i.i, %137
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %13, i64 %139
   store i64 %95, ptr %140, align 8, !tbaa !16
   %141 = icmp slt i32 %107, %17
   %142 = zext i1 %141 to i32
   %143 = add nuw nsw i32 %138, %142
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i64, ptr %13, i64 %144
   store i64 %108, ptr %145, align 8, !tbaa !16
   %146 = icmp slt i32 %120, %17
   %147 = zext i1 %146 to i32
   %148 = add nuw nsw i32 %143, %147
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %13, i64 %149
   store i64 %121, ptr %150, align 8, !tbaa !16
   %151 = icmp slt i32 %133, %17
   %152 = zext i1 %151 to i32
@@ -37672,7 +37672,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i:
   %408 = load float, ptr %32, align 8, !tbaa !1205
   %409 = load i64, ptr %47, align 8, !tbaa !161
   %410 = load i64, ptr %48, align 8, !tbaa !180
-  %411 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.i
+  %411 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.i
   %412 = load i64, ptr %411, align 8, !tbaa !16
   %413 = trunc i64 %410 to i32
   %414 = shl nuw i32 1, %413
@@ -38008,7 +38008,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %581 = load float, ptr %562, align 8, !tbaa !1205
   %582 = load i64, ptr %577, align 8, !tbaa !161
   %583 = load i64, ptr %578, align 8, !tbaa !180
-  %584 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.us.i116
+  %584 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.us.i116
   %585 = load i64, ptr %584, align 8, !tbaa !16
   %586 = trunc i64 %583 to i32
   %587 = shl nuw i32 1, %586
@@ -38145,25 +38145,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 666:                                              ; preds = %660, %652
   %667 = phi i32 [ %665, %660 ], [ 99999999, %652 ]
   %668 = zext nneg i32 %.087231.i.i39 to i64
-  %669 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw i64, ptr %12, i64 %668
   store i64 %.089230.i.i40, ptr %669, align 8, !tbaa !16
   %670 = icmp slt i32 %625, %17
   %671 = zext i1 %670 to i32
   %672 = add nuw nsw i32 %.087231.i.i39, %671
   %673 = zext nneg i32 %672 to i64
-  %674 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw i64, ptr %12, i64 %673
   store i64 %626, ptr %674, align 8, !tbaa !16
   %675 = icmp slt i32 %639, %17
   %676 = zext i1 %675 to i32
   %677 = add nuw nsw i32 %672, %676
   %678 = zext nneg i32 %677 to i64
-  %679 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw i64, ptr %12, i64 %678
   store i64 %640, ptr %679, align 8, !tbaa !16
   %680 = icmp slt i32 %653, %17
   %681 = zext i1 %680 to i32
   %682 = add nuw nsw i32 %677, %681
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i64, ptr %12, i64 %683
   store i64 %654, ptr %684, align 8, !tbaa !16
   %685 = icmp slt i32 %667, %17
   %686 = zext i1 %685 to i32
@@ -38677,7 +38677,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i1
   %942 = load float, ptr %562, align 8, !tbaa !1205
   %943 = load i64, ptr %577, align 8, !tbaa !161
   %944 = load i64, ptr %578, align 8, !tbaa !180
-  %945 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.i49
+  %945 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.i49
   %946 = load i64, ptr %945, align 8, !tbaa !16
   %947 = trunc i64 %944 to i32
   %948 = shl nuw i32 1, %947
@@ -39016,7 +39016,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1118 = load float, ptr %1099, align 8, !tbaa !1205
   %1119 = load i64, ptr %1114, align 8, !tbaa !161
   %1120 = load i64, ptr %1115, align 8, !tbaa !180
-  %1121 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.us.i
+  %1121 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.us.i
   %1122 = load i64, ptr %1121, align 8, !tbaa !16
   %1123 = trunc i64 %1120 to i32
   %1124 = shl nuw i32 1, %1123
@@ -39177,25 +39177,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 1227:                                             ; preds = %1215, %1207
   %1228 = phi i32 [ %1226, %1215 ], [ 99999999, %1207 ]
   %1229 = zext nneg i32 %.087235.i.i to i64
-  %1230 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1229
+  %1230 = getelementptr inbounds nuw i64, ptr %11, i64 %1229
   store i64 %.089234.i.i, ptr %1230, align 8, !tbaa !16
   %1231 = icmp slt i32 %1168, %17
   %1232 = zext i1 %1231 to i32
   %1233 = add nuw nsw i32 %.087235.i.i, %1232
   %1234 = zext nneg i32 %1233 to i64
-  %1235 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1234
+  %1235 = getelementptr inbounds nuw i64, ptr %11, i64 %1234
   store i64 %1169, ptr %1235, align 8, !tbaa !16
   %1236 = icmp slt i32 %1188, %17
   %1237 = zext i1 %1236 to i32
   %1238 = add nuw nsw i32 %1233, %1237
   %1239 = zext nneg i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1239
+  %1240 = getelementptr inbounds nuw i64, ptr %11, i64 %1239
   store i64 %1189, ptr %1240, align 8, !tbaa !16
   %1241 = icmp slt i32 %1208, %17
   %1242 = zext i1 %1241 to i32
   %1243 = add nuw nsw i32 %1238, %1242
   %1244 = zext nneg i32 %1243 to i64
-  %1245 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1244
+  %1245 = getelementptr inbounds nuw i64, ptr %11, i64 %1244
   store i64 %1209, ptr %1245, align 8, !tbaa !16
   %1246 = icmp slt i32 %1228, %17
   %1247 = zext i1 %1246 to i32
@@ -39709,7 +39709,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i3
   %1503 = load float, ptr %1099, align 8, !tbaa !1205
   %1504 = load i64, ptr %1114, align 8, !tbaa !161
   %1505 = load i64, ptr %1115, align 8, !tbaa !180
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.i
+  %1506 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.i
   %1507 = load i64, ptr %1506, align 8, !tbaa !16
   %1508 = trunc i64 %1505 to i32
   %1509 = shl nuw i32 1, %1508
@@ -40056,7 +40056,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1687 = load float, ptr %1668, align 8, !tbaa !1205
   %1688 = load i64, ptr %1683, align 8, !tbaa !161
   %1689 = load i64, ptr %1684, align 8, !tbaa !180
-  %1690 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.us.i
+  %1690 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.us.i
   %1691 = load i64, ptr %1690, align 8, !tbaa !16
   %1692 = trunc i64 %1689 to i32
   %1693 = shl nuw i32 1, %1692
@@ -40237,25 +40237,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 1816:                                             ; preds = %1799, %1791
   %1817 = phi i32 [ %1815, %1799 ], [ 99999999, %1791 ]
   %1818 = zext nneg i32 %.087239.i.i to i64
-  %1819 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1818
+  %1819 = getelementptr inbounds nuw i64, ptr %10, i64 %1818
   store i64 %.089238.i.i, ptr %1819, align 8, !tbaa !16
   %1820 = icmp slt i32 %1742, %17
   %1821 = zext i1 %1820 to i32
   %1822 = add nuw nsw i32 %.087239.i.i, %1821
   %1823 = zext nneg i32 %1822 to i64
-  %1824 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1823
+  %1824 = getelementptr inbounds nuw i64, ptr %10, i64 %1823
   store i64 %1743, ptr %1824, align 8, !tbaa !16
   %1825 = icmp slt i32 %1767, %17
   %1826 = zext i1 %1825 to i32
   %1827 = add nuw nsw i32 %1822, %1826
   %1828 = zext nneg i32 %1827 to i64
-  %1829 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1828
+  %1829 = getelementptr inbounds nuw i64, ptr %10, i64 %1828
   store i64 %1768, ptr %1829, align 8, !tbaa !16
   %1830 = icmp slt i32 %1792, %17
   %1831 = zext i1 %1830 to i32
   %1832 = add nuw nsw i32 %1827, %1831
   %1833 = zext nneg i32 %1832 to i64
-  %1834 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1833
+  %1834 = getelementptr inbounds nuw i64, ptr %10, i64 %1833
   store i64 %1793, ptr %1834, align 8, !tbaa !16
   %1835 = icmp slt i32 %1817, %17
   %1836 = zext i1 %1835 to i32
@@ -40769,7 +40769,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i4
   %2092 = load float, ptr %1668, align 8, !tbaa !1205
   %2093 = load i64, ptr %1683, align 8, !tbaa !161
   %2094 = load i64, ptr %1684, align 8, !tbaa !180
-  %2095 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.i
+  %2095 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.i
   %2096 = load i64, ptr %2095, align 8, !tbaa !16
   %2097 = trunc i64 %2094 to i32
   %2098 = shl nuw i32 1, %2097
@@ -41123,7 +41123,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2283 = load float, ptr %2264, align 8, !tbaa !1205
   %2284 = load i64, ptr %2279, align 8, !tbaa !161
   %2285 = load i64, ptr %2280, align 8, !tbaa !180
-  %2286 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.us.i
+  %2286 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.us.i
   %2287 = load i64, ptr %2286, align 8, !tbaa !16
   %2288 = trunc i64 %2285 to i32
   %2289 = shl nuw i32 1, %2288
@@ -41332,25 +41332,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 2440:                                             ; preds = %2416, %2408
   %2441 = phi i32 [ %2439, %2416 ], [ 99999999, %2408 ]
   %2442 = zext nneg i32 %.087243.i.i to i64
-  %2443 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2442
+  %2443 = getelementptr inbounds nuw i64, ptr %9, i64 %2442
   store i64 %.089242.i.i, ptr %2443, align 8, !tbaa !16
   %2444 = icmp slt i32 %2345, %17
   %2445 = zext i1 %2444 to i32
   %2446 = add nuw nsw i32 %.087243.i.i, %2445
   %2447 = zext nneg i32 %2446 to i64
-  %2448 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2447
+  %2448 = getelementptr inbounds nuw i64, ptr %9, i64 %2447
   store i64 %2346, ptr %2448, align 8, !tbaa !16
   %2449 = icmp slt i32 %2377, %17
   %2450 = zext i1 %2449 to i32
   %2451 = add nuw nsw i32 %2446, %2450
   %2452 = zext nneg i32 %2451 to i64
-  %2453 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2452
+  %2453 = getelementptr inbounds nuw i64, ptr %9, i64 %2452
   store i64 %2378, ptr %2453, align 8, !tbaa !16
   %2454 = icmp slt i32 %2409, %17
   %2455 = zext i1 %2454 to i32
   %2456 = add nuw nsw i32 %2451, %2455
   %2457 = zext nneg i32 %2456 to i64
-  %2458 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2457
+  %2458 = getelementptr inbounds nuw i64, ptr %9, i64 %2457
   store i64 %2410, ptr %2458, align 8, !tbaa !16
   %2459 = icmp slt i32 %2441, %17
   %2460 = zext i1 %2459 to i32
@@ -41864,7 +41864,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i6
   %2716 = load float, ptr %2264, align 8, !tbaa !1205
   %2717 = load i64, ptr %2279, align 8, !tbaa !161
   %2718 = load i64, ptr %2280, align 8, !tbaa !180
-  %2719 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.i
+  %2719 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.i
   %2720 = load i64, ptr %2719, align 8, !tbaa !16
   %2721 = trunc i64 %2718 to i32
   %2722 = shl nuw i32 1, %2721
@@ -42233,7 +42233,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2922 = load float, ptr %2903, align 8, !tbaa !1205
   %2923 = load i64, ptr %2918, align 8, !tbaa !161
   %2924 = load i64, ptr %2919, align 8, !tbaa !180
-  %2925 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.us.i
+  %2925 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.us.i
   %2926 = load i64, ptr %2925, align 8, !tbaa !16
   %2927 = trunc i64 %2924 to i32
   %2928 = shl nuw i32 1, %2927
@@ -42538,25 +42538,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 3175:                                             ; preds = %3127, %3119
   %3176 = phi i32 [ %3174, %3127 ], [ 99999999, %3119 ]
   %3177 = zext nneg i32 %.087259.i.i to i64
-  %3178 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3177
+  %3178 = getelementptr inbounds nuw i64, ptr %8, i64 %3177
   store i64 %.089258.i.i, ptr %3178, align 8, !tbaa !16
   %3179 = icmp slt i32 %3008, %17
   %3180 = zext i1 %3179 to i32
   %3181 = add nuw nsw i32 %.087259.i.i, %3180
   %3182 = zext nneg i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw i64, ptr %8, i64 %3182
   store i64 %3009, ptr %3183, align 8, !tbaa !16
   %3184 = icmp slt i32 %3064, %17
   %3185 = zext i1 %3184 to i32
   %3186 = add nuw nsw i32 %3181, %3185
   %3187 = zext nneg i32 %3186 to i64
-  %3188 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3187
+  %3188 = getelementptr inbounds nuw i64, ptr %8, i64 %3187
   store i64 %3065, ptr %3188, align 8, !tbaa !16
   %3189 = icmp slt i32 %3120, %17
   %3190 = zext i1 %3189 to i32
   %3191 = add nuw nsw i32 %3186, %3190
   %3192 = zext nneg i32 %3191 to i64
-  %3193 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3192
+  %3193 = getelementptr inbounds nuw i64, ptr %8, i64 %3192
   store i64 %3121, ptr %3193, align 8, !tbaa !16
   %3194 = icmp slt i32 %3176, %17
   %3195 = zext i1 %3194 to i32
@@ -43070,7 +43070,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i7
   %3451 = load float, ptr %2903, align 8, !tbaa !1205
   %3452 = load i64, ptr %2918, align 8, !tbaa !161
   %3453 = load i64, ptr %2919, align 8, !tbaa !180
-  %3454 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.i
+  %3454 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.i
   %3455 = load i64, ptr %3454, align 8, !tbaa !16
   %3456 = trunc i64 %3453 to i32
   %3457 = shl nuw i32 1, %3456
@@ -43456,7 +43456,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %3670 = load float, ptr %3651, align 8, !tbaa !1205
   %3671 = load i64, ptr %3666, align 8, !tbaa !161
   %3672 = load i64, ptr %3667, align 8, !tbaa !180
-  %3673 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.us.i
+  %3673 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.us.i
   %3674 = load i64, ptr %3673, align 8, !tbaa !16
   %3675 = trunc i64 %3672 to i32
   %3676 = shl nuw i32 1, %3675
@@ -43581,25 +43581,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit177.i.us
 3743:                                             ; preds = %3740, %3732
   %3744 = phi i32 [ %3742, %3740 ], [ 99999999, %3732 ]
   %3745 = zext nneg i32 %.087227.i.i to i64
-  %3746 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3745
+  %3746 = getelementptr inbounds nuw i64, ptr %6, i64 %3745
   store i64 %.089226.i.i, ptr %3746, align 8, !tbaa !16
   %3747 = icmp slt i32 %3711, %17
   %3748 = zext i1 %3747 to i32
   %3749 = add nuw nsw i32 %.087227.i.i, %3748
   %3750 = zext nneg i32 %3749 to i64
-  %3751 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3750
+  %3751 = getelementptr inbounds nuw i64, ptr %6, i64 %3750
   store i64 %3712, ptr %3751, align 8, !tbaa !16
   %3752 = icmp slt i32 %3722, %17
   %3753 = zext i1 %3752 to i32
   %3754 = add nuw nsw i32 %3749, %3753
   %3755 = zext nneg i32 %3754 to i64
-  %3756 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3755
+  %3756 = getelementptr inbounds nuw i64, ptr %6, i64 %3755
   store i64 %3723, ptr %3756, align 8, !tbaa !16
   %3757 = icmp slt i32 %3733, %17
   %3758 = zext i1 %3757 to i32
   %3759 = add nuw nsw i32 %3754, %3758
   %3760 = zext nneg i32 %3759 to i64
-  %3761 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3760
+  %3761 = getelementptr inbounds nuw i64, ptr %6, i64 %3760
   store i64 %3734, ptr %3761, align 8, !tbaa !16
   %3762 = icmp slt i32 %3744, %17
   %3763 = zext i1 %3762 to i32
@@ -44113,7 +44113,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit157.i.i9
   %4019 = load float, ptr %3651, align 8, !tbaa !1205
   %4020 = load i64, ptr %3666, align 8, !tbaa !161
   %4021 = load i64, ptr %3667, align 8, !tbaa !180
-  %4022 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.i
+  %4022 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.i
   %4023 = load i64, ptr %4022, align 8, !tbaa !16
   %4024 = trunc i64 %4021 to i32
   %4025 = shl nuw i32 1, %4024
@@ -45987,25 +45987,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
 113:                                              ; preds = %108, %100
   %114 = phi i32 [ %112, %108 ], [ 99999999, %100 ]
   %115 = zext nneg i32 %.087155.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %14, i64 %115
   store i64 %.089154.i.i.i.i, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %75, %38
   %118 = zext i1 %117 to i32
   %119 = add nuw nsw i32 %.087155.i.i.i.i, %118
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %14, i64 %120
   store i64 %76, ptr %121, align 8, !tbaa !16
   %122 = icmp slt i32 %88, %38
   %123 = zext i1 %122 to i32
   %124 = add nuw nsw i32 %119, %123
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i64, ptr %14, i64 %125
   store i64 %89, ptr %126, align 8, !tbaa !16
   %127 = icmp slt i32 %101, %38
   %128 = zext i1 %127 to i32
   %129 = add nuw nsw i32 %124, %128
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i64, ptr %14, i64 %130
   store i64 %102, ptr %131, align 8, !tbaa !16
   %132 = icmp slt i32 %114, %38
   %133 = zext i1 %132 to i32
@@ -46190,7 +46190,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %226 = load i64, ptr %225, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %228 = load i64, ptr %227, align 8, !tbaa !180
-  %229 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091159.i.i.i.i
+  %229 = getelementptr inbounds nuw i64, ptr %14, i64 %.091159.i.i.i.i
   %230 = load i64, ptr %229, align 8, !tbaa !16
   %231 = trunc i64 %228 to i32
   %232 = shl nuw i32 1, %231
@@ -46429,25 +46429,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 369:                                              ; preds = %363, %355
   %370 = phi i32 [ %368, %363 ], [ 99999999, %355 ]
   %371 = zext nneg i32 %.087155.i.i36.i.i to i64
-  %372 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i64, ptr %13, i64 %371
   store i64 %.089154.i.i37.i.i, ptr %372, align 8, !tbaa !16
   %373 = icmp slt i32 %328, %38
   %374 = zext i1 %373 to i32
   %375 = add nuw nsw i32 %.087155.i.i36.i.i, %374
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw i64, ptr %13, i64 %376
   store i64 %329, ptr %377, align 8, !tbaa !16
   %378 = icmp slt i32 %342, %38
   %379 = zext i1 %378 to i32
   %380 = add nuw nsw i32 %375, %379
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i64, ptr %13, i64 %381
   store i64 %343, ptr %382, align 8, !tbaa !16
   %383 = icmp slt i32 %356, %38
   %384 = zext i1 %383 to i32
   %385 = add nuw nsw i32 %380, %384
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %357, ptr %387, align 8, !tbaa !16
   %388 = icmp slt i32 %370, %38
   %389 = zext i1 %388 to i32
@@ -46632,7 +46632,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %482 = load i64, ptr %481, align 8, !tbaa !161
   %483 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %484 = load i64, ptr %483, align 8, !tbaa !180
-  %485 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091159.i.i44.i.i
+  %485 = getelementptr inbounds nuw i64, ptr %13, i64 %.091159.i.i44.i.i
   %486 = load i64, ptr %485, align 8, !tbaa !16
   %487 = trunc i64 %484 to i32
   %488 = shl nuw i32 1, %487
@@ -46898,25 +46898,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 652:                                              ; preds = %640, %632
   %653 = phi i32 [ %651, %640 ], [ 99999999, %632 ]
   %654 = zext nneg i32 %.087159.i.i.i.i to i64
-  %655 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw i64, ptr %12, i64 %654
   store i64 %.089158.i.i.i.i, ptr %655, align 8, !tbaa !16
   %656 = icmp slt i32 %593, %38
   %657 = zext i1 %656 to i32
   %658 = add nuw nsw i32 %.087159.i.i.i.i, %657
   %659 = zext nneg i32 %658 to i64
-  %660 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw i64, ptr %12, i64 %659
   store i64 %594, ptr %660, align 8, !tbaa !16
   %661 = icmp slt i32 %613, %38
   %662 = zext i1 %661 to i32
   %663 = add nuw nsw i32 %658, %662
   %664 = zext nneg i32 %663 to i64
-  %665 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw i64, ptr %12, i64 %664
   store i64 %614, ptr %665, align 8, !tbaa !16
   %666 = icmp slt i32 %633, %38
   %667 = zext i1 %666 to i32
   %668 = add nuw nsw i32 %663, %667
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %669
+  %670 = getelementptr inbounds nuw i64, ptr %12, i64 %669
   store i64 %634, ptr %670, align 8, !tbaa !16
   %671 = icmp slt i32 %653, %38
   %672 = zext i1 %671 to i32
@@ -47101,7 +47101,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %765 = load i64, ptr %764, align 8, !tbaa !161
   %766 = getelementptr inbounds nuw i8, ptr %763, i64 32
   %767 = load i64, ptr %766, align 8, !tbaa !180
-  %768 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091163.i.i.i.i
+  %768 = getelementptr inbounds nuw i64, ptr %12, i64 %.091163.i.i.i.i
   %769 = load i64, ptr %768, align 8, !tbaa !16
   %770 = trunc i64 %767 to i32
   %771 = shl nuw i32 1, %770
@@ -47395,25 +47395,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 963:                                              ; preds = %946, %938
   %964 = phi i32 [ %962, %946 ], [ 99999999, %938 ]
   %965 = zext nneg i32 %.087163.i.i.i.i to i64
-  %966 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %965
+  %966 = getelementptr inbounds nuw i64, ptr %11, i64 %965
   store i64 %.089162.i.i.i.i, ptr %966, align 8, !tbaa !16
   %967 = icmp slt i32 %889, %38
   %968 = zext i1 %967 to i32
   %969 = add nuw nsw i32 %.087163.i.i.i.i, %968
   %970 = zext nneg i32 %969 to i64
-  %971 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %970
+  %971 = getelementptr inbounds nuw i64, ptr %11, i64 %970
   store i64 %890, ptr %971, align 8, !tbaa !16
   %972 = icmp slt i32 %914, %38
   %973 = zext i1 %972 to i32
   %974 = add nuw nsw i32 %969, %973
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw i64, ptr %11, i64 %975
   store i64 %915, ptr %976, align 8, !tbaa !16
   %977 = icmp slt i32 %939, %38
   %978 = zext i1 %977 to i32
   %979 = add nuw nsw i32 %974, %978
   %980 = zext nneg i32 %979 to i64
-  %981 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %980
+  %981 = getelementptr inbounds nuw i64, ptr %11, i64 %980
   store i64 %940, ptr %981, align 8, !tbaa !16
   %982 = icmp slt i32 %964, %38
   %983 = zext i1 %982 to i32
@@ -47598,7 +47598,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1076 = load i64, ptr %1075, align 8, !tbaa !161
   %1077 = getelementptr inbounds nuw i8, ptr %1074, i64 32
   %1078 = load i64, ptr %1077, align 8, !tbaa !180
-  %1079 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091167.i.i.i.i
+  %1079 = getelementptr inbounds nuw i64, ptr %11, i64 %.091167.i.i.i.i
   %1080 = load i64, ptr %1079, align 8, !tbaa !16
   %1081 = trunc i64 %1078 to i32
   %1082 = shl nuw i32 1, %1081
@@ -47927,25 +47927,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 1309:                                             ; preds = %1285, %1277
   %1310 = phi i32 [ %1308, %1285 ], [ 99999999, %1277 ]
   %1311 = zext nneg i32 %.087167.i.i.i.i to i64
-  %1312 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1311
+  %1312 = getelementptr inbounds nuw i64, ptr %10, i64 %1311
   store i64 %.089166.i.i.i.i, ptr %1312, align 8, !tbaa !16
   %1313 = icmp slt i32 %1214, %38
   %1314 = zext i1 %1313 to i32
   %1315 = add nuw nsw i32 %.087167.i.i.i.i, %1314
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1316
+  %1317 = getelementptr inbounds nuw i64, ptr %10, i64 %1316
   store i64 %1215, ptr %1317, align 8, !tbaa !16
   %1318 = icmp slt i32 %1246, %38
   %1319 = zext i1 %1318 to i32
   %1320 = add nuw nsw i32 %1315, %1319
   %1321 = zext nneg i32 %1320 to i64
-  %1322 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1321
+  %1322 = getelementptr inbounds nuw i64, ptr %10, i64 %1321
   store i64 %1247, ptr %1322, align 8, !tbaa !16
   %1323 = icmp slt i32 %1278, %38
   %1324 = zext i1 %1323 to i32
   %1325 = add nuw nsw i32 %1320, %1324
   %1326 = zext nneg i32 %1325 to i64
-  %1327 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1326
+  %1327 = getelementptr inbounds nuw i64, ptr %10, i64 %1326
   store i64 %1279, ptr %1327, align 8, !tbaa !16
   %1328 = icmp slt i32 %1310, %38
   %1329 = zext i1 %1328 to i32
@@ -48130,7 +48130,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1422 = load i64, ptr %1421, align 8, !tbaa !161
   %1423 = getelementptr inbounds nuw i8, ptr %1420, i64 32
   %1424 = load i64, ptr %1423, align 8, !tbaa !180
-  %1425 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091171.i.i.i.i
+  %1425 = getelementptr inbounds nuw i64, ptr %10, i64 %.091171.i.i.i.i
   %1426 = load i64, ptr %1425, align 8, !tbaa !16
   %1427 = trunc i64 %1424 to i32
   %1428 = shl nuw i32 1, %1427
@@ -48570,25 +48570,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 1766:                                             ; preds = %1718, %1710
   %1767 = phi i32 [ %1765, %1718 ], [ 99999999, %1710 ]
   %1768 = zext nneg i32 %.087183.i.i.i.i to i64
-  %1769 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1768
+  %1769 = getelementptr inbounds nuw i64, ptr %9, i64 %1768
   store i64 %.089182.i.i.i.i, ptr %1769, align 8, !tbaa !16
   %1770 = icmp slt i32 %1599, %38
   %1771 = zext i1 %1770 to i32
   %1772 = add nuw nsw i32 %.087183.i.i.i.i, %1771
   %1773 = zext nneg i32 %1772 to i64
-  %1774 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1773
+  %1774 = getelementptr inbounds nuw i64, ptr %9, i64 %1773
   store i64 %1600, ptr %1774, align 8, !tbaa !16
   %1775 = icmp slt i32 %1655, %38
   %1776 = zext i1 %1775 to i32
   %1777 = add nuw nsw i32 %1772, %1776
   %1778 = zext nneg i32 %1777 to i64
-  %1779 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1778
+  %1779 = getelementptr inbounds nuw i64, ptr %9, i64 %1778
   store i64 %1656, ptr %1779, align 8, !tbaa !16
   %1780 = icmp slt i32 %1711, %38
   %1781 = zext i1 %1780 to i32
   %1782 = add nuw nsw i32 %1777, %1781
   %1783 = zext nneg i32 %1782 to i64
-  %1784 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1783
+  %1784 = getelementptr inbounds nuw i64, ptr %9, i64 %1783
   store i64 %1712, ptr %1784, align 8, !tbaa !16
   %1785 = icmp slt i32 %1767, %38
   %1786 = zext i1 %1785 to i32
@@ -48773,7 +48773,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1879 = load i64, ptr %1878, align 8, !tbaa !161
   %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 32
   %1881 = load i64, ptr %1880, align 8, !tbaa !180
-  %1882 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091187.i.i.i.i
+  %1882 = getelementptr inbounds nuw i64, ptr %9, i64 %.091187.i.i.i.i
   %1883 = load i64, ptr %1882, align 8, !tbaa !16
   %1884 = trunc i64 %1881 to i32
   %1885 = shl nuw i32 1, %1884
@@ -49050,25 +49050,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 2056:                                             ; preds = %2053, %2045
   %2057 = phi i32 [ %2055, %2053 ], [ 99999999, %2045 ]
   %2058 = zext nneg i32 %.087151.i.i.i.i to i64
-  %2059 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2058
+  %2059 = getelementptr inbounds nuw i64, ptr %7, i64 %2058
   store i64 %.089150.i.i.i.i, ptr %2059, align 8, !tbaa !16
   %2060 = icmp slt i32 %2024, %38
   %2061 = zext i1 %2060 to i32
   %2062 = add nuw nsw i32 %.087151.i.i.i.i, %2061
   %2063 = zext nneg i32 %2062 to i64
-  %2064 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2063
+  %2064 = getelementptr inbounds nuw i64, ptr %7, i64 %2063
   store i64 %2025, ptr %2064, align 8, !tbaa !16
   %2065 = icmp slt i32 %2035, %38
   %2066 = zext i1 %2065 to i32
   %2067 = add nuw nsw i32 %2062, %2066
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2068
+  %2069 = getelementptr inbounds nuw i64, ptr %7, i64 %2068
   store i64 %2036, ptr %2069, align 8, !tbaa !16
   %2070 = icmp slt i32 %2046, %38
   %2071 = zext i1 %2070 to i32
   %2072 = add nuw nsw i32 %2067, %2071
   %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2073
+  %2074 = getelementptr inbounds nuw i64, ptr %7, i64 %2073
   store i64 %2047, ptr %2074, align 8, !tbaa !16
   %2075 = icmp slt i32 %2057, %38
   %2076 = zext i1 %2075 to i32
@@ -49253,7 +49253,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2169 = load i64, ptr %2168, align 8, !tbaa !161
   %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 32
   %2171 = load i64, ptr %2170, align 8, !tbaa !180
-  %2172 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091155.i.i.i.i
+  %2172 = getelementptr inbounds nuw i64, ptr %7, i64 %.091155.i.i.i.i
   %2173 = load i64, ptr %2172, align 8, !tbaa !16
   %2174 = trunc i64 %2171 to i32
   %2175 = shl nuw i32 1, %2174
@@ -50181,7 +50181,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %51 = load float, ptr %32, align 8, !tbaa !1692
   %52 = load i64, ptr %47, align 8, !tbaa !161
   %53 = load i64, ptr %48, align 8, !tbaa !180
-  %54 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.us.i
+  %54 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.us.i
   %55 = load i64, ptr %54, align 8, !tbaa !16
   %56 = trunc i64 %53 to i32
   %57 = shl nuw i32 1, %56
@@ -50314,25 +50314,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 132:                                              ; preds = %127, %119
   %133 = phi i32 [ %131, %127 ], [ 99999999, %119 ]
   %134 = zext nneg i32 %.087231.i.i to i64
-  %135 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i64, ptr %13, i64 %134
   store i64 %.089230.i.i, ptr %135, align 8, !tbaa !16
   %136 = icmp slt i32 %94, %17
   %137 = zext i1 %136 to i32
   %138 = add nuw nsw i32 %.087231.i.i, %137
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %13, i64 %139
   store i64 %95, ptr %140, align 8, !tbaa !16
   %141 = icmp slt i32 %107, %17
   %142 = zext i1 %141 to i32
   %143 = add nuw nsw i32 %138, %142
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i64, ptr %13, i64 %144
   store i64 %108, ptr %145, align 8, !tbaa !16
   %146 = icmp slt i32 %120, %17
   %147 = zext i1 %146 to i32
   %148 = add nuw nsw i32 %143, %147
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %13, i64 %149
   store i64 %121, ptr %150, align 8, !tbaa !16
   %151 = icmp slt i32 %133, %17
   %152 = zext i1 %151 to i32
@@ -50846,7 +50846,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i:
   %408 = load float, ptr %32, align 8, !tbaa !1692
   %409 = load i64, ptr %47, align 8, !tbaa !161
   %410 = load i64, ptr %48, align 8, !tbaa !180
-  %411 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091235.i.i
+  %411 = getelementptr inbounds nuw i64, ptr %13, i64 %.091235.i.i
   %412 = load i64, ptr %411, align 8, !tbaa !16
   %413 = trunc i64 %410 to i32
   %414 = shl nuw i32 1, %413
@@ -51182,7 +51182,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %581 = load float, ptr %562, align 8, !tbaa !1692
   %582 = load i64, ptr %577, align 8, !tbaa !161
   %583 = load i64, ptr %578, align 8, !tbaa !180
-  %584 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.us.i116
+  %584 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.us.i116
   %585 = load i64, ptr %584, align 8, !tbaa !16
   %586 = trunc i64 %583 to i32
   %587 = shl nuw i32 1, %586
@@ -51319,25 +51319,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 666:                                              ; preds = %660, %652
   %667 = phi i32 [ %665, %660 ], [ 99999999, %652 ]
   %668 = zext nneg i32 %.087231.i.i39 to i64
-  %669 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw i64, ptr %12, i64 %668
   store i64 %.089230.i.i40, ptr %669, align 8, !tbaa !16
   %670 = icmp slt i32 %625, %17
   %671 = zext i1 %670 to i32
   %672 = add nuw nsw i32 %.087231.i.i39, %671
   %673 = zext nneg i32 %672 to i64
-  %674 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw i64, ptr %12, i64 %673
   store i64 %626, ptr %674, align 8, !tbaa !16
   %675 = icmp slt i32 %639, %17
   %676 = zext i1 %675 to i32
   %677 = add nuw nsw i32 %672, %676
   %678 = zext nneg i32 %677 to i64
-  %679 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw i64, ptr %12, i64 %678
   store i64 %640, ptr %679, align 8, !tbaa !16
   %680 = icmp slt i32 %653, %17
   %681 = zext i1 %680 to i32
   %682 = add nuw nsw i32 %677, %681
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %683
+  %684 = getelementptr inbounds nuw i64, ptr %12, i64 %683
   store i64 %654, ptr %684, align 8, !tbaa !16
   %685 = icmp slt i32 %667, %17
   %686 = zext i1 %685 to i32
@@ -51851,7 +51851,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i1
   %942 = load float, ptr %562, align 8, !tbaa !1692
   %943 = load i64, ptr %577, align 8, !tbaa !161
   %944 = load i64, ptr %578, align 8, !tbaa !180
-  %945 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091235.i.i49
+  %945 = getelementptr inbounds nuw i64, ptr %12, i64 %.091235.i.i49
   %946 = load i64, ptr %945, align 8, !tbaa !16
   %947 = trunc i64 %944 to i32
   %948 = shl nuw i32 1, %947
@@ -52190,7 +52190,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1118 = load float, ptr %1099, align 8, !tbaa !1692
   %1119 = load i64, ptr %1114, align 8, !tbaa !161
   %1120 = load i64, ptr %1115, align 8, !tbaa !180
-  %1121 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.us.i
+  %1121 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.us.i
   %1122 = load i64, ptr %1121, align 8, !tbaa !16
   %1123 = trunc i64 %1120 to i32
   %1124 = shl nuw i32 1, %1123
@@ -52351,25 +52351,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 1227:                                             ; preds = %1215, %1207
   %1228 = phi i32 [ %1226, %1215 ], [ 99999999, %1207 ]
   %1229 = zext nneg i32 %.087235.i.i to i64
-  %1230 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1229
+  %1230 = getelementptr inbounds nuw i64, ptr %11, i64 %1229
   store i64 %.089234.i.i, ptr %1230, align 8, !tbaa !16
   %1231 = icmp slt i32 %1168, %17
   %1232 = zext i1 %1231 to i32
   %1233 = add nuw nsw i32 %.087235.i.i, %1232
   %1234 = zext nneg i32 %1233 to i64
-  %1235 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1234
+  %1235 = getelementptr inbounds nuw i64, ptr %11, i64 %1234
   store i64 %1169, ptr %1235, align 8, !tbaa !16
   %1236 = icmp slt i32 %1188, %17
   %1237 = zext i1 %1236 to i32
   %1238 = add nuw nsw i32 %1233, %1237
   %1239 = zext nneg i32 %1238 to i64
-  %1240 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1239
+  %1240 = getelementptr inbounds nuw i64, ptr %11, i64 %1239
   store i64 %1189, ptr %1240, align 8, !tbaa !16
   %1241 = icmp slt i32 %1208, %17
   %1242 = zext i1 %1241 to i32
   %1243 = add nuw nsw i32 %1238, %1242
   %1244 = zext nneg i32 %1243 to i64
-  %1245 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1244
+  %1245 = getelementptr inbounds nuw i64, ptr %11, i64 %1244
   store i64 %1209, ptr %1245, align 8, !tbaa !16
   %1246 = icmp slt i32 %1228, %17
   %1247 = zext i1 %1246 to i32
@@ -52883,7 +52883,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i3
   %1503 = load float, ptr %1099, align 8, !tbaa !1692
   %1504 = load i64, ptr %1114, align 8, !tbaa !161
   %1505 = load i64, ptr %1115, align 8, !tbaa !180
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091239.i.i
+  %1506 = getelementptr inbounds nuw i64, ptr %11, i64 %.091239.i.i
   %1507 = load i64, ptr %1506, align 8, !tbaa !16
   %1508 = trunc i64 %1505 to i32
   %1509 = shl nuw i32 1, %1508
@@ -53230,7 +53230,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1687 = load float, ptr %1668, align 8, !tbaa !1692
   %1688 = load i64, ptr %1683, align 8, !tbaa !161
   %1689 = load i64, ptr %1684, align 8, !tbaa !180
-  %1690 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.us.i
+  %1690 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.us.i
   %1691 = load i64, ptr %1690, align 8, !tbaa !16
   %1692 = trunc i64 %1689 to i32
   %1693 = shl nuw i32 1, %1692
@@ -53411,25 +53411,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 1816:                                             ; preds = %1799, %1791
   %1817 = phi i32 [ %1815, %1799 ], [ 99999999, %1791 ]
   %1818 = zext nneg i32 %.087239.i.i to i64
-  %1819 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1818
+  %1819 = getelementptr inbounds nuw i64, ptr %10, i64 %1818
   store i64 %.089238.i.i, ptr %1819, align 8, !tbaa !16
   %1820 = icmp slt i32 %1742, %17
   %1821 = zext i1 %1820 to i32
   %1822 = add nuw nsw i32 %.087239.i.i, %1821
   %1823 = zext nneg i32 %1822 to i64
-  %1824 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1823
+  %1824 = getelementptr inbounds nuw i64, ptr %10, i64 %1823
   store i64 %1743, ptr %1824, align 8, !tbaa !16
   %1825 = icmp slt i32 %1767, %17
   %1826 = zext i1 %1825 to i32
   %1827 = add nuw nsw i32 %1822, %1826
   %1828 = zext nneg i32 %1827 to i64
-  %1829 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1828
+  %1829 = getelementptr inbounds nuw i64, ptr %10, i64 %1828
   store i64 %1768, ptr %1829, align 8, !tbaa !16
   %1830 = icmp slt i32 %1792, %17
   %1831 = zext i1 %1830 to i32
   %1832 = add nuw nsw i32 %1827, %1831
   %1833 = zext nneg i32 %1832 to i64
-  %1834 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1833
+  %1834 = getelementptr inbounds nuw i64, ptr %10, i64 %1833
   store i64 %1793, ptr %1834, align 8, !tbaa !16
   %1835 = icmp slt i32 %1817, %17
   %1836 = zext i1 %1835 to i32
@@ -53943,7 +53943,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i4
   %2092 = load float, ptr %1668, align 8, !tbaa !1692
   %2093 = load i64, ptr %1683, align 8, !tbaa !161
   %2094 = load i64, ptr %1684, align 8, !tbaa !180
-  %2095 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091243.i.i
+  %2095 = getelementptr inbounds nuw i64, ptr %10, i64 %.091243.i.i
   %2096 = load i64, ptr %2095, align 8, !tbaa !16
   %2097 = trunc i64 %2094 to i32
   %2098 = shl nuw i32 1, %2097
@@ -54297,7 +54297,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2283 = load float, ptr %2264, align 8, !tbaa !1692
   %2284 = load i64, ptr %2279, align 8, !tbaa !161
   %2285 = load i64, ptr %2280, align 8, !tbaa !180
-  %2286 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.us.i
+  %2286 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.us.i
   %2287 = load i64, ptr %2286, align 8, !tbaa !16
   %2288 = trunc i64 %2285 to i32
   %2289 = shl nuw i32 1, %2288
@@ -54506,25 +54506,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 2440:                                             ; preds = %2416, %2408
   %2441 = phi i32 [ %2439, %2416 ], [ 99999999, %2408 ]
   %2442 = zext nneg i32 %.087243.i.i to i64
-  %2443 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2442
+  %2443 = getelementptr inbounds nuw i64, ptr %9, i64 %2442
   store i64 %.089242.i.i, ptr %2443, align 8, !tbaa !16
   %2444 = icmp slt i32 %2345, %17
   %2445 = zext i1 %2444 to i32
   %2446 = add nuw nsw i32 %.087243.i.i, %2445
   %2447 = zext nneg i32 %2446 to i64
-  %2448 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2447
+  %2448 = getelementptr inbounds nuw i64, ptr %9, i64 %2447
   store i64 %2346, ptr %2448, align 8, !tbaa !16
   %2449 = icmp slt i32 %2377, %17
   %2450 = zext i1 %2449 to i32
   %2451 = add nuw nsw i32 %2446, %2450
   %2452 = zext nneg i32 %2451 to i64
-  %2453 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2452
+  %2453 = getelementptr inbounds nuw i64, ptr %9, i64 %2452
   store i64 %2378, ptr %2453, align 8, !tbaa !16
   %2454 = icmp slt i32 %2409, %17
   %2455 = zext i1 %2454 to i32
   %2456 = add nuw nsw i32 %2451, %2455
   %2457 = zext nneg i32 %2456 to i64
-  %2458 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2457
+  %2458 = getelementptr inbounds nuw i64, ptr %9, i64 %2457
   store i64 %2410, ptr %2458, align 8, !tbaa !16
   %2459 = icmp slt i32 %2441, %17
   %2460 = zext i1 %2459 to i32
@@ -55038,7 +55038,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i6
   %2716 = load float, ptr %2264, align 8, !tbaa !1692
   %2717 = load i64, ptr %2279, align 8, !tbaa !161
   %2718 = load i64, ptr %2280, align 8, !tbaa !180
-  %2719 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091247.i.i
+  %2719 = getelementptr inbounds nuw i64, ptr %9, i64 %.091247.i.i
   %2720 = load i64, ptr %2719, align 8, !tbaa !16
   %2721 = trunc i64 %2718 to i32
   %2722 = shl nuw i32 1, %2721
@@ -55407,7 +55407,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2922 = load float, ptr %2903, align 8, !tbaa !1692
   %2923 = load i64, ptr %2918, align 8, !tbaa !161
   %2924 = load i64, ptr %2919, align 8, !tbaa !180
-  %2925 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.us.i
+  %2925 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.us.i
   %2926 = load i64, ptr %2925, align 8, !tbaa !16
   %2927 = trunc i64 %2924 to i32
   %2928 = shl nuw i32 1, %2927
@@ -55712,25 +55712,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 3175:                                             ; preds = %3127, %3119
   %3176 = phi i32 [ %3174, %3127 ], [ 99999999, %3119 ]
   %3177 = zext nneg i32 %.087259.i.i to i64
-  %3178 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3177
+  %3178 = getelementptr inbounds nuw i64, ptr %8, i64 %3177
   store i64 %.089258.i.i, ptr %3178, align 8, !tbaa !16
   %3179 = icmp slt i32 %3008, %17
   %3180 = zext i1 %3179 to i32
   %3181 = add nuw nsw i32 %.087259.i.i, %3180
   %3182 = zext nneg i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw i64, ptr %8, i64 %3182
   store i64 %3009, ptr %3183, align 8, !tbaa !16
   %3184 = icmp slt i32 %3064, %17
   %3185 = zext i1 %3184 to i32
   %3186 = add nuw nsw i32 %3181, %3185
   %3187 = zext nneg i32 %3186 to i64
-  %3188 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3187
+  %3188 = getelementptr inbounds nuw i64, ptr %8, i64 %3187
   store i64 %3065, ptr %3188, align 8, !tbaa !16
   %3189 = icmp slt i32 %3120, %17
   %3190 = zext i1 %3189 to i32
   %3191 = add nuw nsw i32 %3186, %3190
   %3192 = zext nneg i32 %3191 to i64
-  %3193 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %3192
+  %3193 = getelementptr inbounds nuw i64, ptr %8, i64 %3192
   store i64 %3121, ptr %3193, align 8, !tbaa !16
   %3194 = icmp slt i32 %3176, %17
   %3195 = zext i1 %3194 to i32
@@ -56244,7 +56244,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i7
   %3451 = load float, ptr %2903, align 8, !tbaa !1692
   %3452 = load i64, ptr %2918, align 8, !tbaa !161
   %3453 = load i64, ptr %2919, align 8, !tbaa !180
-  %3454 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091263.i.i
+  %3454 = getelementptr inbounds nuw i64, ptr %8, i64 %.091263.i.i
   %3455 = load i64, ptr %3454, align 8, !tbaa !16
   %3456 = trunc i64 %3453 to i32
   %3457 = shl nuw i32 1, %3456
@@ -56630,7 +56630,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %3670 = load float, ptr %3651, align 8, !tbaa !1692
   %3671 = load i64, ptr %3666, align 8, !tbaa !161
   %3672 = load i64, ptr %3667, align 8, !tbaa !180
-  %3673 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.us.i
+  %3673 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.us.i
   %3674 = load i64, ptr %3673, align 8, !tbaa !16
   %3675 = trunc i64 %3672 to i32
   %3676 = shl nuw i32 1, %3675
@@ -56755,25 +56755,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit177.i.us
 3743:                                             ; preds = %3740, %3732
   %3744 = phi i32 [ %3742, %3740 ], [ 99999999, %3732 ]
   %3745 = zext nneg i32 %.087227.i.i to i64
-  %3746 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3745
+  %3746 = getelementptr inbounds nuw i64, ptr %6, i64 %3745
   store i64 %.089226.i.i, ptr %3746, align 8, !tbaa !16
   %3747 = icmp slt i32 %3711, %17
   %3748 = zext i1 %3747 to i32
   %3749 = add nuw nsw i32 %.087227.i.i, %3748
   %3750 = zext nneg i32 %3749 to i64
-  %3751 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3750
+  %3751 = getelementptr inbounds nuw i64, ptr %6, i64 %3750
   store i64 %3712, ptr %3751, align 8, !tbaa !16
   %3752 = icmp slt i32 %3722, %17
   %3753 = zext i1 %3752 to i32
   %3754 = add nuw nsw i32 %3749, %3753
   %3755 = zext nneg i32 %3754 to i64
-  %3756 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3755
+  %3756 = getelementptr inbounds nuw i64, ptr %6, i64 %3755
   store i64 %3723, ptr %3756, align 8, !tbaa !16
   %3757 = icmp slt i32 %3733, %17
   %3758 = zext i1 %3757 to i32
   %3759 = add nuw nsw i32 %3754, %3758
   %3760 = zext nneg i32 %3759 to i64
-  %3761 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3760
+  %3761 = getelementptr inbounds nuw i64, ptr %6, i64 %3760
   store i64 %3734, ptr %3761, align 8, !tbaa !16
   %3762 = icmp slt i32 %3744, %17
   %3763 = zext i1 %3762 to i32
@@ -57287,7 +57287,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit157.i.i9
   %4019 = load float, ptr %3651, align 8, !tbaa !1692
   %4020 = load i64, ptr %3666, align 8, !tbaa !161
   %4021 = load i64, ptr %3667, align 8, !tbaa !180
-  %4022 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091231.i.i
+  %4022 = getelementptr inbounds nuw i64, ptr %6, i64 %.091231.i.i
   %4023 = load i64, ptr %4022, align 8, !tbaa !16
   %4024 = trunc i64 %4021 to i32
   %4025 = shl nuw i32 1, %4024
@@ -59584,25 +59584,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
 145:                                              ; preds = %140, %132
   %146 = phi i32 [ %144, %140 ], [ 99999999, %132 ]
   %147 = zext nneg i32 %.087160.i.i.i.i to i64
-  %148 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %42, i64 %147
   store i64 %.089159.i.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = icmp slt i32 %107, %70
   %150 = zext i1 %149 to i32
   %151 = add nuw nsw i32 %.087160.i.i.i.i, %150
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %42, i64 %152
   store i64 %108, ptr %153, align 8, !tbaa !16
   %154 = icmp slt i32 %120, %70
   %155 = zext i1 %154 to i32
   %156 = add nuw nsw i32 %151, %155
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i64, ptr %42, i64 %157
   store i64 %121, ptr %158, align 8, !tbaa !16
   %159 = icmp slt i32 %133, %70
   %160 = zext i1 %159 to i32
   %161 = add nuw nsw i32 %156, %160
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i64, ptr %42, i64 %162
   store i64 %134, ptr %163, align 8, !tbaa !16
   %164 = icmp slt i32 %146, %70
   %165 = zext i1 %164 to i32
@@ -59745,7 +59745,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %235 = load i64, ptr %234, align 8, !tbaa !161
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %237 = load i64, ptr %236, align 8, !tbaa !180
-  %238 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %.091164.i.i.i.i
+  %238 = getelementptr inbounds nuw i64, ptr %42, i64 %.091164.i.i.i.i
   %239 = load i64, ptr %238, align 8, !tbaa !16
   %240 = trunc i64 %237 to i32
   %241 = and i64 %237, 4294967295
@@ -60149,25 +60149,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 457:                                              ; preds = %451, %443
   %458 = phi i32 [ %456, %451 ], [ 99999999, %443 ]
   %459 = zext nneg i32 %.087160.i.i35.i.i to i64
-  %460 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %459
+  %460 = getelementptr inbounds nuw i64, ptr %37, i64 %459
   store i64 %.089159.i.i36.i.i, ptr %460, align 8, !tbaa !16
   %461 = icmp slt i32 %416, %70
   %462 = zext i1 %461 to i32
   %463 = add nuw nsw i32 %.087160.i.i35.i.i, %462
   %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %464
+  %465 = getelementptr inbounds nuw i64, ptr %37, i64 %464
   store i64 %417, ptr %465, align 8, !tbaa !16
   %466 = icmp slt i32 %430, %70
   %467 = zext i1 %466 to i32
   %468 = add nuw nsw i32 %463, %467
   %469 = zext nneg i32 %468 to i64
-  %470 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw i64, ptr %37, i64 %469
   store i64 %431, ptr %470, align 8, !tbaa !16
   %471 = icmp slt i32 %444, %70
   %472 = zext i1 %471 to i32
   %473 = add nuw nsw i32 %468, %472
   %474 = zext nneg i32 %473 to i64
-  %475 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw i64, ptr %37, i64 %474
   store i64 %445, ptr %475, align 8, !tbaa !16
   %476 = icmp slt i32 %458, %70
   %477 = zext i1 %476 to i32
@@ -60310,7 +60310,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %547 = load i64, ptr %546, align 8, !tbaa !161
   %548 = getelementptr inbounds nuw i8, ptr %545, i64 32
   %549 = load i64, ptr %548, align 8, !tbaa !180
-  %550 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091164.i.i43.i.i
+  %550 = getelementptr inbounds nuw i64, ptr %37, i64 %.091164.i.i43.i.i
   %551 = load i64, ptr %550, align 8, !tbaa !16
   %552 = trunc i64 %549 to i32
   %553 = and i64 %549, 4294967295
@@ -60741,25 +60741,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 796:                                              ; preds = %784, %776
   %797 = phi i32 [ %795, %784 ], [ 99999999, %776 ]
   %798 = zext nneg i32 %.087164.i.i.i.i to i64
-  %799 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %798
+  %799 = getelementptr inbounds nuw i64, ptr %32, i64 %798
   store i64 %.089163.i.i.i.i, ptr %799, align 8, !tbaa !16
   %800 = icmp slt i32 %737, %70
   %801 = zext i1 %800 to i32
   %802 = add nuw nsw i32 %.087164.i.i.i.i, %801
   %803 = zext nneg i32 %802 to i64
-  %804 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %803
+  %804 = getelementptr inbounds nuw i64, ptr %32, i64 %803
   store i64 %738, ptr %804, align 8, !tbaa !16
   %805 = icmp slt i32 %757, %70
   %806 = zext i1 %805 to i32
   %807 = add nuw nsw i32 %802, %806
   %808 = zext nneg i32 %807 to i64
-  %809 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %808
+  %809 = getelementptr inbounds nuw i64, ptr %32, i64 %808
   store i64 %758, ptr %809, align 8, !tbaa !16
   %810 = icmp slt i32 %777, %70
   %811 = zext i1 %810 to i32
   %812 = add nuw nsw i32 %807, %811
   %813 = zext nneg i32 %812 to i64
-  %814 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %813
+  %814 = getelementptr inbounds nuw i64, ptr %32, i64 %813
   store i64 %778, ptr %814, align 8, !tbaa !16
   %815 = icmp slt i32 %797, %70
   %816 = zext i1 %815 to i32
@@ -60902,7 +60902,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %886 = load i64, ptr %885, align 8, !tbaa !161
   %887 = getelementptr inbounds nuw i8, ptr %884, i64 32
   %888 = load i64, ptr %887, align 8, !tbaa !180
-  %889 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091168.i.i.i.i
+  %889 = getelementptr inbounds nuw i64, ptr %32, i64 %.091168.i.i.i.i
   %890 = load i64, ptr %889, align 8, !tbaa !16
   %891 = trunc i64 %888 to i32
   %892 = and i64 %888, 4294967295
@@ -61361,25 +61361,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 1163:                                             ; preds = %1146, %1138
   %1164 = phi i32 [ %1162, %1146 ], [ 99999999, %1138 ]
   %1165 = zext nneg i32 %.087168.i.i.i.i to i64
-  %1166 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1165
+  %1166 = getelementptr inbounds nuw i64, ptr %27, i64 %1165
   store i64 %.089167.i.i.i.i, ptr %1166, align 8, !tbaa !16
   %1167 = icmp slt i32 %1089, %70
   %1168 = zext i1 %1167 to i32
   %1169 = add nuw nsw i32 %.087168.i.i.i.i, %1168
   %1170 = zext nneg i32 %1169 to i64
-  %1171 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1170
+  %1171 = getelementptr inbounds nuw i64, ptr %27, i64 %1170
   store i64 %1090, ptr %1171, align 8, !tbaa !16
   %1172 = icmp slt i32 %1114, %70
   %1173 = zext i1 %1172 to i32
   %1174 = add nuw nsw i32 %1169, %1173
   %1175 = zext nneg i32 %1174 to i64
-  %1176 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1175
+  %1176 = getelementptr inbounds nuw i64, ptr %27, i64 %1175
   store i64 %1115, ptr %1176, align 8, !tbaa !16
   %1177 = icmp slt i32 %1139, %70
   %1178 = zext i1 %1177 to i32
   %1179 = add nuw nsw i32 %1174, %1178
   %1180 = zext nneg i32 %1179 to i64
-  %1181 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1180
+  %1181 = getelementptr inbounds nuw i64, ptr %27, i64 %1180
   store i64 %1140, ptr %1181, align 8, !tbaa !16
   %1182 = icmp slt i32 %1164, %70
   %1183 = zext i1 %1182 to i32
@@ -61522,7 +61522,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1253 = load i64, ptr %1252, align 8, !tbaa !161
   %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 32
   %1255 = load i64, ptr %1254, align 8, !tbaa !180
-  %1256 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091172.i.i.i.i
+  %1256 = getelementptr inbounds nuw i64, ptr %27, i64 %.091172.i.i.i.i
   %1257 = load i64, ptr %1256, align 8, !tbaa !16
   %1258 = trunc i64 %1255 to i32
   %1259 = and i64 %1255, 4294967295
@@ -62016,25 +62016,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 1565:                                             ; preds = %1541, %1533
   %1566 = phi i32 [ %1564, %1541 ], [ 99999999, %1533 ]
   %1567 = zext nneg i32 %.087172.i.i.i.i to i64
-  %1568 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1567
+  %1568 = getelementptr inbounds nuw i64, ptr %22, i64 %1567
   store i64 %.089171.i.i.i.i, ptr %1568, align 8, !tbaa !16
   %1569 = icmp slt i32 %1470, %70
   %1570 = zext i1 %1569 to i32
   %1571 = add nuw nsw i32 %.087172.i.i.i.i, %1570
   %1572 = zext nneg i32 %1571 to i64
-  %1573 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1572
+  %1573 = getelementptr inbounds nuw i64, ptr %22, i64 %1572
   store i64 %1471, ptr %1573, align 8, !tbaa !16
   %1574 = icmp slt i32 %1502, %70
   %1575 = zext i1 %1574 to i32
   %1576 = add nuw nsw i32 %1571, %1575
   %1577 = zext nneg i32 %1576 to i64
-  %1578 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1577
+  %1578 = getelementptr inbounds nuw i64, ptr %22, i64 %1577
   store i64 %1503, ptr %1578, align 8, !tbaa !16
   %1579 = icmp slt i32 %1534, %70
   %1580 = zext i1 %1579 to i32
   %1581 = add nuw nsw i32 %1576, %1580
   %1582 = zext nneg i32 %1581 to i64
-  %1583 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1582
+  %1583 = getelementptr inbounds nuw i64, ptr %22, i64 %1582
   store i64 %1535, ptr %1583, align 8, !tbaa !16
   %1584 = icmp slt i32 %1566, %70
   %1585 = zext i1 %1584 to i32
@@ -62177,7 +62177,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1655 = load i64, ptr %1654, align 8, !tbaa !161
   %1656 = getelementptr inbounds nuw i8, ptr %1653, i64 32
   %1657 = load i64, ptr %1656, align 8, !tbaa !180
-  %1658 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091176.i.i.i.i
+  %1658 = getelementptr inbounds nuw i64, ptr %22, i64 %.091176.i.i.i.i
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = trunc i64 %1657 to i32
   %1661 = and i64 %1657, 4294967295
@@ -62782,25 +62782,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 2078:                                             ; preds = %2030, %2022
   %2079 = phi i32 [ %2077, %2030 ], [ 99999999, %2022 ]
   %2080 = zext nneg i32 %.087188.i.i.i.i to i64
-  %2081 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2080
+  %2081 = getelementptr inbounds nuw i64, ptr %17, i64 %2080
   store i64 %.089187.i.i.i.i, ptr %2081, align 8, !tbaa !16
   %2082 = icmp slt i32 %1911, %70
   %2083 = zext i1 %2082 to i32
   %2084 = add nuw nsw i32 %.087188.i.i.i.i, %2083
   %2085 = zext nneg i32 %2084 to i64
-  %2086 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2085
+  %2086 = getelementptr inbounds nuw i64, ptr %17, i64 %2085
   store i64 %1912, ptr %2086, align 8, !tbaa !16
   %2087 = icmp slt i32 %1967, %70
   %2088 = zext i1 %2087 to i32
   %2089 = add nuw nsw i32 %2084, %2088
   %2090 = zext nneg i32 %2089 to i64
-  %2091 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2090
+  %2091 = getelementptr inbounds nuw i64, ptr %17, i64 %2090
   store i64 %1968, ptr %2091, align 8, !tbaa !16
   %2092 = icmp slt i32 %2023, %70
   %2093 = zext i1 %2092 to i32
   %2094 = add nuw nsw i32 %2089, %2093
   %2095 = zext nneg i32 %2094 to i64
-  %2096 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2095
+  %2096 = getelementptr inbounds nuw i64, ptr %17, i64 %2095
   store i64 %2024, ptr %2096, align 8, !tbaa !16
   %2097 = icmp slt i32 %2079, %70
   %2098 = zext i1 %2097 to i32
@@ -62943,7 +62943,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2168 = load i64, ptr %2167, align 8, !tbaa !161
   %2169 = getelementptr inbounds nuw i8, ptr %2166, i64 32
   %2170 = load i64, ptr %2169, align 8, !tbaa !180
-  %2171 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091192.i.i.i.i
+  %2171 = getelementptr inbounds nuw i64, ptr %17, i64 %.091192.i.i.i.i
   %2172 = load i64, ptr %2171, align 8, !tbaa !16
   %2173 = trunc i64 %2170 to i32
   %2174 = and i64 %2170, 4294967295
@@ -63385,25 +63385,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 2424:                                             ; preds = %2421, %2413
   %2425 = phi i32 [ %2423, %2421 ], [ 99999999, %2413 ]
   %2426 = zext nneg i32 %.087156.i.i.i.i to i64
-  %2427 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2426
+  %2427 = getelementptr inbounds nuw i64, ptr %11, i64 %2426
   store i64 %.089155.i.i.i.i, ptr %2427, align 8, !tbaa !16
   %2428 = icmp slt i32 %2392, %70
   %2429 = zext i1 %2428 to i32
   %2430 = add nuw nsw i32 %.087156.i.i.i.i, %2429
   %2431 = zext nneg i32 %2430 to i64
-  %2432 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2431
+  %2432 = getelementptr inbounds nuw i64, ptr %11, i64 %2431
   store i64 %2393, ptr %2432, align 8, !tbaa !16
   %2433 = icmp slt i32 %2403, %70
   %2434 = zext i1 %2433 to i32
   %2435 = add nuw nsw i32 %2430, %2434
   %2436 = zext nneg i32 %2435 to i64
-  %2437 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2436
+  %2437 = getelementptr inbounds nuw i64, ptr %11, i64 %2436
   store i64 %2404, ptr %2437, align 8, !tbaa !16
   %2438 = icmp slt i32 %2414, %70
   %2439 = zext i1 %2438 to i32
   %2440 = add nuw nsw i32 %2435, %2439
   %2441 = zext nneg i32 %2440 to i64
-  %2442 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2441
+  %2442 = getelementptr inbounds nuw i64, ptr %11, i64 %2441
   store i64 %2415, ptr %2442, align 8, !tbaa !16
   %2443 = icmp slt i32 %2425, %70
   %2444 = zext i1 %2443 to i32
@@ -63546,7 +63546,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2514 = load i64, ptr %2513, align 8, !tbaa !161
   %2515 = getelementptr inbounds nuw i8, ptr %2512, i64 32
   %2516 = load i64, ptr %2515, align 8, !tbaa !180
-  %2517 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091160.i.i.i.i
+  %2517 = getelementptr inbounds nuw i64, ptr %11, i64 %.091160.i.i.i.i
   %2518 = load i64, ptr %2517, align 8, !tbaa !16
   %2519 = trunc i64 %2516 to i32
   %2520 = and i64 %2516, 4294967295
@@ -65009,25 +65009,25 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 130:                                              ; preds = %125, %117
   %131 = phi i32 [ %129, %125 ], [ 99999999, %117 ]
   %132 = zext nneg i32 %.087236.i.i to i64
-  %133 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i64, ptr %37, i64 %132
   store i64 %.089235.i.i, ptr %133, align 8, !tbaa !16
   %134 = icmp slt i32 %92, %45
   %135 = zext i1 %134 to i32
   %136 = add nuw nsw i32 %.087236.i.i, %135
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i64, ptr %37, i64 %137
   store i64 %93, ptr %138, align 8, !tbaa !16
   %139 = icmp slt i32 %105, %45
   %140 = zext i1 %139 to i32
   %141 = add nuw nsw i32 %136, %140
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i64, ptr %37, i64 %142
   store i64 %106, ptr %143, align 8, !tbaa !16
   %144 = icmp slt i32 %118, %45
   %145 = zext i1 %144 to i32
   %146 = add nuw nsw i32 %141, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %37, i64 %147
   store i64 %119, ptr %148, align 8, !tbaa !16
   %149 = icmp slt i32 %131, %45
   %150 = zext i1 %149 to i32
@@ -65499,7 +65499,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i:
   %384 = load float, ptr %60, align 8, !tbaa !2175
   %385 = load i64, ptr %75, align 8, !tbaa !161
   %386 = load i64, ptr %76, align 8, !tbaa !180
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091240.i.i
+  %387 = getelementptr inbounds nuw i64, ptr %37, i64 %.091240.i.i
   %388 = load i64, ptr %387, align 8, !tbaa !16
   %389 = trunc i64 %386 to i32
   %390 = and i64 %386, 4294967295
@@ -66072,25 +66072,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 692:                                              ; preds = %686, %678
   %693 = phi i32 [ %691, %686 ], [ 99999999, %678 ]
   %694 = zext nneg i32 %.087236.i.i38 to i64
-  %695 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw i64, ptr %32, i64 %694
   store i64 %.089235.i.i39, ptr %695, align 8, !tbaa !16
   %696 = icmp slt i32 %651, %45
   %697 = zext i1 %696 to i32
   %698 = add nuw nsw i32 %.087236.i.i38, %697
   %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %699
+  %700 = getelementptr inbounds nuw i64, ptr %32, i64 %699
   store i64 %652, ptr %700, align 8, !tbaa !16
   %701 = icmp slt i32 %665, %45
   %702 = zext i1 %701 to i32
   %703 = add nuw nsw i32 %698, %702
   %704 = zext nneg i32 %703 to i64
-  %705 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw i64, ptr %32, i64 %704
   store i64 %666, ptr %705, align 8, !tbaa !16
   %706 = icmp slt i32 %679, %45
   %707 = zext i1 %706 to i32
   %708 = add nuw nsw i32 %703, %707
   %709 = zext nneg i32 %708 to i64
-  %710 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw i64, ptr %32, i64 %709
   store i64 %680, ptr %710, align 8, !tbaa !16
   %711 = icmp slt i32 %693, %45
   %712 = zext i1 %711 to i32
@@ -66562,7 +66562,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
   %946 = load float, ptr %618, align 8, !tbaa !2175
   %947 = load i64, ptr %633, align 8, !tbaa !161
   %948 = load i64, ptr %634, align 8, !tbaa !180
-  %949 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091240.i.i46
+  %949 = getelementptr inbounds nuw i64, ptr %32, i64 %.091240.i.i46
   %950 = load i64, ptr %949, align 8, !tbaa !16
   %951 = trunc i64 %948 to i32
   %952 = and i64 %948, 4294967295
@@ -67162,25 +67162,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 1281:                                             ; preds = %1269, %1261
   %1282 = phi i32 [ %1280, %1269 ], [ 99999999, %1261 ]
   %1283 = zext nneg i32 %.087240.i.i to i64
-  %1284 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1283
+  %1284 = getelementptr inbounds nuw i64, ptr %27, i64 %1283
   store i64 %.089239.i.i, ptr %1284, align 8, !tbaa !16
   %1285 = icmp slt i32 %1222, %45
   %1286 = zext i1 %1285 to i32
   %1287 = add nuw nsw i32 %.087240.i.i, %1286
   %1288 = zext nneg i32 %1287 to i64
-  %1289 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1288
+  %1289 = getelementptr inbounds nuw i64, ptr %27, i64 %1288
   store i64 %1223, ptr %1289, align 8, !tbaa !16
   %1290 = icmp slt i32 %1242, %45
   %1291 = zext i1 %1290 to i32
   %1292 = add nuw nsw i32 %1287, %1291
   %1293 = zext nneg i32 %1292 to i64
-  %1294 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1293
+  %1294 = getelementptr inbounds nuw i64, ptr %27, i64 %1293
   store i64 %1243, ptr %1294, align 8, !tbaa !16
   %1295 = icmp slt i32 %1262, %45
   %1296 = zext i1 %1295 to i32
   %1297 = add nuw nsw i32 %1292, %1296
   %1298 = zext nneg i32 %1297 to i64
-  %1299 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1298
+  %1299 = getelementptr inbounds nuw i64, ptr %27, i64 %1298
   store i64 %1263, ptr %1299, align 8, !tbaa !16
   %1300 = icmp slt i32 %1282, %45
   %1301 = zext i1 %1300 to i32
@@ -67652,7 +67652,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i3
   %1535 = load float, ptr %1183, align 8, !tbaa !2175
   %1536 = load i64, ptr %1198, align 8, !tbaa !161
   %1537 = load i64, ptr %1199, align 8, !tbaa !180
-  %1538 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091244.i.i
+  %1538 = getelementptr inbounds nuw i64, ptr %27, i64 %.091244.i.i
   %1539 = load i64, ptr %1538, align 8, !tbaa !16
   %1540 = trunc i64 %1537 to i32
   %1541 = and i64 %1537, 4294967295
@@ -68280,25 +68280,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 1898:                                             ; preds = %1881, %1873
   %1899 = phi i32 [ %1897, %1881 ], [ 99999999, %1873 ]
   %1900 = zext nneg i32 %.087244.i.i to i64
-  %1901 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1900
+  %1901 = getelementptr inbounds nuw i64, ptr %22, i64 %1900
   store i64 %.089243.i.i, ptr %1901, align 8, !tbaa !16
   %1902 = icmp slt i32 %1824, %45
   %1903 = zext i1 %1902 to i32
   %1904 = add nuw nsw i32 %.087244.i.i, %1903
   %1905 = zext nneg i32 %1904 to i64
-  %1906 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1905
+  %1906 = getelementptr inbounds nuw i64, ptr %22, i64 %1905
   store i64 %1825, ptr %1906, align 8, !tbaa !16
   %1907 = icmp slt i32 %1849, %45
   %1908 = zext i1 %1907 to i32
   %1909 = add nuw nsw i32 %1904, %1908
   %1910 = zext nneg i32 %1909 to i64
-  %1911 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1910
+  %1911 = getelementptr inbounds nuw i64, ptr %22, i64 %1910
   store i64 %1850, ptr %1911, align 8, !tbaa !16
   %1912 = icmp slt i32 %1874, %45
   %1913 = zext i1 %1912 to i32
   %1914 = add nuw nsw i32 %1909, %1913
   %1915 = zext nneg i32 %1914 to i64
-  %1916 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1915
+  %1916 = getelementptr inbounds nuw i64, ptr %22, i64 %1915
   store i64 %1875, ptr %1916, align 8, !tbaa !16
   %1917 = icmp slt i32 %1899, %45
   %1918 = zext i1 %1917 to i32
@@ -68770,7 +68770,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i5
   %2152 = load float, ptr %1780, align 8, !tbaa !2175
   %2153 = load i64, ptr %1795, align 8, !tbaa !161
   %2154 = load i64, ptr %1796, align 8, !tbaa !180
-  %2155 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091248.i.i
+  %2155 = getelementptr inbounds nuw i64, ptr %22, i64 %.091248.i.i
   %2156 = load i64, ptr %2155, align 8, !tbaa !16
   %2157 = trunc i64 %2154 to i32
   %2158 = and i64 %2154, 4294967295
@@ -69433,25 +69433,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 2550:                                             ; preds = %2526, %2518
   %2551 = phi i32 [ %2549, %2526 ], [ 99999999, %2518 ]
   %2552 = zext nneg i32 %.087248.i.i to i64
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2552
+  %2553 = getelementptr inbounds nuw i64, ptr %17, i64 %2552
   store i64 %.089247.i.i, ptr %2553, align 8, !tbaa !16
   %2554 = icmp slt i32 %2455, %45
   %2555 = zext i1 %2554 to i32
   %2556 = add nuw nsw i32 %.087248.i.i, %2555
   %2557 = zext nneg i32 %2556 to i64
-  %2558 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2557
+  %2558 = getelementptr inbounds nuw i64, ptr %17, i64 %2557
   store i64 %2456, ptr %2558, align 8, !tbaa !16
   %2559 = icmp slt i32 %2487, %45
   %2560 = zext i1 %2559 to i32
   %2561 = add nuw nsw i32 %2556, %2560
   %2562 = zext nneg i32 %2561 to i64
-  %2563 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2562
+  %2563 = getelementptr inbounds nuw i64, ptr %17, i64 %2562
   store i64 %2488, ptr %2563, align 8, !tbaa !16
   %2564 = icmp slt i32 %2519, %45
   %2565 = zext i1 %2564 to i32
   %2566 = add nuw nsw i32 %2561, %2565
   %2567 = zext nneg i32 %2566 to i64
-  %2568 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2567
+  %2568 = getelementptr inbounds nuw i64, ptr %17, i64 %2567
   store i64 %2520, ptr %2568, align 8, !tbaa !16
   %2569 = icmp slt i32 %2551, %45
   %2570 = zext i1 %2569 to i32
@@ -69923,7 +69923,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i6
   %2804 = load float, ptr %2404, align 8, !tbaa !2175
   %2805 = load i64, ptr %2419, align 8, !tbaa !161
   %2806 = load i64, ptr %2420, align 8, !tbaa !180
-  %2807 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091252.i.i
+  %2807 = getelementptr inbounds nuw i64, ptr %17, i64 %.091252.i.i
   %2808 = load i64, ptr %2807, align 8, !tbaa !16
   %2809 = trunc i64 %2806 to i32
   %2810 = and i64 %2806, 4294967295
@@ -70697,25 +70697,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 3313:                                             ; preds = %3265, %3257
   %3314 = phi i32 [ %3312, %3265 ], [ 99999999, %3257 ]
   %3315 = zext nneg i32 %.087264.i.i to i64
-  %3316 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3315
+  %3316 = getelementptr inbounds nuw i64, ptr %12, i64 %3315
   store i64 %.089263.i.i, ptr %3316, align 8, !tbaa !16
   %3317 = icmp slt i32 %3146, %45
   %3318 = zext i1 %3317 to i32
   %3319 = add nuw nsw i32 %.087264.i.i, %3318
   %3320 = zext nneg i32 %3319 to i64
-  %3321 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3320
+  %3321 = getelementptr inbounds nuw i64, ptr %12, i64 %3320
   store i64 %3147, ptr %3321, align 8, !tbaa !16
   %3322 = icmp slt i32 %3202, %45
   %3323 = zext i1 %3322 to i32
   %3324 = add nuw nsw i32 %3319, %3323
   %3325 = zext nneg i32 %3324 to i64
-  %3326 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3325
+  %3326 = getelementptr inbounds nuw i64, ptr %12, i64 %3325
   store i64 %3203, ptr %3326, align 8, !tbaa !16
   %3327 = icmp slt i32 %3258, %45
   %3328 = zext i1 %3327 to i32
   %3329 = add nuw nsw i32 %3324, %3328
   %3330 = zext nneg i32 %3329 to i64
-  %3331 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3330
+  %3331 = getelementptr inbounds nuw i64, ptr %12, i64 %3330
   store i64 %3259, ptr %3331, align 8, !tbaa !16
   %3332 = icmp slt i32 %3314, %45
   %3333 = zext i1 %3332 to i32
@@ -71187,7 +71187,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i8
   %3567 = load float, ptr %3071, align 8, !tbaa !2175
   %3568 = load i64, ptr %3086, align 8, !tbaa !161
   %3569 = load i64, ptr %3087, align 8, !tbaa !180
-  %3570 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091268.i.i
+  %3570 = getelementptr inbounds nuw i64, ptr %12, i64 %.091268.i.i
   %3571 = load i64, ptr %3570, align 8, !tbaa !16
   %3572 = trunc i64 %3569 to i32
   %3573 = and i64 %3569, 4294967295
@@ -71798,25 +71798,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 3909:                                             ; preds = %3906, %3898
   %3910 = phi i32 [ %3908, %3906 ], [ 99999999, %3898 ]
   %3911 = zext nneg i32 %.087232.i.i to i64
-  %3912 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3911
+  %3912 = getelementptr inbounds nuw i64, ptr %6, i64 %3911
   store i64 %.089231.i.i, ptr %3912, align 8, !tbaa !16
   %3913 = icmp slt i32 %3877, %45
   %3914 = zext i1 %3913 to i32
   %3915 = add nuw nsw i32 %.087232.i.i, %3914
   %3916 = zext nneg i32 %3915 to i64
-  %3917 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3916
+  %3917 = getelementptr inbounds nuw i64, ptr %6, i64 %3916
   store i64 %3878, ptr %3917, align 8, !tbaa !16
   %3918 = icmp slt i32 %3888, %45
   %3919 = zext i1 %3918 to i32
   %3920 = add nuw nsw i32 %3915, %3919
   %3921 = zext nneg i32 %3920 to i64
-  %3922 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3921
+  %3922 = getelementptr inbounds nuw i64, ptr %6, i64 %3921
   store i64 %3889, ptr %3922, align 8, !tbaa !16
   %3923 = icmp slt i32 %3899, %45
   %3924 = zext i1 %3923 to i32
   %3925 = add nuw nsw i32 %3920, %3924
   %3926 = zext nneg i32 %3925 to i64
-  %3927 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3926
+  %3927 = getelementptr inbounds nuw i64, ptr %6, i64 %3926
   store i64 %3900, ptr %3927, align 8, !tbaa !16
   %3928 = icmp slt i32 %3910, %45
   %3929 = zext i1 %3928 to i32
@@ -72288,7 +72288,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit156.i.i1
   %4163 = load float, ptr %3847, align 8, !tbaa !2175
   %4164 = load i64, ptr %3862, align 8, !tbaa !161
   %4165 = load i64, ptr %3863, align 8, !tbaa !180
-  %4166 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091236.i.i
+  %4166 = getelementptr inbounds nuw i64, ptr %6, i64 %.091236.i.i
   %4167 = load i64, ptr %4166, align 8, !tbaa !16
   %4168 = trunc i64 %4165 to i32
   %4169 = and i64 %4165, 4294967295
@@ -75106,25 +75106,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
 145:                                              ; preds = %140, %132
   %146 = phi i32 [ %144, %140 ], [ 99999999, %132 ]
   %147 = zext nneg i32 %.087160.i.i.i.i to i64
-  %148 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %42, i64 %147
   store i64 %.089159.i.i.i.i, ptr %148, align 8, !tbaa !16
   %149 = icmp slt i32 %107, %70
   %150 = zext i1 %149 to i32
   %151 = add nuw nsw i32 %.087160.i.i.i.i, %150
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %42, i64 %152
   store i64 %108, ptr %153, align 8, !tbaa !16
   %154 = icmp slt i32 %120, %70
   %155 = zext i1 %154 to i32
   %156 = add nuw nsw i32 %151, %155
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw i64, ptr %42, i64 %157
   store i64 %121, ptr %158, align 8, !tbaa !16
   %159 = icmp slt i32 %133, %70
   %160 = zext i1 %159 to i32
   %161 = add nuw nsw i32 %156, %160
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i64, ptr %42, i64 %162
   store i64 %134, ptr %163, align 8, !tbaa !16
   %164 = icmp slt i32 %146, %70
   %165 = zext i1 %164 to i32
@@ -75267,7 +75267,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %235 = load i64, ptr %234, align 8, !tbaa !161
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %237 = load i64, ptr %236, align 8, !tbaa !180
-  %238 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %.091164.i.i.i.i
+  %238 = getelementptr inbounds nuw i64, ptr %42, i64 %.091164.i.i.i.i
   %239 = load i64, ptr %238, align 8, !tbaa !16
   %240 = trunc i64 %237 to i32
   %241 = and i64 %237, 4294967295
@@ -75671,25 +75671,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 457:                                              ; preds = %451, %443
   %458 = phi i32 [ %456, %451 ], [ 99999999, %443 ]
   %459 = zext nneg i32 %.087160.i.i35.i.i to i64
-  %460 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %459
+  %460 = getelementptr inbounds nuw i64, ptr %37, i64 %459
   store i64 %.089159.i.i36.i.i, ptr %460, align 8, !tbaa !16
   %461 = icmp slt i32 %416, %70
   %462 = zext i1 %461 to i32
   %463 = add nuw nsw i32 %.087160.i.i35.i.i, %462
   %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %464
+  %465 = getelementptr inbounds nuw i64, ptr %37, i64 %464
   store i64 %417, ptr %465, align 8, !tbaa !16
   %466 = icmp slt i32 %430, %70
   %467 = zext i1 %466 to i32
   %468 = add nuw nsw i32 %463, %467
   %469 = zext nneg i32 %468 to i64
-  %470 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw i64, ptr %37, i64 %469
   store i64 %431, ptr %470, align 8, !tbaa !16
   %471 = icmp slt i32 %444, %70
   %472 = zext i1 %471 to i32
   %473 = add nuw nsw i32 %468, %472
   %474 = zext nneg i32 %473 to i64
-  %475 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw i64, ptr %37, i64 %474
   store i64 %445, ptr %475, align 8, !tbaa !16
   %476 = icmp slt i32 %458, %70
   %477 = zext i1 %476 to i32
@@ -75832,7 +75832,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %547 = load i64, ptr %546, align 8, !tbaa !161
   %548 = getelementptr inbounds nuw i8, ptr %545, i64 32
   %549 = load i64, ptr %548, align 8, !tbaa !180
-  %550 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091164.i.i43.i.i
+  %550 = getelementptr inbounds nuw i64, ptr %37, i64 %.091164.i.i43.i.i
   %551 = load i64, ptr %550, align 8, !tbaa !16
   %552 = trunc i64 %549 to i32
   %553 = and i64 %549, 4294967295
@@ -76263,25 +76263,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 796:                                              ; preds = %784, %776
   %797 = phi i32 [ %795, %784 ], [ 99999999, %776 ]
   %798 = zext nneg i32 %.087164.i.i.i.i to i64
-  %799 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %798
+  %799 = getelementptr inbounds nuw i64, ptr %32, i64 %798
   store i64 %.089163.i.i.i.i, ptr %799, align 8, !tbaa !16
   %800 = icmp slt i32 %737, %70
   %801 = zext i1 %800 to i32
   %802 = add nuw nsw i32 %.087164.i.i.i.i, %801
   %803 = zext nneg i32 %802 to i64
-  %804 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %803
+  %804 = getelementptr inbounds nuw i64, ptr %32, i64 %803
   store i64 %738, ptr %804, align 8, !tbaa !16
   %805 = icmp slt i32 %757, %70
   %806 = zext i1 %805 to i32
   %807 = add nuw nsw i32 %802, %806
   %808 = zext nneg i32 %807 to i64
-  %809 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %808
+  %809 = getelementptr inbounds nuw i64, ptr %32, i64 %808
   store i64 %758, ptr %809, align 8, !tbaa !16
   %810 = icmp slt i32 %777, %70
   %811 = zext i1 %810 to i32
   %812 = add nuw nsw i32 %807, %811
   %813 = zext nneg i32 %812 to i64
-  %814 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %813
+  %814 = getelementptr inbounds nuw i64, ptr %32, i64 %813
   store i64 %778, ptr %814, align 8, !tbaa !16
   %815 = icmp slt i32 %797, %70
   %816 = zext i1 %815 to i32
@@ -76424,7 +76424,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %886 = load i64, ptr %885, align 8, !tbaa !161
   %887 = getelementptr inbounds nuw i8, ptr %884, i64 32
   %888 = load i64, ptr %887, align 8, !tbaa !180
-  %889 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091168.i.i.i.i
+  %889 = getelementptr inbounds nuw i64, ptr %32, i64 %.091168.i.i.i.i
   %890 = load i64, ptr %889, align 8, !tbaa !16
   %891 = trunc i64 %888 to i32
   %892 = and i64 %888, 4294967295
@@ -76883,25 +76883,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 1163:                                             ; preds = %1146, %1138
   %1164 = phi i32 [ %1162, %1146 ], [ 99999999, %1138 ]
   %1165 = zext nneg i32 %.087168.i.i.i.i to i64
-  %1166 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1165
+  %1166 = getelementptr inbounds nuw i64, ptr %27, i64 %1165
   store i64 %.089167.i.i.i.i, ptr %1166, align 8, !tbaa !16
   %1167 = icmp slt i32 %1089, %70
   %1168 = zext i1 %1167 to i32
   %1169 = add nuw nsw i32 %.087168.i.i.i.i, %1168
   %1170 = zext nneg i32 %1169 to i64
-  %1171 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1170
+  %1171 = getelementptr inbounds nuw i64, ptr %27, i64 %1170
   store i64 %1090, ptr %1171, align 8, !tbaa !16
   %1172 = icmp slt i32 %1114, %70
   %1173 = zext i1 %1172 to i32
   %1174 = add nuw nsw i32 %1169, %1173
   %1175 = zext nneg i32 %1174 to i64
-  %1176 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1175
+  %1176 = getelementptr inbounds nuw i64, ptr %27, i64 %1175
   store i64 %1115, ptr %1176, align 8, !tbaa !16
   %1177 = icmp slt i32 %1139, %70
   %1178 = zext i1 %1177 to i32
   %1179 = add nuw nsw i32 %1174, %1178
   %1180 = zext nneg i32 %1179 to i64
-  %1181 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1180
+  %1181 = getelementptr inbounds nuw i64, ptr %27, i64 %1180
   store i64 %1140, ptr %1181, align 8, !tbaa !16
   %1182 = icmp slt i32 %1164, %70
   %1183 = zext i1 %1182 to i32
@@ -77044,7 +77044,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1253 = load i64, ptr %1252, align 8, !tbaa !161
   %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 32
   %1255 = load i64, ptr %1254, align 8, !tbaa !180
-  %1256 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091172.i.i.i.i
+  %1256 = getelementptr inbounds nuw i64, ptr %27, i64 %.091172.i.i.i.i
   %1257 = load i64, ptr %1256, align 8, !tbaa !16
   %1258 = trunc i64 %1255 to i32
   %1259 = and i64 %1255, 4294967295
@@ -77538,25 +77538,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 1565:                                             ; preds = %1541, %1533
   %1566 = phi i32 [ %1564, %1541 ], [ 99999999, %1533 ]
   %1567 = zext nneg i32 %.087172.i.i.i.i to i64
-  %1568 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1567
+  %1568 = getelementptr inbounds nuw i64, ptr %22, i64 %1567
   store i64 %.089171.i.i.i.i, ptr %1568, align 8, !tbaa !16
   %1569 = icmp slt i32 %1470, %70
   %1570 = zext i1 %1569 to i32
   %1571 = add nuw nsw i32 %.087172.i.i.i.i, %1570
   %1572 = zext nneg i32 %1571 to i64
-  %1573 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1572
+  %1573 = getelementptr inbounds nuw i64, ptr %22, i64 %1572
   store i64 %1471, ptr %1573, align 8, !tbaa !16
   %1574 = icmp slt i32 %1502, %70
   %1575 = zext i1 %1574 to i32
   %1576 = add nuw nsw i32 %1571, %1575
   %1577 = zext nneg i32 %1576 to i64
-  %1578 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1577
+  %1578 = getelementptr inbounds nuw i64, ptr %22, i64 %1577
   store i64 %1503, ptr %1578, align 8, !tbaa !16
   %1579 = icmp slt i32 %1534, %70
   %1580 = zext i1 %1579 to i32
   %1581 = add nuw nsw i32 %1576, %1580
   %1582 = zext nneg i32 %1581 to i64
-  %1583 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1582
+  %1583 = getelementptr inbounds nuw i64, ptr %22, i64 %1582
   store i64 %1535, ptr %1583, align 8, !tbaa !16
   %1584 = icmp slt i32 %1566, %70
   %1585 = zext i1 %1584 to i32
@@ -77699,7 +77699,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1655 = load i64, ptr %1654, align 8, !tbaa !161
   %1656 = getelementptr inbounds nuw i8, ptr %1653, i64 32
   %1657 = load i64, ptr %1656, align 8, !tbaa !180
-  %1658 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091176.i.i.i.i
+  %1658 = getelementptr inbounds nuw i64, ptr %22, i64 %.091176.i.i.i.i
   %1659 = load i64, ptr %1658, align 8, !tbaa !16
   %1660 = trunc i64 %1657 to i32
   %1661 = and i64 %1657, 4294967295
@@ -78304,25 +78304,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 2078:                                             ; preds = %2030, %2022
   %2079 = phi i32 [ %2077, %2030 ], [ 99999999, %2022 ]
   %2080 = zext nneg i32 %.087188.i.i.i.i to i64
-  %2081 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2080
+  %2081 = getelementptr inbounds nuw i64, ptr %17, i64 %2080
   store i64 %.089187.i.i.i.i, ptr %2081, align 8, !tbaa !16
   %2082 = icmp slt i32 %1911, %70
   %2083 = zext i1 %2082 to i32
   %2084 = add nuw nsw i32 %.087188.i.i.i.i, %2083
   %2085 = zext nneg i32 %2084 to i64
-  %2086 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2085
+  %2086 = getelementptr inbounds nuw i64, ptr %17, i64 %2085
   store i64 %1912, ptr %2086, align 8, !tbaa !16
   %2087 = icmp slt i32 %1967, %70
   %2088 = zext i1 %2087 to i32
   %2089 = add nuw nsw i32 %2084, %2088
   %2090 = zext nneg i32 %2089 to i64
-  %2091 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2090
+  %2091 = getelementptr inbounds nuw i64, ptr %17, i64 %2090
   store i64 %1968, ptr %2091, align 8, !tbaa !16
   %2092 = icmp slt i32 %2023, %70
   %2093 = zext i1 %2092 to i32
   %2094 = add nuw nsw i32 %2089, %2093
   %2095 = zext nneg i32 %2094 to i64
-  %2096 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2095
+  %2096 = getelementptr inbounds nuw i64, ptr %17, i64 %2095
   store i64 %2024, ptr %2096, align 8, !tbaa !16
   %2097 = icmp slt i32 %2079, %70
   %2098 = zext i1 %2097 to i32
@@ -78465,7 +78465,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2168 = load i64, ptr %2167, align 8, !tbaa !161
   %2169 = getelementptr inbounds nuw i8, ptr %2166, i64 32
   %2170 = load i64, ptr %2169, align 8, !tbaa !180
-  %2171 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091192.i.i.i.i
+  %2171 = getelementptr inbounds nuw i64, ptr %17, i64 %.091192.i.i.i.i
   %2172 = load i64, ptr %2171, align 8, !tbaa !16
   %2173 = trunc i64 %2170 to i32
   %2174 = and i64 %2170, 4294967295
@@ -78907,25 +78907,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 2424:                                             ; preds = %2421, %2413
   %2425 = phi i32 [ %2423, %2421 ], [ 99999999, %2413 ]
   %2426 = zext nneg i32 %.087156.i.i.i.i to i64
-  %2427 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2426
+  %2427 = getelementptr inbounds nuw i64, ptr %11, i64 %2426
   store i64 %.089155.i.i.i.i, ptr %2427, align 8, !tbaa !16
   %2428 = icmp slt i32 %2392, %70
   %2429 = zext i1 %2428 to i32
   %2430 = add nuw nsw i32 %.087156.i.i.i.i, %2429
   %2431 = zext nneg i32 %2430 to i64
-  %2432 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2431
+  %2432 = getelementptr inbounds nuw i64, ptr %11, i64 %2431
   store i64 %2393, ptr %2432, align 8, !tbaa !16
   %2433 = icmp slt i32 %2403, %70
   %2434 = zext i1 %2433 to i32
   %2435 = add nuw nsw i32 %2430, %2434
   %2436 = zext nneg i32 %2435 to i64
-  %2437 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2436
+  %2437 = getelementptr inbounds nuw i64, ptr %11, i64 %2436
   store i64 %2404, ptr %2437, align 8, !tbaa !16
   %2438 = icmp slt i32 %2414, %70
   %2439 = zext i1 %2438 to i32
   %2440 = add nuw nsw i32 %2435, %2439
   %2441 = zext nneg i32 %2440 to i64
-  %2442 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2441
+  %2442 = getelementptr inbounds nuw i64, ptr %11, i64 %2441
   store i64 %2415, ptr %2442, align 8, !tbaa !16
   %2443 = icmp slt i32 %2425, %70
   %2444 = zext i1 %2443 to i32
@@ -79068,7 +79068,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2514 = load i64, ptr %2513, align 8, !tbaa !161
   %2515 = getelementptr inbounds nuw i8, ptr %2512, i64 32
   %2516 = load i64, ptr %2515, align 8, !tbaa !180
-  %2517 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091160.i.i.i.i
+  %2517 = getelementptr inbounds nuw i64, ptr %11, i64 %.091160.i.i.i.i
   %2518 = load i64, ptr %2517, align 8, !tbaa !16
   %2519 = trunc i64 %2516 to i32
   %2520 = and i64 %2516, 4294967295
@@ -80528,25 +80528,25 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
 130:                                              ; preds = %125, %117
   %131 = phi i32 [ %129, %125 ], [ 99999999, %117 ]
   %132 = zext nneg i32 %.087236.i.i to i64
-  %133 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i64, ptr %37, i64 %132
   store i64 %.089235.i.i, ptr %133, align 8, !tbaa !16
   %134 = icmp slt i32 %92, %45
   %135 = zext i1 %134 to i32
   %136 = add nuw nsw i32 %.087236.i.i, %135
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i64, ptr %37, i64 %137
   store i64 %93, ptr %138, align 8, !tbaa !16
   %139 = icmp slt i32 %105, %45
   %140 = zext i1 %139 to i32
   %141 = add nuw nsw i32 %136, %140
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw i64, ptr %37, i64 %142
   store i64 %106, ptr %143, align 8, !tbaa !16
   %144 = icmp slt i32 %118, %45
   %145 = zext i1 %144 to i32
   %146 = add nuw nsw i32 %141, %145
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %37, i64 %147
   store i64 %119, ptr %148, align 8, !tbaa !16
   %149 = icmp slt i32 %131, %45
   %150 = zext i1 %149 to i32
@@ -81018,7 +81018,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i:
   %384 = load float, ptr %60, align 8, !tbaa !2229
   %385 = load i64, ptr %75, align 8, !tbaa !161
   %386 = load i64, ptr %76, align 8, !tbaa !180
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091240.i.i
+  %387 = getelementptr inbounds nuw i64, ptr %37, i64 %.091240.i.i
   %388 = load i64, ptr %387, align 8, !tbaa !16
   %389 = trunc i64 %386 to i32
   %390 = and i64 %386, 4294967295
@@ -81591,25 +81591,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 692:                                              ; preds = %686, %678
   %693 = phi i32 [ %691, %686 ], [ 99999999, %678 ]
   %694 = zext nneg i32 %.087236.i.i38 to i64
-  %695 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw i64, ptr %32, i64 %694
   store i64 %.089235.i.i39, ptr %695, align 8, !tbaa !16
   %696 = icmp slt i32 %651, %45
   %697 = zext i1 %696 to i32
   %698 = add nuw nsw i32 %.087236.i.i38, %697
   %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %699
+  %700 = getelementptr inbounds nuw i64, ptr %32, i64 %699
   store i64 %652, ptr %700, align 8, !tbaa !16
   %701 = icmp slt i32 %665, %45
   %702 = zext i1 %701 to i32
   %703 = add nuw nsw i32 %698, %702
   %704 = zext nneg i32 %703 to i64
-  %705 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw i64, ptr %32, i64 %704
   store i64 %666, ptr %705, align 8, !tbaa !16
   %706 = icmp slt i32 %679, %45
   %707 = zext i1 %706 to i32
   %708 = add nuw nsw i32 %703, %707
   %709 = zext nneg i32 %708 to i64
-  %710 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw i64, ptr %32, i64 %709
   store i64 %680, ptr %710, align 8, !tbaa !16
   %711 = icmp slt i32 %693, %45
   %712 = zext i1 %711 to i32
@@ -82081,7 +82081,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
   %946 = load float, ptr %618, align 8, !tbaa !2229
   %947 = load i64, ptr %633, align 8, !tbaa !161
   %948 = load i64, ptr %634, align 8, !tbaa !180
-  %949 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091240.i.i46
+  %949 = getelementptr inbounds nuw i64, ptr %32, i64 %.091240.i.i46
   %950 = load i64, ptr %949, align 8, !tbaa !16
   %951 = trunc i64 %948 to i32
   %952 = and i64 %948, 4294967295
@@ -82681,25 +82681,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 1281:                                             ; preds = %1269, %1261
   %1282 = phi i32 [ %1280, %1269 ], [ 99999999, %1261 ]
   %1283 = zext nneg i32 %.087240.i.i to i64
-  %1284 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1283
+  %1284 = getelementptr inbounds nuw i64, ptr %27, i64 %1283
   store i64 %.089239.i.i, ptr %1284, align 8, !tbaa !16
   %1285 = icmp slt i32 %1222, %45
   %1286 = zext i1 %1285 to i32
   %1287 = add nuw nsw i32 %.087240.i.i, %1286
   %1288 = zext nneg i32 %1287 to i64
-  %1289 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1288
+  %1289 = getelementptr inbounds nuw i64, ptr %27, i64 %1288
   store i64 %1223, ptr %1289, align 8, !tbaa !16
   %1290 = icmp slt i32 %1242, %45
   %1291 = zext i1 %1290 to i32
   %1292 = add nuw nsw i32 %1287, %1291
   %1293 = zext nneg i32 %1292 to i64
-  %1294 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1293
+  %1294 = getelementptr inbounds nuw i64, ptr %27, i64 %1293
   store i64 %1243, ptr %1294, align 8, !tbaa !16
   %1295 = icmp slt i32 %1262, %45
   %1296 = zext i1 %1295 to i32
   %1297 = add nuw nsw i32 %1292, %1296
   %1298 = zext nneg i32 %1297 to i64
-  %1299 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1298
+  %1299 = getelementptr inbounds nuw i64, ptr %27, i64 %1298
   store i64 %1263, ptr %1299, align 8, !tbaa !16
   %1300 = icmp slt i32 %1282, %45
   %1301 = zext i1 %1300 to i32
@@ -83171,7 +83171,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i3
   %1535 = load float, ptr %1183, align 8, !tbaa !2229
   %1536 = load i64, ptr %1198, align 8, !tbaa !161
   %1537 = load i64, ptr %1199, align 8, !tbaa !180
-  %1538 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091244.i.i
+  %1538 = getelementptr inbounds nuw i64, ptr %27, i64 %.091244.i.i
   %1539 = load i64, ptr %1538, align 8, !tbaa !16
   %1540 = trunc i64 %1537 to i32
   %1541 = and i64 %1537, 4294967295
@@ -83799,25 +83799,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 1898:                                             ; preds = %1881, %1873
   %1899 = phi i32 [ %1897, %1881 ], [ 99999999, %1873 ]
   %1900 = zext nneg i32 %.087244.i.i to i64
-  %1901 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1900
+  %1901 = getelementptr inbounds nuw i64, ptr %22, i64 %1900
   store i64 %.089243.i.i, ptr %1901, align 8, !tbaa !16
   %1902 = icmp slt i32 %1824, %45
   %1903 = zext i1 %1902 to i32
   %1904 = add nuw nsw i32 %.087244.i.i, %1903
   %1905 = zext nneg i32 %1904 to i64
-  %1906 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1905
+  %1906 = getelementptr inbounds nuw i64, ptr %22, i64 %1905
   store i64 %1825, ptr %1906, align 8, !tbaa !16
   %1907 = icmp slt i32 %1849, %45
   %1908 = zext i1 %1907 to i32
   %1909 = add nuw nsw i32 %1904, %1908
   %1910 = zext nneg i32 %1909 to i64
-  %1911 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1910
+  %1911 = getelementptr inbounds nuw i64, ptr %22, i64 %1910
   store i64 %1850, ptr %1911, align 8, !tbaa !16
   %1912 = icmp slt i32 %1874, %45
   %1913 = zext i1 %1912 to i32
   %1914 = add nuw nsw i32 %1909, %1913
   %1915 = zext nneg i32 %1914 to i64
-  %1916 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1915
+  %1916 = getelementptr inbounds nuw i64, ptr %22, i64 %1915
   store i64 %1875, ptr %1916, align 8, !tbaa !16
   %1917 = icmp slt i32 %1899, %45
   %1918 = zext i1 %1917 to i32
@@ -84289,7 +84289,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i5
   %2152 = load float, ptr %1780, align 8, !tbaa !2229
   %2153 = load i64, ptr %1795, align 8, !tbaa !161
   %2154 = load i64, ptr %1796, align 8, !tbaa !180
-  %2155 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091248.i.i
+  %2155 = getelementptr inbounds nuw i64, ptr %22, i64 %.091248.i.i
   %2156 = load i64, ptr %2155, align 8, !tbaa !16
   %2157 = trunc i64 %2154 to i32
   %2158 = and i64 %2154, 4294967295
@@ -84952,25 +84952,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 2550:                                             ; preds = %2526, %2518
   %2551 = phi i32 [ %2549, %2526 ], [ 99999999, %2518 ]
   %2552 = zext nneg i32 %.087248.i.i to i64
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2552
+  %2553 = getelementptr inbounds nuw i64, ptr %17, i64 %2552
   store i64 %.089247.i.i, ptr %2553, align 8, !tbaa !16
   %2554 = icmp slt i32 %2455, %45
   %2555 = zext i1 %2554 to i32
   %2556 = add nuw nsw i32 %.087248.i.i, %2555
   %2557 = zext nneg i32 %2556 to i64
-  %2558 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2557
+  %2558 = getelementptr inbounds nuw i64, ptr %17, i64 %2557
   store i64 %2456, ptr %2558, align 8, !tbaa !16
   %2559 = icmp slt i32 %2487, %45
   %2560 = zext i1 %2559 to i32
   %2561 = add nuw nsw i32 %2556, %2560
   %2562 = zext nneg i32 %2561 to i64
-  %2563 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2562
+  %2563 = getelementptr inbounds nuw i64, ptr %17, i64 %2562
   store i64 %2488, ptr %2563, align 8, !tbaa !16
   %2564 = icmp slt i32 %2519, %45
   %2565 = zext i1 %2564 to i32
   %2566 = add nuw nsw i32 %2561, %2565
   %2567 = zext nneg i32 %2566 to i64
-  %2568 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2567
+  %2568 = getelementptr inbounds nuw i64, ptr %17, i64 %2567
   store i64 %2520, ptr %2568, align 8, !tbaa !16
   %2569 = icmp slt i32 %2551, %45
   %2570 = zext i1 %2569 to i32
@@ -85442,7 +85442,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i6
   %2804 = load float, ptr %2404, align 8, !tbaa !2229
   %2805 = load i64, ptr %2419, align 8, !tbaa !161
   %2806 = load i64, ptr %2420, align 8, !tbaa !180
-  %2807 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091252.i.i
+  %2807 = getelementptr inbounds nuw i64, ptr %17, i64 %.091252.i.i
   %2808 = load i64, ptr %2807, align 8, !tbaa !16
   %2809 = trunc i64 %2806 to i32
   %2810 = and i64 %2806, 4294967295
@@ -86216,25 +86216,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 3313:                                             ; preds = %3265, %3257
   %3314 = phi i32 [ %3312, %3265 ], [ 99999999, %3257 ]
   %3315 = zext nneg i32 %.087264.i.i to i64
-  %3316 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3315
+  %3316 = getelementptr inbounds nuw i64, ptr %12, i64 %3315
   store i64 %.089263.i.i, ptr %3316, align 8, !tbaa !16
   %3317 = icmp slt i32 %3146, %45
   %3318 = zext i1 %3317 to i32
   %3319 = add nuw nsw i32 %.087264.i.i, %3318
   %3320 = zext nneg i32 %3319 to i64
-  %3321 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3320
+  %3321 = getelementptr inbounds nuw i64, ptr %12, i64 %3320
   store i64 %3147, ptr %3321, align 8, !tbaa !16
   %3322 = icmp slt i32 %3202, %45
   %3323 = zext i1 %3322 to i32
   %3324 = add nuw nsw i32 %3319, %3323
   %3325 = zext nneg i32 %3324 to i64
-  %3326 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3325
+  %3326 = getelementptr inbounds nuw i64, ptr %12, i64 %3325
   store i64 %3203, ptr %3326, align 8, !tbaa !16
   %3327 = icmp slt i32 %3258, %45
   %3328 = zext i1 %3327 to i32
   %3329 = add nuw nsw i32 %3324, %3328
   %3330 = zext nneg i32 %3329 to i64
-  %3331 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3330
+  %3331 = getelementptr inbounds nuw i64, ptr %12, i64 %3330
   store i64 %3259, ptr %3331, align 8, !tbaa !16
   %3332 = icmp slt i32 %3314, %45
   %3333 = zext i1 %3332 to i32
@@ -86706,7 +86706,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i8
   %3567 = load float, ptr %3071, align 8, !tbaa !2229
   %3568 = load i64, ptr %3086, align 8, !tbaa !161
   %3569 = load i64, ptr %3087, align 8, !tbaa !180
-  %3570 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091268.i.i
+  %3570 = getelementptr inbounds nuw i64, ptr %12, i64 %.091268.i.i
   %3571 = load i64, ptr %3570, align 8, !tbaa !16
   %3572 = trunc i64 %3569 to i32
   %3573 = and i64 %3569, 4294967295
@@ -87317,25 +87317,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 3909:                                             ; preds = %3906, %3898
   %3910 = phi i32 [ %3908, %3906 ], [ 99999999, %3898 ]
   %3911 = zext nneg i32 %.087232.i.i to i64
-  %3912 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3911
+  %3912 = getelementptr inbounds nuw i64, ptr %6, i64 %3911
   store i64 %.089231.i.i, ptr %3912, align 8, !tbaa !16
   %3913 = icmp slt i32 %3877, %45
   %3914 = zext i1 %3913 to i32
   %3915 = add nuw nsw i32 %.087232.i.i, %3914
   %3916 = zext nneg i32 %3915 to i64
-  %3917 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3916
+  %3917 = getelementptr inbounds nuw i64, ptr %6, i64 %3916
   store i64 %3878, ptr %3917, align 8, !tbaa !16
   %3918 = icmp slt i32 %3888, %45
   %3919 = zext i1 %3918 to i32
   %3920 = add nuw nsw i32 %3915, %3919
   %3921 = zext nneg i32 %3920 to i64
-  %3922 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3921
+  %3922 = getelementptr inbounds nuw i64, ptr %6, i64 %3921
   store i64 %3889, ptr %3922, align 8, !tbaa !16
   %3923 = icmp slt i32 %3899, %45
   %3924 = zext i1 %3923 to i32
   %3925 = add nuw nsw i32 %3920, %3924
   %3926 = zext nneg i32 %3925 to i64
-  %3927 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3926
+  %3927 = getelementptr inbounds nuw i64, ptr %6, i64 %3926
   store i64 %3900, ptr %3927, align 8, !tbaa !16
   %3928 = icmp slt i32 %3910, %45
   %3929 = zext i1 %3928 to i32
@@ -87807,7 +87807,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit156.i.i1
   %4163 = load float, ptr %3847, align 8, !tbaa !2229
   %4164 = load i64, ptr %3862, align 8, !tbaa !161
   %4165 = load i64, ptr %3863, align 8, !tbaa !180
-  %4166 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091236.i.i
+  %4166 = getelementptr inbounds nuw i64, ptr %6, i64 %.091236.i.i
   %4167 = load i64, ptr %4166, align 8, !tbaa !16
   %4168 = trunc i64 %4165 to i32
   %4169 = and i64 %4165, 4294967295
@@ -89794,7 +89794,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   %64 = load i64, ptr %63, align 8, !tbaa !161
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !180
-  %67 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.us.i.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.us.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !16
   %69 = trunc i64 %66 to i32
   %70 = shl nuw i32 1, %69
@@ -89867,25 +89867,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %109 = xor i32 %108, %43
   %110 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
   %111 = zext nneg i32 %.087146.i.i.i.i to i64
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %111
   store i64 %.089145.i.i.i.i, ptr %112, align 8, !tbaa !16
   %113 = icmp slt i32 %95, %36
   %114 = zext i1 %113 to i32
   %115 = add nuw nsw i32 %.087146.i.i.i.i, %114
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %14, i64 %116
   store i64 %96, ptr %117, align 8, !tbaa !16
   %118 = icmp slt i32 %100, %36
   %119 = zext i1 %118 to i32
   %120 = add nuw nsw i32 %115, %119
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i64, ptr %14, i64 %121
   store i64 %101, ptr %122, align 8, !tbaa !16
   %123 = icmp slt i32 %105, %36
   %124 = zext i1 %123 to i32
   %125 = add nuw nsw i32 %120, %124
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i64, ptr %14, i64 %126
   store i64 %106, ptr %127, align 8, !tbaa !16
   %128 = icmp slt i32 %110, %36
   %129 = zext i1 %128 to i32
@@ -90116,7 +90116,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %243 = load i64, ptr %242, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %245 = load i64, ptr %244, align 8, !tbaa !180
-  %246 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.i.i.i
+  %246 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.i.i.i
   %247 = load i64, ptr %246, align 8, !tbaa !16
   %248 = trunc i64 %245 to i32
   %249 = shl nuw i32 1, %248
@@ -90295,7 +90295,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %335 = load i64, ptr %334, align 8, !tbaa !161
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %337 = load i64, ptr %336, align 8, !tbaa !180
-  %338 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.us.i80.i.i
+  %338 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.us.i80.i.i
   %339 = load i64, ptr %338, align 8, !tbaa !16
   %340 = trunc i64 %337 to i32
   %341 = shl nuw i32 1, %340
@@ -90372,25 +90372,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %384 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %383)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = zext nneg i32 %.087146.i.i35.i.i to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %.089145.i.i36.i.i, ptr %387, align 8, !tbaa !16
   %388 = icmp sgt i32 %36, %367
   %389 = zext i1 %388 to i32
   %390 = add nuw nsw i32 %.087146.i.i35.i.i, %389
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i64, ptr %13, i64 %391
   store i64 %368, ptr %392, align 8, !tbaa !16
   %393 = icmp sgt i32 %36, %373
   %394 = zext i1 %393 to i32
   %395 = add nuw nsw i32 %390, %394
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i64, ptr %13, i64 %396
   store i64 %374, ptr %397, align 8, !tbaa !16
   %398 = icmp sgt i32 %36, %379
   %399 = zext i1 %398 to i32
   %400 = add nuw nsw i32 %395, %399
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i64, ptr %13, i64 %401
   store i64 %380, ptr %402, align 8, !tbaa !16
   %403 = icmp sgt i32 %36, %385
   %404 = zext i1 %403 to i32
@@ -90621,7 +90621,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %518 = load i64, ptr %517, align 8, !tbaa !161
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %520 = load i64, ptr %519, align 8, !tbaa !180
-  %521 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.i44.i.i
+  %521 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.i44.i.i
   %522 = load i64, ptr %521, align 8, !tbaa !16
   %523 = trunc i64 %520 to i32
   %524 = shl nuw i32 1, %523
@@ -90803,7 +90803,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %613 = load i64, ptr %612, align 8, !tbaa !161
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 32
   %615 = load i64, ptr %614, align 8, !tbaa !180
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.us.i.i.i
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.us.i.i.i
   %617 = load i64, ptr %616, align 8, !tbaa !16
   %618 = trunc i64 %615 to i32
   %619 = shl nuw i32 1, %618
@@ -90904,25 +90904,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %686 = trunc nuw nsw i64 %685 to i32
   %687 = add nuw nsw i32 %686, %681
   %688 = zext nneg i32 %.087150.i.i.i.i to i64
-  %689 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw i64, ptr %12, i64 %688
   store i64 %.089149.i.i.i.i, ptr %689, align 8, !tbaa !16
   %690 = icmp slt i32 %651, %36
   %691 = zext i1 %690 to i32
   %692 = add nuw nsw i32 %.087150.i.i.i.i, %691
   %693 = zext nneg i32 %692 to i64
-  %694 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i64, ptr %12, i64 %693
   store i64 %652, ptr %694, align 8, !tbaa !16
   %695 = icmp slt i32 %663, %36
   %696 = zext i1 %695 to i32
   %697 = add nuw nsw i32 %692, %696
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %698
+  %699 = getelementptr inbounds nuw i64, ptr %12, i64 %698
   store i64 %664, ptr %699, align 8, !tbaa !16
   %700 = icmp slt i32 %675, %36
   %701 = zext i1 %700 to i32
   %702 = add nuw nsw i32 %697, %701
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw i64, ptr %12, i64 %703
   store i64 %676, ptr %704, align 8, !tbaa !16
   %705 = icmp slt i32 %687, %36
   %706 = zext i1 %705 to i32
@@ -91153,7 +91153,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %820 = load i64, ptr %819, align 8, !tbaa !161
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 32
   %822 = load i64, ptr %821, align 8, !tbaa !180
-  %823 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.i.i.i
+  %823 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.i.i.i
   %824 = load i64, ptr %823, align 8, !tbaa !16
   %825 = trunc i64 %822 to i32
   %826 = shl nuw i32 1, %825
@@ -91343,7 +91343,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %923 = load i64, ptr %922, align 8, !tbaa !161
   %924 = getelementptr inbounds nuw i8, ptr %921, i64 32
   %925 = load i64, ptr %924, align 8, !tbaa !180
-  %926 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.us.i.i.i
+  %926 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.us.i.i.i
   %927 = load i64, ptr %926, align 8, !tbaa !16
   %928 = trunc i64 %925 to i32
   %929 = shl nuw i32 1, %928
@@ -91464,25 +91464,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
   %1018 = zext nneg i32 %.087154.i.i.i.i to i64
-  %1019 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw i64, ptr %11, i64 %1018
   store i64 %.089153.i.i.i.i, ptr %1019, align 8, !tbaa !16
   %1020 = icmp slt i32 %966, %36
   %1021 = zext i1 %1020 to i32
   %1022 = add nuw nsw i32 %.087154.i.i.i.i, %1021
   %1023 = zext nneg i32 %1022 to i64
-  %1024 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw i64, ptr %11, i64 %1023
   store i64 %967, ptr %1024, align 8, !tbaa !16
   %1025 = icmp slt i32 %983, %36
   %1026 = zext i1 %1025 to i32
   %1027 = add nuw nsw i32 %1022, %1026
   %1028 = zext nneg i32 %1027 to i64
-  %1029 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1028
+  %1029 = getelementptr inbounds nuw i64, ptr %11, i64 %1028
   store i64 %984, ptr %1029, align 8, !tbaa !16
   %1030 = icmp slt i32 %1000, %36
   %1031 = zext i1 %1030 to i32
   %1032 = add nuw nsw i32 %1027, %1031
   %1033 = zext nneg i32 %1032 to i64
-  %1034 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1033
+  %1034 = getelementptr inbounds nuw i64, ptr %11, i64 %1033
   store i64 %1001, ptr %1034, align 8, !tbaa !16
   %1035 = icmp slt i32 %1017, %36
   %1036 = zext i1 %1035 to i32
@@ -91713,7 +91713,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1150 = load i64, ptr %1149, align 8, !tbaa !161
   %1151 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1152 = load i64, ptr %1151, align 8, !tbaa !180
-  %1153 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.i.i.i
+  %1153 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.i.i.i
   %1154 = load i64, ptr %1153, align 8, !tbaa !16
   %1155 = trunc i64 %1152 to i32
   %1156 = shl nuw i32 1, %1155
@@ -91910,7 +91910,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1260 = load i64, ptr %1259, align 8, !tbaa !161
   %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1262 = load i64, ptr %1261, align 8, !tbaa !180
-  %1263 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.us.i.i.i
+  %1263 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.us.i.i.i
   %1264 = load i64, ptr %1263, align 8, !tbaa !16
   %1265 = trunc i64 %1262 to i32
   %1266 = shl nuw i32 1, %1265
@@ -92059,25 +92059,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1381 = trunc nuw nsw i64 %1380 to i32
   %1382 = add nuw nsw i32 %1376, %1381
   %1383 = zext nneg i32 %.087158.i.i.i.i to i64
-  %1384 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1383
+  %1384 = getelementptr inbounds nuw i64, ptr %10, i64 %1383
   store i64 %.089157.i.i.i.i, ptr %1384, align 8, !tbaa !16
   %1385 = icmp slt i32 %1310, %36
   %1386 = zext i1 %1385 to i32
   %1387 = add nuw nsw i32 %.087158.i.i.i.i, %1386
   %1388 = zext nneg i32 %1387 to i64
-  %1389 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1388
+  %1389 = getelementptr inbounds nuw i64, ptr %10, i64 %1388
   store i64 %1311, ptr %1389, align 8, !tbaa !16
   %1390 = icmp slt i32 %1334, %36
   %1391 = zext i1 %1390 to i32
   %1392 = add nuw nsw i32 %1387, %1391
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1393
+  %1394 = getelementptr inbounds nuw i64, ptr %10, i64 %1393
   store i64 %1335, ptr %1394, align 8, !tbaa !16
   %1395 = icmp slt i32 %1358, %36
   %1396 = zext i1 %1395 to i32
   %1397 = add nuw nsw i32 %1392, %1396
   %1398 = zext nneg i32 %1397 to i64
-  %1399 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1398
+  %1399 = getelementptr inbounds nuw i64, ptr %10, i64 %1398
   store i64 %1359, ptr %1399, align 8, !tbaa !16
   %1400 = icmp slt i32 %1382, %36
   %1401 = zext i1 %1400 to i32
@@ -92308,7 +92308,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1515 = load i64, ptr %1514, align 8, !tbaa !161
   %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 32
   %1517 = load i64, ptr %1516, align 8, !tbaa !180
-  %1518 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.i.i.i
+  %1518 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.i.i.i
   %1519 = load i64, ptr %1518, align 8, !tbaa !16
   %1520 = trunc i64 %1517 to i32
   %1521 = shl nuw i32 1, %1520
@@ -92520,7 +92520,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1640 = load i64, ptr %1639, align 8, !tbaa !161
   %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 32
   %1642 = load i64, ptr %1641, align 8, !tbaa !180
-  %1643 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.us.i.i.i
+  %1643 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.us.i.i.i
   %1644 = load i64, ptr %1643, align 8, !tbaa !16
   %1645 = trunc i64 %1642 to i32
   %1646 = shl nuw i32 1, %1645
@@ -92765,25 +92765,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1857 = trunc nuw nsw i64 %1856 to i32
   %1858 = add nuw nsw i32 %1852, %1857
   %1859 = zext nneg i32 %.087174.i.i.i.i to i64
-  %1860 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1859
+  %1860 = getelementptr inbounds nuw i64, ptr %9, i64 %1859
   store i64 %.089173.i.i.i.i, ptr %1860, align 8, !tbaa !16
   %1861 = icmp slt i32 %1714, %36
   %1862 = zext i1 %1861 to i32
   %1863 = add nuw nsw i32 %.087174.i.i.i.i, %1862
   %1864 = zext nneg i32 %1863 to i64
-  %1865 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1864
+  %1865 = getelementptr inbounds nuw i64, ptr %9, i64 %1864
   store i64 %1715, ptr %1865, align 8, !tbaa !16
   %1866 = icmp slt i32 %1762, %36
   %1867 = zext i1 %1866 to i32
   %1868 = add nuw nsw i32 %1863, %1867
   %1869 = zext nneg i32 %1868 to i64
-  %1870 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1869
+  %1870 = getelementptr inbounds nuw i64, ptr %9, i64 %1869
   store i64 %1763, ptr %1870, align 8, !tbaa !16
   %1871 = icmp slt i32 %1810, %36
   %1872 = zext i1 %1871 to i32
   %1873 = add nuw nsw i32 %1868, %1872
   %1874 = zext nneg i32 %1873 to i64
-  %1875 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1874
+  %1875 = getelementptr inbounds nuw i64, ptr %9, i64 %1874
   store i64 %1811, ptr %1875, align 8, !tbaa !16
   %1876 = icmp slt i32 %1858, %36
   %1877 = zext i1 %1876 to i32
@@ -93014,7 +93014,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1991 = load i64, ptr %1990, align 8, !tbaa !161
   %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 32
   %1993 = load i64, ptr %1992, align 8, !tbaa !180
-  %1994 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.i.i.i
+  %1994 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.i.i.i
   %1995 = load i64, ptr %1994, align 8, !tbaa !16
   %1996 = trunc i64 %1993 to i32
   %1997 = shl nuw i32 1, %1996
@@ -93243,7 +93243,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2129 = load i64, ptr %2128, align 8, !tbaa !161
   %2130 = getelementptr inbounds nuw i8, ptr %2127, i64 32
   %2131 = load i64, ptr %2130, align 8, !tbaa !180
-  %2132 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.us.i.i.i
+  %2132 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.us.i.i.i
   %2133 = load i64, ptr %2132, align 8, !tbaa !16
   %2134 = trunc i64 %2131 to i32
   %2135 = shl nuw i32 1, %2134
@@ -93308,25 +93308,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %2166 = getelementptr inbounds i8, ptr %2157, i64 %2114
   %2167 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %2166)
   %2168 = zext nneg i32 %.087142.i.i.i.i to i64
-  %2169 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2168
+  %2169 = getelementptr inbounds nuw i64, ptr %7, i64 %2168
   store i64 %.089141.i.i.i.i, ptr %2169, align 8, !tbaa !16
   %2170 = icmp slt i32 %2158, %36
   %2171 = zext i1 %2170 to i32
   %2172 = add nuw nsw i32 %.087142.i.i.i.i, %2171
   %2173 = zext nneg i32 %2172 to i64
-  %2174 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2173
+  %2174 = getelementptr inbounds nuw i64, ptr %7, i64 %2173
   store i64 %2159, ptr %2174, align 8, !tbaa !16
   %2175 = icmp slt i32 %2161, %36
   %2176 = zext i1 %2175 to i32
   %2177 = add nuw nsw i32 %2172, %2176
   %2178 = zext nneg i32 %2177 to i64
-  %2179 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2178
+  %2179 = getelementptr inbounds nuw i64, ptr %7, i64 %2178
   store i64 %2162, ptr %2179, align 8, !tbaa !16
   %2180 = icmp slt i32 %2164, %36
   %2181 = zext i1 %2180 to i32
   %2182 = add nuw nsw i32 %2177, %2181
   %2183 = zext nneg i32 %2182 to i64
-  %2184 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2183
+  %2184 = getelementptr inbounds nuw i64, ptr %7, i64 %2183
   store i64 %2165, ptr %2184, align 8, !tbaa !16
   %2185 = icmp slt i32 %2167, %36
   %2186 = zext i1 %2185 to i32
@@ -93557,7 +93557,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2300 = load i64, ptr %2299, align 8, !tbaa !161
   %2301 = getelementptr inbounds nuw i8, ptr %2298, i64 32
   %2302 = load i64, ptr %2301, align 8, !tbaa !180
-  %2303 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.i.i.i
+  %2303 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.i.i.i
   %2304 = load i64, ptr %2303, align 8, !tbaa !16
   %2305 = trunc i64 %2302 to i32
   %2306 = shl nuw i32 1, %2305
@@ -94514,7 +94514,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %49 = load float, ptr %32, align 8, !tbaa !178
   %50 = load i64, ptr %33, align 8, !tbaa !161
   %51 = load i64, ptr %34, align 8, !tbaa !180
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.us.i
+  %52 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.us.i
   %53 = load i64, ptr %52, align 8, !tbaa !16
   %54 = trunc i64 %51 to i32
   %55 = shl nuw i32 1, %54
@@ -94599,25 +94599,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %98 = xor i32 %97, %25
   %99 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087222.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %13, i64 %100
   store i64 %.089221.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %17
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087222.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %13, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %17
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %13, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %17
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %13, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %17
   %118 = zext i1 %117 to i32
@@ -95142,7 +95142,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i:
   %378 = load float, ptr %32, align 8, !tbaa !178
   %379 = load i64, ptr %33, align 8, !tbaa !161
   %380 = load i64, ptr %34, align 8, !tbaa !180
-  %381 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.i
+  %381 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.i
   %382 = load i64, ptr %381, align 8, !tbaa !16
   %383 = trunc i64 %380 to i32
   %384 = shl nuw i32 1, %383
@@ -95473,7 +95473,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %545 = load float, ptr %528, align 8, !tbaa !178
   %546 = load i64, ptr %529, align 8, !tbaa !161
   %547 = load i64, ptr %530, align 8, !tbaa !180
-  %548 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.us.i112
+  %548 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.us.i112
   %549 = load i64, ptr %548, align 8, !tbaa !16
   %550 = trunc i64 %547 to i32
   %551 = shl nuw i32 1, %550
@@ -95562,25 +95562,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %598 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %597)
   %599 = trunc nuw nsw i64 %598 to i32
   %600 = zext nneg i32 %.087222.i.i37 to i64
-  %601 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw i64, ptr %12, i64 %600
   store i64 %.089221.i.i38, ptr %601, align 8, !tbaa !16
   %602 = icmp sgt i32 %17, %581
   %603 = zext i1 %602 to i32
   %604 = add nuw nsw i32 %.087222.i.i37, %603
   %605 = zext nneg i32 %604 to i64
-  %606 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %605
+  %606 = getelementptr inbounds nuw i64, ptr %12, i64 %605
   store i64 %582, ptr %606, align 8, !tbaa !16
   %607 = icmp sgt i32 %17, %587
   %608 = zext i1 %607 to i32
   %609 = add nuw nsw i32 %604, %608
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i64, ptr %12, i64 %610
   store i64 %588, ptr %611, align 8, !tbaa !16
   %612 = icmp sgt i32 %17, %593
   %613 = zext i1 %612 to i32
   %614 = add nuw nsw i32 %609, %613
   %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %615
   store i64 %594, ptr %616, align 8, !tbaa !16
   %617 = icmp sgt i32 %17, %599
   %618 = zext i1 %617 to i32
@@ -96105,7 +96105,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i1
   %878 = load float, ptr %528, align 8, !tbaa !178
   %879 = load i64, ptr %529, align 8, !tbaa !161
   %880 = load i64, ptr %530, align 8, !tbaa !180
-  %881 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.i47
+  %881 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.i47
   %882 = load i64, ptr %881, align 8, !tbaa !16
   %883 = trunc i64 %880 to i32
   %884 = shl nuw i32 1, %883
@@ -96439,7 +96439,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1048 = load float, ptr %1031, align 8, !tbaa !178
   %1049 = load i64, ptr %1032, align 8, !tbaa !161
   %1050 = load i64, ptr %1033, align 8, !tbaa !180
-  %1051 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.us.i
+  %1051 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.us.i
   %1052 = load i64, ptr %1051, align 8, !tbaa !16
   %1053 = trunc i64 %1050 to i32
   %1054 = shl nuw i32 1, %1053
@@ -96552,25 +96552,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1125 = trunc nuw nsw i64 %1124 to i32
   %1126 = add nuw nsw i32 %1125, %1120
   %1127 = zext nneg i32 %.087226.i.i to i64
-  %1128 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw i64, ptr %11, i64 %1127
   store i64 %.089225.i.i, ptr %1128, align 8, !tbaa !16
   %1129 = icmp slt i32 %1090, %17
   %1130 = zext i1 %1129 to i32
   %1131 = add nuw nsw i32 %.087226.i.i, %1130
   %1132 = zext nneg i32 %1131 to i64
-  %1133 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw i64, ptr %11, i64 %1132
   store i64 %1091, ptr %1133, align 8, !tbaa !16
   %1134 = icmp slt i32 %1102, %17
   %1135 = zext i1 %1134 to i32
   %1136 = add nuw nsw i32 %1131, %1135
   %1137 = zext nneg i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1137
+  %1138 = getelementptr inbounds nuw i64, ptr %11, i64 %1137
   store i64 %1103, ptr %1138, align 8, !tbaa !16
   %1139 = icmp slt i32 %1114, %17
   %1140 = zext i1 %1139 to i32
   %1141 = add nuw nsw i32 %1136, %1140
   %1142 = zext nneg i32 %1141 to i64
-  %1143 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1142
+  %1143 = getelementptr inbounds nuw i64, ptr %11, i64 %1142
   store i64 %1115, ptr %1143, align 8, !tbaa !16
   %1144 = icmp slt i32 %1126, %17
   %1145 = zext i1 %1144 to i32
@@ -97095,7 +97095,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i3
   %1405 = load float, ptr %1031, align 8, !tbaa !178
   %1406 = load i64, ptr %1032, align 8, !tbaa !161
   %1407 = load i64, ptr %1033, align 8, !tbaa !180
-  %1408 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.i
+  %1408 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.i
   %1409 = load i64, ptr %1408, align 8, !tbaa !16
   %1410 = trunc i64 %1407 to i32
   %1411 = shl nuw i32 1, %1410
@@ -97437,7 +97437,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %1583 = load float, ptr %1566, align 8, !tbaa !178
   %1584 = load i64, ptr %1567, align 8, !tbaa !161
   %1585 = load i64, ptr %1568, align 8, !tbaa !180
-  %1586 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.us.i
+  %1586 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.us.i
   %1587 = load i64, ptr %1586, align 8, !tbaa !16
   %1588 = trunc i64 %1585 to i32
   %1589 = shl nuw i32 1, %1588
@@ -97570,25 +97570,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
   %1682 = zext nneg i32 %.087230.i.i to i64
-  %1683 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1682
+  %1683 = getelementptr inbounds nuw i64, ptr %10, i64 %1682
   store i64 %.089229.i.i, ptr %1683, align 8, !tbaa !16
   %1684 = icmp slt i32 %1630, %17
   %1685 = zext i1 %1684 to i32
   %1686 = add nuw nsw i32 %.087230.i.i, %1685
   %1687 = zext nneg i32 %1686 to i64
-  %1688 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1687
+  %1688 = getelementptr inbounds nuw i64, ptr %10, i64 %1687
   store i64 %1631, ptr %1688, align 8, !tbaa !16
   %1689 = icmp slt i32 %1647, %17
   %1690 = zext i1 %1689 to i32
   %1691 = add nuw nsw i32 %1686, %1690
   %1692 = zext nneg i32 %1691 to i64
-  %1693 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1692
+  %1693 = getelementptr inbounds nuw i64, ptr %10, i64 %1692
   store i64 %1648, ptr %1693, align 8, !tbaa !16
   %1694 = icmp slt i32 %1664, %17
   %1695 = zext i1 %1694 to i32
   %1696 = add nuw nsw i32 %1691, %1695
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1697
+  %1698 = getelementptr inbounds nuw i64, ptr %10, i64 %1697
   store i64 %1665, ptr %1698, align 8, !tbaa !16
   %1699 = icmp slt i32 %1681, %17
   %1700 = zext i1 %1699 to i32
@@ -98113,7 +98113,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i4
   %1960 = load float, ptr %1566, align 8, !tbaa !178
   %1961 = load i64, ptr %1567, align 8, !tbaa !161
   %1962 = load i64, ptr %1568, align 8, !tbaa !180
-  %1963 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.i
+  %1963 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.i
   %1964 = load i64, ptr %1963, align 8, !tbaa !16
   %1965 = trunc i64 %1962 to i32
   %1966 = shl nuw i32 1, %1965
@@ -98462,7 +98462,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2145 = load float, ptr %2128, align 8, !tbaa !178
   %2146 = load i64, ptr %2129, align 8, !tbaa !161
   %2147 = load i64, ptr %2130, align 8, !tbaa !180
-  %2148 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.us.i
+  %2148 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.us.i
   %2149 = load i64, ptr %2148, align 8, !tbaa !16
   %2150 = trunc i64 %2147 to i32
   %2151 = shl nuw i32 1, %2150
@@ -98623,25 +98623,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %2270 = trunc nuw nsw i64 %2269 to i32
   %2271 = add nuw nsw i32 %2265, %2270
   %2272 = zext nneg i32 %.087234.i.i to i64
-  %2273 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2272
+  %2273 = getelementptr inbounds nuw i64, ptr %9, i64 %2272
   store i64 %.089233.i.i, ptr %2273, align 8, !tbaa !16
   %2274 = icmp slt i32 %2199, %17
   %2275 = zext i1 %2274 to i32
   %2276 = add nuw nsw i32 %.087234.i.i, %2275
   %2277 = zext nneg i32 %2276 to i64
-  %2278 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2277
+  %2278 = getelementptr inbounds nuw i64, ptr %9, i64 %2277
   store i64 %2200, ptr %2278, align 8, !tbaa !16
   %2279 = icmp slt i32 %2223, %17
   %2280 = zext i1 %2279 to i32
   %2281 = add nuw nsw i32 %2276, %2280
   %2282 = zext nneg i32 %2281 to i64
-  %2283 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2282
+  %2283 = getelementptr inbounds nuw i64, ptr %9, i64 %2282
   store i64 %2224, ptr %2283, align 8, !tbaa !16
   %2284 = icmp slt i32 %2247, %17
   %2285 = zext i1 %2284 to i32
   %2286 = add nuw nsw i32 %2281, %2285
   %2287 = zext nneg i32 %2286 to i64
-  %2288 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2287
+  %2288 = getelementptr inbounds nuw i64, ptr %9, i64 %2287
   store i64 %2248, ptr %2288, align 8, !tbaa !16
   %2289 = icmp slt i32 %2271, %17
   %2290 = zext i1 %2289 to i32
@@ -99166,7 +99166,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i6
   %2550 = load float, ptr %2128, align 8, !tbaa !178
   %2551 = load i64, ptr %2129, align 8, !tbaa !161
   %2552 = load i64, ptr %2130, align 8, !tbaa !180
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.i
+  %2553 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.i
   %2554 = load i64, ptr %2553, align 8, !tbaa !16
   %2555 = trunc i64 %2552 to i32
   %2556 = shl nuw i32 1, %2555
@@ -99530,7 +99530,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %2750 = load float, ptr %2733, align 8, !tbaa !178
   %2751 = load i64, ptr %2734, align 8, !tbaa !161
   %2752 = load i64, ptr %2735, align 8, !tbaa !180
-  %2753 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.us.i
+  %2753 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.us.i
   %2754 = load i64, ptr %2753, align 8, !tbaa !16
   %2755 = trunc i64 %2752 to i32
   %2756 = shl nuw i32 1, %2755
@@ -99787,25 +99787,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %2971 = trunc nuw nsw i64 %2970 to i32
   %2972 = add nuw nsw i32 %2966, %2971
   %2973 = zext nneg i32 %.087250.i.i to i64
-  %2974 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2973
+  %2974 = getelementptr inbounds nuw i64, ptr %8, i64 %2973
   store i64 %.089249.i.i, ptr %2974, align 8, !tbaa !16
   %2975 = icmp slt i32 %2828, %17
   %2976 = zext i1 %2975 to i32
   %2977 = add nuw nsw i32 %.087250.i.i, %2976
   %2978 = zext nneg i32 %2977 to i64
-  %2979 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2978
+  %2979 = getelementptr inbounds nuw i64, ptr %8, i64 %2978
   store i64 %2829, ptr %2979, align 8, !tbaa !16
   %2980 = icmp slt i32 %2876, %17
   %2981 = zext i1 %2980 to i32
   %2982 = add nuw nsw i32 %2977, %2981
   %2983 = zext nneg i32 %2982 to i64
-  %2984 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2983
+  %2984 = getelementptr inbounds nuw i64, ptr %8, i64 %2983
   store i64 %2877, ptr %2984, align 8, !tbaa !16
   %2985 = icmp slt i32 %2924, %17
   %2986 = zext i1 %2985 to i32
   %2987 = add nuw nsw i32 %2982, %2986
   %2988 = zext nneg i32 %2987 to i64
-  %2989 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2988
+  %2989 = getelementptr inbounds nuw i64, ptr %8, i64 %2988
   store i64 %2925, ptr %2989, align 8, !tbaa !16
   %2990 = icmp slt i32 %2972, %17
   %2991 = zext i1 %2990 to i32
@@ -100330,7 +100330,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i7
   %3251 = load float, ptr %2733, align 8, !tbaa !178
   %3252 = load i64, ptr %2734, align 8, !tbaa !161
   %3253 = load i64, ptr %2735, align 8, !tbaa !180
-  %3254 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.i
+  %3254 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.i
   %3255 = load i64, ptr %3254, align 8, !tbaa !16
   %3256 = trunc i64 %3253 to i32
   %3257 = shl nuw i32 1, %3256
@@ -100713,7 +100713,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
   %3466 = load float, ptr %3447, align 8, !tbaa !178
   %3467 = load i64, ptr %3462, align 8, !tbaa !161
   %3468 = load i64, ptr %3463, align 8, !tbaa !180
-  %3469 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.us.i
+  %3469 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.us.i
   %3470 = load i64, ptr %3469, align 8, !tbaa !16
   %3471 = trunc i64 %3468 to i32
   %3472 = shl nuw i32 1, %3471
@@ -100790,25 +100790,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %3507 = getelementptr inbounds i8, ptr %3498, i64 %3446
   %3508 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3507)
   %3509 = zext nneg i32 %.087218.i.i to i64
-  %3510 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3509
+  %3510 = getelementptr inbounds nuw i64, ptr %6, i64 %3509
   store i64 %.089217.i.i, ptr %3510, align 8, !tbaa !16
   %3511 = icmp slt i32 %3499, %17
   %3512 = zext i1 %3511 to i32
   %3513 = add nuw nsw i32 %.087218.i.i, %3512
   %3514 = zext nneg i32 %3513 to i64
-  %3515 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3514
+  %3515 = getelementptr inbounds nuw i64, ptr %6, i64 %3514
   store i64 %3500, ptr %3515, align 8, !tbaa !16
   %3516 = icmp slt i32 %3502, %17
   %3517 = zext i1 %3516 to i32
   %3518 = add nuw nsw i32 %3513, %3517
   %3519 = zext nneg i32 %3518 to i64
-  %3520 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3519
+  %3520 = getelementptr inbounds nuw i64, ptr %6, i64 %3519
   store i64 %3503, ptr %3520, align 8, !tbaa !16
   %3521 = icmp slt i32 %3505, %17
   %3522 = zext i1 %3521 to i32
   %3523 = add nuw nsw i32 %3518, %3522
   %3524 = zext nneg i32 %3523 to i64
-  %3525 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3524
+  %3525 = getelementptr inbounds nuw i64, ptr %6, i64 %3524
   store i64 %3506, ptr %3525, align 8, !tbaa !16
   %3526 = icmp slt i32 %3508, %17
   %3527 = zext i1 %3526 to i32
@@ -101335,7 +101335,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i9
   %3789 = load float, ptr %3447, align 8, !tbaa !178
   %3790 = load i64, ptr %3462, align 8, !tbaa !161
   %3791 = load i64, ptr %3463, align 8, !tbaa !180
-  %3792 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.i
+  %3792 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.i
   %3793 = load i64, ptr %3792, align 8, !tbaa !16
   %3794 = trunc i64 %3791 to i32
   %3795 = shl nuw i32 1, %3794
@@ -103158,7 +103158,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   %64 = load i64, ptr %63, align 8, !tbaa !161
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !180
-  %67 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.us.i.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.us.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !16
   %69 = trunc i64 %66 to i32
   %70 = shl nuw i32 1, %69
@@ -103231,25 +103231,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %109 = xor i32 %108, %43
   %110 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
   %111 = zext nneg i32 %.087146.i.i.i.i to i64
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %111
   store i64 %.089145.i.i.i.i, ptr %112, align 8, !tbaa !16
   %113 = icmp slt i32 %95, %36
   %114 = zext i1 %113 to i32
   %115 = add nuw nsw i32 %.087146.i.i.i.i, %114
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %14, i64 %116
   store i64 %96, ptr %117, align 8, !tbaa !16
   %118 = icmp slt i32 %100, %36
   %119 = zext i1 %118 to i32
   %120 = add nuw nsw i32 %115, %119
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i64, ptr %14, i64 %121
   store i64 %101, ptr %122, align 8, !tbaa !16
   %123 = icmp slt i32 %105, %36
   %124 = zext i1 %123 to i32
   %125 = add nuw nsw i32 %120, %124
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i64, ptr %14, i64 %126
   store i64 %106, ptr %127, align 8, !tbaa !16
   %128 = icmp slt i32 %110, %36
   %129 = zext i1 %128 to i32
@@ -103480,7 +103480,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %243 = load i64, ptr %242, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %245 = load i64, ptr %244, align 8, !tbaa !180
-  %246 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.i.i.i
+  %246 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.i.i.i
   %247 = load i64, ptr %246, align 8, !tbaa !16
   %248 = trunc i64 %245 to i32
   %249 = shl nuw i32 1, %248
@@ -103659,7 +103659,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %335 = load i64, ptr %334, align 8, !tbaa !161
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %337 = load i64, ptr %336, align 8, !tbaa !180
-  %338 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.us.i80.i.i
+  %338 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.us.i80.i.i
   %339 = load i64, ptr %338, align 8, !tbaa !16
   %340 = trunc i64 %337 to i32
   %341 = shl nuw i32 1, %340
@@ -103736,25 +103736,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %384 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %383)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = zext nneg i32 %.087146.i.i35.i.i to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %.089145.i.i36.i.i, ptr %387, align 8, !tbaa !16
   %388 = icmp sgt i32 %36, %367
   %389 = zext i1 %388 to i32
   %390 = add nuw nsw i32 %.087146.i.i35.i.i, %389
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i64, ptr %13, i64 %391
   store i64 %368, ptr %392, align 8, !tbaa !16
   %393 = icmp sgt i32 %36, %373
   %394 = zext i1 %393 to i32
   %395 = add nuw nsw i32 %390, %394
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i64, ptr %13, i64 %396
   store i64 %374, ptr %397, align 8, !tbaa !16
   %398 = icmp sgt i32 %36, %379
   %399 = zext i1 %398 to i32
   %400 = add nuw nsw i32 %395, %399
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i64, ptr %13, i64 %401
   store i64 %380, ptr %402, align 8, !tbaa !16
   %403 = icmp sgt i32 %36, %385
   %404 = zext i1 %403 to i32
@@ -103985,7 +103985,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %518 = load i64, ptr %517, align 8, !tbaa !161
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %520 = load i64, ptr %519, align 8, !tbaa !180
-  %521 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.i44.i.i
+  %521 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.i44.i.i
   %522 = load i64, ptr %521, align 8, !tbaa !16
   %523 = trunc i64 %520 to i32
   %524 = shl nuw i32 1, %523
@@ -104167,7 +104167,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %613 = load i64, ptr %612, align 8, !tbaa !161
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 32
   %615 = load i64, ptr %614, align 8, !tbaa !180
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.us.i.i.i
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.us.i.i.i
   %617 = load i64, ptr %616, align 8, !tbaa !16
   %618 = trunc i64 %615 to i32
   %619 = shl nuw i32 1, %618
@@ -104268,25 +104268,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %686 = trunc nuw nsw i64 %685 to i32
   %687 = add nuw nsw i32 %686, %681
   %688 = zext nneg i32 %.087150.i.i.i.i to i64
-  %689 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw i64, ptr %12, i64 %688
   store i64 %.089149.i.i.i.i, ptr %689, align 8, !tbaa !16
   %690 = icmp slt i32 %651, %36
   %691 = zext i1 %690 to i32
   %692 = add nuw nsw i32 %.087150.i.i.i.i, %691
   %693 = zext nneg i32 %692 to i64
-  %694 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i64, ptr %12, i64 %693
   store i64 %652, ptr %694, align 8, !tbaa !16
   %695 = icmp slt i32 %663, %36
   %696 = zext i1 %695 to i32
   %697 = add nuw nsw i32 %692, %696
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %698
+  %699 = getelementptr inbounds nuw i64, ptr %12, i64 %698
   store i64 %664, ptr %699, align 8, !tbaa !16
   %700 = icmp slt i32 %675, %36
   %701 = zext i1 %700 to i32
   %702 = add nuw nsw i32 %697, %701
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw i64, ptr %12, i64 %703
   store i64 %676, ptr %704, align 8, !tbaa !16
   %705 = icmp slt i32 %687, %36
   %706 = zext i1 %705 to i32
@@ -104517,7 +104517,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %820 = load i64, ptr %819, align 8, !tbaa !161
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 32
   %822 = load i64, ptr %821, align 8, !tbaa !180
-  %823 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.i.i.i
+  %823 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.i.i.i
   %824 = load i64, ptr %823, align 8, !tbaa !16
   %825 = trunc i64 %822 to i32
   %826 = shl nuw i32 1, %825
@@ -104707,7 +104707,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %923 = load i64, ptr %922, align 8, !tbaa !161
   %924 = getelementptr inbounds nuw i8, ptr %921, i64 32
   %925 = load i64, ptr %924, align 8, !tbaa !180
-  %926 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.us.i.i.i
+  %926 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.us.i.i.i
   %927 = load i64, ptr %926, align 8, !tbaa !16
   %928 = trunc i64 %925 to i32
   %929 = shl nuw i32 1, %928
@@ -104828,25 +104828,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
   %1018 = zext nneg i32 %.087154.i.i.i.i to i64
-  %1019 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw i64, ptr %11, i64 %1018
   store i64 %.089153.i.i.i.i, ptr %1019, align 8, !tbaa !16
   %1020 = icmp slt i32 %966, %36
   %1021 = zext i1 %1020 to i32
   %1022 = add nuw nsw i32 %.087154.i.i.i.i, %1021
   %1023 = zext nneg i32 %1022 to i64
-  %1024 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw i64, ptr %11, i64 %1023
   store i64 %967, ptr %1024, align 8, !tbaa !16
   %1025 = icmp slt i32 %983, %36
   %1026 = zext i1 %1025 to i32
   %1027 = add nuw nsw i32 %1022, %1026
   %1028 = zext nneg i32 %1027 to i64
-  %1029 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1028
+  %1029 = getelementptr inbounds nuw i64, ptr %11, i64 %1028
   store i64 %984, ptr %1029, align 8, !tbaa !16
   %1030 = icmp slt i32 %1000, %36
   %1031 = zext i1 %1030 to i32
   %1032 = add nuw nsw i32 %1027, %1031
   %1033 = zext nneg i32 %1032 to i64
-  %1034 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1033
+  %1034 = getelementptr inbounds nuw i64, ptr %11, i64 %1033
   store i64 %1001, ptr %1034, align 8, !tbaa !16
   %1035 = icmp slt i32 %1017, %36
   %1036 = zext i1 %1035 to i32
@@ -105077,7 +105077,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1150 = load i64, ptr %1149, align 8, !tbaa !161
   %1151 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1152 = load i64, ptr %1151, align 8, !tbaa !180
-  %1153 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.i.i.i
+  %1153 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.i.i.i
   %1154 = load i64, ptr %1153, align 8, !tbaa !16
   %1155 = trunc i64 %1152 to i32
   %1156 = shl nuw i32 1, %1155
@@ -105274,7 +105274,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1260 = load i64, ptr %1259, align 8, !tbaa !161
   %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1262 = load i64, ptr %1261, align 8, !tbaa !180
-  %1263 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.us.i.i.i
+  %1263 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.us.i.i.i
   %1264 = load i64, ptr %1263, align 8, !tbaa !16
   %1265 = trunc i64 %1262 to i32
   %1266 = shl nuw i32 1, %1265
@@ -105423,25 +105423,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1381 = trunc nuw nsw i64 %1380 to i32
   %1382 = add nuw nsw i32 %1376, %1381
   %1383 = zext nneg i32 %.087158.i.i.i.i to i64
-  %1384 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1383
+  %1384 = getelementptr inbounds nuw i64, ptr %10, i64 %1383
   store i64 %.089157.i.i.i.i, ptr %1384, align 8, !tbaa !16
   %1385 = icmp slt i32 %1310, %36
   %1386 = zext i1 %1385 to i32
   %1387 = add nuw nsw i32 %.087158.i.i.i.i, %1386
   %1388 = zext nneg i32 %1387 to i64
-  %1389 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1388
+  %1389 = getelementptr inbounds nuw i64, ptr %10, i64 %1388
   store i64 %1311, ptr %1389, align 8, !tbaa !16
   %1390 = icmp slt i32 %1334, %36
   %1391 = zext i1 %1390 to i32
   %1392 = add nuw nsw i32 %1387, %1391
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1393
+  %1394 = getelementptr inbounds nuw i64, ptr %10, i64 %1393
   store i64 %1335, ptr %1394, align 8, !tbaa !16
   %1395 = icmp slt i32 %1358, %36
   %1396 = zext i1 %1395 to i32
   %1397 = add nuw nsw i32 %1392, %1396
   %1398 = zext nneg i32 %1397 to i64
-  %1399 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1398
+  %1399 = getelementptr inbounds nuw i64, ptr %10, i64 %1398
   store i64 %1359, ptr %1399, align 8, !tbaa !16
   %1400 = icmp slt i32 %1382, %36
   %1401 = zext i1 %1400 to i32
@@ -105672,7 +105672,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1515 = load i64, ptr %1514, align 8, !tbaa !161
   %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 32
   %1517 = load i64, ptr %1516, align 8, !tbaa !180
-  %1518 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.i.i.i
+  %1518 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.i.i.i
   %1519 = load i64, ptr %1518, align 8, !tbaa !16
   %1520 = trunc i64 %1517 to i32
   %1521 = shl nuw i32 1, %1520
@@ -105884,7 +105884,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1640 = load i64, ptr %1639, align 8, !tbaa !161
   %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 32
   %1642 = load i64, ptr %1641, align 8, !tbaa !180
-  %1643 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.us.i.i.i
+  %1643 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.us.i.i.i
   %1644 = load i64, ptr %1643, align 8, !tbaa !16
   %1645 = trunc i64 %1642 to i32
   %1646 = shl nuw i32 1, %1645
@@ -106129,25 +106129,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1857 = trunc nuw nsw i64 %1856 to i32
   %1858 = add nuw nsw i32 %1852, %1857
   %1859 = zext nneg i32 %.087174.i.i.i.i to i64
-  %1860 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1859
+  %1860 = getelementptr inbounds nuw i64, ptr %9, i64 %1859
   store i64 %.089173.i.i.i.i, ptr %1860, align 8, !tbaa !16
   %1861 = icmp slt i32 %1714, %36
   %1862 = zext i1 %1861 to i32
   %1863 = add nuw nsw i32 %.087174.i.i.i.i, %1862
   %1864 = zext nneg i32 %1863 to i64
-  %1865 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1864
+  %1865 = getelementptr inbounds nuw i64, ptr %9, i64 %1864
   store i64 %1715, ptr %1865, align 8, !tbaa !16
   %1866 = icmp slt i32 %1762, %36
   %1867 = zext i1 %1866 to i32
   %1868 = add nuw nsw i32 %1863, %1867
   %1869 = zext nneg i32 %1868 to i64
-  %1870 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1869
+  %1870 = getelementptr inbounds nuw i64, ptr %9, i64 %1869
   store i64 %1763, ptr %1870, align 8, !tbaa !16
   %1871 = icmp slt i32 %1810, %36
   %1872 = zext i1 %1871 to i32
   %1873 = add nuw nsw i32 %1868, %1872
   %1874 = zext nneg i32 %1873 to i64
-  %1875 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1874
+  %1875 = getelementptr inbounds nuw i64, ptr %9, i64 %1874
   store i64 %1811, ptr %1875, align 8, !tbaa !16
   %1876 = icmp slt i32 %1858, %36
   %1877 = zext i1 %1876 to i32
@@ -106378,7 +106378,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1991 = load i64, ptr %1990, align 8, !tbaa !161
   %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 32
   %1993 = load i64, ptr %1992, align 8, !tbaa !180
-  %1994 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.i.i.i
+  %1994 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.i.i.i
   %1995 = load i64, ptr %1994, align 8, !tbaa !16
   %1996 = trunc i64 %1993 to i32
   %1997 = shl nuw i32 1, %1996
@@ -106607,7 +106607,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2129 = load i64, ptr %2128, align 8, !tbaa !161
   %2130 = getelementptr inbounds nuw i8, ptr %2127, i64 32
   %2131 = load i64, ptr %2130, align 8, !tbaa !180
-  %2132 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.us.i.i.i
+  %2132 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.us.i.i.i
   %2133 = load i64, ptr %2132, align 8, !tbaa !16
   %2134 = trunc i64 %2131 to i32
   %2135 = shl nuw i32 1, %2134
@@ -106672,25 +106672,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %2166 = getelementptr inbounds i8, ptr %2157, i64 %2114
   %2167 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %2166)
   %2168 = zext nneg i32 %.087142.i.i.i.i to i64
-  %2169 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2168
+  %2169 = getelementptr inbounds nuw i64, ptr %7, i64 %2168
   store i64 %.089141.i.i.i.i, ptr %2169, align 8, !tbaa !16
   %2170 = icmp slt i32 %2158, %36
   %2171 = zext i1 %2170 to i32
   %2172 = add nuw nsw i32 %.087142.i.i.i.i, %2171
   %2173 = zext nneg i32 %2172 to i64
-  %2174 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2173
+  %2174 = getelementptr inbounds nuw i64, ptr %7, i64 %2173
   store i64 %2159, ptr %2174, align 8, !tbaa !16
   %2175 = icmp slt i32 %2161, %36
   %2176 = zext i1 %2175 to i32
   %2177 = add nuw nsw i32 %2172, %2176
   %2178 = zext nneg i32 %2177 to i64
-  %2179 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2178
+  %2179 = getelementptr inbounds nuw i64, ptr %7, i64 %2178
   store i64 %2162, ptr %2179, align 8, !tbaa !16
   %2180 = icmp slt i32 %2164, %36
   %2181 = zext i1 %2180 to i32
   %2182 = add nuw nsw i32 %2177, %2181
   %2183 = zext nneg i32 %2182 to i64
-  %2184 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2183
+  %2184 = getelementptr inbounds nuw i64, ptr %7, i64 %2183
   store i64 %2165, ptr %2184, align 8, !tbaa !16
   %2185 = icmp slt i32 %2167, %36
   %2186 = zext i1 %2185 to i32
@@ -106921,7 +106921,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2300 = load i64, ptr %2299, align 8, !tbaa !161
   %2301 = getelementptr inbounds nuw i8, ptr %2298, i64 32
   %2302 = load i64, ptr %2301, align 8, !tbaa !180
-  %2303 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.i.i.i
+  %2303 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.i.i.i
   %2304 = load i64, ptr %2303, align 8, !tbaa !16
   %2305 = trunc i64 %2302 to i32
   %2306 = shl nuw i32 1, %2305
@@ -107875,7 +107875,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %49 = load float, ptr %32, align 8, !tbaa !713
   %50 = load i64, ptr %33, align 8, !tbaa !161
   %51 = load i64, ptr %34, align 8, !tbaa !180
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.us.i
+  %52 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.us.i
   %53 = load i64, ptr %52, align 8, !tbaa !16
   %54 = trunc i64 %51 to i32
   %55 = shl nuw i32 1, %54
@@ -107960,25 +107960,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %98 = xor i32 %97, %25
   %99 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087222.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %13, i64 %100
   store i64 %.089221.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %17
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087222.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %13, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %17
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %13, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %17
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %13, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %17
   %118 = zext i1 %117 to i32
@@ -108503,7 +108503,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i:
   %378 = load float, ptr %32, align 8, !tbaa !713
   %379 = load i64, ptr %33, align 8, !tbaa !161
   %380 = load i64, ptr %34, align 8, !tbaa !180
-  %381 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.i
+  %381 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.i
   %382 = load i64, ptr %381, align 8, !tbaa !16
   %383 = trunc i64 %380 to i32
   %384 = shl nuw i32 1, %383
@@ -108834,7 +108834,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %545 = load float, ptr %528, align 8, !tbaa !713
   %546 = load i64, ptr %529, align 8, !tbaa !161
   %547 = load i64, ptr %530, align 8, !tbaa !180
-  %548 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.us.i112
+  %548 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.us.i112
   %549 = load i64, ptr %548, align 8, !tbaa !16
   %550 = trunc i64 %547 to i32
   %551 = shl nuw i32 1, %550
@@ -108923,25 +108923,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %598 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %597)
   %599 = trunc nuw nsw i64 %598 to i32
   %600 = zext nneg i32 %.087222.i.i37 to i64
-  %601 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw i64, ptr %12, i64 %600
   store i64 %.089221.i.i38, ptr %601, align 8, !tbaa !16
   %602 = icmp sgt i32 %17, %581
   %603 = zext i1 %602 to i32
   %604 = add nuw nsw i32 %.087222.i.i37, %603
   %605 = zext nneg i32 %604 to i64
-  %606 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %605
+  %606 = getelementptr inbounds nuw i64, ptr %12, i64 %605
   store i64 %582, ptr %606, align 8, !tbaa !16
   %607 = icmp sgt i32 %17, %587
   %608 = zext i1 %607 to i32
   %609 = add nuw nsw i32 %604, %608
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i64, ptr %12, i64 %610
   store i64 %588, ptr %611, align 8, !tbaa !16
   %612 = icmp sgt i32 %17, %593
   %613 = zext i1 %612 to i32
   %614 = add nuw nsw i32 %609, %613
   %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %615
   store i64 %594, ptr %616, align 8, !tbaa !16
   %617 = icmp sgt i32 %17, %599
   %618 = zext i1 %617 to i32
@@ -109466,7 +109466,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i1
   %878 = load float, ptr %528, align 8, !tbaa !713
   %879 = load i64, ptr %529, align 8, !tbaa !161
   %880 = load i64, ptr %530, align 8, !tbaa !180
-  %881 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.i47
+  %881 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.i47
   %882 = load i64, ptr %881, align 8, !tbaa !16
   %883 = trunc i64 %880 to i32
   %884 = shl nuw i32 1, %883
@@ -109800,7 +109800,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1048 = load float, ptr %1031, align 8, !tbaa !713
   %1049 = load i64, ptr %1032, align 8, !tbaa !161
   %1050 = load i64, ptr %1033, align 8, !tbaa !180
-  %1051 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.us.i
+  %1051 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.us.i
   %1052 = load i64, ptr %1051, align 8, !tbaa !16
   %1053 = trunc i64 %1050 to i32
   %1054 = shl nuw i32 1, %1053
@@ -109913,25 +109913,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1125 = trunc nuw nsw i64 %1124 to i32
   %1126 = add nuw nsw i32 %1125, %1120
   %1127 = zext nneg i32 %.087226.i.i to i64
-  %1128 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw i64, ptr %11, i64 %1127
   store i64 %.089225.i.i, ptr %1128, align 8, !tbaa !16
   %1129 = icmp slt i32 %1090, %17
   %1130 = zext i1 %1129 to i32
   %1131 = add nuw nsw i32 %.087226.i.i, %1130
   %1132 = zext nneg i32 %1131 to i64
-  %1133 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw i64, ptr %11, i64 %1132
   store i64 %1091, ptr %1133, align 8, !tbaa !16
   %1134 = icmp slt i32 %1102, %17
   %1135 = zext i1 %1134 to i32
   %1136 = add nuw nsw i32 %1131, %1135
   %1137 = zext nneg i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1137
+  %1138 = getelementptr inbounds nuw i64, ptr %11, i64 %1137
   store i64 %1103, ptr %1138, align 8, !tbaa !16
   %1139 = icmp slt i32 %1114, %17
   %1140 = zext i1 %1139 to i32
   %1141 = add nuw nsw i32 %1136, %1140
   %1142 = zext nneg i32 %1141 to i64
-  %1143 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1142
+  %1143 = getelementptr inbounds nuw i64, ptr %11, i64 %1142
   store i64 %1115, ptr %1143, align 8, !tbaa !16
   %1144 = icmp slt i32 %1126, %17
   %1145 = zext i1 %1144 to i32
@@ -110456,7 +110456,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i3
   %1405 = load float, ptr %1031, align 8, !tbaa !713
   %1406 = load i64, ptr %1032, align 8, !tbaa !161
   %1407 = load i64, ptr %1033, align 8, !tbaa !180
-  %1408 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.i
+  %1408 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.i
   %1409 = load i64, ptr %1408, align 8, !tbaa !16
   %1410 = trunc i64 %1407 to i32
   %1411 = shl nuw i32 1, %1410
@@ -110798,7 +110798,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %1583 = load float, ptr %1566, align 8, !tbaa !713
   %1584 = load i64, ptr %1567, align 8, !tbaa !161
   %1585 = load i64, ptr %1568, align 8, !tbaa !180
-  %1586 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.us.i
+  %1586 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.us.i
   %1587 = load i64, ptr %1586, align 8, !tbaa !16
   %1588 = trunc i64 %1585 to i32
   %1589 = shl nuw i32 1, %1588
@@ -110931,25 +110931,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
   %1682 = zext nneg i32 %.087230.i.i to i64
-  %1683 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1682
+  %1683 = getelementptr inbounds nuw i64, ptr %10, i64 %1682
   store i64 %.089229.i.i, ptr %1683, align 8, !tbaa !16
   %1684 = icmp slt i32 %1630, %17
   %1685 = zext i1 %1684 to i32
   %1686 = add nuw nsw i32 %.087230.i.i, %1685
   %1687 = zext nneg i32 %1686 to i64
-  %1688 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1687
+  %1688 = getelementptr inbounds nuw i64, ptr %10, i64 %1687
   store i64 %1631, ptr %1688, align 8, !tbaa !16
   %1689 = icmp slt i32 %1647, %17
   %1690 = zext i1 %1689 to i32
   %1691 = add nuw nsw i32 %1686, %1690
   %1692 = zext nneg i32 %1691 to i64
-  %1693 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1692
+  %1693 = getelementptr inbounds nuw i64, ptr %10, i64 %1692
   store i64 %1648, ptr %1693, align 8, !tbaa !16
   %1694 = icmp slt i32 %1664, %17
   %1695 = zext i1 %1694 to i32
   %1696 = add nuw nsw i32 %1691, %1695
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1697
+  %1698 = getelementptr inbounds nuw i64, ptr %10, i64 %1697
   store i64 %1665, ptr %1698, align 8, !tbaa !16
   %1699 = icmp slt i32 %1681, %17
   %1700 = zext i1 %1699 to i32
@@ -111474,7 +111474,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i4
   %1960 = load float, ptr %1566, align 8, !tbaa !713
   %1961 = load i64, ptr %1567, align 8, !tbaa !161
   %1962 = load i64, ptr %1568, align 8, !tbaa !180
-  %1963 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.i
+  %1963 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.i
   %1964 = load i64, ptr %1963, align 8, !tbaa !16
   %1965 = trunc i64 %1962 to i32
   %1966 = shl nuw i32 1, %1965
@@ -111823,7 +111823,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2145 = load float, ptr %2128, align 8, !tbaa !713
   %2146 = load i64, ptr %2129, align 8, !tbaa !161
   %2147 = load i64, ptr %2130, align 8, !tbaa !180
-  %2148 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.us.i
+  %2148 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.us.i
   %2149 = load i64, ptr %2148, align 8, !tbaa !16
   %2150 = trunc i64 %2147 to i32
   %2151 = shl nuw i32 1, %2150
@@ -111984,25 +111984,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %2270 = trunc nuw nsw i64 %2269 to i32
   %2271 = add nuw nsw i32 %2265, %2270
   %2272 = zext nneg i32 %.087234.i.i to i64
-  %2273 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2272
+  %2273 = getelementptr inbounds nuw i64, ptr %9, i64 %2272
   store i64 %.089233.i.i, ptr %2273, align 8, !tbaa !16
   %2274 = icmp slt i32 %2199, %17
   %2275 = zext i1 %2274 to i32
   %2276 = add nuw nsw i32 %.087234.i.i, %2275
   %2277 = zext nneg i32 %2276 to i64
-  %2278 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2277
+  %2278 = getelementptr inbounds nuw i64, ptr %9, i64 %2277
   store i64 %2200, ptr %2278, align 8, !tbaa !16
   %2279 = icmp slt i32 %2223, %17
   %2280 = zext i1 %2279 to i32
   %2281 = add nuw nsw i32 %2276, %2280
   %2282 = zext nneg i32 %2281 to i64
-  %2283 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2282
+  %2283 = getelementptr inbounds nuw i64, ptr %9, i64 %2282
   store i64 %2224, ptr %2283, align 8, !tbaa !16
   %2284 = icmp slt i32 %2247, %17
   %2285 = zext i1 %2284 to i32
   %2286 = add nuw nsw i32 %2281, %2285
   %2287 = zext nneg i32 %2286 to i64
-  %2288 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2287
+  %2288 = getelementptr inbounds nuw i64, ptr %9, i64 %2287
   store i64 %2248, ptr %2288, align 8, !tbaa !16
   %2289 = icmp slt i32 %2271, %17
   %2290 = zext i1 %2289 to i32
@@ -112527,7 +112527,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i6
   %2550 = load float, ptr %2128, align 8, !tbaa !713
   %2551 = load i64, ptr %2129, align 8, !tbaa !161
   %2552 = load i64, ptr %2130, align 8, !tbaa !180
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.i
+  %2553 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.i
   %2554 = load i64, ptr %2553, align 8, !tbaa !16
   %2555 = trunc i64 %2552 to i32
   %2556 = shl nuw i32 1, %2555
@@ -112891,7 +112891,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %2750 = load float, ptr %2733, align 8, !tbaa !713
   %2751 = load i64, ptr %2734, align 8, !tbaa !161
   %2752 = load i64, ptr %2735, align 8, !tbaa !180
-  %2753 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.us.i
+  %2753 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.us.i
   %2754 = load i64, ptr %2753, align 8, !tbaa !16
   %2755 = trunc i64 %2752 to i32
   %2756 = shl nuw i32 1, %2755
@@ -113148,25 +113148,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %2971 = trunc nuw nsw i64 %2970 to i32
   %2972 = add nuw nsw i32 %2966, %2971
   %2973 = zext nneg i32 %.087250.i.i to i64
-  %2974 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2973
+  %2974 = getelementptr inbounds nuw i64, ptr %8, i64 %2973
   store i64 %.089249.i.i, ptr %2974, align 8, !tbaa !16
   %2975 = icmp slt i32 %2828, %17
   %2976 = zext i1 %2975 to i32
   %2977 = add nuw nsw i32 %.087250.i.i, %2976
   %2978 = zext nneg i32 %2977 to i64
-  %2979 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2978
+  %2979 = getelementptr inbounds nuw i64, ptr %8, i64 %2978
   store i64 %2829, ptr %2979, align 8, !tbaa !16
   %2980 = icmp slt i32 %2876, %17
   %2981 = zext i1 %2980 to i32
   %2982 = add nuw nsw i32 %2977, %2981
   %2983 = zext nneg i32 %2982 to i64
-  %2984 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2983
+  %2984 = getelementptr inbounds nuw i64, ptr %8, i64 %2983
   store i64 %2877, ptr %2984, align 8, !tbaa !16
   %2985 = icmp slt i32 %2924, %17
   %2986 = zext i1 %2985 to i32
   %2987 = add nuw nsw i32 %2982, %2986
   %2988 = zext nneg i32 %2987 to i64
-  %2989 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2988
+  %2989 = getelementptr inbounds nuw i64, ptr %8, i64 %2988
   store i64 %2925, ptr %2989, align 8, !tbaa !16
   %2990 = icmp slt i32 %2972, %17
   %2991 = zext i1 %2990 to i32
@@ -113691,7 +113691,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i7
   %3251 = load float, ptr %2733, align 8, !tbaa !713
   %3252 = load i64, ptr %2734, align 8, !tbaa !161
   %3253 = load i64, ptr %2735, align 8, !tbaa !180
-  %3254 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.i
+  %3254 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.i
   %3255 = load i64, ptr %3254, align 8, !tbaa !16
   %3256 = trunc i64 %3253 to i32
   %3257 = shl nuw i32 1, %3256
@@ -114074,7 +114074,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
   %3466 = load float, ptr %3447, align 8, !tbaa !713
   %3467 = load i64, ptr %3462, align 8, !tbaa !161
   %3468 = load i64, ptr %3463, align 8, !tbaa !180
-  %3469 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.us.i
+  %3469 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.us.i
   %3470 = load i64, ptr %3469, align 8, !tbaa !16
   %3471 = trunc i64 %3468 to i32
   %3472 = shl nuw i32 1, %3471
@@ -114151,25 +114151,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %3507 = getelementptr inbounds i8, ptr %3498, i64 %3446
   %3508 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3507)
   %3509 = zext nneg i32 %.087218.i.i to i64
-  %3510 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3509
+  %3510 = getelementptr inbounds nuw i64, ptr %6, i64 %3509
   store i64 %.089217.i.i, ptr %3510, align 8, !tbaa !16
   %3511 = icmp slt i32 %3499, %17
   %3512 = zext i1 %3511 to i32
   %3513 = add nuw nsw i32 %.087218.i.i, %3512
   %3514 = zext nneg i32 %3513 to i64
-  %3515 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3514
+  %3515 = getelementptr inbounds nuw i64, ptr %6, i64 %3514
   store i64 %3500, ptr %3515, align 8, !tbaa !16
   %3516 = icmp slt i32 %3502, %17
   %3517 = zext i1 %3516 to i32
   %3518 = add nuw nsw i32 %3513, %3517
   %3519 = zext nneg i32 %3518 to i64
-  %3520 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3519
+  %3520 = getelementptr inbounds nuw i64, ptr %6, i64 %3519
   store i64 %3503, ptr %3520, align 8, !tbaa !16
   %3521 = icmp slt i32 %3505, %17
   %3522 = zext i1 %3521 to i32
   %3523 = add nuw nsw i32 %3518, %3522
   %3524 = zext nneg i32 %3523 to i64
-  %3525 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3524
+  %3525 = getelementptr inbounds nuw i64, ptr %6, i64 %3524
   store i64 %3506, ptr %3525, align 8, !tbaa !16
   %3526 = icmp slt i32 %3508, %17
   %3527 = zext i1 %3526 to i32
@@ -114696,7 +114696,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i9
   %3789 = load float, ptr %3447, align 8, !tbaa !713
   %3790 = load i64, ptr %3462, align 8, !tbaa !161
   %3791 = load i64, ptr %3463, align 8, !tbaa !180
-  %3792 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.i
+  %3792 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.i
   %3793 = load i64, ptr %3792, align 8, !tbaa !16
   %3794 = trunc i64 %3791 to i32
   %3795 = shl nuw i32 1, %3794
@@ -116522,7 +116522,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   %64 = load i64, ptr %63, align 8, !tbaa !161
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !180
-  %67 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.us.i.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.us.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !16
   %69 = trunc i64 %66 to i32
   %70 = shl nuw i32 1, %69
@@ -116595,25 +116595,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %109 = xor i32 %108, %43
   %110 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
   %111 = zext nneg i32 %.087146.i.i.i.i to i64
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %111
   store i64 %.089145.i.i.i.i, ptr %112, align 8, !tbaa !16
   %113 = icmp slt i32 %95, %36
   %114 = zext i1 %113 to i32
   %115 = add nuw nsw i32 %.087146.i.i.i.i, %114
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %14, i64 %116
   store i64 %96, ptr %117, align 8, !tbaa !16
   %118 = icmp slt i32 %100, %36
   %119 = zext i1 %118 to i32
   %120 = add nuw nsw i32 %115, %119
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i64, ptr %14, i64 %121
   store i64 %101, ptr %122, align 8, !tbaa !16
   %123 = icmp slt i32 %105, %36
   %124 = zext i1 %123 to i32
   %125 = add nuw nsw i32 %120, %124
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i64, ptr %14, i64 %126
   store i64 %106, ptr %127, align 8, !tbaa !16
   %128 = icmp slt i32 %110, %36
   %129 = zext i1 %128 to i32
@@ -116844,7 +116844,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %243 = load i64, ptr %242, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %245 = load i64, ptr %244, align 8, !tbaa !180
-  %246 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.i.i.i
+  %246 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.i.i.i
   %247 = load i64, ptr %246, align 8, !tbaa !16
   %248 = trunc i64 %245 to i32
   %249 = shl nuw i32 1, %248
@@ -117023,7 +117023,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %335 = load i64, ptr %334, align 8, !tbaa !161
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %337 = load i64, ptr %336, align 8, !tbaa !180
-  %338 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.us.i80.i.i
+  %338 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.us.i80.i.i
   %339 = load i64, ptr %338, align 8, !tbaa !16
   %340 = trunc i64 %337 to i32
   %341 = shl nuw i32 1, %340
@@ -117100,25 +117100,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %384 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %383)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = zext nneg i32 %.087146.i.i35.i.i to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %.089145.i.i36.i.i, ptr %387, align 8, !tbaa !16
   %388 = icmp sgt i32 %36, %367
   %389 = zext i1 %388 to i32
   %390 = add nuw nsw i32 %.087146.i.i35.i.i, %389
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i64, ptr %13, i64 %391
   store i64 %368, ptr %392, align 8, !tbaa !16
   %393 = icmp sgt i32 %36, %373
   %394 = zext i1 %393 to i32
   %395 = add nuw nsw i32 %390, %394
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i64, ptr %13, i64 %396
   store i64 %374, ptr %397, align 8, !tbaa !16
   %398 = icmp sgt i32 %36, %379
   %399 = zext i1 %398 to i32
   %400 = add nuw nsw i32 %395, %399
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i64, ptr %13, i64 %401
   store i64 %380, ptr %402, align 8, !tbaa !16
   %403 = icmp sgt i32 %36, %385
   %404 = zext i1 %403 to i32
@@ -117349,7 +117349,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %518 = load i64, ptr %517, align 8, !tbaa !161
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %520 = load i64, ptr %519, align 8, !tbaa !180
-  %521 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.i44.i.i
+  %521 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.i44.i.i
   %522 = load i64, ptr %521, align 8, !tbaa !16
   %523 = trunc i64 %520 to i32
   %524 = shl nuw i32 1, %523
@@ -117531,7 +117531,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %613 = load i64, ptr %612, align 8, !tbaa !161
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 32
   %615 = load i64, ptr %614, align 8, !tbaa !180
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.us.i.i.i
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.us.i.i.i
   %617 = load i64, ptr %616, align 8, !tbaa !16
   %618 = trunc i64 %615 to i32
   %619 = shl nuw i32 1, %618
@@ -117632,25 +117632,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %686 = trunc nuw nsw i64 %685 to i32
   %687 = add nuw nsw i32 %686, %681
   %688 = zext nneg i32 %.087150.i.i.i.i to i64
-  %689 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw i64, ptr %12, i64 %688
   store i64 %.089149.i.i.i.i, ptr %689, align 8, !tbaa !16
   %690 = icmp slt i32 %651, %36
   %691 = zext i1 %690 to i32
   %692 = add nuw nsw i32 %.087150.i.i.i.i, %691
   %693 = zext nneg i32 %692 to i64
-  %694 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i64, ptr %12, i64 %693
   store i64 %652, ptr %694, align 8, !tbaa !16
   %695 = icmp slt i32 %663, %36
   %696 = zext i1 %695 to i32
   %697 = add nuw nsw i32 %692, %696
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %698
+  %699 = getelementptr inbounds nuw i64, ptr %12, i64 %698
   store i64 %664, ptr %699, align 8, !tbaa !16
   %700 = icmp slt i32 %675, %36
   %701 = zext i1 %700 to i32
   %702 = add nuw nsw i32 %697, %701
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw i64, ptr %12, i64 %703
   store i64 %676, ptr %704, align 8, !tbaa !16
   %705 = icmp slt i32 %687, %36
   %706 = zext i1 %705 to i32
@@ -117881,7 +117881,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %820 = load i64, ptr %819, align 8, !tbaa !161
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 32
   %822 = load i64, ptr %821, align 8, !tbaa !180
-  %823 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.i.i.i
+  %823 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.i.i.i
   %824 = load i64, ptr %823, align 8, !tbaa !16
   %825 = trunc i64 %822 to i32
   %826 = shl nuw i32 1, %825
@@ -118071,7 +118071,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %923 = load i64, ptr %922, align 8, !tbaa !161
   %924 = getelementptr inbounds nuw i8, ptr %921, i64 32
   %925 = load i64, ptr %924, align 8, !tbaa !180
-  %926 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.us.i.i.i
+  %926 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.us.i.i.i
   %927 = load i64, ptr %926, align 8, !tbaa !16
   %928 = trunc i64 %925 to i32
   %929 = shl nuw i32 1, %928
@@ -118192,25 +118192,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
   %1018 = zext nneg i32 %.087154.i.i.i.i to i64
-  %1019 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw i64, ptr %11, i64 %1018
   store i64 %.089153.i.i.i.i, ptr %1019, align 8, !tbaa !16
   %1020 = icmp slt i32 %966, %36
   %1021 = zext i1 %1020 to i32
   %1022 = add nuw nsw i32 %.087154.i.i.i.i, %1021
   %1023 = zext nneg i32 %1022 to i64
-  %1024 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw i64, ptr %11, i64 %1023
   store i64 %967, ptr %1024, align 8, !tbaa !16
   %1025 = icmp slt i32 %983, %36
   %1026 = zext i1 %1025 to i32
   %1027 = add nuw nsw i32 %1022, %1026
   %1028 = zext nneg i32 %1027 to i64
-  %1029 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1028
+  %1029 = getelementptr inbounds nuw i64, ptr %11, i64 %1028
   store i64 %984, ptr %1029, align 8, !tbaa !16
   %1030 = icmp slt i32 %1000, %36
   %1031 = zext i1 %1030 to i32
   %1032 = add nuw nsw i32 %1027, %1031
   %1033 = zext nneg i32 %1032 to i64
-  %1034 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1033
+  %1034 = getelementptr inbounds nuw i64, ptr %11, i64 %1033
   store i64 %1001, ptr %1034, align 8, !tbaa !16
   %1035 = icmp slt i32 %1017, %36
   %1036 = zext i1 %1035 to i32
@@ -118441,7 +118441,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1150 = load i64, ptr %1149, align 8, !tbaa !161
   %1151 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1152 = load i64, ptr %1151, align 8, !tbaa !180
-  %1153 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.i.i.i
+  %1153 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.i.i.i
   %1154 = load i64, ptr %1153, align 8, !tbaa !16
   %1155 = trunc i64 %1152 to i32
   %1156 = shl nuw i32 1, %1155
@@ -118638,7 +118638,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1260 = load i64, ptr %1259, align 8, !tbaa !161
   %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1262 = load i64, ptr %1261, align 8, !tbaa !180
-  %1263 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.us.i.i.i
+  %1263 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.us.i.i.i
   %1264 = load i64, ptr %1263, align 8, !tbaa !16
   %1265 = trunc i64 %1262 to i32
   %1266 = shl nuw i32 1, %1265
@@ -118787,25 +118787,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1381 = trunc nuw nsw i64 %1380 to i32
   %1382 = add nuw nsw i32 %1376, %1381
   %1383 = zext nneg i32 %.087158.i.i.i.i to i64
-  %1384 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1383
+  %1384 = getelementptr inbounds nuw i64, ptr %10, i64 %1383
   store i64 %.089157.i.i.i.i, ptr %1384, align 8, !tbaa !16
   %1385 = icmp slt i32 %1310, %36
   %1386 = zext i1 %1385 to i32
   %1387 = add nuw nsw i32 %.087158.i.i.i.i, %1386
   %1388 = zext nneg i32 %1387 to i64
-  %1389 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1388
+  %1389 = getelementptr inbounds nuw i64, ptr %10, i64 %1388
   store i64 %1311, ptr %1389, align 8, !tbaa !16
   %1390 = icmp slt i32 %1334, %36
   %1391 = zext i1 %1390 to i32
   %1392 = add nuw nsw i32 %1387, %1391
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1393
+  %1394 = getelementptr inbounds nuw i64, ptr %10, i64 %1393
   store i64 %1335, ptr %1394, align 8, !tbaa !16
   %1395 = icmp slt i32 %1358, %36
   %1396 = zext i1 %1395 to i32
   %1397 = add nuw nsw i32 %1392, %1396
   %1398 = zext nneg i32 %1397 to i64
-  %1399 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1398
+  %1399 = getelementptr inbounds nuw i64, ptr %10, i64 %1398
   store i64 %1359, ptr %1399, align 8, !tbaa !16
   %1400 = icmp slt i32 %1382, %36
   %1401 = zext i1 %1400 to i32
@@ -119036,7 +119036,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1515 = load i64, ptr %1514, align 8, !tbaa !161
   %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 32
   %1517 = load i64, ptr %1516, align 8, !tbaa !180
-  %1518 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.i.i.i
+  %1518 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.i.i.i
   %1519 = load i64, ptr %1518, align 8, !tbaa !16
   %1520 = trunc i64 %1517 to i32
   %1521 = shl nuw i32 1, %1520
@@ -119248,7 +119248,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1640 = load i64, ptr %1639, align 8, !tbaa !161
   %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 32
   %1642 = load i64, ptr %1641, align 8, !tbaa !180
-  %1643 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.us.i.i.i
+  %1643 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.us.i.i.i
   %1644 = load i64, ptr %1643, align 8, !tbaa !16
   %1645 = trunc i64 %1642 to i32
   %1646 = shl nuw i32 1, %1645
@@ -119493,25 +119493,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %1857 = trunc nuw nsw i64 %1856 to i32
   %1858 = add nuw nsw i32 %1852, %1857
   %1859 = zext nneg i32 %.087174.i.i.i.i to i64
-  %1860 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1859
+  %1860 = getelementptr inbounds nuw i64, ptr %9, i64 %1859
   store i64 %.089173.i.i.i.i, ptr %1860, align 8, !tbaa !16
   %1861 = icmp slt i32 %1714, %36
   %1862 = zext i1 %1861 to i32
   %1863 = add nuw nsw i32 %.087174.i.i.i.i, %1862
   %1864 = zext nneg i32 %1863 to i64
-  %1865 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1864
+  %1865 = getelementptr inbounds nuw i64, ptr %9, i64 %1864
   store i64 %1715, ptr %1865, align 8, !tbaa !16
   %1866 = icmp slt i32 %1762, %36
   %1867 = zext i1 %1866 to i32
   %1868 = add nuw nsw i32 %1863, %1867
   %1869 = zext nneg i32 %1868 to i64
-  %1870 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1869
+  %1870 = getelementptr inbounds nuw i64, ptr %9, i64 %1869
   store i64 %1763, ptr %1870, align 8, !tbaa !16
   %1871 = icmp slt i32 %1810, %36
   %1872 = zext i1 %1871 to i32
   %1873 = add nuw nsw i32 %1868, %1872
   %1874 = zext nneg i32 %1873 to i64
-  %1875 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1874
+  %1875 = getelementptr inbounds nuw i64, ptr %9, i64 %1874
   store i64 %1811, ptr %1875, align 8, !tbaa !16
   %1876 = icmp slt i32 %1858, %36
   %1877 = zext i1 %1876 to i32
@@ -119742,7 +119742,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1991 = load i64, ptr %1990, align 8, !tbaa !161
   %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 32
   %1993 = load i64, ptr %1992, align 8, !tbaa !180
-  %1994 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.i.i.i
+  %1994 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.i.i.i
   %1995 = load i64, ptr %1994, align 8, !tbaa !16
   %1996 = trunc i64 %1993 to i32
   %1997 = shl nuw i32 1, %1996
@@ -119971,7 +119971,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2129 = load i64, ptr %2128, align 8, !tbaa !161
   %2130 = getelementptr inbounds nuw i8, ptr %2127, i64 32
   %2131 = load i64, ptr %2130, align 8, !tbaa !180
-  %2132 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.us.i.i.i
+  %2132 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.us.i.i.i
   %2133 = load i64, ptr %2132, align 8, !tbaa !16
   %2134 = trunc i64 %2131 to i32
   %2135 = shl nuw i32 1, %2134
@@ -120036,25 +120036,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit107.i.
   %2166 = getelementptr inbounds i8, ptr %2157, i64 %2114
   %2167 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %2166)
   %2168 = zext nneg i32 %.087142.i.i.i.i to i64
-  %2169 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2168
+  %2169 = getelementptr inbounds nuw i64, ptr %7, i64 %2168
   store i64 %.089141.i.i.i.i, ptr %2169, align 8, !tbaa !16
   %2170 = icmp slt i32 %2158, %36
   %2171 = zext i1 %2170 to i32
   %2172 = add nuw nsw i32 %.087142.i.i.i.i, %2171
   %2173 = zext nneg i32 %2172 to i64
-  %2174 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2173
+  %2174 = getelementptr inbounds nuw i64, ptr %7, i64 %2173
   store i64 %2159, ptr %2174, align 8, !tbaa !16
   %2175 = icmp slt i32 %2161, %36
   %2176 = zext i1 %2175 to i32
   %2177 = add nuw nsw i32 %2172, %2176
   %2178 = zext nneg i32 %2177 to i64
-  %2179 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2178
+  %2179 = getelementptr inbounds nuw i64, ptr %7, i64 %2178
   store i64 %2162, ptr %2179, align 8, !tbaa !16
   %2180 = icmp slt i32 %2164, %36
   %2181 = zext i1 %2180 to i32
   %2182 = add nuw nsw i32 %2177, %2181
   %2183 = zext nneg i32 %2182 to i64
-  %2184 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2183
+  %2184 = getelementptr inbounds nuw i64, ptr %7, i64 %2183
   store i64 %2165, ptr %2184, align 8, !tbaa !16
   %2185 = icmp slt i32 %2167, %36
   %2186 = zext i1 %2185 to i32
@@ -120285,7 +120285,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2300 = load i64, ptr %2299, align 8, !tbaa !161
   %2301 = getelementptr inbounds nuw i8, ptr %2298, i64 32
   %2302 = load i64, ptr %2301, align 8, !tbaa !180
-  %2303 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.i.i.i
+  %2303 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.i.i.i
   %2304 = load i64, ptr %2303, align 8, !tbaa !16
   %2305 = trunc i64 %2302 to i32
   %2306 = shl nuw i32 1, %2305
@@ -121242,7 +121242,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %49 = load float, ptr %32, align 8, !tbaa !1205
   %50 = load i64, ptr %33, align 8, !tbaa !161
   %51 = load i64, ptr %34, align 8, !tbaa !180
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.us.i
+  %52 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.us.i
   %53 = load i64, ptr %52, align 8, !tbaa !16
   %54 = trunc i64 %51 to i32
   %55 = shl nuw i32 1, %54
@@ -121327,25 +121327,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %98 = xor i32 %97, %25
   %99 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087222.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %13, i64 %100
   store i64 %.089221.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %17
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087222.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %13, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %17
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %13, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %17
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %13, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %17
   %118 = zext i1 %117 to i32
@@ -121870,7 +121870,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i:
   %378 = load float, ptr %32, align 8, !tbaa !1205
   %379 = load i64, ptr %33, align 8, !tbaa !161
   %380 = load i64, ptr %34, align 8, !tbaa !180
-  %381 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.i
+  %381 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.i
   %382 = load i64, ptr %381, align 8, !tbaa !16
   %383 = trunc i64 %380 to i32
   %384 = shl nuw i32 1, %383
@@ -122201,7 +122201,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %545 = load float, ptr %528, align 8, !tbaa !1205
   %546 = load i64, ptr %529, align 8, !tbaa !161
   %547 = load i64, ptr %530, align 8, !tbaa !180
-  %548 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.us.i112
+  %548 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.us.i112
   %549 = load i64, ptr %548, align 8, !tbaa !16
   %550 = trunc i64 %547 to i32
   %551 = shl nuw i32 1, %550
@@ -122290,25 +122290,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %598 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %597)
   %599 = trunc nuw nsw i64 %598 to i32
   %600 = zext nneg i32 %.087222.i.i37 to i64
-  %601 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw i64, ptr %12, i64 %600
   store i64 %.089221.i.i38, ptr %601, align 8, !tbaa !16
   %602 = icmp sgt i32 %17, %581
   %603 = zext i1 %602 to i32
   %604 = add nuw nsw i32 %.087222.i.i37, %603
   %605 = zext nneg i32 %604 to i64
-  %606 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %605
+  %606 = getelementptr inbounds nuw i64, ptr %12, i64 %605
   store i64 %582, ptr %606, align 8, !tbaa !16
   %607 = icmp sgt i32 %17, %587
   %608 = zext i1 %607 to i32
   %609 = add nuw nsw i32 %604, %608
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i64, ptr %12, i64 %610
   store i64 %588, ptr %611, align 8, !tbaa !16
   %612 = icmp sgt i32 %17, %593
   %613 = zext i1 %612 to i32
   %614 = add nuw nsw i32 %609, %613
   %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %615
   store i64 %594, ptr %616, align 8, !tbaa !16
   %617 = icmp sgt i32 %17, %599
   %618 = zext i1 %617 to i32
@@ -122833,7 +122833,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i1
   %878 = load float, ptr %528, align 8, !tbaa !1205
   %879 = load i64, ptr %529, align 8, !tbaa !161
   %880 = load i64, ptr %530, align 8, !tbaa !180
-  %881 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.i47
+  %881 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.i47
   %882 = load i64, ptr %881, align 8, !tbaa !16
   %883 = trunc i64 %880 to i32
   %884 = shl nuw i32 1, %883
@@ -123167,7 +123167,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1048 = load float, ptr %1031, align 8, !tbaa !1205
   %1049 = load i64, ptr %1032, align 8, !tbaa !161
   %1050 = load i64, ptr %1033, align 8, !tbaa !180
-  %1051 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.us.i
+  %1051 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.us.i
   %1052 = load i64, ptr %1051, align 8, !tbaa !16
   %1053 = trunc i64 %1050 to i32
   %1054 = shl nuw i32 1, %1053
@@ -123280,25 +123280,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1125 = trunc nuw nsw i64 %1124 to i32
   %1126 = add nuw nsw i32 %1125, %1120
   %1127 = zext nneg i32 %.087226.i.i to i64
-  %1128 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw i64, ptr %11, i64 %1127
   store i64 %.089225.i.i, ptr %1128, align 8, !tbaa !16
   %1129 = icmp slt i32 %1090, %17
   %1130 = zext i1 %1129 to i32
   %1131 = add nuw nsw i32 %.087226.i.i, %1130
   %1132 = zext nneg i32 %1131 to i64
-  %1133 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw i64, ptr %11, i64 %1132
   store i64 %1091, ptr %1133, align 8, !tbaa !16
   %1134 = icmp slt i32 %1102, %17
   %1135 = zext i1 %1134 to i32
   %1136 = add nuw nsw i32 %1131, %1135
   %1137 = zext nneg i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1137
+  %1138 = getelementptr inbounds nuw i64, ptr %11, i64 %1137
   store i64 %1103, ptr %1138, align 8, !tbaa !16
   %1139 = icmp slt i32 %1114, %17
   %1140 = zext i1 %1139 to i32
   %1141 = add nuw nsw i32 %1136, %1140
   %1142 = zext nneg i32 %1141 to i64
-  %1143 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1142
+  %1143 = getelementptr inbounds nuw i64, ptr %11, i64 %1142
   store i64 %1115, ptr %1143, align 8, !tbaa !16
   %1144 = icmp slt i32 %1126, %17
   %1145 = zext i1 %1144 to i32
@@ -123823,7 +123823,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i3
   %1405 = load float, ptr %1031, align 8, !tbaa !1205
   %1406 = load i64, ptr %1032, align 8, !tbaa !161
   %1407 = load i64, ptr %1033, align 8, !tbaa !180
-  %1408 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.i
+  %1408 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.i
   %1409 = load i64, ptr %1408, align 8, !tbaa !16
   %1410 = trunc i64 %1407 to i32
   %1411 = shl nuw i32 1, %1410
@@ -124165,7 +124165,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %1583 = load float, ptr %1566, align 8, !tbaa !1205
   %1584 = load i64, ptr %1567, align 8, !tbaa !161
   %1585 = load i64, ptr %1568, align 8, !tbaa !180
-  %1586 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.us.i
+  %1586 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.us.i
   %1587 = load i64, ptr %1586, align 8, !tbaa !16
   %1588 = trunc i64 %1585 to i32
   %1589 = shl nuw i32 1, %1588
@@ -124298,25 +124298,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
   %1682 = zext nneg i32 %.087230.i.i to i64
-  %1683 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1682
+  %1683 = getelementptr inbounds nuw i64, ptr %10, i64 %1682
   store i64 %.089229.i.i, ptr %1683, align 8, !tbaa !16
   %1684 = icmp slt i32 %1630, %17
   %1685 = zext i1 %1684 to i32
   %1686 = add nuw nsw i32 %.087230.i.i, %1685
   %1687 = zext nneg i32 %1686 to i64
-  %1688 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1687
+  %1688 = getelementptr inbounds nuw i64, ptr %10, i64 %1687
   store i64 %1631, ptr %1688, align 8, !tbaa !16
   %1689 = icmp slt i32 %1647, %17
   %1690 = zext i1 %1689 to i32
   %1691 = add nuw nsw i32 %1686, %1690
   %1692 = zext nneg i32 %1691 to i64
-  %1693 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1692
+  %1693 = getelementptr inbounds nuw i64, ptr %10, i64 %1692
   store i64 %1648, ptr %1693, align 8, !tbaa !16
   %1694 = icmp slt i32 %1664, %17
   %1695 = zext i1 %1694 to i32
   %1696 = add nuw nsw i32 %1691, %1695
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1697
+  %1698 = getelementptr inbounds nuw i64, ptr %10, i64 %1697
   store i64 %1665, ptr %1698, align 8, !tbaa !16
   %1699 = icmp slt i32 %1681, %17
   %1700 = zext i1 %1699 to i32
@@ -124841,7 +124841,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i4
   %1960 = load float, ptr %1566, align 8, !tbaa !1205
   %1961 = load i64, ptr %1567, align 8, !tbaa !161
   %1962 = load i64, ptr %1568, align 8, !tbaa !180
-  %1963 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.i
+  %1963 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.i
   %1964 = load i64, ptr %1963, align 8, !tbaa !16
   %1965 = trunc i64 %1962 to i32
   %1966 = shl nuw i32 1, %1965
@@ -125190,7 +125190,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2145 = load float, ptr %2128, align 8, !tbaa !1205
   %2146 = load i64, ptr %2129, align 8, !tbaa !161
   %2147 = load i64, ptr %2130, align 8, !tbaa !180
-  %2148 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.us.i
+  %2148 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.us.i
   %2149 = load i64, ptr %2148, align 8, !tbaa !16
   %2150 = trunc i64 %2147 to i32
   %2151 = shl nuw i32 1, %2150
@@ -125351,25 +125351,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %2270 = trunc nuw nsw i64 %2269 to i32
   %2271 = add nuw nsw i32 %2265, %2270
   %2272 = zext nneg i32 %.087234.i.i to i64
-  %2273 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2272
+  %2273 = getelementptr inbounds nuw i64, ptr %9, i64 %2272
   store i64 %.089233.i.i, ptr %2273, align 8, !tbaa !16
   %2274 = icmp slt i32 %2199, %17
   %2275 = zext i1 %2274 to i32
   %2276 = add nuw nsw i32 %.087234.i.i, %2275
   %2277 = zext nneg i32 %2276 to i64
-  %2278 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2277
+  %2278 = getelementptr inbounds nuw i64, ptr %9, i64 %2277
   store i64 %2200, ptr %2278, align 8, !tbaa !16
   %2279 = icmp slt i32 %2223, %17
   %2280 = zext i1 %2279 to i32
   %2281 = add nuw nsw i32 %2276, %2280
   %2282 = zext nneg i32 %2281 to i64
-  %2283 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2282
+  %2283 = getelementptr inbounds nuw i64, ptr %9, i64 %2282
   store i64 %2224, ptr %2283, align 8, !tbaa !16
   %2284 = icmp slt i32 %2247, %17
   %2285 = zext i1 %2284 to i32
   %2286 = add nuw nsw i32 %2281, %2285
   %2287 = zext nneg i32 %2286 to i64
-  %2288 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2287
+  %2288 = getelementptr inbounds nuw i64, ptr %9, i64 %2287
   store i64 %2248, ptr %2288, align 8, !tbaa !16
   %2289 = icmp slt i32 %2271, %17
   %2290 = zext i1 %2289 to i32
@@ -125894,7 +125894,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i6
   %2550 = load float, ptr %2128, align 8, !tbaa !1205
   %2551 = load i64, ptr %2129, align 8, !tbaa !161
   %2552 = load i64, ptr %2130, align 8, !tbaa !180
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.i
+  %2553 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.i
   %2554 = load i64, ptr %2553, align 8, !tbaa !16
   %2555 = trunc i64 %2552 to i32
   %2556 = shl nuw i32 1, %2555
@@ -126258,7 +126258,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %2750 = load float, ptr %2733, align 8, !tbaa !1205
   %2751 = load i64, ptr %2734, align 8, !tbaa !161
   %2752 = load i64, ptr %2735, align 8, !tbaa !180
-  %2753 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.us.i
+  %2753 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.us.i
   %2754 = load i64, ptr %2753, align 8, !tbaa !16
   %2755 = trunc i64 %2752 to i32
   %2756 = shl nuw i32 1, %2755
@@ -126515,25 +126515,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %2971 = trunc nuw nsw i64 %2970 to i32
   %2972 = add nuw nsw i32 %2966, %2971
   %2973 = zext nneg i32 %.087250.i.i to i64
-  %2974 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2973
+  %2974 = getelementptr inbounds nuw i64, ptr %8, i64 %2973
   store i64 %.089249.i.i, ptr %2974, align 8, !tbaa !16
   %2975 = icmp slt i32 %2828, %17
   %2976 = zext i1 %2975 to i32
   %2977 = add nuw nsw i32 %.087250.i.i, %2976
   %2978 = zext nneg i32 %2977 to i64
-  %2979 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2978
+  %2979 = getelementptr inbounds nuw i64, ptr %8, i64 %2978
   store i64 %2829, ptr %2979, align 8, !tbaa !16
   %2980 = icmp slt i32 %2876, %17
   %2981 = zext i1 %2980 to i32
   %2982 = add nuw nsw i32 %2977, %2981
   %2983 = zext nneg i32 %2982 to i64
-  %2984 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2983
+  %2984 = getelementptr inbounds nuw i64, ptr %8, i64 %2983
   store i64 %2877, ptr %2984, align 8, !tbaa !16
   %2985 = icmp slt i32 %2924, %17
   %2986 = zext i1 %2985 to i32
   %2987 = add nuw nsw i32 %2982, %2986
   %2988 = zext nneg i32 %2987 to i64
-  %2989 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2988
+  %2989 = getelementptr inbounds nuw i64, ptr %8, i64 %2988
   store i64 %2925, ptr %2989, align 8, !tbaa !16
   %2990 = icmp slt i32 %2972, %17
   %2991 = zext i1 %2990 to i32
@@ -127058,7 +127058,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i7
   %3251 = load float, ptr %2733, align 8, !tbaa !1205
   %3252 = load i64, ptr %2734, align 8, !tbaa !161
   %3253 = load i64, ptr %2735, align 8, !tbaa !180
-  %3254 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.i
+  %3254 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.i
   %3255 = load i64, ptr %3254, align 8, !tbaa !16
   %3256 = trunc i64 %3253 to i32
   %3257 = shl nuw i32 1, %3256
@@ -127441,7 +127441,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
   %3466 = load float, ptr %3447, align 8, !tbaa !1205
   %3467 = load i64, ptr %3462, align 8, !tbaa !161
   %3468 = load i64, ptr %3463, align 8, !tbaa !180
-  %3469 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.us.i
+  %3469 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.us.i
   %3470 = load i64, ptr %3469, align 8, !tbaa !16
   %3471 = trunc i64 %3468 to i32
   %3472 = shl nuw i32 1, %3471
@@ -127518,25 +127518,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit168.i.us
   %3507 = getelementptr inbounds i8, ptr %3498, i64 %3446
   %3508 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3507)
   %3509 = zext nneg i32 %.087218.i.i to i64
-  %3510 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3509
+  %3510 = getelementptr inbounds nuw i64, ptr %6, i64 %3509
   store i64 %.089217.i.i, ptr %3510, align 8, !tbaa !16
   %3511 = icmp slt i32 %3499, %17
   %3512 = zext i1 %3511 to i32
   %3513 = add nuw nsw i32 %.087218.i.i, %3512
   %3514 = zext nneg i32 %3513 to i64
-  %3515 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3514
+  %3515 = getelementptr inbounds nuw i64, ptr %6, i64 %3514
   store i64 %3500, ptr %3515, align 8, !tbaa !16
   %3516 = icmp slt i32 %3502, %17
   %3517 = zext i1 %3516 to i32
   %3518 = add nuw nsw i32 %3513, %3517
   %3519 = zext nneg i32 %3518 to i64
-  %3520 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3519
+  %3520 = getelementptr inbounds nuw i64, ptr %6, i64 %3519
   store i64 %3503, ptr %3520, align 8, !tbaa !16
   %3521 = icmp slt i32 %3505, %17
   %3522 = zext i1 %3521 to i32
   %3523 = add nuw nsw i32 %3518, %3522
   %3524 = zext nneg i32 %3523 to i64
-  %3525 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3524
+  %3525 = getelementptr inbounds nuw i64, ptr %6, i64 %3524
   store i64 %3506, ptr %3525, align 8, !tbaa !16
   %3526 = icmp slt i32 %3508, %17
   %3527 = zext i1 %3526 to i32
@@ -128063,7 +128063,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit148.i.i9
   %3789 = load float, ptr %3447, align 8, !tbaa !1205
   %3790 = load i64, ptr %3462, align 8, !tbaa !161
   %3791 = load i64, ptr %3463, align 8, !tbaa !180
-  %3792 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.i
+  %3792 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.i
   %3793 = load i64, ptr %3792, align 8, !tbaa !16
   %3794 = trunc i64 %3791 to i32
   %3795 = shl nuw i32 1, %3794
@@ -129886,7 +129886,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   %64 = load i64, ptr %63, align 8, !tbaa !161
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load i64, ptr %65, align 8, !tbaa !180
-  %67 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.us.i.i.i
+  %67 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.us.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !16
   %69 = trunc i64 %66 to i32
   %70 = shl nuw i32 1, %69
@@ -129959,25 +129959,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %109 = xor i32 %108, %43
   %110 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %109)
   %111 = zext nneg i32 %.087146.i.i.i.i to i64
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw i64, ptr %14, i64 %111
   store i64 %.089145.i.i.i.i, ptr %112, align 8, !tbaa !16
   %113 = icmp slt i32 %95, %36
   %114 = zext i1 %113 to i32
   %115 = add nuw nsw i32 %.087146.i.i.i.i, %114
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i64, ptr %14, i64 %116
   store i64 %96, ptr %117, align 8, !tbaa !16
   %118 = icmp slt i32 %100, %36
   %119 = zext i1 %118 to i32
   %120 = add nuw nsw i32 %115, %119
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i64, ptr %14, i64 %121
   store i64 %101, ptr %122, align 8, !tbaa !16
   %123 = icmp slt i32 %105, %36
   %124 = zext i1 %123 to i32
   %125 = add nuw nsw i32 %120, %124
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw i64, ptr %14, i64 %126
   store i64 %106, ptr %127, align 8, !tbaa !16
   %128 = icmp slt i32 %110, %36
   %129 = zext i1 %128 to i32
@@ -130208,7 +130208,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %243 = load i64, ptr %242, align 8, !tbaa !161
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %245 = load i64, ptr %244, align 8, !tbaa !180
-  %246 = getelementptr inbounds nuw [8 x i64], ptr %14, i64 0, i64 %.091150.i.i.i.i
+  %246 = getelementptr inbounds nuw i64, ptr %14, i64 %.091150.i.i.i.i
   %247 = load i64, ptr %246, align 8, !tbaa !16
   %248 = trunc i64 %245 to i32
   %249 = shl nuw i32 1, %248
@@ -130387,7 +130387,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %335 = load i64, ptr %334, align 8, !tbaa !161
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %337 = load i64, ptr %336, align 8, !tbaa !180
-  %338 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.us.i80.i.i
+  %338 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.us.i80.i.i
   %339 = load i64, ptr %338, align 8, !tbaa !16
   %340 = trunc i64 %337 to i32
   %341 = shl nuw i32 1, %340
@@ -130464,25 +130464,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %384 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %383)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = zext nneg i32 %.087146.i.i35.i.i to i64
-  %387 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw i64, ptr %13, i64 %386
   store i64 %.089145.i.i36.i.i, ptr %387, align 8, !tbaa !16
   %388 = icmp sgt i32 %36, %367
   %389 = zext i1 %388 to i32
   %390 = add nuw nsw i32 %.087146.i.i35.i.i, %389
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw i64, ptr %13, i64 %391
   store i64 %368, ptr %392, align 8, !tbaa !16
   %393 = icmp sgt i32 %36, %373
   %394 = zext i1 %393 to i32
   %395 = add nuw nsw i32 %390, %394
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw i64, ptr %13, i64 %396
   store i64 %374, ptr %397, align 8, !tbaa !16
   %398 = icmp sgt i32 %36, %379
   %399 = zext i1 %398 to i32
   %400 = add nuw nsw i32 %395, %399
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw i64, ptr %13, i64 %401
   store i64 %380, ptr %402, align 8, !tbaa !16
   %403 = icmp sgt i32 %36, %385
   %404 = zext i1 %403 to i32
@@ -130713,7 +130713,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %518 = load i64, ptr %517, align 8, !tbaa !161
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %520 = load i64, ptr %519, align 8, !tbaa !180
-  %521 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091150.i.i44.i.i
+  %521 = getelementptr inbounds nuw i64, ptr %13, i64 %.091150.i.i44.i.i
   %522 = load i64, ptr %521, align 8, !tbaa !16
   %523 = trunc i64 %520 to i32
   %524 = shl nuw i32 1, %523
@@ -130895,7 +130895,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %613 = load i64, ptr %612, align 8, !tbaa !161
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 32
   %615 = load i64, ptr %614, align 8, !tbaa !180
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.us.i.i.i
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.us.i.i.i
   %617 = load i64, ptr %616, align 8, !tbaa !16
   %618 = trunc i64 %615 to i32
   %619 = shl nuw i32 1, %618
@@ -130996,25 +130996,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %686 = trunc nuw nsw i64 %685 to i32
   %687 = add nuw nsw i32 %686, %681
   %688 = zext nneg i32 %.087150.i.i.i.i to i64
-  %689 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw i64, ptr %12, i64 %688
   store i64 %.089149.i.i.i.i, ptr %689, align 8, !tbaa !16
   %690 = icmp slt i32 %651, %36
   %691 = zext i1 %690 to i32
   %692 = add nuw nsw i32 %.087150.i.i.i.i, %691
   %693 = zext nneg i32 %692 to i64
-  %694 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %693
+  %694 = getelementptr inbounds nuw i64, ptr %12, i64 %693
   store i64 %652, ptr %694, align 8, !tbaa !16
   %695 = icmp slt i32 %663, %36
   %696 = zext i1 %695 to i32
   %697 = add nuw nsw i32 %692, %696
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %698
+  %699 = getelementptr inbounds nuw i64, ptr %12, i64 %698
   store i64 %664, ptr %699, align 8, !tbaa !16
   %700 = icmp slt i32 %675, %36
   %701 = zext i1 %700 to i32
   %702 = add nuw nsw i32 %697, %701
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw i64, ptr %12, i64 %703
   store i64 %676, ptr %704, align 8, !tbaa !16
   %705 = icmp slt i32 %687, %36
   %706 = zext i1 %705 to i32
@@ -131245,7 +131245,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %820 = load i64, ptr %819, align 8, !tbaa !161
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 32
   %822 = load i64, ptr %821, align 8, !tbaa !180
-  %823 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091154.i.i.i.i
+  %823 = getelementptr inbounds nuw i64, ptr %12, i64 %.091154.i.i.i.i
   %824 = load i64, ptr %823, align 8, !tbaa !16
   %825 = trunc i64 %822 to i32
   %826 = shl nuw i32 1, %825
@@ -131435,7 +131435,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %923 = load i64, ptr %922, align 8, !tbaa !161
   %924 = getelementptr inbounds nuw i8, ptr %921, i64 32
   %925 = load i64, ptr %924, align 8, !tbaa !180
-  %926 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.us.i.i.i
+  %926 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.us.i.i.i
   %927 = load i64, ptr %926, align 8, !tbaa !16
   %928 = trunc i64 %925 to i32
   %929 = shl nuw i32 1, %928
@@ -131556,25 +131556,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1016 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1015)
   %1017 = add nuw nsw i32 %1012, %1016
   %1018 = zext nneg i32 %.087154.i.i.i.i to i64
-  %1019 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw i64, ptr %11, i64 %1018
   store i64 %.089153.i.i.i.i, ptr %1019, align 8, !tbaa !16
   %1020 = icmp slt i32 %966, %36
   %1021 = zext i1 %1020 to i32
   %1022 = add nuw nsw i32 %.087154.i.i.i.i, %1021
   %1023 = zext nneg i32 %1022 to i64
-  %1024 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw i64, ptr %11, i64 %1023
   store i64 %967, ptr %1024, align 8, !tbaa !16
   %1025 = icmp slt i32 %983, %36
   %1026 = zext i1 %1025 to i32
   %1027 = add nuw nsw i32 %1022, %1026
   %1028 = zext nneg i32 %1027 to i64
-  %1029 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1028
+  %1029 = getelementptr inbounds nuw i64, ptr %11, i64 %1028
   store i64 %984, ptr %1029, align 8, !tbaa !16
   %1030 = icmp slt i32 %1000, %36
   %1031 = zext i1 %1030 to i32
   %1032 = add nuw nsw i32 %1027, %1031
   %1033 = zext nneg i32 %1032 to i64
-  %1034 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1033
+  %1034 = getelementptr inbounds nuw i64, ptr %11, i64 %1033
   store i64 %1001, ptr %1034, align 8, !tbaa !16
   %1035 = icmp slt i32 %1017, %36
   %1036 = zext i1 %1035 to i32
@@ -131805,7 +131805,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1150 = load i64, ptr %1149, align 8, !tbaa !161
   %1151 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1152 = load i64, ptr %1151, align 8, !tbaa !180
-  %1153 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091158.i.i.i.i
+  %1153 = getelementptr inbounds nuw i64, ptr %11, i64 %.091158.i.i.i.i
   %1154 = load i64, ptr %1153, align 8, !tbaa !16
   %1155 = trunc i64 %1152 to i32
   %1156 = shl nuw i32 1, %1155
@@ -132002,7 +132002,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1260 = load i64, ptr %1259, align 8, !tbaa !161
   %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 32
   %1262 = load i64, ptr %1261, align 8, !tbaa !180
-  %1263 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.us.i.i.i
+  %1263 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.us.i.i.i
   %1264 = load i64, ptr %1263, align 8, !tbaa !16
   %1265 = trunc i64 %1262 to i32
   %1266 = shl nuw i32 1, %1265
@@ -132151,25 +132151,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1381 = trunc nuw nsw i64 %1380 to i32
   %1382 = add nuw nsw i32 %1376, %1381
   %1383 = zext nneg i32 %.087158.i.i.i.i to i64
-  %1384 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1383
+  %1384 = getelementptr inbounds nuw i64, ptr %10, i64 %1383
   store i64 %.089157.i.i.i.i, ptr %1384, align 8, !tbaa !16
   %1385 = icmp slt i32 %1310, %36
   %1386 = zext i1 %1385 to i32
   %1387 = add nuw nsw i32 %.087158.i.i.i.i, %1386
   %1388 = zext nneg i32 %1387 to i64
-  %1389 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1388
+  %1389 = getelementptr inbounds nuw i64, ptr %10, i64 %1388
   store i64 %1311, ptr %1389, align 8, !tbaa !16
   %1390 = icmp slt i32 %1334, %36
   %1391 = zext i1 %1390 to i32
   %1392 = add nuw nsw i32 %1387, %1391
   %1393 = zext nneg i32 %1392 to i64
-  %1394 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1393
+  %1394 = getelementptr inbounds nuw i64, ptr %10, i64 %1393
   store i64 %1335, ptr %1394, align 8, !tbaa !16
   %1395 = icmp slt i32 %1358, %36
   %1396 = zext i1 %1395 to i32
   %1397 = add nuw nsw i32 %1392, %1396
   %1398 = zext nneg i32 %1397 to i64
-  %1399 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1398
+  %1399 = getelementptr inbounds nuw i64, ptr %10, i64 %1398
   store i64 %1359, ptr %1399, align 8, !tbaa !16
   %1400 = icmp slt i32 %1382, %36
   %1401 = zext i1 %1400 to i32
@@ -132400,7 +132400,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1515 = load i64, ptr %1514, align 8, !tbaa !161
   %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 32
   %1517 = load i64, ptr %1516, align 8, !tbaa !180
-  %1518 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091162.i.i.i.i
+  %1518 = getelementptr inbounds nuw i64, ptr %10, i64 %.091162.i.i.i.i
   %1519 = load i64, ptr %1518, align 8, !tbaa !16
   %1520 = trunc i64 %1517 to i32
   %1521 = shl nuw i32 1, %1520
@@ -132612,7 +132612,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1640 = load i64, ptr %1639, align 8, !tbaa !161
   %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 32
   %1642 = load i64, ptr %1641, align 8, !tbaa !180
-  %1643 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.us.i.i.i
+  %1643 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.us.i.i.i
   %1644 = load i64, ptr %1643, align 8, !tbaa !16
   %1645 = trunc i64 %1642 to i32
   %1646 = shl nuw i32 1, %1645
@@ -132857,25 +132857,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %1857 = trunc nuw nsw i64 %1856 to i32
   %1858 = add nuw nsw i32 %1852, %1857
   %1859 = zext nneg i32 %.087174.i.i.i.i to i64
-  %1860 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1859
+  %1860 = getelementptr inbounds nuw i64, ptr %9, i64 %1859
   store i64 %.089173.i.i.i.i, ptr %1860, align 8, !tbaa !16
   %1861 = icmp slt i32 %1714, %36
   %1862 = zext i1 %1861 to i32
   %1863 = add nuw nsw i32 %.087174.i.i.i.i, %1862
   %1864 = zext nneg i32 %1863 to i64
-  %1865 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1864
+  %1865 = getelementptr inbounds nuw i64, ptr %9, i64 %1864
   store i64 %1715, ptr %1865, align 8, !tbaa !16
   %1866 = icmp slt i32 %1762, %36
   %1867 = zext i1 %1866 to i32
   %1868 = add nuw nsw i32 %1863, %1867
   %1869 = zext nneg i32 %1868 to i64
-  %1870 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1869
+  %1870 = getelementptr inbounds nuw i64, ptr %9, i64 %1869
   store i64 %1763, ptr %1870, align 8, !tbaa !16
   %1871 = icmp slt i32 %1810, %36
   %1872 = zext i1 %1871 to i32
   %1873 = add nuw nsw i32 %1868, %1872
   %1874 = zext nneg i32 %1873 to i64
-  %1875 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %1874
+  %1875 = getelementptr inbounds nuw i64, ptr %9, i64 %1874
   store i64 %1811, ptr %1875, align 8, !tbaa !16
   %1876 = icmp slt i32 %1858, %36
   %1877 = zext i1 %1876 to i32
@@ -133106,7 +133106,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1991 = load i64, ptr %1990, align 8, !tbaa !161
   %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 32
   %1993 = load i64, ptr %1992, align 8, !tbaa !180
-  %1994 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091178.i.i.i.i
+  %1994 = getelementptr inbounds nuw i64, ptr %9, i64 %.091178.i.i.i.i
   %1995 = load i64, ptr %1994, align 8, !tbaa !16
   %1996 = trunc i64 %1993 to i32
   %1997 = shl nuw i32 1, %1996
@@ -133335,7 +133335,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2129 = load i64, ptr %2128, align 8, !tbaa !161
   %2130 = getelementptr inbounds nuw i8, ptr %2127, i64 32
   %2131 = load i64, ptr %2130, align 8, !tbaa !180
-  %2132 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.us.i.i.i
+  %2132 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.us.i.i.i
   %2133 = load i64, ptr %2132, align 8, !tbaa !16
   %2134 = trunc i64 %2131 to i32
   %2135 = shl nuw i32 1, %2134
@@ -133400,25 +133400,25 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit107.i.
   %2166 = getelementptr inbounds i8, ptr %2157, i64 %2114
   %2167 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %2166)
   %2168 = zext nneg i32 %.087142.i.i.i.i to i64
-  %2169 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2168
+  %2169 = getelementptr inbounds nuw i64, ptr %7, i64 %2168
   store i64 %.089141.i.i.i.i, ptr %2169, align 8, !tbaa !16
   %2170 = icmp slt i32 %2158, %36
   %2171 = zext i1 %2170 to i32
   %2172 = add nuw nsw i32 %.087142.i.i.i.i, %2171
   %2173 = zext nneg i32 %2172 to i64
-  %2174 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2173
+  %2174 = getelementptr inbounds nuw i64, ptr %7, i64 %2173
   store i64 %2159, ptr %2174, align 8, !tbaa !16
   %2175 = icmp slt i32 %2161, %36
   %2176 = zext i1 %2175 to i32
   %2177 = add nuw nsw i32 %2172, %2176
   %2178 = zext nneg i32 %2177 to i64
-  %2179 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2178
+  %2179 = getelementptr inbounds nuw i64, ptr %7, i64 %2178
   store i64 %2162, ptr %2179, align 8, !tbaa !16
   %2180 = icmp slt i32 %2164, %36
   %2181 = zext i1 %2180 to i32
   %2182 = add nuw nsw i32 %2177, %2181
   %2183 = zext nneg i32 %2182 to i64
-  %2184 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %2183
+  %2184 = getelementptr inbounds nuw i64, ptr %7, i64 %2183
   store i64 %2165, ptr %2184, align 8, !tbaa !16
   %2185 = icmp slt i32 %2167, %36
   %2186 = zext i1 %2185 to i32
@@ -133649,7 +133649,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2300 = load i64, ptr %2299, align 8, !tbaa !161
   %2301 = getelementptr inbounds nuw i8, ptr %2298, i64 32
   %2302 = load i64, ptr %2301, align 8, !tbaa !180
-  %2303 = getelementptr inbounds nuw [8 x i64], ptr %7, i64 0, i64 %.091146.i.i.i.i
+  %2303 = getelementptr inbounds nuw i64, ptr %7, i64 %.091146.i.i.i.i
   %2304 = load i64, ptr %2303, align 8, !tbaa !16
   %2305 = trunc i64 %2302 to i32
   %2306 = shl nuw i32 1, %2305
@@ -134603,7 +134603,7 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %49 = load float, ptr %32, align 8, !tbaa !1692
   %50 = load i64, ptr %33, align 8, !tbaa !161
   %51 = load i64, ptr %34, align 8, !tbaa !180
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.us.i
+  %52 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.us.i
   %53 = load i64, ptr %52, align 8, !tbaa !16
   %54 = trunc i64 %51 to i32
   %55 = shl nuw i32 1, %54
@@ -134688,25 +134688,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %98 = xor i32 %97, %25
   %99 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087222.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %13, i64 %100
   store i64 %.089221.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %17
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087222.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %13, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %17
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %13, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %17
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %13, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %17
   %118 = zext i1 %117 to i32
@@ -135231,7 +135231,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i:
   %378 = load float, ptr %32, align 8, !tbaa !1692
   %379 = load i64, ptr %33, align 8, !tbaa !161
   %380 = load i64, ptr %34, align 8, !tbaa !180
-  %381 = getelementptr inbounds nuw [8 x i64], ptr %13, i64 0, i64 %.091226.i.i
+  %381 = getelementptr inbounds nuw i64, ptr %13, i64 %.091226.i.i
   %382 = load i64, ptr %381, align 8, !tbaa !16
   %383 = trunc i64 %380 to i32
   %384 = shl nuw i32 1, %383
@@ -135562,7 +135562,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %545 = load float, ptr %528, align 8, !tbaa !1692
   %546 = load i64, ptr %529, align 8, !tbaa !161
   %547 = load i64, ptr %530, align 8, !tbaa !180
-  %548 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.us.i112
+  %548 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.us.i112
   %549 = load i64, ptr %548, align 8, !tbaa !16
   %550 = trunc i64 %547 to i32
   %551 = shl nuw i32 1, %550
@@ -135651,25 +135651,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %598 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %597)
   %599 = trunc nuw nsw i64 %598 to i32
   %600 = zext nneg i32 %.087222.i.i37 to i64
-  %601 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw i64, ptr %12, i64 %600
   store i64 %.089221.i.i38, ptr %601, align 8, !tbaa !16
   %602 = icmp sgt i32 %17, %581
   %603 = zext i1 %602 to i32
   %604 = add nuw nsw i32 %.087222.i.i37, %603
   %605 = zext nneg i32 %604 to i64
-  %606 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %605
+  %606 = getelementptr inbounds nuw i64, ptr %12, i64 %605
   store i64 %582, ptr %606, align 8, !tbaa !16
   %607 = icmp sgt i32 %17, %587
   %608 = zext i1 %607 to i32
   %609 = add nuw nsw i32 %604, %608
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i64, ptr %12, i64 %610
   store i64 %588, ptr %611, align 8, !tbaa !16
   %612 = icmp sgt i32 %17, %593
   %613 = zext i1 %612 to i32
   %614 = add nuw nsw i32 %609, %613
   %615 = zext nneg i32 %614 to i64
-  %616 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw i64, ptr %12, i64 %615
   store i64 %594, ptr %616, align 8, !tbaa !16
   %617 = icmp sgt i32 %17, %599
   %618 = zext i1 %617 to i32
@@ -136194,7 +136194,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i1
   %878 = load float, ptr %528, align 8, !tbaa !1692
   %879 = load i64, ptr %529, align 8, !tbaa !161
   %880 = load i64, ptr %530, align 8, !tbaa !180
-  %881 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091226.i.i47
+  %881 = getelementptr inbounds nuw i64, ptr %12, i64 %.091226.i.i47
   %882 = load i64, ptr %881, align 8, !tbaa !16
   %883 = trunc i64 %880 to i32
   %884 = shl nuw i32 1, %883
@@ -136528,7 +136528,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1048 = load float, ptr %1031, align 8, !tbaa !1692
   %1049 = load i64, ptr %1032, align 8, !tbaa !161
   %1050 = load i64, ptr %1033, align 8, !tbaa !180
-  %1051 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.us.i
+  %1051 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.us.i
   %1052 = load i64, ptr %1051, align 8, !tbaa !16
   %1053 = trunc i64 %1050 to i32
   %1054 = shl nuw i32 1, %1053
@@ -136641,25 +136641,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1125 = trunc nuw nsw i64 %1124 to i32
   %1126 = add nuw nsw i32 %1125, %1120
   %1127 = zext nneg i32 %.087226.i.i to i64
-  %1128 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw i64, ptr %11, i64 %1127
   store i64 %.089225.i.i, ptr %1128, align 8, !tbaa !16
   %1129 = icmp slt i32 %1090, %17
   %1130 = zext i1 %1129 to i32
   %1131 = add nuw nsw i32 %.087226.i.i, %1130
   %1132 = zext nneg i32 %1131 to i64
-  %1133 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw i64, ptr %11, i64 %1132
   store i64 %1091, ptr %1133, align 8, !tbaa !16
   %1134 = icmp slt i32 %1102, %17
   %1135 = zext i1 %1134 to i32
   %1136 = add nuw nsw i32 %1131, %1135
   %1137 = zext nneg i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1137
+  %1138 = getelementptr inbounds nuw i64, ptr %11, i64 %1137
   store i64 %1103, ptr %1138, align 8, !tbaa !16
   %1139 = icmp slt i32 %1114, %17
   %1140 = zext i1 %1139 to i32
   %1141 = add nuw nsw i32 %1136, %1140
   %1142 = zext nneg i32 %1141 to i64
-  %1143 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %1142
+  %1143 = getelementptr inbounds nuw i64, ptr %11, i64 %1142
   store i64 %1115, ptr %1143, align 8, !tbaa !16
   %1144 = icmp slt i32 %1126, %17
   %1145 = zext i1 %1144 to i32
@@ -137184,7 +137184,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i3
   %1405 = load float, ptr %1031, align 8, !tbaa !1692
   %1406 = load i64, ptr %1032, align 8, !tbaa !161
   %1407 = load i64, ptr %1033, align 8, !tbaa !180
-  %1408 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091230.i.i
+  %1408 = getelementptr inbounds nuw i64, ptr %11, i64 %.091230.i.i
   %1409 = load i64, ptr %1408, align 8, !tbaa !16
   %1410 = trunc i64 %1407 to i32
   %1411 = shl nuw i32 1, %1410
@@ -137526,7 +137526,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %1583 = load float, ptr %1566, align 8, !tbaa !1692
   %1584 = load i64, ptr %1567, align 8, !tbaa !161
   %1585 = load i64, ptr %1568, align 8, !tbaa !180
-  %1586 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.us.i
+  %1586 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.us.i
   %1587 = load i64, ptr %1586, align 8, !tbaa !16
   %1588 = trunc i64 %1585 to i32
   %1589 = shl nuw i32 1, %1588
@@ -137659,25 +137659,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %1680 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1679)
   %1681 = add nuw nsw i32 %1676, %1680
   %1682 = zext nneg i32 %.087230.i.i to i64
-  %1683 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1682
+  %1683 = getelementptr inbounds nuw i64, ptr %10, i64 %1682
   store i64 %.089229.i.i, ptr %1683, align 8, !tbaa !16
   %1684 = icmp slt i32 %1630, %17
   %1685 = zext i1 %1684 to i32
   %1686 = add nuw nsw i32 %.087230.i.i, %1685
   %1687 = zext nneg i32 %1686 to i64
-  %1688 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1687
+  %1688 = getelementptr inbounds nuw i64, ptr %10, i64 %1687
   store i64 %1631, ptr %1688, align 8, !tbaa !16
   %1689 = icmp slt i32 %1647, %17
   %1690 = zext i1 %1689 to i32
   %1691 = add nuw nsw i32 %1686, %1690
   %1692 = zext nneg i32 %1691 to i64
-  %1693 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1692
+  %1693 = getelementptr inbounds nuw i64, ptr %10, i64 %1692
   store i64 %1648, ptr %1693, align 8, !tbaa !16
   %1694 = icmp slt i32 %1664, %17
   %1695 = zext i1 %1694 to i32
   %1696 = add nuw nsw i32 %1691, %1695
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %1697
+  %1698 = getelementptr inbounds nuw i64, ptr %10, i64 %1697
   store i64 %1665, ptr %1698, align 8, !tbaa !16
   %1699 = icmp slt i32 %1681, %17
   %1700 = zext i1 %1699 to i32
@@ -138202,7 +138202,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i4
   %1960 = load float, ptr %1566, align 8, !tbaa !1692
   %1961 = load i64, ptr %1567, align 8, !tbaa !161
   %1962 = load i64, ptr %1568, align 8, !tbaa !180
-  %1963 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %.091234.i.i
+  %1963 = getelementptr inbounds nuw i64, ptr %10, i64 %.091234.i.i
   %1964 = load i64, ptr %1963, align 8, !tbaa !16
   %1965 = trunc i64 %1962 to i32
   %1966 = shl nuw i32 1, %1965
@@ -138551,7 +138551,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2145 = load float, ptr %2128, align 8, !tbaa !1692
   %2146 = load i64, ptr %2129, align 8, !tbaa !161
   %2147 = load i64, ptr %2130, align 8, !tbaa !180
-  %2148 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.us.i
+  %2148 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.us.i
   %2149 = load i64, ptr %2148, align 8, !tbaa !16
   %2150 = trunc i64 %2147 to i32
   %2151 = shl nuw i32 1, %2150
@@ -138712,25 +138712,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %2270 = trunc nuw nsw i64 %2269 to i32
   %2271 = add nuw nsw i32 %2265, %2270
   %2272 = zext nneg i32 %.087234.i.i to i64
-  %2273 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2272
+  %2273 = getelementptr inbounds nuw i64, ptr %9, i64 %2272
   store i64 %.089233.i.i, ptr %2273, align 8, !tbaa !16
   %2274 = icmp slt i32 %2199, %17
   %2275 = zext i1 %2274 to i32
   %2276 = add nuw nsw i32 %.087234.i.i, %2275
   %2277 = zext nneg i32 %2276 to i64
-  %2278 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2277
+  %2278 = getelementptr inbounds nuw i64, ptr %9, i64 %2277
   store i64 %2200, ptr %2278, align 8, !tbaa !16
   %2279 = icmp slt i32 %2223, %17
   %2280 = zext i1 %2279 to i32
   %2281 = add nuw nsw i32 %2276, %2280
   %2282 = zext nneg i32 %2281 to i64
-  %2283 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2282
+  %2283 = getelementptr inbounds nuw i64, ptr %9, i64 %2282
   store i64 %2224, ptr %2283, align 8, !tbaa !16
   %2284 = icmp slt i32 %2247, %17
   %2285 = zext i1 %2284 to i32
   %2286 = add nuw nsw i32 %2281, %2285
   %2287 = zext nneg i32 %2286 to i64
-  %2288 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %2287
+  %2288 = getelementptr inbounds nuw i64, ptr %9, i64 %2287
   store i64 %2248, ptr %2288, align 8, !tbaa !16
   %2289 = icmp slt i32 %2271, %17
   %2290 = zext i1 %2289 to i32
@@ -139255,7 +139255,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i6
   %2550 = load float, ptr %2128, align 8, !tbaa !1692
   %2551 = load i64, ptr %2129, align 8, !tbaa !161
   %2552 = load i64, ptr %2130, align 8, !tbaa !180
-  %2553 = getelementptr inbounds nuw [8 x i64], ptr %9, i64 0, i64 %.091238.i.i
+  %2553 = getelementptr inbounds nuw i64, ptr %9, i64 %.091238.i.i
   %2554 = load i64, ptr %2553, align 8, !tbaa !16
   %2555 = trunc i64 %2552 to i32
   %2556 = shl nuw i32 1, %2555
@@ -139619,7 +139619,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %2750 = load float, ptr %2733, align 8, !tbaa !1692
   %2751 = load i64, ptr %2734, align 8, !tbaa !161
   %2752 = load i64, ptr %2735, align 8, !tbaa !180
-  %2753 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.us.i
+  %2753 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.us.i
   %2754 = load i64, ptr %2753, align 8, !tbaa !16
   %2755 = trunc i64 %2752 to i32
   %2756 = shl nuw i32 1, %2755
@@ -139876,25 +139876,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %2971 = trunc nuw nsw i64 %2970 to i32
   %2972 = add nuw nsw i32 %2966, %2971
   %2973 = zext nneg i32 %.087250.i.i to i64
-  %2974 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2973
+  %2974 = getelementptr inbounds nuw i64, ptr %8, i64 %2973
   store i64 %.089249.i.i, ptr %2974, align 8, !tbaa !16
   %2975 = icmp slt i32 %2828, %17
   %2976 = zext i1 %2975 to i32
   %2977 = add nuw nsw i32 %.087250.i.i, %2976
   %2978 = zext nneg i32 %2977 to i64
-  %2979 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2978
+  %2979 = getelementptr inbounds nuw i64, ptr %8, i64 %2978
   store i64 %2829, ptr %2979, align 8, !tbaa !16
   %2980 = icmp slt i32 %2876, %17
   %2981 = zext i1 %2980 to i32
   %2982 = add nuw nsw i32 %2977, %2981
   %2983 = zext nneg i32 %2982 to i64
-  %2984 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2983
+  %2984 = getelementptr inbounds nuw i64, ptr %8, i64 %2983
   store i64 %2877, ptr %2984, align 8, !tbaa !16
   %2985 = icmp slt i32 %2924, %17
   %2986 = zext i1 %2985 to i32
   %2987 = add nuw nsw i32 %2982, %2986
   %2988 = zext nneg i32 %2987 to i64
-  %2989 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %2988
+  %2989 = getelementptr inbounds nuw i64, ptr %8, i64 %2988
   store i64 %2925, ptr %2989, align 8, !tbaa !16
   %2990 = icmp slt i32 %2972, %17
   %2991 = zext i1 %2990 to i32
@@ -140419,7 +140419,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i7
   %3251 = load float, ptr %2733, align 8, !tbaa !1692
   %3252 = load i64, ptr %2734, align 8, !tbaa !161
   %3253 = load i64, ptr %2735, align 8, !tbaa !180
-  %3254 = getelementptr inbounds nuw [8 x i64], ptr %8, i64 0, i64 %.091254.i.i
+  %3254 = getelementptr inbounds nuw i64, ptr %8, i64 %.091254.i.i
   %3255 = load i64, ptr %3254, align 8, !tbaa !16
   %3256 = trunc i64 %3253 to i32
   %3257 = shl nuw i32 1, %3256
@@ -140802,7 +140802,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
   %3466 = load float, ptr %3447, align 8, !tbaa !1692
   %3467 = load i64, ptr %3462, align 8, !tbaa !161
   %3468 = load i64, ptr %3463, align 8, !tbaa !180
-  %3469 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.us.i
+  %3469 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.us.i
   %3470 = load i64, ptr %3469, align 8, !tbaa !16
   %3471 = trunc i64 %3468 to i32
   %3472 = shl nuw i32 1, %3471
@@ -140879,25 +140879,25 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit168.i.us
   %3507 = getelementptr inbounds i8, ptr %3498, i64 %3446
   %3508 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3507)
   %3509 = zext nneg i32 %.087218.i.i to i64
-  %3510 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3509
+  %3510 = getelementptr inbounds nuw i64, ptr %6, i64 %3509
   store i64 %.089217.i.i, ptr %3510, align 8, !tbaa !16
   %3511 = icmp slt i32 %3499, %17
   %3512 = zext i1 %3511 to i32
   %3513 = add nuw nsw i32 %.087218.i.i, %3512
   %3514 = zext nneg i32 %3513 to i64
-  %3515 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3514
+  %3515 = getelementptr inbounds nuw i64, ptr %6, i64 %3514
   store i64 %3500, ptr %3515, align 8, !tbaa !16
   %3516 = icmp slt i32 %3502, %17
   %3517 = zext i1 %3516 to i32
   %3518 = add nuw nsw i32 %3513, %3517
   %3519 = zext nneg i32 %3518 to i64
-  %3520 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3519
+  %3520 = getelementptr inbounds nuw i64, ptr %6, i64 %3519
   store i64 %3503, ptr %3520, align 8, !tbaa !16
   %3521 = icmp slt i32 %3505, %17
   %3522 = zext i1 %3521 to i32
   %3523 = add nuw nsw i32 %3518, %3522
   %3524 = zext nneg i32 %3523 to i64
-  %3525 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3524
+  %3525 = getelementptr inbounds nuw i64, ptr %6, i64 %3524
   store i64 %3506, ptr %3525, align 8, !tbaa !16
   %3526 = icmp slt i32 %3508, %17
   %3527 = zext i1 %3526 to i32
@@ -141424,7 +141424,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit148.i.i9
   %3789 = load float, ptr %3447, align 8, !tbaa !1692
   %3790 = load i64, ptr %3462, align 8, !tbaa !161
   %3791 = load i64, ptr %3463, align 8, !tbaa !180
-  %3792 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091222.i.i
+  %3792 = getelementptr inbounds nuw i64, ptr %6, i64 %.091222.i.i
   %3793 = load i64, ptr %3792, align 8, !tbaa !16
   %3794 = trunc i64 %3791 to i32
   %3795 = shl nuw i32 1, %3794
@@ -143669,25 +143669,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0E
   %112 = xor i32 %111, %75
   %113 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
   %114 = zext nneg i32 %.087151.i.i.i.i to i64
-  %115 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i64, ptr %42, i64 %114
   store i64 %.089150.i.i.i.i, ptr %115, align 8, !tbaa !16
   %116 = icmp slt i32 %98, %68
   %117 = zext i1 %116 to i32
   %118 = add nuw nsw i32 %.087151.i.i.i.i, %117
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i64, ptr %42, i64 %119
   store i64 %99, ptr %120, align 8, !tbaa !16
   %121 = icmp slt i32 %103, %68
   %122 = zext i1 %121 to i32
   %123 = add nuw nsw i32 %118, %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %42, i64 %124
   store i64 %104, ptr %125, align 8, !tbaa !16
   %126 = icmp slt i32 %108, %68
   %127 = zext i1 %126 to i32
   %128 = add nuw nsw i32 %123, %127
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i64, ptr %42, i64 %129
   store i64 %109, ptr %130, align 8, !tbaa !16
   %131 = icmp slt i32 %113, %68
   %132 = zext i1 %131 to i32
@@ -143874,7 +143874,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %222 = load i64, ptr %221, align 8, !tbaa !161
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %224 = load i64, ptr %223, align 8, !tbaa !180
-  %225 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %.091155.i.i.i.i
+  %225 = getelementptr inbounds nuw i64, ptr %42, i64 %.091155.i.i.i.i
   %226 = load i64, ptr %225, align 8, !tbaa !16
   %227 = trunc i64 %224 to i32
   %228 = and i64 %224, 4294967295
@@ -144236,25 +144236,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %413 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %412)
   %414 = trunc nuw nsw i64 %413 to i32
   %415 = zext nneg i32 %.087151.i.i34.i.i to i64
-  %416 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i64, ptr %37, i64 %415
   store i64 %.089150.i.i35.i.i, ptr %416, align 8, !tbaa !16
   %417 = icmp sgt i32 %68, %396
   %418 = zext i1 %417 to i32
   %419 = add nuw nsw i32 %.087151.i.i34.i.i, %418
   %420 = zext nneg i32 %419 to i64
-  %421 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %420
+  %421 = getelementptr inbounds nuw i64, ptr %37, i64 %420
   store i64 %397, ptr %421, align 8, !tbaa !16
   %422 = icmp sgt i32 %68, %402
   %423 = zext i1 %422 to i32
   %424 = add nuw nsw i32 %419, %423
   %425 = zext nneg i32 %424 to i64
-  %426 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i64, ptr %37, i64 %425
   store i64 %403, ptr %426, align 8, !tbaa !16
   %427 = icmp sgt i32 %68, %408
   %428 = zext i1 %427 to i32
   %429 = add nuw nsw i32 %424, %428
   %430 = zext nneg i32 %429 to i64
-  %431 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw i64, ptr %37, i64 %430
   store i64 %409, ptr %431, align 8, !tbaa !16
   %432 = icmp sgt i32 %68, %414
   %433 = zext i1 %432 to i32
@@ -144441,7 +144441,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %523 = load i64, ptr %522, align 8, !tbaa !161
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %525 = load i64, ptr %524, align 8, !tbaa !180
-  %526 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091155.i.i41.i.i
+  %526 = getelementptr inbounds nuw i64, ptr %37, i64 %.091155.i.i41.i.i
   %527 = load i64, ptr %526, align 8, !tbaa !16
   %528 = trunc i64 %525 to i32
   %529 = and i64 %525, 4294967295
@@ -144830,25 +144830,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %741 = trunc nuw nsw i64 %740 to i32
   %742 = add nuw nsw i32 %741, %736
   %743 = zext nneg i32 %.087155.i.i.i.i to i64
-  %744 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %743
+  %744 = getelementptr inbounds nuw i64, ptr %32, i64 %743
   store i64 %.089154.i.i.i.i, ptr %744, align 8, !tbaa !16
   %745 = icmp slt i32 %706, %68
   %746 = zext i1 %745 to i32
   %747 = add nuw nsw i32 %.087155.i.i.i.i, %746
   %748 = zext nneg i32 %747 to i64
-  %749 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw i64, ptr %32, i64 %748
   store i64 %707, ptr %749, align 8, !tbaa !16
   %750 = icmp slt i32 %718, %68
   %751 = zext i1 %750 to i32
   %752 = add nuw nsw i32 %747, %751
   %753 = zext nneg i32 %752 to i64
-  %754 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i64, ptr %32, i64 %753
   store i64 %719, ptr %754, align 8, !tbaa !16
   %755 = icmp slt i32 %730, %68
   %756 = zext i1 %755 to i32
   %757 = add nuw nsw i32 %752, %756
   %758 = zext nneg i32 %757 to i64
-  %759 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw i64, ptr %32, i64 %758
   store i64 %731, ptr %759, align 8, !tbaa !16
   %760 = icmp slt i32 %742, %68
   %761 = zext i1 %760 to i32
@@ -145035,7 +145035,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %851 = load i64, ptr %850, align 8, !tbaa !161
   %852 = getelementptr inbounds nuw i8, ptr %849, i64 32
   %853 = load i64, ptr %852, align 8, !tbaa !180
-  %854 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091159.i.i.i.i
+  %854 = getelementptr inbounds nuw i64, ptr %32, i64 %.091159.i.i.i.i
   %855 = load i64, ptr %854, align 8, !tbaa !16
   %856 = trunc i64 %853 to i32
   %857 = and i64 %853, 4294967295
@@ -145452,25 +145452,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1097 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1096)
   %1098 = add nuw nsw i32 %1093, %1097
   %1099 = zext nneg i32 %.087159.i.i.i.i to i64
-  %1100 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1099
+  %1100 = getelementptr inbounds nuw i64, ptr %27, i64 %1099
   store i64 %.089158.i.i.i.i, ptr %1100, align 8, !tbaa !16
   %1101 = icmp slt i32 %1047, %68
   %1102 = zext i1 %1101 to i32
   %1103 = add nuw nsw i32 %.087159.i.i.i.i, %1102
   %1104 = zext nneg i32 %1103 to i64
-  %1105 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1104
+  %1105 = getelementptr inbounds nuw i64, ptr %27, i64 %1104
   store i64 %1048, ptr %1105, align 8, !tbaa !16
   %1106 = icmp slt i32 %1064, %68
   %1107 = zext i1 %1106 to i32
   %1108 = add nuw nsw i32 %1103, %1107
   %1109 = zext nneg i32 %1108 to i64
-  %1110 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1109
+  %1110 = getelementptr inbounds nuw i64, ptr %27, i64 %1109
   store i64 %1065, ptr %1110, align 8, !tbaa !16
   %1111 = icmp slt i32 %1081, %68
   %1112 = zext i1 %1111 to i32
   %1113 = add nuw nsw i32 %1108, %1112
   %1114 = zext nneg i32 %1113 to i64
-  %1115 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1114
+  %1115 = getelementptr inbounds nuw i64, ptr %27, i64 %1114
   store i64 %1082, ptr %1115, align 8, !tbaa !16
   %1116 = icmp slt i32 %1098, %68
   %1117 = zext i1 %1116 to i32
@@ -145657,7 +145657,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1207 = load i64, ptr %1206, align 8, !tbaa !161
   %1208 = getelementptr inbounds nuw i8, ptr %1205, i64 32
   %1209 = load i64, ptr %1208, align 8, !tbaa !180
-  %1210 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091163.i.i.i.i
+  %1210 = getelementptr inbounds nuw i64, ptr %27, i64 %.091163.i.i.i.i
   %1211 = load i64, ptr %1210, align 8, !tbaa !16
   %1212 = trunc i64 %1209 to i32
   %1213 = and i64 %1209, 4294967295
@@ -146109,25 +146109,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1488 = trunc nuw nsw i64 %1487 to i32
   %1489 = add nuw nsw i32 %1483, %1488
   %1490 = zext nneg i32 %.087163.i.i.i.i to i64
-  %1491 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1490
+  %1491 = getelementptr inbounds nuw i64, ptr %22, i64 %1490
   store i64 %.089162.i.i.i.i, ptr %1491, align 8, !tbaa !16
   %1492 = icmp slt i32 %1417, %68
   %1493 = zext i1 %1492 to i32
   %1494 = add nuw nsw i32 %.087163.i.i.i.i, %1493
   %1495 = zext nneg i32 %1494 to i64
-  %1496 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1495
+  %1496 = getelementptr inbounds nuw i64, ptr %22, i64 %1495
   store i64 %1418, ptr %1496, align 8, !tbaa !16
   %1497 = icmp slt i32 %1441, %68
   %1498 = zext i1 %1497 to i32
   %1499 = add nuw nsw i32 %1494, %1498
   %1500 = zext nneg i32 %1499 to i64
-  %1501 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1500
+  %1501 = getelementptr inbounds nuw i64, ptr %22, i64 %1500
   store i64 %1442, ptr %1501, align 8, !tbaa !16
   %1502 = icmp slt i32 %1465, %68
   %1503 = zext i1 %1502 to i32
   %1504 = add nuw nsw i32 %1499, %1503
   %1505 = zext nneg i32 %1504 to i64
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1505
+  %1506 = getelementptr inbounds nuw i64, ptr %22, i64 %1505
   store i64 %1466, ptr %1506, align 8, !tbaa !16
   %1507 = icmp slt i32 %1489, %68
   %1508 = zext i1 %1507 to i32
@@ -146314,7 +146314,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1598 = load i64, ptr %1597, align 8, !tbaa !161
   %1599 = getelementptr inbounds nuw i8, ptr %1596, i64 32
   %1600 = load i64, ptr %1599, align 8, !tbaa !180
-  %1601 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091167.i.i.i.i
+  %1601 = getelementptr inbounds nuw i64, ptr %22, i64 %.091167.i.i.i.i
   %1602 = load i64, ptr %1601, align 8, !tbaa !16
   %1603 = trunc i64 %1600 to i32
   %1604 = and i64 %1600, 4294967295
@@ -146877,25 +146877,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1990 = trunc nuw nsw i64 %1989 to i32
   %1991 = add nuw nsw i32 %1985, %1990
   %1992 = zext nneg i32 %.087179.i.i.i.i to i64
-  %1993 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %1992
+  %1993 = getelementptr inbounds nuw i64, ptr %17, i64 %1992
   store i64 %.089178.i.i.i.i, ptr %1993, align 8, !tbaa !16
   %1994 = icmp slt i32 %1847, %68
   %1995 = zext i1 %1994 to i32
   %1996 = add nuw nsw i32 %.087179.i.i.i.i, %1995
   %1997 = zext nneg i32 %1996 to i64
-  %1998 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %1997
+  %1998 = getelementptr inbounds nuw i64, ptr %17, i64 %1997
   store i64 %1848, ptr %1998, align 8, !tbaa !16
   %1999 = icmp slt i32 %1895, %68
   %2000 = zext i1 %1999 to i32
   %2001 = add nuw nsw i32 %1996, %2000
   %2002 = zext nneg i32 %2001 to i64
-  %2003 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2002
+  %2003 = getelementptr inbounds nuw i64, ptr %17, i64 %2002
   store i64 %1896, ptr %2003, align 8, !tbaa !16
   %2004 = icmp slt i32 %1943, %68
   %2005 = zext i1 %2004 to i32
   %2006 = add nuw nsw i32 %2001, %2005
   %2007 = zext nneg i32 %2006 to i64
-  %2008 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2007
+  %2008 = getelementptr inbounds nuw i64, ptr %17, i64 %2007
   store i64 %1944, ptr %2008, align 8, !tbaa !16
   %2009 = icmp slt i32 %1991, %68
   %2010 = zext i1 %2009 to i32
@@ -147082,7 +147082,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2100 = load i64, ptr %2099, align 8, !tbaa !161
   %2101 = getelementptr inbounds nuw i8, ptr %2098, i64 32
   %2102 = load i64, ptr %2101, align 8, !tbaa !180
-  %2103 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091183.i.i.i.i
+  %2103 = getelementptr inbounds nuw i64, ptr %17, i64 %.091183.i.i.i.i
   %2104 = load i64, ptr %2103, align 8, !tbaa !16
   %2105 = trunc i64 %2102 to i32
   %2106 = and i64 %2102, 4294967295
@@ -147482,25 +147482,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2325 = getelementptr inbounds i8, ptr %2316, i64 %2302
   %2326 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %2325)
   %2327 = zext nneg i32 %.087147.i.i.i.i to i64
-  %2328 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2327
+  %2328 = getelementptr inbounds nuw i64, ptr %11, i64 %2327
   store i64 %.089146.i.i.i.i, ptr %2328, align 8, !tbaa !16
   %2329 = icmp slt i32 %2317, %68
   %2330 = zext i1 %2329 to i32
   %2331 = add nuw nsw i32 %.087147.i.i.i.i, %2330
   %2332 = zext nneg i32 %2331 to i64
-  %2333 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2332
+  %2333 = getelementptr inbounds nuw i64, ptr %11, i64 %2332
   store i64 %2318, ptr %2333, align 8, !tbaa !16
   %2334 = icmp slt i32 %2320, %68
   %2335 = zext i1 %2334 to i32
   %2336 = add nuw nsw i32 %2331, %2335
   %2337 = zext nneg i32 %2336 to i64
-  %2338 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2337
+  %2338 = getelementptr inbounds nuw i64, ptr %11, i64 %2337
   store i64 %2321, ptr %2338, align 8, !tbaa !16
   %2339 = icmp slt i32 %2323, %68
   %2340 = zext i1 %2339 to i32
   %2341 = add nuw nsw i32 %2336, %2340
   %2342 = zext nneg i32 %2341 to i64
-  %2343 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2342
+  %2343 = getelementptr inbounds nuw i64, ptr %11, i64 %2342
   store i64 %2324, ptr %2343, align 8, !tbaa !16
   %2344 = icmp slt i32 %2326, %68
   %2345 = zext i1 %2344 to i32
@@ -147687,7 +147687,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2435 = load i64, ptr %2434, align 8, !tbaa !161
   %2436 = getelementptr inbounds nuw i8, ptr %2433, i64 32
   %2437 = load i64, ptr %2436, align 8, !tbaa !180
-  %2438 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091151.i.i.i.i
+  %2438 = getelementptr inbounds nuw i64, ptr %11, i64 %.091151.i.i.i.i
   %2439 = load i64, ptr %2438, align 8, !tbaa !16
   %2440 = trunc i64 %2437 to i32
   %2441 = and i64 %2437, 4294967295
@@ -149134,25 +149134,25 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %98 = xor i32 %97, %53
   %99 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087227.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %37, i64 %100
   store i64 %.089226.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %45
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087227.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %37, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %45
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %37, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %45
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %37, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %45
   %118 = zext i1 %117 to i32
@@ -149639,7 +149639,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i:
   %361 = load float, ptr %60, align 8, !tbaa !2175
   %362 = load i64, ptr %75, align 8, !tbaa !161
   %363 = load i64, ptr %76, align 8, !tbaa !180
-  %364 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091231.i.i
+  %364 = getelementptr inbounds nuw i64, ptr %37, i64 %.091231.i.i
   %365 = load i64, ptr %364, align 8, !tbaa !16
   %366 = trunc i64 %363 to i32
   %367 = and i64 %363, 4294967295
@@ -150153,25 +150153,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %628 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %627)
   %629 = trunc nuw nsw i64 %628 to i32
   %630 = zext nneg i32 %.087227.i.i36 to i64
-  %631 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %630
+  %631 = getelementptr inbounds nuw i64, ptr %32, i64 %630
   store i64 %.089226.i.i37, ptr %631, align 8, !tbaa !16
   %632 = icmp sgt i32 %45, %611
   %633 = zext i1 %632 to i32
   %634 = add nuw nsw i32 %.087227.i.i36, %633
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw i64, ptr %32, i64 %635
   store i64 %612, ptr %636, align 8, !tbaa !16
   %637 = icmp sgt i32 %45, %617
   %638 = zext i1 %637 to i32
   %639 = add nuw nsw i32 %634, %638
   %640 = zext nneg i32 %639 to i64
-  %641 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw i64, ptr %32, i64 %640
   store i64 %618, ptr %641, align 8, !tbaa !16
   %642 = icmp sgt i32 %45, %623
   %643 = zext i1 %642 to i32
   %644 = add nuw nsw i32 %639, %643
   %645 = zext nneg i32 %644 to i64
-  %646 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw i64, ptr %32, i64 %645
   store i64 %624, ptr %646, align 8, !tbaa !16
   %647 = icmp sgt i32 %45, %629
   %648 = zext i1 %647 to i32
@@ -150658,7 +150658,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
   %891 = load float, ptr %586, align 8, !tbaa !2175
   %892 = load i64, ptr %601, align 8, !tbaa !161
   %893 = load i64, ptr %602, align 8, !tbaa !180
-  %894 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091231.i.i44
+  %894 = getelementptr inbounds nuw i64, ptr %32, i64 %.091231.i.i44
   %895 = load i64, ptr %894, align 8, !tbaa !16
   %896 = trunc i64 %893 to i32
   %897 = and i64 %893, 4294967295
@@ -151199,25 +151199,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1185 = trunc nuw nsw i64 %1184 to i32
   %1186 = add nuw nsw i32 %1185, %1180
   %1187 = zext nneg i32 %.087231.i.i to i64
-  %1188 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1187
+  %1188 = getelementptr inbounds nuw i64, ptr %27, i64 %1187
   store i64 %.089230.i.i, ptr %1188, align 8, !tbaa !16
   %1189 = icmp slt i32 %1150, %45
   %1190 = zext i1 %1189 to i32
   %1191 = add nuw nsw i32 %.087231.i.i, %1190
   %1192 = zext nneg i32 %1191 to i64
-  %1193 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1192
+  %1193 = getelementptr inbounds nuw i64, ptr %27, i64 %1192
   store i64 %1151, ptr %1193, align 8, !tbaa !16
   %1194 = icmp slt i32 %1162, %45
   %1195 = zext i1 %1194 to i32
   %1196 = add nuw nsw i32 %1191, %1195
   %1197 = zext nneg i32 %1196 to i64
-  %1198 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1197
+  %1198 = getelementptr inbounds nuw i64, ptr %27, i64 %1197
   store i64 %1163, ptr %1198, align 8, !tbaa !16
   %1199 = icmp slt i32 %1174, %45
   %1200 = zext i1 %1199 to i32
   %1201 = add nuw nsw i32 %1196, %1200
   %1202 = zext nneg i32 %1201 to i64
-  %1203 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1202
+  %1203 = getelementptr inbounds nuw i64, ptr %27, i64 %1202
   store i64 %1175, ptr %1203, align 8, !tbaa !16
   %1204 = icmp slt i32 %1186, %45
   %1205 = zext i1 %1204 to i32
@@ -151704,7 +151704,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i3
   %1448 = load float, ptr %1119, align 8, !tbaa !2175
   %1449 = load i64, ptr %1134, align 8, !tbaa !161
   %1450 = load i64, ptr %1135, align 8, !tbaa !180
-  %1451 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091235.i.i
+  %1451 = getelementptr inbounds nuw i64, ptr %27, i64 %.091235.i.i
   %1452 = load i64, ptr %1451, align 8, !tbaa !16
   %1453 = trunc i64 %1450 to i32
   %1454 = and i64 %1450, 4294967295
@@ -152273,25 +152273,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %1770 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1769)
   %1771 = add nuw nsw i32 %1766, %1770
   %1772 = zext nneg i32 %.087235.i.i to i64
-  %1773 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1772
+  %1773 = getelementptr inbounds nuw i64, ptr %22, i64 %1772
   store i64 %.089234.i.i, ptr %1773, align 8, !tbaa !16
   %1774 = icmp slt i32 %1720, %45
   %1775 = zext i1 %1774 to i32
   %1776 = add nuw nsw i32 %.087235.i.i, %1775
   %1777 = zext nneg i32 %1776 to i64
-  %1778 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1777
+  %1778 = getelementptr inbounds nuw i64, ptr %22, i64 %1777
   store i64 %1721, ptr %1778, align 8, !tbaa !16
   %1779 = icmp slt i32 %1737, %45
   %1780 = zext i1 %1779 to i32
   %1781 = add nuw nsw i32 %1776, %1780
   %1782 = zext nneg i32 %1781 to i64
-  %1783 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1782
+  %1783 = getelementptr inbounds nuw i64, ptr %22, i64 %1782
   store i64 %1738, ptr %1783, align 8, !tbaa !16
   %1784 = icmp slt i32 %1754, %45
   %1785 = zext i1 %1784 to i32
   %1786 = add nuw nsw i32 %1781, %1785
   %1787 = zext nneg i32 %1786 to i64
-  %1788 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1787
+  %1788 = getelementptr inbounds nuw i64, ptr %22, i64 %1787
   store i64 %1755, ptr %1788, align 8, !tbaa !16
   %1789 = icmp slt i32 %1771, %45
   %1790 = zext i1 %1789 to i32
@@ -152778,7 +152778,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i4
   %2033 = load float, ptr %1684, align 8, !tbaa !2175
   %2034 = load i64, ptr %1699, align 8, !tbaa !161
   %2035 = load i64, ptr %1700, align 8, !tbaa !180
-  %2036 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091239.i.i
+  %2036 = getelementptr inbounds nuw i64, ptr %22, i64 %.091239.i.i
   %2037 = load i64, ptr %2036, align 8, !tbaa !16
   %2038 = trunc i64 %2035 to i32
   %2039 = and i64 %2035, 4294967295
@@ -153382,25 +153382,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %2390 = trunc nuw nsw i64 %2389 to i32
   %2391 = add nuw nsw i32 %2385, %2390
   %2392 = zext nneg i32 %.087239.i.i to i64
-  %2393 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2392
+  %2393 = getelementptr inbounds nuw i64, ptr %17, i64 %2392
   store i64 %.089238.i.i, ptr %2393, align 8, !tbaa !16
   %2394 = icmp slt i32 %2319, %45
   %2395 = zext i1 %2394 to i32
   %2396 = add nuw nsw i32 %.087239.i.i, %2395
   %2397 = zext nneg i32 %2396 to i64
-  %2398 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2397
+  %2398 = getelementptr inbounds nuw i64, ptr %17, i64 %2397
   store i64 %2320, ptr %2398, align 8, !tbaa !16
   %2399 = icmp slt i32 %2343, %45
   %2400 = zext i1 %2399 to i32
   %2401 = add nuw nsw i32 %2396, %2400
   %2402 = zext nneg i32 %2401 to i64
-  %2403 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2402
+  %2403 = getelementptr inbounds nuw i64, ptr %17, i64 %2402
   store i64 %2344, ptr %2403, align 8, !tbaa !16
   %2404 = icmp slt i32 %2367, %45
   %2405 = zext i1 %2404 to i32
   %2406 = add nuw nsw i32 %2401, %2405
   %2407 = zext nneg i32 %2406 to i64
-  %2408 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2407
+  %2408 = getelementptr inbounds nuw i64, ptr %17, i64 %2407
   store i64 %2368, ptr %2408, align 8, !tbaa !16
   %2409 = icmp slt i32 %2391, %45
   %2410 = zext i1 %2409 to i32
@@ -153887,7 +153887,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i6
   %2653 = load float, ptr %2276, align 8, !tbaa !2175
   %2654 = load i64, ptr %2291, align 8, !tbaa !161
   %2655 = load i64, ptr %2292, align 8, !tbaa !180
-  %2656 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091243.i.i
+  %2656 = getelementptr inbounds nuw i64, ptr %17, i64 %.091243.i.i
   %2657 = load i64, ptr %2656, align 8, !tbaa !16
   %2658 = trunc i64 %2655 to i32
   %2659 = and i64 %2655, 4294967295
@@ -154602,25 +154602,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %3121 = trunc nuw nsw i64 %3120 to i32
   %3122 = add nuw nsw i32 %3116, %3121
   %3123 = zext nneg i32 %.087255.i.i to i64
-  %3124 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3123
+  %3124 = getelementptr inbounds nuw i64, ptr %12, i64 %3123
   store i64 %.089254.i.i, ptr %3124, align 8, !tbaa !16
   %3125 = icmp slt i32 %2978, %45
   %3126 = zext i1 %3125 to i32
   %3127 = add nuw nsw i32 %.087255.i.i, %3126
   %3128 = zext nneg i32 %3127 to i64
-  %3129 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3128
+  %3129 = getelementptr inbounds nuw i64, ptr %12, i64 %3128
   store i64 %2979, ptr %3129, align 8, !tbaa !16
   %3130 = icmp slt i32 %3026, %45
   %3131 = zext i1 %3130 to i32
   %3132 = add nuw nsw i32 %3127, %3131
   %3133 = zext nneg i32 %3132 to i64
-  %3134 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3133
+  %3134 = getelementptr inbounds nuw i64, ptr %12, i64 %3133
   store i64 %3027, ptr %3134, align 8, !tbaa !16
   %3135 = icmp slt i32 %3074, %45
   %3136 = zext i1 %3135 to i32
   %3137 = add nuw nsw i32 %3132, %3136
   %3138 = zext nneg i32 %3137 to i64
-  %3139 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3138
+  %3139 = getelementptr inbounds nuw i64, ptr %12, i64 %3138
   store i64 %3075, ptr %3139, align 8, !tbaa !16
   %3140 = icmp slt i32 %3122, %45
   %3141 = zext i1 %3140 to i32
@@ -155107,7 +155107,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i8
   %3384 = load float, ptr %2911, align 8, !tbaa !2175
   %3385 = load i64, ptr %2926, align 8, !tbaa !161
   %3386 = load i64, ptr %2927, align 8, !tbaa !180
-  %3387 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091259.i.i
+  %3387 = getelementptr inbounds nuw i64, ptr %12, i64 %.091259.i.i
   %3388 = load i64, ptr %3387, align 8, !tbaa !16
   %3389 = trunc i64 %3386 to i32
   %3390 = and i64 %3386, 4294967295
@@ -155659,25 +155659,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
   %3685 = getelementptr inbounds i8, ptr %3676, i64 %3654
   %3686 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3685)
   %3687 = zext nneg i32 %.087223.i.i to i64
-  %3688 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3687
+  %3688 = getelementptr inbounds nuw i64, ptr %6, i64 %3687
   store i64 %.089222.i.i, ptr %3688, align 8, !tbaa !16
   %3689 = icmp slt i32 %3677, %45
   %3690 = zext i1 %3689 to i32
   %3691 = add nuw nsw i32 %.087223.i.i, %3690
   %3692 = zext nneg i32 %3691 to i64
-  %3693 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3692
+  %3693 = getelementptr inbounds nuw i64, ptr %6, i64 %3692
   store i64 %3678, ptr %3693, align 8, !tbaa !16
   %3694 = icmp slt i32 %3680, %45
   %3695 = zext i1 %3694 to i32
   %3696 = add nuw nsw i32 %3691, %3695
   %3697 = zext nneg i32 %3696 to i64
-  %3698 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3697
+  %3698 = getelementptr inbounds nuw i64, ptr %6, i64 %3697
   store i64 %3681, ptr %3698, align 8, !tbaa !16
   %3699 = icmp slt i32 %3683, %45
   %3700 = zext i1 %3699 to i32
   %3701 = add nuw nsw i32 %3696, %3700
   %3702 = zext nneg i32 %3701 to i64
-  %3703 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3702
+  %3703 = getelementptr inbounds nuw i64, ptr %6, i64 %3702
   store i64 %3684, ptr %3703, align 8, !tbaa !16
   %3704 = icmp slt i32 %3686, %45
   %3705 = zext i1 %3704 to i32
@@ -156160,7 +156160,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit147.i.i1
   %3944 = load float, ptr %3655, align 8, !tbaa !2175
   %3945 = load i64, ptr %3670, align 8, !tbaa !161
   %3946 = load i64, ptr %3671, align 8, !tbaa !180
-  %3947 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091227.i.i
+  %3947 = getelementptr inbounds nuw i64, ptr %6, i64 %.091227.i.i
   %3948 = load i64, ptr %3947, align 8, !tbaa !16
   %3949 = trunc i64 %3946 to i32
   %3950 = and i64 %3946, 4294967295
@@ -158556,25 +158556,25 @@ define internal void @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1E
   %112 = xor i32 %111, %75
   %113 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
   %114 = zext nneg i32 %.087151.i.i.i.i to i64
-  %115 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i64, ptr %42, i64 %114
   store i64 %.089150.i.i.i.i, ptr %115, align 8, !tbaa !16
   %116 = icmp slt i32 %98, %68
   %117 = zext i1 %116 to i32
   %118 = add nuw nsw i32 %.087151.i.i.i.i, %117
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i64, ptr %42, i64 %119
   store i64 %99, ptr %120, align 8, !tbaa !16
   %121 = icmp slt i32 %103, %68
   %122 = zext i1 %121 to i32
   %123 = add nuw nsw i32 %118, %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %42, i64 %124
   store i64 %104, ptr %125, align 8, !tbaa !16
   %126 = icmp slt i32 %108, %68
   %127 = zext i1 %126 to i32
   %128 = add nuw nsw i32 %123, %127
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i64, ptr %42, i64 %129
   store i64 %109, ptr %130, align 8, !tbaa !16
   %131 = icmp slt i32 %113, %68
   %132 = zext i1 %131 to i32
@@ -158761,7 +158761,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %222 = load i64, ptr %221, align 8, !tbaa !161
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %224 = load i64, ptr %223, align 8, !tbaa !180
-  %225 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %.091155.i.i.i.i
+  %225 = getelementptr inbounds nuw i64, ptr %42, i64 %.091155.i.i.i.i
   %226 = load i64, ptr %225, align 8, !tbaa !16
   %227 = trunc i64 %224 to i32
   %228 = and i64 %224, 4294967295
@@ -159123,25 +159123,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %413 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %412)
   %414 = trunc nuw nsw i64 %413 to i32
   %415 = zext nneg i32 %.087151.i.i34.i.i to i64
-  %416 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw i64, ptr %37, i64 %415
   store i64 %.089150.i.i35.i.i, ptr %416, align 8, !tbaa !16
   %417 = icmp sgt i32 %68, %396
   %418 = zext i1 %417 to i32
   %419 = add nuw nsw i32 %.087151.i.i34.i.i, %418
   %420 = zext nneg i32 %419 to i64
-  %421 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %420
+  %421 = getelementptr inbounds nuw i64, ptr %37, i64 %420
   store i64 %397, ptr %421, align 8, !tbaa !16
   %422 = icmp sgt i32 %68, %402
   %423 = zext i1 %422 to i32
   %424 = add nuw nsw i32 %419, %423
   %425 = zext nneg i32 %424 to i64
-  %426 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw i64, ptr %37, i64 %425
   store i64 %403, ptr %426, align 8, !tbaa !16
   %427 = icmp sgt i32 %68, %408
   %428 = zext i1 %427 to i32
   %429 = add nuw nsw i32 %424, %428
   %430 = zext nneg i32 %429 to i64
-  %431 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw i64, ptr %37, i64 %430
   store i64 %409, ptr %431, align 8, !tbaa !16
   %432 = icmp sgt i32 %68, %414
   %433 = zext i1 %432 to i32
@@ -159328,7 +159328,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %523 = load i64, ptr %522, align 8, !tbaa !161
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %525 = load i64, ptr %524, align 8, !tbaa !180
-  %526 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091155.i.i41.i.i
+  %526 = getelementptr inbounds nuw i64, ptr %37, i64 %.091155.i.i41.i.i
   %527 = load i64, ptr %526, align 8, !tbaa !16
   %528 = trunc i64 %525 to i32
   %529 = and i64 %525, 4294967295
@@ -159717,25 +159717,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %741 = trunc nuw nsw i64 %740 to i32
   %742 = add nuw nsw i32 %741, %736
   %743 = zext nneg i32 %.087155.i.i.i.i to i64
-  %744 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %743
+  %744 = getelementptr inbounds nuw i64, ptr %32, i64 %743
   store i64 %.089154.i.i.i.i, ptr %744, align 8, !tbaa !16
   %745 = icmp slt i32 %706, %68
   %746 = zext i1 %745 to i32
   %747 = add nuw nsw i32 %.087155.i.i.i.i, %746
   %748 = zext nneg i32 %747 to i64
-  %749 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw i64, ptr %32, i64 %748
   store i64 %707, ptr %749, align 8, !tbaa !16
   %750 = icmp slt i32 %718, %68
   %751 = zext i1 %750 to i32
   %752 = add nuw nsw i32 %747, %751
   %753 = zext nneg i32 %752 to i64
-  %754 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i64, ptr %32, i64 %753
   store i64 %719, ptr %754, align 8, !tbaa !16
   %755 = icmp slt i32 %730, %68
   %756 = zext i1 %755 to i32
   %757 = add nuw nsw i32 %752, %756
   %758 = zext nneg i32 %757 to i64
-  %759 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw i64, ptr %32, i64 %758
   store i64 %731, ptr %759, align 8, !tbaa !16
   %760 = icmp slt i32 %742, %68
   %761 = zext i1 %760 to i32
@@ -159922,7 +159922,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %851 = load i64, ptr %850, align 8, !tbaa !161
   %852 = getelementptr inbounds nuw i8, ptr %849, i64 32
   %853 = load i64, ptr %852, align 8, !tbaa !180
-  %854 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091159.i.i.i.i
+  %854 = getelementptr inbounds nuw i64, ptr %32, i64 %.091159.i.i.i.i
   %855 = load i64, ptr %854, align 8, !tbaa !16
   %856 = trunc i64 %853 to i32
   %857 = and i64 %853, 4294967295
@@ -160339,25 +160339,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1097 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1096)
   %1098 = add nuw nsw i32 %1093, %1097
   %1099 = zext nneg i32 %.087159.i.i.i.i to i64
-  %1100 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1099
+  %1100 = getelementptr inbounds nuw i64, ptr %27, i64 %1099
   store i64 %.089158.i.i.i.i, ptr %1100, align 8, !tbaa !16
   %1101 = icmp slt i32 %1047, %68
   %1102 = zext i1 %1101 to i32
   %1103 = add nuw nsw i32 %.087159.i.i.i.i, %1102
   %1104 = zext nneg i32 %1103 to i64
-  %1105 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1104
+  %1105 = getelementptr inbounds nuw i64, ptr %27, i64 %1104
   store i64 %1048, ptr %1105, align 8, !tbaa !16
   %1106 = icmp slt i32 %1064, %68
   %1107 = zext i1 %1106 to i32
   %1108 = add nuw nsw i32 %1103, %1107
   %1109 = zext nneg i32 %1108 to i64
-  %1110 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1109
+  %1110 = getelementptr inbounds nuw i64, ptr %27, i64 %1109
   store i64 %1065, ptr %1110, align 8, !tbaa !16
   %1111 = icmp slt i32 %1081, %68
   %1112 = zext i1 %1111 to i32
   %1113 = add nuw nsw i32 %1108, %1112
   %1114 = zext nneg i32 %1113 to i64
-  %1115 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1114
+  %1115 = getelementptr inbounds nuw i64, ptr %27, i64 %1114
   store i64 %1082, ptr %1115, align 8, !tbaa !16
   %1116 = icmp slt i32 %1098, %68
   %1117 = zext i1 %1116 to i32
@@ -160544,7 +160544,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1207 = load i64, ptr %1206, align 8, !tbaa !161
   %1208 = getelementptr inbounds nuw i8, ptr %1205, i64 32
   %1209 = load i64, ptr %1208, align 8, !tbaa !180
-  %1210 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091163.i.i.i.i
+  %1210 = getelementptr inbounds nuw i64, ptr %27, i64 %.091163.i.i.i.i
   %1211 = load i64, ptr %1210, align 8, !tbaa !16
   %1212 = trunc i64 %1209 to i32
   %1213 = and i64 %1209, 4294967295
@@ -160996,25 +160996,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1488 = trunc nuw nsw i64 %1487 to i32
   %1489 = add nuw nsw i32 %1483, %1488
   %1490 = zext nneg i32 %.087163.i.i.i.i to i64
-  %1491 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1490
+  %1491 = getelementptr inbounds nuw i64, ptr %22, i64 %1490
   store i64 %.089162.i.i.i.i, ptr %1491, align 8, !tbaa !16
   %1492 = icmp slt i32 %1417, %68
   %1493 = zext i1 %1492 to i32
   %1494 = add nuw nsw i32 %.087163.i.i.i.i, %1493
   %1495 = zext nneg i32 %1494 to i64
-  %1496 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1495
+  %1496 = getelementptr inbounds nuw i64, ptr %22, i64 %1495
   store i64 %1418, ptr %1496, align 8, !tbaa !16
   %1497 = icmp slt i32 %1441, %68
   %1498 = zext i1 %1497 to i32
   %1499 = add nuw nsw i32 %1494, %1498
   %1500 = zext nneg i32 %1499 to i64
-  %1501 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1500
+  %1501 = getelementptr inbounds nuw i64, ptr %22, i64 %1500
   store i64 %1442, ptr %1501, align 8, !tbaa !16
   %1502 = icmp slt i32 %1465, %68
   %1503 = zext i1 %1502 to i32
   %1504 = add nuw nsw i32 %1499, %1503
   %1505 = zext nneg i32 %1504 to i64
-  %1506 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1505
+  %1506 = getelementptr inbounds nuw i64, ptr %22, i64 %1505
   store i64 %1466, ptr %1506, align 8, !tbaa !16
   %1507 = icmp slt i32 %1489, %68
   %1508 = zext i1 %1507 to i32
@@ -161201,7 +161201,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1598 = load i64, ptr %1597, align 8, !tbaa !161
   %1599 = getelementptr inbounds nuw i8, ptr %1596, i64 32
   %1600 = load i64, ptr %1599, align 8, !tbaa !180
-  %1601 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091167.i.i.i.i
+  %1601 = getelementptr inbounds nuw i64, ptr %22, i64 %.091167.i.i.i.i
   %1602 = load i64, ptr %1601, align 8, !tbaa !16
   %1603 = trunc i64 %1600 to i32
   %1604 = and i64 %1600, 4294967295
@@ -161764,25 +161764,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1990 = trunc nuw nsw i64 %1989 to i32
   %1991 = add nuw nsw i32 %1985, %1990
   %1992 = zext nneg i32 %.087179.i.i.i.i to i64
-  %1993 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %1992
+  %1993 = getelementptr inbounds nuw i64, ptr %17, i64 %1992
   store i64 %.089178.i.i.i.i, ptr %1993, align 8, !tbaa !16
   %1994 = icmp slt i32 %1847, %68
   %1995 = zext i1 %1994 to i32
   %1996 = add nuw nsw i32 %.087179.i.i.i.i, %1995
   %1997 = zext nneg i32 %1996 to i64
-  %1998 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %1997
+  %1998 = getelementptr inbounds nuw i64, ptr %17, i64 %1997
   store i64 %1848, ptr %1998, align 8, !tbaa !16
   %1999 = icmp slt i32 %1895, %68
   %2000 = zext i1 %1999 to i32
   %2001 = add nuw nsw i32 %1996, %2000
   %2002 = zext nneg i32 %2001 to i64
-  %2003 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2002
+  %2003 = getelementptr inbounds nuw i64, ptr %17, i64 %2002
   store i64 %1896, ptr %2003, align 8, !tbaa !16
   %2004 = icmp slt i32 %1943, %68
   %2005 = zext i1 %2004 to i32
   %2006 = add nuw nsw i32 %2001, %2005
   %2007 = zext nneg i32 %2006 to i64
-  %2008 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2007
+  %2008 = getelementptr inbounds nuw i64, ptr %17, i64 %2007
   store i64 %1944, ptr %2008, align 8, !tbaa !16
   %2009 = icmp slt i32 %1991, %68
   %2010 = zext i1 %2009 to i32
@@ -161969,7 +161969,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2100 = load i64, ptr %2099, align 8, !tbaa !161
   %2101 = getelementptr inbounds nuw i8, ptr %2098, i64 32
   %2102 = load i64, ptr %2101, align 8, !tbaa !180
-  %2103 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091183.i.i.i.i
+  %2103 = getelementptr inbounds nuw i64, ptr %17, i64 %.091183.i.i.i.i
   %2104 = load i64, ptr %2103, align 8, !tbaa !16
   %2105 = trunc i64 %2102 to i32
   %2106 = and i64 %2102, 4294967295
@@ -162369,25 +162369,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2325 = getelementptr inbounds i8, ptr %2316, i64 %2302
   %2326 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %2325)
   %2327 = zext nneg i32 %.087147.i.i.i.i to i64
-  %2328 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2327
+  %2328 = getelementptr inbounds nuw i64, ptr %11, i64 %2327
   store i64 %.089146.i.i.i.i, ptr %2328, align 8, !tbaa !16
   %2329 = icmp slt i32 %2317, %68
   %2330 = zext i1 %2329 to i32
   %2331 = add nuw nsw i32 %.087147.i.i.i.i, %2330
   %2332 = zext nneg i32 %2331 to i64
-  %2333 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2332
+  %2333 = getelementptr inbounds nuw i64, ptr %11, i64 %2332
   store i64 %2318, ptr %2333, align 8, !tbaa !16
   %2334 = icmp slt i32 %2320, %68
   %2335 = zext i1 %2334 to i32
   %2336 = add nuw nsw i32 %2331, %2335
   %2337 = zext nneg i32 %2336 to i64
-  %2338 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2337
+  %2338 = getelementptr inbounds nuw i64, ptr %11, i64 %2337
   store i64 %2321, ptr %2338, align 8, !tbaa !16
   %2339 = icmp slt i32 %2323, %68
   %2340 = zext i1 %2339 to i32
   %2341 = add nuw nsw i32 %2336, %2340
   %2342 = zext nneg i32 %2341 to i64
-  %2343 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %2342
+  %2343 = getelementptr inbounds nuw i64, ptr %11, i64 %2342
   store i64 %2324, ptr %2343, align 8, !tbaa !16
   %2344 = icmp slt i32 %2326, %68
   %2345 = zext i1 %2344 to i32
@@ -162574,7 +162574,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2435 = load i64, ptr %2434, align 8, !tbaa !161
   %2436 = getelementptr inbounds nuw i8, ptr %2433, i64 32
   %2437 = load i64, ptr %2436, align 8, !tbaa !180
-  %2438 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %.091151.i.i.i.i
+  %2438 = getelementptr inbounds nuw i64, ptr %11, i64 %.091151.i.i.i.i
   %2439 = load i64, ptr %2438, align 8, !tbaa !16
   %2440 = trunc i64 %2437 to i32
   %2441 = and i64 %2437, 4294967295
@@ -164018,25 +164018,25 @@ define internal fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N
   %98 = xor i32 %97, %53
   %99 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
   %100 = zext nneg i32 %.087227.i.i to i64
-  %101 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %37, i64 %100
   store i64 %.089226.i.i, ptr %101, align 8, !tbaa !16
   %102 = icmp slt i32 %84, %45
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %.087227.i.i, %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %37, i64 %105
   store i64 %85, ptr %106, align 8, !tbaa !16
   %107 = icmp slt i32 %89, %45
   %108 = zext i1 %107 to i32
   %109 = add nuw nsw i32 %104, %108
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %37, i64 %110
   store i64 %90, ptr %111, align 8, !tbaa !16
   %112 = icmp slt i32 %94, %45
   %113 = zext i1 %112 to i32
   %114 = add nuw nsw i32 %109, %113
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i64, ptr %37, i64 %115
   store i64 %95, ptr %116, align 8, !tbaa !16
   %117 = icmp slt i32 %99, %45
   %118 = zext i1 %117 to i32
@@ -164523,7 +164523,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i:
   %361 = load float, ptr %60, align 8, !tbaa !2229
   %362 = load i64, ptr %75, align 8, !tbaa !161
   %363 = load i64, ptr %76, align 8, !tbaa !180
-  %364 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %.091231.i.i
+  %364 = getelementptr inbounds nuw i64, ptr %37, i64 %.091231.i.i
   %365 = load i64, ptr %364, align 8, !tbaa !16
   %366 = trunc i64 %363 to i32
   %367 = and i64 %363, 4294967295
@@ -165037,25 +165037,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %628 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %627)
   %629 = trunc nuw nsw i64 %628 to i32
   %630 = zext nneg i32 %.087227.i.i36 to i64
-  %631 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %630
+  %631 = getelementptr inbounds nuw i64, ptr %32, i64 %630
   store i64 %.089226.i.i37, ptr %631, align 8, !tbaa !16
   %632 = icmp sgt i32 %45, %611
   %633 = zext i1 %632 to i32
   %634 = add nuw nsw i32 %.087227.i.i36, %633
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw i64, ptr %32, i64 %635
   store i64 %612, ptr %636, align 8, !tbaa !16
   %637 = icmp sgt i32 %45, %617
   %638 = zext i1 %637 to i32
   %639 = add nuw nsw i32 %634, %638
   %640 = zext nneg i32 %639 to i64
-  %641 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw i64, ptr %32, i64 %640
   store i64 %618, ptr %641, align 8, !tbaa !16
   %642 = icmp sgt i32 %45, %623
   %643 = zext i1 %642 to i32
   %644 = add nuw nsw i32 %639, %643
   %645 = zext nneg i32 %644 to i64
-  %646 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw i64, ptr %32, i64 %645
   store i64 %624, ptr %646, align 8, !tbaa !16
   %647 = icmp sgt i32 %45, %629
   %648 = zext i1 %647 to i32
@@ -165542,7 +165542,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
   %891 = load float, ptr %586, align 8, !tbaa !2229
   %892 = load i64, ptr %601, align 8, !tbaa !161
   %893 = load i64, ptr %602, align 8, !tbaa !180
-  %894 = getelementptr inbounds nuw [8 x i64], ptr %32, i64 0, i64 %.091231.i.i44
+  %894 = getelementptr inbounds nuw i64, ptr %32, i64 %.091231.i.i44
   %895 = load i64, ptr %894, align 8, !tbaa !16
   %896 = trunc i64 %893 to i32
   %897 = and i64 %893, 4294967295
@@ -166083,25 +166083,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1185 = trunc nuw nsw i64 %1184 to i32
   %1186 = add nuw nsw i32 %1185, %1180
   %1187 = zext nneg i32 %.087231.i.i to i64
-  %1188 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1187
+  %1188 = getelementptr inbounds nuw i64, ptr %27, i64 %1187
   store i64 %.089230.i.i, ptr %1188, align 8, !tbaa !16
   %1189 = icmp slt i32 %1150, %45
   %1190 = zext i1 %1189 to i32
   %1191 = add nuw nsw i32 %.087231.i.i, %1190
   %1192 = zext nneg i32 %1191 to i64
-  %1193 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1192
+  %1193 = getelementptr inbounds nuw i64, ptr %27, i64 %1192
   store i64 %1151, ptr %1193, align 8, !tbaa !16
   %1194 = icmp slt i32 %1162, %45
   %1195 = zext i1 %1194 to i32
   %1196 = add nuw nsw i32 %1191, %1195
   %1197 = zext nneg i32 %1196 to i64
-  %1198 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1197
+  %1198 = getelementptr inbounds nuw i64, ptr %27, i64 %1197
   store i64 %1163, ptr %1198, align 8, !tbaa !16
   %1199 = icmp slt i32 %1174, %45
   %1200 = zext i1 %1199 to i32
   %1201 = add nuw nsw i32 %1196, %1200
   %1202 = zext nneg i32 %1201 to i64
-  %1203 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %1202
+  %1203 = getelementptr inbounds nuw i64, ptr %27, i64 %1202
   store i64 %1175, ptr %1203, align 8, !tbaa !16
   %1204 = icmp slt i32 %1186, %45
   %1205 = zext i1 %1204 to i32
@@ -166588,7 +166588,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i3
   %1448 = load float, ptr %1119, align 8, !tbaa !2229
   %1449 = load i64, ptr %1134, align 8, !tbaa !161
   %1450 = load i64, ptr %1135, align 8, !tbaa !180
-  %1451 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %.091235.i.i
+  %1451 = getelementptr inbounds nuw i64, ptr %27, i64 %.091235.i.i
   %1452 = load i64, ptr %1451, align 8, !tbaa !16
   %1453 = trunc i64 %1450 to i32
   %1454 = and i64 %1450, 4294967295
@@ -167157,25 +167157,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %1770 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1769)
   %1771 = add nuw nsw i32 %1766, %1770
   %1772 = zext nneg i32 %.087235.i.i to i64
-  %1773 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1772
+  %1773 = getelementptr inbounds nuw i64, ptr %22, i64 %1772
   store i64 %.089234.i.i, ptr %1773, align 8, !tbaa !16
   %1774 = icmp slt i32 %1720, %45
   %1775 = zext i1 %1774 to i32
   %1776 = add nuw nsw i32 %.087235.i.i, %1775
   %1777 = zext nneg i32 %1776 to i64
-  %1778 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1777
+  %1778 = getelementptr inbounds nuw i64, ptr %22, i64 %1777
   store i64 %1721, ptr %1778, align 8, !tbaa !16
   %1779 = icmp slt i32 %1737, %45
   %1780 = zext i1 %1779 to i32
   %1781 = add nuw nsw i32 %1776, %1780
   %1782 = zext nneg i32 %1781 to i64
-  %1783 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1782
+  %1783 = getelementptr inbounds nuw i64, ptr %22, i64 %1782
   store i64 %1738, ptr %1783, align 8, !tbaa !16
   %1784 = icmp slt i32 %1754, %45
   %1785 = zext i1 %1784 to i32
   %1786 = add nuw nsw i32 %1781, %1785
   %1787 = zext nneg i32 %1786 to i64
-  %1788 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %1787
+  %1788 = getelementptr inbounds nuw i64, ptr %22, i64 %1787
   store i64 %1755, ptr %1788, align 8, !tbaa !16
   %1789 = icmp slt i32 %1771, %45
   %1790 = zext i1 %1789 to i32
@@ -167662,7 +167662,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i4
   %2033 = load float, ptr %1684, align 8, !tbaa !2229
   %2034 = load i64, ptr %1699, align 8, !tbaa !161
   %2035 = load i64, ptr %1700, align 8, !tbaa !180
-  %2036 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %.091239.i.i
+  %2036 = getelementptr inbounds nuw i64, ptr %22, i64 %.091239.i.i
   %2037 = load i64, ptr %2036, align 8, !tbaa !16
   %2038 = trunc i64 %2035 to i32
   %2039 = and i64 %2035, 4294967295
@@ -168266,25 +168266,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %2390 = trunc nuw nsw i64 %2389 to i32
   %2391 = add nuw nsw i32 %2385, %2390
   %2392 = zext nneg i32 %.087239.i.i to i64
-  %2393 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2392
+  %2393 = getelementptr inbounds nuw i64, ptr %17, i64 %2392
   store i64 %.089238.i.i, ptr %2393, align 8, !tbaa !16
   %2394 = icmp slt i32 %2319, %45
   %2395 = zext i1 %2394 to i32
   %2396 = add nuw nsw i32 %.087239.i.i, %2395
   %2397 = zext nneg i32 %2396 to i64
-  %2398 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2397
+  %2398 = getelementptr inbounds nuw i64, ptr %17, i64 %2397
   store i64 %2320, ptr %2398, align 8, !tbaa !16
   %2399 = icmp slt i32 %2343, %45
   %2400 = zext i1 %2399 to i32
   %2401 = add nuw nsw i32 %2396, %2400
   %2402 = zext nneg i32 %2401 to i64
-  %2403 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2402
+  %2403 = getelementptr inbounds nuw i64, ptr %17, i64 %2402
   store i64 %2344, ptr %2403, align 8, !tbaa !16
   %2404 = icmp slt i32 %2367, %45
   %2405 = zext i1 %2404 to i32
   %2406 = add nuw nsw i32 %2401, %2405
   %2407 = zext nneg i32 %2406 to i64
-  %2408 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %2407
+  %2408 = getelementptr inbounds nuw i64, ptr %17, i64 %2407
   store i64 %2368, ptr %2408, align 8, !tbaa !16
   %2409 = icmp slt i32 %2391, %45
   %2410 = zext i1 %2409 to i32
@@ -168771,7 +168771,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i6
   %2653 = load float, ptr %2276, align 8, !tbaa !2229
   %2654 = load i64, ptr %2291, align 8, !tbaa !161
   %2655 = load i64, ptr %2292, align 8, !tbaa !180
-  %2656 = getelementptr inbounds nuw [8 x i64], ptr %17, i64 0, i64 %.091243.i.i
+  %2656 = getelementptr inbounds nuw i64, ptr %17, i64 %.091243.i.i
   %2657 = load i64, ptr %2656, align 8, !tbaa !16
   %2658 = trunc i64 %2655 to i32
   %2659 = and i64 %2655, 4294967295
@@ -169486,25 +169486,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %3121 = trunc nuw nsw i64 %3120 to i32
   %3122 = add nuw nsw i32 %3116, %3121
   %3123 = zext nneg i32 %.087255.i.i to i64
-  %3124 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3123
+  %3124 = getelementptr inbounds nuw i64, ptr %12, i64 %3123
   store i64 %.089254.i.i, ptr %3124, align 8, !tbaa !16
   %3125 = icmp slt i32 %2978, %45
   %3126 = zext i1 %3125 to i32
   %3127 = add nuw nsw i32 %.087255.i.i, %3126
   %3128 = zext nneg i32 %3127 to i64
-  %3129 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3128
+  %3129 = getelementptr inbounds nuw i64, ptr %12, i64 %3128
   store i64 %2979, ptr %3129, align 8, !tbaa !16
   %3130 = icmp slt i32 %3026, %45
   %3131 = zext i1 %3130 to i32
   %3132 = add nuw nsw i32 %3127, %3131
   %3133 = zext nneg i32 %3132 to i64
-  %3134 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3133
+  %3134 = getelementptr inbounds nuw i64, ptr %12, i64 %3133
   store i64 %3027, ptr %3134, align 8, !tbaa !16
   %3135 = icmp slt i32 %3074, %45
   %3136 = zext i1 %3135 to i32
   %3137 = add nuw nsw i32 %3132, %3136
   %3138 = zext nneg i32 %3137 to i64
-  %3139 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %3138
+  %3139 = getelementptr inbounds nuw i64, ptr %12, i64 %3138
   store i64 %3075, ptr %3139, align 8, !tbaa !16
   %3140 = icmp slt i32 %3122, %45
   %3141 = zext i1 %3140 to i32
@@ -169991,7 +169991,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i8
   %3384 = load float, ptr %2911, align 8, !tbaa !2229
   %3385 = load i64, ptr %2926, align 8, !tbaa !161
   %3386 = load i64, ptr %2927, align 8, !tbaa !180
-  %3387 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %.091259.i.i
+  %3387 = getelementptr inbounds nuw i64, ptr %12, i64 %.091259.i.i
   %3388 = load i64, ptr %3387, align 8, !tbaa !16
   %3389 = trunc i64 %3386 to i32
   %3390 = and i64 %3386, 4294967295
@@ -170543,25 +170543,25 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
   %3685 = getelementptr inbounds i8, ptr %3676, i64 %3654
   %3686 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %3685)
   %3687 = zext nneg i32 %.087223.i.i to i64
-  %3688 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3687
+  %3688 = getelementptr inbounds nuw i64, ptr %6, i64 %3687
   store i64 %.089222.i.i, ptr %3688, align 8, !tbaa !16
   %3689 = icmp slt i32 %3677, %45
   %3690 = zext i1 %3689 to i32
   %3691 = add nuw nsw i32 %.087223.i.i, %3690
   %3692 = zext nneg i32 %3691 to i64
-  %3693 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3692
+  %3693 = getelementptr inbounds nuw i64, ptr %6, i64 %3692
   store i64 %3678, ptr %3693, align 8, !tbaa !16
   %3694 = icmp slt i32 %3680, %45
   %3695 = zext i1 %3694 to i32
   %3696 = add nuw nsw i32 %3691, %3695
   %3697 = zext nneg i32 %3696 to i64
-  %3698 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3697
+  %3698 = getelementptr inbounds nuw i64, ptr %6, i64 %3697
   store i64 %3681, ptr %3698, align 8, !tbaa !16
   %3699 = icmp slt i32 %3683, %45
   %3700 = zext i1 %3699 to i32
   %3701 = add nuw nsw i32 %3696, %3700
   %3702 = zext nneg i32 %3701 to i64
-  %3703 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %3702
+  %3703 = getelementptr inbounds nuw i64, ptr %6, i64 %3702
   store i64 %3684, ptr %3703, align 8, !tbaa !16
   %3704 = icmp slt i32 %3686, %45
   %3705 = zext i1 %3704 to i32
@@ -171044,7 +171044,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit147.i.i1
   %3944 = load float, ptr %3655, align 8, !tbaa !2229
   %3945 = load i64, ptr %3670, align 8, !tbaa !161
   %3946 = load i64, ptr %3671, align 8, !tbaa !180
-  %3947 = getelementptr inbounds nuw [8 x i64], ptr %6, i64 0, i64 %.091227.i.i
+  %3947 = getelementptr inbounds nuw i64, ptr %6, i64 %.091227.i.i
   %3948 = load i64, ptr %3947, align 8, !tbaa !16
   %3949 = trunc i64 %3946 to i32
   %3950 = and i64 %3946, 4294967295

@@ -368,7 +368,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @config_params(ptr noundef 
 
 10:                                               ; preds = %1, %85
   %indvars.iv72 = phi i64 [ 0, %1 ], [ %indvars.iv.next73, %85 ]
-  %11 = getelementptr inbounds nuw [4 x %struct.FilterParams], ptr %4, i64 0, i64 %indvars.iv72
+  %11 = getelementptr inbounds nuw %struct.FilterParams, ptr %4, i64 %indvars.iv72
   %12 = load i32, ptr %5, align 8, !tbaa !67
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %14, label %15
@@ -802,7 +802,7 @@ define internal fastcc void @init_blend_func_8_8bit(ptr noundef captures(none) %
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_8_8bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_8_8bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -820,7 +820,7 @@ define internal fastcc void @init_blend_func_9_16bit(ptr noundef captures(none) 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_9_16bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_9_16bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -838,7 +838,7 @@ define internal fastcc void @init_blend_func_10_16bit(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_10_16bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_10_16bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -856,7 +856,7 @@ define internal fastcc void @init_blend_func_12_16bit(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_12_16bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_12_16bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -874,7 +874,7 @@ define internal fastcc void @init_blend_func_14_16bit(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_14_16bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_14_16bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -892,7 +892,7 @@ define internal fastcc void @init_blend_func_16_16bit(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_16_16bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_16_16bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -910,7 +910,7 @@ define internal fastcc void @init_blend_func_32_32bit(ptr noundef captures(none)
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [40 x ptr], ptr @switch.table.init_blend_func_32_32bit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.init_blend_func_32_32bit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %switch.load, ptr %5, align 8, !tbaa !71
@@ -17444,7 +17444,7 @@ define internal fastcc ptr @blend_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %54 = sub nsw i32 0, %53
   %55 = ashr i32 %54, %48
   %56 = sub nsw i32 0, %55
-  %57 = getelementptr inbounds nuw [4 x %struct.FilterParams], ptr %28, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.FilterParams, ptr %28, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !653
   store ptr %2, ptr %29, align 8, !tbaa !656
@@ -17505,15 +17505,15 @@ define internal noundef i32 @filter_slice(ptr readnone captures(none) %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !659
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !664
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !656
-  %19 = getelementptr inbounds [8 x ptr], ptr %18, i64 0, i64 %14
+  %19 = getelementptr inbounds ptr, ptr %18, i64 %14
   %20 = load ptr, ptr %19, align 8, !tbaa !664
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !657
-  %23 = getelementptr inbounds [8 x ptr], ptr %22, i64 0, i64 %14
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %14
   %24 = load ptr, ptr %23, align 8, !tbaa !664
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !658
@@ -17595,21 +17595,21 @@ define internal noundef i32 @filter_slice(ptr readnone captures(none) %0, ptr no
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !71
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %81 = getelementptr inbounds [8 x i32], ptr %80, i64 0, i64 %14
+  %81 = getelementptr inbounds i32, ptr %80, i64 %14
   %82 = load i32, ptr %81, align 4, !tbaa !668
   %83 = mul nsw i32 %82, %10
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr %16, i64 %84
   %86 = sext i32 %82 to i64
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %88 = getelementptr inbounds [8 x i32], ptr %87, i64 0, i64 %14
+  %88 = getelementptr inbounds i32, ptr %87, i64 %14
   %89 = load i32, ptr %88, align 4, !tbaa !668
   %90 = mul nsw i32 %89, %10
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %20, i64 %91
   %93 = sext i32 %89 to i64
   %94 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %95 = getelementptr inbounds [8 x i32], ptr %94, i64 0, i64 %14
+  %95 = getelementptr inbounds i32, ptr %94, i64 %14
   %96 = load i32, ptr %95, align 4, !tbaa !668
   %97 = mul nsw i32 %96, %10
   %98 = sext i32 %97 to i64

@@ -119,7 +119,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %39, %43
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i8, ptr %46, align 8
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr @type2size, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = xor i32 %50, -1
   br label %52
@@ -234,7 +234,7 @@ define hidden void @_ZN5Parse10do_get_xxxEP4NodeP7ciFieldb(ptr noundef nonnull a
 
 _ZN7ciField11layout_typeEv.exit:                  ; preds = %4, %8
   %12 = phi i64 [ %11, %8 ], [ 12, %4 ]
-  %13 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @type2field, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %16 = load i8, ptr %15, align 4
@@ -288,7 +288,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZN7ciField4typeEv.
 
 _ZN7ciField11layout_typeEv.exit42:                ; preds = %30, %32
   %36 = phi i64 [ %35, %32 ], [ 12, %30 ]
-  %37 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @type2field, i64 %36
   %38 = load i8, ptr %37, align 1
   tail call void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %38, ptr noundef nonnull %29)
   br label %215
@@ -395,7 +395,7 @@ _ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZNK10ciMetadata9is
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN7ciField4typeEv.exit43
   %97 = zext i8 %14 to i64
-  %98 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %97
   %99 = load ptr, ptr %98, align 8
   br label %100
 
@@ -404,7 +404,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN7ciField4typeEv.
   %.0 = phi ptr [ %89, %88 ], [ %95, %90 ], [ %96, %_ZN7ciField18is_static_constantEv.exit.thread ], [ %73, %72 ], [ %99, %_Z17is_reference_type9BasicTypeb.exit ]
   %101 = tail call noundef ptr @_ZN8GraphKit14access_load_atEP4NodeS1_PK7TypePtrPK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %57, ptr noundef %52, ptr noundef %.0, i8 noundef zeroext %14, i64 noundef %58) #7
   %102 = zext i8 %14 to i64
-  %103 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr @type2size, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %156
@@ -607,10 +607,10 @@ define hidden void @_ZN5Parse10do_put_xxxEP4NodeP7ciFieldb(ptr noundef nonnull a
 
 _ZN7ciField11layout_typeEv.exit:                  ; preds = %4, %21
   %25 = phi i64 [ %24, %21 ], [ 12, %4 ]
-  %26 = getelementptr inbounds nuw [20 x i8], ptr @type2field, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @type2field, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr @type2size, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -752,7 +752,7 @@ declare noundef ptr @_ZN8GraphKit24make_constant_from_fieldEP7ciFieldP4Node(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8GraphKit9push_nodeE9BasicTypeP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @type2size, i64 %4
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %_ZN8GraphKit4pushEP4Node.exit [
     i32 1, label %7
@@ -1634,7 +1634,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i:                  ; preds = %108, %96, %80
 
 switch.lookup:                                    ; preds = %128
   %130 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5Parse17do_multianewarrayEv, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5Parse17do_multianewarrayEv, i64 %130
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.072 = load ptr, ptr %switch.load, align 8
   %.not82 = icmp eq ptr %.072, null

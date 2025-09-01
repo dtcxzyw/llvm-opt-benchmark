@@ -1213,7 +1213,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %45 = zext nneg i8 %44 to i64
   %46 = shl nuw i64 1, %45
   %47 = xor i64 %46, -1
-  %48 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %43
+  %48 = getelementptr inbounds nuw i64, ptr %1, i64 %43
   %49 = load i64, ptr %48, align 8, !noundef !7
   %50 = and i64 %49, %47
   store i64 %50, ptr %48, align 8
@@ -1337,7 +1337,7 @@ switch.lookup:                                    ; preds = %77
   %100 = zext nneg i8 %99 to i64
   %101 = shl nuw i64 1, %100
   %102 = xor i64 %101, -1
-  %103 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %98
+  %103 = getelementptr inbounds nuw i64, ptr %1, i64 %98
   %104 = load i64, ptr %103, align 8, !alias.scope !201, !noundef !7
   %105 = and i64 %104, %102
   store i64 %105, ptr %103, align 8, !alias.scope !201
@@ -1382,7 +1382,7 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   %119 = zext nneg i8 %118 to i64
   %120 = shl nuw i64 1, %119
   %121 = xor i64 %120, -1
-  %122 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %117
+  %122 = getelementptr inbounds nuw i64, ptr %1, i64 %117
   %123 = load i64, ptr %122, align 8, !alias.scope !204, !noundef !7
   %124 = and i64 %123, %121
   store i64 %124, ptr %122, align 8, !alias.scope !204

@@ -10629,7 +10629,7 @@ define linkonce_odr dso_local void @_ZN4absl12NoDestructorISt5arrayINSt7__cxx111
 3:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i, %2
   %4 = phi i64 [ 0, %2 ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i ]
   %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %4
-  %6 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %1, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %5, align 8, !tbaa !4
   %8 = load ptr, ptr %6, align 8, !tbaa !12

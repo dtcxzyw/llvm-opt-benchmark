@@ -632,7 +632,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %indvars.iv557 = phi i64 [ 0, %152 ], [ %indvars.iv.next558, %359 ]
   %156 = trunc nuw nsw i64 %indvars.iv557 to i32
   %157 = add i32 %.0299548, %156
-  %invariant.gep = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %4, i64 0, i64 %indvars.iv557
+  %invariant.gep = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv557
   br label %158
 
 158:                                              ; preds = %.preheader518, %358
@@ -757,7 +757,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   ]
 
 233:                                              ; preds = %231
-  %gep525 = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep525 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
   store float %.sroa.17.1, ptr %gep525, align 4
   %234 = getelementptr inbounds nuw i8, ptr %gep525, i64 4
   store float %.sroa.32.1, ptr %234, align 4
@@ -767,7 +767,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %236 = fadd float %.sroa.0.1, %.sroa.32.1
   %237 = fmul float %236, 2.500000e-01
   %238 = call float @llvm.fmuladd.f32(float %.sroa.17.1, float 5.000000e-01, float %237)
-  %gep = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
   store float %238, ptr %gep, align 4
   %239 = fneg float %237
   %240 = call float @llvm.fmuladd.f32(float %.sroa.17.1, float 5.000000e-01, float %239)
@@ -781,7 +781,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %245 = fmul float %121, %.sroa.17.1
   %246 = call float @llvm.fmuladd.f32(float %119, float %.sroa.0.1, float %245)
   %247 = call float @llvm.fmuladd.f32(float %123, float %.sroa.32.1, float %246)
-  %gep527 = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %gep527 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
   store float %247, ptr %gep527, align 4
   %248 = fsub float %.sroa.32.1, %247
   %249 = fdiv float %248, %136
@@ -795,7 +795,7 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %.sink = phi float [ %243, %235 ], [ %252, %244 ], [ %.sroa.0.1, %233 ]
   %254 = phi float [ %240, %235 ], [ %249, %244 ], [ %.sroa.32.1, %233 ]
   %255 = phi float [ %238, %235 ], [ %247, %244 ], [ %.sroa.17.1, %233 ]
-  %256 = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep, i64 0, i64 %indvars.iv, i64 0, i32 2
+  %256 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv, i64 0, i32 2
   store float %.sink, ptr %256, align 4
   %257 = load i32, ptr %129, align 4
   %258 = icmp ugt i32 %257, 1
@@ -970,14 +970,14 @@ avifYUVColorSpaceInfoUVToUNorm.exit361:           ; preds = %avifYUVColorSpaceIn
   %indvars.iv568 = phi i64 [ %indvars.iv.next569, %371 ], [ 0, %360 ]
   %.0310540 = phi float [ %367, %371 ], [ 0.000000e+00, %360 ]
   %.0312539 = phi float [ %370, %371 ], [ 0.000000e+00, %360 ]
-  %invariant.gep533 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %4, i64 0, i64 %indvars.iv568
+  %invariant.gep533 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv568
   br label %364
 
 364:                                              ; preds = %.preheader517, %364
   %indvars.iv563 = phi i64 [ 0, %.preheader517 ], [ %indvars.iv.next564, %364 ]
   %.1311537 = phi float [ %.0310540, %.preheader517 ], [ %367, %364 ]
   %.1313536 = phi float [ %.0312539, %.preheader517 ], [ %370, %364 ]
-  %gep534 = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep533, i64 0, i64 %indvars.iv563
+  %gep534 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep533, i64 %indvars.iv563
   %365 = getelementptr inbounds nuw i8, ptr %gep534, i64 4
   %366 = load float, ptr %365, align 4
   %367 = fadd float %.1311537, %366
@@ -1104,14 +1104,14 @@ avifYUVColorSpaceInfoUVToUNorm.exit381:           ; preds = %372
 
 .preheader:                                       ; preds = %.preheader519, %523
   %indvars.iv578 = phi i64 [ 0, %.preheader519 ], [ %indvars.iv.next579, %523 ]
-  %invariant.gep541 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %4, i64 0, i64 %indvars.iv578
+  %invariant.gep541 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv578
   br label %445
 
 445:                                              ; preds = %.preheader, %445
   %indvars.iv573 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next574, %445 ]
   %.0302544 = phi float [ 0.000000e+00, %.preheader ], [ %451, %445 ]
   %.0303543 = phi float [ 0.000000e+00, %.preheader ], [ %448, %445 ]
-  %gep542 = getelementptr inbounds nuw [2 x [2 x %struct.YUVBlock]], ptr %invariant.gep541, i64 0, i64 %indvars.iv573
+  %gep542 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep541, i64 %indvars.iv573
   %446 = getelementptr inbounds nuw i8, ptr %gep542, i64 4
   %447 = load float, ptr %446, align 4
   %448 = fadd float %.0303543, %447
@@ -2429,13 +2429,13 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
 416:                                              ; preds = %416, %.preheader.i
   %417 = phi i1 [ true, %.preheader.i ], [ false, %416 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %416 ]
-  %gep.i = getelementptr inbounds nuw [2 x [2 x i16]], ptr %indvars.iv432.i.sroa.phi127, i64 0, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [2 x i16], ptr %indvars.iv432.i.sroa.phi127, i64 %indvars.iv.i
   %418 = load i16, ptr %gep.i, align 2
   %419 = zext i16 %418 to i32
   %420 = icmp samesign ugt i32 %220, %419
   %421 = select i1 %420, i16 %418, i16 %221
   store i16 %421, ptr %gep.i, align 2
-  %gep412.i = getelementptr inbounds nuw [2 x [2 x i16]], ptr %indvars.iv432.i.sroa.phi, i64 0, i64 %indvars.iv.i
+  %gep412.i = getelementptr inbounds nuw [2 x i16], ptr %indvars.iv432.i.sroa.phi, i64 %indvars.iv.i
   %422 = load i16, ptr %gep412.i, align 2
   %423 = zext i16 %422 to i32
   %424 = icmp samesign ugt i32 %220, %423

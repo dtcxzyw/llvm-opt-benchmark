@@ -712,7 +712,7 @@ define internal fastcc i32 @provider_conf_params_internal(ptr noundef %0, ptr no
   br i1 %27, label %.lr.ph65, label %._crit_edge66
 
 .lr.ph65:                                         ; preds = %25
-  %28 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %.045
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.045
   br label %33
 
 29:                                               ; preds = %42

@@ -531,7 +531,7 @@ _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i
   %32 = icmp ult i8 %31, -6
   %narrow.i.i.i.i = select i1 %or.cond11.i.not.i.i.i.i, i1 %32, i1 false
   %not..i.i.i.i = sext i1 %narrow.i.i.i.i to i8
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %not..i.i.i.i, ptr %33, align 1, !tbaa !7
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -696,7 +696,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %29 = load i8, ptr %28, align 1, !tbaa !7
   %30 = and i8 %29, 3
   %31 = zext nneg i8 %30 to i64
-  %32 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !16
   %34 = lshr i8 %29, 2
   %35 = zext nneg i8 %34 to i64
@@ -704,7 +704,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %37 = and i64 %36, %33
   %.not31.i.i.i.i = icmp eq i64 %37, 0
   %38 = sext i1 %.not31.i.i.i.i to i8
-  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %38, ptr %39, align 1, !tbaa !7
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -730,7 +730,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %48 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !7
   %49 = and i8 %48, 3
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %1, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !16
   %53 = lshr i8 %48, 2
   %54 = zext nneg i8 %53 to i64

@@ -3133,8 +3133,8 @@ _ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN4cvc58internal12N
   %421 = zext i1 %420 to i64
   %spec.select.i.i.i.i.i = add nuw i64 %indvars.iv.i.i.i, %421
   %sext.i.i.i = shl i64 %spec.select.i.i.i.i.i, 32
-  %422 = ashr exact i64 %sext.i.i.i, 32
-  %423 = getelementptr inbounds [0 x ptr], ptr %400, i64 0, i64 %422
+  %422 = ashr exact i64 %sext.i.i.i, 29
+  %423 = getelementptr inbounds i8, ptr %400, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !48, !noalias !310
   %425 = load i64, ptr %401, align 8, !noalias !313
   %426 = trunc i64 %425 to i32
@@ -3149,8 +3149,8 @@ _ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN4cvc58internal12N
   %433 = zext i1 %432 to i64
   %spec.select.i.i52.i.i.i = add nuw i64 %indvars.iv.i.i.i, %433
   %sext38.i.i.i = shl i64 %spec.select.i.i52.i.i.i, 32
-  %434 = ashr exact i64 %sext38.i.i.i, 32
-  %435 = getelementptr inbounds [0 x ptr], ptr %402, i64 0, i64 %434
+  %434 = ashr exact i64 %sext38.i.i.i, 29
+  %435 = getelementptr inbounds i8, ptr %402, i64 %434
   %436 = load ptr, ptr %435, align 8, !tbaa !48, !noalias !313
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -3591,7 +3591,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i: ; pred
   %604 = icmp eq i32 %602, 2
   %605 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %606 = zext i1 %604 to i64
-  %607 = getelementptr inbounds nuw [0 x ptr], ptr %605, i64 0, i64 %606
+  %607 = getelementptr inbounds nuw ptr, ptr %605, i64 %606
   %608 = load ptr, ptr %607, align 8, !tbaa !48, !noalias !328
   %609 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %610 = load i64, ptr %609, align 8, !noalias !331
@@ -3606,7 +3606,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i: ; pred
   %617 = icmp eq i32 %615, 2
   %618 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %619 = zext i1 %617 to i64
-  %620 = getelementptr inbounds nuw [0 x ptr], ptr %618, i64 0, i64 %619
+  %620 = getelementptr inbounds nuw ptr, ptr %618, i64 %619
   %621 = load ptr, ptr %620, align 8, !tbaa !48, !noalias !331
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -3669,7 +3669,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i: ; pred
 643:                                              ; preds = %635
   %644 = icmp eq i32 %642, 2
   %spec.select.i.i96.i.i.i = select i1 %644, i64 2, i64 1
-  %645 = getelementptr inbounds nuw [0 x ptr], ptr %605, i64 0, i64 %spec.select.i.i96.i.i.i
+  %645 = getelementptr inbounds nuw ptr, ptr %605, i64 %spec.select.i.i96.i.i.i
   %646 = load ptr, ptr %645, align 8, !tbaa !48, !noalias !337
   %647 = load i64, ptr %609, align 8, !noalias !340
   %648 = trunc i64 %647 to i32
@@ -3682,7 +3682,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i: ; pred
 653:                                              ; preds = %643
   %654 = icmp eq i32 %652, 2
   %spec.select.i.i99.i.i.i = select i1 %654, i64 2, i64 1
-  %655 = getelementptr inbounds nuw [0 x ptr], ptr %618, i64 0, i64 %spec.select.i.i99.i.i.i
+  %655 = getelementptr inbounds nuw ptr, ptr %618, i64 %spec.select.i.i99.i.i.i
   %656 = load ptr, ptr %655, align 8, !tbaa !48, !noalias !340
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

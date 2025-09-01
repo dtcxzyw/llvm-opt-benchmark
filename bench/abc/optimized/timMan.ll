@@ -342,7 +342,7 @@ Tim_ManBoxNum.exit:                               ; preds = %.critedge4
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %107 = load i32, ptr %106, align 4, !tbaa !40
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [0 x i32], ptr %104, i64 0, i64 %108
+  %109 = getelementptr inbounds i32, ptr %104, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !39
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %112 = load i32, ptr %111, align 4, !tbaa !42
@@ -2193,7 +2193,7 @@ Tim_ManPoNum.exit:                                ; preds = %.critedge, %Tim_Man
 ; Function Attrs: nounwind uwtable
 define void @Tim_ManPrint(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %301, label %3
+  br i1 %2, label %299, label %3
 
 3:                                                ; preds = %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -2518,7 +2518,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
 
 161:                                              ; preds = %.lr.ph252.split, %174
   %indvars.iv298 = phi i64 [ 0, %.lr.ph252.split ], [ %indvars.iv.next299, %174 ]
-  %162 = getelementptr inbounds nuw [0 x i32], ptr %152, i64 0, i64 %indvars.iv298
+  %162 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv298
   %163 = load i32, ptr %162, align 4, !tbaa !39
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val193, i64 %164
@@ -2582,7 +2582,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
 .lr.ph391:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
   %.val195390 = phi ptr [ %.val195, %.lr.ph261 ], [ %.val195387, %.lr.ph261.preheader ]
   %indvars.iv303389 = phi i64 [ %indvars.iv.next304, %.lr.ph261 ], [ 0, %.lr.ph261.preheader ]
-  %189 = getelementptr inbounds nuw [0 x i32], ptr %152, i64 0, i64 %indvars.iv303389
+  %189 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv303389
   %190 = load i32, ptr %189, align 4, !tbaa !39
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val195390, i64 %191
@@ -2607,7 +2607,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %204 = phi i32 [ %180, %.preheader213 ], [ %.pre335, %182 ], [ %201, %..critedge12.loopexit_crit_edge ], [ %180, %.lr.ph261.preheader ], [ %201, %.lr.ph261 ]
   %.val196 = load ptr, ptr %32, align 8, !tbaa !14
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds [0 x i32], ptr %152, i64 0, i64 %205
+  %206 = getelementptr inbounds i32, ptr %152, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !39
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val196, i64 %208
@@ -2622,189 +2622,189 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %213 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %214 = load float, ptr %213, align 4, !tbaa !82
   %wide.trip.count309 = zext nneg i32 %211 to i64
+  %invariant.gep = getelementptr i32, ptr %152, i64 %205
   br label %215
 
-215:                                              ; preds = %.lr.ph264.split, %229
-  %indvars.iv306 = phi i64 [ 0, %.lr.ph264.split ], [ %indvars.iv.next307, %229 ]
-  %216 = add nsw i64 %indvars.iv306, %205
-  %217 = getelementptr inbounds [0 x i32], ptr %152, i64 0, i64 %216
-  %218 = load i32, ptr %217, align 4, !tbaa !39
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val196, i64 %219
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  %222 = load float, ptr %221, align 4, !tbaa !82
-  %223 = fcmp une float %214, %222
-  br i1 %223, label %.critedge14.loopexit.split.loop.exit375, label %224
+215:                                              ; preds = %.lr.ph264.split, %227
+  %indvars.iv306 = phi i64 [ 0, %.lr.ph264.split ], [ %indvars.iv.next307, %227 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv306
+  %216 = load i32, ptr %gep, align 4, !tbaa !39
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val196, i64 %217
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  %220 = load float, ptr %219, align 4, !tbaa !82
+  %221 = fcmp une float %214, %220
+  br i1 %221, label %.critedge14.loopexit.split.loop.exit375, label %222
 
-224:                                              ; preds = %215
-  %225 = load float, ptr %210, align 4, !tbaa !21
-  %226 = getelementptr inbounds nuw i8, ptr %220, i64 20
-  %227 = load float, ptr %226, align 4, !tbaa !21
-  %228 = fcmp une float %225, %227
-  br i1 %228, label %.critedge14.loopexit.split.loop.exit377, label %229
+222:                                              ; preds = %215
+  %223 = load float, ptr %210, align 4, !tbaa !21
+  %224 = getelementptr inbounds nuw i8, ptr %218, i64 20
+  %225 = load float, ptr %224, align 4, !tbaa !21
+  %226 = fcmp une float %223, %225
+  br i1 %226, label %.critedge14.loopexit.split.loop.exit377, label %227
 
-229:                                              ; preds = %224
+227:                                              ; preds = %222
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count309
   br i1 %exitcond310.not, label %.critedge14, label %215, !llvm.loop !97
 
 .critedge14.loopexit.split.loop.exit375:          ; preds = %215
-  %230 = trunc nuw nsw i64 %indvars.iv306 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv306 to i32
   br label %.critedge14
 
-.critedge14.loopexit.split.loop.exit377:          ; preds = %224
-  %231 = trunc nuw nsw i64 %indvars.iv306 to i32
+.critedge14.loopexit.split.loop.exit377:          ; preds = %222
+  %229 = trunc nuw nsw i64 %indvars.iv306 to i32
   br label %.critedge14
 
-.critedge14:                                      ; preds = %229, %.critedge14.loopexit.split.loop.exit375, %.critedge14.loopexit.split.loop.exit377, %.critedge12
-  %.2.lcssa = phi i32 [ 0, %.critedge12 ], [ %230, %.critedge14.loopexit.split.loop.exit375 ], [ %231, %.critedge14.loopexit.split.loop.exit377 ], [ %211, %229 ]
-  %232 = load i32, ptr %141, align 4, !tbaa !95
-  %233 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef nonnull %0, i32 noundef %232) #20
-  %234 = icmp eq i32 %.2.lcssa, %233
-  br i1 %234, label %237, label %.preheader212
+.critedge14:                                      ; preds = %227, %.critedge14.loopexit.split.loop.exit375, %.critedge14.loopexit.split.loop.exit377, %.critedge12
+  %.2.lcssa = phi i32 [ 0, %.critedge12 ], [ %228, %.critedge14.loopexit.split.loop.exit375 ], [ %229, %.critedge14.loopexit.split.loop.exit377 ], [ %211, %227 ]
+  %230 = load i32, ptr %141, align 4, !tbaa !95
+  %231 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef nonnull %0, i32 noundef %230) #20
+  %232 = icmp eq i32 %.2.lcssa, %231
+  br i1 %232, label %235, label %.preheader212
 
 .preheader212:                                    ; preds = %.critedge14
-  %235 = load i32, ptr %144, align 4, !tbaa !42
-  %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %.lr.ph273, label %.critedge16
+  %233 = load i32, ptr %144, align 4, !tbaa !42
+  %234 = icmp sgt i32 %233, 0
+  br i1 %234, label %.lr.ph273, label %.critedge16
 
-237:                                              ; preds = %.critedge14
-  %238 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %239 = load float, ptr %238, align 4, !tbaa !82
+235:                                              ; preds = %.critedge14
+  %236 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %237 = load float, ptr %236, align 4, !tbaa !82
+  %238 = fpext float %237 to double
+  %239 = load float, ptr %210, align 4, !tbaa !21
   %240 = fpext float %239 to double
-  %241 = load float, ptr %210, align 4, !tbaa !21
-  %242 = fpext float %241 to double
-  %243 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %240, double noundef %242)
+  %241 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %238, double noundef %240)
   br label %.critedge16
 
-.lr.ph273:                                        ; preds = %.preheader212, %244
-  %.3272 = phi i32 [ %259, %244 ], [ 0, %.preheader212 ]
+.lr.ph273:                                        ; preds = %.preheader212, %242
+  %.3272 = phi i32 [ %257, %242 ], [ 0, %.preheader212 ]
   %.val198 = load ptr, ptr %32, align 8, !tbaa !14
   %.not188 = icmp eq ptr %.val198, null
-  br i1 %.not188, label %.critedge16, label %244
+  br i1 %.not188, label %.critedge16, label %242
 
-244:                                              ; preds = %.lr.ph273
-  %245 = load i32, ptr %142, align 4, !tbaa !40
-  %246 = add nsw i32 %245, %.3272
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds [0 x i32], ptr %152, i64 0, i64 %247
-  %249 = load i32, ptr %248, align 4, !tbaa !39
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val198, i64 %250
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  %253 = load float, ptr %252, align 4, !tbaa !82
-  %254 = fpext float %253 to double
-  %255 = getelementptr inbounds nuw i8, ptr %251, i64 20
-  %256 = load float, ptr %255, align 4, !tbaa !21
-  %257 = fpext float %256 to double
-  %258 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.3272, double noundef %254, double noundef %257)
-  %259 = add nuw nsw i32 %.3272, 1
-  %260 = load i32, ptr %144, align 4, !tbaa !42
-  %261 = icmp slt i32 %259, %260
-  br i1 %261, label %.lr.ph273, label %.critedge16, !llvm.loop !98
+242:                                              ; preds = %.lr.ph273
+  %243 = load i32, ptr %142, align 4, !tbaa !40
+  %244 = add nsw i32 %243, %.3272
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds i32, ptr %152, i64 %245
+  %247 = load i32, ptr %246, align 4, !tbaa !39
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val198, i64 %248
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
+  %251 = load float, ptr %250, align 4, !tbaa !82
+  %252 = fpext float %251 to double
+  %253 = getelementptr inbounds nuw i8, ptr %249, i64 20
+  %254 = load float, ptr %253, align 4, !tbaa !21
+  %255 = fpext float %254 to double
+  %256 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.3272, double noundef %252, double noundef %255)
+  %257 = add nuw nsw i32 %.3272, 1
+  %258 = load i32, ptr %144, align 4, !tbaa !42
+  %259 = icmp slt i32 %257, %258
+  br i1 %259, label %.lr.ph273, label %.critedge16, !llvm.loop !98
 
-.critedge16:                                      ; preds = %244, %.lr.ph273, %.preheader212, %237
+.critedge16:                                      ; preds = %242, %.lr.ph273, %.preheader212, %235
   %exitcond314 = icmp eq i64 %indvars.iv311, 3
   br i1 %exitcond314, label %.critedge8, label %133
 
 .critedge8:                                       ; preds = %133, %.critedge16, %.critedge6, %Tim_ManBoxNum.exit206
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %263 = load ptr, ptr %262, align 8, !tbaa !29
-  %.not.i207 = icmp eq ptr %263, null
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %261 = load ptr, ptr %260, align 8, !tbaa !29
+  %.not.i207 = icmp eq ptr %261, null
   br i1 %.not.i207, label %.critedge18, label %Tim_ManDelayTableNum.exit
 
 Tim_ManDelayTableNum.exit:                        ; preds = %.critedge8
-  %264 = getelementptr i8, ptr %263, i64 4
-  %.val.i208 = load i32, ptr %264, align 4, !tbaa !30
-  %265 = icmp sgt i32 %.val.i208, 0
-  br i1 %265, label %.lr.ph283, label %.critedge18
+  %262 = getelementptr i8, ptr %261, i64 4
+  %.val.i208 = load i32, ptr %262, align 4, !tbaa !30
+  %263 = icmp sgt i32 %.val.i208, 0
+  br i1 %263, label %.lr.ph283, label %.critedge18
 
 .lr.ph283:                                        ; preds = %Tim_ManDelayTableNum.exit, %.loopexit
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %.loopexit ], [ 0, %Tim_ManDelayTableNum.exit ]
-  %266 = phi ptr [ %297, %.loopexit ], [ %263, %Tim_ManDelayTableNum.exit ]
-  %267 = getelementptr i8, ptr %266, i64 8
-  %.val191 = load ptr, ptr %267, align 8, !tbaa !33
-  %268 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv326
-  %269 = load ptr, ptr %268, align 8, !tbaa !34
-  %270 = icmp eq ptr %269, null
-  br i1 %270, label %.loopexit, label %271
+  %264 = phi ptr [ %295, %.loopexit ], [ %261, %Tim_ManDelayTableNum.exit ]
+  %265 = getelementptr i8, ptr %264, i64 8
+  %.val191 = load ptr, ptr %265, align 8, !tbaa !33
+  %266 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv326
+  %267 = load ptr, ptr %266, align 8, !tbaa !34
+  %268 = icmp eq ptr %267, null
+  br i1 %268, label %.loopexit, label %269
 
-271:                                              ; preds = %.lr.ph283
-  %272 = trunc nuw nsw i64 %indvars.iv326 to i32
-  %273 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %272)
-  %274 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  %275 = load float, ptr %274, align 4, !tbaa !35
-  %276 = fptosi float %275 to i32
-  %277 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %278 = load float, ptr %277, align 4, !tbaa !35
-  %279 = fptosi float %278 to i32
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %.preheader.lr.ph, label %.loopexit
+269:                                              ; preds = %.lr.ph283
+  %270 = trunc nuw nsw i64 %indvars.iv326 to i32
+  %271 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %270)
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %273 = load float, ptr %272, align 4, !tbaa !35
+  %274 = fptosi float %273 to i32
+  %275 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %276 = load float, ptr %275, align 4, !tbaa !35
+  %277 = fptosi float %276 to i32
+  %278 = icmp sgt i32 %277, 0
+  br i1 %278, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %271
-  %281 = icmp sgt i32 %276, 0
-  br i1 %281, label %.preheader.us.preheader, label %.preheader
+.preheader.lr.ph:                                 ; preds = %269
+  %279 = icmp sgt i32 %274, 0
+  br i1 %279, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %282 = zext nneg i32 %276 to i64
-  %wide.trip.count324 = zext nneg i32 %279 to i64
+  %280 = zext nneg i32 %274 to i64
+  %wide.trip.count324 = zext nneg i32 %277 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv321 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next322, %._crit_edge.us ]
-  %283 = mul nuw nsw i64 %indvars.iv321, %282
-  %284 = getelementptr inbounds nuw float, ptr %269, i64 %283
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 12
-  br label %286
+  %281 = mul nuw nsw i64 %indvars.iv321, %280
+  %282 = getelementptr inbounds nuw float, ptr %267, i64 %281
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 12
+  br label %284
 
-286:                                              ; preds = %.preheader.us, %295
-  %indvars.iv316 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next317, %295 ]
-  %287 = getelementptr inbounds nuw float, ptr %285, i64 %indvars.iv316
-  %288 = load float, ptr %287, align 4, !tbaa !35
-  %289 = fcmp oeq float %288, -1.000000e+09
-  br i1 %289, label %293, label %290
+284:                                              ; preds = %.preheader.us, %293
+  %indvars.iv316 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next317, %293 ]
+  %285 = getelementptr inbounds nuw float, ptr %283, i64 %indvars.iv316
+  %286 = load float, ptr %285, align 4, !tbaa !35
+  %287 = fcmp oeq float %286, -1.000000e+09
+  br i1 %287, label %291, label %288
 
-290:                                              ; preds = %286
-  %291 = fpext float %288 to double
-  %292 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %291)
-  br label %295
+288:                                              ; preds = %284
+  %289 = fpext float %286 to double
+  %290 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %289)
+  br label %293
 
-293:                                              ; preds = %286
-  %294 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull @.str.14)
-  br label %295
+291:                                              ; preds = %284
+  %292 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull @.str.14)
+  br label %293
 
-295:                                              ; preds = %293, %290
+293:                                              ; preds = %291, %288
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
-  %exitcond320.not = icmp eq i64 %indvars.iv.next317, %282
-  br i1 %exitcond320.not, label %._crit_edge.us, label %286, !llvm.loop !99
+  %exitcond320.not = icmp eq i64 %indvars.iv.next317, %280
+  br i1 %exitcond320.not, label %._crit_edge.us, label %284, !llvm.loop !99
 
-._crit_edge.us:                                   ; preds = %295
+._crit_edge.us:                                   ; preds = %293
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %putchar189.us = tail call i32 @putchar(i32 10)
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
   br i1 %exitcond325.not, label %.loopexit, label %.preheader.us, !llvm.loop !100
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.0164280 = phi i32 [ %296, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %296 = add nuw nsw i32 %.0164280, 1
+  %.0164280 = phi i32 [ %294, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %294 = add nuw nsw i32 %.0164280, 1
   %putchar189 = tail call i32 @putchar(i32 10)
-  %exitcond315.not = icmp eq i32 %296, %279
+  %exitcond315.not = icmp eq i32 %294, %277
   br i1 %exitcond315.not, label %.loopexit, label %.preheader, !llvm.loop !100
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %271, %.lr.ph283
+.loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %269, %.lr.ph283
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
-  %297 = load ptr, ptr %262, align 8, !tbaa !29
-  %298 = getelementptr i8, ptr %297, i64 4
-  %.val = load i32, ptr %298, align 4, !tbaa !30
-  %299 = sext i32 %.val to i64
-  %300 = icmp slt i64 %indvars.iv.next327, %299
-  br i1 %300, label %.lr.ph283, label %.critedge18, !llvm.loop !101
+  %295 = load ptr, ptr %260, align 8, !tbaa !29
+  %296 = getelementptr i8, ptr %295, i64 4
+  %.val = load i32, ptr %296, align 4, !tbaa !30
+  %297 = sext i32 %.val to i64
+  %298 = icmp slt i64 %indvars.iv.next327, %297
+  br i1 %298, label %.lr.ph283, label %.critedge18, !llvm.loop !101
 
 .critedge18:                                      ; preds = %.loopexit, %.critedge8, %Tim_ManDelayTableNum.exit
   %putchar = tail call i32 @putchar(i32 10)
-  br label %301
+  br label %299
 
-301:                                              ; preds = %1, %.critedge18
+299:                                              ; preds = %1, %.critedge18
   ret void
 }
 

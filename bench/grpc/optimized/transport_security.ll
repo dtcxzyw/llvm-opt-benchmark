@@ -50,7 +50,7 @@ define noundef nonnull ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._Z20tsi_result_to_string10tsi_result, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z20tsi_result_to_string10tsi_result, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -66,7 +66,7 @@ define noundef nonnull ptr @_Z28tsi_security_level_to_string18tsi_security_level
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z28tsi_security_level_to_string18tsi_security_level, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z28tsi_security_level_to_string18tsi_security_level, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

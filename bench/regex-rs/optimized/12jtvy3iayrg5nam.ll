@@ -1542,7 +1542,7 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %3 = load i8, ptr %2, align 8, !range !103, !alias.scope !243, !noalias !240, !noundef !7
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149", i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = load ptr, ptr %0, align 8, !alias.scope !240, !noalias !243, !nonnull !7, !align !8, !noundef !7
   %6 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2), !noalias !245
@@ -2437,7 +2437,7 @@ define hidden noundef zeroext i1 @"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$2
 switch.lookup:
   %2 = load i8, ptr %1, align 1, !range !103, !noundef !7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = load ptr, ptr %0, align 8, !noalias !7, !nonnull !7, !align !8, !noundef !7
   %5 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2), !noalias !7
@@ -4331,7 +4331,7 @@ define noundef range(i32 2, 9) i32 @_ZN12regex_syntax3ast14HexLiteralKind6digits
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !103, !noundef !7
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

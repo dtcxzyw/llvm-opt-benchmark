@@ -1774,7 +1774,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %52
 
 switch.lookup:                                    ; preds = %59
   %65 = zext nneg i8 %60 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i16], ptr @switch.table._ZNK6icu_7722FormattedStringBuilder13toDebugStringEv, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK6icu_7722FormattedStringBuilder13toDebugStringEv, i64 %65
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %66
 

@@ -624,9 +624,9 @@ _ZN3gmx14LogEntryWriterD2Ev.exit86:               ; preds = %_ZNKSt7__cxx1112bas
 
 56:                                               ; preds = %49, %56
   %indvars.iv = phi i64 [ 0, %49 ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 2
+  %57 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
   %58 = load i32, ptr %57, align 16, !tbaa !178
-  %59 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %50, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %struct.InteractionList, ptr %50, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !180
   %62 = load ptr, ptr %59, align 8, !tbaa !181
@@ -637,7 +637,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit86:               ; preds = %_ZNKSt7__cxx1112bas
   %67 = trunc i64 %66 to i32
   %68 = add nsw i32 %58, 1
   %69 = sdiv i32 %67, %68
-  %70 = getelementptr inbounds nuw [95 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   store i32 %69, ptr %70, align 4, !tbaa !182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 95
@@ -749,7 +749,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit98:               ; preds = %_ZNKSt7__cxx1112bas
 
 115:                                              ; preds = %112, %109
   %.064 = phi i32 [ %114, %112 ], [ %110, %109 ]
-  %116 = getelementptr inbounds nuw [95 x i32], ptr %16, i64 0, i64 %indvars.iv135
+  %116 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv135
   %117 = load i32, ptr %116, align 4, !tbaa !182
   %.neg76 = sub nsw i32 %.064, %117
   %.not75 = icmp eq i32 %117, %.064
@@ -766,7 +766,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit98:               ; preds = %_ZNKSt7__cxx1112bas
   store ptr %98, ptr %19, align 8, !tbaa !76
   store i64 0, ptr %99, align 8, !tbaa !79
   store i8 0, ptr %100, align 8, !tbaa !82
-  %122 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv135, i32 1
+  %122 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv135, i32 1
   %123 = load ptr, ptr %122, align 8, !tbaa !186
   %124 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull @.str.2, ptr noundef %123, i32 noundef %.064, i32 noundef %.neg76)
           to label %125 unwind label %135
@@ -1036,7 +1036,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   %238 = getelementptr inbounds nuw i32, ptr %237, i64 %236
   %239 = load i32, ptr %238, align 4, !tbaa !182, !noalias !214
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %240, i32 2
+  %241 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %240, i32 2
   %242 = load i32, ptr %241, align 16, !tbaa !178, !noalias !214
   %243 = add nsw i32 %.066175.us.i.i, %232
   %244 = sext i32 %243 to i64
@@ -1046,7 +1046,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   br i1 %247, label %248, label %268
 
 248:                                              ; preds = %235
-  %249 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %240
+  %249 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %240
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 28
   %251 = load i32, ptr %250, align 4, !tbaa !217, !noalias !214
   %252 = and i32 %251, 2
@@ -1219,14 +1219,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNS
   br i1 %303, label %305, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i
 
 305:                                              ; preds = %304
-  %306 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %50, i64 0, i64 %indvars.iv.i.i
+  %306 = getelementptr inbounds nuw %struct.InteractionList, ptr %50, i64 %indvars.iv.i.i
   %307 = load ptr, ptr %23, align 8, !tbaa !54, !noalias !214
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 880
   %309 = load ptr, ptr %308, align 8, !tbaa !222, !noalias !214
   %310 = load ptr, ptr %208, align 8, !tbaa !181, !noalias !214
   %311 = getelementptr inbounds nuw i32, ptr %310, i64 %211
   %312 = load i32, ptr %311, align 4, !tbaa !182, !noalias !214
-  %313 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i.i, i32 2
+  %313 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i, i32 2
   %314 = load i32, ptr %313, align 16, !tbaa !178, !noalias !214
   %.fr23.i.i.i = freeze i32 %314
   %315 = and i32 %302, 126

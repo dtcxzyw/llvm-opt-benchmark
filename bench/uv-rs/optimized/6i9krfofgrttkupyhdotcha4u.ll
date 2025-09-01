@@ -2169,10 +2169,10 @@ define { ptr, i64 } @_ZN9uv_pep5086marker11environment17MarkerEnvironment10get_s
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !noundef !8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %1 to i64
-  %switch.gep4 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE.43, i64 0, i64 %4
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE.43, i64 %4
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load5
@@ -3259,7 +3259,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker8lowering26CanonicalMarker
 define noundef range(i8 0, 8) i8 @"_ZN145_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..convert..From$LT$uv_pep508..marker..tree..MarkerValueString$GT$$GT$4from17he3bbd04267c2aa9fE"(i8 noundef range(i8 0, 14) %0) unnamed_addr #14 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @"switch.table._ZN145_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..convert..From$LT$uv_pep508..marker..tree..MarkerValueString$GT$$GT$4from17he3bbd04267c2aa9fE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN145_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..convert..From$LT$uv_pep508..marker..tree..MarkerValueString$GT$$GT$4from17he3bbd04267c2aa9fE", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -5784,7 +5784,7 @@ switch.lookup:                                    ; preds = %328
   %423 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %424 = load i8, ptr %423, align 1, !range !978, !noundef !8
   %425 = zext nneg i8 %307 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 0, i64 %425
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 %425
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 2, ptr %41, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 1
@@ -6726,7 +6726,7 @@ switch.lookup:
   store i8 %4, ptr %25, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %28 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN9uv_pep5086marker5parse27parse_inverted_version_expr17h55e1e11719d767a9E, i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %24, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

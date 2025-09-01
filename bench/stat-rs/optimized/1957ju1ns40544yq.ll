@@ -1841,7 +1841,7 @@ define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583
 
 33:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit"
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 16
-  %35 = getelementptr inbounds [0 x double], ptr %0, i64 0, i64 %31
+  %35 = getelementptr inbounds double, ptr %0, i64 %31
   store double %.sroa.01.0, ptr %35, align 8
   %36 = icmp eq ptr %34, %28
   br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88ea6b664b506da9E.exit"

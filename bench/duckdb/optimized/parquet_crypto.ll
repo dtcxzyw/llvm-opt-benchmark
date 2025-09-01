@@ -11170,7 +11170,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 
 13:                                               ; preds = %4
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i16, ptr %17, align 8, !tbaa !295
@@ -11231,7 +11231,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %44 = trunc i32 %.089.i.i.i.i to i8
   %45 = or i8 %44, -128
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %45, ptr %46, align 1, !tbaa !15
   %47 = lshr i32 %.089.i.i.i.i, 7
   %48 = icmp ult i32 %.089.i.i.i.i, 16384
@@ -11243,7 +11243,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %49 = trunc nuw nsw i32 %.08.lcssa.i.i.i.i to i8
   %50 = add i32 %.0.lcssa.i.i.i.i, 1
   %51 = zext i32 %.0.lcssa.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
   store i8 %49, ptr %52, align 1, !tbaa !15
   %53 = load ptr, ptr %34, align 8, !tbaa !276
   %54 = load ptr, ptr %53, align 8, !tbaa !26
@@ -11305,7 +11305,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -11349,7 +11349,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -11361,7 +11361,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !276
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -11389,7 +11389,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -11433,7 +11433,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -11445,7 +11445,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !276
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -11508,7 +11508,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %10 = trunc i32 %.089.i.i to i8
   %11 = or i8 %10, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = lshr i32 %.089.i.i, 7
   %14 = icmp ult i32 %.089.i.i, 16384
@@ -11520,7 +11520,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %15 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %16 = add i32 %.0.lcssa.i.i, 1
   %17 = zext i32 %.0.lcssa.i.i to i64
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !276
@@ -11552,7 +11552,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i32 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i32 %.089.i.i, 7
   %13 = icmp ult i32 %.089.i.i, 16384
@@ -11564,7 +11564,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %14 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !276
@@ -11596,7 +11596,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i64 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i64 %.089.i.i, 7
   %13 = icmp ult i64 %.089.i.i, 16384
@@ -11608,7 +11608,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %14 = trunc nuw nsw i64 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !276
@@ -12067,7 +12067,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %21 = trunc i32 %.089.i to i8
   %22 = or i8 %21, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %22, ptr %23, align 1, !tbaa !15
   %24 = lshr i32 %.089.i, 7
   %25 = icmp ult i32 %.089.i, 16384
@@ -12079,7 +12079,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %26 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %27 = add i32 %.0.lcssa.i, 1
   %28 = zext i32 %.0.lcssa.i to i64
-  %29 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !15
   %30 = load ptr, ptr %8, align 8, !tbaa !276
   %31 = load ptr, ptr %30, align 8, !tbaa !26
@@ -12128,7 +12128,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %18 = trunc i32 %.089.i to i8
   %19 = or i8 %18, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %20 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1, !tbaa !15
   %21 = lshr i32 %.089.i, 7
   %22 = icmp ult i32 %.089.i, 16384
@@ -12140,7 +12140,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %23 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %24 = add i32 %.0.lcssa.i, 1
   %25 = zext i32 %.0.lcssa.i to i64
-  %26 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
   store i8 %23, ptr %26, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !276
@@ -12150,11 +12150,11 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i32 noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = shl i8 %34, 4
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = or i8 %35, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12583,7 +12583,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %40 = trunc i32 %.089.i.i.i to i8
   %41 = or i8 %40, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %42 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %41, ptr %42, align 1, !tbaa !15
   %43 = lshr i32 %.089.i.i.i, 7
   %44 = icmp ult i32 %.089.i.i.i, 16384
@@ -12595,7 +12595,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %45 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %46 = add i32 %.0.lcssa.i.i.i, 1
   %47 = zext i32 %.0.lcssa.i.i.i to i64
-  %48 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   store i8 %45, ptr %48, align 1, !tbaa !15
   %49 = load ptr, ptr %30, align 8, !tbaa !276
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -12668,7 +12668,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %17 = trunc i32 %.089.i to i8
   %18 = or i8 %17, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = lshr i32 %.089.i, 7
   %21 = icmp ult i32 %.089.i, 16384
@@ -12680,7 +12680,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19DecryptionTransp
   %22 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %23 = add i32 %.0.lcssa.i, 1
   %24 = zext i32 %.0.lcssa.i to i64
-  %25 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !276
@@ -12764,7 +12764,7 @@ define linkonce_odr noundef ptr @_ZNK13duckdb_apache6thrift8protocol18TProtocolE
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK13duckdb_apache6thrift8protocol18TProtocolException4whatEv, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK13duckdb_apache6thrift8protocol18TProtocolException4whatEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -13468,7 +13468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %35 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -14732,7 +14732,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 
 13:                                               ; preds = %4
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i16, ptr %17, align 8, !tbaa !307
@@ -14793,7 +14793,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %44 = trunc i32 %.089.i.i.i.i to i8
   %45 = or i8 %44, -128
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %45, ptr %46, align 1, !tbaa !15
   %47 = lshr i32 %.089.i.i.i.i, 7
   %48 = icmp ult i32 %.089.i.i.i.i, 16384
@@ -14805,7 +14805,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %49 = trunc nuw nsw i32 %.08.lcssa.i.i.i.i to i8
   %50 = add i32 %.0.lcssa.i.i.i.i, 1
   %51 = zext i32 %.0.lcssa.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
   store i8 %49, ptr %52, align 1, !tbaa !15
   %53 = load ptr, ptr %34, align 8, !tbaa !302
   %54 = load ptr, ptr %53, align 8, !tbaa !26
@@ -14867,7 +14867,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -14911,7 +14911,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -14923,7 +14923,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !302
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -14951,7 +14951,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -14995,7 +14995,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -15007,7 +15007,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !302
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -15070,7 +15070,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %10 = trunc i32 %.089.i.i to i8
   %11 = or i8 %10, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = lshr i32 %.089.i.i, 7
   %14 = icmp ult i32 %.089.i.i, 16384
@@ -15082,7 +15082,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %15 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %16 = add i32 %.0.lcssa.i.i, 1
   %17 = zext i32 %.0.lcssa.i.i to i64
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !302
@@ -15114,7 +15114,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i32 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i32 %.089.i.i, 7
   %13 = icmp ult i32 %.089.i.i, 16384
@@ -15126,7 +15126,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %14 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !302
@@ -15158,7 +15158,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i64 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i64 %.089.i.i, 7
   %13 = icmp ult i64 %.089.i.i, 16384
@@ -15170,7 +15170,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %14 = trunc nuw nsw i64 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !302
@@ -15629,7 +15629,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %21 = trunc i32 %.089.i to i8
   %22 = or i8 %21, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %22, ptr %23, align 1, !tbaa !15
   %24 = lshr i32 %.089.i, 7
   %25 = icmp ult i32 %.089.i, 16384
@@ -15641,7 +15641,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %26 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %27 = add i32 %.0.lcssa.i, 1
   %28 = zext i32 %.0.lcssa.i to i64
-  %29 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !15
   %30 = load ptr, ptr %8, align 8, !tbaa !302
   %31 = load ptr, ptr %30, align 8, !tbaa !26
@@ -15690,7 +15690,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %18 = trunc i32 %.089.i to i8
   %19 = or i8 %18, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %20 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1, !tbaa !15
   %21 = lshr i32 %.089.i, 7
   %22 = icmp ult i32 %.089.i, 16384
@@ -15702,7 +15702,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %23 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %24 = add i32 %.0.lcssa.i, 1
   %25 = zext i32 %.0.lcssa.i to i64
-  %26 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
   store i8 %23, ptr %26, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !302
@@ -15712,11 +15712,11 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i32 noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = shl i8 %34, 4
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = or i8 %35, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -15821,7 +15821,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %40 = trunc i32 %.089.i.i.i to i8
   %41 = or i8 %40, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %42 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %41, ptr %42, align 1, !tbaa !15
   %43 = lshr i32 %.089.i.i.i, 7
   %44 = icmp ult i32 %.089.i.i.i, 16384
@@ -15833,7 +15833,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %45 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %46 = add i32 %.0.lcssa.i.i.i, 1
   %47 = zext i32 %.0.lcssa.i.i.i to i64
-  %48 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   store i8 %45, ptr %48, align 1, !tbaa !15
   %49 = load ptr, ptr %30, align 8, !tbaa !302
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -15906,7 +15906,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %17 = trunc i32 %.089.i to i8
   %18 = or i8 %17, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = lshr i32 %.089.i, 7
   %21 = icmp ult i32 %.089.i, 16384
@@ -15918,7 +15918,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTINS0_9transport10TTransport
   %22 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %23 = add i32 %.0.lcssa.i, 1
   %24 = zext i32 %.0.lcssa.i to i64
-  %25 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !302
@@ -16542,7 +16542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %35 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -19254,7 +19254,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 
 13:                                               ; preds = %4
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i16, ptr %17, align 8, !tbaa !400
@@ -19315,7 +19315,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %44 = trunc i32 %.089.i.i.i.i to i8
   %45 = or i8 %44, -128
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %45, ptr %46, align 1, !tbaa !15
   %47 = lshr i32 %.089.i.i.i.i, 7
   %48 = icmp ult i32 %.089.i.i.i.i, 16384
@@ -19327,7 +19327,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %49 = trunc nuw nsw i32 %.08.lcssa.i.i.i.i to i8
   %50 = add i32 %.0.lcssa.i.i.i.i, 1
   %51 = zext i32 %.0.lcssa.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
   store i8 %49, ptr %52, align 1, !tbaa !15
   %53 = load ptr, ptr %34, align 8, !tbaa !395
   %54 = load ptr, ptr %53, align 8, !tbaa !26
@@ -19389,7 +19389,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -19433,7 +19433,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -19445,7 +19445,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !395
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -19473,7 +19473,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -19517,7 +19517,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -19529,7 +19529,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !395
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -19592,7 +19592,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %10 = trunc i32 %.089.i.i to i8
   %11 = or i8 %10, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = lshr i32 %.089.i.i, 7
   %14 = icmp ult i32 %.089.i.i, 16384
@@ -19604,7 +19604,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %15 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %16 = add i32 %.0.lcssa.i.i, 1
   %17 = zext i32 %.0.lcssa.i.i to i64
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !395
@@ -19636,7 +19636,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i32 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i32 %.089.i.i, 7
   %13 = icmp ult i32 %.089.i.i, 16384
@@ -19648,7 +19648,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %14 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !395
@@ -19680,7 +19680,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i64 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i64 %.089.i.i, 7
   %13 = icmp ult i64 %.089.i.i, 16384
@@ -19692,7 +19692,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %14 = trunc nuw nsw i64 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !395
@@ -20151,7 +20151,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %21 = trunc i32 %.089.i to i8
   %22 = or i8 %21, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %22, ptr %23, align 1, !tbaa !15
   %24 = lshr i32 %.089.i, 7
   %25 = icmp ult i32 %.089.i, 16384
@@ -20163,7 +20163,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %26 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %27 = add i32 %.0.lcssa.i, 1
   %28 = zext i32 %.0.lcssa.i to i64
-  %29 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !15
   %30 = load ptr, ptr %8, align 8, !tbaa !395
   %31 = load ptr, ptr %30, align 8, !tbaa !26
@@ -20212,7 +20212,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %18 = trunc i32 %.089.i to i8
   %19 = or i8 %18, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %20 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1, !tbaa !15
   %21 = lshr i32 %.089.i, 7
   %22 = icmp ult i32 %.089.i, 16384
@@ -20224,7 +20224,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %23 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %24 = add i32 %.0.lcssa.i, 1
   %25 = zext i32 %.0.lcssa.i to i64
-  %26 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
   store i8 %23, ptr %26, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !395
@@ -20234,11 +20234,11 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i32 noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = shl i8 %34, 4
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = or i8 %35, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -20343,7 +20343,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %40 = trunc i32 %.089.i.i.i to i8
   %41 = or i8 %40, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %42 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %41, ptr %42, align 1, !tbaa !15
   %43 = lshr i32 %.089.i.i.i, 7
   %44 = icmp ult i32 %.089.i.i.i, 16384
@@ -20355,7 +20355,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %45 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %46 = add i32 %.0.lcssa.i.i.i, 1
   %47 = zext i32 %.0.lcssa.i.i.i to i64
-  %48 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   store i8 %45, ptr %48, align 1, !tbaa !15
   %49 = load ptr, ptr %30, align 8, !tbaa !395
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -20428,7 +20428,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %17 = trunc i32 %.089.i to i8
   %18 = or i8 %17, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = lshr i32 %.089.i, 7
   %21 = icmp ult i32 %.089.i, 16384
@@ -20440,7 +20440,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19SimpleReadTransp
   %22 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %23 = add i32 %.0.lcssa.i, 1
   %24 = zext i32 %.0.lcssa.i to i64
-  %25 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !395
@@ -21064,7 +21064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %35 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -22451,7 +22451,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 
 13:                                               ; preds = %4
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i16, ptr %17, align 8, !tbaa !432
@@ -22512,7 +22512,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %44 = trunc i32 %.089.i.i.i.i to i8
   %45 = or i8 %44, -128
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i.i.i
   store i8 %45, ptr %46, align 1, !tbaa !15
   %47 = lshr i32 %.089.i.i.i.i, 7
   %48 = icmp ult i32 %.089.i.i.i.i, 16384
@@ -22524,7 +22524,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %49 = trunc nuw nsw i32 %.08.lcssa.i.i.i.i to i8
   %50 = add i32 %.0.lcssa.i.i.i.i, 1
   %51 = zext i32 %.0.lcssa.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
   store i8 %49, ptr %52, align 1, !tbaa !15
   %53 = load ptr, ptr %34, align 8, !tbaa !427
   %54 = load ptr, ptr %53, align 8, !tbaa !26
@@ -22586,7 +22586,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -22630,7 +22630,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -22642,7 +22642,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !427
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -22670,7 +22670,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %6 = alloca i8, align 1
   %7 = icmp slt i32 %2, 15
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   br i1 %7, label %11, label %19
 
@@ -22714,7 +22714,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %28 = trunc i32 %.089.i.i.i to i8
   %29 = or i8 %28, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %29, ptr %30, align 1, !tbaa !15
   %31 = lshr i32 %.089.i.i.i, 7
   %32 = icmp ult i32 %.089.i.i.i, 16384
@@ -22726,7 +22726,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %33 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %34 = add i32 %.0.lcssa.i.i.i, 1
   %35 = zext i32 %.0.lcssa.i.i.i to i64
-  %36 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !15
   %37 = load ptr, ptr %21, align 8, !tbaa !427
   %38 = load ptr, ptr %37, align 8, !tbaa !26
@@ -22789,7 +22789,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %10 = trunc i32 %.089.i.i to i8
   %11 = or i8 %10, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %11, ptr %12, align 1, !tbaa !15
   %13 = lshr i32 %.089.i.i, 7
   %14 = icmp ult i32 %.089.i.i, 16384
@@ -22801,7 +22801,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %15 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %16 = add i32 %.0.lcssa.i.i, 1
   %17 = zext i32 %.0.lcssa.i.i to i64
-  %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   store i8 %15, ptr %18, align 1, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !427
@@ -22833,7 +22833,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i32 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i32 %.089.i.i, 7
   %13 = icmp ult i32 %.089.i.i, 16384
@@ -22845,7 +22845,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %14 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !427
@@ -22877,7 +22877,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
   %9 = trunc i64 %.089.i.i to i8
   %10 = or i8 %9, -128
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 %10, ptr %11, align 1, !tbaa !15
   %12 = lshr i64 %.089.i.i, 7
   %13 = icmp ult i64 %.089.i.i, 16384
@@ -22889,7 +22889,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %14 = trunc nuw nsw i64 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
-  %17 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !427
@@ -23348,7 +23348,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %21 = trunc i32 %.089.i to i8
   %22 = or i8 %21, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %22, ptr %23, align 1, !tbaa !15
   %24 = lshr i32 %.089.i, 7
   %25 = icmp ult i32 %.089.i, 16384
@@ -23360,7 +23360,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %26 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %27 = add i32 %.0.lcssa.i, 1
   %28 = zext i32 %.0.lcssa.i to i64
-  %29 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !15
   %30 = load ptr, ptr %8, align 8, !tbaa !427
   %31 = load ptr, ptr %30, align 8, !tbaa !26
@@ -23409,7 +23409,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %18 = trunc i32 %.089.i to i8
   %19 = or i8 %18, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %20 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %19, ptr %20, align 1, !tbaa !15
   %21 = lshr i32 %.089.i, 7
   %22 = icmp ult i32 %.089.i, 16384
@@ -23421,7 +23421,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %23 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %24 = add i32 %.0.lcssa.i, 1
   %25 = zext i32 %.0.lcssa.i to i64
-  %26 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %25
   store i8 %23, ptr %26, align 1, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !427
@@ -23431,11 +23431,11 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i32 noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
   %35 = shl i8 %34, 4
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_apache6thrift8protocol6detail7compactL12TTypeToCTypeE, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = or i8 %35, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23543,7 +23543,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %40 = trunc i32 %.089.i.i.i to i8
   %41 = or i8 %40, -128
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %42 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i.i
   store i8 %41, ptr %42, align 1, !tbaa !15
   %43 = lshr i32 %.089.i.i.i, 7
   %44 = icmp ult i32 %.089.i.i.i, 16384
@@ -23555,7 +23555,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %45 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %46 = add i32 %.0.lcssa.i.i.i, 1
   %47 = zext i32 %.0.lcssa.i.i.i to i64
-  %48 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
   store i8 %45, ptr %48, align 1, !tbaa !15
   %49 = load ptr, ptr %30, align 8, !tbaa !427
   %50 = load ptr, ptr %49, align 8, !tbaa !26
@@ -23628,7 +23628,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
   %17 = trunc i32 %.089.i to i8
   %18 = or i8 %17, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1, !tbaa !15
   %20 = lshr i32 %.089.i, 7
   %21 = icmp ult i32 %.089.i, 16384
@@ -23640,7 +23640,7 @@ _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransp
   %22 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %23 = add i32 %.0.lcssa.i, 1
   %24 = zext i32 %.0.lcssa.i to i64
-  %25 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !427
@@ -24264,7 +24264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %35 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19EncryptionTransportEE8getTTypeEa, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 

@@ -487,7 +487,7 @@ _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit: ; preds = %34, %42
 55:                                               ; preds = %.lr.ph, %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread ]
   %.049508 = phi i32 [ 0, %.lr.ph ], [ %67, %_ZNK17array_recognizers8is_arrayEP4sort.exit.thread ]
-  %56 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !241
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !242
@@ -630,7 +630,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 115:                                              ; preds = %.loopexit406, %682
   %indvars.iv626 = phi i64 [ 0, %.loopexit406 ], [ %indvars.iv.next627, %682 ]
   %.sroa.0358.0529 = phi ptr [ null, %.loopexit406 ], [ %.sroa.0358.2.lcssa, %682 ]
-  %116 = getelementptr inbounds nuw [0 x ptr], ptr %103, i64 0, i64 %indvars.iv626
+  %116 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv626
   %117 = load ptr, ptr %116, align 8, !tbaa !241
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !242
@@ -3087,7 +3087,7 @@ _ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit:   ; preds = %6
   %indvars.iv225 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next226, %280 ]
   %.025189 = phi i32 [ %5, %.lr.ph191 ], [ %.1.lcssa289, %280 ]
   %.sroa.0.0187 = phi ptr [ null, %.lr.ph191 ], [ %.sroa.0.3.lcssa287, %280 ]
-  %38 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %indvars.iv225
+  %38 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv225
   %39 = load ptr, ptr %38, align 8, !tbaa !277
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %43, label %_ZN11ast_manager7inc_refEP3ast.exit.i
@@ -4076,7 +4076,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %.sroa.6.0477 = phi ptr [ null, %.lr.ph481 ], [ %.sroa.6.2.lcssa724743, %463 ]
   %.sroa.0243.0476 = phi ptr [ null, %.lr.ph481 ], [ %.sroa.0243.2.lcssa721745, %463 ]
   %.sroa.0254.0475 = phi ptr [ null, %.lr.ph481 ], [ %.sroa.0254.2.lcssa718747, %463 ]
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %54, i64 0, i64 %indvars.iv599
+  %69 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv599
   %70 = load ptr, ptr %69, align 8, !tbaa !277
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %74, label %_ZN11ast_manager7inc_refEP3ast.exit.i
@@ -6350,7 +6350,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
   %195 = phi ptr [ %.pre.i95, %.lr.ph161 ], [ %261, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   %indvars.iv171 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next172, %_ZN7obj_refI3app11ast_managerED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %196 = getelementptr inbounds nuw [0 x ptr], ptr %183, i64 0, i64 %indvars.iv171
+  %196 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv171
   %197 = load ptr, ptr %196, align 8, !tbaa !309
   %198 = ptrtoint ptr %197 to i64
   %199 = and i64 %198, -8
@@ -6581,7 +6581,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %259, %267, %273
 285:                                              ; preds = %.lr.ph163, %348
   %286 = phi ptr [ %184, %.lr.ph163 ], [ %349, %348 ]
   %indvars.iv176 = phi i64 [ %187, %.lr.ph163 ], [ %indvars.iv.next177, %348 ]
-  %287 = getelementptr inbounds nuw [0 x ptr], ptr %186, i64 0, i64 %indvars.iv176
+  %287 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv176
   %288 = load ptr, ptr %287, align 8, !tbaa !309
   %289 = ptrtoint ptr %288 to i64
   %290 = and i64 %289, -8
@@ -8948,7 +8948,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %146 = phi ptr [ null, %.lr.ph ], [ %210, %209 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %209 ]
   %147 = load ptr, ptr %26, align 8, !tbaa !413
-  %148 = getelementptr inbounds nuw [0 x ptr], ptr %138, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv
   %149 = load ptr, ptr %148, align 8, !tbaa !241
   %150 = trunc nuw i64 %indvars.iv to i32
   %151 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %147, i32 noundef %150, ptr noundef %149)

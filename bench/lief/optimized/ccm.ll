@@ -171,7 +171,7 @@ define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
   %50 = trunc i64 %.038.i to i8
   %51 = sub nsw i32 15, %49
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %52
+  %53 = getelementptr inbounds i8, ptr %0, i64 %52
   store i8 %50, ptr %53, align 1, !tbaa !14
   %54 = add i8 %.02837.i, 1
   %55 = lshr i64 %.038.i, 8
@@ -283,7 +283,7 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   %39 = trunc i64 %.038.i to i8
   %40 = sub nsw i32 15, %38
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %41
+  %42 = getelementptr inbounds i8, ptr %0, i64 %41
   store i8 %39, ptr %42, align 1, !tbaa !14
   %43 = add i8 %.02837.i, 1
   %44 = lshr i64 %.038.i, 8
@@ -831,7 +831,7 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph144, %.prehea
   %.080145 = phi i8 [ %145, %144 ], [ 0, %142 ]
   %150 = sub nsw i32 15, %149
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds [16 x i8], ptr %33, i64 0, i64 %151
+  %152 = getelementptr inbounds i8, ptr %33, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !14
   %154 = add i8 %153, 1
   store i8 %154, ptr %152, align 1, !tbaa !14
@@ -904,7 +904,7 @@ define hidden i32 @mbedtls_ccm_finish(ptr noundef %0, ptr noundef writeonly capt
   %.032 = phi i8 [ 0, %.lr.ph ], [ %28, %23 ]
   %25 = sub nsw i32 15, %24
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %22, i64 %26
   store i8 0, ptr %27, align 1, !tbaa !14
   %28 = add i8 %.032, 1
   %29 = zext i8 %28 to i32
@@ -1153,15 +1153,15 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
 22:                                               ; preds = %18, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %23 = getelementptr inbounds nuw [3 x i64], ptr @msg_len_test_data, i64 0, i64 %.045
+  %23 = getelementptr inbounds nuw i64, ptr @msg_len_test_data, i64 %.045
   %24 = load i64, ptr %23, align 8, !tbaa !25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 @msg_test_data, i64 %24, i1 false)
-  %25 = getelementptr inbounds nuw [3 x i64], ptr @iv_len_test_data, i64 0, i64 %.045
+  %25 = getelementptr inbounds nuw i64, ptr @iv_len_test_data, i64 %.045
   %26 = load i64, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw [3 x i64], ptr @add_len_test_data, i64 0, i64 %.045
+  %27 = getelementptr inbounds nuw i64, ptr @add_len_test_data, i64 %.045
   %28 = load i64, ptr %27, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %24
-  %30 = getelementptr inbounds nuw [3 x i64], ptr @tag_len_test_data, i64 0, i64 %.045
+  %30 = getelementptr inbounds nuw i64, ptr @tag_len_test_data, i64 %.045
   %31 = load i64, ptr %30, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = call i32 @mbedtls_ccm_starts(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull readonly @iv_test_data, i64 noundef %26)
@@ -1194,7 +1194,7 @@ mbedtls_ccm_encrypt_and_tag.exit:                 ; preds = %37
   br i1 %.not30, label %40, label %.loopexit
 
 40:                                               ; preds = %mbedtls_ccm_encrypt_and_tag.exit
-  %41 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @res_test_data, i64 0, i64 %.045
+  %41 = getelementptr inbounds nuw [32 x i8], ptr @res_test_data, i64 %.045
   %42 = add i64 %31, %24
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %41, i64 %42)
   %.not31 = icmp eq i32 %bcmp, 0

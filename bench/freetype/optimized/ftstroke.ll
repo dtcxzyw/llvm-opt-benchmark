@@ -2754,7 +2754,7 @@ define void @FT_Stroker_ExportBorder(ptr noundef readonly captures(address_is_nu
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw [2 x %struct.FT_StrokeBorderRec_], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i8, ptr %10, align 8, !tbaa !25
   %.not = icmp eq i8 %11, 0

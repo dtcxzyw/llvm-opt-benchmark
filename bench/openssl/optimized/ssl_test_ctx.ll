@@ -679,7 +679,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 .preheader:                                       ; preds = %59, %66
   %.04868 = phi i64 [ %67, %66 ], [ 0, %59 ]
-  %68 = getelementptr inbounds nuw [32 x %struct.ssl_test_ctx_option], ptr @ssl_test_ctx_options, i64 0, i64 %.04868
+  %68 = getelementptr inbounds nuw %struct.ssl_test_ctx_option, ptr @ssl_test_ctx_options, i64 %.04868
   %69 = load ptr, ptr %68, align 16, !tbaa !34
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %69) #9
   %71 = icmp eq i32 %70, 0
@@ -765,7 +765,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [11 x %struct.ssl_test_client_option], ptr @ssl_test_client_options, i64 0, i64 %.02131
+  %18 = getelementptr inbounds nuw %struct.ssl_test_client_option, ptr @ssl_test_client_options, i64 %.02131
   %19 = load ptr, ptr %18, align 16, !tbaa !34
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0
@@ -829,7 +829,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [9 x %struct.ssl_test_server_option], ptr @ssl_test_server_options, i64 0, i64 %.02131
+  %18 = getelementptr inbounds nuw %struct.ssl_test_server_option, ptr @ssl_test_server_options, i64 %.02131
   %19 = load ptr, ptr %18, align 16, !tbaa !34
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0

@@ -305,7 +305,7 @@ define internal range(i32 0, 2) i32 @test_json_enc() #0 {
 6:                                                ; preds = %0, %run_script.exit
   %.08 = phi i64 [ 0, %0 ], [ %195, %run_script.exit ]
   %.047 = phi i32 [ 1, %0 ], [ %spec.select, %run_script.exit ]
-  %7 = getelementptr inbounds nuw [50 x ptr], ptr @scripts, i64 0, i64 %.08
+  %7 = getelementptr inbounds nuw ptr, ptr @scripts, i64 %.08
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call ptr %8() #6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16

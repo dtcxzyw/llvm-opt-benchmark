@@ -566,7 +566,7 @@ thread-pre-split:                                 ; preds = %31
 
 .split.us:                                        ; preds = %127, %155
   %129 = phi i64 [ %156, %155 ], [ 0, %127 ]
-  %130 = getelementptr [0 x %struct.link_mode_info], ptr @link_mode_params, i64 0, i64 %129
+  %130 = getelementptr %struct.link_mode_info, ptr @link_mode_params, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %131, -1
   br i1 %132, label %155, label %133
@@ -620,7 +620,7 @@ thread-pre-split:                                 ; preds = %31
 
 .split.split.us:                                  ; preds = %.split, %177
   %158 = phi i64 [ %178, %177 ], [ 0, %.split ]
-  %159 = getelementptr [0 x %struct.link_mode_info], ptr @link_mode_params, i64 0, i64 %158
+  %159 = getelementptr %struct.link_mode_info, ptr @link_mode_params, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, -1
   br i1 %161, label %177, label %162
@@ -663,7 +663,7 @@ thread-pre-split:                                 ; preds = %31
 
 .split.split.split.us:                            ; preds = %.split.split, %190
   %180 = phi i64 [ %191, %190 ], [ 0, %.split.split ]
-  %181 = getelementptr [0 x %struct.link_mode_info], ptr @link_mode_params, i64 0, i64 %180
+  %181 = getelementptr %struct.link_mode_info, ptr @link_mode_params, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %190, label %184
@@ -690,7 +690,7 @@ thread-pre-split:                                 ; preds = %31
 
 .split.split.split:                               ; preds = %.split.split, %205
   %193 = phi i64 [ %206, %205 ], [ 0, %.split.split ]
-  %194 = getelementptr [0 x %struct.link_mode_info], ptr @link_mode_params, i64 0, i64 %193
+  %194 = getelementptr %struct.link_mode_info, ptr @link_mode_params, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %205, label %197

@@ -1543,7 +1543,7 @@ _ZN6vectorIP4sortLb0EjE5resetEv.exit.i:           ; preds = %.lr.ph.i.i.i.i, %32
 39:                                               ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i, %.lr.ph.i
   %40 = phi ptr [ null, %.lr.ph.i ], [ %51, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit.i ]
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !284
   %43 = icmp eq ptr %40, null
   br i1 %43, label %50, label %44
@@ -1843,7 +1843,7 @@ _ZN6vectorIP4sortLb0EjE5resetEv.exit:             ; preds = %3, %5
 10:                                               ; preds = %.lr.ph, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit
   %11 = phi ptr [ %4, %.lr.ph ], [ %22, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !284
   %14 = icmp eq ptr %11, null
   br i1 %14, label %21, label %15
@@ -4833,7 +4833,7 @@ declare noundef zeroext i1 @_ZNK7datalog12dl_decl_util12try_get_sizeEPK4sortRm(p
 define hidden void @_ZN7datalog16relation_manager14from_predicateEP9func_decljRP4sort(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !284
   store ptr %8, ptr %3, align 8, !tbaa !284
   ret void

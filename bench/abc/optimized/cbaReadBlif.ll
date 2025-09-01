@@ -198,7 +198,7 @@ Prs_ManAlloc.exit.thread:                         ; preds = %3
 
 63:                                               ; preds = %63, %47
   %indvars.iv.i = phi i64 [ 1, %47 ], [ %indvars.iv.next.i, %63 ]
-  %64 = getelementptr inbounds nuw [12 x ptr], ptr @s_BlifTypes, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw ptr, ptr @s_BlifTypes, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8, !tbaa !41
   %66 = load ptr, ptr %27, align 8, !tbaa !21
   %67 = tail call i32 @Abc_NamStrFindOrAdd(ptr noundef %66, ptr noundef %65, ptr noundef null) #21

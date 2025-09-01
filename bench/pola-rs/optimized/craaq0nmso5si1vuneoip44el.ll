@@ -24767,7 +24767,7 @@ switch.lookup:
   %4 = alloca [8 x i8], align 8
   %5 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8duration142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h885f9cdb4443c0c9E"(ptr noundef nonnull align 16 %1)
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN197_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..chunkedarray..duration..DurationMethods$GT$7minutes17h57d581173e63439eE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN197_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..chunkedarray..duration..DurationMethods$GT$7minutes17h57d581173e63439eE", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %switch.load, ptr %4, align 8
@@ -24815,7 +24815,7 @@ switch.lookup:
   %4 = alloca [8 x i8], align 8
   %5 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8duration142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h885f9cdb4443c0c9E"(ptr noundef nonnull align 16 %1)
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN197_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..chunkedarray..duration..DurationMethods$GT$7seconds17ha33f1782cf394dacE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN197_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DurationType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..chunkedarray..duration..DurationMethods$GT$7seconds17ha33f1782cf394dacE", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %switch.load, ptr %4, align 8
@@ -25468,13 +25468,13 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %1)
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %12 to i64
-  %switch.gep19 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 0, i64 %14
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 %14
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %15 = zext nneg i8 %12 to i64
-  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 0, i64 %15
+  %switch.gep21 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 %15
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   store ptr %switch.load, ptr %10, align 8
   store ptr %switch.load20, ptr %9, align 8
@@ -25633,10 +25633,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %1)
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = zext nneg i8 %11 to i64
-  %switch.gep19 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 0, i64 %13
+  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 %13
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   store ptr %switch.load, ptr %9, align 8
   store ptr %switch.load20, ptr %8, align 8
@@ -25807,7 +25807,7 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %26 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %1)
   %27 = zext nneg i8 %26 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %13, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -25924,7 +25924,7 @@ _ZN11polars_time7windows8duration8Duration20is_constant_duration17hec5941f738455
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %70 = call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %1)
   %71 = zext nneg i8 %70 to i64
-  %switch.gep13 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 0, i64 %71
+  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 %71
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   store ptr %switch.load14, ptr %15, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -27522,7 +27522,7 @@ default.unreachable199:                           ; preds = %106, %98
 
 switch.lookup:                                    ; preds = %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit"
   %201 = zext nneg i8 %197 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN176_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..round..PolarsRound$GT$5round17h47c0bf1a060f5de0E", i64 0, i64 %201
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN176_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..round..PolarsRound$GT$5round17h47c0bf1a060f5de0E", i64 %201
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -28368,7 +28368,7 @@ default.unreachable158:                           ; preds = %114, %108
 
 switch.lookup:                                    ; preds = %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit"
   %192 = zext nneg i8 %65 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN182_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..truncate..PolarsTruncate$GT$8truncate17h29ab3cf3c4551277E", i64 0, i64 %192
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN182_$LT$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$u20$as$u20$polars_time..truncate..PolarsTruncate$GT$8truncate17h29ab3cf3c4551277E", i64 %192
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -37764,7 +37764,7 @@ _ZN11polars_time7windows6window6Window22get_earliest_bounds_ms17hf9242456dd4bcd6
 
 switch.lookup16:                                  ; preds = %8
   %119 = zext nneg i8 %5 to i64
-  %switch.gep17 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 0, i64 %119
+  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 %119
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !4885
   %120 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -37793,13 +37793,13 @@ switch.lookup16:                                  ; preds = %8
 
 switch.lookup:                                    ; preds = %8
   %127 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 0, i64 %127
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E, i64 %127
   %switch.load = load ptr, ptr %switch.gep, align 8
   %128 = zext nneg i8 %5 to i64
-  %switch.gep12 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 0, i64 %128
+  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.236, i64 %128
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %129 = zext nneg i8 %5 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 0, i64 %129
+  %switch.gep14 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows6window6Window27get_overlapping_bounds_iter17hf477f77aca08a106E.238, i64 %129
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   call void %switch.load(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %53, i64 noundef %2), !noalias !4885, !callees !4917
   %.not230.i = icmp eq ptr %6, null

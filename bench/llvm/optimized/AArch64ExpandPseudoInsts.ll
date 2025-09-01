@@ -705,9 +705,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64ExpandPseud
   %.0.i = phi i32 [ %146, %212 ], [ %215, %213 ], [ %spec.select.i, %216 ], [ %146, %185 ], [ %146, %194 ], [ %146, %199 ], [ %146, %207 ], [ %146, %144 ]
   %218 = load ptr, ptr %135, align 8, !tbaa !144
   %219 = tail call noundef i64 @_ZNK4llvm16AArch64InstrInfo23getElementSizeForOpcodeEj(ptr noundef nonnull align 8 dereferenceable(408) %218, i32 noundef %.0.i) #15
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_, i64 0, i64 %219
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_, i64 %219
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1132 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.5, i64 0, i64 %219
+  %switch.gep1132 = getelementptr inbounds i64, ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.5, i64 %219
   %switch.load1133 = load i64, ptr %switch.gep1132, align 8
   br i1 %160, label %220, label %283
 
@@ -3183,10 +3183,10 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit.i: ; preds = %1146, %1142, %113
   %1182 = load i16, ptr %131, align 4, !tbaa !158
   %switch.tableidx = add nsw i16 %1182, -462
   %1183 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1134 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.6, i64 0, i64 %1183
+  %switch.gep1134 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.6, i64 %1183
   %switch.load1135 = load i64, ptr %switch.gep1134, align 8
   %1184 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1136 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.7, i64 0, i64 %1184
+  %switch.gep1136 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_119AArch64ExpandPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.7, i64 %1184
   %switch.load1137 = load i64, ptr %switch.gep1136, align 8
   %1185 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1186 = load ptr, ptr %1185, align 8, !tbaa !226

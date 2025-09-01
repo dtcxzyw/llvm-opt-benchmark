@@ -45,10 +45,10 @@ define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i3
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep4 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1, i64 0, i64 %4
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1, i64 %4
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %5 = or disjoint i64 %switch.load5, %switch.load
   br label %6
@@ -98,7 +98,7 @@ define noundef nonnull ptr @_ZNK9grpc_core15XdsHealthStatus8ToStringEv(ptr nound
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core18XdsHealthStatusSet8ToStringB5cxx11Ev, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core18XdsHealthStatusSet8ToStringB5cxx11Ev, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -145,7 +145,7 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i:
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core18XdsHealthStatusSet8ToStringB5cxx11Ev, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core18XdsHealthStatusSet8ToStringB5cxx11Ev, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK9grpc_core15XdsHealthStatus8ToStringEv.exit
 

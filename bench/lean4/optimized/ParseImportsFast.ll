@@ -16094,7 +16094,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_ParseImportsFast_0__
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -16975,7 +16975,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_ParseImportsFast_0__
   %.01943 = phi i64 [ %35, %51 ], [ %1, %3 ]
   %.02142 = phi ptr [ %.0.i.i29, %51 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02142, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01943
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01943
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -17364,7 +17364,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Elab_ParseImportsFast_0__
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -17657,7 +17657,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_printImportsJson___
   %.0221460 = phi ptr [ %.1222, %507 ], [ %2, %4 ]
   %.0230459 = phi ptr [ %.1231, %507 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.0221460, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.0219461
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0219461
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1

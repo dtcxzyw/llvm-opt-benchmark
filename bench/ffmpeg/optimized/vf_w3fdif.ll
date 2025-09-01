@@ -450,26 +450,26 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %21 = load i32, ptr %20, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw [8 x ptr], ptr %18, i64 0, i64 %indvars.iv17
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv17
   %23 = load ptr, ptr %22, align 8, !tbaa !78
-  %24 = getelementptr inbounds nuw [8 x ptr], ptr %19, i64 0, i64 %indvars.iv17
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv17
   %25 = load ptr, ptr %24, align 8, !tbaa !78
-  %26 = getelementptr inbounds nuw [8 x ptr], ptr %17, i64 0, i64 %indvars.iv17
+  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv17
   %27 = load ptr, ptr %26, align 8, !tbaa !78
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv17
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv17
   %30 = load i32, ptr %29, align 4, !tbaa !58
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %31, i64 0, i64 %indvars.iv17
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv17
   %33 = load i32, ptr %32, align 4, !tbaa !58
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %35 = getelementptr inbounds nuw [8 x i32], ptr %34, i64 0, i64 %indvars.iv17
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv17
   %36 = load i32, ptr %35, align 4, !tbaa !58
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %38 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 0, i64 %indvars.iv17
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv17
   %39 = load i32, ptr %38, align 4, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %40, i64 0, i64 %indvars.iv17
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv17
   %42 = load i32, ptr %41, align 4, !tbaa !58
   %43 = mul nsw i32 %33, %2
   %44 = sdiv i32 %43, %3
@@ -548,17 +548,17 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %27, i64 %92
   %94 = sext i32 %21 to i64
-  %95 = getelementptr inbounds [2 x i8], ptr @n_coef_lf, i64 0, i64 %94
+  %95 = getelementptr inbounds i8, ptr @n_coef_lf, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !81
   %97 = sext i8 %96 to i32
   %98 = icmp ult i32 %21, 2
   %99 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %100 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %101 = getelementptr inbounds [2 x [4 x i16]], ptr @coef_lf, i64 0, i64 %94
+  %101 = getelementptr inbounds [4 x i16], ptr @coef_lf, i64 %94
   %102 = getelementptr inbounds nuw i8, ptr %.val, i64 112
-  %103 = getelementptr inbounds [2 x i8], ptr @n_coef_hf, i64 0, i64 %94
+  %103 = getelementptr inbounds i8, ptr @n_coef_hf, i64 %94
   %104 = getelementptr inbounds nuw i8, ptr %.val, i64 136
-  %105 = getelementptr inbounds [2 x [5 x i16]], ptr @coef_hf, i64 0, i64 %94
+  %105 = getelementptr inbounds [5 x i16], ptr @coef_hf, i64 %94
   %106 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %108 = shl nsw i32 %42, 1
@@ -603,7 +603,7 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %125 = mul nsw i32 %124, %36
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i8, ptr %23, i64 %126
-  %128 = getelementptr inbounds nuw [5 x ptr], ptr %5, i64 0, i64 %indvars.iv30.i
+  %128 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv30.i
   store ptr %127, ptr %128, align 8, !tbaa !78
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next25.i = add i32 %indvars.iv24.i, 2
@@ -660,12 +660,12 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %146 = mul nsw i32 %145, %36
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %23, i64 %147
-  %149 = getelementptr inbounds nuw [5 x ptr], ptr %5, i64 0, i64 %indvars.iv43.i
+  %149 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv43.i
   store ptr %148, ptr %149, align 8, !tbaa !78
   %150 = mul nsw i32 %145, %39
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i8, ptr %25, i64 %151
-  %153 = getelementptr inbounds nuw [5 x ptr], ptr %6, i64 0, i64 %indvars.iv43.i
+  %153 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv43.i
   store ptr %152, ptr %153, align 8, !tbaa !78
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %indvars.iv.next37.i = add i32 %indvars.iv36.i, 2

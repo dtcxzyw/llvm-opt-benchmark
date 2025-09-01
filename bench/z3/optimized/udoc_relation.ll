@@ -3670,7 +3670,7 @@ _ZN8rationalC2Ei.exit:                            ; preds = %._crit_edge167
   %91 = shl i32 %.0161, 1
   %92 = lshr i32 %91, 5
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [1 x i32], ptr %2, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !14
   %96 = and i32 %91, 30
   %97 = shl nuw nsw i32 1, %96
@@ -7983,7 +7983,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %._crit_edge, %76, %
 88:                                               ; preds = %.lr.ph, %124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %124 ]
   %.047112 = phi i32 [ %68, %.lr.ph ], [ %93, %124 ]
-  %89 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !200
   %91 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %90)
           to label %.noexc59 unwind label %125
@@ -8935,7 +8935,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %56
   br label %488
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw [0 x ptr], ptr %68, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !200
   invoke void @_ZNK7datalog13udoc_relation11apply_guardEP4exprR10union_bvecI11doc_manager3docERK10union_findI22union_find_default_ctxERK10bit_vector(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %78 unwind label %73
@@ -9476,7 +9476,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %219, %_ZNK11ast_man
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !199
   store ptr %28, ptr %310, align 8, !tbaa !195
-  %318 = getelementptr inbounds nuw [0 x ptr], ptr %311, i64 0, i64 %indvars.iv224
+  %318 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv224
   %319 = load ptr, ptr %318, align 8, !tbaa !200
   %320 = invoke noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %28, ptr noundef %319)
           to label %321 unwind label %338
@@ -10325,7 +10325,7 @@ _ZNK7datalog11udoc_plugin13num_sort_bitsEP4expr.exit: ; preds = %.noexc
 
 81:                                               ; preds = %.lr.ph, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %82 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !200
   %84 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %83)
           to label %.noexc56 unwind label %119

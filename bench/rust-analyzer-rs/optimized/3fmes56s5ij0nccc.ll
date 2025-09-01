@@ -226,7 +226,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i: ; preds = %90, %88, %86, 
   %indvars.iv.i173.us.i = phi i64 [ 0, %.lr.ph.preheader.i172.us.i ], [ %indvars.iv.next.i175.us.i, %101 ]
   %.023.i174.us.i = phi i64 [ %.0123.us.i, %.lr.ph.preheader.i172.us.i ], [ %104, %101 ]
   %indvars.iv.next.i175.us.i = add nuw nsw i64 %indvars.iv.i173.us.i, 1
-  %102 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv.i173.us.i
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i173.us.i
   %103 = trunc i64 %.023.i174.us.i to i8
   store i8 %103, ptr %102, align 1, !noalias !12
   %104 = lshr i64 %.023.i174.us.i, 8
@@ -268,7 +268,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit178.us.i: ; preds = %101
   %indvars.iv.i163.us.i = phi i64 [ 0, %.lr.ph.preheader.i162.us.i ], [ %indvars.iv.next.i165.us.i, %113 ]
   %.023.i164.us.i = phi i64 [ %112, %.lr.ph.preheader.i162.us.i ], [ %116, %113 ]
   %indvars.iv.next.i165.us.i = add nuw nsw i64 %indvars.iv.i163.us.i, 1
-  %114 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 0, i64 %indvars.iv.i163.us.i
+  %114 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i163.us.i
   %115 = trunc i64 %.023.i164.us.i to i8
   store i8 %115, ptr %114, align 1, !noalias !16
   %116 = lshr i64 %.023.i164.us.i, 8
@@ -291,7 +291,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit168.us.i: ; preds = %113
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %120 ]
   %.023.i.i = phi i64 [ %35, %.lr.ph.preheader.i.i ], [ %123, %120 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %121 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.i
   %122 = trunc i64 %.023.i.i to i8
   store i8 %122, ptr %121, align 1, !noalias !20
   %123 = lshr i64 %.023.i.i, 8
@@ -383,7 +383,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i: ; preds = %120
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0187.0215.i, i64 16
   %150 = load i8, ptr %149, align 8, !noalias !6, !noundef !4
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %18, i64 %151
   store i8 %.sroa.7.0216.i, ptr %152, align 1, !noalias !11
   %153 = icmp eq ptr %147, %50
   br i1 %153, label %._crit_edge219.i, label %.lr.ph218.i
@@ -454,7 +454,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i.i: ; preds = %176
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %180 ]
   %.023.i.i.i = phi i64 [ %164, %.lr.ph.preheader.i.i.i ], [ %183, %180 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %181 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i.i
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i.i
   %182 = trunc i64 %.023.i.i.i to i8
   store i8 %182, ptr %181, align 1, !noalias !24
   %183 = lshr i64 %.023.i.i.i, 8
@@ -512,7 +512,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i: ; preds = %197
   %indvars.iv.i.i59.i = phi i64 [ 0, %.lr.ph.preheader.i.i57.i ], [ %indvars.iv.next.i.i61.i, %201 ]
   %.023.i.i60.i = phi i64 [ %.08.i.i, %.lr.ph.preheader.i.i57.i ], [ %204, %201 ]
   %indvars.iv.next.i.i61.i = add nuw nsw i64 %indvars.iv.i.i59.i, 1
-  %202 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i.i59.i
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i59.i
   %203 = trunc i64 %.023.i.i60.i to i8
   store i8 %203, ptr %202, align 1, !noalias !33
   %204 = lshr i64 %.023.i.i60.i, 8
@@ -537,7 +537,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i63.i: ; preds = %201
 
 212:                                              ; preds = %207
   %213 = zext i8 %.sroa.5.0.copyload32 to i64
-  %214 = getelementptr inbounds nuw [256 x i8], ptr @anon.f598013f844d153e445418e11826cafa.9, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr @anon.f598013f844d153e445418e11826cafa.9, i64 %213
   %215 = load i8, ptr %214, align 1, !noalias !41, !noundef !4
   %216 = add i8 %215, 1
   %217 = icmp ugt i8 %216, 63
@@ -570,7 +570,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i63.i: ; preds = %201
 
 229:                                              ; preds = %225
   %230 = zext i8 %228 to i64
-  %231 = getelementptr inbounds nuw [256 x i8], ptr @anon.f598013f844d153e445418e11826cafa.9, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr @anon.f598013f844d153e445418e11826cafa.9, i64 %230
   %232 = load i8, ptr %231, align 1, !noalias !44, !noundef !4
   %233 = add i8 %232, 1
   %234 = tail call i8 @llvm.umin.i8(i8 %233, i8 64)

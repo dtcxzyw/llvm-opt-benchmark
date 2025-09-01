@@ -1870,7 +1870,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN7cmState17G
 
 switch.lookup:                                    ; preds = %89
   %109 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7cmState17GetTargetTypeNameB5cxx11EN12cmStateEnums10TargetTypeE, i64 0, i64 %109
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7cmState17GetTargetTypeNameB5cxx11EN12cmStateEnums10TargetTypeE, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %110
 
@@ -1985,7 +1985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN7cmState22CacheEntryTypeToStringB5cxx11EN12cmStateEnums14CacheEntryTypeE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %0, i32 6)
   %2 = zext nneg i32 %spec.store.select to i64
-  %3 = getelementptr inbounds nuw [7 x %"class.std::__cxx11::basic_string"], ptr @_ZL17cmCacheEntryTypesB5cxx11, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL17cmCacheEntryTypesB5cxx11, i64 %2
   ret ptr %3
 }
 

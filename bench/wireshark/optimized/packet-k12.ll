@@ -712,7 +712,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = or disjoint i32 %246, %249
-  %251 = getelementptr [64 x i32], ptr %225, i64 0, i64 %indvars.iv.i
+  %251 = getelementptr i32, ptr %225, i64 %indvars.iv.i
   store i32 %250, ptr %251, align 4
   %.not71.i = icmp eq i32 %250, 0
   br i1 %.not71.i, label %272, label %252
@@ -737,7 +737,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %268 = zext i8 %267 to i32
   %269 = or disjoint i32 %265, %268
   %270 = udiv i32 %269, %250
-  %271 = getelementptr [64 x i32], ptr %227, i64 0, i64 %indvars.iv.i
+  %271 = getelementptr i32, ptr %227, i64 %indvars.iv.i
   store i32 %270, ptr %271, align 4
   br label %272
 

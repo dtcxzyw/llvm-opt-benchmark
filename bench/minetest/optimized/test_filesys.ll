@@ -1949,7 +1949,7 @@ for.cond112.preheader.preheader:                  ; preds = %if.then.i.i722, %_Z
 
 for.cond112.preheader:                            ; preds = %for.cond112.preheader.preheader, %if.end236.11
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end236.11 ], [ 0, %for.cond112.preheader.preheader ]
-  %arrayidx = getelementptr inbounds nuw [12 x %"class.std::__cxx11::basic_string"], ptr %paths, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %paths, i64 %indvars.iv
   %call = invoke noundef zeroext i1 @_ZN2fs14PathStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %paths)
           to label %if.then142 unwind label %lpad118
 
@@ -2495,7 +2495,7 @@ if.end236:                                        ; preds = %if.then142
           to label %invoke.cont119.1 unwind label %lpad118
 
 invoke.cont119.1:                                 ; preds = %if.end236
-  %arrayidx123.1 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 1
+  %arrayidx123.1 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 1
   %186 = load i32, ptr %arrayidx123.1, align 4, !tbaa !60
   switch i32 %186, label %if.end236.1 [
     i32 0, label %if.then.1
@@ -2525,7 +2525,7 @@ if.end236.1:                                      ; preds = %if.then.1, %if.then
           to label %invoke.cont119.2 unwind label %lpad118
 
 invoke.cont119.2:                                 ; preds = %if.end236.1
-  %arrayidx123.2 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 2
+  %arrayidx123.2 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 2
   %187 = load i32, ptr %arrayidx123.2, align 8, !tbaa !60
   switch i32 %187, label %if.end236.2 [
     i32 0, label %if.then.2
@@ -2555,7 +2555,7 @@ if.end236.2:                                      ; preds = %if.then.2, %if.then
           to label %invoke.cont119.3 unwind label %lpad118
 
 invoke.cont119.3:                                 ; preds = %if.end236.2
-  %arrayidx123.3 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 3
+  %arrayidx123.3 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 3
   %188 = load i32, ptr %arrayidx123.3, align 4, !tbaa !60
   switch i32 %188, label %if.end236.3 [
     i32 0, label %if.then.3
@@ -2585,7 +2585,7 @@ if.end236.3:                                      ; preds = %if.then.3, %if.then
           to label %invoke.cont119.4 unwind label %lpad118
 
 invoke.cont119.4:                                 ; preds = %if.end236.3
-  %arrayidx123.4 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 4
+  %arrayidx123.4 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 4
   %189 = load i32, ptr %arrayidx123.4, align 16, !tbaa !60
   switch i32 %189, label %if.end236.4 [
     i32 0, label %if.then.4
@@ -2615,7 +2615,7 @@ if.end236.4:                                      ; preds = %if.then.4, %if.then
           to label %invoke.cont119.5 unwind label %lpad118
 
 invoke.cont119.5:                                 ; preds = %if.end236.4
-  %arrayidx123.5 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 5
+  %arrayidx123.5 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 5
   %190 = load i32, ptr %arrayidx123.5, align 4, !tbaa !60
   switch i32 %190, label %if.end236.5 [
     i32 0, label %if.then.5
@@ -2645,7 +2645,7 @@ if.end236.5:                                      ; preds = %if.then.5, %if.then
           to label %invoke.cont119.6 unwind label %lpad118
 
 invoke.cont119.6:                                 ; preds = %if.end236.5
-  %arrayidx123.6 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 6
+  %arrayidx123.6 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 6
   %191 = load i32, ptr %arrayidx123.6, align 8, !tbaa !60
   switch i32 %191, label %if.end236.6 [
     i32 0, label %if.then.6
@@ -2675,7 +2675,7 @@ if.end236.6:                                      ; preds = %if.then.6, %if.then
           to label %invoke.cont119.7 unwind label %lpad118
 
 invoke.cont119.7:                                 ; preds = %if.end236.6
-  %arrayidx123.7 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 7
+  %arrayidx123.7 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 7
   %192 = load i32, ptr %arrayidx123.7, align 4, !tbaa !60
   switch i32 %192, label %if.end236.7 [
     i32 0, label %if.then.7
@@ -2705,7 +2705,7 @@ if.end236.7:                                      ; preds = %if.then.7, %if.then
           to label %invoke.cont119.8 unwind label %lpad118
 
 invoke.cont119.8:                                 ; preds = %if.end236.7
-  %arrayidx123.8 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 8
+  %arrayidx123.8 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 8
   %193 = load i32, ptr %arrayidx123.8, align 16, !tbaa !60
   switch i32 %193, label %if.end236.8 [
     i32 0, label %if.then.8
@@ -2735,7 +2735,7 @@ if.end236.8:                                      ; preds = %if.then.8, %if.then
           to label %invoke.cont119.9 unwind label %lpad118
 
 invoke.cont119.9:                                 ; preds = %if.end236.8
-  %arrayidx123.9 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 9
+  %arrayidx123.9 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 9
   %194 = load i32, ptr %arrayidx123.9, align 4, !tbaa !60
   switch i32 %194, label %if.end236.9 [
     i32 0, label %if.then.9
@@ -2765,7 +2765,7 @@ if.end236.9:                                      ; preds = %if.then.9, %if.then
           to label %invoke.cont119.10 unwind label %lpad118
 
 invoke.cont119.10:                                ; preds = %if.end236.9
-  %arrayidx123.10 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 10
+  %arrayidx123.10 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 10
   %195 = load i32, ptr %arrayidx123.10, align 8, !tbaa !60
   switch i32 %195, label %if.end236.10 [
     i32 0, label %if.then.10
@@ -2795,7 +2795,7 @@ if.end236.10:                                     ; preds = %if.then.10, %if.the
           to label %invoke.cont119.11 unwind label %lpad118
 
 invoke.cont119.11:                                ; preds = %if.end236.10
-  %arrayidx123.11 = getelementptr inbounds nuw [12 x [12 x i32]], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 0, i64 %indvars.iv, i64 11
+  %arrayidx123.11 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 11
   %196 = load i32, ptr %arrayidx123.11, align 4, !tbaa !60
   switch i32 %196, label %if.end236.11 [
     i32 0, label %if.then.11

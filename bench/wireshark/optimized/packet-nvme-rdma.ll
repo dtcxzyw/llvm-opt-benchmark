@@ -431,11 +431,11 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %99 = trunc nuw i8 %98 to i1
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %101 = load i8, ptr %100, align 8
-  br i1 %99, label %102, label %232
+  br i1 %99, label %102, label %233
 
 102:                                              ; preds = %find_add_q_ctx.exit.thread
-  switch i8 %101, label %229 [
-    i8 4, label %204
+  switch i8 %101, label %230 [
+    i8 4, label %205
     i8 13, label %103
     i8 16, label %103
     i8 14, label %123
@@ -447,7 +447,7 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %105 = load i32, ptr %104, align 4
   %106 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %105)
   %.not98.i = icmp eq ptr %106, null
-  br i1 %.not98.i, label %201, label %107
+  br i1 %.not98.i, label %202, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -489,7 +489,7 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %130 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 48
   %131 = load ptr, ptr %130, align 8
   %.not96.i = icmp eq ptr %131, null
-  br i1 %.not96.i, label %201, label %132
+  br i1 %.not96.i, label %202, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 60
@@ -498,7 +498,7 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %135, %137
-  br i1 %138, label %139, label %201
+  br i1 %138, label %139, label %202
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 56
@@ -512,7 +512,7 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %145 = load i32, ptr %8, align 4
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 12
   %147 = zext nneg i32 %142 to i64
-  %148 = getelementptr [16 x i32], ptr %146, i64 0, i64 %147
+  %148 = getelementptr i32, ptr %146, i64 %147
   store i32 %145, ptr %148, align 4
   br label %149
 
@@ -530,7 +530,7 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   %156 = load i32, ptr %155, align 4
   %157 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %156)
   %.not97.i = icmp eq ptr %157, null
-  br i1 %.not97.i, label %201, label %158
+  br i1 %.not97.i, label %202, label %158
 
 158:                                              ; preds = %154
   %159 = load i32, ptr %155, align 4
@@ -552,446 +552,448 @@ find_add_q_ctx.exit.thread:                       ; preds = %31, %find_add_q_ctx
   tail call void @nvme_publish_to_data_req_link(ptr noundef %167, ptr noundef %0, i32 noundef %169, ptr noundef nonnull %.0.i35)
   %170 = add i32 %.085.i, -1
   %or.cond.i = icmp ult i32 %170, 16
-  br i1 %or.cond.i, label %171, label %177
+  br i1 %or.cond.i, label %171, label %178
 
 171:                                              ; preds = %163
   %172 = load i32, ptr @hf_nvmeof_read_from_host_prev, align 4
   %173 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 12
-  %174 = zext nneg i32 %170 to i64
-  %175 = getelementptr [16 x i32], ptr %173, i64 0, i64 %174
-  %176 = load i32, ptr %175, align 4
-  tail call void @nvme_publish_link(ptr noundef %167, ptr noundef %0, i32 noundef %172, i32 noundef %176, i1 noundef zeroext false)
-  br label %177
+  %174 = zext nneg i32 %.085.i to i64
+  %175 = getelementptr i32, ptr %173, i64 %174
+  %176 = getelementptr i8, ptr %175, i64 -4
+  %177 = load i32, ptr %176, align 4
+  tail call void @nvme_publish_link(ptr noundef %167, ptr noundef %0, i32 noundef %172, i32 noundef %177, i1 noundef zeroext false)
+  br label %178
 
-177:                                              ; preds = %171, %163
-  %178 = add i32 %.085.i, 1
-  %179 = icmp ult i32 %178, 16
-  br i1 %179, label %180, label %186
+178:                                              ; preds = %171, %163
+  %179 = add i32 %.085.i, 1
+  %180 = icmp ult i32 %179, 16
+  br i1 %180, label %181, label %187
 
-180:                                              ; preds = %177
-  %181 = load i32, ptr @hf_nvmeof_read_from_host_next, align 4
-  %182 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 12
-  %183 = zext nneg i32 %178 to i64
-  %184 = getelementptr [16 x i32], ptr %182, i64 0, i64 %183
-  %185 = load i32, ptr %184, align 4
-  tail call void @nvme_publish_link(ptr noundef %167, ptr noundef %0, i32 noundef %181, i32 noundef %185, i1 noundef zeroext false)
-  br label %186
+181:                                              ; preds = %178
+  %182 = load i32, ptr @hf_nvmeof_read_from_host_next, align 4
+  %183 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 12
+  %184 = zext nneg i32 %179 to i64
+  %185 = getelementptr i32, ptr %183, i64 %184
+  %186 = load i32, ptr %185, align 4
+  tail call void @nvme_publish_link(ptr noundef %167, ptr noundef %0, i32 noundef %182, i32 noundef %186, i1 noundef zeroext false)
+  br label %187
 
-186:                                              ; preds = %180, %177
-  %187 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 116
-  %188 = load i8, ptr %187, align 4, !range !6, !noundef !7
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %191
+187:                                              ; preds = %181, %178
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 116
+  %189 = load i8, ptr %188, align 4, !range !6, !noundef !7
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %191, label %192
 
-190:                                              ; preds = %186
+191:                                              ; preds = %187
   tail call void @dissect_nvmeof_cmd_data(ptr noundef %0, ptr noundef %1, ptr noundef %167, i32 noundef 0, ptr noundef nonnull %.0.i3247, ptr noundef nonnull %.0.i35, i32 noundef %7)
   br label %dissect_rdma_read_transfer.exit.i
 
-191:                                              ; preds = %186
+192:                                              ; preds = %187
   tail call void @dissect_nvme_data_response(ptr noundef %0, ptr noundef %1, ptr noundef %167, ptr noundef nonnull %.0.i3247, ptr noundef nonnull %.0.i35, i32 noundef %7, i1 noundef zeroext false)
   br label %dissect_rdma_read_transfer.exit.i
 
-dissect_rdma_read_transfer.exit.i:                ; preds = %191, %190
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 57
-  %195 = load i16, ptr %194, align 1
-  %196 = and i16 %195, 8
-  %.not102.i = icmp eq i16 %196, 0
-  br i1 %.not102.i, label %197, label %dissect_nvme_from_host.exit
+dissect_rdma_read_transfer.exit.i:                ; preds = %192, %191
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 57
+  %196 = load i16, ptr %195, align 1
+  %197 = and i16 %196, 8
+  %.not102.i = icmp eq i16 %197, 0
+  br i1 %.not102.i, label %198, label %dissect_nvme_from_host.exit
 
-197:                                              ; preds = %dissect_rdma_read_transfer.exit.i
-  %198 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 112
-  %199 = load i32, ptr %198, align 8
-  %200 = add i32 %199, %7
-  store i32 %200, ptr %198, align 8
+198:                                              ; preds = %dissect_rdma_read_transfer.exit.i
+  %199 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 112
+  %200 = load i32, ptr %199, align 8
+  %201 = add i32 %200, %7
+  store i32 %201, ptr %199, align 8
   br label %dissect_nvme_from_host.exit
 
-201:                                              ; preds = %154, %132, %129, %103
-  %202 = load i32, ptr @hf_nvmeof_read_from_host_unmatched, align 4
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %202, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+202:                                              ; preds = %154, %132, %129, %103
+  %203 = load i32, ptr @hf_nvmeof_read_from_host_unmatched, align 4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-204:                                              ; preds = %102
-  %205 = icmp ugt i32 %7, 63
-  br i1 %205, label %206, label %226
+205:                                              ; preds = %102
+  %206 = icmp ugt i32 %7, 63
+  br i1 %206, label %207, label %227
 
-206:                                              ; preds = %204
-  %207 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %208 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648)
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 57
-  %212 = load i16, ptr %211, align 1
-  %213 = and i16 %212, 8
-  %.not.i.i.i36 = icmp eq i16 %213, 0
-  br i1 %.not.i.i.i36, label %214, label %217
+207:                                              ; preds = %205
+  %208 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %209 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648)
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 57
+  %213 = load i16, ptr %212, align 1
+  %214 = and i16 %213, 8
+  %.not.i.i.i36 = icmp eq i16 %214, 0
+  br i1 %.not.i.i.i36, label %215, label %218
 
-214:                                              ; preds = %206
-  %215 = tail call ptr @wmem_file_scope()
-  %216 = tail call noalias dereferenceable_or_null(168) ptr @wmem_alloc0(ptr noundef %215, i64 noundef 168) #6
-  tail call void @nvme_add_cmd_to_pending_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, ptr noundef %216, ptr noundef %216, i16 noundef zeroext %208)
+215:                                              ; preds = %207
+  %216 = tail call ptr @wmem_file_scope()
+  %217 = tail call noalias dereferenceable_or_null(168) ptr @wmem_alloc0(ptr noundef %216, i64 noundef 168) #6
+  tail call void @nvme_add_cmd_to_pending_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, ptr noundef %217, ptr noundef %217, i16 noundef zeroext %209)
   br label %bind_cmd_to_qctx.exit.i.i
 
-217:                                              ; preds = %206
-  %218 = tail call ptr @nvme_lookup_cmd_in_done_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, i16 noundef zeroext %208)
-  %.not11.i.i.i = icmp eq ptr %218, null
-  br i1 %.not11.i.i.i, label %219, label %bind_cmd_to_qctx.exit.i.i
+218:                                              ; preds = %207
+  %219 = tail call ptr @nvme_lookup_cmd_in_done_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, i16 noundef zeroext %209)
+  %.not11.i.i.i = icmp eq ptr %219, null
+  br i1 %.not11.i.i.i, label %220, label %bind_cmd_to_qctx.exit.i.i
 
-219:                                              ; preds = %217
-  %220 = tail call ptr @wmem_file_scope()
-  %221 = tail call noalias dereferenceable_or_null(168) ptr @wmem_alloc0(ptr noundef %220, i64 noundef 168) #6
+220:                                              ; preds = %218
+  %221 = tail call ptr @wmem_file_scope()
+  %222 = tail call noalias dereferenceable_or_null(168) ptr @wmem_alloc0(ptr noundef %221, i64 noundef 168) #6
   br label %bind_cmd_to_qctx.exit.i.i
 
-bind_cmd_to_qctx.exit.i.i:                        ; preds = %219, %217, %214
-  %.0.i.i.i = phi ptr [ %218, %217 ], [ %221, %219 ], [ %216, %214 ]
-  %222 = icmp eq i8 %207, 127
-  %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 116
-  br i1 %222, label %224, label %225
+bind_cmd_to_qctx.exit.i.i:                        ; preds = %220, %218, %215
+  %.0.i.i.i = phi ptr [ %219, %218 ], [ %222, %220 ], [ %217, %215 ]
+  %223 = icmp eq i8 %208, 127
+  %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 116
+  br i1 %223, label %225, label %226
 
-224:                                              ; preds = %bind_cmd_to_qctx.exit.i.i
-  store i8 1, ptr %223, align 4
+225:                                              ; preds = %bind_cmd_to_qctx.exit.i.i
+  store i8 1, ptr %224, align 4
   tail call void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %93, ptr noundef nonnull %.0.i3247, ptr noundef %.0.i.i.i, i32 noundef 0, i1 noundef zeroext true)
   br label %dissect_nvme_from_host.exit
 
-225:                                              ; preds = %bind_cmd_to_qctx.exit.i.i
-  store i8 0, ptr %223, align 4
+226:                                              ; preds = %bind_cmd_to_qctx.exit.i.i
+  store i8 0, ptr %224, align 4
   tail call void @dissect_nvme_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.0.i3247, ptr noundef %.0.i.i.i)
   br label %dissect_nvme_from_host.exit
 
-226:                                              ; preds = %204
-  %227 = load i32, ptr @hf_nvmeof_from_host_unknown_data, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %227, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+227:                                              ; preds = %205
+  %228 = load i32, ptr @hf_nvmeof_from_host_unknown_data, align 4
+  %229 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %228, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-229:                                              ; preds = %102
-  %230 = load i32, ptr @hf_nvmeof_from_host_unknown_data, align 4
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %230, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+230:                                              ; preds = %102
+  %231 = load i32, ptr @hf_nvmeof_from_host_unknown_data, align 4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %231, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-232:                                              ; preds = %find_add_q_ctx.exit.thread
-  switch i8 %101, label %400 [
-    i8 12, label %233
-    i8 4, label %267
-    i8 23, label %267
-    i8 10, label %297
-    i8 6, label %297
-    i8 7, label %323
-    i8 8, label %323
+233:                                              ; preds = %find_add_q_ctx.exit.thread
+  switch i8 %101, label %402 [
+    i8 12, label %234
+    i8 4, label %268
+    i8 23, label %268
+    i8 10, label %298
+    i8 6, label %298
+    i8 7, label %324
+    i8 8, label %324
   ]
 
-233:                                              ; preds = %232
+234:                                              ; preds = %233
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %234 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %235 = load i64, ptr %234, align 8
-  store i64 %235, ptr %5, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %237 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %238 = load i32, ptr %237, align 4
-  store i32 %238, ptr %236, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %240 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %241 = load i32, ptr %240, align 8
-  store i32 %241, ptr %239, align 4
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 57
-  %245 = load i16, ptr %244, align 1
-  %246 = and i16 %245, 8
-  %.not138.i = icmp eq i16 %246, 0
-  br i1 %.not138.i, label %247, label %251
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %236 = load i64, ptr %235, align 8
+  store i64 %236, ptr %5, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %239 = load i32, ptr %238, align 4
+  store i32 %239, ptr %237, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %241 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %242 = load i32, ptr %241, align 8
+  store i32 %242, ptr %240, align 4
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 57
+  %246 = load i16, ptr %245, align 1
+  %247 = and i16 %246, 8
+  %.not138.i = icmp eq i16 %247, 0
+  br i1 %.not138.i, label %248, label %252
 
-247:                                              ; preds = %233
-  %248 = call ptr @nvme_lookup_data_request(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %5)
-  %.not139.i = icmp eq ptr %248, null
+248:                                              ; preds = %234
+  %249 = call ptr @nvme_lookup_data_request(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %5)
+  %.not139.i = icmp eq ptr %249, null
   br i1 %.not139.i, label %.thread.i, label %.thread143.i
 
-.thread143.i:                                     ; preds = %247
-  %249 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %250 = load i32, ptr %249, align 4
-  call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %248, i32 noundef 0, i32 noundef %250)
-  br label %255
+.thread143.i:                                     ; preds = %248
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %251 = load i32, ptr %250, align 4
+  call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %249, i32 noundef 0, i32 noundef %251)
+  br label %256
 
-251:                                              ; preds = %233
-  %252 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %253 = load i32, ptr %252, align 4
-  %254 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %253)
-  %.not140.i = icmp eq ptr %254, null
-  br i1 %.not140.i, label %.thread.i, label %255
+252:                                              ; preds = %234
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %254 = load i32, ptr %253, align 4
+  %255 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %254)
+  %.not140.i = icmp eq ptr %255, null
+  br i1 %.not140.i, label %.thread.i, label %256
 
-255:                                              ; preds = %251, %.thread143.i
-  %.0146.i = phi ptr [ %248, %.thread143.i ], [ %254, %251 ]
-  %256 = load i32, ptr @hf_nvmeof_read_to_host_req, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %256, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %258 = load i32, ptr @ett_data, align 4
-  %259 = call ptr @proto_item_add_subtree(ptr noundef %257, i32 noundef %258)
-  %260 = load i32, ptr %8, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %.0146.i, i64 8
-  store i32 %260, ptr %261, align 8
-  %262 = load i32, ptr @hf_nvmeof_data_resp, align 4
-  call void @nvme_publish_to_data_resp_link(ptr noundef %259, ptr noundef %0, i32 noundef %262, ptr noundef nonnull %.0146.i)
-  %263 = load i32, ptr @hf_nvmeof_cmd_pkt, align 4
-  call void @nvme_publish_to_cmd_link(ptr noundef %259, ptr noundef %0, i32 noundef %263, ptr noundef nonnull %.0146.i)
+256:                                              ; preds = %252, %.thread143.i
+  %.0146.i = phi ptr [ %249, %.thread143.i ], [ %255, %252 ]
+  %257 = load i32, ptr @hf_nvmeof_read_to_host_req, align 4
+  %258 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %257, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %259 = load i32, ptr @ett_data, align 4
+  %260 = call ptr @proto_item_add_subtree(ptr noundef %258, i32 noundef %259)
+  %261 = load i32, ptr %8, align 4
+  %262 = getelementptr inbounds nuw i8, ptr %.0146.i, i64 8
+  store i32 %261, ptr %262, align 8
+  %263 = load i32, ptr @hf_nvmeof_data_resp, align 4
+  call void @nvme_publish_to_data_resp_link(ptr noundef %260, ptr noundef %0, i32 noundef %263, ptr noundef nonnull %.0146.i)
+  %264 = load i32, ptr @hf_nvmeof_cmd_pkt, align 4
+  call void @nvme_publish_to_cmd_link(ptr noundef %260, ptr noundef %0, i32 noundef %264, ptr noundef nonnull %.0146.i)
   call void @nvme_update_transfer_request(ptr noundef %1, ptr noundef nonnull %.0146.i, ptr noundef nonnull %.0.i3247)
-  br label %266
+  br label %267
 
-.thread.i:                                        ; preds = %251, %247
-  %264 = load i32, ptr @hf_nvmeof_read_to_host_unmatched, align 4
-  %265 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %264, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
-  br label %266
+.thread.i:                                        ; preds = %252, %248
+  %265 = load i32, ptr @hf_nvmeof_read_to_host_unmatched, align 4
+  %266 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %265, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+  br label %267
 
-266:                                              ; preds = %.thread.i, %255
+267:                                              ; preds = %.thread.i, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_nvme_from_host.exit
 
-267:                                              ; preds = %232, %232
-  %268 = icmp eq i32 %7, 16
-  br i1 %268, label %269, label %294
+268:                                              ; preds = %233, %233
+  %269 = icmp eq i32 %7, 16
+  br i1 %269, label %270, label %295
 
-269:                                              ; preds = %267
-  %270 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 12, i32 noundef -2147483648)
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 57
-  %274 = load i16, ptr %273, align 1
-  %275 = and i16 %274, 8
-  %.not.i.i39 = icmp eq i16 %275, 0
-  br i1 %.not.i.i39, label %276, label %283
+270:                                              ; preds = %268
+  %271 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 12, i32 noundef -2147483648)
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 57
+  %275 = load i16, ptr %274, align 1
+  %276 = and i16 %275, 8
+  %.not.i.i39 = icmp eq i16 %276, 0
+  br i1 %.not.i.i39, label %277, label %284
 
-276:                                              ; preds = %269
-  %277 = tail call ptr @nvme_lookup_cmd_in_pending_list(ptr noundef nonnull %.0.i3247, i16 noundef zeroext %270)
-  %.not30.i.i = icmp eq ptr %277, null
-  br i1 %.not30.i.i, label %291, label %278
+277:                                              ; preds = %270
+  %278 = tail call ptr @nvme_lookup_cmd_in_pending_list(ptr noundef nonnull %.0.i3247, i16 noundef zeroext %271)
+  %.not30.i.i = icmp eq ptr %278, null
+  br i1 %.not30.i.i, label %292, label %279
 
-278:                                              ; preds = %276
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  %280 = load i32, ptr %279, align 4
-  %.not31.i.i = icmp eq i32 %280, 0
-  br i1 %.not31.i.i, label %281, label %291
+279:                                              ; preds = %277
+  %280 = getelementptr inbounds nuw i8, ptr %278, i64 4
+  %281 = load i32, ptr %280, align 4
+  %.not31.i.i = icmp eq i32 %281, 0
+  br i1 %.not31.i.i, label %282, label %292
 
-281:                                              ; preds = %278
-  %282 = load i32, ptr %8, align 4
-  store i32 %282, ptr %279, align 4
-  tail call void @nvme_add_cmd_cqe_to_done_list(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %277, i16 noundef zeroext %270)
-  br label %285
+282:                                              ; preds = %279
+  %283 = load i32, ptr %8, align 4
+  store i32 %283, ptr %280, align 4
+  tail call void @nvme_add_cmd_cqe_to_done_list(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %278, i16 noundef zeroext %271)
+  br label %286
 
-283:                                              ; preds = %269
-  %284 = tail call ptr @nvme_lookup_cmd_in_done_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, i16 noundef zeroext %270)
-  %.not32.i.i = icmp eq ptr %284, null
-  br i1 %.not32.i.i, label %291, label %285
+284:                                              ; preds = %270
+  %285 = tail call ptr @nvme_lookup_cmd_in_done_list(ptr noundef %1, ptr noundef nonnull %.0.i3247, i16 noundef zeroext %271)
+  %.not32.i.i = icmp eq ptr %285, null
+  br i1 %.not32.i.i, label %292, label %286
 
-285:                                              ; preds = %283, %281
-  %.0.i.i40 = phi ptr [ %284, %283 ], [ %277, %281 ]
+286:                                              ; preds = %284, %282
+  %.0.i.i40 = phi ptr [ %285, %284 ], [ %278, %282 ]
   tail call void @nvme_update_cmd_end_info(ptr noundef %1, ptr noundef nonnull %.0.i.i40)
-  %286 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 116
-  %287 = load i8, ptr %286, align 4, !range !6, !noundef !7
-  %288 = trunc nuw i8 %287 to i1
-  br i1 %288, label %289, label %290
+  %287 = getelementptr inbounds nuw i8, ptr %.0.i.i40, i64 116
+  %288 = load i8, ptr %287, align 4, !range !6, !noundef !7
+  %289 = trunc nuw i8 %288 to i1
+  br i1 %289, label %290, label %291
 
-289:                                              ; preds = %285
+290:                                              ; preds = %286
   tail call void @dissect_nvmeof_fabric_cqe(ptr noundef %0, ptr noundef %1, ptr noundef %93, ptr noundef nonnull %.0.i.i40, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-290:                                              ; preds = %285
+291:                                              ; preds = %286
   tail call void @dissect_nvme_cqe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.0.i3247, ptr noundef nonnull %.0.i.i40)
   br label %dissect_nvme_from_host.exit
 
-291:                                              ; preds = %283, %278, %276
-  %292 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
-  %293 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %292, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
+292:                                              ; preds = %284, %279, %277
+  %293 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
+  %294 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %293, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-294:                                              ; preds = %267
-  %295 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
-  %296 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %295, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+295:                                              ; preds = %268
+  %296 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %296, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-297:                                              ; preds = %232, %232
+298:                                              ; preds = %233, %233
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %298 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %299 = load i64, ptr %298, align 8
-  store i64 %299, ptr %6, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %301 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %302 = load i32, ptr %301, align 4
-  store i32 %302, ptr %300, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %304 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %305 = load i32, ptr %304, align 8
-  store i32 %305, ptr %303, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 57
-  %309 = load i16, ptr %308, align 1
-  %310 = and i16 %309, 8
-  %.not133.i = icmp eq i16 %310, 0
-  br i1 %.not133.i, label %311, label %363
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %300 = load i64, ptr %299, align 8
+  store i64 %300, ptr %6, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %303 = load i32, ptr %302, align 4
+  store i32 %303, ptr %301, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %305 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %306 = load i32, ptr %305, align 8
+  store i32 %306, ptr %304, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 57
+  %310 = load i16, ptr %309, align 1
+  %311 = and i16 %310, 8
+  %.not133.i = icmp eq i16 %311, 0
+  br i1 %.not133.i, label %312, label %364
 
-311:                                              ; preds = %297
-  %312 = call ptr @nvme_lookup_data_request(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %6)
-  %.not134.i = icmp eq ptr %312, null
+312:                                              ; preds = %298
+  %313 = call ptr @nvme_lookup_data_request(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %6)
+  %.not134.i = icmp eq ptr %313, null
   br i1 %.not134.i, label %.thread158.i, label %.thread161.i
 
-.thread158.i:                                     ; preds = %311
+.thread158.i:                                     ; preds = %312
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread147.i
 
-.thread161.i:                                     ; preds = %311
-  %313 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %314 = load i32, ptr %313, align 4
-  call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %312, i32 noundef 0, i32 noundef %314)
-  %315 = load i32, ptr %313, align 4
-  %316 = getelementptr inbounds nuw i8, ptr %312, i64 76
-  store i32 %315, ptr %316, align 4
-  %317 = load i32, ptr %8, align 4
-  %318 = getelementptr inbounds nuw i8, ptr %312, i64 12
-  store i32 %317, ptr %318, align 4
-  %319 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 48
-  store ptr %312, ptr %319, align 8
-  %320 = load i32, ptr %313, align 4
-  %321 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 60
-  store i32 %320, ptr %321, align 4
-  %322 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 56
-  store i32 %320, ptr %322, align 8
+.thread161.i:                                     ; preds = %312
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %315 = load i32, ptr %314, align 4
+  call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %313, i32 noundef 0, i32 noundef %315)
+  %316 = load i32, ptr %314, align 4
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 76
+  store i32 %316, ptr %317, align 4
+  %318 = load i32, ptr %8, align 4
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 12
+  store i32 %318, ptr %319, align 4
+  %320 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 48
+  store ptr %313, ptr %320, align 8
+  %321 = load i32, ptr %314, align 4
+  %322 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 60
+  store i32 %321, ptr %322, align 4
+  %323 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 56
+  store i32 %321, ptr %323, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread152.i
 
-323:                                              ; preds = %232, %232
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 57
-  %327 = load i16, ptr %326, align 1
-  %328 = and i16 %327, 8
-  %.not.i37 = icmp eq i16 %328, 0
-  br i1 %.not.i37, label %338, label %329
+324:                                              ; preds = %233, %233
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 57
+  %328 = load i16, ptr %327, align 1
+  %329 = and i16 %328, 8
+  %.not.i37 = icmp eq i16 %329, 0
+  br i1 %.not.i37, label %339, label %330
 
-329:                                              ; preds = %323
-  %330 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %331 = load i32, ptr %330, align 4
-  %332 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %331)
-  %.not132.i = icmp eq ptr %332, null
-  br i1 %.not132.i, label %.thread147.i, label %333
+330:                                              ; preds = %324
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %332 = load i32, ptr %331, align 4
+  %333 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %332)
+  %.not132.i = icmp eq ptr %333, null
+  br i1 %.not132.i, label %.thread147.i, label %334
 
-333:                                              ; preds = %329
-  %334 = load i32, ptr %330, align 4
-  %335 = getelementptr inbounds nuw i8, ptr %332, i64 76
-  %336 = load i32, ptr %335, align 4
-  %337 = sub i32 %334, %336
+334:                                              ; preds = %330
+  %335 = load i32, ptr %331, align 4
+  %336 = getelementptr inbounds nuw i8, ptr %333, i64 76
+  %337 = load i32, ptr %336, align 4
+  %338 = sub i32 %335, %337
   br label %.thread152.i
 
-338:                                              ; preds = %323
-  %339 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 48
-  %340 = load ptr, ptr %339, align 8
-  %.not131.i = icmp eq ptr %340, null
-  br i1 %.not131.i, label %.thread147.i, label %341
+339:                                              ; preds = %324
+  %340 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 48
+  %341 = load ptr, ptr %340, align 8
+  %.not131.i = icmp eq ptr %341, null
+  br i1 %.not131.i, label %.thread147.i, label %342
 
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 60
-  %343 = load i32, ptr %342, align 4
-  %344 = add i32 %343, 1
-  %345 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %346 = load i32, ptr %345, align 4
-  %347 = icmp eq i32 %344, %346
-  br i1 %347, label %348, label %.thread147.i
+342:                                              ; preds = %339
+  %343 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 60
+  %344 = load i32, ptr %343, align 4
+  %345 = add i32 %344, 1
+  %346 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %347 = load i32, ptr %346, align 4
+  %348 = icmp eq i32 %345, %347
+  br i1 %348, label %349, label %.thread147.i
 
-348:                                              ; preds = %341
-  %349 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 56
-  %350 = load i32, ptr %349, align 8
-  %351 = sub i32 %344, %350
-  store i32 %344, ptr %342, align 4
-  %352 = icmp ult i32 %351, 16
-  br i1 %352, label %353, label %358
+349:                                              ; preds = %342
+  %350 = getelementptr inbounds nuw i8, ptr %.0.i3247, i64 56
+  %351 = load i32, ptr %350, align 8
+  %352 = sub i32 %345, %351
+  store i32 %345, ptr %343, align 4
+  %353 = icmp ult i32 %352, 16
+  br i1 %353, label %354, label %359
 
-353:                                              ; preds = %348
-  %354 = load i32, ptr %8, align 4
-  %355 = getelementptr inbounds nuw i8, ptr %340, i64 12
-  %356 = zext nneg i32 %351 to i64
-  %357 = getelementptr [16 x i32], ptr %355, i64 0, i64 %356
-  store i32 %354, ptr %357, align 4
-  br label %358
+354:                                              ; preds = %349
+  %355 = load i32, ptr %8, align 4
+  %356 = getelementptr inbounds nuw i8, ptr %341, i64 12
+  %357 = zext nneg i32 %352 to i64
+  %358 = getelementptr i32, ptr %356, i64 %357
+  store i32 %355, ptr %358, align 4
+  br label %359
 
-358:                                              ; preds = %353, %348
-  %359 = load i32, ptr %345, align 4
-  tail call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %340, i32 noundef 0, i32 noundef %359)
-  %360 = getelementptr inbounds nuw i8, ptr %340, i64 112
-  %361 = load i32, ptr %360, align 8
-  %362 = load i32, ptr %8, align 4
-  tail call void @nvme_add_data_tr_off(ptr noundef nonnull %.0.i3247, i32 noundef %361, i32 noundef %362)
+359:                                              ; preds = %354, %349
+  %360 = load i32, ptr %346, align 4
+  tail call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i3247, ptr noundef nonnull %341, i32 noundef 0, i32 noundef %360)
+  %361 = getelementptr inbounds nuw i8, ptr %341, i64 112
+  %362 = load i32, ptr %361, align 8
+  %363 = load i32, ptr %8, align 4
+  tail call void @nvme_add_data_tr_off(ptr noundef nonnull %.0.i3247, i32 noundef %362, i32 noundef %363)
   br label %.thread152.i
 
-363:                                              ; preds = %297
-  %364 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %365 = load i32, ptr %364, align 4
-  %366 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %365)
+364:                                              ; preds = %298
+  %365 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %366 = load i32, ptr %365, align 4
+  %367 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i3247, i32 noundef 0, i32 noundef %366)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not135.i = icmp eq ptr %366, null
+  %.not135.i = icmp eq ptr %367, null
   br i1 %.not135.i, label %.thread147.i, label %.thread152.i
 
-.thread152.i:                                     ; preds = %363, %358, %333, %.thread161.i
-  %.1157.i = phi ptr [ %366, %363 ], [ %312, %.thread161.i ], [ %340, %358 ], [ %332, %333 ]
-  %.0117156.i = phi i32 [ 0, %363 ], [ 0, %.thread161.i ], [ %351, %358 ], [ %337, %333 ]
-  %367 = load i32, ptr @hf_nvmeof_write_to_host_req, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %367, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %369 = load i32, ptr @ett_data, align 4
-  %370 = call ptr @proto_item_add_subtree(ptr noundef %368, i32 noundef %369)
-  %371 = load i32, ptr @hf_nvmeof_cmd_pkt, align 4
-  call void @nvme_publish_to_cmd_link(ptr noundef %370, ptr noundef %0, i32 noundef %371, ptr noundef nonnull %.1157.i)
-  %372 = add i32 %.0117156.i, -1
-  %or.cond.i38 = icmp ult i32 %372, 16
-  br i1 %or.cond.i38, label %373, label %379
+.thread152.i:                                     ; preds = %364, %359, %334, %.thread161.i
+  %.1157.i = phi ptr [ %367, %364 ], [ %313, %.thread161.i ], [ %341, %359 ], [ %333, %334 ]
+  %.0117156.i = phi i32 [ 0, %364 ], [ 0, %.thread161.i ], [ %352, %359 ], [ %338, %334 ]
+  %368 = load i32, ptr @hf_nvmeof_write_to_host_req, align 4
+  %369 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %368, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %370 = load i32, ptr @ett_data, align 4
+  %371 = call ptr @proto_item_add_subtree(ptr noundef %369, i32 noundef %370)
+  %372 = load i32, ptr @hf_nvmeof_cmd_pkt, align 4
+  call void @nvme_publish_to_cmd_link(ptr noundef %371, ptr noundef %0, i32 noundef %372, ptr noundef nonnull %.1157.i)
+  %373 = add i32 %.0117156.i, -1
+  %or.cond.i38 = icmp ult i32 %373, 16
+  br i1 %or.cond.i38, label %374, label %381
 
-373:                                              ; preds = %.thread152.i
-  %374 = load i32, ptr @hf_nvmeof_write_to_host_prev, align 4
-  %375 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 12
-  %376 = zext nneg i32 %372 to i64
-  %377 = getelementptr [16 x i32], ptr %375, i64 0, i64 %376
-  %378 = load i32, ptr %377, align 4
-  call void @nvme_publish_link(ptr noundef %370, ptr noundef %0, i32 noundef %374, i32 noundef %378, i1 noundef zeroext false)
-  br label %379
+374:                                              ; preds = %.thread152.i
+  %375 = load i32, ptr @hf_nvmeof_write_to_host_prev, align 4
+  %376 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 12
+  %377 = zext nneg i32 %.0117156.i to i64
+  %378 = getelementptr i32, ptr %376, i64 %377
+  %379 = getelementptr i8, ptr %378, i64 -4
+  %380 = load i32, ptr %379, align 4
+  call void @nvme_publish_link(ptr noundef %371, ptr noundef %0, i32 noundef %375, i32 noundef %380, i1 noundef zeroext false)
+  br label %381
 
-379:                                              ; preds = %373, %.thread152.i
-  %380 = add i32 %.0117156.i, 1
-  %381 = icmp ult i32 %380, 16
-  br i1 %381, label %382, label %388
+381:                                              ; preds = %374, %.thread152.i
+  %382 = add i32 %.0117156.i, 1
+  %383 = icmp ult i32 %382, 16
+  br i1 %383, label %384, label %390
 
-382:                                              ; preds = %379
-  %383 = load i32, ptr @hf_nvmeof_write_to_host_next, align 4
-  %384 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 12
-  %385 = zext nneg i32 %380 to i64
-  %386 = getelementptr [16 x i32], ptr %384, i64 0, i64 %385
-  %387 = load i32, ptr %386, align 4
-  call void @nvme_publish_link(ptr noundef %370, ptr noundef %0, i32 noundef %383, i32 noundef %387, i1 noundef zeroext false)
-  br label %388
+384:                                              ; preds = %381
+  %385 = load i32, ptr @hf_nvmeof_write_to_host_next, align 4
+  %386 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 12
+  %387 = zext nneg i32 %382 to i64
+  %388 = getelementptr i32, ptr %386, i64 %387
+  %389 = load i32, ptr %388, align 4
+  call void @nvme_publish_link(ptr noundef %371, ptr noundef %0, i32 noundef %385, i32 noundef %389, i1 noundef zeroext false)
+  br label %390
 
-388:                                              ; preds = %382, %379
+390:                                              ; preds = %384, %381
   call void @dissect_nvme_data_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.0.i3247, ptr noundef nonnull %.1157.i, i32 noundef %7, i1 noundef zeroext false)
-  %389 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %390 = load ptr, ptr %389, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 57
-  %392 = load i16, ptr %391, align 1
-  %393 = and i16 %392, 8
-  %.not137.i = icmp eq i16 %393, 0
-  br i1 %.not137.i, label %394, label %dissect_nvme_from_host.exit
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %392 = load ptr, ptr %391, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 57
+  %394 = load i16, ptr %393, align 1
+  %395 = and i16 %394, 8
+  %.not137.i = icmp eq i16 %395, 0
+  br i1 %.not137.i, label %396, label %dissect_nvme_from_host.exit
 
-394:                                              ; preds = %388
-  %395 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 112
-  %396 = load i32, ptr %395, align 8
-  %397 = add i32 %396, %7
-  store i32 %397, ptr %395, align 8
+396:                                              ; preds = %390
+  %397 = getelementptr inbounds nuw i8, ptr %.1157.i, i64 112
+  %398 = load i32, ptr %397, align 8
+  %399 = add i32 %398, %7
+  store i32 %399, ptr %397, align 8
   br label %dissect_nvme_from_host.exit
 
-.thread147.i:                                     ; preds = %363, %341, %338, %329, %.thread158.i
-  %398 = load i32, ptr @hf_nvmeof_write_to_host_unmatched, align 4
-  %399 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %398, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+.thread147.i:                                     ; preds = %364, %342, %339, %330, %.thread158.i
+  %400 = load i32, ptr @hf_nvmeof_write_to_host_unmatched, align 4
+  %401 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %400, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-400:                                              ; preds = %232
-  %401 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
-  %402 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %401, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+402:                                              ; preds = %233
+  %403 = load i32, ptr @hf_nvmeof_to_host_unknown_data, align 4
+  %404 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %403, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0)
   br label %dissect_nvme_from_host.exit
 
-dissect_nvme_from_host.exit:                      ; preds = %14, %17, %20, %4, %400, %.thread147.i, %394, %388, %294, %291, %290, %289, %266, %229, %226, %225, %224, %201, %197, %dissect_rdma_read_transfer.exit.i, %find_add_q_ctx.exit, %find_ib_conversation.exit
-  %.0 = phi i1 [ false, %find_ib_conversation.exit ], [ false, %find_add_q_ctx.exit ], [ true, %dissect_rdma_read_transfer.exit.i ], [ true, %197 ], [ true, %201 ], [ true, %224 ], [ true, %225 ], [ true, %226 ], [ true, %229 ], [ true, %266 ], [ true, %289 ], [ true, %290 ], [ true, %291 ], [ true, %294 ], [ true, %388 ], [ true, %394 ], [ true, %.thread147.i ], [ true, %400 ], [ false, %4 ], [ false, %20 ], [ false, %17 ], [ false, %14 ]
+dissect_nvme_from_host.exit:                      ; preds = %14, %17, %20, %4, %402, %.thread147.i, %396, %390, %295, %292, %291, %290, %267, %230, %227, %226, %225, %202, %198, %dissect_rdma_read_transfer.exit.i, %find_add_q_ctx.exit, %find_ib_conversation.exit
+  %.0 = phi i1 [ false, %find_ib_conversation.exit ], [ false, %find_add_q_ctx.exit ], [ true, %dissect_rdma_read_transfer.exit.i ], [ true, %198 ], [ true, %202 ], [ true, %225 ], [ true, %226 ], [ true, %227 ], [ true, %230 ], [ true, %267 ], [ true, %290 ], [ true, %291 ], [ true, %292 ], [ true, %295 ], [ true, %390 ], [ true, %396 ], [ true, %.thread147.i ], [ true, %402 ], [ false, %4 ], [ false, %20 ], [ false, %17 ], [ false, %14 ]
   ret i1 %.0
 }
 

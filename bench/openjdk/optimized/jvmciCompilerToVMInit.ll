@@ -17691,7 +17691,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 
 488:                                              ; preds = %.lr.ph, %623
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %623 ]
-  %489 = getelementptr inbounds nuw [0 x %struct.VMStructEntry], ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 0, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw %struct.VMStructEntry, ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %489, i64 48, i1 false)
   %490 = load ptr, ptr %6, align 8
   %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %490) #8
@@ -18009,7 +18009,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 643:                                              ; preds = %.lr.ph3601, %671
   %indvars.iv3615 = phi i64 [ 0, %.lr.ph3601 ], [ %indvars.iv.next3616, %671 ]
   %.020783600 = phi i32 [ 0, %.lr.ph3601 ], [ %673, %671 ]
-  %644 = getelementptr inbounds nuw [0 x %struct.VMIntConstantEntry], ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 0, i64 %indvars.iv3615
+  %644 = getelementptr inbounds nuw %struct.VMIntConstantEntry, ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 %indvars.iv3615
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %644, i64 16, i1 false)
   %645 = load ptr, ptr %17, align 8
   %.not2424 = icmp eq ptr %645, null
@@ -18088,7 +18088,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 674:                                              ; preds = %.lr.ph3604, %701
   %indvars.iv3620 = phi i64 [ 0, %.lr.ph3604 ], [ %indvars.iv.next3621, %701 ]
   %.13603 = phi i32 [ %.02078.lcssa, %.lr.ph3604 ], [ %703, %701 ]
-  %675 = getelementptr inbounds nuw [0 x %struct.VMLongConstantEntry], ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 0, i64 %indvars.iv3620
+  %675 = getelementptr inbounds nuw %struct.VMLongConstantEntry, ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 %indvars.iv3620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %675, i64 16, i1 false)
   %676 = load ptr, ptr %21, align 8
   %.not2421 = icmp eq ptr %676, null
@@ -18186,7 +18186,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 
 714:                                              ; preds = %.lr.ph3607, %742
   %indvars.iv3625 = phi i64 [ 0, %.lr.ph3607 ], [ %indvars.iv.next3626, %742 ]
-  %715 = getelementptr inbounds nuw [0 x %struct.VMAddressEntry], ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 0, i64 %indvars.iv3625
+  %715 = getelementptr inbounds nuw %struct.VMAddressEntry, ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 %indvars.iv3625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %715, i64 16, i1 false)
   %716 = load ptr, ptr %25, align 8
   %.not2418 = icmp eq ptr %716, null

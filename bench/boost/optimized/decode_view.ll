@@ -109,7 +109,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %9, %12, %13, %14, %
 
 switch.lookup:                                    ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table._ZNK5boost4urls11decode_view8iteratordeEv, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNK5boost4urls11decode_view8iteratordeEv, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit4
 

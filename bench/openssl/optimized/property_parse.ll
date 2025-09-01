@@ -229,7 +229,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   %15 = tail call i32 @ossl_tolower(i32 noundef %14) #9
   %16 = trunc i32 %15 to i8
   %17 = add nuw nsw i64 %.124, 1
-  %18 = getelementptr inbounds nuw [100 x i8], ptr %4, i64 0, i64 %.124
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.124
   store i8 %16, ptr %18, align 1, !tbaa !3
   br label %19
 
@@ -261,7 +261,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
 
 30:                                               ; preds = %28
   %31 = add nuw nsw i64 %.2, 1
-  %32 = getelementptr inbounds nuw [100 x i8], ptr %4, i64 0, i64 %.2
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %.2
   store i8 46, ptr %32, align 1, !tbaa !3
   br label %33
 
@@ -276,7 +276,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   br i1 %.not, label %._crit_edge, label %.critedge.preheader
 
 38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw [100 x i8], ptr %4, i64 0, i64 %.2
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %.2
   store i8 0, ptr %39, align 1, !tbaa !3
   %.not33 = icmp eq i32 %.227, 0
   br i1 %.not33, label %.preheader, label %40
@@ -352,7 +352,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %.lr.ph.i
   %16 = add nuw nsw i64 %.02132.i, 1
-  %17 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %.02132.i
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.02132.i
   store i8 %13, ptr %17, align 1, !tbaa !3
   br label %18
 
@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   br label %parse_string.exit
 
 23:                                               ; preds = %.critedge.i
-  %24 = getelementptr inbounds nuw [1000 x i8], ptr %6, i64 0, i64 %.122.i
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %.122.i
   store i8 0, ptr %24, align 1, !tbaa !3
   %.not27.i = icmp eq i32 %.1.i, 0
   br i1 %.not27.i, label %26, label %25
@@ -709,7 +709,7 @@ skip_space.exit.i40:                              ; preds = %125
   %156 = tail call i32 @ossl_tolower(i32 noundef %152) #9
   %157 = trunc i32 %156 to i8
   %158 = add nuw nsw i64 %.02440.i, 1
-  %159 = getelementptr inbounds nuw [1000 x i8], ptr %5, i64 0, i64 %.02440.i
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 %.02440.i
   store i8 %157, ptr %159, align 1, !tbaa !3
   br label %160
 
@@ -754,7 +754,7 @@ skip_space.exit.i40:                              ; preds = %125
   br label %parse_unquoted.exit
 
 172:                                              ; preds = %169, %169, %.critedge.i43
-  %173 = getelementptr inbounds nuw [1000 x i8], ptr %5, i64 0, i64 %.024.lcssa.i
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 %.024.lcssa.i
   store i8 0, ptr %173, align 1, !tbaa !3
   br i1 %.0.lcssa.i, label %176, label %174
 
@@ -847,7 +847,7 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
   %17 = phi i8 [ %13, %.lr.ph ], [ %24, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.02834 = phi i32 [ 0, %.lr.ph ], [ %.pre, %28 ]
-  %18 = getelementptr inbounds nuw [1 x %struct.ossl_property_definition_st], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %15, i64 %indvars.iv
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %19) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !23
@@ -1363,7 +1363,7 @@ define range(i32 0, 2) i32 @ossl_property_parse_init(ptr noundef %0) local_unnam
 
 4:                                                ; preds = %1, %2
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [6 x ptr], ptr @ossl_property_parse_init.predefined_names, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw ptr, ptr @ossl_property_parse_init.predefined_names, i64 %.08
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = tail call i32 @ossl_property_name(ptr noundef %0, ptr noundef %6, i32 noundef 1) #9
   %8 = icmp eq i32 %7, 0
@@ -1418,263 +1418,262 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
 
 .lr.ph.preheader:                                 ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = add nsw i32 %12, -1
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [1 x %struct.ossl_property_definition_st], ptr %14, i64 0, i64 %16
+  %15 = zext nneg i32 %12 to i64
+  %16 = getelementptr %struct.ossl_property_definition_st, ptr %14, i64 %15
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %put_num.exit
-  %.153 = phi ptr [ %102, %put_num.exit ], [ %17, %.lr.ph.preheader ]
-  %.02252 = phi i32 [ %101, %put_num.exit ], [ 0, %.lr.ph.preheader ]
-  %18 = load i32, ptr %.153, align 8, !tbaa !14
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %put_num.exit, label %20
+  %.153.pn = phi ptr [ %.153, %put_num.exit ], [ %16, %.lr.ph.preheader ]
+  %.02252 = phi i32 [ %100, %put_num.exit ], [ 0, %.lr.ph.preheader ]
+  %.153 = getelementptr i8, ptr %.153.pn, i64 -24
+  %17 = load i32, ptr %.153, align 8, !tbaa !14
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %put_num.exit, label %19
 
-20:                                               ; preds = %.lr.ph
-  %21 = load i64, ptr %7, align 8, !tbaa !30
-  %.not28 = icmp eq i64 %21, 0
-  br i1 %.not28, label %31, label %22
+19:                                               ; preds = %.lr.ph
+  %20 = load i64, ptr %7, align 8, !tbaa !30
+  %.not28 = icmp eq i64 %20, 0
+  br i1 %.not28, label %30, label %21
 
-22:                                               ; preds = %20
-  %23 = load i64, ptr %6, align 8, !tbaa !30
-  switch i64 %23, label %24 [
+21:                                               ; preds = %19
+  %22 = load i64, ptr %6, align 8, !tbaa !30
+  switch i64 %22, label %23 [
     i64 0, label %put_char.exit
-    i64 1, label %25
+    i64 1, label %24
   ]
 
-24:                                               ; preds = %22
-  br label %25
+23:                                               ; preds = %21
+  br label %24
 
-25:                                               ; preds = %24, %22
-  %.sink.i = phi i8 [ 44, %24 ], [ 0, %22 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 %.sink.i, ptr %26, align 1, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %27, ptr %5, align 8, !tbaa !8
-  %28 = add i64 %21, 1
-  store i64 %28, ptr %7, align 8, !tbaa !30
+24:                                               ; preds = %23, %21
+  %.sink.i = phi i8 [ 44, %23 ], [ 0, %21 ]
+  %25 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 %.sink.i, ptr %25, align 1, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store ptr %26, ptr %5, align 8, !tbaa !8
+  %27 = add i64 %20, 1
+  store i64 %27, ptr %7, align 8, !tbaa !30
   br label %put_char.exit
 
-put_char.exit:                                    ; preds = %22, %25
-  %29 = phi i64 [ %23, %25 ], [ %21, %22 ]
-  %.sink13.i = phi ptr [ %6, %25 ], [ %7, %22 ]
-  %.sink12.i = phi i64 [ -1, %25 ], [ 1, %22 ]
-  %30 = add i64 %29, %.sink12.i
-  store i64 %30, ptr %.sink13.i, align 8, !tbaa !30
-  br label %31
+put_char.exit:                                    ; preds = %21, %24
+  %28 = phi i64 [ %22, %24 ], [ %20, %21 ]
+  %.sink13.i = phi ptr [ %6, %24 ], [ %7, %21 ]
+  %.sink12.i = phi i64 [ -1, %24 ], [ 1, %21 ]
+  %29 = add i64 %28, %.sink12.i
+  store i64 %29, ptr %.sink13.i, align 8, !tbaa !30
+  br label %30
 
-31:                                               ; preds = %put_char.exit, %20
-  %32 = getelementptr inbounds nuw i8, ptr %.153, i64 12
-  %33 = load i8, ptr %32, align 4
-  %34 = and i8 %33, 1
-  %.not29 = icmp eq i8 %34, 0
-  br i1 %.not29, label %38, label %35
+30:                                               ; preds = %put_char.exit, %19
+  %31 = getelementptr i8, ptr %.153.pn, i64 -12
+  %32 = load i8, ptr %31, align 4
+  %33 = and i8 %32, 1
+  %.not29 = icmp eq i8 %33, 0
+  br i1 %.not29, label %37, label %34
 
-35:                                               ; preds = %31
-  %36 = load i64, ptr %6, align 8, !tbaa !30
-  switch i64 %36, label %37 [
+34:                                               ; preds = %30
+  %35 = load i64, ptr %6, align 8, !tbaa !30
+  switch i64 %35, label %36 [
     i64 0, label %.sink.split
     i64 1, label %.sink.split.sink.split
   ]
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   br label %.sink.split.sink.split
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %.153, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !11
-  %41 = icmp eq i32 %40, 2
-  br i1 %41, label %42, label %51
+37:                                               ; preds = %30
+  %38 = getelementptr i8, ptr %.153.pn, i64 -16
+  %39 = load i32, ptr %38, align 8, !tbaa !11
+  %40 = icmp eq i32 %39, 2
+  br i1 %40, label %41, label %50
 
-42:                                               ; preds = %38
-  %43 = load i64, ptr %6, align 8, !tbaa !30
-  switch i64 %43, label %44 [
+41:                                               ; preds = %37
+  %42 = load i64, ptr %6, align 8, !tbaa !30
+  switch i64 %42, label %43 [
     i64 0, label %.sink.split
     i64 1, label %.sink.split.sink.split
   ]
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   br label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %42, %44, %35, %37
-  %.sink.i35.sink = phi i8 [ 63, %37 ], [ 0, %35 ], [ 45, %44 ], [ 0, %42 ]
-  %45 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 %.sink.i35.sink, ptr %45, align 1, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  store ptr %46, ptr %5, align 8, !tbaa !8
-  %47 = load i64, ptr %7, align 8, !tbaa !30
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %7, align 8, !tbaa !30
+.sink.split.sink.split:                           ; preds = %41, %43, %34, %36
+  %.sink.i35.sink = phi i8 [ 63, %36 ], [ 0, %34 ], [ 45, %43 ], [ 0, %41 ]
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 %.sink.i35.sink, ptr %44, align 1, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  store ptr %45, ptr %5, align 8, !tbaa !8
+  %46 = load i64, ptr %7, align 8, !tbaa !30
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %7, align 8, !tbaa !30
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %42, %35
-  %.sink13.i36.sink62 = phi ptr [ %7, %35 ], [ %7, %42 ], [ %6, %.sink.split.sink.split ]
-  %.sink12.i37.sink = phi i64 [ 1, %35 ], [ 1, %42 ], [ -1, %.sink.split.sink.split ]
-  %49 = load i64, ptr %.sink13.i36.sink62, align 8, !tbaa !30
-  %50 = add i64 %49, %.sink12.i37.sink
-  store i64 %50, ptr %.sink13.i36.sink62, align 8, !tbaa !30
-  br label %51
+.sink.split:                                      ; preds = %.sink.split.sink.split, %41, %34
+  %.sink13.i36.sink62 = phi ptr [ %7, %34 ], [ %7, %41 ], [ %6, %.sink.split.sink.split ]
+  %.sink12.i37.sink = phi i64 [ 1, %34 ], [ 1, %41 ], [ -1, %.sink.split.sink.split ]
+  %48 = load i64, ptr %.sink13.i36.sink62, align 8, !tbaa !30
+  %49 = add i64 %48, %.sink12.i37.sink
+  store i64 %49, ptr %.sink13.i36.sink62, align 8, !tbaa !30
+  br label %50
 
-51:                                               ; preds = %.sink.split, %38
-  %52 = load i32, ptr %.153, align 8, !tbaa !14
-  %53 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %52) #9
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %.loopexit, label %55
+50:                                               ; preds = %.sink.split, %37
+  %51 = load i32, ptr %.153, align 8, !tbaa !14
+  %52 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %51) #9
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.loopexit, label %54
 
-55:                                               ; preds = %51
-  call fastcc void @put_str(ptr noundef %53, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %56 = getelementptr inbounds nuw i8, ptr %.153, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !11
-  switch i32 %57, label %put_num.exit [
-    i32 1, label %58
-    i32 0, label %68
+54:                                               ; preds = %50
+  call fastcc void @put_str(ptr noundef %52, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %55 = getelementptr i8, ptr %.153.pn, i64 -16
+  %56 = load i32, ptr %55, align 8, !tbaa !11
+  switch i32 %56, label %put_num.exit [
+    i32 1, label %57
+    i32 0, label %67
   ]
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %6, align 8, !tbaa !30
-  switch i64 %59, label %60 [
+57:                                               ; preds = %54
+  %58 = load i64, ptr %6, align 8, !tbaa !30
+  switch i64 %58, label %59 [
     i64 0, label %put_char.exit42
-    i64 1, label %61
+    i64 1, label %60
   ]
 
-60:                                               ; preds = %58
-  br label %61
+59:                                               ; preds = %57
+  br label %60
 
-61:                                               ; preds = %60, %58
-  %.sink.i39 = phi i8 [ 33, %60 ], [ 0, %58 ]
-  %62 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 %.sink.i39, ptr %62, align 1, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store ptr %63, ptr %5, align 8, !tbaa !8
-  %64 = load i64, ptr %7, align 8, !tbaa !30
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %7, align 8, !tbaa !30
+60:                                               ; preds = %59, %57
+  %.sink.i39 = phi i8 [ 33, %59 ], [ 0, %57 ]
+  %61 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 %.sink.i39, ptr %61, align 1, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  store ptr %62, ptr %5, align 8, !tbaa !8
+  %63 = load i64, ptr %7, align 8, !tbaa !30
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %7, align 8, !tbaa !30
   br label %put_char.exit42
 
-put_char.exit42:                                  ; preds = %58, %61
-  %.sink13.i40 = phi ptr [ %6, %61 ], [ %7, %58 ]
-  %.sink12.i41 = phi i64 [ -1, %61 ], [ 1, %58 ]
-  %66 = load i64, ptr %.sink13.i40, align 8, !tbaa !30
-  %67 = add i64 %66, %.sink12.i41
-  store i64 %67, ptr %.sink13.i40, align 8, !tbaa !30
-  br label %68
+put_char.exit42:                                  ; preds = %57, %60
+  %.sink13.i40 = phi ptr [ %6, %60 ], [ %7, %57 ]
+  %.sink12.i41 = phi i64 [ -1, %60 ], [ 1, %57 ]
+  %65 = load i64, ptr %.sink13.i40, align 8, !tbaa !30
+  %66 = add i64 %65, %.sink12.i41
+  store i64 %66, ptr %.sink13.i40, align 8, !tbaa !30
+  br label %67
 
-68:                                               ; preds = %put_char.exit42, %55
-  %69 = load i64, ptr %6, align 8, !tbaa !30
-  switch i64 %69, label %70 [
+67:                                               ; preds = %put_char.exit42, %54
+  %68 = load i64, ptr %6, align 8, !tbaa !30
+  switch i64 %68, label %69 [
     i64 0, label %put_char.exit46
-    i64 1, label %71
+    i64 1, label %70
   ]
 
-70:                                               ; preds = %68
-  br label %71
+69:                                               ; preds = %67
+  br label %70
 
-71:                                               ; preds = %70, %68
-  %.sink.i43 = phi i8 [ 61, %70 ], [ 0, %68 ]
-  %72 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 %.sink.i43, ptr %72, align 1, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %73, ptr %5, align 8, !tbaa !8
-  %74 = load i64, ptr %7, align 8, !tbaa !30
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %7, align 8, !tbaa !30
+70:                                               ; preds = %69, %67
+  %.sink.i43 = phi i8 [ 61, %69 ], [ 0, %67 ]
+  %71 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 %.sink.i43, ptr %71, align 1, !tbaa !3
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  store ptr %72, ptr %5, align 8, !tbaa !8
+  %73 = load i64, ptr %7, align 8, !tbaa !30
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %7, align 8, !tbaa !30
   br label %put_char.exit46
 
-put_char.exit46:                                  ; preds = %68, %71
-  %.sink13.i44 = phi ptr [ %6, %71 ], [ %7, %68 ]
-  %.sink12.i45 = phi i64 [ -1, %71 ], [ 1, %68 ]
-  %76 = load i64, ptr %.sink13.i44, align 8, !tbaa !30
-  %77 = add i64 %76, %.sink12.i45
-  store i64 %77, ptr %.sink13.i44, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %.153, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !15
-  switch i32 %79, label %.loopexit [
-    i32 0, label %80
-    i32 1, label %86
+put_char.exit46:                                  ; preds = %67, %70
+  %.sink13.i44 = phi ptr [ %6, %70 ], [ %7, %67 ]
+  %.sink12.i45 = phi i64 [ -1, %70 ], [ 1, %67 ]
+  %75 = load i64, ptr %.sink13.i44, align 8, !tbaa !30
+  %76 = add i64 %75, %.sink12.i45
+  store i64 %76, ptr %.sink13.i44, align 8, !tbaa !30
+  %77 = getelementptr i8, ptr %.153.pn, i64 -20
+  %78 = load i32, ptr %77, align 4, !tbaa !15
+  switch i32 %78, label %.loopexit [
+    i32 0, label %79
+    i32 1, label %85
   ]
 
-80:                                               ; preds = %put_char.exit46
-  %81 = getelementptr inbounds nuw i8, ptr %.153, i64 16
-  %82 = load i32, ptr %81, align 8, !tbaa !3
-  %83 = tail call ptr @ossl_property_value_str(ptr noundef %0, i32 noundef %82) #9
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.loopexit, label %85
+79:                                               ; preds = %put_char.exit46
+  %80 = getelementptr i8, ptr %.153.pn, i64 -8
+  %81 = load i32, ptr %80, align 8, !tbaa !3
+  %82 = tail call ptr @ossl_property_value_str(ptr noundef %0, i32 noundef %81) #9
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %.loopexit, label %84
 
-85:                                               ; preds = %80
-  call fastcc void @put_str(ptr noundef %83, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+84:                                               ; preds = %79
+  call fastcc void @put_str(ptr noundef %82, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %put_num.exit
 
-86:                                               ; preds = %put_char.exit46
-  %87 = getelementptr inbounds nuw i8, ptr %.153, i64 16
-  %88 = load i64, ptr %87, align 8, !tbaa !3
-  %89 = icmp slt i64 %88, 0
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %88, i1 true)
-  %spec.select27.i = select i1 %89, i64 2, i64 1
-  %90 = icmp samesign ugt i64 %spec.select.i, 9
-  br i1 %90, label %.lr.ph.i, label %._crit_edge.i
+85:                                               ; preds = %put_char.exit46
+  %86 = getelementptr i8, ptr %.153.pn, i64 -8
+  %87 = load i64, ptr %86, align 8, !tbaa !3
+  %88 = icmp slt i64 %87, 0
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %87, i1 true)
+  %spec.select27.i = select i1 %88, i64 2, i64 1
+  %89 = icmp samesign ugt i64 %spec.select.i, 9
+  br i1 %89, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %86, %.lr.ph.i
-  %.129.i = phi i64 [ %91, %.lr.ph.i ], [ %spec.select27.i, %86 ]
-  %.12228.i = phi i64 [ %92, %.lr.ph.i ], [ %spec.select.i, %86 ]
-  %91 = add i64 %.129.i, 1
-  %92 = udiv i64 %.12228.i, 10
-  %93 = icmp samesign ugt i64 %.12228.i, 99
-  br i1 %93, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
+.lr.ph.i:                                         ; preds = %85, %.lr.ph.i
+  %.129.i = phi i64 [ %90, %.lr.ph.i ], [ %spec.select27.i, %85 ]
+  %.12228.i = phi i64 [ %91, %.lr.ph.i ], [ %spec.select.i, %85 ]
+  %90 = add i64 %.129.i, 1
+  %91 = udiv i64 %.12228.i, 10
+  %92 = icmp samesign ugt i64 %.12228.i, 99
+  br i1 %92, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %86
-  %.1.lcssa.i = phi i64 [ %spec.select27.i, %86 ], [ %91, %.lr.ph.i ]
-  %94 = load i64, ptr %7, align 8, !tbaa !30
-  %95 = add i64 %94, %.1.lcssa.i
-  store i64 %95, ptr %7, align 8, !tbaa !30
-  %96 = load i64, ptr %6, align 8, !tbaa !30
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %put_num.exit, label %98
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %85
+  %.1.lcssa.i = phi i64 [ %spec.select27.i, %85 ], [ %90, %.lr.ph.i ]
+  %93 = load i64, ptr %7, align 8, !tbaa !30
+  %94 = add i64 %93, %.1.lcssa.i
+  store i64 %94, ptr %7, align 8, !tbaa !30
+  %95 = load i64, ptr %6, align 8, !tbaa !30
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %put_num.exit, label %97
 
-98:                                               ; preds = %._crit_edge.i
-  %99 = load ptr, ptr %5, align 8, !tbaa !8
-  %100 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %99, i64 noundef %96, ptr noundef nonnull @.str.16, i64 noundef %88) #9
-  %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %96, i64 %.1.lcssa.i)
-  %.sink.i47 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink.v.i
-  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %96, i64 %.1.lcssa.i)
+97:                                               ; preds = %._crit_edge.i
+  %98 = load ptr, ptr %5, align 8, !tbaa !8
+  %99 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %98, i64 noundef %95, ptr noundef nonnull @.str.16, i64 noundef %87) #9
+  %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %95, i64 %.1.lcssa.i)
+  %.sink.i47 = getelementptr inbounds nuw i8, ptr %98, i64 %.sink.v.i
+  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %95, i64 %.1.lcssa.i)
   store ptr %.sink.i47, ptr %5, align 8, !tbaa !8
   store i64 %storemerge.i, ptr %6, align 8, !tbaa !30
   br label %put_num.exit
 
-put_num.exit:                                     ; preds = %98, %._crit_edge.i, %85, %55, %.lr.ph
-  %101 = add nuw nsw i32 %.02252, 1
-  %102 = getelementptr inbounds i8, ptr %.153, i64 -24
-  %103 = load i32, ptr %1, align 8, !tbaa !25
-  %104 = icmp slt i32 %101, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+put_num.exit:                                     ; preds = %97, %._crit_edge.i, %84, %54, %.lr.ph
+  %100 = add nuw nsw i32 %.02252, 1
+  %101 = load i32, ptr %1, align 8, !tbaa !25
+  %102 = icmp slt i32 %100, %101
+  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %put_num.exit
   %.pre54 = load i64, ptr %6, align 8, !tbaa !30
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %105 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
-  %cond = icmp eq i64 %105, 0
-  br i1 %cond, label %put_char.exit51, label %106
+  %103 = phi i64 [ %.pre54, %._crit_edge.loopexit ], [ %3, %11 ]
+  %cond = icmp eq i64 %103, 0
+  br i1 %cond, label %put_char.exit51, label %104
 
-106:                                              ; preds = %._crit_edge
-  %107 = load ptr, ptr %5, align 8, !tbaa !8
-  store i8 0, ptr %107, align 1, !tbaa !3
-  %108 = load i64, ptr %7, align 8, !tbaa !30
-  %109 = add i64 %108, 1
-  store i64 %109, ptr %7, align 8, !tbaa !30
+104:                                              ; preds = %._crit_edge
+  %105 = load ptr, ptr %5, align 8, !tbaa !8
+  store i8 0, ptr %105, align 1, !tbaa !3
+  %106 = load i64, ptr %7, align 8, !tbaa !30
+  %107 = add i64 %106, 1
+  store i64 %107, ptr %7, align 8, !tbaa !30
   br label %put_char.exit51
 
-put_char.exit51:                                  ; preds = %._crit_edge, %106
-  %.sink13.i49 = phi ptr [ %6, %106 ], [ %7, %._crit_edge ]
-  %.sink12.i50 = phi i64 [ -1, %106 ], [ 1, %._crit_edge ]
-  %110 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
-  %111 = add i64 %110, %.sink12.i50
-  store i64 %111, ptr %.sink13.i49, align 8, !tbaa !30
-  %112 = load i64, ptr %7, align 8, !tbaa !30
+put_char.exit51:                                  ; preds = %._crit_edge, %104
+  %.sink13.i49 = phi ptr [ %6, %104 ], [ %7, %._crit_edge ]
+  %.sink12.i50 = phi i64 [ -1, %104 ], [ 1, %._crit_edge ]
+  %108 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
+  %109 = add i64 %108, %.sink12.i50
+  store i64 %109, ptr %.sink13.i49, align 8, !tbaa !30
+  %110 = load i64, ptr %7, align 8, !tbaa !30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %put_char.exit46, %80, %51, %9, %10, %put_char.exit51
-  %.023 = phi i64 [ %112, %put_char.exit51 ], [ 1, %10 ], [ 1, %9 ], [ 0, %51 ], [ 0, %80 ], [ 0, %put_char.exit46 ]
+.loopexit:                                        ; preds = %put_char.exit46, %79, %50, %9, %10, %put_char.exit51
+  %.023 = phi i64 [ %110, %put_char.exit51 ], [ 1, %10 ], [ 1, %9 ], [ 0, %50 ], [ 0, %79 ], [ 0, %put_char.exit46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.023
 }

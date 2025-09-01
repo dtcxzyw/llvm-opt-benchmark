@@ -159,7 +159,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN13LIR_Assembler16osrBuf
   %6 = trunc i64 %5 to i32
   %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 14
   %12 = shl i32 %10, 23
@@ -784,7 +784,7 @@ _ZNK10ValueStack10locks_sizeEv.exit:              ; preds = %_ZNK8BlockEnd13numb
   %53 = trunc i64 %52 to i32
   %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %55
+  %56 = getelementptr inbounds i32, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = shl i32 %57, 14
   %59 = shl i32 %57, 23
@@ -4111,7 +4111,7 @@ declare void @_ZN14MacroAssembler15decode_heap_oopE8Register(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZNK13LIR_Assembler18array_element_sizeE9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %3
   %5 = load i32, ptr %4, align 4
   %switch.tableidx = add i32 %5, -1
   %6 = icmp ult i32 %switch.tableidx, 8
@@ -4129,7 +4129,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZNK13LIR_Assembler18array_element_si
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -4417,12 +4417,12 @@ define hidden void @_ZN13LIR_Assembler13emit_opBranchEP12LIR_OpBranch(ptr nounde
 
 switch.lookup:                                    ; preds = %18
   %31 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13LIR_Assembler13emit_opBranchEP12LIR_OpBranch, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler13emit_opBranchEP12LIR_OpBranch, i64 %31
   br label %33
 
 switch.lookup12:                                  ; preds = %27
   %32 = zext nneg i32 %4 to i64
-  %switch.gep13 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 0, i64 %32
+  %switch.gep13 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 %32
   br label %33
 
 33:                                               ; preds = %switch.lookup12, %switch.lookup
@@ -4808,7 +4808,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %32, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %35
   %37 = phi i32 [ %36, %35 ], [ %30, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %30, %32 ]
   %38 = zext i8 %27 to i64
-  %39 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %38
   %40 = load i32, ptr %39, align 4
   %switch.tableidx = add i32 %40, -1
   %41 = icmp ult i32 %switch.tableidx, 8
@@ -4826,7 +4826,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %32, %_ZN12ar
 
 switch.lookup:                                    ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i35 = load i64, ptr %45, align 8
@@ -6124,10 +6124,10 @@ define hidden void @_ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9Basic
 
 switch.lookup:                                    ; preds = %8
   %18 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = zext nneg i32 %1 to i64
-  %switch.gep38 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 0, i64 %19
+  %switch.gep38 = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 %19
   %switch.load39 = load i32, ptr %switch.gep38, align 4
   %20 = and i64 %2, 7
   switch i64 %20, label %42 [
@@ -6327,9 +6327,9 @@ _ZNK7LIR_Opr11is_constantEv.exit26.thread:        ; preds = %54, %_ZNK7LIR_Opr11
   %115 = lshr i32 %114, 3
   %116 = and i32 %115, 15
   %117 = add nsw i32 %116, -1
-  %switch.tableidx42 = select i1 %113, i32 -1, i32 %117
-  %118 = icmp ult i32 %switch.tableidx42, 7
-  br i1 %118, label %switch.lookup41, label %119
+  %switch.tableidx41 = select i1 %113, i32 -1, i32 %117
+  %118 = icmp ult i32 %switch.tableidx41, 7
+  br i1 %118, label %switch.lookup42, label %119
 
 119:                                              ; preds = %111
   %120 = load ptr, ptr @g_assert_poison, align 8
@@ -6337,15 +6337,15 @@ _ZNK7LIR_Opr11is_constantEv.exit26.thread:        ; preds = %54, %_ZNK7LIR_Opr11
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.29, i32 noundef 508) #16
   unreachable
 
-switch.lookup41:                                  ; preds = %111
-  %121 = shl nuw nsw i32 %switch.tableidx42, 3
+switch.lookup42:                                  ; preds = %111
+  %121 = shl nuw nsw i32 %switch.tableidx41, 3
   %switch.shiftamt44 = zext nneg i32 %121 to i56
   %switch.downshift45 = lshr i56 4792797207726858, %switch.shiftamt44
   %switch.masked46 = trunc i56 %switch.downshift45 to i8
   br label %_ZNK7LIR_Opr4typeEv.exit28
 
-_ZNK7LIR_Opr4typeEv.exit28:                       ; preds = %switch.lookup41, %105
-  %.0.i27 = phi i8 [ %110, %105 ], [ %switch.masked46, %switch.lookup41 ]
+_ZNK7LIR_Opr4typeEv.exit28:                       ; preds = %switch.lookup42, %105
+  %.0.i27 = phi i8 [ %110, %105 ], [ %switch.masked46, %switch.lookup42 ]
   call void @_ZN13LIR_Assembler9stack2regE7LIR_OprS0_9BasicType(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %3, i64 %4, i8 noundef zeroext %.0.i27)
   br label %131
 
@@ -8625,7 +8625,7 @@ switch.lookup:                                    ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN13LIR_Assembler10align_callE8LIR_Code, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler10align_callE8LIR_Code, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -9224,7 +9224,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2
   %or.cond.i = icmp eq i8 %89, 12
   %spec.select = select i1 %or.cond.i, i8 12, i8 %88
   %90 = zext i8 %spec.select to i64
-  %91 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %90
   %92 = load i32, ptr %91, align 4
   %switch.tableidx = add i32 %92, -1
   %93 = icmp ult i32 %switch.tableidx, 8
@@ -9486,7 +9486,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2
 
 switch.lookup:                                    ; preds = %_Z17is_reference_type9BasicTypeb.exit
   %210 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 0, i64 %210
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13LIR_Assembler14emit_arraycopyEP15LIR_OpArrayCopy, i64 %210
   %switch.load = load i32, ptr %switch.gep, align 4
   %211 = load i8, ptr @UseCompressedClassPointers, align 1
   %212 = trunc i8 %211 to i1
@@ -10793,7 +10793,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %57, %50
 _ZN8ciMethod16java_code_at_bciEi.exit.i:          ; preds = %63, %_ZN8ciMethod4codeEv.exit.i.i
   %65 = phi i32 [ %64, %63 ], [ %62, %_ZN8ciMethod4codeEv.exit.i.i ]
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
+  %67 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 182
   br i1 %69, label %70, label %75
@@ -10851,9 +10851,9 @@ _ZNK17LIR_OpProfileCall28should_profile_receiver_typeEv.exit: ; preds = %70, %75
 97:                                               ; preds = %.lr.ph, %124
   %.069 = phi i32 [ 0, %.lr.ph ], [ %125, %124 ]
   %98 = shl i32 %.069, 1
-  %99 = or disjoint i32 %98, 1
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [1 x i64], ptr %93, i64 0, i64 %100
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr i64, ptr %93, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = inttoptr i64 %102 to ptr
   %104 = icmp eq ptr %85, %103
@@ -10904,9 +10904,9 @@ _ZNK17LIR_OpProfileCall28should_profile_receiver_typeEv.exit: ; preds = %70, %75
 126:                                              ; preds = %.lr.ph71, %166
   %.170 = phi i32 [ 0, %.lr.ph71 ], [ %167, %166 ]
   %127 = shl i32 %.170, 1
-  %128 = or disjoint i32 %127, 1
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [1 x i64], ptr %96, i64 0, i64 %129
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr i64, ptr %96, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 8
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %133, label %166

@@ -98,7 +98,7 @@ switch.early.test:                                ; preds = %2
 
 13:                                               ; preds = %10, %.critedge
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !56
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !56
@@ -411,7 +411,7 @@ unblockClientWaitingData.exit:                    ; preds = %._crit_edge.i, %5, 
 56:                                               ; preds = %53, %50
   %57 = load i32, ptr %3, align 8, !tbaa !5
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !56
   %61 = add i32 %60, -1
   store i32 %61, ptr %59, align 4, !tbaa !56
@@ -834,7 +834,7 @@ define dso_local void @handleClientsBlockedOnKeys() local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %40
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.handleClientsBlockedOnKeys, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.handleClientsBlockedOnKeys, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %getBlockedTypeByType.exit.i
 
@@ -1255,7 +1255,7 @@ switch.early.test.i52:                            ; preds = %.split40
 
 blockClient.exit55:                               ; preds = %.critedge.i53, %95
   %98 = sext i32 %1 to i64
-  %99 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %98
+  %99 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !56
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !56
@@ -1298,9 +1298,9 @@ define internal fastcc void @signalKeyAsReadyLogic(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.signalKeyAsReadyLogic, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.signalKeyAsReadyLogic, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds nuw [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %switch.load
+  %8 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 %switch.load
   %9 = load i32, ptr %8, align 4, !tbaa !56
   %10 = icmp ne i32 %9, 0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7608), align 8

@@ -815,7 +815,7 @@ define dso_local ptr @find_option(ptr noundef %0, i1 noundef zeroext %1, i1 noun
 
 13:                                               ; preds = %.preheader, %guc_name_compare.exit.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %guc_name_compare.exit.thread ]
-  %14 = getelementptr inbounds nuw [7 x ptr], ptr @map_old_guc_names, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 16
   br label %16
 
@@ -849,135 +849,133 @@ guc_name_compare.exit:                            ; preds = %16
   br i1 %.not33.i.not, label %27, label %guc_name_compare.exit.thread
 
 27:                                               ; preds = %guc_name_compare.exit
-  %28 = shl i64 %indvars.iv, 32
-  %sext = ashr exact i64 %28, 32
-  %29 = or disjoint i64 %sext, 1
-  %30 = getelementptr inbounds [7 x ptr], ptr @map_old_guc_names, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @find_option(ptr noundef %31, i1 noundef zeroext false, i1 noundef zeroext %2, i32 noundef %3)
+  %28 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %29 = getelementptr i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @find_option(ptr noundef %30, i1 noundef zeroext false, i1 noundef zeroext %2, i32 noundef %3)
   br label %add_placeholder_variable.exit
 
 guc_name_compare.exit.thread:                     ; preds = %20, %19, %guc_name_compare.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not26 = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not26, label %33, label %13, !llvm.loop !15
+  br i1 %.not26, label %32, label %13, !llvm.loop !15
 
-33:                                               ; preds = %guc_name_compare.exit.thread
-  br i1 %1, label %34, label %75
+32:                                               ; preds = %guc_name_compare.exit.thread
+  br i1 %1, label %33, label %74
 
-34:                                               ; preds = %33
-  %35 = call fastcc zeroext i1 @assignable_custom_variable_name(ptr noundef %9, i1 noundef zeroext %2, i32 noundef %3)
-  br i1 %35, label %36, label %add_placeholder_variable.exit
+33:                                               ; preds = %32
+  %34 = call fastcc zeroext i1 @assignable_custom_variable_name(ptr noundef %9, i1 noundef zeroext %2, i32 noundef %3)
+  br i1 %34, label %35, label %add_placeholder_variable.exit
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr @GUCMemoryContext, align 8
-  %39 = call ptr @MemoryContextAllocExtended(ptr noundef %38, i64 noundef 208, i32 noundef 2) #29
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %guc_malloc.exit.i, !prof !16
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr @GUCMemoryContext, align 8
+  %38 = call ptr @MemoryContextAllocExtended(ptr noundef %37, i64 noundef 208, i32 noundef 2) #29
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %guc_malloc.exit.i, !prof !16
 
-41:                                               ; preds = %36
-  %42 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %42, label %43, label %add_placeholder_variable.exit
+40:                                               ; preds = %35
+  %41 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
+  br i1 %41, label %42, label %add_placeholder_variable.exit
 
-43:                                               ; preds = %41
-  %44 = call i32 @errcode(i32 noundef 8389) #29
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+42:                                               ; preds = %40
+  %43 = call i32 @errcode(i32 noundef 8389) #29
+  %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 647, ptr noundef nonnull @__func__.guc_malloc) #29
   br label %add_placeholder_variable.exit
 
-guc_malloc.exit.i:                                ; preds = %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %39, i8 0, i64 208, i1 false)
-  %46 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %37) #30
-  %47 = add i64 %46, 1
-  %48 = load ptr, ptr @GUCMemoryContext, align 8
-  %49 = call ptr @MemoryContextAllocExtended(ptr noundef %48, i64 noundef %47, i32 noundef 2) #29
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %56, !prof !16
+guc_malloc.exit.i:                                ; preds = %35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %38, i8 0, i64 208, i1 false)
+  %45 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #30
+  %46 = add i64 %45, 1
+  %47 = load ptr, ptr @GUCMemoryContext, align 8
+  %48 = call ptr @MemoryContextAllocExtended(ptr noundef %47, i64 noundef %46, i32 noundef 2) #29
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %55, !prof !16
 
-51:                                               ; preds = %guc_malloc.exit.i
-  %52 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %52, label %53, label %guc_free.exit.i
+50:                                               ; preds = %guc_malloc.exit.i
+  %51 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
+  br i1 %51, label %52, label %guc_free.exit.i
 
-53:                                               ; preds = %51
-  %54 = call i32 @errcode(i32 noundef 8389) #29
-  %55 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+52:                                               ; preds = %50
+  %53 = call i32 @errcode(i32 noundef 8389) #29
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 647, ptr noundef nonnull @__func__.guc_malloc) #29
   br label %guc_free.exit.i
 
-guc_free.exit.i:                                  ; preds = %53, %51
-  store ptr null, ptr %39, align 8
-  call void @pfree(ptr noundef nonnull %39) #29
+guc_free.exit.i:                                  ; preds = %52, %50
+  store ptr null, ptr %38, align 8
+  call void @pfree(ptr noundef nonnull %38) #29
   br label %add_placeholder_variable.exit
 
-56:                                               ; preds = %guc_malloc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 1 %37, i64 %47, i1 false)
-  store ptr %49, ptr %39, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 6, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 45, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr @.str.108, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 644, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %39, i64 36
-  store i32 3, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %39, i64 200
-  %63 = getelementptr inbounds nuw i8, ptr %39, i64 144
-  store ptr %62, ptr %63, align 8
+55:                                               ; preds = %guc_malloc.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %36, i64 %46, i1 false)
+  store ptr %48, ptr %38, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 6, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  store i32 45, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr @.str.108, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store i32 644, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %38, i64 36
+  store i32 3, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 144
+  store ptr %61, ptr %62, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %64 = load ptr, ptr @guc_hashtab, align 8
-  %65 = call ptr @hash_search(ptr noundef %64, ptr noundef nonnull %39, i32 noundef 3, ptr noundef nonnull %5) #29
-  %.not.i27 = icmp eq ptr %65, null
-  br i1 %.not.i27, label %66, label %add_guc_variable.exit.thread.i, !prof !16
+  %63 = load ptr, ptr @guc_hashtab, align 8
+  %64 = call ptr @hash_search(ptr noundef %63, ptr noundef nonnull %38, i32 noundef 3, ptr noundef nonnull %5) #29
+  %.not.i27 = icmp eq ptr %64, null
+  br i1 %.not.i27, label %65, label %add_guc_variable.exit.thread.i, !prof !16
 
-66:                                               ; preds = %56
-  %67 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %67, label %68, label %72
+65:                                               ; preds = %55
+  %66 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
+  br i1 %66, label %67, label %71
 
-68:                                               ; preds = %66
-  %69 = call i32 @errcode(i32 noundef 8389) #29
-  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+67:                                               ; preds = %65
+  %68 = call i32 @errcode(i32 noundef 8389) #29
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1060, ptr noundef nonnull @__func__.add_guc_variable) #29
-  br label %72
+  br label %71
 
-add_guc_variable.exit.thread.i:                   ; preds = %56
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %39, ptr %71, align 8
+add_guc_variable.exit.thread.i:                   ; preds = %55
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %38, ptr %70, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %add_placeholder_variable.exit
 
-72:                                               ; preds = %68, %66
+71:                                               ; preds = %67, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %73 = load ptr, ptr %39, align 8
-  %.not.i26.i = icmp eq ptr %73, null
-  br i1 %.not.i26.i, label %guc_free.exit29.i, label %74
+  %72 = load ptr, ptr %38, align 8
+  %.not.i26.i = icmp eq ptr %72, null
+  br i1 %.not.i26.i, label %guc_free.exit29.i, label %73
 
-74:                                               ; preds = %72
-  call void @pfree(ptr noundef nonnull %73) #29
+73:                                               ; preds = %71
+  call void @pfree(ptr noundef nonnull %72) #29
   br label %guc_free.exit29.i
 
-guc_free.exit29.i:                                ; preds = %74, %72
-  call void @pfree(ptr noundef nonnull %39) #29
+guc_free.exit29.i:                                ; preds = %73, %71
+  call void @pfree(ptr noundef nonnull %38) #29
   br label %add_placeholder_variable.exit
 
-75:                                               ; preds = %33
-  br i1 %2, label %add_placeholder_variable.exit, label %76
+74:                                               ; preds = %32
+  br i1 %2, label %add_placeholder_variable.exit, label %75
 
-76:                                               ; preds = %75
-  %77 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %77, label %78, label %add_placeholder_variable.exit
+75:                                               ; preds = %74
+  %76 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
+  br i1 %76, label %77, label %add_placeholder_variable.exit
 
-78:                                               ; preds = %76
-  %79 = call i32 @errcode(i32 noundef 67137668) #29
-  %80 = load ptr, ptr %6, align 8
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %80) #29
+77:                                               ; preds = %75
+  %78 = call i32 @errcode(i32 noundef 67137668) #29
+  %79 = load ptr, ptr %6, align 8
+  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %79) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1279, ptr noundef nonnull @__func__.find_option) #29
   br label %add_placeholder_variable.exit
 
-add_placeholder_variable.exit:                    ; preds = %76, %78, %41, %43, %guc_free.exit29.i, %add_guc_variable.exit.thread.i, %guc_free.exit.i, %75, %34, %27, %10
-  %.022 = phi ptr [ %12, %10 ], [ %32, %27 ], [ null, %34 ], [ null, %75 ], [ null, %guc_free.exit.i ], [ null, %guc_free.exit29.i ], [ %39, %add_guc_variable.exit.thread.i ], [ null, %43 ], [ null, %41 ], [ null, %78 ], [ null, %76 ]
+add_placeholder_variable.exit:                    ; preds = %75, %77, %40, %42, %guc_free.exit29.i, %add_guc_variable.exit.thread.i, %guc_free.exit.i, %74, %33, %27, %10
+  %.022 = phi ptr [ %12, %10 ], [ %31, %27 ], [ null, %33 ], [ null, %74 ], [ null, %guc_free.exit.i ], [ null, %guc_free.exit29.i ], [ %38, %add_guc_variable.exit.thread.i ], [ null, %42 ], [ null, %40 ], [ null, %77 ], [ null, %75 ]
   ret ptr %.022
 }
 
@@ -1527,7 +1525,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store i32 0, ptr %8, align 4
   %9 = add i32 %.080, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x %struct.config_bool], ptr @ConfigureNamesBool, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.config_bool, ptr @ConfigureNamesBool, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.preheader77, label %.lr.ph, !llvm.loop !18
@@ -1547,7 +1545,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %16 = add i32 %.183, 1
   %17 = add i32 %.15882, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [0 x %struct.config_int], ptr @ConfigureNamesInt, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.config_int, ptr @ConfigureNamesInt, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not62 = icmp eq ptr %20, null
   br i1 %.not62, label %.preheader76, label %.lr.ph84, !llvm.loop !19
@@ -1567,7 +1565,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %24 = add i32 %.288, 1
   %25 = add i32 %.25987, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [0 x %struct.config_real], ptr @ConfigureNamesReal, i64 0, i64 %26
+  %27 = getelementptr inbounds %struct.config_real, ptr @ConfigureNamesReal, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not63 = icmp eq ptr %28, null
   br i1 %.not63, label %.preheader75, label %.lr.ph89, !llvm.loop !20
@@ -1587,7 +1585,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %32 = add i32 %.393, 1
   %33 = add i32 %.36092, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [0 x %struct.config_string], ptr @ConfigureNamesString, i64 0, i64 %34
+  %35 = getelementptr inbounds %struct.config_string, ptr @ConfigureNamesString, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not64 = icmp eq ptr %36, null
   br i1 %.not64, label %.preheader74, label %.lr.ph94, !llvm.loop !21
@@ -1601,7 +1599,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %39 = add i32 %.498, 1
   %40 = add i32 %.46197, 1
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [0 x %struct.config_enum], ptr @ConfigureNamesEnum, i64 0, i64 %41
+  %42 = getelementptr inbounds %struct.config_enum, ptr @ConfigureNamesEnum, i64 %41
   %43 = load ptr, ptr %42, align 8
   %.not65 = icmp eq ptr %43, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph99, !llvm.loop !22
@@ -1641,7 +1639,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %55, ptr %58, align 8
   %59 = add i32 %.5102, 1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [0 x %struct.config_bool], ptr @ConfigureNamesBool, i64 0, i64 %60
+  %61 = getelementptr inbounds %struct.config_bool, ptr @ConfigureNamesBool, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not66 = icmp eq ptr %62, null
   br i1 %.not66, label %.preheader73, label %.lr.ph104, !llvm.loop !23
@@ -1660,7 +1658,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %64, ptr %67, align 8
   %68 = add i32 %.6106, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [0 x %struct.config_int], ptr @ConfigureNamesInt, i64 0, i64 %69
+  %70 = getelementptr inbounds %struct.config_int, ptr @ConfigureNamesInt, i64 %69
   %71 = load ptr, ptr %70, align 8
   %.not67 = icmp eq ptr %71, null
   br i1 %.not67, label %.preheader72, label %.lr.ph107, !llvm.loop !24
@@ -1679,7 +1677,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %73, ptr %76, align 8
   %77 = add i32 %.7109, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [0 x %struct.config_real], ptr @ConfigureNamesReal, i64 0, i64 %78
+  %79 = getelementptr inbounds %struct.config_real, ptr @ConfigureNamesReal, i64 %78
   %80 = load ptr, ptr %79, align 8
   %.not68 = icmp eq ptr %80, null
   br i1 %.not68, label %.preheader71, label %.lr.ph110, !llvm.loop !25
@@ -1698,7 +1696,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %82, ptr %85, align 8
   %86 = add i32 %.8112, 1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [0 x %struct.config_string], ptr @ConfigureNamesString, i64 0, i64 %87
+  %88 = getelementptr inbounds %struct.config_string, ptr @ConfigureNamesString, i64 %87
   %89 = load ptr, ptr %88, align 8
   %.not69 = icmp eq ptr %89, null
   br i1 %.not69, label %.preheader, label %.lr.ph113, !llvm.loop !26
@@ -1712,7 +1710,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %90, ptr %93, align 8
   %94 = add i32 %.9115, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [0 x %struct.config_enum], ptr @ConfigureNamesEnum, i64 0, i64 %95
+  %96 = getelementptr inbounds %struct.config_enum, ptr @ConfigureNamesEnum, i64 %95
   %97 = load ptr, ptr %96, align 8
   %.not70 = icmp eq ptr %97, null
   br i1 %.not70, label %._crit_edge117, label %.lr.ph116, !llvm.loop !27
@@ -2001,7 +1999,7 @@ define dso_local noundef ptr @convert_GUC_name_for_parameter_acl(ptr noundef %0)
 
 2:                                                ; preds = %1, %guc_name_compare.exit.thread
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %guc_name_compare.exit.thread ]
-  %3 = getelementptr inbounds nuw [7 x ptr], ptr @map_old_guc_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   br label %5
 
@@ -2035,11 +2033,9 @@ guc_name_compare.exit:                            ; preds = %5
   br i1 %.not33.i.not, label %16, label %guc_name_compare.exit.thread
 
 16:                                               ; preds = %guc_name_compare.exit
-  %17 = shl i64 %indvars.iv, 32
-  %sext = ashr exact i64 %17, 32
-  %18 = or disjoint i64 %sext, 1
-  %19 = getelementptr inbounds [7 x ptr], ptr @map_old_guc_names, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8
+  %17 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %18 = getelementptr i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
   br label %.loopexit
 
 guc_name_compare.exit.thread:                     ; preds = %9, %8, %guc_name_compare.exit
@@ -2048,31 +2044,31 @@ guc_name_compare.exit.thread:                     ; preds = %9, %8, %guc_name_co
   br i1 %.not, label %.loopexit, label %2, !llvm.loop !29
 
 .loopexit:                                        ; preds = %guc_name_compare.exit.thread, %16
-  %.018 = phi ptr [ %20, %16 ], [ %0, %guc_name_compare.exit.thread ]
-  %21 = tail call ptr @pstrdup(ptr noundef %.018) #29
-  %22 = load i8, ptr %21, align 1
-  %.not2127 = icmp eq i8 %22, 0
-  br i1 %.not2127, label %._crit_edge, label %.lr.ph
+  %.018 = phi ptr [ %19, %16 ], [ %0, %guc_name_compare.exit.thread ]
+  %20 = tail call ptr @pstrdup(ptr noundef %.018) #29
+  %21 = load i8, ptr %20, align 1
+  %.not2126 = icmp eq i8 %21, 0
+  br i1 %.not2126, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %27, %.loopexit
-  ret ptr %21
+._crit_edge:                                      ; preds = %26, %.loopexit
+  ret ptr %20
 
-.lr.ph:                                           ; preds = %.loopexit, %27
-  %23 = phi i8 [ %29, %27 ], [ %22, %.loopexit ]
-  %.028 = phi ptr [ %28, %27 ], [ %21, %.loopexit ]
-  %24 = add i8 %23, -65
-  %or.cond = icmp ult i8 %24, 26
-  br i1 %or.cond, label %25, label %27
+.lr.ph:                                           ; preds = %.loopexit, %26
+  %22 = phi i8 [ %28, %26 ], [ %21, %.loopexit ]
+  %.027 = phi ptr [ %27, %26 ], [ %20, %.loopexit ]
+  %23 = add i8 %22, -65
+  %or.cond = icmp ult i8 %23, 26
+  br i1 %or.cond, label %24, label %26
 
-25:                                               ; preds = %.lr.ph
-  %26 = or disjoint i8 %23, 32
-  store i8 %26, ptr %.028, align 1
-  br label %27
+24:                                               ; preds = %.lr.ph
+  %25 = or disjoint i8 %22, 32
+  store i8 %25, ptr %.027, align 1
+  br label %26
 
-27:                                               ; preds = %25, %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.028, i64 1
-  %29 = load i8, ptr %28, align 1
-  %.not21 = icmp eq i8 %29, 0
+26:                                               ; preds = %24, %.lr.ph
+  %27 = getelementptr inbounds nuw i8, ptr %.027, i64 1
+  %28 = load i8, ptr %27, align 1
+  %.not21 = icmp eq i8 %28, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 
@@ -3353,7 +3349,7 @@ define internal fastcc void @push_old_value(ptr noundef %0, i32 noundef %1) unna
 
 switch.lookup:                                    ; preds = %31
   %38 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.push_old_value, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.push_old_value, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %switch.load, ptr %39, align 4
@@ -5150,7 +5146,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %17 = getelementptr inbounds nuw i8, ptr %.03848, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = add nuw nsw i32 %.03649, 1
-  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %9, ptr %19, align 1
   %20 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %20, 0
@@ -5169,7 +5165,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
 .critedge:                                        ; preds = %4, %.critedge.loopexit
   %.038.lcssa = phi ptr [ %.038.lcssa.ph, %.critedge.loopexit ], [ %1, %4 ]
   %.036.lcssa = phi i64 [ %22, %.critedge.loopexit ], [ 0, %4 ]
-  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %.036.lcssa
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %.036.lcssa
   store i8 0, ptr %23, align 1
   %24 = load ptr, ptr %.pre, align 8
   br label %25

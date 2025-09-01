@@ -1320,7 +1320,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.032.lcssa58 = phi i64 [ %21, %._crit_edge ], [ %5, %2 ]
   %.035.lcssa57 = phi i64 [ %22, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.035.lcssa57
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.035.lcssa57
   %9 = trunc nuw nsw i64 %.032.lcssa58 to i8
   store i8 %9, ptr %8, align 1
   %umin = add nuw nsw i64 %.035.lcssa57, 1
@@ -1354,7 +1354,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
 
 17:                                               ; preds = %.lr.ph
   %18 = trunc i64 %.03247 to i8
-  %19 = getelementptr inbounds nuw [10 x i8], ptr %4, i64 0, i64 %.03546
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.03546
   %20 = or i8 %18, -128
   store i8 %20, ptr %19, align 1
   %21 = lshr i64 %.03247, 7
@@ -5347,7 +5347,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17hc5ae0e27
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hb81b5ea5dcf5109bE.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw [0 x { { { [11 x i64] } } }], ptr %8, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %8, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2832
   %16 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %15), !noalias !735
@@ -5390,7 +5390,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan17Chan$LT$T$C$S$GT$4send17hf445197a
 
 "_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hb30b6e624bedbd40E.exit": ; preds = %6
   %13 = and i64 %7, 31
-  %14 = getelementptr inbounds nuw [0 x { { { [29 x i64] } } }], ptr %8, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %8, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %14, ptr noundef nonnull align 8 dereferenceable(232) %3, i64 232, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 7440
   %16 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %15), !noalias !741

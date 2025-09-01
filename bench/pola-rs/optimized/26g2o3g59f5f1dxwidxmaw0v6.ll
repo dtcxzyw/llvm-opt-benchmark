@@ -29511,10 +29511,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2576)
   %3 = load i8, ptr %2, align 1, !range !108, !alias.scope !2576, !noalias !2579, !noundef !14
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.145", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.145", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !2576
   ret i1 %6
@@ -30389,7 +30389,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2657)
   %23 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = icmp ult i64 %2, %13
   br i1 %24, label %25, label %33
@@ -30479,7 +30479,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2695)
   %23 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = icmp ult i64 %2, %13
   br i1 %24, label %25, label %33
@@ -35555,10 +35555,10 @@ define internal noundef zeroext i1 @"_ZN90_$LT$polars_core..datatypes..temporal.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !108, !noundef !14
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.145", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.145", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -46268,7 +46268,7 @@ switch.lookup:
   store i8 %4, ptr %14, align 1, !noalias !3948
   store i16 %6, ptr %13, align 2, !noalias !3948
   %15 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = trunc nuw i64 %8 to i1
   %..i = select i1 %16, i64 %9, i64 %3
@@ -46560,7 +46560,7 @@ switch.lookup:                                    ; preds = %91, %79, %79
   %84 = load i8, ptr %32, align 1, !range !108, !noundef !14
   %85 = load i16, ptr %31, align 2, !range !2644, !noundef !14
   %86 = zext nneg i8 %84 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %87 = load i64, ptr %3, align 8, !alias.scope !3972, !noalias !3975, !noundef !14
   %88 = getelementptr inbounds nuw i64, ptr %3, i64 %4
@@ -46608,7 +46608,7 @@ switch.lookup177:                                 ; preds = %91
   %93 = load i8, ptr %32, align 1, !range !108, !noundef !14
   %94 = load i16, ptr %31, align 2, !range !2644, !noundef !14
   %95 = zext nneg i8 %93 to i64
-  %switch.gep178 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %95
+  %switch.gep178 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %95
   %switch.load179 = load ptr, ptr %switch.gep178, align 8
   %96 = load i64, ptr %3, align 8, !alias.scope !3991, !noalias !3994, !noundef !14
   %97 = getelementptr inbounds nuw i64, ptr %3, i64 %4
@@ -46765,7 +46765,7 @@ switch.lookup180:                                 ; preds = %122
   call void @llvm.experimental.noalias.scope.decl(metadata !4010)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i)
   %127 = zext nneg i8 %125 to i64
-  %switch.gep181 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %127
+  %switch.gep181 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %127
   %switch.load182 = load ptr, ptr %switch.gep181, align 8
   %128 = load i64, ptr %3, align 8, !alias.scope !4013, !noalias !4016, !noundef !14
   %129 = getelementptr inbounds nuw i64, ptr %3, i64 %4
@@ -46877,7 +46877,7 @@ switch.lookup183:                                 ; preds = %123
   call void @llvm.experimental.noalias.scope.decl(metadata !4036)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i105)
   %145 = zext nneg i8 %143 to i64
-  %switch.gep184 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 0, i64 %145
+  %switch.gep184 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time7windows8group_by15group_by_values17hdaa3ca0b1ebcaf05E.148, i64 %145
   %switch.load185 = load ptr, ptr %switch.gep184, align 8
   %146 = load i64, ptr %3, align 8, !alias.scope !4039, !noalias !4042, !noundef !14
   %147 = getelementptr inbounds nuw i64, ptr %3, i64 %4
@@ -47019,10 +47019,10 @@ define noundef zeroext i1 @"_ZN201_$LT$polars_time..group_by..dynamic.._..$LT$im
 define { ptr, i64 } @"_ZN11polars_time7windows8group_by109_$LT$impl$u20$core..convert..From$LT$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17h7e57d23b41592e35E"(i8 noundef range(i8 0, 4) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E.150", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E.150", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -47034,10 +47034,10 @@ define { ptr, i64 } @"_ZN11polars_time7windows8group_by113_$LT$impl$u20$core..co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !102, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E.150", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by113_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..ClosedWindow$GT$$u20$for$u20$$RF$str$GT$4from17hf27b398f20b18976E.150", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -47060,10 +47060,10 @@ define noundef zeroext i1 @"_ZN194_$LT$polars_time..windows..group_by.._..$LT$im
 define { ptr, i64 } @"_ZN11polars_time7windows8group_by102_$LT$impl$u20$core..convert..From$LT$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h34d2403cf9aa7d4aE"(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E.152", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E.152", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -47075,10 +47075,10 @@ define { ptr, i64 } @"_ZN11polars_time7windows8group_by106_$LT$impl$u20$core..co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !108, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E.152", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by106_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..Label$GT$$u20$for$u20$$RF$str$GT$4from17h962f87af31bb0a87E.152", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -47101,10 +47101,10 @@ define noundef zeroext i1 @"_ZN187_$LT$polars_time..windows..group_by.._..$LT$im
 define { ptr, i64 } @"_ZN11polars_time7windows8group_by104_$LT$impl$u20$core..convert..From$LT$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h6134e310ed2e2c7bE"(i8 noundef range(i8 0, 9) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E.154", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E.154", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -47116,10 +47116,10 @@ define { ptr, i64 } @"_ZN11polars_time7windows8group_by108_$LT$impl$u20$core..co
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !2624, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E.154", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_time7windows8group_by108_$LT$impl$u20$core..convert..From$LT$$RF$polars_time..windows..group_by..StartBy$GT$$u20$for$u20$$RF$str$GT$4from17h5c1df72737c69539E.154", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

@@ -253,7 +253,7 @@ define dso_local range(i32 0, 2) i32 @cmd_main(i32 noundef %0, ptr noundef %1) l
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = load i8, ptr %6, align 1, !tbaa !9
   %8 = icmp eq i8 %7, 45
-  br i1 %8, label %sub_1, label %.critedge
+  br i1 %8, label %sub_1, label %.critedge.preheader
 
 sub_1:                                            ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -293,13 +293,16 @@ sub_138:                                          ; preds = %sub_1, %.tail
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %27 = load i8, ptr %26, align 1
   %.not62 = icmp eq i8 %27, 99
-  br i1 %.not62, label %.tail36, label %.critedge
+  br i1 %.not62, label %.tail36, label %.critedge.preheader
 
 .tail36:                                          ; preds = %sub_138
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %.critedge
+  br i1 %30, label %31, label %.critedge.preheader
+
+.critedge.preheader:                              ; preds = %sub_138, %.lr.ph, %.tail36
+  br label %.critedge
 
 31:                                               ; preds = %.tail36
   %32 = icmp eq i32 %.02755, 2
@@ -322,54 +325,49 @@ sub_138:                                          ; preds = %sub_1, %.tail
   %39 = icmp sgt i32 %.02755, 3
   br i1 %39, label %.lr.ph, label %.critedge35, !llvm.loop !10
 
-.critedge:                                        ; preds = %sub_138, %.lr.ph, %.tail36
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.9, ptr noundef nonnull dereferenceable(1) %6) #19
-  %.not34119 = icmp eq i32 %40, 0
-  br i1 %.not34119, label %._crit_edge, label %.lr.ph121
-
-.lr.ph121:                                        ; preds = %.critedge, %41
-  %indvars.iv120 = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.critedge ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv120, 1
+40:                                               ; preds = %.critedge
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %41 = getelementptr inbounds nuw %struct.anon, ptr @builtins, i64 %indvars.iv.next
+  %42 = load ptr, ptr %41, align 16, !tbaa !12
   %exitcond = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond, label %.critedge35, label %41, !llvm.loop !12
+  br i1 %exitcond, label %.critedge35, label %.critedge, !llvm.loop !14
 
-41:                                               ; preds = %.lr.ph121
-  %42 = getelementptr inbounds nuw [11 x %struct.anon], ptr @builtins, i64 0, i64 %indvars.iv.next
-  %43 = load ptr, ptr %42, align 16, !tbaa !13
+.critedge:                                        ; preds = %.critedge.preheader, %40
+  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.critedge.preheader ]
+  %43 = phi ptr [ %42, %40 ], [ @.str.9, %.critedge.preheader ]
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %6) #19
   %.not34 = icmp eq i32 %44, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph121, !llvm.loop !12
+  br i1 %.not34, label %45, label %40
 
-._crit_edge:                                      ; preds = %41, %.critedge
-  %.lcssa = phi ptr [ @builtins, %.critedge ], [ %42, %41 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.02556, i64 8
-  %46 = add nsw i32 %.02755, -1
-  %47 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !15
-  %49 = tail call i32 %48(i32 noundef %46, ptr noundef nonnull %45) #18
-  %50 = icmp ne i32 %49, 0
-  %51 = zext i1 %50 to i32
+45:                                               ; preds = %.critedge
+  %46 = getelementptr inbounds nuw i8, ptr %.02556, i64 8
+  %47 = add nsw i32 %.02755, -1
+  %48 = getelementptr inbounds nuw %struct.anon, ptr @builtins, i64 %indvars.iv, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !15
+  %50 = tail call i32 %49(i32 noundef %47, ptr noundef nonnull %46) #18
+  %51 = icmp ne i32 %50, 0
+  %52 = zext i1 %51 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %51
+  ret i32 %52
 
-.critedge35:                                      ; preds = %38, %.lr.ph121, %2
+.critedge35:                                      ; preds = %38, %40, %2
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i64 noundef 76) #18
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.critedge35, %52
-  %indvars.iv80 = phi i64 [ 0, %.critedge35 ], [ %indvars.iv.next81, %52 ]
-  %53 = phi ptr [ @.str.9, %.critedge35 ], [ %55, %52 ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %53) #18
+53:                                               ; preds = %.critedge35, %53
+  %indvars.iv80 = phi i64 [ 0, %.critedge35 ], [ %indvars.iv.next81, %53 ]
+  %54 = phi ptr [ @.str.9, %.critedge35 ], [ %56, %53 ]
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %54) #18
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %54 = getelementptr inbounds nuw [11 x %struct.anon], ptr @builtins, i64 0, i64 %indvars.iv.next81
-  %55 = load ptr, ptr %54, align 16, !tbaa !13
+  %55 = getelementptr inbounds nuw %struct.anon, ptr @builtins, i64 %indvars.iv.next81
+  %56 = load ptr, ptr %55, align 16, !tbaa !12
   %exitcond83 = icmp eq i64 %indvars.iv.next81, 10
-  br i1 %exitcond83, label %56, label %52, !llvm.loop !16
+  br i1 %exitcond83, label %57, label %53, !llvm.loop !16
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !17
-  call void @usage(ptr noundef %58) #17
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !17
+  call void @usage(ptr noundef %59) #17
   unreachable
 }
 
@@ -1334,7 +1332,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
   %7 = phi ptr [ @.str.127, %2 ], [ %9, %6 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 16, !tbaa !39
   %exitcond = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond, label %10, label %6, !llvm.loop !41
@@ -1366,7 +1364,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 20:                                               ; preds = %.preheader38
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %21 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 %indvars.iv.next46
+  %21 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv.next46
   %22 = load ptr, ptr %21, align 16, !tbaa !39
   %exitcond48 = icmp eq i64 %indvars.iv.next46, 5
   br i1 %exitcond48, label %.critedge, label %.preheader38, !llvm.loop !42
@@ -1401,7 +1399,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 34:                                               ; preds = %32
   %35 = zext nneg i32 %.1 to i64
-  %36 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 %35, i32 1
+  %36 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %35, i32 1
   %37 = load ptr, ptr %36, align 8, !tbaa !43
   %38 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %37, ptr noundef null)
   br label %.loopexit
@@ -1413,7 +1411,7 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 41:                                               ; preds = %.preheader
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %42 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 %indvars.iv.next50
+  %42 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv.next50
   %exitcond52 = icmp eq i64 %indvars.iv.next50, 5
   br i1 %exitcond52, label %.loopexit, label %.preheader, !llvm.loop !44
 
@@ -2162,13 +2160,13 @@ define internal fastcc range(i32 -1, 1) i32 @set_recommended_config(i32 noundef 
   br i1 %.not15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %4
-  %7 = getelementptr inbounds nuw [28 x %struct.scalar_config], ptr @__const.set_recommended_config.config, i64 0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw %struct.scalar_config, ptr @__const.set_recommended_config.config, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !74
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.lcssa36 = phi ptr [ @.str.82, %1 ], [ %8, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ @__const.set_recommended_config.config, %1 ], [ %7, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ @__const.set_recommended_config.config, %1 ], [ %5, %._crit_edge.loopexit ]
   %9 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !20
   %.not4.i = icmp eq i32 %9, 0
   br i1 %.not4.i, label %_.exit, label %10
@@ -2777,10 +2775,10 @@ attributes #21 = { cold nounwind }
 !9 = !{!7, !7, i64 0}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !5, i64 0}
-!14 = !{!"", !5, i64 0, !6, i64 8}
-!15 = !{!14, !6, i64 8}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"", !5, i64 0, !6, i64 8}
+!14 = distinct !{!14, !11}
+!15 = !{!13, !6, i64 8}
 !16 = distinct !{!16, !11}
 !17 = !{!18, !5, i64 16}
 !18 = !{!"strbuf", !19, i64 0, !19, i64 8, !5, i64 16}

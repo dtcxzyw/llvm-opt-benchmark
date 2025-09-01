@@ -2400,7 +2400,7 @@ define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_11Boolean
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = zext i1 %3 to i64
-  %11 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !40, !noalias !121
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS_11BooleanTypeEbEENS_6StatusET0_Pi.exit
@@ -2478,7 +2478,7 @@ define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_8Int8Type
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw [257 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !40, !noalias !142
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS_8Int8TypeEaEENS_6StatusET0_Pi.exit
@@ -2852,7 +2852,7 @@ define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_9UInt8Typ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = zext i8 %3 to i64
-  %11 = getelementptr inbounds nuw [257 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !40, !noalias !263
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %_ZN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl11GetOrInsertINS_9UInt8TypeEhEENS_6StatusET0_Pi.exit
@@ -12739,7 +12739,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = srem i64 %30, 8
-  %35 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !39
   %37 = xor i8 %36, -1
   %38 = and i8 %33, %37
@@ -12886,7 +12886,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = srem i64 %30, 8
-  %35 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !39
   %37 = or i8 %36, %33
   store i8 %37, ptr %32, align 1, !tbaa !39
@@ -13166,7 +13166,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   %95 = getelementptr inbounds i8, ptr %92, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !39
   %97 = srem i64 %93, 8
-  %98 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %97
+  %98 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !39
   %100 = or i8 %99, %96
   store i8 %100, ptr %95, align 1, !tbaa !39
@@ -13193,7 +13193,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   %115 = getelementptr inbounds i8, ptr %112, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !39
   %117 = srem i64 %113, 8
-  %118 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %117
+  %118 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !39
   %120 = xor i8 %119, -1
   %121 = and i8 %116, %120
@@ -16254,7 +16254,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !39
   %33 = srem i64 %29, 8
-  %34 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %33
+  %34 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !39
   %36 = xor i8 %35, -1
   %37 = and i8 %32, %36
@@ -16399,7 +16399,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !39
   %33 = srem i64 %29, 8
-  %34 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %33
+  %34 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !39
   %36 = or i8 %35, %32
   store i8 %36, ptr %31, align 1, !tbaa !39
@@ -16643,7 +16643,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   %77 = getelementptr inbounds i8, ptr %74, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !39
   %79 = srem i64 %75, 8
-  %80 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %79
+  %80 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !39
   %82 = or i8 %81, %78
   store i8 %82, ptr %77, align 1, !tbaa !39
@@ -16705,7 +16705,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   %120 = getelementptr inbounds i8, ptr %117, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !39
   %122 = srem i64 %118, 8
-  %123 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %122
+  %123 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !39
   %125 = or i8 %124, %121
   store i8 %125, ptr %120, align 1, !tbaa !39
@@ -16732,7 +16732,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds i8, ptr %137, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !39
   %142 = srem i64 %138, 8
-  %143 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %142
+  %143 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !39
   %145 = xor i8 %144, -1
   %146 = and i8 %141, %145
@@ -19804,7 +19804,7 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   %31 = load ptr, ptr %30, align 8, !tbaa !84, !noalias !1868
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = zext i1 %29 to i64
-  %34 = getelementptr inbounds nuw [3 x i32], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !40, !noalias !1871
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %_ZN5arrow6StatusD2Ev.exit14
@@ -20002,7 +20002,7 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   %21 = load ptr, ptr %20, align 8, !tbaa !84, !noalias !1885
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = zext i8 %19 to i64
-  %24 = getelementptr inbounds nuw [257 x i32], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !40, !noalias !1888
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %_ZN5arrow6StatusD2Ev.exit14
@@ -20130,7 +20130,7 @@ define linkonce_odr void @_ZN5arrow8internal19DictionaryMemoTable23DictionaryMem
   %21 = load ptr, ptr %20, align 8, !tbaa !84, !noalias !1899
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = zext i8 %19 to i64
-  %24 = getelementptr inbounds nuw [257 x i32], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !40, !noalias !1902
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %_ZN5arrow6StatusD2Ev.exit14
@@ -22835,7 +22835,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i:         ; preds = %_ZN5arrow6StatusD2E
   %61 = getelementptr inbounds i8, ptr %57, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !39
   %63 = srem i64 %59, 8
-  %64 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %63
+  %64 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !39
   %66 = or i8 %65, %62
   store i8 %66, ptr %61, align 1, !tbaa !39
@@ -23430,7 +23430,7 @@ _ZN5arrow6StatusD2Ev.exit._crit_edge.i.i:         ; preds = %_ZN5arrow6StatusD2E
   %59 = getelementptr inbounds i8, ptr %55, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !39
   %61 = srem i64 %57, 8
-  %62 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %61
+  %62 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !39
   %64 = or i8 %63, %60
   store i8 %64, ptr %59, align 1, !tbaa !39
@@ -31734,7 +31734,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.noexc
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !39, !noalias !2898
   %66 = srem i64 %62, 8
-  %67 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %66
+  %67 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !39, !noalias !2898
   %69 = xor i8 %68, -1
   %70 = and i8 %65, %69
@@ -31751,7 +31751,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %.noexc
   %78 = getelementptr inbounds i8, ptr %75, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !39, !noalias !2898
   %80 = srem i64 %76, 8
-  %81 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !39, !noalias !2898
   %83 = xor i8 %82, -1
   %84 = and i8 %79, %83
@@ -31820,7 +31820,7 @@ _ZN5arrow6StatusD2Ev.exit.i30:                    ; preds = %.noexc33
   %118 = load i8, ptr %117, align 1, !tbaa !39, !noalias !2907
   %119 = xor i8 %118, %.neg.i.i.i.i
   %120 = srem i64 %115, 8
-  %121 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %120
+  %121 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !39, !noalias !2907
   %123 = and i8 %119, %122
   %124 = xor i8 %123, %118
@@ -31843,7 +31843,7 @@ _ZN5arrow14BooleanBuilder12UnsafeAppendEb.exit.i: ; preds = %125, %113
   %133 = getelementptr inbounds i8, ptr %130, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !39, !noalias !2907
   %135 = srem i64 %131, 8
-  %136 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %135
+  %136 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %135
   %137 = load i8, ptr %136, align 1, !tbaa !39, !noalias !2907
   %138 = or i8 %137, %134
   store i8 %138, ptr %133, align 1, !tbaa !39, !noalias !2907
@@ -43149,7 +43149,7 @@ _ZNK5arrow17BaseBinaryBuilderINS_10BinaryTypeEE7GetViewEl.exit: ; preds = %21, %
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = srem i64 %35, 8
-  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !39
   %42 = or i8 %41, %38
   store i8 %42, ptr %37, align 1, !tbaa !39
@@ -44568,7 +44568,7 @@ _ZNK5arrow17BaseBinaryBuilderINS_10BinaryTypeEE7GetViewEl.exit: ; preds = %21, %
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !39
   %39 = srem i64 %35, 8
-  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %39
+  %40 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !39
   %42 = or i8 %41, %38
   store i8 %42, ptr %37, align 1, !tbaa !39

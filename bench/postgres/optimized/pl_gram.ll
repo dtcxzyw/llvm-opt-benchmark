@@ -306,7 +306,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 62:                                               ; preds = %.thread1385
   %63 = sext i32 %.01099 to i64
-  %64 = getelementptr inbounds [334 x i16], ptr @yypact, i64 0, i64 %63
+  %64 = getelementptr inbounds i16, ptr @yypact, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   %67 = icmp eq i16 %65, -249
@@ -339,7 +339,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 80:                                               ; preds = %78
   %81 = zext nneg i32 %.4 to i64
-  %82 = getelementptr inbounds nuw [386 x i8], ptr @yytranslate, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   br label %85
@@ -353,14 +353,14 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %86 to i64
-  %89 = getelementptr inbounds nuw [1294 x i16], ptr @yycheck, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %.not1209 = icmp eq i32 %.01149, %91
   br i1 %.not1209, label %92, label %103
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw [1294 x i16], ptr @yytable, i64 0, i64 %88
+  %93 = getelementptr inbounds nuw i16, ptr @yytable, i64 %88
   %94 = load i16, ptr %93, align 2
   %95 = sext i16 %94 to i32
   %96 = icmp slt i16 %94, 1
@@ -381,7 +381,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 
 103:                                              ; preds = %85, %87, %62
   %.3 = phi i32 [ %.01098, %62 ], [ %.5, %85 ], [ %.5, %87 ]
-  %104 = getelementptr inbounds [334 x i8], ptr @yydefact, i64 0, i64 %63
+  %104 = getelementptr inbounds i8, ptr @yydefact, i64 %63
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = icmp eq i8 %105, 0
@@ -391,7 +391,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %.01147 = phi i32 [ %106, %103 ], [ %98, %97 ]
   %.7 = phi i32 [ %.3, %103 ], [ %.5, %97 ]
   %109 = zext nneg i32 %.01147 to i64
-  %110 = getelementptr inbounds nuw [254 x i8], ptr @yyr2, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr @yyr2, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i64
   %113 = sub nsw i64 1, %112
@@ -3953,11 +3953,11 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   %1845 = getelementptr inbounds nuw i8, ptr %1843, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1845, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   store i32 %.01150, ptr %117, align 4
-  %1846 = getelementptr inbounds nuw [254 x i8], ptr @yyr1, i64 0, i64 %109
+  %1846 = getelementptr inbounds nuw i8, ptr @yyr1, i64 %109
   %1847 = load i8, ptr %1846, align 1
   %1848 = zext i8 %1847 to i64
   %1849 = add nsw i64 %1848, -137
-  %1850 = getelementptr inbounds [87 x i16], ptr @yypgoto, i64 0, i64 %1849
+  %1850 = getelementptr inbounds i16, ptr @yypgoto, i64 %1849
   %1851 = load i16, ptr %1850, align 2
   %1852 = sext i16 %1851 to i32
   %1853 = load i16, ptr %1844, align 2
@@ -3968,17 +3968,17 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
 
 1856:                                             ; preds = %1842
   %1857 = zext nneg i32 %1855 to i64
-  %1858 = getelementptr inbounds nuw [1294 x i16], ptr @yycheck, i64 0, i64 %1857
+  %1858 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1857
   %1859 = load i16, ptr %1858, align 2
   %1860 = icmp eq i16 %1859, %1853
   br i1 %1860, label %1861, label %1863
 
 1861:                                             ; preds = %1856
-  %1862 = getelementptr inbounds nuw [1294 x i16], ptr @yytable, i64 0, i64 %1857
+  %1862 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1857
   br label %1865
 
 1863:                                             ; preds = %1856, %1842
-  %1864 = getelementptr inbounds [87 x i16], ptr @yydefgoto, i64 0, i64 %1849
+  %1864 = getelementptr inbounds i16, ptr @yydefgoto, i64 %1849
   br label %1865
 
 1865:                                             ; preds = %1863, %1861
@@ -4025,13 +4025,13 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
 1880:                                             ; preds = %1877
   %1881 = sext i16 %1878 to i64
   %1882 = add nsw i64 %1881, 1
-  %1883 = getelementptr inbounds nuw [1294 x i16], ptr @yycheck, i64 0, i64 %1882
+  %1883 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1882
   %1884 = load i16, ptr %1883, align 2
   %1885 = icmp eq i16 %1884, 1
   br i1 %1885, label %1886, label %1890
 
 1886:                                             ; preds = %1880
-  %1887 = getelementptr inbounds nuw [1294 x i16], ptr @yytable, i64 0, i64 %1882
+  %1887 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1882
   %1888 = load i16, ptr %1887, align 2
   %1889 = icmp sgt i16 %1888, 0
   br i1 %1889, label %1898, label %1890
@@ -4047,7 +4047,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   %1896 = getelementptr inbounds i8, ptr %.51144, i64 -4
   %1897 = load i16, ptr %1895, align 2
   %.phi.trans.insert = sext i16 %1897 to i64
-  %.phi.trans.insert1969 = getelementptr inbounds [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert1969 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert
   %.pre1970 = load i16, ptr %.phi.trans.insert1969, align 2
   br label %1877
 
@@ -5463,12 +5463,12 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
 NameOfDatum.exit:                                 ; preds = %36, %38
   %41 = phi ptr [ %.pre, %38 ], [ %27, %36 ]
   %.0.i = phi ptr [ %40, %38 ], [ %37, %36 ]
-  %42 = getelementptr inbounds nuw [1024 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %.0.i, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw [1024 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %44, ptr %45, align 4
   %46 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #12
   %47 = icmp eq i32 %46, 44
@@ -5522,12 +5522,12 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv77 = phi i64 [ %68, %.lr.ph72.preheader ], [ %indvars.iv.next78, %.lr.ph72 ]
-  %69 = getelementptr inbounds nuw [1024 x ptr], ptr %7, i64 0, i64 %indvars.iv77
+  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv77
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %63, align 8
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv77
   store ptr %70, ptr %72, align 8
-  %73 = getelementptr inbounds nuw [1024 x i32], ptr %8, i64 0, i64 %indvars.iv77
+  %73 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv77
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %66, align 8
   %76 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv77
@@ -6206,7 +6206,7 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef range(i32 275,
 
 .critedge131.sink.split:                          ; preds = %.critedge130, %40, %36, %35
   %.sink = phi i8 [ 111, %35 ], [ 114, %36 ], [ 102, %40 ], [ 102, %.critedge130 ]
-  %45 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %33
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 %33
   store i8 %.sink, ptr %45, align 1
   br label %.critedge131
 

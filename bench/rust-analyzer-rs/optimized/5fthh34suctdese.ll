@@ -178,7 +178,7 @@ switch.lookup:
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load i8, ptr %24, align 8, !range !10, !noundef !5
   %26 = zext nneg i8 %25 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN2tt19print_debug_subtree17hc49d1511bbdf901cE, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2tt19print_debug_subtree17hc49d1511bbdf901cE, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %20, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8

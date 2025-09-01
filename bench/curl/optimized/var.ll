@@ -126,13 +126,13 @@ define dso_local range(i32 0, 23) i32 @varexpand(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.preheader:                                 ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %28, i64 %.0137, i1 false)
-  %44 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.0137
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %.0137
   store i8 0, ptr %44, align 1, !tbaa !23
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge5
   %.0138221 = phi i64 [ %52, %.critedge5 ], [ 0, %.lr.ph.preheader ]
-  %45 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.0138221
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 %.0138221
   %46 = load i8, ptr %45, align 1, !tbaa !23
   %47 = add i8 %46, -48
   %or.cond165 = icmp ult i8 %47, 10
@@ -637,7 +637,7 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 30:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %12, i64 %24, i1 false)
-  %31 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   store i8 0, ptr %31, align 1, !tbaa !23
   br label %32
 

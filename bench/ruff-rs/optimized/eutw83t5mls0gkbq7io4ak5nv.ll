@@ -4322,7 +4322,7 @@ switch.lookup:                                    ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 17
   %.val3.i.i = load i8, ptr %25, align 1
   %26 = zext nneg i8 %.val3.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2f54da6b30bccffbE.exit
 
@@ -4485,7 +4485,7 @@ switch.lookup:                                    ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 17
   %84 = load i8, ptr %83, align 1, !alias.scope !625, !noundef !3
   %85 = zext nneg i8 %84 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %85
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 %85
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ruff_python_formatter10expression11binary_like8Operator10precedence17hec4cd2105a55c6e7E.exit
 
@@ -5922,7 +5922,7 @@ switch.lookup:                                    ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %5 = load i8, ptr %4, align 1, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ruff_python_formatter10expression11binary_like14OperatorSymbol10precedence17hcf4c3ea874b935d5E.exit
 
@@ -9383,7 +9383,7 @@ switch.lookup:                                    ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i8, ptr %21, align 8, !range !289, !noundef !3
   %23 = zext nneg i8 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 %23
   %switch.load = load i8, ptr %switch.gep, align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %25 = load i8, ptr %24, align 1, !range !289, !alias.scope !972, !noundef !3
@@ -10106,7 +10106,7 @@ default.unreachable2:                             ; preds = %tailrecurse
 define noundef range(i8 2, 10) i8 @"_ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E"(i8 noundef range(i8 0, 13) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }

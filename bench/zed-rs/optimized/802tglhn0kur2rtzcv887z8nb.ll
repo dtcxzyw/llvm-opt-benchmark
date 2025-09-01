@@ -69,7 +69,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %14, i64 0, i64 %.sroa.7.015.i.i
+  %28 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %.sroa.7.015.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !24, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -241,7 +241,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = load ptr, ptr %50, align 8, !alias.scope !73, !noalias !74, !nonnull !4, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %52, i64 0, i64 %.sroa.8.0.i.i
+  %53 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %52, i64 %.sroa.8.0.i.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !noalias !85, !nonnull !4, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -1448,7 +1448,7 @@ define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.7.015
+  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %.sroa.7.015
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !341, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1766,7 +1766,7 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %53, i64 0, i64 %.sroa.8.0
+  %54 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %53, i64 %.sroa.8.0
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16

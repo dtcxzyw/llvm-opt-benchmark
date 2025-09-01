@@ -184,7 +184,7 @@ define internal noundef i32 @hexdumpstream_flush(ptr noundef %0) #1 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw [129 x i8], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   store i8 10, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8

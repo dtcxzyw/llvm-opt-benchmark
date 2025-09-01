@@ -1428,7 +1428,7 @@ blf_read_bytes.exit87.i:                          ; preds = %312
 
 switch.lookup:                                    ; preds = %337
   %346 = zext nneg i32 %344 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.blf_read_block, i64 0, i64 %346
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_block, i64 %346
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %347
 
@@ -2051,7 +2051,7 @@ blf_read_bytes.exit32:                            ; preds = %83
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit32
   %121 = zext nneg i16 %119 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %121
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2185,7 +2185,7 @@ blf_read_bytes.exit36:                            ; preds = %31
 
 switch.lookup:                                    ; preds = %70
   %74 = zext nneg i16 %72 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2309,7 +2309,7 @@ blf_read_bytes.exit32:                            ; preds = %28
 
 switch.lookup:                                    ; preds = %63
   %67 = zext nneg i16 %65 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %67
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %67
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2414,7 +2414,7 @@ blf_read_bytes.exit28:                            ; preds = %28
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit28
   %55 = zext nneg i8 %53 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2779,47 +2779,46 @@ blf_read_bytes.exit:                              ; preds = %15
   %26 = and i8 %25, 1
   %.not = icmp ne i8 %26, 0
   %27 = zext nneg i8 %23 to i64
-  %28 = getelementptr [16 x i8], ptr @canfd_dlc_to_length, i64 0, i64 %27
-  %29 = lshr i8 %25, 1
-  %30 = and i8 %29, 3
-  %31 = or disjoint i8 %30, 4
-  %32 = getelementptr [16 x i8], ptr @can_dlc_to_length, i64 0, i64 %27
-  %.033.in = select i1 %.not, ptr %28, ptr %32
-  %.0 = select i1 %.not, i8 %31, i8 0
+  %28 = lshr i8 %25, 1
+  %29 = and i8 %28, 3
+  %30 = or disjoint i8 %29, 4
+  %.033.in.v = select i1 %.not, ptr @canfd_dlc_to_length, ptr @can_dlc_to_length
+  %.033.in = getelementptr i8, ptr %.033.in.v, i64 %27
+  %.0 = select i1 %.not, i8 %30, i8 0
   %.033 = load i8, ptr %.033.in, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  %34 = load i8, ptr %33, align 2
-  %spec.select = call i8 @llvm.umin.i8(i8 %.033, i8 %34)
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %38 = load i8, ptr %37, align 2
-  %.not38 = icmp sgt i8 %38, -1
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 14
+  %32 = load i8, ptr %31, align 2
+  %spec.select = call i8 @llvm.umin.i8(i8 %.033, i8 %32)
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %36 = load i8, ptr %35, align 2
+  %.not38 = icmp sgt i8 %36, -1
   %or.cond = select i1 %.not, i1 true, i1 %.not38
-  %39 = or i32 %36, 1073741824
-  %.034 = select i1 %or.cond, i32 %36, i32 %39
+  %37 = or i32 %34, 1073741824
+  %.034 = select i1 %or.cond, i32 %34, i32 %37
   %.2 = select i1 %or.cond, i8 %spec.select, i8 0
-  %40 = zext i8 %.2 to i64
-  %41 = sub i64 %5, %10
-  %42 = add i64 %41, 20
-  %43 = icmp ult i64 %42, %40
-  %44 = trunc i64 %41 to i8
-  %.032 = select i1 %43, i8 %44, i8 %.2
-  %45 = add i64 %4, 20
-  %46 = load i16, ptr %9, align 4
-  %47 = call fastcc zeroext i1 @blf_can_fill_buf_and_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.034, i8 noundef zeroext %.2, i8 noundef zeroext %.032, i64 noundef %45, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %46, i8 noundef zeroext %.0)
-  br i1 %47, label %blf_add_direction_option.exit, label %blf_read_bytes.exit.thread
+  %38 = zext i8 %.2 to i64
+  %39 = sub i64 %5, %10
+  %40 = add i64 %39, 20
+  %41 = icmp ult i64 %40, %38
+  %42 = trunc i64 %39 to i8
+  %.032 = select i1 %41, i8 %42, i8 %.2
+  %43 = add i64 %4, 20
+  %44 = load i16, ptr %9, align 4
+  %45 = call fastcc zeroext i1 @blf_can_fill_buf_and_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.034, i8 noundef zeroext %.2, i8 noundef zeroext %.032, i64 noundef %43, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %44, i8 noundef zeroext %.0)
+  br i1 %45, label %blf_add_direction_option.exit, label %blf_read_bytes.exit.thread
 
 blf_add_direction_option.exit:                    ; preds = %blf_read_bytes.exit
-  %48 = load i8, ptr %37, align 2
-  %49 = and i8 %48, 1
-  %switch.not.not = icmp eq i8 %49, 0
+  %46 = load i8, ptr %35, align 2
+  %47 = and i8 %46, 1
+  %switch.not.not = icmp eq i8 %47, 0
   %. = select i1 %switch.not.not, i32 1, i32 2
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 232
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 232
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 @wtap_block_add_uint32_option(ptr noundef %53, i32 noundef 2, i32 noundef %.)
+  %52 = call i32 @wtap_block_add_uint32_option(ptr noundef %51, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %blf_read_bytes.exit, %blf_add_direction_option.exit, %13
@@ -2869,7 +2868,7 @@ blf_read_bytes.exit:                              ; preds = %15
   br i1 %.not, label %38, label %28
 
 28:                                               ; preds = %blf_read_bytes.exit
-  %29 = getelementptr [16 x i8], ptr @canfd_dlc_to_length, i64 0, i64 %27
+  %29 = getelementptr i8, ptr @canfd_dlc_to_length, i64 %27
   %30 = lshr i32 %25, 13
   %31 = trunc i32 %30 to i8
   %32 = and i8 %31, 3
@@ -2883,7 +2882,7 @@ blf_read_bytes.exit:                              ; preds = %15
   br label %46
 
 38:                                               ; preds = %blf_read_bytes.exit
-  %39 = getelementptr [16 x i8], ptr @can_dlc_to_length, i64 0, i64 %27
+  %39 = getelementptr i8, ptr @can_dlc_to_length, i64 %27
   %.03345 = load i8, ptr %39, align 1
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %41 = load i8, ptr %40, align 2
@@ -2919,7 +2918,7 @@ blf_read_bytes.exit:                              ; preds = %15
 
 switch.lookup:                                    ; preds = %53
   %57 = zext nneg i8 %55 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3202,7 +3201,7 @@ blf_read_bytes.exit44:                            ; preds = %64, %blf_read_bytes
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit44
   %83 = zext nneg i8 %81 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3371,7 +3370,7 @@ blf_read_bytes.exit48:                            ; preds = %81, %52
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit48
   %100 = zext nneg i8 %98 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %100
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %100
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3561,7 +3560,7 @@ blf_read_bytes.exit53:                            ; preds = %98, %67
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit53
   %117 = zext nneg i16 %115 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %117
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %117
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3662,7 +3661,7 @@ blf_read_bytes.exit:                              ; preds = %18
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit
   %54 = zext nneg i8 %52 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3991,7 +3990,7 @@ blf_read_bytes.exit:                              ; preds = %16
 
 switch.lookup:                                    ; preds = %39
   %59 = zext nneg i8 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -4111,7 +4110,7 @@ blf_read_bytes.exit:                              ; preds = %16
 
 switch.lookup:                                    ; preds = %39
   %59 = zext nneg i8 %57 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %59
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -4913,7 +4912,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
 
 31:                                               ; preds = %26
   %32 = load i8, ptr %29, align 1
-  %33 = getelementptr [4 x i8], ptr @blf_obj_magic, i64 0, i64 %27
+  %33 = getelementptr i8, ptr @blf_obj_magic, i64 %27
   %34 = load i8, ptr %33, align 1
   %.not69.i = icmp eq i8 %32, %34
   br i1 %.not69.i, label %43, label %35

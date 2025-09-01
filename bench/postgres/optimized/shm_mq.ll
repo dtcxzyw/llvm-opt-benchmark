@@ -362,7 +362,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.2108
   %60 = load i8, ptr %59, align 1
   %61 = sext i32 %.0 to i64
-  %62 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %61
+  %62 = getelementptr inbounds i8, ptr %8, i64 %61
   store i8 %60, ptr %62, align 1
   %63 = add i32 %.0, 1
   %64 = add nuw i64 %.2108, 1
@@ -659,10 +659,10 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   %64 = load i8, ptr %15, align 1
   %65 = zext i8 %64 to i64
-  %66 = add i64 %61, %65
-  %67 = getelementptr inbounds nuw [0 x i8], ptr %14, i64 0, i64 %66
+  %66 = getelementptr i8, ptr %14, i64 %61
+  %67 = getelementptr i8, ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 %.06689
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %68, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %68, i64 %63, i1 false)
   %69 = add i64 %63, %.06689
   %70 = add i64 %63, 7
   %71 = and i64 %70, -8
@@ -1215,8 +1215,8 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr noundef cap
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 49
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = add i64 %.lcssa, %46
-  %48 = getelementptr inbounds nuw [0 x i8], ptr %43, i64 0, i64 %47
+  %47 = getelementptr i8, ptr %43, i64 %.lcssa
+  %48 = getelementptr i8, ptr %47, i64 %46
   store ptr %48, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !27
   br label %select.unfold

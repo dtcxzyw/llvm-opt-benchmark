@@ -571,7 +571,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %82 = load ptr, ptr %59, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 144
   %84 = sext i32 %77 to i64
-  %85 = getelementptr [8 x ptr], ptr %83, i64 0, i64 %84
+  %85 = getelementptr ptr, ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i64 @i915_ttm_buddy_man_visible_size(ptr noundef %86) #11
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -850,7 +850,7 @@ define internal noundef ptr @i915_ttm_tt_create(ptr noundef %0, i32 noundef %1) 
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = sext i32 %22 to i64
-  %26 = getelementptr [8 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1, !range !16, !noundef !17

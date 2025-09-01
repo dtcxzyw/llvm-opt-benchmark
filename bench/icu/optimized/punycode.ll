@@ -95,12 +95,12 @@ define i32 @u_strToPunycode_77(ptr noundef readonly captures(address_is_null) %0
 49:                                               ; preds = %45, %29
   %.pn.us = phi i32 [ %48, %45 ], [ %27, %29 ]
   %.4171.us = phi i32 [ %36, %45 ], [ %.3170245.us, %29 ]
-  %50 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv298
+  %50 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv298
   store i32 %.pn.us, ptr %50, align 4, !tbaa !9
   br label %58
 
 51:                                               ; preds = %.lr.ph.split.us
-  %52 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv298
+  %52 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv298
   store i32 0, ptr %52, align 4, !tbaa !9
   %53 = icmp slt i32 %.3178244.us, %3
   br i1 %53, label %_ZL12asciiCaseMapca.exit224.us, label %56
@@ -151,7 +151,7 @@ _ZL12asciiCaseMapca.exit224.us:                   ; preds = %51
   br i1 %70, label %71, label %90
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv301
+  %72 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv301
   store i32 0, ptr %72, align 4, !tbaa !9
   %73 = icmp slt i32 %.0175249, %3
   br i1 %73, label %74, label %88
@@ -236,7 +236,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
   %.pn213 = phi i32 [ %113, %110 ], [ %66, %95 ]
   %.1168 = phi i32 [ %103, %110 ], [ %.0167250, %95 ]
   %.0190 = or disjoint i32 %.pn213, %96
-  %116 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv301
+  %116 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv301
   store i32 %.0190, ptr %116, align 4, !tbaa !9
   br label %117
 
@@ -263,7 +263,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
   br i1 %127, label %128, label %146
 
 128:                                              ; preds = %.lr.ph.split
-  %129 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 0, ptr %129, align 4, !tbaa !9
   %130 = icmp slt i32 %.3178244, %3
   br i1 %130, label %131, label %144
@@ -342,7 +342,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %.pn = phi i32 [ %168, %165 ], [ %126, %146 ]
   %.4171 = phi i32 [ %156, %165 ], [ %.3170245, %146 ]
   %.1191 = or disjoint i32 %.pn, %149
-  %170 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %.1191, ptr %170, align 4, !tbaa !9
   br label %171
 
@@ -397,7 +397,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
 .lr.ph257:                                        ; preds = %.preheader232, %.lr.ph257
   %indvars.iv303 = phi i64 [ 0, %.preheader232 ], [ %indvars.iv.next304, %.lr.ph257 ]
   %.0165256 = phi i32 [ 2147483647, %.preheader232 ], [ %.1166, %.lr.ph257 ]
-  %186 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv303
+  %186 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv303
   %187 = load i32, ptr %186, align 4, !tbaa !9
   %188 = and i32 %187, 2147483647
   %.not216.not = icmp sgt i32 %.2192282, %188
@@ -431,7 +431,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %.7182272 = phi i32 [ %.6181285, %.lr.ph276.preheader ], [ %.9, %260 ]
   %.1185271 = phi i32 [ %.0184284, %.lr.ph276.preheader ], [ %.2186, %260 ]
   %.1188270 = phi i32 [ %198, %.lr.ph276.preheader ], [ %.2189, %260 ]
-  %199 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv309
+  %199 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv309
   %200 = load i32, ptr %199, align 4, !tbaa !9
   %201 = and i32 %200, 2147483647
   %202 = icmp samesign ult i32 %201, %.1166

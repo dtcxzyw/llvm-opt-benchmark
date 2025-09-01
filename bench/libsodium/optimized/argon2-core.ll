@@ -50,9 +50,9 @@ define hidden void @_sodium_argon2_finalize(ptr noundef readonly captures(addres
 
 27:                                               ; preds = %27, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr [128 x i64], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr i64, ptr %26, i64 %indvars.iv.i
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr [128 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr i64, ptr %4, i64 %indvars.iv.i
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %31, %29
   store i64 %32, ptr %30, align 8
@@ -73,7 +73,7 @@ xor_block.exit:                                   ; preds = %27
   %indvars.iv.i18 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i19, %33 ]
   %34 = shl nuw nsw i64 %indvars.iv.i18, 3
   %35 = getelementptr i8, ptr %5, i64 %34
-  %36 = getelementptr [128 x i64], ptr %4, i64 0, i64 %indvars.iv.i18
+  %36 = getelementptr i64, ptr %4, i64 %indvars.iv.i18
   %37 = load i64, ptr %36, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %37, ptr %3, align 8
@@ -532,7 +532,7 @@ argon2_initial_hash.exit:                         ; preds = %106, %112
   %132 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %133 = getelementptr i8, ptr %3, i64 %132
   %134 = load i64, ptr %133, align 8
-  %135 = getelementptr [128 x i64], ptr %130, i64 0, i64 %indvars.iv.i.i
+  %135 = getelementptr i64, ptr %130, i64 %indvars.iv.i.i
   store i64 %134, ptr %135, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
@@ -556,7 +556,7 @@ load_block.exit.i:                                ; preds = %131
   %146 = shl nuw nsw i64 %indvars.iv.i14.i, 3
   %147 = getelementptr i8, ptr %3, i64 %146
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr [128 x i64], ptr %144, i64 0, i64 %indvars.iv.i14.i
+  %149 = getelementptr i64, ptr %144, i64 %indvars.iv.i14.i
   store i64 %148, ptr %149, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 128

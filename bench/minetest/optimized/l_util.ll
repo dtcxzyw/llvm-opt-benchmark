@@ -8395,12 +8395,12 @@ for.body.i.i:                                     ; preds = %invoke.cont12.i.i, 
   %conv2.i.i = zext i8 %28 to i32
   %shr.i.i = lshr i32 %conv2.i.i, 4
   %idxprom3.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx4.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3.i.i
   %29 = load i8, ptr %arrayidx4.i.i, align 1, !tbaa !13, !noalias !116
   store i8 %29, ptr %buf2.i.i, align 1, !tbaa !13, !noalias !116
   %and7.i.i = and i32 %conv2.i.i, 15
   %idxprom8.i.i = zext nneg i32 %and7.i.i to i64
-  %arrayidx9.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8.i.i
   %30 = load i8, ptr %arrayidx9.i.i, align 1, !tbaa !13, !noalias !116
   store i8 %30, ptr %arrayidx10.i.i, align 1, !tbaa !13, !noalias !116
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2.i.i) #28, !noalias !116
@@ -8666,12 +8666,12 @@ for.body.i.i:                                     ; preds = %invoke.cont12.i.i, 
   %conv2.i.i = zext i8 %10 to i32
   %shr.i.i = lshr i32 %conv2.i.i, 4
   %idxprom3.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx4.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom3.i.i
   %11 = load i8, ptr %arrayidx4.i.i, align 1, !tbaa !13, !noalias !124
   store i8 %11, ptr %buf2.i.i, align 1, !tbaa !13, !noalias !124
   %and7.i.i = and i32 %conv2.i.i, 15
   %idxprom8.i.i = zext nneg i32 %and7.i.i to i64
-  %arrayidx9.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZL9hex_chars, i64 0, i64 %idxprom8.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr @_ZL9hex_chars, i64 %idxprom8.i.i
   %12 = load i8, ptr %arrayidx9.i.i, align 1, !tbaa !13, !noalias !124
   store i8 %12, ptr %arrayidx10.i.i, align 1, !tbaa !13, !noalias !124
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf2.i.i) #28, !noalias !124

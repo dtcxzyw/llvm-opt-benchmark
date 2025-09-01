@@ -7333,7 +7333,7 @@ define internal void @pred8x8l_vertical_filter_add_9_c(ptr noundef captures(none
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %113 ]
   %.0102121 = phi ptr [ %0, %82 ], [ %154, %113 ]
   %.0103120 = phi ptr [ %1, %82 ], [ %155, %113 ]
-  %114 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !9
   %116 = load i32, ptr %.0103120, align 4, !tbaa !56
   %117 = trunc i32 %116 to i16
@@ -7519,7 +7519,7 @@ define internal void @pred8x8l_horizontal_filter_add_9_c(ptr noundef captures(no
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %106 ]
   %.09099 = phi ptr [ %0, %5 ], [ %147, %106 ]
   %.09198 = phi ptr [ %1, %5 ], [ %148, %106 ]
-  %107 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !9
   %109 = load i32, ptr %.09198, align 4, !tbaa !56
   %110 = trunc i32 %109 to i16
@@ -14671,7 +14671,7 @@ define internal void @pred8x8l_vertical_filter_add_10_c(ptr noundef captures(non
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %113 ]
   %.0102121 = phi ptr [ %0, %82 ], [ %154, %113 ]
   %.0103120 = phi ptr [ %1, %82 ], [ %155, %113 ]
-  %114 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !9
   %116 = load i32, ptr %.0103120, align 4, !tbaa !56
   %117 = trunc i32 %116 to i16
@@ -14857,7 +14857,7 @@ define internal void @pred8x8l_horizontal_filter_add_10_c(ptr noundef captures(n
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %106 ]
   %.09099 = phi ptr [ %0, %5 ], [ %147, %106 ]
   %.09198 = phi ptr [ %1, %5 ], [ %148, %106 ]
-  %107 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !9
   %109 = load i32, ptr %.09198, align 4, !tbaa !56
   %110 = trunc i32 %109 to i16
@@ -22009,7 +22009,7 @@ define internal void @pred8x8l_vertical_filter_add_12_c(ptr noundef captures(non
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %113 ]
   %.0102121 = phi ptr [ %0, %82 ], [ %154, %113 ]
   %.0103120 = phi ptr [ %1, %82 ], [ %155, %113 ]
-  %114 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !9
   %116 = load i32, ptr %.0103120, align 4, !tbaa !56
   %117 = trunc i32 %116 to i16
@@ -22195,7 +22195,7 @@ define internal void @pred8x8l_horizontal_filter_add_12_c(ptr noundef captures(n
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %106 ]
   %.09099 = phi ptr [ %0, %5 ], [ %147, %106 ]
   %.09198 = phi ptr [ %1, %5 ], [ %148, %106 ]
-  %107 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !9
   %109 = load i32, ptr %.09198, align 4, !tbaa !56
   %110 = trunc i32 %109 to i16
@@ -29347,7 +29347,7 @@ define internal void @pred8x8l_vertical_filter_add_14_c(ptr noundef captures(non
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %113 ]
   %.0102121 = phi ptr [ %0, %82 ], [ %154, %113 ]
   %.0103120 = phi ptr [ %1, %82 ], [ %155, %113 ]
-  %114 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !9
   %116 = load i32, ptr %.0103120, align 4, !tbaa !56
   %117 = trunc i32 %116 to i16
@@ -29533,7 +29533,7 @@ define internal void @pred8x8l_horizontal_filter_add_14_c(ptr noundef captures(n
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %106 ]
   %.09099 = phi ptr [ %0, %5 ], [ %147, %106 ]
   %.09198 = phi ptr [ %1, %5 ], [ %148, %106 ]
-  %107 = getelementptr inbounds nuw [8 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !9
   %109 = load i32, ptr %.09198, align 4, !tbaa !56
   %110 = trunc i32 %109 to i16
@@ -36853,7 +36853,7 @@ define internal void @pred8x8l_vertical_filter_add_8_c(ptr noundef captures(none
   %indvars.iv = phi i64 [ 0, %81 ], [ %indvars.iv.next, %112 ]
   %.0102121 = phi ptr [ %0, %81 ], [ %153, %112 ]
   %.0103120 = phi ptr [ %1, %81 ], [ %154, %112 ]
-  %113 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = load i16, ptr %.0103120, align 2, !tbaa !9
   %116 = trunc i16 %115 to i8
@@ -37038,7 +37038,7 @@ define internal void @pred8x8l_horizontal_filter_add_8_c(ptr noundef captures(no
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %105 ]
   %.09099 = phi ptr [ %0, %5 ], [ %146, %105 ]
   %.09198 = phi ptr [ %1, %5 ], [ %147, %105 ]
-  %106 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %107 = load i8, ptr %106, align 1, !tbaa !8
   %108 = load i16, ptr %.09198, align 2, !tbaa !9
   %109 = trunc i16 %108 to i8

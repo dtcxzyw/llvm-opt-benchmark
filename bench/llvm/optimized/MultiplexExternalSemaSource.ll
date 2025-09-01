@@ -1547,7 +1547,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 8, !tbaa !73
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %43
   store ptr %31, ptr %44, align 8, !tbaa !75
   br label %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit
 

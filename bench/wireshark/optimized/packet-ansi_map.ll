@@ -4194,7 +4194,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %22, i32 noundef 5, ptr noundef nonnull %2)
   %23 = add i32 %.020, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr [113 x %struct._value_string], ptr @ansi_map_opr_code_strings, i64 0, i64 %24
+  %25 = getelementptr %struct._value_string, ptr @ansi_map_opr_code_strings, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not18 = icmp eq ptr %27, null
@@ -4360,7 +4360,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   %spec.store.select.i = select i1 %28, i32 0, i32 %27
   store i32 %spec.store.select.i, ptr @dissect_invokeData.tap_current, align 4
   %29 = sext i32 %spec.store.select.i to i64
-  %30 = getelementptr [16 x %struct._ansi_map_tap_rec_t], ptr @dissect_invokeData.tap_rec, i64 0, i64 %29
+  %30 = getelementptr %struct._ansi_map_tap_rec_t, ptr @dissect_invokeData.tap_rec, i64 %29
   store ptr %30, ptr @dissect_invokeData.tap_p, align 8
   %31 = load i32, ptr @OperationCode, align 4
   switch i32 %31, label %.thread.i [
@@ -5139,7 +5139,7 @@ find_saved_invokedata.exit:                       ; preds = %._crit_edge.i, %418
   %spec.store.select.i27 = select i1 %432, i32 0, i32 %431
   store i32 %spec.store.select.i27, ptr @dissect_returnData.tap_current, align 4
   %433 = sext i32 %spec.store.select.i27 to i64
-  %434 = getelementptr [16 x %struct._ansi_map_tap_rec_t], ptr @dissect_returnData.tap_rec, i64 0, i64 %433
+  %434 = getelementptr %struct._ansi_map_tap_rec_t, ptr @dissect_returnData.tap_rec, i64 %433
   store ptr %434, ptr @dissect_returnData.tap_p, align 8
   %435 = load i32, ptr @OperationCode, align 4
   switch i32 %435, label %.thread.i30 [

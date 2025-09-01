@@ -12693,7 +12693,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %23
 .lr.ph:                                           ; preds = %54, %101
   %64 = phi ptr [ %102, %101 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 1, %54 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -13751,7 +13751,7 @@ _ZN3smt17theory_diff_logicINS_7idl_extEE9is_offsetEP3appRS4_S5_R8rational.exit: 
 62:                                               ; preds = %.lr.ph, %78
   %63 = phi i32 [ %57, %.lr.ph ], [ %79, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = load ptr, ptr %58, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8656
@@ -23538,7 +23538,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %30
 
 49:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !34
   %52 = invoke noundef zeroext i1 @_ZN3smt17theory_diff_logicINS_7idl_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(2492) %0, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %53 unwind label %47
@@ -35574,7 +35574,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %23
 .lr.ph:                                           ; preds = %54, %101
   %64 = phi ptr [ %102, %101 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 1, %54 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -36178,7 +36178,7 @@ _ZN3smt17theory_diff_logicINS_8sidl_extEE9is_offsetEP3appRS4_S5_R8rational.exit:
 62:                                               ; preds = %.lr.ph, %78
   %63 = phi i32 [ %57, %.lr.ph ], [ %79, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = load ptr, ptr %58, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8656
@@ -43328,7 +43328,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %30
 
 49:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !34
   %52 = invoke noundef zeroext i1 @_ZN3smt17theory_diff_logicINS_8sidl_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(2468) %0, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %53 unwind label %47
@@ -55845,7 +55845,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %23
 .lr.ph:                                           ; preds = %54, %101
   %64 = phi ptr [ %102, %101 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 1, %54 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -56894,7 +56894,7 @@ _ZN3smt17theory_diff_logicINS_7rdl_extEE9is_offsetEP3appRS4_S5_R8rational.exit: 
 62:                                               ; preds = %.lr.ph, %78
   %63 = phi i32 [ %57, %.lr.ph ], [ %79, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = load ptr, ptr %58, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8656
@@ -65175,7 +65175,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %30
 
 49:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !34
   %52 = invoke noundef zeroext i1 @_ZN3smt17theory_diff_logicINS_7rdl_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(2500) %0, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %53 unwind label %47
@@ -78276,7 +78276,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %23
 .lr.ph:                                           ; preds = %54, %101
   %64 = phi ptr [ %102, %101 ], [ %55, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 1, %54 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -79005,7 +79005,7 @@ _ZN3smt17theory_diff_logicINS_8srdl_extEE9is_offsetEP3appRS4_S5_R8rational.exit:
 62:                                               ; preds = %.lr.ph, %78
   %63 = phi i32 [ %57, %.lr.ph ], [ %79, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %64 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = load ptr, ptr %58, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8656
@@ -87286,7 +87286,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %30
 
 49:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %50 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !34
   %52 = invoke noundef zeroext i1 @_ZN3smt17theory_diff_logicINS_8srdl_extEE21internalize_objectiveEP4exprRK8rationalRS5_R6vectorISt4pairIiS5_ELb1EjE(ptr noundef nonnull align 8 dereferenceable(2500) %0, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %53 unwind label %47

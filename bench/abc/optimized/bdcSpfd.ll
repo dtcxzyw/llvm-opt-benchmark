@@ -53,7 +53,7 @@ define i32 @Bdc_SpfdAdjCost(i64 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.012 = phi i32 [ 0, %1 ], [ %39, %2 ]
-  %3 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %5 = xor i64 %4, -1
   %6 = and i64 %0, %5
@@ -299,7 +299,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8, !tbaa !3
   %72 = icmp eq i64 %0, %71
   %73 = xor i64 %71, %0
@@ -346,7 +346,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .lr.ph561:                                        ; preds = %.lr.ph561.preheader, %.lr.ph561
   %indvars.iv643 = phi i64 [ 0, %.lr.ph561.preheader ], [ %indvars.iv.next644, %.lr.ph561 ]
-  %91 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv643
+  %91 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv643
   %92 = load i64, ptr %91, align 8, !tbaa !3
   %93 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv643, i32 1
   store i64 %92, ptr %93, align 8, !tbaa !14
@@ -1825,7 +1825,7 @@ define range(i32 0, -1) i32 @Bdc_SpfdHashValue(i64 noundef %0, i32 noundef %1) l
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %.09 = phi i32 [ 0, %2 ], [ %11, %4 ]
-  %5 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr @Bdc_SpfdHashValue.BigPrimes, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !43
@@ -1851,7 +1851,7 @@ define ptr @Bdc_SpfdHashLookup(ptr noundef readonly captures(ret: address, prove
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
   %.09.i = phi i32 [ 0, %3 ], [ %12, %5 ]
-  %6 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i32, ptr @Bdc_SpfdHashValue.BigPrimes, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1, !tbaa !43
@@ -1975,7 +1975,7 @@ Vec_IntPush.exit:                                 ; preds = %17
   %37 = add nuw nsw i64 %36, %35
   %38 = or disjoint i64 %37, 536870911
   store i64 %38, ptr %.1258, align 8
-  %39 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %.pn256, i64 40
   store i64 %40, ptr %41, align 8, !tbaa !50
@@ -1986,7 +1986,7 @@ Vec_IntPush.exit:                                 ; preds = %17
 42:                                               ; preds = %42, %32
   %indvars.iv.i.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i.i, %42 ]
   %.09.i.i = phi i32 [ 0, %32 ], [ %49, %42 ]
-  %43 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i32, ptr @Bdc_SpfdHashValue.BigPrimes, i64 %indvars.iv.i.i
   %44 = load i32, ptr %43, align 4, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %46 = load i8, ptr %45, align 1, !tbaa !43
@@ -2364,7 +2364,7 @@ Abc_Clock.exit197:                                ; preds = %155, %174
 212:                                              ; preds = %212, %211
   %indvars.iv.i.i198.us = phi i64 [ 0, %211 ], [ %indvars.iv.next.i.i200.us, %212 ]
   %.09.i.i199.us = phi i32 [ 0, %211 ], [ %219, %212 ]
-  %213 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i198.us
+  %213 = getelementptr inbounds nuw i32, ptr @Bdc_SpfdHashValue.BigPrimes, i64 %indvars.iv.i.i198.us
   %214 = load i32, ptr %213, align 4, !tbaa !28
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i198.us
   %216 = load i8, ptr %215, align 1, !tbaa !43
@@ -3170,7 +3170,7 @@ define i32 @Bdc_SpfdDecomposeTestOne(i64 noundef %0, ptr noundef readonly captur
 23:                                               ; preds = %23, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %23 ]
   %.012.i = phi i32 [ 0, %._crit_edge ], [ %60, %23 ]
-  %24 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = xor i64 %25, -1
   %27 = and i64 %22, %26
@@ -3535,7 +3535,7 @@ Abc_Clock.exit:                                   ; preds = %0, %9
 17:                                               ; preds = %17, %Abc_Clock.exit
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %17 ]
   %.012.i = phi i32 [ 0, %Abc_Clock.exit ], [ %54, %17 ]
-  %18 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = and i64 %19, 5853367888539878671
   %21 = xor i64 %20, 5853367888539878671
@@ -3625,7 +3625,7 @@ Abc_Clock.exit16:                                 ; preds = %Bdc_SpfdAdjCost.exi
 77:                                               ; preds = %77, %73
   %indvars.iv.i17 = phi i64 [ 0, %73 ], [ %indvars.iv.next.i19, %77 ]
   %.012.i18 = phi i32 [ 0, %73 ], [ %114, %77 ]
-  %78 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i17
+  %78 = getelementptr inbounds nuw i64, ptr @Truths, i64 %indvars.iv.i17
   %79 = load i64, ptr %78, align 8, !tbaa !3
   %80 = xor i64 %79, -1
   %81 = and i64 %76, %80

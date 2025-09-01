@@ -62,7 +62,7 @@ define dso_local i32 @ieee80211_calc_rx_airtime(ptr noundef readonly captures(no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 312
   %22 = zext i8 %18 to i64
-  %23 = getelementptr [6 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %57, label %26
@@ -219,10 +219,10 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr noundef readonly cap
   %59 = phi i32 [ %27, %.thread8 ], [ %53, %.thread3 ]
   %60 = phi i32 [ %23, %.thread8 ], [ %55, %.thread3 ]
   %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr [144 x %struct.mcs_group], ptr @airtime_mcs_groups, i64 0, i64 %61
+  %62 = getelementptr %struct.mcs_group, ptr @airtime_mcs_groups, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %64 = zext nneg i32 %60 to i64
-  %65 = getelementptr [12 x i16], ptr %63, i64 0, i64 %64
+  %65 = getelementptr i16, ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = load i8, ptr %62, align 2
@@ -253,7 +253,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr noundef readonly captures(no
 12:                                               ; preds = %60, %3
   %13 = phi i64 [ 0, %3 ], [ %66, %60 ]
   %14 = phi i32 [ 0, %3 ], [ %65, %60 ]
-  %15 = getelementptr [4 x %struct.ieee80211_tx_rate], ptr %5, i64 0, i64 %13
+  %15 = getelementptr %struct.ieee80211_tx_rate, ptr %5, i64 %13
   %16 = load i32, ptr %6, align 4
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 7
@@ -386,7 +386,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %26 = zext i8 %19 to i64
-  %27 = getelementptr [6 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %21, null
   %30 = icmp ne ptr %28, null
@@ -615,7 +615,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 312
   %.mask = and i32 %15, 255
   %171 = zext nneg i32 %.mask to i64
-  %172 = getelementptr [6 x ptr], ptr %170, i64 0, i64 %171
+  %172 = getelementptr ptr, ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %175 = load i32, ptr %174, align 8

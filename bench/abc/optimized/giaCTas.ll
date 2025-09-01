@@ -435,7 +435,7 @@ define i32 @Tas_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
 
 .lr.ph.i.i:                                       ; preds = %137, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 2, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %137 ]
-  %75 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !75
   %77 = ashr i32 %76, 1
   %78 = sext i32 %77 to i64
@@ -454,7 +454,7 @@ define i32 @Tas_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   br i1 %.not68.i.i, label %137, label %86
 
 86:                                               ; preds = %81, %.lr.ph.i.i
-  %87 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i.i
   %88 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %89 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %76, ptr %89, align 4, !tbaa !75
@@ -661,7 +661,7 @@ Tas_QuePush.exit.i.i.i:                           ; preds = %170, %._crit_edge.i
   %181 = phi i32 [ %198, %Tas_QuePush.exit18.i.i.i ], [ %175, %Tas_QuePush.exit.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %Tas_QuePush.exit18.i.i.i ], [ 0, %Tas_QuePush.exit.i.i.i ]
   %182 = load ptr, ptr %6, align 8, !tbaa !17
-  %183 = getelementptr inbounds nuw [0 x i32], ptr %47, i64 0, i64 %indvars.iv.i.i.i
+  %183 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i.i.i
   %184 = load i32, ptr %183, align 4, !tbaa !75
   %185 = ashr i32 %184, 1
   %186 = getelementptr i8, ptr %182, i64 32
@@ -1601,7 +1601,7 @@ Tas_ManAllocCls.exit:                             ; preds = %._crit_edge.i, %29
   %56 = shl nsw i32 %52, 1
   %57 = or disjoint i32 %56, %55
   %58 = sub nsw i64 %indvars.iv53, %5
-  %59 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %58
+  %59 = getelementptr inbounds i32, ptr %46, i64 %58
   store i32 %57, ptr %59, align 4, !tbaa !75
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %60 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.next54
@@ -5045,7 +5045,7 @@ Tas_VarHasReasonCls.exit:                         ; preds = %70
   %88 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %112, %Tas_QuePush.exit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %Tas_QuePush.exit ]
   %89 = load ptr, ptr %15, align 8, !tbaa !17
-  %90 = getelementptr inbounds nuw [0 x i32], ptr %83, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !75
   %92 = ashr i32 %91, 1
   %93 = getelementptr i8, ptr %89, i64 32

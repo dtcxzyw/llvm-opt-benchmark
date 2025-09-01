@@ -1209,7 +1209,7 @@ faulthandler_unregister.exit:                     ; preds = %.preheader, %Py_DEC
 
 33:                                               ; preds = %faulthandler_disable_fatal_handler.exit.i, %32
   %.010.i = phi i64 [ 0, %32 ], [ %41, %faulthandler_disable_fatal_handler.exit.i ]
-  %34 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.010.i
+  %34 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.010.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !192
   %.not.i9.i = icmp eq i32 %36, 0
@@ -1505,7 +1505,7 @@ faulthandler_allocate_stack.exit.i:               ; preds = %41, %33
 
 49:                                               ; preds = %57, %faulthandler_allocate_stack.exit.i
   %.0915.i = phi i64 [ 0, %faulthandler_allocate_stack.exit.i ], [ %59, %57 ]
-  %50 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.0915.i
+  %50 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.0915.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @faulthandler_fatal_error, ptr %4, align 8, !tbaa !175
   %51 = call i32 @sigemptyset(ptr noundef nonnull %47) #16
@@ -1549,7 +1549,7 @@ define internal noundef nonnull ptr @faulthandler_disable_py(ptr readnone captur
 
 5:                                                ; preds = %faulthandler_disable_fatal_handler.exit.i, %4
   %.010.i = phi i64 [ 0, %4 ], [ %13, %faulthandler_disable_fatal_handler.exit.i ]
-  %6 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.010.i
+  %6 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.010.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !192
   %.not.i9.i = icmp eq i32 %8, 0
@@ -1929,7 +1929,7 @@ define internal ptr @faulthandler_register_py(ptr readnone captures(none) %0, pt
 
 15:                                               ; preds = %13, %11
   %.01016.i = phi i64 [ 0, %11 ], [ %14, %13 ]
-  %16 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.01016.i
+  %16 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.01016.i
   %17 = load i32, ptr %16, align 16, !tbaa !194
   %18 = icmp eq i32 %17, %12
   br i1 %18, label %19, label %13
@@ -2131,7 +2131,7 @@ define internal ptr @faulthandler_unregister_py(ptr readnone captures(none) %0, 
 
 9:                                                ; preds = %7, %5
   %.01016.i = phi i64 [ 0, %5 ], [ %8, %7 ]
-  %10 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.01016.i
+  %10 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.01016.i
   %11 = load i32, ptr %10, align 16, !tbaa !194
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %13, label %7
@@ -2597,7 +2597,7 @@ define internal void @faulthandler_fatal_error(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1, %7
   %.02024 = phi i64 [ %8, %7 ], [ 0, %1 ]
-  %9 = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %.02024
+  %9 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.02024
   %10 = load i32, ptr %9, align 16, !tbaa !194
   %.not25 = icmp eq i32 %10, %0
   br i1 %.not25, label %11, label %7

@@ -519,9 +519,9 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %79 = and i32 %78, 1
   %80 = xor i32 %79, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %57, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [5 x i32], ptr %57, i64 %81
   %83 = zext nneg i32 %72 to i64
-  %84 = getelementptr inbounds nuw [5 x i32], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 4
@@ -1135,9 +1135,9 @@ define linkonce_odr hidden void @_ZN18HandshakeSpinYield7processEv(ptr noundef n
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %.not.not.i = icmp ne i32 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1161,8 +1161,8 @@ _ZN18HandshakeSpinYield13state_changedEv.exit:    ; preds = %5
   %16 = and i32 %15, 1
   %17 = xor i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %3, i64 0, i64 %18
-  %20 = getelementptr inbounds nuw [5 x i32], ptr %19, i64 0, i64 %indvars.iv.i7
+  %19 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 %18
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i7
   store i32 0, ptr %20, align 4
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 5
@@ -1227,8 +1227,8 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %42, %41, %36
   %50 = and i32 %49, 1
   %51 = xor i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %3, i64 0, i64 %52
-  %54 = getelementptr inbounds nuw [5 x i32], ptr %53, i64 0, i64 %indvars.iv.i10
+  %53 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 %52
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i10
   store i32 0, ptr %54, align 4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 5
@@ -3309,9 +3309,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
   %82 = and i32 %81, 1
   %83 = xor i32 %82, 1
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %68, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [5 x i32], ptr %68, i64 %84
   %86 = zext nneg i32 %80 to i64
-  %87 = getelementptr inbounds nuw [5 x i32], ptr %85, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %87, align 4
@@ -3411,7 +3411,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

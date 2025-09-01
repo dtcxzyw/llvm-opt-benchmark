@@ -422,11 +422,11 @@ X11_XInput2PenWacomDeviceID.exit:                 ; preds = %X11_XInput2PenGetIn
   %sext = shl i32 %144, 24
   %163 = ashr exact i32 %sext, 24
   %164 = zext nneg i32 %.06489 to i64
-  %165 = getelementptr inbounds nuw [7 x i32], ptr %46, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %46, i64 %164
   store i32 %163, ptr %165, align 4
-  %166 = getelementptr inbounds nuw [7 x float], ptr %51, i64 0, i64 %164
+  %166 = getelementptr inbounds nuw float, ptr %51, i64 %164
   store float %149, ptr %166, align 4
-  %167 = getelementptr inbounds nuw [7 x float], ptr %52, i64 0, i64 %164
+  %167 = getelementptr inbounds nuw float, ptr %52, i64 %164
   store float %152, ptr %167, align 4
   %.pre = load i32, ptr %25, align 4
   br label %168
@@ -595,7 +595,7 @@ define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %57, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %57 ]
-  %14 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %57, label %17
@@ -603,9 +603,9 @@ define hidden void @X11_PenAxesFromValuators(ptr noundef readonly captures(none)
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds nuw [7 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds nuw [7 x float], ptr %10, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4
   %24 = icmp eq i64 %indvars.iv.i, 5
   br i1 %24, label %25, label %28
@@ -685,7 +685,7 @@ X11_XInput2NormalizePenAxes.exit:                 ; preds = %57
 
 58:                                               ; preds = %5, %76
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %76 ]
-  %59 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = icmp ne i32 %60, -1
   %.not = icmp slt i32 %60, %7

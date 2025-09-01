@@ -241,7 +241,7 @@ getNextLevel.exit35.i:                            ; preds = %30, %25
 
 createTestNode.exit.i:                            ; preds = %36, %getNextLevel.exit35.i
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %41 = getelementptr inbounds [1 x i8], ptr %40, i64 0, i64 %32
+  %41 = getelementptr inbounds i8, ptr %40, i64 %32
   store i8 0, ptr %41, align 1, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   store ptr %34, ptr %42, align 8, !tbaa !3
@@ -289,7 +289,7 @@ strncmp_nullcheck.exit.thread.i:                  ; preds = %strncmp_nullcheck.e
 
 createTestNode.exit37.i:                          ; preds = %59, %54
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %64 = getelementptr inbounds [1 x i8], ptr %63, i64 0, i64 %.pre.i.i
+  %64 = getelementptr inbounds i8, ptr %63, i64 %.pre.i.i
   store i8 0, ptr %64, align 1, !tbaa !11
   store ptr %57, ptr %55, align 8, !tbaa !9
   br label %.loopexit47.i
@@ -579,7 +579,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %69
+  %70 = getelementptr inbounds [128 x i8], ptr @ERROR_LOG, i64 %69
   %71 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %6) #23
   br label %84
 
@@ -807,7 +807,7 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %16 ]
   %30 = load ptr, ptr @stdout, align 8, !tbaa !16
-  %31 = getelementptr inbounds nuw [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [128 x i8], ptr @ERROR_LOG, i64 %indvars.iv
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.11, ptr noundef nonnull %31) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
@@ -832,7 +832,7 @@ define void @runTests(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph23 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %indvars.iv26
+  %41 = getelementptr inbounds nuw [128 x i8], ptr @ERROR_LOG, i64 %indvars.iv26
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %38, ptr noundef nonnull @.str.13, ptr noundef nonnull %41) #23
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %43 = load i32, ptr @ERRONEOUS_FUNCTION_COUNT, align 4, !tbaa !18
@@ -2407,7 +2407,7 @@ getTestOption.exit:                               ; preds = %4, %5, %7, %9, %11,
 
 switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.setTestOption, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.setTestOption, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   store i32 %.0, ptr %switch.load, align 4, !tbaa !18
   br label %23

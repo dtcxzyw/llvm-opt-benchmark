@@ -354,7 +354,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %115, %_ZL10readVa
 
 133:                                              ; preds = %127
   %134 = and i64 %121, 4294967295
-  %135 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %11, i64 %134
   store i8 %132, ptr %135, align 1, !tbaa !19
   br label %138
 

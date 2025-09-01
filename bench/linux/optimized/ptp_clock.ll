@@ -704,7 +704,7 @@ define dso_local void @ptp_clock_event(ptr noundef %0, ptr noundef %1) #0 align 
   %32 = getelementptr i8, ptr %16, i64 -12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr [128 x %struct.ptp_extts_event], ptr %25, i64 0, i64 %34
+  %35 = getelementptr %struct.ptp_extts_event, ptr %25, i64 %34
   %36 = load i32, ptr %13, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %36, ptr %37, align 8

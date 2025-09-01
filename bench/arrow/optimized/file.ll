@@ -7765,7 +7765,7 @@ define linkonce_odr void @_ZSt4lockISt11unique_lockISt5mutexES2_JEEvRT_RT0_DpRT1
 7:                                                ; preds = %.loopexit, %2
   %.0 = phi i32 [ 0, %2 ], [ %.2, %.loopexit ]
   %8 = zext nneg i32 %.0 to i64
-  %9 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %8
   %10 = load ptr, ptr %9, align 16, !tbaa !530
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.invoke, label %11
@@ -7806,7 +7806,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
   %24 = and i32 %.0, 1
   %25 = xor i32 %24, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %27, align 16, !tbaa !530
   %.not.i40 = icmp eq ptr %29, null
@@ -7852,7 +7852,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
 .preheader58:                                     ; preds = %42
   %45 = and i32 %.0, 1
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.promoted = load i8, ptr %48, align 8, !tbaa !533
   %49 = trunc nuw i8 %.promoted to i1
@@ -7906,7 +7906,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %21
 .loopexit:                                        ; preds = %42, %.thread
   %.2 = phi i32 [ %25, %.thread ], [ %.0, %42 ]
   %64 = zext nneg i32 %.2 to i64
-  %65 = getelementptr inbounds nuw [2 x %"class.std::unique_lock.201"], ptr %3, i64 0, i64 %64, i32 1
+  %65 = getelementptr inbounds nuw %"class.std::unique_lock.201", ptr %3, i64 %64, i32 1
   %66 = load i8, ptr %65, align 8, !tbaa !533, !range !73, !noundef !74
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %.preheader113, label %7, !llvm.loop !535

@@ -786,7 +786,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 64
   %284 = load ptr, ptr %283, align 8, !tbaa !30
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  %286 = getelementptr inbounds nuw [268435454 x ptr], ptr %285, i64 0, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv
   %287 = load ptr, ptr %286, align 8, !tbaa !35
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 48
   %289 = load ptr, ptr %288, align 8, !tbaa !36

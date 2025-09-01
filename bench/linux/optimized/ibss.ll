@@ -196,7 +196,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %42 = load ptr, ptr %5, align 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr [6 x ptr], ptr %41, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load i32, ptr %47, align 8
@@ -734,12 +734,12 @@ define dso_local void @ieee80211_ibss_rx_no_sta(ptr noundef %0, ptr noundef read
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 312
   %47 = sext i32 %40 to i64
-  %48 = getelementptr [6 x ptr], ptr %46, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @ieee80211_mandatory_rates(ptr noundef %49) #15
   %51 = or i32 %50, %3
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 2892
-  %53 = getelementptr [6 x i32], ptr %52, i64 0, i64 %47
+  %53 = getelementptr i32, ptr %52, i64 %47
   store i32 %51, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   tail call void @_raw_spin_lock(ptr noundef nonnull %54) #15
@@ -1105,7 +1105,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 312
   %223 = zext i8 %199 to i64
-  %224 = getelementptr [6 x ptr], ptr %222, i64 0, i64 %223
+  %224 = getelementptr ptr, ptr %222, i64 %223
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %227, label %228, !prof !8
@@ -1132,7 +1132,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %230, i64 2892
-  %238 = getelementptr [6 x i32], ptr %237, i64 0, i64 %223
+  %238 = getelementptr i32, ptr %237, i64 %223
   %239 = load i32, ptr %238, align 4
   %240 = call i32 @ieee80211_mandatory_rates(ptr noundef nonnull %225) #15
   %241 = or i32 %240, %235
@@ -1723,9 +1723,9 @@ define dso_local void @ieee80211_ibss_work(ptr noundef %0) local_unnamed_addr #0
 
 126:                                              ; preds = %126, %124
   %127 = phi i64 [ 0, %124 ], [ %133, %126 ]
-  %128 = getelementptr [6 x i8], ptr %125, i64 0, i64 %127
+  %128 = getelementptr i8, ptr %125, i64 %127
   %129 = load i8, ptr %128, align 1
-  %130 = getelementptr [6 x i8], ptr %2, i64 0, i64 %127
+  %130 = getelementptr i8, ptr %2, i64 %127
   %131 = load i8, ptr %130, align 1
   %132 = xor i8 %131, %129
   store i8 %132, ptr %130, align 1
@@ -2179,7 +2179,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ieee80211_ibss_join(ptr noundef 
   %64 = load ptr, ptr %6, align 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr [6 x ptr], ptr %63, i64 0, i64 %66
+  %67 = getelementptr ptr, ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
@@ -2841,7 +2841,7 @@ define internal fastcc void @ieee80211_sta_join_ibss(ptr noundef %0, ptr noundef
   %42 = load ptr, ptr %4, align 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr [6 x ptr], ptr %41, i64 0, i64 %44
+  %45 = getelementptr ptr, ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -2861,7 +2861,7 @@ define internal fastcc void @ieee80211_sta_join_ibss(ptr noundef %0, ptr noundef
   %57 = phi i64 [ 0, %.split.us ], [ %86, %.loopexit.us ]
   %58 = phi i32 [ 0, %.split.us ], [ %84, %.loopexit.us ]
   %59 = phi i32 [ 0, %.split.us ], [ %85, %.loopexit.us ]
-  %60 = getelementptr [32 x i8], ptr %47, i64 0, i64 %57
+  %60 = getelementptr i8, ptr %47, i64 %57
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, 127
   %63 = zext nneg i8 %62 to i32
@@ -3002,12 +3002,12 @@ define internal fastcc ptr @ieee80211_ibss_add_sta(ptr noundef %0, ptr noundef r
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 312
   %50 = sext i32 %42 to i64
-  %51 = getelementptr [6 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @ieee80211_mandatory_rates(ptr noundef %52) #15
   %54 = or i32 %53, %3
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 2892
-  %56 = getelementptr [6 x i32], ptr %55, i64 0, i64 %50
+  %56 = getelementptr i32, ptr %55, i64 %50
   store i32 %54, ptr %56, align 4
   %57 = tail call fastcc ptr @ieee80211_ibss_finish_sta(ptr noundef nonnull %43)
   br label %58
@@ -3698,9 +3698,9 @@ define internal fastcc void @ieee80211_sta_create_ibss(ptr noundef %0) unnamed_a
 
 10:                                               ; preds = %10, %8
   %11 = phi i64 [ 0, %8 ], [ %17, %10 ]
-  %12 = getelementptr [6 x i8], ptr %9, i64 0, i64 %11
+  %12 = getelementptr i8, ptr %9, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr [6 x i8], ptr %2, i64 0, i64 %11
+  %14 = getelementptr i8, ptr %2, i64 %11
   %15 = load i8, ptr %14, align 1
   %16 = xor i8 %15, %13
   store i8 %16, ptr %14, align 1

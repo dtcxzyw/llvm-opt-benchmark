@@ -1133,7 +1133,7 @@ define linkonce_odr hidden void @_ZN2cv4face8MACEImpl4saltERKNSt7__cxx1112basic_
   br label %14
 
 12:                                               ; preds = %14
-  %13 = getelementptr inbounds nuw [256 x i64], ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i64, ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 %indvars.iv.i
   store i64 %18, ptr %13, align 8, !tbaa !66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -1167,7 +1167,7 @@ define linkonce_odr hidden void @_ZN2cv4face8MACEImpl4saltERKNSt7__cxx1112basic_
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = zext i8 %24 to i64
   %26 = xor i64 %22, %25
-  %27 = getelementptr inbounds nuw [256 x i64], ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr @_ZZN2cv4faceL5crc64EPKhmmE5table, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = lshr i64 %.01725.i, 8
   %30 = xor i64 %28, %29

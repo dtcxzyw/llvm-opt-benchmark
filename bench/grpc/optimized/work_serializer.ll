@@ -510,7 +510,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
 50:                                               ; preds = %.noexc
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 4072
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds [20 x %"struct.std::atomic.30"], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds %"struct.std::atomic.30", ptr %51, i64 %52
   %54 = atomicrmw add ptr %53, i64 1 monotonic, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8, !tbaa !63
@@ -832,7 +832,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
 18:                                               ; preds = %.noexc
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 3752
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds [20 x %"struct.std::atomic.30"], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds %"struct.std::atomic.30", ptr %19, i64 %20
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load i64, ptr %23, align 8, !tbaa !63
@@ -848,7 +848,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
 29:                                               ; preds = %.noexc9
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 3912
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds [20 x %"struct.std::atomic.30"], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds %"struct.std::atomic.30", ptr %30, i64 %31
   %33 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load i64, ptr %34, align 16, !tbaa !64
@@ -863,7 +863,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
 39:                                               ; preds = %.noexc11
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 4232
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds [20 x %"struct.std::atomic.30"], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds %"struct.std::atomic.30", ptr %40, i64 %41
   %43 = atomicrmw add ptr %42, i64 1 monotonic, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %45 = load i8, ptr %44, align 1, !tbaa !32, !range !30, !noundef !31

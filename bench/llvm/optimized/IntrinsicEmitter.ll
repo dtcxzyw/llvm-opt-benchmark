@@ -1815,7 +1815,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i23:             ; preds = %444, %442
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %455, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %454, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !47
-  %456 = getelementptr inbounds nuw [256 x %"class.llvm::StringRef"], ptr %70, i64 0, i64 %453
+  %456 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %70, i64 %453
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %456, align 8, !tbaa !46
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %456, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
@@ -1825,7 +1825,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i23:             ; preds = %444, %442
 
 .preheader.i:                                     ; preds = %.lr.ph.i25, %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4llvm11raw_ostreamlsEPKc.exit30.i ], [ 0, %.lr.ph.i25 ]
-  %458 = getelementptr inbounds nuw [256 x %"class.llvm::StringRef"], ptr %70, i64 0, i64 %indvars.iv.i
+  %458 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %70, i64 %indvars.iv.i
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i64, ptr %459, align 8, !tbaa !70
   %461 = icmp eq i64 %460, 0
@@ -4028,10 +4028,10 @@ switch.lookup:                                    ; preds = %.lr.ph.i88
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %switch.tableidx = add nsw i32 %1480, -1
   %1494 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 0, i64 %1494
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb, i64 %1494
   %switch.load = load i64, ptr %switch.gep, align 8
   %1495 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep440 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.88, i64 0, i64 %1495
+  %switch.gep440 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_116IntrinsicEmitter3runERN4llvm11raw_ostreamEb.88, i64 %1495
   %switch.load441 = load ptr, ptr %switch.gep440, align 8
   store ptr %switch.load441, ptr %31, align 8
   store i64 %switch.load, ptr %1212, align 8

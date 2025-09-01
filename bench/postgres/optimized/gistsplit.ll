@@ -57,7 +57,7 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %34 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %33, i64 0, i64 %18
+  %34 = getelementptr inbounds %struct.CompactAttribute, ptr %33, i64 %18
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %64
@@ -132,14 +132,14 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
 index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, %56, %62, %64
   %.1.i.ph = phi i64 [ %63, %62 ], [ %57, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %65, %64 ], [ %73, %72 ]
   %74 = sext i32 %.0143156 to i64
-  %75 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %23, i64 0, i64 %74
+  %75 = getelementptr inbounds %struct.GISTENTRY, ptr %23, i64 %74
   %76 = trunc i32 %.0143156 to i16
   tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %75, i64 noundef %.1.i.ph, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %76, i1 noundef zeroext false, i1 noundef zeroext false) #7
   br label %84
 
 77:                                               ; preds = %66
   %78 = sext i32 %.0143156 to i64
-  %79 = getelementptr inbounds [0 x %struct.GISTENTRY], ptr %23, i64 0, i64 %78
+  %79 = getelementptr inbounds %struct.GISTENTRY, ptr %23, i64 %78
   %80 = trunc i32 %.0143156 to i16
   tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %79, i64 noundef 0, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %80, i1 noundef zeroext false, i1 noundef zeroext true) #7
   %81 = add i32 %.0141157, 1
@@ -165,10 +165,10 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
 88:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %90 = sext i32 %6 to i64
-  %91 = getelementptr inbounds [32 x i8], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds i8, ptr %89, i64 %90
   store i8 1, ptr %91, align 1
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 608
-  %93 = getelementptr inbounds [32 x i8], ptr %92, i64 0, i64 %90
+  %93 = getelementptr inbounds i8, ptr %92, i64 %90
   store i8 1, ptr %93, align 1
   %94 = add i32 %6, 1
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -238,7 +238,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   store i32 %.1142, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 608
   %128 = sext i32 %6 to i64
-  %129 = getelementptr inbounds [32 x i8], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds i8, ptr %127, i64 %128
   store i8 1, ptr %129, align 1
   %130 = tail call ptr @palloc(i64 noundef %14) #7
   store ptr %130, ptr %5, align 8
@@ -614,31 +614,31 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
   %16 = alloca i32, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1, !range !4, !noundef !5
   %21 = xor i8 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 608
-  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 0, i64 %18
+  %24 = getelementptr inbounds i8, ptr %23, i64 %18
   %25 = load i8, ptr %24, align 1, !range !4, !noundef !5
   %26 = xor i8 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %29 = getelementptr inbounds [32 x i64], ptr %28, i64 0, i64 %18
+  %29 = getelementptr inbounds i64, ptr %28, i64 %18
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 352
-  %33 = getelementptr inbounds [32 x i64], ptr %32, i64 0, i64 %18
+  %33 = getelementptr inbounds i64, ptr %32, i64 %18
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 7720
-  %37 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %36, i64 0, i64 %18
+  %37 = getelementptr inbounds %struct.FmgrInfo, ptr %36, i64 %18
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 13864
-  %39 = getelementptr inbounds [32 x i32], ptr %38, i64 0, i64 %18
+  %39 = getelementptr inbounds i32, ptr %38, i64 %18
   %40 = load i32, ptr %39, align 4
   %41 = ptrtoint ptr %1 to i64
   %42 = ptrtoint ptr %3 to i64
@@ -754,7 +754,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   %107 = shl nsw i64 %106, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %104, ptr nonnull readonly align 8 %105, i64 %107, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 1576
-  %109 = getelementptr inbounds [32 x %struct.FmgrInfo], ptr %108, i64 0, i64 %18
+  %109 = getelementptr inbounds %struct.FmgrInfo, ptr %108, i64 %18
   %110 = load i32, ptr %39, align 4
   %111 = ptrtoint ptr %102 to i64
   %112 = ptrtoint ptr %16 to i64
@@ -1235,30 +1235,30 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %indvars.iv.i134 = phi i64 [ %332, %.lr.ph.i133 ], [ %indvars.iv.next.i137, %333 ]
   %.03639.i = phi i1 [ true, %.lr.ph.i133 ], [ %.3.i135, %333 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %339 = getelementptr inbounds [32 x i64], ptr %28, i64 0, i64 %indvars.iv.i134
+  %339 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv.i134
   %340 = load i64, ptr %339, align 8
   store i64 %340, ptr %9, align 8
   store ptr %0, ptr %328, align 8
   store ptr null, ptr %329, align 8
   store i16 0, ptr %330, align 8
   store i8 0, ptr %331, align 2
-  %341 = getelementptr inbounds [32 x i8], ptr %17, i64 0, i64 %indvars.iv.i134
+  %341 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv.i134
   %342 = load i8, ptr %341, align 1, !range !4, !noundef !5
   %343 = trunc nuw i8 %342 to i1
   %344 = getelementptr inbounds %struct.GISTENTRY, ptr %7, i64 %indvars.iv.i134
-  %345 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 %indvars.iv.i134
+  %345 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i134
   %346 = load i8, ptr %345, align 1, !range !4, !noundef !5
   %347 = trunc nuw i8 %346 to i1
   %348 = trunc nsw i64 %indvars.iv.i134 to i32
   %349 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %348, ptr noundef nonnull %9, i1 noundef zeroext %343, ptr noundef nonnull %344, i1 noundef zeroext %347) #7
-  %350 = getelementptr inbounds [32 x i64], ptr %32, i64 0, i64 %indvars.iv.i134
+  %350 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv.i134
   %351 = load i64, ptr %350, align 8
   store i64 %351, ptr %9, align 8
   store ptr %0, ptr %328, align 8
   store ptr null, ptr %329, align 8
   store i16 0, ptr %330, align 8
   store i8 0, ptr %331, align 2
-  %352 = getelementptr inbounds [32 x i8], ptr %23, i64 0, i64 %indvars.iv.i134
+  %352 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i134
   %353 = load i8, ptr %352, align 1, !range !4, !noundef !5
   %354 = trunc nuw i8 %353 to i1
   %355 = load i8, ptr %345, align 1, !range !4, !noundef !5

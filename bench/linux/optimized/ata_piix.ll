@@ -225,7 +225,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr [17 x %struct.ata_port_info], ptr @piix_port_info, i64 0, i64 %37
+  %38 = getelementptr %struct.ata_port_info, ptr @piix_port_info, i64 %37
   %39 = load i64, ptr %38, align 16
   %40 = or i64 %39, 6144
   store i64 %40, ptr %38, align 16
@@ -235,7 +235,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 41:                                               ; preds = %35, %25, %22
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr [17 x %struct.ata_port_info], ptr @piix_port_info, i64 0, i64 %43
+  %44 = getelementptr %struct.ata_port_info, ptr @piix_port_info, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef align 16 dereferenceable(48) %44, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef align 16 dereferenceable(48) %44, i64 48, i1 false)
   %45 = load i64, ptr %8, align 16
@@ -310,7 +310,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 
 86:                                               ; preds = %.thread
   %87 = load i64, ptr %42, align 8
-  %88 = getelementptr [17 x ptr], ptr @piix_map_db_table, i64 0, i64 %87
+  %88 = getelementptr ptr, ptr @piix_map_db_table, i64 %87
   %89 = load ptr, ptr %88, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !annotation !6
@@ -324,7 +324,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
   %95 = load i32, ptr %89, align 4
   %96 = and i32 %95, %94
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr [0 x [4 x i32]], ptr %92, i64 0, i64 %97
+  %98 = getelementptr [4 x i32], ptr %92, i64 %97
   %99 = ptrtoint ptr %90 to i64
   br label %100
 
@@ -444,7 +444,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 
 169:                                              ; preds = %166
   %170 = load i64, ptr %42, align 8
-  %171 = getelementptr [17 x ptr], ptr @piix_map_db_table, i64 0, i64 %170
+  %171 = getelementptr ptr, ptr @piix_map_db_table, i64 %170
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %174 = load ptr, ptr %173, align 8
@@ -583,7 +583,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr noundef readonly captures
 258:                                              ; preds = %.preheader60, %257
   %259 = phi i1 [ false, %257 ], [ true, %.preheader60 ]
   %260 = phi i64 [ 1, %257 ], [ 0, %.preheader60 ]
-  %261 = getelementptr [0 x ptr], ptr %191, i64 0, i64 %260
+  %261 = getelementptr ptr, ptr %191, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr @piix_sidpr_sata_ops, ptr %263, align 8
@@ -958,7 +958,7 @@ define internal i32 @piix_pata_prereset(ptr noundef %0, i64 noundef %1) #2 align
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr [2 x %struct.pci_bits], ptr @piix_enable_bits, i64 0, i64 %11
+  %12 = getelementptr %struct.pci_bits, ptr @piix_enable_bits, i64 %11
   %13 = tail call i32 @pci_test_config_bits(ptr noundef %8, ptr noundef %12) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
@@ -1023,7 +1023,7 @@ define internal fastcc void @piix_set_timings(ptr noundef readonly captures(none
   %41 = and i16 %40, -29456
   %42 = or i16 %41, %37
   %43 = zext i8 %2 to i64
-  %44 = getelementptr [5 x [2 x i8]], ptr @piix_set_timings.timings, i64 0, i64 %43
+  %44 = getelementptr [2 x i8], ptr @piix_set_timings.timings, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i16
   %47 = shl i16 %46, 12
@@ -1050,7 +1050,7 @@ define internal fastcc void @piix_set_timings(ptr noundef readonly captures(none
   %64 = load i8, ptr %5, align 1
   %65 = and i8 %63, %64
   %66 = zext i8 %2 to i64
-  %67 = getelementptr [5 x [2 x i8]], ptr @piix_set_timings.timings, i64 0, i64 %66
+  %67 = getelementptr [2 x i8], ptr @piix_set_timings.timings, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = shl i8 %68, 2
   %70 = getelementptr i8, ptr %67, i64 1
@@ -1209,7 +1209,7 @@ define internal fastcc void @do_pata_set_dmamode(ptr noundef readonly captures(n
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 12, ptr %67, align 4
   %68 = zext i32 %65 to i64
-  %69 = getelementptr [3 x i32], ptr %7, i64 0, i64 %68
+  %69 = getelementptr i32, ptr %7, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = trunc i32 %70 to i8
   %72 = add i8 %71, -8
@@ -1448,7 +1448,7 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr noundef r
   %16 = shl i32 %14, 8
   %17 = add i32 %16, %15
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr [3 x i32], ptr @piix_sidx_map, i64 0, i64 %18
+  %19 = getelementptr i32, ptr @piix_sidx_map, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1484,7 +1484,7 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr noundef 
   %16 = shl i32 %14, 8
   %17 = add i32 %16, %15
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr [3 x i32], ptr @piix_sidx_map, i64 0, i64 %18
+  %19 = getelementptr i32, ptr @piix_sidx_map, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16

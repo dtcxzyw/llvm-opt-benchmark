@@ -21,7 +21,7 @@ define dso_local noundef ptr @jvp_utf8_backtrack(ptr noundef readonly captures(a
   %.02135 = phi ptr [ %10, %9 ], [ %0, %.preheader ]
   %5 = load i8, ptr %.02135, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !4
   switch i8 %8, label %12 [
     i8 -1, label %9
@@ -61,7 +61,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   %11 = icmp sgt i8 %6, -1
@@ -90,7 +90,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %48
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %7
+  %26 = getelementptr inbounds nuw i8, ptr @utf8_coding_bits, i64 %7
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = and i8 %27, %6
   %29 = zext i8 %28 to i32
@@ -107,7 +107,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %.not = icmp eq i8 %35, -1
   br i1 %.not, label %36, label %._crit_edge.loopexit.split.loop.exit59
@@ -129,7 +129,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.244 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit59 ], [ %40, %36 ]
   %.2 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit59 ], [ %10, %36 ]
   %42 = zext nneg i32 %.2 to i64
-  %43 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr @utf8_first_codepoint, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = icmp slt i32 %.244, %44
   %spec.store.select4 = select i1 %45, i32 -1, i32 %.244
@@ -162,7 +162,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %.0216 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
   %4 = load i8, ptr %.0216, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i32
   %9 = icmp sgt i8 %4, -1
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   br i1 %15, label %jvp_utf8_next.exit.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %5
+  %17 = getelementptr inbounds nuw i8, ptr @utf8_coding_bits, i64 %5
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = and i8 %18, %4
   %20 = zext i8 %19 to i32
@@ -193,7 +193,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %22 = getelementptr inbounds nuw i8, ptr %.0216, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %.not.i = icmp eq i8 %26, -1
   br i1 %.not.i, label %27, label %._crit_edge.loopexit.split.loop.exit59.i
@@ -215,7 +215,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %.244.i = phi i32 [ %20, %16 ], [ -1, %._crit_edge.loopexit.split.loop.exit59.i ], [ %31, %27 ]
   %.2.i = phi i32 [ %8, %16 ], [ %32, %._crit_edge.loopexit.split.loop.exit59.i ], [ %8, %27 ]
   %33 = zext nneg i32 %.2.i to i64
-  %34 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @utf8_first_codepoint, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = icmp slt i32 %.244.i, %35
   %spec.store.select4.i = select i1 %36, i32 -1, i32 %.244.i

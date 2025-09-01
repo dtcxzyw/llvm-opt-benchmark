@@ -538,7 +538,7 @@ Kit_DsdNtkRoot.exit:
   %47 = zext i16 %46 to i32
   %48 = lshr i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [100 x i32], ptr %44, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !42
   %52 = getelementptr i8, ptr %43, i64 32
   %.val111 = load ptr, ptr %52, align 8, !tbaa !41
@@ -643,7 +643,7 @@ Kit_DsdNtkRoot.exit:
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %95 ]
   %112 = load ptr, ptr %77, align 8, !tbaa !66
   %113 = tail call ptr @If_ManCreateCi(ptr noundef %112) #16
-  %114 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %113, ptr %114, align 8, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load ptr, ptr %0, align 8, !tbaa !49
@@ -655,7 +655,7 @@ Kit_DsdNtkRoot.exit:
 
 120:                                              ; preds = %.lr.ph122, %120
   %indvars.iv128 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next129, %120 ]
-  %121 = getelementptr inbounds nuw [100 x i32], ptr %105, i64 0, i64 %indvars.iv128
+  %121 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv128
   %122 = load i32, ptr %121, align 4, !tbaa !42
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds ptr, ptr %.val110.val, i64 %123
@@ -830,7 +830,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit, %16
 234:                                              ; preds = %.lr.ph124, %234
   %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %234 ]
   %235 = load ptr, ptr %228, align 8, !tbaa !83
-  %236 = getelementptr inbounds nuw [100 x i32], ptr %233, i64 0, i64 %indvars.iv131
+  %236 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv131
   %237 = load i32, ptr %236, align 4, !tbaa !42
   %238 = getelementptr i8, ptr %235, i64 32
   %.val = load ptr, ptr %238, align 8, !tbaa !41
@@ -1038,7 +1038,7 @@ Abc_Clock.exit85:                                 ; preds = %30, %33
 
 79:                                               ; preds = %.lr.ph106, %224
   %indvars.iv119 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next120, %224 ]
-  %80 = getelementptr inbounds nuw [10000 x i32], ptr %70, i64 0, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv119
   %81 = load i32, ptr %80, align 4, !tbaa !42
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds %struct.Lpk_Cut_t_, ptr %69, i64 %82
@@ -1067,7 +1067,7 @@ Abc_Clock.exit85:                                 ; preds = %30, %33
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = getelementptr inbounds nuw [100 x i32], ptr %92, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4, !tbaa !42
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds ptr, ptr %.val81.val, i64 %98
@@ -1102,7 +1102,7 @@ Abc_Clock.exit85:                                 ; preds = %30, %33
 
 116:                                              ; preds = %.lr.ph102, %116
   %indvars.iv116 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next117, %116 ]
-  %117 = getelementptr inbounds nuw [100 x i32], ptr %113, i64 0, i64 %indvars.iv116
+  %117 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv116
   %118 = load i32, ptr %117, align 4, !tbaa !42
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %.val.val, i64 %119
@@ -1514,7 +1514,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
 
 90:                                               ; preds = %.lr.ph178, %355
   %indvars.iv200 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next201, %355 ]
-  %91 = getelementptr inbounds nuw [10000 x i32], ptr %77, i64 0, i64 %indvars.iv200
+  %91 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv200
   %92 = load i32, ptr %91, align 4, !tbaa !42
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds %struct.Lpk_Cut_t_, ptr %76, i64 %93
@@ -1543,7 +1543,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
 
 106:                                              ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %107 = getelementptr inbounds nuw [100 x i32], ptr %103, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !42
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds ptr, ptr %.val132.val, i64 %109
@@ -1578,7 +1578,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
 
 127:                                              ; preds = %.lr.ph166, %127
   %indvars.iv191 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next192, %127 ]
-  %128 = getelementptr inbounds nuw [100 x i32], ptr %124, i64 0, i64 %indvars.iv191
+  %128 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv191
   %129 = load i32, ptr %128, align 4, !tbaa !42
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds ptr, ptr %.val131.val, i64 %130
@@ -1621,7 +1621,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
   %indvars.iv194 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next195, %Vec_PtrPush.exit ]
   %152 = load ptr, ptr %79, align 8, !tbaa !143
   %153 = load ptr, ptr %78, align 8, !tbaa !83
-  %154 = getelementptr inbounds nuw [100 x i32], ptr %150, i64 0, i64 %indvars.iv194
+  %154 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv194
   %155 = load i32, ptr %154, align 4, !tbaa !42
   %156 = getelementptr i8, ptr %153, i64 32
   %.val130 = load ptr, ptr %156, align 8, !tbaa !41
@@ -1892,7 +1892,7 @@ Abc_Clock.exit149:                                ; preds = %267, %272
   %304 = getelementptr i8, ptr %303, i64 4
   %.val = load i32, ptr %304, align 4, !tbaa !29
   %305 = sext i32 %.val to i64
-  %306 = getelementptr inbounds [16 x i32], ptr @__const.Lpk_ResynthesizeNodeNew.NodeCounts, i64 0, i64 %305
+  %306 = getelementptr inbounds i32, ptr @__const.Lpk_ResynthesizeNodeNew.NodeCounts, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !42
   %308 = getelementptr inbounds nuw i8, ptr %295, i64 20
   %309 = load i32, ptr %308, align 4, !tbaa !112
@@ -2530,7 +2530,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
 262:                                              ; preds = %.lr.ph293, %269
   %263 = phi i32 [ %260, %.lr.ph293 ], [ %270, %269 ]
   %indvars.iv296 = phi i64 [ 3, %.lr.ph293 ], [ %indvars.iv.next297, %269 ]
-  %264 = getelementptr inbounds nuw [17 x i32], ptr %261, i64 0, i64 %indvars.iv296
+  %264 = getelementptr inbounds nuw i32, ptr %261, i64 %indvars.iv296
   %265 = load i32, ptr %264, align 4, !tbaa !42
   %.not239 = icmp eq i32 %265, 0
   br i1 %.not239, label %269, label %266

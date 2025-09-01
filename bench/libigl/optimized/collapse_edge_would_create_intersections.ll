@@ -702,7 +702,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit245:                 ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %294, label %295, label %300
 
 295:                                              ; preds = %290, %279
-  %296 = getelementptr inbounds nuw [3 x %"class.Eigen::Matrix.27"], ptr %19, i64 0, i64 %indvars.iv
+  %296 = getelementptr inbounds nuw %"class.Eigen::Matrix.27", ptr %19, i64 %indvars.iv
   %297 = load <2 x double>, ptr %193, align 16, !tbaa !29
   store <2 x double> %297, ptr %296, align 8, !tbaa !29
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 16
@@ -714,7 +714,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit245:                 ; preds = %_ZNSt6vectorIiSaIiE
   %301 = sext i32 %288 to i64
   %302 = load ptr, ptr %2, align 8, !tbaa !32, !noalias !34
   %303 = getelementptr inbounds double, ptr %302, i64 %301
-  %304 = getelementptr inbounds nuw [3 x %"class.Eigen::Matrix.27"], ptr %19, i64 0, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw %"class.Eigen::Matrix.27", ptr %19, i64 %indvars.iv
   %305 = load i64, ptr %222, align 8, !tbaa !37
   %306 = load double, ptr %303, align 8, !tbaa !23
   store double %306, ptr %304, align 8, !tbaa !23

@@ -1649,7 +1649,7 @@ define ptr @l_Std_Time_Weekday_toOrdinal(i8 noundef zeroext %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.l_Std_Time_Weekday_toOrdinal___boxed, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Std_Time_Weekday_toOrdinal___boxed, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1692,7 +1692,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 7
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.l_Std_Time_Weekday_toOrdinal___boxed, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Std_Time_Weekday_toOrdinal___boxed, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Std_Time_Weekday_toOrdinal.exit
 

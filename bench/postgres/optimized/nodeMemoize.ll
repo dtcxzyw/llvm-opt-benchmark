@@ -1001,7 +1001,7 @@ define dso_local void @ExecEndMemoize(ptr noundef captures(none) %0) local_unnam
 15:                                               ; preds = %12, %7
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds nuw [0 x %struct.MemoizeInstrumentation], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.MemoizeInstrumentation, ptr %16, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   br label %19
 
@@ -1701,7 +1701,7 @@ memoize_lookup.exit.thread44:                     ; preds = %slot_getallattrs.ex
 115:                                              ; preds = %113
   %116 = load ptr, ptr %85, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %117, i64 0, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %117, i64 %indvars.iv.i
   %119 = load ptr, ptr %104, align 8
   %120 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv.i
   %121 = load i64, ptr %120, align 8
@@ -1948,7 +1948,7 @@ define internal fastcc i32 @MemoizeHash_hash(ptr readonly captures(none) %.40.va
 23:                                               ; preds = %17
   %24 = load ptr, ptr %15, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %25, i64 0, i64 %indvars.iv10
+  %26 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %25, i64 %indvars.iv10
   %27 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv10
   %29 = load i64, ptr %28, align 8
@@ -2240,7 +2240,7 @@ slot_getallattrs.exit40:                          ; preds = %slot_getallattrs.ex
 48:                                               ; preds = %46
   %49 = load ptr, ptr %18, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %50, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %37, align 8
   %53 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8

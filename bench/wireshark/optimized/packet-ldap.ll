@@ -3245,7 +3245,7 @@ define internal i32 @dissect_ldap_ProtocolOp(i1 zeroext %0, ptr noundef %1, i32 
 
 15:                                               ; preds = %6
   %16 = sext i32 %13 to i64
-  %17 = getelementptr [22 x %struct._value_string], ptr @ldap_ProtocolOp_vals, i64 0, i64 %16
+  %17 = getelementptr %struct._value_string, ptr @ldap_ProtocolOp_vals, i64 %16
   %18 = load i32, ptr %17, align 16
   store i32 %18, ptr @ProtocolOp, align 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3821,7 +3821,7 @@ ldap_do_protocolop.exit:                          ; preds = %6, %21
 
 24:                                               ; preds = %ldap_do_protocolop.exit
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr [5 x %struct._ber_choice_t], ptr @AuthenticationChoice_choice, i64 0, i64 %25
+  %26 = getelementptr %struct._ber_choice_t, ptr @AuthenticationChoice_choice, i64 %25
   %27 = load i32, ptr %26, align 8
   %28 = call ptr @val_to_str(i32 noundef %27, ptr noundef nonnull @ldap_AuthenticationChoice_vals, ptr noundef nonnull @.str.878)
   %29 = add i32 %27, -12

@@ -513,7 +513,7 @@ define noundef nonnull ptr @_Z23llama_file_version_name10llama_fver(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1618,7 +1618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %72
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %89, ptr %91, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
@@ -1912,7 +1912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %72
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw [512 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %89, ptr %91, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
@@ -4925,7 +4925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %1102
   %1108 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 0, i64 %1108
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %1108
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z23llama_file_version_name10llama_fver.exit
 
@@ -5114,7 +5114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_Z
 
 switch.lookup1132:                                ; preds = %._crit_edge724
   %1179 = zext nneg i32 %.1166 to i64
-  %switch.gep1133 = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 0, i64 %1179
+  %switch.gep1133 = getelementptr inbounds nuw i32, ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 %1179
   %switch.load1134 = load i32, ptr %switch.gep1133, align 4
   br label %._crit_edge724.thread
 
@@ -7138,13 +7138,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i64, ptr %16, i64 %.02676
   %42 = load i64, ptr %41, align 8, !tbaa !90
-  %43 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.02676
+  %43 = getelementptr inbounds nuw i64, ptr %21, i64 %.02676
   %44 = load i64, ptr %43, align 8, !tbaa !90
   %.not = icmp eq i64 %42, %44
   br i1 %.not, label %.thread, label %49
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %21, i64 0, i64 %.02676
+  %46 = getelementptr inbounds nuw i64, ptr %21, i64 %.02676
   %47 = load i64, ptr %46, align 8, !tbaa !90
   %.not42 = icmp eq i64 %47, 1
   br i1 %.not42, label %.thread, label %49
@@ -7601,7 +7601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55
 
 94:                                               ; preds = %89, %91
   %95 = phi i64 [ %93, %91 ], [ 1, %89 ]
-  %96 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.02947
+  %96 = getelementptr inbounds nuw i64, ptr %10, i64 %.02947
   store i64 %95, ptr %96, align 8, !tbaa !90
   %97 = add nuw nsw i64 %.02947, 1
   %exitcond.not = icmp eq i64 %97, 4
@@ -11565,7 +11565,7 @@ define void @_ZNK18llama_model_loader10print_infoEv(ptr noundef nonnull readonly
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z23llama_file_version_name10llama_fver.exit
 
@@ -12353,7 +12353,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIbE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12403,7 +12403,7 @@ _ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12462,7 +12462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12473,7 +12473,7 @@ _ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -12594,7 +12594,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIfE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12644,7 +12644,7 @@ _ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12703,7 +12703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12714,7 +12714,7 @@ _ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -12835,7 +12835,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12885,7 +12885,7 @@ _ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12944,7 +12944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12955,7 +12955,7 @@ _ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -13261,7 +13261,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stri
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -13311,7 +13311,7 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -13370,7 +13370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -13381,7 +13381,7 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -15457,7 +15457,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVItE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -15507,7 +15507,7 @@ _ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -15566,7 +15566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -15577,7 +15577,7 @@ _ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -15696,7 +15696,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIiE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -15746,7 +15746,7 @@ _ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -15805,7 +15805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %47
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -15816,7 +15816,7 @@ _ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %49
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30
 

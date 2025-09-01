@@ -941,7 +941,7 @@ define internal noundef i32 @ext4_mb_seq_groups_show(ptr noundef %0, ptr noundef
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr [0 x i32], ptr %45, i64 0, i64 %48
+  %51 = getelementptr i32, ptr %45, i64 %48
   %52 = load i32, ptr %51, align 4
   br label %53
 
@@ -1357,8 +1357,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ext4_mb_add_groupinfo(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i64
-  %12 = add nsw i64 %11, -10
-  %13 = getelementptr [8 x ptr], ptr @ext4_groupinfo_caches, i64 0, i64 %12
+  %12 = getelementptr ptr, ptr @ext4_groupinfo_caches, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17, !prof !30
@@ -1651,7 +1651,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %34 = phi i32 [ %28, %30 ], [ 0, %32 ], [ 0, %20 ]
   tail call void @mutex_lock(ptr noundef nonnull @ext4_groupinfo_create_slab.ext4_grpinfo_slab_create_mutex) #16
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr [8 x ptr], ptr @ext4_groupinfo_caches, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr @ext4_groupinfo_caches, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %40, label %39
@@ -1663,7 +1663,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
 40:                                               ; preds = %.thread18
   %41 = shl i32 %33, 2
   %42 = add i32 %41, 136
-  %43 = getelementptr [8 x ptr], ptr @ext4_groupinfo_slab_names, i64 0, i64 %35
+  %43 = getelementptr ptr, ptr @ext4_groupinfo_slab_names, i64 %35
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @kmem_cache_create(ptr noundef %44, i32 noundef %42, i32 noundef 0, i32 noundef 131072, ptr noundef null) #16
   store ptr %45, ptr %36, align 8
@@ -1883,7 +1883,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %185 = load ptr, ptr %173, align 64
   %186 = ptrtoint ptr %185 to i64
   %187 = and i64 %181, 63
-  %188 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %187
+  %188 = getelementptr i64, ptr @__per_cpu_offset, i64 %187
   %189 = load i64, ptr %188, align 8
   %190 = add i64 %189, %186
   %191 = inttoptr i64 %190 to ptr
@@ -1893,7 +1893,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
 
 193:                                              ; preds = %193, %184
   %194 = phi i64 [ 0, %184 ], [ %197, %193 ]
-  %195 = getelementptr [10 x %struct.list_head], ptr %192, i64 0, i64 %194
+  %195 = getelementptr %struct.list_head, ptr %192, i64 %194
   store volatile ptr %195, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store volatile ptr %195, ptr %196, align 8
@@ -2058,8 +2058,8 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   %291 = phi i32 [ %217, %255 ], [ %231, %235 ], [ %231, %236 ]
   %292 = load i8, ptr %4, align 4
   %293 = zext i8 %292 to i64
-  %294 = add nsw i64 %293, -10
-  %295 = getelementptr [8 x ptr], ptr @ext4_groupinfo_caches, i64 0, i64 %294
+  %294 = getelementptr ptr, ptr @ext4_groupinfo_caches, i64 %293
+  %295 = getelementptr i8, ptr %294, i64 -80
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %296, null
   br i1 %297, label %300, label %298, !prof !30
@@ -2247,7 +2247,7 @@ define internal void @ext4_discard_work(ptr noundef %0) #0 align 16 {
   %51 = load ptr, ptr %50, align 8
   %52 = and i32 %39, 127
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr [128 x %struct.bgl_lock], ptr %51, i64 0, i64 %53
+  %54 = getelementptr %struct.bgl_lock, ptr %51, i64 %53
   %55 = call i32 @_raw_spin_trylock(ptr noundef %54) #16
   %56 = icmp eq i32 %55, 0
   %57 = load ptr, ptr %23, align 8
@@ -2308,7 +2308,7 @@ define internal void @ext4_discard_work(ptr noundef %0) #0 align 16 {
   %87 = load ptr, ptr %23, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 424
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr [128 x %struct.bgl_lock], ptr %89, i64 0, i64 %53
+  %90 = getelementptr %struct.bgl_lock, ptr %89, i64 %53
   call void @_raw_spin_unlock(ptr noundef %90) #16
   br label %91
 
@@ -2354,8 +2354,8 @@ define dso_local void @ext4_mb_release(ptr noundef %0) local_unnamed_addr #0 ali
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i8, ptr %7, align 4
   %9 = zext i8 %8 to i64
-  %10 = add nsw i64 %9, -10
-  %11 = getelementptr [8 x ptr], ptr @ext4_groupinfo_caches, i64 0, i64 %10
+  %10 = getelementptr ptr, ptr @ext4_groupinfo_caches, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -80
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15, !prof !30
@@ -2409,7 +2409,7 @@ define dso_local void @ext4_mb_release(ptr noundef %0) local_unnamed_addr #0 ali
   %40 = load ptr, ptr %39, align 8
   %41 = and i32 %33, 127
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [128 x %struct.bgl_lock], ptr %40, i64 0, i64 %42
+  %43 = getelementptr %struct.bgl_lock, ptr %40, i64 %42
   %44 = tail call i32 @_raw_spin_trylock(ptr noundef %43) #16
   %45 = icmp eq i32 %44, 0
   %46 = load ptr, ptr %2, align 8
@@ -2485,7 +2485,7 @@ define dso_local void @ext4_mb_release(ptr noundef %0) local_unnamed_addr #0 ali
   %80 = load ptr, ptr %2, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 424
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr [128 x %struct.bgl_lock], ptr %82, i64 0, i64 %42
+  %83 = getelementptr %struct.bgl_lock, ptr %82, i64 %42
   tail call void @_raw_spin_unlock(ptr noundef %83) #16
   tail call void @kmem_cache_free(ptr noundef nonnull %12, ptr noundef nonnull %35) #16
   br label %84
@@ -2616,7 +2616,7 @@ define dso_local void @ext4_process_freed_data(ptr noundef %0, i32 noundef %1) l
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 744
   %9 = and i32 %1, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [2 x %struct.list_head], ptr %8, i64 0, i64 %10
+  %11 = getelementptr %struct.list_head, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2672,7 +2672,7 @@ define dso_local void @ext4_process_freed_data(ptr noundef %0, i32 noundef %1) l
   %43 = load ptr, ptr %42, align 8
   %44 = and i32 %40, 127
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr [128 x %struct.bgl_lock], ptr %43, i64 0, i64 %45
+  %46 = getelementptr %struct.bgl_lock, ptr %43, i64 %45
   %47 = call i32 @_raw_spin_trylock(ptr noundef %46) #16
   %48 = icmp eq i32 %47, 0
   %49 = load ptr, ptr %5, align 8
@@ -2861,7 +2861,7 @@ define dso_local void @ext4_process_freed_data(ptr noundef %0, i32 noundef %1) l
   %156 = load ptr, ptr %155, align 8
   %157 = and i32 %153, 127
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr [128 x %struct.bgl_lock], ptr %156, i64 0, i64 %158
+  %159 = getelementptr %struct.bgl_lock, ptr %156, i64 %158
   call void @_raw_spin_unlock(ptr noundef %159) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2979,7 +2979,7 @@ define dso_local void @ext4_exit_mballoc() local_unnamed_addr #0 align 16 {
 
 4:                                                ; preds = %4, %0
   %5 = phi i64 [ 0, %0 ], [ %8, %4 ]
-  %6 = getelementptr [8 x ptr], ptr @ext4_groupinfo_caches, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr @ext4_groupinfo_caches, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @kmem_cache_destroy(ptr noundef %7) #16
   store ptr null, ptr %6, align 8
@@ -3123,7 +3123,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %38 = load ptr, ptr %37, align 8
   %39 = and i32 %3, 127
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [128 x %struct.bgl_lock], ptr %38, i64 0, i64 %40
+  %41 = getelementptr %struct.bgl_lock, ptr %38, i64 %40
   %42 = call i32 @_raw_spin_trylock(ptr noundef %41) #16
   %43 = icmp eq i32 %42, 0
   %44 = load ptr, ptr %10, align 8
@@ -3376,7 +3376,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %186 = load ptr, ptr %10, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 424
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr [128 x %struct.bgl_lock], ptr %188, i64 0, i64 %40
+  %189 = getelementptr %struct.bgl_lock, ptr %188, i64 %40
   call void @_raw_spin_unlock(ptr noundef %189) #16
   br i1 %12, label %191, label %190
 
@@ -3656,7 +3656,7 @@ define dso_local void @ext4_discard_preallocations(ptr noundef %0) local_unnamed
   %109 = load ptr, ptr %108, align 8
   %110 = and i32 %94, 127
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr [128 x %struct.bgl_lock], ptr %109, i64 0, i64 %111
+  %112 = getelementptr %struct.bgl_lock, ptr %109, i64 %111
   %113 = call i32 @_raw_spin_trylock(ptr noundef %112) #16
   %114 = icmp eq i32 %113, 0
   %115 = load ptr, ptr %10, align 8
@@ -3720,7 +3720,7 @@ define dso_local void @ext4_discard_preallocations(ptr noundef %0) local_unnamed
   %143 = load ptr, ptr %10, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 424
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr [128 x %struct.bgl_lock], ptr %145, i64 0, i64 %111
+  %146 = getelementptr %struct.bgl_lock, ptr %145, i64 %111
   call void @_raw_spin_unlock(ptr noundef %146) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %3)
   %147 = getelementptr inbounds nuw i8, ptr %100, i64 96
@@ -5657,7 +5657,7 @@ ext4_mb_initialize_context.exit:                  ; preds = %294, %359, %366
   %523 = phi i64 [ %521, %494 ], [ %561, %.loopexit.i ]
   %524 = phi ptr [ null, %494 ], [ %560, %.loopexit.i ]
   tail call void @__rcu_read_lock() #16
-  %525 = getelementptr [10 x %struct.list_head], ptr %520, i64 0, i64 %523
+  %525 = getelementptr %struct.list_head, ptr %520, i64 %523
   %526 = load volatile ptr, ptr %525, align 8
   %527 = icmp eq ptr %526, %525
   br i1 %527, label %.loopexit.i, label %.preheader.i
@@ -6622,7 +6622,7 @@ ext4_mb_mark_diskspace_used.exit:                 ; preds = %1023, %1032
   tail call void @_raw_spin_lock(ptr noundef nonnull %1124) #16
   %1125 = getelementptr inbounds nuw i8, ptr %1118, i64 32
   %1126 = sext i32 %1123 to i64
-  %1127 = getelementptr [10 x %struct.list_head], ptr %1125, i64 0, i64 %1126
+  %1127 = getelementptr %struct.list_head, ptr %1125, i64 %1126
   %1128 = load volatile ptr, ptr %1127, align 8
   %1129 = icmp eq ptr %1128, %1127
   br i1 %1129, label %.thread43, label %1130
@@ -6805,7 +6805,7 @@ ext4_mb_mark_diskspace_used.exit:                 ; preds = %1023, %1032
   %1221 = load ptr, ptr %1220, align 8
   %1222 = and i32 %1213, 127
   %1223 = zext nneg i32 %1222 to i64
-  %1224 = getelementptr [128 x %struct.bgl_lock], ptr %1221, i64 0, i64 %1223
+  %1224 = getelementptr %struct.bgl_lock, ptr %1221, i64 %1223
   %1225 = call i32 @_raw_spin_trylock(ptr noundef %1224) #16
   %1226 = icmp eq i32 %1225, 0
   %1227 = load ptr, ptr %1206, align 8
@@ -6869,7 +6869,7 @@ ext4_mb_mark_diskspace_used.exit:                 ; preds = %1023, %1032
   %1255 = load ptr, ptr %1206, align 8
   %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 424
   %1257 = load ptr, ptr %1256, align 8
-  %1258 = getelementptr [128 x %struct.bgl_lock], ptr %1257, i64 0, i64 %1223
+  %1258 = getelementptr %struct.bgl_lock, ptr %1257, i64 %1223
   call void @_raw_spin_unlock(ptr noundef %1258) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %4)
   %1259 = getelementptr inbounds nuw i8, ptr %1208, i64 8
@@ -6966,7 +6966,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1263, %.loopexit12.
   %1309 = load ptr, ptr %1308, align 8
   %1310 = and i32 %1305, 127
   %1311 = zext nneg i32 %1310 to i64
-  %1312 = getelementptr [128 x %struct.bgl_lock], ptr %1309, i64 0, i64 %1311
+  %1312 = getelementptr %struct.bgl_lock, ptr %1309, i64 %1311
   %1313 = tail call i32 @_raw_spin_trylock(ptr noundef %1312) #16
   %1314 = icmp eq i32 %1313, 0
   %1315 = load ptr, ptr %1306, align 8
@@ -7029,7 +7029,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1263, %.loopexit12.
   %1343 = load ptr, ptr %1306, align 8
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 424
   %1345 = load ptr, ptr %1344, align 8
-  %1346 = getelementptr [128 x %struct.bgl_lock], ptr %1345, i64 0, i64 %1311
+  %1346 = getelementptr %struct.bgl_lock, ptr %1345, i64 %1311
   tail call void @_raw_spin_unlock(ptr noundef %1346) #16
   %1347 = load i16, ptr %1078, align 4
   %1348 = icmp eq i16 %1347, 0
@@ -7268,10 +7268,10 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1263, %.loopexit12.
 
 1486:                                             ; preds = %1486, %1469
   %1487 = phi i64 [ 0, %1469 ], [ %1492, %1486 ]
-  %1488 = getelementptr [5 x i16], ptr %1474, i64 0, i64 %1487
+  %1488 = getelementptr i16, ptr %1474, i64 %1487
   %1489 = load i16, ptr %1488, align 2
   %1490 = zext i16 %1489 to i32
-  %1491 = getelementptr [5 x %struct.atomic_t], ptr %1475, i64 0, i64 %1487
+  %1491 = getelementptr %struct.atomic_t, ptr %1475, i64 %1487
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1491, i32 %1490, ptr elementtype(i32) %1491) #16, !srcloc !119
   %1492 = add nuw nsw i64 %1487, 1
   %1493 = icmp eq i64 %1492, 5
@@ -7586,7 +7586,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %54 = load ptr, ptr %53, align 8
   %55 = and i32 %30, 127
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr [128 x %struct.bgl_lock], ptr %54, i64 0, i64 %56
+  %57 = getelementptr %struct.bgl_lock, ptr %54, i64 %56
   %58 = tail call i32 @_raw_spin_trylock(ptr noundef %57) #16
   %59 = icmp eq i32 %58, 0
   %60 = load ptr, ptr %51, align 8
@@ -7791,7 +7791,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 424
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr [128 x %struct.bgl_lock], ptr %181, i64 0, i64 %56
+  %182 = getelementptr %struct.bgl_lock, ptr %181, i64 %56
   call void @_raw_spin_unlock(ptr noundef %182) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
   br label %184
@@ -8023,7 +8023,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %341 = getelementptr inbounds nuw i8, ptr %331, i64 1000
   %342 = load i8, ptr %237, align 1
   %343 = zext i8 %342 to i64
-  %344 = getelementptr [5 x %struct.atomic64_t], ptr %341, i64 0, i64 %343
+  %344 = getelementptr %struct.atomic64_t, ptr %341, i64 %343
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %344, ptr elementtype(i64) %344) #16, !srcloc !212
   br label %345
 
@@ -8036,7 +8036,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %349 = load ptr, ptr %348, align 8
   %350 = and i32 %294, 127
   %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr [128 x %struct.bgl_lock], ptr %349, i64 0, i64 %351
+  %352 = getelementptr %struct.bgl_lock, ptr %349, i64 %351
   %353 = call i32 @_raw_spin_trylock(ptr noundef %352) #16
   %354 = icmp eq i32 %353, 0
   %355 = load ptr, ptr %330, align 8
@@ -8115,7 +8115,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %393 = load ptr, ptr %392, align 8
   %394 = and i32 %294, 127
   %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr [128 x %struct.bgl_lock], ptr %393, i64 0, i64 %395
+  %396 = getelementptr %struct.bgl_lock, ptr %393, i64 %395
   call void @_raw_spin_unlock(ptr noundef %396) #16
   br label %397
 
@@ -8168,7 +8168,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %427 = load ptr, ptr %426, align 8
   %428 = and i32 %294, 127
   %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr [128 x %struct.bgl_lock], ptr %427, i64 0, i64 %429
+  %430 = getelementptr %struct.bgl_lock, ptr %427, i64 %429
   %431 = call i32 @_raw_spin_trylock(ptr noundef %430) #16
   %432 = icmp eq i32 %431, 0
   %433 = load ptr, ptr %330, align 8
@@ -8233,7 +8233,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %463 = load ptr, ptr %462, align 8
   %464 = and i32 %294, 127
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr [128 x %struct.bgl_lock], ptr %463, i64 0, i64 %465
+  %466 = getelementptr %struct.bgl_lock, ptr %463, i64 %465
   call void @_raw_spin_unlock(ptr noundef %466) #16
   br label %467
 
@@ -8259,7 +8259,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %479 = load ptr, ptr %478, align 8
   %480 = and i32 %294, 127
   %481 = zext nneg i32 %480 to i64
-  %482 = getelementptr [128 x %struct.bgl_lock], ptr %479, i64 0, i64 %481
+  %482 = getelementptr %struct.bgl_lock, ptr %479, i64 %481
   %483 = call i32 @_raw_spin_trylock(ptr noundef %482) #16
   %484 = icmp eq i32 %483, 0
   %485 = load ptr, ptr %10, align 8
@@ -8317,7 +8317,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %510 = load ptr, ptr %10, align 8
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 424
   %512 = load ptr, ptr %511, align 8
-  %513 = getelementptr [128 x %struct.bgl_lock], ptr %512, i64 0, i64 %481
+  %513 = getelementptr %struct.bgl_lock, ptr %512, i64 %481
   call void @_raw_spin_unlock(ptr noundef %513) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
   br label %select.unfold
@@ -8364,7 +8364,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
 
 541:                                              ; preds = %611, %530
   %542 = phi i64 [ %532, %530 ], [ %612, %611 ]
-  %543 = getelementptr [0 x i32], ptr %531, i64 0, i64 %542
+  %543 = getelementptr i32, ptr %531, i64 %542
   %544 = load i32, ptr %543, align 4
   %545 = icmp eq i32 %544, 0
   br i1 %545, label %611, label %546
@@ -8429,7 +8429,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   br i1 %581, label %588, label %582
 
 582:                                              ; preds = %563
-  %583 = getelementptr [0 x i32], ptr %531, i64 0, i64 %542
+  %583 = getelementptr i32, ptr %531, i64 %542
   %584 = load ptr, ptr %8, align 8
   %585 = load i32, ptr %256, align 4
   call void @ext4_mark_group_bitmap_corrupted(ptr noundef %584, i32 noundef %585, i32 noundef 4) #16
@@ -8444,7 +8444,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   store i16 %590, ptr %257, align 4
   %591 = load i8, ptr %237, align 1
   %592 = zext i8 %591 to i64
-  %593 = getelementptr [5 x i16], ptr %258, i64 0, i64 %592
+  %593 = getelementptr i16, ptr %258, i64 %592
   %594 = load i16, ptr %593, align 2
   %595 = add i16 %594, 1
   store i16 %595, ptr %593, align 2
@@ -8580,7 +8580,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   store i16 %686, ptr %257, align 4
   %687 = load i8, ptr %237, align 1
   %688 = zext i8 %687 to i64
-  %689 = getelementptr [5 x i16], ptr %258, i64 0, i64 %688
+  %689 = getelementptr i16, ptr %258, i64 %688
   %690 = load i16, ptr %689, align 2
   %691 = add i16 %690, 1
   store i16 %691, ptr %689, align 2
@@ -8766,7 +8766,7 @@ ext4_mb_scan_aligned.exit:                        ; preds = %692, %638, %684
   store i16 %795, ptr %257, align 4
   %796 = load i8, ptr %237, align 1
   %797 = zext i8 %796 to i64
-  %798 = getelementptr [5 x i16], ptr %258, i64 0, i64 %797
+  %798 = getelementptr i16, ptr %258, i64 %797
   %799 = load i16, ptr %798, align 2
   %800 = add i16 %799, 1
   store i16 %800, ptr %798, align 2
@@ -8901,7 +8901,7 @@ ext4_mb_simple_scan_group.exit:                   ; preds = %611, %609, %603, %5
   %863 = load ptr, ptr %10, align 8
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 424
   %865 = load ptr, ptr %864, align 8
-  %866 = getelementptr [128 x %struct.bgl_lock], ptr %865, i64 0, i64 %481
+  %866 = getelementptr %struct.bgl_lock, ptr %865, i64 %481
   call void @_raw_spin_unlock(ptr noundef %866) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
   %867 = load i8, ptr %24, align 4
@@ -9157,7 +9157,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit.thread: ; preds = %.preheader79, %ex
   %1024 = getelementptr inbounds nuw i8, ptr %1009, i64 888
   %1025 = getelementptr inbounds nuw i8, ptr %1009, i64 1000
   %1026 = zext i8 %1016 to i64
-  %1027 = getelementptr [5 x %struct.atomic64_t], ptr %1025, i64 0, i64 %1026
+  %1027 = getelementptr %struct.atomic64_t, ptr %1025, i64 %1026
   br label %1028
 
 1028:                                             ; preds = %1036, %1023
@@ -9344,7 +9344,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1127, %ext4_mb_
   %1145 = getelementptr inbounds nuw i8, ptr %1130, i64 888
   %1146 = getelementptr inbounds nuw i8, ptr %1130, i64 1000
   %1147 = zext i8 %1137 to i64
-  %1148 = getelementptr [5 x %struct.atomic64_t], ptr %1146, i64 0, i64 %1147
+  %1148 = getelementptr %struct.atomic64_t, ptr %1146, i64 %1147
   br label %1149
 
 1149:                                             ; preds = %1157, %1144
@@ -9417,7 +9417,7 @@ default.unreachable427:                           ; preds = %901
   br i1 %1179, label %1180, label %1182
 
 1180:                                             ; preds = %.thread67
-  %1181 = getelementptr [5 x %struct.atomic64_t], ptr %250, i64 0, i64 %indvars.iv335
+  %1181 = getelementptr %struct.atomic64_t, ptr %250, i64 %indvars.iv335
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1181, ptr elementtype(i64) %1181) #16, !srcloc !212
   br label %1182
 
@@ -9488,7 +9488,7 @@ default.unreachable427:                           ; preds = %901
   %1215 = load ptr, ptr %1214, align 8
   %1216 = and i32 %1202, 127
   %1217 = zext nneg i32 %1216 to i64
-  %1218 = getelementptr [128 x %struct.bgl_lock], ptr %1215, i64 0, i64 %1217
+  %1218 = getelementptr %struct.bgl_lock, ptr %1215, i64 %1217
   %1219 = call i32 @_raw_spin_trylock(ptr noundef %1218) #16
   %1220 = icmp eq i32 %1219, 0
   %1221 = load ptr, ptr %1212, align 8
@@ -9562,7 +9562,7 @@ default.unreachable427:                           ; preds = %901
   %1256 = load ptr, ptr %1255, align 8
   %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 424
   %1258 = load ptr, ptr %1257, align 8
-  %1259 = getelementptr [128 x %struct.bgl_lock], ptr %1258, i64 0, i64 %1217
+  %1259 = getelementptr %struct.bgl_lock, ptr %1258, i64 %1217
   call void @_raw_spin_unlock(ptr noundef %1259) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
   br label %ext4_mb_try_best_found.exit
@@ -9605,7 +9605,7 @@ ext4_mb_try_best_found.exit:                      ; preds = %1206, %1253
   %1272 = getelementptr inbounds nuw i8, ptr %11, i64 1040
   %1273 = load i8, ptr %237, align 1
   %1274 = zext i8 %1273 to i64
-  %1275 = getelementptr [5 x %struct.atomic64_t], ptr %1272, i64 0, i64 %1274
+  %1275 = getelementptr %struct.atomic64_t, ptr %1272, i64 %1274
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1275, ptr elementtype(i64) %1275) #16, !srcloc !212
   %.pre344 = load i8, ptr %24, align 4
   br label %.thread71
@@ -9728,7 +9728,7 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr noundef nonnull r
   %27 = load ptr, ptr %26, align 8
   %28 = and i32 %23, 127
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [128 x %struct.bgl_lock], ptr %27, i64 0, i64 %29
+  %30 = getelementptr %struct.bgl_lock, ptr %27, i64 %29
   %31 = tail call i32 @_raw_spin_trylock(ptr noundef %30) #16
   %32 = icmp eq i32 %31, 0
   %33 = load ptr, ptr %24, align 8
@@ -9792,7 +9792,7 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr noundef nonnull r
   %65 = load ptr, ptr %64, align 8
   %66 = and i32 %61, 127
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr [128 x %struct.bgl_lock], ptr %65, i64 0, i64 %67
+  %68 = getelementptr %struct.bgl_lock, ptr %65, i64 %67
   tail call void @_raw_spin_unlock(ptr noundef %68) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %2)
   br label %80
@@ -9948,7 +9948,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %74 = load ptr, ptr %73, align 8
   %75 = and i32 %52, 127
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr [128 x %struct.bgl_lock], ptr %74, i64 0, i64 %76
+  %77 = getelementptr %struct.bgl_lock, ptr %74, i64 %76
   %78 = call i32 @_raw_spin_trylock(ptr noundef %77) #16
   %79 = icmp eq i32 %78, 0
   %80 = load ptr, ptr %8, align 8
@@ -10184,7 +10184,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %191 = load ptr, ptr %8, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 424
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr [128 x %struct.bgl_lock], ptr %193, i64 0, i64 %76
+  %194 = getelementptr %struct.bgl_lock, ptr %193, i64 %76
   call void @_raw_spin_unlock(ptr noundef %194) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %5)
   %195 = getelementptr inbounds nuw i8, ptr %60, i64 96
@@ -10237,7 +10237,7 @@ ext4_mb_discard_group_preallocations.exit:        ; preds = %49, %55, %62, %69, 
 
 222:                                              ; preds = %218
   %223 = and i64 %219, 63
-  %224 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %223
+  %224 = getelementptr i64, ptr @__per_cpu_offset, i64 %223
   %225 = load i64, ptr %224, align 8
   %226 = add i64 %225, ptrtoint (ptr @discard_pa_seq to i64)
   %227 = inttoptr i64 %226 to ptr
@@ -10729,7 +10729,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
   %293 = load ptr, ptr %292, align 8
   %294 = and i32 %284, 127
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr [128 x %struct.bgl_lock], ptr %293, i64 0, i64 %295
+  %296 = getelementptr %struct.bgl_lock, ptr %293, i64 %295
   %297 = call i32 @_raw_spin_trylock(ptr noundef %296) #16
   %298 = icmp eq i32 %297, 0
   %299 = load ptr, ptr %169, align 8
@@ -10990,7 +10990,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
   %448 = load i32, ptr %290, align 4
   %449 = and i32 %448, 1
   %450 = zext nneg i32 %449 to i64
-  %451 = getelementptr [2 x %struct.list_head], ptr %447, i64 0, i64 %450
+  %451 = getelementptr %struct.list_head, ptr %447, i64 %450
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
   %453 = load ptr, ptr %452, align 8
   store ptr %281, ptr %452, align 8
@@ -11105,7 +11105,7 @@ define dso_local void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noun
   %523 = load ptr, ptr %522, align 8
   %524 = and i32 %520, 127
   %525 = zext nneg i32 %524 to i64
-  %526 = getelementptr [128 x %struct.bgl_lock], ptr %523, i64 0, i64 %525
+  %526 = getelementptr %struct.bgl_lock, ptr %523, i64 %525
   %527 = call i32 @_raw_spin_trylock(ptr noundef %526) #16
   %528 = icmp eq i32 %527, 0
   %529 = load ptr, ptr %169, align 8
@@ -11168,7 +11168,7 @@ ext4_mb_free_metadata.exit:                       ; preds = %445, %406, %.thread
   %557 = load ptr, ptr %556, align 8
   %558 = and i32 %554, 127
   %559 = zext nneg i32 %558 to i64
-  %560 = getelementptr [128 x %struct.bgl_lock], ptr %557, i64 0, i64 %559
+  %560 = getelementptr %struct.bgl_lock, ptr %557, i64 %559
   call void @_raw_spin_unlock(ptr noundef %560) #16
   %561 = and i32 %222, 64
   %562 = icmp eq i32 %561, 0
@@ -11327,7 +11327,7 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   %57 = load ptr, ptr %56, align 8
   %58 = and i32 %54, 127
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr [128 x %struct.bgl_lock], ptr %57, i64 0, i64 %59
+  %60 = getelementptr %struct.bgl_lock, ptr %57, i64 %59
   %61 = call i32 @_raw_spin_trylock(ptr noundef %60) #16
   %62 = icmp eq i32 %61, 0
   %63 = load ptr, ptr %9, align 8
@@ -11391,7 +11391,7 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   %90 = load ptr, ptr %89, align 8
   %91 = and i32 %87, 127
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr [128 x %struct.bgl_lock], ptr %90, i64 0, i64 %92
+  %93 = getelementptr %struct.bgl_lock, ptr %90, i64 %92
   call void @_raw_spin_unlock(ptr noundef %93) #16
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %95 = load i32, ptr @percpu_counter_batch, align 4
@@ -11454,7 +11454,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly captures(addres
   %24 = load ptr, ptr %23, align 8
   %25 = and i32 %20, 127
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [128 x %struct.bgl_lock], ptr %24, i64 0, i64 %26
+  %27 = getelementptr %struct.bgl_lock, ptr %24, i64 %26
   %28 = load volatile i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31, !prof !30
@@ -11791,7 +11791,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly captures(addres
   %259 = phi i32 [ 1, %252 ], [ -1, %256 ]
   %260 = load ptr, ptr %32, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 128
-  %262 = getelementptr [0 x i32], ptr %261, i64 0, i64 %indvars.iv
+  %262 = getelementptr i32, ptr %261, i64 %indvars.iv
   %263 = load i32, ptr %262, align 4
   %264 = add i32 %263, %259
   store i32 %264, ptr %262, align 4
@@ -11835,7 +11835,7 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly captures(addres
   %289 = phi i32 [ 1, %282 ], [ -1, %286 ]
   %290 = load ptr, ptr %32, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 128
-  %292 = getelementptr [0 x i32], ptr %291, i64 0, i64 %indvars.iv
+  %292 = getelementptr i32, ptr %291, i64 %indvars.iv
   %293 = load i32, ptr %292, align 4
   %294 = add i32 %293, %289
   store i32 %294, ptr %292, align 4
@@ -11923,8 +11923,8 @@ define internal fastcc void @mb_free_blocks(ptr noundef readonly captures(addres
   %345 = load ptr, ptr %32, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 128
   %sext = shl i64 %indvars.iv, 32
-  %347 = ashr exact i64 %sext, 32
-  %348 = getelementptr [0 x i32], ptr %346, i64 0, i64 %347
+  %347 = ashr exact i64 %sext, 30
+  %348 = getelementptr i8, ptr %346, i64 %347
   %349 = load i32, ptr %348, align 4
   %reass.sub = sub i32 %296, %266
   %350 = add i32 %reass.sub, 1
@@ -12186,7 +12186,7 @@ define dso_local i32 @ext4_trim_fs(ptr noundef %0, ptr noundef captures(none) %1
   %163 = load ptr, ptr %162, align 8
   %164 = and i32 %102, 127
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr [128 x %struct.bgl_lock], ptr %163, i64 0, i64 %165
+  %166 = getelementptr %struct.bgl_lock, ptr %163, i64 %165
   %167 = call i32 @_raw_spin_trylock(ptr noundef %166) #16
   %168 = icmp eq i32 %167, 0
   %169 = load ptr, ptr %14, align 8
@@ -12260,7 +12260,7 @@ define dso_local i32 @ext4_trim_fs(ptr noundef %0, ptr noundef captures(none) %1
   %205 = phi i32 [ %202, %201 ], [ 0, %196 ]
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 424
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr [128 x %struct.bgl_lock], ptr %207, i64 0, i64 %165
+  %208 = getelementptr %struct.bgl_lock, ptr %207, i64 %165
   call void @_raw_spin_unlock(ptr noundef %208) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %3)
   br label %209
@@ -12342,7 +12342,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %16 = load ptr, ptr %15, align 8
   %17 = and i32 %1, 127
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr [128 x %struct.bgl_lock], ptr %16, i64 0, i64 %18
+  %19 = getelementptr %struct.bgl_lock, ptr %16, i64 %18
   %20 = tail call i32 @_raw_spin_trylock(ptr noundef %19) #16
   %21 = icmp eq i32 %20, 0
   %22 = load ptr, ptr %13, align 8
@@ -12442,7 +12442,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %85 = load ptr, ptr %13, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 424
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr [128 x %struct.bgl_lock], ptr %87, i64 0, i64 %18
+  %88 = getelementptr %struct.bgl_lock, ptr %87, i64 %18
   tail call void @_raw_spin_unlock(ptr noundef %88) #16
   %89 = sub i32 %84, %76
   %90 = tail call i32 %4(ptr noundef %0, i32 noundef %1, i32 noundef %76, i32 noundef %89, ptr noundef %5) #16
@@ -12453,7 +12453,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %93 = load ptr, ptr %13, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 424
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr [128 x %struct.bgl_lock], ptr %95, i64 0, i64 %18
+  %96 = getelementptr %struct.bgl_lock, ptr %95, i64 %18
   %97 = tail call i32 @_raw_spin_trylock(ptr noundef %96) #16
   %98 = icmp eq i32 %97, 0
   %99 = load ptr, ptr %13, align 8
@@ -12516,7 +12516,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %124 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %51, %.critedge ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 424
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr [128 x %struct.bgl_lock], ptr %126, i64 0, i64 %18
+  %127 = getelementptr %struct.bgl_lock, ptr %126, i64 %18
   tail call void @_raw_spin_unlock(ptr noundef %127) #16
   br label %.loopexit14
 
@@ -12831,7 +12831,7 @@ define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i
   %196 = load ptr, ptr %195, align 8
   %197 = and i32 %133, 127
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr [128 x %struct.bgl_lock], ptr %196, i64 0, i64 %198
+  %199 = getelementptr %struct.bgl_lock, ptr %196, i64 %198
   %200 = tail call i32 @_raw_spin_trylock(ptr noundef %199) #16
   %201 = icmp eq i32 %200, 0
   %202 = load ptr, ptr %12, align 8
@@ -12941,7 +12941,7 @@ define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i
   %252 = load ptr, ptr %251, align 8
   %253 = and i32 %133, 127
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr [128 x %struct.bgl_lock], ptr %252, i64 0, i64 %254
+  %255 = getelementptr %struct.bgl_lock, ptr %252, i64 %254
   %256 = tail call i32 @_raw_spin_trylock(ptr noundef %255) #16
   %257 = icmp eq i32 %256, 0
   %258 = load ptr, ptr %12, align 8
@@ -13098,7 +13098,7 @@ ext4_mb_generate_from_pa.exit:                    ; preds = %.loopexit.i, %.thre
   %336 = load ptr, ptr %12, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 424
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr [128 x %struct.bgl_lock], ptr %338, i64 0, i64 %334
+  %339 = getelementptr %struct.bgl_lock, ptr %338, i64 %334
   tail call void @_raw_spin_unlock(ptr noundef %339) #16
   br label %340
 
@@ -13294,7 +13294,7 @@ define internal fastcc void @ext4_mb_generate_buddy(ptr noundef %0, ptr noundef 
   %62 = tail call i32 @llvm.smin.i32(i32 %60, i32 %61)
   %63 = shl nuw i32 1, %62
   %64 = sext i32 %62 to i64
-  %65 = getelementptr [0 x i32], ptr %28, i64 0, i64 %64
+  %65 = getelementptr i32, ptr %28, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
@@ -13410,7 +13410,7 @@ define internal fastcc void @mb_set_largest_free_order(i8 %.20.val, ptr readonly
   %3 = zext i8 %.20.val to i32
   %4 = add nuw nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr [0 x i32], ptr %2, i64 0, i64 %5
+  %6 = getelementptr i32, ptr %2, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.loopexit, label %.preheader.preheader
@@ -13422,7 +13422,7 @@ define internal fastcc void @mb_set_largest_free_order(i8 %.20.val, ptr readonly
 
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr [0 x i32], ptr %2, i64 0, i64 %indvars.iv.next
+  %12 = getelementptr i32, ptr %2, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !334
@@ -13840,7 +13840,7 @@ define internal fastcc i32 @ext4_try_to_trim_range(ptr noundef %0, ptr noundef r
   %138 = load ptr, ptr %137, align 8
   %139 = and i32 %114, 127
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr [128 x %struct.bgl_lock], ptr %138, i64 0, i64 %140
+  %141 = getelementptr %struct.bgl_lock, ptr %138, i64 %140
   %142 = load volatile i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %145, !prof !30
@@ -13858,7 +13858,7 @@ define internal fastcc i32 @ext4_try_to_trim_range(ptr noundef %0, ptr noundef r
   %147 = load ptr, ptr %15, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 424
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr [128 x %struct.bgl_lock], ptr %149, i64 0, i64 %140
+  %150 = getelementptr %struct.bgl_lock, ptr %149, i64 %140
   tail call void @_raw_spin_unlock(ptr noundef %150) #16
   %151 = load ptr, ptr %15, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 84
@@ -13929,7 +13929,7 @@ define internal fastcc i32 @ext4_try_to_trim_range(ptr noundef %0, ptr noundef r
   %198 = load ptr, ptr %15, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 424
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr [128 x %struct.bgl_lock], ptr %200, i64 0, i64 %140
+  %201 = getelementptr %struct.bgl_lock, ptr %200, i64 %140
   %202 = tail call i32 @_raw_spin_trylock(ptr noundef %201) #16
   %203 = icmp eq i32 %202, 0
   %204 = load ptr, ptr %15, align 8
@@ -14039,7 +14039,7 @@ define internal fastcc i32 @ext4_try_to_trim_range(ptr noundef %0, ptr noundef r
   %258 = load ptr, ptr %257, align 8
   %259 = and i32 %255, 127
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr [128 x %struct.bgl_lock], ptr %258, i64 0, i64 %260
+  %261 = getelementptr %struct.bgl_lock, ptr %258, i64 %260
   tail call void @_raw_spin_unlock(ptr noundef %261) #16
   %262 = tail call i32 @__SCT__cond_resched() #16
   %263 = load i32, ptr %13, align 4
@@ -14048,7 +14048,7 @@ define internal fastcc i32 @ext4_try_to_trim_range(ptr noundef %0, ptr noundef r
   %266 = load ptr, ptr %265, align 8
   %267 = and i32 %263, 127
   %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr [128 x %struct.bgl_lock], ptr %266, i64 0, i64 %268
+  %269 = getelementptr %struct.bgl_lock, ptr %266, i64 %268
   %270 = tail call i32 @_raw_spin_trylock(ptr noundef %269) #16
   %271 = icmp eq i32 %270, 0
   %272 = load ptr, ptr %15, align 8
@@ -14163,7 +14163,7 @@ define internal fastcc i32 @mb_mark_used(ptr noundef readonly captures(none) %0,
   %27 = load ptr, ptr %26, align 8
   %28 = and i32 %18, 127
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [128 x %struct.bgl_lock], ptr %27, i64 0, i64 %29
+  %30 = getelementptr %struct.bgl_lock, ptr %27, i64 %29
   %31 = load volatile i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %34, !prof !30
@@ -14443,7 +14443,7 @@ mb_find_order_for_block.exit:                     ; preds = %160, %146, %105
   %216 = load ptr, ptr %35, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 128
   %218 = sext i32 %165 to i64
-  %219 = getelementptr [0 x i32], ptr %217, i64 0, i64 %218
+  %219 = getelementptr i32, ptr %217, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = add i32 %220, -1
   store i32 %221, ptr %219, align 4
@@ -14519,7 +14519,7 @@ mb_find_order_for_block.exit:                     ; preds = %160, %146, %105
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %258, i64 %263) #16, !srcloc !9
   %264 = load ptr, ptr %35, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 128
-  %266 = getelementptr [0 x i32], ptr %265, i64 0, i64 %.pre-phi
+  %266 = getelementptr i32, ptr %265, i64 %.pre-phi
   %267 = load i32, ptr %266, align 4
   %268 = add i32 %267, -1
   store i32 %268, ptr %266, align 4
@@ -14587,13 +14587,13 @@ mb_find_order_for_block.exit:                     ; preds = %160, %146, %105
   %314 = load ptr, ptr %35, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 128
   %316 = zext nneg i32 %269 to i64
-  %317 = getelementptr [0 x i32], ptr %315, i64 0, i64 %316
+  %317 = getelementptr i32, ptr %315, i64 %316
   %318 = load i32, ptr %317, align 4
   %319 = add i32 %318, 1
   store i32 %319, ptr %317, align 4
   %320 = load ptr, ptr %35, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 128
-  %322 = getelementptr [0 x i32], ptr %321, i64 0, i64 %316
+  %322 = getelementptr i32, ptr %321, i64 %316
   %323 = load i32, ptr %322, align 4
   %324 = add i32 %323, 1
   store i32 %324, ptr %322, align 4
@@ -14979,7 +14979,7 @@ define internal fastcc i32 @mb_find_extent(ptr noundef readonly captures(none) %
   %12 = load ptr, ptr %11, align 8
   %13 = and i32 %8, 127
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr [128 x %struct.bgl_lock], ptr %12, i64 0, i64 %14
+  %15 = getelementptr %struct.bgl_lock, ptr %12, i64 %14
   %16 = load volatile i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19, !prof !30

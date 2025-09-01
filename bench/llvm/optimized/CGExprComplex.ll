@@ -3121,7 +3121,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %.val = load i32, ptr %170, align 8
   %171 = and i32 %.val, 255
   %172 = zext nneg i32 %171 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE, i64 0, i64 %172
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE, i64 %172
   %switch.load = load ptr, ptr %switch.gep, align 8
   %173 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitComplexBinOpLibCallEN4llvm9StringRefERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nonnull %switch.load, i64 8, ptr noundef nonnull align 8 dereferenceable(44) %1)
   %174 = extractvalue { ptr, ptr } %173, 0
@@ -4871,7 +4871,7 @@ switch.lookup:                                    ; preds = %447, %446
   %453 = load i32, ptr %452, align 8
   %454 = and i32 %453, 255
   %455 = zext nneg i32 %454 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE, i64 0, i64 %455
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE, i64 %455
   %switch.load = load ptr, ptr %switch.gep, align 8
   %456 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitComplexBinOpLibCallEN4llvm9StringRefERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nonnull %switch.load, i64 8, ptr noundef nonnull align 8 dereferenceable(44) %53)
   %.sroa.12.1 = extractvalue { ptr, ptr } %456, 1
@@ -16828,7 +16828,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZN
 
 switch.lookup:                                    ; preds = %43
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 %switch.load
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %51, align 8, !tbaa !3

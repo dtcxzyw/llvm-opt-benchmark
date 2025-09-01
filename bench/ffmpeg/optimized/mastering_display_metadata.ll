@@ -13,7 +13,7 @@ define noalias ptr @av_mastering_display_metadata_alloc() local_unnamed_addr #0 
 
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
   %indvars.iv16.i.i = phi i64 [ %indvars.iv.next17.i.i, %.preheader.i.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %1, i64 0, i64 %indvars.iv16.i.i
+  %2 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %1, i64 %indvars.iv16.i.i
   store i32 0, ptr %2, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !4
@@ -51,7 +51,7 @@ define noalias ptr @av_mastering_display_metadata_alloc_size(ptr noundef writeon
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.preheader.i ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %2, i64 0, i64 %indvars.iv16.i
+  %3 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %2, i64 %indvars.iv16.i
   store i32 0, ptr %3, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !4
@@ -103,7 +103,7 @@ define ptr @av_mastering_display_metadata_create_side_data(ptr noundef %0) local
 
 .preheader.i:                                     ; preds = %.preheader.i, %3
   %indvars.iv16.i = phi i64 [ 0, %3 ], [ %indvars.iv.next17.i, %.preheader.i ]
-  %7 = getelementptr inbounds nuw [3 x [2 x %struct.AVRational]], ptr %6, i64 0, i64 %indvars.iv16.i
+  %7 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %6, i64 %indvars.iv16.i
   store i32 0, ptr %7, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !4

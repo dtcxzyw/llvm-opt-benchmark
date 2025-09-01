@@ -97037,7 +97037,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit275: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %500
   %508 = zext nneg i8 %503 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN12_GLOBAL__N_110ShowWorker11gen_portboxENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL7SigSpecEbPS6_, i64 0, i64 %508
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_110ShowWorker11gen_portboxENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL7SigSpecEbPS6_, i64 %508
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %509
 

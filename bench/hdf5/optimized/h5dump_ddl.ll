@@ -2053,13 +2053,13 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   %91 = load ptr, ptr @rawoutstream, align 8, !tbaa !17
   call void @h5tools_simple_prefix(ptr noundef %91, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 0, i32 noundef 0) #15
   %92 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #15
-  %93 = getelementptr inbounds nuw [8 x i64], ptr @packed_mask, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw i64, ptr @packed_mask, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !110
   store i64 %94, ptr @packed_data_mask, align 8, !tbaa !110
-  %95 = getelementptr inbounds nuw [8 x i32], ptr @packed_offset, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr @packed_offset, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !4
   store i32 %96, ptr @packed_data_offset, align 4, !tbaa !4
-  %97 = getelementptr inbounds nuw [8 x i32], ptr @packed_length, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr @packed_length, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !4
   store i32 %98, ptr @packed_data_length, align 4, !tbaa !4
   call void @h5tools_print_packed_bits(ptr noundef nonnull %7, i64 noundef %62) #15

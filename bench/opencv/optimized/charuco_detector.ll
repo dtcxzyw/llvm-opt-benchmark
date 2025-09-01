@@ -2319,7 +2319,7 @@ _ZNK2cv11_InputArray6getMatEi.exit262:            ; preds = %606, %608
   %.pre-phi616 = phi i64 [ %.pre615, %630 ], [ %627, %623 ], [ %617, %615 ]
   %.0.i264 = phi ptr [ %641, %630 ], [ %629, %623 ], [ %618, %615 ]
   %643 = load i32, ptr %.0.i264, align 4, !tbaa !20
-  %644 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %indvars.iv601
+  %644 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv601
   store i32 %643, ptr %644, align 4, !tbaa !20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -2464,7 +2464,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit ]
   %686 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i.i.i.i.i
   %687 = load i32, ptr %686, align 4, !tbaa !20
-  %688 = getelementptr inbounds nuw [4 x i32], ptr %.sroa.10.0, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %688 = getelementptr inbounds nuw i32, ptr %.sroa.10.0, i64 %indvars.iv.i.i.i.i.i
   store i32 %687, ptr %688, align 4, !tbaa !20
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -2512,7 +2512,7 @@ _ZNKSt6vectorIN2cv3VecIiLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %689
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %703 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %704 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %705 = load i32, ptr %704, align 4, !tbaa !20
-  %706 = getelementptr inbounds nuw [4 x i32], ptr %.015.i.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %706 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store i32 %705, ptr %706, align 4, !tbaa !20
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -4999,7 +4999,7 @@ _ZN2cv3Mat2atINS_3VecIiLi4EEEEERT_i.exit:         ; preds = %301, %308, %314
 
 .noexc132:                                        ; preds = %_ZN2cv3Mat2atINS_3VecIiLi4EEEEERT_i.exit, %.noexc136
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc136 ], [ 0, %_ZN2cv3Mat2atINS_3VecIiLi4EEEEERT_i.exit ]
-  %332 = getelementptr inbounds nuw [4 x i32], ptr %.0.i131, i64 0, i64 %indvars.iv.i
+  %332 = getelementptr inbounds nuw i32, ptr %.0.i131, i64 %indvars.iv.i
   %333 = load i32, ptr %332, align 4, !tbaa !20
   %334 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %110, i32 noundef %333)
           to label %.noexc135 unwind label %.loopexit

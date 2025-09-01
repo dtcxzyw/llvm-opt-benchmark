@@ -2732,7 +2732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 
 85:                                               ; preds = %79
   %86 = zext i8 %84 to i64
-  %87 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !73
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %89 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #23, !noalias !74

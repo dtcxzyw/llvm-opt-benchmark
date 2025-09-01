@@ -39090,7 +39090,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !3319
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -39148,7 +39148,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3330)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -40076,7 +40076,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !3475
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -40134,7 +40134,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3484)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -41062,7 +41062,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !3628
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -41120,7 +41120,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3637)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -42048,7 +42048,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !3781
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -42106,7 +42106,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3788)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3790)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -43034,7 +43034,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !3934
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -43092,7 +43092,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3941)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3943)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -44020,7 +44020,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4087
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -44078,7 +44078,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4094)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4096)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -45006,7 +45006,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4240
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -45064,7 +45064,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4249)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -45992,7 +45992,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4393
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -46050,7 +46050,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4402)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -46978,7 +46978,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4546
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -47036,7 +47036,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4555)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -47964,7 +47964,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4699
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -48022,7 +48022,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4708)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -48950,7 +48950,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !4852
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -49008,7 +49008,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4859)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4861)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -49936,7 +49936,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5005
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -49994,7 +49994,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5014)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -50922,7 +50922,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5158
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -50980,7 +50980,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5167)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -51908,7 +51908,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5311
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -51966,7 +51966,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5320)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -52894,7 +52894,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5464
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -52952,7 +52952,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5473)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -53880,7 +53880,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5617
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -53938,7 +53938,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5624)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5626)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -54866,7 +54866,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5770
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -54924,7 +54924,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5777)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5779)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -55852,7 +55852,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !5923
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -55910,7 +55910,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5930)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5932)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -56838,7 +56838,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !6076
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -56896,7 +56896,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6085)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -57824,7 +57824,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !6229
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -57882,7 +57882,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6238)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -58810,7 +58810,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !6382
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -58868,7 +58868,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6389)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6391)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -59796,7 +59796,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !6535
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -59854,7 +59854,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6544)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -60780,7 +60780,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !6688
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -60838,7 +60838,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6695)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6697)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -61757,7 +61757,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !6857
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -61815,7 +61815,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6864)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6866)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -62734,7 +62734,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7026
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -62792,7 +62792,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7033)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7035)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -63711,7 +63711,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7195
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -63769,7 +63769,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7204)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -64688,7 +64688,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7364
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -64746,7 +64746,7 @@ switch.lookup93:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7373)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep94 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep94 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load95 = load ptr, ptr %switch.gep94, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -65637,7 +65637,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7525
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -65695,7 +65695,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7534)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -66610,7 +66610,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7694
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -66668,7 +66668,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7703)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -67587,7 +67587,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !7863
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -67645,7 +67645,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7870)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7872)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -68560,7 +68560,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !8034
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -68618,7 +68618,7 @@ switch.lookup93:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8043)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep94 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep94 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load95 = load ptr, ptr %switch.gep94, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -69509,7 +69509,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !8195
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -69567,7 +69567,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8204)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -70486,7 +70486,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !8364
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -70544,7 +70544,7 @@ switch.lookup95:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8373)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -71459,7 +71459,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !8533
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -71517,7 +71517,7 @@ switch.lookup85:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8542)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep86 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -72400,7 +72400,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !8688
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -72458,7 +72458,7 @@ switch.lookup85:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8695)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8697)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep86 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -73343,7 +73343,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !8843
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -73401,7 +73401,7 @@ switch.lookup85:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8850)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8852)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep86 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -74294,7 +74294,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %69, ptr %55, align 2, !noalias !8998
   %71 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %72
@@ -74352,7 +74352,7 @@ switch.lookup85:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9007)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.gep86 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %86
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
@@ -75243,7 +75243,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !9153
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -75301,7 +75301,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9162)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -76219,7 +76219,7 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i16 %67, ptr %55, align 2, !noalias !9306
   %69 = zext nneg i8 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.critedge.i, label %70
@@ -76277,7 +76277,7 @@ switch.lookup86:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9315)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 %84
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
@@ -77120,7 +77120,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %3)
   %5 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods12is_leap_year17h39ef7aee4126b236E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods12is_leap_year17h39ef7aee4126b236E, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -77892,7 +77892,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %9)
   %11 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods7ordinal17h4a9ca4046374b2fdE, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods7ordinal17h4a9ca4046374b2fdE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %8, align 8
   %12 = tail call noundef align 16 dereferenceable(48) ptr @"_ZN11polars_core13chunked_array7logical8datetime203_$LT$impl$u20$polars_core..chunked_array..logical..LogicalType$u20$for$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$5dtype17haecef2f9f2304867E"(ptr noundef nonnull align 16 %9)
@@ -78015,7 +78015,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %3)
   %5 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods8iso_year17h429cac1e2c5fd5b3E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11polars_time12chunkedarray8datetime15DatetimeMethods8iso_year17h429cac1e2c5fd5b3E, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48

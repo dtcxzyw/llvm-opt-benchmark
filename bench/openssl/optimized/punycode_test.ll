@@ -104,7 +104,7 @@ define internal range(i32 0, 2) i32 @test_punycode(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1, %16
   %.011 = phi i64 [ %17, %16 ], [ 0, %1 ]
-  %13 = getelementptr inbounds nuw [50 x i32], ptr %5, i64 0, i64 %.011
+  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %.011
   %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16
@@ -343,7 +343,7 @@ define internal i32 @test_a2ulabel_bad_decode(i32 noundef %0) #0 {
   %2 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [5 x %struct.bad_decode_test], ptr @bad_decode_tests, i64 0, i64 %3
+  %4 = getelementptr inbounds %struct.bad_decode_test, ptr @bad_decode_tests, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %4, align 16, !tbaa !20
   %7 = call i32 @ossl_a2ulabel(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %6) #6

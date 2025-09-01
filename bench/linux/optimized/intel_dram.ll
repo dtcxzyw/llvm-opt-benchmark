@@ -677,7 +677,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bxt_get_dram_info(ptr noun
   %85 = zext nneg i8 %34 to i32
   %86 = zext nneg i8 %35 to i32
   %87 = zext nneg i32 %79 to i64
-  %88 = getelementptr [5 x ptr], ptr @intel_dram_type_str.str, i64 0, i64 %87
+  %88 = getelementptr ptr, ptr @intel_dram_type_str.str, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %84, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %11, i32 noundef %51, i32 noundef %85, i32 noundef %86, ptr noundef %89) #8
   %90 = icmp eq i8 %10, 0
@@ -761,7 +761,7 @@ default.unreachable2:                             ; preds = %1
 19:                                               ; preds = %16, %12
   %20 = phi ptr [ %18, %16 ], [ null, %12 ]
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr [5 x ptr], ptr @intel_dram_type_str.str, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr @intel_dram_type_str.str, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %20, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %23) #8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8912
@@ -927,14 +927,14 @@ define dso_local void @intel_dram_edram_detect(ptr noundef captures(address_is_n
   %24 = lshr i32 %14, 5
   %25 = and i32 %24, 7
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr [8 x i8], ptr @gen9_edram_size_mb.ways, i64 0, i64 %26
+  %27 = getelementptr i8, ptr @gen9_edram_size_mb.ways, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = mul nuw nsw i32 %23, %29
   %31 = lshr i32 %14, 8
   %32 = and i32 %31, 3
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr [4 x i8], ptr @gen9_edram_size_mb.sets, i64 0, i64 %33
+  %34 = getelementptr i8, ptr @gen9_edram_size_mb.sets, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = mul nuw nsw i32 %30, %36

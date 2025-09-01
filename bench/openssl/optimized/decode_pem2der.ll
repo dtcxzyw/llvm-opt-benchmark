@@ -143,7 +143,7 @@ read_pem.exit:                                    ; preds = %7
 
 41:                                               ; preds = %37, %39
   %.02641 = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw [17 x %struct.pem_name_map_st], ptr @pem2der_decode.pem_name_map, i64 0, i64 %.02641
+  %42 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02641
   %43 = load ptr, ptr %42, align 16, !tbaa !20
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %43) #6
   %45 = icmp eq i32 %44, 0

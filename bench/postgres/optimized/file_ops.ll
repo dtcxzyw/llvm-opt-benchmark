@@ -57,8 +57,8 @@ define dso_local void @open_target_file(ptr noundef %0, i1 noundef zeroext %1) l
 8:                                                ; preds = %5
   %9 = load ptr, ptr @datadir_target, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
-  %11 = add i64 %10, 1
-  %12 = getelementptr inbounds nuw [1024 x i8], ptr @dstpath, i64 0, i64 %11
+  %11 = getelementptr i8, ptr @dstpath, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 1
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %25, label %.thread
@@ -716,7 +716,7 @@ sub_135:                                          ; preds = %.tail
   unreachable
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 0, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 %55
   store i8 0, ptr %59, align 1
   call void %2(ptr noundef nonnull %7, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %8) #11
   br i1 %.not, label %63, label %60

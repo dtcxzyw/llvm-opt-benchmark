@@ -3212,7 +3212,7 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   %.1.i.i.i = phi i8 [ %364, %.preheader45.i.i.i ], [ 0, %357 ]
   %360 = urem i8 %.043.i.i.i, 10
   %361 = zext nneg i8 %360 to i64
-  %362 = getelementptr [17 x i8], ptr @.str.761, i64 0, i64 %361
+  %362 = getelementptr i8, ptr @.str.761, i64 %361
   %363 = load i8, ptr %362, align 1
   %364 = add i8 %.1.i.i.i, 1
   %365 = zext i8 %.1.i.i.i to i64
@@ -3327,7 +3327,7 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   %.1.i134.i.i = phi i8 [ %415, %.preheader45.i131.i.i ], [ 0, %.preheader45.i131.i.i.preheader ]
   %411 = urem i8 %.043.i133.i.i, %.0113.i.i
   %412 = zext nneg i8 %411 to i64
-  %413 = getelementptr [17 x i8], ptr @.str.761, i64 0, i64 %412
+  %413 = getelementptr i8, ptr @.str.761, i64 %412
   %414 = load i8, ptr %413, align 1
   %415 = add i8 %.1.i134.i.i, 1
   %416 = zext i8 %.1.i134.i.i to i64
@@ -7081,7 +7081,7 @@ default.unreachable:                              ; preds = %122, %36, %5
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = zext nneg i8 %35 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.acn_add_dmp_reason_codes, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acn_add_dmp_reason_codes, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %switch.lookup
 
@@ -7305,7 +7305,7 @@ define internal fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.acn_add_dmp_reason_codes, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acn_add_dmp_reason_codes, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %switch.lookup
 

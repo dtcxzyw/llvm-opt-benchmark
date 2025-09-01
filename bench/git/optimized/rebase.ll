@@ -1613,7 +1613,7 @@ merge_dir.exit251:                                ; preds = %strbuf_setlen.exit2
 615:                                              ; preds = %611
   %616 = load i32, ptr %230, align 8, !tbaa !68
   %617 = zext i32 %616 to i64
-  %618 = getelementptr inbounds nuw [7 x ptr], ptr @action_names, i64 0, i64 %617
+  %618 = getelementptr inbounds nuw ptr, ptr @action_names, i64 %617
   %619 = load ptr, ptr %618, align 8, !tbaa !33
   call void @trace2_cmd_mode_fl(ptr noundef nonnull @.str.99, i32 noundef 1313, ptr noundef %619) #19
   br label %620
@@ -2028,7 +2028,7 @@ skip_prefix.exit:                                 ; preds = %.preheader402, %799
 799:                                              ; preds = %skip_prefix.exit
   %800 = getelementptr inbounds nuw i8, ptr %.2355, i64 1
   %801 = zext i8 %798 to i64
-  %802 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %801
+  %802 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %801
   %803 = load i8, ptr %802, align 1, !tbaa !67
   %804 = and i8 %803, 2
   %.not222 = icmp eq i8 %804, 0

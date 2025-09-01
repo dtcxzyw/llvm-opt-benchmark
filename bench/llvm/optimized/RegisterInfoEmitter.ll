@@ -8852,7 +8852,7 @@ _ZN4llvm15SparseBitVectorILj128EEC2ERKS1_.exit:   ; preds = %.lr.ph.i.i.i406
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %848 ], [ 0, %844 ]
   %849 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
   call void @llvm.assume(i1 %849)
-  %850 = getelementptr inbounds nuw [2 x i64], ptr %847, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %850 = getelementptr inbounds nuw i64, ptr %847, i64 %indvars.iv.i.i.i.i.i
   %851 = load i64, ptr %850, align 8, !tbaa !53, !noalias !521
   %.not.i.i.i.i.i = icmp eq i64 %851, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -8965,7 +8965,7 @@ _ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZero
   %899 = and i32 %893, 63
   %900 = getelementptr inbounds nuw i8, ptr %895, i64 24
   %901 = zext nneg i32 %898 to i64
-  %902 = getelementptr inbounds nuw [2 x i64], ptr %900, i64 0, i64 %901
+  %902 = getelementptr inbounds nuw i64, ptr %900, i64 %901
   %903 = load i64, ptr %902, align 8, !tbaa !53
   %904 = zext nneg i32 %899 to i64
   %905 = shl nsw i64 -1, %904
@@ -9017,7 +9017,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %920, %9
   %indvars.iv.i.i933 = phi i64 [ %indvars.iv.next.i.i934, %929 ], [ 0, %925 ]
   %930 = icmp samesign ult i64 %indvars.iv.i.i933, 2
   call void @llvm.assume(i1 %930)
-  %931 = getelementptr inbounds nuw [2 x i64], ptr %928, i64 0, i64 %indvars.iv.i.i933
+  %931 = getelementptr inbounds nuw i64, ptr %928, i64 %indvars.iv.i.i933
   %932 = load i64, ptr %931, align 8, !tbaa !53
   %.not.i9.i = icmp eq i64 %932, 0
   %indvars.iv.next.i.i934 = add nuw nsw i64 %indvars.iv.i.i933, 1
@@ -9047,7 +9047,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i935: ; preds = %92
   %944 = lshr i32 %.018.i.ph.frozen.i, 6
   store i32 %944, ptr %245, align 4, !tbaa !520
   %945 = zext nneg i32 %944 to i64
-  %946 = getelementptr inbounds nuw [2 x i64], ptr %900, i64 0, i64 %945
+  %946 = getelementptr inbounds nuw i64, ptr %900, i64 %945
   %947 = load i64, ptr %946, align 8, !tbaa !53
   %.urem12.i = add i32 %.018.i.ph.frozen.i, -64
   %.cmp13.i = icmp ult i32 %.018.i.ph.frozen.i, 64
@@ -9092,7 +9092,7 @@ _ZN4llvm15SparseBitVectorILj128EED2Ev.exit:       ; preds = %.lr.ph.i.i.i413, %_
   %960 = phi i1 [ true, %.lr.ph.i.i ], [ false, %959 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %959 ]
   %.056.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %965, %959 ]
-  %961 = getelementptr inbounds nuw [2 x i64], ptr %958, i64 0, i64 %indvars.iv.i.i.i
+  %961 = getelementptr inbounds nuw i64, ptr %958, i64 %indvars.iv.i.i.i
   %962 = load i64, ptr %961, align 8, !tbaa !53
   %963 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %962)
   %964 = trunc nuw nsw i64 %963 to i32
@@ -9365,7 +9365,7 @@ _ZNK4llvm15CodeGenRegister17getNativeRegUnitsEv.exit438: ; preds = %.lr.ph.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1093 ], [ 0, %1089 ]
   %1094 = icmp samesign ult i64 %indvars.iv.i.i, 2
   call void @llvm.assume(i1 %1094)
-  %1095 = getelementptr inbounds nuw [2 x i64], ptr %1092, i64 0, i64 %indvars.iv.i.i
+  %1095 = getelementptr inbounds nuw i64, ptr %1092, i64 %indvars.iv.i.i
   %1096 = load i64, ptr %1095, align 8, !tbaa !53
   %.not.i.i439 = icmp eq i64 %1096, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -37358,7 +37358,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %21 = and i32 %18, 63
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !53
   %26 = zext nneg i32 %21 to i64
   %27 = shl nsw i64 -1, %26
@@ -37418,7 +37418,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
   %56 = icmp samesign ult i64 %indvars.iv.i, 2
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8, !tbaa !53
   %.not.i9 = icmp eq i64 %58, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -37448,7 +37448,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %69, ptr %70, align 4, !tbaa !520
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %22, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !53
   %.urem12 = add i32 %.018.i.ph.frozen, -64
   %.cmp13 = icmp ult i32 %.018.i.ph.frozen, 64

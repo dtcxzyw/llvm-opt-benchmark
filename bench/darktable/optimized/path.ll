@@ -4485,14 +4485,14 @@ g_list_shorter_than.exit:                         ; preds = %77
 
 146:                                              ; preds = %127, %156
   %indvars.iv = phi i64 [ 0, %127 ], [ %indvars.iv.next, %156 ]
-  %147 = getelementptr inbounds nuw [5 x i32], ptr %130, i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv
   %148 = load i32, ptr %147, align 4, !tbaa !26
   %149 = load i32, ptr %35, align 8, !tbaa !152
   %150 = icmp eq i32 %148, %149
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds nuw [5 x ptr], ptr %131, i64 0, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv
   %153 = load ptr, ptr %152, align 8, !tbaa !186
   %154 = tail call i64 @gtk_toggle_button_get_type() #23
   %155 = tail call ptr @g_type_check_instance_cast(ptr noundef %153, i64 noundef %154) #21
@@ -7952,12 +7952,12 @@ dt_masks_dynbuf_free.exit538:                     ; preds = %670, %677
 
 754:                                              ; preds = %754, %711
   %indvars.iv449.i = phi i64 [ 0, %711 ], [ %indvars.iv.next450.i, %754 ]
-  %755 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv449.i
+  %755 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv449.i
   %756 = load i32, ptr %755, align 4, !tbaa !26
   %.not.i.i540 = icmp slt i32 %756, %712
   %757 = select i1 %.not.i.i540, i32 %703, i32 0
   %758 = add nsw i32 %757, %756
-  %759 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv449.i
+  %759 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv449.i
   store i32 %758, ptr %759, align 4, !tbaa !26
   %indvars.iv.next450.i = add nuw nsw i64 %indvars.iv449.i, 1
   %exitcond452.not.i = icmp eq i64 %indvars.iv.next450.i, 4
@@ -8268,7 +8268,7 @@ _path_fill_gaps.exit.i:                           ; preds = %dt_masks_dynbuf_add
 910:                                              ; preds = %.preheader804, %.loopexit.i.thread
   %indvars.iv458.i = phi i64 [ %indvars.iv.next459.i, %.loopexit.i.thread ], [ 0, %.preheader804 ]
   %.6233414.i = phi i32 [ %.7234.i, %.loopexit.i.thread ], [ %.3230419.i, %.preheader804 ]
-  %911 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv458.i
+  %911 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv458.i
   %912 = load i32, ptr %911, align 4, !tbaa !26
   %913 = icmp eq i32 %912, %spec.select.i542
   %914 = icmp eq i32 %912, %873

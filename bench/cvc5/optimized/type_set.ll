@@ -1433,7 +1433,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %61, %55, %51, %.loo
   %spec.select.i.i = add nsw i32 %.019, %91
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %93 = sext i32 %spec.select.i.i to i64
-  %94 = getelementptr inbounds [0 x ptr], ptr %92, i64 0, i64 %93
+  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !69, !noalias !90
   store ptr %95, ptr %8, align 8, !tbaa !55, !alias.scope !90
   call void @_ZN4cvc58internal6theory7TypeSet11addSubTermsENS0_12NodeTemplateILb0EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false)

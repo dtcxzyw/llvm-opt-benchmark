@@ -92,7 +92,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
 
 .lr.ph.i.us.i.i.i.i.i:                            ; preds = %29, %33
   %.05.i.us.i.i.i.i.i = phi i64 [ %34, %33 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw [0 x i8], ptr %23, i64 0, i64 %.05.i.us.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.05.i.us.i.i.i.i.i
   %31 = load i8, ptr %30, align 1, !alias.scope !32, !noalias !31, !noundef !14
   %32 = icmp eq i8 %31, %25
   br i1 %32, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us.i.i.i.i.i, label %33
@@ -149,7 +149,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us.i.i.i.i.i: ; pre
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %53, %57
   %.05.i.i.i.i.i.i = phi i64 [ %58, %57 ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw [0 x i8], ptr %47, i64 0, i64 %.05.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.05.i.i.i.i.i.i
   %55 = load i8, ptr %54, align 1, !alias.scope !32, !noalias !31, !noundef !14
   %56 = icmp eq i8 %55, %49
   br i1 %56, label %_ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i.i, label %57
@@ -463,7 +463,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
 
 .lr.ph.i.i:                                       ; preds = %44, %48
   %.05.i.i = phi i64 [ %49, %48 ], [ 0, %44 ]
-  %45 = getelementptr inbounds nuw [0 x i8], ptr %38, i64 0, i64 %.05.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.05.i.i
   %46 = load i8, ptr %45, align 1, !alias.scope !79, !noundef !14
   %47 = icmp eq i8 %46, 10
   br i1 %47, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8051ba57ca4818d5E.exit.thread112", label %48
@@ -1127,7 +1127,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
 
 .lr.ph.i.i:                                       ; preds = %44, %48
   %.05.i.i = phi i64 [ %49, %48 ], [ 0, %44 ]
-  %45 = getelementptr inbounds nuw [0 x i8], ptr %38, i64 0, i64 %.05.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.05.i.i
   %46 = load i8, ptr %45, align 1, !alias.scope !189, !noundef !14
   %47 = icmp eq i8 %46, 10
   br i1 %47, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8051ba57ca4818d5E.exit.thread112", label %48

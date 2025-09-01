@@ -146,7 +146,7 @@ resample_free.exit:                               ; preds = %43, %67
 
 switch.lookup:                                    ; preds = %70
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.resample_init, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.resample_init, i64 %79
   %switch.load = load i32, ptr %switch.gep, align 4
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 96
   store i32 %switch.load, ptr %80, align 8, !tbaa !24
@@ -402,9 +402,9 @@ define internal range(i32 0, -2147483648) i32 @multiple_resample(ptr noundef %0,
 59:                                               ; preds = %.lr.ph133, %94
   %indvars.iv136 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next137, %94 ]
   %60 = load ptr, ptr %55, align 8, !tbaa !40
-  %61 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv136
+  %61 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv136
   %62 = load ptr, ptr %61, align 8, !tbaa !41
-  %63 = getelementptr inbounds nuw [64 x ptr], ptr %3, i64 0, i64 %indvars.iv136
+  %63 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   tail call void %60(ptr noundef %62, ptr noundef %64, i32 noundef %spec.select, i64 noundef %36, i64 noundef %42) #9
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -510,9 +510,9 @@ define internal range(i32 0, -2147483648) i32 @multiple_resample(ptr noundef %0,
 .lr.ph:                                           ; preds = %130, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %130 ]
   %136 = phi i32 [ %145, %.lr.ph ], [ %134, %130 ]
-  %137 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8, !tbaa !41
-  %139 = getelementptr inbounds nuw [64 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = zext i32 %136 to i64
@@ -598,7 +598,7 @@ define internal range(i32 -2147483648, 1) i32 @resample_flush(ptr noundef %0) #0
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %25 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   br label %26
 
 26:                                               ; preds = %.preheader.us, %26
@@ -923,7 +923,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.preheader82, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader82 ]
-  %29 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = load i32, ptr %9, align 8, !tbaa !19
   %32 = add nsw i32 %31, %.07084
@@ -931,7 +931,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
   %34 = mul nsw i32 %32, %33
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %30, i64 %35
-  %37 = getelementptr inbounds nuw [64 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !41
   %39 = load i32, ptr %5, align 4, !tbaa !9
   %40 = sub nsw i32 %.07084, %39
@@ -983,7 +983,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
 
 .lr.ph87:                                         ; preds = %.preheader, %.lr.ph87
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph87 ], [ 0, %.preheader ]
-  %60 = getelementptr inbounds nuw [64 x ptr], ptr %1, i64 0, i64 %indvars.iv99
+  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv99
   %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = load i32, ptr %9, align 8, !tbaa !19
   %63 = sub nsw i32 %62, %.17190

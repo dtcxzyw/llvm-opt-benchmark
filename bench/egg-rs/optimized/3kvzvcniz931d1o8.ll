@@ -117,7 +117,7 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7: ; preds = %_ZN3egg
   unreachable
 
 _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7
-  %8 = getelementptr inbounds nuw [0 x i32], ptr %.val5, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw i32, ptr %.val5, i64 %5
   %9 = load i32, ptr %8, align 4, !noundef !4
   %.not = icmp eq i32 %.sroa.0.0, %9
   br i1 %.not, label %10, label %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7
@@ -144,7 +144,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind8find_mut17h369927a435d28ea7E(ptr
 _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %2, %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit
   %7 = phi i64 [ %16, %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit ], [ %5, %2 ]
   %.sroa.0.021 = phi i32 [ %15, %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit ], [ %1, %2 ]
-  %8 = getelementptr inbounds nuw [0 x i32], ptr %.val8, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %.val8, i64 %7
   %9 = load i32, ptr %8, align 4, !noundef !4
   %.not = icmp eq i32 %.sroa.0.021, %9
   br i1 %.not, label %10, label %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
@@ -162,7 +162,7 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12: ; preds = %_ZN3eg
   unreachable
 
 _ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
-  %14 = getelementptr inbounds nuw [0 x i32], ptr %.val8, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i32, ptr %.val8, i64 %11
   %15 = load i32, ptr %14, align 4, !noundef !4
   store i32 %15, ptr %8, align 4
   %16 = zext i32 %15 to i64
@@ -185,7 +185,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind5union17h6c28f217673409b4E(ptr no
 _ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit: ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw [0 x i32], ptr %.val, i64 0, i64 %5
+  %9 = getelementptr inbounds nuw i32, ptr %.val, i64 %5
   store i32 %1, ptr %9, align 4
   ret i32 %1
 }

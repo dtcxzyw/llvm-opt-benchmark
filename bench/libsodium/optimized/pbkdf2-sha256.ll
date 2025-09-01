@@ -94,9 +94,9 @@ define hidden void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %0, i64 noundef %1
 
 51:                                               ; preds = %47, %51
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr [32 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %52 = getelementptr i8, ptr %11, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr [32 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %54 = getelementptr i8, ptr %12, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1
   %56 = xor i8 %55, %53
   store i8 %56, ptr %54, align 1

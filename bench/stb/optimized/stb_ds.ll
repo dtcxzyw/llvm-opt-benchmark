@@ -219,13 +219,13 @@ stbds_log2.exit:                                  ; preds = %.lr.ph.i, %2
 
 52:                                               ; preds = %49, %.thread
   %.0116137 = phi i64 [ 0, %49 ], [ %82, %.thread ]
-  %53 = getelementptr inbounds nuw [8 x i64], ptr %51, i64 0, i64 %.0116137
+  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %.0116137
   %54 = load i64, ptr %53, align 8, !tbaa !10
   %55 = icmp sgt i64 %54, -1
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw [8 x i64], ptr %50, i64 0, i64 %.0116137
+  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %.0116137
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = load i64, ptr %12, align 8, !tbaa !18
   %60 = add i64 %59, -1
@@ -246,7 +246,7 @@ stbds_log2.exit:                                  ; preds = %.lr.ph.i, %2
 
 65:                                               ; preds = %61, %69
   %.0108133 = phi i64 [ %64, %61 ], [ %70, %69 ]
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %63, i64 0, i64 %.0108133
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %.0108133
   %67 = load i64, ptr %66, align 8, !tbaa !10
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %.thread.sink.split, label %69
@@ -258,7 +258,7 @@ stbds_log2.exit:                                  ; preds = %.lr.ph.i, %2
 
 .lr.ph135:                                        ; preds = %.preheader, %74
   %.1134 = phi i64 [ %75, %74 ], [ 0, %.preheader ]
-  %71 = getelementptr inbounds nuw [8 x i64], ptr %63, i64 0, i64 %.1134
+  %71 = getelementptr inbounds nuw i64, ptr %63, i64 %.1134
   %72 = load i64, ptr %71, align 8, !tbaa !10
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %.thread.sink.split, label %74
@@ -275,11 +275,11 @@ stbds_log2.exit:                                  ; preds = %.lr.ph.i, %2
 
 .thread.sink.split:                               ; preds = %65, %.lr.ph135
   %.0108133.sink = phi i64 [ %.1134, %.lr.ph135 ], [ %.0108133, %65 ]
-  %78 = getelementptr inbounds nuw [8 x i64], ptr %63, i64 0, i64 %.0108133.sink
+  %78 = getelementptr inbounds nuw i64, ptr %63, i64 %.0108133.sink
   store i64 %58, ptr %78, align 8, !tbaa !10
   %79 = load i64, ptr %53, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %81 = getelementptr inbounds nuw [8 x i64], ptr %80, i64 0, i64 %.0108133.sink
+  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %.0108133.sink
   store i64 %79, ptr %81, align 8, !tbaa !10
   br label %.thread
 
@@ -815,7 +815,7 @@ stbds_hash_bytes.exit:                            ; preds = %84, %55, %38, %stbd
 
 .split.us:                                        ; preds = %95, %110
   %.05980.us = phi i64 [ %111, %110 ], [ %98, %95 ]
-  %100 = getelementptr inbounds nuw [8 x i64], ptr %97, i64 0, i64 %.05980.us
+  %100 = getelementptr inbounds nuw i64, ptr %97, i64 %.05980.us
   %101 = load i64, ptr %100, align 8, !tbaa !10
   %102 = icmp eq i64 %101, %spec.select
   br i1 %102, label %stbds_is_key_equal.exit.us, label %103
@@ -825,7 +825,7 @@ stbds_hash_bytes.exit:                            ; preds = %84, %55, %38, %stbd
   br i1 %104, label %.loopexit, label %110
 
 stbds_is_key_equal.exit.us:                       ; preds = %.split.us
-  %105 = getelementptr inbounds nuw [8 x i64], ptr %99, i64 0, i64 %.05980.us
+  %105 = getelementptr inbounds nuw i64, ptr %99, i64 %.05980.us
   %106 = load i64, ptr %105, align 8, !tbaa !10
   %107 = mul i64 %106, %1
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %107
@@ -848,7 +848,7 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %122
   %.186.us = phi i64 [ %123, %122 ], [ 0, %.lr.ph ]
-  %112 = getelementptr inbounds nuw [8 x i64], ptr %97, i64 0, i64 %.186.us
+  %112 = getelementptr inbounds nuw i64, ptr %97, i64 %.186.us
   %113 = load i64, ptr %112, align 8, !tbaa !10
   %114 = icmp eq i64 %113, %spec.select
   br i1 %114, label %stbds_is_key_equal.exit71.us, label %115
@@ -858,7 +858,7 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
   br i1 %116, label %.loopexit, label %122
 
 stbds_is_key_equal.exit71.us:                     ; preds = %.lr.ph.split.us
-  %117 = getelementptr inbounds nuw [8 x i64], ptr %99, i64 0, i64 %.186.us
+  %117 = getelementptr inbounds nuw i64, ptr %99, i64 %.186.us
   %118 = load i64, ptr %117, align 8, !tbaa !10
   %119 = mul i64 %118, %1
   %gep85.us = getelementptr i8, ptr %invariant.gep, i64 %119
@@ -874,13 +874,13 @@ stbds_is_key_equal.exit71.us:                     ; preds = %.lr.ph.split.us
 
 .split:                                           ; preds = %95, %134
   %.05980 = phi i64 [ %135, %134 ], [ %98, %95 ]
-  %124 = getelementptr inbounds nuw [8 x i64], ptr %97, i64 0, i64 %.05980
+  %124 = getelementptr inbounds nuw i64, ptr %97, i64 %.05980
   %125 = load i64, ptr %124, align 8, !tbaa !10
   %126 = icmp eq i64 %125, %spec.select
   br i1 %126, label %stbds_is_key_equal.exit, label %132
 
 stbds_is_key_equal.exit:                          ; preds = %.split
-  %127 = getelementptr inbounds nuw [8 x i64], ptr %99, i64 0, i64 %.05980
+  %127 = getelementptr inbounds nuw i64, ptr %99, i64 %.05980
   %128 = load i64, ptr %127, align 8, !tbaa !10
   %129 = mul i64 %128, %1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %129
@@ -905,13 +905,13 @@ stbds_is_key_equal.exit:                          ; preds = %.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %146
   %.186 = phi i64 [ %147, %146 ], [ 0, %.lr.ph ]
-  %136 = getelementptr inbounds nuw [8 x i64], ptr %97, i64 0, i64 %.186
+  %136 = getelementptr inbounds nuw i64, ptr %97, i64 %.186
   %137 = load i64, ptr %136, align 8, !tbaa !10
   %138 = icmp eq i64 %137, %spec.select
   br i1 %138, label %stbds_is_key_equal.exit71, label %144
 
 stbds_is_key_equal.exit71:                        ; preds = %.lr.ph.split
-  %139 = getelementptr inbounds nuw [8 x i64], ptr %99, i64 0, i64 %.186
+  %139 = getelementptr inbounds nuw i64, ptr %99, i64 %.186
   %140 = load i64, ptr %139, align 8, !tbaa !10
   %141 = mul i64 %140, %1
   %gep85 = getelementptr i8, ptr %invariant.gep, i64 %141
@@ -984,7 +984,7 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   %27 = lshr i64 %22, 3
   %28 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %26, i64 %27, i32 1
   %29 = and i64 %22, 7
-  %30 = getelementptr inbounds nuw [8 x i64], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !10
   br label %32
 
@@ -1037,7 +1037,7 @@ define ptr @stbds_hmget_key(ptr noundef captures(address_is_null, ret: address, 
   %26 = lshr i64 %21, 3
   %27 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %25, i64 %26, i32 1
   %28 = and i64 %21, 7
-  %29 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !10
   br label %stbds_hmget_key_ts.exit
 
@@ -1350,7 +1350,7 @@ stbds_hash_bytes.exit:                            ; preds = %128, %99, %82, %stb
 .split.us:                                        ; preds = %139, %163
   %.0157252.us = phi i64 [ %164, %163 ], [ %142, %139 ]
   %.1162251.us = phi i64 [ %.3.us, %163 ], [ %.0161, %139 ]
-  %145 = getelementptr inbounds nuw [8 x i64], ptr %141, i64 0, i64 %.0157252.us
+  %145 = getelementptr inbounds nuw i64, ptr %141, i64 %.0157252.us
   %146 = load i64, ptr %145, align 8, !tbaa !10
   %147 = icmp eq i64 %146, %spec.select
   br i1 %147, label %stbds_is_key_equal.exit.us, label %148
@@ -1364,7 +1364,7 @@ stbds_hash_bytes.exit:                            ; preds = %128, %99, %82, %stb
   br i1 %151, label %152, label %163
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252.us
+  %153 = getelementptr inbounds nuw i64, ptr %143, i64 %.0157252.us
   %154 = load i64, ptr %153, align 8, !tbaa !10
   %155 = icmp eq i64 %154, -2
   %156 = or disjoint i64 %.0157252.us, %144
@@ -1372,7 +1372,7 @@ stbds_hash_bytes.exit:                            ; preds = %128, %99, %82, %stb
   br label %163
 
 stbds_is_key_equal.exit.us:                       ; preds = %.split.us
-  %157 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252.us
+  %157 = getelementptr inbounds nuw i64, ptr %143, i64 %.0157252.us
   %158 = load i64, ptr %157, align 8, !tbaa !10
   %159 = mul i64 %158, %1
   %160 = getelementptr inbounds nuw i8, ptr %.0159, i64 %159
@@ -1395,13 +1395,13 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
 .split:                                           ; preds = %139, %189
   %.0157252 = phi i64 [ %190, %189 ], [ %142, %139 ]
   %.1162251 = phi i64 [ %.3, %189 ], [ %.0161, %139 ]
-  %165 = getelementptr inbounds nuw [8 x i64], ptr %141, i64 0, i64 %.0157252
+  %165 = getelementptr inbounds nuw i64, ptr %141, i64 %.0157252
   %166 = load i64, ptr %165, align 8, !tbaa !10
   %167 = icmp eq i64 %166, %spec.select
   br i1 %167, label %stbds_is_key_equal.exit.thread, label %179
 
 stbds_is_key_equal.exit.thread:                   ; preds = %.split
-  %168 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252
+  %168 = getelementptr inbounds nuw i64, ptr %143, i64 %.0157252
   %169 = load i64, ptr %168, align 8, !tbaa !10
   %170 = mul i64 %169, %1
   %171 = getelementptr inbounds nuw i8, ptr %.0159, i64 %170
@@ -1415,7 +1415,7 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
   br label %.thread203
 
 .split259.us:                                     ; preds = %stbds_is_key_equal.exit.us
-  %173 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252.us
+  %173 = getelementptr inbounds nuw i64, ptr %143, i64 %.0157252.us
   %174 = getelementptr inbounds i8, ptr %16, i64 -8
   store i64 %158, ptr %174, align 8, !tbaa !46
   %175 = load i64, ptr %173, align 8, !tbaa !10
@@ -1440,7 +1440,7 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %182
-  %185 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.0157252
+  %185 = getelementptr inbounds nuw i64, ptr %143, i64 %.0157252
   %186 = load i64, ptr %185, align 8, !tbaa !10
   %187 = icmp eq i64 %186, -2
   %188 = or disjoint i64 %.0157252, %144
@@ -1456,13 +1456,13 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
 .lr.ph:                                           ; preds = %.preheader, %217
   %.1158265 = phi i64 [ %218, %217 ], [ 0, %.preheader ]
   %.4264 = phi i64 [ %.5, %217 ], [ %.us-phi263, %.preheader ]
-  %191 = getelementptr inbounds nuw [8 x i64], ptr %141, i64 0, i64 %.1158265
+  %191 = getelementptr inbounds nuw i64, ptr %141, i64 %.1158265
   %192 = load i64, ptr %191, align 8, !tbaa !10
   %193 = icmp eq i64 %192, %spec.select
   br i1 %193, label %194, label %206
 
 194:                                              ; preds = %.lr.ph
-  %195 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.1158265
+  %195 = getelementptr inbounds nuw i64, ptr %143, i64 %.1158265
   %196 = load i64, ptr %195, align 8, !tbaa !10
   %197 = mul i64 %196, %1
   %198 = getelementptr inbounds nuw i8, ptr %.0159, i64 %197
@@ -1500,7 +1500,7 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
   br i1 %211, label %212, label %217
 
 212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw [8 x i64], ptr %143, i64 0, i64 %.1158265
+  %213 = getelementptr inbounds nuw i64, ptr %143, i64 %.1158265
   %214 = load i64, ptr %213, align 8, !tbaa !10
   %215 = icmp eq i64 %214, -2
   %216 = add nuw nsw i64 %.1158265, %144
@@ -1590,11 +1590,11 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
   %257 = lshr i64 %.2166, 3
   %258 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %253, i64 %257
   %259 = and i64 %.2166, 7
-  %260 = getelementptr inbounds nuw [8 x i64], ptr %258, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw i64, ptr %258, i64 %259
   store i64 %spec.select, ptr %260, align 8, !tbaa !10
   %261 = add nsw i64 %254, -1
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 64
-  %263 = getelementptr inbounds nuw [8 x i64], ptr %262, i64 0, i64 %259
+  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %259
   store i64 %261, ptr %263, align 8, !tbaa !10
   %264 = getelementptr inbounds i8, ptr %.1160, i64 -8
   store i64 %261, ptr %264, align 8, !tbaa !46
@@ -1894,7 +1894,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %23 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %21, i64 %22
   %24 = and i64 %17, 7
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %26 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = load i64, ptr %11, align 8, !tbaa !3
   %29 = add nsw i64 %28, -2
@@ -1907,7 +1907,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8, !tbaa !20
   store i64 1, ptr %14, align 8, !tbaa !46
-  %36 = getelementptr inbounds nuw [8 x i64], ptr %23, i64 0, i64 %24
+  %36 = getelementptr inbounds nuw i64, ptr %23, i64 %24
   store i64 1, ptr %36, align 8, !tbaa !10
   store i64 -2, ptr %26, align 8, !tbaa !10
   %37 = icmp eq i32 %5, 1
@@ -1961,7 +1961,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %63 = ashr i64 %.083, 3
   %64 = and i64 %.083, 7
   %65 = getelementptr inbounds %struct.stbds_hash_bucket, ptr %62, i64 %63, i32 1
-  %66 = getelementptr inbounds nuw [8 x i64], ptr %65, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %64
   store i64 %27, ptr %66, align 8, !tbaa !10
   br label %67
 

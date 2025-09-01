@@ -4238,7 +4238,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder17parseWhiteBalanceEv(ptr noundef n
   %15 = select i1 %13, float %14, float 0.000000e+00
   %16 = load ptr, ptr %9, align 8, !tbaa !73
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 256
-  %18 = getelementptr inbounds nuw [4 x float], ptr %17, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   store float %15, ptr %18, align 4, !tbaa !288
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4320,7 +4320,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder17parseWhiteBalanceEv(ptr noundef n
   %76 = fcmp ogt float %75, 0.000000e+00
   %77 = fdiv float 1.000000e+00, %75
   %78 = select i1 %76, float %77, float 0.000000e+00
-  %79 = getelementptr inbounds nuw [4 x float], ptr %51, i64 0, i64 %indvars.iv34
+  %79 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv34
   store float %78, ptr %79, align 4, !tbaa !288
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
@@ -6570,7 +6570,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit115: ; preds = %.lr.ph, %123
   %153 = tail call noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull align 8 dereferenceable(48) %115, i32 noundef %.074265)
   %154 = and i32 %.074265, 1
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw [2 x float], ptr %3, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw float, ptr %3, i64 %155
   %157 = load float, ptr %156, align 4, !tbaa !288
   %158 = fadd float %153, %157
   store float %158, ptr %156, align 4, !tbaa !288
@@ -6590,7 +6590,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit115: ; preds = %.lr.ph, %123
   %indvars.iv284 = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit115 ], [ %indvars.iv.next285, %164 ]
   %166 = lshr i64 %indvars.iv284, 1
   %167 = and i64 %166, 2147483647
-  %168 = getelementptr inbounds nuw [2 x float], ptr %3, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw float, ptr %3, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !288
   %170 = load ptr, ptr %41, align 8, !tbaa !73
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 44
@@ -6725,7 +6725,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit131: ; preds = %.lr.ph268, %
   %235 = tail call noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull align 8 dereferenceable(48) %197, i32 noundef %.070267)
   %236 = and i32 %.070267, 1
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw [2 x float], ptr %4, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw float, ptr %4, i64 %237
   %239 = load float, ptr %238, align 4, !tbaa !288
   %240 = fadd float %235, %239
   store float %240, ptr %238, align 4, !tbaa !288
@@ -6748,7 +6748,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit131: ; preds = %.lr.ph268, %
 248:                                              ; preds = %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit131, %246
   %indvars.iv287 = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit131 ], [ %indvars.iv.next288, %246 ]
   %249 = and i64 %indvars.iv287, 1
-  %250 = getelementptr inbounds nuw [2 x float], ptr %4, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw float, ptr %4, i64 %249
   %251 = load float, ptr %250, align 4, !tbaa !288
   %252 = load ptr, ptr %41, align 8, !tbaa !73
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 40

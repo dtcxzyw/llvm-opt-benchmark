@@ -54,30 +54,30 @@ define hidden range(i32 -1, 2) i32 @logcat_open(ptr noundef %0, ptr noundef %1, 
   %8 = load ptr, ptr %0, align 8
   %9 = tail call fastcc i32 @detect_version(ptr noundef %8, ptr noundef %1, ptr noundef %2)
   switch i32 %9, label %10 [
-    i32 -1, label %31
-    i32 0, label %31
+    i32 -1, label %32
+    i32 0, label %32
     i32 -2, label %16
   ]
 
 10:                                               ; preds = %7
   %.not50 = icmp eq i32 %9, %5
-  br i1 %.not50, label %11, label %31
+  br i1 %.not50, label %11, label %32
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8
   %13 = tail call fastcc i32 @detect_version(ptr noundef %12, ptr noundef %1, ptr noundef %2)
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %31, label %15
+  br i1 %14, label %32, label %15
 
 15:                                               ; preds = %11
   %.not51 = icmp eq i32 %13, %5
-  br i1 %.not51, label %16, label %31
+  br i1 %.not51, label %16, label %32
 
 16:                                               ; preds = %15, %7
   %17 = load ptr, ptr %0, align 8
   %18 = tail call i64 @file_seek(ptr noundef %17, i64 noundef 0, i32 noundef 0, ptr noundef %1)
   %19 = icmp eq i64 %18, -1
-  br i1 %19, label %31, label %20
+  br i1 %19, label %32, label %20
 
 20:                                               ; preds = %16
   %21 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #9
@@ -98,16 +98,16 @@ define hidden range(i32 -1, 2) i32 @logcat_open(ptr noundef %0, ptr noundef %1, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %29, align 4
   tail call void @wtap_add_generated_idb(ptr noundef %0)
-  br label %31
+  br label %32
 
 switch.lookup:                                    ; preds = %3
-  %switch.tableidx = add nsw i32 %5, 2
-  %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.logcat_open, i64 0, i64 %30
+  %30 = sext i32 %5 to i64
+  %31 = getelementptr i32, ptr @switch.table.logcat_open, i64 %30
+  %switch.gep = getelementptr i8, ptr %31, i64 8
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %31
+  br label %32
 
-31:                                               ; preds = %7, %switch.lookup, %16, %15, %11, %10, %7, %20
+32:                                               ; preds = %7, %switch.lookup, %16, %15, %11, %10, %7, %20
   %.0 = phi i32 [ 1, %20 ], [ %9, %7 ], [ 0, %10 ], [ -1, %11 ], [ 0, %15 ], [ -1, %16 ], [ %switch.load, %switch.lookup ], [ %9, %7 ]
   ret i32 %.0
 }

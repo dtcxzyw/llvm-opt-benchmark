@@ -137,7 +137,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
 
 21:                                               ; preds = %10
   %22 = zext nneg i32 %16 to i64
-  %23 = getelementptr inbounds nuw [85 x i16], ptr @syscache_callback_links, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i16, ptr @syscache_callback_links, i64 %22
   %.0.in.in12.i = load i16, ptr %23, align 2
   %24 = icmp sgt i16 %.0.in.in12.i, 0
   br i1 %24, label %.lr.ph.i, label %CallSyscacheCallbacks.exit
@@ -312,7 +312,7 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [85 x i16], ptr @syscache_callback_links, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i16, ptr @syscache_callback_links, i64 %7
   %.0.in.in12 = load i16, ptr %8, align 2
   %9 = icmp sgt i16 %.0.in.in12, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -1909,7 +1909,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw [85 x i16], ptr @syscache_callback_links, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr @syscache_callback_links, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %18, label %21
@@ -1927,7 +1927,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 23:                                               ; preds = %23, %21
   %.0.in = phi i64 [ %22, %21 ], [ %27, %23 ]
   %.0 = add nsw i64 %.0.in, -1
-  %24 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %.0, i32 1
+  %24 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %.0, i32 1
   %25 = load i16, ptr %24, align 2
   %26 = icmp sgt i16 %25, 0
   %27 = zext nneg i16 %25 to i64
@@ -1942,13 +1942,13 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
 31:                                               ; preds = %28, %18
   %32 = trunc nuw nsw i32 %0 to i16
   %33 = sext i32 %8 to i64
-  %34 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33
+  %34 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33
   store i16 %32, ptr %34, align 8
-  %35 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 1
+  %35 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 1
   store i16 0, ptr %35, align 2
-  %36 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 2
+  %36 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 2
   store ptr %1, ptr %36, align 8
-  %37 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 3
+  %37 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 3
   store i64 %2, ptr %37, align 8
   %38 = add nsw i32 %8, 1
   store i32 %38, ptr @syscache_callback_count, align 4
@@ -1970,9 +1970,9 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
 
 8:                                                ; preds = %2
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %9
+  %10 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %9
   store ptr %0, ptr %10, align 16
-  %11 = getelementptr inbounds [10 x %struct.RELCACHECALLBACK], ptr @relcache_callback_list, i64 0, i64 %9, i32 1
+  %11 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %9, i32 1
   store i64 %1, ptr %11, align 8
   %12 = add nsw i32 %3, 1
   store i32 %12, ptr @relcache_callback_count, align 4

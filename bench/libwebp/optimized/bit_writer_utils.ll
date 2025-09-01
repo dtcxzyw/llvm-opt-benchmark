@@ -33,10 +33,10 @@ define hidden noundef i32 @VP8PutBit(ptr noundef captures(none) %0, i32 noundef 
 
 15:                                               ; preds = %13
   %16 = sext i32 %storemerge to i64
-  %17 = getelementptr inbounds [128 x i8], ptr @kNorm, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr @kNorm, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %16
+  %20 = getelementptr inbounds i8, ptr @kNewRange, i64 %16
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
   store i32 %22, ptr %0, align 8, !tbaa !3
@@ -207,7 +207,7 @@ define hidden noundef i32 @VP8PutBitUniform(ptr noundef captures(none) %0, i32 n
 
 13:                                               ; preds = %11
   %14 = sext i32 %storemerge to i64
-  %15 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %14
+  %15 = getelementptr inbounds i8, ptr @kNewRange, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !12
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %0, align 8, !tbaa !3
@@ -262,7 +262,7 @@ define hidden void @VP8PutBits(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 19:                                               ; preds = %17
   %20 = sext i32 %storemerge.i to i64
-  %21 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %20
+  %21 = getelementptr inbounds i8, ptr @kNewRange, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %0, align 8, !tbaa !3
@@ -312,7 +312,7 @@ define hidden void @VP8PutSignedBits(ptr noundef captures(none) %0, i32 noundef 
 
 14:                                               ; preds = %12
   %15 = sext i32 %storemerge.i to i64
-  %16 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %15
+  %16 = getelementptr inbounds i8, ptr @kNewRange, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = zext i8 %17 to i32
   store i32 %18, ptr %0, align 8, !tbaa !3
@@ -370,7 +370,7 @@ VP8PutBitUniform.exit:                            ; preds = %12, %14, %26
 
 45:                                               ; preds = %43
   %46 = sext i32 %storemerge.i.i to i64
-  %47 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %46
+  %47 = getelementptr inbounds i8, ptr @kNewRange, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !12
   %49 = zext i8 %48 to i32
   store i32 %49, ptr %0, align 8, !tbaa !3
@@ -423,7 +423,7 @@ VP8PutBitUniform.exit.i:                          ; preds = %55, %45, %43
 
 73:                                               ; preds = %71
   %74 = sext i32 %storemerge.i.i11 to i64
-  %75 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %74
+  %75 = getelementptr inbounds i8, ptr @kNewRange, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !12
   %77 = zext i8 %76 to i32
   store i32 %77, ptr %0, align 8, !tbaa !3
@@ -517,7 +517,7 @@ define hidden ptr @VP8BitWriterFinish(ptr noundef captures(none) %0) local_unnam
 
 11:                                               ; preds = %7
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds [128 x i8], ptr @kNewRange, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr @kNewRange, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !12
   %15 = zext i8 %14 to i32
   store i32 %15, ptr %0, align 8, !tbaa !3

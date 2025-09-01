@@ -24,20 +24,20 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %15, ptr %16, align 8, !tbaa !7
   %17 = getelementptr i8, ptr %12, i64 -8
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = sub nsw i32 %14, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !7
   %22 = getelementptr i8, ptr %12, i64 -12
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = sub nsw i32 %18, %23
   %25 = sext i32 %24 to i64
   %26 = sub nsw i64 %20, %25
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %26, ptr %27, align 8, !tbaa !7
   %28 = shl i32 %23, 1
   %29 = sub i32 %18, %28
@@ -46,7 +46,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %32 = add nsw i32 %29, %31
   %33 = sext i32 %32 to i64
   %34 = sub nsw i64 %26, %33
-  %35 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %34, ptr %35, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -373,20 +373,20 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %56 = getelementptr i8, ptr %55, i64 -4
   %57 = load i32, ptr %56, align 4, !tbaa !3
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv757
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv757
   store i64 %58, ptr %59, align 8, !tbaa !7
   %60 = getelementptr i8, ptr %55, i64 -8
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = sext i32 %61 to i64
   %63 = sub nsw i64 %58, %62
-  %64 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv757
+  %64 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv757
   store i64 %63, ptr %64, align 8, !tbaa !7
   %65 = getelementptr i8, ptr %55, i64 -12
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = sext i32 %66 to i64
   %.neg432 = sub nsw i64 %67, %62
   %68 = add nsw i64 %.neg432, %63
-  %69 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv757
+  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv757
   store i64 %68, ptr %69, align 8, !tbaa !7
   %70 = shl nsw i64 %67, 1
   %71 = getelementptr i8, ptr %55, i64 -16
@@ -395,7 +395,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %74 = add nsw i64 %62, %73
   %.neg664 = sub nsw i64 %70, %74
   %75 = add nsw i64 %.neg664, %68
-  %76 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv757
+  %76 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv757
   store i64 %75, ptr %76, align 8, !tbaa !7
   %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next758, 4

@@ -4034,7 +4034,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt27AddBatches
   %.074 = phi i64 [ 0, %2 ], [ %196, %195 ]
   %18 = load ptr, ptr %5, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 472
-  %20 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %19, i64 0, i64 %.074
+  %20 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %19, i64 %.074
   %21 = load ptr, ptr %20, align 8, !tbaa !255
   %22 = icmp eq ptr %21, null
   br i1 %22, label %195, label %23
@@ -8310,7 +8310,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %15, i64 0, i64 %.0216.i
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -9272,7 +9272,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %15, i64 0, i64 %.0216.i
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -10043,7 +10043,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %15, i64 0, i64 %.0216.i
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -10695,7 +10695,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData40
 
 15:                                               ; preds = %3, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread15
   %.017 = phi i64 [ 0, %3 ], [ %83, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread15 ]
-  %16 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %11, i64 0, i64 %.017
+  %16 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %11, i64 %.017
   %17 = load ptr, ptr %16, align 8, !tbaa !255
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread15, label %19
@@ -12316,7 +12316,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35
 
 18:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.0217.i = phi i64 [ 0, %3 ], [ %46, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %19 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %15, i64 0, i64 %.0217.i
+  %19 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0217.i
   %20 = load ptr, ptr %19, align 8, !tbaa !255
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %21
@@ -12588,7 +12588,7 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.e
 
 23:                                               ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.exit.thread27, %select.unfold
   %.01836 = phi i64 [ 0, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.exit.thread27 ], [ %35, %select.unfold ]
-  %24 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %22, i64 0, i64 %.01836
+  %24 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %22, i64 %.01836
   %25 = load ptr, ptr %24, align 8, !tbaa !255
   %26 = icmp eq ptr %25, null
   br i1 %26, label %select.unfold, label %27
@@ -14379,7 +14379,7 @@ _ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit: ;
 
 75:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %27
   %.015 = phi i64 [ 0, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %28, %27 ]
-  %76 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %26, i64 0, i64 %.015
+  %76 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %26, i64 %.015
   %77 = load ptr, ptr %76, align 8, !tbaa !441
   %78 = icmp eq ptr %77, null
   br i1 %78, label %27, label %79, !prof !316
@@ -14504,7 +14504,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData18PendingBatchesFailEN4ab
 19:                                               ; preds = %.preheader, %19
   %.02147 = phi i64 [ 0, %.preheader ], [ %23, %19 ]
   %.02246 = phi i64 [ 0, %.preheader ], [ %spec.select, %19 ]
-  %20 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %17, i64 0, i64 %.02147
+  %20 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %17, i64 %.02147
   %21 = load ptr, ptr %20, align 8, !tbaa !255
   %.not39 = icmp ne ptr %21, null
   %22 = zext i1 %.not39 to i64
@@ -14646,7 +14646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 
 67:                                               ; preds = %59, %134
   %.02048 = phi i64 [ 0, %59 ], [ %135, %134 ]
-  %68 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %60, i64 0, i64 %.02048
+  %68 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %60, i64 %.02048
   %69 = load ptr, ptr %68, align 8, !tbaa !255
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %134, label %70
@@ -14938,7 +14938,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
 
 .critedge40:                                      ; preds = %32, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %35 = getelementptr inbounds nuw [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %34, i64 0, i64 %.0.i
+  %35 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %34, i64 %.0.i
   %36 = load ptr, ptr %35, align 8, !tbaa !441
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %47, !prof !316

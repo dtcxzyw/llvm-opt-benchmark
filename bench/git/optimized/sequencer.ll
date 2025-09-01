@@ -1896,7 +1896,7 @@ define dso_local range(i32 0, 2) i32 @message_is_empty(ptr noundef readonly capt
   %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1, !tbaa !24
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !24
   %34 = and i8 %33, 1
   %.not27.i = icmp eq i8 %34, 0
@@ -2023,7 +2023,7 @@ skip_prefix.exit:                                 ; preds = %21, %23
   %55 = getelementptr inbounds i8, ptr %54, i64 %indvars.iv.i
   %56 = load i8, ptr %55, align 1, !tbaa !24
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !24
   %60 = and i8 %59, 1
   %.not27.i = icmp eq i8 %60, 0
@@ -2797,7 +2797,7 @@ append_new_todo.exit:                             ; preds = %._crit_edge.i, %st_
 
 72:                                               ; preds = %88, %.preheader149.i
   %indvars.iv.i = phi i64 [ 0, %.preheader149.i ], [ %indvars.iv.next.i, %88 ]
-  %73 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %indvars.iv.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !126
   %76 = load i8, ptr %73, align 16, !tbaa !128
@@ -2889,7 +2889,7 @@ _.exit94.thread.i:                                ; preds = %_.exit94.i, %101
   %.0.i93184.i = phi ptr [ %103, %_.exit94.i ], [ @.str.139, %101 ]
   %105 = phi i32 [ %.pre.i60, %_.exit94.i ], [ %90, %101 ]
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %106, i32 1
+  %107 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %106, i32 1
   br label %command_to_string.exit.i
 
 108:                                              ; preds = %_.exit94.i
@@ -2939,7 +2939,7 @@ _.exit98.i:                                       ; preds = %121, %119
 
 125:                                              ; preds = %_.exit98.i
   %126 = zext nneg i32 %123 to i64
-  %127 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %126, i32 1
+  %127 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %126, i32 1
   br label %command_to_string.exit70
 
 128:                                              ; preds = %_.exit98.i
@@ -3307,7 +3307,7 @@ _.exit63.thread:                                  ; preds = %257, %_.exit63
   %.0.i62116 = phi ptr [ %259, %_.exit63 ], [ @.str.50, %257 ]
   %261 = phi i32 [ %.pre, %_.exit63 ], [ %250, %257 ]
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %262, i32 1
+  %263 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %262, i32 1
   br label %command_to_string.exit
 
 264:                                              ; preds = %_.exit63
@@ -4231,7 +4231,7 @@ git_path_abort_safety_file.exit:                  ; preds = %0, %5
 
 26:                                               ; preds = %28, %22
   %.0811.i.i = phi i64 [ 0, %22 ], [ %29, %28 ]
-  %27 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
+  %27 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %28
 
@@ -6974,7 +6974,7 @@ _.exit:                                           ; preds = %7, %10
 
 switch.lookup:                                    ; preds = %_.exit
   %17 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef nonnull %switch.load) #20
   br label %45
@@ -7015,7 +7015,7 @@ _.exit16:                                         ; preds = %27, %29
 
 switch.lookup20:                                  ; preds = %_.exit16
   %36 = zext nneg i32 %31 to i64
-  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %36
+  %switch.gep21 = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %36
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %37 = call i32 (ptr, ...) @error(ptr noundef %.0.i15, ptr noundef nonnull %switch.load22) #20
   br label %45
@@ -7380,7 +7380,7 @@ strbuf_setlen.exit:                               ; preds = %3, %6
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %action_name.exit.i
 
@@ -7500,7 +7500,7 @@ define internal fastcc i32 @error_dirty_index(ptr noundef %0, ptr noundef readon
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i32 @error_resolve_conflict(ptr noundef nonnull %switch.load) #20
   br label %33
@@ -7528,7 +7528,7 @@ _.exit:                                           ; preds = %12, %14
 
 switch.lookup13:                                  ; preds = %_.exit
   %21 = zext nneg i32 %16 to i64
-  %switch.gep14 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %21
+  %switch.gep14 = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %21
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   %22 = load i8, ptr %switch.load15, align 1, !tbaa !24
   %.not.i = icmp eq i8 %22, 0
@@ -7671,7 +7671,7 @@ define internal fastcc i32 @pick_commits(ptr noundef %0, ptr noundef nonnull %1,
 
 switch.lookup:                                    ; preds = %49
   %55 = zext nneg i32 %50 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %action_name.exit.i
 
@@ -8017,7 +8017,7 @@ strbuf_setlen.exit:                               ; preds = %224, %226
 
 244:                                              ; preds = %241
   %245 = zext nneg i32 %242 to i64
-  %246 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %245, i32 1
+  %246 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %245, i32 1
   br label %command_to_string.exit.i
 
 247:                                              ; preds = %241
@@ -8760,7 +8760,7 @@ _.exit62.i:                                       ; preds = %527, %525
   %534 = getelementptr inbounds nuw i8, ptr %147, i64 %indvars.iv.i
   %535 = load i8, ptr %534, align 1, !tbaa !24
   %536 = zext i8 %535 to i64
-  %537 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %536
   %538 = load i8, ptr %537, align 1, !tbaa !24
   %539 = and i8 %538, 1
   %.not53.i = icmp eq i8 %539, 0
@@ -8816,7 +8816,7 @@ _.exit62.i:                                       ; preds = %527, %525
 
 switch.lookup599:                                 ; preds = %547
   %553 = zext nneg i32 %548 to i64
-  %switch.gep600 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %553
+  %switch.gep600 = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %553
   %switch.load601 = load ptr, ptr %switch.gep600, align 8
   %554 = call i32 @error_resolve_conflict(ptr noundef nonnull %switch.load601) #20
   br label %590
@@ -9018,7 +9018,7 @@ _.exit.i233:                                      ; preds = %620, %618
 
 627:                                              ; preds = %624
   %628 = zext i8 %626 to i64
-  %629 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %628
+  %629 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %628
   %630 = load i8, ptr %629, align 1, !tbaa !24
   %631 = and i8 %630, 1
   %.not200.i = icmp eq i8 %631, 0
@@ -10702,7 +10702,7 @@ _.exit61:                                         ; preds = %67, %69
   %80 = icmp ne i32 %79, 1
   %81 = zext i1 %80 to i32
   %82 = zext i1 %80 to i64
-  %83 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %82, i32 1
+  %83 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %82, i32 1
   %84 = load ptr, ptr %83, align 8, !tbaa !126
   %85 = icmp eq i32 %79, 1
   br i1 %85, label %86, label %92
@@ -11076,7 +11076,7 @@ define internal fastcc i32 @single_pick(ptr noundef %0, ptr noundef nonnull %1, 
 
 switch.lookup:                                    ; preds = %14
   %19 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %action_name.exit.i
 
@@ -11333,7 +11333,7 @@ git_path_opts_file.exit:                          ; preds = %1, %4
 
 describe_cleanup_mode.exit:                       ; preds = %118
   %123 = zext nneg i32 %120 to i64
-  %124 = getelementptr inbounds nuw [4 x ptr], ptr @describe_cleanup_mode.modes, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw ptr, ptr @describe_cleanup_mode.modes, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !4
   %126 = load ptr, ptr @the_repository, align 8, !tbaa !9
   %127 = call i32 @repo_config_set_in_file_gently(ptr noundef %126, ptr noundef %6, ptr noundef nonnull @.str.233, ptr noundef null, ptr noundef %125) #20
@@ -12798,7 +12798,7 @@ define internal fastcc void @todo_list_to_strbuf(ptr noundef %0, ptr noundef rea
 
 29:                                               ; preds = %19
   %30 = zext nneg i32 %20 to i64
-  %31 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %30
   %32 = load i8, ptr %31, align 16, !tbaa !128
   %33 = icmp ne i8 %32, 0
   %or.cond = select i1 %14, i1 %33, i1 false
@@ -12835,7 +12835,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %45
 
 command_to_string.exit:                           ; preds = %29
-  %43 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %30, i32 1
+  %43 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %30, i32 1
   %.0.i = load ptr, ptr %43, align 8, !tbaa !4
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #21
   tail call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %.0.i, i64 noundef %44) #20
@@ -14425,7 +14425,7 @@ skip_prefix.exit9.i:                              ; preds = %77, %skip_prefix.ex
   %.4 = phi ptr [ %.4.ph, %.preheader271.preheader ], [ %.4.be, %.preheader271.backedge ]
   %82 = load i8, ptr %.4, align 1, !tbaa !24
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !24
   %86 = and i8 %85, 1
   %.not134 = icmp eq i8 %86, 0
@@ -15005,7 +15005,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_onto(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %21
   %27 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %action_name.exit.i
 
@@ -17306,7 +17306,7 @@ _.exit338:                                        ; preds = %179, %181
 
 184:                                              ; preds = %_.exit338
   %185 = zext nneg i32 %53 to i64
-  %186 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %185, i32 1
+  %186 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %185, i32 1
   br label %command_to_string.exit
 
 187:                                              ; preds = %_.exit338
@@ -18345,7 +18345,7 @@ command_to_string.exit.i:                         ; preds = %rebase_path_squash_
   %.not76.i = icmp eq i64 %576, 0
   %577 = select i1 %.not76.i, ptr @.str.46, ptr @.str.86
   %578 = zext nneg i32 %53 to i64
-  %579 = getelementptr inbounds nuw [15 x %struct.anon], ptr @todo_command_info, i64 0, i64 %578, i32 1
+  %579 = getelementptr inbounds nuw %struct.anon, ptr @todo_command_info, i64 %578, i32 1
   %.0.i125.i = load ptr, ptr %579, align 8, !tbaa !4
   %580 = call ptr @oid_to_hex(ptr noundef nonnull %153) #20
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %574, ptr noundef nonnull @.str.356, ptr noundef nonnull %577, ptr noundef %.0.i125.i, ptr noundef %580) #20
@@ -18704,7 +18704,7 @@ _.exit68.i:                                       ; preds = %725, %723
 
 switch.lookup:                                    ; preds = %_.exit68.i
   %732 = zext nneg i32 %727 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %732
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %732
   %switch.load = load ptr, ptr %switch.gep, align 8
   %733 = load i8, ptr %switch.load, align 1, !tbaa !24
   %.not.i.i372 = icmp eq i8 %733, 0
@@ -19604,7 +19604,7 @@ define internal fastcc range(i32 -1, 1) i32 @fast_forward_to(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %10
   %16 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.fast_forward_to, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fast_forward_to, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.346, ptr noundef nonnull %switch.load) #20
   %17 = load ptr, ptr @the_repository, align 8, !tbaa !9
@@ -21025,7 +21025,7 @@ strbuf_setlen.exit:                               ; preds = %13, %18
 
 61:                                               ; preds = %.lr.ph
   %62 = zext i8 %57 to i64
-  %63 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !24
   %65 = and i8 %64, 6
   %.not116 = icmp eq i8 %65, 0

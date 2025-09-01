@@ -1207,7 +1207,7 @@ ZSTDMT_overlapLog.exit.i:                         ; preds = %155
 
 switch.lookup:                                    ; preds = %162
   %166 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ZSTDMT_initCStream_internal, i64 0, i64 %166
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ZSTDMT_initCStream_internal, i64 %166
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ZSTDMT_overlapLog.exit.thread.i
 

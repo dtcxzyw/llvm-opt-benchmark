@@ -1013,7 +1013,7 @@ define internal fastcc i32 @__io_read(ptr noundef %0, i32 noundef %1) unnamed_ad
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load i8, ptr %112, align 8
   %114 = zext i8 %113 to i64
-  %115 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %114
+  %115 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %114
   %116 = load i16, ptr %115, align 8
   %117 = and i16 %116, 16384
   %118 = icmp eq i16 %117, 0
@@ -2029,7 +2029,7 @@ define internal fastcc i32 @io_import_iovec(i32 noundef range(i32 0, 2) %0, ptr 
   %31 = zext i32 %30 to i64
   store i64 %31, ptr %7, align 8
   %32 = zext i8 %9 to i64
-  %33 = getelementptr [0 x %struct.io_issue_def], ptr @io_issue_defs, i64 0, i64 %32
+  %33 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %32
   %34 = load i16, ptr %33, align 8
   %35 = and i16 %34, 16384
   %36 = icmp ne i16 %35, 0
@@ -2405,13 +2405,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   br i1 %3, label %._crit_edge, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre3, i32 2
+  %6 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %5
-  %9 = getelementptr [0 x %struct.io_cold_def], ptr @io_cold_defs, i64 0, i64 %.pre3
+  %9 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %67, label %12

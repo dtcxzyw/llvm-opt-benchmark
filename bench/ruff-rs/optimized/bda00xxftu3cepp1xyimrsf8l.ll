@@ -75722,10 +75722,10 @@ switch.lookup:                                    ; preds = %529
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !10431
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !10431
   %546 = zext nneg i16 %528 to i64
-  %switch.gep = getelementptr inbounds nuw [921 x i64], ptr @"switch.table._ZN135_$LT$ruff_server..server..api..requests..hover..Hover$u20$as$u20$ruff_server..server..api..traits..BackgroundDocumentRequestHandler$GT$17run_with_snapshot17h023c336bee28b13fE", i64 0, i64 %546
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN135_$LT$ruff_server..server..api..requests..hover..Hover$u20$as$u20$ruff_server..server..api..traits..BackgroundDocumentRequestHandler$GT$17run_with_snapshot17h023c336bee28b13fE", i64 %546
   %switch.load = load i64, ptr %switch.gep, align 8
   %547 = zext nneg i16 %528 to i64
-  %switch.gep123 = getelementptr inbounds nuw [921 x ptr], ptr @"switch.table._ZN135_$LT$ruff_server..server..api..requests..hover..Hover$u20$as$u20$ruff_server..server..api..traits..BackgroundDocumentRequestHandler$GT$17run_with_snapshot17h023c336bee28b13fE.559", i64 0, i64 %547
+  %switch.gep123 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN135_$LT$ruff_server..server..api..requests..hover..Hover$u20$as$u20$ruff_server..server..api..traits..BackgroundDocumentRequestHandler$GT$17run_with_snapshot17h023c336bee28b13fE.559", i64 %547
   %switch.load124 = load ptr, ptr %switch.gep123, align 8
   store ptr %switch.load124, ptr %42, align 8, !noalias !10431
   %548 = getelementptr inbounds nuw i8, ptr %42, i64 8

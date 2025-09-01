@@ -742,7 +742,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_pre_copy_file(ptr noundef %0, p
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = tail call i32 @H5F_get_high_bound(ptr noundef %18) #16
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [7 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %20
+  %21 = getelementptr inbounds i32, ptr @H5O_dtype_ver_bounds, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = icmp ugt i32 %16, %22
   br i1 %23, label %24, label %28
@@ -2334,7 +2334,7 @@ default.unreachable1611:                          ; preds = %188
   %874 = phi ptr [ %.promoted, %872 ], [ %893, %873 ]
   %875 = load i8, ptr %874, align 1, !tbaa !34
   %876 = zext i8 %875 to i64
-  %877 = getelementptr inbounds nuw [33 x i64], ptr %6, i64 0, i64 %indvars.iv1470
+  %877 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv1470
   store i64 %876, ptr %877, align 8, !tbaa !10
   %878 = getelementptr inbounds nuw i8, ptr %874, i64 1
   store ptr %878, ptr %1, align 8, !tbaa !14
@@ -2516,7 +2516,7 @@ default.unreachable1611:                          ; preds = %188
 
 .preheader1195:                                   ; preds = %.preheader1195.preheader, %988
   %indvars.iv1474 = phi i64 [ 0, %.preheader1195.preheader ], [ %indvars.iv.next1475, %988 ]
-  %989 = getelementptr inbounds nuw [33 x i64], ptr %6, i64 0, i64 %indvars.iv1474
+  %989 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv1474
   %990 = load i64, ptr %989, align 8, !tbaa !10
   %.not1052 = icmp eq i64 %990, 0
   br i1 %.not1052, label %991, label %988
@@ -3476,7 +3476,7 @@ default.unreachable1611:                          ; preds = %188
   %1547 = load i8, ptr %1546, align 1, !tbaa !34
   %1548 = zext i8 %1547 to i64
   %1549 = getelementptr inbounds nuw i8, ptr %1545, i64 64
-  %1550 = getelementptr inbounds nuw [32 x i64], ptr %1549, i64 0, i64 %indvars.iv
+  %1550 = getelementptr inbounds nuw i64, ptr %1549, i64 %indvars.iv
   store i64 %1548, ptr %1550, align 8, !tbaa !34
   %1551 = load ptr, ptr %1, align 8, !tbaa !14
   %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 1
@@ -3486,7 +3486,7 @@ default.unreachable1611:                          ; preds = %188
   %1555 = shl nuw nsw i64 %1554, 8
   %1556 = load ptr, ptr %50, align 8, !tbaa !42
   %1557 = getelementptr inbounds nuw i8, ptr %1556, i64 64
-  %1558 = getelementptr inbounds nuw [32 x i64], ptr %1557, i64 0, i64 %indvars.iv
+  %1558 = getelementptr inbounds nuw i64, ptr %1557, i64 %indvars.iv
   %1559 = load i64, ptr %1558, align 8, !tbaa !34
   %1560 = or i64 %1559, %1555
   store i64 %1560, ptr %1558, align 8, !tbaa !34
@@ -3498,7 +3498,7 @@ default.unreachable1611:                          ; preds = %188
   %1565 = shl nuw nsw i64 %1564, 16
   %1566 = load ptr, ptr %50, align 8, !tbaa !42
   %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 64
-  %1568 = getelementptr inbounds nuw [32 x i64], ptr %1567, i64 0, i64 %indvars.iv
+  %1568 = getelementptr inbounds nuw i64, ptr %1567, i64 %indvars.iv
   %1569 = load i64, ptr %1568, align 8, !tbaa !34
   %1570 = or i64 %1569, %1565
   store i64 %1570, ptr %1568, align 8, !tbaa !34
@@ -3510,7 +3510,7 @@ default.unreachable1611:                          ; preds = %188
   %1575 = shl nuw nsw i64 %1574, 24
   %1576 = load ptr, ptr %50, align 8, !tbaa !42
   %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 64
-  %1578 = getelementptr inbounds nuw [32 x i64], ptr %1577, i64 0, i64 %indvars.iv
+  %1578 = getelementptr inbounds nuw i64, ptr %1577, i64 %indvars.iv
   %1579 = load i64, ptr %1578, align 8, !tbaa !34
   %1580 = or i64 %1579, %1575
   store i64 %1580, ptr %1578, align 8, !tbaa !34
@@ -3520,7 +3520,7 @@ default.unreachable1611:                          ; preds = %188
   %1583 = load ptr, ptr %50, align 8, !tbaa !42
   %1584 = getelementptr inbounds nuw i8, ptr %1583, i64 48
   %1585 = getelementptr inbounds nuw i8, ptr %1583, i64 64
-  %1586 = getelementptr inbounds nuw [32 x i64], ptr %1585, i64 0, i64 %indvars.iv
+  %1586 = getelementptr inbounds nuw i64, ptr %1585, i64 %indvars.iv
   %1587 = load i64, ptr %1586, align 8, !tbaa !34
   %1588 = load i64, ptr %1584, align 8, !tbaa !34
   %1589 = mul i64 %1588, %1587
@@ -3868,14 +3868,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 6:                                                ; preds = %5
   %7 = lshr i64 %0, 56
-  %8 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !34
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 56
   br label %H5VM_log2_gen.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %4
+  %13 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %4
   %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, 48
@@ -3887,14 +3887,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 18:                                               ; preds = %17
   %19 = lshr i64 %0, 40
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !34
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 40
   br label %H5VM_log2_gen.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %2
+  %25 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %2
   %26 = load i8, ptr %25, align 1, !tbaa !34
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 32
@@ -3911,14 +3911,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 32:                                               ; preds = %31
   %33 = lshr i64 %0, 24
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, 24
   br label %H5VM_log2_gen.exit
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %30
+  %39 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %30
   %40 = load i8, ptr %39, align 1, !tbaa !34
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, 16
@@ -3930,14 +3930,14 @@ define internal fastcc range(i32 1, 40) i32 @H5VM_limit_enc_size(i64 noundef %0)
 
 44:                                               ; preds = %43
   %45 = lshr i64 %0, 8
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !34
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 8
   br label %H5VM_log2_gen.exit
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %0
+  %51 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %0
   %52 = load i8, ptr %51, align 1, !tbaa !34
   %53 = zext i8 %52 to i32
   br label %H5VM_log2_gen.exit
@@ -4169,7 +4169,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5O__dtype_encode_helper(pt
 
 switch.lookup:                                    ; preds = %103
   %111 = zext nneg i32 %105 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.H5O__dtype_encode_helper, i64 0, i64 %111
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5O__dtype_encode_helper, i64 %111
   %switch.load = load i32, ptr %switch.gep, align 4
   %112 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %113 = load i32, ptr %112, align 8, !tbaa !34
@@ -4533,14 +4533,14 @@ switch.lookup:                                    ; preds = %103
 
 332:                                              ; preds = %331
   %333 = lshr i64 %327, 56
-  %334 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %333
   %335 = load i8, ptr %334, align 1, !tbaa !34
   %336 = zext i8 %335 to i32
   %337 = add nuw nsw i32 %336, 56
   br label %H5VM_limit_enc_size.exit
 
 338:                                              ; preds = %331
-  %339 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %330
+  %339 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %330
   %340 = load i8, ptr %339, align 1, !tbaa !34
   %341 = zext i8 %340 to i32
   %342 = add nuw nsw i32 %341, 48
@@ -4552,14 +4552,14 @@ switch.lookup:                                    ; preds = %103
 
 344:                                              ; preds = %343
   %345 = lshr i64 %327, 40
-  %346 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %345
   %347 = load i8, ptr %346, align 1, !tbaa !34
   %348 = zext i8 %347 to i32
   %349 = add nuw nsw i32 %348, 40
   br label %H5VM_limit_enc_size.exit
 
 350:                                              ; preds = %343
-  %351 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %328
+  %351 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %328
   %352 = load i8, ptr %351, align 1, !tbaa !34
   %353 = zext i8 %352 to i32
   %354 = add nuw nsw i32 %353, 32
@@ -4576,14 +4576,14 @@ switch.lookup:                                    ; preds = %103
 
 358:                                              ; preds = %357
   %359 = lshr i64 %327, 24
-  %360 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %359
   %361 = load i8, ptr %360, align 1, !tbaa !34
   %362 = zext i8 %361 to i32
   %363 = add nuw nsw i32 %362, 24
   br label %H5VM_limit_enc_size.exit
 
 364:                                              ; preds = %357
-  %365 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %356
+  %365 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %356
   %366 = load i8, ptr %365, align 1, !tbaa !34
   %367 = zext i8 %366 to i32
   %368 = add nuw nsw i32 %367, 16
@@ -4595,14 +4595,14 @@ switch.lookup:                                    ; preds = %103
 
 370:                                              ; preds = %369
   %371 = lshr i64 %327, 8
-  %372 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %371
   %373 = load i8, ptr %372, align 1, !tbaa !34
   %374 = zext i8 %373 to i32
   %375 = add nuw nsw i32 %374, 8
   br label %H5VM_limit_enc_size.exit
 
 376:                                              ; preds = %369
-  %377 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %327
+  %377 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %327
   %378 = load i8, ptr %377, align 1, !tbaa !34
   %379 = zext i8 %378 to i32
   br label %H5VM_limit_enc_size.exit
@@ -5076,7 +5076,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %649 = phi ptr [ %645, %.lr.ph.preheader ], [ %680, %.lr.ph ]
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 64
-  %651 = getelementptr inbounds nuw [32 x i64], ptr %650, i64 0, i64 %indvars.iv
+  %651 = getelementptr inbounds nuw i64, ptr %650, i64 %indvars.iv
   %652 = load i64, ptr %651, align 8, !tbaa !34
   %653 = trunc i64 %652 to i8
   store i8 %653, ptr %648, align 1, !tbaa !34
@@ -5085,7 +5085,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   store ptr %655, ptr %0, align 8, !tbaa !14
   %656 = load ptr, ptr %12, align 8, !tbaa !42
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 64
-  %658 = getelementptr inbounds nuw [32 x i64], ptr %657, i64 0, i64 %indvars.iv
+  %658 = getelementptr inbounds nuw i64, ptr %657, i64 %indvars.iv
   %659 = load i64, ptr %658, align 8, !tbaa !34
   %660 = lshr i64 %659, 8
   %661 = trunc i64 %660 to i8
@@ -5095,7 +5095,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   store ptr %663, ptr %0, align 8, !tbaa !14
   %664 = load ptr, ptr %12, align 8, !tbaa !42
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 64
-  %666 = getelementptr inbounds nuw [32 x i64], ptr %665, i64 0, i64 %indvars.iv
+  %666 = getelementptr inbounds nuw i64, ptr %665, i64 %indvars.iv
   %667 = load i64, ptr %666, align 8, !tbaa !34
   %668 = lshr i64 %667, 16
   %669 = trunc i64 %668 to i8
@@ -5105,7 +5105,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   store ptr %671, ptr %0, align 8, !tbaa !14
   %672 = load ptr, ptr %12, align 8, !tbaa !42
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 64
-  %674 = getelementptr inbounds nuw [32 x i64], ptr %673, i64 0, i64 %indvars.iv
+  %674 = getelementptr inbounds nuw i64, ptr %673, i64 %indvars.iv
   %675 = load i64, ptr %674, align 8, !tbaa !34
   %676 = lshr i64 %675, 24
   %677 = trunc i64 %676 to i8
@@ -5302,14 +5302,14 @@ tailrecurse.us:                                   ; preds = %.lr.ph.split.us
 
 27:                                               ; preds = %26
   %28 = lshr i64 %22, 56
-  %29 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 56
   br label %H5VM_limit_enc_size.exit
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %25
+  %34 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %25
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, 48
@@ -5321,14 +5321,14 @@ tailrecurse.us:                                   ; preds = %.lr.ph.split.us
 
 39:                                               ; preds = %38
   %40 = lshr i64 %22, 40
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !34
   %43 = zext i8 %42 to i32
   %44 = add nuw nsw i32 %43, 40
   br label %H5VM_limit_enc_size.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %23
   %47 = load i8, ptr %46, align 1, !tbaa !34
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, 32
@@ -5345,14 +5345,14 @@ tailrecurse.us:                                   ; preds = %.lr.ph.split.us
 
 53:                                               ; preds = %52
   %54 = lshr i64 %22, 24
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !34
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %57, 24
   br label %H5VM_limit_enc_size.exit
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %51
+  %60 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %51
   %61 = load i8, ptr %60, align 1, !tbaa !34
   %62 = zext i8 %61 to i32
   %63 = add nuw nsw i32 %62, 16
@@ -5364,14 +5364,14 @@ tailrecurse.us:                                   ; preds = %.lr.ph.split.us
 
 65:                                               ; preds = %64
   %66 = lshr i64 %22, 8
-  %67 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !34
   %69 = zext i8 %68 to i32
   %70 = add nuw nsw i32 %69, 8
   br label %H5VM_limit_enc_size.exit
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %22
+  %72 = getelementptr inbounds nuw i8, ptr @LogTable256, i64 %22
   %73 = load i8, ptr %72, align 1, !tbaa !34
   %74 = zext i8 %73 to i32
   br label %H5VM_limit_enc_size.exit
@@ -5582,7 +5582,7 @@ define internal fastcc void @H5O__dtype_debug(ptr noundef readonly captures(none
 
 switch.lookup:                                    ; preds = %12
   %20 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.H5O__dtype_debug, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %21
 
@@ -5955,7 +5955,7 @@ switch.lookup:                                    ; preds = %12
   %.not = icmp eq i64 %indvars.iv, 0
   %203 = select i1 %.not, ptr @.str.103, ptr @.str.147
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 64
-  %205 = getelementptr inbounds nuw [32 x i64], ptr %204, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw i64, ptr %204, i64 %indvars.iv
   %206 = load i64, ptr %205, align 8, !tbaa !34
   %207 = trunc i64 %206 to i32
   %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.146, ptr noundef nonnull %203, i32 noundef %207) #16
@@ -5987,7 +5987,7 @@ switch.lookup:                                    ; preds = %12
 
 switch.lookup2:                                   ; preds = %222
   %226 = zext nneg i32 %224 to i64
-  %switch.gep3 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.H5O__dtype_debug.6, i64 0, i64 %226
+  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.6, i64 %226
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   br label %227
 
@@ -6016,7 +6016,7 @@ switch.lookup2:                                   ; preds = %222
 
 switch.lookup5:                                   ; preds = %236
   %242 = zext nneg i32 %238 to i64
-  %switch.gep6 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5O__dtype_debug.7, i64 0, i64 %242
+  %switch.gep6 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.7, i64 %242
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %243
 
@@ -6043,7 +6043,7 @@ switch.lookup5:                                   ; preds = %236
 
 switch.lookup8:                                   ; preds = %243
   %261 = zext nneg i32 %259 to i64
-  %switch.gep9 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.H5O__dtype_debug.10, i64 0, i64 %261
+  %switch.gep9 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.10, i64 %261
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   br label %262
 
@@ -6058,7 +6058,7 @@ switch.lookup8:                                   ; preds = %243
 
 switch.lookup11:                                  ; preds = %262
   %268 = zext nneg i32 %266 to i64
-  %switch.gep12 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.H5O__dtype_debug.10, i64 0, i64 %268
+  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.10, i64 %268
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   br label %269
 
@@ -6094,7 +6094,7 @@ switch.lookup11:                                  ; preds = %262
 
 switch.lookup14:                                  ; preds = %274
   %285 = zext nneg i32 %276 to i64
-  %switch.gep15 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.H5O__dtype_debug.10, i64 0, i64 %285
+  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.10, i64 %285
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   br label %286
 
@@ -6113,7 +6113,7 @@ switch.lookup14:                                  ; preds = %274
 
 switch.lookup17:                                  ; preds = %286
   %294 = zext nneg i32 %290 to i64
-  %switch.gep18 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.H5O__dtype_debug.11, i64 0, i64 %294
+  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__dtype_debug.11, i64 %294
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   br label %295
 

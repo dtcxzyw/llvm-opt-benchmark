@@ -1221,7 +1221,7 @@ CreateMux.exit.thread.i:                          ; preds = %465, %460
   %488 = load ptr, ptr @stderr, align 8, !tbaa !18
   %489 = sub nsw i32 0, %spec.store.select.i.i
   %490 = sext i32 %489 to i64
-  %491 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %490
+  %491 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %490
   %492 = load ptr, ptr %491, align 8, !tbaa !15
   %493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef nonnull @.str.66, ptr noundef %492, i32 noundef %474) #16
   br label %GetFrame.exit.i
@@ -1245,7 +1245,7 @@ CreateMux.exit.thread.i:                          ; preds = %465, %460
   %503 = load ptr, ptr @stderr, align 8, !tbaa !18
   %504 = sub nsw i32 0, %501
   %505 = sext i32 %504 to i64
-  %506 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %505
+  %506 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %505
   %507 = load ptr, ptr %506, align 8, !tbaa !15
   %508 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %503, ptr noundef nonnull @.str.67, ptr noundef %507) #16
   br label %GetFrame.exit.i
@@ -1261,7 +1261,7 @@ CreateMux.exit.thread.i:                          ; preds = %465, %460
   %513 = load ptr, ptr @stderr, align 8, !tbaa !18
   %514 = sub nsw i32 0, %511
   %515 = sext i32 %514 to i64
-  %516 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %515
+  %516 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %515
   %517 = load ptr, ptr %516, align 8, !tbaa !15
   %518 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %513, ptr noundef nonnull @.str.89, ptr noundef %517) #16
   br label %WriteWebP.exit.i.i
@@ -1295,7 +1295,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
 
 527:                                              ; preds = %468, %468, %468
   %528 = zext nneg i32 %469 to i64
-  %529 = getelementptr inbounds nuw [8 x ptr], ptr @kFourccList, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw ptr, ptr @kFourccList, i64 %528
   %530 = load ptr, ptr %529, align 8, !tbaa !15
   %531 = call i32 @WebPMuxGetChunk(ptr noundef nonnull %463, ptr noundef %530, ptr noundef nonnull %40) #12
   %.not221.i = icmp eq i32 %531, 1
@@ -1305,11 +1305,11 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
   %533 = load ptr, ptr @stderr, align 8, !tbaa !18
   %534 = sub nsw i32 0, %531
   %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %535
+  %536 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %535
   %537 = load ptr, ptr %536, align 8, !tbaa !15
   %538 = load i32, ptr %433, align 8, !tbaa !26
   %539 = zext i32 %538 to i64
-  %540 = getelementptr inbounds nuw [8 x ptr], ptr @kDescriptions, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw ptr, ptr @kDescriptions, i64 %539
   %541 = load ptr, ptr %540, align 8, !tbaa !15
   %542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.42, ptr noundef %537, ptr noundef %541) #16
   br label %Process.exit
@@ -1548,7 +1548,7 @@ WarnAboutOddOffset.exit.i.i:                      ; preds = %616, %613
   %636 = load ptr, ptr @stderr, align 8, !tbaa !18
   %637 = sub nsw i32 0, %632
   %638 = sext i32 %637 to i64
-  %639 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %638
+  %639 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %638
   %640 = load ptr, ptr %639, align 8, !tbaa !15
   %641 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %636, ptr noundef nonnull @.str.48, ptr noundef %640, i32 noundef %635) #16
   br label %.thread342.i
@@ -1582,7 +1582,7 @@ WarnAboutOddOffset.exit.i.i:                      ; preds = %616, %613
   %652 = load ptr, ptr @stderr, align 8, !tbaa !18
   %653 = sub nsw i32 0, %650
   %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %654
+  %655 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %654
   %656 = load ptr, ptr %655, align 8, !tbaa !15
   %657 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %652, ptr noundef nonnull @.str.50, ptr noundef %656) #16
   br label %.thread347.i
@@ -1630,7 +1630,7 @@ CreateMux.exit238.thread.i:                       ; preds = %664, %659
 672:                                              ; preds = %667
   %673 = load i32, ptr %433, align 8, !tbaa !26
   %674 = zext i32 %673 to i64
-  %675 = getelementptr inbounds nuw [8 x ptr], ptr @kFourccList, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw ptr, ptr @kFourccList, i64 %674
   %676 = load ptr, ptr %675, align 8, !tbaa !15
   %677 = call i32 @WebPMuxSetChunk(ptr noundef nonnull %662, ptr noundef %676, ptr noundef nonnull %40, i32 noundef 1) #12
   %678 = load ptr, ptr %40, align 8, !tbaa !33
@@ -1643,11 +1643,11 @@ CreateMux.exit238.thread.i:                       ; preds = %664, %659
   %680 = load ptr, ptr @stderr, align 8, !tbaa !18
   %681 = sub nsw i32 0, %677
   %682 = sext i32 %681 to i64
-  %683 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %682
+  %683 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %682
   %684 = load ptr, ptr %683, align 8, !tbaa !15
   %685 = load i32, ptr %433, align 8, !tbaa !26
   %686 = zext i32 %685 to i64
-  %687 = getelementptr inbounds nuw [8 x ptr], ptr @kDescriptions, i64 0, i64 %686
+  %687 = getelementptr inbounds nuw ptr, ptr @kDescriptions, i64 %686
   %688 = load ptr, ptr %687, align 8, !tbaa !15
   %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %680, ptr noundef nonnull @.str.51, ptr noundef %684, ptr noundef %688) #16
   br label %Process.exit
@@ -1718,7 +1718,7 @@ CreateMux.exit242.thread.i:                       ; preds = %706, %700
   %720 = load ptr, ptr @stderr, align 8, !tbaa !18
   %721 = sub nsw i32 0, %717
   %722 = sext i32 %721 to i64
-  %723 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %722
+  %723 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %722
   %724 = load ptr, ptr %723, align 8, !tbaa !15
   %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %720, ptr noundef nonnull @.str.50, ptr noundef %724) #16
   br label %.thread357.i
@@ -1826,7 +1826,7 @@ CreateMux.exit252.thread.i:                       ; preds = %756, %744
   %769 = load ptr, ptr @stderr, align 8, !tbaa !18
   %770 = sub nsw i32 0, %766
   %771 = sext i32 %770 to i64
-  %772 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %771
+  %772 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %771
   %773 = load ptr, ptr %772, align 8, !tbaa !15
   %774 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %769, ptr noundef nonnull @.str.50, ptr noundef %773) #16
   br label %.thread368.i
@@ -1857,7 +1857,7 @@ CreateMux.exit252.thread.i:                       ; preds = %756, %744
   %783 = load ptr, ptr @stderr, align 8, !tbaa !18
   %784 = sub nsw i32 0, %781
   %785 = sext i32 %784 to i64
-  %786 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %785
+  %786 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %785
   %787 = load ptr, ptr %786, align 8, !tbaa !15
   %788 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.89, ptr noundef %787) #16
   br label %WriteWebP.exit.i
@@ -1941,7 +1941,7 @@ CreateMux.exit258.thread.i:                       ; preds = %797, %792
   %824 = load ptr, ptr @stderr, align 8, !tbaa !18
   %825 = sub nsw i32 0, %822
   %826 = sext i32 %825 to i64
-  %827 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %826
+  %827 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %826
   %828 = load ptr, ptr %827, align 8, !tbaa !15
   %829 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %824, ptr noundef nonnull @.str.90, ptr noundef %828) #16
   br label %845
@@ -1953,7 +1953,7 @@ CreateMux.exit258.thread.i:                       ; preds = %797, %792
 832:                                              ; preds = %844, %830
   %indvars.iv.i.i = phi i64 [ 1, %830 ], [ %indvars.iv.next.i.i, %844 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %833 = getelementptr inbounds nuw [8 x ptr], ptr @kFourccList, i64 0, i64 %indvars.iv.i.i
+  %833 = getelementptr inbounds nuw ptr, ptr @kFourccList, i64 %indvars.iv.i.i
   %834 = load ptr, ptr %833, align 8, !tbaa !15
   %835 = call i32 @WebPMuxGetChunk(ptr noundef nonnull %795, ptr noundef %834, ptr noundef nonnull %18) #12
   %836 = icmp eq i32 %835, 1
@@ -2207,7 +2207,7 @@ CreateMux.exit264.thread.i:                       ; preds = %926, %921
 
 931:                                              ; preds = %929
   %932 = zext nneg i32 %930 to i64
-  %933 = getelementptr inbounds nuw [8 x ptr], ptr @kFourccList, i64 0, i64 %932
+  %933 = getelementptr inbounds nuw ptr, ptr @kFourccList, i64 %932
   %934 = load ptr, ptr %933, align 8, !tbaa !15
   %935 = call i32 @WebPMuxDeleteChunk(ptr noundef nonnull %924, ptr noundef %934) #12
   %.not201.i = icmp eq i32 %935, 1
@@ -2217,11 +2217,11 @@ CreateMux.exit264.thread.i:                       ; preds = %926, %921
   %937 = load ptr, ptr @stderr, align 8, !tbaa !18
   %938 = sub nsw i32 0, %935
   %939 = sext i32 %938 to i64
-  %940 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %939
+  %940 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %939
   %941 = load ptr, ptr %940, align 8, !tbaa !15
   %942 = load i32, ptr %433, align 8, !tbaa !26
   %943 = zext i32 %942 to i64
-  %944 = getelementptr inbounds nuw [8 x ptr], ptr @kDescriptions, i64 0, i64 %943
+  %944 = getelementptr inbounds nuw ptr, ptr @kDescriptions, i64 %943
   %945 = load ptr, ptr %944, align 8, !tbaa !15
   %946 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %937, ptr noundef nonnull @.str.62, ptr noundef %941, ptr noundef %945) #16
   br label %Process.exit
@@ -2242,7 +2242,7 @@ CreateMux.exit264.thread.i:                       ; preds = %926, %921
   %954 = load ptr, ptr @stderr, align 8, !tbaa !18
   %955 = sub nsw i32 0, %952
   %956 = sext i32 %955 to i64
-  %957 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %956
+  %957 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %956
   %958 = load ptr, ptr %957, align 8, !tbaa !15
   %959 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %954, ptr noundef nonnull @.str.89, ptr noundef %958) #16
   br label %WriteWebP.exit267.i
@@ -2779,7 +2779,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteWebP(ptr noundef %0, ptr nounde
   %6 = load ptr, ptr @stderr, align 8, !tbaa !18
   %7 = sub nsw i32 0, %4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [5 x ptr], ptr @kErrorMessages, i64 0, i64 %8
+  %9 = getelementptr inbounds ptr, ptr @kErrorMessages, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.89, ptr noundef %10) #16
   br label %15

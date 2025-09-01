@@ -3189,7 +3189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20560
   %109 = load i32, ptr %3, align 4
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [20 x i8], ptr %108, i64 0, i64 %110
+  %111 = getelementptr inbounds i8, ptr %108, i64 %110
   store i8 %104, ptr %111, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3226,7 +3226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   store i32 %124, ptr %117, align 4
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %125, ptr align 1 %.pre, i64 %121, i1 false)
-  %126 = getelementptr inbounds nuw [1024 x i8], ptr %125, i64 0, i64 %121
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %121
   store i8 0, ptr %126, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -3872,7 +3872,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 4
   %213 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %212, ptr align 1 %213, i64 %205, i1 false)
-  %214 = getelementptr inbounds nuw [1024 x i8], ptr %212, i64 0, i64 %205
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 %205
   store i8 0, ptr %214, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -6430,7 +6430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %71 = uitofp i64 %70 to double
   %72 = load i32, ptr %6, align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %73
   %75 = load double, ptr %74, align 8
   %76 = fmul double %75, %71
   %77 = fptrunc double %76 to float

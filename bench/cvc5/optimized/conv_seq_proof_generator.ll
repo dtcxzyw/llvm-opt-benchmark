@@ -1096,7 +1096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   %96 = icmp eq i32 %95, 2
   %97 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %98 = zext i1 %96 to i64
-  %99 = getelementptr inbounds nuw [0 x ptr], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !57, !noalias !59
   store ptr %100, ptr %14, align 8, !tbaa !48, !alias.scope !59
   %101 = load i64, ptr %100, align 8, !noalias !59
@@ -1191,7 +1191,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %106, %112, %114
   %146 = icmp eq i32 %145, 2
   %spec.select.i.i = select i1 %146, i64 2, i64 1
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %148 = getelementptr inbounds nuw [0 x ptr], ptr %147, i64 0, i64 %spec.select.i.i
+  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %spec.select.i.i
   %149 = load ptr, ptr %148, align 8, !tbaa !57, !noalias !62
   %150 = load i64, ptr %149, align 8, !noalias !62
   %151 = lshr i64 %150, 40
@@ -2440,7 +2440,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr 
   %spec.select.i = add nsw i32 %2, %13
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = sext i32 %spec.select.i to i64
-  %16 = getelementptr inbounds [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   store ptr %17, ptr %0, align 8, !tbaa !48
   %18 = load i64, ptr %17, align 8

@@ -815,7 +815,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %76 = load i8, ptr %75, align 1
   %77 = add i32 %.03440.i, 1
   %78 = sext i32 %.03440.i to i64
-  %79 = getelementptr [16 x i8], ptr %10, i64 0, i64 %78
+  %79 = getelementptr i8, ptr %10, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %76
   %82 = getelementptr i8, ptr %70, i64 %indvars.iv.i
@@ -825,7 +825,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
 
 .preheader38.i:                                   ; preds = %.lr.ph.i, %.preheader38.i
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.preheader38.i ], [ 15, %.lr.ph.i ]
-  %84 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv18
+  %84 = getelementptr i8, ptr %11, i64 %indvars.iv18
   %85 = load i8, ptr %84, align 1
   %86 = add i8 %85, 1
   store i8 %86, ptr %84, align 1
@@ -1293,9 +1293,9 @@ tailrecurse.i:                                    ; preds = %380, %108
 
 403:                                              ; preds = %398, %403
   %indvars.iv = phi i64 [ 0, %398 ], [ %indvars.iv.next, %403 ]
-  %404 = getelementptr [16 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %404 = getelementptr i8, ptr %14, i64 %indvars.iv
   %405 = load i8, ptr %404, align 1
-  %406 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %406 = getelementptr i8, ptr %13, i64 %indvars.iv
   %407 = load i8, ptr %406, align 1
   %408 = xor i8 %407, %405
   store i8 %408, ptr %406, align 1

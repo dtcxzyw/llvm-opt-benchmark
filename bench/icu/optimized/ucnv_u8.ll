@@ -220,7 +220,7 @@ define void @ucnv_fromUnicode_UTF8_77(ptr noundef captures(none) %0, ptr noundef
   %110 = add i8 %109, 1
   store i8 %110, ptr %99, align 1, !tbaa !26
   %111 = sext i8 %109 to i64
-  %112 = getelementptr inbounds [32 x i8], ptr %98, i64 0, i64 %111
+  %112 = getelementptr inbounds i8, ptr %98, i64 %111
   store i8 %105, ptr %112, align 1, !tbaa !25
   store i32 15, ptr %1, align 4, !tbaa !27
   br label %113
@@ -503,7 +503,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %133 = add i8 %132, 1
   store i8 %133, ptr %113, align 1, !tbaa !26
   %134 = sext i8 %132 to i64
-  %135 = getelementptr inbounds [32 x i8], ptr %112, i64 0, i64 %134
+  %135 = getelementptr inbounds i8, ptr %112, i64 %134
   store i8 %131, ptr %135, align 1, !tbaa !25
   store i32 15, ptr %1, align 4, !tbaa !27
   br label %136
@@ -701,7 +701,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us.spl
 _ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %71
   %79 = and i32 %.192118.us135, 15
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @.str, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !25
   %83 = lshr i8 %72, 5
   %84 = shl nuw i8 1, %83
@@ -752,7 +752,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %71
 _ZN6icu_774UTF812isValidTrailEihii.exit.us165:    ; preds = %98
   %105 = lshr i8 %99, 4
   %106 = zext nneg i8 %105 to i64
-  %107 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !25
   %109 = and i32 %.192118.us163, 7
   %110 = shl nuw nsw i32 1, %109
@@ -796,7 +796,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us165:    ; preds = %98
 _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   %129 = lshr i8 %122, 4
   %130 = zext nneg i8 %129 to i64
-  %131 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !25
   %133 = and i32 %.192118, 7
   %134 = shl nuw nsw i32 1, %133
@@ -874,7 +874,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
 
 160:                                              ; preds = %._crit_edge
   %161 = sext i32 %.0.fr to i64
-  %162 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %161
+  %162 = getelementptr inbounds i32, ptr @_ZL15offsetsFromUTF8, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !33
   %164 = sub i32 %.192.lcssa, %163
   %165 = icmp ult i32 %164, 65536
@@ -1107,7 +1107,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us.spl
 _ZN6icu_774UTF812isValidTrailEihii.exit.us158:    ; preds = %75
   %83 = and i32 %.1105139.us156, 15
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr @.str, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !25
   %87 = lshr i8 %76, 5
   %88 = shl nuw i8 1, %87
@@ -1158,7 +1158,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us158:    ; preds = %75
 _ZN6icu_774UTF812isValidTrailEihii.exit.us186:    ; preds = %102
   %109 = lshr i8 %103, 4
   %110 = zext nneg i8 %109 to i64
-  %111 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !25
   %113 = and i32 %.1105139.us184, 7
   %114 = shl nuw nsw i32 1, %113
@@ -1202,7 +1202,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us186:    ; preds = %102
 _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   %133 = lshr i8 %126, 4
   %134 = zext nneg i8 %133 to i64
-  %135 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !25
   %137 = and i32 %.1105139, 7
   %138 = shl nuw nsw i32 1, %137
@@ -1280,7 +1280,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
 
 164:                                              ; preds = %._crit_edge
   %165 = sext i32 %.0.fr to i64
-  %166 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %165
+  %166 = getelementptr inbounds i32, ptr @_ZL15offsetsFromUTF8, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !33
   %168 = sub i32 %.1105.lcssa, %167
   %169 = icmp ult i32 %168, 65536
@@ -1434,7 +1434,7 @@ define internal noundef range(i32 -63438848, 4456448) i32 @_ZL22ucnv_getNextUCha
   %37 = shl nuw i8 1, %36
   %38 = and i32 %13, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @.str, i64 %39
   br i1 %35, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.lr.ph.split
 
 _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
@@ -1447,7 +1447,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
 43:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
   %44 = add i8 %.095130.us, 1
   %45 = sext i8 %.095130.us to i64
-  %46 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr %32, i64 %45
   store i8 %41, ptr %46, align 1, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %.090131.us, i64 1
   %48 = load ptr, ptr %7, align 8, !tbaa !40
@@ -1480,7 +1480,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.
 60:                                               ; preds = %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us138
   %61 = add i8 %.095130.us137, 1
   %62 = sext i8 %.095130.us137 to i64
-  %63 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %32, i64 %62
   store i8 %51, ptr %63, align 1, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %.090131.us136, i64 1
   %65 = load ptr, ptr %7, align 8, !tbaa !40
@@ -1501,7 +1501,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.
 _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %71 = lshr i8 %67, 4
   %72 = zext nneg i8 %71 to i64
-  %73 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !25
   %75 = and i8 %74, %37
   %76 = icmp eq i8 %75, 0
@@ -1516,7 +1516,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 77:                                               ; preds = %69, %_ZN6icu_774UTF812isValidTrailEihii.exit
   %78 = add i8 %.095130, 1
   %79 = sext i8 %.095130 to i64
-  %80 = getelementptr inbounds [7 x i8], ptr %32, i64 0, i64 %79
+  %80 = getelementptr inbounds i8, ptr %32, i64 %79
   store i8 %67, ptr %80, align 1, !tbaa !25
   %81 = getelementptr inbounds nuw i8, ptr %.090131, i64 1
   %82 = load ptr, ptr %7, align 8, !tbaa !40
@@ -1542,7 +1542,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
 88:                                               ; preds = %85
   %89 = and i32 %13, 15
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @.str, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !25
   %93 = zext i8 %92 to i32
   %94 = zext i8 %87 to i32
@@ -1584,7 +1584,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %117 = zext i8 %87 to i32
   %118 = lshr i32 %117, 4
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !25
   %122 = zext i8 %121 to i32
   %123 = and i32 %13, 7
@@ -1630,7 +1630,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   %146 = getelementptr inbounds nuw i8, ptr %.089129, i64 1
   %147 = load i8, ptr %.089129, align 1, !tbaa !25
   %148 = sext i8 %.398128 to i64
-  %149 = getelementptr inbounds [7 x i8], ptr %144, i64 0, i64 %148
+  %149 = getelementptr inbounds i8, ptr %144, i64 %148
   store i8 %147, ptr %149, align 1, !tbaa !25
   %150 = add i8 %.398128, 1
   %151 = icmp ult ptr %146, %.5
@@ -1746,11 +1746,11 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
   %65 = icmp samesign ult i8 %61, -16
   %66 = lshr i32 %47, 4
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %67
   %69 = and i32 %62, 7
   %70 = and i32 %62, 15
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @.str, i64 %71
   %73 = lshr i32 %47, 5
   %.sink482 = select i1 %65, i32 %73, i32 %69
   %.sink481.in.in = select i1 %65, ptr %72, ptr %68
@@ -1782,7 +1782,7 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
 86:                                               ; preds = %81
   %87 = lshr i32 %62, 4
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !25
   %91 = zext i8 %90 to i32
   %92 = and i8 %84, 7
@@ -1850,7 +1850,7 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
 114:                                              ; preds = %112
   %115 = and i32 %104, 15
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @.str, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !25
   %119 = zext i8 %118 to i32
   %120 = load i8, ptr %102, align 1, !tbaa !25
@@ -1971,7 +1971,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph310.split.us
 172:                                              ; preds = %171
   %173 = and i32 %.2215308, 15
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr @.str, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !25
   %177 = lshr i8 %166, 5
   %178 = shl nuw i8 1, %177
@@ -1981,7 +1981,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph310.split.us
 180:                                              ; preds = %171
   %181 = lshr i8 %166, 4
   %182 = zext nneg i8 %181 to i64
-  %183 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !25
   %185 = and i32 %.2215308, 7
   %186 = shl nuw nsw i32 1, %185
@@ -2025,7 +2025,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %203 = getelementptr inbounds nuw i8, ptr %.3328, i64 1
   %204 = load i8, ptr %.3328, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %205 = getelementptr inbounds nuw [7 x i8], ptr %201, i64 0, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 %indvars.iv
   store i8 %204, ptr %205, align 1, !tbaa !25
   %206 = icmp samesign ult i64 %indvars.iv.next, %196
   br i1 %206, label %202, label %._crit_edge331, !llvm.loop !54
@@ -2084,7 +2084,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   %223 = getelementptr inbounds nuw i8, ptr %.4334, i64 1
   %224 = load i8, ptr %.4334, align 1, !tbaa !25
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
-  %225 = getelementptr inbounds nuw [7 x i8], ptr %219, i64 0, i64 %indvars.iv400
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 %indvars.iv400
   store i8 %224, ptr %225, align 1, !tbaa !25
   %226 = icmp samesign ult i64 %indvars.iv.next401, %221
   br i1 %226, label %222, label %._crit_edge337, !llvm.loop !55
@@ -2100,7 +2100,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
 227:                                              ; preds = %.lr.ph341, %227
   %indvars.iv403 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next404, %227 ]
   %.2198339 = phi ptr [ %.0196, %.lr.ph341 ], [ %230, %227 ]
-  %228 = getelementptr inbounds nuw [7 x i8], ptr %213, i64 0, i64 %indvars.iv403
+  %228 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv403
   %229 = load i8, ptr %228, align 1, !tbaa !25
   %230 = getelementptr inbounds nuw i8, ptr %.2198339, i64 1
   store i8 %229, ptr %.2198339, align 1, !tbaa !25
@@ -2225,7 +2225,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
 284:                                              ; preds = %283
   %285 = and i32 %.3216299, 15
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr @.str, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !25
   %289 = lshr i8 %278, 5
   %290 = shl nuw i8 1, %289
@@ -2235,7 +2235,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
 292:                                              ; preds = %283
   %293 = lshr i8 %278, 4
   %294 = zext nneg i8 %293 to i64
-  %295 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %294
   %296 = load i8, ptr %295, align 1, !tbaa !25
   %297 = and i32 %.3216299, 7
   %298 = shl nuw nsw i32 1, %297
@@ -2259,7 +2259,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit258:       ; preds = %280, %284, %292
   %305 = add nsw i32 %303, %304
   %306 = add i8 %277, 1
   %307 = sext i8 %277 to i64
-  %308 = getelementptr inbounds [7 x i8], ptr %267, i64 0, i64 %307
+  %308 = getelementptr inbounds i8, ptr %267, i64 %307
   store i8 %278, ptr %308, align 1, !tbaa !25
   %309 = getelementptr inbounds nuw i8, ptr %276, i64 1
   %310 = icmp eq ptr %309, %9

@@ -53761,10 +53761,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !603, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !5378, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he61ca3f2b429d359E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he61ca3f2b429d359E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he61ca3f2b429d359E.976", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he61ca3f2b429d359E.976", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -73108,10 +73108,10 @@ define internal noundef zeroext i1 @"_ZN90_$LT$polars_core..datatypes..temporal.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4280, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.977", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN90_$LT$polars_core..datatypes..temporal..time_unit..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h22b3ce8b2b148ecaE.977", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -87548,10 +87548,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 16, !range !6900, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..range..RangeFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h82cc01b6e1dac9b4E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..range..RangeFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h82cc01b6e1dac9b4E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep5 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..range..RangeFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h82cc01b6e1dac9b4E.978", i64 0, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$polars_plan..dsl..function_expr..range..RangeFunction$u20$as$u20$core..fmt..Display$GT$3fmt17h82cc01b6e1dac9b4E.978", i64 %7
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -90492,7 +90492,7 @@ switch.lookup:                                    ; preds = %1
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.012.0.copyload = load i64, ptr %137, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN11polars_plan3dsl13function_expr236_$LT$impl$u20$core..convert..From$LT$polars_plan..dsl..function_expr..FunctionExpr$GT$$u20$for$u20$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..dsl..expr..expr_dyn_fn..ColumnsUdf$GT$$GT$$GT$4from17hcd18c130f186f2d9E", i64 0, i64 %.sroa.012.0.copyload
+  %switch.gep = getelementptr inbounds ptr, ptr @"switch.table._ZN11polars_plan3dsl13function_expr236_$LT$impl$u20$core..convert..From$LT$polars_plan..dsl..function_expr..FunctionExpr$GT$$u20$for$u20$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..dsl..expr..expr_dyn_fn..ColumnsUdf$GT$$GT$$GT$4from17hcd18c130f186f2d9E", i64 %.sroa.012.0.copyload
   %switch.load = load ptr, ptr %switch.gep, align 8
   %138 = tail call fastcc noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 88, i64 noundef 8), !noalias !4
   store i64 1, ptr %138, align 8
@@ -115397,10 +115397,10 @@ define internal noundef zeroext i1 @"_ZN91_$LT$polars_plan..dsl..python_dsl..sou
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4280, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN91_$LT$polars_plan..dsl..python_dsl..source..PythonScanSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h556b76ee10c98074E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN91_$LT$polars_plan..dsl..python_dsl..source..PythonScanSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h556b76ee10c98074E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN91_$LT$polars_plan..dsl..python_dsl..source..PythonScanSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h556b76ee10c98074E.979", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN91_$LT$polars_plan..dsl..python_dsl..source..PythonScanSource$u20$as$u20$core..fmt..Debug$GT$3fmt17h556b76ee10c98074E.979", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

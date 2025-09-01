@@ -313,7 +313,7 @@ define dso_local noundef range(i32 0, 2) i32 @nfs_map_string_to_numeric(ptr noun
   store i64 0, ptr %4, align 8, !annotation !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %0, i64 %1, i1 false)
-  %11 = getelementptr [16 x i8], ptr %5, i64 0, i64 %1
+  %11 = getelementptr i8, ptr %5, i64 %1
   store i8 0, ptr %11, align 1
   %12 = call i32 @kstrtoull(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %4) #15
   %13 = icmp eq i32 %12, 0
@@ -574,7 +574,7 @@ define dso_local i32 @nfs_map_name_to_uid(ptr noundef readonly captures(none) %0
 
 16:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %1, i64 %2, i1 false)
-  %17 = getelementptr [16 x i8], ptr %8, i64 0, i64 %2
+  %17 = getelementptr i8, ptr %8, i64 %2
   store i8 0, ptr %17, align 1
   %18 = call i32 @kstrtoull(ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #15
   %19 = icmp eq i32 %18, 0
@@ -690,7 +690,7 @@ define dso_local i32 @nfs_map_group_to_gid(ptr noundef readonly captures(none) %
 
 16:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %1, i64 %2, i1 false)
-  %17 = getelementptr [16 x i8], ptr %8, i64 0, i64 %2
+  %17 = getelementptr i8, ptr %8, i64 %2
   store i8 0, ptr %17, align 1
   %18 = call i32 @kstrtoull(ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #15
   %19 = icmp eq i32 %18, 0

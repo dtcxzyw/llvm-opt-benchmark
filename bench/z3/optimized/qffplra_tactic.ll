@@ -602,7 +602,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 63:                                               ; preds = %.lr.ph, %_ZN15is_fpa_functionclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %153, %_ZN15is_fpa_functionclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !68
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !67
@@ -2658,7 +2658,7 @@ thread-pre-split:                                 ; preds = %_ZNK17arith_recogni
 63:                                               ; preds = %.lr.ph, %_ZN24is_non_qffplra_predicateclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %195, %_ZN24is_non_qffplra_predicateclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !68
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !67

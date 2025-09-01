@@ -201,7 +201,7 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
 85:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
   %86 = call ptr @av_frame_alloc() #7
-  %87 = getelementptr inbounds nuw [66 x %struct.Task], ptr %80, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw %struct.Task, ptr %80, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !55
   %.not114 = icmp eq ptr %86, null
   br i1 %.not114, label %.thread129, label %88
@@ -354,7 +354,7 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
 
 166:                                              ; preds = %160
   store ptr %69, ptr %163, align 8, !tbaa !42
-  %167 = getelementptr inbounds nuw [64 x i64], ptr %106, i64 0, i64 %indvars.iv149
+  %167 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv149
   %168 = call i32 @pthread_create(ptr noundef nonnull %167, ptr noundef null, ptr noundef nonnull @worker, ptr noundef nonnull %109) #7
   %.not126 = icmp eq i32 %168, 0
   br i1 %.not126, label %172, label %169
@@ -494,7 +494,7 @@ define internal noalias noundef ptr @worker(ptr noundef %0) #4 {
   store i32 %33, ptr %10, align 8, !tbaa !69
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #7
   %35 = zext i32 %30 to i64
-  %36 = getelementptr inbounds nuw [66 x %struct.Task], ptr %14, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.Task, ptr %14, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !57
@@ -551,7 +551,7 @@ define void @ff_frame_thread_encoder_free(ptr noundef readonly captures(none) %0
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [64 x i64], ptr %18, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !74
   %22 = tail call i32 @pthread_join(i64 noundef %21, ptr noundef null) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -579,7 +579,7 @@ define void @ff_frame_thread_encoder_free(ptr noundef readonly captures(none) %0
 
 31:                                               ; preds = %.lr.ph23, %31
   %indvars.iv25 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next26, %31 ]
-  %32 = getelementptr inbounds nuw [66 x %struct.Task], ptr %28, i64 0, i64 %indvars.iv25
+  %32 = getelementptr inbounds nuw %struct.Task, ptr %28, i64 %indvars.iv25
   tail call void @av_frame_free(ptr noundef nonnull %32) #7
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   tail call void @av_packet_free(ptr noundef nonnull %33) #7
@@ -623,7 +623,7 @@ define i32 @ff_thread_video_encode_frame(ptr noundef readonly captures(none) %0,
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2308
   %12 = load i32, ptr %11, align 4, !tbaa !70
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw [66 x %struct.Task], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw %struct.Task, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !55
   tail call void @av_frame_move_ref(ptr noundef %15, ptr noundef nonnull %2) #7
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -644,7 +644,7 @@ define i32 @ff_thread_video_encode_frame(ptr noundef readonly captures(none) %0,
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 2312
   %29 = load i32, ptr %28, align 8, !tbaa !77
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [66 x %struct.Task], ptr %27, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.Task, ptr %27, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 2216
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %32) #7
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 2308

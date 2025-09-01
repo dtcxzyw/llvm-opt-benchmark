@@ -73,7 +73,7 @@ define dso_local void @_Z15getContactPointP10b3Contact4iR14b3ContactPoint(ptr no
   store float %15, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [4 x %class.b3Vector3], ptr %0, i64 0, i64 %18, i32 0, i32 0, i64 3
+  %19 = getelementptr inbounds %class.b3Vector3, ptr %0, i64 %18, i32 0, i32 0, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   %20 = load float, ptr %19, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -155,7 +155,7 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %32, %43
   store float %.sink.i, ptr %.sroa.740.0..sroa_idx, align 8
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i8 1, ptr %57, align 4, !tbaa !22
-  %58 = getelementptr inbounds [4 x %class.b3Vector3], ptr %0, i64 0, i64 %18
+  %58 = getelementptr inbounds %class.b3Vector3, ptr %0, i64 %18
   %.sroa.029.0.copyload = load float, ptr %58, align 16
   %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.sroa.531.0.copyload = load float, ptr %.sroa.531.0..sroa_idx, align 4
@@ -8931,23 +8931,23 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %.cmp = icmp eq i32 %41, 0
   %45 = select i1 %.cmp, i32 2, i32 %.urem
   %46 = zext nneg i32 %41 to i64
-  %47 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %46
   %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
   %49 = load float, ptr %48, align 4, !tbaa !112
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %0, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %50
   %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
   %53 = load float, ptr %52, align 4, !tbaa !112
   %54 = fsub float %49, %53
   %55 = zext nneg i32 %45 to i64
-  %56 = getelementptr inbounds nuw [3 x %class.b3Vector3], ptr %0, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %55
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %55
   %58 = load float, ptr %57, align 4, !tbaa !112
   %59 = fsub float %54, %58
   %60 = fadd float %59, 1.000000e+00
   %61 = tail call noundef float @sqrtf(float noundef %60) #22, !tbaa !110
   %62 = fmul float %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %46
+  %63 = getelementptr inbounds nuw float, ptr %3, i64 %46
   store float %62, ptr %63, align 4, !tbaa !112
   %64 = fdiv float 5.000000e-01, %61
   %65 = getelementptr inbounds nuw float, ptr %56, i64 %50
@@ -8964,7 +8964,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %75 = load float, ptr %74, align 4, !tbaa !112
   %76 = fadd float %73, %75
   %77 = fmul float %64, %76
-  %78 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %50
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %50
   store float %77, ptr %78, align 4, !tbaa !112
   %79 = getelementptr inbounds nuw float, ptr %56, i64 %46
   %80 = load float, ptr %79, align 4, !tbaa !112
@@ -8972,7 +8972,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %82 = load float, ptr %81, align 4, !tbaa !112
   %83 = fadd float %80, %82
   %84 = fmul float %64, %83
-  %85 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %55
+  %85 = getelementptr inbounds nuw float, ptr %3, i64 %55
   store float %84, ptr %85, align 4, !tbaa !112
   %.pre = load float, ptr %3, align 16, !tbaa !112
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

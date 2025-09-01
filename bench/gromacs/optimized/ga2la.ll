@@ -432,7 +432,7 @@ define void @_ZN11gmx_ga2la_t5clearEb(ptr noundef nonnull align 8 dereferenceabl
   %.not.i.i.i = phi i1 [ true, %2 ], [ false, %12 ]
   %.0813.i.i.i = phi i64 [ 0, %2 ], [ 1, %12 ]
   %.0912.i.i.i = phi i64 [ 2, %2 ], [ %.1.i.i.i, %12 ]
-  %7 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !48, !range !50, !noundef !51
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12

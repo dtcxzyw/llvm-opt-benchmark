@@ -65,7 +65,7 @@ define noundef ptr @ossl_ffc_name_to_dh_named_group(ptr noundef %0) local_unname
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.dh_named_group_st, ptr @dh_named_groups, i64 %.06
   %6 = load ptr, ptr %5, align 16, !tbaa !5
   %7 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %6, ptr noundef %0) #4
   %8 = icmp eq i32 %7, 0
@@ -89,7 +89,7 @@ define ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef %0) local_unnamed_addr #2
 
 4:                                                ; preds = %1, %2
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.06
+  %5 = getelementptr inbounds nuw %struct.dh_named_group_st, ptr @dh_named_groups, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = icmp eq i32 %7, %0
@@ -107,7 +107,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 
 .split.us:                                        ; preds = %3, %15
   %.012.us = phi i64 [ %16, %15 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.012.us
+  %5 = getelementptr inbounds nuw %struct.dh_named_group_st, ptr @dh_named_groups, i64 %.012.us
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %7) #4
@@ -128,7 +128,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 
 .split:                                           ; preds = %3, %32
   %.012 = phi i64 [ %33, %32 ], [ 0, %3 ]
-  %17 = getelementptr inbounds nuw [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %.012
+  %17 = getelementptr inbounds nuw %struct.dh_named_group_st, ptr @dh_named_groups, i64 %.012
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %19) #4

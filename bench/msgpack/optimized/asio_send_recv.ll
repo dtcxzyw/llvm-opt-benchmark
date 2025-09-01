@@ -1557,7 +1557,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZNK5boost6system6detail21system_err
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %3 ]
-  %4 = getelementptr inbounds nuw [79 x i32], ptr @_ZZN5boost6system6detail16is_generic_valueEiE3gen, i64 0, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw i32, ptr @_ZZN5boost6system6detail16is_generic_valueEiE3gen, i64 %indvars.iv.i.i
   %5 = load i32, ptr %4, align 4, !tbaa !21
   %6 = icmp eq i32 %1, %5
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -7946,7 +7946,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader:
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader ]
-  %106 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
   %107 = load ptr, ptr %106, align 8, !tbaa !79
   call void @_ZdlPv(ptr noundef %107) #36
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -8449,7 +8449,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader: ;
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit: ; preds = %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit ], [ 0, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader ]
-  %25 = getelementptr inbounds nuw [3 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !79
   call void @_ZdlPv(ptr noundef %26) #36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8589,7 +8589,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
 53:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.02960 = phi i1 [ %49, %.lr.ph ], [ %.130, %72 ]
-  %54 = getelementptr inbounds nuw [128 x %struct.epoll_event], ptr %4, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load ptr, ptr %55, align 4, !tbaa !19
   %57 = icmp eq ptr %56, %51
@@ -11185,7 +11185,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit.thre
   %33 = phi ptr [ %.pre43, %30 ], [ %60, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %._crit_edge ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %35 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.49"], ptr %34, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.49", ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !462
   %.not2640 = icmp eq ptr %36, null
   br i1 %.not2640, label %._crit_edge, label %.lr.ph
@@ -11216,7 +11216,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit.thre
   store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !134
   %49 = load ptr, ptr %2, align 8, !tbaa !456
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  %51 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.49"], ptr %50, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.49", ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !462
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %.thread, label %53
@@ -12041,7 +12041,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit: ; preds = %2, %7
 
 26:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit, %.thread
   %indvars.iv = phi i64 [ 2, %_ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit ], [ %indvars.iv.next, %.thread ]
-  %27 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN5boost4asio6detail13epoll_reactor16descriptor_state10perform_ioEjE4flag, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4asio6detail13epoll_reactor16descriptor_state10perform_ioEjE4flag, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !21
   %29 = or i32 %28, 24
   %30 = and i32 %29, %1
@@ -12049,9 +12049,9 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex4lockEv.exit: ; preds = %2, %7
   br i1 %.not, label %.thread, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw [3 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 1, ptr %32, align 1, !tbaa !167
-  %33 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.49"], ptr %16, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.49", ptr %16, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.pre34 = load ptr, ptr %33, align 8, !tbaa !462
   br label %35
@@ -14718,7 +14718,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit: ; p
 31:                                               ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %33 = sext i32 %1 to i64
-  %34 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds %"class.boost::asio::detail::op_queue.49", ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !462
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %118
@@ -14738,7 +14738,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit: ; p
 
 43:                                               ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %45 = getelementptr inbounds [3 x i8], ptr %44, i64 0, i64 %33
+  %45 = getelementptr inbounds i8, ptr %44, i64 %33
   %46 = load i8, ptr %45, align 1, !tbaa !167, !range !132, !noundef !133
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %.critedge
@@ -14768,7 +14768,7 @@ _ZN5boost4asio6detail10reactor_op7performEv.exit..critedge_crit_edge: ; preds = 
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 160
-  %58 = getelementptr inbounds [3 x i8], ptr %57, i64 0, i64 %33
+  %58 = getelementptr inbounds i8, ptr %57, i64 %33
   store i8 0, ptr %58, align 1, !tbaa !167
   br label %61
 
@@ -14897,7 +14897,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
 118:                                              ; preds = %.thread, %.thread73, %75, %31
   %119 = phi ptr [ %87, %.thread ], [ %.pre76, %.thread73 ], [ %71, %75 ], [ %22, %31 ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 112
-  %121 = getelementptr inbounds [3 x %"class.boost::asio::detail::op_queue.49"], ptr %120, i64 0, i64 %33
+  %121 = getelementptr inbounds %"class.boost::asio::detail::op_queue.49", ptr %120, i64 %33
   store ptr null, ptr %4, align 8, !tbaa !266
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !466
@@ -17849,7 +17849,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
 38:                                               ; preds = %.preheader, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit
   %39 = phi ptr [ %21, %.preheader ], [ %45, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit ]
-  %40 = getelementptr inbounds nuw [3 x %"class.boost::asio::detail::op_queue.49"], ptr %23, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"class.boost::asio::detail::op_queue.49", ptr %23, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !526
   %.not.i19 = icmp eq ptr %41, null
   br i1 %.not.i19, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_opEEEvRNS2_IT_EE.exit, label %42
@@ -23558,7 +23558,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540: ; p
 130:                                              ; preds = %128
   %131 = add nuw nsw i64 %35, 4294967100
   %132 = and i64 %131, 4294967295
-  %133 = getelementptr inbounds nuw [28 x i32], ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextINS0_8unpackerEE7executeEPKcmRm.trail, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !21
   %135 = zext i32 %134 to i64
   store i64 %135, ptr %24, align 8, !tbaa !168

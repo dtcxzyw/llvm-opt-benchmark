@@ -475,7 +475,7 @@ define i64 @b2CreateDistanceJoint(i32 %0, ptr noundef readonly captures(none) %1
   %86 = load i32, ptr %85, align 4, !tbaa !123
   %87 = xor i32 %79, 1
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %82, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %82, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !125
   %91 = icmp eq i32 %90, %.020.i
   br i1 %91, label %92, label %93
@@ -981,7 +981,7 @@ define i64 @b2CreateMotorJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %60 = load i32, ptr %59, align 4, !tbaa !123
   %61 = xor i32 %53, 1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %56, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %56, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !125
   %65 = icmp eq i32 %64, %.020.i
   br i1 %65, label %66, label %67
@@ -1303,7 +1303,7 @@ define i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef readonly captures(none) %1
   %98 = load i32, ptr %97, align 4, !tbaa !123
   %99 = xor i32 %91, 1
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %94, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %94, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !125
   %103 = icmp eq i32 %102, %.020.i
   br i1 %103, label %104, label %105
@@ -1480,7 +1480,7 @@ b2Normalize.exit:                                 ; preds = %7, %35
   %89 = load i32, ptr %88, align 4, !tbaa !123
   %90 = xor i32 %82, 1
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %85, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %85, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !125
   %94 = icmp eq i32 %93, %.020.i
   br i1 %94, label %95, label %96
@@ -1613,7 +1613,7 @@ define i64 @b2CreateWeldJoint(i32 %0, ptr noundef readonly captures(none) %1) lo
   %63 = load i32, ptr %62, align 4, !tbaa !123
   %64 = xor i32 %56, 1
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %59, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %59, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !125
   %68 = icmp eq i32 %67, %.020.i
   br i1 %68, label %69, label %70
@@ -1792,7 +1792,7 @@ b2Normalize.exit:                                 ; preds = %7, %35
   %89 = load i32, ptr %88, align 4, !tbaa !123
   %90 = xor i32 %82, 1
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %85, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %85, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !125
   %94 = icmp eq i32 %93, %.020.i
   br i1 %94, label %95, label %96
@@ -2371,7 +2371,7 @@ b2BufferMove.exit:                                ; preds = %b2IntArray_Push.exi
   %78 = load i32, ptr %77, align 4, !tbaa !123
   %79 = xor i32 %71, 1
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [2 x %struct.b2ContactEdge], ptr %74, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %74, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !125
   %83 = icmp eq i32 %82, %.020.i
   br i1 %83, label %84, label %85
@@ -3117,7 +3117,7 @@ b2GetJointSim.exit:                               ; preds = %24, %30
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %110 = load ptr, ptr %109, align 8, !tbaa !238
   %111 = sext i32 %101 to i64
-  %112 = getelementptr inbounds [12 x i32], ptr @__const.b2DrawJoint.colors, i64 0, i64 %111
+  %112 = getelementptr inbounds i32, ptr @__const.b2DrawJoint.colors, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !209
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %115 = load ptr, ptr %114, align 8, !tbaa !240

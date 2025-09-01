@@ -221,7 +221,7 @@ define void @CRYPTO_ccm128_aad(ptr noundef %0, ptr noundef readonly captures(non
   %.162 = phi ptr [ %1, %81 ], [ %90, %.lr.ph.backedge ]
   %.15860 = phi i64 [ %2, %81 ], [ %91, %.lr.ph.backedge ]
   %86 = load i8, ptr %.162, align 1, !tbaa !3
-  %87 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %88 = load i8, ptr %87, align 1, !tbaa !3
   %89 = xor i8 %88, %86
   store i8 %89, ptr %87, align 1, !tbaa !3
@@ -290,7 +290,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %0, ptr noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08794 = phi i64 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %24 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %.08794, %26
@@ -392,7 +392,7 @@ ctr64_inc.exit:                                   ; preds = %54
   %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %70 ]
   %71 = getelementptr inbounds nuw i8, ptr %.083.lcssa, i64 %indvars.iv115
   %72 = load i8, ptr %71, align 1, !tbaa !3
-  %73 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 0, i64 %indvars.iv115
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv115
   %74 = load i8, ptr %73, align 1, !tbaa !3
   %75 = xor i8 %74, %72
   store i8 %75, ptr %73, align 1, !tbaa !3
@@ -407,7 +407,7 @@ ctr64_inc.exit:                                   ; preds = %54
 
 77:                                               ; preds = %76, %77
   %indvars.iv119 = phi i64 [ 0, %76 ], [ %indvars.iv.next120, %77 ]
-  %78 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv119
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv119
   %79 = load i8, ptr %78, align 1, !tbaa !3
   %80 = getelementptr inbounds nuw i8, ptr %.083.lcssa, i64 %indvars.iv119
   %81 = load i8, ptr %80, align 1, !tbaa !3
@@ -482,7 +482,7 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %0, ptr noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07681 = phi i64 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %21 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %.07681, %23
@@ -570,14 +570,14 @@ ctr64_inc.exit:                                   ; preds = %36
 
 58:                                               ; preds = %56, %58
   %indvars.iv101 = phi i64 [ 0, %56 ], [ %indvars.iv.next102, %58 ]
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv101
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv101
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 %indvars.iv101
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = xor i8 %62, %60
   %64 = getelementptr inbounds nuw i8, ptr %.073.lcssa, i64 %indvars.iv101
   store i8 %63, ptr %64, align 1, !tbaa !3
-  %65 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 0, i64 %indvars.iv101
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv101
   %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = xor i8 %66, %63
   store i8 %67, ptr %65, align 1, !tbaa !3
@@ -657,7 +657,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.085100 = phi i64 [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %25 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = zext i8 %26 to i64
   %28 = or disjoint i64 %.085100, %27
@@ -746,7 +746,7 @@ ctr64_add.exit:                                   ; preds = %61, %52, %42
   %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %68 ]
   %69 = getelementptr inbounds nuw i8, ptr %.081, i64 %indvars.iv109
   %70 = load i8, ptr %69, align 1, !tbaa !3
-  %71 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 0, i64 %indvars.iv109
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv109
   %72 = load i8, ptr %71, align 1, !tbaa !3
   %73 = xor i8 %72, %70
   store i8 %73, ptr %71, align 1, !tbaa !3
@@ -761,7 +761,7 @@ ctr64_add.exit:                                   ; preds = %61, %52, %42
 
 75:                                               ; preds = %74, %75
   %indvars.iv113 = phi i64 [ 0, %74 ], [ %indvars.iv.next114, %75 ]
-  %76 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv113
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv113
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %.081, i64 %indvars.iv113
   %79 = load i8, ptr %78, align 1, !tbaa !3
@@ -836,7 +836,7 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07690 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %.lr.ph ]
-  %22 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = zext i8 %23 to i64
   %25 = or disjoint i64 %.07690, %24
@@ -913,14 +913,14 @@ ctr64_add.exit:                                   ; preds = %50, %41, %31
 
 58:                                               ; preds = %56, %58
   %indvars.iv98 = phi i64 [ 0, %56 ], [ %indvars.iv.next99, %58 ]
-  %59 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv98
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv98
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %.072, i64 %indvars.iv98
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = xor i8 %62, %60
   %64 = getelementptr inbounds nuw i8, ptr %.073, i64 %indvars.iv98
   store i8 %63, ptr %64, align 1, !tbaa !3
-  %65 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 0, i64 %indvars.iv98
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv98
   %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = xor i8 %66, %63
   store i8 %67, ptr %65, align 1, !tbaa !3

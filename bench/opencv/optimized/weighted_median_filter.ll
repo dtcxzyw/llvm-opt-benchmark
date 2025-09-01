@@ -711,11 +711,11 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   %281 = load i8, ptr %280, align 1, !tbaa !52
   %282 = lshr i8 %281, 2
   %283 = zext nneg i8 %276 to i64
-  %284 = getelementptr inbounds nuw [64 x [64 x [64 x i32]]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw [64 x [64 x i32]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 %283
   %285 = zext nneg i8 %279 to i64
-  %286 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %284, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [64 x i32], ptr %284, i64 %285
   %287 = zext nneg i8 %282 to i64
-  %288 = getelementptr inbounds nuw [64 x i32], ptr %286, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw i32, ptr %286, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !48
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %291, label %293
@@ -735,7 +735,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 .preheader306.i:                                  ; preds = %305, %.preheader307.i
   %indvars.iv348.i = phi i64 [ 0, %.preheader307.i ], [ %indvars.iv.next349.i, %305 ]
   %.0190316.i = phi i32 [ 0, %.preheader307.i ], [ %.3193.i, %305 ]
-  %295 = getelementptr inbounds nuw [64 x [64 x [64 x i32]]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 0, i64 %indvars.iv348.i
+  %295 = getelementptr inbounds nuw [64 x [64 x i32]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 %indvars.iv348.i
   %296 = trunc nuw nsw i64 %indvars.iv348.i to i32
   %297 = uitofp nneg i32 %296 to float
   br label %.preheader305.i
@@ -748,7 +748,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 .preheader305.i:                                  ; preds = %306, %.preheader306.i
   %indvars.iv344.i = phi i64 [ 0, %.preheader306.i ], [ %indvars.iv.next345.i, %306 ]
   %.1191314.i = phi i32 [ %.0190316.i, %.preheader306.i ], [ %.3193.i, %306 ]
-  %300 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %295, i64 0, i64 %indvars.iv344.i
+  %300 = getelementptr inbounds nuw [64 x i32], ptr %295, i64 %indvars.iv344.i
   %301 = load ptr, ptr %272, align 8
   %302 = load ptr, ptr %273, align 8
   %303 = trunc nuw nsw i64 %indvars.iv344.i to i32
@@ -768,7 +768,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 307:                                              ; preds = %320, %.preheader305.i
   %indvars.iv340.i = phi i64 [ 0, %.preheader305.i ], [ %indvars.iv.next341.i, %320 ]
   %.2192312.i = phi i32 [ %.1191314.i, %.preheader305.i ], [ %.3193.i, %320 ]
-  %308 = getelementptr inbounds nuw [64 x i32], ptr %300, i64 0, i64 %indvars.iv340.i
+  %308 = getelementptr inbounds nuw i32, ptr %300, i64 %indvars.iv340.i
   %309 = load i32, ptr %308, align 4, !tbaa !48
   %.not217.i = icmp eq i32 %309, 0
   br i1 %.not217.i, label %320, label %310
@@ -835,7 +835,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 .preheader304.i:                                  ; preds = %339, %330
   %indvars.iv360.i = phi i64 [ 0, %330 ], [ %indvars.iv.next361.i, %339 ]
   %.4194322.i = phi i32 [ 0, %330 ], [ %.7197.i, %339 ]
-  %335 = getelementptr inbounds nuw [64 x [64 x [64 x i32]]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 0, i64 %indvars.iv360.i
+  %335 = getelementptr inbounds nuw [64 x [64 x i32]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 %indvars.iv360.i
   br label %.preheader303.i
 
 336:                                              ; preds = %321
@@ -849,7 +849,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 .preheader303.i:                                  ; preds = %340, %.preheader304.i
   %indvars.iv356.i = phi i64 [ 0, %.preheader304.i ], [ %indvars.iv.next357.i, %340 ]
   %.5195320.i = phi i32 [ %.4194322.i, %.preheader304.i ], [ %.7197.i, %340 ]
-  %338 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %335, i64 0, i64 %indvars.iv356.i
+  %338 = getelementptr inbounds nuw [64 x i32], ptr %335, i64 %indvars.iv356.i
   br label %341
 
 339:                                              ; preds = %340
@@ -865,7 +865,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 341:                                              ; preds = %351, %.preheader303.i
   %indvars.iv352.i = phi i64 [ 0, %.preheader303.i ], [ %indvars.iv.next353.i, %351 ]
   %.6196318.i = phi i32 [ %.5195320.i, %.preheader303.i ], [ %.7197.i, %351 ]
-  %342 = getelementptr inbounds nuw [64 x i32], ptr %338, i64 0, i64 %indvars.iv352.i
+  %342 = getelementptr inbounds nuw i32, ptr %338, i64 %indvars.iv352.i
   %343 = load i32, ptr %342, align 4, !tbaa !48
   %.not.i = icmp eq i32 %343, 0
   br i1 %.not.i, label %351, label %344
@@ -984,11 +984,11 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   %391 = load i8, ptr %390, align 1, !tbaa !52
   %392 = lshr i8 %391, 2
   %393 = zext nneg i8 %386 to i64
-  %394 = getelementptr inbounds nuw [64 x [64 x [64 x i32]]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw [64 x [64 x i32]], ptr @_ZZN12_GLOBAL__N_115featureIndexingERN2cv3MatERPPfRifiE4hash, i64 %393
   %395 = zext nneg i8 %389 to i64
-  %396 = getelementptr inbounds nuw [64 x [64 x i32]], ptr %394, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw [64 x i32], ptr %394, i64 %395
   %397 = zext nneg i8 %392 to i64
-  %398 = getelementptr inbounds nuw [64 x i32], ptr %396, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw i32, ptr %396, i64 %397
   %399 = load i32, ptr %398, align 4, !tbaa !48
   %400 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv366.i
   store i32 %399, ptr %400, align 4, !tbaa !48

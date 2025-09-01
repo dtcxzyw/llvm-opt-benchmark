@@ -69,7 +69,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 
 .preheader.i.i:                                   ; preds = %29, %.lr.ph.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %29 ], [ 0, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %30 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %28, %31
   br i1 %32, label %33, label %29
@@ -124,7 +124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader.i.i228:                                ; preds = %47, %.lr.ph.i227
   %indvars.iv20.i.i229 = phi i64 [ %indvars.iv.next21.i.i230, %47 ], [ 0, %.lr.ph.i227 ]
-  %48 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i229
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i229
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %46, %49
   br i1 %50, label %51, label %47
@@ -257,7 +257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 
 .preheader.i.i238:                                ; preds = %98, %.lr.ph.i237
   %indvars.iv20.i.i239 = phi i64 [ %indvars.iv.next21.i.i240, %98 ], [ 0, %.lr.ph.i237 ]
-  %99 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i239
+  %99 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i239
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %97, %100
   br i1 %101, label %102, label %98
@@ -380,7 +380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 
 .preheader.i.i252:                                ; preds = %151, %.lr.ph.i251
   %indvars.iv20.i.i253 = phi i64 [ %indvars.iv.next21.i.i254, %151 ], [ 0, %.lr.ph.i251 ]
-  %152 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i253
+  %152 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i253
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %150, %153
   br i1 %154, label %155, label %151
@@ -552,7 +552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
 
 .preheader.i.i262:                                ; preds = %220, %.lr.ph.i261
   %indvars.iv20.i.i263 = phi i64 [ %indvars.iv.next21.i.i264, %220 ], [ 0, %.lr.ph.i261 ]
-  %221 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i263
+  %221 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i263
   %222 = load i8, ptr %221, align 1
   %223 = icmp eq i8 %219, %222
   br i1 %223, label %224, label %220
@@ -668,7 +668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
 273:                                              ; preds = %269
   %274 = add nsw i32 %.0173428, 1
   %275 = sext i32 %.0173428 to i64
-  %276 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %275
+  %276 = getelementptr inbounds i8, ptr %8, i64 %275
   store i8 %270, ptr %276, align 1
   %277 = add nsw i32 %.0153432, 1
   br label %283
@@ -848,7 +848,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
 358:                                              ; preds = %354
   %359 = add nsw i32 %.4177447, 1
   %360 = sext i32 %.4177447 to i64
-  %361 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %360
+  %361 = getelementptr inbounds i8, ptr %8, i64 %360
   store i8 %355, ptr %361, align 1
   %362 = add nsw i32 %.3156449, 1
   %363 = add nsw i32 %.4450, -1
@@ -1091,7 +1091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
 
 .preheader.i.i299:                                ; preds = %462, %.lr.ph.i298
   %indvars.iv20.i.i300 = phi i64 [ %indvars.iv.next21.i.i301, %462 ], [ 0, %.lr.ph.i298 ]
-  %463 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i300
+  %463 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i300
   %464 = load i8, ptr %463, align 1
   %465 = icmp eq i8 %461, %464
   br i1 %465, label %466, label %462
@@ -1128,7 +1128,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader.i.i309:                                ; preds = %472, %.lr.ph.i308
   %indvars.iv20.i.i310 = phi i64 [ %indvars.iv.next21.i.i311, %472 ], [ 0, %.lr.ph.i308 ]
-  %473 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i310
+  %473 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i310
   %474 = load i8, ptr %473, align 1
   %475 = icmp eq i8 %471, %474
   br i1 %475, label %476, label %472
@@ -1205,7 +1205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 499:                                              ; preds = %496
   %500 = add nsw i32 %.2175358, 1
   %501 = sext i32 %.2175358 to i64
-  %502 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %501
+  %502 = getelementptr inbounds i8, ptr %8, i64 %501
   store i8 49, ptr %502, align 1
   %503 = add nsw i32 %497, -1
   br label %504
@@ -1214,7 +1214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %.6179 = phi i32 [ %500, %499 ], [ %.2175358, %496 ]
   %.7 = phi i32 [ %503, %499 ], [ %497, %496 ]
   %505 = sext i32 %.6179 to i64
-  %506 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %505
+  %506 = getelementptr inbounds i8, ptr %8, i64 %505
   store i8 0, ptr %506, align 1
   %507 = zext i32 %.6179 to i64
   br label %508
@@ -1324,7 +1324,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %31
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %31 ], [ 0, %.lr.ph.i ]
-  %32 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = icmp eq i32 %29, %34
@@ -1337,7 +1337,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 
 .preheader12.i.i:                                 ; preds = %.lr.ph.i, %36
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %36 ], [ 0, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw [20 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %28, %38
   br i1 %39, label %.loopexit.i, label %36
@@ -1394,7 +1394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader.i.i235:                                ; preds = %.lr.ph.i227, %54
   %indvars.iv20.i.i236 = phi i64 [ %indvars.iv.next21.i.i237, %54 ], [ 0, %.lr.ph.i227 ]
-  %55 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i236
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i236
   %56 = load i8, ptr %55, align 1
   %57 = sext i8 %56 to i32
   %58 = icmp eq i32 %52, %57
@@ -1407,7 +1407,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader12.i.i228:                              ; preds = %.lr.ph.i227, %59
   %indvars.iv.i.i229 = phi i64 [ %indvars.iv.next.i.i230, %59 ], [ 0, %.lr.ph.i227 ]
-  %60 = getelementptr inbounds nuw [20 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i229
+  %60 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i229
   %61 = load i16, ptr %60, align 2
   %62 = icmp eq i16 %51, %61
   br i1 %62, label %.loopexit.i233, label %59
@@ -1894,7 +1894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %268 = trunc nuw nsw i16 %264 to i8
   %269 = add nsw i32 %.0173377, 1
   %270 = sext i32 %.0173377 to i64
-  %271 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %270
+  %271 = getelementptr inbounds i8, ptr %8, i64 %270
   store i8 %268, ptr %271, align 1
   %272 = add nsw i32 %.0153381, 1
   br label %278
@@ -2068,7 +2068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %349 = trunc nuw nsw i16 %345 to i8
   %350 = add nsw i32 %.4177396, 1
   %351 = sext i32 %.4177396 to i64
-  %352 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %351
+  %352 = getelementptr inbounds i8, ptr %8, i64 %351
   store i8 %349, ptr %352, align 1
   %353 = add nsw i32 %.3156398, 1
   %354 = add nsw i32 %.4399, -1
@@ -2374,7 +2374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 478:                                              ; preds = %475
   %479 = add nsw i32 %.2175312, 1
   %480 = sext i32 %.2175312 to i64
-  %481 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %480
+  %481 = getelementptr inbounds i8, ptr %8, i64 %480
   store i8 49, ptr %481, align 1
   %482 = add nsw i32 %476, -1
   br label %483
@@ -2383,7 +2383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %.6179 = phi i32 [ %479, %478 ], [ %.2175312, %475 ]
   %.7 = phi i32 [ %482, %478 ], [ %476, %475 ]
   %484 = sext i32 %.6179 to i64
-  %485 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %484
+  %485 = getelementptr inbounds i8, ptr %8, i64 %484
   store i8 0, ptr %485, align 1
   %486 = zext i32 %.6179 to i64
   br label %487
@@ -3057,7 +3057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit87:
 
 .preheader.i.i:                                   ; preds = %132, %.lr.ph.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %132 ], [ 0, %.lr.ph.i ]
-  %133 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %133 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %134 = load i8, ptr %133, align 1
   %135 = icmp eq i8 %131, %134
   br i1 %135, label %136, label %132
@@ -3304,7 +3304,7 @@ switch.early.test:                                ; preds = %78
 
 .preheader.i.i:                                   ; preds = %82, %.lr.ph.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %82 ], [ 0, %.lr.ph.i ]
-  %83 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %83 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %81, %84
   br i1 %85, label %86, label %82
@@ -3521,7 +3521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
 
 .preheader.i.i197:                                ; preds = %148, %.lr.ph.i196
   %indvars.iv20.i.i198 = phi i64 [ %indvars.iv.next21.i.i199, %148 ], [ 0, %.lr.ph.i196 ]
-  %149 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i198
+  %149 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i198
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %147, %150
   br i1 %151, label %152, label %148
@@ -4055,7 +4055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPcEEbPT_ti
 
 .preheader.i.i:                                   ; preds = %60, %.lr.ph.i
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %60 ], [ 0, %.lr.ph.i ]
-  %61 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %59, %62
   br i1 %63, label %64, label %60
@@ -4189,7 +4189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit: ;
 
 .preheader.i.i151:                                ; preds = %116, %.lr.ph.i150
   %indvars.iv20.i.i152 = phi i64 [ %indvars.iv.next21.i.i153, %116 ], [ 0, %.lr.ph.i150 ]
-  %117 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i152
+  %117 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i152
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %115, %118
   br i1 %119, label %120, label %116
@@ -4400,7 +4400,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 .preheader.i:                                     ; preds = %.lr.ph, %7
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %7 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i
+  %8 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = icmp eq i32 %5, %10
@@ -4413,7 +4413,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 
 .preheader12.i:                                   ; preds = %.lr.ph, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds nuw [20 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i16 %4, %14
   br i1 %15, label %.loopexit, label %12
@@ -5326,7 +5326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %93
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %93 ], [ 0, %.lr.ph.i ]
-  %94 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i
+  %94 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i
   %95 = load i8, ptr %94, align 1
   %96 = sext i8 %95 to i32
   %97 = icmp eq i32 %91, %96
@@ -5339,7 +5339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 .preheader12.i.i:                                 ; preds = %.lr.ph.i, %98
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %98 ], [ 0, %.lr.ph.i ]
-  %99 = getelementptr inbounds nuw [20 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i
   %100 = load i16, ptr %99, align 2
   %101 = icmp eq i16 %90, %100
   br i1 %101, label %.loopexit.i, label %98
@@ -5551,7 +5551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 
 .preheader.i.i206:                                ; preds = %.lr.ph.i198, %160
   %indvars.iv20.i.i207 = phi i64 [ %indvars.iv.next21.i.i208, %160 ], [ 0, %.lr.ph.i198 ]
-  %161 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i207
+  %161 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 %indvars.iv20.i.i207
   %162 = load i8, ptr %161, align 1
   %163 = sext i8 %162 to i32
   %164 = icmp eq i32 %158, %163
@@ -5564,7 +5564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 
 .preheader12.i.i199:                              ; preds = %.lr.ph.i198, %165
   %indvars.iv.i.i200 = phi i64 [ %indvars.iv.next.i.i201, %165 ], [ 0, %.lr.ph.i198 ]
-  %166 = getelementptr inbounds nuw [20 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 0, i64 %indvars.iv.i.i200
+  %166 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL18kWhitespaceTable16E, i64 %indvars.iv.i.i200
   %167 = load i16, ptr %166, align 2
   %168 = icmp eq i16 %157, %167
   br i1 %168, label %.loopexit.i204, label %165

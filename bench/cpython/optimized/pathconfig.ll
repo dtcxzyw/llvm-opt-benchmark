@@ -693,7 +693,7 @@ define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef re
 
 22:                                               ; preds = %19
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr [4097 x i32], ptr %4, i64 0, i64 %23
+  %24 = getelementptr i32, ptr %4, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !29
   %25 = load i32, ptr %4, align 16, !tbaa !29
   %26 = icmp eq i32 %25, 47

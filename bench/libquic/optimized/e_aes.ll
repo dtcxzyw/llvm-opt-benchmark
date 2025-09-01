@@ -1882,7 +1882,7 @@ aes_ctr_set_key.exit:                             ; preds = %26, %23
 
 35:                                               ; preds = %35, %aes_ctr_set_key.exit
   %indvars.iv.i = phi i64 [ 0, %aes_ctr_set_key.exit ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1, !tbaa !20
   %38 = xor i8 %37, 54
   store i8 %38, ptr %36, align 1, !tbaa !20
@@ -1899,7 +1899,7 @@ aes_ctr_set_key.exit:                             ; preds = %26, %23
 
 43:                                               ; preds = %43, %39
   %indvars.iv15.i = phi i64 [ 0, %39 ], [ %indvars.iv.next16.i, %43 ]
-  %44 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv15.i
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv15.i
   %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = xor i8 %45, 106
   store i8 %46, ptr %44, align 1, !tbaa !20
@@ -2130,7 +2130,7 @@ define internal fastcc void @hmac_calculate(ptr noundef nonnull %0, ptr noundef 
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %14 ]
   %.057.i = phi i64 [ %4, %8 ], [ %17, %14 ]
   %15 = trunc i64 %.057.i to i8
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   store i8 %15, ptr %16, align 1, !tbaa !20
   %17 = lshr i64 %.057.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2147,7 +2147,7 @@ hmac_update_uint64.exit:                          ; preds = %14
   %indvars.iv.i12 = phi i64 [ 0, %hmac_update_uint64.exit ], [ %indvars.iv.next.i14, %19 ]
   %.057.i13 = phi i64 [ %7, %hmac_update_uint64.exit ], [ %22, %19 ]
   %20 = trunc i64 %.057.i13 to i8
-  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i12
   store i8 %20, ptr %21, align 1, !tbaa !20
   %22 = lshr i64 %.057.i13, 8
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1

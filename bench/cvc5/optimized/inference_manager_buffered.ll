@@ -893,7 +893,7 @@ define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered33assertIn
   %28 = icmp eq i32 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %30 = zext i1 %28 to i64
-  %31 = getelementptr inbounds nuw [0 x ptr], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !98, !noalias !99
   %33 = load i64, ptr %32, align 8, !noalias !99
   %34 = lshr i64 %33, 40

@@ -268,15 +268,15 @@ ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %.thre
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 52
   %112 = load i32, ptr %111, align 4, !tbaa !92
   %113 = add nsw i32 %.0121266, 1
-  %114 = add nsw i32 %108, -2
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %96, i64 0, i64 %115
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %114 = zext nneg i32 %108 to i64
+  %115 = getelementptr %struct.combine_diff_parent, ptr %96, i64 %114
+  %116 = getelementptr i8, ptr %115, i64 -112
+  %117 = getelementptr i8, ptr %115, i64 -104
   %118 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %117, ptr noundef nonnull readonly align 4 dereferenceable(32) %118, i64 32, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %100, i64 104
   %120 = load i32, ptr %119, align 4, !tbaa !98
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %121 = getelementptr i8, ptr %115, i64 -72
   store i32 %120, ptr %121, align 4, !tbaa !98
   %122 = load i32, ptr @has_symlinks, align 4, !tbaa !92
   %.not.i168 = icmp eq i32 %122, 0
@@ -337,7 +337,7 @@ ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %.thre
 
 ce_mode_from_stat.exit181:                        ; preds = %.thread30.i177, %125, %133, %135, %137, %137, %.thread27.i174
   %.0.i173 = phi i32 [ %126, %125 ], [ %139, %.thread27.i174 ], [ 40960, %133 ], [ 16384, %135 ], [ 57344, %137 ], [ 57344, %137 ], [ %spec.select259, %.thread30.i177 ]
-  %140 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %140 = getelementptr i8, ptr %115, i64 -108
   store i32 %.0.i173, ptr %140, align 4, !tbaa !99
   store i8 77, ptr %116, align 8, !tbaa !101
   br label %141
@@ -936,7 +936,7 @@ define dso_local void @diff_get_merge_base(ptr noundef readonly captures(none) %
   %23 = load ptr, ptr %22, align 8, !tbaa !129
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = tail call ptr @lookup_commit_reference(ptr noundef %20, ptr noundef nonnull %24) #15
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %indvars.iv35
+  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35
   store ptr %25, ptr %26, align 8, !tbaa !132
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %27 = load i32, ptr %6, align 8, !tbaa !126

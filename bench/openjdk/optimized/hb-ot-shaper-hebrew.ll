@@ -93,12 +93,12 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
   br i1 %or.cond, label %33, label %39
 
 33:                                               ; preds = %31
-  %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw [27 x i32], ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %3, align 4
-  %37 = lshr i64 131817343, %34
-  %38 = trunc i64 %37 to i1
+  %34 = zext nneg i32 %1 to i64
+  %35 = getelementptr i32, ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 -5952
+  %37 = load i32, ptr %36, align 4
+  store i32 %37, ptr %3, align 4
+  %38 = icmp ne i32 %37, 0
   br label %52
 
 39:                                               ; preds = %31
@@ -163,8 +163,8 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
   br label %52
 
 52:                                               ; preds = %49, %46, %39, %22, %18, %21, %19, %24, %23, %27, %25, %30, %28, %40, %41, %33, %45, %44, %43, %42, %48, %47, %51, %50, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
-  %.0 = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %21 ], [ false, %19 ], [ true, %23 ], [ true, %24 ], [ true, %27 ], [ false, %25 ], [ true, %30 ], [ false, %28 ], [ %38, %33 ], [ true, %40 ], [ true, %41 ], [ false, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %47 ], [ true, %48 ], [ true, %50 ], [ true, %51 ], [ false, %22 ], [ false, %39 ], [ false, %46 ], [ false, %49 ]
-  ret i1 %.0
+  %.0.shrunk = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %21 ], [ false, %19 ], [ true, %23 ], [ true, %24 ], [ true, %27 ], [ false, %25 ], [ true, %30 ], [ false, %28 ], [ %38, %33 ], [ true, %40 ], [ true, %41 ], [ false, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ true, %47 ], [ true, %48 ], [ true, %50 ], [ true, %51 ], [ false, %22 ], [ false, %39 ], [ false, %46 ], [ false, %49 ]
+  ret i1 %.0.shrunk
 }
 
 ; Function Attrs: mustprogress uwtable

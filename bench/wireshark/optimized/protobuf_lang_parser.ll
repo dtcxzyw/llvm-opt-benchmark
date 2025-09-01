@@ -81,7 +81,7 @@ define hidden void @ProtobufLangParserFinalize(ptr noundef captures(address) %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define hidden range(i32 0, 256) i32 @ProtobufLangParserFallback(i32 noundef %0) local_unnamed_addr #2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i8], ptr @yyFallback, i64 0, i64 %2
+  %3 = getelementptr i8, ptr @yyFallback, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   ret i32 %5
@@ -525,7 +525,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
 
 .preheader.i:                                     ; preds = %11
   %13 = zext nneg i16 %.037 to i64
-  %14 = getelementptr [166 x i16], ptr @yy_shift_ofst, i64 0, i64 %13
+  %14 = getelementptr i16, ptr @yy_shift_ofst, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
   br label %17
@@ -534,24 +534,24 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
   %.015.i = phi i8 [ %24, %22 ], [ %9, %.preheader.i ]
   %18 = zext i8 %.015.i to i64
   %19 = add nuw nsw i64 %18, %16
-  %20 = getelementptr [580 x i8], ptr @yy_lookahead, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @yy_lookahead, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, %.015.i
   br i1 %.not.i, label %27, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr [64 x i8], ptr @yyFallback, i64 0, i64 %18
+  %23 = getelementptr i8, ptr @yyFallback, i64 %18
   %24 = load i8, ptr %23, align 1
   %.not17.not.i = icmp eq i8 %24, 0
   br i1 %.not17.not.i, label %.thread.i, label %17
 
 .thread.i:                                        ; preds = %22
-  %25 = getelementptr [166 x i16], ptr @yy_default, i64 0, i64 %13
+  %25 = getelementptr i16, ptr @yy_default, i64 %13
   %26 = load i16, ptr %25, align 2
   br label %yy_find_shift_action.exit
 
 27:                                               ; preds = %17
-  %28 = getelementptr [516 x i16], ptr @yy_action, i64 0, i64 %19
+  %28 = getelementptr i16, ptr @yy_action, i64 %19
   %29 = load i16, ptr %28, align 2
   br label %yy_find_shift_action.exit
 
@@ -564,7 +564,7 @@ yy_find_shift_action.exit:                        ; preds = %11, %.thread.i, %27
   %32 = zext i16 %.0.i to i64
   %33 = add nuw nsw i64 %32, 4294966764
   %34 = and i64 %33, 4294967295
-  %35 = getelementptr [191 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %34
+  %35 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
   %.pre = load ptr, ptr %0, align 8
@@ -1474,18 +1474,18 @@ yy_find_shift_action.exit:                        ; preds = %11, %.thread.i, %27
   br label %yyStackOverflow.exit
 
 yyStackOverflow.exit:                             ; preds = %629, %618, %609, %600, %592, %584, %577, %571, %565, %560, %556, %527, %496, %488, %478, %468, %458, %445, %434, %428, %418, %414, %410, %393, %378, %363, %350, %336, %322, %308, %294, %280, %272, %262, %256, %251, %247, %236, %225, %217, %207, %200, %192, %182, %171, %160, %149, %139, %127, %122, %117, %112, %106, %98, %96, %92, %86, %72, %68, %45
-  %643 = getelementptr [191 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %34
+  %643 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %34
   %644 = load i8, ptr %643, align 1
   %645 = sext i8 %36 to i64
   %646 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %645
   %647 = load i16, ptr %646, align 8
   %648 = zext i16 %647 to i64
-  %649 = getelementptr [91 x i16], ptr @yy_reduce_ofst, i64 0, i64 %648
+  %649 = getelementptr i16, ptr @yy_reduce_ofst, i64 %648
   %650 = load i16, ptr %649, align 2
   %651 = sext i16 %650 to i64
   %652 = zext i8 %644 to i64
-  %653 = add nsw i64 %651, %652
-  %654 = getelementptr [516 x i16], ptr @yy_action, i64 0, i64 %653
+  %653 = getelementptr i16, ptr @yy_action, i64 %651
+  %654 = getelementptr i16, ptr %653, i64 %652
   %655 = load i16, ptr %654, align 2
   %656 = getelementptr i8, ptr %646, i64 16
   store ptr %656, ptr %0, align 8

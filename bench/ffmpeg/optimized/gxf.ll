@@ -242,7 +242,7 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   %91 = add nsw i32 %88, -1
   %92 = select i1 %or.cond.i.i, i32 8, i32 %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [9 x %struct.AVRational], ptr @frame_rate_tab, i64 0, i64 %93
+  %94 = getelementptr inbounds %struct.AVRational, ptr @frame_rate_tab, i64 %93
   %.sroa.0.0.copyload.i.i = load i64, ptr %94, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %59, align 8
   br label %106
@@ -443,10 +443,10 @@ thread-pre-split:                                 ; preds = %166
   %184 = lshr i32 %180, 6
   %185 = and i32 %184, 31
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !48
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw [5 x %struct.AVRational], ptr @fps_umf2avr.map, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw %struct.AVRational, ptr @fps_umf2avr.map, i64 %189
   %.sroa.0.0.copyload.i = load i64, ptr %190, align 8
   %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32

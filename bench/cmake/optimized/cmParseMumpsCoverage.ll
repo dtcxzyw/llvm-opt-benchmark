@@ -1585,7 +1585,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 36:                                               ; preds = %.preheader, %102
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %102 ]
-  %37 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN20cmParseMumpsCoverage13FindMumpsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_.tryname, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr @__const._ZN20cmParseMumpsCoverage13FindMumpsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_.tryname, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load ptr, ptr %37, align 8, !tbaa !80
   call void @llvm.experimental.noalias.scope.decl(metadata !101)

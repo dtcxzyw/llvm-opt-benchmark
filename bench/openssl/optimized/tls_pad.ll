@@ -176,7 +176,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   %87 = and i32 %86, %82
   %88 = or i32 %87, %84
   %89 = add i64 %.1102, 1
-  %90 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %.180101
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 %.180101
   %91 = load i8, ptr %90, align 1, !tbaa !7
   %92 = zext i8 %91 to i32
   %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %46) #6, !srcloc !16

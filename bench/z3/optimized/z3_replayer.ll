@@ -3213,7 +3213,7 @@ define linkonce_odr hidden noundef ptr @_ZNK11z3_replayer3imp11kind2stringENS0_1
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK11z3_replayer3imp11kind2stringENS0_10value_kindE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11z3_replayer3imp11kind2stringENS0_10value_kindE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

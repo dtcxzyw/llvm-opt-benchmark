@@ -1371,20 +1371,20 @@ dissect_context_as_cif.exit.i:                    ; preds = %133
   br i1 %.not33.i.not, label %144, label %148
 
 144:                                              ; preds = %140
-  %145 = getelementptr [32 x ptr], ptr @complex_dissector_cif0, i64 0, i64 %indvars.iv.i
+  %145 = getelementptr ptr, ptr @complex_dissector_cif0, i64 %indvars.iv.i
   %146 = load ptr, ptr %145, align 8
   %147 = tail call i32 %146(ptr noundef %36, ptr noundef %0, i32 noundef %.03044.i)
   br label %152
 
 148:                                              ; preds = %140
-  %149 = getelementptr [8 x i32], ptr @hf_vrt_cif, i64 0, i64 %indvars.iv.i
+  %149 = getelementptr i32, ptr @hf_vrt_cif, i64 %indvars.iv.i
   %150 = load i32, ptr %149, align 4
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %150, ptr noundef %0, i32 noundef %.03044.i, i32 noundef 4, i32 noundef 0)
   br label %152
 
 152:                                              ; preds = %148, %144
   %153 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.03044.i)
-  %154 = getelementptr [8 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  %154 = getelementptr i32, ptr %5, i64 %indvars.iv.i
   store i32 %153, ptr %154, align 4
   %155 = add i32 %.03044.i, 4
   br label %156
@@ -1513,11 +1513,11 @@ dissect_context.exit:                             ; preds = %188, %dissect_conte
   br i1 %.not35.i, label %235, label %226
 
 226:                                              ; preds = %222
-  %227 = getelementptr [12 x ptr], ptr @enable_hfs, i64 0, i64 %indvars.iv.i102
+  %227 = getelementptr ptr, ptr @enable_hfs, i64 %indvars.iv.i102
   %228 = load ptr, ptr %227, align 8
   %229 = load i32, ptr %228, align 4
   %230 = tail call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %229, ptr noundef %0, i32 noundef %204, i32 noundef 2, i32 noundef 0)
-  %231 = getelementptr [12 x ptr], ptr @ind_hfs, i64 0, i64 %indvars.iv.i102
+  %231 = getelementptr ptr, ptr @ind_hfs, i64 %indvars.iv.i102
   %232 = load ptr, ptr %231, align 8
   %233 = load i32, ptr %232, align 4
   %234 = tail call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %233, ptr noundef %0, i32 noundef %212, i32 noundef 2, i32 noundef 0)

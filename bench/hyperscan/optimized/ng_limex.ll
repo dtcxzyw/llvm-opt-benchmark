@@ -816,7 +816,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 
 232:                                              ; preds = %235, %.loopexit83.us.us.i.i
   %.0813.i.i.us.us.i.i = phi i64 [ 0, %.loopexit83.us.us.i.i ], [ %236, %235 ]
-  %233 = getelementptr inbounds nuw [4 x i64], ptr %231, i64 0, i64 %.0813.i.i.us.us.i.i
+  %233 = getelementptr inbounds nuw i64, ptr %231, i64 %.0813.i.i.us.us.i.i
   %234 = load i64, ptr %233, align 8
   %.not.i.i98.us.us.i.i = icmp eq i64 %234, -1
   br i1 %.not.i.i98.us.us.i.i, label %235, label %_ZNK3ue29CharReach3allEv.exit.thread.us.us.i.i
@@ -911,7 +911,7 @@ _ZN3ue28containsISt3mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
 
 268:                                              ; preds = %266, %.loopexit83.i.i
   %.0813.i.i.i.i = phi i64 [ 0, %.loopexit83.i.i ], [ %267, %266 ]
-  %269 = getelementptr inbounds nuw [4 x i64], ptr %265, i64 0, i64 %.0813.i.i.i.i
+  %269 = getelementptr inbounds nuw i64, ptr %265, i64 %.0813.i.i.i.i
   %270 = load i64, ptr %269, align 8
   %.not.i.i98.i.i = icmp eq i64 %270, -1
   br i1 %.not.i.i98.i.i, label %266, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i

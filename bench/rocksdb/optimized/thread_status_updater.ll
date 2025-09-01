@@ -385,7 +385,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i: ; pre
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i
   %indvars.iv.i = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i ], [ %indvars.iv.next.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i ]
-  %31 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %30, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %30, i64 %indvars.iv.i
   store atomic i64 0, ptr %31 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -422,7 +422,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader: ; preds
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit
   %indvars.iv = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader ], [ %indvars.iv.next, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit ]
-  %9 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %8, i64 %indvars.iv
   store atomic i64 0, ptr %9 monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -515,7 +515,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i: ; p
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i ]
-  %17 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %16, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %16, i64 %indvars.iv.i.i
   store atomic i64 0, ptr %17 monotonic, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
@@ -584,7 +584,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i: ; pre
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i
   %indvars.iv.i = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i ], [ %indvars.iv.next.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i ]
-  %14 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %13, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %13, i64 %indvars.iv.i
   store atomic i64 0, ptr %14 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -699,7 +699,7 @@ _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i: ; pre
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i
   %indvars.iv.i = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i ], [ %indvars.iv.next.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i ]
-  %16 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %15, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %15, i64 %indvars.iv.i
   store atomic i64 0, ptr %16 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -746,7 +746,7 @@ define void @_ZN7rocksdb19ThreadStatusUpdater26SetThreadOperationPropertyEim(ptr
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit: ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [6 x %"struct.std::atomic.0"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %"struct.std::atomic.0", ptr %10, i64 %11
   store atomic i64 %2, ptr %12 monotonic, align 8
   br label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.thread
 
@@ -769,7 +769,7 @@ define void @_ZN7rocksdb19ThreadStatusUpdater31IncreaseThreadOperationPropertyEi
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit: ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [6 x %"struct.std::atomic.0"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %"struct.std::atomic.0", ptr %10, i64 %11
   %13 = atomicrmw add ptr %12, i64 %2 monotonic, align 8
   br label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.thread
 
@@ -1068,9 +1068,9 @@ _ZNSt13unordered_mapIPKvN7rocksdb24ConstantColumnFamilyInfoESt4hashIS1_ESt8equal
 
 107:                                              ; preds = %98, %107
   %indvars.iv = phi i64 [ 0, %98 ], [ %indvars.iv.next, %107 ]
-  %108 = getelementptr inbounds nuw [6 x %"struct.std::atomic.0"], ptr %106, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %106, i64 %indvars.iv
   %109 = load atomic i64, ptr %108 monotonic, align 8
-  %110 = getelementptr inbounds nuw [6 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
   store i64 %109, ptr %110, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -3358,7 +3358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %61 ]
   %62 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !36
-  %64 = getelementptr inbounds nuw [6 x i64], ptr %51, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
   store i64 %63, ptr %64, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

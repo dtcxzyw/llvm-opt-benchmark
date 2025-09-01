@@ -174,7 +174,7 @@ define dso_local void @dm_table_destroy(ptr noundef %0) local_unnamed_addr #0 al
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = add i32 %5, -2
   %10 = zext i32 %9 to i64
-  %11 = getelementptr [16 x ptr], ptr %8, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @kvfree(ptr noundef %12) #22
   br label %13
@@ -600,7 +600,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_split_args(ptr noundef captur
 
 30:                                               ; preds = %21, %17
   %31 = zext i8 %18 to i64
-  %32 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %31
+  %32 = getelementptr i8, ptr @_ctype, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 32
   %35 = icmp eq i8 %34, 0
@@ -1488,12 +1488,12 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   store i32 %165, ptr %166, align 4
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %168 = zext i32 %162 to i64
-  %169 = getelementptr [16 x i32], ptr %167, i64 0, i64 %168
+  %169 = getelementptr i32, ptr %167, i64 %168
   store i32 %151, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %173 = getelementptr [16 x ptr], ptr %172, i64 0, i64 %168
+  %173 = getelementptr ptr, ptr %172, i64 %168
   store ptr %171, ptr %173, align 8
   %174 = icmp ult i32 %158, -2
   br i1 %174, label %175, label %.loopexit40
@@ -1511,14 +1511,14 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %181 = phi i32 [ 0, %177 ], [ %192, %179 ]
   %182 = shl i64 %180, 32
   %183 = add i64 %182, 4294967296
-  %184 = ashr exact i64 %183, 32
-  %185 = getelementptr [16 x i32], ptr %167, i64 0, i64 %184
+  %184 = ashr exact i64 %183, 30
+  %185 = getelementptr i8, ptr %167, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = zext i32 %186 to i64
   %188 = add nuw nsw i64 %187, 8
   %189 = udiv i64 %188, 9
   %190 = trunc nuw nsw i64 %189 to i32
-  %191 = getelementptr [16 x i32], ptr %167, i64 0, i64 %180
+  %191 = getelementptr i32, ptr %167, i64 %180
   store i32 %190, ptr %191, align 4
   %192 = add i32 %181, %190
   %193 = add nsw i64 %180, -1
@@ -1549,9 +1549,9 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 207:                                              ; preds = %.loopexit39, %205
   %208 = phi i64 [ %206, %205 ], [ %260, %.loopexit39 ]
   %209 = phi ptr [ %199, %205 ], [ %214, %.loopexit39 ]
-  %210 = getelementptr [16 x ptr], ptr %172, i64 0, i64 %208
+  %210 = getelementptr ptr, ptr %172, i64 %208
   store ptr %209, ptr %210, align 8
-  %211 = getelementptr [16 x i32], ptr %167, i64 0, i64 %208
+  %211 = getelementptr i32, ptr %167, i64 %208
   %212 = load i32, ptr %211, align 4
   %213 = zext i32 %212 to i64
   %.idx = shl nuw nsw i64 %213, 6
@@ -1596,13 +1596,13 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 .loopexit38:                                      ; preds = %.preheader37, %225
   %.pre-phi = phi i64 [ %.pre71, %225 ], [ %231, %.preheader37 ]
   %239 = phi i32 [ %228, %225 ], [ %236, %.preheader37 ]
-  %240 = getelementptr [16 x i32], ptr %167, i64 0, i64 %.pre-phi
+  %240 = getelementptr i32, ptr %167, i64 %.pre-phi
   %241 = load i32, ptr %240, align 4
   %242 = icmp ult i32 %239, %241
   br i1 %242, label %243, label %250
 
 243:                                              ; preds = %.loopexit38
-  %244 = getelementptr [16 x ptr], ptr %172, i64 0, i64 %.pre-phi
+  %244 = getelementptr ptr, ptr %172, i64 %.pre-phi
   %245 = load ptr, ptr %244, align 8
   %246 = zext i32 %239 to i64
   %.idx28 = shl nuw nsw i64 %246, 6
@@ -1861,7 +1861,7 @@ define dso_local ptr @dm_table_find_target(ptr noundef readonly captures(none) %
   %25 = phi i32 [ 0, %19 ], [ %27, %.loopexit ]
   %26 = mul i32 %25, 9
   %27 = add i32 %26, %24
-  %28 = getelementptr [16 x ptr], ptr %20, i64 0, i64 %23
+  %28 = getelementptr ptr, ptr %20, i64 %23
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %27 to i64
   %31 = shl nuw nsw i64 %30, 3

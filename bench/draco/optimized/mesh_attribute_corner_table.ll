@@ -618,7 +618,7 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %106 = getelementptr inbounds nuw %"struct.std::array", ptr %105, i64 %104
   %107 = urem i32 %.sroa.01.0.i51, 3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.32"], ptr %106, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw %"class.draco::IndexType.32", ptr %106, i64 %108
   %.sroa.0.0.copyload4.i = load i32, ptr %109, align 4, !tbaa !67
   br label %_ZNK5draco4Mesh15CornerToPointIdEi.exit
 
@@ -634,7 +634,7 @@ _ZNK5draco4Mesh15CornerToPointIdEi.exit:          ; preds = %_ZNK5draco11CornerT
   %115 = getelementptr inbounds nuw %"struct.std::array", ptr %114, i64 %113
   %116 = urem i32 %.sroa.01.0.i54, 3
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.32"], ptr %115, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw %"class.draco::IndexType.32", ptr %115, i64 %117
   %.sroa.0.0.copyload4.i56 = load i32, ptr %118, align 4, !tbaa !67
   br label %_ZNK5draco4Mesh15CornerToPointIdEi.exit58
 
@@ -1072,7 +1072,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE5clearEv.e
   %44 = getelementptr inbounds nuw %"struct.std::array", ptr %43, i64 %42
   %45 = urem i32 %.sroa.0.0.copyload.i, 3
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.32"], ptr %44, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw %"class.draco::IndexType.32", ptr %44, i64 %46
   %.sroa.0.0.copyload4.i = load i32, ptr %47, align 4, !tbaa !67
   br label %_ZNK5draco4Mesh15CornerToPointIdEi.exit
 
@@ -1411,7 +1411,7 @@ _ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: 
   %199 = getelementptr inbounds nuw %"struct.std::array", ptr %198, i64 %197
   %200 = urem i32 %.sroa.097.1149, 3
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.32"], ptr %199, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw %"class.draco::IndexType.32", ptr %199, i64 %201
   %.sroa.0.0.copyload4.i46 = load i32, ptr %202, align 4, !tbaa !67
   br label %_ZNK5draco4Mesh15CornerToPointIdEi.exit48
 

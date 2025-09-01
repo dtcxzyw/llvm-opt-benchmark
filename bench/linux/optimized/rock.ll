@@ -730,7 +730,7 @@ rock_check_overflow.exit:                         ; preds = %92
 
 147:                                              ; preds = %147, %145
   %148 = phi i64 [ 0, %145 ], [ %153, %147 ]
-  %149 = getelementptr [0 x i8], ptr %146, i64 0, i64 %148
+  %149 = getelementptr i8, ptr %146, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %151) #10
@@ -811,7 +811,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %199 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %200 = add nuw nsw i32 %195, 1
   %201 = zext nneg i32 %195 to i64
-  %202 = getelementptr [0 x %struct.stamp], ptr %199, i64 0, i64 %201
+  %202 = getelementptr %struct.stamp, ptr %199, i64 %201
   %203 = tail call i32 @iso_date(ptr noundef %202, i32 noundef 0) #11
   %204 = sext i32 %203 to i64
   store i64 %204, ptr %65, align 8
@@ -830,7 +830,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %211 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %212 = add nuw nsw i32 %207, 1
   %213 = zext nneg i32 %207 to i64
-  %214 = getelementptr [0 x %struct.stamp], ptr %211, i64 0, i64 %213
+  %214 = getelementptr %struct.stamp, ptr %211, i64 %213
   %215 = tail call i32 @iso_date(ptr noundef %214, i32 noundef 0) #11
   %216 = sext i32 %215 to i64
   store i64 %216, ptr %61, align 8
@@ -848,7 +848,7 @@ rock_check_overflow.exit:                         ; preds = %92
 222:                                              ; preds = %217
   %223 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %224 = zext nneg i32 %219 to i64
-  %225 = getelementptr [0 x %struct.stamp], ptr %223, i64 0, i64 %224
+  %225 = getelementptr %struct.stamp, ptr %223, i64 %224
   %226 = tail call i32 @iso_date(ptr noundef %225, i32 noundef 0) #11
   %227 = sext i32 %226 to i64
   store i64 %227, ptr %63, align 8

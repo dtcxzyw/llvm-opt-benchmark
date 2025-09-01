@@ -2753,7 +2753,7 @@ if.then1435:                                      ; preds = %if.then1429
 
 switch.lookup:                                    ; preds = %if.then1435
   %239 = zext nneg i32 %237 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.main, i64 0, i64 %239
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %239
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog1442
 

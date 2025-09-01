@@ -41,7 +41,7 @@ define internal range(i32 -1, 1) i32 @idcin_decode_init(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %8, %19
   %indvars.iv30 = phi i64 [ 0, %8 ], [ %indvars.iv.next31, %19 ]
   %.01824 = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw [256 x [512 x %struct.hnode]], ptr %11, i64 0, i64 %indvars.iv30
+  %12 = getelementptr inbounds nuw [512 x %struct.hnode], ptr %11, i64 %indvars.iv30
   %sext = shl i64 %.01824, 32
   %13 = ashr exact i64 %sext, 32
   br label %14
@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @idcin_decode_init(ptr noundef %0) #0 {
   %15 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !33
   %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds nuw [512 x %struct.hnode], ptr %12, i64 0, i64 %indvars.iv25
+  %18 = getelementptr inbounds nuw %struct.hnode, ptr %12, i64 %indvars.iv25
   store i32 %17, ptr %18, align 4, !tbaa !34
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, 256
@@ -123,8 +123,8 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %.14063.i = phi i32 [ %.030.lcssa.i, %._crit_edge.i ], [ %.03974.i, %.preheader.i ]
   %.04262.i = phi i64 [ %55, %._crit_edge.i ], [ %.04173.i, %.preheader.i ]
   %31 = sext i32 %.14063.i to i64
-  %32 = getelementptr inbounds [256 x i32], ptr %23, i64 0, i64 %31
-  %33 = getelementptr inbounds [256 x [512 x %struct.hnode]], ptr %24, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %23, i64 %31
+  %33 = getelementptr inbounds [512 x %struct.hnode], ptr %24, i64 %31
   %.03054.i = load i32, ptr %32, align 4, !tbaa !44
   %34 = icmp sgt i32 %.03054.i, 255
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
@@ -158,7 +158,7 @@ define internal i32 @idcin_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   %45 = getelementptr inbounds nuw %struct.hnode, ptr %33, i64 %44, i32 2
   %46 = and i8 %.338.i, 1
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds nuw [2 x i32], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %47
   %49 = lshr i8 %.338.i, 1
   %50 = add nsw i32 %.334.i, -1
   %.030.i = load i32, ptr %48, align 4, !tbaa !44
@@ -227,7 +227,7 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483648, 256) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [256 x [512 x %struct.hnode]], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds [512 x %struct.hnode], ptr %3, i64 %4
   br label %10
 
 .preheader:                                       ; preds = %10
@@ -287,7 +287,7 @@ define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.024.lcssa = phi i32 [ 255, %.preheader ], [ %31, %._crit_edge.loopexit ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2097172
-  %33 = getelementptr inbounds [256 x i32], ptr %32, i64 0, i64 %4
+  %33 = getelementptr inbounds i32, ptr %32, i64 %4
   store i32 %.024.lcssa, ptr %33, align 4, !tbaa !44
   ret void
 }

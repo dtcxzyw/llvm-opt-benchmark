@@ -507,7 +507,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr %72, align 8, !alias.scope !121, !noalias !128, !nonnull !4, !align !140, !noundef !4
-  %82 = getelementptr inbounds [0 x { i16, i16 }], ptr %81, i64 0, i64 %.sroa.018.0.i
+  %82 = getelementptr inbounds { i16, i16 }, ptr %81, i64 %.sroa.018.0.i
   %83 = load i16, ptr %82, align 2, !noalias !126, !noundef !4
   %.not.not.i = icmp eq i16 %83, -1
   br i1 %.not.not.i, label %213, label %84
@@ -541,7 +541,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %74, align 8, !alias.scope !121, !noalias !128, !nonnull !4, !noundef !4
-  %104 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %103, i64 0, i64 %85, i32 2
+  %104 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %103, i64 %85, i32 2
   %105 = load ptr, ptr %104, align 8, !noalias !126, !noundef !4
   %106 = icmp ne ptr %105, null
   %107 = load ptr, ptr %11, align 8, !alias.scope !124, !noalias !141, !noundef !4
@@ -589,7 +589,7 @@ split.i:                                          ; preds = %111, %"_ZN71_$LT$ht
 
 122:                                              ; preds = %split.i
   %123 = load ptr, ptr %74, align 8, !alias.scope !121, !noalias !128, !nonnull !4, !noundef !4
-  %124 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }], ptr %123, i64 0, i64 %85
+  %124 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %123, i64 %85
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
@@ -721,7 +721,7 @@ split.i:                                          ; preds = %111, %"_ZN71_$LT$ht
 
 182:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1269c8d8ad1fab06E.exit15.i.i"
   %183 = load ptr, ptr %177, align 8, !alias.scope !150, !noalias !151, !nonnull !4, !noundef !4
-  %184 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }], ptr %183, i64 0, i64 %155, i32 1
+  %184 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %183, i64 %155, i32 1
   store i64 1, ptr %184, align 8, !noalias !176
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 %157, ptr %185, align 8, !noalias !176
@@ -771,7 +771,7 @@ split.i:                                          ; preds = %111, %"_ZN71_$LT$ht
   br i1 %197, label %198, label %196
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds [0 x { i16, i16 }], ptr %193, i64 0, i64 %.sroa.0.0.i.i
+  %199 = getelementptr inbounds { i16, i16 }, ptr %193, i64 %.sroa.0.0.i.i
   %200 = load i16, ptr %199, align 2, !noalias !208, !noundef !4
   %201 = icmp eq i16 %200, -1
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 2
@@ -831,7 +831,7 @@ split.i:                                          ; preds = %111, %"_ZN71_$LT$ht
 219:                                              ; preds = %216
   %220 = trunc i64 %214 to i16
   %221 = load ptr, ptr %72, align 8, !alias.scope !121, !noalias !128, !nonnull !4, !align !140, !noundef !4
-  %222 = getelementptr inbounds [0 x { i16, i16 }], ptr %221, i64 0, i64 %.sroa.018.0.i
+  %222 = getelementptr inbounds { i16, i16 }, ptr %221, i64 %.sroa.018.0.i
   store i16 %220, ptr %222, align 2, !noalias !126
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 2
   store i16 %57, ptr %223, align 2, !noalias !126

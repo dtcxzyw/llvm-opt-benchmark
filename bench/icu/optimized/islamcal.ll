@@ -135,9 +135,9 @@ define void @_ZN6icu_7715IslamicCalendarD0Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7715IslamicCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZN6icu_77L6LIMITSE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZN6icu_77L6LIMITSE, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   ret i32 %8
 }
@@ -1194,7 +1194,7 @@ define noundef i64 @_ZNK6icu_7723IslamicUmalquraCalendar9yearStartEiR10UErrorCod
   %17 = fadd double %16, 5.000000e-01
   %18 = fptosi double %17 to i64
   %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds nuw [301 x i8], ptr @_ZN6icu_7712_GLOBAL__N_126umAlQuraYrStartEstimateFixE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712_GLOBAL__N_126umAlQuraYrStartEstimateFixE, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !16
   %22 = sext i8 %21 to i64
   %23 = add nsw i64 %22, %18
@@ -1269,9 +1269,9 @@ define noundef range(i32 28, 31) i32 @_ZNK6icu_7723IslamicUmalquraCalendar20hand
 16:                                               ; preds = %4
   %17 = sub nsw i32 11, %2
   %18 = shl nuw i32 1, %17
-  %19 = add nsw i32 %1, -1300
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [301 x i32], ptr @_ZN6icu_77L20UMALQURA_MONTHLENGTHE, i64 0, i64 %20
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr i32, ptr @_ZN6icu_77L20UMALQURA_MONTHLENGTHE, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -5200
   %22 = load i32, ptr %21, align 4, !tbaa !6
   %23 = and i32 %22, %18
   %.not = icmp eq i32 %23, 0

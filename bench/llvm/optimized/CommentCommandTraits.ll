@@ -2525,7 +2525,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = zext i32 %1 to i64
   %4 = icmp ugt i32 %1, 198
-  %5 = getelementptr inbounds nuw [199 x %"struct.clang::comments::CommandInfo"], ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 0, i64 %3
+  %5 = getelementptr inbounds nuw %"struct.clang::comments::CommandInfo", ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %3
   br i1 %4, label %6, label %12
 
 6:                                                ; preds = %2
@@ -2545,7 +2545,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfo
 define dso_local noundef ptr @_ZN5clang8comments13CommandTraits21getBuiltinCommandInfoEj(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = zext nneg i32 %0 to i64
   %3 = icmp ult i32 %0, 199
-  %4 = getelementptr inbounds nuw [199 x %"struct.clang::comments::CommandInfo"], ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 0, i64 %2
+  %4 = getelementptr inbounds nuw %"struct.clang::comments::CommandInfo", ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %2
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }

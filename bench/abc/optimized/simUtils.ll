@@ -1035,7 +1035,7 @@ define i32 @Sim_UtilCountOnes(ptr noundef readonly captures(none) %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !77
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1109,7 +1109,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.us
   %23 = load i8, ptr %22, align 1, !tbaa !77
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !14
   %27 = add nsw i32 %26, %.089.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -1337,7 +1337,7 @@ define i32 @Sim_UtilCountAllPairs(ptr noundef readonly captures(none) %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.us
   %13 = load i8, ptr %12, align 1, !tbaa !77
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !14
   %17 = add nsw i32 %16, %.089.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1

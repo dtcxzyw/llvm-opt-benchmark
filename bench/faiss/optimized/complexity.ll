@@ -99,7 +99,7 @@ define hidden noundef nonnull ptr @_ZN9benchmark12FittingCurveENS_4BigOE(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -397,7 +397,7 @@ _ZNSt6vectorIN9benchmark4BigOESaIS1_EED2Ev.exit:  ; preds = %101
 
 switch.lookup:                                    ; preds = %47
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark14MinimalLeastSqERKSt6vectorIlSaIlEERKS0_IdSaIdEENS_4BigOE, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9benchmark12FittingCurveENS_4BigOE.exit
 
@@ -1302,7 +1302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 424
   %266 = load i32, ptr %265, align 8, !tbaa !95
   %267 = zext nneg i32 %266 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE, i64 0, i64 %267
+  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE, i64 %267
   %switch.load = load double, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN9benchmark17BenchmarkReporter3RunC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %11)

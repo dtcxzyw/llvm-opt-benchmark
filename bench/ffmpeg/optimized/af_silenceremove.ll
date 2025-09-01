@@ -723,10 +723,10 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef %0) #3 {
 
 switch.lookup:                                    ; preds = %80
   %83 = zext nneg i32 %81 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.config_output, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %83
   %switch.load = load ptr, ptr %switch.gep, align 8
   %84 = zext nneg i32 %81 to i64
-  %switch.gep72 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.config_output.3, i64 0, i64 %84
+  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table.config_output.3, i64 %84
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store ptr %switch.load, ptr %85, align 8, !tbaa !90

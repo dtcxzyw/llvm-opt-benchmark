@@ -232,7 +232,7 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %96 = getelementptr i8, ptr %22, i64 %95
   %97 = getelementptr i8, ptr %96, i64 24
   %98 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %97, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %91, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %91, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 68
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 91
@@ -685,7 +685,7 @@ define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_u
   %73 = getelementptr i8, ptr %10, i64 %72
   %74 = getelementptr i8, ptr %73, i64 24
   %75 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %74, i64 %indvars.iv
-  %76 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %66, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %66, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 68
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 91
@@ -1098,7 +1098,7 @@ define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_
   %94 = getelementptr i8, ptr %19, i64 %93
   %95 = getelementptr i8, ptr %94, i64 24
   %96 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %95, i64 %indvars.iv181
-  %97 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %80, i64 0, i64 %indvars.iv181
+  %97 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %80, i64 %indvars.iv181
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 68
   %99 = load i32, ptr %98, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1435,7 +1435,7 @@ define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_
   %88 = getelementptr i8, ptr %10, i64 %87
   %89 = getelementptr i8, ptr %88, i64 24
   %90 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %89, i64 %indvars.iv112
-  %91 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %83, i64 0, i64 %indvars.iv112
+  %91 = getelementptr inbounds nuw %struct.ColumnIOData, ptr %83, i64 %indvars.iv112
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 91
@@ -1835,7 +1835,7 @@ define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(no
   %.not197 = icmp eq i32 %163, %165
   %spec.store.select = select i1 %.not197, i32 %163, i32 0
   %166 = sext i32 %.0181241 to i64
-  %167 = getelementptr inbounds [0 x %struct.ColumnCompareData], ptr %98, i64 0, i64 %166
+  %167 = getelementptr inbounds %struct.ColumnCompareData, ptr %98, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %172, label %170
@@ -2284,7 +2284,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly cap
   %.not197 = icmp eq i32 %162, %164
   %spec.store.select = select i1 %.not197, i32 %162, i32 0
   %165 = sext i32 %.0181322 to i64
-  %166 = getelementptr inbounds [0 x %struct.ColumnCompareData], ptr %95, i64 0, i64 %165
+  %166 = getelementptr inbounds %struct.ColumnCompareData, ptr %95, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %171, label %169
@@ -3534,7 +3534,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly 
   br i1 %87, label %124, label %88
 
 88:                                               ; preds = %78
-  %89 = getelementptr inbounds nuw [0 x %struct.ColumnCompareData], ptr %67, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw %struct.ColumnCompareData, ptr %67, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %._crit_edge118, label %92
@@ -3799,7 +3799,7 @@ define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %
   br i1 %89, label %125, label %90
 
 90:                                               ; preds = %80
-  %91 = getelementptr inbounds nuw [0 x %struct.ColumnCompareData], ptr %69, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw %struct.ColumnCompareData, ptr %69, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %._crit_edge122, label %94

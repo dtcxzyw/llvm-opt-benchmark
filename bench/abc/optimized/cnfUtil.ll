@@ -352,7 +352,7 @@ define ptr @Cnf_RunSolver(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 
 16:                                               ; preds = %.preheader62.us, %15
   %indvars.iv77 = phi i64 [ 0, %.preheader62.us ], [ %indvars.iv.next78, %15 ]
-  %17 = getelementptr inbounds nuw [100 x %struct.Cnf_ThData_t_], ptr %4, i64 0, i64 %indvars.iv77
+  %17 = getelementptr inbounds nuw %struct.Cnf_ThData_t_, ptr %4, i64 %indvars.iv77
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !24
   %.not55.us = icmp eq i32 %19, 0
@@ -378,7 +378,7 @@ define ptr @Cnf_RunSolver(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 
 .preheader64:                                     ; preds = %.preheader64.preheader, %.preheader64
   %indvars.iv = phi i64 [ 0, %.preheader64.preheader ], [ %indvars.iv.next, %.preheader64 ]
-  %27 = getelementptr inbounds nuw [100 x %struct.Cnf_ThData_t_], ptr %4, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.Cnf_ThData_t_, ptr %4, i64 %indvars.iv
   store ptr null, ptr %27, align 16, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 -1, ptr %28, align 8, !tbaa !17
@@ -406,7 +406,7 @@ define ptr @Cnf_RunSolver(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %Vec_IntFreeP.exit
   %indvars.iv82 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next83, %Vec_IntFreeP.exit ]
   %.04971 = phi ptr [ null, %.lr.ph73.preheader ], [ %.15059, %Vec_IntFreeP.exit ]
-  %37 = getelementptr inbounds nuw [100 x %struct.Cnf_ThData_t_], ptr %4, i64 0, i64 %indvars.iv82
+  %37 = getelementptr inbounds nuw %struct.Cnf_ThData_t_, ptr %4, i64 %indvars.iv82
   %38 = load ptr, ptr %37, align 16, !tbaa !28
   %39 = icmp ne ptr %38, null
   %40 = icmp eq ptr %.04971, null
@@ -672,7 +672,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %77, %70
   br i1 %.not.i53, label %Aig_ManObj.exit, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw [4 x i32], ptr %93, i64 0, i64 %indvars.iv67
+  %98 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv67
   %99 = load i32, ptr %98, align 4, !tbaa !14
   %100 = getelementptr i8, ptr %.val51, i64 8
   %.val.i54 = load ptr, ptr %100, align 8, !tbaa !36
@@ -965,7 +965,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %70
   br i1 %.not.i61, label %.critedge3, label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %.lr.ph77
-  %84 = getelementptr inbounds nuw [0 x i32], ptr %79, i64 0, i64 %indvars.iv83
+  %84 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv83
   %85 = load i32, ptr %84, align 4, !tbaa !14
   %86 = getelementptr i8, ptr %.val60, i64 8
   %.val.i = load ptr, ptr %86, align 8, !tbaa !36

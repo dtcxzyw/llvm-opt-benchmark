@@ -56,7 +56,7 @@ define void @ff_h2645_decode_common_vui_params(ptr noundef captures(none) %0, pt
 
 34:                                               ; preds = %21
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr inbounds nuw [17 x %struct.AVRational], ptr @ff_h2645_pixel_aspect, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %35
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %1, align 4
   br label %64
@@ -310,13 +310,13 @@ define void @ff_h2645_decode_common_vui_params(ptr noundef captures(none) %0, pt
   %210 = shl i32 %208, %209
   %211 = lshr i32 %210, 23
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %212
   %214 = load i8, ptr %213, align 1, !tbaa !12
   %215 = zext i8 %214 to i32
   %216 = add i32 %spec.select.i70, %215
   %..i = tail call i32 @llvm.umin.i32(i32 %194, i32 %216)
   store i32 %..i, ptr %4, align 8, !tbaa !4
-  %217 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %212
+  %217 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %212
   %218 = load i8, ptr %217, align 1, !tbaa !12
   %219 = zext i8 %218 to i32
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -330,13 +330,13 @@ define void @ff_h2645_decode_common_vui_params(ptr noundef captures(none) %0, pt
   %227 = shl i32 %225, %226
   %228 = lshr i32 %227, 23
   %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %229
   %231 = load i8, ptr %230, align 1, !tbaa !12
   %232 = zext i8 %231 to i32
   %233 = add i32 %..i, %232
   %..i71 = tail call i32 @llvm.umin.i32(i32 %194, i32 %233)
   store i32 %..i71, ptr %4, align 8, !tbaa !4
-  %234 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %229
+  %234 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %229
   %235 = load i8, ptr %234, align 1, !tbaa !12
   %236 = zext i8 %235 to i32
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 60

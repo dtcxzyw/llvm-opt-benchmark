@@ -107,7 +107,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 27:                                               ; preds = %23
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %28, i32 2
+  %29 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %28, i32 2
   %30 = load i32, ptr %29, align 4, !tbaa !43
   %31 = icmp sgt i32 %30, 4
   br i1 %31, label %32, label %34
@@ -130,7 +130,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 40:                                               ; preds = %39
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %41, i32 2
+  %42 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %41, i32 2
   %43 = load i32, ptr %42, align 4, !tbaa !43
   %44 = icmp sgt i32 %43, 4
   br i1 %44, label %45, label %121
@@ -145,7 +145,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 48:                                               ; preds = %47
   %49 = zext nneg i32 %38 to i64
-  %50 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %49, i32 2
+  %50 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %49, i32 2
   %51 = load i32, ptr %50, align 4, !tbaa !43
   %52 = icmp sgt i32 %51, 4
   br i1 %52, label %53, label %55
@@ -172,7 +172,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
 
 63:                                               ; preds = %61
   %64 = zext nneg i32 %62 to i64
-  %65 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %64, i32 2
+  %65 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %64, i32 2
   %66 = load i32, ptr %65, align 4, !tbaa !43
   %67 = icmp sgt i32 %66, 4
   br i1 %67, label %68, label %121

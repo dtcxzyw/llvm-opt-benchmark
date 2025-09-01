@@ -162,18 +162,18 @@ ssim_db.exit:                                     ; preds = %._crit_edge, %23
   br i1 %.not50, label %34, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !37
   %33 = zext i8 %32 to i64
   br label %34
 
 34:                                               ; preds = %28, %30
   %35 = phi i64 [ %33, %30 ], [ %indvars.iv, %28 ]
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !37
   %38 = sext i8 %37 to i32
   %39 = and i64 %35, 4294967295
-  %40 = getelementptr inbounds nuw [4 x double], ptr %14, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw double, ptr %14, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !41
   %42 = load i64, ptr %5, align 8, !tbaa !36
   %43 = uitofp i64 %42 to double
@@ -384,9 +384,9 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.098112 = phi i32 [ 0, %.lr.ph.preheader ], [ %81, %.lr.ph ]
-  %76 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !34
-  %78 = getelementptr inbounds nuw [4 x i32], ptr %66, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !34
   %80 = mul nsw i32 %79, %77
   %81 = add nsw i32 %80, %.098112
@@ -418,15 +418,15 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
 
 88:                                               ; preds = %.lr.ph116, %88
   %indvars.iv130 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next131, %88 ]
-  %89 = getelementptr inbounds nuw [4 x i32], ptr %52, i64 0, i64 %indvars.iv130
+  %89 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv130
   %90 = load i32, ptr %89, align 4, !tbaa !34
   %91 = sitofp i32 %90 to double
-  %92 = getelementptr inbounds nuw [4 x i32], ptr %66, i64 0, i64 %indvars.iv130
+  %92 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv130
   %93 = load i32, ptr %92, align 4, !tbaa !34
   %94 = sitofp i32 %93 to double
   %95 = fmul nsz double %91, %94
   %96 = fdiv nsz double %95, %74
-  %97 = getelementptr inbounds nuw [4 x double], ptr %75, i64 0, i64 %indvars.iv130
+  %97 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv130
   store double %96, ptr %97, align 8, !tbaa !41
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -560,11 +560,11 @@ define internal noundef i32 @ssim_plane_16bit(ptr readnone captures(none) %0, pt
 
 35:                                               ; preds = %.lr.ph95, %._crit_edge91
   %indvars.iv110 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next111, %._crit_edge91 ]
-  %36 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv110
+  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv110
   %37 = load ptr, ptr %36, align 8, !tbaa !85
-  %38 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %indvars.iv110
+  %38 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv110
   %39 = load ptr, ptr %38, align 8, !tbaa !85
-  %40 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv110
+  %40 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv110
   %41 = load i32, ptr %40, align 4, !tbaa !34
   %42 = ashr i32 %41, 2
   %43 = mul nsw i32 %42, %2
@@ -576,11 +576,11 @@ define internal noundef i32 @ssim_plane_16bit(ptr readnone captures(none) %0, pt
   br i1 %48, label %.preheader.lr.ph, label %._crit_edge91
 
 .preheader.lr.ph:                                 ; preds = %35
-  %49 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv110
+  %49 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv110
   %50 = load i32, ptr %49, align 4, !tbaa !34
-  %51 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv110
+  %51 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv110
   %52 = load i32, ptr %51, align 4, !tbaa !34
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv110
+  %53 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv110
   %54 = load i32, ptr %53, align 4, !tbaa !34
   %55 = ashr i32 %54, 2
   %56 = sext i32 %55 to i64
@@ -856,13 +856,13 @@ define internal noundef i32 @ssim_plane(ptr readnone captures(none) %0, ptr noun
 26:                                               ; preds = %.lr.ph85, %._crit_edge81
   %27 = phi i32 [ %17, %.lr.ph85 ], [ %56, %._crit_edge81 ]
   %indvars.iv92 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next93, %._crit_edge81 ]
-  %28 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv92
+  %28 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv92
   %29 = load ptr, ptr %28, align 8, !tbaa !85
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 0, i64 %indvars.iv92
+  %30 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv92
   %31 = load ptr, ptr %30, align 8, !tbaa !85
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv92
+  %32 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv92
   %33 = load i32, ptr %32, align 4, !tbaa !34
-  %34 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %indvars.iv92
+  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv92
   %35 = load i32, ptr %34, align 4, !tbaa !34
   %36 = ashr i32 %35, 2
   %37 = mul nsw i32 %36, %2
@@ -875,9 +875,9 @@ define internal noundef i32 @ssim_plane(ptr readnone captures(none) %0, ptr noun
   br i1 %43, label %.preheader.lr.ph, label %._crit_edge81
 
 .preheader.lr.ph:                                 ; preds = %26
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %indvars.iv92
+  %44 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv92
   %45 = load i32, ptr %44, align 4, !tbaa !34
-  %46 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv92
+  %46 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv92
   %47 = load i32, ptr %46, align 4, !tbaa !34
   %48 = sext i32 %42 to i64
   %49 = getelementptr [4 x i32], ptr %13, i64 %48
@@ -1346,29 +1346,29 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %59, ptr %60, align 8, !tbaa !85
-  %61 = getelementptr inbounds nuw [8 x ptr], ptr %20, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !85
-  %63 = getelementptr inbounds nuw [4 x ptr], ptr %43, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   store ptr %62, ptr %63, align 8, !tbaa !85
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %44, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !34
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   store i32 %65, ptr %66, align 4, !tbaa !34
-  %67 = getelementptr inbounds nuw [8 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !34
-  %69 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
   store i32 %68, ptr %69, align 4, !tbaa !34
-  %70 = getelementptr inbounds nuw [4 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !34
-  %72 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
   store i32 %71, ptr %72, align 4, !tbaa !34
-  %73 = getelementptr inbounds nuw [4 x i32], ptr %50, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !34
-  %75 = getelementptr inbounds nuw [4 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   store i32 %74, ptr %75, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = icmp samesign ult i64 %indvars.iv.next, %52
@@ -1417,7 +1417,7 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
 
 .preheader113.us:                                 ; preds = %._crit_edge117.us, %.preheader113.lr.ph.split.us
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %._crit_edge117.us ], [ 0, %.preheader113.lr.ph.split.us ]
-  %100 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv142
+  %100 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv142
   %.promoted.us = load double, ptr %100, align 8, !tbaa !41
   br label %101
 
@@ -1434,11 +1434,11 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
   br i1 %exitcond141.not, label %._crit_edge117.us, label %101, !llvm.loop !119
 
 ._crit_edge117.us:                                ; preds = %101
-  %108 = getelementptr inbounds nuw [4 x i32], ptr %98, i64 0, i64 %indvars.iv142
+  %108 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv142
   %109 = load i32, ptr %108, align 4, !tbaa !34
   %110 = ashr i32 %109, 2
   %111 = add nsw i32 %110, -1
-  %112 = getelementptr inbounds nuw [4 x i32], ptr %86, i64 0, i64 %indvars.iv142
+  %112 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv142
   %113 = load i32, ptr %112, align 4, !tbaa !34
   %114 = ashr i32 %113, 2
   %115 = add nsw i32 %114, -1
@@ -1452,13 +1452,13 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
 
 .preheader113:                                    ; preds = %.preheader113.preheader, %.preheader113
   %indvars.iv134 = phi i64 [ 0, %.preheader113.preheader ], [ %indvars.iv.next135, %.preheader113 ]
-  %119 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv134
+  %119 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv134
   %120 = load double, ptr %119, align 8, !tbaa !41
-  %121 = getelementptr inbounds nuw [4 x i32], ptr %98, i64 0, i64 %indvars.iv134
+  %121 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv134
   %122 = load i32, ptr %121, align 4, !tbaa !34
   %123 = ashr i32 %122, 2
   %124 = add nsw i32 %123, -1
-  %125 = getelementptr inbounds nuw [4 x i32], ptr %86, i64 0, i64 %indvars.iv134
+  %125 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv134
   %126 = load i32, ptr %125, align 4, !tbaa !34
   %127 = ashr i32 %126, 2
   %128 = add nsw i32 %127, -1
@@ -1485,12 +1485,12 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
 137:                                              ; preds = %.lr.ph122, %137
   %indvars.iv147 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next148, %137 ]
   %.099121 = phi double [ 0.000000e+00, %.lr.ph122 ], [ %142, %137 ]
-  %138 = getelementptr inbounds nuw [4 x double], ptr %132, i64 0, i64 %indvars.iv147
+  %138 = getelementptr inbounds nuw double, ptr %132, i64 %indvars.iv147
   %139 = load double, ptr %138, align 8, !tbaa !41
-  %140 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv147
+  %140 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv147
   %141 = load double, ptr %140, align 8, !tbaa !41
   %142 = call nsz double @llvm.fmuladd.f64(double %139, double %141, double %.099121)
-  %143 = getelementptr inbounds nuw [4 x double], ptr %133, i64 0, i64 %indvars.iv147
+  %143 = getelementptr inbounds nuw double, ptr %133, i64 %indvars.iv147
   %144 = load double, ptr %143, align 8, !tbaa !41
   %145 = fadd nsz double %141, %144
   store double %145, ptr %143, align 8, !tbaa !41
@@ -1505,17 +1505,17 @@ define internal i32 @do_ssim(ptr noundef %0) #0 {
   br i1 %.not110, label %152, label %148
 
 148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 0, i64 %indvars.iv152
+  %149 = getelementptr inbounds nuw i8, ptr %135, i64 %indvars.iv152
   %150 = load i8, ptr %149, align 1, !tbaa !37
   %151 = zext i8 %150 to i64
   br label %152
 
 152:                                              ; preds = %146, %148
   %153 = phi i64 [ %151, %148 ], [ %indvars.iv152, %146 ]
-  %154 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 0, i64 %indvars.iv152
+  %154 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv152
   %155 = load i8, ptr %154, align 1, !tbaa !37
   %156 = and i64 %153, 4294967295
-  %157 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw double, ptr %8, i64 %156
   %158 = load double, ptr %157, align 8, !tbaa !41
   %159 = fptrunc nsz double %158 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1600,7 +1600,7 @@ ssim_db.exit:                                     ; preds = %._crit_edge126, %18
   br i1 %.not109, label %206, label %202
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 0, i64 %indvars.iv155
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv155
   %204 = load i8, ptr %203, align 1, !tbaa !37
   %205 = zext i8 %204 to i64
   br label %206
@@ -1608,11 +1608,11 @@ ssim_db.exit:                                     ; preds = %._crit_edge126, %18
 206:                                              ; preds = %200, %202
   %207 = phi i64 [ %205, %202 ], [ %indvars.iv155, %200 ]
   %208 = load ptr, ptr %190, align 8, !tbaa !33
-  %209 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 0, i64 %indvars.iv155
+  %209 = getelementptr inbounds nuw i8, ptr %199, i64 %indvars.iv155
   %210 = load i8, ptr %209, align 1, !tbaa !37
   %211 = sext i8 %210 to i32
   %212 = and i64 %207, 4294967295
-  %213 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw double, ptr %8, i64 %212
   %214 = load double, ptr %213, align 8, !tbaa !41
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.20, i32 noundef %211, double noundef %214) #14
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1

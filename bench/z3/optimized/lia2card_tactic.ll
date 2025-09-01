@@ -7866,7 +7866,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !155
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -13781,7 +13781,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN15lia2card_tactic16lia_rewri
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !96
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -17860,7 +17860,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN15lia2card_tactic16lia_rewri
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !96
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -20116,7 +20116,7 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %68
   br i1 %.not.not, label %.critedge, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw [0 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !96
   %87 = invoke noundef zeroext i1 @_ZN15lia2card_tactic7get_sumEjP4exprRK8rationalR10ref_vectorIS0_11ast_managerES8_R6vectorIS2_Lb1EjERS2_(ptr noundef nonnull align 8 dereferenceable(792) %0, i32 noundef %1, ptr noundef %86, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %88 unwind label %89

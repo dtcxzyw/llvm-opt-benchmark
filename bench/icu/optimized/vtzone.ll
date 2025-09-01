@@ -4788,7 +4788,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %129, %_ZN6icu_775Gr
 137:                                              ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
   %138 = add nsw i32 %132, %58
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %139
+  %140 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !9
   %142 = sext i8 %141 to i32
   %143 = icmp sgt i32 %75, %142
@@ -5276,13 +5276,13 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 .preheader236:                                    ; preds = %45
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %51
   br label %53
 
 53:                                               ; preds = %.preheader236, %61
   %indvars.iv298 = phi i64 [ 0, %.preheader236 ], [ %indvars.iv.next299, %61 ]
   %.0158273 = phi i32 [ 31, %.preheader236 ], [ %spec.select, %61 ]
-  %54 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv298
+  %54 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv298
   %55 = load i32, ptr %54, align 4, !tbaa !42
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %61
@@ -5313,7 +5313,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 65:                                               ; preds = %.preheader, %64
   %indvars.iv302 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next303, %64 ]
-  %66 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv302
+  %66 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv302
   %67 = load i32, ptr %66, align 4, !tbaa !42
   %68 = icmp eq i32 %67, %63
   br i1 %68, label %69, label %64
@@ -5342,7 +5342,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 .lr.ph:                                           ; preds = %.preheader239
   %80 = sext i32 %72 to i64
-  %81 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %80
+  %81 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %80
   %wide.trip.count = zext nneg i32 %76 to i64
   br label %83
 
@@ -5355,7 +5355,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 83:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
   %.0147248 = phi i32 [ 31, %.lr.ph ], [ %93, %91 ]
-  %84 = getelementptr inbounds nuw [7 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4, !tbaa !42
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %91, label %87
@@ -5475,14 +5475,14 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 .lr.ph252:                                        ; preds = %.thread209
   %129 = sext i32 %111 to i64
-  %130 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %129
+  %130 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %129
   %wide.trip.count296 = zext nneg i32 %115 to i64
   br label %131
 
 131:                                              ; preds = %.lr.ph252, %139
   %indvars.iv293 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next294, %139 ]
   %.7250 = phi i32 [ %.3150, %.lr.ph252 ], [ %..7, %139 ]
-  %132 = getelementptr inbounds nuw [7 x i32], ptr %19, i64 0, i64 %indvars.iv293
+  %132 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv293
   %133 = load i32, ptr %132, align 4, !tbaa !42
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %139, label %135
@@ -6872,7 +6872,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_
   %13 = urem i64 %.2, 10
   %14 = trunc nuw nsw i64 %13 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw [20 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !42
   %16 = udiv i64 %.2, 10
   %.not = icmp samesign ult i64 %.2, 10
@@ -6895,7 +6895,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.lr.ph ], [ %indvars.iv, %.lr.ph.preheader ]
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
-  %21 = getelementptr inbounds nuw [20 x i32], ptr %5, i64 0, i64 %indvars.iv22
+  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv22
   %22 = load i32, ptr %21, align 4, !tbaa !42
   %23 = trunc i32 %22 to i16
   %24 = add i16 %23, 48
@@ -7356,7 +7356,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %26
   %.125.i = phi i32 [ %36, %.preheader.i ], [ %spec.select.i, %_ZN6icu_779VTZWriter5writeEPKDs.exit ]
   %34 = urem i32 %.125.i, 10
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %35 = getelementptr inbounds nuw [10 x i32], ptr %15, i64 0, i64 %indvars.iv38.i
+  %35 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv38.i
   store i32 %34, ptr %35, align 4, !tbaa !42
   %36 = udiv i32 %.125.i, 10
   %.not.i = icmp samesign ult i32 %.125.i, 10
@@ -7384,7 +7384,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %26
 .lr.ph.i:                                         ; preds = %41, %.noexc35
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.noexc35 ], [ %42, %41 ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %43 = getelementptr inbounds nuw [10 x i32], ptr %15, i64 0, i64 %indvars.iv.next42.i
+  %43 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next42.i
   %44 = load i32, ptr %43, align 4, !tbaa !42
   %45 = trunc i32 %44 to i16
   %46 = add i16 %45, 48
@@ -7412,21 +7412,21 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %26
           to label %_ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit unwind label %.loopexit.split-lp
 
 _ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit: ; preds = %.loopexit41
-  %58 = add nsw i32 %8, -1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [7 x [3 x i16]], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 0, i64 %59
+  %58 = sext i32 %8 to i64
+  %59 = getelementptr [3 x i16], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -6
   %61 = load ptr, ptr %1, align 8, !tbaa !3
-  %62 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull %60, i32 noundef 0, i32 noundef -1)
+  %62 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef %60, i32 noundef 0, i32 noundef -1)
           to label %65 unwind label %63
 
 63:                                               ; preds = %_ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %60) #16, !srcloc !12
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #16, !srcloc !12
   br label %.body
 
 65:                                               ; preds = %_ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %60) #16, !srcloc !12
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #16, !srcloc !12
   %66 = fcmp une double %10, 0x43846A3EDDF8CD80
   br i1 %66, label %67, label %75
 
@@ -7564,7 +7564,7 @@ define void @_ZNK6icu_779VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18Annual
 
 50:                                               ; preds = %44
   %51 = sext i32 %38 to i64
-  %52 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !42
   %54 = mul i32 %45, 7
   %55 = add i32 %54, 7
@@ -7583,13 +7583,13 @@ define void @_ZNK6icu_779VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18Annual
   %62 = icmp slt i32 %38, 1
   %63 = select i1 %62, i32 11, i32 %61
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !42
   br label %76
 
 67:                                               ; preds = %57
   %68 = sext i32 %38 to i64
-  %69 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %68
+  %69 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !42
   %71 = icmp sgt i32 %58, %70
   br i1 %71, label %72, label %76
@@ -7870,7 +7870,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L20isEquival
 
 28:                                               ; preds = %27
   %29 = sext i32 %0 to i64
-  %30 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %29
+  %30 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !42
   %32 = sub nsw i32 %31, %17
   %33 = srem i32 %32, 7
@@ -7902,7 +7902,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L20isEquival
 
 47:                                               ; preds = %46
   %48 = sext i32 %0 to i64
-  %49 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %48
+  %49 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !42
   %51 = sub nsw i32 %50, %17
   %52 = srem i32 %51, 7
@@ -8342,7 +8342,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %.preheader32.i ]
   %.22633.i = phi i32 [ %spec.select.i, %33 ], [ %41, %.preheader32.i ]
   %39 = urem i32 %.22633.i, 10
-  %40 = getelementptr inbounds nuw [10 x i32], ptr %22, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
   store i32 %39, ptr %40, align 4, !tbaa !42
   %41 = udiv i32 %.22633.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8366,7 +8366,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.lr.ph.i ], [ 4, %.lr.ph.i.preheader ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %45 = getelementptr inbounds nuw [10 x i32], ptr %22, i64 0, i64 %indvars.iv.next42.i
+  %45 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.next42.i
   %46 = load i32, ptr %45, align 4, !tbaa !42
   %47 = trunc i32 %46 to i16
   %48 = add i16 %47, 48
@@ -8390,7 +8390,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
   %indvars.iv.i26 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %indvars.iv.next.i28, %.preheader32.i25 ]
   %.22633.i27 = phi i32 [ %spec.select.i24, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %56, %.preheader32.i25 ]
   %54 = urem i32 %.22633.i27, 10
-  %55 = getelementptr inbounds nuw [10 x i32], ptr %19, i64 0, i64 %indvars.iv.i26
+  %55 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i26
   store i32 %54, ptr %55, align 4, !tbaa !42
   %56 = udiv i32 %.22633.i27, 10
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
@@ -8414,7 +8414,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %.lr.ph.i31
   %indvars.iv41.i32 = phi i64 [ %indvars.iv.next42.i33, %.lr.ph.i31 ], [ 2, %.lr.ph.i31.preheader ]
   %indvars.iv.next42.i33 = add nsw i64 %indvars.iv41.i32, -1
-  %60 = getelementptr inbounds nuw [10 x i32], ptr %19, i64 0, i64 %indvars.iv.next42.i33
+  %60 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next42.i33
   %61 = load i32, ptr %60, align 4, !tbaa !42
   %62 = trunc i32 %61 to i16
   %63 = add i16 %62, 48
@@ -8437,7 +8437,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit34: ; preds = %.lr.ph.
   %indvars.iv.i37 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit34 ], [ %indvars.iv.next.i39, %.preheader32.i36 ]
   %.22633.i38 = phi i32 [ %spec.select.i35, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit34 ], [ %70, %.preheader32.i36 ]
   %68 = urem i32 %.22633.i38, 10
-  %69 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %indvars.iv.i37
+  %69 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i37
   store i32 %68, ptr %69, align 4, !tbaa !42
   %70 = udiv i32 %.22633.i38, 10
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
@@ -8461,7 +8461,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit34: ; preds = %.lr.ph.
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42.preheader, %.lr.ph.i42
   %indvars.iv41.i43 = phi i64 [ %indvars.iv.next42.i44, %.lr.ph.i42 ], [ 2, %.lr.ph.i42.preheader ]
   %indvars.iv.next42.i44 = add nsw i64 %indvars.iv41.i43, -1
-  %74 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %indvars.iv.next42.i44
+  %74 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.next42.i44
   %75 = load i32, ptr %74, align 4, !tbaa !42
   %76 = trunc i32 %75 to i16
   %77 = add i16 %76, 48
@@ -8489,7 +8489,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45: ; preds = %.lr.ph.
   %indvars.iv.i48 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45 ], [ %indvars.iv.next.i50, %.preheader32.i47 ]
   %.22633.i49 = phi i32 [ %spec.select.i46, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45 ], [ %86, %.preheader32.i47 ]
   %84 = urem i32 %.22633.i49, 10
-  %85 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv.i48
+  %85 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i48
   store i32 %84, ptr %85, align 4, !tbaa !42
   %86 = udiv i32 %.22633.i49, 10
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -8516,7 +8516,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45: ; preds = %.lr.ph.
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53.preheader, %.lr.ph.i53
   %indvars.iv41.i54 = phi i64 [ %indvars.iv.next42.i55, %.lr.ph.i53 ], [ 2, %.lr.ph.i53.preheader ]
   %indvars.iv.next42.i55 = add nsw i64 %indvars.iv41.i54, -1
-  %93 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv.next42.i55
+  %93 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next42.i55
   %94 = load i32, ptr %93, align 4, !tbaa !42
   %95 = trunc i32 %94 to i16
   %96 = add i16 %95, 48
@@ -8537,7 +8537,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56: ; preds = %.lr.ph.
   %indvars.iv.i59 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56 ], [ %indvars.iv.next.i61, %.preheader32.i58 ]
   %.22633.i60 = phi i32 [ %spec.select.i57, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56 ], [ %101, %.preheader32.i58 ]
   %99 = urem i32 %.22633.i60, 10
-  %100 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv.i59
+  %100 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i59
   store i32 %99, ptr %100, align 4, !tbaa !42
   %101 = udiv i32 %.22633.i60, 10
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -8561,7 +8561,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56: ; preds = %.lr.ph.
 .lr.ph.i64:                                       ; preds = %.lr.ph.i64.preheader, %.lr.ph.i64
   %indvars.iv41.i65 = phi i64 [ %indvars.iv.next42.i66, %.lr.ph.i64 ], [ 2, %.lr.ph.i64.preheader ]
   %indvars.iv.next42.i66 = add nsw i64 %indvars.iv41.i65, -1
-  %105 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %indvars.iv.next42.i66
+  %105 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next42.i66
   %106 = load i32, ptr %105, align 4, !tbaa !42
   %107 = trunc i32 %106 to i16
   %108 = add i16 %107, 48
@@ -8582,7 +8582,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit67: ; preds = %.lr.ph.
   %indvars.iv.i70 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit67 ], [ %indvars.iv.next.i72, %.preheader32.i69 ]
   %.22633.i71 = phi i32 [ %spec.select.i68, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit67 ], [ %113, %.preheader32.i69 ]
   %111 = urem i32 %.22633.i71, 10
-  %112 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.i70
+  %112 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i70
   store i32 %111, ptr %112, align 4, !tbaa !42
   %113 = udiv i32 %.22633.i71, 10
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -8606,7 +8606,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit67: ; preds = %.lr.ph.
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75.preheader, %.lr.ph.i75
   %indvars.iv41.i76 = phi i64 [ %indvars.iv.next42.i77, %.lr.ph.i75 ], [ 2, %.lr.ph.i75.preheader ]
   %indvars.iv.next42.i77 = add nsw i64 %indvars.iv41.i76, -1
-  %117 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.next42.i77
+  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next42.i77
   %118 = load i32, ptr %117, align 4, !tbaa !42
   %119 = trunc i32 %118 to i16
   %120 = add i16 %119, 48
@@ -8771,7 +8771,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %25
   %.125.i = phi i32 [ %35, %.preheader.i ], [ %spec.select.i, %_ZN6icu_779VTZWriter5writeEPKDs.exit ]
   %33 = urem i32 %.125.i, 10
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %34 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv38.i
+  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv38.i
   store i32 %33, ptr %34, align 4, !tbaa !42
   %35 = udiv i32 %.125.i, 10
   %.not.i = icmp samesign ult i32 %.125.i, 10
@@ -8799,7 +8799,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %25
 .lr.ph.i:                                         ; preds = %40, %.noexc33
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.noexc33 ], [ %41, %40 ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %42 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv.next42.i
+  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next42.i
   %43 = load i32, ptr %42, align 4, !tbaa !42
   %44 = trunc i32 %43 to i16
   %45 = add i16 %44, 48
@@ -8996,7 +8996,7 @@ define void @_ZNK6icu_779VTimeZone10beginRRULEERNS_9VTZWriterEiR10UErrorCode(ptr
   %.125.i = phi i32 [ %53, %.preheader.i ], [ %spec.select.i, %49 ]
   %51 = urem i32 %.125.i, 10
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %52 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv38.i
+  %52 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv38.i
   store i32 %51, ptr %52, align 4, !tbaa !42
   %53 = udiv i32 %.125.i, 10
   %.not.i = icmp samesign ult i32 %.125.i, 10
@@ -9024,7 +9024,7 @@ define void @_ZNK6icu_779VTimeZone10beginRRULEERNS_9VTZWriterEiR10UErrorCode(ptr
 .lr.ph.i:                                         ; preds = %58, %.noexc25
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.noexc25 ], [ %59, %58 ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %60 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.next42.i
+  %60 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next42.i
   %61 = load i32, ptr %60, align 4, !tbaa !42
   %62 = trunc i32 %61 to i16
   %63 = add i16 %62, 48
@@ -9164,7 +9164,7 @@ define void @_ZNK6icu_779VTimeZone27writeZonePropsByDOW_GEQ_DOMERNS_9VTZWriterEa
 
 22:                                               ; preds = %21
   %23 = sext i32 %6 to i64
-  %24 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !42
   %26 = sub nsw i32 %25, %7
   %27 = srem i32 %26, 7
@@ -9202,7 +9202,7 @@ define void @_ZNK6icu_779VTimeZone27writeZonePropsByDOW_GEQ_DOMERNS_9VTZWriterEa
 44:                                               ; preds = %34
   %45 = add nuw nsw i32 %7, 6
   %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !42
   %49 = icmp sgt i32 %45, %48
   br i1 %49, label %50, label %58
@@ -9259,7 +9259,7 @@ define void @_ZNK6icu_779VTimeZone31writeZonePropsByDOW_GEQ_DOM_subERNS_9VTZWrit
 
 26:                                               ; preds = %23
   %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %27
+  %28 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !42
   %30 = add nsw i32 %3, 1
   %31 = add i32 %30, %29
@@ -9294,21 +9294,21 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit:             ; preds = %35
   store i16 61, ptr %19, align 2, !tbaa !10
   %41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull %19, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %42 = add nsw i32 %4, -1
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [7 x [3 x i16]], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 0, i64 %43
+  %42 = sext i32 %4 to i64
+  %43 = getelementptr [3 x i16], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 -6
   %45 = load ptr, ptr %1, align 8, !tbaa !3
-  %46 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull %44, i32 noundef 0, i32 noundef -1)
+  %46 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef %44, i32 noundef 0, i32 noundef -1)
           to label %_ZN6icu_779VTZWriter5writeEPKDs.exit47 unwind label %47
 
 47:                                               ; preds = %_ZN6icu_779VTZWriter5writeEPKDs.exit
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %44) #16, !srcloc !12
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #16, !srcloc !12
   br label %common.resume
 
 _ZN6icu_779VTZWriter5writeEPKDs.exit47:           ; preds = %_ZN6icu_779VTZWriter5writeEPKDs.exit
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %44) #16, !srcloc !12
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #16, !srcloc !12
   %49 = load ptr, ptr %1, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i16 59, ptr %18, align 2, !tbaa !10
@@ -9344,7 +9344,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit48:           ; preds = %_ZN6icu_779VTZWrite
   %.125.i = phi i32 [ %60, %.preheader.i ], [ %spec.select.i, %_ZN6icu_779VTZWriter5writeEPKDs.exit48 ]
   %58 = urem i32 %.125.i, 10
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %59 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %indvars.iv38.i
+  %59 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv38.i
   store i32 %58, ptr %59, align 4, !tbaa !42
   %60 = udiv i32 %.125.i, 10
   %.not.i = icmp samesign ult i32 %.125.i, 10
@@ -9372,7 +9372,7 @@ _ZN6icu_779VTZWriter5writeEPKDs.exit48:           ; preds = %_ZN6icu_779VTZWrite
 .lr.ph.i:                                         ; preds = %65, %.noexc49
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.noexc49 ], [ %66, %65 ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %67 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %indvars.iv.next42.i
+  %67 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.next42.i
   %68 = load i32, ptr %67, align 4, !tbaa !42
   %69 = trunc i32 %68 to i16
   %70 = add i16 %69, 48
@@ -9443,7 +9443,7 @@ _ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit._crit_edge: ; preds = %_ZN
   %.125.i56 = phi i32 [ %93, %.preheader.i54 ], [ %spec.select.i53, %86 ]
   %91 = urem i32 %.125.i56, 10
   %indvars.iv.next39.i57 = add nuw nsw i64 %indvars.iv38.i55, 1
-  %92 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv38.i55
+  %92 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv38.i55
   store i32 %91, ptr %92, align 4, !tbaa !42
   %93 = udiv i32 %.125.i56, 10
   %.not.i58 = icmp samesign ult i32 %.125.i56, 10
@@ -9471,7 +9471,7 @@ _ZN6icu_779VTZWriter5writeERKNS_13UnicodeStringE.exit._crit_edge: ; preds = %_ZN
 .lr.ph.i61:                                       ; preds = %98, %.noexc65
   %indvars.iv41.i62 = phi i64 [ %indvars.iv.next42.i63, %.noexc65 ], [ %99, %98 ]
   %indvars.iv.next42.i63 = add nsw i64 %indvars.iv41.i62, -1
-  %100 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv.next42.i63
+  %100 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next42.i63
   %101 = load i32, ptr %100, align 4, !tbaa !42
   %102 = trunc i32 %101 to i16
   %103 = add i16 %102, 48
@@ -9579,7 +9579,7 @@ define void @_ZNK6icu_779VTimeZone27writeZonePropsByDOW_LEQ_DOMERNS_9VTZWriterEa
 
 21:                                               ; preds = %20
   %22 = sext i32 %6 to i64
-  %23 = getelementptr inbounds [12 x i32], ptr @_ZN6icu_77L11MONTHLENGTHE, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = sub nsw i32 %24, %7
   %26 = srem i32 %25, 7
@@ -9666,7 +9666,7 @@ define internal fastcc void @_ZN6icu_77L14millisToOffsetEiRNS_13UnicodeStringE(i
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %.preheader32.i ]
   %.22633.i = phi i32 [ %22, %21 ], [ %25, %.preheader32.i ]
   %23 = urem i32 %.22633.i, 10
-  %24 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4, !tbaa !42
   %25 = udiv i32 %.22633.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9676,7 +9676,7 @@ define internal fastcc void @_ZN6icu_77L14millisToOffsetEiRNS_13UnicodeStringE(i
 .lr.ph.i:                                         ; preds = %.preheader32.i, %.lr.ph.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.lr.ph.i ], [ 2, %.preheader32.i ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %26 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.next42.i
+  %26 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next42.i
   %27 = load i32, ptr %26, align 4, !tbaa !42
   %28 = trunc i32 %27 to i16
   %29 = add i16 %28, 48
@@ -9700,7 +9700,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
   %indvars.iv.i19 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %indvars.iv.next.i21, %.preheader32.i18 ]
   %.22633.i20 = phi i32 [ %.zext, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %36, %.preheader32.i18 ]
   %34 = urem i32 %.22633.i20, 10
-  %35 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.i19
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i19
   store i32 %34, ptr %35, align 4, !tbaa !42
   %36 = udiv i32 %.22633.i20, 10
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
@@ -9710,7 +9710,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
 .lr.ph.i24:                                       ; preds = %.preheader32.i18, %.lr.ph.i24
   %indvars.iv41.i25 = phi i64 [ %indvars.iv.next42.i26, %.lr.ph.i24 ], [ 2, %.preheader32.i18 ]
   %indvars.iv.next42.i26 = add nsw i64 %indvars.iv41.i25, -1
-  %37 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.next42.i26
+  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next42.i26
   %38 = load i32, ptr %37, align 4, !tbaa !42
   %39 = trunc i32 %38 to i16
   %40 = add i16 %39, 48
@@ -9732,7 +9732,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27: ; preds = %.lr.ph.
   %indvars.iv.i30 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27 ], [ %indvars.iv.next.i32, %.preheader32.i29 ]
   %.22633.i31 = phi i32 [ %44, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27 ], [ %47, %.preheader32.i29 ]
   %45 = urem i32 %.22633.i31, 10
-  %46 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv.i30
+  %46 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i30
   store i32 %45, ptr %46, align 4, !tbaa !42
   %47 = udiv i32 %.22633.i31, 10
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i30, 1
@@ -9742,7 +9742,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27: ; preds = %.lr.ph.
 .lr.ph.i35:                                       ; preds = %.preheader32.i29, %.lr.ph.i35
   %indvars.iv41.i36 = phi i64 [ %indvars.iv.next42.i37, %.lr.ph.i35 ], [ 2, %.preheader32.i29 ]
   %indvars.iv.next42.i37 = add nsw i64 %indvars.iv41.i36, -1
-  %48 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv.next42.i37
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next42.i37
   %49 = load i32, ptr %48, align 4, !tbaa !42
   %50 = trunc i32 %49 to i16
   %51 = add i16 %50, 48
@@ -10297,7 +10297,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit.preheader: ; preds = %219, %193
 
 _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit.preheader, %234
   %indvars.iv337 = phi i64 [ %indvars.iv.next338, %234 ], [ 0, %_ZN6icu_7713UnicodeString6removeEii.exit.preheader ]
-  %223 = getelementptr inbounds nuw [7 x [3 x i16]], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 0, i64 %indvars.iv337
+  %223 = getelementptr inbounds nuw [3 x i16], ptr @_ZN6icu_77L14ICAL_DOW_NAMESE, i64 %indvars.iv337
   %224 = load i16, ptr %17, align 8, !tbaa !9
   %225 = icmp slt i16 %224, 0
   %226 = ashr i16 %224, 5

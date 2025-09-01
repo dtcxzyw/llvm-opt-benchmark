@@ -1307,7 +1307,7 @@ ff_clz_c.exit:                                    ; preds = %ff_clz_c.exit.loope
 
 switch.lookup:                                    ; preds = %._crit_edge390
   %487 = zext nneg i32 %478 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.output_frame, i64 0, i64 %487
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.output_frame, i64 %487
   %switch.load = load i64, ptr %switch.gep, align 8
   %488 = getelementptr inbounds nuw i8, ptr %8, i64 %switch.load
   %.sink436 = load i32, ptr %488, align 4, !tbaa !62
@@ -2178,7 +2178,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv274 = phi i64 [ 0, %.preheader230 ], [ %indvars.iv.next275, %._crit_edge239 ]
   %30 = load ptr, ptr %11, align 8, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %32 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv274
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv274
   %33 = load i32, ptr %32, align 4, !tbaa !62
   %34 = sext i32 %33 to i64
   %35 = load i32, ptr %25, align 4, !tbaa !97
@@ -2201,7 +2201,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 41:                                               ; preds = %.lr.ph238, %41
   %indvars.iv271 = phi i64 [ %39, %.lr.ph238 ], [ %indvars.iv.next272, %41 ]
   %42 = load ptr, ptr %11, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw [8 x ptr], ptr %42, i64 0, i64 %indvars.iv274
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv274
   %44 = load ptr, ptr %43, align 8, !tbaa !120
   %45 = mul nsw i64 %indvars.iv271, %34
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
@@ -2220,7 +2220,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv268 = phi i64 [ 0, %.preheader231.split.preheader ], [ %indvars.iv.next269, %._crit_edge ]
   %54 = load ptr, ptr %11, align 8, !tbaa !45
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %55, i64 0, i64 %indvars.iv268
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv268
   %57 = load i32, ptr %56, align 4, !tbaa !62
   %58 = sext i32 %57 to i64
   %59 = icmp sgt i32 %53, 0
@@ -2235,7 +2235,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 .lr.ph:                                           ; preds = %.preheader231.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader231.split ]
   %61 = load ptr, ptr %11, align 8, !tbaa !45
-  %62 = getelementptr inbounds nuw [8 x ptr], ptr %61, i64 0, i64 %indvars.iv268
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv268
   %63 = load ptr, ptr %62, align 8, !tbaa !120
   %64 = mul nsw i64 %indvars.iv, %58
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
@@ -2400,7 +2400,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv310 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next311, %._crit_edge259 ]
   %141 = load ptr, ptr %11, align 8, !tbaa !45
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %143 = getelementptr inbounds nuw [8 x i32], ptr %142, i64 0, i64 %indvars.iv310
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv310
   %144 = load i32, ptr %143, align 4, !tbaa !62
   %145 = sext i32 %144 to i64
   %146 = icmp sgt i32 %140, 0
@@ -2427,7 +2427,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 157:                                              ; preds = %.lr.ph258, %157
   %indvars.iv307 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next308, %157 ]
   %158 = load ptr, ptr %11, align 8, !tbaa !45
-  %159 = getelementptr inbounds nuw [8 x ptr], ptr %158, i64 0, i64 %indvars.iv310
+  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv310
   %160 = load ptr, ptr %159, align 8, !tbaa !120
   %161 = mul nsw i64 %indvars.iv307, %145
   %162 = getelementptr inbounds i8, ptr %160, i64 %161
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv301 = phi i64 [ 0, %.preheader224 ], [ %indvars.iv.next302, %._crit_edge254 ]
   %169 = load ptr, ptr %11, align 8, !tbaa !45
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 64
-  %171 = getelementptr inbounds nuw [8 x i32], ptr %170, i64 0, i64 %indvars.iv301
+  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv301
   %172 = load i32, ptr %171, align 4, !tbaa !62
   %173 = sext i32 %172 to i64
   %174 = icmp sgt i32 %168, 0
@@ -2470,7 +2470,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 184:                                              ; preds = %.lr.ph253, %184
   %indvars.iv298 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next299, %184 ]
   %185 = load ptr, ptr %11, align 8, !tbaa !45
-  %186 = getelementptr inbounds nuw [8 x ptr], ptr %185, i64 0, i64 %indvars.iv301
+  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv301
   %187 = load ptr, ptr %186, align 8, !tbaa !120
   %188 = mul nsw i64 %indvars.iv298, %173
   %189 = getelementptr inbounds i8, ptr %187, i64 %188
@@ -2486,7 +2486,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv292 = phi i64 [ 0, %.preheader226.split.preheader ], [ %indvars.iv.next293, %._crit_edge249 ]
   %194 = load ptr, ptr %11, align 8, !tbaa !45
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 64
-  %196 = getelementptr inbounds nuw [8 x i32], ptr %195, i64 0, i64 %indvars.iv292
+  %196 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv292
   %197 = load i32, ptr %196, align 4, !tbaa !62
   %198 = sext i32 %197 to i64
   %199 = load i32, ptr %127, align 8, !tbaa !123
@@ -2510,7 +2510,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 207:                                              ; preds = %.lr.ph248, %207
   %indvars.iv289 = phi i64 [ %205, %.lr.ph248 ], [ %indvars.iv.next290, %207 ]
   %208 = load ptr, ptr %11, align 8, !tbaa !45
-  %209 = getelementptr inbounds nuw [8 x ptr], ptr %208, i64 0, i64 %indvars.iv292
+  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv292
   %210 = load ptr, ptr %209, align 8, !tbaa !120
   %211 = mul nsw i64 %indvars.iv289, %198
   %212 = getelementptr inbounds i8, ptr %210, i64 %211
@@ -2527,7 +2527,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv283 = phi i64 [ 0, %.preheader228 ], [ %indvars.iv.next284, %._crit_edge244 ]
   %219 = load ptr, ptr %11, align 8, !tbaa !45
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 64
-  %221 = getelementptr inbounds nuw [8 x i32], ptr %220, i64 0, i64 %indvars.iv283
+  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv283
   %222 = load i32, ptr %221, align 4, !tbaa !62
   %223 = sext i32 %222 to i64
   %224 = load i32, ptr %124, align 4, !tbaa !97
@@ -2552,7 +2552,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 233:                                              ; preds = %.lr.ph243, %233
   %indvars.iv280 = phi i64 [ %232, %.lr.ph243 ], [ %indvars.iv.next281, %233 ]
   %234 = load ptr, ptr %11, align 8, !tbaa !45
-  %235 = getelementptr inbounds nuw [8 x ptr], ptr %234, i64 0, i64 %indvars.iv283
+  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %indvars.iv283
   %236 = load ptr, ptr %235, align 8, !tbaa !120
   %237 = mul nsw i64 %indvars.iv280, %223
   %238 = getelementptr inbounds i8, ptr %236, i64 %237
@@ -2565,7 +2565,7 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %113
   %241 = zext nneg i32 %115 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.output_frame, i64 0, i64 %241
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.output_frame, i64 %241
   %switch.load = load i64, ptr %switch.gep, align 8
   %242 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.load
   %.sink = load i32, ptr %242, align 4, !tbaa !62

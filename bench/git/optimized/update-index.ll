@@ -3759,7 +3759,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_path(ptr noundef %0, ptr no
   br i1 %.not.i, label %98, label %.thread.i
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds [0 x i8], ptr %96, i64 0, i64 %89
+  %99 = getelementptr inbounds i8, ptr %96, i64 %89
   %100 = load i8, ptr %99, align 1, !tbaa !8
   %101 = icmp sgt i8 %100, 47
   br i1 %101, label %.thread.i, label %102

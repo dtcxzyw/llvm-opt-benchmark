@@ -438,7 +438,7 @@ define internal void @pcim_iomap_release(ptr noundef %0, ptr noundef readonly ca
 
 4:                                                ; preds = %10, %2
   %5 = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %6 = getelementptr [6 x ptr], ptr %1, i64 0, i64 %5
+  %6 = getelementptr ptr, ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -600,7 +600,7 @@ define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %22, label %38, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr [11 x %struct.resource], ptr %16, i64 0, i64 %18
+  %24 = getelementptr %struct.resource, ptr %16, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0

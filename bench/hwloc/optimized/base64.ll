@@ -39,22 +39,22 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
   %25 = add i64 %.04653, -3
   %26 = getelementptr inbounds nuw i8, ptr %.04454, i64 3
   %27 = zext nneg i8 %24 to i64
-  %28 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @Base64, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %.04355
   store i8 %29, ptr %30, align 1, !tbaa !3
   %31 = zext nneg i8 %23 to i64
-  %32 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @Base64, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %34 = getelementptr i8, ptr %30, i64 1
   store i8 %33, ptr %34, align 1, !tbaa !3
   %35 = zext nneg i8 %19 to i64
-  %36 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @Base64, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !3
   %38 = getelementptr i8, ptr %30, i64 2
   store i8 %37, ptr %38, align 1, !tbaa !3
   %39 = zext nneg i8 %15 to i64
-  %40 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @Base64, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store i8 %41, ptr %42, align 1, !tbaa !3
@@ -82,7 +82,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
   %.14563 = phi ptr [ %.044.lcssa, %44 ], [ %49, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %.14563, i64 1
   %50 = load i8, ptr %.14563, align 1, !tbaa !3
-  %51 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %48
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %48
   store i8 %50, ptr %51, align 1, !tbaa !3
   %52 = add i32 %.064, 1
   %53 = zext i32 %52 to i64
@@ -108,12 +108,12 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
   %69 = or disjoint i8 %67, %68
   %70 = lshr i8 %65, 2
   %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr @Base64, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 %.043.lcssa
   store i8 %73, ptr %74, align 1, !tbaa !3
   %75 = zext nneg i8 %69 to i64
-  %76 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @Base64, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = getelementptr i8, ptr %74, i64 1
   store i8 %77, ptr %78, align 1, !tbaa !3
@@ -122,7 +122,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0
 
 80:                                               ; preds = %64
   %81 = zext nneg i8 %61 to i64
-  %82 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr @Base64, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !3
   br label %84
 

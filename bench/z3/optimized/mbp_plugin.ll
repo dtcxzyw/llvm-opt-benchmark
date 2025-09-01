@@ -415,7 +415,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not62119, label %.lr.ph121, label %.critedge73
 
 .lr.ph121:                                        ; preds = %.lr.ph124
-  %116 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv143
+  %116 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv143
   br label %120
 
 117:                                              ; preds = %.critedge69
@@ -429,7 +429,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %121 = phi ptr [ %114, %.lr.ph121 ], [ %125, %117 ]
   %indvars.iv140 = phi i64 [ %indvars.iv, %.lr.ph121 ], [ %indvars.iv.next141, %117 ]
   %122 = load ptr, ptr %116, align 8, !tbaa !12
-  %123 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv140
+  %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv140
   %124 = load ptr, ptr %123, align 8, !tbaa !12
   %125 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %1, i32 noundef 0, i32 noundef 2, ptr noundef %122, ptr noundef %124)
           to label %_ZN11ast_manager5mk_eqEP4exprS1_.exit81 unwind label %.loopexit
@@ -4894,7 +4894,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 50:                                               ; preds = %.lr.ph, %115
   %51 = phi i32 [ %47, %.lr.ph ], [ %116, %115 ]
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !12
   %55 = add nuw i32 %51, 1
   store i32 %55, ptr %46, align 8, !tbaa !184

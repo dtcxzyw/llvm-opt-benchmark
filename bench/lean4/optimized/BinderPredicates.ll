@@ -202,7 +202,7 @@ lean_dec.exit64:                                  ; preds = %26, %25, %23, %lean
   %.055140 = phi ptr [ %2, %.lr.ph ], [ %.0.i.i105, %179 ]
   %.058139 = phi ptr [ %5, %.lr.ph ], [ %91, %179 ]
   %31 = getelementptr inbounds nuw i8, ptr %.055140, i64 24
-  %32 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %.052141
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.052141
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 1
@@ -656,7 +656,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabBinderPred___spec_
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

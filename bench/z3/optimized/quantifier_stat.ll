@@ -483,7 +483,7 @@ _ZNK3app13get_family_idEv.exit.thread..loopexit_crit_edge: ; preds = %_ZNK3app13
   %135 = phi ptr [ %.pr.pre74, %.lr.ph ], [ %194, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit40 ]
   %indvars.iv = phi i64 [ %133, %.lr.ph ], [ %136, %_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE9push_backEOS2_.exit40 ]
   %136 = add nsw i64 %indvars.iv, -1
-  %137 = getelementptr inbounds nuw [0 x ptr], ptr %128, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw ptr, ptr %128, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !51
   %139 = icmp eq ptr %135, null
   br i1 %139, label %146, label %140

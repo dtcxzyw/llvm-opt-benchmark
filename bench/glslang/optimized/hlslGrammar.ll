@@ -6830,7 +6830,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar20acceptSamplerTypeDX9ERNS_5T
 
 switch.lookup:                                    ; preds = %2
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN7glslang11HlslGrammar20acceptSamplerTypeDX9ERNS_5TTypeE, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang11HlslGrammar20acceptSamplerTypeDX9ERNS_5TTypeE, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   store i32 %switch.load, ptr %4, align 4
@@ -6916,7 +6916,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTyp
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

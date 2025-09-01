@@ -4240,9 +4240,9 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__
   br label %14
 
 10:                                               ; preds = %6
-  %11 = add nsw i32 %1, -128
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [12 x %"struct.llvm::MCFixupKindInfo"], ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 0, i64 %12
+  %11 = zext nneg i32 %1 to i64
+  %12 = getelementptr %"struct.llvm::MCFixupKindInfo", ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -3072
   br label %14
 
 14:                                               ; preds = %10, %8, %4
@@ -5805,7 +5805,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
   %.sroa.0.0.extract.trunc = trunc i64 %44 to i32
   %45 = add i32 %.065181, 1
   %46 = zext i32 %.065181 to i64
-  %47 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %16, i64 %46
   store i32 %.sroa.0.0.extract.trunc, ptr %47, align 4, !tbaa !47
   %48 = load i32, ptr %22, align 4, !tbaa !124
   %49 = add i32 %48, %.082177
@@ -5879,7 +5879,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %.thread229 ]
   %.01442.i = phi i32 [ %86, %82 ], [ 0, %.thread229 ]
   %indvars45.i = trunc i64 %indvars.iv.i to i32
-  %72 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %73 = load i32, ptr %72, align 4, !tbaa !47
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit, label %.lr.ph.i.i
@@ -5991,7 +5991,7 @@ _ZSt7reverseIPjEvT_S1_.exit:                      ; preds = %108
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i
   %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i118, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i ], [ 0, %.lr.ph.i ]
-  %126 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv.i113
+  %126 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i113
   %127 = load i32, ptr %126, align 4, !tbaa !47
   br label %.lr.ph.i.i114
 
@@ -6046,7 +6046,7 @@ _ZSt7reverseIPjEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i
 .preheader.i:                                     ; preds = %._crit_edge51.i, %.preheader.preheader.i
   %indvars.iv60.i = phi i64 [ %142, %.preheader.preheader.i ], [ %indvars.iv.next61.i, %._crit_edge51.i ]
   %143 = icmp samesign ugt i64 %indvars.iv60.i, %142
-  %144 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv60.i
+  %144 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv60.i
   %145 = load i32, ptr %144, align 4, !tbaa !47
   br i1 %143, label %.lr.ph50.i, label %._crit_edge51.i
 
@@ -6071,7 +6071,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
 ._crit_edge51.i:                                  ; preds = %._crit_edge51.loopexit.i, %.preheader.i
   %.032.lcssa.i = phi i32 [ %146, %._crit_edge51.loopexit.i ], [ -1, %.preheader.i ]
   %147 = add i32 %.032.lcssa.i, %145
-  %148 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv60.i
+  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv60.i
   store i32 %147, ptr %148, align 4, !tbaa !47
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %149 = and i64 %indvars.iv.next61.i, 4294967295
@@ -6081,7 +6081,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFram
 .lr.ph50.i:                                       ; preds = %.preheader.i, %.lr.ph50.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph50.i ], [ %142, %.preheader.i ]
   %.03248.i = phi i32 [ %spec.select.i120, %.lr.ph50.i ], [ 0, %.preheader.i ]
-  %150 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv56.i
+  %150 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv56.i
   %151 = load i32, ptr %150, align 4, !tbaa !47
   %152 = icmp ult i32 %151, %145
   %153 = zext i1 %152 to i32

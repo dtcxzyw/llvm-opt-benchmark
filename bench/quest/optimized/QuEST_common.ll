@@ -159,10 +159,10 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly s
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi i1 [ true, %2 ], [ false, %.preheader ]
   %indvars.iv16 = phi i64 [ 0, %2 ], [ 1, %.preheader ]
-  %6 = getelementptr inbounds nuw [2 x [2 x double]], ptr %1, i64 0, i64 %indvars.iv16
-  %7 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16
-  %8 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv16
-  %9 = getelementptr inbounds nuw [2 x [2 x double]], ptr %4, i64 0, i64 %indvars.iv16
+  %6 = getelementptr inbounds nuw [2 x double], ptr %1, i64 %indvars.iv16
+  %7 = getelementptr inbounds nuw [2 x double], ptr %0, i64 %indvars.iv16
+  %8 = getelementptr inbounds nuw [2 x double], ptr %3, i64 %indvars.iv16
+  %9 = getelementptr inbounds nuw [2 x double], ptr %4, i64 %indvars.iv16
   %10 = load double, ptr %6, align 8, !tbaa !13
   store double %10, ptr %7, align 8, !tbaa !13
   %11 = load double, ptr %8, align 8, !tbaa !13
@@ -191,10 +191,10 @@ define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly s
 
 .preheader:                                       ; preds = %2, %10
   %indvars.iv16 = phi i64 [ 0, %2 ], [ %indvars.iv.next17, %10 ]
-  %5 = getelementptr inbounds nuw [4 x [4 x double]], ptr %1, i64 0, i64 %indvars.iv16
-  %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv16
-  %7 = getelementptr inbounds nuw [4 x [4 x double]], ptr %3, i64 0, i64 %indvars.iv16
-  %8 = getelementptr inbounds nuw [4 x [4 x double]], ptr %4, i64 0, i64 %indvars.iv16
+  %5 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv16
+  %6 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv16
+  %7 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv16
+  %8 = getelementptr inbounds nuw [4 x double], ptr %4, i64 %indvars.iv16
   br label %11
 
 9:                                                ; preds = %10
@@ -207,14 +207,14 @@ define void @getConjugateMatrix4(ptr dead_on_unwind noalias writable writeonly s
 
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   store double %13, ptr %14, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !13
   %17 = fneg double %16
-  %18 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1499,7 +1499,7 @@ statevec_applyPauliProd.exit.i.loopexit.us:       ; preds = %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %42, ptr %41, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1671,7 +1671,7 @@ statevec_applyPauliProd.exit31.loopexit.us:       ; preds = %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %54 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %55, ptr %54, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1729,8 +1729,8 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 
 .preheader84:                                     ; preds = %3, %8
   %indvars.iv93 = phi i64 [ 0, %3 ], [ %indvars.iv.next94, %8 ]
-  %5 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %indvars.iv93
-  %6 = getelementptr inbounds nuw [4 x [4 x double]], ptr %4, i64 0, i64 %indvars.iv93
+  %5 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv93
+  %6 = getelementptr inbounds nuw [4 x double], ptr %4, i64 %indvars.iv93
   br label %9
 
 .preheader83:                                     ; preds = %8
@@ -1748,9 +1748,9 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %.preheader84, %9
   %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   store double 0.000000e+00, ptr %10, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   store double 0.000000e+00, ptr %11, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1768,8 +1768,8 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 .preheader81:                                     ; preds = %.preheader82, %23
   %14 = phi i1 [ true, %.preheader82 ], [ false, %23 ]
   %indvars.iv106 = phi i64 [ 0, %.preheader82 ], [ 1, %23 ]
-  %15 = getelementptr inbounds nuw [2 x [2 x double]], ptr %12, i64 0, i64 %indvars.iv106
-  %16 = getelementptr inbounds nuw [2 x [2 x double]], ptr %13, i64 0, i64 %indvars.iv106
+  %15 = getelementptr inbounds nuw [2 x double], ptr %12, i64 %indvars.iv106
+  %16 = getelementptr inbounds nuw [2 x double], ptr %13, i64 %indvars.iv106
   %17 = shl nuw nsw i64 %indvars.iv106, 1
   br label %.preheader80
 
@@ -1781,8 +1781,8 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 .preheader80:                                     ; preds = %.preheader81, %30
   %19 = phi i1 [ true, %.preheader81 ], [ false, %30 ]
   %indvars.iv103 = phi i64 [ 0, %.preheader81 ], [ 1, %30 ]
-  %20 = getelementptr inbounds nuw [2 x double], ptr %15, i64 0, i64 %indvars.iv103
-  %21 = getelementptr inbounds nuw [2 x double], ptr %16, i64 0, i64 %indvars.iv103
+  %20 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv103
+  %21 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv103
   %22 = shl nuw nsw i64 %indvars.iv103, 1
   br label %.preheader
 
@@ -1792,11 +1792,11 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
 .preheader:                                       ; preds = %.preheader80, %31
   %24 = phi i1 [ true, %.preheader80 ], [ false, %31 ]
   %indvars.iv100 = phi i64 [ 0, %.preheader80 ], [ 1, %31 ]
-  %25 = getelementptr inbounds nuw [2 x [2 x double]], ptr %12, i64 0, i64 %indvars.iv100
-  %26 = getelementptr inbounds nuw [2 x [2 x double]], ptr %13, i64 0, i64 %indvars.iv100
+  %25 = getelementptr inbounds nuw [2 x double], ptr %12, i64 %indvars.iv100
+  %26 = getelementptr inbounds nuw [2 x double], ptr %13, i64 %indvars.iv100
   %27 = or disjoint i64 %indvars.iv100, %17
-  %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %0, i64 0, i64 %27
-  %29 = getelementptr inbounds nuw [4 x [4 x double]], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw [4 x double], ptr %4, i64 %27
   br label %32
 
 30:                                               ; preds = %31
@@ -1809,15 +1809,15 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
   %33 = phi i1 [ true, %.preheader ], [ false, %32 ]
   %indvars.iv97 = phi i64 [ 0, %.preheader ], [ 1, %32 ]
   %34 = load double, ptr %20, align 8, !tbaa !13
-  %35 = getelementptr inbounds nuw [2 x double], ptr %25, i64 0, i64 %indvars.iv97
+  %35 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv97
   %36 = load double, ptr %35, align 8, !tbaa !13
   %37 = load double, ptr %21, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %indvars.iv97
+  %38 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv97
   %39 = load double, ptr %38, align 8, !tbaa !13
   %40 = fmul double %37, %39
   %41 = tail call double @llvm.fmuladd.f64(double %34, double %36, double %40)
   %42 = or disjoint i64 %indvars.iv97, %22
-  %43 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw double, ptr %28, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !13
   %45 = fadd double %44, %41
   store double %45, ptr %43, align 8, !tbaa !13
@@ -1828,7 +1828,7 @@ define void @populateKrausSuperOperator2(ptr noundef captures(none) %0, ptr noun
   %50 = fneg double %49
   %51 = fmul double %48, %50
   %52 = tail call double @llvm.fmuladd.f64(double %46, double %47, double %51)
-  %53 = getelementptr inbounds nuw [4 x double], ptr %29, i64 0, i64 %42
+  %53 = getelementptr inbounds nuw double, ptr %29, i64 %42
   %54 = load double, ptr %53, align 8, !tbaa !13
   %55 = fadd double %54, %52
   store double %55, ptr %53, align 8, !tbaa !13
@@ -1885,8 +1885,8 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 
 .preheader81:                                     ; preds = %.preheader82, %26
   %indvars.iv109 = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next110, %26 ]
-  %19 = getelementptr inbounds nuw [4 x [4 x double]], ptr %17, i64 0, i64 %indvars.iv109
-  %20 = getelementptr inbounds nuw [4 x [4 x double]], ptr %18, i64 0, i64 %indvars.iv109
+  %19 = getelementptr inbounds nuw [4 x double], ptr %17, i64 %indvars.iv109
+  %20 = getelementptr inbounds nuw [4 x double], ptr %18, i64 %indvars.iv109
   %21 = shl nuw nsw i64 %indvars.iv109, 2
   br label %.preheader80
 
@@ -1897,8 +1897,8 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 
 .preheader80:                                     ; preds = %.preheader81, %34
   %indvars.iv105 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next106, %34 ]
-  %23 = getelementptr inbounds nuw [4 x double], ptr %19, i64 0, i64 %indvars.iv105
-  %24 = getelementptr inbounds nuw [4 x double], ptr %20, i64 0, i64 %indvars.iv105
+  %23 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv105
+  %24 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv105
   %25 = shl nuw nsw i64 %indvars.iv105, 2
   br label %.preheader
 
@@ -1909,8 +1909,8 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 
 .preheader:                                       ; preds = %.preheader80, %35
   %indvars.iv101 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next102, %35 ]
-  %27 = getelementptr inbounds nuw [4 x [4 x double]], ptr %17, i64 0, i64 %indvars.iv101
-  %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %18, i64 0, i64 %indvars.iv101
+  %27 = getelementptr inbounds nuw [4 x double], ptr %17, i64 %indvars.iv101
+  %28 = getelementptr inbounds nuw [4 x double], ptr %18, i64 %indvars.iv101
   %29 = add nuw nsw i64 %indvars.iv101, %21
   %30 = getelementptr inbounds nuw ptr, ptr %5, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !19
@@ -1931,10 +1931,10 @@ define void @populateKrausSuperOperator4(ptr noundef readonly captures(none) %0,
 36:                                               ; preds = %.preheader, %36
   %indvars.iv97 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next98, %36 ]
   %37 = load double, ptr %23, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw [4 x double], ptr %27, i64 0, i64 %indvars.iv97
+  %38 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv97
   %39 = load double, ptr %38, align 8, !tbaa !13
   %40 = load double, ptr %24, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %indvars.iv97
+  %41 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv97
   %42 = load double, ptr %41, align 8, !tbaa !13
   %43 = fmul double %40, %42
   %44 = tail call double @llvm.fmuladd.f64(double %37, double %39, double %43)
@@ -2150,6 +2150,7 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byv
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = zext nneg i32 %2 to i64
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %9
   br label %11
 
 ._crit_edge:                                      ; preds = %11, %4
@@ -2162,12 +2163,11 @@ define void @densmatr_applyMultiQubitKrausSuperoperator(ptr noundef readonly byv
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = getelementptr inbounds nuw [200 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %13, ptr %14, align 4, !tbaa !4
   %15 = add nsw i32 %8, %13
-  %16 = add nuw nsw i64 %indvars.iv, %9
-  %17 = getelementptr inbounds nuw [200 x i32], ptr %5, i64 0, i64 %16
-  store i32 %15, ptr %17, align 4, !tbaa !4
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  store i32 %15, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %11
@@ -2208,8 +2208,8 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
 .preheader81.i:                                   ; preds = %23, %.preheader82.i
   %12 = phi i1 [ true, %.preheader82.i ], [ false, %23 ]
   %indvars.iv106.i = phi i64 [ 0, %.preheader82.i ], [ 1, %23 ]
-  %13 = getelementptr inbounds nuw [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv106.i
-  %14 = getelementptr inbounds nuw [2 x [2 x double]], ptr %11, i64 0, i64 %indvars.iv106.i
+  %13 = getelementptr inbounds nuw [2 x double], ptr %10, i64 %indvars.iv106.i
+  %14 = getelementptr inbounds nuw [2 x double], ptr %11, i64 %indvars.iv106.i
   %15 = shl nuw nsw i64 %indvars.iv106.i, 1
   br label %.preheader80.i
 
@@ -2221,8 +2221,8 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
 .preheader80.i:                                   ; preds = %30, %.preheader81.i
   %17 = phi i1 [ true, %.preheader81.i ], [ false, %30 ]
   %indvars.iv103.i = phi i64 [ 0, %.preheader81.i ], [ 1, %30 ]
-  %18 = getelementptr inbounds nuw [2 x double], ptr %13, i64 0, i64 %indvars.iv103.i
-  %19 = getelementptr inbounds nuw [2 x double], ptr %14, i64 0, i64 %indvars.iv103.i
+  %18 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv103.i
+  %19 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv103.i
   %20 = shl nuw nsw i64 %indvars.iv103.i, 1
   %21 = load double, ptr %18, align 8, !tbaa !13
   %22 = load double, ptr %19, align 8, !tbaa !13
@@ -2234,11 +2234,11 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
 .preheader.i:                                     ; preds = %31, %.preheader80.i
   %24 = phi i1 [ true, %.preheader80.i ], [ false, %31 ]
   %indvars.iv100.i = phi i64 [ 0, %.preheader80.i ], [ 1, %31 ]
-  %25 = getelementptr inbounds nuw [2 x [2 x double]], ptr %10, i64 0, i64 %indvars.iv100.i
-  %26 = getelementptr inbounds nuw [2 x [2 x double]], ptr %11, i64 0, i64 %indvars.iv100.i
+  %25 = getelementptr inbounds nuw [2 x double], ptr %10, i64 %indvars.iv100.i
+  %26 = getelementptr inbounds nuw [2 x double], ptr %11, i64 %indvars.iv100.i
   %27 = or disjoint i64 %indvars.iv100.i, %15
-  %28 = getelementptr inbounds nuw [4 x [4 x double]], ptr %5, i64 0, i64 %27
-  %29 = getelementptr inbounds nuw [4 x [4 x double]], ptr %8, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x double], ptr %5, i64 %27
+  %29 = getelementptr inbounds nuw [4 x double], ptr %8, i64 %27
   br label %32
 
 30:                                               ; preds = %31
@@ -2250,21 +2250,21 @@ define void @densmatr_mixKrausMap(ptr noundef readonly byval(%struct.Qureg) alig
 32:                                               ; preds = %32, %.preheader.i
   %33 = phi i1 [ true, %.preheader.i ], [ false, %32 ]
   %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ 1, %32 ]
-  %34 = getelementptr inbounds nuw [2 x double], ptr %25, i64 0, i64 %indvars.iv97.i
+  %34 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv97.i
   %35 = load double, ptr %34, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw [2 x double], ptr %26, i64 0, i64 %indvars.iv97.i
+  %36 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv97.i
   %37 = load double, ptr %36, align 8, !tbaa !13
   %38 = fmul double %22, %37
   %39 = tail call double @llvm.fmuladd.f64(double %21, double %35, double %38)
   %40 = or disjoint i64 %indvars.iv97.i, %20
-  %41 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw double, ptr %28, i64 %40
   %42 = load double, ptr %41, align 8
   %43 = fadd double %42, %39
   store double %43, ptr %41, align 8
   %44 = fneg double %35
   %45 = fmul double %22, %44
   %46 = tail call double @llvm.fmuladd.f64(double %21, double %37, double %45)
-  %47 = getelementptr inbounds nuw [4 x double], ptr %29, i64 0, i64 %40
+  %47 = getelementptr inbounds nuw double, ptr %29, i64 %40
   %48 = load double, ptr %47, align 8
   %49 = fadd double %46, %48
   store double %49, ptr %47, align 8
@@ -2377,8 +2377,8 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 
 .preheader81.i:                                   ; preds = %36, %.preheader82.i
   %indvars.iv109.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next110.i, %36 ]
-  %29 = getelementptr inbounds nuw [4 x [4 x double]], ptr %27, i64 0, i64 %indvars.iv109.i
-  %30 = getelementptr inbounds nuw [4 x [4 x double]], ptr %28, i64 0, i64 %indvars.iv109.i
+  %29 = getelementptr inbounds nuw [4 x double], ptr %27, i64 %indvars.iv109.i
+  %30 = getelementptr inbounds nuw [4 x double], ptr %28, i64 %indvars.iv109.i
   %31 = shl nuw nsw i64 %indvars.iv109.i, 2
   br label %.preheader80.i
 
@@ -2389,8 +2389,8 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 
 .preheader80.i:                                   ; preds = %44, %.preheader81.i
   %indvars.iv105.i = phi i64 [ 0, %.preheader81.i ], [ %indvars.iv.next106.i, %44 ]
-  %33 = getelementptr inbounds nuw [4 x double], ptr %29, i64 0, i64 %indvars.iv105.i
-  %34 = getelementptr inbounds nuw [4 x double], ptr %30, i64 0, i64 %indvars.iv105.i
+  %33 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv105.i
+  %34 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv105.i
   %35 = shl nuw nsw i64 %indvars.iv105.i, 2
   br label %.preheader.i
 
@@ -2401,8 +2401,8 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 
 .preheader.i:                                     ; preds = %45, %.preheader80.i
   %indvars.iv101.i = phi i64 [ 0, %.preheader80.i ], [ %indvars.iv.next102.i, %45 ]
-  %37 = getelementptr inbounds nuw [4 x [4 x double]], ptr %27, i64 0, i64 %indvars.iv101.i
-  %38 = getelementptr inbounds nuw [4 x [4 x double]], ptr %28, i64 0, i64 %indvars.iv101.i
+  %37 = getelementptr inbounds nuw [4 x double], ptr %27, i64 %indvars.iv101.i
+  %38 = getelementptr inbounds nuw [4 x double], ptr %28, i64 %indvars.iv101.i
   %39 = add nuw nsw i64 %indvars.iv101.i, %31
   %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !19
@@ -2423,10 +2423,10 @@ define void @densmatr_mixTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qur
 46:                                               ; preds = %46, %.preheader.i
   %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next98.i, %46 ]
   %47 = load double, ptr %33, align 8, !tbaa !13
-  %48 = getelementptr inbounds nuw [4 x double], ptr %37, i64 0, i64 %indvars.iv97.i
+  %48 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv97.i
   %49 = load double, ptr %48, align 8, !tbaa !13
   %50 = load double, ptr %34, align 8, !tbaa !13
-  %51 = getelementptr inbounds nuw [4 x double], ptr %38, i64 0, i64 %indvars.iv97.i
+  %51 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv97.i
   %52 = load double, ptr %51, align 8, !tbaa !13
   %53 = fmul double %50, %52
   %54 = call double @llvm.fmuladd.f64(double %47, double %49, double %53)
@@ -2516,8 +2516,8 @@ define void @densmatr_mixMultiQubitKrausMap(ptr noundef readonly byval(%struct.Q
 
 bindArraysToStackComplexMatrixN.exit:             ; preds = %21
   store i32 %10, ptr %8, align 8, !tbaa !4
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %19, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !49
+  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %19, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !49
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49
   call void @populateKrausSuperOperatorN(ptr noundef nonnull %8, ptr noundef %3, i32 noundef %4)
@@ -2529,18 +2529,18 @@ bindArraysToStackComplexMatrixN.exit:             ; preds = %21
 
 .lr.ph.i:                                         ; preds = %bindArraysToStackComplexMatrixN.exit
   %28 = zext nneg i32 %2 to i64
+  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %7, i64 %28
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i18, %29 ]
   %30 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i17
   %31 = load i32, ptr %30, align 4, !tbaa !4
-  %32 = getelementptr inbounds nuw [200 x i32], ptr %7, i64 0, i64 %indvars.iv.i17
+  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i17
   store i32 %31, ptr %32, align 4, !tbaa !4
   %33 = add nsw i32 %31, %.sroa.3.0.copyload
-  %34 = add nuw nsw i64 %indvars.iv.i17, %28
-  %35 = getelementptr inbounds nuw [200 x i32], ptr %7, i64 0, i64 %34
-  store i32 %33, ptr %35, align 4, !tbaa !4
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i17
+  store i32 %33, ptr %gep.i, align 4, !tbaa !4
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %28
   br i1 %exitcond.not.i19, label %densmatr_applyMultiQubitKrausSuperoperator.exit, label %29
@@ -2549,38 +2549,38 @@ densmatr_applyMultiQubitKrausSuperoperator.exit:  ; preds = %29, %bindArraysToSt
   call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef nonnull %7, i32 noundef %10, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.stackrestore.p0(ptr %14)
-  br label %44
+  br label %40
 
 .lr.ph.i20:                                       ; preds = %5
   call void @createComplexMatrixN(ptr dead_on_unwind nonnull writable sret(%struct.ComplexMatrixN) align 8 %8, i32 noundef %10) #22
   call void @populateKrausSuperOperatorN(ptr noundef nonnull %8, ptr noundef %3, i32 noundef %4)
-  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.327.0.copyload = load i32, ptr %.sroa.327.0..sroa_idx, align 4
+  %.sroa.329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.329.0.copyload = load i32, ptr %.sroa.329.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = zext nneg i32 %2 to i64
-  br label %37
+  %34 = zext nneg i32 %2 to i64
+  %invariant.gep.i21 = getelementptr inbounds nuw i32, ptr %6, i64 %34
+  br label %35
 
-37:                                               ; preds = %37, %.lr.ph.i20
-  %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i22, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i21
-  %39 = load i32, ptr %38, align 4, !tbaa !4
-  %40 = getelementptr inbounds nuw [200 x i32], ptr %6, i64 0, i64 %indvars.iv.i21
-  store i32 %39, ptr %40, align 4, !tbaa !4
-  %41 = add nsw i32 %39, %.sroa.327.0.copyload
-  %42 = add nuw nsw i64 %indvars.iv.i21, %36
-  %43 = getelementptr inbounds nuw [200 x i32], ptr %6, i64 0, i64 %42
-  store i32 %41, ptr %43, align 4, !tbaa !4
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %36
-  br i1 %exitcond.not.i23, label %densmatr_applyMultiQubitKrausSuperoperator.exit24, label %37
+35:                                               ; preds = %35, %.lr.ph.i20
+  %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i24, %35 ]
+  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i22
+  %37 = load i32, ptr %36, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i22
+  store i32 %37, ptr %38, align 4, !tbaa !4
+  %39 = add nsw i32 %37, %.sroa.329.0.copyload
+  %gep.i23 = getelementptr inbounds nuw i32, ptr %invariant.gep.i21, i64 %indvars.iv.i22
+  store i32 %39, ptr %gep.i23, align 4, !tbaa !4
+  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
+  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, %34
+  br i1 %exitcond.not.i25, label %densmatr_applyMultiQubitKrausSuperoperator.exit26, label %35
 
-densmatr_applyMultiQubitKrausSuperoperator.exit24: ; preds = %37
+densmatr_applyMultiQubitKrausSuperoperator.exit26: ; preds = %35
   call void @statevec_multiControlledMultiQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @destroyComplexMatrixN(ptr noundef nonnull byval(%struct.ComplexMatrixN) align 8 %8) #22
-  br label %44
+  br label %40
 
-44:                                               ; preds = %densmatr_applyMultiQubitKrausSuperoperator.exit24, %densmatr_applyMultiQubitKrausSuperoperator.exit
+40:                                               ; preds = %densmatr_applyMultiQubitKrausSuperoperator.exit26, %densmatr_applyMultiQubitKrausSuperoperator.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -2643,8 +2643,8 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
 .preheader81.i.i:                                 ; preds = %37, %.preheader82.i.i
   %26 = phi i1 [ true, %.preheader82.i.i ], [ false, %37 ]
   %indvars.iv106.i.i = phi i64 [ 0, %.preheader82.i.i ], [ 1, %37 ]
-  %27 = getelementptr inbounds nuw [2 x [2 x double]], ptr %24, i64 0, i64 %indvars.iv106.i.i
-  %28 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv106.i.i
+  %27 = getelementptr inbounds nuw [2 x double], ptr %24, i64 %indvars.iv106.i.i
+  %28 = getelementptr inbounds nuw [2 x double], ptr %25, i64 %indvars.iv106.i.i
   %29 = shl nuw nsw i64 %indvars.iv106.i.i, 1
   br label %.preheader80.i.i
 
@@ -2656,8 +2656,8 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
 .preheader80.i.i:                                 ; preds = %44, %.preheader81.i.i
   %31 = phi i1 [ true, %.preheader81.i.i ], [ false, %44 ]
   %indvars.iv103.i.i = phi i64 [ 0, %.preheader81.i.i ], [ 1, %44 ]
-  %32 = getelementptr inbounds nuw [2 x double], ptr %27, i64 0, i64 %indvars.iv103.i.i
-  %33 = getelementptr inbounds nuw [2 x double], ptr %28, i64 0, i64 %indvars.iv103.i.i
+  %32 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv103.i.i
+  %33 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv103.i.i
   %34 = shl nuw nsw i64 %indvars.iv103.i.i, 1
   %35 = load double, ptr %32, align 8, !tbaa !13
   %36 = load double, ptr %33, align 8, !tbaa !13
@@ -2669,11 +2669,11 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
 .preheader.i.i:                                   ; preds = %45, %.preheader80.i.i
   %38 = phi i1 [ true, %.preheader80.i.i ], [ false, %45 ]
   %indvars.iv100.i.i = phi i64 [ 0, %.preheader80.i.i ], [ 1, %45 ]
-  %39 = getelementptr inbounds nuw [2 x [2 x double]], ptr %24, i64 0, i64 %indvars.iv100.i.i
-  %40 = getelementptr inbounds nuw [2 x [2 x double]], ptr %25, i64 0, i64 %indvars.iv100.i.i
+  %39 = getelementptr inbounds nuw [2 x double], ptr %24, i64 %indvars.iv100.i.i
+  %40 = getelementptr inbounds nuw [2 x double], ptr %25, i64 %indvars.iv100.i.i
   %41 = or disjoint i64 %indvars.iv100.i.i, %29
-  %42 = getelementptr inbounds nuw [4 x [4 x double]], ptr %6, i64 0, i64 %41
-  %43 = getelementptr inbounds nuw [4 x [4 x double]], ptr %scevgep, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [4 x double], ptr %6, i64 %41
+  %43 = getelementptr inbounds nuw [4 x double], ptr %scevgep, i64 %41
   br label %46
 
 44:                                               ; preds = %45
@@ -2685,21 +2685,21 @@ define void @densmatr_mixPauli(ptr noundef readonly byval(%struct.Qureg) align 8
 46:                                               ; preds = %46, %.preheader.i.i
   %47 = phi i1 [ true, %.preheader.i.i ], [ false, %46 ]
   %indvars.iv97.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %46 ]
-  %48 = getelementptr inbounds nuw [2 x double], ptr %39, i64 0, i64 %indvars.iv97.i.i
+  %48 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv97.i.i
   %49 = load double, ptr %48, align 8, !tbaa !13
-  %50 = getelementptr inbounds nuw [2 x double], ptr %40, i64 0, i64 %indvars.iv97.i.i
+  %50 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv97.i.i
   %51 = load double, ptr %50, align 8, !tbaa !13
   %52 = fmul double %36, %51
   %53 = tail call double @llvm.fmuladd.f64(double %35, double %49, double %52)
   %54 = or disjoint i64 %indvars.iv97.i.i, %34
-  %55 = getelementptr inbounds nuw [4 x double], ptr %42, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw double, ptr %42, i64 %54
   %56 = load double, ptr %55, align 8
   %57 = fadd double %56, %53
   store double %57, ptr %55, align 8
   %58 = fneg double %49
   %59 = fmul double %36, %58
   %60 = tail call double @llvm.fmuladd.f64(double %35, double %51, double %59)
-  %61 = getelementptr inbounds nuw [4 x double], ptr %43, i64 0, i64 %54
+  %61 = getelementptr inbounds nuw double, ptr %43, i64 %54
   %62 = load double, ptr %61, align 8
   %63 = fadd double %60, %62
   store double %63, ptr %61, align 8
@@ -2714,7 +2714,7 @@ densmatr_mixKrausMap.exit:                        ; preds = %30
 
 65:                                               ; preds = %5, %65
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw [4 x %struct.ComplexMatrix2], ptr %7, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %struct.ComplexMatrix2, ptr %7, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %66, i8 0, i64 64, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2760,7 +2760,7 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   br label %.lr.ph43.split.us
 
 .lr.ph43.split.us:                                ; preds = %.lr.ph43.split.us.preheader, %._crit_edge.us
-  %.03042.us = phi i32 [ %40, %._crit_edge.us ], [ 0, %.lr.ph43.split.us.preheader ]
+  %.03042.us = phi i32 [ %39, %._crit_edge.us ], [ 0, %.lr.ph43.split.us.preheader ]
   %20 = xor i32 %.03042.us, -1
   %21 = add nsw i32 %13, %20
   %.033.us = select i1 %.not, i32 %.03042.us, i32 %21
@@ -2794,24 +2794,23 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   %spec.store.select1.us = select i1 %33, i8 89, i8 %spec.store.select.us
   %34 = icmp eq i32 %31, 3
   %spec.store.select2.us = select i1 %34, i8 90, i8 %spec.store.select1.us
-  %35 = or disjoint i64 %indvars.iv65, 1
-  %36 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %indvars.iv65
-  store i8 %spec.store.select2.us, ptr %36, align 2, !tbaa !24
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv65
+  store i8 %spec.store.select2.us, ptr %35, align 2, !tbaa !24
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
-  %37 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %35
-  store i8 32, ptr %37, align 1, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 32, ptr %36, align 1, !tbaa !24
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge.us, label %30
 
 ._crit_edge.us:                                   ; preds = %30
-  %38 = and i64 %indvars.iv.next66, 4294967294
-  %39 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %38
-  store i8 0, ptr %39, align 2, !tbaa !24
+  %37 = and i64 %indvars.iv.next66, 4294967294
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 %37
+  store i8 0, ptr %38, align 2, !tbaa !24
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %25, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %40 = add nuw nsw i32 %.03042.us, 1
-  %exitcond72.not = icmp eq i32 %40, %13
+  %39 = add nuw nsw i32 %.03042.us, 1
+  %exitcond72.not = icmp eq i32 %39, %13
   br i1 %exitcond72.not, label %._crit_edge44, label %.lr.ph43.split.us
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43
@@ -2821,27 +2820,27 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   br i1 %.not, label %.lr.ph43.split.split.us.split.us.preheader, label %.lr.ph43.split.split.us.split.preheader
 
 .lr.ph43.split.split.us.split.preheader:          ; preds = %.lr.ph43.split.split.us
-  %41 = zext nneg i32 %13 to i64
-  %42 = sext i32 %.fr47 to i64
+  %40 = zext nneg i32 %13 to i64
+  %41 = sext i32 %.fr47 to i64
   %wide.trip.count56 = zext nneg i32 %13 to i64
   br label %.lr.ph43.split.split.us.split
 
 .lr.ph43.split.split.us.split.us.preheader:       ; preds = %.lr.ph43.split.split.us
-  %43 = sext i32 %.fr47 to i64
+  %42 = sext i32 %.fr47 to i64
   %wide.trip.count61 = zext nneg i32 %13 to i64
   br label %.lr.ph43.split.split.us.split.us
 
 .lr.ph43.split.split.us.split.us:                 ; preds = %.lr.ph43.split.split.us.split.us.preheader, %.lr.ph43.split.split.us.split.us
   %indvars.iv58 = phi i64 [ 0, %.lr.ph43.split.split.us.split.us.preheader ], [ %indvars.iv.next59, %.lr.ph43.split.split.us.split.us ]
-  %44 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv58
-  %45 = load double, ptr %44, align 8, !tbaa !13
-  %46 = fmul double %15, %45
-  %47 = mul nsw i64 %indvars.iv58, %43
-  %48 = getelementptr inbounds i32, ptr %18, i64 %47
-  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %48, i32 noundef %.fr47, double noundef %46, i32 noundef 0)
+  %43 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv58
+  %44 = load double, ptr %43, align 8, !tbaa !13
+  %45 = fmul double %15, %44
+  %46 = mul nsw i64 %indvars.iv58, %42
+  %47 = getelementptr inbounds i32, ptr %18, i64 %46
+  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %47, i32 noundef %.fr47, double noundef %45, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 16, !tbaa !24
-  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %46, ptr noundef nonnull %7) #22
+  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %45, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
@@ -2849,17 +2848,17 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
 
 .lr.ph43.split.split.us.split:                    ; preds = %.lr.ph43.split.split.us.split.preheader, %.lr.ph43.split.split.us.split
   %indvars.iv53 = phi i64 [ 0, %.lr.ph43.split.split.us.split.preheader ], [ %indvars.iv.next54, %.lr.ph43.split.split.us.split ]
-  %49 = xor i64 %indvars.iv53, -1
-  %50 = add nsw i64 %41, %49
-  %51 = getelementptr inbounds double, ptr %17, i64 %50
-  %52 = load double, ptr %51, align 8, !tbaa !13
-  %53 = fmul double %15, %52
-  %54 = mul nsw i64 %50, %42
-  %55 = getelementptr inbounds i32, ptr %18, i64 %54
-  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %55, i32 noundef %.fr47, double noundef %53, i32 noundef 0)
+  %48 = xor i64 %indvars.iv53, -1
+  %49 = add nsw i64 %40, %48
+  %50 = getelementptr inbounds double, ptr %17, i64 %49
+  %51 = load double, ptr %50, align 8, !tbaa !13
+  %52 = fmul double %15, %51
+  %53 = mul nsw i64 %49, %41
+  %54 = getelementptr inbounds i32, ptr %18, i64 %53
+  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %54, i32 noundef %.fr47, double noundef %52, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 16, !tbaa !24
-  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %53, ptr noundef nonnull %7) #22
+  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %52, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -2867,13 +2866,13 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %56 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %57 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %57, ptr %56, align 4, !tbaa !4
-  %58 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %59 = trunc i64 %indvars.iv to i32
-  %60 = add i32 %.fr47, %59
-  store i32 %60, ptr %58, align 4, !tbaa !4
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %56, ptr %55, align 4, !tbaa !4
+  %57 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %58 = trunc i64 %indvars.iv to i32
+  %59 = add i32 %.fr47, %58
+  store i32 %59, ptr %57, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
@@ -2884,25 +2883,25 @@ define void @applyExponentiatedPauliHamil(ptr noundef readonly byval(%struct.Qur
   ret void
 
 .lr.ph43.split.split:                             ; preds = %.lr.ph43.split, %.lr.ph43.split.split
-  %.03042 = phi i32 [ %70, %.lr.ph43.split.split ], [ 0, %.lr.ph43.split ]
-  %61 = xor i32 %.03042, -1
-  %62 = add nsw i32 %13, %61
-  %.033 = select i1 %.not, i32 %.03042, i32 %62
-  %63 = sext i32 %.033 to i64
-  %64 = getelementptr inbounds double, ptr %17, i64 %63
-  %65 = load double, ptr %64, align 8, !tbaa !13
-  %66 = fmul double %15, %65
-  %67 = mul nsw i32 %.033, %.fr47
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %18, i64 %68
-  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %69, i32 noundef %.fr47, double noundef %66, i32 noundef 0)
-  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, ptr noundef %69, i32 noundef %.fr47, double noundef %66, i32 noundef 1)
+  %.03042 = phi i32 [ %69, %.lr.ph43.split.split ], [ 0, %.lr.ph43.split ]
+  %60 = xor i32 %.03042, -1
+  %61 = add nsw i32 %13, %60
+  %.033 = select i1 %.not, i32 %.03042, i32 %61
+  %62 = sext i32 %.033 to i64
+  %63 = getelementptr inbounds double, ptr %17, i64 %62
+  %64 = load double, ptr %63, align 8, !tbaa !13
+  %65 = fmul double %15, %64
+  %66 = mul nsw i32 %.033, %.fr47
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %18, i64 %67
+  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef %68, i32 noundef %.fr47, double noundef %65, i32 noundef 0)
+  call void @statevec_multiRotatePauli(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %6, ptr noundef %68, i32 noundef %.fr47, double noundef %65, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 16, !tbaa !24
-  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %66, ptr noundef nonnull %7) #22
+  call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull @.str.8, double noundef %65, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %70 = add nuw nsw i32 %.03042, 1
-  %exitcond52.not = icmp eq i32 %70, %13
+  %69 = add nuw nsw i32 %.03042, 1
+  %exitcond52.not = icmp eq i32 %69, %13
   br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph43.split.split
 }
 

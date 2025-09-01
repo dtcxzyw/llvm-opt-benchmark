@@ -59,7 +59,7 @@ define void @_ZN3zmq16socks_greeting_tC2EPKhh(ptr noundef nonnull writeonly alig
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !8
-  %8 = getelementptr inbounds nuw [255 x i8], ptr %0, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %7, ptr %8, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
@@ -104,7 +104,7 @@ define void @_ZN3zmq24socks_greeting_encoder_t6encodeERKNS_16socks_greeting_tE(p
   %12 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.014 = phi i8 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.01013 = phi ptr [ %15, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds nuw [255 x i8], ptr %1, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %.01013, i64 1
   store i8 %14, ptr %.01013, align 1, !tbaa !8

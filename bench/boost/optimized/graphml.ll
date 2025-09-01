@@ -10083,7 +10083,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE9parse_bomILi3072EEEvRP
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i11 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 1
@@ -10220,7 +10220,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE9parse_bomILi0EEEvRPc.e
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i11 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 1
@@ -10357,7 +10357,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE9parse_bomILi3136EEEvRP
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i11 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 1
@@ -10494,7 +10494,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE9parse_bomILi64EEEvRPc.
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i11 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 1
@@ -14258,7 +14258,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %19 = icmp slt i8 %18, 0
   %narrow.i.i = select i1 %19, i8 122, i8 %18
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %.not47 = icmp eq i8 %21, 0
   br i1 %.not47, label %.preheader, label %22
@@ -14488,7 +14488,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi3072E
   %127 = icmp slt i8 %126, 0
   %narrow.i.i53 = select i1 %127, i8 122, i8 %126
   %.0.i.i54 = zext nneg i8 %narrow.i.i53 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i54
+  %128 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i54
   %129 = load i8, ptr %128, align 1, !tbaa !20
   %.not = icmp eq i8 %129, 0
   br i1 %.not, label %.preheader75, label %130
@@ -14599,7 +14599,7 @@ _ZN5boost13property_tree6detail8rapidxml11memory_poolIcE13allocate_nodeENS2_9nod
   %40 = icmp slt i8 %39, 0
   %narrow.i.i.i = select i1 %40, i8 122, i8 %39
   %.0.i.i.i28 = zext nneg i8 %narrow.i.i.i to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i28
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i28
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %.not.i = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -14637,7 +14637,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %58 = icmp slt i8 %57, 0
   %narrow.i.i.i30 = select i1 %58, i8 122, i8 %57
   %.0.i.i.i31 = zext nneg i8 %narrow.i.i.i30 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i31
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i31
   %60 = load i8, ptr %59, align 1, !tbaa !20
   %.not.i32 = icmp eq i8 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 1
@@ -14908,7 +14908,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %6 = icmp slt i8 %5, 0
   %narrow.i.i68 = select i1 %6, i8 122, i8 %5
   %.0.i.i69 = zext nneg i8 %narrow.i.i68 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i69
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i69
   %8 = load i8, ptr %7, align 1, !tbaa !20
   %.not70 = icmp eq i8 %8, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
@@ -14934,7 +14934,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %20 = icmp slt i8 %19, 0
   %narrow.i.i.i = select i1 %20, i8 122, i8 %19
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %.not.i = icmp eq i8 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -15028,7 +15028,7 @@ _ZN5boost13property_tree6detail8rapidxml8xml_nodeIcE16append_attributeEPNS2_13xm
   %67 = icmp slt i8 %66, 0
   %narrow.i.i.i49 = select i1 %67, i8 122, i8 %66
   %.0.i.i.i50 = zext nneg i8 %narrow.i.i.i49 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i50
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i50
   %69 = load i8, ptr %68, align 1, !tbaa !20
   %.not.i51 = icmp eq i8 %69, 0
   %70 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
@@ -15069,7 +15069,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %85 = icmp slt i8 %84, 0
   %narrow.i.i.i55 = select i1 %85, i8 122, i8 %84
   %.0.i.i.i56 = zext nneg i8 %narrow.i.i.i55 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i56
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i56
   %87 = load i8, ptr %86, align 1, !tbaa !20
   %.not.i57 = icmp eq i8 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 1
@@ -15151,7 +15151,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %123 = icmp slt i8 %122, 0
   %narrow.i.i.i63 = select i1 %123, i8 122, i8 %122
   %.0.i.i.i64 = zext nneg i8 %narrow.i.i.i63 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i64
   %125 = load i8, ptr %124, align 1, !tbaa !20
   %.not.i65 = icmp eq i8 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 1
@@ -15163,7 +15163,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %128 = icmp slt i8 %127, 0
   %narrow.i.i = select i1 %128, i8 122, i8 %127
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i
   %130 = load i8, ptr %129, align 1, !tbaa !20
   %.not = icmp eq i8 %130, 0
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !339
@@ -15194,7 +15194,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %16 = icmp slt i8 %15, 0
   %narrow.i.i.i = select i1 %16, i8 122, i8 %15
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !20
   %.not.i = icmp eq i8 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -15230,7 +15230,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %31 = icmp slt i8 %30, 0
   %narrow.i.i.i25 = select i1 %31, i8 122, i8 %30
   %.0.i.i.i26 = zext nneg i8 %narrow.i.i.i25 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i26
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i26
   %33 = load i8, ptr %32, align 1, !tbaa !20
   %.not.i27 = icmp eq i8 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
@@ -15246,7 +15246,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %37 = icmp slt i8 %36, 0
   %narrow.i.i.i29 = select i1 %37, i8 122, i8 %36
   %.0.i.i.i30 = zext nneg i8 %narrow.i.i.i29 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i30
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i30
   %39 = load i8, ptr %38, align 1, !tbaa !20
   %.not.i31 = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 1
@@ -15441,7 +15441,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -15608,7 +15608,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -15703,7 +15703,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -15839,7 +15839,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -16006,7 +16006,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -16101,7 +16101,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -16237,7 +16237,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE24lookup_text_pure_with_wsE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE24lookup_text_pure_with_wsE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -16411,7 +16411,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %.1 = phi ptr [ %90, %89 ], [ %100, %91 ]
   %92 = load i8, ptr %.1, align 1, !tbaa !20
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !20
   %96 = icmp eq i8 %95, -1
   %97 = shl i64 %.056, 4
@@ -16506,7 +16506,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %.4 = phi ptr [ %162, %.preheader ], [ %86, %85 ]
   %154 = load i8, ptr %.4, align 1, !tbaa !20
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !20
   %158 = icmp eq i8 %157, -1
   %159 = mul i64 %.052, 10
@@ -16621,7 +16621,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characte
   unreachable
 
 .thread:                                          ; preds = %.backedge, %14, %17, %21, %37, %33, %29, %56, %52, %48, %44, %67, %63, %78, %74, %11
-  %224 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %224 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %225 = load i8, ptr %224, align 1, !tbaa !20
   %.not58 = icmp eq i8 %225, 0
   br i1 %.not58, label %232, label %226
@@ -16637,7 +16637,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characte
   %229 = icmp slt i8 %228, 0
   %narrow.i.i65 = select i1 %229, i8 122, i8 %228
   %.0.i.i66 = zext nneg i8 %narrow.i.i65 to i64
-  %230 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i66
+  %230 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i66
   %231 = load i8, ptr %230, align 1, !tbaa !20
   %.not59 = icmp eq i8 %231, 0
   br i1 %.not59, label %.backedge.loopexit, label %227, !llvm.loop !346
@@ -16711,7 +16711,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %19 = icmp slt i8 %18, 0
   %narrow.i.i = select i1 %19, i8 122, i8 %18
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %.not47 = icmp eq i8 %21, 0
   br i1 %.not47, label %.preheader, label %22
@@ -16941,7 +16941,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE13parse_commentILi0EEEP
   %127 = icmp slt i8 %126, 0
   %narrow.i.i53 = select i1 %127, i8 122, i8 %126
   %.0.i.i54 = zext nneg i8 %narrow.i.i53 to i64
-  %128 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i54
+  %128 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i54
   %129 = load i8, ptr %128, align 1, !tbaa !20
   %.not = icmp eq i8 %129, 0
   br i1 %.not, label %.preheader75, label %130
@@ -17052,7 +17052,7 @@ _ZN5boost13property_tree6detail8rapidxml11memory_poolIcE13allocate_nodeENS2_9nod
   %40 = icmp slt i8 %39, 0
   %narrow.i.i.i = select i1 %40, i8 122, i8 %39
   %.0.i.i.i28 = zext nneg i8 %narrow.i.i.i to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i28
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i28
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %.not.i = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -17090,7 +17090,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %58 = icmp slt i8 %57, 0
   %narrow.i.i.i30 = select i1 %58, i8 122, i8 %57
   %.0.i.i.i31 = zext nneg i8 %narrow.i.i.i30 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i31
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i31
   %60 = load i8, ptr %59, align 1, !tbaa !20
   %.not.i32 = icmp eq i8 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 1
@@ -17361,7 +17361,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %6 = icmp slt i8 %5, 0
   %narrow.i.i68 = select i1 %6, i8 122, i8 %5
   %.0.i.i69 = zext nneg i8 %narrow.i.i68 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i69
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i69
   %8 = load i8, ptr %7, align 1, !tbaa !20
   %.not70 = icmp eq i8 %8, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
@@ -17387,7 +17387,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %20 = icmp slt i8 %19, 0
   %narrow.i.i.i = select i1 %20, i8 122, i8 %19
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %.not.i = icmp eq i8 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -17481,7 +17481,7 @@ _ZN5boost13property_tree6detail8rapidxml8xml_nodeIcE16append_attributeEPNS2_13xm
   %67 = icmp slt i8 %66, 0
   %narrow.i.i.i49 = select i1 %67, i8 122, i8 %66
   %.0.i.i.i50 = zext nneg i8 %narrow.i.i.i49 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i50
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i50
   %69 = load i8, ptr %68, align 1, !tbaa !20
   %.not.i51 = icmp eq i8 %69, 0
   %70 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
@@ -17522,7 +17522,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %85 = icmp slt i8 %84, 0
   %narrow.i.i.i55 = select i1 %85, i8 122, i8 %84
   %.0.i.i.i56 = zext nneg i8 %narrow.i.i.i55 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i56
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i56
   %87 = load i8, ptr %86, align 1, !tbaa !20
   %.not.i57 = icmp eq i8 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 1
@@ -17604,7 +17604,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %123 = icmp slt i8 %122, 0
   %narrow.i.i.i63 = select i1 %123, i8 122, i8 %122
   %.0.i.i.i64 = zext nneg i8 %narrow.i.i.i63 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i64
   %125 = load i8, ptr %124, align 1, !tbaa !20
   %.not.i65 = icmp eq i8 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 1
@@ -17616,7 +17616,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %128 = icmp slt i8 %127, 0
   %narrow.i.i = select i1 %128, i8 122, i8 %127
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i
   %130 = load i8, ptr %129, align 1, !tbaa !20
   %.not = icmp eq i8 %130, 0
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !357
@@ -17668,7 +17668,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -17684,7 +17684,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %32 = icmp slt i8 %31, 0
   %narrow.i.i.i24 = select i1 %32, i8 122, i8 %31
   %.0.i.i.i25 = zext nneg i8 %narrow.i.i.i24 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i25
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i25
   %34 = load i8, ptr %33, align 1, !tbaa !20
   %.not.i26 = icmp eq i8 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 1
@@ -17871,7 +17871,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -18038,7 +18038,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -18133,7 +18133,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -18269,7 +18269,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -18436,7 +18436,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -18531,7 +18531,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -18667,7 +18667,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE22lookup_text_pure_no_wsE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE22lookup_text_pure_no_wsE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -18834,7 +18834,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -18929,7 +18929,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -19098,7 +19098,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %19 = icmp slt i8 %18, 0
   %narrow.i.i = select i1 %19, i8 122, i8 %18
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %.not47 = icmp eq i8 %21, 0
   br i1 %.not47, label %.preheader, label %22
@@ -19289,7 +19289,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi3136EEEPNS2
   %113 = icmp slt i8 %112, 0
   %narrow.i.i51 = select i1 %113, i8 122, i8 %112
   %.0.i.i52 = zext nneg i8 %narrow.i.i51 to i64
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i52
+  %114 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i52
   %115 = load i8, ptr %114, align 1, !tbaa !20
   %.not = icmp eq i8 %115, 0
   br i1 %.not, label %.preheader68, label %116
@@ -19400,7 +19400,7 @@ _ZN5boost13property_tree6detail8rapidxml11memory_poolIcE13allocate_nodeENS2_9nod
   %40 = icmp slt i8 %39, 0
   %narrow.i.i.i = select i1 %40, i8 122, i8 %39
   %.0.i.i.i28 = zext nneg i8 %narrow.i.i.i to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i28
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i28
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %.not.i = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -19438,7 +19438,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %58 = icmp slt i8 %57, 0
   %narrow.i.i.i30 = select i1 %58, i8 122, i8 %57
   %.0.i.i.i31 = zext nneg i8 %narrow.i.i.i30 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i31
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i31
   %60 = load i8, ptr %59, align 1, !tbaa !20
   %.not.i32 = icmp eq i8 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 1
@@ -19825,7 +19825,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %6 = icmp slt i8 %5, 0
   %narrow.i.i68 = select i1 %6, i8 122, i8 %5
   %.0.i.i69 = zext nneg i8 %narrow.i.i68 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i69
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i69
   %8 = load i8, ptr %7, align 1, !tbaa !20
   %.not70 = icmp eq i8 %8, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
@@ -19851,7 +19851,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %20 = icmp slt i8 %19, 0
   %narrow.i.i.i = select i1 %20, i8 122, i8 %19
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %.not.i = icmp eq i8 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -19945,7 +19945,7 @@ _ZN5boost13property_tree6detail8rapidxml8xml_nodeIcE16append_attributeEPNS2_13xm
   %67 = icmp slt i8 %66, 0
   %narrow.i.i.i49 = select i1 %67, i8 122, i8 %66
   %.0.i.i.i50 = zext nneg i8 %narrow.i.i.i49 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i50
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i50
   %69 = load i8, ptr %68, align 1, !tbaa !20
   %.not.i51 = icmp eq i8 %69, 0
   %70 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
@@ -19986,7 +19986,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %85 = icmp slt i8 %84, 0
   %narrow.i.i.i55 = select i1 %85, i8 122, i8 %84
   %.0.i.i.i56 = zext nneg i8 %narrow.i.i.i55 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i56
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i56
   %87 = load i8, ptr %86, align 1, !tbaa !20
   %.not.i57 = icmp eq i8 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 1
@@ -20068,7 +20068,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %123 = icmp slt i8 %122, 0
   %narrow.i.i.i63 = select i1 %123, i8 122, i8 %122
   %.0.i.i.i64 = zext nneg i8 %narrow.i.i.i63 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i64
   %125 = load i8, ptr %124, align 1, !tbaa !20
   %.not.i65 = icmp eq i8 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 1
@@ -20080,7 +20080,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %128 = icmp slt i8 %127, 0
   %narrow.i.i = select i1 %128, i8 122, i8 %127
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i
   %130 = load i8, ptr %129, align 1, !tbaa !20
   %.not = icmp eq i8 %130, 0
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !374
@@ -20111,7 +20111,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %16 = icmp slt i8 %15, 0
   %narrow.i.i.i = select i1 %16, i8 122, i8 %15
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !20
   %.not.i = icmp eq i8 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -20147,7 +20147,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %31 = icmp slt i8 %30, 0
   %narrow.i.i.i25 = select i1 %31, i8 122, i8 %30
   %.0.i.i.i26 = zext nneg i8 %narrow.i.i.i25 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i26
+  %32 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i26
   %33 = load i8, ptr %32, align 1, !tbaa !20
   %.not.i27 = icmp eq i8 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
@@ -20163,7 +20163,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %37 = icmp slt i8 %36, 0
   %narrow.i.i.i29 = select i1 %37, i8 122, i8 %36
   %.0.i.i.i30 = zext nneg i8 %narrow.i.i.i29 to i64
-  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i30
+  %38 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i30
   %39 = load i8, ptr %38, align 1, !tbaa !20
   %.not.i31 = icmp eq i8 %39, 0
   %40 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 1
@@ -20355,7 +20355,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -20522,7 +20522,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -20617,7 +20617,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -20753,7 +20753,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -20920,7 +20920,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -21015,7 +21015,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -21151,7 +21151,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE24lookup_text_pure_with_wsE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE24lookup_text_pure_with_wsE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -21325,7 +21325,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %.1 = phi ptr [ %90, %89 ], [ %100, %91 ]
   %92 = load i8, ptr %.1, align 1, !tbaa !20
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !20
   %96 = icmp eq i8 %95, -1
   %97 = shl i64 %.056, 4
@@ -21420,7 +21420,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %.4 = phi ptr [ %162, %.preheader ], [ %86, %85 ]
   %154 = load i8, ptr %.4, align 1, !tbaa !20
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !20
   %158 = icmp eq i8 %157, -1
   %159 = mul i64 %.052, 10
@@ -21535,7 +21535,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characte
   unreachable
 
 .thread:                                          ; preds = %.backedge, %14, %17, %21, %37, %33, %29, %56, %52, %48, %44, %67, %63, %78, %74, %11
-  %224 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %224 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %225 = load i8, ptr %224, align 1, !tbaa !20
   %.not58 = icmp eq i8 %225, 0
   br i1 %.not58, label %232, label %226
@@ -21551,7 +21551,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characte
   %229 = icmp slt i8 %228, 0
   %narrow.i.i65 = select i1 %229, i8 122, i8 %228
   %.0.i.i66 = zext nneg i8 %narrow.i.i65 to i64
-  %230 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i66
+  %230 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i66
   %231 = load i8, ptr %230, align 1, !tbaa !20
   %.not59 = icmp eq i8 %231, 0
   br i1 %.not59, label %.backedge.loopexit, label %227, !llvm.loop !381
@@ -21611,7 +21611,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %19 = icmp slt i8 %18, 0
   %narrow.i.i = select i1 %19, i8 122, i8 %18
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %20 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i
+  %20 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !20
   %.not47 = icmp eq i8 %21, 0
   br i1 %.not47, label %.preheader, label %22
@@ -21802,7 +21802,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE8parse_piILi64EEEPNS2_8
   %113 = icmp slt i8 %112, 0
   %narrow.i.i51 = select i1 %113, i8 122, i8 %112
   %.0.i.i52 = zext nneg i8 %narrow.i.i51 to i64
-  %114 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i52
+  %114 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i52
   %115 = load i8, ptr %114, align 1, !tbaa !20
   %.not = icmp eq i8 %115, 0
   br i1 %.not, label %.preheader68, label %116
@@ -21913,7 +21913,7 @@ _ZN5boost13property_tree6detail8rapidxml11memory_poolIcE13allocate_nodeENS2_9nod
   %40 = icmp slt i8 %39, 0
   %narrow.i.i.i = select i1 %40, i8 122, i8 %39
   %.0.i.i.i28 = zext nneg i8 %narrow.i.i.i to i64
-  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i28
+  %41 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i28
   %42 = load i8, ptr %41, align 1, !tbaa !20
   %.not.i = icmp eq i8 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -21951,7 +21951,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %58 = icmp slt i8 %57, 0
   %narrow.i.i.i30 = select i1 %58, i8 122, i8 %57
   %.0.i.i.i31 = zext nneg i8 %narrow.i.i.i30 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i31
+  %59 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i31
   %60 = load i8, ptr %59, align 1, !tbaa !20
   %.not.i32 = icmp eq i8 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 1
@@ -22338,7 +22338,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %6 = icmp slt i8 %5, 0
   %narrow.i.i68 = select i1 %6, i8 122, i8 %5
   %.0.i.i69 = zext nneg i8 %narrow.i.i68 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i69
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i69
   %8 = load i8, ptr %7, align 1, !tbaa !20
   %.not70 = icmp eq i8 %8, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
@@ -22364,7 +22364,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %20 = icmp slt i8 %19, 0
   %narrow.i.i.i = select i1 %20, i8 122, i8 %19
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %21 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %.not.i = icmp eq i8 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -22458,7 +22458,7 @@ _ZN5boost13property_tree6detail8rapidxml8xml_nodeIcE16append_attributeEPNS2_13xm
   %67 = icmp slt i8 %66, 0
   %narrow.i.i.i49 = select i1 %67, i8 122, i8 %66
   %.0.i.i.i50 = zext nneg i8 %narrow.i.i.i49 to i64
-  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i50
+  %68 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i50
   %69 = load i8, ptr %68, align 1, !tbaa !20
   %.not.i51 = icmp eq i8 %69, 0
   %70 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 1
@@ -22499,7 +22499,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %85 = icmp slt i8 %84, 0
   %narrow.i.i.i55 = select i1 %85, i8 122, i8 %84
   %.0.i.i.i56 = zext nneg i8 %narrow.i.i.i55 to i64
-  %86 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i56
+  %86 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i56
   %87 = load i8, ptr %86, align 1, !tbaa !20
   %.not.i57 = icmp eq i8 %87, 0
   %88 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 1
@@ -22581,7 +22581,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %123 = icmp slt i8 %122, 0
   %narrow.i.i.i63 = select i1 %123, i8 122, i8 %122
   %.0.i.i.i64 = zext nneg i8 %narrow.i.i.i63 to i64
-  %124 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i64
   %125 = load i8, ptr %124, align 1, !tbaa !20
   %.not.i65 = icmp eq i8 %125, 0
   %126 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 1
@@ -22593,7 +22593,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_15whitespace_
   %128 = icmp slt i8 %127, 0
   %narrow.i.i = select i1 %128, i8 122, i8 %127
   %.0.i.i = zext nneg i8 %narrow.i.i to i64
-  %129 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 0, i64 %.0.i.i
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE21lookup_attribute_nameE, i64 %.0.i.i
   %130 = load i8, ptr %129, align 1, !tbaa !20
   %.not = icmp eq i8 %130, 0
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !392
@@ -22645,7 +22645,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree6detail8rapidxml12xml_d
   %26 = icmp slt i8 %25, 0
   %narrow.i.i.i = select i1 %26, i8 122, i8 %25
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE16lookup_node_nameE, i64 %.0.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not.i = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -22661,7 +22661,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_14node_name_p
   %32 = icmp slt i8 %31, 0
   %narrow.i.i.i24 = select i1 %32, i8 122, i8 %31
   %.0.i.i.i25 = zext nneg i8 %narrow.i.i.i24 to i64
-  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 0, i64 %.0.i.i.i25
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE17lookup_whitespaceE, i64 %.0.i.i.i25
   %34 = load i8, ptr %33, align 1, !tbaa !20
   %.not.i26 = icmp eq i8 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 1
@@ -22848,7 +22848,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_1_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -23015,7 +23015,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -23110,7 +23110,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -23246,7 +23246,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE28lookup_attribute_data_2_pureE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -23413,7 +23413,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -23508,7 +23508,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10
@@ -23644,7 +23644,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost13property_tree6detail8rapidxml
   %5 = icmp slt i8 %4, 0
   %narrow.i.i.i = select i1 %5, i8 122, i8 %4
   %.0.i.i.i = zext nneg i8 %narrow.i.i.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE22lookup_text_pure_no_wsE, i64 0, i64 %.0.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE22lookup_text_pure_no_wsE, i64 %.0.i.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !20
   %.not.i = icmp eq i8 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -23811,7 +23811,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %.1 = phi ptr [ %88, %87 ], [ %98, %89 ]
   %90 = load i8, ptr %.1, align 1, !tbaa !20
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !20
   %94 = icmp eq i8 %93, -1
   %95 = shl i64 %.052, 4
@@ -23906,7 +23906,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %.4 = phi ptr [ %160, %.preheader ], [ %84, %83 ]
   %152 = load i8, ptr %.4, align 1, !tbaa !20
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw [256 x i8], ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @_ZN5boost13property_tree6detail8rapidxml8internal13lookup_tablesILi0EE13lookup_digitsE, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !20
   %156 = icmp eq i8 %155, -1
   %157 = mul i64 %.048, 10

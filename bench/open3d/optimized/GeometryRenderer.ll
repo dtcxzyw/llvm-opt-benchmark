@@ -4065,7 +4065,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit: ; pred
 
 98:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit
   %99 = urem i64 %.02898, 5
-  %100 = getelementptr inbounds nuw [5 x %"class.Eigen::Matrix.36"], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %"class.Eigen::Matrix.36", ptr %4, i64 %99
   %101 = sub nuw nsw i64 %92, %96
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr %84, i64 noundef %101, ptr noundef nonnull align 8 dereferenceable(24) %100)
           to label %._crit_edge unwind label %121

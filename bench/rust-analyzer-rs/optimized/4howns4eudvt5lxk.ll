@@ -3766,7 +3766,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i88: ; preds = %252
   br i1 %269, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i88._crit_edge, label %271, !prof !574
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i88._crit_edge: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i88
-  %.phi.trans.insert = getelementptr inbounds nuw [3 x i64], ptr %25, i64 0, i64 %268
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %25, i64 %268
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !575
   %270 = and i64 %267, 63
   br label %272
@@ -4310,7 +4310,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i126: ; preds = %429
   br i1 %446, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i126._crit_edge, label %448, !prof !574
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i126._crit_edge: ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i126
-  %.phi.trans.insert237 = getelementptr inbounds nuw [3 x i64], ptr %22, i64 0, i64 %445
+  %.phi.trans.insert237 = getelementptr inbounds nuw i64, ptr %22, i64 %445
   %.pre238 = load i64, ptr %.phi.trans.insert237, align 8, !alias.scope !678
   %447 = and i64 %444, 63
   br label %449
@@ -4695,7 +4695,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %19, i64 0, i64 %10
+  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16

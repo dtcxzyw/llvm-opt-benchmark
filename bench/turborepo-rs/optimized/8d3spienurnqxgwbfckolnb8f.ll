@@ -376,11 +376,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = and i32 %.sroa.0.0.copyload.i, 255
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = and i32 %.sroa.0.0.copyload.i23, 255
   %22 = zext nneg i32 %21 to i64
-  %switch.gep31 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %22
+  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %22
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias noundef nonnull sret([16 x i8]) align 2 captures(none) dereferenceable(16) %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -476,7 +476,7 @@ define range(i32 0, -224) i32 @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_ter
 switch.lookup:
   %1 = and i32 %0, 255
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.46.0.insert.insert = and i32 %0, -256
   %.sroa.05.0.insert.insert = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert

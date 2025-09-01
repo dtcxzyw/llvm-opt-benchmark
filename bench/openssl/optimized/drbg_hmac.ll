@@ -429,7 +429,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
 
 12:                                               ; preds = %7, %9
   %.01731 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 0, i64 %.01731
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.01731
   %14 = load i8, ptr %13, align 1, !tbaa !23
   %.not24 = icmp eq i8 %14, 0
   br i1 %.not24, label %9, label %.thread
@@ -441,7 +441,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
 
 17:                                               ; preds = %.preheader, %15
   %.032 = phi i64 [ 0, %.preheader ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %.032
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.032
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %.not25 = icmp eq i8 %19, 0
   br i1 %.not25, label %15, label %.thread

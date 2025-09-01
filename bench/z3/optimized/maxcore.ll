@@ -637,10 +637,10 @@ define linkonce_odr hidden void @_ZN7maxcoreC2ERN3opt14maxsat_contextEjR6vectorI
 
 switch.lookup:                                    ; preds = %103
   %122 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN7maxcoreC2ERN3opt14maxsat_contextEjR6vectorINS0_4softELb1EjENS_10strategy_tE, i64 0, i64 %122
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7maxcoreC2ERN3opt14maxsat_contextEjR6vectorINS0_4softELb1EjENS_10strategy_tE, i64 %122
   %switch.load = load ptr, ptr %switch.gep, align 8
   %123 = zext nneg i32 %4 to i64
-  %switch.gep51 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN7maxcoreC2ERN3opt14maxsat_contextEjR6vectorINS0_4softELb1EjENS_10strategy_tE.1, i64 0, i64 %123
+  %switch.gep51 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7maxcoreC2ERN3opt14maxsat_contextEjR6vectorINS0_4softELb1EjENS_10strategy_tE.1, i64 %123
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   %124 = load i64, ptr %74, align 8, !tbaa !96
   %125 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %72, i64 noundef 0, i64 noundef %124, ptr noundef nonnull %switch.load, i64 noundef %switch.load52)

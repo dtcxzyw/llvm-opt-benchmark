@@ -126,7 +126,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr noundef captures(none) %0
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.047
   %12 = load i8, ptr %11, align 1, !tbaa !10
-  %13 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %14 = load i8, ptr %13, align 1, !tbaa !10
   %15 = xor i8 %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.047
@@ -560,11 +560,11 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   br label %19
 
 19:                                               ; preds = %16, %.backedge
-  %20 = getelementptr inbounds nuw [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr @test_counters, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
-  %22 = getelementptr inbounds nuw [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr @test_lengths, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !17
-  %24 = getelementptr inbounds nuw [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [375 x i8], ptr @test_input, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -573,14 +573,14 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store i32 857760878, ptr %6, align 4, !tbaa !8
   store i32 2036477234, ptr %7, align 8, !tbaa !8
   store i32 1797285236, ptr %8, align 4, !tbaa !8
-  %25 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv, i64 28
+  %25 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   %.0.copyload.i26.i.i = load i32, ptr %25, align 4
   store i32 %.0.copyload.i26.i.i, ptr %10, align 4, !tbaa !8
   store i32 %21, ptr %11, align 8, !tbaa !8
   store i32 0, ptr %12, align 4, !tbaa !8
   store i32 0, ptr %13, align 8, !tbaa !8
-  %26 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @test_nonces, i64 0, i64 %indvars.iv, i64 8
+  %26 = getelementptr inbounds nuw [12 x i8], ptr @test_nonces, i64 %indvars.iv, i64 8
   %.0.copyload.i.i10.i = load i32, ptr %26, align 4
   store i32 %.0.copyload.i.i10.i, ptr %14, align 4, !tbaa !8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -588,7 +588,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   %27 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %23, ptr noundef nonnull readonly %24, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %28 = getelementptr inbounds nuw [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [375 x i8], ptr @test_output, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %28, i64 %23)
   %29 = icmp eq i32 %bcmp, 0
   br i1 %29, label %32, label %30

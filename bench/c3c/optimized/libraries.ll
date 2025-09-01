@@ -863,7 +863,7 @@ get_optional_string_array_as_array.exit:          ; preds = %379, %get_optional_
 
 add_library.exit:                                 ; preds = %get_optional_string_array_as_array.exit, %109, %.preheader.i.i
   %397 = add nuw nsw i64 %.0111354, 1
-  %398 = getelementptr inbounds nuw [2048 x ptr], ptr %7, i64 0, i64 %.0111354
+  %398 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0111354
   store ptr %93, ptr %398, align 8
   %exitcond485.not = icmp eq i64 %397, %wide.trip.count484
   br i1 %exitcond485.not, label %._crit_edge, label %27, !llvm.loop !13
@@ -932,7 +932,7 @@ find_library.exit:                                ; preds = %.lr.ph.i147
 
 .lr.ph366:                                        ; preds = %.preheader, %.loopexit
   %.0110365 = phi i64 [ %540, %.loopexit ], [ 0, %.preheader ]
-  %417 = getelementptr inbounds nuw [2048 x ptr], ptr %7, i64 0, i64 %.0110365
+  %417 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0110365
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %420 = load ptr, ptr %419, align 8
@@ -1000,7 +1000,7 @@ find_library.exit:                                ; preds = %.lr.ph.i147
   %455 = load ptr, ptr %418, align 8
   %456 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
   %457 = zext i32 %456 to i64
-  %458 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %457
   %459 = load ptr, ptr %458, align 8
   %460 = call ptr @file_append_path(ptr noundef %455, ptr noundef %459) #8
   %461 = call zeroext i1 @file_is_dir(ptr noundef %460) #8
@@ -1101,7 +1101,7 @@ find_library.exit:                                ; preds = %.lr.ph.i147
   %512 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %513 = load ptr, ptr %512, align 8
   %514 = zext nneg i32 %.lcssa224 to i64
-  %515 = getelementptr inbounds nuw [3 x ptr], ptr @trust_level, i64 0, i64 %514
+  %515 = getelementptr inbounds nuw ptr, ptr @trust_level, i64 %514
   %516 = load ptr, ptr %515, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef %513, ptr noundef %516) #9
   unreachable
@@ -1227,7 +1227,7 @@ define internal fastcc void @add_library_dependency(ptr noundef captures(none) %
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %.pre113 to i64
-  %21 = getelementptr inbounds nuw [25 x ptr], ptr @arch_os_target, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @arch_os_target, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.27, ptr noundef %19, ptr noundef %22) #9
   unreachable

@@ -1974,7 +1974,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %167, %163
   %184 = lshr i32 %179, %183
   %185 = and i32 %184, 1
   %186 = tail call ptr @Map_NodeReadData(ptr noundef %182, i32 noundef %185) #15
-  %187 = getelementptr inbounds nuw [10 x ptr], ptr %2, i64 0, i64 %indvars.iv.i141.i
+  %187 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i141.i
   store ptr %186, ptr %187, align 8, !tbaa !80
   %indvars.iv.next.i142.i = add nuw nsw i64 %indvars.iv.i141.i, 1
   %exitcond.not.i143.i = icmp eq i64 %indvars.iv.next.i142.i, %wide.trip.count.i140.i
@@ -2011,7 +2011,7 @@ Abc_NodeFromMapCutPhase.exit144.i:                ; preds = %._crit_edge.i138.i,
   %201 = lshr i32 %196, %200
   %202 = and i32 %201, 1
   %203 = tail call ptr @Map_NodeReadData(ptr noundef %199, i32 noundef %202) #15
-  %204 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %204 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
   store ptr %203, ptr %204, align 8, !tbaa !80
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3212,7 +3212,7 @@ define internal fastcc ptr @Abc_NodeFromMapPhase_rec(ptr noundef %0, ptr noundef
   %18 = lshr i32 %13, %17
   %19 = and i32 %18, 1
   %20 = tail call fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %16, i32 noundef %19)
-  %21 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

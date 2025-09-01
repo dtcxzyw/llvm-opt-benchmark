@@ -2353,7 +2353,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr noundef re
   br i1 %23, label %.lr.ph192.i, label %.loopexit.i
 
 .lr.ph192.i:                                      ; preds = %.preheader.i
-  %34 = getelementptr inbounds nuw [6 x i64], ptr @Exp_Truth.Truth6, i64 0, i64 %indvars.iv236.i
+  %34 = getelementptr inbounds nuw i64, ptr @Exp_Truth.Truth6, i64 %indvars.iv236.i
   %35 = load i64, ptr %34, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv236.i
   %37 = load ptr, ptr %36, align 8, !tbaa !42
@@ -3015,7 +3015,7 @@ sub_0:                                            ; preds = %2
 
 21:                                               ; preds = %14
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds i32, ptr %4, i64 %22
   store i32 1, ptr %23, align 4, !tbaa !14
   %.pre = load ptr, ptr %3, align 8, !tbaa !32
   br label %24
@@ -3033,7 +3033,7 @@ sub_0:                                            ; preds = %2
 .lr.ph:                                           ; preds = %27, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %27 ]
   %.01320 = phi ptr [ %33, %32 ], [ %28, %27 ]
-  %29 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %32

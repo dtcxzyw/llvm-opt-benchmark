@@ -6872,7 +6872,7 @@ _ZNK12_GLOBAL__N_19EdgeCache3getEN3ue212graph_detail17vertex_descriptorINS1_9ue2
   %2543 = load i8, ptr %1705, align 8
   %2544 = zext i8 %2543 to i64
   %2545 = lshr i64 %2544, 6
-  %2546 = getelementptr inbounds nuw [4 x i64], ptr %2509, i64 0, i64 %2545
+  %2546 = getelementptr inbounds nuw i64, ptr %2509, i64 %2545
   %2547 = load i64, ptr %2546, align 8
   %2548 = and i64 %2544, 63
   %2549 = shl nuw i64 1, %2548

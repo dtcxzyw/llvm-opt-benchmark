@@ -157,7 +157,7 @@ define dso_local zeroext i1 @hid_ignore(ptr noundef %0) #0 align 16 {
 74:                                               ; preds = %80
   %75 = add i32 %83, 1
   %76 = sext i32 %75 to i64
-  %77 = getelementptr [53 x %struct.acpi_device_id], ptr @elan_acpi_id, i64 0, i64 %76
+  %77 = getelementptr %struct.acpi_device_id, ptr @elan_acpi_id, i64 %76
   %78 = tail call i64 @strlen(ptr noundef %77) #7
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %.loopexit1, label %80, !llvm.loop !5

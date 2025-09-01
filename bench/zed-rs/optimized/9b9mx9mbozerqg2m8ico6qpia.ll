@@ -909,7 +909,7 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %141 = and i32 %140, 1023
   %142 = zext nneg i32 %141 to i64
   %143 = icmp samesign ult i32 %141, 733
-  %144 = getelementptr inbounds nuw [733 x i8], ptr @anon.861f5f7cb78117a4ec6a459232069be7.56, i64 0, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr @anon.861f5f7cb78117a4ec6a459232069be7.56, i64 %142
   %145 = icmp ne i32 %107, 0
   %or.cond251.i.i.i = select i1 %145, i1 %switch243.i.i.i, i1 false
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1196,18 +1196,18 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %narrow = add nuw nsw i16 %139, 1
   %narrow48 = select i1 %299, i16 %narrow, i16 0
   %300 = zext nneg i16 %narrow48 to i64
-  %301 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.105, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.105, i64 %300
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = icmp samesign ult i16 %139, 6
   %narrow49 = add nuw nsw i16 %139, 1
   %narrow50 = select i1 %303, i16 %narrow49, i16 0
   %304 = zext nneg i16 %narrow50 to i64
-  %305 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 %304
   %306 = icmp samesign ult i16 %139, 6
   %narrow51 = add nuw nsw i16 %139, 1
   %narrow52 = select i1 %306, i16 %narrow51, i16 0
   %307 = zext nneg i16 %narrow52 to i64
-  %308 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.52, i64 %307
   %309 = icmp samesign ult i16 %139, 6
   %narrow53 = add nuw nsw i16 %139, 49
   %switch.offset38 = zext nneg i16 %narrow53 to i32
@@ -2245,7 +2245,7 @@ _ZN6chrono5naive4date9NaiveDate10weeks_from17h20fddae3b16491a3E.exit113.i.i.i: ;
   br i1 %642, label %643, label %.invoke.i.i
 
 643:                                              ; preds = %635
-  %644 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.71, i64 0, i64 %641
+  %644 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.71, i64 %641
   %645 = load ptr, ptr %644, align 8, !noalias !296, !nonnull !4, !align !105, !noundef !4
   %646 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !298, !noalias !305, !noundef !4
   %647 = load i64, ptr %87, align 8, !alias.scope !298, !noalias !305, !noundef !4
@@ -2285,7 +2285,7 @@ _ZN6chrono5naive4date9NaiveDate10weeks_from17h20fddae3b16491a3E.exit113.i.i.i: ;
   br i1 %664, label %665, label %.invoke.i.i
 
 665:                                              ; preds = %657
-  %666 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.95, i64 0, i64 %663
+  %666 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.95, i64 %663
   %667 = load ptr, ptr %666, align 8, !noalias !296, !nonnull !4, !align !105, !noundef !4
   %668 = getelementptr inbounds nuw i8, ptr %666, i64 8
   %669 = load i64, ptr %668, align 8, !noalias !296, !noundef !4
@@ -3149,7 +3149,7 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread.i.
   br i1 %906, label %907, label %.invoke.i.i
 
 907:                                              ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h381e644f460e06cfE.llvm.14828969249010433255.exit.i156.i.i"
-  %908 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.861f5f7cb78117a4ec6a459232069be7.71, i64 0, i64 %905
+  %908 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.861f5f7cb78117a4ec6a459232069be7.71, i64 %905
   %909 = load ptr, ptr %908, align 8, !noalias !518, !nonnull !4, !align !105, !noundef !4
   %910 = load i64, ptr %87, align 8, !alias.scope !549, !noalias !556, !noundef !4
   %911 = sub i64 %910, %902
@@ -14346,7 +14346,7 @@ define void @"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVer
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }], ptr %20, i64 0, i64 %16, i32 2
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %20, i64 %16, i32 2
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
@@ -14360,7 +14360,7 @@ define void @"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVer
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }], ptr %29, i64 0, i64 %22
+  %30 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %29, i64 %22
   %31 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %32 = tail call noundef i8 @_ZN15release_channel14ReleaseChannel6global17h2a517e00fda070c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %31), !range !761
   %33 = tail call noundef zeroext i1 @_ZN9extension21is_version_compatible17hc41e2a123ee806d5E(i8 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %30)
@@ -14501,7 +14501,7 @@ define void @"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVer
 62:                                               ; preds = %5
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load ptr, ptr %63, align 8, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }], ptr %64, i64 0, i64 %2
+  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %64, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load i64, ptr %66, align 8, !noundef !4
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -14516,7 +14516,7 @@ define void @"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVer
 72:                                               ; preds = %62
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8, !nonnull !4, !noundef !4
-  %75 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }], ptr %74, i64 0, i64 %67
+  %75 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %74, i64 %67
   %76 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %77 = tail call noundef i8 @_ZN15release_channel14ReleaseChannel6global17h2a517e00fda070c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %76), !range !761
   %78 = tail call noundef zeroext i1 @_ZN9extension21is_version_compatible17hc41e2a123ee806d5E(i8 noundef %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %75)

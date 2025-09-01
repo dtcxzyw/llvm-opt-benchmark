@@ -2296,7 +2296,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h9387fc
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$zvariant..fd..OwnedFd$GT$17he17c0992fd2e5e4eE.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %23, %"_ZN4core3ptr42drop_in_place$LT$zvariant..fd..OwnedFd$GT$17he17c0992fd2e5e4eE.exit.i.i" ], [ 0, %._crit_edge.i.i.i.i ]
-  %22 = getelementptr inbounds [0 x { { i32, [1 x i32] } }], ptr %16, i64 0, i64 %.sroa.0.08.i.i
+  %22 = getelementptr inbounds { { i32, [1 x i32] } }, ptr %16, i64 %.sroa.0.08.i.i
   %23 = add nuw i64 %.sroa.0.08.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)

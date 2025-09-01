@@ -7200,7 +7200,7 @@ define internal void @_ZNK12_GLOBAL__N_118PthreadLockChecker11InitAnyLockERKN5cl
   store i8 %.fca.1.extract, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = zext i32 %3 to i64
-  %22 = getelementptr inbounds nuw [3 x i8], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !26, !range !82, !noundef !83
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %_ZNK12_GLOBAL__N_118PthreadLockChecker11InitLockAuxERKN5clang4ento9CallEventERNS2_14CheckerContextEPKNS1_4ExprENS2_4SValENS0_11CheckerKindE.exit
@@ -7518,7 +7518,7 @@ define internal void @_ZNK12_GLOBAL__N_118PthreadLockChecker14ReleaseAnyLockERKN
   store i8 %.fca.1.extract, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = zext i32 %3 to i64
-  %24 = getelementptr inbounds nuw [3 x i8], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !26, !range !82, !noundef !83
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %_ZNK12_GLOBAL__N_118PthreadLockChecker14ReleaseLockAuxERKN5clang4ento9CallEventERNS2_14CheckerContextEPKNS1_4ExprENS2_4SValENS0_11CheckerKindE.exit
@@ -9485,7 +9485,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 23:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = zext i32 %4 to i64
-  %26 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.127"], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.127", ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !155
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24, label %_ZNK12_GLOBAL__N_118PthreadLockChecker11initBugTypeENS0_11CheckerKindE.exit
@@ -9493,7 +9493,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24: ; preds = %23
   %28 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = getelementptr inbounds nuw [3 x %"class.clang::ento::CheckerNameRef"], ptr %29, i64 0, i64 %25
+  %30 = getelementptr inbounds nuw %"class.clang::ento::CheckerNameRef", ptr %29, i64 %25
   %.sroa.07.0.copyload.i = load ptr, ptr %30, align 8, !tbaa !8
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.28.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !10
@@ -9524,7 +9524,7 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24: ; pr
   store i8 0, ptr %41, align 8, !tbaa !226
   store ptr %28, ptr %26, align 8, !tbaa !155
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %43 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.127"], ptr %42, i64 0, i64 %25
+  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.127", ptr %42, i64 %25
   %44 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %44, align 8, !tbaa !40
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -9573,7 +9573,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i20.i: ; preds = %_Z
 
 _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit20: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i20.i, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit24
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %64 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.127"], ptr %63, i64 0, i64 %25
+  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.127", ptr %63, i64 %25
   %65 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %.sroa.03.0.copyload.i = load ptr, ptr %30, align 8, !tbaa !8
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !10
@@ -9624,7 +9624,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i23.i: ; preds = %_Z
 
 _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit16: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i23.i, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit20
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %85 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.127"], ptr %84, i64 0, i64 %25
+  %85 = getelementptr inbounds nuw %"class.std::unique_ptr.127", ptr %84, i64 %25
   %86 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %.sroa.01.0.copyload.i = load ptr, ptr %30, align 8, !tbaa !8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !10
@@ -9675,7 +9675,7 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i26.i: ; preds = %_Z
 
 _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i26.i, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit16
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %106 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.127"], ptr %105, i64 0, i64 %25
+  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.127", ptr %105, i64 %25
   %107 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21
   %.sroa.0.0.copyload.i = load ptr, ptr %30, align 8, !tbaa !8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !10
@@ -14385,7 +14385,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_118PthreadLockChecker14AcquireLock
   store i8 %5, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = zext i32 %8 to i64
-  %30 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !26, !range !82, !noundef !83
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit125
@@ -15176,7 +15176,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_118PthreadLockChecker14DestroyLock
   store i8 %5, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw [3 x i8], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !26, !range !82, !noundef !83
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit99

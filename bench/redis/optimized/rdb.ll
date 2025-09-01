@@ -2946,9 +2946,9 @@ define dso_local range(i64 -1, 257) i64 @rdbSaveDoubleValue(ptr noundef %0, doub
 
 19:                                               ; preds = %13
   %20 = call i32 @fpconv_dtoa(double noundef %1, ptr noundef nonnull %15) #23
-  %21 = add nsw i32 %20, 1
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %22
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr i8, ptr %3, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 1
   store i8 0, ptr %23, align 1, !tbaa !59
   br label %24
 
@@ -3149,7 +3149,7 @@ rioRead.exit15.loopexit:                          ; preds = %44
 
 rioRead.exit15:                                   ; preds = %rioRead.exit15.loopexit, %.preheader.i8
   %50 = phi i64 [ %49, %rioRead.exit15.loopexit ], [ 0, %.preheader.i8 ]
-  %51 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 %50
   store i8 0, ptr %51, align 1, !tbaa !59
   %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, ptr noundef %1) #23
   %.not = icmp ne i32 %52, 1

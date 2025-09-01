@@ -719,7 +719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %259
   %274 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN2cv7momentsERKNS_11_InputArrayEb, i64 0, i64 %274
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv7momentsERKNS_11_InputArrayEb, i64 %274
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %275
 
@@ -912,7 +912,7 @@ switch.lookup:                                    ; preds = %259
 
 .preheader.us:                                    ; preds = %315, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %315 ]
-  %377 = getelementptr inbounds nuw [10 x double], ptr %23, i64 0, i64 %indvars.iv
+  %377 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   %378 = load double, ptr %377, align 8, !tbaa !32
   %379 = fmul double %378, 0x3F70101010101010
   store double %379, ptr %377, align 8, !tbaa !32
@@ -1286,7 +1286,7 @@ define internal void @_ZN2cvL13momentsInTileIhiiEEvRKNS_3MatEPd(ptr noundef nonn
 
 68:                                               ; preds = %.preheader, %68
   %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %68 ]
-  %69 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv112
+  %69 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv112
   %70 = load i32, ptr %69, align 4, !tbaa !83
   %71 = sitofp i32 %70 to double
   %72 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv112
@@ -1428,7 +1428,7 @@ define internal void @_ZN2cvL13momentsInTileItilEEvRKNS_3MatEPd(ptr noundef nonn
 
 70:                                               ; preds = %.preheader, %70
   %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %70 ]
-  %71 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %indvars.iv112
+  %71 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv112
   %72 = load i64, ptr %71, align 8, !tbaa !85
   %73 = sitofp i64 %72 to double
   %74 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv112
@@ -1575,7 +1575,7 @@ define internal void @_ZN2cvL13momentsInTileIsilEEvRKNS_3MatEPd(ptr noundef nonn
 
 75:                                               ; preds = %.preheader, %75
   %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %75 ]
-  %76 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %indvars.iv112
+  %76 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv112
   %77 = load i64, ptr %76, align 8, !tbaa !85
   %78 = sitofp i64 %77 to double
   %79 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv112

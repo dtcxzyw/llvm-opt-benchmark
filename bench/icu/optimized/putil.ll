@@ -1032,7 +1032,7 @@ define ptr @uprv_tzname_77(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw [4096 x i8], ptr @_ZL15gTimeZoneBuffer, i64 0, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr @_ZL15gTimeZoneBuffer, i64 %31
   store i8 0, ptr %34, align 1, !tbaa !21
   %35 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @_ZL15gTimeZoneBuffer, ptr noundef nonnull dereferenceable(1) @.str.2) #36
   br label %36
@@ -1132,7 +1132,7 @@ _ZL16skipZoneIDPrefixPPKc.exit53:                 ; preds = %40, %43
 
 76:                                               ; preds = %94, %.thread67
   %indvars.iv.i = phi i64 [ 0, %.thread67 ], [ %indvars.iv.next.i, %94 ]
-  %77 = getelementptr inbounds nuw [59 x %struct.OffsetZoneMapping], ptr @_ZL20OFFSET_ZONE_MAPPINGS, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw %struct.OffsetZoneMapping, ptr @_ZL20OFFSET_ZONE_MAPPINGS, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 16, !tbaa !29
   %79 = icmp eq i32 %78, %75
   br i1 %79, label %80, label %94
@@ -1177,7 +1177,7 @@ _ZL18remapShortTimeZonePKcS0_ii.exit:             ; preds = %89
 
 97:                                               ; preds = %_ZL18remapShortTimeZonePKcS0_ii.exit.thread, %_ZL18remapShortTimeZonePKcS0_ii.exit
   %98 = sext i32 %0 to i64
-  %99 = getelementptr inbounds [2 x ptr], ptr @tzname, i64 0, i64 %98
+  %99 = getelementptr inbounds ptr, ptr @tzname, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !20
   br label %_ZL16skipZoneIDPrefixPPKc.exit
 
@@ -2322,7 +2322,7 @@ define void @u_versionFromUString_77(ptr noundef writeonly captures(address_is_n
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %8, i32 20)
   call void @u_UCharsToChars_77(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %spec.store.select)
   %9 = sext i32 %spec.store.select to i64
-  %10 = getelementptr inbounds [21 x i8], ptr %4, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr %4, i64 %9
   store i8 0, ptr %10, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call i64 @strtoul(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 10) #33

@@ -1083,38 +1083,43 @@ define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captur
   %38 = icmp slt i64 %26, %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %2, align 8, !tbaa !34
-  br i1 %38, label %41, label %44
+  %41 = getelementptr i64, ptr %39, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %44 = getelementptr i64, ptr %43, i64 %40
+  br i1 %38, label %45, label %53
 
-41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %40
-  store i64 %26, ptr %42, align 8, !tbaa !36
-  %43 = add i64 %40, 1
-  br label %47
+45:                                               ; preds = %3
+  store i64 %26, ptr %41, align 8, !tbaa !36
+  %46 = getelementptr i8, ptr %41, i64 8
+  store i64 %37, ptr %46, align 8, !tbaa !36
+  %47 = load i32, ptr %42, align 4, !tbaa !37
+  %48 = sext i32 %47 to i64
+  store i64 %48, ptr %44, align 8, !tbaa !36
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %50 = load i32, ptr %49, align 8, !tbaa !38
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr i8, ptr %44, i64 8
+  store i64 %51, ptr %52, align 8, !tbaa !36
+  br label %61
 
-44:                                               ; preds = %3
-  %45 = add i64 %40, 1
-  %46 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %45
-  store i64 %26, ptr %46, align 8, !tbaa !36
-  br label %47
-
-47:                                               ; preds = %44, %41
-  %.sink54 = phi i64 [ %40, %44 ], [ %43, %41 ]
-  %.sink52 = phi i64 [ %45, %44 ], [ %40, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  %51 = getelementptr inbounds nuw [6 x i64], ptr %39, i64 0, i64 %.sink54
-  store i64 %37, ptr %51, align 8, !tbaa !36
-  %52 = load i32, ptr %50, align 4, !tbaa !37
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink52
-  store i64 %53, ptr %54, align 8, !tbaa !36
-  %55 = load i32, ptr %48, align 8, !tbaa !38
+53:                                               ; preds = %3
+  %54 = getelementptr i8, ptr %41, i64 8
+  store i64 %26, ptr %54, align 8, !tbaa !36
+  store i64 %37, ptr %41, align 8, !tbaa !36
+  %55 = load i32, ptr %42, align 4, !tbaa !37
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [6 x i64], ptr %49, i64 0, i64 %.sink54
+  %57 = getelementptr i8, ptr %44, i64 8
   store i64 %56, ptr %57, align 8, !tbaa !36
-  %58 = add i64 %40, 2
-  store i64 %58, ptr %2, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %59 = load i32, ptr %58, align 8, !tbaa !38
+  %60 = sext i32 %59 to i64
+  store i64 %60, ptr %44, align 8, !tbaa !36
+  br label %61
+
+61:                                               ; preds = %53, %45
+  %62 = add i64 %40, 2
+  store i64 %62, ptr %2, align 8, !tbaa !34
   ret void
 }
 
@@ -1209,10 +1214,10 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %26
   %57 = zext i1 %11 to i64
-  %58 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [12 x i32], ptr @month_lengths, i64 %57
   %59 = add i32 %28, -1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [12 x i32], ptr %58, i64 0, i64 %60
+  %61 = getelementptr inbounds i32, ptr %58, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !39
   %63 = mul i32 %55, 7
   %64 = add i32 %.046, %63
@@ -1241,14 +1246,14 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 .lr.ph64:                                         ; preds = %._crit_edge
   %73 = zext i1 %11 to i64
-  %74 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @month_lengths, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i32], ptr @month_lengths, i64 %73
   %wide.trip.count = zext nneg i32 %.pre-phi to i64
   br label %75
 
 75:                                               ; preds = %.lr.ph64, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %75 ]
   %.062 = phi i64 [ %71, %.lr.ph64 ], [ %80, %75 ]
-  %76 = getelementptr inbounds nuw [12 x i32], ptr %74, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !39
   %78 = mul i32 %77, 86400
   %79 = sext i32 %78 to i64
@@ -1268,220 +1273,227 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %5 = alloca %struct._timelib_posix_transitions, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %27
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %timelib_get_transitions_for_year.exit
 
-11:                                               ; preds = %3
+10:                                               ; preds = %3
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %20, label %12
+  br i1 %.not25, label %19, label %11
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load i64, ptr %15, align 8, !tbaa !41
-  %17 = getelementptr i64, ptr %14, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = load i64, ptr %18, align 8, !tbaa !42
-  store i64 %19, ptr %2, align 8, !tbaa !36
-  br label %20
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %15 = load i64, ptr %14, align 8, !tbaa !41
+  %16 = getelementptr i64, ptr %13, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -8
+  %18 = load i64, ptr %17, align 8, !tbaa !42
+  store i64 %18, ptr %2, align 8, !tbaa !36
+  br label %19
 
-20:                                               ; preds = %12, %11
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %24 = load i32, ptr %23, align 8, !tbaa !38
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct._ttinfo, ptr %22, i64 %25
+19:                                               ; preds = %11, %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %23 = load i32, ptr %22, align 8, !tbaa !38
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds %struct._ttinfo, ptr %21, i64 %24
   br label %.loopexit
 
-27:                                               ; preds = %3
+timelib_get_transitions_for_year.exit:            ; preds = %3
   call void @timelib_unixtime2gmt(ptr noundef nonnull %4, i64 noundef %1) #8
-  %28 = load i64, ptr %4, align 8, !tbaa !44
-  %29 = add i64 %28, -1
-  %30 = add i64 %28, -2
-  %31 = sdiv i64 %30, 4
-  %.neg.i.i.i = sdiv i64 %30, -100
-  %32 = sdiv i64 %30, 400
-  %33 = mul i64 %29, 365
-  %34 = add i64 %33, -719050
-  %35 = add i64 %34, %31
-  %36 = add i64 %35, %.neg.i.i.i
-  %37 = add i64 %36, %32
-  %38 = mul i64 %37, 86400
-  %39 = add i64 %38, -41212800
-  %40 = load ptr, ptr %7, align 8, !tbaa !23
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !14
-  %43 = call fastcc i64 @calc_transition(ptr noundef %42, i64 noundef %29)
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = load i32, ptr %44, align 4, !tbaa !20
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !18
-  %49 = add i64 %43, %46
-  %50 = sub i64 %49, %48
-  %51 = add i64 %50, %39
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !15
-  %54 = call fastcc i64 @calc_transition(ptr noundef %53, i64 noundef %29)
-  %55 = add i64 %39, %54
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %57 = load i32, ptr %56, align 4, !tbaa !20
-  %58 = sext i32 %57 to i64
-  %59 = add i64 %55, %58
-  %60 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %61 = load i64, ptr %60, align 8, !tbaa !19
-  %62 = sub i64 %59, %61
-  %63 = icmp slt i64 %51, %62
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %63, label %65, label %66
+  %26 = load i64, ptr %4, align 8, !tbaa !44
+  %27 = add i64 %26, -1
+  %28 = add i64 %26, -2
+  %29 = sdiv i64 %28, 4
+  %.neg.i.i.i = sdiv i64 %28, -100
+  %30 = sdiv i64 %28, 400
+  %31 = mul i64 %27, 365
+  %32 = add i64 %31, -719050
+  %33 = add i64 %32, %29
+  %34 = add i64 %33, %.neg.i.i.i
+  %35 = add i64 %34, %30
+  %36 = mul i64 %35, 86400
+  %37 = add i64 %36, -41212800
+  %38 = load ptr, ptr %6, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !14
+  %41 = call fastcc i64 @calc_transition(ptr noundef %40, i64 noundef %27)
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !18
+  %47 = add i64 %41, %44
+  %48 = sub i64 %47, %46
+  %49 = add i64 %48, %37
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !15
+  %52 = call fastcc i64 @calc_transition(ptr noundef %51, i64 noundef %27)
+  %53 = add i64 %37, %52
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %55 = load i32, ptr %54, align 4, !tbaa !20
+  %56 = sext i32 %55 to i64
+  %57 = add i64 %53, %56
+  %58 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %59 = load i64, ptr %58, align 8, !tbaa !19
+  %60 = sub i64 %57, %59
+  %61 = icmp slt i64 %49, %60
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %65 = load i32, ptr %63, align 4, !tbaa !37
+  %66 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %67 = load i32, ptr %66, align 8, !tbaa !38
+  %. = call i64 @llvm.smin.i64(i64 %49, i64 %60)
+  %.60 = call i64 @llvm.smax.i64(i64 %49, i64 %60)
+  %.61 = select i1 %61, i32 %65, i32 %67
+  %.62 = select i1 %61, i32 %67, i32 %65
+  %.sink = sext i32 %.62 to i64
+  %.sink35 = sext i32 %.61 to i64
+  store i64 %., ptr %62, align 8, !tbaa !36
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %.60, ptr %68, align 8, !tbaa !36
+  store i64 %.sink35, ptr %64, align 8, !tbaa !36
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %.sink, ptr %69, align 8, !tbaa !36
+  %70 = sdiv i64 %27, 4
+  %.neg.i.i.i27 = sdiv i64 %27, -100
+  %71 = sdiv i64 %27, 400
+  %72 = mul i64 %26, 365
+  %73 = add i64 %72, -719050
+  %74 = add i64 %73, %70
+  %75 = add i64 %74, %.neg.i.i.i27
+  %76 = add i64 %75, %71
+  %77 = mul i64 %76, 86400
+  %78 = add i64 %77, -41212800
+  %79 = call fastcc i64 @calc_transition(ptr noundef nonnull %40, i64 noundef %26)
+  %80 = sub i64 %44, %46
+  %81 = add i64 %80, %78
+  %82 = add i64 %81, %79
+  %83 = call fastcc i64 @calc_transition(ptr noundef nonnull %51, i64 noundef %26)
+  %84 = add i64 %78, %56
+  %85 = sub i64 %84, %59
+  %86 = add i64 %85, %83
+  %87 = icmp slt i64 %82, %86
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  br i1 %87, label %timelib_get_transitions_for_year.exit28, label %90
 
-65:                                               ; preds = %27
-  store i64 %51, ptr %64, align 8, !tbaa !36
-  br label %timelib_get_transitions_for_year.exit
+90:                                               ; preds = %timelib_get_transitions_for_year.exit
+  br label %timelib_get_transitions_for_year.exit28
 
-66:                                               ; preds = %27
-  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %51, ptr %67, align 8, !tbaa !36
-  br label %timelib_get_transitions_for_year.exit
+timelib_get_transitions_for_year.exit28:          ; preds = %timelib_get_transitions_for_year.exit, %90
+  %.sink41 = phi i64 [ %86, %90 ], [ %82, %timelib_get_transitions_for_year.exit ]
+  %.sink40 = phi i64 [ %82, %90 ], [ %86, %timelib_get_transitions_for_year.exit ]
+  %.sink39.in = phi i32 [ %67, %90 ], [ %65, %timelib_get_transitions_for_year.exit ]
+  %.sink38.in = phi i32 [ %65, %90 ], [ %67, %timelib_get_transitions_for_year.exit ]
+  %.sink38 = sext i32 %.sink38.in to i64
+  %.sink39 = sext i32 %.sink39.in to i64
+  store i64 %.sink41, ptr %88, align 8, !tbaa !36
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %.sink40, ptr %91, align 8, !tbaa !36
+  store i64 %.sink39, ptr %89, align 8, !tbaa !36
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i64 %.sink38, ptr %92, align 8, !tbaa !36
+  %93 = add i64 %26, 1
+  %94 = sdiv i64 %26, 4
+  %.neg.i.i.i29 = sdiv i64 %26, -100
+  %95 = sdiv i64 %26, 400
+  %96 = mul i64 %93, 365
+  %97 = add nsw i64 %94, -719050
+  %98 = add nsw i64 %97, %.neg.i.i.i29
+  %99 = add nsw i64 %98, %95
+  %100 = add i64 %99, %96
+  %101 = mul i64 %100, 86400
+  %102 = add i64 %101, -41212800
+  %103 = call fastcc i64 @calc_transition(ptr noundef nonnull %40, i64 noundef %93)
+  %104 = add i64 %80, %102
+  %105 = add i64 %104, %103
+  %106 = call fastcc i64 @calc_transition(ptr noundef nonnull %51, i64 noundef %93)
+  %107 = add i64 %102, %56
+  %108 = sub i64 %107, %59
+  %109 = add i64 %108, %106
+  %110 = icmp slt i64 %105, %109
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  br i1 %110, label %.lr.ph.preheader, label %113
 
-timelib_get_transitions_for_year.exit:            ; preds = %65, %66
-  %.sink54.i = phi i64 [ 0, %66 ], [ 1, %65 ]
-  %.sink52.i = phi i64 [ 1, %66 ], [ 0, %65 ]
-  %68 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %70 = getelementptr inbounds nuw i8, ptr %40, i64 52
-  %71 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.sink54.i
-  store i64 %62, ptr %71, align 8, !tbaa !36
-  %72 = load i32, ptr %70, align 4, !tbaa !37
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink52.i
-  store i64 %73, ptr %74, align 8, !tbaa !36
-  %75 = load i32, ptr %68, align 8, !tbaa !38
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.sink54.i
-  store i64 %76, ptr %77, align 8, !tbaa !36
-  %78 = sdiv i64 %29, 4
-  %.neg.i.i.i27 = sdiv i64 %29, -100
-  %79 = sdiv i64 %29, 400
-  %80 = mul i64 %28, 365
-  %81 = add i64 %80, -719050
-  %82 = add i64 %81, %78
-  %83 = add i64 %82, %.neg.i.i.i27
-  %84 = add i64 %83, %79
-  %85 = mul i64 %84, 86400
-  %86 = add i64 %85, -41212800
-  %87 = call fastcc i64 @calc_transition(ptr noundef nonnull %42, i64 noundef %28)
-  %88 = sub i64 %46, %48
-  %89 = add i64 %88, %86
-  %90 = add i64 %89, %87
-  %91 = call fastcc i64 @calc_transition(ptr noundef nonnull %53, i64 noundef %28)
-  %92 = add i64 %86, %58
-  %93 = sub i64 %92, %61
-  %94 = add i64 %93, %91
-  %95 = icmp slt i64 %90, %94
-  %..sroa.sel.v = select i1 %95, i64 24, i64 32
-  %..sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %..sroa.sel.v
-  store i64 %90, ptr %..sroa.sel, align 8, !tbaa !36
-  %.49.sroa.sel.v = select i1 %95, i64 32, i64 24
-  %.49.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.49.sroa.sel.v
-  store i64 %94, ptr %.49.sroa.sel, align 8, !tbaa !36
-  %.50.sroa.sel.v = select i1 %95, i64 72, i64 80
-  %.50.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.50.sroa.sel.v
-  store i64 %73, ptr %.50.sroa.sel, align 8, !tbaa !36
-  %.49.sroa.sel58.v = select i1 %95, i64 80, i64 72
-  %.49.sroa.sel58 = getelementptr inbounds nuw i8, ptr %5, i64 %.49.sroa.sel58.v
-  store i64 %76, ptr %.49.sroa.sel58, align 8, !tbaa !36
-  %96 = add i64 %28, 1
-  %97 = sdiv i64 %28, 4
-  %.neg.i.i.i31 = sdiv i64 %28, -100
-  %98 = sdiv i64 %28, 400
-  %99 = mul i64 %96, 365
-  %100 = add nsw i64 %97, -719050
-  %101 = add nsw i64 %100, %.neg.i.i.i31
-  %102 = add nsw i64 %101, %98
-  %103 = add i64 %102, %99
-  %104 = mul i64 %103, 86400
-  %105 = add i64 %104, -41212800
-  %106 = call fastcc i64 @calc_transition(ptr noundef nonnull %42, i64 noundef %96)
-  %107 = add i64 %88, %105
-  %108 = add i64 %107, %106
-  %109 = call fastcc i64 @calc_transition(ptr noundef nonnull %53, i64 noundef %96)
-  %110 = add i64 %105, %58
-  %111 = sub i64 %110, %61
-  %112 = add i64 %111, %109
-  %113 = icmp slt i64 %108, %112
-  %.sink48.sroa.sel.v = select i1 %113, i64 40, i64 48
-  %.sink48.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink48.sroa.sel.v
-  store i64 %108, ptr %.sink48.sroa.sel, align 8, !tbaa !36
-  %.sink54.i32.sroa.sel.v = select i1 %113, i64 48, i64 40
-  %.sink54.i32.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink54.i32.sroa.sel.v
-  store i64 %112, ptr %.sink54.i32.sroa.sel, align 8, !tbaa !36
-  %.sink52.i33.sroa.sel.v = select i1 %113, i64 88, i64 96
-  %.sink52.i33.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink52.i33.sroa.sel.v
-  store i64 %73, ptr %.sink52.i33.sroa.sel, align 8, !tbaa !36
-  %.sink54.i32.sroa.sel63.v = select i1 %113, i64 96, i64 88
-  %.sink54.i32.sroa.sel63 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink54.i32.sroa.sel63.v
-  store i64 %76, ptr %.sink54.i32.sroa.sel63, align 8, !tbaa !36
+113:                                              ; preds = %timelib_get_transitions_for_year.exit28
+  br label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %113, %timelib_get_transitions_for_year.exit28
+  %.sink45 = phi i64 [ %109, %113 ], [ %105, %timelib_get_transitions_for_year.exit28 ]
+  %.sink44 = phi i64 [ %105, %113 ], [ %109, %timelib_get_transitions_for_year.exit28 ]
+  %.sink43.in = phi i32 [ %67, %113 ], [ %65, %timelib_get_transitions_for_year.exit28 ]
+  %.sink42.in = phi i32 [ %65, %113 ], [ %67, %timelib_get_transitions_for_year.exit28 ]
+  %.sink42 = sext i32 %.sink42.in to i64
+  %.sink43 = sext i32 %.sink43.in to i64
+  store i64 %.sink45, ptr %111, align 8, !tbaa !36
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 %.sink44, ptr %114, align 8, !tbaa !36
+  store i64 %.sink43, ptr %112, align 8, !tbaa !36
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store i64 %.sink42, ptr %115, align 8, !tbaa !36
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %timelib_get_transitions_for_year.exit, %126
-  %.037 = phi i64 [ %127, %126 ], [ 1, %timelib_get_transitions_for_year.exit ]
-  %114 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.037
-  %115 = load i64, ptr %114, align 8, !tbaa !36
-  %116 = icmp slt i64 %1, %115
-  br i1 %116, label %117, label %126
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %130
+  %.033 = phi i64 [ %131, %130 ], [ 1, %.lr.ph.preheader ]
+  %116 = getelementptr inbounds nuw i64, ptr %62, i64 %.033
+  %117 = load i64, ptr %116, align 8, !tbaa !36
+  %118 = icmp slt i64 %1, %117
+  br i1 %118, label %119, label %130
 
-117:                                              ; preds = %.lr.ph
+119:                                              ; preds = %.lr.ph
   %.not26 = icmp eq ptr %2, null
-  %.pre = add i64 %.037, -1
-  br i1 %.not26, label %._crit_edge, label %118
+  br i1 %.not26, label %123, label %120
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw [6 x i64], ptr %64, i64 0, i64 %.pre
-  %120 = load i64, ptr %119, align 8, !tbaa !36
-  store i64 %120, ptr %2, align 8, !tbaa !36
-  br label %._crit_edge
+120:                                              ; preds = %119
+  %121 = getelementptr i64, ptr %5, i64 %.033
+  %122 = load i64, ptr %121, align 8, !tbaa !36
+  store i64 %122, ptr %2, align 8, !tbaa !36
+  br label %123
 
-._crit_edge:                                      ; preds = %117, %118
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %122 = load ptr, ptr %121, align 8, !tbaa !43
-  %123 = getelementptr inbounds nuw [6 x i64], ptr %69, i64 0, i64 %.pre
-  %124 = load i64, ptr %123, align 8, !tbaa !36
-  %125 = getelementptr inbounds %struct._ttinfo, ptr %122, i64 %124
+123:                                              ; preds = %120, %119
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %125 = load ptr, ptr %124, align 8, !tbaa !43
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %127 = getelementptr i64, ptr %126, i64 %.033
+  %128 = load i64, ptr %127, align 8, !tbaa !36
+  %129 = getelementptr inbounds %struct._ttinfo, ptr %125, i64 %128
   br label %.loopexit
 
-126:                                              ; preds = %.lr.ph
-  %127 = add nuw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %127, 6
+130:                                              ; preds = %.lr.ph
+  %131 = add nuw i64 %.033, 1
+  %exitcond.not = icmp eq i64 %131, 6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %126, %._crit_edge, %20
-  %.023 = phi ptr [ %125, %._crit_edge ], [ %26, %20 ], [ null, %126 ]
+.loopexit:                                        ; preds = %130, %123, %19
+  %.023 = phi ptr [ %129, %123 ], [ %25, %19 ], [ null, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.023
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @timelib_unixtime2gmt(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1489,8 +1501,8 @@ attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buff
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0,1) }
 

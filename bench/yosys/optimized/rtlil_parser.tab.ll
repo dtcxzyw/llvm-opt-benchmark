@@ -784,7 +784,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
 
 169:                                              ; preds = %.thread1154
   %170 = sext i32 %.0282 to i64
-  %171 = getelementptr inbounds [181 x i16], ptr @_ZL6yypact, i64 0, i64 %170
+  %171 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %170
   %172 = load i16, ptr %171, align 2, !tbaa !40
   %173 = sext i16 %172 to i32
   %174 = icmp eq i16 %172, -68
@@ -840,7 +840,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
 
 198:                                              ; preds = %196
   %199 = zext nneg i32 %186 to i64
-  %200 = getelementptr inbounds nuw [297 x i8], ptr @_ZL11yytranslate, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !39
   %202 = sext i8 %201 to i32
   br label %203
@@ -858,7 +858,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   %210 = icmp slt i32 %204, 48
   %.str.40..str.41.i = select i1 %210, ptr @.str.40, ptr @.str.41
   %211 = sext i32 %204 to i64
-  %212 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %211
+  %212 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %211
   %213 = load ptr, ptr %212, align 8, !tbaa !42
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i, ptr noundef %213) #32
   %fputc.i = call i32 @fputc(i32 41, ptr %209)
@@ -874,14 +874,14 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
 
 218:                                              ; preds = %216
   %219 = zext nneg i32 %217 to i64
-  %220 = getelementptr inbounds nuw [189 x i16], ptr @_ZL7yycheck, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %219
   %221 = load i16, ptr %220, align 2, !tbaa !40
   %222 = sext i16 %221 to i32
   %.not385 = icmp eq i32 %.0330, %222
   br i1 %.not385, label %223, label %245
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds nuw [189 x i16], ptr @_ZL7yytable, i64 0, i64 %219
+  %224 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %219
   %225 = load i16, ptr %224, align 2, !tbaa !40
   %226 = sext i16 %225 to i32
   %227 = icmp slt i16 %225, 1
@@ -903,7 +903,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   %236 = icmp slt i32 %.0330, 48
   %.str.40..str.41.i423 = select i1 %236, ptr @.str.40, ptr @.str.41
   %237 = sext i32 %.0330 to i64
-  %238 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %237
+  %238 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !42
   %240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i423, ptr noundef %239) #32
   %fputc.i424 = call i32 @fputc(i32 41, ptr %235)
@@ -919,7 +919,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   br label %128
 
 245:                                              ; preds = %216, %218, %169
-  %246 = getelementptr inbounds [181 x i8], ptr @_ZL8yydefact, i64 0, i64 %170
+  %246 = getelementptr inbounds i8, ptr @_ZL8yydefact, i64 %170
   %247 = load i8, ptr %246, align 1, !tbaa !39
   %248 = sext i8 %247 to i32
   %249 = icmp eq i8 %247, 0
@@ -928,7 +928,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
 250:                                              ; preds = %245, %228
   %.0327 = phi i32 [ %248, %245 ], [ %229, %228 ]
   %251 = sext i32 %.0327 to i64
-  %252 = getelementptr inbounds [98 x i8], ptr @_ZL4yyr2, i64 0, i64 %251
+  %252 = getelementptr inbounds i8, ptr @_ZL4yyr2, i64 %251
   %253 = load i8, ptr %252, align 1, !tbaa !39
   %254 = sext i8 %253 to i64
   %255 = sub nsw i64 1, %254
@@ -7563,7 +7563,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
   br i1 %.not415, label %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearEv.exit._crit_edge, label %3156
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearEv.exit._crit_edge: ; preds = %_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearEv.exit
-  %.phi.trans.insert2664 = getelementptr inbounds [98 x i8], ptr @_ZL4yyr1, i64 0, i64 %251
+  %.phi.trans.insert2664 = getelementptr inbounds i8, ptr @_ZL4yyr1, i64 %251
   %.pre2665 = load i8, ptr %.phi.trans.insert2664, align 1, !tbaa !39
   %.pre2670 = sext i8 %.pre2665 to i64
   br label %3168
@@ -7572,12 +7572,12 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
   %3157 = load ptr, ptr @stderr, align 8, !tbaa !37
   %3158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3157, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.30) #32
   %3159 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %3160 = getelementptr inbounds [98 x i8], ptr @_ZL4yyr1, i64 0, i64 %251
+  %3160 = getelementptr inbounds i8, ptr @_ZL4yyr1, i64 %251
   %3161 = load i8, ptr %3160, align 1, !tbaa !39
   %3162 = icmp eq i32 %.0327, 0
   %.str.40..str.41.i1025 = select i1 %3162, ptr @.str.40, ptr @.str.41
   %3163 = sext i8 %3161 to i64
-  %3164 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %3163
+  %3164 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %3163
   %3165 = load ptr, ptr %3164, align 8, !tbaa !42
   %3166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3159, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i1025, ptr noundef %3165) #32
   %fputc.i1026 = call i32 @fputc(i32 41, ptr %3159)
@@ -7594,7 +7594,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
   %3173 = ptrtoint ptr %.sroa.01122.0 to i64
   store i64 %3173, ptr %3172, align 8, !tbaa !39
   %3174 = add nsw i64 %.pre-phi, -48
-  %3175 = getelementptr inbounds [46 x i16], ptr @_ZL7yypgoto, i64 0, i64 %3174
+  %3175 = getelementptr inbounds i16, ptr @_ZL7yypgoto, i64 %3174
   %3176 = load i16, ptr %3175, align 2, !tbaa !40
   %3177 = sext i16 %3176 to i32
   %3178 = load i8, ptr %3171, align 1, !tbaa !39
@@ -7605,20 +7605,20 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE5clearE
 
 3181:                                             ; preds = %3168
   %3182 = zext nneg i32 %3180 to i64
-  %3183 = getelementptr inbounds nuw [189 x i16], ptr @_ZL7yycheck, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %3182
   %3184 = load i16, ptr %3183, align 2, !tbaa !40
   %3185 = sext i16 %3184 to i32
   %3186 = icmp eq i32 %3185, %3179
   br i1 %3186, label %3187, label %3191
 
 3187:                                             ; preds = %3181
-  %3188 = getelementptr inbounds nuw [189 x i16], ptr @_ZL7yytable, i64 0, i64 %3182
+  %3188 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %3182
   %3189 = load i16, ptr %3188, align 2, !tbaa !40
   %3190 = sext i16 %3189 to i32
   br label %128
 
 3191:                                             ; preds = %3181, %3168
-  %3192 = getelementptr inbounds [46 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %3174
+  %3192 = getelementptr inbounds i8, ptr @_ZL9yydefgoto, i64 %3174
   %3193 = load i8, ptr %3192, align 1, !tbaa !39
   %3194 = zext i8 %3193 to i32
   br label %128
@@ -7660,7 +7660,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032.thread: ; 
 
 _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032: ; preds = %.lr.ph1916.split
   %3206 = sext i32 %.21914 to i64
-  %3207 = getelementptr inbounds [181 x i8], ptr @_ZL6yystos, i64 0, i64 %3206
+  %3207 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %3206
   %3208 = load i8, ptr %3207, align 1, !tbaa !39
   %3209 = load ptr, ptr @stderr, align 8, !tbaa !37
   %3210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3209, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.33) #32
@@ -7668,7 +7668,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032: ; preds =
   %3212 = icmp slt i8 %3208, 48
   %.str.40..str.41.i.i1029 = select i1 %3212, ptr @.str.40, ptr @.str.41
   %3213 = sext i8 %3208 to i64
-  %3214 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %3213
+  %3214 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %3213
   %3215 = load ptr, ptr %3214, align 8, !tbaa !42
   %3216 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3211, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i.i1029, ptr noundef %3215) #32
   %fputc.i.i1030 = call i32 @fputc(i32 41, ptr %3211)
@@ -7711,7 +7711,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032: ; preds =
 
 3229:                                             ; preds = %3228
   %3230 = zext nneg i32 %3227 to i64
-  %3231 = getelementptr inbounds nuw [297 x i8], ptr @_ZL11yytranslate, i64 0, i64 %3230
+  %3231 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %3230
   %3232 = load i8, ptr %3231, align 1, !tbaa !39
   %3233 = sext i8 %3232 to i32
   br label %3234
@@ -7729,7 +7729,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1032: ; preds =
   %3241 = icmp slt i32 %3235, 48
   %.str.40..str.41.i.i1034 = select i1 %3241, ptr @.str.40, ptr @.str.41
   %3242 = sext i32 %3235 to i64
-  %3243 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %3242
+  %3243 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %3242
   %3244 = load ptr, ptr %3243, align 8, !tbaa !42
   %3245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3240, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i.i1034, ptr noundef %3244) #32
   %fputc.i.i1035 = call i32 @fputc(i32 41, ptr %3240)
@@ -7759,7 +7759,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1037.thread: ; 
 3249:                                             ; preds = %.lr.ph1920.split
   %3250 = load i8, ptr %.71919, align 1, !tbaa !39
   %3251 = zext i8 %3250 to i64
-  %3252 = getelementptr inbounds nuw [181 x i8], ptr @_ZL6yystos, i64 0, i64 %3251
+  %3252 = getelementptr inbounds nuw i8, ptr @_ZL6yystos, i64 %3251
   %3253 = load i8, ptr %3252, align 1, !tbaa !39
   %3254 = load ptr, ptr @stderr, align 8, !tbaa !37
   %3255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3254, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.36) #32
@@ -7767,7 +7767,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1037.thread: ; 
   %3257 = icmp slt i8 %3253, 48
   %.str.40..str.41.i.i1039 = select i1 %3257, ptr @.str.40, ptr @.str.41
   %3258 = sext i8 %3253 to i64
-  %3259 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %3258
+  %3259 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %3258
   %3260 = load ptr, ptr %3259, align 8, !tbaa !42
   %3261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3256, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i.i1039, ptr noundef %3260) #32
   %fputc.i.i1040 = call i32 @fputc(i32 41, ptr %3256)
@@ -7842,10 +7842,10 @@ declare noundef i32 @_Z20rtlil_frontend_yylexv() local_unnamed_addr #0
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
 define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -128, 32769) %1) unnamed_addr #7 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [98 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
+  %4 = getelementptr inbounds i16, ptr @_ZL7yyrline, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !40
   %6 = sext i16 %5 to i32
-  %7 = getelementptr inbounds [98 x i8], ptr @_ZL4yyr2, i64 0, i64 %3
+  %7 = getelementptr inbounds i8, ptr @_ZL4yyr2, i64 %3
   %8 = load i8, ptr %7, align 1, !tbaa !39
   %9 = load ptr, ptr @stderr, align 8, !tbaa !37
   %10 = add nsw i32 %1, -1
@@ -7869,12 +7869,12 @@ define internal fastcc void @_ZL15yy_reduce_printPhP22RTLIL_FRONTEND_YYSTYPEi(pt
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [181 x i8], ptr @_ZL6yystos, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL6yystos, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !39
   %24 = icmp slt i8 %23, 48
   %.str.40..str.41.i = select i1 %24, ptr @.str.40, ptr @.str.41
   %25 = sext i8 %23 to i64
-  %26 = getelementptr inbounds [95 x ptr], ptr @_ZL7yytname, i64 0, i64 %25
+  %26 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.39, ptr noundef nonnull %.str.40..str.41.i, ptr noundef %27) #32
   %fputc.i = tail call i32 @fputc(i32 41, ptr %17)

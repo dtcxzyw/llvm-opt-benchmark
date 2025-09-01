@@ -660,15 +660,15 @@ declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0) unnamed_addr #4 {
-  %2 = zext i16 %0 to i32
-  %3 = add i16 %0, -1570
-  %or.cond = icmp ult i16 %3, 178
-  br i1 %or.cond, label %4, label %9
+  %2 = add i16 %0, -1570
+  %or.cond = icmp ult i16 %2, 178
+  br i1 %or.cond, label %3, label %9
 
-4:                                                ; preds = %1
-  %5 = add nsw i32 %2, -1570
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %6
+3:                                                ; preds = %1
+  %4 = zext nneg i16 %0 to i64
+  %5 = add nuw nsw i64 %4, 4294965726
+  %6 = and i64 %5, 4294967295
+  %7 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !9
   br label %29
 
@@ -687,9 +687,9 @@ define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0
   br i1 %or.cond8, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = add nsw i32 %2, -64336
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %17
+  %16 = zext i16 %0 to i64
+  %17 = getelementptr i8, ptr @_ZL9presALink, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 -64336
   %19 = load i8, ptr %18, align 1, !tbaa !16
   %20 = zext i8 %19 to i16
   br label %29
@@ -700,15 +700,15 @@ define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0
   br i1 %or.cond11, label %23, label %29
 
 23:                                               ; preds = %21
-  %24 = add nsw i32 %2, -65136
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %25
+  %24 = zext i16 %0 to i64
+  %25 = getelementptr i8, ptr @_ZL9presBLink, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -65136
   %27 = load i8, ptr %26, align 1, !tbaa !16
   %28 = zext i8 %27 to i16
   br label %29
 
-29:                                               ; preds = %21, %11, %9, %23, %15, %4
-  %.0 = phi i16 [ %8, %4 ], [ %20, %15 ], [ %28, %23 ], [ 3, %9 ], [ 4, %11 ], [ 0, %21 ]
+29:                                               ; preds = %21, %11, %9, %23, %15, %3
+  %.0 = phi i16 [ %8, %3 ], [ %20, %15 ], [ %28, %23 ], [ 3, %9 ], [ 4, %11 ], [ 0, %21 ]
   ret i16 %.0
 }
 
@@ -920,15 +920,15 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
   %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !9
-  %12 = zext i16 %11 to i32
-  %13 = add i16 %11, 1200
-  %or.cond = icmp ult i16 %13, 176
-  br i1 %or.cond, label %14, label %19
+  %12 = add i16 %11, 1200
+  %or.cond = icmp ult i16 %12, 176
+  br i1 %or.cond, label %13, label %19
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nsw i32 %12, -64336
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [176 x i16], ptr @_ZL13convertFBto06, i64 0, i64 %16
+13:                                               ; preds = %.lr.ph
+  %14 = zext i16 %11 to i64
+  %15 = add nuw nsw i64 %14, 4294902960
+  %16 = and i64 %15, 4294967295
+  %17 = getelementptr inbounds nuw i16, ptr @_ZL13convertFBto06, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !9
   %.not209 = icmp eq i16 %18, 0
   br i1 %.not209, label %26, label %.sink.split
@@ -939,18 +939,18 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   br i1 %or.cond5, label %21, label %26
 
 21:                                               ; preds = %19
-  %22 = add nsw i32 %12, -65136
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [141 x i16], ptr @_ZL13convertFEto06, i64 0, i64 %23
+  %22 = zext i16 %11 to i64
+  %23 = getelementptr i16, ptr @_ZL13convertFEto06, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -130272
   %25 = load i16, ptr %24, align 2, !tbaa !9
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %21
-  %.sink = phi i16 [ %25, %21 ], [ %18, %14 ]
+.sink.split:                                      ; preds = %13, %21
+  %.sink = phi i16 [ %25, %21 ], [ %18, %13 ]
   store i16 %.sink, ptr %10, align 2, !tbaa !9
   br label %26
 
-26:                                               ; preds = %.sink.split, %19, %14
+26:                                               ; preds = %.sink.split, %19, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
@@ -960,15 +960,15 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i16, ptr %0, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !9
-  %31 = zext i16 %30 to i32
-  %32 = add i16 %30, -1570
-  %or.cond.i = icmp ult i16 %32, 178
-  br i1 %or.cond.i, label %33, label %38
+  %31 = add i16 %30, -1570
+  %or.cond.i = icmp ult i16 %31, 178
+  br i1 %or.cond.i, label %32, label %38
 
-33:                                               ; preds = %.loopexit
-  %34 = add nsw i32 %31, -1570
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %35
+32:                                               ; preds = %.loopexit
+  %33 = zext nneg i16 %30 to i64
+  %34 = add nuw nsw i64 %33, 4294965726
+  %35 = and i64 %34, 4294967295
+  %36 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit
 
@@ -987,9 +987,9 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   br i1 %or.cond8.i, label %44, label %50
 
 44:                                               ; preds = %42
-  %45 = add nsw i32 %31, -64336
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %46
+  %45 = zext i16 %30 to i64
+  %46 = getelementptr i8, ptr @_ZL9presALink, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -64336
   %48 = load i8, ptr %47, align 1, !tbaa !16
   %49 = zext i8 %48 to i16
   br label %_ZL7getLinkDs.exit
@@ -1000,15 +1000,15 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   br i1 %or.cond11.i, label %52, label %_ZL7getLinkDs.exit
 
 52:                                               ; preds = %50
-  %53 = add nsw i32 %31, -65136
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %54
+  %53 = zext i16 %30 to i64
+  %54 = getelementptr i8, ptr @_ZL9presBLink, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 -65136
   %56 = load i8, ptr %55, align 1, !tbaa !16
   %57 = zext i8 %56 to i16
   br label %_ZL7getLinkDs.exit
 
-_ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, %50, %52
-  %.0.i = phi i16 [ %37, %33 ], [ %49, %44 ], [ %57, %52 ], [ 3, %38 ], [ 4, %40 ], [ 0, %50 ]
+_ZL7getLinkDs.exit:                               ; preds = %32, %38, %40, %44, %50, %52
+  %.0.i = phi i16 [ %37, %32 ], [ %49, %44 ], [ %57, %52 ], [ 3, %38 ], [ 4, %40 ], [ 0, %50 ]
   %.not280 = icmp eq i32 %1, 0
   br i1 %.not280, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread, label %.lr.ph294
 
@@ -1037,15 +1037,15 @@ _ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, 
   %63 = sext i32 %.1150293 to i64
   %64 = getelementptr inbounds i16, ptr %0, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !9
-  %66 = zext i16 %65 to i32
-  %67 = add i16 %65, -1570
-  %or.cond.i218 = icmp ult i16 %67, 178
-  br i1 %or.cond.i218, label %68, label %73
+  %66 = add i16 %65, -1570
+  %or.cond.i218 = icmp ult i16 %66, 178
+  br i1 %or.cond.i218, label %67, label %73
 
-68:                                               ; preds = %62
-  %69 = add nsw i32 %66, -1570
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %70
+67:                                               ; preds = %62
+  %68 = zext nneg i16 %65 to i64
+  %69 = add nuw nsw i64 %68, 4294965726
+  %70 = and i64 %69, 4294967295
+  %71 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit223
 
@@ -1064,9 +1064,9 @@ _ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, 
   br i1 %or.cond8.i220, label %79, label %85
 
 79:                                               ; preds = %77
-  %80 = add nsw i32 %66, -64336
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %81
+  %80 = zext i16 %65 to i64
+  %81 = getelementptr i8, ptr @_ZL9presALink, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 -64336
   %83 = load i8, ptr %82, align 1, !tbaa !16
   %84 = zext i8 %83 to i16
   br label %_ZL7getLinkDs.exit223
@@ -1077,15 +1077,15 @@ _ZL7getLinkDs.exit:                               ; preds = %33, %38, %40, %44, 
   br i1 %or.cond11.i221, label %87, label %_ZL7getLinkDs.exit223.thread
 
 87:                                               ; preds = %85
-  %88 = add nsw i32 %66, -65136
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %89
+  %88 = zext i16 %65 to i64
+  %89 = getelementptr i8, ptr @_ZL9presBLink, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 -65136
   %91 = load i8, ptr %90, align 1, !tbaa !16
   %92 = zext i8 %91 to i16
   br label %_ZL7getLinkDs.exit223
 
-_ZL7getLinkDs.exit223:                            ; preds = %68, %79, %87
-  %.0.i222 = phi i16 [ %72, %68 ], [ %84, %79 ], [ %92, %87 ]
+_ZL7getLinkDs.exit223:                            ; preds = %67, %79, %87
+  %.0.i222 = phi i16 [ %72, %67 ], [ %84, %79 ], [ %92, %87 ]
   %93 = and i16 %.0.i222, 4
   %.not192 = icmp eq i16 %93, 0
   br i1 %.not192, label %_ZL7getLinkDs.exit223.thread, label %_ZL7getLinkDs.exit223.thread257
@@ -1108,15 +1108,15 @@ _ZL7getLinkDs.exit223.thread257:                  ; preds = %75, %_ZL7getLinkDs.
   %98 = sext i32 %.0179277 to i64
   %99 = getelementptr inbounds i16, ptr %0, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !9
-  %101 = zext i16 %100 to i32
-  %102 = add i16 %100, -1570
-  %or.cond.i224 = icmp ult i16 %102, 178
-  br i1 %or.cond.i224, label %103, label %108
+  %101 = add i16 %100, -1570
+  %or.cond.i224 = icmp ult i16 %101, 178
+  br i1 %or.cond.i224, label %102, label %108
 
-103:                                              ; preds = %97
-  %104 = add nsw i32 %101, -1570
-  %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %105
+102:                                              ; preds = %97
+  %103 = zext nneg i16 %100 to i64
+  %104 = add nuw nsw i64 %103, 4294965726
+  %105 = and i64 %104, 4294967295
+  %106 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit229
 
@@ -1139,9 +1139,9 @@ _ZL7getLinkDs.exit229.thread351:                  ; preds = %110
   br i1 %or.cond8.i226, label %114, label %120
 
 114:                                              ; preds = %112
-  %115 = add nsw i32 %101, -64336
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %116
+  %115 = zext i16 %100 to i64
+  %116 = getelementptr i8, ptr @_ZL9presALink, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 -64336
   %118 = load i8, ptr %117, align 1, !tbaa !16
   %119 = zext i8 %118 to i16
   br label %_ZL7getLinkDs.exit229
@@ -1152,15 +1152,15 @@ _ZL7getLinkDs.exit229.thread351:                  ; preds = %110
   br i1 %or.cond11.i227, label %122, label %_ZL7getLinkDs.exit229.thread
 
 122:                                              ; preds = %120
-  %123 = add nsw i32 %101, -65136
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %124
+  %123 = zext i16 %100 to i64
+  %124 = getelementptr i8, ptr @_ZL9presBLink, i64 %123
+  %125 = getelementptr i8, ptr %124, i64 -65136
   %126 = load i8, ptr %125, align 1, !tbaa !16
   %127 = zext i8 %126 to i16
   br label %_ZL7getLinkDs.exit229
 
-_ZL7getLinkDs.exit229:                            ; preds = %103, %114, %122
-  %.0.i228 = phi i16 [ %107, %103 ], [ %119, %114 ], [ %127, %122 ]
+_ZL7getLinkDs.exit229:                            ; preds = %102, %114, %122
+  %.0.i228 = phi i16 [ %107, %102 ], [ %119, %114 ], [ %127, %122 ]
   %128 = and i16 %.0.i228, 4
   %129 = icmp ne i16 %128, 0
   %130 = sext i1 %129 to i32
@@ -1199,7 +1199,7 @@ _ZL7getLinkDs.exit229.thread:                     ; preds = %_ZL7getLinkDs.exit2
 
 switch.lookup:                                    ; preds = %134
   %139 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 0, i64 %139
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 %139
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 -1, ptr %136, align 2, !tbaa !9
   %140 = sext i32 %.0151291 to i64
@@ -1208,7 +1208,7 @@ switch.lookup:                                    ; preds = %134
   %narrow = add nuw nsw i16 %switch.load, 30
   %142 = and i16 %narrow, 63
   %143 = zext nneg i16 %142 to i64
-  %144 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit236
 
@@ -1260,15 +1260,15 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   %165 = zext i16 %.2155.lcssa to i32
   %166 = and i32 %165, 3
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw [4 x [4 x [4 x i8]]], ptr @_ZL10shapeTable, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZL10shapeTable, i64 %167
   %169 = zext i16 %.2163 to i32
   %170 = and i32 %169, 3
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw [4 x [4 x i8]], ptr %168, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %171
   %173 = zext i16 %.2159 to i32
   %174 = and i32 %173, 3
   %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !16
   %178 = zext i8 %177 to i32
   %179 = icmp eq i32 %174, 1
@@ -1351,8 +1351,8 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   %.0178331334339 = phi i32 [ 1, %.thread335 ], [ %.0178, %208 ]
   %212 = phi i16 [ 1617, %.thread335 ], [ %201, %208 ]
   %213 = zext nneg i16 %212 to i64
-  %214 = add nsw i64 %213, -1611
-  %215 = getelementptr inbounds [8 x i8], ptr @_ZL13IrrelevantPos, i64 0, i64 %214
+  %214 = getelementptr i8, ptr @_ZL13IrrelevantPos, i64 %213
+  %215 = getelementptr i8, ptr %214, i64 -1611
   %216 = load i8, ptr %215, align 1, !tbaa !16
   %217 = zext i8 %216 to i32
   %218 = add nuw nsw i32 %.0178331334339, 65136
@@ -1416,15 +1416,15 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   %242 = sext i32 %238 to i64
   %243 = getelementptr inbounds i16, ptr %0, i64 %242
   %244 = load i16, ptr %243, align 2, !tbaa !9
-  %245 = zext i16 %244 to i32
-  %246 = add i16 %244, -1570
-  %or.cond.i240 = icmp ult i16 %246, 178
-  br i1 %or.cond.i240, label %247, label %252
+  %245 = add i16 %244, -1570
+  %or.cond.i240 = icmp ult i16 %245, 178
+  br i1 %or.cond.i240, label %246, label %252
 
-247:                                              ; preds = %241
-  %248 = add nsw i32 %245, -1570
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw [178 x i16], ptr @_ZL7araLink, i64 0, i64 %249
+246:                                              ; preds = %241
+  %247 = zext nneg i16 %244 to i64
+  %248 = add nuw nsw i64 %247, 4294965726
+  %249 = and i64 %248, 4294967295
+  %250 = getelementptr inbounds nuw i16, ptr @_ZL7araLink, i64 %249
   %251 = load i16, ptr %250, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit245
 
@@ -1443,9 +1443,9 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   br i1 %or.cond8.i242, label %258, label %264
 
 258:                                              ; preds = %256
-  %259 = add nsw i32 %245, -64336
-  %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw [275 x i8], ptr @_ZL9presALink, i64 0, i64 %260
+  %259 = zext i16 %244 to i64
+  %260 = getelementptr i8, ptr @_ZL9presALink, i64 %259
+  %261 = getelementptr i8, ptr %260, i64 -64336
   %262 = load i8, ptr %261, align 1, !tbaa !16
   %263 = zext i8 %262 to i16
   br label %_ZL7getLinkDs.exit245
@@ -1456,16 +1456,16 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   br i1 %or.cond11.i243, label %266, label %_ZL7getLinkDs.exit245
 
 266:                                              ; preds = %264
-  %267 = add nsw i32 %245, -65136
-  %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds nuw [144 x i8], ptr @_ZL9presBLink, i64 0, i64 %268
+  %267 = zext i16 %244 to i64
+  %268 = getelementptr i8, ptr @_ZL9presBLink, i64 %267
+  %269 = getelementptr i8, ptr %268, i64 -65136
   %270 = load i8, ptr %269, align 1, !tbaa !16
   %271 = zext i8 %270 to i16
   br label %_ZL7getLinkDs.exit245
 
-_ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %254, %252, %247, %_ZL7getLinkDs.exit223.thread
-  %.4185 = phi i32 [ -2, %_ZL7getLinkDs.exit223.thread ], [ %.1182, %247 ], [ %.1182, %252 ], [ %.1182, %254 ], [ %.1182, %258 ], [ %.1182, %264 ], [ %.1182, %266 ]
-  %.3160 = phi i16 [ %.1154, %_ZL7getLinkDs.exit223.thread ], [ %251, %247 ], [ 3, %252 ], [ 4, %254 ], [ %263, %258 ], [ 0, %264 ], [ %271, %266 ]
+_ZL7getLinkDs.exit245:                            ; preds = %266, %264, %258, %254, %252, %246, %_ZL7getLinkDs.exit223.thread
+  %.4185 = phi i32 [ -2, %_ZL7getLinkDs.exit223.thread ], [ %.1182, %246 ], [ %.1182, %252 ], [ %.1182, %254 ], [ %.1182, %258 ], [ %.1182, %264 ], [ %.1182, %266 ]
+  %.3160 = phi i16 [ %.1154, %_ZL7getLinkDs.exit223.thread ], [ %251, %246 ], [ 3, %252 ], [ 4, %254 ], [ %263, %258 ], [ 0, %264 ], [ %271, %266 ]
   %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %._crit_edge295, label %61, !llvm.loop !24
 
@@ -1922,90 +1922,90 @@ define internal fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uSha
   %.05974.us.us = phi i32 [ %spec.select.us.us, %48 ], [ 0, %.lr.ph.split.us ]
   %13 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv101
   %14 = load i16, ptr %13, align 2, !tbaa !9
-  %15 = zext i16 %14 to i32
-  %16 = add i16 %14, 1200
-  %or.cond.us.us = icmp ult i16 %16, 176
-  br i1 %or.cond.us.us, label %42, label %17
+  %15 = add i16 %14, 1200
+  %or.cond.us.us = icmp ult i16 %15, 176
+  br i1 %or.cond.us.us, label %41, label %16
 
-17:                                               ; preds = %.lr.ph.split.us.split.us
-  switch i16 %14, label %24 [
-    i16 -384, label %18
-    i16 1569, label %18
+16:                                               ; preds = %.lr.ph.split.us.split.us
+  switch i16 %14, label %23 [
+    i16 -384, label %17
+    i16 1569, label %17
   ]
 
-18:                                               ; preds = %17, %17
-  %19 = icmp samesign ult i64 %indvars.iv101, %12
-  br i1 %19, label %20, label %24
+17:                                               ; preds = %16, %16
+  %18 = icmp samesign ult i64 %indvars.iv101, %12
+  br i1 %18, label %19, label %23
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %22 = load i16, ptr %21, align 2, !tbaa !9
-  switch i16 %22, label %24 [
-    i16 -272, label %23
-    i16 -273, label %23
-    i16 1609, label %23
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %21 = load i16, ptr %20, align 2, !tbaa !9
+  switch i16 %21, label %23 [
+    i16 -272, label %22
+    i16 -273, label %22
+    i16 1609, label %22
   ]
 
-23:                                               ; preds = %20, %20, %20
+22:                                               ; preds = %19, %19, %19
   store i16 32, ptr %13, align 2, !tbaa !9
-  store i16 1574, ptr %21, align 2, !tbaa !9
+  store i16 1574, ptr %20, align 2, !tbaa !9
   br label %48
 
-24:                                               ; preds = %20, %18, %17
+23:                                               ; preds = %19, %17, %16
   %switch.selectcmp.case1.i.us.us = icmp eq i16 %14, -397
   %switch.selectcmp.case2.i.us.us = icmp eq i16 %14, 8203
   %switch.selectcmp.i.us.us = or i1 %switch.selectcmp.case1.i.us.us, %switch.selectcmp.case2.i.us.us
-  %25 = icmp samesign ult i64 %indvars.iv101, %12
-  %or.cond69.us.us = select i1 %switch.selectcmp.i.us.us, i1 %25, i1 false
-  br i1 %or.cond69.us.us, label %26, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
+  %24 = icmp samesign ult i64 %indvars.iv101, %12
+  %or.cond69.us.us = select i1 %switch.selectcmp.i.us.us, i1 %24, i1 false
+  br i1 %or.cond69.us.us, label %25, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %28 = load i16, ptr %27, align 2, !tbaa !9
-  %29 = add i16 %28, 335
-  %or.cond.i70.us.us = icmp ult i16 %29, 14
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %27 = load i16, ptr %26, align 2, !tbaa !9
+  %28 = add i16 %27, 335
+  %or.cond.i70.us.us = icmp ult i16 %28, 14
   br i1 %or.cond.i70.us.us, label %_ZL20isSeenTailFamilyCharDs.exit.us.us, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
 
-_ZL20isSeenTailFamilyCharDs.exit.us.us:           ; preds = %26
-  %30 = zext i16 %28 to i64
-  %31 = add nuw nsw i64 %30, 4294902095
-  %32 = and i64 %31, 4294967295
-  %33 = shl nuw nsw i64 1, %32
-  %34 = and i64 %33, 3276
-  %.not65.not.us.us = icmp eq i64 %34, 0
-  br i1 %.not65.not.us.us, label %41, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
+_ZL20isSeenTailFamilyCharDs.exit.us.us:           ; preds = %25
+  %29 = zext i16 %27 to i64
+  %30 = add nuw nsw i64 %29, 4294902095
+  %31 = and i64 %30, 4294967295
+  %32 = shl nuw nsw i64 1, %31
+  %33 = and i64 %32, 3276
+  %.not65.not.us.us = icmp eq i64 %33, 0
+  br i1 %.not65.not.us.us, label %40, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
 
-_ZL20isSeenTailFamilyCharDs.exit.thread.us.us:    ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us.us, %26, %24
-  %35 = add i16 %14, 400
-  %or.cond8.us.us = icmp ult i16 %35, 133
-  br i1 %or.cond8.us.us, label %36, label %48
+_ZL20isSeenTailFamilyCharDs.exit.thread.us.us:    ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us.us, %25, %23
+  %34 = add i16 %14, 400
+  %or.cond8.us.us = icmp ult i16 %34, 133
+  br i1 %or.cond8.us.us, label %35, label %48
 
-36:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
-  %37 = add nsw i32 %15, -65136
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [141 x i16], ptr @_ZL13convertFEto06, i64 0, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !9
-  store i16 %40, ptr %13, align 2, !tbaa !9
+35:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us
+  %36 = zext i16 %14 to i64
+  %37 = getelementptr i16, ptr @_ZL13convertFEto06, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -130272
+  %39 = load i16, ptr %38, align 2, !tbaa !9
+  store i16 %39, ptr %13, align 2, !tbaa !9
   br label %48
 
-41:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us.us
+40:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us.us
   store i16 32, ptr %13, align 2, !tbaa !9
   br label %48
 
-42:                                               ; preds = %.lr.ph.split.us.split.us
-  %43 = add nsw i32 %15, -64336
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [176 x i16], ptr @_ZL13convertFBto06, i64 0, i64 %44
+41:                                               ; preds = %.lr.ph.split.us.split.us
+  %42 = zext i16 %14 to i64
+  %43 = add nuw nsw i64 %42, 4294902960
+  %44 = and i64 %43, 4294967295
+  %45 = getelementptr inbounds nuw i16, ptr @_ZL13convertFBto06, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !9
   %.not66.us.us = icmp eq i16 %46, 0
   br i1 %.not66.us.us, label %48, label %47
 
-47:                                               ; preds = %42
+47:                                               ; preds = %41
   store i16 %46, ptr %13, align 2, !tbaa !9
   br label %48
 
-48:                                               ; preds = %47, %42, %41, %36, %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us, %23
-  %49 = phi i16 [ %46, %47 ], [ %14, %42 ], [ 32, %41 ], [ %40, %36 ], [ %14, %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us ], [ 32, %23 ]
+48:                                               ; preds = %47, %41, %40, %35, %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us, %22
+  %49 = phi i16 [ %46, %47 ], [ %14, %41 ], [ 32, %40 ], [ %39, %35 ], [ %14, %_ZL20isSeenTailFamilyCharDs.exit.thread.us.us ], [ 32, %22 ]
   %50 = add i16 %49, 259
   %51 = icmp ult i16 %50, -8
   %spec.select.us.us = select i1 %51, i32 %.05974.us.us, i32 1
@@ -2018,62 +2018,62 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.us:    ; preds = %_ZL20isSeenTailFami
   %.05974.us = phi i32 [ %spec.select.us, %78 ], [ 0, %.lr.ph.split.us ]
   %52 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv96
   %53 = load i16, ptr %52, align 2, !tbaa !9
-  %54 = zext i16 %53 to i32
-  %55 = add i16 %53, 1200
-  %or.cond.us = icmp ult i16 %55, 176
-  br i1 %or.cond.us, label %73, label %56
+  %54 = add i16 %53, 1200
+  %or.cond.us = icmp ult i16 %54, 176
+  br i1 %or.cond.us, label %72, label %55
 
-56:                                               ; preds = %.lr.ph.split.us.split
+55:                                               ; preds = %.lr.ph.split.us.split
   %switch.selectcmp.case1.i.us = icmp eq i16 %53, -397
   %switch.selectcmp.case2.i.us = icmp eq i16 %53, 8203
   %switch.selectcmp.i.us = or i1 %switch.selectcmp.case1.i.us, %switch.selectcmp.case2.i.us
-  %57 = icmp samesign ult i64 %indvars.iv96, %12
-  %or.cond69.us = select i1 %switch.selectcmp.i.us, i1 %57, i1 false
-  br i1 %or.cond69.us, label %58, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us
+  %56 = icmp samesign ult i64 %indvars.iv96, %12
+  %or.cond69.us = select i1 %switch.selectcmp.i.us, i1 %56, i1 false
+  br i1 %or.cond69.us, label %57, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  %60 = load i16, ptr %59, align 2, !tbaa !9
-  %61 = add i16 %60, 335
-  %or.cond.i70.us = icmp ult i16 %61, 14
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %59 = load i16, ptr %58, align 2, !tbaa !9
+  %60 = add i16 %59, 335
+  %or.cond.i70.us = icmp ult i16 %60, 14
   br i1 %or.cond.i70.us, label %_ZL20isSeenTailFamilyCharDs.exit.us, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us
 
-_ZL20isSeenTailFamilyCharDs.exit.us:              ; preds = %58
-  %62 = zext i16 %60 to i64
-  %63 = add nuw nsw i64 %62, 4294902095
-  %64 = and i64 %63, 4294967295
-  %65 = shl nuw nsw i64 1, %64
-  %66 = and i64 %65, 3276
-  %.not65.not.us = icmp eq i64 %66, 0
+_ZL20isSeenTailFamilyCharDs.exit.us:              ; preds = %57
+  %61 = zext i16 %59 to i64
+  %62 = add nuw nsw i64 %61, 4294902095
+  %63 = and i64 %62, 4294967295
+  %64 = shl nuw nsw i64 1, %63
+  %65 = and i64 %64, 3276
+  %.not65.not.us = icmp eq i64 %65, 0
   br i1 %.not65.not.us, label %.sink.split, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us
 
-_ZL20isSeenTailFamilyCharDs.exit.thread.us:       ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us, %58, %56
-  %67 = add i16 %53, 400
-  %or.cond8.us = icmp ult i16 %67, 133
-  br i1 %or.cond8.us, label %68, label %78
+_ZL20isSeenTailFamilyCharDs.exit.thread.us:       ; preds = %_ZL20isSeenTailFamilyCharDs.exit.us, %57, %55
+  %66 = add i16 %53, 400
+  %or.cond8.us = icmp ult i16 %66, 133
+  br i1 %or.cond8.us, label %67, label %78
 
-68:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us
-  %69 = add nsw i32 %54, -65136
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [141 x i16], ptr @_ZL13convertFEto06, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !9
+67:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us
+  %68 = zext i16 %53 to i64
+  %69 = getelementptr i16, ptr @_ZL13convertFEto06, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 -130272
+  %71 = load i16, ptr %70, align 2, !tbaa !9
   br label %.sink.split
 
-73:                                               ; preds = %.lr.ph.split.us.split
-  %74 = add nsw i32 %54, -64336
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [176 x i16], ptr @_ZL13convertFBto06, i64 0, i64 %75
+72:                                               ; preds = %.lr.ph.split.us.split
+  %73 = zext i16 %53 to i64
+  %74 = add nuw nsw i64 %73, 4294902960
+  %75 = and i64 %74, 4294967295
+  %76 = getelementptr inbounds nuw i16, ptr @_ZL13convertFBto06, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !9
   %.not66.us = icmp eq i16 %77, 0
   br i1 %.not66.us, label %78, label %.sink.split
 
-.sink.split:                                      ; preds = %73, %_ZL20isSeenTailFamilyCharDs.exit.us, %68
-  %.sink = phi i16 [ %72, %68 ], [ 32, %_ZL20isSeenTailFamilyCharDs.exit.us ], [ %77, %73 ]
+.sink.split:                                      ; preds = %72, %_ZL20isSeenTailFamilyCharDs.exit.us, %67
+  %.sink = phi i16 [ %71, %67 ], [ 32, %_ZL20isSeenTailFamilyCharDs.exit.us ], [ %77, %72 ]
   store i16 %.sink, ptr %52, align 2, !tbaa !9
   br label %78
 
-78:                                               ; preds = %.sink.split, %73, %_ZL20isSeenTailFamilyCharDs.exit.thread.us
-  %79 = phi i16 [ %53, %73 ], [ %53, %_ZL20isSeenTailFamilyCharDs.exit.thread.us ], [ %.sink, %.sink.split ]
+78:                                               ; preds = %.sink.split, %72, %_ZL20isSeenTailFamilyCharDs.exit.thread.us
+  %79 = phi i16 [ %53, %72 ], [ %53, %_ZL20isSeenTailFamilyCharDs.exit.thread.us ], [ %.sink, %.sink.split ]
   %80 = add i16 %79, 259
   %81 = icmp ult i16 %80, -8
   %spec.select.us = select i1 %81, i32 %.05974.us, i32 1
@@ -2098,62 +2098,62 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us:       ; preds = %_ZL20isSeenTailFami
   %.05974.us78 = phi i32 [ 0, %.lr.ph.split.split.us.preheader ], [ %spec.select.us83, %106 ]
   %83 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv91
   %84 = load i16, ptr %83, align 2, !tbaa !9
-  %85 = zext i16 %84 to i32
-  %86 = add i16 %84, 1200
-  %or.cond.us79 = icmp ult i16 %86, 176
-  br i1 %or.cond.us79, label %100, label %87
+  %85 = add i16 %84, 1200
+  %or.cond.us79 = icmp ult i16 %85, 176
+  br i1 %or.cond.us79, label %99, label %86
 
-87:                                               ; preds = %.lr.ph.split.split.us
+86:                                               ; preds = %.lr.ph.split.split.us
   switch i16 %84, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us80 [
-    i16 -384, label %88
-    i16 1569, label %88
+    i16 -384, label %87
+    i16 1569, label %87
   ]
 
-88:                                               ; preds = %87, %87
-  %89 = icmp samesign ult i64 %indvars.iv91, %82
-  br i1 %89, label %90, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us80
+87:                                               ; preds = %86, %86
+  %88 = icmp samesign ult i64 %indvars.iv91, %82
+  br i1 %88, label %89, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us80
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 2
-  %92 = load i16, ptr %91, align 2, !tbaa !9
-  switch i16 %92, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us80 [
-    i16 -272, label %93
-    i16 -273, label %93
-    i16 1609, label %93
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 2
+  %91 = load i16, ptr %90, align 2, !tbaa !9
+  switch i16 %91, label %_ZL20isSeenTailFamilyCharDs.exit.thread.us80 [
+    i16 -272, label %92
+    i16 -273, label %92
+    i16 1609, label %92
   ]
 
-93:                                               ; preds = %90, %90, %90
+92:                                               ; preds = %89, %89, %89
   store i16 32, ptr %83, align 2, !tbaa !9
-  store i16 1574, ptr %91, align 2, !tbaa !9
+  store i16 1574, ptr %90, align 2, !tbaa !9
   br label %106
 
-_ZL20isSeenTailFamilyCharDs.exit.thread.us80:     ; preds = %90, %88, %87
-  %94 = add i16 %84, 400
-  %or.cond8.us81 = icmp ult i16 %94, 133
-  br i1 %or.cond8.us81, label %95, label %106
+_ZL20isSeenTailFamilyCharDs.exit.thread.us80:     ; preds = %89, %87, %86
+  %93 = add i16 %84, 400
+  %or.cond8.us81 = icmp ult i16 %93, 133
+  br i1 %or.cond8.us81, label %94, label %106
 
-95:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us80
-  %96 = add nsw i32 %85, -65136
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw [141 x i16], ptr @_ZL13convertFEto06, i64 0, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !9
-  store i16 %99, ptr %83, align 2, !tbaa !9
+94:                                               ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us80
+  %95 = zext i16 %84 to i64
+  %96 = getelementptr i16, ptr @_ZL13convertFEto06, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 -130272
+  %98 = load i16, ptr %97, align 2, !tbaa !9
+  store i16 %98, ptr %83, align 2, !tbaa !9
   br label %106
 
-100:                                              ; preds = %.lr.ph.split.split.us
-  %101 = add nsw i32 %85, -64336
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [176 x i16], ptr @_ZL13convertFBto06, i64 0, i64 %102
+99:                                               ; preds = %.lr.ph.split.split.us
+  %100 = zext i16 %84 to i64
+  %101 = add nuw nsw i64 %100, 4294902960
+  %102 = and i64 %101, 4294967295
+  %103 = getelementptr inbounds nuw i16, ptr @_ZL13convertFBto06, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !9
   %.not66.us82 = icmp eq i16 %104, 0
   br i1 %.not66.us82, label %106, label %105
 
-105:                                              ; preds = %100
+105:                                              ; preds = %99
   store i16 %104, ptr %83, align 2, !tbaa !9
   br label %106
 
-106:                                              ; preds = %105, %100, %95, %_ZL20isSeenTailFamilyCharDs.exit.thread.us80, %93
-  %107 = phi i16 [ %104, %105 ], [ %84, %100 ], [ %99, %95 ], [ %84, %_ZL20isSeenTailFamilyCharDs.exit.thread.us80 ], [ 32, %93 ]
+106:                                              ; preds = %105, %99, %94, %_ZL20isSeenTailFamilyCharDs.exit.thread.us80, %92
+  %107 = phi i16 [ %104, %105 ], [ %84, %99 ], [ %98, %94 ], [ %84, %_ZL20isSeenTailFamilyCharDs.exit.thread.us80 ], [ 32, %92 ]
   %108 = add i16 %107, 259
   %109 = icmp ult i16 %108, -8
   %spec.select.us83 = select i1 %109, i32 %.05974.us78, i32 1
@@ -2166,15 +2166,15 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us80:     ; preds = %90, %88, %87
   %.05974 = phi i32 [ 0, %.lr.ph.split.split.preheader ], [ %spec.select, %125 ]
   %110 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %111 = load i16, ptr %110, align 2, !tbaa !9
-  %112 = zext i16 %111 to i32
-  %113 = add i16 %111, 1200
-  %or.cond = icmp ult i16 %113, 176
-  br i1 %or.cond, label %114, label %_ZL20isSeenTailFamilyCharDs.exit.thread
+  %112 = add i16 %111, 1200
+  %or.cond = icmp ult i16 %112, 176
+  br i1 %or.cond, label %113, label %_ZL20isSeenTailFamilyCharDs.exit.thread
 
-114:                                              ; preds = %.lr.ph.split.split
-  %115 = add nsw i32 %112, -64336
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw [176 x i16], ptr @_ZL13convertFBto06, i64 0, i64 %116
+113:                                              ; preds = %.lr.ph.split.split
+  %114 = zext i16 %111 to i64
+  %115 = add nuw nsw i64 %114, 4294902960
+  %116 = and i64 %115, 4294967295
+  %117 = getelementptr inbounds nuw i16, ptr @_ZL13convertFBto06, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !9
   %.not66 = icmp eq i16 %118, 0
   br i1 %.not66, label %125, label %.sink.split116
@@ -2185,19 +2185,19 @@ _ZL20isSeenTailFamilyCharDs.exit.thread:          ; preds = %.lr.ph.split.split
   br i1 %or.cond8, label %120, label %125
 
 120:                                              ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread
-  %121 = add nsw i32 %112, -65136
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw [141 x i16], ptr @_ZL13convertFEto06, i64 0, i64 %122
+  %121 = zext i16 %111 to i64
+  %122 = getelementptr i16, ptr @_ZL13convertFEto06, i64 %121
+  %123 = getelementptr i8, ptr %122, i64 -130272
   %124 = load i16, ptr %123, align 2, !tbaa !9
   br label %.sink.split116
 
-.sink.split116:                                   ; preds = %114, %120
-  %.sink118 = phi i16 [ %124, %120 ], [ %118, %114 ]
+.sink.split116:                                   ; preds = %113, %120
+  %.sink118 = phi i16 [ %124, %120 ], [ %118, %113 ]
   store i16 %.sink118, ptr %110, align 2, !tbaa !9
   br label %125
 
-125:                                              ; preds = %.sink.split116, %_ZL20isSeenTailFamilyCharDs.exit.thread, %114
-  %126 = phi i16 [ %111, %_ZL20isSeenTailFamilyCharDs.exit.thread ], [ %111, %114 ], [ %.sink118, %.sink.split116 ]
+125:                                              ; preds = %.sink.split116, %_ZL20isSeenTailFamilyCharDs.exit.thread, %113
+  %126 = phi i16 [ %111, %_ZL20isSeenTailFamilyCharDs.exit.thread ], [ %111, %113 ], [ %.sink118, %.sink.split116 ]
   %127 = add i16 %126, 259
   %128 = icmp ult i16 %127, -8
   %spec.select = select i1 %128, i32 %.05974, i32 1
@@ -2398,8 +2398,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.us.i:  ; preds = %43, %.lr.ph.i
 38:                                               ; preds = %34
   store i16 1604, ptr %30, align 2, !tbaa !9
   %39 = zext i16 %31 to i64
-  %40 = add nsw i64 %39, -65269
-  %41 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %40
+  %40 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 -130538
   %42 = load i16, ptr %41, align 2, !tbaa !9
   store i16 %42, ptr %29, align 2, !tbaa !9
   br label %43
@@ -2500,8 +2500,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.us.i124: ; preds = %79, %_ZL20isSeenT
 74:                                               ; preds = %70
   store i16 1604, ptr %66, align 2, !tbaa !9
   %75 = zext i16 %67 to i64
-  %76 = add nsw i64 %75, -65269
-  %77 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %76
+  %76 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 -130538
   %78 = load i16, ptr %77, align 2, !tbaa !9
   store i16 %78, ptr %65, align 2, !tbaa !9
   br label %79
@@ -2531,8 +2531,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.i:     ; preds = %108, %_ZL20isSeenTa
 
 88:                                               ; preds = %84
   %89 = zext i16 %81 to i64
-  %90 = add nsw i64 %89, -65161
-  %91 = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %90
+  %90 = getelementptr i16, ptr @_ZL13yehHamzaToYeh, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 -130322
   %92 = load i16, ptr %91, align 2, !tbaa !9
   store i16 %92, ptr %80, align 2, !tbaa !9
   store i16 -384, ptr %85, align 2, !tbaa !9
@@ -2563,8 +2563,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us.i:     ; preds = %108, %_ZL20isSeenTa
 103:                                              ; preds = %100
   store i16 1604, ptr %96, align 2, !tbaa !9
   %104 = zext i16 %97 to i64
-  %105 = add nsw i64 %104, -65269
-  %106 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %105
+  %105 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %104
+  %106 = getelementptr i8, ptr %105, i64 -130538
   %107 = load i16, ptr %106, align 2, !tbaa !9
   store i16 %107, ptr %80, align 2, !tbaa !9
   br label %108
@@ -2674,8 +2674,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us6.i:    ; preds = %_ZL20isSeenTailFami
 146:                                              ; preds = %143
   store i16 1604, ptr %139, align 2, !tbaa !9
   %147 = zext i16 %140 to i64
-  %148 = add nsw i64 %147, -65269
-  %149 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %148
+  %148 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 -130538
   %150 = load i16, ptr %149, align 2, !tbaa !9
   store i16 %150, ptr %124, align 2, !tbaa !9
   br label %151
@@ -2740,8 +2740,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us13.i:   ; preds = %.lr.ph.split.split.
 
 173:                                              ; preds = %169
   %174 = zext i16 %153 to i64
-  %175 = add nsw i64 %174, -65161
-  %176 = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %175
+  %175 = getelementptr i16, ptr @_ZL13yehHamzaToYeh, i64 %174
+  %176 = getelementptr i8, ptr %175, i64 -130322
   %177 = load i16, ptr %176, align 2, !tbaa !9
   store i16 %177, ptr %152, align 2, !tbaa !9
   store i16 -384, ptr %170, align 2, !tbaa !9
@@ -2808,8 +2808,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.i:        ; preds = %.lr.ph.split.split.
 
 200:                                              ; preds = %196
   %201 = zext i16 %180 to i64
-  %202 = add nsw i64 %201, -65161
-  %203 = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %202
+  %202 = getelementptr i16, ptr @_ZL13yehHamzaToYeh, i64 %201
+  %203 = getelementptr i8, ptr %202, i64 -130322
   %204 = load i16, ptr %203, align 2, !tbaa !9
   store i16 %204, ptr %179, align 2, !tbaa !9
   store i16 -384, ptr %197, align 2, !tbaa !9
@@ -2833,8 +2833,8 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.thread.i: ; preds = %_ZL20isSeenTailFami
 212:                                              ; preds = %210
   store i16 1604, ptr %206, align 2, !tbaa !9
   %213 = zext i16 %207 to i64
-  %214 = add nsw i64 %213, -65269
-  %215 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %214
+  %214 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %213
+  %215 = getelementptr i8, ptr %214, i64 -130538
   %216 = load i16, ptr %215, align 2, !tbaa !9
   store i16 %216, ptr %179, align 2, !tbaa !9
   br label %218
@@ -3013,8 +3013,8 @@ _ZL13calculateSizePKDsiij.exit:                   ; preds = %.lr.ph89.i, %.prehe
 
 271:                                              ; preds = %.lr.ph
   %272 = zext i16 %268 to i64
-  %273 = add nsw i64 %272, -65269
-  %274 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %273
+  %273 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %272
+  %274 = getelementptr i8, ptr %273, i64 -130538
   %275 = load i16, ptr %274, align 2, !tbaa !9
   %276 = sext i32 %.099159 to i64
   %277 = getelementptr inbounds i16, ptr %261, i64 %276
@@ -3111,8 +3111,8 @@ define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCo
   %35 = getelementptr inbounds nuw i16, ptr %7, i64 %34
   store i16 1604, ptr %35, align 2, !tbaa !9
   %36 = zext i16 %30 to i64
-  %37 = add nsw i64 %36, -65269
-  %38 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %37
+  %37 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 -130538
   %39 = load i16, ptr %38, align 2, !tbaa !9
   %40 = getelementptr i8, ptr %35, i64 -2
   store i16 %39, ptr %40, align 2, !tbaa !9
@@ -3245,8 +3245,8 @@ define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UError
   %27 = getelementptr inbounds nuw i16, ptr %7, i64 %26
   store i16 1604, ptr %27, align 2, !tbaa !9
   %28 = zext i16 %22 to i64
-  %29 = add nsw i64 %28, -65269
-  %30 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %29
+  %29 = getelementptr i16, ptr @_ZL14convertLamAlef, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -130538
   %31 = load i16, ptr %30, align 2, !tbaa !9
   %32 = getelementptr i8, ptr %27, i64 -2
   store i16 %31, ptr %32, align 2, !tbaa !9

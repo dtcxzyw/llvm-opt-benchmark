@@ -1286,7 +1286,7 @@ lean_dec.exit530:                                 ; preds = %56, %55, %53, %lean
   %.03861169 = phi i64 [ %5, %.lr.ph ], [ %1222, %1221 ]
   %.03891168 = phi ptr [ %6, %.lr.ph ], [ %1204, %1221 ]
   %.03921167 = phi ptr [ %12, %.lr.ph ], [ %.9422, %1221 ]
-  %61 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.03861169
+  %61 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03861169
   %62 = load ptr, ptr %61, align 8, !tbaa !9
   %63 = ptrtoint ptr %62 to i64
   %64 = and i64 %63, 1
@@ -14095,7 +14095,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit3451
 
 lean_dec.exit3450:                                ; preds = %107, %106, %104, %98
   %108 = lshr i64 %33, 1
-  %109 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw ptr, ptr %16, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !9
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, 1
@@ -44503,7 +44503,7 @@ define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_SimpAll_
 17:                                               ; preds = %.lr.ph, %342
   %.0122291 = phi i64 [ %4, %.lr.ph ], [ %.1123, %342 ]
   %.0125290 = phi ptr [ %5, %.lr.ph ], [ %.sink336, %342 ]
-  %18 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %.0122291
+  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0122291
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1

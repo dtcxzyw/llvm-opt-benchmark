@@ -534,7 +534,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
 
 223:                                              ; preds = %231, %217
   %indvars.iv.i82 = phi i64 [ 1, %217 ], [ %indvars.iv.next.i83, %231 ]
-  %224 = getelementptr inbounds nuw [17 x %struct.AVRational], ptr @ff_h2645_pixel_aspect, i64 0, i64 %indvars.iv.i82
+  %224 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv.i82
   %225 = load i32, ptr %224, align 8, !tbaa !77
   %226 = icmp eq i32 %221, %225
   br i1 %226, label %227, label %231

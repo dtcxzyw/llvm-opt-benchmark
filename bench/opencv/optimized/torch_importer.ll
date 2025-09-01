@@ -20172,7 +20172,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024122313Torch
 
 6:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN2cv3dnn14dnn4_v2024122313TorchImporter9isNNClassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS8_.prefixes, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr @__const._ZN2cv3dnn14dnn4_v2024122313TorchImporter9isNNClassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS8_.prefixes, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !171
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #26
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, i64 noundef 0, i64 noundef %9) #26

@@ -895,10 +895,10 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 .thread:                                          ; preds = %391
   %393 = sext i32 %.0483 to i64
-  %394 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %393
+  %394 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !15
   %396 = srem i32 %380, %395
-  %397 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %393
+  %397 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %393
   %398 = load i32, ptr %397, align 4, !tbaa !15
   %399 = srem i32 %383, %398
   %400 = sub nsw i32 %380, %396

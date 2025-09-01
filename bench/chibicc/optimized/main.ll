@@ -198,7 +198,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr @__const.take_arg.x, i64 0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw ptr, ptr @__const.take_arg.x, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !7
   %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #19
   %.not.i.i = icmp eq i32 %23, 0
@@ -1753,7 +1753,7 @@ find_libpath.exit.i:                              ; preds = %600, %596
 
 604:                                              ; preds = %614, %find_libpath.exit.i
   %indvars.iv.i.i112 = phi i64 [ 0, %find_libpath.exit.i ], [ %indvars.iv.next.i.i119, %614 ]
-  %605 = getelementptr inbounds nuw [3 x ptr], ptr @__const.find_gcc_libpath.paths, i64 0, i64 %indvars.iv.i.i112
+  %605 = getelementptr inbounds nuw ptr, ptr @__const.find_gcc_libpath.paths, i64 %indvars.iv.i.i112
   %606 = load ptr, ptr %605, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)

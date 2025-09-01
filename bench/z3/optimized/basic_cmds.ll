@@ -12113,7 +12113,7 @@ define linkonce_odr hidden void @_ZN15declare_map_cmd7executeER11cmd_context(ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %32 = load ptr, ptr %25, align 8, !tbaa !392
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !390
   %36 = icmp eq ptr %31, null
   br i1 %36, label %43, label %37

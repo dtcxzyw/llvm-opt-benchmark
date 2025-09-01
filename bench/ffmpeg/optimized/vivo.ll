@@ -142,7 +142,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %32 = call i32 @avio_read(ptr noundef %31, ptr noundef nonnull %20, i32 noundef %28) #10
   %33 = load i32, ptr %18, align 4, !tbaa !40
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [1025 x i8], ptr %20, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr %20, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !11
   %36 = load i8, ptr %20, align 4, !tbaa !11
   %.not123178191 = icmp eq i8 %36, 0

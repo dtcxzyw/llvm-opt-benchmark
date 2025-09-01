@@ -172,7 +172,7 @@ common.resume:                                    ; preds = %35, %29, %82
   %43 = urem i64 %2, %16
   %44 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }], ptr %.val, i64 0, i64 %43
+  %45 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }, ptr %.val, i64 %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %46 = cmpxchg ptr %45, i32 0, i32 1 acquire monotonic, align 4, !noalias !18
   %47 = extractvalue { i32, i1 } %46, 1

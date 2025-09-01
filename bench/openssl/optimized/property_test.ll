@@ -602,7 +602,7 @@ define internal range(i32 0, 2) i32 @test_property_parse(i32 noundef %0) #0 {
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [34 x %struct.anon], ptr @parser_tests, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon, ptr @parser_tests, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %9) #6
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 159, ptr noundef nonnull @.str.86, ptr noundef %10) #6
@@ -650,7 +650,7 @@ define internal range(i32 0, 2) i32 @test_property_parse_error(i32 noundef %0) #
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon.0, ptr @parse_error_tests, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = load i32, ptr %8, align 16, !tbaa !15
@@ -695,7 +695,7 @@ define internal range(i32 0, 2) i32 @test_property_merge(i32 noundef %0) #0 {
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon.1, ptr @merge_tests, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %10) #6
@@ -902,7 +902,7 @@ define internal range(i32 0, 2) i32 @test_definition_compares(i32 noundef %0) #0
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds [11 x %struct.anon.2], ptr @definition_tests, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.anon.2, ptr @definition_tests, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %9) #6
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 361, ptr noundef nonnull @.str.189, ptr noundef %10) #6
@@ -953,7 +953,7 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 
 .preheader35:                                     ; preds = %4, %17
   %.02538 = phi i64 [ %15, %17 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %.02538
+  %6 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %.02538
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -979,7 +979,7 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   %18 = mul nuw nsw i64 %.139, 3
   %19 = add nuw nsw i64 %18, 1
   %20 = and i64 %19, 3
-  %21 = getelementptr inbounds nuw [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %20, i32 2
+  %21 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %20, i32 2
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef %22) #6
   %24 = icmp ne i32 %23, 0
@@ -1040,7 +1040,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
 
 .preheader91:                                     ; preds = %5, %22
   %.05298 = phi i64 [ %20, %22 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw [6 x %struct.anon.4], ptr @test_property.impls, i64 0, i64 %.05298
+  %7 = getelementptr inbounds nuw %struct.anon.4, ptr @test_property.impls, i64 %.05298
   %8 = load ptr, ptr %7, align 16, !tbaa !28
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1069,7 +1069,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   %.199 = phi i64 [ %40, %39 ], [ 0, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
-  %23 = getelementptr inbounds nuw [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %.199
+  %23 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.199
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1106,7 +1106,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
 .preheader89:                                     ; preds = %39, %73
   %.2100 = phi i64 [ %74, %73 ], [ 0, %39 ]
   store ptr null, ptr %1, align 8, !tbaa !37
-  %41 = getelementptr inbounds nuw [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %.2100
+  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.2100
   %42 = load ptr, ptr %41, align 16, !tbaa !28
   %43 = icmp eq ptr %42, @test_property.fake_prov1
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1175,7 +1175,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
 .preheader:                                       ; preds = %73, %107
   %.3101 = phi i64 [ %108, %107 ], [ 0, %73 ]
   store ptr null, ptr %1, align 8, !tbaa !37
-  %75 = getelementptr inbounds nuw [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %.3101
+  %75 = getelementptr inbounds nuw %struct.anon.5, ptr @test_property.queries, i64 %.3101
   %76 = load ptr, ptr %75, align 16, !tbaa !28
   %77 = icmp eq ptr %76, @test_property.fake_prov2
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -1271,7 +1271,7 @@ define internal range(i32 0, 2) i32 @test_query_cache_stochastic() #0 {
 
 .preheader35:                                     ; preds = %7, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 1, %7 ]
-  %9 = getelementptr inbounds nuw [10001 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %10 = shl i32 %indvars.iv.tr, 1
   store i32 %10, ptr %9, align 4, !tbaa !41
@@ -1484,7 +1484,7 @@ define internal range(i32 0, 2) i32 @test_fips_mode() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %2
+  %3 = getelementptr inbounds %struct.anon.6, ptr @to_string_tests, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !44
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5

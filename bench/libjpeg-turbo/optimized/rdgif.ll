@@ -1316,7 +1316,7 @@ define internal fastcc i32 @GetCode(ptr noundef captures(none) %0) unnamed_addr 
   store i32 0, ptr %10, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %22 = load i32, ptr %21, align 4, !tbaa !66
-  br label %98
+  br label %87
 
 23:                                               ; preds = %18
   %24 = load i32, ptr %11, align 4, !tbaa !65
@@ -1333,111 +1333,100 @@ define internal fastcc i32 @GetCode(ptr noundef captures(none) %0) unnamed_addr 
   tail call void %30(ptr noundef nonnull %26, i32 noundef -1) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %32 = load i32, ptr %31, align 8, !tbaa !67
-  br label %98
+  br label %87
 
 33:                                               ; preds = %23
   %34 = load i32, ptr %13, align 4, !tbaa !61
-  %35 = add nsw i32 %34, -2
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [260 x i8], ptr %12, i64 0, i64 %36
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr i8, ptr %12, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -2
   %38 = load i8, ptr %37, align 1, !tbaa !30
   store i8 %38, ptr %12, align 8, !tbaa !30
-  %39 = add nsw i32 %34, -1
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [260 x i8], ptr %12, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !30
-  store i8 %42, ptr %14, align 1, !tbaa !30
-  %43 = load ptr, ptr %16, align 8, !tbaa !47
-  %44 = tail call i32 @getc(ptr noundef %43)
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %.sink.split.i, label %ReadByte.exit.i
+  %39 = getelementptr i8, ptr %36, i64 -1
+  %40 = load i8, ptr %39, align 1, !tbaa !30
+  store i8 %40, ptr %14, align 1, !tbaa !30
+  %41 = load ptr, ptr %16, align 8, !tbaa !47
+  %42 = tail call i32 @getc(ptr noundef %41)
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %.sink.split.i, label %ReadByte.exit.i
 
 ReadByte.exit.i:                                  ; preds = %33
-  %46 = icmp sgt i32 %44, 0
-  br i1 %46, label %47, label %GetDataBlock.exit
+  %44 = icmp sgt i32 %42, 0
+  br i1 %44, label %45, label %GetDataBlock.exit
 
-47:                                               ; preds = %ReadByte.exit.i
-  %48 = zext nneg i32 %44 to i64
-  %49 = load ptr, ptr %16, align 8, !tbaa !47
-  %50 = tail call i64 @fread(ptr noundef nonnull %15, i64 noundef 1, i64 noundef %48, ptr noundef %49)
-  %51 = icmp eq i64 %50, %48
-  br i1 %51, label %GetDataBlock.exit.thread, label %.sink.split.i
+45:                                               ; preds = %ReadByte.exit.i
+  %46 = zext nneg i32 %42 to i64
+  %47 = load ptr, ptr %16, align 8, !tbaa !47
+  %48 = tail call i64 @fread(ptr noundef nonnull %15, i64 noundef 1, i64 noundef %46, ptr noundef %47)
+  %49 = icmp eq i64 %48, %46
+  br i1 %49, label %GetDataBlock.exit.thread, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %47, %33
-  %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = load ptr, ptr %52, align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store i32 43, ptr %54, align 8, !tbaa !26
-  %55 = load ptr, ptr %53, align 8, !tbaa !31
-  tail call void %55(ptr noundef nonnull %52) #4
+.sink.split.i:                                    ; preds = %45, %33
+  %50 = load ptr, ptr %17, align 8, !tbaa !35
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store i32 43, ptr %52, align 8, !tbaa !26
+  %53 = load ptr, ptr %51, align 8, !tbaa !31
+  tail call void %53(ptr noundef nonnull %50) #4
   br label %GetDataBlock.exit
 
 GetDataBlock.exit:                                ; preds = %ReadByte.exit.i, %.sink.split.i
-  %56 = icmp eq i32 %44, 0
-  br i1 %56, label %57, label %GetDataBlock.exit.thread
+  %54 = icmp eq i32 %42, 0
+  br i1 %54, label %55, label %GetDataBlock.exit.thread
 
-57:                                               ; preds = %GetDataBlock.exit
+55:                                               ; preds = %GetDataBlock.exit
   store i32 1, ptr %11, align 4, !tbaa !65
-  %58 = load ptr, ptr %17, align 8, !tbaa !35
-  %59 = load ptr, ptr %58, align 8, !tbaa !25
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store i32 1027, ptr %60, align 8, !tbaa !26
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !49
-  tail call void %62(ptr noundef nonnull %58, i32 noundef -1) #4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %64 = load i32, ptr %63, align 8, !tbaa !67
-  br label %98
+  %56 = load ptr, ptr %17, align 8, !tbaa !35
+  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  store i32 1027, ptr %58, align 8, !tbaa !26
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !49
+  tail call void %60(ptr noundef nonnull %56, i32 noundef -1) #4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %62 = load i32, ptr %61, align 8, !tbaa !67
+  br label %87
 
-GetDataBlock.exit.thread:                         ; preds = %47, %GetDataBlock.exit
-  %65 = load i32, ptr %2, align 4, !tbaa !63
-  %66 = load i32, ptr %4, align 8, !tbaa !62
-  %67 = add i32 %65, 16
-  %68 = sub i32 %67, %66
-  store i32 %68, ptr %2, align 4, !tbaa !63
-  %69 = add nsw i32 %44, 2
-  store i32 %69, ptr %13, align 4, !tbaa !61
-  %70 = shl nsw i32 %69, 3
-  store i32 %70, ptr %4, align 8, !tbaa !62
-  %71 = load i32, ptr %3, align 4, !tbaa !68
-  %72 = add nsw i32 %71, %68
-  %73 = icmp sgt i32 %72, %70
-  br i1 %73, label %18, label %._crit_edge, !llvm.loop !108
+GetDataBlock.exit.thread:                         ; preds = %45, %GetDataBlock.exit
+  %63 = load i32, ptr %2, align 4, !tbaa !63
+  %64 = load i32, ptr %4, align 8, !tbaa !62
+  %65 = add i32 %63, 16
+  %66 = sub i32 %65, %64
+  store i32 %66, ptr %2, align 4, !tbaa !63
+  %67 = add nsw i32 %42, 2
+  store i32 %67, ptr %13, align 4, !tbaa !61
+  %68 = shl nsw i32 %67, 3
+  store i32 %68, ptr %4, align 8, !tbaa !62
+  %69 = load i32, ptr %3, align 4, !tbaa !68
+  %70 = add nsw i32 %69, %66
+  %71 = icmp sgt i32 %70, %68
+  br i1 %71, label %18, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %GetDataBlock.exit.thread, %1
-  %.lcssa58 = phi i32 [ %5, %1 ], [ %68, %GetDataBlock.exit.thread ]
-  %.lcssa54 = phi i32 [ %6, %1 ], [ %71, %GetDataBlock.exit.thread ]
-  %.lcssa = phi i32 [ %7, %1 ], [ %72, %GetDataBlock.exit.thread ]
-  %74 = ashr i32 %.lcssa58, 3
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %76 = add nsw i32 %74, 2
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds [260 x i8], ptr %75, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !30
-  %80 = zext i8 %79 to i32
-  %81 = add nsw i32 %74, 1
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [260 x i8], ptr %75, i64 0, i64 %82
-  %84 = load i8, ptr %83, align 1, !tbaa !30
-  %85 = zext i8 %84 to i32
-  %86 = shl nuw nsw i32 %80, 16
-  %87 = shl nuw nsw i32 %85, 8
-  %88 = or disjoint i32 %87, %86
-  %89 = sext i32 %74 to i64
-  %90 = getelementptr inbounds [260 x i8], ptr %75, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !30
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %88, %92
-  %94 = and i32 %.lcssa58, 7
-  %95 = lshr i32 %93, %94
+  %.lcssa58 = phi i32 [ %5, %1 ], [ %66, %GetDataBlock.exit.thread ]
+  %.lcssa54 = phi i32 [ %6, %1 ], [ %69, %GetDataBlock.exit.thread ]
+  %.lcssa = phi i32 [ %7, %1 ], [ %70, %GetDataBlock.exit.thread ]
+  %72 = ashr i32 %.lcssa58, 3
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr i8, ptr %73, i64 %74
+  %76 = getelementptr i8, ptr %75, i64 1
+  %77 = load i16, ptr %76, align 1
+  %78 = zext i16 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = load i8, ptr %75, align 1, !tbaa !30
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %79, %81
+  %83 = and i32 %.lcssa58, 7
+  %84 = lshr i32 %82, %83
   store i32 %.lcssa, ptr %2, align 4, !tbaa !63
   %notmask = shl nsw i32 -1, %.lcssa54
-  %96 = xor i32 %notmask, -1
-  %97 = and i32 %95, %96
-  br label %98
+  %85 = xor i32 %notmask, -1
+  %86 = and i32 %84, %85
+  br label %87
 
-98:                                               ; preds = %._crit_edge, %57, %25, %20
-  %.0 = phi i32 [ %22, %20 ], [ %32, %25 ], [ %64, %57 ], [ %97, %._crit_edge ]
+87:                                               ; preds = %._crit_edge, %55, %25, %20
+  %.0 = phi i32 [ %22, %20 ], [ %32, %25 ], [ %62, %55 ], [ %86, %._crit_edge ]
   ret i32 %.0
 }
 

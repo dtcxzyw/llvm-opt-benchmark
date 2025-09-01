@@ -3462,7 +3462,7 @@ Wlc_ObjFaninId.exit1076:                          ; preds = %1386, %Wlc_ObjHasAr
   br i1 %.not744, label %1398, label %1393
 
 1393:                                             ; preds = %Wlc_ObjFaninId.exit1076
-  %1394 = getelementptr inbounds nuw [8 x ptr], ptr @__const.Wlc_WriteVerInt.pInNames, i64 0, i64 %indvars.iv1247
+  %1394 = getelementptr inbounds nuw ptr, ptr @__const.Wlc_WriteVerInt.pInNames, i64 %indvars.iv1247
   %1395 = load ptr, ptr %1394, align 8, !tbaa !76
   %1396 = call ptr @Wlc_ObjName(ptr noundef nonnull %1, i32 noundef %1392) #13
   %1397 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.77, ptr noundef %1395, ptr noundef %1396) #13

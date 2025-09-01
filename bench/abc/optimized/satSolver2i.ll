@@ -428,7 +428,7 @@ define i32 @Int2_ManChainStart(ptr noundef readonly captures(none) %0, ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = lshr i32 %3, 11
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw [0 x i32], ptr %8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %.val37, i64 %13
@@ -444,7 +444,7 @@ define i32 @Int2_ManChainStart(ptr noundef readonly captures(none) %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = lshr i32 %3, 11
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.preheader, label %57
@@ -462,7 +462,7 @@ define i32 @Int2_ManChainStart(ptr noundef readonly captures(none) %0, ptr nound
   %28 = phi i32 [ %3, %.lr.ph ], [ %52, %51 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %51 ]
-  %29 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !18
   %31 = ashr i32 %30, 1
   %32 = load ptr, ptr %25, align 8, !tbaa !22
@@ -508,13 +508,13 @@ define i32 @Int2_ManChainStart(ptr noundef readonly captures(none) %0, ptr nound
 ._crit_edge:                                      ; preds = %51, %.preheader
   %.pre-phi = phi i64 [ %21, %.preheader ], [ %54, %51 ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %51 ]
-  %56 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %.pre-phi
+  %56 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre-phi
   store i32 %.0.lcssa, ptr %56, align 4, !tbaa !18
   br label %57
 
 57:                                               ; preds = %._crit_edge, %18
   %.pre-phi49 = phi i64 [ %.pre-phi, %._crit_edge ], [ %21, %18 ]
-  %58 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %.pre-phi49
+  %58 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre-phi49
   %59 = load i32, ptr %58, align 4, !tbaa !18
   br label %60
 
@@ -539,7 +539,7 @@ define i32 @Int2_ManChainResolve(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = lshr i32 %5, 11
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !18
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %.val37.i, i64 %15
@@ -555,7 +555,7 @@ define i32 @Int2_ManChainResolve(ptr noundef readonly captures(none) %0, ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = lshr i32 %5, 11
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.preheader.i, label %Int2_ManChainStart.exit
@@ -573,7 +573,7 @@ define i32 @Int2_ManChainResolve(ptr noundef readonly captures(none) %0, ptr nou
   %30 = phi i32 [ %5, %.lr.ph.i ], [ %54, %53 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
   %.041.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
-  %31 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = ashr i32 %32, 1
   %34 = load ptr, ptr %27, align 8, !tbaa !22
@@ -619,7 +619,7 @@ define i32 @Int2_ManChainResolve(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge.i:                                    ; preds = %53, %.preheader.i
   %.pre-phi.i = phi i64 [ %23, %.preheader.i ], [ %56, %53 ]
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %53 ]
-  %58 = getelementptr inbounds nuw [0 x i32], ptr %21, i64 0, i64 %.pre-phi.i
+  %58 = getelementptr inbounds nuw i32, ptr %21, i64 %.pre-phi.i
   store i32 %.0.lcssa.i, ptr %58, align 4, !tbaa !18
   br label %Int2_ManChainStart.exit
 

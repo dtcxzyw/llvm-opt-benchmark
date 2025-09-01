@@ -270,7 +270,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @intel_dp_init_lttpr(ptr no
 63:                                               ; preds = %100, %42
   %64 = phi i64 [ 0, %42 ], [ %65, %100 ]
   %65 = add nuw nsw i64 %64, 1
-  %66 = getelementptr [8 x [3 x i8]], ptr %43, i64 0, i64 %64
+  %66 = getelementptr [3 x i8], ptr %43, i64 %64
   %67 = trunc i64 %65 to i32
   %68 = call i32 @drm_dp_read_lttpr_phy_caps(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %67, ptr noundef %66) #7
   %69 = icmp slt i32 %68, 0
@@ -423,7 +423,7 @@ define dso_local void @intel_dp_get_adjust_train(ptr noundef %0, ptr noundef %1,
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %80 = zext i32 %2 to i64
-  %81 = getelementptr [8 x [3 x i8]], ptr %79, i64 0, i64 %80
+  %81 = getelementptr [3 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 3024
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 3032
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1524
@@ -776,7 +776,7 @@ intel_dp_phy_is_downstream_of_source.exit6:       ; preds = %223
 
 .loopexit:                                        ; preds = %.preheader, %267, %116, %113
   %273 = phi i8 [ %272, %267 ], [ %122, %116 ], [ 0, %113 ], [ %126, %.preheader ]
-  %274 = getelementptr [4 x i8], ptr %84, i64 0, i64 %88
+  %274 = getelementptr i8, ptr %84, i64 %88
   store i8 %273, ptr %274, align 1
   %275 = add nuw nsw i64 %88, 1
   %276 = icmp eq i64 %275, 4
@@ -3408,7 +3408,7 @@ define internal fastcc noundef zeroext i1 @intel_dp_link_train_phy(ptr noundef %
 
 .preheader:                                       ; preds = %.loopexit48, %333
   %317 = phi i64 [ %334, %333 ], [ 0, %.loopexit48 ]
-  %318 = getelementptr [4 x i8], ptr %13, i64 0, i64 %317
+  %318 = getelementptr i8, ptr %13, i64 %317
   %319 = load i8, ptr %318, align 1
   %320 = call zeroext i1 @intel_dp_is_uhbr(ptr noundef %1) #7
   br i1 %320, label %321, label %324

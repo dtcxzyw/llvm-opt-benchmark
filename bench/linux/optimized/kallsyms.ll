@@ -53,7 +53,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local i64 @kallsyms_sym_address(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %2
+  %3 = getelementptr i32, ptr @kallsyms_offsets, i64 %2
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %8
@@ -100,7 +100,7 @@ define dso_local i64 @kallsyms_lookup_name(ptr noundef %0) local_unnamed_addr #1
   %15 = trunc i64 %12 to i32
   %16 = add i32 %10, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr [0 x i8], ptr @kallsyms_seqs_of_names, i64 0, i64 %17
+  %18 = getelementptr i8, ptr @kallsyms_seqs_of_names, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %14, %20
@@ -110,7 +110,7 @@ define dso_local i64 @kallsyms_lookup_name(ptr noundef %0) local_unnamed_addr #1
 
 24:                                               ; preds = %11
   %25 = sext i32 %21 to i64
-  %26 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %25
+  %26 = getelementptr i32, ptr @kallsyms_offsets, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %31
@@ -162,7 +162,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %18 = trunc i64 %15 to i32
   %19 = add i32 %13, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr [0 x i8], ptr @kallsyms_seqs_of_names, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @kallsyms_seqs_of_names, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %17, %23
@@ -173,10 +173,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 27:                                               ; preds = %14
   %28 = zext i32 %24 to i64
   %29 = lshr i64 %28, 8
-  %30 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %29
+  %30 = getelementptr i32, ptr @kallsyms_markers, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @kallsyms_names, i64 %32
   %34 = and i64 %28, 255
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.loopexit50, label %.preheader49
@@ -215,7 +215,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %59 = trunc i64 %58 to i32
   %60 = sub i32 %59, ptrtoint (ptr @kallsyms_names to i32)
   %61 = zext i32 %60 to i64
-  %62 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %61
+  %62 = getelementptr i8, ptr @kallsyms_names, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = getelementptr i8, ptr %62, i64 1
@@ -252,10 +252,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %86 = phi ptr [ %78, %.loopexit46 ], [ %4, %74 ]
   %87 = load i8, ptr %82, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %88
+  %89 = getelementptr i16, ptr @kallsyms_token_index, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
-  %92 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %91
+  %92 = getelementptr i8, ptr @kallsyms_token_table, i64 %91
   %93 = getelementptr i8, ptr %82, i64 1
   %94 = add nsw i32 %84, -1
   %95 = load i8, ptr %92, align 1
@@ -343,7 +343,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %140 = trunc i64 %137 to i32
   %141 = add i32 %135, %140
   %142 = zext i32 %141 to i64
-  %143 = getelementptr [0 x i8], ptr @kallsyms_seqs_of_names, i64 0, i64 %142
+  %143 = getelementptr i8, ptr @kallsyms_seqs_of_names, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = or disjoint i32 %139, %145
@@ -354,10 +354,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 149:                                              ; preds = %136
   %150 = zext i32 %146 to i64
   %151 = lshr i64 %150, 8
-  %152 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %151
+  %152 = getelementptr i32, ptr @kallsyms_markers, i64 %151
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
-  %155 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %154
+  %155 = getelementptr i8, ptr @kallsyms_names, i64 %154
   %156 = and i64 %150, 255
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %.loopexit42, label %.preheader41
@@ -396,7 +396,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %181 = trunc i64 %180 to i32
   %182 = sub i32 %181, ptrtoint (ptr @kallsyms_names to i32)
   %183 = zext i32 %182 to i64
-  %184 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %183
+  %184 = getelementptr i8, ptr @kallsyms_names, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = getelementptr i8, ptr %184, i64 1
@@ -433,10 +433,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %208 = phi ptr [ %200, %.loopexit38 ], [ %4, %196 ]
   %209 = load i8, ptr %204, align 1
   %210 = zext i8 %209 to i64
-  %211 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %210
+  %211 = getelementptr i16, ptr @kallsyms_token_index, i64 %210
   %212 = load i16, ptr %211, align 2
   %213 = zext i16 %212 to i64
-  %214 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %213
+  %214 = getelementptr i8, ptr @kallsyms_token_table, i64 %213
   %215 = getelementptr i8, ptr %204, i64 1
   %216 = add nsw i32 %206, -1
   %217 = load i8, ptr %214, align 1
@@ -515,7 +515,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %257 = trunc i64 %254 to i32
   %258 = add i32 %252, %257
   %259 = zext i32 %258 to i64
-  %260 = getelementptr [0 x i8], ptr @kallsyms_seqs_of_names, i64 0, i64 %259
+  %260 = getelementptr i8, ptr @kallsyms_seqs_of_names, i64 %259
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i32
   %263 = or disjoint i32 %256, %262
@@ -526,10 +526,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 266:                                              ; preds = %253
   %267 = zext i32 %263 to i64
   %268 = lshr i64 %267, 8
-  %269 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %268
+  %269 = getelementptr i32, ptr @kallsyms_markers, i64 %268
   %270 = load i32, ptr %269, align 4
   %271 = zext i32 %270 to i64
-  %272 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %271
+  %272 = getelementptr i8, ptr @kallsyms_names, i64 %271
   %273 = and i64 %267, 255
   %274 = icmp eq i64 %273, 0
   br i1 %274, label %.loopexit35, label %.preheader34
@@ -568,7 +568,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %298 = trunc i64 %297 to i32
   %299 = sub i32 %298, ptrtoint (ptr @kallsyms_names to i32)
   %300 = zext i32 %299 to i64
-  %301 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %300
+  %301 = getelementptr i8, ptr @kallsyms_names, i64 %300
   %302 = load i8, ptr %301, align 1
   %303 = zext i8 %302 to i32
   %304 = getelementptr i8, ptr %301, i64 1
@@ -605,10 +605,10 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %325 = phi ptr [ %317, %.loopexit31 ], [ %4, %313 ]
   %326 = load i8, ptr %321, align 1
   %327 = zext i8 %326 to i64
-  %328 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %327
+  %328 = getelementptr i16, ptr @kallsyms_token_index, i64 %327
   %329 = load i16, ptr %328, align 2
   %330 = zext i16 %329 to i64
-  %331 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %330
+  %331 = getelementptr i8, ptr @kallsyms_token_table, i64 %330
   %332 = getelementptr i8, ptr %321, i64 1
   %333 = add nsw i32 %323, -1
   %334 = load i8, ptr %331, align 1
@@ -689,7 +689,7 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %7 = phi i32 [ %70, %87 ], [ 0, %2 ]
   %8 = phi i64 [ %89, %87 ], [ 0, %2 ]
   %9 = zext i32 %7 to i64
-  %10 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @kallsyms_names, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = getelementptr i8, ptr %10, i64 1
@@ -729,10 +729,10 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %37 = phi ptr [ %29, %.loopexit9 ], [ %3, %24 ]
   %38 = load i8, ptr %33, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %39
+  %40 = getelementptr i16, ptr @kallsyms_token_index, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %42
+  %43 = getelementptr i8, ptr @kallsyms_token_table, i64 %42
   %44 = getelementptr i8, ptr %33, i64 1
   %45 = add nsw i32 %35, -1
   %46 = load i8, ptr %43, align 1
@@ -783,8 +783,8 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
 69:                                               ; preds = %.thread, %.loopexit
   %70 = add i32 %26, %25
   %71 = shl i64 %8, 32
-  %72 = ashr exact i64 %71, 32
-  %73 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %72
+  %72 = ashr exact i64 %71, 30
+  %73 = getelementptr i8, ptr @kallsyms_offsets, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %76, label %78
@@ -851,7 +851,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
   %18 = trunc i64 %15 to i32
   %19 = add i32 %13, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr [0 x i8], ptr @kallsyms_seqs_of_names, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @kallsyms_seqs_of_names, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %17, %23
@@ -861,7 +861,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
 
 27:                                               ; preds = %14
   %28 = sext i32 %24 to i64
-  %29 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %28
+  %29 = getelementptr i32, ptr @kallsyms_offsets, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %32, label %34
@@ -958,8 +958,8 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
   %15 = lshr i64 %12, 1
   %16 = add i64 %14, %15
   %17 = shl i64 %16, 32
-  %18 = ashr exact i64 %17, 32
-  %19 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %18
+  %18 = ashr exact i64 %17, 30
+  %19 = getelementptr i8, ptr @kallsyms_offsets, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %24
@@ -988,8 +988,8 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
   %36 = phi i64 [ %67, %66 ], [ %32, %10 ]
   %37 = shl i64 %36, 32
   %38 = add i64 %37, -4294967296
-  %39 = ashr exact i64 %38, 32
-  %40 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %39
+  %39 = ashr exact i64 %38, 30
+  %40 = getelementptr i8, ptr @kallsyms_offsets, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %45
@@ -1007,8 +1007,8 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 
 50:                                               ; preds = %45, %43
   %51 = phi i64 [ %44, %43 ], [ %49, %45 ]
-  %52 = ashr exact i64 %37, 32
-  %53 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %52
+  %52 = ashr exact i64 %37, 30
+  %53 = getelementptr i8, ptr @kallsyms_offsets, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %56, label %58
@@ -1037,8 +1037,8 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 .thread:                                          ; preds = %66, %63, %6, %10
   %69 = phi i64 [ 0, %10 ], [ 0, %6 ], [ 0, %66 ], [ %36, %63 ]
   %70 = shl i64 %69, 32
-  %71 = ashr exact i64 %70, 32
-  %72 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %71
+  %71 = ashr exact i64 %70, 30
+  %72 = getelementptr i8, ptr @kallsyms_offsets, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = icmp sgt i32 %73, -1
   br i1 %74, label %75, label %77
@@ -1063,8 +1063,8 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 .lr.ph:                                           ; preds = %82, %.backedge
   %86 = phi i64 [ %95, %.backedge ], [ %84, %82 ]
   %87 = shl nuw i64 %86, 32
-  %88 = ashr exact i64 %87, 32
-  %89 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %88
+  %88 = ashr exact i64 %87, 30
+  %89 = getelementptr i8, ptr @kallsyms_offsets, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %90, -1
   br i1 %91, label %92, label %.thread16
@@ -1149,10 +1149,10 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
 18:                                               ; preds = %15, %11, %6
   %19 = tail call fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef %1, ptr noundef %2)
   %20 = lshr i64 %19, 8
-  %21 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %20
+  %21 = getelementptr i32, ptr @kallsyms_markers, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %23
+  %24 = getelementptr i8, ptr @kallsyms_names, i64 %23
   %25 = and i64 %19, 255
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %.loopexit11, label %.preheader10
@@ -1191,7 +1191,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %50 = trunc i64 %49 to i32
   %51 = sub i32 %50, ptrtoint (ptr @kallsyms_names to i32)
   %52 = zext i32 %51 to i64
-  %53 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %52
+  %53 = getelementptr i8, ptr @kallsyms_names, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = getelementptr i8, ptr %53, i64 1
@@ -1228,10 +1228,10 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %77 = phi ptr [ %69, %.loopexit7 ], [ %5, %65 ]
   %78 = load i8, ptr %73, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %79
+  %80 = getelementptr i16, ptr @kallsyms_token_index, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i64
-  %83 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %82
+  %83 = getelementptr i8, ptr @kallsyms_token_table, i64 %82
   %84 = getelementptr i8, ptr %73, i64 1
   %85 = add nsw i32 %75, -1
   %86 = load i8, ptr %83, align 1
@@ -1328,10 +1328,10 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
 14:                                               ; preds = %11, %7, %2
   %15 = tail call fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef null, ptr noundef null)
   %16 = lshr i64 %15, 8
-  %17 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %16
+  %17 = getelementptr i32, ptr @kallsyms_markers, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %19
+  %20 = getelementptr i8, ptr @kallsyms_names, i64 %19
   %21 = and i64 %15, 255
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.loopexit10, label %.preheader9
@@ -1370,7 +1370,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %46 = trunc i64 %45 to i32
   %47 = sub i32 %46, ptrtoint (ptr @kallsyms_names to i32)
   %48 = zext i32 %47 to i64
-  %49 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %48
+  %49 = getelementptr i8, ptr @kallsyms_names, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = getelementptr i8, ptr %49, i64 1
@@ -1407,10 +1407,10 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %73 = phi ptr [ %65, %.loopexit6 ], [ %1, %61 ]
   %74 = load i8, ptr %69, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %75
+  %76 = getelementptr i16, ptr @kallsyms_token_index, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i64
-  %79 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %78
+  %79 = getelementptr i8, ptr @kallsyms_token_table, i64 %78
   %80 = getelementptr i8, ptr %69, i64 1
   %81 = add nsw i32 %71, -1
   %82 = load i8, ptr %79, align 1
@@ -1618,7 +1618,7 @@ define internal noundef range(i32 -12, 1) i32 @kallsyms_open(ptr readnone captur
   store i8 0, ptr %6, align 1
   %7 = load i32, ptr @kallsyms_markers, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @kallsyms_names, i64 %8
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
   %12 = sub i32 %11, ptrtoint (ptr @kallsyms_names to i32)
@@ -1724,7 +1724,7 @@ define internal noundef i32 @s_show(ptr noundef %0, ptr readnone captures(none) 
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %26 = load i8, ptr %25, align 4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %27
+  %28 = getelementptr i8, ptr @_ctype, i64 %27
   %29 = load i8, ptr %28, align 1
   br i1 %24, label %35, label %30
 
@@ -1852,10 +1852,10 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %61, align 1
   %62 = lshr i64 %1, 8
-  %63 = getelementptr [0 x i32], ptr @kallsyms_markers, i64 0, i64 %62
+  %63 = getelementptr i32, ptr @kallsyms_markers, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %65
+  %66 = getelementptr i8, ptr @kallsyms_names, i64 %65
   %67 = and i64 %1, 255
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %.loopexit12, label %.preheader11
@@ -1908,8 +1908,8 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 557
   store i8 0, ptr %100, align 1
   %101 = shl i64 %1, 32
-  %102 = ashr exact i64 %101, 32
-  %103 = getelementptr [0 x i32], ptr @kallsyms_offsets, i64 0, i64 %102
+  %102 = ashr exact i64 %101, 30
+  %103 = getelementptr i8, ptr @kallsyms_offsets, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, -1
   br i1 %105, label %106, label %108
@@ -1931,19 +1931,19 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   store i64 %114, ptr %115, align 8
   %116 = add i32 %98, 1
   %117 = zext i32 %116 to i64
-  %118 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %117
+  %118 = getelementptr i8, ptr @kallsyms_names, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i64
-  %121 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %120
+  %121 = getelementptr i16, ptr @kallsyms_token_index, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i64
-  %124 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %123
+  %124 = getelementptr i8, ptr @kallsyms_token_table, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %125, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %128 = zext i32 %98 to i64
-  %129 = getelementptr [0 x i8], ptr @kallsyms_names, i64 0, i64 %128
+  %129 = getelementptr i8, ptr @kallsyms_names, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = getelementptr i8, ptr %129, i64 1
@@ -1982,10 +1982,10 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %155 = phi ptr [ %147, %.loopexit8 ], [ %127, %142 ]
   %156 = load i8, ptr %151, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr [0 x i16], ptr @kallsyms_token_index, i64 0, i64 %157
+  %158 = getelementptr i16, ptr @kallsyms_token_index, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i64
-  %161 = getelementptr [0 x i8], ptr @kallsyms_token_table, i64 0, i64 %160
+  %161 = getelementptr i8, ptr @kallsyms_token_table, i64 %160
   %162 = getelementptr i8, ptr %151, i64 1
   %163 = add nsw i32 %153, -1
   %164 = load i8, ptr %161, align 1

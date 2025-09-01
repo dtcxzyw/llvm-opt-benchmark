@@ -52,7 +52,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %.1179 = phi ptr [ %.0178364, %.preheader287 ], [ %.1179.be, %.backedge ]
   %16 = load i8, ptr %.1179, align 1, !tbaa !13
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !13
   %.not = icmp sgt i8 %19, -1
   br i1 %.not, label %20, label %.preheader285
@@ -112,7 +112,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %40 = getelementptr inbounds nuw i8, ptr %.2180, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !13
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !13
   %.not233 = icmp sgt i8 %44, -1
   br i1 %.not233, label %.loopexit286, label %.preheader285

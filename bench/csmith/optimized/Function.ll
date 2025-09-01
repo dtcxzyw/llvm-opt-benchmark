@@ -7390,7 +7390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 223:                                              ; preds = %.noexc150, %225
   %indvars.iv = phi i64 [ 0, %.noexc150 ], [ %indvars.iv.next, %225 ]
-  %224 = getelementptr inbounds nuw [21 x %"class.std::__cxx11::basic_string"], ptr %21, i64 0, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %indvars.iv
   invoke void @_ZN8Function21make_builtin_functionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %224)
           to label %225 unwind label %226
 

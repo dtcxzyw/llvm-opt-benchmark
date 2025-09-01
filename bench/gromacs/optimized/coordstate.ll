@@ -129,7 +129,7 @@ define void @_ZN3gmx10CoordStateC2ERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimPar
   %26 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv, i32 1
   %27 = load double, ptr %26, align 8, !tbaa !19
   %28 = fmul double %25, %27
-  %29 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %28, ptr %29, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
@@ -651,7 +651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 56:                                               ; preds = %24, %.lr.ph._crit_edge
   %57 = phi double [ %.pre52, %.lr.ph._crit_edge ], [ %29, %24 ]
-  %58 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %57, ptr %58, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

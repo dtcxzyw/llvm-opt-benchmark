@@ -708,7 +708,7 @@ define void @Abc_NtkDeriveFlatGia_rec(ptr noundef %0, ptr noundef readonly captu
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load i32, ptr %27, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %indvars.iv101
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv101
   store i32 %28, ptr %29, align 4, !tbaa !17
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count
@@ -1408,7 +1408,7 @@ Abc_UtilStrsav.exit126:                           ; preds = %Abc_UtilStrsav.exit
   %61 = load ptr, ptr %60, align 8, !tbaa !37
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load i32, ptr %62, align 8, !tbaa !45
-  %64 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv162
+  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv162
   store i32 %63, ptr %64, align 4, !tbaa !17
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165

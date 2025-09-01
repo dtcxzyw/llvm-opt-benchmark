@@ -4590,9 +4590,9 @@ define hidden noundef ptr @"_ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u
   br label %8
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE.36", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE.36", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %8
 

@@ -119,7 +119,7 @@ define internal void @jpeg2000_init_tier1_luts() #3 {
   %12 = add nuw nsw i32 %.lobit44.i, %11
   %13 = add nuw nsw i32 %12, %.lobit43.i
   %14 = add nuw nsw i32 %13, %.lobit45.i
-  %15 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @ff_jpeg2000_sigctxno_lut, i64 0, i64 %indvars.iv32
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @ff_jpeg2000_sigctxno_lut, i64 %indvars.iv32
   %.not47.i = icmp eq i32 %14, 0
   %..i = select i1 %.not47.i, i8 5, i8 6
   %16 = icmp samesign ugt i32 %14, 1
@@ -191,13 +191,13 @@ getsigctxno.exit.thread.loopexit.split.loop.exit53: ; preds = %32
 
 getsigctxno.exit.thread:                          ; preds = %29, %30, %getsigctxno.exit.thread.loopexit.split.loop.exit53, %31
   %.0.i.ph = phi i8 [ %spec.select28, %31 ], [ %.mux30.le, %getsigctxno.exit.thread.loopexit.split.loop.exit53 ], [ 8, %29 ], [ %.49.i, %30 ]
-  %34 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 %.0.i.ph, ptr %34, align 1, !tbaa !15
   br label %.loopexit
 
 getsigctxno.exit:                                 ; preds = %25, %28, %23, %26, %27, %33
   %.0.i = phi i8 [ 3, %27 ], [ 0, %33 ], [ 8, %23 ], [ 4, %26 ], [ %.mux, %28 ], [ %spec.select, %25 ]
-  %35 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 %.0.i, ptr %35, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -210,7 +210,7 @@ getsigctxno.exit:                                 ; preds = %25, %28, %23, %26, 
 
 .preheader:                                       ; preds = %.loopexit, %75
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %75 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw [16 x [16 x i8]], ptr @ff_jpeg2000_xorbit_lut, i64 0, i64 %indvars.iv40
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @ff_jpeg2000_xorbit_lut, i64 %indvars.iv40
   %37 = trunc nuw nsw i64 %indvars.iv40 to i32
   %38 = and i32 %37, 2
   %.not.i20 = icmp eq i32 %38, 0
@@ -219,48 +219,48 @@ getsigctxno.exit:                                 ; preds = %25, %28, %23, %26, 
   %.not15.i = icmp samesign ult i64 %indvars.iv40, 8
   %40 = and i32 %37, 1
   %.not17.i = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds nuw [16 x [16 x i8]], ptr @ff_jpeg2000_sgnctxno_lut, i64 0, i64 %indvars.iv40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @ff_jpeg2000_sgnctxno_lut, i64 %indvars.iv40
   br label %42
 
 42:                                               ; preds = %.preheader, %42
   %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %42 ]
-  %43 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 0, i64 %indvars.iv36
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv36
   %.not12.i = icmp samesign ult i64 %indvars.iv36, 8
   %44 = select i1 %.not12.i, i64 2, i64 1
   %45 = select i1 %.not.i20, i64 0, i64 %44
-  %46 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @contribtab, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [3 x i32], ptr @contribtab, i64 %45
   %47 = trunc nuw nsw i64 %indvars.iv36 to i32
   %48 = and i32 %47, 4
   %.not14.i = icmp eq i32 %48, 0
   %49 = select i1 %.not14.i, i64 2, i64 1
   %50 = select i1 %.not13.i, i64 0, i64 %49
-  %51 = getelementptr inbounds nuw [3 x i32], ptr %46, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !18
   %53 = add nsw i32 %52, 1
   %54 = and i32 %47, 2
   %.not16.i = icmp eq i32 %54, 0
   %55 = select i1 %.not16.i, i64 2, i64 1
   %56 = select i1 %.not15.i, i64 0, i64 %55
-  %57 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @contribtab, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [3 x i32], ptr @contribtab, i64 %56
   %58 = and i32 %47, 1
   %.not18.i = icmp eq i32 %58, 0
   %59 = select i1 %.not18.i, i64 2, i64 1
   %60 = select i1 %.not17.i, i64 0, i64 %59
-  %61 = getelementptr inbounds nuw [3 x i32], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !18
   %63 = add nsw i32 %62, 1
   %64 = sext i32 %53 to i64
-  %65 = getelementptr inbounds [3 x [3 x i32]], ptr @xorbittab, i64 0, i64 %64
+  %65 = getelementptr inbounds [3 x i32], ptr @xorbittab, i64 %64
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds [3 x i32], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds i32, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !18
   %69 = trunc i32 %68 to i8
   store i8 %69, ptr %43, align 1, !tbaa !15
-  %70 = getelementptr inbounds [3 x [3 x i32]], ptr @ctxlbltab, i64 0, i64 %64
-  %71 = getelementptr inbounds [3 x i32], ptr %70, i64 0, i64 %66
+  %70 = getelementptr inbounds [3 x i32], ptr @ctxlbltab, i64 %64
+  %71 = getelementptr inbounds i32, ptr %70, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %73 = trunc i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 0, i64 %indvars.iv36
+  %74 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv36
   store i8 %73, ptr %74, align 1, !tbaa !15
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 16
@@ -285,67 +285,62 @@ define void @ff_jpeg2000_set_significance(ptr noundef captures(none) %0, i32 nou
   %10 = mul nsw i32 %9, %6
   %11 = add nsw i32 %10, %5
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %12
+  %13 = getelementptr inbounds i16, ptr %7, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !26
   %15 = or i16 %14, 8192
   store i16 %15, ptr %13, align 2, !tbaa !26
   %.not = icmp eq i32 %3, 0
-  %16 = add nsw i32 %11, 1
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %17
-  %19 = load i16, ptr %18, align 2, !tbaa !26
-  %20 = add i32 %10, %1
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %21
-  %23 = add nsw i32 %2, 2
-  %24 = mul nsw i32 %9, %23
-  %25 = add nsw i32 %24, %5
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %26
-  %28 = mul nsw i32 %9, %2
-  %29 = add nsw i32 %28, %5
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %30
+  %16 = getelementptr i8, ptr %13, i64 2
+  %17 = load i16, ptr %16, align 2, !tbaa !26
+  %18 = add i32 %10, %1
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i16, ptr %7, i64 %19
+  %21 = add nsw i32 %2, 2
+  %22 = mul nsw i32 %9, %21
+  %23 = add nsw i32 %22, %5
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i16, ptr %7, i64 %24
+  %26 = mul nsw i32 %9, %2
+  %27 = add nsw i32 %26, %5
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i16, ptr %7, i64 %28
   %. = select i1 %.not, i16 4, i16 1028
-  %.63 = select i1 %.not, i16 2, i16 2050
-  %.64 = select i1 %.not, i16 1, i16 257
-  %.65 = select i1 %.not, i16 8, i16 520
-  %32 = or i16 %19, %.
-  store i16 %32, ptr %18, align 2, !tbaa !26
-  %33 = load i16, ptr %22, align 2, !tbaa !26
-  %34 = or i16 %33, %.63
-  store i16 %34, ptr %22, align 2, !tbaa !26
-  %35 = load i16, ptr %27, align 2, !tbaa !26
-  %36 = or i16 %35, %.64
-  store i16 %36, ptr %27, align 2, !tbaa !26
-  %37 = load i16, ptr %31, align 2, !tbaa !26
-  %38 = or i16 %37, %.65
-  store i16 %38, ptr %31, align 2, !tbaa !26
-  %39 = add i32 %1, 2
-  %40 = add i32 %39, %24
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !26
-  %44 = or i16 %43, 32
-  store i16 %44, ptr %42, align 2, !tbaa !26
-  %45 = add i32 %24, %1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %46
+  %.67 = select i1 %.not, i16 2, i16 2050
+  %.68 = select i1 %.not, i16 1, i16 257
+  %.69 = select i1 %.not, i16 8, i16 520
+  %30 = or i16 %17, %.
+  store i16 %30, ptr %16, align 2, !tbaa !26
+  %31 = load i16, ptr %20, align 2, !tbaa !26
+  %32 = or i16 %31, %.67
+  store i16 %32, ptr %20, align 2, !tbaa !26
+  %33 = load i16, ptr %25, align 2, !tbaa !26
+  %34 = or i16 %33, %.68
+  store i16 %34, ptr %25, align 2, !tbaa !26
+  %35 = load i16, ptr %29, align 2, !tbaa !26
+  %36 = or i16 %35, %.69
+  store i16 %36, ptr %29, align 2, !tbaa !26
+  %37 = getelementptr i16, ptr %7, i64 %24
+  %38 = getelementptr i8, ptr %37, i64 2
+  %39 = load i16, ptr %38, align 2, !tbaa !26
+  %40 = or i16 %39, 32
+  store i16 %40, ptr %38, align 2, !tbaa !26
+  %41 = add i32 %22, %1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i16, ptr %7, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !26
+  %45 = or i16 %44, 16
+  store i16 %45, ptr %43, align 2, !tbaa !26
+  %46 = getelementptr i16, ptr %7, i64 %28
+  %47 = getelementptr i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !26
-  %49 = or i16 %48, 16
+  %49 = or i16 %48, 128
   store i16 %49, ptr %47, align 2, !tbaa !26
-  %50 = add i32 %39, %28
+  %50 = add i32 %26, %1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %51
+  %52 = getelementptr inbounds i16, ptr %7, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !26
-  %54 = or i16 %53, 128
+  %54 = or i16 %53, 64
   store i16 %54, ptr %52, align 2, !tbaa !26
-  %55 = add i32 %28, %1
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [6156 x i16], ptr %7, i64 0, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !26
-  %59 = or i16 %58, 64
-  store i16 %59, ptr %57, align 2, !tbaa !26
   ret void
 }
 
@@ -470,8 +465,8 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
 .preheader:                                       ; preds = %72, %.preheader
   %81 = phi i1 [ true, %72 ], [ false, %.preheader ]
   %indvars.iv174 = phi i64 [ 0, %72 ], [ 1, %.preheader ]
-  %82 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %61, i64 0, i64 %indvars.iv174
-  %83 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %80, i64 0, i64 %indvars.iv174
+  %82 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv174
+  %83 = getelementptr inbounds nuw [2 x i32], ptr %80, i64 %indvars.iv174
   %84 = load i32, ptr %82, align 4, !tbaa !18
   %85 = sext i32 %84 to i64
   %86 = sub nsw i64 0, %85
@@ -491,11 +486,11 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br i1 %81, label %.preheader, label %98, !llvm.loop !40
 
 98:                                               ; preds = %.preheader
-  %99 = getelementptr inbounds nuw [34 x i8], ptr %62, i64 0, i64 %indvars.iv184
+  %99 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv184
   %100 = load i8, ptr %99, align 1, !tbaa !15
   %101 = getelementptr inbounds nuw i8, ptr %75, i64 28
   store i8 %100, ptr %101, align 4, !tbaa !41
-  %102 = getelementptr inbounds nuw [34 x i8], ptr %63, i64 0, i64 %indvars.iv184
+  %102 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv184
   %103 = load i8, ptr %102, align 1, !tbaa !15
   %104 = getelementptr inbounds nuw i8, ptr %75, i64 29
   store i8 %103, ptr %104, align 1, !tbaa !44
@@ -600,7 +595,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %186
 
 167:                                              ; preds = %159, %159
-  %168 = getelementptr inbounds [99 x i8], ptr %2, i64 0, i64 %indvars.iv177
+  %168 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv177
   %169 = load i8, ptr %168, align 1, !tbaa !15
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 %66, %170
@@ -608,7 +603,7 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %173 = add i32 %172, 1065353216
   %174 = bitcast i32 %173 to float
   %175 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %176 = getelementptr inbounds [99 x i16], ptr %67, i64 0, i64 %indvars.iv177
+  %176 = getelementptr inbounds i16, ptr %67, i64 %indvars.iv177
   %177 = load i16, ptr %176, align 2, !tbaa !26
   %178 = uitofp i16 %177 to double
   %179 = fmul nsz double %178, 0x3F40000000000000
@@ -709,8 +704,8 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
 .preheader110.i:                                  ; preds = %init_band_stepsize.exit.i, %.preheader110.i
   %226 = phi i1 [ false, %.preheader110.i ], [ true, %init_band_stepsize.exit.i ]
   %indvars.iv136.i = phi i64 [ 1, %.preheader110.i ], [ 0, %init_band_stepsize.exit.i ]
-  %227 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %61, i64 0, i64 %indvars.iv136.i
-  %228 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %161, i64 0, i64 %indvars.iv136.i
+  %227 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv136.i
+  %228 = getelementptr inbounds nuw [2 x i32], ptr %161, i64 %indvars.iv136.i
   %229 = load i32, ptr %227, align 4, !tbaa !18
   %230 = sext i32 %229 to i64
   %231 = sub nsw i64 0, %230
@@ -747,14 +742,14 @@ init_band_stepsize.exit.i:                        ; preds = %214, %211
 .preheader112.i:                                  ; preds = %.preheader112.i, %.preheader113.i
   %252 = phi i1 [ true, %.preheader113.i ], [ false, %.preheader112.i ]
   %indvars.iv130.i = phi i64 [ 0, %.preheader113.i ], [ 1, %.preheader112.i ]
-  %253 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %61, i64 0, i64 %indvars.iv130.i
+  %253 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 %indvars.iv130.i
   %254 = trunc nuw nsw i64 %indvars.iv130.i to i32
   %255 = lshr i32 %225, %254
   %256 = and i32 %255, 1
   %257 = zext nneg i32 %256 to i64
   %258 = shl nuw i64 %257, %222
   %259 = trunc i64 %258 to i32
-  %260 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %161, i64 0, i64 %indvars.iv130.i
+  %260 = getelementptr inbounds nuw [2 x i32], ptr %161, i64 %indvars.iv130.i
   %261 = load i32, ptr %253, align 4, !tbaa !18
   %262 = sub i32 %261, %259
   %263 = sext i32 %262 to i64

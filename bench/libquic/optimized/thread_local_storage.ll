@@ -61,13 +61,13 @@ define void @_ZN4base8internal26PlatformThreadLocalStorage12OnThreadExitEPv(ptr 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
   %.124.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.2.i, %19 ]
-  %11 = getelementptr inbounds nuw [256 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 %indvars.iv.i
   %16 = load volatile ptr, ptr %15, align 8, !tbaa !3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
@@ -141,7 +141,7 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %12
 19:                                               ; preds = %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit.thread, %_ZN7logging11CheckLTImplB5cxx11EiiPKc.exit, %18
   %20 = load i32, ptr %15, align 4, !tbaa !9
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %21
+  %22 = getelementptr inbounds ptr, ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 %21
   store volatile ptr %1, ptr %22, align 8, !tbaa !3
   store atomic volatile i32 1, ptr %0 release, align 4
   ret void
@@ -248,7 +248,7 @@ define void @_ZN4base18ThreadLocalStorage10StaticSlot4FreeEv(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 %4
   store volatile ptr null, ptr %5, align 8, !tbaa !3
   store i32 0, ptr %2, align 4, !tbaa !9
   store atomic volatile i32 0, ptr %0 release, align 4
@@ -308,7 +308,7 @@ define void @_ZN4base18ThreadLocalStorage4SlotD2Ev(ptr noundef nonnull align 4 d
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %4
+  %5 = getelementptr inbounds ptr, ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 %4
   store volatile ptr null, ptr %5, align 8, !tbaa !3
   store i32 0, ptr %2, align 4, !tbaa !9
   store atomic volatile i32 0, ptr %0 release, align 4

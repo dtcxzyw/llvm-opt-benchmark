@@ -6249,7 +6249,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader49 ]
   %72 = urem i32 %.11531, 10
   %73 = trunc nuw nsw i32 %72 to i8
-  %74 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %73, ptr %74, align 1, !tbaa !3
   %75 = udiv i32 %.11531, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6260,7 +6260,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
 76:                                               ; preds = %.preheader, %Vec_StrPush.exit30
   %indvars.iv37 = phi i64 [ %indvars.iv35, %.preheader ], [ %indvars.iv.next38, %Vec_StrPush.exit30 ]
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
-  %77 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.next38
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next38
   %78 = load i8, ptr %77, align 1, !tbaa !3
   %79 = add i8 %78, 48
   %80 = load i32, ptr %70, align 4, !tbaa !43

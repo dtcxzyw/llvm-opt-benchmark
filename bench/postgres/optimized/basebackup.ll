@@ -1867,7 +1867,7 @@ sub_0.lr.ph:                                      ; preds = %50
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.thread204
-  %63 = phi ptr [ %52, %sub_0.lr.ph ], [ %246, %.thread204 ]
+  %63 = phi ptr [ %52, %sub_0.lr.ph ], [ %245, %.thread204 ]
   %.0142243 = phi i64 [ 0, %sub_0.lr.ph ], [ %.1143, %.thread204 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
@@ -1935,377 +1935,376 @@ sub_1223:                                         ; preds = %.tail
 
 91:                                               ; preds = %.preheader225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = getelementptr inbounds nuw [9 x %struct.exclude_list_item], ptr @excludeFiles, i64 0, i64 %indvars.iv.next
+  %92 = getelementptr inbounds nuw %struct.exclude_list_item, ptr @excludeFiles, i64 %indvars.iv.next
   %93 = load ptr, ptr %92, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %108, label %.preheader225, !llvm.loop !13
+  br i1 %exitcond, label %107, label %.preheader225, !llvm.loop !13
 
 .preheader225:                                    ; preds = %82, %91
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %82 ]
   %94 = phi ptr [ %93, %91 ], [ @.str.82, %82 ]
-  %95 = phi ptr [ %92, %91 ], [ @excludeFiles, %82 ]
-  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #21
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load i8, ptr %97, align 8, !range !4, !noundef !5
-  %99 = xor i8 %98, 1
-  %100 = zext nneg i8 %99 to i64
-  %spec.select196 = add i64 %96, %100
+  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #21
+  %96 = getelementptr inbounds nuw %struct.exclude_list_item, ptr @excludeFiles, i64 %indvars.iv, i32 1
+  %97 = load i8, ptr %96, align 8, !range !4, !noundef !5
+  %98 = xor i8 %97, 1
+  %99 = zext nneg i8 %98 to i64
+  %spec.select196 = add i64 %95, %99
   %sext182 = shl i64 %spec.select196, 32
-  %101 = ashr exact i64 %sext182, 32
-  %102 = call i32 @strncmp(ptr noundef nonnull %64, ptr noundef nonnull %94, i64 noundef %101) #21
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %91
+  %100 = ashr exact i64 %sext182, 32
+  %101 = call i32 @strncmp(ptr noundef nonnull %64, ptr noundef nonnull %94, i64 noundef %100) #21
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %91
 
-104:                                              ; preds = %.preheader225
-  %105 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #19
-  br i1 %105, label %106, label %.thread204
+103:                                              ; preds = %.preheader225
+  %104 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #19
+  br i1 %104, label %105, label %.thread204
 
-106:                                              ; preds = %104
-  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, ptr noundef nonnull %64) #19
+105:                                              ; preds = %103
+  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, ptr noundef nonnull %64) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1298, ptr noundef nonnull @__func__.sendDir) #19
   br label %.thread204
 
-108:                                              ; preds = %91
-  br i1 %.1145, label %109, label %.thread206
+107:                                              ; preds = %91
+  br i1 %.1145, label %108, label %.thread206
 
-109:                                              ; preds = %108
-  %110 = call zeroext i1 @parse_filename_for_nontemp_relation(ptr noundef nonnull %64, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #19
-  %111 = load i32, ptr %13, align 4
-  %112 = icmp ne i32 %111, 3
-  %or.cond = select i1 %110, i1 %112, i1 false
-  br i1 %or.cond, label %113, label %.thread206
+108:                                              ; preds = %107
+  %109 = call zeroext i1 @parse_filename_for_nontemp_relation(ptr noundef nonnull %64, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #19
+  %110 = load i32, ptr %13, align 4
+  %111 = icmp ne i32 %110, 3
+  %or.cond = select i1 %109, i1 %111, i1 false
+  br i1 %or.cond, label %112, label %.thread206
 
-113:                                              ; preds = %109
+112:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %114 = load i32, ptr %12, align 4
-  %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef %1, i32 noundef %114) #19
-  %116 = call i32 @lstat(ptr noundef nonnull %15, ptr noundef nonnull %11) #19
-  %.not183 = icmp eq i32 %116, 0
-  br i1 %.not183, label %117, label %.critedge
+  %113 = load i32, ptr %12, align 4
+  %114 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.65, ptr noundef %1, i32 noundef %113) #19
+  %115 = call i32 @lstat(ptr noundef nonnull %15, ptr noundef nonnull %11) #19
+  %.not183 = icmp eq i32 %115, 0
+  br i1 %.not183, label %116, label %.critedge
 
-117:                                              ; preds = %113
-  %118 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
-  br i1 %118, label %119, label %121, !llvm.loop !11
+116:                                              ; preds = %112
+  %117 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
+  br i1 %117, label %118, label %120, !llvm.loop !11
 
-119:                                              ; preds = %117
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66, ptr noundef nonnull %64) #19
+118:                                              ; preds = %116
+  %119 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66, ptr noundef nonnull %64) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1333, ptr noundef nonnull @__func__.sendDir) #19
-  br label %121, !llvm.loop !11
+  br label %120, !llvm.loop !11
 
-121:                                              ; preds = %117, %119
+120:                                              ; preds = %116, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread204
 
-.critedge:                                        ; preds = %113
+.critedge:                                        ; preds = %112
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread206
 
-.thread206:                                       ; preds = %108, %.critedge, %109
-  %.0158209 = phi i1 [ true, %.critedge ], [ %110, %109 ], [ false, %108 ]
-  br i1 %.not184, label %128, label %122
+.thread206:                                       ; preds = %107, %.critedge, %108
+  %.0158209 = phi i1 [ true, %.critedge ], [ %109, %108 ], [ false, %107 ]
+  br i1 %.not184, label %127, label %121
 
-122:                                              ; preds = %.thread206
-  %123 = call zeroext i1 @looks_like_temp_rel_name(ptr noundef nonnull %64) #19
-  br i1 %123, label %124, label %128
+121:                                              ; preds = %.thread206
+  %122 = call zeroext i1 @looks_like_temp_rel_name(ptr noundef nonnull %64) #19
+  br i1 %122, label %123, label %127
 
-124:                                              ; preds = %122
-  %125 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
-  br i1 %125, label %126, label %.thread204, !llvm.loop !11
+123:                                              ; preds = %121
+  %124 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
+  br i1 %124, label %125, label %.thread204, !llvm.loop !11
 
-126:                                              ; preds = %124
-  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67, ptr noundef nonnull %64) #19
+125:                                              ; preds = %123
+  %126 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67, ptr noundef nonnull %64) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1344, ptr noundef nonnull @__func__.sendDir) #19
   br label %.thread204, !llvm.loop !11
 
-128:                                              ; preds = %122, %.thread206
-  %129 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 2048, ptr noundef nonnull @.str.68, ptr noundef %1, ptr noundef nonnull %64) #19
+127:                                              ; preds = %121, %.thread206
+  %128 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 2048, ptr noundef nonnull @.str.68, ptr noundef %1, ptr noundef nonnull %64) #19
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %10, ptr noundef nonnull dereferenceable(20) @.str.69, i64 20)
-  %130 = icmp eq i32 %bcmp, 0
-  br i1 %130, label %.thread204, label %131, !llvm.loop !11
+  %129 = icmp eq i32 %bcmp, 0
+  br i1 %129, label %.thread204, label %130, !llvm.loop !11
 
-131:                                              ; preds = %128
-  %132 = call i32 @lstat(ptr noundef nonnull %10, ptr noundef nonnull %11) #19
-  %.not185 = icmp eq i32 %132, 0
-  br i1 %.not185, label %.preheader, label %133
+130:                                              ; preds = %127
+  %131 = call i32 @lstat(ptr noundef nonnull %10, ptr noundef nonnull %11) #19
+  %.not185 = icmp eq i32 %131, 0
+  br i1 %.not185, label %.preheader, label %132
 
-133:                                              ; preds = %131
-  %134 = tail call ptr @__errno_location() #24
-  %135 = load i32, ptr %134, align 4
-  %.not194 = icmp eq i32 %135, 2
-  br i1 %.not194, label %.thread204, label %136, !llvm.loop !11
+132:                                              ; preds = %130
+  %133 = tail call ptr @__errno_location() #24
+  %134 = load i32, ptr %133, align 4
+  %.not194 = icmp eq i32 %134, 2
+  br i1 %.not194, label %.thread204, label %135, !llvm.loop !11
 
-136:                                              ; preds = %133
-  %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  call void @llvm.assume(i1 %137)
-  %138 = call i32 @errcode_for_file_access() #19
-  %139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef nonnull %10) #19
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  call void @llvm.assume(i1 %136)
+  %137 = call i32 @errcode_for_file_access() #19
+  %138 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef nonnull %10) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1361, ptr noundef nonnull @__func__.sendDir) #19
   unreachable
 
-140:                                              ; preds = %.preheader
+139:                                              ; preds = %.preheader
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %.not186.not = icmp eq i64 %indvars.iv.next249, 7
-  br i1 %.not186.not, label %158, label %.preheader, !llvm.loop !14
+  br i1 %.not186.not, label %157, label %.preheader, !llvm.loop !14
 
-.preheader:                                       ; preds = %131, %140
-  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %140 ], [ 0, %131 ]
-  %141 = getelementptr inbounds nuw [8 x ptr], ptr @excludeDirContents, i64 0, i64 %indvars.iv248
-  %142 = load ptr, ptr %141, align 8
-  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %142) #21
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %140
+.preheader:                                       ; preds = %130, %139
+  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %139 ], [ 0, %130 ]
+  %140 = getelementptr inbounds nuw ptr, ptr @excludeDirContents, i64 %indvars.iv248
+  %141 = load ptr, ptr %140, align 8
+  %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %141) #21
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %139
 
-145:                                              ; preds = %.preheader
-  %146 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #19
-  br i1 %146, label %147, label %149
+144:                                              ; preds = %.preheader
+  %145 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #19
+  br i1 %145, label %146, label %148
 
-147:                                              ; preds = %145
-  %148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71, ptr noundef nonnull %64) #19
+146:                                              ; preds = %144
+  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71, ptr noundef nonnull %64) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1373, ptr noundef nonnull @__func__.sendDir) #19
-  br label %149
+  br label %148
 
-149:                                              ; preds = %147, %145
-  %150 = load i32, ptr %53, align 8
-  %151 = and i32 %150, 61440
-  %152 = icmp eq i32 %151, 40960
-  br i1 %152, label %153, label %156
+148:                                              ; preds = %146, %144
+  %149 = load i32, ptr %53, align 8
+  %150 = and i32 %149, 61440
+  %151 = icmp eq i32 %150, 40960
+  br i1 %151, label %152, label %155
 
-153:                                              ; preds = %149
-  %154 = load i32, ptr @pg_dir_create_mode, align 4
-  %155 = or i32 %154, 16384
-  store i32 %155, ptr %53, align 8
-  br label %156
+152:                                              ; preds = %148
+  %153 = load i32, ptr @pg_dir_create_mode, align 4
+  %154 = or i32 %153, 16384
+  store i32 %154, ptr %53, align 8
+  br label %155
 
-156:                                              ; preds = %153, %149
+155:                                              ; preds = %152, %148
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull %56, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
-  %157 = add i64 %.0142243, 512
+  %156 = add i64 %.0142243, 512
   br label %.thread204, !llvm.loop !11
 
-158:                                              ; preds = %140
+157:                                              ; preds = %139
   %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %10, ptr noundef nonnull dereferenceable(9) @.str.72, i64 9)
-  %159 = icmp eq i32 %bcmp187, 0
-  br i1 %159, label %160, label %168
+  %158 = icmp eq i32 %bcmp187, 0
+  br i1 %158, label %159, label %167
 
-160:                                              ; preds = %158
-  %161 = load i32, ptr %53, align 8
-  %162 = and i32 %161, 61440
-  %163 = icmp eq i32 %162, 40960
-  br i1 %163, label %164, label %convert_link_to_directory.exit200
+159:                                              ; preds = %157
+  %160 = load i32, ptr %53, align 8
+  %161 = and i32 %160, 61440
+  %162 = icmp eq i32 %161, 40960
+  br i1 %162, label %163, label %convert_link_to_directory.exit200
 
-164:                                              ; preds = %160
-  %165 = load i32, ptr @pg_dir_create_mode, align 4
-  %166 = or i32 %165, 16384
-  store i32 %166, ptr %53, align 8
+163:                                              ; preds = %159
+  %164 = load i32, ptr @pg_dir_create_mode, align 4
+  %165 = or i32 %164, 16384
+  store i32 %165, ptr %53, align 8
   br label %convert_link_to_directory.exit200
 
-convert_link_to_directory.exit200:                ; preds = %160, %164
+convert_link_to_directory.exit200:                ; preds = %159, %163
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull %56, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
-  %167 = add i64 %.0142243, 1536
+  %166 = add i64 %.0142243, 1536
   br label %.thread204, !llvm.loop !11
 
-168:                                              ; preds = %158
-  %169 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.75) #21
-  %170 = icmp eq i32 %169, 0
+167:                                              ; preds = %157
+  %168 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.75) #21
+  %169 = icmp eq i32 %168, 0
   %.pre = load i32, ptr %53, align 8
-  %171 = and i32 %.pre, 61440
-  %172 = icmp eq i32 %171, 40960
-  %or.cond264 = select i1 %170, i1 %172, i1 false
-  br i1 %or.cond264, label %173, label %190
+  %170 = and i32 %.pre, 61440
+  %171 = icmp eq i32 %170, 40960
+  %or.cond264 = select i1 %169, i1 %171, i1 false
+  br i1 %or.cond264, label %172, label %189
 
-173:                                              ; preds = %168
+172:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %174 = call i64 @readlink(ptr noundef nonnull %10, ptr noundef nonnull %16, i64 noundef 1024) #19
-  %175 = and i64 %174, 2147483648
-  %.not193 = icmp eq i64 %175, 0
-  br i1 %.not193, label %180, label %176
+  %173 = call i64 @readlink(ptr noundef nonnull %10, ptr noundef nonnull %16, i64 noundef 1024) #19
+  %174 = and i64 %173, 2147483648
+  %.not193 = icmp eq i64 %174, 0
+  br i1 %.not193, label %179, label %175
 
-176:                                              ; preds = %173
-  %177 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  call void @llvm.assume(i1 %177)
-  %178 = call i32 @errcode_for_file_access() #19
-  %179 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %10) #19
+175:                                              ; preds = %172
+  %176 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  call void @llvm.assume(i1 %176)
+  %177 = call i32 @errcode_for_file_access() #19
+  %178 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %10) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__func__.sendDir) #19
   unreachable
 
-180:                                              ; preds = %173
-  %181 = and i64 %174, 2147483647
-  %182 = icmp samesign ugt i64 %181, 1023
-  br i1 %182, label %183, label %187
+179:                                              ; preds = %172
+  %180 = and i64 %173, 2147483647
+  %181 = icmp samesign ugt i64 %180, 1023
+  br i1 %181, label %182, label %186
 
-183:                                              ; preds = %180
-  %184 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  call void @llvm.assume(i1 %184)
-  %185 = call i32 @errcode(i32 noundef 261) #19
-  %186 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %10) #19
+182:                                              ; preds = %179
+  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  call void @llvm.assume(i1 %183)
+  %184 = call i32 @errcode(i32 noundef 261) #19
+  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %10) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1425, ptr noundef nonnull @__func__.sendDir) #19
   unreachable
 
-187:                                              ; preds = %180
-  %188 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 0, i64 %181
-  store i8 0, ptr %188, align 1
+186:                                              ; preds = %179
+  %187 = getelementptr inbounds nuw i8, ptr %16, i64 %180
+  store i8 0, ptr %187, align 1
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull %56, ptr noundef nonnull %16, ptr noundef %11, i1 noundef zeroext %3)
-  %189 = add i64 %.0142243, 512
+  %188 = add i64 %.0142243, 512
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread204
 
-190:                                              ; preds = %168
-  %191 = trunc i32 %.pre to i16
-  %trunc = and i16 %191, -4096
-  switch i16 %trunc, label %242 [
-    i16 16384, label %192
-    i16 -32768, label %210
+189:                                              ; preds = %167
+  %190 = trunc i32 %.pre to i16
+  %trunc = and i16 %190, -4096
+  switch i16 %trunc, label %241 [
+    i16 16384, label %191
+    i16 -32768, label %209
   ]
 
-192:                                              ; preds = %190
+191:                                              ; preds = %189
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull %56, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
-  %193 = add i64 %.0142243, 512
+  %192 = add i64 %.0142243, 512
   br i1 %.not189, label %.critedge198, label %.lr.ph
 
-.lr.ph:                                           ; preds = %192
-  %194 = load i32, ptr %60, align 4
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %.lr.ph240, label %.critedge198
+.lr.ph:                                           ; preds = %191
+  %193 = load i32, ptr %60, align 4
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %.lr.ph240, label %.critedge198
 
 .lr.ph240:                                        ; preds = %.lr.ph
-  %196 = load ptr, ptr %62, align 8
-  %wide.trip.count = zext nneg i32 %194 to i64
-  br label %197
+  %195 = load ptr, ptr %62, align 8
+  %wide.trip.count = zext nneg i32 %193 to i64
+  br label %196
 
-197:                                              ; preds = %.lr.ph240, %205
-  %indvars.iv251 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next252, %205 ]
-  %198 = getelementptr inbounds nuw %union.ListCell, ptr %196, i64 %indvars.iv251
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 8
-  %.not191 = icmp eq ptr %201, null
-  br i1 %.not191, label %205, label %202
+196:                                              ; preds = %.lr.ph240, %204
+  %indvars.iv251 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next252, %204 ]
+  %197 = getelementptr inbounds nuw %union.ListCell, ptr %195, i64 %indvars.iv251
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
+  %200 = load ptr, ptr %199, align 8
+  %.not191 = icmp eq ptr %200, null
+  br i1 %.not191, label %204, label %201
 
-202:                                              ; preds = %197
-  %203 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(1) %61) #21
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %.critedge198, label %205
+201:                                              ; preds = %196
+  %202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %200, ptr noundef nonnull dereferenceable(1) %61) #21
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %.critedge198, label %204
 
-205:                                              ; preds = %197, %202
+204:                                              ; preds = %196, %201
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count
-  br i1 %exitcond254.not, label %.critedge198, label %197
+  br i1 %exitcond254.not, label %.critedge198, label %196
 
-.critedge198:                                     ; preds = %205, %202, %.lr.ph, %192
-  %.1149.not = phi i1 [ true, %192 ], [ true, %.lr.ph ], [ false, %202 ], [ true, %205 ]
+.critedge198:                                     ; preds = %204, %201, %.lr.ph, %191
+  %.1149.not = phi i1 [ true, %191 ], [ true, %.lr.ph ], [ false, %201 ], [ true, %204 ]
   %bcmp192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %10, ptr noundef nonnull dereferenceable(12) @.str.75, i64 12)
-  %206 = icmp ne i32 %bcmp192, 0
-  %or.cond4 = or i1 %5, %206
+  %205 = icmp ne i32 %bcmp192, 0
+  %or.cond4 = or i1 %5, %205
   %.not220 = and i1 %.1149.not, %or.cond4
-  br i1 %.not220, label %207, label %.thread204
+  br i1 %.not220, label %206, label %.thread204
 
-207:                                              ; preds = %.critedge198
-  %208 = call fastcc i64 @sendDir(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, ptr noundef %8)
-  %209 = add i64 %208, %193
+206:                                              ; preds = %.critedge198
+  %207 = call fastcc i64 @sendDir(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, ptr noundef %8)
+  %208 = add i64 %207, %192
   br label %.thread204
 
-210:                                              ; preds = %190
+209:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %or.cond6 = and i1 %20, %.0158209
-  br i1 %or.cond6, label %211, label %229
+  br i1 %or.cond6, label %210, label %228
+
+210:                                              ; preds = %209
+  br i1 %.not188, label %213, label %211
 
 211:                                              ; preds = %210
-  br i1 %.not188, label %214, label %212
+  %212 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %7, ptr noundef nonnull %56) #19
+  br label %215
 
-212:                                              ; preds = %211
-  %213 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %7, ptr noundef nonnull %56) #19
-  br label %216
+213:                                              ; preds = %210
+  %214 = call ptr @pstrdup(ptr noundef nonnull %56) #19
+  br label %215
 
-214:                                              ; preds = %211
-  %215 = call ptr @pstrdup(ptr noundef nonnull %56) #19
-  br label %216
+215:                                              ; preds = %213, %211
+  %.0137 = phi i32 [ %7, %211 ], [ %.0146, %213 ]
+  %.0 = phi ptr [ %212, %211 ], [ %214, %213 ]
+  %216 = load i32, ptr %12, align 4
+  %217 = load i32, ptr %13, align 4
+  %218 = load i32, ptr %14, align 4
+  %219 = load i64, ptr %57, align 8
+  %220 = call i32 @GetFileBackupMethod(ptr noundef nonnull %8, ptr noundef %.0, i32 noundef %.1153, i32 noundef %.0137, i32 noundef %216, i32 noundef %217, i32 noundef %218, i64 noundef %219, ptr noundef nonnull %17, ptr noundef %.0165, ptr noundef nonnull %18) #19
+  %221 = icmp eq i32 %220, 1
+  br i1 %221, label %222, label %226
 
-216:                                              ; preds = %214, %212
-  %.0137 = phi i32 [ %7, %212 ], [ %.0146, %214 ]
-  %.0 = phi ptr [ %213, %212 ], [ %215, %214 ]
-  %217 = load i32, ptr %12, align 4
-  %218 = load i32, ptr %13, align 4
-  %219 = load i32, ptr %14, align 4
-  %220 = load i64, ptr %57, align 8
-  %221 = call i32 @GetFileBackupMethod(ptr noundef nonnull %8, ptr noundef %.0, i32 noundef %.1153, i32 noundef %.0137, i32 noundef %217, i32 noundef %218, i32 noundef %219, i64 noundef %220, ptr noundef nonnull %17, ptr noundef %.0165, ptr noundef nonnull %18) #19
-  %222 = icmp eq i32 %221, 1
-  br i1 %222, label %223, label %227
+222:                                              ; preds = %215
+  %223 = load i32, ptr %17, align 4
+  %224 = call i64 @GetIncrementalFileSize(i32 noundef %223) #19
+  store i64 %224, ptr %57, align 8
+  %225 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 2048, ptr noundef nonnull @.str.80, ptr noundef nonnull %59, ptr noundef nonnull %64) #19
+  br label %226
 
-223:                                              ; preds = %216
-  %224 = load i32, ptr %17, align 4
-  %225 = call i64 @GetIncrementalFileSize(i32 noundef %224) #19
-  store i64 %225, ptr %57, align 8
-  %226 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 2048, ptr noundef nonnull @.str.80, ptr noundef nonnull %59, ptr noundef nonnull %64) #19
-  br label %227
-
-227:                                              ; preds = %223, %216
-  %228 = phi ptr [ %.0165, %223 ], [ null, %216 ]
-  %.1140 = phi ptr [ %19, %223 ], [ %56, %216 ]
+226:                                              ; preds = %222, %215
+  %227 = phi ptr [ %.0165, %222 ], [ null, %215 ]
+  %.1140 = phi ptr [ %19, %222 ], [ %56, %215 ]
   call void @pfree(ptr noundef %.0) #19
-  br label %229
+  br label %228
 
-229:                                              ; preds = %227, %210
-  %.0139 = phi ptr [ %.1140, %227 ], [ %56, %210 ]
-  %.0138 = phi ptr [ %228, %227 ], [ null, %210 ]
-  br i1 %3, label %.thread217, label %230
+228:                                              ; preds = %226, %209
+  %.0139 = phi ptr [ %.1140, %226 ], [ %56, %209 ]
+  %.0138 = phi ptr [ %227, %226 ], [ null, %209 ]
+  br i1 %3, label %.thread217, label %229
 
-230:                                              ; preds = %229
-  %231 = load i32, ptr %12, align 4
-  %232 = load i32, ptr %14, align 4
-  %233 = load i32, ptr %17, align 4
-  %234 = load i32, ptr %18, align 4
-  %235 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %.0139, ptr noundef %11, i1 noundef zeroext true, i32 noundef %.1153, i32 noundef %7, i32 noundef %231, i32 noundef %232, ptr noundef %6, i32 noundef %233, ptr noundef %.0138, i32 noundef %234)
-  br i1 %235, label %.thread217, label %241
+229:                                              ; preds = %228
+  %230 = load i32, ptr %12, align 4
+  %231 = load i32, ptr %14, align 4
+  %232 = load i32, ptr %17, align 4
+  %233 = load i32, ptr %18, align 4
+  %234 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %.0139, ptr noundef %11, i1 noundef zeroext true, i32 noundef %.1153, i32 noundef %7, i32 noundef %230, i32 noundef %231, ptr noundef %6, i32 noundef %232, ptr noundef %.0138, i32 noundef %233)
+  br i1 %234, label %.thread217, label %240
 
-.thread217:                                       ; preds = %229, %230
-  %236 = load i64, ptr %57, align 8
-  %237 = add i64 %236, 511
-  %238 = and i64 %237, -512
-  %239 = add i64 %.0142243, 512
-  %240 = add i64 %239, %238
-  br label %241
+.thread217:                                       ; preds = %228, %229
+  %235 = load i64, ptr %57, align 8
+  %236 = add i64 %235, 511
+  %237 = and i64 %236, -512
+  %238 = add i64 %.0142243, 512
+  %239 = add i64 %238, %237
+  br label %240
 
-241:                                              ; preds = %230, %.thread217
-  %.5 = phi i64 [ %240, %.thread217 ], [ %.0142243, %230 ]
+240:                                              ; preds = %229, %.thread217
+  %.5 = phi i64 [ %239, %.thread217 ], [ %.0142243, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread204
 
-242:                                              ; preds = %190
-  %243 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
-  br i1 %243, label %244, label %.thread204
+241:                                              ; preds = %189
+  %242 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %242, label %243, label %.thread204
 
-244:                                              ; preds = %242
-  %245 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81, ptr noundef nonnull %10) #19
+243:                                              ; preds = %241
+  %244 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81, ptr noundef nonnull %10) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1546, ptr noundef nonnull @__func__.sendDir) #19
   br label %.thread204
 
-.thread204:                                       ; preds = %106, %104, %156, %121, %187, %241, %244, %242, %207, %.critedge198, %133, %128, %124, %126, %76, %.tail221.thread, %.tail, %.tail221, %convert_link_to_directory.exit200
-  %.1143 = phi i64 [ %167, %convert_link_to_directory.exit200 ], [ %.0142243, %121 ], [ %.0142243, %.tail221 ], [ %.0142243, %.tail ], [ %.0142243, %.tail221.thread ], [ %.0142243, %76 ], [ %.0142243, %126 ], [ %.0142243, %124 ], [ %.0142243, %128 ], [ %.0142243, %133 ], [ %157, %156 ], [ %189, %187 ], [ %.5, %241 ], [ %.0142243, %244 ], [ %.0142243, %242 ], [ %193, %.critedge198 ], [ %209, %207 ], [ %.0142243, %104 ], [ %.0142243, %106 ]
+.thread204:                                       ; preds = %105, %103, %155, %120, %186, %240, %243, %241, %206, %.critedge198, %132, %127, %123, %125, %76, %.tail221.thread, %.tail, %.tail221, %convert_link_to_directory.exit200
+  %.1143 = phi i64 [ %166, %convert_link_to_directory.exit200 ], [ %.0142243, %120 ], [ %.0142243, %.tail221 ], [ %.0142243, %.tail ], [ %.0142243, %.tail221.thread ], [ %.0142243, %76 ], [ %.0142243, %125 ], [ %.0142243, %123 ], [ %.0142243, %127 ], [ %.0142243, %132 ], [ %156, %155 ], [ %188, %186 ], [ %.5, %240 ], [ %.0142243, %243 ], [ %.0142243, %241 ], [ %192, %.critedge198 ], [ %208, %206 ], [ %.0142243, %103 ], [ %.0142243, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %246 = call ptr @ReadDir(ptr noundef %51, ptr noundef %1) #19
-  %.not177 = icmp eq ptr %246, null
+  %245 = call ptr @ReadDir(ptr noundef %51, ptr noundef %1) #19
+  %.not177 = icmp eq ptr %245, null
   br i1 %.not177, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %.thread204, %50
   %.0142.lcssa = phi i64 [ 0, %50 ], [ %.1143, %.thread204 ]
   %.not178 = icmp eq ptr %.0165, null
-  br i1 %.not178, label %248, label %247
+  br i1 %.not178, label %247, label %246
 
-247:                                              ; preds = %._crit_edge
+246:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef nonnull %.0165) #19
-  br label %248
+  br label %247
 
-248:                                              ; preds = %247, %._crit_edge
-  %249 = call i32 @FreeDir(ptr noundef %51) #19
+247:                                              ; preds = %246, %._crit_edge
+  %248 = call i32 @FreeDir(ptr noundef %51) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.0142.lcssa

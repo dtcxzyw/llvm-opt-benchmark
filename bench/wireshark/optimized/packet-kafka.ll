@@ -1055,10 +1055,10 @@ define hidden void @proto_register_kafka() local_unnamed_addr #0 {
 
 1:                                                ; preds = %1, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %1 ]
-  %2 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i
+  %2 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i32
-  %5 = getelementptr [51 x %struct._value_string], ptr @kafka_api_names, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr %struct._value_string, ptr @kafka_api_names, i64 %indvars.iv.i
   store i32 %4, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1189,7 +1189,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader.i.i:                                   ; preds = %20, %34
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ 0, %20 ]
-  %35 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i.i
+  %35 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i
   %36 = load i16, ptr %35, align 8
   %37 = icmp eq i16 %36, %32
   br i1 %37, label %kafka_get_api_info.exit.i, label %34
@@ -1255,7 +1255,7 @@ proto_item_set_hidden.exit:                       ; preds = %kafka_is_api_versio
 
 .preheader.i.i639:                                ; preds = %proto_item_set_hidden.exit, %69
   %indvars.iv.i.i640 = phi i64 [ %indvars.iv.next.i.i641, %69 ], [ 0, %proto_item_set_hidden.exit ]
-  %70 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i.i640
+  %70 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i640
   %71 = load i16, ptr %70, align 8
   %72 = icmp eq i16 %71, %67
   br i1 %72, label %kafka_get_api_info.exit.i643, label %69
@@ -1766,7 +1766,7 @@ proto_item_set_generated.exit660:                 ; preds = %proto_item_set_hidd
 
 .preheader.i.i661:                                ; preds = %proto_item_set_generated.exit660, %308
   %indvars.iv.i.i662 = phi i64 [ %indvars.iv.next.i.i663, %308 ], [ 0, %proto_item_set_generated.exit660 ]
-  %309 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i.i662
+  %309 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i.i662
   %310 = load i16, ptr %309, align 8
   %311 = icmp eq i16 %310, %306
   br i1 %311, label %kafka_get_api_info.exit.i666, label %308
@@ -2142,7 +2142,7 @@ define internal fastcc signext i16 @kafka_check_supported_api_version(ptr nounde
 
 .preheader.i:                                     ; preds = %3, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %3 ]
-  %9 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, %6
   br i1 %11, label %kafka_get_api_info.exit, label %8
@@ -7338,7 +7338,7 @@ XXH32.exit.i:                                     ; preds = %.lr.ph82.i.i.i, %.p
 
 switch.lookup:                                    ; preds = %107
   %110 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.decompress, i64 0, i64 %110
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.decompress, i64 %110
   %switch.load = load i64, ptr %switch.gep, align 8
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %112 = load i64, ptr %111, align 8
@@ -12069,7 +12069,7 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
 
 .preheader.i:                                     ; preds = %30, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %30 ]
-  %33 = getelementptr [50 x %struct._kafka_api_info_t], ptr @kafka_apis, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr %struct._kafka_api_info_t, ptr @kafka_apis, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 8
   %35 = icmp eq i16 %34, %9
   br i1 %35, label %kafka_get_api_info.exit, label %32

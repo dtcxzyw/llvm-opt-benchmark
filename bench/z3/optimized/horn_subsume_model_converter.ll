@@ -1104,7 +1104,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %186 = phi ptr [ null, %.lr.ph ], [ %352, %_ZN7obj_refI3var11ast_managerED2Ev.exit ]
   %.pr.pre.i = phi ptr [ null, %.lr.ph ], [ %353, %_ZN7obj_refI3var11ast_managerED2Ev.exit ]
   %indvars.iv176 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next177, %_ZN7obj_refI3var11ast_managerED2Ev.exit ]
-  %187 = getelementptr inbounds nuw [0 x ptr], ptr %168, i64 0, i64 %indvars.iv176
+  %187 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv176
   %188 = load ptr, ptr %187, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %189 = load ptr, ptr %17, align 8, !tbaa !21
@@ -5017,7 +5017,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 54:                                               ; preds = %.lr.ph, %_ZN28horn_subsume_model_converter16add_default_procclEP3app.exit
   %55 = phi i32 [ %51, %.lr.ph ], [ %210, %_ZN28horn_subsume_model_converter16add_default_procclEP3app.exit ]
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %53, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !19
   %59 = add nuw i32 %55, 1
   store i32 %59, ptr %50, align 8, !tbaa !293

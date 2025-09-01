@@ -678,7 +678,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
 
 .lr.ph.i.preheader:                               ; preds = %1, %.loopexit
   %.086123 = phi i64 [ %16, %.loopexit ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL11ellps_shapeP8PJconsts.keys, i64 0, i64 %.086123
+  %6 = getelementptr inbounds nuw ptr, ptr @__const._ZL11ellps_shapeP8PJconsts.keys, i64 %.086123
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #16
   br label %.lr.ph.i
@@ -691,7 +691,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
   br i1 %11, label %12, label %.critedge12.i
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %14 = load i8, ptr %13, align 1, !tbaa !40
   switch i8 %14, label %.critedge12.i [
     i8 61, label %.critedge
@@ -896,7 +896,7 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
 
 .lr.ph.i.preheader:                               ; preds = %1, %.loopexit
   %.07790 = phi i64 [ %15, %.loopexit ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [8 x ptr], ptr @__const._ZL20ellps_spherificationP8PJconsts.keys, i64 0, i64 %.07790
+  %5 = getelementptr inbounds nuw ptr, ptr @__const._ZL20ellps_spherificationP8PJconsts.keys, i64 %.07790
   %6 = load ptr, ptr %5, align 8, !tbaa !73
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #16
   br label %.lr.ph.i
@@ -909,7 +909,7 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
   br i1 %10, label %11, label %.critedge12.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %7
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %13 = load i8, ptr %12, align 1, !tbaa !40
   switch i8 %13, label %.critedge12.i [
     i8 61, label %_ZL12pj_get_paramP8ARG_listPKc.exit

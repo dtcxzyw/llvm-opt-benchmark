@@ -6480,7 +6480,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 202:                                              ; preds = %.lr.ph, %332
   %indvars.iv247 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next248, %332 ]
   %.152228 = phi i32 [ %.051231, %.lr.ph ], [ %270, %332 ]
-  %203 = getelementptr inbounds nuw [0 x ptr], ptr %186, i64 0, i64 %indvars.iv247
+  %203 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv247
   %204 = load ptr, ptr %203, align 8, !tbaa !379
   %.not.i.i.i.i104 = icmp eq ptr %204, null
   br i1 %.not.i.i.i.i104, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %205
@@ -8543,7 +8543,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE1
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !379
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -12882,7 +12882,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN7datalog15expand_mkbv_cfgEE1
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !379
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -15894,7 +15894,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %81
   %.038145 = phi i32 [ 0, %.lr.ph147 ], [ %.2, %.loopexit ]
   %.sroa.0.0144 = phi ptr [ null, %.lr.ph147 ], [ %.sroa.0.4, %.loopexit ]
   %.sroa.087.0143 = phi ptr [ null, %.lr.ph147 ], [ %108, %.loopexit ]
-  %104 = getelementptr inbounds nuw [0 x ptr], ptr %101, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !458
   %106 = load ptr, ptr %11, align 8, !tbaa !534
   %107 = trunc nuw i64 %indvars.iv to i32

@@ -457,7 +457,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %169 = getelementptr inbounds nuw i8, ptr %158, i64 76
   %170 = load i8, ptr %169, align 4, !tbaa !26
   %171 = sext i8 %170 to i64
-  %172 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %171
+  %172 = getelementptr inbounds ptr, ptr %6, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !24
   store ptr %173, ptr %158, align 8, !tbaa !64
   store ptr %158, ptr %172, align 8, !tbaa !24
@@ -544,7 +544,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 76
   %217 = load i8, ptr %216, align 4, !tbaa !26
   %218 = sext i8 %217 to i64
-  %219 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %218
+  %219 = getelementptr inbounds ptr, ptr %6, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !24
   store ptr %220, ptr %205, align 8, !tbaa !64
   store ptr %205, ptr %219, align 8, !tbaa !24
@@ -617,7 +617,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
   %262 = getelementptr inbounds nuw i8, ptr %251, i64 76
   %263 = load i8, ptr %262, align 4, !tbaa !26
   %264 = sext i8 %263 to i64
-  %265 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %264
+  %265 = getelementptr inbounds ptr, ptr %6, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !24
   store ptr %266, ptr %251, align 8, !tbaa !64
   store ptr %251, ptr %265, align 8, !tbaa !24
@@ -652,7 +652,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %117, %112
 .lr.ph228.i.i:                                    ; preds = %276, %.lr.ph228.preheader.i.i
   %indvars.iv259.i.i = phi i64 [ 1, %.lr.ph228.preheader.i.i ], [ %indvars.iv.next260.i.i, %276 ]
   %.0148226.i.i = phi ptr [ %5, %.lr.ph228.preheader.i.i ], [ %.1149.i.i, %276 ]
-  %272 = getelementptr inbounds nuw [7 x ptr], ptr %6, i64 0, i64 %indvars.iv259.i.i
+  %272 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv259.i.i
   %273 = load ptr, ptr %272, align 8, !tbaa !24
   %274 = icmp eq ptr %273, null
   br i1 %274, label %276, label %.preheader.i.i35
@@ -835,13 +835,13 @@ Map_CutSortCuts.exit:                             ; preds = %.lr.ph.i15.i, %295
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv76.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next77.i.i, %._crit_edge.us.i.i ]
-  %315 = getelementptr inbounds nuw [6 x ptr], ptr %312, i64 0, i64 %indvars.iv76.i.i
+  %315 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv76.i.i
   %316 = load ptr, ptr %315, align 8, !tbaa !23
   br label %317
 
 317:                                              ; preds = %321, %.preheader.us.i.i
   %indvars.iv.i56.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i57.i, %321 ]
-  %318 = getelementptr inbounds nuw [6 x ptr], ptr %306, i64 0, i64 %indvars.iv.i56.i
+  %318 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv.i56.i
   %319 = load ptr, ptr %318, align 8, !tbaa !23
   %320 = icmp eq ptr %316, %319
   br i1 %320, label %._crit_edge.us.i.i, label %321
@@ -1190,7 +1190,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 76
   %41 = load i8, ptr %40, align 4, !tbaa !26
   %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds [7 x ptr], ptr %9, i64 0, i64 %42
+  %43 = getelementptr inbounds ptr, ptr %9, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   store ptr %44, ptr %32, align 8, !tbaa !64
   store ptr %32, ptr %43, align 8, !tbaa !24
@@ -1224,7 +1224,7 @@ Map_CutTableRestart.exit:                         ; preds = %16, %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.04266 = phi ptr [ %8, %.lr.ph.preheader ], [ %.143, %57 ]
-  %53 = getelementptr inbounds nuw [7 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = icmp eq ptr %54, null
   br i1 %55, label %57, label %.preheader
@@ -1296,16 +1296,16 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 19:                                               ; preds = %.lr.ph166, %17
   %indvars.iv230 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next231, %17 ]
-  %20 = getelementptr inbounds nuw [6 x ptr], ptr %15, i64 0, i64 %indvars.iv230
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv230
   %21 = load ptr, ptr %20, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw [6 x ptr], ptr %16, i64 0, i64 %indvars.iv230
+  %22 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv230
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %.not127 = icmp eq ptr %21, %23
   br i1 %.not127, label %17, label %.loopexit
 
 24:                                               ; preds = %.lr.ph168, %24
   %indvars.iv235 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next236, %24 ]
-  %25 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv235
+  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv235
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv235
   store ptr %26, ptr %27, align 8, !tbaa !23
@@ -1336,12 +1336,12 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 35:                                               ; preds = %.lr.ph162, %44
   %indvars.iv220 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next221, %44 ]
   %.0161 = phi i32 [ 0, %.lr.ph162 ], [ %.1, %44 ]
-  %36 = getelementptr inbounds nuw [6 x ptr], ptr %32, i64 0, i64 %indvars.iv220
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv220
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = trunc nuw nsw i64 %indvars.iv220 to i32
   %39 = sub nsw i32 %38, %.0161
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [6 x ptr], ptr %33, i64 0, i64 %40
+  %41 = getelementptr inbounds ptr, ptr %33, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   %.not125 = icmp eq ptr %37, %42
   br i1 %.not125, label %44, label %43
@@ -1358,7 +1358,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 45:                                               ; preds = %.lr.ph164, %45
   %indvars.iv225 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next226, %45 ]
-  %46 = getelementptr inbounds nuw [6 x ptr], ptr %34, i64 0, i64 %indvars.iv225
+  %46 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv225
   %47 = load ptr, ptr %46, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv225
   store ptr %47, ptr %48, align 8, !tbaa !23
@@ -1397,9 +1397,9 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = sub nsw i32 %61, %.2145
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [6 x ptr], ptr %57, i64 0, i64 %63
+  %64 = getelementptr inbounds ptr, ptr %57, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !23
-  %66 = getelementptr inbounds nuw [6 x ptr], ptr %58, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   %.not = icmp eq ptr %65, %67
   br i1 %.not, label %69, label %68
@@ -1416,7 +1416,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 70:                                               ; preds = %.lr.ph147, %70
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next180, %70 ]
-  %71 = getelementptr inbounds nuw [6 x ptr], ptr %59, i64 0, i64 %indvars.iv179
+  %71 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv179
   %72 = load ptr, ptr %71, align 8, !tbaa !23
   %73 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv179
   store ptr %72, ptr %73, align 8, !tbaa !23
@@ -1450,7 +1450,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 .preheader137.us:                                 ; preds = %.preheader137.us.preheader, %.thread.us
   %indvars.iv198 = phi i64 [ 0, %.preheader137.us.preheader ], [ %indvars.iv.next199, %.thread.us ]
   %.0117150.us = phi i32 [ %7, %.preheader137.us.preheader ], [ %.1118.us, %.thread.us ]
-  %80 = getelementptr inbounds nuw [6 x ptr], ptr %77, i64 0, i64 %indvars.iv198
+  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv198
   %81 = load ptr, ptr %80, align 8, !tbaa !23
   br label %87
 
@@ -1468,7 +1468,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 87:                                               ; preds = %.preheader137.us, %82
   %indvars.iv193 = phi i64 [ 0, %.preheader137.us ], [ %indvars.iv.next194, %82 ]
-  %88 = getelementptr inbounds nuw [6 x ptr], ptr %78, i64 0, i64 %indvars.iv193
+  %88 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv193
   %89 = load ptr, ptr %88, align 8, !tbaa !23
   %90 = icmp eq ptr %81, %89
   br i1 %90, label %.thread.us, label %82
@@ -1504,7 +1504,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   br label %101
 
 .thread:                                          ; preds = %.preheader137
-  %96 = getelementptr inbounds nuw [6 x ptr], ptr %77, i64 0, i64 %indvars.iv184
+  %96 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv184
   %97 = load ptr, ptr %96, align 8, !tbaa !23
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, 1
   %98 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv186
@@ -1525,7 +1525,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 
 101:                                              ; preds = %.lr.ph153, %101
   %indvars.iv203 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next204, %101 ]
-  %102 = getelementptr inbounds nuw [6 x ptr], ptr %95, i64 0, i64 %indvars.iv203
+  %102 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv203
   %103 = load ptr, ptr %102, align 8, !tbaa !23
   %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv203
   store ptr %103, ptr %104, align 8, !tbaa !23
@@ -1588,7 +1588,7 @@ define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr noundef cap
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.078.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %13, %.lr.ph.i.i ]
-  %6 = getelementptr inbounds nuw [10 x i32], ptr @s_HashPrimes, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw i32, ptr @s_HashPrimes, i64 %indvars.iv.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !67
   %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !23
@@ -1630,7 +1630,7 @@ Map_CutTableHash.exit.thread.i:                   ; preds = %4
 
 29:                                               ; preds = %.preheader.us.i, %42
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %42 ]
-  %30 = getelementptr inbounds nuw [6 x ptr], ptr %43, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !23
@@ -1692,7 +1692,7 @@ Map_CutTableLookup.exit.thread47:                 ; preds = %.lr.ph33.split.spli
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %56 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw [6 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   store ptr %57, ptr %58, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

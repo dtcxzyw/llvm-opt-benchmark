@@ -1266,7 +1266,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 
 26:                                               ; preds = %6
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37) #8
-  br label %131
+  br label %130
 
 27:                                               ; preds = %6
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
@@ -1279,7 +1279,7 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   %31 = call ptr @formatPGVersionNumber(i32 noundef %28, i1 noundef zeroext false, ptr noundef nonnull %9, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 112, ptr noundef %31) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %131
+  br label %130
 
 32:                                               ; preds = %27
   %or.cond3 = select i1 %15, i1 true, i1 %17
@@ -1492,8 +1492,8 @@ sub_0.preheader:                                  ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.preheader, %116
-  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %116 ]
+sub_0:                                            ; preds = %sub_0.preheader, %115
+  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %115 ]
   %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   %92 = load i8, ptr %91, align 1
@@ -1504,7 +1504,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %114, label %.tail.thread
+  br i1 %95, label %113, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1520,88 +1520,86 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
   %102 = icmp eq ptr %101, null
   br i1 %102, label %map_typename_pattern.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.tail.thread, %112
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %112 ], [ 0, %.tail.thread ]
-  %103 = getelementptr inbounds nuw [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %indvars.iv.i
-  %104 = load ptr, ptr %103, align 16
-  %105 = call i32 @pg_strcasecmp(ptr noundef nonnull %101, ptr noundef %104) #8
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %112
-
-107:                                              ; preds = %.preheader.i
-  %108 = shl i64 %indvars.iv.i, 32
-  %sext.i = ashr exact i64 %108, 32
-  %109 = or disjoint i64 %sext.i, 1
-  %110 = getelementptr inbounds [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %109
-  %111 = load ptr, ptr %110, align 8
-  br label %map_typename_pattern.exit
-
-112:                                              ; preds = %.preheader.i
+103:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
   br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
 
-map_typename_pattern.exit:                        ; preds = %112, %.tail.thread, %107
-  %.09.i = phi ptr [ null, %.tail.thread ], [ %111, %107 ], [ %101, %112 ]
-  %113 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
+.preheader.i:                                     ; preds = %.tail.thread, %103
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %103 ], [ 0, %.tail.thread ]
+  %104 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %105 = load ptr, ptr %104, align 16
+  %106 = call i32 @pg_strcasecmp(ptr noundef nonnull %101, ptr noundef %105) #8
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %103
+
+108:                                              ; preds = %.preheader.i
+  %109 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %110 = getelementptr i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  br label %map_typename_pattern.exit
+
+map_typename_pattern.exit:                        ; preds = %103, %.tail.thread, %108
+  %.09.i = phi ptr [ null, %.tail.thread ], [ %111, %108 ], [ %101, %103 ]
+  %112 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %113, label %116, label %.loopexit
+  br i1 %112, label %115, label %.loopexit
 
-114:                                              ; preds = %.tail
-  %115 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.96, i32 noundef %115) #8
-  br label %116
+113:                                              ; preds = %.tail
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.96, i32 noundef %114) #8
+  br label %115
 
-116:                                              ; preds = %114, %map_typename_pattern.exit
+115:                                              ; preds = %113, %map_typename_pattern.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond112.not, label %.thread, label %sub_0, !llvm.loop !7
 
-.thread:                                          ; preds = %116, %.preheader
-  %117 = icmp ne ptr %1, null
-  %or.cond21 = or i1 %117, %5
-  br i1 %or.cond21, label %119, label %118
+.thread:                                          ; preds = %115, %.preheader
+  %116 = icmp ne ptr %1, null
+  %or.cond21 = or i1 %116, %5
+  br i1 %or.cond21, label %118, label %117
 
-118:                                              ; preds = %.thread
+117:                                              ; preds = %.thread
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #8
-  br label %119
+  br label %118
 
-119:                                              ; preds = %118, %.thread
+118:                                              ; preds = %117, %.thread
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.12) #8
-  %120 = load ptr, ptr %7, align 8
-  %121 = call ptr @PSQLexec(ptr noundef %120) #8
+  %119 = load ptr, ptr %7, align 8
+  %120 = call ptr @PSQLexec(ptr noundef %119) #8
   call void @termPQExpBuffer(ptr noundef nonnull %7) #8
-  %.not104 = icmp eq ptr %121, null
-  br i1 %.not104, label %131, label %122
+  %.not104 = icmp eq ptr %120, null
+  br i1 %.not104, label %130, label %121
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store ptr @.str.97, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  store i8 1, ptr %124, align 8
-  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
-  %126 = icmp sgt i32 %125, 90599
-  %spec.select = select i1 %126, ptr @describeFunctions.translate_columns, ptr @describeFunctions.translate_columns_pre_96
-  %spec.select124 = select i1 %126, i32 14, i32 13
-  %127 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store ptr %spec.select, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  store i32 %spec.select124, ptr %128, align 8
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
-  call void @printQuery(ptr noundef nonnull %121, ptr noundef nonnull %8, ptr noundef %129, i1 noundef zeroext false, ptr noundef %130) #8
-  call void @PQclear(ptr noundef nonnull %121) #8
-  br label %131
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store ptr @.str.97, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  store i8 1, ptr %123, align 8
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
+  %125 = icmp sgt i32 %124, 90599
+  %spec.select = select i1 %125, ptr @describeFunctions.translate_columns, ptr @describeFunctions.translate_columns_pre_96
+  %spec.select124 = select i1 %125, i32 14, i32 13
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  store ptr %spec.select, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  store i32 %spec.select124, ptr %127, align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
+  call void @printQuery(ptr noundef nonnull %120, ptr noundef nonnull %8, ptr noundef %128, i1 noundef zeroext false, ptr noundef %129) #8
+  call void @PQclear(ptr noundef nonnull %120) #8
+  br label %130
 
 .loopexit:                                        ; preds = %map_typename_pattern.exit, %87
   call void @termPQExpBuffer(ptr noundef nonnull %7) #8
-  br label %131
+  br label %130
 
-131:                                              ; preds = %119, %.loopexit, %122, %30, %26
-  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ true, %122 ], [ false, %.loopexit ], [ false, %119 ]
+130:                                              ; preds = %118, %.loopexit, %121, %30, %26
+  %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ true, %121 ], [ false, %.loopexit ], [ false, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.091
@@ -1666,57 +1664,55 @@ define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef ze
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.8) #8
   br label %map_typename_pattern.exit
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %23
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %.preheader.i.preheader ]
-  %14 = getelementptr inbounds nuw [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %indvars.iv.i
-  %15 = load ptr, ptr %14, align 16
-  %16 = call i32 @pg_strcasecmp(ptr noundef nonnull %0, ptr noundef %15) #8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
-
-18:                                               ; preds = %.preheader.i
-  %19 = shl i64 %indvars.iv.i, 32
-  %sext.i = ashr exact i64 %19, 32
-  %20 = or disjoint i64 %sext.i, 1
-  %21 = getelementptr inbounds [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  br label %map_typename_pattern.exit
-
-23:                                               ; preds = %.preheader.i
+14:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
   br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
 
-map_typename_pattern.exit:                        ; preds = %23, %12, %13, %18
-  %.09.i = phi ptr [ %22, %18 ], [ null, %13 ], [ null, %12 ], [ %0, %23 ]
-  %24 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef null, i32 noundef 3)
-  br i1 %24, label %26, label %25
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i.preheader ]
+  %15 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %16 = load ptr, ptr %15, align 16
+  %17 = call i32 @pg_strcasecmp(ptr noundef nonnull %0, ptr noundef %16) #8
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %14
+
+19:                                               ; preds = %.preheader.i
+  %20 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %21 = getelementptr i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  br label %map_typename_pattern.exit
+
+map_typename_pattern.exit:                        ; preds = %14, %12, %13, %19
+  %.09.i = phi ptr [ %22, %19 ], [ null, %13 ], [ null, %12 ], [ %0, %14 ]
+  %23 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %4, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, ptr noundef null, i32 noundef 3)
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %map_typename_pattern.exit
+  call void @termPQExpBuffer(ptr noundef nonnull %4) #8
+  br label %33
 
 25:                                               ; preds = %map_typename_pattern.exit
-  call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  br label %34
-
-26:                                               ; preds = %map_typename_pattern.exit
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.111) #8
-  %27 = load ptr, ptr %4, align 8
-  %28 = call ptr @PSQLexec(ptr noundef %27) #8
+  %26 = load ptr, ptr %4, align 8
+  %27 = call ptr @PSQLexec(ptr noundef %26) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %34, label %29
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %33, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store ptr @.str.112, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store i8 1, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
-  call void @printQuery(ptr noundef nonnull %28, ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false, ptr noundef %33) #8
-  call void @PQclear(ptr noundef nonnull %28) #8
-  br label %34
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  store ptr @.str.112, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  store i8 1, ptr %30, align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
+  call void @printQuery(ptr noundef nonnull %27, ptr noundef nonnull %5, ptr noundef %31, i1 noundef zeroext false, ptr noundef %32) #8
+  call void @PQclear(ptr noundef nonnull %27) #8
+  br label %33
 
-34:                                               ; preds = %26, %29, %25
-  %.0 = phi i1 [ true, %29 ], [ false, %25 ], [ false, %26 ]
+33:                                               ; preds = %25, %28, %24
+  %.0 = phi i1 [ true, %28 ], [ false, %24 ], [ false, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -1797,8 +1793,8 @@ sub_0.preheader:                                  ; preds = %.thread42, %27
   %wide.trip.count = zext nneg i32 %.030 to i64
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.preheader, %55
-  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %55 ]
+sub_0:                                            ; preds = %sub_0.preheader, %54
+  %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %54 ]
   %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
@@ -1809,7 +1805,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %53, label %.tail.thread
+  br i1 %34, label %52, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1825,75 +1821,73 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   %41 = icmp eq ptr %40, null
   br i1 %41, label %map_typename_pattern.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.tail.thread, %51
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.tail.thread ]
-  %42 = getelementptr inbounds nuw [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %indvars.iv.i
-  %43 = load ptr, ptr %42, align 16
-  %44 = call i32 @pg_strcasecmp(ptr noundef nonnull %40, ptr noundef %43) #8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %51
-
-46:                                               ; preds = %.preheader.i
-  %47 = shl i64 %indvars.iv.i, 32
-  %sext.i = ashr exact i64 %47, 32
-  %48 = or disjoint i64 %sext.i, 1
-  %49 = getelementptr inbounds [37 x ptr], ptr @map_typename_pattern.typename_map, i64 0, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  br label %map_typename_pattern.exit
-
-51:                                               ; preds = %.preheader.i
+42:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.not.i = icmp eq i64 %indvars.iv.next.i, 36
   br i1 %.not.i, label %map_typename_pattern.exit, label %.preheader.i, !llvm.loop !6
 
-map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, %46
-  %.09.i = phi ptr [ null, %.tail.thread ], [ %50, %46 ], [ %40, %51 ]
-  %52 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i32 noundef 3)
+.preheader.i:                                     ; preds = %.tail.thread, %42
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %.tail.thread ]
+  %43 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %44 = load ptr, ptr %43, align 16
+  %45 = call i32 @pg_strcasecmp(ptr noundef nonnull %40, ptr noundef %44) #8
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %42
+
+47:                                               ; preds = %.preheader.i
+  %48 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %49 = getelementptr i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  br label %map_typename_pattern.exit
+
+map_typename_pattern.exit:                        ; preds = %42, %.tail.thread, %47
+  %.09.i = phi ptr [ null, %.tail.thread ], [ %50, %47 ], [ %40, %42 ]
+  %51 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %52, label %55, label %.loopexit
+  br i1 %51, label %54, label %.loopexit
 
-53:                                               ; preds = %.tail
-  %54 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.96, i32 noundef %54) #8
-  br label %55
+52:                                               ; preds = %.tail
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.96, i32 noundef %53) #8
+  br label %54
 
-55:                                               ; preds = %53, %map_typename_pattern.exit
+54:                                               ; preds = %52, %map_typename_pattern.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %sub_0, !llvm.loop !8
 
-.thread:                                          ; preds = %55, %27
+.thread:                                          ; preds = %54, %27
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.127) #8
-  %56 = load ptr, ptr %6, align 8
-  %57 = call ptr @PSQLexec(ptr noundef %56) #8
+  %55 = load ptr, ptr %6, align 8
+  %56 = call ptr @PSQLexec(ptr noundef %55) #8
   call void @termPQExpBuffer(ptr noundef nonnull %6) #8
-  %.not33 = icmp eq ptr %57, null
-  br i1 %.not33, label %65, label %58
+  %.not33 = icmp eq ptr %56, null
+  br i1 %.not33, label %64, label %57
 
-58:                                               ; preds = %.thread
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store ptr @.str.128, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  store i8 1, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store ptr @describeOperators.translate_columns, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i32 8, ptr %62, align 8
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
-  call void @printQuery(ptr noundef nonnull %57, ptr noundef nonnull %7, ptr noundef %63, i1 noundef zeroext false, ptr noundef %64) #8
-  call void @PQclear(ptr noundef nonnull %57) #8
-  br label %65
+57:                                               ; preds = %.thread
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store ptr @.str.128, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  store i8 1, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  store ptr @describeOperators.translate_columns, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store i32 8, ptr %61, align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 16), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 376), align 8
+  call void @printQuery(ptr noundef nonnull %56, ptr noundef nonnull %7, ptr noundef %62, i1 noundef zeroext false, ptr noundef %63) #8
+  call void @PQclear(ptr noundef nonnull %56) #8
+  br label %64
 
 .loopexit:                                        ; preds = %map_typename_pattern.exit, %22
   call void @termPQExpBuffer(ptr noundef nonnull %6) #8
-  br label %65
+  br label %64
 
-65:                                               ; preds = %.thread, %.loopexit, %58
-  %.029 = phi i1 [ true, %58 ], [ false, %.loopexit ], [ false, %.thread ]
+64:                                               ; preds = %.thread, %.loopexit, %57
+  %.029 = phi i1 [ true, %57 ], [ false, %.loopexit ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.029
@@ -2879,7 +2873,7 @@ sub_1:                                            ; preds = %.tail1283
 209:                                              ; preds = %207
   %210 = add nuw nsw i32 %.6988, 1
   %211 = zext nneg i32 %.6988 to i64
-  %212 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw ptr, ptr %8, i64 %211
   store ptr @.str.704, ptr %212, align 8
   br label %213
 
@@ -2891,7 +2885,7 @@ sub_1:                                            ; preds = %.tail1283
 215:                                              ; preds = %213
   %216 = add nuw nsw i32 %.7989, 1
   %217 = zext nneg i32 %.7989 to i64
-  %218 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw ptr, ptr %8, i64 %217
   store ptr @.str.385, ptr %218, align 8
   br label %219
 
@@ -2903,7 +2897,7 @@ sub_1:                                            ; preds = %.tail1283
 221:                                              ; preds = %219
   %222 = add nuw nsw i32 %.8990, 1
   %223 = zext nneg i32 %.8990 to i64
-  %224 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw ptr, ptr %8, i64 %223
   store ptr @.str.474, ptr %224, align 8
   br label %225
 
@@ -2915,7 +2909,7 @@ sub_1:                                            ; preds = %.tail1283
 227:                                              ; preds = %225
   %228 = add nuw nsw i32 %.9991, 1
   %229 = zext nneg i32 %.9991 to i64
-  %230 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw ptr, ptr %8, i64 %229
   store ptr @.str.705, ptr %230, align 8
   br label %231
 
@@ -2927,7 +2921,7 @@ sub_1:                                            ; preds = %.tail1283
 233:                                              ; preds = %231
   %234 = add nuw nsw i32 %.10992, 1
   %235 = zext nneg i32 %.10992 to i64
-  %236 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr %8, i64 %235
   store ptr @.str.706, ptr %236, align 8
   br label %237
 
@@ -2939,7 +2933,7 @@ sub_1:                                            ; preds = %.tail1283
 239:                                              ; preds = %237
   %240 = add nuw nsw i32 %.11993, 1
   %241 = zext nneg i32 %.11993 to i64
-  %242 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw ptr, ptr %8, i64 %241
   store ptr @.str.707, ptr %242, align 8
   br label %243
 
@@ -2951,7 +2945,7 @@ sub_1:                                            ; preds = %.tail1283
 245:                                              ; preds = %243
   %246 = add nuw nsw i32 %.12994, 1
   %247 = zext nneg i32 %.12994 to i64
-  %248 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %8, i64 %247
   store ptr @.str.6, ptr %248, align 8
   br label %.lr.ph.preheader
 
@@ -2968,7 +2962,7 @@ sub_1:                                            ; preds = %.tail1283
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %251 = getelementptr inbounds nuw [12 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %252 = load ptr, ptr %251, align 8
   call void @printTableAddHeader(ptr noundef nonnull %7, ptr noundef %252, i1 noundef zeroext true, i8 noundef signext 108) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4251,7 +4245,7 @@ sub_11421:                                        ; preds = %sub_01420
 .preheader1430.us:                                ; preds = %721, %._crit_edge1457.us
   %.010151458.us = phi i32 [ %749, %._crit_edge1457.us ], [ 0, %721 ]
   %724 = zext nneg i32 %.010151458.us to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.describeOneTableDetails, i64 0, i64 %724
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails, i64 %724
   br label %725
 
 725:                                              ; preds = %.preheader1430.us, %.critedge1169.us
@@ -4529,7 +4523,7 @@ switch.lookup:                                    ; preds = %742
 .preheader.us:                                    ; preds = %830, %._crit_edge1473.us
   %.010011474.us = phi i32 [ %863, %._crit_edge1473.us ], [ 0, %830 ]
   %833 = zext nneg i32 %.010011474.us to i64
-  %switch.gep1620 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.describeOneTableDetails.1, i64 0, i64 %833
+  %switch.gep1620 = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails.1, i64 %833
   br label %834
 
 834:                                              ; preds = %.preheader.us, %.critedge1184.us

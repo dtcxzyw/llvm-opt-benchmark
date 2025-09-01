@@ -2035,7 +2035,7 @@ _ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %.lr.ph.
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %226 ]
   %229 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %230 = load i32, ptr %229, align 4, !tbaa !60
-  %231 = getelementptr inbounds nuw [4 x i32], ptr %227, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %230, ptr %231, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -2701,7 +2701,7 @@ _ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %.lr.ph.
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %226 ]
   %229 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %230 = load i32, ptr %229, align 4, !tbaa !60
-  %231 = getelementptr inbounds nuw [4 x i32], ptr %227, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %230, ptr %231, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -3367,7 +3367,7 @@ _ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %.lr.ph.
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %226 ]
   %229 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %230 = load i32, ptr %229, align 4, !tbaa !60
-  %231 = getelementptr inbounds nuw [4 x i32], ptr %227, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %230, ptr %231, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -4033,7 +4033,7 @@ _ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %.lr.ph.
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %226 ]
   %229 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %230 = load i32, ptr %229, align 4, !tbaa !60
-  %231 = getelementptr inbounds nuw [4 x i32], ptr %227, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %231 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %230, ptr %231, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -4677,7 +4677,7 @@ _ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %202, %_
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %219 ]
   %222 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %223 = load i32, ptr %222, align 4, !tbaa !60
-  %224 = getelementptr inbounds nuw [4 x i32], ptr %220, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %224 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %223, ptr %224, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -5313,7 +5313,7 @@ _ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %199, %_
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %216 ]
   %219 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i.i
   %220 = load i32, ptr %219, align 4, !tbaa !60
-  %221 = getelementptr inbounds nuw [4 x i32], ptr %217, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %221 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %220, ptr %221, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -5947,7 +5947,7 @@ _ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE6resizeEm.exit: ; preds = %201, %_
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %218 ]
   %221 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i.i
   %222 = load i32, ptr %221, align 4, !tbaa !60
-  %223 = getelementptr inbounds nuw [4 x i32], ptr %219, i64 0, i64 %indvars.iv.i.i.i.i.i.i
+  %223 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i.i.i.i.i.i
   store i32 %222, ptr %223, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 4
@@ -6512,7 +6512,7 @@ _ZNKSt6vectorIN2cv3VecIiLi4EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %22 ], [ 0, %.preheader.i.i.i.i.i ]
   %23 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !60
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %.015.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store i32 %24, ptr %25, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 4
@@ -6539,7 +6539,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIiLi4EEES3_SaIS2_EET0_T_S6_S5_
   %indvars.iv.i.i.i.i.i.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i33, %29 ], [ 0, %.preheader.i.i.i.i.i29 ]
   %30 = getelementptr inbounds nuw i32, ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   %31 = load i32, ptr %30, align 4, !tbaa !60
-  %32 = getelementptr inbounds nuw [4 x i32], ptr %.015.i.i.i.i.i30, i64 0, i64 %indvars.iv.i.i.i.i.i.i.i.i32
+  %32 = getelementptr inbounds nuw i32, ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   store i32 %31, ptr %32, align 4, !tbaa !60
   %indvars.iv.next.i.i.i.i.i.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i33, 4

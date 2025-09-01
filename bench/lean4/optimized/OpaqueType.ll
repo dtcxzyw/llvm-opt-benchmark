@@ -293,7 +293,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.02450 = phi i64 [ %45, %61 ], [ %2, %4 ]
   %.02649 = phi ptr [ %.0.i.i35, %61 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.02649, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02450
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02450
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -457,7 +457,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.01740 = phi i64 [ %31, %47 ], [ %2, %4 ]
   %.01939 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01740
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01740
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -580,7 +580,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.01740 = phi i64 [ %32, %48 ], [ %3, %5 ]
   %.01939 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.01740
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01740
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -703,7 +703,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
   %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01740
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -4640,7 +4640,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.01740 = phi i64 [ %31, %47 ], [ %2, %4 ]
   %.01939 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.01740
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01740
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -4763,7 +4763,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   %.01740 = phi i64 [ %32, %48 ], [ %3, %5 ]
   %.01939 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.01740
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01740
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -4975,7 +4975,7 @@ lean_dec.exit53:                                  ; preds = %28, %27, %25, %lean
   %.043103 = phi i64 [ %4, %.lr.ph ], [ %122, %lean_dec.exit ]
   %.045102 = phi ptr [ %5, %.lr.ph ], [ %.0.i.i82, %lean_dec.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %.045102, i64 24
-  %40 = getelementptr inbounds nuw [0 x ptr], ptr %39, i64 0, i64 %.043103
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.043103
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 1

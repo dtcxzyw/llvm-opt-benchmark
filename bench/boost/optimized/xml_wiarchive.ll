@@ -2193,7 +2193,7 @@ _ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal
 _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPKwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit.i: ; preds = %.noexc, %_ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPKwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclSG_wSH_clEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSI_12always_bool2ESK_SL_E4typeEE4typeERKNS0_15iterator_facadeISK_T0_T1_T2_T3_EERKNST_ISL_T5_T6_T7_T8_EE.exit.thread.i
   %63 = phi i64 [ %62, %.noexc ], [ %45, %_ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPKwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclSG_wSH_clEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSI_12always_bool2ESK_SL_E4typeEE4typeERKNS0_15iterator_facadeISK_T0_T1_T2_T3_EERKNST_ISL_T5_T6_T7_T8_EE.exit.thread.i ]
   %64 = phi i64 [ 0, %.noexc ], [ %46, %_ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPKwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclSG_wSH_clEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSI_12always_bool2ESK_SL_E4typeEE4typeERKNS0_15iterator_facadeISK_T0_T1_T2_T3_EERKNST_ISL_T5_T6_T7_T8_EE.exit.thread.i ]
-  %65 = getelementptr inbounds nuw [9 x i8], ptr %23, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !50
   store i8 %66, ptr %.0.i, align 1, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
@@ -2675,7 +2675,7 @@ _ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal
 
 _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit: ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclSF_wSG_clEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSH_12always_bool2ESJ_SK_E4typeEE4typeERKNS0_15iterator_facadeISJ_T0_T1_T2_T3_EERKNSS_ISK_T5_T6_T7_T8_EE.exit.thread, %26
   %36 = phi i64 [ 0, %26 ], [ %19, %_ZN5boost9iteratorsneINS_7archive9iterators13mb_from_wcharIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEEEwNS0_25single_pass_traversal_tagEclSF_wSG_clEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSH_12always_bool2ESJ_SK_E4typeEE4typeERKNS0_15iterator_facadeISJ_T0_T1_T2_T3_EERKNSS_ISK_T5_T6_T7_T8_EE.exit.thread ]
-  %37 = getelementptr inbounds nuw [9 x i8], ptr %13, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !50
   %39 = load i64, ptr %16, align 8, !tbaa !133
   %40 = add i64 %39, 1

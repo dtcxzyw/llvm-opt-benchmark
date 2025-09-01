@@ -766,7 +766,7 @@ define internal fastcc void @_ZL32grpc_ares_notify_on_event_lockedP19grpc_ares_e
   br i1 %.not102, label %216, label %36
 
 36:                                               ; preds = %33, %29
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %.082191
+  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %.082191
   %38 = load i32, ptr %37, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   %39 = load ptr, ptr %24, align 8, !tbaa !31

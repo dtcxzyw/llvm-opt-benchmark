@@ -784,7 +784,7 @@ define internal noundef i32 @_ZL8str_gsubP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 58:                                               ; preds = %.lr.ph.i.i
-  %59 = getelementptr inbounds nuw [32 x %struct.anon], ptr %31, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw %struct.anon, ptr %31, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !36
   %62 = load ptr, ptr %24, align 8, !tbaa !28
@@ -1496,7 +1496,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %54 = add i32 %23, -1
   %55 = select i1 %.not.i, i32 %54, i32 0
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %56
+  %57 = getelementptr inbounds i8, ptr %4, i64 %56
   store i8 %53, ptr %57, align 1, !tbaa !8
   %58 = icmp sgt i32 %23, 1
   br i1 %58, label %.lr.ph.i, label %_ZL7packintP11luaL_Strbufyiii.exit
@@ -1519,7 +1519,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %60 = lshr i64 %.02325.us.i, 8
   %61 = trunc i64 %60 to i8
   %62 = sub nsw i64 %59, %indvars.iv31.i
-  %63 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds i8, ptr %4, i64 %62
   store i8 %61, ptr %63, align 1, !tbaa !8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
@@ -1530,7 +1530,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %.02325.i = phi i64 [ %41, %.lr.ph.split.preheader.i ], [ %64, %.lr.ph.split.i ]
   %64 = lshr i64 %.02325.i, 8
   %65 = trunc i64 %64 to i8
-  %66 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   store i8 %65, ptr %66, align 1, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1594,7 +1594,7 @@ _ZL7packintP11luaL_Strbufyiii.exit:               ; preds = %51, %._crit_edge.i,
   %90 = add i32 %23, -1
   %91 = select i1 %.not.i59, i32 %90, i32 0
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %92
+  %93 = getelementptr inbounds i8, ptr %3, i64 %92
   store i8 %89, ptr %93, align 1, !tbaa !8
   %94 = icmp sgt i32 %23, 1
   br i1 %94, label %.lr.ph.i60, label %_ZL7packintP11luaL_Strbufyiii.exit83
@@ -1617,7 +1617,7 @@ _ZL7packintP11luaL_Strbufyiii.exit:               ; preds = %51, %._crit_edge.i,
   %96 = lshr i64 %.02325.us.i77, 8
   %97 = trunc i64 %96 to i8
   %98 = sub nsw i64 %95, %indvars.iv31.i76
-  %99 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %98
+  %99 = getelementptr inbounds i8, ptr %3, i64 %98
   store i8 %97, ptr %99, align 1, !tbaa !8
   %indvars.iv.next32.i78 = add nuw nsw i64 %indvars.iv31.i76, 1
   %exitcond35.not.i79 = icmp eq i64 %indvars.iv.next32.i78, %wide.trip.count34.i74
@@ -1628,7 +1628,7 @@ _ZL7packintP11luaL_Strbufyiii.exit:               ; preds = %51, %._crit_edge.i,
   %.02325.i65 = phi i64 [ %80, %.lr.ph.split.preheader.i61 ], [ %100, %.lr.ph.split.i63 ]
   %100 = lshr i64 %.02325.i65, 8
   %101 = trunc i64 %100 to i8
-  %102 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %indvars.iv.i64
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i64
   store i8 %101, ptr %102, align 1, !tbaa !8
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i62
@@ -1782,7 +1782,7 @@ _ZL14copywithendianPVcPVKcii.exit:                ; preds = %.lr.ph.i84, %.lr.ph
   %155 = add i32 %23, -1
   %156 = select i1 %.not.i87, i32 %155, i32 0
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %157
+  %158 = getelementptr inbounds i8, ptr %2, i64 %157
   store i8 %154, ptr %158, align 1, !tbaa !8
   %159 = icmp sgt i32 %23, 1
   br i1 %159, label %.lr.ph.i88, label %_ZL7packintP11luaL_Strbufyiii.exit111
@@ -1805,7 +1805,7 @@ _ZL14copywithendianPVcPVKcii.exit:                ; preds = %.lr.ph.i84, %.lr.ph
   %161 = lshr i64 %.02325.us.i105, 8
   %162 = trunc i64 %161 to i8
   %163 = sub nsw i64 %160, %indvars.iv31.i104
-  %164 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %163
+  %164 = getelementptr inbounds i8, ptr %2, i64 %163
   store i8 %162, ptr %164, align 1, !tbaa !8
   %indvars.iv.next32.i106 = add nuw nsw i64 %indvars.iv31.i104, 1
   %exitcond35.not.i107 = icmp eq i64 %indvars.iv.next32.i106, %wide.trip.count34.i102
@@ -1816,7 +1816,7 @@ _ZL14copywithendianPVcPVKcii.exit:                ; preds = %.lr.ph.i84, %.lr.ph
   %.02325.i93 = phi i64 [ %.pre142, %.lr.ph.split.preheader.i89 ], [ %165, %.lr.ph.split.i91 ]
   %165 = lshr i64 %.02325.i93, 8
   %166 = trunc i64 %165 to i8
-  %167 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv.i92
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i92
   store i8 %166, ptr %167, align 1, !tbaa !8
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i90
@@ -2852,7 +2852,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.084, i64 2
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds [32 x %struct.anon], ptr %27, i64 0, i64 %45
+  %46 = getelementptr inbounds %struct.anon, ptr %27, i64 %45
   store ptr %.0.ph.ph, ptr %46, align 8, !tbaa !38
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 -2, ptr %47, align 8, !tbaa !36
@@ -2878,7 +2878,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 
 57:                                               ; preds = %54
   %58 = sext i32 %38 to i64
-  %59 = getelementptr inbounds [32 x %struct.anon], ptr %27, i64 0, i64 %58
+  %59 = getelementptr inbounds %struct.anon, ptr %27, i64 %58
   store ptr %.0.ph.ph, ptr %59, align 8, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 -1, ptr %60, align 8, !tbaa !36
@@ -2920,7 +2920,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 
 _ZL16capture_to_closeP10MatchState.exit:          ; preds = %73
   %80 = and i64 %74, 4294967295
-  %81 = getelementptr inbounds nuw [32 x %struct.anon], ptr %27, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw %struct.anon, ptr %27, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !38
   %83 = ptrtoint ptr %.0.ph.ph to i64
   %84 = ptrtoint ptr %82 to i64
@@ -3221,7 +3221,7 @@ _ZL13check_captureP10MatchStatei.exit.i:          ; preds = %211
   br i1 %.not.i132, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %223
 
 223:                                              ; preds = %_ZL13check_captureP10MatchStatei.exit.i
-  %224 = getelementptr inbounds nuw [32 x %struct.anon], ptr %27, i64 0, i64 %212
+  %224 = getelementptr inbounds nuw %struct.anon, ptr %27, i64 %212
   %225 = load ptr, ptr %224, align 8, !tbaa !38
   %bcmp.i = tail call i32 @bcmp(ptr %225, ptr %.0.ph.ph, i64 %214)
   %226 = icmp ne i32 %bcmp.i, 0
@@ -3851,7 +3851,7 @@ define internal fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr nounde
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4001,7 +4001,7 @@ define internal noundef i32 @_ZL10gmatch_auxP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw [32 x %struct.anon], ptr %35, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.anon, ptr %35, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !36
   %48 = load ptr, ptr %9, align 8, !tbaa !28

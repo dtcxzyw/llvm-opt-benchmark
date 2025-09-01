@@ -716,7 +716,7 @@ define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initi
   %.0118161 = phi i64 [ %216, %212 ], [ 0, %.preheader ]
   %213 = load ptr, ptr %0, align 8, !tbaa !43
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 328
-  %215 = getelementptr inbounds nuw [8 x %struct.anon], ptr %214, i64 0, i64 %.0118161
+  %215 = getelementptr inbounds nuw %struct.anon, ptr %214, i64 %.0118161
   tail call void @nghttp2_pq_init(ptr noundef nonnull %215, ptr noundef nonnull @stream_less, ptr noundef nonnull %16) #20
   %216 = add nuw nsw i64 %.0118161, 1
   %exitcond.not = icmp eq i64 %216, 8
@@ -839,7 +839,7 @@ inflight_settings_del.exit:                       ; preds = %3, %inflight_settin
 
 11:                                               ; preds = %.preheader, %11
   %.02946 = phi i64 [ 0, %.preheader ], [ %13, %11 ]
-  %12 = getelementptr inbounds nuw [8 x %struct.anon], ptr %7, i64 0, i64 %.02946
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %.02946
   tail call void @nghttp2_pq_free(ptr noundef nonnull %12) #20
   %13 = add nuw nsw i64 %.02946, 1
   %exitcond.not = icmp eq i64 %13, 8
@@ -1680,7 +1680,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %2, %8, %12
   %.not.i.i = icmp sgt i8 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %33 = zext nneg i8 %31 to i64
-  %34 = getelementptr inbounds nuw [8 x %struct.anon], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw %struct.anon, ptr %32, i64 %33
   %35 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %34) #20
   %.not.i.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i.i, label %36, label %pq_get_first_cycle.exit.i.i
@@ -2099,7 +2099,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %11
   %28 = and i8 %27, 127
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %30 = zext nneg i8 %28 to i64
-  %31 = getelementptr inbounds nuw [8 x %struct.anon], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.anon, ptr %29, i64 %30
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %31, ptr noundef nonnull %5) #20
   store i8 0, ptr %23, align 2, !tbaa !141
   br label %32
@@ -2296,7 +2296,7 @@ define internal fastcc i32 @session_detach_stream_item(ptr noundef %0, ptr nound
   %14 = and i8 %13, 127
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %16 = zext nneg i8 %14 to i64
-  %17 = getelementptr inbounds nuw [8 x %struct.anon], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %15, i64 %16
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %17, ptr noundef nonnull %1) #20
   store i8 0, ptr %9, align 2, !tbaa !141
   br label %18
@@ -2626,7 +2626,7 @@ nghttp2_session_want_read.exit.thread:            ; preds = %5, %nghttp2_session
 
 34:                                               ; preds = %32, %30
   %.05.i.i = phi i64 [ 0, %30 ], [ %33, %32 ]
-  %35 = getelementptr inbounds nuw [8 x %struct.anon], ptr %31, i64 0, i64 %.05.i.i
+  %35 = getelementptr inbounds nuw %struct.anon, ptr %31, i64 %.05.i.i
   %36 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %35) #20
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %session_sched_empty.exit.thread.i, label %32
@@ -2709,7 +2709,7 @@ define dso_local ptr @nghttp2_session_get_next_ob_item(ptr noundef %0) local_unn
 
 25:                                               ; preds = %23, %21
   %.079.i = phi i64 [ 0, %21 ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw [8 x %struct.anon], ptr %22, i64 0, i64 %.079.i
+  %26 = getelementptr inbounds nuw %struct.anon, ptr %22, i64 %.079.i
   %27 = tail call ptr @nghttp2_pq_top(ptr noundef nonnull %26) #20
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %23, label %28
@@ -2795,7 +2795,7 @@ define dso_local ptr @nghttp2_session_pop_next_ob_item(ptr noundef %0) local_unn
 
 31:                                               ; preds = %29, %27
   %.079.i = phi i64 [ 0, %27 ], [ %30, %29 ]
-  %32 = getelementptr inbounds nuw [8 x %struct.anon], ptr %28, i64 0, i64 %.079.i
+  %32 = getelementptr inbounds nuw %struct.anon, ptr %28, i64 %.079.i
   %33 = tail call ptr @nghttp2_pq_top(ptr noundef nonnull %32) #20
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %29, label %34
@@ -2997,7 +2997,7 @@ nghttp2_session_predicate_data_send.exit.thread.i: ; preds = %nghttp2_session_pr
   %79 = load i8, ptr %78, align 4, !tbaa !138
   %80 = and i8 %79, 127
   %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds nuw [8 x %struct.anon], ptr %13, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %81
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %82, ptr noundef nonnull %67) #20
   store i8 0, ptr %75, align 2, !tbaa !141
   br label %session_detach_stream_item.exit.thread.i
@@ -3887,7 +3887,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %458
   %484 = load i8, ptr %483, align 4, !tbaa !138
   %485 = and i8 %484, 127
   %486 = zext nneg i8 %485 to i64
-  %487 = getelementptr inbounds nuw [8 x %struct.anon], ptr %13, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %486
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %487, ptr noundef nonnull %452) #20
   store i8 0, ptr %480, align 2, !tbaa !141
   br label %session_detach_stream_item.exit.thread
@@ -4080,7 +4080,7 @@ nghttp2_session_get_stream.exit.thread:           ; preds = %11, %6, %15
   %48 = and i8 %47, 127
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds nuw [8 x %struct.anon], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw %struct.anon, ptr %49, i64 %50
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %51, ptr noundef nonnull %9) #20
   store i8 0, ptr %43, align 2, !tbaa !141
   br label %session_detach_stream_item.exit.thread
@@ -8460,14 +8460,14 @@ session_detect_idle_stream.exit80.thread:         ; preds = %session_is_new_peer
   %130 = and i8 %124, 127
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %132 = zext nneg i8 %130 to i64
-  %133 = getelementptr inbounds nuw [8 x %struct.anon], ptr %131, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw %struct.anon, ptr %131, i64 %132
   call void @nghttp2_pq_remove(ptr noundef nonnull %133, ptr noundef nonnull %.0) #20
   store i8 0, ptr %127, align 2, !tbaa !141
   store i8 %122, ptr %123, align 4, !tbaa !138
   %134 = and i8 %122, 127
   %.not.i.i = icmp sgt i8 %122, -1
   %135 = zext nneg i8 %134 to i64
-  %136 = getelementptr inbounds nuw [8 x %struct.anon], ptr %131, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw %struct.anon, ptr %131, i64 %135
   %137 = call i32 @nghttp2_pq_empty(ptr noundef nonnull %136) #20
   %.not.i.i.i90 = icmp eq i32 %137, 0
   br i1 %.not.i.i.i90, label %138, label %pq_get_first_cycle.exit.i.i
@@ -8951,7 +8951,7 @@ nghttp2_session_want_read.exit:                   ; preds = %21
   %90 = load i64, ptr %31, align 8, !tbaa !92
   %. = call i64 @llvm.umin.i64(i64 %2, i64 %90)
   %91 = sub i64 24, %90
-  %92 = getelementptr inbounds nuw [25 x i8], ptr @.str.38, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %91
   %bcmp = call i32 @bcmp(ptr nonnull %92, ptr %.0736, i64 %.)
   %.not913 = icmp eq i32 %bcmp, 0
   br i1 %.not913, label %93, label %nghttp2_session_want_read.exit.thread
@@ -10783,14 +10783,14 @@ session_handle_invalid_stream2.exit.thread.i:     ; preds = %session_handle_inva
 930:                                              ; preds = %927
   %931 = and i8 %925, 127
   %932 = zext nneg i8 %931 to i64
-  %933 = getelementptr inbounds nuw [8 x %struct.anon], ptr %76, i64 0, i64 %932
+  %933 = getelementptr inbounds nuw %struct.anon, ptr %76, i64 %932
   call void @nghttp2_pq_remove(ptr noundef nonnull %933, ptr noundef nonnull %838) #20
   store i8 0, ptr %928, align 2, !tbaa !141
   store i8 %923, ptr %924, align 4, !tbaa !138
   %934 = and i8 %923, 127
   %.not.i.i.i.i = icmp sgt i8 %923, -1
   %935 = zext nneg i8 %934 to i64
-  %936 = getelementptr inbounds nuw [8 x %struct.anon], ptr %76, i64 0, i64 %935
+  %936 = getelementptr inbounds nuw %struct.anon, ptr %76, i64 %935
   %937 = call i32 @nghttp2_pq_empty(ptr noundef nonnull %936) #20
   %.not.i.i.i.i.i = icmp eq i32 %937, 0
   br i1 %.not.i.i.i.i.i, label %938, label %pq_get_first_cycle.exit.i.i.i.i
@@ -12450,7 +12450,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_session_want_write(ptr noundef %0)
 
 21:                                               ; preds = %19, %17
   %.05.i = phi i64 [ 0, %17 ], [ %20, %19 ]
-  %22 = getelementptr inbounds nuw [8 x %struct.anon], ptr %18, i64 0, i64 %.05.i
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %18, i64 %.05.i
   %23 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %22) #20
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %session_sched_empty.exit.thread, label %19
@@ -12821,7 +12821,7 @@ define internal fastcc void @session_reschedule_stream(ptr noundef %0, ptr nound
   %.not.i = icmp sgt i8 %16, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %19 = zext nneg i8 %17 to i64
-  %20 = getelementptr inbounds nuw [8 x %struct.anon], ptr %18, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %18, i64 %19
   br i1 %.not.i, label %session_sched_reschedule_stream.exit, label %21
 
 21:                                               ; preds = %14
@@ -12991,7 +12991,7 @@ nghttp2_session_get_stream.exit:                  ; preds = %9
   %.not.i.i = icmp sgt i8 %21, -1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = zext nneg i8 %22 to i64
-  %25 = getelementptr inbounds nuw [8 x %struct.anon], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw %struct.anon, ptr %23, i64 %24
   %26 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %25) #20
   %.not.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i.i, label %27, label %pq_get_first_cycle.exit.i.i
@@ -13061,7 +13061,7 @@ define internal fastcc i32 @session_resume_deferred_stream_item(ptr noundef %0, 
   %.not.i = icmp sgt i8 %11, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = zext nneg i8 %12 to i64
-  %15 = getelementptr inbounds nuw [8 x %struct.anon], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %13, i64 %14
   %16 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %15) #20
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %pq_get_first_cycle.exit.i
@@ -13283,7 +13283,7 @@ define dso_local i32 @nghttp2_session_get_remote_settings(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.nghttp2_session_get_remote_settings, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.nghttp2_session_get_remote_settings, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4, !tbaa !90
@@ -13309,7 +13309,7 @@ define dso_local i32 @nghttp2_session_get_local_settings(ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.nghttp2_session_get_local_settings, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.nghttp2_session_get_local_settings, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4, !tbaa !90
@@ -13903,14 +13903,14 @@ define dso_local i32 @nghttp2_session_change_extpri_stream_priority(ptr noundef 
   %33 = and i8 %27, 127
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %35 = zext nneg i8 %33 to i64
-  %36 = getelementptr inbounds nuw [8 x %struct.anon], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %34, i64 %35
   call void @nghttp2_pq_remove(ptr noundef nonnull %36, ptr noundef nonnull %15) #20
   store i8 0, ptr %30, align 2, !tbaa !141
   store i8 %25, ptr %26, align 4, !tbaa !138
   %37 = and i8 %25, 127
   %.not.i.i = icmp sgt i8 %25, -1
   %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr inbounds nuw [8 x %struct.anon], ptr %34, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw %struct.anon, ptr %34, i64 %38
   %40 = call i32 @nghttp2_pq_empty(ptr noundef nonnull %39) #20
   %.not.i.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i.i, label %41, label %pq_get_first_cycle.exit.i.i
@@ -14170,7 +14170,7 @@ nghttp2_session_is_my_stream_id.exit.thread.i:    ; preds = %nghttp2_session_is_
   %66 = and i8 %65, 127
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %68 = zext nneg i8 %66 to i64
-  %69 = getelementptr inbounds nuw [8 x %struct.anon], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.anon, ptr %67, i64 %68
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %69, ptr noundef nonnull %30) #20
   store i8 0, ptr %61, align 2, !tbaa !141
   br label %select.unfold
@@ -14233,7 +14233,7 @@ define internal fastcc i32 @session_defer_stream_item(ptr noundef %0, ptr nounde
   %15 = and i8 %14, 127
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = zext nneg i8 %15 to i64
-  %18 = getelementptr inbounds nuw [8 x %struct.anon], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %17
   tail call void @nghttp2_pq_remove(ptr noundef nonnull %18, ptr noundef nonnull %1) #20
   store i8 0, ptr %10, align 2, !tbaa !141
   br label %19
@@ -14415,7 +14415,7 @@ define internal fastcc i32 @session_handle_invalid_stream2(ptr noundef %0, i32 n
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.session_handle_invalid_stream2, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.session_handle_invalid_stream2, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_error_code_from_lib_error_code.exit
 
@@ -14579,7 +14579,7 @@ define internal i32 @update_remote_initial_window_size_func(ptr noundef %0, ptr 
   %.not.i.i = icmp sgt i8 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 328
   %31 = zext nneg i8 %29 to i64
-  %32 = getelementptr inbounds nuw [8 x %struct.anon], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.anon, ptr %30, i64 %31
   %33 = tail call i32 @nghttp2_pq_empty(ptr noundef nonnull %32) #20
   %.not.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i.i, label %34, label %pq_get_first_cycle.exit.i.i

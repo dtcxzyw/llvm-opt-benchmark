@@ -2779,7 +2779,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit371: ; preds = %871, %875, %881
   %891 = icmp eq i32 %890, 2
   %892 = getelementptr inbounds nuw i8, ptr %885, i64 24
   %893 = zext i1 %891 to i64
-  %894 = getelementptr inbounds nuw [0 x ptr], ptr %892, i64 0, i64 %893
+  %894 = getelementptr inbounds nuw ptr, ptr %892, i64 %893
   %895 = load ptr, ptr %894, align 8, !tbaa !7, !noalias !323
   store ptr %895, ptr %41, align 8, !tbaa !11, !alias.scope !323
   %896 = load i64, ptr %895, align 8, !noalias !323
@@ -5126,7 +5126,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit273: ; preds = %448, %452, %458
   %505 = icmp eq i32 %504, 2
   %506 = getelementptr inbounds nuw i8, ptr %499, i64 24
   %507 = zext i1 %505 to i64
-  %508 = getelementptr inbounds nuw [0 x ptr], ptr %506, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw ptr, ptr %506, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !7, !noalias !348
   store ptr %509, ptr %28, align 8, !tbaa !11, !alias.scope !348
   %510 = load i64, ptr %509, align 8, !noalias !348

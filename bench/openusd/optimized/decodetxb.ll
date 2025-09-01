@@ -48,10 +48,10 @@ define hidden zeroext i8 @av1_read_coeffs_txb(ptr noundef %0, ptr noundef %1, pt
   %16 = add nsw i32 %15, -1
   %17 = sub nsw i32 0, %15
   %18 = zext i8 %7 to i64
-  %19 = getelementptr inbounds nuw [19 x i8], ptr @txsize_sqr_map, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @txsize_sqr_map, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i16
-  %22 = getelementptr inbounds nuw [19 x i8], ptr @txsize_sqr_up_map, i64 0, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr @txsize_sqr_up_map, i64 %18
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i16
   %25 = add nuw nsw i16 %21, 1
@@ -70,12 +70,12 @@ define hidden zeroext i8 @av1_read_coeffs_txb(ptr noundef %0, ptr noundef %1, pt
   %37 = load i16, ptr %36, align 1
   %38 = and i16 %37, 7
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr inbounds nuw [8 x [2 x i16]], ptr %35, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i16], ptr %35, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 47848
-  %42 = getelementptr inbounds [3 x ptr], ptr %41, i64 0, i64 %33
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %33
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 47872
-  %45 = getelementptr inbounds [3 x i16], ptr %44, i64 0, i64 %33
+  %45 = getelementptr inbounds i16, ptr %44, i64 %33
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i64
   %48 = getelementptr inbounds nuw i32, ptr %43, i64 %47
@@ -93,7 +93,7 @@ define hidden zeroext i8 @av1_read_coeffs_txb(ptr noundef %0, ptr noundef %1, pt
 
 get_txb_bwl.exit:                                 ; preds = %8, %8, %8, %50
   %.0.i.i = phi i64 [ %18, %50 ], [ 3, %8 ], [ 3, %8 ], [ 3, %8 ]
-  %51 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_log2, i64 0, i64 %.0.i.i
+  %51 = getelementptr inbounds nuw i32, ptr @tx_size_wide_log2, i64 %.0.i.i
   %52 = load i32, ptr %51, align 4
   switch i8 %7, label %53 [
     i8 4, label %get_txb_wide.exit
@@ -108,7 +108,7 @@ get_txb_bwl.exit:                                 ; preds = %8, %8, %8, %50
 
 get_txb_wide.exit:                                ; preds = %get_txb_bwl.exit, %get_txb_bwl.exit, %get_txb_bwl.exit, %53
   %.0.i.i277 = phi i64 [ %18, %53 ], [ 3, %get_txb_bwl.exit ], [ 3, %get_txb_bwl.exit ], [ 3, %get_txb_bwl.exit ]
-  %54 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %.0.i.i277
+  %54 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %.0.i.i277
   %55 = load i32, ptr %54, align 4
   switch i8 %7, label %60 [
     i8 4, label %get_txb_high.exit
@@ -135,13 +135,13 @@ get_txb_high.exit:                                ; preds = %get_txb_wide.exit, 
   %61 = phi i32 [ %55, %60 ], [ %56, %get_txb_wide.exit.thread ], [ %58, %get_txb_wide.exit.thread413 ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ], [ %55, %get_txb_wide.exit ]
   %62 = phi i32 [ %52, %60 ], [ %57, %get_txb_wide.exit.thread ], [ %59, %get_txb_wide.exit.thread413 ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ], [ %52, %get_txb_wide.exit ]
   %.0.i.i278 = phi i64 [ %18, %60 ], [ 10, %get_txb_wide.exit.thread ], [ 9, %get_txb_wide.exit.thread413 ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ], [ 3, %get_txb_wide.exit ]
-  %63 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %.0.i.i278
+  %63 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %.0.i.i278
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i16 %27 to i64
-  %66 = getelementptr inbounds nuw [5 x [13 x [3 x i16]]], ptr %11, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [13 x [3 x i16]], ptr %11, i64 %65
   %67 = load i32, ptr %6, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [13 x [3 x i16]], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds [3 x i16], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %71 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %69, i32 noundef range(i32 2, 12) 2) #4
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -190,10 +190,10 @@ update_cdf.exit.i:                                ; preds = %93, %88
 
 aom_read_symbol_.exit:                            ; preds = %get_txb_high.exit, %update_cdf.exit.i
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 47880
-  %102 = getelementptr inbounds [3 x ptr], ptr %101, i64 0, i64 %33
+  %102 = getelementptr inbounds ptr, ptr %101, i64 %33
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 47904
-  %105 = getelementptr inbounds [3 x i16], ptr %104, i64 0, i64 %33
+  %105 = getelementptr inbounds i16, ptr %104, i64 %33
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i64
   %108 = getelementptr inbounds nuw %struct.eob_info, ptr %103, i64 %107
@@ -237,7 +237,7 @@ aom_read_symbol_.exit:                            ; preds = %get_txb_high.exit, 
   %131 = load i16, ptr %130, align 1
   %132 = and i16 %131, 7
   %133 = zext nneg i16 %132 to i64
-  %134 = getelementptr inbounds nuw [8 x i32], ptr %129, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %133
   %135 = load i32, ptr %134, align 4
   %.not.i279 = icmp eq i32 %135, 0
   br i1 %.not.i279, label %136, label %av1_get_tx_type.exit
@@ -278,10 +278,10 @@ is_inter_block.exit.i:                            ; preds = %150
   %155 = getelementptr i8, ptr %128, i64 3
   %.val.i = load i8, ptr %155, align 1
   %156 = zext i8 %.val.i to i64
-  %157 = getelementptr inbounds nuw [16 x i8], ptr @get_uv_mode.uv2y, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr @get_uv_mode.uv2y, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw [13 x i8], ptr @intra_mode_to_tx_type._intra_mode_to_tx_type, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr @intra_mode_to_tx_type._intra_mode_to_tx_type, i64 %159
   %161 = load i8, ptr %160, align 1
   br label %is_inter_block.exit33.i
 
@@ -332,19 +332,19 @@ is_inter_block.exit33.i:                          ; preds = %is_inter_block.exit
 
 186:                                              ; preds = %183
   %187 = zext nneg i32 %179 to i64
-  %188 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr @av1_ext_tx_set_lookup, i64 %187
   %189 = lshr i64 394756, %18
   %190 = and i64 %189, 1
-  %191 = getelementptr inbounds nuw [2 x i8], ptr %188, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 %190
   %192 = load i8, ptr %191, align 1
   br label %av1_get_ext_tx_set_type.exit.i
 
 av1_get_ext_tx_set_type.exit.i:                   ; preds = %186, %184, %181
   %.0.i.i280 = phi i8 [ %182, %181 ], [ %185, %184 ], [ %192, %186 ]
   %193 = zext i8 %.0.i.i280 to i64
-  %194 = getelementptr inbounds nuw [6 x [16 x i32]], ptr @av1_ext_tx_used, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_used, i64 %193
   %195 = zext i8 %.137.i to i64
-  %196 = getelementptr inbounds nuw [16 x i32], ptr %194, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw i32, ptr %194, i64 %195
   %197 = load i32, ptr %196, align 4
   %.not30.i = icmp eq i32 %197, 0
   %spec.store.select.i = select i1 %.not30.i, i8 0, i8 %.137.i
@@ -353,14 +353,14 @@ av1_get_ext_tx_set_type.exit.i:                   ; preds = %186, %184, %181
 av1_get_tx_type.exit:                             ; preds = %123, %136, %140, %av1_get_ext_tx_set_type.exit.i
   %.0.i = phi i8 [ 0, %136 ], [ 0, %123 ], [ %149, %140 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
   %198 = zext i8 %.0.i to i64
-  %199 = getelementptr inbounds nuw [16 x i8], ptr @tx_type_to_class, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr @tx_type_to_class, i64 %198
   %200 = load i8, ptr %199, align 1
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %202 = tail call ptr @av1_get_iqmatrix(ptr noundef nonnull %201, ptr noundef nonnull %1, i32 noundef %5, i8 noundef zeroext %7, i8 noundef zeroext %.0.i) #4
-  %203 = getelementptr inbounds nuw [19 x [16 x %struct.SCAN_ORDER]], ptr @av1_scan_orders, i64 0, i64 %18
-  %204 = getelementptr inbounds nuw [16 x %struct.SCAN_ORDER], ptr %203, i64 0, i64 %198
+  %203 = getelementptr inbounds nuw [16 x %struct.SCAN_ORDER], ptr @av1_scan_orders, i64 %18
+  %204 = getelementptr inbounds nuw %struct.SCAN_ORDER, ptr %203, i64 %198
   %205 = load ptr, ptr %204, align 16
-  %206 = getelementptr inbounds nuw [19 x i8], ptr @txsize_log2_minus4, i64 0, i64 %18
+  %206 = getelementptr inbounds nuw i8, ptr @txsize_log2_minus4, i64 %18
   %207 = load i8, ptr %206, align 1
   %208 = icmp ult i8 %.0.i, 10
   %not. = xor i1 %208, true
@@ -377,8 +377,8 @@ av1_get_tx_type.exit:                             ; preds = %123, %136, %140, %a
 
 211:                                              ; preds = %av1_get_tx_type.exit
   %212 = getelementptr inbounds nuw i8, ptr %11, i64 966
-  %213 = getelementptr inbounds nuw [2 x [2 x [6 x i16]]], ptr %212, i64 0, i64 %209
-  %214 = getelementptr inbounds nuw [2 x [6 x i16]], ptr %213, i64 0, i64 %210
+  %213 = getelementptr inbounds nuw [2 x [6 x i16]], ptr %212, i64 %209
+  %214 = getelementptr inbounds nuw [6 x i16], ptr %213, i64 %210
   %215 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %214, i32 noundef range(i32 2, 12) 5) #4
   %216 = load i8, ptr %72, align 8
   %.not.i281 = icmp eq i8 %216, 0
@@ -439,8 +439,8 @@ update_cdf.exit.i288:                             ; preds = %244
 
 248:                                              ; preds = %av1_get_tx_type.exit
   %249 = getelementptr inbounds nuw i8, ptr %11, i64 1014
-  %250 = getelementptr inbounds nuw [2 x [2 x [7 x i16]]], ptr %249, i64 0, i64 %209
-  %251 = getelementptr inbounds nuw [2 x [7 x i16]], ptr %250, i64 0, i64 %210
+  %250 = getelementptr inbounds nuw [2 x [7 x i16]], ptr %249, i64 %209
+  %251 = getelementptr inbounds nuw [7 x i16], ptr %250, i64 %210
   %252 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %251, i32 noundef range(i32 2, 12) 6) #4
   %253 = load i8, ptr %72, align 8
   %.not.i291 = icmp eq i8 %253, 0
@@ -501,8 +501,8 @@ update_cdf.exit.i298:                             ; preds = %281
 
 285:                                              ; preds = %av1_get_tx_type.exit
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 1070
-  %287 = getelementptr inbounds nuw [2 x [2 x [8 x i16]]], ptr %286, i64 0, i64 %209
-  %288 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %287, i64 0, i64 %210
+  %287 = getelementptr inbounds nuw [2 x [8 x i16]], ptr %286, i64 %209
+  %288 = getelementptr inbounds nuw [8 x i16], ptr %287, i64 %210
   %289 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %288, i32 noundef range(i32 2, 12) 7) #4
   %290 = load i8, ptr %72, align 8
   %.not.i301 = icmp eq i8 %290, 0
@@ -563,8 +563,8 @@ update_cdf.exit.i308:                             ; preds = %318
 
 322:                                              ; preds = %av1_get_tx_type.exit
   %323 = getelementptr inbounds nuw i8, ptr %11, i64 1134
-  %324 = getelementptr inbounds nuw [2 x [2 x [9 x i16]]], ptr %323, i64 0, i64 %209
-  %325 = getelementptr inbounds nuw [2 x [9 x i16]], ptr %324, i64 0, i64 %210
+  %324 = getelementptr inbounds nuw [2 x [9 x i16]], ptr %323, i64 %209
+  %325 = getelementptr inbounds nuw [9 x i16], ptr %324, i64 %210
   %326 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %325, i32 noundef range(i32 2, 12) 8) #4
   %327 = load i8, ptr %72, align 8
   %.not.i311 = icmp eq i8 %327, 0
@@ -625,8 +625,8 @@ update_cdf.exit.i318:                             ; preds = %355
 
 359:                                              ; preds = %av1_get_tx_type.exit
   %360 = getelementptr inbounds nuw i8, ptr %11, i64 1206
-  %361 = getelementptr inbounds nuw [2 x [2 x [10 x i16]]], ptr %360, i64 0, i64 %209
-  %362 = getelementptr inbounds nuw [2 x [10 x i16]], ptr %361, i64 0, i64 %210
+  %361 = getelementptr inbounds nuw [2 x [10 x i16]], ptr %360, i64 %209
+  %362 = getelementptr inbounds nuw [10 x i16], ptr %361, i64 %210
   %363 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %362, i32 noundef range(i32 2, 12) 9) #4
   %364 = load i8, ptr %72, align 8
   %.not.i321 = icmp eq i8 %364, 0
@@ -687,8 +687,8 @@ update_cdf.exit.i328:                             ; preds = %392
 
 396:                                              ; preds = %av1_get_tx_type.exit
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 1286
-  %398 = getelementptr inbounds nuw [2 x [2 x [11 x i16]]], ptr %397, i64 0, i64 %209
-  %399 = getelementptr inbounds nuw [2 x [11 x i16]], ptr %398, i64 0, i64 %210
+  %398 = getelementptr inbounds nuw [2 x [11 x i16]], ptr %397, i64 %209
+  %399 = getelementptr inbounds nuw [11 x i16], ptr %398, i64 %210
   %400 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %399, i32 noundef range(i32 2, 12) 10) #4
   %401 = load i8, ptr %72, align 8
   %.not.i331 = icmp eq i8 %401, 0
@@ -749,8 +749,8 @@ update_cdf.exit.i338:                             ; preds = %429
 
 433:                                              ; preds = %av1_get_tx_type.exit
   %434 = getelementptr inbounds nuw i8, ptr %11, i64 1374
-  %435 = getelementptr inbounds nuw [2 x [2 x [12 x i16]]], ptr %434, i64 0, i64 %209
-  %436 = getelementptr inbounds nuw [2 x [12 x i16]], ptr %435, i64 0, i64 %210
+  %435 = getelementptr inbounds nuw [2 x [12 x i16]], ptr %434, i64 %209
+  %436 = getelementptr inbounds nuw [12 x i16], ptr %435, i64 %210
   %437 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %436, i32 noundef range(i32 2, 12) 11) #4
   %438 = load i8, ptr %72, align 8
   %.not.i341 = icmp eq i8 %438, 0
@@ -813,27 +813,27 @@ aom_read_symbol_.exit290:                         ; preds = %update_cdf.exit.i34
   %.0259.in = phi i32 [ %215, %211 ], [ %215, %update_cdf.exit.i288 ], [ %252, %248 ], [ %252, %update_cdf.exit.i298 ], [ %289, %285 ], [ %289, %update_cdf.exit.i308 ], [ %326, %322 ], [ %326, %update_cdf.exit.i318 ], [ %363, %359 ], [ %363, %update_cdf.exit.i328 ], [ %400, %396 ], [ %400, %update_cdf.exit.i338 ], [ %437, %433 ], [ %437, %update_cdf.exit.i348 ]
   %.0259 = add nsw i32 %.0259.in, 1
   %470 = sext i32 %.0259 to i64
-  %471 = getelementptr inbounds [12 x i16], ptr @av1_eob_offset_bits, i64 0, i64 %470
+  %471 = getelementptr inbounds i16, ptr @av1_eob_offset_bits, i64 %470
   %472 = load i16, ptr %471, align 2
   %473 = sext i16 %472 to i32
   %474 = icmp sgt i16 %472, 0
   br i1 %474, label %475, label %.loopexit416
 
 475:                                              ; preds = %aom_read_symbol_.exit290
-  %476 = add nsw i32 %.0259.in, -2
-  %477 = getelementptr inbounds nuw i8, ptr %11, i64 390
-  %478 = getelementptr inbounds nuw [5 x [2 x [9 x [3 x i16]]]], ptr %477, i64 0, i64 %65
-  %479 = zext i1 %29 to i64
-  %480 = getelementptr inbounds nuw [2 x [9 x [3 x i16]]], ptr %478, i64 0, i64 %479
-  %481 = sext i32 %476 to i64
-  %482 = getelementptr inbounds [9 x [3 x i16]], ptr %480, i64 0, i64 %481
-  %483 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %482, i32 noundef range(i32 2, 12) 2) #4
+  %476 = getelementptr inbounds nuw i8, ptr %11, i64 390
+  %477 = getelementptr inbounds nuw [2 x [9 x [3 x i16]]], ptr %476, i64 %65
+  %478 = zext i1 %29 to i64
+  %479 = getelementptr inbounds nuw [9 x [3 x i16]], ptr %477, i64 %478
+  %480 = sext i32 %.0259.in to i64
+  %481 = getelementptr [3 x i16], ptr %479, i64 %480
+  %482 = getelementptr i8, ptr %481, i64 -12
+  %483 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef %482, i32 noundef range(i32 2, 12) 2) #4
   %484 = load i8, ptr %72, align 8
   %.not.i351 = icmp eq i8 %484, 0
   br i1 %.not.i351, label %aom_read_symbol_.exit360, label %485
 
 485:                                              ; preds = %475
-  %486 = getelementptr inbounds nuw i8, ptr %482, i64 4
+  %486 = getelementptr i8, ptr %481, i64 -8
   %487 = load i16, ptr %486, align 2
   %488 = icmp ugt i16 %487, 15
   %489 = select i1 %488, i32 4, i32 3
@@ -899,7 +899,7 @@ aom_read_symbol_.exit360:                         ; preds = %475, %update_cdf.ex
 
 .loopexit416:                                     ; preds = %.lr.ph, %aom_read_symbol_.exit360, %aom_read_symbol_.exit290
   %.0256 = phi i32 [ 0, %aom_read_symbol_.exit290 ], [ %.1257, %aom_read_symbol_.exit360 ], [ %.3, %.lr.ph ]
-  %520 = getelementptr inbounds [12 x i16], ptr @av1_eob_group_start, i64 0, i64 %470
+  %520 = getelementptr inbounds i16, ptr @av1_eob_group_start, i64 %470
   %521 = load i16, ptr %520, align 2
   %522 = zext i16 %521 to i32
   %523 = icmp sgt i16 %521, 2
@@ -945,10 +945,10 @@ aom_read_symbol_.exit360:                         ; preds = %475, %update_cdf.ex
 get_lower_levels_ctx_eob.exit:                    ; preds = %533, %541, %544
   %.0.i362 = phi i64 [ 0, %533 ], [ 1, %541 ], [ %..i, %544 ]
   %546 = getelementptr inbounds nuw i8, ptr %11, i64 1470
-  %547 = getelementptr inbounds nuw [5 x [2 x [4 x [4 x i16]]]], ptr %546, i64 0, i64 %65
+  %547 = getelementptr inbounds nuw [2 x [4 x [4 x i16]]], ptr %546, i64 %65
   %548 = zext i1 %29 to i64
-  %549 = getelementptr inbounds nuw [2 x [4 x [4 x i16]]], ptr %547, i64 0, i64 %548
-  %550 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %549, i64 0, i64 %.0.i362
+  %549 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %547, i64 %548
+  %550 = getelementptr inbounds nuw [4 x i16], ptr %549, i64 %.0.i362
   %551 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %550, i32 noundef range(i32 2, 12) 3) #4
   %552 = load i8, ptr %72, align 8
   %.not.i363 = icmp eq i8 %552, 0
@@ -1046,9 +1046,9 @@ aom_read_symbol_.exit372:                         ; preds = %get_lower_levels_ct
   %604 = getelementptr inbounds nuw i8, ptr %11, i64 5990
   %605 = tail call i8 @llvm.umin.i8(i8 %28, i8 3)
   %606 = zext nneg i8 %605 to i64
-  %607 = getelementptr inbounds nuw [5 x [2 x [21 x [5 x i16]]]], ptr %604, i64 0, i64 %606
-  %608 = getelementptr inbounds nuw [2 x [21 x [5 x i16]]], ptr %607, i64 0, i64 %548
-  %609 = getelementptr inbounds nuw [21 x [5 x i16]], ptr %608, i64 0, i64 %.0250
+  %607 = getelementptr inbounds nuw [2 x [21 x [5 x i16]]], ptr %604, i64 %606
+  %608 = getelementptr inbounds nuw [21 x [5 x i16]], ptr %607, i64 %548
+  %609 = getelementptr inbounds nuw [5 x i16], ptr %608, i64 %.0250
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 8
   br label %611
 
@@ -1135,13 +1135,13 @@ aom_read_symbol_.exit382:                         ; preds = %611, %update_cdf.ex
 655:                                              ; preds = %.loopexit
   %656 = zext i16 %653 to i32
   %657 = getelementptr inbounds nuw i8, ptr %11, i64 1790
-  %658 = getelementptr inbounds nuw [5 x [2 x [42 x [5 x i16]]]], ptr %657, i64 0, i64 %65
-  %659 = getelementptr inbounds nuw [2 x [42 x [5 x i16]]], ptr %658, i64 0, i64 %548
+  %658 = getelementptr inbounds nuw [2 x [42 x [5 x i16]]], ptr %657, i64 %65
+  %659 = getelementptr inbounds nuw [42 x [5 x i16]], ptr %658, i64 %548
   %660 = getelementptr inbounds nuw i8, ptr %11, i64 5990
   %661 = tail call i8 @llvm.umin.i8(i8 %28, i8 3)
   %662 = zext nneg i8 %661 to i64
-  %663 = getelementptr inbounds nuw [5 x [2 x [21 x [5 x i16]]]], ptr %660, i64 0, i64 %662
-  %664 = getelementptr inbounds nuw [2 x [21 x [5 x i16]]], ptr %663, i64 0, i64 %548
+  %663 = getelementptr inbounds nuw [2 x [21 x [5 x i16]]], ptr %660, i64 %662
+  %664 = getelementptr inbounds nuw [21 x [5 x i16]], ptr %663, i64 %548
   %665 = add nsw i32 %656, -2
   br i1 %208, label %666, label %thread-pre-split
 
@@ -1154,7 +1154,7 @@ aom_read_symbol_.exit382:                         ; preds = %611, %update_cdf.ex
   %668 = sext i32 %667 to i64
   %669 = shl i32 2, %62
   %670 = sext i32 %669 to i64
-  %671 = getelementptr inbounds nuw [19 x ptr], ptr @av1_nz_map_ctx_offset, i64 0, i64 %18
+  %671 = getelementptr inbounds nuw ptr, ptr @av1_nz_map_ctx_offset, i64 %18
   %672 = add nuw nsw i32 %667, 4
   %673 = zext nneg i32 %665 to i64
   br label %674
@@ -1387,7 +1387,7 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %655, 
 .lr.ph426:                                        ; preds = %803
   %805 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %806 = getelementptr inbounds nuw i8, ptr %11, i64 930
-  %807 = getelementptr inbounds nuw [2 x [3 x [3 x i16]]], ptr %806, i64 0, i64 %548
+  %807 = getelementptr inbounds nuw [3 x [3 x i16]], ptr %806, i64 %548
   %808 = getelementptr inbounds nuw i8, ptr %1, i64 10736
   %.not.i399 = icmp eq ptr %202, null
   br label %809
@@ -1422,7 +1422,7 @@ thread-pre-split:                                 ; preds = %.loopexit.i, %655, 
 826:                                              ; preds = %821
   %827 = load i32, ptr %805, align 4
   %828 = sext i32 %827 to i64
-  %829 = getelementptr inbounds [3 x [3 x i16]], ptr %807, i64 0, i64 %828
+  %829 = getelementptr inbounds [3 x i16], ptr %807, i64 %828
   %830 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %70, ptr noundef nonnull %829, i32 noundef range(i32 2, 12) 2) #4
   %831 = load i8, ptr %72, align 8
   %.not.i385 = icmp eq i8 %831, 0
@@ -1617,7 +1617,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %22 = shl nsw i32 -1, %5
   %.not = xor i32 %22, -1
   %23 = zext i8 %1 to i64
-  %24 = getelementptr inbounds nuw [19 x ptr], ptr @av1_nz_map_ctx_offset, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @av1_nz_map_ctx_offset, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = shl i32 %11, 1
   %27 = zext nneg i32 %3 to i64
@@ -1636,13 +1636,13 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds i8, ptr %36, i64 %12
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %48, %42
@@ -1656,14 +1656,14 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %52 = getelementptr i8, ptr %51, i64 5
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %49, %57
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %58, %64
@@ -1676,7 +1676,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %70 = getelementptr i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %49, %75
@@ -1684,7 +1684,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %78 = getelementptr i8, ptr %77, i64 12
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = add nuw nsw i32 %76, %83
@@ -1696,14 +1696,14 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
   %88 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = add nuw nsw i32 %49, %93
   %95 = getelementptr inbounds nuw i8, ptr %36, i64 3
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %94, %100
@@ -1720,7 +1720,7 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
 106:                                              ; preds = %103
   %.sink178 = load i8, ptr %.sink178.in, align 1
   %107 = zext i8 %.sink178 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @clip_max3, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @clip_max3, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %.sink, %110
@@ -1745,14 +1745,14 @@ define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zero
 122:                                              ; preds = %106
   %123 = and i32 %31, %.not
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw [32 x i32], ptr @nz_map_ctx_offset_1d, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr @nz_map_ctx_offset_1d, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %114
   br label %133
 
 128:                                              ; preds = %106
   %129 = sext i32 %32 to i64
-  %130 = getelementptr inbounds [32 x i32], ptr @nz_map_ctx_offset_1d, i64 0, i64 %129
+  %130 = getelementptr inbounds i32, ptr @nz_map_ctx_offset_1d, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = add nsw i32 %131, %114
   br label %133
@@ -2006,18 +2006,18 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds %struct.macroblockd_plane, ptr %12, i64 %13
   %15 = load i8, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext i8 %15 to i64
-  %21 = getelementptr inbounds nuw [22 x [2 x [2 x i8]]], ptr @ss_size_lookup, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @ss_size_lookup, i64 %20
   %22 = sext i32 %17 to i64
-  %23 = getelementptr inbounds [2 x [2 x i8]], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %21, i64 %22
   %24 = sext i32 %19 to i64
-  %25 = getelementptr inbounds [2 x i8], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %28 = load ptr, ptr %27, align 8
@@ -2026,9 +2026,9 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %32 = load ptr, ptr %31, align 8
   %33 = zext i8 %6 to i64
-  %34 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %33
+  %36 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %33
   %37 = load i32, ptr %36, align 4
   %smax.i = tail call i32 @llvm.smax.i32(i32 %35, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
@@ -2041,7 +2041,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 3
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds nuw [3 x i8], ptr @get_txb_ctx.signs, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr @get_txb_ctx.signs, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %.0.i, %45
@@ -2063,7 +2063,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 3
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds nuw [3 x i8], ptr @get_txb_ctx.signs, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @get_txb_ctx.signs, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %56 = add nsw i32 %.1.i, %55
@@ -2072,9 +2072,9 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond65.not.i, label %57, label %.preheader52.i, !llvm.loop !16
 
 57:                                               ; preds = %.preheader52.i
-  %58 = add nsw i32 %56, 32
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [65 x i8], ptr @get_txb_ctx.dc_sign_contexts, i64 0, i64 %59
+  %58 = sext i32 %56 to i64
+  %59 = getelementptr i8, ptr @get_txb_ctx.dc_sign_contexts, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 32
   %61 = load i8, ptr %60, align 1
   %62 = sext i8 %61 to i32
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2083,7 +2083,7 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   br i1 %64, label %65, label %88
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw [19 x i8], ptr @txsize_to_bsize, i64 0, i64 %33
+  %66 = getelementptr inbounds nuw i8, ptr @txsize_to_bsize, i64 %33
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %26, %67
   br i1 %68, label %get_txb_ctx.exit, label %.preheader.i
@@ -2116,9 +2116,9 @@ define hidden void @av1_read_coeffs_txb_facade(ptr noundef %0, ptr noundef %1, p
   %80 = and i32 %76, 7
   %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 4)
   %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr inbounds nuw [5 x [5 x i8]], ptr @get_txb_ctx.skip_contexts, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [5 x i8], ptr @get_txb_ctx.skip_contexts, i64 %82
   %84 = zext nneg i32 %81 to i64
-  %85 = getelementptr inbounds nuw [5 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   br label %get_txb_ctx.exit
@@ -2304,12 +2304,12 @@ get_entropy_context.exit.i:                       ; preds = %194, %186, %181, %1
   %.046.i.i = zext i1 %.046.shrunk.i.i to i32
   %narrow.i.i.i = add nuw nsw i32 %.0.i.i, %.046.i.i
   %202 = zext i8 %26 to i64
-  %203 = getelementptr inbounds nuw [22 x i8], ptr @num_pels_log2_lookup, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr @num_pels_log2_lookup, i64 %202
   %204 = load i8, ptr %203, align 1
-  %205 = getelementptr inbounds nuw [19 x i8], ptr @txsize_to_bsize, i64 0, i64 %33
+  %205 = getelementptr inbounds nuw i8, ptr @txsize_to_bsize, i64 %33
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i64
-  %208 = getelementptr inbounds nuw [22 x i8], ptr @num_pels_log2_lookup, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr @num_pels_log2_lookup, i64 %207
   %209 = load i8, ptr %208, align 1
   %210 = icmp ugt i8 %204, %209
   %211 = select i1 %210, i32 10, i32 7
@@ -2342,7 +2342,7 @@ is_inter_block.exit.thread:                       ; preds = %get_txb_ctx.exit, %
   %224 = load i16, ptr %223, align 1
   %225 = and i16 %224, 7
   %226 = zext nneg i16 %225 to i64
-  %227 = getelementptr inbounds nuw [8 x i32], ptr %222, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %222, i64 %226
   %228 = load i32, ptr %227, align 4
   %.not.i59 = icmp eq i32 %228, 0
   br i1 %.not.i59, label %229, label %av1_get_tx_type.exit

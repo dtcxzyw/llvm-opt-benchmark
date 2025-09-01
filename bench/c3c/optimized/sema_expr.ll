@@ -8262,7 +8262,7 @@ sema_analyse_expr.exit150:                        ; preds = %sema_analyse_expr_l
 
 256:                                              ; preds = %260, %254
   %indvars.iv.i.i = phi i64 [ 0, %254 ], [ %indvars.iv.next.i.i, %260 ]
-  %257 = getelementptr inbounds nuw [100 x ptr], ptr @builtin_list, i64 0, i64 %indvars.iv.i.i
+  %257 = getelementptr inbounds nuw ptr, ptr @builtin_list, i64 %indvars.iv.i.i
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, %255
   br i1 %259, label %builtin_by_name.exit.i, label %260
@@ -10857,7 +10857,7 @@ sema_evaluate_type_copy.exit175.i:                ; preds = %177, %173
 
 183:                                              ; preds = %sema_evaluate_type_copy.exit175.i
   %indvars.iv.next238.i = add nuw nsw i64 %indvars.iv237.i, 1
-  %184 = getelementptr inbounds nuw [200 x ptr], ptr %4, i64 0, i64 %indvars.iv.next238.i
+  %184 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next238.i
   store ptr %182, ptr %184, align 8
   %exitcond241.not.i = icmp eq i64 %indvars.iv.next238.i, %wide.trip.count240.i
   br i1 %exitcond241.not.i, label %._crit_edge.i, label %.lr.ph200.i, !llvm.loop !41
@@ -13593,7 +13593,7 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
 
 48:                                               ; preds = %52, %45
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.i, %52 ]
-  %49 = getelementptr inbounds nuw [100 x ptr], ptr @builtin_list, i64 0, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr @builtin_list, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %47
   br i1 %51, label %builtin_by_name.exit.i, label %52
@@ -14073,7 +14073,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
 
 8:                                                ; preds = %3, %12
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw [13 x ptr], ptr @builtin_defines, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @builtin_defines, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %5, %10
   br i1 %11, label %13, label %12
@@ -14927,7 +14927,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %127 = zext i32 %126 to i64
   %128 = getelementptr inbounds nuw %struct.Expr_, ptr %13, i64 %127
   %129 = zext i8 %9 to i64
-  %130 = getelementptr inbounds nuw [31 x i32], ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %133 = load i16, ptr %132, align 8
@@ -14939,7 +14939,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %138 = load i8, ptr %137, align 8
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw [31 x i32], ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 %139
   %141 = load i32, ptr %140, align 4
   %.not.i75 = icmp ne i32 %141, 0
   %142 = icmp eq i32 %141, %131
@@ -14963,7 +14963,7 @@ sema_analyse_expr.exit:                           ; preds = %sema_analyse_expr_l
   %150 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %151 = load i8, ptr %150, align 8
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw [31 x i32], ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw i32, ptr @sema_binary_check_unclear_op_precedence.BINOP_PREC_REQ, i64 %152
   %154 = load i32, ptr %153, align 4
   %.not24.i = icmp ne i32 %154, 0
   %155 = icmp eq i32 %154, %131
@@ -20484,7 +20484,7 @@ thread-pre-split547:                              ; preds = %228
 
 .preheader559:                                    ; preds = %.preheader559.preheader, %323
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %323 ], [ 0, %.preheader559.preheader ]
-  %320 = getelementptr inbounds nuw [22 x ptr], ptr @type_property_list, i64 0, i64 %indvars.iv.i
+  %320 = getelementptr inbounds nuw ptr, ptr @type_property_list, i64 %indvars.iv.i
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, %216
   br i1 %322, label %.split.loop.exit8.i, label %323
@@ -27687,7 +27687,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_type_access(ptr nou
 
 .preheader122:                                    ; preds = %5, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %5 ]
-  %15 = getelementptr inbounds nuw [22 x ptr], ptr @type_property_list, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr @type_property_list, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %11
   br i1 %17, label %.split.loop.exit8.i, label %18
@@ -27708,7 +27708,7 @@ type_property_by_name.exit:                       ; preds = %18, %.split.loop.ex
 
 .preheader:                                       ; preds = %type_property_by_name.exit, %24
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %24 ], [ 0, %type_property_by_name.exit ]
-  %21 = getelementptr inbounds nuw [22 x ptr], ptr @type_property_list, i64 0, i64 %indvars.iv.i108
+  %21 = getelementptr inbounds nuw ptr, ptr @type_property_list, i64 %indvars.iv.i108
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %11
   br i1 %23, label %.split.loop.exit8.i112, label %24
@@ -28107,7 +28107,7 @@ type_flatten.exit:                                ; preds = %32
 
 .preheader:                                       ; preds = %61, %66
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %66 ], [ 0, %61 ]
-  %63 = getelementptr inbounds nuw [22 x ptr], ptr @type_property_list, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw ptr, ptr @type_property_list, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %10
   br i1 %65, label %type_property_by_name.exit, label %66

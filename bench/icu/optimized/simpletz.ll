@@ -384,7 +384,7 @@ thread-pre-split.i.thread:                        ; preds = %32
 
 48:                                               ; preds = %45
   %49 = zext nneg i8 %21 to i64
-  %50 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !39
   %52 = icmp sgt i8 %46, %51
   br i1 %52, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %_ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
@@ -477,7 +477,7 @@ thread-pre-split.i9.thread:                       ; preds = %74
 
 90:                                               ; preds = %87
   %91 = zext nneg i8 %63 to i64
-  %92 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !39
   %94 = icmp sgt i8 %88, %93
   br i1 %94, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit.sink.split, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
@@ -985,7 +985,7 @@ thread-pre-split.i.thread:                        ; preds = %35
 51:                                               ; preds = %48
   %.mask = and i32 %1, 15
   %52 = zext nneg i32 %.mask to i64
-  %53 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !39
   %55 = icmp sgt i8 %49, %54
   br i1 %55, label %.sink.split.i, label %_ZN6icu_7714SimpleTimeZone15decodeStartRuleER10UErrorCode.exit
@@ -1098,7 +1098,7 @@ thread-pre-split:                                 ; preds = %34, %32, %37
 
 49:                                               ; preds = %46
   %50 = zext nneg i8 %21 to i64
-  %51 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !39
   %53 = icmp sgt i8 %47, %52
   br i1 %53, label %.sink.split, label %54
@@ -1172,7 +1172,7 @@ define void @_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiNS0_8TimeModeER10UError
 33:                                               ; preds = %30
   %.mask.i = and i32 %1, 15
   %34 = zext nneg i32 %.mask.i to i64
-  %35 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !39
   %37 = icmp slt i8 %36, %9
   br i1 %37, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
@@ -1292,7 +1292,7 @@ thread-pre-split.i.thread.i:                      ; preds = %39
 54:                                               ; preds = %51
   %.mask.i = and i32 %1, 15
   %55 = zext nneg i32 %.mask.i to i64
-  %56 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !39
   %58 = icmp sgt i8 %52, %57
   br i1 %58, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone12setStartRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
@@ -1410,7 +1410,7 @@ thread-pre-split.i.thread:                        ; preds = %35
 51:                                               ; preds = %48
   %.mask = and i32 %1, 15
   %52 = zext nneg i32 %.mask to i64
-  %53 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !39
   %55 = icmp sgt i8 %49, %54
   br i1 %55, label %.sink.split.i, label %_ZN6icu_7714SimpleTimeZone13decodeEndRuleER10UErrorCode.exit
@@ -1524,7 +1524,7 @@ thread-pre-split:                                 ; preds = %34, %32, %37
 
 49:                                               ; preds = %46
   %50 = zext nneg i8 %21 to i64
-  %51 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !39
   %53 = icmp sgt i8 %47, %52
   br i1 %53, label %.sink.split, label %54
@@ -1599,7 +1599,7 @@ define void @_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiNS0_8TimeModeER10UErrorCo
 33:                                               ; preds = %30
   %.mask.i = and i32 %1, 15
   %34 = zext nneg i32 %.mask.i to i64
-  %35 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !39
   %37 = icmp slt i8 %36, %9
   br i1 %37, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
@@ -1720,7 +1720,7 @@ thread-pre-split.i.thread.i:                      ; preds = %39
 54:                                               ; preds = %51
   %.mask.i = and i32 %1, 15
   %55 = zext nneg i32 %.mask.i to i64
-  %56 = getelementptr inbounds nuw [12 x i8], ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7714SimpleTimeZone17STATICMONTHLENGTHE, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !39
   %58 = icmp sgt i8 %52, %57
   br i1 %58, label %.sink.split.i.i, label %_ZN6icu_7714SimpleTimeZone10setEndRuleEiiiiNS0_8TimeModeER10UErrorCode.exit
@@ -1764,7 +1764,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %13, %_ZN6icu_775Gre
   %16 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i ], [ 12, %13 ]
   %17 = add nuw nsw i32 %16, %3
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !39
   %21 = sext i8 %20 to i32
   %22 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1785,7 +1785,7 @@ define noundef i32 @_ZNK6icu_7714SimpleTimeZone9getOffsetEhiiihiiR10UErrorCode(p
 
 10:                                               ; preds = %9
   store i32 1, ptr %8, align 4, !tbaa !37
-  br label %44
+  br label %42
 
 11:                                               ; preds = %9
   %12 = and i32 %2, 3
@@ -1798,11 +1798,11 @@ define noundef i32 @_ZNK6icu_7714SimpleTimeZone9getOffsetEhiiihiiR10UErrorCode(p
   %16 = srem i32 %2, 400
   %.not.i = icmp eq i32 %16, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i
+  %17 = zext nneg i32 %3 to i64
+  %18 = getelementptr inbounds nuw i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %17
   br i1 %or.cond.i, label %_ZN6icu_775Grego11monthLengthEii.exit.thread, label %_ZN6icu_775Grego11monthLengthEii.exit
 
 _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %14
-  %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !39
   %20 = sext i8 %19 to i32
   %.not20 = icmp eq i32 %3, 0
@@ -1810,43 +1810,41 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %14
 
 _ZN6icu_775Grego11monthLengthEii.exit.thread18:   ; preds = %11
   %21 = zext nneg i32 %3 to i64
-  %22 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !39
   %24 = sext i8 %23 to i32
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %_ZN6icu_775Grego19previousMonthLengthEii.exit, label %_ZN6icu_775Grego11monthLengthEii.exit.i
 
 _ZN6icu_775Grego11monthLengthEii.exit.thread:     ; preds = %14
-  %25 = add nuw nsw i32 %3, 12
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !39
-  %29 = sext i8 %28 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %26 = load i8, ptr %25, align 1, !tbaa !39
+  %27 = sext i8 %26 to i32
   %.not21 = icmp eq i32 %3, 0
   br i1 %.not21, label %_ZN6icu_775Grego19previousMonthLengthEii.exit, label %_ZN6icu_775Grego11monthLengthEii.exit.i
 
 _ZN6icu_775Grego11monthLengthEii.exit.i:          ; preds = %_ZN6icu_775Grego11monthLengthEii.exit.thread, %_ZN6icu_775Grego11monthLengthEii.exit, %_ZN6icu_775Grego11monthLengthEii.exit.thread18
-  %30 = phi i32 [ %24, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ], [ %29, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ %20, %_ZN6icu_775Grego11monthLengthEii.exit ]
-  %31 = phi i32 [ 0, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ], [ 12, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ 0, %_ZN6icu_775Grego11monthLengthEii.exit ]
-  %32 = add nsw i32 %3, -1
-  %33 = add nuw nsw i32 %32, %31
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !39
-  %37 = sext i8 %36 to i32
+  %28 = phi i32 [ %24, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ], [ %27, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ %20, %_ZN6icu_775Grego11monthLengthEii.exit ]
+  %29 = phi i32 [ 0, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ], [ 12, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ 0, %_ZN6icu_775Grego11monthLengthEii.exit ]
+  %30 = add nsw i32 %3, -1
+  %31 = add nuw nsw i32 %30, %29
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !39
+  %35 = sext i8 %34 to i32
   br label %_ZN6icu_775Grego19previousMonthLengthEii.exit
 
 _ZN6icu_775Grego19previousMonthLengthEii.exit:    ; preds = %_ZN6icu_775Grego11monthLengthEii.exit.thread18, %_ZN6icu_775Grego11monthLengthEii.exit.thread, %_ZN6icu_775Grego11monthLengthEii.exit, %_ZN6icu_775Grego11monthLengthEii.exit.i
-  %38 = phi i32 [ %30, %_ZN6icu_775Grego11monthLengthEii.exit.i ], [ %20, %_ZN6icu_775Grego11monthLengthEii.exit ], [ %29, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ %24, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ]
-  %39 = phi i32 [ %37, %_ZN6icu_775Grego11monthLengthEii.exit.i ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ]
-  %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 168
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %38, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  br label %44
+  %36 = phi i32 [ %28, %_ZN6icu_775Grego11monthLengthEii.exit.i ], [ %20, %_ZN6icu_775Grego11monthLengthEii.exit ], [ %27, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ %24, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ]
+  %37 = phi i32 [ %35, %_ZN6icu_775Grego11monthLengthEii.exit.i ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit.thread ], [ 31, %_ZN6icu_775Grego11monthLengthEii.exit.thread18 ]
+  %38 = load ptr, ptr %0, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %36, i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  br label %42
 
-44:                                               ; preds = %_ZN6icu_775Grego19previousMonthLengthEii.exit, %10
-  %.0 = phi i32 [ -1, %10 ], [ %43, %_ZN6icu_775Grego19previousMonthLengthEii.exit ]
+42:                                               ; preds = %_ZN6icu_775Grego19previousMonthLengthEii.exit, %10
+  %.0 = phi i32 [ -1, %10 ], [ %41, %_ZN6icu_775Grego19previousMonthLengthEii.exit ]
   ret i32 %.0
 }
 
@@ -2192,7 +2190,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   %35 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i ], [ 12, %32 ]
   %36 = add nsw i32 %35, %25
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !39
   %40 = sext i8 %39 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2273,7 +2271,7 @@ _ZN6icu_775Grego11monthLengthEii.exit39:          ; preds = %77, %_ZN6icu_775Gre
   %80 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i35 ], [ 12, %77 ]
   %81 = add nsw i32 %80, %70
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [24 x i8], ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 0, i64 %82
+  %83 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !39
   %85 = sext i8 %84 to i32
   %86 = load ptr, ptr %0, align 8, !tbaa !3

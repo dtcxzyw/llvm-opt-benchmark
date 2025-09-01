@@ -1000,7 +1000,7 @@ agxbsizeof.exit.i:                                ; preds = %324, %agxblen.exit.
 
 329:                                              ; preds = %328
   %330 = zext i8 %.val.i15.i to i64
-  %331 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw i8, ptr %12, i64 %330
   store i8 92, ptr %331, align 1, !tbaa !28
   %332 = load i8, ptr %13, align 1, !tbaa !28
   %333 = add i8 %332, 1
@@ -1162,7 +1162,7 @@ agxbsizeof.exit.i499:                             ; preds = %375, %agxblen.exit.
 
 380:                                              ; preds = %379
   %381 = zext i8 %.val.i15.i504 to i64
-  %382 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr %12, i64 %381
   store i8 %373, ptr %382, align 1, !tbaa !28
   %383 = load i8, ptr %13, align 1, !tbaa !28
   %384 = add i8 %383, 1
@@ -1280,7 +1280,7 @@ agxbsizeof.exit.i516:                             ; preds = %423
 426:                                              ; preds = %.thread865, %425
   %.val.i15.i521868 = phi i8 [ 0, %.thread865 ], [ %.val.i15.pre.i520, %425 ]
   %427 = zext i8 %.val.i15.i521868 to i64
-  %428 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw i8, ptr %12, i64 %427
   store i8 %47, ptr %428, align 1, !tbaa !28
   %429 = load i8, ptr %13, align 1, !tbaa !28
   %430 = add i8 %429, 1
@@ -1452,7 +1452,7 @@ agxbsizeof.exit.i547:                             ; preds = %475, %agxblen.exit.
 
 480:                                              ; preds = %479
   %481 = zext i8 %.val.i15.i552 to i64
-  %482 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw i8, ptr %12, i64 %481
   store i8 %473, ptr %482, align 1, !tbaa !28
   %483 = load i8, ptr %13, align 1, !tbaa !28
   %484 = add i8 %483, 1
@@ -1599,7 +1599,7 @@ agxbsizeof.exit.i577:                             ; preds = %524, %agxblen.exit.
 
 529:                                              ; preds = %528
   %530 = zext i8 %.val.i15.i582 to i64
-  %531 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw i8, ptr %12, i64 %530
   store i8 %522, ptr %531, align 1, !tbaa !28
   %532 = load i8, ptr %13, align 1, !tbaa !28
   %533 = add i8 %532, 1
@@ -1750,7 +1750,7 @@ agxbsizeof.exit.i607:                             ; preds = %575, %agxblen.exit.
 
 580:                                              ; preds = %579
   %581 = zext i8 %.val.i15.i612 to i64
-  %582 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %581
+  %582 = getelementptr inbounds nuw i8, ptr %12, i64 %581
   store i8 %573, ptr %582, align 1, !tbaa !28
   %583 = load i8, ptr %13, align 1, !tbaa !28
   %584 = add i8 %583, 1
@@ -1995,7 +1995,7 @@ agxbsizeof.exit.i656:                             ; preds = %662, %agxblen.exit.
 
 667:                                              ; preds = %666
   %668 = zext i8 %.val.i15.i661 to i64
-  %669 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw i8, ptr %12, i64 %668
   store i8 %656, ptr %669, align 1, !tbaa !28
   %670 = load i8, ptr %13, align 1, !tbaa !28
   %671 = add i8 %670, 1
@@ -2077,7 +2077,7 @@ agxbsizeof.exit.i667:                             ; preds = %690, %agxblen.exit.
 
 695:                                              ; preds = %694
   %696 = zext i8 %.val.i15.i672 to i64
-  %697 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %696
+  %697 = getelementptr inbounds nuw i8, ptr %12, i64 %696
   store i8 %688, ptr %697, align 1, !tbaa !28
   %698 = load i8, ptr %13, align 1, !tbaa !28
   %699 = add i8 %698, 1
@@ -2226,7 +2226,7 @@ agxbsizeof.exit.i.i:                              ; preds = %738, %agxblen.exit.
 
 743:                                              ; preds = %742
   %744 = zext i8 %.val.i15.i.i to i64
-  %745 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %744
+  %745 = getelementptr inbounds nuw i8, ptr %12, i64 %744
   store i8 0, ptr %745, align 1, !tbaa !28
   %746 = load i8, ptr %13, align 1, !tbaa !28
   %747 = add i8 %746, 1
@@ -2484,7 +2484,7 @@ agxbsizeof.exit.i720:                             ; preds = %825, %agxblen.exit.
 
 830:                                              ; preds = %829
   %831 = zext i8 %.val.i15.i725 to i64
-  %832 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %831
+  %832 = getelementptr inbounds nuw i8, ptr %12, i64 %831
   store i8 %823, ptr %832, align 1, !tbaa !28
   %833 = load i8, ptr %13, align 1, !tbaa !28
   %834 = add i8 %833, 1
@@ -3041,7 +3041,7 @@ agxbsizeof.exit.i772:                             ; preds = %1020, %agxblen.exit
 
 1025:                                             ; preds = %1024
   %1026 = zext i8 %.val.i15.i777 to i64
-  %1027 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %1026
+  %1027 = getelementptr inbounds nuw i8, ptr %12, i64 %1026
   store i8 92, ptr %1027, align 1, !tbaa !28
   %1028 = load i8, ptr %13, align 1, !tbaa !28
   %1029 = add i8 %1028, 1
@@ -3203,7 +3203,7 @@ agxbsizeof.exit.i802:                             ; preds = %1071, %agxblen.exit
 
 1076:                                             ; preds = %1075
   %1077 = zext i8 %.val.i15.i807 to i64
-  %1078 = getelementptr inbounds nuw [31 x i8], ptr %12, i64 0, i64 %1077
+  %1078 = getelementptr inbounds nuw i8, ptr %12, i64 %1077
   store i8 %1069, ptr %1078, align 1, !tbaa !28
   %1079 = load i8, ptr %13, align 1, !tbaa !28
   %1080 = add i8 %1079, 1
@@ -3516,7 +3516,7 @@ agxbsizeof.exit:                                  ; preds = %agxblen.exit, %5
 
 12:                                               ; preds = %11
   %13 = zext i8 %.val.i15 to i64
-  %14 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   store i8 %1, ptr %14, align 1, !tbaa !28
   %15 = load i8, ptr %3, align 1, !tbaa !28
   %16 = add i8 %15, 1
@@ -3576,7 +3576,7 @@ agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
 
 11:                                               ; preds = %10
   %12 = zext i8 %.val.i15.i to i64
-  %13 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !28
   %14 = load i8, ptr %2, align 1, !tbaa !28
   %15 = add i8 %14, 1
@@ -3658,7 +3658,7 @@ agxblen.exit.i:                                   ; preds = %4, %agxbsizeof.exit
 
 13:                                               ; preds = %12
   %14 = zext i8 %.val.i25.i to i64
-  %15 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   store i16 11824, ptr %15, align 1
   %16 = load i8, ptr %2, align 1, !tbaa !28
   %17 = add i8 %16, 2

@@ -270,7 +270,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @init_srcu_struct_fields(pt
   %59 = load ptr, ptr %.ph, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = and i64 %55, 63
-  %62 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %61
+  %62 = getelementptr i64, ptr @__per_cpu_offset, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, %60
   %65 = inttoptr i64 %64 to ptr
@@ -442,7 +442,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
   %45 = load ptr, ptr %33, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = and i64 %41, 63
-  %48 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %47
+  %48 = getelementptr i64, ptr @__per_cpu_offset, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, %46
   %51 = inttoptr i64 %50 to ptr
@@ -501,7 +501,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
   %84 = load ptr, ptr %33, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %80, 63
-  %87 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %86
+  %87 = getelementptr i64, ptr @__per_cpu_offset, i64 %86
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %85
   %90 = inttoptr i64 %89 to ptr
@@ -568,7 +568,7 @@ define dso_local void @cleanup_srcu_struct(ptr noundef %0) #0 align 16 {
   %123 = load ptr, ptr %33, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %119, 63
-  %126 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %125
+  %126 = getelementptr i64, ptr @__per_cpu_offset, i64 %125
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %124
   %129 = inttoptr i64 %128 to ptr
@@ -654,7 +654,7 @@ define dso_local range(i32 0, 2) i32 @__srcu_read_lock(ptr noundef %0) #0 align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr [2 x %struct.atomic64_t], ptr %5, i64 0, i64 %6
+  %7 = getelementptr %struct.atomic64_t, ptr %5, i64 %6
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, ptr elementtype(i64) %7) #14, !srcloc !37
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !38
   ret i32 %3
@@ -667,7 +667,7 @@ define dso_local void @__srcu_read_unlock(ptr noundef readonly captures(none) %0
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = sext i32 %1 to i64
-  %7 = getelementptr [2 x %struct.atomic64_t], ptr %5, i64 0, i64 %6
+  %7 = getelementptr %struct.atomic64_t, ptr %5, i64 %6
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, ptr elementtype(i64) %7) #14, !srcloc !40
   ret void
 }
@@ -910,7 +910,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr [2 x %struct.atomic64_t], ptr %31, i64 0, i64 %32
+  %33 = getelementptr %struct.atomic64_t, ptr %31, i64 %32
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, ptr elementtype(i64) %33) #14, !srcloc !37
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !38
   %34 = load ptr, ptr %6, align 8
@@ -925,7 +925,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
   %40 = ptrtoint ptr %38 to i64
   %41 = load i32, ptr @__boot_cpu_id, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %42
+  %43 = getelementptr i64, ptr @__per_cpu_offset, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %40
   br label %48
@@ -1128,7 +1128,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
 156:                                              ; preds = %154, %.split.us
   %157 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %150) #14
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %159 = getelementptr [4 x i64], ptr %158, i64 0, i64 %138
+  %159 = getelementptr i64, ptr %158, i64 %138
   %160 = load i64, ptr %159, align 8
   %161 = icmp ne i64 %160, 2
   %162 = sub i64 %160, %107
@@ -1144,7 +1144,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
 167:                                              ; preds = %165
   %168 = load i64, ptr %149, align 8
   %169 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %170 = getelementptr [4 x i64], ptr %169, i64 0, i64 %138
+  %170 = getelementptr i64, ptr %169, i64 %138
   %171 = load i64, ptr %170, align 8
   %172 = or i64 %171, %168
   store i64 %172, ptr %170, align 8
@@ -1174,7 +1174,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
 183:                                              ; preds = %181, %.split
   %184 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %177) #14
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %186 = getelementptr [4 x i64], ptr %185, i64 0, i64 %138
+  %186 = getelementptr i64, ptr %185, i64 %138
   %187 = load i64, ptr %186, align 8
   %188 = icmp ne i64 %187, 2
   %189 = sub i64 %187, %107
@@ -1194,7 +1194,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
 195:                                              ; preds = %.split18.us
   %196 = load i64, ptr %149, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.us-phi20, i64 40
-  %198 = getelementptr [4 x i64], ptr %197, i64 0, i64 %138
+  %198 = getelementptr i64, ptr %197, i64 %138
   %199 = load i64, ptr %198, align 8
   %200 = or i64 %199, %196
   store i64 %200, ptr %198, align 8
@@ -1239,7 +1239,7 @@ define internal fastcc range(i64 0, -3) i64 @srcu_gp_start_if_needed(ptr noundef
 220:                                              ; preds = %218
   %221 = load i64, ptr %149, align 8
   %222 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %223 = getelementptr [4 x i64], ptr %222, i64 0, i64 %138
+  %223 = getelementptr i64, ptr %222, i64 %138
   %224 = load i64, ptr %223, align 8
   %225 = or i64 %224, %221
   store i64 %225, ptr %223, align 8
@@ -1530,7 +1530,7 @@ srcu_gp_start.exit:                               ; preds = %327, %333
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !39
   %382 = load ptr, ptr %30, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  %384 = getelementptr [2 x %struct.atomic64_t], ptr %383, i64 0, i64 %32
+  %384 = getelementptr %struct.atomic64_t, ptr %383, i64 %32
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %384, ptr elementtype(i64) %384) #14, !srcloc !40
   ret i64 %107
 }
@@ -1636,7 +1636,7 @@ define dso_local void @srcu_barrier(ptr noundef %0) #0 align 16 {
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr [2 x %struct.atomic64_t], ptr %52, i64 0, i64 %53
+  %54 = getelementptr %struct.atomic64_t, ptr %52, i64 %53
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %54, ptr elementtype(i64) %54) #14, !srcloc !37
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !38
   %55 = load ptr, ptr %2, align 8
@@ -1651,7 +1651,7 @@ define dso_local void @srcu_barrier(ptr noundef %0) #0 align 16 {
   %61 = ptrtoint ptr %60 to i64
   %62 = load i32, ptr @__boot_cpu_id, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %63
+  %64 = getelementptr i64, ptr @__per_cpu_offset, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, %61
   %67 = inttoptr i64 %66 to ptr
@@ -1695,7 +1695,7 @@ define dso_local void @srcu_barrier(ptr noundef %0) #0 align 16 {
   %89 = load ptr, ptr %51, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %85, 63
-  %92 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %91
+  %92 = getelementptr i64, ptr @__per_cpu_offset, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, %90
   %95 = inttoptr i64 %94 to ptr
@@ -1728,7 +1728,7 @@ define dso_local void @srcu_barrier(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !39
   %110 = load ptr, ptr %51, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %112 = getelementptr [2 x %struct.atomic64_t], ptr %111, i64 0, i64 %53
+  %112 = getelementptr %struct.atomic64_t, ptr %111, i64 %53
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %112, ptr elementtype(i64) %112) #14, !srcloc !40
   %113 = load ptr, ptr %2, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 256
@@ -1825,7 +1825,7 @@ define dso_local void @srcu_torture_stats_print(ptr noundef readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %11 = load volatile i64, ptr %10, align 8
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr [10 x ptr], ptr @srcu_size_state_name, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr @srcu_size_state_name, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef %2, i64 noundef %11, i32 noundef %7, ptr noundef %14) #17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1865,19 +1865,19 @@ define dso_local void @srcu_torture_stats_print(ptr noundef readonly captures(no
   %40 = load ptr, ptr %16, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %36, 63
-  %43 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %42
+  %43 = getelementptr i64, ptr @__per_cpu_offset, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %41
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = getelementptr [2 x %struct.atomic64_t], ptr %47, i64 0, i64 %25
+  %48 = getelementptr %struct.atomic64_t, ptr %47, i64 %25
   %49 = load volatile i64, ptr %48, align 8
-  %50 = getelementptr [2 x %struct.atomic64_t], ptr %47, i64 0, i64 %26
+  %50 = getelementptr %struct.atomic64_t, ptr %47, i64 %26
   %51 = load volatile i64, ptr %50, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !93
-  %52 = getelementptr [2 x %struct.atomic64_t], ptr %46, i64 0, i64 %25
+  %52 = getelementptr %struct.atomic64_t, ptr %46, i64 %25
   %53 = load volatile i64, ptr %52, align 8
-  %54 = getelementptr [2 x %struct.atomic64_t], ptr %46, i64 0, i64 %26
+  %54 = getelementptr %struct.atomic64_t, ptr %46, i64 %26
   %55 = load volatile i64, ptr %54, align 8
   %56 = sub i64 %53, %49
   %57 = sub i64 %55, %51
@@ -1885,7 +1885,7 @@ define dso_local void @srcu_torture_stats_print(ptr noundef readonly captures(no
   %59 = load volatile ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   %61 = zext i1 %60 to i64
-  %62 = getelementptr [3 x i8], ptr @.str.6, i64 0, i64 %61
+  %62 = getelementptr i8, ptr @.str.6, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %37, i64 noundef %56, i64 noundef %57, i32 noundef %64) #17
@@ -2320,7 +2320,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %147 = ptrtoint ptr %146 to i64
   %148 = load i32, ptr @__boot_cpu_id, align 4
   %149 = sext i32 %148 to i64
-  %150 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %149
+  %150 = getelementptr i64, ptr @__per_cpu_offset, i64 %149
   %151 = load i64, ptr %150, align 8
   %152 = add i64 %151, %147
   %153 = inttoptr i64 %152 to ptr
@@ -2366,7 +2366,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %181 = load i32, ptr @rcu_num_lvls, align 4
   %182 = add i32 %181, -1
   %183 = sext i32 %182 to i64
-  %184 = getelementptr [3 x ptr], ptr %175, i64 0, i64 %183
+  %184 = getelementptr ptr, ptr %175, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = icmp ult ptr %180, %185
   %187 = select i1 %186, i1 true, i1 %176
@@ -2375,7 +2375,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 
 189:                                              ; preds = %.split.us
   %190 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %191 = getelementptr [4 x i64], ptr %190, i64 0, i64 %167
+  %191 = getelementptr i64, ptr %190, i64 %167
   %192 = load i64, ptr %191, align 8
   %193 = icmp eq i64 %192, %134
   br label %194
@@ -2383,7 +2383,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 194:                                              ; preds = %189, %.split.us
   %195 = phi i1 [ %188, %.split.us ], [ %193, %189 ]
   %196 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %197 = getelementptr [4 x i64], ptr %196, i64 0, i64 %167
+  %197 = getelementptr i64, ptr %196, i64 %167
   store volatile i64 %178, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %180, i64 72
   %199 = load i64, ptr %198, align 8
@@ -2402,14 +2402,14 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 
 206:                                              ; preds = %205
   %207 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %208 = getelementptr [4 x i64], ptr %207, i64 0, i64 %167
+  %208 = getelementptr i64, ptr %207, i64 %167
   %209 = load i64, ptr %208, align 8
   br label %210
 
 210:                                              ; preds = %206, %205
   %211 = phi i64 [ %209, %206 ], [ -1, %205 ]
   %212 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %213 = getelementptr [4 x i64], ptr %212, i64 0, i64 %167
+  %213 = getelementptr i64, ptr %212, i64 %167
   store i64 0, ptr %213, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %180) #14
   br i1 %195, label %214, label %.loopexit.split.us.us
@@ -2447,7 +2447,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %236 = load ptr, ptr %179, align 8
   %237 = ptrtoint ptr %236 to i64
   %238 = sext i32 %228 to i64
-  %239 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %238
+  %239 = getelementptr i64, ptr @__per_cpu_offset, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = add i64 %240, %237
   %242 = inttoptr i64 %241 to ptr
@@ -2471,7 +2471,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %253 = load i32, ptr @rcu_num_lvls, align 4
   %254 = add i32 %253, -1
   %255 = sext i32 %254 to i64
-  %256 = getelementptr [3 x ptr], ptr %175, i64 0, i64 %255
+  %256 = getelementptr ptr, ptr %175, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = icmp ult ptr %252, %257
   %259 = select i1 %258, i1 true, i1 %176
@@ -2480,7 +2480,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 
 261:                                              ; preds = %.split
   %262 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %263 = getelementptr [4 x i64], ptr %262, i64 0, i64 %167
+  %263 = getelementptr i64, ptr %262, i64 %167
   %264 = load i64, ptr %263, align 8
   %265 = icmp eq i64 %264, %134
   br label %266
@@ -2488,7 +2488,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 266:                                              ; preds = %261, %.split
   %267 = phi i1 [ %260, %.split ], [ %265, %261 ]
   %268 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %269 = getelementptr [4 x i64], ptr %268, i64 0, i64 %167
+  %269 = getelementptr i64, ptr %268, i64 %167
   store volatile i64 %178, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %252, i64 72
   %271 = load i64, ptr %270, align 8
@@ -2507,14 +2507,14 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 
 278:                                              ; preds = %277
   %279 = getelementptr inbounds nuw i8, ptr %252, i64 40
-  %280 = getelementptr [4 x i64], ptr %279, i64 0, i64 %167
+  %280 = getelementptr i64, ptr %279, i64 %167
   %281 = load i64, ptr %280, align 8
   br label %282
 
 282:                                              ; preds = %278, %277
   %283 = phi i64 [ %281, %278 ], [ -1, %277 ]
   %284 = getelementptr inbounds nuw i8, ptr %252, i64 40
-  %285 = getelementptr [4 x i64], ptr %284, i64 0, i64 %167
+  %285 = getelementptr i64, ptr %284, i64 %167
   store i64 0, ptr %285, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %252) #14
   br i1 %267, label %286, label %.loopexit.split
@@ -2542,7 +2542,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %301 = load ptr, ptr %179, align 8
   %302 = ptrtoint ptr %301 to i64
   %303 = sext i32 %293 to i64
-  %304 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %303
+  %304 = getelementptr i64, ptr @__per_cpu_offset, i64 %303
   %305 = load i64, ptr %304, align 8
   %306 = add i64 %305, %302
   %307 = inttoptr i64 %306 to ptr
@@ -2598,7 +2598,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   %340 = load ptr, ptr %327, align 8
   %341 = ptrtoint ptr %340 to i64
   %342 = and i64 %336, 63
-  %343 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %342
+  %343 = getelementptr i64, ptr @__per_cpu_offset, i64 %342
   %344 = load i64, ptr %343, align 8
   %345 = add i64 %344, %341
   %346 = inttoptr i64 %345 to ptr
@@ -2815,14 +2815,14 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %26 = phi i64 [ %37, %.preheader14 ], [ 1, %19 ]
   %27 = load ptr, ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = add nsw i64 %26, -1
-  %30 = getelementptr [3 x ptr], ptr %28, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr [0 x i32], ptr @num_rcu_lvl, i64 0, i64 %29
+  %29 = getelementptr ptr, ptr %27, i64 %26
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i32, ptr @num_rcu_lvl, i64 %26
+  %32 = getelementptr i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.srcu_node, ptr %31, i64 %34
-  %36 = getelementptr [3 x ptr], ptr %28, i64 0, i64 %26
+  %35 = getelementptr %struct.srcu_node, ptr %30, i64 %34
+  %36 = getelementptr ptr, ptr %28, i64 %26
   store ptr %35, ptr %36, align 8
   %37 = add nuw nsw i64 %26, 1
   %38 = load i32, ptr @rcu_num_lvls, align 4
@@ -2868,9 +2868,9 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
 
 64:                                               ; preds = %64, %.preheader11
   %65 = phi i64 [ 0, %.preheader11 ], [ %68, %64 ]
-  %66 = getelementptr [4 x i64], ptr %62, i64 0, i64 %65
+  %66 = getelementptr i64, ptr %62, i64 %65
   store i64 2, ptr %66, align 8
-  %67 = getelementptr [4 x i64], ptr %63, i64 0, i64 %65
+  %67 = getelementptr i64, ptr %63, i64 %65
   store i64 0, ptr %67, align 8
   %68 = add nuw nsw i64 %65, 1
   %69 = icmp eq i64 %68, 4
@@ -2892,22 +2892,22 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = add i32 %60, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr [3 x ptr], ptr %78, i64 0, i64 %80
+  %81 = getelementptr ptr, ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %61, %82
   %84 = select i1 %83, i32 %79, i32 %60
   %85 = add i32 %84, -1
   %86 = sext i32 %85 to i64
-  %87 = getelementptr [3 x ptr], ptr %78, i64 0, i64 %86
+  %87 = getelementptr ptr, ptr %78, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %84 to i64
-  %90 = getelementptr [3 x ptr], ptr %78, i64 0, i64 %89
+  %90 = getelementptr ptr, ptr %78, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = ptrtoint ptr %61 to i64
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = sdiv exact i64 %94, 96
-  %96 = getelementptr [2 x i32], ptr %3, i64 0, i64 %86
+  %96 = getelementptr i32, ptr %3, i64 %86
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
   %99 = sdiv i64 %95, %98
@@ -2938,11 +2938,11 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %112 = phi ptr [ %106, %.loopexit12.loopexit ], [ %54, %.loopexit13 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = sext i32 %.pre-phi to i64
-  %115 = getelementptr [3 x ptr], ptr %113, i64 0, i64 %114
+  %115 = getelementptr ptr, ptr %113, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = load i64, ptr @__cpu_possible_mask, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %119 = getelementptr [2 x i32], ptr %3, i64 0, i64 %114
+  %119 = getelementptr i32, ptr %3, i64 %114
   br label %120
 
 120:                                              ; preds = %.loopexit12, %.loopexit
@@ -2962,7 +2962,7 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr noundef re
   %130 = load ptr, ptr %118, align 8
   %131 = ptrtoint ptr %130 to i64
   %132 = and i64 %126, 63
-  %133 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %132
+  %133 = getelementptr i64, ptr @__per_cpu_offset, i64 %132
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, %131
   %136 = inttoptr i64 %135 to ptr
@@ -3251,12 +3251,12 @@ define internal fastcc noundef zeroext i1 @try_check_zero(ptr noundef readonly c
   %55 = load ptr, ptr %38, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %51, 63
-  %58 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %57
+  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %56
   %61 = inttoptr i64 %60 to ptr
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = getelementptr [2 x %struct.atomic64_t], ptr %62, i64 0, i64 %39
+  %63 = getelementptr %struct.atomic64_t, ptr %62, i64 %39
   %64 = load volatile i64, ptr %63, align 8
   %65 = add i64 %64, %46
   %66 = add nuw nsw i64 %51, 1
@@ -3288,11 +3288,11 @@ define internal fastcc noundef zeroext i1 @try_check_zero(ptr noundef readonly c
   %81 = load ptr, ptr %38, align 8
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %77, 63
-  %84 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %83
+  %84 = getelementptr i64, ptr @__per_cpu_offset, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %82
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr [2 x %struct.atomic64_t], ptr %87, i64 0, i64 %39
+  %88 = getelementptr %struct.atomic64_t, ptr %87, i64 %39
   %89 = load volatile i64, ptr %88, align 8
   %90 = add i64 %89, %72
   %91 = add nuw nsw i64 %77, 1
@@ -3809,7 +3809,7 @@ define internal noundef range(i32 -12, 1) i32 @srcu_module_notify(ptr readnone c
   %63 = load ptr, ptr %51, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %59, 63
-  %66 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %65
+  %66 = getelementptr i64, ptr @__per_cpu_offset, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %64
   %69 = inttoptr i64 %68 to ptr

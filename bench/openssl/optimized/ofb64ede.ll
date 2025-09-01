@@ -90,7 +90,7 @@ define void @DES_ede3_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr 
   %58 = getelementptr inbounds nuw i8, ptr %.08691, i64 1
   %59 = load i8, ptr %.08691, align 1, !tbaa !7
   %60 = sext i32 %.08194 to i64
-  %61 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %60
+  %61 = getelementptr inbounds i8, ptr %9, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !7
   %63 = xor i8 %62, %59
   %64 = getelementptr inbounds nuw i8, ptr %.08790, i64 1

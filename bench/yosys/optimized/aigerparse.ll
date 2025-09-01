@@ -2381,7 +2381,7 @@ define void @_ZN5Yosys11AigerReader17parse_aiger_asciiEv(ptr noundef nonnull ali
 
 54:                                               ; preds = %61, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %61 ]
-  %55 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !40
   %57 = icmp ult i32 %53, %56
   br i1 %57, label %58, label %61
@@ -2976,7 +2976,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit179:             ; preds = %286, %291, %298
 
 310:                                              ; preds = %317, %308
   %indvars.iv.i180 = phi i64 [ 0, %308 ], [ %indvars.iv.next.i181, %317 ]
-  %311 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i180
+  %311 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i180
   %312 = load i32, ptr %311, align 4, !tbaa !40
   %313 = icmp ult i32 %309, %312
   br i1 %313, label %314, label %317
@@ -3062,7 +3062,7 @@ _ZN5YosysL14decimal_digitsEj.exit184:             ; preds = %317, %314
 
 375:                                              ; preds = %382, %._crit_edge719
   %indvars.iv.i185 = phi i64 [ 0, %._crit_edge719 ], [ %indvars.iv.next.i186, %382 ]
-  %376 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i185
+  %376 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i185
   %377 = load i32, ptr %376, align 4, !tbaa !40
   %378 = icmp ult i32 %374, %377
   br i1 %378, label %379, label %382
@@ -5894,7 +5894,7 @@ define void @_ZN5Yosys11AigerReader18parse_aiger_binaryEv(ptr noundef nonnull al
 
 52:                                               ; preds = %59, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %59 ]
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !40
   %55 = icmp ult i32 %51, %54
   br i1 %55, label %56, label %59
@@ -6443,7 +6443,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit176:             ; preds = %262, %267, %274
 
 286:                                              ; preds = %293, %284
   %indvars.iv.i177 = phi i64 [ 0, %284 ], [ %indvars.iv.next.i178, %293 ]
-  %287 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i177
+  %287 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i177
   %288 = load i32, ptr %287, align 4, !tbaa !40
   %289 = icmp ult i32 %285, %288
   br i1 %289, label %290, label %293
@@ -6533,7 +6533,7 @@ _ZN5YosysL14decimal_digitsEj.exit181:             ; preds = %293, %290
 
 353:                                              ; preds = %360, %._crit_edge717
   %indvars.iv.i182 = phi i64 [ 0, %._crit_edge717 ], [ %indvars.iv.next.i183, %360 ]
-  %354 = getelementptr inbounds nuw [9 x i32], ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 0, i64 %indvars.iv.i182
+  %354 = getelementptr inbounds nuw i32, ptr @_ZZN5YosysL14decimal_digitsEjE12digit_cutoff, i64 %indvars.iv.i182
   %355 = load i32, ptr %354, align 4, !tbaa !40
   %356 = icmp ult i32 %352, %355
   br i1 %356, label %357, label %360

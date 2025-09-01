@@ -532,7 +532,7 @@ define internal noundef zeroext i1 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr 
 
 switch.lookup:                                    ; preds = %12
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_PNDCP_Data_heur, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Data_heur, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @pn_append_info(ptr noundef %1, ptr noundef %20, ptr noundef nonnull %switch.load)
   %44 = load i8, ptr %6, align 1
@@ -670,10 +670,10 @@ define internal fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %7
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_PNDCP_Option, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Option, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep43 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_PNDCP_Option.1, i64 0, i64 %14
+  %switch.gep43 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Option.1, i64 %14
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %15
 
@@ -2228,7 +2228,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
 
 774:                                              ; preds = %774, %767
   %indvars.iv222.i = phi i64 [ 0, %767 ], [ %indvars.iv.next223.i, %774 ]
-  %775 = getelementptr [8 x i8], ptr %773, i64 0, i64 %indvars.iv222.i
+  %775 = getelementptr i8, ptr %773, i64 %indvars.iv222.i
   %776 = load i8, ptr %775, align 1
   %.not208.i = icmp eq i8 %776, 0
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
@@ -2354,7 +2354,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
 
 832:                                              ; preds = %832, %830
   %indvars.iv218.i = phi i64 [ 0, %830 ], [ %indvars.iv.next219.i, %832 ]
-  %833 = getelementptr [8 x i8], ptr %831, i64 0, i64 %indvars.iv218.i
+  %833 = getelementptr i8, ptr %831, i64 %indvars.iv218.i
   %834 = load i8, ptr %833, align 1
   %.not207.i = icmp eq i8 %834, 0
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
@@ -2411,7 +2411,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
 
 859:                                              ; preds = %859, %852
   %indvars.iv.i = phi i64 [ 0, %852 ], [ %indvars.iv.next.i, %859 ]
-  %860 = getelementptr [8 x i8], ptr %858, i64 0, i64 %indvars.iv.i
+  %860 = getelementptr i8, ptr %858, i64 %indvars.iv.i
   %861 = load i8, ptr %860, align 1
   %.not.i113 = icmp eq i8 %861, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

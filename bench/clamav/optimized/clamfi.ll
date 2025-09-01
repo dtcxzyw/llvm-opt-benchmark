@@ -488,7 +488,7 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
 .thread110:                                       ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %55 = zext i32 %50 to i64
-  %56 = getelementptr inbounds nuw [1424 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr align 1 %1, i64 %spec.select, i1 false)
   %57 = add i32 %50, %32
   store i32 %57, ptr %49, align 8, !tbaa !27
@@ -502,7 +502,7 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %63 = zext i32 %50 to i64
-  %64 = getelementptr inbounds nuw [1424 x i8], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %1, i64 %52, i1 false)
   store i32 -1878720512, ptr %60, align 8, !tbaa !28
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1572,7 +1572,7 @@ define dso_local range(i32 0, 2) i32 @init_actions(ptr noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %43
   %51 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.init_actions, i64 0, i64 %51
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.init_actions, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %52
 
@@ -1599,7 +1599,7 @@ switch.lookup:                                    ; preds = %43
 
 switch.lookup78:                                  ; preds = %56
   %64 = zext nneg i32 %59 to i64
-  %switch.gep79 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.init_actions.1, i64 0, i64 %64
+  %switch.gep79 = getelementptr inbounds nuw ptr, ptr @switch.table.init_actions.1, i64 %64
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %65
 

@@ -532,7 +532,7 @@ _.exit42:                                         ; preds = %28, %31
 34:                                               ; preds = %.preheader
   %35 = and i32 %23, 255
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !9
   %39 = and i8 %38, 1
   %.not35 = icmp eq i8 %39, 0
@@ -812,7 +812,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   %13 = getelementptr inbounds i8, ptr %.ptr.le, i64 -4
   %14 = load i8, ptr %13, align 1, !tbaa !9
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !9
   %18 = and i8 %17, 2
   %.not18 = icmp eq i8 %18, 0
@@ -822,7 +822,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   %20 = getelementptr inbounds i8, ptr %.ptr.le, i64 -2
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !9
   %25 = and i8 %24, 2
   %.not19 = icmp eq i8 %25, 0
@@ -832,7 +832,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   %27 = getelementptr inbounds i8, ptr %.ptr.le, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !9
   %32 = and i8 %31, 2
   %.not20 = icmp eq i8 %32, 0
@@ -842,7 +842,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   %35 = load i8, ptr %34, align 1, !tbaa !9
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !9
   %39 = and i8 %38, 2
   %.not21 = icmp eq i8 %39, 0
@@ -852,7 +852,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   %41 = getelementptr inbounds nuw i8, ptr %.ptr.le, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !9
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !9
   %46 = and i8 %45, 2
   %.not22 = icmp eq i8 %46, 0
@@ -920,7 +920,7 @@ define internal i32 @maildir_filename_cmp(ptr noundef %0, ptr noundef %1) #8 {
 
 10:                                               ; preds = %.lr.ph
   %11 = zext i8 %6 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !9
   %14 = and i8 %13, 2
   %.not10 = icmp eq i8 %14, 0
@@ -928,7 +928,7 @@ define internal i32 @maildir_filename_cmp(ptr noundef %0, ptr noundef %1) #8 {
 
 15:                                               ; preds = %10
   %16 = zext i8 %9 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !9
   %19 = and i8 %18, 2
   %.not11 = icmp eq i8 %19, 0

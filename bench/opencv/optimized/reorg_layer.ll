@@ -1040,7 +1040,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 
 128:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit56, %128
   %indvars.iv126 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit56 ], [ %indvars.iv.next127, %128 ]
-  %129 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN2cv3dnn14ReorgLayerImpl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE.order, i64 0, i64 %indvars.iv126
+  %129 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv3dnn14ReorgLayerImpl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE.order, i64 %indvars.iv126
   %130 = load i32, ptr %129, align 4, !tbaa !57
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds nuw i32, ptr %111, i64 %131
@@ -1257,7 +1257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 
 217:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit81, %217
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit81 ], [ %indvars.iv.next, %217 ]
-  %218 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN2cv3dnn14ReorgLayerImpl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE.order.10, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv3dnn14ReorgLayerImpl8finalizeERKNS_11_InputArrayERKNS_12_OutputArrayE.order.10, i64 %indvars.iv
   %219 = load i32, ptr %218, align 4, !tbaa !57
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds nuw i32, ptr %206, i64 %220

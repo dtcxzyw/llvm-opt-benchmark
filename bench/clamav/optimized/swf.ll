@@ -1206,21 +1206,21 @@ fmap_readn.exit348.thread:                        ; preds = %428, %fmap_readn.ex
   %.0229 = phi i32 [ %439, %fmap_readn.exit348 ], [ %403, %402 ]
   br label %.lr.ph543
 
-.lr.ph543:                                        ; preds = %.lr.ph543.preheader, %441
-  %indvars.iv.i541 = phi i64 [ %indvars.iv.next.i, %441 ], [ 0, %.lr.ph543.preheader ]
+.lr.ph543:                                        ; preds = %.lr.ph543.preheader, %440
+  %indvars.iv.i541 = phi i64 [ %indvars.iv.next.i, %440 ], [ 0, %.lr.ph543.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i541, 1
-  %440 = getelementptr inbounds nuw [83 x %struct.tag_names_s], ptr @tag_names, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 82
-  br i1 %exitcond.i, label %tagname.exit, label %441
+  br i1 %exitcond.i, label %tagname.exit, label %440
 
-441:                                              ; preds = %.lr.ph543
-  %442 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  %443 = load i32, ptr %442, align 8, !tbaa !67
-  %444 = icmp eq i32 %443, %400
-  br i1 %444, label %tagname.exit, label %.lr.ph543
+440:                                              ; preds = %.lr.ph543
+  %441 = getelementptr inbounds nuw %struct.tag_names_s, ptr @tag_names, i64 %indvars.iv.next.i, i32 1
+  %442 = load i32, ptr %441, align 8, !tbaa !67
+  %443 = icmp eq i32 %442, %400
+  br i1 %443, label %tagname.exit, label %.lr.ph543
 
-tagname.exit:                                     ; preds = %441, %.lr.ph543
-  %445 = load ptr, ptr %440, align 16, !tbaa !69
+tagname.exit:                                     ; preds = %440, %.lr.ph543
+  %444 = getelementptr inbounds nuw %struct.tag_names_s, ptr @tag_names, i64 %indvars.iv.next.i
+  %445 = load ptr, ptr %444, align 16, !tbaa !69
   %.not254 = icmp eq ptr %445, null
   %446 = select i1 %.not254, ptr @.str.18, ptr %445
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %446) #8

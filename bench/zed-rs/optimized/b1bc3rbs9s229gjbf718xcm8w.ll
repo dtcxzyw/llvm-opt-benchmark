@@ -20767,12 +20767,12 @@ common.ret:                                       ; preds = %99, %19, %"_ZN4core
 43:                                               ; preds = %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8c073479c6cb0dc6E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = zext nneg i8 %41 to i64
-  %45 = getelementptr inbounds nuw [3 x i64], ptr @anon.850cfd345419a1eca04d8835a75480eb.74, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr @anon.850cfd345419a1eca04d8835a75480eb.74, i64 %44
   %46 = load i64, ptr %45, align 8, !noundef !13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %46, i1 false)
   %.0..0..0..0. = load i8, ptr %4, align 8
   %47 = zext i8 %.0..0..0..0. to i64
-  %48 = getelementptr inbounds nuw [3 x i64], ptr @anon.850cfd345419a1eca04d8835a75480eb.74, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr @anon.850cfd345419a1eca04d8835a75480eb.74, i64 %47
   %49 = load i64, ptr %48, align 8, !noundef !13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %4, i64 %49, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

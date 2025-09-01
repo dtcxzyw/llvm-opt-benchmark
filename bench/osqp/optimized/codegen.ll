@@ -291,15 +291,15 @@ define i64 @codegen_inc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 25:                                               ; preds = %.lr.ph, %25
   %26 = phi i8 [ %23, %.lr.ph ], [ %34, %25 ]
-  %27 = phi ptr [ %5, %.lr.ph ], [ %33, %25 ]
   %.02933 = phi i64 [ 0, %.lr.ph ], [ %32, %25 ]
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %.02933
   %28 = sext i8 %26 to i64
   %29 = getelementptr inbounds i32, ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !9
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %27, align 1, !tbaa !3
   %32 = add nuw nsw i64 %.02933, 1
-  %33 = getelementptr inbounds nuw [102 x i8], ptr %5, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !3
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !11

@@ -2486,10 +2486,10 @@ _ZN2cv3RNG7uniformEii.exit104:                    ; preds = %_ZN2cv3RNG7uniformE
 
 59:                                               ; preds = %59, %56
   %indvars.iv.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i, %59 ]
-  %60 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = uitofp i8 %61 to double
-  %63 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
   store double %62, ptr %63, align 8, !tbaa !182
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2513,10 +2513,10 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit: ; preds = %59
 
 68:                                               ; preds = %68, %_ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit
   %indvars.iv.i105 = phi i64 [ 0, %_ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit ], [ %indvars.iv.next.i106, %68 ]
-  %69 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i105
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i105
   %70 = load i8, ptr %69, align 1, !tbaa !14
   %71 = uitofp i8 %70 to double
-  %72 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv.i105
+  %72 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i105
   store double %71, ptr %72, align 8, !tbaa !182
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, 3
@@ -2575,10 +2575,10 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit108: ; preds = %68
 
 90:                                               ; preds = %90, %87
   %indvars.iv.i109 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i110, %90 ]
-  %91 = getelementptr inbounds nuw [3 x i8], ptr %13, i64 0, i64 %indvars.iv.i109
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i109
   %92 = load i8, ptr %91, align 1, !tbaa !14
   %93 = uitofp i8 %92 to double
-  %94 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv.i109
+  %94 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i109
   store double %93, ptr %94, align 8, !tbaa !182
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 3
@@ -2654,10 +2654,10 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit108: ; preds = %68
 
 119:                                              ; preds = %119, %116
   %indvars.iv.i113 = phi i64 [ 0, %116 ], [ %indvars.iv.next.i114, %119 ]
-  %120 = getelementptr inbounds nuw [3 x i8], ptr %18, i64 0, i64 %indvars.iv.i113
+  %120 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i113
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = uitofp i8 %121 to double
-  %123 = getelementptr inbounds nuw [4 x double], ptr %17, i64 0, i64 %indvars.iv.i113
+  %123 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i113
   store double %122, ptr %123, align 8, !tbaa !182
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, 3
@@ -12854,7 +12854,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEiN11opencv_test12_G
 .critedge37.i.i.i.i.i.i.i.i.i.i:                  ; preds = %520, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i.i.i.i.i.i, %520 ]
   %.lcssa49.i.i.i.i.i.i.i.i.i.i = phi i64 [ %514, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i.i.i.i.i.i, %520 ]
-  %525 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_19SGBMModes7PrintToEPSo.vals, i64 0, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
+  %525 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_19SGBMModes7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
   %526 = load i32, ptr %525, align 4, !tbaa !89, !noalias !441
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %526
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %527, label %505

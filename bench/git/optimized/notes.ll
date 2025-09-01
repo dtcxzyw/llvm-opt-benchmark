@@ -2010,7 +2010,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 134:                                              ; preds = %136, %130
   %.0811.i.i.i = phi i64 [ 0, %130 ], [ %137, %136 ]
-  %135 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
+  %135 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %133, %135
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %136
 

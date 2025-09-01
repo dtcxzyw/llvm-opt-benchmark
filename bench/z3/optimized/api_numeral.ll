@@ -2609,7 +2609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %68
   %105 = zext nneg i32 %69 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.Z3_get_numeral_string, i64 0, i64 %105
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Z3_get_numeral_string, i64 %105
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %106
 

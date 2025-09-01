@@ -4217,7 +4217,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getPackedVersionEPKN
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca [3 x %"class.llvm::StringRef"], align 8
   %11 = alloca %"class.llvm::SmallString", align 8
-  %12 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %2
+  %12 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %2
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !30
@@ -5257,7 +5257,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110StubParser13getLibSectionB5cxx11
   %13 = alloca %"class.llvm::Expected.96", align 8
   %14 = alloca %"class.llvm::Error", align 8
   %15 = alloca %class.anon.228, align 8
-  %16 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %2
+  %16 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %2
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !30
@@ -5661,7 +5661,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110StubParser16getSymbolSectionEPKN
   %16 = alloca %"class.llvm::SmallString", align 8
   %17 = alloca %"class.llvm::Error", align 8
   %18 = alloca %"class.llvm::Error", align 8
-  %19 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %2
+  %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %2
   %.sroa.024.0.copyload = load ptr, ptr %19, align 8, !tbaa !29
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.225.0.copyload = load i64, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !30
@@ -7135,7 +7135,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116getRequiredValueIN4llvm9StringRe
   %15 = alloca %"class.std::optional.152", align 8
   %16 = alloca %"class.llvm::SmallString", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %17 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %17 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.01.0.copyload = load ptr, ptr %17, align 8, !tbaa !29
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !30
@@ -7625,7 +7625,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116collectFromArrayENS_6TBDKeyEPKN4
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [3 x %"class.llvm::StringRef"], align 8
   %8 = alloca %"class.llvm::SmallString", align 8
-  %9 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %9 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.07.0.copyload = load ptr, ptr %9, align 8, !tbaa !29
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !30
@@ -13187,7 +13187,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120insertNonEmptyValu
   store ptr %15, ptr %13, align 8, !tbaa !406
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %16 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %16 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !30
@@ -13597,7 +13597,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114serializeFieldINSt7__cxx1112basi
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %52 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %52 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16734,7 +16734,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122serializeAttrToTargetsISt3mapISt
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %23 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %2
+  %23 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22595,7 +22595,7 @@ _ZNK12_GLOBAL__N_112SymbolFields11SymbolTypes5emptyEv.exit.thread: ; preds = %3,
   store i32 %58, ptr %56, align 8, !tbaa !129
   store i32 0, ptr %57, align 8, !tbaa !129
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %59 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %59 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.0.0.copyload.i = load ptr, ptr %59, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !30
@@ -22800,7 +22800,7 @@ _ZN4llvm4json5ValueC2INS_9StringRefEEERKSt6vectorIT_SaIS5_EE.exit: ; preds = %_Z
   store ptr %.pre4.i, ptr %18, align 8, !tbaa !406
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %19 = getelementptr inbounds nuw [64 x %"class.llvm::StringRef"], ptr @_ZN12_GLOBAL__N_14KeysE, i64 0, i64 %1
+  %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr @_ZN12_GLOBAL__N_14KeysE, i64 %1
   %.sroa.0.0.copyload = load ptr, ptr %19, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !30

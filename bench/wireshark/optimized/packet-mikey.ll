@@ -454,7 +454,7 @@ dissect_payload.exit.us:                          ; preds = %27
   %40 = icmp eq i32 %.065102, -1
   %spec.store.select = select i1 %40, i32 0, i32 %.065102
   %41 = sext i32 %spec.store.select to i64
-  %42 = getelementptr [27 x i32], ptr @hf_mikey_pl, i64 0, i64 %41
+  %42 = getelementptr i32, ptr @hf_mikey_pl, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread86, label %45
@@ -791,7 +791,7 @@ define internal range(i32 0, 196) i32 @dissect_payload_dh(ptr readnone captures(
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_payload_dh, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_payload_dh, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = or disjoint i32 %switch.load, 2
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
@@ -1036,8 +1036,8 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
   %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef 1)
   %34 = icmp ult i8 %32, 14
   %or.cond.i = select i1 %cond.i, i1 %34, i1 false
-  %35 = zext i8 %32 to i64
-  %36 = getelementptr [14 x i32], ptr @hf_mikey_sp_param, i64 0, i64 %35
+  %35 = zext nneg i8 %32 to i64
+  %36 = getelementptr i32, ptr @hf_mikey_sp_param, i64 %35
   %.0.in.i = select i1 %or.cond.i, ptr %36, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 160)
   %.0.i = load i32, ptr %.0.in.i, align 4
   %37 = zext i8 %33 to i32

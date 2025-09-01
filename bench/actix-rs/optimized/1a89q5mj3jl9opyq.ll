@@ -663,7 +663,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17ha6966e6e168ed420E.exit.i.i"
   %.010.i.i = phi i64 [ %7, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$17ha6966e6e168ed420E.exit.i.i" ], [ 0, %0 ]
-  %6 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %.0.val, i64 0, i64 %.010.i.i
+  %6 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.0.val, i64 %.010.i.i
   %7 = add nuw i64 %.010.i.i, 1
   %.val8.i.i = load ptr, ptr %6, align 8, !alias.scope !277, !noundef !7
   %8 = getelementptr i8, ptr %6, i64 8
@@ -715,7 +715,7 @@ define internal fastcc void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..in_pla
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %.body.i.i
-  %30 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %.0.val, i64 0, i64 %.1.i.i
+  %30 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.0.val, i64 %.1.i.i
   %31 = add i64 %.1.i.i, 1
   %.val.i.i = load ptr, ptr %30, align 8, !alias.scope !277, !noundef !7
   %32 = getelementptr i8, ptr %30, i64 8
@@ -1481,7 +1481,7 @@ define hidden void @_ZN8bitflags6parser8from_str17hbbaeffa593c80f8fE(ptr noalias
 
 .lr.ph.i.i.i:                                     ; preds = %29, %33
   %.05.i.i.i = phi i64 [ %34, %33 ], [ 0, %29 ]
-  %30 = getelementptr inbounds nuw [0 x i8], ptr %25, i64 0, i64 %.05.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %.05.i.i.i
   %31 = load i8, ptr %30, align 1, !alias.scope !359, !noalias !353, !noundef !7
   %32 = icmp eq i8 %31, 124
   br i1 %32, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %33

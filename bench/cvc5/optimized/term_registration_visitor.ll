@@ -1606,7 +1606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 45:                                               ; preds = %18, %16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = zext i32 %2 to i64
-  %48 = getelementptr inbounds nuw [14 x ptr], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !123
   %50 = load ptr, ptr %3, align 8, !tbaa !25
   store ptr %50, ptr %9, align 8, !tbaa !25

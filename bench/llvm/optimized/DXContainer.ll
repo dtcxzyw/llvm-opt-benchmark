@@ -2498,7 +2498,7 @@ _ZN4llvm5ErrorD2Ev.exit294:                       ; preds = %257
   %332 = getelementptr inbounds nuw i8, ptr %317, i64 %.sroa.speculated4.i312
   %333 = sub i64 %319, %.sroa.speculated4.i312
   %.sroa.speculated.i313 = tail call i64 @llvm.umin.i64(i64 %333, i64 %329)
-  %334 = getelementptr inbounds nuw [4 x %"struct.llvm::object::ViewArray.36"], ptr %320, i64 0, i64 %indvars.iv
+  %334 = getelementptr inbounds nuw %"struct.llvm::object::ViewArray.36", ptr %320, i64 %indvars.iv
   store ptr %332, ptr %334, align 8, !tbaa !4
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i64 %.sroa.speculated.i313, ptr %.sroa.452.0..sroa_idx, align 8, !tbaa !9
@@ -2572,7 +2572,7 @@ _ZN4llvm5ErrorD2Ev.exit294:                       ; preds = %257
   %371 = getelementptr inbounds nuw i8, ptr %351, i64 %.sroa.speculated4.i320
   %372 = sub i64 %353, %.sroa.speculated4.i320
   %.sroa.speculated.i321 = tail call i64 @llvm.umin.i64(i64 %372, i64 %368)
-  %373 = getelementptr inbounds nuw [4 x %"struct.llvm::object::ViewArray.36"], ptr %354, i64 0, i64 %indvars.iv412
+  %373 = getelementptr inbounds nuw %"struct.llvm::object::ViewArray.36", ptr %354, i64 %indvars.iv412
   store ptr %371, ptr %373, align 8, !tbaa !4
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i64 %.sroa.speculated.i321, ptr %.sroa.437.0..sroa_idx, align 8, !tbaa !9

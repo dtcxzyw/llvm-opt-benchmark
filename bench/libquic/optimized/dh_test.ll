@@ -1261,7 +1261,7 @@ define internal noundef i32 @_ZL16GenerateCallbackiiP11bn_gencb_st(i32 noundef %
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL16GenerateCallbackiiP11bn_gencb_st, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL16GenerateCallbackiiP11bn_gencb_st, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 

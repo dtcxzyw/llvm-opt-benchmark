@@ -62,7 +62,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %indvars.iv248 = phi i64 [ 0, %.preheader198.split.us.preheader ], [ %indvars.iv.next249, %mf_skip.exit.us ]
   %.0133206.us = phi i32 [ 0, %.preheader198.split.us.preheader ], [ %.2135.us, %mf_skip.exit.us ]
   %.0139204.us = phi i32 [ 0, %.preheader198.split.us.preheader ], [ %.2141.us, %mf_skip.exit.us ]
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv248
+  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv248
   %31 = load i32, ptr %30, align 4, !tbaa !22
   %32 = zext i32 %31 to i64
   %33 = sub nsw i64 0, %32
@@ -123,7 +123,7 @@ mf_skip.exit.us:                                  ; preds = %45, %.preheader198.
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %mf_skip.exit.us217 ], [ 0, %.preheader198.split ]
   %.0133206.us210 = phi i32 [ %.2135.us219, %mf_skip.exit.us217 ], [ 0, %.preheader198.split ]
   %.0139204.us212 = phi i32 [ %.2141.us218, %mf_skip.exit.us217 ], [ 0, %.preheader198.split ]
-  %50 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv255
+  %50 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv255
   %51 = load i32, ptr %50, align 4, !tbaa !22
   %52 = zext i32 %51 to i64
   %53 = sub nsw i64 0, %52
@@ -154,7 +154,7 @@ mf_skip.exit.us217:                               ; preds = %.preheader.us220, %
 
 .preheader198.split.split:                        ; preds = %.preheader198.split, %mf_skip.exit
   %indvars.iv251 = phi i64 [ %indvars.iv.next252, %mf_skip.exit ], [ 0, %.preheader198.split ]
-  %59 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv251
+  %59 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv251
   %60 = load i32, ptr %59, align 4, !tbaa !22
   %61 = zext i32 %60 to i64
   %62 = sub nsw i64 0, %61
@@ -242,8 +242,8 @@ mf_skip.exit:                                     ; preds = %.preheader198.split
   %indvars.iv259 = phi i64 [ %94, %.lr.ph.preheader ], [ %indvars.iv.next260, %105 ]
   %.1129229 = phi i32 [ %.1129227, %.lr.ph.preheader ], [ %103, %105 ]
   %.2228 = phi i32 [ %.0127, %.lr.ph.preheader ], [ %97, %105 ]
-  %95 = add nsw i64 %indvars.iv259, -2
-  %96 = getelementptr inbounds nuw [274 x %struct.lzma_match], ptr %88, i64 0, i64 %95
+  %95 = getelementptr %struct.lzma_match, ptr %88, i64 %indvars.iv259
+  %96 = getelementptr i8, ptr %95, i64 -16
   %97 = load i32, ptr %96, align 4, !tbaa !31
   %98 = add i32 %97, 1
   %99 = icmp eq i32 %.2228, %98
@@ -251,7 +251,7 @@ mf_skip.exit:                                     ; preds = %.preheader198.split
 
 100:                                              ; preds = %.lr.ph
   %101 = lshr i32 %.1129229, 7
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %102 = getelementptr i8, ptr %95, i64 -12
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = icmp ugt i32 %101, %103
   br i1 %104, label %105, label %.critedge
@@ -379,7 +379,7 @@ mf_skip.exit179:                                  ; preds = %117, %113, %111
 
 160:                                              ; preds = %155, %159
   %indvars.iv262 = phi i64 [ 0, %155 ], [ %indvars.iv.next263, %159 ]
-  %161 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv262
+  %161 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv262
   %162 = load i32, ptr %161, align 4, !tbaa !22
   %163 = zext i32 %162 to i64
   %164 = sub nsw i64 0, %163

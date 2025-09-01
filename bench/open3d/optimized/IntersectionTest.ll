@@ -891,9 +891,9 @@ define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readon
   %.34 = select i1 %11, double %13, double %14
   %.sink = fsub double %.34, %8
   %.sink31 = fsub double %.33, %8
-  %15 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   store double %.sink31, ptr %15, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   store double %.sink, ptr %16, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

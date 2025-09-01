@@ -1474,7 +1474,7 @@ _ZN4absl7debian26StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %109, label %switch.lookup, label %112
 
 switch.lookup:                                    ; preds = %108
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK10open_spiel13markov_soccer17MarkovSoccerState14ActionToStringB5cxx11Eil, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK10open_spiel13markov_soccer17MarkovSoccerState14ActionToStringB5cxx11Eil, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.invoke
 
@@ -2081,16 +2081,16 @@ define void @_ZN10open_spiel13markov_soccer17MarkovSoccerState11ResolveMoveEii(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = add nsw i32 %1, -1
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds i32, ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111row_offsetsE, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111row_offsetsE, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %10
-  %18 = getelementptr inbounds [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111col_offsetsE, i64 0, i64 %14
+  %18 = getelementptr inbounds i32, ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111col_offsetsE, i64 %14
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3315,10 +3315,10 @@ _ZN10open_spiel10TensorViewILi3EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm3EEb.ex
 95:                                               ; preds = %95, %94
   %indvars.iv.i.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i.i, %95 ]
   %.078.i.i = phi i32 [ 0, %94 ], [ %101, %95 ]
-  %96 = getelementptr inbounds nuw [3 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %96 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i
   %97 = load i32, ptr %96, align 4
   %98 = mul nsw i32 %97, %.078.i.i
-  %99 = getelementptr inbounds nuw [3 x i32], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %98, %100
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

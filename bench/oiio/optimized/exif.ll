@@ -1631,7 +1631,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataType(i32 n
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !52
   br label %6
 
@@ -1649,7 +1649,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry(ptr
 
 4:                                                ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %6 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataType.exit
 
@@ -1740,7 +1740,7 @@ define { ptr, i64 } @_ZN11OpenImageIO6v3_1_013tiff_dir_dataERK12TIFFDirEntryNS0_
 
 6:                                                ; preds = %3
   %7 = zext nneg i16 %5 to i64
-  %8 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -1799,7 +1799,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L20version4char_handlerERKNS0_7TagI
 
 13:                                               ; preds = %7
   %14 = zext nneg i16 %12 to i64
-  %15 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i
 
@@ -1833,7 +1833,7 @@ _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709
 
 32:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
   %33 = zext nneg i16 %12 to i64
-  %34 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -1938,7 +1938,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L17makernote_handlerERKNS0_7TagInfo
 
 16:                                               ; preds = %7
   %17 = zext nneg i16 %15 to i64
-  %18 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2081,7 +2081,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L21version4uint8_handlerERKNS0_7Tag
 
 12:                                               ; preds = %7
   %13 = zext nneg i16 %11 to i64
-  %14 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i
 
@@ -2115,7 +2115,7 @@ _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709
 
 31:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
   %32 = zext nneg i16 %11 to i64
-  %33 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2342,7 +2342,7 @@ _ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit: ; preds = %_ZN11OpenImageIO6
 
 48:                                               ; preds = %.lr.ph.i.preheader
   %49 = zext nneg i16 %44 to i64
-  %50 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2675,7 +2675,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_03pvt21append_tiff_dir_entryERSt6vecto
 16:                                               ; preds = %9
   %.mask = and i32 %3, 15
   %17 = zext nneg i32 %.mask to i64
-  %18 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -7039,7 +7039,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i: ; preds = %_ZN1
   %37 = phi i64 [ %33, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread310 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %.sroa.0.0.insert.insert.i.i320 = phi i64 [ %.sroa.0.0.insert.insert.i.i319, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread310 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %38 = zext nneg i16 %27 to i64
-  %39 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !52
   %41 = mul i64 %40, %37
   %42 = icmp ult i64 %41, 5
@@ -7141,7 +7141,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i149: ; preds = %_
   %74 = phi i64 [ %34, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread321 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %.sroa.0.0.insert.insert.i.i331 = phi i64 [ %.sroa.0.0.insert.insert.i.i330, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread321 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %75 = zext nneg i16 %27 to i64
-  %76 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !52
   %78 = mul i64 %77, %74
   %79 = icmp ult i64 %78, 5
@@ -7444,7 +7444,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit204: ;
 _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i206: ; preds = %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread332, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit
   %199 = phi i64 [ %32, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread332 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %200 = zext nneg i16 %27 to i64
-  %201 = getelementptr inbounds nuw [14 x i64], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !52
   %203 = mul i64 %202, %199
   %204 = icmp ult i64 %203, 5

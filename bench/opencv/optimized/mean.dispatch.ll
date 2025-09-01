@@ -76,7 +76,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline13getSumSqrFuncEi(i32 noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baseline13getSumSqrFuncEiE25__cv_trace_location_fn313)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline13getSumSqrFuncEiE9sumSqrTab, i64 0, i64 %3
+  %4 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline13getSumSqrFuncEiE9sumSqrTab, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !7
@@ -3805,7 +3805,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
   %158 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !11
   %160 = sitofp i32 %159 to double
-  %161 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   %162 = load double, ptr %161, align 8, !tbaa !32
   %163 = fadd double %162, %160
   store double %163, ptr %161, align 8, !tbaa !32
@@ -4668,7 +4668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %_Z
 
 .noexc.i:                                         ; preds = %.noexc299
   %255 = zext nneg i32 %110 to i64
-  %256 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline13getSumSqrFuncEiE9sumSqrTab, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline13getSumSqrFuncEiE9sumSqrTab, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !3
   %258 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %259 = load i32, ptr %258, align 8, !tbaa !7

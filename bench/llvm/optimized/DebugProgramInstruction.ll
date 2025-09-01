@@ -1156,7 +1156,7 @@ _ZN4llvm8DebugLocD2Ev.exit33:                     ; preds = %_ZNK4llvm6MDNode10g
 
 switch.lookup:                                    ; preds = %_ZN4llvm8DebugLocD2Ev.exit33
   %48 = zext nneg i8 %46 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm17DbgVariableRecord20createDebugIntrinsicEPNS_6ModuleEPNS_11InstructionE, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %1, i32 noundef %switch.load, ptr null, i64 0) #18
   %.pr = load i8, ptr %45, align 8, !tbaa !39

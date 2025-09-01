@@ -1006,8 +1006,8 @@ _ZNK4llvm4User10getOperandEj.exit100:             ; preds = %241, %244
 
 251:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit100
   %252 = zext i16 %237 to i64
-  %253 = add nsw i64 %252, -1
-  %254 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %253
+  %253 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %252
+  %254 = getelementptr i8, ptr %253, i64 -16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %254, align 16
   br label %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit
 
@@ -1107,7 +1107,7 @@ _ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit: 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb.exit
   %298 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 104
   %299 = zext i16 %296 to i64
-  %300 = getelementptr inbounds nuw [234 x ptr], ptr %298, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw ptr, ptr %298, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !118
   %.not11.i = icmp eq ptr %301, null
   br i1 %.not11.i, label %302, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_11InstructionE.exit.thread"
@@ -1154,8 +1154,8 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i:       ; preds = %319
 
 _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i: ; preds = %319
   %325 = zext i16 %312 to i64
-  %326 = add nsw i64 %325, -1
-  %327 = getelementptr inbounds nuw [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %326
+  %326 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %325
+  %327 = getelementptr i8, ptr %326, i64 -16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %327, align 16
   %328 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i.i, %321
   br i1 %328, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_11InstructionE.exit.thread142", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_11InstructionE.exit"

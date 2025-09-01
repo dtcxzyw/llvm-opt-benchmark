@@ -172,9 +172,9 @@ define dso_local void @native_send_call_func_ipi(ptr noundef %0) local_unnamed_a
 2:                                                ; preds = %1
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !13
   %4 = and i32 %3, 63
-  %5 = add nuw nsw i32 %4, 1
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %6
+  %5 = zext nneg i32 %4 to i64
+  %6 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 8
   %8 = lshr i32 %3, 6
   %9 = zext nneg i32 %8 to i64
   %10 = sub nsw i64 0, %9
@@ -340,7 +340,7 @@ define dso_local void @default_send_IPI_single_phys(i32 noundef %0, i32 noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !30
   %5 = sext i32 %0 to i64
-  %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
+  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -408,7 +408,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %11
-  %15 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
+  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -435,7 +435,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %31
-  %35 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
+  %35 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %38 = inttoptr i64 %37 to ptr
@@ -506,7 +506,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
 
 18:                                               ; preds = %16
   %19 = and i64 %13, 63
-  %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
+  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -543,7 +543,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
 
 44:                                               ; preds = %42
   %45 = and i64 %39, 63
-  %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
+  %46 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %49 = inttoptr i64 %48 to ptr
@@ -588,9 +588,9 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @default_send_IPI_single(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = and i32 %0, 63
-  %4 = add nuw nsw i32 %3, 1
-  %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %5
+  %4 = zext nneg i32 %3 to i64
+  %5 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 8
   %7 = lshr i32 %0, 6
   %8 = zext nneg i32 %7 to i64
   %9 = sub nsw i64 0, %8

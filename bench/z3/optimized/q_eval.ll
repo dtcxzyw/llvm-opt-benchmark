@@ -1556,7 +1556,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit164: ; preds = %._crit_edge.i160
   %283 = load ptr, ptr %7, align 8, !tbaa !447
   %284 = getelementptr inbounds nuw ptr, ptr %283, i64 %282
   %285 = load ptr, ptr %284, align 8, !tbaa !443
-  %286 = getelementptr inbounds nuw [0 x ptr], ptr %279, i64 0, i64 %282
+  %286 = getelementptr inbounds nuw ptr, ptr %279, i64 %282
   %287 = load ptr, ptr %286, align 8, !tbaa !443
   %288 = icmp eq ptr %285, %287
   br i1 %288, label %313, label %289, !llvm.loop !464
@@ -1969,9 +1969,9 @@ _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit: ; preds = %_ZNK9func_de
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57.us: ; preds = %52, %.lr.ph.split.us
   %.0.i56.us = phi i32 [ %54, %52 ], [ 0, %.lr.ph.split.us ]
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %indvars.iv83
+  %55 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv83
   %56 = load ptr, ptr %55, align 8, !tbaa !451
-  %57 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %indvars.iv83
+  %57 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv83
   %58 = load ptr, ptr %57, align 8, !tbaa !451
   %59 = tail call noundef i32 @_ZN1q4eval7compareEjPKPN3euf5enodeEP4exprS7_R7svectorISt4pairIS3_S3_EjE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, ptr noundef %2, ptr noundef %56, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %5)
   switch i32 %59, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us [
@@ -2002,9 +2002,9 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit.us.thread: ; preds = %_
 
 _ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57: ; preds = %.lr.ph.split, %62
   %.0.i56 = phi i32 [ %64, %62 ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %47, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !451
-  %67 = getelementptr inbounds nuw [0 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !451
   %69 = tail call noundef i32 @_ZN1q4eval7compareEjPKPN3euf5enodeEP4exprS7_R7svectorISt4pairIS3_S3_EjE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, ptr noundef %2, ptr noundef %66, ptr noundef %68, ptr noundef nonnull align 8 dereferenceable(8) %5)
   switch i32 %69, label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit [

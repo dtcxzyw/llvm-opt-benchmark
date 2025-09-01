@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @test_x448() #1 {
 32:                                               ; preds = %31, %31, %31
   %33 = add nsw i32 %.027, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [3 x [56 x i8]], ptr @out_u3, i64 0, i64 %34
+  %35 = getelementptr inbounds [56 x i8], ptr @out_u3, i64 %34
   %36 = call i32 @memcmp(ptr noundef nonnull dereferenceable(56) %3, ptr noundef nonnull dereferenceable(56) %35, i64 noundef 56) #9
   %37 = call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 678, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.23, i32 noundef %36, i32 noundef 0) #8
   %.not21 = icmp eq i32 %37, 0

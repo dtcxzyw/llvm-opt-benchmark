@@ -69,7 +69,7 @@ define hidden noundef zeroext i1 @_ZN3smt7checker8all_argsEP3appb(ptr noundef no
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i1 %2 to i64
-  %12 = getelementptr inbounds nuw [2 x %class.obj_map], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %class.obj_map, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %17
@@ -191,7 +191,7 @@ define hidden noundef zeroext i1 @_ZN3smt7checker5checkEP4exprb(ptr noundef nonn
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = zext i1 %2 to i64
-  %11 = getelementptr inbounds nuw [2 x %class.obj_map], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %class.obj_map, ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -272,7 +272,7 @@ _ZNK7obj_mapI4exprbE4findEPS0_Rb.exit.thread:     ; preds = %.lr.ph.i.i.i, %37, 
   %46 = zext i1 %42 to i8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = zext i1 %2 to i64
-  %49 = getelementptr inbounds nuw [2 x %class.obj_map], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw %class.obj_map, ptr %47, i64 %48
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !31
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -948,7 +948,7 @@ define hidden noundef ptr @_ZN3smt7checker20get_enode_eq_to_coreEP3app(ptr nound
 
 10:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = invoke noundef ptr @_ZN3smt7checker15get_enode_eq_toEP4expr(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %12)
           to label %14 unwind label %15

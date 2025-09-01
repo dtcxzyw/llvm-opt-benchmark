@@ -466,21 +466,21 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %150, %154
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.055.0.copyload, i64 1
   %164 = load i8, ptr %163, align 1, !tbaa !295
-  %switch.tableidx208 = add i8 %164, -66
-  %165 = icmp ult i8 %switch.tableidx208, 55
+  %switch.tableidx207 = add i8 %164, -66
+  %165 = icmp ult i8 %switch.tableidx207, 55
   br i1 %165, label %switch.hole_check, label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
 
 switch.hole_check:                                ; preds = %162
-  %switch.maskindex = zext nneg i8 %switch.tableidx208 to i64
+  %switch.maskindex = zext nneg i8 %switch.tableidx207 to i64
   %switch.shifted210 = lshr i64 18014402808643585, %switch.maskindex
   %switch.lobit211 = trunc i64 %switch.shifted210 to i1
   br i1 %switch.lobit211, label %switch.lookup209, label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
 
 switch.lookup209:                                 ; preds = %switch.hole_check
-  %switch.cast212 = zext nneg i8 %switch.tableidx208 to i55
+  %switch.cast212 = zext nneg i8 %switch.tableidx207 to i55
   %switch.downshift214 = lshr i55 4294967297, %switch.cast212
   %switch.masked215 = trunc i55 %switch.downshift214 to i1
-  %switch.cast216 = zext nneg i8 %switch.tableidx208 to i55
+  %switch.cast216 = zext nneg i8 %switch.tableidx207 to i55
   %switch.downshift218 = lshr i55 -18014398505287680, %switch.cast216
   %switch.masked219 = trunc i55 %switch.downshift218 to i1
   br label %_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit

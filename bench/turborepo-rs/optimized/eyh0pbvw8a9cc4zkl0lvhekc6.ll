@@ -2788,7 +2788,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %32, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i, label %33
 
 33:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i
-  %34 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.630.0.copyload, i64 0, i64 %.sroa.0.0.i.i
+  %34 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.630.0.copyload, i64 %.sroa.0.0.i.i
   %35 = add i64 %.sroa.0.0.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %34) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i unwind label %37, !noalias !552
@@ -2804,7 +2804,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
 
 39:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i
-  %40 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.630.0.copyload, i64 0, i64 %.sroa.0.1.i.i
+  %40 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.630.0.copyload, i64 %.sroa.0.1.i.i
   %41 = add i64 %.sroa.0.1.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %40) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i unwind label %42, !noalias !552
@@ -4647,7 +4647,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %84, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %85
 
 85:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %86 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.0.i.i.i
+  %86 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.0.i.i.i
   %87 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %86) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %89, !noalias !991
@@ -4663,7 +4663,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 91:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %92 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.1.i.i.i
+  %92 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.1.i.i.i
   %93 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %92) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %94, !noalias !991
@@ -5273,7 +5273,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %84, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %85
 
 85:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %86 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.0.i.i.i
+  %86 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.0.i.i.i
   %87 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %86) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %89, !noalias !1123
@@ -5289,7 +5289,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 91:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %92 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.1.i.i.i
+  %92 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.1.i.i.i
   %93 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %92) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %94, !noalias !1123
@@ -5899,7 +5899,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %84, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %85
 
 85:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %86 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.0.i.i.i
+  %86 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.0.i.i.i
   %87 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %86) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %89, !noalias !1255
@@ -5915,7 +5915,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 91:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %92 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %82, i64 0, i64 %.sroa.0.1.i.i.i
+  %92 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %82, i64 %.sroa.0.1.i.i.i
   %93 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %92) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %94, !noalias !1255
@@ -9987,7 +9987,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %26, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %27
 
 27:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %28 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.69.0.copyload.i, i64 0, i64 %.sroa.0.0.i.i.i
+  %28 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.69.0.copyload.i, i64 %.sroa.0.0.i.i.i
   %29 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %28) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %31, !noalias !2172
@@ -10003,7 +10003,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 33:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %34 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.69.0.copyload.i, i64 0, i64 %.sroa.0.1.i.i.i
+  %34 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.69.0.copyload.i, i64 %.sroa.0.1.i.i.i
   %35 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %34) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %36, !noalias !2172
@@ -10301,7 +10301,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %29, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %30
 
 30:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %31 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.627.0.copyload113.i, i64 0, i64 %.sroa.0.0.i.i.i
+  %31 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.627.0.copyload113.i, i64 %.sroa.0.0.i.i.i
   %32 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %31) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %34, !noalias !2212
@@ -10317,7 +10317,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 36:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %37 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.627.0.copyload113.i, i64 0, i64 %.sroa.0.1.i.i.i
+  %37 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.627.0.copyload113.i, i64 %.sroa.0.1.i.i.i
   %38 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %37) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %39, !noalias !2212
@@ -10614,7 +10614,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br i1 %29, label %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBJ_.exit.i.i, label %30
 
 30:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i
-  %31 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.627.0.copyload113.i, i64 0, i64 %.sroa.0.0.i.i.i
+  %31 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.627.0.copyload113.i, i64 %.sroa.0.0.i.i.i
   %32 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %31) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit.i.i.i unwind label %34, !noalias !2252
@@ -10630,7 +10630,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenE
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
 
 36:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i
-  %37 = getelementptr inbounds [0 x { { i64, [5 x i64] }, { i64, i64 } }], ptr %.sroa.627.0.copyload113.i, i64 0, i64 %.sroa.0.1.i.i.i
+  %37 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %.sroa.627.0.copyload113.i, i64 %.sroa.0.1.i.i.i
   %38 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9TokenKindTjjEEEBL_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %37) #22
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax5token5TokenEBK_.exit7.i.i.i unwind label %39, !noalias !2252

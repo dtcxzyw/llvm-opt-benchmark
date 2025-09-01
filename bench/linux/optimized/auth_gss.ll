@@ -647,7 +647,7 @@ define internal noundef ptr @gss_create_cred(ptr noundef %0, ptr noundef %1, i32
 
 12:                                               ; preds = %8, %4
   %13 = phi i64 [ 0, %4 ], [ %11, %8 ]
-  %14 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13, i64 2
+  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 2
   %15 = load ptr, ptr %14, align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %5, i64 noundef 136) #19
   %17 = icmp eq ptr %16, null
@@ -698,7 +698,7 @@ define internal fastcc ptr @gss_auth_find_or_add_hashed(ptr noundef readonly cap
   tail call void @_raw_spin_lock(ptr noundef nonnull @gss_auth_hash_lock) #18
   %5 = mul i64 %4, 7046029254386353131
   %6 = lshr i64 %5, 60
-  %7 = getelementptr [16 x %struct.hlist_head], ptr @gss_auth_hash_table, i64 0, i64 %6
+  %7 = getelementptr %struct.hlist_head, ptr @gss_auth_hash_table, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = getelementptr i8, ptr %8, i64 -8
@@ -1548,7 +1548,7 @@ define internal void @gss_pipe_release(ptr noundef readonly captures(none) %0) #
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %46 = load volatile ptr, ptr %45, align 8
   %47 = zext i32 %44 to i64
-  %48 = getelementptr [0 x ptr], ptr %46, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   tail call void @__rcu_read_unlock() #18
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 192
@@ -1577,7 +1577,7 @@ define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v1(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #18
   tail call void @_raw_spin_lock(ptr noundef nonnull @pipe_version_lock) #18
@@ -1899,7 +1899,7 @@ define internal fastcc void @gss_release_msg(ptr noundef %0) unnamed_addr #2 ali
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 2536
   %14 = load volatile ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @__rcu_read_unlock() #18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 192
@@ -2360,7 +2360,7 @@ define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v0(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr [0 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #18
   tail call void @_raw_spin_lock(ptr noundef nonnull @pipe_version_lock) #18
@@ -2434,7 +2434,7 @@ define internal range(i32 -10, -11) i32 @gss_cred_init(ptr noundef %0, ptr nound
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 2536
   %19 = load volatile ptr, ptr %18, align 8
   %20 = zext i32 %17 to i64
-  %21 = getelementptr [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   call void @__rcu_read_unlock() #18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4841,7 +4841,7 @@ define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   %10 = load volatile ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr [0 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @__rcu_read_unlock() #18
   tail call void @_raw_spin_lock(ptr noundef nonnull @pipe_version_lock) #18
@@ -4861,7 +4861,7 @@ define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr [2 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -4913,7 +4913,7 @@ define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 2536
   %53 = load volatile ptr, ptr %52, align 8
   %54 = zext i32 %51 to i64
-  %55 = getelementptr [0 x ptr], ptr %53, i64 0, i64 %54
+  %55 = getelementptr ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   tail call void @__rcu_read_unlock() #18
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 192

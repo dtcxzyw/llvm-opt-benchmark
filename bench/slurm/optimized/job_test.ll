@@ -279,7 +279,7 @@ _get_job_node_req.exit:                           ; preds = %68, %74, %76, %81
 
 switch.lookup:                                    ; preds = %87
   %89 = zext nneg i16 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.job_test, i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_test, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split79
 

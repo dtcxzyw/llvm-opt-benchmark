@@ -837,7 +837,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %91 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %89, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %90, ptr noundef %91) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %indvars.iv.next
+  %92 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %indvars.iv.next
   %93 = load ptr, ptr %92, align 16, !tbaa !121
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %33, label %88
@@ -872,20 +872,19 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
 
 113:                                              ; preds = %33, %113
   %indvars.iv123 = phi i64 [ 0, %33 ], [ %indvars.iv.next124, %113 ]
-  %114 = phi ptr [ @.str.69, %33 ], [ %123, %113 ]
-  %115 = phi ptr [ @_pdf_bpp, %33 ], [ %122, %113 ]
+  %114 = phi ptr [ @.str.69, %33 ], [ %122, %113 ]
   %.0114120 = phi i32 [ 0, %33 ], [ %spec.select, %113 ]
-  %116 = load ptr, ptr %85, align 8, !tbaa !120
-  %117 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %114, i32 noundef 5) #16
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %116, ptr noundef %117) #16
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load i32, ptr %118, align 8, !tbaa !125
-  %120 = icmp eq i32 %119, %87
-  %121 = trunc nuw nsw i64 %indvars.iv123 to i32
-  %spec.select = select i1 %120, i32 %121, i32 %.0114120
+  %115 = load ptr, ptr %85, align 8, !tbaa !120
+  %116 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %114, i32 noundef 5) #16
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %115, ptr noundef %116) #16
+  %117 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv123, i32 1
+  %118 = load i32, ptr %117, align 8, !tbaa !125
+  %119 = icmp eq i32 %118, %87
+  %120 = trunc nuw nsw i64 %indvars.iv123 to i32
+  %spec.select = select i1 %119, i32 %120, i32 %.0114120
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %122 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %indvars.iv.next124
-  %123 = load ptr, ptr %122, align 16, !tbaa !127
+  %121 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv.next124
+  %122 = load ptr, ptr %121, align 16, !tbaa !127
   %exitcond126 = icmp eq i64 %indvars.iv.next124, 2
   br i1 %exitcond126, label %94, label %113
 }
@@ -939,7 +938,7 @@ define internal void @size_toggle_callback(ptr noundef %0, ptr noundef %1) #1 {
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %6
   %8 = load ptr, ptr %7, align 16, !tbaa !121
   br label %11
 
@@ -996,7 +995,7 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
   br i1 %18, label %20, label %24
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 16, !tbaa !121
   %23 = tail call i32 @strcasecmp(ptr noundef nonnull %.tr39, ptr noundef %22) #20
   %.not = icmp eq i32 %23, 0
@@ -1159,7 +1158,7 @@ define internal void @bpp_toggle_callback(ptr noundef %0, ptr readnone captures(
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %6, i32 1
+  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %6, i32 1
   %8 = load i32, ptr %7, align 8, !tbaa !125
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %8) #16
   br label %9
@@ -1243,7 +1242,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 
 41:                                               ; preds = %1
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw %struct.anon, ptr @dt_pdf_paper_sizes, i64 %42
   %44 = load ptr, ptr %43, align 16, !tbaa !121
   br label %size_toggle_callback.exit
 
@@ -1269,7 +1268,7 @@ size_toggle_callback.exit:                        ; preds = %41, %45
 
 57:                                               ; preds = %size_toggle_callback.exit
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %58, i32 1
+  %59 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %58, i32 1
   %60 = load i32, ptr %59, align 8, !tbaa !125
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %60) #16
   br label %bpp_toggle_callback.exit
@@ -1471,7 +1470,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
 
 66:                                               ; preds = %57, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %indvars.iv.next
+  %67 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %13, label %57
 

@@ -7762,7 +7762,7 @@ define linkonce_odr hidden void @_Z8check_opISt8equal_toEvv() local_unnamed_addr
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -7777,7 +7777,7 @@ define linkonce_odr hidden void @_Z8check_opISt8equal_toEvv() local_unnamed_addr
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %97, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8042,7 +8042,7 @@ define linkonce_odr hidden void @_Z8check_opISt12not_equal_toEvv() local_unnamed
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -8057,7 +8057,7 @@ define linkonce_odr hidden void @_Z8check_opISt12not_equal_toEvv() local_unnamed
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %97, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8322,7 +8322,7 @@ define linkonce_odr hidden void @_Z8check_opISt4lessEvv() local_unnamed_addr #4 
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -8337,7 +8337,7 @@ define linkonce_odr hidden void @_Z8check_opISt4lessEvv() local_unnamed_addr #4 
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %101, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8604,7 +8604,7 @@ define linkonce_odr hidden void @_Z8check_opISt10less_equalEvv() local_unnamed_a
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -8619,7 +8619,7 @@ define linkonce_odr hidden void @_Z8check_opISt10less_equalEvv() local_unnamed_a
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %101, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8886,7 +8886,7 @@ define linkonce_odr hidden void @_Z8check_opISt7greaterEvv() local_unnamed_addr 
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -8901,7 +8901,7 @@ define linkonce_odr hidden void @_Z8check_opISt7greaterEvv() local_unnamed_addr 
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %101, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9168,7 +9168,7 @@ define linkonce_odr hidden void @_Z8check_opISt13greater_equalEvv() local_unname
 
 .preheader:                                       ; preds = %0, %16
   %.01128 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %13 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01128
+  %13 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01128
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   br label %18
 
@@ -9183,7 +9183,7 @@ define linkonce_odr hidden void @_Z8check_opISt13greater_equalEvv() local_unname
 18:                                               ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit
   %.01227 = phi i64 [ 0, %.preheader ], [ %101, %_ZN7testing15AssertionResultD2Ev.exit ]
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
-  %20 = getelementptr inbounds nuw [3 x ptr], ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 0, i64 %.01227
+  %20 = getelementptr inbounds nuw ptr, ptr @__const._Z8check_opISt13greater_equalEvv.inputs, i64 %.01227
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

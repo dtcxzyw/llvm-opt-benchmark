@@ -32,7 +32,7 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %14 = getelementptr inbounds [253 x i8], ptr @ff_ac3_bin_to_band_tab, i64 0, i64 %7
+  %14 = getelementptr inbounds i8, ptr @ff_ac3_bin_to_band_tab, i64 %7
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = zext i8 %15 to i64
   br label %17
@@ -44,7 +44,7 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   %19 = getelementptr inbounds i16, ptr %3, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !7
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %21 = getelementptr inbounds nuw [51 x i8], ptr @ff_ac3_band_start_tab, i64 0, i64 %indvars.iv.next60
+  %21 = getelementptr inbounds nuw i8, ptr @ff_ac3_band_start_tab, i64 %indvars.iv.next60
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = zext i8 %22 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %23)
@@ -70,7 +70,7 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   %33 = sub nsw i32 %.040., %32
   %narrow = tail call i32 @llvm.smin.i32(i32 %33, i32 255)
   %34 = sext i32 %narrow to i64
-  %35 = getelementptr inbounds [260 x i8], ptr @ac3_log_add_tab, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @ac3_log_add_tab, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = zext i8 %36 to i32
   %38 = add nsw i32 %.040., %37
@@ -104,12 +104,12 @@ define range(i32 -1094995529, 1) i32 @ff_ac3_bit_alloc_calc_mask(ptr noundef rea
 
 15:                                               ; preds = %12
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds [253 x i8], ptr @ff_ac3_bin_to_band_tab, i64 0, i64 %16
+  %17 = getelementptr inbounds i8, ptr @ff_ac3_bin_to_band_tab, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = zext i8 %18 to i32
-  %20 = add nsw i32 %3, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [253 x i8], ptr @ff_ac3_bin_to_band_tab, i64 0, i64 %21
+  %20 = zext nneg i32 %3 to i64
+  %21 = getelementptr i8, ptr @ff_ac3_bin_to_band_tab, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %2, 0
@@ -200,7 +200,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
   %78 = load i32, ptr %50, align 4, !tbaa !13
   %79 = sub nsw i32 %77, %.2182.ph
   %80 = trunc i32 %79 to i16
-  %81 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
   store i16 %80, ptr %81, align 2, !tbaa !7
   %82 = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp sgt i16 %55, %58
@@ -313,7 +313,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %131 = sub nsw i32 %., %.4184
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 %130)
   %133 = trunc i32 %132 to i16
-  %134 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv256
+  %134 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv256
   store i16 %133, ptr %134, align 2, !tbaa !7
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count
@@ -360,7 +360,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %155 = load i32, ptr %154, align 4, !tbaa !23
   %156 = load i32, ptr %0, align 4, !tbaa !24
   %157 = sext i32 %156 to i64
-  %invariant.gep = getelementptr [3 x i16], ptr @ac3_hearing_threshold_tab, i64 0, i64 %157
+  %invariant.gep = getelementptr i16, ptr @ac3_hearing_threshold_tab, i64 %157
   %158 = zext i8 %18 to i64
   %159 = add nuw nsw i32 %24, 1
   %wide.trip.count268 = zext nneg i32 %159 to i64
@@ -381,7 +381,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %168 = tail call i32 @llvm.smax.i32(i32 %166, i32 %167)
   %169 = tail call i32 @llvm.smax.i32(i32 %.212, i32 %168)
   %170 = trunc i32 %169 to i16
-  %171 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv260
+  %171 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv260
   store i16 %170, ptr %171, align 2, !tbaa !7
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
@@ -397,13 +397,13 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   br i1 %177, label %178, label %._crit_edge278
 
 ._crit_edge278:                                   ; preds = %172
-  %.phi.trans.insert279 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv265
+  %.phi.trans.insert279 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv265
   %.pre280 = load i16, ptr %.phi.trans.insert279, align 2, !tbaa !7
   br label %184
 
 178:                                              ; preds = %172
   %179 = lshr i32 %176, 2
-  %180 = getelementptr inbounds nuw [50 x i16], ptr %13, i64 0, i64 %indvars.iv265
+  %180 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv265
   %181 = load i16, ptr %180, align 2, !tbaa !7
   %182 = trunc i32 %179 to i16
   %183 = add i16 %181, %182
@@ -415,7 +415,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %186 = trunc nuw nsw i64 %indvars.iv265 to i32
   %187 = lshr i32 %186, %155
   %188 = zext nneg i32 %187 to i64
-  %gep = getelementptr [50 x [3 x i16]], ptr %invariant.gep, i64 0, i64 %188
+  %gep = getelementptr [3 x i16], ptr %invariant.gep, i64 %188
   %189 = load i16, ptr %gep, align 2, !tbaa !7
   %190 = zext i16 %189 to i32
   %191 = sext i16 %185 to i32

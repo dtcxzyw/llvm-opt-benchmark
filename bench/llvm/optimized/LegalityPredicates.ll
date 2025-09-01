@@ -4114,9 +4114,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %6 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %5, i32 2
   %7 = load i32, ptr %6, align 8, !tbaa !131
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %8
   %10 = zext i32 %.val2 to i64
-  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !132, !range !134, !noundef !135
   %13 = trunc nuw i8 %12 to i1
   ret i1 %13

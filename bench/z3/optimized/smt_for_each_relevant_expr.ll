@@ -147,7 +147,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %14
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.04755 = phi i32 [ %10, %.lr.ph ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_posEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %28)
   %30 = add i32 %29, %.04755
@@ -209,7 +209,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager10
 62:                                               ; preds = %.lr.ph59, %62
   %indvars.iv63 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next64, %62 ]
   %.257 = phi i32 [ %10, %.lr.ph59 ], [ %.sroa.speculated, %62 ]
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %indvars.iv63
+  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv63
   %64 = load ptr, ptr %63, align 8, !tbaa !27
   %65 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_posEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %64)
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.257, i32 %65)
@@ -412,7 +412,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %14
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.03543 = phi i32 [ %10, %.lr.ph ], [ %30, %26 ]
-  %27 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_negEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %28)
   %30 = add i32 %29, %.03543
@@ -474,7 +474,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %_ZNK11ast_manager10
 64:                                               ; preds = %.lr.ph47, %64
   %indvars.iv51 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next52, %64 ]
   %.245 = phi i32 [ %10, %.lr.ph47 ], [ %.sroa.speculated, %64 ]
-  %65 = getelementptr inbounds nuw [0 x ptr], ptr %63, i64 0, i64 %indvars.iv51
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv51
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %67 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_negEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %66)
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.245, i32 %67)
@@ -1465,7 +1465,7 @@ define hidden void @_ZN3smt22for_each_relevant_expr11process_appEP3app(ptr nound
 
 9:                                                ; preds = %.lr.ph, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !548
@@ -1589,7 +1589,7 @@ define hidden void @_ZN3smt22for_each_relevant_expr22process_relevant_childEP3ap
 
 12:                                               ; preds = %.lr.ph, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit.thread ]
-  %13 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = load ptr, ptr %7, align 8, !tbaa !553
   %16 = tail call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %15)
@@ -1753,7 +1753,7 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8con
 
 89:                                               ; preds = %.lr.ph59, %.critedge
   %indvars.iv64 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next65, %.critedge ]
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %indvars.iv64
+  %90 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv64
   %91 = load ptr, ptr %90, align 8, !tbaa !27
   %92 = load ptr, ptr %11, align 8, !tbaa !553
   %93 = tail call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %92)

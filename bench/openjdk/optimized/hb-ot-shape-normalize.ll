@@ -1932,7 +1932,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(216) %4, i32 noundef %5, ptr noundef %47)
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @_hb_modified_combining_class, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @_hb_modified_combining_class, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 8

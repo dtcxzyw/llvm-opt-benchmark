@@ -112,7 +112,7 @@ define noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_chars
   %25 = load i8, ptr %.059105, align 1, !tbaa !10
   %26 = and i8 %25, 3
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !16
   %30 = lshr i8 %25, 2
   %31 = zext nneg i8 %30 to i64
@@ -369,7 +369,7 @@ define noundef ptr @_ZN5boost4urls6detail11pct_vformatERKNS0_7grammar9lut_charsE
   %24 = load i8, ptr %.059109, align 1, !tbaa !10
   %25 = and i8 %24, 3
   %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !16
   %29 = lshr i8 %24, 2
   %30 = zext nneg i8 %29 to i64

@@ -900,7 +900,7 @@ define hidden void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..tr
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds [0 x i8], ptr %27, i64 0, i64 %25
+  %28 = getelementptr inbounds i8, ptr %27, i64 %25
   %29 = load i8, ptr %28, align 1, !noundef !4
   %30 = icmp eq i8 %29, %9
   br i1 %30, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h2be2e5629f2ca383E.exit", label %37

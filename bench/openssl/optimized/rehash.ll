@@ -411,7 +411,7 @@ ends_with_dirsep.exit:                            ; preds = %18
   %89 = icmp eq i32 %88, 0
   %.030.lcssa.i = zext i1 %89 to i32
   %90 = zext i1 %89 to i64
-  %91 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !15
   %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #15
   %94 = shl i64 %93, 32
@@ -435,7 +435,7 @@ handle_symlink.exit.thread:                       ; preds = %72, %84, %.preheade
   br label %106
 
 handle_symlink.exit:                              ; preds = %100
-  %102 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 %101
   store i8 0, ptr %102, align 1, !tbaa !21
   %103 = trunc i64 %97 to i16
   %104 = call fastcc i32 @add_entry(i32 noundef %.030.lcssa.i, i32 noundef %83, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0, i16 noundef zeroext %103)
@@ -461,7 +461,7 @@ handle_symlink.exit:                              ; preds = %100
 
 112:                                              ; preds = %110, %.preheader.i149
   %.04359.i = phi i64 [ 0, %.preheader.i149 ], [ %111, %110 ]
-  %113 = getelementptr inbounds nuw [4 x ptr], ptr @extensions, i64 0, i64 %.04359.i
+  %113 = getelementptr inbounds nuw ptr, ptr @extensions, i64 %.04359.i
   %114 = load ptr, ptr %113, align 8, !tbaa !15
   %115 = call i32 @OPENSSL_strcasecmp(ptr noundef %114, ptr noundef nonnull %109) #14
   %116 = icmp eq i32 %115, 0
@@ -595,7 +595,7 @@ do_file.exit:                                     ; preds = %110, %106, %120, %1
 180:                                              ; preds = %.preheader159, %._crit_edge193
   %.0111196 = phi i64 [ 0, %.preheader159 ], [ %306, %._crit_edge193 ]
   %.5195 = phi i32 [ %.3.lcssa, %.preheader159 ], [ %.6.lcssa, %._crit_edge193 ]
-  %181 = getelementptr inbounds nuw [257 x ptr], ptr @hash_table, i64 0, i64 %.0111196
+  %181 = getelementptr inbounds nuw ptr, ptr @hash_table, i64 %.0111196
   %182 = load ptr, ptr %181, align 8, !tbaa !41
   %.not137188 = icmp eq ptr %182, null
   br i1 %.not137188, label %._crit_edge193, label %.lr.ph192
@@ -660,7 +660,7 @@ do_file.exit:                                     ; preds = %110, %106, %120, %1
   %213 = load i32, ptr %203, align 8, !tbaa !52
   %214 = load i16, ptr %204, align 4, !tbaa !53
   %215 = zext i16 %214 to i64
-  %216 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !15
   %218 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.36, i32 noundef %213, ptr noundef %217, i32 noundef %209) #14
   %.b133 = load i1, ptr @verbose, align 4
@@ -698,7 +698,7 @@ do_file.exit:                                     ; preds = %110, %106, %120, %1
   %238 = load i32, ptr %203, align 8, !tbaa !52
   %239 = load i16, ptr %204, align 4, !tbaa !53
   %240 = zext i16 %239 to i64
-  %241 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !15
   %243 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.38, ptr noundef nonnull %0, ptr noundef nonnull %.0109, i32 noundef %238, ptr noundef %242, i32 noundef %.2119) #14
   %.b132 = load i1, ptr @verbose, align 4
@@ -765,7 +765,7 @@ do_file.exit:                                     ; preds = %110, %106, %120, %1
   %281 = load i32, ptr %203, align 8, !tbaa !52
   %282 = load i16, ptr %204, align 4, !tbaa !53
   %283 = zext i16 %282 to i64
-  %284 = getelementptr inbounds nuw [2 x ptr], ptr @suffixes, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr @suffixes, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !15
   %286 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.38, ptr noundef nonnull %0, ptr noundef nonnull %.0109, i32 noundef %281, ptr noundef %285, i32 noundef %209) #14
   %.b131 = load i1, ptr @verbose, align 4
@@ -933,7 +933,7 @@ define internal fastcc range(i32 0, 2) i32 @add_entry(i32 noundef range(i32 0, 2
   %7 = add i32 %1, %0
   %8 = urem i32 %7, 257
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [257 x ptr], ptr @hash_table, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @hash_table, i64 %9
   %.06279 = load ptr, ptr %10, align 8, !tbaa !41
   %cond80 = icmp eq ptr %.06279, null
   br i1 %cond80, label %._crit_edge, label %.lr.ph

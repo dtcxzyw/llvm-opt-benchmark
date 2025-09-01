@@ -9566,7 +9566,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBi
 .critedge._crit_edge:                             ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !343
-  %.phi.trans.insert15 = getelementptr inbounds nuw [2 x i32], ptr %.pre, i64 0, i64 %10
+  %.phi.trans.insert15 = getelementptr inbounds nuw i32, ptr %.pre, i64 %10
   %.pre16 = load i32, ptr %.phi.trans.insert15, align 4, !tbaa !70
   br label %93
 
@@ -9579,7 +9579,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBi
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !344
-  %52 = getelementptr inbounds nuw [2 x ptr], ptr %51, i64 0, i64 %10
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %10
   %53 = load ptr, ptr %52, align 8, !tbaa !151
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %55 = load ptr, ptr %54, align 8, !tbaa !122
@@ -9591,7 +9591,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl28foldFBi
   %61 = sub i32 %43, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !343
-  %64 = getelementptr inbounds nuw [2 x i32], ptr %63, i64 0, i64 %10
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %10
   store i32 %61, ptr %64, align 4, !tbaa !70
   br label %93
 
@@ -9640,7 +9640,7 @@ _ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit: ; preds = %77, %79, %87
   %89 = sub i32 %43, %.0.i.i
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !343
-  %92 = getelementptr inbounds nuw [2 x i32], ptr %91, i64 0, i64 %10
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %10
   store i32 %89, ptr %92, align 4, !tbaa !70
   br label %93
 
@@ -9696,7 +9696,7 @@ _ZNK4llvm9KnownBits9isNonZeroEv.exit.i:           ; preds = %_ZNK4llvm9WithCache
 123:                                              ; preds = %_ZNK4llvm9KnownBits9isNonZeroEv.exit.i, %118, %105
   %124 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !351
-  %126 = getelementptr inbounds nuw [2 x ptr], ptr %125, i64 0, i64 %10
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %10
   %127 = load ptr, ptr %126, align 8, !tbaa !151
   %128 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %129 = tail call noundef zeroext i1 @_ZN4llvm14isKnownNonZeroEPKNS_5ValueERKNS_13SimplifyQueryEj(ptr noundef %127, ptr noundef nonnull align 8 dereferenceable(58) %128, i32 noundef 0) #29
@@ -21137,7 +21137,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %
   %126 = load i32, ptr %11, align 4, !tbaa !580
   %127 = zext i32 %126 to i64
   %128 = lshr i64 %127, 6
-  %129 = getelementptr inbounds nuw [9 x i64], ptr %56, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw i64, ptr %56, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !9
   %131 = and i64 %127, 63
   %132 = shl nuw i64 1, %131
@@ -21149,7 +21149,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.i: ; preds = %125
   %134 = load ptr, ptr %35, align 8, !tbaa !575
   %135 = lshr i32 %126, 2
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw [131 x i8], ptr %134, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !13
   %139 = zext i8 %138 to i32
   %140 = shl i32 %126, 1
@@ -22446,7 +22446,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit: ; pr
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = zext i32 %65 to i64
   %68 = lshr i64 %67, 6
-  %69 = getelementptr inbounds nuw [9 x i64], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i64, ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !9
   %71 = and i64 %67, 63
   %72 = shl nuw i64 1, %71
@@ -22458,7 +22458,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %63
   %74 = load ptr, ptr %64, align 8, !tbaa !575
   %75 = lshr i32 %65, 2
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [131 x i8], ptr %74, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !13
   %79 = zext i8 %78 to i32
   %80 = shl i32 %65, 1

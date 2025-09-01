@@ -113,7 +113,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16appendEPKvm(ptr noundef nonnull readon
   %32 = sub nuw nsw i32 64, %19
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %34 = zext nneg i32 %19 to i64
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = zext nneg i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %36, i1 false)
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull %33)
@@ -144,7 +144,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16appendEPKvm(ptr noundef nonnull readon
 46:                                               ; preds = %.loopexit.i
   %47 = sub i32 %15, %.1.i
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %49 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 0, i64 %.021.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.021.i
   %50 = zext i32 %.1.i to i64
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %50
   %52 = zext i32 %47 to i64
@@ -199,7 +199,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj(ptr noundef nonnul
   %20 = sub nuw nsw i32 64, %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = zext nneg i32 %6 to i64
-  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = zext nneg i32 %20 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %24, i1 false)
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %0, ptr noundef nonnull %21)
@@ -230,7 +230,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj(ptr noundef nonnul
 34:                                               ; preds = %.loopexit
   %35 = sub i32 %2, %.1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 0, i64 %.021
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.021
   %38 = zext i32 %.1 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = zext i32 %35 to i64
@@ -272,7 +272,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = icmp samesign ult i64 %indvars.iv, 4
   %6 = zext i1 %5 to i64
-  %7 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %9 = shl i32 %indvars.iv.tr, 3
@@ -280,7 +280,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %11 = xor i32 %10, 24
   %12 = lshr i32 %8, %11
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %13, ptr %14, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -304,7 +304,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
 .loopexit.i.thread:                               ; preds = %15
   %26 = zext nneg i32 %18 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 -128, ptr %28, align 1
   br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
 
@@ -343,7 +343,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %.loopexit.i, %.loop
 
 .loopexit.i10.thread:                             ; preds = %35
   %45 = zext nneg i32 %38 to i64
-  %46 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 %45
   store i8 0, ptr %46, align 1
   br label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16
 
@@ -380,7 +380,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %indvars.iv44 = phi i64 [ 0, %.loopexit.i17 ], [ %indvars.iv.next45, %58 ]
   %59 = lshr i64 %indvars.iv44, 2
   %60 = and i64 %59, 1073741823
-  %61 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !8
   %indvars.iv44.tr = trunc i64 %indvars.iv44 to i32
   %63 = shl i32 %indvars.iv44.tr, 3
@@ -388,7 +388,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %65 = xor i32 %64, 24
   %66 = lshr i32 %62, %65
   %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds nuw [20 x i8], ptr %57, i64 0, i64 %indvars.iv44
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv44
   store i8 %67, ptr %68, align 1, !tbaa !22
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
@@ -2267,7 +2267,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_05CSHA18HashFileEPKc(ptr
 29:                                               ; preds = %14
   %30 = sub nuw nsw i32 64, %18
   %31 = zext nneg i32 %18 to i64
-  %32 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 %31
   %33 = zext nneg i32 %30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull readonly align 1 dereferenceable(1) %8, i64 %33, i1 false)
   tail call void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %11)
@@ -2297,7 +2297,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_05CSHA18HashFileEPKc(ptr
 
 43:                                               ; preds = %.loopexit.i
   %44 = sub i32 %15, %.1.i
-  %45 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %.021.i
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 %.021.i
   %46 = zext i32 %.1.i to i64
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 %46
   %48 = zext i32 %44 to i64
@@ -2372,7 +2372,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 
 .split.us:                                        ; preds = %11, %.split.us
   %.01824.us = phi i64 [ %27, %.split.us ], [ 1, %11 ]
-  %21 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 0, i64 %.01824.us
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.01824.us
   %22 = load i8, ptr %21, align 1, !tbaa !22
   %23 = zext i8 %22 to i32
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.8, i32 noundef %23) #22
@@ -2386,7 +2386,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 
 .split:                                           ; preds = %11, %.split
   %.01824 = phi i64 [ %34, %.split ], [ 1, %11 ]
-  %28 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 0, i64 %.01824
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 %.01824
   %29 = load i8, ptr %28, align 1, !tbaa !22
   %30 = zext i8 %29 to i32
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %30) #22
@@ -2413,7 +2413,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 
 44:                                               ; preds = %35, %44
   %.023 = phi i64 [ 1, %35 ], [ %51, %44 ]
-  %45 = getelementptr inbounds nuw [20 x i8], ptr %36, i64 0, i64 %.023
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 %.023
   %46 = load i8, ptr %45, align 1, !tbaa !22
   %47 = zext i8 %46 to i32
   %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.10, i32 noundef %47) #22

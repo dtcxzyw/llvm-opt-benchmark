@@ -1547,7 +1547,7 @@ define hidden noundef ptr @_ZN3smt33eq_root_propagation_justification8mk_proofER
   %21 = add i32 %20, -1
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !192
   %26 = tail call noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %25, ptr noundef %.017)
   %27 = tail call noundef ptr @_ZN11ast_manager15mk_modus_ponensEP3appS1_(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull %11, ptr noundef %26)
@@ -1805,14 +1805,14 @@ define hidden noundef ptr @_ZN3smt20mp_iff_justification8mk_proofERNS_19conflict
   %41 = add i32 %40, -1
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !192
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !187
   %48 = add i32 %47, -1
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !192
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !192
@@ -1827,7 +1827,7 @@ define hidden noundef ptr @_ZN3smt20mp_iff_justification8mk_proofERNS_19conflict
   %60 = add i32 %59, -1
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw [0 x ptr], ptr %61, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !192
   br label %65
 

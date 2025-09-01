@@ -776,7 +776,7 @@ define dso_local void @_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11Register
   %.014 = phi i8 [ %14, %.preheader ], [ %2, %3 ]
   %7 = zext i8 %.014 to i64
   %8 = lshr i64 %7, 6
-  %9 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = and i64 %7, 63
   %12 = shl nuw i64 1, %11
@@ -806,7 +806,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.preheader:      ; preds = %18
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.preheader, %32
   %indvars.iv = phi i64 [ %22, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader ], [ %indvars.iv.next, %32 ]
   %23 = lshr i64 %indvars.iv, 6
-  %24 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !53
   %26 = and i64 %indvars.iv, 63
   %27 = shl nuw i64 1, %26
@@ -815,7 +815,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %_ZNKSt6bitsetILm256
   br i1 %.not15, label %_ZNSt6bitsetILm256EE3setEmb.exit, label %32
 
 _ZNSt6bitsetILm256EE3setEmb.exit:                 ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit
-  %29 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw i64, ptr %0, i64 %23
   %30 = load i64, ptr %29, align 8, !tbaa !53
   %31 = or i64 %30, %27
   store i64 %31, ptr %29, align 8, !tbaa !53
@@ -4454,7 +4454,7 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit107.i: ; preds = 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i.i:      ; preds = %402
   %407 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %408 = lshr i64 %404, 6
-  %409 = getelementptr inbounds nuw [4 x i64], ptr %407, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw i64, ptr %407, i64 %408
   %410 = load i64, ptr %409, align 8, !tbaa !53, !noalias !135
   %411 = and i64 %404, 63
   %412 = shl nuw i64 1, %411
@@ -4463,7 +4463,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i.i:      ; preds = %402
   br i1 %.not.i.i.i.i.i14, label %_ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i.i
-  %414 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %408
+  %414 = getelementptr inbounds nuw i64, ptr %373, i64 %408
   %415 = load i64, ptr %414, align 8, !tbaa !53, !noalias !135
   %416 = or i64 %415, %412
   store i64 %416, ptr %414, align 8, !tbaa !53, !noalias !135
@@ -4491,7 +4491,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i236.i.i.i.i:    ; preds = %421
   %427 = and i64 %423, 63
   %428 = shl nuw i64 1, %427
   %429 = lshr i64 %423, 6
-  %430 = getelementptr inbounds nuw [4 x i64], ptr %426, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw i64, ptr %426, i64 %429
   %431 = load i64, ptr %430, align 8, !tbaa !53, !noalias !135
   %432 = or i64 %431, %428
   store i64 %432, ptr %430, align 8, !tbaa !53, !noalias !135
@@ -4512,7 +4512,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i236.i.i.i.i:    ; preds = %421
 _ZNKSt6bitsetILm256EE4testEm.exit.i237.i.i.i.i:   ; preds = %433
   %439 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %440 = lshr i64 %436, 6
-  %441 = getelementptr inbounds nuw [4 x i64], ptr %439, i64 0, i64 %440
+  %441 = getelementptr inbounds nuw i64, ptr %439, i64 %440
   %442 = load i64, ptr %441, align 8, !tbaa !53, !noalias !135
   %443 = and i64 %436, 63
   %444 = shl nuw i64 1, %443
@@ -4521,7 +4521,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i237.i.i.i.i:   ; preds = %433
   br i1 %.not.i238.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i239.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i239.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i237.i.i.i.i
-  %446 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %440
+  %446 = getelementptr inbounds nuw i64, ptr %373, i64 %440
   %447 = load i64, ptr %446, align 8, !tbaa !53, !noalias !135
   %448 = or i64 %447, %444
   store i64 %448, ptr %446, align 8, !tbaa !53, !noalias !135
@@ -4541,7 +4541,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit.i.i.i.i: ; pr
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i240.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit.i.i.i.i
   %454 = lshr i64 %451, 6
-  %455 = getelementptr inbounds nuw [4 x i64], ptr %439, i64 0, i64 %454
+  %455 = getelementptr inbounds nuw i64, ptr %439, i64 %454
   %456 = load i64, ptr %455, align 8, !tbaa !53, !noalias !135
   %457 = and i64 %451, 63
   %458 = shl nuw i64 1, %457
@@ -4550,7 +4550,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i240.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27B
   br i1 %.not.i241.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i242.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i242.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i240.i.i.i.i
-  %460 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %454
+  %460 = getelementptr inbounds nuw i64, ptr %373, i64 %454
   %461 = load i64, ptr %460, align 8, !tbaa !53, !noalias !135
   %462 = or i64 %461, %458
   store i64 %462, ptr %460, align 8, !tbaa !53, !noalias !135
@@ -4571,7 +4571,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i242.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i244.i.i.i.i:   ; preds = %463
   %469 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %470 = lshr i64 %466, 6
-  %471 = getelementptr inbounds nuw [4 x i64], ptr %469, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw i64, ptr %469, i64 %470
   %472 = load i64, ptr %471, align 8, !tbaa !53, !noalias !135
   %473 = and i64 %466, 63
   %474 = shl nuw i64 1, %473
@@ -4580,7 +4580,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i244.i.i.i.i:   ; preds = %463
   br i1 %.not.i245.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i246.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i246.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i244.i.i.i.i
-  %476 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %470
+  %476 = getelementptr inbounds nuw i64, ptr %373, i64 %470
   %477 = load i64, ptr %476, align 8, !tbaa !53, !noalias !135
   %478 = or i64 %477, %474
   store i64 %478, ptr %476, align 8, !tbaa !53, !noalias !135
@@ -4606,7 +4606,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i246.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i248.i.i.i.i:   ; preds = %483
   %488 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %489 = lshr i64 %485, 6
-  %490 = getelementptr inbounds nuw [4 x i64], ptr %488, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %488, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !53, !noalias !135
   %492 = and i64 %485, 63
   %493 = shl nuw i64 1, %492
@@ -4615,7 +4615,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i248.i.i.i.i:   ; preds = %483
   br i1 %.not.i249.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i250.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit251.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i250.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i248.i.i.i.i
-  %495 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %489
+  %495 = getelementptr inbounds nuw i64, ptr %373, i64 %489
   %496 = load i64, ptr %495, align 8, !tbaa !53, !noalias !135
   %497 = or i64 %496, %493
   store i64 %497, ptr %495, align 8, !tbaa !53, !noalias !135
@@ -4641,7 +4641,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit251.i.i.i.
 _ZNKSt6bitsetILm256EE4testEm.exit.i252.i.i.i.i:   ; preds = %501
   %506 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %507 = lshr i64 %503, 6
-  %508 = getelementptr inbounds nuw [4 x i64], ptr %506, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw i64, ptr %506, i64 %507
   %509 = load i64, ptr %508, align 8, !tbaa !53, !noalias !135
   %510 = and i64 %503, 63
   %511 = shl nuw i64 1, %510
@@ -4650,7 +4650,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i252.i.i.i.i:   ; preds = %501
   br i1 %.not.i253.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i254.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit255.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i254.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i252.i.i.i.i
-  %513 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %507
+  %513 = getelementptr inbounds nuw i64, ptr %373, i64 %507
   %514 = load i64, ptr %513, align 8, !tbaa !53, !noalias !135
   %515 = or i64 %514, %511
   store i64 %515, ptr %513, align 8, !tbaa !53, !noalias !135
@@ -4673,7 +4673,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit.i.i.i.i: ; pr
   %522 = and i64 %518, 63
   %523 = shl nuw i64 1, %522
   %524 = lshr i64 %518, 6
-  %525 = getelementptr inbounds nuw [4 x i64], ptr %521, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw i64, ptr %521, i64 %524
   %526 = load i64, ptr %525, align 8, !tbaa !53, !noalias !135
   %527 = or i64 %526, %523
   store i64 %527, ptr %525, align 8, !tbaa !53, !noalias !135
@@ -4694,7 +4694,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit.i.i.i.i: ; pr
 _ZNKSt6bitsetILm256EE4testEm.exit.i257.i.i.i.i:   ; preds = %528
   %534 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %535 = lshr i64 %531, 6
-  %536 = getelementptr inbounds nuw [4 x i64], ptr %534, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw i64, ptr %534, i64 %535
   %537 = load i64, ptr %536, align 8, !tbaa !53, !noalias !135
   %538 = and i64 %531, 63
   %539 = shl nuw i64 1, %538
@@ -4703,7 +4703,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i257.i.i.i.i:   ; preds = %528
   br i1 %.not.i258.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i259.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit260.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i259.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i257.i.i.i.i
-  %541 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %535
+  %541 = getelementptr inbounds nuw i64, ptr %373, i64 %535
   %542 = load i64, ptr %541, align 8, !tbaa !53, !noalias !135
   %543 = or i64 %542, %539
   store i64 %543, ptr %541, align 8, !tbaa !53, !noalias !135
@@ -4728,7 +4728,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit260.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i261.i.i.i.i:   ; preds = %547
   %552 = lshr i64 %549, 6
-  %553 = getelementptr inbounds nuw [4 x i64], ptr %534, i64 0, i64 %552
+  %553 = getelementptr inbounds nuw i64, ptr %534, i64 %552
   %554 = load i64, ptr %553, align 8, !tbaa !53, !noalias !135
   %555 = and i64 %549, 63
   %556 = shl nuw i64 1, %555
@@ -4737,7 +4737,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i261.i.i.i.i:   ; preds = %547
   br i1 %.not.i262.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i263.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit264.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i263.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i261.i.i.i.i
-  %558 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %552
+  %558 = getelementptr inbounds nuw i64, ptr %373, i64 %552
   %559 = load i64, ptr %558, align 8, !tbaa !53, !noalias !135
   %560 = or i64 %559, %556
   store i64 %560, ptr %558, align 8, !tbaa !53, !noalias !135
@@ -4759,7 +4759,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit266.i.i.i.i: ;
   %566 = and i64 %563, 63
   %567 = shl nuw i64 1, %566
   %568 = lshr i64 %563, 6
-  %569 = getelementptr inbounds nuw [4 x i64], ptr %534, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw i64, ptr %534, i64 %568
   %570 = load i64, ptr %569, align 8, !tbaa !53, !noalias !135
   %571 = or i64 %570, %567
   store i64 %571, ptr %569, align 8, !tbaa !53, !noalias !135
@@ -4780,7 +4780,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit266.i.i.i.i: ;
 _ZNKSt6bitsetILm256EE4testEm.exit.i267.i.i.i.i:   ; preds = %572
   %578 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %579 = lshr i64 %575, 6
-  %580 = getelementptr inbounds nuw [4 x i64], ptr %578, i64 0, i64 %579
+  %580 = getelementptr inbounds nuw i64, ptr %578, i64 %579
   %581 = load i64, ptr %580, align 8, !tbaa !53, !noalias !135
   %582 = and i64 %575, 63
   %583 = shl nuw i64 1, %582
@@ -4789,7 +4789,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i267.i.i.i.i:   ; preds = %572
   br i1 %.not.i268.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i269.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit270.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i269.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i267.i.i.i.i
-  %585 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %579
+  %585 = getelementptr inbounds nuw i64, ptr %373, i64 %579
   %586 = load i64, ptr %585, align 8, !tbaa !53, !noalias !135
   %587 = or i64 %586, %583
   store i64 %587, ptr %585, align 8, !tbaa !53, !noalias !135
@@ -4809,7 +4809,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit270.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i271.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit270.i.i.i.i
   %593 = lshr i64 %590, 6
-  %594 = getelementptr inbounds nuw [4 x i64], ptr %578, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw i64, ptr %578, i64 %593
   %595 = load i64, ptr %594, align 8, !tbaa !53, !noalias !135
   %596 = and i64 %590, 63
   %597 = shl nuw i64 1, %596
@@ -4818,7 +4818,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i271.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27B
   br i1 %.not.i272.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i273.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit274.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i273.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i271.i.i.i.i
-  %599 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %593
+  %599 = getelementptr inbounds nuw i64, ptr %373, i64 %593
   %600 = load i64, ptr %599, align 8, !tbaa !53, !noalias !135
   %601 = or i64 %600, %597
   store i64 %601, ptr %599, align 8, !tbaa !53, !noalias !135
@@ -4843,7 +4843,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit274.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i275.i.i.i.i:   ; preds = %605
   %610 = lshr i64 %607, 6
-  %611 = getelementptr inbounds nuw [4 x i64], ptr %578, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw i64, ptr %578, i64 %610
   %612 = load i64, ptr %611, align 8, !tbaa !53, !noalias !135
   %613 = and i64 %607, 63
   %614 = shl nuw i64 1, %613
@@ -4852,7 +4852,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i275.i.i.i.i:   ; preds = %605
   br i1 %.not.i276.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i277.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i277.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i275.i.i.i.i
-  %616 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %610
+  %616 = getelementptr inbounds nuw i64, ptr %373, i64 %610
   %617 = load i64, ptr %616, align 8, !tbaa !53, !noalias !135
   %618 = or i64 %617, %614
   store i64 %618, ptr %616, align 8, !tbaa !53, !noalias !135
@@ -4873,7 +4873,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i277.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i279.i.i.i.i:   ; preds = %619
   %625 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %626 = lshr i64 %622, 6
-  %627 = getelementptr inbounds nuw [4 x i64], ptr %625, i64 0, i64 %626
+  %627 = getelementptr inbounds nuw i64, ptr %625, i64 %626
   %628 = load i64, ptr %627, align 8, !tbaa !53, !noalias !135
   %629 = and i64 %622, 63
   %630 = shl nuw i64 1, %629
@@ -4882,7 +4882,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i279.i.i.i.i:   ; preds = %619
   br i1 %.not.i280.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i281.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit282.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i281.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i279.i.i.i.i
-  %632 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %626
+  %632 = getelementptr inbounds nuw i64, ptr %373, i64 %626
   %633 = load i64, ptr %632, align 8, !tbaa !53, !noalias !135
   %634 = or i64 %633, %630
   store i64 %634, ptr %632, align 8, !tbaa !53, !noalias !135
@@ -4904,7 +4904,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit284.i.i.i.i: ;
   %640 = and i64 %637, 63
   %641 = shl nuw i64 1, %640
   %642 = lshr i64 %637, 6
-  %643 = getelementptr inbounds nuw [4 x i64], ptr %625, i64 0, i64 %642
+  %643 = getelementptr inbounds nuw i64, ptr %625, i64 %642
   %644 = load i64, ptr %643, align 8, !tbaa !53, !noalias !135
   %645 = or i64 %644, %641
   store i64 %645, ptr %643, align 8, !tbaa !53, !noalias !135
@@ -4927,7 +4927,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit286.i.i.i.i: ;
   %653 = and i64 %649, 63
   %654 = shl nuw i64 1, %653
   %655 = lshr i64 %649, 6
-  %656 = getelementptr inbounds nuw [4 x i64], ptr %652, i64 0, i64 %655
+  %656 = getelementptr inbounds nuw i64, ptr %652, i64 %655
   %657 = load i64, ptr %656, align 8, !tbaa !53, !noalias !135
   %658 = or i64 %657, %654
   store i64 %658, ptr %656, align 8, !tbaa !53, !noalias !135
@@ -4989,7 +4989,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i287.i.i.i.i:    ; preds = %685
   %688 = and i64 %indvars.iv.i.i.i.i.i, 63
   %689 = shl nuw i64 1, %688
   %690 = lshr i64 %indvars.iv.i.i.i.i.i, 6
-  %691 = getelementptr inbounds nuw [4 x i64], ptr %677, i64 0, i64 %690
+  %691 = getelementptr inbounds nuw i64, ptr %677, i64 %690
   %692 = load i64, ptr %691, align 8, !tbaa !53, !noalias !135
   %693 = or i64 %692, %689
   store i64 %693, ptr %691, align 8, !tbaa !53, !noalias !135
@@ -5014,7 +5014,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit289.i.i.i.i: ;
   %702 = and i64 %698, 63
   %703 = shl nuw i64 1, %702
   %704 = lshr i64 %698, 6
-  %705 = getelementptr inbounds nuw [4 x i64], ptr %701, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw i64, ptr %701, i64 %704
   %706 = load i64, ptr %705, align 8, !tbaa !53, !noalias !135
   %707 = or i64 %706, %703
   store i64 %707, ptr %705, align 8, !tbaa !53, !noalias !135
@@ -5035,7 +5035,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit289.i.i.i.i: ;
 _ZNKSt6bitsetILm256EE4testEm.exit.i290.i.i.i.i:   ; preds = %708
   %714 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %715 = lshr i64 %711, 6
-  %716 = getelementptr inbounds nuw [4 x i64], ptr %714, i64 0, i64 %715
+  %716 = getelementptr inbounds nuw i64, ptr %714, i64 %715
   %717 = load i64, ptr %716, align 8, !tbaa !53, !noalias !135
   %718 = and i64 %711, 63
   %719 = shl nuw i64 1, %718
@@ -5044,7 +5044,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i290.i.i.i.i:   ; preds = %708
   br i1 %.not.i291.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i292.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i292.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i290.i.i.i.i
-  %721 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %715
+  %721 = getelementptr inbounds nuw i64, ptr %373, i64 %715
   %722 = load i64, ptr %721, align 8, !tbaa !53, !noalias !135
   %723 = or i64 %722, %719
   store i64 %723, ptr %721, align 8, !tbaa !53, !noalias !135
@@ -5070,7 +5070,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i292.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i294.i.i.i.i:   ; preds = %728
   %733 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %734 = lshr i64 %730, 6
-  %735 = getelementptr inbounds nuw [4 x i64], ptr %733, i64 0, i64 %734
+  %735 = getelementptr inbounds nuw i64, ptr %733, i64 %734
   %736 = load i64, ptr %735, align 8, !tbaa !53, !noalias !135
   %737 = and i64 %730, 63
   %738 = shl nuw i64 1, %737
@@ -5079,7 +5079,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i294.i.i.i.i:   ; preds = %728
   br i1 %.not.i295.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i296.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i296.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i294.i.i.i.i
-  %740 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %734
+  %740 = getelementptr inbounds nuw i64, ptr %373, i64 %734
   %741 = load i64, ptr %740, align 8, !tbaa !53, !noalias !135
   %742 = or i64 %741, %738
   store i64 %742, ptr %740, align 8, !tbaa !53, !noalias !135
@@ -5105,7 +5105,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i296.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i298.i.i.i.i:   ; preds = %747
   %752 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %753 = lshr i64 %749, 6
-  %754 = getelementptr inbounds nuw [4 x i64], ptr %752, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw i64, ptr %752, i64 %753
   %755 = load i64, ptr %754, align 8, !tbaa !53, !noalias !135
   %756 = and i64 %749, 63
   %757 = shl nuw i64 1, %756
@@ -5114,7 +5114,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i298.i.i.i.i:   ; preds = %747
   br i1 %.not.i299.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i300.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit301.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i300.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i298.i.i.i.i
-  %759 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %753
+  %759 = getelementptr inbounds nuw i64, ptr %373, i64 %753
   %760 = load i64, ptr %759, align 8, !tbaa !53, !noalias !135
   %761 = or i64 %760, %757
   store i64 %761, ptr %759, align 8, !tbaa !53, !noalias !135
@@ -5147,7 +5147,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation7captureEi.exit.i.i.i: ; preds = %7
   %775 = and i64 %771, 63
   %776 = shl nuw i64 1, %775
   %777 = lshr i64 %771, 6
-  %778 = getelementptr inbounds nuw [4 x i64], ptr %774, i64 0, i64 %777
+  %778 = getelementptr inbounds nuw i64, ptr %774, i64 %777
   %779 = load i64, ptr %778, align 8, !tbaa !53, !noalias !135
   %780 = or i64 %779, %776
   store i64 %780, ptr %778, align 8, !tbaa !53, !noalias !135
@@ -5168,7 +5168,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation7captureEi.exit.i.i.i: ; preds = %7
 _ZNKSt6bitsetILm256EE4testEm.exit.i302.i.i.i.i:   ; preds = %781
   %787 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %788 = lshr i64 %784, 6
-  %789 = getelementptr inbounds nuw [4 x i64], ptr %787, i64 0, i64 %788
+  %789 = getelementptr inbounds nuw i64, ptr %787, i64 %788
   %790 = load i64, ptr %789, align 8, !tbaa !53, !noalias !135
   %791 = and i64 %784, 63
   %792 = shl nuw i64 1, %791
@@ -5177,7 +5177,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i302.i.i.i.i:   ; preds = %781
   br i1 %.not.i303.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i304.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit305.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i304.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i302.i.i.i.i
-  %794 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %788
+  %794 = getelementptr inbounds nuw i64, ptr %373, i64 %788
   %795 = load i64, ptr %794, align 8, !tbaa !53, !noalias !135
   %796 = or i64 %795, %792
   store i64 %796, ptr %794, align 8, !tbaa !53, !noalias !135
@@ -5212,7 +5212,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit305.i.i.i.i: ;
 _ZNKSt6bitsetILm256EE4testEm.exit.i306.i.i.i.i:   ; preds = %805
   %811 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %812 = lshr i64 %808, 6
-  %813 = getelementptr inbounds nuw [4 x i64], ptr %811, i64 0, i64 %812
+  %813 = getelementptr inbounds nuw i64, ptr %811, i64 %812
   %814 = load i64, ptr %813, align 8, !tbaa !53, !noalias !135
   %815 = and i64 %808, 63
   %816 = shl nuw i64 1, %815
@@ -5221,7 +5221,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i306.i.i.i.i:   ; preds = %805
   br i1 %.not.i307.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i308.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit309.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i308.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i306.i.i.i.i
-  %818 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %812
+  %818 = getelementptr inbounds nuw i64, ptr %373, i64 %812
   %819 = load i64, ptr %818, align 8, !tbaa !53, !noalias !135
   %820 = or i64 %819, %816
   store i64 %820, ptr %818, align 8, !tbaa !53, !noalias !135
@@ -5285,7 +5285,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i313.i.i.i.i:    ; preds = %846
   %849 = and i64 %indvars.iv.i312.i.i.i.i, 63
   %850 = shl nuw i64 1, %849
   %851 = lshr i64 %indvars.iv.i312.i.i.i.i, 6
-  %852 = getelementptr inbounds nuw [4 x i64], ptr %838, i64 0, i64 %851
+  %852 = getelementptr inbounds nuw i64, ptr %838, i64 %851
   %853 = load i64, ptr %852, align 8, !tbaa !53, !noalias !135
   %854 = or i64 %853, %850
   store i64 %854, ptr %852, align 8, !tbaa !53, !noalias !135
@@ -5322,7 +5322,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i313.i.i.i.i:    ; preds = %846
 _ZNKSt6bitsetILm256EE4testEm.exit.i316.i.i.i.i:   ; preds = %865
   %871 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %872 = lshr i64 %868, 6
-  %873 = getelementptr inbounds nuw [4 x i64], ptr %871, i64 0, i64 %872
+  %873 = getelementptr inbounds nuw i64, ptr %871, i64 %872
   %874 = load i64, ptr %873, align 8, !tbaa !53, !noalias !135
   %875 = and i64 %868, 63
   %876 = shl nuw i64 1, %875
@@ -5331,7 +5331,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i316.i.i.i.i:   ; preds = %865
   br i1 %.not.i317.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i318.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit319.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i318.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i316.i.i.i.i
-  %878 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %872
+  %878 = getelementptr inbounds nuw i64, ptr %373, i64 %872
   %879 = load i64, ptr %878, align 8, !tbaa !53, !noalias !135
   %880 = or i64 %879, %876
   store i64 %880, ptr %878, align 8, !tbaa !53, !noalias !135
@@ -5370,7 +5370,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i34.i.i.i:       ; preds = %893
   %896 = and i64 %indvars.iv.i33.i.i.i, 63
   %897 = shl nuw i64 1, %896
   %898 = lshr i64 %indvars.iv.i33.i.i.i, 6
-  %899 = getelementptr inbounds nuw [4 x i64], ptr %871, i64 0, i64 %898
+  %899 = getelementptr inbounds nuw i64, ptr %871, i64 %898
   %900 = load i64, ptr %899, align 8, !tbaa !53, !noalias !135
   %901 = or i64 %900, %897
   store i64 %901, ptr %899, align 8, !tbaa !53, !noalias !135
@@ -5427,7 +5427,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i34.i.i.i:       ; preds = %893
 _ZNKSt6bitsetILm256EE4testEm.exit.i27.i.i.i:      ; preds = %922
   %928 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %929 = lshr i64 %925, 6
-  %930 = getelementptr inbounds nuw [4 x i64], ptr %928, i64 0, i64 %929
+  %930 = getelementptr inbounds nuw i64, ptr %928, i64 %929
   %931 = load i64, ptr %930, align 8, !tbaa !53, !noalias !135
   %932 = and i64 %925, 63
   %933 = shl nuw i64 1, %932
@@ -5436,7 +5436,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i27.i.i.i:      ; preds = %922
   br i1 %.not.i28.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i29.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit30.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i29.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i27.i.i.i
-  %935 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %929
+  %935 = getelementptr inbounds nuw i64, ptr %373, i64 %929
   %936 = load i64, ptr %935, align 8, !tbaa !53, !noalias !135
   %937 = or i64 %936, %933
   store i64 %937, ptr %935, align 8, !tbaa !53, !noalias !135
@@ -5465,7 +5465,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit30.i.i.i: ; pr
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i23.i.i.i:      ; preds = %942
   %947 = lshr i64 %944, 6
-  %948 = getelementptr inbounds nuw [4 x i64], ptr %928, i64 0, i64 %947
+  %948 = getelementptr inbounds nuw i64, ptr %928, i64 %947
   %949 = load i64, ptr %948, align 8, !tbaa !53, !noalias !135
   %950 = and i64 %944, 63
   %951 = shl nuw i64 1, %950
@@ -5474,7 +5474,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i23.i.i.i:      ; preds = %942
   br i1 %.not.i24.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i25.i.i.i, label %.thread418.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i25.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i23.i.i.i
-  %953 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %947
+  %953 = getelementptr inbounds nuw i64, ptr %373, i64 %947
   %954 = load i64, ptr %953, align 8, !tbaa !53, !noalias !135
   %955 = or i64 %954, %951
   store i64 %955, ptr %953, align 8, !tbaa !53, !noalias !135
@@ -5492,7 +5492,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i25.i.i.i:       ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i20.i.i.i:      ; preds = %956
   %960 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %961 = lshr i64 %957, 6
-  %962 = getelementptr inbounds nuw [4 x i64], ptr %960, i64 0, i64 %961
+  %962 = getelementptr inbounds nuw i64, ptr %960, i64 %961
   %963 = load i64, ptr %962, align 8, !tbaa !53, !noalias !135
   %964 = and i64 %957, 63
   %965 = shl nuw i64 1, %964
@@ -5501,7 +5501,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i20.i.i.i:      ; preds = %956
   br i1 %.not.i21.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i22.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i22.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i20.i.i.i
-  %967 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %961
+  %967 = getelementptr inbounds nuw i64, ptr %373, i64 %961
   %968 = load i64, ptr %967, align 8, !tbaa !53, !noalias !135
   %969 = or i64 %968, %965
   store i64 %969, ptr %967, align 8, !tbaa !53, !noalias !135
@@ -5526,7 +5526,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit.i.i.i: ; pred
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i16.i.i.i:      ; preds = %973
   %978 = lshr i64 %975, 6
-  %979 = getelementptr inbounds nuw [4 x i64], ptr %960, i64 0, i64 %978
+  %979 = getelementptr inbounds nuw i64, ptr %960, i64 %978
   %980 = load i64, ptr %979, align 8, !tbaa !53, !noalias !135
   %981 = and i64 %975, 63
   %982 = shl nuw i64 1, %981
@@ -5535,7 +5535,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i16.i.i.i:      ; preds = %973
   br i1 %.not.i17.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i18.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit19.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i18.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i16.i.i.i
-  %984 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %978
+  %984 = getelementptr inbounds nuw i64, ptr %373, i64 %978
   %985 = load i64, ptr %984, align 8, !tbaa !53, !noalias !135
   %986 = or i64 %985, %982
   store i64 %986, ptr %984, align 8, !tbaa !53, !noalias !135
@@ -5559,7 +5559,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation8maybeUseENS0_4IrOpE.exit19.i.i.i: 
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i:        ; preds = %989
   %994 = lshr i64 %991, 6
-  %995 = getelementptr inbounds nuw [4 x i64], ptr %960, i64 0, i64 %994
+  %995 = getelementptr inbounds nuw i64, ptr %960, i64 %994
   %996 = load i64, ptr %995, align 8, !tbaa !53, !noalias !135
   %997 = and i64 %991, 63
   %998 = shl nuw i64 1, %997
@@ -5568,7 +5568,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i:        ; preds = %989
   br i1 %.not.i14.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i15.i.i.i, label %.thread418.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i15.i.i.i:       ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i.i
-  %1000 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %994
+  %1000 = getelementptr inbounds nuw i64, ptr %373, i64 %994
   %1001 = load i64, ptr %1000, align 8, !tbaa !53, !noalias !135
   %1002 = or i64 %1001, %998
   store i64 %1002, ptr %1000, align 8, !tbaa !53, !noalias !135
@@ -5589,7 +5589,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i15.i.i.i:       ; preds = %_ZNKSt6bitsetILm256
   %.014.i.i.i.i.i = phi i8 [ %1018, %.preheader.i.i8.i.i.i ], [ %1006, %1003 ]
   %1011 = zext i8 %.014.i.i.i.i.i to i64
   %1012 = lshr i64 %1011, 6
-  %1013 = getelementptr inbounds nuw [4 x i64], ptr %1007, i64 0, i64 %1012
+  %1013 = getelementptr inbounds nuw i64, ptr %1007, i64 %1012
   %1014 = load i64, ptr %1013, align 8, !tbaa !53, !noalias !135
   %1015 = and i64 %1011, 63
   %1016 = shl nuw i64 1, %1015
@@ -5618,7 +5618,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i.i.i.i: ; preds = %1020
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i10.i.i.i:    ; preds = %1034, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i.i.i.i
   %indvars.iv.i.i11.i.i.i = phi i64 [ %1024, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i12.i.i.i, %1034 ]
   %1025 = lshr i64 %indvars.iv.i.i11.i.i.i, 6
-  %1026 = getelementptr inbounds nuw [4 x i64], ptr %1007, i64 0, i64 %1025
+  %1026 = getelementptr inbounds nuw i64, ptr %1007, i64 %1025
   %1027 = load i64, ptr %1026, align 8, !tbaa !53, !noalias !135
   %1028 = and i64 %indvars.iv.i.i11.i.i.i, 63
   %1029 = shl nuw i64 1, %1028
@@ -5627,7 +5627,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i10.i.i.i:    ; preds = %1034, %_ZNKSt6bitse
   br i1 %.not15.i.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i.i13.i.i.i, label %1034
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i.i13.i.i.i:     ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i10.i.i.i
-  %1031 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1025
+  %1031 = getelementptr inbounds nuw i64, ptr %373, i64 %1025
   %1032 = load i64, ptr %1031, align 8, !tbaa !53, !noalias !135
   %1033 = or i64 %1032, %1029
   store i64 %1033, ptr %1031, align 8, !tbaa !53, !noalias !135
@@ -5678,7 +5678,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i:         ; preds = %1049
   %1052 = and i64 %indvars.iv.i.i.i.i, 63
   %1053 = shl nuw i64 1, %1052
   %1054 = lshr i64 %indvars.iv.i.i.i.i, 6
-  %1055 = getelementptr inbounds nuw [4 x i64], ptr %1046, i64 0, i64 %1054
+  %1055 = getelementptr inbounds nuw i64, ptr %1046, i64 %1054
   %1056 = load i64, ptr %1055, align 8, !tbaa !53, !noalias !135
   %1057 = or i64 %1056, %1053
   store i64 %1057, ptr %1055, align 8, !tbaa !53, !noalias !135
@@ -5702,7 +5702,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i.i.i.i:         ; preds = %1049
 _ZNKSt6bitsetILm256EE4testEm.exit.i320.i.i.i.i:   ; preds = %1059
   %1066 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1067 = lshr i64 %1063, 6
-  %1068 = getelementptr inbounds nuw [4 x i64], ptr %1066, i64 0, i64 %1067
+  %1068 = getelementptr inbounds nuw i64, ptr %1066, i64 %1067
   %1069 = load i64, ptr %1068, align 8, !tbaa !53, !noalias !135
   %1070 = and i64 %1063, 63
   %1071 = shl nuw i64 1, %1070
@@ -5711,7 +5711,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i320.i.i.i.i:   ; preds = %1059
   br i1 %.not.i321.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i322.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit323.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i322.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i320.i.i.i.i
-  %1073 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1067
+  %1073 = getelementptr inbounds nuw i64, ptr %373, i64 %1067
   %1074 = load i64, ptr %1073, align 8, !tbaa !53, !noalias !135
   %1075 = or i64 %1074, %1071
   store i64 %1075, ptr %1073, align 8, !tbaa !53, !noalias !135
@@ -5733,7 +5733,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit323.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit323.i.i.i.i
   %1080 = lshr i64 %1077, 6
-  %1081 = getelementptr inbounds nuw [4 x i64], ptr %1066, i64 0, i64 %1080
+  %1081 = getelementptr inbounds nuw i64, ptr %1066, i64 %1080
   %1082 = load i64, ptr %1081, align 8, !tbaa !53, !noalias !135
   %1083 = and i64 %1077, 63
   %1084 = shl nuw i64 1, %1083
@@ -5742,7 +5742,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27B
   br i1 %.not.i325.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i.i.i.i
 
 _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i.i.i.i: ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i
-  %1086 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1080
+  %1086 = getelementptr inbounds nuw i64, ptr %373, i64 %1080
   %1087 = load i64, ptr %1086, align 8, !tbaa !53, !noalias !135
   %1088 = or i64 %1087, %1084
   store i64 %1088, ptr %1086, align 8, !tbaa !53, !noalias !135
@@ -5757,7 +5757,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i._ZN4Luau
   %.pre207.i.i.i = and i64 %.pre465.i.i.i.i, 63
   %.pre208.i.i.i = shl nuw i64 1, %.pre207.i.i.i
   %.pre210.i.i.i = lshr i64 %.pre465.i.i.i.i, 6
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw [4 x i64], ptr %1066, i64 0, i64 %.pre210.i.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i64, ptr %1066, i64 %.pre210.i.i.i
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !53, !noalias !135
   br label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i.i.i.i
 
@@ -5769,7 +5769,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i.i.i.i: ;
   %1091 = phi i64 [ %.pre.i.i, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i._ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i_crit_edge.i.i.i ], [ %1082, %_ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i ]
   %.pre-phi211.i.i.i = phi i64 [ %.pre210.i.i.i, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i._ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i_crit_edge.i.i.i ], [ %1080, %_ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i ]
   %.pre-phi209.i.i.i = phi i64 [ %.pre208.i.i.i, %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit327.i._ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit329.i_crit_edge.i.i.i ], [ %1084, %_ZNKSt6bitsetILm256EE4testEm.exit.i324.i.i.i.i ]
-  %1092 = getelementptr inbounds nuw [4 x i64], ptr %1066, i64 0, i64 %.pre-phi211.i.i.i
+  %1092 = getelementptr inbounds nuw i64, ptr %1066, i64 %.pre-phi211.i.i.i
   %1093 = or i64 %.pre-phi209.i.i.i, %1091
   store i64 %1093, ptr %1092, align 8, !tbaa !53, !noalias !135
   %.sroa.022.0.copyload.i.i.i.i = load i32, ptr %1060, align 4, !tbaa !27, !noalias !135
@@ -5817,7 +5817,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i333.i.i.i.i:    ; preds = %1112
   %1115 = and i64 %indvars.iv.i332.i.i.i.i, 63
   %1116 = shl nuw i64 1, %1115
   %1117 = lshr i64 %indvars.iv.i332.i.i.i.i, 6
-  %1118 = getelementptr inbounds nuw [4 x i64], ptr %1105, i64 0, i64 %1117
+  %1118 = getelementptr inbounds nuw i64, ptr %1105, i64 %1117
   %1119 = load i64, ptr %1118, align 8, !tbaa !53, !noalias !135
   %1120 = or i64 %1119, %1116
   store i64 %1120, ptr %1118, align 8, !tbaa !53, !noalias !135
@@ -5846,7 +5846,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i333.i.i.i.i:    ; preds = %1112
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i339.i.i.i.i:   ; preds = %1129
   %1132 = lshr i64 %indvars.iv.i338.i.i.i.i, 6
-  %1133 = getelementptr inbounds nuw [4 x i64], ptr %1126, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw i64, ptr %1126, i64 %1132
   %1134 = load i64, ptr %1133, align 8, !tbaa !53, !noalias !135
   %1135 = and i64 %indvars.iv.i338.i.i.i.i, 63
   %1136 = shl nuw i64 1, %1135
@@ -5855,7 +5855,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i339.i.i.i.i:   ; preds = %1129
   br i1 %.not.i340.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i342.i.i.i.i, label %1141
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i342.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i339.i.i.i.i
-  %1138 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1132
+  %1138 = getelementptr inbounds nuw i64, ptr %373, i64 %1132
   %1139 = load i64, ptr %1138, align 8, !tbaa !53, !noalias !135
   %1140 = or i64 %1139, %1136
   store i64 %1140, ptr %1138, align 8, !tbaa !53, !noalias !135
@@ -5882,7 +5882,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit344.i.i.i.i: ;
   %1147 = and i64 %1144, 63
   %1148 = shl nuw i64 1, %1147
   %1149 = lshr i64 %1144, 6
-  %1150 = getelementptr inbounds nuw [4 x i64], ptr %1126, i64 0, i64 %1149
+  %1150 = getelementptr inbounds nuw i64, ptr %1126, i64 %1149
   %1151 = load i64, ptr %1150, align 8, !tbaa !53, !noalias !135
   %1152 = or i64 %1151, %1148
   store i64 %1152, ptr %1150, align 8, !tbaa !53, !noalias !135
@@ -5920,7 +5920,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i348.i.i.i.i:    ; preds = %1166
   %1169 = and i64 %indvars.iv.i347.i.i.i.i, 63
   %1170 = shl nuw i64 1, %1169
   %1171 = lshr i64 %indvars.iv.i347.i.i.i.i, 6
-  %1172 = getelementptr inbounds nuw [4 x i64], ptr %1163, i64 0, i64 %1171
+  %1172 = getelementptr inbounds nuw i64, ptr %1163, i64 %1171
   %1173 = load i64, ptr %1172, align 8, !tbaa !53, !noalias !135
   %1174 = or i64 %1173, %1170
   store i64 %1174, ptr %1172, align 8, !tbaa !53, !noalias !135
@@ -5943,7 +5943,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i348.i.i.i.i:    ; preds = %1166
 _ZNKSt6bitsetILm256EE4testEm.exit.i351.i.i.i.i:   ; preds = %1176
   %1182 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1183 = lshr i64 %1179, 6
-  %1184 = getelementptr inbounds nuw [4 x i64], ptr %1182, i64 0, i64 %1183
+  %1184 = getelementptr inbounds nuw i64, ptr %1182, i64 %1183
   %1185 = load i64, ptr %1184, align 8, !tbaa !53, !noalias !135
   %1186 = and i64 %1179, 63
   %1187 = shl nuw i64 1, %1186
@@ -5952,7 +5952,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i351.i.i.i.i:   ; preds = %1176
   br i1 %.not.i352.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i353.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i353.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i351.i.i.i.i
-  %1189 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1183
+  %1189 = getelementptr inbounds nuw i64, ptr %373, i64 %1183
   %1190 = load i64, ptr %1189, align 8, !tbaa !53, !noalias !135
   %1191 = or i64 %1190, %1187
   store i64 %1191, ptr %1189, align 8, !tbaa !53, !noalias !135
@@ -5975,7 +5975,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit356.i.i.i.i: ;
   %1199 = and i64 %1195, 63
   %1200 = shl nuw i64 1, %1199
   %1201 = lshr i64 %1195, 6
-  %1202 = getelementptr inbounds nuw [4 x i64], ptr %1198, i64 0, i64 %1201
+  %1202 = getelementptr inbounds nuw i64, ptr %1198, i64 %1201
   %1203 = load i64, ptr %1202, align 8, !tbaa !53, !noalias !135
   %1204 = or i64 %1203, %1200
   store i64 %1204, ptr %1202, align 8, !tbaa !53, !noalias !135
@@ -5996,7 +5996,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit356.i.i.i.i: ;
 _ZNKSt6bitsetILm256EE4testEm.exit.i357.i.i.i.i:   ; preds = %1205
   %1211 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1212 = lshr i64 %1208, 6
-  %1213 = getelementptr inbounds nuw [4 x i64], ptr %1211, i64 0, i64 %1212
+  %1213 = getelementptr inbounds nuw i64, ptr %1211, i64 %1212
   %1214 = load i64, ptr %1213, align 8, !tbaa !53, !noalias !135
   %1215 = and i64 %1208, 63
   %1216 = shl nuw i64 1, %1215
@@ -6005,7 +6005,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i357.i.i.i.i:   ; preds = %1205
   br i1 %.not.i358.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i359.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i359.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i357.i.i.i.i
-  %1218 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1212
+  %1218 = getelementptr inbounds nuw i64, ptr %373, i64 %1212
   %1219 = load i64, ptr %1218, align 8, !tbaa !53, !noalias !135
   %1220 = or i64 %1219, %1216
   store i64 %1220, ptr %1218, align 8, !tbaa !53, !noalias !135
@@ -6026,7 +6026,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i359.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i361.i.i.i.i:   ; preds = %1221
   %1227 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1228 = lshr i64 %1224, 6
-  %1229 = getelementptr inbounds nuw [4 x i64], ptr %1227, i64 0, i64 %1228
+  %1229 = getelementptr inbounds nuw i64, ptr %1227, i64 %1228
   %1230 = load i64, ptr %1229, align 8, !tbaa !53, !noalias !135
   %1231 = and i64 %1224, 63
   %1232 = shl nuw i64 1, %1231
@@ -6035,7 +6035,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i361.i.i.i.i:   ; preds = %1221
   br i1 %.not.i362.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i363.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit364.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i363.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i361.i.i.i.i
-  %1234 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1228
+  %1234 = getelementptr inbounds nuw i64, ptr %373, i64 %1228
   %1235 = load i64, ptr %1234, align 8, !tbaa !53, !noalias !135
   %1236 = or i64 %1235, %1232
   store i64 %1236, ptr %1234, align 8, !tbaa !53, !noalias !135
@@ -6057,7 +6057,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit366.i.i.i.i: ;
   %1242 = and i64 %1239, 63
   %1243 = shl nuw i64 1, %1242
   %1244 = lshr i64 %1239, 6
-  %1245 = getelementptr inbounds nuw [4 x i64], ptr %1227, i64 0, i64 %1244
+  %1245 = getelementptr inbounds nuw i64, ptr %1227, i64 %1244
   %1246 = load i64, ptr %1245, align 8, !tbaa !53, !noalias !135
   %1247 = or i64 %1246, %1243
   store i64 %1247, ptr %1245, align 8, !tbaa !53, !noalias !135
@@ -6078,7 +6078,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit366.i.i.i.i: ;
 _ZNKSt6bitsetILm256EE4testEm.exit.i367.i.i.i.i:   ; preds = %1248
   %1254 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1255 = lshr i64 %1251, 6
-  %1256 = getelementptr inbounds nuw [4 x i64], ptr %1254, i64 0, i64 %1255
+  %1256 = getelementptr inbounds nuw i64, ptr %1254, i64 %1255
   %1257 = load i64, ptr %1256, align 8, !tbaa !53, !noalias !135
   %1258 = and i64 %1251, 63
   %1259 = shl nuw i64 1, %1258
@@ -6087,7 +6087,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i367.i.i.i.i:   ; preds = %1248
   br i1 %.not.i368.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i369.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit370.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i369.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i367.i.i.i.i
-  %1261 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1255
+  %1261 = getelementptr inbounds nuw i64, ptr %373, i64 %1255
   %1262 = load i64, ptr %1261, align 8, !tbaa !53, !noalias !135
   %1263 = or i64 %1262, %1259
   store i64 %1263, ptr %1261, align 8, !tbaa !53, !noalias !135
@@ -6107,7 +6107,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit370.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i371.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit370.i.i.i.i
   %1269 = lshr i64 %1266, 6
-  %1270 = getelementptr inbounds nuw [4 x i64], ptr %1254, i64 0, i64 %1269
+  %1270 = getelementptr inbounds nuw i64, ptr %1254, i64 %1269
   %1271 = load i64, ptr %1270, align 8, !tbaa !53, !noalias !135
   %1272 = and i64 %1266, 63
   %1273 = shl nuw i64 1, %1272
@@ -6116,7 +6116,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i371.i.i.i.i:   ; preds = %_ZN4Luau7CodeGen27B
   br i1 %.not.i372.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i373.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i373.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i371.i.i.i.i
-  %1275 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1269
+  %1275 = getelementptr inbounds nuw i64, ptr %373, i64 %1269
   %1276 = load i64, ptr %1275, align 8, !tbaa !53, !noalias !135
   %1277 = or i64 %1276, %1273
   store i64 %1277, ptr %1275, align 8, !tbaa !53, !noalias !135
@@ -6137,7 +6137,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i373.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i375.i.i.i.i:   ; preds = %1278
   %1284 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1285 = lshr i64 %1281, 6
-  %1286 = getelementptr inbounds nuw [4 x i64], ptr %1284, i64 0, i64 %1285
+  %1286 = getelementptr inbounds nuw i64, ptr %1284, i64 %1285
   %1287 = load i64, ptr %1286, align 8, !tbaa !53, !noalias !135
   %1288 = and i64 %1281, 63
   %1289 = shl nuw i64 1, %1288
@@ -6146,7 +6146,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i375.i.i.i.i:   ; preds = %1278
   br i1 %.not.i376.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i377.i.i.i.i, label %_ZN4Luau7CodeGen27BlockVmRegLiveInComputation3useENS0_4IrOpEi.exit378.i.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i377.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i375.i.i.i.i
-  %1291 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1285
+  %1291 = getelementptr inbounds nuw i64, ptr %373, i64 %1285
   %1292 = load i64, ptr %1291, align 8, !tbaa !53, !noalias !135
   %1293 = or i64 %1292, %1289
   store i64 %1293, ptr %1291, align 8, !tbaa !53, !noalias !135
@@ -6174,7 +6174,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i382.i.i.i.i:    ; preds = %1299
   %1302 = and i64 %indvars.iv.i381.i.i.i.i, 63
   %1303 = shl nuw i64 1, %1302
   %1304 = lshr i64 %indvars.iv.i381.i.i.i.i, 6
-  %1305 = getelementptr inbounds nuw [4 x i64], ptr %1284, i64 0, i64 %1304
+  %1305 = getelementptr inbounds nuw i64, ptr %1284, i64 %1304
   %1306 = load i64, ptr %1305, align 8, !tbaa !53, !noalias !135
   %1307 = or i64 %1306, %1303
   store i64 %1307, ptr %1305, align 8, !tbaa !53, !noalias !135
@@ -6229,7 +6229,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i388.i.i.i.i:    ; preds = %1328
   %1331 = and i64 %indvars.iv.i387.i.i.i.i, 63
   %1332 = shl nuw i64 1, %1331
   %1333 = lshr i64 %indvars.iv.i387.i.i.i.i, 6
-  %1334 = getelementptr inbounds nuw [4 x i64], ptr %1320, i64 0, i64 %1333
+  %1334 = getelementptr inbounds nuw i64, ptr %1320, i64 %1333
   %1335 = load i64, ptr %1334, align 8, !tbaa !53, !noalias !135
   %1336 = or i64 %1335, %1332
   store i64 %1336, ptr %1334, align 8, !tbaa !53, !noalias !135
@@ -6254,7 +6254,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit392.i.i.i.i: ;
   %1345 = and i64 %1341, 63
   %1346 = shl nuw i64 1, %1345
   %1347 = lshr i64 %1341, 6
-  %1348 = getelementptr inbounds nuw [4 x i64], ptr %1344, i64 0, i64 %1347
+  %1348 = getelementptr inbounds nuw i64, ptr %1344, i64 %1347
   %1349 = load i64, ptr %1348, align 8, !tbaa !53, !noalias !135
   %1350 = or i64 %1349, %1346
   store i64 %1350, ptr %1348, align 8, !tbaa !53, !noalias !135
@@ -6281,7 +6281,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation3defENS0_4IrOpEi.exit392.i.i.i.i: ;
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i396.i.i.i.i:   ; preds = %1358
   %1361 = lshr i64 %indvars.iv.i395.i.i.i.i, 6
-  %1362 = getelementptr inbounds nuw [4 x i64], ptr %1355, i64 0, i64 %1361
+  %1362 = getelementptr inbounds nuw i64, ptr %1355, i64 %1361
   %1363 = load i64, ptr %1362, align 8, !tbaa !53, !noalias !135
   %1364 = and i64 %indvars.iv.i395.i.i.i.i, 63
   %1365 = shl nuw i64 1, %1364
@@ -6290,7 +6290,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i396.i.i.i.i:   ; preds = %1358
   br i1 %.not.i397.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i399.i.i.i.i, label %1370
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i399.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i396.i.i.i.i
-  %1367 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1361
+  %1367 = getelementptr inbounds nuw i64, ptr %373, i64 %1361
   %1368 = load i64, ptr %1367, align 8, !tbaa !53, !noalias !135
   %1369 = or i64 %1368, %1365
   store i64 %1369, ptr %1367, align 8, !tbaa !53, !noalias !135
@@ -6322,7 +6322,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i404.i.i.i.i:    ; preds = %1375
   %1378 = and i64 %indvars.iv.i403.i.i.i.i, 63
   %1379 = shl nuw i64 1, %1378
   %1380 = lshr i64 %indvars.iv.i403.i.i.i.i, 6
-  %1381 = getelementptr inbounds nuw [4 x i64], ptr %1355, i64 0, i64 %1380
+  %1381 = getelementptr inbounds nuw i64, ptr %1355, i64 %1380
   %1382 = load i64, ptr %1381, align 8, !tbaa !53, !noalias !135
   %1383 = or i64 %1382, %1379
   store i64 %1383, ptr %1381, align 8, !tbaa !53, !noalias !135
@@ -6357,7 +6357,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i404.i.i.i.i:    ; preds = %1375
 _ZNKSt6bitsetILm256EE4testEm.exit.i407.i.i.i.i:   ; preds = %1391
   %1397 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1398 = lshr i64 %1394, 6
-  %1399 = getelementptr inbounds nuw [4 x i64], ptr %1397, i64 0, i64 %1398
+  %1399 = getelementptr inbounds nuw i64, ptr %1397, i64 %1398
   %1400 = load i64, ptr %1399, align 8, !tbaa !53, !noalias !135
   %1401 = and i64 %1394, 63
   %1402 = shl nuw i64 1, %1401
@@ -6366,7 +6366,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i407.i.i.i.i:   ; preds = %1391
   br i1 %.not.i408.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i409.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i409.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i407.i.i.i.i
-  %1404 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1398
+  %1404 = getelementptr inbounds nuw i64, ptr %373, i64 %1398
   %1405 = load i64, ptr %1404, align 8, !tbaa !53, !noalias !135
   %1406 = or i64 %1405, %1402
   store i64 %1406, ptr %1404, align 8, !tbaa !53, !noalias !135
@@ -6387,7 +6387,7 @@ _ZNSt6bitsetILm256EE3setEmb.exit.i409.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256
 _ZNKSt6bitsetILm256EE4testEm.exit.i411.i.i.i.i:   ; preds = %1407
   %1413 = load ptr, ptr %3, align 8, !tbaa !141, !noalias !135
   %1414 = lshr i64 %1410, 6
-  %1415 = getelementptr inbounds nuw [4 x i64], ptr %1413, i64 0, i64 %1414
+  %1415 = getelementptr inbounds nuw i64, ptr %1413, i64 %1414
   %1416 = load i64, ptr %1415, align 8, !tbaa !53, !noalias !135
   %1417 = and i64 %1410, 63
   %1418 = shl nuw i64 1, %1417
@@ -6396,7 +6396,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i411.i.i.i.i:   ; preds = %1407
   br i1 %.not.i412.i.i.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i413.i.i.i.i, label %_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_27BlockVmRegLiveInComputationEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE.exit.i.i.i
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i413.i.i.i.i:    ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i411.i.i.i.i
-  %1420 = getelementptr inbounds nuw [4 x i64], ptr %373, i64 0, i64 %1414
+  %1420 = getelementptr inbounds nuw i64, ptr %373, i64 %1414
   %1421 = load i64, ptr %1420, align 8, !tbaa !53, !noalias !135
   %1422 = or i64 %1421, %1418
   store i64 %1422, ptr %1420, align 8, !tbaa !53, !noalias !135
@@ -6637,7 +6637,7 @@ _ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj.exit.i: ; preds = %1506, %1503
 
 1523:                                             ; preds = %1523, %._crit_edge452.i
   %.04.i.i.i.i = phi i64 [ 0, %._crit_edge452.i ], [ %1527, %1523 ]
-  %1524 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %.04.i.i.i.i
+  %1524 = getelementptr inbounds nuw i64, ptr %2, i64 %.04.i.i.i.i
   %1525 = load i64, ptr %1524, align 8, !tbaa !53, !noalias !155
   %1526 = xor i64 %1525, -1
   store i64 %1526, ptr %1524, align 8, !tbaa !53, !noalias !155
@@ -6654,9 +6654,9 @@ _ZNKSt6bitsetILm256EEcoEv.exit.i:                 ; preds = %1523
 
 1528:                                             ; preds = %1528, %_ZNKSt6bitsetILm256EEcoEv.exit.i
   %.05.i.i.i.i = phi i64 [ 0, %_ZNKSt6bitsetILm256EEcoEv.exit.i ], [ %1534, %1528 ]
-  %1529 = getelementptr inbounds nuw [4 x i64], ptr %10, i64 0, i64 %.05.i.i.i.i
+  %1529 = getelementptr inbounds nuw i64, ptr %10, i64 %.05.i.i.i.i
   %1530 = load i64, ptr %1529, align 8, !tbaa !53, !noalias !159
-  %1531 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.05.i.i.i.i
+  %1531 = getelementptr inbounds nuw i64, ptr %9, i64 %.05.i.i.i.i
   %1532 = load i64, ptr %1531, align 8, !tbaa !53, !alias.scope !159
   %1533 = and i64 %1532, %1530
   store i64 %1533, ptr %1531, align 8, !tbaa !53, !alias.scope !159
@@ -6666,9 +6666,9 @@ _ZNKSt6bitsetILm256EEcoEv.exit.i:                 ; preds = %1523
 
 _ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i:     ; preds = %1528, %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i
   %.05.i.i.i = phi i64 [ %1540, %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i ], [ 0, %1528 ]
-  %1535 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %.05.i.i.i
+  %1535 = getelementptr inbounds nuw i64, ptr %9, i64 %.05.i.i.i
   %1536 = load i64, ptr %1535, align 8, !tbaa !53
-  %1537 = getelementptr inbounds nuw [4 x i64], ptr %1487, i64 0, i64 %.05.i.i.i
+  %1537 = getelementptr inbounds nuw i64, ptr %1487, i64 %.05.i.i.i
   %1538 = load i64, ptr %1537, align 8, !tbaa !53
   %1539 = or i64 %1538, %1536
   store i64 %1539, ptr %1537, align 8, !tbaa !53
@@ -6702,9 +6702,9 @@ _ZNSt6bitsetILm256EEoRERKS0_.exit.i:              ; preds = %_ZStanILm256EESt6bi
 
 1553:                                             ; preds = %1553, %1551
   %.05.i.i118.i = phi i64 [ 0, %1551 ], [ %1559, %1553 ]
-  %1554 = getelementptr inbounds nuw [4 x i64], ptr %1552, i64 0, i64 %.05.i.i118.i
+  %1554 = getelementptr inbounds nuw i64, ptr %1552, i64 %.05.i.i118.i
   %1555 = load i64, ptr %1554, align 8, !tbaa !53
-  %1556 = getelementptr inbounds nuw [4 x i64], ptr %1491, i64 0, i64 %.05.i.i118.i
+  %1556 = getelementptr inbounds nuw i64, ptr %1491, i64 %.05.i.i118.i
   %1557 = load i64, ptr %1556, align 8, !tbaa !53
   %1558 = or i64 %1557, %1555
   store i64 %1558, ptr %1556, align 8, !tbaa !53
@@ -6742,7 +6742,7 @@ _ZNSt6bitsetILm256EEoRERKS0_.exit120.i:           ; preds = %1553
   %.014.i.i = phi i8 [ %1581, %.preheader.i.i ], [ %1570, %1568 ]
   %1574 = zext i8 %.014.i.i to i64
   %1575 = lshr i64 %1574, 6
-  %1576 = getelementptr inbounds nuw [4 x i64], ptr %1489, i64 0, i64 %1575
+  %1576 = getelementptr inbounds nuw i64, ptr %1489, i64 %1575
   %1577 = load i64, ptr %1576, align 8, !tbaa !53
   %1578 = and i64 %1574, 63
   %1579 = shl nuw i64 1, %1578
@@ -6772,7 +6772,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i:  ; preds = %1585
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %1599, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %1589, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %1599 ]
   %1590 = lshr i64 %indvars.iv.i.i, 6
-  %1591 = getelementptr inbounds nuw [4 x i64], ptr %1489, i64 0, i64 %1590
+  %1591 = getelementptr inbounds nuw i64, ptr %1489, i64 %1590
   %1592 = load i64, ptr %1591, align 8, !tbaa !53
   %1593 = and i64 %indvars.iv.i.i, 63
   %1594 = shl nuw i64 1, %1593
@@ -6781,7 +6781,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %1599, %_ZNKSt6bitse
   br i1 %.not15.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i.i, label %1599
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i.i:             ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
-  %1596 = getelementptr inbounds nuw [4 x i64], ptr %1487, i64 0, i64 %1590
+  %1596 = getelementptr inbounds nuw i64, ptr %1487, i64 %1590
   %1597 = load i64, ptr %1596, align 8, !tbaa !53
   %1598 = or i64 %1597, %1594
   store i64 %1598, ptr %1596, align 8, !tbaa !53
@@ -6797,9 +6797,9 @@ _ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i.prehe
 
 _ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i: ; preds = %_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i.preheader, %_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i
   %.079.i.i.i = phi i64 [ %1604, %_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i ], [ 0, %_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h.exit.i.preheader ]
-  %1600 = getelementptr inbounds nuw [4 x i64], ptr %1487, i64 0, i64 %.079.i.i.i
+  %1600 = getelementptr inbounds nuw i64, ptr %1487, i64 %.079.i.i.i
   %1601 = load i64, ptr %1600, align 8, !tbaa !53
-  %1602 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.079.i.i.i
+  %1602 = getelementptr inbounds nuw i64, ptr %8, i64 %.079.i.i.i
   %1603 = load i64, ptr %1602, align 8, !tbaa !53
   %.not.i.i121.i = icmp eq i64 %1601, %1603
   %1604 = add nuw nsw i64 %.079.i.i.i, 1
@@ -7163,7 +7163,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen27BlockVmRegLiveInComputatio
   %.014.i.i = phi i8 [ %25, %.preheader.i.i ], [ %12, %11 ]
   %18 = zext i8 %.014.i.i to i64
   %19 = lshr i64 %18, 6
-  %20 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %14, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !53
   %22 = and i64 %18, 63
   %23 = shl nuw i64 1, %22
@@ -7194,7 +7194,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i:  ; preds = %29
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %43, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %33, %_ZNKSt6bitsetILm256EE4testEm.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
   %34 = lshr i64 %indvars.iv.i.i, 6
-  %35 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %14, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !53
   %37 = and i64 %indvars.iv.i.i, 63
   %38 = shl nuw i64 1, %37
@@ -7203,7 +7203,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %43, %_ZNKSt6bitsetI
   br i1 %.not15.i.i, label %_ZNSt6bitsetILm256EE3setEmb.exit.i.i, label %43
 
 _ZNSt6bitsetILm256EE3setEmb.exit.i.i:             ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
-  %40 = getelementptr inbounds nuw [4 x i64], ptr %13, i64 0, i64 %34
+  %40 = getelementptr inbounds nuw i64, ptr %13, i64 %34
   %41 = load i64, ptr %40, align 8, !tbaa !53
   %42 = or i64 %41, %38
   store i64 %42, ptr %40, align 8, !tbaa !53
@@ -7231,7 +7231,7 @@ _ZN4Luau7CodeGen27BlockVmRegLiveInComputation10useVarargsEh.exit: ; preds = %43,
 
 _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %45
   %48 = lshr i64 %indvars.iv, 6
-  %49 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %7, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !53
   %51 = and i64 %indvars.iv, 63
   %52 = shl nuw i64 1, %51
@@ -7240,7 +7240,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %45
   br i1 %.not, label %_ZNSt6bitsetILm256EE3setEmb.exit, label %57
 
 _ZNSt6bitsetILm256EE3setEmb.exit:                 ; preds = %_ZNKSt6bitsetILm256EE4testEm.exit
-  %54 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %48
+  %54 = getelementptr inbounds nuw i64, ptr %8, i64 %48
   %55 = load i64, ptr %54, align 8, !tbaa !53
   %56 = or i64 %55, %52
   store i64 %56, ptr %54, align 8, !tbaa !53

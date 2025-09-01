@@ -1832,7 +1832,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder12writeDeltaToEi(ptr noundef no
   %22 = trunc i32 %6 to i16
   %23 = add nuw nsw i32 %.0, 1
   %24 = zext nneg i32 %.0 to i64
-  %25 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %24
   store i16 %22, ptr %25, align 2, !tbaa !11
   %26 = call noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %3, i32 noundef %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

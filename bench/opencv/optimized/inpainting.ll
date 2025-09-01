@@ -4338,7 +4338,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE5clearEv.exit: ; pre
   %indvars.iv = phi i64 [ 0, %.preheader150 ], [ %indvars.iv.next, %113 ]
   %.0111156 = phi i32 [ 0, %.preheader150 ], [ %.1112, %113 ]
   %.0113155 = phi i32 [ 0, %.preheader150 ], [ %.1114, %113 ]
-  %93 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_17MotionInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_17MotionInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 %indvars.iv
   %94 = load i32, ptr %93, align 8, !tbaa !56
   %95 = add nsw i32 %94, %81
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -4543,7 +4543,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE9push_backEOS3_.exit
 
 193:                                              ; preds = %179, %268
   %indvars.iv175 = phi i64 [ 0, %179 ], [ %indvars.iv.next176, %268 ]
-  %194 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_17MotionInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 0, i64 %indvars.iv175
+  %194 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_17MotionInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 %indvars.iv175
   %195 = load i32, ptr %194, align 8, !tbaa !56
   %196 = add nsw i32 %195, %182
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
@@ -5939,7 +5939,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE5clearEv.exit: ; pre
   %indvars.iv = phi i64 [ 0, %.preheader167 ], [ %indvars.iv.next, %119 ]
   %.0111173 = phi i32 [ 0, %.preheader167 ], [ %.1112, %119 ]
   %.0113172 = phi i32 [ 0, %.preheader167 ], [ %.1114, %119 ]
-  %99 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_23ColorAverageInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_23ColorAverageInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 %indvars.iv
   %100 = load i32, ptr %99, align 8, !tbaa !56
   %101 = add nsw i32 %100, %87
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
@@ -6011,7 +6011,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE5clearEv.exit: ; pre
   %.03550.i = phi float [ 0.000000e+00, %128 ], [ %.136.i, %180 ]
   %.03749.i = phi float [ 0.000000e+00, %128 ], [ %.138.i, %180 ]
   %.04047.i = phi float [ 0.000000e+00, %128 ], [ %.141.i, %180 ]
-  %142 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @_ZZN2cv9videostab23ColorAverageInpaintBodyclEiiE3lut, i64 0, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab23ColorAverageInpaintBodyclEiiE3lut, i64 %indvars.iv.i
   %143 = load i32, ptr %142, align 8, !tbaa !56
   %144 = add nsw i32 %143, %87
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 4
@@ -6247,7 +6247,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE9push_backEOS3_.exit
 
 270:                                              ; preds = %256, %410
   %indvars.iv192 = phi i64 [ 0, %256 ], [ %indvars.iv.next193, %410 ]
-  %271 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_23ColorAverageInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 0, i64 %indvars.iv192
+  %271 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab18FastMarchingMethod3runINS0_23ColorAverageInpaintBodyEEET_RKNS_3MatES4_E3lut, i64 %indvars.iv192
   %272 = load i32, ptr %271, align 8, !tbaa !56
   %273 = add nsw i32 %272, %259
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 4
@@ -6327,7 +6327,7 @@ _ZNSt6vectorIN2cv9videostab18FastMarchingMethod3DXYESaIS3_EE9push_backEOS3_.exit
   %.03550.i142 = phi float [ 0.000000e+00, %323 ], [ %.136.i147, %369 ]
   %.03749.i143 = phi float [ 0.000000e+00, %323 ], [ %.138.i146, %369 ]
   %.04047.i144 = phi float [ 0.000000e+00, %323 ], [ %.141.i145, %369 ]
-  %331 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @_ZZN2cv9videostab23ColorAverageInpaintBodyclEiiE3lut, i64 0, i64 %indvars.iv.i140
+  %331 = getelementptr inbounds nuw [2 x i32], ptr @_ZZN2cv9videostab23ColorAverageInpaintBodyclEiiE3lut, i64 %indvars.iv.i140
   %332 = load i32, ptr %331, align 8, !tbaa !56
   %333 = add nsw i32 %332, %273
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 4

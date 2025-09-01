@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rtc_ktime_to
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local range(i32 0, 257) i32 @rtc_month_days(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [12 x i8], ptr @rtc_days_in_month, i64 0, i64 %3
+  %4 = getelementptr i8, ptr @rtc_days_in_month, i64 %3
   %5 = load i8, ptr %4, align 1
   %6 = and i32 %1, 3
   %7 = icmp ne i32 %6, 0
@@ -69,8 +69,8 @@ define dso_local i32 @rtc_year_days(i32 noundef %0, i32 noundef %1, i32 noundef 
 13:                                               ; preds = %9, %3
   %14 = phi i64 [ %12, %9 ], [ 1, %3 ]
   %15 = zext i32 %1 to i64
-  %.split = getelementptr [2 x [13 x i16]], ptr @rtc_ydays, i64 0, i64 %14
-  %16 = getelementptr [13 x i16], ptr %.split, i64 0, i64 %15
+  %.split = getelementptr [13 x i16], ptr @rtc_ydays, i64 %14
+  %16 = getelementptr i16, ptr %.split, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = add i32 %0, -1
@@ -180,7 +180,7 @@ define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr noundef readonly captur
 14:                                               ; preds = %10
   %15 = add nuw nsw i32 %3, 1900
   %16 = zext nneg i32 %8 to i64
-  %17 = getelementptr [12 x i8], ptr @rtc_days_in_month, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @rtc_days_in_month, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = and i32 %3, 3
   %20 = icmp ne i32 %19, 0

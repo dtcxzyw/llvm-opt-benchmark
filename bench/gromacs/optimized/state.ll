@@ -11366,7 +11366,7 @@ define void @_Z18initialize_lambdasP8_IO_FILE26FreeEnergyPerturbationTypebRK8t_l
 
 _ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us: ; preds = %.split.us, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us.us ], [ 0, %.split.us ]
-  %22 = getelementptr inbounds nuw [7 x %"class.std::vector.0"], ptr %18, i64 0, i64 %indvars.iv39
+  %22 = getelementptr inbounds nuw %"class.std::vector.0", ptr %18, i64 %indvars.iv39
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = getelementptr inbounds nuw double, ptr %23, i64 %19
   %25 = load double, ptr %24, align 8, !tbaa !63

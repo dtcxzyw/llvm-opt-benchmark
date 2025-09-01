@@ -120,8 +120,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   br i1 %33, label %34, label %.invoke, !prof !18
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %.031.lcssa.i
-  %36 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %.0.lcssa.i
+  %35 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %.031.lcssa.i
+  %36 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %.0.lcssa.i
   %37 = getelementptr i8, ptr %35, i64 32
   %.val36.i = load i64, ptr %37, align 8, !alias.scope !19, !noalias !26
   %38 = getelementptr i8, ptr %35, i64 48
@@ -152,8 +152,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   br i1 %45, label %46, label %.invoke, !prof !18
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %44
-  %48 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %.03169.i
+  %47 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %44
+  %48 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %.03169.i
   %49 = getelementptr i8, ptr %47, i64 32
   %.val41.i = load i64, ptr %49, align 8, !alias.scope !19, !noalias !26
   %50 = getelementptr i8, ptr %47, i64 48
@@ -176,8 +176,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   br i1 %60, label %61, label %.invoke, !prof !18
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %57
-  %63 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %16, i64 0, i64 %.070.i
+  %62 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %57
+  %63 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %16, i64 %.070.i
   %64 = getelementptr i8, ptr %62, i64 32
   %.val46.i = load i64, ptr %64, align 8, !alias.scope !19, !noalias !26
   %65 = getelementptr i8, ptr %62, i64 48
@@ -607,7 +607,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw [0 x { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }], ptr %22, i64 0, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -1119,8 +1119,8 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
   br i1 %27, label %28, label %.invoke, !prof !18
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %.031.lcssa.i.i
-  %30 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %.0.lcssa.i.i
+  %29 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %.031.lcssa.i.i
+  %30 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %.0.lcssa.i.i
   %31 = getelementptr i8, ptr %29, i64 32
   %.val36.i.i = load i64, ptr %31, align 8, !alias.scope !273, !noalias !282
   %32 = getelementptr i8, ptr %29, i64 48
@@ -1151,8 +1151,8 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
   br i1 %39, label %40, label %.invoke, !prof !18
 
 40:                                               ; preds = %.lr.ph.i.i
-  %41 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %38
-  %42 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %.03172.i.i
+  %41 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %38
+  %42 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %.03172.i.i
   %43 = getelementptr i8, ptr %41, i64 32
   %.val41.i.i = load i64, ptr %43, align 8, !alias.scope !273, !noalias !282
   %44 = getelementptr i8, ptr %41, i64 48
@@ -1175,8 +1175,8 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
   br i1 %54, label %55, label %.invoke, !prof !18
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %51
-  %57 = getelementptr inbounds [0 x { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }], ptr %17, i64 0, i64 %.071.i.i
+  %56 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %51
+  %57 = getelementptr inbounds { { { i64, [2 x i64] }, i64, i64, i64, i64, i64 }, { { { ptr, [3 x i64] }, { ptr, [3 x i64] }, { { ptr, [2 x i64] } } } } }, ptr %17, i64 %.071.i.i
   %58 = getelementptr i8, ptr %56, i64 32
   %.val46.i.i = load i64, ptr %58, align 8, !alias.scope !273, !noalias !282
   %59 = getelementptr i8, ptr %56, i64 48

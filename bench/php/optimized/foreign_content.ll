@@ -461,7 +461,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 48:                                               ; preds = %39
   %49 = zext i8 %40 to i64
-  %50 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @lexbor_tokenizer_chars_map, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !63
   %.not35 = icmp eq i8 %51, 2
   br i1 %.not35, label %.backedge, label %.loopexit.sink.split
@@ -565,7 +565,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !65
   %28 = icmp ugt i64 %27, 195
-  %29 = getelementptr inbounds nuw [196 x %struct.lxb_html_tag_fixname_t], ptr @lxb_html_tag_res_fixname_svg, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw %struct.lxb_html_tag_fixname_t, ptr @lxb_html_tag_res_fixname_svg, i64 %27
   br i1 %28, label %37, label %30
 
 30:                                               ; preds = %25

@@ -325,9 +325,9 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %.076, i64 8
   %167 = getelementptr inbounds nuw i8, ptr %.076, i64 16
-  %168 = add nsw i32 %.077, 129
-  %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [257 x i8], ptr %165, i64 0, i64 %169
+  %168 = sext i32 %.077 to i64
+  %169 = getelementptr i8, ptr %165, i64 %168
+  %170 = getelementptr i8, ptr %169, i64 129
   br i1 %162, label %.preheader.lr.ph.split.us, label %.thread102
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
@@ -401,9 +401,9 @@ av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params
   %205 = add nsw i32 %204, %.077
   %sext95.us124 = shl i32 %205, 24
   %206 = ashr exact i32 %sext95.us124, 24
-  %207 = add nsw i32 %206, 129
-  %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw [257 x i8], ptr %165, i64 0, i64 %208
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr i8, ptr %165, i64 %207
+  %209 = getelementptr i8, ptr %208, i64 129
   %210 = load i8, ptr %209, align 1, !tbaa !59
   %211 = sext i8 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -543,8 +543,8 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %52 = fptrunc nsz double %42 to float
   %53 = call i64 @llvm.lrint.i64.f32(float %52)
   %54 = trunc i64 %53 to i8
-  %55 = add nsw i64 %indvars.iv, 129
-  %56 = getelementptr inbounds [257 x i8], ptr %31, i64 0, i64 %55
+  %55 = getelementptr i8, ptr %31, i64 %indvars.iv
+  %56 = getelementptr i8, ptr %55, i64 129
   store i8 %54, ptr %56, align 1, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

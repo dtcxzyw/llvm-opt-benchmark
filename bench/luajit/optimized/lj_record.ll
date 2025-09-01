@@ -233,7 +233,7 @@ define hidden void @lj_record_stop(ptr noundef initializes((106, 108), (116, 117
 
 40:                                               ; preds = %62, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %39, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
-  %41 = getelementptr inbounds nuw [258 x i32], ptr %34, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !37
   %43 = lshr i32 %42, 24
   %44 = and i32 %43, 31
@@ -1623,7 +1623,7 @@ define hidden range(i32 0, 2) i32 @lj_record_mm_lookup(ptr noundef %0, ptr nound
   %.1 = phi ptr [ %83, %87 ], [ %29, %.sink.split ]
   %52 = getelementptr inbounds i8, ptr %0, i64 -312
   %53 = zext i32 %2 to i64
-  %54 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw %struct.GCRef, ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !79
   %56 = inttoptr i64 %55 to ptr
   %57 = tail call ptr @lj_tab_getstr(ptr noundef %.1, ptr noundef %56) #8
@@ -1671,7 +1671,7 @@ define hidden range(i32 0, 2) i32 @lj_record_mm_lookup(ptr noundef %0, ptr nound
   %79 = icmp ult i64 %78, -13
   %80 = sub nsw i64 21, %78
   %spec.select = select i1 %79, i64 35, i64 %80
-  %81 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %76, i64 0, i64 %spec.select
+  %81 = getelementptr inbounds nuw %struct.GCRef, ptr %76, i64 %spec.select
   %82 = load i64, ptr %81, align 8, !tbaa !79
   %83 = inttoptr i64 %82 to ptr
   %84 = icmp eq i64 %82, 0
@@ -1725,7 +1725,7 @@ define hidden range(i32 0, 2) i32 @lj_record_mm_lookup(ptr noundef %0, ptr nound
 109:                                              ; preds = %108
   %110 = getelementptr inbounds i8, ptr %0, i64 -312
   %111 = zext i32 %2 to i64
-  %112 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %110, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw %struct.GCRef, ptr %110, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !79
   %114 = inttoptr i64 %113 to ptr
   %115 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.2, ptr noundef %114) #8
@@ -2676,7 +2676,7 @@ rec_idx_key.exit:                                 ; preds = %238, %248, %279, %.
 
 503:                                              ; preds = %502, %494
   %indvars.iv.i = phi i64 [ 0, %494 ], [ %indvars.iv.next.i, %502 ]
-  %504 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %501, i64 0, i64 %indvars.iv.i
+  %504 = getelementptr inbounds nuw %struct.GCRef, ptr %501, i64 %indvars.iv.i
   %505 = load i64, ptr %504, align 8, !tbaa !79
   %506 = icmp eq i64 %505, %500
   br i1 %506, label %.loopexit, label %502
@@ -3194,7 +3194,7 @@ rec_profile_ins.exit:                             ; preds = %135, %138, %148, %1
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 0, ptr %172, align 8, !tbaa !83
   %173 = zext nneg i32 %169 to i64
-  %174 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %173
   %175 = load i16, ptr %174, align 2, !tbaa !113
   %176 = and i16 %175, 7
   %cond = icmp eq i16 %176, 3
@@ -5291,7 +5291,7 @@ define internal fastcc i32 @rec_upvalue(ptr noundef %0, i32 noundef %1, i32 noun
   %5 = load ptr, ptr %4, align 8, !tbaa !117
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw %struct.GCRef, ptr %6, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !4
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -6910,7 +6910,7 @@ define internal fastcc void @rec_loop_interp(ptr noundef %0, ptr noundef readonl
 
 41:                                               ; preds = %39, %37
   %.013.i = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw [64 x %struct.HotPenalty], ptr %38, i64 0, i64 %.013.i
+  %42 = getelementptr inbounds nuw %struct.HotPenalty, ptr %38, i64 %.013.i
   %43 = load i64, ptr %42, align 8, !tbaa !165
   %44 = inttoptr i64 %43 to ptr
   %45 = icmp eq ptr %1, %44
@@ -9141,7 +9141,7 @@ define internal fastcc void @check_call_unroll(ptr noundef %0, i32 noundef %1) u
   %88 = ptrtoint ptr %87 to i64
   %89 = lshr i64 %88, 2
   %90 = and i64 %89, 63
-  %91 = getelementptr inbounds nuw [64 x i16], ptr %85, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i16, ptr %85, i64 %90
   store i16 %84, ptr %91, align 2, !tbaa !113
   br label %92
 
@@ -9171,7 +9171,7 @@ define internal fastcc i32 @find_kinit(ptr noundef %0, ptr noundef readonly capt
   %9 = load i32, ptr %.04768, align 4, !tbaa !37
   %10 = and i32 %9, 255
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !113
   %14 = and i16 %13, 7
   switch i16 %14, label %.thread [

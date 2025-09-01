@@ -197,7 +197,7 @@ get_bits_long.exit58:                             ; preds = %get_bits_long.exit,
 
 .lr.ph:                                           ; preds = %81
   %93 = zext nneg i32 %89 to i64
-  %94 = getelementptr inbounds nuw [9 x i8], ptr @sei_num_clock_ts_table, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @sei_num_clock_ts_table, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !48
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %96, align 4, !tbaa !55
@@ -230,7 +230,7 @@ get_bits_long.exit58:                             ; preds = %get_bits_long.exit,
   %115 = add nsw i32 %104, 1
   store i32 %115, ptr %96, align 4, !tbaa !55
   %116 = sext i32 %104 to i64
-  %117 = getelementptr inbounds [3 x %struct.H264SEITimeCode], ptr %99, i64 0, i64 %116
+  %117 = getelementptr inbounds %struct.H264SEITimeCode, ptr %99, i64 %116
   %118 = lshr i32 %113, 3
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 %119
@@ -645,7 +645,7 @@ bytestream2_init.exit51:                          ; preds = %73
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %102
   %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %103
   %104 = zext nneg i32 %.110.i.i.i to i64
-  %105 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !48
   %107 = zext i8 %106 to i32
   %108 = add nuw nsw i32 %.1.i.i.i, %107
@@ -721,12 +721,12 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
   %151 = call i32 @llvm.bswap.i32(i32 %150)
   %152 = lshr i32 %151, 23
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw [512 x i8], ptr @ff_golomb_vlc_len, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !48
   %156 = zext i8 %155 to i32
   %..i.i = call i32 @llvm.umin.i32(i32 %81, i32 %156)
   store i32 %..i.i, ptr %27, align 8, !tbaa !66
-  %157 = getelementptr inbounds nuw [512 x i8], ptr @ff_ue_golomb_vlc_code, i64 0, i64 %153
+  %157 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %153
   %158 = load i8, ptr %157, align 1, !tbaa !48
   %159 = zext i8 %158 to i32
   %160 = icmp ugt i8 %158, 31
@@ -734,7 +734,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
 
 161:                                              ; preds = %149
   %162 = zext nneg i8 %158 to i64
-  %163 = getelementptr inbounds nuw [32 x ptr], ptr %2, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr %2, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !81
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %165, label %167
@@ -810,7 +810,7 @@ get_ue_golomb_long.exit.thread.i:                 ; preds = %get_ue_golomb_long.
 get_bits_long.exit.i:                             ; preds = %191, %186, %174
   %209 = phi i32 [ %190, %186 ], [ %207, %191 ], [ %175, %174 ]
   %.0.i.i61 = phi i32 [ %188, %186 ], [ %208, %191 ], [ 0, %174 ]
-  %210 = getelementptr inbounds nuw [32 x i32], ptr %39, i64 0, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
   store i32 %.0.i.i61, ptr %210, align 4, !tbaa !85
   %211 = load i32, ptr %173, align 8, !tbaa !84
   %212 = add i32 %209, %211
@@ -889,7 +889,7 @@ get_bits_long.exit.i:                             ; preds = %191, %186, %174
 get_bits_long.exit37.i:                           ; preds = %240, %235, %223
   %258 = phi i32 [ %239, %235 ], [ %256, %240 ], [ %224, %223 ]
   %.0.i36.i = phi i32 [ %237, %235 ], [ %257, %240 ], [ 0, %223 ]
-  %259 = getelementptr inbounds nuw [32 x i32], ptr %39, i64 0, i64 %indvars.iv44.i
+  %259 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv44.i
   store i32 %.0.i36.i, ptr %259, align 4, !tbaa !85
   %260 = load i32, ptr %222, align 8, !tbaa !84
   %261 = add i32 %258, %260

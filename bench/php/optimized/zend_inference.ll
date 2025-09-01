@@ -4718,7 +4718,7 @@ _ssa_op1_range_overflow.exit674:                  ; preds = %1796, %1805, %1808
   %1843 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1844 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !24
   %1845 = sext i32 %1844 to i64
-  %1846 = getelementptr inbounds [6 x ptr], ptr %1843, i64 0, i64 %1845
+  %1846 = getelementptr inbounds ptr, ptr %1843, i64 %1845
   %1847 = load ptr, ptr %1846, align 8, !tbaa !91
   %.not = icmp eq ptr %1847, null
   br i1 %.not, label %_ssa_op1_has_range.exit.thread, label %1848
@@ -4756,7 +4756,7 @@ _ssa_op1_range_overflow.exit674:                  ; preds = %1796, %1805, %1808
 
 1869:                                             ; preds = %1864
   %1870 = getelementptr inbounds nuw i8, ptr %1866, i64 208
-  %1871 = getelementptr inbounds [6 x ptr], ptr %1870, i64 0, i64 %1845
+  %1871 = getelementptr inbounds ptr, ptr %1870, i64 %1845
   %1872 = load ptr, ptr %1871, align 8, !tbaa !28
   %.not495 = icmp eq ptr %1872, null
   br i1 %.not495, label %_ssa_op1_has_range.exit.thread, label %1873
@@ -23189,7 +23189,7 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
   %6246 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6247 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !24
   %6248 = sext i32 %6247 to i64
-  %6249 = getelementptr inbounds [6 x ptr], ptr %6246, i64 0, i64 %6248
+  %6249 = getelementptr inbounds ptr, ptr %6246, i64 %6248
   %6250 = load ptr, ptr %6249, align 8, !tbaa !91
   %.not9136.i = icmp eq ptr %6250, null
   br i1 %.not9136.i, label %.thread582, label %6251
@@ -28718,7 +28718,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %38 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !24
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [6 x ptr], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !91
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %311, label %42
@@ -47519,7 +47519,7 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
 6716:                                             ; preds = %6712
   %6717 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !24
   %6718 = sext i32 %6717 to i64
-  %6719 = getelementptr inbounds [6 x ptr], ptr %30, i64 0, i64 %6718
+  %6719 = getelementptr inbounds ptr, ptr %30, i64 %6718
   %6720 = load ptr, ptr %6719, align 8, !tbaa !91
   %.not9136.i = icmp eq ptr %6720, null
   br i1 %.not9136.i, label %.thread1514, label %6721

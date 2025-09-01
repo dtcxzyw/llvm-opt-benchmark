@@ -555,10 +555,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h2874f87568b6e437E.exit.thread.i: ; 
 86:                                               ; preds = %86, %73
   %.sroa.0.037.i.i.i = phi i64 [ 0, %73 ], [ %87, %86 ]
   %87 = add nuw nsw i64 %.sroa.0.037.i.i.i, 1
-  %88 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.03039.i.i.i, i64 0, i64 %.sroa.0.037.i.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.03039.i.i.i, i64 %.sroa.0.037.i.i.i
   %89 = load i8, ptr %88, align 1, !noalias !114, !noundef !4
   %90 = icmp sgt i8 %89, -65
-  %91 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.sroa.0.037.i.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.037.i.i.i
   %92 = zext i1 %90 to i8
   store i8 %92, ptr %91, align 1, !noalias !114
   %exitcond.not.i.i.i = icmp eq i64 %87, 32
@@ -588,7 +588,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h2874f87568b6e437E.exit.thread.i: ; 
   %103 = add i64 %.248.i.i.i, -1
   %104 = load i8, ptr %99, align 1, !noalias !114, !noundef !4
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw [256 x i8], ptr @anon.2076594f412f54d6391b531c323ad7b7.34, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @anon.2076594f412f54d6391b531c323ad7b7.34, i64 %105
   %107 = load i8, ptr %106, align 1, !noalias !114, !noundef !4
   %108 = zext i8 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 %108

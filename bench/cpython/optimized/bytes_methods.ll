@@ -49,7 +49,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly captur
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 8
   %.not = icmp eq i32 %8, 0
@@ -69,7 +69,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly captur
   %.01013 = phi ptr [ %13, %12 ], [ %0, %9 ]
   %14 = load i8, ptr %.01013, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %15
+  %16 = getelementptr i32, ptr @_Py_ctype_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = and i32 %17, 8
   %.not12 = icmp eq i32 %18, 0
@@ -90,7 +90,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captur
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 3
   %.not = icmp eq i32 %8, 0
@@ -110,7 +110,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captur
   %.01013 = phi ptr [ %13, %12 ], [ %0, %9 ]
   %14 = load i8, ptr %.01013, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %15
+  %16 = getelementptr i32, ptr @_Py_ctype_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = and i32 %17, 3
   %.not12 = icmp eq i32 %18, 0
@@ -131,7 +131,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly captur
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 7
   %.not = icmp eq i32 %8, 0
@@ -151,7 +151,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly captur
   %.01013 = phi ptr [ %13, %12 ], [ %0, %9 ]
   %14 = load i8, ptr %.01013, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %15
+  %16 = getelementptr i32, ptr @_Py_ctype_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = and i32 %17, 7
   %.not12 = icmp eq i32 %18, 0
@@ -172,7 +172,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captur
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 4
   %.not = icmp eq i32 %8, 0
@@ -192,7 +192,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captur
   %.01013 = phi ptr [ %13, %12 ], [ %0, %9 ]
   %14 = load i8, ptr %.01013, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %15
+  %16 = getelementptr i32, ptr @_Py_ctype_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = and i32 %17, 4
   %.not12 = icmp eq i32 %18, 0
@@ -213,7 +213,7 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 1
   br label %.loopexit.sink.split
@@ -228,7 +228,7 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
   %.01419 = phi ptr [ %19, %17 ], [ %0, %9 ]
   %12 = load i8, ptr %.01419, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @_Py_ctype_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = and i32 %15, 2
   %.not = icmp eq i32 %16, 0
@@ -265,7 +265,7 @@ define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 2
   br label %.loopexit.sink.split
@@ -280,7 +280,7 @@ define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, 
   %.01419 = phi ptr [ %19, %17 ], [ %0, %9 ]
   %12 = load i8, ptr %.01419, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @_Py_ctype_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
@@ -316,7 +316,7 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %5
+  %6 = getelementptr i32, ptr @_Py_ctype_table, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = and i32 %7, 2
   %.not28 = icmp eq i32 %8, 0
@@ -334,7 +334,7 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   %.02330 = phi ptr [ %22, %21 ], [ %0, %9 ]
   %12 = load i8, ptr %.02330, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %13
+  %14 = getelementptr i32, ptr @_Py_ctype_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = and i32 %15, 2
   %.not = icmp eq i32 %16, 0
@@ -384,7 +384,7 @@ define hidden void @_Py_bytes_lower(ptr noundef writeonly captures(none) %0, ptr
   %5 = getelementptr i8, ptr %1, i64 %.06
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = getelementptr i8, ptr %0, i64 %.06
   store i8 %9, ptr %10, align 1, !tbaa !4
@@ -406,7 +406,7 @@ define hidden void @_Py_bytes_upper(ptr noundef writeonly captures(none) %0, ptr
   %5 = getelementptr i8, ptr %1, i64 %.06
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @_Py_ctype_toupper, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = getelementptr i8, ptr %0, i64 %.06
   store i8 %9, ptr %10, align 1, !tbaa !4
@@ -431,7 +431,7 @@ define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr
   %5 = getelementptr i8, ptr %.01519, i64 1
   %6 = load i8, ptr %.01519, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @_Py_ctype_table, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = and i32 %9, 1
   %.not = icmp eq i32 %10, 0
@@ -452,7 +452,7 @@ define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr
 
 .sink.split:                                      ; preds = %14, %11
   %_Py_ctype_tolower.sink = phi ptr [ @_Py_ctype_toupper, %11 ], [ @_Py_ctype_tolower, %14 ]
-  %15 = getelementptr [256 x i8], ptr %_Py_ctype_tolower.sink, i64 0, i64 %7
+  %15 = getelementptr i8, ptr %_Py_ctype_tolower.sink, i64 %7
   %16 = load i8, ptr %15, align 1, !tbaa !4
   br label %17
 
@@ -477,7 +477,7 @@ define hidden void @_Py_bytes_capitalize(ptr noundef writeonly captures(none) %0
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @_Py_ctype_toupper, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
   store i8 %9, ptr %0, align 1, !tbaa !4
   %10 = getelementptr i8, ptr %0, i64 1
@@ -491,7 +491,7 @@ define hidden void @_Py_bytes_capitalize(ptr noundef writeonly captures(none) %0
   %13 = getelementptr i8, ptr %11, i64 %.06.i
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %15 = zext i8 %14 to i64
-  %16 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %15
+  %16 = getelementptr i8, ptr @_Py_ctype_tolower, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = getelementptr i8, ptr %10, i64 %.06.i
   store i8 %17, ptr %18, align 1, !tbaa !4
@@ -515,7 +515,7 @@ define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %0, 
   %5 = getelementptr i8, ptr %.01315, i64 1
   %6 = load i8, ptr %.01315, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @_Py_ctype_table, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = and i32 %9, 1
   %.not = icmp eq i32 %10, 0
@@ -528,7 +528,7 @@ define hidden void @_Py_bytes_swapcase(ptr noundef writeonly captures(none) %0, 
 
 .sink.split:                                      ; preds = %11, %.lr.ph
   %_Py_ctype_tolower.sink = phi ptr [ @_Py_ctype_toupper, %.lr.ph ], [ @_Py_ctype_tolower, %11 ]
-  %13 = getelementptr [256 x i8], ptr %_Py_ctype_tolower.sink, i64 0, i64 %7
+  %13 = getelementptr i8, ptr %_Py_ctype_tolower.sink, i64 %7
   %14 = load i8, ptr %13, align 1, !tbaa !4
   br label %15
 
@@ -1222,7 +1222,7 @@ define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %.02637 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %17 = getelementptr [1 x ptr], ptr %11, i64 0, i64 %.02637
+  %17 = getelementptr ptr, ptr %11, i64 %.02637
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = tail call fastcc i32 @tailmatch(ptr noundef %0, i64 noundef %1, ptr noundef %18, i64 noundef %4, i64 noundef %5, i32 noundef %6)
   %20 = icmp slt i32 %19, 0
@@ -2060,7 +2060,7 @@ stringlib__factorize.exit:                        ; preds = %44
   %78 = load i8, ptr %77, align 1, !tbaa !4
   %79 = and i8 %78, 63
   %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr [64 x i8], ptr %72, i64 0, i64 %80
+  %81 = getelementptr i8, ptr %72, i64 %80
   store i8 %76, ptr %81, align 1, !tbaa !4
   %82 = add nsw i64 %.05361, 1
   %83 = icmp slt i64 %82, %1

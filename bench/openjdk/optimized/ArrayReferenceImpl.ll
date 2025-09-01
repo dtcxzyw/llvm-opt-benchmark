@@ -448,7 +448,7 @@ switch.hole_check:                                ; preds = %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.readComponents, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.readComponents, i64 %16
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %6, %9, %15, %switch.lookup
@@ -1080,7 +1080,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.readComponents, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.readComponents, i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit
 

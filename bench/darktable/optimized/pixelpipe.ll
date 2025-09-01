@@ -2656,7 +2656,7 @@ define void @dt_dev_pixelpipe_set_input(ptr noundef initializes((136, 156), (176
 
 17:                                               ; preds = %17, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %18, align 4, !tbaa !165
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -5456,7 +5456,7 @@ _skip_piece_on_tags.exit.thread521:               ; preds = %65, %_skip_piece_on
 
 85:                                               ; preds = %85, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %85 ]
-  %86 = getelementptr inbounds nuw [4 x float], ptr %84, i64 0, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %86, align 4, !tbaa !165
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -6383,13 +6383,13 @@ dt_dev_pixelpipe_invalidate_cacheline.exit514:    ; preds = %546, %529, %516, %5
 582:                                              ; preds = %579
   %583 = fpext reassoc nsz arcp contract afn float %577 to double
   %584 = and i64 %indvars.iv558, 3
-  %585 = getelementptr inbounds nuw [4 x float], ptr %22, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw float, ptr %22, i64 %584
   %586 = load float, ptr %585, align 4, !tbaa !165
   %587 = fpext reassoc nsz arcp contract afn float %586 to double
   %588 = call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %583, double %587)
   %589 = fptrunc reassoc nsz arcp contract afn double %588 to float
   store float %589, ptr %585, align 4, !tbaa !165
-  %590 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %584
+  %590 = getelementptr inbounds nuw float, ptr %23, i64 %584
   %591 = load float, ptr %590, align 4, !tbaa !165
   %592 = fpext reassoc nsz arcp contract afn float %591 to double
   %593 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %583, double %592)
@@ -7991,15 +7991,15 @@ define internal fastcc void @_pixelpipe_picker(ptr noundef %0, ptr noundef reado
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %.035.us = phi i64 [ %60, %.split.us ], [ 0, %.split.us.preheader ]
-  %51 = getelementptr inbounds nuw [4 x float], ptr %49, i64 0, i64 %.035.us
+  %51 = getelementptr inbounds nuw float, ptr %49, i64 %.035.us
   %52 = load float, ptr %51, align 4, !tbaa !165
   %53 = getelementptr inbounds nuw float, ptr %6, i64 %.035.us
   store float %52, ptr %53, align 4, !tbaa !165
-  %54 = getelementptr inbounds nuw [4 x float], ptr %50, i64 0, i64 %.035.us
+  %54 = getelementptr inbounds nuw float, ptr %50, i64 %.035.us
   %55 = load float, ptr %54, align 4, !tbaa !165
   %56 = getelementptr inbounds nuw float, ptr %7, i64 %.035.us
   store float %55, ptr %56, align 4, !tbaa !165
-  %57 = getelementptr inbounds nuw [4 x float], ptr %12, i64 0, i64 %.035.us
+  %57 = getelementptr inbounds nuw float, ptr %12, i64 %.035.us
   %58 = load float, ptr %57, align 4, !tbaa !165
   %59 = getelementptr inbounds nuw float, ptr %5, i64 %.035.us
   store float %58, ptr %59, align 4, !tbaa !165

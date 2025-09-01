@@ -154,7 +154,7 @@ define void @_ZN3zmq12v1_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   %.sink = phi i8 [ 0, %45 ], [ 1, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = or disjoint i64 %.0, 1
-  %48 = getelementptr inbounds nuw [11 x i8], ptr %46, i64 0, i64 %.0
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.0
   store i8 %.sink, ptr %48, align 2, !tbaa !22
   br label %49
 

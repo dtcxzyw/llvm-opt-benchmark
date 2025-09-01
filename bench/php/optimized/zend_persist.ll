@@ -3553,7 +3553,7 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
   %indvars.iv1079 = phi i64 [ %indvars.iv.next1080, %1793 ], [ 0, %1708 ]
   %1714 = phi ptr [ %1796, %1793 ], [ %1709, %1708 ]
   %1715 = getelementptr inbounds nuw i8, ptr %1714, i64 24
-  %1716 = getelementptr inbounds nuw [1 x ptr], ptr %1715, i64 0, i64 %indvars.iv1079
+  %1716 = getelementptr inbounds nuw ptr, ptr %1715, i64 %indvars.iv1079
   %1717 = load ptr, ptr %1716, align 8, !tbaa !14
   %1718 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 176
@@ -3574,7 +3574,7 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
   %1728 = getelementptr inbounds nuw ptr, ptr %1727, i64 %1562
   %1729 = load ptr, ptr %1728, align 8, !tbaa !143
   %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 24
-  %1731 = getelementptr inbounds nuw [1 x ptr], ptr %1730, i64 0, i64 %indvars.iv1079
+  %1731 = getelementptr inbounds nuw ptr, ptr %1730, i64 %indvars.iv1079
   %1732 = load ptr, ptr %1731, align 8, !tbaa !14
   br i1 %.not839, label %1747, label %1733
 
@@ -3605,7 +3605,7 @@ zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
   %1743 = phi ptr [ %1729, %1733 ], [ %1729, %1737 ], [ %.pre1218, %1742 ]
   %1744 = phi ptr [ %1727, %1733 ], [ %1727, %1737 ], [ %.pre1216, %1742 ]
   %1745 = getelementptr inbounds nuw i8, ptr %1743, i64 24
-  %1746 = getelementptr inbounds nuw [1 x ptr], ptr %1745, i64 0, i64 %indvars.iv1079
+  %1746 = getelementptr inbounds nuw ptr, ptr %1745, i64 %indvars.iv1079
   store ptr %1726, ptr %1746, align 8, !tbaa !14
   br label %1793
 
@@ -3618,7 +3618,7 @@ zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
   %1753 = getelementptr inbounds nuw ptr, ptr %1752, i64 %1562
   %1754 = load ptr, ptr %1753, align 8, !tbaa !143
   %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 24
-  %1756 = getelementptr inbounds nuw [1 x ptr], ptr %1755, i64 0, i64 %indvars.iv1079
+  %1756 = getelementptr inbounds nuw ptr, ptr %1755, i64 %indvars.iv1079
   %1757 = load ptr, ptr %1756, align 8, !tbaa !14
   %1758 = getelementptr inbounds nuw i8, ptr %1757, i64 4
   %1759 = load i32, ptr %1758, align 4, !tbaa !16
@@ -3645,7 +3645,7 @@ zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
 zend_string_release_ex.exit948:                   ; preds = %1747, %1761, %1766
   %1767 = phi ptr [ %1754, %1747 ], [ %1754, %1761 ], [ %.pre1221, %1766 ]
   %1768 = getelementptr inbounds nuw i8, ptr %1767, i64 24
-  %1769 = getelementptr inbounds nuw [1 x ptr], ptr %1768, i64 0, i64 %indvars.iv1079
+  %1769 = getelementptr inbounds nuw ptr, ptr %1768, i64 %indvars.iv1079
   store ptr %1751, ptr %1769, align 8, !tbaa !14
   %1770 = getelementptr inbounds nuw i8, ptr %1751, i64 8
   %1771 = load i64, ptr %1770, align 8, !tbaa !88
@@ -3658,7 +3658,7 @@ zend_string_release_ex.exit948:                   ; preds = %1747, %1761, %1766
   %.phi.trans.insert1223 = getelementptr inbounds nuw ptr, ptr %.pre1222, i64 %1562
   %.pre1224 = load ptr, ptr %.phi.trans.insert1223, align 8, !tbaa !143
   %.phi.trans.insert1225 = getelementptr inbounds nuw i8, ptr %.pre1224, i64 24
-  %.phi.trans.insert1226 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1225, i64 0, i64 %indvars.iv1079
+  %.phi.trans.insert1226 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert1225, i64 %indvars.iv1079
   %.pre1227 = load ptr, ptr %.phi.trans.insert1226, align 8, !tbaa !14
   br label %zend_string_hash_val.exit981
 
@@ -3690,7 +3690,7 @@ zend_string_hash_val.exit981:                     ; preds = %zend_string_release
   %.phi.trans.insert1229 = getelementptr inbounds nuw ptr, ptr %.pre1228, i64 %1562
   %.pre1230 = load ptr, ptr %.phi.trans.insert1229, align 8, !tbaa !143
   %.phi.trans.insert1231 = getelementptr inbounds nuw i8, ptr %.pre1230, i64 24
-  %.phi.trans.insert1232 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1231, i64 0, i64 %indvars.iv1079
+  %.phi.trans.insert1232 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert1231, i64 %indvars.iv1079
   %.pre1233 = load ptr, ptr %.phi.trans.insert1232, align 8, !tbaa !14
   br label %1790
 
@@ -4967,7 +4967,7 @@ zend_string_hash_val.exit150:                     ; preds = %zend_string_release
 
 156:                                              ; preds = %.lr.ph, %218
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %218 ]
-  %157 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %155, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %155, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8, !tbaa !166
   %.not133 = icmp eq ptr %158, null
   br i1 %.not133, label %218, label %159
@@ -6455,7 +6455,7 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   %272 = getelementptr inbounds nuw i8, ptr %254, i64 208
   %273 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !155
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds [6 x ptr], ptr %272, i64 0, i64 %274
+  %275 = getelementptr inbounds ptr, ptr %272, i64 %274
   store ptr %270, ptr %275, align 8, !tbaa !207
   br label %276
 
@@ -8589,7 +8589,7 @@ define internal fastcc ptr @zend_persist_ast(ptr noundef %0) unnamed_addr #0 {
 19:                                               ; preds = %.lr.ph, %25
   %20 = phi i32 [ %17, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %21 = getelementptr inbounds nuw [1 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !271
   %.not41 = icmp eq ptr %22, null
   br i1 %.not41, label %25, label %23
@@ -8646,7 +8646,7 @@ zend_ast_is_decl.exit:                            ; preds = %29
 
 45:                                               ; preds = %.lr.ph48, %50
   %indvars.iv53 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next54, %50 ]
-  %46 = getelementptr inbounds nuw [1 x ptr], ptr %44, i64 0, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv53
   %47 = load ptr, ptr %46, align 8, !tbaa !271
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %50, label %48

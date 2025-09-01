@@ -1704,7 +1704,7 @@ tn3270_add_hf_items.exit.i:                       ; preds = %49
 
 switch.lookup:                                    ; preds = %tn3270_add_hf_items.exit.i
   %55 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_tn3270, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_tn3270, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %56
 
@@ -2418,7 +2418,7 @@ tn3270_add_hf_items.exit.i183.i:                  ; preds = %148
   br i1 %exitcond51.i.i, label %._crit_edge.i.i, label %162
 
 162:                                              ; preds = %.lr.ph.i186.i
-  %163 = getelementptr [10 x %struct.hf_items], ptr @dissect_load_programmed_symbols.extended_ps_fields, i64 0, i64 %indvars.iv48.i.i
+  %163 = getelementptr %struct.hf_items, ptr @dissect_load_programmed_symbols.extended_ps_fields, i64 %indvars.iv48.i.i
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 16

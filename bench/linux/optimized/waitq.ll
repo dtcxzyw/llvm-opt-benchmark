@@ -697,7 +697,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 1 %18, i64 %19, i1 false)
-  %20 = getelementptr [256 x i8], ptr %16, i64 0, i64 %19
+  %20 = getelementptr i8, ptr %16, i64 %19
   store i8 0, ptr %20, align 1
   br label %76
 
@@ -715,7 +715,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %26 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 1 %30, i64 %31, i1 false)
-  %32 = getelementptr [256 x i8], ptr %28, i64 0, i64 %31
+  %32 = getelementptr i8, ptr %28, i64 %31
   store i8 0, ptr %32, align 1
   br label %76
 
@@ -733,7 +733,7 @@ define internal fastcc void @autofs_notify_daemon(ptr noundef %0, ptr noundef no
   %42 = load ptr, ptr %41, align 8
   %43 = zext i32 %38 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr align 1 %42, i64 %43, i1 false)
-  %44 = getelementptr [256 x i8], ptr %40, i64 0, i64 %43
+  %44 = getelementptr i8, ptr %40, i64 %43
   store i8 0, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %46 = load i32, ptr %45, align 4

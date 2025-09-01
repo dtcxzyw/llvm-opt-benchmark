@@ -27,7 +27,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %indvars.iv152 = phi i64 [ 0, %6 ], [ %indvars.iv.next153, %17 ]
   %13 = getelementptr inbounds nuw [8 x i16], ptr %2, i64 %indvars.iv152
   %14 = getelementptr inbounds nuw [8 x i16], ptr %3, i64 %indvars.iv152
-  %15 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %7, i64 0, i64 %indvars.iv152
+  %15 = getelementptr inbounds nuw [8 x i16], ptr %7, i64 %indvars.iv152
   br label %18
 
 16:                                               ; preds = %17
@@ -41,10 +41,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 18:                                               ; preds = %.preheader122, %18
   %indvars.iv = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw [8 x i16], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !11
   %21 = sext i16 %20 to i32
-  %22 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !11
   %24 = sext i16 %23 to i32
   %25 = mul nsw i32 %24, %21
@@ -54,7 +54,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %29 = tail call i32 @llvm.smax.i32(i32 %28, i32 -32768)
   %.0.i = tail call i32 @llvm.smin.i32(i32 %29, i32 32767)
   %30 = trunc nsw i32 %.0.i to i16
-  %31 = getelementptr inbounds nuw [8 x i16], ptr %15, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
   store i16 %30, ptr %31, align 2, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -62,13 +62,13 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 .preheader121:                                    ; preds = %16, %32
   %indvars.iv164 = phi i64 [ 0, %16 ], [ %indvars.iv.next165, %32 ]
-  %invariant.gep125 = getelementptr inbounds nuw [8 x i16], ptr %7, i64 0, i64 %indvars.iv164
-  %invariant.gep129 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv164
+  %invariant.gep125 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv164
+  %invariant.gep129 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv164
   br label %.preheader120
 
 .preheader120:                                    ; preds = %.preheader121, %33
   %indvars.iv160 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next161, %33 ]
-  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @apv_trans_matrix, i64 0, i64 %indvars.iv160
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @apv_trans_matrix, i64 %indvars.iv160
   br label %34
 
 32:                                               ; preds = %33
@@ -77,7 +77,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   br i1 %exitcond167.not, label %.preheader118, label %.preheader121, !llvm.loop !14
 
 33:                                               ; preds = %34
-  %gep130 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %invariant.gep129, i64 0, i64 %indvars.iv160
+  %gep130 = getelementptr inbounds nuw [8 x i32], ptr %invariant.gep129, i64 %indvars.iv160
   store i32 %40, ptr %gep130, align 4, !tbaa !15
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 8
@@ -86,10 +86,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 34:                                               ; preds = %.preheader120, %34
   %indvars.iv156 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next157, %34 ]
   %.0104127 = phi i32 [ 0, %.preheader120 ], [ %40, %34 ]
-  %gep = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv156
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv156
   %35 = load i8, ptr %gep, align 1, !tbaa !18
   %36 = sext i8 %35 to i32
-  %gep126 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %invariant.gep125, i64 0, i64 %indvars.iv156
+  %gep126 = getelementptr inbounds nuw [8 x i16], ptr %invariant.gep125, i64 %indvars.iv156
   %37 = load i16, ptr %gep126, align 2, !tbaa !11
   %38 = sext i16 %37 to i32
   %39 = mul nsw i32 %38, %36
@@ -100,7 +100,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 .preheader118:                                    ; preds = %32, %41
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %41 ], [ 0, %32 ]
-  %invariant.gep133 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv172
+  %invariant.gep133 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv172
   br label %42
 
 41:                                               ; preds = %42
@@ -110,7 +110,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 42:                                               ; preds = %.preheader118, %42
   %indvars.iv168 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next169, %42 ]
-  %gep134 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %invariant.gep133, i64 0, i64 %indvars.iv168
+  %gep134 = getelementptr inbounds nuw [8 x i32], ptr %invariant.gep133, i64 %indvars.iv168
   %43 = load i32, ptr %gep134, align 4, !tbaa !15
   %44 = add nsw i32 %43, 64
   %45 = ashr i32 %44, 7
@@ -121,8 +121,8 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 .preheader116:                                    ; preds = %41, %50
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %50 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %9, i64 0, i64 %indvars.iv184
-  %47 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %8, i64 0, i64 %indvars.iv184
+  %46 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 %indvars.iv184
+  %47 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv184
   br label %.preheader115
 
 48:                                               ; preds = %50
@@ -132,7 +132,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 .preheader115:                                    ; preds = %.preheader116, %51
   %indvars.iv180 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next181, %51 ]
-  %invariant.gep137 = getelementptr inbounds nuw [8 x i8], ptr @apv_trans_matrix, i64 0, i64 %indvars.iv180
+  %invariant.gep137 = getelementptr inbounds nuw i8, ptr @apv_trans_matrix, i64 %indvars.iv180
   br label %53
 
 50:                                               ; preds = %51
@@ -141,7 +141,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   br i1 %exitcond187.not, label %48, label %.preheader116, !llvm.loop !22
 
 51:                                               ; preds = %53
-  %52 = getelementptr inbounds nuw [8 x i32], ptr %47, i64 0, i64 %indvars.iv180
+  %52 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv180
   store i32 %59, ptr %52, align 4, !tbaa !15
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next181, 8
@@ -150,10 +150,10 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 53:                                               ; preds = %.preheader115, %53
   %indvars.iv176 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next177, %53 ]
   %.098139 = phi i32 [ 0, %.preheader115 ], [ %59, %53 ]
-  %gep138 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep137, i64 0, i64 %indvars.iv176
+  %gep138 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep137, i64 %indvars.iv176
   %54 = load i8, ptr %gep138, align 1, !tbaa !18
   %55 = sext i8 %54 to i32
-  %56 = getelementptr inbounds nuw [8 x i32], ptr %46, i64 0, i64 %indvars.iv176
+  %56 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv176
   %57 = load i32, ptr %56, align 4, !tbaa !15
   %58 = mul nsw i32 %57, %55
   %59 = add nsw i32 %58, %.098139
@@ -164,7 +164,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 .preheader:                                       ; preds = %48, %61
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %61 ], [ 0, %48 ]
   %.096147 = phi ptr [ %62, %61 ], [ %0, %48 ]
-  %60 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %8, i64 0, i64 %indvars.iv200
+  %60 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv200
   br label %63
 
 61:                                               ; preds = %63
@@ -175,7 +175,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 63:                                               ; preds = %.preheader, %63
   %indvars.iv196 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next197, %63 ]
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %60, i64 0, i64 %indvars.iv196
+  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv196
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = add nsw i32 %65, 2048
   %67 = ashr i32 %66, 12
@@ -205,7 +205,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 .preheader113:                                    ; preds = %72, %81
   %indvars.iv192 = phi i64 [ 0, %72 ], [ %indvars.iv.next193, %81 ]
   %.092144 = phi ptr [ %0, %72 ], [ %82, %81 ]
-  %80 = getelementptr inbounds nuw [8 x [8 x i32]], ptr %8, i64 0, i64 %indvars.iv192
+  %80 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 %indvars.iv192
   br label %83
 
 81:                                               ; preds = %83
@@ -216,7 +216,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
 
 83:                                               ; preds = %.preheader113, %83
   %indvars.iv188 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next189, %83 ]
-  %84 = getelementptr inbounds nuw [8 x i32], ptr %80, i64 0, i64 %indvars.iv188
+  %84 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv188
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = add nsw i32 %85, %76
   %87 = ashr i32 %86, %73

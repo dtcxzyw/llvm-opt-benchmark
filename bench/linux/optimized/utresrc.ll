@@ -191,8 +191,8 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
   %27 = phi i8 [ %15, %20 ], [ %10, %23 ]
   %28 = phi i64 [ %16, %20 ], [ %11, %23 ]
   %29 = phi i16 [ %22, %20 ], [ %25, %23 ]
-  %30 = getelementptr [36 x i8], ptr @acpi_gbl_resource_types, i64 0, i64 %28
-  %31 = getelementptr [36 x i8], ptr @acpi_gbl_resource_aml_sizes, i64 0, i64 %28
+  %30 = getelementptr i8, ptr @acpi_gbl_resource_types, i64 %28
+  %31 = getelementptr i8, ptr @acpi_gbl_resource_aml_sizes, i64 %28
   %32 = load i8, ptr %31, align 1
   %33 = load i8, ptr %30, align 1
   switch i8 %33, label %61 [
@@ -397,8 +397,8 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
 36:                                               ; preds = %33, %30
   %37 = phi i64 [ %26, %30 ], [ %21, %33 ]
   %38 = phi i16 [ %32, %30 ], [ %35, %33 ]
-  %39 = getelementptr [36 x i8], ptr @acpi_gbl_resource_types, i64 0, i64 %37
-  %40 = getelementptr [36 x i8], ptr @acpi_gbl_resource_aml_sizes, i64 0, i64 %37
+  %39 = getelementptr i8, ptr @acpi_gbl_resource_types, i64 %37
+  %40 = getelementptr i8, ptr @acpi_gbl_resource_aml_sizes, i64 %37
   %41 = load i8, ptr %40, align 1
   %42 = load i8, ptr %39, align 1
   switch i8 %42, label %.thread4 [

@@ -3605,7 +3605,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation8GetRatesEPi(ptr no
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %19 ]
   %20 = icmp ne i64 %indvars.iv28, 0
   %21 = zext i1 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %21
   %23 = load i32, ptr %22, align 4
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv28
   store i32 %23, ptr %gep, align 4

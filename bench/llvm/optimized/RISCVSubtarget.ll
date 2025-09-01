@@ -5074,7 +5074,7 @@ _ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRef
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !526
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [3 x %"struct.llvm::RISCVTuneInfoTable::RISCVTuneInfo"], ptr @_ZN4llvm18RISCVTuneInfoTableL18RISCVTuneInfoTableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVTuneInfoTable::RISCVTuneInfo", ptr @_ZN4llvm18RISCVTuneInfoTableL18RISCVTuneInfoTableE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRefEE9IndexTypeZNS1_16getRISCVTuneInfoES2_E7KeyTypeZNS1_16getRISCVTuneInfoES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -6890,7 +6890,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget24isRegi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = zext i32 %1 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw [9 x i64], ptr %3, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8

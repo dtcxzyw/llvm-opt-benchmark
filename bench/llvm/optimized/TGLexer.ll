@@ -2226,7 +2226,7 @@ define dso_local noundef range(i32 1, 24) i32 @_ZN4llvm7TGLexer9LexNumberEv(ptr 
   store ptr %16, ptr %8, align 8, !tbaa !57
   %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !104
   %.not = icmp eq i16 %20, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !106

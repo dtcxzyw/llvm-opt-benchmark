@@ -1320,7 +1320,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h0eda3afc1916099bE.exit": ; preds = %69
   %74 = load ptr, ptr %27, align 8, !alias.scope !378, !noalias !381, !nonnull !16, !noundef !16
-  %75 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }], ptr %74, i64 0, i64 %70, i32 0, i32 1
+  %75 = getelementptr inbounds nuw { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %74, i64 %70, i32 0, i32 1
   %76 = load i64, ptr %75, align 8, !noundef !16
   br label %80
 
@@ -1358,7 +1358,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd0f0a19177858481E.exit.i": ; preds = %88
   %94 = load ptr, ptr %32, align 8, !alias.scope !395, !noalias !398, !nonnull !16, !noundef !16
-  %95 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }], ptr %94, i64 0, i64 %90, i32 2
+  %95 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }, ptr %94, i64 %90, i32 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %96 = load ptr, ptr %95, align 8, !alias.scope !403, !noalias !406, !nonnull !16, !align !359, !noundef !16
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -1450,7 +1450,7 @@ _ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit.i: ; 
 
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd0f0a19177858481E.exit.i52": ; preds = %137
   %143 = load ptr, ptr %41, align 8, !alias.scope !424, !noalias !427, !nonnull !16, !noundef !16
-  %144 = getelementptr inbounds nuw [0 x { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }], ptr %143, i64 0, i64 %139, i32 2
+  %144 = getelementptr inbounds nuw { i32, [1 x i32], { { { { { ptr, ptr } }, {} }, {} } } }, ptr %143, i64 %139, i32 2
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
   %145 = load ptr, ptr %144, align 8, !alias.scope !430, !noalias !421, !nonnull !16, !align !359, !noundef !16
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -4016,7 +4016,7 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN16wasmtime_runtime3cow
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h14bf4a31d081104cE.exit": ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !946, !noalias !949, !nonnull !16, !noundef !16
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !noundef !16
   %12 = icmp eq ptr %11, null
   %. = select i1 %12, ptr null, ptr %10

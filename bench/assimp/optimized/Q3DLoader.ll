@@ -2058,7 +2058,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit666: ; preds = %_ZN6Assimp12Strea
   %713 = add i32 %712, 1
   store i32 %713, ptr %700, align 4
   %714 = zext i32 %712 to i64
-  %715 = getelementptr inbounds nuw [1024 x i8], ptr %705, i64 0, i64 %714
+  %715 = getelementptr inbounds nuw i8, ptr %705, i64 %714
   store i8 %.0406, ptr %715, align 1
   %716 = icmp eq i32 %713, 1024
   br i1 %716, label %717, label %722
@@ -2107,7 +2107,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit666: ; preds = %_ZN6Assimp12Strea
 .loopexit934:                                     ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit666, %719
   %731 = load i32, ptr %700, align 4
   %732 = zext i32 %731 to i64
-  %733 = getelementptr inbounds nuw [1024 x i8], ptr %705, i64 0, i64 %732
+  %733 = getelementptr inbounds nuw i8, ptr %705, i64 %732
   store i8 0, ptr %733, align 1
   %734 = load ptr, ptr %42, align 8
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 4
@@ -5133,7 +5133,7 @@ _ZNSt12_Vector_baseIN6Assimp11Q3DImporter8MaterialESaIS2_EE11_M_allocateEm.exit.
   %22 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %23 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr nonnull align 4 %22, i64 %23, i1 false)
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   store i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 1028
   %26 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 1028
@@ -7220,7 +7220,7 @@ _ZNKSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %28 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %29 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr nonnull align 4 %28, i64 %29, i1 false)
-  %30 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 1028
   %32 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 1028
@@ -7284,7 +7284,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp11Q3DImporter8MaterialES3_SaIS
   %66 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i30, i64 4
   %67 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 4 %66, i64 %67, i1 false)
-  %68 = getelementptr inbounds nuw [1024 x i8], ptr %65, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   store i8 0, ptr %68, align 1
   %69 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i29, i64 1028
   %70 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i30, i64 1028

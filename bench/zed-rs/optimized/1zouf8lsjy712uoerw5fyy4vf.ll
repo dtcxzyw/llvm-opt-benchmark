@@ -544,7 +544,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc69eac0d6abd9702E.exit.i16: ; preds = %
   %57 = phi i64 [ %.promoted.i.i.i, %.lr.ph.i.i.i ], [ %61, %60 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %58 = getelementptr inbounds [0 x i8], ptr %55, i64 0, i64 %57
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1, !noalias !107, !noundef !5
   switch i8 %59, label %63 [
     i8 32, label %60
@@ -638,7 +638,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc69eac0d6abd9702E.exit.i16: ; preds = %
   %80 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ], [ %84, %83 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %81 = getelementptr inbounds [0 x i8], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds i8, ptr %78, i64 %80
   %82 = load i8, ptr %81, align 1, !noalias !146, !noundef !5
   switch i8 %82, label %86 [
     i8 32, label %83
@@ -800,7 +800,7 @@ _ZN5serde2de9MapAccess10next_value17hfaea4d289ce2a8b8E.exit.thread: ; preds = %.
   %120 = phi i64 [ %.promoted.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %124, %123 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  %121 = getelementptr inbounds [0 x i8], ptr %118, i64 0, i64 %120
+  %121 = getelementptr inbounds i8, ptr %118, i64 %120
   %122 = load i8, ptr %121, align 1, !noalias !212, !noundef !5
   switch i8 %122, label %126 [
     i8 32, label %123
@@ -13484,7 +13484,7 @@ define hidden void @"_ZN10supermaven8messages1_92_$LT$impl$u20$serde..de..Deseri
   %64 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i ], [ %68, %67 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2617)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2618)
-  %65 = getelementptr inbounds [0 x i8], ptr %62, i64 0, i64 %64
+  %65 = getelementptr inbounds i8, ptr %62, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !2619, !noundef !5
   switch i8 %66, label %69 [
     i8 32, label %67

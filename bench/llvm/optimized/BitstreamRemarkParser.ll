@@ -1685,7 +1685,7 @@ define dso_local void @_ZN4llvm7remarks21BitstreamParserHelper10parseMagicEv(ptr
 
 7:                                                ; preds = %10
   %8 = trunc i64 %13 to i8
-  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %8, ptr %9, align 1, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
@@ -2640,7 +2640,7 @@ define dso_local void @_ZN4llvm7remarks29createBitstreamParserFromMetaENS_9Strin
 
 15:                                               ; preds = %18
   %16 = trunc i64 %21 to i8
-  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %16, ptr %17, align 1, !tbaa !62, !noalias !332
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -3438,7 +3438,7 @@ define internal fastcc void @_ZL18advanceToMetaBlockRN4llvm7remarks21BitstreamPa
 
 11:                                               ; preds = %14
   %12 = trunc i64 %17 to i8
-  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   store i8 %12, ptr %13, align 1, !tbaa !62, !noalias !444
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4

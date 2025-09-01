@@ -3597,7 +3597,7 @@ lpad:                                             ; preds = %invoke.cont, %while
 while.end:                                        ; preds = %entry
   %rateLimitFilters_ = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %conv = zext i8 %type to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [4 x ptr], ptr %rateLimitFilters_, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %rateLimitFilters_, i64 %conv
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -9215,7 +9215,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34 = add nsw i32 %hits.i.i.sroa.0.0, -1
   %and.i35 = and i32 %sub.i34, %hits.i.i.sroa.0.0
   %conv9.i.i = zext nneg i32 %9 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i.i
   %10 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %11 = load i64, ptr %10, align 8
   %cmp.i.i36 = icmp eq i64 %streamID, %11
@@ -10053,7 +10053,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %12
@@ -10343,7 +10343,7 @@ while.body.i.i30:                                 ; preds = %invoke.cont122, %wh
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i32 ], [ %__begin2.sroa.0.058, %invoke.cont122 ]
   %dec.i.i = add nsw i64 %46, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -8
-  %arrayidx.i.i.i.i31 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
+  %arrayidx.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %add.ptr1.i.i.i, i64 %dec.i.i
   %47 = load i8, ptr %arrayidx.i.i.i.i31, align 1
   %cmp.i.not14.i = icmp eq i8 %47, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i32, label %invoke.cont119.backedge, !llvm.loop !66
@@ -10373,7 +10373,7 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %sub.i.i34 = xor i32 %54, 31
   %conv.i.i35 = zext nneg i32 %sub.i.i34 to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
-  %arrayidx.i.i.i.i.i36 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i35
+  %arrayidx.i.i.i.i.i36 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i, i64 %conv.i.i35
   br label %invoke.cont119.backedge
 
 invoke.cont119.backedge:                          ; preds = %while.body.i.i30, %if.then23.i.i
@@ -10524,7 +10524,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i34 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i35 = and i32 %sub.i34, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
   %cmp.i.i36 = icmp eq i64 %streamID, %10
@@ -10969,7 +10969,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %21 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %23 = load i64, ptr %22, align 8
   %cmp.i.i36.i = icmp eq i64 %assocStreamID, %23
@@ -11579,7 +11579,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %14 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %15 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %16 = load i64, ptr %15, align 8
   %cmp.i.i36.i = icmp eq i64 %controlStream, %16
@@ -11970,7 +11970,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %25 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %26 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %27 = load i64, ptr %26, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %27
@@ -12126,7 +12126,7 @@ while.body.i.i71:                                 ; preds = %while.cond.i.i68
   %sub.i34.i72 = add nsw i32 %hits.i.sroa.0.0.i69, -1
   %and.i35.i73 = and i32 %sub.i34.i72, %hits.i.sroa.0.0.i69
   %conv9.i.i74 = zext nneg i32 %45 to i64
-  %arrayidx.i.i.i.i.i75 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i64, i64 0, i64 %conv9.i.i74
+  %arrayidx.i.i.i.i.i75 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i64, i64 %conv9.i.i74
   %46 = load ptr, ptr %arrayidx.i.i.i.i.i75, align 8
   %47 = load i64, ptr %46, align 8
   %cmp.i.i36.i76 = icmp eq i64 %.sink.i29, %47
@@ -12684,7 +12684,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %12
@@ -12990,7 +12990,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %10
@@ -13101,7 +13101,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %10
@@ -13213,7 +13213,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %10
@@ -13416,7 +13416,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %13 = load i64, ptr %12, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %13
@@ -13947,7 +13947,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %19 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %21 = load i64, ptr %20, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %21
@@ -14719,7 +14719,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %12 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %14 = load i64, ptr %13, align 8
   %cmp.i.i36.i = icmp eq i64 %3, %14
@@ -14954,7 +14954,7 @@ while.body.i.i63:                                 ; preds = %while.cond.i.i60
   %sub.i34.i64 = add nsw i32 %hits.i.sroa.0.0.i61, -1
   %and.i35.i65 = and i32 %sub.i34.i64, %hits.i.sroa.0.0.i61
   %conv9.i.i66 = zext nneg i32 %38 to i64
-  %arrayidx.i.i.i.i.i67 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i56, i64 0, i64 %conv9.i.i66
+  %arrayidx.i.i.i.i.i67 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i56, i64 %conv9.i.i66
   %39 = load ptr, ptr %arrayidx.i.i.i.i.i67, align 8
   %40 = load i64, ptr %39, align 8
   %cmp.i.i36.i68 = icmp eq i64 %29, %40
@@ -15123,7 +15123,7 @@ while.body.i.i124:                                ; preds = %while.cond.i.i121
   %sub.i34.i125 = add nsw i32 %hits.i.sroa.0.0.i122, -1
   %and.i35.i126 = and i32 %sub.i34.i125, %hits.i.sroa.0.0.i122
   %conv9.i.i127 = zext nneg i32 %57 to i64
-  %arrayidx.i.i.i.i.i128 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i117, i64 0, i64 %conv9.i.i127
+  %arrayidx.i.i.i.i.i128 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i117, i64 %conv9.i.i127
   %58 = load ptr, ptr %arrayidx.i.i.i.i.i128, align 8
   %59 = load i64, ptr %58, align 8
   %cmp.i.i36.i129 = icmp eq i64 %48, %59
@@ -15271,7 +15271,7 @@ entry:
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -15742,7 +15742,7 @@ call11.i.i.noexc:                                 ; preds = %while.cond.i.i
   %sub.i99 = add nsw i32 %hits.i.i.sroa.0.0, -1
   %and.i100 = and i32 %sub.i99, %hits.i.i.sroa.0.0
   %conv9.i.i = zext nneg i32 %35 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i.i
   %36 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i101 = icmp eq i64 %28, %36
   br i1 %cmp.i.i101, label %if.then63, label %while.cond.i.i, !llvm.loop !112
@@ -15839,7 +15839,7 @@ while.body.i.i136:                                ; preds = %for.inc, %while.con
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i137, %while.cond.i.i139 ], [ %__begin1.sroa.0.0226, %for.inc ]
   %dec.i.i = add nsw i64 %41, -1
   %incdec.ptr.i.i137 = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -8
-  %arrayidx.i.i.i.i138 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
+  %arrayidx.i.i.i.i138 = getelementptr inbounds nuw i8, ptr %add.ptr1.i.i.i, i64 %dec.i.i
   %42 = load i8, ptr %arrayidx.i.i.i.i138, align 1
   %cmp.i.not14.i = icmp eq i8 %42, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i139, label %invoke.cont38.backedge, !llvm.loop !114
@@ -15869,7 +15869,7 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %sub.i.i = xor i32 %49, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i142 = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
-  %arrayidx.i.i.i.i.i143 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i142, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i143 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i142, i64 %conv.i.i
   br label %invoke.cont38.backedge
 
 invoke.cont38.backedge:                           ; preds = %while.body.i.i136, %if.then23.i.i
@@ -16334,7 +16334,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %16 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %18 = load i64, ptr %17, align 8
   %cmp.i.i36.i = icmp eq i64 %8, %18
@@ -16604,7 +16604,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %sub.i34.i.i = add nsw i32 %hits.i.sroa.0.0.i.i, -1
   %and.i35.i.i = and i32 %sub.i34.i.i, %hits.i.sroa.0.0.i.i
   %conv9.i.i.i = zext nneg i32 %15 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv9.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i, i64 %conv9.i.i.i
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %17 = load i64, ptr %16, align 8
   %cmp.i.i36.i.i = icmp eq i64 %6, %17
@@ -17450,7 +17450,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %11 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %12 = load i64, ptr %11, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %12
@@ -17945,7 +17945,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %12 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %14 = load i64, ptr %13, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %14
@@ -18801,7 +18801,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %11 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %13 = load i64, ptr %12, align 8
   %cmp.i.i36.i = icmp eq i64 %streamID, %13
@@ -19481,7 +19481,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %22 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %23 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %24 = load i64, ptr %23, align 8
   %cmp.i.i36.i = icmp eq i64 %13, %24
@@ -19782,7 +19782,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %19 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %21 = load i64, ptr %20, align 8
   %cmp.i.i36.i = icmp eq i64 %10, %21
@@ -22131,7 +22131,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i41 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i42 = and i32 %sub.i41, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %13 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   %14 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %15 = load i64, ptr %14, align 8
   %cmp.i.i43 = icmp eq i64 %15, %conv
@@ -22998,7 +22998,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i86 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i87 = and i32 %sub.i86, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %9 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   %10 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %11 = load i64, ptr %10, align 8
   %cmp.i.i88 = icmp eq i64 %1, %11
@@ -23016,7 +23016,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %cmp.i, label %call6.i.noexc, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE8findImplImEENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEESB_ImmERKT_NS7_8PrefetchE.exit, !llvm.loop !40
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE8findImplImEENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEESB_ImmERKT_NS7_8PrefetchE.exit.loopexit: ; preds = %call11.i.noexc
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE8findImplImEENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEESB_ImmERKT_NS7_8PrefetchE.exit
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE8findImplImEENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEESB_ImmERKT_NS7_8PrefetchE.exit: ; preds = %if.end20.i, %while.end.i, %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE8findImplImEENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEESB_ImmERKT_NS7_8PrefetchE.exit.loopexit
@@ -23260,7 +23260,7 @@ while.body.i.i101:                                ; preds = %while.cond.i.i100
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %32 to i64
-  %arrayidx.i.i.i.i.i102 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i98, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i102 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i98, i64 %conv9.i.i
   %33 = load ptr, ptr %arrayidx.i.i.i.i.i102, align 8
   %34 = load i64, ptr %33, align 8
   %cmp.i.i36.i = icmp eq i64 %23, %34
@@ -23373,7 +23373,7 @@ while.body.i.i168:                                ; preds = %while.cond.i.i165
   %sub.i34.i169 = add nsw i32 %hits.i.sroa.0.0.i166, -1
   %and.i35.i170 = and i32 %sub.i34.i169, %hits.i.sroa.0.0.i166
   %conv9.i.i171 = zext nneg i32 %45 to i64
-  %arrayidx.i.i.i.i.i172 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i161, i64 0, i64 %conv9.i.i171
+  %arrayidx.i.i.i.i.i172 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i161, i64 %conv9.i.i171
   %46 = load ptr, ptr %arrayidx.i.i.i.i.i172, align 8
   %47 = load i64, ptr %46, align 8
   %cmp.i.i36.i173 = icmp eq i64 %.sink.i120, %47
@@ -23464,7 +23464,7 @@ while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
   %sub.i23.i.i.i = add nsw i32 %hits.i.sroa.0.0.i.i.i, -1
   %and.i24.i.i.i = and i32 %sub.i23.i.i.i, %hits.i.sroa.0.0.i.i.i
   %conv9.i.i.i.i = zext nneg i32 %55 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv9.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv9.i.i.i.i
   %56 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp.i.i25.i.i.i = icmp eq i64 %48, %56
   br i1 %cmp.i.i25.i.i.i, label %if.then6.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !112
@@ -23481,7 +23481,7 @@ if.end20.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %invoke.cont166, !llvm.loop !113
 
 if.then6.i.i.i:                                   ; preds = %while.body.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv9.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv9.i.i.i.i
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkImEEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %controlStreamIds_, ptr nonnull %arrayidx.i.i.i.i.i.i.i.le, i64 %conv9.i.i.i.i, i64 %shr5.i.i.i.i, i64 %or.i.i.i.i)
           to label %invoke.cont166 unwind label %terminate.lpad
 
@@ -23632,7 +23632,7 @@ while.body.i.i.i.i238:                            ; preds = %while.cond.i.i.i.i2
   %sub.i23.i.i.i239 = add nsw i32 %hits.i.sroa.0.0.i.i.i236, -1
   %and.i24.i.i.i240 = and i32 %sub.i23.i.i.i239, %hits.i.sroa.0.0.i.i.i236
   %conv9.i.i.i.i241 = zext nneg i32 %80 to i64
-  %arrayidx.i.i.i.i.i.i.i242 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i231, i64 0, i64 %conv9.i.i.i.i241
+  %arrayidx.i.i.i.i.i.i.i242 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i231, i64 %conv9.i.i.i.i241
   %81 = load i64, ptr %arrayidx.i.i.i.i.i.i.i242, align 8
   %cmp.i.i25.i.i.i243 = icmp eq i64 %74, %81
   br i1 %cmp.i.i25.i.i.i243, label %if.then6.i.i.i244, label %while.cond.i.i.i.i235, !llvm.loop !112
@@ -23649,7 +23649,7 @@ if.end20.i.i.i.i249:                              ; preds = %while.end.i.i.i.i24
   br i1 %cmp.i.i.i.i253, label %for.body.i.i.i.i226, label %call.i427.noexc, !llvm.loop !113
 
 if.then6.i.i.i244:                                ; preds = %while.body.i.i.i.i238
-  %arrayidx.i.i.i.i.i.i.i242.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i231, i64 0, i64 %conv9.i.i.i.i241
+  %arrayidx.i.i.i.i.i.i.i242.le = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i231, i64 %conv9.i.i.i.i241
   invoke void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkImEEEESt4pairImmE(ptr noundef nonnull align 8 dereferenceable(24) %transactionIds_201, ptr nonnull %arrayidx.i.i.i.i.i.i.i242.le, i64 %conv9.i.i.i.i241, i64 %shr5.i.i.i.i217, i64 %or.i.i.i.i216)
           to label %call.i427.noexc unwind label %terminate.lpad
 
@@ -27397,7 +27397,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %0, %1
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -27423,7 +27423,7 @@ _ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %.noexc
   %i.i.i.015.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -27448,7 +27448,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i, -2
   %div.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i4.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i4.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i4.i, align 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %sub.i.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i.i, align 1
@@ -27459,7 +27459,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i = phi i64 [ %2, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i ], [ %div.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i
   %5 = load i16, ptr %arrayidx2.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i, label %if.then.i.i.i.i.i5.i, label %if.else.i.i.i.i.i.i
@@ -28833,7 +28833,7 @@ _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_E
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -28952,7 +28952,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i34.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i35.i = and i32 %sub.i34.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv9.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %10 = load i64, ptr %9, align 8
   %cmp.i.i36.i = icmp eq i64 %id, %10
@@ -31263,7 +31263,7 @@ cond.false.i.i7.i:                                ; preds = %for.body.i
 _ZN5folly23ConstructorCallbackListINS_17ObserverContainerIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EEELm4EE6globalEv.exit9.i: ; preds = %cond.false.i.i7.i, %for.body.i
   %cond.i.i6.i = phi ptr [ %call2.i.i8.i, %cond.false.i.i7.i ], [ %atomic-temp.i.0.i.i4.i, %for.body.i ]
   %callbacks_.i = getelementptr inbounds nuw i8, ptr %cond.i.i6.i, i64 16
-  %arrayidx.i.i.i = getelementptr inbounds [4 x %"class.folly::Function.682"], ptr %callbacks_.i, i64 0, i64 %i.011.i
+  %arrayidx.i.i.i = getelementptr inbounds %"class.folly::Function.682", ptr %callbacks_.i, i64 %i.011.i
   %call_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 48
   %4 = load ptr, ptr %call_.i.i, align 16
   invoke void %4(ptr noundef nonnull %this, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx.i.i.i)
@@ -35813,7 +35813,7 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   %piter.sroa.0.1 = lshr i32 %piter.sroa.0.055, %add5.i.pn
   %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
   %conv = zext i32 %piter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv
   %9 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %9, i32 0, i32 3, i32 1)
   %cmp.i17.not = icmp eq i32 %piter.sroa.0.1, 0
@@ -35832,7 +35832,7 @@ while.body:                                       ; preds = %for.body18, %_ZN5fo
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.057, %add5.i30.pn
   %conv28 = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i35 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv28
+  %arrayidx.i.i.i.i35 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %conv28
   %11 = load ptr, ptr %arrayidx.i.i.i.i35, align 8
   %cmp.not.i36 = icmp eq ptr %11, null
   br i1 %cmp.not.i36, label %_ZN5folly3f146detail19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvE11destroyItemERPSt4pairIKmS4_E.exit, label %invoke.cont3.i
@@ -36976,7 +36976,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i31 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i32 = and i32 %sub.i31, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i33 = icmp eq i64 %1, %7
   br i1 %cmp.i.i33, label %if.then4, label %while.cond.i, !llvm.loop !112
@@ -36993,7 +36993,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %cmp.i, label %for.body.i, label %if.end5, !llvm.loop !113
 
 if.then4:                                         ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   br label %return
 
 if.end5:                                          ; preds = %if.end20.i, %while.end.i, %entry
@@ -37119,7 +37119,7 @@ if.end19:                                         ; preds = %do.end, %_ZN5folly3
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %27 to i64
-  %arrayidx.i.i.i60 = getelementptr inbounds nuw [14 x i8], ptr %chunk.0, i64 0, i64 %conv
+  %arrayidx.i.i.i60 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 %conv
   %28 = load i8, ptr %arrayidx.i.i.i60, align 1
   %cmp.i61 = icmp eq i8 %28, 0
   br i1 %cmp.i61, label %_ZN5folly3f146detail8F14ChunkImE6setTagEmm.exit, label %if.then.i62
@@ -37132,7 +37132,7 @@ _ZN5folly3f146detail8F14ChunkImE6setTagEmm.exit:  ; preds = %if.end19
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i60, align 1
   %rawItems_.i.i.i63 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 16
-  %arrayidx.i.i.i.i.i64 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i63, i64 0, i64 %conv
+  %arrayidx.i.i.i.i.i64 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i63, i64 %conv
   %29 = load i64, ptr %args, align 8
   store i64 %29, ptr %arrayidx.i.i.i.i.i64, align 8
   %shr.i.i.i.i67 = lshr i64 %conv, 1
@@ -37282,13 +37282,13 @@ while.cond.preheader:                             ; preds = %if.else
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %srcI.0121 = phi i64 [ 0, %while.cond.preheader ], [ %inc21, %if.end ]
   %dstI.0120 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0121
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %srcI.0121
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i33.not = icmp eq i8 %5, 0
   br i1 %cmp.i33.not, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %while.body
-  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0120
+  %arrayidx.i.i.i35 = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i, i64 %dstI.0120
   %6 = load i8, ptr %arrayidx.i.i.i35, align 1
   %cmp.i36 = icmp eq i8 %6, 0
   br i1 %cmp.i36, label %invoke.cont20, label %if.then.i
@@ -37299,8 +37299,8 @@ if.then.i:                                        ; preds = %if.then14
 
 invoke.cont20:                                    ; preds = %if.then14
   store i8 %5, ptr %arrayidx.i.i.i35, align 1
-  %arrayidx.i.i.i37 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0120
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0121
+  %arrayidx.i.i.i37 = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %dstI.0120
+  %arrayidx.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %srcI.0121
   %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
   store i64 %7, ptr %arrayidx.i.i.i37, align 8
   %inc = add nuw i64 %dstI.0120, 1
@@ -37314,7 +37314,7 @@ if.end:                                           ; preds = %invoke.cont20, %whi
 
 invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %sub
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %sub
   %conv2.i = and i64 %sub, 255
   %shr.i.i = lshr i64 %conv2.i, 1
   %cmp.i.i40 = icmp samesign ult i64 %conv2.i, 16
@@ -37392,7 +37392,7 @@ while.body52:                                     ; preds = %while.body52.lr.ph,
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0113, %add5.i.pn
   %conv = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i53 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i52, i64 0, i64 %conv
+  %arrayidx.i.i.i.i53 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i52, i64 %conv
   %15 = load i64, ptr %arrayidx.i.i.i.i53, align 8
   %conv.i54 = zext i64 %15 to i128
   %mul.i55 = mul nuw i128 %conv.i54, 14181476777654086739
@@ -37404,7 +37404,7 @@ while.body52:                                     ; preds = %while.body52.lr.ph,
   %shr4.i = lshr i64 %mul3.i57, 15
   %and.i58 = and i64 %shr4.i, 127
   %or.i = or disjoint i64 %and.i58, 128
-  %arrayidx.i.i.i59 = getelementptr inbounds nuw [14 x i8], ptr %srcChunk42.0119, i64 0, i64 %conv
+  %arrayidx.i.i.i59 = getelementptr inbounds nuw i8, ptr %srcChunk42.0119, i64 %conv
   %16 = load i8, ptr %arrayidx.i.i.i59, align 1
   %conv.i60 = zext i8 %16 to i64
   %cmp64 = icmp eq i64 %or.i, %conv.i60
@@ -37470,7 +37470,7 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %inc.i65 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i65, ptr %arrayidx.le.i, align 1
   %conv6.i = zext nneg i8 %.lcssa.i to i64
-  %arrayidx.i.i.i.i66 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 %conv6.i
   %26 = load i8, ptr %arrayidx.i.i.i.i66, align 1
   %cmp.i.i67 = icmp eq i8 %26, 0
   br i1 %cmp.i.i67, label %invoke.cont67, label %if.then.i12.i
@@ -37487,7 +37487,7 @@ invoke.cont67:                                    ; preds = %while.end.i
   %add.i13.i = add i8 %27, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i68, align 2
   %rawItems_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv6.i
   %28 = load i64, ptr %arrayidx.i.i.i.i53, align 8
   store i64 %28, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp.i45.not = icmp eq i32 %iter.sroa.0.1, 0
@@ -37512,7 +37512,7 @@ if.then.i80:                                      ; preds = %while.cond77
   %conv88 = zext nneg i8 %30 to i64
   %sub89 = add nsw i64 %conv88, -1
   %rawItems_.i.i.i70 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i71 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i70, i64 0, i64 %sub89
+  %arrayidx.i.i.i.i.i71 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i70, i64 %sub89
   %shr.i.i75 = lshr i64 %sub89, 1
   %cmp.i.i76 = icmp ult i8 %30, 17
   call void @llvm.assume(i1 %cmp.i.i76)
@@ -37891,7 +37891,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -37933,7 +37933,7 @@ _ZN5folly6detail15reserveInTargetIA34_cmJPNSt7__cxx1112basic_stringIcSt11char_tr
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetIA34_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA34_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
@@ -37958,7 +37958,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i.i, -2
   %div.i.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 %sub.i.i.i.i.i.i.i
   store i16 %7, ptr %add.ptr.i.i.i.i.i.i.i, align 1
@@ -37969,7 +37969,7 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i.i = phi i64 [ %5, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
   %8 = load i16, ptr %arrayidx2.i.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
@@ -38354,7 +38354,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -38396,7 +38396,7 @@ _ZN5folly6detail15reserveInTargetIA19_cmJPNSt7__cxx1112basic_stringIcSt11char_tr
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetIA19_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA19_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
@@ -38421,7 +38421,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i.i, -2
   %div.i.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 %sub.i.i.i.i.i.i.i
   store i16 %7, ptr %add.ptr.i.i.i.i.i.i.i, align 1
@@ -38432,7 +38432,7 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i.i = phi i64 [ %5, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
   %8 = load i16, ptr %arrayidx2.i.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
@@ -38465,7 +38465,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -38490,7 +38490,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i, -2
   %div.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i, 100
   %rem.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i
   %3 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
   store i16 %3, ptr %add.ptr.i.i.i.i.i, align 1
@@ -38501,7 +38501,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %retval.i.i.024.i.i.i.i, %while.body.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %sub.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i = phi i64 [ %1, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i
+  %arrayidx2.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i
   %4 = load i16, ptr %arrayidx2.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -38746,7 +38746,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.c
   %incdec.ptr.i1416.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.cond.i.i.i ], [ %pos.coerce0, %if.else.i ]
   %dec.i.i.i = add i64 %3, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1416.i.i, i64 -8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i, i64 0, i64 %dec.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i.i, i64 %dec.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not13.i.i = icmp eq i8 %4, 0
   br i1 %cmp.i.not13.i.i, label %while.cond.i.i.i, label %if.end.i, !llvm.loop !114
@@ -38767,7 +38767,7 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   %sub.i.i.i = xor i32 %9, 31
   %conv.i.i3.i = zext nneg i32 %sub.i.i.i to i64
   %rawItems_.i.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i.i, i64 -112
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv.i.i3.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv.i.i3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i.i.i, %if.then23.i.i.i, %if.then.i
@@ -38786,7 +38786,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE29adjustSizeAnd
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pos.coerce0, i64 -16
   %mul.neg.i.i.i = mul i64 %pos.coerce1, -8
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %pos.coerce1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i, i64 %pos.coerce1
   %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.not.i.i = icmp sgt i8 %11, -1
   br i1 %cmp.not.i.i, label %if.then.i.i, label %_ZN5folly3f146detail8F14ChunkImE8clearTagEm.exit.i
@@ -38913,7 +38913,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.c
   %incdec.ptr.i1416.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.cond.i.i.i ], [ %pos.coerce0, %if.else.i ]
   %dec.i.i.i = add i64 %5, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1416.i.i, i64 -8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i, i64 0, i64 %dec.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i.i, i64 %dec.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not13.i.i = icmp eq i8 %6, 0
   br i1 %cmp.i.not13.i.i, label %while.cond.i.i.i, label %if.end.i, !llvm.loop !66
@@ -38934,7 +38934,7 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   %sub.i.i.i = xor i32 %11, 31
   %conv.i.i3.i = zext nneg i32 %sub.i.i.i to i64
   %rawItems_.i.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i.i, i64 -112
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv.i.i3.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv.i.i3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i.i.i, %if.then23.i.i.i, %if.then.i
@@ -38953,7 +38953,7 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransac
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pos.coerce0, i64 -16
   %mul.neg.i.i.i = mul i64 %pos.coerce1, -8
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.neg.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %pos.coerce1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i, i64 %pos.coerce1
   %13 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.not.i.i = icmp sgt i8 %13, -1
   br i1 %cmp.not.i.i, label %if.then.i.i, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE8clearTagEm.exit.i
@@ -39030,7 +39030,7 @@ entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %iter.coerce0, i64 -16
   %mul.neg.i.i = mul i64 %iter.coerce1, -8
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.neg.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i, i64 0, i64 %iter.coerce1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i, i64 %iter.coerce1
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.not.i = icmp sgt i8 %0, -1
   br i1 %cmp.not.i, label %if.then.i, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE8clearTagEm.exit
@@ -39241,7 +39241,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i31 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i32 = and i32 %sub.i31, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   %7 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %8 = load i64, ptr %7, align 8
   %cmp.i.i33 = icmp eq i64 %1, %8
@@ -39259,7 +39259,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %cmp.i, label %for.body.i, label %if.end9, !llvm.loop !40
 
 if.then8:                                         ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %conv9.i
   br label %return
 
 if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry
@@ -39385,7 +39385,7 @@ if.end23:                                         ; preds = %do.end, %_ZN5folly3
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
   %28 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %28 to i64
-  %arrayidx.i.i.i60 = getelementptr inbounds nuw [14 x i8], ptr %chunk.0, i64 0, i64 %conv
+  %arrayidx.i.i.i60 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 %conv
   %29 = load i8, ptr %arrayidx.i.i.i60, align 1
   %cmp.i61 = icmp eq i8 %29, 0
   br i1 %cmp.i61, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE6setTagEmm.exit, label %if.then.i62
@@ -39398,7 +39398,7 @@ _ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE6setTagEm
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i60, align 1
   %rawItems_.i.i.i63 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 16
-  %arrayidx.i.i.i.i.i64 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i63, i64 0, i64 %conv
+  %arrayidx.i.i.i.i.i64 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i63, i64 %conv
   tail call void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE13insertAtBlankIJRKSt21piecewise_construct_tSt5tupleIJRmEESC_IJONS4_18TransportDirectionESD_OmRNS4_11HTTPSessionERNS4_18HTTP2PriorityQueueEOPNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSR_RPNS4_16HTTPSessionStatsEObSD_SH_RKNS4_5http214PriorityUpdateERKNS_8OptionalImEERKNS14_INS4_9HTTPCodec12ExAttributesEEERbEEEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEES1H_ImmEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %arrayidx.i.i.i.i.i64, i64 %conv, i64 %hp.coerce0, i64 %hp.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(120) %args3)
   br label %return
 
@@ -39609,13 +39609,13 @@ while.body.lr.ph:                                 ; preds = %if.else
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %srcI.0146 = phi i64 [ 0, %while.body.lr.ph ], [ %inc21, %if.end ]
   %dstI.0145 = phi i64 [ 0, %while.body.lr.ph ], [ %dstI.1, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0146
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %srcI.0146
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i34.not = icmp eq i8 %5, 0
   br i1 %cmp.i34.not, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %while.body
-  %arrayidx.i.i.i36 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0145
+  %arrayidx.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i, i64 %dstI.0145
   %6 = load i8, ptr %arrayidx.i.i.i36, align 1
   %cmp.i37 = icmp eq i8 %6, 0
   br i1 %cmp.i37, label %invoke.cont20, label %if.then.i
@@ -39626,8 +39626,8 @@ if.then.i:                                        ; preds = %if.then14
 
 invoke.cont20:                                    ; preds = %if.then14
   store i8 %5, ptr %arrayidx.i.i.i36, align 1
-  %arrayidx.i.i.i38 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0145
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0146
+  %arrayidx.i.i.i38 = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i, i64 %dstI.0145
+  %arrayidx.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i, i64 %srcI.0146
   %7 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %7, ptr %arrayidx.i.i.i38, align 8
   store ptr null, ptr %arrayidx.i.i.i.i, align 8
@@ -39643,7 +39643,7 @@ if.end:                                           ; preds = %invoke.cont20, %whi
 invoke.cont24:                                    ; preds = %if.end
   %sub = add i64 %dstI.1, -1
   %rawItems_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i1.i, i64 16
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %sub
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i, i64 %sub
   %conv2.i = and i64 %sub, 255
   %shr.i.i = lshr i64 %conv2.i, 1
   %cmp.i.i41 = icmp samesign ult i64 %conv2.i, 16
@@ -39719,7 +39719,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
   %piter.sroa.0.1 = lshr i32 %piter.sroa.0.0134, %add5.i.pn
   %conv = zext i32 %piter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i54 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i53, i64 0, i64 %conv
+  %arrayidx.i.i.i.i54 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i53, i64 %conv
   %15 = load ptr, ptr %arrayidx.i.i.i.i54, align 8
   call void @llvm.prefetch.p0(ptr %15, i32 0, i32 3, i32 1)
   %cmp.i46.not = icmp eq i32 %piter.sroa.0.1, 0
@@ -39740,7 +39740,7 @@ while.body58:                                     ; preds = %for.body, %invoke.c
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0137, %add5.i68.pn
   %conv62 = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i73 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i53, i64 0, i64 %conv62
+  %arrayidx.i.i.i.i73 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i53, i64 %conv62
   %17 = load ptr, ptr %arrayidx.i.i.i.i73, align 8
   %18 = load i64, ptr %17, align 8
   %conv.i74 = zext i64 %18 to i128
@@ -39753,7 +39753,7 @@ while.body58:                                     ; preds = %for.body, %invoke.c
   %shr4.i = lshr i64 %mul3.i77, 15
   %and.i78 = and i64 %shr4.i, 127
   %or.i = or disjoint i64 %and.i78, 128
-  %arrayidx.i.i.i79 = getelementptr inbounds nuw [14 x i8], ptr %srcChunk42.0143, i64 0, i64 %conv62
+  %arrayidx.i.i.i79 = getelementptr inbounds nuw i8, ptr %srcChunk42.0143, i64 %conv62
   %19 = load i8, ptr %arrayidx.i.i.i79, align 1
   %conv.i80 = zext i8 %19 to i64
   %cmp72 = icmp eq i64 %or.i, %conv.i80
@@ -39819,7 +39819,7 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %inc.i84 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i84, ptr %arrayidx.le.i, align 1
   %conv6.i = zext nneg i8 %.lcssa.i to i64
-  %arrayidx.i.i.i.i85 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 %conv6.i
   %29 = load i8, ptr %arrayidx.i.i.i.i85, align 1
   %cmp.i.i86 = icmp eq i8 %29, 0
   br i1 %cmp.i.i86, label %invoke.cont75, label %if.then.i12.i
@@ -39836,7 +39836,7 @@ invoke.cont75:                                    ; preds = %while.end.i
   %add.i13.i = add i8 %30, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i87, align 2
   %rawItems_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i.i, i64 %conv6.i
   %31 = load ptr, ptr %arrayidx.i.i.i.i73, align 8
   store ptr %31, ptr %arrayidx.i.i.i.i.i.i, align 8
   store ptr null, ptr %arrayidx.i.i.i.i73, align 8
@@ -39862,7 +39862,7 @@ if.then.i99:                                      ; preds = %while.cond85
   %conv96 = zext nneg i8 %33 to i64
   %sub97 = add nsw i64 %conv96, -1
   %rawItems_.i.i.i89 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %34, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i90 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i89, i64 0, i64 %sub97
+  %arrayidx.i.i.i.i.i90 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i89, i64 %sub97
   %shr.i.i94 = lshr i64 %sub97, 1
   %cmp.i.i95 = icmp ult i8 %33, 17
   call void @llvm.assume(i1 %cmp.i.i95)
@@ -40208,7 +40208,7 @@ _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_E
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i
   %i.i.06.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %inc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -40280,7 +40280,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -40305,7 +40305,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i, -2
   %div.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i, 100
   %rem.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i, align 1
@@ -40316,7 +40316,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %retval.i.i.024.i.i.i.i, %while.body.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %sub.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i = phi i64 [ %2, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i
+  %arrayidx2.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i
   %5 = load i16, ptr %arrayidx2.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -40437,7 +40437,7 @@ while.body.i.i:                                   ; preds = %_ZNSt20back_insert_
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i2, %while.cond.i.i ], [ %__first.sroa.0.010, %_ZNSt20back_insert_iteratorISt6vectorImSaImEEEaSERKm.exit ]
   %dec.i.i = add i64 %8, -1
   %incdec.ptr.i.i2 = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -8
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i, i64 %dec.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %9, 0
   br i1 %cmp.i.not14.i, label %while.cond.i.i, label %_ZN5folly3f146detail22ValueContainerIteratorIPKmEppEv.exit, !llvm.loop !114
@@ -40467,7 +40467,7 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %sub.i.i = xor i32 %16, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i, i64 %conv.i.i
   br label %_ZN5folly3f146detail22ValueContainerIteratorIPKmEppEv.exit
 
 _ZN5folly3f146detail22ValueContainerIteratorIPKmEppEv.exit: ; preds = %while.body.i.i, %for.cond.i.i, %if.then23.i.i
@@ -40501,7 +40501,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %i.i.i.015.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %2, %3
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -40526,7 +40526,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i, -2
   %div.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i, 100
   %rem.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i, align 1
@@ -40537,7 +40537,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %retval.i.i.024.i.i.i.i, %while.body.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %sub.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i = phi i64 [ %2, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i
+  %arrayidx2.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i
   %5 = load i16, ptr %arrayidx2.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -40573,7 +40573,7 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i, %entry
   %i.i.06.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.06.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.06.i.i.i.i.i
   %2 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = icmp ult i64 %1, %2
   br i1 %cmp1.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -40615,7 +40615,7 @@ _ZN5folly6detail15reserveInTargetIA16_cmJPNSt7__cxx1112basic_stringIcSt11char_tr
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZN5folly6detail15reserveInTargetIA16_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit
   %i.i.i.015.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetIA16_cmJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit ], [ %inc.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [20 x i64], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 0, i64 %i.i.i.015.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %i.i.i.015.i.i.i.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = icmp ult i64 %5, %6
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
@@ -40640,7 +40640,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   %sub.i.i.i.i.i.i.i = add i64 %pos.i.017.i.i.i.i.i.i, -2
   %div.i.i.i.i.i.i.i = udiv i64 %v.addr.i4.018.i.i.i.i.i.i, 100
   %rem.i.i.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i.i.i, 100
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %rem.i.i.i.i.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 %sub.i.i.i.i.i.i.i
   store i16 %7, ptr %add.ptr.i.i.i.i.i.i.i, align 1
@@ -40651,7 +40651,7 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %pos.i.0.lcssa.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %v.addr.i4.0.lcssa.i.i.i.i.i.i = phi i64 [ %5, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %v.addr.i4.0.lcssa.i.i.i.i.i.i
   %8 = load i16, ptr %arrayidx2.i.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i.i = icmp eq i64 %pos.i.0.lcssa.i.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i

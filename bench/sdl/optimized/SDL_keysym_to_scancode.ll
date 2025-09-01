@@ -21,13 +21,13 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw [25 x %struct.anon], ptr @KeySymToSDLScancode, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @KeySymToSDLScancode, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %3
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw [25 x %struct.anon], ptr @KeySymToSDLScancode, i64 0, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @KeySymToSDLScancode, i64 %indvars.iv, i32 1
   %10 = load i32, ptr %9, align 4
   br label %40
 
@@ -58,7 +58,7 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 
 21:                                               ; preds = %.thread
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [248 x i32], ptr @LinuxKeycodeKeysyms, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @LinuxKeycodeKeysyms, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %.04154, %24
   br i1 %25, label %.loopexit55, label %.preheader91
@@ -68,7 +68,7 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 
 26:                                               ; preds = %.preheader91, %30
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %30 ], [ 0, %.preheader91 ]
-  %27 = getelementptr inbounds nuw [248 x i32], ptr @LinuxKeycodeKeysyms, i64 0, i64 %indvars.iv66
+  %27 = getelementptr inbounds nuw i32, ptr @LinuxKeycodeKeysyms, i64 %indvars.iv66
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %.04154, %28
   br i1 %29, label %.loopexit55.loopexit, label %30
@@ -97,13 +97,13 @@ define hidden i32 @SDL_GetScancodeFromKeySym(i32 noundef %0, i32 noundef %1) loc
 
 .preheader:                                       ; preds = %.preheader.preheader, %32
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %32 ], [ 0, %.preheader.preheader ]
-  %33 = getelementptr inbounds nuw [55 x %struct.anon.0], ptr @ExtendedLinuxKeycodeKeysyms, i64 0, i64 %indvars.iv70
+  %33 = getelementptr inbounds nuw %struct.anon.0, ptr @ExtendedLinuxKeycodeKeysyms, i64 %indvars.iv70
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %.04154, %34
   br i1 %35, label %36, label %32
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds nuw [55 x %struct.anon.0], ptr @ExtendedLinuxKeycodeKeysyms, i64 0, i64 %indvars.iv70, i32 1
+  %37 = getelementptr inbounds nuw %struct.anon.0, ptr @ExtendedLinuxKeycodeKeysyms, i64 %indvars.iv70, i32 1
   %38 = load i32, ptr %37, align 4
   br label %.loopexit
 

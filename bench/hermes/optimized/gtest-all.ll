@@ -17113,7 +17113,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 switch.lookup:                                    ; preds = %invoke.cont8
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internalL27PrintTestPartResultToStringB5cxx11ERKNS_14TestPartResultE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %cond.true.i.split.i.i.i
 
@@ -20258,7 +20258,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -20418,7 +20418,7 @@ if.end:                                           ; preds = %init.end
 switch.lookup:                                    ; preds = %if.end
   %switch.tableidx = add i32 %color, -1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit
 
@@ -36986,7 +36986,7 @@ invoke.cont.i:                                    ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %invoke.cont.i
   %idxprom.i = and i64 %call.i8.i, 2147483647
-  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr %buffer.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %4 = load ptr, ptr %error.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16

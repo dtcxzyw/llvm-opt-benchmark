@@ -867,7 +867,7 @@ Bac_BoxBoNtk.exit:                                ; preds = %70, %Bac_ManNtkIsOk
   %117 = getelementptr inbounds nuw i32, ptr %.val170, i64 %113
   %118 = load i32, ptr %117, align 4, !tbaa !29
   %119 = tail call i32 @Bac_ManExtract_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %118, i32 noundef %3, ptr noundef %4)
-  %120 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %119, ptr %120, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = trunc i64 %indvars.iv to i32
@@ -6268,7 +6268,7 @@ Abc_NodeIsSeriousGate.exit32.thread:              ; preds = %7, %4, %Abc_NodeIsS
   %.pn = phi ptr [ %29, %.critedge ], [ %30, %Abc_NodeIsSeriousGate.exit32.thread ]
   %35 = phi i64 [ 0, %.critedge ], [ %33, %Abc_NodeIsSeriousGate.exit32.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %.pn, i64 144
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
   %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %1, i32 noundef 60, i32 noundef %38)
   %40 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %1, i32 noundef 4, i32 noundef -1)

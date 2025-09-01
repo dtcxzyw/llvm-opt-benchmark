@@ -8398,7 +8398,7 @@ _ZN11sls_tracker12get_distanceEP4expr.exit:       ; preds = %55, %63
   %78 = phi i32 [ %73, %.lr.ph84 ], [ %191, %189 ]
   %79 = phi ptr [ %35, %.lr.ph84 ], [ %192, %189 ]
   %indvars.iv97 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next98, %189 ]
-  %80 = getelementptr inbounds nuw [0 x ptr], ptr %74, i64 0, i64 %indvars.iv97
+  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv97
   %81 = load ptr, ptr %80, align 8, !tbaa !150
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %83 = load i32, ptr %82, align 4, !tbaa !191
@@ -9452,7 +9452,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 51:                                               ; preds = %.lr.ph, %_ZN11sls_tracker9init_procclEP3app.exit
   %52 = phi i32 [ %48, %.lr.ph ], [ %120, %_ZN11sls_tracker9init_procclEP3app.exit ]
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !150
   %56 = add nuw i32 %52, 1
   store i32 %56, ptr %47, align 8, !tbaa !427
@@ -12861,7 +12861,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 63:                                               ; preds = %.lr.ph, %_ZN11sls_tracker20find_func_decls_procclEP3app.exit
   %64 = phi i32 [ %60, %.lr.ph ], [ %163, %_ZN11sls_tracker20find_func_decls_procclEP3app.exit ]
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !150
   %68 = add nuw i32 %64, 1
   store i32 %68, ptr %59, align 8, !tbaa !427

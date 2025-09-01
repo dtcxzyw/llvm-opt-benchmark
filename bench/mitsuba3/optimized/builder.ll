@@ -2971,7 +2971,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 .preheader:                                       ; preds = %.loopexit3, %.preheader
   %62 = phi i64 [ %66, %.preheader ], [ %60, %.loopexit3 ]
   %63 = phi i64 [ %67, %.preheader ], [ 0, %.loopexit3 ]
-  %64 = getelementptr inbounds [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %62
+  %64 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %62
   %65 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
   %66 = add nuw nsw i64 %62, 1
@@ -2997,19 +2997,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 78:                                               ; preds = %78, %57
   %79 = phi i64 [ 4, %57 ], [ %92, %78 ]
   %80 = phi i64 [ 0, %57 ], [ %93, %78 ]
-  %81 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %79
   %82 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %81, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false)
   %83 = or disjoint i64 %79, 1
-  %84 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %83
   %85 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %84, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
   %86 = or disjoint i64 %79, 2
-  %87 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %86
   %88 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false)
   %89 = or disjoint i64 %79, 3
-  %90 = getelementptr inbounds nuw [6 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %3, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %89
   %91 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %90, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
   %92 = add nuw nsw i64 %79, 4

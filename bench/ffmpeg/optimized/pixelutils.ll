@@ -14,16 +14,17 @@ define ptr @av_pixelutils_get_sad_fn(i32 noundef %0, i32 noundef %1, i32 noundef
   %or.cond7.not18 = and i1 %or.cond, %7
   %.not = icmp eq i32 %0, %1
   %or.cond16 = and i1 %.not, %or.cond7.not18
-  br i1 %or.cond16, label %8, label %12
+  br i1 %or.cond16, label %8, label %13
 
 8:                                                ; preds = %4
-  %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [5 x ptr], ptr @sad_c, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !4
-  br label %12
+  %9 = zext nneg i32 %0 to i64
+  %10 = getelementptr ptr, ptr @sad_c, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  br label %13
 
-12:                                               ; preds = %4, %8
-  %.0 = phi ptr [ %11, %8 ], [ null, %4 ]
+13:                                               ; preds = %4, %8
+  %.0 = phi ptr [ %12, %8 ], [ null, %4 ]
   ret ptr %.0
 }
 

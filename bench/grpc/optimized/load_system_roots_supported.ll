@@ -712,7 +712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
   %.01231.i = phi i64 [ 0, %57 ], [ %101, %100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
-  %61 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 0, i64 %.01231.i
+  %61 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 %.01231.i
   %62 = load ptr, ptr %61, align 8, !tbaa !3, !noalias !34
   store ptr %58, ptr %4, align 8, !tbaa !30, !noalias !34
   %63 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #20, !noalias !34
@@ -872,7 +872,7 @@ _ZN9grpc_core12_GLOBAL__N_118GetSystemRootCertsEv.exit: ; preds = %_ZN4absl12lts
 .preheader:                                       ; preds = %103, %110
   %.024 = phi i64 [ %116, %110 ], [ 0, %103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %108 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 0, i64 %.024
+  %108 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 %.024
   %109 = load ptr, ptr %108, align 8, !tbaa !3
   invoke void @_ZN9grpc_core21CreateRootCertsBundleEPKc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %10, ptr noundef %109)
           to label %110 unwind label %117

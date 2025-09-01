@@ -91,7 +91,7 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   br i1 %26, label %xv_get_tag_from_format.exit.thread, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %28 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i, i32 1
   %29 = load i32, ptr %28, align 4, !tbaa !41
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %xv_get_tag_from_format.exit, label %.lr.ph, !llvm.loop !43
@@ -99,7 +99,6 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
 .lr.ph:                                           ; preds = %23, %27
   %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i134, 1
-  %31 = getelementptr inbounds nuw [4 x %struct.XVTagFormatMap], ptr @tag_codec_map, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.i, label %.xv_get_tag_from_format.exit_crit_edge135, label %27, !llvm.loop !43
 
@@ -107,7 +106,8 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
   br label %xv_get_tag_from_format.exit, !llvm.loop !43
 
 xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_from_format.exit_crit_edge135
-  %32 = load i32, ptr %31, align 4, !tbaa !45
+  %31 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i
+  %32 = load i32, ptr %31, align 8, !tbaa !45
   %.not122 = icmp eq i32 %32, 0
   br i1 %.not122, label %33, label %xv_get_tag_from_format.exit.thread
 

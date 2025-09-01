@@ -107618,7 +107618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 331:                                              ; preds = %354, %287
   %.01066.i = phi i64 [ 0, %287 ], [ %338, %354 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1758
-  %332 = getelementptr inbounds nuw [3 x i64], ptr @__const._ZN4absl18container_internal12_GLOBAL__N_123Layout_DebugString_Test8TestBodyEv.x.656, i64 0, i64 %.01066.i
+  %332 = getelementptr inbounds nuw i64, ptr @__const._ZN4absl18container_internal12_GLOBAL__N_123Layout_DebugString_Test8TestBodyEv.x.656, i64 %.01066.i
   %333 = load i64, ptr %332, align 8, !tbaa !71, !noalias !1758
   %334 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %333, ptr noundef nonnull %288)
           to label %335 unwind label %355
@@ -107630,7 +107630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   store ptr %288, ptr %290, align 8, !tbaa !1766, !noalias !1758
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1758
   %338 = add nuw nsw i64 %.01066.i, 1
-  %339 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw i64, ptr %5, i64 %338
   %340 = load i64, ptr %339, align 8, !tbaa !71, !noalias !1758
   %341 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %340, ptr noundef nonnull %291)
           to label %342 unwind label %357
@@ -107640,11 +107640,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %344 = sub i64 %343, %292
   store i64 %344, ptr %9, align 8, !tbaa !1764, !noalias !1758
   store ptr %291, ptr %293, align 8, !tbaa !1766, !noalias !1758
-  %345 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %338
+  %345 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %338
   %346 = load ptr, ptr %345, align 16, !tbaa !33, !noalias !1758
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %348 = load i64, ptr %347, align 8, !tbaa !39, !noalias !1758
-  %349 = getelementptr inbounds nuw [4 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 0, i64 %338
+  %349 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 %338
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1758
   store i64 1, ptr %2, align 8, !noalias !1758
   store ptr @.str.665, ptr %294, align 8, !noalias !1758
@@ -109493,7 +109493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 85:                                               ; preds = %41, %108
   %.01067 = phi i64 [ 0, %41 ], [ 1, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %1, i64 0, i64 %.01067
+  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %.01067
   %87 = load i64, ptr %86, align 8, !tbaa !71
   %88 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %87, ptr noundef nonnull %42)
           to label %89 unwind label %109
@@ -109505,7 +109505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %42, ptr %44, align 8, !tbaa !1766
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %92 = add nuw nsw i64 %.01067, 1
-  %93 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %6, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !71
   %95 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %94, ptr noundef nonnull %45)
           to label %96 unwind label %111
@@ -109515,11 +109515,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %98 = sub i64 %97, %46
   store i64 %98, ptr %10, align 8, !tbaa !1764
   store ptr %45, ptr %47, align 8, !tbaa !1766
-  %99 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %92
+  %99 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %92
   %100 = load ptr, ptr %99, align 16, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !39
-  %103 = getelementptr inbounds nuw [3 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 0, i64 %92
+  %103 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 %92
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8
   store ptr @.str.665, ptr %48, align 8
@@ -109838,7 +109838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 95:                                               ; preds = %51, %118
   %.01277 = phi i64 [ 0, %51 ], [ %102, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %96 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.01277
+  %96 = getelementptr inbounds nuw i64, ptr %1, i64 %.01277
   %97 = load i64, ptr %96, align 8, !tbaa !71
   %98 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %97, ptr noundef nonnull %52)
           to label %99 unwind label %119
@@ -109850,7 +109850,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %52, ptr %54, align 8, !tbaa !1766
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %102 = add nuw nsw i64 %.01277, 1
-  %103 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %6, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !71
   %105 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %104, ptr noundef nonnull %55)
           to label %106 unwind label %121
@@ -109860,11 +109860,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %108 = sub i64 %107, %56
   store i64 %108, ptr %10, align 8, !tbaa !1764
   store ptr %55, ptr %57, align 8, !tbaa !1766
-  %109 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %7, i64 0, i64 %102
+  %109 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %102
   %110 = load ptr, ptr %109, align 16, !tbaa !33
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !39
-  %113 = getelementptr inbounds nuw [4 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 0, i64 %102
+  %113 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 %102
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8
   store ptr @.str.665, ptr %58, align 8
@@ -112461,7 +112461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %498 = load ptr, ptr %.01021.i.sroa.phi, align 8, !tbaa !33, !noalias !1882
   %499 = getelementptr inbounds nuw i8, ptr %.01021.i.sroa.phi, i64 8
   %500 = load i64, ptr %499, align 8, !tbaa !39, !noalias !1882
-  %501 = getelementptr inbounds nuw [3 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 0, i64 %.not.not.i.i
+  %501 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 %.not.not.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1882
   store i64 1, ptr %10, align 8, !noalias !1882
   store ptr @.str.665, ptr %451, align 8, !noalias !1882
@@ -112925,7 +112925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i198: ; preds = %
 680:                                              ; preds = %703, %636
   %.01021.i208 = phi i64 [ 0, %636 ], [ 1, %703 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1897
-  %681 = getelementptr inbounds nuw [2 x i64], ptr @_ZN4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE12kStaticSizesE, i64 0, i64 %.01021.i208
+  %681 = getelementptr inbounds nuw i64, ptr @_ZN4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE12kStaticSizesE, i64 %.01021.i208
   %682 = load i64, ptr %681, align 8, !tbaa !71, !noalias !1897
   %683 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %682, ptr noundef nonnull %637)
           to label %684 unwind label %704
@@ -112937,7 +112937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i198: ; preds = %
   store ptr %637, ptr %639, align 8, !tbaa !1766, !noalias !1897
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1897
   %687 = add nuw nsw i64 %.01021.i208, 1
-  %688 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %687
+  %688 = getelementptr inbounds nuw i64, ptr %5, i64 %687
   %689 = load i64, ptr %688, align 8, !tbaa !71, !noalias !1897
   %690 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %689, ptr noundef nonnull %640)
           to label %691 unwind label %706
@@ -112947,11 +112947,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i198: ; preds = %
   %693 = sub i64 %692, %641
   store i64 %693, ptr %9, align 8, !tbaa !1764, !noalias !1897
   store ptr %640, ptr %642, align 8, !tbaa !1766, !noalias !1897
-  %694 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %687
+  %694 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %687
   %695 = load ptr, ptr %694, align 16, !tbaa !33, !noalias !1897
   %696 = getelementptr inbounds nuw i8, ptr %694, i64 8
   %697 = load i64, ptr %696, align 8, !tbaa !39, !noalias !1897
-  %698 = getelementptr inbounds nuw [3 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 0, i64 %687
+  %698 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2EEES7_ImJEES7_ImJLm0ELm1EEES7_ImJLm0ELm1ELm2EEEE11DebugStringB5cxx11Ev.sizes, i64 %687
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1897
   store i64 1, ptr %2, align 8, !noalias !1897
   store ptr @.str.665, ptr %643, align 8, !noalias !1897
@@ -114267,7 +114267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 85:                                               ; preds = %41, %107
   %.01279 = phi i64 [ 0, %41 ], [ %91, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %86 = getelementptr inbounds nuw [4 x i64], ptr @_ZN4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E12kStaticSizesE, i64 0, i64 %.01279
+  %86 = getelementptr inbounds nuw i64, ptr @_ZN4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E12kStaticSizesE, i64 %.01279
   %.0.i = load i64, ptr %86, align 8, !tbaa !71
   %87 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %.0.i, ptr noundef nonnull %42)
           to label %88 unwind label %108
@@ -114279,7 +114279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %42, ptr %44, align 8, !tbaa !1766
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %91 = add nuw nsw i64 %.01279, 1
-  %92 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %5, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !71
   %94 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %93, ptr noundef nonnull %45)
           to label %95 unwind label %110
@@ -114289,11 +114289,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %97 = sub i64 %96, %46
   store i64 %97, ptr %9, align 8, !tbaa !1764
   store ptr %45, ptr %47, align 8, !tbaa !1766
-  %98 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %6, i64 0, i64 %91
+  %98 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %91
   %99 = load ptr, ptr %98, align 16, !tbaa !33
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !39
-  %102 = getelementptr inbounds nuw [4 x i64], ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 0, i64 %91
+  %102 = getelementptr inbounds nuw i64, ptr @__const._ZNK4absl18container_internal15internal_layout10LayoutImplISt5tupleIJaiaNS0_12_GLOBAL__N_16Int128EEESt16integer_sequenceImJLm1ELm2ELm3ELm4EEES7_ImJEES7_ImJLm0ELm1ELm2ELm3EEESA_E11DebugStringB5cxx11Ev.sizes, i64 %91
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 1, ptr %2, align 8
   store ptr @.str.665, ptr %48, align 8

@@ -880,7 +880,7 @@ define hidden void @_ZN19XReferenceProcessor8discoverEP7oopDesc13ReferenceType(p
 switch.lookup:                                    ; preds = %5
   %9 = ptrtoint ptr %1 to i64
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, ptr noundef nonnull %switch.load)
   br label %11
@@ -895,7 +895,7 @@ switch.lookup:                                    ; preds = %5
   %18 = add i64 %17, %15
   %19 = inttoptr i64 %18 to ptr
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8
@@ -985,7 +985,7 @@ define hidden noundef zeroext i1 @_ZN19XReferenceProcessor18discover_referenceEP
 switch.lookup:                                    ; preds = %5
   %9 = ptrtoint ptr %1 to i64
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %9, ptr noundef nonnull %switch.load)
   br label %11
@@ -1000,7 +1000,7 @@ switch.lookup:                                    ; preds = %5
   %18 = add i64 %17, %15
   %19 = inttoptr i64 %18 to ptr
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw [5 x i64], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8
@@ -1035,7 +1035,7 @@ define hidden noundef ptr @_ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceTyp
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %.pre, ptr noundef nonnull %switch.load)
   br label %._crit_edge
@@ -1071,7 +1071,7 @@ define hidden noundef ptr @_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceTyp
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.pre, ptr noundef nonnull %switch.load)
   br label %._crit_edge
@@ -1086,7 +1086,7 @@ switch.lookup:                                    ; preds = %5
   %16 = add i64 %15, %13
   %17 = inttoptr i64 %16 to ptr
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds nuw [5 x i64], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8
@@ -1172,7 +1172,7 @@ _ZL14reference_typeP7oopDesc.exit:                ; preds = %17, %27
 
 switch.lookup:                                    ; preds = %35
   %39 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %.pre.i, ptr noundef nonnull %switch.load)
   br label %_ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceType.exit
@@ -1192,9 +1192,9 @@ _ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceType.exit: ; preds = %34, %swi
   br i1 %.not.i, label %_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit, label %46
 
 46:                                               ; preds = %45
-  %switch.tableidx34 = add i8 %30, -1
-  %47 = icmp ult i8 %switch.tableidx34, 4
-  br i1 %47, label %switch.lookup33, label %48
+  %switch.tableidx33 = add i8 %30, -1
+  %47 = icmp ult i8 %switch.tableidx33, 4
+  br i1 %47, label %switch.lookup34, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr @g_assert_poison, align 8
@@ -1202,14 +1202,14 @@ _ZN19XReferenceProcessor4dropEP7oopDesc13ReferenceType.exit: ; preds = %34, %swi
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.21, i32 noundef 61) #13
   unreachable
 
-switch.lookup33:                                  ; preds = %46
-  %50 = zext nneg i8 %switch.tableidx34 to i64
-  %switch.gep35 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 0, i64 %50
+switch.lookup34:                                  ; preds = %46
+  %50 = zext nneg i8 %switch.tableidx33 to i64
+  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19XReferenceProcessor4workEv.1, i64 %50
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.pre.i, ptr noundef nonnull %switch.load36)
   br label %_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit
 
-_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit: ; preds = %45, %switch.lookup33
+_ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit: ; preds = %45, %switch.lookup34
   %51 = load i32, ptr %3, align 4
   %52 = load i64, ptr %11, align 8
   %53 = zext i32 %51 to i64
@@ -1217,7 +1217,7 @@ _ZN19XReferenceProcessor4keepEP7oopDesc13ReferenceType.exit: ; preds = %45, %swi
   %55 = add i64 %54, %52
   %56 = inttoptr i64 %55 to ptr
   %57 = zext i8 %30 to i64
-  %58 = getelementptr inbounds nuw [5 x i64], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, 1
   store i64 %60, ptr %58, align 8
@@ -1428,9 +1428,9 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit: ; preds = %
 
 17:                                               ; preds = %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit, %17
   %indvars.iv = phi i64 [ 1, %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
@@ -1458,9 +1458,9 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14: ; preds =
 
 28:                                               ; preds = %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14, %28
   %indvars.iv50 = phi i64 [ 1, %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit14 ], [ %indvars.iv.next51, %28 ]
-  %29 = getelementptr inbounds nuw [5 x i64], ptr %27, i64 0, i64 %indvars.iv50
+  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv50
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %indvars.iv50
+  %31 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv50
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
@@ -1488,9 +1488,9 @@ _ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15: ; preds =
 
 39:                                               ; preds = %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15, %39
   %indvars.iv59 = phi i64 [ 1, %_ZN19XValueConstIteratorI17XPerWorkerStorageA5_mE4nextEPPA5_Km.exit15 ], [ %indvars.iv.next60, %39 ]
-  %40 = getelementptr inbounds nuw [5 x i64], ptr %38, i64 0, i64 %indvars.iv59
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv59
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %indvars.iv59
+  %42 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv59
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %41
   store i64 %44, ptr %42, align 8

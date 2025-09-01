@@ -617,7 +617,7 @@ define hidden void @_Z4ReadI8aiStringET_PN6Assimp8IOStreamE(ptr dead_on_unwind n
 16:                                               ; preds = %8, %2
   %17 = phi i64 [ %15, %8 ], [ 0, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   store i8 0, ptr %19, align 1
   ret void
 }
@@ -1009,13 +1009,13 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %spec.select.i = phi i32 [ %61, %.noexc78 ], [ 0, %.noexc ]
   %62 = phi i64 [ %60, %.noexc78 ], [ 0, %.noexc ]
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %64 = getelementptr inbounds nuw [1024 x i8], ptr %63, i64 0, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 0, ptr %64, align 1, !alias.scope !6
   store i32 %spec.select.i, ptr %46, align 4
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %66 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 4 %63, i64 %66, i1 false)
-  %67 = getelementptr inbounds nuw [1024 x i8], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
   store i8 0, ptr %67, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -1353,7 +1353,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
 191:                                              ; preds = %.noexc107, %.noexc106
   %spec.select.i109 = phi i32 [ %190, %.noexc107 ], [ 0, %.noexc106 ]
   %192 = phi i64 [ %189, %.noexc107 ], [ 0, %.noexc106 ]
-  %193 = getelementptr inbounds nuw [1024 x i8], ptr %176, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr %176, i64 %192
   store i8 0, ptr %193, align 1, !alias.scope !11
   %194 = load ptr, ptr %175, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -1367,7 +1367,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %201 = zext nneg i32 %spec.select.i109 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr nonnull align 4 %176, i64 %201, i1 false)
-  %202 = getelementptr inbounds nuw [1024 x i8], ptr %200, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 %201
   store i8 0, ptr %202, align 1
   br label %_ZN8aiStringaSERKS_.exit110
 
@@ -1763,7 +1763,7 @@ _ZN8aiStringaSERKS_.exit110:                      ; preds = %191, %199
 _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145:  ; preds = %.noexc143, %.noexc144
   %314 = phi i64 [ %313, %.noexc144 ], [ 0, %.noexc143 ]
   %315 = getelementptr inbounds nuw i8, ptr %299, i64 4
-  %316 = getelementptr inbounds nuw [1024 x i8], ptr %315, i64 0, i64 %314
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 %314
   store i8 0, ptr %316, align 1, !alias.scope !16
   br label %326
 
@@ -2023,7 +2023,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %47, %39 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %48 = phi i64 [ %46, %39 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %50 = getelementptr inbounds nuw [1024 x i8], ptr %49, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
   store i8 0, ptr %50, align 1, !alias.scope !20
   %51 = icmp eq ptr %2, %7
   br i1 %51, label %_ZN8aiStringaSERKS_.exit, label %52
@@ -2033,7 +2033,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %54 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %53, ptr nonnull align 4 %49, i64 %54, i1 false)
-  %55 = getelementptr inbounds nuw [1024 x i8], ptr %53, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   store i8 0, ptr %55, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -2619,13 +2619,13 @@ _Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit181: ; preds = %.lr.ph
   br i1 %218, label %.thread213, label %.lr.ph.preheader.i183
 
 .thread213:                                       ; preds = %216
-  %219 = getelementptr inbounds nuw [8 x ptr], ptr %200, i64 0, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv
   store ptr %217, ptr %219, align 8
   br label %_Z9ReadArrayI9aiColor4tIfEEvPN6Assimp8IOStreamEPT_j.exit
 
 .lr.ph.preheader.i183:                            ; preds = %216
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %217, i8 0, i64 %210, i1 false)
-  %220 = getelementptr inbounds nuw [8 x ptr], ptr %200, i64 0, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv
   store ptr %217, ptr %220, align 8
   br label %.lr.ph.i185
 
@@ -2688,7 +2688,7 @@ _Z9ReadArrayI9aiColor4tIfEEvPN6Assimp8IOStreamEPT_j.exit: ; preds = %.lr.ph.i185
 _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   %242 = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %243 = getelementptr inbounds nuw [8 x i32], ptr %226, i64 0, i64 %indvars.iv230
+  %243 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv230
   store i32 %242, ptr %243, align 4
   %244 = load i8, ptr %199, align 8, !range !14, !noundef !15
   %245 = trunc nuw i8 %244 to i1
@@ -2710,7 +2710,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   br i1 %256, label %.thread214, label %.lr.ph.preheader.i193
 
 .thread214:                                       ; preds = %254
-  %257 = getelementptr inbounds nuw [8 x ptr], ptr %227, i64 0, i64 %indvars.iv230
+  %257 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv230
   store ptr %255, ptr %257, align 8
   br label %_Z9ReadArrayI10aiVector3tIfEEvPN6Assimp8IOStreamEPT_j.exit202
 
@@ -2720,7 +2720,7 @@ _Z4ReadIjET_PN6Assimp8IOStreamE.exit191:          ; preds = %232
   %260 = sub nuw nsw i64 %258, %259
   %261 = add nsw i64 %260, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %255, i8 0, i64 %261, i1 false)
-  %262 = getelementptr inbounds nuw [8 x ptr], ptr %227, i64 0, i64 %indvars.iv230
+  %262 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv230
   store ptr %255, ptr %262, align 8
   br label %.lr.ph.i195
 
@@ -3097,7 +3097,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %49, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %50 = phi i64 [ %48, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit19 ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %52 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %50
   store i8 0, ptr %52, align 1, !alias.scope !31
   %53 = icmp eq ptr %2, %10
   br i1 %53, label %_ZN8aiStringaSERKS_.exit, label %54
@@ -3107,7 +3107,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %55, ptr nonnull align 4 %51, i64 %56, i1 false)
-  %57 = getelementptr inbounds nuw [1024 x i8], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   store i8 0, ptr %57, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -3516,7 +3516,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %50, %42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49 ]
   %51 = phi i64 [ %49, %42 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit49 ]
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %53 = getelementptr inbounds nuw [1024 x i8], ptr %52, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   store i8 0, ptr %53, align 1, !alias.scope !35
   %54 = icmp eq ptr %2, %11
   br i1 %54, label %_ZN8aiStringaSERKS_.exit, label %55
@@ -3526,7 +3526,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %57 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr nonnull align 4 %52, i64 %57, i1 false)
-  %58 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
   store i8 0, ptr %58, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -4035,7 +4035,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %48, %40 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
   %49 = phi i64 [ %47, %40 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit26 ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %51 = getelementptr inbounds nuw [1024 x i8], ptr %50, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   store i8 0, ptr %51, align 1, !alias.scope !46
   %52 = icmp eq ptr %2, %9
   br i1 %52, label %_ZN8aiStringaSERKS_.exit, label %53
@@ -4045,7 +4045,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %55 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr nonnull align 4 %50, i64 %55, i1 false)
-  %56 = getelementptr inbounds nuw [1024 x i8], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   store i8 0, ptr %56, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -4479,7 +4479,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %54, %46 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46 ]
   %55 = phi i64 [ %53, %46 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit46 ]
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %57 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   store i8 0, ptr %57, align 1, !alias.scope !50
   %58 = icmp eq ptr %2, %12
   br i1 %58, label %_ZN8aiStringaSERKS_.exit, label %59
@@ -4489,7 +4489,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %61 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %56, i64 %61, i1 false)
-  %62 = getelementptr inbounds nuw [1024 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
   store i8 0, ptr %62, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -4941,7 +4941,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %spec.select.i = phi i32 [ %49, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33 ]
   %50 = phi i64 [ %48, %41 ], [ 0, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit33 ]
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %52 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %50
   store i8 0, ptr %52, align 1, !alias.scope !62
   %53 = icmp eq ptr %2, %10
   br i1 %53, label %_ZN8aiStringaSERKS_.exit, label %54
@@ -4951,7 +4951,7 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit:     ; preds = %_Z4ReadIjET_PN6Assi
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = zext nneg i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %55, ptr nonnull align 4 %51, i64 %56, i1 false)
-  %57 = getelementptr inbounds nuw [1024 x i8], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   store i8 0, ptr %57, align 1
   br label %_ZN8aiStringaSERKS_.exit
 

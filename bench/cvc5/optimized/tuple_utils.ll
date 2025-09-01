@@ -2324,7 +2324,7 @@ define hidden void @_ZN4cvc58internal6theory9datatypes10TupleUtils17nthElementOf
   %spec.select.i.i = add nsw i32 %2, %18
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %20 = sext i32 %spec.select.i.i to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !143, !noalias !140
   store ptr %22, ptr %0, align 8, !tbaa !84, !alias.scope !140
   %23 = load i64, ptr %22, align 8, !noalias !140
@@ -4835,7 +4835,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes10TupleUtils
   %spec.select.i.i = add nsw i32 %8, %18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %20 = sext i32 %spec.select.i.i to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !143, !noalias !170
   store ptr %22, ptr %4, align 8, !tbaa !84, !alias.scope !170
   %23 = load i64, ptr %22, align 8, !noalias !170
@@ -4881,7 +4881,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %28, %34, %36
   %spec.select.i.i11 = add nsw i32 %8, %47
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %49 = sext i32 %spec.select.i.i11 to i64
-  %50 = getelementptr inbounds [0 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !143, !noalias !173
   %52 = load i64, ptr %51, align 8, !noalias !173
   %53 = lshr i64 %52, 40

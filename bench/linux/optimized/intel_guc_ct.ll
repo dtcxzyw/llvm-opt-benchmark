@@ -1277,7 +1277,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %135 = zext i32 %134 to i64
   %136 = getelementptr i32, ptr %18, i64 %135
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr [0 x i32], ptr %104, i64 0, i64 %133
+  %138 = getelementptr i32, ptr %104, i64 %133
   store i32 %137, ptr %138, align 4
   %139 = add i32 %134, 1
   %140 = icmp eq i32 %139, %.fr35

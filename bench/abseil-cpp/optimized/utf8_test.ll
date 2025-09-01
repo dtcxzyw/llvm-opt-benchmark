@@ -442,7 +442,7 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
 
 83:                                               ; preds = %91
   %indvars.iv.next = add nsw i64 %indvars.iv.next332, -1
-  %84 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %84 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
   %85 = load i8, ptr %84, align 1, !tbaa !27
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !30
@@ -450,7 +450,7 @@ define internal void @_ZN12_GLOBAL__N_133EncodeUTF8Char_BasicFunction_Test8TestB
 .lr.ph:                                           ; preds = %80, %83
   %indvars.iv.next332 = phi i64 [ %indvars.iv.next, %83 ], [ 6, %80 ]
   %87 = phi i64 [ %indvars.iv.next332, %83 ], [ 7, %80 ]
-  %88 = getelementptr inbounds [7 x i8], ptr %5, i64 0, i64 %indvars.iv.next332
+  %88 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next332
   %89 = load i8, ptr %88, align 1, !tbaa !27
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %91, label %.critedge.loopexit

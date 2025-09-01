@@ -76,7 +76,7 @@ define dso_local noundef i64 @ZSTDMT_freeCCtx(ptr noundef %0) local_unnamed_addr
   %35 = add nuw i32 %29, 1
   store i32 %35, ptr %28, align 4, !tbaa !35
   %36 = zext i32 %29 to i64
-  %37 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw %struct.buffer_s, ptr %34, i64 %36
   store ptr %23, ptr %37, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %25, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !39
@@ -151,7 +151,7 @@ ZSTDMT_freeJobsTable.exit:                        ; preds = %54, %55
 
 62:                                               ; preds = %ZSTD_customFree.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %ZSTD_customFree.exit.i ]
-  %63 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %59, i64 0, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw %struct.buffer_s, ptr %59, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8, !tbaa !44
   %.val.i = load ptr, ptr %60, align 8
   %.val9.i = load ptr, ptr %61, align 8
@@ -207,7 +207,7 @@ ZSTDMT_freeBufferPool.exit:                       ; preds = %ZSTDMT_freeJobsTabl
 
 81:                                               ; preds = %81, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i32, %81 ]
-  %82 = getelementptr inbounds nuw [1 x ptr], ptr %80, i64 0, i64 %indvars.iv.i31
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i31
   %83 = load ptr, ptr %82, align 8, !tbaa !49
   %84 = tail call i64 @ZSTD_freeCCtx(ptr noundef %83) #16
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
@@ -252,7 +252,7 @@ ZSTDMT_freeCCtxPool.exit:                         ; preds = %89, %91
 
 99:                                               ; preds = %ZSTD_customFree.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %ZSTD_customFree.exit.i.i ]
-  %100 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %96, i64 0, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw %struct.buffer_s, ptr %96, i64 %indvars.iv.i.i
   %101 = load ptr, ptr %100, align 8, !tbaa !44
   %.val.i.i34 = load ptr, ptr %97, align 8
   %.val9.i.i = load ptr, ptr %98, align 8
@@ -438,7 +438,7 @@ ZSTDMT_sizeof_bufferPool.exit:                    ; preds = %11, %3
 27:                                               ; preds = %27, %.lr.ph.i10
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %27 ]
   %.011.i = phi i64 [ 0, %.lr.ph.i10 ], [ %31, %27 ]
-  %28 = getelementptr inbounds nuw [1 x ptr], ptr %26, i64 0, i64 %indvars.iv.i12
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i12
   %29 = load ptr, ptr %28, align 8, !tbaa !49
   %30 = tail call i64 @ZSTD_sizeof_CCtx(ptr noundef %29) #16
   %31 = add i64 %30, %.011.i
@@ -771,7 +771,7 @@ ZSTDMT_expandJobsTable.exit.i:                    ; preds = %ZSTD_customCalloc.e
 
 66:                                               ; preds = %66, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
-  %67 = getelementptr inbounds nuw [1 x ptr], ptr %65, i64 0, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !49
   %69 = tail call i64 @ZSTD_freeCCtx(ptr noundef %68) #16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -841,7 +841,7 @@ ZSTD_customCalloc.exit.i.i26.i:                   ; preds = %84, %81
 
 .lr.ph.i.i.i.i:                                   ; preds = %92, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %92 ]
-  %95 = getelementptr inbounds nuw [1 x ptr], ptr %91, i64 0, i64 %indvars.iv.i.i.i.i
+  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i.i.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !49
   %97 = tail call i64 @ZSTD_freeCCtx(ptr noundef %96) #16
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -986,7 +986,7 @@ ZSTDMT_waitForAllJobsCompleted.exit:              ; preds = %140, %.ZSTDMT_waitF
   %167 = add nuw i32 %161, 1
   store i32 %167, ptr %160, align 4, !tbaa !35
   %168 = zext i32 %161 to i64
-  %169 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %166, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw %struct.buffer_s, ptr %166, i64 %168
   store ptr %155, ptr %169, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i64 %157, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !39
@@ -1078,7 +1078,7 @@ ZSTDMT_overlapLog.exit.i:                         ; preds = %196
 
 switch.lookup:                                    ; preds = %203
   %207 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ZSTDMT_initCStream_internal, i64 0, i64 %207
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ZSTDMT_initCStream_internal, i64 %207
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ZSTDMT_overlapLog.exit.thread.i
 
@@ -2237,7 +2237,7 @@ ZSTDMT_tryGetInputRange.exit.thread141:           ; preds = %ZSTDMT_isOverlapped
   %317 = add i32 %314, -1
   store i32 %317, ptr %313, align 4, !tbaa !35
   %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %316, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw %struct.buffer_s, ptr %316, i64 %318
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %319, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %319, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !39
@@ -2443,7 +2443,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %396, %384
   %421 = add nuw i32 %415, 1
   store i32 %421, ptr %414, align 4, !tbaa !35
   %422 = zext i32 %415 to i64
-  %423 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %420, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw %struct.buffer_s, ptr %420, i64 %422
   store ptr %409, ptr %423, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i.i80 = getelementptr inbounds nuw i8, ptr %423, i64 8
   store i64 %411, ptr %.sroa.4.0..sroa_idx.i.i.i80, align 8, !tbaa !39
@@ -2585,7 +2585,7 @@ ZSTDMT_releaseAllJobResources.exit.i:             ; preds = %ZSTDMT_releaseBuffe
   %499 = add nuw i32 %493, 1
   store i32 %499, ptr %492, align 4, !tbaa !35
   %500 = zext i32 %493 to i64
-  %501 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %498, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw %struct.buffer_s, ptr %498, i64 %500
   store ptr %487, ptr %501, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i87 = getelementptr inbounds nuw i8, ptr %501, i64 8
   store i64 %489, ptr %.sroa.4.0..sroa_idx.i.i87, align 8, !tbaa !39
@@ -2727,7 +2727,7 @@ define internal fastcc noundef ptr @ZSTDMT_expandBufferPool(ptr noundef %0, i32 
 
 11:                                               ; preds = %ZSTD_customFree.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %ZSTD_customFree.exit.i ]
-  %12 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %10, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %struct.buffer_s, ptr %10, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %.val.i = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.val9.i = load ptr, ptr %.sroa.526.0..sroa_idx, align 8
@@ -2861,7 +2861,7 @@ define internal void @ZSTDMT_compressionJob(ptr noundef captures(none) %0) #1 {
   store i32 %10, ptr %7, align 8, !tbaa !83
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [1 x ptr], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   br label %ZSTDMT_getCCtx.exit
 
@@ -2896,7 +2896,7 @@ ZSTDMT_getCCtx.exit:                              ; preds = %9, %15
   %29 = add i32 %26, -1
   store i32 %29, ptr %25, align 4, !tbaa !35, !noalias !152
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %struct.buffer_s, ptr %28, i64 %30
   %.sroa.0.0.copyload.i.i = load ptr, ptr %31, align 8, !tbaa !38, !noalias !152
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !39, !noalias !152
@@ -2990,7 +2990,7 @@ ZSTDMT_getSeq.exit:                               ; preds = %23, %ZSTDMT_getBuff
   %65 = add i32 %62, -1
   store i32 %65, ptr %61, align 4, !tbaa !35
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %64, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw %struct.buffer_s, ptr %64, i64 %66
   %.sroa.0.0.copyload.i = load ptr, ptr %67, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !39
@@ -3444,7 +3444,7 @@ ZSTDMT_serialState_ensureFinished.exit:           ; preds = %.thread177, %269
   %292 = add nuw i32 %286, 1
   store i32 %292, ptr %285, align 4, !tbaa !35
   %293 = zext i32 %286 to i64
-  %294 = getelementptr inbounds nuw [1 x %struct.buffer_s], ptr %291, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw %struct.buffer_s, ptr %291, i64 %293
   store ptr %.sroa.0.0, ptr %294, align 8, !tbaa !38
   %.sroa.4.0..sroa_idx.i.i170 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i64 %282, ptr %.sroa.4.0..sroa_idx.i.i170, align 8, !tbaa !39
@@ -3483,7 +3483,7 @@ ZSTDMT_releaseSeq.exit:                           ; preds = %ZSTDMT_serialState_
   %309 = add nsw i32 %303, 1
   store i32 %309, ptr %302, align 8, !tbaa !83
   %310 = sext i32 %303 to i64
-  %311 = getelementptr inbounds [1 x ptr], ptr %308, i64 0, i64 %310
+  %311 = getelementptr inbounds ptr, ptr %308, i64 %310
   store ptr %.0.i, ptr %311, align 8, !tbaa !49
   br label %ZSTDMT_releaseCCtx.exit
 

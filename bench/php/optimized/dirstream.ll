@@ -420,7 +420,7 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %47, %zend_string_st
   br i1 %.not109, label %58, label %82
 
 58:                                               ; preds = %56
-  %59 = getelementptr [1 x i8], ptr %57, i64 0, i64 %1
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %1
   %60 = load i8, ptr %59, align 1, !tbaa !23
   %.not110 = icmp eq i8 %60, 47
   br i1 %.not110, label %61, label %82
@@ -744,7 +744,7 @@ zend_string_alloc.exit:                           ; preds = %110
   store i64 %126, ptr %132, align 8, !tbaa !13
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %133, ptr nonnull align 1 %123, i64 %126, i1 false)
-  %134 = getelementptr inbounds nuw [1 x i8], ptr %133, i64 0, i64 %126
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %126
   store i8 0, ptr %134, align 1, !tbaa !23
   %135 = load ptr, ptr %7, align 8, !tbaa !21
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 316
@@ -1075,7 +1075,7 @@ zend_string_starts_with_cstr.exit140:             ; preds = %102
   br i1 %.not4.i139, label %110, label %zend_string_starts_with_cstr.exit140.thread
 
 110:                                              ; preds = %zend_string_starts_with_cstr.exit140
-  %111 = getelementptr inbounds nuw [1 x i8], ptr %109, i64 0, i64 %70
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 %70
   %112 = load i8, ptr %111, align 1, !tbaa !23
   %113 = icmp eq i8 %112, 47
   br i1 %113, label %114, label %zend_string_starts_with_cstr.exit140.thread
@@ -1143,7 +1143,7 @@ zend_string_starts_with_cstr.exit:                ; preds = %134
   br i1 %.not4.i, label %142, label %zend_string_starts_with_cstr.exit.thread
 
 142:                                              ; preds = %zend_string_starts_with_cstr.exit
-  %143 = getelementptr inbounds nuw [1 x i8], ptr %141, i64 0, i64 %70
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 %70
   %144 = load i8, ptr %143, align 1, !tbaa !23
   %145 = icmp eq i8 %144, 47
   br i1 %145, label %146, label %zend_string_starts_with_cstr.exit.thread
@@ -1303,7 +1303,7 @@ define internal range(i64 -1, 4098) i64 @phar_dir_read(ptr noundef readonly capt
   %. = call i64 @llvm.umin.i64(i64 %19, i64 4095)
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 8 %20, i64 %., i1 false)
-  %21 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %.
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   store i8 0, ptr %21, align 1, !tbaa !23
   br label %22
 

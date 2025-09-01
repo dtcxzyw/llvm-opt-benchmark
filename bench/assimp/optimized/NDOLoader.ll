@@ -1078,7 +1078,7 @@ _ZN6Assimp12StreamReaderILb1ELb0EE5GetU4Ev.exit284.us: ; preds = %_ZNSt6vectorIN
   %336 = load i32, ptr %332, align 1
   store ptr %333, ptr %40, align 8
   %.sroa.02.0.insert.insert.i.i280.us = call noundef i32 @llvm.bswap.i32(i32 %336)
-  %337 = getelementptr inbounds nuw [8 x i32], ptr %331, i64 0, i64 %indvars.iv951
+  %337 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv951
   store i32 %.sroa.02.0.insert.insert.i.i280.us, ptr %337, align 4
   %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
   %exitcond954.not = icmp eq i64 %indvars.iv.next952, 8
@@ -1140,7 +1140,7 @@ _ZNSt6vectorIN6Assimp11NDOImporter4EdgeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exi
   store ptr %339, ptr %40, align 8
   %.sroa.02.0.insert.insert.i.i285 = call noundef i16 @llvm.bswap.i16(i16 %351)
   %352 = zext i16 %.sroa.02.0.insert.insert.i.i285 to i32
-  %353 = getelementptr inbounds nuw [8 x i32], ptr %331, i64 0, i64 %indvars.iv
+  %353 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv
   store i32 %352, ptr %353, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1228,7 +1228,7 @@ _ZNSt6vectorIN6Assimp11NDOImporter4EdgeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exi
 387:                                              ; preds = %377
   %388 = load i8, ptr %378, align 1
   store ptr %379, ptr %40, align 8
-  %389 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 0, i64 %indvars.iv955
+  %389 = getelementptr inbounds nuw i8, ptr %372, i64 %indvars.iv955
   store i8 %388, ptr %389, align 1
   %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
   %exitcond958.not = icmp eq i64 %indvars.iv.next956, 8
@@ -3600,7 +3600,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw [8 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -3652,7 +3652,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %45, i64 0, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -4372,7 +4372,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw [8 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -4391,7 +4391,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35

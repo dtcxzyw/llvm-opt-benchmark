@@ -78,9 +78,9 @@ define hidden range(i32 -1, 1) i32 @_sodium_core_h2c_string_to_hash(ptr noundef 
 
 39:                                               ; preds = %39, %.preheader.i
   %.031.i = phi i64 [ 0, %.preheader.i ], [ %45, %39 ]
-  %40 = getelementptr [32 x i8], ptr %15, i64 0, i64 %.031.i
+  %40 = getelementptr i8, ptr %15, i64 %.031.i
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr [32 x i8], ptr %16, i64 0, i64 %.031.i
+  %42 = getelementptr i8, ptr %16, i64 %.031.i
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   store i8 %44, ptr %42, align 1
@@ -166,9 +166,9 @@ core_h2c_string_to_hash_sha256.exit:              ; preds = %46, %.thread.i
 
 80:                                               ; preds = %80, %.preheader.i16
   %.031.i18 = phi i64 [ 0, %.preheader.i16 ], [ %86, %80 ]
-  %81 = getelementptr [64 x i8], ptr %9, i64 0, i64 %.031.i18
+  %81 = getelementptr i8, ptr %9, i64 %.031.i18
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr [64 x i8], ptr %10, i64 0, i64 %.031.i18
+  %83 = getelementptr i8, ptr %10, i64 %.031.i18
   %84 = load i8, ptr %83, align 1
   %85 = xor i8 %84, %82
   store i8 %85, ptr %83, align 1

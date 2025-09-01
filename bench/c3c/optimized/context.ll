@@ -122,7 +122,7 @@ switch.hole_check:                                ; preds = %.lr.ph39.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %27 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [58 x i8], ptr @switch.table.context_set_module_from_filename, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.context_set_module_from_filename, i64 %27
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %char_is_letter.exit.thread.i
 

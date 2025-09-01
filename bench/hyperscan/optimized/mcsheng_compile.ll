@@ -1817,7 +1817,7 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i: 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.loopexit ]
   %41 = load ptr, ptr %30, align 8
-  %42 = getelementptr inbounds nuw [257 x i16], ptr %41, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
   %45 = load ptr, ptr %32, align 8
@@ -1825,7 +1825,7 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i: 
   %47 = and i64 %indvars.iv, 63
   %48 = shl nuw i64 1, %47
   %49 = lshr i64 %indvars.iv, 6
-  %50 = getelementptr inbounds nuw [4 x i64], ptr %46, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i64, ptr %46, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = or i64 %51, %48
   store i64 %52, ptr %50, align 8
@@ -10847,7 +10847,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.thread.us: ; preds = %190, %187
 227:                                              ; preds = %218, %227
   %indvars.iv58 = phi i64 [ 0, %218 ], [ %indvars.iv.next59, %227 ]
   %.07150 = phi i32 [ 0, %218 ], [ %spec.select100, %227 ]
-  %228 = getelementptr inbounds nuw [257 x i16], ptr %223, i64 0, i64 %indvars.iv58
+  %228 = getelementptr inbounds nuw i16, ptr %223, i64 %indvars.iv58
   %229 = load i16, ptr %228, align 2
   %230 = zext i16 %229 to i64
   %231 = getelementptr inbounds nuw i16, ptr %224, i64 %230
@@ -11578,7 +11578,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 70:                                               ; preds = %9, %_ZN3ue29verify_u8ItEEhT_.exit
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
   %71 = load ptr, ptr %28, align 8
-  %72 = getelementptr inbounds nuw [257 x i16], ptr %71, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2
   %.not.i.i43 = icmp ult i16 %73, 256
   br i1 %.not.i.i43, label %_ZN3ue29verify_u8ItEEhT_.exit, label %74
@@ -11599,7 +11599,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 
 _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %70
   %79 = trunc nuw i16 %73 to i8
-  %80 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   store i8 %79, ptr %80, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -11741,7 +11741,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %_ZNSt6vectorISt5arr
 
 62:                                               ; preds = %45
   %63 = trunc nuw i16 %.053.us to i8
-  %64 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 0, i64 %46
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   store i8 %63, ptr %64, align 1
   %65 = add nuw i16 %.057120.us, 1
   %66 = icmp ult i16 %65, %36
@@ -11870,9 +11870,9 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %_ZNSt6vectorISt5arr
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv135 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next136, %122 ]
-  %123 = getelementptr inbounds nuw [256 x <2 x i64>], ptr %92, i64 0, i64 %indvars.iv135
+  %123 = getelementptr inbounds nuw <2 x i64>, ptr %92, i64 %indvars.iv135
   %124 = load ptr, ptr %93, align 8
-  %125 = getelementptr inbounds nuw [257 x i16], ptr %124, i64 0, i64 %indvars.iv135
+  %125 = getelementptr inbounds nuw i16, ptr %124, i64 %indvars.iv135
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i64
   %128 = getelementptr inbounds nuw %"struct.std::array.428", ptr %94, i64 %127
@@ -13029,7 +13029,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 70:                                               ; preds = %9, %_ZN3ue29verify_u8ItEEhT_.exit
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %_ZN3ue29verify_u8ItEEhT_.exit ]
   %71 = load ptr, ptr %28, align 8
-  %72 = getelementptr inbounds nuw [257 x i16], ptr %71, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2
   %.not.i.i43 = icmp ult i16 %73, 256
   br i1 %.not.i.i43, label %_ZN3ue29verify_u8ItEEhT_.exit, label %74
@@ -13050,7 +13050,7 @@ _ZN3ue210verify_u16ImEEtT_.exit:                  ; preds = %_ZNK3ue212_GLOBAL__
 
 _ZN3ue29verify_u8ItEEhT_.exit:                    ; preds = %70
   %79 = trunc nuw i16 %73 to i8
-  %80 = getelementptr inbounds nuw [256 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
   store i8 %79, ptr %80, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -13196,7 +13196,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %_ZNSt6vectorISt5arr
 
 63:                                               ; preds = %46
   %64 = trunc nuw i16 %.053.us to i8
-  %65 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 0, i64 %47
+  %65 = getelementptr inbounds nuw i8, ptr %45, i64 %47
   store i8 %64, ptr %65, align 1
   %66 = add nuw i16 %.057120.us, 1
   %67 = icmp ult i16 %66, %36
@@ -13324,9 +13324,9 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %_ZNSt6vectorISt5arr
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv135 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next136, %122 ]
-  %123 = getelementptr inbounds nuw [256 x %struct.m512], ptr %93, i64 0, i64 %indvars.iv135
+  %123 = getelementptr inbounds nuw %struct.m512, ptr %93, i64 %indvars.iv135
   %124 = load ptr, ptr %94, align 8
-  %125 = getelementptr inbounds nuw [257 x i16], ptr %124, i64 0, i64 %indvars.iv135
+  %125 = getelementptr inbounds nuw i16, ptr %124, i64 %indvars.iv135
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i64
   %128 = getelementptr inbounds nuw %"struct.std::array.434", ptr %95, i64 %127

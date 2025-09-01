@@ -609,7 +609,7 @@ define hidden noundef zeroext i1 @"_ZN18tracing_subscriber3fmt6format6pretty186_
 
 switch.lookup:                                    ; preds = %"_ZN18tracing_subscriber3fmt6format19Format$LT$F$C$T$GT$16format_timestamp17hb92ee37588eac03fE.exit.thread636"
   %.sroa.0210.0.val = load i64, ptr %.sroa.0210.0, align 8, !range !34, !noundef !3
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @"switch.table._ZN18tracing_subscriber3fmt6format6pretty186_$LT$impl$u20$tracing_subscriber..fmt..format..FormatEvent$LT$C$C$N$GT$$u20$for$u20$tracing_subscriber..fmt..format..Format$LT$tracing_subscriber..fmt..format..pretty..Pretty$C$T$GT$$GT$12format_event17h0fa67bfe48dacdc7E", i64 0, i64 %.sroa.0210.0.val
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN18tracing_subscriber3fmt6format6pretty186_$LT$impl$u20$tracing_subscriber..fmt..format..FormatEvent$LT$C$C$N$GT$$u20$for$u20$tracing_subscriber..fmt..format..Format$LT$tracing_subscriber..fmt..format..pretty..Pretty$C$T$GT$$GT$12format_event17h0fa67bfe48dacdc7E", i64 %.sroa.0210.0.val
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN18tracing_subscriber3fmt6format6pretty6Pretty9style_for17h07687eee082fcd35E.exit.thread
 

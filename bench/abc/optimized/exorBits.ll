@@ -26,7 +26,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %2)
   %4 = trunc nuw nsw i32 %3 to i8
-  %5 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %indvars.iv
   store i8 %4, ptr %5, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -35,10 +35,10 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
   %6 = trunc i64 %indvars.iv14 to i8
-  %7 = getelementptr inbounds nuw [163 x i32], ptr @SparseNumbers, i64 0, i64 %indvars.iv14
+  %7 = getelementptr inbounds nuw i32, ptr @SparseNumbers, i64 %indvars.iv14
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %9
+  %10 = getelementptr inbounds i8, ptr @BitGroupNumbers, i64 %9
   store i8 %6, ptr %10, align 1, !tbaa !3
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 163
@@ -127,13 +127,13 @@ define range(i32 0, 6) i32 @GetDistance(ptr noundef readonly captures(none) %0, 
   %25 = or i32 %24, %23
   %26 = and i32 %25, 21845
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %25, 16
   %32 = and i32 %31, 21845
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, %30
@@ -222,12 +222,12 @@ define range(i32 0, 6) i32 @GetDistancePlus(ptr noundef readonly captures(none) 
   %31 = phi i32 [ %29, %28 ], [ %18, %17 ]
   %32 = and i32 %26, 21845
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = zext i8 %35 to i32
   %37 = lshr i32 %27, 16
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [0 x i8], ptr @BitCount, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !3
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, %36
@@ -388,7 +388,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %33 = or i32 %32, %31
   %34 = and i32 %33, 21845
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !3
   %.not28 = icmp eq i8 %37, 0
   br i1 %.not28, label %.thread, label %38
@@ -398,10 +398,10 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   br i1 %39, label %.preheader30, label %.sink.split
 
 .preheader30:                                     ; preds = %38
-  %40 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw i8, ptr @BitGroupNumbers, i64 %35
   %41 = load i8, ptr %40, align 1, !tbaa !3
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @GroupLiterals, i64 %42
   %44 = sext i32 %.lcssa374043 to i64
   %wide.trip.count63 = zext nneg i8 %37 to i64
   %indvars.iv74.tr = trunc i64 %indvars.iv74 to i32
@@ -411,7 +411,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
 46:                                               ; preds = %.preheader30, %46
   %indvars.iv58 = phi i64 [ %44, %.preheader30 ], [ %indvars.iv.next59, %46 ]
   %indvars.iv56 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next57, %46 ]
-  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %indvars.iv56
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv56
   %48 = load i8, ptr %47, align 1, !tbaa !3
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %45, %49
@@ -432,7 +432,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   %55 = lshr i32 %33, 16
   %56 = and i32 %55, 21845
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr @BitCount, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %.not29 = icmp eq i8 %59, 0
   br i1 %.not29, label %.thread83, label %60
@@ -442,10 +442,10 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   br i1 %61, label %.preheader, label %.sink.split
 
 .preheader:                                       ; preds = %60
-  %62 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %57
+  %62 = getelementptr inbounds nuw i8, ptr @BitGroupNumbers, i64 %57
   %63 = load i8, ptr %62, align 1, !tbaa !3
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @GroupLiterals, i64 %64
   %66 = sext i32 %.lcssa374282 to i64
   %wide.trip.count72 = zext nneg i8 %59 to i64
   %indvars.iv74.tr80 = trunc i64 %indvars.iv74 to i32
@@ -456,7 +456,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
 69:                                               ; preds = %.preheader, %69
   %indvars.iv67 = phi i64 [ %66, %.preheader ], [ %indvars.iv.next68, %69 ]
   %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %69 ]
-  %70 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 0, i64 %indvars.iv65
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv65
   %71 = load i8, ptr %70, align 1, !tbaa !3
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %68, %72

@@ -300,7 +300,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 102:                                              ; preds = %100
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %103, i32 2
+  %104 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %103, i32 2
   %105 = load i32, ptr %104, align 4, !tbaa !31
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %107, label %.backedge.i.preheader
@@ -507,7 +507,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 179:                                              ; preds = %177
   %180 = zext nneg i32 %178 to i64
-  %181 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %180, i32 2
+  %181 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %180, i32 2
   %182 = load i32, ptr %181, align 4, !tbaa !31
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %187
@@ -576,7 +576,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 208:                                              ; preds = %206
   %209 = zext nneg i32 %207 to i64
-  %210 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %209, i32 2
+  %210 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %209, i32 2
   %211 = load i32, ptr %210, align 4, !tbaa !31
   %212 = icmp sgt i32 %211, 0
   br i1 %212, label %213, label %214
@@ -950,15 +950,15 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   %62 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %6, i64 noundef 132, ptr noundef nonnull @.str.25, i64 noundef %.3104) #14
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %.not109 = icmp eq i64 %63, 0
-  br i1 %.not109, label %._crit_edge102, label %.lr.ph101.preheader
+  br i1 %.not109, label %._crit_edge102, label %.lr.ph101
 
-.lr.ph101.preheader:                              ; preds = %._crit_edge
+.lr.ph101:                                        ; preds = %._crit_edge
   %64 = sub i64 0, %63
   %scevgep115 = getelementptr i8, ptr %scevgep, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep115, ptr nonnull align 16 %6, i64 %63, i1 false), !tbaa !19
   br label %._crit_edge102
 
-._crit_edge102:                                   ; preds = %.lr.ph101.preheader, %._crit_edge
+._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge
   br i1 %.not83, label %67, label %65
 
 65:                                               ; preds = %._crit_edge102

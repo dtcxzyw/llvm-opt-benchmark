@@ -2182,7 +2182,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup8, 
 
 for.body:                                         ; preds = %for.cond.cleanup8, %for.body.lr.ph
   %indvars.iv150 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next151, %for.cond.cleanup8 ]
-  %arrayidx = getelementptr inbounds nuw [6 x %struct.TileSpec], ptr %f, i64 0, i64 %indvars.iv150
+  %arrayidx = getelementptr inbounds nuw %struct.TileSpec, ptr %f, i64 %indvars.iv150
   %vtable3 = load ptr, ptr %mesh, align 8, !tbaa !15
   %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 8
   %3 = load ptr, ptr %vfn4, align 8
@@ -2200,7 +2200,7 @@ for.body9:                                        ; preds = %cleanup, %for.body
   %cmp13.not = phi i1 [ true, %for.body ], [ false, %cleanup ]
   %indvars.iv = phi i64 [ 0, %for.body ], [ 1, %cleanup ]
   %buf.0146 = phi ptr [ %call5, %for.body ], [ %buf.2, %cleanup ]
-  %arrayidx11 = getelementptr inbounds nuw [2 x %struct.TileLayer], ptr %layers, i64 0, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw %struct.TileLayer, ptr %layers, i64 %indvars.iv
   %texture_id = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 28
   %5 = load i32, ptr %texture_id, align 4, !tbaa !100
   %cmp12 = icmp eq i32 %5, 0
@@ -3458,7 +3458,7 @@ if.then58:                                        ; preds = %if.end57
 
 switch.lookup:                                    ; preds = %if.then58
   %37 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i16], ptr @switch.table._Z11getItemMeshP6ClientRK9ItemStackP8ItemMesh, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._Z11getItemMeshP6ClientRK9ItemStackP8ItemMesh, i64 %37
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK15ContentFeatures20needsBackfaceCullingEv.exit
 
@@ -5147,7 +5147,7 @@ if.else32:                                        ; preds = %if.else
 
 switch.lookup:                                    ; preds = %if.then16
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZL21createSpecialNodeMeshP6Client7MapNodePSt6vectorI13ItemPartColorSaIS3_EERK15ContentFeatures, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZL21createSpecialNodeMeshP6Client7MapNodePSt6vectorI13ItemPartColorSaIS3_EERK15ContentFeatures, i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %if.end43
 
@@ -5895,7 +5895,7 @@ cond.end:                                         ; preds = %entry
 
 switch.lookup:                                    ; preds = %cond.end
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i16], ptr @switch.table._Z11getItemMeshP6ClientRK9ItemStackP8ItemMesh, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._Z11getItemMeshP6ClientRK9ItemStackP8ItemMesh, i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK15ContentFeatures20needsBackfaceCullingEv.exit
 
@@ -11344,8 +11344,8 @@ for.cond.cleanup:                                 ; preds = %_ZNK3irr5video14SMa
 
 for.body:                                         ; preds = %lor.lhs.false181, %_ZNK3irr5video14SMaterialLayerneERKS1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr5video14SMaterialLayerneERKS1_.exit ], [ 0, %lor.lhs.false181 ]
-  %arrayidx = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %this, i64 0, i64 %indvars.iv
-  %arrayidx199 = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %b, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %this, i64 %indvars.iv
+  %arrayidx199 = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %b, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx, align 8, !tbaa !133
   %35 = load ptr, ptr %arrayidx199, align 8, !tbaa !133
   %cmp.not.i = icmp eq ptr %34, %35

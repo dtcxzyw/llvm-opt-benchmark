@@ -3153,7 +3153,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamERKNS_7DDGNodeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamERKNS_7DDGNodeE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -3242,7 +3242,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %22, %24
 
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit48
   %30 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamERKNS_7DDGNodeE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamERKNS_7DDGNodeE, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %31
 
@@ -3535,7 +3535,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %8, %10
 
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %16 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_7DDGEdge8EdgeKindE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_7DDGEdge8EdgeKindE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %17
 
@@ -4047,7 +4047,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_7DDGEdge8EdgeKindE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_7DDGEdge8EdgeKindE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

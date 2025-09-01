@@ -328,7 +328,7 @@ define void @_ZN2cv9SparseMat3HdrC2EiPKii(ptr noundef nonnull align 8 dereferenc
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !23
-  %38 = getelementptr inbounds nuw [32 x i32], ptr %28, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   store i32 %37, ptr %38, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -691,7 +691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   %indvars.iv76 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next77, %63 ]
   %59 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv76
   %60 = load i32, ptr %59, align 4, !tbaa !23
-  %61 = getelementptr inbounds nuw [32 x i32], ptr %57, i64 0, i64 %indvars.iv76
+  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv76
   %62 = load i32, ptr %61, align 4, !tbaa !23
   %.not48 = icmp eq i32 %60, %62
   br i1 %.not48, label %63, label %._crit_edge70
@@ -1327,8 +1327,8 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %73, %75
   br i1 %79, label %84, label %124
 
 84:                                               ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
-  %85 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cvL14getConvertElemEiiE3tab, i64 0, i64 %82
-  %86 = getelementptr inbounds nuw [8 x ptr], ptr %85, i64 0, i64 %83
+  %85 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL14getConvertElemEiiE3tab, i64 %82
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %83
   %87 = load ptr, ptr %86, align 8, !tbaa !44
   %.not.i59 = icmp eq ptr %87, null
   br i1 %.not.i59, label %89, label %_ZN2cvL14getConvertElemEii.exit.preheader
@@ -1428,8 +1428,8 @@ _ZN2cvL14getConvertElemEii.exit:                  ; preds = %_ZNK2cv22SparseMatC
   br i1 %exitcond78.not, label %.loopexit, label %99, !llvm.loop !51
 
 124:                                              ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
-  %125 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cvL19getConvertScaleElemEiiE3tab, i64 0, i64 %82
-  %126 = getelementptr inbounds nuw [8 x ptr], ptr %125, i64 0, i64 %83
+  %125 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL19getConvertScaleElemEiiE3tab, i64 %82
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %83
   %127 = load ptr, ptr %126, align 8, !tbaa !44
   %.not.i61 = icmp eq ptr %127, null
   br i1 %.not.i61, label %129, label %_ZN2cvL19getConvertScaleElemEii.exit.preheader
@@ -1635,7 +1635,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %18
   %25 = phi i64 [ %24, %18 ], [ 0, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %27 = icmp sgt i32 %16, 0
-  %28 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %14
+  %28 = getelementptr inbounds i32, ptr %3, i64 %14
   %.not14.i = icmp ult i64 %25, 4
   %29 = add nsw i32 %11, -2
   %30 = icmp sgt i32 %11, 1
@@ -1659,7 +1659,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %18
   %40 = mul i64 %34, %39
   %41 = sub i64 %38, %40
   %42 = getelementptr inbounds nuw i8, ptr %.254.us, i64 %41
-  %43 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %36
+  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %36
   %44 = load i32, ptr %43, align 4, !tbaa !23
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !23
@@ -1797,7 +1797,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 .lr.ph.us60:                                      ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split, %.lr.ph.us60.backedge
   %.155.us61 = phi i32 [ %.155.us61.be, %.lr.ph.us60.backedge ], [ %29, %_ZNK2cv3Mat8elemSizeEv.exit.split ]
   %89 = zext nneg i32 %.155.us61 to i64
-  %90 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !23
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !23
@@ -1990,7 +1990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %92 ]
   %93 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
-  %95 = getelementptr inbounds nuw [32 x i32], ptr %91, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
   store i32 %94, ptr %95, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2755,8 +2755,8 @@ _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %_ZNK2cv9SparseMat4d
   br i1 %or.cond, label %54, label %101
 
 54:                                               ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
-  %55 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cvL14getConvertElemEiiE3tab, i64 0, i64 %52
-  %56 = getelementptr inbounds nuw [8 x ptr], ptr %55, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL14getConvertElemEiiE3tab, i64 %52
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
   %57 = load ptr, ptr %56, align 8, !tbaa !44
   %.not.i39 = icmp eq ptr %57, null
   br i1 %.not.i39, label %62, label %_ZN2cvL14getConvertElemEii.exit.preheader
@@ -2867,8 +2867,8 @@ _ZN2cv3Mat3ptrEPKi.exit:                          ; preds = %91, %_ZNK2cv22Spars
   br i1 %exitcond66.not, label %.loopexit, label %72, !llvm.loop !86
 
 101:                                              ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
-  %102 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cvL19getConvertScaleElemEiiE3tab, i64 0, i64 %52
-  %103 = getelementptr inbounds nuw [8 x ptr], ptr %102, i64 0, i64 %53
+  %102 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL19getConvertScaleElemEiiE3tab, i64 %52
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %53
   %104 = load ptr, ptr %103, align 8, !tbaa !44
   %.not.i41 = icmp eq ptr %104, null
   br i1 %.not.i41, label %109, label %_ZN2cvL19getConvertScaleElemEii.exit.preheader
@@ -3494,7 +3494,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %24, %22
 
 51:                                               ; preds = %.preheader.us, %60
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %60 ]
-  %52 = getelementptr inbounds nuw [32 x i32], ptr %61, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !23
@@ -4007,7 +4007,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %23, %21
 
 50:                                               ; preds = %.preheader.us, %59
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %59 ]
-  %51 = getelementptr inbounds nuw [32 x i32], ptr %60, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !23
   %53 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !23

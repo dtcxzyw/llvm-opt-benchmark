@@ -102,7 +102,7 @@ define hidden i32 @os_getParentPidAndTimings(ptr noundef readnone captures(none)
 
 18:                                               ; preds = %14
   %19 = and i64 %15, 2147483647
-  %20 = getelementptr inbounds nuw [2048 x i8], ptr %5, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %19
   store i8 0, ptr %20, align 1
   %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 40) #14
   %22 = icmp eq ptr %21, null

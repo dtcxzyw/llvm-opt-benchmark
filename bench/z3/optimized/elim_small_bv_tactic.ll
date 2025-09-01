@@ -3272,7 +3272,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i.i: ; preds = %_ZNK6ve
 
 394:                                              ; preds = %390
   %395 = zext nneg i32 %392 to i64
-  %396 = getelementptr inbounds nuw [0 x ptr], ptr %389, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw ptr, ptr %389, i64 %395
   %397 = load ptr, ptr %396, align 8, !tbaa !187
   %398 = and i32 %391, -64
   %399 = add i32 %398, 64
@@ -6712,7 +6712,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_120elim_small_bv_tactic6rw_cfgEE13constant_foldE
 
 1905:                                             ; preds = %1771, %1767, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i.i.i, %1748, %1744, %1742
   %1906 = zext nneg i32 %1740 to i64
-  %1907 = getelementptr inbounds nuw [0 x ptr], ptr %1737, i64 0, i64 %1906
+  %1907 = getelementptr inbounds nuw ptr, ptr %1737, i64 %1906
   %1908 = load ptr, ptr %1907, align 8, !tbaa !187
   %1909 = add i32 %.mask.i.i.i.i, 64
   %1910 = and i32 %1739, 63
@@ -14935,7 +14935,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !191
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

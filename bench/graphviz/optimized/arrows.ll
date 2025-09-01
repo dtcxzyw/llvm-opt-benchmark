@@ -345,7 +345,7 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr noundef captures(none) %1, 
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
+  %21 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
   %22 = load i32, ptr %21, align 16, !tbaa !50
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
@@ -486,7 +486,7 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr noundef captures(none) %1
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
+  %21 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
   %22 = load i32, ptr %21, align 16, !tbaa !50
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
@@ -612,7 +612,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
 
 25:                                               ; preds = %23, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i
+  %26 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
   %27 = load i32, ptr %26, align 16, !tbaa !50
   %.not.i = icmp eq i32 %22, %27
   br i1 %.not.i, label %.thread.i, label %23
@@ -657,7 +657,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
 
 46:                                               ; preds = %44, %.preheader.i197
   %.02329.i200 = phi i64 [ 0, %.preheader.i197 ], [ %45, %44 ]
-  %47 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i200
+  %47 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i200
   %48 = load i32, ptr %47, align 16, !tbaa !50
   %.not.i201 = icmp eq i32 %43, %48
   br i1 %.not.i201, label %.thread.i207, label %44
@@ -771,7 +771,7 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
 
 99:                                               ; preds = %97, %.preheader.i209
   %.02329.i212 = phi i64 [ 0, %.preheader.i209 ], [ %98, %97 ]
-  %100 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i212
+  %100 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i212
   %101 = load i32, ptr %100, align 16, !tbaa !50
   %.not.i213 = icmp eq i32 %96, %101
   br i1 %.not.i213, label %.thread.i219, label %97
@@ -882,7 +882,7 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
 
 147:                                              ; preds = %145, %.preheader.i221
   %.02329.i224 = phi i64 [ 0, %.preheader.i221 ], [ %146, %145 ]
-  %148 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02329.i224
+  %148 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i224
   %149 = load i32, ptr %148, align 16, !tbaa !50
   %.not.i225 = icmp eq i32 %144, %149
   br i1 %.not.i225, label %.thread.i231, label %145
@@ -1084,7 +1084,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 
 39:                                               ; preds = %37, %35
   %.02227.i = phi i64 [ 0, %35 ], [ %38, %37 ]
-  %40 = getelementptr inbounds nuw [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02227.i
+  %40 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02227.i
   %41 = load i32, ptr %40, align 16, !tbaa !50
   %.not.i = icmp eq i32 %36, %41
   br i1 %.not.i, label %.thread.i, label %37

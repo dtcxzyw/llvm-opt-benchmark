@@ -98,7 +98,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_4textIcEENS2_INS1_5fieldI
   %14 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %15 = xor i32 %14, 31
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [32 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEjE5table.const, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !24
   %19 = zext i16 %11 to i64
   %20 = add i64 %18, %19
@@ -119,7 +119,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_4textIcEENS2_INS1_5fieldI
   %29 = urem i32 %.021.i36.i.i.i, 100
   %30 = shl nuw nsw i32 %29, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [201 x i8], ptr @.str.3, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %31
   %33 = load i16, ptr %32, align 1
   store i16 %33, ptr %28, align 1
   %34 = udiv i32 %.021.i36.i.i.i, 100
@@ -143,7 +143,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_4textIcEENS2_INS1_5fieldI
   %42 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i.i, i64 -2
   %43 = shl nuw nsw i32 %.0.lcssa.i31.i.i.i, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [201 x i8], ptr @.str.3, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %44
   %46 = load i16, ptr %45, align 1
   store i16 %46, ptr %42, align 1
   br label %_ZNK3fmt2v86detail6concatINS1_5fieldIctLi0EEENS1_9code_unitIcEEE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJtEEET_SH_DpRKT0_.exit
@@ -408,10 +408,10 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_5fieldIcmLi0EEENS2_INS1_4
   %6 = or i64 %5, 1
   %7 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %8 = xor i64 %7, 63
-  %9 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE9bsr2log10.const, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE9bsr2log10.const, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [21 x i64], ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr @_ZZN3fmt2v86detail15do_count_digitsEmE20zero_or_powers_of_10.const, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !24
   %14 = icmp ult i64 %5, %13
   %.neg.i.i.i.i = sext i1 %14 to i64
@@ -432,7 +432,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_5fieldIcmLi0EEENS2_INS1_4
   %23 = getelementptr inbounds i8, ptr %.01920.i37.i.i, i64 -2
   %24 = urem i64 %.021.i36.i.i, 100
   %25 = shl nuw nsw i64 %24, 1
-  %26 = getelementptr inbounds nuw [201 x i8], ptr @.str.3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %25
   %27 = load i16, ptr %26, align 1
   store i16 %27, ptr %23, align 1
   %28 = udiv i64 %.021.i36.i.i, 100
@@ -455,7 +455,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_5fieldIcmLi0EEENS2_INS1_4
 35:                                               ; preds = %._crit_edge.i29.i.i
   %36 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i, i64 -2
   %37 = shl nuw nsw i64 %.0.lcssa.i31.i.i, 1
-  %38 = getelementptr inbounds nuw [201 x i8], ptr @.str.3, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %37
   %39 = load i16, ptr %38, align 1
   store i16 %39, ptr %36, align 1
   br label %_ZNK3fmt2v86detail5fieldIcmLi0EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJmSB_EEET_SD_DpRKT0_.exit

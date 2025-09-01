@@ -56,7 +56,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   %10 = shl nuw i64 1, %9
   %11 = sdiv i32 %0, 64
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %12
+  %13 = getelementptr inbounds i64, ptr %6, i64 %12
   %14 = add nsw i32 %0, 1
   br label %15
 
@@ -260,7 +260,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %0, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds i64, ptr %4, i64 %14
   %16 = add nsw i32 %0, 1
   br label %.outer.outer
 
@@ -281,7 +281,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %.outer54
   %18 = zext nneg i32 %.038.ph55 to i64
-  %19 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %20 = sub nuw nsw i64 128, %18
   br label %24
 
@@ -360,7 +360,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
 54:                                               ; preds = %52
   %55 = add i32 %53, -1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !23
   %59 = icmp eq i8 %58, 10
   br i1 %59, label %65, label %60
@@ -504,7 +504,7 @@ nc_connect.exit.thread10:                         ; preds = %42
   %52 = shl nuw i64 1, %51
   %53 = sdiv i32 %9, 64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds i64, ptr %4, i64 %54
   %56 = add nuw nsw i32 %9, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -859,7 +859,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %45 ]
   %.028 = phi i32 [ 0, %30 ], [ %.1, %45 ]
   %.01927 = phi i32 [ 0, %30 ], [ %.120, %45 ]
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !23
   %35 = zext i8 %34 to i32
   %36 = shl i32 %.01927, 3
@@ -969,7 +969,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr noundef readonly captu
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %48 ]
   %.034 = phi i32 [ 0, %.preheader ], [ %.1, %48 ]
   %.01533 = phi i32 [ 0, %.preheader ], [ %.116, %48 ]
-  %36 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !23
   %38 = zext i8 %37 to i32
   %39 = shl i32 %.01533, 3
@@ -982,7 +982,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr noundef readonly captu
 44:                                               ; preds = %35
   %45 = lshr i64 %indvars.iv, 2
   %46 = and i64 %45, 1073741823
-  %47 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %46
   store i32 %41, ptr %47, align 4, !tbaa !4
   br label %48
 
@@ -1191,7 +1191,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   %53 = shl nuw i32 1, %52
   %54 = lshr i32 %.054.i, 5
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [4 x i32], ptr %47, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %47, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !4
   %58 = or i32 %53, %57
   store i32 %58, ptr %56, align 4, !tbaa !4

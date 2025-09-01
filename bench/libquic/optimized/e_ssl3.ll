@@ -164,7 +164,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_seal(ptr noundef readonly capture
   %63 = zext i32 %62 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %14, i8 0, i64 %63, i1 false)
   %64 = trunc i32 %62 to i8
-  %65 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 %63
   store i8 %64, ptr %65, align 1, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %51
   %67 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %16, ptr noundef %66, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %61) #7

@@ -1287,7 +1287,7 @@ get_cookies.exit.thread300.i.i:                   ; preds = %289
 
 316:                                              ; preds = %.lr.ph.i.i.i.i
   %317 = sext i32 %.02840.i.i.i.i to i64
-  %318 = getelementptr inbounds [19 x i8], ptr %4, i64 0, i64 %317
+  %318 = getelementptr inbounds i8, ptr %4, i64 %317
   store i8 %311, ptr %318, align 1, !tbaa !44
   %319 = add nsw i32 %.02840.i.i.i.i, 1
   br label %320
@@ -1308,7 +1308,7 @@ get_cookies.exit.thread300.i.i:                   ; preds = %289
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %308
   %.028.lcssa.i.i.i.i = phi i64 [ 0, %308 ], [ %326, %._crit_edge.loopexit.i.i.i.i ]
-  %327 = getelementptr inbounds [19 x i8], ptr %4, i64 0, i64 %.028.lcssa.i.i.i.i
+  %327 = getelementptr inbounds i8, ptr %4, i64 %.028.lcssa.i.i.i.i
   store i8 0, ptr %327, align 1, !tbaa !44
   br label %328
 
@@ -2294,9 +2294,9 @@ http_read_stream_all.exit.i:                      ; preds = %17
   br i1 %37, label %30, label %update_metadata.exit.i, !llvm.loop !100
 
 http_read_stream_all.exit40.i:                    ; preds = %30
-  %39 = or disjoint i32 %29, 1
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw [4081 x i8], ptr %5, i64 0, i64 %40
+  %39 = zext nneg i32 %29 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 0, ptr %41, align 1, !tbaa !44
   %42 = call i32 @av_opt_set(ptr noundef %7, ptr noundef nonnull @.str.139, ptr noundef nonnull %5, i32 noundef 0) #16
   %43 = icmp slt i32 %42, 0
@@ -3988,7 +3988,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
 
 29:                                               ; preds = %.lr.ph.i
   %30 = sext i32 %.02840.i to i64
-  %31 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %30
+  %31 = getelementptr inbounds i8, ptr %3, i64 %30
   store i8 %24, ptr %31, align 1, !tbaa !44
   %32 = add nsw i32 %.02840.i, 1
   br label %33
@@ -4009,7 +4009,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_cookie(ptr noundef %0, ptr n
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %22
   %.028.lcssa.i = phi i64 [ 0, %22 ], [ %39, %._crit_edge.loopexit.i ]
-  %40 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %.028.lcssa.i
+  %40 = getelementptr inbounds i8, ptr %3, i64 %.028.lcssa.i
   store i8 0, ptr %40, align 1, !tbaa !44
   br label %41
 
@@ -4237,7 +4237,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_http_date(ptr noundef readon
 
 10:                                               ; preds = %.lr.ph
   %11 = sext i32 %.02840 to i64
-  %12 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds i8, ptr %3, i64 %11
   store i8 %5, ptr %12, align 1, !tbaa !44
   %13 = add nsw i32 %.02840, 1
   br label %14
@@ -4258,7 +4258,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_http_date(ptr noundef readon
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.028.lcssa = phi i64 [ 0, %2 ], [ %20, %._crit_edge.loopexit ]
-  %21 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %.028.lcssa
+  %21 = getelementptr inbounds i8, ptr %3, i64 %.028.lcssa
   store i8 0, ptr %21, align 1, !tbaa !44
   br label %22
 
@@ -4508,7 +4508,7 @@ define internal fastcc void @parse_expires(ptr noundef writeonly captures(none) 
 
 11:                                               ; preds = %.lr.ph.i
   %12 = sext i32 %.02840.i to i64
-  %13 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store i8 %6, ptr %13, align 1, !tbaa !44
   %14 = add nsw i32 %.02840.i, 1
   br label %15
@@ -4529,7 +4529,7 @@ define internal fastcc void @parse_expires(ptr noundef writeonly captures(none) 
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.028.lcssa.i = phi i64 [ 0, %2 ], [ %21, %._crit_edge.loopexit.i ]
-  %22 = getelementptr inbounds [19 x i8], ptr %3, i64 0, i64 %.028.lcssa.i
+  %22 = getelementptr inbounds i8, ptr %3, i64 %.028.lcssa.i
   store i8 0, ptr %22, align 1, !tbaa !44
   br label %23
 

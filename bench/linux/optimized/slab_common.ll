@@ -2181,7 +2181,7 @@ define internal void @trace_event_raw_event_rss_stat(ptr noundef %0, ptr noundef
   store i32 %2, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %34 = sext i32 %2 to i64
-  %35 = getelementptr [4 x %struct.percpu_counter], ptr %33, i64 0, i64 %34
+  %35 = getelementptr %struct.percpu_counter, ptr %33, i64 %34
   %36 = call i64 @__percpu_counter_sum(ptr noundef %35) #22
   %37 = call i64 @llvm.smax.i64(i64 %36, i64 0)
   %38 = shl i64 %37, 12
@@ -2259,7 +2259,7 @@ define internal void @perf_trace_rss_stat(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %2, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %45 = sext i32 %2 to i64
-  %46 = getelementptr [4 x %struct.percpu_counter], ptr %44, i64 0, i64 %45
+  %46 = getelementptr %struct.percpu_counter, ptr %44, i64 %45
   %47 = call i64 @__percpu_counter_sum(ptr noundef %46) #22
   %48 = call i64 @llvm.smax.i64(i64 %47, i64 0)
   %49 = shl i64 %48, 12
@@ -2905,7 +2905,7 @@ define dso_local noundef zeroext i1 @kmem_dump_obj(ptr noundef %0) #1 align 16 {
 
 100:                                              ; preds = %105, %98
   %101 = phi i64 [ 0, %98 ], [ %107, %105 ]
-  %102 = getelementptr [16 x ptr], ptr %99, i64 0, i64 %101
+  %102 = getelementptr ptr, ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %109, label %105
@@ -2931,7 +2931,7 @@ define dso_local noundef zeroext i1 @kmem_dump_obj(ptr noundef %0) #1 align 16 {
 
 115:                                              ; preds = %.preheader, %120
   %116 = phi i64 [ %122, %120 ], [ 0, %.preheader ]
-  %117 = getelementptr [16 x ptr], ptr %110, i64 0, i64 %116
+  %117 = getelementptr ptr, ptr %110, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %.loopexit, label %120
@@ -3029,7 +3029,7 @@ define dso_local i64 @kmalloc_size_roundup(i64 noundef %0) #12 align 16 {
   %7 = add nuw nsw i64 %0, 4294967295
   %8 = lshr i64 %7, 3
   %9 = and i64 %8, 536870911
-  %10 = getelementptr [24 x i8], ptr @kmalloc_size_index, i64 0, i64 %9
+  %10 = getelementptr i8, ptr @kmalloc_size_index, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   br label %18
@@ -3044,7 +3044,7 @@ define dso_local i64 @kmalloc_size_roundup(i64 noundef %0) #12 align 16 {
 18:                                               ; preds = %13, %6
   %19 = phi i32 [ %12, %6 ], [ %17, %13 ]
   %20 = zext i32 %19 to i64
-  %21 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr @kmalloc_caches, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i32, ptr %23, align 4
@@ -3076,7 +3076,7 @@ define dso_local void @setup_kmalloc_cache_index_table() local_unnamed_addr #13 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 section ".init.text" align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr [22 x %struct.kmalloc_info_struct], ptr @kmalloc_info, i64 0, i64 %4, i32 1
+  %5 = getelementptr %struct.kmalloc_info_struct, ptr @kmalloc_info, i64 %4, i32 1
   %6 = load i32, ptr %5, align 8
   switch i32 %1, label %11 [
     i32 1, label %7
@@ -3094,15 +3094,15 @@ define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 nou
 11:                                               ; preds = %9, %7, %3
   %12 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %2, %3 ]
   %13 = zext i32 %1 to i64
-  %.split = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13
-  %14 = getelementptr [14 x ptr], ptr %.split, i64 0, i64 %4
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %14 = getelementptr ptr, ptr %.split, i64 %4
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
-  %18 = getelementptr [22 x %struct.kmalloc_info_struct], ptr @kmalloc_info, i64 0, i64 %4
-  %19 = getelementptr [3 x ptr], ptr %18, i64 0, i64 %13
+  %18 = getelementptr %struct.kmalloc_info_struct, ptr @kmalloc_info, i64 %4
+  %19 = getelementptr ptr, ptr %18, i64 %13
   %20 = load ptr, ptr %19, align 8
   %21 = tail call fastcc ptr @create_kmalloc_cache(ptr noundef %20, i32 noundef %6, i32 noundef %12) #27
   store ptr %21, ptr %14, align 8
@@ -3145,7 +3145,7 @@ define dso_local void @create_kmalloc_caches(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %28, %1
   %3 = phi i64 [ 0, %1 ], [ %29, %28 ]
-  %4 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %3
+  %4 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %3
   %5 = getelementptr i8, ptr %4, i64 8
   %6 = getelementptr i8, ptr %4, i64 16
   %7 = trunc nuw nsw i64 %3 to i32
@@ -3153,7 +3153,7 @@ define dso_local void @create_kmalloc_caches(i32 noundef %0) local_unnamed_addr 
 
 8:                                                ; preds = %25, %2
   %9 = phi i64 [ 3, %2 ], [ %26, %25 ]
-  %10 = getelementptr [14 x ptr], ptr %4, i64 0, i64 %9
+  %10 = getelementptr ptr, ptr %4, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = trunc i64 %9 to i32

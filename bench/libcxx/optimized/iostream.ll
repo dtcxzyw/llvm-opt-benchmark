@@ -840,7 +840,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9__getcharEb(ptr
 
 36:                                               ; preds = %33
   %37 = trunc i32 %35 to i8
-  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %37, ptr %38, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -908,7 +908,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9__getcharEb(ptr
 
 65:                                               ; preds = %63
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
-  %66 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.next96
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next96
   %67 = load i8, ptr %66, align 1, !tbaa !11
   %68 = zext i8 %67 to i32
   %69 = load ptr, ptr %32, align 8, !tbaa !31
@@ -1502,7 +1502,7 @@ _ZNSt3__19__do_getcEP8_IO_FILEPw.exit:            ; preds = %14
 
 35:                                               ; preds = %32
   %36 = trunc i32 %34 to i8
-  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %36, ptr %37, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1571,7 +1571,7 @@ _ZNSt3__19__do_getcEP8_IO_FILEPw.exit:            ; preds = %14
 
 65:                                               ; preds = %63
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
-  %66 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.next94
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next94
   %67 = load i8, ptr %66, align 1, !tbaa !11
   %68 = sext i8 %67 to i32
   %69 = load ptr, ptr %31, align 8, !tbaa !44

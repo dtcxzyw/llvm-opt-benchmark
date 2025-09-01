@@ -3265,7 +3265,7 @@ _ZN5boost11crc_optimalILm32ELj79764919ELj4294967295ELj4294967295ELb1ELb1EEC2Ej.e
   %108 = xor i8 %106, %107
   %109 = lshr i32 %.014.i.i.i, 8
   %110 = zext i8 %108 to i64
-  %111 = getelementptr inbounds nuw [256 x i32], ptr %102, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i32, ptr %102, i64 %110
   %112 = load i32, ptr %111, align 4, !noalias !26
   %113 = xor i32 %112, %109
   %.not10.i.i.i = icmp eq i64 %104, 0
@@ -4068,7 +4068,7 @@ define linkonce_odr hidden void @_ZN5boost6detail31make_partial_xor_products_tab
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %.lr.ph.i.i9.us.us
   %46 = zext i16 %.1.i.i11.us.us to i64
-  %47 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %46
   store i32 %30, ptr %47, align 4
   %48 = add nuw nsw i16 %.013.us.us, 1
   %exitcond22.not = icmp eq i16 %48, 256
@@ -4154,7 +4154,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr.ph.i.i9.us
   %93 = zext i16 %.1.i.i11.us to i64
-  %94 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %93
   store i32 %.1.i.i.us, ptr %94, align 4
   %95 = add nuw nsw i16 %.013.us, 1
   %exitcond21.not = icmp eq i16 %95, 256
@@ -4207,7 +4207,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr
   br i1 %.not.i, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, label %.lr.ph.i, !llvm.loop !54
 
 _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.ph.i
-  %120 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %117, ptr %120, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

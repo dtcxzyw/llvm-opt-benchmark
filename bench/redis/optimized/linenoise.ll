@@ -1623,7 +1623,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #9 {
 
 .preheader.i:                                     ; preds = %43, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %43 ]
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr @unsupported_term, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw ptr, ptr @unsupported_term, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = tail call i32 @strcasecmp(ptr noundef nonnull %44, ptr noundef %48) #25
   %.not8.i = icmp eq i32 %49, 0
@@ -1644,9 +1644,9 @@ isUnsupportedTerm.exit:                           ; preds = %.preheader.i
   br i1 %.not1328, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56, %.critedge2
-  %.029 = phi i64 [ %58, %.critedge2 ], [ %57, %56 ]
-  %58 = add i64 %.029, -1
-  %59 = getelementptr inbounds nuw [4096 x i8], ptr %15, i64 0, i64 %58
+  %.029 = phi i64 [ %61, %.critedge2 ], [ %57, %56 ]
+  %58 = getelementptr i8, ptr %15, i64 %.029
+  %59 = getelementptr i8, ptr %58, i64 -1
   %60 = load i8, ptr %59, align 1, !tbaa !21
   switch i8 %60, label %.critedge [
     i8 10, label %.critedge2
@@ -1654,311 +1654,313 @@ isUnsupportedTerm.exit:                           ; preds = %.preheader.i
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  store i8 0, ptr %59, align 1, !tbaa !21
-  %.not13 = icmp eq i64 %58, 0
+  %61 = add i64 %.029, -1
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 %61
+  store i8 0, ptr %62, align 1, !tbaa !21
+  %.not13 = icmp eq i64 %61, 0
   br i1 %.not13, label %.critedge, label %.lr.ph, !llvm.loop !57
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %56
-  %61 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
+  %63 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
   br label %linenoiseNoTTY.exit
 
 isUnsupportedTerm.exit.thread:                    ; preds = %46, %43, %40
-  %62 = tail call fastcc i32 @enableRawMode()
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %linenoiseNoTTY.exit, label %64
+  %64 = tail call fastcc i32 @enableRawMode()
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %linenoiseNoTTY.exit, label %66
 
-64:                                               ; preds = %isUnsupportedTerm.exit.thread
+66:                                               ; preds = %isUnsupportedTerm.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8, !tbaa !58
-  %65 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %65, align 4, !tbaa !28
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %15, ptr %66, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 4096, ptr %67, align 8, !tbaa !25
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %0, ptr %68, align 8, !tbaa !29
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
-  %70 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i64 %69, ptr %70, align 8, !tbaa !27
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 1, ptr %67, align 4, !tbaa !28
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %15, ptr %68, align 8, !tbaa !20
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 4096, ptr %69, align 8, !tbaa !25
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %0, ptr %70, align 8, !tbaa !29
+  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i64 %71, ptr %72, align 8, !tbaa !27
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %73 = call ptr @getenv(ptr noundef nonnull @.str.7) #24
-  %.not.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i, label %74, label %getColumns.exit.i.i
+  %75 = call ptr @getenv(ptr noundef nonnull @.str.7) #24
+  %.not.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i, label %76, label %getColumns.exit.i.i
 
-74:                                               ; preds = %64
-  %75 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %10) #24
-  %76 = icmp eq i32 %75, -1
-  %77 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %78 = load i16, ptr %77, align 2
-  %79 = icmp eq i16 %78, 0
-  %or.cond.i.i.i = select i1 %76, i1 true, i1 %79
-  br i1 %or.cond.i.i.i, label %80, label %129
+76:                                               ; preds = %66
+  %77 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %10) #24
+  %78 = icmp eq i32 %77, -1
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %80 = load i16, ptr %79, align 2
+  %81 = icmp eq i16 %80, 0
+  %or.cond.i.i.i = select i1 %78, i1 true, i1 %81
+  br i1 %or.cond.i.i.i, label %82, label %131
 
-80:                                               ; preds = %74
+82:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %81 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.32, i64 noundef 4) #24
-  %.not.i.i.i.i = icmp eq i64 %81, 4
+  %83 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.32, i64 noundef 4) #24
+  %.not.i.i.i.i = icmp eq i64 %83, 4
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %getCursorPosition.exit.thread.i.i.i
 
-82:                                               ; preds = %85
+84:                                               ; preds = %87
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 31
-  br i1 %exitcond.not.i.i.i.i, label %88, label %.preheader.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i, label %90, label %.preheader.i.i.i.i, !llvm.loop !59
 
-.preheader.i.i.i.i:                               ; preds = %80, %82
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %82 ], [ 0, %80 ]
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i.i.i
-  %84 = call i64 @read(i32 noundef 0, ptr noundef nonnull %83, i64 noundef 1) #24
-  %.not13.i.i.i.i = icmp eq i64 %84, 1
-  br i1 %.not13.i.i.i.i, label %85, label %88
+.preheader.i.i.i.i:                               ; preds = %82, %84
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %84 ], [ 0, %82 ]
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i.i.i
+  %86 = call i64 @read(i32 noundef 0, ptr noundef nonnull %85, i64 noundef 1) #24
+  %.not13.i.i.i.i = icmp eq i64 %86, 1
+  br i1 %.not13.i.i.i.i, label %87, label %90
 
-85:                                               ; preds = %.preheader.i.i.i.i
-  %86 = load i8, ptr %83, align 1, !tbaa !21
-  %87 = icmp eq i8 %86, 82
-  br i1 %87, label %88, label %82
+87:                                               ; preds = %.preheader.i.i.i.i
+  %88 = load i8, ptr %85, align 1, !tbaa !21
+  %89 = icmp eq i8 %88, 82
+  br i1 %89, label %90, label %84
 
-88:                                               ; preds = %85, %.preheader.i.i.i.i, %82
-  %.lcssa.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %85 ], [ %indvars.iv.i.i.i.i, %.preheader.i.i.i.i ], [ 31, %82 ]
-  %89 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.lcssa.i.i.i.i
-  store i8 0, ptr %89, align 1, !tbaa !21
-  %90 = load i8, ptr %7, align 16, !tbaa !21
-  %91 = icmp ne i8 %90, 27
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %93 = load i8, ptr %92, align 1
-  %94 = icmp ne i8 %93, 91
-  %or.cond.i.i.i.i = select i1 %91, i1 true, i1 %94
-  br i1 %or.cond.i.i.i.i, label %getCursorPosition.exit.thread.i.i.i, label %95
+90:                                               ; preds = %87, %.preheader.i.i.i.i, %84
+  %.lcssa.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i, %87 ], [ %indvars.iv.i.i.i.i, %.preheader.i.i.i.i ], [ 31, %84 ]
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 %.lcssa.i.i.i.i
+  store i8 0, ptr %91, align 1, !tbaa !21
+  %92 = load i8, ptr %7, align 16, !tbaa !21
+  %93 = icmp ne i8 %92, 27
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = icmp ne i8 %95, 91
+  %or.cond.i.i.i.i = select i1 %93, i1 true, i1 %96
+  br i1 %or.cond.i.i.i.i, label %getCursorPosition.exit.thread.i.i.i, label %97
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %96, ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull %8) #24
-  %.not14.i.i.i.i = icmp eq i32 %97, 2
-  %98 = load i32, ptr %8, align 4
+97:                                               ; preds = %90
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %99 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %98, ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull %8) #24
+  %.not14.i.i.i.i = icmp eq i32 %99, 2
+  %100 = load i32, ptr %8, align 4
   br i1 %.not14.i.i.i.i, label %getCursorPosition.exit.i.i.i, label %getCursorPosition.exit.thread.i.i.i
 
-getCursorPosition.exit.thread.i.i.i:              ; preds = %95, %88, %80
+getCursorPosition.exit.thread.i.i.i:              ; preds = %97, %90, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %getColumns.exit.i.i
 
-getCursorPosition.exit.i.i.i:                     ; preds = %95
+getCursorPosition.exit.i.i.i:                     ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %99 = icmp eq i32 %98, -1
-  br i1 %99, label %getColumns.exit.i.i, label %100
+  %101 = icmp eq i32 %100, -1
+  br i1 %101, label %getColumns.exit.i.i, label %102
 
-100:                                              ; preds = %getCursorPosition.exit.i.i.i
-  %101 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.30, i64 noundef 6) #24
-  %.not22.i.i.i = icmp eq i64 %101, 6
-  br i1 %.not22.i.i.i, label %102, label %getColumns.exit.i.i
+102:                                              ; preds = %getCursorPosition.exit.i.i.i
+  %103 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.30, i64 noundef 6) #24
+  %.not22.i.i.i = icmp eq i64 %103, 6
+  br i1 %.not22.i.i.i, label %104, label %getColumns.exit.i.i
 
-102:                                              ; preds = %100
+104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %103 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.32, i64 noundef 4) #24
-  %.not.i23.i.i.i = icmp eq i64 %103, 4
+  %105 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str.32, i64 noundef 4) #24
+  %.not.i23.i.i.i = icmp eq i64 %105, 4
   br i1 %.not.i23.i.i.i, label %.preheader.i25.i.i.i, label %getCursorPosition.exit34.thread.i.i.i
 
-104:                                              ; preds = %107
+106:                                              ; preds = %109
   %indvars.iv.next.i32.i.i.i = add nuw nsw i64 %indvars.iv.i26.i.i.i, 1
   %exitcond.not.i33.i.i.i = icmp eq i64 %indvars.iv.next.i32.i.i.i, 31
-  br i1 %exitcond.not.i33.i.i.i, label %110, label %.preheader.i25.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i33.i.i.i, label %112, label %.preheader.i25.i.i.i, !llvm.loop !59
 
-.preheader.i25.i.i.i:                             ; preds = %102, %104
-  %indvars.iv.i26.i.i.i = phi i64 [ %indvars.iv.next.i32.i.i.i, %104 ], [ 0, %102 ]
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i26.i.i.i
-  %106 = call i64 @read(i32 noundef 0, ptr noundef nonnull %105, i64 noundef 1) #24
-  %.not13.i27.i.i.i = icmp eq i64 %106, 1
-  br i1 %.not13.i27.i.i.i, label %107, label %110
+.preheader.i25.i.i.i:                             ; preds = %104, %106
+  %indvars.iv.i26.i.i.i = phi i64 [ %indvars.iv.next.i32.i.i.i, %106 ], [ 0, %104 ]
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i26.i.i.i
+  %108 = call i64 @read(i32 noundef 0, ptr noundef nonnull %107, i64 noundef 1) #24
+  %.not13.i27.i.i.i = icmp eq i64 %108, 1
+  br i1 %.not13.i27.i.i.i, label %109, label %112
 
-107:                                              ; preds = %.preheader.i25.i.i.i
-  %108 = load i8, ptr %105, align 1, !tbaa !21
-  %109 = icmp eq i8 %108, 82
-  br i1 %109, label %110, label %104
+109:                                              ; preds = %.preheader.i25.i.i.i
+  %110 = load i8, ptr %107, align 1, !tbaa !21
+  %111 = icmp eq i8 %110, 82
+  br i1 %111, label %112, label %106
 
-110:                                              ; preds = %107, %.preheader.i25.i.i.i, %104
-  %.lcssa.i28.i.i.i = phi i64 [ %indvars.iv.i26.i.i.i, %107 ], [ %indvars.iv.i26.i.i.i, %.preheader.i25.i.i.i ], [ 31, %104 ]
-  %111 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 0, i64 %.lcssa.i28.i.i.i
-  store i8 0, ptr %111, align 1, !tbaa !21
-  %112 = load i8, ptr %4, align 16, !tbaa !21
-  %113 = icmp ne i8 %112, 27
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %115 = load i8, ptr %114, align 1
-  %116 = icmp ne i8 %115, 91
-  %or.cond.i29.i.i.i = select i1 %113, i1 true, i1 %116
-  br i1 %or.cond.i29.i.i.i, label %getCursorPosition.exit34.thread.i.i.i, label %117
+112:                                              ; preds = %109, %.preheader.i25.i.i.i, %106
+  %.lcssa.i28.i.i.i = phi i64 [ %indvars.iv.i26.i.i.i, %109 ], [ %indvars.iv.i26.i.i.i, %.preheader.i25.i.i.i ], [ 31, %106 ]
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 %.lcssa.i28.i.i.i
+  store i8 0, ptr %113, align 1, !tbaa !21
+  %114 = load i8, ptr %4, align 16, !tbaa !21
+  %115 = icmp ne i8 %114, 27
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %117 = load i8, ptr %116, align 1
+  %118 = icmp ne i8 %117, 91
+  %or.cond.i29.i.i.i = select i1 %115, i1 true, i1 %118
+  br i1 %or.cond.i29.i.i.i, label %getCursorPosition.exit34.thread.i.i.i, label %119
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %118, ptr noundef nonnull @.str.33, ptr noundef nonnull %6, ptr noundef nonnull %5) #24
-  %.not14.i30.i.i.i = icmp eq i32 %119, 2
-  %120 = load i32, ptr %5, align 4
+119:                                              ; preds = %112
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %121 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %120, ptr noundef nonnull @.str.33, ptr noundef nonnull %6, ptr noundef nonnull %5) #24
+  %.not14.i30.i.i.i = icmp eq i32 %121, 2
+  %122 = load i32, ptr %5, align 4
   br i1 %.not14.i30.i.i.i, label %getCursorPosition.exit34.i.i.i, label %getCursorPosition.exit34.thread.i.i.i
 
-getCursorPosition.exit34.thread.i.i.i:            ; preds = %117, %110, %102
+getCursorPosition.exit34.thread.i.i.i:            ; preds = %119, %112, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %getColumns.exit.i.i
 
-getCursorPosition.exit34.i.i.i:                   ; preds = %117
+getCursorPosition.exit34.i.i.i:                   ; preds = %119
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %121 = icmp eq i32 %120, -1
-  br i1 %121, label %getColumns.exit.i.i, label %122
+  %123 = icmp eq i32 %122, -1
+  br i1 %123, label %getColumns.exit.i.i, label %124
 
-122:                                              ; preds = %getCursorPosition.exit34.i.i.i
-  %123 = icmp sgt i32 %120, %98
-  br i1 %123, label %124, label %getColumns.exit.i.i
+124:                                              ; preds = %getCursorPosition.exit34.i.i.i
+  %125 = icmp sgt i32 %122, %100
+  br i1 %125, label %126, label %getColumns.exit.i.i
 
-124:                                              ; preds = %122
+126:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %125 = sub nsw i32 %120, %98
-  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.31, i32 noundef %125) #24
-  %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
-  %128 = call i64 @write(i32 noundef 1, ptr noundef nonnull %11, i64 noundef %127) #24
+  %127 = sub nsw i32 %122, %100
+  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.31, i32 noundef %127) #24
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
+  %130 = call i64 @write(i32 noundef 1, ptr noundef nonnull %11, i64 noundef %129) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %getColumns.exit.i.i
 
-129:                                              ; preds = %74
-  %130 = zext i16 %78 to i32
+131:                                              ; preds = %76
+  %132 = zext i16 %80 to i32
   br label %getColumns.exit.i.i
 
-getColumns.exit.i.i:                              ; preds = %129, %124, %122, %getCursorPosition.exit34.i.i.i, %getCursorPosition.exit34.thread.i.i.i, %100, %getCursorPosition.exit.i.i.i, %getCursorPosition.exit.thread.i.i.i, %64
-  %.1.i.i.i = phi i32 [ %130, %129 ], [ 80, %64 ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %100 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ], [ %120, %122 ], [ %120, %124 ]
+getColumns.exit.i.i:                              ; preds = %131, %126, %124, %getCursorPosition.exit34.i.i.i, %getCursorPosition.exit34.thread.i.i.i, %102, %getCursorPosition.exit.i.i.i, %getCursorPosition.exit.thread.i.i.i, %66
+  %.1.i.i.i = phi i32 [ %132, %131 ], [ 80, %66 ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ], [ %122, %124 ], [ %122, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %131 = sext i32 %.1.i.i.i to i64
-  %132 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store i64 %131, ptr %132, align 8, !tbaa !19
-  %133 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i64 0, ptr %133, align 8, !tbaa !31
-  %134 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  store i32 0, ptr %134, align 8, !tbaa !41
-  %135 = load ptr, ptr %66, align 8, !tbaa !20
-  store i8 0, ptr %135, align 1, !tbaa !21
-  %136 = load i64, ptr %67, align 8, !tbaa !25
-  %137 = add i64 %136, -1
-  store i64 %137, ptr %67, align 8, !tbaa !25
-  %138 = call i32 @linenoiseHistoryAdd(ptr noundef nonnull @.str.27, i32 noundef 0)
-  %139 = load i32, ptr %65, align 4, !tbaa !28
-  %140 = load i64, ptr %70, align 8, !tbaa !27
-  %141 = call i64 @write(i32 noundef %139, ptr noundef nonnull %0, i64 noundef %140) #24
-  %142 = icmp eq i64 %141, -1
-  br i1 %142, label %linenoiseEdit.exit.i, label %.preheader.i.i
+  %133 = sext i32 %.1.i.i.i to i64
+  %134 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store i64 %133, ptr %134, align 8, !tbaa !19
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i64 0, ptr %135, align 8, !tbaa !31
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  store i32 0, ptr %136, align 8, !tbaa !41
+  %137 = load ptr, ptr %68, align 8, !tbaa !20
+  store i8 0, ptr %137, align 1, !tbaa !21
+  %138 = load i64, ptr %69, align 8, !tbaa !25
+  %139 = add i64 %138, -1
+  store i64 %139, ptr %69, align 8, !tbaa !25
+  %140 = call i32 @linenoiseHistoryAdd(ptr noundef nonnull @.str.27, i32 noundef 0)
+  %141 = load i32, ptr %67, align 4, !tbaa !28
+  %142 = load i64, ptr %72, align 8, !tbaa !27
+  %143 = call i64 @write(i32 noundef %141, ptr noundef nonnull %0, i64 noundef %142) #24
+  %144 = icmp eq i64 %143, -1
+  br i1 %144, label %linenoiseEdit.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %getColumns.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %143 = load i32, ptr %12, align 8, !tbaa !58
-  %144 = call i64 @read(i32 noundef %143, ptr noundef nonnull %13, i64 noundef 1) #24
-  %145 = trunc i64 %144 to i32
-  %146 = icmp slt i32 %145, 1
-  br i1 %146, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %145 = load i32, ptr %12, align 8, !tbaa !58
+  %146 = call i64 @read(i32 noundef %145, ptr noundef nonnull %13, i64 noundef 1) #24
+  %147 = trunc i64 %146 to i32
+  %148 = icmp slt i32 %147, 1
+  br i1 %148, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %149 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %150 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %151 = getelementptr inbounds nuw i8, ptr %15, i64 4095
-  br label %154
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %152 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %15, i64 4095
+  br label %156
 
 ._crit_edge.i.i:                                  ; preds = %linenoiseEditBackspace.exit.i.i, %.preheader.i.i
-  %152 = load i64, ptr %72, align 8, !tbaa !17
-  %153 = trunc i64 %152 to i32
+  %154 = load i64, ptr %74, align 8, !tbaa !17
+  %155 = trunc i64 %154 to i32
   br label %.thread.i.i
 
-154:                                              ; preds = %linenoiseEditBackspace.exit.i.i, %.lr.ph.i.i
-  %155 = load i8, ptr %13, align 1, !tbaa !21
-  %156 = icmp ne i8 %155, 9
-  %157 = load ptr, ptr @completionCallback, align 8
-  %158 = icmp eq ptr %157, null
-  %or.cond.not57.i.i = select i1 %156, i1 true, i1 %158
+156:                                              ; preds = %linenoiseEditBackspace.exit.i.i, %.lr.ph.i.i
+  %157 = load i8, ptr %13, align 1, !tbaa !21
+  %158 = icmp ne i8 %157, 9
+  %159 = load ptr, ptr @completionCallback, align 8
+  %160 = icmp eq ptr %159, null
+  %or.cond.not57.i.i = select i1 %158, i1 true, i1 %160
   %.b.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
   %or.cond3.i.i = select i1 %or.cond.not57.i.i, i1 true, i1 %.b.i.i
-  br i1 %or.cond3.i.i, label %thread-pre-split.i.i, label %159
+  br i1 %or.cond3.i.i, label %thread-pre-split.i.i, label %161
 
-159:                                              ; preds = %154
+161:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !21
-  %160 = load ptr, ptr %66, align 8, !tbaa !20
-  call void %157(ptr noundef %160, ptr noundef nonnull %2) #24
-  %161 = load i64, ptr %2, align 8, !tbaa !14
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %.preheader.i.i.i
+  %162 = load ptr, ptr %68, align 8, !tbaa !20
+  call void %159(ptr noundef %162, ptr noundef nonnull %2) #24
+  %163 = load i64, ptr %2, align 8, !tbaa !14
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %.preheader.i.i.i
 
-163:                                              ; preds = %159
-  %164 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %fputc.i.i.i.i = call i32 @fputc(i32 7, ptr %164)
-  %165 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %166 = call i32 @fflush(ptr noundef %165)
+165:                                              ; preds = %161
+  %166 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %fputc.i.i.i.i = call i32 @fputc(i32 7, ptr %166)
+  %167 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %168 = call i32 @fflush(ptr noundef %167)
   br label %.critedge.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %159, %.preheader.i.i.i.backedge
-  %167 = phi i64 [ %.be, %.preheader.i.i.i.backedge ], [ %161, %159 ]
-  %.03344.i.i.i = phi i64 [ %.03344.i.i.i.be, %.preheader.i.i.i.backedge ], [ 0, %159 ]
-  %168 = icmp ult i64 %.03344.i.i.i, %167
-  br i1 %168, label %169, label %174
+.preheader.i.i.i:                                 ; preds = %161, %.preheader.i.i.i.backedge
+  %169 = phi i64 [ %.be, %.preheader.i.i.i.backedge ], [ %163, %161 ]
+  %.03344.i.i.i = phi i64 [ %.03344.i.i.i.be, %.preheader.i.i.i.backedge ], [ 0, %161 ]
+  %170 = icmp ult i64 %.03344.i.i.i, %169
+  br i1 %170, label %171, label %176
 
-169:                                              ; preds = %.preheader.i.i.i
-  %.sroa.3.0.copyload.i.i.i = load ptr, ptr %66, align 8, !tbaa !15
-  %.sroa.41.0.copyload.i.i.i = load i64, ptr %71, align 8, !tbaa !60
-  %.sroa.52.0.copyload.i.i.i = load i64, ptr %72, align 8, !tbaa !60
-  %170 = load ptr, ptr %147, align 8, !tbaa !10
-  %171 = getelementptr inbounds nuw ptr, ptr %170, i64 %.03344.i.i.i
-  %172 = load ptr, ptr %171, align 8, !tbaa !15
-  %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %172) #25
-  store i64 %173, ptr %71, align 8, !tbaa !26
-  store i64 %173, ptr %72, align 8, !tbaa !17
-  store ptr %172, ptr %66, align 8, !tbaa !20
+171:                                              ; preds = %.preheader.i.i.i
+  %.sroa.3.0.copyload.i.i.i = load ptr, ptr %68, align 8, !tbaa !15
+  %.sroa.41.0.copyload.i.i.i = load i64, ptr %73, align 8, !tbaa !60
+  %.sroa.52.0.copyload.i.i.i = load i64, ptr %74, align 8, !tbaa !60
+  %172 = load ptr, ptr %149, align 8, !tbaa !10
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %.03344.i.i.i
+  %174 = load ptr, ptr %173, align 8, !tbaa !15
+  %175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #25
+  store i64 %175, ptr %73, align 8, !tbaa !26
+  store i64 %175, ptr %74, align 8, !tbaa !17
+  store ptr %174, ptr %68, align 8, !tbaa !20
   call fastcc void @refreshLine(ptr noundef nonnull %12)
-  store i64 %.sroa.52.0.copyload.i.i.i, ptr %72, align 8, !tbaa !17
-  store i64 %.sroa.41.0.copyload.i.i.i, ptr %71, align 8, !tbaa !26
-  store ptr %.sroa.3.0.copyload.i.i.i, ptr %66, align 8, !tbaa !20
-  br label %175
+  store i64 %.sroa.52.0.copyload.i.i.i, ptr %74, align 8, !tbaa !17
+  store i64 %.sroa.41.0.copyload.i.i.i, ptr %73, align 8, !tbaa !26
+  store ptr %.sroa.3.0.copyload.i.i.i, ptr %68, align 8, !tbaa !20
+  br label %177
 
-174:                                              ; preds = %.preheader.i.i.i
+176:                                              ; preds = %.preheader.i.i.i
   call fastcc void @refreshLine(ptr noundef nonnull %12)
-  br label %175
+  br label %177
 
-175:                                              ; preds = %174, %169
-  %176 = load i32, ptr %12, align 8, !tbaa !58
-  %177 = call i64 @read(i32 noundef %176, ptr noundef nonnull %3, i64 noundef 1) #24
-  %178 = trunc i64 %177 to i32
-  %179 = icmp slt i32 %178, 1
-  br i1 %179, label %180, label %189
+177:                                              ; preds = %176, %171
+  %178 = load i32, ptr %12, align 8, !tbaa !58
+  %179 = call i64 @read(i32 noundef %178, ptr noundef nonnull %3, i64 noundef 1) #24
+  %180 = trunc i64 %179 to i32
+  %181 = icmp slt i32 %180, 1
+  br i1 %181, label %182, label %191
 
-180:                                              ; preds = %175
-  %181 = load i64, ptr %2, align 8, !tbaa !14
-  %.not8.i.i.i.i = icmp eq i64 %181, 0
+182:                                              ; preds = %177
+  %183 = load i64, ptr %2, align 8, !tbaa !14
+  %.not8.i.i.i.i = icmp eq i64 %183, 0
   br i1 %.not8.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %180, %.lr.ph.i.i.i.i
-  %.07.i.i.i.i = phi i64 [ %185, %.lr.ph.i.i.i.i ], [ 0, %180 ]
-  %182 = load ptr, ptr %147, align 8, !tbaa !10
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %.07.i.i.i.i
-  %184 = load ptr, ptr %183, align 8, !tbaa !15
-  call void @free(ptr noundef %184) #24
-  %185 = add nuw i64 %.07.i.i.i.i, 1
-  %186 = load i64, ptr %2, align 8, !tbaa !14
-  %187 = icmp ult i64 %185, %186
-  br i1 %187, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
+.lr.ph.i.i.i.i:                                   ; preds = %182, %.lr.ph.i.i.i.i
+  %.07.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i ], [ 0, %182 ]
+  %184 = load ptr, ptr %149, align 8, !tbaa !10
+  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %.07.i.i.i.i
+  %186 = load ptr, ptr %185, align 8, !tbaa !15
+  call void @free(ptr noundef %186) #24
+  %187 = add nuw i64 %.07.i.i.i.i, 1
+  %188 = load i64, ptr %2, align 8, !tbaa !14
+  %189 = icmp ult i64 %187, %188
+  br i1 %189, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %180
-  %188 = load ptr, ptr %147, align 8, !tbaa !10
-  %.not.i.i65.i.i = icmp eq ptr %188, null
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %182
+  %190 = load ptr, ptr %149, align 8, !tbaa !10
+  %.not.i.i65.i.i = icmp eq ptr %190, null
   br i1 %.not.i.i65.i.i, label %completeLine.exit.thread.i.i, label %freeCompletions.exit.sink.split.i.i.i
 
 completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
@@ -1966,703 +1968,703 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit.i.i
 
-189:                                              ; preds = %175
-  %190 = load i8, ptr %3, align 1, !tbaa !21
-  switch i8 %190, label %205 [
-    i8 9, label %191
-    i8 27, label %201
+191:                                              ; preds = %177
+  %192 = load i8, ptr %3, align 1, !tbaa !21
+  switch i8 %192, label %207 [
+    i8 9, label %193
+    i8 27, label %203
   ]
 
-191:                                              ; preds = %189
-  %192 = add i64 %.03344.i.i.i, 1
-  %193 = load i64, ptr %2, align 8, !tbaa !14
-  %194 = add i64 %193, 1
-  %195 = urem i64 %192, %194
-  %196 = icmp eq i64 %195, %193
-  br i1 %196, label %197, label %.preheader.i.i.i.backedge
+193:                                              ; preds = %191
+  %194 = add i64 %.03344.i.i.i, 1
+  %195 = load i64, ptr %2, align 8, !tbaa !14
+  %196 = add i64 %195, 1
+  %197 = urem i64 %194, %196
+  %198 = icmp eq i64 %197, %195
+  br i1 %198, label %199, label %.preheader.i.i.i.backedge
 
-197:                                              ; preds = %191
-  %198 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %fputc.i37.i.i.i = call i32 @fputc(i32 7, ptr %198)
-  %199 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %200 = call i32 @fflush(ptr noundef %199)
+199:                                              ; preds = %193
+  %200 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %fputc.i37.i.i.i = call i32 @fputc(i32 7, ptr %200)
+  %201 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %202 = call i32 @fflush(ptr noundef %201)
   %.pre.pre.i.i = load i64, ptr %2, align 8, !tbaa !14
   br label %.preheader.i.i.i.backedge
 
-.preheader.i.i.i.backedge:                        ; preds = %197, %191
-  %.be = phi i64 [ %.pre.pre.i.i, %197 ], [ %193, %191 ]
-  %.03344.i.i.i.be = phi i64 [ %193, %197 ], [ %195, %191 ]
+.preheader.i.i.i.backedge:                        ; preds = %199, %193
+  %.be = phi i64 [ %.pre.pre.i.i, %199 ], [ %195, %193 ]
+  %.03344.i.i.i.be = phi i64 [ %195, %199 ], [ %197, %193 ]
   br label %.preheader.i.i.i, !llvm.loop !62
 
-201:                                              ; preds = %189
-  %202 = load i64, ptr %2, align 8, !tbaa !14
-  %203 = icmp ult i64 %.03344.i.i.i, %202
-  br i1 %203, label %204, label %.critedge.loopexit.i.i.i
+203:                                              ; preds = %191
+  %204 = load i64, ptr %2, align 8, !tbaa !14
+  %205 = icmp ult i64 %.03344.i.i.i, %204
+  br i1 %205, label %206, label %.critedge.loopexit.i.i.i
 
-204:                                              ; preds = %201
+206:                                              ; preds = %203
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %.critedge.loopexit.i.i.i
 
-205:                                              ; preds = %189
-  %206 = load i64, ptr %2, align 8, !tbaa !14
-  %207 = icmp ult i64 %.03344.i.i.i, %206
-  br i1 %207, label %208, label %.critedge.loopexit.i.i.i
+207:                                              ; preds = %191
+  %208 = load i64, ptr %2, align 8, !tbaa !14
+  %209 = icmp ult i64 %.03344.i.i.i, %208
+  br i1 %209, label %210, label %.critedge.loopexit.i.i.i
 
-208:                                              ; preds = %205
-  %209 = load ptr, ptr %66, align 8, !tbaa !20
-  %210 = load i64, ptr %67, align 8, !tbaa !25
-  %211 = load ptr, ptr %147, align 8, !tbaa !10
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %.03344.i.i.i
-  %213 = load ptr, ptr %212, align 8, !tbaa !15
-  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %209, i64 noundef %210, ptr noundef nonnull @.str.8, ptr noundef %213) #24
-  %215 = sext i32 %214 to i64
-  store i64 %215, ptr %71, align 8, !tbaa !26
-  store i64 %215, ptr %72, align 8, !tbaa !17
+210:                                              ; preds = %207
+  %211 = load ptr, ptr %68, align 8, !tbaa !20
+  %212 = load i64, ptr %69, align 8, !tbaa !25
+  %213 = load ptr, ptr %149, align 8, !tbaa !10
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %.03344.i.i.i
+  %215 = load ptr, ptr %214, align 8, !tbaa !15
+  %216 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %211, i64 noundef %212, ptr noundef nonnull @.str.8, ptr noundef %215) #24
+  %217 = sext i32 %216 to i64
+  store i64 %217, ptr %73, align 8, !tbaa !26
+  store i64 %217, ptr %74, align 8, !tbaa !17
   br label %.critedge.loopexit.i.i.i
 
-.critedge.loopexit.i.i.i:                         ; preds = %208, %205, %204, %201
-  %216 = sext i8 %190 to i32
+.critedge.loopexit.i.i.i:                         ; preds = %210, %207, %206, %203
+  %218 = sext i8 %192 to i32
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %163
-  %217 = phi i32 [ %216, %.critedge.loopexit.i.i.i ], [ 0, %163 ]
-  %218 = load i64, ptr %2, align 8, !tbaa !14
-  %.not8.i38.i.i.i = icmp eq i64 %218, 0
+.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %165
+  %219 = phi i32 [ %218, %.critedge.loopexit.i.i.i ], [ 0, %165 ]
+  %220 = load i64, ptr %2, align 8, !tbaa !14
+  %.not8.i38.i.i.i = icmp eq i64 %220, 0
   br i1 %.not8.i38.i.i.i, label %._crit_edge.i41.i.i.i, label %.lr.ph.i39.i.i.i
 
 .lr.ph.i39.i.i.i:                                 ; preds = %.critedge.i.i.i, %.lr.ph.i39.i.i.i
-  %.07.i40.i.i.i = phi i64 [ %222, %.lr.ph.i39.i.i.i ], [ 0, %.critedge.i.i.i ]
-  %219 = load ptr, ptr %147, align 8, !tbaa !10
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %.07.i40.i.i.i
-  %221 = load ptr, ptr %220, align 8, !tbaa !15
-  call void @free(ptr noundef %221) #24
-  %222 = add nuw i64 %.07.i40.i.i.i, 1
-  %223 = load i64, ptr %2, align 8, !tbaa !14
-  %224 = icmp ult i64 %222, %223
-  br i1 %224, label %.lr.ph.i39.i.i.i, label %._crit_edge.i41.i.i.i, !llvm.loop !61
+  %.07.i40.i.i.i = phi i64 [ %224, %.lr.ph.i39.i.i.i ], [ 0, %.critedge.i.i.i ]
+  %221 = load ptr, ptr %149, align 8, !tbaa !10
+  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.07.i40.i.i.i
+  %223 = load ptr, ptr %222, align 8, !tbaa !15
+  call void @free(ptr noundef %223) #24
+  %224 = add nuw i64 %.07.i40.i.i.i, 1
+  %225 = load i64, ptr %2, align 8, !tbaa !14
+  %226 = icmp ult i64 %224, %225
+  br i1 %226, label %.lr.ph.i39.i.i.i, label %._crit_edge.i41.i.i.i, !llvm.loop !61
 
 ._crit_edge.i41.i.i.i:                            ; preds = %.lr.ph.i39.i.i.i, %.critedge.i.i.i
-  %225 = load ptr, ptr %147, align 8, !tbaa !10
-  %.not.i42.i.i.i = icmp eq ptr %225, null
+  %227 = load ptr, ptr %149, align 8, !tbaa !10
+  %.not.i42.i.i.i = icmp eq ptr %227, null
   br i1 %.not.i42.i.i.i, label %completeLine.exit.i.i, label %freeCompletions.exit.sink.split.i.i.i
 
 freeCompletions.exit.sink.split.i.i.i:            ; preds = %._crit_edge.i41.i.i.i, %._crit_edge.i.i.i.i
-  %.sink.i.i.i = phi ptr [ %188, %._crit_edge.i.i.i.i ], [ %225, %._crit_edge.i41.i.i.i ]
-  %.1.ph.i.i.i = phi i32 [ -1, %._crit_edge.i.i.i.i ], [ %217, %._crit_edge.i41.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %190, %._crit_edge.i.i.i.i ], [ %227, %._crit_edge.i41.i.i.i ]
+  %.1.ph.i.i.i = phi i32 [ -1, %._crit_edge.i.i.i.i ], [ %219, %._crit_edge.i41.i.i.i ]
   call void @free(ptr noundef nonnull %.sink.i.i.i) #24
   br label %completeLine.exit.i.i
 
 completeLine.exit.i.i:                            ; preds = %freeCompletions.exit.sink.split.i.i.i, %._crit_edge.i41.i.i.i
-  %.1.i64.i.i = phi i32 [ %217, %._crit_edge.i41.i.i.i ], [ %.1.ph.i.i.i, %freeCompletions.exit.sink.split.i.i.i ]
+  %.1.i64.i.i = phi i32 [ %219, %._crit_edge.i41.i.i.i ], [ %.1.ph.i.i.i, %freeCompletions.exit.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %226 = trunc nsw i32 %.1.i64.i.i to i8
-  store i8 %226, ptr %13, align 1, !tbaa !21
-  %227 = icmp slt i32 %.1.i64.i.i, 0
-  br i1 %227, label %.loopexit.i.i, label %230
+  %228 = trunc nsw i32 %.1.i64.i.i to i8
+  store i8 %228, ptr %13, align 1, !tbaa !21
+  %229 = icmp slt i32 %.1.i64.i.i, 0
+  br i1 %229, label %.loopexit.i.i, label %232
 
 .loopexit.i.i:                                    ; preds = %completeLine.exit.i.i, %completeLine.exit.thread.i.i
-  %228 = load i64, ptr %72, align 8, !tbaa !17
-  %229 = trunc i64 %228 to i32
+  %230 = load i64, ptr %74, align 8, !tbaa !17
+  %231 = trunc i64 %230 to i32
   br label %.thread.i.i
 
-230:                                              ; preds = %completeLine.exit.i.i
-  %231 = icmp eq i32 %.1.i64.i.i, 0
-  br i1 %231, label %linenoiseEditBackspace.exit.i.i, label %thread-pre-split.i.i
+232:                                              ; preds = %completeLine.exit.i.i
+  %233 = icmp eq i32 %.1.i64.i.i, 0
+  br i1 %233, label %linenoiseEditBackspace.exit.i.i, label %thread-pre-split.i.i
 
-thread-pre-split.i.i:                             ; preds = %230, %154
-  %232 = phi i8 [ %226, %230 ], [ %155, %154 ]
-  switch i8 %232, label %391 [
+thread-pre-split.i.i:                             ; preds = %232, %156
+  %234 = phi i8 [ %228, %232 ], [ %157, %156 ]
+  switch i8 %234, label %393 [
     i8 10, label %linenoiseEditBackspace.exit.i.i
-    i8 9, label %233
-    i8 13, label %239
-    i8 3, label %262
-    i8 127, label %267
-    i8 8, label %267
-    i8 4, label %282
-    i8 20, label %304
-    i8 2, label %317
-    i8 6, label %321
-    i8 16, label %326
-    i8 18, label %327
-    i8 19, label %327
-    i8 7, label %335
-    i8 14, label %338
-    i8 27, label %339
-    i8 21, label %393
-    i8 11, label %394
-    i8 1, label %397
-    i8 5, label %400
-    i8 12, label %404
-    i8 23, label %406
+    i8 9, label %235
+    i8 13, label %241
+    i8 3, label %264
+    i8 127, label %269
+    i8 8, label %269
+    i8 4, label %284
+    i8 20, label %306
+    i8 2, label %319
+    i8 6, label %323
+    i8 16, label %328
+    i8 18, label %329
+    i8 19, label %329
+    i8 7, label %337
+    i8 14, label %340
+    i8 27, label %341
+    i8 21, label %395
+    i8 11, label %396
+    i8 1, label %399
+    i8 5, label %402
+    i8 12, label %406
+    i8 23, label %408
   ]
 
-233:                                              ; preds = %thread-pre-split.i.i
+235:                                              ; preds = %thread-pre-split.i.i
   %.b55.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b55.i.i, label %234, label %linenoiseEditBackspace.exit.i.i
+  br i1 %.b55.i.i, label %236, label %linenoiseEditBackspace.exit.i.i
 
-234:                                              ; preds = %233
+236:                                              ; preds = %235
   store i1 true, ptr @ignore_once_hint, align 4
   %char0.i.i.i = load i8, ptr @search_result, align 16
   %.not13.i.i.i = icmp eq i8 %char0.i.i.i, 0
-  br i1 %.not13.i.i.i, label %disableReverseSearchMode.exit.i.i, label %235
+  br i1 %.not13.i.i.i, label %disableReverseSearchMode.exit.i.i, label %237
 
-235:                                              ; preds = %234
-  %236 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @search_result, i64 noundef 4096) #24
-  store i8 0, ptr %151, align 1, !tbaa !21
-  %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
-  store i64 %237, ptr %72, align 8, !tbaa !17
-  store i64 %237, ptr %71, align 8, !tbaa !26
+237:                                              ; preds = %236
+  %238 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @search_result, i64 noundef 4096) #24
+  store i8 0, ptr %153, align 1, !tbaa !21
+  %239 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
+  store i64 %239, ptr %74, align 8, !tbaa !17
+  store i64 %239, ptr %73, align 8, !tbaa !26
   br label %disableReverseSearchMode.exit.i.i
 
-disableReverseSearchMode.exit.i.i:                ; preds = %235, %234
+disableReverseSearchMode.exit.i.i:                ; preds = %237, %236
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %238 = load ptr, ptr %150, align 8, !tbaa !63
-  store ptr %238, ptr %68, align 8, !tbaa !29
+  %240 = load ptr, ptr %152, align 8, !tbaa !63
+  store ptr %240, ptr %70, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-239:                                              ; preds = %thread-pre-split.i.i
-  %240 = load i32, ptr @history_len, align 4, !tbaa !4
-  %241 = add nsw i32 %240, -1
-  store i32 %241, ptr @history_len, align 4, !tbaa !4
-  %242 = load ptr, ptr @history, align 8, !tbaa !40
-  %243 = sext i32 %241 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
-  %245 = load ptr, ptr %244, align 8, !tbaa !15
-  call void @free(ptr noundef %245) #24
-  %246 = load i32, ptr @mlmode, align 4, !tbaa !4
-  %.not60.i.i = icmp eq i32 %246, 0
-  br i1 %.not60.i.i, label %linenoiseEditMoveEnd.exit.i.i, label %247
+241:                                              ; preds = %thread-pre-split.i.i
+  %242 = load i32, ptr @history_len, align 4, !tbaa !4
+  %243 = add nsw i32 %242, -1
+  store i32 %243, ptr @history_len, align 4, !tbaa !4
+  %244 = load ptr, ptr @history, align 8, !tbaa !40
+  %245 = sext i32 %243 to i64
+  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %247 = load ptr, ptr %246, align 8, !tbaa !15
+  call void @free(ptr noundef %247) #24
+  %248 = load i32, ptr @mlmode, align 4, !tbaa !4
+  %.not60.i.i = icmp eq i32 %248, 0
+  br i1 %.not60.i.i, label %linenoiseEditMoveEnd.exit.i.i, label %249
 
-247:                                              ; preds = %239
-  %248 = load i64, ptr %71, align 8, !tbaa !26
-  %249 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i66.i.i = icmp eq i64 %248, %249
-  br i1 %.not.i66.i.i, label %linenoiseEditMoveEnd.exit.i.i, label %250
+249:                                              ; preds = %241
+  %250 = load i64, ptr %73, align 8, !tbaa !26
+  %251 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i66.i.i = icmp eq i64 %250, %251
+  br i1 %.not.i66.i.i, label %linenoiseEditMoveEnd.exit.i.i, label %252
 
-250:                                              ; preds = %247
-  store i64 %249, ptr %71, align 8, !tbaa !26
+252:                                              ; preds = %249
+  store i64 %251, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditMoveEnd.exit.i.i
 
-linenoiseEditMoveEnd.exit.i.i:                    ; preds = %250, %247, %239
-  %251 = load ptr, ptr @hintsCallback, align 8, !tbaa !8
-  %.not61.i.i = icmp eq ptr %251, null
-  br i1 %.not61.i.i, label %253, label %252
+linenoiseEditMoveEnd.exit.i.i:                    ; preds = %252, %249, %241
+  %253 = load ptr, ptr @hintsCallback, align 8, !tbaa !8
+  %.not61.i.i = icmp eq ptr %253, null
+  br i1 %.not61.i.i, label %255, label %254
 
-252:                                              ; preds = %linenoiseEditMoveEnd.exit.i.i
+254:                                              ; preds = %linenoiseEditMoveEnd.exit.i.i
   store ptr null, ptr @hintsCallback, align 8, !tbaa !8
   call fastcc void @refreshLine(ptr noundef nonnull %12)
-  store ptr %251, ptr @hintsCallback, align 8, !tbaa !8
-  br label %253
+  store ptr %253, ptr @hintsCallback, align 8, !tbaa !8
+  br label %255
 
-253:                                              ; preds = %252, %linenoiseEditMoveEnd.exit.i.i
+255:                                              ; preds = %254, %linenoiseEditMoveEnd.exit.i.i
   %.b54.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b54.i.i, label %254, label %259
+  br i1 %.b54.i.i, label %256, label %261
 
-254:                                              ; preds = %253
+256:                                              ; preds = %255
   store i1 true, ptr @ignore_once_hint, align 4
   %char0.i67.i.i = load i8, ptr @search_result, align 16
   %.not13.i68.i.i = icmp eq i8 %char0.i67.i.i, 0
-  br i1 %.not13.i68.i.i, label %disableReverseSearchMode.exit69.i.i, label %255
+  br i1 %.not13.i68.i.i, label %disableReverseSearchMode.exit69.i.i, label %257
 
-255:                                              ; preds = %254
-  %256 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @search_result, i64 noundef 4096) #24
-  store i8 0, ptr %151, align 1, !tbaa !21
-  %257 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
-  store i64 %257, ptr %72, align 8, !tbaa !17
-  store i64 %257, ptr %71, align 8, !tbaa !26
+257:                                              ; preds = %256
+  %258 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @search_result, i64 noundef 4096) #24
+  store i8 0, ptr %153, align 1, !tbaa !21
+  %259 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
+  store i64 %259, ptr %74, align 8, !tbaa !17
+  store i64 %259, ptr %73, align 8, !tbaa !26
   br label %disableReverseSearchMode.exit69.i.i
 
-disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
+disableReverseSearchMode.exit69.i.i:              ; preds = %257, %256
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %258 = load ptr, ptr %150, align 8, !tbaa !63
-  store ptr %258, ptr %68, align 8, !tbaa !29
+  %260 = load ptr, ptr %152, align 8, !tbaa !63
+  store ptr %260, ptr %70, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
   call fastcc void @refreshLine(ptr noundef nonnull %12)
-  br label %259
+  br label %261
 
-259:                                              ; preds = %disableReverseSearchMode.exit69.i.i, %253
-  %260 = load i64, ptr %72, align 8, !tbaa !17
-  %261 = trunc i64 %260 to i32
+261:                                              ; preds = %disableReverseSearchMode.exit69.i.i, %255
+  %262 = load i64, ptr %74, align 8, !tbaa !17
+  %263 = trunc i64 %262 to i32
   br label %.thread.i.i
 
-262:                                              ; preds = %thread-pre-split.i.i
+264:                                              ; preds = %thread-pre-split.i.i
   %.b53.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b53.i.i, label %263, label %265
+  br i1 %.b53.i.i, label %265, label %267
 
-263:                                              ; preds = %262
+265:                                              ; preds = %264
   store i8 0, ptr %15, align 16, !tbaa !21
-  store i64 0, ptr %72, align 8, !tbaa !17
-  store i64 0, ptr %71, align 8, !tbaa !26
+  store i64 0, ptr %74, align 8, !tbaa !17
+  store i64 0, ptr %73, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %264 = load ptr, ptr %150, align 8, !tbaa !63
-  store ptr %264, ptr %68, align 8, !tbaa !29
+  %266 = load ptr, ptr %152, align 8, !tbaa !63
+  store ptr %266, ptr %70, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-265:                                              ; preds = %262
-  %266 = tail call ptr @__errno_location() #29
-  store i32 11, ptr %266, align 4, !tbaa !4
+267:                                              ; preds = %264
+  %268 = tail call ptr @__errno_location() #29
+  store i32 11, ptr %268, align 4, !tbaa !4
   br label %.thread.i.i
 
-267:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.i
-  %268 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i70.i.i = icmp eq i64 %268, 0
-  br i1 %.not.i70.i.i, label %linenoiseEditBackspace.exit.i.i, label %269
-
-269:                                              ; preds = %267
-  %270 = load i64, ptr %72, align 8, !tbaa !17
-  %.not14.i.i.i = icmp eq i64 %270, 0
-  br i1 %.not14.i.i.i, label %linenoiseEditBackspace.exit.i.i, label %271
+269:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.i
+  %270 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i70.i.i = icmp eq i64 %270, 0
+  br i1 %.not.i70.i.i, label %linenoiseEditBackspace.exit.i.i, label %271
 
 271:                                              ; preds = %269
-  %272 = load ptr, ptr %66, align 8, !tbaa !20
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 %268
-  %274 = getelementptr inbounds i8, ptr %273, i64 -1
-  %275 = sub i64 %270, %268
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %274, ptr nonnull align 1 %273, i64 %275, i1 false)
-  %276 = load i64, ptr %71, align 8, !tbaa !26
-  %277 = add i64 %276, -1
-  store i64 %277, ptr %71, align 8, !tbaa !26
-  %278 = load i64, ptr %72, align 8, !tbaa !17
+  %272 = load i64, ptr %74, align 8, !tbaa !17
+  %.not14.i.i.i = icmp eq i64 %272, 0
+  br i1 %.not14.i.i.i, label %linenoiseEditBackspace.exit.i.i, label %273
+
+273:                                              ; preds = %271
+  %274 = load ptr, ptr %68, align 8, !tbaa !20
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 %270
+  %276 = getelementptr inbounds i8, ptr %275, i64 -1
+  %277 = sub i64 %272, %270
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %276, ptr nonnull align 1 %275, i64 %277, i1 false)
+  %278 = load i64, ptr %73, align 8, !tbaa !26
   %279 = add i64 %278, -1
-  store i64 %279, ptr %72, align 8, !tbaa !17
-  %280 = load ptr, ptr %66, align 8, !tbaa !20
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 %279
-  store i8 0, ptr %281, align 1, !tbaa !21
+  store i64 %279, ptr %73, align 8, !tbaa !26
+  %280 = load i64, ptr %74, align 8, !tbaa !17
+  %281 = add i64 %280, -1
+  store i64 %281, ptr %74, align 8, !tbaa !17
+  %282 = load ptr, ptr %68, align 8, !tbaa !20
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 %281
+  store i8 0, ptr %283, align 1, !tbaa !21
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-282:                                              ; preds = %thread-pre-split.i.i
-  %283 = load i64, ptr %72, align 8, !tbaa !17
-  %.not59.i.i = icmp eq i64 %283, 0
-  br i1 %.not59.i.i, label %297, label %284
+284:                                              ; preds = %thread-pre-split.i.i
+  %285 = load i64, ptr %74, align 8, !tbaa !17
+  %.not59.i.i = icmp eq i64 %285, 0
+  br i1 %.not59.i.i, label %299, label %286
 
-284:                                              ; preds = %282
-  %285 = load i64, ptr %71, align 8, !tbaa !26
-  %286 = icmp ult i64 %285, %283
-  br i1 %286, label %287, label %linenoiseEditBackspace.exit.i.i
+286:                                              ; preds = %284
+  %287 = load i64, ptr %73, align 8, !tbaa !26
+  %288 = icmp ult i64 %287, %285
+  br i1 %288, label %289, label %linenoiseEditBackspace.exit.i.i
 
-287:                                              ; preds = %284
-  %288 = load ptr, ptr %66, align 8, !tbaa !20
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 %285
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 1
-  %291 = xor i64 %285, -1
-  %292 = add i64 %283, %291
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %289, ptr nonnull align 1 %290, i64 %292, i1 false)
-  %293 = load i64, ptr %72, align 8, !tbaa !17
-  %294 = add i64 %293, -1
-  store i64 %294, ptr %72, align 8, !tbaa !17
-  %295 = load ptr, ptr %66, align 8, !tbaa !20
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %294
-  store i8 0, ptr %296, align 1, !tbaa !21
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %68, align 8, !tbaa !20
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 %287
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1
+  %293 = xor i64 %287, -1
+  %294 = add i64 %285, %293
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %291, ptr nonnull align 1 %292, i64 %294, i1 false)
+  %295 = load i64, ptr %74, align 8, !tbaa !17
+  %296 = add i64 %295, -1
+  store i64 %296, ptr %74, align 8, !tbaa !17
+  %297 = load ptr, ptr %68, align 8, !tbaa !20
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 %296
+  store i8 0, ptr %298, align 1, !tbaa !21
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-297:                                              ; preds = %282
-  %298 = load i32, ptr @history_len, align 4, !tbaa !4
-  %299 = add nsw i32 %298, -1
-  store i32 %299, ptr @history_len, align 4, !tbaa !4
-  %300 = load ptr, ptr @history, align 8, !tbaa !40
-  %301 = sext i32 %299 to i64
-  %302 = getelementptr inbounds ptr, ptr %300, i64 %301
-  %303 = load ptr, ptr %302, align 8, !tbaa !15
-  call void @free(ptr noundef %303) #24
+299:                                              ; preds = %284
+  %300 = load i32, ptr @history_len, align 4, !tbaa !4
+  %301 = add nsw i32 %300, -1
+  store i32 %301, ptr @history_len, align 4, !tbaa !4
+  %302 = load ptr, ptr @history, align 8, !tbaa !40
+  %303 = sext i32 %301 to i64
+  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %305 = load ptr, ptr %304, align 8, !tbaa !15
+  call void @free(ptr noundef %305) #24
   br label %.thread.i.i
 
-304:                                              ; preds = %thread-pre-split.i.i
-  %305 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i.i = icmp ne i64 %305, 0
-  %306 = load i64, ptr %72, align 8
-  %307 = icmp ult i64 %305, %306
-  %or.cond.i.i = select i1 %.not.i.i, i1 %307, i1 false
-  br i1 %or.cond.i.i, label %308, label %linenoiseEditBackspace.exit.i.i
+306:                                              ; preds = %thread-pre-split.i.i
+  %307 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i.i = icmp ne i64 %307, 0
+  %308 = load i64, ptr %74, align 8
+  %309 = icmp ult i64 %307, %308
+  %or.cond.i.i = select i1 %.not.i.i, i1 %309, i1 false
+  br i1 %or.cond.i.i, label %310, label %linenoiseEditBackspace.exit.i.i
 
-308:                                              ; preds = %304
-  %309 = getelementptr i8, ptr %15, i64 %305
-  %310 = getelementptr i8, ptr %309, i64 -1
-  %311 = load i8, ptr %310, align 1, !tbaa !21
-  %312 = load i8, ptr %309, align 1, !tbaa !21
-  store i8 %312, ptr %310, align 1, !tbaa !21
-  store i8 %311, ptr %309, align 1, !tbaa !21
-  %313 = add i64 %306, -1
-  %.not58.i.i = icmp eq i64 %305, %313
-  br i1 %.not58.i.i, label %316, label %314
+310:                                              ; preds = %306
+  %311 = getelementptr i8, ptr %15, i64 %307
+  %312 = getelementptr i8, ptr %311, i64 -1
+  %313 = load i8, ptr %312, align 1, !tbaa !21
+  %314 = load i8, ptr %311, align 1, !tbaa !21
+  store i8 %314, ptr %312, align 1, !tbaa !21
+  store i8 %313, ptr %311, align 1, !tbaa !21
+  %315 = add i64 %308, -1
+  %.not58.i.i = icmp eq i64 %307, %315
+  br i1 %.not58.i.i, label %318, label %316
 
-314:                                              ; preds = %308
-  %315 = add nuw i64 %305, 1
-  store i64 %315, ptr %71, align 8, !tbaa !26
-  br label %316
+316:                                              ; preds = %310
+  %317 = add nuw i64 %307, 1
+  store i64 %317, ptr %73, align 8, !tbaa !26
+  br label %318
 
-316:                                              ; preds = %314, %308
+318:                                              ; preds = %316, %310
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-317:                                              ; preds = %thread-pre-split.i.i
-  %318 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i72.i.i = icmp eq i64 %318, 0
-  br i1 %.not.i72.i.i, label %linenoiseEditBackspace.exit.i.i, label %319
+319:                                              ; preds = %thread-pre-split.i.i
+  %320 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i72.i.i = icmp eq i64 %320, 0
+  br i1 %.not.i72.i.i, label %linenoiseEditBackspace.exit.i.i, label %321
 
-319:                                              ; preds = %317
-  %320 = add i64 %318, -1
-  store i64 %320, ptr %71, align 8, !tbaa !26
+321:                                              ; preds = %319
+  %322 = add i64 %320, -1
+  store i64 %322, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-321:                                              ; preds = %thread-pre-split.i.i
-  %322 = load i64, ptr %71, align 8, !tbaa !26
-  %323 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i73.i.i = icmp eq i64 %322, %323
-  br i1 %.not.i73.i.i, label %linenoiseEditBackspace.exit.i.i, label %324
+323:                                              ; preds = %thread-pre-split.i.i
+  %324 = load i64, ptr %73, align 8, !tbaa !26
+  %325 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i73.i.i = icmp eq i64 %324, %325
+  br i1 %.not.i73.i.i, label %linenoiseEditBackspace.exit.i.i, label %326
 
-324:                                              ; preds = %321
-  %325 = add i64 %322, 1
-  store i64 %325, ptr %71, align 8, !tbaa !26
+326:                                              ; preds = %323
+  %327 = add i64 %324, 1
+  store i64 %327, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-326:                                              ; preds = %thread-pre-split.i.i
+328:                                              ; preds = %thread-pre-split.i.i
   call void @linenoiseEditHistoryNext(ptr noundef nonnull %12, i32 noundef 1)
   br label %linenoiseEditBackspace.exit.i.i
 
-327:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.i
-  %328 = icmp eq i8 %232, 18
-  %329 = select i1 %328, i32 -1, i32 1
-  store i32 %329, ptr @reverse_search_direction, align 4, !tbaa !4
+329:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.i
+  %330 = icmp eq i8 %234, 18
+  %331 = select i1 %330, i32 -1, i32 1
+  store i32 %331, ptr @reverse_search_direction, align 4, !tbaa !4
   %.b52.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b52.i.i, label %330, label %332
+  br i1 %.b52.i.i, label %332, label %334
 
-330:                                              ; preds = %327
+332:                                              ; preds = %329
   store i1 true, ptr @cycle_to_next_search, align 4
-  %331 = select i1 %328, ptr @.str.28, ptr @.str.29
-  store ptr %331, ptr %68, align 8, !tbaa !29
+  %333 = select i1 %330, ptr @.str.28, ptr @.str.29
+  store ptr %333, ptr %70, align 8, !tbaa !29
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-332:                                              ; preds = %327
+334:                                              ; preds = %329
   store i8 0, ptr %15, align 16, !tbaa !21
-  store i64 0, ptr %72, align 8, !tbaa !17
-  store i64 0, ptr %71, align 8, !tbaa !26
+  store i64 0, ptr %74, align 8, !tbaa !17
+  store i64 0, ptr %73, align 8, !tbaa !26
   store i1 true, ptr @reverse_search_mode_enabled, align 4
-  %333 = load ptr, ptr %68, align 8, !tbaa !29
-  store ptr %333, ptr %150, align 8, !tbaa !63
-  %334 = select i1 %328, ptr @.str.28, ptr @.str.29
-  store ptr %334, ptr %68, align 8, !tbaa !29
+  %335 = load ptr, ptr %70, align 8, !tbaa !29
+  store ptr %335, ptr %152, align 8, !tbaa !63
+  %336 = select i1 %330, ptr @.str.28, ptr @.str.29
+  store ptr %336, ptr %70, align 8, !tbaa !29
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-335:                                              ; preds = %thread-pre-split.i.i
+337:                                              ; preds = %thread-pre-split.i.i
   %.b51.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b51.i.i, label %336, label %linenoiseEditBackspace.exit.i.i
+  br i1 %.b51.i.i, label %338, label %linenoiseEditBackspace.exit.i.i
 
-336:                                              ; preds = %335
+338:                                              ; preds = %337
   store i8 0, ptr %15, align 16, !tbaa !21
-  store i64 0, ptr %72, align 8, !tbaa !17
-  store i64 0, ptr %71, align 8, !tbaa !26
+  store i64 0, ptr %74, align 8, !tbaa !17
+  store i64 0, ptr %73, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %337 = load ptr, ptr %150, align 8, !tbaa !63
-  store ptr %337, ptr %68, align 8, !tbaa !29
+  %339 = load ptr, ptr %152, align 8, !tbaa !63
+  store ptr %339, ptr %70, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-338:                                              ; preds = %thread-pre-split.i.i
+340:                                              ; preds = %thread-pre-split.i.i
   call void @linenoiseEditHistoryNext(ptr noundef nonnull %12, i32 noundef 0)
   br label %linenoiseEditBackspace.exit.i.i
 
-339:                                              ; preds = %thread-pre-split.i.i
-  %340 = load i32, ptr %12, align 8, !tbaa !58
-  %341 = call i64 @read(i32 noundef %340, ptr noundef nonnull %14, i64 noundef 1) #24
-  %342 = icmp eq i64 %341, -1
-  br i1 %342, label %linenoiseEditBackspace.exit.i.i, label %343
+341:                                              ; preds = %thread-pre-split.i.i
+  %342 = load i32, ptr %12, align 8, !tbaa !58
+  %343 = call i64 @read(i32 noundef %342, ptr noundef nonnull %14, i64 noundef 1) #24
+  %344 = icmp eq i64 %343, -1
+  br i1 %344, label %linenoiseEditBackspace.exit.i.i, label %345
 
-343:                                              ; preds = %339
-  %344 = load i32, ptr %12, align 8, !tbaa !58
-  %345 = call i64 @read(i32 noundef %344, ptr noundef nonnull %148, i64 noundef 1) #24
-  %346 = icmp eq i64 %345, -1
-  br i1 %346, label %linenoiseEditBackspace.exit.i.i, label %347
+345:                                              ; preds = %341
+  %346 = load i32, ptr %12, align 8, !tbaa !58
+  %347 = call i64 @read(i32 noundef %346, ptr noundef nonnull %150, i64 noundef 1) #24
+  %348 = icmp eq i64 %347, -1
+  br i1 %348, label %linenoiseEditBackspace.exit.i.i, label %349
 
-347:                                              ; preds = %343
+349:                                              ; preds = %345
   %.b50.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
-  br i1 %.b50.i.i, label %348, label %350
+  br i1 %.b50.i.i, label %350, label %352
 
-348:                                              ; preds = %347
+350:                                              ; preds = %349
   store i8 0, ptr %15, align 16, !tbaa !21
-  store i64 0, ptr %72, align 8, !tbaa !17
-  store i64 0, ptr %71, align 8, !tbaa !26
+  store i64 0, ptr %74, align 8, !tbaa !17
+  store i64 0, ptr %73, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %349 = load ptr, ptr %150, align 8, !tbaa !63
-  store ptr %349, ptr %68, align 8, !tbaa !29
+  %351 = load ptr, ptr %152, align 8, !tbaa !63
+  store ptr %351, ptr %70, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-350:                                              ; preds = %347
-  %351 = load i8, ptr %14, align 1, !tbaa !21
-  switch i8 %351, label %linenoiseEditBackspace.exit.i.i [
-    i8 91, label %352
-    i8 79, label %382
+352:                                              ; preds = %349
+  %353 = load i8, ptr %14, align 1, !tbaa !21
+  switch i8 %353, label %linenoiseEditBackspace.exit.i.i [
+    i8 91, label %354
+    i8 79, label %384
   ]
 
-352:                                              ; preds = %350
-  %353 = load i8, ptr %148, align 1, !tbaa !21
-  %354 = add i8 %353, -48
-  %or.cond7.i.i = icmp ult i8 %354, 10
-  br i1 %or.cond7.i.i, label %355, label %363
+354:                                              ; preds = %352
+  %355 = load i8, ptr %150, align 1, !tbaa !21
+  %356 = add i8 %355, -48
+  %or.cond7.i.i = icmp ult i8 %356, 10
+  br i1 %or.cond7.i.i, label %357, label %365
 
-355:                                              ; preds = %352
-  %356 = load i32, ptr %12, align 8, !tbaa !58
-  %357 = call i64 @read(i32 noundef %356, ptr noundef nonnull %149, i64 noundef 1) #24
-  %358 = icmp ne i64 %357, -1
-  %359 = load i8, ptr %149, align 1
-  %360 = icmp eq i8 %359, 126
-  %or.cond11.i.i = select i1 %358, i1 %360, i1 false
-  %361 = load i8, ptr %148, align 1
-  %cond.i.i = icmp eq i8 %361, 51
+357:                                              ; preds = %354
+  %358 = load i32, ptr %12, align 8, !tbaa !58
+  %359 = call i64 @read(i32 noundef %358, ptr noundef nonnull %151, i64 noundef 1) #24
+  %360 = icmp ne i64 %359, -1
+  %361 = load i8, ptr %151, align 1
+  %362 = icmp eq i8 %361, 126
+  %or.cond11.i.i = select i1 %360, i1 %362, i1 false
+  %363 = load i8, ptr %150, align 1
+  %cond.i.i = icmp eq i8 %363, 51
   %or.cond14.i.i = select i1 %or.cond11.i.i, i1 %cond.i.i, i1 false
-  br i1 %or.cond14.i.i, label %362, label %linenoiseEditBackspace.exit.i.i
+  br i1 %or.cond14.i.i, label %364, label %linenoiseEditBackspace.exit.i.i
 
-362:                                              ; preds = %355
+364:                                              ; preds = %357
   call void @linenoiseEditDelete(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-363:                                              ; preds = %352
-  switch i8 %353, label %linenoiseEditBackspace.exit.i.i [
-    i8 65, label %364
-    i8 66, label %365
-    i8 67, label %366
-    i8 68, label %371
-    i8 72, label %375
-    i8 70, label %378
+365:                                              ; preds = %354
+  switch i8 %355, label %linenoiseEditBackspace.exit.i.i [
+    i8 65, label %366
+    i8 66, label %367
+    i8 67, label %368
+    i8 68, label %373
+    i8 72, label %377
+    i8 70, label %380
   ]
 
-364:                                              ; preds = %363
+366:                                              ; preds = %365
   call void @linenoiseEditHistoryNext(ptr noundef nonnull %12, i32 noundef 1)
   br label %linenoiseEditBackspace.exit.i.i
 
-365:                                              ; preds = %363
+367:                                              ; preds = %365
   call void @linenoiseEditHistoryNext(ptr noundef nonnull %12, i32 noundef 0)
   br label %linenoiseEditBackspace.exit.i.i
 
-366:                                              ; preds = %363
-  %367 = load i64, ptr %71, align 8, !tbaa !26
-  %368 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i74.i.i = icmp eq i64 %367, %368
-  br i1 %.not.i74.i.i, label %linenoiseEditBackspace.exit.i.i, label %369
+368:                                              ; preds = %365
+  %369 = load i64, ptr %73, align 8, !tbaa !26
+  %370 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i74.i.i = icmp eq i64 %369, %370
+  br i1 %.not.i74.i.i, label %linenoiseEditBackspace.exit.i.i, label %371
 
-369:                                              ; preds = %366
-  %370 = add i64 %367, 1
-  store i64 %370, ptr %71, align 8, !tbaa !26
+371:                                              ; preds = %368
+  %372 = add i64 %369, 1
+  store i64 %372, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-371:                                              ; preds = %363
-  %372 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i76.i.i = icmp eq i64 %372, 0
-  br i1 %.not.i76.i.i, label %linenoiseEditBackspace.exit.i.i, label %373
+373:                                              ; preds = %365
+  %374 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i76.i.i = icmp eq i64 %374, 0
+  br i1 %.not.i76.i.i, label %linenoiseEditBackspace.exit.i.i, label %375
 
-373:                                              ; preds = %371
-  %374 = add i64 %372, -1
-  store i64 %374, ptr %71, align 8, !tbaa !26
+375:                                              ; preds = %373
+  %376 = add i64 %374, -1
+  store i64 %376, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-375:                                              ; preds = %363
-  %376 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i78.i.i = icmp eq i64 %376, 0
-  br i1 %.not.i78.i.i, label %linenoiseEditBackspace.exit.i.i, label %377
+377:                                              ; preds = %365
+  %378 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i78.i.i = icmp eq i64 %378, 0
+  br i1 %.not.i78.i.i, label %linenoiseEditBackspace.exit.i.i, label %379
 
-377:                                              ; preds = %375
-  store i64 0, ptr %71, align 8, !tbaa !26
+379:                                              ; preds = %377
+  store i64 0, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-378:                                              ; preds = %363
-  %379 = load i64, ptr %71, align 8, !tbaa !26
-  %380 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i79.i.i = icmp eq i64 %379, %380
-  br i1 %.not.i79.i.i, label %linenoiseEditBackspace.exit.i.i, label %381
+380:                                              ; preds = %365
+  %381 = load i64, ptr %73, align 8, !tbaa !26
+  %382 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i79.i.i = icmp eq i64 %381, %382
+  br i1 %.not.i79.i.i, label %linenoiseEditBackspace.exit.i.i, label %383
 
-381:                                              ; preds = %378
-  store i64 %380, ptr %71, align 8, !tbaa !26
+383:                                              ; preds = %380
+  store i64 %382, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-382:                                              ; preds = %350
-  %383 = load i8, ptr %148, align 1, !tbaa !21
-  switch i8 %383, label %linenoiseEditBackspace.exit.i.i [
-    i8 72, label %384
-    i8 70, label %387
+384:                                              ; preds = %352
+  %385 = load i8, ptr %150, align 1, !tbaa !21
+  switch i8 %385, label %linenoiseEditBackspace.exit.i.i [
+    i8 72, label %386
+    i8 70, label %389
   ]
 
-384:                                              ; preds = %382
-  %385 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i81.i.i = icmp eq i64 %385, 0
-  br i1 %.not.i81.i.i, label %linenoiseEditBackspace.exit.i.i, label %386
-
 386:                                              ; preds = %384
-  store i64 0, ptr %71, align 8, !tbaa !26
+  %387 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i81.i.i = icmp eq i64 %387, 0
+  br i1 %.not.i81.i.i, label %linenoiseEditBackspace.exit.i.i, label %388
+
+388:                                              ; preds = %386
+  store i64 0, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-387:                                              ; preds = %382
-  %388 = load i64, ptr %71, align 8, !tbaa !26
-  %389 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i83.i.i = icmp eq i64 %388, %389
-  br i1 %.not.i83.i.i, label %linenoiseEditBackspace.exit.i.i, label %390
+389:                                              ; preds = %384
+  %390 = load i64, ptr %73, align 8, !tbaa !26
+  %391 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i83.i.i = icmp eq i64 %390, %391
+  br i1 %.not.i83.i.i, label %linenoiseEditBackspace.exit.i.i, label %392
 
-390:                                              ; preds = %387
-  store i64 %389, ptr %71, align 8, !tbaa !26
+392:                                              ; preds = %389
+  store i64 %391, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
-
-391:                                              ; preds = %thread-pre-split.i.i
-  %392 = call i32 @linenoiseEditInsert(ptr noundef nonnull %12, i8 noundef signext %232)
-  %.not62.i.i = icmp eq i32 %392, 0
-  br i1 %.not62.i.i, label %linenoiseEditBackspace.exit.i.i, label %.thread.i.i
 
 393:                                              ; preds = %thread-pre-split.i.i
+  %394 = call i32 @linenoiseEditInsert(ptr noundef nonnull %12, i8 noundef signext %234)
+  %.not62.i.i = icmp eq i32 %394, 0
+  br i1 %.not62.i.i, label %linenoiseEditBackspace.exit.i.i, label %.thread.i.i
+
+395:                                              ; preds = %thread-pre-split.i.i
   store i8 0, ptr %15, align 16, !tbaa !21
-  store i64 0, ptr %72, align 8, !tbaa !17
-  store i64 0, ptr %71, align 8, !tbaa !26
+  store i64 0, ptr %74, align 8, !tbaa !17
+  store i64 0, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-394:                                              ; preds = %thread-pre-split.i.i
-  %395 = load i64, ptr %71, align 8, !tbaa !26
-  %396 = getelementptr inbounds nuw i8, ptr %15, i64 %395
-  store i8 0, ptr %396, align 1, !tbaa !21
-  store i64 %395, ptr %72, align 8, !tbaa !17
+396:                                              ; preds = %thread-pre-split.i.i
+  %397 = load i64, ptr %73, align 8, !tbaa !26
+  %398 = getelementptr inbounds nuw i8, ptr %15, i64 %397
+  store i8 0, ptr %398, align 1, !tbaa !21
+  store i64 %397, ptr %74, align 8, !tbaa !17
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-397:                                              ; preds = %thread-pre-split.i.i
-  %398 = load i64, ptr %71, align 8, !tbaa !26
-  %.not.i85.i.i = icmp eq i64 %398, 0
-  br i1 %.not.i85.i.i, label %linenoiseEditBackspace.exit.i.i, label %399
+399:                                              ; preds = %thread-pre-split.i.i
+  %400 = load i64, ptr %73, align 8, !tbaa !26
+  %.not.i85.i.i = icmp eq i64 %400, 0
+  br i1 %.not.i85.i.i, label %linenoiseEditBackspace.exit.i.i, label %401
 
-399:                                              ; preds = %397
-  store i64 0, ptr %71, align 8, !tbaa !26
+401:                                              ; preds = %399
+  store i64 0, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-400:                                              ; preds = %thread-pre-split.i.i
-  %401 = load i64, ptr %71, align 8, !tbaa !26
-  %402 = load i64, ptr %72, align 8, !tbaa !17
-  %.not.i87.i.i = icmp eq i64 %401, %402
-  br i1 %.not.i87.i.i, label %linenoiseEditBackspace.exit.i.i, label %403
+402:                                              ; preds = %thread-pre-split.i.i
+  %403 = load i64, ptr %73, align 8, !tbaa !26
+  %404 = load i64, ptr %74, align 8, !tbaa !17
+  %.not.i87.i.i = icmp eq i64 %403, %404
+  br i1 %.not.i87.i.i, label %linenoiseEditBackspace.exit.i.i, label %405
 
-403:                                              ; preds = %400
-  store i64 %402, ptr %71, align 8, !tbaa !26
-  call fastcc void @refreshLine(ptr noundef nonnull %12)
-  br label %linenoiseEditBackspace.exit.i.i
-
-404:                                              ; preds = %thread-pre-split.i.i
-  %405 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str, i64 noundef 7) #24
+405:                                              ; preds = %402
+  store i64 %404, ptr %73, align 8, !tbaa !26
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
 406:                                              ; preds = %thread-pre-split.i.i
-  %407 = load i64, ptr %71, align 8, !tbaa !26
-  %.not25.i.i.i = icmp eq i64 %407, 0
-  %.pre.i.pre.i.i = load ptr, ptr %66, align 8, !tbaa !20
-  br i1 %.not25.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %406, %413
-  %408 = phi i64 [ %414, %413 ], [ %407, %406 ]
-  %409 = getelementptr i8, ptr %.pre.i.pre.i.i, i64 %408
-  %410 = getelementptr i8, ptr %409, i64 -1
-  %411 = load i8, ptr %410, align 1, !tbaa !21
-  %412 = icmp eq i8 %411, 32
-  br i1 %412, label %413, label %.lr.ph28.i.i.i
-
-413:                                              ; preds = %.lr.ph.i.i.i
-  %414 = add i64 %408, -1
-  store i64 %414, ptr %71, align 8, !tbaa !26
-  %.not.i90.i.i = icmp eq i64 %414, 0
-  br i1 %.not.i90.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !42
-
-.lr.ph28.i.i.i:                                   ; preds = %.lr.ph.i.i.i, %419
-  %415 = phi i64 [ %420, %419 ], [ %408, %.lr.ph.i.i.i ]
-  %416 = getelementptr i8, ptr %.pre.i.pre.i.i, i64 %415
-  %417 = getelementptr i8, ptr %416, i64 -1
-  %418 = load i8, ptr %417, align 1, !tbaa !21
-  %.not23.i.i.i = icmp eq i8 %418, 32
-  br i1 %.not23.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %419
-
-419:                                              ; preds = %.lr.ph28.i.i.i
-  %420 = add i64 %415, -1
-  store i64 %420, ptr %71, align 8, !tbaa !26
-  %.not22.i89.i.i = icmp eq i64 %420, 0
-  br i1 %.not22.i89.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph28.i.i.i, !llvm.loop !43
-
-linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %413, %419, %.lr.ph28.i.i.i, %406
-  %.lcssa.i.i.i = phi i64 [ 0, %406 ], [ 0, %419 ], [ %415, %.lr.ph28.i.i.i ], [ 0, %413 ]
-  %.neg.i.i.i = sub i64 %.lcssa.i.i.i, %407
-  %421 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %.lcssa.i.i.i
-  %422 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %407
-  %423 = load i64, ptr %72, align 8, !tbaa !17
-  %reass.sub = sub i64 %423, %407
-  %424 = add i64 %reass.sub, 1
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %421, ptr align 1 %422, i64 %424, i1 false)
-  %425 = load i64, ptr %72, align 8, !tbaa !17
-  %426 = add i64 %.neg.i.i.i, %425
-  store i64 %426, ptr %72, align 8, !tbaa !17
+  %407 = call i64 @write(i32 noundef 1, ptr noundef nonnull @.str, i64 noundef 7) #24
   call fastcc void @refreshLine(ptr noundef nonnull %12)
   br label %linenoiseEditBackspace.exit.i.i
 
-.thread.i.i:                                      ; preds = %391, %297, %265, %259, %.loopexit.i.i, %._crit_edge.i.i
-  %.2.ph.i.i = phi i32 [ %229, %.loopexit.i.i ], [ -1, %297 ], [ -1, %265 ], [ %261, %259 ], [ %153, %._crit_edge.i.i ], [ -1, %391 ]
+408:                                              ; preds = %thread-pre-split.i.i
+  %409 = load i64, ptr %73, align 8, !tbaa !26
+  %.not25.i.i.i = icmp eq i64 %409, 0
+  %.pre.i.pre.i.i = load ptr, ptr %68, align 8, !tbaa !20
+  br i1 %.not25.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %408, %415
+  %410 = phi i64 [ %416, %415 ], [ %409, %408 ]
+  %411 = getelementptr i8, ptr %.pre.i.pre.i.i, i64 %410
+  %412 = getelementptr i8, ptr %411, i64 -1
+  %413 = load i8, ptr %412, align 1, !tbaa !21
+  %414 = icmp eq i8 %413, 32
+  br i1 %414, label %415, label %.lr.ph28.i.i.i
+
+415:                                              ; preds = %.lr.ph.i.i.i
+  %416 = add i64 %410, -1
+  store i64 %416, ptr %73, align 8, !tbaa !26
+  %.not.i90.i.i = icmp eq i64 %416, 0
+  br i1 %.not.i90.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !42
+
+.lr.ph28.i.i.i:                                   ; preds = %.lr.ph.i.i.i, %421
+  %417 = phi i64 [ %422, %421 ], [ %410, %.lr.ph.i.i.i ]
+  %418 = getelementptr i8, ptr %.pre.i.pre.i.i, i64 %417
+  %419 = getelementptr i8, ptr %418, i64 -1
+  %420 = load i8, ptr %419, align 1, !tbaa !21
+  %.not23.i.i.i = icmp eq i8 %420, 32
+  br i1 %.not23.i.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %421
+
+421:                                              ; preds = %.lr.ph28.i.i.i
+  %422 = add i64 %417, -1
+  store i64 %422, ptr %73, align 8, !tbaa !26
+  %.not22.i89.i.i = icmp eq i64 %422, 0
+  br i1 %.not22.i89.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph28.i.i.i, !llvm.loop !43
+
+linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %415, %421, %.lr.ph28.i.i.i, %408
+  %.lcssa.i.i.i = phi i64 [ 0, %408 ], [ 0, %421 ], [ %417, %.lr.ph28.i.i.i ], [ 0, %415 ]
+  %.neg.i.i.i = sub i64 %.lcssa.i.i.i, %409
+  %423 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %.lcssa.i.i.i
+  %424 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %409
+  %425 = load i64, ptr %74, align 8, !tbaa !17
+  %reass.sub = sub i64 %425, %409
+  %426 = add i64 %reass.sub, 1
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %423, ptr align 1 %424, i64 %426, i1 false)
+  %427 = load i64, ptr %74, align 8, !tbaa !17
+  %428 = add i64 %.neg.i.i.i, %427
+  store i64 %428, ptr %74, align 8, !tbaa !17
+  call fastcc void @refreshLine(ptr noundef nonnull %12)
+  br label %linenoiseEditBackspace.exit.i.i
+
+.thread.i.i:                                      ; preds = %393, %299, %267, %261, %.loopexit.i.i, %._crit_edge.i.i
+  %.2.ph.i.i = phi i32 [ %231, %.loopexit.i.i ], [ -1, %299 ], [ -1, %267 ], [ %263, %261 ], [ %155, %._crit_edge.i.i ], [ -1, %393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %427 = icmp eq i32 %.2.ph.i.i, -1
+  %429 = icmp eq i32 %.2.ph.i.i, -1
   br label %linenoiseEdit.exit.i
 
-linenoiseEditBackspace.exit.i.i:                  ; preds = %linenoiseEditDeletePrevWord.exit.i.i, %404, %403, %400, %399, %397, %394, %393, %391, %390, %387, %386, %384, %382, %381, %378, %377, %375, %373, %371, %369, %366, %365, %364, %363, %362, %355, %350, %348, %343, %339, %338, %336, %335, %332, %330, %326, %324, %321, %319, %317, %316, %304, %287, %284, %271, %269, %267, %263, %disableReverseSearchMode.exit.i.i, %233, %thread-pre-split.i.i, %230
+linenoiseEditBackspace.exit.i.i:                  ; preds = %linenoiseEditDeletePrevWord.exit.i.i, %406, %405, %402, %401, %399, %396, %395, %393, %392, %389, %388, %386, %384, %383, %380, %379, %377, %375, %373, %371, %368, %367, %366, %365, %364, %357, %352, %350, %345, %341, %340, %338, %337, %334, %332, %328, %326, %323, %321, %319, %318, %306, %289, %286, %273, %271, %269, %265, %disableReverseSearchMode.exit.i.i, %235, %thread-pre-split.i.i, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %428 = load i32, ptr %12, align 8, !tbaa !58
-  %429 = call i64 @read(i32 noundef %428, ptr noundef nonnull %13, i64 noundef 1) #24
-  %430 = trunc i64 %429 to i32
-  %431 = icmp slt i32 %430, 1
-  br i1 %431, label %._crit_edge.i.i, label %154
+  %430 = load i32, ptr %12, align 8, !tbaa !58
+  %431 = call i64 @read(i32 noundef %430, ptr noundef nonnull %13, i64 noundef 1) #24
+  %432 = trunc i64 %431 to i32
+  %433 = icmp slt i32 %432, 1
+  br i1 %433, label %._crit_edge.i.i, label %156
 
 linenoiseEdit.exit.i:                             ; preds = %.thread.i.i, %getColumns.exit.i.i
-  %.0.i.i = phi i1 [ true, %getColumns.exit.i.i ], [ %427, %.thread.i.i ]
+  %.0.i.i = phi i1 [ true, %getColumns.exit.i.i ], [ %429, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.b.i6.i = load i1, ptr @rawmode, align 4
-  br i1 %.b.i6.i, label %432, label %linenoiseRaw.exit
+  br i1 %.b.i6.i, label %434, label %linenoiseRaw.exit
 
-432:                                              ; preds = %linenoiseEdit.exit.i
-  %433 = call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @orig_termios) #24
-  %.not.i7.i = icmp eq i32 %433, -1
-  br i1 %.not.i7.i, label %linenoiseRaw.exit, label %434
+434:                                              ; preds = %linenoiseEdit.exit.i
+  %435 = call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @orig_termios) #24
+  %.not.i7.i = icmp eq i32 %435, -1
+  br i1 %.not.i7.i, label %linenoiseRaw.exit, label %436
 
-434:                                              ; preds = %432
+436:                                              ; preds = %434
   store i1 false, ptr @rawmode, align 4
   br label %linenoiseRaw.exit
 
-linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.i, %432, %434
+linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.i, %434, %436
   %putchar.i = call i32 @putchar(i32 10)
-  br i1 %.0.i.i, label %linenoiseNoTTY.exit, label %435
+  br i1 %.0.i.i, label %linenoiseNoTTY.exit, label %437
 
-435:                                              ; preds = %linenoiseRaw.exit
-  %436 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
+437:                                              ; preds = %linenoiseRaw.exit
+  %438 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
   br label %linenoiseNoTTY.exit
 
-linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %435
-  %.010 = phi ptr [ %436, %435 ], [ %61, %.critedge ], [ null, %isUnsupportedTerm.exit ], [ null, %linenoiseRaw.exit ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
+linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %437
+  %.010 = phi ptr [ %438, %437 ], [ %63, %.critedge ], [ null, %isUnsupportedTerm.exit ], [ null, %linenoiseRaw.exit ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %.010
 }

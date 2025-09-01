@@ -5828,7 +5828,7 @@ define dso_local i64 @bytea_bit_count(ptr noundef readonly captures(none) %0) lo
   %31 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 1
   %32 = load i8, ptr %.01013.i, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr @pg_number_of_ones, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr @pg_number_of_ones, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
   %37 = add i64 %.015.i, %36
@@ -8111,7 +8111,7 @@ check_collation_set.exit:                         ; preds = %45
 
 99:                                               ; preds = %95, %99
   %indvars.iv = phi i64 [ 0, %95 ], [ %indvars.iv.next, %99 ]
-  %100 = getelementptr inbounds nuw [256 x i32], ptr %97, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv
   store i32 %46, ptr %100, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8129,7 +8129,7 @@ check_collation_set.exit:                         ; preds = %45
   %105 = zext i8 %104 to i32
   %106 = and i32 %.0, %105
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i32], ptr %97, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr %97, i64 %107
   %109 = trunc i64 %indvars.iv87 to i32
   %110 = sub i32 %101, %109
   store i32 %110, ptr %108, align 4
@@ -8246,7 +8246,7 @@ define internal fastcc noundef zeroext i1 @text_position_next(ptr noundef nonnul
   %53 = zext i8 %46 to i32
   %54 = and i32 %25, %53
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [256 x i32], ptr %19, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %19, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %.14662.i, i64 %58
@@ -11371,7 +11371,7 @@ define internal fastcc noundef ptr @concat_internal(ptr noundef %0, i32 noundef 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.NullableDatum, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i8, ptr %13, align 8, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
@@ -11465,7 +11465,7 @@ build_concat_foutcache.exit:                      ; preds = %44, %26
   %63 = phi i16 [ %57, %.lr.ph ], [ %75, %74 ]
   %indvars.iv = phi i64 [ %61, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.02831 = phi i1 [ true, %.lr.ph ], [ %.2, %74 ]
-  %64 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %60, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw %struct.NullableDatum, ptr %60, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i8, ptr %65, align 8, !range !9, !noundef !10
   %67 = trunc nuw i8 %66 to i1
@@ -12244,7 +12244,7 @@ text_format_parse_format.exit:                    ; preds = %180, %158, %124, %1
 
 200:                                              ; preds = %199
   %201 = sext i32 %spec.select to i64
-  %202 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %17, i64 0, i64 %201
+  %202 = getelementptr inbounds %struct.NullableDatum, ptr %17, i64 %201
   %203 = load i64, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %205 = load i8, ptr %204, align 8, !range !9, !noundef !10
@@ -12341,7 +12341,7 @@ text_format_parse_format.exit:                    ; preds = %180, %158, %124, %1
 
 243:                                              ; preds = %242
   %244 = sext i32 %spec.select132 to i64
-  %245 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %17, i64 0, i64 %244
+  %245 = getelementptr inbounds %struct.NullableDatum, ptr %17, i64 %244
   %246 = load i64, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %248 = load i8, ptr %247, align 8, !range !9, !noundef !10

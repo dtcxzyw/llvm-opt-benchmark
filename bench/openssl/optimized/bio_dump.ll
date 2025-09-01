@@ -135,10 +135,10 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
   %or.cond = icmp ult i8 %56, 95
   %narrow = select i1 %or.cond, i8 %55, i8 46
   %57 = add nsw i32 %.392, 1
-  %58 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %53
+  %58 = getelementptr inbounds i8, ptr %6, i64 %53
   store i8 %narrow, ptr %58, align 1, !tbaa !3
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %59
+  %60 = getelementptr inbounds i8, ptr %6, i64 %59
   store i8 0, ptr %60, align 1, !tbaa !3
   br label %61
 
@@ -164,10 +164,10 @@ define i32 @BIO_dump_indent_cb(ptr noundef readonly captures(none) %0, ptr nound
 65:                                               ; preds = %._crit_edge95
   %66 = sext i32 %.3.lcssa to i64
   %67 = add nsw i32 %.3.lcssa, 1
-  %68 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %66
+  %68 = getelementptr inbounds i8, ptr %6, i64 %66
   store i8 10, ptr %68, align 1, !tbaa !3
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds [289 x i8], ptr %6, i64 0, i64 %69
+  %70 = getelementptr inbounds i8, ptr %6, i64 %69
   store i8 0, ptr %70, align 1, !tbaa !3
   br label %71
 

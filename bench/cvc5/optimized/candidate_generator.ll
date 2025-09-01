@@ -2116,7 +2116,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %26, %24, %18
   %49 = icmp eq i32 %48, 2
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %51 = zext i1 %49 to i64
-  %52 = getelementptr inbounds nuw [0 x ptr], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !22, !noalias !72
   store ptr %53, ptr %7, align 8, !tbaa !16, !alias.scope !72
   %54 = load i64, ptr %53, align 8, !noalias !72
@@ -2717,7 +2717,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst26CandidateGenerat
   %27 = icmp eq i32 %26, 2
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %29 = zext i1 %27 to i64
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !22, !noalias !83
   store ptr %31, ptr %4, align 8, !tbaa !16, !alias.scope !83
   %32 = load i64, ptr %31, align 8, !noalias !83

@@ -298,7 +298,7 @@ define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef readon
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = tail call i32 @EVP_MD_CTX_get_size_ex(ptr noundef %12) #5
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %113, label %15
+  br i1 %14, label %109, label %15
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %13 to i64
@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef readon
   %narrow = sub nuw nsw i32 48, %17
   %18 = zext nneg i32 %narrow to i64
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %19, label %54
+  br i1 %.not, label %19, label %50
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4128
@@ -315,158 +315,154 @@ define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef readon
   %22 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %21) #5
   %23 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %22) #5
   %24 = icmp eq i32 %23, 2
-  br i1 %24, label %25, label %54
+  br i1 %24, label %25, label %50
 
 25:                                               ; preds = %19
   %26 = tail call signext i8 @ssl3_cbc_record_digest_supported(ptr noundef %12) #5
   %.not75 = icmp eq i8 %26, 0
-  br i1 %.not75, label %54, label %27
+  br i1 %.not75, label %50, label %27
 
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %10, i64 %16, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 54, i64 %18, i1 false)
-  %29 = add nuw nsw i64 %16, %18
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 %29
-  %31 = load i64, ptr %9, align 1
-  store i64 %31, ptr %30, align 1
-  %32 = add nuw nsw i64 %29, 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !40
-  %35 = trunc i32 %34 to i8
-  %36 = add nuw nsw i64 %29, 9
-  %37 = getelementptr inbounds nuw [75 x i8], ptr %7, i64 0, i64 %32
-  store i8 %35, ptr %37, align 1, !tbaa !29
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !26
-  %40 = lshr i64 %39, 8
-  %41 = trunc i64 %40 to i8
-  %42 = add nuw nsw i64 %29, 10
-  %43 = getelementptr inbounds nuw [75 x i8], ptr %7, i64 0, i64 %36
-  store i8 %41, ptr %43, align 1, !tbaa !29
-  %44 = trunc i64 %39 to i8
-  %45 = getelementptr inbounds nuw [75 x i8], ptr %7, i64 0, i64 %42
-  store i8 %44, ptr %45, align 1, !tbaa !29
-  %46 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %12) #5
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !28
-  %49 = load i64, ptr %38, align 8, !tbaa !26
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !38
-  %52 = call i32 @ssl3_cbc_digest_record(ptr noundef %46, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %48, i64 noundef %49, i64 noundef %51, ptr noundef nonnull %10, i64 noundef %16, i8 noundef signext 1) #5
-  %53 = icmp sgt i32 %52, 0
+  %28 = getelementptr i8, ptr %7, i64 %16
+  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 54, i64 %18, i1 false)
+  %29 = getelementptr i8, ptr %28, i64 %18
+  %30 = load i64, ptr %9, align 1
+  store i64 %30, ptr %29, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !40
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr i8, ptr %29, i64 8
+  store i8 %33, ptr %34, align 1, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !26
+  %37 = lshr i64 %36, 8
+  %38 = trunc i64 %37 to i8
+  %39 = getelementptr i8, ptr %29, i64 9
+  store i8 %38, ptr %39, align 1, !tbaa !29
+  %40 = trunc i64 %36 to i8
+  %41 = getelementptr i8, ptr %29, i64 10
+  store i8 %40, ptr %41, align 1, !tbaa !29
+  %42 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %12) #5
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %45 = load i64, ptr %35, align 8, !tbaa !26
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !38
+  %48 = call i32 @ssl3_cbc_digest_record(ptr noundef %42, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %44, i64 noundef %45, i64 noundef %47, ptr noundef nonnull %10, i64 noundef %16, i8 noundef signext 1) #5
+  %49 = icmp sgt i32 %48, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %53, label %111, label %113
+  br i1 %49, label %107, label %109
 
-54:                                               ; preds = %25, %19, %15
+50:                                               ; preds = %25, %19, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %55 = tail call ptr @EVP_MD_CTX_new() #5
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.critedge, label %57
+  %51 = tail call ptr @EVP_MD_CTX_new() #5
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.critedge, label %53
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !40
-  %60 = trunc i32 %59 to i8
-  store i8 %60, ptr %5, align 1, !tbaa !29
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !26
-  %63 = lshr i64 %62, 8
-  %64 = trunc i64 %63 to i8
-  store i8 %64, ptr %2, align 1, !tbaa !29
-  %65 = load i64, ptr %61, align 8, !tbaa !26
-  %66 = trunc i64 %65 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %66, ptr %67, align 1, !tbaa !29
-  %68 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %55, ptr noundef %12) #5
-  %69 = icmp slt i32 %68, 1
-  br i1 %69, label %109, label %70
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %55 = load i32, ptr %54, align 4, !tbaa !40
+  %56 = trunc i32 %55 to i8
+  store i8 %56, ptr %5, align 1, !tbaa !29
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !26
+  %59 = lshr i64 %58, 8
+  %60 = trunc i64 %59 to i8
+  store i8 %60, ptr %2, align 1, !tbaa !29
+  %61 = load i64, ptr %57, align 8, !tbaa !26
+  %62 = trunc i64 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %62, ptr %63, align 1, !tbaa !29
+  %64 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %51, ptr noundef %12) #5
+  %65 = icmp slt i32 %64, 1
+  br i1 %65, label %105, label %66
 
-70:                                               ; preds = %57
-  %71 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %10, i64 noundef %16) #5
-  %72 = icmp slt i32 %71, 1
-  br i1 %72, label %109, label %73
+66:                                               ; preds = %53
+  %67 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %10, i64 noundef %16) #5
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %105, label %69
 
-73:                                               ; preds = %70
-  %74 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull @ssl3_pad_1, i64 noundef %18) #5
-  %75 = icmp slt i32 %74, 1
-  br i1 %75, label %109, label %76
+69:                                               ; preds = %66
+  %70 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull @ssl3_pad_1, i64 noundef %18) #5
+  %71 = icmp slt i32 %70, 1
+  br i1 %71, label %105, label %72
 
-76:                                               ; preds = %73
-  %77 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %9, i64 noundef 8) #5
-  %78 = icmp slt i32 %77, 1
-  br i1 %78, label %109, label %79
+72:                                               ; preds = %69
+  %73 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %9, i64 noundef 8) #5
+  %74 = icmp slt i32 %73, 1
+  br i1 %74, label %105, label %75
 
-79:                                               ; preds = %76
-  %80 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 1) #5
-  %81 = icmp slt i32 %80, 1
-  br i1 %81, label %109, label %82
+75:                                               ; preds = %72
+  %76 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %5, i64 noundef 1) #5
+  %77 = icmp slt i32 %76, 1
+  br i1 %77, label %105, label %78
 
-82:                                               ; preds = %79
-  %83 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %2, i64 noundef 2) #5
-  %84 = icmp slt i32 %83, 1
-  br i1 %84, label %109, label %85
+78:                                               ; preds = %75
+  %79 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %2, i64 noundef 2) #5
+  %80 = icmp slt i32 %79, 1
+  br i1 %80, label %105, label %81
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !28
-  %88 = load i64, ptr %61, align 8, !tbaa !26
-  %89 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef %87, i64 noundef %88) #5
-  %90 = icmp slt i32 %89, 1
-  br i1 %90, label %109, label %91
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %83 = load ptr, ptr %82, align 8, !tbaa !28
+  %84 = load i64, ptr %57, align 8, !tbaa !26
+  %85 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef %83, i64 noundef %84) #5
+  %86 = icmp slt i32 %85, 1
+  br i1 %86, label %105, label %87
 
-91:                                               ; preds = %85
-  %92 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %55, ptr noundef nonnull %2, ptr noundef null) #5
-  %93 = icmp slt i32 %92, 1
-  br i1 %93, label %109, label %94
+87:                                               ; preds = %81
+  %88 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %51, ptr noundef nonnull %2, ptr noundef null) #5
+  %89 = icmp slt i32 %88, 1
+  br i1 %89, label %105, label %90
 
-94:                                               ; preds = %91
-  %95 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %55, ptr noundef %12) #5
-  %96 = icmp slt i32 %95, 1
-  br i1 %96, label %109, label %97
+90:                                               ; preds = %87
+  %91 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %51, ptr noundef %12) #5
+  %92 = icmp slt i32 %91, 1
+  br i1 %92, label %105, label %93
 
-97:                                               ; preds = %94
-  %98 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %10, i64 noundef %16) #5
-  %99 = icmp slt i32 %98, 1
-  br i1 %99, label %109, label %100
+93:                                               ; preds = %90
+  %94 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %10, i64 noundef %16) #5
+  %95 = icmp slt i32 %94, 1
+  br i1 %95, label %105, label %96
 
-100:                                              ; preds = %97
-  %101 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull @ssl3_pad_2, i64 noundef %18) #5
-  %102 = icmp slt i32 %101, 1
-  br i1 %102, label %109, label %103
+96:                                               ; preds = %93
+  %97 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull @ssl3_pad_2, i64 noundef %18) #5
+  %98 = icmp slt i32 %97, 1
+  br i1 %98, label %105, label %99
 
-103:                                              ; preds = %100
-  %104 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %55, ptr noundef nonnull %2, i64 noundef %16) #5
-  %105 = icmp slt i32 %104, 1
-  br i1 %105, label %109, label %106
+99:                                               ; preds = %96
+  %100 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %51, ptr noundef nonnull %2, i64 noundef %16) #5
+  %101 = icmp slt i32 %100, 1
+  br i1 %101, label %105, label %102
 
-106:                                              ; preds = %103
-  %107 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %55, ptr noundef nonnull %2, ptr noundef nonnull %8) #5
-  %108 = icmp slt i32 %107, 1
-  br i1 %108, label %109, label %110
+102:                                              ; preds = %99
+  %103 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %51, ptr noundef nonnull %2, ptr noundef nonnull %8) #5
+  %104 = icmp slt i32 %103, 1
+  br i1 %104, label %105, label %106
 
-109:                                              ; preds = %106, %103, %100, %97, %94, %91, %85, %82, %79, %76, %73, %70, %57
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %55) #5
+105:                                              ; preds = %102, %99, %96, %93, %90, %87, %81, %78, %75, %72, %69, %66, %53
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %51) #5
   br label %.critedge
 
-110:                                              ; preds = %106
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %55) #5
+106:                                              ; preds = %102
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %51) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %111
+  br label %107
 
-111:                                              ; preds = %110, %27
-  %112 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #5
-  %.not76 = icmp ne i32 %112, 0
+107:                                              ; preds = %106, %27
+  %108 = call i32 @tls_increment_sequence_ctr(ptr noundef nonnull %0) #5
+  %.not76 = icmp ne i32 %108, 0
   %. = zext i1 %.not76 to i32
-  br label %113
+  br label %109
 
-.critedge:                                        ; preds = %54, %109
+.critedge:                                        ; preds = %50, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %113
+  br label %109
 
-113:                                              ; preds = %111, %.critedge, %4, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %4 ], [ 0, %.critedge ], [ %., %111 ]
+109:                                              ; preds = %107, %.critedge, %4, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %4 ], [ 0, %.critedge ], [ %., %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -105,7 +105,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %36 = load i32, ptr %35, align 8, !tbaa !41
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [2 x ptr], ptr %34, i64 0, i64 %37
+  %38 = getelementptr inbounds ptr, ptr %34, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !40

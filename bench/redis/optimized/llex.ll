@@ -55,7 +55,7 @@ define hidden void @luaX_init(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr @luaX_tokens, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @luaX_tokens, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = tail call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %5) #8
@@ -105,9 +105,9 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
   br label %22
 
 17:                                               ; preds = %2
-  %18 = add nsw i32 %1, -257
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [32 x ptr], ptr @luaX_tokens, i64 0, i64 %19
+  %18 = zext nneg i32 %1 to i64
+  %19 = getelementptr ptr, ptr @luaX_tokens, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -2056
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
 
@@ -173,9 +173,9 @@ define hidden void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr no
   br label %txtToken.exit
 
 32:                                               ; preds = %19
-  %33 = add nsw i32 %2, -257
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [32 x ptr], ptr @luaX_tokens, i64 0, i64 %34
+  %33 = zext nneg i32 %2 to i64
+  %34 = getelementptr ptr, ptr @luaX_tokens, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -2056
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   br label %txtToken.exit
 

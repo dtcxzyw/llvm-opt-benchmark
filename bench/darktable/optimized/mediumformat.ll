@@ -246,7 +246,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
 105:                                              ; preds = %104
   %106 = and i32 %88, 3
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [5 x i8], ptr @.str, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @.str, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !74
   %110 = sext i8 %109 to i32
   %111 = add nsw i32 %110, -48
@@ -295,7 +295,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   %138 = fptrunc reassoc nsz arcp contract afn double %137 to float
   %139 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv162
   store float %138, ptr %139, align 4, !tbaa !77
-  %140 = getelementptr inbounds nuw [9 x float], ptr %71, i64 0, i64 %indvars.iv162
+  %140 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv162
   store float %138, ptr %140, align 4, !tbaa !77
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 9
@@ -309,7 +309,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.preheader142 ], [ 0, %104 ]
   %142 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 11)
   %143 = fptrunc reassoc nsz arcp contract afn double %142 to float
-  %144 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %indvars.iv158
+  %144 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv158
   store float %143, ptr %144, align 4, !tbaa !77
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 3
@@ -429,7 +429,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader144 ], [ 0, %104 ]
   %190 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 11)
   %191 = fptrunc reassoc nsz arcp contract afn double %190 to float
-  %192 = getelementptr inbounds nuw [9 x float], ptr %46, i64 0, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   store float %191, ptr %192, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -1134,7 +1134,7 @@ define void @_ZN6LibRaw9parse_mosEx(ptr noundef nonnull align 8 dereferenceable(
 
 106:                                              ; preds = %98
   %107 = zext nneg i32 %104 to i64
-  %108 = getelementptr inbounds nuw [39 x ptr], ptr @_ZZN6LibRaw9parse_mosExE3mod, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw9parse_mosExE3mod, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !117
   %110 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %109) #10
   %bcmp64 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %24, ptr noundef nonnull dereferenceable(3) @.str.55, i64 3)
@@ -1297,7 +1297,7 @@ define void @_ZN6LibRaw9parse_mosEx(ptr noundef nonnull align 8 dereferenceable(
 181:                                              ; preds = %.preheader, %188
   %indvars.iv102 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next103, %188 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %182 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.next103
+  %182 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next103
   %183 = load i32, ptr %182, align 4, !tbaa !116
   %.not81 = icmp eq i32 %183, 0
   br i1 %.not81, label %188, label %184
@@ -1305,7 +1305,7 @@ define void @_ZN6LibRaw9parse_mosEx(ptr noundef nonnull align 8 dereferenceable(
 184:                                              ; preds = %181
   %185 = sitofp i32 %183 to float
   %186 = fdiv reassoc nsz arcp contract afn float %174, %185
-  %187 = getelementptr inbounds nuw [4 x float], ptr %35, i64 0, i64 %indvars.iv102
+  %187 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv102
   store float %186, ptr %187, align 4, !tbaa !77
   br label %188
 
@@ -1355,7 +1355,7 @@ define void @_ZN6LibRaw9parse_mosEx(ptr noundef nonnull align 8 dereferenceable(
   %210 = add nsw i32 %209, %.027.lcssa.ph
   %211 = and i32 %210, 3
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw [5 x i8], ptr @.str.65, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr @.str.65, i64 %212
   %214 = load i8, ptr %213, align 1, !tbaa !74
   %215 = zext i8 %214 to i32
   %216 = mul nuw i32 %206, %215

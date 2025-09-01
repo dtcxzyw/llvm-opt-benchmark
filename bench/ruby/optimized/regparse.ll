@@ -1383,9 +1383,9 @@ popular_quantifier_num.exit48:                    ; preds = %popular_quantifier_
 
 42:                                               ; preds = %popular_quantifier_num.exit48
   %43 = zext nneg i32 %.0.i39 to i64
-  %44 = getelementptr [6 x [6 x i32]], ptr @ReduceTypeTable, i64 0, i64 %43
+  %44 = getelementptr [6 x i32], ptr @ReduceTypeTable, i64 %43
   %45 = zext nneg i32 %.0.i to i64
-  %46 = getelementptr [6 x i32], ptr %44, i64 0, i64 %45
+  %46 = getelementptr i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !11
   switch i32 %47, label %70 [
     i32 1, label %48
@@ -7900,7 +7900,7 @@ create_node_from_array.exit.i:                    ; preds = %.lr.ph32.i.i, %node
 
 911:                                              ; preds = %911, %.thread383.i
   %indvars.iv.i = phi i64 [ 0, %.thread383.i ], [ %indvars.iv.next.i, %911 ]
-  %912 = getelementptr [16 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %912 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
   %913 = load ptr, ptr %912, align 8, !tbaa !89
   call void @onig_node_free(ptr noundef %913)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9172,9 +9172,9 @@ popular_quantifier_num.exit79.i:                  ; preds = %popular_quantifier_
 
 1466:                                             ; preds = %1460
   %1467 = zext nneg i32 %.0.i70.i to i64
-  %1468 = getelementptr [6 x [6 x i32]], ptr @ReduceTypeTable, i64 0, i64 %1467
+  %1468 = getelementptr [6 x i32], ptr @ReduceTypeTable, i64 %1467
   %1469 = zext nneg i32 %.0.i68.i to i64
-  %1470 = getelementptr [6 x i32], ptr %1468, i64 0, i64 %1469
+  %1470 = getelementptr i32, ptr %1468, i64 %1469
   %1471 = load i32, ptr %1470, align 4, !tbaa !11
   switch i32 %1471, label %1477 [
     i32 0, label %.thread105.i
@@ -9187,7 +9187,7 @@ popular_quantifier_num.exit79.i:                  ; preds = %popular_quantifier_
   br i1 %.not57.i390, label %.thread105.i, label %1474
 
 1474:                                             ; preds = %1472
-  %1475 = getelementptr [6 x ptr], ptr @PopularQStr, i64 0, i64 %1467
+  %1475 = getelementptr ptr, ptr @PopularQStr, i64 %1467
   %1476 = load ptr, ptr %1475, align 8, !tbaa !67
   call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.23, ptr noundef %1476)
   br label %.thread105.i
@@ -9198,12 +9198,12 @@ popular_quantifier_num.exit79.i:                  ; preds = %popular_quantifier_
   br i1 %.not58.i391, label %.thread105.i, label %1479
 
 1479:                                             ; preds = %1477
-  %1480 = getelementptr [6 x ptr], ptr @PopularQStr, i64 0, i64 %1467
+  %1480 = getelementptr ptr, ptr @PopularQStr, i64 %1467
   %1481 = load ptr, ptr %1480, align 8, !tbaa !67
-  %1482 = getelementptr [6 x ptr], ptr @PopularQStr, i64 0, i64 %1469
+  %1482 = getelementptr ptr, ptr @PopularQStr, i64 %1469
   %1483 = load ptr, ptr %1482, align 8, !tbaa !67
   %1484 = zext i32 %1471 to i64
-  %1485 = getelementptr [7 x ptr], ptr @ReduceQStr, i64 0, i64 %1484
+  %1485 = getelementptr ptr, ptr @ReduceQStr, i64 %1484
   %1486 = load ptr, ptr %1485, align 8, !tbaa !67
   call void (ptr, ptr, ...) @onig_syntax_warn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.24, ptr noundef %1481, ptr noundef %1483, ptr noundef %1486)
   br label %.thread105.i
@@ -9489,7 +9489,7 @@ bbuf_free.exit213:                                ; preds = %48
 66:                                               ; preds = %.preheader248
   %67 = lshr i32 %.0165257, 5
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr [8 x i32], ptr %61, i64 0, i64 %68
+  %69 = getelementptr i32, ptr %61, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !11
   %71 = and i32 %.0165257, 31
   %72 = shl nuw i32 1, %71
@@ -9564,7 +9564,7 @@ CC_DUP_WARN.exit:                                 ; preds = %88, %85, %80, %76, 
 107:                                              ; preds = %.preheader
   %108 = lshr i32 %.1166258, 5
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr [8 x i32], ptr %61, i64 0, i64 %109
+  %110 = getelementptr i32, ptr %61, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !11
   %112 = and i32 %.1166258, 31
   %113 = shl nuw i32 1, %112
@@ -9633,7 +9633,7 @@ CC_DUP_WARN.exit218:                              ; preds = %129, %126, %121, %1
 142:                                              ; preds = %.preheader250
   %143 = lshr i32 %.2167255, 5
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr [8 x i32], ptr %137, i64 0, i64 %144
+  %145 = getelementptr i32, ptr %137, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !11
   %147 = and i32 %.2167255, 31
   %148 = shl nuw i32 1, %147
@@ -9711,7 +9711,7 @@ CC_DUP_WARN.exit222:                              ; preds = %164, %161, %156, %1
 184:                                              ; preds = %.preheader249
   %185 = lshr i32 %.3168256, 5
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr [8 x i32], ptr %137, i64 0, i64 %186
+  %187 = getelementptr i32, ptr %137, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !11
   %189 = and i32 %.3168256, 31
   %190 = shl nuw i32 1, %189
@@ -9808,7 +9808,7 @@ CC_DUP_WARN.exit226:                              ; preds = %206, %203, %198, %1
 238:                                              ; preds = %235
   %239 = lshr i32 %.4169254, 5
   %240 = zext nneg i32 %239 to i64
-  %241 = getelementptr [8 x i32], ptr %232, i64 0, i64 %240
+  %241 = getelementptr i32, ptr %232, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !11
   %243 = and i32 %.4169254, 31
   %244 = shl nuw i32 1, %243
@@ -9894,7 +9894,7 @@ CC_DUP_WARN.exit230:                              ; preds = %260, %257, %252, %2
 285:                                              ; preds = %282
   %286 = lshr i32 %.5170253, 5
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr [8 x i32], ptr %228, i64 0, i64 %287
+  %288 = getelementptr i32, ptr %228, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !11
   %290 = and i32 %.5170253, 31
   %291 = shl nuw i32 1, %290
@@ -10268,7 +10268,7 @@ CC_ESC_WARN.exit427:                              ; preds = %459, %454, %451, %1
 137:                                              ; preds = %135
   %138 = load i32, ptr %98, align 8, !tbaa !13
   %139 = trunc i32 %138 to i8
-  %140 = getelementptr [7 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %140 = getelementptr i8, ptr %14, i64 %indvars.iv
   store i8 %139, ptr %140, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = getelementptr inbounds nuw i8, ptr %.pre.pre683, i64 16
@@ -10682,7 +10682,7 @@ CC_ESC_WARN.exit417:                              ; preds = %parse_posix_bracket
   %339 = load i32, ptr %7, align 4, !tbaa !11
   %340 = sdiv i32 %339, 32
   %341 = sext i32 %340 to i64
-  %342 = getelementptr [8 x i32], ptr %338, i64 0, i64 %341
+  %342 = getelementptr i32, ptr %338, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !11
   %344 = and i32 %339, 31
   %345 = shl nuw i32 1, %344
@@ -10734,7 +10734,7 @@ CC_DUP_WARN.exit.i:                               ; preds = %361, %358, %353, %3
   %369 = getelementptr inbounds nuw i8, ptr %.1295.ph, i64 8
   %370 = sdiv i32 %366, 32
   %371 = sext i32 %370 to i64
-  %372 = getelementptr [8 x i32], ptr %369, i64 0, i64 %371
+  %372 = getelementptr i32, ptr %369, i64 %371
   %373 = load i32, ptr %372, align 4, !tbaa !11
   %374 = or i32 %368, %373
   store i32 %374, ptr %372, align 4, !tbaa !11
@@ -11200,7 +11200,7 @@ bbuf_free.exit430:                                ; preds = %505, %bbuf_free.exi
 
 565:                                              ; preds = %.preheader, %564
   %indvars.iv677 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next678, %564 ]
-  %566 = getelementptr [8 x i32], ptr %563, i64 0, i64 %indvars.iv677
+  %566 = getelementptr i32, ptr %563, i64 %indvars.iv677
   %567 = load i32, ptr %566, align 4, !tbaa !11
   %.not381 = icmp eq i32 %567, 0
   br i1 %.not381, label %564, label %.loopexit
@@ -11344,7 +11344,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = lshr i32 %15, 5
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [8 x i32], ptr %22, i64 0, i64 %24
+  %25 = getelementptr i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = and i32 %15, 31
   %28 = shl nuw i32 1, %27
@@ -11361,7 +11361,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
 32:                                               ; preds = %30, %62
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %62 ]
   %.33349 = phi i32 [ %.030, %30 ], [ %.5, %62 ]
-  %33 = getelementptr [8 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %33 = getelementptr i32, ptr %31, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !11
   %.not44 = icmp eq i32 %34, 0
   br i1 %.not44, label %62, label %35
@@ -12790,7 +12790,7 @@ define internal fastcc i32 @add_ctype_to_cc_by_range(ptr noundef captures(none) 
   %.010416512 = phi i32 [ %25, %.lr.ph167 ], [ %19, %.lr.ph167.preheader ]
   %35 = sdiv i32 %.010416512, 32
   %36 = sext i32 %35 to i64
-  %37 = getelementptr [8 x i32], ptr %12, i64 0, i64 %36
+  %37 = getelementptr i32, ptr %12, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = and i32 %.010416512, 31
   %40 = shl nuw i32 1, %39
@@ -12907,7 +12907,7 @@ CC_DUP_WARN.exit:                                 ; preds = %56, %53, %48, %44, 
 84:                                               ; preds = %.lr.ph
   %85 = sdiv i32 %.1105153, 32
   %86 = sext i32 %85 to i64
-  %87 = getelementptr [8 x i32], ptr %9, i64 0, i64 %86
+  %87 = getelementptr i32, ptr %9, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !11
   %89 = and i32 %.1105153, 31
   %90 = shl nuw i32 1, %89
@@ -12970,7 +12970,7 @@ CC_DUP_WARN.exit127:                              ; preds = %106, %103, %98, %94
   %.2156 = phi i32 [ %.0.lcssa, %.lr.ph157 ], [ %145, %CC_DUP_WARN.exit131 ]
   %120 = sdiv i32 %.2156, 32
   %121 = sext i32 %120 to i64
-  %122 = getelementptr [8 x i32], ptr %81, i64 0, i64 %121
+  %122 = getelementptr i32, ptr %81, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !11
   %124 = and i32 %.2156, 31
   %125 = shl nuw i32 1, %124
@@ -14884,7 +14884,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @next_state_val(ptr noundef
   %16 = load i32, ptr %2, align 4, !tbaa !11
   %17 = sdiv i32 %16, 32
   %18 = sext i32 %17 to i64
-  %19 = getelementptr [8 x i32], ptr %15, i64 0, i64 %18
+  %19 = getelementptr i32, ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !11
   %21 = and i32 %16, 31
   %22 = shl nuw i32 1, %21
@@ -14930,7 +14930,7 @@ CC_DUP_WARN.exit:                                 ; preds = %40, %36, %30, %26, 
   %44 = shl nuw i32 1, %43
   %45 = sdiv i32 %42, 32
   %46 = sext i32 %45 to i64
-  %47 = getelementptr [8 x i32], ptr %15, i64 0, i64 %46
+  %47 = getelementptr i32, ptr %15, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !11
   %49 = or i32 %44, %48
   store i32 %49, ptr %47, align 4, !tbaa !11
@@ -14944,7 +14944,7 @@ CC_DUP_WARN.exit:                                 ; preds = %40, %36, %30, %26, 
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = sdiv i32 %51, 32
   %56 = sext i32 %55 to i64
-  %57 = getelementptr [8 x i32], ptr %54, i64 0, i64 %56
+  %57 = getelementptr i32, ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = or i32 %53, %58
   store i32 %59, ptr %57, align 4, !tbaa !11

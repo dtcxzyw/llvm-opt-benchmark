@@ -37,7 +37,7 @@ define ptr @OSSL_trace_get_category_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw [21 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.trace_category_st, ptr @trace_categories, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !3
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7, !prof !10
@@ -66,7 +66,7 @@ define i32 @OSSL_trace_get_category_num(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %1, %3
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw [21 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw %struct.trace_category_st, ptr @trace_categories, i64 %.08
   %6 = load ptr, ptr %5, align 16, !tbaa !3
   %7 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %0, ptr noundef %6) #4
   %8 = icmp eq i32 %7, 0
@@ -170,7 +170,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 
 17:                                               ; preds = %.lr.ph, %._crit_edge30, %14
   %18 = phi i8 [ 32, %14 ], [ %.pre, %._crit_edge30 ], [ 10, %.lr.ph ]
-  %19 = getelementptr inbounds nuw [81 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 %18, ptr %19, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %.12227, i64 1
@@ -193,7 +193,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %.020343641 = phi i32 [ %.020343640, %._crit_edge.thread ], [ 0, %._crit_edge ]
   %25 = add nsw i32 %.020343641, 1
   %26 = sext i32 %.020343641 to i64
-  %27 = getelementptr inbounds [81 x i8], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr %6, i64 %26
   store i8 10, ptr %27, align 1, !tbaa !15
   br label %28
 

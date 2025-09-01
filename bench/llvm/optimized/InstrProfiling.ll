@@ -2871,7 +2871,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEN12_GLOBAL__N_112InstrL
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEN12_GLOBAL__N_112InstrLowerer22PerFunctionProfileDataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i: ; preds = %238, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEN12_GLOBAL__N_112InstrLowerer22PerFunctionProfileDataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i, %222
   %.pn.i160.i = phi ptr [ %282, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_14GlobalVariableEN12_GLOBAL__N_112InstrLowerer22PerFunctionProfileDataENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i ], [ %230, %222 ], [ %244, %238 ]
   %.0.i161.i = getelementptr inbounds nuw i8, ptr %.pn.i160.i, i64 8
-  %289 = getelementptr inbounds nuw [3 x i32], ptr %.0.i161.i, i64 0, i64 %.0.i.i.i57.i
+  %289 = getelementptr inbounds nuw i32, ptr %.0.i161.i, i64 %.0.i.i.i57.i
   %290 = trunc i64 %.0.i.i9.i.i to i32
   %291 = add i32 %290, 1
   %292 = load i32, ptr %289, align 4, !tbaa !93
@@ -3955,7 +3955,7 @@ _ZN4llvm16DenseMapIteratorIPNS_14GlobalVariableEN12_GLOBAL__N_112InstrLowerer22P
 759:                                              ; preds = %759, %.preheader.i.i
   %indvars.iv.i93.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i94.i, %759 ]
   %.149.i.i = phi i64 [ %.052.i.i, %.preheader.i.i ], [ %763, %759 ]
-  %760 = getelementptr inbounds nuw [3 x i32], ptr %754, i64 0, i64 %indvars.iv.i93.i
+  %760 = getelementptr inbounds nuw i32, ptr %754, i64 %indvars.iv.i93.i
   %761 = load i32, ptr %760, align 4, !tbaa !93
   %762 = zext i32 %761 to i64
   %763 = add i64 %.149.i.i, %762
@@ -4878,7 +4878,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
 
 switch.lookup:                                    ; preds = %1020
   %1162 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm26InstrProfilingLoweringPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 0, i64 %1162
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm26InstrProfilingLoweringPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 %1162
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN12_GLOBAL__N_112InstrLowerer16emitRegistrationEv.exit.i
 
@@ -6790,7 +6790,7 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %
 188:                                              ; preds = %188, %166
   %indvars.iv.i = phi i64 [ 0, %166 ], [ %indvars.iv.next.i, %188 ]
   %.0112180.i = phi i64 [ 0, %166 ], [ %192, %188 ]
-  %189 = getelementptr inbounds nuw [3 x i32], ptr %163, i64 0, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.i
   %190 = load i32, ptr %189, align 4, !tbaa !93
   %191 = zext i32 %190 to i64
   %192 = add i64 %.0112180.i, %191
@@ -7195,11 +7195,11 @@ _ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i: ; preds = %_ZNK4llvm11Globa
 
 376:                                              ; preds = %376, %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i
   %indvars.iv183.i = phi i64 [ 0, %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i ], [ %indvars.iv.next184.i, %376 ]
-  %377 = getelementptr inbounds nuw [3 x i32], ptr %163, i64 0, i64 %indvars.iv183.i
+  %377 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv183.i
   %378 = load i32, ptr %377, align 4, !tbaa !93
   %379 = zext i32 %378 to i64
   %380 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %278, i64 noundef %379, i1 noundef zeroext false) #20
-  %381 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv183.i
+  %381 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv183.i
   store ptr %380, ptr %381, align 8, !tbaa !320
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next184.i, 3
@@ -8627,7 +8627,7 @@ _ZNKSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEclES5_.exit.i: ; p
   %541 = phi i64 [ 0, %.lr.ph.i ], [ %547, %540 ]
   %.058.i = phi i64 [ %.0.i.i41.i, %.lr.ph.i ], [ %545, %540 ]
   %.03357.i = phi i32 [ 0, %.lr.ph.i ], [ %546, %540 ]
-  %542 = getelementptr inbounds nuw [3 x i32], ptr %516, i64 0, i64 %541
+  %542 = getelementptr inbounds nuw i32, ptr %516, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !93
   %544 = zext i32 %543 to i64
   %545 = add i64 %.058.i, %544

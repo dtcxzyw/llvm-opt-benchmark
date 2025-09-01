@@ -96,7 +96,7 @@ define internal i64 @mount_read(ptr noundef captures(none) %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %3
   %19 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.mount_read, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mount_read, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = call i32 @foreach_mountpoint(ptr noundef nonnull %switch.load, ptr noundef nonnull %4) #13
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 27:                                               ; preds = %20
   %28 = mul i32 %17, %14
   %29 = zext nneg i32 %.045 to i64
-  %30 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -269,7 +269,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 41:                                               ; preds = %34
   %42 = sub i32 %15, %28
   %43 = zext nneg i32 %.1 to i64
-  %44 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %43
   %45 = load i8, ptr %44, align 1
   br label %46
 
@@ -293,7 +293,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 
 55:                                               ; preds = %48
   %56 = zext nneg i32 %.2 to i64
-  %57 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %31 to i32
   %60 = sext i8 %58 to i32

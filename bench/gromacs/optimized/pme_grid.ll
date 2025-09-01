@@ -1462,15 +1462,15 @@ _Z18set_grid_alignmentPii.exit:                   ; preds = %105, %108
 
 113:                                              ; preds = %104, %113
   %indvars.iv = phi i64 [ 0, %104 ], [ %indvars.iv.next, %113 ]
-  %114 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4, !tbaa !11
-  %116 = getelementptr inbounds nuw [3 x i32], ptr %33, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4, !tbaa !11
   %118 = add i32 %115, -1
   %119 = add i32 %118, %117
   %120 = sdiv i32 %119, %117
   %.reass = add i32 %120, %26
-  %121 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   store i32 %.reass, ptr %121, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1544,8 +1544,8 @@ _ZNSt6vectorI9pmegrid_tSaIS0_EE6resizeEm.exit:    ; preds = %142, %144, %146, %1
   %.05275 = phi i32 [ %203, %239 ], [ 1, %.preheader116 ]
   %.05673 = phi i32 [ %.157, %239 ], [ -1, %.preheader116 ]
   %157 = getelementptr inbounds nuw i8, ptr %.pre8590, i64 112
-  %158 = getelementptr inbounds nuw [3 x %"class.std::vector.20"], ptr %157, i64 0, i64 %indvars.iv81
-  %159 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv81
+  %158 = getelementptr inbounds nuw %"class.std::vector.20", ptr %157, i64 %indvars.iv81
+  %159 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv81
   %160 = load i32, ptr %159, align 4, !tbaa !11
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -1586,9 +1586,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %179 = getelementptr inbounds nuw i8, ptr %.pre85, i64 76
-  %180 = getelementptr inbounds nuw [3 x i32], ptr %179, i64 0, i64 %indvars.iv81
+  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv81
   %181 = getelementptr inbounds nuw i8, ptr %.pre85, i64 112
-  %182 = getelementptr inbounds nuw [3 x %"class.std::vector.20"], ptr %181, i64 0, i64 %indvars.iv81
+  %182 = getelementptr inbounds nuw %"class.std::vector.20", ptr %181, i64 %indvars.iv81
   %183 = load ptr, ptr %182, align 8, !tbaa !187
   br label %.preheader
 
@@ -1629,7 +1629,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
 ._crit_edge:                                      ; preds = %.critedge, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %199 = phi i32 [ %177, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %196, %.critedge ]
   %200 = getelementptr inbounds nuw i8, ptr %.pre85, i64 76
-  %201 = getelementptr inbounds nuw [3 x i32], ptr %200, i64 0, i64 %indvars.iv81
+  %201 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv81
   %202 = load i32, ptr %201, align 4, !tbaa !11
   %203 = mul nsw i32 %202, %.05275
   %204 = trunc nuw nsw i64 %indvars.iv81 to i32
@@ -1666,7 +1666,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
 
 .critedge2:                                       ; preds = %211
   %217 = getelementptr inbounds nuw i8, ptr %.pre85, i64 184
-  %218 = getelementptr inbounds nuw [3 x i32], ptr %217, i64 0, i64 %indvars.iv81
+  %218 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv81
   store i32 %storemerge, ptr %218, align 4, !tbaa !11
   %219 = load ptr, ptr @debug, align 8, !tbaa !13
   %.not64 = icmp eq ptr %219, null
@@ -1678,7 +1678,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
   %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %219, ptr noundef nonnull @.str.5, i32 noundef %222, i32 noundef %storemerge) #7
   %.pre86 = load ptr, ptr %13, align 8, !tbaa !178
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre86, i64 76
-  %.phi.trans.insert87 = getelementptr inbounds nuw [3 x i32], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv81
+  %.phi.trans.insert87 = getelementptr inbounds nuw i32, ptr %.phi.trans.insert, i64 %indvars.iv81
   %.pre88 = load i32, ptr %.phi.trans.insert87, align 4, !tbaa !11
   br label %224
 
@@ -1690,7 +1690,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
 
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %.pre8591, i64 184
-  %229 = getelementptr inbounds nuw [3 x i32], ptr %228, i64 0, i64 %indvars.iv81
+  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %indvars.iv81
   %230 = load i32, ptr %229, align 4, !tbaa !11
   %231 = icmp sgt i32 %230, %225
   br i1 %231, label %232, label %239

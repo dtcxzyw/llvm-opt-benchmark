@@ -396,7 +396,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %216 = trunc nuw nsw i64 %215 to i32
   %217 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i32 %216, ptr %217, align 8
-  %218 = getelementptr [3 x i32], ptr @num_discovered_types, i64 0, i64 %215
+  %218 = getelementptr i32, ptr @num_discovered_types, i64 %215
   %219 = load i32, ptr %218, align 4
   %220 = add i32 %219, 1
   store i32 %220, ptr %218, align 4
@@ -1031,7 +1031,7 @@ define dso_local void @intel_generic_uncore_mmio_disable_event(ptr noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @intel_uncore_generic_init_uncores(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr [3 x i32], ptr @num_discovered_types, i64 0, i64 %3
+  %4 = getelementptr i32, ptr @num_discovered_types, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %1, 1
   %7 = add i32 %6, %5

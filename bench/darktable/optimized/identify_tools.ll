@@ -31,21 +31,21 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %.02226 = phi i32 [ %45, %43 ], [ 2, %.lr.ph.preheader ]
   %12 = load ptr, ptr %4, align 8, !tbaa !6
   %13 = zext nneg i32 %.02226 to i64
-  %14 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %13
   %15 = load ptr, ptr %12, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %14, i64 noundef 2, i64 noundef 1)
   %19 = xor i32 %.02226, 2
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %20
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %23 = phi i1 [ true, %.lr.ph ], [ false, %22 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %.lr.ph ], [ %.sroa.5, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %22 ]
-  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !73
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
@@ -54,7 +54,7 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %28 = load i8, ptr %.sroa.sel, align 1, !tbaa !73
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %27, %29
-  %31 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !73
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 8
@@ -160,7 +160,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %31 = shl i64 %.2.lcssa.us.us, %30
   %32 = lshr i64 %31, %15
   %33 = trunc i64 %32 to i16
-  %34 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv87.sroa.phi, i64 0, i64 %indvars.iv84
+  %34 = getelementptr inbounds nuw i16, ptr %indvars.iv87.sroa.phi, i64 %indvars.iv84
   store i16 %33, ptr %34, align 2, !tbaa !80
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %35 = zext i16 %28 to i64
@@ -214,7 +214,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %indvars.iv90.lver.orig = phi i64 [ %indvars.iv.next91.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
   %58 = zext i16 %57 to i32
   %indvars.iv.next91.lver.orig = add nuw nsw i64 %indvars.iv90.lver.orig, 1
-  %59 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91.lver.orig
+  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.next91.lver.orig
   %60 = load i16, ptr %59, align 2, !tbaa !80
   %61 = zext i16 %60 to i32
   %62 = sub nsw i32 %58, %61
@@ -222,19 +222,19 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %64 = uitofp nneg i32 %63 to double
   %65 = and i64 %indvars.iv90.lver.orig, 1
   %66 = and i64 %indvars.iv90.lver.orig, 1
-  %67 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw double, ptr %7, i64 %66
   %68 = load double, ptr %67, align 8, !tbaa !74
   %69 = fadd reassoc nsz arcp contract afn double %68, %64
   store double %69, ptr %67, align 8, !tbaa !74
   %70 = zext i16 %56 to i32
-  %71 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91.lver.orig
+  %71 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.next91.lver.orig
   %72 = load i16, ptr %71, align 2, !tbaa !80
   %73 = zext i16 %72 to i32
   %74 = sub nsw i32 %70, %73
   %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
   %76 = uitofp nneg i32 %75 to double
   %77 = xor i64 %65, 1
-  %78 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw double, ptr %7, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !74
   %80 = fadd reassoc nsz arcp contract afn double %79, %76
   store double %80, ptr %78, align 8, !tbaa !74
@@ -270,7 +270,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %89 = sub nsw i32 %.04666, %1
   %90 = icmp sgt i32 %89, -1
   tail call void @llvm.assume(i1 %90)
-  %91 = getelementptr inbounds nuw [2064 x i16], ptr %indvars.iv81.sroa.phi, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i16, ptr %indvars.iv81.sroa.phi, i64 %indvars.iv
   store i16 0, ptr %91, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -286,7 +286,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %indvars.iv90 = phi i64 [ 0, %.ph ], [ %indvars.iv.next91, %92 ]
   %95 = zext i16 %94 to i32
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %96 = getelementptr inbounds nuw [2064 x i16], ptr %55, i64 0, i64 %indvars.iv.next91
+  %96 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.next91
   %97 = load i16, ptr %96, align 2, !tbaa !80
   %98 = zext i16 %97 to i32
   %99 = sub nsw i32 %95, %98
@@ -294,19 +294,19 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   %101 = uitofp nneg i32 %100 to double
   %102 = and i64 %indvars.iv90, 1
   %103 = and i64 %indvars.iv90, 1
-  %104 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw double, ptr %7, i64 %103
   %105 = load double, ptr %104, align 8, !tbaa !74
   %106 = fadd reassoc nsz arcp contract afn double %105, %101
   store double %106, ptr %104, align 8, !tbaa !74
   %107 = zext i16 %93 to i32
-  %108 = getelementptr inbounds nuw [2064 x i16], ptr %6, i64 0, i64 %indvars.iv.next91
+  %108 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.next91
   %109 = load i16, ptr %108, align 2, !tbaa !80
   %110 = zext i16 %109 to i32
   %111 = sub nsw i32 %107, %110
   %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
   %113 = uitofp nneg i32 %112 to double
   %114 = xor i64 %102, 1
-  %115 = getelementptr inbounds nuw [2 x double], ptr %7, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw double, ptr %7, i64 %114
   %116 = fadd reassoc nsz arcp contract afn double %store_forwarded, %113
   store double %116, ptr %115, align 8, !tbaa !74
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93

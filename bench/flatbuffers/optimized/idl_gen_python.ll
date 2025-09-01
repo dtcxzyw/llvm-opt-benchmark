@@ -16415,7 +16415,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6python15PythonGenerator10G
 8:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !509, !noalias !506
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !14, !alias.scope !506
@@ -55816,7 +55816,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6python15PythonGenerator9Ge
   %15 = load i32, ptr %14, align 4, !noalias !1355
   %.in.sroa.speculated.i = select i1 %11, i32 %15, i32 %8
   %16 = zext i32 %.in.sroa.speculated.i to i64
-  %17 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !509, !noalias !1355
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %19, ptr %6, align 8, !tbaa !14, !alias.scope !1355
@@ -64502,7 +64502,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers6python15PythonGenerator10G
   %13 = load i32, ptr %12, align 4, !noalias !1540
   %.in.sroa.speculated.i = select i1 %10, i32 %13, i32 %7
   %14 = zext i32 %.in.sroa.speculated.i to i64
-  %15 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers6python15PythonGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !509, !noalias !1540
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %5, align 8, !tbaa !14, !alias.scope !1540
@@ -113774,10 +113774,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158
   %475 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZNK11flatbuffers6python15PythonGenerator33GenPackForScalarVectorFieldHelperERKNS_9StructDefERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi, i64 0, i64 %475
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11flatbuffers6python15PythonGenerator33GenPackForScalarVectorFieldHelperERKNS_9StructDefERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi, i64 %475
   %switch.load = load ptr, ptr %switch.gep, align 8
   %476 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep355 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZNK11flatbuffers6python15PythonGenerator33GenPackForScalarVectorFieldHelperERKNS_9StructDefERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.13, i64 0, i64 %476
+  %switch.gep355 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK11flatbuffers6python15PythonGenerator33GenPackForScalarVectorFieldHelperERKNS_9StructDefERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.13, i64 %476
   %switch.load356 = load i64, ptr %switch.gep355, align 8
   br label %.invoke
 

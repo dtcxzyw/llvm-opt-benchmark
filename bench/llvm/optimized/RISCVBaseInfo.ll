@@ -705,7 +705,7 @@ _ZSt11lower_boundIPKZN4llvm11RISCVSysReg18lookupSysRegByNameENS0_9StringRefEE9In
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !20
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [440 x %"struct.llvm::RISCVSysReg::SysReg"], ptr @_ZN4llvm11RISCVSysRegL11SysRegsListE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVSysReg::SysReg", ptr @_ZN4llvm11RISCVSysRegL11SysRegsListE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11RISCVSysReg18lookupSysRegByNameENS0_9StringRefEE9IndexTypeZNS1_18lookupSysRegByNameES2_E7KeyTypeZNS1_18lookupSysRegByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -847,7 +847,7 @@ _ZSt11lower_boundIPKZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS0_9Strin
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !33
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw [27 x %"struct.llvm::RISCVInsnOpcode::RISCVOpcode"], ptr @_ZN4llvm15RISCVInsnOpcodeL16RISCVOpcodesListE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVInsnOpcode::RISCVOpcode", ptr @_ZN4llvm15RISCVInsnOpcodeL16RISCVOpcodesListE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm15RISCVInsnOpcode23lookupRISCVOpcodeByNameENS0_9StringRefEE9IndexTypeZNS1_23lookupRISCVOpcodeByNameES2_E7KeyTypeZNS1_23lookupRISCVOpcodeByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -1326,7 +1326,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %36 = shl nuw i64 1, %35
   %37 = lshr i32 %.sroa.52.0.copyload, 6
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !34
   %41 = and i64 %36, %40
   %.not13 = icmp eq i64 %41, 0
@@ -13948,7 +13948,7 @@ define dso_local noundef float @_ZN4llvm14RISCVLoadFPImm8getFPImmEj(i32 noundef 
   %3 = add i32 %0, -2
   %4 = select i1 %2, i32 14, i32 %3
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [30 x %"struct.std::pair.38"], ptr @_ZN4llvmL14LoadFP32ImmArrE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.std::pair.38", ptr @_ZN4llvmL14LoadFP32ImmArrE, i64 %5
   %7 = load i8, ptr %6, align 2, !tbaa !91
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1

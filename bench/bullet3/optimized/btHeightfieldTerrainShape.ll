@@ -928,11 +928,11 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
 
 94:                                               ; preds = %4, %94
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !54
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %95, align 4, !tbaa !54
-  %98 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4, !tbaa !54
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !54
@@ -992,13 +992,13 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 126
-  %.sroa.gep341 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 32
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.sroa.gep341.sroa.gep368 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %.sroa.gep342.sroa.gep369 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.gep341.sroa.gep365 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sroa.gep342.sroa.gep366 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.gep.sroa.gep252 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %.sroa.gep227.sroa.gep253 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sroa.gep.sroa.gep249 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sroa.gep227.sroa.gep250 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1045,7 +1045,7 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   br i1 %or.cond.us.old, label %371, label %152
 
 152:                                              ; preds = %146, %151
-  %spec.select107.sroa.sel343.us = select i1 %140, ptr %.sroa.gep341, ptr %7
+  %spec.select107.sroa.sel.us = select i1 %140, ptr %.sroa.gep, ptr %7
   %153 = load ptr, ptr %0, align 8, !tbaa !4
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 136
   %155 = load ptr, ptr %154, align 8
@@ -1067,13 +1067,13 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %165 = fsub float %135, %164
   %166 = load float, ptr %39, align 4, !tbaa !42
   %167 = fsub float %156, %166
-  %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %165, ptr %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %167, ptr %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %165, ptr %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %167, ptr %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit166.us
 
 168:                                              ; preds = %152
@@ -1086,13 +1086,13 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %175 = load float, ptr %129, align 8, !tbaa !33
   %176 = fmul float %175, 5.000000e-01
   %177 = fsub float %135, %176
-  %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %174, ptr %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %177, ptr %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %174, ptr %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %177, ptr %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit166.us
 
 178:                                              ; preds = %152
@@ -1105,38 +1105,38 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %185 = load float, ptr %129, align 8, !tbaa !33
   %186 = fmul float %185, 5.000000e-01
   %187 = fsub float %135, %186
-  %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %184, ptr %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %187, ptr %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %184, ptr %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %187, ptr %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit166.us
 
 ._crit_edge.i160.us:                              ; preds = %152
-  %.pre.i161.us = load float, ptr %spec.select107.sroa.sel343.us, align 16, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  %.pre23.i163.us = load float, ptr %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  %.pre25.i165.us = load float, ptr %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel, align 8, !tbaa !42
+  %.pre.i161.us = load float, ptr %spec.select107.sroa.sel.us, align 16, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  %.pre23.i163.us = load float, ptr %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  %.pre25.i165.us = load float, ptr %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel, align 8, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit166.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit166.us: ; preds = %._crit_edge.i160.us, %178, %168, %158
-  %spec.select107.sroa.sel343.sroa.sel367.us.pre-phi = phi ptr [ %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel, %._crit_edge.i160.us ], [ %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel, %178 ], [ %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel, %168 ], [ %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel, %158 ]
-  %spec.select107.sroa.sel343.sroa.sel370.us.pre-phi = phi ptr [ %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel, %._crit_edge.i160.us ], [ %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel, %178 ], [ %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel, %168 ], [ %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel, %158 ]
+  %spec.select107.sroa.sel.sroa.sel251.us.pre-phi = phi ptr [ %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel, %._crit_edge.i160.us ], [ %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel, %178 ], [ %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel, %168 ], [ %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel, %158 ]
+  %spec.select107.sroa.sel.sroa.sel254.us.pre-phi = phi ptr [ %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel, %._crit_edge.i160.us ], [ %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel, %178 ], [ %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel, %168 ], [ %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel, %158 ]
   %188 = phi float [ %.pre25.i165.us, %._crit_edge.i160.us ], [ %187, %178 ], [ %177, %168 ], [ %167, %158 ]
   %189 = phi float [ %.pre23.i163.us, %._crit_edge.i160.us ], [ %184, %178 ], [ %174, %168 ], [ %165, %158 ]
   %190 = phi float [ %.pre.i161.us, %._crit_edge.i160.us ], [ %180, %178 ], [ %172, %168 ], [ %162, %158 ]
   %191 = load float, ptr %8, align 4, !tbaa !42
   %192 = fmul float %190, %191
-  store float %192, ptr %spec.select107.sroa.sel343.us, align 16, !tbaa !42
+  store float %192, ptr %spec.select107.sroa.sel.us, align 16, !tbaa !42
   %193 = load float, ptr %11, align 8, !tbaa !42
   %194 = fmul float %189, %193
-  store float %194, ptr %spec.select107.sroa.sel343.sroa.sel370.us.pre-phi, align 4, !tbaa !42
+  store float %194, ptr %spec.select107.sroa.sel.sroa.sel254.us.pre-phi, align 4, !tbaa !42
   %195 = load float, ptr %14, align 4, !tbaa !42
   %196 = fmul float %188, %195
-  store float %196, ptr %spec.select107.sroa.sel343.sroa.sel367.us.pre-phi, align 4, !tbaa !42
+  store float %196, ptr %spec.select107.sroa.sel.sroa.sel251.us.pre-phi, align 4, !tbaa !42
   %197 = load ptr, ptr %0, align 8, !tbaa !4
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 136
   %199 = load ptr, ptr %198, align 8
@@ -1207,7 +1207,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us: ; preds = %.
   %240 = fmul float %232, %239
   store float %240, ptr %132, align 8, !tbaa !42
   %241 = add nuw i32 %.072499.us, 1
-  %spec.select106.sroa.sel382.us = select i1 %140, ptr %7, ptr %.sroa.gep341
+  %spec.select106.sroa.sel.us = select i1 %140, ptr %7, ptr %.sroa.gep
   %242 = load ptr, ptr %0, align 8, !tbaa !4
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 136
   %244 = load ptr, ptr %243, align 8
@@ -1229,13 +1229,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us: ; preds = %.
   %254 = fsub float %135, %253
   %255 = load float, ptr %39, align 4, !tbaa !42
   %256 = fsub float %245, %255
-  %spec.select106.sroa.sel382.sroa.sel457.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %254, ptr %spec.select106.sroa.sel382.sroa.sel457.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel454.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %256, ptr %spec.select106.sroa.sel382.sroa.sel454.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel340.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %254, ptr %spec.select106.sroa.sel.sroa.sel340.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel337.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %256, ptr %spec.select106.sroa.sel.sroa.sel337.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us
 
 257:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us
@@ -1248,13 +1248,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us: ; preds = %.
   %264 = load float, ptr %129, align 8, !tbaa !33
   %265 = fmul float %264, 5.000000e-01
   %266 = fsub float %135, %265
-  %spec.select106.sroa.sel382.sroa.sel442.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %263, ptr %spec.select106.sroa.sel382.sroa.sel442.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel439.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %266, ptr %spec.select106.sroa.sel382.sroa.sel439.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel325.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %263, ptr %spec.select106.sroa.sel.sroa.sel325.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel322.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %266, ptr %spec.select106.sroa.sel.sroa.sel322.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us
 
 267:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us
@@ -1267,48 +1267,48 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us: ; preds = %.
   %274 = load float, ptr %129, align 8, !tbaa !33
   %275 = fmul float %274, 5.000000e-01
   %276 = fsub float %135, %275
-  %spec.select106.sroa.sel382.sroa.sel433.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %273, ptr %spec.select106.sroa.sel382.sroa.sel433.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel430.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %276, ptr %spec.select106.sroa.sel382.sroa.sel430.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel316.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %273, ptr %spec.select106.sroa.sel.sroa.sel316.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel313.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %276, ptr %spec.select106.sroa.sel.sroa.sel313.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us
 
 ._crit_edge.i174.us:                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit173.us
-  %.pre.i175.us = load float, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
-  %.sroa.gep342.sroa.gep369.val.us = load float, ptr %.sroa.gep342.sroa.gep369, align 4
-  %.sroa.gep341.sroa.gep368.val.us = load float, ptr %.sroa.gep341.sroa.gep368, align 4
-  %.pre23.i177.us = select i1 %140, float %.sroa.gep342.sroa.gep369.val.us, float %.sroa.gep341.sroa.gep368.val.us
-  %.sroa.gep342.sroa.gep366.val.us = load float, ptr %.sroa.gep342.sroa.gep366, align 8
-  %.sroa.gep341.sroa.gep365.val.us = load float, ptr %.sroa.gep341.sroa.gep365, align 8
-  %.pre25.i179.us = select i1 %140, float %.sroa.gep342.sroa.gep366.val.us, float %.sroa.gep341.sroa.gep365.val.us
-  %.pre589 = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  %.pre590 = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
+  %.pre.i175.us = load float, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
+  %.sroa.gep227.sroa.gep253.val.us = load float, ptr %.sroa.gep227.sroa.gep253, align 4
+  %.sroa.gep.sroa.gep252.val.us = load float, ptr %.sroa.gep.sroa.gep252, align 4
+  %.pre23.i177.us = select i1 %140, float %.sroa.gep227.sroa.gep253.val.us, float %.sroa.gep.sroa.gep252.val.us
+  %.sroa.gep227.sroa.gep250.val.us = load float, ptr %.sroa.gep227.sroa.gep250, align 8
+  %.sroa.gep.sroa.gep249.val.us = load float, ptr %.sroa.gep.sroa.gep249, align 8
+  %.pre25.i179.us = select i1 %140, float %.sroa.gep227.sroa.gep250.val.us, float %.sroa.gep.sroa.gep249.val.us
+  %.pre589 = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  %.pre590 = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit180.us: ; preds = %._crit_edge.i174.us, %267, %257, %247
-  %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi = phi ptr [ %.pre590, %._crit_edge.i174.us ], [ %spec.select106.sroa.sel382.sroa.sel430.us, %267 ], [ %spec.select106.sroa.sel382.sroa.sel439.us, %257 ], [ %spec.select106.sroa.sel382.sroa.sel454.us, %247 ]
-  %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi = phi ptr [ %.pre589, %._crit_edge.i174.us ], [ %spec.select106.sroa.sel382.sroa.sel433.us, %267 ], [ %spec.select106.sroa.sel382.sroa.sel442.us, %257 ], [ %spec.select106.sroa.sel382.sroa.sel457.us, %247 ]
+  %spec.select106.sroa.sel.sroa.sel328.us.pre-phi = phi ptr [ %.pre590, %._crit_edge.i174.us ], [ %spec.select106.sroa.sel.sroa.sel313.us, %267 ], [ %spec.select106.sroa.sel.sroa.sel322.us, %257 ], [ %spec.select106.sroa.sel.sroa.sel337.us, %247 ]
+  %spec.select106.sroa.sel.sroa.sel331.us.pre-phi = phi ptr [ %.pre589, %._crit_edge.i174.us ], [ %spec.select106.sroa.sel.sroa.sel316.us, %267 ], [ %spec.select106.sroa.sel.sroa.sel325.us, %257 ], [ %spec.select106.sroa.sel.sroa.sel340.us, %247 ]
   %277 = phi float [ %.pre25.i179.us, %._crit_edge.i174.us ], [ %276, %267 ], [ %266, %257 ], [ %256, %247 ]
   %278 = phi float [ %.pre23.i177.us, %._crit_edge.i174.us ], [ %273, %267 ], [ %263, %257 ], [ %254, %247 ]
   %279 = phi float [ %.pre.i175.us, %._crit_edge.i174.us ], [ %269, %267 ], [ %261, %257 ], [ %251, %247 ]
   %280 = load float, ptr %8, align 4, !tbaa !42
   %281 = fmul float %279, %280
-  store float %281, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
+  store float %281, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
   %282 = load float, ptr %11, align 8, !tbaa !42
   %283 = fmul float %278, %282
-  store float %283, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
+  store float %283, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
   %284 = load float, ptr %14, align 4, !tbaa !42
   %285 = fmul float %277, %284
-  store float %285, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
+  store float %285, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
   %286 = sext i32 %246 to i64
   %287 = getelementptr inbounds float, ptr %7, i64 %286
   %288 = load float, ptr %287, align 4, !tbaa !42
   %289 = getelementptr inbounds float, ptr %130, i64 %286
   %290 = load float, ptr %289, align 4, !tbaa !42
-  %291 = getelementptr inbounds float, ptr %.sroa.gep341, i64 %286
+  %291 = getelementptr inbounds float, ptr %.sroa.gep, i64 %286
   %292 = load float, ptr %291, align 4, !tbaa !42
   %293 = fcmp ogt float %288, %290
   br i1 %293, label %301, label %294
@@ -1375,7 +1375,7 @@ _ZL11minmaxRangefff.exit192.us:                   ; preds = %307, %306, %305, %3
   br label %316
 
 316:                                              ; preds = %311, %_ZL11minmaxRangefff.exit192.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %spec.select107.sroa.sel343.us, ptr noundef nonnull align 16 dereferenceable(16) %spec.select106.sroa.sel382.us, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %spec.select107.sroa.sel.us, ptr noundef nonnull align 16 dereferenceable(16) %spec.select106.sroa.sel.us, i64 16, i1 false), !tbaa.struct !58
   %317 = load ptr, ptr %0, align 8, !tbaa !4
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 136
   %319 = load ptr, ptr %318, align 8
@@ -1397,9 +1397,9 @@ _ZL11minmaxRangefff.exit192.us:                   ; preds = %307, %306, %305, %3
   %329 = fsub float %137, %328
   %330 = load float, ptr %39, align 4, !tbaa !42
   %331 = fsub float %320, %330
-  %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us
 
 332:                                              ; preds = %316
@@ -1412,9 +1412,9 @@ _ZL11minmaxRangefff.exit192.us:                   ; preds = %307, %306, %305, %3
   %339 = load float, ptr %129, align 8, !tbaa !33
   %340 = fmul float %339, 5.000000e-01
   %341 = fsub float %137, %340
-  %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us
 
 342:                                              ; preds = %316
@@ -1427,15 +1427,15 @@ _ZL11minmaxRangefff.exit192.us:                   ; preds = %307, %306, %305, %3
   %349 = load float, ptr %129, align 8, !tbaa !33
   %350 = fmul float %349, 5.000000e-01
   %351 = fsub float %137, %350
-  %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us
 
 ._crit_edge.i193.us:                              ; preds = %316
-  %.pre.i194.us = load float, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
-  %.pre23.i196.us = load float, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
-  %.pre25.i198.us = load float, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
+  %.pre.i194.us = load float, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
+  %.pre23.i196.us = load float, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
+  %.pre25.i198.us = load float, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %._crit_edge.i193.us, %342, %332, %322
@@ -1444,15 +1444,15 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   %354 = phi float [ %.pre.i194.us, %._crit_edge.i193.us ], [ %326, %322 ], [ %336, %332 ], [ %344, %342 ]
   %355 = load float, ptr %8, align 4, !tbaa !42
   %356 = fmul float %354, %355
-  store float %356, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
+  store float %356, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
   %357 = load float, ptr %11, align 8, !tbaa !42
   %358 = fmul float %353, %357
-  store float %358, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
+  store float %358, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
   %359 = load float, ptr %14, align 4, !tbaa !42
   %360 = fmul float %352, %359
-  store float %360, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
+  store float %360, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
   %361 = sext i32 %321 to i64
-  %362 = getelementptr inbounds float, ptr %spec.select106.sroa.sel382.us, i64 %361
+  %362 = getelementptr inbounds float, ptr %spec.select106.sroa.sel.us, i64 %361
   %363 = load float, ptr %362, align 4, !tbaa !42
   %364 = fcmp olt float %.sroa.0.0.vec.extract, %363
   %365 = select i1 %364, float %.sroa.0.0.vec.extract, float %363
@@ -1465,7 +1465,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   br i1 %370, label %.sink.split, label %595
 
 371:                                              ; preds = %151, %146, %138
-  %spec.select107.sroa.sel.us = select i1 %140, ptr %.sroa.gep341, ptr %7
+  %spec.select107.sroa.sel343.us = select i1 %140, ptr %.sroa.gep, ptr %7
   %372 = load ptr, ptr %0, align 8, !tbaa !4
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 136
   %374 = load ptr, ptr %373, align 8
@@ -1487,13 +1487,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   %384 = fsub float %135, %383
   %385 = load float, ptr %39, align 4, !tbaa !42
   %386 = fsub float %375, %385
-  %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %384, ptr %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %386, ptr %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel257.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %384, ptr %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %386, ptr %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel373.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 387:                                              ; preds = %371
@@ -1506,13 +1506,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   %394 = load float, ptr %129, align 8, !tbaa !33
   %395 = fmul float %394, 5.000000e-01
   %396 = fsub float %135, %395
-  %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %393, ptr %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %396, ptr %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel242.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %393, ptr %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %396, ptr %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel358.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 397:                                              ; preds = %371
@@ -1525,38 +1525,38 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit199.us: ; preds = %.
   %404 = load float, ptr %129, align 8, !tbaa !33
   %405 = fmul float %404, 5.000000e-01
   %406 = fsub float %135, %405
-  %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  store float %403, ptr %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  store float %406, ptr %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel, align 8, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
-  %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select107.sroa.sel.sroa.sel233.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  store float %403, ptr %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  store float %406, ptr %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel, align 8, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 44, i64 12
+  %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select107.sroa.sel343.sroa.sel349.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 ._crit_edge.i.us:                                 ; preds = %371
-  %.pre.i.us = load float, ptr %spec.select107.sroa.sel.us, align 16, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep368, ptr %.sroa.gep342.sroa.gep369
-  %.pre23.i.us = load float, ptr %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel, align 4, !tbaa !42
-  %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep341.sroa.gep365, ptr %.sroa.gep342.sroa.gep366
-  %.pre25.i.us = load float, ptr %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel, align 8, !tbaa !42
+  %.pre.i.us = load float, ptr %spec.select107.sroa.sel343.us, align 16, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep252, ptr %.sroa.gep227.sroa.gep253
+  %.pre23.i.us = load float, ptr %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel, align 4, !tbaa !42
+  %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel = select i1 %140, ptr %.sroa.gep.sroa.gep249, ptr %.sroa.gep227.sroa.gep250
+  %.pre25.i.us = load float, ptr %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel, align 8, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit.us: ; preds = %._crit_edge.i.us, %397, %387, %377
-  %spec.select107.sroa.sel.sroa.sel251.us.pre-phi = phi ptr [ %spec.select107.sroa.sel.sroa.sel.v.us.sroa.sel, %._crit_edge.i.us ], [ %spec.select107.sroa.sel.sroa.sel236.v.us.sroa.sel, %397 ], [ %spec.select107.sroa.sel.sroa.sel245.v.us.sroa.sel, %387 ], [ %spec.select107.sroa.sel.sroa.sel260.v.us.sroa.sel, %377 ]
-  %spec.select107.sroa.sel.sroa.sel254.us.pre-phi = phi ptr [ %spec.select107.sroa.sel.sroa.sel230.v.us.sroa.sel, %._crit_edge.i.us ], [ %spec.select107.sroa.sel.sroa.sel239.v.us.sroa.sel, %397 ], [ %spec.select107.sroa.sel.sroa.sel248.v.us.sroa.sel, %387 ], [ %spec.select107.sroa.sel.sroa.sel263.v.us.sroa.sel, %377 ]
+  %spec.select107.sroa.sel343.sroa.sel367.us.pre-phi = phi ptr [ %spec.select107.sroa.sel343.sroa.sel.v.us.sroa.sel, %._crit_edge.i.us ], [ %spec.select107.sroa.sel343.sroa.sel352.v.us.sroa.sel, %397 ], [ %spec.select107.sroa.sel343.sroa.sel361.v.us.sroa.sel, %387 ], [ %spec.select107.sroa.sel343.sroa.sel376.v.us.sroa.sel, %377 ]
+  %spec.select107.sroa.sel343.sroa.sel370.us.pre-phi = phi ptr [ %spec.select107.sroa.sel343.sroa.sel346.v.us.sroa.sel, %._crit_edge.i.us ], [ %spec.select107.sroa.sel343.sroa.sel355.v.us.sroa.sel, %397 ], [ %spec.select107.sroa.sel343.sroa.sel364.v.us.sroa.sel, %387 ], [ %spec.select107.sroa.sel343.sroa.sel379.v.us.sroa.sel, %377 ]
   %407 = phi float [ %.pre25.i.us, %._crit_edge.i.us ], [ %406, %397 ], [ %396, %387 ], [ %386, %377 ]
   %408 = phi float [ %.pre23.i.us, %._crit_edge.i.us ], [ %403, %397 ], [ %393, %387 ], [ %384, %377 ]
   %409 = phi float [ %.pre.i.us, %._crit_edge.i.us ], [ %399, %397 ], [ %391, %387 ], [ %381, %377 ]
   %410 = load float, ptr %8, align 4, !tbaa !42
   %411 = fmul float %409, %410
-  store float %411, ptr %spec.select107.sroa.sel.us, align 16, !tbaa !42
+  store float %411, ptr %spec.select107.sroa.sel343.us, align 16, !tbaa !42
   %412 = load float, ptr %11, align 8, !tbaa !42
   %413 = fmul float %408, %412
-  store float %413, ptr %spec.select107.sroa.sel.sroa.sel254.us.pre-phi, align 4, !tbaa !42
+  store float %413, ptr %spec.select107.sroa.sel343.sroa.sel370.us.pre-phi, align 4, !tbaa !42
   %414 = load float, ptr %14, align 4, !tbaa !42
   %415 = fmul float %407, %414
-  store float %415, ptr %spec.select107.sroa.sel.sroa.sel251.us.pre-phi, align 4, !tbaa !42
+  store float %415, ptr %spec.select107.sroa.sel343.sroa.sel367.us.pre-phi, align 4, !tbaa !42
   %416 = load ptr, ptr %0, align 8, !tbaa !4
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 136
   %418 = load ptr, ptr %417, align 8
@@ -1627,7 +1627,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us: ; preds = %.
   %459 = fmul float %451, %458
   store float %459, ptr %132, align 8, !tbaa !42
   %460 = add nuw i32 %.072499.us, 1
-  %spec.select106.sroa.sel.us = select i1 %140, ptr %7, ptr %.sroa.gep341
+  %spec.select106.sroa.sel382.us = select i1 %140, ptr %7, ptr %.sroa.gep
   %461 = load ptr, ptr %0, align 8, !tbaa !4
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 136
   %463 = load ptr, ptr %462, align 8
@@ -1649,13 +1649,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us: ; preds = %.
   %473 = fsub float %137, %472
   %474 = load float, ptr %39, align 4, !tbaa !42
   %475 = fsub float %464, %474
-  %spec.select106.sroa.sel.sroa.sel340.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %473, ptr %spec.select106.sroa.sel.sroa.sel340.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel337.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %475, ptr %spec.select106.sroa.sel.sroa.sel337.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel334.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel457.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %473, ptr %spec.select106.sroa.sel382.sroa.sel457.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel454.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %475, ptr %spec.select106.sroa.sel382.sroa.sel454.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel451.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us
 
 476:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us
@@ -1668,13 +1668,13 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us: ; preds = %.
   %483 = load float, ptr %129, align 8, !tbaa !33
   %484 = fmul float %483, 5.000000e-01
   %485 = fsub float %137, %484
-  %spec.select106.sroa.sel.sroa.sel325.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %482, ptr %spec.select106.sroa.sel.sroa.sel325.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel322.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %485, ptr %spec.select106.sroa.sel.sroa.sel322.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel319.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel442.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %482, ptr %spec.select106.sroa.sel382.sroa.sel442.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel439.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %485, ptr %spec.select106.sroa.sel382.sroa.sel439.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel436.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us
 
 486:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us
@@ -1687,48 +1687,48 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us: ; preds = %.
   %493 = load float, ptr %129, align 8, !tbaa !33
   %494 = fmul float %493, 5.000000e-01
   %495 = fsub float %137, %494
-  %spec.select106.sroa.sel.sroa.sel316.us = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  store float %492, ptr %spec.select106.sroa.sel.sroa.sel316.us, align 4, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel313.us = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
-  store float %495, ptr %spec.select106.sroa.sel.sroa.sel313.us, align 8, !tbaa !42
-  %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel310.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel433.us = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  store float %492, ptr %spec.select106.sroa.sel382.sroa.sel433.us, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel430.us = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
+  store float %495, ptr %spec.select106.sroa.sel382.sroa.sel430.us, align 8, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel427.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us
 
 ._crit_edge.i143.us:                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit142.us
-  %.pre.i144.us = load float, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
-  %.sroa.gep227.sroa.gep253.val.us = load float, ptr %.sroa.gep342.sroa.gep369, align 4
-  %.sroa.gep.sroa.gep252.val.us = load float, ptr %.sroa.gep341.sroa.gep368, align 4
-  %.pre23.i146.us = select i1 %140, float %.sroa.gep227.sroa.gep253.val.us, float %.sroa.gep.sroa.gep252.val.us
-  %.sroa.gep227.sroa.gep250.val.us = load float, ptr %.sroa.gep342.sroa.gep366, align 8
-  %.sroa.gep.sroa.gep249.val.us = load float, ptr %.sroa.gep341.sroa.gep365, align 8
-  %.pre25.i148.us = select i1 %140, float %.sroa.gep227.sroa.gep250.val.us, float %.sroa.gep.sroa.gep249.val.us
-  %.pre = select i1 %140, ptr %.sroa.gep342.sroa.gep369, ptr %.sroa.gep341.sroa.gep368
-  %.pre588 = select i1 %140, ptr %.sroa.gep342.sroa.gep366, ptr %.sroa.gep341.sroa.gep365
+  %.pre.i144.us = load float, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
+  %.sroa.gep342.sroa.gep369.val.us = load float, ptr %.sroa.gep227.sroa.gep253, align 4
+  %.sroa.gep341.sroa.gep368.val.us = load float, ptr %.sroa.gep.sroa.gep252, align 4
+  %.pre23.i146.us = select i1 %140, float %.sroa.gep342.sroa.gep369.val.us, float %.sroa.gep341.sroa.gep368.val.us
+  %.sroa.gep342.sroa.gep366.val.us = load float, ptr %.sroa.gep227.sroa.gep250, align 8
+  %.sroa.gep341.sroa.gep365.val.us = load float, ptr %.sroa.gep.sroa.gep249, align 8
+  %.pre25.i148.us = select i1 %140, float %.sroa.gep342.sroa.gep366.val.us, float %.sroa.gep341.sroa.gep365.val.us
+  %.pre = select i1 %140, ptr %.sroa.gep227.sroa.gep253, ptr %.sroa.gep.sroa.gep252
+  %.pre588 = select i1 %140, ptr %.sroa.gep227.sroa.gep250, ptr %.sroa.gep.sroa.gep249
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit149.us: ; preds = %._crit_edge.i143.us, %486, %476, %466
-  %spec.select106.sroa.sel.sroa.sel328.us.pre-phi = phi ptr [ %.pre588, %._crit_edge.i143.us ], [ %spec.select106.sroa.sel.sroa.sel313.us, %486 ], [ %spec.select106.sroa.sel.sroa.sel322.us, %476 ], [ %spec.select106.sroa.sel.sroa.sel337.us, %466 ]
-  %spec.select106.sroa.sel.sroa.sel331.us.pre-phi = phi ptr [ %.pre, %._crit_edge.i143.us ], [ %spec.select106.sroa.sel.sroa.sel316.us, %486 ], [ %spec.select106.sroa.sel.sroa.sel325.us, %476 ], [ %spec.select106.sroa.sel.sroa.sel340.us, %466 ]
+  %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi = phi ptr [ %.pre588, %._crit_edge.i143.us ], [ %spec.select106.sroa.sel382.sroa.sel430.us, %486 ], [ %spec.select106.sroa.sel382.sroa.sel439.us, %476 ], [ %spec.select106.sroa.sel382.sroa.sel454.us, %466 ]
+  %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi = phi ptr [ %.pre, %._crit_edge.i143.us ], [ %spec.select106.sroa.sel382.sroa.sel433.us, %486 ], [ %spec.select106.sroa.sel382.sroa.sel442.us, %476 ], [ %spec.select106.sroa.sel382.sroa.sel457.us, %466 ]
   %496 = phi float [ %.pre25.i148.us, %._crit_edge.i143.us ], [ %495, %486 ], [ %485, %476 ], [ %475, %466 ]
   %497 = phi float [ %.pre23.i146.us, %._crit_edge.i143.us ], [ %492, %486 ], [ %482, %476 ], [ %473, %466 ]
   %498 = phi float [ %.pre.i144.us, %._crit_edge.i143.us ], [ %488, %486 ], [ %480, %476 ], [ %470, %466 ]
   %499 = load float, ptr %8, align 4, !tbaa !42
   %500 = fmul float %498, %499
-  store float %500, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
+  store float %500, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
   %501 = load float, ptr %11, align 8, !tbaa !42
   %502 = fmul float %497, %501
-  store float %502, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
+  store float %502, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
   %503 = load float, ptr %14, align 4, !tbaa !42
   %504 = fmul float %496, %503
-  store float %504, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
+  store float %504, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
   %505 = sext i32 %465 to i64
   %506 = getelementptr inbounds float, ptr %7, i64 %505
   %507 = load float, ptr %506, align 4, !tbaa !42
   %508 = getelementptr inbounds float, ptr %130, i64 %505
   %509 = load float, ptr %508, align 4, !tbaa !42
-  %510 = getelementptr inbounds float, ptr %.sroa.gep341, i64 %505
+  %510 = getelementptr inbounds float, ptr %.sroa.gep, i64 %505
   %511 = load float, ptr %510, align 4, !tbaa !42
   %512 = fcmp ogt float %507, %509
   br i1 %512, label %520, label %513
@@ -1795,7 +1795,7 @@ _ZL11minmaxRangefff.exit.us:                      ; preds = %526, %525, %524, %5
   br label %535
 
 535:                                              ; preds = %530, %_ZL11minmaxRangefff.exit.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %130, ptr noundef nonnull align 16 dereferenceable(16) %spec.select106.sroa.sel.us, i64 16, i1 false), !tbaa.struct !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %130, ptr noundef nonnull align 16 dereferenceable(16) %spec.select106.sroa.sel382.us, i64 16, i1 false), !tbaa.struct !58
   %536 = load ptr, ptr %0, align 8, !tbaa !4
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 136
   %538 = load ptr, ptr %537, align 8
@@ -1817,9 +1817,9 @@ _ZL11minmaxRangefff.exit.us:                      ; preds = %526, %525, %524, %5
   %548 = fsub float %135, %547
   %549 = load float, ptr %39, align 4, !tbaa !42
   %550 = fsub float %539, %549
-  %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel295.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel412.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us
 
 551:                                              ; preds = %535
@@ -1832,9 +1832,9 @@ _ZL11minmaxRangefff.exit.us:                      ; preds = %526, %525, %524, %5
   %558 = load float, ptr %129, align 8, !tbaa !33
   %559 = fmul float %558, 5.000000e-01
   %560 = fsub float %135, %559
-  %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel280.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel397.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us
 
 561:                                              ; preds = %535
@@ -1847,15 +1847,15 @@ _ZL11minmaxRangefff.exit.us:                      ; preds = %526, %525, %524, %5
   %568 = load float, ptr %129, align 8, !tbaa !33
   %569 = fmul float %568, 5.000000e-01
   %570 = fsub float %135, %569
-  %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
-  %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel.v
-  store float 0.000000e+00, ptr %spec.select106.sroa.sel.sroa.sel271.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
+  %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel.v = select i1 %140, i64 12, i64 44
+  %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel.v
+  store float 0.000000e+00, ptr %spec.select106.sroa.sel382.sroa.sel388.v.us.sroa.sel.v.sroa.sel, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us
 
 ._crit_edge.i153.us:                              ; preds = %535
-  %.pre.i154.us = load float, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
-  %.pre23.i156.us = load float, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
-  %.pre25.i158.us = load float, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
+  %.pre.i154.us = load float, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
+  %.pre23.i156.us = load float, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
+  %.pre25.i158.us = load float, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
   br label %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us
 
 _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us: ; preds = %._crit_edge.i153.us, %561, %551, %541
@@ -1864,15 +1864,15 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit159.us: ; preds = %.
   %573 = phi float [ %.pre.i154.us, %._crit_edge.i153.us ], [ %545, %541 ], [ %555, %551 ], [ %563, %561 ]
   %574 = load float, ptr %8, align 4, !tbaa !42
   %575 = fmul float %573, %574
-  store float %575, ptr %spec.select106.sroa.sel.us, align 16, !tbaa !42
+  store float %575, ptr %spec.select106.sroa.sel382.us, align 16, !tbaa !42
   %576 = load float, ptr %11, align 8, !tbaa !42
   %577 = fmul float %572, %576
-  store float %577, ptr %spec.select106.sroa.sel.sroa.sel331.us.pre-phi, align 4, !tbaa !42
+  store float %577, ptr %spec.select106.sroa.sel382.sroa.sel448.us.pre-phi, align 4, !tbaa !42
   %578 = load float, ptr %14, align 4, !tbaa !42
   %579 = fmul float %571, %578
-  store float %579, ptr %spec.select106.sroa.sel.sroa.sel328.us.pre-phi, align 4, !tbaa !42
+  store float %579, ptr %spec.select106.sroa.sel382.sroa.sel445.us.pre-phi, align 4, !tbaa !42
   %580 = sext i32 %540 to i64
-  %581 = getelementptr inbounds float, ptr %spec.select106.sroa.sel.us, i64 %580
+  %581 = getelementptr inbounds float, ptr %spec.select106.sroa.sel382.us, i64 %580
   %582 = load float, ptr %581, align 4, !tbaa !42
   %583 = fcmp olt float %.sroa.0213.0.vec.extract, %582
   %584 = select i1 %583, float %.sroa.0213.0.vec.extract, float %582

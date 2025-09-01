@@ -2605,7 +2605,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..types.._at
   br i1 %26, label %"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$$GT$17haaffffa7f473647bE.exit", label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %22, i64 0, i64 %.0.i.i
+  %28 = getelementptr inbounds { i8, [55 x i8] }, ptr %22, i64 %.0.i.i
   %29 = add i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$17h15833a027a5dcf5eE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %28)
           to label %25 unwind label %32, !noalias !565
@@ -2621,7 +2621,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..types.._at
   br label %30
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds [0 x { i8, [55 x i8] }], ptr %22, i64 0, i64 %.1.i.i
+  %35 = getelementptr inbounds { i8, [55 x i8] }, ptr %22, i64 %.1.i.i
   %36 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr78drop_in_place$LT$aws_sdk_dynamodb..types.._attribute_value..AttributeValue$GT$17h15833a027a5dcf5eE.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(56) %35) #40
           to label %30 unwind label %37, !noalias !565

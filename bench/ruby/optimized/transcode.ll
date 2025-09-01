@@ -620,7 +620,7 @@ rb_econv_open0.exit:                              ; preds = %load_transcoder_ent
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %124 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %126 = call i32 @rb_econv_decorate_at_last(ptr noundef nonnull %89, ptr noundef %125)
   %127 = icmp eq i32 %126, -1
@@ -5607,7 +5607,7 @@ load_transcoder_entry.exit.thread66.i:            ; preds = %load_transcoder_ent
   %164 = trunc nuw nsw i64 %indvars.iv.i to i32
   %165 = add i32 %.035.i, %164
   %166 = sext i32 %165 to i64
-  %167 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
+  %167 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
   %168 = load ptr, ptr %167, align 8, !tbaa !26
   %169 = call i64 @rb_str_new_cstr(ptr noundef %168) #22
   call void @rb_ary_store(i64 noundef %22, i64 noundef %166, i64 noundef %169) #22

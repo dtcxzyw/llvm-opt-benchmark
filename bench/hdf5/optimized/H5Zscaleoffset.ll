@@ -897,9 +897,9 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
   br label %.thread25
 
 18:                                               ; preds = %11
-  %switch.tableidx28 = add i32 %1, -1
-  %19 = icmp ult i32 %switch.tableidx28, 8
-  %switch.maskindex31 = trunc i32 %switch.tableidx28 to i8
+  %switch.tableidx27 = add i32 %1, -1
+  %19 = icmp ult i32 %switch.tableidx27, 8
+  %switch.maskindex31 = trunc i32 %switch.tableidx27 to i8
   %switch.shifted32 = lshr i8 -117, %switch.maskindex31
   %switch.lobit33 = trunc i8 %switch.shifted32 to i1
   %or.cond36 = select i1 %19, i1 %switch.lobit33, i1 false
@@ -928,13 +928,13 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
 
 switch.lookup:                                    ; preds = %12
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__scaleoffset_get_type, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__scaleoffset_get_type, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread25
 
 switch.lookup30:                                  ; preds = %18
-  %31 = zext nneg i32 %switch.tableidx28 to i64
-  %switch.gep34 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__scaleoffset_get_type.3, i64 0, i64 %31
+  %31 = zext nneg i32 %switch.tableidx27 to i64
+  %switch.gep34 = getelementptr inbounds nuw i32, ptr @switch.table.H5Z__scaleoffset_get_type.3, i64 %31
   %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %.thread25
 

@@ -2721,7 +2721,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_fopen(ptr noundef %0, i3
 63:                                               ; preds = %.preheader
   store i32 0, ptr %11, align 8, !tbaa !13
   store ptr null, ptr %43, align 8, !tbaa !18
-  %64 = getelementptr inbounds nuw [16 x ptr], ptr @drivernames, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr @drivernames, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !16
   store ptr %65, ptr %44, align 8, !tbaa !15
   %66 = call i64 @h5tools_get_new_fapl(i64 noundef %2)
@@ -4400,7 +4400,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph332
   %indvars.iv = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next, %.lr.ph332 ]
   %.0209331 = phi i64 [ 1, %.lr.ph332.preheader ], [ %182, %.lr.ph332 ]
-  %180 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %181 = load i64, ptr %180, align 8, !tbaa !7
   %182 = mul i64 %181, %.0209331
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

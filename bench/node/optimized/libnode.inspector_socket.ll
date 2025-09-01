@@ -1360,7 +1360,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end17.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.end17.i.i
   %call30.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #20
-  %arrayidx.i.i = getelementptr inbounds [46 x i8], ptr %ipv6_str.i.i, i64 0, i64 %call30.i.i
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %ipv6_str.i.i, i64 %call30.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %call33.i.i = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef nonnull %ipv6_str.i.i, ptr noundef nonnull %ipv6.i.i) #20
   %cmp34.not.i.i = icmp eq i32 %call33.i.i, 0
@@ -2685,7 +2685,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZNSt6
   %remaining.0182.i = phi i64 [ %sub.ptr.sub.i.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit166.i ], [ %shr16.i, %for.body.i ]
   %conv15.i = trunc i64 %remaining.0182.i to i8
   %3 = sub nuw nsw i64 7, %indvars.iv.i
-  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %extended_payload_length.i, i64 0, i64 %3
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %extended_payload_length.i, i64 %3
   store i8 %conv15.i, ptr %arrayidx.i, align 1, !noalias !25
   %shr16.i = lshr i64 %remaining.0182.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

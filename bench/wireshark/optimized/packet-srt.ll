@@ -523,7 +523,7 @@ define internal i32 @dissect_srt_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %51
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_srt_udp, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_srt_udp, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %55
 

@@ -1224,12 +1224,12 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %10, %_ZL11mbedtls_c
 62:                                               ; preds = %49
   %63 = lshr i32 %58, 4
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @.str, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !21
   %67 = getelementptr inbounds nuw i8, ptr %.27690, i64 1
   store i8 %66, ptr %.27690, align 1, !tbaa !21
   %68 = and i64 %56, 15
-  %69 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @.str, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %.27690, i64 2
   store i8 %70, ptr %67, align 1, !tbaa !21
@@ -4992,7 +4992,7 @@ mbedtls_mpi_bitlen.exit246:                       ; preds = %94, %_ZL11mbedtls_c
 170:                                              ; preds = %167
   %171 = add nsw i64 %108, -1
   %172 = shl nuw nsw i64 1, %171
-  %173 = getelementptr inbounds nuw [64 x %struct.mbedtls_mpi], ptr %12, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw %struct.mbedtls_mpi, ptr %12, i64 %172
   %174 = load i64, ptr %15, align 8, !tbaa !12
   %175 = add i64 %174, 1
   %176 = call i32 @mbedtls_mpi_grow(ptr noundef nonnull %173, i64 noundef %175)
@@ -5024,7 +5024,7 @@ mbedtls_mpi_bitlen.exit246:                       ; preds = %94, %_ZL11mbedtls_c
 .lr.ph312:                                        ; preds = %.preheader293, %188
   %.1135311 = phi i64 [ %.1135, %188 ], [ %.1135308, %.preheader293 ]
   %.1135.in310 = phi i64 [ %.1135311, %188 ], [ %172, %.preheader293 ]
-  %181 = getelementptr inbounds nuw [64 x %struct.mbedtls_mpi], ptr %12, i64 0, i64 %.1135311
+  %181 = getelementptr inbounds nuw %struct.mbedtls_mpi, ptr %12, i64 %.1135311
   %182 = load i64, ptr %15, align 8, !tbaa !12
   %183 = add i64 %182, 1
   %184 = call i32 @mbedtls_mpi_grow(ptr noundef nonnull %181, i64 noundef %183)
@@ -5032,7 +5032,7 @@ mbedtls_mpi_bitlen.exit246:                       ; preds = %94, %_ZL11mbedtls_c
   br i1 %.not188, label %185, label %mbedtls_mpi_grow.exit
 
 185:                                              ; preds = %.lr.ph312
-  %186 = getelementptr inbounds nuw [64 x %struct.mbedtls_mpi], ptr %12, i64 0, i64 %.1135.in310
+  %186 = getelementptr inbounds nuw %struct.mbedtls_mpi, ptr %12, i64 %.1135.in310
   %187 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %181, ptr noundef nonnull %186)
   %.not189 = icmp eq i32 %187, 0
   br i1 %.not189, label %188, label %mbedtls_mpi_grow.exit
@@ -5193,7 +5193,7 @@ mbedtls_mpi_grow.exit:                            ; preds = %185, %.lr.ph312, %2
 
 .lr.ph319:                                        ; preds = %mbedtls_mpi_grow.exit, %mbedtls_mpi_free.exit
   %.4318 = phi i64 [ %247, %mbedtls_mpi_free.exit ], [ %236, %mbedtls_mpi_grow.exit ]
-  %238 = getelementptr inbounds nuw [64 x %struct.mbedtls_mpi], ptr %12, i64 0, i64 %.4318
+  %238 = getelementptr inbounds nuw %struct.mbedtls_mpi, ptr %12, i64 %.4318
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load ptr, ptr %239, align 8, !tbaa !11
   %.not.i249 = icmp eq ptr %240, null

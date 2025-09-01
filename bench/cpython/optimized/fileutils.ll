@@ -2543,7 +2543,7 @@ define hidden i32 @_Py_wreadlink(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %33
 
 18:                                               ; preds = %14
-  %19 = getelementptr [4096 x i8], ptr %6, i64 0, i64 %15
+  %19 = getelementptr i8, ptr %6, i64 %15
   store i8 0, ptr %19, align 1, !tbaa !175
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @_Py_DecodeLocaleEx(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 2)

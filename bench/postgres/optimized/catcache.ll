@@ -132,7 +132,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
 
 45:                                               ; preds = %94, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %44, %.lr.ph.i ], [ %indvars.iv.next.i, %94 ]
-  %46 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   store ptr null, ptr %48, align 8
@@ -454,7 +454,7 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
 
 13:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr null, ptr %16, align 8
@@ -728,7 +728,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
 
 40:                                               ; preds = %89, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %39, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
-  %41 = getelementptr inbounds nuw [0 x ptr], ptr %38, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   store ptr null, ptr %43, align 8
@@ -942,7 +942,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
 
 150:                                              ; preds = %199, %.lr.ph.i68
   %indvars.iv.i69 = phi i64 [ %149, %.lr.ph.i68 ], [ %indvars.iv.next.i70, %199 ]
-  %151 = getelementptr inbounds nuw [0 x ptr], ptr %148, i64 0, i64 %indvars.iv.i69
+  %151 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i69
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 88
   store ptr null, ptr %153, align 8
@@ -1291,7 +1291,7 @@ CreateCacheMemoryContext.exit:                    ; preds = %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   store i32 %39, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1387,7 +1387,7 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
 
 24:                                               ; preds = %.lr.ph, %GetCCHashEqFuncs.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %GetCCHashEqFuncs.exit ]
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %33, label %28
@@ -1467,11 +1467,11 @@ GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %43, %44, 
   %oidvectorhashfast.sink.i = phi ptr [ @oidvectorhashfast, %49 ], [ @texthashfast, %47 ], [ @int4hashfast, %46 ], [ @int2hashfast, %45 ], [ @namehashfast, %44 ], [ @charhashfast, %43 ], [ @charhashfast, %33 ], [ @int4hashfast, %48 ], [ @int4hashfast, %28 ]
   %oidvectoreqfast.sink.i = phi ptr [ @oidvectoreqfast, %49 ], [ @texteqfast, %47 ], [ @int4eqfast, %46 ], [ @int2eqfast, %45 ], [ @nameeqfast, %44 ], [ @chareqfast, %43 ], [ @chareqfast, %33 ], [ @int4eqfast, %48 ], [ @int4eqfast, %28 ]
   %.sink.i = phi i32 [ 679, %49 ], [ 67, %47 ], [ 65, %46 ], [ 63, %45 ], [ 62, %44 ], [ 61, %43 ], [ 60, %33 ], [ 184, %48 ], [ 184, %28 ]
-  %53 = getelementptr inbounds nuw [4 x ptr], ptr %.pn40, i64 0, i64 %indvars.iv
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %.pn, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %.pn40, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %.pn, i64 %indvars.iv
   store ptr %oidvectorhashfast.sink.i, ptr %53, align 8
   store ptr %oidvectoreqfast.sink.i, ptr %54, align 8
-  %55 = getelementptr inbounds nuw [4 x %struct.ScanKeyData], ptr %23, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %23, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @fmgr_info_cxt(i32 noundef %.sink.i, ptr noundef nonnull %56, ptr noundef %57) #14
@@ -2651,7 +2651,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
   %376 = getelementptr inbounds nuw %union.ListCell, ptr %375, i64 %indvars.iv272
   %377 = load ptr, ptr %376, align 8
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %378 = getelementptr inbounds nuw [0 x ptr], ptr %304, i64 0, i64 %indvars.iv272
+  %378 = getelementptr inbounds nuw ptr, ptr %304, i64 %indvars.iv272
   store ptr %377, ptr %378, align 8
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 88
   store ptr %261, ptr %379, align 8
@@ -2943,7 +2943,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
 62:                                               ; preds = %.lr.ph, %heap_getattr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %heap_getattr.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %59, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %60, align 8
   %66 = icmp sgt i32 %64, 0
@@ -2972,7 +2972,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
 
 heap_getattr.exit:                                ; preds = %74, %76, %78
   %.0.i = phi i64 [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
-  %80 = getelementptr inbounds nuw [4 x i64], ptr %61, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
   store i64 %.0.i, ptr %80, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3693,7 +3693,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds %struct.CompactAttribute, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %45

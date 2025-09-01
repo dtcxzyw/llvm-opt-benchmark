@@ -637,7 +637,7 @@ define dso_local noundef ptr @_ZN5Lexer9TokenNameENS_5TokenE(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5Lexer9TokenNameENS_5TokenE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5Lexer9TokenNameENS_5TokenE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -860,7 +860,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %.10 = phi ptr [ %55, %54 ], [ %156, %155 ], [ %132, %131 ], [ %104, %103 ], [ %67, %66 ], [ %205, %204 ], [ %193, %192 ], [ %160, %159 ], [ %136, %135 ], [ %108, %107 ], [ %71, %70 ], [ %209, %208 ], [ %197, %196 ], [ %164, %163 ], [ %140, %139 ], [ %112, %111 ], [ %75, %74 ], [ %144, %143 ], [ %116, %115 ], [ %79, %78 ], [ %148, %147 ], [ %120, %119 ], [ %83, %82 ], [ %231, %230 ], [ %213, %212 ], [ %201, %200 ], [ %182, %181 ], [ %152, %151 ], [ %124, %123 ], [ %87, %86 ]
   %.1142 = phi i8 [ %56, %54 ], [ %157, %155 ], [ %133, %131 ], [ %105, %103 ], [ %68, %66 ], [ %206, %204 ], [ %194, %192 ], [ %161, %159 ], [ %137, %135 ], [ %109, %107 ], [ %72, %70 ], [ %210, %208 ], [ %198, %196 ], [ %165, %163 ], [ %141, %139 ], [ %113, %111 ], [ %76, %74 ], [ %145, %143 ], [ %117, %115 ], [ %80, %78 ], [ %149, %147 ], [ %121, %119 ], [ %84, %82 ], [ %232, %230 ], [ %214, %212 ], [ %202, %200 ], [ %183, %181 ], [ %153, %151 ], [ %125, %123 ], [ %88, %86 ]
   %58 = zext i8 %.1142 to i64
-  %59 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !23
   %61 = and i8 %60, 64
   %.not166 = icmp eq i8 %61, 0
@@ -1049,7 +1049,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %168 = getelementptr inbounds nuw i8, ptr %.0145, i64 4
   %169 = load i8, ptr %168, align 1, !tbaa !23
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !23
   %173 = and i8 %172, 64
   %.not158 = icmp eq i8 %173, 0
@@ -1059,7 +1059,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %175 = getelementptr inbounds nuw i8, ptr %.0145, i64 4
   %176 = load i8, ptr %175, align 1, !tbaa !23
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !23
   %180 = and i8 %179, 64
   %.not157 = icmp eq i8 %180, 0
@@ -1075,7 +1075,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %186 = getelementptr inbounds nuw i8, ptr %.0145, i64 5
   %187 = load i8, ptr %186, align 1, !tbaa !23
   %188 = zext i8 %187 to i64
-  %189 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !23
   %191 = and i8 %190, 64
   %.not163 = icmp eq i8 %191, 0
@@ -1121,7 +1121,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %217 = getelementptr inbounds nuw i8, ptr %.0145, i64 7
   %218 = load i8, ptr %217, align 1, !tbaa !23
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %219
   %221 = load i8, ptr %220, align 1, !tbaa !23
   %222 = and i8 %221, 64
   %.not161 = icmp eq i8 %222, 0
@@ -1131,7 +1131,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %224 = getelementptr inbounds nuw i8, ptr %.0145, i64 7
   %225 = load i8, ptr %224, align 1, !tbaa !23
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %226
   %228 = load i8, ptr %227, align 1, !tbaa !23
   %229 = and i8 %228, 64
   %.not160 = icmp eq i8 %229, 0
@@ -1147,7 +1147,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %234 = getelementptr inbounds nuw i8, ptr %.0145, i64 8
   %235 = load i8, ptr %234, align 1, !tbaa !23
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !23
   %239 = and i8 %238, 64
   %.not155 = icmp eq i8 %239, 0
@@ -1179,7 +1179,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   store ptr %.018.i, ptr %2, align 8, !tbaa !32
   %246 = load i8, ptr %.018.i, align 1, !tbaa !23
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %247
   %249 = load i8, ptr %248, align 1, !tbaa !23
   %.not.i = icmp sgt i8 %249, -1
   br i1 %.not.i, label %250, label %.preheader.i
@@ -1193,7 +1193,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   %251 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %252 = load i8, ptr %251, align 1, !tbaa !23
   %253 = zext i8 %252 to i64
-  %254 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !23
   %.not21.i = icmp sgt i8 %255, -1
   br i1 %.not21.i, label %.backedge.i.backedge, label %.preheader.i, !llvm.loop !33
@@ -1237,7 +1237,7 @@ define dso_local void @_ZN5Lexer13EatWhitespaceEv(ptr noundef nonnull align 8 ca
   store ptr %.018, ptr %2, align 8, !tbaa !32
   %4 = load i8, ptr %.018, align 1, !tbaa !23
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !23
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %8, label %.preheader
@@ -1251,7 +1251,7 @@ define dso_local void @_ZN5Lexer13EatWhitespaceEv(ptr noundef nonnull align 8 ca
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !23
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !23
   %.not21 = icmp sgt i8 %13, -1
   br i1 %.not21, label %.backedge.backedge, label %.preheader, !llvm.loop !33
@@ -1306,7 +1306,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = load i8, ptr %4, align 1, !tbaa !23
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadIdentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadIdentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !23
   %.not = icmp slt i8 %8, 0
   br i1 %.not, label %.preheader, label %14
@@ -1316,7 +1316,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   %9 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !23
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer9ReadIdentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer9ReadIdentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !23
   %.not18 = icmp sgt i8 %13, -1
   br i1 %.not18, label %16, label %.preheader
@@ -1342,7 +1342,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   store ptr %.018.i, ptr %3, align 8, !tbaa !32
   %24 = load i8, ptr %.018.i, align 1, !tbaa !23
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !23
   %.not.i = icmp sgt i8 %27, -1
   br i1 %.not.i, label %28, label %.preheader.i
@@ -1356,7 +1356,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !23
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !23
   %.not21.i = icmp sgt i8 %33, -1
   br i1 %.not21.i, label %.backedge.i.backedge, label %.preheader.i, !llvm.loop !33
@@ -1403,7 +1403,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer14ReadEvalStringEP10EvalStringbPNS
   %.093 = phi ptr [ %11, %4 ], [ %.093.be, %.loopexit.backedge ]
   %12 = load i8, ptr %.093, align 1, !tbaa !23
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !23
   %16 = and i8 %15, 16
   %.not = icmp eq i8 %16, 0
@@ -1489,7 +1489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
   %45 = getelementptr inbounds nuw i8, ptr %.194, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !23
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !23
   %50 = and i8 %49, 16
   %.not110 = icmp eq i8 %50, 0
@@ -1623,7 +1623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
   %98 = getelementptr inbounds nuw i8, ptr %.093, i64 1
   %99 = load i8, ptr %98, align 1, !tbaa !23
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !23
   %103 = and i8 %102, 64
   %.not100 = icmp eq i8 %103, 0
@@ -1766,7 +1766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   %153 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %154 = load i8, ptr %153, align 1, !tbaa !23
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !23
   %158 = and i8 %157, 64
   %.not106 = icmp eq i8 %158, 0
@@ -1789,7 +1789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   %167 = getelementptr inbounds nuw i8, ptr %.093, i64 2
   %168 = load i8, ptr %167, align 1, !tbaa !23
   %169 = zext i8 %168 to i64
-  %170 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !23
   %.not101 = icmp sgt i8 %171, -1
   br i1 %.not101, label %.noexc.i121, label %.preheader160
@@ -1806,7 +1806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   %175 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %176 = load i8, ptr %175, align 1, !tbaa !23
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !23
   %.not102 = icmp sgt i8 %179, -1
   br i1 %.not102, label %180, label %.preheader160
@@ -1848,7 +1848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   store ptr %.018.i, ptr %10, align 8, !tbaa !32
   %190 = load i8, ptr %.018.i, align 1, !tbaa !23
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !23
   %.not.i130 = icmp sgt i8 %193, -1
   br i1 %.not.i130, label %194, label %.preheader.i
@@ -1862,7 +1862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   %195 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %196 = load i8, ptr %195, align 1, !tbaa !23
   %197 = zext i8 %196 to i64
-  %198 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer13EatWhitespaceEvE4yybm, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !23
   %.not21.i = icmp sgt i8 %199, -1
   br i1 %.not21.i, label %.backedge.i.backedge, label %.preheader.i, !llvm.loop !33

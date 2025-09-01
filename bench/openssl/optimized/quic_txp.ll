@@ -210,7 +210,7 @@ define internal ptr @get_sstream_by_id(i64 noundef %0, i32 noundef %1, ptr nound
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !55
   br label %18
 
@@ -433,7 +433,7 @@ ossl_quic_tx_packetiser_set_initial_token.exit:   ; preds = %3, %8, %11
 
 20:                                               ; preds = %ossl_quic_tx_packetiser_set_initial_token.exit, %20
   %indvars.iv = phi i64 [ 0, %ossl_quic_tx_packetiser_set_initial_token.exit ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %19, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.txp_el, ptr %19, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !72
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 593) #10
@@ -612,7 +612,7 @@ define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_discard_enc_level(ptr nounde
   %switch.select.i = select i1 %switch.selectcmp.i, i64 1, i64 2
   %switch.selectcmp2.i = icmp eq i32 %1, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i64 0, i64 %switch.select.i
-  %8 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %switch.select3.i
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %switch.select3.i
   store ptr null, ptr %8, align 8, !tbaa !55
   br label %9
 
@@ -707,7 +707,7 @@ define range(i32 0, 3) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %0, ptr
 
 35:                                               ; preds = %2, %35
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %indvars.iv, i32 1
+  %36 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %indvars.iv, i32 1
   store i32 0, ptr %36, align 16, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -741,7 +741,7 @@ define range(i32 0, 3) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %0, ptr
 
 48:                                               ; preds = %47, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %47 ]
-  %49 = getelementptr inbounds nuw [3 x i32], ptr %46, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !38
   %.not10.i = icmp eq i32 %50, 0
   br i1 %.not10.i, label %47, label %txp_determine_archetype.exit
@@ -754,7 +754,7 @@ define range(i32 0, 3) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %0, ptr
 txp_determine_archetype.exit:                     ; preds = %48, %37, %43, %51
   %.08.i = phi i32 [ 1, %43 ], [ 1, %37 ], [ %..i, %51 ], [ 1, %48 ]
   %53 = zext nneg i32 %.08.i to i64
-  %invariant.gep = getelementptr inbounds nuw [3 x %struct.archetype_data], ptr @archetypes, i64 0, i64 %53
+  %invariant.gep = getelementptr inbounds nuw %struct.archetype_data, ptr @archetypes, i64 %53
   %54 = icmp eq i64 %34, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -797,14 +797,14 @@ txp_determine_archetype.exit:                     ; preds = %48, %37, %43, %51
   br i1 %.not, label %90, label %86
 
 86:                                               ; preds = %85
-  %87 = add nsw i64 %indvars.iv546, -1
-  %88 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %87, i32 5, i32 2
+  %87 = getelementptr %struct.txp_pkt, ptr %27, i64 %indvars.iv546
+  %88 = getelementptr i8, ptr %87, i64 -32
   %89 = load i64, ptr %88, align 16, !tbaa !104
   br label %90
 
 90:                                               ; preds = %85, %86
   %91 = phi i64 [ %89, %86 ], [ 0, %85 ]
-  %92 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %indvars.iv546
+  %92 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %indvars.iv546
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 256
   store i64 %91, ptr %93, align 16, !tbaa !104
   %switch.selectcmp.i.i = icmp eq i64 %indvars.iv546, 2
@@ -817,7 +817,7 @@ txp_determine_archetype.exit:                     ; preds = %48, %37, %43, %51
   br i1 %.not.i138, label %1062, label %97
 
 97:                                               ; preds = %90
-  %gep = getelementptr inbounds nuw [4 x [3 x %struct.archetype_data]], ptr %invariant.gep, i64 0, i64 %indvars.iv546
+  %gep = getelementptr inbounds nuw [3 x %struct.archetype_data], ptr %invariant.gep, i64 %indvars.iv546
   %98 = load i32, ptr %gep, align 4, !tbaa !37
   %.fr.i = freeze i32 %98
   %99 = and i32 %.fr.i, 65536
@@ -865,7 +865,7 @@ txp_determine_archetype.exit:                     ; preds = %48, %37, %43, %51
 114:                                              ; preds = %110, %107, %104
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %116 = zext nneg i32 %switch.select3.i.i to i64
-  %117 = getelementptr inbounds nuw [3 x i32], ptr %115, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !38
   %.not63.i = icmp eq i32 %118, 0
   br i1 %.not63.i, label %.critedge.i, label %.loopexit
@@ -877,7 +877,7 @@ txp_determine_archetype.exit:                     ; preds = %48, %37, %43, %51
 
 120:                                              ; preds = %.critedge.i
   %121 = zext nneg i32 %switch.select3.i.i to i64
-  %122 = getelementptr inbounds nuw [3 x ptr], ptr %55, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %55, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -1365,7 +1365,7 @@ txp_need_ping.exit.thread.i:                      ; preds = %txp_need_ping.exit.
   %287 = load i8, ptr %286, align 8
   %288 = and i8 %287, -2
   store i8 %288, ptr %286, align 8
-  %289 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %67, i64 0, i64 %indvars.iv546
+  %289 = getelementptr inbounds nuw %struct.txp_el, ptr %67, i64 %indvars.iv546
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load i64, ptr %290, align 8, !tbaa !125
   %292 = icmp ugt i64 %259, %291
@@ -1380,7 +1380,7 @@ txp_need_ping.exit.thread.i:                      ; preds = %txp_need_ping.exit.
 .thread.i.i:                                      ; preds = %293
   %297 = load ptr, ptr %92, align 16, !tbaa !119
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 552
-  %299 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %298, i64 0, i64 %indvars.iv546
+  %299 = getelementptr inbounds nuw %struct.txp_el, ptr %298, i64 %indvars.iv546
   store ptr %295, ptr %299, align 8, !tbaa !75
   %.idx.i.i = shl nuw nsw i64 %indvars.iv546, 5
   %300 = getelementptr inbounds nuw i8, ptr %297, i64 560
@@ -1409,7 +1409,7 @@ txp_need_ping.exit.thread.i:                      ; preds = %txp_need_ping.exit.
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 1, ptr %21, align 4, !tbaa !38
   %311 = zext nneg i32 %switch.select3.i.i147 to i64
-  %312 = getelementptr inbounds nuw [3 x i64], ptr %68, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw i64, ptr %68, i64 %311
   %313 = load i64, ptr %312, align 8, !tbaa !49
   %314 = icmp ugt i64 %313, 4611686018427387903
   br i1 %314, label %txp_should_try_staging.exit, label %315
@@ -1803,7 +1803,7 @@ tx_helper_get_space_left.exit208.i:               ; preds = %493, %489
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 552
   %503 = load i32, ptr %277, align 16, !tbaa !120
   %504 = zext i32 %503 to i64
-  %505 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %502, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw %struct.txp_el, ptr %502, i64 %504
   %506 = icmp eq i64 %479, 0
   br i1 %506, label %tx_helper_append_iovec.exit.i, label %507
 
@@ -1914,9 +1914,9 @@ ossl_quic_frame_type_is_ack_eliciting.exit.thread.i: ; preds = %ossl_quic_frame_
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  %539 = getelementptr inbounds nuw [3 x ptr], ptr %55, i64 0, i64 %switch.select3.i.i.i
+  %539 = getelementptr inbounds nuw ptr, ptr %55, i64 %switch.select3.i.i.i
   %540 = zext i32 %537 to i64
-  %541 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %67, i64 0, i64 %540
+  %541 = getelementptr inbounds nuw %struct.txp_el, ptr %67, i64 %540
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 24
   %543 = getelementptr inbounds nuw i8, ptr %541, i64 16
   br label %544
@@ -2031,7 +2031,7 @@ determine_crypto_len.exit.i.i:                    ; preds = %562
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %tx_helper_append_iovec.exit.i.i
   %.147.i.i = phi i64 [ %628, %tx_helper_append_iovec.exit.i.i ], [ 0, %.preheader.i.i ]
-  %595 = getelementptr inbounds nuw [2 x %struct.ossl_qtx_iovec_st], ptr %18, i64 0, i64 %.147.i.i
+  %595 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %18, i64 %.147.i.i
   %596 = load ptr, ptr %595, align 16, !tbaa !132
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 8
   %598 = load i64, ptr %597, align 8, !tbaa !134
@@ -2039,7 +2039,7 @@ determine_crypto_len.exit.i.i:                    ; preds = %562
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 552
   %601 = load i32, ptr %277, align 16, !tbaa !120
   %602 = zext i32 %601 to i64
-  %603 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %600, i64 0, i64 %602
+  %603 = getelementptr inbounds nuw %struct.txp_el, ptr %600, i64 %602
   %604 = icmp eq i64 %598, 0
   br i1 %604, label %tx_helper_append_iovec.exit.i.i, label %605
 
@@ -2461,7 +2461,7 @@ tx_helper_rollback.exit108.i.i:                   ; preds = %749, %746
   store i64 %774, ptr %.0104171.i.sroa.phi.i.i, align 16, !tbaa !162
   %.not115.i.i.i = icmp eq ptr %651, null
   %781 = zext i32 %778 to i64
-  %782 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %67, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw %struct.txp_el, ptr %67, i64 %781
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 24
   %784 = getelementptr inbounds nuw i8, ptr %782, i64 16
   br label %819
@@ -2575,7 +2575,7 @@ tx_helper_get_space_left.exit.i.i.i:              ; preds = %823, %819
   %827 = add i64 %825, %826
   %828 = sub i64 %820, %827
   %829 = and i64 %.1105.i.i.i, 1
-  %830 = getelementptr inbounds nuw [2 x %struct.chunk_info], ptr %6, i64 0, i64 %829
+  %830 = getelementptr inbounds nuw %struct.chunk_info, ptr %6, i64 %829
   %831 = getelementptr inbounds nuw i8, ptr %830, i64 88
   %832 = load i32, ptr %831, align 8, !tbaa !165
   %.not.i110.i.i = icmp eq i32 %832, 0
@@ -2599,7 +2599,7 @@ tx_helper_get_space_left.exit.i.i.i:              ; preds = %823, %819
 840:                                              ; preds = %837
   %841 = add i64 %.1105.i.i.i, 1
   %842 = and i64 %841, 1
-  %843 = getelementptr inbounds nuw [2 x %struct.chunk_info], ptr %6, i64 0, i64 %842
+  %843 = getelementptr inbounds nuw %struct.chunk_info, ptr %6, i64 %842
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 80
   store i64 2, ptr %844, align 16, !tbaa !164
   %845 = getelementptr inbounds nuw i8, ptr %843, i64 48
@@ -2693,7 +2693,7 @@ determine_stream_len.exit.i.i.i:                  ; preds = %txp_plan_stream_chu
 
 885:                                              ; preds = %881
   %886 = xor i64 %829, 1
-  %887 = getelementptr inbounds nuw [2 x %struct.chunk_info], ptr %6, i64 0, i64 %886, i32 4
+  %887 = getelementptr inbounds nuw %struct.chunk_info, ptr %6, i64 %886, i32 4
   %888 = load i32, ptr %887, align 8, !tbaa !165
   %889 = icmp ne i32 %888, 0
   br label %890
@@ -2747,7 +2747,7 @@ determine_stream_len.exit145.i.i.i:               ; preds = %.critedge.i.i.i
 
 909:                                              ; preds = %905
   %910 = xor i64 %829, 1
-  %911 = getelementptr inbounds nuw [2 x %struct.chunk_info], ptr %6, i64 0, i64 %910, i32 4
+  %911 = getelementptr inbounds nuw %struct.chunk_info, ptr %6, i64 %910, i32 4
   store i32 0, ptr %911, align 8, !tbaa !165
   br label %912
 
@@ -2823,7 +2823,7 @@ determine_stream_len.exit145.i.i.i:               ; preds = %.critedge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %tx_helper_append_iovec.exit.i.i.i
   %.0106172.i.i.i = phi i64 [ %978, %tx_helper_append_iovec.exit.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %945 = getelementptr inbounds nuw [2 x %struct.ossl_qtx_iovec_st], ptr %917, i64 0, i64 %.0106172.i.i.i
+  %945 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %917, i64 %.0106172.i.i.i
   %946 = load ptr, ptr %945, align 16, !tbaa !132
   %947 = getelementptr inbounds nuw i8, ptr %945, i64 8
   %948 = load i64, ptr %947, align 8, !tbaa !134
@@ -2831,7 +2831,7 @@ determine_stream_len.exit145.i.i.i:               ; preds = %.critedge.i.i.i
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 552
   %951 = load i32, ptr %277, align 16, !tbaa !120
   %952 = zext i32 %951 to i64
-  %953 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %950, i64 0, i64 %952
+  %953 = getelementptr inbounds nuw %struct.txp_el, ptr %950, i64 %952
   %954 = icmp eq i64 %948, 0
   br i1 %954, label %tx_helper_append_iovec.exit.i.i.i, label %955
 
@@ -3128,7 +3128,7 @@ txp_should_try_staging.exit.thread198:            ; preds = %242, %txp_need_ping
   %indvars.iv550 = phi i64 [ %indvars.iv.next551, %1112 ], [ 0, %txp_should_try_staging.exit.thread198 ]
   %.096412 = phi i32 [ %.2, %1112 ], [ 4, %txp_should_try_staging.exit.thread198 ]
   %.0100411 = phi i64 [ %.1101, %1112 ], [ 0, %txp_should_try_staging.exit.thread198 ]
-  %1069 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %indvars.iv550
+  %1069 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %indvars.iv550
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 128
   %1071 = load i32, ptr %1070, align 16, !tbaa !87
   %.not131 = icmp eq i32 %1071, 0
@@ -3221,7 +3221,7 @@ txp_pkt_postgen_update_pkt_overhead.exit:         ; preds = %.txp_pkt_postgen_up
 1116:                                             ; preds = %1113
   %1117 = sub nuw nsw i64 1200, %.1101
   %1118 = zext nneg i32 %.2 to i64
-  %1119 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %1118
+  %1119 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %1118
   %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 128
   %1121 = load i32, ptr %1120, align 16, !tbaa !87
   %.not.i158 = icmp eq i32 %1121, 0
@@ -3305,7 +3305,7 @@ txp_pkt_postgen_update_pkt_overhead.exit:         ; preds = %.txp_pkt_postgen_up
 1168:                                             ; preds = %1153, %1365
   %indvars.iv554 = phi i64 [ 0, %1153 ], [ %indvars.iv.next555, %1365 ]
   %.1116413 = phi i64 [ 0, %1153 ], [ %.2117, %1365 ]
-  %1169 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %indvars.iv554
+  %1169 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %indvars.iv554
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 128
   %1171 = load i32, ptr %1170, align 16, !tbaa !87
   %.not125 = icmp eq i32 %1171, 0
@@ -3346,7 +3346,7 @@ ossl_quic_tx_packetiser_consume_unvalidated_credit.exit: ; preds = %1178, %.sink
 
 1184:                                             ; preds = %ossl_quic_tx_packetiser_consume_unvalidated_credit.exit
   %1185 = zext nneg i32 %1180 to i64
-  %gep416 = getelementptr inbounds nuw [4 x [3 x %struct.archetype_data]], ptr %invariant.gep, i64 0, i64 %1185
+  %gep416 = getelementptr inbounds nuw [3 x %struct.archetype_data], ptr %invariant.gep, i64 %1185
   %1186 = load i32, ptr %gep416, align 4, !tbaa !37
   %1187 = getelementptr inbounds nuw i8, ptr %1169, i64 152
   store ptr %1187, ptr %3, align 8, !tbaa !190
@@ -3364,7 +3364,7 @@ ossl_quic_tx_packetiser_consume_unvalidated_credit.exit: ; preds = %1178, %.sink
   %1195 = select i1 %1194, ptr null, ptr %1159
   store ptr %1195, ptr %1160, align 8, !tbaa !198
   %1196 = zext nneg i32 %switch.select3.i.i165 to i64
-  %1197 = getelementptr inbounds nuw [3 x i64], ptr %68, i64 0, i64 %1196
+  %1197 = getelementptr inbounds nuw i64, ptr %68, i64 %1196
   %1198 = load i64, ptr %1197, align 8, !tbaa !49
   store i64 %1198, ptr %1161, align 8, !tbaa !199
   store i32 1, ptr %1162, align 8, !tbaa !200
@@ -3670,7 +3670,7 @@ ossl_quic_tx_packetiser_consume_unvalidated_credit.exit: ; preds = %1178, %.sink
 
 1337:                                             ; preds = %1335
   %1338 = getelementptr inbounds nuw i8, ptr %1325, i64 8
-  %1339 = getelementptr inbounds nuw [3 x i32], ptr %1338, i64 0, i64 %1196
+  %1339 = getelementptr inbounds nuw i32, ptr %1338, i64 %1196
   %1340 = load i32, ptr %1339, align 4, !tbaa !38
   %.not110.i = icmp eq i32 %1340, 0
   br i1 %.not110.i, label %txp_pkt_commit.exit, label %1341
@@ -3753,7 +3753,7 @@ txp_pkt_commit.exit:                              ; preds = %1320, %1335, %1337,
 
 1367:                                             ; preds = %.thread209, %txp_pkt_cleanup.exit
   %indvars.iv558 = phi i64 [ 0, %.thread209 ], [ %indvars.iv.next559, %txp_pkt_cleanup.exit ]
-  %1368 = getelementptr inbounds nuw [4 x %struct.txp_pkt], ptr %27, i64 0, i64 %indvars.iv558
+  %1368 = getelementptr inbounds nuw %struct.txp_pkt, ptr %27, i64 %indvars.iv558
   %1369 = getelementptr inbounds nuw i8, ptr %1368, i64 128
   %1370 = load i32, ptr %1369, align 16, !tbaa !87
   %.not.i172 = icmp eq i32 %1370, 0
@@ -3890,7 +3890,7 @@ define i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef readonly captures(no
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !49
   br label %9
 
@@ -4005,7 +4005,7 @@ define internal fastcc noundef ptr @tx_helper_begin(ptr noundef nonnull %0) unna
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !120
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.txp_el, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i8, ptr %9, align 8
@@ -4113,7 +4113,7 @@ define internal fastcc range(i32 0, 2) i32 @tx_helper_commit(ptr noundef nonnull
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !120
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw [4 x %struct.txp_el], ptr %19, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw %struct.txp_el, ptr %19, i64 %22
   %24 = icmp eq i64 %17, 0
   br i1 %24, label %tx_helper_append_iovec.exit.thread, label %25
 
@@ -4664,19 +4664,19 @@ try_len.exit53:                                   ; preds = %try_len.exit45, %37
   %.02356 = phi i64 [ 0, %try_len.exit53 ], [ %.1, %52 ]
   %.02455 = phi i64 [ 0, %try_len.exit53 ], [ %.125, %52 ]
   %.02654 = phi i32 [ 0, %try_len.exit53 ], [ %.127, %52 ]
-  %44 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !38
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %52, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !49
   %.not29 = icmp ult i64 %48, %.02455
   br i1 %.not29, label %52, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !49
   br label %52
 

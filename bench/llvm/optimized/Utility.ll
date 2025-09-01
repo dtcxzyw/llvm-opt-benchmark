@@ -984,7 +984,7 @@ _ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescE
 118:                                              ; preds = %118, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK4llvm6object13Elf_Note_ImplINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7getDescEm.exit.i ], [ %indvars.iv.next.i.i, %118 ]
   %119 = trunc i64 %indvars.iv.i.i to i8
-  %120 = getelementptr inbounds nuw [11 x %"struct.llvm::msgpack::KindAndDocument"], ptr %77, i64 0, i64 %indvars.iv.i.i
+  %120 = getelementptr inbounds nuw %"struct.llvm::msgpack::KindAndDocument", ptr %77, i64 %indvars.iv.i.i
   store ptr %14, ptr %120, align 8, !tbaa !218, !noalias !195
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i8 %119, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !220, !noalias !195

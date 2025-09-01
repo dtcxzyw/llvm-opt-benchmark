@@ -201,7 +201,7 @@ define ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef %0, ptr noundef %1, i32 no
 
 .preheader.i:                                     ; preds = %3, %5
   %.08.i = phi i64 [ %6, %5 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [82 x %struct._ec_list_element_st], ptr @curve_list, i64 0, i64 %.08.i
+  %7 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.08.i
   %8 = load i32, ptr %7, align 16, !tbaa !5
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %ec_curve_nid2curve.exit, label %5
@@ -475,7 +475,7 @@ define noundef i64 @EC_get_builtin_curves(ptr noundef writeonly captures(address
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01416 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %6 = getelementptr inbounds nuw [82 x %struct._ec_list_element_st], ptr @curve_list, i64 0, i64 %.01416
+  %6 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.01416
   %7 = load i32, ptr %6, align 16, !tbaa !5
   %8 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %0, i64 %.01416
   store i32 %7, ptr %8, align 8, !tbaa !28
@@ -544,7 +544,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 .preheader91:                                     ; preds = %2, %23
   %.06793 = phi i64 [ %24, %23 ], [ 0, %2 ]
   %25 = tail call ptr @BN_CTX_get(ptr noundef %1) #7
-  %26 = getelementptr inbounds nuw [6 x ptr], ptr %3, i64 0, i64 %.06793
+  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %.06793
   store ptr %25, ptr %26, align 8, !tbaa !36
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.loopexit, label %23
@@ -596,7 +596,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 
 .preheader.split.us:                              ; preds = %.preheader, %74
   %.26995.us = phi i64 [ %75, %74 ], [ 0, %.preheader ]
-  %52 = getelementptr inbounds nuw [82 x %struct._ec_list_element_st], ptr @curve_list, i64 0, i64 %.26995.us
+  %52 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26995.us
   %.sroa.0.0.copyload.us = load i32, ptr %52, align 16, !tbaa !38
   %.sroa.53.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.53.0.copyload.us = load ptr, ptr %.sroa.53.0..sroa_idx.us, align 8, !tbaa !39
@@ -643,7 +643,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 
 76:                                               ; preds = %.preheader89, %48
   %.16894 = phi i64 [ 0, %.preheader89 ], [ %49, %48 ]
-  %77 = getelementptr inbounds nuw [6 x ptr], ptr %3, i64 0, i64 %.16894
+  %77 = getelementptr inbounds nuw ptr, ptr %3, i64 %.16894
   %78 = load ptr, ptr %77, align 8, !tbaa !36
   %79 = mul nsw i64 %.16894, %47
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 %79
@@ -653,7 +653,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 
 .preheader.split:                                 ; preds = %.preheader, %113
   %.26995 = phi i64 [ %114, %113 ], [ 0, %.preheader ]
-  %83 = getelementptr inbounds nuw [82 x %struct._ec_list_element_st], ptr @curve_list, i64 0, i64 %.26995
+  %83 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26995
   %.sroa.0.0.copyload = load i32, ptr %83, align 16, !tbaa !38
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8, !tbaa !39

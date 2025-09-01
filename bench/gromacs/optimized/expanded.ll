@@ -230,7 +230,7 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
 
 .split.us:                                        ; preds = %28, %38
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %38 ], [ 0, %28 ]
-  %31 = getelementptr inbounds nuw [7 x i8], ptr %30, i64 0, i64 %indvars.iv241
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv241
   %32 = load i8, ptr %31, align 1, !tbaa !51, !range !49, !noundef !50
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %38
@@ -254,7 +254,7 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
 
 .split:                                           ; preds = %28, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %28 ]
-  %42 = getelementptr inbounds nuw [7 x i8], ptr %30, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !51, !range !49, !noundef !50
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %49
@@ -354,13 +354,13 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
 
 .split217.us:                                     ; preds = %99, %111
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %111 ], [ 0, %99 ]
-  %102 = getelementptr inbounds nuw [7 x i8], ptr %30, i64 0, i64 %indvars.iv247
+  %102 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv247
   %103 = load i8, ptr %102, align 1, !tbaa !51, !range !49, !noundef !50
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %.split217.us
-  %106 = getelementptr inbounds nuw [7 x %"class.std::vector.55"], ptr %65, i64 0, i64 %indvars.iv247
+  %106 = getelementptr inbounds nuw %"class.std::vector.55", ptr %65, i64 %indvars.iv247
   %107 = load ptr, ptr %106, align 8, !tbaa !53
   %108 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv250
   %109 = load double, ptr %108, align 8, !tbaa !56
@@ -380,13 +380,13 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
 
 .split217:                                        ; preds = %99, %130
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %130 ], [ 0, %99 ]
-  %114 = getelementptr inbounds nuw [7 x i8], ptr %30, i64 0, i64 %indvars.iv244
+  %114 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv244
   %115 = load i8, ptr %114, align 1, !tbaa !51, !range !49, !noundef !50
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %.split217
-  %118 = getelementptr inbounds nuw [7 x %"class.std::vector.55"], ptr %65, i64 0, i64 %indvars.iv244
+  %118 = getelementptr inbounds nuw %"class.std::vector.55", ptr %65, i64 %indvars.iv244
   %119 = load ptr, ptr %118, align 8, !tbaa !53
   %120 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv250
   %121 = load double, ptr %120, align 8, !tbaa !56
@@ -2434,7 +2434,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i.thre
 
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i: ; preds = %._crit_edge387.i
   %.phi.trans.insert1.i.i.i.i.i = zext nneg i32 %.pre276 to i64
-  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %780, i64 0, i64 %.phi.trans.insert1.i.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %780, i64 %.phi.trans.insert1.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i.i, align 8, !tbaa !207
   %1011 = add nuw nsw i32 %.pre276, 1
   br label %.lr.ph391.preheader.i
@@ -2526,7 +2526,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i: ; p
   %.0356473477482486.i321 = phi double [ %917, %._crit_edge371.i ], [ 0.000000e+00, %._crit_edge367.i ]
   %1048 = phi i32 [ %.pre, %._crit_edge371.i ], [ 0, %._crit_edge367.i ]
   %.phi.trans.insert1.i.i.i.i259.i = zext nneg i32 %1048 to i64
-  %.phi.trans.insert2.i.i.i.i260.i = getelementptr inbounds nuw [2 x i64], ptr %780, i64 0, i64 %.phi.trans.insert1.i.i.i.i259.i
+  %.phi.trans.insert2.i.i.i.i260.i = getelementptr inbounds nuw i64, ptr %780, i64 %.phi.trans.insert1.i.i.i.i259.i
   %.pre.i.i.i.i261.i = load i64, ptr %.phi.trans.insert2.i.i.i.i260.i, align 8, !tbaa !207
   %1049 = add nuw nsw i32 %1048, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i
@@ -2998,7 +2998,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit280.i: 
 
 ._crit_edge.i.i.i.i281.i:                         ; preds = %1347
   %.phi.trans.insert1.i.i.i.i283.i = zext nneg i32 %1349 to i64
-  %.phi.trans.insert2.i.i.i.i284.i = getelementptr inbounds nuw [2 x i64], ptr %780, i64 0, i64 %.phi.trans.insert1.i.i.i.i283.i
+  %.phi.trans.insert2.i.i.i.i284.i = getelementptr inbounds nuw i64, ptr %780, i64 %.phi.trans.insert1.i.i.i.i283.i
   %.pre.i.i.i.i285.i = load i64, ptr %.phi.trans.insert2.i.i.i.i284.i, align 8, !tbaa !207
   %1351 = add nuw nsw i32 %1349, 1
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i
@@ -3919,7 +3919,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc64.i
 
 45:                                               ; preds = %45, %42
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %45 ], [ 0, %42 ]
-  %46 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv104.i
+  %46 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv104.i
   %47 = load float, ptr %46, align 4, !tbaa !43
   %48 = fmul float %41, %47
   store float %48, ptr %46, align 4, !tbaa !43
@@ -3988,7 +3988,7 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %61, %5
 
 78:                                               ; preds = %78, %.lr.ph84.split.i
   %indvars.iv97.i = phi i64 [ 0, %.lr.ph84.split.i ], [ %indvars.iv.next98.i, %78 ]
-  %79 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv97.i
+  %79 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv97.i
   %80 = load float, ptr %79, align 4, !tbaa !43
   %81 = fmul float %75, %80
   store float %81, ptr %79, align 4, !tbaa !43

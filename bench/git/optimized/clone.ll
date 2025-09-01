@@ -1334,7 +1334,7 @@ _.exit354:                                        ; preds = %355, %357
 
 437:                                              ; preds = %439, %434
   %.0811.i = phi i64 [ 0, %434 ], [ %440, %439 ]
-  %438 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i
+  %438 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
   %.not.i355 = icmp eq ptr %436, %438
   br i1 %.not.i355, label %.split.loop.exit9.i, label %439
 
@@ -3163,7 +3163,7 @@ define internal fastcc ptr @get_repo_path(ptr noundef %0, ptr noundef nonnull wr
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %18, %16
-  %20 = getelementptr inbounds nuw [4 x ptr], ptr @get_repo_path_1.suffix, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw ptr, ptr @get_repo_path_1.suffix, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %21, i64 noundef %22) #20
@@ -3255,7 +3255,7 @@ get_repo_path_1.exit.thread7:                     ; preds = %45
   br label %strbuf_setlen.exit46.i
 
 strbuf_setlen.exit46.i:                           ; preds = %54, %52
-  %56 = getelementptr inbounds nuw [2 x ptr], ptr @get_repo_path_1.bundle_suffix, i64 0, i64 %indvars.iv57.i
+  %56 = getelementptr inbounds nuw ptr, ptr @get_repo_path_1.bundle_suffix, i64 %indvars.iv57.i
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #22
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %57, i64 noundef %58) #20

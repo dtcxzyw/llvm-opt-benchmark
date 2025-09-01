@@ -1453,7 +1453,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 130:                                              ; preds = %130, %122
   %indvars.iv.i.i.i = phi i64 [ 0, %122 ], [ %indvars.iv.next.i.i.i, %130 ]
-  %131 = getelementptr [23 x %struct.ruby_opt_message], ptr @usage.usage_msg, i64 0, i64 %indvars.iv.i.i.i
+  %131 = getelementptr %struct.ruby_opt_message, ptr @usage.usage_msg, i64 %indvars.iv.i.i.i
   %132 = load ptr, ptr %131, align 16, !tbaa !80
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %134 = load i16, ptr %133, align 8, !tbaa !83
@@ -1477,7 +1477,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 .preheader.i.i:                                   ; preds = %145, %.preheader.i.i
   %indvars.iv67.i.i.i = phi i64 [ %indvars.iv.next68.i.i.i, %.preheader.i.i ], [ 0, %145 ]
-  %146 = getelementptr [13 x %struct.ruby_opt_message], ptr @usage.help_msg, i64 0, i64 %indvars.iv67.i.i.i
+  %146 = getelementptr %struct.ruby_opt_message, ptr @usage.help_msg, i64 %indvars.iv67.i.i.i
   %147 = load ptr, ptr %146, align 16, !tbaa !80
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load i16, ptr %148, align 8, !tbaa !83
@@ -1503,7 +1503,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 162:                                              ; preds = %162, %160
   %indvars.iv71.i.i.i = phi i64 [ 0, %160 ], [ %indvars.iv.next72.i.i.i, %162 ]
-  %163 = getelementptr [6 x %struct.ruby_opt_message], ptr @usage.dumps, i64 0, i64 %indvars.iv71.i.i.i
+  %163 = getelementptr %struct.ruby_opt_message, ptr @usage.dumps, i64 %indvars.iv71.i.i.i
   %164 = load ptr, ptr %163, align 16, !tbaa !80
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load i16, ptr %165, align 8, !tbaa !83
@@ -1523,7 +1523,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 174:                                              ; preds = %174, %172
   %indvars.iv75.i.i.i = phi i64 [ 0, %172 ], [ %indvars.iv.next76.i.i.i, %174 ]
-  %175 = getelementptr [7 x %struct.ruby_opt_message], ptr @usage.features, i64 0, i64 %indvars.iv75.i.i.i
+  %175 = getelementptr %struct.ruby_opt_message, ptr @usage.features, i64 %indvars.iv75.i.i.i
   %176 = load ptr, ptr %175, align 16, !tbaa !80
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %178 = load i16, ptr %177, align 8, !tbaa !83
@@ -1543,7 +1543,7 @@ rb_array_len.exit.i:                              ; preds = %62, %59
 
 186:                                              ; preds = %186, %184
   %indvars.iv79.i.i.i = phi i64 [ 0, %184 ], [ %indvars.iv.next80.i.i.i, %186 ]
-  %187 = getelementptr [4 x %struct.ruby_opt_message], ptr @usage.warn_categories, i64 0, i64 %indvars.iv79.i.i.i
+  %187 = getelementptr %struct.ruby_opt_message, ptr @usage.warn_categories, i64 %indvars.iv79.i.i.i
   %188 = load ptr, ptr %187, align 16, !tbaa !80
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %190 = load i16, ptr %189, align 8, !tbaa !83

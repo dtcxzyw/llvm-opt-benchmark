@@ -38,7 +38,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli36BrotliFindAllStaticDicti
 
 22:                                               ; preds = %21, %22
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [38 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 268435455, ptr %23, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
@@ -51,7 +51,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli36BrotliFindAllStaticDicti
 
 27:                                               ; preds = %24, %46
   %indvars.iv42 = phi i64 [ 0, %24 ], [ %indvars.iv.next43, %46 ]
-  %28 = getelementptr inbounds nuw [38 x i32], ptr %6, i64 0, i64 %indvars.iv42
+  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv42
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %.not38 = icmp eq i32 %29, 268435455
   br i1 %.not38, label %46, label %30
@@ -60,7 +60,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli36BrotliFindAllStaticDicti
   %31 = and i32 %29, 31
   %32 = load ptr, ptr %0, align 8, !tbaa !25
   %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %36 = zext nneg i8 %35 to i32
   %37 = shl nuw i32 1, %36
@@ -126,7 +126,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   %.sroa.9.0.copyload = load i16, ptr %.sroa.9.0..sroa_idx, align 2, !tbaa !30
   %24 = and i8 %.sroa.0579.0.copyload, 31
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !26
   %28 = zext nneg i8 %27 to i64
   %29 = shl nuw i64 1, %28
@@ -136,7 +136,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL39BrotliFindAllStaticDict
   br i1 %32, label %33, label %799
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %25
+  %34 = getelementptr inbounds nuw i32, ptr %17, i64 %25
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = zext i32 %35 to i64
   %37 = mul nuw nsw i64 %30, %25
@@ -1308,7 +1308,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit1009: ; preds = %43, %
 
 801:                                              ; preds = %799
   %.sroa.9.0.insert.ext = zext i16 %.sroa.9.0.copyload to i32
-  %802 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %25
+  %802 = getelementptr inbounds nuw i32, ptr %17, i64 %25
   %803 = load i32, ptr %802, align 4, !tbaa !22
   %804 = zext i32 %803 to i64
   %narrow.i = mul nuw nsw i32 %.sroa.9.0.insert.ext, %.sroa.0579.0.insert.ext
@@ -1673,7 +1673,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   %.sroa.10.0.copyload = load i16, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !30
   %1015 = and i8 %.sroa.0155.0.copyload, 31
   %1016 = zext nneg i8 %1015 to i64
-  %1017 = getelementptr inbounds nuw [32 x i8], ptr %1004, i64 0, i64 %1016
+  %1017 = getelementptr inbounds nuw i8, ptr %1004, i64 %1016
   %1018 = load i8, ptr %1017, align 1, !tbaa !26
   %1019 = zext nneg i8 %1018 to i64
   %1020 = zext i16 %.sroa.10.0.copyload to i64
@@ -1686,7 +1686,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit.thread104
   br i1 %1024, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread, label %1025
 
 1025:                                             ; preds = %1023
-  %1026 = getelementptr inbounds nuw [32 x i32], ptr %1006, i64 0, i64 %1016
+  %1026 = getelementptr inbounds nuw i32, ptr %1006, i64 %1016
   %1027 = load i32, ptr %1026, align 4, !tbaa !22
   %1028 = zext i32 %1027 to i64
   %narrow.i825 = mul nuw nsw i64 %1020, %1016
@@ -1919,7 +1919,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
 
 1159:                                             ; preds = %1157
   %.sroa.10.0.insert.ext = zext i16 %.sroa.10.0.copyload to i32
-  %1160 = getelementptr inbounds nuw [32 x i32], ptr %1006, i64 0, i64 %1016
+  %1160 = getelementptr inbounds nuw i32, ptr %1006, i64 %1016
   %1161 = load i32, ptr %1160, align 4, !tbaa !22
   %1162 = zext i32 %1161 to i64
   %narrow.i836 = mul nuw nsw i32 %.sroa.10.0.insert.ext, %.sroa.0155.0.insert.ext
@@ -2245,7 +2245,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   %.sroa.850.0.copyload = load i16, ptr %.sroa.850.0..sroa_idx, align 2, !tbaa !30
   %1338 = and i8 %.sroa.047.0.copyload, 31
   %1339 = zext nneg i8 %1338 to i64
-  %1340 = getelementptr inbounds nuw [32 x i8], ptr %1331, i64 0, i64 %1339
+  %1340 = getelementptr inbounds nuw i8, ptr %1331, i64 %1339
   %1341 = load i8, ptr %1340, align 1, !tbaa !26
   %1342 = zext nneg i8 %1341 to i64
   %1343 = zext i16 %.sroa.850.0.copyload to i64
@@ -2256,7 +2256,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit832.thread
   br i1 %or.cond1462, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread, label %1347
 
 1347:                                             ; preds = %1335
-  %1348 = getelementptr inbounds nuw [32 x i32], ptr %1333, i64 0, i64 %1339
+  %1348 = getelementptr inbounds nuw i32, ptr %1333, i64 %1339
   %1349 = load i32, ptr %1348, align 4, !tbaa !22
   %1350 = zext i32 %1349 to i64
   %narrow.i847 = mul nuw nsw i64 %1343, %1339
@@ -2465,7 +2465,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   %.sroa.8.0.copyload = load i16, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !30
   %1452 = and i8 %.sroa.028.0.copyload, 31
   %1453 = zext nneg i8 %1452 to i64
-  %1454 = getelementptr inbounds nuw [32 x i8], ptr %1445, i64 0, i64 %1453
+  %1454 = getelementptr inbounds nuw i8, ptr %1445, i64 %1453
   %1455 = load i8, ptr %1454, align 1, !tbaa !26
   %1456 = zext nneg i8 %1455 to i64
   %1457 = zext i16 %.sroa.8.0.copyload to i64
@@ -2476,7 +2476,7 @@ _ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit854.thread
   br i1 %or.cond1470, label %_ZL7IsMatchPKN13duckdb_brotli16BrotliDictionaryENS_8DictWordEPKhm.exit865.thread, label %1461
 
 1461:                                             ; preds = %1449
-  %1462 = getelementptr inbounds nuw [32 x i32], ptr %1447, i64 0, i64 %1453
+  %1462 = getelementptr inbounds nuw i32, ptr %1447, i64 %1453
   %1463 = load i32, ptr %1462, align 4, !tbaa !22
   %1464 = zext i32 %1463 to i64
   %narrow.i858 = mul nuw nsw i64 %1457, %1453

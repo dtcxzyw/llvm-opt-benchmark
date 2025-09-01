@@ -351,10 +351,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %3 = load i8, ptr %2, align 1, !range !44, !alias.scope !41, !noalias !45, !noundef !4
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE.32", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE.32", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !41
   ret i1 %6
@@ -1422,7 +1422,7 @@ define hidden void @"_ZN68_$LT$sha1..Sha1Core$u20$as$u20$digest..core_api..Fixed
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %18, i64 20, i1 false)
   %19 = tail call i64 @llvm.bswap.i64(i64 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %20 = getelementptr [0 x i8], ptr %1, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   store i8 -128, ptr %20, align 1, !alias.scope !191, !noalias !194
   %21 = icmp eq i8 %11, 63
   br i1 %21, label %._crit_edge.thread, label %._crit_edge
@@ -1797,7 +1797,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
 
 .lr.ph.i.us.i.i:                                  ; preds = %31, %35
   %.05.i.us.i.i = phi i64 [ %36, %35 ], [ 0, %31 ]
-  %32 = getelementptr inbounds nuw [0 x i8], ptr %25, i64 0, i64 %.05.i.us.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.05.i.us.i.i
   %33 = load i8, ptr %32, align 1, !alias.scope !289, !noalias !288, !noundef !4
   %34 = icmp eq i8 %33, %27
   br i1 %34, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i, label %35
@@ -1854,7 +1854,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i: ; preds = %
 
 .lr.ph.i.i.i:                                     ; preds = %55, %59
   %.05.i.i.i = phi i64 [ %60, %59 ], [ 0, %55 ]
-  %56 = getelementptr inbounds nuw [0 x i8], ptr %49, i64 0, i64 %.05.i.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.05.i.i.i
   %57 = load i8, ptr %56, align 1, !alias.scope !289, !noalias !288, !noundef !4
   %58 = icmp eq i8 %57, %51
   br i1 %58, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %59
@@ -5841,10 +5841,10 @@ define noundef range(i8 0, 6) i8 @"_ZN119_$LT$actix_http..header..shared..conten
 define void @"_ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E"(ptr noalias noundef writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
 switch.lookup:
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E", i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E.31", i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E.31", i64 %3
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
   br label %6
@@ -5856,7 +5856,7 @@ switch.lookup:
 
 6:                                                ; preds = %4, %switch.lookup
   %.0911.i = phi i64 [ 0, %switch.lookup ], [ %5, %4 ]
-  %7 = getelementptr inbounds nuw [0 x i8], ptr %switch.load, i64 0, i64 %.0911.i
+  %7 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %.0911.i
   %8 = load i8, ptr %7, align 1, !alias.scope !845, !noalias !848, !noundef !4
   %9 = add i8 %8, -32
   %or.cond.i = icmp ult i8 %9, 95
@@ -8543,7 +8543,7 @@ define noundef range(i8 0, 7) i8 @"_ZN79_$LT$actix_http..ws..proto..OpCode$u20$a
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @"switch.table._ZN79_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hd895a1408cf585e1E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN79_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17hd895a1408cf585e1E", i64 %3
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %4
 
@@ -8626,7 +8626,7 @@ define { i16, i16 } @"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i16], ptr @"switch.table._ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E", i64 %3
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %4
 
@@ -9572,10 +9572,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$actix_http..ws..proto..OpCode$u20
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !44, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE.32", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN66_$LT$actix_http..ws..proto..OpCode$u20$as$u20$core..fmt..Debug$GT$3fmt17he9a77c21485642cbE.32", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

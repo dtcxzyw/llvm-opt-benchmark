@@ -3671,13 +3671,13 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7_
 
 1274:                                             ; preds = %1281, %1264
   %indvars.iv329.i = phi i64 [ 0, %1264 ], [ %indvars.iv.next330.i, %1281 ]
-  %1275 = getelementptr inbounds nuw [3 x [3 x float]], ptr %1273, i64 0, i64 %indvars.iv329.i
+  %1275 = getelementptr inbounds nuw [3 x float], ptr %1273, i64 %indvars.iv329.i
   br label %1276
 
 1276:                                             ; preds = %1276, %1274
   %indvars.iv.i157 = phi i64 [ 0, %1274 ], [ %indvars.iv.next.i158, %1276 ]
   %1277 = phi float [ 0.000000e+00, %1274 ], [ %1280, %1276 ]
-  %1278 = getelementptr inbounds nuw [3 x float], ptr %1275, i64 0, i64 %indvars.iv.i157
+  %1278 = getelementptr inbounds nuw float, ptr %1275, i64 %indvars.iv.i157
   %1279 = load float, ptr %1278, align 4, !tbaa !8
   %1280 = call float @llvm.fmuladd.f32(float %1279, float %1279, float %1277)
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
@@ -3685,7 +3685,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond.not.i159, label %1281, label %1276, !llvm.loop !164
 
 1281:                                             ; preds = %1276
-  %1282 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv329.i
+  %1282 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv329.i
   %1283 = call noundef float @sqrtf(float noundef %1280) #27, !tbaa !4
   store float %1283, ptr %1282, align 4, !tbaa !8
   %indvars.iv.next330.i = add nuw nsw i64 %indvars.iv329.i, 1
@@ -6441,7 +6441,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit74.i.us.i: ; preds = %_ZNKSt7__cxx1112bas
   %2420 = load float, ptr %2419, align 4, !tbaa !8
   %2421 = fpext float %2420 to double
   %2422 = zext nneg i32 %.057.i.us.i to i64
-  %2423 = getelementptr inbounds nuw [12 x ptr], ptr @__const._ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.ParseLog, i64 0, i64 %2422
+  %2423 = getelementptr inbounds nuw ptr, ptr @__const._ZL12do_the_testsP8_IO_FILEPPciiiPKcPP6t_perfPiiiibS1_S1_S1_S1_PK8t_filenmiilbS4_.ParseLog, i64 %2422
   %2424 = load ptr, ptr %2423, align 8, !tbaa !14
   %2425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef nonnull @.str.377, i32 noundef %2414, ptr noundef nonnull %56, double noundef %2417, double noundef %2421, ptr noundef nonnull %57, ptr noundef %2424) #27
   switch i32 %.057.i.us.i, label %2426 [

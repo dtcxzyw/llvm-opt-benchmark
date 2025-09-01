@@ -1880,7 +1880,7 @@ define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 nou
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 208
   %82 = load i32, ptr %81, align 8
   %83 = zext i32 %82 to i64
-  %84 = getelementptr [64 x i32], ptr %80, i64 0, i64 %83
+  %84 = getelementptr i32, ptr %80, i64 %83
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84, ptr elementtype(i32) %84) #19, !srcloc !26
   br label %88
 
@@ -1964,9 +1964,9 @@ define internal i32 @unix_bind(ptr noundef readonly captures(none) %0, ptr nound
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !9
-  %37 = add nsw i32 %2, -2
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr [126 x i8], ptr %20, i64 0, i64 %38
+  %37 = zext nneg i32 %2 to i64
+  %38 = getelementptr i8, ptr %20, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -2
   store i8 0, ptr %39, align 1
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %41 = trunc i64 %40 to i32
@@ -4043,7 +4043,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %8, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr [256 x %struct.spinlock], ptr @bsd_socket_locks, i64 0, i64 %41
+  %42 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %41
   tail call void @_raw_spin_lock(ptr noundef %42) #19
   %43 = load ptr, ptr %39, align 8
   %44 = load ptr, ptr %35, align 8
@@ -4059,7 +4059,7 @@ define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range
 48:                                               ; preds = %46, %38
   %49 = load i32, ptr %8, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr [256 x %struct.spinlock], ptr @bsd_socket_locks, i64 0, i64 %50
+  %51 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %50
   tail call void @_raw_spin_unlock(ptr noundef %51) #19
   store ptr null, ptr %35, align 8
   br label %52
@@ -4678,11 +4678,11 @@ define internal fastcc void @unix_insert_bsd_socket(ptr noundef %0) unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr [256 x %struct.spinlock], ptr @bsd_socket_locks, i64 0, i64 %4
+  %5 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %4
   tail call void @_raw_spin_lock(ptr noundef %5) #19
   %6 = load i32, ptr %2, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr [256 x %struct.hlist_head], ptr @bsd_socket_buckets, i64 0, i64 %7
+  %8 = getelementptr %struct.hlist_head, ptr @bsd_socket_buckets, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %8, align 8
   store volatile ptr %10, ptr %9, align 8
@@ -4700,7 +4700,7 @@ define internal fastcc void @unix_insert_bsd_socket(ptr noundef %0) unnamed_addr
   store volatile ptr %8, ptr %15, align 8
   %16 = load i32, ptr %2, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr [256 x %struct.spinlock], ptr @bsd_socket_locks, i64 0, i64 %17
+  %18 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %17
   tail call void @_raw_spin_unlock(ptr noundef %18) #19
   ret void
 }
@@ -4733,7 +4733,7 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   %10 = add i32 %2, -2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [126 x i8], ptr %6, i64 0, i64 %11
+  %12 = getelementptr i8, ptr %6, i64 %11
   store i8 0, ptr %12, align 1
   %13 = call i32 @kern_path(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5) #19
   %14 = icmp eq i32 %13, 0
@@ -4765,9 +4765,9 @@ define internal fastcc ptr @unix_find_other(ptr noundef readonly captures(none) 
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 255
-  %36 = getelementptr [256 x %struct.spinlock], ptr @bsd_socket_locks, i64 0, i64 %35
+  %36 = getelementptr %struct.spinlock, ptr @bsd_socket_locks, i64 %35
   call void @_raw_spin_lock(ptr noundef %36) #19
-  %37 = getelementptr [256 x %struct.hlist_head], ptr @bsd_socket_buckets, i64 0, i64 %35
+  %37 = getelementptr %struct.hlist_head, ptr @bsd_socket_buckets, i64 %35
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   %40 = getelementptr i8, ptr %38, i64 -24
@@ -7122,7 +7122,7 @@ define internal void @unix_sock_destructor(ptr noundef %0) #0 align 16 {
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr [64 x i32], ptr %26, i64 0, i64 %29
+  %30 = getelementptr i32, ptr %26, i64 %29
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, ptr elementtype(i32) %30) #19, !srcloc !60
   br label %31
 
@@ -7567,7 +7567,7 @@ define internal noundef i32 @unix_seq_show(ptr noundef %0, ptr noundef %1) #0 al
   %47 = phi i64 [ %44, %43 ], [ %54, %46 ]
   %48 = load ptr, ptr %25, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 10
-  %50 = getelementptr [108 x i8], ptr %49, i64 0, i64 %47
+  %50 = getelementptr i8, ptr %49, i64 %47
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
   %53 = select i1 %52, i8 64, i8 %51

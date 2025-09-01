@@ -2317,14 +2317,14 @@ define ptr @OBJ_nid2obj(i32 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %7, i32 2
   %9 = load i32, ptr %8, align 8, !tbaa !13
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %6
   %.pre-phi = phi i64 [ %7, %6 ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %.pre-phi
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %.pre-phi
   br label %31
 
 11:                                               ; preds = %6, %5
@@ -2512,7 +2512,7 @@ define i32 @OBJ_sn2nid(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load i32, ptr %5, align 4, !tbaa !23
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %8, i32 2
   %10 = load i32, ptr %9, align 8, !tbaa !13
   br label %30
 
@@ -2589,7 +2589,7 @@ define i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = load i32, ptr %6, align 4, !tbaa !23
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %9, i32 2
   %11 = load i32, ptr %10, align 8, !tbaa !13
   br label %31
 
@@ -3060,9 +3060,9 @@ define i32 @OBJ_create_objects(ptr noundef %0) local_unnamed_addr #0 {
   %5 = phi i32 [ %46, %44 ], [ %3, %1 ]
   %.051 = phi ptr [ %.3, %44 ], [ null, %1 ]
   %.03450 = phi i32 [ %45, %44 ], [ 0, %1 ]
-  %6 = add nsw i32 %5, -1
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %7
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr i8, ptr %2, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -1
   store i8 0, ptr %8, align 1, !tbaa !20
   %9 = load i8, ptr %2, align 16, !tbaa !20
   %10 = sext i8 %9 to i32
@@ -3285,7 +3285,7 @@ ossl_obj_obj2nid.exit.thread46:                   ; preds = %32
 41:                                               ; preds = %39
   %42 = load i32, ptr %40, align 4, !tbaa !23
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %43, i32 2
   br label %ossl_obj_obj2nid.exit
 
 45:                                               ; preds = %39
@@ -3385,7 +3385,7 @@ define internal fastcc i32 @ossl_obj_obj2nid(ptr noundef %0, i32 noundef range(i
 15:                                               ; preds = %13
   %16 = load i32, ptr %14, align 4, !tbaa !23
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %17, i32 2
+  %18 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %17, i32 2
   %19 = load i32, ptr %18, align 8, !tbaa !13
   br label %ossl_obj_unlock.exit
 
@@ -3553,7 +3553,7 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
 
 46:                                               ; preds = %.preheader, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !32
   %.not44 = icmp eq ptr %48, null
   br i1 %.not44, label %74, label %49
@@ -3565,7 +3565,7 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
   store ptr %5, ptr %51, align 8, !tbaa !9
   %52 = load ptr, ptr @added, align 8, !tbaa !3
   %53 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %52, ptr noundef nonnull %48) #10
-  %54 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %53, ptr %54, align 8, !tbaa !32
   %.not45 = icmp eq ptr %53, null
   br i1 %.not45, label %56, label %55
@@ -3597,10 +3597,10 @@ ossl_obj_write_lock.exit.thread54:                ; preds = %33, %ossl_obj_write
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %72 ], [ %indvars.iv, %63 ]
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   %64 = load ptr, ptr @added, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.next65
+  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next65
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %67 = tail call ptr @OPENSSL_LH_delete(ptr noundef %64, ptr noundef %66) #10
-  %68 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.next65
+  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next65
   %69 = load ptr, ptr %68, align 8, !tbaa !32
   %.not48 = icmp eq ptr %69, null
   br i1 %.not48, label %72, label %70
@@ -3653,7 +3653,7 @@ ossl_obj_unlock.exit51.preheader:                 ; preds = %84, %._crit_edge, %
 
 ossl_obj_unlock.exit51:                           ; preds = %ossl_obj_unlock.exit51.preheader, %ossl_obj_unlock.exit51
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %ossl_obj_unlock.exit51 ], [ 0, %ossl_obj_unlock.exit51.preheader ]
-  %87 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv67
+  %87 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv67
   %88 = load ptr, ptr %87, align 8, !tbaa !32
   tail call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 325) #10
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -3745,7 +3745,7 @@ define internal i32 @ln_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8, !tbaa !19
   %4 = zext i32 %.val4 to i64
-  %5 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %4, i32 1
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(1) %6) #11
   ret i32 %7
@@ -3760,7 +3760,7 @@ define internal i32 @sn_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %
   %.val4 = load i32, ptr %1, align 4, !tbaa !23
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !18
   %3 = zext i32 %.val4 to i64
-  %4 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(1) %5) #11
   ret i32 %6
@@ -3773,7 +3773,7 @@ define internal i32 @obj_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) 
   %.val = load ptr, ptr %0, align 8, !tbaa !22
   %.val4 = load i32, ptr %1, align 4, !tbaa !23
   %3 = zext i32 %.val4 to i64
-  %4 = getelementptr inbounds nuw [1487 x %struct.asn1_object_st], ptr @nid_objs, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20

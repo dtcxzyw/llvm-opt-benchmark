@@ -7230,7 +7230,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2220 = sub nsw i32 %2197, %2219
   %2221 = add nuw nsw i32 %.0.i250, 1
   %2222 = zext nneg i32 %.0.i250 to i64
-  %2223 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %2222
+  %2223 = getelementptr inbounds nuw i32, ptr %3, i64 %2222
   store i32 %2220, ptr %2223, align 4, !tbaa !139
   br label %2224
 
@@ -7242,7 +7242,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
 2225:                                             ; preds = %2225, %2224
   %indvars.iv.i = phi i64 [ 0, %2224 ], [ %indvars.iv.next.i, %2225 ]
   %.082102.i = phi i32 [ 0, %2224 ], [ %spec.select.i, %2225 ]
-  %2226 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %2226 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %2227 = load i32, ptr %2226, align 4, !tbaa !139
   %2228 = icmp sgt i32 %2227, 0
   %.not97.i = icmp slt i32 %2227, %2197
@@ -7320,7 +7320,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2260 = load i8, ptr %.087106.i, align 1, !tbaa !27
   %2261 = zext i8 %2260 to i32
   %2262 = sext i32 %.084107.i to i64
-  %2263 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %2262
+  %2263 = getelementptr inbounds i32, ptr %3, i64 %2262
   %2264 = load i32, ptr %2263, align 4, !tbaa !139
   %2265 = lshr i32 %2261, %2264
   %2266 = add nsw i32 %.084107.i, 1
@@ -7350,7 +7350,7 @@ png_do_read_invert_alpha.exit:                    ; preds = %.lr.ph.i246, %.lr.p
   %2279 = zext i8 %2278 to i32
   %2280 = or disjoint i32 %2276, %2279
   %2281 = sext i32 %.079105.i to i64
-  %2282 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %2281
+  %2282 = getelementptr inbounds i32, ptr %3, i64 %2281
   %2283 = load i32, ptr %2282, align 4, !tbaa !139
   %2284 = lshr i32 %2280, %2283
   %2285 = add nsw i32 %.079105.i, 1

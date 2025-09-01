@@ -1778,7 +1778,7 @@ mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_gene
   br i1 %.not.not.i398, label %476, label %dissect_mqtt_reason_code.exit399
 
 476:                                              ; preds = %472
-  %477 = getelementptr [16 x ptr], ptr @dissect_mqtt_reason_code.hf_rcode, i64 0, i64 %473
+  %477 = getelementptr ptr, ptr @dissect_mqtt_reason_code.hf_rcode, i64 %473
   %478 = load ptr, ptr %477, align 8
   %479 = load i32, ptr %478, align 4
   %480 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %479, ptr noundef %0, i32 noundef %466, i32 noundef 1, i32 noundef 0)
@@ -1838,7 +1838,7 @@ dissect_mqtt_reason_code.exit401.us:              ; preds = %495, %dissect_mqtt_
   br i1 %.not.not.i402, label %514, label %dissect_mqtt_reason_code.exit403
 
 514:                                              ; preds = %510
-  %515 = getelementptr [16 x ptr], ptr @dissect_mqtt_reason_code.hf_rcode, i64 0, i64 %511
+  %515 = getelementptr ptr, ptr @dissect_mqtt_reason_code.hf_rcode, i64 %511
   %516 = load ptr, ptr %515, align 8
   %517 = load i32, ptr %516, align 4
   %518 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %517, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)

@@ -898,7 +898,7 @@ define hidden range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %0) local
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 16, !tbaa !106
   %8 = icmp eq i16 %7, %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -950,7 +950,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
 
 22:                                               ; preds = %16, %26
   %.03761 = phi i64 [ 0, %16 ], [ %27, %26 ]
-  %23 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %.03761, i32 1
+  %23 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03761, i32 1
   %24 = load ptr, ptr %23, align 8, !tbaa !111
   %.not50 = icmp eq ptr %24, null
   br i1 %.not50, label %26, label %25
@@ -967,7 +967,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
 .preheader:                                       ; preds = %26, %45
   %.13862 = phi i64 [ %46, %45 ], [ 0, %26 ]
   %28 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %29 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %.13862
+  %29 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13862
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 16, !tbaa !113
   %32 = call i32 %31(ptr noundef %0, ptr noundef nonnull %4) #21
@@ -1121,7 +1121,7 @@ define hidden i32 @ssl_add_serverhello_tlsext(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not14, label %21, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !115
   %17 = call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3) #21
@@ -1185,7 +1185,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 
 10:                                               ; preds = %14, %2
   %.03869.i = phi i64 [ 0, %2 ], [ %15, %14 ]
-  %11 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %.03869.i, i32 1
+  %11 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03869.i, i32 1
   %12 = load ptr, ptr %11, align 8, !tbaa !111
   %.not51.i = icmp eq ptr %12, null
   br i1 %.not51.i, label %14, label %13
@@ -1264,7 +1264,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 
 .preheader.i:                                     ; preds = %33, %41
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %41 ], [ 0, %33 ]
-  %38 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
   %39 = load i16, ptr %38, align 16, !tbaa !106
   %40 = icmp eq i16 %39, %36
   br i1 %40, label %45, label %41
@@ -1347,7 +1347,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 69:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 50, ptr %8, align 1, !tbaa !90
-  %70 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %.13971.i
+  %70 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13971.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 16, !tbaa !120
   %73 = call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #21
@@ -1504,7 +1504,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
 
 24:                                               ; preds = %28, %22
   %indvars.iv.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i, %28 ]
-  %25 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
   %26 = load i16, ptr %25, align 16, !tbaa !106
   %27 = icmp eq i16 %26, %23
   br i1 %27, label %31, label %28
@@ -1606,7 +1606,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
 58:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 50, ptr %8, align 1, !tbaa !90
-  %59 = getelementptr inbounds nuw [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %.073.i
+  %59 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.073.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !129
   %62 = call i32 %61(ptr noundef %0, ptr noundef nonnull %8, ptr noundef null) #21

@@ -1689,7 +1689,7 @@ define dso_local void @rb_iseq_insns_info_encode_positions(ptr noundef readonly 
 .preheader60.i:                                   ; preds = %45, %.preheader60.preheader.i
   %indvars.iv74.i = phi i64 [ 0, %.preheader60.preheader.i ], [ %indvars.iv.next75.i, %45 ]
   %.05564.i = phi i32 [ 0, %.preheader60.preheader.i ], [ %.2.i, %45 ]
-  %25 = getelementptr [6 x i64], ptr %23, i64 0, i64 %indvars.iv74.i
+  %25 = getelementptr i64, ptr %23, i64 %indvars.iv74.i
   %.promoted.i = load i64, ptr %25, align 8, !tbaa !42
   %26 = mul nuw nsw i64 %indvars.iv74.i, 9
   br label %29
@@ -1741,7 +1741,7 @@ define dso_local void @rb_iseq_insns_info_encode_positions(ptr noundef readonly 
 46:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next87.i, %82 ]
   %.372.i = phi i32 [ %.055.lcssa.i, %.lr.ph.i ], [ %.6.i, %82 ]
-  %47 = getelementptr [0 x %struct.succ_dict_block], ptr %28, i64 0, i64 %indvars.iv86.i
+  %47 = getelementptr %struct.succ_dict_block, ptr %28, i64 %indvars.iv86.i
   store i32 %.372.i, ptr %47, align 8, !tbaa !149
   %48 = shl i64 %indvars.iv86.i, 9
   %49 = or disjoint i64 %48, 54
@@ -1801,7 +1801,7 @@ define dso_local void @rb_iseq_insns_info_encode_positions(ptr noundef readonly 
   br i1 %exitcond81.not.i, label %77, label %63, !llvm.loop !152
 
 77:                                               ; preds = %76
-  %78 = getelementptr [8 x i64], ptr %50, i64 0, i64 %indvars.iv82.i
+  %78 = getelementptr i64, ptr %50, i64 %indvars.iv82.i
   store i64 %.1.i, ptr %78, align 8, !tbaa !42
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.1.i)
   %80 = trunc nuw nsw i64 %79 to i32
@@ -1850,7 +1850,7 @@ define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr nound
   %indvars.iv59.i = phi i64 [ 0, %.preheader45.preheader.i ], [ %indvars.iv.next60.i, %33 ]
   %.051.i = phi ptr [ %15, %.preheader45.preheader.i ], [ %.2.i, %33 ]
   %.03550.i = phi i32 [ -1, %.preheader45.preheader.i ], [ %27, %33 ]
-  %17 = getelementptr [6 x i64], ptr %7, i64 0, i64 %indvars.iv59.i
+  %17 = getelementptr i64, ptr %7, i64 %indvars.iv59.i
   %18 = load i64, ptr %17, align 8, !tbaa !42
   %19 = mul nuw nsw i64 %indvars.iv59.i, 9
   br label %23
@@ -1908,7 +1908,7 @@ define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr nound
 .preheader.i:                                     ; preds = %49, %.preheader43.i
   %indvars.iv67.i = phi i64 [ 0, %.preheader43.i ], [ %indvars.iv.next68.i, %49 ]
   %.455.i = phi ptr [ %.357.i, %.preheader43.i ], [ %.6.i, %49 ]
-  %37 = getelementptr [8 x i64], ptr %34, i64 0, i64 %indvars.iv67.i
+  %37 = getelementptr i64, ptr %34, i64 %indvars.iv67.i
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = shl nuw nsw i64 %indvars.iv67.i, 6
   %40 = add nuw nsw i64 %36, %39
@@ -2030,7 +2030,7 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %38 = sdiv i32 %.024, 9
   %39 = srem i32 %.024, 9
   %40 = sext i32 %38 to i64
-  %41 = getelementptr [6 x i64], ptr %35, i64 0, i64 %40
+  %41 = getelementptr i64, ptr %35, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !42
   %43 = mul nsw i32 %39, 7
   %44 = zext nneg i32 %43 to i64
@@ -2044,7 +2044,7 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %50 = lshr i32 %49, 9
   %51 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr [0 x %struct.succ_dict_block], ptr %51, i64 0, i64 %52
+  %53 = getelementptr %struct.succ_dict_block, ptr %51, i64 %52
   %54 = and i32 %49, 511
   %55 = lshr i32 %54, 6
   %56 = icmp samesign ult i32 %54, 64
@@ -2065,7 +2065,7 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %67 = phi i32 [ %65, %57 ], [ 0, %48 ]
   %68 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %69 = zext nneg i32 %55 to i64
-  %70 = getelementptr [8 x i64], ptr %68, i64 0, i64 %69
+  %70 = getelementptr i64, ptr %68, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !42
   %72 = and i32 %49, 63
   %73 = xor i32 %72, 63
@@ -4163,7 +4163,7 @@ rbimpl_intern_const.exit59:                       ; preds = %.lr.ph.i57, %rbimpl
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iseq_type_id, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.iseq_type_id, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load i64, ptr %switch.load, align 8, !tbaa !42
   ret i64 %.0
@@ -4360,7 +4360,7 @@ define dso_local i32 @rb_iseq_line_no(ptr noundef readonly captures(none) %0, i6
   %14 = sdiv i32 %11, 9
   %15 = srem i32 %11, 9
   %16 = sext i32 %14 to i64
-  %17 = getelementptr [6 x i64], ptr %10, i64 0, i64 %16
+  %17 = getelementptr i64, ptr %10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !42
   %19 = mul nsw i32 %15, 7
   %20 = zext nneg i32 %19 to i64
@@ -4374,7 +4374,7 @@ define dso_local i32 @rb_iseq_line_no(ptr noundef readonly captures(none) %0, i6
   %26 = lshr i32 %25, 9
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
+  %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
   %32 = icmp samesign ult i32 %30, 64
@@ -4395,7 +4395,7 @@ define dso_local i32 @rb_iseq_line_no(ptr noundef readonly captures(none) %0, i6
   %43 = phi i32 [ %41, %33 ], [ 0, %24 ]
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = zext nneg i32 %31 to i64
-  %46 = getelementptr [8 x i64], ptr %44, i64 0, i64 %45
+  %46 = getelementptr i64, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !42
   %48 = and i32 %25, 63
   %49 = xor i32 %48, 63
@@ -4453,7 +4453,7 @@ define dso_local i32 @rb_iseq_node_id(ptr noundef readonly captures(none) %0, i6
   %14 = sdiv i32 %11, 9
   %15 = srem i32 %11, 9
   %16 = sext i32 %14 to i64
-  %17 = getelementptr [6 x i64], ptr %10, i64 0, i64 %16
+  %17 = getelementptr i64, ptr %10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !42
   %19 = mul nsw i32 %15, 7
   %20 = zext nneg i32 %19 to i64
@@ -4467,7 +4467,7 @@ define dso_local i32 @rb_iseq_node_id(ptr noundef readonly captures(none) %0, i6
   %26 = lshr i32 %25, 9
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
+  %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
   %32 = icmp samesign ult i32 %30, 64
@@ -4488,7 +4488,7 @@ define dso_local i32 @rb_iseq_node_id(ptr noundef readonly captures(none) %0, i6
   %43 = phi i32 [ %41, %33 ], [ 0, %24 ]
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = zext nneg i32 %31 to i64
-  %46 = getelementptr [8 x i64], ptr %44, i64 0, i64 %45
+  %46 = getelementptr i64, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !42
   %48 = and i32 %25, 63
   %49 = xor i32 %48, 63
@@ -4547,7 +4547,7 @@ define hidden i32 @rb_iseq_event_flags(ptr noundef readonly captures(none) %0, i
   %14 = sdiv i32 %11, 9
   %15 = srem i32 %11, 9
   %16 = sext i32 %14 to i64
-  %17 = getelementptr [6 x i64], ptr %10, i64 0, i64 %16
+  %17 = getelementptr i64, ptr %10, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !42
   %19 = mul nsw i32 %15, 7
   %20 = zext nneg i32 %19 to i64
@@ -4561,7 +4561,7 @@ define hidden i32 @rb_iseq_event_flags(ptr noundef readonly captures(none) %0, i
   %26 = lshr i32 %25, 9
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr [0 x %struct.succ_dict_block], ptr %27, i64 0, i64 %28
+  %29 = getelementptr %struct.succ_dict_block, ptr %27, i64 %28
   %30 = and i32 %25, 511
   %31 = lshr i32 %30, 6
   %32 = icmp samesign ult i32 %30, 64
@@ -4582,7 +4582,7 @@ define hidden i32 @rb_iseq_event_flags(ptr noundef readonly captures(none) %0, i
   %43 = phi i32 [ %41, %33 ], [ 0, %24 ]
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = zext nneg i32 %31 to i64
-  %46 = getelementptr [8 x i64], ptr %44, i64 0, i64 %45
+  %46 = getelementptr i64, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !42
   %48 = and i32 %25, 63
   %49 = xor i32 %48, 63
@@ -4642,7 +4642,7 @@ define hidden void @rb_iseq_clear_event_flags(ptr noundef readonly captures(none
   %16 = sdiv i32 %13, 9
   %17 = srem i32 %13, 9
   %18 = sext i32 %16 to i64
-  %19 = getelementptr [6 x i64], ptr %12, i64 0, i64 %18
+  %19 = getelementptr i64, ptr %12, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !42
   %21 = mul nsw i32 %17, 7
   %22 = zext nneg i32 %21 to i64
@@ -4656,7 +4656,7 @@ define hidden void @rb_iseq_clear_event_flags(ptr noundef readonly captures(none
   %28 = lshr i32 %27, 9
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = zext nneg i32 %28 to i64
-  %31 = getelementptr [0 x %struct.succ_dict_block], ptr %29, i64 0, i64 %30
+  %31 = getelementptr %struct.succ_dict_block, ptr %29, i64 %30
   %32 = and i32 %27, 511
   %33 = lshr i32 %32, 6
   %34 = icmp samesign ult i32 %32, 64
@@ -4677,7 +4677,7 @@ define hidden void @rb_iseq_clear_event_flags(ptr noundef readonly captures(none
   %45 = phi i32 [ %43, %35 ], [ 0, %26 ]
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %47 = zext nneg i32 %33 to i64
-  %48 = getelementptr [8 x i64], ptr %46, i64 0, i64 %47
+  %48 = getelementptr i64, ptr %46, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !42
   %50 = and i32 %27, 63
   %51 = xor i32 %50, 63
@@ -4780,10 +4780,10 @@ encoded_iseq_trace_instrument.exit:               ; preds = %2
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_insn_operand_intern(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.Dl_info, align 8
-  %10 = getelementptr [220 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %1
+  %10 = getelementptr i16, ptr @rb_vm_insn_op_offset, i64 %1
   %11 = load i16, ptr %10, align 2, !tbaa !258
   %12 = zext i16 %11 to i64
-  %13 = getelementptr [489 x i8], ptr @rb_vm_insn_op_base, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @rb_vm_insn_op_base, i64 %12
   %14 = sext i32 %2 to i64
   %15 = getelementptr i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !84
@@ -5590,7 +5590,7 @@ define dso_local i64 @rb_iseq_defined_string(i32 noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr [14 x [18 x i8]], ptr @rb_iseq_defined_string.expr_names, i64 0, i64 %6
+  %7 = getelementptr [18 x i8], ptr @rb_iseq_defined_string.expr_names, i64 %6
   %8 = tail call i64 @rb_fstring_cstr(ptr noundef %7) #20
   ret i64 %8
 }
@@ -5708,18 +5708,18 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #10
 define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i64, ptr %1, i64 %2
   %7 = load i64, ptr %6, align 8, !tbaa !42
-  %8 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %7
+  %8 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !84
   %10 = zext i8 %9 to i32
-  %11 = getelementptr [220 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %7
+  %11 = getelementptr i16, ptr @rb_vm_insn_op_offset, i64 %7
   %12 = load i16, ptr %11, align 2, !tbaa !258
   %13 = zext i16 %12 to i64
-  %14 = getelementptr [489 x i8], ptr @rb_vm_insn_op_base, i64 0, i64 %13
+  %14 = getelementptr i8, ptr @rb_vm_insn_op_base, i64 %13
   %15 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #20
-  %16 = getelementptr [220 x i16], ptr @rb_vm_insn_name_offset, i64 0, i64 %7
+  %16 = getelementptr i16, ptr @rb_vm_insn_name_offset, i64 %7
   %17 = load i16, ptr %16, align 2, !tbaa !258
   %18 = zext i16 %17 to i64
-  %19 = getelementptr [3233 x i8], ptr @rb_vm_insn_name_base, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @rb_vm_insn_name_base, i64 %18
   %20 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %15, ptr noundef nonnull @.str.40, i64 noundef %2, i32 noundef 38, ptr noundef %19) #20
   %21 = load i8, ptr %14, align 1, !tbaa !84
   %.not105 = icmp eq i8 %21, 0
@@ -5768,7 +5768,7 @@ define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr 
   %46 = sdiv i32 %43, 9
   %47 = srem i32 %43, 9
   %48 = sext i32 %46 to i64
-  %49 = getelementptr [6 x i64], ptr %42, i64 0, i64 %48
+  %49 = getelementptr i64, ptr %42, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !42
   %51 = mul nsw i32 %47, 7
   %52 = zext nneg i32 %51 to i64
@@ -5782,7 +5782,7 @@ define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr 
   %58 = lshr i32 %57, 9
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr [0 x %struct.succ_dict_block], ptr %59, i64 0, i64 %60
+  %61 = getelementptr %struct.succ_dict_block, ptr %59, i64 %60
   %62 = and i32 %57, 511
   %63 = lshr i32 %62, 6
   %64 = icmp samesign ult i32 %62, 64
@@ -5803,7 +5803,7 @@ define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr 
   %75 = phi i32 [ %73, %65 ], [ 0, %56 ]
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %77 = zext nneg i32 %63 to i64
-  %78 = getelementptr [8 x i64], ptr %76, i64 0, i64 %77
+  %78 = getelementptr i64, ptr %76, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !42
   %80 = and i32 %57, 63
   %81 = xor i32 %80, 63
@@ -5855,7 +5855,7 @@ rb_iseq_line_no.exit:                             ; preds = %._crit_edge, %get_i
   %103 = sdiv i32 %100, 9
   %104 = srem i32 %100, 9
   %105 = sext i32 %103 to i64
-  %106 = getelementptr [6 x i64], ptr %98, i64 0, i64 %105
+  %106 = getelementptr i64, ptr %98, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !42
   %108 = mul nsw i32 %104, 7
   %109 = zext nneg i32 %108 to i64
@@ -5869,7 +5869,7 @@ rb_iseq_line_no.exit:                             ; preds = %._crit_edge, %get_i
   %115 = lshr i32 %114, 9
   %116 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %117 = zext nneg i32 %115 to i64
-  %118 = getelementptr [0 x %struct.succ_dict_block], ptr %116, i64 0, i64 %117
+  %118 = getelementptr %struct.succ_dict_block, ptr %116, i64 %117
   %119 = and i32 %114, 511
   %120 = lshr i32 %119, 6
   %121 = icmp samesign ult i32 %119, 64
@@ -5890,7 +5890,7 @@ rb_iseq_line_no.exit:                             ; preds = %._crit_edge, %get_i
   %132 = phi i32 [ %130, %122 ], [ 0, %113 ]
   %133 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %134 = zext nneg i32 %120 to i64
-  %135 = getelementptr [8 x i64], ptr %133, i64 0, i64 %134
+  %135 = getelementptr i64, ptr %133, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !42
   %137 = and i32 %114, 63
   %138 = xor i32 %137, 63
@@ -5963,7 +5963,7 @@ rb_iseq_line_no.exit94:                           ; preds = %149, %get_insn_info
   %170 = sdiv i32 %167, 9
   %171 = srem i32 %167, 9
   %172 = sext i32 %170 to i64
-  %173 = getelementptr [6 x i64], ptr %166, i64 0, i64 %172
+  %173 = getelementptr i64, ptr %166, i64 %172
   %174 = load i64, ptr %173, align 8, !tbaa !42
   %175 = mul nsw i32 %171, 7
   %176 = zext nneg i32 %175 to i64
@@ -5977,7 +5977,7 @@ rb_iseq_line_no.exit94:                           ; preds = %149, %get_insn_info
   %182 = lshr i32 %181, 9
   %183 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %184 = zext nneg i32 %182 to i64
-  %185 = getelementptr [0 x %struct.succ_dict_block], ptr %183, i64 0, i64 %184
+  %185 = getelementptr %struct.succ_dict_block, ptr %183, i64 %184
   %186 = and i32 %181, 511
   %187 = lshr i32 %186, 6
   %188 = icmp samesign ult i32 %186, 64
@@ -5998,7 +5998,7 @@ rb_iseq_line_no.exit94:                           ; preds = %149, %get_insn_info
   %199 = phi i32 [ %197, %189 ], [ 0, %180 ]
   %200 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %201 = zext nneg i32 %187 to i64
-  %202 = getelementptr [8 x i64], ptr %200, i64 0, i64 %201
+  %202 = getelementptr i64, ptr %200, i64 %201
   %203 = load i64, ptr %202, align 8, !tbaa !42
   %204 = and i32 %181, 63
   %205 = xor i32 %204, 63
@@ -6362,7 +6362,7 @@ RSTRING_PTR.exit216:                              ; preds = %93, %97
   %.1170246 = phi ptr [ %.2, %RSTRING_PTR.exit221 ], [ null, %RSTRING_PTR.exit216 ]
   %.1172245 = phi ptr [ %.2173, %RSTRING_PTR.exit221 ], [ %.sroa.2.0.i215, %RSTRING_PTR.exit216 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %101, i64 0, i64 %indvars.iv
+  %102 = getelementptr %struct.iseq_catch_table_entry, ptr %101, i64 %indvars.iv
   %103 = tail call i64 @rb_str_cat(i64 noundef %9, ptr noundef %.1172245, i64 noundef %15) #20
   %104 = load i32, ptr %102, align 8, !tbaa !290
   %switch.tableidx = add i32 %104, -3
@@ -6379,7 +6379,7 @@ RSTRING_PTR.exit216:                              ; preds = %93, %97
 
 switch.lookup:                                    ; preds = %.lr.ph
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.rb_iseq_disasm_recursive, i64 0, i64 %107
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_iseq_disasm_recursive, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %109 = load i32, ptr %108, align 8, !tbaa !291
@@ -7517,9 +7517,9 @@ define hidden void @rb_vm_encoded_insn_data_table_init() local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8, !tbaa !168
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc nuw nsw i64 %.022 to i32
-  %13 = getelementptr [110 x %struct.insn_data_struct], ptr @insn_data, i64 0, i64 %.022
+  %13 = getelementptr %struct.insn_data_struct, ptr @insn_data, i64 %.022
   store i32 %12, ptr %13, align 8, !tbaa !331
-  %14 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %.022
+  %14 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %.022
   %15 = load i8, ptr %14, align 1, !tbaa !84
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -7701,7 +7701,7 @@ define internal void @iseq_add_local_tracepoint_i(ptr noundef %0, ptr noundef %1
   %29 = sdiv i32 %.037.i, 9
   %30 = srem i32 %.037.i, 9
   %31 = sext i32 %29 to i64
-  %32 = getelementptr [6 x i64], ptr %26, i64 0, i64 %31
+  %32 = getelementptr i64, ptr %26, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !42
   %34 = mul nsw i32 %30, 7
   %35 = zext nneg i32 %34 to i64
@@ -7715,7 +7715,7 @@ define internal void @iseq_add_local_tracepoint_i(ptr noundef %0, ptr noundef %1
   %41 = lshr i32 %40, 9
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr [0 x %struct.succ_dict_block], ptr %42, i64 0, i64 %43
+  %44 = getelementptr %struct.succ_dict_block, ptr %42, i64 %43
   %45 = and i32 %40, 511
   %46 = lshr i32 %45, 6
   %47 = icmp samesign ult i32 %45, 64
@@ -7736,7 +7736,7 @@ define internal void @iseq_add_local_tracepoint_i(ptr noundef %0, ptr noundef %1
   %58 = phi i32 [ %56, %48 ], [ 0, %39 ]
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %60 = zext nneg i32 %46 to i64
-  %61 = getelementptr [8 x i64], ptr %59, i64 0, i64 %60
+  %61 = getelementptr i64, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !42
   %63 = and i32 %40, 63
   %64 = xor i32 %63, 63
@@ -7925,7 +7925,7 @@ define internal void @iseq_remove_local_tracepoint_i(ptr noundef %0, ptr noundef
   %33 = sdiv i32 %.026.i, 9
   %34 = srem i32 %.026.i, 9
   %35 = sext i32 %33 to i64
-  %36 = getelementptr [6 x i64], ptr %30, i64 0, i64 %35
+  %36 = getelementptr i64, ptr %30, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !42
   %38 = mul nsw i32 %34, 7
   %39 = zext nneg i32 %38 to i64
@@ -7939,7 +7939,7 @@ define internal void @iseq_remove_local_tracepoint_i(ptr noundef %0, ptr noundef
   %45 = lshr i32 %44, 9
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr [0 x %struct.succ_dict_block], ptr %46, i64 0, i64 %47
+  %48 = getelementptr %struct.succ_dict_block, ptr %46, i64 %47
   %49 = and i32 %44, 511
   %50 = lshr i32 %49, 6
   %51 = icmp samesign ult i32 %49, 64
@@ -7960,7 +7960,7 @@ define internal void @iseq_remove_local_tracepoint_i(ptr noundef %0, ptr noundef
   %62 = phi i32 [ %60, %52 ], [ 0, %43 ]
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %64 = zext nneg i32 %50 to i64
-  %65 = getelementptr [8 x i64], ptr %63, i64 0, i64 %64
+  %65 = getelementptr i64, ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !42
   %67 = and i32 %44, 63
   %68 = xor i32 %67, 63
@@ -9205,12 +9205,12 @@ iseqw_check.exit:                                 ; preds = %7
   %39 = zext i32 %.151.i to i64
   %40 = getelementptr i64, ptr %13, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !42
-  %42 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %41
+  %42 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !84
-  %44 = getelementptr [220 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %41
+  %44 = getelementptr i16, ptr @rb_vm_insn_op_offset, i64 %41
   %45 = load i16, ptr %44, align 2, !tbaa !258
   %46 = zext i16 %45 to i64
-  %47 = getelementptr [489 x i8], ptr @rb_vm_insn_op_base, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @rb_vm_insn_op_base, i64 %46
   %48 = add nuw i32 %.151.i, 1
   br label %49
 
@@ -10612,12 +10612,12 @@ define internal fastcc void @iseq_iterate_children(ptr noundef %0, ptr noundef r
   %29 = zext i32 %.151 to i64
   %30 = getelementptr i64, ptr %4, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !42
-  %32 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %31
+  %32 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !84
-  %34 = getelementptr [220 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %31
+  %34 = getelementptr i16, ptr @rb_vm_insn_op_offset, i64 %31
   %35 = load i16, ptr %34, align 2, !tbaa !258
   %36 = zext i16 %35 to i64
-  %37 = getelementptr [489 x i8], ptr @rb_vm_insn_op_base, i64 0, i64 %36
+  %37 = getelementptr i8, ptr @rb_vm_insn_op_base, i64 %36
   %38 = add nuw i32 %.151, 1
   br label %39
 
@@ -10707,12 +10707,12 @@ define internal fastcc i64 @iseq_data_to_ary(ptr noundef %0) unnamed_addr #0 {
 
 .preheader663:                                    ; preds = %1, %.preheader663
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader663 ], [ 0, %1 ]
-  %19 = getelementptr [220 x i16], ptr @rb_vm_insn_name_offset, i64 0, i64 %indvars.iv
+  %19 = getelementptr i16, ptr @rb_vm_insn_name_offset, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !258
   %21 = zext i16 %20 to i64
-  %22 = getelementptr [3233 x i8], ptr @rb_vm_insn_name_base, i64 0, i64 %21
+  %22 = getelementptr i8, ptr @rb_vm_insn_name_base, i64 %21
   %23 = tail call i64 @rb_intern(ptr noundef %22) #20
-  %24 = getelementptr [110 x i64], ptr @iseq_data_to_ary.insn_syms, i64 0, i64 %indvars.iv
+  %24 = getelementptr i64, ptr @iseq_data_to_ary.insn_syms, i64 %indvars.iv
   store i64 %23, ptr %24, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 110
@@ -11181,12 +11181,12 @@ rbimpl_intern_const.exit456:                      ; preds = %.lr.ph.i454, %210
   %.0344742 = phi ptr [ %215, %.lr.ph744 ], [ %.1345.lcssa, %._crit_edge740 ]
   %223 = getelementptr i8, ptr %.0344742, i64 8
   %224 = load i64, ptr %.0344742, align 8, !tbaa !42
-  %225 = getelementptr [220 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %224
+  %225 = getelementptr i8, ptr @rb_vm_insn_len_info, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !84
   %227 = zext i8 %226 to i64
   %228 = tail call i64 @rb_ary_new_capa(i64 noundef %227) #20
   %229 = urem i64 %224, 110
-  %230 = getelementptr [110 x i64], ptr @iseq_data_to_ary.insn_syms, i64 0, i64 %229
+  %230 = getelementptr i64, ptr @iseq_data_to_ary.insn_syms, i64 %229
   %231 = load i64, ptr %230, align 8, !tbaa !42
   %232 = tail call i64 @rb_id2sym(i64 noundef %231) #20
   %233 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %232) #20
@@ -11198,14 +11198,14 @@ rbimpl_intern_const.exit456:                      ; preds = %.lr.ph.i454, %210
   %236 = add nuw nsw i64 %235, 4294967295
   %237 = getelementptr i64, ptr %223, i64 %227
   %238 = getelementptr i8, ptr %237, i64 -8
-  %239 = getelementptr [220 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %224
+  %239 = getelementptr i16, ptr @rb_vm_insn_op_offset, i64 %224
   %240 = ptrtoint ptr %238 to i64
   %241 = sub i64 %240, %221
   %242 = ashr exact i64 %241, 3
   %wide.trip.count824 = and i64 %236, 4294967295
   %243 = load i16, ptr %239, align 2, !tbaa !258
   %244 = zext i16 %243 to i64
-  %245 = getelementptr [489 x i8], ptr @rb_vm_insn_op_base, i64 0, i64 %244
+  %245 = getelementptr i8, ptr @rb_vm_insn_op_base, i64 %244
   br label %insn_op_type.exit
 
 insn_op_type.exit:                                ; preds = %obj_resurrect.exit, %.lr.ph739
@@ -11461,7 +11461,7 @@ vm_ci_kwarg.exit:                                 ; preds = %vm_ci_flag.exit480
 
 367:                                              ; preds = %.lr.ph726, %367
   %indvars.iv818 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next819, %367 ]
-  %368 = getelementptr [0 x i64], ptr %366, i64 0, i64 %indvars.iv818
+  %368 = getelementptr i64, ptr %366, i64 %indvars.iv818
   %369 = load i64, ptr %368, align 8, !tbaa !42
   %370 = tail call i64 @rb_ary_push(i64 noundef %362, i64 noundef %369) #20
   %indvars.iv.next819 = add nuw nsw i64 %indvars.iv818, 1
@@ -11710,7 +11710,7 @@ obj_resurrect.exit:                               ; preds = %rb_array_len.exit, 
   %475 = tail call i64 @rb_ary_new() #20
   %476 = load ptr, ptr %472, align 8, !tbaa !81
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 4
-  %478 = getelementptr [0 x %struct.iseq_catch_table_entry], ptr %477, i64 0, i64 %indvars.iv826
+  %478 = getelementptr %struct.iseq_catch_table_entry, ptr %477, i64 %indvars.iv826
   %479 = load i32, ptr %478, align 8, !tbaa !290
   switch i32 %479, label %492 [
     i32 3, label %480
@@ -11919,7 +11919,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread656, %547
   %568 = sdiv i32 %.0341, 9
   %569 = srem i32 %.0341, 9
   %570 = sext i32 %568 to i64
-  %571 = getelementptr [6 x i64], ptr %565, i64 0, i64 %570
+  %571 = getelementptr i64, ptr %565, i64 %570
   %572 = load i64, ptr %571, align 8, !tbaa !42
   %573 = mul nsw i32 %569, 7
   %574 = zext nneg i32 %573 to i64
@@ -11933,7 +11933,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread656, %547
   %580 = lshr i32 %579, 9
   %581 = getelementptr inbounds nuw i8, ptr %565, i64 48
   %582 = zext nneg i32 %580 to i64
-  %583 = getelementptr [0 x %struct.succ_dict_block], ptr %581, i64 0, i64 %582
+  %583 = getelementptr %struct.succ_dict_block, ptr %581, i64 %582
   %584 = and i32 %579, 511
   %585 = lshr i32 %584, 6
   %586 = icmp samesign ult i32 %584, 64
@@ -11954,7 +11954,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread656, %547
   %597 = phi i32 [ %595, %587 ], [ 0, %578 ]
   %598 = getelementptr inbounds nuw i8, ptr %583, i64 16
   %599 = zext nneg i32 %585 to i64
-  %600 = getelementptr [8 x i64], ptr %598, i64 0, i64 %599
+  %600 = getelementptr i64, ptr %598, i64 %599
   %601 = load i64, ptr %600, align 8, !tbaa !42
   %602 = and i32 %579, 63
   %603 = xor i32 %602, 63

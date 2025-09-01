@@ -139,9 +139,9 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline11getNormFuncEii(i32 noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baseline11getNormFuncEiiE25__cv_trace_location_fn652)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [3 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline11getNormFuncEiiE7normTab, i64 0, i64 %4
+  %5 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline11getNormFuncEiiE7normTab, i64 %4
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !7
@@ -2670,9 +2670,9 @@ _ZNK2cv11_InputArray6getMatEi.exit251:            ; preds = %67, %70
 
 .noexc.i:                                         ; preds = %.noexc258
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr inbounds nuw [3 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline11getNormFuncEiiE7normTab, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline11getNormFuncEiiE7normTab, i64 %95
   %97 = zext nneg i32 %94 to i64
-  %98 = getelementptr inbounds nuw [8 x ptr], ptr %96, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !3
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !7
@@ -4425,9 +4425,9 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %302, %30
   %321 = icmp eq i32 %83, 7
   %322 = select i1 %321, i32 5, i32 %83
   %323 = zext nneg i32 %320 to i64
-  %324 = getelementptr inbounds nuw [3 x [8 x ptr]], ptr @_ZZN2cvL15getNormDiffFuncEiiE11normDiffTab, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL15getNormDiffFuncEiiE11normDiffTab, i64 %323
   %325 = zext nneg i32 %322 to i64
-  %326 = getelementptr inbounds nuw [8 x ptr], ptr %324, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw ptr, ptr %324, i64 %325
   %327 = load ptr, ptr %326, align 8, !tbaa !3
   %.not234 = icmp eq ptr %327, null
   br i1 %.not234, label %328, label %341

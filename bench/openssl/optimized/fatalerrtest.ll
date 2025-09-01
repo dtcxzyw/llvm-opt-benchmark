@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @test_fatalerr() #1 {
 
 65:                                               ; preds = %61
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds [80 x i8], ptr %5, i64 0, i64 %66
+  %67 = getelementptr inbounds i8, ptr %5, i64 %66
   store i8 0, ptr %67, align 1, !tbaa !13
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 69, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #6
   br label %72

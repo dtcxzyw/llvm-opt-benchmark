@@ -1465,7 +1465,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %7 = zext nneg i32 %id to i64
   %reltable.shift = shl nuw nsw i64 %7, 2
   %reltable.intrinsic = call ptr @llvm.load.relative.i64(ptr nonnull @reltable._ZL13id_to_keycode19touch_gui_button_id, i64 %reltable.shift)
-  %switch.gep198 = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZL13id_to_keycode19touch_gui_button_id.61, i64 0, i64 %7
+  %switch.gep198 = getelementptr inbounds nuw i64, ptr @switch.table._ZL13id_to_keycode19touch_gui_button_id.61, i64 %7
   %switch.load199 = load i64, ptr %switch.gep198, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %reltable.intrinsic, i64 noundef %switch.load199)
           to label %sw.epilog unwind label %lpad1
@@ -3232,7 +3232,7 @@ entry:
   %call2 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef null, i32 noundef %id, ptr noundef %1, ptr noundef null)
   %m_buttons = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext i32 %id to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.button_info], ptr %m_buttons, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.button_info, ptr %m_buttons, i64 %idxprom
   %gui_button = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store ptr %call2, ptr %gui_button, align 8, !tbaa !66
   %vtable4 = load ptr, ptr %call2, align 8, !tbaa !37
@@ -3263,7 +3263,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
 _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %entry
-  %arrayidx10 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr @_Z18button_image_namesB5cxx11, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z18button_image_namesB5cxx11, i64 %idxprom
   %m_texturesource = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %m_texturesource, align 8, !tbaa !178
   %m_device = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3376,7 +3376,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %i
 
 invoke.cont16:                                    ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
   %idxprom = sext i32 %texture_id to i64
-  %arrayidx = getelementptr inbounds [3 x %"class.std::__cxx11::basic_string"], ptr @_Z20joystick_image_namesB5cxx11, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_Z20joystick_image_namesB5cxx11, i64 %idxprom
   invoke fastcc void @_ZL19load_button_texturePK11button_infoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3irr4core4rectIiEEP20ISimpleTextureSourcePNSA_5video12IVideoDriverE(ptr noundef nonnull %call2, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef %13, ptr noundef %call17)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -6969,7 +6969,7 @@ entry:
   %translated = alloca %"struct.irr::SEvent", align 8
   %m_buttons = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext i32 %button to i64
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.button_info], ptr %m_buttons, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.button_info, ptr %m_buttons, i64 %idxprom
   call void @llvm.lifetime.start.p0(ptr nonnull %translated)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %translated, i8 0, i64 56, i1 false)
   store i32 2, ptr %translated, align 8, !tbaa !116

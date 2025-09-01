@@ -758,7 +758,7 @@ _ZNSt6vectorIN6Assimp9SIBObjectESaIS1_EE5clearEv.exit: ; preds = %101, %104
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %217 = zext nneg i32 %spec.select.i137 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %215, ptr nonnull align 4 %216, i64 %217, i1 false)
-  %218 = getelementptr inbounds nuw [1024 x i8], ptr %215, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 %217
   store i8 0, ptr %218, align 1
   br label %_ZN8aiStringaSERKS_.exit
 
@@ -1044,7 +1044,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %305, %313, %_ZN9__g
   %344 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %345 = zext nneg i32 %spec.select.i155 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %343, ptr nonnull align 4 %344, i64 %345, i1 false)
-  %346 = getelementptr inbounds nuw [1024 x i8], ptr %343, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr %343, i64 %345
   store i8 0, ptr %346, align 1
   br label %_ZN8aiStringaSERKS_.exit156
 
@@ -2510,7 +2510,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit25.i.i: ; preds = %_ZN6Assimp12St
   store i32 %spec.select.i.i, ptr %19, align 4
   %551 = zext nneg i32 %spec.select.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %81, ptr nonnull align 4 %82, i64 %551, i1 false)
-  %552 = getelementptr inbounds nuw [1024 x i8], ptr %81, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw i8, ptr %81, i64 %551
   store i8 0, ptr %552, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZN6AssimpL9ReadVertsEPNS_7SIBMeshEPNS_12StreamReaderILb0ELb0EEEj.exit.i
@@ -3378,7 +3378,7 @@ _ZNSt12_Vector_baseIN6Assimp8TempMeshESaIS1_EEC2EmRKS2_.exit.thread.i.i: ; preds
   store i32 %spec.select.i228.i, ptr %26, align 8
   %942 = zext nneg i32 %spec.select.i228.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %127, ptr nonnull align 4 %81, i64 %942, i1 false)
-  %943 = getelementptr inbounds nuw [1024 x i8], ptr %127, i64 0, i64 %942
+  %943 = getelementptr inbounds nuw i8, ptr %127, i64 %942
   store i8 0, ptr %943, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %126, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
   %944 = load ptr, ptr %129, align 8
@@ -3931,7 +3931,7 @@ _ZN6aiFaceD2Ev.exit275.i:                         ; preds = %1176, %1173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %1181, i8 0, i64 1024, i1 false)
   store i32 %spec.select.i228.i, ptr %1178, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1181, ptr nonnull align 4 %127, i64 %942, i1 false)
-  %1182 = getelementptr inbounds nuw [1024 x i8], ptr %1181, i64 0, i64 %942
+  %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 %942
   store i8 0, ptr %1182, align 1
   %1183 = getelementptr inbounds nuw i8, ptr %1178, i64 1028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %1183, ptr noundef nonnull align 4 dereferenceable(84) %126, i64 84, i1 false)
@@ -3981,7 +3981,7 @@ _ZN6aiFaceD2Ev.exit275.i:                         ; preds = %1176, %1173
   store i32 %spec.select.i228.i, ptr %1206, align 4
   %1207 = getelementptr inbounds nuw i8, ptr %1198, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1207, ptr nonnull align 4 %81, i64 %942, i1 false)
-  %1208 = getelementptr inbounds nuw [1024 x i8], ptr %1207, i64 0, i64 %942
+  %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 %942
   store i8 0, ptr %1208, align 1
   %1209 = load ptr, ptr %1194, align 8
   %1210 = load ptr, ptr %1192, align 8
@@ -4952,7 +4952,7 @@ _ZN6AssimpL9ReadScaleER12aiMatrix4x4tIfEPNS_12StreamReaderILb0ELb0EEE.exit.i: ; 
   store i32 %spec.select.i.i18, ptr %14, align 8
   %1611 = zext nneg i32 %spec.select.i.i18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr nonnull align 4 %57, i64 %1611, i1 false)
-  %1612 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 0, i64 %1611
+  %1612 = getelementptr inbounds nuw i8, ptr %56, i64 %1611
   store i8 0, ptr %1612, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1614
@@ -5082,7 +5082,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE12SetReadLimitEj.exit22.i: ; preds = %1632, %1
   store i32 %spec.select.i.i.i.i.i.i, ptr %1664, align 4
   %1669 = zext nneg i32 %spec.select.i.i.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1668, ptr nonnull align 4 %56, i64 %1669, i1 false)
-  %1670 = getelementptr inbounds nuw [1024 x i8], ptr %1668, i64 0, i64 %1669
+  %1670 = getelementptr inbounds nuw i8, ptr %1668, i64 %1669
   store i8 0, ptr %1670, align 1
   %1671 = getelementptr inbounds nuw i8, ptr %1664, i64 1028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %1671, ptr noundef nonnull align 4 dereferenceable(84) %49, i64 84, i1 false)
@@ -5484,7 +5484,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit.i.i58: ; preds = %1827
 
 switch.lookup:                                    ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetU4Ev.exit.i.i58
   %1837 = zext nneg i32 %1835 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE, i64 0, i64 %1837
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6AssimpL9ReadSceneEPNS_3SIBEPNS_12StreamReaderILb0ELb0EEE, i64 %1837
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %1838
 
@@ -5785,7 +5785,7 @@ _ZN8aiStringaSERKS_.exit.i:                       ; preds = %_ZN6Assimp12StreamR
   store i32 %spec.select.i.i47, ptr %1748, align 4
   %1949 = zext nneg i32 %spec.select.i.i47 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1758, ptr nonnull align 4 %37, i64 %1949, i1 false)
-  %1950 = getelementptr inbounds nuw [1024 x i8], ptr %1758, i64 0, i64 %1949
+  %1950 = getelementptr inbounds nuw i8, ptr %1758, i64 %1949
   store i8 0, ptr %1950, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1952
@@ -6869,7 +6869,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i: ; preds = %3
   %69 = load ptr, ptr %6, align 8
   %70 = zext i32 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr align 1 %69, i64 %70, i1 false)
-  %71 = getelementptr inbounds nuw [1024 x i8], ptr %67, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
   store i8 0, ptr %71, align 1
   %72 = icmp eq ptr %69, %48
   br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -9839,7 +9839,7 @@ _ZNKSt6vectorIN6Assimp9SIBObjectESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = zext nneg i32 %spec.select.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %24, i64 %25, i1 false)
-  %26 = getelementptr inbounds nuw [1024 x i8], ptr %23, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   store i8 0, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 1028
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 1028
@@ -9858,7 +9858,7 @@ _ZNKSt6vectorIN6Assimp9SIBObjectESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %32 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull align 4 %31, i64 %32, i1 false)
-  %33 = getelementptr inbounds nuw [1024 x i8], ptr %30, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   store i8 0, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 1028
   %35 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 1028
@@ -9885,7 +9885,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_
   %41 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 4
   %42 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr nonnull align 4 %41, i64 %42, i1 false)
-  %43 = getelementptr inbounds nuw [1024 x i8], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   store i8 0, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 1028
   %45 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 1028
@@ -10912,7 +10912,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp9SIBObjectESaIS1_EE15_M_ra
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 4
   %27 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr nonnull align 4 %26, i64 %27, i1 false)
-  %28 = getelementptr inbounds nuw [1024 x i8], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
   store i8 0, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 1028
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 1028
@@ -10952,7 +10952,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %45 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -1108
   %46 = zext nneg i32 %spec.select.i.i.i.i.i.i.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr nonnull align 4 %45, i64 %46, i1 false)
-  %47 = getelementptr inbounds nuw [1024 x i8], ptr %44, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   store i8 0, ptr %47, align 1
   br label %_ZN6Assimp9SIBObjectaSEOS0_.exit.i.i.i.i.i
 
@@ -10987,7 +10987,7 @@ _ZSt13move_backwardIPN6Assimp9SIBObjectES2_ET0_T_S4_S3_.exit: ; preds = %_ZN6Ass
   %58 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
   %59 = zext nneg i32 %spec.select.i.i.i.i.i.i.i54 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %57, ptr nonnull align 4 %58, i64 %59, i1 false)
-  %60 = getelementptr inbounds nuw [1024 x i8], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
   store i8 0, ptr %60, align 1
   br label %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i
 
@@ -11017,7 +11017,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp9SIBObjectESt6vectorIS3_SaI
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 4
   %71 = zext nneg i32 %spec.select.i.i.i.i.i.i.i55 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr nonnull align 4 %70, i64 %71, i1 false)
-  %72 = getelementptr inbounds nuw [1024 x i8], ptr %69, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %71
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 1028
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 1028
@@ -11050,7 +11050,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp9SIBObjectE
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 4
   %83 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i60 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %81, ptr nonnull align 4 %82, i64 %83, i1 false)
-  %84 = getelementptr inbounds nuw [1024 x i8], ptr %81, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
   store i8 0, ptr %84, align 1
   %85 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 1028
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 1028
@@ -11090,7 +11090,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %97 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i69, i64 4
   %98 = zext nneg i32 %spec.select.i.i.i.i.i.i.i70 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %96, ptr nonnull align 4 %97, i64 %98, i1 false)
-  %99 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %98
   store i8 0, ptr %99, align 1
   br label %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i71
 
@@ -11147,7 +11147,7 @@ _ZNSt12_Vector_baseIN6Assimp9SIBObjectESaIS1_EE11_M_allocateEm.exit: ; preds = %
   %124 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %125 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i74 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %123, ptr nonnull align 4 %124, i64 %125, i1 false)
-  %126 = getelementptr inbounds nuw [1024 x i8], ptr %123, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 %125
   store i8 0, ptr %126, align 1
   %127 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 1028
   %128 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 1028
@@ -11172,7 +11172,7 @@ _ZNSt12_Vector_baseIN6Assimp9SIBObjectESaIS1_EE11_M_allocateEm.exit: ; preds = %
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i80, i64 4
   %134 = zext nneg i32 %spec.select.i.i.i.i.i.i.i81 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %132, ptr nonnull align 4 %133, i64 %134, i1 false)
-  %135 = getelementptr inbounds nuw [1024 x i8], ptr %132, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 %134
   store i8 0, ptr %135, align 1
   %136 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i79, i64 1028
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i80, i64 1028
@@ -11197,7 +11197,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6Assimp9SIBObjectE
   %142 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i88, i64 4
   %143 = zext nneg i32 %spec.select.i.i.i.i.i.i.i.i89 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %141, ptr nonnull align 4 %142, i64 %143, i1 false)
-  %144 = getelementptr inbounds nuw [1024 x i8], ptr %141, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 %143
   store i8 0, ptr %144, align 1
   %145 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i87, i64 1028
   %146 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i88, i64 1028

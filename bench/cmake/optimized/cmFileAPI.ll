@@ -6426,7 +6426,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN9cmFileAPI14ObjectKindNameENS_10ObjectKindE(i32 noundef %0) local_unnamed_addr #9 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !80
   ret ptr %4
 }
@@ -7880,7 +7880,7 @@ define dso_local void @_ZN9cmFileAPI10BuildReplyERKNS_5QueryE(ptr dead_on_unwind
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = load i32, ptr %.sroa.039.053, align 8, !tbaa !188, !noalias !324
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !80, !noalias !324
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !327
   %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #25, !noalias !327
@@ -8283,7 +8283,7 @@ _Z8cmStrCatIPKcRA3_S0_JRKmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %3 = alloca %class.cmAlphaNum, align 8
   %4 = load i32, ptr %1, align 8, !tbaa !188
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !80
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !348
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25, !noalias !348
@@ -8436,7 +8436,7 @@ _ZNSt3mapIN9cmFileAPI6ObjectEN4Json5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEEixERS
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %52 = load i32, ptr %1, align 8, !tbaa !188, !noalias !362
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !80, !noalias !362
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !365
   %56 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #25, !noalias !365
@@ -8876,7 +8876,7 @@ define dso_local void @_ZN9cmFileAPI14BuildCodeModelERKNS_6ObjectE(ptr dead_on_u
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8, !tbaa !188
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -8954,7 +8954,7 @@ define dso_local void @_ZN9cmFileAPI17BuildConfigureLogERKNS_6ObjectE(ptr dead_o
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8, !tbaa !188
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -9032,7 +9032,7 @@ define dso_local void @_ZN9cmFileAPI10BuildCacheERKNS_6ObjectE(ptr dead_on_unwin
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8, !tbaa !188
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -9110,7 +9110,7 @@ define dso_local void @_ZN9cmFileAPI15BuildCMakeFilesERKNS_6ObjectE(ptr dead_on_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8, !tbaa !188
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -9188,7 +9188,7 @@ define dso_local void @_ZN9cmFileAPI15BuildToolchainsERKNS_6ObjectE(ptr dead_on_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %2, align 8, !tbaa !188
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %11)
           to label %12 unwind label %23
@@ -9265,7 +9265,7 @@ define dso_local void @_ZN9cmFileAPI17BuildInternalTestERKNS_6ObjectE(ptr dead_o
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load i32, ptr %2, align 8, !tbaa !188
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZZN9cmFileAPI14ObjectKindNameENS_10ObjectKindEE15objectKindNames, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %10)
           to label %11 unwind label %23

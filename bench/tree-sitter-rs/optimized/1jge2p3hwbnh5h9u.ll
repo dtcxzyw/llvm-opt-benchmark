@@ -1280,7 +1280,7 @@ switch.lookup:                                    ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !296
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !296
   %115 = zext nneg i8 %114 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.ts_highlighter_highlight, i64 0, i64 %115
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ts_highlighter_highlight, i64 %115
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !296
   br label %120

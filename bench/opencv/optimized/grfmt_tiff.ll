@@ -6285,7 +6285,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
   %1683 = getelementptr inbounds nuw i8, ptr %.14359.i, i64 1
   %1684 = load i8, ptr %.14359.i, align 1, !tbaa !63
   %1685 = sub nuw nsw i64 4, %.04060.i
-  %1686 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 0, i64 %1685
+  %1686 = getelementptr inbounds nuw i8, ptr %33, i64 %1685
   store i8 %1684, ptr %1686, align 1, !tbaa !63
   %1687 = add nuw nsw i64 %.04060.i, 1
   %exitcond.not.i = icmp eq i64 %1687, 5
@@ -6337,7 +6337,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
   %.4.i = phi ptr [ %1704, %1703 ], [ %.366.i, %1701 ]
   %1707 = phi i8 [ %1705, %1703 ], [ 0, %1701 ]
   %1708 = sub nuw nsw i64 4, %.03567.i
-  %1709 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 0, i64 %1708
+  %1709 = getelementptr inbounds nuw i8, ptr %33, i64 %1708
   store i8 %1707, ptr %1709, align 1, !tbaa !63
   %1710 = add nuw nsw i64 %.03567.i, 1
   %exitcond84.not.i = icmp eq i64 %1710, 5
@@ -6445,7 +6445,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1133: ; preds = %.lr.ph.i.i.i1126
   %1741 = getelementptr inbounds nuw i8, ptr %.14359.i1140, i64 1
   %1742 = load i8, ptr %.14359.i1140, align 1, !tbaa !63
   %1743 = sub nuw nsw i64 2, %.04060.i1139
-  %1744 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %1743
+  %1744 = getelementptr inbounds nuw i8, ptr %31, i64 %1743
   store i8 %1742, ptr %1744, align 1, !tbaa !63
   %1745 = add nuw nsw i64 %.04060.i1139, 1
   %exitcond.not.i1141 = icmp eq i64 %1745, 3
@@ -6495,7 +6495,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1133: ; preds = %.lr.ph.i.i.i1126
   %.4.i1160 = phi ptr [ %1761, %1760 ], [ %.366.i1159, %1758 ]
   %1764 = phi i8 [ %1762, %1760 ], [ 0, %1758 ]
   %1765 = sub nuw nsw i64 2, %.03567.i1158
-  %1766 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %1765
+  %1766 = getelementptr inbounds nuw i8, ptr %31, i64 %1765
   store i8 %1764, ptr %1766, align 1, !tbaa !63
   %1767 = add nuw nsw i64 %.03567.i1158, 1
   %exitcond83.not.i1161 = icmp eq i64 %1767, 3
@@ -6600,7 +6600,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1179: ; preds = %.lr.ph.i.i.i1172
   %1797 = getelementptr inbounds nuw i8, ptr %.14359.i1186, i64 1
   %1798 = load i8, ptr %.14359.i1186, align 1, !tbaa !63
   %1799 = sub nuw nsw i64 6, %.04060.i1185
-  %1800 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 0, i64 %1799
+  %1800 = getelementptr inbounds nuw i8, ptr %29, i64 %1799
   store i8 %1798, ptr %1800, align 1, !tbaa !63
   %1801 = add nuw nsw i64 %.04060.i1185, 1
   %exitcond.not.i1187 = icmp eq i64 %1801, 7
@@ -6652,7 +6652,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1179: ; preds = %.lr.ph.i.i.i1172
   %.4.i1209 = phi ptr [ %1818, %1817 ], [ %.366.i1208, %1815 ]
   %1821 = phi i8 [ %1819, %1817 ], [ 0, %1815 ]
   %1822 = sub nuw nsw i64 6, %.03567.i1207
-  %1823 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 0, i64 %1822
+  %1823 = getelementptr inbounds nuw i8, ptr %29, i64 %1822
   store i8 %1821, ptr %1823, align 1, !tbaa !63
   %1824 = add nuw nsw i64 %.03567.i1207, 1
   %exitcond84.not.i1210 = icmp eq i64 %1824, 7

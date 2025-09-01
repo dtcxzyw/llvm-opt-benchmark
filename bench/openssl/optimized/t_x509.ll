@@ -893,7 +893,7 @@ define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) lo
 
 .preheader46:                                     ; preds = %26, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !19
   %31 = zext i8 %30 to i32
   %32 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %31) #4
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) lo
 
 .preheader:                                       ; preds = %40, %45
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %45 ], [ 0, %40 ]
-  %46 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %indvars.iv52
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv52
   %47 = load i8, ptr %46, align 1, !tbaa !19
   %48 = zext i8 %47 to i32
   %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %48) #4

@@ -864,7 +864,7 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit.i:          ; preds = %.lr.ph.i.i
   %.01218.i.i = phi i32 [ %355, %.lr.ph.i79.i ], [ 0, %.lr.ph.i79.i.preheader ]
   %.117.i.i = phi ptr [ %353, %.lr.ph.i79.i ], [ %.117.i.i.ph, %.lr.ph.i79.i.preheader ]
   %350 = and i64 %.019.i.i, 15
-  %351 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 %350
   %352 = load i8, ptr %351, align 1, !tbaa !122, !noalias !168
   %353 = getelementptr inbounds i8, ptr %.117.i.i, i64 -1
   store i8 %352, ptr %353, align 1, !tbaa !122, !noalias !168

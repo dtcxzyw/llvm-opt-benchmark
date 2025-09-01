@@ -5857,7 +5857,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i2.i.i
   %58 = and i32 %.037, 255
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %28, align 8, !nonnull !5, !align !33, !noundef !5
-  %61 = getelementptr inbounds nuw [256 x ptr], ptr %60, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
   store ptr %30, ptr %61, align 8
   %62 = add i32 %.037, 1
   %63 = icmp eq i64 %57, 0
@@ -5913,7 +5913,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !592, !nonnull !5, !align !33, !noundef !5
-  %25 = getelementptr inbounds nuw [256 x ptr], ptr %24, i64 0, i64 %22
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
   store ptr %20, ptr %25, align 8, !noalias !592
   %26 = add i32 %14, 1
   store atomic i32 %26, ptr %8 release, align 8, !noalias !592
@@ -5954,7 +5954,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !33, !noundef !5
-  %9 = getelementptr inbounds nuw [256 x ptr], ptr %8, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = add i32 %2, 1
@@ -6131,7 +6131,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %32 = and i64 %.0310, 255
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !nonnull !5, !align !33, !noundef !5
-  %35 = getelementptr inbounds nuw [256 x ptr], ptr %34, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8
   br label %43
 
@@ -6190,7 +6190,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !33, !noundef !5
-  %23 = getelementptr inbounds nuw [256 x ptr], ptr %22, i64 0, i64 %20
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
   %25 = icmp eq i32 %17, 0
   br i1 %25, label %26, label %27
@@ -6299,10 +6299,10 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %55 = add i32 %.sroa.05.049, %18
   %56 = and i32 %55, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [256 x ptr], ptr %54, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !nonnull !5, !noundef !5
   %60 = load ptr, ptr %35, align 8, !nonnull !5, !align !33, !noundef !5
-  %61 = getelementptr inbounds nuw [256 x ptr], ptr %60, i64 0, i64 %53
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %53
   store ptr %59, ptr %61, align 8
   %exitcond.not = icmp eq i32 %50, %umax
   br i1 %exitcond.not, label %.preheader, label %49
@@ -7486,7 +7486,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level9add_entry17h003c014
   %10 = and i64 %9, 62
   %11 = lshr i64 %6, %10
   %12 = and i64 %11, 63
-  %13 = getelementptr inbounds nuw [64 x { ptr, ptr }], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !687)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !687
   store ptr %1, ptr %4, align 8, !noalias !687
@@ -7542,7 +7542,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level12remove_entry17hdcd
   %8 = and i64 %7, 62
   %9 = lshr i64 %4, %8
   %10 = and i64 %9, 63
-  %11 = getelementptr inbounds nuw [64 x { ptr, ptr }], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %10
   %12 = tail call noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h5674c003639ee125E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !690)
   %13 = load ptr, ptr %11, align 8, !alias.scope !690, !noundef !5
@@ -7585,7 +7585,7 @@ define hidden { ptr, ptr } @_ZN5tokio7runtime4time5wheel5level5Level9take_slot17
   br i1 %9, label %10, label %17, !prof !693
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw [64 x { ptr, ptr }], ptr %0, i64 0, i64 %1
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %1
   %12 = load ptr, ptr %11, align 8, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !5

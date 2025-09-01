@@ -502,7 +502,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 67:                                               ; preds = %.preheader, %90
   %indvars.iv143.i = phi i64 [ %indvars.iv.next144.i, %90 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds nuw [7 x %struct.anon.1], ptr @_ZN6icu_7712_GLOBAL__N_114collAttributesE, i64 0, i64 %indvars.iv143.i
+  %68 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZN6icu_7712_GLOBAL__N_114collAttributesE, i64 %indvars.iv143.i
   %69 = load ptr, ptr %68, align 16, !tbaa !18
   %70 = call noundef i32 @_ZNK6icu_776Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef %69, ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %71 = load i32, ptr %1, align 4, !tbaa !6
@@ -530,7 +530,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 .preheader129.i:                                  ; preds = %75, %77
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %75 ]
-  %78 = getelementptr inbounds nuw [11 x %struct.anon.2], ptr @_ZN6icu_7712_GLOBAL__N_119collAttributeValuesE, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw %struct.anon.2, ptr @_ZN6icu_7712_GLOBAL__N_119collAttributeValuesE, i64 %indvars.iv.i
   %79 = load ptr, ptr %78, align 16, !tbaa !23
   %80 = call i32 @uprv_stricmp_77(ptr noundef nonnull %3, ptr noundef %79)
   %81 = icmp eq i32 %80, 0
@@ -604,7 +604,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 .preheader126.i:                                  ; preds = %103, %117
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %117 ], [ 0, %103 ]
-  %110 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_7712_GLOBAL__N_116collReorderCodesE, i64 0, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_116collReorderCodesE, i64 %indvars.iv.i.i
   %111 = load ptr, ptr %110, align 8, !tbaa !31
   %112 = call i32 @uprv_stricmp_77(ptr noundef nonnull %.082.i, ptr noundef %111)
   %113 = icmp eq i32 %112, 0
@@ -627,7 +627,7 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 119:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %120 = getelementptr inbounds nuw [213 x i32], ptr %4, i64 0, i64 %indvars.iv146.i
+  %120 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv146.i
   store i32 %.0.i, ptr %120, align 4, !tbaa !33
   %121 = icmp eq i8 %100, 0
   %122 = getelementptr inbounds nuw i8, ptr %.081.i, i64 1
@@ -665,7 +665,7 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 .preheader.i:                                     ; preds = %134, %139
   %indvars.iv.i106.i = phi i64 [ %indvars.iv.next.i107.i, %139 ], [ 0, %134 ]
-  %135 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN6icu_7712_GLOBAL__N_116collReorderCodesE, i64 0, i64 %indvars.iv.i106.i
+  %135 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_116collReorderCodesE, i64 %indvars.iv.i106.i
   %136 = load ptr, ptr %135, align 8, !tbaa !31
   %137 = call i32 @uprv_stricmp_77(ptr noundef nonnull %3, ptr noundef %136)
   %138 = icmp eq i32 %137, 0

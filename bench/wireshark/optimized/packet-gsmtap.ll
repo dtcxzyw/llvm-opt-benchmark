@@ -561,7 +561,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 switch.lookup:                                    ; preds = %55
   %58 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.dissect_gsmtap, i64 0, i64 %58
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsmtap, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %59
 
@@ -796,7 +796,7 @@ switch.early.test.i:                              ; preds = %70
   br i1 %.not.i.i, label %149, label %handle_tetra.exit.i
 
 149:                                              ; preds = %145
-  %150 = getelementptr [9 x i32], ptr @gsmtap_to_tetra, i64 0, i64 %146
+  %150 = getelementptr i32, ptr @gsmtap_to_tetra, i64 %146
   %151 = load i32, ptr %150, align 4
   tail call void @tetra_dissect_pdu(i32 noundef %151, i32 noundef 1, ptr noundef %32, ptr noundef %2, ptr noundef %1)
   br label %handle_tetra.exit.i
@@ -806,9 +806,9 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
   br label %dissect_gsmtap_v2.exit
 
 153:                                              ; preds = %106
-  %switch.tableidx29 = add i8 %22, -16
-  %154 = icmp ult i8 %switch.tableidx29, 6
-  br i1 %154, label %switch.lookup28, label %select.unfold.i
+  %switch.tableidx28 = add i8 %22, -16
+  %154 = icmp ult i8 %switch.tableidx28, 6
+  br i1 %154, label %switch.lookup29, label %select.unfold.i
 
 155:                                              ; preds = %106
   switch i8 %22, label %159 [
@@ -962,36 +962,36 @@ handle_tetra.exit.i:                              ; preds = %149, %145, %142
 214:                                              ; preds = %106, %.thread.i
   %cond.i = icmp eq i8 %22, 1
   %215 = zext i1 %cond.i to i64
-  %216 = getelementptr [2 x ptr], ptr @sim_sub_handles, i64 0, i64 %215
+  %216 = getelementptr ptr, ptr @sim_sub_handles, i64 %215
   %217 = load ptr, ptr %216, align 8
   br label %.sink.split36.i
 
 218:                                              ; preds = %107
   %219 = zext nneg i8 %22 to i64
-  %220 = getelementptr [62 x ptr], ptr @rrc_sub_handles, i64 0, i64 %219
+  %220 = getelementptr ptr, ptr @rrc_sub_handles, i64 %219
   %221 = load ptr, ptr %220, align 8
   br label %.sink.split36.i
 
 222:                                              ; preds = %110
   %223 = zext nneg i8 %22 to i64
-  %224 = getelementptr [23 x ptr], ptr @lte_rrc_sub_handles, i64 0, i64 %223
+  %224 = getelementptr ptr, ptr @lte_rrc_sub_handles, i64 %223
   %225 = load ptr, ptr %224, align 8
   br label %.sink.split36.i
 
 226:                                              ; preds = %112
   %227 = zext nneg i8 %22 to i64
-  %228 = getelementptr [2 x ptr], ptr @lte_nas_sub_handles, i64 0, i64 %227
+  %228 = getelementptr ptr, ptr @lte_nas_sub_handles, i64 %227
   %229 = load ptr, ptr %228, align 8
   br label %.sink.split36.i
 
-switch.lookup28:                                  ; preds = %153
-  %230 = or disjoint i8 %switch.tableidx29, 8
+switch.lookup29:                                  ; preds = %153
+  %230 = or disjoint i8 %switch.tableidx28, 8
   %switch.offset = zext nneg i8 %230 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %153, %switch.lookup28, %213, %212, %211, %160, %159, %158, %157, %156, %155, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
-  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset, %switch.lookup28 ], [ 0, %153 ]
-  %231 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.0246.ph.i
+select.unfold.i:                                  ; preds = %153, %switch.lookup29, %213, %212, %211, %160, %159, %158, %157, %156, %155, %141, %140, %139, %132, %127, %122, %116, %116, %116, %116, %112, %110, %107, %106
+  %.0246.ph.i = phi i64 [ 25, %160 ], [ 16, %155 ], [ 7, %106 ], [ 0, %127 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 1, %116 ], [ 27, %212 ], [ 0, %211 ], [ 19, %158 ], [ 18, %157 ], [ 17, %156 ], [ 0, %159 ], [ 6, %141 ], [ 5, %140 ], [ 14, %132 ], [ 0, %139 ], [ 0, %213 ], [ 0, %107 ], [ 0, %110 ], [ 0, %112 ], [ %spec.select.i, %122 ], [ %switch.offset, %switch.lookup29 ], [ 0, %153 ]
+  %231 = getelementptr ptr, ptr @sub_handles, i64 %.0246.ph.i
   %232 = load ptr, ptr %231, align 8
   %.not265.i = icmp eq ptr %232, null
   br i1 %.not265.i, label %234, label %.sink.split36.i
@@ -1553,13 +1553,13 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %.sink.i.ph = phi i8 [ 2, %18 ], [ 3, %19 ], [ 4, %20 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ 8, %24 ], [ 9, %25 ], [ 1, %15 ]
   store i32 %.sink33.i.ph, ptr %12, align 4
   store i8 %.sink.i.ph, ptr %13, align 4
-  %28 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
+  %28 = getelementptr ptr, ptr @sub_handles, i64 %.
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @call_dissector_with_data(ptr noundef %29, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.val = load i32, ptr %12, align 4
   %.val25 = load i8, ptr %13, align 4
   %31 = zext i8 %.val25 to i64
-  %32 = getelementptr [11 x i32], ptr @data_block_len_by_mcs, i64 0, i64 %31
+  %32 = getelementptr i32, ptr @data_block_len_by_mcs, i64 %31
   %33 = load i32, ptr %32, align 4
   switch i32 %.val, label %.thread [
     i32 49, label %34
@@ -1592,7 +1592,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %.sink33.i = phi i32 [ 33, %26 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ], [ %11, %15 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
-  %50 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
+  %50 = getelementptr ptr, ptr @sub_handles, i64 %.
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   br label %.thread

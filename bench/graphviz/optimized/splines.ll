@@ -181,7 +181,7 @@ define internal fastcc void @shape_clip0(ptr noundef nonnull %0, ptr noundef rea
   %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !40
   %19 = fsub double %18, %.pre
-  %20 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %9, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.pointf_s, ptr %9, i64 %indvars.iv
   store double %19, ptr %20, align 16, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !42
@@ -278,7 +278,7 @@ bezier_clip.exit:                                 ; preds = %45
 
 53:                                               ; preds = %bezier_clip.exit, %53
   %indvars.iv29 = phi i64 [ 0, %bezier_clip.exit ], [ %indvars.iv.next30, %53 ]
-  %54 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %9, i64 0, i64 %indvars.iv29
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %9, i64 %indvars.iv29
   %55 = load double, ptr %54, align 16, !tbaa !40
   %56 = load double, ptr %51, align 8, !tbaa !41
   %57 = fadd double %55, %56
@@ -2431,7 +2431,7 @@ define void @makeSelfEdge(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 57:                                               ; preds = %61, %32
   %indvars.iv.i.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i.i, %61 ]
-  %58 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv.i.i
   %59 = load i32, ptr %58, align 4, !tbaa !86
   %60 = icmp eq i32 %59, %56
   br i1 %60, label %.split.loop.exit.i.i, label %61
@@ -2451,7 +2451,7 @@ define void @makeSelfEdge(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 63:                                               ; preds = %67, %.split.loop.exit26.i.i
   %indvars.iv22.i.i = phi i64 [ 0, %.split.loop.exit26.i.i ], [ %indvars.iv.next23.i.i, %67 ]
-  %64 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv22.i.i
+  %64 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv22.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !86
   %66 = icmp eq i32 %65, %.pre-phi
   br i1 %66, label %.split.loop.exit28.i.i, label %67
@@ -2473,9 +2473,9 @@ define void @makeSelfEdge(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 convert_sides_to_points.exit.i:                   ; preds = %.split.loop.exit29.i.i
   %70 = zext nneg i32 %.016.i.i to i64
-  %71 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @__const.convert_sides_to_points.pair_a, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.pair_a, i64 %70
   %72 = zext nneg i32 %.0.i.i to i64
-  %73 = getelementptr inbounds nuw [8 x i32], ptr %71, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !86
   switch i32 %74, label %convert_sides_to_points.exit.thread.i [
     i32 32, label %75
@@ -2680,7 +2680,7 @@ selfRight.exit:                                   ; preds = %145, %convert_sides
 
 184:                                              ; preds = %188, %160
   %indvars.iv.i.i65 = phi i64 [ 0, %160 ], [ %indvars.iv.next.i.i66, %188 ]
-  %185 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv.i.i65
+  %185 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv.i.i65
   %186 = load i32, ptr %185, align 4, !tbaa !86
   %187 = icmp eq i32 %186, %183
   br i1 %187, label %.split.loop.exit.i.i103, label %188
@@ -2700,7 +2700,7 @@ selfRight.exit:                                   ; preds = %145, %convert_sides
 
 190:                                              ; preds = %194, %.split.loop.exit26.i.i68
   %indvars.iv22.i.i70 = phi i64 [ 0, %.split.loop.exit26.i.i68 ], [ %indvars.iv.next23.i.i71, %194 ]
-  %191 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv22.i.i70
+  %191 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv22.i.i70
   %192 = load i32, ptr %191, align 4, !tbaa !86
   %193 = icmp eq i32 %192, %24
   br i1 %193, label %.split.loop.exit28.i.i102, label %194
@@ -2722,9 +2722,9 @@ selfRight.exit:                                   ; preds = %145, %convert_sides
 
 convert_sides_to_points.exit.i101:                ; preds = %.split.loop.exit29.i.i73
   %197 = zext nneg i32 %.016.i.i74 to i64
-  %198 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @__const.convert_sides_to_points.pair_a, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.pair_a, i64 %197
   %199 = zext nneg i32 %.0.i.i69 to i64
-  %200 = getelementptr inbounds nuw [8 x i32], ptr %198, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw i32, ptr %198, i64 %199
   %201 = load i32, ptr %200, align 4, !tbaa !86
   switch i32 %201, label %convert_sides_to_points.exit.thread.i76 [
     i32 12, label %202
@@ -2928,7 +2928,7 @@ selfLeft.exit:                                    ; preds = %273, %convert_sides
 
 311:                                              ; preds = %315, %286
   %indvars.iv.i.i108 = phi i64 [ 0, %286 ], [ %indvars.iv.next.i.i109, %315 ]
-  %312 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv.i.i108
+  %312 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv.i.i108
   %313 = load i32, ptr %312, align 4, !tbaa !86
   %314 = icmp eq i32 %313, %310
   br i1 %314, label %.split.loop.exit.i.i134, label %315
@@ -2948,7 +2948,7 @@ selfLeft.exit:                                    ; preds = %273, %convert_sides
 
 317:                                              ; preds = %321, %.split.loop.exit26.i.i111
   %indvars.iv22.i.i113 = phi i64 [ 0, %.split.loop.exit26.i.i111 ], [ %indvars.iv.next23.i.i114, %321 ]
-  %318 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv22.i.i113
+  %318 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv22.i.i113
   %319 = load i32, ptr %318, align 4, !tbaa !86
   %320 = icmp eq i32 %319, %24
   br i1 %320, label %.split.loop.exit28.i.i133, label %321
@@ -2970,9 +2970,9 @@ selfLeft.exit:                                    ; preds = %273, %convert_sides
 
 convert_sides_to_points.exit.i132:                ; preds = %.split.loop.exit29.i.i116
   %324 = zext nneg i32 %.016.i.i117 to i64
-  %325 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @__const.convert_sides_to_points.pair_a, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.pair_a, i64 %324
   %326 = zext nneg i32 %.0.i.i112 to i64
-  %327 = getelementptr inbounds nuw [8 x i32], ptr %325, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i32, ptr %325, i64 %326
   %328 = load i32, ptr %327, align 4, !tbaa !86
   %.fr.i = freeze i32 %328
   %cond.i = icmp eq i32 %.fr.i, 67
@@ -3171,7 +3171,7 @@ define internal fastcc void @selfTop(ptr noundef readonly captures(none) %0, i64
 
 41:                                               ; preds = %45, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %45 ]
-  %42 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4, !tbaa !86
   %44 = icmp eq i32 %43, %40
   br i1 %44, label %.split.loop.exit.i, label %45
@@ -3191,7 +3191,7 @@ define internal fastcc void @selfTop(ptr noundef readonly captures(none) %0, i64
 
 47:                                               ; preds = %51, %.split.loop.exit26.i
   %indvars.iv22.i = phi i64 [ 0, %.split.loop.exit26.i ], [ %indvars.iv.next23.i, %51 ]
-  %48 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv22.i
+  %48 = getelementptr inbounds nuw i32, ptr @__const.convert_sides_to_points.vertices, i64 %indvars.iv22.i
   %49 = load i32, ptr %48, align 4, !tbaa !86
   %50 = icmp eq i32 %49, %37
   br i1 %50, label %.split.loop.exit28.i, label %51
@@ -3213,9 +3213,9 @@ define internal fastcc void @selfTop(ptr noundef readonly captures(none) %0, i64
 
 convert_sides_to_points.exit:                     ; preds = %.split.loop.exit29.i
   %54 = zext nneg i32 %.016.i to i64
-  %55 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @__const.convert_sides_to_points.pair_a, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i32], ptr @__const.convert_sides_to_points.pair_a, i64 %54
   %56 = zext nneg i32 %.0.i to i64
-  %57 = getelementptr inbounds nuw [8 x i32], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !86
   switch i32 %58, label %convert_sides_to_points.exit.thread [
     i32 15, label %59
@@ -3664,7 +3664,7 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
 
 64:                                               ; preds = %58, %64
   %.06067 = phi i64 [ 0, %58 ], [ %68, %64 ]
-  %65 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.06067
+  %65 = getelementptr inbounds nuw %struct.pointf_s, ptr %3, i64 %.06067
   %66 = load ptr, ptr %51, align 8, !tbaa !62
   %67 = getelementptr inbounds nuw %struct.pointf_s, ptr %66, i64 %.06067
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !88
@@ -3716,7 +3716,7 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
 
 93:                                               ; preds = %83, %93
   %.05968 = phi i64 [ 0, %83 ], [ %100, %93 ]
-  %94 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %3, i64 0, i64 %.05968
+  %94 = getelementptr inbounds nuw %struct.pointf_s, ptr %3, i64 %.05968
   %95 = load ptr, ptr %73, align 8, !tbaa !62
   %96 = load i64, ptr %85, align 8, !tbaa !64
   %97 = getelementptr %struct.pointf_s, ptr %95, i64 %96

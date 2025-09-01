@@ -3729,8 +3729,8 @@ _ZNK5boost6nowide17basic_stackstringIwcLm6EE6lengthEv.exit.thread.i.i.i535: ; pr
 
 .preheader.i:                                     ; preds = %1279, %.preheader.i
   %.03136.i = phi i64 [ %1284, %.preheader.i ], [ 0, %1279 ]
-  %1280 = getelementptr inbounds nuw [6 x i32], ptr %42, i64 0, i64 %.03136.i
-  %1281 = getelementptr inbounds nuw [6 x i32], ptr %43, i64 0, i64 %.03136.i
+  %1280 = getelementptr inbounds nuw i32, ptr %42, i64 %.03136.i
+  %1281 = getelementptr inbounds nuw i32, ptr %43, i64 %.03136.i
   %1282 = load i32, ptr %1280, align 4, !tbaa !33
   %1283 = load i32, ptr %1281, align 4, !tbaa !33
   store i32 %1283, ptr %1280, align 4, !tbaa !33
@@ -3863,8 +3863,8 @@ _ZN5boost6nowide4test8test_monEv.exit545:         ; preds = %1315, %1313, %1310
 
 .preheader.i550:                                  ; preds = %1326, %.preheader.i550
   %.03136.i551 = phi i64 [ %1331, %.preheader.i550 ], [ 0, %1326 ]
-  %1327 = getelementptr inbounds nuw [6 x i32], ptr %42, i64 0, i64 %.03136.i551
-  %1328 = getelementptr inbounds nuw [6 x i32], ptr %43, i64 0, i64 %.03136.i551
+  %1327 = getelementptr inbounds nuw i32, ptr %42, i64 %.03136.i551
+  %1328 = getelementptr inbounds nuw i32, ptr %43, i64 %.03136.i551
   %1329 = load i32, ptr %1327, align 4, !tbaa !33
   %1330 = load i32, ptr %1328, align 4, !tbaa !33
   store i32 %1330, ptr %1327, align 4, !tbaa !33
@@ -3961,8 +3961,8 @@ _ZN5boost6nowide4test8test_monEv.exit557:         ; preds = %1349, %1347, %1344
 
 .preheader.i562:                                  ; preds = %1360, %.preheader.i562
   %.03136.i563 = phi i64 [ %1365, %.preheader.i562 ], [ 0, %1360 ]
-  %1361 = getelementptr inbounds nuw [6 x i32], ptr %42, i64 0, i64 %.03136.i563
-  %1362 = getelementptr inbounds nuw [6 x i32], ptr %44, i64 0, i64 %.03136.i563
+  %1361 = getelementptr inbounds nuw i32, ptr %42, i64 %.03136.i563
+  %1362 = getelementptr inbounds nuw i32, ptr %44, i64 %.03136.i563
   %1363 = load i32, ptr %1361, align 4, !tbaa !33
   %1364 = load i32, ptr %1362, align 4, !tbaa !33
   store i32 %1364, ptr %1361, align 4, !tbaa !33
@@ -4058,8 +4058,8 @@ _ZN5boost6nowide4test8test_monEv.exit569:         ; preds = %1383, %1381, %1378
 
 .preheader.i574:                                  ; preds = %1393, %.preheader.i574
   %.03136.i575 = phi i64 [ %1398, %.preheader.i574 ], [ 0, %1393 ]
-  %1394 = getelementptr inbounds nuw [6 x i32], ptr %43, i64 0, i64 %.03136.i575
-  %1395 = getelementptr inbounds nuw [6 x i32], ptr %45, i64 0, i64 %.03136.i575
+  %1394 = getelementptr inbounds nuw i32, ptr %43, i64 %.03136.i575
+  %1395 = getelementptr inbounds nuw i32, ptr %45, i64 %.03136.i575
   %1396 = load i32, ptr %1394, align 4, !tbaa !33
   %1397 = load i32, ptr %1395, align 4, !tbaa !33
   store i32 %1397, ptr %1394, align 4, !tbaa !33
@@ -4293,8 +4293,8 @@ _ZNK5boost6nowide17basic_stackstringIwcLm6EE6lengthEv.exit.thread.i.i.i599: ; pr
 
 .preheader.i615:                                  ; preds = %1478, %.preheader.i615
   %.03136.i616 = phi i64 [ %1483, %.preheader.i615 ], [ 0, %1478 ]
-  %1479 = getelementptr inbounds nuw [6 x i32], ptr %46, i64 0, i64 %.03136.i616
-  %1480 = getelementptr inbounds nuw [6 x i32], ptr %47, i64 0, i64 %.03136.i616
+  %1479 = getelementptr inbounds nuw i32, ptr %46, i64 %.03136.i616
+  %1480 = getelementptr inbounds nuw i32, ptr %47, i64 %.03136.i616
   %1481 = load i32, ptr %1479, align 4, !tbaa !33
   %1482 = load i32, ptr %1480, align 4, !tbaa !33
   store i32 %1482, ptr %1479, align 4, !tbaa !33
@@ -4594,8 +4594,8 @@ _ZNK5boost6nowide17basic_stackstringIwcLm6EE6lengthEv.exit.thread.i.i.i645: ; pr
 
 .preheader.i661:                                  ; preds = %1587, %.preheader.i661
   %.03136.i662 = phi i64 [ %1592, %.preheader.i661 ], [ 0, %1587 ]
-  %1588 = getelementptr inbounds nuw [6 x i32], ptr %49, i64 0, i64 %.03136.i662
-  %1589 = getelementptr inbounds nuw [6 x i32], ptr %50, i64 0, i64 %.03136.i662
+  %1588 = getelementptr inbounds nuw i32, ptr %49, i64 %.03136.i662
+  %1589 = getelementptr inbounds nuw i32, ptr %50, i64 %.03136.i662
   %1590 = load i32, ptr %1588, align 4, !tbaa !33
   %1591 = load i32, ptr %1589, align 4, !tbaa !33
   store i32 %1591, ptr %1588, align 4, !tbaa !33
@@ -5966,7 +5966,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %49, 
   br label %_ZN5boost6nowide4test8test_monEv.exit
 
 _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %61, %63
-  %65 = getelementptr inbounds nuw [9 x %struct.utf8_to_wide], ptr @_ZL15roundtrip_tests, i64 0, i64 %.046226
+  %65 = getelementptr inbounds nuw %struct.utf8_to_wide, ptr @_ZL15roundtrip_tests, i64 %.046226
   %66 = load ptr, ptr %65, align 16, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -6321,7 +6321,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155: ; preds = %1
   %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %185)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %187 = getelementptr inbounds nuw [23 x %struct.utf8_to_wide], ptr @_ZL18invalid_utf8_tests, i64 0, i64 %.034227
+  %187 = getelementptr inbounds nuw %struct.utf8_to_wide, ptr @_ZL18invalid_utf8_tests, i64 %.034227
   %188 = load ptr, ptr %187, align 16, !tbaa !75
   store ptr %29, ptr %14, align 8, !tbaa !7
   %189 = icmp eq ptr %188, null
@@ -6691,7 +6691,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit160: ; preds = %3
 _ZN5boost6nowide4test8test_monEv.exit116:         ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit160, %314, %316
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %318 = getelementptr inbounds nuw [4 x %struct.wide_to_utf8], ptr @_ZL18invalid_wide_tests, i64 0, i64 %.033228
+  %318 = getelementptr inbounds nuw %struct.wide_to_utf8, ptr @_ZL18invalid_wide_tests, i64 %.033228
   %319 = load ptr, ptr %318, align 16, !tbaa !80
   store ptr %161, ptr %18, align 8, !tbaa !45
   %320 = icmp eq ptr %319, null

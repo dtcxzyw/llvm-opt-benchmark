@@ -2183,11 +2183,11 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %97 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   store double 0.000000e+00, ptr %97, align 8, !tbaa !47
   %98 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !48
-  %100 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %99, ptr %100, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2292,7 +2292,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us
 
 LBasisD2.exit.loopexit.us:                        ; preds = %130
-  %131 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv180
+  %131 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv180
   store double %.144.us.i.us, ptr %131, align 8, !tbaa !47
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
@@ -2357,7 +2357,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us
 
 LBasisD.exit141.loopexit.us:                      ; preds = %151
-  %152 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv185
+  %152 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv185
   store double %.127.us.i138.us, ptr %152, align 8, !tbaa !47
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
@@ -2399,7 +2399,7 @@ LBasisD.exit141.loopexit.us:                      ; preds = %151
   br i1 %exitcond.not.i122.us, label %LBasis.exit123.loopexit.us, label %154
 
 LBasis.exit123.loopexit.us:                       ; preds = %164
-  %165 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv190
+  %165 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv190
   store double %.1.i120.us, ptr %165, align 8, !tbaa !47
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
@@ -2409,7 +2409,7 @@ LBasis.exit123.loopexit.us:                       ; preds = %164
   %indvars.iv175 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next176, %.lr.ph158 ]
   %166 = trunc nuw nsw i64 %indvars.iv175 to i32
   %167 = tail call double @LBasisD3(ptr noundef nonnull %1, i32 noundef %166, double noundef %32)
-  %168 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv175
+  %168 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv175
   store double %167, ptr %168, align 8, !tbaa !47
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178

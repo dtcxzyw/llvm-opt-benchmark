@@ -9679,7 +9679,7 @@ _ZN3ue28containsISt3mapISt4pairINS_9CharReachEhEjSt4lessIS4_ESaIS2_IKS4_jEEEEEbR
 
 .preheader.i:                                     ; preds = %.loopexit55.i, %3211
   %.0710.i.i.i = phi i64 [ %3212, %3211 ], [ 0, %.loopexit55.i ]
-  %3204 = getelementptr inbounds nuw [4 x i64], ptr %3150, i64 0, i64 %.0710.i.i.i
+  %3204 = getelementptr inbounds nuw i64, ptr %3150, i64 %.0710.i.i.i
   %3205 = load i64, ptr %3204, align 8
   %.not.i.i.i272 = icmp eq i64 %3205, 0
   br i1 %.not.i.i.i272, label %3211, label %3206
@@ -9741,7 +9741,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %3211, %3206
 
 _ZNK3ue29CharReachcoEv.exit.i:                    ; preds = %3221, %3231
   %.0710.i.i42.i = phi i64 [ %3232, %3231 ], [ 0, %3221 ]
-  %3224 = getelementptr inbounds nuw [4 x i64], ptr %66, i64 0, i64 %.0710.i.i42.i
+  %3224 = getelementptr inbounds nuw i64, ptr %66, i64 %.0710.i.i42.i
   %3225 = load i64, ptr %3224, align 8
   %.not.i.i43.i = icmp eq i64 %3225, 0
   br i1 %.not.i.i43.i, label %3231, label %3226
@@ -36351,7 +36351,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L10nfaStuckOnERKNS_8NGHolderE(
 
 68:                                               ; preds = %66, %62
   %.0813.i.i = phi i64 [ 0, %62 ], [ %67, %66 ]
-  %69 = getelementptr inbounds nuw [4 x i64], ptr %65, i64 0, i64 %.0813.i.i
+  %69 = getelementptr inbounds nuw i64, ptr %65, i64 %.0813.i.i
   %70 = load i64, ptr %69, align 8
   %.not.i.i = icmp eq i64 %70, -1
   br i1 %.not.i.i, label %66, label %_ZSteqIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EEbRKSt3setIT_T0_T1_ESI_.exit

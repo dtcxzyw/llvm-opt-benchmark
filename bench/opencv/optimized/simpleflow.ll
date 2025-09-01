@@ -4435,10 +4435,10 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
 139:                                              ; preds = %139, %130
   %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %130 ]
   %.0128174.us = phi double [ %151, %139 ], [ %133, %130 ]
-  %140 = getelementptr inbounds nuw [3 x i8], ptr %111, i64 0, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv
   %141 = load i8, ptr %140, align 1, !tbaa !132
   %142 = zext i8 %141 to i32
-  %143 = getelementptr inbounds nuw [3 x i8], ptr %134, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv
   %144 = load i8, ptr %143, align 1, !tbaa !132
   %145 = zext i8 %144 to i32
   %146 = sub nsw i32 %142, %145
@@ -4824,10 +4824,10 @@ define linkonce_odr hidden void @_ZNK2cv7optflow20CrossBilateralFilterINS_3VecIh
 93:                                               ; preds = %93, %85
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %93 ], [ 0, %85 ]
   %.06169.us.us.us = phi double [ %105, %93 ], [ %91, %85 ]
-  %94 = getelementptr inbounds nuw [3 x i8], ptr %73, i64 0, i64 %indvars.iv128
+  %94 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv128
   %95 = load i8, ptr %94, align 1, !tbaa !132
   %96 = zext i8 %95 to i32
-  %97 = getelementptr inbounds nuw [3 x i8], ptr %92, i64 0, i64 %indvars.iv128
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv128
   %98 = load i8, ptr %97, align 1, !tbaa !132
   %99 = zext i8 %98 to i32
   %100 = sub nsw i32 %96, %99

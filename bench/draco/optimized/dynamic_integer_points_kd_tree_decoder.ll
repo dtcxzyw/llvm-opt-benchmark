@@ -1453,7 +1453,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12Decode
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %4, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %4, i64 %indvars.iv.i
   %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
   %8 = shl i32 %.010.i, 1
   %9 = zext i1 %7 to i32
@@ -1995,7 +1995,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12Decode
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw [32 x %"class.draco::RAnsBitDecoder"], ptr %4, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %4, i64 %indvars.iv.i
   %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
   %8 = shl i32 %.010.i, 1
   %9 = zext i1 %7 to i32

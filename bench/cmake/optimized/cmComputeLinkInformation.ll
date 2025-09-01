@@ -36384,7 +36384,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
   %4 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [32 x ptr], ptr %1, i64 0, i64 %5
+  %6 = getelementptr inbounds ptr, ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !332, !noalias !1217
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %11
@@ -36399,7 +36399,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %13 = getelementptr inbounds [32 x ptr], ptr %12, i64 0, i64 %5
+  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8, !tbaa !332, !noalias !1217
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %7 to i64

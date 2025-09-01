@@ -555,7 +555,7 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 87:                                               ; preds = %61
   %88 = zext nneg i8 %82 to i64
-  %89 = getelementptr [9 x i8], ptr @amr_ft_bytes, i64 0, i64 %88
+  %89 = getelementptr i8, ptr @amr_ft_bytes, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   br label %amr_ft_to_bytes.exit
@@ -662,7 +662,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr [4 x %struct._value_string], ptr @osmux_ft_vals, i64 0, i64 %46, i32 1
+  %47 = getelementptr %struct._value_string, ptr @osmux_ft_vals, i64 %46, i32 1
   %48 = load ptr, ptr %47, align 8
   br label %49
 

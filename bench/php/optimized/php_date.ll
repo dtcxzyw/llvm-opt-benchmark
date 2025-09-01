@@ -3702,7 +3702,7 @@ define internal fastcc ptr @date_format(ptr noundef readonly captures(none) %0, 
   br i1 %79, label %php_date_short_day_name.exit, label %80
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds nuw [7 x ptr], ptr @day_short_names, i64 0, i64 %78
+  %81 = getelementptr inbounds nuw ptr, ptr @day_short_names, i64 %78
   %82 = load ptr, ptr %81, align 8, !tbaa !116
   br label %php_date_short_day_name.exit
 
@@ -3726,7 +3726,7 @@ php_date_short_day_name.exit:                     ; preds = %74, %80
   br i1 %93, label %php_date_full_day_name.exit, label %94
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw [7 x ptr], ptr @day_full_names, i64 0, i64 %92
+  %95 = getelementptr inbounds nuw ptr, ptr @day_full_names, i64 %92
   %96 = load ptr, ptr %95, align 8, !tbaa !116
   br label %php_date_full_day_name.exit
 
@@ -3748,7 +3748,7 @@ php_date_full_day_name.exit:                      ; preds = %88, %94
   br i1 %103, label %switch.lookup, label %english_suffix.exit
 
 switch.lookup:                                    ; preds = %101
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.date_format, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.date_format, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %english_suffix.exit
 
@@ -3819,8 +3819,8 @@ english_suffix.exit:                              ; preds = %101, %switch.lookup
 
 143:                                              ; preds = %67
   %144 = load i64, ptr %55, align 8, !tbaa !115
-  %145 = add nsw i64 %144, -1
-  %146 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %145
+  %145 = getelementptr ptr, ptr @mon_full_names, i64 %144
+  %146 = getelementptr i8, ptr %145, i64 -8
   %147 = load ptr, ptr %146, align 8, !tbaa !116
   %148 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.55, ptr noundef %147) #25
   br label %408
@@ -3833,8 +3833,8 @@ english_suffix.exit:                              ; preds = %101, %switch.lookup
 
 153:                                              ; preds = %67
   %154 = load i64, ptr %55, align 8, !tbaa !115
-  %155 = add nsw i64 %154, -1
-  %156 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %155
+  %155 = getelementptr ptr, ptr @mon_short_names, i64 %154
+  %156 = getelementptr i8, ptr %155, i64 -8
   %157 = load ptr, ptr %156, align 8, !tbaa !116
   %158 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.55, ptr noundef %157) #25
   br label %408
@@ -4168,7 +4168,7 @@ sub_0:                                            ; preds = %273
   br i1 %369, label %php_date_short_day_name.exit175, label %370
 
 370:                                              ; preds = %364
-  %371 = getelementptr inbounds nuw [7 x ptr], ptr @day_short_names, i64 0, i64 %368
+  %371 = getelementptr inbounds nuw ptr, ptr @day_short_names, i64 %368
   %372 = load ptr, ptr %371, align 8, !tbaa !116
   br label %php_date_short_day_name.exit175
 
@@ -4177,8 +4177,8 @@ php_date_short_day_name.exit175:                  ; preds = %364, %370
   %373 = load i64, ptr %56, align 8, !tbaa !113
   %374 = trunc i64 %373 to i32
   %375 = load i64, ptr %55, align 8, !tbaa !115
-  %376 = add nsw i64 %375, -1
-  %377 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %376
+  %376 = getelementptr ptr, ptr @mon_short_names, i64 %375
+  %377 = getelementptr i8, ptr %376, i64 -8
   %378 = load ptr, ptr %377, align 8, !tbaa !116
   %379 = load i64, ptr %2, align 8, !tbaa !114
   %380 = load i64, ptr %57, align 8, !tbaa !118
@@ -4268,7 +4268,7 @@ smart_str_alloc.exit:                             ; preds = %411, %416
 
 smart_str_0.exit:                                 ; preds = %smart_str_alloc.exit
   %426 = getelementptr inbounds nuw i8, ptr %422, i64 24
-  %427 = getelementptr inbounds nuw [1 x i8], ptr %426, i64 0, i64 %419
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 %419
   store i8 0, ptr %427, align 1, !tbaa !33
   br i1 %3, label %428, label %429
 
@@ -6418,7 +6418,7 @@ php_time.exit:                                    ; preds = %18, %20
   br i1 %56, label %php_date_full_day_name.exit, label %57
 
 57:                                               ; preds = %26
-  %58 = getelementptr inbounds nuw [7 x ptr], ptr @day_full_names, i64 0, i64 %55
+  %58 = getelementptr inbounds nuw ptr, ptr @day_full_names, i64 %55
   %59 = load ptr, ptr %58, align 8, !tbaa !116
   br label %php_date_full_day_name.exit
 
@@ -6426,8 +6426,8 @@ php_date_full_day_name.exit:                      ; preds = %26, %57
   %.0.i79 = phi ptr [ %59, %57 ], [ @.str.278, %26 ]
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.35, i64 noundef 7, ptr noundef %.0.i79) #25
   %60 = load i64, ptr %42, align 8, !tbaa !115
-  %61 = add nsw i64 %60, -1
-  %62 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %61
+  %61 = getelementptr ptr, ptr @mon_full_names, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load ptr, ptr %62, align 8, !tbaa !116
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.36, i64 noundef 5, ptr noundef %63) #25
   %64 = load i64, ptr %4, align 8, !tbaa !139
@@ -8594,7 +8594,7 @@ zend_string_init.exit:                            ; preds = %15
   store i64 %26, ptr %32, align 8, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %25, i64 %26, i1 false)
-  %34 = getelementptr inbounds nuw [1 x i8], ptr %33, i64 0, i64 %26
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %26
   store i8 0, ptr %34, align 1, !tbaa !33
   br label %.sink.split
 
@@ -8641,7 +8641,7 @@ zend_string_init.exit35:                          ; preds = %15
   store i64 %56, ptr %62, align 8, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 1 %55, i64 %56, i1 false)
-  %64 = getelementptr inbounds nuw [1 x i8], ptr %63, i64 0, i64 %56
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %56
   store i8 0, ptr %64, align 1, !tbaa !33
   br label %.sink.split
 
@@ -13087,7 +13087,7 @@ zend_string_init.exit:                            ; preds = %2
   store i64 %8, ptr %14, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %7, i64 %8, i1 false)
-  %16 = getelementptr inbounds nuw [1 x i8], ptr %15, i64 0, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %8
   store i8 0, ptr %16, align 1, !tbaa !33
   br label %.sink.split
 
@@ -13143,7 +13143,7 @@ zend_string_init.exit32:                          ; preds = %2
   store i64 %44, ptr %50, align 8, !tbaa !37
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 1 %43, i64 %44, i1 false)
-  %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %44
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %44
   store i8 0, ptr %52, align 1, !tbaa !33
   br label %.sink.split
 
@@ -13266,7 +13266,7 @@ zend_string_init.exit:                            ; preds = %.critedge
   store i64 %40, ptr %46, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 1 %39, i64 %40, i1 false)
-  %48 = getelementptr inbounds nuw [1 x i8], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %40
   store i8 0, ptr %48, align 1, !tbaa !33
   store ptr %43, ptr %1, align 8, !tbaa !33
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13904,7 +13904,7 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
 .lr.ph184:                                        ; preds = %342, %386
   %345 = phi i64 [ %387, %386 ], [ %344, %342 ]
   %.0144183 = phi i64 [ %388, %386 ], [ 0, %342 ]
-  %346 = getelementptr inbounds nuw [6 x i64], ptr %339, i64 0, i64 %.0144183
+  %346 = getelementptr inbounds nuw i64, ptr %339, i64 %.0144183
   %347 = load i64, ptr %346, align 8, !tbaa !117
   %.not163 = icmp sle i64 %347, %335
   %348 = load i64, ptr %5, align 8
@@ -13932,7 +13932,7 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
   %359 = load ptr, ptr %321, align 8, !tbaa !33
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 96
   %361 = load ptr, ptr %360, align 8, !tbaa !228
-  %362 = getelementptr inbounds nuw [6 x i64], ptr %341, i64 0, i64 %.0144183
+  %362 = getelementptr inbounds nuw i64, ptr %341, i64 %.0144183
   %363 = load i64, ptr %362, align 8, !tbaa !117
   %364 = getelementptr inbounds %struct._ttinfo, ptr %361, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !229
@@ -15683,7 +15683,7 @@ define hidden void @zif_date_interval_format(ptr noundef %0, ptr noundef writeon
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !160
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
-  br label %170
+  br label %169
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8, !tbaa !199
@@ -15700,7 +15700,7 @@ define hidden void @zif_date_interval_format(ptr noundef %0, ptr noundef writeon
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !160
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
-  br label %170
+  br label %169
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds i8, ptr %23, i64 -32
@@ -15731,10 +15731,10 @@ define hidden void @zif_date_interval_format(ptr noundef %0, ptr noundef writeon
   %49 = load ptr, ptr @zend_empty_string, align 8, !tbaa !75
   br label %date_interval_format.exit
 
-50:                                               ; preds = %153, %.preheader.i
-  %51 = phi ptr [ null, %.preheader.i ], [ %154, %153 ]
-  %.044.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %153 ]
-  %.03343.i = phi i64 [ 0, %.preheader.i ], [ %155, %153 ]
+50:                                               ; preds = %152, %.preheader.i
+  %51 = phi ptr [ null, %.preheader.i ], [ %153, %152 ]
+  %.044.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %152 ]
+  %.03343.i = phi i64 [ 0, %.preheader.i ], [ %154, %152 ]
   %.not38.i = icmp eq i32 %.044.i, 0
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 %.03343.i
   %53 = load i8, ptr %52, align 1, !tbaa !33
@@ -15914,7 +15914,7 @@ smart_str_alloc.exit.i:                           ; preds = %133, %128
 
 138:                                              ; preds = %50
   %139 = icmp eq i8 %53, 37
-  br i1 %139, label %153, label %140
+  br i1 %139, label %152, label %140
 
 140:                                              ; preds = %138
   %.not.i.i.i = icmp eq ptr %51, null
@@ -15937,44 +15937,43 @@ smart_str_alloc.exit.i:                           ; preds = %133, %128
 smart_str_appendc_ex.exit.i:                      ; preds = %146, %141
   %147 = phi ptr [ %.pre46.i, %146 ], [ %51, %141 ]
   %.1.i.i.i = phi i64 [ %.0.i.i.i, %146 ], [ %144, %141 ]
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %149 = add i64 %.1.i.i.i, -1
-  %150 = getelementptr inbounds nuw [1 x i8], ptr %148, i64 0, i64 %149
-  store i8 %53, ptr %150, align 1, !tbaa !33
+  %148 = getelementptr i8, ptr %147, i64 23
+  %149 = getelementptr i8, ptr %148, i64 %.1.i.i.i
+  store i8 %53, ptr %149, align 1, !tbaa !33
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %smart_str_appendc_ex.exit.i, %smart_str_alloc.exit.i
   %.1.i.sink.i = phi i64 [ %.1.i.i, %smart_str_alloc.exit.i ], [ %.1.i.i.i, %smart_str_appendc_ex.exit.i ]
-  %151 = load ptr, ptr %3, align 8, !tbaa !132
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store i64 %.1.i.sink.i, ptr %152, align 8, !tbaa !37
-  br label %153
+  %150 = load ptr, ptr %3, align 8, !tbaa !132
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  store i64 %.1.i.sink.i, ptr %151, align 8, !tbaa !37
+  br label %152
 
-153:                                              ; preds = %.sink.split.i, %138
-  %154 = phi ptr [ %51, %138 ], [ %151, %.sink.split.i ]
+152:                                              ; preds = %.sink.split.i, %138
+  %153 = phi ptr [ %51, %138 ], [ %150, %.sink.split.i ]
   %.1.i = phi i32 [ 1, %138 ], [ 0, %.sink.split.i ]
-  %155 = add nuw i64 %.03343.i, 1
-  %exitcond.not.i = icmp eq i64 %155, %35
-  br i1 %exitcond.not.i, label %156, label %50
+  %154 = add nuw i64 %.03343.i, 1
+  %exitcond.not.i = icmp eq i64 %154, %35
+  br i1 %exitcond.not.i, label %155, label %50
 
-156:                                              ; preds = %153
-  %.not.i.i = icmp eq ptr %154, null
-  br i1 %.not.i.i, label %smart_str_0.exit.i, label %157
+155:                                              ; preds = %152
+  %.not.i.i = icmp eq ptr %153, null
+  br i1 %.not.i.i, label %smart_str_0.exit.i, label %156
 
-157:                                              ; preds = %156
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %160 = load i64, ptr %159, align 8, !tbaa !37
-  %161 = getelementptr inbounds nuw [1 x i8], ptr %158, i64 0, i64 %160
-  store i8 0, ptr %161, align 1, !tbaa !33
+156:                                              ; preds = %155
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %159 = load i64, ptr %158, align 8, !tbaa !37
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %159
+  store i8 0, ptr %160, align 1, !tbaa !33
   %.pre47.i = load ptr, ptr %3, align 8, !tbaa !132
   br label %smart_str_0.exit.i
 
-smart_str_0.exit.i:                               ; preds = %157, %156
-  %162 = phi ptr [ null, %156 ], [ %.pre47.i, %157 ]
-  %163 = icmp eq ptr %162, null
-  %164 = load ptr, ptr @zend_empty_string, align 8
-  %spec.select.i = select i1 %163, ptr %164, ptr %162
+smart_str_0.exit.i:                               ; preds = %156, %155
+  %161 = phi ptr [ null, %155 ], [ %.pre47.i, %156 ]
+  %162 = icmp eq ptr %161, null
+  %163 = load ptr, ptr @zend_empty_string, align 8
+  %spec.select.i = select i1 %162, ptr %163, ptr %161
   br label %date_interval_format.exit
 
 date_interval_format.exit:                        ; preds = %48, %smart_str_0.exit.i
@@ -15982,16 +15981,16 @@ date_interval_format.exit:                        ; preds = %48, %smart_str_0.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.034.i, ptr %1, align 8, !tbaa !33
-  %165 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
-  %166 = load i32, ptr %165, align 4, !tbaa !33
-  %167 = and i32 %166, 64
-  %.not = icmp eq i32 %167, 0
-  %168 = select i1 %.not, i32 262, i32 6
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %168, ptr %169, align 8, !tbaa !33
-  br label %170
+  %164 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
+  %165 = load i32, ptr %164, align 4, !tbaa !33
+  %166 = and i32 %165, 64
+  %.not = icmp eq i32 %166, 0
+  %167 = select i1 %.not, i32 262, i32 6
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %167, ptr %168, align 8, !tbaa !33
+  br label %169
 
-170:                                              ; preds = %date_interval_format.exit, %27, %18
+169:                                              ; preds = %date_interval_format.exit, %27, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17179,7 +17178,7 @@ zend_string_init.exit:                            ; preds = %6, %8
   store i64 %12, ptr %18, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %11, i64 %12, i1 false)
-  %20 = getelementptr inbounds nuw [1 x i8], ptr %19, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %12
   store i8 0, ptr %20, align 1, !tbaa !33
   store ptr %15, ptr %1, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17418,7 +17417,7 @@ zend_string_init.exit:                            ; preds = %6
   store i64 %12, ptr %18, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %11, i64 %12, i1 false)
-  %20 = getelementptr inbounds nuw [1 x i8], ptr %19, i64 0, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %12
   store i8 0, ptr %20, align 1, !tbaa !33
   store ptr %15, ptr %1, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21214,7 +21213,7 @@ zend_string_init.exit:                            ; preds = %16
   store i64 %19, ptr %25, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %17, i64 %19, i1 false)
-  %27 = getelementptr inbounds nuw [1 x i8], ptr %26, i64 0, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
   store i8 0, ptr %27, align 1, !tbaa !33
   %28 = call ptr @zend_lookup_class(ptr noundef nonnull %22) #25
   %.not18 = icmp eq ptr %28, null

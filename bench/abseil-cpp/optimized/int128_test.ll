@@ -41612,8 +41612,8 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal37VerifyTypeImplement
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %109 = load i8, ptr %108, align 8, !tbaa !709
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw [2 x %"struct.std::__detail::__variant::_Multi_array.146"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIbEEON4absl13hash_internal9EqVisitorINS5_13DefaultEqualsEEEJRKSt7variantIJPKNS4_7uint128EPKoEESI_EE9_S_vtableE, i64 0, i64 %107
-  %112 = getelementptr inbounds nuw [2 x %"struct.std::__detail::__variant::_Multi_array.147"], ptr %111, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Multi_array.146", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIbEEON4absl13hash_internal9EqVisitorINS5_13DefaultEqualsEEEJRKSt7variantIJPKNS4_7uint128EPKoEESI_EE9_S_vtableE, i64 %107
+  %112 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Multi_array.147", ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8, !tbaa !711
   %114 = invoke noundef zeroext i1 %113(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0820.0846, ptr noundef nonnull align 8 dereferenceable(9) %105)
           to label %_ZSt5visitIN4absl13hash_internal9EqVisitorINS1_13DefaultEqualsEEEJRKSt7variantIJPKNS0_7uint128EPKoEESD_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit unwind label %115

@@ -602,7 +602,7 @@ _Z15shortestArcQuatRK9btVector3S1_.exit:          ; preds = %24, %83
 
 253:                                              ; preds = %.lr.ph, %343
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %343 ]
-  %254 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %255 = load float, ptr %254, align 4, !tbaa !28
   %256 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %257 = load float, ptr %256, align 4, !tbaa !28

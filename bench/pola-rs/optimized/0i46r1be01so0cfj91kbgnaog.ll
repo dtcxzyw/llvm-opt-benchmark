@@ -11182,7 +11182,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -11717,7 +11717,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -12252,7 +12252,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -12787,7 +12787,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -13322,7 +13322,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -13857,7 +13857,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -14392,7 +14392,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -14927,7 +14927,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -15462,7 +15462,7 @@ switch.lookup:                                    ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 1
   %73 = load i8, ptr %72, align 1, !range !867, !noundef !13
   %74 = zext nneg i8 %73 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow7compute8temporal13date_variants17hc012a7c86f1fa192E, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -44991,10 +44991,10 @@ define internal noundef zeroext i1 @"_ZN70_$LT$polars_arrow..datatypes..TimeUnit
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !867, !noundef !13
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.177", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$polars_arrow..datatypes..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17h3c011d9350b47c64E.177", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

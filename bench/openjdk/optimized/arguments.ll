@@ -1692,64 +1692,60 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   %5 = alloca [256 x i8], align 16
   %6 = load ptr, ptr @_ZL17special_jvm_flags, align 16
   %.not11.not.i = icmp eq ptr %6, null
-  br i1 %.not11.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not11.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %2
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #30
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.lr.ph.i._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.012.i18 = phi i64 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %9 = add i64 %.012.i18, 1
-  %10 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  %.not.not.i = icmp eq ptr %11, null
+7:                                                ; preds = %.lr.ph.i
+  %8 = add i64 %.012.i, 1
+  %9 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  %.not.not.i = icmp eq ptr %10, null
   br i1 %.not.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %.lr.ph
+.lr.ph.i:                                         ; preds = %2, %7
+  %11 = phi ptr [ %10, %7 ], [ %6, %2 ]
+  %.012.i = phi i64 [ %8, %7 ], [ 0, %2 ]
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %13, label %14, label %7
 
-.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa = phi ptr [ @_ZL17special_jvm_flags, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i ]
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %.012.i
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 28
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.5.0..sroa_idx, i64 36, i1 false)
-  %14 = icmp eq i32 %.sroa.2.0.copyload, 0
-  br i1 %14, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %15
+  %16 = icmp eq i32 %.sroa.2.0.copyload, 0
+  br i1 %16, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %17
 
-15:                                               ; preds = %.lr.ph.i._crit_edge
+17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.sroa.2.0.copyload, ptr %3, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  %16 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
-  %17 = icmp sgt i32 %16, -1
+  %18 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
+  %19 = icmp sgt i32 %18, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %17, label %18, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread
+  br i1 %19, label %20, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread
 
-18:                                               ; preds = %15
+20:                                               ; preds = %17
   store i32 %.sroa.2.0.copyload, ptr %1, align 4
   %.sroa.5.28..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.28..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
-  %20 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %19, i1 noundef zeroext true, i1 noundef zeroext true) #31
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %21
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %22 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %0, i64 noundef %21, i1 noundef zeroext true, i1 noundef zeroext true) #31
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %23
 
-21:                                               ; preds = %18
+23:                                               ; preds = %20
   call void @_ZNK11JDK_Version9to_stringEPcm(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull %5, i64 noundef 256) #31
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.59, ptr noundef nonnull %0, ptr noundef nonnull %5) #31
   br label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread
 
-_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread: ; preds = %.lr.ph, %15, %2, %.lr.ph.i._crit_edge, %18, %21
-  %.0 = phi i1 [ false, %21 ], [ true, %18 ], [ false, %.lr.ph.i._crit_edge ], [ false, %2 ], [ false, %15 ], [ false, %.lr.ph ]
+_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread: ; preds = %7, %17, %2, %14, %20, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %20 ], [ false, %14 ], [ false, %2 ], [ false, %17 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1770,79 +1766,75 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   %.sroa.5 = alloca %class.JDK_Version, align 8
   %7 = load ptr, ptr @_ZL17special_jvm_flags, align 16
   %.not11.not.i = icmp eq ptr %7, null
-  br i1 %.not11.not.i, label %.critedge, label %.lr.ph.i.preheader
+  br i1 %.not11.not.i, label %.critedge, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %2
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #30
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.lr.ph.i._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.012.i10 = phi i64 [ %10, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %10 = add i64 %.012.i10, 1
-  %11 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %.not.not.i = icmp eq ptr %12, null
+8:                                                ; preds = %.lr.ph.i
+  %9 = add i64 %.012.i, 1
+  %10 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %.not.not.i = icmp eq ptr %11, null
   br i1 %.not.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %.lr.ph
+.lr.ph.i:                                         ; preds = %2, %8
+  %12 = phi ptr [ %11, %8 ], [ %7, %2 ]
+  %.012.i = phi i64 [ %9, %8 ], [ 0, %2 ]
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %14, label %15, label %8
 
-.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa = phi ptr [ @_ZL17special_jvm_flags, %.lr.ph.i.preheader ], [ %11, %.lr.ph.i ]
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+15:                                               ; preds = %.lr.ph.i
+  %16 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %.012.i
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4.0..sroa_idx, i64 36, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.0..sroa_idx, i64 20, i1 false)
-  %15 = icmp eq i32 %.sroa.1.0.copyload, 0
-  br i1 %15, label %.critedge, label %16
+  %17 = icmp eq i32 %.sroa.1.0.copyload, 0
+  br i1 %17, label %.critedge, label %18
 
-16:                                               ; preds = %.lr.ph.i._crit_edge
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %17, i64 20, i1 false)
-  %18 = load i32, ptr %5, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %23, label %20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %19, i64 20, i1 false)
+  %20 = load i32, ptr %5, align 8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %25, label %22
 
-20:                                               ; preds = %16
-  %21 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5) #31
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %_ZL17version_less_than11JDK_VersionS_.exit, label %23
+22:                                               ; preds = %18
+  %23 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %5) #31
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %_ZL17version_less_than11JDK_VersionS_.exit, label %25
 
-_ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %20
+_ZL17version_less_than11JDK_VersionS_.exit:       ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-23:                                               ; preds = %16, %20
+25:                                               ; preds = %18, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @_ZN11JDK_Version8_currentE, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5, i64 20, i1 false)
-  %24 = load i32, ptr %3, align 8
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %26
+  %26 = load i32, ptr %3, align 8
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %31, label %28
 
-26:                                               ; preds = %23
-  %27 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %_ZL17version_less_than11JDK_VersionS_.exit3, label %29
+28:                                               ; preds = %25
+  %29 = call noundef i32 @_ZNK11JDK_Version7compareERKS_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %3) #31
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %_ZL17version_less_than11JDK_VersionS_.exit3, label %31
 
-_ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %26
+_ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
-29:                                               ; preds = %23, %26
+31:                                               ; preds = %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.sroa.1.0.copyload, ptr %1, align 4
@@ -1850,8 +1842,8 @@ _ZL17version_less_than11JDK_VersionS_.exit3:      ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %2, %_ZL17version_less_than11JDK_VersionS_.exit3, %_ZL17version_less_than11JDK_VersionS_.exit, %.lr.ph.i._crit_edge, %29
-  %.0 = phi i32 [ 1, %29 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %2 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %8, %2, %_ZL17version_less_than11JDK_VersionS_.exit3, %_ZL17version_less_than11JDK_VersionS_.exit, %15, %31
+  %.0 = phi i32 [ 1, %31 ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit ], [ -1, %_ZL17version_less_than11JDK_VersionS_.exit3 ], [ 0, %15 ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2076,7 +2068,7 @@ define hidden noundef ptr @_ZN9Arguments13find_jvm_flagEPKcm(ptr noundef %0, i64
 
 8:                                                ; preds = %6
   %9 = call ptr @strncpy(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef %1) #31
-  %10 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %1
   store i8 0, ptr %10, align 1
   br label %11
 
@@ -2156,7 +2148,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
 
 29:                                               ; preds = %27
   %30 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.049, i64 noundef %24) #31
-  %31 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   store i8 0, ptr %31, align 1
   br label %32
 
@@ -3339,7 +3331,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   %26 = trunc i32 %.060 to i8
   %27 = add nsw i32 %.04654, 1
   %28 = sext i32 %.04654 to i64
-  %29 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds i8, ptr %4, i64 %28
   store i8 %26, ptr %29, align 1
   br label %72
 
@@ -3358,7 +3350,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
 
 36:                                               ; preds = %33, %30
   %37 = sext i32 %.04654 to i64
-  %38 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr %4, i64 %37
   store i8 0, ptr %38, align 1
   %39 = load i8, ptr @PrintVMOptions, align 1
   %40 = trunc i8 %39 to i1
@@ -3420,7 +3412,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %58, %60
   %68 = trunc i32 %.060 to i8
   %69 = add nsw i32 %.04654, 1
   %70 = sext i32 %.04654 to i64
-  %71 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds i8, ptr %4, i64 %70
   store i8 %68, ptr %71, align 1
   br label %72
 
@@ -3443,7 +3435,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %58, %60
 
 78:                                               ; preds = %._crit_edge
   %79 = zext nneg i32 %.147 to i64
-  %80 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %79
   store i8 0, ptr %80, align 1
   %81 = call noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagOrigin(ptr noundef nonnull %4, i8 noundef zeroext %2, i32 noundef 3)
   %82 = icmp ne i8 %.1, 0

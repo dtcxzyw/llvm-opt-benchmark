@@ -791,7 +791,7 @@ thread-pre-split:                                 ; preds = %_ZL13gmx_snew_implI
   %311 = phi i64 [ 0, %309 ], [ %340, %339 ]
   %.idx.i = mul nuw nsw i64 %311, 56
   %312 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
-  %313 = getelementptr inbounds nuw [8 x %struct.t_filenm], ptr %16, i64 0, i64 %311
+  %313 = getelementptr inbounds nuw %struct.t_filenm, ptr %16, i64 %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %312, ptr noundef nonnull align 8 dereferenceable(56) %313, i64 32, i1 false)
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 32
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 32
@@ -1296,7 +1296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %_Z
   %493 = phi i64 [ 0, %491 ], [ %522, %521 ]
   %.idx.i212 = mul nuw nsw i64 %493, 56
   %494 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i212
-  %495 = getelementptr inbounds nuw [8 x %struct.t_filenm], ptr %16, i64 0, i64 %493
+  %495 = getelementptr inbounds nuw %struct.t_filenm, ptr %16, i64 %493
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %494, ptr noundef nonnull align 8 dereferenceable(56) %495, i64 32, i1 false)
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 32
   %497 = getelementptr inbounds nuw i8, ptr %495, i64 32

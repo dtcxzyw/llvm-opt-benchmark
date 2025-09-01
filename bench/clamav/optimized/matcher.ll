@@ -114,7 +114,7 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 
 .preheader:                                       ; preds = %12, %.thread
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.thread ], [ 1, %12 ]
-  %16 = getelementptr inbounds nuw [15 x %struct.cli_mtarget], ptr @cli_mtargets, i64 0, i64 %indvars.iv84
+  %16 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv84
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 54
   %18 = load i8, ptr %17, align 2, !tbaa !44
   %.not82 = icmp eq i8 %18, 0
@@ -131,7 +131,7 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !46
   %22 = icmp eq i32 %21, %4
   br i1 %22, label %23, label %19
@@ -1441,9 +1441,9 @@ define i32 @cli_bcapi_matchicon(ptr noundef readonly captures(none) %0, ptr noun
   %19 = zext nneg i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %1, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %3, i64 %18, i1 false)
-  %20 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !87
-  %21 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 0, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !87
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %22, i8 0, i64 368, i1 false)
@@ -1740,7 +1740,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 
 .preheader:                                       ; preds = %35, %.thread
   %indvars.iv556 = phi i64 [ %indvars.iv.next557, %.thread ], [ 1, %35 ]
-  %36 = getelementptr inbounds nuw [15 x %struct.cli_mtarget], ptr @cli_mtargets, i64 0, i64 %indvars.iv556
+  %36 = getelementptr inbounds nuw %struct.cli_mtarget, ptr @cli_mtargets, i64 %indvars.iv556
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 54
   %38 = load i8, ptr %37, align 2, !tbaa !44
   %.not548 = icmp eq i8 %38, 0
@@ -1757,7 +1757,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [10 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !46
   %42 = icmp eq i32 %41, %1
   br i1 %42, label %43, label %39
@@ -2272,13 +2272,13 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   store ptr null, ptr %18, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr null, ptr %19, align 8, !tbaa !3
-  %276 = getelementptr inbounds nuw [3 x i8], ptr %8, i64 0, i64 %indvars.iv560
+  %276 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv560
   %277 = load i8, ptr %276, align 1, !tbaa !160, !range !80, !noundef !81
   %278 = trunc nuw i8 %277 to i1
   br i1 %278, label %279, label %select.unfold
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw [3 x [32 x i8]], ptr %14, i64 0, i64 %indvars.iv560
+  %280 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv560
   %281 = load ptr, ptr %67, align 8, !tbaa !67
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 88
   %283 = load i64, ptr %282, align 8, !tbaa !84

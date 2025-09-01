@@ -6302,10 +6302,10 @@ switch.hole_check:                                ; preds = %88
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %94 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [64 x i8], ptr @"switch.table._ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$12pratt_parser17h00210965120e0e70E", i64 0, i64 %94
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$12pratt_parser17h00210965120e0e70E", i64 %94
   %switch.load = load i8, ptr %switch.gep, align 1
   %95 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep2653 = getelementptr inbounds nuw [64 x i8], ptr @"switch.table._ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$12pratt_parser17h00210965120e0e70E.92", i64 0, i64 %95
+  %switch.gep2653 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$12pratt_parser17h00210965120e0e70E.92", i64 %95
   %switch.load2654 = load i8, ptr %switch.gep2653, align 1
   %96 = icmp samesign ult i8 %switch.load2654, %3
   br i1 %96, label %87, label %97
@@ -20397,10 +20397,10 @@ define internal noundef zeroext i1 @"_ZN80_$LT$yara_x_parser..cst..syntax_kind..
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !102, !noundef !8
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [128 x i64], ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [128 x ptr], ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E.93", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN80_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hacce29345f3dc513E.93", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

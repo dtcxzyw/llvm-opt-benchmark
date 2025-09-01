@@ -6186,7 +6186,7 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_10args_proxyEEEvPP7_objectS5_
   %66 = getelementptr ptr, ptr %57, i64 %.061
   store ptr %63, ptr %66, align 8, !tbaa !158
   %67 = add i64 %.061, 1
-  %68 = getelementptr inbounds nuw [1 x ptr], ptr %58, i64 0, i64 %.061
+  %68 = getelementptr inbounds nuw ptr, ptr %58, i64 %.061
   store ptr %60, ptr %68, align 8, !tbaa !158
   %69 = load ptr, ptr %5, align 8, !tbaa !44
   %70 = call i32 @PyDict_Next(ptr noundef %69, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9) #28
@@ -6207,7 +6207,7 @@ _ZN8nanobind6detail9call_initILNS_9rv_policyE1ENS0_12kwargs_proxyEEEvPP7_objectS
   %75 = load ptr, ptr %6, align 8, !tbaa !134
   %76 = call ptr @PyUnicode_InternFromString(ptr noundef %75) #28
   %77 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %78 = getelementptr inbounds nuw [1 x ptr], ptr %77, i64 0, i64 %.0.lcssa
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.0.lcssa
   store ptr %76, ptr %78, align 8, !tbaa !158
   %79 = load ptr, ptr %1, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %79, null
@@ -6577,7 +6577,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %.03.i = phi i32 [ %21, %.noexc ], [ 0, %12 ]
   %.062.i = phi i64 [ %22, %.noexc ], [ 0, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = getelementptr inbounds [1 x ptr], ptr %17, i64 0, i64 %.062.i
+  %18 = getelementptr inbounds ptr, ptr %17, i64 %.062.i
   %19 = load ptr, ptr %18, align 8, !tbaa !158
   %20 = invoke noundef i32 @_ZN8nanobind6detail9cast_implILb1EiEET0_NS_6handleE(ptr %19) #28
           to label %.noexc unwind label %33

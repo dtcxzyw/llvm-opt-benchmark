@@ -818,7 +818,7 @@ define hidden void @_ZNK3ue211ue2_literal4elemcvNS_9CharReachEEv(ptr dead_on_unw
   %14 = and i64 %13, 63
   %15 = shl nuw i64 1, %14
   %16 = lshr i64 %13, 6
-  %17 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %15, %18
   store i64 %19, ptr %17, align 8
@@ -834,7 +834,7 @@ define hidden void @_ZNK3ue211ue2_literal4elemcvNS_9CharReachEEv(ptr dead_on_unw
   %25 = and i64 %24, 63
   %26 = shl nuw i64 1, %25
   %27 = lshr i64 %24, 6
-  %28 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %26, %29
   store i64 %30, ptr %28, align 8
@@ -2443,7 +2443,7 @@ define hidden noundef zeroext i1 @_ZN3ue28containsERKNS_11ue2_literalERKNS_9Char
   %.0.i8.i = select i1 %21, i8 %12, i8 %22
   %23 = zext i8 %.0.i8.i to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27
@@ -2462,7 +2462,7 @@ _ZN3ue2L8testcharEcRKNS_9CharReachEb.exit:        ; preds = %10, %30
   %.0.i.sink.i = phi i8 [ %.0.i.i, %30 ], [ %12, %10 ]
   %34 = zext i8 %.0.i.sink.i to i64
   %35 = lshr i64 %34, 6
-  %36 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %1, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %34, 63
   %39 = shl nuw i64 1, %38

@@ -1810,7 +1810,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE5resetEv.exit:      ; preds = %12, %16
   br i1 %23, label %_ZNK3euf6egraph4findEP4expr.exit, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %20
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %19, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !397
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = getelementptr inbounds i8, ptr %22, i64 -4
@@ -2447,7 +2447,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %.noexc
   br i1 %187, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %185
-  %188 = getelementptr inbounds nuw [0 x ptr], ptr %170, i64 0, i64 %indvars.iv154
+  %188 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv154
   br label %189
 
 189:                                              ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit109
@@ -2456,7 +2456,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %191 = load ptr, ptr %188, align 8, !tbaa !14
   %192 = load ptr, ptr %191, align 8, !tbaa !449
-  %193 = getelementptr inbounds nuw [0 x ptr], ptr %170, i64 0, i64 %indvars.iv151
+  %193 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv151
   %194 = load ptr, ptr %193, align 8, !tbaa !14
   %195 = load ptr, ptr %194, align 8, !tbaa !449
   invoke void @_ZN3euf6solver5mk_eqEP4exprS2_(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %28, ptr noundef nonnull align 8 dereferenceable(8456) %0, ptr noundef %192, ptr noundef %195)
@@ -4684,7 +4684,7 @@ _ZN7obj_refI4sort11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI9func_d
   %indvars.iv = phi i64 [ 0, %_ZN7obj_refI9func_decl11ast_managerEC2EPS0_RS1_.exit ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %174 = load ptr, ptr %129, align 8, !tbaa !391
-  %175 = getelementptr inbounds nuw [0 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !397
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %176, ptr %7, align 8, !tbaa !397
@@ -9358,7 +9358,7 @@ _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %15, %.lr.ph.i
 
 17:                                               ; preds = %_ZN6vectorIPvLb0EjE5resetEv.exit.i, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN6vectorIPN13sat_allocator5chunkELb0EjE5resetEv.exit.i ], [ %indvars.iv.next.i, %_ZN6vectorIPvLb0EjE5resetEv.exit.i ]
-  %18 = getelementptr inbounds nuw [65 x %class.ptr_vector.11], ptr %12, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw %class.ptr_vector.11, ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !673
   %.not.i11.i = icmp eq ptr %19, null
   br i1 %.not.i11.i, label %_ZN6vectorIPvLb0EjE5resetEv.exit.i, label %20

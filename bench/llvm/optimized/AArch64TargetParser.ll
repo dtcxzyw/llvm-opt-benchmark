@@ -3085,7 +3085,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i23:            ; preds = %.split.i
   %43 = shl nuw i64 1, %42
   %44 = lshr i32 %40, 6
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw [3 x i64], ptr %3, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %3, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !20
   %48 = and i64 %43, %47
   %.not101 = icmp eq i64 %48, 0
@@ -3233,7 +3233,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet6enableENS0_11ArchExtKindE(
   %6 = shl nuw i64 1, %5
   %7 = lshr i32 %1, 6
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = and i64 %6, %10
   %.not1216 = icmp eq i64 %11, 0
@@ -3249,7 +3249,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet6enableENS0_11ArchExtKindE(
   %16 = phi i64 [ %8, %.lr.ph ], [ %41, %tailrecurse.backedge ]
   %17 = phi i64 [ %6, %.lr.ph ], [ %39, %tailrecurse.backedge ]
   %.tr1317 = phi i32 [ %1, %.lr.ph ], [ %.tr13.be, %tailrecurse.backedge ]
-  %18 = getelementptr inbounds nuw [3 x i64], ptr %12, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i64, ptr %12, i64 %16
   %19 = load i64, ptr %18, align 8, !tbaa !20
   %20 = or i64 %19, %17
   store i64 %20, ptr %18, align 8, !tbaa !20
@@ -3310,7 +3310,7 @@ tailrecurse.backedge:                             ; preds = %36, %31
   %39 = shl nuw nsw i64 1, %38
   %40 = lshr i32 %.tr13.be, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !20
   %44 = and i64 %39, %43
   %.not12 = icmp eq i64 %44, 0
@@ -3435,7 +3435,7 @@ _ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE.exit.thread: ; preds = %.crit
   %27 = shl nuw i64 1, %26
   %28 = lshr i32 %24, 6
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [3 x i64], ptr %3, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !20
   %32 = and i64 %27, %31
   %.not29 = icmp eq i64 %32, 0
@@ -3475,7 +3475,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7AArch6420getExtensionFeaturesERKNS
   %11 = shl nuw i64 1, %10
   %12 = lshr i32 %8, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = and i64 %11, %15
   %.not9 = icmp eq i64 %16, 0
@@ -5129,7 +5129,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet7disableENS0_11ArchExtKindE
   %6 = shl nuw i64 1, %5
   %7 = lshr i32 %1, 6
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = and i64 %10, %6
   %.not15 = icmp eq i64 %11, 0
@@ -5148,12 +5148,12 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet7disableENS0_11ArchExtKindE
   %.pre-phi25 = phi i64 [ %8, %.split ], [ 1, %12 ]
   %.pre-phi21 = phi i64 [ %6, %.split ], [ 9007199254740992, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = getelementptr inbounds nuw [3 x i64], ptr %16, i64 0, i64 %.pre-phi25
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %.pre-phi25
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = or i64 %18, %.pre-phi21
   store i64 %19, ptr %17, align 8, !tbaa !20
   %20 = xor i64 %.pre-phi21, -1
-  %21 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %.pre-phi25
+  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi25
   %22 = load i64, ptr %21, align 8, !tbaa !20
   %23 = and i64 %22, %20
   store i64 %23, ptr %21, align 8, !tbaa !20
@@ -5207,7 +5207,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet14addCPUDefaultsERKNS0_7Cpu
   %14 = shl nuw i64 1, %13
   %15 = lshr i32 %11, 6
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [3 x i64], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = and i64 %14, %18
   %.not9 = icmp eq i64 %19, 0
@@ -5243,7 +5243,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet15addArchDefaultsERKNS0_8Ar
   %11 = shl nuw i64 1, %10
   %12 = lshr i32 %8, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = and i64 %11, %15
   %.not9 = icmp eq i64 %16, 0
@@ -5429,7 +5429,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split.i
   %24 = shl nuw i64 1, %23
   %25 = lshr i32 %.sroa.4.0.copyload, 6
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [3 x i64], ptr %10, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %10, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !20
   %29 = or i64 %24, %28
   store i64 %29, ptr %27, align 8, !tbaa !20
@@ -5437,14 +5437,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split.i
 
 30:                                               ; preds = %.loopexit
   %31 = xor i64 %24, -1
-  %32 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %26
   %33 = load i64, ptr %32, align 8, !tbaa !20
   %34 = and i64 %33, %31
   store i64 %34, ptr %32, align 8, !tbaa !20
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 35:                                               ; preds = %.loopexit
-  %36 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %26
+  %36 = getelementptr inbounds nuw i64, ptr %0, i64 %26
   %37 = load i64, ptr %36, align 8, !tbaa !20
   %38 = or i64 %37, %24
   store i64 %38, ptr %36, align 8, !tbaa !20
@@ -5729,14 +5729,14 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pr
   %52 = shl nuw i64 1, %51
   %53 = lshr i32 %49, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [3 x i64], ptr %38, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %38, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !20
   %57 = and i64 %52, %56
   %.not43 = icmp eq i64 %57, 0
   br i1 %.not43, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit28, label %58
 
 58:                                               ; preds = %47
-  %59 = getelementptr inbounds nuw [3 x i64], ptr %0, i64 0, i64 %54
+  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %54
   %60 = load i64, ptr %59, align 8, !tbaa !20
   %61 = and i64 %60, %52
   %.not44 = icmp eq i64 %61, 0

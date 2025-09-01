@@ -1006,7 +1006,7 @@ define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef w
   %.01319.i = phi ptr [ %11, %13 ], [ %.1.i, %24 ]
   %15 = call i64 @strtoul(ptr noundef nonnull %.01319.i, ptr noundef nonnull %6, i32 noundef 10) #19
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 %16, ptr %17, align 4, !tbaa !58
   %18 = load ptr, ptr %6, align 8, !tbaa !63
   %19 = icmp eq ptr %18, %.01319.i
@@ -1129,7 +1129,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   %.01319.i44 = phi ptr [ %0, %60 ], [ %.1.i46, %71 ]
   %62 = call i64 @strtoul(ptr noundef %.01319.i44, ptr noundef nonnull %4, i32 noundef 10) #19
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i43
+  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i43
   store i32 %63, ptr %64, align 4, !tbaa !58
   %65 = load ptr, ptr %4, align 8, !tbaa !63
   %66 = icmp eq ptr %65, %.01319.i44

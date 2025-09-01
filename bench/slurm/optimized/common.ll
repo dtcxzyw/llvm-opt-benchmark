@@ -789,7 +789,7 @@ declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_page_opts(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds [10 x %struct.page_opts_t], ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 176), i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.page_opts_t, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 176), i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
@@ -3120,7 +3120,7 @@ define dso_local noalias noundef ptr @popup_thr(ptr noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.popup_thr, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.popup_thr, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %2, ptr %8, align 8
@@ -3772,7 +3772,7 @@ define dso_local noundef ptr @page_to_str(i32 noundef %0) local_unnamed_addr #12
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.visible_to_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.visible_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3788,7 +3788,7 @@ define dso_local noundef nonnull ptr @tab_pos_to_str(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.tab_pos_to_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tab_pos_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3807,7 +3807,7 @@ define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) loc
 
 4:                                                ; preds = %1, %14
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %14 ]
-  %5 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !range !21, !noundef !22
   %7 = trunc nuw i8 %6 to i1
   %8 = icmp ne i64 %indvars.iv, 9
@@ -3828,7 +3828,7 @@ define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) loc
   br i1 %13, label %switch.lookup, label %page_to_str.exit
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.visible_to_str, i64 0, i64 %indvars.iv
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.visible_to_str, i64 %indvars.iv
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %page_to_str.exit
 

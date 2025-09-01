@@ -1703,7 +1703,7 @@ _ZN2cv5utils5trace7details23TraceManagerThreadLocal9stackPushEPNS2_6RegionEPKNS4
   %177 = and i32 %176, 60
   %178 = xor i32 %177, 63
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 %179
   %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull %180)
           to label %182 unwind label %197
 
@@ -1849,7 +1849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %248 = shl i64 %247, 2
   %249 = and i64 %248, 60
   %250 = xor i64 %249, 63
-  %251 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 %250
   %252 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %224, ptr noundef nonnull %251, i64 noundef %249)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit150 unwind label %308
 
@@ -2075,7 +2075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   %358 = shl i64 %357, 2
   %359 = and i64 %358, 60
   %360 = xor i64 %359, 63
-  %361 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 0, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 %360
   %362 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull %361, i64 noundef %359)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit161 unwind label %418
 
@@ -2762,7 +2762,7 @@ define hidden void @_ZNK2cv5utils5trace7details23TraceManagerThreadLocal9dumpSta
   %25 = and i32 %24, 60
   %26 = xor i32 %25, 63
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 %27
   %29 = xor i64 %27, 63
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %28, i64 noundef %29)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %.loopexit
@@ -2856,7 +2856,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc37
   %65 = and i32 %64, 60
   %66 = xor i32 %65, 63
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @_ZZN2cv5utils5trace7detailsL7_spacesEiE3buf, i64 %67
   %69 = xor i64 %67, 63
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %68, i64 noundef %69)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25 unwind label %.loopexit
@@ -3174,7 +3174,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5utils5trace7details12Trace
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %5 = load i64, ptr %4, align 8, !tbaa !36
-  %6 = getelementptr inbounds nuw [1024 x i8], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = sub i64 1024, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)

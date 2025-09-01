@@ -6893,7 +6893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 640:                                              ; preds = %_Z10cv_isalnumc.exit331.thread
   %641 = add nsw i32 %.1162, 1
   %642 = sext i32 %.1162 to i64
-  %643 = getelementptr inbounds [4112 x i8], ptr %82, i64 0, i64 %642
+  %643 = getelementptr inbounds i8, ptr %82, i64 %642
   store i8 %.1205, ptr %643, align 1, !tbaa !41
   br label %398, !llvm.loop !89
 

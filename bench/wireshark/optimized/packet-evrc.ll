@@ -414,7 +414,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %switch.downshift = lshr i40 94657380864, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   %.0.i = select i1 %31, i8 %switch.masked, i8 0
-  %32 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %32 = getelementptr i8, ptr %5, i64 %indvars.iv
   store i8 %.0.i, ptr %32, align 1
   %33 = add nuw nsw i32 %.01374, 1
   %34 = icmp samesign ugt i64 %indvars.iv, 30
@@ -496,7 +496,7 @@ default.unreachable28:                            ; preds = %6
   %switch.masked40 = trunc i40 %switch.downshift39 to i8
   %.0.i154 = select i1 %76, i8 %switch.masked40, i8 0
   %79 = zext i8 %.01391 to i64
-  %80 = getelementptr [32 x i8], ptr %5, i64 0, i64 %79
+  %80 = getelementptr i8, ptr %5, i64 %79
   store i8 %.0.i154, ptr %80, align 1
   %81 = add i8 %.01391, 1
   %.not149 = icmp ugt i8 %81, %68
@@ -512,7 +512,7 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %switch.masked45 = trunc i40 %switch.downshift44 to i8
   %.0.i156 = select i1 %84, i8 %switch.masked45, i8 0
   %86 = zext nneg i8 %81 to i64
-  %87 = getelementptr [32 x i8], ptr %5, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %5, i64 %86
   store i8 %.0.i156, ptr %87, align 1
   %88 = add i8 %.01391, 2
   br label %89
@@ -558,7 +558,7 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %103 = phi i32 [ 0, %.lr.ph12.preheader ], [ %115, %108 ]
   %.311 = phi i32 [ %.1138.ph, %.lr.ph12.preheader ], [ %114, %108 ]
   %104 = sub i32 %7, %.311
-  %105 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv18
+  %105 = getelementptr i8, ptr %5, i64 %indvars.iv18
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %.not151 = icmp ult i32 %104, %107

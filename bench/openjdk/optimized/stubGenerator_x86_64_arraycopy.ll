@@ -5587,7 +5587,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
 
 109:                                              ; preds = %108
   %110 = sext i32 %3 to i64
-  %111 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %110
+  %111 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %110
   %112 = load i8, ptr %111, align 1
   br label %113
 
@@ -5641,7 +5641,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
 .thread.sink.split:                               ; preds = %136
   %137 = load ptr, ptr %51, align 8
   %138 = sext i32 %3 to i64
-  %139 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.threshold, i64 0, i64 %138
+  %139 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.threshold, i64 %138
   %140 = load i32, ptr %139, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %137, i32 2, i32 noundef %140) #8
   %141 = load i64, ptr @MaxVectorSize, align 8
@@ -5688,7 +5688,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %158, i32 2, i32 8) #8
   %159 = load ptr, ptr %51, align 8
   %160 = sext i32 %3 to i64
-  %161 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %160
+  %161 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %160
   %162 = load i8, ptr %161, align 1
   store i32 7, ptr %34, align 8
   %163 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -5736,7 +5736,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %182 = load ptr, ptr %51, align 8
   call void @_ZN9Assembler4subqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %182, i32 8, i32 11) #8
   %183 = load ptr, ptr %51, align 8
-  %184 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 0, i64 %160
+  %184 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 %160
   %185 = load i32, ptr %184, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %183, i32 8, i32 noundef %185) #8
   %186 = load ptr, ptr %51, align 8
@@ -6099,7 +6099,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %341, i32 2, i32 8) #8
   %342 = load ptr, ptr %51, align 8
   %343 = sext i32 %3 to i64
-  %344 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %343
+  %344 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %343
   %345 = load i8, ptr %344, align 1
   store i32 7, ptr %20, align 8
   %346 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -6147,7 +6147,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %365 = load ptr, ptr %51, align 8
   call void @_ZN9Assembler4subqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %365, i32 8, i32 11) #8
   %366 = load ptr, ptr %51, align 8
-  %367 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 0, i64 %343
+  %367 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 %343
   %368 = load i32, ptr %367, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %366, i32 8, i32 noundef %368) #8
   %369 = load ptr, ptr %51, align 8
@@ -6461,7 +6461,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %6 to i64
-  %50 = getelementptr inbounds [4 x [6 x i32]], ptr @__const._ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11XMMRegister9KRegister8RegisterS2_S2_S2_S2_iS2_bR5LabelS4_.size_mat, i64 0, i64 %49
+  %50 = getelementptr inbounds [6 x i32], ptr @__const._ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11XMMRegister9KRegister8RegisterS2_S2_S2_S2_iS2_bR5LabelS4_.size_mat, i64 %49
   %51 = load i32, ptr %50, align 8
   tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %48, i32 %5, i32 noundef %51) #8
   %52 = load ptr, ptr %47, align 8
@@ -6475,7 +6475,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %55 = load ptr, ptr %47, align 8
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 %2, i32 %8) #8
   %56 = load ptr, ptr %47, align 8
-  %57 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %49
+  %57 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %49
   %58 = load i8, ptr %57, align 1
   store i32 %3, ptr %25, align 8
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -6887,7 +6887,7 @@ define hidden void @_ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegis
   tail call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 %4, i32 %7) #8
   %17 = load ptr, ptr %13, align 8
   %18 = sext i32 %8 to i64
-  %19 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %18
   %20 = load i8, ptr %19, align 1
   store i32 %2, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -7261,7 +7261,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %43, i32 %4, i32 %7) #8
   %44 = load ptr, ptr %19, align 8
   %45 = sext i32 %8 to i64
-  %46 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %45
+  %46 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %45
   %47 = load i8, ptr %46, align 1
   store i32 %2, ptr %12, align 8
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -7314,7 +7314,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   tail call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 %4, i32 %7) #8
   %70 = load ptr, ptr %66, align 8
   %71 = sext i32 %8 to i64
-  %72 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %71
+  %72 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %71
   %73 = load i8, ptr %72, align 1
   store i32 %2, ptr %16, align 8
   %74 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -7458,7 +7458,7 @@ define hidden void @_ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %54, i32 2, i32 %3) #8
   %55 = load ptr, ptr %40, align 8
   %56 = sext i32 %12 to i64
-  %57 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %56
+  %57 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %56
   %58 = load i8, ptr %57, align 1
   store i32 %2, ptr %14, align 8
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -7506,7 +7506,7 @@ define hidden void @_ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S
   %78 = load ptr, ptr %40, align 8
   call void @_ZN9Assembler4subqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %78, i32 %3, i32 %4) #8
   %79 = load ptr, ptr %40, align 8
-  %80 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_i.loop_size, i64 0, i64 %56
+  %80 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_i.loop_size, i64 %56
   %81 = load i32, ptr %80, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 %3, i32 noundef %81) #8
   %82 = load ptr, ptr %40, align 8
@@ -7990,7 +7990,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(33) %43) #8
   %61 = load ptr, ptr %59, align 8
   %62 = sext i32 %6 to i64
-  %63 = getelementptr inbounds [4 x [4 x i32]], ptr @__const._ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRegister9KRegister8RegisterS2_S2_iS2_S2_R5Label.size_mat, i64 0, i64 %62
+  %63 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRegister9KRegister8RegisterS2_S2_iS2_S2_R5Label.size_mat, i64 %62
   %64 = load i32, ptr %63, align 16
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %61, i32 %5, i32 noundef %64) #8
   %65 = load ptr, ptr %59, align 8
@@ -8004,7 +8004,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %68 = load ptr, ptr %59, align 8
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %68, i32 %2, i32 %8) #8
   %69 = load ptr, ptr %59, align 8
-  %70 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %62
+  %70 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %62
   %71 = load i8, ptr %70, align 1
   store i32 %3, ptr %41, align 8
   %72 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -8682,7 +8682,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
 
 99:                                               ; preds = %98
   %100 = sext i32 %3 to i64
-  %101 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %100
+  %101 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %100
   %102 = load i8, ptr %101, align 1
   br label %103
 
@@ -8726,7 +8726,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
 .thread:                                          ; preds = %103
   %123 = load ptr, ptr %50, align 8
   %124 = sext i32 %3 to i64
-  %125 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.threshold, i64 0, i64 %124
+  %125 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.threshold, i64 %124
   %126 = load i32, ptr %125, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %123, i32 8, i32 noundef %126) #8
   %127 = load ptr, ptr %50, align 8
@@ -8783,7 +8783,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %148, i32 2, i32 11) #8
   %149 = load ptr, ptr %50, align 8
   %150 = sext i32 %3 to i64
-  %151 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %150
+  %151 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %150
   %152 = load i8, ptr %151, align 1
   store i32 7, ptr %35, align 8
   %153 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -8825,7 +8825,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %170 = load ptr, ptr %50, align 8
-  %171 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 0, i64 %150
+  %171 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 %150
   %172 = load i32, ptr %171, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %170, i32 8, i32 noundef %172) #8
   %173 = load ptr, ptr %50, align 8
@@ -9147,7 +9147,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %308, i32 2, i32 11) #8
   %309 = load ptr, ptr %50, align 8
   %310 = sext i32 %3 to i64
-  %311 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %310
+  %311 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %310
   %312 = load i8, ptr %311, align 1
   store i32 7, ptr %21, align 8
   %313 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -9189,7 +9189,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %330 = load ptr, ptr %50, align 8
-  %331 = getelementptr inbounds [4 x i32], ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 0, i64 %310
+  %331 = getelementptr inbounds i32, ptr @__const._ZN13StubGenerator34generate_conjoint_copy_avx3_maskedEPPhPKciS0_bbb.loop_size, i64 %310
   %332 = load i32, ptr %331, align 4
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %330, i32 8, i32 noundef %332) #8
   %333 = load ptr, ptr %50, align 8
@@ -9482,7 +9482,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %8 to i64
-  %64 = getelementptr inbounds [4 x [6 x i32]], ptr @__const._ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11XMMRegister9KRegister8RegisterS2_S2_S2_S2_iS2_bR5LabelS4_.size_mat, i64 0, i64 %63
+  %64 = getelementptr inbounds [6 x i32], ptr @__const._ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11XMMRegister9KRegister8RegisterS2_S2_S2_S2_iS2_bR5LabelS4_.size_mat, i64 %63
   %65 = load i32, ptr %64, align 8
   tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %62, i32 %7, i32 noundef %65) #8
   %66 = load ptr, ptr %61, align 8
@@ -9496,7 +9496,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %69 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 %2, i32 %9) #8
   %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %63
+  %71 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %63
   %72 = load i8, ptr %71, align 1
   store i32 %3, ptr %32, align 8
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -9559,7 +9559,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %99 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6kmovqlE9KRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %99, i32 %2, i32 %9) #8
   %100 = load ptr, ptr %61, align 8
-  %101 = getelementptr inbounds [4 x i8], ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 0, i64 %63
+  %101 = getelementptr inbounds i8, ptr @__const._ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegister9KRegisterS0_S0_S0_ii.type, i64 %63
   %102 = load i8, ptr %101, align 1
   store i32 %3, ptr %30, align 8
   %103 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -10220,7 +10220,7 @@ switch.lookup:
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %20, align 8
   %21 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.offset = add nuw nsw i32 %0, 1
   tail call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 6, i32 noundef %switch.offset) #8

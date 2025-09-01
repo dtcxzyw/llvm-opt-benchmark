@@ -716,7 +716,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit315: ; preds = %183, %
   %219 = icmp eq i32 %217, 2
   %220 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %221 = zext i1 %219 to i64
-  %222 = getelementptr inbounds nuw [0 x ptr], ptr %220, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !58, !noalias !55
   store ptr %223, ptr %25, align 8, !tbaa !35, !alias.scope !55
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext false)
@@ -904,7 +904,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit350: ; preds = %_ZN4cvc58internal
   %299 = icmp eq i32 %298, 2
   %300 = getelementptr inbounds nuw i8, ptr %292, i64 24
   %301 = zext i1 %299 to i64
-  %302 = getelementptr inbounds nuw [0 x ptr], ptr %300, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw ptr, ptr %300, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !58, !noalias !61
   store ptr %303, ptr %28, align 8, !tbaa !38, !alias.scope !61
   %304 = load i64, ptr %303, align 8, !noalias !61
@@ -3371,8 +3371,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge:   ; preds = %_ZN4cvc58internal8T
   %spec.select.i.i = add nuw nsw i64 %.087, %1291
   %1292 = getelementptr inbounds nuw i8, ptr %1281, i64 24
   %sext = shl nuw i64 %spec.select.i.i, 32
-  %1293 = ashr exact i64 %sext, 32
-  %1294 = getelementptr inbounds [0 x ptr], ptr %1292, i64 0, i64 %1293
+  %1293 = ashr exact i64 %sext, 29
+  %1294 = getelementptr inbounds i8, ptr %1292, i64 %1293
   %1295 = load ptr, ptr %1294, align 8, !tbaa !58, !noalias !93
   store ptr %1295, ptr %65, align 8, !tbaa !35, !alias.scope !93
   invoke void @_ZN4cvc58internal13preprocessing6passes9RealToInt17realToIntInternalENS0_12NodeTemplateILb0EEERNS_7context9CDHashMapINS4_ILb1EEES8_St4hashIS8_EEERSt6vectorIS8_SaIS8_EE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %64, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull %65, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -3408,8 +3408,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge:   ; preds = %_ZN4cvc58internal8T
   %spec.select.i.i537 = add nuw nsw i64 %.087, %1308
   %1309 = getelementptr inbounds nuw i8, ptr %1298, i64 24
   %sext782 = shl nuw i64 %spec.select.i.i537, 32
-  %1310 = ashr exact i64 %sext782, 32
-  %1311 = getelementptr inbounds [0 x ptr], ptr %1309, i64 0, i64 %1310
+  %1310 = ashr exact i64 %sext782, 29
+  %1311 = getelementptr inbounds i8, ptr %1309, i64 %1310
   %1312 = load ptr, ptr %1311, align 8, !tbaa !58, !noalias !96
   store ptr %1312, ptr %67, align 8, !tbaa !35, !alias.scope !96
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %66, ptr noundef nonnull align 8 dereferenceable(8) %67, i1 noundef zeroext false)
@@ -3706,8 +3706,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit557: ; preds = %_ZN4cvc58internal1
   %spec.select.i.i558 = add nuw nsw i64 %.087, %1433
   %1434 = getelementptr inbounds nuw i8, ptr %1423, i64 24
   %sext783 = shl nuw i64 %spec.select.i.i558, 32
-  %1435 = ashr exact i64 %sext783, 32
-  %1436 = getelementptr inbounds [0 x ptr], ptr %1434, i64 0, i64 %1435
+  %1435 = ashr exact i64 %sext783, 29
+  %1436 = getelementptr inbounds i8, ptr %1434, i64 %1435
   %1437 = load ptr, ptr %1436, align 8, !tbaa !58, !noalias !102
   %1438 = load ptr, ptr %64, align 8, !tbaa !38
   %1439 = icmp ne ptr %1438, %1437
@@ -5902,7 +5902,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !58
   store ptr %15, ptr %0, align 8, !tbaa !38
   %16 = load i64, ptr %15, align 8

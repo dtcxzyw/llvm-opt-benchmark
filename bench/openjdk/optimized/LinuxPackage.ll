@@ -29,7 +29,7 @@ define hidden ptr @getJvmLauncherLibPath() local_unnamed_addr #0 {
   br i1 %4, label %getModulePath.exit.thread, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %3
   store i8 0, ptr %6, align 1
   %7 = call noalias ptr @strdup(ptr noundef nonnull %1) #14
   %.not.i = icmp eq ptr %7, null

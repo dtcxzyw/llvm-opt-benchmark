@@ -60,7 +60,7 @@ define dso_local noundef i32 @_ZN6icu_779ScriptRun12getPairIndexEi(i32 noundef %
   %4 = lshr i32 %.01115, 1
   %5 = add nsw i32 %.116, %4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [34 x i32], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %.not13 = icmp slt i32 %0, %8
   %spec.select14 = select i1 %.not13, i32 %.116, i32 %5
@@ -69,7 +69,7 @@ define dso_local noundef i32 @_ZN6icu_779ScriptRun12getPairIndexEi(i32 noundef %
 
 10:                                               ; preds = %3
   %11 = sext i32 %spec.select14 to i64
-  %12 = getelementptr inbounds [34 x i32], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 0, i64 %11
+  %12 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %.not12 = icmp eq i32 %13, %0
   %spec.store.select = select i1 %.not12, i32 %spec.select14, i32 -1
@@ -158,7 +158,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %40 = lshr i32 %.01115.i, 1
   %41 = add nsw i32 %40, %.116.i
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [34 x i32], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 0, i64 %42
+  %43 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %.not13.i = icmp slt i32 %.037, %44
   %spec.select14.i = select i1 %.not13.i, i32 %.116.i, i32 %41
@@ -167,7 +167,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
 
 _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   %46 = sext i32 %spec.select14.i to i64
-  %47 = getelementptr inbounds [34 x i32], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 0, i64 %46
+  %47 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %.not12.i = icmp eq i32 %48, %.037
   %spec.store.select.i = select i1 %.not12.i, i32 %spec.select14.i, i32 -1
@@ -184,7 +184,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
   %55 = add nsw i32 %53, 1
   store i32 %55, ptr %3, align 4, !tbaa !10
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [128 x %"struct.icu_77::ParenStackEntry"], ptr %12, i64 0, i64 %56
+  %57 = getelementptr inbounds %"struct.icu_77::ParenStackEntry", ptr %12, i64 %56
   store i32 %spec.store.select.i, ptr %57, align 4, !tbaa !25
   %58 = load i32, ptr %9, align 8, !tbaa !20
   %.idx50 = shl nsw i64 %56, 3
@@ -204,7 +204,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %39
 65:                                               ; preds = %63, %70
   %66 = phi i32 [ %53, %63 ], [ %71, %70 ]
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [128 x %"struct.icu_77::ParenStackEntry"], ptr %12, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"struct.icu_77::ParenStackEntry", ptr %12, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !25
   %.not49 = icmp eq i32 %69, %64
   br i1 %.not49, label %73, label %70

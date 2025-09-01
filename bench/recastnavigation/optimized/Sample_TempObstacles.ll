@@ -474,7 +474,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
 106:                                              ; preds = %.lr.ph, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
   %107 = load ptr, ptr %20, align 8
-  %108 = getelementptr inbounds nuw [512 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %107, i64 %110
@@ -709,7 +709,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   %257 = add nsw i32 %256, 1
   store i32 %257, ptr %219, align 8
   %258 = sext i32 %256 to i64
-  %259 = getelementptr inbounds [32 x %struct.TileCacheData], ptr %224, i64 0, i64 %258
+  %259 = getelementptr inbounds %struct.TileCacheData, ptr %224, i64 %258
   %260 = load ptr, ptr %255, align 8
   %261 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %260, i64 %indvars.iv126
   store i32 1146375250, ptr %13, align 4
@@ -783,7 +783,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
 
 308:                                              ; preds = %.lr.ph119, %308
   %indvars.iv129 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next130, %308 ]
-  %309 = getelementptr inbounds nuw [32 x %struct.TileCacheData], ptr %253, i64 0, i64 %indvars.iv129
+  %309 = getelementptr inbounds nuw %struct.TileCacheData, ptr %253, i64 %indvars.iv129
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %310 = getelementptr inbounds nuw %struct.TileCacheData, ptr %4, i64 %indvars.iv129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull align 8 dereferenceable(16) %309, i64 16, i1 false)
@@ -834,7 +834,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
 
 330:                                              ; preds = %333, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %333 ]
-  %331 = getelementptr inbounds nuw [32 x %struct.TileCacheData], ptr %329, i64 0, i64 %indvars.iv.i
+  %331 = getelementptr inbounds nuw %struct.TileCacheData, ptr %329, i64 %indvars.iv.i
   %332 = load ptr, ptr %331, align 8
   invoke void @_Z6dtFreePv(ptr noundef %332)
           to label %333 unwind label %.loopexit.i
@@ -948,7 +948,7 @@ define linkonce_odr dso_local void @_ZN20RasterizationContextD2Ev(ptr noundef no
 
 15:                                               ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
-  %16 = getelementptr inbounds nuw [32 x %struct.TileCacheData], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.TileCacheData, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   invoke void @_Z6dtFreePv(ptr noundef %17)
           to label %18 unwind label %.loopexit
@@ -1122,7 +1122,7 @@ define dso_local void @_Z10drawDetailP11duDebugDrawP11dtTileCacheiii(ptr noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit.us ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv65
+  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv65
   %27 = load i32, ptr %26, align 4
   %28 = call noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull align 8 dereferenceable(912) %1, i32 noundef %27)
   %29 = load ptr, ptr %10, align 8
@@ -1188,7 +1188,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit ], [ 0, %.lr.ph ]
-  %53 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   %55 = call noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull align 8 dereferenceable(912) %1, i32 noundef %54)
   %56 = load ptr, ptr %10, align 8
@@ -1432,7 +1432,7 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
 
 24:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = call noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull align 8 dereferenceable(912) %0, i32 noundef %26)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1564,7 +1564,7 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
   %34 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %70, %69 ]
   %35 = phi float [ 0x47EFFFFFE0000000, %23 ], [ %71, %69 ]
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %69 ]
-  %36 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
   %37 = load float, ptr %36, align 4
   %38 = call float @llvm.fabs.f32(float %37)
   %39 = fcmp olt float %38, 0x3EB0C6F7A0000000
@@ -1685,7 +1685,7 @@ define dso_local void @_Z13drawObstaclesP11duDebugDrawPK11dtTileCache(ptr nounde
 
 switch.lookup:                                    ; preds = %20
   %23 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._Z13drawObstaclesP11duDebugDrawPK11dtTileCache, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z13drawObstaclesP11duDebugDrawPK11dtTileCache, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %24
 
@@ -2612,7 +2612,7 @@ define dso_local void @_ZN20Sample_TempObstacles15handleDebugModeEv(ptr noundef 
 24:                                               ; preds = %21, %24
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %24 ]
   %.0913 = phi i32 [ 0, %21 ], [ %spec.select, %24 ]
-  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 1
   %28 = xor i8 %27, 1
@@ -3484,7 +3484,7 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %190, %194
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %227
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %227 ]
-  %207 = getelementptr inbounds nuw [32 x %struct.TileCacheData], ptr %7, i64 0, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw %struct.TileCacheData, ptr %7, i64 %indvars.iv
   %208 = load ptr, ptr %135, align 8
   %209 = load ptr, ptr %207, align 16
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 8

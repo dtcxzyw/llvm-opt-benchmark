@@ -951,7 +951,7 @@ define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef writeonly
   %.03438.i = phi i16 [ %0, %18 ], [ %28, %22 ]
   %23 = and i16 %.03438.i, 15
   %24 = zext nneg i16 %23 to i64
-  %25 = getelementptr inbounds nuw [16 x i8], ptr @tohex, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @tohex, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.03039.i
   store i8 %26, ptr %27, align 1, !tbaa !3
@@ -1035,7 +1035,7 @@ define noundef ptr @entity_norm(ptr noundef writeonly captures(address_is_null, 
   %.03438.i = phi i16 [ %10, %19 ], [ %29, %23 ]
   %24 = and i16 %.03438.i, 15
   %25 = zext nneg i16 %24 to i64
-  %26 = getelementptr inbounds nuw [16 x i8], ptr @tohex, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @tohex, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.03039.i
   store i8 %27, ptr %28, align 1, !tbaa !3
@@ -1272,7 +1272,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.02228.i
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @encname_chars, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @encname_chars, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %.not26.i = icmp eq i8 %23, 0
   br i1 %.not26.i, label %.loopexit42, label %17
@@ -1751,7 +1751,7 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
 
 .preheader168:                                    ; preds = %15, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %15 ]
-  %44 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %struct.codepage_entry, ptr @codepage_entries, i64 %indvars.iv
   %45 = load i16, ptr %44, align 16, !tbaa !30
   %46 = icmp eq i16 %2, %45
   br i1 %46, label %49, label %47

@@ -2527,7 +2527,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 37:                                               ; preds = %41, %.lr.ph.i
   %38 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %42, %41 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %39 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds i8, ptr %36, i64 %38
   %40 = load i8, ptr %39, align 1, !noalias !273, !noundef !5
   switch i8 %40, label %43 [
     i8 32, label %41
@@ -2597,7 +2597,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 57:                                               ; preds = %53
   %.sroa.0.011.i.add = add nuw nsw i64 %.sroa.0.011.i.idx, 1
-  %58 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %51
+  %58 = getelementptr inbounds i8, ptr %36, i64 %51
   %59 = load i8, ptr %58, align 1, !noalias !289, !noundef !5
   %60 = add nuw i64 %51, 1
   store i64 %60, ptr %31, align 8, !alias.scope !291, !noalias !292
@@ -2640,7 +2640,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 73:                                               ; preds = %69
   %.sroa.0.011.i111.add = add nuw nsw i64 %.sroa.0.011.i111.idx, 1
-  %74 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %67
+  %74 = getelementptr inbounds i8, ptr %36, i64 %67
   %75 = load i8, ptr %74, align 1, !noalias !305, !noundef !5
   %76 = add nuw i64 %67, 1
   store i64 %76, ptr %31, align 8, !alias.scope !307, !noalias !308
@@ -2683,7 +2683,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 89:                                               ; preds = %85
   %.sroa.0.011.i116.add = add nuw nsw i64 %.sroa.0.011.i116.idx, 1
-  %90 = getelementptr inbounds [0 x i8], ptr %36, i64 0, i64 %83
+  %90 = getelementptr inbounds i8, ptr %36, i64 %83
   %91 = load i8, ptr %90, align 1, !noalias !321, !noundef !5
   %92 = add nuw i64 %83, 1
   store i64 %92, ptr %31, align 8, !alias.scope !323, !noalias !324
@@ -3137,7 +3137,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 12:                                               ; preds = %16, %.lr.ph.i
   %13 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !392, !noundef !5
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit.thread" [
     i8 32, label %16
@@ -3205,7 +3205,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 34:                                               ; preds = %30
   %.sroa.0.011.i.add = add nuw nsw i64 %.sroa.0.011.i.idx, 1
-  %35 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %28
+  %35 = getelementptr inbounds i8, ptr %11, i64 %28
   %36 = load i8, ptr %35, align 1, !noalias !414, !noundef !5
   %37 = add nuw i64 %28, 1
   store i64 %37, ptr %6, align 8, !alias.scope !416, !noalias !417
@@ -3257,7 +3257,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 12:                                               ; preds = %16, %.lr.ph.i
   %13 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !432, !noundef !5
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit.thread" [
     i8 32, label %16
@@ -3325,7 +3325,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 34:                                               ; preds = %30
   %.sroa.0.011.i.add = add nuw nsw i64 %.sroa.0.011.i.idx, 1
-  %35 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %28
+  %35 = getelementptr inbounds i8, ptr %11, i64 %28
   %36 = load i8, ptr %35, align 1, !noalias !455, !noundef !5
   %37 = add nuw i64 %28, 1
   store i64 %37, ptr %6, align 8, !alias.scope !457, !noalias !458

@@ -1323,9 +1323,9 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIS
   %79 = phi ptr [ %.pre, %.lr.ph ], [ %97, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66 ]
   %indvars.iv = phi i64 [ %77, %.lr.ph ], [ %80, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66 ]
   %80 = add nsw i64 %indvars.iv, -1
-  %81 = getelementptr inbounds nuw [0 x ptr], ptr %75, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %76, i64 0, i64 %80
+  %83 = getelementptr inbounds nuw ptr, ptr %76, i64 %80
   %84 = load ptr, ptr %83, align 8, !tbaa !45
   %85 = icmp eq ptr %79, null
   br i1 %85, label %92, label %86

@@ -211,7 +211,7 @@ clause_clac_lbd.exit:                             ; preds = %clause_clac_lbd.exi
   store i32 %97, ptr %33, align 4
   %98 = load i32, ptr %40, align 4, !tbaa !30
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw %union.anon, ptr %41, i64 %99
   store i32 0, ptr %100, align 4, !tbaa !40
   %.val37 = load i32, ptr %5, align 4, !tbaa !3
   %101 = zext i32 %.val37 to i64
@@ -252,7 +252,7 @@ clause_fetch.exit.i.i:                            ; preds = %109, %clause_fetch.
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %122 = load i32, ptr %121, align 4, !tbaa !30
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw [0 x %union.anon], ptr %120, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw %union.anon, ptr %120, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !40
   %126 = lshr i32 %125, 10
   store i32 %126, ptr %124, align 4, !tbaa !40
@@ -1431,7 +1431,7 @@ clause_fetch.exit.i.i:                            ; preds = %143, %142
   %173 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %174 = load i32, ptr %173, align 4, !tbaa !30
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw [0 x %union.anon], ptr %149, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw %union.anon, ptr %149, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !40
   %178 = add i32 %177, %172
   store i32 %178, ptr %176, align 4, !tbaa !40
@@ -1463,7 +1463,7 @@ clause_fetch.exit.i.i.i.i:                        ; preds = %179, %clause_fetch.
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %192 = load i32, ptr %191, align 4, !tbaa !30
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw [0 x %union.anon], ptr %190, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw %union.anon, ptr %190, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !40
   %196 = lshr i32 %195, 10
   store i32 %196, ptr %194, align 4, !tbaa !40
@@ -4626,7 +4626,7 @@ clause_fetch.exit.i116:                           ; preds = %1804
 1847:                                             ; preds = %1860, %.lr.ph.i117
   %1848 = phi i32 [ %1841, %.lr.ph.i117 ], [ %1861, %1860 ]
   %indvars.iv.i118 = phi i64 [ %1846, %.lr.ph.i117 ], [ %indvars.iv.next.i119, %1860 ]
-  %1849 = getelementptr inbounds nuw [0 x %union.anon], ptr %1845, i64 0, i64 %indvars.iv.i118
+  %1849 = getelementptr inbounds nuw %union.anon, ptr %1845, i64 %indvars.iv.i118
   %1850 = load i32, ptr %1849, align 4, !tbaa !40
   %.val41.i = load ptr, ptr %22, align 8, !tbaa !37
   %1851 = getelementptr i8, ptr %.val41.i, i64 8
@@ -5209,7 +5209,7 @@ clause_fetch.exit:                                ; preds = %11, %16
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %vec_uint_find.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %vec_uint_find.exit ]
-  %30 = getelementptr inbounds nuw [0 x %union.anon], ptr %25, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %union.anon, ptr %25, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !40
   br label %33
 
@@ -5281,7 +5281,7 @@ vec_uint_print.exit:                              ; preds = %48, %vec_uint_find.
 
 65:                                               ; preds = %65, %.lr.ph.i27
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i29, %65 ]
-  %66 = getelementptr inbounds nuw [0 x %union.anon], ptr %64, i64 0, i64 %indvars.iv.i28
+  %66 = getelementptr inbounds nuw %union.anon, ptr %64, i64 %indvars.iv.i28
   %67 = load i32, ptr %66, align 4, !tbaa !40
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %67)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
@@ -5373,7 +5373,7 @@ clause_fetch.exit:                                ; preds = %.lr.ph40.split, %17
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %.loopexit
   %.01935 = phi i32 [ 0, %.lr.ph.split ], [ %39, %.loopexit ]
   %31 = zext i32 %.01935 to i64
-  %32 = getelementptr inbounds nuw [0 x %union.anon], ptr %26, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw %union.anon, ptr %26, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !40
   br label %35
 
@@ -5413,7 +5413,7 @@ vec_uint_find.exit.thread:                        ; preds = %.loopexit, %clause_
 
 47:                                               ; preds = %47, %.lr.ph.i24
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i24 ], [ %indvars.iv.next.i26, %47 ]
-  %48 = getelementptr inbounds nuw [0 x %union.anon], ptr %46, i64 0, i64 %indvars.iv.i25
+  %48 = getelementptr inbounds nuw %union.anon, ptr %46, i64 %indvars.iv.i25
   %49 = load i32, ptr %48, align 4, !tbaa !40
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %49)
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
@@ -5527,13 +5527,13 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 clause_compare.exit.i:                            ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = zext i32 %14 to i64
-  %35 = getelementptr inbounds nuw [0 x %union.anon], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw %union.anon, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !40
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !30
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw [0 x %union.anon], ptr %37, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw %union.anon, ptr %37, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !40
   %.fr.i = freeze i32 %36
   %.fr9.i = freeze i32 %42
@@ -5576,7 +5576,7 @@ clause_compare.exit.thread5.i:                    ; preds = %clause_compare.exit
   %56 = icmp ugt i32 %55, 2
   %57 = icmp eq i32 %55, 2
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw [0 x %union.anon], ptr %54, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw %union.anon, ptr %54, i64 %58
   br i1 %56, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.lr.ph, %80
@@ -5613,7 +5613,7 @@ clause_compare.exit.thread5.i:                    ; preds = %clause_compare.exit
 clause_compare.exit.us:                           ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %76 = zext i32 %68 to i64
-  %77 = getelementptr inbounds nuw [0 x %union.anon], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw %union.anon, ptr %75, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !40
   %79 = load i32, ptr %59, align 4, !tbaa !40
   %.not31 = icmp ult i32 %78, %79
@@ -5671,7 +5671,7 @@ clause_compare.exit47.us.us:                      ; preds = %101
   %103 = load i32, ptr %59, align 4, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %105 = zext i32 %94 to i64
-  %106 = getelementptr inbounds nuw [0 x %union.anon], ptr %104, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw %union.anon, ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !40
   %.not32 = icmp ult i32 %103, %107
   br i1 %.not32, label %.backedge.us.us.backedge, label %clause_compare.exit47.thread.split.us.us
@@ -5732,7 +5732,7 @@ clause_compare.exit47.thread.split.us.us:         ; preds = %clause_compare.exit
 clause_compare.exit:                              ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds nuw [0 x %union.anon], ptr %129, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw %union.anon, ptr %129, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !40
   %133 = load i32, ptr %59, align 4, !tbaa !40
   %.not = icmp ult i32 %132, %133
@@ -5784,7 +5784,7 @@ clause_compare.exit47:                            ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !30
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw [0 x %union.anon], ptr %153, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw %union.anon, ptr %153, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !40
   %.not30 = icmp ult i32 %152, %158
   br i1 %.not30, label %.backedge.backedge, label %clause_compare.exit47.thread.split

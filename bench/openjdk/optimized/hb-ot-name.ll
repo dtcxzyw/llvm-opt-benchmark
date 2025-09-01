@@ -1521,7 +1521,7 @@ _ZNK16hb_lazy_loader_tIN3AAT4ltagE22hb_table_lazy_loader_tIS1_Lj33ELb0EE9hb_face
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %67 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 12
   %68 = zext nneg i32 %16 to i64
-  %69 = getelementptr inbounds nuw [1 x %"struct.AAT::FTStringRange"], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.AAT::FTStringRange", ptr %67, i64 %68
   br label %_ZNK3AAT4ltag12get_languageEj.exit
 
 _ZNK3AAT4ltag12get_languageEj.exit:               ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4ltagE22hb_table_lazy_loader_tIS1_Lj33ELb0EE9hb_face_tLj33E9hb_blob_tEptEv.exit, %66
@@ -1861,7 +1861,7 @@ _ZNK2OT14UnsizedArrayOfINS_10NameRecordEE16sanitize_shallowEP21hb_sanitize_conte
 73:                                               ; preds = %72, %.lr.ph.i
   %74 = phi i32 [ %70, %.lr.ph.i ], [ %101, %72 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %75 = getelementptr inbounds nuw [1 x %"struct.OT::NameRecord"], ptr %3, i64 0, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw %"struct.OT::NameRecord", ptr %3, i64 %indvars.iv.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %77 = ptrtoint ptr %76 to i64
   %78 = sub i64 %77, %7
@@ -2208,7 +2208,7 @@ _ZNK2OT7ArrayOfIN3AAT13FTStringRangeENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21h
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %71 = phi i32 [ %53, %.lr.ph.preheader ], [ %97, %70 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
-  %72 = getelementptr inbounds nuw [1 x %"struct.AAT::FTStringRange"], ptr %3, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %"struct.AAT::FTStringRange", ptr %3, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %74, %7

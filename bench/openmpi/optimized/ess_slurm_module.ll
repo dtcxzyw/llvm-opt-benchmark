@@ -50,7 +50,7 @@ define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %12
@@ -94,7 +94,7 @@ define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
 
 30:                                               ; preds = %22
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4, !tbaa !18
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %37
@@ -132,7 +132,7 @@ define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
 
 48:                                               ; preds = %45
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %49, i32 2
+  %50 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %49, i32 2
   %51 = load i32, ptr %50, align 4, !tbaa !18
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %56

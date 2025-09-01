@@ -504,7 +504,7 @@ _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %31
   %37 = phi i1 [ true, %.lr.ph.i ], [ false, %36 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %36 ]
   %.056.i.i = phi i32 [ 0, %.lr.ph.i ], [ %42, %36 ]
-  %38 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i.i
   %39 = load i64, ptr %38, align 8, !tbaa !74
   %40 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
   %41 = trunc nuw nsw i64 %40 to i32
@@ -583,7 +583,7 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %66 ], [ 0, %62 ]
   %67 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw [2 x i64], ptr %65, i64 0, i64 %indvars.iv.i.i.i.i
+  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv.i.i.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !74, !noalias !86
   %.not.i.i.i.i = icmp eq i64 %69, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -751,7 +751,7 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb9HashTableINS_7support6detail31pac
   %9 = phi i1 [ true, %.lr.ph.i.i ], [ false, %8 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %8 ]
   %.056.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %14, %8 ]
-  %10 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i.i
   %11 = load i64, ptr %10, align 8, !tbaa !74
   %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
   %13 = trunc nuw nsw i64 %12 to i32
@@ -812,7 +812,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %35 ], [ 0, %31 ]
   %36 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %indvars.iv.i.i.i.i
+  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i.i.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !74
   %.not.i.i.i.i = icmp eq i64 %38, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -984,7 +984,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
   %111 = lshr i32 %79, 6
   %112 = and i32 %111, 1
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw [2 x i64], ptr %110, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %110, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !74
   %116 = and i32 %79, 63
   %117 = zext nneg i32 %116 to i64
@@ -1056,7 +1056,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm3pdb9HashTableINS_7support6deta
   tail call void @llvm.assume(i1 %12)
   %13 = xor i32 %.09.i.i, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [2 x i64], ptr %10, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !74
   %.not.i.i = icmp eq i64 %16, 0
   %17 = add nuw nsw i32 %.09.i.i, 1
@@ -1093,7 +1093,7 @@ _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %1, %_ZNK4llvm22S
   tail call void @llvm.assume(i1 %35)
   %36 = xor i32 %.09.i.i11, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [2 x i64], ptr %33, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %33, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !74
   %.not.i.i12 = icmp eq i64 %39, 0
   %40 = add nuw nsw i32 %.09.i.i11, 1
@@ -1123,7 +1123,7 @@ _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit15: ; preds = %_ZNK4llvm15Spa
   %50 = phi i1 [ true, %.lr.ph.i.i ], [ false, %49 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %49 ]
   %.056.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %55, %49 ]
-  %51 = getelementptr inbounds nuw [2 x i64], ptr %48, i64 0, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv.i.i.i
   %52 = load i64, ptr %51, align 8, !tbaa !74
   %53 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %52)
   %54 = trunc nuw nsw i64 %53 to i32
@@ -1179,7 +1179,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb14NamedStreamMap4sizeEv(ptr noundef n
   %5 = phi i1 [ true, %.lr.ph.i.i ], [ false, %4 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %4 ]
   %.056.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %10, %4 ]
-  %6 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i
   %7 = load i64, ptr %6, align 8, !tbaa !74
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %9 = trunc nuw nsw i64 %8 to i32
@@ -1360,7 +1360,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %56 = lshr i32 %.0.fr, 6
   %57 = and i32 %56, 1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !74
   %61 = and i32 %.0.fr, 63
   %62 = zext nneg i32 %61 to i64
@@ -1478,7 +1478,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %105 = lshr i32 %.0.fr, 6
   %106 = and i32 %105, 1
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %104, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i64, ptr %104, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !74
   %110 = and i32 %.0.fr, 63
   %111 = zext nneg i32 %110 to i64
@@ -1527,7 +1527,7 @@ define dso_local void @_ZNK4llvm3pdb14NamedStreamMap7entriesEv(ptr dead_on_unwin
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %12 ], [ 0, %8 ]
   %13 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw [2 x i64], ptr %11, i64 0, i64 %indvars.iv.i.i.i.i
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !74
   %.not.i.i.i.i = icmp eq i64 %15, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1693,7 +1693,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
   %88 = lshr i32 %56, 6
   %89 = and i32 %88, 1
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw [2 x i64], ptr %87, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i64, ptr %87, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !74
   %93 = and i32 %56, 63
   %94 = zext nneg i32 %93 to i64
@@ -2590,9 +2590,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
 19:                                               ; preds = %19, %16
   %.not.i = phi i1 [ false, %16 ], [ true, %19 ]
   %indvars.iv.i = phi i64 [ 0, %16 ], [ 1, %19 ]
-  %20 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
   %21 = load i64, ptr %20, align 8, !tbaa !74
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !74
   %24 = and i64 %23, %21
   %.not.not.i = icmp ne i64 %24, 0
@@ -2710,7 +2710,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %21 = and i32 %18, 63
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !74
   %26 = zext nneg i32 %21 to i64
   %27 = shl nsw i64 -1, %26
@@ -2770,7 +2770,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
   %56 = icmp samesign ult i64 %indvars.iv.i, 2
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
   %58 = load i64, ptr %57, align 8, !tbaa !74
   %.not.i9 = icmp eq i64 %58, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2800,7 +2800,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %69, ptr %70, align 4, !tbaa !100
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %22, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !74
   %.urem12 = add i32 %.018.i.ph.frozen, -64
   %.cmp13 = icmp ult i32 %.018.i.ph.frozen, 64
@@ -3236,7 +3236,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %56 = lshr i32 %.0.fr, 6
   %57 = and i32 %56, 1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !74
   %61 = and i32 %.0.fr, 63
   %62 = zext nneg i32 %61 to i64
@@ -3354,7 +3354,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   %105 = lshr i32 %.0.fr, 6
   %106 = and i32 %105, 1
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %104, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i64, ptr %104, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !74
   %110 = and i32 %.0.fr, 63
   %111 = zext nneg i32 %110 to i64
@@ -3499,7 +3499,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %53 = lshr i32 %1, 6
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !74
   %58 = or i64 %57, %51
   store i64 %58, ptr %56, align 8, !tbaa !74
@@ -3596,7 +3596,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %41 = lshr i32 %1, 6
   %42 = and i32 %41, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !74
   %46 = and i64 %45, %39
   store i64 %46, ptr %44, align 8, !tbaa !74
@@ -3605,7 +3605,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 47:                                               ; preds = %47, %35
   %.not8.i = phi i1 [ true, %35 ], [ false, %47 ]
   %indvars.iv.i = phi i64 [ 0, %35 ], [ 1, %47 ]
-  %48 = getelementptr inbounds nuw [2 x i64], ptr %40, i64 0, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
   %49 = load i64, ptr %48, align 8, !tbaa !74
   %.not.i = icmp eq i64 %49, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
@@ -3652,7 +3652,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb9HashTableINS_7support6detail31pack
   %11 = phi i1 [ true, %.lr.ph.i.i ], [ false, %10 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %10 ]
   %.056.i.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %16, %10 ]
-  %12 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %indvars.iv.i.i.i
+  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i
   %13 = load i64, ptr %12, align 8, !tbaa !74
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %15 = trunc nuw nsw i64 %14 to i32
@@ -3734,7 +3734,7 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %55 ], [ 0, %51 ]
   %56 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
   call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %54, i64 0, i64 %indvars.iv.i.i.i.i
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i.i.i.i
   %58 = load i64, ptr %57, align 8, !tbaa !74, !noalias !235
   %.not.i.i.i.i = icmp eq i64 %58, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1

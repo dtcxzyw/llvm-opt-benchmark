@@ -135,7 +135,7 @@ zend_string_alloc.exit.i:                         ; preds = %11
   store i64 %18, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %14, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
   store i8 0, ptr %26, align 1, !tbaa !19
   %27 = load ptr, ptr %3, align 8, !tbaa !4
   %28 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %25, ptr noundef %27) #16
@@ -758,7 +758,7 @@ zend_string_alloc.exit:                           ; preds = %30
   store i64 %34, ptr %40, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 1 %33, i64 %34, i1 false)
-  %42 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %34
   store i8 0, ptr %42, align 1, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !53
@@ -2287,7 +2287,7 @@ zend_string_alloc.exit:                           ; preds = %76
   store i64 %86, ptr %92, align 8, !tbaa !25
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr align 1 %85, i64 %86, i1 false)
-  %94 = getelementptr inbounds nuw [1 x i8], ptr %93, i64 0, i64 %86
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %86
   store i8 0, ptr %94, align 1, !tbaa !19
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store ptr %89, ptr %95, align 8, !tbaa !20
@@ -3579,7 +3579,7 @@ zend_string_alloc.exit:                           ; preds = %61, %58
   store i64 %70, ptr %76, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr align 1 %69, i64 %70, i1 false)
-  %78 = getelementptr inbounds nuw [1 x i8], ptr %77, i64 0, i64 %70
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %70
   store i8 0, ptr %78, align 1, !tbaa !19
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 316
   %80 = load i16, ptr %79, align 4
@@ -3744,7 +3744,7 @@ zend_string_alloc.exit:                           ; preds = %12
   store i64 %11, ptr %23, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %1, i64 %11, i1 false)
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %11
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %11
   store i8 0, ptr %25, align 1, !tbaa !19
   br label %26
 
@@ -4303,7 +4303,7 @@ zend_string_release_ex.exit:                      ; preds = %.critedge176, %60, 
   %77 = load i8, ptr %76, align 1, !tbaa !19
   %78 = lshr i8 %77, 4
   %79 = zext nneg i8 %78 to i64
-  %80 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !19
   %82 = load ptr, ptr %6, align 8, !tbaa !18
   %83 = getelementptr i8, ptr %82, i64 %indvars.iv.i
@@ -4312,7 +4312,7 @@ zend_string_release_ex.exit:                      ; preds = %.critedge176, %60, 
   %85 = load i8, ptr %76, align 1, !tbaa !19
   %86 = and i8 %85, 15
   %87 = zext nneg i8 %86 to i64
-  %88 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !19
   %90 = load ptr, ptr %6, align 8, !tbaa !18
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 2
@@ -4415,7 +4415,7 @@ phar_hex_str.exit:                                ; preds = %74, %._crit_edge.lo
   %120 = load i8, ptr %119, align 1, !tbaa !19
   %121 = lshr i8 %120, 4
   %122 = zext nneg i8 %121 to i64
-  %123 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !19
   %125 = load ptr, ptr %6, align 8, !tbaa !18
   %126 = getelementptr i8, ptr %125, i64 %indvars.iv.i195
@@ -4424,7 +4424,7 @@ phar_hex_str.exit:                                ; preds = %74, %._crit_edge.lo
   %128 = load i8, ptr %119, align 1, !tbaa !19
   %129 = and i8 %128, 15
   %130 = zext nneg i8 %129 to i64
-  %131 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !19
   %133 = load ptr, ptr %6, align 8, !tbaa !18
   %indvars.iv.next.i197 = add nsw i64 %indvars.iv.i195, 2
@@ -4519,7 +4519,7 @@ phar_hex_str.exit202:                             ; preds = %.lr.ph.i194
   %160 = load i8, ptr %159, align 1, !tbaa !19
   %161 = lshr i8 %160, 4
   %162 = zext nneg i8 %161 to i64
-  %163 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !19
   %165 = load ptr, ptr %6, align 8, !tbaa !18
   %166 = getelementptr i8, ptr %165, i64 %indvars.iv.i204
@@ -4528,7 +4528,7 @@ phar_hex_str.exit202:                             ; preds = %.lr.ph.i194
   %168 = load i8, ptr %159, align 1, !tbaa !19
   %169 = and i8 %168, 15
   %170 = zext nneg i8 %169 to i64
-  %171 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !19
   %173 = load ptr, ptr %6, align 8, !tbaa !18
   %indvars.iv.next.i206 = add nsw i64 %indvars.iv.i204, 2
@@ -4623,7 +4623,7 @@ phar_hex_str.exit211:                             ; preds = %.lr.ph.i203
   %200 = load i8, ptr %199, align 1, !tbaa !19
   %201 = lshr i8 %200, 4
   %202 = zext nneg i8 %201 to i64
-  %203 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %202
   %204 = load i8, ptr %203, align 1, !tbaa !19
   %205 = load ptr, ptr %6, align 8, !tbaa !18
   %206 = getelementptr i8, ptr %205, i64 %indvars.iv.i213
@@ -4632,7 +4632,7 @@ phar_hex_str.exit211:                             ; preds = %.lr.ph.i203
   %208 = load i8, ptr %199, align 1, !tbaa !19
   %209 = and i8 %208, 15
   %210 = zext nneg i8 %209 to i64
-  %211 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !19
   %213 = load ptr, ptr %6, align 8, !tbaa !18
   %indvars.iv.next.i215 = add nsw i64 %indvars.iv.i213, 2
@@ -4727,7 +4727,7 @@ phar_hex_str.exit220:                             ; preds = %.lr.ph.i212
   %240 = load i8, ptr %239, align 1, !tbaa !19
   %241 = lshr i8 %240, 4
   %242 = zext nneg i8 %241 to i64
-  %243 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !19
   %245 = load ptr, ptr %6, align 8, !tbaa !18
   %246 = getelementptr i8, ptr %245, i64 %indvars.iv.i222
@@ -4736,7 +4736,7 @@ phar_hex_str.exit220:                             ; preds = %.lr.ph.i212
   %248 = load i8, ptr %239, align 1, !tbaa !19
   %249 = and i8 %248, 15
   %250 = zext nneg i8 %249 to i64
-  %251 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %250
   %252 = load i8, ptr %251, align 1, !tbaa !19
   %253 = load ptr, ptr %6, align 8, !tbaa !18
   %indvars.iv.next.i224 = add nsw i64 %indvars.iv.i222, 2
@@ -4817,7 +4817,7 @@ zend_string_alloc.exit:                           ; preds = %zend_hash_str_find_
   store i64 %16, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %18, i64 %16, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %16
   store i8 0, ptr %26, align 1, !tbaa !19
   br label %zend_string_alloc.exit73
 
@@ -4844,7 +4844,7 @@ zend_string_alloc.exit73:                         ; preds = %27, %zend_string_al
   store i64 %4, ptr %36, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 1 %3, i64 %4, i1 false)
-  %38 = getelementptr inbounds nuw [1 x i8], ptr %37, i64 0, i64 %4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %4
   store i8 0, ptr %38, align 1, !tbaa !19
   store ptr %33, ptr %30, align 16, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -5344,7 +5344,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %72 = load i8, ptr %71, align 1, !tbaa !19
   %73 = lshr i8 %72, 4
   %74 = zext nneg i8 %73 to i64
-  %75 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !19
   %77 = load ptr, ptr %18, align 8, !tbaa !18
   %78 = getelementptr i8, ptr %77, i64 %indvars.iv.i
@@ -5353,7 +5353,7 @@ define hidden range(i32 -1, 1) i32 @phar_create_signature(ptr noundef captures(n
   %80 = load i8, ptr %71, align 1, !tbaa !19
   %81 = and i8 %80, 15
   %82 = zext nneg i8 %81 to i64
-  %83 = getelementptr inbounds nuw [17 x i8], ptr @hexChars, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr @hexChars, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !19
   %85 = load ptr, ptr %18, align 8, !tbaa !18
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 2

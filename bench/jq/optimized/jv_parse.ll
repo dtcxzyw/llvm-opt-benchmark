@@ -205,7 +205,7 @@ define dso_local void @jv_parser_set_buf(ptr noundef captures(none) %0, ptr noun
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
   %12 = load i8, ptr %.020, align 1, !tbaa !15
-  %13 = getelementptr inbounds nuw [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr @UTF8_BOM, i64 %11
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = icmp eq i8 %12, %14
   %16 = add nuw nsw i32 %8, 1
@@ -1662,7 +1662,7 @@ define dso_local { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 n
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
   %12 = load i8, ptr %.020.i, align 1, !tbaa !15
-  %13 = getelementptr inbounds nuw [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr @UTF8_BOM, i64 %11
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = icmp eq i8 %12, %14
   %16 = add nuw nsw i32 %8, 1

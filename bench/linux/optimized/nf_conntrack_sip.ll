@@ -181,7 +181,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_request(ptr noundef 
   %16 = phi ptr [ %24, %23 ], [ %1, %7 ]
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %18
+  %19 = getelementptr i8, ptr @_ctype, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 3
   %22 = icmp eq i8 %21, 0
@@ -692,7 +692,7 @@ declare i16 @llvm.bswap.i16(i16) #3
 define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #0 align 16 {
   %8 = alloca i32, align 4
   %9 = zext i32 %4 to i64
-  %10 = getelementptr [9 x %struct.sip_header], ptr @ct_sip_hdrs, i64 0, i64 %9
+  %10 = getelementptr %struct.sip_header, ptr @ct_sip_hdrs, i64 %9
   %11 = zext i32 %3 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -785,7 +785,7 @@ thread-pre-split:                                 ; preds = %27, %32
   %61 = getelementptr i8, ptr %37, i64 %57
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %63
+  %64 = getelementptr i8, ptr @_ctype, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 3
   %67 = icmp eq i8 %66, 0
@@ -1157,7 +1157,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_header_uri(ptr nound
 
 25:                                               ; preds = %22
   %26 = zext i32 %4 to i64
-  %27 = getelementptr [9 x %struct.sip_header], ptr @ct_sip_hdrs, i64 0, i64 %26
+  %27 = getelementptr %struct.sip_header, ptr @ct_sip_hdrs, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = ptrtoint ptr %1 to i64
@@ -2284,47 +2284,41 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_sip_init() #7 sectio
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %5 = phi i32 [ %24, %4 ], [ 0, %.preheader ]
+  %5 = phi i32 [ %18, %4 ], [ 0, %.preheader ]
   %6 = shl i32 %5, 2
   %7 = sext i32 %6 to i64
-  %8 = getelementptr [32 x %struct.nf_conntrack_helper], ptr @sip, i64 0, i64 %7
+  %8 = getelementptr %struct.nf_conntrack_helper, ptr @sip, i64 %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr [8 x i16], ptr @ports, i64 0, i64 %9
+  %10 = getelementptr i16, ptr @ports, i64 %9
   %11 = load i16, ptr %10, align 2
   tail call void @nf_ct_helper_init(ptr noundef %8, i16 noundef zeroext 2, i16 noundef zeroext 17, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %11, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_udp, ptr noundef null, ptr noundef null) #14
-  %12 = or disjoint i32 %6, 1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr [32 x %struct.nf_conntrack_helper], ptr @sip, i64 0, i64 %13
+  %12 = getelementptr i8, ptr %8, i64 160
+  %13 = load i16, ptr %10, align 2
+  tail call void @nf_ct_helper_init(ptr noundef %12, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %13, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_tcp, ptr noundef null, ptr noundef null) #14
+  %14 = getelementptr i8, ptr %8, i64 320
   %15 = load i16, ptr %10, align 2
-  tail call void @nf_ct_helper_init(ptr noundef %14, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %15, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_tcp, ptr noundef null, ptr noundef null) #14
-  %16 = or disjoint i32 %6, 2
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [32 x %struct.nf_conntrack_helper], ptr @sip, i64 0, i64 %17
-  %19 = load i16, ptr %10, align 2
-  tail call void @nf_ct_helper_init(ptr noundef %18, i16 noundef zeroext 10, i16 noundef zeroext 17, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %19, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_udp, ptr noundef null, ptr noundef null) #14
-  %20 = or disjoint i32 %6, 3
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr [32 x %struct.nf_conntrack_helper], ptr @sip, i64 0, i64 %21
-  %23 = load i16, ptr %10, align 2
-  tail call void @nf_ct_helper_init(ptr noundef %22, i16 noundef zeroext 10, i16 noundef zeroext 6, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %23, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_tcp, ptr noundef null, ptr noundef null) #14
-  %24 = add nuw i32 %5, 1
-  %25 = load i32, ptr @ports_c, align 4
-  %26 = icmp ult i32 %24, %25
-  br i1 %26, label %4, label %27, !llvm.loop !23
+  tail call void @nf_ct_helper_init(ptr noundef %14, i16 noundef zeroext 10, i16 noundef zeroext 17, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %15, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_udp, ptr noundef null, ptr noundef null) #14
+  %16 = getelementptr i8, ptr %8, i64 480
+  %17 = load i16, ptr %10, align 2
+  tail call void @nf_ct_helper_init(ptr noundef %16, i16 noundef zeroext 10, i16 noundef zeroext 6, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %17, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_tcp, ptr noundef null, ptr noundef null) #14
+  %18 = add nuw i32 %5, 1
+  %19 = load i32, ptr @ports_c, align 4
+  %20 = icmp ult i32 %18, %19
+  br i1 %20, label %4, label %21, !llvm.loop !23
 
-27:                                               ; preds = %4
-  %28 = shl i32 %25, 2
-  %29 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @sip, i32 noundef %28) #14
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %33
+21:                                               ; preds = %4
+  %22 = shl i32 %19, 2
+  %23 = tail call i32 @nf_conntrack_helpers_register(ptr noundef nonnull @sip, i32 noundef %22) #14
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %27
 
-31:                                               ; preds = %27
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #15
-  br label %33
+25:                                               ; preds = %21
+  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #15
+  br label %27
 
-33:                                               ; preds = %31, %27
-  %34 = phi i32 [ %29, %31 ], [ 0, %27 ]
-  ret i32 %34
+27:                                               ; preds = %25, %21
+  %28 = phi i32 [ %23, %25 ], [ 0, %21 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2549,7 +2543,7 @@ define internal fastcc i32 @word_len(ptr noundef readonly %0, ptr noundef readno
   %12 = phi ptr [ %26, %25 ], [ %0, %4 ]
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %14
+  %15 = getelementptr i8, ptr @_ctype, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = freeze i8 %16
   %18 = and i8 %17, 7
@@ -2668,7 +2662,7 @@ define internal i32 @media_len(ptr readnone captures(none) %0, ptr noundef %1, p
   %14 = phi ptr [ %22, %21 ], [ %1, %6 ]
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %16
+  %17 = getelementptr i8, ptr @_ctype, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 3
   %20 = icmp eq i8 %19, 0
@@ -3104,7 +3098,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 
 66:                                               ; preds = %.preheader, %63
   %67 = phi i64 [ %64, %63 ], [ 0, %.preheader ]
-  %68 = getelementptr [6 x %struct.sip_handler], ptr @sip_handlers, i64 0, i64 %67
+  %68 = getelementptr %struct.sip_handler, ptr @sip_handlers, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 16
   %71 = icmp eq ptr %70, null
@@ -3138,7 +3132,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
   %91 = getelementptr i8, ptr %79, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
-  %94 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %93
+  %94 = getelementptr i8, ptr @_ctype, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 3
   %97 = icmp eq i8 %96, 0
@@ -3242,7 +3236,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 
 155:                                              ; preds = %152, %147
   %156 = phi i64 [ 0, %147 ], [ %153, %152 ]
-  %157 = getelementptr [6 x %struct.sip_handler], ptr @sip_handlers, i64 0, i64 %156
+  %157 = getelementptr %struct.sip_handler, ptr @sip_handlers, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, null
@@ -3657,7 +3651,7 @@ ct_sip_parse_sdp_addr.exit:                       ; preds = %30, %47
 
 .split:                                           ; preds = %74, %86
   %81 = phi i64 [ %87, %86 ], [ 0, %74 ]
-  %82 = getelementptr [3 x %struct.sdp_media_type], ptr @sdp_media_types, i64 0, i64 %81
+  %82 = getelementptr %struct.sdp_media_type, ptr @sdp_media_types, i64 %81
   %83 = load ptr, ptr %82, align 16
   %84 = call i32 @strncmp(ptr noundef %79, ptr noundef %83, i64 noundef 6) #14
   %85 = icmp eq i32 %84, 0

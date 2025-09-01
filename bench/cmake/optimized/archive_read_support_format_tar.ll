@@ -224,7 +224,7 @@ archive_block_is_null.exit.thread:                ; preds = %thread-pre-split, %
 
 11:                                               ; preds = %.critedge.i, %archive_block_is_null.exit.thread
   %.0485.i = phi i64 [ 0, %archive_block_is_null.exit.thread ], [ %14, %.critedge.i ]
-  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %.0485.i
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.0485.i
   %13 = load i8, ptr %12, align 1, !tbaa !4
   switch i8 %13, label %archive_block_is_null.exit [
     i8 55, label %.critedge.i
@@ -1008,7 +1008,7 @@ archive_block_is_null.exit.thread.i:              ; preds = %85, %thread-pre-spl
 
 100:                                              ; preds = %.critedge.i.i, %archive_block_is_null.exit.thread.i
   %.0485.i.i = phi i64 [ 0, %archive_block_is_null.exit.thread.i ], [ %103, %.critedge.i.i ]
-  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 0, i64 %.0485.i.i
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.0485.i.i
   %102 = load i8, ptr %101, align 1, !tbaa !4
   switch i8 %102, label %tar_flush_unconsumed.exit211.i [
     i8 55, label %.critedge.i.i
@@ -5284,10 +5284,10 @@ url_decode.exit:                                  ; preds = %.preheader.i, %.bac
 48:                                               ; preds = %48, %47
   %indvars.iv.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i, %48 ]
   %49 = trunc i64 %indvars.iv.i to i8
-  %50 = getelementptr inbounds nuw [64 x i8], ptr @base64_decode.digits, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i8, ptr @base64_decode.digits, i64 %indvars.iv.i
   %51 = load i8, ptr %50, align 1, !tbaa !4
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [128 x i8], ptr @base64_decode.decode_table, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @base64_decode.decode_table, i64 %52
   store i8 %49, ptr %53, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -5333,7 +5333,7 @@ url_decode.exit:                                  ; preds = %.preheader.i, %.bac
 
 61:                                               ; preds = %60
   %62 = zext nneg i8 %59 to i64
-  %63 = getelementptr inbounds nuw [128 x i8], ptr @base64_decode.decode_table, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @base64_decode.decode_table, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %65 = icmp eq i8 %64, -1
   br i1 %65, label %66, label %.outer.i

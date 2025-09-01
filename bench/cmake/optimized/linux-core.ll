@@ -202,7 +202,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_resident_set_memory
 
 21:                                               ; preds = %.critedge30
   %22 = tail call i32 @uv__close(i32 noundef %4) #13
-  %23 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 %11
+  %23 = getelementptr inbounds i8, ptr %2, i64 %11
   store i8 0, ptr %23, align 1, !tbaa !30
   %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 32) #15
   %25 = icmp eq ptr %24, null

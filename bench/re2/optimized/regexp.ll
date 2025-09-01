@@ -2544,7 +2544,7 @@ entry:
   %cmp1 = icmp ugt i32 %code, 14
   %spec.store.select = select i1 %cmp1, i32 1, i32 %code
   %idxprom = zext nneg i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds nuw [15 x ptr], ptr @_ZN3re2L13kErrorStringsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3re2L13kErrorStringsE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)

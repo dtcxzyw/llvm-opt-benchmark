@@ -48,7 +48,7 @@ define hidden noundef zeroext i1 @_ZN11tree_sitter10QueryMatch25satisfies_text_p
 23:                                               ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !6, !noundef !4
-  %26 = getelementptr inbounds [0 x { ptr, i64 }], ptr %25, i64 0, i64 %19
+  %26 = getelementptr inbounds { ptr, i64 }, ptr %25, i64 %19
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !6, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !noundef !4
@@ -1014,7 +1014,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
 
 119:                                              ; preds = %115
   %.val10.i = load ptr, ptr %107, align 8, !noalias !188, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds [0 x { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }], ptr %.val10.i, i64 0, i64 %106
+  %120 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }, ptr %.val10.i, i64 %106
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hcca577643f41b41aE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %120)
           to label %121 unwind label %.thread.loopexit.i, !noalias !188
 

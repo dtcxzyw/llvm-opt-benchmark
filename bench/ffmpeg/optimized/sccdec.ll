@@ -78,7 +78,7 @@ define internal range(i32 -12, 1) i32 @scc_read_header(ptr noundef %0) #0 {
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   call void @ff_text_init_avio(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %18) #4
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %124, label %19
+  br i1 %.not, label %120, label %19
 
 19:                                               ; preds = %1
   call void @avpriv_set_pts_info(ptr noundef nonnull %16, i32 noundef 64, i32 noundef 1, i32 noundef 1000) #4
@@ -107,7 +107,7 @@ define internal range(i32 -12, 1) i32 @scc_read_header(ptr noundef %0) #0 {
 28:                                               ; preds = %24
   %29 = call i32 @ff_text_eof(ptr noundef nonnull %3) #4
   %.not94 = icmp eq i32 %29, 0
-  br i1 %.not94, label %select.unfold, label %123
+  br i1 %.not94, label %select.unfold, label %119
 
 30:                                               ; preds = %24
   %31 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
@@ -147,7 +147,7 @@ define internal range(i32 -12, 1) i32 @scc_read_header(ptr noundef %0) #0 {
 53:                                               ; preds = %.preheader, %107
   %.065133 = phi i64 [ %.368, %107 ], [ %47, %.preheader ]
   %.069132 = phi i64 [ %.372, %107 ], [ %25, %.preheader ]
-  %.073131 = phi i32 [ %116, %107 ], [ 0, %.preheader ]
+  %.073131 = phi i32 [ %112, %107 ], [ 0, %.preheader ]
   %.077130 = phi ptr [ null, %107 ], [ %23, %.preheader ]
   %54 = call ptr @av_strtok(ptr noundef %.077130, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -258,38 +258,34 @@ define internal range(i32 -12, 1) i32 @scc_read_header(ptr noundef %0) #0 {
   %.372 = phi i64 [ %.069132, %93 ], [ %101, %99 ], [ %.069132, %91 ], [ %.069132, %57 ]
   %.368 = phi i64 [ %.065133, %93 ], [ %106, %99 ], [ %.065133, %91 ], [ %.065133, %57 ]
   %108 = sext i32 %.376 to i64
-  %109 = getelementptr inbounds [4096 x i8], ptr %2, i64 0, i64 %108
+  %109 = getelementptr inbounds i8, ptr %2, i64 %108
   store i8 -4, ptr %109, align 1, !tbaa !45
-  %110 = add nsw i32 %.376, 1
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [4096 x i8], ptr %2, i64 0, i64 %111
-  store i8 %70, ptr %112, align 1, !tbaa !45
-  %113 = add nsw i32 %.376, 2
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [4096 x i8], ptr %2, i64 0, i64 %114
-  store i8 %83, ptr %115, align 1, !tbaa !45
+  %110 = getelementptr i8, ptr %109, i64 1
+  store i8 %70, ptr %110, align 1, !tbaa !45
+  %111 = getelementptr i8, ptr %109, i64 2
+  store i8 %83, ptr %111, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %116 = add nsw i32 %.376, 3
-  %117 = icmp slt i32 %.376, 4092
-  br i1 %117, label %53, label %.loopexit, !llvm.loop !47
+  %112 = add nsw i32 %.376, 3
+  %113 = icmp slt i32 %.376, 4092
+  br i1 %113, label %53, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %107, %.thread
-  %.073129 = phi i32 [ %.073131, %.thread ], [ %116, %107 ]
+  %.073129 = phi i32 [ %.073131, %.thread ], [ %112, %107 ]
   %.069126 = phi i64 [ %.069132, %.thread ], [ %.372, %107 ]
   %.065123 = phi i64 [ %.065133, %.thread ], [ %.368, %107 ]
-  %118 = sext i32 %.073129 to i64
-  %119 = call ptr @ff_subtitles_queue_insert(ptr noundef %15, ptr noundef nonnull %2, i64 noundef %118, i32 noundef 0) #4
-  %.not93 = icmp eq ptr %119, null
-  br i1 %.not93, label %.thread115, label %120
+  %114 = sext i32 %.073129 to i64
+  %115 = call ptr @ff_subtitles_queue_insert(ptr noundef %15, ptr noundef nonnull %2, i64 noundef %114, i32 noundef 0) #4
+  %.not93 = icmp eq ptr %115, null
+  br i1 %.not93, label %.thread115, label %116
 
-120:                                              ; preds = %.loopexit
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 72
-  store i64 %.069126, ptr %121, align 8, !tbaa !46
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 %.065123, ptr %122, align 8, !tbaa !43
+116:                                              ; preds = %.loopexit
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 72
+  store i64 %.069126, ptr %117, align 8, !tbaa !46
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i64 %.065123, ptr %118, align 8, !tbaa !43
   br label %select.unfold
 
 .thread115:                                       ; preds = %.loopexit, %.thread107
@@ -299,10 +295,10 @@ define internal range(i32 -12, 1) i32 @scc_read_header(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %124
+  br label %120
 
-select.unfold:                                    ; preds = %28, %30, %120
-  %.159 = phi ptr [ %119, %120 ], [ %.058, %30 ], [ %.058, %28 ]
+select.unfold:                                    ; preds = %28, %30, %116
+  %.159 = phi ptr [ %115, %116 ], [ %.058, %30 ], [ %.058, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -311,7 +307,7 @@ select.unfold:                                    ; preds = %28, %30, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
-123:                                              ; preds = %28
+119:                                              ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -319,10 +315,10 @@ select.unfold:                                    ; preds = %28, %30, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef %15) #4
-  br label %124
+  br label %120
 
-124:                                              ; preds = %.thread115, %1, %123
-  %.0 = phi i32 [ 0, %123 ], [ -12, %1 ], [ -12, %.thread115 ]
+120:                                              ; preds = %.thread115, %1, %119
+  %.0 = phi i32 [ 0, %119 ], [ -12, %1 ], [ -12, %.thread115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

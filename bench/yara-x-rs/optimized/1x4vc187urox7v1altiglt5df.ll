@@ -1374,7 +1374,7 @@ define noundef range(i16 0, 128) i16 @"_ZN134_$LT$yara_x_parser..cst..syntax_kin
 switch.lookup:
   %1 = load i8, ptr %0, align 4, !range !132, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [82 x i16], ptr @"switch.table._ZN134_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..convert..From$LT$$RF$yara_x_parser..tokenizer..tokens..Token$GT$$GT$4from17h82e938385ccb5281E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN134_$LT$yara_x_parser..cst..syntax_kind..SyntaxKind$u20$as$u20$core..convert..From$LT$$RF$yara_x_parser..tokenizer..tokens..Token$GT$$GT$4from17h82e938385ccb5281E", i64 %2
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }

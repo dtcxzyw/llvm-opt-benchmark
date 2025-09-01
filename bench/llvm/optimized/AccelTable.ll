@@ -3639,7 +3639,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %168, %_ZN4llvmplERK
   %.not.i.i.i = phi i1 [ true, %_ZN4llvmplERKNS_5TwineES2_.exit.i ], [ false, %157 ]
   %.0813.i.i.i = phi i64 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.i ], [ 1, %157 ]
   %.0912.i.i.i = phi i64 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit.i ], [ %.1.i.i.i, %157 ]
-  %152 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN4llvm8MCSymbolEJS2_mEEmv.__found, i64 0, i64 %.0813.i.i.i
+  %152 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN4llvm8MCSymbolEJS2_mEEmv.__found, i64 %.0813.i.i.i
   %153 = load i8, ptr %152, align 1, !tbaa !592, !range !185, !noundef !186
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %155, label %157
@@ -3736,7 +3736,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i3:               ; preds = %212, %_ZN4llvmplERK
   %.not.i.i.i4 = phi i1 [ true, %_ZN4llvmplERKNS_5TwineES2_.exit.i3 ], [ false, %194 ]
   %.0813.i.i.i5 = phi i64 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.i3 ], [ 1, %194 ]
   %.0912.i.i.i6 = phi i64 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit.i3 ], [ %.1.i.i.i7, %194 ]
-  %189 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIPN4llvm8MCSymbolEJS2_mEEmv.__found, i64 0, i64 %.0813.i.i.i5
+  %189 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIPN4llvm8MCSymbolEJS2_mEEmv.__found, i64 %.0813.i.i.i5
   %190 = load i8, ptr %189, align 1, !tbaa !592, !range !185, !noundef !186
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %192, label %194

@@ -28,7 +28,7 @@ define i32 @utf8_nextCharSafeBody_77(ptr noundef readonly captures(none) %0, ptr
   %16 = zext i8 %14 to i32
   %17 = lshr i32 %16, 4
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @.str, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !7
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 1, %15
@@ -107,7 +107,7 @@ define i32 @utf8_nextCharSafeBody_77(ptr noundef readonly captures(none) %0, ptr
 
 67:                                               ; preds = %62
   %68 = zext nneg i32 %63 to i64
-  %69 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !7
   %71 = zext i8 %70 to i32
   %72 = zext i8 %66 to i32
@@ -219,7 +219,7 @@ define i32 @utf8_nextCharSafeBody_77(ptr noundef readonly captures(none) %0, ptr
   %.0106163 = phi i32 [ %.0106, %.thread ], [ %86, %94 ], [ %43, %55 ], [ %43, %53 ]
   %136 = sub nsw i32 %.0106163, %6
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %137
+  %138 = getelementptr inbounds i32, ptr @_ZL15utf8_errorValue, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !3
   br label %_ZL10errorValueia.exit
 
@@ -264,7 +264,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   %20 = sext i32 %8 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   store i8 %18, ptr %21, align 1, !tbaa !7
-  br label %110
+  br label %124
 
 22:                                               ; preds = %5
   %23 = icmp ult i32 %3, 65536
@@ -297,14 +297,14 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   %43 = add nsw i32 %1, 3
   %44 = getelementptr i8, ptr %34, i64 2
   store i8 %42, ptr %44, align 1, !tbaa !7
-  br label %110
+  br label %124
 
 45:                                               ; preds = %22
   %46 = icmp ult i32 %3, 1114112
   %47 = add nsw i32 %1, 3
   %48 = icmp slt i32 %47, %2
-  %or.cond89 = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond89, label %49, label %70
+  %or.cond88 = select i1 %46, i1 %48, i1 false
+  br i1 %or.cond88, label %49, label %70
 
 49:                                               ; preds = %45
   %50 = lshr i32 %3, 18
@@ -331,7 +331,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
   %68 = add nsw i32 %1, 4
   %69 = getelementptr i8, ptr %54, i64 3
   store i8 %67, ptr %69, align 1, !tbaa !7
-  br label %110
+  br label %124
 
 70:                                               ; preds = %24, %45, %7
   %.not = icmp eq ptr %4, null
@@ -339,71 +339,94 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
 
 71:                                               ; preds = %70
   store i8 1, ptr %4, align 1, !tbaa !7
-  br label %110
+  br label %124
 
 72:                                               ; preds = %70
   %73 = sub nsw i32 %2, %1
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %110
+  br i1 %74, label %75, label %124
 
 75:                                               ; preds = %72
   %76 = tail call i32 @llvm.umin.i32(i32 %73, i32 3)
   %77 = sext i32 %1 to i64
   %78 = getelementptr inbounds i8, ptr %0, i64 %77
-  %79 = add nsw i32 %76, -1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %80
+  %79 = zext nneg i32 %76 to i64
+  %80 = getelementptr i32, ptr @_ZL15utf8_errorValue, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 -4
   %82 = load i32, ptr %81, align 4, !tbaa !3
-  %83 = icmp eq i32 %73, 1
+  %83 = icmp ult i32 %82, 128
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %75
   %85 = trunc nuw nsw i32 %82 to i8
   store i8 %85, ptr %78, align 1, !tbaa !7
-  br label %108
+  br label %122
 
 86:                                               ; preds = %75
-  %87 = icmp samesign ult i32 %73, 3
+  %87 = icmp ult i32 %82, 2048
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %86
   %89 = lshr i32 %82, 6
-  %90 = trunc i32 %89 to i8
-  %91 = or i8 %90, -64
-  br label %101
+  %90 = trunc nuw nsw i32 %89 to i8
+  %91 = or disjoint i8 %90, -64
+  store i8 %91, ptr %78, align 1, !tbaa !7
+  br label %115
 
 92:                                               ; preds = %86
-  %93 = lshr i32 %82, 12
-  %94 = trunc i32 %93 to i8
-  %95 = or i8 %94, -32
-  %96 = lshr i32 %82, 6
-  %97 = trunc i32 %96 to i8
-  %98 = and i8 %97, 63
-  %99 = or disjoint i8 %98, -128
-  %100 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  store i8 %99, ptr %100, align 1, !tbaa !7
-  br label %101
+  %93 = icmp ult i32 %82, 65536
+  br i1 %93, label %94, label %98
 
-101:                                              ; preds = %92, %88
-  %.sink = phi i8 [ %91, %88 ], [ %95, %92 ]
-  %.1 = phi i32 [ 1, %88 ], [ 2, %92 ]
+94:                                               ; preds = %92
+  %95 = lshr i32 %82, 12
+  %96 = trunc nuw nsw i32 %95 to i8
+  %97 = or disjoint i8 %96, -32
+  br label %107
+
+98:                                               ; preds = %92
+  %99 = lshr i32 %82, 18
+  %100 = trunc i32 %99 to i8
+  %101 = or i8 %100, -16
+  %102 = lshr i32 %82, 12
+  %103 = trunc i32 %102 to i8
+  %104 = and i8 %103, 63
+  %105 = or disjoint i8 %104, -128
+  %106 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  store i8 %105, ptr %106, align 1, !tbaa !7
+  br label %107
+
+107:                                              ; preds = %98, %94
+  %.sink = phi i8 [ %97, %94 ], [ %101, %98 ]
+  %.2 = phi i32 [ 1, %94 ], [ 2, %98 ]
   store i8 %.sink, ptr %78, align 1, !tbaa !7
-  %102 = trunc i32 %82 to i8
-  %103 = and i8 %102, 63
-  %104 = or disjoint i8 %103, -128
-  %105 = add nuw nsw i32 %.1, 1
-  %106 = zext nneg i32 %.1 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %78, i64 %106
-  store i8 %104, ptr %107, align 1, !tbaa !7
-  br label %108
+  %108 = lshr i32 %82, 6
+  %109 = trunc i32 %108 to i8
+  %110 = and i8 %109, 63
+  %111 = or disjoint i8 %110, -128
+  %112 = add nuw nsw i32 %.2, 1
+  %113 = zext nneg i32 %.2 to i64
+  %114 = getelementptr inbounds nuw i8, ptr %78, i64 %113
+  store i8 %111, ptr %114, align 1, !tbaa !7
+  br label %115
 
-108:                                              ; preds = %101, %84
-  %.077 = phi i32 [ 1, %84 ], [ %105, %101 ]
-  %109 = add nsw i32 %.077, %1
-  br label %110
+115:                                              ; preds = %107, %88
+  %.1 = phi i32 [ 1, %88 ], [ %112, %107 ]
+  %116 = trunc i32 %82 to i8
+  %117 = and i8 %116, 63
+  %118 = or disjoint i8 %117, -128
+  %119 = add nuw nsw i32 %.1, 1
+  %120 = zext nneg i32 %.1 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %78, i64 %120
+  store i8 %118, ptr %121, align 1, !tbaa !7
+  br label %122
 
-110:                                              ; preds = %71, %108, %72, %49, %29, %10
-  %.0 = phi i32 [ %19, %10 ], [ %43, %29 ], [ %68, %49 ], [ %1, %71 ], [ %109, %108 ], [ %1, %72 ]
+122:                                              ; preds = %115, %84
+  %.077 = phi i32 [ 1, %84 ], [ %119, %115 ]
+  %123 = add nsw i32 %.077, %1
+  br label %124
+
+124:                                              ; preds = %71, %122, %72, %49, %29, %10
+  %.0 = phi i32 [ %19, %10 ], [ %43, %29 ], [ %68, %49 ], [ %1, %71 ], [ %123, %122 ], [ %1, %72 ]
   ret i32 %.0
 }
 
@@ -445,7 +468,7 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
 27:                                               ; preds = %25
   %28 = and i32 %15, 15
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %29
   %31 = lshr i32 %3, 5
   %32 = and i32 %31, 5
   br label %39
@@ -454,7 +477,7 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
   %34 = lshr i32 %3, 4
   %35 = and i32 %34, 11
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @.str, i64 %36
   %38 = and i32 %15, 7
   br label %39
 
@@ -506,7 +529,7 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
 
 61:                                               ; preds = %59
   %62 = zext nneg i8 %60 to i64
-  %63 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !7
   %65 = zext i8 %64 to i32
   %66 = lshr i32 %15, 5
@@ -556,7 +579,7 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
 93:                                               ; preds = %57
   %94 = lshr i32 %15, 4
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @.str, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !7
   %98 = zext i8 %97 to i32
   %99 = and i32 %55, 7
@@ -594,7 +617,7 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
   %116 = and i8 %113, 7
   %117 = lshr i32 %55, 4
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr @.str, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !7
   %121 = zext i8 %120 to i32
   %122 = zext nneg i8 %116 to i32
@@ -677,7 +700,7 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
 21:                                               ; preds = %19
   %22 = and i32 %14, 15
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %23
   %25 = lshr i8 %6, 5
   %26 = zext nneg i8 %25 to i32
   br label %32
@@ -685,7 +708,7 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
 27:                                               ; preds = %19
   %28 = lshr i8 %6, 4
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @.str, i64 %29
   %31 = and i32 %14, 7
   br label %32
 
@@ -719,11 +742,11 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
   %46 = icmp samesign ult i8 %42, -16
   %47 = and i32 %43, 15
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %48
   %50 = lshr i32 %14, 5
   %51 = lshr i32 %14, 4
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @.str, i64 %52
   %54 = and i32 %43, 7
   %.sink81 = select i1 %46, i32 %50, i32 %54
   %.sink80.in.in = select i1 %46, ptr %49, ptr %53
@@ -752,7 +775,7 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
 66:                                               ; preds = %60
   %67 = lshr i32 %43, 4
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @.str, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !7
   %71 = zext i8 %70 to i32
   %72 = and i8 %64, 7

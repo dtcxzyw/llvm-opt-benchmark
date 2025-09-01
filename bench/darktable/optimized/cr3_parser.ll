@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14selectCRXFrameEsj(ptr noundef nonnull align 8 captures(none) dereferenceable(767680) %0, i16 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 381992
   %5 = sext i16 %1 to i64
-  %6 = getelementptr inbounds [16 x %struct.crx_data_header_t], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds %struct.crx_data_header_t, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %.not = icmp ult i32 %2, %8
@@ -186,7 +186,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 13:                                               ; preds = %8, %36
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %36 ]
   %.0136274 = phi i64 [ 0, %8 ], [ %.1137, %36 ]
-  %14 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load i32, ptr %15, align 8, !tbaa !91
   %17 = icmp eq i32 %16, 1
@@ -204,7 +204,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %27 = load i32, ptr %26, align 8, !tbaa !94
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %25, %28
-  %30 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %29, ptr %30, align 8, !tbaa !19
   %..0136 = tail call i64 @llvm.smax.i64(i64 %29, i64 %.0136274)
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 92
@@ -213,7 +213,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %18
-  %35 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %32, ptr %35, align 4, !tbaa !27
   br label %36
 
@@ -233,14 +233,14 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv325 = phi i64 [ %indvars.iv.next326, %48 ], [ 0, %11 ]
   %.0142277 = phi i32 [ %.1143, %48 ], [ 0, %11 ]
   %.0144276 = phi i32 [ %.1145, %48 ], [ 0, %11 ]
-  %39 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %indvars.iv325
+  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv325
   %40 = load i64, ptr %39, align 8, !tbaa !19
   %41 = icmp eq i64 %40, %.1137
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.lr.ph
   %43 = add nsw i32 %.0144276, 1
-  %44 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv325
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv325
   %45 = load i32, ptr %44, align 4, !tbaa !27
   %46 = icmp sgt i32 %45, 1
   br i1 %46, label %47, label %48
@@ -274,7 +274,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv330 = phi i64 [ 0, %.lr.ph283.preheader ], [ %indvars.iv.next331, %.lr.ph283 ]
   %.0149281 = phi i32 [ 0, %.lr.ph283.preheader ], [ %.1150, %.lr.ph283 ]
   %.0152279 = phi i32 [ -1, %.lr.ph283.preheader ], [ %.2, %.lr.ph283 ]
-  %52 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %indvars.iv330
+  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv330
   %53 = load i64, ptr %52, align 8, !tbaa !19
   %54 = icmp eq i64 %53, %.1137
   %.not183 = icmp sgt i32 %.0149281, %.0155
@@ -289,7 +289,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 
 57:                                               ; preds = %._crit_edge284
   %58 = zext nneg i32 %.2 to i64
-  %59 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %3, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !27
   %61 = tail call i32 @llvm.smin.i32(i32 %.0157, i32 %60)
   %spec.select184 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
@@ -297,7 +297,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   br i1 %.not, label %.lr.ph294, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %9, i64 0, i64 %58
+  %63 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %58
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 92
   %65 = load i32, ptr %64, align 4, !tbaa !6
   %.not.i = icmp ult i32 %spec.select184, %65
@@ -423,7 +423,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %98
   %spec.select402 = select i1 %.not174, i32 %.1145, i32 %60
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 %spec.select402, ptr %114, align 8, !tbaa !98
-  %115 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %9, i64 0, i64 %58
+  %115 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %58
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
   %117 = load i64, ptr %116, align 8, !tbaa !28
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 381584
@@ -463,7 +463,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit:               ; preds = %98
   %indvars.iv341 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next342, %.loopexit ]
   %.0140292 = phi i32 [ 0, %.lr.ph294 ], [ %.1141, %.loopexit ]
   %.0147289 = phi i32 [ 0, %.lr.ph294 ], [ %.1148, %.loopexit ]
-  %140 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %9, i64 0, i64 %indvars.iv341
+  %140 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %9, i64 %indvars.iv341
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 92
   %142 = load i32, ptr %141, align 4, !tbaa !6
   %143 = tail call i32 @llvm.umin.i32(i32 %spec.select184, i32 %142)
@@ -738,7 +738,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit250:            ; preds = %._crit_edge.i247, %
 
 .critedge:                                        ; preds = %245, %.preheader254
   %249 = sext i32 %243 to i64
-  %250 = getelementptr inbounds [8 x %struct.libraw_thumbnail_item_t], ptr %112, i64 0, i64 %249
+  %250 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %112, i64 %249
   store i32 4, ptr %250, align 8, !tbaa !113
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   store i64 %242, ptr %251, align 8, !tbaa !111
@@ -765,7 +765,7 @@ _ZN6LibRaw14selectCRXFrameEsj.exit250:            ; preds = %._crit_edge.i247, %
 
 switch.lookup:                                    ; preds = %._crit_edge295
   %258 = zext nneg i32 %137 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN6LibRaw14selectCRXTrackEv, i64 0, i64 %258
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6LibRaw14selectCRXTrackEv, i64 %258
   %switch.load = load i32, ptr %switch.gep, align 4
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %switch.load, ptr %259, align 8, !tbaa !120
@@ -835,7 +835,7 @@ switch.lookup:                                    ; preds = %._crit_edge295
 
 287:                                              ; preds = %.preheader, %287
   %indvars.iv354 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next355, %287 ]
-  %288 = getelementptr inbounds nuw [4 x float], ptr %286, i64 0, i64 %indvars.iv354
+  %288 = getelementptr inbounds nuw float, ptr %286, i64 %indvars.iv354
   store float 1.024000e+03, ptr %288, align 4, !tbaa !128
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, 4
@@ -861,7 +861,7 @@ define noundef range(i32 -13, 1) i32 @_ZN6LibRaw13parseCR3_CTMDEs(ptr noundef no
   store i16 18761, ptr %4, align 8, !tbaa !130
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 381992
   %7 = sext i16 %1 to i64
-  %8 = getelementptr inbounds [16 x %struct.crx_data_header_t], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds %struct.crx_data_header_t, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !91
   %.not = icmp eq i32 %10, 3
@@ -1211,7 +1211,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %4, i64 %119
   store i8 %113, ptr %120, align 1, !tbaa !137
-  %121 = getelementptr inbounds nuw [5 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   store i8 %113, ptr %121, align 1, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1235,7 +1235,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 131:                                              ; preds = %122, %130
   %indvars.iv573 = phi i64 [ 0, %122 ], [ %indvars.iv.next574, %130 ]
-  %132 = getelementptr inbounds nuw [72 x %struct.anon], ptr @_ZZN6LibRaw8parseCR3ExxRsPcS0_S0_E13AtomNamesList, i64 0, i64 %indvars.iv573
+  %132 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw8parseCR3ExxRsPcS0_S0_E13AtomNamesList, i64 %indvars.iv573
   %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %132) #10
   %.not297 = icmp eq i32 %133, 0
   br i1 %.not297, label %134, label %130
@@ -1400,7 +1400,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .critedge:                                        ; preds = %210, %.preheader477
   %214 = sext i32 %208 to i64
-  %215 = getelementptr inbounds [8 x %struct.libraw_thumbnail_item_t], ptr %34, i64 0, i64 %214
+  %215 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %34, i64 %214
   store i32 4, ptr %215, align 8, !tbaa !113
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store i64 %207, ptr %216, align 8, !tbaa !111
@@ -1575,7 +1575,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .critedge385:                                     ; preds = %298, %.preheader
   %302 = sext i32 %296 to i64
-  %303 = getelementptr inbounds [8 x %struct.libraw_thumbnail_item_t], ptr %34, i64 0, i64 %302
+  %303 = getelementptr inbounds %struct.libraw_thumbnail_item_t, ptr %34, i64 %302
   store i32 4, ptr %303, align 8, !tbaa !113
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
   store i64 %295, ptr %304, align 8, !tbaa !111
@@ -1757,7 +1757,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   %392 = load ptr, ptr %391, align 8
   %393 = call noundef i32 %392(ptr noundef nonnull align 8 dereferenceable(8) %389)
   %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds nuw [5 x i8], ptr %13, i64 0, i64 %indvars.iv601
+  %395 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv601
   store i8 %394, ptr %395, align 1, !tbaa !137
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next602, 4
@@ -1765,7 +1765,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
 
 .preheader474:                                    ; preds = %388, %400
   %indvars.iv605 = phi i64 [ %indvars.iv.next606, %400 ], [ 1, %388 ]
-  %396 = getelementptr inbounds nuw [5 x [5 x i8]], ptr @__const._ZN6LibRaw8parseCR3ExxRsPcS0_S0_.sHandlerType, i64 0, i64 %indvars.iv605
+  %396 = getelementptr inbounds nuw [5 x i8], ptr @__const._ZN6LibRaw8parseCR3ExxRsPcS0_S0_.sHandlerType, i64 %indvars.iv605
   %397 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %396) #10
   %.not341 = icmp eq i32 %397, 0
   br i1 %.not341, label %398, label %400
@@ -1805,7 +1805,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   %415 = load ptr, ptr %414, align 8
   %416 = call noundef i32 %415(ptr noundef nonnull align 8 dereferenceable(8) %412)
   %417 = trunc i32 %416 to i8
-  %418 = getelementptr inbounds nuw [5 x i8], ptr %14, i64 0, i64 %indvars.iv597
+  %418 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv597
   store i8 %417, ptr %418, align 1, !tbaa !137
   %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
   %exitcond600.not = icmp eq i64 %indvars.iv.next598, 4
@@ -2183,7 +2183,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   br label %.lr.ph488
 
 ._crit_edge489:                                   ; preds = %.lr.ph488
-  %641 = getelementptr inbounds [16 x %struct.crx_data_header_t], ptr %26, i64 0, i64 %648
+  %641 = getelementptr inbounds %struct.crx_data_header_t, ptr %26, i64 %648
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 104
   %643 = load ptr, ptr %642, align 8, !tbaa !26
   %644 = load i32, ptr %643, align 4, !tbaa !27
@@ -2291,7 +2291,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 
 693:                                              ; preds = %.thread455
   %694 = zext nneg i16 %692 to i64
-  %695 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %26, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %26, i64 %694
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 56
   %697 = load i32, ptr %696, align 8, !tbaa !29
   %.not377 = icmp eq i32 %697, 0
@@ -2421,7 +2421,7 @@ define void @_ZN6LibRaw13parseCR3_FreeEv(ptr noundef nonnull align 8 dereference
 
 9:                                                ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.crx_data_header_t, ptr %6, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null

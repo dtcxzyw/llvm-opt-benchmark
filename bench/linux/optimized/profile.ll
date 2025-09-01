@@ -273,7 +273,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %21 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !9
   %22 = sext i32 %21 to i64
-  %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
+  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, ptrtoint (ptr @cpu_profile_hits to i64)
   %26 = inttoptr i64 %25 to ptr
@@ -281,7 +281,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
   %28 = inttoptr i64 %27 to ptr
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr [2 x ptr], ptr %26, i64 0, i64 %30
+  %31 = getelementptr ptr, ptr %26, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %41
@@ -505,13 +505,13 @@ define dso_local i32 @create_proc_profile() #0 section ".ref.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %0) #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @numa_node to i64)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %0 to i64
-  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, ptrtoint (ptr @cpu_profile_flip to i64)
   %12 = inttoptr i64 %11 to ptr
@@ -524,7 +524,7 @@ define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %
   %16 = load i64, ptr %9, align 8
   %17 = add i64 %16, ptrtoint (ptr @cpu_profile_hits to i64)
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr [2 x ptr], ptr %18, i64 0, i64 %15
+  %19 = getelementptr ptr, ptr %18, i64 %15
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %61
@@ -544,7 +544,7 @@ define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %
   %29 = load i64, ptr %9, align 8
   %30 = add i64 %29, ptrtoint (ptr @cpu_profile_hits to i64)
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr [2 x ptr], ptr %31, i64 0, i64 %28
+  %32 = getelementptr ptr, ptr %31, i64 %28
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %48, label %35
@@ -580,7 +580,7 @@ define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %
   %57 = load i64, ptr %9, align 8
   %58 = add i64 %57, ptrtoint (ptr @cpu_profile_hits to i64)
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr [2 x ptr], ptr %59, i64 0, i64 %15
+  %60 = getelementptr ptr, ptr %59, i64 %15
   store ptr %56, ptr %60, align 8
   br label %61
 
@@ -596,7 +596,7 @@ define internal noundef range(i32 -12, 1) i32 @profile_prepare_cpu(i32 noundef %
 define internal noundef i32 @profile_dead_cpu(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @prof_cpu_mask, i64 %2) #12, !srcloc !29
-  %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
+  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
   br label %4
 
 4:                                                ; preds = %26, %1
@@ -605,7 +605,7 @@ define internal noundef i32 @profile_dead_cpu(i32 noundef %0) #0 align 16 {
   %7 = load i64, ptr %3, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_profile_hits to i64)
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr [2 x ptr], ptr %9, i64 0, i64 %6
+  %10 = getelementptr ptr, ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %26, label %13
@@ -736,7 +736,7 @@ define internal i64 @read_profile(ptr readnone captures(none) %0, ptr noundef %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
   %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !34
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @cpu_profile_flip to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -775,11 +775,11 @@ define internal i64 @read_profile(ptr readnone captures(none) %0, ptr noundef %1
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
+  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, ptrtoint (ptr @cpu_profile_hits to i64)
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr [2 x ptr], ptr %40, i64 0, i64 %24
+  %41 = getelementptr ptr, ptr %40, i64 %24
   %42 = load ptr, ptr %41, align 8
   br label %43
 
@@ -929,7 +929,7 @@ define internal noundef i64 @write_profile(ptr readnone captures(none) %0, ptr n
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !46
   %15 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !47
   %16 = sext i32 %15 to i64
-  %17 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
+  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @cpu_profile_flip to i64)
   %20 = inttoptr i64 %19 to ptr
@@ -968,11 +968,11 @@ define internal noundef i64 @write_profile(ptr readnone captures(none) %0, ptr n
 
 40:                                               ; preds = %36
   %41 = and i64 %37, 63
-  %42 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %41
+  %42 = getelementptr i64, ptr @__per_cpu_offset, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, ptrtoint (ptr @cpu_profile_hits to i64)
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr [2 x ptr], ptr %45, i64 0, i64 %29
+  %46 = getelementptr ptr, ptr %45, i64 %29
   %47 = load ptr, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(4096) %47, i8 0, i64 4096, i1 false)
   %48 = add nuw nsw i64 %37, 1
@@ -1003,7 +1003,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 define internal void @__profile_flip_buffers(ptr readnone captures(none) %0) #9 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !51
   %3 = sext i32 %2 to i64
-  %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
+  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_profile_flip to i64)
   %7 = inttoptr i64 %6 to ptr

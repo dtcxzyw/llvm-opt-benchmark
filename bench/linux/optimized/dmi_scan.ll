@@ -383,7 +383,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 .split.us:                                        ; preds = %1, %.thread5.us
   %5 = phi i64 [ %23, %.thread5.us ], [ 0, %1 ]
-  %6 = getelementptr [4 x %struct.dmi_strmatch], ptr %2, i64 0, i64 %5
+  %6 = getelementptr %struct.dmi_strmatch, ptr %2, i64 %5
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 127
   switch i8 %8, label %9 [
@@ -393,7 +393,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 9:                                                ; preds = %.split.us
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %10
+  %11 = getelementptr ptr, ptr @dmi_ident, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread6, label %14
@@ -420,7 +420,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 .split:                                           ; preds = %1, %.thread5
   %25 = phi i64 [ %59, %.thread5 ], [ 0, %1 ]
-  %26 = getelementptr [4 x %struct.dmi_strmatch], ptr %2, i64 0, i64 %25
+  %26 = getelementptr %struct.dmi_strmatch, ptr %2, i64 %25
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 127
   switch i8 %28, label %45 [
@@ -457,7 +457,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 
 45:                                               ; preds = %.split
   %46 = zext nneg i8 %28 to i64
-  %47 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %46
+  %47 = getelementptr ptr, ptr @dmi_ident, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread6, label %50
@@ -519,7 +519,7 @@ define dso_local noundef ptr @dmi_first_match(ptr noundef readonly captures(ret:
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local ptr @dmi_get_system_info(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @dmi_ident, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -553,10 +553,10 @@ define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr noundef re
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %2 = phi i1 [ false, %1 ], [ true, %.backedge.backedge ]
   %3 = phi i64 [ 0, %1 ], [ 1, %.backedge.backedge ]
-  %4 = getelementptr [3 x i32], ptr @dmi_name_in_vendors.fields, i64 0, i64 %3
+  %4 = getelementptr i32, ptr @dmi_name_in_vendors.fields, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @dmi_ident, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -658,7 +658,7 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr @dmi_ident, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %52
@@ -893,7 +893,7 @@ declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @dmi_match(i32 noundef %0, ptr noundef readonly captures(address) %1) #5 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %3
+  %4 = getelementptr ptr, ptr @dmi_ident, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %1, null
@@ -1546,7 +1546,7 @@ declare dso_local void @add_device_randomness(ptr noundef, i64 noundef) local_un
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_ident(ptr noundef readonly captures(address) %0, i32 noundef range(i32 1, 23) %1, i32 noundef range(i32 4, 27) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @dmi_ident, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %20
@@ -1577,7 +1577,7 @@ define internal fastcc void @dmi_save_ident(ptr noundef readonly captures(addres
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_release(ptr noundef readonly captures(none) %0, i32 noundef range(i32 4, 6) %1, i32 noundef range(i32 21, 24) %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr @dmi_ident, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %31
@@ -2102,7 +2102,7 @@ define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64
   %10 = phi i32 [ %22, %.preheader ], [ 0, %5 ]
   %11 = zext i8 %8 to i32
   %12 = zext i8 %8 to i64
-  %13 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @_ctype, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, -105
   %16 = icmp eq i8 %15, 0

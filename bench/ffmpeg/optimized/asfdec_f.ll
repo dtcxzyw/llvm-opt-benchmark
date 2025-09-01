@@ -365,12 +365,12 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %137 = add i32 %136, -1
   %138 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %139 = zext nneg i32 %134 to i64
-  %140 = getelementptr inbounds nuw [128 x i32], ptr %138, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %138, i64 %139
   store i32 %137, ptr %140, align 4, !tbaa !61
   %141 = getelementptr inbounds nuw i8, ptr %84, i64 520
   %142 = load i32, ptr %135, align 4, !tbaa !60
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds [128 x %struct.ASFStream], ptr %141, i64 0, i64 %143
+  %144 = getelementptr inbounds %struct.ASFStream, ptr %141, i64 %143
   %145 = call i32 @avio_rl32(ptr noundef %85) #14
   br i1 %.not167.i, label %148, label %146
 
@@ -677,7 +677,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   br i1 %306, label %307, label %310
 
 307:                                              ; preds = %305
-  %308 = getelementptr inbounds nuw [128 x [6 x i8]], ptr %296, i64 0, i64 %indvars.iv.i
+  %308 = getelementptr inbounds nuw [6 x i8], ptr %296, i64 %indvars.iv.i
   %309 = call i64 @av_strlcpy(ptr noundef nonnull %308, ptr noundef nonnull %5, i64 noundef 6) #14
   br label %310
 
@@ -871,7 +871,7 @@ get_value.exit37.i:                               ; preds = %354, %351, %349, %3
 390:                                              ; preds = %386
   %391 = getelementptr inbounds nuw i8, ptr %365, i64 159240
   %392 = zext nneg i32 %377 to i64
-  %393 = getelementptr inbounds nuw [128 x i32], ptr %391, i64 0, i64 %392
+  %393 = getelementptr inbounds nuw i32, ptr %391, i64 %392
   store i32 %369, ptr %393, align 4, !tbaa !61
   %.idx.i = mul nuw nsw i64 %392, 1240
   %394 = getelementptr inbounds nuw i8, ptr %365, i64 1720
@@ -890,7 +890,7 @@ get_value.exit37.i:                               ; preds = %354, %351, %349, %3
 .lr.ph69.i:                                       ; preds = %.preheader.i
   %399 = getelementptr inbounds nuw i8, ptr %365, i64 520
   %400 = zext nneg i32 %377 to i64
-  %401 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %399, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw %struct.ASFStream, ptr %399, i64 %400
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 1204
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 1200
   br i1 %379, label %.lr.ph69.split.preheader.i, label %.lr.ph69.split.us.i
@@ -939,7 +939,7 @@ get_value.exit37.i:                               ; preds = %354, %351, %349, %3
   br i1 %424, label %425, label %434
 
 425:                                              ; preds = %421
-  %426 = getelementptr inbounds nuw [8 x %struct.ASFPayload], ptr %402, i64 0, i64 %indvars.iv.i186
+  %426 = getelementptr inbounds nuw %struct.ASFPayload, ptr %402, i64 %indvars.iv.i186
   %427 = load i8, ptr %3, align 16, !tbaa !93
   store i8 %427, ptr %426, align 2, !tbaa !94
   %428 = trunc i32 %418 to i16
@@ -1169,7 +1169,7 @@ asf_read_file_properties.exit.thread:             ; preds = %357, %310, %312, %2
 
 535:                                              ; preds = %523, %602
   %indvars.iv248 = phi i64 [ 0, %523 ], [ %indvars.iv.next249, %602 ]
-  %536 = getelementptr inbounds nuw [128 x i32], ptr %19, i64 0, i64 %indvars.iv248
+  %536 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv248
   %537 = load i32, ptr %536, align 4, !tbaa !61
   %538 = icmp sgt i32 %537, -1
   br i1 %538, label %539, label %602
@@ -1187,14 +1187,14 @@ asf_read_file_properties.exit.thread:             ; preds = %357, %310, %312, %2
   br i1 %.not172, label %548, label %552
 
 548:                                              ; preds = %539
-  %549 = getelementptr inbounds nuw [128 x i32], ptr %528, i64 0, i64 %indvars.iv248
+  %549 = getelementptr inbounds nuw i32, ptr %528, i64 %indvars.iv248
   %550 = load i32, ptr %549, align 4, !tbaa !61
   %551 = zext i32 %550 to i64
   store i64 %551, ptr %546, align 8, !tbaa !110
   br label %552
 
 552:                                              ; preds = %548, %539
-  %553 = getelementptr inbounds nuw [128 x %struct.AVRational], ptr %529, i64 0, i64 %indvars.iv248
+  %553 = getelementptr inbounds nuw %struct.AVRational, ptr %529, i64 %indvars.iv248
   %554 = load i32, ptr %553, align 8, !tbaa !87
   %555 = icmp sgt i32 %554, 0
   br i1 %555, label %556, label %560
@@ -1250,7 +1250,7 @@ asf_read_file_properties.exit.thread:             ; preds = %357, %310, %312, %2
 
 588:                                              ; preds = %574
   %589 = zext nneg i16 %586 to i64
-  %590 = getelementptr inbounds nuw [128 x [6 x i8]], ptr %532, i64 0, i64 %589
+  %590 = getelementptr inbounds nuw [6 x i8], ptr %532, i64 %589
   %591 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %590) #15
   %592 = icmp ugt i64 %591, 1
   br i1 %592, label %593, label %602
@@ -1408,12 +1408,12 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = and i32 %66, 127
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [128 x i32], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr %72, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !61
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 161744
   store i32 %76, ptr %77, align 8, !tbaa !119
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 520
-  %79 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %78, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw %struct.ASFStream, ptr %78, i64 %74
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 161660
   %81 = load i32, ptr %80, align 4, !tbaa !120
   %82 = lshr i32 %81, 4
@@ -1583,7 +1583,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
 
 162:                                              ; preds = %197, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %197 ]
-  %163 = getelementptr inbounds nuw [8 x %struct.ASFPayload], ptr %160, i64 0, i64 %indvars.iv.i.i
+  %163 = getelementptr inbounds nuw %struct.ASFPayload, ptr %160, i64 %indvars.iv.i.i
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 2
   %165 = load i16, ptr %164, align 2, !tbaa !96
   %166 = zext i16 %165 to i32
@@ -1857,7 +1857,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
 
 304:                                              ; preds = %288, %._crit_edge370.i
   %.pre-phi.i = phi i64 [ %.pre381.i, %._crit_edge370.i ], [ %291, %288 ]
-  %305 = getelementptr inbounds [128 x %struct.ASFStream], ptr %23, i64 0, i64 %.pre-phi.i
+  %305 = getelementptr inbounds %struct.ASFStream, ptr %23, i64 %.pre-phi.i
   store ptr %305, ptr %24, align 8, !tbaa !136
   %306 = load i32, ptr %25, align 4, !tbaa !122
   %.not292.i = icmp eq i32 %306, 0
@@ -2712,7 +2712,7 @@ define internal noundef i32 @asf_read_close(ptr noundef readonly captures(none) 
 
 10:                                               ; preds = %10, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %9, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %struct.ASFStream, ptr %9, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @av_packet_unref(ptr noundef nonnull %12) #14
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 116
@@ -2776,7 +2776,7 @@ define internal i32 @asf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
 
 30:                                               ; preds = %30, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %30 ]
-  %31 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %29, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw %struct.ASFStream, ptr %29, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   tail call void @av_packet_unref(ptr noundef nonnull %32) #14
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 116
@@ -2823,7 +2823,7 @@ define internal i32 @asf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
 
 49:                                               ; preds = %49, %41
   %indvars.iv.i60 = phi i64 [ 0, %41 ], [ %indvars.iv.next.i61, %49 ]
-  %50 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %48, i64 0, i64 %indvars.iv.i60
+  %50 = getelementptr inbounds nuw %struct.ASFStream, ptr %48, i64 %indvars.iv.i60
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   tail call void @av_packet_unref(ptr noundef nonnull %51) #14
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 116
@@ -3041,7 +3041,7 @@ thread-pre-split:                                 ; preds = %asf_build_simple_in
 
 166:                                              ; preds = %166, %158
   %indvars.iv.i67 = phi i64 [ 0, %158 ], [ %indvars.iv.next.i68, %166 ]
-  %167 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %165, i64 0, i64 %indvars.iv.i67
+  %167 = getelementptr inbounds nuw %struct.ASFStream, ptr %165, i64 %indvars.iv.i67
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   call void @av_packet_unref(ptr noundef nonnull %168) #14
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 116
@@ -3064,7 +3064,7 @@ asf_reset_header.exit70:                          ; preds = %166
 
 176:                                              ; preds = %190, %asf_reset_header.exit70
   %indvars.iv.i71 = phi i64 [ 0, %asf_reset_header.exit70 ], [ %indvars.iv.next.i73, %190 ]
-  %177 = getelementptr inbounds nuw [128 x i32], ptr %174, i64 0, i64 %indvars.iv.i71
+  %177 = getelementptr inbounds nuw i32, ptr %174, i64 %indvars.iv.i71
   %178 = load i32, ptr %177, align 4, !tbaa !61
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %190, label %180
@@ -3115,7 +3115,7 @@ skip_to_key.exit.thread:                          ; preds = %147, %.thread86, %1
 
 201:                                              ; preds = %201, %193
   %indvars.iv.i75 = phi i64 [ 0, %193 ], [ %indvars.iv.next.i76, %201 ]
-  %202 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %200, i64 0, i64 %indvars.iv.i75
+  %202 = getelementptr inbounds nuw %struct.ASFStream, ptr %200, i64 %indvars.iv.i75
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   call void @av_packet_unref(ptr noundef nonnull %203) #14
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 116
@@ -3138,7 +3138,7 @@ asf_reset_header.exit78:                          ; preds = %201
 
 211:                                              ; preds = %225, %asf_reset_header.exit78
   %indvars.iv.i79 = phi i64 [ 0, %asf_reset_header.exit78 ], [ %indvars.iv.next.i81, %225 ]
-  %212 = getelementptr inbounds nuw [128 x i32], ptr %209, i64 0, i64 %indvars.iv.i79
+  %212 = getelementptr inbounds nuw i32, ptr %209, i64 %indvars.iv.i79
   %213 = load i32, ptr %212, align 4, !tbaa !61
   %214 = icmp slt i32 %213, 0
   br i1 %214, label %225, label %215
@@ -3191,7 +3191,7 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw [127 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %.fr50, ptr %12, align 8, !tbaa !141
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3246,7 +3246,7 @@ define internal noundef i64 @asf_read_pts(ptr noundef %0, i32 noundef %1, ptr no
 
 38:                                               ; preds = %38, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw [128 x %struct.ASFStream], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw %struct.ASFStream, ptr %37, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   tail call void @av_packet_unref(ptr noundef nonnull %40) #14
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 116
@@ -3299,7 +3299,7 @@ asf_reset_header.exit:                            ; preds = %38
   %66 = getelementptr i8, ptr %51, i64 %.idx
   %67 = load i64, ptr %66, align 8, !tbaa !143
   %68 = load i32, ptr %52, align 8, !tbaa !104
-  %69 = getelementptr inbounds [127 x i64], ptr %6, i64 0, i64 %60
+  %69 = getelementptr inbounds i64, ptr %6, i64 %60
   %70 = load i64, ptr %69, align 8, !tbaa !141
   %71 = sub nsw i64 %67, %70
   %72 = trunc i64 %71 to i32
@@ -3431,7 +3431,7 @@ get_value.exit:                                   ; preds = %34, %36, %38, %40, 
 
 46:                                               ; preds = %get_value.exit
   %47 = sext i32 %13 to i64
-  %48 = getelementptr inbounds [128 x %struct.AVRational], ptr %10, i64 0, i64 %47
+  %48 = getelementptr inbounds %struct.AVRational, ptr %10, i64 %47
   store i32 %.0.i, ptr %48, align 8, !tbaa !87
   br label %67
 

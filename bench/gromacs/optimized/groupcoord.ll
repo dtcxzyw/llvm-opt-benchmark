@@ -52,7 +52,7 @@ define void @_Z27dd_make_local_group_indicesPK11gmx_ga2la_tiPiS2_PS2_S2_S2_(ptr 
   %.not.i.i.i.i.i = phi i1 [ true, %13 ], [ false, %24 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %13 ], [ 1, %24 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %13 ], [ %.1.i.i.i.i.i, %24 ]
-  %19 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %19 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 %.0813.i.i.i.i.i
   %20 = load i8, ptr %19, align 1, !tbaa !13, !range !15, !noundef !16
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %24
@@ -272,9 +272,9 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
 
 .preheader46.i:                                   ; preds = %100, %46
   %indvars.iv72.i = phi i64 [ 2, %46 ], [ %indvars.iv.next73.i, %100 ]
-  %63 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv72.i
+  %63 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv72.i
   %64 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv72.i
-  %65 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv72.i
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv72.i
   %66 = load float, ptr %65, align 4, !tbaa !37
   %67 = fpext float %66 to double
   %68 = fmul double %67, -5.000000e-01
@@ -284,7 +284,7 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
   br i1 %71, label %.preheader44.lr.ph.i, label %.preheader45.i
 
 .preheader44.lr.ph.i:                             ; preds = %.preheader46.i
-  %72 = getelementptr inbounds nuw [3 x i32], ptr %62, i64 0, i64 %indvars.iv72.i
+  %72 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv72.i
   %.promoted.i = load i32, ptr %72, align 4, !tbaa !9
   br label %.preheader44.i
 
@@ -299,7 +299,7 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
   br i1 %74, label %100, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader45.i
-  %75 = getelementptr inbounds nuw [3 x i32], ptr %62, i64 0, i64 %indvars.iv72.i
+  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv72.i
   %.promoted59.i = load i32, ptr %75, align 4, !tbaa !9
   br label %.preheader.i
 
@@ -309,9 +309,9 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
 
 77:                                               ; preds = %77, %.preheader44.i
   %indvars.iv.i = phi i64 [ 0, %.preheader44.i ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i
   %79 = load float, ptr %78, align 4, !tbaa !37
-  %80 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i
   %81 = load float, ptr %80, align 4, !tbaa !37
   %82 = fadd float %79, %81
   store float %82, ptr %80, align 4, !tbaa !37
@@ -332,9 +332,9 @@ _ZL16get_shifts_groupiPA3_KfPA3_fiS3_PA3_i.exit.thread: ; preds = %41
 
 89:                                               ; preds = %89, %.preheader.i
   %indvars.iv68.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next69.i, %89 ]
-  %90 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv68.i
+  %90 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv68.i
   %91 = load float, ptr %90, align 4, !tbaa !37
-  %92 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv68.i
+  %92 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv68.i
   %93 = load float, ptr %92, align 4, !tbaa !37
   %94 = fsub float %93, %91
   store float %94, ptr %92, align 4, !tbaa !37
@@ -898,9 +898,9 @@ define void @_Z8rotate_xPA3_fiS0_(ptr noundef captures(none) %0, i32 noundef %1,
 
 8:                                                ; preds = %.preheader24, %16
   %indvars.iv32 = phi i64 [ 0, %.preheader24 ], [ %indvars.iv.next33, %16 ]
-  %9 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv32
+  %9 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv32
   store float 0.000000e+00, ptr %9, align 4, !tbaa !37
-  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv32
+  %invariant.gep = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv32
   br label %10
 
 10:                                               ; preds = %8, %10
@@ -908,7 +908,7 @@ define void @_Z8rotate_xPA3_fiS0_(ptr noundef captures(none) %0, i32 noundef %1,
   %11 = phi float [ 0.000000e+00, %8 ], [ %15, %10 ]
   %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv
   %12 = load float, ptr %gep, align 4, !tbaa !37
-  %13 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !37
   %15 = tail call float @llvm.fmuladd.f32(float %12, float %14, float %11)
   store float %15, ptr %9, align 4, !tbaa !37

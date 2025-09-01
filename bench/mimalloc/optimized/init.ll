@@ -201,7 +201,7 @@ define hidden void @_mi_thread_data_collect() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0, %10
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %10 ]
-  %3 = getelementptr inbounds nuw [32 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
@@ -312,7 +312,7 @@ _mi_thread_heap_init.exit.thread1:                ; preds = %_mi_is_main_thread.
 
 .preheader.i:                                     ; preds = %_mi_is_main_thread.exit.i, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 0, %_mi_is_main_thread.exit.i ]
-  %23 = getelementptr inbounds nuw [32 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv.i.i
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %.not.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i, label %27, label %25
@@ -602,7 +602,7 @@ define hidden void @_mi_thread_done(ptr noundef readonly captures(address) %0) l
 
 38:                                               ; preds = %.critedge.i.i, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
-  %39 = getelementptr inbounds nuw [32 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw ptr, ptr @td_cache, i64 %indvars.iv.i.i
   %40 = load atomic i64, ptr %39 monotonic, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %.critedge.i.i

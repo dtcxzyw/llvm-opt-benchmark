@@ -549,8 +549,8 @@ smart_str_alloc.exit77:                           ; preds = %82, %91
 
 smart_str_appendc_ex.exit:                        ; preds = %117, %126
   %127 = phi ptr [ %122, %117 ], [ %.pre176, %126 ]
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = getelementptr inbounds nuw [1 x i8], ptr %128, i64 0, i64 %113
+  %128 = getelementptr i8, ptr %127, i64 23
+  %129 = getelementptr i8, ptr %128, i64 %124
   store i8 61, ptr %129, align 1, !tbaa !8
   %130 = load ptr, ptr %12, align 8, !tbaa !31
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
@@ -1868,7 +1868,7 @@ zend_string_alloc.exit:                           ; preds = %29
   store i64 %33, ptr %39, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %.0, i64 %33, i1 false)
-  %41 = getelementptr inbounds nuw [1 x i8], ptr %40, i64 0, i64 %33
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %33
   store i8 0, ptr %41, align 1, !tbaa !8
   store ptr %36, ptr %32, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 16

@@ -87,7 +87,7 @@ define noundef zeroext i1 @_Z10CreatePathPKwbb(ptr noundef %0, i1 noundef zeroex
 
 21:                                               ; preds = %18
   %22 = call ptr @wcsncpy(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %16) #14
-  %23 = getelementptr inbounds nuw [2048 x i32], ptr %6, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   store i32 0, ptr %23, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 2048)
@@ -451,7 +451,7 @@ define void @_Z11CalcFileSumP4FilePjPhjlj(ptr noundef %0, ptr noundef writeonly 
 
 18:                                               ; preds = %18, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   store ptr @.str, ptr %19, align 8, !tbaa !18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -669,7 +669,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %29, %31
 
 102:                                              ; preds = %102, %101
   %indvars.iv.i.i57 = phi i64 [ 0, %101 ], [ %indvars.iv.next.i.i58, %102 ]
-  %103 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i57
+  %103 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i57
   store ptr @.str, ptr %103, align 8, !tbaa !18
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 8
@@ -873,7 +873,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   %.2 = select i1 %25, i64 %26, i64 %.13760
   %27 = add i32 %.03561, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2048 x i32], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %5, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
   %.not47 = icmp ne i32 %30, 0
   %31 = load i64, ptr %14, align 8

@@ -199,7 +199,7 @@ poly1305_update_padded_16.exit10:                 ; preds = %poly1305_update_pad
   %indvars.iv.i = phi i64 [ 0, %poly1305_update_padded_16.exit10 ], [ %indvars.iv.next.i, %14 ]
   %.057.i = phi i64 [ %2, %poly1305_update_padded_16.exit10 ], [ %17, %14 ]
   %15 = trunc i64 %.057.i to i8
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %15, ptr %16, align 1, !tbaa !17
   %17 = lshr i64 %.057.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -216,7 +216,7 @@ poly1305_update_length.exit:                      ; preds = %14
   %indvars.iv.i11 = phi i64 [ 0, %poly1305_update_length.exit ], [ %indvars.iv.next.i13, %18 ]
   %.057.i12 = phi i64 [ %4, %poly1305_update_length.exit ], [ %21, %18 ]
   %19 = trunc i64 %.057.i12 to i8
-  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i11
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i11
   store i8 %19, ptr %20, align 1, !tbaa !17
   %21 = lshr i64 %.057.i12, 8
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
@@ -369,7 +369,7 @@ define internal void @poly1305_update_old(ptr noundef %0, ptr noundef %1, i64 no
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %8 ]
   %.057.i = phi i64 [ %2, %5 ], [ %11, %8 ]
   %9 = trunc i64 %.057.i to i8
-  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   store i8 %9, ptr %10, align 1, !tbaa !17
   %11 = lshr i64 %.057.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -387,7 +387,7 @@ poly1305_update_length.exit:                      ; preds = %8
   %indvars.iv.i9 = phi i64 [ 0, %poly1305_update_length.exit ], [ %indvars.iv.next.i11, %12 ]
   %.057.i10 = phi i64 [ %4, %poly1305_update_length.exit ], [ %15, %12 ]
   %13 = trunc i64 %.057.i10 to i8
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i9
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i9
   store i8 %13, ptr %14, align 1, !tbaa !17
   %15 = lshr i64 %.057.i10, 8
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i9, 1

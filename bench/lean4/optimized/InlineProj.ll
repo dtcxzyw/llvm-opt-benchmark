@@ -4564,7 +4564,7 @@ lean_array_get.exit.thread2326:                   ; preds = %1590
 
 lean_dec.exit.i:                                  ; preds = %1604, %1603, %1601, %1595
   %1605 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  %1606 = getelementptr inbounds nuw [0 x ptr], ptr %1605, i64 0, i64 %1591
+  %1606 = getelementptr inbounds nuw ptr, ptr %1605, i64 %1591
   %1607 = load ptr, ptr %1606, align 8, !tbaa !4
   %1608 = ptrtoint ptr %1607 to i64
   %1609 = and i64 %1608, 1
@@ -5899,7 +5899,7 @@ lean_array_get.exit2155.thread2337:               ; preds = %2097
 
 lean_dec.exit.i2150:                              ; preds = %2111, %2110, %2108, %2102
   %2112 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  %2113 = getelementptr inbounds nuw [0 x ptr], ptr %2112, i64 0, i64 %2098
+  %2113 = getelementptr inbounds nuw ptr, ptr %2112, i64 %2098
   %2114 = load ptr, ptr %2113, align 8, !tbaa !4
   %2115 = ptrtoint ptr %2114 to i64
   %2116 = and i64 %2115, 1

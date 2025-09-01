@@ -2196,7 +2196,7 @@ define ptr @l_Lean_JsonRpc_instToJsonErrorCode(i8 noundef zeroext %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2239,7 +2239,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 15
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lean_JsonRpc_instToJsonErrorCode.exit
 
@@ -9452,7 +9452,7 @@ lean_alloc_ctor.exit648:                          ; preds = %767
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit648
   %776 = zext nneg i8 %.val514 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %776
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %776
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %777
 
@@ -24467,7 +24467,7 @@ lean_alloc_ctor.exit1500:                         ; preds = %2012
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1500
   %2021 = zext nneg i8 %.val1287 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %2021
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %2021
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %2022
 
@@ -29991,7 +29991,7 @@ lean_alloc_ctor.exit1681:                         ; preds = %2200
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1681
   %2209 = zext nneg i8 %.val1468 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %2209
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %2209
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %2210
 
@@ -35014,7 +35014,7 @@ lean_alloc_ctor.exit1474:                         ; preds = %1936
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit1474
   %1945 = zext nneg i8 %.val1274 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %1945
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %1945
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1946
 
@@ -37401,7 +37401,7 @@ lean_alloc_ctor.exit696:                          ; preds = %769
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit696
   %778 = zext nneg i8 %.val562 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 0, i64 %778
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeMessage, i64 %778
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %779
 

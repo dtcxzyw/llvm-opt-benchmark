@@ -237,7 +237,7 @@ define internal i64 @n_tty_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 94
-  %46 = getelementptr [4096 x i8], ptr %45, i64 0, i64 %39
+  %46 = getelementptr i8, ptr %45, i64 %39
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %101
@@ -277,7 +277,7 @@ define internal i64 @n_tty_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 69:                                               ; preds = %58
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 94
-  %71 = getelementptr [4096 x i8], ptr %70, i64 0, i64 %63
+  %71 = getelementptr i8, ptr %70, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %71, i64 %67, i1 false)
   %72 = icmp eq i64 %67, 1
   br i1 %72, label %73, label %78
@@ -629,7 +629,7 @@ define internal i64 @n_tty_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 290:                                              ; preds = %277
   %291 = getelementptr inbounds nuw i8, ptr %279, i64 94
-  %292 = getelementptr [4096 x i8], ptr %291, i64 0, i64 %284
+  %292 = getelementptr i8, ptr %291, i64 %284
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre21, ptr align 1 %292, i64 %288, i1 false)
   %293 = icmp eq i64 %288, 1
   br i1 %293, label %294, label %298
@@ -953,7 +953,7 @@ define internal i64 @n_tty_write(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 130:                                              ; preds = %96
   %131 = zext i8 %99 to i64
-  %132 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %131
+  %132 = getelementptr i8, ptr @_ctype, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = and i8 %133, 8
   %135 = icmp eq i8 %134, 0
@@ -1210,7 +1210,7 @@ define internal i32 @n_tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr [4096 x i8], ptr %34, i64 0, i64 %36
+  %43 = getelementptr i8, ptr %34, i64 %36
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
   %46 = sext i1 %45 to i64
@@ -2025,7 +2025,7 @@ define internal fastcc zeroext i1 @canon_copy_from_read_buf(ptr noundef %0, ptr 
   %46 = phi i64 [ %27, %26 ], [ %20, %35 ]
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 94
   %48 = and i64 %46, 4095
-  %49 = getelementptr [4096 x i8], ptr %47, i64 0, i64 %48
+  %49 = getelementptr i8, ptr %47, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   %spec.select = select i1 %51, i64 %45, i64 %44
@@ -2040,7 +2040,7 @@ define internal fastcc zeroext i1 @canon_copy_from_read_buf(ptr noundef %0, ptr 
   %58 = load ptr, ptr %4, align 8
   %59 = sub nuw nsw i64 4096, %16
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 94
-  %61 = getelementptr [4096 x i8], ptr %60, i64 0, i64 %16
+  %61 = getelementptr i8, ptr %60, i64 %16
   %62 = icmp ult i64 %59, %56
   br i1 %62, label %63, label %72
 
@@ -2285,7 +2285,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   %17 = phi i64 [ %6, %12 ], [ %123, %122 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %18 = and i64 %17, 4095
-  %19 = getelementptr [4096 x i8], ptr %13, i64 0, i64 %18
+  %19 = getelementptr i8, ptr %13, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, -1
   br i1 %21, label %22, label %105
@@ -2304,7 +2304,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 4704
   %32 = and i64 %26, 4095
-  %33 = getelementptr [4096 x i8], ptr %31, i64 0, i64 %32
+  %33 = getelementptr i8, ptr %31, i64 %32
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %89 [
     i8 -126, label %35
@@ -2324,7 +2324,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
 41:                                               ; preds = %35
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %42 = and i64 %37, 4095
-  %43 = getelementptr [4096 x i8], ptr %31, i64 0, i64 %42
+  %43 = getelementptr i8, ptr %31, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = icmp sgt i8 %44, -1
@@ -2488,7 +2488,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
   %139 = phi i64 [ %130, %136 ], [ %155, %154 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %140 = and i64 %139, 4095
-  %141 = getelementptr [4096 x i8], ptr %137, i64 0, i64 %140
+  %141 = getelementptr i8, ptr %137, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = icmp eq i8 %142, -1
   %144 = add nuw i64 %139, 1
@@ -2497,7 +2497,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__process_echoes(
 145:                                              ; preds = %138
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
   %146 = and i64 %144, 4095
-  %147 = getelementptr [4096 x i8], ptr %137, i64 0, i64 %146
+  %147 = getelementptr i8, ptr %137, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, -126
   br i1 %149, label %150, label %152
@@ -2669,7 +2669,7 @@ define internal fastcc range(i32 -1, 9) i32 @do_output_char(i8 noundef zeroext %
 
 81:                                               ; preds = %7
   %82 = zext i8 %0 to i64
-  %83 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %82
+  %83 = getelementptr i8, ptr @_ctype, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, 8
   %86 = icmp eq i8 %85, 0
@@ -2869,7 +2869,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef
   %98 = and i64 %94, 4095
   %99 = sub nuw nsw i64 4096, %98
   %100 = tail call i64 @llvm.umin.i64(i64 %96, i64 %99)
-  %101 = getelementptr [4096 x i8], ptr %92, i64 0, i64 %98
+  %101 = getelementptr i8, ptr %92, i64 %98
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %95, i64 %100, i1 false)
   %102 = load i64, ptr %70, align 8
   %103 = add i64 %100, %102
@@ -2918,7 +2918,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef
 131:                                              ; preds = %126
   %132 = load i64, ptr %70, align 8
   %133 = and i64 %132, 4095
-  %134 = getelementptr [4096 x i8], ptr %115, i64 0, i64 %133
+  %134 = getelementptr i8, ptr %115, i64 %133
   store i8 %130, ptr %134, align 1
   %135 = add i64 %132, 1
   store i64 %135, ptr %70, align 8
@@ -3197,7 +3197,7 @@ define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %41
   %46 = zext i8 %38 to i64
-  %47 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %46
+  %47 = getelementptr i8, ptr @_ctype, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = shl i8 %48, 5
   %50 = and i8 %49, 32
@@ -3368,7 +3368,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 67:                                               ; preds = %63
   %68 = zext i8 %60 to i64
-  %69 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %68
+  %69 = getelementptr i8, ptr @_ctype, i64 %68
   %70 = load i8, ptr %69, align 1
   %71 = shl i8 %70, 5
   %72 = and i8 %71, 32
@@ -3408,7 +3408,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 90:                                               ; preds = %80
   %91 = zext i8 %85 to i64
-  %92 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %91
+  %92 = getelementptr i8, ptr @_ctype, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = shl i8 %93, 5
   %95 = and i8 %94, 32
@@ -3424,7 +3424,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 101:                                              ; preds = %97
   %102 = load i64, ptr %7, align 8
   %103 = and i64 %102, 4095
-  %104 = getelementptr [4096 x i8], ptr %13, i64 0, i64 %103
+  %104 = getelementptr i8, ptr %13, i64 %103
   store i8 %98, ptr %104, align 1
   %105 = add i64 %102, 1
   store i64 %105, ptr %7, align 8
@@ -3636,7 +3636,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %224 = load i64, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %226 = and i64 %224, 4095
-  %227 = getelementptr [4096 x i8], ptr %225, i64 0, i64 %226
+  %227 = getelementptr i8, ptr %225, i64 %226
   store i8 47, ptr %227, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %228 = load i64, ptr %223, align 8
@@ -3658,14 +3658,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %238 = load i64, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 4704
   %240 = and i64 %238, 4095
-  %241 = getelementptr [4096 x i8], ptr %239, i64 0, i64 %240
+  %241 = getelementptr i8, ptr %239, i64 %240
   store i8 -1, ptr %241, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %242 = load i64, ptr %237, align 8
   %243 = add i64 %242, 1
   store i64 %243, ptr %237, align 8
   %244 = and i64 %243, 4095
-  %245 = getelementptr [4096 x i8], ptr %239, i64 0, i64 %244
+  %245 = getelementptr i8, ptr %239, i64 %244
   store i8 -1, ptr %245, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %272
@@ -3678,7 +3678,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 250:                                              ; preds = %246
   %251 = zext i8 %233 to i64
-  %252 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %251
+  %252 = getelementptr i8, ptr @_ctype, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = and i8 %253, 8
   %255 = icmp ne i8 %254, 0
@@ -3691,7 +3691,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %260 = load i64, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %234, i64 4704
   %262 = and i64 %260, 4095
-  %263 = getelementptr [4096 x i8], ptr %261, i64 0, i64 %262
+  %263 = getelementptr i8, ptr %261, i64 %262
   store i8 -1, ptr %263, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %264 = load i64, ptr %259, align 8
@@ -3704,7 +3704,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %268 = load i64, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %234, i64 4704
   %270 = and i64 %268, 4095
-  %271 = getelementptr [4096 x i8], ptr %269, i64 0, i64 %270
+  %271 = getelementptr i8, ptr %269, i64 %270
   store i8 %233, ptr %271, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %272
@@ -3724,7 +3724,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %281 = load i64, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %283 = and i64 %281, 4095
-  %284 = getelementptr [4096 x i8], ptr %282, i64 0, i64 %283
+  %284 = getelementptr i8, ptr %282, i64 %283
   store i8 10, ptr %284, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %285 = load i64, ptr %280, align 8
@@ -3760,7 +3760,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 .split.us:                                        ; preds = %300
   %304 = add i64 %295, -1
   %305 = and i64 %304, 4095
-  %306 = getelementptr [4096 x i8], ptr %289, i64 0, i64 %305
+  %306 = getelementptr i8, ptr %289, i64 %305
   %307 = load i8, ptr %306, align 1
   br label %.split46
 
@@ -3768,7 +3768,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %308 = phi i64 [ %309, %314 ], [ %295, %300 ]
   %309 = add i64 %308, -1
   %310 = and i64 %309, 4095
-  %311 = getelementptr [4096 x i8], ptr %289, i64 0, i64 %310
+  %311 = getelementptr i8, ptr %289, i64 %310
   %312 = load i8, ptr %311, align 1
   %313 = icmp sgt i8 %312, -65
   br i1 %313, label %.split46, label %314
@@ -3787,7 +3787,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 318:                                              ; preds = %.split46
   %319 = zext i8 %.us-phi48 to i64
-  %320 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %319
+  %320 = getelementptr i8, ptr @_ctype, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = and i8 %321, 7
   %323 = icmp ne i8 %322, 0
@@ -3825,7 +3825,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 342:                                              ; preds = %338
   %343 = load i64, ptr %291, align 8
   %344 = and i64 %343, 4095
-  %345 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %344
+  %345 = getelementptr i8, ptr %292, i64 %344
   store i8 92, ptr %345, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %346 = load i64, ptr %291, align 8
@@ -3846,14 +3846,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %355 = load i64, ptr %354, align 8
   %356 = getelementptr inbounds nuw i8, ptr %351, i64 4704
   %357 = and i64 %355, 4095
-  %358 = getelementptr [4096 x i8], ptr %356, i64 0, i64 %357
+  %358 = getelementptr i8, ptr %356, i64 %357
   store i8 -1, ptr %358, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %359 = load i64, ptr %354, align 8
   %360 = add i64 %359, 1
   store i64 %360, ptr %354, align 8
   %361 = and i64 %360, 4095
-  %362 = getelementptr [4096 x i8], ptr %356, i64 0, i64 %361
+  %362 = getelementptr i8, ptr %356, i64 %361
   store i8 -1, ptr %362, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %389
@@ -3866,7 +3866,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 367:                                              ; preds = %363
   %368 = zext i8 %.us-phi48 to i64
-  %369 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %368
+  %369 = getelementptr i8, ptr @_ctype, i64 %368
   %370 = load i8, ptr %369, align 1
   %371 = and i8 %370, 8
   %372 = icmp ne i8 %371, 0
@@ -3879,7 +3879,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %377 = load i64, ptr %376, align 8
   %378 = getelementptr inbounds nuw i8, ptr %351, i64 4704
   %379 = and i64 %377, 4095
-  %380 = getelementptr [4096 x i8], ptr %378, i64 0, i64 %379
+  %380 = getelementptr i8, ptr %378, i64 %379
   store i8 -1, ptr %380, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %381 = load i64, ptr %376, align 8
@@ -3892,7 +3892,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %385 = load i64, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %351, i64 4704
   %387 = and i64 %385, 4095
-  %388 = getelementptr [4096 x i8], ptr %386, i64 0, i64 %387
+  %388 = getelementptr i8, ptr %386, i64 %387
   store i8 %.us-phi48, ptr %388, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %389
@@ -3916,11 +3916,11 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %397 = phi i64 [ %398, %411 ], [ %.us-phi47, %.preheader33.preheader ]
   %398 = add i64 %397, 1
   %399 = and i64 %398, 4095
-  %400 = getelementptr [4096 x i8], ptr %289, i64 0, i64 %399
+  %400 = getelementptr i8, ptr %289, i64 %399
   %401 = load i8, ptr %400, align 1
   %402 = icmp eq i8 %401, -1
   %403 = and i64 %395, 4095
-  %404 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %403
+  %404 = getelementptr i8, ptr %292, i64 %403
   br i1 %402, label %405, label %410
 
 405:                                              ; preds = %.preheader33
@@ -3930,7 +3930,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %407 = add i64 %406, 1
   store i64 %407, ptr %291, align 8
   %408 = and i64 %407, 4095
-  %409 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %408
+  %409 = getelementptr i8, ptr %292, i64 %408
   store i8 -1, ptr %409, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %411
@@ -3945,14 +3945,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %413 = add i64 %412, 1
   store i64 %413, ptr %291, align 8
   %414 = and i64 %413, 4095
-  %415 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %414
+  %415 = getelementptr i8, ptr %292, i64 %414
   store i8 -1, ptr %415, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %416 = load i64, ptr %291, align 8
   %417 = add i64 %416, 1
   store i64 %417, ptr %291, align 8
   %418 = and i64 %417, 4095
-  %419 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %418
+  %419 = getelementptr i8, ptr %292, i64 %418
   store i8 -128, ptr %419, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %420 = load i64, ptr %291, align 8
@@ -3979,14 +3979,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %434 = load i64, ptr %433, align 8
   %435 = getelementptr inbounds nuw i8, ptr %430, i64 4704
   %436 = and i64 %434, 4095
-  %437 = getelementptr [4096 x i8], ptr %435, i64 0, i64 %436
+  %437 = getelementptr i8, ptr %435, i64 %436
   store i8 -1, ptr %437, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %438 = load i64, ptr %433, align 8
   %439 = add i64 %438, 1
   store i64 %439, ptr %433, align 8
   %440 = and i64 %439, 4095
-  %441 = getelementptr [4096 x i8], ptr %435, i64 0, i64 %440
+  %441 = getelementptr i8, ptr %435, i64 %440
   store i8 -1, ptr %441, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %561
@@ -3998,7 +3998,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 445:                                              ; preds = %442
   %446 = zext i8 %429 to i64
-  %447 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %446
+  %447 = getelementptr i8, ptr @_ctype, i64 %446
   %448 = load i8, ptr %447, align 1
   %449 = and i8 %448, 8
   %450 = icmp ne i8 %449, 0
@@ -4011,7 +4011,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %455 = load i64, ptr %454, align 8
   %456 = getelementptr inbounds nuw i8, ptr %430, i64 4704
   %457 = and i64 %455, 4095
-  %458 = getelementptr [4096 x i8], ptr %456, i64 0, i64 %457
+  %458 = getelementptr i8, ptr %456, i64 %457
   store i8 -1, ptr %458, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %459 = load i64, ptr %454, align 8
@@ -4024,7 +4024,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %463 = load i64, ptr %462, align 8
   %464 = getelementptr inbounds nuw i8, ptr %430, i64 4704
   %465 = and i64 %463, 4095
-  %466 = getelementptr [4096 x i8], ptr %464, i64 0, i64 %465
+  %466 = getelementptr i8, ptr %464, i64 %465
   store i8 %429, ptr %466, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %561
@@ -4044,7 +4044,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %475 = and i32 %474, 2
   %476 = add i64 %.us-phi, -2
   %477 = and i64 %476, 4095
-  %478 = getelementptr [4096 x i8], ptr %289, i64 0, i64 %477
+  %478 = getelementptr i8, ptr %289, i64 %477
   %479 = load i8, ptr %478, align 1
   %480 = icmp eq i8 %479, 9
   br i1 %480, label %.loopexit, label %.preheader
@@ -4052,7 +4052,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 481:                                              ; preds = %502
   %482 = add i64 %488, -1
   %483 = and i64 %482, 4095
-  %484 = getelementptr [4096 x i8], ptr %289, i64 0, i64 %483
+  %484 = getelementptr i8, ptr %289, i64 %483
   %485 = load i8, ptr %484, align 1
   %486 = icmp eq i8 %485, 9
   br i1 %486, label %.loopexit.loopexit, label %.preheader, !llvm.loop !64
@@ -4062,7 +4062,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %488 = phi i64 [ %482, %481 ], [ %476, %473 ]
   %489 = phi i32 [ %504, %481 ], [ 0, %473 ]
   %490 = zext i8 %487 to i64
-  %491 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %490
+  %491 = getelementptr i8, ptr @_ctype, i64 %490
   %492 = load i8, ptr %491, align 1
   %493 = and i8 %492, 8
   %494 = icmp eq i8 %493, 0
@@ -4094,14 +4094,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %510 = phi i1 [ true, %469 ], [ false, %473 ], [ %507, %.loopexit.loopexit ]
   %511 = load i64, ptr %291, align 8
   %512 = and i64 %511, 4095
-  %513 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %512
+  %513 = getelementptr i8, ptr %292, i64 %512
   store i8 -1, ptr %513, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %514 = load i64, ptr %291, align 8
   %515 = add i64 %514, 1
   store i64 %515, ptr %291, align 8
   %516 = and i64 %515, 4095
-  %517 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %516
+  %517 = getelementptr i8, ptr %292, i64 %516
   store i8 -126, ptr %517, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %518 = load i64, ptr %291, align 8
@@ -4111,14 +4111,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %spec.select = select i1 %510, i32 %509, i32 %520
   %521 = trunc nuw i32 %spec.select to i8
   %522 = and i64 %519, 4095
-  %523 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %522
+  %523 = getelementptr i8, ptr %292, i64 %522
   store i8 %521, ptr %523, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %561
 
 524:                                              ; preds = %467
   %525 = zext i8 %.us-phi48 to i64
-  %526 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %525
+  %526 = getelementptr i8, ptr @_ctype, i64 %525
   %527 = load i8, ptr %526, align 1
   %528 = and i8 %527, 8
   %529 = icmp eq i8 %528, 0
@@ -4130,21 +4130,21 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 .thread32:                                        ; preds = %524
   %533 = load i64, ptr %291, align 8
   %534 = and i64 %533, 4095
-  %535 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %534
+  %535 = getelementptr i8, ptr %292, i64 %534
   store i8 8, ptr %535, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %536 = load i64, ptr %291, align 8
   %537 = add i64 %536, 1
   store i64 %537, ptr %291, align 8
   %538 = and i64 %537, 4095
-  %539 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %538
+  %539 = getelementptr i8, ptr %292, i64 %538
   store i8 32, ptr %539, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %540 = load i64, ptr %291, align 8
   %541 = add i64 %540, 1
   store i64 %541, ptr %291, align 8
   %542 = and i64 %541, 4095
-  %543 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %542
+  %543 = getelementptr i8, ptr %292, i64 %542
   store i8 8, ptr %543, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %544 = load i64, ptr %291, align 8
@@ -4165,21 +4165,21 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 549:                                              ; preds = %547, %546
   %550 = load i64, ptr %291, align 8
   %551 = and i64 %550, 4095
-  %552 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %551
+  %552 = getelementptr i8, ptr %292, i64 %551
   store i8 8, ptr %552, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %553 = load i64, ptr %291, align 8
   %554 = add i64 %553, 1
   store i64 %554, ptr %291, align 8
   %555 = and i64 %554, 4095
-  %556 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %555
+  %556 = getelementptr i8, ptr %292, i64 %555
   store i8 32, ptr %556, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %557 = load i64, ptr %291, align 8
   %558 = add i64 %557, 1
   store i64 %558, ptr %291, align 8
   %559 = and i64 %558, 4095
-  %560 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %559
+  %560 = getelementptr i8, ptr %292, i64 %559
   store i8 8, ptr %560, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %561
@@ -4220,7 +4220,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 576:                                              ; preds = %572
   %577 = load i64, ptr %291, align 8
   %578 = and i64 %577, 4095
-  %579 = getelementptr [4096 x i8], ptr %292, i64 0, i64 %578
+  %579 = getelementptr i8, ptr %292, i64 %578
   store i8 47, ptr %579, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %580 = load i64, ptr %291, align 8
@@ -4307,7 +4307,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %630 = load i64, ptr %629, align 8
   %631 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %632 = and i64 %630, 4095
-  %633 = getelementptr [4096 x i8], ptr %631, i64 0, i64 %632
+  %633 = getelementptr i8, ptr %631, i64 %632
   store i8 47, ptr %633, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %634 = load i64, ptr %629, align 8
@@ -4330,14 +4330,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %644 = load i64, ptr %643, align 8
   %645 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %646 = and i64 %644, 4095
-  %647 = getelementptr [4096 x i8], ptr %645, i64 0, i64 %646
+  %647 = getelementptr i8, ptr %645, i64 %646
   store i8 94, ptr %647, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %648 = load i64, ptr %643, align 8
   %649 = add i64 %648, 1
   store i64 %649, ptr %643, align 8
   %650 = and i64 %649, 4095
-  %651 = getelementptr [4096 x i8], ptr %645, i64 0, i64 %650
+  %651 = getelementptr i8, ptr %645, i64 %650
   store i8 8, ptr %651, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %652 = load i64, ptr %643, align 8
@@ -4371,7 +4371,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %670 = load i64, ptr %669, align 8
   %671 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %672 = and i64 %670, 4095
-  %673 = getelementptr [4096 x i8], ptr %671, i64 0, i64 %672
+  %673 = getelementptr i8, ptr %671, i64 %672
   store i8 47, ptr %673, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %674 = load i64, ptr %669, align 8
@@ -4393,14 +4393,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %683 = load i64, ptr %682, align 8
   %684 = getelementptr inbounds nuw i8, ptr %679, i64 4704
   %685 = and i64 %683, 4095
-  %686 = getelementptr [4096 x i8], ptr %684, i64 0, i64 %685
+  %686 = getelementptr i8, ptr %684, i64 %685
   store i8 -1, ptr %686, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %687 = load i64, ptr %682, align 8
   %688 = add i64 %687, 1
   store i64 %688, ptr %682, align 8
   %689 = and i64 %688, 4095
-  %690 = getelementptr [4096 x i8], ptr %684, i64 0, i64 %689
+  %690 = getelementptr i8, ptr %684, i64 %689
   store i8 -1, ptr %690, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %717
@@ -4413,7 +4413,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 695:                                              ; preds = %691
   %696 = zext i8 %178 to i64
-  %697 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %696
+  %697 = getelementptr i8, ptr @_ctype, i64 %696
   %698 = load i8, ptr %697, align 1
   %699 = and i8 %698, 8
   %700 = icmp ne i8 %699, 0
@@ -4426,7 +4426,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %705 = load i64, ptr %704, align 8
   %706 = getelementptr inbounds nuw i8, ptr %679, i64 4704
   %707 = and i64 %705, 4095
-  %708 = getelementptr [4096 x i8], ptr %706, i64 0, i64 %707
+  %708 = getelementptr i8, ptr %706, i64 %707
   store i8 -1, ptr %708, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %709 = load i64, ptr %704, align 8
@@ -4439,7 +4439,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %713 = load i64, ptr %712, align 8
   %714 = getelementptr inbounds nuw i8, ptr %679, i64 4704
   %715 = and i64 %713, 4095
-  %716 = getelementptr [4096 x i8], ptr %714, i64 0, i64 %715
+  %716 = getelementptr i8, ptr %714, i64 %715
   store i8 %178, ptr %716, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %717
@@ -4453,7 +4453,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %722 = load i64, ptr %721, align 8
   %723 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %724 = and i64 %722, 4095
-  %725 = getelementptr [4096 x i8], ptr %723, i64 0, i64 %724
+  %725 = getelementptr i8, ptr %723, i64 %724
   store i8 10, ptr %725, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %726 = load i64, ptr %721, align 8
@@ -4472,7 +4472,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 734:                                              ; preds = %777, %732
   %735 = phi i64 [ %663, %732 ], [ %781, %777 ]
   %736 = and i64 %735, 4095
-  %737 = getelementptr [4096 x i8], ptr %733, i64 0, i64 %736
+  %737 = getelementptr i8, ptr %733, i64 %736
   %738 = load i8, ptr %737, align 1
   %739 = load ptr, ptr %6, align 8
   %740 = icmp eq i8 %738, -1
@@ -4483,14 +4483,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %743 = load i64, ptr %742, align 8
   %744 = getelementptr inbounds nuw i8, ptr %739, i64 4704
   %745 = and i64 %743, 4095
-  %746 = getelementptr [4096 x i8], ptr %744, i64 0, i64 %745
+  %746 = getelementptr i8, ptr %744, i64 %745
   store i8 -1, ptr %746, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %747 = load i64, ptr %742, align 8
   %748 = add i64 %747, 1
   store i64 %748, ptr %742, align 8
   %749 = and i64 %748, 4095
-  %750 = getelementptr [4096 x i8], ptr %744, i64 0, i64 %749
+  %750 = getelementptr i8, ptr %744, i64 %749
   store i8 -1, ptr %750, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %777
@@ -4503,7 +4503,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 755:                                              ; preds = %751
   %756 = zext i8 %738 to i64
-  %757 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %756
+  %757 = getelementptr i8, ptr @_ctype, i64 %756
   %758 = load i8, ptr %757, align 1
   %759 = and i8 %758, 8
   %760 = icmp ne i8 %759, 0
@@ -4516,7 +4516,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %765 = load i64, ptr %764, align 8
   %766 = getelementptr inbounds nuw i8, ptr %739, i64 4704
   %767 = and i64 %765, 4095
-  %768 = getelementptr [4096 x i8], ptr %766, i64 0, i64 %767
+  %768 = getelementptr i8, ptr %766, i64 %767
   store i8 -1, ptr %768, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %769 = load i64, ptr %764, align 8
@@ -4529,7 +4529,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %773 = load i64, ptr %772, align 8
   %774 = getelementptr inbounds nuw i8, ptr %739, i64 4704
   %775 = and i64 %773, 4095
-  %776 = getelementptr [4096 x i8], ptr %774, i64 0, i64 %775
+  %776 = getelementptr i8, ptr %774, i64 %775
   store i8 %738, ptr %776, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %777
@@ -4606,7 +4606,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %820 = load i64, ptr %819, align 8
   %821 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %822 = and i64 %820, 4095
-  %823 = getelementptr [4096 x i8], ptr %821, i64 0, i64 %822
+  %823 = getelementptr i8, ptr %821, i64 %822
   store i8 10, ptr %823, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %824 = load i64, ptr %819, align 8
@@ -4665,7 +4665,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %857 = load i64, ptr %853, align 8
   %858 = getelementptr inbounds nuw i8, ptr %853, i64 94
   %859 = and i64 %857, 4095
-  %860 = getelementptr [4096 x i8], ptr %858, i64 0, i64 %859
+  %860 = getelementptr i8, ptr %858, i64 %859
   store i8 10, ptr %860, align 1
   %861 = add i64 %857, 1
   store i64 %861, ptr %853, align 8
@@ -4690,7 +4690,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %872 = load i64, ptr %184, align 8
   %873 = getelementptr inbounds nuw i8, ptr %184, i64 94
   %874 = and i64 %872, 4095
-  %875 = getelementptr [4096 x i8], ptr %873, i64 0, i64 %874
+  %875 = getelementptr i8, ptr %873, i64 %874
   store i8 0, ptr %875, align 1
   %876 = add i64 %872, 1
   store i64 %876, ptr %184, align 8
@@ -4738,14 +4738,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %899 = load i64, ptr %898, align 8
   %900 = getelementptr inbounds nuw i8, ptr %184, i64 4704
   %901 = and i64 %899, 4095
-  %902 = getelementptr [4096 x i8], ptr %900, i64 0, i64 %901
+  %902 = getelementptr i8, ptr %900, i64 %901
   store i8 -1, ptr %902, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %903 = load i64, ptr %898, align 8
   %904 = add i64 %903, 1
   store i64 %904, ptr %898, align 8
   %905 = and i64 %904, 4095
-  %906 = getelementptr [4096 x i8], ptr %900, i64 0, i64 %905
+  %906 = getelementptr i8, ptr %900, i64 %905
   store i8 -127, ptr %906, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %907 = load i64, ptr %898, align 8
@@ -4772,7 +4772,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %917 = load i64, ptr %184, align 8
   %918 = getelementptr inbounds nuw i8, ptr %184, i64 94
   %919 = and i64 %917, 4095
-  %920 = getelementptr [4096 x i8], ptr %918, i64 0, i64 %919
+  %920 = getelementptr i8, ptr %918, i64 %919
   store i8 -1, ptr %920, align 1
   %921 = add i64 %917, 1
   store i64 %921, ptr %184, align 8
@@ -4798,7 +4798,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %932 = load i64, ptr %931, align 8
   %933 = getelementptr inbounds nuw i8, ptr %112, i64 4704
   %934 = and i64 %932, 4095
-  %935 = getelementptr [4096 x i8], ptr %933, i64 0, i64 %934
+  %935 = getelementptr i8, ptr %933, i64 %934
   store i8 47, ptr %935, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %936 = load i64, ptr %931, align 8
@@ -4818,7 +4818,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %944 = load i64, ptr %943, align 8
   %945 = getelementptr inbounds nuw i8, ptr %112, i64 4704
   %946 = and i64 %944, 4095
-  %947 = getelementptr [4096 x i8], ptr %945, i64 0, i64 %946
+  %947 = getelementptr i8, ptr %945, i64 %946
   store i8 10, ptr %947, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %1004
@@ -4835,14 +4835,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %955 = load i64, ptr %954, align 8
   %956 = getelementptr inbounds nuw i8, ptr %112, i64 4704
   %957 = and i64 %955, 4095
-  %958 = getelementptr [4096 x i8], ptr %956, i64 0, i64 %957
+  %958 = getelementptr i8, ptr %956, i64 %957
   store i8 -1, ptr %958, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %959 = load i64, ptr %954, align 8
   %960 = add i64 %959, 1
   store i64 %960, ptr %954, align 8
   %961 = and i64 %960, 4095
-  %962 = getelementptr [4096 x i8], ptr %956, i64 0, i64 %961
+  %962 = getelementptr i8, ptr %956, i64 %961
   store i8 -127, ptr %962, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %963 = load i64, ptr %954, align 8
@@ -4860,14 +4860,14 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %970 = load i64, ptr %969, align 8
   %971 = getelementptr inbounds nuw i8, ptr %966, i64 4704
   %972 = and i64 %970, 4095
-  %973 = getelementptr [4096 x i8], ptr %971, i64 0, i64 %972
+  %973 = getelementptr i8, ptr %971, i64 %972
   store i8 -1, ptr %973, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %974 = load i64, ptr %969, align 8
   %975 = add i64 %974, 1
   store i64 %975, ptr %969, align 8
   %976 = and i64 %975, 4095
-  %977 = getelementptr [4096 x i8], ptr %971, i64 0, i64 %976
+  %977 = getelementptr i8, ptr %971, i64 %976
   store i8 -1, ptr %977, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %1004
@@ -4880,7 +4880,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 
 982:                                              ; preds = %978
   %983 = zext i8 %178 to i64
-  %984 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %983
+  %984 = getelementptr i8, ptr @_ctype, i64 %983
   %985 = load i8, ptr %984, align 1
   %986 = and i8 %985, 8
   %987 = icmp ne i8 %986, 0
@@ -4893,7 +4893,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %992 = load i64, ptr %991, align 8
   %993 = getelementptr inbounds nuw i8, ptr %966, i64 4704
   %994 = and i64 %992, 4095
-  %995 = getelementptr [4096 x i8], ptr %993, i64 0, i64 %994
+  %995 = getelementptr i8, ptr %993, i64 %994
   store i8 -1, ptr %995, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %996 = load i64, ptr %991, align 8
@@ -4906,7 +4906,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %1000 = load i64, ptr %999, align 8
   %1001 = getelementptr inbounds nuw i8, ptr %966, i64 4704
   %1002 = and i64 %1000, 4095
-  %1003 = getelementptr [4096 x i8], ptr %1001, i64 0, i64 %1002
+  %1003 = getelementptr i8, ptr %1001, i64 %1002
   store i8 %178, ptr %1003, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %1004
@@ -4978,7 +4978,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
 1040:                                             ; preds = %1036
   %1041 = getelementptr inbounds nuw i8, ptr %112, i64 94
   %1042 = and i64 %.pre69, 4095
-  %1043 = getelementptr [4096 x i8], ptr %1041, i64 0, i64 %1042
+  %1043 = getelementptr i8, ptr %1041, i64 %1042
   store i8 -1, ptr %1043, align 1
   %1044 = add i64 %.pre69, 1
   br label %1045
@@ -4987,7 +4987,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %1046 = phi i64 [ %.pre68, %._crit_edge67 ], [ %1044, %1040 ], [ %.pre69, %1036 ]
   %1047 = getelementptr inbounds nuw i8, ptr %112, i64 94
   %1048 = and i64 %1046, 4095
-  %1049 = getelementptr [4096 x i8], ptr %1047, i64 0, i64 %1048
+  %1049 = getelementptr i8, ptr %1047, i64 %1048
   store i8 %178, ptr %1049, align 1
   %1050 = add i64 %1046, 1
   store i64 %1050, ptr %112, align 8
@@ -5044,11 +5044,11 @@ define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 nound
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 94
   %20 = and i64 %.pre, 4095
-  %21 = getelementptr [4096 x i8], ptr %19, i64 0, i64 %20
+  %21 = getelementptr i8, ptr %19, i64 %20
   store i8 -1, ptr %21, align 1
   %22 = add i64 %.pre, 1
   %23 = and i64 %22, 4095
-  %24 = getelementptr [4096 x i8], ptr %19, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %19, i64 %23
   store i8 0, ptr %24, align 1
   %25 = add i64 %.pre, 2
   br label %26
@@ -5057,7 +5057,7 @@ define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 nound
   %27 = phi i64 [ %25, %18 ], [ %.pre, %15 ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 94
   %29 = and i64 %27, 4095
-  %30 = getelementptr [4096 x i8], ptr %28, i64 0, i64 %29
+  %30 = getelementptr i8, ptr %28, i64 %29
   store i8 0, ptr %30, align 1
   %31 = add i64 %27, 1
   store i64 %31, ptr %6, align 8
@@ -5083,18 +5083,18 @@ define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 nound
   %45 = load i64, ptr %34, align 8
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 94
   %47 = and i64 %45, 4095
-  %48 = getelementptr [4096 x i8], ptr %46, i64 0, i64 %47
+  %48 = getelementptr i8, ptr %46, i64 %47
   %49 = add i64 %45, 1
   br i1 %44, label %57, label %50
 
 50:                                               ; preds = %42
   store i8 -1, ptr %48, align 1
   %51 = and i64 %49, 4095
-  %52 = getelementptr [4096 x i8], ptr %46, i64 0, i64 %51
+  %52 = getelementptr i8, ptr %46, i64 %51
   store i8 0, ptr %52, align 1
   %53 = add i64 %45, 2
   %54 = and i64 %53, 4095
-  %55 = getelementptr [4096 x i8], ptr %46, i64 0, i64 %54
+  %55 = getelementptr i8, ptr %46, i64 %54
   store i8 %1, ptr %55, align 1
   %56 = add i64 %45, 3
   store i64 %56, ptr %34, align 8
@@ -5109,7 +5109,7 @@ define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 nound
   %59 = load i64, ptr %34, align 8
   %60 = getelementptr inbounds nuw i8, ptr %34, i64 94
   %61 = and i64 %59, 4095
-  %62 = getelementptr [4096 x i8], ptr %60, i64 0, i64 %61
+  %62 = getelementptr i8, ptr %60, i64 %61
   store i8 %1, ptr %62, align 1
   %63 = add i64 %59, 1
   store i64 %63, ptr %34, align 8
@@ -5398,7 +5398,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %52 = and i64 %50, 4095
-  %53 = getelementptr [4096 x i8], ptr %51, i64 0, i64 %52
+  %53 = getelementptr i8, ptr %51, i64 %52
   store i8 47, ptr %53, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %54 = load i64, ptr %49, align 8
@@ -5421,14 +5421,14 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %67 = and i64 %65, 4095
-  %68 = getelementptr [4096 x i8], ptr %66, i64 0, i64 %67
+  %68 = getelementptr i8, ptr %66, i64 %67
   store i8 -1, ptr %68, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %69 = load i64, ptr %64, align 8
   %70 = add i64 %69, 1
   store i64 %70, ptr %64, align 8
   %71 = and i64 %70, 4095
-  %72 = getelementptr [4096 x i8], ptr %66, i64 0, i64 %71
+  %72 = getelementptr i8, ptr %66, i64 %71
   store i8 -127, ptr %72, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %73 = load i64, ptr %64, align 8
@@ -5446,14 +5446,14 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %80 = load i64, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 4704
   %82 = and i64 %80, 4095
-  %83 = getelementptr [4096 x i8], ptr %81, i64 0, i64 %82
+  %83 = getelementptr i8, ptr %81, i64 %82
   store i8 -1, ptr %83, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %84 = load i64, ptr %79, align 8
   %85 = add i64 %84, 1
   store i64 %85, ptr %79, align 8
   %86 = and i64 %85, 4095
-  %87 = getelementptr [4096 x i8], ptr %81, i64 0, i64 %86
+  %87 = getelementptr i8, ptr %81, i64 %86
   store i8 -1, ptr %87, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %114
@@ -5466,7 +5466,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
 
 92:                                               ; preds = %88
   %93 = zext i8 %1 to i64
-  %94 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %93
+  %94 = getelementptr i8, ptr @_ctype, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 8
   %97 = icmp ne i8 %96, 0
@@ -5479,7 +5479,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %102 = load i64, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %76, i64 4704
   %104 = and i64 %102, 4095
-  %105 = getelementptr [4096 x i8], ptr %103, i64 0, i64 %104
+  %105 = getelementptr i8, ptr %103, i64 %104
   store i8 -1, ptr %105, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %106 = load i64, ptr %101, align 8
@@ -5492,7 +5492,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %76, i64 4704
   %112 = and i64 %110, 4095
-  %113 = getelementptr [4096 x i8], ptr %111, i64 0, i64 %112
+  %113 = getelementptr i8, ptr %111, i64 %112
   store i8 %1, ptr %113, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %114
@@ -5565,7 +5565,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 94
   %153 = and i64 %.pre4, 4095
-  %154 = getelementptr [4096 x i8], ptr %152, i64 0, i64 %153
+  %154 = getelementptr i8, ptr %152, i64 %153
   store i8 -1, ptr %154, align 1
   %155 = add i64 %.pre4, 1
   br label %156
@@ -5574,7 +5574,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
   %157 = phi i64 [ %.pre, %._crit_edge ], [ %155, %151 ], [ %.pre4, %147 ]
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 94
   %159 = and i64 %157, 4095
-  %160 = getelementptr [4096 x i8], ptr %158, i64 0, i64 %159
+  %160 = getelementptr i8, ptr %158, i64 %159
   store i8 %1, ptr %160, align 1
   %161 = add i64 %157, 1
   store i64 %161, ptr %4, align 8
@@ -5612,14 +5612,14 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 4704
   %22 = and i64 %20, 4095
-  %23 = getelementptr [4096 x i8], ptr %21, i64 0, i64 %22
+  %23 = getelementptr i8, ptr %21, i64 %22
   store i8 -1, ptr %23, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %24 = load i64, ptr %19, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %19, align 8
   %26 = and i64 %25, 4095
-  %27 = getelementptr [4096 x i8], ptr %21, i64 0, i64 %26
+  %27 = getelementptr i8, ptr %21, i64 %26
   store i8 -1, ptr %27, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %53
@@ -5631,7 +5631,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
 
 31:                                               ; preds = %28
   %32 = zext i8 %2 to i64
-  %33 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %32
+  %33 = getelementptr i8, ptr @_ctype, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 8
   %36 = icmp ne i8 %35, 0
@@ -5644,7 +5644,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 4704
   %43 = and i64 %41, 4095
-  %44 = getelementptr [4096 x i8], ptr %42, i64 0, i64 %43
+  %44 = getelementptr i8, ptr %42, i64 %43
   store i8 -1, ptr %44, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %45 = load i64, ptr %40, align 8
@@ -5657,7 +5657,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 4704
   %51 = and i64 %49, 4095
-  %52 = getelementptr [4096 x i8], ptr %50, i64 0, i64 %51
+  %52 = getelementptr i8, ptr %50, i64 %51
   store i8 %2, ptr %52, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %53
@@ -5759,14 +5759,14 @@ define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, p
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %10 = and i64 %8, 4095
-  %11 = getelementptr [4096 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr i8, ptr %9, i64 %10
   store i8 -1, ptr %11, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %12 = load i64, ptr %7, align 8
   %13 = add i64 %12, 1
   store i64 %13, ptr %7, align 8
   %14 = and i64 %13, 4095
-  %15 = getelementptr [4096 x i8], ptr %9, i64 0, i64 %14
+  %15 = getelementptr i8, ptr %9, i64 %14
   store i8 -1, ptr %15, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %43
@@ -5780,7 +5780,7 @@ define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, p
 
 21:                                               ; preds = %16
   %22 = zext i8 %0 to i64
-  %23 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %22
+  %23 = getelementptr i8, ptr @_ctype, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 8
   %26 = icmp ne i8 %25, 0
@@ -5793,7 +5793,7 @@ define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, p
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %33 = and i64 %31, 4095
-  %34 = getelementptr [4096 x i8], ptr %32, i64 0, i64 %33
+  %34 = getelementptr i8, ptr %32, i64 %33
   store i8 -1, ptr %34, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   %35 = load i64, ptr %30, align 8
@@ -5806,7 +5806,7 @@ define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, p
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %41 = and i64 %39, 4095
-  %42 = getelementptr [4096 x i8], ptr %40, i64 0, i64 %41
+  %42 = getelementptr i8, ptr %40, i64 %41
   store i8 %0, ptr %42, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !61
   br label %43
@@ -5882,7 +5882,7 @@ define internal fastcc void @n_tty_receive_handle_newline(ptr noundef %0, i8 nou
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 94
   %10 = and i64 %8, 4095
-  %11 = getelementptr [4096 x i8], ptr %9, i64 0, i64 %10
+  %11 = getelementptr i8, ptr %9, i64 %10
   store i8 %1, ptr %11, align 1
   %12 = add i64 %8, 1
   store i64 %12, ptr %4, align 8

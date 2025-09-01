@@ -4655,7 +4655,7 @@ _ZN4llvm6any_ofIRNS_8ArrayRefIN15LiveDebugValues7DbgOpIDEEEZNS2_8DbgValueC1ES4_R
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %95 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %53, i64 %indvars.iv
-  %96 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %11, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %11, i64 %indvars.iv
   %97 = load i32, ptr %95, align 4, !tbaa !77
   store i32 %97, ptr %96, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -19799,10 +19799,10 @@ _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit: ; preds = %129, %132
   %146 = load i32, ptr %67, align 8, !tbaa !654
   %.not.i87 = icmp eq i32 %146, 0
   %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %60, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %60, i64 %147
   %.sroa.0.0.in.i = select i1 %.not.i87, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %148
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4, !tbaa !77
-  %149 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %104, i64 0, i64 %147
+  %149 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %104, i64 %147
   %.sroa.0.0.in.i89 = select i1 %141, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %149
   %.sroa.0.0.i90 = load i32, ptr %.sroa.0.0.in.i89, align 4, !tbaa !77
   %.not127 = icmp eq i32 %.sroa.0.0.i, %.sroa.0.0.i90
@@ -19933,7 +19933,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_1
 _ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread: ; preds = %.lr.ph.i.i.i.i, %186, %_ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
   %214 = load i32, ptr %177, align 8, !tbaa !654
   %.not.i94 = icmp eq i32 %214, 0
-  %215 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %60, i64 0, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %60, i64 %indvars.iv
   %.sroa.0.0.in.i95 = select i1 %.not.i94, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %215
   %.sroa.0.0.i96 = load i32, ptr %.sroa.0.0.in.i95, align 4, !tbaa !77
   %216 = load i32, ptr %166, align 8, !tbaa !26
@@ -20267,7 +20267,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebu
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 8, !tbaa !654
   %.not.i = icmp eq i32 %82, 0
-  %83 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %80, i64 0, i64 %24
+  %83 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %80, i64 %24
   %.sroa.0.0.in.i = select i1 %.not.i, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %83
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4, !tbaa !77
   %84 = load i32, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, align 4, !tbaa !77, !noalias !1256
@@ -22205,7 +22205,7 @@ _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit: ; preds = %.preheader
 40:                                               ; preds = %_ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit
   %41 = load i32, ptr %6, align 8, !tbaa !654
   %.not.i = icmp eq i32 %41, 0
-  %42 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %0, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %0, i64 %indvars.iv
   %.sroa.0.0.in.i = select i1 %.not.i, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %42
   %.sroa.0.0.i = load i32, ptr %.sroa.0.0.in.i, align 4, !tbaa !77
   %43 = and i32 %.sroa.0.0.i, 1
@@ -22215,7 +22215,7 @@ _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit: ; preds = %.preheader
   %46 = select i1 %.not.i10, i1 %45, i1 false
   %47 = load i32, ptr %14, align 8, !tbaa !654
   %.not.i11 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %1, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %1, i64 %indvars.iv
   %.sroa.0.0.in.i12 = select i1 %.not.i11, ptr @_ZN15LiveDebugValues7DbgOpID7UndefIDE, ptr %48
   %.sroa.0.0.i13 = load i32, ptr %.sroa.0.0.in.i12, align 4, !tbaa !77
   %49 = and i32 %.sroa.0.0.i13, 1
@@ -24933,7 +24933,7 @@ _ZN4llvm11SmallVectorIPKNS_17MachineBasicBlockELj8EEC2IPPS1_EERKNS_14iterator_ra
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv1231 = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next1232, %.lr.ph.i ]
   %792 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %791, i64 %indvars.iv1231
-  %793 = getelementptr inbounds nuw [8 x %"struct.LiveDebugValues::DbgOpID"], ptr %749, i64 0, i64 %indvars.iv1231
+  %793 = getelementptr inbounds nuw %"struct.LiveDebugValues::DbgOpID", ptr %749, i64 %indvars.iv1231
   %794 = load i32, ptr %792, align 4, !tbaa !77
   store i32 %794, ptr %793, align 4, !tbaa !77
   %indvars.iv.next1232 = add nuw nsw i64 %indvars.iv1231, 1

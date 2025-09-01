@@ -4149,7 +4149,7 @@ list_length.exit.thread:                          ; preds = %43, %list_length.ex
   %88 = load ptr, ptr %87, align 8
   %89 = call i64 %88(ptr noundef %84, ptr noundef %70, ptr noundef nonnull %8) #8
   store ptr %86, ptr @CurrentMemoryContext, align 8
-  %90 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %78, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw %struct.NullableDatum, ptr %78, i64 %indvars.iv
   store i64 %89, ptr %90, align 8
   %91 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8

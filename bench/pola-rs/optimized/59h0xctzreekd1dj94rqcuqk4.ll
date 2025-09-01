@@ -163267,10 +163267,10 @@ define internal noundef zeroext i1 @"_ZN71_$LT$polars_arrow..types..PrimitiveTyp
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !17425, !noundef !6
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E.1137", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E.1137", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -177275,9 +177275,9 @@ switch.lookup:
   %9 = icmp ne i64 %7, 4
   tail call void @llvm.assume(i1 %9)
   %10 = select i1 %8, i64 %7, i64 4
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN78_$LT$polars_ops..frame..join..args..JoinType$u20$as$u20$core..fmt..Display$GT$3fmt17hf3363620e0031116E", i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$polars_ops..frame..join..args..JoinType$u20$as$u20$core..fmt..Display$GT$3fmt17hf3363620e0031116E", i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep4 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 0, i64 %10
+  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 %10
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -177715,7 +177715,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1, !range !17426, !noundef !6
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN84_$LT$polars_ops..frame..join..args..JoinValidation$u20$as$u20$core..fmt..Display$GT$3fmt17ha16a0c5d3e19c40bE", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN84_$LT$polars_ops..frame..join..args..JoinValidation$u20$as$u20$core..fmt..Display$GT$3fmt17ha16a0c5d3e19c40bE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8
@@ -237103,9 +237103,9 @@ switch.lookup:
   %5 = icmp ne i64 %3, 4
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 4
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E.1140", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E.1140", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = icmp ugt i64 %3, 8
   br i1 %7, label %8, label %"_ZN4core3ptr60drop_in_place$LT$polars_ops..frame..join..args..JoinType$GT$17h368fb83787c642d6E.exit"
@@ -237130,9 +237130,9 @@ switch.lookup:
   %5 = icmp ne i64 %3, 4
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 4
-  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E.1140", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops5frame4join4args108_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..JoinType$GT$$u20$for$u20$$RF$str$GT$4from17h1b2e86ff926a97f3E.1140", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %switch.load, 1
@@ -237167,10 +237167,10 @@ define noundef zeroext i1 @"_ZN192_$LT$polars_ops..frame..join..args.._..$LT$imp
 define { ptr, i64 } @"_ZN10polars_ops5frame4join4args113_$LT$impl$u20$core..convert..From$LT$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17h3a9d5275dfce84d5E"(i8 noundef range(i8 0, 5) %0) unnamed_addr #12 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE.1142", i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE.1142", i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load, 1
@@ -237182,10 +237182,10 @@ define { ptr, i64 } @"_ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..conv
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !18755, !noundef !6
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE.1142", i64 0, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN10polars_ops5frame4join4args117_$LT$impl$u20$core..convert..From$LT$$RF$polars_ops..frame..join..args..MaintainOrderJoin$GT$$u20$for$u20$$RF$str$GT$4from17hc6d3204d3902edbdE.1142", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

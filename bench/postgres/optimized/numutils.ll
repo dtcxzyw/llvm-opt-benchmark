@@ -155,7 +155,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 55:                                               ; preds = %53
   %56 = shl nuw i16 %.198.ph, 4
   %57 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %58 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %49
+  %58 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %49
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i16
   %61 = add i16 %56, %60
@@ -516,7 +516,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 58:                                               ; preds = %56
   %59 = shl nuw i32 %.198.ph, 4
   %60 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %61 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %52
+  %61 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %52
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
   %64 = add i32 %59, %63
@@ -869,7 +869,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 59:                                               ; preds = %57
   %60 = shl nuw i64 %.198.ph, 4
   %61 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %62 = getelementptr inbounds nuw [128 x i8], ptr @hexlookup, i64 0, i64 %53
+  %62 = getelementptr inbounds nuw i8, ptr @hexlookup, i64 %53
   %63 = load i8, ptr %62, align 1
   %64 = sext i8 %63 to i64
   %65 = add i64 %60, %64
@@ -1320,7 +1320,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nounde
   %15 = add nuw nsw i32 %14, 1233
   %16 = lshr i32 %15, 12
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp uge i32 %.01115.i, %19
   %21 = zext i1 %20 to i32
@@ -1435,7 +1435,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr noundef write
   %14 = add nuw nsw i32 %13, 1233
   %15 = lshr i32 %14, 12
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp uge i32 %.01115, %18
   %20 = zext i1 %19 to i32
@@ -1552,7 +1552,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr noundef wr
   %9 = add nuw nsw i32 %8, 1233
   %10 = lshr i32 %9, 12
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp uge i32 %0, %13
   %15 = zext i1 %14 to i32
@@ -1665,7 +1665,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef w
   %10 = add nuw nsw i32 %9, 1233
   %11 = lshr i32 %10, 12
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [20 x i64], ptr @decimalLength64.PowersOfTen, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr @decimalLength64.PowersOfTen, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp uge i64 %0, %14
   %16 = zext i1 %15 to i32
@@ -1864,7 +1864,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef captures(ret: address, prov
   %19 = add nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp uge i32 %1, %23
   %25 = zext i1 %24 to i32
@@ -2004,7 +2004,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly captures(ret: address, pr
   %9 = add nuw nsw i32 %8, 1233
   %10 = lshr i32 %9, 12
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [10 x i32], ptr @decimalLength32.PowersOfTen, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp uge i32 %1, %13
   %15 = zext i1 %14 to i32

@@ -431,7 +431,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
   %.094123 = phi i64 [ 0, %152 ], [ %170, %167 ]
   %gep122 = getelementptr inbounds nuw float, ptr %85, i64 %.094123
   %157 = load float, ptr %gep122, align 4, !tbaa !84
-  %158 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %.094123
+  %158 = getelementptr inbounds nuw float, ptr %7, i64 %.094123
   %159 = load float, ptr %158, align 4, !tbaa !84
   %160 = fsub reassoc nsz arcp contract afn float %159, %157
   %161 = fmul reassoc nsz arcp contract afn float %160, %153
@@ -448,7 +448,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
 
 167:                                              ; preds = %156, %166, %164
   %168 = phi reassoc nsz arcp contract afn float [ %162, %166 ], [ 1.000000e+00, %164 ], [ 0.000000e+00, %156 ]
-  %169 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.094123
+  %169 = getelementptr inbounds nuw float, ptr %8, i64 %.094123
   store float %168, ptr %169, align 4, !tbaa !84
   %170 = add nuw nsw i64 %.094123, 1
   %exitcond127.not = icmp eq i64 %170, 4
@@ -586,7 +586,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
   %.0120 = phi i64 [ 0, %227 ], [ %245, %242 ]
   %gep = getelementptr inbounds nuw float, ptr %85, i64 %.0120
   %232 = load float, ptr %gep, align 4, !tbaa !84
-  %233 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0120
+  %233 = getelementptr inbounds nuw float, ptr %9, i64 %.0120
   %234 = load float, ptr %233, align 4, !tbaa !84
   %235 = fsub reassoc nsz arcp contract afn float %234, %232
   %236 = fmul reassoc nsz arcp contract afn float %235, %228
@@ -603,7 +603,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
 
 242:                                              ; preds = %231, %241, %239
   %243 = phi reassoc nsz arcp contract afn float [ %237, %241 ], [ 1.000000e+00, %239 ], [ 0.000000e+00, %231 ]
-  %244 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.0120
+  %244 = getelementptr inbounds nuw float, ptr %10, i64 %.0120
   store float %243, ptr %244, align 4, !tbaa !84
   %245 = add nuw nsw i64 %.0120, 1
   %exitcond.not = icmp eq i64 %245, 4
@@ -1997,7 +1997,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw [8 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
   store ptr %0, ptr %7, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

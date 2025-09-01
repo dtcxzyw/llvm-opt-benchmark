@@ -65,7 +65,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %17 = load ptr, ptr %4, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %17, i64 %indvars.iv16
-  %19 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %18, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.APContext, ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @av_freep(ptr noundef nonnull %20) #8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -196,23 +196,23 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %21, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %30, i64 %indvars.iv46
-  %32 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %31, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.APContext, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %24, align 8, !tbaa !54
   %34 = load i32, ptr %25, align 8, !tbaa !55
   %35 = add i32 %34, 40
   %36 = and i32 %35, 63
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !56
   %40 = add i32 %34, 9
   %41 = and i32 %40, 63
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %14, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !56
   %45 = add i32 %44, %39
   %46 = and i32 %34, 63
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %14, i64 %47
   store i32 %45, ptr %48, align 4, !tbaa !56
   %49 = add i32 %34, 1
   store i32 %49, ptr %25, align 8, !tbaa !55
@@ -457,7 +457,7 @@ define internal void @filter_channel_dbl(ptr noundef readonly captures(none) %0,
 68:                                               ; preds = %.lr.ph.us, %68
   %69 = phi double [ %66, %.lr.ph.us ], [ %111, %68 ]
   %indvars.iv41 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next42, %68 ]
-  %70 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %22, i64 0, i64 %indvars.iv41
+  %70 = getelementptr inbounds nuw %struct.APContext, ptr %22, i64 %indvars.iv41
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !60
   %73 = icmp slt i32 %72, 1

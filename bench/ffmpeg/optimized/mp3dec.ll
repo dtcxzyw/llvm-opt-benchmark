@@ -333,12 +333,12 @@ define internal i32 @mp3_read_header(ptr noundef initializes((192, 200)) %0) #0 
   %67 = load i32, ptr %48, align 4, !tbaa !72
   %68 = icmp eq i32 %67, 1
   %69 = zext i1 %68 to i64
-  %70 = getelementptr inbounds nuw [2 x [2 x i64]], ptr @mp3_parse_info_tag.xing_offtbl, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i64], ptr @mp3_parse_info_tag.xing_offtbl, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load i32, ptr %71, align 4, !tbaa !77
   %73 = icmp eq i32 %72, 1
   %74 = zext i1 %73 to i64
-  %75 = getelementptr inbounds nuw [2 x i64], ptr %70, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %70, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !78
   %77 = call i64 @avio_skip(ptr noundef %66, i64 noundef %76) #6
   %78 = load ptr, ptr %20, align 8, !tbaa !64

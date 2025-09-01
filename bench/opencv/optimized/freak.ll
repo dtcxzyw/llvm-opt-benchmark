@@ -450,7 +450,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
 
 134:                                              ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit, %139
   %indvars.iv160 = phi i64 [ 0, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit ], [ %indvars.iv.next161, %139 ]
-  %135 = getelementptr inbounds nuw [64 x i32], ptr %40, i64 0, i64 %indvars.iv160
+  %135 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv160
   store i32 0, ptr %135, align 4, !tbaa !32
   %136 = trunc nuw nsw i64 %indvars.iv160 to i32
   %137 = uitofp nneg i32 %136 to double
@@ -479,16 +479,16 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
 .lr.ph:                                           ; preds = %._crit_edge, %140
   %.083135 = phi i64 [ 0, %140 ], [ %indvars.iv.next, %._crit_edge ]
   %.086134 = phi i64 [ 0, %140 ], [ %168, %._crit_edge ]
-  %146 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.n, i64 0, i64 %.086134
+  %146 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.n, i64 %.086134
   %147 = load i32, ptr %146, align 4, !tbaa !32
   %148 = sitofp i32 %147 to double
   %149 = fdiv double 0x400921FB54442D18, %148
   %150 = and i64 %.086134, 1
   %151 = uitofp nneg i64 %150 to double
   %152 = fmul double %149, %151
-  %153 = getelementptr inbounds nuw [8 x double], ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.radius, i64 0, i64 %.086134
+  %153 = getelementptr inbounds nuw double, ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.radius, i64 %.086134
   %154 = load double, ptr %153, align 8, !tbaa !35
-  %155 = getelementptr inbounds nuw [8 x double], ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.sigma, i64 0, i64 %.086134
+  %155 = getelementptr inbounds nuw double, ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.sigma, i64 %.086134
   %156 = load double, ptr %155, align 8, !tbaa !35
   %157 = fmul double %138, %156
   %158 = fmul double %145, %157
@@ -556,7 +556,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
 193:                                              ; preds = %42, %193
   %indvars.iv164 = phi i64 [ 45, %42 ], [ %indvars.iv.next165, %193 ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, -1
-  %194 = getelementptr inbounds nuw [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %43, i64 0, i64 %indvars.iv.next165
+  %194 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %43, i64 %indvars.iv.next165
   %195 = load i8, ptr %194, align 4, !tbaa !29
   %196 = zext i8 %195 to i64
   %197 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::PatternPoint", ptr %133, i64 %196
@@ -731,7 +731,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backER
   %267 = load i32, ptr %266, align 4, !tbaa !32
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.3, i64 %268
-  %270 = getelementptr inbounds nuw [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %262, i64 0, i64 %indvars.iv169
+  %270 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %262, i64 %indvars.iv169
   %271 = load i16, ptr %269, align 1
   store i16 %271, ptr %270, align 2
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
@@ -788,11 +788,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 287:                                              ; preds = %.preheader, %287
   %indvars.iv174 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next175, %287 ]
-  %288 = getelementptr inbounds nuw [512 x i32], ptr @_ZN2cv11xfeatures2dL15FREAK_DEF_PAIRSE, i64 0, i64 %indvars.iv174
+  %288 = getelementptr inbounds nuw i32, ptr @_ZN2cv11xfeatures2dL15FREAK_DEF_PAIRSE, i64 %indvars.iv174
   %289 = load i32, ptr %288, align 4, !tbaa !32
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.3, i64 %290
-  %292 = getelementptr inbounds nuw [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv174
+  %292 = getelementptr inbounds nuw %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv174
   %293 = load i16, ptr %291, align 1
   store i16 %293, ptr %292, align 2
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -1464,7 +1464,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -1703,7 +1703,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   store i8 %253, ptr %255, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1723,16 +1723,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %9, i64 %260
   %262 = load i8, ptr %261, align 1, !tbaa !103
   %263 = zext i8 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 %266
   %268 = load i8, ptr %267, align 1, !tbaa !103
   %269 = zext i8 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -1808,7 +1808,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %9, i64 %309
@@ -1825,7 +1825,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -1834,7 +1834,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -1874,7 +1874,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIhEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv368
   store i8 %339, ptr %341, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2035,7 +2035,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv371
   store i8 %406, ptr %408, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -2055,16 +2055,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !103
   %416 = zext i8 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr %9, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !103
   %422 = zext i8 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -2133,7 +2133,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv377
   store i8 %463, ptr %465, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -2151,7 +2151,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -2183,7 +2183,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i8, ptr %468, align 1, !tbaa !103
-  %478 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv380
   %479 = load i8, ptr %478, align 1, !tbaa !103
   %.not323 = icmp ult i8 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -2192,7 +2192,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -2201,7 +2201,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -2420,7 +2420,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -2498,7 +2498,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -2737,7 +2737,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   store i8 %253, ptr %255, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2757,16 +2757,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %9, i64 %260
   %262 = load i8, ptr %261, align 1, !tbaa !103
   %263 = sext i8 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 %266
   %268 = load i8, ptr %267, align 1, !tbaa !103
   %269 = sext i8 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -2842,7 +2842,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %9, i64 %309
@@ -2859,7 +2859,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -2868,7 +2868,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -2908,7 +2908,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIcEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv368
   store i8 %339, ptr %341, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3069,7 +3069,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv371
   store i8 %406, ptr %408, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -3089,16 +3089,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !103
   %416 = sext i8 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr %9, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !103
   %422 = sext i8 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -3167,7 +3167,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv377
   store i8 %463, ptr %465, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -3185,7 +3185,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -3217,7 +3217,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i8, ptr %468, align 1, !tbaa !103
-  %478 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv380
   %479 = load i8, ptr %478, align 1, !tbaa !103
   %.not323 = icmp slt i8 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -3226,7 +3226,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -3235,7 +3235,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -3454,7 +3454,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -3532,7 +3532,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -3771,7 +3771,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   store i8 %253, ptr %255, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3791,16 +3791,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %9, i64 %260
   %262 = load i8, ptr %261, align 1, !tbaa !103
   %263 = zext i8 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 %266
   %268 = load i8, ptr %267, align 1, !tbaa !103
   %269 = zext i8 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -3876,7 +3876,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %9, i64 %309
@@ -3893,7 +3893,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -3902,7 +3902,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -3942,7 +3942,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIhEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv368
   store i8 %339, ptr %341, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -4103,7 +4103,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv371
   store i8 %406, ptr %408, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -4123,16 +4123,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !103
   %416 = zext i8 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr %9, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !103
   %422 = zext i8 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -4201,7 +4201,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv377
   store i8 %463, ptr %465, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -4219,7 +4219,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -4251,7 +4251,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i8, ptr %468, align 1, !tbaa !103
-  %478 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv380
   %479 = load i8, ptr %478, align 1, !tbaa !103
   %.not323 = icmp ult i8 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -4260,7 +4260,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -4269,7 +4269,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -4488,7 +4488,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -4566,7 +4566,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -4805,7 +4805,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   store i8 %253, ptr %255, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4825,16 +4825,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %9, i64 %260
   %262 = load i8, ptr %261, align 1, !tbaa !103
   %263 = sext i8 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %9, i64 %266
   %268 = load i8, ptr %267, align 1, !tbaa !103
   %269 = sext i8 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -4910,7 +4910,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %9, i64 %309
@@ -4927,7 +4927,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -4936,7 +4936,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -4976,7 +4976,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIcEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv368
   store i8 %339, ptr %341, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5137,7 +5137,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv371
   store i8 %406, ptr %408, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -5157,16 +5157,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i8, ptr %9, i64 %413
   %415 = load i8, ptr %414, align 1, !tbaa !103
   %416 = sext i8 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr %9, i64 %419
   %421 = load i8, ptr %420, align 1, !tbaa !103
   %422 = sext i8 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -5235,7 +5235,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv377
   store i8 %463, ptr %465, align 1, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -5253,7 +5253,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -5285,7 +5285,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i8, ptr %468, align 1, !tbaa !103
-  %478 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv380
   %479 = load i8, ptr %478, align 1, !tbaa !103
   %.not323 = icmp slt i8 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -5294,7 +5294,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -5303,7 +5303,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -5522,7 +5522,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -5600,7 +5600,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -5839,7 +5839,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv
   store i16 %253, ptr %255, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -5859,16 +5859,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i16, ptr %9, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !193
   %263 = zext i16 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i16, ptr %9, i64 %266
   %268 = load i16, ptr %267, align 2, !tbaa !193
   %269 = zext i16 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -5944,7 +5944,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i16, ptr %9, i64 %309
@@ -5961,7 +5961,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -5970,7 +5970,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -6010,7 +6010,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorItEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv368
   store i16 %339, ptr %341, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -6171,7 +6171,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv371
   store i16 %406, ptr %408, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -6191,16 +6191,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i16, ptr %9, i64 %413
   %415 = load i16, ptr %414, align 2, !tbaa !193
   %416 = zext i16 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i16, ptr %9, i64 %419
   %421 = load i16, ptr %420, align 2, !tbaa !193
   %422 = zext i16 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -6269,7 +6269,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv377
   store i16 %463, ptr %465, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -6287,7 +6287,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -6319,7 +6319,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i16, ptr %468, align 2, !tbaa !193
-  %478 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv380
   %479 = load i16, ptr %478, align 2, !tbaa !193
   %.not323 = icmp ult i16 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -6328,7 +6328,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -6337,7 +6337,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -6556,7 +6556,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %spec.store.select, ptr %84, align 4
   %85 = load float, ptr %75, align 4, !tbaa !90
   %86 = zext nneg i32 %spec.store.select to i64
-  %87 = getelementptr inbounds nuw [64 x i32], ptr %65, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %65, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !32
   %89 = sitofp i32 %88 to float
   %90 = fcmp ugt float %85, %89
@@ -6634,7 +6634,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %spec.store.select322 = call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 63)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = zext nneg i32 %spec.store.select322 to i64
-  %132 = getelementptr inbounds nuw [64 x i32], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %135
@@ -6873,7 +6873,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
           to label %254 unwind label %256
 
 254:                                              ; preds = %245
-  %255 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %255 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv
   store i16 %253, ptr %255, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6893,16 +6893,16 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
   %.0195338 = phi i32 [ %275, %.preheader327 ], [ 0, %254 ]
   %.0198337 = phi i32 [ %280, %.preheader327 ], [ 0, %254 ]
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
-  %258 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %223, i64 0, i64 %indvars.iv.next366
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %223, i64 %indvars.iv.next366
   %259 = load i8, ptr %258, align 4, !tbaa !29
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i16, ptr %9, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !193
   %263 = sext i16 %262 to i32
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 1
   %265 = load i8, ptr %264, align 1, !tbaa !31
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw i16, ptr %9, i64 %266
   %268 = load i16, ptr %267, align 2, !tbaa !193
   %269 = sext i16 %268 to i32
   %270 = sub nsw i32 %263, %269
@@ -6978,7 +6978,7 @@ _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %198, %201
 _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512EE3setEmb.exit.i, %304
   %indvars.iv36.i = phi i64 [ %306, %304 ], [ %indvars.iv.next37.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
   %indvars.iv34.i = phi i64 [ %indvars.iv32.i, %304 ], [ %indvars.iv.next35.i, %_ZNSt6bitsetILm512EE3setEmb.exit.i ]
-  %307 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %230, i64 0, i64 %indvars.iv36.i
+  %307 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %230, i64 %indvars.iv36.i
   %308 = load i8, ptr %307, align 2, !tbaa !108
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i16, ptr %9, i64 %309
@@ -6995,7 +6995,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 
 319:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %320 = lshr i64 %indvars.iv34.i, 6
-  %321 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %320
   %322 = load i64, ptr %321, align 8, !tbaa !100
   %323 = or i64 %322, %318
   store i64 %323, ptr %321, align 8, !tbaa !100
@@ -7004,7 +7004,7 @@ _ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i:     ; preds = %_ZNSt6bitsetILm512E
 324:                                              ; preds = %_ZNKSt6bitsetILm512EE8_M_checkEmPKc.exit.i.i
   %325 = xor i64 %318, -1
   %326 = lshr i64 %indvars.iv34.i, 6
-  %327 = getelementptr inbounds nuw [8 x i64], ptr %.0321341, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw i64, ptr %.0321341, i64 %326
   %328 = load i64, ptr %327, align 8, !tbaa !100
   %329 = and i64 %328, %325
   store i64 %329, ptr %327, align 8, !tbaa !100
@@ -7044,7 +7044,7 @@ _ZN2cv11xfeatures2d10FREAK_Impl17extractDescriptorIsEEvPT_PPv.exit: ; preds = %3
           to label %340 unwind label %342
 
 340:                                              ; preds = %331
-  %341 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv368
+  %341 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv368
   store i16 %339, ptr %341, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -7205,7 +7205,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %407 unwind label %409
 
 407:                                              ; preds = %398
-  %408 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv371
+  %408 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv371
   store i16 %406, ptr %408, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -7225,16 +7225,16 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
   %.1196344 = phi i32 [ %428, %.preheader325 ], [ 0, %407 ]
   %.1199343 = phi i32 [ %433, %.preheader325 ], [ 0, %407 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %411 = getelementptr inbounds [45 x %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair"], ptr %379, i64 0, i64 %indvars.iv.next375
+  %411 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::OrientationPair", ptr %379, i64 %indvars.iv.next375
   %412 = load i8, ptr %411, align 4, !tbaa !29
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw i16, ptr %9, i64 %413
   %415 = load i16, ptr %414, align 2, !tbaa !193
   %416 = sext i16 %415 to i32
   %417 = getelementptr inbounds nuw i8, ptr %411, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !31
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw i16, ptr %9, i64 %419
   %421 = load i16, ptr %420, align 2, !tbaa !193
   %422 = sext i16 %421 to i32
   %423 = sub nsw i32 %416, %422
@@ -7303,7 +7303,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv377
+  %465 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv377
   store i16 %463, ptr %465, align 2, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -7321,7 +7321,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 .preheader:                                       ; preds = %464, %473
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %473 ], [ 1, %464 ]
   %.0155348 = phi i32 [ %474, %473 ], [ 0, %464 ]
-  %468 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv389
+  %468 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv389
   %469 = sext i32 %.0155348 to i64
   %470 = call i32 @llvm.usub.sat.i32(i32 1024, i32 %.0155348)
   %wide.trip.count = zext nneg i32 %470 to i64
@@ -7353,7 +7353,7 @@ _ZNK2cv11_InputArray6getMatEi.exit268:            ; preds = %354, %357
 
 _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
   %477 = load i16, ptr %468, align 2, !tbaa !193
-  %478 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv380
+  %478 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv380
   %479 = load i16, ptr %478, align 2, !tbaa !193
   %.not323 = icmp slt i16 %477, %479
   %480 = and i64 %indvars.iv382, 63
@@ -7362,7 +7362,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 
 482:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %483 = lshr i64 %indvars.iv382, 6
-  %484 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %483
   %485 = load i64, ptr %484, align 8, !tbaa !100
   %486 = or i64 %485, %481
   store i64 %486, ptr %484, align 8, !tbaa !100
@@ -7371,7 +7371,7 @@ _ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i:      ; preds = %475
 487:                                              ; preds = %_ZNKSt6bitsetILm1024EE8_M_checkEmPKc.exit.i
   %488 = xor i64 %481, -1
   %489 = lshr i64 %indvars.iv382, 6
-  %490 = getelementptr inbounds nuw [16 x i64], ptr %.0162351, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw i64, ptr %.0162351, i64 %489
   %491 = load i64, ptr %490, align 8, !tbaa !100
   %492 = and i64 %491, %488
   store i64 %492, ptr %490, align 8, !tbaa !100
@@ -7743,7 +7743,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %113
 146:                                              ; preds = %158, %.preheader258
   %indvars.iv = phi i64 [ 902, %.preheader258 ], [ %indvars.iv.next, %158 ]
   %147 = lshr i64 %indvars.iv, 6
-  %148 = getelementptr inbounds nuw [16 x i64], ptr %.079309, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %.079309, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !100
   %150 = and i64 %indvars.iv, 63
   %151 = shl nuw i64 1, %150

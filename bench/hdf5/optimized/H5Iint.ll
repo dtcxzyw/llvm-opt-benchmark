@@ -101,7 +101,7 @@ define i32 @H5I_term_package() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %.11622 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %11 ]
-  %5 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %.not19 = icmp eq ptr %6, null
   br i1 %.not19, label %11, label %7
@@ -128,7 +128,7 @@ define i32 @H5I_term_package() local_unnamed_addr #0 {
   %13 = phi i32 [ %20, %19 ], [ %3, %._crit_edge ]
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %19 ], [ 0, %._crit_edge ]
   %.424 = phi i32 [ %.5, %19 ], [ 0, %._crit_edge ]
-  %14 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv30
+  %14 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %indvars.iv30
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
@@ -185,7 +185,7 @@ define i32 @H5I__register_type_common(i32 noundef %0, ptr noundef %1) local_unna
 
 .preheader:                                       ; preds = %9, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 17, %9 ]
-  %14 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = icmp ne ptr %15, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -232,7 +232,7 @@ define i32 @H5I__register_type_common(i32 noundef %0, ptr noundef %1) local_unna
 
 36:                                               ; preds = %31, %.thread.i
   %37 = sext i32 %.028 to i64
-  %38 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %37
+  %38 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !12
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %45
@@ -314,7 +314,7 @@ define range(i32 -1, 1) i32 @H5I_register_type(ptr noundef %0) local_unnamed_add
 10:                                               ; preds = %.thread, %7
   %11 = load i32, ptr %0, align 8, !tbaa !26
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %12
+  %13 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %24
@@ -400,7 +400,7 @@ define i64 @H5I_nmembers(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %10
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %20, null
   br i1 %21, label %29, label %22
@@ -456,7 +456,7 @@ define range(i32 -1, 1) i32 @H5I_clear_type(i32 noundef %0, i1 noundef zeroext %
 
 21:                                               ; preds = %14
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
@@ -830,7 +830,7 @@ define range(i32 -1, 1) i32 @H5I__destroy_type(i32 noundef %0) local_unnamed_add
 
 15:                                               ; preds = %8
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
@@ -926,7 +926,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
 
 19:                                               ; preds = %12
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -1494,7 +1494,7 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
 
 26:                                               ; preds = %19
   %27 = zext nneg i32 %0 to i64
-  %28 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %31
@@ -2010,7 +2010,7 @@ define ptr @H5I__find_id(i64 noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %21
   %26 = and i64 %12, 127
-  %27 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %.not232 = icmp eq ptr %28, null
   br i1 %.not232, label %159, label %29
@@ -2524,7 +2524,7 @@ define ptr @H5I_remove(i64 noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %10
   %20 = and i64 %11, 127
-  %21 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -2918,7 +2918,7 @@ define internal fastcc i32 @H5I__dec_ref(i64 noundef %0, ptr noundef %1) unnamed
 21:                                               ; preds = %17
   %22 = lshr i64 %0, 56
   %23 = and i64 %22, 127
-  %24 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -3328,7 +3328,7 @@ define i32 @H5I__inc_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
@@ -3384,7 +3384,7 @@ define noundef i32 @H5I_dec_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %10
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %20, null
   br i1 %21, label %25, label %22
@@ -3429,7 +3429,7 @@ define i32 @H5I__get_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %16
@@ -3484,7 +3484,7 @@ define range(i32 -1, 1) i32 @H5I_iterate(i32 noundef %0, ptr noundef readonly ca
 
 21:                                               ; preds = %14
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %.not35 = icmp eq ptr %24, null
   br i1 %.not35, label %.thread47, label %25
@@ -3693,7 +3693,7 @@ define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone captures(address) 
   %.pre74 = phi i8 [ 1, %.thread ], [ %4, %9 ]
   store i64 -1, ptr %2, align 8, !tbaa !25
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %13
+  %14 = getelementptr inbounds ptr, ptr @H5I_type_info_array_g, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %20, label %16

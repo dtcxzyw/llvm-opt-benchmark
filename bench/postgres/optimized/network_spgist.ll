@@ -157,7 +157,7 @@ define dso_local noundef i64 @inet_spg_choose(ptr noundef readonly captures(none
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %87 = sdiv i32 %71, 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [16 x i8], ptr %86, i64 0, i64 %88
+  %89 = getelementptr inbounds i8, ptr %86, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = srem i32 %71, 8
@@ -197,7 +197,7 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %112 = lshr i8 %33, 3
   %113 = zext nneg i8 %112 to i64
-  %114 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = and i8 %33, 7
@@ -393,7 +393,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
 
 106:                                              ; preds = %93
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  %108 = getelementptr inbounds [16 x i8], ptr %107, i64 0, i64 %90
+  %108 = getelementptr inbounds i8, ptr %107, i64 %90
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = lshr i32 %110, %92
@@ -780,7 +780,7 @@ select.unfold260:                                 ; preds = %76, %61, %68, %48, 
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 0, i64 %15
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %15
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = and i32 %18, %105
@@ -899,7 +899,7 @@ select.unfold289:                                 ; preds = %129, %125
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %140, i64 2
-  %152 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 0, i64 %15
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %15
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   %155 = and i32 %18, %154

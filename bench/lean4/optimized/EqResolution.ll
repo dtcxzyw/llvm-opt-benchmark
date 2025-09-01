@@ -5024,7 +5024,7 @@ lean_dec.exit349:                                 ; preds = %66, %65, %63, %lean
   %.0234690 = phi i64 [ %5, %.lr.ph ], [ %827, %lean_dec.exit342 ]
   %.0237689 = phi ptr [ %6, %.lr.ph ], [ %811, %lean_dec.exit342 ]
   %.0240688 = phi ptr [ %11, %.lr.ph ], [ %.2262.ph, %lean_dec.exit342 ]
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %.0234690
+  %71 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0234690
   %72 = load ptr, ptr %71, align 8, !tbaa !9
   %73 = ptrtoint ptr %72 to i64
   %74 = and i64 %73, 1
@@ -7145,7 +7145,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_T
   %.04295 = phi i64 [ %1, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.04494 = phi ptr [ %3, %.lr.ph ], [ %.246, %lean_dec.exit ]
   %.04793 = phi ptr [ %8, %.lr.ph ], [ %.249, %lean_dec.exit ]
-  %12 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.04295
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04295
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
@@ -7415,7 +7415,7 @@ define ptr @l_Array_anyMUnsafe_any___at___private_Lean_Meta_Tactic_Grind_EqResol
 10:                                               ; preds = %.lr.ph, %126
   %.050107 = phi i64 [ %1, %.lr.ph ], [ %127, %126 ]
   %.053106 = phi ptr [ %7, %.lr.ph ], [ %62, %126 ]
-  %11 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.050107
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.050107
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1

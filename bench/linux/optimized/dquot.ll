@@ -387,7 +387,7 @@ define dso_local i32 @dquot_acquire(ptr noundef %0) #0 align 16 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [3 x ptr], ptr %15, i64 0, i64 %18
+  %19 = getelementptr ptr, ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -414,7 +414,7 @@ define dso_local i32 @dquot_acquire(ptr noundef %0) #0 align 16 {
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr [3 x ptr], ptr %35, i64 0, i64 %38
+  %39 = getelementptr ptr, ptr %35, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
@@ -430,7 +430,7 @@ define dso_local i32 @dquot_acquire(ptr noundef %0) #0 align 16 {
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %34
-  %52 = getelementptr [3 x ptr], ptr %35, i64 0, i64 %45
+  %52 = getelementptr ptr, ptr %35, i64 %45
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -534,7 +534,7 @@ define dso_local i32 @dquot_commit(ptr noundef %0) #0 align 16 {
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr [3 x ptr], ptr %38, i64 0, i64 %41
+  %42 = getelementptr ptr, ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
@@ -581,7 +581,7 @@ define dso_local i32 @dquot_release(ptr noundef %0) #0 align 16 {
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr [3 x ptr], ptr %19, i64 0, i64 %22
+  %23 = getelementptr ptr, ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
@@ -601,7 +601,7 @@ define dso_local i32 @dquot_release(ptr noundef %0) #0 align 16 {
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %28
-  %38 = getelementptr [3 x ptr], ptr %19, i64 0, i64 %31
+  %38 = getelementptr ptr, ptr %19, i64 %31
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -1158,7 +1158,7 @@ define dso_local i32 @dquot_quota_sync(ptr noundef %0, i32 noundef %1) #0 align 
 .split.preheader:                                 ; preds = %24
   %28 = shl nuw nsw i32 1, %1
   %29 = shl nuw nsw i32 64, %1
-  %30 = getelementptr [3 x ptr], ptr %26, i64 0, i64 %27
+  %30 = getelementptr ptr, ptr %26, i64 %27
   br label %.split
 
 .split.us:                                        ; preds = %24, %49
@@ -1175,7 +1175,7 @@ define dso_local i32 @dquot_quota_sync(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %.split.us
-  %42 = getelementptr [3 x ptr], ptr %26, i64 0, i64 %31
+  %42 = getelementptr ptr, ptr %26, i64 %31
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 160
   tail call void @down_write(ptr noundef nonnull %44) #12
@@ -1588,7 +1588,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   %29 = getelementptr ptr, ptr %24, i64 %28
   %30 = shl nuw nsw i32 1, %1
   %31 = shl nuw nsw i32 64, %1
-  %32 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %28
+  %32 = getelementptr ptr, ptr %3, i64 %28
   br label %.split
 
 .split.us:                                        ; preds = %19, %77
@@ -1659,7 +1659,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
 
 74:                                               ; preds = %72, %68
   %75 = phi ptr [ %70, %68 ], [ null, %72 ]
-  %76 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %33
+  %76 = getelementptr ptr, ptr %3, i64 %33
   store ptr %75, ptr %76, align 8
   br label %77
 
@@ -1796,7 +1796,7 @@ default.unreachable:                              ; preds = %93
   br i1 %146, label %147, label %.critedge
 
 147:                                              ; preds = %137
-  %148 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %134
+  %148 = getelementptr ptr, ptr %3, i64 %134
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, null
   br i1 %150, label %.critedge, label %151
@@ -2003,7 +2003,7 @@ define dso_local void @dquot_drop(ptr noundef %0) #0 align 16 {
   %31 = phi i64 [ 0, %23 ], [ %35, %30 ]
   %32 = getelementptr ptr, ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr [3 x ptr], ptr %2, i64 0, i64 %31
+  %34 = getelementptr ptr, ptr %2, i64 %31
   store ptr %33, ptr %34, align 8
   store ptr null, ptr %32, align 8
   %35 = add nuw nsw i64 %31, 1
@@ -2050,7 +2050,7 @@ define internal fastcc void @__dquot_drop(ptr noundef %0) unnamed_addr #0 align 
   %11 = phi i64 [ 0, %1 ], [ %15, %10 ]
   %12 = getelementptr ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr [3 x ptr], ptr %2, i64 0, i64 %11
+  %14 = getelementptr ptr, ptr %2, i64 %11
   store ptr %13, ptr %14, align 8
   store ptr null, ptr %12, align 8
   %15 = add nuw nsw i64 %11, 1
@@ -2137,7 +2137,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
 
 .preheader14:                                     ; preds = %.preheader14.preheader, %.preheader14
   %37 = phi i64 [ %39, %.preheader14 ], [ 0, %.preheader14.preheader ]
-  %38 = getelementptr [3 x %struct.dquot_warn], ptr %4, i64 0, i64 %37, i32 2
+  %38 = getelementptr %struct.dquot_warn, ptr %4, i64 %37, i32 2
   store i16 0, ptr %38, align 8
   %39 = add nuw nsw i64 %37, 1
   %40 = icmp eq i64 %39, 3
@@ -2163,7 +2163,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %.split.us
-  %55 = getelementptr [3 x %struct.dquot_warn], ptr %4, i64 0, i64 %50
+  %55 = getelementptr %struct.dquot_warn, ptr %4, i64 %50
   %56 = call fastcc i32 @dquot_add_space(ptr noundef nonnull %52, i64 noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef %55), !range !51
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.split18.us
@@ -2181,7 +2181,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   br i1 %64, label %138, label %65
 
 65:                                               ; preds = %.split
-  %66 = getelementptr [3 x %struct.dquot_warn], ptr %4, i64 0, i64 %61
+  %66 = getelementptr %struct.dquot_warn, ptr %4, i64 %61
   %67 = call fastcc i32 @dquot_add_space(ptr noundef nonnull %63, i64 noundef 0, i64 noundef %1, i32 noundef %2, ptr noundef %66), !range !51
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %138, label %.split18.us
@@ -2462,7 +2462,7 @@ define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_space(ptr nound
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 328
   %37 = zext i32 %10 to i64
-  %38 = getelementptr [3 x %struct.mem_dqinfo], ptr %36, i64 0, i64 %37
+  %38 = getelementptr %struct.mem_dqinfo, ptr %36, i64 %37
   %39 = tail call zeroext i1 @capable(i32 noundef 24) #12
   br i1 %39, label %40, label %49
 
@@ -2527,7 +2527,7 @@ define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_space(ptr nound
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 328
   %79 = load i32, ptr %9, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr [3 x %struct.mem_dqinfo], ptr %78, i64 0, i64 %80
+  %81 = getelementptr %struct.mem_dqinfo, ptr %78, i64 %80
   %82 = tail call zeroext i1 @capable(i32 noundef 24) #12
   br i1 %82, label %83, label %92
 
@@ -2661,7 +2661,7 @@ define dso_local noundef range(i32 -122, 1) i32 @dquot_alloc_inode(ptr noundef %
 
 .preheader12:                                     ; preds = %.preheader12.preheader, %.preheader12
   %17 = phi i64 [ %19, %.preheader12 ], [ 0, %.preheader12.preheader ]
-  %18 = getelementptr [3 x %struct.dquot_warn], ptr %2, i64 0, i64 %17, i32 2
+  %18 = getelementptr %struct.dquot_warn, ptr %2, i64 %17, i32 2
   store i16 0, ptr %18, align 8
   %19 = add nuw nsw i64 %17, 1
   %20 = icmp eq i64 %19, 3
@@ -2686,7 +2686,7 @@ define dso_local noundef range(i32 -122, 1) i32 @dquot_alloc_inode(ptr noundef %
   br i1 %33, label %74, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr [3 x %struct.dquot_warn], ptr %2, i64 0, i64 %30
+  %35 = getelementptr %struct.dquot_warn, ptr %2, i64 %30
   %36 = call fastcc i32 @dquot_add_inodes(ptr noundef nonnull %32, i64 noundef 1, ptr noundef %35), !range !51
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %74, label %38
@@ -2869,7 +2869,7 @@ define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_inodes(ptr noun
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 328
   %30 = zext i32 %11 to i64
-  %31 = getelementptr [3 x %struct.mem_dqinfo], ptr %29, i64 0, i64 %30
+  %31 = getelementptr %struct.mem_dqinfo, ptr %29, i64 %30
   %32 = tail call zeroext i1 @capable(i32 noundef 24) #12
   br i1 %32, label %33, label %42
 
@@ -2929,7 +2929,7 @@ define internal fastcc noundef range(i32 -122, 1) i32 @dquot_add_inodes(ptr noun
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 328
   %69 = load i32, ptr %10, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr [3 x %struct.mem_dqinfo], ptr %68, i64 0, i64 %70
+  %71 = getelementptr %struct.mem_dqinfo, ptr %68, i64 %70
   %72 = tail call zeroext i1 @capable(i32 noundef 24) #12
   br i1 %72, label %73, label %82
 
@@ -3405,7 +3405,7 @@ define dso_local void @__dquot_free_space(ptr noundef %0, i64 noundef %1, i32 no
 
 .split.us:                                        ; preds = %37, %100
   %46 = phi i64 [ %101, %100 ], [ 0, %37 ]
-  %47 = getelementptr [3 x %struct.dquot_warn], ptr %4, i64 0, i64 %46
+  %47 = getelementptr %struct.dquot_warn, ptr %4, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i16 0, ptr %48, align 8
   %49 = getelementptr ptr, ptr %42, i64 %46
@@ -3496,7 +3496,7 @@ select.unfold.us:                                 ; preds = %72, %69
 
 .split:                                           ; preds = %37, %156
   %103 = phi i64 [ %157, %156 ], [ 0, %37 ]
-  %104 = getelementptr [3 x %struct.dquot_warn], ptr %4, i64 0, i64 %103
+  %104 = getelementptr %struct.dquot_warn, ptr %4, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i16 0, ptr %105, align 8
   %106 = getelementptr ptr, ptr %42, i64 %103
@@ -3725,7 +3725,7 @@ define dso_local void @dquot_free_inode(ptr noundef %0) #0 align 16 {
 
 25:                                               ; preds = %88, %17
   %26 = phi i64 [ 0, %17 ], [ %89, %88 ]
-  %27 = getelementptr [3 x %struct.dquot_warn], ptr %2, i64 0, i64 %26
+  %27 = getelementptr %struct.dquot_warn, ptr %2, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i16 0, ptr %28, align 8
   %29 = getelementptr ptr, ptr %22, i64 %26
@@ -3945,11 +3945,11 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
 
 25:                                               ; preds = %25, %24
   %26 = phi i64 [ %30, %25 ], [ 0, %24 ]
-  %27 = getelementptr [3 x %struct.dquot_warn], ptr %6, i64 0, i64 %26, i32 2
+  %27 = getelementptr %struct.dquot_warn, ptr %6, i64 %26, i32 2
   store i16 0, ptr %27, align 8
-  %28 = getelementptr [3 x %struct.dquot_warn], ptr %7, i64 0, i64 %26, i32 2
+  %28 = getelementptr %struct.dquot_warn, ptr %7, i64 %26, i32 2
   store i16 0, ptr %28, align 8
-  %29 = getelementptr [3 x %struct.dquot_warn], ptr %8, i64 0, i64 %26, i32 2
+  %29 = getelementptr %struct.dquot_warn, ptr %8, i64 %26, i32 2
   store i16 0, ptr %29, align 8
   %30 = add nuw nsw i64 %26, 1
   %31 = icmp eq i64 %30, 3
@@ -4020,7 +4020,7 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
   br i1 %75, label %76, label %123
 
 76:                                               ; preds = %64
-  %77 = getelementptr [3 x i8], ptr %5, i64 0, i64 %60
+  %77 = getelementptr i8, ptr %5, i64 %60
   store i8 1, ptr %77, align 1
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %79 = load ptr, ptr %78, align 16
@@ -4029,11 +4029,11 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
   %82 = call ptr %81(ptr noundef %0) #12
   %83 = getelementptr ptr, ptr %82, i64 %60
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %60
+  %85 = getelementptr ptr, ptr %4, i64 %60
   store ptr %84, ptr %85, align 8
   %86 = load ptr, ptr %61, align 8
   %87 = load i64, ptr %3, align 8
-  %88 = getelementptr [3 x %struct.dquot_warn], ptr %6, i64 0, i64 %60
+  %88 = getelementptr %struct.dquot_warn, ptr %6, i64 %60
   %89 = call fastcc i32 @dquot_add_inodes(ptr noundef %86, i64 noundef %87, ptr noundef %88), !range !51
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %.loopexit45
@@ -4099,13 +4099,13 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
 
 126:                                              ; preds = %262, %57
   %127 = phi i64 [ 0, %57 ], [ %263, %262 ]
-  %128 = getelementptr [3 x i8], ptr %5, i64 0, i64 %127
+  %128 = getelementptr i8, ptr %5, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %262, label %131
 
 131:                                              ; preds = %126
-  %132 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %127
+  %132 = getelementptr ptr, ptr %4, i64 %127
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %252, label %135
@@ -4155,7 +4155,7 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
 
 select.unfold:                                    ; preds = %161, %158
   %167 = phi i16 [ 8, %158 ], [ 7, %161 ]
-  %168 = getelementptr [3 x %struct.dquot_warn], ptr %7, i64 0, i64 %127
+  %168 = getelementptr %struct.dquot_warn, ptr %7, i64 %127
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store i16 %167, ptr %169, align 8
   store ptr %150, ptr %168, align 8
@@ -4197,7 +4197,7 @@ select.unfold:                                    ; preds = %161, %158
 
 select.unfold33:                                  ; preds = %189, %186
   %194 = phi i16 [ 10, %186 ], [ 9, %189 ]
-  %195 = getelementptr [3 x %struct.dquot_warn], ptr %8, i64 0, i64 %127
+  %195 = getelementptr %struct.dquot_warn, ptr %8, i64 %127
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   store i16 %194, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %133, i64 104
@@ -4442,13 +4442,13 @@ select.unfold33:                                  ; preds = %189, %186
 
 .preheader:                                       ; preds = %339, %350
   %342 = phi i64 [ %351, %350 ], [ 0, %339 ]
-  %343 = getelementptr [3 x i8], ptr %5, i64 0, i64 %342
+  %343 = getelementptr i8, ptr %5, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = icmp eq i8 %344, 0
   br i1 %345, label %350, label %346
 
 346:                                              ; preds = %.preheader
-  %347 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %342
+  %347 = getelementptr ptr, ptr %4, i64 %342
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr ptr, ptr %1, i64 %342
   store ptr %348, ptr %349, align 8
@@ -4467,7 +4467,7 @@ select.unfold33:                                  ; preds = %189, %186
 .preheader43:                                     ; preds = %.loopexit45, %433
   %355 = phi i64 [ %356, %433 ], [ %60, %.loopexit45 ]
   %356 = add nsw i64 %355, -1
-  %357 = getelementptr [3 x i8], ptr %5, i64 0, i64 %356
+  %357 = getelementptr i8, ptr %5, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = icmp eq i8 %358, 0
   br i1 %359, label %433, label %360
@@ -4785,7 +4785,7 @@ declare dso_local i32 @from_vfsgid(ptr noundef, ptr noundef, i32) local_unnamed_
 define dso_local i32 @dquot_commit_info(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = sext i32 %1 to i64
-  %5 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -4811,7 +4811,7 @@ define dso_local i32 @dquot_get_next_id(ptr noundef %0, ptr noundef %1) #0 align
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %16 = zext i32 %5 to i64
-  %17 = getelementptr [3 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
@@ -4943,7 +4943,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
   %59 = and i32 %50, %58
   store i32 %59, ptr %5, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @dq_state_lock) #12
-  %60 = getelementptr [3 x ptr], ptr %24, i64 0, i64 %32
+  %60 = getelementptr ptr, ptr %24, i64 %32
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %205, label %63
@@ -5184,7 +5184,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
 
 .loopexit23:                                      ; preds = %181, %136, %105
   call void @_raw_spin_unlock(ptr noundef nonnull @dq_list_lock) #12
-  %183 = getelementptr [3 x %struct.mem_dqinfo], ptr %28, i64 0, i64 %32
+  %183 = getelementptr %struct.mem_dqinfo, ptr %28, i64 %32
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load volatile i64, ptr %184, align 8
   %186 = and i64 %185, 131072
@@ -5199,7 +5199,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
   br label %193
 
 193:                                              ; preds = %188, %.loopexit23
-  %194 = getelementptr [3 x ptr], ptr %29, i64 0, i64 %32
+  %194 = getelementptr ptr, ptr %29, i64 %32
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %197 = load ptr, ptr %196, align 8
@@ -5258,7 +5258,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
   br i1 %230, label %231, label %241
 
 231:                                              ; preds = %224
-  %232 = getelementptr [3 x ptr], ptr %24, i64 0, i64 %225
+  %232 = getelementptr ptr, ptr %24, i64 %225
   %233 = load ptr, ptr %232, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %241, label %235
@@ -5301,7 +5301,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
   br i1 %254, label %255, label %268
 
 255:                                              ; preds = %.preheader
-  %256 = getelementptr [3 x ptr], ptr %24, i64 0, i64 %249
+  %256 = getelementptr ptr, ptr %24, i64 %249
   %257 = load ptr, ptr %256, align 8
   %258 = icmp eq ptr %257, null
   br i1 %258, label %268, label %259
@@ -5382,7 +5382,7 @@ define dso_local i32 @dquot_load_quota_sb(ptr noundef %0, i32 noundef %1, i32 no
 
 18:                                               ; preds = %18, %.loopexit9
   %19 = phi i64 [ %25, %18 ], [ 0, %.loopexit9 ]
-  %20 = getelementptr [4 x %struct.quota_module_name], ptr @module_names, i64 0, i64 %19
+  %20 = getelementptr %struct.quota_module_name, ptr @module_names, i64 %19
   %21 = load i32, ptr %20, align 16
   %22 = icmp eq i32 %21, 0
   %23 = icmp eq i32 %21, %2
@@ -5508,10 +5508,10 @@ define dso_local i32 @dquot_load_quota_sb(ptr noundef %0, i32 noundef %1, i32 no
   %95 = load ptr, ptr %89, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %97 = sext i32 %1 to i64
-  %98 = getelementptr [3 x ptr], ptr %96, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr %96, i64 %97
   store ptr %95, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %100 = getelementptr [3 x %struct.mem_dqinfo], ptr %99, i64 0, i64 %97
+  %100 = getelementptr %struct.mem_dqinfo, ptr %99, i64 %97
   store ptr %48, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 %2, ptr %101, align 8
@@ -5769,7 +5769,7 @@ define dso_local i32 @dquot_load_quota_inode(ptr noundef %0, i32 noundef %1, i32
   %29 = tail call ptr @igrab(ptr noundef %0) #12
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %31 = sext i32 %1 to i64
-  %32 = getelementptr [3 x ptr], ptr %30, i64 0, i64 %31
+  %32 = getelementptr ptr, ptr %30, i64 %31
   store ptr %29, ptr %32, align 8
   %33 = icmp eq ptr %29, null
   br i1 %33, label %.thread, label %34
@@ -5799,7 +5799,7 @@ define dso_local i32 @dquot_load_quota_inode(ptr noundef %0, i32 noundef %1, i32
 46:                                               ; preds = %42
   %47 = load ptr, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 304
-  %49 = getelementptr [3 x ptr], ptr %48, i64 0, i64 %31
+  %49 = getelementptr ptr, ptr %48, i64 %31
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread, label %52
@@ -5886,7 +5886,7 @@ define dso_local i32 @dquot_resume(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %24
-  %36 = getelementptr [3 x ptr], ptr %10, i64 0, i64 %14
+  %36 = getelementptr ptr, ptr %10, i64 %14
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %49, label %39
@@ -6147,7 +6147,7 @@ define dso_local i32 @dquot_set_dqblk(ptr noundef %0, i64 %1, ptr noundef readon
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
-  %17 = getelementptr [3 x %struct.mem_dqinfo], ptr %13, i64 0, i64 %16
+  %17 = getelementptr %struct.mem_dqinfo, ptr %13, i64 %16
   %18 = load i32, ptr %2, align 8
   %19 = and i32 %18, -12496
   %20 = icmp eq i32 %19, 0
@@ -6566,7 +6566,7 @@ define dso_local noundef i32 @dquot_get_state(ptr noundef readonly captures(none
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr [3 x ptr], ptr %6, i64 0, i64 %8
+  %50 = getelementptr ptr, ptr %6, i64 %8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %61, label %53
@@ -7340,7 +7340,7 @@ define internal i32 @do_proc_dqstats(ptr noundef %0, i32 noundef %1, ptr noundef
   %16 = icmp ult i32 %15, 2
   %17 = tail call i64 @llvm.smax.i64(i64 %13, i64 0)
   %18 = select i1 %16, i64 %17, i64 %13
-  %19 = getelementptr [8 x i64], ptr @dqstats, i64 0, i64 %11
+  %19 = getelementptr i64, ptr @dqstats, i64 %11
   store i64 %18, ptr %19, align 8
   %20 = tail call i32 @proc_doulongvec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #12
   ret i32 %20

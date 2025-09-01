@@ -1608,7 +1608,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %19 = and i64 %18, 63
   %20 = shl nuw i64 1, %19
   %21 = lshr i64 %18, 6
-  %22 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %9, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = or i64 %23, %20
   store i64 %24, ptr %22, align 8, !tbaa !19
@@ -1633,7 +1633,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %32 = and i64 %31, 63
   %33 = shl nuw i64 1, %32
   %34 = lshr i64 %31, 6
-  %35 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %9, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !19
   %37 = or i64 %33, %36
   store i64 %37, ptr %35, align 8, !tbaa !19
@@ -1646,7 +1646,7 @@ _ZN5boost6spirit7classic16basic_chset_8bitIcE3setEcc.exit.thread.i: ; preds = %1
   %41 = and i64 %40, 63
   %42 = shl nuw i64 1, %41
   %43 = lshr i64 %40, 6
-  %44 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %9, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !19
   %46 = or i64 %45, %42
   store i64 %46, ptr %44, align 8, !tbaa !19
@@ -1773,9 +1773,9 @@ _ZN5boost6spirit7classic5chsetIcEC2ERKS3_.exit:   ; preds = %3
 
 24:                                               ; preds = %24, %.noexc
   %.05.i.i.i.i = phi i64 [ 0, %.noexc ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %22, i64 0, i64 %.05.i.i.i.i
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %.05.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw [4 x i64], ptr %23, i64 0, i64 %.05.i.i.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %.05.i.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !19
   %29 = or i64 %28, %26
   store i64 %29, ptr %27, align 8, !tbaa !19
@@ -5891,7 +5891,7 @@ _ZN5boost6spirit7classic5chsetIcEC2Ec.exit:       ; preds = %3
   %22 = and i64 %21, 63
   %23 = shl nuw i64 1, %22
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %5, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !19
   %27 = or i64 %26, %23
   store i64 %27, ptr %25, align 8, !tbaa !19
@@ -7422,7 +7422,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = zext i8 %10 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
@@ -7443,7 +7443,7 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gn
   %22 = load i8, ptr %.sroa.02.0.copyload52.i, align 1, !tbaa !21
   %23 = zext i8 %22 to i64
   %24 = lshr i64 %23, 6
-  %25 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %11, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !19
   %27 = and i64 %23, 63
   %28 = shl nuw i64 1, %27
@@ -7614,7 +7614,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %11 = load ptr, ptr %9, align 8, !tbaa !3
   %12 = zext i8 %10 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %12, 63
   %17 = shl nuw i64 1, %16
@@ -7781,7 +7781,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   %10 = load i8, ptr %.sroa.02.0.copyload29.i, align 1, !tbaa !21
   %11 = zext i8 %10 to i64
   %12 = lshr i64 %11, 6
-  %13 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !19
   %15 = and i64 %11, 63
   %16 = shl nuw i64 1, %15

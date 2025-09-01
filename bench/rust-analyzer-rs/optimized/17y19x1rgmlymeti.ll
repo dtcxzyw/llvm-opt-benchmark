@@ -1589,7 +1589,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 .lr.ph:                                           ; preds = %297, %"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$paths..AbsPathBuf$GT$$GT$17h4e20c2101996bff9E.exit"
   %.0.i132461 = phi i64 [ %302, %"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$paths..AbsPathBuf$GT$$GT$17h4e20c2101996bff9E.exit" ], [ 0, %297 ]
-  %301 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %298, i64 0, i64 %.0.i132461
+  %301 = getelementptr inbounds { i64, [8 x i64] }, ptr %298, i64 %.0.i132461
   %302 = add nuw i64 %.0.i132461, 1
   %303 = load i64, ptr %301, align 8, !range !4, !alias.scope !230, !noundef !5
   %304 = icmp eq i64 %303, -9223372036854775808
@@ -1607,7 +1607,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 .lr.ph.i.i.i195:                                  ; preds = %305, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7a145a979051df58E.exit.i.i.i"
   %.07.i.i.i196 = phi i64 [ %312, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7a145a979051df58E.exit.i.i.i" ], [ 0, %305 ]
-  %311 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %307, i64 0, i64 %.07.i.i.i196
+  %311 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %307, i64 %.07.i.i.i196
   %312 = add nuw i64 %.07.i.i.i196, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !242
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %311)
@@ -1646,7 +1646,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 325:                                              ; preds = %.lr.ph464, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7a145a979051df58E.exit"
   %.1.i.i.i197462 = phi i64 [ %312, %.lr.ph464 ], [ %327, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7a145a979051df58E.exit" ]
-  %326 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %307, i64 0, i64 %.1.i.i.i197462
+  %326 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %307, i64 %.1.i.i.i197462
   %327 = add i64 %.1.i.i.i197462, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !253
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %326)
@@ -1733,7 +1733,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 .lr.ph.i.i.i182:                                  ; preds = %348, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit.i.i.i188"
   %.07.i.i.i183 = phi i64 [ %356, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit.i.i.i188" ], [ 0, %348 ]
-  %355 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %351, i64 0, i64 %.07.i.i.i183
+  %355 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %351, i64 %.07.i.i.i183
   %356 = add nuw i64 %.07.i.i.i183, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !274
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %355)
@@ -1772,7 +1772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 369:                                              ; preds = %.lr.ph467, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit207"
   %.1.i.i.i184465 = phi i64 [ %356, %.lr.ph467 ], [ %371, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit207" ]
-  %370 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %351, i64 0, i64 %.1.i.i.i184465
+  %370 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %351, i64 %.1.i.i.i184465
   %371 = add i64 %.1.i.i.i184465, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !293
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %370)
@@ -1869,7 +1869,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core3ptr45drop_in_place$LT$vfs..loader..Directories$GT$17hb271988d0469efb3E.exit.i.i", %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit.i.i.i177"
   %.07.i.i.i = phi i64 [ %401, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit.i.i.i177" ], [ 0, %"_ZN4core3ptr45drop_in_place$LT$vfs..loader..Directories$GT$17hb271988d0469efb3E.exit.i.i" ]
-  %400 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %396, i64 0, i64 %.07.i.i.i
+  %400 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %396, i64 %.07.i.i.i
   %401 = add nuw i64 %.07.i.i.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !322
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %400)
@@ -1908,7 +1908,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 414:                                              ; preds = %.lr.ph470, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit"
   %.1.i.i.i468 = phi i64 [ %401, %.lr.ph470 ], [ %416, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h2ee85b8ec339c519E.exit" ]
-  %415 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %396, i64 0, i64 %.1.i.i.i468
+  %415 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %396, i64 %.1.i.i.i468
   %416 = add i64 %.1.i.i.i468, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !341
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf8fb4b4e96a513a5E.llvm.3009195400206169856"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %415)
@@ -1990,7 +1990,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %435
 
 439:                                              ; preds = %435
-  %440 = getelementptr inbounds [0 x { i64, [8 x i64] }], ptr %298, i64 0, i64 %.1.i
+  %440 = getelementptr inbounds { i64, [8 x i64] }, ptr %298, i64 %.1.i
   %441 = add i64 %.1.i, 1
   invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$vfs..loader..Entry$GT$17h88da3e558dac5d79E"(ptr noalias noundef align 8 dereferenceable(72) %440) #14
           to label %435 unwind label %442

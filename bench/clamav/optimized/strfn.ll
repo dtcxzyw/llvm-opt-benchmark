@@ -707,7 +707,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i8
   %13 = or disjoint i8 %12, 48
-  %14 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %.021
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.021
   store i8 %13, ptr %14, align 1, !tbaa !3
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
@@ -719,7 +719,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr noundef writeonly captures(none) %1
 
 17:                                               ; preds = %16
   %18 = add i64 %.122, 1
-  %19 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %.122
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.122
   store i8 45, ptr %19, align 1, !tbaa !3
   br label %20
 
@@ -728,23 +728,26 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   %.not29 = icmp eq i64 %.2, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %20
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.2
-  store i8 0, ptr %21, align 1, !tbaa !3
+.lr.ph:                                           ; preds = %20
+  %21 = getelementptr i8, ptr %4, i64 %.2
+  br label %23
+
+._crit_edge:                                      ; preds = %23, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.2
+  store i8 0, ptr %22, align 1, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.lr.ph:                                           ; preds = %20, %.lr.ph
-  %.028 = phi i64 [ %27, %.lr.ph ], [ 0, %20 ]
-  %22 = xor i64 %.028, -1
-  %23 = add i64 %.2, %22
-  %24 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.028
-  store i8 %25, ptr %26, align 1, !tbaa !3
-  %27 = add nuw i64 %.028, 1
-  %exitcond30.not = icmp eq i64 %27, %.2
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+23:                                               ; preds = %.lr.ph, %23
+  %.028 = phi i64 [ 0, %.lr.ph ], [ %28, %23 ]
+  %24 = xor i64 %.028, -1
+  %25 = getelementptr i8, ptr %21, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.028
+  store i8 %26, ptr %27, align 1, !tbaa !3
+  %28 = add nuw i64 %.028, 1
+  %exitcond30.not = icmp eq i64 %28, %.2
+  br i1 %exitcond30.not, label %._crit_edge, label %23, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -769,7 +772,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = or disjoint i32 %12, 48
-  %14 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.021
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %.021
   store i32 %13, ptr %14, align 4, !tbaa !8
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
@@ -781,7 +784,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
 
 17:                                               ; preds = %16
   %18 = add i64 %.122, 1
-  %19 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.122
+  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %.122
   store i32 45, ptr %19, align 4, !tbaa !8
   br label %20
 
@@ -790,23 +793,26 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr noundef writeonly captures(none) %1
   %.not29 = icmp eq i64 %.2, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %20
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %.2
-  store i32 0, ptr %21, align 4, !tbaa !8
+.lr.ph:                                           ; preds = %20
+  %21 = getelementptr i32, ptr %4, i64 %.2
+  br label %23
+
+._crit_edge:                                      ; preds = %23, %20
+  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %.2
+  store i32 0, ptr %22, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.lr.ph:                                           ; preds = %20, %.lr.ph
-  %.028 = phi i64 [ %27, %.lr.ph ], [ 0, %20 ]
-  %22 = xor i64 %.028, -1
-  %23 = add i64 %.2, %22
-  %24 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !8
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %.028
-  store i32 %25, ptr %26, align 4, !tbaa !8
-  %27 = add nuw i64 %.028, 1
-  %exitcond30.not = icmp eq i64 %27, %.2
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+23:                                               ; preds = %.lr.ph, %23
+  %.028 = phi i64 [ 0, %.lr.ph ], [ %28, %23 ]
+  %24 = xor i64 %.028, -1
+  %25 = getelementptr i32, ptr %21, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !8
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %.028
+  store i32 %26, ptr %27, align 4, !tbaa !8
+  %28 = add nuw i64 %.028, 1
+  %exitcond30.not = icmp eq i64 %28, %.2
+  br i1 %exitcond30.not, label %._crit_edge, label %23, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -839,7 +845,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   %16 = urem i64 %.1.i, 10
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = or disjoint i32 %17, 48
-  %19 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.021.i
+  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %.021.i
   store i32 %18, ptr %19, align 4, !tbaa !8
   %20 = udiv i64 %.1.i, 10
   %.not27.i = icmp samesign ult i64 %.1.i, 10
@@ -851,7 +857,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
 
 22:                                               ; preds = %21
   %23 = add i64 %.122.i, 1
-  %24 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.122.i
+  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %.122.i
   store i32 45, ptr %24, align 4, !tbaa !8
   br label %25
 
@@ -860,80 +866,83 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr noundef writeonly captures(none)
   %.not29.i = icmp eq i64 %.2.i, 0
   br i1 %.not29.i, label %_Z4itoalPwm.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %25, %.lr.ph.i
-  %.028.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %25 ]
-  %26 = xor i64 %.028.i, -1
-  %27 = add nsw i64 %.2.i, %26
-  %28 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !8
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %.028.i
-  store i32 %29, ptr %30, align 4, !tbaa !8
-  %31 = add nuw nsw i64 %.028.i, 1
-  %exitcond30.not.i = icmp eq i64 %31, %.2.i
-  br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %.lr.ph.i, !llvm.loop !22
+.lr.ph.i:                                         ; preds = %25
+  %26 = getelementptr i32, ptr %4, i64 %.2.i
+  br label %27
 
-_Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.i
-  store i32 0, ptr %32, align 4, !tbaa !8
+27:                                               ; preds = %27, %.lr.ph.i
+  %.028.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %27 ]
+  %28 = xor i64 %.028.i, -1
+  %29 = getelementptr i32, ptr %26, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !8
+  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %.028.i
+  store i32 %30, ptr %31, align 4, !tbaa !8
+  %32 = add nuw nsw i64 %.028.i, 1
+  %exitcond30.not.i = icmp eq i64 %32, %.2.i
+  br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %27, !llvm.loop !22
+
+_Z4itoalPwm.exit:                                 ; preds = %27, %25
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.i
+  store i32 0, ptr %33, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = load i32, ptr %5, align 16, !tbaa !8
-  %34 = icmp ne i32 %33, 0
-  %35 = icmp ugt i64 %2, 1
-  %36 = and i1 %34, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  %34 = load i32, ptr %5, align 16, !tbaa !8
+  %35 = icmp ne i32 %34, 0
+  %36 = icmp ugt i64 %2, 1
+  %37 = and i1 %35, %36
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_Z4itoalPwm.exit
-  %37 = call i64 @wcslen(ptr noundef nonnull %5) #14
-  %38 = urem i64 %37, 3
-  %39 = trunc nuw nsw i64 %38 to i32
-  %40 = xor i32 %39, 3
-  br label %41
+  %38 = call i64 @wcslen(ptr noundef nonnull %5) #14
+  %39 = urem i64 %38, 3
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = xor i32 %40, 3
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %51
-  %42 = phi i32 [ 1, %.lr.ph ], [ %60, %51 ]
-  %43 = phi i32 [ %33, %.lr.ph ], [ %58, %51 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
-  %.01314 = phi i32 [ 0, %.lr.ph ], [ %53, %51 ]
+42:                                               ; preds = %.lr.ph, %52
+  %43 = phi i32 [ 1, %.lr.ph ], [ %61, %52 ]
+  %44 = phi i32 [ %34, %.lr.ph ], [ %59, %52 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
+  %.01314 = phi i32 [ 0, %.lr.ph ], [ %54, %52 ]
   %.not = icmp eq i32 %.015, 0
-  br i1 %.not, label %51, label %44
+  br i1 %.not, label %52, label %45
 
-44:                                               ; preds = %41
-  %45 = add i32 %40, %.015
-  %46 = urem i32 %45, 3
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %42
+  %46 = add i32 %41, %.015
+  %47 = urem i32 %46, 3
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %44
-  %49 = zext i32 %.01314 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %49
-  store i32 %spec.store.select, ptr %50, align 4, !tbaa !8
-  br label %51
+49:                                               ; preds = %45
+  %50 = zext i32 %.01314 to i64
+  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
+  store i32 %spec.store.select, ptr %51, align 4, !tbaa !8
+  br label %52
 
-51:                                               ; preds = %48, %44, %41
-  %.1 = phi i32 [ %42, %48 ], [ %.01314, %44 ], [ %.01314, %41 ]
-  %52 = add i32 %.015, 1
-  %53 = add i32 %.1, 1
-  %54 = zext i32 %.1 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %1, i64 %54
-  store i32 %43, ptr %55, align 4, !tbaa !8
-  %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw [30 x i32], ptr %5, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !8
-  %59 = icmp ne i32 %58, 0
-  %60 = add i32 %.1, 2
-  %61 = zext i32 %60 to i64
-  %62 = icmp ugt i64 %2, %61
-  %63 = and i1 %59, %62
-  br i1 %63, label %41, label %._crit_edge.loopexit, !llvm.loop !27
+52:                                               ; preds = %49, %45, %42
+  %.1 = phi i32 [ %43, %49 ], [ %.01314, %45 ], [ %.01314, %42 ]
+  %53 = add i32 %.015, 1
+  %54 = add i32 %.1, 1
+  %55 = zext i32 %.1 to i64
+  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %55
+  store i32 %44, ptr %56, align 4, !tbaa !8
+  %57 = zext i32 %53 to i64
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !8
+  %60 = icmp ne i32 %59, 0
+  %61 = add i32 %.1, 2
+  %62 = zext i32 %61 to i64
+  %63 = icmp ugt i64 %2, %62
+  %64 = and i1 %60, %63
+  br i1 %64, label %42, label %._crit_edge.loopexit, !llvm.loop !27
 
-._crit_edge.loopexit:                             ; preds = %51
-  %64 = zext i32 %53 to i64
+._crit_edge.loopexit:                             ; preds = %52
+  %65 = zext i32 %54 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_Z4itoalPwm.exit
-  %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %64, %._crit_edge.loopexit ]
-  %65 = getelementptr inbounds nuw i32, ptr %1, i64 %.013.lcssa
-  store i32 0, ptr %65, align 4, !tbaa !8
+  %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %65, %._crit_edge.loopexit ]
+  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %.013.lcssa
+  store i32 0, ptr %66, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -949,7 +958,7 @@ define noundef nonnull ptr @_Z7GetWidePKc(ptr noundef %0) local_unnamed_addr #2 
   %spec.store.select = select i1 %4, i32 0, i32 %3
   store i32 %spec.store.select, ptr @_ZZ7GetWidePKcE6StrNum, align 4
   %5 = zext i32 %spec.store.select to i64
-  %6 = getelementptr inbounds nuw [4 x [2048 x i32]], ptr @_ZZ7GetWidePKcE8StrTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [2048 x i32], ptr @_ZZ7GetWidePKcE8StrTable, i64 %5
   %7 = tail call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 2048)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8188
   store i32 0, ptr %8, align 4, !tbaa !8

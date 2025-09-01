@@ -572,7 +572,7 @@ switch.hole_check:                                ; preds = %85
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %88 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [31 x i32], ptr @switch.table.dissect_ftdi_mpsse, i64 0, i64 %88
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ftdi_mpsse, i64 %88
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %estimated_command_parameters_length.exit.i
 
@@ -980,10 +980,10 @@ get_data_bit_pin_prefix.exit.split.us.i.i.i:      ; preds = %get_data_bit_pin_pr
   %265 = and i32 %263, %264
   %.not47.us.i.i.i = icmp eq i32 %265, 0
   %266 = select i1 %.not47.us.i.i.i, ptr @.str.241, ptr @.str.240
-  %267 = getelementptr [8 x ptr], ptr @dissect_io_open_drain_enable_parameters.low_byte_bits_hf, i64 0, i64 %indvars.iv.i.i.i
+  %267 = getelementptr ptr, ptr @dissect_io_open_drain_enable_parameters.low_byte_bits_hf, i64 %indvars.iv.i.i.i
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %268, align 4
-  %270 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.low_byte_signal_names, i64 0, i64 %indvars.iv.i.i.i
+  %270 = getelementptr ptr, ptr @get_data_bit_pin_prefix.low_byte_signal_names, i64 %indvars.iv.i.i.i
   %271 = load ptr, ptr %270, align 8
   %272 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %261, i32 noundef %269, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %264, ptr noundef nonnull @.str.123, ptr noundef %271)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %272, ptr noundef nonnull @.str.230, ptr noundef nonnull %266)
@@ -999,10 +999,10 @@ get_data_bit_pin_prefix.exit.split.i.i.i:         ; preds = %get_data_bit_pin_pr
   %276 = and i32 %274, %275
   %.not47.i.i.i = icmp eq i32 %276, 0
   %277 = select i1 %.not47.i.i.i, ptr @.str.241, ptr @.str.240
-  %278 = getelementptr [8 x ptr], ptr @dissect_io_open_drain_enable_parameters.low_byte_bits_hf, i64 0, i64 %indvars.iv12.i.i.i
+  %278 = getelementptr ptr, ptr @dissect_io_open_drain_enable_parameters.low_byte_bits_hf, i64 %indvars.iv12.i.i.i
   %279 = load ptr, ptr %278, align 8
   %280 = load i32, ptr %279, align 4
-  %281 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.low_byte_signal_names, i64 0, i64 %indvars.iv12.i.i.i
+  %281 = getelementptr ptr, ptr @get_data_bit_pin_prefix.low_byte_signal_names, i64 %indvars.iv12.i.i.i
   %282 = load ptr, ptr %281, align 8
   %283 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %261, i32 noundef %280, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %275, ptr noundef nonnull @.str.123, ptr noundef %282)
   %284 = icmp samesign ult i64 %indvars.iv12.i.i.i, %.03.i.i.i
@@ -1063,10 +1063,10 @@ get_data_bit_pin_prefix.exit53.split.us.i.i.i:    ; preds = %get_data_bit_pin_pr
   %303 = and i32 %301, %302
   %.not.us.i.i.i = icmp eq i32 %303, 0
   %304 = select i1 %.not.us.i.i.i, ptr @.str.241, ptr @.str.240
-  %305 = getelementptr [8 x ptr], ptr @dissect_io_open_drain_enable_parameters.high_byte_bits_hf, i64 0, i64 %indvars.iv16.i.i.i
+  %305 = getelementptr ptr, ptr @dissect_io_open_drain_enable_parameters.high_byte_bits_hf, i64 %indvars.iv16.i.i.i
   %306 = load ptr, ptr %305, align 8
   %307 = load i32, ptr %306, align 4
-  %308 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.high_byte_signal_names, i64 0, i64 %indvars.iv16.i.i.i
+  %308 = getelementptr ptr, ptr @get_data_bit_pin_prefix.high_byte_signal_names, i64 %indvars.iv16.i.i.i
   %309 = load ptr, ptr %308, align 8
   %310 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %299, i32 noundef %307, ptr noundef %0, i32 noundef %287, i32 noundef 1, i32 noundef %302, ptr noundef nonnull @.str.123, ptr noundef %309)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %310, ptr noundef nonnull @.str.230, ptr noundef nonnull %304)
@@ -1082,10 +1082,10 @@ get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_pr
   %314 = and i32 %312, %313
   %.not.i.i.i = icmp eq i32 %314, 0
   %315 = select i1 %.not.i.i.i, ptr @.str.241, ptr @.str.240
-  %316 = getelementptr [8 x ptr], ptr @dissect_io_open_drain_enable_parameters.high_byte_bits_hf, i64 0, i64 %indvars.iv20.i.i.i
+  %316 = getelementptr ptr, ptr @dissect_io_open_drain_enable_parameters.high_byte_bits_hf, i64 %indvars.iv20.i.i.i
   %317 = load ptr, ptr %316, align 8
   %318 = load i32, ptr %317, align 4
-  %319 = getelementptr [8 x ptr], ptr @get_data_bit_pin_prefix.high_byte_signal_names, i64 0, i64 %indvars.iv20.i.i.i
+  %319 = getelementptr ptr, ptr @get_data_bit_pin_prefix.high_byte_signal_names, i64 %indvars.iv20.i.i.i
   %320 = load ptr, ptr %319, align 8
   %321 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %299, i32 noundef %318, ptr noundef %0, i32 noundef %287, i32 noundef 1, i32 noundef %313, ptr noundef nonnull @.str.123, ptr noundef %320)
   %322 = icmp samesign ult i64 %indvars.iv20.i.i.i, %.14.i.i.i
@@ -2451,7 +2451,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %.not47.us = icmp eq i32 %22, 0
   %23 = select i1 %.not47.us, ptr @.str.227, ptr @.str.226
   %.0.us = select i1 %.not46.us, ptr @.str.228, ptr %23
-  %24 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv11
+  %24 = getelementptr ptr, ptr @dissect_read_data_bits_response.value_bits_hf, i64 %indvars.iv11
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr ptr, ptr %3, i64 %indvars.iv11
@@ -2479,7 +2479,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %.not47 = icmp eq i32 %37, 0
   %38 = select i1 %.not47, ptr @.str.227, ptr @.str.226
   %.0 = select i1 %.not46, ptr @.str.228, ptr %38
-  %39 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv
+  %39 = getelementptr ptr, ptr @dissect_read_data_bits_response.value_bits_hf, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr ptr, ptr %3, i64 %indvars.iv
@@ -2512,7 +2512,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %54 = and i32 %53, %52
   %.not.us = icmp eq i32 %54, 0
   %55 = select i1 %.not.us, ptr @.str.232, ptr @.str.231
-  %56 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv19
+  %56 = getelementptr ptr, ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 %indvars.iv19
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr ptr, ptr %3, i64 %indvars.iv19
@@ -2531,7 +2531,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   %65 = and i32 %64, %63
   %.not = icmp eq i32 %65, 0
   %66 = select i1 %.not, ptr @.str.232, ptr @.str.231
-  %67 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv15
+  %67 = getelementptr ptr, ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 %indvars.iv15
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr ptr, ptr %3, i64 %indvars.iv15
@@ -2600,7 +2600,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
   %16 = and i32 %15, %14
   %.not.us = icmp eq i32 %16, 0
   %17 = select i1 %.not.us, ptr @.str.254, ptr @.str.253
-  %18 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv6
+  %18 = getelementptr ptr, ptr @dissect_read_data_bits_response.value_bits_hf, i64 %indvars.iv6
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr ptr, ptr %3, i64 %indvars.iv6
@@ -2619,7 +2619,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
   %27 = and i32 %26, %25
   %.not = icmp eq i32 %27, 0
   %28 = select i1 %.not, ptr @.str.254, ptr @.str.253
-  %29 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv
+  %29 = getelementptr ptr, ptr @dissect_read_data_bits_response.value_bits_hf, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr ptr, ptr %3, i64 %indvars.iv

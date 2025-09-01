@@ -565,7 +565,7 @@ define signext range(i8 0, 2) i8 @checkAssemblyHeaderName(ptr noundef readonly c
 
 2:                                                ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
-  %3 = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #24
   %6 = icmp eq i32 %5, 0
@@ -624,7 +624,7 @@ define void @printAssemblyHeadersToStdErr() local_unnamed_addr #12 {
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %5 = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef %6) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -661,7 +661,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 16:                                               ; preds = %6
   %17 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %18
+  %19 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(5) @.str.8) #24
   %22 = icmp eq i32 %21, 0
@@ -723,7 +723,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 .lr.ph:                                           ; preds = %43, %48
   %.03851 = phi i64 [ %49, %48 ], [ 0, %43 ]
-  %45 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 0, i64 %.03851
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 %.03851
   %46 = load i8, ptr %45, align 1, !tbaa !23
   %.off = add i8 %46, -45
   %switch = icmp ult i8 %.off, 2
@@ -741,7 +741,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 ._crit_edge:                                      ; preds = %48, %43
   %50 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %51, i32 1
+  %52 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %51, i32 1
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4096, ptr noundef %53, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9) #21
   %55 = icmp ugt i32 %54, 4095
@@ -757,7 +757,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %60 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef nonnull %10)
   %61 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %62, i32 2
+  %63 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %62, i32 2
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef %64)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %10, i8 0, i64 4096, i1 false)
@@ -791,7 +791,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %_ZL7write32P11_FileStreamjj.exit
   %.153 = phi i64 [ %126, %_ZL7write32P11_FileStreamjj.exit ], [ 0, %.lr.ph54.preheader ]
   %.14052 = phi i32 [ %.0.i, %_ZL7write32P11_FileStreamjj.exit ], [ %.03955, %.lr.ph54.preheader ]
-  %73 = getelementptr inbounds nuw [1024 x i32], ptr %10, i64 0, i64 %.153
+  %73 = getelementptr inbounds nuw i32, ptr %10, i64 %.153
   %74 = load i32, ptr %73, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %74, ptr %7, align 4, !tbaa !12
@@ -812,7 +812,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   store i8 10, ptr %8, align 16, !tbaa !23
   %81 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %82, i32 2
+  %83 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %82, i32 2
   %84 = load ptr, ptr %83, align 8, !tbaa !26
   %85 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %84) #21
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #24
@@ -827,7 +827,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 90:                                               ; preds = %88
   %91 = zext nneg i32 %74 to i64
-  %92 = getelementptr inbounds nuw [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !23
   %94 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   store i8 %93, ptr %.028.i, align 1, !tbaa !23
@@ -871,13 +871,13 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %108 = zext i8 %104 to i32
   %109 = lshr i32 %108, 4
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %.333.i, i64 1
   store i8 %112, ptr %.333.i, align 1, !tbaa !23
   %114 = and i32 %108, 15
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !23
   %118 = getelementptr inbounds nuw i8, ptr %.333.i, i64 2
   store i8 %117, ptr %113, align 1, !tbaa !23
@@ -914,7 +914,7 @@ _ZL7write32P11_FileStreamjj.exit:                 ; preds = %90, %120, %123
   %127 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %27, ptr noundef nonnull @.str.18)
   %128 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4, !tbaa !12
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %129, i32 3
+  %130 = getelementptr inbounds %struct.AssemblyType, ptr @_ZL14assemblyHeader, i64 %129, i32 3
   %131 = load ptr, ptr %130, align 8, !tbaa !30
   %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4096, ptr noundef %131, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9) #21
   %133 = icmp ugt i32 %132, 4095
@@ -1369,7 +1369,7 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %48, %53
   %.03854 = phi i64 [ %54, %53 ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 0, i64 %.03854
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 %.03854
   %51 = load i8, ptr %50, align 1, !tbaa !23
   %.off = add i8 %51, -45
   %switch = icmp ult i8 %.off, 2
@@ -1416,8 +1416,8 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
 
 69:                                               ; preds = %.preheader, %_ZL6write8P11_FileStreamhj.exit
   %.156 = phi i32 [ %.057, %.preheader ], [ %.020.i, %_ZL6write8P11_FileStreamhj.exit ]
-  %.13955 = phi i64 [ 0, %.preheader ], [ %101, %_ZL6write8P11_FileStreamhj.exit ]
-  %70 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %.13955
+  %.13955 = phi i64 [ 0, %.preheader ], [ %99, %_ZL6write8P11_FileStreamhj.exit ]
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 %.13955
   %71 = load i8, ptr %70, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %72 = icmp ugt i8 %71, 99
@@ -1432,7 +1432,7 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
 
 76:                                               ; preds = %69
   %77 = icmp samesign ugt i8 %71, 9
-  br i1 %77, label %78, label %85
+  br i1 %77, label %78, label %86
 
 78:                                               ; preds = %76, %.thread.i
   %.029.i = phi i32 [ 1, %.thread.i ], [ 0, %76 ]
@@ -1441,70 +1441,68 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
   %80 = or disjoint i8 %79, 48
   %81 = add nuw nsw i32 %.029.i, 1
   %82 = zext nneg i32 %.029.i to i64
-  %83 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
   store i8 %80, ptr %83, align 1, !tbaa !23
   %84 = urem i8 %.02128.i, 10
-  br label %85
+  %85 = zext nneg i32 %81 to i64
+  br label %86
 
-85:                                               ; preds = %78, %76
+86:                                               ; preds = %78, %76
   %.122.i = phi i8 [ %84, %78 ], [ %71, %76 ]
-  %.1.i = phi i32 [ %81, %78 ], [ 0, %76 ]
-  %86 = or disjoint i8 %.122.i, 48
-  %87 = add nuw nsw i32 %.1.i, 1
-  %88 = zext nneg i32 %.1.i to i64
-  %89 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %88
-  store i8 %86, ptr %89, align 1, !tbaa !23
-  %90 = zext nneg i32 %87 to i64
-  %91 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %90
-  store i8 0, ptr %91, align 1, !tbaa !23
-  %92 = icmp eq i32 %.156, -1
-  br i1 %92, label %_ZL6write8P11_FileStreamhj.exit, label %93
+  %.1.i = phi i64 [ %85, %78 ], [ 0, %76 ]
+  %87 = or disjoint i8 %.122.i, 48
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
+  store i8 %87, ptr %88, align 1, !tbaa !23
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  store i8 0, ptr %89, align 1, !tbaa !23
+  %90 = icmp eq i32 %.156, -1
+  br i1 %90, label %_ZL6write8P11_FileStreamhj.exit, label %91
 
-93:                                               ; preds = %85
-  %94 = icmp ult i32 %.156, 16
-  br i1 %94, label %95, label %98
+91:                                               ; preds = %86
+  %92 = icmp ult i32 %.156, 16
+  br i1 %92, label %93, label %96
 
-95:                                               ; preds = %93
-  %96 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.63)
-  %97 = add nuw nsw i32 %.156, 1
+93:                                               ; preds = %91
+  %94 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.63)
+  %95 = add nuw nsw i32 %.156, 1
   br label %_ZL6write8P11_FileStreamhj.exit
 
-98:                                               ; preds = %93
-  %99 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.64)
+96:                                               ; preds = %91
+  %97 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.64)
   br label %_ZL6write8P11_FileStreamhj.exit
 
-_ZL6write8P11_FileStreamhj.exit:                  ; preds = %85, %95, %98
-  %.020.i = phi i32 [ %97, %95 ], [ 1, %98 ], [ 1, %85 ]
-  %100 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull %8)
+_ZL6write8P11_FileStreamhj.exit:                  ; preds = %86, %93, %96
+  %.020.i = phi i32 [ %95, %93 ], [ 1, %96 ], [ 1, %86 ]
+  %98 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %101 = add nuw i64 %.13955, 1
-  %exitcond60.not = icmp eq i64 %101, %68
+  %99 = add nuw i64 %.13955, 1
+  %exitcond60.not = icmp eq i64 %99, %68
   br i1 %exitcond60.not, label %.loopexit, label %69, !llvm.loop !40
 
 ._crit_edge58:                                    ; preds = %.loopexit, %62
-  %102 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.24)
-  %103 = call i32 @T_FileStream_error(ptr noundef nonnull %11)
-  %.not52 = icmp eq i32 %103, 0
-  br i1 %.not52, label %107, label %104
+  %100 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull @.str.24)
+  %101 = call i32 @T_FileStream_error(ptr noundef nonnull %11)
+  %.not52 = icmp eq i32 %101, 0
+  br i1 %.not52, label %105, label %102
 
-104:                                              ; preds = %._crit_edge58
-  %105 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.19, ptr noundef %0) #26
+102:                                              ; preds = %._crit_edge58
+  %103 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.19, ptr noundef %0) #26
   call void @exit(i32 noundef 4) #27
   unreachable
 
-107:                                              ; preds = %._crit_edge58
-  %108 = call i32 @T_FileStream_error(ptr noundef nonnull %40)
-  %.not53 = icmp eq i32 %108, 0
-  br i1 %.not53, label %112, label %109
+105:                                              ; preds = %._crit_edge58
+  %106 = call i32 @T_FileStream_error(ptr noundef nonnull %40)
+  %.not53 = icmp eq i32 %106, 0
+  br i1 %.not53, label %110, label %107
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.20, ptr noundef %0) #26
+107:                                              ; preds = %105
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.20, ptr noundef %0) #26
   call void @exit(i32 noundef 4) #27
   unreachable
 
-112:                                              ; preds = %107
+110:                                              ; preds = %105
   call void @T_FileStream_close(ptr noundef nonnull %40)
   call void @T_FileStream_close(ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1663,7 +1661,7 @@ define void @writeObjectCode(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds nuw [96 x i8], ptr %12, i64 0, i64 %indvars.iv.next
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next
   %84 = load i8, ptr %83, align 1, !tbaa !23
   %85 = icmp eq i8 %84, 45
   br i1 %85, label %86, label %87

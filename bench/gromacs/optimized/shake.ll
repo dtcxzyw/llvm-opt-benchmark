@@ -199,7 +199,7 @@ _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %62 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %63 = load i32, ptr %gep, align 4, !tbaa !15
-  %64 = getelementptr inbounds nuw [3 x i32], ptr %46, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 %63, ptr %64, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -308,7 +308,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge124, %10
 
 108:                                              ; preds = %.preheader, %108
   %indvars.iv135 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next136, %108 ]
-  %109 = getelementptr inbounds nuw [3 x i32], ptr %99, i64 0, i64 %indvars.iv135
+  %109 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv135
   %110 = load i32, ptr %109, align 4, !tbaa !15
   %gep194 = getelementptr inbounds nuw i32, ptr %invariant.gep193, i64 %indvars.iv135
   store i32 %110, ptr %gep194, align 4, !tbaa !15
@@ -1870,9 +1870,9 @@ _ZN3gmxL7crattleEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEENS3_IKS7_EES
 
 377:                                              ; preds = %377, %365
   %indvars.iv65.i = phi i64 [ 0, %365 ], [ %indvars.iv.next66.i, %377 ]
-  %378 = getelementptr inbounds nuw [3 x float], ptr %375, i64 0, i64 %indvars.iv65.i
+  %378 = getelementptr inbounds nuw float, ptr %375, i64 %indvars.iv65.i
   %379 = load float, ptr %378, align 4, !tbaa !33
-  %380 = getelementptr inbounds nuw [3 x float], ptr %376, i64 0, i64 %indvars.iv65.i
+  %380 = getelementptr inbounds nuw float, ptr %376, i64 %indvars.iv65.i
   %381 = load float, ptr %380, align 4, !tbaa !33
   %382 = tail call float @llvm.fmuladd.f32(float %374, float %379, float %381)
   store float %382, ptr %380, align 4, !tbaa !33
@@ -1892,9 +1892,9 @@ _ZN3gmxL7crattleEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEENS3_IKS7_EES
 
 391:                                              ; preds = %391, %383
   %indvars.iv69.i = phi i64 [ 0, %383 ], [ %indvars.iv.next70.i, %391 ]
-  %392 = getelementptr inbounds nuw [3 x float], ptr %375, i64 0, i64 %indvars.iv69.i
+  %392 = getelementptr inbounds nuw float, ptr %375, i64 %indvars.iv69.i
   %393 = load float, ptr %392, align 4, !tbaa !33
-  %394 = getelementptr inbounds nuw [3 x float], ptr %389, i64 0, i64 %indvars.iv69.i
+  %394 = getelementptr inbounds nuw float, ptr %389, i64 %indvars.iv69.i
   %395 = load float, ptr %394, align 4, !tbaa !33
   %396 = tail call float @llvm.fmuladd.f32(float %390, float %393, float %395)
   store float %396, ptr %394, align 4, !tbaa !33
@@ -1913,7 +1913,7 @@ _ZN3gmxL7crattleEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEENS3_IKS7_EES
 
 401:                                              ; preds = %413, %397
   %indvars.iv77.i = phi i64 [ 0, %397 ], [ %indvars.iv.next78.i, %413 ]
-  %402 = getelementptr inbounds nuw [3 x float], ptr %400, i64 0, i64 %indvars.iv77.i
+  %402 = getelementptr inbounds nuw float, ptr %400, i64 %indvars.iv77.i
   %403 = load float, ptr %402, align 4, !tbaa !33
   %404 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv77.i
   %405 = fneg float %403
@@ -1922,9 +1922,9 @@ _ZN3gmxL7crattleEPKiiPiiNS_8ArrayRefIKfEENS3_INS_11BasicVectorIfEEEENS3_IKS7_EES
 
 407:                                              ; preds = %407, %401
   %indvars.iv73.i = phi i64 [ 0, %401 ], [ %indvars.iv.next74.i, %407 ]
-  %408 = getelementptr inbounds nuw [3 x float], ptr %400, i64 0, i64 %indvars.iv73.i
+  %408 = getelementptr inbounds nuw float, ptr %400, i64 %indvars.iv73.i
   %409 = load float, ptr %408, align 4, !tbaa !33
-  %410 = getelementptr inbounds nuw [3 x float], ptr %404, i64 0, i64 %indvars.iv73.i
+  %410 = getelementptr inbounds nuw float, ptr %404, i64 %indvars.iv73.i
   %411 = load float, ptr %410, align 4, !tbaa !33
   %412 = tail call float @llvm.fmuladd.f32(float %406, float %409, float %411)
   store float %412, ptr %410, align 4, !tbaa !33

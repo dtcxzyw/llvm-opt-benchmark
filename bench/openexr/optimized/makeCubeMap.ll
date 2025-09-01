@@ -182,7 +182,7 @@ define dso_local void @_Z11makeCubeMapR11EnvmapImageRN7Imf_3_46HeaderENS1_12Rgba
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i.i: ; preds = %67
-  %74 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZN12_GLOBAL__N_119makeCubeMapSixFilesER11EnvmapImageRN7Imf_3_46HeaderENS2_12RgbaChannelsEPKciiNS2_11CompressionEifibE9faceNames, i64 0, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr @_ZZN12_GLOBAL__N_119makeCubeMapSixFilesER11EnvmapImageRN7Imf_3_46HeaderENS2_12RgbaChannelsEPKciiNS2_11CompressionEifibE9faceNames, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #13
   %77 = icmp ne i64 %71, %31

@@ -2375,7 +2375,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %.095 = phi i32 [ %3, %.lr.ph ], [ 0, %0 ]
   %3 = add i32 %.095, 1
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x %struct.relopt_bool], ptr @boolRelOpts, i64 0, i64 %4
+  %5 = getelementptr inbounds %struct.relopt_bool, ptr @boolRelOpts, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.preheader92, label %.lr.ph, !llvm.loop !19
@@ -2392,7 +2392,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %8 = add i32 %.198, 1
   %9 = add i32 %.16497, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [24 x %struct.relopt_int], ptr @intRelOpts, i64 0, i64 %10
+  %11 = getelementptr inbounds %struct.relopt_int, ptr @intRelOpts, i64 %10
   %12 = load ptr, ptr %11, align 16
   %.not75 = icmp eq ptr %12, null
   br i1 %.not75, label %.preheader91, label %.lr.ph99, !llvm.loop !20
@@ -2409,7 +2409,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %14 = add i32 %.2103, 1
   %15 = add i32 %.265102, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [11 x %struct.relopt_real], ptr @realRelOpts, i64 0, i64 %16
+  %17 = getelementptr inbounds %struct.relopt_real, ptr @realRelOpts, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not76 = icmp eq ptr %18, null
   br i1 %.not76, label %.preheader90, label %.lr.ph104, !llvm.loop !21
@@ -2426,7 +2426,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %20 = add i32 %.3108, 1
   %21 = add i32 %.366107, 1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [4 x %struct.relopt_enum], ptr @enumRelOpts, i64 0, i64 %22
+  %23 = getelementptr inbounds %struct.relopt_enum, ptr @enumRelOpts, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not77 = icmp eq ptr %24, null
   br i1 %.not77, label %.preheader89, label %.lr.ph109, !llvm.loop !22
@@ -2437,7 +2437,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %25 = add i32 %.4113, 1
   %26 = add i32 %.467112, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [1 x %struct.relopt_string], ptr @stringRelOpts, i64 0, i64 %27
+  %28 = getelementptr inbounds %struct.relopt_string, ptr @stringRelOpts, i64 %27
   %29 = load ptr, ptr %28, align 16
   %.not78 = icmp eq ptr %29, null
   br i1 %.not78, label %._crit_edge, label %.lr.ph114, !llvm.loop !23
@@ -2487,7 +2487,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   store i32 %49, ptr %50, align 8
   %51 = add i32 %.5118, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [9 x %struct.relopt_bool], ptr @boolRelOpts, i64 0, i64 %52
+  %53 = getelementptr inbounds %struct.relopt_bool, ptr @boolRelOpts, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not80 = icmp eq ptr %54, null
   br i1 %.not80, label %.preheader88, label %.lr.ph120, !llvm.loop !24
@@ -2516,7 +2516,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %65 = add i32 %.6124, 1
   %66 = add i32 %.669123, 1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [24 x %struct.relopt_int], ptr @intRelOpts, i64 0, i64 %67
+  %68 = getelementptr inbounds %struct.relopt_int, ptr @intRelOpts, i64 %67
   %69 = load ptr, ptr %68, align 16
   %.not81 = icmp eq ptr %69, null
   br i1 %.not81, label %.preheader87, label %.lr.ph125, !llvm.loop !25
@@ -2545,7 +2545,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %80 = add i32 %.7129, 1
   %81 = add i32 %.770128, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [11 x %struct.relopt_real], ptr @realRelOpts, i64 0, i64 %82
+  %83 = getelementptr inbounds %struct.relopt_real, ptr @realRelOpts, i64 %82
   %84 = load ptr, ptr %83, align 8
   %.not82 = icmp eq ptr %84, null
   br i1 %.not82, label %.preheader86, label %.lr.ph130, !llvm.loop !26
@@ -2574,7 +2574,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %95 = add i32 %.8134, 1
   %96 = add i32 %.871133, 1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [4 x %struct.relopt_enum], ptr @enumRelOpts, i64 0, i64 %97
+  %98 = getelementptr inbounds %struct.relopt_enum, ptr @enumRelOpts, i64 %97
   %99 = load ptr, ptr %98, align 8
   %.not83 = icmp eq ptr %99, null
   br i1 %.not83, label %.preheader85, label %.lr.ph135, !llvm.loop !27
@@ -2608,7 +2608,7 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %112 = add i32 %.9139, 1
   %113 = add i32 %.972138, 1
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [1 x %struct.relopt_string], ptr @stringRelOpts, i64 0, i64 %114
+  %115 = getelementptr inbounds %struct.relopt_string, ptr @stringRelOpts, i64 %114
   %116 = load ptr, ptr %115, align 16
   %.not84 = icmp eq ptr %116, null
   br i1 %.not84, label %.preheader, label %.lr.ph140, !llvm.loop !28

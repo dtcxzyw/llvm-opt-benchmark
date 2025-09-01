@@ -2745,8 +2745,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 74:                                               ; preds = %.lr.ph, %149
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
-  %76 = add i64 %75, -1
-  %77 = getelementptr inbounds nuw [1000 x i8], ptr %5, i64 0, i64 %76
+  %76 = getelementptr i8, ptr %5, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 -1
   %78 = load i8, ptr %77, align 1, !tbaa !34
   %79 = icmp eq i8 %78, 10
   br i1 %79, label %80, label %81

@@ -286,7 +286,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %.086190 = phi i32 [ 0, %2 ], [ %.187, %57 ]
   %.088189 = phi i32 [ 0, %2 ], [ %.189, %57 ]
   %.090188 = phi i32 [ 0, %2 ], [ %.191, %57 ]
-  %9 = getelementptr inbounds nuw [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i32], ptr @s_Masks, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !12
   %11 = and i32 %10, %0
   %.not182 = icmp eq i32 %11, 0
@@ -295,7 +295,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 12:                                               ; preds = %8
   %13 = add nsw i32 %.088189, 1
   %14 = sext i32 %.088189 to i64
-  %15 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %5, i64 %14
   %indvars.iv.tr263 = trunc i64 %indvars.iv to i32
   %16 = shl i32 %indvars.iv.tr263, 1
   store i32 %16, ptr %15, align 4, !tbaa !12
@@ -311,7 +311,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 21:                                               ; preds = %17
   %22 = add nsw i32 %.088189, 1
   %23 = sext i32 %.088189 to i64
-  %24 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %5, i64 %23
   %indvars.iv.tr262 = trunc i64 %indvars.iv to i32
   %25 = shl i32 %indvars.iv.tr262, 1
   %26 = or disjoint i32 %25, 1
@@ -325,7 +325,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 28:                                               ; preds = %27
   %29 = add nsw i32 %.086190, 1
   %30 = sext i32 %.086190 to i64
-  %31 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %30
+  %31 = getelementptr inbounds i32, ptr %6, i64 %30
   %indvars.iv.tr261 = trunc i64 %indvars.iv to i32
   %32 = shl i32 %indvars.iv.tr261, 1
   store i32 %32, ptr %31, align 4, !tbaa !12
@@ -338,7 +338,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 34:                                               ; preds = %33
   %35 = add nsw i32 %.086190, 1
   %36 = sext i32 %.086190 to i64
-  %37 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %6, i64 %36
   %indvars.iv.tr260 = trunc i64 %indvars.iv to i32
   %38 = shl i32 %indvars.iv.tr260, 1
   %39 = or disjoint i32 %38, 1
@@ -359,7 +359,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 47:                                               ; preds = %40
   %48 = add nsw i32 %.084191, 1
   %49 = sext i32 %.084191 to i64
-  %50 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %49
+  %50 = getelementptr inbounds i32, ptr %7, i64 %49
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %51 = shl i32 %indvars.iv.tr, 1
   store i32 %51, ptr %50, align 4, !tbaa !12
@@ -372,7 +372,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 53:                                               ; preds = %52
   %54 = add nsw i32 %.090188, 1
   %55 = sext i32 %.090188 to i64
-  %56 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %55
+  %56 = getelementptr inbounds i32, ptr %4, i64 %55
   store i32 %41, ptr %56, align 4, !tbaa !12
   br label %57
 
@@ -419,13 +419,13 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %71 = shl i32 %70, 1
   %72 = ashr exact i32 %71, 1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %73
+  %74 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %73
   %75 = load i32, ptr %74, align 8, !tbaa !12
   %76 = and i32 %75, %0
   %77 = shl nuw i32 1, %72
   %78 = shl i32 %76, %77
   %.0.i147.us = or i32 %78, %76
-  %79 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %73, i64 1
+  %79 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %73, i64 1
   %80 = load i32, ptr %79, align 4, !tbaa !12
   %81 = and i32 %80, %0
   %82 = lshr i32 %81, %77
@@ -443,13 +443,13 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %88 = shl i32 %87, 1
   %89 = ashr exact i32 %88, 1
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %90, i64 1
+  %91 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90, i64 1
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = and i32 %92, %.0.i147.us
   %94 = shl nuw i32 1, %89
   %95 = lshr i32 %93, %94
   %.0.i.i140.us = or i32 %95, %93
-  %96 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %90
+  %96 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90
   %97 = load i32, ptr %96, align 8, !tbaa !12
   %98 = and i32 %97, %.0.i147.us
   %99 = shl i32 %98, %94
@@ -644,7 +644,7 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not67.i, label %199, label %195
 
 195:                                              ; preds = %.preheader
-  %196 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %indvars.iv240
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv240
   %197 = load i8, ptr %196, align 1, !tbaa !18
   %198 = add i8 %197, 1
   store i8 %198, ptr %196, align 1, !tbaa !18
@@ -809,11 +809,11 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133
   %275 = load i32, ptr %274, align 4, !tbaa !12
   %276 = ashr i32 %275, 1
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %277
+  %278 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %277
   %279 = and i32 %275, 1
   %280 = xor i32 %279, 1
   %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds nuw [2 x i32], ptr %278, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw i32, ptr %278, i64 %281
   %283 = load i32, ptr %282, align 4, !tbaa !12
   %284 = and i32 %283, %.078195
   %285 = shl nuw i32 1, %276
@@ -1127,17 +1127,17 @@ tailrecurse:                                      ; preds = %47, %2
   %.lobit64 = and i32 %35, 1
   %36 = xor i32 %.lobit64, 1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @s_Masks, i64 40), i64 0, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @s_Masks, i64 40), i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !12
   br label %.loopexit
 
 40:                                               ; preds = %tailrecurse
-  %41 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %4
+  %41 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %4
   %42 = lshr exact i32 %6, 4
   %.lobit = and i32 %42, 1
   %43 = xor i32 %.lobit, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %41, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !12
   br label %.loopexit
 
@@ -1652,7 +1652,7 @@ Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, 
   %70 = zext nneg i32 %68 to i64
   %71 = xor i64 %70, %69
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %72, ptr %73, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

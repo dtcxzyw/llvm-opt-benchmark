@@ -3878,7 +3878,7 @@ define internal fastcc void @h245_add_to_graph(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %append_to_frame_graph.exit ]
   %13 = phi ptr [ %4, %.lr.ph ], [ %48, %append_to_frame_graph.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr [6 x %struct.graph_str], ptr %14, i64 0, i64 %indvars.iv
+  %15 = getelementptr %struct.graph_str, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -3924,12 +3924,12 @@ define internal fastcc void @h245_add_to_graph(ptr noundef readonly captures(non
 append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, %32
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = getelementptr [6 x %struct.graph_str], ptr %35, i64 0, i64 %indvars.iv
+  %36 = getelementptr %struct.graph_str, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   tail call void @g_free(ptr noundef %37)
   %38 = load ptr, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = getelementptr [6 x %struct.graph_str], ptr %39, i64 0, i64 %indvars.iv
+  %40 = getelementptr %struct.graph_str, ptr %39, i64 %indvars.iv
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %3, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 4
@@ -4786,12 +4786,12 @@ append_to_frame_graph.exit:                       ; preds = %102
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %126 = phi ptr [ %140, %.lr.ph.i.i ], [ %120, %.preheader.i.i ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = getelementptr [6 x %struct.graph_str], ptr %127, i64 0, i64 %indvars.iv.i.i
+  %128 = getelementptr %struct.graph_str, ptr %127, i64 %indvars.iv.i.i
   %129 = load ptr, ptr %128, align 8
   tail call void @g_free(ptr noundef %129)
   %130 = load ptr, ptr %119, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = getelementptr [6 x %struct.graph_str], ptr %131, i64 0, i64 %indvars.iv.i.i
+  %132 = getelementptr %struct.graph_str, ptr %131, i64 %indvars.iv.i.i
   store ptr null, ptr %132, align 8
   %133 = load ptr, ptr %119, align 8
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 4
@@ -4829,7 +4829,7 @@ h245_free_labels.exit.i:                          ; preds = %._crit_edge.i.i, %.
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %152 = load i8, ptr %151, align 4
   %153 = sext i8 %152 to i64
-  %154 = getelementptr [6 x %struct.graph_str], ptr %150, i64 0, i64 %153
+  %154 = getelementptr %struct.graph_str, ptr %150, i64 %153
   store ptr %148, ptr %154, align 8
   %155 = tail call noalias ptr @g_strdup(ptr noundef nonnull %118)
   %156 = load ptr, ptr %119, align 8
@@ -6609,7 +6609,7 @@ copy_address.exit:                                ; preds = %.thread, %42
 
 51:                                               ; preds = %copy_address.exit
   %52 = zext nneg i32 %49 to i64
-  %53 = getelementptr [3 x i32], ptr @sccp_proto_map, i64 0, i64 %52
+  %53 = getelementptr i32, ptr @sccp_proto_map, i64 %52
   %54 = load i32, ptr %53, align 4
   br label %55
 
@@ -6677,7 +6677,7 @@ copy_address.exit:                                ; preds = %.thread, %42
 
 91:                                               ; preds = %87
   %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr [3 x i32], ptr @sccp_proto_map, i64 0, i64 %92
+  %93 = getelementptr i32, ptr @sccp_proto_map, i64 %92
   %94 = load i32, ptr %93, align 4
   br label %95
 
@@ -7939,7 +7939,7 @@ copy_address.exit:                                ; preds = %66, %76
 
 116:                                              ; preds = %112
   %117 = zext nneg i32 %114 to i64
-  %118 = getelementptr [15 x i32], ptr @skinny_tap_voip_state, i64 0, i64 %117
+  %118 = getelementptr i32, ptr @skinny_tap_voip_state, i64 %117
   %119 = load i32, ptr %118, align 4
   store i32 %119, ptr %28, align 8
   br label %120

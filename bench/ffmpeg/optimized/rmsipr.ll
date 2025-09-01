@@ -15,7 +15,7 @@ define void @ff_rm_reorder_sipr_data(ptr noundef captures(none) %0, i32 noundef 
 
 .lr.ph.us:                                        ; preds = %3, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [38 x [2 x i8]], ptr @sipr_swaps, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @sipr_swaps, i64 %indvars.iv
   %8 = load i8, ptr %7, align 2, !tbaa !4
   %9 = zext i8 %8 to i32
   %10 = mul nuw nsw i32 %5, %9

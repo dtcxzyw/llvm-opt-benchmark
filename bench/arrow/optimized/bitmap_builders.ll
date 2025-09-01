@@ -146,7 +146,7 @@ define void @_ZN5arrow8internal11BytesToBitsENS_4util4spanIKhEEPNS_10MemoryPoolE
 
 33:                                               ; preds = %.lr.ph.i
   %34 = srem i64 %.04.i, 8
-  %35 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %34
+  %35 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !35
   %37 = sdiv i64 %.04.i, 8
   %38 = getelementptr inbounds i8, ptr %28, i64 %37
@@ -483,7 +483,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %12, %14, %18
   %45 = load i8, ptr %44, align 1, !tbaa !35
   %46 = xor i8 %45, %.neg.i
   %47 = and i64 %3, 7
-  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !35
   %50 = and i8 %46, %49
   %51 = xor i8 %50, %45

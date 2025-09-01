@@ -28711,7 +28711,7 @@ _ZN7testing7MessageD2Ev.exit341:                  ; preds = %_ZNKSt14default_del
 594:                                              ; preds = %540
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %595 = getelementptr inbounds nuw [5 x ptr], ptr %41, i64 0, i64 %indvars.iv
+  %595 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %596 = getelementptr inbounds nuw i8, ptr %539, i64 40
   %597 = load ptr, ptr %596, align 8, !tbaa !58
   %598 = load ptr, ptr %597, align 8, !tbaa !61

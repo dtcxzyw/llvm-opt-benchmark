@@ -2132,7 +2132,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
 496:                                              ; preds = %490
   %497 = getelementptr inbounds nuw i8, ptr %489, i64 20
   %498 = zext nneg i8 %.0323.shrunk to i64
-  %499 = getelementptr [16 x i8], ptr %497, i64 0, i64 %498
+  %499 = getelementptr i8, ptr %497, i64 %498
   %500 = load i8, ptr %499, align 1
   %501 = add i8 %500, 1
   store i8 %501, ptr %499, align 1

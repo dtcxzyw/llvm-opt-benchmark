@@ -216,9 +216,9 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 120:                                              ; preds = %vaapi_vp8_surface_id.exit185, %120
   %indvars.iv = phi i64 [ 0, %vaapi_vp8_surface_id.exit185 ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr inbounds nuw [3 x i8], ptr %109, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv
   %122 = load i8, ptr %121, align 1, !tbaa !65
-  %123 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.34.0..sroa_idx, i64 0, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.34.0..sroa_idx, i64 %indvars.iv
   store i8 %122, ptr %123, align 1, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -234,7 +234,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   br i1 %.not153, label %132, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 0, i64 %indvars.iv205
+  %128 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv205
   %129 = load i8, ptr %128, align 1, !tbaa !65
   %130 = load i8, ptr %119, align 1, !tbaa !76
   %.not154 = icmp eq i8 %130, 0
@@ -244,7 +244,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 132:                                              ; preds = %127, %126
   %133 = phi i8 [ %spec.select, %127 ], [ %104, %126 ]
-  %134 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.35.0..sroa_idx, i64 0, i64 %indvars.iv205
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.35.0..sroa_idx, i64 %indvars.iv205
   %narrow = tail call i8 @llvm.umin.i8(i8 %133, i8 63)
   store i8 %narrow, ptr %134, align 1, !tbaa !65
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
@@ -253,14 +253,14 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 135:                                              ; preds = %.preheader191, %135
   %indvars.iv209 = phi i64 [ 0, %.preheader191 ], [ %indvars.iv.next210, %135 ]
-  %136 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 0, i64 %indvars.iv209
+  %136 = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv209
   %137 = load i8, ptr %136, align 1, !tbaa !65
-  %138 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.36.0..sroa_idx, i64 0, i64 %indvars.iv209
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.36.0..sroa_idx, i64 %indvars.iv209
   store i8 %137, ptr %138, align 1, !tbaa !65
-  %139 = or disjoint i64 %indvars.iv209, 4
-  %140 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 0, i64 %139
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv209
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i8, ptr %140, align 1, !tbaa !65
-  %142 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.37.0..sroa_idx, i64 0, i64 %indvars.iv209
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.37.0..sroa_idx, i64 %indvars.iv209
   store i8 %141, ptr %142, align 1, !tbaa !65
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, 4
@@ -286,9 +286,9 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 148:                                              ; preds = %.preheader190, %148
   %indvars.iv213 = phi i64 [ 0, %.preheader190 ], [ %indvars.iv.next214, %148 ]
-  %149 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 0, i64 %indvars.iv213
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 %indvars.iv213
   %150 = load i8, ptr %149, align 1, !tbaa !65
-  %151 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.42.0..sroa_idx, i64 0, i64 %indvars.iv213
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.42.0..sroa_idx, i64 %indvars.iv213
   store i8 %150, ptr %151, align 1, !tbaa !65
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 4
@@ -296,9 +296,9 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 152:                                              ; preds = %.preheader189, %152
   %indvars.iv217 = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next218, %152 ]
-  %153 = getelementptr inbounds nuw [3 x i8], ptr %147, i64 0, i64 %indvars.iv217
+  %153 = getelementptr inbounds nuw i8, ptr %147, i64 %indvars.iv217
   %154 = load i8, ptr %153, align 1, !tbaa !65
-  %155 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.43.0..sroa_idx, i64 0, i64 %indvars.iv217
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.43.0..sroa_idx, i64 %indvars.iv217
   store i8 %154, ptr %155, align 1, !tbaa !65
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, 3
@@ -311,15 +311,15 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 .preheader188:                                    ; preds = %.loopexit, %164
   %157 = phi i1 [ true, %.loopexit ], [ false, %164 ]
   %indvars.iv226 = phi i64 [ 0, %.loopexit ], [ 1, %164 ]
-  %158 = getelementptr inbounds nuw [2 x [19 x i8]], ptr %156, i64 0, i64 %indvars.iv226
-  %159 = getelementptr inbounds nuw [2 x [19 x i8]], ptr %.sroa.44.0..sroa_idx, i64 0, i64 %indvars.iv226
+  %158 = getelementptr inbounds nuw [19 x i8], ptr %156, i64 %indvars.iv226
+  %159 = getelementptr inbounds nuw [19 x i8], ptr %.sroa.44.0..sroa_idx, i64 %indvars.iv226
   br label %160
 
 160:                                              ; preds = %.preheader188, %160
   %indvars.iv222 = phi i64 [ 0, %.preheader188 ], [ %indvars.iv.next223, %160 ]
-  %161 = getelementptr inbounds nuw [19 x i8], ptr %158, i64 0, i64 %indvars.iv222
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %indvars.iv222
   %162 = load i8, ptr %161, align 1, !tbaa !65
-  %163 = getelementptr inbounds nuw [19 x i8], ptr %159, i64 0, i64 %indvars.iv222
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv222
   store i8 %162, ptr %163, align 1, !tbaa !65
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next223, 19
@@ -353,23 +353,23 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 .preheader186:                                    ; preds = %.preheader187, %192
   %indvars.iv241 = phi i64 [ 0, %.preheader187 ], [ %indvars.iv.next242, %192 ]
-  %180 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr %5, i64 0, i64 %indvars.iv241
-  %181 = getelementptr inbounds nuw [4 x [16 x [3 x [11 x i8]]]], ptr %179, i64 0, i64 %indvars.iv241
+  %180 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %5, i64 %indvars.iv241
+  %181 = getelementptr inbounds nuw [16 x [3 x [11 x i8]]], ptr %179, i64 %indvars.iv241
   br label %182
 
 182:                                              ; preds = %.preheader186, %191
   %indvars.iv237 = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next238, %191 ]
-  %183 = getelementptr inbounds nuw [8 x i32], ptr @vaapi_vp8_start_frame.coeff_bands_inverse, i64 0, i64 %indvars.iv237
+  %183 = getelementptr inbounds nuw i32, ptr @vaapi_vp8_start_frame.coeff_bands_inverse, i64 %indvars.iv237
   %184 = load i32, ptr %183, align 4, !tbaa !73
-  %185 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %180, i64 0, i64 %indvars.iv237
+  %185 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %180, i64 %indvars.iv237
   %186 = sext i32 %184 to i64
-  %187 = getelementptr inbounds [16 x [3 x [11 x i8]]], ptr %181, i64 0, i64 %186
+  %187 = getelementptr inbounds [3 x [11 x i8]], ptr %181, i64 %186
   br label %188
 
 188:                                              ; preds = %182, %188
   %indvars.iv233 = phi i64 [ 0, %182 ], [ %indvars.iv.next234, %188 ]
-  %189 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %185, i64 0, i64 %indvars.iv233
-  %190 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %187, i64 0, i64 %indvars.iv233
+  %189 = getelementptr inbounds nuw [11 x i8], ptr %185, i64 %indvars.iv233
+  %190 = getelementptr inbounds nuw [11 x i8], ptr %187, i64 %indvars.iv233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %189, ptr noundef nonnull align 1 dereferenceable(11) %190, i64 11, i1 false)
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 3
@@ -409,7 +409,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 209:                                              ; preds = %.preheader, %216
   %indvars.iv245 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next246, %216 ]
-  %210 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 0, i64 %indvars.iv245
+  %210 = getelementptr inbounds nuw i8, ptr %196, i64 %indvars.iv245
   %211 = load i8, ptr %210, align 1, !tbaa !65
   %212 = sext i8 %211 to i32
   br i1 %.not152, label %213, label %216
@@ -424,7 +424,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   %217 = call i32 @llvm.smax.i32(i32 %.0, i32 0)
   %218 = call i32 @llvm.umin.i32(i32 %217, i32 127)
   %219 = trunc nuw nsw i32 %218 to i16
-  %220 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %6, i64 0, i64 %indvars.iv245
+  %220 = getelementptr inbounds nuw [6 x i16], ptr %6, i64 %indvars.iv245
   store i16 %219, ptr %220, align 4, !tbaa !100
   %221 = add nsw i32 %199, %.0
   %222 = call i32 @llvm.smax.i32(i32 %221, i32 0)
@@ -532,10 +532,10 @@ define internal i32 @vaapi_vp8_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 
 40:                                               ; preds = %3, %40
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw [9 x i32], ptr %38, i64 0, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next
   store i32 %42, ptr %43, align 4, !tbaa !73
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %44, label %40, !llvm.loop !105

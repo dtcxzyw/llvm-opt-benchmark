@@ -11310,7 +11310,7 @@ declare void @abort() local_unnamed_addr #18
 define linkonce_odr dso_local noundef ptr @_ZNK14VBasicDTypeKwd5asciiEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #8 comdat align 2 {
   %2 = load i8, ptr %0, align 1, !tbaa !406
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw [28 x ptr], ptr @_ZZNK14VBasicDTypeKwd5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK14VBasicDTypeKwd5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   ret ptr %5
 }

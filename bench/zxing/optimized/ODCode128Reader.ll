@@ -200,7 +200,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.i.i:     ; preds = %_ZNK5ZXing11Pattern
   %60 = fdiv double %59, %51
   %61 = fadd double %60, 5.000000e-01
   %62 = fptosi double %61 to i32
-  %63 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
   store i32 %62, ptr %63, align 4, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -219,7 +219,7 @@ _ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 65:                                               ; preds = %65, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i
   %indvars.iv.i5.i = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i ], [ %indvars.iv.next.i6.i, %65 ]
   %.0910.i.i = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i ], [ %73, %65 ]
-  %66 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.i5.i
+  %66 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i5.i
   %67 = load i32, ptr %66, align 4, !tbaa !9
   %68 = shl i32 %.0910.i.i, %67
   %69 = trunc nuw nsw i64 %indvars.iv.i5.i to i32
@@ -513,7 +513,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.i.i66:   ; preds = %_ZNK5ZXing11Pattern
   %185 = fdiv double %184, %176
   %186 = fadd double %185, 5.000000e-01
   %187 = fptosi double %186 to i32
-  %188 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i67
+  %188 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i67
   store i32 %187, ptr %188, align 4, !tbaa !9
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i67, 1
   %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, 4
@@ -530,7 +530,7 @@ _ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 189:                                              ; preds = %189, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70
   %indvars.iv.i5.i74 = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70 ], [ %indvars.iv.next.i6.i77, %189 ]
   %.0910.i.i75 = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70 ], [ %197, %189 ]
-  %190 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i5.i74
+  %190 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i5.i74
   %191 = load i32, ptr %190, align 4, !tbaa !9
   %192 = shl i32 %.0910.i.i75, %191
   %193 = trunc nuw nsw i64 %indvars.iv.i5.i74 to i32
@@ -640,7 +640,7 @@ _ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit.i: ; preds = %._crit_edge.
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i38.preheader.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !58
 
 .lr.ph.i.i38.preheader.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i
-  %229 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %indvars.iv50.i.i
+  %229 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 %indvars.iv50.i.i
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx44.i.i.i.i
   br label %.lr.ph.i.i38.i.i.i.i
 
@@ -2687,7 +2687,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %31 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i.i
   %32 = load i16, ptr %31, align 2, !tbaa !42
   %33 = uitofp i16 %32 to double
-  %34 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
   %35 = load i16, ptr %34, align 2, !tbaa !42
   %36 = uitofp i16 %35 to double
   %37 = fneg double %36
@@ -2760,7 +2760,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.u
   %63 = getelementptr inbounds nuw i16, ptr %.sroa.0.044.us, i64 %indvars.iv.i.i14.us
   %64 = load i16, ptr %63, align 2, !tbaa !42
   %65 = uitofp i16 %64 to double
-  %66 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14.us
+  %66 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14.us
   %67 = load i16, ptr %66, align 2, !tbaa !42
   %68 = uitofp i16 %67 to double
   %69 = fneg double %68
@@ -2817,7 +2817,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13:         ; preds = %.lr.ph.i.i.i.i.i7
   %85 = getelementptr inbounds nuw i16, ptr %.sroa.0.044, i64 %indvars.iv.i.i14
   %86 = load i16, ptr %85, align 2, !tbaa !42
   %87 = uitofp i16 %86 to double
-  %88 = getelementptr inbounds nuw [3 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i14
+  %88 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i14
   %89 = load i16, ptr %88, align 2, !tbaa !42
   %90 = uitofp i16 %89 to double
   %91 = fneg double %90
@@ -2867,7 +2867,7 @@ define internal void @_GLOBAL__sub_I_ODCode128Reader.cpp() #13 section ".text.st
 
 2:                                                ; preds = %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i, %0
   %indvars.iv4.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next5.i.i, %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i ]
-  %3 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %indvars.iv4.i.i
+  %3 = getelementptr inbounds nuw %"struct.std::array.12", ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 %indvars.iv4.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.pre.i.i = load i32, ptr %3, align 4, !tbaa !9
   br label %13
@@ -2875,7 +2875,7 @@ define internal void @_GLOBAL__sub_I_ODCode128Reader.cpp() #13 section ".text.st
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %13 ]
   %.0910.i.i.i = phi i32 [ %11, %.preheader.i.i ], [ 0, %13 ]
-  %4 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv.i.i.i
+  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i.i
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = shl i32 %.0910.i.i.i, %5
   %7 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -2889,7 +2889,7 @@ define internal void @_GLOBAL__sub_I_ODCode128Reader.cpp() #13 section ".text.st
   br i1 %exitcond.not.i.i.i, label %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i, label %.preheader.i.i, !llvm.loop !46
 
 _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i: ; preds = %.preheader.i.i
-  %12 = getelementptr inbounds nuw [107 x i32], ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 0, i64 %indvars.iv4.i.i
+  %12 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing4OneDL12E2E_PATTERNSE, i64 %indvars.iv4.i.i
   store i32 %11, ptr %12, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next5.i.i = add nuw nsw i64 %indvars.iv4.i.i, 1
@@ -2900,10 +2900,10 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i: ; preds = %.preheader.i.i
   %14 = phi i32 [ %.pre.i.i, %2 ], [ %16, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %13 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %15 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv.next.i.i
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.i
   %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = add nsw i32 %16, %14
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   store i32 %17, ptr %18, align 4, !tbaa !9
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %13, !llvm.loop !86

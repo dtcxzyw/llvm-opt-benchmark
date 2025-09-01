@@ -81,7 +81,7 @@ define void @Gia_ManCountMintermsInCube(ptr noundef readonly captures(none) %0, 
 22:                                               ; preds = %16
   %23 = add nsw i32 %.036, 1
   %24 = sext i32 %.036 to i64
-  %25 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds i32, ptr %4, i64 %24
   store i32 %.02735, ptr %25, align 4, !tbaa !3
   br label %26
 
@@ -115,7 +115,7 @@ define void @Gia_ManCountMintermsInCube(ptr noundef readonly captures(none) %0, 
   br i1 %.not.us, label %38, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = shl nuw i32 1, %35
   %37 = or i32 %36, %.02439.us
@@ -235,7 +235,7 @@ define i32 @Gia_ManCountMinterms(ptr noundef readonly captures(none) %0) local_u
 45:                                               ; preds = %39
   %46 = add nsw i32 %.036.i.us, 1
   %47 = sext i32 %.036.i.us to i64
-  %48 = getelementptr inbounds [32 x i32], ptr %2, i64 0, i64 %47
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
   store i32 %.02735.i.us, ptr %48, align 4, !tbaa !3
   br label %49
 
@@ -265,7 +265,7 @@ define i32 @Gia_ManCountMinterms(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not.us.i.us, label %61, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 0, i64 %indvars.iv.i.us
+  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = shl nuw i32 1, %58
   %60 = or i32 %59, %.02439.us.i.us
@@ -2006,9 +2006,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr noundef 
 
 26:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %27 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = xor i32 %30, %28
   %32 = lshr i32 %31, 1
@@ -2024,9 +2024,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr noundef 
 
 .lr.ph.i56:                                       ; preds = %25, %35
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i60, %35 ], [ 0, %25 ]
-  %36 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv.i58
+  %36 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i58
   %37 = load i32, ptr %36, align 4, !tbaa !3
-  %38 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i58
+  %38 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i58
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = or i32 %39, %37
   %.not.i59 = icmp eq i32 %40, %39
@@ -2074,9 +2074,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr noundef 
 
 .lr.ph.i63:                                       ; preds = %.lr.ph.i56, %64
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i67, %64 ], [ 0, %.lr.ph.i56 ]
-  %65 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i65
+  %65 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i65
   %66 = load i32, ptr %65, align 4, !tbaa !3
-  %67 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv.i65
+  %67 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i65
   %68 = load i32, ptr %67, align 4, !tbaa !3
   %69 = or i32 %68, %66
   %.not.i66 = icmp eq i32 %69, %68
@@ -2092,11 +2092,11 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr noundef 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i63, %95
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %95 ], [ 0, %.lr.ph.i63 ]
   %.021.i = phi i32 [ %.1.i, %95 ], [ -1, %.lr.ph.i63 ]
-  %72 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i72
+  %72 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i72
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = lshr i32 %73, 1
   %75 = xor i32 %74, %73
-  %76 = getelementptr inbounds nuw [0 x i32], ptr %24, i64 0, i64 %indvars.iv.i72
+  %76 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i72
   %77 = load i32, ptr %76, align 4, !tbaa !3
   %78 = lshr i32 %77, 1
   %79 = xor i32 %78, %77
@@ -3009,9 +3009,9 @@ define internal fastcc void @Gia_ManAreCubeCollectList(ptr noundef readonly capt
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !3
-  %28 = getelementptr inbounds nuw [0 x i32], ptr %23, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = xor i32 %29, %27
   %31 = lshr i32 %30, 1
@@ -3269,9 +3269,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 48:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %49 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !3
-  %51 = getelementptr inbounds nuw [0 x i32], ptr %46, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4, !tbaa !3
   %53 = xor i32 %52, %50
   %54 = lshr i32 %53, 1
@@ -3287,9 +3287,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .lr.ph.i96:                                       ; preds = %47, %57
   %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i100, %57 ], [ 0, %47 ]
-  %58 = getelementptr inbounds nuw [0 x i32], ptr %46, i64 0, i64 %indvars.iv.i98
+  %58 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i98
   %59 = load i32, ptr %58, align 4, !tbaa !3
-  %60 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i98
+  %60 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i98
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = or i32 %61, %59
   %.not.i99 = icmp eq i32 %62, %61
@@ -3337,9 +3337,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .lr.ph.i103:                                      ; preds = %.lr.ph.i96, %86
   %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i107, %86 ], [ 0, %.lr.ph.i96 ]
-  %87 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i105
+  %87 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i105
   %88 = load i32, ptr %87, align 4, !tbaa !3
-  %89 = getelementptr inbounds nuw [0 x i32], ptr %46, i64 0, i64 %indvars.iv.i105
+  %89 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i105
   %90 = load i32, ptr %89, align 4, !tbaa !3
   %91 = or i32 %90, %88
   %.not.i106 = icmp eq i32 %91, %90
@@ -3354,11 +3354,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .lr.ph.i110:                                      ; preds = %.lr.ph.i103, %117
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %117 ], [ 0, %.lr.ph.i103 ]
   %.021.i = phi i32 [ %.1.i, %117 ], [ -1, %.lr.ph.i103 ]
-  %94 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i112
+  %94 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i112
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = lshr i32 %95, 1
   %97 = xor i32 %96, %95
-  %98 = getelementptr inbounds nuw [0 x i32], ptr %46, i64 0, i64 %indvars.iv.i112
+  %98 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i112
   %99 = load i32, ptr %98, align 4, !tbaa !3
   %100 = lshr i32 %99, 1
   %101 = xor i32 %100, %99
@@ -3485,9 +3485,9 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
 
 159:                                              ; preds = %158, %.lr.ph.i116
   %indvars.iv.i118 = phi i64 [ 0, %.lr.ph.i116 ], [ %indvars.iv.next.i120, %158 ]
-  %160 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i118
+  %160 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i118
   %161 = load i32, ptr %160, align 4, !tbaa !3
-  %162 = getelementptr inbounds nuw [0 x i32], ptr %157, i64 0, i64 %indvars.iv.i118
+  %162 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv.i118
   %163 = load i32, ptr %162, align 4, !tbaa !3
   %164 = xor i32 %163, %161
   %165 = lshr i32 %164, 1
@@ -3503,9 +3503,9 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
 
 .lr.ph.i124:                                      ; preds = %158, %168
   %indvars.iv.i126 = phi i64 [ %indvars.iv.next.i128, %168 ], [ 0, %158 ]
-  %169 = getelementptr inbounds nuw [0 x i32], ptr %157, i64 0, i64 %indvars.iv.i126
+  %169 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv.i126
   %170 = load i32, ptr %169, align 4, !tbaa !3
-  %171 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i126
+  %171 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i126
   %172 = load i32, ptr %171, align 4, !tbaa !3
   %173 = or i32 %172, %170
   %.not.i127 = icmp eq i32 %173, %172
@@ -3553,9 +3553,9 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
 
 .lr.ph.i135:                                      ; preds = %.lr.ph.i124, %197
   %indvars.iv.i137 = phi i64 [ %indvars.iv.next.i139, %197 ], [ 0, %.lr.ph.i124 ]
-  %198 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i137
+  %198 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i137
   %199 = load i32, ptr %198, align 4, !tbaa !3
-  %200 = getelementptr inbounds nuw [0 x i32], ptr %157, i64 0, i64 %indvars.iv.i137
+  %200 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv.i137
   %201 = load i32, ptr %200, align 4, !tbaa !3
   %202 = or i32 %201, %199
   %.not.i138 = icmp eq i32 %202, %201
@@ -3570,11 +3570,11 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %106, %Gia_StaA
 .lr.ph.i143:                                      ; preds = %.lr.ph.i135, %228
   %indvars.iv.i145 = phi i64 [ %indvars.iv.next.i154, %228 ], [ 0, %.lr.ph.i135 ]
   %.021.i146 = phi i32 [ %.1.i153, %228 ], [ -1, %.lr.ph.i135 ]
-  %205 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv.i145
+  %205 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i145
   %206 = load i32, ptr %205, align 4, !tbaa !3
   %207 = lshr i32 %206, 1
   %208 = xor i32 %207, %206
-  %209 = getelementptr inbounds nuw [0 x i32], ptr %157, i64 0, i64 %indvars.iv.i145
+  %209 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv.i145
   %210 = load i32, ptr %209, align 4, !tbaa !3
   %211 = lshr i32 %210, 1
   %212 = xor i32 %211, %210

@@ -1937,7 +1937,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZStl
 
 switch.lookup:                                    ; preds = %.noexc
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN16cmGraphVizWriter9WriteNodeER21cmGeneratedFileStreamRK10cmLinkItem, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16cmGraphVizWriter9WriteNodeER21cmGeneratedFileStreamRK10cmLinkItem, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN12_GLOBAL__N_117getShapeForTargetERK10cmLinkItem.exit
 

@@ -4585,7 +4585,7 @@ _ZN10serde_json3ser9Formatter12begin_string17hae9b24c5d92ba296E.exit.i: ; preds 
   %23 = add i64 %.sroa.7.0.i.i, 1
   %24 = load i8, ptr %.sroa.0.0.i.i, align 1, !alias.scope !1144, !noundef !4
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser6ESCAPE17h66f00613314c56ccE, i64 %25
   %27 = load i8, ptr %26, align 1, !noalias !1144, !noundef !4
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %17, label %50
@@ -4734,9 +4734,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h6a781666046cee20E.exit28.
   %93 = zext nneg i8 %92 to i64
   %94 = lshr i8 %24, 4
   %95 = zext nneg i8 %94 to i64
-  %96 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %95
   %97 = load i8, ptr %96, align 1, !noalias !1144, !noundef !4
-  %98 = getelementptr inbounds nuw [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 0, i64 %93
+  %98 = getelementptr inbounds nuw i8, ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hf71bf2f42f4017ddE, i64 %93
   %99 = load i8, ptr %98, align 1, !noalias !1144, !noundef !4
   %100 = load i64, ptr %.0.val, align 8, !alias.scope !1183, !noalias !1192, !noundef !4
   %101 = sub i64 %100, %71
@@ -5006,7 +5006,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 63:                                               ; preds = %51
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %65 = load ptr, ptr %64, align 8, !noalias !1261, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %65, i64 0, i64 %55, i32 1
+  %66 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %65, i64 %55, i32 1
   %67 = load i64, ptr %66, align 8, !range !168, !noundef !4
   %68 = icmp eq i64 %67, -9223372036854775806
   br i1 %68, label %69, label %"_ZN4core3ptr43drop_in_place$LT$serde_json..map..Entry$GT$17hb057679292389e87E.exit"

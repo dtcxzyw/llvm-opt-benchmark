@@ -1600,7 +1600,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %435 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %436 = load i32, ptr %435, align 4
   %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %437
+  %438 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %437
   %439 = load ptr, ptr %438, align 8
   tail call void %439(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef %.0.i.i26.i.us) #10
   br label %440
@@ -2482,7 +2482,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %923 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i68.us, i64 12
   %924 = load i32, ptr %923, align 4
   %925 = sext i32 %924 to i64
-  %926 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %925
+  %926 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %925
   %927 = load ptr, ptr %926, align 8
   call void %927(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %590, ptr noundef %.0.i.i26.i68.us) #10
   br label %928
@@ -2855,7 +2855,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %152
+  %153 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %152
   %154 = load ptr, ptr %153, align 8
   tail call void %154(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef %.0.i.i26.i.us) #10
   br label %155
@@ -3249,7 +3249,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %353 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i68.us, i64 12
   %354 = load i32, ptr %353, align 4
   %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %355
+  %356 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %355
   %357 = load ptr, ptr %356, align 8
   call void %357(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %302, ptr noundef %.0.i.i26.i68.us) #10
   br label %358
@@ -6640,7 +6640,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm3
 _ZN14AccessInternal15BarrierResolverILm331846EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #10
@@ -7389,7 +7389,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7406,7 +7406,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier52blocking_load_barrier_on_p
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -7484,7 +7484,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -7528,7 +7528,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -7542,7 +7542,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -7608,7 +7608,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -7677,7 +7677,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm299078EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink, i64 0, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.6.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #10
@@ -7943,7 +7943,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 12
   %9 = and i64 %8, 15
-  %10 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 %1, %12
@@ -7960,7 +7960,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier49blocking_load_barrier_on_w
   %.not.i.i.i = icmp eq i64 %19, 0
   %20 = lshr i64 %1, 12
   %21 = and i64 %20, 15
-  %22 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %1, %24
@@ -8038,7 +8038,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %60 = or i64 %58, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 15
-  %63 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext nneg i32 %64 to i64
   %66 = shl i64 %53, %65
@@ -14202,7 +14202,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %435 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %436 = load i32, ptr %435, align 4
   %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %437
+  %438 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %437
   %439 = load ptr, ptr %438, align 8
   tail call void %439(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef %.0.i.i26.i.us) #10
   %440 = tail call noundef zeroext i1 @_ZN21ShenandoahStringDedup12is_candidateEP7oopDesc(ptr noundef nonnull %102)
@@ -15089,7 +15089,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %924 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i69.us, i64 12
   %925 = load i32, ptr %924, align 4
   %926 = sext i32 %925 to i64
-  %927 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %926
+  %927 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %926
   %928 = load ptr, ptr %927, align 8
   call void %928(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %591, ptr noundef %.0.i.i26.i69.us) #10
   %929 = call noundef zeroext i1 @_ZN21ShenandoahStringDedup12is_candidateEP7oopDesc(ptr noundef nonnull %591)
@@ -15467,7 +15467,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %152
+  %153 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %152
   %154 = load ptr, ptr %153, align 8
   tail call void %154(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef %.0.i.i26.i.us) #10
   %155 = tail call noundef zeroext i1 @_ZN21ShenandoahStringDedup12is_candidateEP7oopDesc(ptr noundef nonnull %99)
@@ -15866,7 +15866,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %354 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i69.us, i64 12
   %355 = load i32, ptr %354, align 4
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %356
+  %357 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %356
   %358 = load ptr, ptr %357, align 8
   call void %358(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef %.0.i.i26.i69.us) #10
   %359 = call noundef zeroext i1 @_ZN21ShenandoahStringDedup12is_candidateEP7oopDesc(ptr noundef nonnull %303)
@@ -16095,7 +16095,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.7.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.7, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw [6 x ptr], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.7.sink, i64 0, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.7.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #10
@@ -17609,7 +17609,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit: ; preds = %_Z
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %56
+  %57 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %.0.i.i26) #10
   %59 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -17764,7 +17764,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit: ; preds = %_Z
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %56
+  %57 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %.0.i.i26) #10
   %59 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -18661,7 +18661,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %436 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %437 = load i32, ptr %436, align 4
   %438 = sext i32 %437 to i64
-  %439 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %438
+  %439 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %438
   %440 = load ptr, ptr %439, align 8
   tail call void %440(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %.0.i.i26.i.us) #10
   br label %441
@@ -19479,7 +19479,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerati
   %889 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i65.us, i64 12
   %890 = load i32, ptr %889, align 4
   %891 = sext i32 %890 to i64
-  %892 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %891
+  %892 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %891
   %893 = load ptr, ptr %892, align 8
   call void %893(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %556, ptr noundef %.0.i.i26.i65.us) #10
   br label %894
@@ -19807,7 +19807,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %152 = load i32, ptr %151, align 4
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %153
+  %154 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %153
   %155 = load ptr, ptr %154, align 8
   tail call void %155(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %.0.i.i26.i.us) #10
   br label %156
@@ -20137,7 +20137,7 @@ _ZN7oopDesc11oop_iterateI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType
   %319 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i65.us, i64 12
   %320 = load i32, ptr %319, align 4
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %321
+  %322 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %321
   %323 = load ptr, ptr %322, align 8
   call void %323(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef %.0.i.i26.i65.us) #10
   br label %324
@@ -21015,7 +21015,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit.i.us: ; preds 
   %437 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %438 = load i32, ptr %437, align 4
   %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %439
+  %440 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %439
   %441 = load ptr, ptr %440, align 8
   tail call void %441(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %.0.i.i26.i.us) #10
   %442 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -21921,7 +21921,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit.i64.us: ; pred
   %944 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i66.us, i64 12
   %945 = load i32, ptr %944, align 4
   %946 = sext i32 %945 to i64
-  %947 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %946
+  %947 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI31ShenandoahMarkUpdateRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %946
   %948 = load ptr, ptr %947, align 8
   call void %948(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %610, ptr noundef %.0.i.i26.i66.us) #10
   %949 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -22337,7 +22337,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit.i.us: ; preds 
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i.us, i64 12
   %153 = load i32, ptr %152, align 4
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %154
+  %155 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %154
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %.0.i.i26.i.us) #10
   %157 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -22755,7 +22755,7 @@ _ZN21ContinuationGCSupport22relativize_stack_chunkEP7oopDesc.exit.i64.us: ; pred
   %374 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i66.us, i64 12
   %375 = load i32, ptr %374, align 4
   %376 = sext i32 %375 to i64
-  %377 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 0, i64 %376
+  %377 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEE6_tableE, i64 %376
   %378 = load ptr, ptr %377, align 8
   call void %378(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %322, ptr noundef %.0.i.i26.i66.us) #10
   %379 = load i8, ptr @UseCompressedClassPointers, align 1

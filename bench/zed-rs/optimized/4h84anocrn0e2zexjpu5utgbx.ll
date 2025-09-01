@@ -10407,7 +10407,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; pred
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit
   %26 = add i64 %1, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %26
+  %27 = getelementptr inbounds i64, ptr %0, i64 %26
   %.sroa.0.0.copyload.i.i33 = load i64, ptr %0, align 8, !alias.scope !1790
   %28 = load i64, ptr %27, align 8, !alias.scope !1790
   store i64 %28, ptr %0, align 8, !alias.scope !1790
@@ -10459,7 +10459,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.threa
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20: ; preds = %40, %44
   %47 = add i64 %29, -1
-  %48 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %47
+  %48 = getelementptr inbounds i64, ptr %0, i64 %47
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !1790
   %49 = load i64, ptr %48, align 8, !alias.scope !1790
   store i64 %49, ptr %0, align 8, !alias.scope !1790
@@ -11320,7 +11320,7 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   br i1 %56, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h52ff6523ef8afbebE.llvm.9059106379889279541.exit.i", label %57
 
 57:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit.i.i.i"
-  %58 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %53, i64 0, i64 %.sroa.0.0.i.i.i35
+  %58 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %53, i64 %.sroa.0.0.i.i.i35
   %59 = add i64 %.sroa.0.0.i.i.i35, 1
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$proto..Collaborator$GT$$GT$17hb4df1b02dd50da9cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %58)
           to label %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit.i.i.i" unwind label %61, !noalias !1995
@@ -11336,7 +11336,7 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   br label %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit7.i.i.i"
 
 63:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit7.i.i.i"
-  %64 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64 }], ptr %53, i64 0, i64 %.sroa.0.1.i.i.i36
+  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %53, i64 %.sroa.0.1.i.i.i36
   %65 = add i64 %.sroa.0.1.i.i.i36, 1
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$proto..Collaborator$GT$$GT$17hb4df1b02dd50da9cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
           to label %"_ZN4core3ptr43drop_in_place$LT$proto..ResharedProject$GT$17h0c8702a54954043bE.exit7.i.i.i" unwind label %66, !noalias !1995
@@ -11399,7 +11399,7 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   br i1 %85, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h45d80326f54ec1f2E.llvm.9059106379889279541.exit.i", label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }], ptr %81, i64 0, i64 %.sroa.0.0.i.i.i
+  %87 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, ptr %81, i64 %.sroa.0.0.i.i.i
   %88 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..RejoinedProject$GT$17h51bc68105486a5e1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %87)
           to label %84 unwind label %91, !noalias !2026
@@ -11415,7 +11415,7 @@ define hidden { i64, ptr } @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update
   br label %89
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }], ptr %81, i64 0, i64 %.sroa.0.1.i.i.i
+  %94 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, ptr %81, i64 %.sroa.0.1.i.i.i
   %95 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proto..RejoinedProject$GT$17h51bc68105486a5e1E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %94) #54
           to label %89 unwind label %96, !noalias !2026

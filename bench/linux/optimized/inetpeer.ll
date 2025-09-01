@@ -93,9 +93,9 @@ define dso_local ptr @inet_getpeer(ptr noundef %0, ptr noundef readonly captures
 
 22:                                               ; preds = %38, %.lr.ph.split.us.i
   %23 = phi i64 [ 0, %.lr.ph.split.us.i ], [ %39, %38 ]
-  %24 = getelementptr [4 x i32], ptr %1, i64 0, i64 %23
+  %24 = getelementptr i32, ptr %1, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr [4 x i32], ptr %18, i64 0, i64 %23
+  %26 = getelementptr i32, ptr %18, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %38, label %29
@@ -204,9 +204,9 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
 
 81:                                               ; preds = %78, %.lr.ph.split.i
   %82 = phi i64 [ 0, %.lr.ph.split.i ], [ %79, %78 ]
-  %83 = getelementptr [4 x i32], ptr %1, i64 0, i64 %82
+  %83 = getelementptr i32, ptr %1, i64 %82
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr [4 x i32], ptr %77, i64 0, i64 %82
+  %85 = getelementptr i32, ptr %77, i64 %82
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %84, %86
   br i1 %87, label %78, label %88

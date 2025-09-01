@@ -1980,7 +1980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i130: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %196 = load i32, ptr %2, align 4, !tbaa !64
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds [6 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL17test_gemm_configsE, i64 0, i64 %197
+  %198 = getelementptr inbounds %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL17test_gemm_configsE, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !4
   %201 = load ptr, ptr %198, align 16, !tbaa !10
@@ -4874,7 +4874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i129: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %189 = load i32, ptr %2, align 4, !tbaa !64
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds [6 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL17test_gemm_configsE, i64 0, i64 %190
+  %191 = getelementptr inbounds %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL17test_gemm_configsE, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !4
   %194 = load ptr, ptr %191, align 16, !tbaa !10
@@ -6706,7 +6706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i112: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %185 = load i32, ptr %2, align 4, !tbaa !64
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds [8 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL19test_matmul_configsE, i64 0, i64 %186
+  %187 = getelementptr inbounds %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL19test_matmul_configsE, i64 %186
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !4
@@ -8462,7 +8462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i121: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %189 = load i32, ptr %2, align 4, !tbaa !64
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds [8 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL19test_matmul_configsE, i64 0, i64 %190
+  %191 = getelementptr inbounds %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL19test_matmul_configsE, i64 %190
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !4
@@ -10075,7 +10075,7 @@ common.resume:                                    ; preds = %63, %.body.i.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.preheader.i ]
-  %11 = getelementptr inbounds nuw [6 x %"struct.opencv_test::GemmParamId"], ptr %2, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %"struct.opencv_test::GemmParamId", ptr %2, i64 %indvars.iv.i
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %12, ptr %11, align 4, !tbaa !64, !noalias !186
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -10723,7 +10723,7 @@ common.resume:                                    ; preds = %63, %.body.i.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.preheader.i ]
-  %11 = getelementptr inbounds nuw [8 x %"struct.opencv_test::MatMulParamId"], ptr %2, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %"struct.opencv_test::MatMulParamId", ptr %2, i64 %indvars.iv.i
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %12, ptr %11, align 4, !tbaa !64, !noalias !219
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -20721,7 +20721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i: ; preds = %_
 
 ._crit_edge.i.i.i:                                ; preds = %24
   %39 = zext nneg i32 %.val to i64
-  %40 = getelementptr inbounds nuw [6 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL17test_gemm_configsE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL17test_gemm_configsE, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %41, ptr %7, align 8, !tbaa !21
   store i8 65, ptr %41, align 8, !tbaa !28
@@ -25453,7 +25453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i: ; preds = %_
 
 ._crit_edge.i.i.i:                                ; preds = %24
   %39 = zext nneg i32 %.val to i64
-  %40 = getelementptr inbounds nuw [8 x %"struct.opencv_test::GemmParam_t"], ptr @_ZN11opencv_testL19test_matmul_configsE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.opencv_test::GemmParam_t", ptr @_ZN11opencv_testL19test_matmul_configsE, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %41, ptr %7, align 8, !tbaa !21
   store i8 65, ptr %41, align 8, !tbaa !28

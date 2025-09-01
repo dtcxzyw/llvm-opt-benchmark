@@ -353,10 +353,10 @@ if.end.i.i:                                       ; preds = %if.then28
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !13
-  %arrayidx = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %RedirectsStorage, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %RedirectsStorage, i64 %indvars.iv
   %call33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #22
-  %arrayidx37 = getelementptr inbounds nuw [3 x ptr], ptr %RedirectsStr, i64 0, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds nuw ptr, ptr %RedirectsStr, i64 %indvars.iv
   store ptr %arrayidx, ptr %arrayidx37, align 8
   br label %for.inc
 

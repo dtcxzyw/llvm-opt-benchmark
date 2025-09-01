@@ -119,7 +119,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   %38 = getelementptr inbounds nuw i64, ptr %.04152, i64 %.03751
   %39 = load i64, ptr %38, align 8, !tbaa !9
   %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
-  %41 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.03751
+  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %.03751
   %42 = load i64, ptr %41, align 8, !tbaa !9
   %43 = add i64 %42, %40
   store i64 %43, ptr %41, align 8, !tbaa !9
@@ -134,7 +134,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
 46:                                               ; preds = %.preheader47, %46
   %.03656 = phi i64 [ 0, %.preheader47 ], [ %50, %46 ]
   %.355 = phi i64 [ %.039.lcssa, %.preheader47 ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %.03656
+  %47 = getelementptr inbounds nuw i64, ptr %4, i64 %.03656
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = add nsw i64 %48, %.355
   %50 = add nuw nsw i64 %.03656, 1
@@ -467,7 +467,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us: ; preds = %_
   %.not.i44 = icmp eq i64 %9, 0
   %47 = trunc nsw i64 %9 to i32
   %48 = sub nsw i32 8, %47
-  %49 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %29
+  %49 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
   %50 = sub nsw i32 8, %32
   %51 = xor i64 %34, -1
   br label %65
@@ -829,7 +829,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us: ; preds = %_
   %.not.i50 = icmp eq i64 %9, 0
   %48 = trunc nsw i64 %9 to i32
   %49 = sub nsw i32 8, %48
-  %50 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %29
+  %50 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
   %51 = sub nsw i32 8, %32
   %52 = xor i64 %34, -1
   br label %67
@@ -1268,7 +1268,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.026 = phi i64 [ %44, %.lr.ph ], [ %4, %27 ]
   %37 = srem i64 %.026, 8
-  %38 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !3
   %40 = sdiv i64 %.026, 8
   %41 = getelementptr inbounds i8, ptr %26, i64 %40
@@ -1431,7 +1431,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.026 = phi i64 [ %44, %.lr.ph ], [ %4, %27 ]
   %37 = srem i64 %.026, 8
-  %38 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 0, i64 %37
+  %38 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL15kFlippedBitmaskE, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !3
   %40 = sdiv i64 %.026, 8
   %41 = getelementptr inbounds i8, ptr %26, i64 %40
@@ -2683,7 +2683,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.not.i27.i = icmp eq i64 %13, 0
   %84 = trunc nsw i64 %13 to i32
   %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %8
+  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
   %87 = sub nsw i32 8, %64
   %88 = xor i64 %66, -1
   br label %105
@@ -3285,7 +3285,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.not.i27.i = icmp eq i64 %13, 0
   %84 = trunc nsw i64 %13 to i32
   %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %8
+  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
   %87 = sub nsw i32 8, %64
   %88 = xor i64 %66, -1
   br label %105
@@ -3887,7 +3887,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.not.i27.i = icmp eq i64 %13, 0
   %84 = trunc nsw i64 %13 to i32
   %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %8
+  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
   %87 = sub nsw i32 8, %64
   %88 = xor i64 %66, -1
   br label %105
@@ -4491,7 +4491,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.not.i27.i = icmp eq i64 %13, 0
   %86 = trunc nsw i64 %13 to i32
   %87 = sub nsw i32 8, %86
-  %88 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %8
+  %88 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
   %89 = sub nsw i32 8, %65
   %90 = xor i64 %67, -1
   br label %108
@@ -5097,7 +5097,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.not.i27.i = icmp eq i64 %13, 0
   %86 = trunc nsw i64 %13 to i32
   %87 = sub nsw i32 8, %86
-  %88 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %8
+  %88 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
   %89 = sub nsw i32 8, %65
   %90 = xor i64 %67, -1
   br label %108

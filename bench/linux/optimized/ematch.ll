@@ -795,7 +795,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
 29:                                               ; preds = %.loopexit8
   %30 = add nsw i32 %7, 1
   %31 = sext i32 %7 to i64
-  %32 = getelementptr [32 x i32], ptr %4, i64 0, i64 %31
+  %32 = getelementptr i32, ptr %4, i64 %31
   store i32 %25, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8
@@ -855,7 +855,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %70 = phi i64 [ %68, %66 ], [ %72, %96 ]
   %71 = phi i32 [ %64, %66 ], [ %82, %96 ]
   %72 = add nsw i64 %70, -1
-  %73 = getelementptr [32 x i32], ptr %4, i64 0, i64 %72
+  %73 = getelementptr i32, ptr %4, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr %struct.tcf_ematch, ptr %67, i64 %75, i32 4

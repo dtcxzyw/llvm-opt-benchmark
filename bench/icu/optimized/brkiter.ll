@@ -668,7 +668,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   %.066 = phi i64 [ %56, %52 ], [ 0, %49 ]
   %sext = shl i64 %.066, 32
   %63 = ashr exact i64 %sext, 32
-  %64 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %63
+  %64 = getelementptr inbounds i8, ptr %4, i64 %63
   store i8 0, ptr %64, align 1, !tbaa !17
   br label %.thread95
 

@@ -105,13 +105,13 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef read
 
 13:                                               ; preds = %9
   %14 = add nuw nsw i64 %7, 1
-  %15 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   store i8 10, ptr %15, align 1, !tbaa !10
   br label %16
 
 16:                                               ; preds = %13, %9
   %.0 = phi i64 [ %14, %13 ], [ %7, %9 ]
-  %17 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.0
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.0
   store i8 0, ptr %17, align 1, !tbaa !10
   %18 = call i32 @fputs(ptr noundef nonnull %2, ptr noundef nonnull %3)
   br label %19
@@ -137,7 +137,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @keylog_file_fp, align 8, !tbaa !4
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %48, label %7
+  br i1 %.not, label %47, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
@@ -145,11 +145,11 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   %10 = add i64 %3, -49
   %11 = icmp ult i64 %10, -48
   %or.cond3 = or i1 %11, %9
-  br i1 %or.cond3, label %48, label %12
+  br i1 %or.cond3, label %47, label %12
 
 12:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %0, i64 %8, i1 false)
-  %13 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   store i8 32, ptr %13, align 1, !tbaa !10
   %.03441 = add nuw nsw i64 %8, 1
   br label %14
@@ -165,13 +165,13 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   %19 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !10
   %21 = add i64 %.034.in42, 2
-  %22 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.03444
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %.03444
   store i8 %20, ptr %22, align 1, !tbaa !10
   %23 = and i8 %16, 15
   %24 = zext nneg i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !10
-  %27 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %21
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %21
   store i8 %26, ptr %27, align 1, !tbaa !10
   %28 = add nuw nsw i64 %.043, 1
   %.034 = add i64 %.034.in42, 3
@@ -179,7 +179,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   br i1 %exitcond.not, label %.lr.ph.preheader, label %14, !llvm.loop !11
 
 .lr.ph.preheader:                                 ; preds = %14
-  %29 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.034
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %.034
   store i8 32, ptr %29, align 1, !tbaa !10
   %.13545 = add i64 %.034.in42, 4
   br label %.lr.ph
@@ -194,30 +194,29 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly 
   %33 = zext nneg i8 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !10
-  %36 = add i64 %.135.in46, 3
-  %37 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.13548
-  store i8 %35, ptr %37, align 1, !tbaa !10
-  %38 = and i8 %31, 15
-  %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !10
-  %42 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %36
-  store i8 %41, ptr %42, align 1, !tbaa !10
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.13548
+  store i8 %35, ptr %36, align 1, !tbaa !10
+  %37 = and i8 %31, 15
+  %38 = zext nneg i8 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !10
+  %41 = getelementptr i8, ptr %5, i64 %.135.in46
+  %42 = getelementptr i8, ptr %41, i64 3
+  store i8 %40, ptr %42, align 1, !tbaa !10
   %43 = add nuw nsw i64 %.147, 1
   %.135 = add i64 %.13548, 2
-  %exitcond52.not = icmp eq i64 %43, %3
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  %exitcond51.not = icmp eq i64 %43, %3
+  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %44 = add i64 %.13548, 3
-  %45 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.135
-  store i8 10, ptr %45, align 1, !tbaa !10
-  %46 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %44
-  store i8 0, ptr %46, align 1, !tbaa !10
-  %47 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br label %48
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %.135
+  store i8 10, ptr %44, align 1, !tbaa !10
+  %45 = getelementptr i8, ptr %44, i64 1
+  store i8 0, ptr %45, align 1, !tbaa !10
+  %46 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  br label %47
 
-48:                                               ; preds = %7, %4, %._crit_edge
+47:                                               ; preds = %7, %4, %._crit_edge
   %.036 = phi i1 [ true, %._crit_edge ], [ false, %4 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.036

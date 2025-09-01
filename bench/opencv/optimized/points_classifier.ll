@@ -4199,10 +4199,10 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit:                   ; preds = %.lr.ph, %93
 
 88:                                               ; preds = %88, %_ZN2cv3VecIhLi3EEC2ERKS1_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN2cv3VecIhLi3EEC2ERKS1_.exit ], [ %indvars.iv.next.i, %88 ]
-  %89 = getelementptr inbounds nuw [3 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   %90 = load i8, ptr %89, align 1, !tbaa !41
   %91 = uitofp i8 %90 to double
-  %92 = getelementptr inbounds nuw [4 x double], ptr %9, i64 0, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
   store double %91, ptr %92, align 8, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

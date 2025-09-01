@@ -733,7 +733,7 @@ define hidden noundef i32 @mbedtls_md5_finish(ptr noundef %0, ptr noundef writeo
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
   store i8 -128, ptr %7, align 1, !tbaa !4
   %8 = icmp samesign ult i32 %4, 56
   %9 = zext nneg i32 %4 to i64
@@ -833,7 +833,7 @@ mbedtls_md5_update.exit:                          ; preds = %3, %._crit_edge.i, 
   %19 = and i32 %18, 63
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   store i8 -128, ptr %22, align 1, !tbaa !4
   %23 = icmp samesign ult i32 %19, 56
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -891,11 +891,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
 
 .split.us:                                        ; preds = %1, %8
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %8 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv26
-  %4 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv26
+  %3 = getelementptr inbounds nuw [81 x i8], ptr @md5_test_buf, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw i64, ptr @md5_test_buflen, i64 %indvars.iv26
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = call i32 @mbedtls_md5(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %2)
-  %7 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv26
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @md5_test_sum, i64 %indvars.iv26
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not17.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not17.us, label %8, label %.critedge
@@ -910,11 +910,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9)
-  %11 = getelementptr inbounds nuw [7 x [81 x i8]], ptr @md5_test_buf, i64 0, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw [7 x i64], ptr @md5_test_buflen, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [81 x i8], ptr @md5_test_buf, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr @md5_test_buflen, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = call i32 @mbedtls_md5(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull %2)
-  %15 = getelementptr inbounds nuw [7 x [16 x i8]], ptr @md5_test_sum, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @md5_test_sum, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %15, i64 16)
   %.not17 = icmp eq i32 %bcmp, 0
   br i1 %.not17, label %16, label %.split21.us

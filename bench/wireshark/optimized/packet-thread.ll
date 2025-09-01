@@ -1895,12 +1895,12 @@ define internal i32 @dissect_thread_mc(ptr noundef %0, ptr noundef %1, ptr nound
   %42 = zext i8 %41 to i32
   %43 = lshr i32 %42, 4
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [16 x i8], ptr @count_bits_in_byte.lut, i64 0, i64 %44
+  %45 = getelementptr i8, ptr @count_bits_in_byte.lut, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = and i32 %42, 15
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [16 x i8], ptr @count_bits_in_byte.lut, i64 0, i64 %49
+  %50 = getelementptr i8, ptr @count_bits_in_byte.lut, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = add i32 %.380.i, %47

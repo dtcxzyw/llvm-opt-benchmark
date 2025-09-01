@@ -931,7 +931,7 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %4
   %89 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !5
   %91 = fpext float %90 to double
-  %92 = getelementptr inbounds nuw [16 x double], ptr %3, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %91, ptr %92, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1529,7 +1529,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetMxbInverseEPfS0_P
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %59 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !5
   %61 = fneg float %60
   store float %61, ptr %59, align 4, !tbaa !5

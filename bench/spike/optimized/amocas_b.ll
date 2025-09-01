@@ -230,16 +230,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_amocas_bP1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = trunc i64 %29 to i8
   %31 = lshr i64 %1, 20
   %32 = and i64 %31, 31
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %21, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = trunc i64 %34 to i8
   %36 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %20, i64 noundef %25, i8 noundef signext %30, i8 noundef signext %35)
@@ -282,14 +282,14 @@ define linkonce_odr noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1
   %9 = lshr i64 %1, 12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 39056
   %11 = and i64 %9, 255
-  %12 = getelementptr inbounds nuw [256 x i64], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = icmp eq i64 %13, %9
   br i1 %14, label %15, label %21, !prof !142
 
 15:                                               ; preds = %.noexc
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %17 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %16, i64 0, i64 %11
+  %17 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %16, i64 %11
   %18 = load ptr, ptr %17, align 8, !tbaa !143
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %1
   %20 = load i8, ptr %19, align 1
@@ -335,14 +335,14 @@ define linkonce_odr noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 41104
-  %36 = getelementptr inbounds nuw [256 x i64], ptr %35, i64 0, i64 %11
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %11
   %37 = load i64, ptr %36, align 8, !tbaa !3
   %38 = icmp eq i64 %37, %9
   br i1 %38, label %.noexc67, label %.noexc68, !prof !173
 
 .noexc67:                                         ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %40 = getelementptr inbounds nuw [256 x %struct.tlb_entry_t], ptr %39, i64 0, i64 %11
+  %40 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %39, i64 %11
   %41 = load ptr, ptr %40, align 8, !tbaa !143
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %1
   store i8 %3, ptr %42, align 1
@@ -726,16 +726,16 @@ define noundef i64 @_Z19fast_rv64i_amocas_bP11processor_t6insn_tm(ptr noundef ca
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %22 = lshr i64 %1, 15
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = trunc i64 %29 to i8
   %31 = lshr i64 %1, 20
   %32 = and i64 %31, 31
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %21, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = trunc i64 %34 to i8
   %36 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %20, i64 noundef %25, i8 noundef signext %30, i8 noundef signext %35)
@@ -796,16 +796,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_amocas_b
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = lshr i64 %1, 7
   %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = trunc i64 %30 to i8
   %32 = lshr i64 %1, 20
   %33 = and i64 %32, 31
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %22, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = trunc i64 %35 to i8
   %37 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %21, i64 noundef %26, i8 noundef signext %31, i8 noundef signext %36)
@@ -963,16 +963,16 @@ define noundef i64 @_Z21logged_rv64i_amocas_bP11processor_t6insn_tm(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %23 = lshr i64 %1, 15
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = lshr i64 %1, 7
   %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = trunc i64 %30 to i8
   %32 = lshr i64 %1, 20
   %33 = and i64 %32, 31
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %22, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = trunc i64 %35 to i8
   %37 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %21, i64 noundef %26, i8 noundef signext %31, i8 noundef signext %36)
@@ -1075,7 +1075,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_bP1
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %20
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %20
   %41 = lshr i64 %1, 20
   %42 = and i64 %41, 31
   %43 = icmp samesign ugt i64 %42, 15
@@ -1095,10 +1095,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_bP1
 
 49:                                               ; preds = %38
   %50 = load i64, ptr %40, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %31
+  %51 = getelementptr inbounds nuw i64, ptr %39, i64 %31
   %52 = load i64, ptr %51, align 8, !tbaa !3
   %53 = trunc i64 %50 to i8
-  %54 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %42
+  %54 = getelementptr inbounds nuw i64, ptr %39, i64 %42
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = trunc i64 %55 to i8
   %57 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %29, i64 noundef %52, i8 noundef signext %53, i8 noundef signext %56)
@@ -1194,7 +1194,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_bP11processor_t6insn_tm(ptr noundef ca
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %20
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %20
   %41 = lshr i64 %1, 20
   %42 = and i64 %41, 31
   %43 = icmp samesign ugt i64 %42, 15
@@ -1214,10 +1214,10 @@ define noundef i64 @_Z19fast_rv64e_amocas_bP11processor_t6insn_tm(ptr noundef ca
 
 49:                                               ; preds = %38
   %50 = load i64, ptr %40, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %31
+  %51 = getelementptr inbounds nuw i64, ptr %39, i64 %31
   %52 = load i64, ptr %51, align 8, !tbaa !3
   %53 = trunc i64 %50 to i8
-  %54 = getelementptr inbounds nuw [32 x i64], ptr %39, i64 0, i64 %42
+  %54 = getelementptr inbounds nuw i64, ptr %39, i64 %42
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = trunc i64 %55 to i8
   %57 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %29, i64 noundef %52, i8 noundef signext %53, i8 noundef signext %56)
@@ -1312,7 +1312,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amocas_b
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %21
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %21
   %42 = lshr i64 %1, 20
   %43 = and i64 %42, 31
   %44 = icmp samesign ugt i64 %43, 15
@@ -1332,10 +1332,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amocas_b
 
 50:                                               ; preds = %39
   %51 = load i64, ptr %41, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %32
+  %52 = getelementptr inbounds nuw i64, ptr %40, i64 %32
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = trunc i64 %51 to i8
-  %55 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %43
+  %55 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %56 = load i64, ptr %55, align 8, !tbaa !3
   %57 = trunc i64 %56 to i8
   %58 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %30, i64 noundef %53, i8 noundef signext %54, i8 noundef signext %57)
@@ -1441,7 +1441,7 @@ define noundef i64 @_Z21logged_rv64e_amocas_bP11processor_t6insn_tm(ptr noundef 
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %41 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %21
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %21
   %42 = lshr i64 %1, 20
   %43 = and i64 %42, 31
   %44 = icmp samesign ugt i64 %43, 15
@@ -1461,10 +1461,10 @@ define noundef i64 @_Z21logged_rv64e_amocas_bP11processor_t6insn_tm(ptr noundef 
 
 50:                                               ; preds = %39
   %51 = load i64, ptr %41, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %32
+  %52 = getelementptr inbounds nuw i64, ptr %40, i64 %32
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = trunc i64 %51 to i8
-  %55 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %43
+  %55 = getelementptr inbounds nuw i64, ptr %40, i64 %43
   %56 = load i64, ptr %55, align 8, !tbaa !3
   %57 = trunc i64 %56 to i8
   %58 = tail call noundef signext i8 @_ZN5mmu_t20amo_compare_and_swapIaEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %30, i64 noundef %53, i8 noundef signext %54, i8 noundef signext %57)

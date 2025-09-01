@@ -1263,7 +1263,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
-  %invariant.gep = getelementptr [40 x [2 x i32]], ptr %1, i64 0, i64 %4
+  %invariant.gep = getelementptr [2 x i32], ptr %1, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1387,7 +1387,7 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   %42 = load i32, ptr %32, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
   %44 = zext nneg i32 %13 to i64
-  %45 = getelementptr inbounds nuw [0 x [2 x i32]], ptr @ff_sbr_noise_table_fixed, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !19
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %43
@@ -1494,7 +1494,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %46 = load i32, ptr %36, align 4, !tbaa !38
   %47 = sext i32 %46 to i64
   %48 = zext nneg i32 %16 to i64
-  %49 = getelementptr inbounds nuw [0 x [2 x i32]], ptr @ff_sbr_noise_table_fixed, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %48
   %50 = load i32, ptr %49, align 8, !tbaa !19
   %51 = sext i32 %50 to i64
   %52 = mul nsw i64 %51, %47
@@ -1597,7 +1597,7 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   %42 = load i32, ptr %32, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
   %44 = zext nneg i32 %13 to i64
-  %45 = getelementptr inbounds nuw [0 x [2 x i32]], ptr @ff_sbr_noise_table_fixed, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !19
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %47, %43
@@ -1704,7 +1704,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %45 = load i32, ptr %35, align 4, !tbaa !38
   %46 = sext i32 %45 to i64
   %47 = zext nneg i32 %15 to i64
-  %48 = getelementptr inbounds nuw [0 x [2 x i32]], ptr @ff_sbr_noise_table_fixed, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i32], ptr @ff_sbr_noise_table_fixed, i64 %47
   %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, %46

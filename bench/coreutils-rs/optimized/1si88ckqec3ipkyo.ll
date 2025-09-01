@@ -271,7 +271,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
 
 .lr.ph:                                           ; preds = %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit, %19
   %.017 = phi i64 [ %.0, %19 ], [ %.016, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit ]
-  %17 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.017
+  %17 = getelementptr inbounds i8, ptr %2, i64 %.017
   %18 = load i8, ptr %17, align 1, !noundef !7
   switch i8 %18, label %._crit_edge [
     i8 32, label %19

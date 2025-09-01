@@ -865,7 +865,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %76
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.FLAC__frame_add_header, i64 0, i64 %82
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.FLAC__frame_add_header, i64 %82
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %83
 
@@ -1049,7 +1049,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly
 
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %31 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !50
   %33 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %32, i32 noundef %2) #6
   %.not30 = icmp eq i32 %33, 0
@@ -1296,7 +1296,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 31:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %32 = getelementptr inbounds nuw [32 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !50
   %34 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %33, i32 noundef %2) #6
   %.not44 = icmp eq i32 %34, 0
@@ -1337,7 +1337,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 51:                                               ; preds = %.lr.ph52, %47
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %47 ]
-  %52 = getelementptr inbounds nuw [32 x i32], ptr %46, i64 0, i64 %indvars.iv58
+  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv58
   %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = load i32, ptr %35, align 4, !tbaa !63
   %55 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %4, i32 noundef %53, i32 noundef %54) #6

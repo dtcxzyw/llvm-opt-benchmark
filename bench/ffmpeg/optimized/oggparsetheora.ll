@@ -417,7 +417,7 @@ define internal noundef i32 @theora_packet(ptr noundef readonly captures(none) %
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.03850 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %22 ]
-  %23 = getelementptr inbounds [255 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !46
   %.not46 = icmp ne i8 %24, -1
   %25 = zext i1 %.not46 to i32

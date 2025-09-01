@@ -474,7 +474,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %EncodeCodepointToUtf8.exit ]
   %.137 = phi i64 [ %.02642, %.lr.ph.preheader ], [ %69, %EncodeCodepointToUtf8.exit ]
   %.12836 = phi ptr [ %.02741, %.lr.ph.preheader ], [ %70, %EncodeCodepointToUtf8.exit ]
-  %13 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 128
   br i1 %15, label %16, label %19
@@ -897,7 +897,7 @@ define hidden ptr @SDL_GetUserFolder_REAL(i32 noundef %0) local_unnamed_addr #0 
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw [11 x ptr], ptr @CachedUserFolders, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr @CachedUserFolders, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -954,7 +954,7 @@ define hidden void @SDL_QuitFilesystem() local_unnamed_addr #0 {
 
 4:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.preheader ]
-  %5 = getelementptr inbounds nuw [11 x ptr], ptr @CachedUserFolders, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr @CachedUserFolders, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7

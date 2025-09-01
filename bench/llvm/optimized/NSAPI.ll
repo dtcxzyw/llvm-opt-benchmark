@@ -128,7 +128,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local noundef nonnull ptr @_ZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %14
@@ -137,7 +137,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 17344
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %4
+  %10 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 %4
   %11 = load ptr, ptr %10, align 8, !tbaa !374
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #12
   %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr nonnull %11, i64 %12)
@@ -231,7 +231,7 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [6 x %"class.clang::Selector"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw %"class.clang::Selector", ptr %4, i64 %5
   %.0.copyload.i.i.i = load i64, ptr %6, align 8
   %7 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %7, label %8, label %59
@@ -334,7 +334,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [12 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.clang::Selector", ptr %7, i64 %8
   %.0.copyload.i.i.i = load i64, ptr %9, align 8
   %10 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %10, label %11, label %125
@@ -551,7 +551,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %9 = alloca [2 x ptr], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw [13 x %"class.clang::Selector"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.clang::Selector", ptr %10, i64 %11
   %.0.copyload.i.i.i = load i64, ptr %12, align 8
   %13 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %13, label %14, label %161
@@ -814,7 +814,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw [5 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw %"class.clang::Selector", ptr %7, i64 %8
   %.0.copyload.i.i.i = load i64, ptr %9, align 8
   %10 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %10, label %11, label %76
@@ -1538,7 +1538,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI19isSubclassOfNSClassEPNS_1
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %_ZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindE.exit
@@ -1547,7 +1547,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %4
   %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17344
   %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %6
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 %6
   %13 = load ptr, ptr %12, align 8, !tbaa !374
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #12
   %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr nonnull %13, i64 %14)

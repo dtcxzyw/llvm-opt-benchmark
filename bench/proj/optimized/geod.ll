@@ -320,7 +320,7 @@ sub_1:                                            ; preds = %sub_0
   %111 = add nsw i32 %107, 1
   store i32 %111, ptr @_ZL5pargc, align 4, !tbaa !15
   %112 = sext i32 %107 to i64
-  %113 = getelementptr inbounds [50 x ptr], ptr @_ZL5pargv, i64 0, i64 %112
+  %113 = getelementptr inbounds ptr, ptr @_ZL5pargv, i64 %112
   store ptr %110, ptr %113, align 8, !tbaa !4
   br label %120
 

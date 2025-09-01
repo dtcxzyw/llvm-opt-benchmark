@@ -424,7 +424,7 @@ default.unreachable:                              ; preds = %620, %87
   %169 = phi ptr [ %155, %.preheader ], [ %188, %194 ]
   %170 = load i8, ptr %169, align 1, !tbaa !20
   %171 = zext i8 %170 to i32
-  %172 = getelementptr inbounds nuw [33 x i32], ptr %163, i64 0, i64 %indvars.iv902
+  %172 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv902
   store i32 %171, ptr %172, align 4, !tbaa !20
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store ptr %173, ptr %7, align 8, !tbaa !3
@@ -473,7 +473,7 @@ default.unreachable:                              ; preds = %620, %87
 197:                                              ; preds = %.lr.ph880, %197
   %indvars.iv906 = phi i64 [ 1, %.lr.ph880 ], [ %indvars.iv.next907, %197 ]
   %198 = phi i32 [ %195, %.lr.ph880 ], [ %201, %197 ]
-  %199 = getelementptr inbounds nuw [33 x i32], ptr %163, i64 0, i64 %indvars.iv906
+  %199 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv906
   %200 = load i32, ptr %199, align 4, !tbaa !20
   %201 = mul i32 %198, %200
   store i32 %201, ptr %196, align 4, !tbaa !20
@@ -924,7 +924,7 @@ default.unreachable:                              ; preds = %620, %87
   %459 = phi ptr [ %.promoted863, %.lr.ph866 ], [ %478, %480 ]
   %460 = load i8, ptr %459, align 1, !tbaa !20
   %461 = zext i8 %460 to i32
-  %462 = getelementptr inbounds nuw [33 x i32], ptr %456, i64 0, i64 %indvars.iv895
+  %462 = getelementptr inbounds nuw i32, ptr %456, i64 %indvars.iv895
   store i32 %461, ptr %462, align 4, !tbaa !20
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %463, ptr %7, align 8, !tbaa !3
@@ -985,7 +985,7 @@ default.unreachable:                              ; preds = %620, %87
 493:                                              ; preds = %.lr.ph870, %493
   %indvars.iv898 = phi i64 [ 1, %.lr.ph870 ], [ %indvars.iv.next899, %493 ]
   %494 = phi i32 [ %488, %.lr.ph870 ], [ %497, %493 ]
-  %495 = getelementptr inbounds nuw [33 x i32], ptr %487, i64 0, i64 %indvars.iv898
+  %495 = getelementptr inbounds nuw i32, ptr %487, i64 %indvars.iv898
   %496 = load i32, ptr %495, align 4, !tbaa !20
   %497 = mul i32 %494, %496
   store i32 %497, ptr %489, align 4, !tbaa !20
@@ -1116,7 +1116,7 @@ default.unreachable:                              ; preds = %620, %87
   %.0635851 = phi i32 [ %587, %586 ], [ 0, %563 ]
   %.promoted841847850 = phi ptr [ %585, %586 ], [ %540, %563 ]
   %567 = zext i32 %.0635851 to i64
-  %568 = getelementptr inbounds nuw [33 x i32], ptr %564, i64 0, i64 %567
+  %568 = getelementptr inbounds nuw i32, ptr %564, i64 %567
   store i32 0, ptr %568, align 4, !tbaa !20
   %569 = load i32, ptr %543, align 8, !tbaa !20
   %570 = zext i32 %569 to i64
@@ -1187,7 +1187,7 @@ default.unreachable:                              ; preds = %620, %87
 601:                                              ; preds = %.lr.ph857, %601
   %indvars.iv = phi i64 [ 1, %.lr.ph857 ], [ %indvars.iv.next, %601 ]
   %602 = phi i32 [ %593, %.lr.ph857 ], [ %605, %601 ]
-  %603 = getelementptr inbounds nuw [33 x i32], ptr %592, i64 0, i64 %indvars.iv
+  %603 = getelementptr inbounds nuw i32, ptr %592, i64 %indvars.iv
   %604 = load i32, ptr %603, align 4, !tbaa !20
   %605 = mul i32 %602, %604
   store i32 %605, ptr %594, align 4, !tbaa !20
@@ -2547,7 +2547,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
 91:                                               ; preds = %.lr.ph140, %91
   %92 = phi ptr [ %.pre157, %.lr.ph140 ], [ %112, %91 ]
   %indvars.iv149 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next150, %91 ]
-  %93 = getelementptr inbounds nuw [33 x i32], ptr %90, i64 0, i64 %indvars.iv149
+  %93 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv149
   %94 = load i32, ptr %93, align 4, !tbaa !20
   %95 = trunc i32 %94 to i8
   store i8 %95, ptr %92, align 1, !tbaa !20
@@ -2615,7 +2615,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   br i1 %.not145, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %130
-  %134 = getelementptr inbounds nuw [33 x i32], ptr %129, i64 0, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4, !tbaa !20
   br label %.lr.ph
 
@@ -3242,7 +3242,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_pre_copy_file(ptr readnone cap
   %16 = load ptr, ptr %15, align 8, !tbaa !70
   %17 = tail call i32 @H5F_get_high_bound(ptr noundef %16) #12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [7 x i32], ptr @H5O_layout_ver_bounds, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !66
   %21 = icmp ugt i32 %14, %20
   br i1 %21, label %22, label %26
@@ -3484,7 +3484,7 @@ define internal noundef i32 @H5O__layout_debug(ptr readnone captures(none) %0, p
   %.0106 = phi i64 [ 0, %.lr.ph107 ], [ %33, %27 ]
   %.not = icmp eq i64 %.0106, 0
   %28 = select i1 %.not, ptr @.str.55, ptr @.str.65
-  %29 = getelementptr inbounds nuw [33 x i32], ptr %26, i64 0, i64 %.0106
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %.0106
   %30 = load i32, ptr %29, align 4, !tbaa !20
   %31 = zext i32 %30 to i64
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.64, ptr noundef nonnull %28, i64 noundef %31) #12

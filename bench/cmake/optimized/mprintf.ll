@@ -53,7 +53,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
   %.0353.i584 = phi i32 [ 0, %.lr.ph586 ], [ %.3356.i347, %addbyter.exit48.thread338 ]
   %.sroa.0.0582 = phi ptr [ %0, %.lr.ph586 ], [ %.sroa.0.3346, %addbyter.exit48.thread338 ]
   %.sroa.51.0581 = phi i64 [ 0, %.lr.ph586 ], [ %.sroa.51.3345, %addbyter.exit48.thread338 ]
-  %17 = getelementptr inbounds nuw [128 x %struct.outsegment], ptr %7, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.outsegment, ptr %7, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -113,7 +113,7 @@ addbyter.exit50:                                  ; preds = %32, %28
 
 43:                                               ; preds = %40
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds [128 x %struct.va_input], ptr %8, i64 0, i64 %44, i32 1
+  %45 = getelementptr inbounds %struct.va_input, ptr %8, i64 %44, i32 1
   %46 = load i64, ptr %45, align 8, !tbaa !15
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %47, 0
@@ -138,7 +138,7 @@ addbyter.exit50:                                  ; preds = %32, %28
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !19
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [128 x %struct.va_input], ptr %8, i64 0, i64 %59, i32 1
+  %60 = getelementptr inbounds %struct.va_input, ptr %8, i64 %59, i32 1
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = trunc i64 %61 to i32
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %62, i32 -1)
@@ -162,7 +162,7 @@ addbyter.exit50:                                  ; preds = %32, %28
   %71 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %72 = load i32, ptr %71, align 4, !tbaa !20
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %8, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw %struct.va_input, ptr %8, i64 %73
   %75 = load i32, ptr %74, align 16, !tbaa !21
   switch i32 %75, label %addbyter.exit48.thread338 [
     i32 6, label %76
@@ -1882,7 +1882,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
 262:                                              ; preds = %258
   %263 = lshr i32 %.0192634, 3
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr %7, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !15
   %267 = zext i8 %266 to i32
   %268 = and i32 %.0192634, 7
@@ -1906,7 +1906,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %277 = shl nuw nsw i32 1, %276
   %278 = sdiv i32 %.5197, 8
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %279
+  %280 = getelementptr inbounds i8, ptr %7, i64 %279
   %281 = load i8, ptr %280, align 1, !tbaa !15
   %282 = trunc nuw i32 %277 to i8
   %283 = or i8 %281, %282
@@ -1932,7 +1932,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
 290:                                              ; preds = %286
   %291 = lshr i32 %.0230632, 3
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw i8, ptr %7, i64 %292
   %294 = load i8, ptr %293, align 1, !tbaa !15
   %295 = zext i8 %294 to i32
   %296 = and i32 %.0230632, 7
@@ -1956,7 +1956,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %305 = shl nuw nsw i32 1, %304
   %306 = sdiv i32 %.8238, 8
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %307
+  %308 = getelementptr inbounds i8, ptr %7, i64 %307
   %309 = load i8, ptr %308, align 1, !tbaa !15
   %310 = trunc nuw i32 %305 to i8
   %311 = or i8 %309, %310
@@ -1982,7 +1982,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %319 = shl nuw nsw i32 1, %318
   %320 = sdiv i32 %spec.select297, 8
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %321
+  %322 = getelementptr inbounds i8, ptr %7, i64 %321
   %323 = load i8, ptr %322, align 1, !tbaa !15
   %324 = trunc nuw i32 %319 to i8
   %325 = or i8 %323, %324
@@ -2061,7 +2061,7 @@ dollarstring.exit.thread:                         ; preds = %.critedge.i, %32, %
   %359 = trunc nuw nsw i64 %indvars.iv to i32
   %360 = lshr i64 %indvars.iv, 3
   %361 = and i64 %360, 536870911
-  %362 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw i8, ptr %7, i64 %361
   %363 = load i8, ptr %362, align 1, !tbaa !15
   %364 = zext i8 %363 to i32
   %365 = and i32 %359, 7
@@ -2395,7 +2395,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next, %.thread22 ]
   %.0321141 = phi ptr [ @lower_digits, %.lr.ph142 ], [ %.132228, %.thread22 ]
   %.0353140 = phi i32 [ 0, %.lr.ph142 ], [ %.335627, %.thread22 ]
-  %17 = getelementptr inbounds nuw [128 x %struct.outsegment], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.outsegment, ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2445,7 +2445,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
 
 41:                                               ; preds = %38
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %42, i32 1
+  %43 = getelementptr inbounds %struct.va_input, ptr %7, i64 %42, i32 1
   %44 = load i64, ptr %43, align 8, !tbaa !15
   %45 = trunc i64 %44 to i32
   %46 = icmp slt i32 %45, 0
@@ -2470,7 +2470,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !19
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %57, i32 1
+  %58 = getelementptr inbounds %struct.va_input, ptr %7, i64 %57, i32 1
   %59 = load i64, ptr %58, align 8, !tbaa !15
   %60 = trunc i64 %59 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %60, i32 -1)
@@ -2494,7 +2494,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !20
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %struct.va_input, ptr %7, i64 %71
   %73 = load i32, ptr %72, align 16, !tbaa !21
   switch i32 %73, label %.thread22 [
     i32 6, label %74
@@ -3400,7 +3400,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next, %.thread47 ]
   %.0321253 = phi ptr [ @lower_digits, %.lr.ph254 ], [ %.132253, %.thread47 ]
   %.0353252 = phi i32 [ 0, %.lr.ph254 ], [ %.335652, %.thread47 ]
-  %17 = getelementptr inbounds nuw [128 x %struct.outsegment], ptr %6, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.outsegment, ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -3451,7 +3451,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
 
 41:                                               ; preds = %38
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %42, i32 1
+  %43 = getelementptr inbounds %struct.va_input, ptr %7, i64 %42, i32 1
   %44 = load i64, ptr %43, align 8, !tbaa !15
   %45 = trunc i64 %44 to i32
   %46 = icmp slt i32 %45, 0
@@ -3476,7 +3476,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !19
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %57, i32 1
+  %58 = getelementptr inbounds %struct.va_input, ptr %7, i64 %57, i32 1
   %59 = load i64, ptr %58, align 8, !tbaa !15
   %60 = trunc i64 %59 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %60, i32 -1)
@@ -3500,7 +3500,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !20
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw %struct.va_input, ptr %7, i64 %71
   %73 = load i32, ptr %72, align 16, !tbaa !21
   switch i32 %73, label %.thread47 [
     i32 6, label %74
@@ -4458,7 +4458,7 @@ define internal fastcc void @formatf.specialized.4(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next, %.thread98 ]
   %.0321319 = phi ptr [ @lower_digits, %.lr.ph320 ], [ %.1322104, %.thread98 ]
   %.0353318 = phi i32 [ 0, %.lr.ph320 ], [ %.3356103, %.thread98 ]
-  %40 = getelementptr inbounds nuw [128 x %struct.outsegment], ptr %29, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.outsegment, ptr %29, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -4520,7 +4520,7 @@ define internal fastcc void @formatf.specialized.4(ptr noundef captures(none) %0
 
 67:                                               ; preds = %64
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds [128 x %struct.va_input], ptr %30, i64 0, i64 %68, i32 1
+  %69 = getelementptr inbounds %struct.va_input, ptr %30, i64 %68, i32 1
   %70 = load i64, ptr %69, align 8, !tbaa !15
   %71 = trunc i64 %70 to i32
   %72 = icmp slt i32 %71, 0
@@ -4545,7 +4545,7 @@ define internal fastcc void @formatf.specialized.4(ptr noundef captures(none) %0
   %81 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !19
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [128 x %struct.va_input], ptr %30, i64 0, i64 %83, i32 1
+  %84 = getelementptr inbounds %struct.va_input, ptr %30, i64 %83, i32 1
   %85 = load i64, ptr %84, align 8, !tbaa !15
   %86 = trunc i64 %85 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %86, i32 -1)
@@ -4569,7 +4569,7 @@ define internal fastcc void @formatf.specialized.4(ptr noundef captures(none) %0
   %95 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %96 = load i32, ptr %95, align 4, !tbaa !20
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %30, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw %struct.va_input, ptr %30, i64 %97
   %99 = load i32, ptr %98, align 16, !tbaa !21
   switch i32 %99, label %.thread98 [
     i32 6, label %100

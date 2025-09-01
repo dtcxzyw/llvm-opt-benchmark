@@ -239,9 +239,9 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %91 = icmp eq i16 %90, 0
   %or.cond5.i = or i1 %91, %or.cond.not9.i
   %92 = zext i1 %or.cond5.i to i64
-  %93 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [12 x i8], ptr @_ZL5nDays, i64 %92
   %94 = zext nneg i32 %86 to i64
-  %95 = getelementptr inbounds nuw [12 x i8], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
   %96 = load i8, ptr %95, align 1, !tbaa !10
   %97 = sext i8 %96 to i32
   %98 = add nsw i32 %78, %97
@@ -258,9 +258,9 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %105 = icmp eq i16 %104, 0
   %or.cond5.i102 = or i1 %105, %or.cond.not9.i101
   %106 = zext i1 %or.cond5.i102 to i64
-  %107 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [12 x i8], ptr @_ZL5nDays, i64 %106
   %108 = zext nneg i32 %.promoted122 to i64
-  %109 = getelementptr inbounds nuw [12 x i8], ptr %107, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %108
   %.0.in117 = load i8, ptr %109, align 1, !tbaa !10
   %.0118 = sext i8 %.0.in117 to i32
   %110 = icmp sgt i32 %74, %.0118
@@ -293,9 +293,9 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %126 = icmp eq i16 %125, 0
   %or.cond5.i106 = or i1 %126, %or.cond.not9.i105
   %127 = zext i1 %or.cond5.i106 to i64
-  %128 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [12 x i8], ptr @_ZL5nDays, i64 %127
   %129 = sext i32 %121 to i64
-  %130 = getelementptr inbounds [12 x i8], ptr %128, i64 0, i64 %129
+  %130 = getelementptr inbounds i8, ptr %128, i64 %129
   %.0.in = load i8, ptr %130, align 1, !tbaa !10
   %.0 = sext i8 %.0.in to i32
   %131 = icmp sgt i32 %114, %.0
@@ -317,8 +317,8 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %132 = phi i16 [ %.promoted124, %100 ], [ %85, %.loopexit.loopexit ], [ %120, %.loopexit.loopexit175 ]
   %133 = phi i32 [ %74, %100 ], [ %98, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit175 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %135 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @_ZL14lastDayOfMonth, i64 0, i64 %.pre-phi132
-  %136 = getelementptr inbounds [13 x i32], ptr %135, i64 0, i64 %.pre-phi
+  %135 = getelementptr inbounds nuw [13 x i32], ptr @_ZL14lastDayOfMonth, i64 %.pre-phi132
+  %136 = getelementptr inbounds i32, ptr %135, i64 %.pre-phi
   %137 = load i32, ptr %136, align 4, !tbaa !4
   %138 = add nsw i32 %137, %133
   %139 = trunc i32 %138 to i16
@@ -469,8 +469,8 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %212 = icmp eq i16 %.pre-phi79.i, 0
   %or.cond5.i60.i = or i1 %212, %or.cond.not9.i59.i
   %213 = zext i1 %or.cond5.i60.i to i64
-  %214 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %213
-  %215 = getelementptr inbounds nuw [12 x i8], ptr %214, i64 0, i64 %210
+  %214 = getelementptr inbounds nuw [12 x i8], ptr @_ZL5nDays, i64 %213
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %210
   %216 = load i8, ptr %215, align 1, !tbaa !10
   %217 = sext i8 %216 to i32
   store i32 %217, ptr %73, align 4, !tbaa !21
@@ -506,10 +506,10 @@ define void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr 
   %235 = icmp eq i16 %234, 0
   %or.cond5.i64.i = or i1 %235, %or.cond.not9.i63.i
   %236 = zext i1 %or.cond5.i64.i to i64
-  %237 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [12 x i8], ptr @_ZL5nDays, i64 %236
   %238 = load i32, ptr %59, align 4, !tbaa !22
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [12 x i8], ptr %237, i64 0, i64 %239
+  %240 = getelementptr inbounds i8, ptr %237, i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !10
   %242 = sext i8 %241 to i32
   %.not.i112 = icmp slt i32 %226, %242

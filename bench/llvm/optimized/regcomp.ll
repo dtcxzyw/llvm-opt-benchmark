@@ -886,7 +886,7 @@ seterr.exit192:                                   ; preds = %32, %35
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds [10 x i64], ptr %9, i64 0, i64 %42
+  %45 = getelementptr inbounds i64, ptr %9, i64 %42
   store i64 %.pre224.pre232, ptr %45, align 8, !tbaa !34
   br label %46
 
@@ -981,7 +981,7 @@ doemit.exit191:                                   ; preds = %46, %enlarge.exit.i
 
 83:                                               ; preds = %82
   %84 = load i64, ptr %3, align 8, !tbaa !33
-  %85 = getelementptr inbounds [10 x i64], ptr %6, i64 0, i64 %42
+  %85 = getelementptr inbounds i64, ptr %6, i64 %42
   store i64 %84, ptr %85, align 8, !tbaa !34
   br label %86
 
@@ -1383,7 +1383,7 @@ seterr.exit152:                                   ; preds = %235, %238
 245:                                              ; preds = %239
   %246 = add nsw i32 %243, -48
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw [10 x i64], ptr %6, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr %6, i64 %247
   %249 = load i64, ptr %248, align 8, !tbaa !34
   %250 = icmp eq i64 %249, 0
   %251 = load i32, ptr %5, align 8, !tbaa !19
@@ -1466,7 +1466,7 @@ enlarge.exit.i147:                                ; preds = %273, %seterr.exit12
 
 doemit.exit150:                                   ; preds = %255, %enlarge.exit.i147
   %279 = phi i64 [ %249, %255 ], [ %.pre, %enlarge.exit.i147 ]
-  %280 = getelementptr inbounds nuw [10 x i64], ptr %9, i64 0, i64 %247
+  %280 = getelementptr inbounds nuw i64, ptr %9, i64 %247
   %281 = load i64, ptr %280, align 8, !tbaa !34
   %282 = add nsw i64 %281, 1
   %283 = icmp eq i64 %279, %282
@@ -3007,7 +3007,7 @@ seterr.exit107:                                   ; preds = %130, %133
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds [10 x i64], ptr %61, i64 0, i64 %138
+  %141 = getelementptr inbounds i64, ptr %61, i64 %138
   store i64 %76, ptr %141, align 8, !tbaa !34
   br label %142
 
@@ -3112,7 +3112,7 @@ doemit.exit106:                                   ; preds = %142, %enlarge.exit.
 
 184:                                              ; preds = %183
   %185 = load i64, ptr %4, align 8, !tbaa !33
-  %186 = getelementptr inbounds [10 x i64], ptr %58, i64 0, i64 %138
+  %186 = getelementptr inbounds i64, ptr %58, i64 %138
   store i64 %185, ptr %186, align 8, !tbaa !34
   br label %187
 
@@ -3237,7 +3237,7 @@ seterr.exit91:                                    ; preds = %232, %235
   %237 = and i32 %.0116.i, -257
   %238 = add nsw i32 %237, -48
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw [10 x i64], ptr %58, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw i64, ptr %58, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !34
   %.not124.i = icmp eq i64 %241, 0
   %242 = load i32, ptr %57, align 8, !tbaa !19
@@ -3308,7 +3308,7 @@ enlarge.exit.i87:                                 ; preds = %262, %seterr.exit12
 
 doemit.exit90:                                    ; preds = %244, %enlarge.exit.i87
   %268 = phi i64 [ %241, %244 ], [ %.pre126, %enlarge.exit.i87 ]
-  %269 = getelementptr inbounds nuw [10 x i64], ptr %61, i64 0, i64 %239
+  %269 = getelementptr inbounds nuw i64, ptr %61, i64 %239
   %270 = load i64, ptr %269, align 8, !tbaa !34
   %271 = add nsw i64 %270, 1
   %272 = icmp eq i64 %268, %271
@@ -4113,7 +4113,7 @@ doemit.exit:                                      ; preds = %7, %12, %seterr.exi
 
 41:                                               ; preds = %doemit.exit, %51
   %indvars.iv = phi i64 [ 1, %doemit.exit ], [ %indvars.iv.next, %51 ]
-  %42 = getelementptr inbounds nuw [10 x i64], ptr %39, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8, !tbaa !34
   %.not29 = icmp slt i64 %43, %3
   br i1 %.not29, label %46, label %44
@@ -4124,7 +4124,7 @@ doemit.exit:                                      ; preds = %7, %12, %seterr.exi
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = getelementptr inbounds nuw [10 x i64], ptr %40, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !34
   %.not30 = icmp slt i64 %48, %3
   br i1 %.not30, label %51, label %49

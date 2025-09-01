@@ -865,7 +865,7 @@ define hidden noundef zeroext i1 @_ZN13rewriter_core13rewrites_fromEP4exprP3app(
   %13 = add i32 %12, -1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !119
@@ -896,7 +896,7 @@ define hidden noundef zeroext i1 @_ZN13rewriter_core11rewrites_toEP4exprP3app(pt
   %13 = add i32 %12, -1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !119
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !119
@@ -1306,7 +1306,7 @@ _ZNK6vectorIN13rewriter_core5frameELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIN1
 
 .lr.ph33:                                         ; preds = %.lr.ph33, %.lr.ph33.preheader
   %indvars.iv40 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next41, %.lr.ph33 ]
-  %19 = getelementptr inbounds nuw [0 x ptr], ptr %18, i64 0, i64 %indvars.iv40
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv40
   %20 = load ptr, ptr %19, align 8, !tbaa !119
   %21 = icmp eq ptr %20, %1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -2360,7 +2360,7 @@ define hidden void @_ZN16var_shifter_core11process_appEP3appRN13rewriter_core5fr
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !119
   %16 = and i32 %9, -64
   %17 = add i32 %16, 64
@@ -20582,7 +20582,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16beta_reducer_cfgE11process_
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !119
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -23059,7 +23059,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16beta_reducer_cfgE11process_
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -26598,7 +26598,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgE11proce
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !119
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -29340,7 +29340,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI19ng_push_app_ite_cfgE11proce
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -32832,7 +32832,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgE11process_
 
 21:                                               ; preds = %17
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !119
   %25 = and i32 %18, -64
   %26 = add i32 %25, 64
@@ -35574,7 +35574,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI16push_app_ite_cfgE11process_
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64
@@ -38603,7 +38603,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgE11process_a
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !119
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -41094,7 +41094,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplI15elim_bounds_cfgE11process_a
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !119
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

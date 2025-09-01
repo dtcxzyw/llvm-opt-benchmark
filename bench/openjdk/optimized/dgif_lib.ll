@@ -2663,7 +2663,7 @@ InternalRead.exit22.i:                            ; preds = %47, %44
   %.lcssa = phi i32 [ %6, %.preheader.._crit_edge_crit_edge ], [ %67, %66 ]
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %78 = sext i32 %.lcssa to i64
-  %79 = getelementptr inbounds [13 x i16], ptr @DGifDecompressInput.CodeMasks, i64 0, i64 %78
+  %79 = getelementptr inbounds i16, ptr @DGifDecompressInput.CodeMasks, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i64
   %82 = and i64 %76, %81
@@ -2881,13 +2881,13 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %68 = phi i32 [ %.pre, %.preheader.preheader ], [ %98, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %69 = getelementptr inbounds nuw [4 x i32], ptr @DGifSlurp.InterlacedOffset, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedOffset, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %70, %68
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %72 = getelementptr inbounds nuw [4 x i32], ptr @DGifSlurp.InterlacedJumps, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedJumps, i64 %indvars.iv
   br label %73
 
 73:                                               ; preds = %.lr.ph, %93

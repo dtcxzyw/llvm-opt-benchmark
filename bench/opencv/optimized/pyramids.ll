@@ -397,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %82
   %97 = zext nneg i32 %62 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN2cv7pyrDownERKNS_11_InputArrayERKNS_12_OutputArrayERKNS_5Size_IiEEi, i64 0, i64 %97
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv7pyrDownERKNS_11_InputArrayERKNS_12_OutputArrayERKNS_5Size_IiEEi, i64 %97
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void %switch.load(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %3)
           to label %.critedge69 unwind label %104
@@ -2885,7 +2885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %_ZNK2cv11_InputArray6getMatEi.exit38
   %80 = zext nneg i32 %59 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN2cv5pyrUpERKNS_11_InputArrayERKNS_12_OutputArrayERKNS_5Size_IiEEi, i64 0, i64 %80
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv5pyrUpERKNS_11_InputArrayERKNS_12_OutputArrayERKNS_5Size_IiEEi, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void %switch.load(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef 4)
           to label %81 unwind label %88
@@ -3324,7 +3324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %215 = mul nsw i32 %214, %28
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i32, ptr %42, i64 %216
-  %218 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv289
+  %218 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv289
   store ptr %217, ptr %218, align 8, !tbaa !45
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 3
@@ -3860,7 +3860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %215 = mul nsw i32 %214, %28
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i32, ptr %42, i64 %216
-  %218 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv289
+  %218 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv289
   store ptr %217, ptr %218, align 8, !tbaa !45
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 3
@@ -4396,7 +4396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %215 = mul nsw i32 %214, %28
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i32, ptr %42, i64 %216
-  %218 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv289
+  %218 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv289
   store ptr %217, ptr %218, align 8, !tbaa !45
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 3
@@ -4921,7 +4921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %203 = mul nsw i32 %202, %28
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds float, ptr %42, i64 %204
-  %206 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv287
+  %206 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv287
   store ptr %205, ptr %206, align 8, !tbaa !159
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 3
@@ -5438,7 +5438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %203 = mul nsw i32 %202, %28
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds double, ptr %42, i64 %204
-  %206 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv287
+  %206 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv287
   store ptr %205, ptr %206, align 8, !tbaa !176
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 3
@@ -7394,7 +7394,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %471 = mul nsw i32 %470, %26
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds i32, ptr %40, i64 %472
-  %474 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %indvars.iv359
+  %474 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv359
   store ptr %473, ptr %474, align 8, !tbaa !45
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 5
@@ -8110,7 +8110,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %467 = mul nsw i32 %466, %26
   %468 = sext i32 %467 to i64
   %469 = getelementptr inbounds i32, ptr %40, i64 %468
-  %470 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %indvars.iv359
+  %470 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv359
   store ptr %469, ptr %470, align 8, !tbaa !45
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 5
@@ -8826,7 +8826,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit266:          ; preds = %149, %145
   %467 = mul nsw i32 %466, %26
   %468 = sext i32 %467 to i64
   %469 = getelementptr inbounds i32, ptr %40, i64 %468
-  %470 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %indvars.iv359
+  %470 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv359
   store ptr %469, ptr %470, align 8, !tbaa !45
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 5
@@ -9464,7 +9464,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit266:          ; preds = %143, %139
   %389 = mul nsw i32 %388, %26
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds float, ptr %40, i64 %390
-  %392 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %indvars.iv359
+  %392 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv359
   store ptr %391, ptr %392, align 8, !tbaa !159
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 5
@@ -10105,7 +10105,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit266:          ; preds = %143, %139
   %389 = mul nsw i32 %388, %26
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds double, ptr %40, i64 %390
-  %392 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %indvars.iv359
+  %392 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv359
   store ptr %391, ptr %392, align 8, !tbaa !176
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, 5

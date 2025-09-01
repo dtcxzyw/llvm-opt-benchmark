@@ -385,7 +385,7 @@ define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef captures(address
   %38 = xor i32 %37, -1
   %39 = add nsw i32 %9, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr [8 x i8], ptr %31, i64 0, i64 %40
+  %41 = getelementptr i8, ptr %31, i64 %40
   store i8 %36, ptr %41, align 1
   %42 = add nuw nsw i64 %34, 1
   %43 = icmp eq i64 %42, %32
@@ -548,7 +548,7 @@ define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef captures(address
   %141 = xor i32 %140, -1
   %142 = add nsw i32 %9, %141
   %143 = zext i32 %142 to i64
-  %144 = getelementptr [8 x i8], ptr %136, i64 0, i64 %143
+  %144 = getelementptr i8, ptr %136, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = getelementptr i8, ptr %1, i64 %139
   store i8 %145, ptr %146, align 1
@@ -837,7 +837,7 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %61 = add i8 %57, -1
   store i8 %61, ptr %56, align 8
   %62 = zext i8 %61 to i64
-  %63 = getelementptr [8 x i8], ptr %60, i64 0, i64 %62
+  %63 = getelementptr i8, ptr %60, i64 %62
   store i8 %1, ptr %63, align 1
   %.pr.pre8.pre = load i8, ptr %56, align 8
   %64 = and i64 %25, 4
@@ -905,7 +905,7 @@ define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) 
   %93 = add i8 %89, -1
   store i8 %93, ptr %88, align 8
   %94 = zext i8 %93 to i64
-  %95 = getelementptr [8 x i8], ptr %92, i64 0, i64 %94
+  %95 = getelementptr i8, ptr %92, i64 %94
   store i8 %1, ptr %95, align 1
   %.pr6.pre11.pre = load i8, ptr %88, align 8
   %96 = and i64 %25, 4

@@ -4158,7 +4158,7 @@ define dso_local void @_ZN5clang7CodeGen10CodeGenPGO12valueProfileERNS0_11CGBuil
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = zext i32 %2 to i64
-  %51 = getelementptr inbounds nuw [3 x i32], ptr %49, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !776
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4, !tbaa !776
@@ -4208,7 +4208,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = zext i32 %2 to i64
-  %74 = getelementptr inbounds nuw [3 x i32], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !776
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %77 = load ptr, ptr %76, align 8, !tbaa !866
@@ -4218,7 +4218,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   br i1 %.not.i.i, label %_ZNK4llvm15InstrProfRecord16getNumValueSitesEj.exit.thread, label %_ZNK4llvm15InstrProfRecord16getNumValueSitesEj.exit
 
 _ZNK4llvm15InstrProfRecord16getNumValueSitesEj.exit: ; preds = %71
-  %80 = getelementptr inbounds nuw [3 x %"class.std::vector.1721"], ptr %79, i64 0, i64 %73
+  %80 = getelementptr inbounds nuw %"class.std::vector.1721", ptr %79, i64 %73
   %81 = load ptr, ptr %80, align 8, !tbaa !867
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !870
@@ -28901,7 +28901,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !1753
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !1754
   br label %49
 
@@ -29064,7 +29064,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !1753
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !1754
   store i8 0, ptr %30, align 8, !tbaa !1756
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -29123,7 +29123,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %49, align 8, !tbaa !1756
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw [10 x i8], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
   store i8 %50, ptr %54, align 1, !tbaa !430
   %55 = load ptr, ptr %0, align 8, !tbaa !1662
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -29131,7 +29131,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %58 = add i8 %57, 1
   store i8 %58, ptr %55, align 8, !tbaa !1756
   %59 = zext i8 %57 to i64
-  %60 = getelementptr inbounds nuw [10 x i64], ptr %56, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %59
   store i64 %1, ptr %60, align 8, !tbaa !45
   ret void
 }
@@ -54233,7 +54233,7 @@ _ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4Stmt
 
 switch.lookup:                                    ; preds = %48
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE, i64 %62
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN12_GLOBAL__N_117MapRegionCounters11getHashTypeE14PGOHashVersionPKN5clang4StmtE.exit.thread
 

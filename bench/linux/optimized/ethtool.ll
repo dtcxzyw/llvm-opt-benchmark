@@ -1295,7 +1295,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %73, label %.loopexit114, label %74, !llvm.loop !18
 
 74:                                               ; preds = %.preheader113
-  %75 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %72
+  %75 = getelementptr i32, ptr @reg_pattern_test.test, i64 %72
   %76 = load i32, ptr %75, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 40, i32 noundef %76) #15
   %77 = load ptr, ptr %46, align 8
@@ -1326,7 +1326,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %90, label %.loopexit112, label %91, !llvm.loop !18
 
 91:                                               ; preds = %.preheader111
-  %92 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %89
+  %92 = getelementptr i32, ptr @reg_pattern_test.test, i64 %89
   %93 = load i32, ptr %92, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 44, i32 noundef %93) #15
   %94 = load ptr, ptr %46, align 8
@@ -1358,7 +1358,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %108, label %.loopexit110, label %109, !llvm.loop !18
 
 109:                                              ; preds = %.preheader109
-  %110 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %107
+  %110 = getelementptr i32, ptr @reg_pattern_test.test, i64 %107
   %111 = load i32, ptr %110, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 48, i32 noundef %111) #15
   %112 = load ptr, ptr %46, align 8
@@ -1390,7 +1390,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %126, label %.loopexit108, label %127, !llvm.loop !18
 
 127:                                              ; preds = %.preheader107
-  %128 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %125
+  %128 = getelementptr i32, ptr @reg_pattern_test.test, i64 %125
   %129 = load i32, ptr %128, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 56, i32 noundef %129) #15
   %130 = load ptr, ptr %46, align 8
@@ -1422,7 +1422,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %144, label %.loopexit106, label %145, !llvm.loop !18
 
 145:                                              ; preds = %.preheader105
-  %146 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %143
+  %146 = getelementptr i32, ptr @reg_pattern_test.test, i64 %143
   %147 = load i32, ptr %146, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 10272, i32 noundef %147) #15
   %148 = load ptr, ptr %46, align 8
@@ -1454,7 +1454,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %162, label %.loopexit104, label %163, !llvm.loop !18
 
 163:                                              ; preds = %.preheader103
-  %164 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %161
+  %164 = getelementptr i32, ptr @reg_pattern_test.test, i64 %161
   %165 = load i32, ptr %164, align 4
   tail call void @__ew32(ptr noundef %40, i64 noundef 10244, i32 noundef %165) #15
   %166 = load ptr, ptr %46, align 8
@@ -1485,7 +1485,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %179, label %.loopexit102, label %180, !llvm.loop !18
 
 180:                                              ; preds = %.preheader101
-  %181 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %178
+  %181 = getelementptr i32, ptr @reg_pattern_test.test, i64 %178
   %182 = load i32, ptr %181, align 4
   %183 = and i32 %182, 1048575
   tail call void @__ew32(ptr noundef %40, i64 noundef 10248, i32 noundef %183) #15
@@ -1518,7 +1518,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %198, label %.loopexit100, label %199, !llvm.loop !18
 
 199:                                              ; preds = %.preheader99
-  %200 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %197
+  %200 = getelementptr i32, ptr @reg_pattern_test.test, i64 %197
   %201 = load i32, ptr %200, align 4
   %202 = and i32 %201, 65535
   tail call void @__ew32(ptr noundef %40, i64 noundef 10256, i32 noundef %202) #15
@@ -1550,7 +1550,7 @@ define internal void @e1000_diag_test(ptr noundef %0, ptr noundef captures(none)
   br i1 %216, label %.loopexit98, label %217, !llvm.loop !18
 
 217:                                              ; preds = %.preheader97
-  %218 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %215
+  %218 = getelementptr i32, ptr @reg_pattern_test.test, i64 %215
   %219 = load i32, ptr %218, align 4
   %220 = and i32 %219, 65535
   tail call void @__ew32(ptr noundef %40, i64 noundef 10264, i32 noundef %220) #15
@@ -1587,7 +1587,7 @@ reg_pattern_test.exit.thread63:                   ; preds = %.loopexit98
   br i1 %235, label %reg_pattern_test.exit.thread, label %236, !llvm.loop !18
 
 236:                                              ; preds = %.preheader.i
-  %237 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %234
+  %237 = getelementptr i32, ptr @reg_pattern_test.test, i64 %234
   %238 = load i32, ptr %237, align 4
   %239 = and i32 %238, 65528
   tail call void @__ew32(ptr noundef nonnull %40, i64 noundef 8552, i32 noundef %239) #15
@@ -1624,7 +1624,7 @@ reg_pattern_test.exit58.thread64:                 ; preds = %reg_pattern_test.ex
   br i1 %253, label %reg_pattern_test.exit58.thread, label %254, !llvm.loop !18
 
 254:                                              ; preds = %.preheader.i57
-  %255 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %252
+  %255 = getelementptr i32, ptr @reg_pattern_test.test, i64 %252
   %256 = load i32, ptr %255, align 4
   %257 = and i32 %256, 65535
   tail call void @__ew32(ptr noundef nonnull %40, i64 noundef 368, i32 noundef %257) #15
@@ -1661,7 +1661,7 @@ reg_pattern_test.exit60.thread65:                 ; preds = %reg_pattern_test.ex
   br i1 %271, label %reg_pattern_test.exit60.thread, label %272, !llvm.loop !18
 
 272:                                              ; preds = %.preheader.i59
-  %273 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %270
+  %273 = getelementptr i32, ptr @reg_pattern_test.test, i64 %270
   %274 = load i32, ptr %273, align 4
   %275 = and i32 %274, 1073741823
   tail call void @__ew32(ptr noundef nonnull %40, i64 noundef 1040, i32 noundef %275) #15
@@ -1698,7 +1698,7 @@ reg_pattern_test.exit62.thread66:                 ; preds = %reg_pattern_test.ex
   br i1 %289, label %reg_pattern_test.exit62.thread, label %290, !llvm.loop !18
 
 290:                                              ; preds = %.preheader.i61
-  %291 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %288
+  %291 = getelementptr i32, ptr @reg_pattern_test.test, i64 %288
   %292 = load i32, ptr %291, align 4
   tail call void @__ew32(ptr noundef nonnull %40, i64 noundef 14340, i32 noundef %292) #15
   %293 = load ptr, ptr %46, align 8
@@ -3209,7 +3209,7 @@ define internal void @e1000_get_strings(ptr readnone captures(none) %0, i32 noun
 .preheader:                                       ; preds = %3, %.preheader
   %5 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %6 = phi ptr [ %8, %.preheader ], [ %2, %3 ]
-  %7 = getelementptr [53 x %struct.e1000_stats], ptr @e1000_gstrings_stats, i64 0, i64 %5
+  %7 = getelementptr %struct.e1000_stats, ptr @e1000_gstrings_stats, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(32) %6, ptr noundef align 4 dereferenceable(32) %7, i64 32, i1 false)
   %8 = getelementptr i8, ptr %6, i64 32
   %9 = add nuw nsw i64 %5, 1
@@ -3304,7 +3304,7 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr readnone captu
 
 12:                                               ; preds = %32, %3
   %13 = phi i64 [ 0, %3 ], [ %35, %32 ]
-  %14 = getelementptr [53 x %struct.e1000_stats], ptr @e1000_gstrings_stats, i64 0, i64 %13
+  %14 = getelementptr %struct.e1000_stats, ptr @e1000_gstrings_stats, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %32 [
@@ -4309,7 +4309,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr noundef %0, ptr noundef 
   br i1 %24, label %.loopexit, label %25, !llvm.loop !18
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %23
+  %26 = getelementptr i32, ptr @reg_pattern_test.test, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, %5
   tail call void @__ew32(ptr noundef nonnull %7, i64 noundef %10, i32 noundef %28) #15

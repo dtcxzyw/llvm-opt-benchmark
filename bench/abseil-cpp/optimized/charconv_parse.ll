@@ -731,7 +731,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %.03952.i = phi i64 [ %37, %34 ], [ 0, %.lr.ph54.preheader.i ]
   %29 = load i8, ptr %.153.i, align 1, !tbaa !4
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = icmp sgt i8 %32, -1
   br i1 %33, label %34, label %.critedge2.loopexit.i
@@ -768,7 +768,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %.260.i = phi ptr [ %49, %47 ], [ %.1.lcssa.i, %.lr.ph62.preheader.i ]
   %42 = load i8, ptr %.260.i, align 1, !tbaa !4
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !4
   %46 = icmp sgt i8 %45, -1
   br i1 %46, label %47, label %.critedge4.i
@@ -901,7 +901,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
   %.03952.i133 = phi i64 [ %102, %99 ], [ %.039.lcssa.i, %.lr.ph54.preheader.i129 ]
   %94 = load i8, ptr %.153.i132, align 1, !tbaa !4
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !4
   %98 = icmp sgt i8 %97, -1
   br i1 %98, label %99, label %.critedge2.loopexit.i134
@@ -937,7 +937,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
   %.260.i123 = phi ptr [ %113, %111 ], [ %.1.lcssa.i117, %.lr.ph62.preheader.i119 ]
   %106 = load i8, ptr %.260.i123, align 1, !tbaa !4
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %110 = icmp sgt i8 %109, -1
   br i1 %110, label %111, label %.critedge4.i124

@@ -490,13 +490,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
 switch.lookup41:                                  ; preds = %16
   %35 = zext nneg i32 %1 to i64
-  %switch.gep42 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %35
+  %switch.gep42 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 %35
   %switch.load43 = load i32, ptr %switch.gep42, align 4
   br label %.critedge29
 
@@ -559,13 +559,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
 switch.lookup13:                                  ; preds = %6
   %17 = zext nneg i32 %1 to i64
-  %switch.gep14 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 0, i64 %17
+  %switch.gep14 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 %17
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %.critedge12
 
@@ -730,9 +730,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   br label %35
 
 16:                                               ; preds = %2
-  %switch.tableidx41 = add i32 %1, -4
-  %17 = icmp ult i32 %switch.tableidx41, 8
-  %switch.maskindex = trunc i32 %switch.tableidx41 to i8
+  %switch.tableidx40 = add i32 %1, -4
+  %17 = icmp ult i32 %switch.tableidx40, 8
+  %switch.maskindex = trunc i32 %switch.tableidx40 to i8
   %switch.shifted = lshr i8 -7, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
@@ -793,8 +793,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
   br label %35
 
 switch.lookup42:                                  ; preds = %16
-  %34 = zext nneg i32 %switch.tableidx41 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %34
+  %34 = zext nneg i32 %switch.tableidx40 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
@@ -821,9 +821,9 @@ define noundef range(i32 1, 12) i32 @_ZN3net13SpdyConstants14ParseSettingIdENS_1
   br i1 %5, label %.critedge12, label %8
 
 6:                                                ; preds = %2
-  %switch.tableidx14 = add i32 %1, -1
-  %7 = icmp ult i32 %switch.tableidx14, 6
-  br i1 %7, label %switch.lookup13, label %8
+  %switch.tableidx13 = add i32 %1, -1
+  %7 = icmp ult i32 %switch.tableidx13, 6
+  br i1 %7, label %switch.lookup14, label %8
 
 8:                                                ; preds = %6, %4, %2
   %9 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -852,14 +852,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %15
 
-switch.lookup13:                                  ; preds = %6
-  %16 = zext nneg i32 %switch.tableidx14 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 0, i64 %16
+switch.lookup14:                                  ; preds = %6
+  %16 = zext nneg i32 %switch.tableidx13 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
-.critedge12:                                      ; preds = %4, %switch.lookup13, %.critedge, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %.critedge ], [ %switch.load, %switch.lookup13 ], [ %1, %4 ]
+.critedge12:                                      ; preds = %4, %switch.lookup14, %.critedge, %8
+  %.0 = phi i32 [ 1, %8 ], [ 1, %.critedge ], [ %switch.load, %switch.lookup14 ], [ %1, %4 ]
   ret i32 %.0
 }
 
@@ -960,9 +960,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   br label %36
 
 16:                                               ; preds = %2
-  %switch.tableidx41 = add i32 %1, -1
-  %17 = icmp ult i32 %switch.tableidx41, 16
-  %switch.maskindex44 = trunc i32 %switch.tableidx41 to i16
+  %switch.tableidx40 = add i32 %1, -1
+  %17 = icmp ult i32 %switch.tableidx40, 16
+  %switch.maskindex44 = trunc i32 %switch.tableidx40 to i16
   %switch.shifted45 = lshr i16 -2953, %switch.maskindex44
   %switch.lobit46 = trunc i16 %switch.shifted45 to i1
   %or.cond49 = select i1 %17, i1 %switch.lobit46, i1 false
@@ -1024,13 +1024,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
 switch.lookup43:                                  ; preds = %16
-  %35 = zext nneg i32 %switch.tableidx41 to i64
-  %switch.gep47 = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %35
+  %35 = zext nneg i32 %switch.tableidx40 to i64
+  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 %35
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %.critedge29
 
@@ -1061,9 +1061,9 @@ define noundef range(i32 1, 17) i32 @_ZN3net13SpdyConstants20ParseRstStreamStatu
   br i1 %or.cond, label %switch.lookup, label %8
 
 6:                                                ; preds = %2
-  %switch.tableidx14 = add i32 %1, -1
-  %7 = icmp ult i32 %switch.tableidx14, 13
-  %switch.maskindex17 = trunc i32 %switch.tableidx14 to i16
+  %switch.tableidx13 = add i32 %1, -1
+  %7 = icmp ult i32 %switch.tableidx13, 13
+  %switch.maskindex17 = trunc i32 %switch.tableidx13 to i16
   %switch.shifted18 = lshr i16 7927, %switch.maskindex17
   %switch.lobit19 = trunc i16 %switch.shifted18 to i1
   %or.cond22 = select i1 %7, i1 %switch.lobit19, i1 false
@@ -1098,13 +1098,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
 switch.lookup16:                                  ; preds = %6
-  %17 = zext nneg i32 %switch.tableidx14 to i64
-  %switch.gep20 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %17
+  %17 = zext nneg i32 %switch.tableidx13 to i64
+  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 %17
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   br label %.critedge12
 
@@ -1262,7 +1262,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 

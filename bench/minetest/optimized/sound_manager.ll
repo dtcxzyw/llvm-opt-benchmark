@@ -5822,30 +5822,30 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %if.then.i
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %5 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !tbaa !222
   %conv.i.i.i.i.i.i.i.i.i = sext i8 %5 to i64
-  %add.i.i.i.i.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [15 x %"struct.std::__detail::__variant::_Multi_array.284"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS6_9ResumeAllENS6_14UpdateListenerENS6_15SetListenerGainENS6_13LoadSoundFileENS6_13LoadSoundDataENS6_15AddSoundToGroupENS6_9PlaySoundENS6_11PlaySoundAtENS6_9StopSoundENS6_9FadeSoundENS6_17UpdateSoundPosVelENS6_10PleaseStopEEEC1EOSK_EUlOT_T0_E_JOSt7variantIJS4_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_SJ_EEEE9_S_vtableE, i64 0, i64 %add.i.i.i.i.i.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !215
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %4)
+  %6 = getelementptr %"struct.std::__detail::__variant::_Multi_array.284", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS6_9ResumeAllENS6_14UpdateListenerENS6_15SetListenerGainENS6_13LoadSoundFileENS6_13LoadSoundDataENS6_15AddSoundToGroupENS6_9PlaySoundENS6_11PlaySoundAtENS6_9StopSoundENS6_9FadeSoundENS6_17UpdateSoundPosVelENS6_10PleaseStopEEEC1EOSK_EUlOT_T0_E_JOSt7variantIJS4_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_SJ_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %6, i64 8
+  %7 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !215
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %4)
           to label %_ZNSt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS2_9ResumeAllENS2_14UpdateListenerENS2_15SetListenerGainENS2_13LoadSoundFileENS2_13LoadSoundDataENS2_15AddSoundToGroupENS2_9PlaySoundENS2_11PlaySoundAtENS2_9StopSoundENS2_9FadeSoundENS2_17UpdateSoundPosVelENS2_10PleaseStopEEEC2EOSG_.exit.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #32
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #32
   unreachable
 
 _ZNSt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS2_9ResumeAllENS2_14UpdateListenerENS2_15SetListenerGainENS2_13LoadSoundFileENS2_13LoadSoundDataENS2_15AddSoundToGroupENS2_9PlaySoundENS2_11PlaySoundAtENS2_9StopSoundENS2_9FadeSoundENS2_17UpdateSoundPosVelENS2_10PleaseStopEEEC2EOSG_.exit.i: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
-  %9 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !tbaa !222
-  store i8 %9, ptr %_M_index.i.i.i.i.i.i.i.i, align 8, !tbaa !222, !alias.scope !215
-  %10 = load ptr, ptr %_M_start.i.i.i, align 8, !tbaa !226, !noalias !215
-  %11 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !227, !noalias !215
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -96
-  %cmp.not.i.i = icmp eq ptr %10, %add.ptr.i.i
-  %_M_index.i.i.i.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %12 = load i8, ptr %_M_index.i.i.i.i.i.i.i5.i, align 8, !tbaa !222
-  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %12, -1
+  %10 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8, !tbaa !222
+  store i8 %10, ptr %_M_index.i.i.i.i.i.i.i.i, align 8, !tbaa !222, !alias.scope !215
+  %11 = load ptr, ptr %_M_start.i.i.i, align 8, !tbaa !226, !noalias !215
+  %12 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !227, !noalias !215
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 -96
+  %cmp.not.i.i = icmp eq ptr %11, %add.ptr.i.i
+  %_M_index.i.i.i.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %13 = load i8, ptr %_M_index.i.i.i.i.i.i.i5.i, align 8, !tbaa !222
+  %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %13, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS2_9ResumeAllENS2_14UpdateListenerENS2_15SetListenerGainENS2_13LoadSoundFileENS2_13LoadSoundDataENS2_15AddSoundToGroupENS2_9PlaySoundENS2_11PlaySoundAtENS2_9StopSoundENS2_9FadeSoundENS2_17UpdateSoundPosVelENS2_10PleaseStopEEEC2EOSG_.exit.i
@@ -5853,10 +5853,10 @@ if.then.i.i:                                      ; preds = %_ZNSt7variantIJSt9m
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i4.i)
-  %conv.i.i.i.i.i.i.i.i = sext i8 %12 to i64
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i
-  %13 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !215
-  invoke void %13(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(89) %10)
+  %conv.i.i.i.i.i.i.i.i = sext i8 %13 to i64
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i
+  %14 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !215
+  invoke void %14(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(89) %11)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i.i.i
@@ -5866,15 +5866,15 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i
   br label %_ZNSt16allocator_traitsISaISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEEE7destroyISH_EEvRSI_PT_.exit.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #32
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #32
   unreachable
 
 _ZNSt16allocator_traitsISaISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEEE7destroyISH_EEvRSI_PT_.exit.i.i: ; preds = %.noexc.i.i.i.i.i, %if.then.i.i
-  %16 = phi ptr [ %10, %if.then.i.i ], [ %.pre.i.i, %.noexc.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %17 = phi ptr [ %11, %if.then.i.i ], [ %.pre.i.i, %.noexc.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %17, i64 96
   br label %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS2_9ResumeAllENS2_14UpdateListenerENS2_15SetListenerGainENS2_13LoadSoundFileENS2_13LoadSoundDataENS2_15AddSoundToGroupENS2_9PlaySoundENS2_11PlaySoundAtENS2_9StopSoundENS2_9FadeSoundENS2_17UpdateSoundPosVelENS2_10PleaseStopEEEC2EOSG_.exit.i
@@ -5882,10 +5882,10 @@ if.else.i.i:                                      ; preds = %_ZNSt7variantIJSt9m
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  %conv.i.i.i.i.i.i.i.i6.i = sext i8 %12 to i64
-  %arrayidx.i.i.i.i.i.i.i.i7.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i6.i
-  %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i7.i, align 8, !tbaa !57, !noalias !215
-  invoke void %17(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %10)
+  %conv.i.i.i.i.i.i.i.i6.i = sext i8 %13 to i64
+  %arrayidx.i.i.i.i.i.i.i.i7.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i6.i
+  %18 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i7.i, align 8, !tbaa !57, !noalias !215
+  invoke void %18(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %11)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i8.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i.i.i
@@ -5894,21 +5894,21 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i
   br label %_ZNSt5dequeISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEESaISH_EE16_M_pop_front_auxEv.exit.i.i
 
 terminate.lpad.i.i.i.i.i8.i:                      ; preds = %if.end.i.i.i.i.i.i.i
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #32
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #32
   unreachable
 
 _ZNSt5dequeISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEESaISH_EE16_M_pop_front_auxEv.exit.i.i: ; preds = %.noexc.i.i.i.i.i.i, %if.else.i.i
-  %20 = load ptr, ptr %_M_first.i.i.i, align 8, !tbaa !228, !noalias !215
-  call void @_ZdlPv(ptr noundef %20) #31
-  %21 = load ptr, ptr %_M_node.i.i.i, align 8, !tbaa !187, !noalias !215
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %21 = load ptr, ptr %_M_first.i.i.i, align 8, !tbaa !228, !noalias !215
+  call void @_ZdlPv(ptr noundef %21) #31
+  %22 = load ptr, ptr %_M_node.i.i.i, align 8, !tbaa !187, !noalias !215
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node.i.i.i, align 8, !tbaa !229, !noalias !215
-  %22 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !57
-  store ptr %22, ptr %_M_first.i.i.i, align 8, !tbaa !230, !noalias !215
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 480
+  %23 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !57
+  store ptr %23, ptr %_M_first.i.i.i, align 8, !tbaa !230, !noalias !215
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 480
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i, align 8, !tbaa !231, !noalias !215
   br label %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit
 
@@ -5919,7 +5919,7 @@ _ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr
   br label %if.end.i42
 
 _ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit: ; preds = %_ZNSt5dequeISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEESaISH_EE16_M_pop_front_auxEv.exit.i.i, %_ZNSt16allocator_traitsISaISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEEE7destroyISH_EEvRSI_PT_.exit.i.i
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEEE7destroyISH_EEvRSI_PT_.exit.i.i ], [ %22, %_ZNSt5dequeISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEESaISH_EE16_M_pop_front_auxEv.exit.i.i ]
+  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEEE7destroyISH_EEvRSI_PT_.exit.i.i ], [ %23, %_ZNSt5dequeISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEESaISH_EE16_M_pop_front_auxEv.exit.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i.i.i, align 8, !tbaa !226, !noalias !215
   %call1.i.i.i.i10.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #28
   %.pre = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8, !tbaa !222
@@ -5940,11 +5940,11 @@ if.then.i43:                                      ; preds = %_ZN12MutexedQueueIS
   unreachable
 
 if.end.i42:                                       ; preds = %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit, %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit.thread
-  %23 = phi i8 [ 0, %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit.thread ], [ %.pre, %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit ]
-  %conv.i.i.i = sext i8 %23 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.259"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIZN5sound18OpenALSoundManager3runEvEN10MsgVisitor6ResultEEEOS5_JOSt7variantIJSt9monostateNS3_29sound_manager_messages_to_mgr8PauseAllENSB_9ResumeAllENSB_14UpdateListenerENSB_15SetListenerGainENSB_13LoadSoundFileENSB_13LoadSoundDataENSB_15AddSoundToGroupENSB_9PlaySoundENSB_11PlaySoundAtENSB_9StopSoundENSB_9FadeSoundENSB_17UpdateSoundPosVelENSB_10PleaseStopEEEEE9_S_vtableE, i64 0, i64 %conv.i.i.i
-  %24 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !57
-  %call2.i.i44 = invoke noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(89) %msg)
+  %24 = phi i8 [ 0, %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit.thread ], [ %.pre, %_ZN12MutexedQueueISt7variantIJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS3_9ResumeAllENS3_14UpdateListenerENS3_15SetListenerGainENS3_13LoadSoundFileENS3_13LoadSoundDataENS3_15AddSoundToGroupENS3_9PlaySoundENS3_11PlaySoundAtENS3_9StopSoundENS3_9FadeSoundENS3_17UpdateSoundPosVelENS3_10PleaseStopEEEE13pop_frontNoExEj.exit ]
+  %conv.i.i.i = sext i8 %24 to i64
+  %arrayidx.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.259", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIZN5sound18OpenALSoundManager3runEvEN10MsgVisitor6ResultEEEOS5_JOSt7variantIJSt9monostateNS3_29sound_manager_messages_to_mgr8PauseAllENSB_9ResumeAllENSB_14UpdateListenerENSB_15SetListenerGainENSB_13LoadSoundFileENSB_13LoadSoundDataENSB_15AddSoundToGroupENSB_9PlaySoundENSB_11PlaySoundAtENSB_9StopSoundENSB_9FadeSoundENSB_17UpdateSoundPosVelENSB_10PleaseStopEEEEE9_S_vtableE, i64 %conv.i.i.i
+  %25 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !57
+  %call2.i.i44 = invoke noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(89) %msg)
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %if.end.i42
@@ -5957,10 +5957,10 @@ invoke.cont:                                      ; preds = %if.end.i42
 invoke.cont10:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i.i45)
   %call.i.i.i.i46 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i.i.i45) #28
-  %25 = load i64, ptr %ts.i.i.i45, align 8, !tbaa !212
-  %mul.i.i.i47 = mul i64 %25, 1000
-  %26 = load i64, ptr %tv_nsec.i.i.i48, align 8, !tbaa !214
-  %div.i.i.i49 = udiv i64 %26, 1000000
+  %26 = load i64, ptr %ts.i.i.i45, align 8, !tbaa !212
+  %mul.i.i.i47 = mul i64 %26, 1000
+  %27 = load i64, ptr %tv_nsec.i.i.i48, align 8, !tbaa !214
+  %div.i.i.i49 = udiv i64 %27, 1000000
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i.i45)
   %add.i.i.i50 = add i64 %mul.i.i.i47, %t_step_start.0.neg83
   %sub.i.i51 = add i64 %add.i.i.i50, %div.i.i.i49
@@ -5993,16 +5993,16 @@ if.end15:                                         ; preds = %invoke.cont10, %inv
 cleanup:                                          ; preds = %if.end15, %invoke.cont10, %invoke.cont
   %switch = phi i1 [ true, %if.end15 ], [ false, %invoke.cont10 ], [ false, %invoke.cont ]
   %stop_requested.1 = phi i8 [ %stop_requested.0, %if.end15 ], [ %stop_requested.0, %invoke.cont10 ], [ 1, %invoke.cont ]
-  %27 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8, !tbaa !222
-  %cmp.i.not.i.i56 = icmp eq i8 %27, -1
+  %28 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8, !tbaa !222
+  %cmp.i.not.i.i56 = icmp eq i8 %28, -1
   br i1 %cmp.i.not.i.i56, label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS4_9ResumeAllENS4_14UpdateListenerENS4_15SetListenerGainENS4_13LoadSoundFileENS4_13LoadSoundDataENS4_15AddSoundToGroupENS4_9PlaySoundENS4_11PlaySoundAtENS4_9StopSoundENS4_9FadeSoundENS4_17UpdateSoundPosVelENS4_10PleaseStopEEED2Ev.exit, label %if.end.i.i, !prof !84
 
 if.end.i.i:                                       ; preds = %cleanup
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
-  %conv.i.i.i.i = sext i8 %27 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i
-  %28 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !57
-  invoke void %28(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(89) %msg)
+  %conv.i.i.i.i = sext i8 %28 to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i
+  %29 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !57
+  invoke void %29(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(89) %msg)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.end.i.i
@@ -6010,10 +6010,10 @@ if.end.i.i:                                       ; preds = %cleanup
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS4_9ResumeAllENS4_14UpdateListenerENS4_15SetListenerGainENS4_13LoadSoundFileENS4_13LoadSoundDataENS4_15AddSoundToGroupENS4_9PlaySoundENS4_11PlaySoundAtENS4_9StopSoundENS4_9FadeSoundENS4_17UpdateSoundPosVelENS4_10PleaseStopEEED2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #32
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #32
   unreachable
 
 _ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS4_9ResumeAllENS4_14UpdateListenerENS4_15SetListenerGainENS4_13LoadSoundFileENS4_13LoadSoundDataENS4_15AddSoundToGroupENS4_9PlaySoundENS4_11PlaySoundAtENS4_9StopSoundENS4_9FadeSoundENS4_17UpdateSoundPosVelENS4_10PleaseStopEEED2Ev.exit: ; preds = %.noexc.i, %cleanup
@@ -6021,7 +6021,7 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manag
   br i1 %switch, label %while.cond2, label %while.end
 
 common.resume:                                    ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %38, %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %39, %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 while.end:                                        ; preds = %_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS4_9ResumeAllENS4_14UpdateListenerENS4_15SetListenerGainENS4_13LoadSoundFileENS4_13LoadSoundDataENS4_15AddSoundToGroupENS4_9PlaySoundENS4_11PlaySoundAtENS4_9StopSoundENS4_9FadeSoundENS4_17UpdateSoundPosVelENS4_10PleaseStopEEED2Ev.exit
@@ -6031,10 +6031,10 @@ while.end:                                        ; preds = %_ZNSt8__detail9__va
 cleanup24:                                        ; preds = %while.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i.i)
   %call.i.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i.i) #28
-  %31 = load i64, ptr %ts.i.i, align 8, !tbaa !212
-  %mul.i.i = mul i64 %31, 1000
-  %32 = load i64, ptr %tv_nsec.i.i, align 8, !tbaa !214
-  %div.i.i = udiv i64 %32, 1000000
+  %32 = load i64, ptr %ts.i.i, align 8, !tbaa !212
+  %mul.i.i = mul i64 %32, 1000
+  %33 = load i64, ptr %tv_nsec.i.i, align 8, !tbaa !214
+  %div.i.i = udiv i64 %33, 1000000
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i.i)
   %add.i.i = add i64 %mul.i.i, %t_step_start.0.neg83
   %sub.i57 = add i64 %add.i.i, %div.i.i
@@ -6042,10 +6042,10 @@ cleanup24:                                        ; preds = %while.end
   %mul = fmul nsz float %conv.i58, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i59)
   %call.i.i60 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i59) #28
-  %33 = load i64, ptr %ts.i59, align 8, !tbaa !212
-  %mul.i61.neg = mul i64 %33, -1000
-  %34 = load i64, ptr %tv_nsec.i62, align 8, !tbaa !214
-  %div.i63 = udiv i64 %34, 1000000
+  %34 = load i64, ptr %ts.i59, align 8, !tbaa !212
+  %mul.i61.neg = mul i64 %34, -1000
+  %35 = load i64, ptr %tv_nsec.i62, align 8, !tbaa !214
+  %div.i63 = udiv i64 %35, 1000000
   %add.i64.neg = sub i64 %mul.i61.neg, %div.i63
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i59)
   call void @_ZN5sound18OpenALSoundManager4stepEf(ptr noundef nonnull align 8 dereferenceable(848) %this, float noundef %mul)
@@ -6066,17 +6066,17 @@ if.then.i.i.i.i.i:                                ; preds = %while.end32
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i:     ; preds = %while.end32
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
-  %35 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
+  %36 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
   %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 760
-  %36 = load ptr, ptr %_M_last.i.i.i.i, align 8, !tbaa !143
-  %add.ptr.i.i.i.i66 = getelementptr inbounds i8, ptr %36, i64 -8
-  %cmp.not.i.i.i.i = icmp eq ptr %35, %add.ptr.i.i.i.i66
+  %37 = load ptr, ptr %_M_last.i.i.i.i, align 8, !tbaa !143
+  %add.ptr.i.i.i.i66 = getelementptr inbounds i8, ptr %37, i64 -8
+  %cmp.not.i.i.i.i = icmp eq ptr %36, %add.ptr.i.i.i.i66
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i67
 
 if.then.i.i.i.i67:                                ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i
-  store i64 8589934592, ptr %35, align 4
-  %37 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i64 8589934592, ptr %36, align 4
+  %38 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !142
   br label %invoke.cont.i.i
 
@@ -6090,7 +6090,7 @@ invoke.cont.i.i:                                  ; preds = %if.else.i.i.i.i, %i
           to label %_ZN5sound18OpenALSoundManager4sendESt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE.exit unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit13.i.i:      ; preds = %invoke.cont.i.i, %if.else.i.i.i.i
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i12.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i.i) #28
   br label %common.resume
@@ -6113,7 +6113,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %conv.i.i.i = sext i8 %0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i
   %1 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !57
   invoke void %1(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(89) %this)
           to label %.noexc unwind label %terminate.lpad
@@ -6447,7 +6447,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
 if.end.i.i.i.i.i.i:                               ; preds = %for.body
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i = sext i8 %5 to i64
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8, !tbaa !57
   invoke void %6(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %4)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
@@ -6474,7 +6474,7 @@ if.end.i.i.i.i.i.i.1:                             ; preds = %_ZSt8_DestroyISt7va
   %__first.addr.04.i.i.i.ptr.1 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.1 = sext i8 %9 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.1 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.1
+  %arrayidx.i.i.i.i.i.i.i.i.1 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.1
   %10 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.1, align 8, !tbaa !57
   invoke void %10(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i.ptr.1)
           to label %.noexc.i.i.i.i.i.1 unwind label %terminate.lpad.i.i.i.i.i
@@ -6494,7 +6494,7 @@ if.end.i.i.i.i.i.i.2:                             ; preds = %_ZSt8_DestroyISt7va
   %__first.addr.04.i.i.i.ptr.2 = getelementptr inbounds nuw i8, ptr %4, i64 192
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.2 = sext i8 %11 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.2 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.2
+  %arrayidx.i.i.i.i.i.i.i.i.2 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.2
   %12 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.2, align 8, !tbaa !57
   invoke void %12(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i.ptr.2)
           to label %.noexc.i.i.i.i.i.2 unwind label %terminate.lpad.i.i.i.i.i
@@ -6514,7 +6514,7 @@ if.end.i.i.i.i.i.i.3:                             ; preds = %_ZSt8_DestroyISt7va
   %__first.addr.04.i.i.i.ptr.3 = getelementptr inbounds nuw i8, ptr %4, i64 288
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.3 = sext i8 %13 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.3 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.3
+  %arrayidx.i.i.i.i.i.i.i.i.3 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.3
   %14 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.3, align 8, !tbaa !57
   invoke void %14(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i.ptr.3)
           to label %.noexc.i.i.i.i.i.3 unwind label %terminate.lpad.i.i.i.i.i
@@ -6534,7 +6534,7 @@ if.end.i.i.i.i.i.i.4:                             ; preds = %_ZSt8_DestroyISt7va
   %__first.addr.04.i.i.i.ptr.4 = getelementptr inbounds nuw i8, ptr %4, i64 384
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.4 = sext i8 %15 to i64
-  %arrayidx.i.i.i.i.i.i.i.i.4 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i.4
+  %arrayidx.i.i.i.i.i.i.i.i.4 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i.4
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i.4, align 8, !tbaa !57
   invoke void %16(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i.ptr.4)
           to label %.noexc.i.i.i.i.i.4 unwind label %terminate.lpad.i.i.i.i.i
@@ -6566,7 +6566,7 @@ for.body.i.i.i18:                                 ; preds = %if.then, %_ZSt8_Des
 if.end.i.i.i.i.i.i22:                             ; preds = %for.body.i.i.i18
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i17)
   %conv.i.i.i.i.i.i.i.i23 = sext i8 %19 to i64
-  %arrayidx.i.i.i.i.i.i.i.i24 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i23
+  %arrayidx.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i23
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i24, align 8, !tbaa !57
   invoke void %20(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i19)
           to label %.noexc.i.i.i.i.i26 unwind label %terminate.lpad.i.i.i.i.i25
@@ -6605,7 +6605,7 @@ for.body.i.i.i33:                                 ; preds = %_ZSt8_DestroyIPSt7v
 if.end.i.i.i.i.i.i37:                             ; preds = %for.body.i.i.i33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i31)
   %conv.i.i.i.i.i.i.i.i38 = sext i8 %25 to i64
-  %arrayidx.i.i.i.i.i.i.i.i39 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i38
+  %arrayidx.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i38
   %26 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i39, align 8, !tbaa !57
   invoke void %26(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i34)
           to label %.noexc.i.i.i.i.i41 unwind label %terminate.lpad.i.i.i.i.i40
@@ -6642,7 +6642,7 @@ for.body.i.i.i48:                                 ; preds = %if.else, %_ZSt8_Des
 if.end.i.i.i.i.i.i52:                             ; preds = %for.body.i.i.i48
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i46)
   %conv.i.i.i.i.i.i.i.i53 = sext i8 %30 to i64
-  %arrayidx.i.i.i.i.i.i.i.i54 = getelementptr inbounds [14 x %"struct.std::__detail::__variant::_Multi_array.262"], ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 0, i64 %conv.i.i.i.i.i.i.i.i53
+  %arrayidx.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"struct.std::__detail::__variant::_Multi_array.262", ptr @_ZNSt8__detail9__variant12__gen_vtableIvOZNS0_16_Variant_storageILb0EJSt9monostateN5sound29sound_manager_messages_to_mgr8PauseAllENS5_9ResumeAllENS5_14UpdateListenerENS5_15SetListenerGainENS5_13LoadSoundFileENS5_13LoadSoundDataENS5_15AddSoundToGroupENS5_9PlaySoundENS5_11PlaySoundAtENS5_9StopSoundENS5_9FadeSoundENS5_17UpdateSoundPosVelENS5_10PleaseStopEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_SA_SB_SC_SD_SE_SF_SG_SH_SI_EEEE9_S_vtableE, i64 %conv.i.i.i.i.i.i.i.i53
   %31 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i.i54, align 8, !tbaa !57
   invoke void %31(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i46, ptr noundef nonnull align 8 dereferenceable(89) %__first.addr.04.i.i.i49)
           to label %.noexc.i.i.i.i.i56 unwind label %terminate.lpad.i.i.i.i.i55

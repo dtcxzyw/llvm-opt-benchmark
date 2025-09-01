@@ -57,7 +57,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly capt
   br i1 %.not36.i, label %.loopexit, label %24
 
 19:                                               ; preds = %9
-  %20 = getelementptr [37 x i8], ptr @get_guid.fmt, i64 0, i64 %.03038.i
+  %20 = getelementptr i8, ptr @get_guid.fmt, i64 %.03038.i
   %21 = load i8, ptr %20, align 1
   %22 = getelementptr i8, ptr %1, i64 %.03038.i
   %23 = load i8, ptr %22, align 1
@@ -105,7 +105,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr noundef writeonly capt
   store i8 0, ptr %39, align 1
   %48 = call i64 @strtoul(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #9
   %49 = trunc i64 %48 to i8
-  %50 = getelementptr [8 x i8], ptr %40, i64 0, i64 %.13139.i
+  %50 = getelementptr i8, ptr %40, i64 %.13139.i
   store i8 %49, ptr %50, align 1
   %51 = add nuw nsw i64 %.13139.i, 1
   %exitcond42.not.i = icmp eq i64 %51, 8

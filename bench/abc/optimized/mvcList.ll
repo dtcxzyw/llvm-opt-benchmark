@@ -191,9 +191,9 @@ define void @Mvc_CoverAddDupCubeHead(ptr noundef %0, ptr noundef readonly captur
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  %23 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -258,9 +258,9 @@ define void @Mvc_CoverAddDupCubeTail(ptr noundef %0, ptr noundef readonly captur
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  %23 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0

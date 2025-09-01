@@ -534,7 +534,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lv_fs_dir_open(ptr noundef nonnull %4, ptr noundef %1) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %168
+  br i1 %.not, label %6, label %167
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -870,20 +870,19 @@ file_explorer_sort.exit:                          ; preds = %.outer._crit_edge, 
   %159 = load ptr, ptr %158, align 8, !tbaa !23
   call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %159, ptr noundef nonnull @.str.34, ptr noundef %1) #6
   %160 = call i64 @lv_strlen(ptr noundef nonnull %156) #6
-  %161 = add i64 %160, -1
-  %162 = getelementptr inbounds nuw [128 x i8], ptr %156, i64 0, i64 %161
+  %161 = getelementptr i8, ptr %156, i64 %160
+  %162 = getelementptr i8, ptr %161, i64 -1
   %163 = load i8, ptr %162, align 1, !tbaa !32
   %164 = icmp ne i8 %163, 47
   %165 = icmp ult i64 %160, 128
   %or.cond = and i1 %165, %164
-  br i1 %or.cond, label %166, label %168
+  br i1 %or.cond, label %166, label %167
 
 166:                                              ; preds = %file_explorer_sort.exit
-  %167 = getelementptr inbounds nuw i8, ptr %156, i64 %160
-  store i8 47, ptr %167, align 1, !tbaa !32
-  br label %168
+  store i8 47, ptr %161, align 1, !tbaa !32
+  br label %167
 
-168:                                              ; preds = %file_explorer_sort.exit, %166, %2
+167:                                              ; preds = %file_explorer_sort.exit, %166, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

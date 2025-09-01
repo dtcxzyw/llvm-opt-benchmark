@@ -103,9 +103,9 @@ define noundef range(i64 5, 31) i64 @_ZN3net19HpackHuffmanDecoder18CodeLengthOfP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN3net19HpackHuffmanDecoder17DecodeToCanonicalEmj(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %0
+  %3 = getelementptr inbounds nuw i32, ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %0
   %4 = load i32, ptr %3, align 4, !tbaa !3
-  %5 = getelementptr inbounds nuw [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %0
+  %5 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 %0
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = zext i8 %6 to i32
   %8 = sub i32 %1, %4
@@ -121,7 +121,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef signext i8 @_ZN3net19HpackHuffmanDecoder17CanonicalToSourceEj(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 %2
   %4 = load i8, ptr %3, align 1, !tbaa !7
   ret i8 %4
 }
@@ -256,9 +256,9 @@ thread-pre-split:                                 ; preds = %.preheader, %90
   br i1 %57, label %.preheader, label %thread-pre-split, !llvm.loop !16
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %.0.i
+  %59 = getelementptr inbounds nuw i32, ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 %.0.i
   %60 = load i32, ptr %59, align 4, !tbaa !3
-  %61 = getelementptr inbounds nuw [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %.0.i
+  %61 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 %.0.i
   %62 = load i8, ptr %61, align 1, !tbaa !7
   %63 = zext i8 %62 to i32
   %64 = sub i32 %10, %60
@@ -276,7 +276,7 @@ thread-pre-split:                                 ; preds = %.preheader, %90
 
 72:                                               ; preds = %58
   %73 = zext nneg i32 %68 to i64
-  %74 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !7
   %76 = load i64, ptr %5, align 8, !tbaa !8
   %77 = add i64 %76, 1

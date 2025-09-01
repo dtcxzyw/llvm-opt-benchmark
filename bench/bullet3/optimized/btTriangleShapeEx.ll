@@ -78,7 +78,7 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
 
 40:                                               ; preds = %37
   %41 = sext i32 %16 to i64
-  %42 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %41
+  %42 = getelementptr inbounds i32, ptr %6, i64 %41
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %43, ptr %42, align 4, !tbaa !14
   %44 = add nsw i32 %16, 1
@@ -99,11 +99,11 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
 
 48:                                               ; preds = %.lr.ph22, %48
   %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %48 ]
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv24
+  %49 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv24
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds %class.btVector3, ptr %3, i64 %51
-  %53 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %13, i64 0, i64 %indvars.iv24
+  %53 = getelementptr inbounds nuw %class.btVector3, ptr %13, i64 %indvars.iv24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
@@ -827,7 +827,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 
 50:                                               ; preds = %47
   %51 = sext i32 %32 to i64
-  %52 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds i32, ptr %5, i64 %51
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %53, ptr %52, align 4, !tbaa !14
   %54 = add nsw i32 %32, 1
@@ -849,11 +849,11 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 
 57:                                               ; preds = %57, %.lr.ph22.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next25.i, %57 ]
-  %58 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv24.i
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv24.i
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds %class.btVector3, ptr %6, i64 %60
-  %62 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %30, i64 0, i64 %indvars.iv24.i
+  %62 = getelementptr inbounds nuw %class.btVector3, ptr %30, i64 %indvars.iv24.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -948,7 +948,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 
 105:                                              ; preds = %102
   %106 = sext i32 %87 to i64
-  %107 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %106
+  %107 = getelementptr inbounds i32, ptr %4, i64 %106
   %108 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   store i32 %108, ptr %107, align 4, !tbaa !14
   %109 = add nsw i32 %87, 1
@@ -970,11 +970,11 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 
 112:                                              ; preds = %112, %.lr.ph22.i25
   %indvars.iv24.i27 = phi i64 [ 0, %.lr.ph22.i25 ], [ %indvars.iv.next25.i28, %112 ]
-  %113 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv24.i27
+  %113 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv24.i27
   %114 = load i32, ptr %113, align 4, !tbaa !14
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds %class.btVector3, ptr %6, i64 %115
-  %117 = getelementptr inbounds nuw [16 x %class.btVector3], ptr %85, i64 0, i64 %indvars.iv24.i27
+  %117 = getelementptr inbounds nuw %class.btVector3, ptr %85, i64 %indvars.iv24.i27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %117, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25.i28 = add nuw nsw i64 %indvars.iv24.i27, 1
   %exitcond28.not.i29 = icmp eq i64 %indvars.iv.next25.i28, %wide.trip.count27.i26

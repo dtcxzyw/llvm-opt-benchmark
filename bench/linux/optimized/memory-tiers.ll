@@ -101,7 +101,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @node_is_toptier(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %2
+  %3 = getelementptr ptr, ptr @node_data, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -283,7 +283,7 @@ define dso_local void @put_memory_type(ptr noundef %0) #0 align 16 {
 define dso_local void @init_node_memory_type(i32 noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x %struct.node_memory_type_map], ptr @node_memory_types, i64 0, i64 %3
+  %4 = getelementptr %struct.node_memory_type_map, ptr @node_memory_types, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -336,7 +336,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 define dso_local void @clear_node_memory_type(i32 noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11
   %3 = sext i32 %0 to i64
-  %4 = getelementptr [64 x %struct.node_memory_type_map], ptr @node_memory_types, i64 0, i64 %3
+  %4 = getelementptr %struct.node_memory_type_map, ptr @node_memory_types, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = icmp ne ptr %5, %1
   %7 = icmp ne ptr %1, null
@@ -611,7 +611,7 @@ define internal noundef i32 @memory_tier_init() #4 section ".init.text" align 16
 .preheader:                                       ; preds = %19, %118
   %23 = phi i32 [ %120, %118 ], [ %21, %19 ]
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %24
+  %25 = getelementptr ptr, ptr @node_data, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i64 %24) #11, !srcloc !19
   %28 = icmp ult i8 %27, 2
@@ -621,7 +621,7 @@ define internal noundef i32 @memory_tier_init() #4 section ".init.text" align 16
 
 30:                                               ; preds = %.preheader
   %31 = load ptr, ptr @default_dram_type, align 8
-  %32 = getelementptr [64 x %struct.node_memory_type_map], ptr @node_memory_types, i64 0, i64 %24
+  %32 = getelementptr %struct.node_memory_type_map, ptr @node_memory_types, i64 %24
   %33 = load ptr, ptr %32, align 16
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread27.i, label %35
@@ -815,7 +815,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %132 = zext nneg i32 %131 to i64
   %133 = getelementptr %struct.demotion_nodes, ptr %122, i64 %132
   store i64 0, ptr %133, align 8
-  %134 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %132
+  %134 = getelementptr ptr, ptr @node_data, i64 %132
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %.thread23.i, label %137
@@ -877,7 +877,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %167 = load ptr, ptr @node_demotion, align 8
   %168 = zext nneg i32 %166 to i64
   %169 = getelementptr %struct.demotion_nodes, ptr %167, i64 %168
-  %170 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %168
+  %170 = getelementptr ptr, ptr @node_data, i64 %168
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, null
   br i1 %172, label %.thread26.i, label %173

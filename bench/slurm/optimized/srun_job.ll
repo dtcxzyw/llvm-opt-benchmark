@@ -4694,7 +4694,7 @@ define internal noalias noundef ptr @_srun_signal_mgr(ptr noundef %0) #0 {
   %10 = phi i32 [ %13, %.lr.ph ], [ %5, %1 ]
   %11 = tail call ptr @xsignal_default(i32 noundef %10) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !45

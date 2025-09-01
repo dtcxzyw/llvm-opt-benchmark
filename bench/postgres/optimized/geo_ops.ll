@@ -3791,11 +3791,11 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
   %.02034 = phi double [ 0.000000e+00, %.lr.ph ], [ %64, %float8_mi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp eq i64 %indvars.iv.next, %12
-  %17 = getelementptr inbounds nuw [0 x %struct.Point], ptr %11, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.Point, ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8
   %19 = and i64 %indvars.iv.next, 4294967295
   %20 = select i1 %16, i64 0, i64 %19
-  %21 = getelementptr inbounds nuw [0 x %struct.Point], ptr %11, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw %struct.Point, ptr %11, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fmul double %18, %23
@@ -4174,7 +4174,7 @@ define dso_local noundef i64 @path_recv(ptr noundef readonly captures(none) %0) 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
-  %23 = getelementptr inbounds nuw [0 x %struct.Point], ptr %20, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.Point, ptr %20, i64 %indvars.iv
   store double %22, ptr %23, align 8
   %24 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -4237,7 +4237,7 @@ define dso_local i64 @path_send(ptr noundef readonly captures(none) %0) local_un
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw [0 x %struct.Point], ptr %26, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.Point, ptr %26, i64 %indvars.iv
   %29 = load double, ptr %28, align 8
   call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %29) #16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4446,7 +4446,7 @@ define dso_local range(i64 0, 2) i64 @path_inter(ptr noundef readonly captures(n
   %.sroa.681.0110 = phi double [ %15, %.lr.ph.preheader ], [ %34, %float8_min.exit66 ]
   %.sroa.1083.0109 = phi double [ %13, %.lr.ph.preheader ], [ %40, %float8_min.exit66 ]
   %.sroa.1485.0108 = phi double [ %15, %.lr.ph.preheader ], [ %46, %float8_min.exit66 ]
-  %19 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
   %21 = fcmp uno double %.sroa.079.0111, 0.000000e+00
   br i1 %21, label %float8_max.exit, label %float8_gt.exit.i
@@ -4534,7 +4534,7 @@ float8_min.exit66:                                ; preds = %float8_min.exit, %f
   %.sroa.6.0118 = phi double [ %50, %.lr.ph122.preheader ], [ %69, %float8_min.exit74 ]
   %.sroa.10.0117 = phi double [ %48, %.lr.ph122.preheader ], [ %75, %float8_min.exit74 ]
   %.sroa.14.0116 = phi double [ %50, %.lr.ph122.preheader ], [ %81, %float8_min.exit74 ]
-  %54 = getelementptr inbounds nuw [0 x %struct.Point], ptr %47, i64 0, i64 %indvars.iv143
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %47, i64 %indvars.iv143
   %55 = load double, ptr %54, align 8
   %56 = fcmp uno double %.sroa.0.0119, 0.000000e+00
   br i1 %56, label %float8_max.exit68, label %float8_gt.exit.i67
@@ -4630,13 +4630,13 @@ float8_min.exit74:                                ; preds = %float8_min.exit72, 
   br label %99
 
 99:                                               ; preds = %.lr.ph133, %.loopexit
-  %100 = phi i32 [ %17, %.lr.ph133 ], [ %138, %.loopexit ]
-  %101 = phi i32 [ %52, %.lr.ph133 ], [ %139, %.loopexit ]
-  %102 = phi i32 [ %52, %.lr.ph133 ], [ %140, %.loopexit ]
+  %100 = phi i32 [ %17, %.lr.ph133 ], [ %140, %.loopexit ]
+  %101 = phi i32 [ %52, %.lr.ph133 ], [ %141, %.loopexit ]
+  %102 = phi i32 [ %52, %.lr.ph133 ], [ %142, %.loopexit ]
   %indvars.iv151 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next152, %.loopexit ]
-  %.not164 = icmp eq i64 %indvars.iv151, 0
+  %.not163 = icmp eq i64 %indvars.iv151, 0
   %103 = trunc nuw nsw i64 %indvars.iv151 to i32
-  br i1 %.not164, label %104, label %106
+  br i1 %.not163, label %104, label %106
 
 104:                                              ; preds = %99
   %105 = load i32, ptr %91, align 8
@@ -4649,80 +4649,80 @@ float8_min.exit74:                                ; preds = %float8_min.exit72, 
   br i1 %107, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %106
-  %.052 = add nsw i32 %.052.in, -1
-  %108 = sext i32 %.052 to i64
-  %109 = getelementptr inbounds [0 x %struct.Point], ptr %12, i64 0, i64 %108
-  %110 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv151
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  br label %113
+  %108 = sext i32 %.052.in to i64
+  %109 = getelementptr %struct.Point, ptr %12, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 -16
+  %111 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv151
+  %112 = getelementptr i8, ptr %109, i64 -8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  br label %114
 
-113:                                              ; preds = %.lr.ph130, %134
-  %114 = phi i32 [ %101, %.lr.ph130 ], [ %135, %134 ]
-  %indvars.iv148 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next149, %134 ]
-  %115 = phi i32 [ %102, %.lr.ph130 ], [ %135, %134 ]
+114:                                              ; preds = %.lr.ph130, %136
+  %115 = phi i32 [ %101, %.lr.ph130 ], [ %137, %136 ]
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next149, %136 ]
+  %116 = phi i32 [ %102, %.lr.ph130 ], [ %137, %136 ]
   %.not105 = icmp eq i64 %indvars.iv148, 0
-  %116 = trunc nuw nsw i64 %indvars.iv148 to i32
-  br i1 %.not105, label %117, label %119
+  %117 = trunc nuw nsw i64 %indvars.iv148 to i32
+  br i1 %.not105, label %118, label %120
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %92, align 8
-  %.not62 = icmp eq i32 %118, 0
-  br i1 %.not62, label %134, label %119
+118:                                              ; preds = %114
+  %119 = load i32, ptr %92, align 8
+  %.not62 = icmp eq i32 %119, 0
+  br i1 %.not62, label %136, label %120
 
-119:                                              ; preds = %117, %113
-  %.0.in = phi i32 [ %116, %113 ], [ %115, %117 ]
-  %.0 = add nsw i32 %.0.in, -1
-  %120 = load double, ptr %109, align 8
-  store double %120, ptr %2, align 8
-  %121 = load double, ptr %111, align 8
-  store double %121, ptr %93, align 8
-  %122 = load double, ptr %110, align 8
-  store double %122, ptr %94, align 8
-  %123 = load double, ptr %112, align 8
-  store double %123, ptr %95, align 8
-  %124 = sext i32 %.0 to i64
-  %125 = getelementptr inbounds [0 x %struct.Point], ptr %47, i64 0, i64 %124
-  %126 = getelementptr inbounds nuw [0 x %struct.Point], ptr %47, i64 0, i64 %indvars.iv148
-  %127 = load double, ptr %125, align 8
-  store double %127, ptr %3, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %129 = load double, ptr %128, align 8
-  store double %129, ptr %96, align 8
-  %130 = load double, ptr %126, align 8
-  store double %130, ptr %97, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %132 = load double, ptr %131, align 8
-  store double %132, ptr %98, align 8
-  %133 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %133, label %box_ov.exit.thread, label %._crit_edge154
+120:                                              ; preds = %118, %114
+  %.0.in = phi i32 [ %117, %114 ], [ %116, %118 ]
+  %121 = load double, ptr %110, align 8
+  store double %121, ptr %2, align 8
+  %122 = load double, ptr %112, align 8
+  store double %122, ptr %93, align 8
+  %123 = load double, ptr %111, align 8
+  store double %123, ptr %94, align 8
+  %124 = load double, ptr %113, align 8
+  store double %124, ptr %95, align 8
+  %125 = sext i32 %.0.in to i64
+  %126 = getelementptr %struct.Point, ptr %47, i64 %125
+  %127 = getelementptr i8, ptr %126, i64 -16
+  %128 = getelementptr inbounds nuw %struct.Point, ptr %47, i64 %indvars.iv148
+  %129 = load double, ptr %127, align 8
+  store double %129, ptr %3, align 8
+  %130 = getelementptr i8, ptr %126, i64 -8
+  %131 = load double, ptr %130, align 8
+  store double %131, ptr %96, align 8
+  %132 = load double, ptr %128, align 8
+  store double %132, ptr %97, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %134 = load double, ptr %133, align 8
+  store double %134, ptr %98, align 8
+  %135 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  br i1 %135, label %box_ov.exit.thread, label %._crit_edge154
 
-._crit_edge154:                                   ; preds = %119
+._crit_edge154:                                   ; preds = %120
   %.pre = load i32, ptr %51, align 4
-  br label %134
+  br label %136
 
-134:                                              ; preds = %._crit_edge154, %117
-  %135 = phi i32 [ %.pre, %._crit_edge154 ], [ %114, %117 ]
+136:                                              ; preds = %._crit_edge154, %118
+  %137 = phi i32 [ %.pre, %._crit_edge154 ], [ %115, %118 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next149, %136
-  br i1 %137, label %113, label %.loopexit.loopexit, !llvm.loop !30
+  %138 = sext i32 %137 to i64
+  %139 = icmp slt i64 %indvars.iv.next149, %138
+  br i1 %139, label %114, label %.loopexit.loopexit, !llvm.loop !30
 
-.loopexit.loopexit:                               ; preds = %134
+.loopexit.loopexit:                               ; preds = %136
   %.pre155 = load i32, ptr %16, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %106, %104
-  %138 = phi i32 [ %.pre155, %.loopexit.loopexit ], [ %100, %106 ], [ %100, %104 ]
-  %139 = phi i32 [ %135, %.loopexit.loopexit ], [ %101, %106 ], [ %101, %104 ]
-  %140 = phi i32 [ %135, %.loopexit.loopexit ], [ %102, %106 ], [ %102, %104 ]
+  %140 = phi i32 [ %.pre155, %.loopexit.loopexit ], [ %100, %106 ], [ %100, %104 ]
+  %141 = phi i32 [ %137, %.loopexit.loopexit ], [ %101, %106 ], [ %101, %104 ]
+  %142 = phi i32 [ %137, %.loopexit.loopexit ], [ %102, %106 ], [ %102, %104 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %141 = sext i32 %138 to i64
-  %142 = icmp slt i64 %indvars.iv.next152, %141
-  br i1 %142, label %99, label %box_ov.exit.thread, !llvm.loop !31
+  %143 = sext i32 %140 to i64
+  %144 = icmp slt i64 %indvars.iv.next152, %143
+  br i1 %144, label %99, label %box_ov.exit.thread, !llvm.loop !31
 
-box_ov.exit.thread:                               ; preds = %.loopexit, %119, %._crit_edge123
-  %.057 = phi i64 [ 0, %._crit_edge123 ], [ 1, %119 ], [ 0, %.loopexit ]
+box_ov.exit.thread:                               ; preds = %.loopexit, %120, %._crit_edge123
+  %.057 = phi i64 [ 0, %._crit_edge123 ], [ 1, %120 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.057
@@ -4959,13 +4959,13 @@ define dso_local i64 @path_distance(ptr noundef captures(none) %0) local_unnamed
   br label %27
 
 27:                                               ; preds = %.lr.ph60, %.loopexit
-  %28 = phi i32 [ %14, %.lr.ph60 ], [ %91, %.loopexit ]
+  %28 = phi i32 [ %14, %.lr.ph60 ], [ %93, %.loopexit ]
   %indvars.iv63 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next64, %.loopexit ]
   %.03557 = phi i8 [ 0, %.lr.ph60 ], [ %.1, %.loopexit ]
   %.03656 = phi double [ 0.000000e+00, %.lr.ph60 ], [ %.137, %.loopexit ]
-  %.not71 = icmp eq i64 %indvars.iv63, 0
+  %.not70 = icmp eq i64 %indvars.iv63, 0
   %29 = trunc nuw nsw i64 %indvars.iv63 to i32
-  br i1 %.not71, label %30, label %32
+  br i1 %.not70, label %30, label %32
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %16, align 8
@@ -4979,160 +4979,160 @@ define dso_local i64 @path_distance(ptr noundef captures(none) %0) local_unnamed
   br i1 %34, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %32
-  %.031 = add nsw i32 %.031.in, -1
-  %35 = sext i32 %.031 to i64
-  %36 = getelementptr inbounds [0 x %struct.Point], ptr %19, i64 0, i64 %35
-  %37 = getelementptr inbounds nuw [0 x %struct.Point], ptr %19, i64 0, i64 %indvars.iv63
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  br label %40
+  %35 = sext i32 %.031.in to i64
+  %36 = getelementptr %struct.Point, ptr %19, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -16
+  %38 = getelementptr inbounds nuw %struct.Point, ptr %19, i64 %indvars.iv63
+  %39 = getelementptr i8, ptr %36, i64 -8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  br label %41
 
-40:                                               ; preds = %.lr.ph, %float8_lt.exit.thread
+41:                                               ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
-  %41 = phi i32 [ %33, %.lr.ph ], [ %88, %float8_lt.exit.thread ]
+  %42 = phi i32 [ %33, %.lr.ph ], [ %90, %float8_lt.exit.thread ]
   %.253 = phi i8 [ %.03557, %.lr.ph ], [ %.3, %float8_lt.exit.thread ]
   %.23852 = phi double [ %.03656, %.lr.ph ], [ %.339, %float8_lt.exit.thread ]
   %.not51 = icmp eq i64 %indvars.iv, 0
-  %42 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not51, label %43, label %45
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %.not51, label %44, label %46
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %18, align 8
-  %.not43 = icmp eq i32 %44, 0
-  br i1 %.not43, label %float8_lt.exit.thread, label %45
+44:                                               ; preds = %41
+  %45 = load i32, ptr %18, align 8
+  %.not43 = icmp eq i32 %45, 0
+  br i1 %.not43, label %float8_lt.exit.thread, label %46
 
-45:                                               ; preds = %43, %40
-  %.0.in = phi i32 [ %42, %40 ], [ %41, %43 ]
-  %.0 = add nsw i32 %.0.in, -1
-  %46 = load double, ptr %36, align 8
-  store double %46, ptr %3, align 8
-  %47 = load double, ptr %38, align 8
-  store double %47, ptr %20, align 8
-  %48 = load double, ptr %37, align 8
-  store double %48, ptr %21, align 8
-  %49 = load double, ptr %39, align 8
-  store double %49, ptr %22, align 8
-  %50 = sext i32 %.0 to i64
-  %51 = getelementptr inbounds [0 x %struct.Point], ptr %23, i64 0, i64 %50
-  %52 = getelementptr inbounds nuw [0 x %struct.Point], ptr %23, i64 0, i64 %indvars.iv
-  %53 = load double, ptr %51, align 8
-  store double %53, ptr %4, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load double, ptr %54, align 8
-  store double %55, ptr %24, align 8
-  %56 = load double, ptr %52, align 8
-  store double %56, ptr %25, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %58 = load double, ptr %57, align 8
-  store double %58, ptr %26, align 8
+46:                                               ; preds = %44, %41
+  %.0.in = phi i32 [ %43, %41 ], [ %42, %44 ]
+  %47 = load double, ptr %37, align 8
+  store double %47, ptr %3, align 8
+  %48 = load double, ptr %39, align 8
+  store double %48, ptr %20, align 8
+  %49 = load double, ptr %38, align 8
+  store double %49, ptr %21, align 8
+  %50 = load double, ptr %40, align 8
+  store double %50, ptr %22, align 8
+  %51 = sext i32 %.0.in to i64
+  %52 = getelementptr %struct.Point, ptr %23, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 -16
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %23, i64 %indvars.iv
+  %55 = load double, ptr %53, align 8
+  store double %55, ptr %4, align 8
+  %56 = getelementptr i8, ptr %52, i64 -8
+  %57 = load double, ptr %56, align 8
+  store double %57, ptr %24, align 8
+  %58 = load double, ptr %54, align 8
+  store double %58, ptr %25, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %60 = load double, ptr %59, align 8
+  store double %60, ptr %26, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %59 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %4)
-  br i1 %59, label %lseg_closept_lseg.exit.thread, label %60
+  %61 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %4)
+  br i1 %61, label %lseg_closept_lseg.exit.thread, label %62
 
-60:                                               ; preds = %45
-  %61 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %4)
-  %62 = call fastcc double @lseg_closept_point(ptr noundef nonnull %2, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %25)
-  %63 = fcmp uno double %62, 0.000000e+00
-  br i1 %63, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
+62:                                               ; preds = %46
+  %63 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %4)
+  %64 = call fastcc double @lseg_closept_point(ptr noundef nonnull %2, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %25)
+  %65 = fcmp uno double %64, 0.000000e+00
+  br i1 %65, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %60
-  %64 = fcmp uno double %61, 0.000000e+00
-  %65 = fcmp olt double %62, %61
-  %66 = or i1 %64, %65
-  br i1 %66, label %67, label %float8_lt.exit.thread.i
+float8_lt.exit.i:                                 ; preds = %62
+  %66 = fcmp uno double %63, 0.000000e+00
+  %67 = fcmp olt double %64, %63
+  %68 = or i1 %66, %67
+  br i1 %68, label %69, label %float8_lt.exit.thread.i
 
-67:                                               ; preds = %float8_lt.exit.i
+69:                                               ; preds = %float8_lt.exit.i
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %67, %float8_lt.exit.i, %60
-  %.0.i = phi double [ %62, %67 ], [ %61, %float8_lt.exit.i ], [ %61, %60 ]
-  %68 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %3)
-  %69 = fcmp uno double %68, 0.000000e+00
-  br i1 %69, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
+float8_lt.exit.thread.i:                          ; preds = %69, %float8_lt.exit.i, %62
+  %.0.i = phi double [ %64, %69 ], [ %63, %float8_lt.exit.i ], [ %63, %62 ]
+  %70 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %3)
+  %71 = fcmp uno double %70, 0.000000e+00
+  br i1 %71, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
 
 float8_lt.exit37.i:                               ; preds = %float8_lt.exit.thread.i
-  %70 = fcmp uno double %.0.i, 0.000000e+00
-  %71 = fcmp olt double %68, %.0.i
-  %72 = or i1 %70, %71
-  br i1 %72, label %73, label %float8_lt.exit37.thread.i
+  %72 = fcmp uno double %.0.i, 0.000000e+00
+  %73 = fcmp olt double %70, %.0.i
+  %74 = or i1 %72, %73
+  br i1 %74, label %75, label %float8_lt.exit37.thread.i
 
-73:                                               ; preds = %float8_lt.exit37.i
+75:                                               ; preds = %float8_lt.exit37.i
   br label %float8_lt.exit37.thread.i
 
-float8_lt.exit37.thread.i:                        ; preds = %73, %float8_lt.exit37.i, %float8_lt.exit.thread.i
-  %.1.i = phi double [ %68, %73 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %float8_lt.exit.thread.i ]
-  %74 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %21)
-  %75 = fcmp uno double %74, 0.000000e+00
-  br i1 %75, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
+float8_lt.exit37.thread.i:                        ; preds = %75, %float8_lt.exit37.i, %float8_lt.exit.thread.i
+  %.1.i = phi double [ %70, %75 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %float8_lt.exit.thread.i ]
+  %76 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %21)
+  %77 = fcmp uno double %76, 0.000000e+00
+  br i1 %77, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
 
 float8_lt.exit38.i:                               ; preds = %float8_lt.exit37.thread.i
-  %76 = fcmp uno double %.1.i, 0.000000e+00
-  %77 = fcmp olt double %74, %.1.i
-  %78 = or i1 %76, %77
-  br i1 %78, label %79, label %lseg_closept_lseg.exit
+  %78 = fcmp uno double %.1.i, 0.000000e+00
+  %79 = fcmp olt double %76, %.1.i
+  %80 = or i1 %78, %79
+  br i1 %80, label %81, label %lseg_closept_lseg.exit
 
-79:                                               ; preds = %float8_lt.exit38.i
+81:                                               ; preds = %float8_lt.exit38.i
   br label %lseg_closept_lseg.exit
 
-lseg_closept_lseg.exit:                           ; preds = %float8_lt.exit37.thread.i, %float8_lt.exit38.i, %79
-  %.031.i = phi double [ %74, %79 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ]
+lseg_closept_lseg.exit:                           ; preds = %float8_lt.exit37.thread.i, %float8_lt.exit38.i, %81
+  %.031.i = phi double [ %76, %81 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %80 = trunc nuw i8 %.253 to i1
-  br i1 %80, label %82, label %float8_lt.exit.thread
+  %82 = trunc nuw i8 %.253 to i1
+  br i1 %82, label %84, label %float8_lt.exit.thread
 
-lseg_closept_lseg.exit.thread:                    ; preds = %45
+lseg_closept_lseg.exit.thread:                    ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %81 = trunc nuw i8 %.253 to i1
-  br i1 %81, label %float8_lt.exit, label %float8_lt.exit.thread
+  %83 = trunc nuw i8 %.253 to i1
+  br i1 %83, label %float8_lt.exit, label %float8_lt.exit.thread
 
-82:                                               ; preds = %lseg_closept_lseg.exit
-  %83 = fcmp uno double %.031.i, 0.000000e+00
-  br i1 %83, label %float8_lt.exit.thread, label %float8_lt.exit
+84:                                               ; preds = %lseg_closept_lseg.exit
+  %85 = fcmp uno double %.031.i, 0.000000e+00
+  br i1 %85, label %float8_lt.exit.thread, label %float8_lt.exit
 
-float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %82
-  %.031.i4648 = phi double [ %.031.i, %82 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %84 = fcmp uno double %.23852, 0.000000e+00
-  %85 = fcmp olt double %.031.i4648, %.23852
-  %86 = or i1 %84, %85
-  br i1 %86, label %87, label %float8_lt.exit.thread
+float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %84
+  %.031.i4648 = phi double [ %.031.i, %84 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
+  %86 = fcmp uno double %.23852, 0.000000e+00
+  %87 = fcmp olt double %.031.i4648, %.23852
+  %88 = or i1 %86, %87
+  br i1 %88, label %89, label %float8_lt.exit.thread
 
-87:                                               ; preds = %float8_lt.exit
+89:                                               ; preds = %float8_lt.exit
   br label %float8_lt.exit.thread
 
-float8_lt.exit.thread:                            ; preds = %82, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %87, %43
-  %.339 = phi double [ %.23852, %43 ], [ %.23852, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i4648, %87 ], [ %.23852, %82 ]
-  %.3 = phi i8 [ %.253, %43 ], [ 1, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %87 ], [ 1, %82 ]
+float8_lt.exit.thread:                            ; preds = %84, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %89, %44
+  %.339 = phi double [ %.23852, %44 ], [ %.23852, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i4648, %89 ], [ %.23852, %84 ]
+  %.3 = phi i8 [ %.253, %44 ], [ 1, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %89 ], [ 1, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = load i32, ptr %17, align 4
-  %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %40, label %.loopexit.loopexit, !llvm.loop !32
+  %90 = load i32, ptr %17, align 4
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %41, label %.loopexit.loopexit, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %float8_lt.exit.thread
   %.pre = load i32, ptr %13, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %32, %30
-  %91 = phi i32 [ %28, %30 ], [ %28, %32 ], [ %.pre, %.loopexit.loopexit ]
+  %93 = phi i32 [ %28, %30 ], [ %28, %32 ], [ %.pre, %.loopexit.loopexit ]
   %.137 = phi double [ %.03656, %30 ], [ %.03656, %32 ], [ %.339, %.loopexit.loopexit ]
   %.1 = phi i8 [ %.03557, %30 ], [ %.03557, %32 ], [ %.3, %.loopexit.loopexit ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next64, %92
-  br i1 %93, label %27, label %._crit_edge, !llvm.loop !33
+  %94 = sext i32 %93 to i64
+  %95 = icmp slt i64 %indvars.iv.next64, %94
+  br i1 %95, label %27, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %94 = trunc nuw i8 %.1 to i1
-  %95 = bitcast double %.137 to i64
-  br i1 %94, label %97, label %._crit_edge.thread
+  %96 = trunc nuw i8 %.1 to i1
+  %97 = bitcast double %.137 to i64
+  br i1 %96, label %99, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %96, align 4
-  br label %97
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %98, align 4
+  br label %99
 
-97:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.034 = phi i64 [ 0, %._crit_edge.thread ], [ %95, %._crit_edge ]
+99:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %.034 = phi i64 [ 0, %._crit_edge.thread ], [ %97, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.034
@@ -5234,136 +5234,138 @@ define dso_local i64 @path_length(ptr noundef readonly captures(none) %0) local_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_pl.exit ]
   %.01422 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %float8_pl.exit ]
   %.not16 = icmp eq i64 %indvars.iv, 0
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not16, label %13, label %15
+  br i1 %.not16, label %12, label %._crit_edge25
 
-13:                                               ; preds = %11
-  %14 = load i32, ptr %9, align 8
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %float8_pl.exit, label %15
+._crit_edge25:                                    ; preds = %11
+  %.pre = and i64 %indvars.iv, 4294967295
+  br label %14
 
-15:                                               ; preds = %13, %11
-  %.0.in = phi i32 [ %12, %11 ], [ %7, %13 ]
-  %.0 = add nsw i32 %.0.in, -1
-  %16 = sext i32 %.0 to i64
-  %17 = getelementptr inbounds [0 x %struct.Point], ptr %10, i64 0, i64 %16
-  %18 = getelementptr inbounds nuw [0 x %struct.Point], ptr %10, i64 0, i64 %indvars.iv
+12:                                               ; preds = %11
+  %13 = load i32, ptr %9, align 8
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %float8_pl.exit, label %14
+
+14:                                               ; preds = %._crit_edge25, %12
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge25 ], [ %wide.trip.count, %12 ]
+  %15 = getelementptr %struct.Point, ptr %10, i64 %.pre-phi
+  %16 = getelementptr i8, ptr %15, i64 -16
+  %17 = getelementptr inbounds nuw %struct.Point, ptr %10, i64 %indvars.iv
+  %18 = load double, ptr %16, align 8
   %19 = load double, ptr %17, align 8
-  %20 = load double, ptr %18, align 8
-  %21 = fsub double %19, %20
-  %22 = tail call double @llvm.fabs.f64(double %21)
-  %23 = fcmp oeq double %22, 0x7FF0000000000000
-  br i1 %23, label %24, label %float8_mi.exit.thread.i, !prof !12
+  %20 = fsub double %18, %19
+  %21 = tail call double @llvm.fabs.f64(double %20)
+  %22 = fcmp oeq double %21, 0x7FF0000000000000
+  br i1 %22, label %23, label %float8_mi.exit.thread.i, !prof !12
 
-24:                                               ; preds = %15
-  %25 = tail call double @llvm.fabs.f64(double %19)
-  %26 = fcmp oeq double %25, 0x7FF0000000000000
-  %27 = tail call double @llvm.fabs.f64(double %20)
-  %28 = fcmp oeq double %27, 0x7FF0000000000000
-  %or.cond.i.i = or i1 %26, %28
-  br i1 %or.cond.i.i, label %float8_mi.exit.i, label %29
+23:                                               ; preds = %14
+  %24 = tail call double @llvm.fabs.f64(double %18)
+  %25 = fcmp oeq double %24, 0x7FF0000000000000
+  %26 = tail call double @llvm.fabs.f64(double %19)
+  %27 = fcmp oeq double %26, 0x7FF0000000000000
+  %or.cond.i.i = or i1 %25, %27
+  br i1 %or.cond.i.i, label %float8_mi.exit.i, label %28
 
-29:                                               ; preds = %24
+28:                                               ; preds = %23
   tail call void @float_overflow_error() #19
   unreachable
 
-float8_mi.exit.i:                                 ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %33 = load double, ptr %32, align 8
-  %34 = fsub double %31, %33
-  %35 = tail call double @llvm.fabs.f64(double %34)
-  %36 = fcmp oeq double %35, 0x7FF0000000000000
-  br i1 %36, label %44, label %point_dt.exit, !prof !12
+float8_mi.exit.i:                                 ; preds = %23
+  %29 = getelementptr i8, ptr %15, i64 -8
+  %30 = load double, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %32 = load double, ptr %31, align 8
+  %33 = fsub double %30, %32
+  %34 = tail call double @llvm.fabs.f64(double %33)
+  %35 = fcmp oeq double %34, 0x7FF0000000000000
+  br i1 %35, label %43, label %point_dt.exit, !prof !12
 
-float8_mi.exit.thread.i:                          ; preds = %15
-  %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %40 = load double, ptr %39, align 8
-  %41 = fsub double %38, %40
-  %42 = tail call double @llvm.fabs.f64(double %41)
-  %43 = fcmp oeq double %42, 0x7FF0000000000000
-  br i1 %43, label %44, label %52, !prof !12
+float8_mi.exit.thread.i:                          ; preds = %14
+  %36 = getelementptr i8, ptr %15, i64 -8
+  %37 = load double, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %39 = load double, ptr %38, align 8
+  %40 = fsub double %37, %39
+  %41 = tail call double @llvm.fabs.f64(double %40)
+  %42 = fcmp oeq double %41, 0x7FF0000000000000
+  br i1 %42, label %43, label %51, !prof !12
 
-44:                                               ; preds = %float8_mi.exit.thread.i, %float8_mi.exit.i
-  %45 = phi double [ %40, %float8_mi.exit.thread.i ], [ %33, %float8_mi.exit.i ]
-  %46 = phi double [ %38, %float8_mi.exit.thread.i ], [ %31, %float8_mi.exit.i ]
-  %47 = tail call double @llvm.fabs.f64(double %46)
-  %48 = fcmp oeq double %47, 0x7FF0000000000000
-  %49 = tail call double @llvm.fabs.f64(double %45)
-  %50 = fcmp oeq double %49, 0x7FF0000000000000
-  %or.cond.i4.i = or i1 %50, %48
-  br i1 %or.cond.i4.i, label %point_dt.exit, label %51
+43:                                               ; preds = %float8_mi.exit.thread.i, %float8_mi.exit.i
+  %44 = phi double [ %39, %float8_mi.exit.thread.i ], [ %32, %float8_mi.exit.i ]
+  %45 = phi double [ %37, %float8_mi.exit.thread.i ], [ %30, %float8_mi.exit.i ]
+  %46 = tail call double @llvm.fabs.f64(double %45)
+  %47 = fcmp oeq double %46, 0x7FF0000000000000
+  %48 = tail call double @llvm.fabs.f64(double %44)
+  %49 = fcmp oeq double %48, 0x7FF0000000000000
+  %or.cond.i4.i = or i1 %49, %47
+  br i1 %or.cond.i4.i, label %point_dt.exit, label %50
 
-51:                                               ; preds = %44
+50:                                               ; preds = %43
   tail call void @float_overflow_error() #19
   unreachable
 
-52:                                               ; preds = %float8_mi.exit.thread.i
-  %or.cond29.i.i = fcmp uno double %21, %41
-  br i1 %or.cond29.i.i, label %point_dt.exit, label %53
+51:                                               ; preds = %float8_mi.exit.thread.i
+  %or.cond29.i.i = fcmp uno double %20, %40
+  br i1 %or.cond29.i.i, label %point_dt.exit, label %52
 
-53:                                               ; preds = %52
-  %54 = fcmp olt double %22, %42
-  %.023.i.i = select i1 %54, double %22, double %42
-  %.022.i.i = select i1 %54, double %42, double %22
-  %55 = fcmp oeq double %.023.i.i, 0.000000e+00
-  br i1 %55, label %point_dt.exit, label %56
+52:                                               ; preds = %51
+  %53 = fcmp olt double %21, %41
+  %.023.i.i = select i1 %53, double %21, double %41
+  %.022.i.i = select i1 %53, double %41, double %21
+  %54 = fcmp oeq double %.023.i.i, 0.000000e+00
+  br i1 %54, label %point_dt.exit, label %55
 
-56:                                               ; preds = %53
-  %57 = fdiv double %.023.i.i, %.022.i.i
-  %58 = tail call double @llvm.fmuladd.f64(double %57, double %57, double 1.000000e+00)
-  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %58)
-  %59 = fmul double %.022.i.i, %sqrt.i.i
-  %60 = tail call double @llvm.fabs.f64(double %59)
-  %61 = fcmp oeq double %60, 0x7FF0000000000000
-  br i1 %61, label %62, label %63, !prof !12
+55:                                               ; preds = %52
+  %56 = fdiv double %.023.i.i, %.022.i.i
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double %56, double 1.000000e+00)
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %57)
+  %58 = fmul double %.022.i.i, %sqrt.i.i
+  %59 = tail call double @llvm.fabs.f64(double %58)
+  %60 = fcmp oeq double %59, 0x7FF0000000000000
+  br i1 %60, label %61, label %62, !prof !12
 
-62:                                               ; preds = %56
+61:                                               ; preds = %55
   tail call void @float_overflow_error() #19
   unreachable
 
-63:                                               ; preds = %56
-  %64 = fcmp oeq double %59, 0.000000e+00
-  br i1 %64, label %65, label %point_dt.exit, !prof !12
+62:                                               ; preds = %55
+  %63 = fcmp oeq double %58, 0.000000e+00
+  br i1 %63, label %64, label %point_dt.exit, !prof !12
 
-65:                                               ; preds = %63
+64:                                               ; preds = %62
   tail call void @float_underflow_error() #19
   unreachable
 
-point_dt.exit:                                    ; preds = %float8_mi.exit.i, %44, %52, %53, %63
-  %.0.i.i = phi double [ %.022.i.i, %53 ], [ %59, %63 ], [ 0x7FF8000000000000, %52 ], [ 0x7FF0000000000000, %44 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
-  %66 = fadd double %.01422, %.0.i.i
-  %67 = tail call double @llvm.fabs.f64(double %66)
-  %68 = fcmp oeq double %67, 0x7FF0000000000000
-  br i1 %68, label %69, label %float8_pl.exit, !prof !12
+point_dt.exit:                                    ; preds = %float8_mi.exit.i, %43, %51, %52, %62
+  %.0.i.i = phi double [ %.022.i.i, %52 ], [ %58, %62 ], [ 0x7FF8000000000000, %51 ], [ 0x7FF0000000000000, %43 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %65 = fadd double %.01422, %.0.i.i
+  %66 = tail call double @llvm.fabs.f64(double %65)
+  %67 = fcmp oeq double %66, 0x7FF0000000000000
+  br i1 %67, label %68, label %float8_pl.exit, !prof !12
 
-69:                                               ; preds = %point_dt.exit
-  %70 = tail call double @llvm.fabs.f64(double %.01422)
-  %71 = fcmp oeq double %70, 0x7FF0000000000000
-  %72 = tail call double @llvm.fabs.f64(double %.0.i.i)
-  %73 = fcmp oeq double %72, 0x7FF0000000000000
-  %or.cond.i = or i1 %71, %73
-  br i1 %or.cond.i, label %float8_pl.exit, label %74
+68:                                               ; preds = %point_dt.exit
+  %69 = tail call double @llvm.fabs.f64(double %.01422)
+  %70 = fcmp oeq double %69, 0x7FF0000000000000
+  %71 = tail call double @llvm.fabs.f64(double %.0.i.i)
+  %72 = fcmp oeq double %71, 0x7FF0000000000000
+  %or.cond.i = or i1 %70, %72
+  br i1 %or.cond.i, label %float8_pl.exit, label %73
 
-74:                                               ; preds = %69
+73:                                               ; preds = %68
   tail call void @float_overflow_error() #19
   unreachable
 
-float8_pl.exit:                                   ; preds = %69, %point_dt.exit, %13
-  %.1 = phi double [ %.01422, %13 ], [ %66, %point_dt.exit ], [ %66, %69 ]
+float8_pl.exit:                                   ; preds = %68, %point_dt.exit, %12
+  %.1 = phi double [ %.01422, %12 ], [ %65, %point_dt.exit ], [ %65, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %float8_pl.exit
-  %75 = bitcast double %.1 to i64
+  %74 = bitcast double %.1 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.014.lcssa = phi i64 [ 0, %1 ], [ %75, %._crit_edge.loopexit ]
+  %.014.lcssa = phi i64 [ 0, %1 ], [ %74, %._crit_edge.loopexit ]
   ret i64 %.014.lcssa
 }
 
@@ -8238,7 +8240,7 @@ define dso_local i64 @dist_ppath(ptr noundef readonly captures(none) %0) local_u
 
 18:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
-  %19 = phi i32 [ %11, %.lr.ph.i ], [ %40, %float8_lt.exit.thread.i ]
+  %19 = phi i32 [ %11, %.lr.ph.i ], [ %41, %float8_lt.exit.thread.i ]
   %.01724.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
   %.01823.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
   %.not22.i = icmp eq i64 %indvars.iv.i, 0
@@ -8252,51 +8254,51 @@ define dso_local i64 @dist_ppath(ptr noundef readonly captures(none) %0) local_u
 
 23:                                               ; preds = %21, %18
   %.0.in.i = phi i32 [ %20, %18 ], [ %19, %21 ]
-  %.0.i = add nsw i32 %.0.in.i, -1
-  %24 = sext i32 %.0.i to i64
-  %25 = getelementptr inbounds [0 x %struct.Point], ptr %14, i64 0, i64 %24
-  %26 = getelementptr inbounds nuw [0 x %struct.Point], ptr %14, i64 0, i64 %indvars.iv.i
-  %27 = load double, ptr %25, align 8
-  store double %27, ptr %2, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %29 = load double, ptr %28, align 8
-  store double %29, ptr %15, align 8
-  %30 = load double, ptr %26, align 8
-  store double %30, ptr %16, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load double, ptr %31, align 8
-  store double %32, ptr %17, align 8
-  %33 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %5)
-  br i1 %.01823.i, label %34, label %39
+  %24 = sext i32 %.0.in.i to i64
+  %25 = getelementptr %struct.Point, ptr %14, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -16
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %14, i64 %indvars.iv.i
+  %28 = load double, ptr %26, align 8
+  store double %28, ptr %2, align 8
+  %29 = getelementptr i8, ptr %25, i64 -8
+  %30 = load double, ptr %29, align 8
+  store double %30, ptr %15, align 8
+  %31 = load double, ptr %27, align 8
+  store double %31, ptr %16, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %33 = load double, ptr %32, align 8
+  store double %33, ptr %17, align 8
+  %34 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %5)
+  br i1 %.01823.i, label %35, label %40
 
-34:                                               ; preds = %23
-  %35 = fcmp uno double %33, 0.000000e+00
-  br i1 %35, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
+35:                                               ; preds = %23
+  %36 = fcmp uno double %34, 0.000000e+00
+  br i1 %36, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %34
-  %36 = fcmp uno double %.01724.i, 0.000000e+00
-  %37 = fcmp olt double %33, %.01724.i
-  %38 = or i1 %36, %37
-  br i1 %38, label %39, label %float8_lt.exit.thread.i
+float8_lt.exit.i:                                 ; preds = %35
+  %37 = fcmp uno double %.01724.i, 0.000000e+00
+  %38 = fcmp olt double %34, %.01724.i
+  %39 = or i1 %37, %38
+  br i1 %39, label %40, label %float8_lt.exit.thread.i
 
-39:                                               ; preds = %float8_lt.exit.i, %23
+40:                                               ; preds = %float8_lt.exit.i, %23
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %39, %float8_lt.exit.i, %34, %21
-  %.119.i = phi i1 [ %.01823.i, %21 ], [ true, %39 ], [ true, %float8_lt.exit.i ], [ true, %34 ]
-  %.1.i = phi double [ %.01724.i, %21 ], [ %33, %39 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %34 ]
+float8_lt.exit.thread.i:                          ; preds = %40, %float8_lt.exit.i, %35, %21
+  %.119.i = phi i1 [ %.01823.i, %21 ], [ true, %40 ], [ true, %float8_lt.exit.i ], [ true, %35 ]
+  %.1.i = phi double [ %.01724.i, %21 ], [ %34, %40 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = load i32, ptr %10, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %18, label %dist_ppath_internal.exit.loopexit, !llvm.loop !37
+  %41 = load i32, ptr %10, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next.i, %42
+  br i1 %43, label %18, label %dist_ppath_internal.exit.loopexit, !llvm.loop !37
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %43 = bitcast double %.1.i to i64
+  %44 = bitcast double %.1.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %43, %dist_ppath_internal.exit.loopexit ]
+  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %44, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.lcssa.i
 }
@@ -8327,7 +8329,7 @@ define dso_local i64 @dist_pathp(ptr noundef readonly captures(none) %0) local_u
 
 18:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
-  %19 = phi i32 [ %11, %.lr.ph.i ], [ %40, %float8_lt.exit.thread.i ]
+  %19 = phi i32 [ %11, %.lr.ph.i ], [ %41, %float8_lt.exit.thread.i ]
   %.01724.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
   %.01823.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
   %.not22.i = icmp eq i64 %indvars.iv.i, 0
@@ -8341,51 +8343,51 @@ define dso_local i64 @dist_pathp(ptr noundef readonly captures(none) %0) local_u
 
 23:                                               ; preds = %21, %18
   %.0.in.i = phi i32 [ %20, %18 ], [ %19, %21 ]
-  %.0.i = add nsw i32 %.0.in.i, -1
-  %24 = sext i32 %.0.i to i64
-  %25 = getelementptr inbounds [0 x %struct.Point], ptr %14, i64 0, i64 %24
-  %26 = getelementptr inbounds nuw [0 x %struct.Point], ptr %14, i64 0, i64 %indvars.iv.i
-  %27 = load double, ptr %25, align 8
-  store double %27, ptr %2, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %29 = load double, ptr %28, align 8
-  store double %29, ptr %15, align 8
-  %30 = load double, ptr %26, align 8
-  store double %30, ptr %16, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load double, ptr %31, align 8
-  store double %32, ptr %17, align 8
-  %33 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %9)
-  br i1 %.01823.i, label %34, label %39
+  %24 = sext i32 %.0.in.i to i64
+  %25 = getelementptr %struct.Point, ptr %14, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -16
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %14, i64 %indvars.iv.i
+  %28 = load double, ptr %26, align 8
+  store double %28, ptr %2, align 8
+  %29 = getelementptr i8, ptr %25, i64 -8
+  %30 = load double, ptr %29, align 8
+  store double %30, ptr %15, align 8
+  %31 = load double, ptr %27, align 8
+  store double %31, ptr %16, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %33 = load double, ptr %32, align 8
+  store double %33, ptr %17, align 8
+  %34 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %9)
+  br i1 %.01823.i, label %35, label %40
 
-34:                                               ; preds = %23
-  %35 = fcmp uno double %33, 0.000000e+00
-  br i1 %35, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
+35:                                               ; preds = %23
+  %36 = fcmp uno double %34, 0.000000e+00
+  br i1 %36, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
-float8_lt.exit.i:                                 ; preds = %34
-  %36 = fcmp uno double %.01724.i, 0.000000e+00
-  %37 = fcmp olt double %33, %.01724.i
-  %38 = or i1 %36, %37
-  br i1 %38, label %39, label %float8_lt.exit.thread.i
+float8_lt.exit.i:                                 ; preds = %35
+  %37 = fcmp uno double %.01724.i, 0.000000e+00
+  %38 = fcmp olt double %34, %.01724.i
+  %39 = or i1 %37, %38
+  br i1 %39, label %40, label %float8_lt.exit.thread.i
 
-39:                                               ; preds = %float8_lt.exit.i, %23
+40:                                               ; preds = %float8_lt.exit.i, %23
   br label %float8_lt.exit.thread.i
 
-float8_lt.exit.thread.i:                          ; preds = %39, %float8_lt.exit.i, %34, %21
-  %.119.i = phi i1 [ %.01823.i, %21 ], [ true, %39 ], [ true, %float8_lt.exit.i ], [ true, %34 ]
-  %.1.i = phi double [ %.01724.i, %21 ], [ %33, %39 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %34 ]
+float8_lt.exit.thread.i:                          ; preds = %40, %float8_lt.exit.i, %35, %21
+  %.119.i = phi i1 [ %.01823.i, %21 ], [ true, %40 ], [ true, %float8_lt.exit.i ], [ true, %35 ]
+  %.1.i = phi double [ %.01724.i, %21 ], [ %34, %40 ], [ %.01724.i, %float8_lt.exit.i ], [ %.01724.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = load i32, ptr %10, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %18, label %dist_ppath_internal.exit.loopexit, !llvm.loop !37
+  %41 = load i32, ptr %10, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next.i, %42
+  br i1 %43, label %18, label %dist_ppath_internal.exit.loopexit, !llvm.loop !37
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %43 = bitcast double %.1.i to i64
+  %44 = bitcast double %.1.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %43, %dist_ppath_internal.exit.loopexit ]
+  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %44, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.017.lcssa.i
 }
@@ -8842,7 +8844,7 @@ define internal fastcc double @dist_ppoly_internal(ptr noundef readonly captures
   %13 = load i32, ptr %4, align 4
   %14 = add i32 %13, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [0 x %struct.Point], ptr %6, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.Point, ptr %6, i64 %15
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %17, ptr %18, align 8
@@ -8862,14 +8864,14 @@ define internal fastcc double @dist_ppoly_internal(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %8, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %float8_lt.exit.thread ], [ 0, %8 ]
   %.02730 = phi double [ %42, %float8_lt.exit.thread ], [ %24, %8 ]
-  %28 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv
   %29 = load double, ptr %28, align 8
   store double %29, ptr %3, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load double, ptr %30, align 8
   store double %31, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw %struct.Point, ptr %6, i64 %indvars.iv.next
   %33 = load double, ptr %32, align 8
   store double %33, ptr %18, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -9987,7 +9989,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
 
 69:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds nuw [0 x %struct.Point], ptr %15, i64 0, i64 %indvars.iv.next
+  %70 = getelementptr inbounds nuw %struct.Point, ptr %15, i64 %indvars.iv.next
   %71 = load double, ptr %70, align 8
   %72 = fsub double %16, %71
   %73 = tail call double @llvm.fabs.f64(double %72)
@@ -10084,7 +10086,7 @@ point_dt.exit33:                                  ; preds = %float8_mi.exit.i32,
   unreachable
 
 float8_pl.exit:                                   ; preds = %point_dt.exit33, %112
-  %118 = getelementptr inbounds nuw [0 x %struct.Point], ptr %15, i64 0, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw %struct.Point, ptr %15, i64 %indvars.iv
   %119 = load double, ptr %118, align 8
   %120 = fsub double %119, %71
   %121 = tail call double @llvm.fabs.f64(double %120)
@@ -11069,7 +11071,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   %.03247.i = phi double [ %41, %.lr.ph.preheader.i ], [ %.133.i, %float8_lt.exit39.thread.i ]
   %.03446.i = phi double [ %43, %.lr.ph.preheader.i ], [ %.135.i, %float8_lt.exit39.thread.i ]
   %.03645.i = phi double [ %41, %.lr.ph.preheader.i ], [ %.137.i, %float8_lt.exit39.thread.i ]
-  %46 = getelementptr inbounds nuw [0 x %struct.Point], ptr %36, i64 0, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw %struct.Point, ptr %36, i64 %indvars.iv.i
   %47 = load double, ptr %46, align 8
   %48 = fcmp uno double %47, 0.000000e+00
   br i1 %48, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
@@ -11187,7 +11189,7 @@ define dso_local noundef i64 @poly_recv(ptr noundef readonly captures(none) %0) 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
-  %19 = getelementptr inbounds nuw [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv
   store double %18, ptr %19, align 8
   %20 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -11215,7 +11217,7 @@ define dso_local noundef i64 @poly_recv(ptr noundef readonly captures(none) %0) 
   %.03247.i = phi double [ %23, %.lr.ph.preheader.i ], [ %.133.i, %float8_lt.exit39.thread.i ]
   %.03446.i = phi double [ %25, %.lr.ph.preheader.i ], [ %.135.i, %float8_lt.exit39.thread.i ]
   %.03645.i = phi double [ %23, %.lr.ph.preheader.i ], [ %.137.i, %float8_lt.exit39.thread.i ]
-  %27 = getelementptr inbounds nuw [0 x %struct.Point], ptr %22, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw %struct.Point, ptr %22, i64 %indvars.iv.i
   %28 = load double, ptr %27, align 8
   %29 = fcmp uno double %28, 0.000000e+00
   br i1 %29, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
@@ -11310,7 +11312,7 @@ define dso_local i64 @poly_send(ptr noundef readonly captures(none) %0) local_un
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [0 x %struct.Point], ptr %18, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.Point, ptr %18, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -12059,7 +12061,7 @@ box_ov.exit:                                      ; preds = %18
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [0 x %struct.Point], ptr %32, i64 0, i64 %36
+  %37 = getelementptr inbounds %struct.Point, ptr %32, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   %38 = icmp slt i32 %34, 1
   br i1 %38, label %..critedge_crit_edge, label %.lr.ph34
@@ -12080,14 +12082,14 @@ box_ov.exit:                                      ; preds = %18
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34.split.outer, %._crit_edge.thread
   %indvars.iv39 = phi i64 [ %indvars.iv.next4049, %._crit_edge.thread ], [ %indvars.iv39.ph, %.lr.ph34.split.outer ]
-  %45 = getelementptr inbounds nuw [0 x %struct.Point], ptr %32, i64 0, i64 %indvars.iv39
+  %45 = getelementptr inbounds nuw %struct.Point, ptr %32, i64 %indvars.iv39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
   br i1 %56, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph34.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph34.split ]
-  %46 = getelementptr inbounds nuw [0 x %struct.Point], ptr %40, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.Point, ptr %40, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %47 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
@@ -12113,7 +12115,7 @@ box_ov.exit:                                      ; preds = %18
   %indvars.iv39.ph = phi i64 [ %indvars.iv.next40, %._crit_edge ], [ 0, %.lr.ph34 ]
   %53 = add i32 %.ph54, -1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [0 x %struct.Point], ptr %40, i64 0, i64 %54
+  %55 = getelementptr inbounds %struct.Point, ptr %40, i64 %54
   %56 = icmp slt i32 %.ph54, 1
   %57 = sext i32 %.ph to i64
   br label %.lr.ph34.split
@@ -12204,7 +12206,7 @@ box_contain_box.exit.i:                           ; preds = %24
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [0 x %struct.Point], ptr %38, i64 0, i64 %42
+  %43 = getelementptr inbounds %struct.Point, ptr %38, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %43, i64 16, i1 false)
   %44 = icmp sgt i32 %40, 0
   br i1 %44, label %.lr.ph.i, label %poly_contain_poly.exit
@@ -12215,7 +12217,7 @@ box_contain_box.exit.i:                           ; preds = %24
 
 46:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %47 = getelementptr inbounds nuw [0 x %struct.Point], ptr %38, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw %struct.Point, ptr %38, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull readonly align 8 dereferenceable(16) %47, i64 16, i1 false)
   %48 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %2, ptr noundef %45, ptr noundef readonly %6, i32 noundef 0)
   br i1 %48, label %49, label %poly_contain_poly.exit
@@ -12307,7 +12309,7 @@ box_contain_box.exit.i:                           ; preds = %24
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [0 x %struct.Point], ptr %38, i64 0, i64 %42
+  %43 = getelementptr inbounds %struct.Point, ptr %38, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %43, i64 16, i1 false)
   %44 = icmp sgt i32 %40, 0
   br i1 %44, label %.lr.ph.i, label %poly_contain_poly.exit
@@ -12318,7 +12320,7 @@ box_contain_box.exit.i:                           ; preds = %24
 
 46:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %47 = getelementptr inbounds nuw [0 x %struct.Point], ptr %38, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw %struct.Point, ptr %38, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull readonly align 8 dereferenceable(16) %47, i64 16, i1 false)
   %48 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %2, ptr noundef %45, ptr noundef readonly %10, i32 noundef 0)
   br i1 %48, label %49, label %poly_contain_poly.exit
@@ -12446,8 +12448,8 @@ define dso_local i64 @poly_distance(ptr noundef captures(none) %0) local_unnamed
   %.033. = select i1 %.not70, i32 %28, i32 %31
   %.031 = add i32 %.033., -1
   %32 = sext i32 %.031 to i64
-  %33 = getelementptr inbounds [0 x %struct.Point], ptr %18, i64 0, i64 %32
-  %34 = getelementptr inbounds nuw [0 x %struct.Point], ptr %18, i64 0, i64 %indvars.iv61
+  %33 = getelementptr inbounds %struct.Point, ptr %18, i64 %32
+  %34 = getelementptr inbounds nuw %struct.Point, ptr %18, i64 %indvars.iv61
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = trunc nuw i8 %.03553 to i1
@@ -12471,8 +12473,8 @@ define dso_local i64 @poly_distance(ptr noundef captures(none) %0) local_unnamed
   %44 = load double, ptr %36, align 8
   store double %44, ptr %21, align 8
   %45 = sext i32 %.0 to i64
-  %46 = getelementptr inbounds [0 x %struct.Point], ptr %22, i64 0, i64 %45
-  %47 = getelementptr inbounds nuw [0 x %struct.Point], ptr %22, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds %struct.Point, ptr %22, i64 %45
+  %47 = getelementptr inbounds nuw %struct.Point, ptr %22, i64 %indvars.iv
   %48 = load double, ptr %46, align 8
   store double %48, ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -13827,9 +13829,9 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw [0 x %struct.Point], ptr %45, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %struct.Point, ptr %45, i64 %indvars.iv
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds nuw [0 x %struct.Point], ptr %46, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.Point, ptr %46, i64 %indvars.iv
   store double %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load double, ptr %55, align 8
@@ -13843,13 +13845,13 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
 
 61:                                               ; preds = %.lr.ph54, %61
   %indvars.iv56 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next57, %61 ]
-  %62 = getelementptr inbounds nuw [0 x %struct.Point], ptr %49, i64 0, i64 %indvars.iv56
+  %62 = getelementptr inbounds nuw %struct.Point, ptr %49, i64 %indvars.iv56
   %63 = load double, ptr %62, align 8
   %64 = load i32, ptr %18, align 4
   %65 = trunc nuw nsw i64 %indvars.iv56 to i32
   %66 = add i32 %64, %65
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [0 x %struct.Point], ptr %50, i64 0, i64 %67
+  %68 = getelementptr inbounds %struct.Point, ptr %50, i64 %67
   store double %63, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %70 = load double, ptr %69, align 8
@@ -13897,7 +13899,7 @@ define dso_local i64 @path_add_pt(ptr noundef readonly captures(none) %0) local_
 
 14:                                               ; preds = %.lr.ph, %point_add_point.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %point_add_point.exit ]
-  %15 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %8, align 8
   %18 = fadd double %16, %17
@@ -13972,7 +13974,7 @@ define dso_local i64 @path_sub_pt(ptr noundef readonly captures(none) %0) local_
 
 14:                                               ; preds = %.lr.ph, %point_sub_point.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %point_sub_point.exit ]
-  %15 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %8, align 8
   %18 = fsub double %16, %17
@@ -14045,7 +14047,7 @@ define dso_local i64 @path_mul_pt(ptr noundef readonly captures(none) %0) local_
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv
   tail call fastcc void @point_mul_point(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %9, align 4
@@ -14078,7 +14080,7 @@ define dso_local i64 @path_div_pt(ptr noundef readonly captures(none) %0) local_
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.Point, ptr %12, i64 %indvars.iv
   tail call fastcc void @point_div_point(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %9, align 4
@@ -14139,9 +14141,9 @@ define dso_local noundef i64 @path_poly(ptr noundef readonly captures(none) %0) 
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw [0 x %struct.Point], ptr %27, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.Point, ptr %27, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds nuw [0 x %struct.Point], ptr %28, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.Point, ptr %28, i64 %indvars.iv
   store double %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load double, ptr %33, align 8
@@ -14171,7 +14173,7 @@ define dso_local noundef i64 @path_poly(ptr noundef readonly captures(none) %0) 
   %.03247.i = phi double [ %40, %.lr.ph.preheader.i ], [ %.133.i, %float8_lt.exit39.thread.i ]
   %.03446.i = phi double [ %42, %.lr.ph.preheader.i ], [ %.135.i, %float8_lt.exit39.thread.i ]
   %.03645.i = phi double [ %40, %.lr.ph.preheader.i ], [ %.137.i, %float8_lt.exit39.thread.i ]
-  %43 = getelementptr inbounds nuw [0 x %struct.Point], ptr %39, i64 0, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw %struct.Point, ptr %39, i64 %indvars.iv.i
   %44 = load double, ptr %43, align 8
   %45 = fcmp uno double %44, 0.000000e+00
   br i1 %45, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
@@ -14280,7 +14282,7 @@ define internal fastcc void @poly_to_circle(ptr noundef writeonly captures(none)
   %10 = phi double [ 0.000000e+00, %.lr.ph ], [ %25, %point_add_point.exit ]
   %11 = phi double [ 0.000000e+00, %.lr.ph ], [ %14, %point_add_point.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %point_add_point.exit ]
-  %12 = getelementptr inbounds nuw [0 x %struct.Point], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.Point, ptr %8, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fadd double %11, %13
   %15 = tail call double @llvm.fabs.f64(double %14)
@@ -14430,7 +14432,7 @@ float8_div.exit28:                                ; preds = %71, %73
 79:                                               ; preds = %.lr.ph45, %float8_pl.exit
   %80 = phi double [ 0.000000e+00, %.lr.ph45 ], [ %119, %float8_pl.exit ]
   %indvars.iv51 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next52, %float8_pl.exit ]
-  %81 = getelementptr inbounds nuw [0 x %struct.Point], ptr %78, i64 0, i64 %indvars.iv51
+  %81 = getelementptr inbounds nuw %struct.Point, ptr %78, i64 %indvars.iv51
   %82 = load double, ptr %81, align 8
   %83 = fsub double %82, %45
   %84 = tail call double @llvm.fabs.f64(double %83)
@@ -14716,9 +14718,9 @@ define dso_local noundef i64 @poly_path(ptr noundef readonly captures(none) %0) 
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [0 x %struct.Point], ptr %19, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct.Point, ptr %19, i64 %indvars.iv
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds nuw [0 x %struct.Point], ptr %20, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.Point, ptr %20, i64 %indvars.iv
   store double %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load double, ptr %25, align 8
@@ -18169,7 +18171,7 @@ float8_mul.exit36:                                ; preds = %66, %68
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit36, %75
-  %79 = getelementptr inbounds nuw [0 x %struct.Point], ptr %41, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %struct.Point, ptr %41, i64 %indvars.iv
   store double %72, ptr %79, align 8
   %80 = load double, ptr %42, align 8
   %81 = load double, ptr %8, align 8
@@ -18247,7 +18249,7 @@ float8_div.exit._crit_edge:                       ; preds = %float8_pl.exit
   %.03247.i = phi double [ %107, %.lr.ph.preheader.i ], [ %.133.i, %float8_lt.exit39.thread.i ]
   %.03446.i = phi double [ %109, %.lr.ph.preheader.i ], [ %.135.i, %float8_lt.exit39.thread.i ]
   %.03645.i = phi double [ %107, %.lr.ph.preheader.i ], [ %.137.i, %float8_lt.exit39.thread.i ]
-  %111 = getelementptr inbounds nuw [0 x %struct.Point], ptr %106, i64 0, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw %struct.Point, ptr %106, i64 %indvars.iv.i
   %112 = load double, ptr %111, align 8
   %113 = fcmp uno double %112, 0.000000e+00
   br i1 %113, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
@@ -18469,7 +18471,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   %. = select i1 %11, i32 %13, i32 %3
   %14 = add i32 %., -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [0 x %struct.Point], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds %struct.Point, ptr %10, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = icmp slt i32 %3, %13
@@ -18493,7 +18495,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   br label %24
 
 24:                                               ; preds = %23, %21
-  %25 = getelementptr inbounds [0 x %struct.Point], ptr %10, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds %struct.Point, ptr %10, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   %26 = call fastcc zeroext i1 @lseg_contain_point(ptr noundef nonnull %5, ptr noundef nonnull %6)
   %27 = call fastcc zeroext i1 @lseg_contain_point(ptr noundef nonnull %5, ptr noundef nonnull %9)

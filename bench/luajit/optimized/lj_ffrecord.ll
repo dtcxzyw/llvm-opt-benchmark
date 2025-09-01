@@ -134,7 +134,7 @@ define hidden void @lj_ffrecord_func(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = zext i8 %.val to i64
-  %9 = getelementptr inbounds nuw [223 x i16], ptr @recff_idmap, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr @recff_idmap, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !28
   %11 = zext i16 %10 to i32
   br label %recdef_lookup.exit
@@ -160,7 +160,7 @@ recdef_lookup.exit:                               ; preds = %1, %7
   store i32 0, ptr %24, align 4, !tbaa !39
   %25 = lshr i32 %.0.i, 8
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [76 x ptr], ptr @recff_func, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr @recff_func, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !40
   call void %28(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   %29 = load i64, ptr %14, align 8, !tbaa !32
@@ -281,7 +281,7 @@ define internal void @recff_type(ptr noundef %0, ptr noundef readonly captures(n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = getelementptr inbounds nuw [1 x %union.TValue], ptr %9, i64 0, i64 %.0
+  %10 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %.0
   %11 = load i64, ptr %10, align 8, !tbaa !4
   %12 = and i64 %11, 140737488355327
   %13 = inttoptr i64 %12 to ptr
@@ -3708,7 +3708,7 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %13 = icmp ult i64 %12, -13
   %14 = sub nsw i64 21, %12
   %spec.select = select i1 %13, i64 35, i64 %14
-  %15 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %9, i64 0, i64 %spec.select
+  %15 = getelementptr inbounds nuw %struct.GCRef, ptr %9, i64 %spec.select
   %16 = load i64, ptr %15, align 8, !tbaa !65
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %20, label %17

@@ -69,7 +69,7 @@ define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
 
 18:                                               ; preds = %14
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %19, i32 2
+  %20 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %19, i32 2
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %25

@@ -168382,7 +168382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
 
 switch.lookup:                                    ; preds = %2
   %20 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN7testing8internal18TuplePrefixPrinterILm2EE13PrintPrefixToISt5tupleIJSt8functionIFbRKN2cv3MatES9_EENS6_8CmpTypesENS6_5Size_IiEEN4perf7MatTypeESt6vectorINS6_11GCompileArgESaISI_EEEEEEvRKT_PSo, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7testing8internal18TuplePrefixPrinterILm2EE13PrintPrefixToISt5tupleIJSt8functionIFbRKN2cv3MatES9_EENS6_8CmpTypesENS6_5Size_IiEEN4perf7MatTypeESt6vectorINS6_11GCompileArgESaISI_EEEEEEvRKT_PSo, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load, i64 noundef 6)
   ret void

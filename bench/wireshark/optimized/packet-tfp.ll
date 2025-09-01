@@ -165,7 +165,7 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr noundef read
 
 ._crit_edge.thread.i:                             ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr [59 x i8], ptr @BASE58_ALPHABET, i64 0, i64 %8
+  %9 = getelementptr i8, ptr @BASE58_ALPHABET, i64 %8
   %10 = load i8, ptr %9, align 1
   store i8 %10, ptr %4, align 1
   br label %.lr.ph26.preheader.i
@@ -175,10 +175,10 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr noundef read
   %.01920.i = phi i32 [ %17, %.lr.ph.i ], [ %6, %3 ]
   %11 = urem i32 %.01920.i, 58
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [59 x i8], ptr @BASE58_ALPHABET, i64 0, i64 %12
+  %13 = getelementptr i8, ptr @BASE58_ALPHABET, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = sext i32 %.01821.i to i64
-  %16 = getelementptr [13 x i8], ptr %4, i64 0, i64 %15
+  %16 = getelementptr i8, ptr %4, i64 %15
   store i8 %14, ptr %16, align 1
   %17 = udiv i32 %.01920.i, 58
   %18 = add i32 %.01821.i, 1
@@ -187,10 +187,10 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr noundef read
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr [59 x i8], ptr @BASE58_ALPHABET, i64 0, i64 %20
+  %21 = getelementptr i8, ptr @BASE58_ALPHABET, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = sext i32 %18 to i64
-  %24 = getelementptr [13 x i8], ptr %4, i64 0, i64 %23
+  %24 = getelementptr i8, ptr %4, i64 %23
   store i8 %22, ptr %24, align 1
   %.not23.i = icmp slt i32 %18, 0
   br i1 %.not23.i, label %.lr.ph29.preheader.i, label %.lr.ph26.preheader.i
@@ -220,7 +220,7 @@ define internal fastcc void @dissect_tfp_common(ptr noundef %0, ptr noundef read
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = sub i32 %.018.lcssa40.i, %29
   %31 = sext i32 %30 to i64
-  %32 = getelementptr [13 x i8], ptr %4, i64 0, i64 %31
+  %32 = getelementptr i8, ptr %4, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr i8, ptr %5, i64 %indvars.iv.i
   store i8 %33, ptr %34, align 1

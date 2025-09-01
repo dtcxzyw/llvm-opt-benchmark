@@ -79,7 +79,7 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
 
 23:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %24 = getelementptr inbounds nuw [4096 x %struct.StreamParams], ptr %17, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.StreamParams, ptr %17, i64 %indvars.iv
   %25 = tail call i32 @avio_rl32(ptr noundef %5) #7
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 %25, ptr %26, align 4, !tbaa !27
@@ -136,10 +136,10 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
 
 switch.lookup:                                    ; preds = %._crit_edge
   %47 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.laf_read_header, i64 0, i64 %47
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.laf_read_header, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %48 = zext nneg i32 %9 to i64
-  %switch.gep147 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.laf_read_header.1, i64 0, i64 %48
+  %switch.gep147 = getelementptr inbounds nuw i32, ptr @switch.table.laf_read_header.1, i64 %48
   %switch.load148 = load i32, ptr %switch.gep147, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %49, align 8, !tbaa !38
@@ -175,7 +175,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   br i1 %.not122.not, label %.critedge, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw [4096 x %struct.StreamParams], ptr %62, i64 0, i64 %indvars.iv137
+  %66 = getelementptr inbounds nuw %struct.StreamParams, ptr %62, i64 %indvars.iv137
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -284,7 +284,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   %.0147185 = phi i32 [ 0, %.lr.ph ], [ %.1148.lcssa, %.critedge ]
   %.0149184 = phi i32 [ 0, %.lr.ph ], [ %.1150.lcssa, %.critedge ]
   %.0152183 = phi i32 [ 0, %.lr.ph ], [ %.1153.lcssa, %.critedge ]
-  %33 = getelementptr inbounds nuw [512 x i8], ptr %16, i64 0, i64 %indvars.iv227
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv227
   %34 = load i8, ptr %33, align 1, !tbaa !34
   %35 = sext i32 %.0147185 to i64
   %36 = tail call i32 @llvm.usub.sat.i32(i32 %31, i32 %.0152183)
@@ -357,11 +357,11 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   %61 = zext i32 %.promoted to i64
   %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !61
-  %.idx164187 = mul nuw nsw i64 %61, 40
-  %64 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx164187
+  %.idx166187 = mul nuw nsw i64 %61, 40
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx166187
   %65 = load i32, ptr %64, align 4, !tbaa !65
-  %.not165188 = icmp eq i32 %65, 0
-  br i1 %.not165188, label %.lr.ph190, label %._crit_edge191
+  %.not164188 = icmp eq i32 %65, 0
+  br i1 %.not164188, label %.lr.ph190, label %._crit_edge191
 
 .lr.ph190:                                        ; preds = %59
   %66 = load i32, ptr %15, align 4, !tbaa !58
@@ -371,17 +371,17 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
 
 68:                                               ; preds = %72
   %69 = zext i32 %74 to i64
-  %.idx164 = mul nuw nsw i64 %69, 40
-  %70 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx164
+  %.idx166 = mul nuw nsw i64 %69, 40
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx166
   %71 = load i32, ptr %70, align 4, !tbaa !65
-  %.not165 = icmp eq i32 %71, 0
-  br i1 %.not165, label %72, label %._crit_edge194, !llvm.loop !67
+  %.not164 = icmp eq i32 %71, 0
+  br i1 %.not164, label %72, label %._crit_edge194, !llvm.loop !67
 
 72:                                               ; preds = %.lr.ph190, %68
   %73 = phi i32 [ %.promoted, %.lr.ph190 ], [ %74, %68 ]
   %74 = add i32 %73, 1
-  %.not166 = icmp ult i32 %74, %66
-  br i1 %.not166, label %68, label %.loopexit175
+  %.not165 = icmp ult i32 %74, %66
+  br i1 %.not165, label %68, label %.loopexit175
 
 ._crit_edge194:                                   ; preds = %68
   store i32 %74, ptr %14, align 8, !tbaa !38

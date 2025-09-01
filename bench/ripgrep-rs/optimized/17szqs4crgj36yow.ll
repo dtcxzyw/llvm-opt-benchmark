@@ -128,7 +128,7 @@ define void @_ZN12grep_printer5jsont15base64_standard17h771c5c278aa03829E(ptr no
   %36 = and i64 %35, 63
   %37 = and i64 %31, 63
   %38 = lshr i64 %22, 2
-  %39 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %38
   %40 = load i8, ptr %39, align 1, !noundef !5
   %41 = icmp sgt i8 %40, -1
   br i1 %41, label %42, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
@@ -192,7 +192,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit: ; preds = %"_ZN5alloc3vec
   %63 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !32, !noundef !5
   %64 = add i64 %63, %.sink175
   store i64 %64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !32
-  %65 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %34
+  %65 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %34
   %66 = load i8, ptr %65, align 1, !noundef !5
   %67 = icmp sgt i8 %66, -1
   br i1 %67, label %68, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i12
@@ -256,7 +256,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit23: ; preds = %"_ZN5alloc3v
   %89 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !48, !noundef !5
   %90 = add i64 %89, %.sink176
   store i64 %90, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !48
-  %91 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %36
+  %91 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %36
   %92 = load i8, ptr %91, align 1, !noundef !5
   %93 = icmp sgt i8 %92, -1
   br i1 %93, label %94, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i24
@@ -320,7 +320,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit35: ; preds = %"_ZN5alloc3v
   %115 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !64, !noundef !5
   %116 = add i64 %115, %.sink177
   store i64 %116, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !64
-  %117 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %37
+  %117 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %37
   %118 = load i8, ptr %117, align 1, !noundef !5
   %119 = icmp sgt i8 %118, -1
   br i1 %119, label %120, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i36
@@ -408,7 +408,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit47: ; preds = %"_ZN5alloc3v
   %152 = shl nuw nsw i64 %151, 4
   %153 = and i64 %152, 48
   %154 = lshr i64 %151, 2
-  %155 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %154
   %156 = load i8, ptr %155, align 1, !noundef !5
   %157 = icmp sgt i8 %156, -1
   br i1 %157, label %158, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i48
@@ -472,7 +472,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit59: ; preds = %"_ZN5alloc3v
   %179 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !96, !noundef !5
   %180 = add i64 %179, %.sink182
   store i64 %180, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !96
-  %181 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %153
+  %181 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %153
   %182 = load i8, ptr %181, align 1, !noundef !5
   %183 = icmp sgt i8 %182, -1
   br i1 %183, label %184, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i60
@@ -581,7 +581,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit71: ; preds = %"_ZN5alloc3v
   %229 = shl nuw nsw i64 %225, 2
   %230 = and i64 %229, 60
   %231 = lshr i64 %223, 2
-  %232 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %231
   %233 = load i8, ptr %232, align 1, !noundef !5
   %234 = icmp sgt i8 %233, -1
   br i1 %234, label %235, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i80
@@ -645,7 +645,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit91: ; preds = %"_ZN5alloc3v
   %256 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !138, !noundef !5
   %257 = add i64 %256, %.sink184
   store i64 %257, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !138
-  %258 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %228
+  %258 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %228
   %259 = load i8, ptr %258, align 1, !noundef !5
   %260 = icmp sgt i8 %259, -1
   br i1 %260, label %261, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i92
@@ -709,7 +709,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit103: ; preds = %"_ZN5alloc3
   %282 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !154, !noundef !5
   %283 = add i64 %282, %.sink185
   store i64 %283, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !154
-  %284 = getelementptr inbounds nuw [0 x i8], ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 0, i64 %230
+  %284 = getelementptr inbounds nuw i8, ptr @anon.02254b2e3597816bca4b7a0269d1c9ae.26, i64 %230
   %285 = load i8, ptr %284, align 1, !noundef !5
   %286 = icmp sgt i8 %285, -1
   br i1 %286, label %287, label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i104

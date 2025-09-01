@@ -2373,7 +2373,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %51, %49 ], [ %53, %54 ]
   %indvars.iv.i.i = phi i64 [ 0, %49 ], [ 1, %54 ]
   %.078.i.i = phi i32 [ 0, %49 ], [ %59, %54 ]
-  %56 = getelementptr inbounds nuw [2 x i32], ptr %35, i64 0, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i
   %57 = load i32, ptr %56, align 4
   %58 = mul nsw i32 %57, %.078.i.i
   %59 = add nsw i32 %58, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -2402,7 +2402,7 @@ _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10ope
   %indvars.iv.i.i8.sroa.phi.sroa.speculated = phi i32 [ %65, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %67, %68 ]
   %indvars.iv.i.i8 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ 1, %68 ]
   %.078.i.i9 = phi i32 [ 0, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ], [ %73, %68 ]
-  %70 = getelementptr inbounds nuw [2 x i32], ptr %35, i64 0, i64 %indvars.iv.i.i8
+  %70 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i8
   %71 = load i32, ptr %70, align 4
   %72 = mul nsw i32 %71, %.078.i.i9
   %73 = add nsw i32 %72, %indvars.iv.i.i8.sroa.phi.sroa.speculated

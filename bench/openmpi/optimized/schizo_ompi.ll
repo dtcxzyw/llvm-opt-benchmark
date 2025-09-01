@@ -818,7 +818,7 @@ define internal range(i32 -13, 1) i32 @parse_env(ptr readnone captures(none) %0,
 
 17:                                               ; preds = %3
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %18, i32 2
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %24
@@ -2464,7 +2464,7 @@ define internal range(i32 0, 101) i32 @detect_proxy(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4, !tbaa !42
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %15
@@ -6328,7 +6328,7 @@ sub_1857:                                         ; preds = %sub_0856
 
 1493:                                             ; preds = %1488
   %1494 = zext nneg i32 %1492 to i64
-  %1495 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %1494, i32 2
+  %1495 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %1494, i32 2
   %1496 = load i32, ptr %1495, align 4, !tbaa !42
   %1497 = icmp sgt i32 %1496, 0
   br i1 %1497, label %1498, label %1500

@@ -859,7 +859,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %18 = and i32 %17, 255
   %19 = add nsw i32 %18, -126
   %20 = select i1 %15, i32 0, i32 %19
-  %21 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.07998.us
+  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %.07998.us
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %..us = tail call i32 @llvm.smax.i32(i32 %22, i32 %20)
   store i32 %..us, ptr %21, align 4, !tbaa !20
@@ -874,7 +874,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.097 = phi i64 [ %26, %.lr.ph ], [ 0, %6 ]
-  %25 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.097
+  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %.097
   store i32 -100, ptr %25, align 4, !tbaa !20
   %26 = add nuw nsw i64 %.097, 1
   %exitcond.not = icmp eq i64 %26, %8
@@ -942,7 +942,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %49 = tail call i32 @llvm.umax.i32(i32 %48, i32 26)
   %50 = add nsw i32 %49, -126
   %51 = select i1 %45, i32 0, i32 %50
-  %52 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.082104
+  %52 = getelementptr inbounds nuw i32, ptr %7, i64 %.082104
   store i32 %51, ptr %52, align 4, !tbaa !20
   %53 = add nuw nsw i64 %.082104, 1
   %exitcond128.not = icmp eq i64 %53, %8
@@ -958,7 +958,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   %59 = and i32 %58, 255
   %60 = tail call i32 @llvm.usub.sat.i32(i32 %59, i32 126)
   %61 = select i1 %56, i32 0, i32 %60
-  %62 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.080102
+  %62 = getelementptr inbounds nuw i32, ptr %7, i64 %.080102
   store i32 %61, ptr %62, align 4, !tbaa !20
   %63 = add nuw nsw i64 %.080102, 1
   %exitcond127.not = icmp eq i64 %63, %8
@@ -981,7 +981,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %27, label %68, label %65
 
 65:                                               ; preds = %.lr.ph110
-  %66 = getelementptr inbounds nuw [64 x i32], ptr %7, i64 0, i64 %.078109
+  %66 = getelementptr inbounds nuw i32, ptr %7, i64 %.078109
   %67 = load i32, ptr %66, align 4, !tbaa !20
   br label %68
 

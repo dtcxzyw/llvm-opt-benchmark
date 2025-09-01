@@ -39,28 +39,28 @@ define range(i32 -22, 1) i32 @av_sha512_init(ptr noundef writeonly captures(none
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext nneg i32 %6 to i64
-  %switch.gep51 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.1, i64 0, i64 %9
+  %switch.gep51 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.1, i64 %9
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   %10 = zext nneg i32 %6 to i64
-  %switch.gep53 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.2, i64 0, i64 %10
+  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.2, i64 %10
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %11 = zext nneg i32 %6 to i64
-  %switch.gep55 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.3, i64 0, i64 %11
+  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.3, i64 %11
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   %12 = zext nneg i32 %6 to i64
-  %switch.gep57 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.4, i64 0, i64 %12
+  %switch.gep57 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.4, i64 %12
   %switch.load58 = load i64, ptr %switch.gep57, align 8
   %13 = zext nneg i32 %6 to i64
-  %switch.gep59 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.5, i64 0, i64 %13
+  %switch.gep59 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.5, i64 %13
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   %14 = zext nneg i32 %6 to i64
-  %switch.gep61 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.6, i64 0, i64 %14
+  %switch.gep61 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.6, i64 %14
   %switch.load62 = load i64, ptr %switch.gep61, align 8
   %15 = zext nneg i32 %6 to i64
-  %switch.gep63 = getelementptr inbounds nuw [10 x i64], ptr @switch.table.av_sha512_init.7, i64 0, i64 %15
+  %switch.gep63 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.7, i64 %15
   %switch.load64 = load i64, ptr %switch.gep63, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %switch.load, ptr %16, align 8, !tbaa !9
@@ -103,7 +103,7 @@ define void @av_sha512_update(ptr noundef captures(none) %0, ptr noundef readonl
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = and i64 %5, 127
-  %14 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %10, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call fastcc void @sha512_transform(ptr noundef nonnull %15, ptr noundef nonnull %12)
@@ -128,7 +128,7 @@ define void @av_sha512_update(ptr noundef captures(none) %0, ptr noundef readonl
   %.0 = phi ptr [ %1, %3 ], [ %16, %11 ], [ %21, %.lr.ph ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = zext nneg i32 %.027 to i64
-  %25 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %.0, i64 %.026, i1 false)
   ret void
 }
@@ -2990,7 +2990,7 @@ define void @av_sha512_final(ptr noundef captures(none) %0, ptr noundef writeonl
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = and i64 %5, 127
-  %14 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   store i8 -128, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call fastcc void @sha512_transform(ptr noundef nonnull %15, ptr noundef nonnull %12)
@@ -3004,7 +3004,7 @@ av_sha512_update.exit:                            ; preds = %11, %2
   %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = zext nneg i32 %.027.i to i64
-  %19 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.0.i, i64 %.026.i, i1 false)
   %20 = and i64 %16, 127
   %.not38 = icmp eq i64 %20, 112
@@ -3025,7 +3025,7 @@ av_sha512_update.exit:                            ; preds = %11, %2
   br i1 %.not.i13.not, label %28, label %av_sha512_update.exit20
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %23
   store i8 0, ptr %29, align 1
   tail call fastcc void @sha512_transform(ptr noundef nonnull %21, ptr noundef nonnull %17)
   %.pre49 = load i64, ptr %4, align 8, !tbaa !10
@@ -3037,7 +3037,7 @@ av_sha512_update.exit20:                          ; preds = %28, %22
   %.026.i18 = phi i64 [ 1, %22 ], [ 0, %28 ]
   %.0.i19 = phi ptr [ @.str.1, %22 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %28 ]
   %31 = zext nneg i32 %.027.i17 to i64
-  %32 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %.0.i19, i64 %.026.i18, i1 false)
   %33 = and i64 %30, 127
   %.not = icmp eq i64 %33, 112
@@ -3059,7 +3059,7 @@ av_sha512_update.exit28:                          ; preds = %av_sha512_update.ex
   %40 = sub nuw nsw i32 128, %37
   %41 = zext nneg i32 %40 to i64
   %42 = and i64 %34, 127
-  %43 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull readonly align 8 dereferenceable(1) %3, i64 %41, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call fastcc void @sha512_transform(ptr noundef nonnull %44, ptr noundef nonnull %17)
@@ -3072,7 +3072,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
   %.026.i34 = phi i64 [ 8, %av_sha512_update.exit28 ], [ %46, %39 ]
   %.0.i35 = phi ptr [ %3, %av_sha512_update.exit28 ], [ %45, %39 ]
   %47 = zext nneg i32 %.027.i33 to i64
-  %48 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %.0.i35, i64 %.026.i34, i1 false)
   %49 = load i8, ptr %0, align 8, !tbaa !4
   %.not45 = icmp eq i8 %49, 0
@@ -3084,7 +3084,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
 
 51:                                               ; preds = %.lr.ph41, %51
   %storemerge40 = phi i64 [ 0, %.lr.ph41 ], [ %57, %51 ]
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %50, i64 0, i64 %storemerge40
+  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %storemerge40
   %53 = load i64, ptr %52, align 8, !tbaa !9
   %54 = tail call noundef i64 @llvm.bswap.i64(i64 %53)
   %55 = shl nuw nsw i64 %storemerge40, 3
@@ -3103,7 +3103,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
 
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %65 = getelementptr inbounds nuw [8 x i64], ptr %64, i64 0, i64 %57
+  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %57
   %66 = load i64, ptr %65, align 8, !tbaa !9
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32

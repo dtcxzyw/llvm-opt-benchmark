@@ -1004,8 +1004,8 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
 
 34:                                               ; preds = %.lr.ph, %34
   %.048 = phi i64 [ 0, %.lr.ph ], [ %39, %34 ]
-  %35 = getelementptr inbounds nuw [109 x %"struct.std::atomic"], ptr %26, i64 0, i64 %.048
-  %36 = getelementptr inbounds nuw [109 x %"struct.std::atomic"], ptr %27, i64 0, i64 %.048
+  %35 = getelementptr inbounds nuw %"struct.std::atomic", ptr %26, i64 %.048
+  %36 = getelementptr inbounds nuw %"struct.std::atomic", ptr %27, i64 %.048
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %38 = atomicrmw sub ptr %35, i64 %37 monotonic, align 8
   %39 = add nuw i64 %.048, 1

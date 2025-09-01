@@ -1890,8 +1890,8 @@ define hidden void @"_ZN89_$LT$sec1..point..EncodedPoint$LT$Size$GT$$u20$as$u20$
   %.sroa.0.0.idx23 = phi i64 [ 0, %4 ], [ %.sroa.0.0.add, %8 ]
   %.sroa.0.0.ptr24 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.0.0.idx23
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx23, 1
-  %9 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %.sroa.0.0.idx23
-  %10 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %.sroa.0.0.idx23
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0.0.idx23
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0.0.idx23
   %11 = load i8, ptr %9, align 1, !noundef !4
   %12 = load i8, ptr %10, align 1, !noundef !4
   %13 = xor i8 %12, %11

@@ -138,7 +138,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   %14 = phi i1 [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %4 ]
   %15 = phi i64 [ 5, %7 ], [ 4, %8 ], [ 3, %9 ], [ 2, %10 ], [ 1, %11 ], [ 0, %12 ], [ 6, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ConstPool::Tree", ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = load ptr, ptr %17, align 8, !tbaa !13
@@ -155,7 +155,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 26:                                               ; preds = %.preheader25
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -167,7 +167,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 34:                                               ; preds = %.loopexit26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %36 = getelementptr inbounds nuw [7 x ptr], ptr %35, i64 0, i64 %15
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %38 = load ptr, ptr %36, align 8, !tbaa !12
   %39 = icmp eq ptr %38, null
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   br i1 %121, label %.loopexit22, label %122
 
 122:                                              ; preds = %.preheader23
-  %123 = getelementptr inbounds [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %16, i64 0, i64 %120
+  %123 = getelementptr inbounds %"struct.asmjit::_abi_1_10::ConstPool::Tree", ptr %16, i64 %120
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = add nuw i64 %119, 24
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -341,7 +341,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 137:                                              ; preds = %.preheader
   %138 = lshr i32 %135, 31
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [2 x i64], ptr %133, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %133, i64 %139
   %141 = load i64, ptr %140, align 8, !tbaa !14
   %142 = and i64 %141, -2
   %143 = inttoptr i64 %142 to ptr
@@ -531,7 +531,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
 
 67:                                               ; preds = %64, %62
   %68 = phi ptr [ %42, %62 ], [ %65, %64 ]
-  %69 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %40
+  %69 = getelementptr inbounds nuw ptr, ptr %7, i64 %40
   %70 = load ptr, ptr %69, align 8, !tbaa !12
   store ptr %70, ptr %68, align 8, !tbaa !23
   store ptr %68, ptr %69, align 8, !tbaa !12
@@ -563,7 +563,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr noundef nonnu
 8:                                                ; preds = %50, %2
   %9 = phi i64 [ 0, %2 ], [ %52, %50 ]
   %10 = phi i64 [ 1, %2 ], [ %51, %50 ]
-  %11 = getelementptr inbounds nuw [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %6, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ConstPool::Tree", ptr %6, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %50, label %14
@@ -582,7 +582,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr noundef nonnu
 
 21:                                               ; preds = %15
   %22 = add i64 %16, 1
-  %23 = getelementptr inbounds [62 x ptr], ptr %3, i64 0, i64 %16
+  %23 = getelementptr inbounds ptr, ptr %3, i64 %16
   store ptr %17, ptr %23, align 8, !tbaa !12
   br label %.loopexit, !llvm.loop !40
 
@@ -616,7 +616,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr noundef nonnu
 
 42:                                               ; preds = %40
   %43 = add i64 %24, -1
-  %44 = getelementptr inbounds [62 x ptr], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds ptr, ptr %3, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !12
   br label %.preheader, !llvm.loop !41
 
@@ -684,7 +684,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -752,7 +752,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
-  %71 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
+  %71 = getelementptr inbounds nuw i64, ptr %17, i64 %21
   %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
@@ -761,11 +761,11 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %77 = zext i1 %76 to i64
   %78 = xor i1 %76, true
   %79 = zext i1 %78 to i64
-  %80 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %16, i64 %79
   %81 = load i64, ptr %80, align 8, !tbaa !14
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds nuw [2 x i64], ptr %83, i64 0, i64 %77
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %77
   %85 = load i64, ptr %84, align 8, !tbaa !14
   %86 = and i64 %85, -2
   br i1 %75, label %87, label %90
@@ -779,7 +779,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %91 = inttoptr i64 %86 to ptr
   %92 = icmp ne i64 %86, 0
   tail call void @llvm.assume(i1 %92)
-  %93 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %79
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %79
   %94 = load i64, ptr %93, align 8, !tbaa !14
   %95 = and i64 %94, -2
   %96 = and i64 %85, 1
@@ -799,7 +799,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %106 = and i64 %105, 1
   %107 = or disjoint i64 %106, %86
   store i64 %107, ptr %80, align 8, !tbaa !14
-  %108 = getelementptr inbounds nuw [2 x i64], ptr %91, i64 0, i64 %77
+  %108 = getelementptr inbounds nuw i64, ptr %91, i64 %77
   %109 = load i64, ptr %108, align 8, !tbaa !14
   %110 = and i64 %109, -2
   %111 = or disjoint i64 %110, %106
@@ -841,7 +841,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %135 = zext nneg i32 %134 to i64
   %136 = icmp eq ptr %16, null
   %137 = select i1 %136, ptr %18, ptr %16
-  %138 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %135
+  %138 = getelementptr inbounds nuw i64, ptr %55, i64 %135
   %139 = load i64, ptr %138, align 8, !tbaa !14
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr

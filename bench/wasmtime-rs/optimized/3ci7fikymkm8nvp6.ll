@@ -735,7 +735,7 @@ common.resume:                                    ; preds = %42, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = zext nneg i8 %31 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i8], ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 %40
   %switch.load = load i8, ptr %switch.gep, align 1
   %41 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %switch.load)
   br label %28
@@ -1014,7 +1014,7 @@ switch.lookup:                                    ; preds = %7
   tail call void %16(ptr noundef nonnull %0, i128 noundef -77335822766367984466326540553322803822), !noalias !96
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i8], ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %18 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %switch.load)
   br label %20
@@ -1113,7 +1113,7 @@ define noundef range(i8 0, 3) i8 @"_ZN13wasmtime_wasi8preview1126_$LT$impl$u20$c
 define noundef range(i8 2, 76) i8 @"_ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Errno$GT$4from17ha393994d6f558195E"(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i8], ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -1205,7 +1205,7 @@ default.unreachable2:                             ; preds = %1
 define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E"(i8 noundef %0) unnamed_addr #1 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [37 x i8], ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E", i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   %2 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %switch.load)
   ret ptr %2

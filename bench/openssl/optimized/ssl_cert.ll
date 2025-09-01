@@ -125,7 +125,7 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
   %12 = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 5)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [6 x i32], ptr @ssl_get_security_level_bits.minbits_table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr @ssl_get_security_level_bits.minbits_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = icmp slt i32 %.0.i, 1
   br i1 %16, label %17, label %20
@@ -2626,7 +2626,7 @@ define i32 @ssl_get_security_level_bits(ptr noundef %0, ptr noundef %1, ptr noun
 
 11:                                               ; preds = %10, %8
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [6 x i32], ptr @ssl_get_security_level_bits.minbits_table, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @ssl_get_security_level_bits.minbits_table, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   ret i32 %14
 }
@@ -2678,7 +2678,7 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 
 8:                                                ; preds = %3, %12
   %.017 = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %9 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %.017
+  %9 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.017
   %10 = load i32, ptr %9, align 8, !tbaa !175
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit.sink.split, label %12
@@ -2730,7 +2730,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 
 7:                                                ; preds = %3, %18
   %.03048 = phi i64 [ 0, %3 ], [ %19, %18 ]
-  %8 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %.03048
+  %8 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.03048
   %9 = load i32, ptr %8, align 8, !tbaa !175
   %10 = tail call ptr @OBJ_nid2sn(i32 noundef %9) #14
   %11 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %10) #14
@@ -2744,7 +2744,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not37, label %18, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %.03048
+  %16 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %.03048
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %.thread, label %17
 
@@ -2825,7 +2825,7 @@ define ptr @ssl_cert_lookup_by_idx(i64 noundef %0, ptr noundef readonly captures
   br label %15
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %0
+  %14 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr @ssl_cert_info, i64 %0
   br label %15
 
 15:                                               ; preds = %2, %13, %8

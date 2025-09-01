@@ -1285,7 +1285,7 @@ _ZN5serde2de9SeqAccess12next_element17he35cd49056eebf93E.exit: ; preds = %21
   br i1 %32, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb30980b00e06a0eE.llvm.1367251721182104800.exit.i", label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }], ptr %29, i64 0, i64 %.sroa.0.0.i.i.i
+  %34 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %29, i64 %.sroa.0.0.i.i.i
   %35 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$settings..keymap_file..KeymapBlock$GT$17h6feca0939f9c20b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %34)
           to label %31 unwind label %38, !noalias !189
@@ -1301,7 +1301,7 @@ _ZN5serde2de9SeqAccess12next_element17he35cd49056eebf93E.exit: ; preds = %21
   br label %36
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }], ptr %29, i64 0, i64 %.sroa.0.1.i.i.i
+  %41 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %29, i64 %.sroa.0.1.i.i.i
   %42 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$settings..keymap_file..KeymapBlock$GT$17h6feca0939f9c20b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %41) #26
           to label %36 unwind label %43, !noalias !189

@@ -4722,7 +4722,7 @@ define dso_local void @replySlotsFlushAndFree(ptr noundef %0, ptr noundef %1) lo
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #16
-  %9 = getelementptr inbounds nuw [0 x %struct.SlotRange], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.SlotRange, ptr %7, i64 %indvars.iv
   %10 = load i16, ptr %9, align 4, !tbaa !147
   %11 = zext i16 %10 to i64
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %11) #16
@@ -4853,7 +4853,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %57, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ %58, %57 ]
-  %59 = getelementptr inbounds [16384 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %59 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1, !tbaa !5
   %.not89 = icmp eq i8 %60, 0
   br i1 %.not89, label %63, label %61
@@ -4891,7 +4891,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not107, label %71, label %82
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw [16384 x i8], ptr %4, i64 0, i64 %indvars.iv118
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv118
   %73 = load i8, ptr %72, align 1, !tbaa !5
   %.not84 = icmp eq i8 %73, 0
   br i1 %.not84, label %74, label %75
@@ -4910,7 +4910,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %78 = getelementptr inbounds nuw i8, ptr %.066104, i64 4
   %79 = load i32, ptr %.066104, align 4, !tbaa !44
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [0 x %struct.SlotRange], ptr %78, i64 0, i64 %80
+  %81 = getelementptr inbounds %struct.SlotRange, ptr %78, i64 %80
   store i16 %77, ptr %81, align 4, !tbaa !147
   br label %97
 
@@ -4982,7 +4982,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 113:                                              ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
   call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #16
-  %114 = getelementptr inbounds nuw [0 x %struct.SlotRange], ptr %112, i64 0, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw %struct.SlotRange, ptr %112, i64 %indvars.iv.i
   %115 = load i16, ptr %114, align 4, !tbaa !147
   %116 = zext i16 %115 to i64
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %116) #16

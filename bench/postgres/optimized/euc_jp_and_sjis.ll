@@ -169,7 +169,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readon
   %.06890.i18 = phi i32 [ %60, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %60 = add i32 %.06890.i18, 1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %61
+  %62 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 65535
@@ -377,7 +377,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %.2.i = phi i32 [ %55, %52 ], [ %.1140.i, %.preheader126.i ]
   %59 = add i32 %.0106139.i, 1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %60
+  %61 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %60
   %62 = load i16, ptr %61, align 8
   %63 = icmp eq i16 %62, -1
   br i1 %63, label %.loopexit127.i, label %.preheader126.i
@@ -530,7 +530,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %.4.i = phi i32 [ %135, %137 ], [ %135, %146 ], [ %.3143.i, %.preheader.i ]
   %155 = add i32 %.1107142.i, 1
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %156
+  %157 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = icmp eq i16 %159, -1
@@ -919,7 +919,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %.2.i = phi i32 [ %51, %48 ], [ %.1162.i, %.preheader148.i ]
   %55 = add i32 %.0119161.i, 1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %56
+  %57 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %56
   %58 = load i16, ptr %57, align 8
   %59 = icmp eq i16 %58, -1
   br i1 %59, label %.loopexit149.i, label %.preheader148.i
@@ -1064,7 +1064,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %.4.i = phi i32 [ %.3165.i, %.preheader.i ], [ %133, %.sink.split.i ]
   %144 = add i32 %.1120164.i, 1
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %145
+  %146 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, -1
@@ -1268,7 +1268,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
   %.07398.i21 = phi i32 [ %86, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %86 = add i32 %.07398.i21, 1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %87
+  %88 = getelementptr inbounds %struct.anon, ptr @ibmkanji, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, 65535

@@ -674,7 +674,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %232 = mul i64 %231, %indvars.iv177
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 %232
   %234 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %233, i64 %indvars.iv174
-  %235 = getelementptr inbounds nuw [3 x i8], ptr %234, i64 0, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 %indvars.iv
   %236 = load i8, ptr %235, align 1, !tbaa !14
   %237 = uitofp i8 %236 to double
   %238 = load i32, ptr %12, align 4, !tbaa !48
@@ -691,7 +691,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %249 = mul i64 %248, %indvars.iv177
   %250 = getelementptr inbounds nuw i8, ptr %246, i64 %249
   %251 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %250, i64 %indvars.iv174
-  %252 = getelementptr inbounds nuw [3 x i8], ptr %251, i64 0, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 %indvars.iv
   store i8 %245, ptr %252, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %253 = load i32, ptr %5, align 8, !tbaa !49

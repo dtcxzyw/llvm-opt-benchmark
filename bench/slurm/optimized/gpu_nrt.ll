@@ -349,7 +349,7 @@ _get_device_name.exit.i:                          ; preds = %58, %50
   %84 = call i64 @strtol(ptr noundef nonnull captures(none) %.02030.i.i, ptr noundef null, i32 noundef 10) #7
   %85 = trunc i64 %84 to i32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %86 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %86 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
   store i32 %85, ptr %86, align 4
   %87 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #7
   %.not23.i.i = icmp eq ptr %87, null

@@ -77,9 +77,9 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
 23:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]
   %.sroa.7.064 = phi i32 [ 0, %20 ], [ %39, %23 ]
-  %24 = getelementptr inbounds nuw [10 x ptr], ptr @ff_lpc_refl_cb, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr @ff_lpc_refl_cb, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !49
-  %26 = getelementptr inbounds nuw [10 x i8], ptr @ra144_decode_frame.sizes, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr @ra144_decode_frame.sizes, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !37
   %28 = zext i8 %27 to i32
   %29 = lshr i32 %.sroa.7.064, 3
@@ -97,7 +97,7 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %41 = getelementptr inbounds nuw i16, ptr %25, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !50
   %43 = sext i16 %42 to i32
-  %44 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %43, ptr %44, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -121,7 +121,7 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %58 = call i32 @llvm.umin.i32(i32 %39, i32 163)
   %59 = add nuw nsw i32 %58, 5
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw [32 x i16], ptr @ff_energy_tab, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i16, ptr @ff_energy_tab, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !50
   %63 = sext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 37812
@@ -156,8 +156,8 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %indvars.iv77 = phi i64 [ 0, %45 ], [ %indvars.iv.next78, %138 ]
   %.05469 = phi ptr [ %21, %45 ], [ %137, %138 ]
   %.sroa.7.168 = phi i32 [ %59, %45 ], [ %140, %138 ]
-  %86 = getelementptr inbounds nuw [4 x [10 x i16]], ptr %6, i64 0, i64 %indvars.iv77
-  %87 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv77
+  %86 = getelementptr inbounds nuw [10 x i16], ptr %6, i64 %indvars.iv77
+  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv77
   %88 = load i32, ptr %87, align 4, !tbaa !36
   %89 = lshr i32 %.sroa.7.168, 3
   %90 = zext nneg i32 %89 to i64
@@ -203,8 +203,8 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
 127:                                              ; preds = %85, %127
   %indvars.iv73 = phi i64 [ 0, %85 ], [ %indvars.iv.next74, %127 ]
   %.15566 = phi ptr [ %.05469, %85 ], [ %137, %127 ]
-  %128 = add nuw nsw i64 %indvars.iv73, 10
-  %129 = getelementptr inbounds nuw [50 x i16], ptr %84, i64 0, i64 %128
+  %128 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv73
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
   %130 = load i16, ptr %129, align 2, !tbaa !50
   %131 = sext i16 %130 to i32
   %132 = shl nsw i32 %131, 2

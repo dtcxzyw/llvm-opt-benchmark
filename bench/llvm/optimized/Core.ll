@@ -2263,7 +2263,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 8
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table.LLVMGetTypeKind, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LLVMGetTypeKind, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3429,7 +3429,7 @@ define dso_local range(i32 0, 28) i32 @LLVMGetValueKind(ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [29 x i32], ptr @switch.table.LLVMGetValueKind, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LLVMGetValueKind, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -7722,9 +7722,9 @@ define dso_local noundef range(i32 1, 69) i32 @LLVMGetConstOpcode(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 1, 69) i32 @_ZL17map_to_llvmopcodei(i32 noundef %0) unnamed_addr #10 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [67 x i32], ptr @switch.table._ZL17map_to_llvmopcodei, i64 0, i64 %1
+  %1 = sext i32 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZL17map_to_llvmopcodei, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -8261,7 +8261,7 @@ switch.lookup:
   %2 = load i32, ptr %1, align 8
   %3 = and i32 %2, 15
   %4 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.LLVMGetLinkage, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.LLVMGetLinkage, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -16209,9 +16209,9 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %5, %9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 1, 68) i32 @_ZL19map_from_llvmopcode10LLVMOpcode(i32 noundef %0) unnamed_addr #10 {
 switch.lookup:
-  %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [68 x i32], ptr @switch.table._ZL19map_from_llvmopcode10LLVMOpcode, i64 0, i64 %1
+  %1 = sext i32 %0 to i64
+  %2 = getelementptr i32, ptr @switch.table._ZL19map_from_llvmopcode10LLVMOpcode, i64 %1
+  %switch.gep = getelementptr i8, ptr %2, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

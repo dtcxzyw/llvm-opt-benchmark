@@ -472,16 +472,16 @@ define internal void @speedhq_init_static_data() #1 {
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %7
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %8
   %9 = zext nneg i32 %.110.i to i64
-  %10 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.1.i, %12
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [12 x i8], ptr @ff_mpeg12_vlc_dc_lum_bits, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @ff_mpeg12_vlc_dc_lum_bits, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %13, %17
-  %19 = getelementptr inbounds nuw [12 x i16], ptr @mpeg12_vlc_dc_lum_code_reversed, i64 0, i64 %14
+  %19 = getelementptr inbounds nuw i16, ptr @mpeg12_vlc_dc_lum_code_reversed, i64 %14
   %20 = load i16, ptr %19, align 2, !tbaa !93
   %21 = zext i16 %20 to i32
   %notmask.i = shl nsw i32 -1, %13
@@ -492,20 +492,20 @@ define internal void @speedhq_init_static_data() #1 {
   %26 = shl i32 %25, 8
   %27 = add nsw i32 %18, %26
   %28 = add nsw i64 %indvars.iv, 255
-  %29 = getelementptr inbounds [512 x i32], ptr @speedhq_lum_dc_uni, i64 0, i64 %28
+  %29 = getelementptr inbounds i32, ptr @speedhq_lum_dc_uni, i64 %28
   store i32 %27, ptr %29, align 4, !tbaa !94
-  %30 = getelementptr inbounds nuw [12 x i8], ptr @ff_mpeg12_vlc_dc_chroma_bits, i64 0, i64 %14
+  %30 = getelementptr inbounds nuw i8, ptr @ff_mpeg12_vlc_dc_chroma_bits, i64 %14
   %31 = load i8, ptr %30, align 1, !tbaa !14
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %13, %32
-  %34 = getelementptr inbounds nuw [12 x i16], ptr @mpeg12_vlc_dc_chroma_code_reversed, i64 0, i64 %14
+  %34 = getelementptr inbounds nuw i16, ptr @mpeg12_vlc_dc_chroma_code_reversed, i64 %14
   %35 = load i16, ptr %34, align 2, !tbaa !93
   %36 = zext i16 %35 to i32
   %37 = shl i32 %23, %32
   %38 = add i32 %37, %36
   %39 = shl i32 %38, 8
   %40 = add nsw i32 %33, %39
-  %41 = getelementptr inbounds [512 x i32], ptr @speedhq_chr_dc_uni, i64 0, i64 %28
+  %41 = getelementptr inbounds i32, ptr @speedhq_chr_dc_uni, i64 %28
   store i32 %40, ptr %41, align 4, !tbaa !94
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -522,7 +522,7 @@ define internal fastcc void @encode_block(ptr noundef captures(none) %0, ptr nou
   %9 = sext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !94
   %14 = sub nsw i32 %13, %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4808
@@ -542,7 +542,7 @@ define internal fastcc void @encode_block(ptr noundef captures(none) %0, ptr nou
   %spec.select.i.i = select i1 %.not.i.i, i32 %21, i32 %23
   %spec.select7.i.i = select i1 %.not.i.i, i32 0, i32 8
   %24 = zext nneg i32 %spec.select.i.i to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %spec.select7.i.i, %27
@@ -557,7 +557,7 @@ define internal fastcc void @encode_block(ptr noundef captures(none) %0, ptr nou
   %spec.select.i31.i = select i1 %.not.i30.i, i32 %31, i32 %33
   %spec.select7.i32.i = select i1 %.not.i30.i, i32 0, i32 8
   %34 = zext nneg i32 %spec.select.i31.i to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %spec.select7.i32.i, %37
@@ -577,11 +577,11 @@ define internal fastcc void @encode_block(ptr noundef captures(none) %0, ptr nou
   br i1 %4, label %47, label %76
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw [12 x i8], ptr @ff_mpeg12_vlc_dc_lum_bits, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw i8, ptr @ff_mpeg12_vlc_dc_lum_bits, i64 %40
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = zext i8 %49 to i32
   %51 = add nuw nsw i32 %.0.i, %50
-  %52 = getelementptr inbounds nuw [12 x i16], ptr @mpeg12_vlc_dc_lum_code_reversed, i64 0, i64 %40
+  %52 = getelementptr inbounds nuw i16, ptr @mpeg12_vlc_dc_lum_code_reversed, i64 %40
   %53 = load i16, ptr %52, align 2, !tbaa !93
   %54 = zext i16 %53 to i32
   %55 = shl i32 %42, %50
@@ -627,11 +627,11 @@ put_bits_le.exit.i:                               ; preds = %72, %47
   br label %encode_dc.exit
 
 76:                                               ; preds = %39
-  %77 = getelementptr inbounds nuw [12 x i8], ptr @ff_mpeg12_vlc_dc_chroma_bits, i64 0, i64 %40
+  %77 = getelementptr inbounds nuw i8, ptr @ff_mpeg12_vlc_dc_chroma_bits, i64 %40
   %78 = load i8, ptr %77, align 1, !tbaa !14
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %.0.i, %79
-  %81 = getelementptr inbounds nuw [12 x i16], ptr @mpeg12_vlc_dc_chroma_code_reversed, i64 0, i64 %40
+  %81 = getelementptr inbounds nuw i16, ptr @mpeg12_vlc_dc_chroma_code_reversed, i64 %40
   %82 = load i16, ptr %81, align 2, !tbaa !93
   %83 = zext i16 %82 to i32
   %84 = shl i32 %42, %79
@@ -685,7 +685,7 @@ put_bits_le.exit38.i:                             ; preds = %101, %76
   br i1 %4, label %111, label %135
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds nuw [512 x i32], ptr @speedhq_lum_dc_uni, i64 0, i64 %106
+  %112 = getelementptr inbounds nuw i32, ptr @speedhq_lum_dc_uni, i64 %106
   %113 = load i32, ptr %112, align 4, !tbaa !94
   %114 = and i32 %113, 255
   %115 = lshr i32 %113, 8
@@ -730,7 +730,7 @@ put_bits_le.exit42.i:                             ; preds = %131, %111
   br label %encode_dc.exit
 
 135:                                              ; preds = %105
-  %136 = getelementptr inbounds nuw [512 x i32], ptr @speedhq_chr_dc_uni, i64 0, i64 %106
+  %136 = getelementptr inbounds nuw i32, ptr @speedhq_chr_dc_uni, i64 %106
   %137 = load i32, ptr %136, align 4, !tbaa !94
   %138 = and i32 %137, 255
   %139 = lshr i32 %137, 8
@@ -780,7 +780,7 @@ encode_dc.exit:                                   ; preds = %put_bits_le.exit.i,
   store i32 %9, ptr %12, align 4, !tbaa !94
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %162 = sext i32 %2 to i64
-  %163 = getelementptr inbounds [12 x i32], ptr %161, i64 0, i64 %162
+  %163 = getelementptr inbounds i32, ptr %161, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !94
   %.not57 = icmp slt i32 %164, 1
   br i1 %.not57, label %._crit_edge, label %.lr.ph
@@ -799,7 +799,7 @@ encode_dc.exit:                                   ; preds = %put_bits_le.exit.i,
   %172 = phi i32 [ %160, %.lr.ph ], [ %249, %247 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %247 ]
   %.059 = phi i32 [ 0, %.lr.ph ], [ %.1, %247 ]
-  %173 = getelementptr inbounds nuw [64 x i8], ptr %165, i64 0, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw i8, ptr %165, i64 %indvars.iv
   %174 = load i8, ptr %173, align 1, !tbaa !14
   %175 = zext i8 %174 to i64
   %176 = getelementptr inbounds nuw i16, ptr %1, i64 %175
@@ -814,7 +814,7 @@ encode_dc.exit:                                   ; preds = %put_bits_le.exit.i,
   %182 = add nsw i32 %181, %180
   %183 = tail call i32 @llvm.abs.i32(i32 %178, i1 true)
   %184 = sext i32 %182 to i64
-  %185 = getelementptr inbounds [65 x i8], ptr @speedhq_max_level, i64 0, i64 %184
+  %185 = getelementptr inbounds i8, ptr @speedhq_max_level, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !14
   %187 = zext i8 %186 to i32
   %.not47 = icmp samesign ugt i32 %183, %187
@@ -822,14 +822,14 @@ encode_dc.exit:                                   ; preds = %put_bits_le.exit.i,
 
 188:                                              ; preds = %179
   %189 = lshr i32 %178, 31
-  %190 = getelementptr inbounds [65 x i8], ptr @speedhq_index_run, i64 0, i64 %184
+  %190 = getelementptr inbounds i8, ptr @speedhq_index_run, i64 %184
   %191 = load i8, ptr %190, align 1, !tbaa !14
   %192 = zext i8 %191 to i32
-  %193 = add nsw i32 %183, -1
-  %194 = add nsw i32 %193, %192
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds [123 x [2 x i16]], ptr @ff_speedhq_vlc_table, i64 0, i64 %195
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 2
+  %193 = add nuw nsw i32 %183, %192
+  %194 = zext nneg i32 %193 to i64
+  %195 = getelementptr [2 x i16], ptr @ff_speedhq_vlc_table, i64 %194
+  %196 = getelementptr i8, ptr %195, i64 -4
+  %197 = getelementptr i8, ptr %195, i64 -2
   %198 = load i16, ptr %197, align 2, !tbaa !93
   %199 = zext i16 %198 to i32
   %200 = add nuw nsw i32 %199, 1

@@ -401,7 +401,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 53:                                               ; preds = %48, %45
   %54 = phi i64 [ %49, %48 ], [ 0, %45 ]
-  %55 = getelementptr [9 x %struct.intel_shared_dpll], ptr %41, i64 0, i64 %54
+  %55 = getelementptr %struct.intel_shared_dpll, ptr %41, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %57
 

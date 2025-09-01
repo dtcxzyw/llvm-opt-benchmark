@@ -75,7 +75,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not54, label %41, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = sext i8 %37 to i32
   %39 = load i32, ptr %32, align 4, !tbaa !9
@@ -89,25 +89,25 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not55, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %33, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(32) %33, i64 32, i1 false), !tbaa.struct !10
   br label %97
 
 44:                                               ; preds = %35, %41
   %.049 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
-  %45 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %33, i64 %indvars.iv
   %46 = add nsw i32 %.049, %8
   %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
   %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 127)
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr @kDcTable, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i32
   store i32 %52, ptr %45, align 4, !tbaa !11
   %53 = tail call i32 @llvm.smax.i32(i32 %.049, i32 0)
   %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 127)
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !12
   %58 = zext i16 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -116,7 +116,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %61 = tail call i32 @llvm.smax.i32(i32 %60, i32 0)
   %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 127)
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr @kDcTable, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !8
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 1
@@ -126,7 +126,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %70 = tail call i32 @llvm.smax.i32(i32 %69, i32 0)
   %71 = tail call i32 @llvm.umin.i32(i32 %70, i32 127)
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !12
   %75 = zext i16 %74 to i32
   %76 = mul nuw nsw i32 %75, 101581
@@ -139,7 +139,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %82 = tail call i32 @llvm.umin.i32(i32 %81, i32 117)
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @kDcTable, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !8
   %86 = zext i8 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -148,7 +148,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %89 = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
   %90 = tail call i32 @llvm.umin.i32(i32 %89, i32 127)
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !12
   %94 = zext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %45, i64 20

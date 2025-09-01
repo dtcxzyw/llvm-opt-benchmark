@@ -158,9 +158,9 @@ define internal range(i32 -1, 1) i32 @H5D__contig_construct(ptr noundef %0, ptr 
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw [32 x i64], ptr %13, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw [32 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !48
   %21 = icmp ugt i64 %18, %20
   br i1 %21, label %22, label %15
@@ -475,7 +475,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr noundef captures(n
 ._crit_edge:                                      ; preds = %65, %.lr.ph
   %.pre-phi = phi i64 [ %76, %.lr.ph ], [ 0, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %79 = getelementptr inbounds nuw [33 x i64], ptr %78, i64 0, i64 %.pre-phi
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %.pre-phi
   store i64 0, ptr %79, align 8, !tbaa !48
   %80 = getelementptr inbounds nuw i8, ptr %58, i64 336
   store ptr %1, ptr %80, align 8, !tbaa !79

@@ -9021,7 +9021,7 @@ future_ensure_alive.exit.i:                       ; preds = %2
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._asyncio_Future__state_get, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._asyncio_Future__state_get, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_asyncio_Future__state_get_impl.exit
 

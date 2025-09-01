@@ -10736,8 +10736,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113hasBFloatTypeERKN4
 
 _ZNK4llvm3MVT13getScalarTypeEv.exit:              ; preds = %22
   %24 = and i64 %.sroa.442.0.extract.shift, 65535
-  %25 = add nsw i64 %24, -1
-  %26 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %25
+  %25 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -2
   %27 = load i16, ptr %26, align 2, !tbaa !858
   %28 = icmp eq i16 %27, 10
   br i1 %28, label %31, label %.critedge30
@@ -12985,7 +12985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %_Z
 355:                                              ; preds = %362, %347
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %362 ], [ 0, %347 ]
   %.23252.i.i.i = phi i16 [ %363, %362 ], [ 0, %347 ]
-  %356 = getelementptr inbounds nuw [8 x i64], ptr %354, i64 0, i64 %indvars.iv.i
+  %356 = getelementptr inbounds nuw i64, ptr %354, i64 %indvars.iv.i
   %357 = load i64, ptr %356, align 8, !tbaa !45
   %.not41.i.i.i = icmp eq i64 %357, 0
   br i1 %.not41.i.i.i, label %362, label %358
@@ -15698,16 +15698,16 @@ _ZN4llvm5ErrorD2Ev.exit542:                       ; preds = %1506, %_ZN4llvmeqEN
 
 1520:                                             ; preds = %.critedge.i432
   %1521 = zext nneg i16 %1518 to i64
-  %1522 = add nsw i64 %1521, -1
-  %1523 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %1522
+  %1522 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %1521
+  %1523 = getelementptr i8, ptr %1522, i64 -2
   %1524 = load i16, ptr %1523, align 2, !tbaa !858, !noalias !1235
   br label %_ZN4llvm5ErrorD2Ev.exit538
 
 _ZN4llvm5ErrorD2Ev.exit538:                       ; preds = %1520, %.critedge.i432
   %.sroa.0.0.i.i = phi i16 [ %1524, %1520 ], [ %1518, %.critedge.i432 ]
   %1525 = zext i16 %.sroa.0.0.i.i to i64
-  %1526 = add nsw i64 %1525, -1
-  %1527 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1526
+  %1526 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %1525
+  %1527 = getelementptr i8, ptr %1526, i64 -16
   %.sroa.0.0.copyload.i.i539 = load i64, ptr %1527, align 16, !noalias !1235
   store i64 %.sroa.0.0.copyload.i.i539, ptr %18, align 8, !tbaa !45, !noalias !1235
   %1528 = call { ptr, i8 } @_ZN4llvm2gi14OperandMatcher12addPredicateINS0_24LiteralIntOperandMatcherEJmEEESt8optionalIPT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(153) %1456, ptr noundef nonnull align 8 dereferenceable(8) %18), !noalias !1235
@@ -28117,7 +28117,7 @@ _ZN4llvm5ErrorD2Ev.exit71:                        ; preds = %215, %_ZNK4llvm12In
   %.02653.i = phi i32 [ 0, %237 ], [ %249, %247 ]
   %.23252.i = phi i16 [ 0, %237 ], [ %248, %247 ]
   %240 = zext nneg i32 %.02653.i to i64
-  %241 = getelementptr inbounds nuw [8 x i64], ptr %238, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw i64, ptr %238, i64 %240
   %242 = load i64, ptr %241, align 8, !tbaa !45
   %.not41.i = icmp eq i64 %242, 0
   br i1 %.not41.i, label %247, label %243
@@ -28182,7 +28182,7 @@ _ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %_ZNK4llvm19MachineV
   %.not.i.i.i.i.i.i = phi i1 [ true, %259 ], [ false, %273 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %259 ], [ 1, %273 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %259 ], [ %.1.i.i.i.i.i.i, %273 ]
-  %268 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %268 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %269 = load i8, ptr %268, align 1, !tbaa !49, !range !50, !noalias !2110, !noundef !51
   %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %271, label %273
@@ -28628,7 +28628,7 @@ _ZN4llvm5ErrorD2Ev.exit150:                       ; preds = %109
   %.not.i.i.i.i.i.i = phi i1 [ true, %144 ], [ false, %160 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %144 ], [ 1, %160 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %144 ], [ %.1.i.i.i.i.i.i, %160 ]
-  %155 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %155 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %156 = load i8, ptr %155, align 1, !tbaa !49, !range !50, !noalias !2173, !noundef !51
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %160
@@ -30155,7 +30155,7 @@ define linkonce_odr hidden ptr @_ZN4llvm2gi11RuleMatcher12insertActionINS0_22Mak
   %.not.i.i.i.i.i = phi i1 [ true, %4 ], [ false, %19 ]
   %.0813.i.i.i.i.i = phi i64 [ 0, %4 ], [ 1, %19 ]
   %.0912.i.i.i.i.i = phi i64 [ 2, %4 ], [ %.1.i.i.i.i.i, %19 ]
-  %14 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i
+  %14 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i
   %15 = load i8, ptr %14, align 1, !tbaa !49, !range !50, !noalias !2290, !noundef !51
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %19
@@ -30521,7 +30521,7 @@ _ZNK4llvm15TypeSetByHwMode18isMachineValueTypeEv.exit: ; preds = %.preheader
   %.02653.i = phi i32 [ 0, %83 ], [ %95, %93 ]
   %.23252.i = phi i16 [ 0, %83 ], [ %94, %93 ]
   %86 = zext nneg i32 %.02653.i to i64
-  %87 = getelementptr inbounds nuw [8 x i64], ptr %84, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw i64, ptr %84, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !45
   %.not41.i = icmp eq i64 %88, 0
   br i1 %.not41.i, label %93, label %89
@@ -31814,7 +31814,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit43.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 347:                                              ; preds = %354, %_ZN4llvmeqENS_9StringRefES0_.exit43.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %354 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit43.thread.i ]
   %.23252.i.i.i = phi i16 [ %355, %354 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit43.thread.i ]
-  %348 = getelementptr inbounds nuw [8 x i64], ptr %346, i64 0, i64 %indvars.iv.i
+  %348 = getelementptr inbounds nuw i64, ptr %346, i64 %indvars.iv.i
   %349 = load i64, ptr %348, align 8, !tbaa !45, !noalias !2486
   %.not41.i.i.i = icmp eq i64 %349, 0
   br i1 %.not41.i.i.i, label %354, label %350
@@ -32255,7 +32255,7 @@ _ZN4llvm5ErrorD2Ev.exit.i42:                      ; preds = %_ZN4llvmeqENS_9Stri
   %.not.i.i.i.i.i.i = phi i1 [ true, %527 ], [ false, %543 ]
   %.0813.i.i.i.i.i.i = phi i64 [ 0, %527 ], [ 1, %543 ]
   %.0912.i.i.i.i.i.i = phi i64 [ 2, %527 ], [ %.1.i.i.i.i.i.i, %543 ]
-  %538 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i.i
+  %538 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm2gi10LLTCodeGenEJS2_lEEmv.__found, i64 %.0813.i.i.i.i.i.i
   %539 = load i8, ptr %538, align 1, !tbaa !49, !range !50, !noalias !2539, !noundef !51
   %540 = trunc nuw i8 %539 to i1
   br i1 %540, label %541, label %543

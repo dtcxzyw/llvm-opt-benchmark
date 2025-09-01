@@ -2415,7 +2415,7 @@ define linkonce_odr dso_local void @_ZN12CustomFilterC2ER8Settings(ptr noundef n
           to label %45 unwind label %52
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw [10 x %struct.b2BodyId], ptr %25, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.b2BodyId, ptr %25, i64 %indvars.iv
   store i64 %44, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = inttoptr i64 %indvars.iv.next to ptr
@@ -2424,7 +2424,7 @@ define linkonce_odr dso_local void @_ZN12CustomFilterC2ER8Settings(ptr noundef n
           to label %49 unwind label %54
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw [10 x %struct.b2ShapeId], ptr %26, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %26, i64 %indvars.iv
   store i64 %48, ptr %50, align 8
   %51 = fadd float %.03041, 2.000000e+00
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -2516,7 +2516,7 @@ define linkonce_odr dso_local void @_ZN12CustomFilter4StepER8Settings(ptr nounde
 
 11:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [10 x %struct.b2BodyId], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.b2BodyId, ptr %9, i64 %indvars.iv
   %.sroa.02.0.copyload = load i64, ptr %12, align 8
   %13 = tail call <2 x float> @b2Body_GetPosition(i64 %.sroa.02.0.copyload)
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2659,7 +2659,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
 
 14:                                               ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
-  %15 = getelementptr inbounds nuw [40 x %struct.b2BodyId], ptr %6, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.b2BodyId, ptr %6, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8, !tbaa !88
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %18, label %17
@@ -2689,7 +2689,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
   store float 4.000000e+01, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.04.0.copyload = load i32, ptr %12, align 4
   %21 = call i64 @b2CreateBody(i32 %.sroa.04.0.copyload, ptr noundef nonnull %5)
-  %22 = getelementptr inbounds nuw [40 x %struct.b2BodyId], ptr %6, i64 0, i64 %indvars.iv26
+  %22 = getelementptr inbounds nuw %struct.b2BodyId, ptr %6, i64 %indvars.iv26
   store i64 %21, ptr %22, align 8
   %23 = load i32, ptr %13, align 8, !tbaa !90
   %24 = icmp eq i32 %23, 0
@@ -3025,7 +3025,7 @@ _Z9b2MakeRotf.exit69:                             ; preds = %40
           to label %84 unwind label %91
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw [5 x float], ptr @__const.Friction.friction, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw float, ptr @__const.Friction.friction, i64 %indvars.iv
   %86 = load float, ptr %85, align 4, !tbaa !15
   store float %86, ptr %49, align 8, !tbaa !60
   %87 = invoke i64 @b2CreatePolygonShape(i64 %83, ptr noundef nonnull %12, ptr noundef nonnull %11)
@@ -3181,7 +3181,7 @@ define linkonce_odr dso_local void @_ZN17RollingResistance8KeyboardEi(ptr nounde
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN17RollingResistance8KeyboardEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN17RollingResistance8KeyboardEi, i64 %4
   %switch.load = load float, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store float %switch.load, ptr %5, align 4, !tbaa !34
@@ -3531,7 +3531,7 @@ define linkonce_odr dso_local void @_ZN12TangentSpeedC2ER8Settings(ptr noundef n
 
 40:                                               ; preds = %18, %40
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw [20 x %struct.b2SurfaceMaterial], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.b2SurfaceMaterial, ptr %5, i64 %indvars.iv
   store float 0x3FE3333340000000, ptr %41, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20

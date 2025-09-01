@@ -609,8 +609,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %56
   br label %._crit_edge
 
 71:                                               ; preds = %15
-  %switch.tableidx106 = add i8 %.pre94, -43
-  %72 = icmp ult i8 %switch.tableidx106, 15
+  %switch.tableidx105 = add i8 %.pre94, -43
+  %72 = icmp ult i8 %switch.tableidx105, 15
   br i1 %72, label %switch.hole_check, label %73
 
 73:                                               ; preds = %switch.hole_check, %71
@@ -795,22 +795,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %119
 
 switch.lookup:                                    ; preds = %16
   %133 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE, i64 0, i64 %133
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %._crit_edge
 
 switch.hole_check:                                ; preds = %71
-  %switch.maskindex = zext nneg i8 %switch.tableidx106 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx105 to i16
   %switch.shifted = lshr i16 32741, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup107, label %73
 
 switch.lookup107:                                 ; preds = %switch.hole_check
-  %134 = zext nneg i8 %switch.tableidx106 to i64
-  %switch.gep108 = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.3, i64 0, i64 %134
+  %134 = zext nneg i8 %switch.tableidx105 to i64
+  %switch.gep108 = getelementptr inbounds nuw i8, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.3, i64 %134
   %switch.load109 = load i8, ptr %switch.gep108, align 1
-  %135 = zext nneg i8 %switch.tableidx106 to i64
-  %switch.gep110 = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.4, i64 0, i64 %135
+  %135 = zext nneg i8 %switch.tableidx105 to i64
+  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.4, i64 %135
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   br label %._crit_edge
 

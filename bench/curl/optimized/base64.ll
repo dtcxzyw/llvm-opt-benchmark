@@ -69,7 +69,7 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   %.168104 = phi ptr [ %.067109, %.preheader95 ], [ %31, %30 ]
   %25 = load i8, ptr %.168104, align 1, !tbaa !11
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %.thread92, label %30
@@ -121,7 +121,7 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
 
 51:                                               ; preds = %.preheader
   %52 = zext i8 %46 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !11
   %55 = icmp eq i8 %54, -1
   br i1 %55, label %.thread92, label %56

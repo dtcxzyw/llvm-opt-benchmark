@@ -231,7 +231,7 @@ get_keyword.exit.i:                               ; preds = %32, %24
 
 67:                                               ; preds = %123, %65
   %indvars.iv.i = phi i64 [ 0, %65 ], [ %indvars.iv.next.i, %123 ]
-  %68 = getelementptr inbounds nuw [3 x i8], ptr %66, i64 0, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv.i
   %69 = load i8, ptr %68, align 1, !tbaa !30
   switch i8 %69, label %.loopexit.i [
     i8 0, label %.critedge.i
@@ -264,9 +264,9 @@ get_keyword.exit.i:                               ; preds = %32, %24
   br label %get_keyword.exit136.i
 
 get_keyword.exit136.i:                            ; preds = %77, %70
-  %82 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   store ptr %73, ptr %82, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   %84 = call i32 @av_parse_time(ptr noundef nonnull %83, ptr noundef nonnull %73, i32 noundef 1) #14
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %123
@@ -299,7 +299,7 @@ get_keyword.exit136.i:                            ; preds = %77, %70
 
 get_keyword.exit138.i:                            ; preds = %94, %87
   %99 = call i64 @strtol(ptr noundef nonnull captures(none) %90, ptr noundef null, i32 noundef 0) #14
-  %100 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   store i64 %99, ptr %100, align 8, !tbaa !42
   br label %123
 
@@ -326,12 +326,12 @@ get_keyword.exit138.i:                            ; preds = %94, %87
   br label %get_keyword.exit140.i
 
 get_keyword.exit140.i:                            ; preds = %108, %101
-  %113 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   store ptr %104, ptr %113, align 8, !tbaa !29
   br label %123
 
 114:                                              ; preds = %67
-  %115 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %116 = load ptr, ptr %115, align 8, !tbaa !29
   %.not131.i = icmp eq ptr %116, null
   br i1 %.not131.i, label %118, label %117
@@ -725,7 +725,7 @@ add_file.exit.i:                                  ; preds = %187, %._crit_edge.i
 
 281:                                              ; preds = %281, %.loopexit.i
   %indvars.iv289.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next290.i, %281 ]
-  %282 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv289.i
+  %282 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv289.i
   call void @av_freep(ptr noundef nonnull %282) #14
   %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 1
   %exitcond292.not.i = icmp eq i64 %indvars.iv.next290.i, 3

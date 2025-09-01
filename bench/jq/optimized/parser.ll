@@ -423,7 +423,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 67:                                               ; preds = %.thread1479
   %68 = sext i32 %.01152 to i64
-  %69 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %68
+  %69 = getelementptr inbounds i16, ptr @yypact, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !14
   %71 = sext i16 %70 to i32
   %72 = icmp eq i16 %70, -157
@@ -456,7 +456,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 84:                                               ; preds = %82
   %85 = zext nneg i32 %.5 to i64
-  %86 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !11
   %88 = sext i8 %87 to i32
   br label %89
@@ -470,14 +470,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %90 to i64
-  %93 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = sext i16 %94 to i32
   %.not1233 = icmp eq i32 %.01205, %95
   br i1 %.not1233, label %96, label %109
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %92
+  %97 = getelementptr inbounds nuw i16, ptr @yytable, i64 %92
   %98 = load i16, ptr %97, align 2, !tbaa !14
   %99 = sext i16 %98 to i32
   %100 = icmp slt i16 %98, 1
@@ -502,7 +502,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 109:                                              ; preds = %89, %91, %67
   %.4 = phi i32 [ %.01147, %67 ], [ %.6, %89 ], [ %.6, %91 ]
-  %110 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %68
+  %110 = getelementptr inbounds i8, ptr @yydefact, i64 %68
   %111 = load i8, ptr %110, align 1, !tbaa !11
   %112 = zext i8 %111 to i32
   %113 = icmp eq i8 %111, 0
@@ -512,7 +512,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.01203 = phi i32 [ %112, %109 ], [ %104, %103 ]
   %.9 = phi i32 [ %.4, %109 ], [ %.6, %103 ]
   %115 = zext nneg i32 %.01203 to i64
-  %116 = getelementptr inbounds nuw [170 x i8], ptr @yyr2, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr @yyr2, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !11
   %118 = sext i8 %117 to i64
   %119 = sub nsw i64 1, %118
@@ -3382,11 +3382,11 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.sroa.01266.0.insert.ext1348 = zext i32 %.sroa.01266.0 to i64
   %.sroa.01266.0.insert.insert1350 = or disjoint i64 %.sroa.28.0.insert.shift1453, %.sroa.01266.0.insert.ext1348
   store i64 %.sroa.01266.0.insert.insert1350, ptr %2007, align 4
-  %2008 = getelementptr inbounds nuw [170 x i8], ptr @yyr1, i64 0, i64 %115
+  %2008 = getelementptr inbounds nuw i8, ptr @yyr1, i64 %115
   %2009 = load i8, ptr %2008, align 1, !tbaa !11
   %2010 = sext i8 %2009 to i64
   %2011 = add nsw i64 %2010, -70
-  %2012 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2011
+  %2012 = getelementptr inbounds i16, ptr @yypgoto, i64 %2011
   %2013 = load i16, ptr %2012, align 2, !tbaa !14
   %2014 = sext i16 %2013 to i32
   %2015 = load i16, ptr %2004, align 2, !tbaa !14
@@ -3397,19 +3397,19 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 2018:                                             ; preds = %2001
   %2019 = zext nneg i32 %2017 to i64
-  %2020 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %2019
+  %2020 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2019
   %2021 = load i16, ptr %2020, align 2, !tbaa !14
   %2022 = icmp eq i16 %2021, %2015
   br i1 %2022, label %2023, label %2027
 
 2023:                                             ; preds = %2018
-  %2024 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %2019
+  %2024 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2019
   %2025 = load i16, ptr %2024, align 2, !tbaa !14
   %2026 = sext i16 %2025 to i32
   br label %28
 
 2027:                                             ; preds = %2018, %2001
-  %2028 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %2011
+  %2028 = getelementptr inbounds i8, ptr @yydefgoto, i64 %2011
   %2029 = load i8, ptr %2028, align 1, !tbaa !11
   %2030 = zext i8 %2029 to i32
   br label %28
@@ -3425,7 +3425,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 2033:                                             ; preds = %.thread1488
   %2034 = zext nneg i32 %.81490 to i64
-  %2035 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %2034
+  %2035 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %2034
   %2036 = load i8, ptr %2035, align 1, !tbaa !11
   %2037 = sext i8 %2036 to i32
   br label %2038
@@ -3524,13 +3524,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 2069:                                             ; preds = %2065
   %2070 = sext i16 %2066 to i64
   %2071 = add nsw i64 %2070, 1
-  %2072 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %2071
+  %2072 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2071
   %2073 = load i16, ptr %2072, align 2, !tbaa !14
   %2074 = icmp eq i16 %2073, 1
   br i1 %2074, label %2075, label %2079
 
 2075:                                             ; preds = %2069
-  %2076 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %2071
+  %2076 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2071
   %2077 = load i16, ptr %2076, align 2, !tbaa !14
   %2078 = icmp sgt i16 %2077, 0
   br i1 %2078, label %2090, label %2079
@@ -3541,7 +3541,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 2081:                                             ; preds = %2079
   %.sroa.2609.8.copyload612 = load i32, ptr %.61200, align 4, !tbaa !4
-  %2082 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2067
+  %2082 = getelementptr inbounds i8, ptr @yystos, i64 %2067
   %2083 = load i8, ptr %2082, align 1, !tbaa !11
   %2084 = sext i8 %2083 to i32
   call fastcc void @yydestruct(i32 noundef %2084, ptr noundef %.61187)
@@ -3551,7 +3551,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2088 = load i16, ptr %2086, align 2, !tbaa !14
   %2089 = sext i16 %2088 to i32
   %.phi.trans.insert = sext i16 %2088 to i64
-  %.phi.trans.insert1573 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert1573 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1573, align 2, !tbaa !14
   br label %2065
 
@@ -3601,7 +3601,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.6116715151529 = phi ptr [ %.61167, %2098 ], [ %.11162, %2061 ]
   %.1015171527 = phi i32 [ %.10, %2098 ], [ 0, %2061 ]
   %2099 = zext nneg i32 %.1015171527 to i64
-  %2100 = getelementptr inbounds nuw [304 x i8], ptr @yytranslate, i64 0, i64 %2099
+  %2100 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %2099
   %2101 = load i8, ptr %2100, align 1, !tbaa !11
   %2102 = sext i8 %2101 to i32
   br label %2103
@@ -3630,7 +3630,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.811891557 = phi ptr [ %2111, %.lr.ph ], [ %.711881512, %2105 ]
   %2106 = load i16, ptr %.811761558, align 2, !tbaa !14
   %2107 = sext i16 %2106 to i64
-  %2108 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2107
+  %2108 = getelementptr inbounds i8, ptr @yystos, i64 %2107
   %2109 = load i8, ptr %2108, align 1, !tbaa !11
   %2110 = sext i8 %2109 to i32
   call fastcc void @yydestruct(i32 noundef %2110, ptr noundef %.811891557)
@@ -4218,7 +4218,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2, !tbaa !14
   %5 = sext i16 %.val.val.i to i64
-  %6 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %5
+  %6 = getelementptr inbounds i16, ptr @yypact, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !14
   %8 = icmp eq i16 %7, -157
   br i1 %8, label %.critedge.thread.i.i, label %9
@@ -4243,7 +4243,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %indvars.iv.i.i = phi i64 [ %16, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %36 ]
   %.1385.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %36 ]
   %19 = add nsw i64 %indvars.iv.i.i, %17
-  %20 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %19
+  %20 = getelementptr inbounds i16, ptr @yycheck, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !14
   %22 = sext i16 %21 to i32
   %23 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -4253,7 +4253,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   br i1 %or.cond.i.i, label %26, label %36
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %19
+  %27 = getelementptr inbounds i16, ptr @yytable, i64 %19
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = icmp eq i16 %28, -156
   br i1 %29, label %36, label %30
@@ -4325,10 +4325,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thre
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
   %.04917 = phi i64 [ %45, %.lr.ph.preheader ], [ %62, %61 ]
-  %46 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr @yytname, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = icmp eq i8 %51, 34
@@ -4407,10 +4407,10 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
 73:                                               ; preds = %68
   %74 = add nsw i32 %.0, 1
   %75 = sext i32 %.0 to i64
-  %76 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %75
+  %76 = getelementptr inbounds i32, ptr %2, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [100 x ptr], ptr @yytname, i64 0, i64 %78
+  %79 = getelementptr inbounds ptr, ptr @yytname, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !25
   %81 = load i8, ptr %80, align 1, !tbaa !11
   %82 = icmp eq i8 %81, 34

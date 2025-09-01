@@ -542,7 +542,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %27 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %2, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.epoll_event, ptr %2, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load ptr, ptr %28, align 4, !tbaa !57
   %30 = icmp eq ptr %29, null

@@ -5729,10 +5729,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %65
   %77 = zext nneg i32 %67 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace, i64 %77
   %switch.load = load ptr, ptr %switch.gep, align 8
   %78 = zext nneg i32 %67 to i64
-  %switch.gep118 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace.63, i64 0, i64 %78
+  %switch.gep118 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK10cmMakefileRK19cmListFileBacktrace.63, i64 %78
   %switch.load119 = load i64, ptr %switch.gep118, align 8
   %79 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load119)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %69

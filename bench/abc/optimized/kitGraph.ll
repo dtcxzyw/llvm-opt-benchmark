@@ -1009,7 +1009,7 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
 
 11:                                               ; preds = %5
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_GraphToTruth.uTruths, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @__const.Kit_GraphToTruth.uTruths, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = and i32 %.val54, 1
   %sext77 = sub nsw i32 0, %15
@@ -1031,7 +1031,7 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val55 = load ptr, ptr %10, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_GraphToTruth.uTruths, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr @__const.Kit_GraphToTruth.uTruths, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr

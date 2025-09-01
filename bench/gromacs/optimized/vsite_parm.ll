@@ -214,7 +214,7 @@ _ZNSt12_Vector_baseI14Atom2VsiteBondSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds =
 
 _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZNSt12_Vector_baseI14Atom2VsiteBondSaIS0_EEC2EmRKS1_.exit.thread.i.i, %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i ], [ 0, %_ZNSt12_Vector_baseI14Atom2VsiteBondSaIS0_EEC2EmRKS1_.exit.thread.i.i ]
-  %37 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv103.i, i32 5
+  %37 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv103.i, i32 5
   %38 = load i32, ptr %37, align 4, !tbaa !25, !noalias !17
   %39 = and i32 %38, 2
   %40 = icmp ne i32 %39, 0
@@ -235,7 +235,7 @@ _ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.preheader.i: ; preds = %_ZNSt12_Vector_b
   br i1 %50, label %.lr.ph84.i, label %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i
 
 .lr.ph84.i:                                       ; preds = %.preheader80.i
-  %51 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv103.i, i32 2
+  %51 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv103.i, i32 2
   %52 = load i32, ptr %51, align 16, !tbaa !32, !noalias !17
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.us.preheader.i, label %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i
@@ -319,7 +319,7 @@ _ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader: ; p
 
 .preheader79.i:                                   ; preds = %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i, %_ZL18vsite_bond_nrchecki.exit.thread.i
   %indvars.iv115.i = phi i64 [ %indvars.iv.next116.i, %_ZL18vsite_bond_nrchecki.exit.thread.i ], [ 0, %_ZL13gmx_snew_implIbEvPKcS1_iRPT_m.exit.i ]
-  %100 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv115.i, i32 5
+  %100 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv115.i, i32 5
   %101 = load i32, ptr %100, align 4, !tbaa !25, !noalias !17
   %102 = and i32 %101, 52
   %103 = icmp ne i32 %102, 0
@@ -328,7 +328,7 @@ _ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader: ; p
   br i1 %or.cond.i.i, label %_ZL18vsite_bond_nrchecki.exit.i, label %_ZL18vsite_bond_nrchecki.exit.thread.i
 
 _ZL18vsite_bond_nrchecki.exit.i:                  ; preds = %.preheader79.i
-  %105 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv115.i, i32 2
+  %105 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv115.i, i32 2
   %106 = load i32, ptr %105, align 16, !tbaa !32, !noalias !17
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.preheader.i, label %_ZL18vsite_bond_nrchecki.exit.thread.i
@@ -491,7 +491,7 @@ common.resume:                                    ; preds = %2024, %165
   %indvars.iv701 = phi i64 [ 0, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader ], [ %indvars.iv.next702, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit ]
   %.053591 = phi i32 [ 0, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader ], [ %.1, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit ]
   %.065590 = phi i1 [ true, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit.preheader ], [ %.166, %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit ]
-  %167 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv701
+  %167 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv701
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 28
   %169 = load i32, ptr %168, align 4, !tbaa !25
   %170 = and i32 %169, 2
@@ -515,9 +515,9 @@ common.resume:                                    ; preds = %2024, %165
   br i1 %or.cond594, label %_ZL17make_at2vsitebondiN3gmx8ArrayRefI18InteractionsOfTypeEE.exit, label %.lr.ph588
 
 .lr.ph588:                                        ; preds = %171
-  %183 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv701, i32 3
-  %184 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv701, i32 4
-  %185 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv701, i32 2
+  %183 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv701, i32 3
+  %184 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv701, i32 4
+  %185 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv701, i32 2
   %186 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %187 = trunc nuw nsw i64 %indvars.iv701 to i32
   %188 = trunc nuw nsw i64 %indvars.iv701 to i32
@@ -775,7 +775,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit93:               ; preds = %_ZNKSt7__cxx1112bas
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0142.i, i64 8
   %297 = load ptr, ptr %296, align 8, !tbaa !90, !noalias !85
   %298 = sext i32 %295 to i64
-  %299 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %298, i32 5
+  %299 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %298, i32 5
   %300 = load i32, ptr %299, align 4, !tbaa !25, !noalias !85
   %301 = and i32 %300, 52
   %302 = icmp ne i32 %301, 0
@@ -784,7 +784,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit93:               ; preds = %_ZNKSt7__cxx1112bas
   br i1 %or.cond.i.i99, label %_ZL18vsite_bond_nrchecki.exit.i103, label %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i
 
 _ZL18vsite_bond_nrchecki.exit.i103:               ; preds = %.lr.ph.i98
-  %304 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %298, i32 2
+  %304 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %298, i32 2
   %305 = load i32, ptr %304, align 16, !tbaa !32, !noalias !85
   switch i32 %305, label %_ZL12enter_bondediPSt6vectorI22VsiteBondedInteractionSaIS0_EERK17InteractionOfType.exit.i [
     i32 2, label %324
@@ -5350,7 +5350,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit31:               ; preds = %_ZNKSt7__cxx1112bas
 
 42:                                               ; preds = %34, %.loopexit
   %indvars.iv47 = phi i64 [ 0, %34 ], [ %indvars.iv.next48, %.loopexit ]
-  %43 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv47
+  %43 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv47
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %45 = load i32, ptr %44, align 4, !tbaa !25
   %46 = and i32 %45, 2
@@ -5358,7 +5358,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit31:               ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not, label %.loopexit, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %35, i64 0, i64 %indvars.iv47
+  %48 = getelementptr inbounds nuw %struct.InteractionList, ptr %35, i64 %indvars.iv47
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %50 = load i32, ptr %49, align 16, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -5532,7 +5532,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
 .preheader309:                                    ; preds = %.preheader309.preheader, %.loopexit308
   %indvars.iv401 = phi i64 [ %indvars.iv.next402, %.loopexit308 ], [ 0, %.preheader309.preheader ]
   %.070352 = phi i32 [ %.1, %.loopexit308 ], [ 0, %.preheader309.preheader ]
-  %24 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv401, i32 5
+  %24 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv401, i32 5
   %25 = load i32, ptr %24, align 4, !tbaa !25
   %26 = and i32 %25, 2
   %.not97 = icmp eq i32 %26, 0
@@ -5839,7 +5839,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
 
 141:                                              ; preds = %.loopexit163.i, %137
   %indvars.iv178.i = phi i64 [ 0, %137 ], [ %indvars.iv.next179.i, %.loopexit163.i ]
-  %142 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv178.i, i32 5
+  %142 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv178.i, i32 5
   %143 = load i32, ptr %142, align 4, !tbaa !25, !noalias !143
   %144 = and i32 %143, 2
   %145 = icmp ne i32 %144, 0
@@ -5860,7 +5860,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
   br i1 %155, label %.lr.ph166.i, label %.loopexit163.i
 
 .lr.ph166.i:                                      ; preds = %.preheader162.i
-  %156 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv178.i, i32 2
+  %156 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv178.i, i32 2
   %157 = load i32, ptr %156, align 16, !tbaa !32, !noalias !143
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph.us.preheader.i, label %.loopexit163.i
@@ -5909,7 +5909,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds 
 
 .preheader161.i:                                  ; preds = %.loopexit163.i, %.loopexit.i
   %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %.loopexit.i ], [ 0, %.loopexit163.i ]
-  %173 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv185.i, i32 5
+  %173 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv185.i, i32 5
   %174 = load i32, ptr %173, align 4, !tbaa !25, !noalias !143
   %175 = and i32 %174, 4
   %.not.i = icmp eq i32 %175, 0
@@ -6326,7 +6326,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
 
 354:                                              ; preds = %_ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit, %.loopexit302
   %indvars.iv406 = phi i64 [ 0, %_ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit ], [ %indvars.iv.next407, %.loopexit302 ]
-  %355 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv406, i32 5
+  %355 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv406, i32 5
   %356 = load i32, ptr %355, align 4, !tbaa !25
   %357 = and i32 %356, 2
   %358 = icmp ne i32 %357, 0
@@ -6387,7 +6387,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
 
 388:                                              ; preds = %.preheader300, %_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMappingEEiPKiRKNS_8MDLoggerE.exit
   %indvars.iv411 = phi i64 [ 0, %.preheader300 ], [ %indvars.iv.next412, %_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMappingEEiPKiRKNS_8MDLoggerE.exit ]
-  %389 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 5
+  %389 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 5
   %390 = load i32, ptr %389, align 4, !tbaa !25
   %391 = and i32 %390, 1
   %392 = icmp ne i32 %391, 0
@@ -6415,7 +6415,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   br i1 %.not271322.i, label %_ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMappingEEiPKiRKNS_8MDLoggerE.exit, label %.lr.ph328.i
 
 .lr.ph328.i:                                      ; preds = %398
-  %403 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411
+  %403 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 16
   %405 = getelementptr inbounds nuw i8, ptr %403, i64 28
   br label %406
@@ -6515,7 +6515,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
   %.ph.i = phi i8 [ %430, %426 ], [ %431, %.thread263.i ], [ %431, %.noexc123._crit_edge ]
   %453 = icmp eq i32 %.0155288.i, 0
   %454 = sext i32 %452 to i64
-  %455 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %454, i32 2
+  %455 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %454, i32 2
   %456 = load i32, ptr %455, align 16, !tbaa !32
   %.fr.i = freeze i32 %456
   %457 = add i32 %.fr.i, -1
@@ -6679,7 +6679,7 @@ _ZNSt6vectorI16VsiteAtomMappingSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorIS
 525:                                              ; preds = %.loopexit.i113, %.lr.ph320.i
   %indvars.iv351.i = phi i64 [ 0, %.lr.ph320.i ], [ %indvars.iv.next352.i, %.loopexit.i113 ]
   %.0127315.i = phi i8 [ 0, %.lr.ph320.i ], [ %.2129.i, %.loopexit.i113 ]
-  %526 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv351.i, i32 5
+  %526 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv351.i, i32 5
   %527 = load i32, ptr %526, align 4, !tbaa !25
   %528 = and i32 %527, 4
   %.not172.i = icmp eq i32 %528, 0
@@ -6937,7 +6937,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPK
   store ptr %337, ptr %10, align 8, !tbaa !73
   store i64 0, ptr %338, align 8, !tbaa !75
   store i8 1, ptr %339, align 8, !tbaa !78
-  %638 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 1
+  %638 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 1
   %639 = load ptr, ptr %638, align 8, !tbaa !114
   %640 = load ptr, ptr %399, align 8, !tbaa !31
   %641 = ptrtoint ptr %.sroa.0237.1.i to i64
@@ -7013,7 +7013,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit199.i:            ; preds = %_ZNKSt7__cxx1112bas
   store ptr %340, ptr %11, align 8, !tbaa !73
   store i64 0, ptr %341, align 8, !tbaa !75
   store i8 1, ptr %342, align 8, !tbaa !78
-  %669 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 1
+  %669 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 1
   %670 = load ptr, ptr %669, align 8, !tbaa !114
   %671 = load ptr, ptr %401, align 8, !tbaa !28
   %672 = load ptr, ptr %399, align 8, !tbaa !31
@@ -7090,7 +7090,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit206.i:            ; preds = %_ZNKSt7__cxx1112bas
   store ptr %343, ptr %12, align 8, !tbaa !73
   store i64 0, ptr %344, align 8, !tbaa !75
   store i8 1, ptr %345, align 8, !tbaa !78
-  %701 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 1
+  %701 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 1
   %702 = load ptr, ptr %701, align 8, !tbaa !114
   %703 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 2280), align 8, !tbaa !114
   %704 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull @.str.43, i32 noundef %.2409417.i, ptr noundef %702, ptr noundef %703)
@@ -7259,7 +7259,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit213.i:            ; preds = %_ZNKSt7__cxx1112bas
   %764 = icmp eq i32 %.010344.i, 0
   %765 = getelementptr inbounds %class.VsiteAtomMapping, ptr %.sroa.0234.3, i64 %755
   %766 = sext i32 %761 to i64
-  %767 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %766, i32 2
+  %767 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %766, i32 2
   %768 = load i32, ptr %767, align 16, !tbaa !32
   %.fr.i151 = freeze i32 %768
   %769 = add i32 %.fr.i151, -1
@@ -7586,7 +7586,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPK
   store i64 0, ptr %347, align 8, !tbaa !75
   store i8 1, ptr %348, align 8, !tbaa !78
   %907 = sub nsw i64 %735, %737
-  %908 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 1
+  %908 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 1
   %909 = load ptr, ptr %908, align 8, !tbaa !114
   %910 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull @.str.44, i64 noundef %907, ptr noundef %909, i64 noundef %737)
           to label %911 unwind label %921
@@ -7729,7 +7729,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134.i:            ; preds = %_ZNKSt7__cxx1112bas
   %965 = getelementptr inbounds %class.VsiteAtomMapping, ptr %.sroa.0234.3, i64 %960
   %966 = load i32, ptr %965, align 4, !tbaa !36
   %967 = sext i32 %966 to i64
-  %968 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %967, i32 2
+  %968 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %967, i32 2
   %969 = load i32, ptr %968, align 16, !tbaa !32
   %970 = add nsw i32 %969, -1
   br i1 %964, label %971, label %980
@@ -7916,7 +7916,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPK
   store i64 0, ptr %350, align 8, !tbaa !75
   store i8 1, ptr %351, align 8, !tbaa !78
   %1050 = sub nsw i64 %940, %942
-  %1051 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv411, i32 1
+  %1051 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv411, i32 1
   %1052 = load ptr, ptr %1051, align 8, !tbaa !114
   %1053 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull @.str.44, i64 noundef %1050, ptr noundef %1052, i64 noundef %942)
           to label %1054 unwind label %1064
@@ -7979,7 +7979,7 @@ _ZL17clean_vsite_bondsN3gmx8ArrayRefI18InteractionsOfTypeEENS0_IK16VsiteAtomMapp
 
 1072:                                             ; preds = %.preheader, %_ZL23check_vsite_constraintsN3gmx8ArrayRefI18InteractionsOfTypeEEiPKiRKNS_8MDLoggerE.exit
   %indvars.iv416 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next417, %_ZL23check_vsite_constraintsN3gmx8ArrayRefI18InteractionsOfTypeEEiPKiRKNS_8MDLoggerE.exit ]
-  %1073 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv416, i32 5
+  %1073 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv416, i32 5
   %1074 = load i32, ptr %1073, align 4, !tbaa !25
   %1075 = and i32 %1074, 4
   %.not91 = icmp eq i32 %1075, 0

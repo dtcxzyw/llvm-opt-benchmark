@@ -1074,7 +1074,7 @@ define void @_ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv(ptr 
           to label %8 unwind label %31
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw [10 x ptr], ptr @__const._ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv.sym_reserved, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx26SelectionParserSymbolTable4Impl18addReservedSymbolsEv.sym_reserved, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %7, align 8, !tbaa !40

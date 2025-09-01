@@ -3876,7 +3876,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = select i1 %41, ptr %43, ptr null, !prof !124
-  %45 = getelementptr inbounds nuw [3 x %"struct.arrow::BufferSpan"], ptr %28, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %28, i64 %indvars.iv
   store ptr %44, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !227
@@ -3887,7 +3887,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %52
 
 50:                                               ; preds = %33
-  %51 = getelementptr inbounds nuw [3 x %"struct.arrow::BufferSpan"], ptr %28, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %28, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %.pre = load ptr, ptr %19, align 8, !tbaa !92
   %.pre103 = load ptr, ptr %18, align 8, !tbaa !11
@@ -4219,7 +4219,7 @@ _ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit: ; preds = %tailrecu
 
 14:                                               ; preds = %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit, %14
   %indvars.iv = phi i64 [ 0, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [3 x %"struct.arrow::BufferSpan"], ptr %10, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %10, i64 %indvars.iv
   store ptr @_ZZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanEE6kZeros, ptr %15, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %16, align 8, !tbaa !80
@@ -5171,7 +5171,7 @@ _ZNK5arrow9ArraySpan11num_buffersEv.exit:         ; preds = %tailrecurse.i.i, %_
   %57 = load ptr, ptr %0, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  %58 = getelementptr inbounds nuw [3 x %"struct.arrow::BufferSpan"], ptr %41, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %41, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !81, !noalias !274
   %.not.i = icmp eq ptr %60, null

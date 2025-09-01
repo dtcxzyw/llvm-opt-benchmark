@@ -220,7 +220,7 @@ define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnu
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [42 x i64], ptr @switch.table._ZN4llvm3omp10OMPContextC2EbNS_6TripleE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp10OMPContextC2EbNS_6TripleE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = or disjoint i64 %11, %switch.load
   store i64 %16, ptr %.ptr175, align 8, !tbaa !20
@@ -1642,7 +1642,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local noundef range(i32 0, 5) i32 @_ZN4llvm3omp35getOpenMPContextTraitSetForSelectorENS0_13TraitSelectorE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1651,7 +1651,7 @@ switch.lookup:
 define dso_local noundef range(i32 0, 5) i32 @_ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [56 x i32], ptr @switch.table._ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1660,10 +1660,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE.6, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE.6, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1801,7 +1801,7 @@ _ZN4llvm12StringSwitchINS_3omp13TraitSelectorES2_E4CaseENS_13StringLiteralES2_.e
 define dso_local noundef range(i32 0, 18) i32 @_ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [56 x i32], ptr @switch.table._ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1810,10 +1810,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE.7, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE.7, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3231,10 +3231,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitPropertyNameEN
 define dso_local { ptr, i64 } @_ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [56 x i64], ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw [56 x ptr], ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE.8, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE.8, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3249,10 +3249,10 @@ switch.lookup:
   %6 = zext i1 %5 to i8
   store i8 %6, ptr %2, align 1, !tbaa !66
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i8], ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_, i64 %7
   %switch.load = load i8, ptr %switch.gep, align 1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep41 = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 0, i64 %8
+  %switch.gep41 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %8
   %switch.load42 = load i32, ptr %switch.gep41, align 4
   store i8 %switch.load, ptr %3, align 1, !tbaa !66
   %9 = icmp eq i32 %1, %switch.load42

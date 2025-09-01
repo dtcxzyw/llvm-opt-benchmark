@@ -169,7 +169,7 @@ define dso_local void @_ZNSt3__111regex_errorC2ENS_15regex_constants10error_type
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZNSt3__111regex_errorC2ENS_15regex_constants10error_typeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNSt3__111regex_errorC2ENS_15regex_constants10error_typeE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNSt3__1L22make_error_type_stringENS_15regex_constants10error_typeE.exit
 

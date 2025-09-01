@@ -2286,7 +2286,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get
 
 2:                                                ; preds = %.preheader20.preheader, %1
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [14 x ptr], ptr @_ZN4Type12simple_typesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZN4Type12simple_typesE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.preheader, label %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
@@ -2927,7 +2927,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Type11SizeInBytesEv(
 
 switch.lookup:                                    ; preds = %8
   %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZNK4Type11SizeInBytesEv, i64 0, i64 %66
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4Type11SizeInBytesEv, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 
@@ -12939,7 +12939,7 @@ define dso_local void @_ZNK4Type16printf_directiveB5cxx11Ev(ptr dead_on_unwind n
 
 switch.lookup:                                    ; preds = %13
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4Type9is_signedEv.exit
 
@@ -12971,18 +12971,18 @@ _ZNK4Type9is_signedEv.exit.invoke:                ; preds = %2, %_ZNK4Type9is_si
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !60
-  %switch.tableidx50 = add i32 %27, -6
-  %28 = icmp ult i32 %switch.tableidx50, 8
-  br i1 %28, label %switch.lookup49, label %_ZNK4Type9is_signedEv.exit15
+  %switch.tableidx49 = add i32 %27, -6
+  %28 = icmp ult i32 %switch.tableidx49, 8
+  br i1 %28, label %switch.lookup50, label %_ZNK4Type9is_signedEv.exit15
 
-switch.lookup49:                                  ; preds = %25
-  %29 = zext nneg i32 %switch.tableidx50 to i64
-  %switch.gep51 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev.1, i64 0, i64 %29
+switch.lookup50:                                  ; preds = %25
+  %29 = zext nneg i32 %switch.tableidx49 to i64
+  %switch.gep51 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4Type16printf_directiveB5cxx11Ev.1, i64 %29
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   br label %_ZNK4Type9is_signedEv.exit15
 
-_ZNK4Type9is_signedEv.exit15:                     ; preds = %24, %switch.lookup49, %25
-  %30 = phi ptr [ @.str.74, %25 ], [ %switch.load52, %switch.lookup49 ], [ @.str.75, %24 ]
+_ZNK4Type9is_signedEv.exit15:                     ; preds = %24, %switch.lookup50, %25
+  %30 = phi ptr [ @.str.74, %25 ], [ %switch.load52, %switch.lookup50 ], [ @.str.75, %24 ]
   %31 = load i64, ptr %5, align 8, !tbaa !18
   br label %_ZNK4Type9is_signedEv.exit.invoke
 

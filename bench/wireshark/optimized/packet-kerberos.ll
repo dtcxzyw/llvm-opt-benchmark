@@ -5730,7 +5730,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %123, %121, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4
   %142 = load ptr, ptr @krb5_ctx, align 8
-  %143 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i
+  %143 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i
   %144 = load i32, ptr %143, align 4
   %145 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %142, i32 noundef %144, ptr noundef nonnull %36)
   %.not.i56.i = icmp eq i32 %145, 0
@@ -5787,7 +5787,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4
   %173 = load ptr, ptr @krb5_ctx, align 8
-  %174 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i57.i
+  %174 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i57.i
   %175 = load i32, ptr %174, align 4
   %176 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %173, i32 noundef %175, ptr noundef nonnull %35)
   %.not.i58.i = icmp eq i32 %176, 0
@@ -5865,7 +5865,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4
   %204 = load ptr, ptr @krb5_ctx, align 8
-  %205 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i.i
+  %205 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i.i
   %206 = load i32, ptr %205, align 4
   %207 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %204, i32 noundef %206, ptr noundef nonnull %25)
   %.not.i127.i.i = icmp eq i32 %207, 0
@@ -6230,7 +6230,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
   %393 = load ptr, ptr @krb5_ctx, align 8
-  %394 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i72.i
+  %394 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i72.i
   %395 = load i32, ptr %394, align 4
   %396 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %393, i32 noundef %395, ptr noundef nonnull %19)
   %.not.i183.i.i = icmp eq i32 %396, 0

@@ -451,7 +451,7 @@ thread-pre-split:                                 ; preds = %27, %13
 
 112:                                              ; preds = %.loopexit27, %108
   %113 = phi i64 [ 0, %108 ], [ %165, %.loopexit27 ]
-  %114 = getelementptr [5 x %struct.dmc_fw_info], ptr %109, i64 0, i64 %113
+  %114 = getelementptr %struct.dmc_fw_info, ptr %109, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 172
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 0
@@ -558,7 +558,7 @@ thread-pre-split:                                 ; preds = %27, %13
 
 177:                                              ; preds = %.loopexit26, %174
   %178 = phi i64 [ 0, %174 ], [ %241, %.loopexit26 ]
-  %179 = getelementptr [5 x %struct.dmc_fw_info], ptr %109, i64 0, i64 %178
+  %179 = getelementptr %struct.dmc_fw_info, ptr %109, i64 %178
   %180 = load i32, ptr %179, align 8
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %.loopexit26, label %182
@@ -576,10 +576,10 @@ thread-pre-split:                                 ; preds = %27, %13
 .split31.us:                                      ; preds = %182, %.thread16.us
   %189 = phi i32 [ %218, %.thread16.us ], [ 0, %182 ]
   %190 = zext i32 %189 to i64
-  %191 = getelementptr [20 x %struct.i915_reg_t], ptr %183, i64 0, i64 %190
+  %191 = getelementptr %struct.i915_reg_t, ptr %183, i64 %190
   %192 = sext i32 %189 to i64
-  %193 = getelementptr [20 x %struct.i915_reg_t], ptr %183, i64 0, i64 %192
-  %194 = getelementptr [20 x i32], ptr %184, i64 0, i64 %192
+  %193 = getelementptr %struct.i915_reg_t, ptr %183, i64 %192
+  %194 = getelementptr i32, ptr %184, i64 %192
   %195 = load i32, ptr %194, align 4
   %196 = load i32, ptr %193, align 4
   %.fr23.us = freeze i32 %196
@@ -627,10 +627,10 @@ thread-pre-split:                                 ; preds = %27, %13
 .thread13:                                        ; preds = %182, %.thread13
   %221 = phi i32 [ %238, %.thread13 ], [ 0, %182 ]
   %222 = zext i32 %221 to i64
-  %223 = getelementptr [20 x %struct.i915_reg_t], ptr %183, i64 0, i64 %222
+  %223 = getelementptr %struct.i915_reg_t, ptr %183, i64 %222
   %224 = sext i32 %221 to i64
-  %225 = getelementptr [20 x %struct.i915_reg_t], ptr %183, i64 0, i64 %224
-  %226 = getelementptr [20 x i32], ptr %184, i64 0, i64 %224
+  %225 = getelementptr %struct.i915_reg_t, ptr %183, i64 %224
+  %226 = getelementptr i32, ptr %184, i64 %224
   %227 = load i32, ptr %226, align 4
   %228 = load i32, ptr %225, align 4
   %.fr23 = freeze i32 %228
@@ -1550,7 +1550,7 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
 
 .thread31.us57:                                   ; preds = %.split.split.us
   %185 = zext nneg i8 %177 to i64
-  %186 = getelementptr [5 x %struct.dmc_fw_info], ptr %118, i64 0, i64 %185
+  %186 = getelementptr %struct.dmc_fw_info, ptr %118, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 184
   %188 = load i8, ptr %187, align 8, !range !68, !noundef !69
   %189 = icmp eq i8 %188, 0
@@ -1622,7 +1622,7 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
 
 .thread31:                                        ; preds = %.split.split
   %226 = zext nneg i8 %218 to i64
-  %227 = getelementptr [5 x %struct.dmc_fw_info], ptr %118, i64 0, i64 %226
+  %227 = getelementptr %struct.dmc_fw_info, ptr %118, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 184
   %229 = load i8, ptr %228, align 8, !range !68, !noundef !69
   %230 = icmp eq i8 %229, 0
@@ -1685,7 +1685,7 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
 
 263:                                              ; preds = %503, %.loopexit56
   %264 = phi i64 [ 0, %.loopexit56 ], [ %504, %503 ]
-  %265 = getelementptr [5 x %struct.dmc_fw_info], ptr %259, i64 0, i64 %264
+  %265 = getelementptr %struct.dmc_fw_info, ptr %259, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 184
   %267 = load i8, ptr %266, align 8, !range !68, !noundef !69
   %268 = icmp eq i8 %267, 0
@@ -1926,14 +1926,14 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
 
 409:                                              ; preds = %.thread46, %395
   %410 = phi i64 [ 0, %395 ], [ %470, %.thread46 ]
-  %411 = getelementptr [20 x %struct.i915_reg_t], ptr %396, i64 0, i64 %410
+  %411 = getelementptr %struct.i915_reg_t, ptr %396, i64 %410
   %412 = getelementptr i32, ptr %319, i64 %410
   %413 = load i32, ptr %412, align 4
   %.fr53 = freeze i32 %413
   store i32 %.fr53, ptr %411, align 4
   %414 = getelementptr i32, ptr %408, i64 %410
   %415 = load i32, ptr %414, align 4
-  %416 = getelementptr [20 x i32], ptr %397, i64 0, i64 %410
+  %416 = getelementptr i32, ptr %397, i64 %410
   store i32 %415, ptr %416, align 4
   br i1 %388, label %419, label %417
 

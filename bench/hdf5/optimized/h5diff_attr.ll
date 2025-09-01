@@ -561,7 +561,7 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 299:                                              ; preds = %.lr.ph, %299
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %299 ]
   %300 = phi i64 [ 1, %.lr.ph ], [ %303, %299 ]
-  %301 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %302 = load i64, ptr %301, align 8, !tbaa !3
   %303 = mul i64 %300, %302
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

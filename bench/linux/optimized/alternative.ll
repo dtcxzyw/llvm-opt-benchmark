@@ -867,7 +867,7 @@ apply_relocation.exit:                            ; preds = %321, %._crit_edge27
 
 384:                                              ; preds = %384, %381
   %385 = phi i64 [ 0, %381 ], [ %390, %384 ]
-  %386 = getelementptr [254 x i8], ptr %13, i64 0, i64 %385
+  %386 = getelementptr i8, ptr %13, i64 %385
   %387 = load i8, ptr %386, align 1
   %388 = zext i8 %387 to i32
   %389 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %388) #21
@@ -877,7 +877,7 @@ apply_relocation.exit:                            ; preds = %321, %._crit_edge27
 
 .loopexit:                                        ; preds = %384, %378
   %392 = phi i64 [ 0, %378 ], [ %383, %384 ]
-  %393 = getelementptr [254 x i8], ptr %13, i64 0, i64 %392
+  %393 = getelementptr i8, ptr %13, i64 %392
   %394 = load i8, ptr %393, align 1
   %395 = zext i8 %394 to i32
   %396 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %395) #21
@@ -1153,7 +1153,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone cap
   %79 = getelementptr i8, ptr %9, i64 %78
   %80 = getelementptr i8, ptr %22, i64 %78
   %81 = and i64 %54, 15
-  %82 = getelementptr [0 x [32 x i8]], ptr @__x86_indirect_call_thunk_array, i64 0, i64 %81
+  %82 = getelementptr [32 x i8], ptr @__x86_indirect_call_thunk_array, i64 %81
   %83 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %79) #22, !srcloc !57
   %84 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %80) #22, !srcloc !58
   %85 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %82) #22, !srcloc !59
@@ -1167,7 +1167,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone cap
   %90 = getelementptr i8, ptr %9, i64 %89
   %91 = getelementptr i8, ptr %22, i64 %89
   %92 = and i64 %54, 15
-  %93 = getelementptr [0 x [32 x i8]], ptr @__x86_indirect_jump_thunk_array, i64 0, i64 %92
+  %93 = getelementptr [32 x i8], ptr @__x86_indirect_jump_thunk_array, i64 %92
   %94 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %90) #22, !srcloc !57
   %95 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %91) #22, !srcloc !58
   %96 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %93) #22, !srcloc !59
@@ -2896,7 +2896,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
 96:                                               ; preds = %84
   %97 = lshr i32 %90, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr [6 x i64], ptr @int3_emulate_jcc.jcc_mask, i64 0, i64 %98
+  %99 = getelementptr i64, ptr @int3_emulate_jcc.jcc_mask, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, %95
   %102 = icmp ne i64 %101, 0
@@ -2978,7 +2978,7 @@ define dso_local void @text_poke_queue(ptr noundef %0, ptr noundef %1, i64 nound
 8:                                                ; preds = %6
   %9 = add i32 %5, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr [256 x %struct.text_poke_loc], ptr @tp_vec, i64 0, i64 %10
+  %11 = getelementptr %struct.text_poke_loc, ptr @tp_vec, i64 %10
   %12 = load i32, ptr %11, align 16
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr @_stext, i64 %13
@@ -2994,7 +2994,7 @@ define dso_local void @text_poke_queue(ptr noundef %0, ptr noundef %1, i64 nound
   %19 = add i32 %18, 1
   store i32 %19, ptr @tp_vec_nr, align 4
   %20 = sext i32 %18 to i64
-  %21 = getelementptr [256 x %struct.text_poke_loc], ptr @tp_vec, i64 0, i64 %20
+  %21 = getelementptr %struct.text_poke_loc, ptr @tp_vec, i64 %20
   tail call fastcc void @text_poke_loc_init(ptr noundef %21, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret void
 }
@@ -3073,7 +3073,7 @@ thread-pre-split:                                 ; preds = %17, %31
 45:                                               ; preds = %41, %39
   %46 = phi i64 [ %43, %41 ], [ %37, %39 ]
   %47 = phi i32 [ %42, %41 ], [ %40, %39 ]
-  %48 = getelementptr [5 x i8], ptr %8, i64 0, i64 %46
+  %48 = getelementptr i8, ptr %8, i64 %46
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, -52
   br i1 %50, label %41, label %51, !prof !28
@@ -3492,7 +3492,7 @@ define internal fastcc noundef zeroext i1 @__optimize_nops(ptr noundef %0, i64 n
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %78
-  %81 = getelementptr [12 x ptr], ptr @x86_nops, i64 0, i64 %75
+  %81 = getelementptr ptr, ptr @x86_nops, i64 %75
   %82 = load ptr, ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %82, i64 %75, i1 false)
   br label %111

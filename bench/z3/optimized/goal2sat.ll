@@ -4661,7 +4661,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %177, %_ZN8goal2sat3
 
 220:                                              ; preds = %215
   %221 = zext i32 %218 to i64
-  %222 = getelementptr inbounds nuw [0 x ptr], ptr %214, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %214, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !159
   %224 = add nuw i32 %218, 1
   store i32 %224, ptr %217, align 4, !tbaa !215
@@ -13758,7 +13758,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %113
   %42 = phi i1 [ false, %113 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %113 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !156
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823

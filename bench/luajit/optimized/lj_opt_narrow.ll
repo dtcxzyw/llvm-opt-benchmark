@@ -194,7 +194,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %101 = trunc i32 %98 to i16
   %102 = load i32, ptr %40, align 4, !tbaa !37
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %41, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw %struct.BPropEntry, ptr %41, i64 %103
   %105 = add i32 %102, 1
   %106 = and i32 %105, 15
   store i32 %106, ptr %40, align 4, !tbaa !37
@@ -335,7 +335,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
   %64 = load i8, ptr %63, align 1, !tbaa !32
   %.fr154 = freeze i8 %64
   %65 = zext i8 %.fr154 to i64
-  %66 = getelementptr inbounds nuw [101 x i16], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw i16, ptr %62, i64 %65
   %.0102.in147 = load i16, ptr %66, align 2, !tbaa !32
   %.0102148 = zext i16 %.0102.in147 to i32
   %67 = icmp samesign ult i32 %1, %.0102148
@@ -435,7 +435,7 @@ define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef no
 
 118:                                              ; preds = %129, %109
   %.01319.i = phi i64 [ 0, %109 ], [ %130, %129 ]
-  %119 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %117, i64 0, i64 %.01319.i
+  %119 = getelementptr inbounds nuw %struct.BPropEntry, ptr %117, i64 %.01319.i
   %120 = load i16, ptr %119, align 4, !tbaa !38
   %121 = icmp eq i16 %120, %116
   br i1 %121, label %122, label %129
@@ -474,7 +474,7 @@ narrow_bpc_get.exit:                              ; preds = %125
 
 .preheader:                                       ; preds = %135, %147
   %.01319.i129 = phi i64 [ %148, %147 ], [ 0, %135 ]
-  %139 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %117, i64 0, i64 %.01319.i129
+  %139 = getelementptr inbounds nuw %struct.BPropEntry, ptr %117, i64 %.01319.i129
   %140 = load i16, ptr %139, align 4, !tbaa !38
   %141 = icmp eq i16 %140, %116
   br i1 %141, label %142, label %147
@@ -694,7 +694,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
 
 17:                                               ; preds = %25, %15
   %.01319.i = phi i64 [ 0, %15 ], [ %26, %25 ]
-  %18 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %16, i64 0, i64 %.01319.i
+  %18 = getelementptr inbounds nuw %struct.BPropEntry, ptr %16, i64 %.01319.i
   %19 = load i16, ptr %18, align 4, !tbaa !38
   %20 = icmp eq i16 %19, %5
   br i1 %20, label %21, label %25
@@ -755,7 +755,7 @@ common.ret69:                                     ; preds = %27, %75, %68, %67, 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2980
   %60 = load i32, ptr %59, align 4, !tbaa !37
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %16, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.BPropEntry, ptr %16, i64 %61
   %63 = add i32 %60, 1
   %64 = and i32 %63, 15
   store i32 %64, ptr %59, align 4, !tbaa !37
@@ -1331,7 +1331,7 @@ define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32
 
 19:                                               ; preds = %28, %16
   %.01319.i = phi i64 [ 0, %16 ], [ %29, %28 ]
-  %20 = getelementptr inbounds nuw [16 x %struct.BPropEntry], ptr %18, i64 0, i64 %.01319.i
+  %20 = getelementptr inbounds nuw %struct.BPropEntry, ptr %18, i64 %.01319.i
   %21 = load i16, ptr %20, align 4, !tbaa !38
   %22 = icmp eq i16 %21, %17
   br i1 %22, label %23, label %28

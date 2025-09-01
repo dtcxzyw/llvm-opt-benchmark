@@ -604,7 +604,7 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache7currentEv(ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4, !tbaa !76
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !71
   %13 = zext i16 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -631,7 +631,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UError
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !73
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %50, label %18
@@ -640,7 +640,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UError
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !74
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr %11, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = icmp sgt i32 %1, %23
   br i1 %24, label %50, label %25
@@ -677,7 +677,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UError
   %37 = sdiv i32 %36, 2
   %38 = and i32 %37, 127
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %11, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !17
   %42 = icmp sgt i32 %41, %1
   %43 = add nsw i32 %37, 1
@@ -694,7 +694,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UError
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %46, ptr %47, align 4, !tbaa !76
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %11, i64 %48
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, %._crit_edge.i
@@ -732,7 +732,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %69 = load i32, ptr %56, align 4, !tbaa !76
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [128 x i16], ptr %68, i64 0, i64 %70
+  %71 = getelementptr inbounds i16, ptr %68, i64 %70
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit
 
 72:                                               ; preds = %52
@@ -741,13 +741,13 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %74, ptr %56, align 4, !tbaa !76
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr inbounds nuw [128 x i32], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !17
   %79 = getelementptr inbounds nuw i8, ptr %54, i64 188
   store i32 %78, ptr %79, align 4, !tbaa !77
   store i32 %78, ptr %7, align 8, !tbaa !75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %81 = getelementptr inbounds nuw [128 x i16], ptr %80, i64 0, i64 %76
+  %81 = getelementptr inbounds nuw i16, ptr %80, i64 %76
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %61, %72
@@ -769,7 +769,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !73
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [128 x i32], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds i32, ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = icmp slt i32 %1, %8
   br i1 %9, label %43, label %10
@@ -778,7 +778,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !tbaa !74
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [128 x i32], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds i32, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = icmp sgt i32 %1, %15
   br i1 %16, label %43, label %17
@@ -815,7 +815,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %29 = sdiv i32 %28, 2
   %30 = and i32 %29, 127
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [128 x i32], ptr %3, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = icmp sgt i32 %33, %1
   %35 = add nsw i32 %29, 1
@@ -832,7 +832,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %38, ptr %39, align 4, !tbaa !76
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [128 x i32], ptr %3, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %40
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %23, %._crit_edge
@@ -858,7 +858,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !73
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds i32, ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = add nsw i32 %12, -15
   %14 = icmp sgt i32 %1, %13
@@ -868,7 +868,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4, !tbaa !74
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds i32, ptr %7, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = add nsw i32 %20, 15
   %22 = icmp slt i32 %1, %21
@@ -885,7 +885,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4, !tbaa !74
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %7, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = icmp sge i32 %33, %1
   %35 = add nsw i32 %28, -15
@@ -946,7 +946,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
 65:                                               ; preds = %36
   %66 = load i32, ptr %8, align 8, !tbaa !73
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %67
+  %68 = getelementptr inbounds i32, ptr %7, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !17
   %70 = add nuw nsw i32 %1, 15
   %.not = icmp sgt i32 %69, %70
@@ -976,7 +976,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
 .preheader:                                       ; preds = %.critedge, %83
   %78 = load i32, ptr %76, align 4, !tbaa !74
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %79
+  %80 = getelementptr inbounds i32, ptr %7, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !17
   %82 = icmp slt i32 %81, %1
   br i1 %82, label %83, label %86
@@ -991,7 +991,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   unreachable
 
 86:                                               ; preds = %.preheader
-  %87 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %79
+  %87 = getelementptr inbounds i32, ptr %7, i64 %79
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %78, ptr %88, align 4, !tbaa !76
   %89 = load i32, ptr %87, align 4, !tbaa !17
@@ -1035,7 +1035,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %107 = and i32 %106, 127
   store i32 %107, ptr %88, align 4, !tbaa !76
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw i32, ptr %7, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !17
   store i32 %110, ptr %90, align 8, !tbaa !75
   br label %111
@@ -1051,7 +1051,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 188
   store i32 %112, ptr %118, align 4, !tbaa !77
   %119 = sext i32 %113 to i64
-  %120 = getelementptr inbounds [128 x i16], ptr %93, i64 0, i64 %119
+  %120 = getelementptr inbounds i16, ptr %93, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !71
   %122 = zext i16 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %115, i64 192
@@ -1067,7 +1067,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; pr
 127:                                              ; preds = %.critedge
   %128 = load i32, ptr %8, align 8, !tbaa !73
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %129
+  %130 = getelementptr inbounds i32, ptr %7, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !17
   %132 = icmp sgt i32 %131, %1
   br i1 %132, label %.lr.ph, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
@@ -1076,13 +1076,13 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; pr
   %133 = tail call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache17populatePrecedingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %134 = load i32, ptr %8, align 8, !tbaa !73
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %135
+  %136 = getelementptr inbounds i32, ptr %7, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !17
   %138 = icmp sgt i32 %137, %1
   br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %139 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %135
+  %139 = getelementptr inbounds i32, ptr %7, i64 %135
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %134, ptr %140, align 4, !tbaa !76
   %141 = load i32, ptr %139, align 4, !tbaa !17
@@ -1120,7 +1120,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; pr
   %161 = and i32 %160, 127
   store i32 %161, ptr %140, align 4, !tbaa !76
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr %7, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !17
   %165 = load ptr, ptr %144, align 8, !tbaa !69
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 188
@@ -1133,7 +1133,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %150, %159
   %168 = phi i32 [ %161, %159 ], [ %157, %150 ]
   %.pn = phi i64 [ %162, %159 ], [ %158, %150 ]
   %.sink2.i = phi ptr [ %165, %159 ], [ %152, %150 ]
-  %.sink3.in.i = getelementptr inbounds [128 x i16], ptr %145, i64 0, i64 %.pn
+  %.sink3.in.i = getelementptr inbounds i16, ptr %145, i64 %.pn
   %.sink3.i = load i16, ptr %.sink3.in.i, align 2, !tbaa !71
   %169 = zext i16 %.sink3.i to i32
   %170 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 192
@@ -1166,7 +1166,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %150, %159
   %183 = and i32 %182, 127
   store i32 %183, ptr %140, align 4, !tbaa !76
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds nuw [128 x i32], ptr %7, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw i32, ptr %7, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !17
   store i32 %186, ptr %142, align 8, !tbaa !75
   br label %187
@@ -1184,7 +1184,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %150, %159
   store i32 %188, ptr %195, align 4, !tbaa !77
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %197 = sext i32 %189 to i64
-  %198 = getelementptr inbounds [128 x i16], ptr %196, i64 0, i64 %197
+  %198 = getelementptr inbounds i16, ptr %196, i64 %197
   %199 = load i16, ptr %198, align 2, !tbaa !71
   %200 = zext i16 %199 to i32
   %201 = getelementptr inbounds nuw i8, ptr %192, i64 192
@@ -1213,7 +1213,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UError
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !73
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %50, label %18
@@ -1222,7 +1222,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UError
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !74
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr %11, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = icmp sgt i32 %1, %23
   br i1 %24, label %50, label %25
@@ -1259,7 +1259,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UError
   %37 = sdiv i32 %36, 2
   %38 = and i32 %37, 127
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %11, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !17
   %42 = icmp sgt i32 %41, %1
   %43 = add nsw i32 %37, 1
@@ -1276,7 +1276,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UError
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %46, ptr %47, align 4, !tbaa !76
   %48 = zext nneg i32 %46 to i64
-  %49 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %11, i64 %48
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, %._crit_edge.i
@@ -1324,7 +1324,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %67, ptr %58, align 4, !tbaa !76
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = zext nneg i32 %67 to i64
-  %70 = getelementptr inbounds nuw [128 x i32], ptr %68, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !17
   store i32 %71, ptr %7, align 8, !tbaa !75
   br label %72
@@ -1342,7 +1342,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %73, ptr %80, align 4, !tbaa !77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %82 = sext i32 %74 to i64
-  %83 = getelementptr inbounds [128 x i16], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds i16, ptr %81, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !71
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 192
@@ -1358,7 +1358,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %93 = load i32, ptr %92, align 4, !tbaa !76
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [128 x i16], ptr %91, i64 0, i64 %94
+  %95 = getelementptr inbounds i16, ptr %91, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !71
   %97 = zext i16 %96 to i32
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 192
@@ -1398,7 +1398,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCo
   store i32 %15, ptr %6, align 4, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw [128 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %19, ptr %20, align 8, !tbaa !75
@@ -1417,7 +1417,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCo
   store i32 %22, ptr %29, align 4, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %31 = sext i32 %23 to i64
-  %32 = getelementptr inbounds [128 x i16], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !71
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 192
@@ -1444,7 +1444,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !76
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds i16, ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !71
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
@@ -1458,10 +1458,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !74
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [128 x i32], ptr %2, i64 0, i64 %5
+  %6 = getelementptr inbounds i32, ptr %2, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %9 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %5
+  %9 = getelementptr inbounds i16, ptr %8, i64 %5
   %10 = load i16, ptr %9, align 2, !tbaa !71
   %11 = zext i16 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1703,10 +1703,10 @@ _ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29.thre
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit31: ; preds = %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29.thread, %116
   %119 = zext nneg i32 %112 to i64
-  %120 = getelementptr inbounds nuw [128 x i32], ptr %2, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %2, i64 %119
   store i32 %56, ptr %120, align 4, !tbaa !17
   %121 = trunc i32 %61 to i16
-  %122 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %119
+  %122 = getelementptr inbounds nuw i16, ptr %8, i64 %119
   store i16 %121, ptr %122, align 2, !tbaa !71
   store i32 %112, ptr %3, align 4, !tbaa !74
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1747,10 +1747,10 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32: ; preds = %133, %141
   %144 = zext nneg i32 %138 to i64
-  %145 = getelementptr inbounds nuw [128 x i32], ptr %2, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %2, i64 %144
   store i32 %127, ptr %145, align 4, !tbaa !17
   %146 = trunc i32 %135 to i16
-  %147 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %144
+  %147 = getelementptr inbounds nuw i16, ptr %8, i64 %144
   store i16 %146, ptr %147, align 2, !tbaa !71
   store i32 %138, ptr %3, align 4, !tbaa !74
   %148 = add nuw nsw i32 %.054, 1
@@ -1762,10 +1762,10 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   %.242.sink80 = phi i32 [ %.141, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.141, %51 ], [ %.242, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.242, %106 ]
   %.2.sink = phi i32 [ %.1, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.1, %51 ], [ %.2, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.2, %106 ]
   %149 = zext nneg i32 %.sink83 to i64
-  %150 = getelementptr inbounds nuw [128 x i32], ptr %2, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr %2, i64 %149
   store i32 %.242.sink80, ptr %150, align 4, !tbaa !17
   %151 = trunc i32 %.2.sink to i16
-  %152 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %149
+  %152 = getelementptr inbounds nuw i16, ptr %8, i64 %149
   store i16 %151, ptr %152, align 2, !tbaa !71
   store i32 %.sink83, ptr %3, align 4, !tbaa !74
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1790,7 +1790,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !73
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [128 x i32], ptr %6, i64 0, i64 %9
+  %10 = getelementptr inbounds i32, ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit118.thread, label %13
@@ -1934,11 +1934,11 @@ _ZNK6icu_779UVector3210elementAtiEi.exit24.i:     ; preds = %62, %61
 
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit: ; preds = %.loopexit, %75
   %78 = zext nneg i32 %71 to i64
-  %79 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %78
   store i32 %.sink284, ptr %79, align 4, !tbaa !17
   %80 = trunc i32 %.4.ph to i16
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %81, i64 0, i64 %78
+  %82 = getelementptr inbounds nuw i16, ptr %81, i64 %78
   store i16 %80, ptr %82, align 2, !tbaa !71
   store i32 %71, ptr %7, align 8, !tbaa !73
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2378,10 +2378,10 @@ _ZN6icu_779UVector324popiEv.exit108:              ; preds = %248, %_ZN6icu_779UV
 
 271:                                              ; preds = %268, %_ZN6icu_779UVector324popiEv.exit108
   %272 = zext nneg i32 %264 to i64
-  %273 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw i32, ptr %6, i64 %272
   store i32 %.0.i107, ptr %273, align 4, !tbaa !17
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %275 = getelementptr inbounds nuw [128 x i16], ptr %274, i64 0, i64 %272
+  %275 = getelementptr inbounds nuw i16, ptr %274, i64 %272
   store i16 %.0.i106253, ptr %275, align 2, !tbaa !71
   store i32 %264, ptr %7, align 8, !tbaa !73
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2448,9 +2448,9 @@ _ZN6icu_779UVector324popiEv.exit115:              ; preds = %283, %_ZN6icu_779UV
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit118: ; preds = %_ZN6icu_779UVector324popiEv.exit115, %304
   %307 = phi i32 [ %284, %_ZN6icu_779UVector324popiEv.exit115 ], [ %306, %304 ]
   %308 = zext nneg i32 %300 to i64
-  %309 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw i32, ptr %6, i64 %308
   store i32 %.0.i114, ptr %309, align 4, !tbaa !17
-  %310 = getelementptr inbounds nuw [128 x i16], ptr %282, i64 0, i64 %308
+  %310 = getelementptr inbounds nuw i16, ptr %282, i64 %308
   store i16 %.0.i112259, ptr %310, align 2, !tbaa !71
   store i32 %300, ptr %7, align 8, !tbaa !73
   %.not167 = icmp eq i32 %298, 0
@@ -2489,11 +2489,11 @@ define void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_
 15:                                               ; preds = %12, %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = zext nneg i32 %8 to i64
-  %18 = getelementptr inbounds nuw [128 x i32], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
   store i32 %1, ptr %18, align 4, !tbaa !17
   %19 = trunc i32 %2 to i16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %21 = getelementptr inbounds nuw [128 x i16], ptr %20, i64 0, i64 %17
+  %21 = getelementptr inbounds nuw i16, ptr %20, i64 %17
   store i16 %19, ptr %21, align 2, !tbaa !71
   store i32 %8, ptr %5, align 4, !tbaa !74
   %22 = icmp eq i32 %3, 1
@@ -2538,11 +2538,11 @@ define noundef zeroext i1 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPr
 20:                                               ; preds = %17, %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = zext nneg i32 %8 to i64
-  %23 = getelementptr inbounds nuw [128 x i32], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   store i32 %1, ptr %23, align 4, !tbaa !17
   %24 = trunc i32 %2 to i16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %26 = getelementptr inbounds nuw [128 x i16], ptr %25, i64 0, i64 %22
+  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %22
   store i16 %24, ptr %26, align 2, !tbaa !71
   store i32 %8, ptr %5, align 8, !tbaa !73
   %27 = icmp eq i32 %3, 1

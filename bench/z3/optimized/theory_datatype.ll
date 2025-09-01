@@ -1724,7 +1724,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %_ZNK3smt5enode12get
   br label %237
 
 46:                                               ; preds = %_ZNK3smt5enode12get_num_argsEv.exit
-  %47 = getelementptr inbounds nuw [0 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   %49 = load ptr, ptr %48, align 8, !tbaa !128
   %.not.i.i.i.i = icmp eq ptr %49, null
@@ -2046,7 +2046,7 @@ _ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit:   ; preds = %_ZN11ast_manager7in
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %182 = load i32, ptr %7, align 4, !tbaa !12
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw [0 x ptr], ptr %135, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %135, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !45
   store ptr %185, ptr %9, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3989,7 +3989,7 @@ _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5
 23:                                               ; preds = %.lr.ph, %_Z15has_quantifiersPK4expr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z15has_quantifiersPK4expr.exit ]
   %24 = load ptr, ptr %7, align 8, !tbaa !129
-  %25 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !46
   %27 = load ptr, ptr %9, align 8, !tbaa !59
   %28 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %27, ptr noundef nonnull %1)
@@ -4109,7 +4109,7 @@ _ZNK3smt15theory_datatype15is_update_fieldEP3app.exit: ; preds = %75
 
 96:                                               ; preds = %.lr.ph72, %_ZNK8seq_util6is_seqEP4sort.exit.thread
   %indvars.iv77 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next78, %_ZNK8seq_util6is_seqEP4sort.exit.thread ]
-  %97 = getelementptr inbounds nuw [0 x ptr], ptr %86, i64 0, i64 %indvars.iv77
+  %97 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv77
   %98 = load ptr, ptr %97, align 8, !tbaa !45
   %99 = load ptr, ptr %98, align 8, !tbaa !128
   %100 = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %99)

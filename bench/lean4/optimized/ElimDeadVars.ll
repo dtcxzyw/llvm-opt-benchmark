@@ -490,7 +490,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_FnBody_elimDead___spec__1(i64 no
   %.052113 = phi i64 [ %30, %147 ], [ %1, %3 ]
   %.054112 = phi ptr [ %.155, %147 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.054112, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.052113
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.052113
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -1186,7 +1186,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_IR_FnBody_elimDead___spec__2(i64 no
   %.061132 = phi i64 [ %30, %166 ], [ %1, %3 ]
   %.063131 = phi ptr [ %.164, %166 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.063131, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.061132
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.061132
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

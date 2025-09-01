@@ -565,7 +565,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
 
 switch.lookup:                                    ; preds = %._crit_edge
   %61 = zext nneg i32 %.sroa.0.0.i3148 to i64
-  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_12JsParseErrorE, i64 0, i64 %61
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_12JsParseErrorE, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit
 
@@ -4659,7 +4659,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   %.sroa.0.014 = phi ptr [ %.sroa.0.1, %45 ], [ %1, %3 ]
   %9 = load i8, ptr %.sroa.0.014, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE6escape, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE6escape, i64 %10
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   %13 = load ptr, ptr %0, align 8
@@ -4685,14 +4685,14 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
   %29 = zext i8 %9 to i32
   %30 = lshr i32 %29, 4
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE9hexDigits, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE9hexDigits, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = load ptr, ptr %28, align 8
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %34, i8 noundef signext %33)
   %36 = load ptr, ptr %0, align 8
   %37 = and i32 %29, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE9hexDigits, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcjE9hexDigits, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = load ptr, ptr %36, align 8
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %41, i8 noundef signext %40)
@@ -8412,7 +8412,7 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE19ParseStringToStreamILj24ES3_S3_NS0_19GenericStringStreamIS3_EENS5_11StackStreamIcEEEEvRT2_RT3_E6escape, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE19ParseStringToStreamILj24ES3_S3_NS0_19GenericStringStreamIS3_EENS5_11StackStreamIcEEEEvRT2_RT3_E6escape, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %65, label %24
@@ -12282,9 +12282,9 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   br i1 %or.cond5.i, label %19, label %31
 
 .thread.i:                                        ; preds = %6
-  %13 = add nsw i32 %1, -22
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw [309 x double], ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 0, i64 %14
+  %13 = zext nneg i32 %1 to i64
+  %14 = getelementptr double, ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 -176
   %16 = load double, ptr %15, align 8
   %17 = fmul double %0, %16
   %18 = fcmp ugt double %17, 0x433FFFFFFFFFFFFF
@@ -12298,7 +12298,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   %.0162233.i = phi double [ %0, %19 ], [ %17, %.thread.i ]
   %.0152332.i = phi i32 [ %1, %19 ], [ 22, %.thread.i ]
   %21 = zext nneg i32 %.0152332.i to i64
-  %22 = getelementptr inbounds nuw [309 x double], ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw double, ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = fmul double %.0162233.i, %23
   br label %.critedge2.thread77
@@ -12306,7 +12306,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
 25:                                               ; preds = %19
   %26 = sub nsw i32 0, %1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [309 x double], ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = fdiv double %0, %29
   br label %.critedge2.thread77
@@ -12508,9 +12508,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
   %37 = and i32 %35, -8
   %38 = add nsw i32 %37, -348
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw [87 x i64], ptr @_ZZN3pxr9rapidjson8internal21GetCachedPowerByIndexEmE15kCachedPowers_F, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr @_ZZN3pxr9rapidjson8internal21GetCachedPowerByIndexEmE15kCachedPowers_F, i64 %39
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw [87 x i16], ptr @_ZZN3pxr9rapidjson8internal21GetCachedPowerByIndexEmE15kCachedPowers_E, i64 0, i64 %39
+  %42 = getelementptr inbounds nuw i16, ptr @_ZZN3pxr9rapidjson8internal21GetCachedPowerByIndexEmE15kCachedPowers_E, i64 %39
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i32
   %.not = icmp eq i32 %38, %34
@@ -12546,9 +12546,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
 
 51:                                               ; preds = %50, %48, %45
   %52 = sub nsw i32 %34, %38
-  %53 = add nsw i32 %52, -1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [7 x %"struct.pxr::rapidjson::internal::DiyFp"], ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 0, i64 %54
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr %"struct.pxr::rapidjson::internal::DiyFp", ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 -16
   %56 = lshr i64 %32, 32
   %57 = and i64 %32, 4294967295
   %58 = load i64, ptr %55, align 16
@@ -12570,7 +12570,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
   %74 = add nuw i64 %72, %73
   %75 = lshr i64 %70, 32
   %76 = add i64 %74, %75
-  %77 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %77 = getelementptr i8, ptr %54, i64 -8
   %78 = load i32, ptr %77, align 8
   %reass.sub121 = sub i32 %78, %30
   %79 = add i32 %reass.sub121, 64
@@ -12779,332 +12779,329 @@ define linkonce_odr noundef i32 @_ZN3pxr9rapidjson8internal18CheckWithinHalfULPE
   br label %.sink.split.i
 
 54:                                               ; preds = %45
-  %55 = getelementptr inbounds [416 x i64], ptr %37, i64 0, i64 %39
+  %55 = getelementptr inbounds i64, ptr %37, i64 %39
   store i64 0, ptr %55, align 8
   %56 = load i64, ptr %38, align 8
   %.not24.i = icmp eq i64 %56, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.i
-  %.025.i = phi i64 [ %59, %.lr.ph.i ], [ %56, %54 ]
-  %57 = getelementptr inbounds [416 x i64], ptr %37, i64 0, i64 %.025.i
+  %.025.i = phi i64 [ %63, %.lr.ph.i ], [ %56, %54 ]
+  %57 = getelementptr inbounds i64, ptr %37, i64 %.025.i
   %58 = load i64, ptr %57, align 8
-  %59 = add i64 %.025.i, -1
-  %60 = getelementptr inbounds [416 x i64], ptr %37, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8
-  %62 = call i64 @llvm.fshl.i64(i64 %58, i64 %61, i64 %36)
-  %63 = add i64 %.025.i, %46
-  %64 = getelementptr inbounds [416 x i64], ptr %37, i64 0, i64 %63
-  store i64 %62, ptr %64, align 8
-  %.not.i = icmp eq i64 %59, 0
+  %59 = getelementptr i8, ptr %57, i64 -8
+  %60 = load i64, ptr %59, align 8
+  %61 = call i64 @llvm.fshl.i64(i64 %58, i64 %60, i64 %36)
+  %62 = getelementptr i64, ptr %57, i64 %46
+  store i64 %61, ptr %62, align 8
+  %63 = add i64 %.025.i, -1
+  %.not.i = icmp eq i64 %63, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %54
-  %65 = load i64, ptr %37, align 8
-  %66 = shl i64 %65, %47
-  %67 = getelementptr inbounds nuw [416 x i64], ptr %37, i64 0, i64 %46
-  store i64 %66, ptr %67, align 8
-  %68 = load i64, ptr %38, align 8
-  %69 = add i64 %68, %46
-  store i64 %69, ptr %38, align 8
-  %70 = getelementptr inbounds [416 x i64], ptr %37, i64 0, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %.not23.i = icmp eq i64 %71, 0
-  br i1 %.not23.i, label %74, label %72
+  %64 = load i64, ptr %37, align 8
+  %65 = shl i64 %64, %47
+  %66 = getelementptr inbounds nuw i64, ptr %37, i64 %46
+  store i64 %65, ptr %66, align 8
+  %67 = load i64, ptr %38, align 8
+  %68 = add i64 %67, %46
+  store i64 %68, ptr %38, align 8
+  %69 = getelementptr inbounds i64, ptr %37, i64 %68
+  %70 = load i64, ptr %69, align 8
+  %.not23.i = icmp eq i64 %70, 0
+  br i1 %.not23.i, label %73, label %71
 
-72:                                               ; preds = %._crit_edge.i
-  %73 = add i64 %69, 1
+71:                                               ; preds = %._crit_edge.i
+  %72 = add i64 %68, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %72, %49
-  %.sink.i = phi i64 [ %73, %72 ], [ %53, %49 ]
+.sink.split.i:                                    ; preds = %71, %49
+  %.sink.i = phi i64 [ %72, %71 ], [ %53, %49 ]
   store i64 %.sink.i, ptr %38, align 8
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.sink.split.i, %._crit_edge.i
-  %75 = shl nuw nsw i64 %46, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %37, i8 0, i64 %75, i1 false)
+73:                                               ; preds = %.sink.split.i, %._crit_edge.i
+  %74 = shl nuw nsw i64 %46, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %37, i8 0, i64 %74, i1 false)
   br label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit
 
-_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit:  ; preds = %3, %74
+_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit:  ; preds = %3, %73
   store i64 1, ptr %.sroa.gep, align 8
   store i64 %spec.select.i, ptr %5, align 8
-  %76 = zext i32 %30 to i64
-  %77 = call noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5Ej(ptr noundef nonnull align 8 dereferenceable(3336) %5, i32 noundef %.045)
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 3328
-  %79 = load i64, ptr %78, align 8
-  %80 = icmp eq i64 %79, 1
-  %81 = load i64, ptr %77, align 8
-  %82 = icmp eq i64 %81, 0
-  %83 = select i1 %80, i1 %82, i1 false
-  %84 = icmp eq i32 %.252, %.1.i
-  %or.cond.i62 = or i1 %84, %83
-  br i1 %or.cond.i62, label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71, label %85
+  %75 = zext i32 %30 to i64
+  %76 = call noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5Ej(ptr noundef nonnull align 8 dereferenceable(3336) %5, i32 noundef %.045)
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 3328
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp eq i64 %78, 1
+  %80 = load i64, ptr %76, align 8
+  %81 = icmp eq i64 %80, 0
+  %82 = select i1 %79, i1 %81, i1 false
+  %83 = icmp eq i32 %.252, %.1.i
+  %or.cond.i62 = or i1 %83, %82
+  br i1 %or.cond.i62, label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71, label %84
 
-85:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit
-  %86 = lshr i64 %76, 6
-  %87 = and i64 %76, 63
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %94
+84:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit
+  %85 = lshr i64 %75, 6
+  %86 = and i64 %75, 63
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %93
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i64, ptr %77, i64 %86
-  %91 = shl i64 %79, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 dereferenceable(3336) %77, i64 %91, i1 false)
-  %92 = load i64, ptr %78, align 8
-  %93 = add i64 %92, %86
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i64, ptr %76, i64 %85
+  %90 = shl i64 %78, 3
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %89, ptr nonnull align 8 dereferenceable(3336) %76, i64 %90, i1 false)
+  %91 = load i64, ptr %77, align 8
+  %92 = add i64 %91, %85
   br label %.sink.split.i69
 
-94:                                               ; preds = %85
-  %95 = getelementptr inbounds [416 x i64], ptr %77, i64 0, i64 %79
-  store i64 0, ptr %95, align 8
-  %96 = load i64, ptr %78, align 8
-  %.not24.i63 = icmp eq i64 %96, 0
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds i64, ptr %76, i64 %78
+  store i64 0, ptr %94, align 8
+  %95 = load i64, ptr %77, align 8
+  %.not24.i63 = icmp eq i64 %95, 0
   br i1 %.not24.i63, label %._crit_edge.i67, label %.lr.ph.i64
 
-.lr.ph.i64:                                       ; preds = %94, %.lr.ph.i64
-  %.025.i65 = phi i64 [ %99, %.lr.ph.i64 ], [ %96, %94 ]
-  %97 = getelementptr inbounds [416 x i64], ptr %77, i64 0, i64 %.025.i65
-  %98 = load i64, ptr %97, align 8
-  %99 = add i64 %.025.i65, -1
-  %100 = getelementptr inbounds [416 x i64], ptr %77, i64 0, i64 %99
-  %101 = load i64, ptr %100, align 8
-  %102 = call i64 @llvm.fshl.i64(i64 %98, i64 %101, i64 %76)
-  %103 = add i64 %.025.i65, %86
-  %104 = getelementptr inbounds [416 x i64], ptr %77, i64 0, i64 %103
-  store i64 %102, ptr %104, align 8
-  %.not.i66 = icmp eq i64 %99, 0
+.lr.ph.i64:                                       ; preds = %93, %.lr.ph.i64
+  %.025.i65 = phi i64 [ %102, %.lr.ph.i64 ], [ %95, %93 ]
+  %96 = getelementptr inbounds i64, ptr %76, i64 %.025.i65
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr i8, ptr %96, i64 -8
+  %99 = load i64, ptr %98, align 8
+  %100 = call i64 @llvm.fshl.i64(i64 %97, i64 %99, i64 %75)
+  %101 = getelementptr i64, ptr %96, i64 %85
+  store i64 %100, ptr %101, align 8
+  %102 = add i64 %.025.i65, -1
+  %.not.i66 = icmp eq i64 %102, 0
   br i1 %.not.i66, label %._crit_edge.i67, label %.lr.ph.i64, !llvm.loop !112
 
-._crit_edge.i67:                                  ; preds = %.lr.ph.i64, %94
-  %105 = load i64, ptr %77, align 8
-  %106 = shl i64 %105, %87
-  %107 = getelementptr inbounds nuw [416 x i64], ptr %77, i64 0, i64 %86
-  store i64 %106, ptr %107, align 8
-  %108 = load i64, ptr %78, align 8
-  %109 = add i64 %108, %86
-  store i64 %109, ptr %78, align 8
-  %110 = getelementptr inbounds [416 x i64], ptr %77, i64 0, i64 %109
-  %111 = load i64, ptr %110, align 8
-  %.not23.i68 = icmp eq i64 %111, 0
-  br i1 %.not23.i68, label %114, label %112
+._crit_edge.i67:                                  ; preds = %.lr.ph.i64, %93
+  %103 = load i64, ptr %76, align 8
+  %104 = shl i64 %103, %86
+  %105 = getelementptr inbounds nuw i64, ptr %76, i64 %85
+  store i64 %104, ptr %105, align 8
+  %106 = load i64, ptr %77, align 8
+  %107 = add i64 %106, %85
+  store i64 %107, ptr %77, align 8
+  %108 = getelementptr inbounds i64, ptr %76, i64 %107
+  %109 = load i64, ptr %108, align 8
+  %.not23.i68 = icmp eq i64 %109, 0
+  br i1 %.not23.i68, label %112, label %110
 
-112:                                              ; preds = %._crit_edge.i67
-  %113 = add i64 %109, 1
+110:                                              ; preds = %._crit_edge.i67
+  %111 = add i64 %107, 1
   br label %.sink.split.i69
 
-.sink.split.i69:                                  ; preds = %112, %89
-  %.sink.i70 = phi i64 [ %113, %112 ], [ %93, %89 ]
-  store i64 %.sink.i70, ptr %78, align 8
-  br label %114
+.sink.split.i69:                                  ; preds = %110, %88
+  %.sink.i70 = phi i64 [ %111, %110 ], [ %92, %88 ]
+  store i64 %.sink.i70, ptr %77, align 8
+  br label %112
 
-114:                                              ; preds = %.sink.split.i69, %._crit_edge.i67
-  %115 = shl nuw nsw i64 %86, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %77, i8 0, i64 %115, i1 false)
+112:                                              ; preds = %.sink.split.i69, %._crit_edge.i67
+  %113 = shl nuw nsw i64 %85, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %76, i8 0, i64 %113, i1 false)
   br label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71
 
-_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit, %114
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 3328
-  store i64 1, ptr %116, align 8
+_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit, %112
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 3328
+  store i64 1, ptr %114, align 8
   store i64 1, ptr %6, align 8
-  %117 = zext i32 %31 to i64
-  %118 = call noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5Ej(ptr noundef nonnull align 8 dereferenceable(3336) %6, i32 noundef %.045)
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 3328
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp eq i64 %120, 1
-  %122 = load i64, ptr %118, align 8
-  %123 = icmp eq i64 %122, 0
-  %124 = select i1 %121, i1 %123, i1 false
-  %125 = icmp sle i32 %.248, %spec.select.i61
-  %or.cond.i72 = or i1 %125, %124
-  br i1 %or.cond.i72, label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81, label %126
+  %115 = zext i32 %31 to i64
+  %116 = call noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5Ej(ptr noundef nonnull align 8 dereferenceable(3336) %6, i32 noundef %.045)
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 3328
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp eq i64 %118, 1
+  %120 = load i64, ptr %116, align 8
+  %121 = icmp eq i64 %120, 0
+  %122 = select i1 %119, i1 %121, i1 false
+  %123 = icmp sle i32 %.248, %spec.select.i61
+  %or.cond.i72 = or i1 %123, %122
+  br i1 %or.cond.i72, label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81, label %124
 
-126:                                              ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71
-  %127 = lshr i64 %117, 6
-  %128 = and i64 %117, 63
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %130, label %135
+124:                                              ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71
+  %125 = lshr i64 %115, 6
+  %126 = and i64 %115, 63
+  %127 = icmp eq i64 %126, 0
+  br i1 %127, label %128, label %133
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds nuw i64, ptr %118, i64 %127
-  %132 = shl i64 %120, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %131, ptr nonnull align 8 dereferenceable(3336) %118, i64 %132, i1 false)
-  %133 = load i64, ptr %119, align 8
-  %134 = add i64 %133, %127
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i64, ptr %116, i64 %125
+  %130 = shl i64 %118, 3
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %129, ptr nonnull align 8 dereferenceable(3336) %116, i64 %130, i1 false)
+  %131 = load i64, ptr %117, align 8
+  %132 = add i64 %131, %125
   br label %.sink.split.i79
 
-135:                                              ; preds = %126
-  %136 = getelementptr inbounds [416 x i64], ptr %118, i64 0, i64 %120
-  store i64 0, ptr %136, align 8
-  %137 = load i64, ptr %119, align 8
-  %.not24.i73 = icmp eq i64 %137, 0
+133:                                              ; preds = %124
+  %134 = getelementptr inbounds i64, ptr %116, i64 %118
+  store i64 0, ptr %134, align 8
+  %135 = load i64, ptr %117, align 8
+  %.not24.i73 = icmp eq i64 %135, 0
   br i1 %.not24.i73, label %._crit_edge.i77, label %.lr.ph.i74
 
-.lr.ph.i74:                                       ; preds = %135, %.lr.ph.i74
-  %.025.i75 = phi i64 [ %140, %.lr.ph.i74 ], [ %137, %135 ]
-  %138 = getelementptr inbounds [416 x i64], ptr %118, i64 0, i64 %.025.i75
+.lr.ph.i74:                                       ; preds = %133, %.lr.ph.i74
+  %.025.i75 = phi i64 [ %142, %.lr.ph.i74 ], [ %135, %133 ]
+  %136 = getelementptr inbounds i64, ptr %116, i64 %.025.i75
+  %137 = load i64, ptr %136, align 8
+  %138 = getelementptr i8, ptr %136, i64 -8
   %139 = load i64, ptr %138, align 8
-  %140 = add i64 %.025.i75, -1
-  %141 = getelementptr inbounds [416 x i64], ptr %118, i64 0, i64 %140
-  %142 = load i64, ptr %141, align 8
-  %143 = call i64 @llvm.fshl.i64(i64 %139, i64 %142, i64 %117)
-  %144 = add i64 %.025.i75, %127
-  %145 = getelementptr inbounds [416 x i64], ptr %118, i64 0, i64 %144
-  store i64 %143, ptr %145, align 8
-  %.not.i76 = icmp eq i64 %140, 0
+  %140 = call i64 @llvm.fshl.i64(i64 %137, i64 %139, i64 %115)
+  %141 = getelementptr i64, ptr %136, i64 %125
+  store i64 %140, ptr %141, align 8
+  %142 = add i64 %.025.i75, -1
+  %.not.i76 = icmp eq i64 %142, 0
   br i1 %.not.i76, label %._crit_edge.i77, label %.lr.ph.i74, !llvm.loop !112
 
-._crit_edge.i77:                                  ; preds = %.lr.ph.i74, %135
-  %146 = load i64, ptr %118, align 8
-  %147 = shl i64 %146, %128
-  %148 = getelementptr inbounds nuw [416 x i64], ptr %118, i64 0, i64 %127
-  store i64 %147, ptr %148, align 8
-  %149 = load i64, ptr %119, align 8
-  %150 = add i64 %149, %127
-  store i64 %150, ptr %119, align 8
-  %151 = getelementptr inbounds [416 x i64], ptr %118, i64 0, i64 %150
-  %152 = load i64, ptr %151, align 8
-  %.not23.i78 = icmp eq i64 %152, 0
-  br i1 %.not23.i78, label %155, label %153
+._crit_edge.i77:                                  ; preds = %.lr.ph.i74, %133
+  %143 = load i64, ptr %116, align 8
+  %144 = shl i64 %143, %126
+  %145 = getelementptr inbounds nuw i64, ptr %116, i64 %125
+  store i64 %144, ptr %145, align 8
+  %146 = load i64, ptr %117, align 8
+  %147 = add i64 %146, %125
+  store i64 %147, ptr %117, align 8
+  %148 = getelementptr inbounds i64, ptr %116, i64 %147
+  %149 = load i64, ptr %148, align 8
+  %.not23.i78 = icmp eq i64 %149, 0
+  br i1 %.not23.i78, label %152, label %150
 
-153:                                              ; preds = %._crit_edge.i77
-  %154 = add i64 %150, 1
+150:                                              ; preds = %._crit_edge.i77
+  %151 = add i64 %147, 1
   br label %.sink.split.i79
 
-.sink.split.i79:                                  ; preds = %153, %130
-  %.sink.i80 = phi i64 [ %154, %153 ], [ %134, %130 ]
-  store i64 %.sink.i80, ptr %119, align 8
-  br label %155
+.sink.split.i79:                                  ; preds = %150, %128
+  %.sink.i80 = phi i64 [ %151, %150 ], [ %132, %128 ]
+  store i64 %.sink.i80, ptr %117, align 8
+  br label %152
 
-155:                                              ; preds = %.sink.split.i79, %._crit_edge.i77
-  %156 = shl nuw nsw i64 %127, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %118, i8 0, i64 %156, i1 false)
+152:                                              ; preds = %.sink.split.i79, %._crit_edge.i77
+  %153 = shl nuw nsw i64 %125, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %116, i8 0, i64 %153, i1 false)
   br label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81
 
-_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71, %155
-  %157 = getelementptr inbounds nuw i8, ptr %7, i64 3328
-  store i64 1, ptr %157, align 8
+_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit71, %152
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 3328
+  store i64 1, ptr %154, align 8
   store i64 0, ptr %7, align 8
-  %158 = load i64, ptr %32, align 8
-  %.fr.i = freeze i64 %158
-  %159 = load i64, ptr %.sroa.gep, align 8
-  %.fr53.i = freeze i64 %159
+  %155 = load i64, ptr %32, align 8
+  %.fr.i = freeze i64 %155
+  %156 = load i64, ptr %.sroa.gep, align 8
+  %.fr53.i = freeze i64 %156
   %.not.i.i82 = icmp eq i64 %.fr.i, %.fr53.i
-  br i1 %.not.i.i82, label %.preheader.i.i, label %160
+  br i1 %.not.i.i82, label %.preheader.i.i, label %157
 
-160:                                              ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81
-  %161 = icmp ult i64 %.fr.i, %.fr53.i
-  br i1 %161, label %.lr.ph.i83.preheader, label %169
+157:                                              ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81
+  %158 = icmp ult i64 %.fr.i, %.fr53.i
+  br i1 %158, label %.lr.ph.i83.preheader, label %166
 
-.preheader.i.i:                                   ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81, %162
-  %.0.i.i = phi i64 [ %163, %162 ], [ %.fr.i, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81 ]
+.preheader.i.i:                                   ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81, %159
+  %.0.i.i = phi i64 [ %160, %159 ], [ %.fr.i, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81 ]
   %.not15.i.i = icmp eq i64 %.0.i.i, 0
-  br i1 %.not15.i.i, label %.thread.i, label %162
+  br i1 %.not15.i.i, label %.thread.i, label %159
 
-162:                                              ; preds = %.preheader.i.i
-  %163 = add i64 %.0.i.i, -1
-  %164 = getelementptr inbounds [416 x i64], ptr %4, i64 0, i64 %163
-  %165 = load i64, ptr %164, align 8
-  %.fr54.i = freeze i64 %165
-  %166 = getelementptr inbounds [416 x i64], ptr %5, i64 0, i64 %163
-  %167 = load i64, ptr %166, align 8
-  %.fr55.i = freeze i64 %167
+159:                                              ; preds = %.preheader.i.i
+  %160 = add i64 %.0.i.i, -1
+  %161 = getelementptr inbounds i64, ptr %4, i64 %160
+  %162 = load i64, ptr %161, align 8
+  %.fr54.i = freeze i64 %162
+  %163 = getelementptr inbounds i64, ptr %5, i64 %160
+  %164 = load i64, ptr %163, align 8
+  %.fr55.i = freeze i64 %164
   %.not16.i.i = icmp eq i64 %.fr54.i, %.fr55.i
   br i1 %.not16.i.i, label %.preheader.i.i, label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, !llvm.loop !113
 
-_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i: ; preds = %162
-  %168 = icmp ult i64 %.fr54.i, %.fr55.i
-  br i1 %168, label %.thread.i, label %169
+_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i: ; preds = %159
+  %165 = icmp ult i64 %.fr54.i, %.fr55.i
+  br i1 %165, label %.thread.i, label %166
 
-169:                                              ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %160
+166:                                              ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %157
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.preheader.i.i, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %169
-  %.sroa.phi.ph = phi ptr [ %.sroa.gep, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %32, %169 ], [ %32, %.preheader.i.i ]
-  %.ph = phi ptr [ %5, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %4, %169 ], [ %4, %.preheader.i.i ]
-  %.sroa.phi90.ph = phi ptr [ %32, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %.sroa.gep, %169 ], [ %.sroa.gep, %.preheader.i.i ]
-  %.ph95 = phi ptr [ %4, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %5, %169 ], [ %5, %.preheader.i.i ]
+.thread.i:                                        ; preds = %.preheader.i.i, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, %166
+  %.sroa.phi.ph = phi ptr [ %.sroa.gep, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %32, %166 ], [ %32, %.preheader.i.i ]
+  %.ph = phi ptr [ %5, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %4, %166 ], [ %4, %.preheader.i.i ]
+  %.sroa.phi90.ph = phi ptr [ %32, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %.sroa.gep, %166 ], [ %.sroa.gep, %.preheader.i.i ]
+  %.ph95 = phi ptr [ %4, %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i ], [ %5, %166 ], [ %5, %.preheader.i.i ]
   %.pr = load i64, ptr %.sroa.phi.ph, align 8
   %.not34.i = icmp eq i64 %.pr, 0
   br i1 %.not34.i, label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit, label %.lr.ph.i83.preheader
 
-.lr.ph.i83.preheader:                             ; preds = %160, %.thread.i
-  %170 = phi ptr [ %.ph95, %.thread.i ], [ %4, %160 ]
-  %.sroa.phi90114 = phi ptr [ %.sroa.phi90.ph, %.thread.i ], [ %32, %160 ]
-  %171 = phi ptr [ %.ph, %.thread.i ], [ %5, %160 ]
-  %172 = phi i64 [ %.pr, %.thread.i ], [ %.fr53.i, %160 ]
+.lr.ph.i83.preheader:                             ; preds = %157, %.thread.i
+  %167 = phi ptr [ %.ph95, %.thread.i ], [ %4, %157 ]
+  %.sroa.phi90114 = phi ptr [ %.sroa.phi90.ph, %.thread.i ], [ %32, %157 ]
+  %168 = phi ptr [ %.ph, %.thread.i ], [ %5, %157 ]
+  %169 = phi i64 [ %.pr, %.thread.i ], [ %.fr53.i, %157 ]
   br label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %.lr.ph.i83.preheader, %._crit_edge36.i
   %.02533.i = phi i64 [ %.pre.i, %._crit_edge36.i ], [ 0, %.lr.ph.i83.preheader ]
-  %.02632.i = phi i64 [ %184, %._crit_edge36.i ], [ 0, %.lr.ph.i83.preheader ]
-  %173 = getelementptr inbounds [416 x i64], ptr %171, i64 0, i64 %.02533.i
-  %174 = load i64, ptr %173, align 8
-  %175 = sub i64 %174, %.02632.i
-  %176 = load i64, ptr %.sroa.phi90114, align 8
-  %177 = icmp ult i64 %.02533.i, %176
-  br i1 %177, label %178, label %182
+  %.02632.i = phi i64 [ %181, %._crit_edge36.i ], [ 0, %.lr.ph.i83.preheader ]
+  %170 = getelementptr inbounds i64, ptr %168, i64 %.02533.i
+  %171 = load i64, ptr %170, align 8
+  %172 = sub i64 %171, %.02632.i
+  %173 = load i64, ptr %.sroa.phi90114, align 8
+  %174 = icmp ult i64 %.02533.i, %173
+  br i1 %174, label %175, label %179
 
-178:                                              ; preds = %.lr.ph.i83
-  %179 = getelementptr inbounds [416 x i64], ptr %170, i64 0, i64 %.02533.i
-  %180 = load i64, ptr %179, align 8
-  %181 = sub i64 %175, %180
-  br label %182
+175:                                              ; preds = %.lr.ph.i83
+  %176 = getelementptr inbounds i64, ptr %167, i64 %.02533.i
+  %177 = load i64, ptr %176, align 8
+  %178 = sub i64 %172, %177
+  br label %179
 
-182:                                              ; preds = %178, %.lr.ph.i83
-  %.0.i = phi i64 [ %181, %178 ], [ %175, %.lr.ph.i83 ]
-  %183 = icmp ugt i64 %.0.i, %174
-  %184 = zext i1 %183 to i64
-  %185 = getelementptr inbounds [416 x i64], ptr %7, i64 0, i64 %.02533.i
-  store i64 %.0.i, ptr %185, align 8
+179:                                              ; preds = %175, %.lr.ph.i83
+  %.0.i = phi i64 [ %178, %175 ], [ %172, %.lr.ph.i83 ]
+  %180 = icmp ugt i64 %.0.i, %171
+  %181 = zext i1 %180 to i64
+  %182 = getelementptr inbounds i64, ptr %7, i64 %.02533.i
+  store i64 %.0.i, ptr %182, align 8
   %.not.i84 = icmp eq i64 %.0.i, 0
   %.pre.i = add nuw i64 %.02533.i, 1
-  br i1 %.not.i84, label %._crit_edge36.i, label %186
+  br i1 %.not.i84, label %._crit_edge36.i, label %183
 
-186:                                              ; preds = %182
-  store i64 %.pre.i, ptr %157, align 8
+183:                                              ; preds = %179
+  store i64 %.pre.i, ptr %154, align 8
   br label %._crit_edge36.i
 
-._crit_edge36.i:                                  ; preds = %186, %182
-  %exitcond.not = icmp eq i64 %.pre.i, %172
+._crit_edge36.i:                                  ; preds = %183, %179
+  %exitcond.not = icmp eq i64 %.pre.i, %169
   br i1 %exitcond.not, label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit, label %.lr.ph.i83, !llvm.loop !114
 
 _ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit: ; preds = %._crit_edge36.i
-  %.pre = load i64, ptr %157, align 8
+  %.pre = load i64, ptr %154, align 8
   br label %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit
 
 _ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit: ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit, %.thread.i
-  %187 = phi i64 [ %.pre, %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit ], [ 1, %.thread.i ]
-  %188 = load i64, ptr %116, align 8
-  %.not.i86 = icmp eq i64 %187, %188
-  br i1 %.not.i86, label %.preheader.i, label %189
+  %184 = phi i64 [ %.pre, %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit.loopexit ], [ 1, %.thread.i ]
+  %185 = load i64, ptr %114, align 8
+  %.not.i86 = icmp eq i64 %184, %185
+  br i1 %.not.i86, label %.preheader.i, label %186
 
-189:                                              ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit
-  %190 = icmp ult i64 %187, %188
-  %191 = select i1 %190, i32 -1, i32 1
+186:                                              ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit
+  %187 = icmp ult i64 %184, %185
+  %188 = select i1 %187, i32 -1, i32 1
   br label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit
 
-.preheader.i:                                     ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit, %192
-  %.0.i87 = phi i64 [ %193, %192 ], [ %187, %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit ]
+.preheader.i:                                     ; preds = %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit, %189
+  %.0.i87 = phi i64 [ %190, %189 ], [ %184, %_ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit ]
   %.not15.i = icmp eq i64 %.0.i87, 0
-  br i1 %.not15.i, label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit, label %192
+  br i1 %.not15.i, label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit, label %189
 
-192:                                              ; preds = %.preheader.i
-  %193 = add i64 %.0.i87, -1
-  %194 = getelementptr inbounds [416 x i64], ptr %7, i64 0, i64 %193
-  %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds [416 x i64], ptr %6, i64 0, i64 %193
-  %197 = load i64, ptr %196, align 8
-  %.not16.i = icmp eq i64 %195, %197
-  br i1 %.not16.i, label %.preheader.i, label %198, !llvm.loop !113
+189:                                              ; preds = %.preheader.i
+  %190 = add i64 %.0.i87, -1
+  %191 = getelementptr inbounds i64, ptr %7, i64 %190
+  %192 = load i64, ptr %191, align 8
+  %193 = getelementptr inbounds i64, ptr %6, i64 %190
+  %194 = load i64, ptr %193, align 8
+  %.not16.i = icmp eq i64 %192, %194
+  br i1 %.not16.i, label %.preheader.i, label %195, !llvm.loop !113
 
-198:                                              ; preds = %192
-  %199 = icmp ult i64 %195, %197
-  %200 = select i1 %199, i32 -1, i32 1
+195:                                              ; preds = %189
+  %196 = icmp ult i64 %192, %194
+  %197 = select i1 %196, i32 -1, i32 1
   br label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit
 
-_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit: ; preds = %.preheader.i, %189, %198
-  %.010.i = phi i32 [ %191, %189 ], [ %200, %198 ], [ 0, %.preheader.i ]
+_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit: ; preds = %.preheader.i, %186, %195
+  %.010.i = phi i32 [ %188, %186 ], [ %197, %195 ], [ 0, %.preheader.i ]
   ret i32 %.010.i
 }
 
@@ -13173,101 +13170,100 @@ _ZN3pxr9rapidjson8internal10BigInteger11ParseUint64IcEEmPKT_S6_.exit: ; preds = 
   br label %.sink.split.i
 
 41:                                               ; preds = %32
-  %42 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %26
+  %42 = getelementptr inbounds i64, ptr %24, i64 %26
   store i64 0, ptr %42, align 8
   %43 = load i64, ptr %25, align 8
   %.not24.i = icmp eq i64 %43, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %41, %.lr.ph.i8
-  %.025.i = phi i64 [ %46, %.lr.ph.i8 ], [ %43, %41 ]
-  %44 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %.025.i
+  %.025.i = phi i64 [ %50, %.lr.ph.i8 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i64, ptr %24, i64 %.025.i
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %.025.i, -1
-  %47 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %49 = tail call i64 @llvm.fshl.i64(i64 %45, i64 %48, i64 %21)
-  %50 = add i64 %.025.i, %33
-  %51 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %50
-  store i64 %49, ptr %51, align 8
-  %.not.i9 = icmp eq i64 %46, 0
+  %46 = getelementptr i8, ptr %44, i64 -8
+  %47 = load i64, ptr %46, align 8
+  %48 = tail call i64 @llvm.fshl.i64(i64 %45, i64 %47, i64 %21)
+  %49 = getelementptr i64, ptr %44, i64 %33
+  store i64 %48, ptr %49, align 8
+  %50 = add i64 %.025.i, -1
+  %.not.i9 = icmp eq i64 %50, 0
   br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i8, %41
-  %52 = load i64, ptr %24, align 8
-  %53 = shl i64 %52, %34
-  %54 = getelementptr inbounds nuw [416 x i64], ptr %24, i64 0, i64 %33
-  store i64 %53, ptr %54, align 8
-  %55 = load i64, ptr %25, align 8
-  %56 = add i64 %55, %33
-  store i64 %56, ptr %25, align 8
-  %57 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %.not23.i = icmp eq i64 %58, 0
-  br i1 %.not23.i, label %61, label %59
+  %51 = load i64, ptr %24, align 8
+  %52 = shl i64 %51, %34
+  %53 = getelementptr inbounds nuw i64, ptr %24, i64 %33
+  store i64 %52, ptr %53, align 8
+  %54 = load i64, ptr %25, align 8
+  %55 = add i64 %54, %33
+  store i64 %55, ptr %25, align 8
+  %56 = getelementptr inbounds i64, ptr %24, i64 %55
+  %57 = load i64, ptr %56, align 8
+  %.not23.i = icmp eq i64 %57, 0
+  br i1 %.not23.i, label %60, label %58
 
-59:                                               ; preds = %._crit_edge.i
-  %60 = add i64 %56, 1
+58:                                               ; preds = %._crit_edge.i
+  %59 = add i64 %55, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %59, %36
-  %.sink.i = phi i64 [ %60, %59 ], [ %40, %36 ]
+.sink.split.i:                                    ; preds = %58, %36
+  %.sink.i = phi i64 [ %59, %58 ], [ %40, %36 ]
   store i64 %.sink.i, ptr %25, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %.sink.split.i, %._crit_edge.i
-  %62 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %24, i8 0, i64 %62, i1 false)
+60:                                               ; preds = %.sink.split.i, %._crit_edge.i
+  %61 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(3336) %24, i8 0, i64 %61, i1 false)
   %.pre = load i64, ptr %24, align 8
   %.pre19 = load i64, ptr %25, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit
 
-_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit:  ; preds = %18, %61
-  %63 = phi i64 [ %26, %18 ], [ %.pre19, %61 ]
-  %64 = phi i64 [ %28, %18 ], [ %.pre, %61 ]
-  %65 = add i64 %64, %.06.lcssa.i
-  store i64 %65, ptr %24, align 8
-  %.not22.i = icmp eq i64 %63, 1
+_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit:  ; preds = %18, %60
+  %62 = phi i64 [ %26, %18 ], [ %.pre19, %60 ]
+  %63 = phi i64 [ %28, %18 ], [ %.pre, %60 ]
+  %64 = add i64 %63, %.06.lcssa.i
+  store i64 %64, ptr %24, align 8
+  %.not22.i = icmp eq i64 %62, 1
   br i1 %.not22.i, label %._crit_edge.i12, label %.lr.ph.i10
 
-.lr.ph.i10:                                       ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit, %67
-  %66 = phi i64 [ %71, %67 ], [ %65, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
-  %.019.i = phi i64 [ %68, %67 ], [ 0, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
-  %.0918.i = phi i64 [ %70, %67 ], [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
-  %.not.i11 = icmp ult i64 %66, %.0918.i
-  br i1 %.not.i11, label %67, label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
+.lr.ph.i10:                                       ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit, %66
+  %65 = phi i64 [ %70, %66 ], [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
+  %.019.i = phi i64 [ %67, %66 ], [ 0, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
+  %.0918.i = phi i64 [ %69, %66 ], [ %63, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ]
+  %.not.i11 = icmp ult i64 %65, %.0918.i
+  br i1 %.not.i11, label %66, label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
 
-67:                                               ; preds = %.lr.ph.i10
-  %68 = add nuw i64 %.019.i, 1
-  %69 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %68
-  %70 = load i64, ptr %69, align 8
-  %71 = add i64 %70, 1
-  store i64 %71, ptr %69, align 8
-  %72 = load i64, ptr %25, align 8
-  %73 = add i64 %72, -1
-  %74 = icmp ult i64 %68, %73
-  br i1 %74, label %.lr.ph.i10, label %._crit_edge.loopexit.i, !llvm.loop !116
+66:                                               ; preds = %.lr.ph.i10
+  %67 = add nuw i64 %.019.i, 1
+  %68 = getelementptr inbounds i64, ptr %24, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %68, align 8
+  %71 = load i64, ptr %25, align 8
+  %72 = add i64 %71, -1
+  %73 = icmp ult i64 %67, %72
+  br i1 %73, label %.lr.ph.i10, label %._crit_edge.loopexit.i, !llvm.loop !116
 
-._crit_edge.loopexit.i:                           ; preds = %67
-  %.phi.trans.insert.i = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %73
+._crit_edge.loopexit.i:                           ; preds = %66
+  %.phi.trans.insert.i = getelementptr inbounds i64, ptr %24, i64 %72
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i12
 
 ._crit_edge.i12:                                  ; preds = %._crit_edge.loopexit.i, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit
-  %75 = phi i64 [ %65, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.09.lcssa.i = phi i64 [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %70, %._crit_edge.loopexit.i ]
-  %.lcssa13.i = phi i64 [ 1, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %72, %._crit_edge.loopexit.i ]
-  %76 = icmp ult i64 %75, %.09.lcssa.i
-  br i1 %76, label %77, label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
+  %74 = phi i64 [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %.09.lcssa.i = phi i64 [ %63, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %69, %._crit_edge.loopexit.i ]
+  %.lcssa13.i = phi i64 [ 1, %_ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit ], [ %71, %._crit_edge.loopexit.i ]
+  %75 = icmp ult i64 %74, %.09.lcssa.i
+  br i1 %75, label %76, label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
 
-77:                                               ; preds = %._crit_edge.i12
-  %78 = add i64 %.lcssa13.i, 1
-  store i64 %78, ptr %25, align 8
-  %79 = getelementptr inbounds [416 x i64], ptr %24, i64 0, i64 %.lcssa13.i
-  store i64 1, ptr %79, align 8
+76:                                               ; preds = %._crit_edge.i12
+  %77 = add i64 %.lcssa13.i, 1
+  store i64 %77, ptr %25, align 8
+  %78 = getelementptr inbounds i64, ptr %24, i64 %.lcssa13.i
+  store i64 1, ptr %78, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit
 
-_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit:  ; preds = %.lr.ph.i10, %77, %._crit_edge.i12, %17
+_ZN3pxr9rapidjson8internal10BigIntegerpLEm.exit:  ; preds = %.lr.ph.i10, %76, %._crit_edge.i12, %17
   ret void
 }
 
@@ -13315,7 +13311,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9r
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.016.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.01215.i = phi i64 [ %.0.i.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %16 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %.016.i
+  %16 = getelementptr inbounds i64, ptr %0, i64 %.016.i
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 4294967295
   %19 = lshr i64 %17, 32
@@ -13351,7 +13347,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(3336) ptr @_ZN3pxr9r
 40:                                               ; preds = %._crit_edge.i
   %41 = add i64 %38, 1
   store i64 %41, ptr %5, align 8
-  %42 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %38
+  %42 = getelementptr inbounds i64, ptr %0, i64 %38
   store i64 %.0.i.i, ptr %42, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegermLEm.exit
 
@@ -13381,7 +13377,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %15, 
 .lr.ph.i11:                                       ; preds = %.preheader.i10, %.lr.ph.i11
   %.02226.i = phi i64 [ %64, %.lr.ph.i11 ], [ 0, %.preheader.i10 ]
   %.02325.i = phi i64 [ %65, %.lr.ph.i11 ], [ 0, %.preheader.i10 ]
-  %52 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %.02325.i
+  %52 = getelementptr inbounds i64, ptr %0, i64 %.02325.i
   %53 = load i64, ptr %52, align 8
   %54 = lshr i64 %53, 32
   %55 = and i64 %53, 4294967295
@@ -13407,7 +13403,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEm.exit:  ; preds = %.preheader.i, %15, 
 68:                                               ; preds = %._crit_edge.i12
   %69 = add i64 %66, 1
   store i64 %69, ptr %7, align 8
-  %70 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %66
+  %70 = getelementptr inbounds i64, ptr %0, i64 %66
   store i64 %64, ptr %70, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit
 
@@ -13421,9 +13417,9 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEj.exit:  ; preds = %.preheader.i10, %51
   br i1 %.not, label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit21, label %72
 
 72:                                               ; preds = %._crit_edge
-  %73 = add nsw i32 %.1.lcssa, -1
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [12 x i32], ptr @_ZZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5EjE5kPow5, i64 0, i64 %74
+  %73 = zext nneg i32 %.1.lcssa to i64
+  %74 = getelementptr i32, ptr @_ZZN3pxr9rapidjson8internal10BigInteger12MultiplyPow5EjE5kPow5, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %79 [
     i32 0, label %77
@@ -13462,7 +13458,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEj.exit:  ; preds = %.preheader.i10, %51
 89:                                               ; preds = %89, %.lr.ph.i16
   %.02226.i17 = phi i64 [ 0, %.lr.ph.i16 ], [ %102, %89 ]
   %.02325.i18 = phi i64 [ 0, %.lr.ph.i16 ], [ %103, %89 ]
-  %90 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %.02325.i18
+  %90 = getelementptr inbounds i64, ptr %0, i64 %.02325.i18
   %91 = load i64, ptr %90, align 8
   %92 = lshr i64 %91, 32
   %93 = and i64 %91, 4294967295
@@ -13488,7 +13484,7 @@ _ZN3pxr9rapidjson8internal10BigIntegermLEj.exit:  ; preds = %.preheader.i10, %51
 106:                                              ; preds = %._crit_edge.i19
   %107 = add i64 %104, 1
   store i64 %107, ptr %80, align 8
-  %108 = getelementptr inbounds [416 x i64], ptr %0, i64 0, i64 %104
+  %108 = getelementptr inbounds i64, ptr %0, i64 %104
   store i64 %102, ptr %108, align 8
   br label %_ZN3pxr9rapidjson8internal10BigIntegermLEj.exit21
 
@@ -16274,7 +16270,7 @@ _ZN3pxr9rapidjson10PutReserveINS0_4UTF8IcEENS0_12CrtAllocatorEEEvRNS0_19GenericS
   %.sroa.0.014 = phi ptr [ %.sroa.0.1, %90 ], [ %1, %_ZN3pxr9rapidjson10PutReserveINS0_4UTF8IcEENS0_12CrtAllocatorEEEvRNS0_19GenericStringBufferIT_T0_EEm.exit ]
   %49 = load i8, ptr %.sroa.0.014, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE6escape, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE6escape, i64 %50
   %52 = load i8, ptr %51, align 1
   %.not = icmp eq i8 %52, 0
   %53 = load ptr, ptr %0, align 8
@@ -16312,7 +16308,7 @@ _ZN3pxr9rapidjson10PutReserveINS0_4UTF8IcEENS0_12CrtAllocatorEEEvRNS0_19GenericS
   %73 = zext i8 %49 to i32
   %74 = lshr i32 %73, 4
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE9hexDigits, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE9hexDigits, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %79 = load ptr, ptr %78, align 8
@@ -16322,7 +16318,7 @@ _ZN3pxr9rapidjson10PutReserveINS0_4UTF8IcEENS0_12CrtAllocatorEEEvRNS0_19GenericS
   %81 = load ptr, ptr %0, align 8
   %82 = and i32 %73, 15
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE9hexDigits, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteStringEPKcjE9hexDigits, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %87 = load ptr, ptr %86, align 8

@@ -1793,7 +1793,7 @@ define hidden void @_ZN3z856decode17he17f5b60d8a851faE(ptr noalias noundef write
   br label %56
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %23
+  %28 = getelementptr inbounds i8, ptr %1, i64 %23
   %29 = load i8, ptr %28, align 1, !noundef !9
   %30 = icmp eq i8 %29, 35
   %. = select i1 %30, i64 %23, i64 %2

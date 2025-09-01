@@ -15287,7 +15287,7 @@ _ZN4llvm9SetVectorINS_11AssertingVHINS_11InstructionEEESt5dequeIS3_SaIS3_EENS_8D
   %240 = load ptr, ptr %11, align 8
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %242 = and i64 %211, 4294967295
-  %243 = getelementptr inbounds nuw [18 x %"class.llvm::DenseMap.16"], ptr %241, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw %"class.llvm::DenseMap.16", ptr %241, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = zext i32 %storemerge264 to i64
   br label %.preheader
@@ -15933,7 +15933,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit70: ; preds
   %161 = zext i8 %160 to i64
   %162 = add nuw nsw i64 %161, 4294967254
   %163 = and i64 %162, 4294967295
-  %164 = getelementptr inbounds nuw [18 x %"class.llvm::DenseMap.16"], ptr %27, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw %"class.llvm::DenseMap.16", ptr %27, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 12

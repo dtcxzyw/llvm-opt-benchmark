@@ -552,7 +552,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaesem_vsP
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -569,9 +569,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaesem_vsP
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -1180,7 +1180,7 @@ define noundef i64 @_Z20fast_rv64i_vaesem_vsP11processor_t6insn_tm(ptr noundef %
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -1197,9 +1197,9 @@ define noundef i64 @_Z20fast_rv64i_vaesem_vsP11processor_t6insn_tm(ptr noundef %
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -1696,7 +1696,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaesem_v
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -1713,9 +1713,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaesem_v
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -2214,7 +2214,7 @@ define noundef i64 @_Z22logged_rv64i_vaesem_vsP11processor_t6insn_tm(ptr noundef
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -2231,9 +2231,9 @@ define noundef i64 @_Z22logged_rv64i_vaesem_vsP11processor_t6insn_tm(ptr noundef
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -2730,7 +2730,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaesem_vsP
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -2747,9 +2747,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaesem_vsP
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -3248,7 +3248,7 @@ define noundef i64 @_Z20fast_rv64e_vaesem_vsP11processor_t6insn_tm(ptr noundef %
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -3265,9 +3265,9 @@ define noundef i64 @_Z20fast_rv64e_vaesem_vsP11processor_t6insn_tm(ptr noundef %
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -3764,7 +3764,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaesem_v
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -3781,9 +3781,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaesem_v
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150
@@ -4282,7 +4282,7 @@ define noundef i64 @_Z22logged_rv64e_vaesem_vsP11processor_t6insn_tm(ptr noundef
   %.0227.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0227.idx271
   %319 = load i8, ptr %.0227.ptr, align 1, !tbaa !150
   %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr @_ZZ22logged_rv64e_vaesem_vsP11processor_t6insn_tmE13kVAESXEncSBox, i64 %320
   %322 = load i8, ptr %321, align 1, !tbaa !150
   store i8 %322, ptr %.0227.ptr, align 1, !tbaa !150
   %.0227.add = add nuw nsw i64 %.0227.idx271, 1
@@ -4299,9 +4299,9 @@ define noundef i64 @_Z22logged_rv64e_vaesem_vsP11processor_t6insn_tm(ptr noundef
 
 326:                                              ; preds = %152, %326
   %.0223272 = phi i64 [ 0, %152 ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0223272
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 %.0223272
   %328 = load i8, ptr %327, align 1, !tbaa !150
-  %329 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0223272
+  %329 = getelementptr inbounds nuw i8, ptr %6, i64 %.0223272
   %330 = load i8, ptr %329, align 1, !tbaa !150
   %331 = xor i8 %330, %328
   store i8 %331, ptr %329, align 1, !tbaa !150

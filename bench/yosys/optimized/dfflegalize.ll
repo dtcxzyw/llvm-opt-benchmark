@@ -2487,7 +2487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342: ; preds = %_Z
 
 757:                                              ; preds = %752, %752, %755, %753
   %.1143 = phi i32 [ %754, %753 ], [ %756, %755 ], [ %.0142, %752 ], [ %.0142, %752 ]
-  %758 = getelementptr inbounds nuw [16 x [32 x i32]], ptr %scevgep866, i64 0, i64 %.0144
+  %758 = getelementptr inbounds nuw [32 x i32], ptr %scevgep866, i64 %.0144
   br label %759
 
 759:                                              ; preds = %757, %767
@@ -2498,7 +2498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342: ; preds = %_Z
   br i1 %762, label %763, label %767
 
 763:                                              ; preds = %759
-  %764 = getelementptr inbounds nuw [32 x i32], ptr %758, i64 0, i64 %indvars.iv
+  %764 = getelementptr inbounds nuw i32, ptr %758, i64 %indvars.iv
   %765 = load i32, ptr %764, align 4, !tbaa !113
   %766 = or i32 %765, %.1143
   store i32 %766, ptr %764, align 4, !tbaa !113
@@ -2510,7 +2510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit342: ; preds = %_Z
   br i1 %exitcond.not, label %768, label %759, !llvm.loop !114
 
 768:                                              ; preds = %767
-  %769 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %.0144
+  %769 = getelementptr inbounds nuw i32, ptr %36, i64 %.0144
   %770 = load i32, ptr %769, align 4, !tbaa !113
   %771 = or i32 %770, %.1143
   store i32 %771, ptr %769, align 4, !tbaa !113
@@ -17131,9 +17131,9 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit: ; preds 
   %not.or.cond95 = select i1 %111, i32 %.not103, i32 0
   %.6 = or i32 %not.or.cond95, %.5
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %116 = getelementptr inbounds nuw [16 x [32 x i32]], ptr %115, i64 0, i64 %.0.i
+  %116 = getelementptr inbounds nuw [32 x i32], ptr %115, i64 %.0.i
   %117 = zext nneg i32 %.6 to i64
-  %118 = getelementptr inbounds nuw [32 x i32], ptr %116, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw i32, ptr %116, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !113
   %120 = and i32 %119, %69
   %.not = icmp eq i32 %120, 0
@@ -17143,7 +17143,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit: ; preds 
   %.0104 = phi i32 [ %127, %126 ], [ 0, %81 ]
   %121 = xor i32 %.0104, %.6
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds [32 x i32], ptr %116, i64 0, i64 %122
+  %123 = getelementptr inbounds i32, ptr %116, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !113
   %125 = and i32 %124, %69
   %.not69 = icmp eq i32 %125, 0
@@ -17245,7 +17245,7 @@ _ZN12_GLOBAL__N_115DffLegalizePass11get_ff_typeERKN5Yosys6FfDataE.exit: ; preds 
 163:                                              ; preds = %161, %81
   %.7 = phi i32 [ %.6, %81 ], [ %162, %161 ]
   %164 = sext i32 %.7 to i64
-  %165 = getelementptr inbounds [32 x i32], ptr %116, i64 0, i64 %164
+  %165 = getelementptr inbounds i32, ptr %116, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !113
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %168 = load i32, ptr %167, align 8, !tbaa !208

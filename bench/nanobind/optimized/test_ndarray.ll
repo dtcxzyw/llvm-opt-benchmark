@@ -8233,7 +8233,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i6.i.sroa.phi.sroa.speculated = phi i64 [ %.068.i, %.lr.ph.i ], [ %.07.i, %25 ]
   %.0.i6.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %25 ]
   %.08.i5.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %scevgep13.i.i, i64 0, i64 %.0.i6.i
+  %27 = getelementptr inbounds nuw i64, ptr %scevgep13.i.i, i64 %.0.i6.i
   %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = mul nsw i64 %28, %.0.i6.i.sroa.phi.sroa.speculated
   %30 = add nsw i64 %29, %.08.i5.i
@@ -8326,7 +8326,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %24 ], [ %.03.i, %25 ]
   %.0.i2.i = phi i64 [ 0, %24 ], [ 1, %25 ]
   %.08.i1.i = phi i64 [ 0, %24 ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw [2 x i64], ptr %scevgep13.i.i, i64 0, i64 %.0.i2.i
+  %27 = getelementptr inbounds nuw i64, ptr %scevgep13.i.i, i64 %.0.i2.i
   %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = mul nsw i64 %28, %.0.i2.i.sroa.phi.sroa.speculated
   %30 = add nsw i64 %29, %.08.i1.i
@@ -8467,7 +8467,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
@@ -8610,7 +8610,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
@@ -8752,7 +8752,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.064.i, %18 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %18 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %18 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw [2 x i64], ptr %scevgep15.i.i, i64 0, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nuw nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i

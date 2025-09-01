@@ -1537,14 +1537,14 @@ define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef 
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %indvars.iv44
+  %9 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv44
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = xor i64 %10, -1
   %12 = and i64 %.02637.us, %11
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw [8 x i64], ptr @Kit_PlaToTruth6.Truth, i64 0, i64 %indvars.iv44
+  %14 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv44
   %15 = load i64, ptr %14, align 8, !tbaa !34
   %16 = and i64 %15, %.02637.us
   br label %17

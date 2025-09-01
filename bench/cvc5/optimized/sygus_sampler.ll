@@ -12559,7 +12559,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit101: ; preds = %_ZNSt6vectorIN4cvc
   %spec.select.i.i103 = add nsw i32 %340, %342
   %343 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %344 = sext i32 %spec.select.i.i103 to i64
-  %345 = getelementptr inbounds [0 x ptr], ptr %343, i64 0, i64 %344
+  %345 = getelementptr inbounds ptr, ptr %343, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !90, !noalias !465
   %.not.i.i105 = icmp eq ptr %.sroa.11.1215, %.sroa.21.4214
   br i1 %.not.i.i105, label %348, label %347

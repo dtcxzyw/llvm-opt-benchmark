@@ -2499,9 +2499,9 @@ define i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %74 = add nsw i32 %52, -1
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 0, i64 %75
+  %74 = zext nneg i32 %52 to i64
+  %75 = getelementptr i8, ptr %73, i64 %74
+  %76 = getelementptr i8, ptr %75, i64 -1
   %77 = load i8, ptr %76, align 1, !tbaa !68
   %78 = zext i8 %77 to i32
   %79 = icmp eq i8 %77, 0
@@ -2525,7 +2525,7 @@ define i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %.05573 = phi i32 [ %84, %82 ], [ %52, %72 ]
   %84 = add i32 %.05573, -1
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !68
   %.not71 = icmp eq i8 %87, %77
   br i1 %.not71, label %82, label %88
@@ -2547,7 +2547,7 @@ define i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %92 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
   %93 = load i8, ptr %92, align 1, !tbaa !68
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %93, ptr %94, align 1, !tbaa !68
@@ -2910,7 +2910,7 @@ safe_div_round_up_int.exit.thread:                ; preds = %12
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %96 = getelementptr inbounds [32 x i8], ptr %95, i64 0, i64 %61
+  %96 = getelementptr inbounds i8, ptr %95, i64 %61
   %97 = zext nneg i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %3, i64 %97, i1 false)
   %98 = load i32, ptr %59, align 4, !tbaa !57
@@ -2935,7 +2935,7 @@ safe_div_round_up_int.exit.thread:                ; preds = %12
 
 107:                                              ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %109 = getelementptr inbounds [32 x i8], ptr %108, i64 0, i64 %61
+  %109 = getelementptr inbounds i8, ptr %108, i64 %61
   %110 = sext i32 %92 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr align 1 %3, i64 %110, i1 false)
   %111 = load ptr, ptr %0, align 8, !tbaa !3

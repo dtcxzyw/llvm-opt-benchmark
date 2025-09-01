@@ -565,7 +565,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %122, %127, %133
   %138 = load ptr, ptr %137, align 8, !tbaa !45
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = zext i32 %..0.i to i64
-  %141 = getelementptr inbounds nuw [14 x ptr], ptr %139, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !100
   %143 = load ptr, ptr %1, align 8, !tbaa !6
   store ptr %143, ptr %11, align 8, !tbaa !6
@@ -950,7 +950,7 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i.i:  ; preds = %._ZN4cvc58internal4
   %80 = load ptr, ptr %79, align 8, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = zext i32 %3 to i64
-  %83 = getelementptr inbounds nuw [14 x ptr], ptr %81, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !100
   %85 = load ptr, ptr %2, align 8, !tbaa !6
   store ptr %85, ptr %8, align 8, !tbaa !6

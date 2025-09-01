@@ -432,7 +432,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Tactic_Ext_withExtHyps___spec_
   %.02450 = phi i64 [ %44, %60 ], [ %1, %3 ]
   %.02649 = phi ptr [ %.0.i.i35, %60 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02649, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02450
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02450
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -824,7 +824,7 @@ lean_dec.exit289:                                 ; preds = %78, %77, %75, %lean
   %.0208773 = phi i64 [ %6, %.lr.ph ], [ %838, %837 ]
   %.0211772 = phi ptr [ %7, %.lr.ph ], [ %.0211772.sink, %837 ]
   %.0214771 = phi ptr [ %12, %.lr.ph ], [ %.5239, %837 ]
-  %83 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %.0208773
+  %83 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0208773
   %84 = load ptr, ptr %83, align 8, !tbaa !4
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, 1
@@ -6353,7 +6353,7 @@ define ptr @l_Array_foldrMUnsafe_fold___at_Lean_Elab_Tactic_Ext_mkExtType___spec
   %.02143 = phi i64 [ %1, %.lr.ph ], [ %7, %45 ]
   %.02342 = phi ptr [ %3, %.lr.ph ], [ %46, %45 ]
   %7 = add i64 %.02143, -1
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -8038,7 +8038,7 @@ lean_dec.exit210:                                 ; preds = %92, %91, %89, %lean
   br label %lean_dec.exit209
 
 lean_dec.exit209:                                 ; preds = %105, %104, %102, %96
-  %106 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.0161457
+  %106 = getelementptr inbounds nuw ptr, ptr %17, i64 %.0161457
   %107 = load ptr, ptr %106, align 8, !tbaa !4
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, 1
@@ -9577,7 +9577,7 @@ lean_dec.exit210:                                 ; preds = %91, %90, %88, %lean
   br label %lean_dec.exit209
 
 lean_dec.exit209:                                 ; preds = %104, %103, %101, %95
-  %105 = getelementptr inbounds nuw [0 x ptr], ptr %16, i64 0, i64 %.0161457
+  %105 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0161457
   %106 = load ptr, ptr %105, align 8, !tbaa !4
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 1
@@ -10932,7 +10932,7 @@ lean_dec.exit101:                                 ; preds = %19, %18, %16, %._cr
   %.083197 = phi ptr [ %8, %.lr.ph ], [ %.184, %lean_dec.exit98 ]
   %24 = load ptr, ptr %10, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds nuw [0 x ptr], ptr %25, i64 0, i64 %.075199
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.075199
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -11530,7 +11530,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_Ext_mkExtIffType___s
   %.056160 = phi i64 [ %1, %.lr.ph ], [ %201, %199 ]
   %.059159 = phi ptr [ %3, %.lr.ph ], [ %200, %199 ]
   %.062158 = phi ptr [ %8, %.lr.ph ], [ %76, %199 ]
-  %20 = getelementptr inbounds nuw [0 x ptr], ptr %10, i64 0, i64 %.056160
+  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %.056160
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -48013,7 +48013,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_Ext_getExtTheorems__
 8:                                                ; preds = %.lr.ph, %lean_dec.exit31
   %.02656 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit31 ]
   %.02855 = phi ptr [ %4, %.lr.ph ], [ %.230, %lean_dec.exit31 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02656
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02656
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -77242,7 +77242,7 @@ lean_dec.exit302:                                 ; preds = %92, %91, %89, %lean
   br label %lean_dec.exit301
 
 lean_dec.exit301:                                 ; preds = %105, %104, %102, %96
-  %106 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.0217634
+  %106 = getelementptr inbounds nuw ptr, ptr %17, i64 %.0217634
   %107 = load ptr, ptr %106, align 8, !tbaa !4
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, 1
@@ -79144,7 +79144,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_Ext_applyExtTheoremA
 8:                                                ; preds = %.lr.ph, %lean_dec.exit31
   %.02656 = phi i64 [ %2, %.lr.ph ], [ %48, %lean_dec.exit31 ]
   %.02855 = phi ptr [ %4, %.lr.ph ], [ %.230, %lean_dec.exit31 ]
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02656
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02656
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -99829,7 +99829,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Tactic_Ext_evalExt___spec__1(i
   %.02047 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02246 = phi ptr [ %.0.i.i32, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02246, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02047
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02047
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

@@ -130,7 +130,7 @@ _ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit: ; preds = %_ZNK
 
 _ZL16decodeBase64Byteh.exit:                      ; preds = %41
   %46 = zext nneg i8 %44 to i64
-  %47 = getelementptr inbounds nuw [123 x i8], ptr @_ZZL16decodeBase64BytehE11DecodeTable, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZL16decodeBase64BytehE11DecodeTable, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !24
   %49 = icmp eq i8 %48, 64
   %50 = icmp ne i8 %44, 61
@@ -216,7 +216,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %172
 
 .thread85:                                        ; preds = %53, %55, %57
-  %79 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 0, i64 %.03193
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 %.03193
   store i8 %48, ptr %79, align 1, !tbaa !24
   %80 = add nuw nsw i64 %.03193, 1
   %exitcond = icmp eq i64 %80, 4

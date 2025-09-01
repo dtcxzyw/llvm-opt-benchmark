@@ -335,7 +335,7 @@ format_date_now.exit:                             ; preds = %89, %99
 
 switch.lookup:                                    ; preds = %106
   %110 = zext nneg i32 %108 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.format_line, i64 0, i64 %110
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.format_line, i64 %110
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_level_str.exit
 
@@ -470,8 +470,8 @@ define void @av_log_default_callback(ptr noundef %0, i32 noundef %1, ptr noundef
 
 39:                                               ; preds = %34
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
-  %41 = add i64 %40, -1
-  %42 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %41
+  %41 = getelementptr i8, ptr %6, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 -1
   %43 = load i8, ptr %42, align 1, !tbaa !27
   %.not20 = icmp eq i8 %43, 13
   br i1 %.not20, label %51, label %44
@@ -1111,7 +1111,7 @@ define internal fastcc void @ansi_fputs(i32 noundef %0, i32 noundef range(i32 0,
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !30
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds [62 x i32], ptr @color, i64 0, i64 %8
+  %9 = getelementptr inbounds i32, ptr @color, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = lshr i32 %10, 4
   %12 = and i32 %11, 15
@@ -1129,7 +1129,7 @@ define internal fastcc void @ansi_fputs(i32 noundef %0, i32 noundef range(i32 0,
 19:                                               ; preds = %15
   %20 = load ptr, ptr @stderr, align 8, !tbaa !30
   %21 = sext i32 %0 to i64
-  %22 = getelementptr inbounds [62 x i32], ptr @color, i64 0, i64 %21
+  %22 = getelementptr inbounds i32, ptr @color, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = lshr i32 %23, 16
   %25 = and i32 %24, 255
@@ -1143,7 +1143,7 @@ define internal fastcc void @ansi_fputs(i32 noundef %0, i32 noundef range(i32 0,
 
 30:                                               ; preds = %27
   %31 = sext i32 %0 to i64
-  %32 = getelementptr inbounds [62 x i32], ptr @color, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr @color, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = lshr i32 %33, 16
   %35 = and i32 %34, 255

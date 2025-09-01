@@ -2734,7 +2734,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
   %55 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %56 = load float, ptr %55, align 4, !tbaa !18
-  %57 = getelementptr inbounds nuw [65536 x float], ptr %31, i64 0, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5249,7 +5249,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit120:             ; preds = %_ZNSt6vectorIiSaIiE
   %348 = add i64 %336, %331
   %349 = add i64 %348, %344
   %350 = and i64 %349, 1
-  %351 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %350
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8, !tbaa !3
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 16
@@ -5376,12 +5376,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit130:       ; preds = %_ZNSt6vectorIiSaIiE
   %407 = phi i1 [ true, %400 ], [ false, %411 ]
   %.077189 = phi i64 [ 0, %400 ], [ 1, %411 ]
   %408 = xor i64 %.077189, %388
-  %409 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %408
   %410 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %409, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %411 unwind label %413
 
 411:                                              ; preds = %406
-  %412 = getelementptr inbounds nuw [2 x i32], ptr %402, i64 0, i64 %408
+  %412 = getelementptr inbounds nuw i32, ptr %402, i64 %408
   store i32 %410, ptr %412, align 4, !tbaa !118
   br i1 %407, label %406, label %403, !llvm.loop !169
 
@@ -5706,7 +5706,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i.i: ; preds = %.lr
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %96 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv.i.i
+  %96 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.i
   %97 = load float, ptr %96, align 4, !tbaa !18
   %98 = fmul nnan ninf nsz arcp contract afn float %94, %97
   store float %98, ptr %96, align 4, !tbaa !18
@@ -5776,7 +5776,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i75.i: ; preds = %.
 
 .lr.ph.i80.i:                                     ; preds = %.lr.ph.i80.i, %.lr.ph.preheader.i78.i
   %indvars.iv.i81.i = phi i64 [ 0, %.lr.ph.preheader.i78.i ], [ %indvars.iv.next.i82.i, %.lr.ph.i80.i ]
-  %124 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv.i81.i
+  %124 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i81.i
   %125 = load float, ptr %124, align 4, !tbaa !18
   %126 = fmul nnan ninf nsz arcp contract afn float %122, %125
   store float %126, ptr %124, align 4, !tbaa !18
@@ -6337,10 +6337,10 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.p
 
 402:                                              ; preds = %402, %.lr.ph.i177.i
   %indvars.iv.i179.i = phi i64 [ 0, %.lr.ph.i177.i ], [ %indvars.iv.next.i180.i, %402 ]
-  %403 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv.i179.i
+  %403 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i179.i
   %404 = load float, ptr %403, align 4, !tbaa !18
   %405 = fmul nnan ninf nsz arcp contract afn float %404, %197
-  %406 = getelementptr inbounds nuw [65536 x float], ptr %251, i64 0, i64 %indvars.iv.i179.i
+  %406 = getelementptr inbounds nuw float, ptr %251, i64 %indvars.iv.i179.i
   %407 = load float, ptr %406, align 4, !tbaa !18
   %408 = fmul nnan ninf nsz arcp contract afn float %398, %407
   %409 = fadd nnan ninf nsz arcp contract afn float %405, %408
@@ -6416,10 +6416,10 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit196.i: ; preds = %.lr.p
 
 437:                                              ; preds = %437, %.lr.ph.i197.i
   %indvars.iv.i199.i = phi i64 [ 0, %.lr.ph.i197.i ], [ %indvars.iv.next.i200.i, %437 ]
-  %438 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv.i199.i
+  %438 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i199.i
   %439 = load float, ptr %438, align 4, !tbaa !18
   %440 = fmul nnan ninf nsz arcp contract afn float %439, %288
-  %441 = getelementptr inbounds nuw [65536 x float], ptr %251, i64 0, i64 %indvars.iv.i199.i
+  %441 = getelementptr inbounds nuw float, ptr %251, i64 %indvars.iv.i199.i
   %442 = load float, ptr %441, align 4, !tbaa !18
   %443 = fmul nnan ninf nsz arcp contract afn float %433, %442
   %444 = fadd nnan ninf nsz arcp contract afn float %440, %443
@@ -6553,7 +6553,7 @@ _ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i21: ; preds = %.lr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %491 = getelementptr inbounds nuw [65536 x float], ptr %468, i64 0, i64 %indvars.iv.i
+  %491 = getelementptr inbounds nuw float, ptr %468, i64 %indvars.iv.i
   %492 = load float, ptr %491, align 4, !tbaa !18
   %493 = fmul nnan ninf nsz arcp contract afn float %490, %492
   store float %493, ptr %491, align 4, !tbaa !18
@@ -6566,12 +6566,12 @@ _ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit: ; preds = %.lr.ph.
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit ]
-  %494 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv
+  %494 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %495 = load float, ptr %494, align 4, !tbaa !18
-  %496 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv
+  %496 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
   %497 = load float, ptr %496, align 4, !tbaa !18
   %498 = fsub nnan ninf nsz arcp contract afn float %495, %497
-  %499 = getelementptr inbounds nuw [65536 x float], ptr %467, i64 0, i64 %indvars.iv
+  %499 = getelementptr inbounds nuw float, ptr %467, i64 %indvars.iv
   store float %498, ptr %499, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i198.i
@@ -9525,7 +9525,7 @@ _ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %35 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %36 = load float, ptr %35, align 4, !tbaa !18
-  %37 = getelementptr inbounds nuw [65536 x float], ptr %31, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   store float %36, ptr %37, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -11858,7 +11858,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit120:             ; preds = %_ZNSt6vectorIiSaIiE
   %351 = add i64 %339, %334
   %352 = add i64 %351, %347
   %353 = and i64 %352, 1
-  %354 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %353
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8, !tbaa !3
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 16
@@ -11985,12 +11985,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit130:       ; preds = %_ZNSt6vectorIiSaIiE
   %410 = phi i1 [ true, %403 ], [ false, %414 ]
   %.077188 = phi i64 [ 0, %403 ], [ 1, %414 ]
   %411 = xor i64 %.077188, %391
-  %412 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %411
   %413 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %412, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %414 unwind label %416
 
 414:                                              ; preds = %409
-  %415 = getelementptr inbounds nuw [2 x i32], ptr %405, i64 0, i64 %411
+  %415 = getelementptr inbounds nuw i32, ptr %405, i64 %411
   store i32 %413, ptr %415, align 4, !tbaa !10
   br i1 %410, label %409, label %406, !llvm.loop !252
 
@@ -12398,10 +12398,10 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
 
 161:                                              ; preds = %161, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %161 ]
-  %162 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.i
   %163 = load float, ptr %162, align 4, !tbaa !18
   %164 = fmul nnan ninf nsz arcp contract afn float %163, %95
-  %165 = getelementptr inbounds nuw [65536 x float], ptr %98, i64 0, i64 %indvars.iv.i.i
+  %165 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i.i
   %166 = load float, ptr %165, align 4, !tbaa !18
   %167 = fadd nnan ninf nsz arcp contract afn float %164, %166
   %168 = fmul nnan ninf nsz arcp contract afn float %160, %167
@@ -12425,10 +12425,10 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
 
 175:                                              ; preds = %175, %.lr.ph.i88.i
   %indvars.iv.i90.i = phi i64 [ 0, %.lr.ph.i88.i ], [ %indvars.iv.next.i91.i, %175 ]
-  %176 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv.i90.i
+  %176 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i90.i
   %177 = load float, ptr %176, align 4, !tbaa !18
   %178 = fmul nnan ninf nsz arcp contract afn float %177, %127
-  %179 = getelementptr inbounds nuw [65536 x float], ptr %98, i64 0, i64 %indvars.iv.i90.i
+  %179 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i90.i
   %180 = load float, ptr %179, align 4, !tbaa !18
   %181 = fadd nnan ninf nsz arcp contract afn float %178, %180
   %182 = fmul nnan ninf nsz arcp contract afn float %174, %181
@@ -12509,7 +12509,7 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %208 = getelementptr inbounds nuw [65536 x float], ptr %185, i64 0, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv.i
   %209 = load float, ptr %208, align 4, !tbaa !18
   %210 = fmul nnan ninf nsz arcp contract afn float %207, %209
   store float %210, ptr %208, align 4, !tbaa !18
@@ -12528,12 +12528,12 @@ _ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5A
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %213 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %214 = load float, ptr %213, align 4, !tbaa !18
-  %215 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
   %216 = load float, ptr %215, align 4, !tbaa !18
   %217 = fsub nnan ninf nsz arcp contract afn float %214, %216
-  %218 = getelementptr inbounds nuw [65536 x float], ptr %184, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
   store float %217, ptr %218, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i89.i
@@ -12549,12 +12549,12 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski
 220:                                              ; preds = %.lr.ph49, %220
   %indvars.iv67 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next68, %220 ]
   %221 = phi float [ 0.000000e+00, %.lr.ph49 ], [ %232, %220 ]
-  %222 = getelementptr inbounds nuw [65536 x float], ptr %185, i64 0, i64 %indvars.iv67
+  %222 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv67
   %223 = load float, ptr %222, align 4, !tbaa !18
   %224 = fneg nnan ninf nsz arcp contract afn float %223
-  %225 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv67
+  %225 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv67
   %226 = load float, ptr %225, align 4, !tbaa !18
-  %227 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv67
+  %227 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv67
   %228 = load float, ptr %227, align 4, !tbaa !18
   %229 = fadd nnan ninf nsz arcp contract afn float %226, %228
   %230 = fmul nnan ninf nsz arcp contract afn float %229, %224
@@ -13707,7 +13707,7 @@ _ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %35 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %36 = load float, ptr %35, align 4, !tbaa !18
-  %37 = getelementptr inbounds nuw [65536 x float], ptr %31, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   store float %36, ptr %37, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -16039,7 +16039,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit118:             ; preds = %_ZNSt6vectorIiSaIiE
   %351 = add i64 %339, %334
   %352 = add i64 %351, %347
   %353 = and i64 %352, 1
-  %354 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %353
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8, !tbaa !3
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 16
@@ -16166,12 +16166,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit128:       ; preds = %_ZNSt6vectorIiSaIiE
   %410 = phi i1 [ true, %403 ], [ false, %414 ]
   %.077186 = phi i64 [ 0, %403 ], [ 1, %414 ]
   %411 = xor i64 %.077186, %391
-  %412 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %411
   %413 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %412, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %414 unwind label %416
 
 414:                                              ; preds = %409
-  %415 = getelementptr inbounds nuw [2 x i32], ptr %405, i64 0, i64 %411
+  %415 = getelementptr inbounds nuw i32, ptr %405, i64 %411
   store i32 %413, ptr %415, align 4, !tbaa !10
   br i1 %410, label %409, label %406, !llvm.loop !289
 
@@ -16579,10 +16579,10 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
 
 161:                                              ; preds = %161, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %161 ]
-  %162 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.i
   %163 = load float, ptr %162, align 4, !tbaa !18
   %164 = fmul nnan ninf nsz arcp contract afn float %163, %95
-  %165 = getelementptr inbounds nuw [65536 x float], ptr %98, i64 0, i64 %indvars.iv.i.i
+  %165 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i.i
   %166 = load float, ptr %165, align 4, !tbaa !18
   %167 = fadd nnan ninf nsz arcp contract afn float %164, %166
   %168 = fmul nnan ninf nsz arcp contract afn float %160, %167
@@ -16606,10 +16606,10 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit87.i: ;
 
 175:                                              ; preds = %175, %.lr.ph.i88.i
   %indvars.iv.i90.i = phi i64 [ 0, %.lr.ph.i88.i ], [ %indvars.iv.next.i91.i, %175 ]
-  %176 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv.i90.i
+  %176 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i90.i
   %177 = load float, ptr %176, align 4, !tbaa !18
   %178 = fmul nnan ninf nsz arcp contract afn float %177, %127
-  %179 = getelementptr inbounds nuw [65536 x float], ptr %98, i64 0, i64 %indvars.iv.i90.i
+  %179 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i90.i
   %180 = load float, ptr %179, align 4, !tbaa !18
   %181 = fadd nnan ninf nsz arcp contract afn float %178, %180
   %182 = fmul nnan ninf nsz arcp contract afn float %174, %181
@@ -16690,7 +16690,7 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %208 = getelementptr inbounds nuw [65536 x float], ptr %185, i64 0, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv.i
   %209 = load float, ptr %208, align 4, !tbaa !18
   %210 = fmul nnan ninf nsz arcp contract afn float %207, %209
   store float %210, ptr %208, align 4, !tbaa !18
@@ -16709,12 +16709,12 @@ _ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5A
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %213 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %214 = load float, ptr %213, align 4, !tbaa !18
-  %215 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
   %216 = load float, ptr %215, align 4, !tbaa !18
   %217 = fsub nnan ninf nsz arcp contract afn float %214, %216
-  %218 = getelementptr inbounds nuw [65536 x float], ptr %184, i64 0, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
   store float %217, ptr %218, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i89.i
@@ -16730,12 +16730,12 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski
 220:                                              ; preds = %.lr.ph50, %220
   %indvars.iv68 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next69, %220 ]
   %221 = phi float [ 0.000000e+00, %.lr.ph50 ], [ %232, %220 ]
-  %222 = getelementptr inbounds nuw [65536 x float], ptr %185, i64 0, i64 %indvars.iv68
+  %222 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv68
   %223 = load float, ptr %222, align 4, !tbaa !18
   %224 = fneg nnan ninf nsz arcp contract afn float %223
-  %225 = getelementptr inbounds nuw [65536 x float], ptr %61, i64 0, i64 %indvars.iv68
+  %225 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv68
   %226 = load float, ptr %225, align 4, !tbaa !18
-  %227 = getelementptr inbounds nuw [65536 x float], ptr %68, i64 0, i64 %indvars.iv68
+  %227 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv68
   %228 = load float, ptr %227, align 4, !tbaa !18
   %229 = fadd nnan ninf nsz arcp contract afn float %226, %228
   %230 = fmul nnan ninf nsz arcp contract afn float %229, %224
@@ -17957,7 +17957,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %62 ]
   %63 = getelementptr inbounds nuw i64, ptr %.sroa.011.026, i64 %indvars.iv.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !146
-  %65 = getelementptr inbounds nuw [65536 x i64], ptr %59, i64 0, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv.i.i
   store i64 %64, ptr %65, align 8, !tbaa !146
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -18081,9 +18081,9 @@ define linkonce_odr noundef nofpclass(nan inf) float @_ZNK14HammingWrapper12get_
 19:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
   %.089.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw [65536 x i64], ptr %17, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !146
-  %22 = getelementptr inbounds nuw [65536 x i64], ptr %18, i64 0, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !146
   %24 = xor i64 %23, %21
   %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
@@ -18581,7 +18581,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %35 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8, !tbaa !146
-  %37 = getelementptr inbounds nuw [65536 x i64], ptr %31, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i
   store i64 %36, ptr %37, align 8, !tbaa !146
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -19333,9 +19333,9 @@ define linkonce_odr noundef i64 @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss6
 19:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
   %.089.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw [65536 x i64], ptr %17, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
   %21 = load i64, ptr %20, align 8, !tbaa !146
-  %22 = getelementptr inbounds nuw [65536 x i64], ptr %18, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !146
   %24 = xor i64 %23, %21
   %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
@@ -20790,7 +20790,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit120:             ; preds = %_ZNSt6vectorIiSaIiE
   %302 = add i64 %290, %285
   %303 = add i64 %302, %298
   %304 = and i64 %303, 1
-  %305 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %304
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !3
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 16
@@ -20917,12 +20917,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit130:       ; preds = %_ZNSt6vectorIiSaIiE
   %361 = phi i1 [ true, %354 ], [ false, %365 ]
   %.077184 = phi i64 [ 0, %354 ], [ 1, %365 ]
   %362 = xor i64 %.077184, %342
-  %363 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %362
   %364 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %363, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %365 unwind label %367
 
 365:                                              ; preds = %360
-  %366 = getelementptr inbounds nuw [2 x i32], ptr %356, i64 0, i64 %362
+  %366 = getelementptr inbounds nuw i32, ptr %356, i64 %362
   store i32 %364, ptr %366, align 4, !tbaa !10
   br i1 %361, label %360, label %357, !llvm.loop !341
 
@@ -21822,9 +21822,9 @@ _ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3
 232:                                              ; preds = %232, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %232 ]
   %.089.i = phi i64 [ 0, %.lr.ph.i ], [ %239, %232 ]
-  %233 = getelementptr inbounds nuw [65536 x i64], ptr %15, i64 0, i64 %indvars.iv.i
+  %233 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
   %234 = load i64, ptr %233, align 8, !tbaa !146
-  %235 = getelementptr inbounds nuw [65536 x i64], ptr %231, i64 0, i64 %indvars.iv.i
+  %235 = getelementptr inbounds nuw i64, ptr %231, i64 %indvars.iv.i
   %236 = load i64, ptr %235, align 8, !tbaa !146
   %237 = xor i64 %236, %234
   %238 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %237)
@@ -23062,7 +23062,7 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %58 ]
   %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4, !tbaa !18
-  %61 = getelementptr inbounds nuw [65536 x float], ptr %33, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i
   store float %60, ptr %61, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -25530,7 +25530,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit120:             ; preds = %_ZNSt6vectorIiSaIiE
   %354 = add i64 %342, %337
   %355 = add i64 %354, %350
   %356 = and i64 %355, 1
-  %357 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %356
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load ptr, ptr %358, align 8, !tbaa !3
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 16
@@ -25657,12 +25657,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit130:       ; preds = %_ZNSt6vectorIiSaIiE
   %413 = phi i1 [ true, %406 ], [ false, %417 ]
   %.077188 = phi i64 [ 0, %406 ], [ 1, %417 ]
   %414 = xor i64 %.077188, %394
-  %415 = getelementptr inbounds nuw [2 x %"class.std::vector"], ptr %7, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw %"class.std::vector", ptr %7, i64 %414
   %416 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %415, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %4)
           to label %417 unwind label %419
 
 417:                                              ; preds = %412
-  %418 = getelementptr inbounds nuw [2 x i32], ptr %408, i64 0, i64 %414
+  %418 = getelementptr inbounds nuw i32, ptr %408, i64 %414
   store i32 %416, ptr %418, align 4, !tbaa !10
   br i1 %413, label %412, label %409, !llvm.loop !414
 
@@ -25984,7 +25984,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i: ; preds = %.lr.ph.i.i.i, %9
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %108 = getelementptr inbounds nuw [65536 x float], ptr %63, i64 0, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i.i
   %109 = load float, ptr %108, align 4, !tbaa !18
   %110 = fmul nnan ninf nsz arcp contract afn float %105, %109
   store float %110, ptr %108, align 4, !tbaa !18
@@ -26065,7 +26065,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i75.i: ; preds = %.lr.ph.i.i85.i
 
 .lr.ph.i81.i:                                     ; preds = %.lr.ph.i81.i, %.lr.ph.preheader.i79.i
   %indvars.iv.i82.i = phi i64 [ 0, %.lr.ph.preheader.i79.i ], [ %indvars.iv.next.i83.i, %.lr.ph.i81.i ]
-  %143 = getelementptr inbounds nuw [65536 x float], ptr %72, i64 0, i64 %indvars.iv.i82.i
+  %143 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i82.i
   %144 = load float, ptr %143, align 4, !tbaa !18
   %145 = fmul nnan ninf nsz arcp contract afn float %140, %144
   store float %145, ptr %143, align 4, !tbaa !18
@@ -26817,10 +26817,10 @@ _ZN5Annoy10DotProduct8get_normIfNS0_4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.p
 
 537:                                              ; preds = %537, %.lr.ph.i139.i
   %indvars.iv.i141.i = phi i64 [ 0, %.lr.ph.i139.i ], [ %indvars.iv.next.i142.i, %537 ]
-  %538 = getelementptr inbounds nuw [65536 x float], ptr %63, i64 0, i64 %indvars.iv.i141.i
+  %538 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i141.i
   %539 = load float, ptr %538, align 4, !tbaa !18
   %540 = fmul nnan ninf nsz arcp contract afn float %539, %227
-  %541 = getelementptr inbounds nuw [65536 x float], ptr %498, i64 0, i64 %indvars.iv.i141.i
+  %541 = getelementptr inbounds nuw float, ptr %498, i64 %indvars.iv.i141.i
   %542 = load float, ptr %541, align 4, !tbaa !18
   %543 = fmul nnan ninf nsz arcp contract afn float %529, %542
   %544 = fadd nnan ninf nsz arcp contract afn float %540, %543
@@ -26915,10 +26915,10 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i: ; preds = %.
 
 583:                                              ; preds = %583, %.lr.ph.i166.i
   %indvars.iv.i168.i = phi i64 [ 0, %.lr.ph.i166.i ], [ %indvars.iv.next.i169.i, %583 ]
-  %584 = getelementptr inbounds nuw [65536 x float], ptr %72, i64 0, i64 %indvars.iv.i168.i
+  %584 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i168.i
   %585 = load float, ptr %584, align 4, !tbaa !18
   %586 = fmul nnan ninf nsz arcp contract afn float %585, %364
-  %587 = getelementptr inbounds nuw [65536 x float], ptr %498, i64 0, i64 %indvars.iv.i168.i
+  %587 = getelementptr inbounds nuw float, ptr %498, i64 %indvars.iv.i168.i
   %588 = load float, ptr %587, align 4, !tbaa !18
   %589 = fmul nnan ninf nsz arcp contract afn float %575, %588
   %590 = fadd nnan ninf nsz arcp contract afn float %586, %589
@@ -27091,7 +27091,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i24, %.th
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %663 = getelementptr inbounds nuw [65536 x float], ptr %661, i64 0, i64 %indvars.iv.i
+  %663 = getelementptr inbounds nuw float, ptr %661, i64 %indvars.iv.i
   %664 = load float, ptr %663, align 4, !tbaa !18
   %665 = fmul nnan ninf nsz arcp contract afn float %660, %664
   store float %665, ptr %663, align 4, !tbaa !18
@@ -27104,12 +27104,12 @@ _ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5Ann
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit ]
-  %666 = getelementptr inbounds nuw [65536 x float], ptr %63, i64 0, i64 %indvars.iv
+  %666 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
   %667 = load float, ptr %666, align 4, !tbaa !18
-  %668 = getelementptr inbounds nuw [65536 x float], ptr %72, i64 0, i64 %indvars.iv
+  %668 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv
   %669 = load float, ptr %668, align 4, !tbaa !18
   %670 = fsub nnan ninf nsz arcp contract afn float %667, %669
-  %671 = getelementptr inbounds nuw [65536 x float], ptr %628, i64 0, i64 %indvars.iv
+  %671 = getelementptr inbounds nuw float, ptr %628, i64 %indvars.iv
   store float %670, ptr %671, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i167.i

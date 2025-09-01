@@ -20886,7 +20886,7 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %22
 
 54:                                               ; preds = %58, %.lr.ph134
   %indvars.iv141 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next142, %58 ]
-  %55 = getelementptr inbounds nuw [0 x ptr], ptr %51, i64 0, i64 %indvars.iv141
+  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv141
   %56 = load ptr, ptr %55, align 8, !tbaa !109
   %57 = invoke noundef zeroext i1 @_ZN14pb2bv_rewriter3imp16card2bv_rewriter5is_pbEP4exprRK8rational(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %58 unwind label %59
@@ -21050,7 +21050,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 
 .lr.ph:                                           ; preds = %130, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %130 ]
-  %127 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !109
   %129 = invoke noundef zeroext i1 @_ZN14pb2bv_rewriter3imp16card2bv_rewriter5is_pbEP4exprRK8rational(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %130 unwind label %131
@@ -32544,7 +32544,7 @@ _ZN11mpq_managerILb1EE3setER3mpqj.exit.i:         ; preds = %231, %_ZN6vectorI8r
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !124
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %267 = getelementptr inbounds nuw [7 x i32], ptr @_ZL8g_primes, i64 0, i64 %indvars.iv109
+  %267 = getelementptr inbounds nuw i32, ptr @_ZL8g_primes, i64 %indvars.iv109
   %268 = load i32, ptr %267, align 4, !tbaa !98
   %269 = load i8, ptr %232, align 4
   %270 = and i8 %269, -4
@@ -38800,7 +38800,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN14pb2bv_rewriter3imp20card2b
 
 19:                                               ; preds = %15
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %14, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !109
   %23 = and i32 %16, -64
   %24 = add i32 %23, 64
@@ -42508,7 +42508,7 @@ define linkonce_odr hidden void @_ZN12rewriter_tplIN14pb2bv_rewriter3imp20card2b
   %21 = load i32, ptr %6, align 8
   %22 = lshr i32 %21, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !109
   %26 = and i32 %21, -64
   %27 = add i32 %26, 64

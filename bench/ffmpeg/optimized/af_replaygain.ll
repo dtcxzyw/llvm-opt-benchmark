@@ -56,7 +56,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 12:                                               ; preds = %10, %11
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw [20 x %struct.ReplayGainFreqInfo], ptr @freqinfos, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.ReplayGainFreqInfo, ptr @freqinfos, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8, !tbaa !11
   %15 = sext i32 %14 to i64
   %16 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %15) #8
@@ -712,7 +712,7 @@ calc_stereo_rms.exit:                             ; preds = %.lr.ph.i21, %butter
   %497 = tail call i64 @llvm.smax.i64(i64 %496, i64 0)
   %498 = tail call i64 @llvm.umin.i64(i64 %497, i64 11999)
   %499 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %500 = getelementptr inbounds nuw [12000 x i32], ptr %499, i64 0, i64 %498
+  %500 = getelementptr inbounds nuw i32, ptr %499, i64 %498
   %501 = load i32, ptr %500, align 4, !tbaa !63
   %502 = add i32 %501, 1
   store i32 %502, ptr %500, align 4, !tbaa !63
@@ -744,7 +744,7 @@ define internal noundef i32 @config_input(ptr noundef captures(none) %0) #0 {
 
 9:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw [20 x %struct.ReplayGainFreqInfo], ptr @freqinfos, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.ReplayGainFreqInfo, ptr @freqinfos, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = icmp eq i32 %11, %7
   br i1 %12, label %13, label %8

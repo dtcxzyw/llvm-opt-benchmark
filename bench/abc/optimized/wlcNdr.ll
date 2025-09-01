@@ -148,7 +148,7 @@ define range(i32 -1, 60) i32 @Ndr_TypeNdr2Wlc(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [88 x i32], ptr @switch.table.Ndr_TypeNdr2Wlc, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Ndr_TypeNdr2Wlc, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -165,7 +165,7 @@ define range(i32 -1, 99) i32 @Ndr_TypeWlc2Ndr(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [57 x i32], ptr @switch.table.Ndr_TypeWlc2Ndr, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Ndr_TypeWlc2Ndr, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -200,7 +200,7 @@ define noundef nonnull ptr @Ndr_ObjWriteConstant(ptr noundef readonly captures(n
   %14 = and i8 %13, 1
   %15 = or disjoint i8 %14, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds i8, ptr @Ndr_ObjWriteConstant.Buffer, i64 %indvars.iv
   store i8 %15, ptr %16, align 1, !tbaa !7
   %17 = icmp samesign ugt i32 %.07.in8, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -209,7 +209,7 @@ define noundef nonnull ptr @Ndr_ObjWriteConstant(ptr noundef readonly captures(n
   %.0.lcssa.in = phi i64 [ %4, %2 ], [ %indvars.iv.next, %.lr.ph ]
   %sext11 = shl i64 %.0.lcssa.in, 32
   %18 = ashr exact i64 %sext11, 32
-  %19 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %18
+  %19 = getelementptr inbounds i8, ptr @Ndr_ObjWriteConstant.Buffer, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !7
   ret ptr @Ndr_ObjWriteConstant.Buffer
 }
@@ -457,7 +457,7 @@ Wlc_ObjFanins.exit:                               ; preds = %.critedge4
   %105 = and i8 %104, 1
   %106 = or disjoint i8 %105, 48
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %107 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv.i
+  %107 = getelementptr inbounds i8, ptr @Ndr_ObjWriteConstant.Buffer, i64 %indvars.iv.i
   store i8 %106, ptr %107, align 1, !tbaa !7
   %108 = icmp samesign ugt i32 %.07.in8.i, 1
   br i1 %108, label %.lr.ph.i, label %Ndr_ObjWriteConstant.exit, !llvm.loop !8
@@ -465,7 +465,7 @@ Wlc_ObjFanins.exit:                               ; preds = %.critedge4
 Ndr_ObjWriteConstant.exit:                        ; preds = %.lr.ph.i
   %sext11.i = shl i64 %indvars.iv.next.i, 32
   %109 = ashr exact i64 %sext11.i, 32
-  %110 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %109
+  %110 = getelementptr inbounds i8, ptr @Ndr_ObjWriteConstant.Buffer, i64 %109
   store i8 0, ptr %110, align 1, !tbaa !7
   %.pre141 = load i16, ptr %45, align 8
   br label %111
@@ -4896,7 +4896,7 @@ define internal fastcc noundef ptr @Abc_OperName(i32 noundef %0) unnamed_addr #1
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [97 x ptr], ptr @switch.table.Abc_OperName, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Abc_OperName, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

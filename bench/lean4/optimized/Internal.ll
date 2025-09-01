@@ -251,7 +251,7 @@ define internal fastcc ptr @lean_array_fget(ptr noundef readonly captures(none) 
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %4
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -320,7 +320,7 @@ define internal fastcc ptr @lean_array_get(ptr noundef %0, ptr noundef readonly 
 
 lean_dec.exit:                                    ; preds = %19, %18, %16, %10
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = getelementptr inbounds nuw [0 x ptr], ptr %20, i64 0, i64 %7
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -4260,7 +4260,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonRefInfo___spec__2(i64
   %.08901922 = phi i64 [ %.1891, %2600 ], [ %1, %3 ]
   %.08921921 = phi ptr [ %.1893, %2600 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.08921921, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.08901922
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.08901922
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -11098,7 +11098,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instToJsonRefInfo___spec__5(i64
   %.01841 = phi i64 [ %32, %48 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %48 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -19634,7 +19634,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Lsp_instFromJsonRefInfo___spec__3(i
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -28380,7 +28380,7 @@ lean_alloc_ctor.exit:                             ; preds = %._crit_edge
   %.072206 = phi i64 [ %.173, %224 ], [ %1, %3 ]
   %.078205 = phi ptr [ %.179, %224 ], [ %2, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %.078205, i64 24
-  %10 = getelementptr inbounds nuw [0 x ptr], ptr %9, i64 0, i64 %.072206
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.072206
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, 1
@@ -83296,7 +83296,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -84239,7 +84239,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.01943 = phi i64 [ %35, %51 ], [ %1, %3 ]
   %.02142 = phi ptr [ %.0.i.i29, %51 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02142, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01943
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01943
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -84842,7 +84842,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -87030,7 +87030,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.02246 = phi i64 [ %37, %53 ], [ %1, %3 ]
   %.02445 = phi ptr [ %.0.i.i32, %53 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02445, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.02246
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02246
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -87954,7 +87954,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -89199,7 +89199,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -89756,7 +89756,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -91001,7 +91001,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -92920,7 +92920,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -93556,7 +93556,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.03483 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03782 = phi ptr [ %.0.i.i63, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03782, i64 24
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %7, i64 0, i64 %.03483
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03483
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -94557,7 +94557,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
   %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01841
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -94701,7 +94701,7 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Internal_0__Lean
   %.01842 = phi i64 [ %37, %53 ], [ %1, %3 ]
   %.02041 = phi ptr [ %.0.i.i28, %53 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02041, i64 24
-  %5 = getelementptr inbounds nuw [0 x ptr], ptr %4, i64 0, i64 %.01842
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01842
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1

@@ -180,7 +180,7 @@ define nonnull ptr @av_crc_get_table(i32 noundef %0) local_unnamed_addr #1 {
 
 19:                                               ; preds = %16, %14, %12, %10, %8, %6, %4, %2
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds nuw [8 x [1024 x i32]], ptr @av_crc_table, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [1024 x i32], ptr @av_crc_table, i64 %20
   ret ptr %21
 }
 

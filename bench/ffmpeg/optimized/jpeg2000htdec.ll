@@ -447,7 +447,7 @@ jpeg2000_decode_ht_cleanup_segment.exit.thread:   ; preds = %159
 256:                                              ; preds = %253
   %257 = load i8, ptr %19, align 1, !tbaa !45
   %258 = zext i8 %257 to i64
-  %259 = getelementptr inbounds nuw [13 x i8], ptr @mel_e, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw i8, ptr @mel_e, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !34
   %261 = load i32, ptr %17, align 8, !tbaa !40
   %..i.i = tail call i32 @llvm.umin.i32(i32 %261, i32 %87)
@@ -585,14 +585,14 @@ vlc_decode_u_prefix.exit143:                      ; preds = %319, %322
   %323 = phi i8 [ %320, %319 ], [ %.pre806, %322 ]
   %324 = load i64, ptr %135, align 8, !tbaa !38
   %325 = and i64 %324, 7
-  %326 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %325
   %327 = load i8, ptr %326, align 1, !tbaa !34
   %328 = zext nneg i8 %327 to i64
   %329 = lshr i64 %324, %328
   store i64 %329, ptr %135, align 8, !tbaa !38
   %330 = sub i8 %323, %327
   store i8 %330, ptr %134, align 8, !tbaa !41
-  %331 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %325
+  %331 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %325
   %332 = load i8, ptr %331, align 1, !tbaa !34
   %333 = icmp ult i8 %330, 3
   br i1 %333, label %334, label %vlc_decode_u_prefix.exit142
@@ -607,14 +607,14 @@ vlc_decode_u_prefix.exit142:                      ; preds = %vlc_decode_u_prefix
   %335 = phi i8 [ %330, %vlc_decode_u_prefix.exit143 ], [ %.pre808, %334 ]
   %336 = phi i64 [ %329, %vlc_decode_u_prefix.exit143 ], [ %.pre807, %334 ]
   %337 = and i64 %336, 7
-  %338 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %337
   %339 = load i8, ptr %338, align 1, !tbaa !34
   %340 = zext nneg i8 %339 to i64
   %341 = lshr i64 %336, %340
   store i64 %341, ptr %135, align 8, !tbaa !38
   %342 = sub i8 %335, %339
   store i8 %342, ptr %134, align 8, !tbaa !41
-  %343 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %337
+  %343 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %337
   %344 = load i8, ptr %343, align 1, !tbaa !34
   %345 = icmp ne i64 %325, 4
   %346 = and i64 %324, 3
@@ -637,7 +637,7 @@ vlc_decode_u_prefix.exit142:                      ; preds = %vlc_decode_u_prefix
   %353 = trunc i64 %352 to i32
   %354 = and i32 %353, 31
   %355 = zext i1 %345 to i64
-  %356 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %355
   %357 = load i32, ptr %356, align 4, !tbaa !22
   %358 = trunc i32 %357 to i8
   %.mask497 = and i32 %357, 255
@@ -646,7 +646,7 @@ vlc_decode_u_prefix.exit142:                      ; preds = %vlc_decode_u_prefix
   store i64 %360, ptr %135, align 8, !tbaa !38
   %361 = sub i8 %351, %358
   store i8 %361, ptr %134, align 8, !tbaa !41
-  %362 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %355
+  %362 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %355
   %363 = load i32, ptr %362, align 4, !tbaa !22
   %364 = and i32 %354, %363
   %365 = trunc nuw nsw i32 %364 to i8
@@ -677,7 +677,7 @@ vlc_decode_u_suffix.exit158:                      ; preds = %vlc_decode_u_prefix
   %376 = trunc i64 %375 to i32
   %377 = and i32 %376, 31
   %378 = zext i1 %368 to i64
-  %379 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %378
   %380 = load i32, ptr %379, align 4, !tbaa !22
   %381 = trunc i32 %380 to i8
   %.mask499 = and i32 %380, 255
@@ -686,7 +686,7 @@ vlc_decode_u_suffix.exit158:                      ; preds = %vlc_decode_u_prefix
   store i64 %383, ptr %135, align 8, !tbaa !38
   %384 = sub i8 %374, %381
   store i8 %384, ptr %134, align 8, !tbaa !41
-  %385 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %378
+  %385 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %378
   %386 = load i32, ptr %385, align 4, !tbaa !22
   %387 = and i32 %377, %386
   %388 = trunc nuw nsw i32 %387 to i8
@@ -773,14 +773,14 @@ vlc_decode_u_prefix.exit141:                      ; preds = %427, %432
   %433 = phi i8 [ %430, %427 ], [ %.pre793, %432 ]
   %434 = load i64, ptr %135, align 8, !tbaa !38
   %435 = and i64 %434, 7
-  %436 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %435
+  %436 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %435
   %437 = load i8, ptr %436, align 1, !tbaa !34
   %438 = zext nneg i8 %437 to i64
   %439 = lshr i64 %434, %438
   store i64 %439, ptr %135, align 8, !tbaa !38
   %440 = sub i8 %433, %437
   store i8 %440, ptr %134, align 8, !tbaa !41
-  %441 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %435
+  %441 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %435
   %442 = load i8, ptr %441, align 1, !tbaa !34
   %443 = and i64 %434, 3
   %444 = icmp eq i64 %443, 0
@@ -822,7 +822,7 @@ vlc_decode_u_suffix.exit:                         ; preds = %448, %458
   %461 = trunc i64 %460 to i32
   %462 = and i32 %461, 31
   %463 = zext i1 %456 to i64
-  %464 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %463
   %465 = load i32, ptr %464, align 4, !tbaa !22
   %466 = trunc i32 %465 to i8
   %.mask495 = and i32 %465, 255
@@ -831,7 +831,7 @@ vlc_decode_u_suffix.exit:                         ; preds = %448, %458
   store i64 %468, ptr %135, align 8, !tbaa !38
   %469 = sub i8 %459, %466
   store i8 %469, ptr %134, align 8, !tbaa !41
-  %470 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %463
+  %470 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %463
   %471 = load i32, ptr %470, align 4, !tbaa !22
   %472 = and i32 %462, %471
   %473 = icmp samesign ugt i32 %472, 27
@@ -874,14 +874,14 @@ vlc_decode_u_suffix.exit154:                      ; preds = %488, %486
   %489 = phi i8 [ %.pre795, %488 ], [ %440, %486 ]
   %490 = phi i64 [ %.pre794, %488 ], [ %439, %486 ]
   %491 = and i64 %490, 7
-  %492 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %491
   %493 = load i8, ptr %492, align 1, !tbaa !34
   %494 = zext nneg i8 %493 to i64
   %495 = lshr i64 %490, %494
   store i64 %495, ptr %135, align 8, !tbaa !38
   %496 = sub i8 %489, %493
   store i8 %496, ptr %134, align 8, !tbaa !41
-  %497 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %491
+  %497 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %491
   %498 = load i8, ptr %497, align 1, !tbaa !34
   %499 = icmp ne i64 %491, 4
   %500 = and i64 %490, 3
@@ -905,7 +905,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit186:             ; preds = %501, %503
   %506 = trunc i64 %.fr1036 to i32
   %507 = and i32 %506, 31
   %508 = zext i1 %499 to i64
-  %509 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %508
   %510 = load i32, ptr %509, align 4, !tbaa !22
   %511 = trunc i32 %510 to i8
   %.mask494 = and i32 %510, 255
@@ -914,7 +914,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit186:             ; preds = %501, %503
   store i64 %513, ptr %135, align 8, !tbaa !38
   %514 = sub i8 %504, %511
   store i8 %514, ptr %134, align 8, !tbaa !41
-  %515 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %508
+  %515 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %508
   %516 = load i32, ptr %515, align 4, !tbaa !22
   %.fr1037 = freeze i32 %516
   %517 = and i32 %507, %.fr1037
@@ -979,14 +979,14 @@ vlc_decode_u_prefix.exit144:                      ; preds = %541, %544
   %545 = phi i8 [ %542, %541 ], [ %.pre, %544 ]
   %546 = load i64, ptr %135, align 8, !tbaa !38
   %547 = and i64 %546, 7
-  %548 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %547
   %549 = load i8, ptr %548, align 1, !tbaa !34
   %550 = zext nneg i8 %549 to i64
   %551 = lshr i64 %546, %550
   store i64 %551, ptr %135, align 8, !tbaa !38
   %552 = sub i8 %545, %549
   store i8 %552, ptr %134, align 8, !tbaa !41
-  %553 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %547
+  %553 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %547
   %554 = load i8, ptr %553, align 1, !tbaa !34
   %555 = icmp ne i64 %547, 4
   %556 = and i64 %546, 3
@@ -1010,7 +1010,7 @@ vlc_decode_u_suffix.exit160.cont:                 ; preds = %557, %559
   %562 = trunc i64 %.fr1034 to i32
   %563 = and i32 %562, 31
   %564 = zext i1 %555 to i64
-  %565 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %564
+  %565 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %564
   %566 = load i32, ptr %565, align 4, !tbaa !22
   %567 = trunc i32 %566 to i8
   %.mask492 = and i32 %566, 255
@@ -1019,7 +1019,7 @@ vlc_decode_u_suffix.exit160.cont:                 ; preds = %557, %559
   store i64 %569, ptr %135, align 8, !tbaa !38
   %570 = sub i8 %560, %567
   store i8 %570, ptr %134, align 8, !tbaa !41
-  %571 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %564
+  %571 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %564
   %572 = load i32, ptr %571, align 4, !tbaa !22
   %.fr1035 = freeze i32 %572
   %573 = and i32 %563, %.fr1035
@@ -1089,7 +1089,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit180.cont:        ; preds = %jpeg2000_bitbuf_get
   %.sroa.84324.6560 = phi i64 [ %.sroa.84324.0572, %598 ], [ %.sroa.84324.15, %655 ]
   %.sroa.38.6559 = phi i32 [ %.sroa.38.0571, %598 ], [ %.sroa.38.15, %655 ]
   %.sroa.0305.6558 = phi i32 [ %.sroa.0305.0570, %598 ], [ %.sroa.0305.15, %655 ]
-  %602 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv712
+  %602 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv712
   %603 = load i32, ptr %602, align 4, !tbaa !22
   %604 = trunc nuw nsw i64 %indvars.iv712 to i32
   %605 = lshr i32 %600, %604
@@ -1198,7 +1198,7 @@ recover_mag_sgn.exit196:                          ; preds = %655
   %.sroa.84324.5567 = phi i64 [ %.sroa.84324.15, %recover_mag_sgn.exit196 ], [ %.sroa.84324.16, %712 ]
   %.sroa.38.5566 = phi i32 [ %.sroa.38.15, %recover_mag_sgn.exit196 ], [ %.sroa.38.16, %712 ]
   %.sroa.0305.5565 = phi i32 [ %.sroa.0305.15, %recover_mag_sgn.exit196 ], [ %.sroa.0305.16, %712 ]
-  %659 = getelementptr inbounds nuw [4 x i32], ptr %186, i64 0, i64 %indvars.iv715
+  %659 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv715
   %660 = load i32, ptr %659, align 4, !tbaa !22
   %661 = trunc nuw nsw i64 %indvars.iv715 to i32
   %662 = lshr i32 %657, %661
@@ -1312,7 +1312,7 @@ recover_mag_sgn.exit:                             ; preds = %712
   %721 = lshr i32 %595, %720
   %722 = and i32 %721, 1
   %723 = sub nsw i32 %719, %722
-  %724 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv708
+  %724 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv708
   store i32 %723, ptr %724, align 4, !tbaa !22
   %gep1001 = getelementptr inbounds nuw i8, ptr %invariant.gep1000, i64 %indvars.iv708
   %725 = load i8, ptr %gep1001, align 1, !tbaa !34
@@ -1321,7 +1321,7 @@ recover_mag_sgn.exit:                             ; preds = %712
   %728 = lshr i32 %597, %720
   %729 = and i32 %728, 1
   %730 = sub nsw i32 %727, %729
-  %731 = getelementptr inbounds nuw [4 x i32], ptr %186, i64 0, i64 %indvars.iv708
+  %731 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv708
   store i32 %730, ptr %731, align 4, !tbaa !22
   %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
   %exitcond711.not = icmp eq i64 %indvars.iv.next709, 4
@@ -1382,14 +1382,14 @@ vlc_decode_u_prefix.exit145:                      ; preds = %746, %749
   %750 = phi i8 [ %747, %746 ], [ %.pre817, %749 ]
   %751 = load i64, ptr %135, align 8, !tbaa !38
   %752 = and i64 %751, 7
-  %753 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %752
+  %753 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %752
   %754 = load i8, ptr %753, align 1, !tbaa !34
   %755 = zext nneg i8 %754 to i64
   %756 = lshr i64 %751, %755
   store i64 %756, ptr %135, align 8, !tbaa !38
   %757 = sub i8 %750, %754
   store i8 %757, ptr %134, align 8, !tbaa !41
-  %758 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %752
+  %758 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %752
   %759 = load i8, ptr %758, align 1, !tbaa !34
   %760 = icmp ne i64 %752, 4
   %761 = and i64 %751, 3
@@ -1413,7 +1413,7 @@ vlc_decode_u_suffix.exit162:                      ; preds = %762, %764
   %767 = trunc i64 %.fr473 to i32
   %768 = and i32 %767, 31
   %769 = zext i1 %760 to i64
-  %770 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %769
+  %770 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %769
   %771 = load i32, ptr %770, align 4, !tbaa !22
   %772 = trunc i32 %771 to i8
   %.mask = and i32 %771, 255
@@ -1422,7 +1422,7 @@ vlc_decode_u_suffix.exit162:                      ; preds = %762, %764
   store i64 %774, ptr %135, align 8, !tbaa !38
   %775 = sub i8 %765, %772
   store i8 %775, ptr %134, align 8, !tbaa !41
-  %776 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %769
+  %776 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %769
   %777 = load i32, ptr %776, align 4, !tbaa !22
   %.fr = freeze i32 %777
   %778 = and i32 %768, %.fr
@@ -1486,7 +1486,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit178:             ; preds = %vlc_decode_u_prefix
   %.sroa.84324.10593 = phi i64 [ %.sroa.84324.0.lcssa, %801 ], [ %.sroa.84324.11, %861 ]
   %.sroa.38.10592 = phi i32 [ %.sroa.38.0.lcssa, %801 ], [ %.sroa.38.11, %861 ]
   %.sroa.0305.10591 = phi i32 [ %.sroa.0305.0.lcssa, %801 ], [ %.sroa.0305.11, %861 ]
-  %808 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv726
+  %808 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv726
   %809 = load i32, ptr %808, align 4, !tbaa !22
   %810 = trunc nuw nsw i64 %indvars.iv726 to i32
   %811 = lshr i32 %804, %810
@@ -1598,7 +1598,7 @@ recover_mag_sgn.exit208:                          ; preds = %861
   %868 = lshr i32 %800, %867
   %869 = and i32 %868, 1
   %870 = sub nsw i32 %866, %869
-  %871 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv722
+  %871 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv722
   store i32 %870, ptr %871, align 4, !tbaa !22
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next723, 4
@@ -1943,14 +1943,14 @@ vlc_decode_u_prefix.exit147:                      ; preds = %1071, %1074
   %1075 = phi i8 [ %1072, %1071 ], [ %.pre827, %1074 ]
   %1076 = load i64, ptr %135, align 8, !tbaa !38
   %1077 = and i64 %1076, 7
-  %1078 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %1077
+  %1078 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %1077
   %1079 = load i8, ptr %1078, align 1, !tbaa !34
   %1080 = zext nneg i8 %1079 to i64
   %1081 = lshr i64 %1076, %1080
   store i64 %1081, ptr %135, align 8, !tbaa !38
   %1082 = sub i8 %1075, %1079
   store i8 %1082, ptr %134, align 8, !tbaa !41
-  %1083 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %1077
+  %1083 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %1077
   %1084 = load i8, ptr %1083, align 1, !tbaa !34
   %1085 = icmp ult i8 %1082, 3
   br i1 %1085, label %1086, label %vlc_decode_u_prefix.exit146
@@ -1965,14 +1965,14 @@ vlc_decode_u_prefix.exit146:                      ; preds = %vlc_decode_u_prefix
   %1087 = phi i8 [ %1082, %vlc_decode_u_prefix.exit147 ], [ %.pre829, %1086 ]
   %1088 = phi i64 [ %1081, %vlc_decode_u_prefix.exit147 ], [ %.pre828, %1086 ]
   %1089 = and i64 %1088, 7
-  %1090 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %1089
+  %1090 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %1089
   %1091 = load i8, ptr %1090, align 1, !tbaa !34
   %1092 = zext nneg i8 %1091 to i64
   %1093 = lshr i64 %1088, %1092
   store i64 %1093, ptr %135, align 8, !tbaa !38
   %1094 = sub i8 %1087, %1091
   store i8 %1094, ptr %134, align 8, !tbaa !41
-  %1095 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %1089
+  %1095 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %1089
   %1096 = load i8, ptr %1095, align 1, !tbaa !34
   %1097 = icmp ne i64 %1077, 4
   %1098 = and i64 %1076, 3
@@ -1995,7 +1995,7 @@ vlc_decode_u_prefix.exit146:                      ; preds = %vlc_decode_u_prefix
   %1105 = trunc i64 %1104 to i32
   %1106 = and i32 %1105, 31
   %1107 = zext i1 %1097 to i64
-  %1108 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %1107
+  %1108 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %1107
   %1109 = load i32, ptr %1108, align 4, !tbaa !22
   %1110 = trunc i32 %1109 to i8
   %.mask484 = and i32 %1109, 255
@@ -2004,7 +2004,7 @@ vlc_decode_u_prefix.exit146:                      ; preds = %vlc_decode_u_prefix
   store i64 %1112, ptr %135, align 8, !tbaa !38
   %1113 = sub i8 %1103, %1110
   store i8 %1113, ptr %134, align 8, !tbaa !41
-  %1114 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %1107
+  %1114 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %1107
   %1115 = load i32, ptr %1114, align 4, !tbaa !22
   %1116 = and i32 %1106, %1115
   %1117 = trunc nuw nsw i32 %1116 to i8
@@ -2035,7 +2035,7 @@ vlc_decode_u_suffix.exit166:                      ; preds = %vlc_decode_u_prefix
   %1128 = trunc i64 %1127 to i32
   %1129 = and i32 %1128, 31
   %1130 = zext i1 %1120 to i64
-  %1131 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %1130
+  %1131 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %1130
   %1132 = load i32, ptr %1131, align 4, !tbaa !22
   %1133 = trunc i32 %1132 to i8
   %.mask486 = and i32 %1132, 255
@@ -2044,7 +2044,7 @@ vlc_decode_u_suffix.exit166:                      ; preds = %vlc_decode_u_prefix
   store i64 %1135, ptr %135, align 8, !tbaa !38
   %1136 = sub i8 %1126, %1133
   store i8 %1136, ptr %134, align 8, !tbaa !41
-  %1137 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %1130
+  %1137 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %1130
   %1138 = load i32, ptr %1137, align 4, !tbaa !22
   %1139 = and i32 %1129, %1138
   %1140 = trunc nuw nsw i32 %1139 to i8
@@ -2130,14 +2130,14 @@ vlc_decode_u_prefix.exit148:                      ; preds = %1178, %1181
   %1182 = phi i8 [ %1179, %1178 ], [ %.pre822, %1181 ]
   %1183 = load i64, ptr %135, align 8, !tbaa !38
   %1184 = and i64 %1183, 7
-  %1185 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %1184
+  %1185 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %1184
   %1186 = load i8, ptr %1185, align 1, !tbaa !34
   %1187 = zext nneg i8 %1186 to i64
   %1188 = lshr i64 %1183, %1187
   store i64 %1188, ptr %135, align 8, !tbaa !38
   %1189 = sub i8 %1182, %1186
   store i8 %1189, ptr %134, align 8, !tbaa !41
-  %1190 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %1184
+  %1190 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %1184
   %1191 = load i8, ptr %1190, align 1, !tbaa !34
   %1192 = icmp ne i64 %1184, 4
   %1193 = and i64 %1183, 3
@@ -2161,7 +2161,7 @@ vlc_decode_u_suffix.exit168.cont:                 ; preds = %1194, %1196
   %1199 = trunc i64 %.fr1038 to i32
   %1200 = and i32 %1199, 31
   %1201 = zext i1 %1192 to i64
-  %1202 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %1201
+  %1202 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %1201
   %1203 = load i32, ptr %1202, align 4, !tbaa !22
   %1204 = trunc i32 %1203 to i8
   %.mask482 = and i32 %1203, 255
@@ -2170,7 +2170,7 @@ vlc_decode_u_suffix.exit168.cont:                 ; preds = %1194, %1196
   store i64 %1206, ptr %135, align 8, !tbaa !38
   %1207 = sub i8 %1197, %1204
   store i8 %1207, ptr %134, align 8, !tbaa !41
-  %1208 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %1201
+  %1208 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %1201
   %1209 = load i32, ptr %1208, align 4, !tbaa !22
   %.fr1039 = freeze i32 %1209
   %1210 = and i32 %1200, %.fr1039
@@ -2219,7 +2219,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit172.cont:        ; preds = %jpeg2000_bitbuf_get
 
 switch.lookup:                                    ; preds = %jpeg2000_bitbuf_get_bits_lsb.exit172.cont
   %1231 = zext nneg i8 %1229 to i64
-  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 0, i64 %1231
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 %1231
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %1232
 
@@ -2231,7 +2231,7 @@ switch.lookup:                                    ; preds = %jpeg2000_bitbuf_get
 
 switch.lookup1072:                                ; preds = %1232
   %1235 = zext nneg i8 %1233 to i64
-  %switch.gep1073 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 0, i64 %1235
+  %switch.gep1073 = getelementptr inbounds nuw i32, ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 %1235
   %switch.load1074 = load i32, ptr %switch.gep1073, align 4
   br label %1236
 
@@ -2313,7 +2313,7 @@ switch.lookup1072:                                ; preds = %1232
   %.sroa.84324.8603 = phi i64 [ %.sroa.84324.3616, %1289 ], [ %.sroa.84324.13, %1347 ]
   %.sroa.38.8602 = phi i32 [ %.sroa.38.3615, %1289 ], [ %.sroa.38.13, %1347 ]
   %.sroa.0305.8601 = phi i32 [ %.sroa.0305.3614, %1289 ], [ %.sroa.0305.13, %1347 ]
-  %1294 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv741
+  %1294 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv741
   %1295 = load i32, ptr %1294, align 4, !tbaa !22
   %1296 = trunc nuw nsw i64 %indvars.iv741 to i32
   %1297 = lshr i32 %1292, %1296
@@ -2425,7 +2425,7 @@ recover_mag_sgn.exit202:                          ; preds = %1347
   %.sroa.84324.7610 = phi i64 [ %.sroa.84324.13, %recover_mag_sgn.exit202 ], [ %.sroa.84324.14, %1407 ]
   %.sroa.38.7609 = phi i32 [ %.sroa.38.13, %recover_mag_sgn.exit202 ], [ %.sroa.38.14, %1407 ]
   %.sroa.0305.7608 = phi i32 [ %.sroa.0305.13, %recover_mag_sgn.exit202 ], [ %.sroa.0305.14, %1407 ]
-  %1354 = getelementptr inbounds nuw [4 x i32], ptr %881, i64 0, i64 %indvars.iv744
+  %1354 = getelementptr inbounds nuw i32, ptr %881, i64 %indvars.iv744
   %1355 = load i32, ptr %1354, align 4, !tbaa !22
   %1356 = trunc nuw nsw i64 %indvars.iv744 to i32
   %1357 = lshr i32 %1349, %1356
@@ -2542,7 +2542,7 @@ recover_mag_sgn.exit199:                          ; preds = %1407
   %1418 = lshr i32 %1286, %1417
   %1419 = and i32 %1418, 1
   %1420 = sub nsw i32 %1416, %1419
-  %1421 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv737
+  %1421 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv737
   store i32 %1420, ptr %1421, align 4, !tbaa !22
   %gep1013 = getelementptr inbounds nuw i8, ptr %invariant.gep1012, i64 %indvars.iv737
   %1422 = load i8, ptr %gep1013, align 1, !tbaa !34
@@ -2551,7 +2551,7 @@ recover_mag_sgn.exit199:                          ; preds = %1407
   %1425 = lshr i32 %1288, %1417
   %1426 = and i32 %1425, 1
   %1427 = sub nsw i32 %1424, %1426
-  %1428 = getelementptr inbounds nuw [4 x i32], ptr %881, i64 0, i64 %indvars.iv737
+  %1428 = getelementptr inbounds nuw i32, ptr %881, i64 %indvars.iv737
   store i32 %1427, ptr %1428, align 4, !tbaa !22
   %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, 1
   %exitcond740.not = icmp eq i64 %indvars.iv.next738, 4
@@ -2668,14 +2668,14 @@ vlc_decode_u_prefix.exit149:                      ; preds = %1494, %1497
   %1498 = phi i8 [ %1495, %1494 ], [ %.pre838, %1497 ]
   %1499 = load i64, ptr %135, align 8, !tbaa !38
   %1500 = and i64 %1499, 7
-  %1501 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.drop_bits, i64 0, i64 %1500
+  %1501 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.drop_bits, i64 %1500
   %1502 = load i8, ptr %1501, align 1, !tbaa !34
   %1503 = zext nneg i8 %1502 to i64
   %1504 = lshr i64 %1499, %1503
   store i64 %1504, ptr %135, align 8, !tbaa !38
   %1505 = sub i8 %1498, %1502
   store i8 %1505, ptr %134, align 8, !tbaa !41
-  %1506 = getelementptr inbounds nuw [8 x i8], ptr @vlc_decode_u_prefix.return_value, i64 0, i64 %1500
+  %1506 = getelementptr inbounds nuw i8, ptr @vlc_decode_u_prefix.return_value, i64 %1500
   %1507 = load i8, ptr %1506, align 1, !tbaa !34
   %1508 = icmp ne i64 %1500, 4
   %1509 = and i64 %1499, 3
@@ -2699,7 +2699,7 @@ vlc_decode_u_suffix.exit170:                      ; preds = %1510, %1512
   %1515 = trunc i64 %.fr479 to i32
   %1516 = and i32 %1515, 31
   %1517 = zext i1 %1508 to i64
-  %1518 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.drop_bits, i64 0, i64 %1517
+  %1518 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.drop_bits, i64 %1517
   %1519 = load i32, ptr %1518, align 4, !tbaa !22
   %1520 = trunc i32 %1519 to i8
   %.mask477 = and i32 %1519, 255
@@ -2708,7 +2708,7 @@ vlc_decode_u_suffix.exit170:                      ; preds = %1510, %1512
   store i64 %1522, ptr %135, align 8, !tbaa !38
   %1523 = sub i8 %1513, %1520
   store i8 %1523, ptr %134, align 8, !tbaa !41
-  %1524 = getelementptr inbounds nuw [2 x i32], ptr @vlc_decode_u_suffix.mask, i64 0, i64 %1517
+  %1524 = getelementptr inbounds nuw i32, ptr @vlc_decode_u_suffix.mask, i64 %1517
   %1525 = load i32, ptr %1524, align 4, !tbaa !22
   %.fr478 = freeze i32 %1525
   %1526 = and i32 %1516, %.fr478
@@ -2753,7 +2753,7 @@ jpeg2000_bitbuf_get_bits_lsb.exit:                ; preds = %vlc_decode_u_prefix
 
 switch.lookup1075:                                ; preds = %1545
   %1547 = zext nneg i8 %1482 to i64
-  %switch.gep1076 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 0, i64 %1547
+  %switch.gep1076 = getelementptr inbounds nuw i32, ptr @switch.table.ff_jpeg2000_decode_htj2k.4, i64 %1547
   %switch.load1077 = load i32, ptr %switch.gep1076, align 4
   br label %1548
 
@@ -2804,7 +2804,7 @@ switch.lookup1075:                                ; preds = %1545
   %.sroa.84324.9636 = phi i64 [ %.sroa.84324.3.lcssa, %1574 ], [ %.sroa.84324.12, %1632 ]
   %.sroa.38.9635 = phi i32 [ %.sroa.38.3.lcssa, %1574 ], [ %.sroa.38.12, %1632 ]
   %.sroa.0305.9634 = phi i32 [ %.sroa.0305.3.lcssa, %1574 ], [ %.sroa.0305.12, %1632 ]
-  %1579 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv755
+  %1579 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv755
   %1580 = load i32, ptr %1579, align 4, !tbaa !22
   %1581 = trunc nuw nsw i64 %indvars.iv755 to i32
   %1582 = lshr i32 %1577, %1581
@@ -2916,7 +2916,7 @@ recover_mag_sgn.exit205:                          ; preds = %1632
   %1639 = lshr i32 %1573, %1638
   %1640 = and i32 %1639, 1
   %1641 = sub nsw i32 %1637, %1640
-  %1642 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv751
+  %1642 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv751
   store i32 %1641, ptr %1642, align 4, !tbaa !22
   %indvars.iv.next752 = add nuw nsw i64 %indvars.iv751, 1
   %exitcond754.not = icmp eq i64 %indvars.iv.next752, 4
@@ -3009,7 +3009,7 @@ jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get
   %gep1033 = getelementptr inbounds nuw i32, ptr %invariant.gep1032, i64 %indvars.iv779
   %1672 = load i32, ptr %gep1033, align 4, !tbaa !22
   %1673 = sext i32 %1671 to i64
-  %1674 = getelementptr inbounds [6144 x i32], ptr %2, i64 0, i64 %1673
+  %1674 = getelementptr inbounds i32, ptr %2, i64 %1673
   store i32 %1672, ptr %1674, align 4, !tbaa !22
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %exitcond783.not = icmp eq i64 %indvars.iv.next780, %wide.trip.count782
@@ -3042,7 +3042,7 @@ jpeg2000_decode_ht_cleanup_segment.exit:          ; preds = %jpeg2000_bitbuf_get
   %.0124.us = shl i32 %1684, %spec.select665
   %1685 = or i32 %.0124.us, %1683
   %1686 = sext i32 %1681 to i64
-  %1687 = getelementptr inbounds [6144 x i32], ptr %2, i64 0, i64 %1686
+  %1687 = getelementptr inbounds i32, ptr %2, i64 %1686
   store i32 %1685, ptr %1687, align 4, !tbaa !22
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count782
@@ -4136,7 +4136,7 @@ define internal fastcc range(i32 0, 2) i32 @jpeg2000_decode_mel_sym(ptr noundef 
 12:                                               ; preds = %8
   %13 = load i8, ptr %0, align 1, !tbaa !45
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [13 x i8], ptr @mel_e, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @mel_e, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !34
   %17 = load i32, ptr %1, align 8, !tbaa !40
   %18 = add i32 %3, -1

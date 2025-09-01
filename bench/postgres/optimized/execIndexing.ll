@@ -367,13 +367,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %indvars.iv.ph.i = phi i64 [ %indvars.iv.next.i, %114 ], [ 0, %.lr.ph.i ]
   %.03952.ph.i = phi i1 [ %.03952.i.lcssa, %114 ], [ false, %.lr.ph.i ]
   %101 = sext i32 %.ph.i to i64
-  %102 = getelementptr inbounds nuw [32 x i16], ptr %100, i64 0, i64 %indvars.iv.ph.i
+  %102 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.ph.i
   %103 = load i16, ptr %102, align 2
   %104 = icmp slt i16 %103, 1
   br i1 %104, label %.thread.i, label %._crit_edge
 
 105:                                              ; preds = %.thread.i
-  %106 = getelementptr inbounds nuw [32 x i16], ptr %100, i64 0, i64 %indvars.iv.next60.i
+  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv.next60.i
   %107 = load i16, ptr %106, align 2
   %108 = icmp slt i16 %107, 1
   br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !9
@@ -587,7 +587,7 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %37 = getelementptr inbounds [32 x i16], ptr %36, i64 0, i64 %31
+  %37 = getelementptr inbounds i16, ptr %36, i64 %31
   %38 = load i16, ptr %37, align 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
@@ -688,7 +688,7 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv168 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next169, %.lr.ph157 ]
-  %87 = getelementptr inbounds nuw [32 x %struct.ScanKeyData], ptr %13, i64 0, i64 %indvars.iv168
+  %87 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %13, i64 %indvars.iv168
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv168
   %89 = load i8, ptr %88, align 1, !range !4, !noundef !5
   %90 = trunc nuw i8 %89 to i1

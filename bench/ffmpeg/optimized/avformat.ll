@@ -614,7 +614,7 @@ define noundef ptr @avformat_stream_group_name(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.avformat_stream_group_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.avformat_stream_group_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2542,7 +2542,7 @@ define range(i32 -12, 1) i32 @ff_copy_whiteblacklists(ptr noundef %0, ptr nounde
 
 .preheader:                                       ; preds = %11, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw [4 x i32], ptr @ff_copy_whiteblacklists.offsets, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr @ff_copy_whiteblacklists.offsets, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !102
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17

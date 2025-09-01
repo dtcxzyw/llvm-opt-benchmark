@@ -2664,7 +2664,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 167:                                              ; preds = %.preheader1157, %_ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.preheader1157 ], [ %indvars.iv.next, %_ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit ]
   %168 = phi ptr [ @.str.105, %.preheader1157 ], [ %260, %_ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit ]
-  %169 = phi ptr [ @_ZL27cmCTestWarningErrorFileLine, %.preheader1157 ], [ %259, %_ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit ]
+  %169 = getelementptr inbounds nuw %struct.cmCTestBuildCompileErrorWarningRex, ptr @_ZL27cmCTestWarningErrorFileLine, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %140, align 8, !tbaa !150
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(560) %139, i8 0, i64 522, i1 false)
@@ -2924,7 +2924,7 @@ _ZNSt6vectorIN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexESaIS1_EE9push
 _ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit: ; preds = %_ZNSt6vectorIN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexESaIS1_EE9push_backEOS1_.exit, %258
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %259 = getelementptr inbounds nuw [9 x %struct.cmCTestBuildCompileErrorWarningRex], ptr @_ZL27cmCTestWarningErrorFileLine, i64 0, i64 %indvars.iv.next
+  %259 = getelementptr inbounds nuw %struct.cmCTestBuildCompileErrorWarningRex, ptr @_ZL27cmCTestWarningErrorFileLine, i64 %indvars.iv.next
   %260 = load ptr, ptr %259, align 16, !tbaa !164
   %exitcond = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond, label %265, label %167, !llvm.loop !165
@@ -3731,14 +3731,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %581
 
 572:                                              ; preds = %.lr.ph, %575
-  %573 = phi ptr [ @_ZL19cmCTestErrorMatches, %.lr.ph ], [ %577, %575 ]
   %.01321198 = phi i64 [ 0, %.lr.ph ], [ %576, %575 ]
+  %573 = getelementptr inbounds nuw ptr, ptr @_ZL19cmCTestErrorMatches, i64 %.01321198
   %574 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %569, ptr noundef nonnull align 8 dereferenceable(8) %573)
           to label %575 unwind label %.loopexit.split-lp1145.loopexit.split-lp.loopexit.split-lp
 
 575:                                              ; preds = %572
   %576 = add i64 %.01321198, 1
-  %577 = getelementptr inbounds nuw [57 x ptr], ptr @_ZL19cmCTestErrorMatches, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw ptr, ptr @_ZL19cmCTestErrorMatches, i64 %576
   %578 = load ptr, ptr %577, align 8, !tbaa !86
   %.not147 = icmp eq ptr %578, null
   br i1 %.not147, label %.preheader1153, label %572, !llvm.loop !187
@@ -3773,14 +3773,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %590
 
 581:                                              ; preds = %.lr.ph1201, %584
-  %582 = phi ptr [ @_ZL22cmCTestErrorExceptions, %.lr.ph1201 ], [ %586, %584 ]
   %.11331200 = phi i64 [ 0, %.lr.ph1201 ], [ %585, %584 ]
+  %582 = getelementptr inbounds nuw ptr, ptr @_ZL22cmCTestErrorExceptions, i64 %.11331200
   %583 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %571, ptr noundef nonnull align 8 dereferenceable(8) %582)
           to label %584 unwind label %.loopexit.split-lp1145.loopexit.split-lp.loopexit
 
 584:                                              ; preds = %581
   %585 = add i64 %.11331200, 1
-  %586 = getelementptr inbounds nuw [13 x ptr], ptr @_ZL22cmCTestErrorExceptions, i64 0, i64 %585
+  %586 = getelementptr inbounds nuw ptr, ptr @_ZL22cmCTestErrorExceptions, i64 %585
   %587 = load ptr, ptr %586, align 8, !tbaa !86
   %.not148 = icmp eq ptr %587, null
   br i1 %.not148, label %.preheader1149, label %581, !llvm.loop !188
@@ -3795,27 +3795,27 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %597
 
 590:                                              ; preds = %.lr.ph1204, %593
-  %591 = phi ptr [ @_ZL21cmCTestWarningMatches, %.lr.ph1204 ], [ %595, %593 ]
   %.21341203 = phi i64 [ 0, %.lr.ph1204 ], [ %594, %593 ]
+  %591 = getelementptr inbounds nuw ptr, ptr @_ZL21cmCTestWarningMatches, i64 %.21341203
   %592 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %580, ptr noundef nonnull align 8 dereferenceable(8) %591)
           to label %593 unwind label %.loopexit.split-lp1145.loopexit
 
 593:                                              ; preds = %590
   %594 = add i64 %.21341203, 1
-  %595 = getelementptr inbounds nuw [23 x ptr], ptr @_ZL21cmCTestWarningMatches, i64 0, i64 %594
+  %595 = getelementptr inbounds nuw ptr, ptr @_ZL21cmCTestWarningMatches, i64 %594
   %596 = load ptr, ptr %595, align 8, !tbaa !86
   %.not149 = icmp eq ptr %596, null
   br i1 %.not149, label %.preheader, label %590, !llvm.loop !189
 
 597:                                              ; preds = %.lr.ph1207, %600
-  %598 = phi ptr [ @_ZL24cmCTestWarningExceptions, %.lr.ph1207 ], [ %602, %600 ]
   %.31351206 = phi i64 [ 0, %.lr.ph1207 ], [ %601, %600 ]
+  %598 = getelementptr inbounds nuw ptr, ptr @_ZL24cmCTestWarningExceptions, i64 %.31351206
   %599 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %589, ptr noundef nonnull align 8 dereferenceable(8) %598)
           to label %600 unwind label %.loopexit1144
 
 600:                                              ; preds = %597
   %601 = add i64 %.31351206, 1
-  %602 = getelementptr inbounds nuw [17 x ptr], ptr @_ZL24cmCTestWarningExceptions, i64 0, i64 %601
+  %602 = getelementptr inbounds nuw ptr, ptr @_ZL24cmCTestWarningExceptions, i64 %601
   %603 = load ptr, ptr %602, align 8, !tbaa !86
   %.not150 = icmp eq ptr %603, null
   br i1 %.not150, label %._crit_edge, label %597, !llvm.loop !190
@@ -13633,7 +13633,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   call void @llvm.experimental.noalias.scope.decl(metadata !472)
   call void @llvm.experimental.noalias.scope.decl(metadata !475)
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds [32 x ptr], ptr %170, i64 0, i64 %175
+  %176 = getelementptr inbounds ptr, ptr %170, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !86, !noalias !478
   %.not.i.i = icmp eq ptr %177, null
   br i1 %.not.i.i, label %178, label %179
@@ -13646,7 +13646,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.0351.0528, i64 264
-  %181 = getelementptr inbounds [32 x ptr], ptr %180, i64 0, i64 %175
+  %181 = getelementptr inbounds ptr, ptr %180, i64 %175
   %182 = load ptr, ptr %181, align 8, !tbaa !86, !noalias !478
   %183 = ptrtoint ptr %182 to i64
   %184 = ptrtoint ptr %177 to i64
@@ -14253,7 +14253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !482)
   call void @llvm.experimental.noalias.scope.decl(metadata !485)
   %376 = sext i32 %375 to i64
-  %377 = getelementptr inbounds [32 x ptr], ptr %170, i64 0, i64 %376
+  %377 = getelementptr inbounds ptr, ptr %170, i64 %376
   %378 = load ptr, ptr %377, align 8, !tbaa !86, !noalias !488
   %.not.i.i230 = icmp eq ptr %378, null
   br i1 %.not.i.i230, label %379, label %380
@@ -14266,7 +14266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %_Z
 
 380:                                              ; preds = %373
   %381 = getelementptr inbounds nuw i8, ptr %.sroa.0351.0528, i64 264
-  %382 = getelementptr inbounds [32 x ptr], ptr %381, i64 0, i64 %376
+  %382 = getelementptr inbounds ptr, ptr %381, i64 %376
   %383 = load ptr, ptr %382, align 8, !tbaa !86, !noalias !488
   %384 = ptrtoint ptr %383 to i64
   %385 = ptrtoint ptr %378 to i64

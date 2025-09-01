@@ -9133,11 +9133,11 @@ _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCR
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE, i64 0, i64 %.0.i8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE, i64 %.0.i8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep27 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE.2, i64 0, i64 %.0.i8
+  %switch.gep27 = getelementptr inbounds nuw i32, ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE.2, i64 %.0.i8
   %switch.load28 = load i32, ptr %switch.gep27, align 4
-  %switch.gep29 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE.3, i64 0, i64 %.0.i8
+  %switch.gep29 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL23createX86MCRegisterInfoRKN4llvm6TripleE.3, i64 %.0.i8
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   store ptr %switch.load, ptr %37, align 8, !tbaa !188
   store i32 %switch.load28, ptr %38, align 4, !tbaa !189

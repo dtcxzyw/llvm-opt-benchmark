@@ -278,7 +278,7 @@ define dso_local ptr @io_buffer_select(ptr noundef captures(none) %0, ptr nounde
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %40
-  %51 = getelementptr [0 x %struct.io_uring_buf], ptr %34, i64 0, i64 %47
+  %51 = getelementptr %struct.io_uring_buf, ptr %34, i64 %47
   br label %67
 
 52:                                               ; preds = %40
@@ -1034,7 +1034,7 @@ define dso_local noundef i32 @io_provide_buffers(ptr noundef captures(none) %0, 
   %107 = phi i32 [ %108, %106 ], [ %.ph, %.preheader ]
   %108 = add i32 %107, -1
   %109 = sext i32 %108 to i64
-  %110 = getelementptr [64 x ptr], ptr %3, i64 0, i64 %109
+  %110 = getelementptr ptr, ptr %3, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %70, align 8
   store ptr %111, ptr %70, align 8
@@ -1636,7 +1636,7 @@ define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, 
 
 11:                                               ; preds = %8, %6
   %12 = phi i64 [ 0, %6 ], [ %9, %8 ]
-  %13 = getelementptr [8 x i32], ptr %7, i64 0, i64 %12
+  %13 = getelementptr i32, ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %8, label %.loopexit

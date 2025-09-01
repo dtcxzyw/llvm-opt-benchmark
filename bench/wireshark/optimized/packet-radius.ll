@@ -4032,7 +4032,7 @@ define internal range(i32 0, 2) i32 @radiusstat_packet(ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [45 x i64], ptr @switch.table.radiusstat_packet, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.radiusstat_packet, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -4283,7 +4283,7 @@ define internal fastcc void @radius_decrypt_avp(ptr noundef writeonly captures(n
 45:                                               ; preds = %42
   %46 = getelementptr i8, ptr %37, i64 %43
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %48 = getelementptr i8, ptr %11, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, %47
   %51 = getelementptr i8, ptr %0, i64 %43
@@ -4701,7 +4701,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %135 = zext nneg i32 %.075 to i64
-  %136 = getelementptr [5 x %struct.hf_register_info], ptr %5, i64 0, i64 %135
+  %136 = getelementptr %struct.hf_register_info, ptr %5, i64 %135
   store ptr %134, ptr %136, align 16
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr @.str.276, ptr %137, align 8
@@ -4731,7 +4731,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %153 = zext nneg i32 %.1 to i64
-  %154 = getelementptr [5 x %struct.hf_register_info], ptr %5, i64 0, i64 %153
+  %154 = getelementptr %struct.hf_register_info, ptr %5, i64 %153
   store ptr %152, ptr %154, align 16
   %155 = tail call ptr @wmem_epan_scope()
   %156 = load ptr, ptr %1, align 8

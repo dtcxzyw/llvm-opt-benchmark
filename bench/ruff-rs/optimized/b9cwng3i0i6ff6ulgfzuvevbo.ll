@@ -690,7 +690,7 @@ define noundef range(i8 0, 15) i8 @_ZN14ruff_formatter14format_element3tag3Tag4k
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !80, !noundef !14
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [30 x i8], ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 %2
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -1038,7 +1038,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.017.i, i64 8
   %13 = load i8, ptr %12, align 8, !range !80, !noalias !85, !noundef !14
   %14 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw [30 x i8], ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 %14
   %switch.load = load i8, ptr %switch.gep, align 1
   %15 = icmp eq i8 %switch.load, %1
   br i1 %15, label %16, label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
@@ -1140,7 +1140,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.017, i64 8
   %16 = load i8, ptr %15, align 8, !range !80, !noundef !14
   %17 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [30 x i8], ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h849c4e7b2ea8971aE", i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8, !range !88, !noundef !14

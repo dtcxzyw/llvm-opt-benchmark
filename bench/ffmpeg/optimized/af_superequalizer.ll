@@ -126,7 +126,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
 40:                                               ; preds = %46, %.preheader.i
   %indvars.iv53.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next54.i, %46 ]
   %indvars.iv.i = phi i32 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %46 ]
-  %41 = getelementptr inbounds nuw [16 x float], ptr %39, i64 0, i64 %indvars.iv53.i
+  %41 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv53.i
   store float 1.000000e+00, ptr %41, align 4, !tbaa !20
   %.not4748.i = icmp eq i64 %indvars.iv53.i, 0
   br i1 %.not4748.i, label %46, label %.lr.ph.i
@@ -186,7 +186,7 @@ alpha.exit.i:                                     ; preds = %60, %52, %47
   %66 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %67 = uitofp nneg i32 %66 to double
   %68 = call nsz double @llvm.pow.f64(double %64, double %67)
-  %69 = getelementptr inbounds nuw [16 x float], ptr %39, i64 0, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i.i
   %70 = load float, ptr %69, align 4, !tbaa !20
   %71 = fpext nsz float %70 to double
   %72 = fdiv nsz double %68, %71
@@ -579,8 +579,8 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
   br label %22
 
 16:                                               ; preds = %.preheader1.i
-  %17 = add nsw i64 %indvars.iv.i.i, -1
-  %18 = getelementptr inbounds [17 x float], ptr @bands, i64 0, i64 %17
+  %17 = getelementptr float, ptr @bands, i64 %indvars.iv.i.i
+  %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load float, ptr %18, align 4, !tbaa !20
   %20 = getelementptr inbounds nuw %struct.EqParameter, ptr %6, i64 %indvars.iv.i.i
   store float %19, ptr %20, align 4, !tbaa !78
@@ -589,7 +589,7 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
 
 22:                                               ; preds = %16, %.thread.i.i
   %23 = phi ptr [ %6, %.thread.i.i ], [ %20, %16 ]
-  %24 = getelementptr inbounds nuw [17 x float], ptr @bands, i64 0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw float, ptr @bands, i64 %indvars.iv.i.i
   %25 = load float, ptr %24, align 4, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float %25, ptr %26, align 4, !tbaa !80
@@ -770,7 +770,7 @@ alpha.exit.i.i:                                   ; preds = %118, %110, %hn.exit
   %130 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %131 = uitofp nneg i32 %130 to double
   %132 = tail call nsz double @llvm.pow.f64(double %128, double %131)
-  %133 = getelementptr inbounds nuw [16 x float], ptr %43, i64 0, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.i.i
   %134 = load float, ptr %133, align 4, !tbaa !20
   %135 = fpext nsz float %134 to double
   %136 = fdiv nsz double %132, %135

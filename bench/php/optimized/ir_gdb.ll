@@ -77,7 +77,7 @@ define hidden zeroext i1 @ir_gdb_present() local_unnamed_addr #0 {
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   store i8 0, ptr %9, align 1, !tbaa !18
   %10 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1) #12
   %.not = icmp eq ptr %10, null

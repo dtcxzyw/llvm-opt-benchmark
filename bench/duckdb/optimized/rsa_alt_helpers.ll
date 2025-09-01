@@ -87,7 +87,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   %46 = icmp eq i64 %45, 1
   %47 = trunc i64 %36 to i16
   %48 = zext i1 %46 to i64
-  %49 = getelementptr inbounds nuw [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !12
   %51 = zext i8 %50 to i64
   %52 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %51)
@@ -174,7 +174,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 .split.backedge:                                  ; preds = %82, %._crit_edge
   %.03973.be = add nuw nsw i16 %.03973101, 1
   %83 = zext nneg i16 %.03973.be to i64
-  %84 = getelementptr inbounds nuw [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !12
   %86 = zext i8 %85 to i64
   %87 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %86)

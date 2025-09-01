@@ -2607,7 +2607,7 @@ define internal fastcc void @xhci_zero_64b_regs(ptr noundef readonly captures(no
   %61 = phi i64 [ 0, %56 ], [ %79, %78 ]
   %62 = load ptr, ptr %58, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = getelementptr [128 x %struct.xhci_intr_reg], ptr %63, i64 0, i64 %61
+  %64 = getelementptr %struct.xhci_intr_reg, ptr %63, i64 %61
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65) #21, !srcloc !6
   %67 = getelementptr i8, ptr %64, i64 20
@@ -2853,7 +2853,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr n
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 968
   %26 = sext i32 %22 to i64
-  %27 = getelementptr [256 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
@@ -2911,7 +2911,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr n
   %68 = getelementptr inbounds nuw i8, ptr %46, i64 968
   %69 = load i32, ptr %21, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr [256 x ptr], ptr %68, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
@@ -2975,7 +2975,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr n
 117:                                              ; preds = %102, %96
   %118 = load i32, ptr %21, align 4
   %119 = sext i32 %118 to i64
-  %120 = getelementptr [256 x ptr], ptr %68, i64 0, i64 %119
+  %120 = getelementptr ptr, ptr %68, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = zext i32 %97 to i64
   %.idx = mul nuw nsw i64 %122, 144
@@ -3001,12 +3001,12 @@ define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr n
   store i32 %135, ptr %133, align 4
   %136 = load i32, ptr %21, align 4
   %137 = sext i32 %136 to i64
-  %138 = getelementptr [256 x ptr], ptr %68, i64 0, i64 %137
+  %138 = getelementptr ptr, ptr %68, i64 %137
   %139 = load ptr, ptr %138, align 8
   tail call void @xhci_debugfs_remove_endpoint(ptr noundef nonnull %47, ptr noundef %139, i32 noundef %97) #21
   %140 = load i32, ptr %21, align 4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr [256 x ptr], ptr %68, i64 0, i64 %141
+  %142 = getelementptr ptr, ptr %68, i64 %141
   %143 = load ptr, ptr %142, align 8
   tail call void @xhci_endpoint_zero(ptr noundef nonnull %47, ptr noundef %143, ptr noundef nonnull %2) #21
   br label %.thread
@@ -3065,7 +3065,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_add_endpoint(ptr noundef %0, ptr no
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 968
   %26 = sext i32 %22 to i64
-  %27 = getelementptr [256 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %39, label %30
@@ -3129,7 +3129,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_add_endpoint(ptr noundef %0, ptr no
   %70 = getelementptr inbounds nuw i8, ptr %48, i64 968
   %71 = load i32, ptr %21, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr [256 x ptr], ptr %70, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr %70, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -3335,7 +3335,7 @@ define dso_local range(i32 -108, 1) i32 @xhci_check_bandwidth(ptr noundef %0, pt
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 968
   %23 = sext i32 %19 to i64
-  %24 = getelementptr [256 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3376,7 +3376,7 @@ define dso_local range(i32 -108, 1) i32 @xhci_check_bandwidth(ptr noundef %0, pt
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 968
   %51 = load i32, ptr %18, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr [256 x ptr], ptr %50, i64 0, i64 %52
+  %53 = getelementptr ptr, ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @xhci_alloc_command(ptr noundef nonnull %44, i1 noundef zeroext true, i32 noundef 3264) #21
   %56 = icmp eq ptr %55, null
@@ -3471,7 +3471,7 @@ define dso_local range(i32 -108, 1) i32 @xhci_check_bandwidth(ptr noundef %0, pt
 
 117:                                              ; preds = %113
   tail call void @xhci_free_endpoint_ring(ptr noundef nonnull %44, ptr noundef %54, i32 noundef %109) #21
-  %118 = getelementptr [31 x %struct.xhci_virt_ep], ptr %78, i64 0, i64 %106
+  %118 = getelementptr %struct.xhci_virt_ep, ptr %78, i64 %106
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 44
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 16
@@ -3539,7 +3539,7 @@ define dso_local range(i32 -108, 1) i32 @xhci_check_bandwidth(ptr noundef %0, pt
 
 .loopexit11:                                      ; preds = %.loopexit11.preheader, %190
   %158 = phi i64 [ %191, %190 ], [ 1, %.loopexit11.preheader ]
-  %159 = getelementptr [31 x %struct.xhci_virt_ep], ptr %78, i64 0, i64 %158
+  %159 = getelementptr %struct.xhci_virt_ep, ptr %78, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
@@ -3640,7 +3640,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [256 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = tail call ptr @xhci_get_input_control_ctx(ptr noundef %23) #21
@@ -3751,15 +3751,15 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   br i1 %89, label %104, label %.thread
 
 .thread:                                          ; preds = %90
-  %91 = getelementptr [31 x %struct.xhci_bw_info], ptr %6, i64 0, i64 %81
-  %92 = getelementptr [31 x %struct.xhci_virt_ep], ptr %74, i64 0, i64 %81
+  %91 = getelementptr %struct.xhci_bw_info, ptr %6, i64 %81
+  %92 = getelementptr %struct.xhci_virt_ep, ptr %74, i64 %81
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %91, ptr noundef nonnull align 4 dereferenceable(24) %93, i64 24, i1 false)
   br label %98
 
 94:                                               ; preds = %80
-  %95 = getelementptr [31 x %struct.xhci_bw_info], ptr %6, i64 0, i64 %81
-  %96 = getelementptr [31 x %struct.xhci_virt_ep], ptr %74, i64 0, i64 %81
+  %95 = getelementptr %struct.xhci_bw_info, ptr %6, i64 %81
+  %96 = getelementptr %struct.xhci_virt_ep, ptr %74, i64 %81
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %95, ptr noundef nonnull align 4 dereferenceable(24) %97, i64 24, i1 false)
   br i1 %89, label %104, label %98
@@ -3794,7 +3794,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   br i1 %116, label %123, label %117
 
 117:                                              ; preds = %109
-  %118 = getelementptr [31 x %struct.xhci_virt_ep], ptr %74, i64 0, i64 %110
+  %118 = getelementptr %struct.xhci_virt_ep, ptr %74, i64 %110
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 92
   %120 = load ptr, ptr %75, align 8
   %121 = load ptr, ptr %76, align 8
@@ -3915,7 +3915,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
 
 199:                                              ; preds = %192
   %200 = shl nuw nsw i32 %196, 1
-  %201 = getelementptr [16 x %struct.xhci_interval_bw], ptr %178, i64 0, i64 %193
+  %201 = getelementptr %struct.xhci_interval_bw, ptr %178, i64 %193
   %202 = load i32, ptr %201, align 8
   %203 = add i32 %202, %200
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 8
@@ -4063,7 +4063,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   br i1 %307, label %325, label %314
 
 308:                                              ; preds = %296
-  %309 = getelementptr [31 x %struct.xhci_virt_ep], ptr %74, i64 0, i64 %297
+  %309 = getelementptr %struct.xhci_virt_ep, ptr %74, i64 %297
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 92
   %311 = load ptr, ptr %75, align 8
   %312 = load ptr, ptr %76, align 8
@@ -4072,9 +4072,9 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   br label %314
 
 314:                                              ; preds = %308, %304
-  %315 = getelementptr [31 x %struct.xhci_virt_ep], ptr %74, i64 0, i64 %297
+  %315 = getelementptr %struct.xhci_virt_ep, ptr %74, i64 %297
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 92
-  %317 = getelementptr [31 x %struct.xhci_bw_info], ptr %6, i64 0, i64 %297
+  %317 = getelementptr %struct.xhci_bw_info, ptr %6, i64 %297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %316, ptr noundef align 8 dereferenceable(24) %317, i64 24, i1 false)
   %318 = load i32, ptr %70, align 4
   %319 = and i32 %318, %301
@@ -4466,7 +4466,7 @@ define dso_local void @xhci_reset_bandwidth(ptr noundef %0, ptr noundef readonly
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 968
   %23 = sext i32 %19 to i64
-  %24 = getelementptr [256 x ptr], ptr %22, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27
@@ -4500,7 +4500,7 @@ define dso_local void @xhci_reset_bandwidth(ptr noundef %0, ptr noundef readonly
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 968
   %46 = load i32, ptr %18, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr [256 x ptr], ptr %45, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 64
   br label %51
@@ -4945,7 +4945,7 @@ define dso_local noundef range(i32 0, 2) i32 @xhci_alloc_dev(ptr noundef %0, ptr
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 968
   %100 = sext i32 %23 to i64
-  %101 = getelementptr [256 x ptr], ptr %99, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
@@ -5067,7 +5067,7 @@ define dso_local noundef range(i32 -108, 1) i32 @xhci_update_hub_device(ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [256 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
@@ -5982,7 +5982,7 @@ define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readon
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 1300
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr [256 x ptr], ptr %45, i64 0, i64 %48
+  %49 = getelementptr ptr, ptr %45, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4504
   %52 = load ptr, ptr %51, align 8
@@ -6018,7 +6018,7 @@ define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readon
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 1300
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr [256 x ptr], ptr %72, i64 0, i64 %75
+  %76 = getelementptr ptr, ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4504
   %79 = load ptr, ptr %78, align 8
@@ -6053,7 +6053,7 @@ define internal fastcc void @xhci_drop_ep_from_interval_table(ptr noundef readon
 98:                                               ; preds = %93, %87
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %100 = sext i32 %91 to i64
-  %101 = getelementptr [16 x %struct.xhci_interval_bw], ptr %99, i64 0, i64 %100
+  %101 = getelementptr %struct.xhci_interval_bw, ptr %99, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %101, align 8
@@ -6174,7 +6174,7 @@ define internal fastcc void @xhci_add_ep_to_interval_table(ptr noundef readonly 
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 1300
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr [256 x ptr], ptr %44, i64 0, i64 %47
+  %48 = getelementptr ptr, ptr %44, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4504
   %51 = load ptr, ptr %50, align 8
@@ -6210,7 +6210,7 @@ define internal fastcc void @xhci_add_ep_to_interval_table(ptr noundef readonly 
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 1300
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr [256 x ptr], ptr %71, i64 0, i64 %74
+  %75 = getelementptr ptr, ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4504
   %78 = load ptr, ptr %77, align 8
@@ -6245,7 +6245,7 @@ define internal fastcc void @xhci_add_ep_to_interval_table(ptr noundef readonly 
 95:                                               ; preds = %90, %87
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = sext i32 %88 to i64
-  %98 = getelementptr [16 x %struct.xhci_interval_bw], ptr %96, i64 0, i64 %97
+  %98 = getelementptr %struct.xhci_interval_bw, ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load i32, ptr %99, align 4
   %101 = load i32, ptr %98, align 8
@@ -6547,7 +6547,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 968
   %111 = sext i32 %107 to i64
-  %112 = getelementptr [256 x ptr], ptr %110, i64 0, i64 %111
+  %112 = getelementptr ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.thread11, label %115
@@ -6578,7 +6578,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
 132:                                              ; preds = %124
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 968
   %134 = zext i32 %127 to i64
-  %135 = getelementptr [256 x ptr], ptr %133, i64 0, i64 %134
+  %135 = getelementptr ptr, ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4520
   %138 = load i64, ptr %137, align 8
@@ -6739,7 +6739,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1300
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [256 x ptr], ptr %38, i64 0, i64 %43
+  %44 = getelementptr ptr, ptr %38, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -6765,7 +6765,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
   %63 = zext nneg i8 %61 to i32
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %65 = zext nneg i8 %61 to i64
-  %66 = getelementptr [31 x %struct.xhci_virt_ep], ptr %64, i64 0, i64 %65
+  %66 = getelementptr %struct.xhci_virt_ep, ptr %64, i64 %65
   br label %75
 
 67:                                               ; preds = %51
@@ -6775,7 +6775,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
   %71 = add nsw i32 %70, -1
   %72 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %73 = zext i32 %71 to i64
-  %74 = getelementptr [31 x %struct.xhci_virt_ep], ptr %72, i64 0, i64 %73
+  %74 = getelementptr %struct.xhci_virt_ep, ptr %72, i64 %73
   br label %75
 
 75:                                               ; preds = %67, %62
@@ -6890,7 +6890,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
 
 144:                                              ; preds = %161, %142
   %145 = phi i64 [ %143, %142 ], [ %162, %161 ]
-  %146 = getelementptr [0 x %struct.xhci_td], ptr %97, i64 0, i64 %145
+  %146 = getelementptr %struct.xhci_td, ptr %97, i64 %145
   %147 = load volatile ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, %146
   br i1 %148, label %153, label %149
@@ -6943,7 +6943,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
   %176 = load i8, ptr %175, align 2
   %177 = zext i8 %176 to i32
   %178 = sext i32 %168 to i64
-  %179 = getelementptr [0 x %struct.xhci_td], ptr %97, i64 0, i64 %178
+  %179 = getelementptr %struct.xhci_td, ptr %97, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 56
@@ -6967,7 +6967,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
 192:                                              ; preds = %203, %188
   %193 = phi i32 [ %186, %188 ], [ %204, %203 ]
   %194 = phi i64 [ %191, %188 ], [ %205, %203 ]
-  %195 = getelementptr [0 x %struct.xhci_td], ptr %97, i64 0, i64 %194
+  %195 = getelementptr %struct.xhci_td, ptr %97, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load volatile ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, %196
@@ -7379,7 +7379,7 @@ define internal void @xhci_endpoint_disable(ptr noundef %0, ptr noundef captures
 
 25:                                               ; preds = %19
   %26 = sext i32 %23 to i64
-  %27 = getelementptr [256 x ptr], ptr %10, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %10, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %30
@@ -7482,7 +7482,7 @@ define internal void @xhci_endpoint_reset(ptr noundef %0, ptr noundef readonly c
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 968
   %37 = sext i32 %33 to i64
-  %38 = getelementptr [256 x ptr], ptr %36, i64 0, i64 %37
+  %38 = getelementptr ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %187, label %41
@@ -7582,7 +7582,7 @@ define internal void @xhci_endpoint_reset(ptr noundef %0, ptr noundef readonly c
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 1300
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr [256 x ptr], ptr %94, i64 0, i64 %97
+  %98 = getelementptr ptr, ptr %94, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp ne i32 %96, 0
   %101 = icmp ne ptr %99, null
@@ -7592,7 +7592,7 @@ define internal void @xhci_endpoint_reset(ptr noundef %0, ptr noundef readonly c
 103:                                              ; preds = %93
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %105 = zext i32 %89 to i64
-  %106 = getelementptr [31 x %struct.xhci_virt_ep], ptr %104, i64 0, i64 %105
+  %106 = getelementptr %struct.xhci_virt_ep, ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 676
   %108 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %107) #21
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 44
@@ -7802,7 +7802,7 @@ define internal void @xhci_clear_tt_buffer_complete(ptr noundef %0, ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 608
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 968
   %35 = zext i32 %15 to i64
-  %36 = getelementptr [256 x ptr], ptr %34, i64 0, i64 %35
+  %36 = getelementptr ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %32 to i64
   %.idx = mul nuw nsw i64 %38, 144
@@ -7890,7 +7890,7 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 968
   %49 = sext i32 %45 to i64
-  %50 = getelementptr [256 x ptr], ptr %48, i64 0, i64 %49
+  %50 = getelementptr ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %63, label %53
@@ -7921,7 +7921,7 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr [256 x ptr], ptr %69, i64 0, i64 %72
+  %73 = getelementptr ptr, ptr %69, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
@@ -8103,7 +8103,7 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 968
   %70 = sext i32 %66 to i64
-  %71 = getelementptr [256 x ptr], ptr %69, i64 0, i64 %70
+  %71 = getelementptr ptr, ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.thread28, label %74
@@ -8162,11 +8162,11 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
 110:                                              ; preds = %105, %103
   %111 = phi i64 [ %104, %103 ], [ %109, %105 ]
   %112 = zext i32 %45 to i64
-  %113 = getelementptr [256 x ptr], ptr %44, i64 0, i64 %112
+  %113 = getelementptr ptr, ptr %44, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = and i64 %111, 4294967295
-  %117 = getelementptr [31 x %struct.xhci_virt_ep], ptr %115, i64 0, i64 %116
+  %117 = getelementptr %struct.xhci_virt_ep, ptr %115, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 44
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 24
@@ -8253,7 +8253,7 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr [256 x ptr], ptr %173, i64 0, i64 %176
+  %177 = getelementptr ptr, ptr %173, i64 %176
   %178 = load ptr, ptr %177, align 8
   br label %.loopexit38
 
@@ -8266,7 +8266,7 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
   br label %401
 
 182:                                              ; preds = %170
-  %183 = getelementptr [256 x ptr], ptr %44, i64 0, i64 %70
+  %183 = getelementptr ptr, ptr %44, i64 %70
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr i8, ptr %184, i64 76
   br label %186
@@ -8572,7 +8572,7 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
 389:                                              ; preds = %384, %382
   %390 = phi i64 [ %383, %382 ], [ %388, %384 ]
   %391 = and i64 %390, 4294967295
-  %392 = getelementptr [31 x %struct.xhci_virt_ep], ptr %368, i64 0, i64 %391
+  %392 = getelementptr %struct.xhci_virt_ep, ptr %368, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 24
   %394 = load ptr, ptr %393, align 8
   tail call void @xhci_free_stream_info(ptr noundef nonnull %17, ptr noundef %394) #21
@@ -8614,13 +8614,13 @@ define internal noundef range(i32 -108, 1) i32 @xhci_free_streams(ptr noundef %0
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %17
+  %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 676
   %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %20) #21
   %22 = load i32, ptr %15, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %23
+  %24 = getelementptr ptr, ptr %14, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ne ptr %25, null
   %27 = icmp ne i32 %3, 0
@@ -8786,7 +8786,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_free_streams(ptr noundef %0
   %138 = tail call ptr @xhci_get_ep_ctx(ptr noundef nonnull %13, ptr noundef %137, i32 noundef %136) #21
   %139 = load i32, ptr %15, align 4
   %140 = sext i32 %139 to i64
-  %141 = getelementptr [256 x ptr], ptr %14, i64 0, i64 %140
+  %141 = getelementptr ptr, ptr %14, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = zext i32 %136 to i64
   %.idx9 = mul nuw nsw i64 %143, 144
@@ -8798,7 +8798,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_free_streams(ptr noundef %0
   %148 = load ptr, ptr %106, align 8
   %149 = load ptr, ptr %111, align 8
   tail call void @xhci_endpoint_copy(ptr noundef nonnull %13, ptr noundef %148, ptr noundef %149, i32 noundef %136) #21
-  %150 = getelementptr [31 x %struct.xhci_virt_ep], ptr %100, i64 0, i64 %143
+  %150 = getelementptr %struct.xhci_virt_ep, ptr %100, i64 %143
   tail call void @xhci_setup_no_streams_ep_input_ctx(ptr noundef %138, ptr noundef %150) #21
   %151 = add nuw i32 %116, 1
   %152 = icmp eq i32 %151, %3
@@ -8852,7 +8852,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_free_streams(ptr noundef %0
 183:                                              ; preds = %178, %176
   %184 = phi i64 [ %177, %176 ], [ %182, %178 ]
   %185 = and i64 %184, 4294967295
-  %186 = getelementptr [31 x %struct.xhci_virt_ep], ptr %100, i64 0, i64 %185
+  %186 = getelementptr %struct.xhci_virt_ep, ptr %100, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8
   tail call void @xhci_free_stream_info(ptr noundef nonnull %13, ptr noundef %188) #21
@@ -8934,7 +8934,7 @@ define internal i32 @xhci_discover_or_reset_device(ptr noundef %0, ptr noundef %
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 968
   %34 = zext i32 %32 to i64
-  %35 = getelementptr [256 x ptr], ptr %33, i64 0, i64 %34
+  %35 = getelementptr ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %42
@@ -9087,7 +9087,7 @@ define internal i32 @xhci_discover_or_reset_device(ptr noundef %0, ptr noundef %
 
 119:                                              ; preds = %154, %116
   %120 = phi i64 [ 1, %116 ], [ %156, %154 ]
-  %121 = getelementptr [31 x %struct.xhci_virt_ep], ptr %117, i64 0, i64 %120
+  %121 = getelementptr %struct.xhci_virt_ep, ptr %117, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 44
   %123 = load i32, ptr %122, align 4
   %124 = and i32 %123, 16
@@ -9354,7 +9354,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_set_usb2_hardware_lpm(ptr n
 83:                                               ; preds = %80, %77
   %84 = phi i32 [ %79, %77 ], [ %82, %80 ]
   %85 = sext i32 %84 to i64
-  %86 = getelementptr [16 x i32], ptr @xhci_besl_encoding, i64 0, i64 %85
+  %86 = getelementptr i32, ptr @xhci_besl_encoding, i64 %85
   %87 = load i32, ptr %86, align 4
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %46, i64 noundef %47) #21
   %88 = trunc i32 %87 to i16
@@ -9497,7 +9497,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr [256 x ptr], ptr %18, i64 0, i64 %21
+  %22 = getelementptr ptr, ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %213, label %.preheader
@@ -9614,7 +9614,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
 
 99:                                               ; preds = %.thread13, %89
   %100 = phi i64 [ 0, %89 ], [ %157, %.thread13 ]
-  %101 = getelementptr [32 x ptr], ptr %90, i64 0, i64 %100
+  %101 = getelementptr ptr, ptr %90, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread13, label %104
@@ -9816,7 +9816,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_disable_usb3_lpm_timeout(pt
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr [256 x ptr], ptr %17, i64 0, i64 %20
+  %21 = getelementptr ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %60, label %24
@@ -10065,7 +10065,7 @@ define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i3
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 968
   %26 = sext i32 %21 to i64
-  %27 = getelementptr [256 x ptr], ptr %25, i64 0, i64 %26
+  %27 = getelementptr ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34, !prof !68
@@ -10388,7 +10388,7 @@ define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i3
   %200 = getelementptr inbounds nuw i8, ptr %13, i64 744
   %201 = load ptr, ptr %200, align 8
   %202 = sext i32 %199 to i64
-  %203 = getelementptr [256 x i64], ptr %201, i64 0, i64 %202
+  %203 = getelementptr i64, ptr %201, i64 %202
   %204 = load i64, ptr %203, align 8
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef nonnull %14, ptr noundef nonnull @trace_xhci_dbg_address, ptr noundef nonnull @.str.158, i32 noundef %199, ptr noundef %203, i64 noundef %204) #21
   %205 = load ptr, ptr %35, align 8
@@ -10702,7 +10702,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_change_max_exit_late
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1300
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr [256 x ptr], ptr %9, i64 0, i64 %12
+  %13 = getelementptr ptr, ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %21, label %16
@@ -10781,7 +10781,7 @@ define internal fastcc range(i32 -2147483648, 16) i32 @xhci_calculate_hird_besl(
 
 .preheader:                                       ; preds = %0, %8
   %4 = phi i64 [ %9, %8 ], [ 0, %0 ]
-  %5 = getelementptr [16 x i32], ptr @xhci_besl_encoding, i64 0, i64 %4
+  %5 = getelementptr i32, ptr @xhci_besl_encoding, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, %1
   br i1 %7, label %8, label %11

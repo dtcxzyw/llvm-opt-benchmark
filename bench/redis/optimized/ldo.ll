@@ -1939,7 +1939,7 @@ define internal void @f_parser(ptr noundef %0, ptr noundef %1) #0 {
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = tail call ptr @luaF_newupval(ptr noundef nonnull %0) #8
-  %29 = getelementptr inbounds nuw [1 x ptr], ptr %26, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i8, ptr %18, align 8, !tbaa !94

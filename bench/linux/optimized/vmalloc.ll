@@ -2196,7 +2196,7 @@ define internal fastcc void @_vm_unmap_aliases(i64 noundef range(i64 1, 0) %0, i
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
+  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @vmap_block_queue to i64)
   %27 = inttoptr i64 %26 to ptr
@@ -2410,8 +2410,8 @@ define dso_local void @vm_unmap_ram(ptr noundef %0, i32 noundef %1) #1 align 16 
   %38 = and i64 %36, 4294967295
   %39 = urem i64 %37, %38
   %40 = shl nuw i64 %39, 32
-  %41 = ashr exact i64 %40, 32
-  %42 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %41
+  %41 = ashr exact i64 %40, 29
+  %42 = getelementptr i8, ptr @__per_cpu_offset, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, ptrtoint (ptr @vmap_block_queue to i64)
   %45 = inttoptr i64 %44 to ptr
@@ -2734,8 +2734,8 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   %94 = and i64 %92, 4294967295
   %95 = urem i64 %93, %94
   %96 = shl nuw i64 %95, 32
-  %97 = ashr exact i64 %96, 32
-  %98 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %97
+  %97 = ashr exact i64 %96, 29
+  %98 = getelementptr i8, ptr @__per_cpu_offset, i64 %97
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, ptrtoint (ptr @vmap_block_queue to i64)
   %101 = inttoptr i64 %100 to ptr
@@ -6187,8 +6187,8 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %172 = and i64 %170, 4294967295
   %173 = urem i64 %171, %172
   %174 = shl nuw i64 %173, 32
-  %175 = ashr exact i64 %174, 32
-  %176 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %175
+  %175 = ashr exact i64 %174, 29
+  %176 = getelementptr i8, ptr @__per_cpu_offset, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = add i64 %177, ptrtoint (ptr @vmap_block_queue to i64)
   %179 = inttoptr i64 %178 to ptr
@@ -8400,7 +8400,7 @@ define internal fastcc void @reclaim_and_purge_vmap_areas() unnamed_addr #1 alig
   store ptr %1, ptr %1, align 8
   store ptr %1, ptr %2, align 8
   %14 = and i64 %10, 63
-  %15 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %14
+  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @vmap_block_queue to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -8493,8 +8493,8 @@ define internal fastcc void @reclaim_and_purge_vmap_areas() unnamed_addr #1 alig
   %67 = and i64 %65, 4294967295
   %68 = urem i64 %66, %67
   %69 = shl nuw i64 %68, 32
-  %70 = ashr exact i64 %69, 32
-  %71 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %70
+  %70 = ashr exact i64 %69, 29
+  %71 = getelementptr i8, ptr @__per_cpu_offset, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, ptrtoint (ptr @vmap_block_queue to i64)
   %74 = inttoptr i64 %73 to ptr
@@ -8716,7 +8716,7 @@ define dso_local void @vmalloc_init() local_unnamed_addr #6 section ".init.text"
 
 14:                                               ; preds = %8
   %15 = and i64 %9, 63
-  %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
+  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @vmap_block_queue to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -9688,8 +9688,8 @@ define internal fastcc void @free_vmap_block(ptr noundef %0) unnamed_addr #1 ali
   %8 = and i64 %6, 4294967295
   %9 = urem i64 %7, %8
   %10 = shl nuw i64 %9, 32
-  %11 = ashr exact i64 %10, 32
-  %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
+  %11 = ashr exact i64 %10, 29
+  %12 = getelementptr i8, ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @vmap_block_queue to i64)
   %15 = inttoptr i64 %14 to ptr

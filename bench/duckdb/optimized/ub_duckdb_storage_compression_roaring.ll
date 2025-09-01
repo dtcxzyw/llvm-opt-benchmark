@@ -495,13 +495,13 @@ _ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit: ; preds = %20, %22
   %30 = icmp ugt i64 %29, %2
   %31 = sub i64 %2, %1
   %.052 = select i1 %30, i64 %31, i64 %28
-  %32 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %26
+  %32 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 %26
   %33 = load i64, ptr %32, align 8, !tbaa !22
   br i1 %30, label %34, label %38
 
 34:                                               ; preds = %27
   %.053 = sub nuw i64 %29, %2
-  %35 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %.053
+  %35 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %.053
   %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = or i64 %36, %33
   br label %38
@@ -538,7 +538,7 @@ _ZN6duckdb21TemplatedValidityMaskImE14EnsureWritableEv.exit: ; preds = %20, %22
 51:                                               ; preds = %._crit_edge
   %52 = and i64 %2, 63
   %53 = sub nuw nsw i64 64, %52
-  %54 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !22
   %56 = lshr i64 %2, 6
   %57 = getelementptr inbounds nuw i64, ptr %25, i64 %56
@@ -3956,13 +3956,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %46, %
 
 51:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
   %52 = sub nuw nsw i64 %49, %41
-  %53 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %41
+  %53 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %41
   %54 = load i64, ptr %53, align 8, !tbaa !22
   %55 = lshr i64 %54, %52
   br label %59
 
 56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %57 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %49
+  %57 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %49
   %58 = load i64, ptr %57, align 8, !tbaa !22
   br label %59
 
@@ -3971,7 +3971,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %46, %
   %.099 = phi i64 [ %41, %51 ], [ %49, %56 ]
   %60 = and i64 %.0100, %.0.i
   %61 = lshr i64 %60, %43
-  %62 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %.099
+  %62 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 %.099
   %63 = load i64, ptr %62, align 8, !tbaa !22
   %64 = icmp eq i64 %61, %63
   br i1 %64, label %65, label %70
@@ -4184,7 +4184,7 @@ _ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendByte
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit133: ; preds = %147, %145
   %.0.i132 = phi i64 [ %150, %147 ], [ -1, %145 ]
-  %151 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %99
+  %151 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 %99
   %152 = load i64, ptr %151, align 8, !tbaa !22
   %153 = and i64 %152, %.0.i132
   %154 = icmp eq i64 %153, %152
@@ -4496,11 +4496,11 @@ define void @_ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm(
   %9 = load ptr, ptr %1, align 8, !tbaa !236
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = zext i1 %2 to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   store ptr %9, ptr %12, align 8, !tbaa !236
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = getelementptr inbounds nuw [2 x ptr], ptr %14, i64 0, i64 %11
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %11
   store ptr %13, ptr %15, align 8, !tbaa !236
   br label %24
 
@@ -4512,7 +4512,7 @@ define void @_ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm(
   store ptr %20, ptr %1, align 8, !tbaa !236
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = zext i1 %2 to i64
-  %23 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   store ptr %20, ptr %23, align 8, !tbaa !335
   br label %24
 
@@ -4632,7 +4632,7 @@ define linkonce_odr void @_ZN6duckdb7roaring13AppendToArrayILb0EEEvRNS0_25Contai
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  %7 = getelementptr inbounds nuw [2 x i16], ptr %6, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw i16, ptr %6, i64 %4
   %8 = load i16, ptr %7, align 2, !tbaa !334
   %9 = zext i16 %8 to i32
   %10 = zext i16 %2 to i32
@@ -4644,10 +4644,10 @@ define linkonce_odr void @_ZN6duckdb7roaring13AppendToArrayILb0EEEvRNS0_25Contai
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i16, ptr %14, align 4, !tbaa !340
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %17 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %4
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %4
   %18 = load ptr, ptr %17, align 8, !tbaa !236
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = getelementptr inbounds nuw [2 x ptr], ptr %19, i64 0, i64 %4
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %4
   %21 = load ptr, ptr %20, align 8, !tbaa !236
   %.not66 = icmp eq i16 %2, 0
   br i1 %.not66, label %.loopexit, label %.lr.ph61
@@ -4708,7 +4708,7 @@ define linkonce_odr void @_ZN6duckdb7roaring13AppendToArrayILb0EEEvRNS0_25Contai
 
 .lr.ph65:                                         ; preds = %._crit_edge62
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %4
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %4
   %51 = load ptr, ptr %50, align 8, !tbaa !335
   %52 = zext i16 %8 to i64
   %wide.trip.count75 = zext i16 %2 to i64
@@ -5519,11 +5519,11 @@ _ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm.exit.thread: 
   %81 = load ptr, ptr %73, align 8, !tbaa !236
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %83 = zext nneg i8 %75 to i64
-  %84 = getelementptr inbounds nuw [2 x ptr], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %83
   store ptr %81, ptr %84, align 8, !tbaa !236
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %87 = getelementptr inbounds nuw [2 x ptr], ptr %86, i64 0, i64 %83
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %83
   store ptr %85, ptr %87, align 8, !tbaa !236
   br label %_ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm.exit
 
@@ -5534,7 +5534,7 @@ _ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm.exit.thread: 
   %92 = inttoptr i64 %91 to ptr
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %94 = zext nneg i8 %75 to i64
-  %95 = getelementptr inbounds nuw [2 x ptr], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
   store ptr %92, ptr %95, align 8, !tbaa !335
   br label %_ZN6duckdb7roaring25ContainerCompressionState13OverrideArrayERPhbm.exit
 
@@ -6685,13 +6685,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %65, %
 
 70:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
   %71 = sub nuw nsw i64 %68, %60
-  %72 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %60
+  %72 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %60
   %73 = load i64, ptr %72, align 8, !tbaa !22
   %74 = lshr i64 %73, %71
   br label %78
 
 75:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit
-  %76 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %68
+  %76 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 %68
   %77 = load i64, ptr %76, align 8, !tbaa !22
   br label %78
 
@@ -6700,7 +6700,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %65, %
   %.099 = phi i64 [ %60, %70 ], [ %68, %75 ]
   %79 = and i64 %.0100, %.0.i
   %80 = lshr i64 %79, %62
-  %81 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %.099
+  %81 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 %.099
   %82 = load i64, ptr %81, align 8, !tbaa !22
   %83 = icmp eq i64 %80, %82
   br i1 %83, label %84, label %87
@@ -6972,7 +6972,7 @@ _ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendByt
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit140: ; preds = %170, %168
   %.0.i139 = phi i64 [ %173, %170 ], [ -1, %168 ]
-  %174 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %97
+  %174 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 %97
   %175 = load i64, ptr %174, align 8, !tbaa !22
   %176 = and i64 %175, %.0.i139
   %177 = icmp eq i64 %176, %175

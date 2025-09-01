@@ -365,7 +365,7 @@ smex_time_to_string.exit:                         ; preds = %4, %.preheader.i
   %97 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %96, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %98 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26)
   %99 = zext nneg i16 %87 to i64
-  %100 = getelementptr [64 x i32], ptr @bitstream_channels, i64 0, i64 %99
+  %100 = getelementptr i32, ptr @bitstream_channels, i64 %99
   %101 = load i32, ptr %100, align 4
   %.not = icmp eq i32 %101, 0
   br i1 %.not, label %108, label %102
@@ -472,7 +472,7 @@ define internal void @vcdu_prefs_apply_cb() #2 {
   %5 = getelementptr %struct.uat_channel_t, ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr [64 x i32], ptr @bitstream_channels, i64 0, i64 %7
+  %8 = getelementptr i32, ptr @bitstream_channels, i64 %7
   store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -333,7 +333,7 @@ define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr noundef readonly capture
   br i1 %or.cond3.i, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds nuw [6 x ptr], ptr @ts_status_text, i64 0, i64 %9
+  %12 = getelementptr inbounds nuw ptr, ptr @ts_status_text, i64 %9
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   br label %14
 
@@ -362,7 +362,7 @@ define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr noundef readonly capture
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 0, %23 ]
   %.02.i = phi i32 [ %.2.i, %36 ], [ 1, %23 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !42
-  %27 = getelementptr inbounds nuw [8 x %struct.anon], ptr @ts_failure_info, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw %struct.anon, ptr @ts_failure_info, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 16, !tbaa !43
   %29 = call i32 @ASN1_BIT_STRING_get_bit(ptr noundef %26, i32 noundef %28) #7
   %.not30.i = icmp eq i32 %29, 0

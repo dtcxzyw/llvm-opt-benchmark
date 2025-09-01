@@ -453,7 +453,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %3, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %3 ]
   %30 = phi i8 [ %37, %35 ], [ %20, %3 ]
-  %31 = phi ptr [ %36, %35 ], [ %4, %3 ]
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %32 = add i8 %30, -97
   %or.cond = icmp ult i8 %32, 26
   br i1 %or.cond, label %33, label %34
@@ -478,7 +478,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
 
 35:                                               ; preds = %.sink.split, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next
   %37 = load i8, ptr %36, align 1
   %.not = icmp eq i8 %37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

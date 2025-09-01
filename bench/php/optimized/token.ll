@@ -420,7 +420,7 @@ define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_by_id(i32 noun
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -498,7 +498,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load double, ptr %13, align 8, !tbaa !41
   %15 = call i64 @lexbor_conv_float_to_data(double noundef %14, ptr noundef nonnull %4, i64 noundef 127) #8
-  %16 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !41
   %17 = call i32 %1(ptr noundef nonnull %4, i64 noundef %15, ptr noundef %2) #8
   br label %.loopexit
@@ -507,7 +507,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load double, ptr %19, align 8, !tbaa !41
   %21 = call i64 @lexbor_conv_float_to_data(double noundef %20, ptr noundef nonnull %4, i64 noundef 127) #8
-  %22 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !41
   %23 = call i32 %1(ptr noundef nonnull %4, i64 noundef %21, ptr noundef %2) #8
   %.not208 = icmp eq i32 %23, 0
@@ -728,7 +728,7 @@ define hidden i32 @lxb_css_syntax_token_serialize(ptr noundef readonly captures(
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load double, ptr %135, align 8, !tbaa !41
   %137 = call i64 @lexbor_conv_float_to_data(double noundef %136, ptr noundef nonnull %4, i64 noundef 127) #8
-  %138 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 %137
   store i8 0, ptr %138, align 1, !tbaa !41
   %139 = call i32 %1(ptr noundef nonnull %4, i64 noundef %137, ptr noundef %2) #8
   %.not = icmp eq i32 %139, 0
@@ -820,7 +820,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !41
   %23 = call i64 @lexbor_conv_float_to_data(double noundef %22, ptr noundef nonnull %4, i64 noundef 127) #8
-  %24 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !41
   %25 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %23) #8
   %26 = icmp eq ptr %25, null
@@ -831,7 +831,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load double, ptr %28, align 8, !tbaa !41
   %30 = call i64 @lexbor_conv_float_to_data(double noundef %29, ptr noundef nonnull %4, i64 noundef 127) #8
-  %31 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !41
   %32 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %30) #8
   %.not134 = icmp eq ptr %32, null
@@ -1090,7 +1090,7 @@ define hidden range(i32 0, 3) i32 @lxb_css_syntax_token_serialize_str(ptr nounde
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %164 = load double, ptr %163, align 8, !tbaa !41
   %165 = call i64 @lexbor_conv_float_to_data(double noundef %164, ptr noundef nonnull %4, i64 noundef 127) #8
-  %166 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 %165
   store i8 0, ptr %166, align 1, !tbaa !41
   %167 = call ptr @lexbor_str_append(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %165) #8
   %.not = icmp eq ptr %167, null
@@ -1185,7 +1185,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load double, ptr %15, align 8, !tbaa !41
   %17 = call i64 @lexbor_conv_float_to_data(double noundef %16, ptr noundef nonnull %4, i64 noundef 127) #8
-  %18 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !41
   %19 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %17, ptr noundef nonnull %5) #8
   br label %lxb_css_syntax_token_serialize.exit
@@ -1194,7 +1194,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !41
   %23 = call i64 @lexbor_conv_float_to_data(double noundef %22, ptr noundef nonnull %4, i64 noundef 127) #8
-  %24 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !41
   %25 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %23, ptr noundef nonnull %5) #8
   %.not208.i = icmp eq i32 %25, 0
@@ -1415,7 +1415,7 @@ define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly capt
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %138 = load double, ptr %137, align 8, !tbaa !41
   %139 = call i64 @lexbor_conv_float_to_data(double noundef %138, ptr noundef nonnull %4, i64 noundef 127) #8
-  %140 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 %139
   store i8 0, ptr %140, align 1, !tbaa !41
   %141 = call i32 @lexbor_serialize_length_cb(ptr noundef nonnull %4, i64 noundef %139, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %141, 0
@@ -1503,7 +1503,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %167 = load double, ptr %166, align 8, !tbaa !41
   %168 = call i64 @lexbor_conv_float_to_data(double noundef %167, ptr noundef nonnull %3, i64 noundef 127) #8
-  %169 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 %168
   store i8 0, ptr %169, align 1, !tbaa !41
   %170 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %168, ptr noundef nonnull %6) #8
   br label %lxb_css_syntax_token_serialize.exit37
@@ -1512,7 +1512,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %173 = load double, ptr %172, align 8, !tbaa !41
   %174 = call i64 @lexbor_conv_float_to_data(double noundef %173, ptr noundef nonnull %3, i64 noundef 127) #8
-  %175 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 %174
   store i8 0, ptr %175, align 1, !tbaa !41
   %176 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %174, ptr noundef nonnull %6) #8
   %.not208.i36 = icmp eq i32 %176, 0
@@ -1733,7 +1733,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %9, %14, %26, %28, %
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %289 = load double, ptr %288, align 8, !tbaa !41
   %290 = call i64 @lexbor_conv_float_to_data(double noundef %289, ptr noundef nonnull %3, i64 noundef 127) #8
-  %291 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 %290
   store i8 0, ptr %291, align 1, !tbaa !41
   %292 = call i32 @lexbor_serialize_copy_cb(ptr noundef nonnull %3, i64 noundef %290, ptr noundef nonnull %6) #8
   %.not.i13 = icmp eq i32 %292, 0
@@ -1859,7 +1859,7 @@ define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_noi(ptr nounde
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %lxb_css_syntax_token_type_name.exit
 

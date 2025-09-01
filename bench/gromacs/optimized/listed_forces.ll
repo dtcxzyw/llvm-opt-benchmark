@@ -771,7 +771,7 @@ define void @_ZN12ListedForcesC2EOS_(ptr noundef nonnull writeonly align 8 captu
 25:                                               ; preds = %25, %2
   %26 = phi i64 [ 0, %2 ], [ %36, %25 ]
   %27 = getelementptr inbounds nuw %struct.InteractionList, ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %24, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct.InteractionList, ptr %24, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !79
   store ptr %29, ptr %27, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1016,7 +1016,7 @@ define void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefI
 
 20:                                               ; preds = %_ZN15InteractionList5clearEv.exit.i, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %_ZN15InteractionList5clearEv.exit.i ]
-  %21 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i, i32 5
+  %21 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i, i32 5
   %22 = load i32, ptr %21, align 4, !tbaa !106
   %23 = and i32 %22, 1
   %.not.i = icmp eq i32 %23, 0
@@ -1046,13 +1046,13 @@ define void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefI
   br i1 %.0.in.not.i, label %35, label %31
 
 31:                                               ; preds = %30, %28
-  %32 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %18, i64 0, i64 %indvars.iv.i
-  %33 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %19, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw %struct.InteractionList, ptr %18, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw %struct.InteractionList, ptr %19, i64 %indvars.iv.i
   %34 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32)
   br label %_ZN15InteractionList5clearEv.exit.i
 
 35:                                               ; preds = %30, %28
-  %36 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %19, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %struct.InteractionList, ptr %19, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !79
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !102
@@ -2097,10 +2097,10 @@ _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit.thread: ; preds = %80, %87, 
 
 191:                                              ; preds = %191, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %191 ]
-  %192 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i
   %193 = load float, ptr %192, align 4, !tbaa !85
-  %194 = getelementptr inbounds nuw [3 x [3 x float]], ptr %190, i64 0, i64 %indvars.iv.i
-  %195 = getelementptr inbounds nuw [3 x float], ptr %194, i64 0, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [3 x float], ptr %190, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv.i
   %196 = load float, ptr %195, align 4, !tbaa !85
   %197 = fadd float %193, %196
   store float %197, ptr %195, align 4, !tbaa !85
@@ -2332,10 +2332,10 @@ _ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit: ; pre
 
 319:                                              ; preds = %319, %.preheader.i139
   %indvars.iv.i140 = phi i64 [ 0, %.preheader.i139 ], [ %indvars.iv.next.i141, %319 ]
-  %320 = getelementptr inbounds nuw [7 x float], ptr %43, i64 0, i64 %indvars.iv.i140
+  %320 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i140
   %321 = load float, ptr %320, align 4, !tbaa !85
   %322 = fpext float %321 to double
-  %323 = getelementptr inbounds nuw [7 x double], ptr %318, i64 0, i64 %indvars.iv.i140
+  %323 = getelementptr inbounds nuw double, ptr %318, i64 %indvars.iv.i140
   %324 = load double, ptr %323, align 8, !tbaa !272
   %325 = fadd double %324, %322
   store double %325, ptr %323, align 8, !tbaa !272
@@ -2527,7 +2527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.split.us ], [ 0, %413 ]
   %418 = getelementptr inbounds nuw float, ptr %417, i64 %indvars.iv208
   %419 = load float, ptr %418, align 4, !tbaa !85
-  %420 = getelementptr inbounds nuw [7 x float], ptr %68, i64 0, i64 %indvars.iv208
+  %420 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv208
   store float %419, ptr %420, align 4, !tbaa !85
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %.not198.us = icmp eq i64 %indvars.iv.next209, 7
@@ -2607,7 +2607,7 @@ _ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit.i: ; p
 
 462:                                              ; preds = %_ZL25ftype_is_bonded_potentiali.exit.thread.i, %_ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit.i
   %indvars.iv.i142 = phi i64 [ 0, %_ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit.i ], [ %indvars.iv.next.i143, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
-  %463 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv.i142, i32 5
+  %463 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i142, i32 5
   %464 = load i32, ptr %463, align 4, !tbaa !106
   %465 = and i32 %464, 1
   %.not.i.i = icmp eq i32 %465, 0
@@ -2622,8 +2622,8 @@ _ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit.i: ; p
   ]
 
 _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %466
-  %468 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %340, i64 0, i64 %indvars.iv.i142
-  %469 = getelementptr inbounds nuw [95 x i32], ptr %390, i64 0, i64 %indvars.iv.i142
+  %468 = getelementptr inbounds nuw %struct.InteractionList, ptr %340, i64 %indvars.iv.i142
+  %469 = getelementptr inbounds nuw i32, ptr %390, i64 %indvars.iv.i142
   %470 = load i32, ptr %469, align 4, !tbaa !295
   %471 = load ptr, ptr %468, align 8, !tbaa !79
   %472 = sext i32 %470 to i64
@@ -2702,10 +2702,10 @@ _ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_thread
 
 515:                                              ; preds = %515, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit
   %indvars.iv.i145 = phi i64 [ 0, %_ZN12_GLOBAL__N_118calc_listed_lambdaERK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcN3gmx8ArrayRefIfEENSF_INSE_11BasicVectorIfEEEEP17gmx_grppairener_tSG_SG_P6t_nrnbNSF_IS5_EESO_SO_NSF_IKbEENSF_IKtEEiP8t_fcdataPi.exit ], [ %indvars.iv.next.i146, %515 ]
-  %516 = getelementptr inbounds nuw [7 x float], ptr %59, i64 0, i64 %indvars.iv.i145
+  %516 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i145
   %517 = load float, ptr %516, align 4, !tbaa !85
   %518 = fpext float %517 to double
-  %519 = getelementptr inbounds nuw [7 x double], ptr %514, i64 0, i64 %indvars.iv.i145
+  %519 = getelementptr inbounds nuw double, ptr %514, i64 %indvars.iv.i145
   %520 = load double, ptr %519, align 8, !tbaa !272
   %521 = fadd double %520, %518
   store double %521, ptr %519, align 8, !tbaa !272
@@ -2725,13 +2725,13 @@ _ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPert
 
 524:                                              ; preds = %.split, %524
   %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %524 ]
-  %525 = getelementptr inbounds nuw [7 x %"class.std::vector.236"], ptr %421, i64 0, i64 %indvars.iv
+  %525 = getelementptr inbounds nuw %"class.std::vector.236", ptr %421, i64 %indvars.iv
   %526 = load ptr, ptr %525, align 8, !tbaa !321
   %527 = getelementptr double, ptr %526, i64 %indvars.iv211
   %528 = getelementptr i8, ptr %527, i64 -8
   %529 = load double, ptr %528, align 8, !tbaa !272
   %530 = fptrunc double %529 to float
-  %531 = getelementptr inbounds nuw [7 x float], ptr %68, i64 0, i64 %indvars.iv
+  %531 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
   store float %530, ptr %531, align 4, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not198 = icmp eq i64 %indvars.iv.next, 7
@@ -3380,7 +3380,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
 
 80:                                               ; preds = %71, %_ZL25ftype_is_bonded_potentiali.exit.thread
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %_ZL25ftype_is_bonded_potentiali.exit.thread ]
-  %81 = getelementptr inbounds nuw [95 x %struct.InteractionList], ptr %37, i64 0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %struct.InteractionList, ptr %37, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !125
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !125
@@ -3388,7 +3388,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   br i1 %85, label %_ZL25ftype_is_bonded_potentiali.exit.thread, label %86
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv, i32 5
+  %87 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
   %88 = load i32, ptr %87, align 4, !tbaa !106
   %89 = and i32 %88, 1
   %.not.i = icmp eq i32 %89, 0
@@ -3407,7 +3407,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   %94 = ptrtoint ptr %82 to i64
   %95 = sub i64 %93, %94
   %96 = getelementptr inbounds nuw i8, ptr %82, i64 %95
-  %97 = getelementptr inbounds nuw [95 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !295
   %99 = load ptr, ptr %2, align 8, !tbaa !61
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 96
@@ -3566,7 +3566,7 @@ define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22Int
 _ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %19, %43
   %44 = phi i64 [ 5, %43 ], [ 4, %19 ]
   %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %45, i32 2
+  %46 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %45, i32 2
   %47 = load i32, ptr %46, align 16, !tbaa !271
   %48 = add nsw i32 %47, 1
   %49 = sext i32 %48 to i64
@@ -3681,7 +3681,7 @@ _ZL17IS_RESTRAINT_TYPEi.exit:                     ; preds = %19, %43
   %132 = tail call noundef i32 @_Z9nrnbIndexi(i32 noundef %1)
   %133 = sitofp i32 %51 to double
   %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds nuw [116 x double], ptr %12, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw double, ptr %12, i64 %134
   %136 = load double, ptr %135, align 8, !tbaa !272
   %137 = fadd double %136, %133
   store double %137, ptr %135, align 8, !tbaa !272

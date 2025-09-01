@@ -1456,9 +1456,9 @@ define hidden void @_ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE(ptr 
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw i64 %.sroa.01.011, 1
-  %10 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds i32, ptr %0, i64 %5
   %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.sroa.01.011
+  %12 = getelementptr inbounds i32, ptr %0, i64 %.sroa.01.011
   store i32 %11, ptr %12, align 4
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1485,9 +1485,9 @@ define hidden void @_ZN17cranelift_bforest11slice_shift17hbb7d6c24393ab507E(ptr 
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw i64 %.sroa.01.011, 1
-  %10 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds i32, ptr %0, i64 %5
   %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.sroa.01.011
+  %12 = getelementptr inbounds i32, ptr %0, i64 %.sroa.01.011
   store i32 %11, ptr %12, align 4
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1514,9 +1514,9 @@ define hidden void @_ZN17cranelift_bforest11slice_shift17hc1e58459f0802ea8E(ptr 
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw i64 %.sroa.01.011, 1
-  %10 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 %5
   %11 = load i8, ptr %10, align 1, !noundef !4
-  %12 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %.sroa.01.011
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.sroa.01.011
   store i8 %11, ptr %12, align 1
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1543,9 +1543,9 @@ define hidden void @_ZN17cranelift_bforest11slice_shift17hf5f51a96d79a45c4E(ptr 
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw i64 %.sroa.01.011, 1
-  %10 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds i32, ptr %0, i64 %5
   %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %.sroa.01.011
+  %12 = getelementptr inbounds i32, ptr %0, i64 %.sroa.01.011
   store i32 %11, ptr %12, align 4
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1569,7 +1569,7 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E(ptr
   br i1 %10, label %14, label %16, !prof !203
 
 11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 %2
   store i8 %3, ptr %12, align 1
   ret void
 
@@ -1586,9 +1586,9 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E(ptr
   unreachable
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %9
+  %18 = getelementptr inbounds i8, ptr %0, i64 %9
   %19 = load i8, ptr %18, align 1, !noundef !4
-  %20 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %8
+  %20 = getelementptr inbounds i8, ptr %0, i64 %8
   store i8 %19, ptr %20, align 1
   %21 = icmp ult i64 %5, %8
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -1616,7 +1616,7 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17h5be55d5db89f20cfE(ptr
   br i1 %10, label %14, label %16, !prof !203
 
 11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %2
+  %12 = getelementptr inbounds i32, ptr %0, i64 %2
   store i32 %3, ptr %12, align 4
   ret void
 
@@ -1633,9 +1633,9 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17h5be55d5db89f20cfE(ptr
   unreachable
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %9
+  %18 = getelementptr inbounds i32, ptr %0, i64 %9
   %19 = load i32, ptr %18, align 4, !noundef !4
-  %20 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %8
+  %20 = getelementptr inbounds i32, ptr %0, i64 %8
   store i32 %19, ptr %20, align 4
   %21 = icmp ult i64 %5, %8
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -1663,7 +1663,7 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17ha1e969a07b7c5a98E(ptr
   br i1 %10, label %14, label %16, !prof !203
 
 11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %2
+  %12 = getelementptr inbounds i32, ptr %0, i64 %2
   store i32 %3, ptr %12, align 4
   ret void
 
@@ -1680,9 +1680,9 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17ha1e969a07b7c5a98E(ptr
   unreachable
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %9
+  %18 = getelementptr inbounds i32, ptr %0, i64 %9
   %19 = load i32, ptr %18, align 4, !noundef !4
-  %20 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %8
+  %20 = getelementptr inbounds i32, ptr %0, i64 %8
   store i32 %19, ptr %20, align 4
   %21 = icmp ult i64 %5, %8
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -1710,7 +1710,7 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17hd3e0277fb7531699E(ptr
   br i1 %10, label %14, label %16, !prof !203
 
 11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %2
+  %12 = getelementptr inbounds i32, ptr %0, i64 %2
   store i32 %3, ptr %12, align 4
   ret void
 
@@ -1727,9 +1727,9 @@ define hidden void @_ZN17cranelift_bforest12slice_insert17hd3e0277fb7531699E(ptr
   unreachable
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %9
+  %18 = getelementptr inbounds i32, ptr %0, i64 %9
   %19 = load i32, ptr %18, align 4, !noundef !4
-  %20 = getelementptr inbounds [0 x i32], ptr %0, i64 0, i64 %8
+  %20 = getelementptr inbounds i32, ptr %0, i64 %8
   store i32 %19, ptr %20, align 4
   %21 = icmp ult i64 %5, %8
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -1785,10 +1785,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !204, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !205, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h00a53120803229b2E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h00a53120803229b2E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [17 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h00a53120803229b2E.271", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h00a53120803229b2E.271", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1800,10 +1800,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !204, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !206, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1815,10 +1815,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !204, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !207, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1c4794219c36d9E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1c4794219c36d9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1c4794219c36d9E.273", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a1c4794219c36d9E.273", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1845,10 +1845,10 @@ switch.lookup:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %.val.i = load i8, ptr %2, align 1, !range !206, !alias.scope !208, !noalias !211, !noundef !4
   %3 = zext nneg i8 %.val.i to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val.i to i64
-  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !208
   ret i1 %5
@@ -5420,7 +5420,7 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17hfb96b56c98761becE.exit": ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !794, !noalias !797, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds nuw [0 x i64], ptr %37, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %31
   %39 = load i64, ptr %38, align 8, !noundef !4
   call void @"_ZN128_$LT$cranelift_codegen..ir..dfg..ValueData$u20$as$u20$core..convert..From$LT$cranelift_codegen..ir..dfg..ValueDataPacked$GT$$GT$4from17he13e9222edf657eeE"(ptr noalias noundef nonnull sret({ i16, [5 x i16] }) align 4 captures(none) dereferenceable(12) %8, i64 noundef %39)
   %40 = load i16, ptr %8, align 4, !range !799, !noundef !4
@@ -20579,10 +20579,10 @@ define noundef zeroext i1 @"_ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u2
 switch.lookup:
   %.val = load i8, ptr %0, align 1, !range !206, !noundef !4
   %2 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$cranelift_codegen..ir..libcall..LibCall$u20$as$u20$core..fmt..Display$GT$3fmt17h04536cb71fecba38E.275", i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %4

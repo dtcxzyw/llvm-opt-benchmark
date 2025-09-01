@@ -1677,7 +1677,7 @@ _ZN3ue212CodePointSet3setEj.exit95:               ; preds = %270
 
 417:                                              ; preds = %420, %411
   %.0710.i.i = phi i64 [ 0, %411 ], [ %421, %420 ]
-  %418 = getelementptr inbounds nuw [4 x i64], ptr %70, i64 0, i64 %.0710.i.i
+  %418 = getelementptr inbounds nuw i64, ptr %70, i64 %.0710.i.i
   %419 = load i64, ptr %418, align 8
   %.not.i.i = icmp eq i64 %419, 0
   br i1 %.not.i.i, label %420, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -1727,7 +1727,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %417
   br label %441
 
 434:                                              ; preds = %431
-  %435 = getelementptr inbounds nuw [4 x i64], ptr %70, i64 0, i64 %432
+  %435 = getelementptr inbounds nuw i64, ptr %70, i64 %432
   %436 = load i64, ptr %435, align 8
   %437 = shl nsw i64 -2, %433
   %438 = and i64 %436, %437
@@ -1745,7 +1745,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %417
 
 443:                                              ; preds = %441
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %444 = getelementptr inbounds nuw [4 x i64], ptr %70, i64 0, i64 %.0.i.i
+  %444 = getelementptr inbounds nuw i64, ptr %70, i64 %.0.i.i
   %445 = load i64, ptr %444, align 8
   %.not22.i.i = icmp eq i64 %445, 0
   br i1 %.not22.i.i, label %441, label %446, !llvm.loop !9
@@ -3401,7 +3401,7 @@ _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread: ; preds = %3, %_Z
   %25 = and i64 %24, 63
   %26 = shl nuw i64 1, %25
   %27 = lshr i64 %24, 6
-  %28 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %26, %29
   store i64 %30, ptr %28, align 8
@@ -3866,7 +3866,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
 
 72:                                               ; preds = %71
   %73 = shl nsw i64 -1, %62
-  %74 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %59
+  %74 = getelementptr inbounds nuw i64, ptr %3, i64 %59
   %75 = load i64, ptr %74, align 8
   %76 = or i64 %75, %73
   store i64 %76, ptr %74, align 8
@@ -3910,7 +3910,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
 .sink.split.i.i.i:                                ; preds = %91, %66, %63
   %.sink42.i.i.i = phi i64 [ %94, %91 ], [ %59, %66 ], [ %59, %63 ]
   %.sink41.i.i.i = phi i64 [ %93, %91 ], [ %70, %66 ], [ %64, %63 ]
-  %95 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.sink42.i.i.i
+  %95 = getelementptr inbounds nuw i64, ptr %3, i64 %.sink42.i.i.i
   %96 = load i64, ptr %95, align 8
   %97 = or i64 %96, %.sink41.i.i.i
   store i64 %97, ptr %95, align 8

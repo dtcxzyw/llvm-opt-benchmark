@@ -696,7 +696,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_dev_get_saddr(ptr noundef %
 .loopexit:                                        ; preds = %49, %.critedge, %.thread, %37
   %53 = phi i32 [ %38, %.thread ], [ 0, %37 ], [ 0, %.critedge ], [ %50, %49 ]
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr [2 x %struct.ipv6_saddr_score], ptr %6, i64 0, i64 %54, i32 2
+  %55 = getelementptr %struct.ipv6_saddr_score, ptr %6, i64 %54, i32 2
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %59, label %58
@@ -7352,7 +7352,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %268, label %275, label %269
 
 269:                                              ; preds = %262
-  %270 = getelementptr [16 x i8], ptr %211, i64 0, i64 %265
+  %270 = getelementptr i8, ptr %211, i64 %265
   %271 = load i8, ptr %270, align 1
   %272 = lshr exact i32 65280, %264
   %273 = trunc i32 %272 to i8
@@ -10839,7 +10839,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
 
 235:                                              ; preds = %231
   %236 = and i64 %232, 63
-  %237 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %236
+  %237 = getelementptr i64, ptr @__per_cpu_offset, i64 %236
   %238 = load i64, ptr %237, align 8
   %239 = add i64 %238, %225
   %240 = inttoptr i64 %239 to ptr
@@ -10849,7 +10849,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifla6_attrs(ptr
   %242 = phi i64 [ 1, %235 ], [ %248, %241 ]
   %243 = getelementptr i64, ptr %240, i64 %242
   %244 = load i64, ptr %243, align 8
-  %245 = getelementptr [38 x i64], ptr %6, i64 0, i64 %242
+  %245 = getelementptr i64, ptr %6, i64 %242
   %246 = load i64, ptr %245, align 8
   %247 = add i64 %246, %244
   store i64 %247, ptr %245, align 8
@@ -11108,7 +11108,7 @@ define internal fastcc void @__ipv6_ifa_notify(i32 noundef range(i32 0, 22) %0, 
   br i1 %79, label %86, label %80
 
 80:                                               ; preds = %73
-  %81 = getelementptr [16 x i8], ptr %1, i64 0, i64 %76
+  %81 = getelementptr i8, ptr %1, i64 %76
   %82 = load i8, ptr %81, align 1
   %83 = lshr exact i32 65280, %75
   %84 = trunc i32 %83 to i8
@@ -11220,7 +11220,7 @@ define internal fastcc void @__ipv6_ifa_notify(i32 noundef range(i32 0, 22) %0, 
   br i1 %148, label %155, label %149
 
 149:                                              ; preds = %142
-  %150 = getelementptr [16 x i8], ptr %1, i64 0, i64 %145
+  %150 = getelementptr i8, ptr %1, i64 %145
   %151 = load i8, ptr %150, align 1
   %152 = lshr exact i32 65280, %144
   %153 = trunc i32 %152 to i8
@@ -12991,7 +12991,7 @@ define internal fastcc void @dev_forward_change(ptr noundef %0) unnamed_addr #0 
   br i1 %70, label %77, label %71
 
 71:                                               ; preds = %64
-  %72 = getelementptr [16 x i8], ptr %53, i64 0, i64 %67
+  %72 = getelementptr i8, ptr %53, i64 %67
   %73 = load i8, ptr %72, align 1
   %74 = lshr exact i32 65280, %66
   %75 = trunc i32 %74 to i8
@@ -13035,7 +13035,7 @@ define internal fastcc void @dev_forward_change(ptr noundef %0) unnamed_addr #0 
   br i1 %96, label %103, label %97
 
 97:                                               ; preds = %90
-  %98 = getelementptr [16 x i8], ptr %53, i64 0, i64 %93
+  %98 = getelementptr i8, ptr %53, i64 %93
   %99 = load i8, ptr %98, align 1
   %100 = lshr exact i32 65280, %92
   %101 = trunc i32 %100 to i8
@@ -14659,7 +14659,7 @@ define internal fastcc void @addrconf_disable_policy_idev(ptr noundef %0, i32 no
   %38 = load ptr, ptr %23, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %34, 63
-  %41 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %40
+  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %39
   %44 = inttoptr i64 %43 to ptr
@@ -15542,7 +15542,7 @@ define internal fastcc i32 @inet6_dump_addr(ptr noundef %0, ptr noundef captures
   %75 = phi i32 [ -1, %72 ], [ %92, %91 ]
   %76 = phi ptr [ %22, %72 ], [ %93, %91 ]
   %77 = phi i64 [ 0, %72 ], [ %94, %91 ]
-  %78 = getelementptr [12 x ptr], ptr %4, i64 0, i64 %77
+  %78 = getelementptr ptr, ptr %4, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %91, label %81

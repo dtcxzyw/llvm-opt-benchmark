@@ -1884,7 +1884,7 @@ gen9_rps_enable.exit:                             ; preds = %240
 261:                                              ; preds = %272, %259
   %262 = phi i64 [ 0, %259 ], [ %273, %272 ]
   %263 = phi i1 [ false, %259 ], [ %274, %272 ]
-  %264 = getelementptr [27 x ptr], ptr %260, i64 0, i64 %262
+  %264 = getelementptr ptr, ptr %260, i64 %262
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, null
   br i1 %266, label %272, label %267
@@ -2301,7 +2301,7 @@ define internal fastcc void @gen5_rps_enable(ptr noundef captures(none) %0) unna
   %166 = mul nuw nsw i32 %165, 255
   %167 = udiv i32 %166, 14516100
   %168 = trunc nuw nsw i32 %167 to i8
-  %169 = getelementptr [16 x i8], ptr %2, i64 0, i64 %143
+  %169 = getelementptr i8, ptr %2, i64 %143
   store i8 %168, ptr %169, align 1
   %170 = add nuw nsw i64 %143, 1
   %171 = icmp eq i64 %170, 16
@@ -2315,79 +2315,76 @@ define internal fastcc void @gen5_rps_enable(ptr noundef captures(none) %0) unna
   br label %175
 
 175:                                              ; preds = %175, %172
-  %176 = phi i64 [ 0, %172 ], [ %202, %175 ]
+  %176 = phi i64 [ 0, %172 ], [ %199, %175 ]
   %177 = shl nuw nsw i64 %176, 2
-  %178 = getelementptr [16 x i8], ptr %2, i64 0, i64 %177
+  %178 = getelementptr i8, ptr %2, i64 %177
   %179 = load i8, ptr %178, align 4
   %180 = zext i8 %179 to i32
   %181 = shl nuw i32 %180, 24
-  %182 = or disjoint i64 %177, 1
-  %183 = getelementptr [16 x i8], ptr %2, i64 0, i64 %182
-  %184 = load i8, ptr %183, align 1
-  %185 = zext i8 %184 to i32
-  %186 = shl nuw nsw i32 %185, 16
-  %187 = or disjoint i32 %186, %181
-  %188 = or disjoint i64 %177, 2
-  %189 = getelementptr [16 x i8], ptr %2, i64 0, i64 %188
-  %190 = load i8, ptr %189, align 2
-  %191 = zext i8 %190 to i32
-  %192 = shl nuw nsw i32 %191, 8
-  %193 = or disjoint i32 %187, %192
-  %194 = or disjoint i64 %177, 3
-  %195 = getelementptr [16 x i8], ptr %2, i64 0, i64 %194
-  %196 = load i8, ptr %195, align 1
-  %197 = zext i8 %196 to i32
-  %198 = or disjoint i32 %193, %197
-  %199 = load ptr, ptr %20, align 8
-  %200 = trunc i64 %177 to i32
-  %201 = add i32 %200, 71268
-  tail call void %199(ptr noundef %6, i32 %201, i32 noundef %198, i1 noundef zeroext true) #11
-  %202 = add nuw nsw i64 %176, 1
-  %203 = icmp eq i64 %202, 4
-  br i1 %203, label %204, label %175, !llvm.loop !39
+  %182 = getelementptr i8, ptr %178, i64 1
+  %183 = load i8, ptr %182, align 1
+  %184 = zext i8 %183 to i32
+  %185 = shl nuw nsw i32 %184, 16
+  %186 = or disjoint i32 %185, %181
+  %187 = getelementptr i8, ptr %178, i64 2
+  %188 = load i8, ptr %187, align 2
+  %189 = zext i8 %188 to i32
+  %190 = shl nuw nsw i32 %189, 8
+  %191 = or disjoint i32 %186, %190
+  %192 = getelementptr i8, ptr %178, i64 3
+  %193 = load i8, ptr %192, align 1
+  %194 = zext i8 %193 to i32
+  %195 = or disjoint i32 %191, %194
+  %196 = load ptr, ptr %20, align 8
+  %197 = trunc i64 %177 to i32
+  %198 = add i32 %197, 71268
+  tail call void %196(ptr noundef %6, i32 %198, i32 noundef %195, i1 noundef zeroext true) #11
+  %199 = add nuw nsw i64 %176, 1
+  %200 = icmp eq i64 %199, 4
+  br i1 %200, label %201, label %175, !llvm.loop !39
 
-204:                                              ; preds = %175
+201:                                              ; preds = %175
+  %202 = load ptr, ptr %20, align 8
+  tail call void %202(ptr noundef %6, i32 71176, i32 noundef 0, i1 noundef zeroext true) #11
+  %203 = load ptr, ptr %20, align 8
+  tail call void %203(ptr noundef %6, i32 71180, i32 noundef 0, i1 noundef zeroext true) #11
+  %204 = load ptr, ptr %20, align 8
+  tail call void %204(ptr noundef %6, i32 71184, i32 noundef 32512, i1 noundef zeroext true) #11
   %205 = load ptr, ptr %20, align 8
-  tail call void %205(ptr noundef %6, i32 71176, i32 noundef 0, i1 noundef zeroext true) #11
+  tail call void %205(ptr noundef %6, i32 71188, i32 noundef 14, i1 noundef zeroext true) #11
   %206 = load ptr, ptr %20, align 8
-  tail call void %206(ptr noundef %6, i32 71180, i32 noundef 0, i1 noundef zeroext true) #11
+  tail call void %206(ptr noundef %6, i32 71192, i32 noundef 917504, i1 noundef zeroext true) #11
   %207 = load ptr, ptr %20, align 8
-  tail call void %207(ptr noundef %6, i32 71184, i32 noundef 32512, i1 noundef zeroext true) #11
+  tail call void %207(ptr noundef %6, i32 71196, i32 noundef 1744831232, i1 noundef zeroext true) #11
   %208 = load ptr, ptr %20, align 8
-  tail call void %208(ptr noundef %6, i32 71188, i32 noundef 14, i1 noundef zeroext true) #11
+  tail call void %208(ptr noundef %6, i32 71200, i32 noundef 1107296256, i1 noundef zeroext true) #11
   %209 = load ptr, ptr %20, align 8
-  tail call void %209(ptr noundef %6, i32 71192, i32 noundef 917504, i1 noundef zeroext true) #11
+  tail call void %209(ptr noundef %6, i32 71204, i32 noundef 1310769, i1 noundef zeroext true) #11
   %210 = load ptr, ptr %20, align 8
-  tail call void %210(ptr noundef %6, i32 71196, i32 noundef 1744831232, i1 noundef zeroext true) #11
+  tail call void %210(ptr noundef %6, i32 71208, i32 noundef 0, i1 noundef zeroext true) #11
   %211 = load ptr, ptr %20, align 8
-  tail call void %211(ptr noundef %6, i32 71200, i32 noundef 1107296256, i1 noundef zeroext true) #11
-  %212 = load ptr, ptr %20, align 8
-  tail call void %212(ptr noundef %6, i32 71204, i32 noundef 1310769, i1 noundef zeroext true) #11
-  %213 = load ptr, ptr %20, align 8
-  tail call void %213(ptr noundef %6, i32 71208, i32 noundef 0, i1 noundef zeroext true) #11
-  %214 = load ptr, ptr %20, align 8
-  tail call void %214(ptr noundef %6, i32 71212, i32 noundef 0, i1 noundef zeroext true) #11
-  br label %215
+  tail call void %211(ptr noundef %6, i32 71212, i32 noundef 0, i1 noundef zeroext true) #11
+  br label %212
 
-215:                                              ; preds = %215, %204
-  %216 = phi i32 [ 0, %204 ], [ %220, %215 ]
-  %217 = shl nuw nsw i32 %216, 3
-  %218 = add nuw nsw i32 %217, 71296
-  %219 = load ptr, ptr %20, align 8
-  tail call void %219(ptr noundef %6, i32 %218, i32 noundef 0, i1 noundef zeroext true) #11
-  %220 = add nuw nsw i32 %216, 1
-  %221 = icmp eq i32 %220, 8
-  br i1 %221, label %222, label %215, !llvm.loop !40
+212:                                              ; preds = %212, %201
+  %213 = phi i32 [ 0, %201 ], [ %217, %212 ]
+  %214 = shl nuw nsw i32 %213, 3
+  %215 = add nuw nsw i32 %214, 71296
+  %216 = load ptr, ptr %20, align 8
+  tail call void %216(ptr noundef %6, i32 %215, i32 noundef 0, i1 noundef zeroext true) #11
+  %217 = add nuw nsw i32 %213, 1
+  %218 = icmp eq i32 %217, 8
+  br i1 %218, label %219, label %212, !llvm.loop !40
 
-222:                                              ; preds = %215
-  %223 = load ptr, ptr %20, align 8
-  tail call void %223(ptr noundef %6, i32 71168, i32 noundef -2147483623, i1 noundef zeroext true) #11
-  %224 = load ptr, ptr %7, align 8
-  %225 = tail call i32 %224(ptr noundef %6, i32 71360, i1 noundef zeroext true) #11
+219:                                              ; preds = %212
+  %220 = load ptr, ptr %20, align 8
+  tail call void %220(ptr noundef %6, i32 71168, i32 noundef -2147483623, i1 noundef zeroext true) #11
+  %221 = load ptr, ptr %7, align 8
+  %222 = tail call i32 %221(ptr noundef %6, i32 71360, i1 noundef zeroext true) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %226 = trunc i32 %225 to i8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i8 %226, ptr %227, align 8
+  %223 = trunc i32 %222 to i8
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i8 %223, ptr %224, align 8
   ret void
 }
 
@@ -3075,7 +3072,7 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %.loopexit, %1
   %6 = phi i64 [ 0, %1 ], [ %24, %.loopexit ]
-  %7 = getelementptr [27 x ptr], ptr %4, i64 0, i64 %6
+  %7 = getelementptr ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -3091,7 +3088,7 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
 15:                                               ; preds = %15, %10
   %16 = phi i64 [ 0, %10 ], [ %22, %15 ]
   %17 = phi i64 [ %14, %10 ], [ %21, %15 ]
-  %18 = getelementptr [3 x i64], ptr %3, i64 0, i64 %16
+  %18 = getelementptr i64, ptr %3, i64 %16
   %19 = load i64, ptr %18, align 8
   %20 = call i64 @llvm.smax.i64(i64 %17, i64 %19)
   store i64 %20, ptr %18, align 8
@@ -4115,7 +4112,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
 
 595:                                              ; preds = %616, %585
   %596 = phi i64 [ 0, %585 ], [ %617, %616 ]
-  %597 = getelementptr [6 x %struct.cparams], ptr @cparams, i64 0, i64 %596
+  %597 = getelementptr %struct.cparams, ptr @cparams, i64 %596
   %598 = load i16, ptr %597, align 8
   %599 = zext i16 %598 to i32
   %600 = icmp eq i32 %593, %599

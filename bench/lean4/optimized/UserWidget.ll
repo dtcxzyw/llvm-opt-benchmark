@@ -20248,7 +20248,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Widget_initFn____x40_Lean_Widget
 7:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit
   %.02247 = phi i64 [ %2, %.lr.ph ], [ %45, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit ]
   %.02446 = phi ptr [ %4, %.lr.ph ], [ %.125, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit ]
-  %8 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %.02247
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02247
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -20402,7 +20402,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Widget_initFn____x40_Lean_Widget
 6:                                                ; preds = %.lr.ph, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit
   %.02247 = phi i64 [ %1, %.lr.ph ], [ %44, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit ]
   %.02446 = phi ptr [ %3, %.lr.ph ], [ %.125, %l_Lean_RBNode_insert___at_Lean_Widget_initFn____x40_Lean_Widget_UserWidget___hyg_142____spec__1.exit ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.02247
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02247
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -20556,7 +20556,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Widget_initFn____x40_Lean_Widget
 6:                                                ; preds = %.lr.ph, %lean_dec.exit43
   %.03171 = phi i64 [ %1, %.lr.ph ], [ %33, %lean_dec.exit43 ]
   %.03370 = phi ptr [ %3, %.lr.ph ], [ %.336, %lean_dec.exit43 ]
-  %7 = getelementptr inbounds nuw [0 x ptr], ptr %5, i64 0, i64 %.03171
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03171
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -71590,7 +71590,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit1564
   br label %lean_dec.exit1563
 
 lean_dec.exit1563:                                ; preds = %97, %96, %94, %88
-  %98 = getelementptr inbounds nuw [0 x ptr], ptr %17, i64 0, i64 %.010873324
+  %98 = getelementptr inbounds nuw ptr, ptr %17, i64 %.010873324
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, 1
@@ -95477,7 +95477,7 @@ define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Widget_instRpcEncod
   %.03164 = phi ptr [ %.0.i.i47, %80 ], [ %2, %4 ]
   %.03363 = phi ptr [ %46, %80 ], [ %3, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.03164, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.02965
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02965
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -95868,7 +95868,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Widget_instRpcEncodableGetWidgetsRe
   %.03584 = phi i64 [ %94, %110 ], [ %1, %4 ]
   %.03883 = phi ptr [ %.0.i.i64, %110 ], [ %2, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %.03883, i64 24
-  %9 = getelementptr inbounds nuw [0 x ptr], ptr %8, i64 0, i64 %.03584
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.03584
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -97095,7 +97095,7 @@ lean_dec.exit247:                                 ; preds = %18, %17, %15, %._cr
   %.0192489 = phi ptr [ %3, %.lr.ph ], [ %.1193, %529 ]
   %.0200488 = phi ptr [ %8, %.lr.ph ], [ %.1201, %529 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0192489, i64 24
-  %24 = getelementptr inbounds nuw [0 x ptr], ptr %23, i64 0, i64 %.0184490
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.0184490
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
@@ -98554,7 +98554,7 @@ lean_dec.exit432:                                 ; preds = %30, %29, %27, %lean
   %.0320901 = phi ptr [ %4, %.lr.ph ], [ %.1321, %lean_dec.exit426 ]
   %.0333900 = phi ptr [ %9, %.lr.ph ], [ %.1334, %lean_dec.exit426 ]
   %35 = getelementptr inbounds nuw i8, ptr %.0320901, i64 24
-  %36 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %.0310902
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.0310902
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1

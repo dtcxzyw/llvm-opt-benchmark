@@ -5371,7 +5371,7 @@ _ZN9btVectorXIfE6resizeEi.exit245:                ; preds = %_ZN9btVectorXIfE6re
   %250 = trunc i64 %249 to i32
   %251 = mul nsw i32 %106, %250
   %252 = add i32 %251, %239
-  %253 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %238, i64 0, i64 %indvars.iv463
+  %253 = getelementptr inbounds nuw %class.btVector3, ptr %238, i64 %indvars.iv463
   br label %254
 
 .split436.us:                                     ; preds = %.split, %.split.us.us

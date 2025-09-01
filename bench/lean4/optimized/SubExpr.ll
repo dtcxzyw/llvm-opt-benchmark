@@ -23907,7 +23907,7 @@ define noalias nonnull ptr @l_Lean_PrettyPrinter_Delaborator_SubExpr_withNaryArg
 
 lean_dec.exit.i:                                  ; preds = %21, %20, %18, %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds nuw [0 x ptr], ptr %22, i64 0, i64 %9
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %9
   %24 = load ptr, ptr %23, align 8, !tbaa !5
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 1

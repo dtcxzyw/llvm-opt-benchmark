@@ -372,7 +372,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN11Instruction6mirrorENS_9Condition
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN11Instruction6mirrorENS_9ConditionE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11Instruction6mirrorENS_9ConditionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -393,7 +393,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11Instruction6negateENS_9Condition
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN11Instruction6negateENS_9ConditionE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11Instruction6negateENS_9ConditionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

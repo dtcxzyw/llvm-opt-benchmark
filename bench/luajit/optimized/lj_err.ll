@@ -1293,7 +1293,7 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %6 = ashr i64 %5, 47
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 -14)
   %spec.select = xor i64 %7, -1
-  %8 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
+  %8 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !36
   %11 = sext i32 %2 to i64
@@ -1356,13 +1356,13 @@ define hidden void @lj_err_comp(ptr noundef %0, ptr noundef readonly captures(no
   %5 = ashr i64 %4, 47
   %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -14)
   %spec.select = xor i64 %6, -1
-  %7 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
+  %7 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = load i64, ptr %2, align 8, !tbaa !18
   %10 = ashr i64 %9, 47
   %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 -14)
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = icmp eq ptr %8, %14
   %16 = select i1 %15, i32 331, i32 301
@@ -1388,7 +1388,7 @@ define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unn
   %13 = ashr i64 %12, 47
   %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 -14)
   %spec.select = xor i64 %14, -1
-  %15 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select
+  %15 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = ptrtoint ptr %0 to i64
   %18 = or i64 %17, -985162418487296
@@ -1629,7 +1629,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %20 = sub nuw nsw i32 -10003, %1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [1 x %union.TValue], ptr %19, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw %union.TValue, ptr %19, i64 %21
   br label %.sink.split
 
 23:                                               ; preds = %3
@@ -1665,7 +1665,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   %41 = ashr i64 %40, 47
   %42 = tail call i64 @llvm.umax.i64(i64 %41, i64 -14)
   %spec.select29 = xor i64 %42, -1
-  %43 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select29
+  %43 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select29
   br label %44
 
 44:                                               ; preds = %.sink.split, %36, %7, %5
@@ -1680,9 +1680,9 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define hidden void @lj_err_argt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = add nsw i32 %2, 1
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %5
+  %4 = sext i32 %2 to i64
+  %5 = getelementptr ptr, ptr @lj_obj_typename, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   tail call void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %7) #19
   unreachable

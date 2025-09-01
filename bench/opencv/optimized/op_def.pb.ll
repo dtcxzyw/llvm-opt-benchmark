@@ -4500,7 +4500,7 @@ _ZN17opencv_tensorflow5OpDef22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %6
   %89 = add nsw i32 %84, 1
   store i32 %89, ptr %23, align 8, !tbaa !72
   %90 = sext i32 %84 to i64
-  %91 = getelementptr inbounds [268435454 x ptr], ptr %88, i64 0, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit
 
@@ -4553,7 +4553,7 @@ _ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit: ; preds = %87, %93
   %118 = add nsw i32 %113, 1
   store i32 %118, ptr %20, align 8, !tbaa !72
   %119 = sext i32 %113 to i64
-  %120 = getelementptr inbounds [268435454 x ptr], ptr %117, i64 0, i64 %119
+  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit
 
@@ -4606,7 +4606,7 @@ _ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit: ; preds = %116, %
   %147 = add nsw i32 %142, 1
   store i32 %147, ptr %17, align 8, !tbaa !72
   %148 = sext i32 %142 to i64
-  %149 = getelementptr inbounds [268435454 x ptr], ptr %146, i64 0, i64 %148
+  %149 = getelementptr inbounds ptr, ptr %146, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef18_internal_add_attrEv.exit
 
@@ -5055,7 +5055,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %42,
   %46 = load ptr, ptr %38, align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %.05091 to i64
-  %49 = getelementptr inbounds [268435454 x ptr], ptr %47, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !56
   store i8 18, ptr %.0.i53, align 1, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 1
@@ -5108,7 +5108,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57: ; preds = %6
   %69 = load ptr, ptr %41, align 8, !tbaa !71
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = sext i32 %.05193 to i64
-  %72 = getelementptr inbounds [268435454 x ptr], ptr %70, i64 0, i64 %71
+  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !56
   store i8 26, ptr %.0.i56, align 1, !tbaa !34
   %74 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
@@ -5162,7 +5162,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit62: ; preds = %9
   %97 = load ptr, ptr %64, align 8, !tbaa !71
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = sext i32 %.04999 to i64
-  %100 = getelementptr inbounds [268435454 x ptr], ptr %98, i64 0, i64 %99
+  %100 = getelementptr inbounds ptr, ptr %98, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !56
   store i8 34, ptr %.0.i61, align 1, !tbaa !34
   %102 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 1
@@ -7402,7 +7402,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %57 = add nsw i32 %52, 1
   store i32 %57, ptr %10, align 8, !tbaa !72
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds [268435454 x ptr], ptr %56, i64 0, i64 %58
+  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow6OpList16_internal_add_opEv.exit
 
@@ -7512,7 +7512,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.01114 to i64
-  %17 = getelementptr inbounds [268435454 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   store i8 10, ptr %.0.i12, align 1, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1

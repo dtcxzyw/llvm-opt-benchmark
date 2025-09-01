@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 38:                                               ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = getelementptr inbounds nuw [30 x %struct.Coeffs], ptr %31, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw %struct.Coeffs, ptr %31, i64 %indvars.iv.i.i
   %40 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %41 = uitofp nneg i32 %40 to double
   %42 = fsub nsz double %41, %21
@@ -259,7 +259,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
 
 41:                                               ; preds = %41, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw [30 x %struct.Coeffs], ptr %34, i64 0, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw %struct.Coeffs, ptr %34, i64 %indvars.iv.i.i
   %43 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %44 = uitofp nneg i32 %43 to double
   %45 = fsub nsz double %44, %24
@@ -377,7 +377,7 @@ define internal noundef i32 @filter_channels_fltp(ptr noundef readonly captures(
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph58.us.us
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge.us.us.us ], [ 0, %.lr.ph58.us.us ]
-  %43 = getelementptr inbounds nuw [30 x %struct.Coeffs], ptr %28, i64 0, i64 %indvars.iv76
+  %43 = getelementptr inbounds nuw %struct.Coeffs, ptr %28, i64 %indvars.iv76
   %44 = load double, ptr %43, align 8, !tbaa !43
   %45 = fptrunc nsz double %44 to float
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -507,7 +507,7 @@ define internal noundef i32 @filter_channels_dblp(ptr noundef readonly captures(
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph58.us.us
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge.us.us.us ], [ 0, %.lr.ph58.us.us ]
-  %42 = getelementptr inbounds nuw [30 x %struct.Coeffs], ptr %27, i64 0, i64 %indvars.iv76
+  %42 = getelementptr inbounds nuw %struct.Coeffs, ptr %27, i64 %indvars.iv76
   %43 = load double, ptr %42, align 8, !tbaa !43
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !42

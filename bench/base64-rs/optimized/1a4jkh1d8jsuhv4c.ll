@@ -48,7 +48,7 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
   br i1 %17, label %31, label %29
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %9
+  %19 = getelementptr inbounds i8, ptr %1, i64 %9
   %20 = load i8, ptr %19, align 1, !noundef !4
   %.not4 = icmp eq i8 %20, 61
   br i1 %.not4, label %10, label %22
@@ -59,7 +59,7 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
 
 22:                                               ; preds = %18
   %23 = zext i8 %20 to i64
-  %24 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   %25 = load i8, ptr %24, align 1, !noundef !4
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %27, label %10

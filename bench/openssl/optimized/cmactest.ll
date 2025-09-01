@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @test_cmac_run() #0 {
 
 4:                                                ; preds = %0, %._crit_edge
   %.065121 = phi i64 [ 0, %0 ], [ %17, %._crit_edge ]
-  %5 = getelementptr inbounds nuw [8 x %struct.test_st], ptr @test, i64 0, i64 %.065121
+  %5 = getelementptr inbounds nuw %struct.test_st, ptr @test, i64 %.065121
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4132
@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @test_cmac_run() #0 {
   %.0120 = phi i64 [ %16, %14 ], [ %7, %4 ]
   %.063119 = phi i64 [ %15, %14 ], [ %11, %4 ]
   %12 = icmp ugt i64 %.063119, %7
-  %13 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %.0120
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.0120
   br i1 %12, label %14, label %.thread
 
 .thread:                                          ; preds = %.lr.ph

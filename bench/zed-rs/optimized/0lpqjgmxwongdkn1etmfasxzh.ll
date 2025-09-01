@@ -14283,7 +14283,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 12:                                               ; preds = %16, %.lr.ph.i
   %13 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2108)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !2109, !noundef !4
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17he5f4c6a5082e93c6E.exit.thread" [
     i8 32, label %16
@@ -14355,7 +14355,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 36:                                               ; preds = %32
   %.sroa.0.09.i.add = add nuw nsw i64 %.sroa.0.09.i.idx, 1
-  %37 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %30
+  %37 = getelementptr inbounds i8, ptr %11, i64 %30
   %38 = load i8, ptr %37, align 1, !noalias !2131, !noundef !4
   %39 = add nuw i64 %30, 1
   store i64 %39, ptr %6, align 8, !alias.scope !2133, !noalias !2134
@@ -14408,7 +14408,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 12:                                               ; preds = %16, %.lr.ph.i
   %13 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %17, %16 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2148)
-  %14 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !2149, !noundef !4
   switch i8 %15, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17he5f4c6a5082e93c6E.exit.thread" [
     i8 32, label %16
@@ -14476,7 +14476,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 34:                                               ; preds = %30
   %.sroa.0.09.i.add = add nuw nsw i64 %.sroa.0.09.i.idx, 1
-  %35 = getelementptr inbounds [0 x i8], ptr %11, i64 0, i64 %28
+  %35 = getelementptr inbounds i8, ptr %11, i64 %28
   %36 = load i8, ptr %35, align 1, !noalias !2171, !noundef !4
   %37 = add nuw i64 %28, 1
   store i64 %37, ptr %6, align 8, !alias.scope !2173, !noalias !2174
@@ -22113,7 +22113,7 @@ define void @_ZN5theme5scale13ColorScaleSet4step17hd0ad35fcdc7bd468E(ptr dead_on
   %.sink10 = phi i64 [ 56, %17 ], [ 32, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink10
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x { float, float, float, float }], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds { float, float, float, float }, ptr %24, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
   ret void
 
@@ -22158,7 +22158,7 @@ define void @_ZN5theme5scale13ColorScaleSet10step_alpha17h9ea7715b36d43865E(ptr 
   %.sink10 = phi i64 [ 104, %17 ], [ 80, %13 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink10
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds [0 x { float, float, float, float }], ptr %24, i64 0, i64 %12
+  %25 = getelementptr inbounds { float, float, float, float }, ptr %24, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false)
   ret void
 

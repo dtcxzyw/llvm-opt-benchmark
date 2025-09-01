@@ -334,7 +334,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal13preprocessing6passes8toStr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -350,7 +350,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal1
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal13preprocessing6passes8toStringENS2_16LearnedRewriteIdE.exit
 
@@ -659,7 +659,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %87 = icmp eq i32 %86, 2
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %89 = zext i1 %87 to i64
-  %90 = getelementptr inbounds nuw [0 x ptr], ptr %88, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !53, !noalias !54
   %92 = load i64, ptr %91, align 8, !noalias !54
   %93 = lshr i64 %92, 40
@@ -737,7 +737,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %126 = icmp eq i32 %124, 2
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0735.0, i64 24
   %128 = zext i1 %126 to i64
-  %129 = getelementptr inbounds nuw [0 x ptr], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !53, !noalias !57
   store ptr %130, ptr %20, align 8, !tbaa !60, !alias.scope !57
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
@@ -831,7 +831,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %169 = icmp eq i32 %167, 2
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.0735.0, i64 24
   %171 = zext i1 %169 to i64
-  %172 = getelementptr inbounds nuw [0 x ptr], ptr %170, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !53, !noalias !65
   %174 = load i64, ptr %118, align 8, !noalias !68
   %175 = trunc i64 %174 to i32
@@ -844,7 +844,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
 180:                                              ; preds = %168
   %181 = icmp eq i32 %179, 2
   %spec.select.i.i = select i1 %181, i64 2, i64 1
-  %182 = getelementptr inbounds nuw [0 x ptr], ptr %170, i64 0, i64 %spec.select.i.i
+  %182 = getelementptr inbounds nuw ptr, ptr %170, i64 %spec.select.i.i
   %183 = load ptr, ptr %182, align 8, !tbaa !53, !noalias !68
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -3437,7 +3437,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EEixEi(ptr 
   %spec.select.i = add nsw i32 %2, %13
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = sext i32 %spec.select.i to i64
-  %16 = getelementptr inbounds [0 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !53
   store ptr %17, ptr %0, align 8, !tbaa !48
   %18 = load i64, ptr %17, align 8
@@ -6070,7 +6070,7 @@ define hidden void @_ZN4cvc58internal13preprocessing6passes14LearnedRewrite14rew
   %92 = icmp eq i32 %91, 2
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %94 = zext i1 %92 to i64
-  %95 = getelementptr inbounds nuw [0 x ptr], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !53, !noalias !160
   store ptr %96, ptr %14, align 8, !tbaa !48, !alias.scope !160
   %97 = load i64, ptr %96, align 8, !noalias !160
@@ -6116,7 +6116,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %102, %108, %110
   %120 = icmp eq i32 %119, 2
   %spec.select.i.i = select i1 %120, i64 2, i64 1
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %122 = getelementptr inbounds nuw [0 x ptr], ptr %121, i64 0, i64 %spec.select.i.i
+  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %spec.select.i.i
   %123 = load ptr, ptr %122, align 8, !tbaa !53, !noalias !163
   store ptr %123, ptr %15, align 8, !tbaa !48, !alias.scope !163
   %124 = load i64, ptr %123, align 8, !noalias !163
@@ -7421,7 +7421,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit611: ; preds = %_ZN4cvc58internal1
   %661 = icmp eq i32 %660, 2
   %662 = getelementptr inbounds nuw i8, ptr %653, i64 24
   %663 = zext i1 %661 to i64
-  %664 = getelementptr inbounds nuw [0 x ptr], ptr %662, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw ptr, ptr %662, i64 %663
   %665 = load ptr, ptr %664, align 8, !tbaa !53, !noalias !183
   store ptr %665, ptr %30, align 8, !tbaa !48, !alias.scope !183
   %666 = load i64, ptr %665, align 8, !noalias !183
@@ -7467,7 +7467,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit613: ; preds = %671, %677, %679
   %689 = icmp eq i32 %688, 2
   %spec.select.i.i614 = select i1 %689, i64 2, i64 1
   %690 = getelementptr inbounds nuw i8, ptr %681, i64 24
-  %691 = getelementptr inbounds nuw [0 x ptr], ptr %690, i64 0, i64 %spec.select.i.i614
+  %691 = getelementptr inbounds nuw ptr, ptr %690, i64 %spec.select.i.i614
   %692 = load ptr, ptr %691, align 8, !tbaa !53, !noalias !186
   store ptr %692, ptr %31, align 8, !tbaa !48, !alias.scope !186
   %693 = load i64, ptr %692, align 8, !noalias !186
@@ -8347,7 +8347,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit693: ; preds = %_ZN4cvc58internal1
   %986 = icmp eq i32 %985, 2
   %987 = getelementptr inbounds nuw i8, ptr %978, i64 24
   %988 = zext i1 %986 to i64
-  %989 = getelementptr inbounds nuw [0 x ptr], ptr %987, i64 0, i64 %988
+  %989 = getelementptr inbounds nuw ptr, ptr %987, i64 %988
   %990 = load ptr, ptr %989, align 8, !tbaa !53, !noalias !189
   store ptr %990, ptr %54, align 8, !tbaa !48, !alias.scope !189
   %991 = load i64, ptr %990, align 8, !noalias !189
@@ -12305,7 +12305,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
 
 switch.lookup:                                    ; preds = %65
   %70 = and i64 %67, 7
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %70
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 %70
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal13preprocessing6passes8toStringENS2_16LearnedRewriteIdE.exit.i
 
@@ -12541,7 +12541,7 @@ _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit17: ; preds = %21, %20
 
 switch.lookup:                                    ; preds = %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit17
   %28 = and i64 %25, 7
-  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal12toStringImplINS0_13preprocessing6passes16LearnedRewriteIdEEEDTcl8toStringfp_EERKT_i.exit.i
 

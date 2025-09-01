@@ -1458,7 +1458,7 @@ define dso_local void @_ZN10V3LangCodeC2EPKc(ptr noundef nonnull writeonly align
 
 3:                                                ; preds = %2, %.critedge
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.critedge ]
-  %4 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef %5) #40
   %.not = icmp eq i32 %6, 0
@@ -1493,7 +1493,7 @@ define dso_local void @_ZN10VTimescaleC2ERKNSt7__cxx1112basic_stringIcSt11char_t
 
 5:                                                ; preds = %3, %.critedge
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.critedge ]
-  %6 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7) #41
   %9 = icmp eq i32 %8, 0
@@ -5488,7 +5488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
 
 .noexc102:                                        ; preds = %151, %.critedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %151 ]
-  %152 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 0, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %indvars.iv.i
   %153 = load ptr, ptr %152, align 8, !tbaa !4
   %154 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %153) #41
   %.not193 = icmp eq i32 %154, 0
@@ -5627,7 +5627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
 
 .noexc125:                                        ; preds = %201, %.critedge.i119
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i120, %.critedge.i119 ], [ 0, %201 ]
-  %202 = getelementptr inbounds nuw [19 x ptr], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 0, i64 %indvars.iv.i118
+  %202 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %indvars.iv.i118
   %203 = load ptr, ptr %202, align 8, !tbaa !4
   %204 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %203) #41
   %.not194 = icmp eq i32 %204, 0
@@ -33242,7 +33242,7 @@ _ZNSt14_Function_baseD2Ev.exit559:                ; preds = %2056, %2058
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store ptr @.str.376, ptr %144, align 8, !tbaa !4
   store ptr @.str.377, ptr %2063, align 8, !tbaa !4
-  %3110 = getelementptr inbounds nuw [122 x ptr], ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 0, i64 %indvars.iv1312
+  %3110 = getelementptr inbounds nuw ptr, ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %indvars.iv1312
   br label %3112
 
 3111:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit826
@@ -35529,7 +35529,7 @@ declare void @_ZN14V3OptionParser22addSuggestionCandidateERKNSt7__cxx1112basic_s
 define linkonce_odr dso_local noundef ptr @_ZNK11V3ErrorCode5asciiEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
   %2 = load i8, ptr %0, align 1, !tbaa !412
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw [122 x ptr], ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   ret ptr %5
 }
@@ -56976,7 +56976,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
 
 11:                                               ; preds = %.critedge.i.i.i.i, %2
   %indvars.iv.i.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i.i, %.critedge.i.i.i.i ]
-  %12 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %indvars.iv.i.i.i.i
+  %12 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %indvars.iv.i.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = tail call i32 @strcasecmp(ptr noundef readonly %.val, ptr noundef %13) #40
   %.not.i.i.i.i = icmp eq i32 %14, 0
@@ -57010,7 +57010,7 @@ _ZN10V3LangCodeC2EPKc.exit.thread.i.i.i:          ; preds = %.critedge.i.i.i.i, 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %_ZN10V3LangCodeC2EPKc.exit.thread.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %_ZN10V3LangCodeC2EPKc.exit.thread.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %25 = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 0, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   store ptr %16, ptr %6, align 8, !tbaa !26
   %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #41
@@ -62334,7 +62334,7 @@ _ZN7V3Error1sEv.exit4:                            ; preds = %26, %23, %_ZN14V3Lo
 _ZN14V3ErrorGuarded12pretendErrorE11V3ErrorCodeb.exit: ; preds = %_ZN7V3Error1sEv.exit4, %33
   %40 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZZN7V3Error1sEvE3s_s, i64 84), ptr nonnull @.str.473, ptr nonnull @.str.475, i32 329, ptr null)
   %41 = zext i8 %0 to i64
-  %42 = getelementptr inbounds nuw [121 x i8], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   store i8 %31, ptr %42, align 1, !tbaa !17
   %43 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !241, !range !172, !noundef !173
   %44 = trunc nuw i8 %43 to i1
@@ -62375,7 +62375,7 @@ define linkonce_odr dso_local void @_ZN14V3ErrorGuarded12pretendErrorE11V3ErrorC
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %16 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %15, ptr nonnull @.str.473, ptr nonnull @.str.475, i32 329, ptr null)
   %17 = zext i8 %1 to i64
-  %18 = getelementptr inbounds nuw [121 x i8], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   store i8 %4, ptr %18, align 1, !tbaa !17
   ret void
 }

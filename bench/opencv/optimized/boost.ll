@@ -2956,7 +2956,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit:              ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit
   %30 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK2cv2ml18DTreesImplForBoost19writeTrainingParamsERNS_11FileStorageE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK2cv2ml18DTreesImplForBoost19writeTrainingParamsERNS_11FileStorageE, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %31
 

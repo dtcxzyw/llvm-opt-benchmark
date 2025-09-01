@@ -9146,7 +9146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %1
   %34 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6duckdb8EnumUtil7ToCharsIN14duckdb_parquet16CompressionCodec4typeEEEPKcT_, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6duckdb8EnumUtil7ToCharsIN14duckdb_parquet16CompressionCodec4typeEEEPKcT_, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 

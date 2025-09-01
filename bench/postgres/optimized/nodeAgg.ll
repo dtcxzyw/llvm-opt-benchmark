@@ -1727,7 +1727,7 @@ list_length.exit617:                              ; preds = %795, %801, %798
 
 815:                                              ; preds = %814
   %816 = sext i32 %723 to i64
-  %817 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %816
+  %817 = getelementptr inbounds i32, ptr %7, i64 %816
   %818 = load i32, ptr %817, align 4
   %819 = call zeroext i1 @IsBinaryCoercible(i32 noundef %818, i32 noundef %651) #12
   br i1 %819, label %825, label %820
@@ -3386,7 +3386,7 @@ define dso_local void @ExecEndAgg(ptr noundef captures(none) %0) local_unnamed_a
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.AggregateInstrumentation], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.AggregateInstrumentation, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -6478,7 +6478,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %231, %226
   %236 = getelementptr inbounds nuw i64, ptr %235, i64 %indvars.iv.i
   %237 = load i64, ptr %236, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %238 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %206, i64 0, i64 %indvars.iv.next.i
+  %238 = getelementptr inbounds nuw %struct.NullableDatum, ptr %206, i64 %indvars.iv.next.i
   store i64 %237, ptr %238, align 8
   %239 = load ptr, ptr %233, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv.i
@@ -6874,7 +6874,7 @@ finalize_partialaggregate.exit:                   ; preds = %388, %419, %433
   %450 = getelementptr inbounds nuw %union.ListCell, ptr %449, i64 %indvars.iv.i61
   %451 = load ptr, ptr %450, align 8
   %452 = load ptr, ptr %8, align 8
-  %453 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %27, i64 0, i64 %indvars.iv99.i
+  %453 = getelementptr inbounds nuw %struct.NullableDatum, ptr %27, i64 %indvars.iv99.i
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %451, i64 32
   %456 = load ptr, ptr %455, align 8
@@ -6956,7 +6956,7 @@ finalize_partialaggregate.exit:                   ; preds = %388, %419, %433
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %.lr.ph96.preheader.i
   %indvars.iv101.i = phi i64 [ %491, %.lr.ph96.preheader.i ], [ %indvars.iv.next102.i, %.lr.ph96.i ]
-  %492 = getelementptr inbounds [0 x %struct.NullableDatum], ptr %27, i64 0, i64 %indvars.iv101.i
+  %492 = getelementptr inbounds %struct.NullableDatum, ptr %27, i64 %indvars.iv101.i
   store i64 0, ptr %492, align 8
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   store i8 1, ptr %493, align 8

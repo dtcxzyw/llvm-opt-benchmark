@@ -2450,7 +2450,7 @@ readFixedNumber.exit.i:                           ; preds = %456
   store i32 1, ptr %467, align 8, !tbaa !117
   %468 = getelementptr inbounds nuw %struct.cli_bc_type, ptr %465, i64 %indvars.iv.i85.i, i32 2
   store i32 1, ptr %468, align 8, !tbaa !118
-  %469 = getelementptr inbounds nuw [4 x i16], ptr @containedTy, i64 0, i64 %indvars.iv.i85.i
+  %469 = getelementptr inbounds nuw i16, ptr @containedTy, i64 %indvars.iv.i85.i
   %470 = getelementptr inbounds nuw %struct.cli_bc_type, ptr %465, i64 %indvars.iv.i85.i, i32 1
   store ptr %469, ptr %470, align 8, !tbaa !119
   %471 = getelementptr inbounds nuw %struct.cli_bc_type, ptr %465, i64 %indvars.iv.i85.i, i32 4
@@ -3278,7 +3278,7 @@ readString.exit.i163:                             ; preds = %805, %800, %readTyp
 
 812:                                              ; preds = %808
   %813 = zext i32 %809 to i64
-  %814 = getelementptr inbounds nuw [0 x %struct.cli_apicall], ptr @cli_apicalls, i64 0, i64 %813
+  %814 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %813
   %815 = load ptr, ptr %814, align 8, !tbaa !150
   %816 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %815, ptr noundef nonnull dereferenceable(1) %.0.i92.i) #27
   %.not64.i = icmp eq i32 %816, 0
@@ -3297,7 +3297,7 @@ readString.exit.i163:                             ; preds = %805, %800, %readTyp
 
 .thread154.i:                                     ; preds = %..thread154.i_crit_edge, %812
   %.pre-phi1902 = phi i64 [ %.pre1901, %..thread154.i_crit_edge ], [ %813, %812 ]
-  %819 = getelementptr inbounds nuw [0 x %struct.cli_apicall], ptr @cli_apicalls, i64 0, i64 %.pre-phi1902, i32 1
+  %819 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %.pre-phi1902, i32 1
   %820 = load i16, ptr %819, align 8, !tbaa !152
   %821 = call fastcc zeroext i1 @types_equal(ptr noundef nonnull %0, ptr noundef %724, i16 noundef zeroext %.0.i.i161, i16 noundef zeroext %820)
   br i1 %821, label %823, label %822
@@ -5856,7 +5856,7 @@ readNumber.exit480.i:                             ; preds = %._crit_edge.i469.i,
   %.027.lcssa.i725728731.i = phi i32 [ %1504, %1511 ], [ %1504, %1805 ], [ %1504, %1810 ], [ %1504, %1816 ], [ %1504, %._crit_edge.i469.i ], [ %1504, %.thread.i477.i ], [ 0, %readFixedNumber.exit.thread723.i ]
   %.sroa.15.3.i = phi i16 [ %.sroa.15.1.i, %1511 ], [ 0, %1805 ], [ 0, %1810 ], [ 0, %1816 ], [ %.036.lcssa.i470.i, %._crit_edge.i469.i ], [ 0, %.thread.i477.i ], [ %.sroa.15.1.i, %readFixedNumber.exit.thread723.i ]
   %1829 = zext nneg i32 %.027.lcssa.i725728731.i to i64
-  %1830 = getelementptr inbounds nuw [51 x i8], ptr @operand_counts, i64 0, i64 %1829
+  %1830 = getelementptr inbounds nuw i8, ptr @operand_counts, i64 %1829
   %1831 = load i8, ptr %1830, align 1, !tbaa !120
   switch i8 %1831, label %1845 [
     i8 0, label %get_optype.exit467.i
@@ -6821,7 +6821,7 @@ define internal fastcc range(i32 -1, 1) i32 @register_events(ptr noundef nonnull
 
 4:                                                ; preds = %1, %2
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw [14 x %struct.anon], ptr @bc_events, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @bc_events, i64 %.08
   %6 = load i32, ptr %5, align 8, !tbaa !202
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !204
@@ -10196,10 +10196,10 @@ define i32 @cli_bytecode_runhook(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 936
   %7 = add i32 %3, -256
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [7 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !250
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 992
-  %12 = getelementptr inbounds nuw [7 x i32], ptr %11, i64 0, i64 %8
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4, !tbaa !114
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread136, label %14
@@ -10684,7 +10684,7 @@ define void @cli_bytecode_describe(ptr noundef readonly captures(address_is_null
   br i1 %.not51, label %106, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw [0 x %struct.cli_apicall], ptr @cli_apicalls, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8, !tbaa !150
   %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #27
   %97 = trunc i64 %96 to i32
@@ -10759,7 +10759,7 @@ define void @cli_bytetype_describe(ptr noundef %0) local_unnamed_addr #15 {
   %13 = getelementptr inbounds nuw %struct.cli_bc_type, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8, !tbaa !117
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw [5 x ptr], ptr @bc_tystr, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr @bc_tystr, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !94
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.187, i32 noundef %.015, ptr noundef %17)
   tail call fastcc void @cli_bytetype_helper(ptr noundef nonnull %0, i32 noundef %.015)
@@ -11064,7 +11064,7 @@ define void @cli_byteinst_describe(ptr noundef readonly %0, ptr noundef captures
 
 12:                                               ; preds = %2
   %13 = zext nneg i32 %4 to i64
-  %14 = getelementptr inbounds nuw [52 x ptr], ptr @bc_opstr, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr @bc_opstr, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !94
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i8, ptr %16, align 4, !tbaa !195
@@ -11494,7 +11494,7 @@ define void @cli_byteinst_describe(ptr noundef readonly %0, ptr noundef captures
 
 301:                                              ; preds = %292
   %302 = zext i16 %295 to i64
-  %303 = getelementptr inbounds nuw [0 x %struct.cli_apicall], ptr @cli_apicalls, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 12
   %305 = load i8, ptr %304, align 4, !tbaa !260
   switch i8 %305, label %402 [
@@ -12446,7 +12446,7 @@ define internal fastcc noundef zeroext i1 @types_equal(ptr noundef readonly capt
   %9 = getelementptr %struct.cli_bc_type, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -2080
   %11 = zext i16 %3 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.cli_bc_type], ptr @cli_apicall_types, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw %struct.cli_bc_type, ptr @cli_apicall_types, i64 %11
   %13 = getelementptr inbounds nuw i16, ptr %1, i64 %11
   %14 = load i16, ptr %13, align 2, !tbaa !110
   %15 = zext i16 %14 to i32

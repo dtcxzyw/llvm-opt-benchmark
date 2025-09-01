@@ -74,7 +74,7 @@ define void @jinit_color_converter(ptr noundef %0) local_unnamed_addr #0 {
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i32, ptr %28, align 8, !tbaa !43
   %30 = zext nneg i32 %23 to i64
-  %31 = getelementptr inbounds nuw [17 x i32], ptr @rgb_pixelsize, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !44
   %.not159 = icmp eq i32 %29, %32
   br i1 %.not159, label %46, label %.sink.split196

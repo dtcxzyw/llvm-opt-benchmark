@@ -551,7 +551,7 @@ define i32 @Abc_ResCheckNonStrict(ptr noundef readonly captures(none) %0, i32 no
 .loopexit53.us:                                   ; preds = %20, %15
   %21 = add nsw i32 %.02956.us, 1
   %22 = sext i32 %.02956.us to i64
-  %23 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat1, i64 0, i64 %22
+  %23 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat1, i64 %22
   store i8 %14, ptr %23, align 1, !tbaa !36
   %.not37.us = icmp slt i32 %.02956.us, %5
   br i1 %.not37.us, label %Abc_ResCheckUnique.exit.us, label %._crit_edge.us
@@ -579,7 +579,7 @@ define i32 @Abc_ResCheckNonStrict(ptr noundef readonly captures(none) %0, i32 no
 .loopexit.us:                                     ; preds = %29, %24
   %30 = add nsw i32 %.03155.us, 1
   %31 = sext i32 %.03155.us to i64
-  %32 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat0, i64 0, i64 %31
+  %32 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat0, i64 %31
   store i8 %14, ptr %32, align 1, !tbaa !36
   %.not39.us = icmp slt i32 %.03155.us, %5
   br i1 %.not39.us, label %Abc_ResCheckUnique.exit.us, label %._crit_edge.us
@@ -627,7 +627,7 @@ define i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = add nsw i32 %.066, 1
   %16 = sext i32 %.066 to i64
-  %17 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %5, i64 %16
   store ptr %14, ptr %17, align 8, !tbaa !65
   br label %18
 
@@ -758,7 +758,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val5794 = phi i32 [ %60, %Vec_PtrPush.exit ], [ %.val57, %35 ]
   %.05064 = phi i32 [ %.050.lcssa, %Vec_PtrPush.exit ], [ %36, %35 ]
   %65 = trunc i32 %.05064 to i8
-  %66 = getelementptr inbounds nuw [256 x i8], ptr @Abc_ResCofCount.Pattern, i64 0, i64 %indvars.iv83
+  %66 = getelementptr inbounds nuw i8, ptr @Abc_ResCofCount.Pattern, i64 %indvars.iv83
   store i8 %65, ptr %66, align 1, !tbaa !36
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -857,7 +857,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
 .loopexit53.us.i:                                 ; preds = %91, %86
   %92 = add nsw i32 %.02956.us.i, 1
   %93 = sext i32 %.02956.us.i to i64
-  %94 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat1, i64 0, i64 %93
+  %94 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat1, i64 %93
   store i8 %85, ptr %94, align 1, !tbaa !36
   %.not37.us.i = icmp slt i32 %.02956.us.i, %77
   br i1 %.not37.us.i, label %Abc_ResCheckUnique.exit.us.i, label %._crit_edge.us.i
@@ -885,7 +885,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
 .loopexit.us.i:                                   ; preds = %100, %95
   %101 = add nsw i32 %.03155.us.i, 1
   %102 = sext i32 %.03155.us.i to i64
-  %103 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat0, i64 0, i64 %102
+  %103 = getelementptr inbounds i8, ptr @Abc_ResCheckNonStrict.Pat0, i64 %102
   store i8 %85, ptr %103, align 1, !tbaa !36
   %.not39.us.i = icmp slt i32 %.03155.us.i, %77
   br i1 %.not39.us.i, label %Abc_ResCheckUnique.exit.us.i, label %._crit_edge.us.i
@@ -3923,7 +3923,7 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr readnone cap
   %46 = load ptr, ptr %45, align 8, !tbaa !65
   %47 = add nsw i32 %.03950, 1
   %48 = sext i32 %.03950 to i64
-  %49 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %48
+  %49 = getelementptr inbounds ptr, ptr %6, i64 %48
   store ptr %46, ptr %49, align 8, !tbaa !65
   br label %50
 
@@ -4593,7 +4593,7 @@ Vec_AttGrow.exit.i.i:                             ; preds = %34, %20, %.lr.ph
 
 Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %48, %51
   %57 = phi ptr [ %.pre19.i.i, %51 ], [ null, %48 ], [ %46, %Vec_AttGrow.exit.i.i ]
-  %58 = getelementptr inbounds nuw [256 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %57, ptr %58, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val43 = load ptr, ptr %6, align 8, !tbaa !42

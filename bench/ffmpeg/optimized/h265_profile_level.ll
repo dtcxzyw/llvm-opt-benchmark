@@ -70,7 +70,7 @@ define ptr @ff_h265_get_profile(ptr noundef readonly captures(none) %0) local_un
 
 16:                                               ; preds = %.preheader, %83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %83 ]
-  %17 = getelementptr inbounds nuw [36 x %struct.H265ProfileDescriptor], ptr @h265_profiles, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.H265ProfileDescriptor, ptr @h265_profiles, i64 %indvars.iv
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !9
   br i1 %.not55, label %._crit_edge, label %18
@@ -82,7 +82,7 @@ define ptr @ff_h265_get_profile(ptr noundef readonly captures(none) %0) local_un
 ._crit_edge:                                      ; preds = %16, %18
   %19 = phi i8 [ %5, %18 ], [ %.pre, %16 ]
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %.not57 = icmp eq i8 %22, 0
   br i1 %.not57, label %83, label %23
@@ -269,7 +269,7 @@ define ptr @ff_h265_guess_level(ptr noundef readonly captures(address_is_null) %
 
 37:                                               ; preds = %31, %.thread92
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %.thread92 ]
-  %38 = getelementptr inbounds nuw [13 x %struct.H265LevelDescriptor], ptr @h265_levels, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.H265LevelDescriptor, ptr @h265_levels, i64 %indvars.iv
   br i1 %.065, label %42, label %39
 
 39:                                               ; preds = %37

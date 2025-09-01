@@ -443,7 +443,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %191 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val152.pre, i64 %190, i32 1
   %192 = load i32, ptr %191, align 4, !tbaa !33
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %8, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !38
   %196 = add nsw i32 %195, 1
   store i32 %196, ptr %194, align 4, !tbaa !38
@@ -5416,7 +5416,7 @@ Gia_ObjIsPo.exit:                                 ; preds = %60
   %123 = and i32 %116, 1
   %124 = shl nsw i32 %122, 1
   %125 = or disjoint i32 %124, %123
-  %126 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %125, ptr %126, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv.next

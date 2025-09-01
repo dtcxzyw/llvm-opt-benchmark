@@ -3574,7 +3574,7 @@ define ptr @tng_compress_initial_pos_algo(ptr noundef readonly captures(none) %0
   %3 = icmp sgt i32 %2, 10
   %spec.store.select1 = select i1 %3, i32 0, i32 %spec.store.select
   %4 = zext nneg i32 %spec.store.select1 to i64
-  %5 = getelementptr inbounds nuw [11 x ptr], ptr @compress_algo_pos, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @compress_algo_pos, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   ret ptr %6
 }
@@ -3587,7 +3587,7 @@ define ptr @tng_compress_pos_algo(ptr noundef readonly captures(none) %0) local_
   %4 = icmp sgt i32 %3, 10
   %spec.store.select1 = select i1 %4, i32 0, i32 %spec.store.select
   %5 = zext nneg i32 %spec.store.select1 to i64
-  %6 = getelementptr inbounds nuw [11 x ptr], ptr @compress_algo_pos, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @compress_algo_pos, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   ret ptr %7
 }
@@ -3599,7 +3599,7 @@ define ptr @tng_compress_initial_vel_algo(ptr noundef readonly captures(none) %0
   %3 = icmp sgt i32 %2, 10
   %spec.store.select1 = select i1 %3, i32 0, i32 %spec.store.select
   %4 = zext nneg i32 %spec.store.select1 to i64
-  %5 = getelementptr inbounds nuw [11 x ptr], ptr @compress_algo_vel, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr @compress_algo_vel, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   ret ptr %6
 }
@@ -3612,7 +3612,7 @@ define ptr @tng_compress_vel_algo(ptr noundef readonly captures(none) %0) local_
   %4 = icmp sgt i32 %3, 10
   %spec.store.select1 = select i1 %4, i32 0, i32 %spec.store.select
   %5 = zext nneg i32 %spec.store.select1 to i64
-  %6 = getelementptr inbounds nuw [11 x ptr], ptr @compress_algo_vel, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr @compress_algo_vel, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   ret ptr %7
 }

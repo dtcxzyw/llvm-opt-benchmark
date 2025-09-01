@@ -278,7 +278,7 @@ define internal void @SynError(ptr noundef captures(none) %0, ptr noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 271592
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [20 x ptr], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 271424
   %15 = load i32, ptr %14, align 8
@@ -408,7 +408,7 @@ cmsIT8SetSheetType.exit:                          ; preds = %48, %50
 
 56:                                               ; preds = %cmsIT8SetSheetType.exit, %56
   %indvars.iv = phi i64 [ 0, %cmsIT8SetSheetType.exit ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [26 x %struct.PROPERTY], ptr @PredefinedProperties, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.PROPERTY, ptr @PredefinedProperties, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 16
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i32, ptr %59, align 8
@@ -419,7 +419,7 @@ cmsIT8SetSheetType.exit:                          ; preds = %48, %50
 
 .preheader:                                       ; preds = %56, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %56 ]
-  %62 = getelementptr inbounds nuw [41 x ptr], ptr @PredefinedSampleID, i64 0, i64 %indvars.iv49
+  %62 = getelementptr inbounds nuw ptr, ptr @PredefinedSampleID, i64 %indvars.iv49
   %63 = load ptr, ptr %62, align 8
   %64 = tail call fastcc ptr @AddToList(ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef %63, ptr noundef null, ptr noundef null, i32 noundef 0)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -3178,7 +3178,7 @@ NextCh.exit.i:                                    ; preds = %NextCh.exit.i.backe
 14:                                               ; preds = %NextCh.exit.i, %NextCh.exit.i
   %15 = load i32, ptr %10, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %9, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 256
   %20 = load ptr, ptr %19, align 8
@@ -3190,7 +3190,7 @@ NextCh.exit.i:                                    ; preds = %NextCh.exit.i.backe
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %10, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %24
+  %25 = getelementptr inbounds ptr, ptr %9, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 256
   %28 = load ptr, ptr %27, align 8
@@ -3207,7 +3207,7 @@ NextCh.exit.i:                                    ; preds = %NextCh.exit.i.backe
   %34 = add nsw i32 %31, -1
   store i32 %34, ptr %10, align 8
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %9, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 256
   %39 = load ptr, ptr %38, align 8
@@ -3261,7 +3261,7 @@ NextCh.exit.i.backedge:                           ; preds = %46, %42, %41, %33, 
   %.1.i = phi ptr [ %54, %52 ], [ %.010.i, %49 ]
   %56 = load i32, ptr %10, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %57
+  %58 = getelementptr inbounds ptr, ptr %9, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 256
   %61 = load ptr, ptr %60, align 8
@@ -3273,7 +3273,7 @@ NextCh.exit.i.backedge:                           ; preds = %46, %42, %41, %33, 
   store i32 %63, ptr %8, align 4
   %64 = load i32, ptr %10, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %65
+  %66 = getelementptr inbounds ptr, ptr %9, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %69 = load ptr, ptr %68, align 8
@@ -3294,7 +3294,7 @@ NextCh.exit.i.backedge:                           ; preds = %46, %42, %41, %33, 
   %75 = add nsw i32 %72, -1
   store i32 %75, ptr %10, align 8
   %76 = zext nneg i32 %72 to i64
-  %77 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %9, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 256
   %80 = load ptr, ptr %79, align 8
@@ -3713,7 +3713,7 @@ DataSection.exit.thread:                          ; preds = %176, %185, %189, %1
 225:                                              ; preds = %.preheader, %.preheader
   %226 = load i32, ptr %103, align 8
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds [20 x ptr], ptr %102, i64 0, i64 %227
+  %228 = getelementptr inbounds ptr, ptr %102, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 256
   %231 = load ptr, ptr %230, align 8
@@ -3725,7 +3725,7 @@ DataSection.exit.thread:                          ; preds = %176, %185, %189, %1
   store i32 %233, ptr %101, align 4
   %234 = load i32, ptr %103, align 8
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds [20 x ptr], ptr %102, i64 0, i64 %235
+  %236 = getelementptr inbounds ptr, ptr %102, i64 %235
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 256
   %239 = load ptr, ptr %238, align 8
@@ -3745,7 +3745,7 @@ DataSection.exit.thread:                          ; preds = %176, %185, %189, %1
   %245 = add nsw i32 %242, -1
   store i32 %245, ptr %103, align 8
   %246 = zext nneg i32 %242 to i64
-  %247 = getelementptr inbounds nuw [20 x ptr], ptr %102, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw ptr, ptr %102, i64 %246
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 256
   %250 = load ptr, ptr %249, align 8
@@ -4467,7 +4467,7 @@ define hidden ptr @cmsIT8LoadFromFile(ptr noundef %0, ptr noundef %1) local_unna
 9:                                                ; preds = %6
   %10 = trunc i64 %7 to i32
   %11 = and i64 %7, 4294967295
-  %12 = getelementptr inbounds nuw [133 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   store i8 0, ptr %12, align 1
   %13 = icmp ult i32 %10, 10
   br i1 %13, label %IsMyFile.exit.thread, label %.lr.ph.preheader.i.i
@@ -6845,7 +6845,7 @@ ReadNumbers.exit138.i:                            ; preds = %Check.exit.i.i136.i
   %136 = mul nuw nsw i64 %indvars.iv194.i, %106
   %137 = getelementptr inbounds nuw float, ptr %94, i64 %136
   %138 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %135, i32 noundef %.079.i, ptr noundef nonnull %137) #19
-  %139 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv194.i
+  %139 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv194.i
   store ptr %138, ptr %139, align 8
   %140 = icmp eq ptr %138, null
   br i1 %140, label %ParseCube.exit.thread, label %134
@@ -7342,7 +7342,7 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
 13:                                               ; preds = %NextCh.exit, %NextCh.exit
   %14 = load i32, ptr %6, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load ptr, ptr %18, align 8
@@ -7354,7 +7354,7 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
   store i32 %21, ptr %4, align 4
   %22 = load i32, ptr %6, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds ptr, ptr %5, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 256
   %27 = load ptr, ptr %26, align 8
@@ -7371,7 +7371,7 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
   %33 = add nsw i32 %30, -1
   store i32 %33, ptr %6, align 8
   %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %5, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 256
   %38 = load ptr, ptr %37, align 8
@@ -7398,11 +7398,11 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
 
 47:                                               ; preds = %NextCh.exit
   %.not.i168 = icmp eq i32 %12, 45
-  %.pre350 = tail call ptr @__ctype_b_loc() #20
+  %.pre351 = tail call ptr @__ctype_b_loc() #20
   br i1 %.not.i168, label %isfirstidchar.exit.thread, label %48
 
 48:                                               ; preds = %47
-  %49 = load ptr, ptr %.pre350, align 8
+  %49 = load ptr, ptr %.pre351, align 8
   %50 = sext i32 %12 to i64
   %51 = getelementptr inbounds i16, ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
@@ -7552,7 +7552,7 @@ AllocChunk.exit.thread.i:                         ; preds = %104, %AllocChunk.ex
 StringAppend.exit:                                ; preds = %108, %110
   %120 = load i32, ptr %6, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %121
+  %122 = getelementptr inbounds ptr, ptr %5, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 256
   %125 = load ptr, ptr %124, align 8
@@ -7564,7 +7564,7 @@ StringAppend.exit:                                ; preds = %108, %110
   store i32 %127, ptr %4, align 4
   %128 = load i32, ptr %6, align 8
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %129
+  %130 = getelementptr inbounds ptr, ptr %5, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 256
   %133 = load ptr, ptr %132, align 8
@@ -7585,7 +7585,7 @@ StringAppend.exit:                                ; preds = %108, %110
   %139 = add nsw i32 %136, -1
   store i32 %139, ptr %6, align 8
   %140 = zext nneg i32 %136 to i64
-  %141 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr %5, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 256
   %144 = load ptr, ptr %143, align 8
@@ -7613,7 +7613,7 @@ StringAppend.exit:                                ; preds = %108, %110
 NextCh.exit173:                                   ; preds = %.NextCh.exit173_crit_edge, %138, %146, %147, %151
   %153 = phi i32 [ %.pre338, %.NextCh.exit173_crit_edge ], [ 32, %138 ], [ 0, %146 ], [ 0, %147 ], [ %150, %151 ]
   %.fr319 = freeze i32 %153
-  %154 = load ptr, ptr %.pre350, align 8
+  %154 = load ptr, ptr %.pre351, align 8
   %155 = sext i32 %.fr319 to i64
   %156 = getelementptr inbounds i16, ptr %154, i64 %155
   %157 = load i16, ptr %156, align 2
@@ -7682,9 +7682,9 @@ BinSrchKey.exit.thread:                           ; preds = %BinSrchKey.exit, %1
   br label %750
 
 isfirstidchar.exit.thread:                        ; preds = %47, %switch.early.test282, %switch.early.test282, %switch.early.test282, %48
-  %.pre-phi352 = phi i64 [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %48 ], [ 45, %47 ]
-  %183 = load ptr, ptr %.pre350, align 8
-  %184 = getelementptr inbounds i16, ptr %183, i64 %.pre-phi352
+  %.pre-phi354 = phi i64 [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %switch.early.test282 ], [ %50, %48 ], [ 45, %47 ]
+  %183 = load ptr, ptr %.pre351, align 8
+  %184 = getelementptr inbounds i16, ptr %183, i64 %.pre-phi354
   %185 = load i16, ptr %184, align 2
   %.fr = freeze i16 %185
   %186 = and i16 %.fr, 2048
@@ -7712,7 +7712,7 @@ switch.early.test:                                ; preds = %isfirstidchar.exit.
 188:                                              ; preds = %187
   %189 = load i32, ptr %6, align 8
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %190
+  %191 = getelementptr inbounds ptr, ptr %5, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 256
   %194 = load ptr, ptr %193, align 8
@@ -7724,7 +7724,7 @@ switch.early.test:                                ; preds = %isfirstidchar.exit.
   store i32 %196, ptr %4, align 4
   %197 = load i32, ptr %6, align 8
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %198
+  %199 = getelementptr inbounds ptr, ptr %5, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 256
   %202 = load ptr, ptr %201, align 8
@@ -7745,7 +7745,7 @@ switch.early.test:                                ; preds = %isfirstidchar.exit.
   %208 = add nsw i32 %205, -1
   store i32 %208, ptr %6, align 8
   %209 = zext nneg i32 %205 to i64
-  %210 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw ptr, ptr %5, i64 %209
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 256
   %213 = load ptr, ptr %212, align 8
@@ -7789,7 +7789,7 @@ NextCh.exit183:                                   ; preds = %187, %.NextCh.exit1
 226:                                              ; preds = %NextCh.exit183
   %227 = load i32, ptr %6, align 8
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %228
+  %229 = getelementptr inbounds ptr, ptr %5, i64 %228
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 256
   %232 = load ptr, ptr %231, align 8
@@ -7801,7 +7801,7 @@ NextCh.exit183:                                   ; preds = %187, %.NextCh.exit1
   store i32 %234, ptr %4, align 4
   %235 = load i32, ptr %6, align 8
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %236
+  %237 = getelementptr inbounds ptr, ptr %5, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 256
   %240 = load ptr, ptr %239, align 8
@@ -7822,7 +7822,7 @@ NextCh.exit183:                                   ; preds = %187, %.NextCh.exit1
   %246 = add nsw i32 %243, -1
   store i32 %246, ptr %6, align 8
   %247 = zext nneg i32 %243 to i64
-  %248 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %5, i64 %247
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 256
   %251 = load ptr, ptr %250, align 8
@@ -7858,7 +7858,7 @@ NextCh.exit187:                                   ; preds = %.NextCh.exit187_cri
 262:                                              ; preds = %NextCh.exit187
   %263 = load i32, ptr %6, align 8
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %264
+  %265 = getelementptr inbounds ptr, ptr %5, i64 %264
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 256
   %268 = load ptr, ptr %267, align 8
@@ -7870,7 +7870,7 @@ NextCh.exit187:                                   ; preds = %.NextCh.exit187_cri
   store i32 %270, ptr %4, align 4
   %271 = load i32, ptr %6, align 8
   %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %272
+  %273 = getelementptr inbounds ptr, ptr %5, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 256
   %276 = load ptr, ptr %275, align 8
@@ -7891,7 +7891,7 @@ NextCh.exit187:                                   ; preds = %.NextCh.exit187_cri
   %282 = add nsw i32 %279, -1
   store i32 %282, ptr %6, align 8
   %283 = zext nneg i32 %279 to i64
-  %284 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %5, i64 %283
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 256
   %287 = load ptr, ptr %286, align 8
@@ -7918,7 +7918,7 @@ NextCh.exit187:                                   ; preds = %.NextCh.exit187_cri
 
 NextCh.exit191:                                   ; preds = %.NextCh.exit191_crit_edge, %281, %289, %290, %294
   %296 = phi i32 [ %.pre345, %.NextCh.exit191_crit_edge ], [ 32, %281 ], [ 0, %289 ], [ 0, %290 ], [ %293, %294 ]
-  %297 = load ptr, ptr %.pre350, align 8
+  %297 = load ptr, ptr %.pre351, align 8
   %298 = sext i32 %296 to i64
   %299 = getelementptr inbounds i16, ptr %297, i64 %298
   %300 = load i16, ptr %299, align 2
@@ -7952,7 +7952,7 @@ NextCh.exit191:                                   ; preds = %.NextCh.exit191_cri
   store i32 %313, ptr %224, align 8
   %314 = load i32, ptr %6, align 8
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %315
+  %316 = getelementptr inbounds ptr, ptr %5, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 256
   %319 = load ptr, ptr %318, align 8
@@ -7964,7 +7964,7 @@ NextCh.exit191:                                   ; preds = %.NextCh.exit191_cri
   store i32 %321, ptr %4, align 4
   %322 = load i32, ptr %6, align 8
   %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %323
+  %324 = getelementptr inbounds ptr, ptr %5, i64 %323
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 256
   %327 = load ptr, ptr %326, align 8
@@ -7985,7 +7985,7 @@ NextCh.exit191:                                   ; preds = %.NextCh.exit191_cri
   %333 = add nsw i32 %330, -1
   store i32 %333, ptr %6, align 8
   %334 = zext nneg i32 %330 to i64
-  %335 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw ptr, ptr %5, i64 %334
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 256
   %338 = load ptr, ptr %337, align 8
@@ -8012,7 +8012,7 @@ NextCh.exit191:                                   ; preds = %.NextCh.exit191_cri
 
 NextCh.exit195:                                   ; preds = %.NextCh.exit195_crit_edge, %332, %340, %341, %345
   %347 = phi i32 [ %.pre346, %.NextCh.exit195_crit_edge ], [ 32, %332 ], [ 0, %340 ], [ 0, %341 ], [ %344, %345 ]
-  %348 = load ptr, ptr %.pre350, align 8
+  %348 = load ptr, ptr %.pre351, align 8
   %349 = sext i32 %347 to i64
   %350 = getelementptr inbounds i16, ptr %348, i64 %349
   %351 = load i16, ptr %350, align 2
@@ -8023,7 +8023,7 @@ NextCh.exit195:                                   ; preds = %.NextCh.exit195_cri
 353:                                              ; preds = %NextCh.exit187
   %354 = load i32, ptr %6, align 8
   %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %355
+  %356 = getelementptr inbounds ptr, ptr %5, i64 %355
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 256
   %359 = load ptr, ptr %358, align 8
@@ -8035,7 +8035,7 @@ NextCh.exit195:                                   ; preds = %.NextCh.exit195_cri
   store i32 %361, ptr %4, align 4
   %362 = load i32, ptr %6, align 8
   %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %363
+  %364 = getelementptr inbounds ptr, ptr %5, i64 %363
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 256
   %367 = load ptr, ptr %366, align 8
@@ -8056,7 +8056,7 @@ NextCh.exit195:                                   ; preds = %.NextCh.exit195_cri
   %373 = add nsw i32 %370, -1
   store i32 %373, ptr %6, align 8
   %374 = zext nneg i32 %370 to i64
-  %375 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw ptr, ptr %5, i64 %374
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 256
   %378 = load ptr, ptr %377, align 8
@@ -8107,7 +8107,7 @@ NextCh.exit199:                                   ; preds = %.NextCh.exit199_cri
   store i32 %396, ptr %224, align 8
   %397 = load i32, ptr %6, align 8
   %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %398
+  %399 = getelementptr inbounds ptr, ptr %5, i64 %398
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 256
   %402 = load ptr, ptr %401, align 8
@@ -8119,7 +8119,7 @@ NextCh.exit199:                                   ; preds = %.NextCh.exit199_cri
   store i32 %404, ptr %4, align 4
   %405 = load i32, ptr %6, align 8
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %406
+  %407 = getelementptr inbounds ptr, ptr %5, i64 %406
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 256
   %410 = load ptr, ptr %409, align 8
@@ -8140,7 +8140,7 @@ NextCh.exit199:                                   ; preds = %.NextCh.exit199_cri
   %416 = add nsw i32 %413, -1
   store i32 %416, ptr %6, align 8
   %417 = zext nneg i32 %413 to i64
-  %418 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw ptr, ptr %5, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 256
   %421 = load ptr, ptr %420, align 8
@@ -8175,7 +8175,7 @@ NextCh.exit203:                                   ; preds = %.NextCh.exit203_cri
   %432 = phi i32 [ %221, %NextCh.exit183.thread ], [ %260, %NextCh.exit187 ], [ %223, %NextCh.exit183 ]
   %433 = phi ptr [ %222, %NextCh.exit183.thread ], [ %224, %NextCh.exit187 ], [ %224, %NextCh.exit183 ]
   %.0141255 = phi i32 [ -1, %NextCh.exit183.thread ], [ %.0141, %NextCh.exit187 ], [ %.0141, %NextCh.exit183 ]
-  %434 = load ptr, ptr %.pre350, align 8
+  %434 = load ptr, ptr %.pre351, align 8
   %435 = sext i32 %432 to i64
   %436 = getelementptr inbounds i16, ptr %434, i64 %435
   %437 = load i16, ptr %436, align 2
@@ -8209,7 +8209,7 @@ NextCh.exit203:                                   ; preds = %.NextCh.exit203_cri
   store i32 %453, ptr %433, align 8
   %454 = load i32, ptr %6, align 8
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %455
+  %456 = getelementptr inbounds ptr, ptr %5, i64 %455
   %457 = load ptr, ptr %456, align 8
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 256
   %459 = load ptr, ptr %458, align 8
@@ -8221,7 +8221,7 @@ NextCh.exit203:                                   ; preds = %.NextCh.exit203_cri
   store i32 %461, ptr %4, align 4
   %462 = load i32, ptr %6, align 8
   %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %463
+  %464 = getelementptr inbounds ptr, ptr %5, i64 %463
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 256
   %467 = load ptr, ptr %466, align 8
@@ -8242,7 +8242,7 @@ NextCh.exit203:                                   ; preds = %.NextCh.exit203_cri
   %473 = add nsw i32 %470, -1
   store i32 %473, ptr %6, align 8
   %474 = zext nneg i32 %470 to i64
-  %475 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw ptr, ptr %5, i64 %474
   %476 = load ptr, ptr %475, align 8
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 256
   %478 = load ptr, ptr %477, align 8
@@ -8269,7 +8269,7 @@ NextCh.exit203:                                   ; preds = %.NextCh.exit203_cri
 
 NextCh.exit207:                                   ; preds = %.NextCh.exit207_crit_edge, %472, %480, %481, %485
   %487 = phi i32 [ %.pre347, %.NextCh.exit207_crit_edge ], [ 32, %472 ], [ 0, %480 ], [ 0, %481 ], [ %484, %485 ]
-  %488 = load ptr, ptr %.pre350, align 8
+  %488 = load ptr, ptr %.pre351, align 8
   %489 = sext i32 %487 to i64
   %490 = getelementptr inbounds i16, ptr %488, i64 %489
   %491 = load i16, ptr %490, align 2
@@ -8298,7 +8298,7 @@ NextCh.exit207:                                   ; preds = %.NextCh.exit207_cri
 500:                                              ; preds = %._crit_edge
   %501 = mul nsw i32 %494, %.0141255
   store i32 %501, ptr %433, align 8
-  %502 = load ptr, ptr %.pre350, align 8
+  %502 = load ptr, ptr %.pre351, align 8
   %503 = getelementptr inbounds i16, ptr %502, i64 %.lcssa
   %504 = load i16, ptr %503, align 2
   %505 = and i16 %504, 8
@@ -8362,7 +8362,7 @@ StringCat.exit:                                   ; preds = %.lr.ph.i, %517
   tail call fastcc void @StringAppend(ptr noundef %526, i8 noundef signext %527)
   %528 = load i32, ptr %6, align 8
   %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %529
+  %530 = getelementptr inbounds ptr, ptr %5, i64 %529
   %531 = load ptr, ptr %530, align 8
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 256
   %533 = load ptr, ptr %532, align 8
@@ -8374,7 +8374,7 @@ StringCat.exit:                                   ; preds = %.lr.ph.i, %517
   store i32 %535, ptr %4, align 4
   %536 = load i32, ptr %6, align 8
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %537
+  %538 = getelementptr inbounds ptr, ptr %5, i64 %537
   %539 = load ptr, ptr %538, align 8
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 256
   %541 = load ptr, ptr %540, align 8
@@ -8395,7 +8395,7 @@ StringCat.exit:                                   ; preds = %.lr.ph.i, %517
   %547 = add nsw i32 %544, -1
   store i32 %547, ptr %6, align 8
   %548 = zext nneg i32 %544 to i64
-  %549 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw ptr, ptr %5, i64 %548
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 256
   %552 = load ptr, ptr %551, align 8
@@ -8423,7 +8423,7 @@ StringCat.exit:                                   ; preds = %.lr.ph.i, %517
 NextCh.exit219:                                   ; preds = %.NextCh.exit219_crit_edge, %546, %554, %555, %559
   %561 = phi i32 [ %.pre349, %.NextCh.exit219_crit_edge ], [ 32, %546 ], [ 0, %554 ], [ 0, %555 ], [ %558, %559 ]
   %.fr320 = freeze i32 %561
-  %562 = load ptr, ptr %.pre350, align 8
+  %562 = load ptr, ptr %.pre351, align 8
   %563 = sext i32 %.fr320 to i64
   %564 = getelementptr inbounds i16, ptr %562, i64 %563
   %565 = load i16, ptr %564, align 2
@@ -8457,7 +8457,7 @@ switch.early.test288:                             ; preds = %isidchar.exit225
 571:                                              ; preds = %switch.early.test
   %572 = load i32, ptr %6, align 8
   %573 = sext i32 %572 to i64
-  %574 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %573
+  %574 = getelementptr inbounds ptr, ptr %5, i64 %573
   %575 = load ptr, ptr %574, align 8
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 256
   %577 = load ptr, ptr %576, align 8
@@ -8469,7 +8469,7 @@ switch.early.test288:                             ; preds = %isidchar.exit225
   store i32 %579, ptr %4, align 4
   %580 = load i32, ptr %6, align 8
   %581 = sext i32 %580 to i64
-  %582 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %581
+  %582 = getelementptr inbounds ptr, ptr %5, i64 %581
   %583 = load ptr, ptr %582, align 8
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 256
   %585 = load ptr, ptr %584, align 8
@@ -8486,7 +8486,7 @@ switch.early.test288:                             ; preds = %isidchar.exit225
   %591 = add nsw i32 %588, -1
   store i32 %591, ptr %6, align 8
   %592 = zext nneg i32 %588 to i64
-  %593 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %592
+  %593 = getelementptr inbounds nuw ptr, ptr %5, i64 %592
   %594 = load ptr, ptr %593, align 8
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 256
   %596 = load ptr, ptr %595, align 8
@@ -8523,7 +8523,7 @@ NextCh.exit229:                                   ; preds = %NextCh.exit229threa
 607:                                              ; preds = %NextCh.exit229
   %608 = load i32, ptr %6, align 8
   %609 = sext i32 %608 to i64
-  %610 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %609
+  %610 = getelementptr inbounds ptr, ptr %5, i64 %609
   %611 = load ptr, ptr %610, align 8
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 256
   %613 = load ptr, ptr %612, align 8
@@ -8535,7 +8535,7 @@ NextCh.exit229:                                   ; preds = %NextCh.exit229threa
   store i32 %615, ptr %4, align 4
   %616 = load i32, ptr %6, align 8
   %617 = sext i32 %616 to i64
-  %618 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %617
+  %618 = getelementptr inbounds ptr, ptr %5, i64 %617
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 256
   %621 = load ptr, ptr %620, align 8
@@ -8552,7 +8552,7 @@ NextCh.exit229:                                   ; preds = %NextCh.exit229threa
   %627 = add nsw i32 %624, -1
   store i32 %627, ptr %6, align 8
   %628 = zext nneg i32 %624 to i64
-  %629 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %628
+  %629 = getelementptr inbounds nuw ptr, ptr %5, i64 %628
   %630 = load ptr, ptr %629, align 8
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 256
   %632 = load ptr, ptr %631, align 8
@@ -8587,7 +8587,7 @@ NextCh.exit233:                                   ; preds = %599, %598, %590, %6
 643:                                              ; preds = %switch.early.test
   %644 = load i32, ptr %6, align 8
   %645 = sext i32 %644 to i64
-  %646 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %645
+  %646 = getelementptr inbounds ptr, ptr %5, i64 %645
   %647 = load ptr, ptr %646, align 8
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 256
   %649 = load ptr, ptr %648, align 8
@@ -8599,7 +8599,7 @@ NextCh.exit233:                                   ; preds = %599, %598, %590, %6
   store i32 %651, ptr %4, align 4
   %652 = load i32, ptr %6, align 8
   %653 = sext i32 %652 to i64
-  %654 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %653
+  %654 = getelementptr inbounds ptr, ptr %5, i64 %653
   %655 = load ptr, ptr %654, align 8
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 256
   %657 = load ptr, ptr %656, align 8
@@ -8616,7 +8616,7 @@ NextCh.exit233:                                   ; preds = %599, %598, %590, %6
   %663 = add nsw i32 %660, -1
   store i32 %663, ptr %6, align 8
   %664 = zext nneg i32 %660 to i64
-  %665 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %664
+  %665 = getelementptr inbounds nuw ptr, ptr %5, i64 %664
   %666 = load ptr, ptr %665, align 8
   %667 = getelementptr inbounds nuw i8, ptr %666, i64 256
   %668 = load ptr, ptr %667, align 8
@@ -8651,7 +8651,7 @@ NextCh.exit237:                                   ; preds = %650, %662, %670, %6
 679:                                              ; preds = %switch.early.test
   %680 = load i32, ptr %6, align 8
   %681 = sext i32 %680 to i64
-  %682 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %681
+  %682 = getelementptr inbounds ptr, ptr %5, i64 %681
   %683 = load ptr, ptr %682, align 8
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 256
   %685 = load ptr, ptr %684, align 8
@@ -8663,7 +8663,7 @@ NextCh.exit237:                                   ; preds = %650, %662, %670, %6
   store i32 %687, ptr %4, align 4
   %688 = load i32, ptr %6, align 8
   %689 = sext i32 %688 to i64
-  %690 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %689
+  %690 = getelementptr inbounds ptr, ptr %5, i64 %689
   %691 = load ptr, ptr %690, align 8
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 256
   %693 = load ptr, ptr %692, align 8
@@ -8680,7 +8680,7 @@ NextCh.exit237:                                   ; preds = %650, %662, %670, %6
   %699 = add nsw i32 %696, -1
   store i32 %699, ptr %6, align 8
   %700 = zext nneg i32 %696 to i64
-  %701 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %700
+  %701 = getelementptr inbounds nuw ptr, ptr %5, i64 %700
   %702 = load ptr, ptr %701, align 8
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 256
   %704 = load ptr, ptr %703, align 8
@@ -8719,7 +8719,7 @@ NextCh.exit241:                                   ; preds = %NextCh.exit241.back
 714:                                              ; preds = %NextCh.exit241
   %715 = load i32, ptr %6, align 8
   %716 = sext i32 %715 to i64
-  %717 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %716
+  %717 = getelementptr inbounds ptr, ptr %5, i64 %716
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 256
   %720 = load ptr, ptr %719, align 8
@@ -8731,7 +8731,7 @@ NextCh.exit241:                                   ; preds = %NextCh.exit241.back
   store i32 %722, ptr %4, align 4
   %723 = load i32, ptr %6, align 8
   %724 = sext i32 %723 to i64
-  %725 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %724
+  %725 = getelementptr inbounds ptr, ptr %5, i64 %724
   %726 = load ptr, ptr %725, align 8
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 256
   %728 = load ptr, ptr %727, align 8
@@ -8751,7 +8751,7 @@ NextCh.exit241.backedge:                          ; preds = %721, %733, %741, %7
   %734 = add nsw i32 %731, -1
   store i32 %734, ptr %6, align 8
   %735 = zext nneg i32 %731 to i64
-  %736 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %735
+  %736 = getelementptr inbounds nuw ptr, ptr %5, i64 %735
   %737 = load ptr, ptr %736, align 8
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 256
   %739 = load ptr, ptr %738, align 8
@@ -8823,9 +8823,9 @@ NextCh.exit.backedge:                             ; preds = %750, %20, %32, %40,
 
 Check.exit:                                       ; preds = %756
   %759 = load i32, ptr %6, align 8
-  %760 = add nsw i32 %759, 1
-  %761 = sext i32 %760 to i64
-  %762 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %761
+  %760 = sext i32 %759 to i64
+  %761 = getelementptr ptr, ptr %5, i64 %760
+  %762 = getelementptr i8, ptr %761, i64 8
   %763 = load ptr, ptr %762, align 8
   %764 = icmp eq ptr %763, null
   br i1 %764, label %765, label %805
@@ -8889,9 +8889,9 @@ thread-pre-split.i:                               ; preds = %765
 
 AllocChunk.exit.thread:                           ; preds = %790
   %793 = load i32, ptr %6, align 8
-  %794 = add nsw i32 %793, 1
-  %795 = sext i32 %794 to i64
-  %796 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %795
+  %794 = sext i32 %793 to i64
+  %795 = getelementptr ptr, ptr %5, i64 %794
+  %796 = getelementptr i8, ptr %795, i64 8
   store ptr null, ptr %796, align 8
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.112)
   store i32 7, ptr %10, align 8
@@ -8904,98 +8904,98 @@ AllocChunk.exit:                                  ; preds = %790
   %800 = add i32 %797, 264
   store i32 %800, ptr %769, align 4
   %801 = load i32, ptr %6, align 8
-  %802 = add nsw i32 %801, 1
-  %803 = sext i32 %802 to i64
-  %804 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %803
+  %802 = sext i32 %801 to i64
+  %803 = getelementptr ptr, ptr %5, i64 %802
+  %804 = getelementptr i8, ptr %803, i64 8
   store ptr %799, ptr %804, align 8
   %.pre340 = load i32, ptr %6, align 8
+  %.pre350 = sext i32 %.pre340 to i64
   br label %805
 
 805:                                              ; preds = %AllocChunk.exit, %Check.exit
-  %806 = phi i32 [ %.pre340, %AllocChunk.exit ], [ %759, %Check.exit ]
+  %.pre-phi = phi i64 [ %.pre350, %AllocChunk.exit ], [ %760, %Check.exit ]
   %.0 = phi ptr [ %799, %AllocChunk.exit ], [ %763, %Check.exit ]
-  %807 = getelementptr inbounds nuw i8, ptr %0, i64 271392
-  %808 = load ptr, ptr %807, align 8
-  %809 = getelementptr i8, ptr %808, i64 16
-  %.val167 = load ptr, ptr %809, align 8
-  %810 = sext i32 %806 to i64
-  %811 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %810
-  %812 = load ptr, ptr %811, align 8
+  %806 = getelementptr inbounds nuw i8, ptr %0, i64 271392
+  %807 = load ptr, ptr %806, align 8
+  %808 = getelementptr i8, ptr %807, i64 16
+  %.val167 = load ptr, ptr %808, align 8
+  %809 = getelementptr inbounds ptr, ptr %5, i64 %.pre-phi
+  %810 = load ptr, ptr %809, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %813 = icmp eq ptr %.val167, null
-  br i1 %813, label %isabsolutepath.exit.thread.i, label %814
+  %811 = icmp eq ptr %.val167, null
+  br i1 %811, label %isabsolutepath.exit.thread.i, label %812
 
-814:                                              ; preds = %805
-  %815 = load i8, ptr %.val167, align 1
-  %816 = icmp eq i8 %815, 0
-  br i1 %816, label %isabsolutepath.exit.thread.i, label %isabsolutepath.exit.i
+812:                                              ; preds = %805
+  %813 = load i8, ptr %.val167, align 1
+  %814 = icmp eq i8 %813, 0
+  br i1 %814, label %isabsolutepath.exit.thread.i, label %isabsolutepath.exit.i
 
-isabsolutepath.exit.thread.i:                     ; preds = %814, %805
+isabsolutepath.exit.thread.i:                     ; preds = %812, %805
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %821
+  br label %819
 
-isabsolutepath.exit.i:                            ; preds = %814
-  %817 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %.val167, i64 noundef 3) #19
-  %818 = load i8, ptr %2, align 1
-  %.not.i250 = icmp eq i8 %818, 47
+isabsolutepath.exit.i:                            ; preds = %812
+  %815 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %.val167, i64 noundef 3) #19
+  %816 = load i8, ptr %2, align 1
+  %.not.i250 = icmp eq i8 %816, 47
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not.i250, label %819, label %821
+  br i1 %.not.i250, label %817, label %819
 
-819:                                              ; preds = %isabsolutepath.exit.i
+817:                                              ; preds = %isabsolutepath.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %.0, ptr noundef nonnull readonly align 1 dereferenceable(255) %.val167, i64 254, i1 false)
+  %818 = getelementptr inbounds nuw i8, ptr %.0, i64 254
+  store i8 0, ptr %818, align 1
+  br label %BuildAbsolutePath.exit
+
+819:                                              ; preds = %isabsolutepath.exit.i, %isabsolutepath.exit.thread.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %.0, ptr noundef nonnull readonly align 1 dereferenceable(255) %810, i64 254, i1 false)
   %820 = getelementptr inbounds nuw i8, ptr %.0, i64 254
   store i8 0, ptr %820, align 1
+  %821 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 47) #21
+  %822 = icmp eq ptr %821, null
+  br i1 %822, label %834, label %823
+
+823:                                              ; preds = %819
+  %824 = ptrtoint ptr %821 to i64
+  %825 = ptrtoint ptr %.0 to i64
+  %826 = sub i64 %824, %825
+  %827 = trunc i64 %826 to i32
+  %828 = icmp ugt i32 %827, 254
+  br i1 %828, label %834, label %829
+
+829:                                              ; preds = %823
+  %830 = getelementptr inbounds nuw i8, ptr %821, i64 1
+  %831 = and i64 %826, 255
+  %832 = xor i64 %831, 255
+  %833 = call ptr @strncpy(ptr noundef nonnull %830, ptr noundef readonly %.val167, i64 noundef %832) #19
   br label %BuildAbsolutePath.exit
 
-821:                                              ; preds = %isabsolutepath.exit.i, %isabsolutepath.exit.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(255) %.0, ptr noundef nonnull readonly align 1 dereferenceable(255) %812, i64 254, i1 false)
-  %822 = getelementptr inbounds nuw i8, ptr %.0, i64 254
-  store i8 0, ptr %822, align 1
-  %823 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 47) #21
-  %824 = icmp eq ptr %823, null
-  br i1 %824, label %836, label %825
-
-825:                                              ; preds = %821
-  %826 = ptrtoint ptr %823 to i64
-  %827 = ptrtoint ptr %.0 to i64
-  %828 = sub i64 %826, %827
-  %829 = trunc i64 %828 to i32
-  %830 = icmp ugt i32 %829, 254
-  br i1 %830, label %836, label %831
-
-831:                                              ; preds = %825
-  %832 = getelementptr inbounds nuw i8, ptr %823, i64 1
-  %833 = and i64 %828, 255
-  %834 = xor i64 %833, 255
-  %835 = call ptr @strncpy(ptr noundef nonnull %832, ptr noundef readonly %.val167, i64 noundef %834) #19
-  br label %BuildAbsolutePath.exit
-
-836:                                              ; preds = %821, %825
+834:                                              ; preds = %819, %823
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
-BuildAbsolutePath.exit:                           ; preds = %831, %819
-  %837 = call noalias ptr @fopen64(ptr noundef nonnull %.0, ptr noundef nonnull @.str.7)
-  %838 = getelementptr inbounds nuw i8, ptr %.0, i64 256
-  store ptr %837, ptr %838, align 8
-  %839 = icmp eq ptr %837, null
-  br i1 %839, label %840, label %841
+BuildAbsolutePath.exit:                           ; preds = %829, %817
+  %835 = call noalias ptr @fopen64(ptr noundef nonnull %.0, ptr noundef nonnull @.str.7)
+  %836 = getelementptr inbounds nuw i8, ptr %.0, i64 256
+  store ptr %835, ptr %836, align 8
+  %837 = icmp eq ptr %835, null
+  br i1 %837, label %838, label %839
 
-840:                                              ; preds = %BuildAbsolutePath.exit
+838:                                              ; preds = %BuildAbsolutePath.exit
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, ptr noundef nonnull %.0)
   store i32 7, ptr %10, align 8
   br label %.loopexit
 
-841:                                              ; preds = %BuildAbsolutePath.exit
-  %842 = load i32, ptr %6, align 8
-  %843 = add nsw i32 %842, 1
-  store i32 %843, ptr %6, align 8
+839:                                              ; preds = %BuildAbsolutePath.exit
+  %840 = load i32, ptr %6, align 8
+  %841 = add nsw i32 %840, 1
+  store i32 %841, ptr %6, align 8
   store i32 32, ptr %4, align 4
   call fastcc void @InSymbol(ptr noundef %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %750, %424, %NextCh.exit203, %NextCh.exit195, %NextCh.exit237, %NextCh.exit233, %570, %BinSrchKey.exit.thread, %423, %415, %381, %380, %372, %NextCh.exit199, %NextCh.exit191, %switch.early.test284, %switch.early.test284, %switch.early.test284, %isidchar.exit213, %569, %841, %840, %836, %AllocChunk.exit.thread, %758, %755, %749, %495, %446, %393, %310
+.loopexit:                                        ; preds = %750, %424, %NextCh.exit203, %NextCh.exit195, %NextCh.exit237, %NextCh.exit233, %570, %BinSrchKey.exit.thread, %423, %415, %381, %380, %372, %NextCh.exit199, %NextCh.exit191, %switch.early.test284, %switch.early.test284, %switch.early.test284, %isidchar.exit213, %569, %839, %838, %834, %AllocChunk.exit.thread, %758, %755, %749, %495, %446, %393, %310
   ret void
 }
 
@@ -9154,7 +9154,7 @@ define internal fastcc void @ReadReal(ptr noundef nonnull initializes((271376, 2
   store double %21, ptr %4, align 8
   %22 = load i32, ptr %14, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [20 x ptr], ptr %13, i64 0, i64 %23
+  %24 = getelementptr inbounds ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 256
   %27 = load ptr, ptr %26, align 8
@@ -9166,7 +9166,7 @@ define internal fastcc void @ReadReal(ptr noundef nonnull initializes((271376, 2
   store i32 %29, ptr %6, align 4
   %30 = load i32, ptr %14, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [20 x ptr], ptr %13, i64 0, i64 %31
+  %32 = getelementptr inbounds ptr, ptr %13, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 256
   %35 = load ptr, ptr %34, align 8
@@ -9187,7 +9187,7 @@ define internal fastcc void @ReadReal(ptr noundef nonnull initializes((271376, 2
   %41 = add nsw i32 %38, -1
   store i32 %41, ptr %14, align 8
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw [20 x ptr], ptr %13, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %13, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 256
   %46 = load ptr, ptr %45, align 8
@@ -9232,7 +9232,7 @@ NextCh.exit:                                      ; preds = %.NextCh.exit_crit_e
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 271592
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [20 x ptr], ptr %63, i64 0, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 256
   %70 = load ptr, ptr %69, align 8
@@ -9244,7 +9244,7 @@ NextCh.exit:                                      ; preds = %.NextCh.exit_crit_e
   store i32 %72, ptr %6, align 4
   %73 = load i32, ptr %64, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [20 x ptr], ptr %63, i64 0, i64 %74
+  %75 = getelementptr inbounds ptr, ptr %63, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 256
   %78 = load ptr, ptr %77, align 8
@@ -9265,7 +9265,7 @@ NextCh.exit:                                      ; preds = %.NextCh.exit_crit_e
   %84 = add nsw i32 %81, -1
   store i32 %84, ptr %64, align 8
   %85 = zext nneg i32 %81 to i64
-  %86 = getelementptr inbounds nuw [20 x ptr], ptr %63, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %63, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 256
   %89 = load ptr, ptr %88, align 8
@@ -9315,7 +9315,7 @@ NextCh.exit44:                                    ; preds = %.NextCh.exit44_crit
   %111 = add nuw nsw i32 %.03771, 1
   %112 = load i32, ptr %64, align 8
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [20 x ptr], ptr %63, i64 0, i64 %113
+  %114 = getelementptr inbounds ptr, ptr %63, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 256
   %117 = load ptr, ptr %116, align 8
@@ -9327,7 +9327,7 @@ NextCh.exit44:                                    ; preds = %.NextCh.exit44_crit
   store i32 %119, ptr %6, align 4
   %120 = load i32, ptr %64, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [20 x ptr], ptr %63, i64 0, i64 %121
+  %122 = getelementptr inbounds ptr, ptr %63, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 256
   %125 = load ptr, ptr %124, align 8
@@ -9348,7 +9348,7 @@ NextCh.exit44:                                    ; preds = %.NextCh.exit44_crit
   %131 = add nsw i32 %128, -1
   store i32 %131, ptr %64, align 8
   %132 = zext nneg i32 %128 to i64
-  %133 = getelementptr inbounds nuw [20 x ptr], ptr %63, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr %63, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 256
   %136 = load ptr, ptr %135, align 8
@@ -9409,7 +9409,7 @@ NextCh.exit48:                                    ; preds = %.NextCh.exit48_crit
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 271592
   %163 = load i32, ptr %162, align 8
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %164
+  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 256
   %168 = load ptr, ptr %167, align 8
@@ -9421,7 +9421,7 @@ NextCh.exit48:                                    ; preds = %.NextCh.exit48_crit
   store i32 %170, ptr %6, align 4
   %171 = load i32, ptr %162, align 8
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %172
+  %173 = getelementptr inbounds ptr, ptr %161, i64 %172
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 256
   %176 = load ptr, ptr %175, align 8
@@ -9438,7 +9438,7 @@ NextCh.exit48:                                    ; preds = %.NextCh.exit48_crit
   %182 = add nsw i32 %179, -1
   store i32 %182, ptr %162, align 8
   %183 = zext nneg i32 %179 to i64
-  %184 = getelementptr inbounds nuw [20 x ptr], ptr %161, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %161, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 256
   %187 = load ptr, ptr %186, align 8
@@ -9478,7 +9478,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
 198:                                              ; preds = %NextCh.exit52
   %199 = load i32, ptr %162, align 8
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %200
+  %201 = getelementptr inbounds ptr, ptr %161, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 256
   %204 = load ptr, ptr %203, align 8
@@ -9490,7 +9490,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
   store i32 %206, ptr %6, align 4
   %207 = load i32, ptr %162, align 8
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %208
+  %209 = getelementptr inbounds ptr, ptr %161, i64 %208
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 256
   %212 = load ptr, ptr %211, align 8
@@ -9507,7 +9507,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
   %218 = add nsw i32 %215, -1
   store i32 %218, ptr %162, align 8
   %219 = zext nneg i32 %215 to i64
-  %220 = getelementptr inbounds nuw [20 x ptr], ptr %161, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %161, i64 %219
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 256
   %223 = load ptr, ptr %222, align 8
@@ -9536,7 +9536,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
 233:                                              ; preds = %NextCh.exit52
   %234 = load i32, ptr %162, align 8
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %235
+  %236 = getelementptr inbounds ptr, ptr %161, i64 %235
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 256
   %239 = load ptr, ptr %238, align 8
@@ -9548,7 +9548,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
   store i32 %241, ptr %6, align 4
   %242 = load i32, ptr %162, align 8
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %243
+  %244 = getelementptr inbounds ptr, ptr %161, i64 %243
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 256
   %247 = load ptr, ptr %246, align 8
@@ -9565,7 +9565,7 @@ NextCh.exit52:                                    ; preds = %NextCh.exit52thread
   %253 = add nsw i32 %250, -1
   store i32 %253, ptr %162, align 8
   %254 = zext nneg i32 %250 to i64
-  %255 = getelementptr inbounds nuw [20 x ptr], ptr %161, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw ptr, ptr %161, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 256
   %258 = load ptr, ptr %257, align 8
@@ -9619,7 +9619,7 @@ NextCh.exit56:                                    ; preds = %190, %189, %181, %2
   %.1 = select i1 %281, i32 %283, i32 %.03678
   %284 = load i32, ptr %162, align 8
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %285
+  %286 = getelementptr inbounds ptr, ptr %161, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 256
   %289 = load ptr, ptr %288, align 8
@@ -9631,7 +9631,7 @@ NextCh.exit56:                                    ; preds = %190, %189, %181, %2
   store i32 %291, ptr %6, align 4
   %292 = load i32, ptr %162, align 8
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds [20 x ptr], ptr %161, i64 0, i64 %293
+  %294 = getelementptr inbounds ptr, ptr %161, i64 %293
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 256
   %297 = load ptr, ptr %296, align 8
@@ -9652,7 +9652,7 @@ NextCh.exit56:                                    ; preds = %190, %189, %181, %2
   %303 = add nsw i32 %300, -1
   store i32 %303, ptr %162, align 8
   %304 = zext nneg i32 %300 to i64
-  %305 = getelementptr inbounds nuw [20 x ptr], ptr %161, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw ptr, ptr %161, i64 %304
   %306 = load ptr, ptr %305, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 256
   %308 = load ptr, ptr %307, align 8
@@ -9721,7 +9721,7 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
 7:                                                ; preds = %NextCh.exit, %NextCh.exit
   %8 = load i32, ptr %4, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds ptr, ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 256
   %13 = load ptr, ptr %12, align 8
@@ -9733,7 +9733,7 @@ NextCh.exit:                                      ; preds = %NextCh.exit.backedg
   store i32 %15, ptr %2, align 4
   %16 = load i32, ptr %4, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %17
+  %18 = getelementptr inbounds ptr, ptr %3, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %21 = load ptr, ptr %20, align 8
@@ -9753,7 +9753,7 @@ NextCh.exit.backedge:                             ; preds = %14, %26, %34, %35, 
   %27 = add nsw i32 %24, -1
   store i32 %27, ptr %4, align 8
   %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr inbounds nuw [20 x ptr], ptr %3, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 256
   %32 = load ptr, ptr %31, align 8
@@ -9785,7 +9785,7 @@ NextCh.exit.backedge:                             ; preds = %14, %26, %34, %35, 
   store i32 0, ptr %44, align 4
   %45 = load i32, ptr %4, align 8
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %46
+  %47 = getelementptr inbounds ptr, ptr %3, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 256
   %50 = load ptr, ptr %49, align 8
@@ -9797,7 +9797,7 @@ NextCh.exit.backedge:                             ; preds = %14, %26, %34, %35, 
   store i32 %52, ptr %2, align 4
   %53 = load i32, ptr %4, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %3, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 256
   %58 = load ptr, ptr %57, align 8
@@ -9818,7 +9818,7 @@ NextCh.exit.backedge:                             ; preds = %14, %26, %34, %35, 
   %64 = add nsw i32 %61, -1
   store i32 %64, ptr %4, align 8
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw [20 x ptr], ptr %3, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %3, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %69 = load ptr, ptr %68, align 8
@@ -9863,7 +9863,7 @@ switch.early.test:                                ; preds = %NextCh.exit24, %Nex
   tail call fastcc void @StringAppend(ptr noundef %80, i8 noundef signext %81)
   %82 = load i32, ptr %4, align 8
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %83
+  %84 = getelementptr inbounds ptr, ptr %3, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 256
   %87 = load ptr, ptr %86, align 8
@@ -9875,7 +9875,7 @@ switch.early.test:                                ; preds = %NextCh.exit24, %Nex
   store i32 %89, ptr %2, align 4
   %90 = load i32, ptr %4, align 8
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %3, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 256
   %95 = load ptr, ptr %94, align 8
@@ -9896,7 +9896,7 @@ switch.early.test:                                ; preds = %NextCh.exit24, %Nex
   %101 = add nsw i32 %98, -1
   store i32 %101, ptr %4, align 8
   %102 = zext nneg i32 %98 to i64
-  %103 = getelementptr inbounds nuw [20 x ptr], ptr %3, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %3, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
@@ -9932,7 +9932,7 @@ switch.early.test._crit_edge:                     ; preds = %NextCh.exit28, %swi
   store i32 4, ptr %116, align 8
   %117 = load i32, ptr %4, align 8
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %118
+  %119 = getelementptr inbounds ptr, ptr %3, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 256
   %122 = load ptr, ptr %121, align 8
@@ -9944,7 +9944,7 @@ switch.early.test._crit_edge:                     ; preds = %NextCh.exit28, %swi
   store i32 %124, ptr %2, align 4
   %125 = load i32, ptr %4, align 8
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [20 x ptr], ptr %3, i64 0, i64 %126
+  %127 = getelementptr inbounds ptr, ptr %3, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 256
   %130 = load ptr, ptr %129, align 8
@@ -9961,7 +9961,7 @@ switch.early.test._crit_edge:                     ; preds = %NextCh.exit28, %swi
   %136 = add nsw i32 %133, -1
   store i32 %136, ptr %4, align 8
   %137 = zext nneg i32 %133 to i64
-  %138 = getelementptr inbounds nuw [20 x ptr], ptr %3, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw ptr, ptr %3, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 256
   %141 = load ptr, ptr %140, align 8

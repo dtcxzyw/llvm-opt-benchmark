@@ -4022,7 +4022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %58 = or disjoint i8 %57, -128
   %59 = add nuw nsw i32 %.2, 1
   %60 = zext nneg i32 %.2 to i64
-  %61 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 %60
   store i8 %58, ptr %61, align 1, !tbaa !22
   br label %._crit_edge.i.i
 
@@ -4033,7 +4033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %64 = or disjoint i8 %63, -128
   %65 = add nuw nsw i32 %.1, 1
   %66 = zext nneg i32 %.1 to i64
-  %67 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %66
   store i8 %64, ptr %67, align 1, !tbaa !22
   %68 = zext nneg i32 %65 to i64
   tail call void @_ZN4base8internal10JSONParser13StringBuilder7ConvertEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -4125,8 +4125,8 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %.not60 = icmp ugt ptr %10, %12
-  %.129.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.129.sroa.gep45 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.331.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.331.sroa.gep45 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br i1 %.not60, label %146, label %13
 
 13:                                               ; preds = %2
@@ -4268,11 +4268,11 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   %83 = trunc i32 %82 to i8
   %84 = and i8 %83, 63
   %85 = or disjoint i8 %84, -128
-  store i8 %85, ptr %.129.sroa.gep, align 1, !tbaa !22
+  store i8 %85, ptr %.331.sroa.gep, align 1, !tbaa !22
   br label %86
 
 86:                                               ; preds = %78, %.thread49
-  %.129.sroa.phi = phi ptr [ %.129.sroa.gep, %.thread49 ], [ %.129.sroa.gep45, %78 ]
+  %.129.sroa.phi = phi ptr [ %.331.sroa.gep, %.thread49 ], [ %.331.sroa.gep45, %78 ]
   %.129 = phi i64 [ 2, %.thread49 ], [ 3, %78 ]
   %87 = lshr i32 %56, 6
   %88 = trunc i32 %87 to i8
@@ -4286,7 +4286,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   %92 = trunc i32 %49 to i8
   %93 = and i8 %92, 63
   %94 = or disjoint i8 %93, -128
-  %95 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %.028
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 %.028
   store i8 %94, ptr %95, align 1, !tbaa !22
   br label %96
 
@@ -4349,11 +4349,11 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   %124 = trunc i32 %123 to i8
   %125 = and i8 %124, 63
   %126 = or disjoint i8 %125, -128
-  store i8 %126, ptr %.129.sroa.gep, align 1, !tbaa !22
+  store i8 %126, ptr %.331.sroa.gep, align 1, !tbaa !22
   br label %127
 
 127:                                              ; preds = %119, %.thread53
-  %.331.sroa.phi = phi ptr [ %.129.sroa.gep, %.thread53 ], [ %.129.sroa.gep45, %119 ]
+  %.331.sroa.phi = phi ptr [ %.331.sroa.gep, %.thread53 ], [ %.331.sroa.gep45, %119 ]
   %.331 = phi i64 [ 2, %.thread53 ], [ 3, %119 ]
   %128 = lshr i32 %22, 6
   %129 = trunc i32 %128 to i8
@@ -4367,7 +4367,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   %133 = trunc i32 %22 to i8
   %134 = and i8 %133, 63
   %135 = or disjoint i8 %134, -128
-  %136 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %.230
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 %.230
   store i8 %135, ptr %136, align 1, !tbaa !22
   br label %137
 

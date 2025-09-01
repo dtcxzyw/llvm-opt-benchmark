@@ -3531,7 +3531,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 340:                                              ; preds = %160
   %341 = sext i32 %.041280 to i64
-  %342 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %341
+  %342 = getelementptr inbounds i32, ptr %8, i64 %341
   store i32 %158, ptr %342, align 4
   br label %343
 
@@ -4815,7 +4815,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %_ZNSt7__cxx1112basi
   %157 = load i32, ptr %.sroa.0225.0278, align 4
   %158 = add nuw nsw i32 %.040279, 1
   %159 = zext nneg i32 %.040279 to i64
-  %160 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr %8, i64 %159
   store i32 %157, ptr %160, align 4
   %161 = icmp sgt i32 %.040279, 1
   br i1 %161, label %162, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -6625,7 +6625,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %316, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %159
   %339 = and i32 %.041279, 1
   %340 = zext nneg i32 %339 to i64
-  %341 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw i32, ptr %8, i64 %340
   store i32 %157, ptr %341, align 4
   %342 = add nsw i32 %.041279, 1
   %.pre313 = load ptr, ptr %106, align 8

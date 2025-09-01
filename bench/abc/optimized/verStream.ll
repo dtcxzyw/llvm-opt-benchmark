@@ -594,7 +594,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
   %57 = add nsw i32 %50, 1
   store i32 %57, ptr %45, align 8, !tbaa !28
   %58 = sext i32 %50 to i64
-  %59 = getelementptr inbounds [65541 x i8], ptr %48, i64 0, i64 %58
+  %59 = getelementptr inbounds i8, ptr %48, i64 %58
   store i8 %.pre52, ptr %59, align 1, !tbaa !22
   %60 = load i32, ptr %45, align 8, !tbaa !28
   %61 = icmp eq i32 %60, 65536
@@ -618,7 +618,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
 69:                                               ; preds = %.lr.ph
   store ptr %.03445, ptr %6, align 8, !tbaa !16
   %70 = sext i32 %50 to i64
-  %71 = getelementptr inbounds [65541 x i8], ptr %48, i64 0, i64 %70
+  %71 = getelementptr inbounds i8, ptr %48, i64 %70
   store i8 0, ptr %71, align 1, !tbaa !22
   br label %86
 
@@ -643,7 +643,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
 80:                                               ; preds = %._crit_edge46
   store i32 1, ptr %3, align 4, !tbaa !21
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %82 = getelementptr inbounds [65541 x i8], ptr %81, i64 0, i64 %77
+  %82 = getelementptr inbounds i8, ptr %81, i64 %77
   store i8 0, ptr %82, align 1, !tbaa !22
   br label %86
 

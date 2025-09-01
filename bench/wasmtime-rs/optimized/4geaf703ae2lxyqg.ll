@@ -1676,7 +1676,7 @@ define i16 @"_ZN96_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cra
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw [0 x { i8, [47 x i8] }], ptr %21, i64 0, i64 %17
+  %22 = getelementptr inbounds nuw { i8, [47 x i8] }, ptr %21, i64 %17
   %23 = load i8, ptr %22, align 16, !range !7, !noundef !3
   switch i8 %23, label %default.unreachable [
     i8 0, label %46

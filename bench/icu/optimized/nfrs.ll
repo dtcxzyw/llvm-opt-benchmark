@@ -781,7 +781,7 @@ _ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit:     ; preds = %21, %26
 27:                                               ; preds = %_ZN6icu_7710NFRuleList3addEPNS_6NFRuleE.exit, %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds [6 x ptr], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.sink.split, label %33
@@ -951,7 +951,7 @@ _ZN6icu_7710NFRuleListD2Ev.exit20:                ; preds = %_ZN6icu_7710NFRuleL
   br i1 %or.cond3, label %44, label %49
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw [6 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -1045,9 +1045,9 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %25
 
 52:                                               ; preds = %.preheader38, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread30
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit.thread30 ]
-  %53 = getelementptr inbounds nuw [6 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw [6 x ptr], ptr %49, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !25
   %.not.i22 = icmp eq ptr %54, null
   %.not7.i = icmp eq ptr %56, null
@@ -1130,7 +1130,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 22:                                               ; preds = %.preheader30, %.loopexit
   %23 = phi i32 [ %.pre, %.preheader30 ], [ %57, %.loopexit ]
   %indvars.iv42 = phi i64 [ 1, %.preheader30 ], [ %indvars.iv.next43, %.loopexit ]
-  %24 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %indvars.iv42
+  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv42
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %.not26 = icmp ne ptr %25, null
   %26 = icmp ne i32 %23, 0
@@ -1210,7 +1210,7 @@ _ZN6icu_779NFRuleSet19setBestFractionRuleEiPNS_6NFRuleEa.exit: ; preds = %.sink.
 
 .preheader:                                       ; preds = %.loopexit, %62
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %62 ], [ 0, %.loopexit ]
-  %59 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %indvars.iv45
+  %59 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv45
   %60 = load ptr, ptr %59, align 8, !tbaa !25
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %62, label %61
@@ -1928,7 +1928,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
 49:                                               ; preds = %23, %80
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %80 ]
   %.03766 = phi i32 [ %4, %23 ], [ %.1, %80 ]
-  %50 = getelementptr inbounds nuw [6 x ptr], ptr %32, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   %.not53 = icmp eq ptr %51, null
   br i1 %.not53, label %80, label %52
@@ -2206,7 +2206,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
 
 33:                                               ; preds = %.preheader30, %.loopexit
   %indvars.iv40 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next41, %.loopexit ]
-  %34 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv40
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.loopexit, label %36
@@ -2353,7 +2353,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %.recomposed = srem i64 %.164.us, %6
   %sext.us = shl i64 %.recomposed, 32
   %26 = ashr exact i64 %sext.us, 32
-  %27 = getelementptr inbounds [36 x i8], ptr @_ZN6icu_77L11asciiDigitsE, i64 0, i64 %26
+  %27 = getelementptr inbounds i8, ptr @_ZN6icu_77L11asciiDigitsE, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !6
   %29 = zext i8 %28 to i16
   %30 = getelementptr inbounds nuw i8, ptr %.15762.us, i64 2

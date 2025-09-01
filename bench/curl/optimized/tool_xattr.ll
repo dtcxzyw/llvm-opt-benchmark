@@ -22,7 +22,7 @@ define dso_local i32 @fwrite_xattr(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw [3 x %struct.xattr_mapping], ptr @mappings, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.xattr_mapping, ptr @mappings, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 16, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv, 2
   br i1 %exitcond, label %.critedge, label %9

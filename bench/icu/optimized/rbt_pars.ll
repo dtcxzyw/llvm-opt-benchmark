@@ -4373,7 +4373,7 @@ define noundef i32 @_ZN6icu_7720TransliteratorParser11syntaxErrorE10UErrorCodeRK
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %5
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11) #18, !srcloc !101
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds [16 x i16], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds i16, ptr %11, i64 %12
   store i16 0, ptr %13, align 2, !tbaa !45
   %14 = add nsw i32 %3, 15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4393,7 +4393,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %5
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit25: ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25) #18, !srcloc !101
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds [16 x i16], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds i16, ptr %25, i64 %26
   store i16 0, ptr %27, align 2, !tbaa !45
   store i32 %1, ptr %4, align 4, !tbaa !13
   ret i32 %3

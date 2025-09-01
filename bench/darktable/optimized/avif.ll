@@ -608,8 +608,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 246:                                              ; preds = %240
   %sext = shl i64 %243, 32
-  %247 = ashr exact i64 %sext, 32
-  %248 = getelementptr inbounds [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %247
+  %247 = ashr exact i64 %sext, 30
+  %248 = getelementptr inbounds i8, ptr @floor_log2.floor_log2_table, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !75
   %250 = sdiv i32 %249, 2
   br label %floor_log2.exit
@@ -625,8 +625,8 @@ floor_log2.exit:                                  ; preds = %240, %246
 
 255:                                              ; preds = %floor_log2.exit
   %sext315 = shl i64 %252, 32
-  %256 = ashr exact i64 %sext315, 32
-  %257 = getelementptr inbounds [64 x i32], ptr @floor_log2.floor_log2_table, i64 0, i64 %256
+  %256 = ashr exact i64 %sext315, 30
+  %257 = getelementptr inbounds i8, ptr @floor_log2.floor_log2_table, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !75
   %259 = sdiv i32 %258, 2
   br label %floor_log2.exit297
@@ -1085,21 +1085,20 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   ret void
 
 78:                                               ; preds = %1, %78
-  %79 = phi ptr [ @.str.43, %1 ], [ %88, %78 ]
-  %80 = phi ptr [ @avif_bit_depth, %1 ], [ %87, %78 ]
-  %.059 = phi i64 [ 0, %1 ], [ %86, %78 ]
+  %79 = phi ptr [ @.str.43, %1 ], [ %87, %78 ]
+  %.059 = phi i64 [ 0, %1 ], [ %85, %78 ]
   %.05558 = phi i64 [ 0, %1 ], [ %spec.select, %78 ]
-  %81 = load ptr, ptr %3, align 8, !tbaa !101
-  %82 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %79, i32 noundef 5) #17
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %81, ptr noundef %82) #17
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !109
-  %85 = icmp eq i32 %84, %4
-  %spec.select = select i1 %85, i64 %.059, i64 %.05558
-  %86 = add nuw nsw i64 %.059, 1
-  %87 = getelementptr inbounds nuw [4 x %struct.anon], ptr @avif_bit_depth, i64 0, i64 %86
-  %88 = load ptr, ptr %87, align 16, !tbaa !111
-  %exitcond = icmp eq i64 %86, 3
+  %80 = load ptr, ptr %3, align 8, !tbaa !101
+  %81 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %79, i32 noundef 5) #17
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %80, ptr noundef %81) #17
+  %82 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.059, i32 1
+  %83 = load i32, ptr %82, align 8, !tbaa !109
+  %84 = icmp eq i32 %83, %4
+  %spec.select = select i1 %84, i64 %.059, i64 %.05558
+  %85 = add nuw nsw i64 %.059, 1
+  %86 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %85
+  %87 = load ptr, ptr %86, align 16, !tbaa !111
+  %exitcond = icmp eq i64 %85, 3
   br i1 %exitcond, label %12, label %78
 }
 
@@ -1149,7 +1148,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 define internal void @bit_depth_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw [4 x %struct.anon], ptr @avif_bit_depth, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %4, i32 1
   %6 = load i32, ptr %5, align 8, !tbaa !109
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.15, i32 noundef %6) #17
   ret void
@@ -1203,43 +1202,41 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
   %8 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.18, i32 noundef 0) #17
   br label %9
 
-9:                                                ; preds = %1, %16
-  %10 = phi ptr [ @avif_bit_depth, %1 ], [ %18, %16 ]
-  %.018 = phi i64 [ 0, %1 ], [ %17, %16 ]
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !109
-  %13 = icmp eq i32 %12, %4
-  br i1 %13, label %14, label %16
+9:                                                ; preds = %1, %15
+  %.018 = phi i64 [ 0, %1 ], [ %16, %15 ]
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.018, i32 1
+  %11 = load i32, ptr %10, align 8, !tbaa !109
+  %12 = icmp eq i32 %11, %4
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %9
-  %15 = trunc nuw nsw i64 %.018 to i32
+13:                                               ; preds = %9
+  %14 = trunc nuw nsw i64 %.018 to i32
   br label %.loopexit
 
-16:                                               ; preds = %9
-  %17 = add nuw nsw i64 %.018, 1
-  %18 = getelementptr inbounds nuw [4 x %struct.anon], ptr @avif_bit_depth, i64 0, i64 %17
-  %exitcond = icmp eq i64 %17, 3
+15:                                               ; preds = %9
+  %16 = add nuw nsw i64 %.018, 1
+  %exitcond = icmp eq i64 %16, 3
   br i1 %exitcond, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %16, %14
-  %.015 = phi i32 [ %15, %14 ], [ 0, %16 ]
+.loopexit:                                        ; preds = %15, %13
+  %.015 = phi i32 [ %14, %13 ], [ 0, %15 ]
   %.not = icmp eq i32 %6, 0
-  %19 = zext i1 %.not to i32
-  %20 = load ptr, ptr %3, align 8, !tbaa !101
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef %.015) #17
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %22, i32 noundef %5) #17
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !104
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %24, i32 noundef %19) #17
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %26, i32 noundef %7) #17
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !106
-  %29 = uitofp i32 %8 to float
-  tail call void @dt_bauhaus_slider_set(ptr noundef %28, float noundef %29) #17
+  %17 = zext i1 %.not to i32
+  %18 = load ptr, ptr %3, align 8, !tbaa !101
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %18, i32 noundef %.015) #17
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !103
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef %5) #17
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %22, i32 noundef %17) #17
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !105
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %24, i32 noundef %7) #17
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %26 = load ptr, ptr %25, align 8, !tbaa !106
+  %27 = uitofp i32 %8 to float
+  tail call void @dt_bauhaus_slider_set(ptr noundef %26, float noundef %27) #17
   ret void
 }
 

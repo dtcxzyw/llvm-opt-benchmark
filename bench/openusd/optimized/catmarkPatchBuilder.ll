@@ -192,7 +192,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilderD0Ev(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilder18patchTypeFromBasisENS1_12PatchBuilder9BasisTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [5 x i32], ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 0, i64 %3
+  %4 = getelementptr inbounds i32, ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -381,13 +381,13 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   %.099118 = phi i32 [ -1, %2 ], [ %.1100, %85 ]
   %.0101117 = phi i32 [ 0, %2 ], [ %89, %85 ]
   %.0102116 = phi i32 [ 0, %2 ], [ %93, %85 ]
-  %11 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %1, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load i16, ptr %11, align 2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 2
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 2
-  %12 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %8, i64 %indvars.iv
   %13 = and i8 %.sroa.3.0.copyload, 1
   %14 = zext nneg i8 %13 to i16
   %15 = load i16, ptr %12, align 8
@@ -447,7 +447,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store float %.sink, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %62
@@ -524,7 +524,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; p
 
 .preheader:                                       ; preds = %85, %153
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %153 ], [ 0, %85 ]
-  %94 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv126
+  %94 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %8, i64 %indvars.iv126
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %95 = load i16, ptr %94, align 8
   %96 = and i16 %95, -97
@@ -541,14 +541,14 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; p
   %100 = add nuw i64 %indvars.iv126, 3
   %101 = and i64 %100, 3
   %102 = and i64 %indvars.iv.next127, 3
-  %103 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %8, i64 %102
   %104 = load i16, ptr %103, align 8
   %105 = shl i16 %104, 4
   %106 = and i16 %105, 128
   %107 = and i16 %95, -225
   %108 = or disjoint i16 %106, %107
   store i16 %108, ptr %94, align 8
-  %109 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %8, i64 0, i64 %101
+  %109 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %8, i64 %101
   %110 = load i16, ptr %109, align 8
   %111 = shl i16 %110, 5
   %112 = and i16 %111, 256
@@ -804,7 +804,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 
 87:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit, %99
   %indvars.iv = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit ], [ %indvars.iv.next, %99 ]
-  %88 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %83, i64 %indvars.iv
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 8
   %.not31 = icmp eq i16 %90, 0
@@ -856,7 +856,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 
 100:                                              ; preds = %.preheader, %151
   %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %151 ]
-  %101 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv43
+  %101 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %83, i64 %indvars.iv43
   %102 = load i16, ptr %101, align 8
   %103 = and i16 %102, 384
   %or.cond = icmp eq i16 %103, 0
@@ -1004,7 +1004,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE22resi
   %.088 = phi i32 [ 0, %2 ], [ %121, %114 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %7 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %4, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 8
   %.not = icmp eq i16 %9, 0
@@ -1123,7 +1123,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE22resi
   %.not78 = icmp eq i16 %65, 0
   %66 = select i1 %.not78, i32 %60, i32 %63
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %4, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %4, i64 %67
   %69 = and i16 %8, 2
   %.not.i = icmp eq i16 %69, 0
   br i1 %.not.i, label %73, label %70
@@ -1173,7 +1173,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25getIrregularFacePointSizeEii.e
   %.not80 = icmp eq i16 %91, 0
   %92 = select i1 %.not80, i32 %63, i32 %60
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %4, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %4, i64 %93
   %95 = and i16 %8, 2
   %.not.i81 = icmp eq i16 %95, 0
   br i1 %.not.i81, label %99, label %96
@@ -1259,7 +1259,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE23assi
   %26 = getelementptr inbounds float, ptr %15, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = load i16, ptr %29, align 8
@@ -1483,7 +1483,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE26comp
   %27 = getelementptr inbounds float, ptr %16, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %28, i64 %29
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 2
   %.not = icmp eq i16 %32, 0
@@ -1741,7 +1741,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE26comp
   %12 = alloca %"class.OpenSubdiv::v3_6_0::Far::(anonymous namespace)::SparseMatrixRow", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %13, i64 %14
   %16 = add nsw i32 %1, 1
   %17 = and i32 %16, 3
   %18 = add nsw i32 %1, 3
@@ -1972,7 +1972,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
 
 41:                                               ; preds = %.lr.ph
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %3, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, 1
   %46 = zext nneg i8 %45 to i32
@@ -2288,7 +2288,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %151, %_ZNSt6
 
 175:                                              ; preds = %.lr.ph111
   %176 = sext i32 %171 to i64
-  %177 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %176
+  %177 = getelementptr inbounds ptr, ptr %4, i64 %176
   %178 = load ptr, ptr %177, align 8
   %.not78 = icmp eq ptr %178, null
   br i1 %.not78, label %182, label %179
@@ -3096,7 +3096,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE27ComputeI
 
 16:                                               ; preds = %5
   %17 = sext i32 %0 to i64
-  %18 = getelementptr inbounds [30 x double], ptr @_ZZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE18computeCoefficientEiE7efTable, i64 0, i64 %17
+  %18 = getelementptr inbounds double, ptr @_ZZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE18computeCoefficientEiE7efTable, i64 %17
   %19 = load double, ptr %18, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE18computeCoefficientEi.exit
 
@@ -3555,7 +3555,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25computeIrregularFacePointEiiiRKNS1_12_GLOBAL__N_115SparseMatrixRowIfEES8_S8_RS6_fPfPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(888) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, float noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #11 align 2 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology"], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<float>::CornerTopology", ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -3936,7 +3936,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22conv
   %7 = alloca [7 x ptr], align 16
   %8 = load ptr, ptr %0, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -3974,7 +3974,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj120ELb1EEC2Ej.exit: ; preds 
           to label %32 unwind label %193
 
 32:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj120ELb1EEC2Ej.exit
-  %33 = getelementptr inbounds [4 x [7 x i32]], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22convertIrregularCornerEiRNS1_12SparseMatrixIfEEE8xRowsAll, i64 0, i64 %9
+  %33 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22convertIrregularCornerEiRNS1_12SparseMatrixIfEEE8xRowsAll, i64 %9
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %36 = load i32, ptr %35, align 4
@@ -4238,7 +4238,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %215 = sub i32 %.0267.in339, %36
   %216 = add i32 %215, 5
   %217 = select i1 %214, i32 %.0267, i32 %216
-  %218 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv342
+  %218 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv342
   store i32 %217, ptr %218, align 4
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond345.not = icmp eq i64 %indvars.iv.next343, 16
@@ -4264,7 +4264,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %229 = sext i32 %228 to i64
   %230 = load ptr, ptr %211, align 8
   %231 = getelementptr inbounds i32, ptr %230, i64 %229
-  %232 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %indvars.iv346
+  %232 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv346
   store ptr %231, ptr %232, align 8
   %233 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %231, ptr noundef nonnull align 4 dereferenceable(1) %233, i64 %212, i1 false)
@@ -4313,7 +4313,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %267 = load ptr, ptr %211, align 8
   %268 = getelementptr inbounds i32, ptr %267, i64 %266
   store i32 2, ptr %268, align 4
-  %269 = getelementptr inbounds [4 x [5 x i32]], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22convertIrregularCornerEiRNS1_12SparseMatrixIfEEE15extPointRowsAll, i64 0, i64 %9
+  %269 = getelementptr inbounds [5 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22convertIrregularCornerEiRNS1_12SparseMatrixIfEEE15extPointRowsAll, i64 %9
   %270 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %271 = load i32, ptr %270, align 4
   %272 = load i32, ptr %269, align 4
@@ -5544,7 +5544,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buil
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -5557,38 +5557,38 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buil
   %13 = add nsw i32 %12, 11
   %14 = load i32, ptr %3, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr %6, i64 %15
   store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %19
+  %20 = getelementptr inbounds i32, ptr %6, i64 %19
   store i32 %11, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %6, i64 %23
   store i32 %11, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %27
+  %28 = getelementptr inbounds i32, ptr %6, i64 %27
   store i32 %11, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %6, i64 %31
   store i32 %11, ptr %32, align 4
   %33 = add nsw i32 %10, 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %6, i64 %36
   store i32 %33, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %40
+  %41 = getelementptr inbounds i32, ptr %6, i64 %40
   store i32 %33, ptr %41, align 4
   tail call void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE6ResizeEiii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 16, i32 noundef %2, i32 noundef %13)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5601,7 +5601,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buil
 
 48:                                               ; preds = %9, %105
   %indvars.iv37 = phi i64 [ 0, %9 ], [ %indvars.iv.next38, %105 ]
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv37
+  %49 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv37
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %42, align 8
   %52 = getelementptr i32, ptr %51, i64 %indvars.iv37
@@ -5805,7 +5805,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %271 ]
   %.054104 = phi i8 [ 0, %.preheader ], [ %.1, %271 ]
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %47, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 2
   %51 = and i8 %50, 2
@@ -5939,7 +5939,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %82, %80, %78, %.noe
 
 114:                                              ; preds = %46
   %115 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %116 = getelementptr inbounds nuw [4 x i32], ptr %115, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %118 = and i8 %50, 1
   %.not56 = icmp eq i8 %118, 0
@@ -6403,13 +6403,13 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   %.099118 = phi i32 [ -1, %2 ], [ %.1100, %85 ]
   %.0101117 = phi i32 [ 0, %2 ], [ %89, %85 ]
   %.0102116 = phi i32 [ 0, %2 ], [ %93, %85 ]
-  %11 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %1, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load i16, ptr %11, align 2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 2
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 2
-  %12 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %8, i64 %indvars.iv
   %13 = and i8 %.sroa.3.0.copyload, 1
   %14 = zext nneg i8 %13 to i16
   %15 = load i16, ptr %12, align 8
@@ -6469,7 +6469,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store double %.sink, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %62
@@ -6546,7 +6546,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; p
 
 .preheader:                                       ; preds = %85, %153
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %153 ], [ 0, %85 ]
-  %94 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %indvars.iv126
+  %94 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %8, i64 %indvars.iv126
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %95 = load i16, ptr %94, align 8
   %96 = and i16 %95, -97
@@ -6563,14 +6563,14 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; p
   %100 = add nuw i64 %indvars.iv126, 3
   %101 = and i64 %100, 3
   %102 = and i64 %indvars.iv.next127, 3
-  %103 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %8, i64 %102
   %104 = load i16, ptr %103, align 8
   %105 = shl i16 %104, 4
   %106 = and i16 %105, 128
   %107 = and i16 %95, -225
   %108 = or disjoint i16 %106, %107
   store i16 %108, ptr %94, align 8
-  %109 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %8, i64 0, i64 %101
+  %109 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %8, i64 %101
   %110 = load i16, ptr %109, align 8
   %111 = shl i16 %110, 5
   %112 = and i16 %111, 256
@@ -6827,7 +6827,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 
 88:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit, %100
   %indvars.iv = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit ], [ %indvars.iv.next, %100 ]
-  %89 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %84, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %84, i64 %indvars.iv
   %90 = load i16, ptr %89, align 8
   %91 = and i16 %90, 8
   %.not31 = icmp eq i16 %91, 0
@@ -6879,7 +6879,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 
 101:                                              ; preds = %.preheader, %152
   %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %152 ]
-  %102 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %84, i64 0, i64 %indvars.iv43
+  %102 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %84, i64 %indvars.iv43
   %103 = load i16, ptr %102, align 8
   %104 = and i16 %103, 384
   %or.cond = icmp eq i16 %104, 0
@@ -7010,7 +7010,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE22resi
   %.088 = phi i32 [ 0, %2 ], [ %121, %114 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %7 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %4, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %4, i64 %indvars.iv
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 8
   %.not = icmp eq i16 %9, 0
@@ -7129,7 +7129,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE22resi
   %.not78 = icmp eq i16 %65, 0
   %66 = select i1 %.not78, i32 %60, i32 %63
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %4, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %4, i64 %67
   %69 = and i16 %8, 2
   %.not.i = icmp eq i16 %69, 0
   br i1 %.not.i, label %73, label %70
@@ -7179,7 +7179,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25getIrregularFacePointSizeEii.e
   %.not80 = icmp eq i16 %91, 0
   %92 = select i1 %.not80, i32 %63, i32 %60
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %4, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %4, i64 %93
   %95 = and i16 %8, 2
   %.not.i81 = icmp eq i16 %95, 0
   br i1 %.not.i81, label %99, label %96
@@ -7265,7 +7265,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE23assi
   %26 = getelementptr inbounds double, ptr %15, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = load i16, ptr %29, align 8
@@ -7489,7 +7489,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE26comp
   %27 = getelementptr inbounds double, ptr %16, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %28, i64 %29
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 2
   %.not = icmp eq i16 %32, 0
@@ -7747,7 +7747,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE26comp
   %12 = alloca %"class.OpenSubdiv::v3_6_0::Far::(anonymous namespace)::SparseMatrixRow.25", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %13, i64 0, i64 %14
+  %15 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %13, i64 %14
   %16 = add nsw i32 %1, 1
   %17 = and i32 %16, 3
   %18 = add nsw i32 %1, 3
@@ -7980,7 +7980,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
 
 41:                                               ; preds = %.lr.ph
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds i8, ptr %3, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, 1
   %46 = zext nneg i8 %45 to i32
@@ -8296,7 +8296,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i: ; preds = %151, %_ZNSt6
 
 175:                                              ; preds = %.lr.ph111
   %176 = sext i32 %171 to i64
-  %177 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %176
+  %177 = getelementptr inbounds ptr, ptr %4, i64 %176
   %178 = load ptr, ptr %177, align 8
   %.not78 = icmp eq ptr %178, null
   br i1 %.not78, label %182, label %179
@@ -8805,7 +8805,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE27ComputeI
 
 16:                                               ; preds = %5
   %17 = sext i32 %0 to i64
-  %18 = getelementptr inbounds [30 x double], ptr @_ZZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE18computeCoefficientEiE7efTable, i64 0, i64 %17
+  %18 = getelementptr inbounds double, ptr @_ZZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE18computeCoefficientEiE7efTable, i64 %17
   %19 = load double, ptr %18, align 8
   br label %_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE18computeCoefficientEi.exit
 
@@ -9223,7 +9223,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
 define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25computeIrregularFacePointEiiiRKNS1_12_GLOBAL__N_115SparseMatrixRowIdEES8_S8_RS6_dPdPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, double noundef %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #11 align 2 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology"], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::GregoryConverter<double>::CornerTopology", ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -9602,7 +9602,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22conv
   %7 = alloca [7 x ptr], align 16
   %8 = load ptr, ptr %0, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -9640,7 +9640,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj120ELb1EEC2Ej.exit: ; preds 
           to label %32 unwind label %193
 
 32:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj120ELb1EEC2Ej.exit
-  %33 = getelementptr inbounds [4 x [7 x i32]], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22convertIrregularCornerEiRNS1_12SparseMatrixIdEEE8xRowsAll, i64 0, i64 %9
+  %33 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22convertIrregularCornerEiRNS1_12SparseMatrixIdEEE8xRowsAll, i64 %9
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %36 = load i32, ptr %35, align 4
@@ -9904,7 +9904,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %215 = sub i32 %.0267.in339, %36
   %216 = add i32 %215, 5
   %217 = select i1 %214, i32 %.0267, i32 %216
-  %218 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv342
+  %218 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv342
   store i32 %217, ptr %218, align 4
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond345.not = icmp eq i64 %indvars.iv.next343, 16
@@ -9930,7 +9930,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %229 = sext i32 %228 to i64
   %230 = load ptr, ptr %211, align 8
   %231 = getelementptr inbounds i32, ptr %230, i64 %229
-  %232 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %indvars.iv346
+  %232 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv346
   store ptr %231, ptr %232, align 8
   %233 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %231, ptr noundef nonnull align 4 dereferenceable(1) %233, i64 %212, i1 false)
@@ -9979,7 +9979,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EEC2Ej.exit: ; preds =
   %267 = load ptr, ptr %211, align 8
   %268 = getelementptr inbounds i32, ptr %267, i64 %266
   store i32 2, ptr %268, align 4
-  %269 = getelementptr inbounds [4 x [5 x i32]], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22convertIrregularCornerEiRNS1_12SparseMatrixIdEEE15extPointRowsAll, i64 0, i64 %9
+  %269 = getelementptr inbounds [5 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22convertIrregularCornerEiRNS1_12SparseMatrixIdEEE15extPointRowsAll, i64 %9
   %270 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %271 = load i32, ptr %270, align 4
   %272 = load i32, ptr %269, align 4
@@ -11210,7 +11210,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buil
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -11223,38 +11223,38 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buil
   %13 = add nsw i32 %12, 11
   %14 = load i32, ptr %3, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %15
+  %16 = getelementptr inbounds i32, ptr %6, i64 %15
   store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %19
+  %20 = getelementptr inbounds i32, ptr %6, i64 %19
   store i32 %11, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %23
+  %24 = getelementptr inbounds i32, ptr %6, i64 %23
   store i32 %11, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %27
+  %28 = getelementptr inbounds i32, ptr %6, i64 %27
   store i32 %11, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds i32, ptr %6, i64 %31
   store i32 %11, ptr %32, align 4
   %33 = add nsw i32 %10, 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds i32, ptr %6, i64 %36
   store i32 %33, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %40
+  %41 = getelementptr inbounds i32, ptr %6, i64 %40
   store i32 %33, ptr %41, align 4
   tail call void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE6ResizeEiii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 16, i32 noundef %2, i32 noundef %13)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -11267,7 +11267,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buil
 
 48:                                               ; preds = %9, %105
   %indvars.iv37 = phi i64 [ 0, %9 ], [ %indvars.iv.next38, %105 ]
-  %49 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv37
+  %49 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv37
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %42, align 8
   %52 = getelementptr i32, ptr %51, i64 %indvars.iv37
@@ -11471,7 +11471,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %272 ]
   %.054104 = phi i8 [ 0, %.preheader ], [ %.1, %272 ]
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner"], ptr %47, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 2
   %51 = and i8 %50, 2
@@ -11605,7 +11605,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %82, %80, %78, %.noe
 
 114:                                              ; preds = %46
   %115 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %116 = getelementptr inbounds nuw [4 x i32], ptr %115, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %118 = and i8 %50, 1
   %.not56 = icmp eq i8 %118, 0
@@ -11907,7 +11907,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilderC2ERKNS1_15TopologyR
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %8, ptr %9, align 8
@@ -11918,7 +11918,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilderC2ERKNS1_15TopologyR
 
 13:                                               ; preds = %3
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 %14
   %16 = load i32, ptr %15, align 4
   br label %17
 

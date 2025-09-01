@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %112 = load i8, ptr %.0572.i, align 1, !tbaa !24
   %113 = lshr i8 %112, 4
   %114 = zext nneg i8 %113 to i64
-  %115 = getelementptr inbounds nuw [16 x i8], ptr @__const.PNGwriteRawProfile.hex, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr @__const.PNGwriteRawProfile.hex, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !24
   %117 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   store i8 %116, ptr %.1.i, align 1, !tbaa !24
@@ -240,7 +240,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %119 = load i8, ptr %.0572.i, align 1, !tbaa !24
   %120 = and i8 %119, 15
   %121 = zext nneg i8 %120 to i64
-  %122 = getelementptr inbounds nuw [16 x i8], ptr @__const.PNGwriteRawProfile.hex, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @__const.PNGwriteRawProfile.hex, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !24
   %124 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   store i8 %123, ptr %117, align 1, !tbaa !24

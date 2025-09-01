@@ -1638,7 +1638,7 @@ create_hostcache_id.exit:                         ; preds = %21
 
 94:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0145, i64 %91, i1 false)
-  %95 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %91
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %91
   store i8 0, ptr %95, align 1, !tbaa !4
   %96 = call ptr @Curl_str2addr(ptr noundef nonnull %3, i32 noundef %71) #11
   %.not187 = icmp eq ptr %96, null

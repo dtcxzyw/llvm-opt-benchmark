@@ -35,7 +35,7 @@ define dso_local void @init_packobject(ptr noundef writeonly captures(none) init
   %4 = mul nuw nsw i64 %indvar, 96
   %5 = getelementptr nuw i8, ptr %0, i64 %4
   %scevgep = getelementptr nuw i8, ptr %5, i64 264
-  %6 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %2, i64 0, i64 %indvar
+  %6 = getelementptr inbounds nuw %struct.filter_info_t, ptr %2, i64 %indvar
   store i32 -1, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i64 20, ptr %7, align 8, !tbaa !10
@@ -140,7 +140,7 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr noundef writeonly 
   %44 = mul nuw nsw i64 %indvar.i, 96
   %45 = getelementptr nuw i8, ptr %41, i64 %44
   %scevgep.i = getelementptr nuw i8, ptr %45, i64 264
-  %46 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %42, i64 0, i64 %indvar.i
+  %46 = getelementptr inbounds nuw %struct.filter_info_t, ptr %42, i64 %indvar.i
   store i32 -1, ptr %46, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
   store i64 20, ptr %47, align 8, !tbaa !10
@@ -329,9 +329,9 @@ thread-pre-split:                                 ; preds = %9
 
 64:                                               ; preds = %64, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i
   %66 = load i64, ptr %65, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw [32 x i64], ptr %63, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i
   store i64 %66, ptr %67, align 8, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -384,9 +384,9 @@ aux_tblinsert_layout.exit:                        ; preds = %68, %.preheader103
 
 89:                                               ; preds = %89, %.lr.ph.i81
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i81 ], [ %indvars.iv.next.i84, %89 ]
-  %90 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i83
+  %90 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i83
   %91 = load i64, ptr %90, align 8, !tbaa !20
-  %92 = getelementptr inbounds nuw [32 x i64], ptr %88, i64 0, i64 %indvars.iv.i83
+  %92 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv.i83
   store i64 %91, ptr %92, align 8, !tbaa !20
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i82
@@ -439,9 +439,9 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %64, %59, %57, %50, 
 
 116:                                              ; preds = %116, %.lr.ph.i87
   %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i90, %116 ]
-  %117 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i89
+  %117 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i89
   %118 = load i64, ptr %117, align 8, !tbaa !20
-  %119 = getelementptr inbounds nuw [32 x i64], ptr %115, i64 0, i64 %indvars.iv.i89
+  %119 = getelementptr inbounds nuw i64, ptr %115, i64 %indvars.iv.i89
   store i64 %118, ptr %119, align 8, !tbaa !20
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i88
@@ -498,9 +498,9 @@ aux_tblinsert_layout.exit86:                      ; preds = %89, %116, %111, %10
 
 141:                                              ; preds = %141, %.lr.ph.i93
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i96, %141 ]
-  %142 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i95
+  %142 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i95
   %143 = load i64, ptr %142, align 8, !tbaa !20
-  %144 = getelementptr inbounds nuw [32 x i64], ptr %140, i64 0, i64 %indvars.iv.i95
+  %144 = getelementptr inbounds nuw i64, ptr %140, i64 %indvars.iv.i95
   store i64 %143, ptr %144, align 8, !tbaa !20
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i94
@@ -586,7 +586,7 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr noundef captures(n
   %37 = mul nuw nsw i64 %indvar.i, 96
   %38 = getelementptr nuw i8, ptr %34, i64 %37
   %scevgep.i = getelementptr nuw i8, ptr %38, i64 264
-  %39 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %35, i64 0, i64 %indvar.i
+  %39 = getelementptr inbounds nuw %struct.filter_info_t, ptr %35, i64 %indvar.i
   store i32 -1, ptr %39, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
   store i64 20, ptr %40, align 8, !tbaa !10
@@ -694,7 +694,7 @@ thread-pre-split:                                 ; preds = %9
   %29 = add nsw i32 %25, 1
   store i32 %29, ptr %24, align 8, !tbaa !19
   %30 = sext i32 %25 to i64
-  %31 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds %struct.filter_info_t, ptr %28, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %.thread
 
@@ -755,7 +755,7 @@ thread-pre-split:                                 ; preds = %9
   %62 = add nsw i32 %58, 1
   store i32 %62, ptr %57, align 8, !tbaa !19
   %63 = sext i32 %58 to i64
-  %64 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds %struct.filter_info_t, ptr %61, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %aux_tblinsert_filter.exit69
 
@@ -814,7 +814,7 @@ thread-pre-split:                                 ; preds = %9
   %100 = add nsw i32 %96, 1
   store i32 %100, ptr %95, align 8, !tbaa !19
   %101 = sext i32 %96 to i64
-  %102 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %99, i64 0, i64 %101
+  %102 = getelementptr inbounds %struct.filter_info_t, ptr %99, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %102, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %aux_tblinsert_filter.exit69
 
@@ -874,7 +874,7 @@ aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %9
   %133 = add nsw i32 %129, 1
   store i32 %133, ptr %128, align 8, !tbaa !19
   %134 = sext i32 %129 to i64
-  %135 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %132, i64 0, i64 %134
+  %135 = getelementptr inbounds %struct.filter_info_t, ptr %132, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %135, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   br label %aux_tblinsert_filter.exit75
 

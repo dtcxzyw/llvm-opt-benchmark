@@ -480,7 +480,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %94 = getelementptr i8, ptr %91, i64 1
   %95 = load i8, ptr %91, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %96
+  %97 = getelementptr i8, ptr @_ctype, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = shl i8 %98, 5
   %100 = and i8 %99, 32
@@ -746,7 +746,7 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %35 = getelementptr i8, ptr %32, i64 1
   %36 = load i8, ptr %32, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %37
+  %38 = getelementptr i8, ptr @_ctype, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = shl i8 %39, 5
   %41 = and i8 %40, 32

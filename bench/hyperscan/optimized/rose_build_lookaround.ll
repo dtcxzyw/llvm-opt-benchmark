@@ -1849,7 +1849,7 @@ _ZN3ue2L16findForwardReachERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorI
 
 645:                                              ; preds = %643, %.lr.ph.i49
   %.0813.i.i.i = phi i64 [ 0, %.lr.ph.i49 ], [ %644, %643 ]
-  %646 = getelementptr inbounds nuw [4 x i64], ptr %642, i64 0, i64 %.0813.i.i.i
+  %646 = getelementptr inbounds nuw i64, ptr %642, i64 %.0813.i.i.i
   %647 = load i64, ptr %646, align 8
   %.not.i.i.i50 = icmp eq i64 %647, -1
   br i1 %.not.i.i.i50, label %643, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
@@ -4330,7 +4330,7 @@ _ZN3ue29CharReach4flipEv.exit.i.i:                ; preds = %.preheader.i.i, %.l
 
 302:                                              ; preds = %305, %_ZN3ue29CharReach4flipEv.exit.i.i
   %.0710.i.i.i.i = phi i64 [ 0, %_ZN3ue29CharReach4flipEv.exit.i.i ], [ %306, %305 ]
-  %303 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0710.i.i.i.i
+  %303 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i.i.i
   %304 = load i64, ptr %303, align 8
   %.not.i.i29.i.i = icmp eq i64 %304, 0
   br i1 %.not.i.i29.i.i, label %305, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i
@@ -4379,7 +4379,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %302
   br label %327
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %318
+  %321 = getelementptr inbounds nuw i64, ptr %7, i64 %318
   %322 = load i64, ptr %321, align 8
   %323 = shl nsw i64 -2, %319
   %324 = and i64 %322, %323
@@ -4397,7 +4397,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %302
 
 329:                                              ; preds = %327
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %330 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %.0.i.i.i.i
+  %330 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i.i
   %331 = load i64, ptr %330, align 8
   %.not22.i.i.i.i = icmp eq i64 %331, 0
   br i1 %.not22.i.i.i.i, label %327, label %332, !llvm.loop !214
@@ -4873,7 +4873,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN3ue29CharReachEESt10_Select1stIS4_ESt4lessIiESaIS4_EE
 
 475:                                              ; preds = %473, %.lr.ph.i.i30
   %.0813.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i30 ], [ %474, %473 ]
-  %476 = getelementptr inbounds nuw [4 x i64], ptr %472, i64 0, i64 %.0813.i.i.i.i
+  %476 = getelementptr inbounds nuw i64, ptr %472, i64 %.0813.i.i.i.i
   %477 = load i64, ptr %476, align 8
   %.not.i.i.i.i31 = icmp eq i64 %477, -1
   br i1 %.not.i.i.i.i31, label %473, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
@@ -8817,7 +8817,7 @@ define internal fastcc void @_ZN3ue2L15getForwardReachERKNS_7raw_dfaERSt3mapIiNS
 
 .preheader:                                       ; preds = %42, %_ZN3ue28flat_setItSt4lessItESaItEE6insertERKt.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3ue28flat_setItSt4lessItESaItEE6insertERKt.exit ], [ 0, %42 ]
-  %45 = getelementptr inbounds nuw [257 x i16], ptr %26, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i64
   %48 = load ptr, ptr %39, align 8
@@ -8830,7 +8830,7 @@ define internal fastcc void @_ZN3ue2L15getForwardReachERKNS_7raw_dfaERSt3mapIiNS
   %52 = and i64 %indvars.iv, 63
   %53 = shl nuw i64 1, %52
   %54 = lshr i64 %indvars.iv, 6
-  %55 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %6, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, %53
   store i64 %57, ptr %55, align 8

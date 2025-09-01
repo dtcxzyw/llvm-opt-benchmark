@@ -89,7 +89,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %13 = zext i8 %12 to i32
   %14 = xor i32 %11, %13
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %18 = xor i32 %17, %10
   %19 = getelementptr inbounds nuw i8, ptr %.03539, i64 1
@@ -125,53 +125,53 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = xor i32 %29, %.145
   %33 = and i32 %32, 255
-  %34 = or disjoint i32 %33, 1792
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %35
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 7168
   %37 = load i32, ptr %36, align 4, !tbaa !8
   %38 = lshr i32 %32, 8
   %39 = and i32 %38, 255
-  %40 = or disjoint i32 %39, 1536
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %41
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 6144
   %43 = load i32, ptr %42, align 4, !tbaa !8
   %44 = xor i32 %43, %37
   %45 = lshr i32 %32, 16
   %46 = and i32 %45, 255
-  %47 = or disjoint i32 %46, 1280
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %48
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 5120
   %50 = load i32, ptr %49, align 4, !tbaa !8
   %51 = xor i32 %44, %50
   %52 = lshr i32 %32, 24
-  %53 = or disjoint i32 %52, 1024
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %54
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4096
   %56 = load i32, ptr %55, align 4, !tbaa !8
   %57 = xor i32 %51, %56
   %58 = and i32 %31, 255
-  %59 = or disjoint i32 %58, 768
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %60
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 3072
   %62 = load i32, ptr %61, align 4, !tbaa !8
   %63 = xor i32 %57, %62
   %64 = lshr i32 %31, 8
   %65 = and i32 %64, 255
-  %66 = or disjoint i32 %65, 512
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %67
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2048
   %69 = load i32, ptr %68, align 4, !tbaa !8
   %70 = xor i32 %63, %69
   %71 = lshr i32 %31, 16
   %72 = and i32 %71, 255
-  %73 = or disjoint i32 %72, 256
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %74
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1024
   %76 = load i32, ptr %75, align 4, !tbaa !8
   %77 = xor i32 %70, %76
   %78 = lshr i32 %31, 24
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !8
   %82 = xor i32 %77, %81
   %83 = getelementptr inbounds nuw i8, ptr %.13644, i64 8
@@ -187,7 +187,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %87 = zext i8 %86 to i32
   %88 = xor i32 %85, %87
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [2048 x i32], ptr @crc32_slice8_table, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr @crc32_slice8_table, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !8
   %92 = xor i32 %91, %84
   %93 = getelementptr inbounds nuw i8, ptr %.23751, i64 1
@@ -232,7 +232,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %17 = zext i8 %16 to i32
   %18 = xor i32 %14, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i32], ptr @crc32_slice1_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr @crc32_slice1_table, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = xor i32 %21, %13
   %23 = add nuw nsw i64 %.0.i406, 1
@@ -246,13 +246,13 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
   %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)
-  %30 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %2
+  %30 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %2
   %31 = load <16 x i8>, ptr %30, align 1, !tbaa !10
   %32 = bitcast <4 x i32> %4 to <16 x i8>
   %33 = xor <16 x i8> %29, %32
   %34 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %33, <16 x i8> %31)
   %35 = bitcast <16 x i8> %34 to <2 x i64>
-  br label %373
+  br label %371
 
 36:                                               ; preds = %9
   %37 = load <2 x i64>, ptr %1, align 1, !tbaa !10
@@ -283,7 +283,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %.1187 = phi <2 x i64> [ %54, %48 ], [ %46, %40 ], [ %38, %36 ]
   %56 = and i64 %2, 48
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
-  br label %352
+  br label %351
 
 58:                                               ; preds = %7
   %59 = load <8 x i64>, ptr %1, align 1, !tbaa !10
@@ -291,7 +291,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %61 = xor <8 x i64> %59, %60
   %62 = icmp samesign ult i64 %2, 128
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  br i1 %62, label %317, label %64
+  br i1 %62, label %316, label %64
 
 64:                                               ; preds = %58
   %65 = load <8 x i64>, ptr %63, align 1, !tbaa !10
@@ -301,24 +301,24 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
 
 68:                                               ; preds = %64
   %69 = bitcast <8 x i64> %65 to <16 x i32>
-  br label %300
+  br label %299
 
 70:                                               ; preds = %64
   %71 = load <16 x i32>, ptr %67, align 1, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %73 = load <16 x i32>, ptr %72, align 1, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  br label %268
+  br label %267
 
 75:                                               ; preds = %3
   %76 = icmp ugt i64 %2, 65536
-  br i1 %76, label %77, label %123
+  br i1 %76, label %77, label %122
 
 77:                                               ; preds = %75
   %78 = ptrtoint ptr %1 to i64
   %79 = and i64 %78, 63
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %123, label %80
+  br i1 %.not, label %122, label %80
 
 80:                                               ; preds = %77
   %81 = sub i64 0, %78
@@ -329,410 +329,408 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = and i64 %81, 15
   %.not216 = icmp eq i64 %87, 0
-  br i1 %.not216, label %108, label %88
+  br i1 %.not216, label %107, label %88
 
 88:                                               ; preds = %80
-  %89 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %87
   %90 = load <16 x i8>, ptr %89, align 1, !tbaa !10
-  %91 = or disjoint i64 %87, 16
-  %92 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %91
-  %93 = load <16 x i8>, ptr %92, align 1, !tbaa !10
-  %94 = bitcast <2 x i64> %85 to <16 x i8>
-  %95 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %94, <16 x i8> %90)
-  %96 = bitcast <16 x i8> %95 to <2 x i64>
-  %97 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %94, <16 x i8> %93)
-  %98 = getelementptr inbounds nuw i8, ptr %86, i64 %87
-  %99 = getelementptr inbounds i8, ptr %98, i64 -16
-  %100 = load <16 x i8>, ptr %99, align 1, !tbaa !10
-  %101 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %97, <16 x i8> %100, <16 x i8> %93)
-  %102 = bitcast <16 x i8> %101 to <2 x i64>
-  %103 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %96, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %104 = xor <2 x i64> %103, %102
-  %105 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %96, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %106 = xor <2 x i64> %104, %105
-  %107 = and i64 %81, 48
-  br label %108
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = load <16 x i8>, ptr %91, align 1, !tbaa !10
+  %93 = bitcast <2 x i64> %85 to <16 x i8>
+  %94 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %93, <16 x i8> %90)
+  %95 = bitcast <16 x i8> %94 to <2 x i64>
+  %96 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %93, <16 x i8> %92)
+  %97 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %98 = getelementptr inbounds i8, ptr %97, i64 -16
+  %99 = load <16 x i8>, ptr %98, align 1, !tbaa !10
+  %100 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %96, <16 x i8> %99, <16 x i8> %92)
+  %101 = bitcast <16 x i8> %100 to <2 x i64>
+  %102 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %95, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %103 = xor <2 x i64> %102, %101
+  %104 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %95, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %105 = xor <2 x i64> %103, %104
+  %106 = and i64 %81, 48
+  br label %107
 
-108:                                              ; preds = %88, %80
-  %.3189 = phi <2 x i64> [ %106, %88 ], [ %85, %80 ]
-  %.4 = phi ptr [ %98, %88 ], [ %86, %80 ]
-  %.0183 = phi i64 [ %107, %88 ], [ %82, %80 ]
+107:                                              ; preds = %88, %80
+  %.3189 = phi <2 x i64> [ %105, %88 ], [ %85, %80 ]
+  %.4 = phi ptr [ %97, %88 ], [ %86, %80 ]
+  %.0183 = phi i64 [ %106, %88 ], [ %82, %80 ]
   %.not217374 = icmp eq i64 %.0183, 0
   br i1 %.not217374, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %108, %.lr.ph
-  %.1377 = phi i64 [ %115, %.lr.ph ], [ %.0183, %108 ]
-  %.5376 = phi ptr [ %114, %.lr.ph ], [ %.4, %108 ]
-  %.4190375 = phi <2 x i64> [ %113, %.lr.ph ], [ %.3189, %108 ]
-  %109 = load <2 x i64>, ptr %.5376, align 16, !tbaa !10
-  %110 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4190375, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %111 = xor <2 x i64> %110, %109
-  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4190375, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %113 = xor <2 x i64> %111, %112
-  %114 = getelementptr inbounds nuw i8, ptr %.5376, i64 16
-  %115 = add i64 %.1377, -16
-  %.not217 = icmp eq i64 %115, 0
+.lr.ph:                                           ; preds = %107, %.lr.ph
+  %.1377 = phi i64 [ %114, %.lr.ph ], [ %.0183, %107 ]
+  %.5376 = phi ptr [ %113, %.lr.ph ], [ %.4, %107 ]
+  %.4190375 = phi <2 x i64> [ %112, %.lr.ph ], [ %.3189, %107 ]
+  %108 = load <2 x i64>, ptr %.5376, align 16, !tbaa !10
+  %109 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4190375, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %110 = xor <2 x i64> %109, %108
+  %111 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4190375, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %112 = xor <2 x i64> %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %.5376, i64 16
+  %114 = add i64 %.1377, -16
+  %.not217 = icmp eq i64 %114, 0
   br i1 %.not217, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %108
-  %.4190.lcssa = phi <2 x i64> [ %.3189, %108 ], [ %113, %.lr.ph ]
-  %.5.lcssa = phi ptr [ %.4, %108 ], [ %114, %.lr.ph ]
-  %116 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
-  %117 = shufflevector <2 x i64> %.4190.lcssa, <2 x i64> %116, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %118 = getelementptr inbounds nuw i8, ptr %.5.lcssa, i64 16
-  %119 = load <4 x i64>, ptr %118, align 32, !tbaa !10
-  %120 = shufflevector <4 x i64> %119, <4 x i64> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %121 = shufflevector <8 x i64> %117, <8 x i64> %120, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %122 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
-  br label %127
+._crit_edge:                                      ; preds = %.lr.ph, %107
+  %.4190.lcssa = phi <2 x i64> [ %.3189, %107 ], [ %112, %.lr.ph ]
+  %.5.lcssa = phi ptr [ %.4, %107 ], [ %113, %.lr.ph ]
+  %115 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
+  %116 = shufflevector <2 x i64> %.4190.lcssa, <2 x i64> %115, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %117 = getelementptr inbounds nuw i8, ptr %.5.lcssa, i64 16
+  %118 = load <4 x i64>, ptr %117, align 32, !tbaa !10
+  %119 = shufflevector <4 x i64> %118, <4 x i64> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %120 = shufflevector <8 x i64> %116, <8 x i64> %119, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
+  %121 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
+  br label %126
 
-123:                                              ; preds = %77, %75
-  %124 = load <8 x i64>, ptr %1, align 1, !tbaa !10
-  %125 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 2, i32 3, i32 2, i32 3>
-  %126 = xor <8 x i64> %124, %125
-  br label %127
+122:                                              ; preds = %77, %75
+  %123 = load <8 x i64>, ptr %1, align 1, !tbaa !10
+  %124 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 2, i32 3, i32 2, i32 3>
+  %125 = xor <8 x i64> %123, %124
+  br label %126
 
-127:                                              ; preds = %123, %._crit_edge
-  %.4211 = phi i64 [ %83, %._crit_edge ], [ %2, %123 ]
-  %.3205 = phi <8 x i64> [ %121, %._crit_edge ], [ %126, %123 ]
-  %.6 = phi ptr [ %122, %._crit_edge ], [ %1, %123 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %129 = load <8 x i64>, ptr %128, align 1, !tbaa !10
-  %130 = getelementptr inbounds nuw i8, ptr %.6, i64 128
-  %131 = load <8 x i64>, ptr %130, align 1, !tbaa !10
-  %132 = getelementptr inbounds nuw i8, ptr %.6, i64 192
-  %133 = load <8 x i64>, ptr %132, align 1, !tbaa !10
-  %134 = getelementptr inbounds nuw i8, ptr %.6, i64 256
-  %135 = load <8 x i64>, ptr %134, align 1, !tbaa !10
-  %136 = getelementptr inbounds nuw i8, ptr %.6, i64 320
-  %137 = load <8 x i64>, ptr %136, align 1, !tbaa !10
-  %138 = getelementptr inbounds nuw i8, ptr %.6, i64 384
-  %139 = load <8 x i64>, ptr %138, align 1, !tbaa !10
-  %140 = getelementptr inbounds nuw i8, ptr %.6, i64 448
-  %141 = load <8 x i64>, ptr %140, align 1, !tbaa !10
+126:                                              ; preds = %122, %._crit_edge
+  %.4211 = phi i64 [ %83, %._crit_edge ], [ %2, %122 ]
+  %.3205 = phi <8 x i64> [ %120, %._crit_edge ], [ %125, %122 ]
+  %.6 = phi ptr [ %121, %._crit_edge ], [ %1, %122 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %128 = load <8 x i64>, ptr %127, align 1, !tbaa !10
+  %129 = getelementptr inbounds nuw i8, ptr %.6, i64 128
+  %130 = load <8 x i64>, ptr %129, align 1, !tbaa !10
+  %131 = getelementptr inbounds nuw i8, ptr %.6, i64 192
+  %132 = load <8 x i64>, ptr %131, align 1, !tbaa !10
+  %133 = getelementptr inbounds nuw i8, ptr %.6, i64 256
+  %134 = load <8 x i64>, ptr %133, align 1, !tbaa !10
+  %135 = getelementptr inbounds nuw i8, ptr %.6, i64 320
+  %136 = load <8 x i64>, ptr %135, align 1, !tbaa !10
+  %137 = getelementptr inbounds nuw i8, ptr %.6, i64 384
+  %138 = load <8 x i64>, ptr %137, align 1, !tbaa !10
+  %139 = getelementptr inbounds nuw i8, ptr %.6, i64 448
+  %140 = load <8 x i64>, ptr %139, align 1, !tbaa !10
   %.7379 = getelementptr inbounds nuw i8, ptr %.6, i64 512
-  %142 = icmp ugt i64 %.4211, 1023
-  br i1 %142, label %.lr.ph392, label %._crit_edge393
+  %141 = icmp ugt i64 %.4211, 1023
+  br i1 %141, label %.lr.ph392, label %._crit_edge393
 
-.lr.ph392:                                        ; preds = %127, %.lr.ph392
-  %.7390 = phi ptr [ %.7, %.lr.ph392 ], [ %.7379, %127 ]
-  %.6.pn389 = phi ptr [ %.7390, %.lr.ph392 ], [ %.6, %127 ]
-  %.0191388 = phi <8 x i64> [ %205, %.lr.ph392 ], [ %141, %127 ]
-  %.0192387 = phi <8 x i64> [ %197, %.lr.ph392 ], [ %139, %127 ]
-  %.0193386 = phi <8 x i64> [ %189, %.lr.ph392 ], [ %137, %127 ]
-  %.0194385 = phi <8 x i64> [ %181, %.lr.ph392 ], [ %135, %127 ]
-  %.1196384 = phi <8 x i64> [ %173, %.lr.ph392 ], [ %133, %127 ]
-  %.1198383 = phi <8 x i64> [ %165, %.lr.ph392 ], [ %131, %127 ]
-  %.2201382 = phi <8 x i64> [ %157, %.lr.ph392 ], [ %129, %127 ]
-  %.4206381 = phi <8 x i64> [ %149, %.lr.ph392 ], [ %.3205, %127 ]
-  %.5212380 = phi i64 [ %206, %.lr.ph392 ], [ %.4211, %127 ]
-  %143 = load <16 x i32>, ptr %.7390, align 1, !tbaa !10
-  %144 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206381, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %145 = bitcast <8 x i64> %144 to <16 x i32>
-  %146 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206381, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %147 = bitcast <8 x i64> %146 to <16 x i32>
-  %148 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %145, <16 x i32> %147, <16 x i32> %143, i32 150)
-  %149 = bitcast <16 x i32> %148 to <8 x i64>
-  %150 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 576
-  %151 = load <16 x i32>, ptr %150, align 1, !tbaa !10
-  %152 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201382, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %153 = bitcast <8 x i64> %152 to <16 x i32>
-  %154 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201382, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %155 = bitcast <8 x i64> %154 to <16 x i32>
-  %156 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %153, <16 x i32> %155, <16 x i32> %151, i32 150)
-  %157 = bitcast <16 x i32> %156 to <8 x i64>
-  %158 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 640
-  %159 = load <16 x i32>, ptr %158, align 1, !tbaa !10
-  %160 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198383, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %161 = bitcast <8 x i64> %160 to <16 x i32>
-  %162 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198383, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %163 = bitcast <8 x i64> %162 to <16 x i32>
-  %164 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %161, <16 x i32> %163, <16 x i32> %159, i32 150)
-  %165 = bitcast <16 x i32> %164 to <8 x i64>
-  %166 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 704
-  %167 = load <16 x i32>, ptr %166, align 1, !tbaa !10
-  %168 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196384, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %169 = bitcast <8 x i64> %168 to <16 x i32>
-  %170 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196384, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %171 = bitcast <8 x i64> %170 to <16 x i32>
-  %172 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %169, <16 x i32> %171, <16 x i32> %167, i32 150)
-  %173 = bitcast <16 x i32> %172 to <8 x i64>
-  %174 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 768
-  %175 = load <16 x i32>, ptr %174, align 1, !tbaa !10
-  %176 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0194385, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %177 = bitcast <8 x i64> %176 to <16 x i32>
-  %178 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0194385, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %179 = bitcast <8 x i64> %178 to <16 x i32>
-  %180 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %177, <16 x i32> %179, <16 x i32> %175, i32 150)
-  %181 = bitcast <16 x i32> %180 to <8 x i64>
-  %182 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 832
-  %183 = load <16 x i32>, ptr %182, align 1, !tbaa !10
-  %184 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0193386, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %185 = bitcast <8 x i64> %184 to <16 x i32>
-  %186 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0193386, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %187 = bitcast <8 x i64> %186 to <16 x i32>
-  %188 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %185, <16 x i32> %187, <16 x i32> %183, i32 150)
-  %189 = bitcast <16 x i32> %188 to <8 x i64>
-  %190 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 896
-  %191 = load <16 x i32>, ptr %190, align 1, !tbaa !10
-  %192 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0192387, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %193 = bitcast <8 x i64> %192 to <16 x i32>
-  %194 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0192387, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %195 = bitcast <8 x i64> %194 to <16 x i32>
-  %196 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %193, <16 x i32> %195, <16 x i32> %191, i32 150)
-  %197 = bitcast <16 x i32> %196 to <8 x i64>
-  %198 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 960
-  %199 = load <16 x i32>, ptr %198, align 1, !tbaa !10
-  %200 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0191388, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
-  %201 = bitcast <8 x i64> %200 to <16 x i32>
-  %202 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0191388, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
-  %203 = bitcast <8 x i64> %202 to <16 x i32>
-  %204 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %201, <16 x i32> %203, <16 x i32> %199, i32 150)
-  %205 = bitcast <16 x i32> %204 to <8 x i64>
-  %206 = add i64 %.5212380, -512
+.lr.ph392:                                        ; preds = %126, %.lr.ph392
+  %.7390 = phi ptr [ %.7, %.lr.ph392 ], [ %.7379, %126 ]
+  %.6.pn389 = phi ptr [ %.7390, %.lr.ph392 ], [ %.6, %126 ]
+  %.0191388 = phi <8 x i64> [ %204, %.lr.ph392 ], [ %140, %126 ]
+  %.0192387 = phi <8 x i64> [ %196, %.lr.ph392 ], [ %138, %126 ]
+  %.0193386 = phi <8 x i64> [ %188, %.lr.ph392 ], [ %136, %126 ]
+  %.0194385 = phi <8 x i64> [ %180, %.lr.ph392 ], [ %134, %126 ]
+  %.1196384 = phi <8 x i64> [ %172, %.lr.ph392 ], [ %132, %126 ]
+  %.1198383 = phi <8 x i64> [ %164, %.lr.ph392 ], [ %130, %126 ]
+  %.2201382 = phi <8 x i64> [ %156, %.lr.ph392 ], [ %128, %126 ]
+  %.4206381 = phi <8 x i64> [ %148, %.lr.ph392 ], [ %.3205, %126 ]
+  %.5212380 = phi i64 [ %205, %.lr.ph392 ], [ %.4211, %126 ]
+  %142 = load <16 x i32>, ptr %.7390, align 1, !tbaa !10
+  %143 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206381, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %144 = bitcast <8 x i64> %143 to <16 x i32>
+  %145 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206381, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %146 = bitcast <8 x i64> %145 to <16 x i32>
+  %147 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %144, <16 x i32> %146, <16 x i32> %142, i32 150)
+  %148 = bitcast <16 x i32> %147 to <8 x i64>
+  %149 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 576
+  %150 = load <16 x i32>, ptr %149, align 1, !tbaa !10
+  %151 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201382, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %152 = bitcast <8 x i64> %151 to <16 x i32>
+  %153 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201382, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %154 = bitcast <8 x i64> %153 to <16 x i32>
+  %155 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %152, <16 x i32> %154, <16 x i32> %150, i32 150)
+  %156 = bitcast <16 x i32> %155 to <8 x i64>
+  %157 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 640
+  %158 = load <16 x i32>, ptr %157, align 1, !tbaa !10
+  %159 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198383, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %160 = bitcast <8 x i64> %159 to <16 x i32>
+  %161 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198383, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %162 = bitcast <8 x i64> %161 to <16 x i32>
+  %163 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %160, <16 x i32> %162, <16 x i32> %158, i32 150)
+  %164 = bitcast <16 x i32> %163 to <8 x i64>
+  %165 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 704
+  %166 = load <16 x i32>, ptr %165, align 1, !tbaa !10
+  %167 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196384, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %168 = bitcast <8 x i64> %167 to <16 x i32>
+  %169 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196384, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %170 = bitcast <8 x i64> %169 to <16 x i32>
+  %171 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %168, <16 x i32> %170, <16 x i32> %166, i32 150)
+  %172 = bitcast <16 x i32> %171 to <8 x i64>
+  %173 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 768
+  %174 = load <16 x i32>, ptr %173, align 1, !tbaa !10
+  %175 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0194385, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %176 = bitcast <8 x i64> %175 to <16 x i32>
+  %177 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0194385, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %178 = bitcast <8 x i64> %177 to <16 x i32>
+  %179 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %176, <16 x i32> %178, <16 x i32> %174, i32 150)
+  %180 = bitcast <16 x i32> %179 to <8 x i64>
+  %181 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 832
+  %182 = load <16 x i32>, ptr %181, align 1, !tbaa !10
+  %183 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0193386, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %184 = bitcast <8 x i64> %183 to <16 x i32>
+  %185 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0193386, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %186 = bitcast <8 x i64> %185 to <16 x i32>
+  %187 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %184, <16 x i32> %186, <16 x i32> %182, i32 150)
+  %188 = bitcast <16 x i32> %187 to <8 x i64>
+  %189 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 896
+  %190 = load <16 x i32>, ptr %189, align 1, !tbaa !10
+  %191 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0192387, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %192 = bitcast <8 x i64> %191 to <16 x i32>
+  %193 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0192387, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %194 = bitcast <8 x i64> %193 to <16 x i32>
+  %195 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %192, <16 x i32> %194, <16 x i32> %190, i32 150)
+  %196 = bitcast <16 x i32> %195 to <8 x i64>
+  %197 = getelementptr inbounds nuw i8, ptr %.6.pn389, i64 960
+  %198 = load <16 x i32>, ptr %197, align 1, !tbaa !10
+  %199 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0191388, <8 x i64> <i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison, i64 275962664, i64 poison>, i8 0)
+  %200 = bitcast <8 x i64> %199 to <16 x i32>
+  %201 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.0191388, <8 x i64> <i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069, i64 poison, i64 204535069>, i8 17)
+  %202 = bitcast <8 x i64> %201 to <16 x i32>
+  %203 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %200, <16 x i32> %202, <16 x i32> %198, i32 150)
+  %204 = bitcast <16 x i32> %203 to <8 x i64>
+  %205 = add i64 %.5212380, -512
   %.7 = getelementptr inbounds nuw i8, ptr %.7390, i64 512
-  %207 = icmp ugt i64 %206, 1023
-  br i1 %207, label %.lr.ph392, label %._crit_edge393
+  %206 = icmp ugt i64 %205, 1023
+  br i1 %206, label %.lr.ph392, label %._crit_edge393
 
-._crit_edge393:                                   ; preds = %.lr.ph392, %127
-  %.5212.lcssa = phi i64 [ %.4211, %127 ], [ %206, %.lr.ph392 ]
-  %.4206.lcssa = phi <8 x i64> [ %.3205, %127 ], [ %149, %.lr.ph392 ]
-  %.2201.lcssa = phi <8 x i64> [ %129, %127 ], [ %157, %.lr.ph392 ]
-  %.1198.lcssa = phi <8 x i64> [ %131, %127 ], [ %165, %.lr.ph392 ]
-  %.1196.lcssa = phi <8 x i64> [ %133, %127 ], [ %173, %.lr.ph392 ]
-  %.0194.lcssa = phi <8 x i64> [ %135, %127 ], [ %181, %.lr.ph392 ]
-  %.0193.lcssa = phi <8 x i64> [ %137, %127 ], [ %189, %.lr.ph392 ]
-  %.0192.lcssa = phi <8 x i64> [ %139, %127 ], [ %197, %.lr.ph392 ]
-  %.0191.lcssa = phi <8 x i64> [ %141, %127 ], [ %205, %.lr.ph392 ]
-  %.6.pn.lcssa = phi ptr [ %.6, %127 ], [ %.7390, %.lr.ph392 ]
-  %.7.lcssa = phi ptr [ %.7379, %127 ], [ %.7, %.lr.ph392 ]
-  %208 = bitcast <8 x i64> %.0194.lcssa to <16 x i32>
-  %209 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %210 = bitcast <8 x i64> %209 to <16 x i32>
-  %211 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %212 = bitcast <8 x i64> %211 to <16 x i32>
-  %213 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %210, <16 x i32> %212, <16 x i32> %208, i32 150)
-  %214 = bitcast <16 x i32> %213 to <8 x i64>
-  %215 = bitcast <8 x i64> %.0193.lcssa to <16 x i32>
-  %216 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %217 = bitcast <8 x i64> %216 to <16 x i32>
-  %218 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %219 = bitcast <8 x i64> %218 to <16 x i32>
-  %220 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %217, <16 x i32> %219, <16 x i32> %215, i32 150)
-  %221 = bitcast <16 x i32> %220 to <8 x i64>
-  %222 = bitcast <8 x i64> %.0192.lcssa to <16 x i32>
-  %223 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %224 = bitcast <8 x i64> %223 to <16 x i32>
-  %225 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %226 = bitcast <8 x i64> %225 to <16 x i32>
-  %227 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %224, <16 x i32> %226, <16 x i32> %222, i32 150)
-  %228 = bitcast <8 x i64> %.0191.lcssa to <16 x i32>
-  %229 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %230 = bitcast <8 x i64> %229 to <16 x i32>
-  %231 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %232 = bitcast <8 x i64> %231 to <16 x i32>
-  %233 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %230, <16 x i32> %232, <16 x i32> %228, i32 150)
-  %234 = and i64 %.5212.lcssa, 256
-  %.not218 = icmp eq i64 %234, 0
-  br i1 %.not218, label %268, label %235
+._crit_edge393:                                   ; preds = %.lr.ph392, %126
+  %.5212.lcssa = phi i64 [ %.4211, %126 ], [ %205, %.lr.ph392 ]
+  %.4206.lcssa = phi <8 x i64> [ %.3205, %126 ], [ %148, %.lr.ph392 ]
+  %.2201.lcssa = phi <8 x i64> [ %128, %126 ], [ %156, %.lr.ph392 ]
+  %.1198.lcssa = phi <8 x i64> [ %130, %126 ], [ %164, %.lr.ph392 ]
+  %.1196.lcssa = phi <8 x i64> [ %132, %126 ], [ %172, %.lr.ph392 ]
+  %.0194.lcssa = phi <8 x i64> [ %134, %126 ], [ %180, %.lr.ph392 ]
+  %.0193.lcssa = phi <8 x i64> [ %136, %126 ], [ %188, %.lr.ph392 ]
+  %.0192.lcssa = phi <8 x i64> [ %138, %126 ], [ %196, %.lr.ph392 ]
+  %.0191.lcssa = phi <8 x i64> [ %140, %126 ], [ %204, %.lr.ph392 ]
+  %.6.pn.lcssa = phi ptr [ %.6, %126 ], [ %.7390, %.lr.ph392 ]
+  %.7.lcssa = phi ptr [ %.7379, %126 ], [ %.7, %.lr.ph392 ]
+  %207 = bitcast <8 x i64> %.0194.lcssa to <16 x i32>
+  %208 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %209 = bitcast <8 x i64> %208 to <16 x i32>
+  %210 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.4206.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %211 = bitcast <8 x i64> %210 to <16 x i32>
+  %212 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %209, <16 x i32> %211, <16 x i32> %207, i32 150)
+  %213 = bitcast <16 x i32> %212 to <8 x i64>
+  %214 = bitcast <8 x i64> %.0193.lcssa to <16 x i32>
+  %215 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %216 = bitcast <8 x i64> %215 to <16 x i32>
+  %217 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2201.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %218 = bitcast <8 x i64> %217 to <16 x i32>
+  %219 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %216, <16 x i32> %218, <16 x i32> %214, i32 150)
+  %220 = bitcast <16 x i32> %219 to <8 x i64>
+  %221 = bitcast <8 x i64> %.0192.lcssa to <16 x i32>
+  %222 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %223 = bitcast <8 x i64> %222 to <16 x i32>
+  %224 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1198.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %225 = bitcast <8 x i64> %224 to <16 x i32>
+  %226 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %223, <16 x i32> %225, <16 x i32> %221, i32 150)
+  %227 = bitcast <8 x i64> %.0191.lcssa to <16 x i32>
+  %228 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196.lcssa, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %229 = bitcast <8 x i64> %228 to <16 x i32>
+  %230 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1196.lcssa, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %231 = bitcast <8 x i64> %230 to <16 x i32>
+  %232 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %229, <16 x i32> %231, <16 x i32> %227, i32 150)
+  %233 = and i64 %.5212.lcssa, 256
+  %.not218 = icmp eq i64 %233, 0
+  br i1 %.not218, label %267, label %234
 
-235:                                              ; preds = %._crit_edge393
-  %236 = bitcast <16 x i32> %233 to <8 x i64>
-  %237 = bitcast <16 x i32> %227 to <8 x i64>
-  %238 = load <16 x i32>, ptr %.7.lcssa, align 1, !tbaa !10
-  %239 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %214, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %240 = bitcast <8 x i64> %239 to <16 x i32>
-  %241 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %214, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %242 = bitcast <8 x i64> %241 to <16 x i32>
-  %243 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %240, <16 x i32> %242, <16 x i32> %238, i32 150)
-  %244 = bitcast <16 x i32> %243 to <8 x i64>
-  %245 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 576
-  %246 = load <16 x i32>, ptr %245, align 1, !tbaa !10
-  %247 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %221, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %248 = bitcast <8 x i64> %247 to <16 x i32>
-  %249 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %221, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %250 = bitcast <8 x i64> %249 to <16 x i32>
-  %251 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %248, <16 x i32> %250, <16 x i32> %246, i32 150)
-  %252 = bitcast <16 x i32> %251 to <8 x i64>
-  %253 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 640
-  %254 = load <16 x i32>, ptr %253, align 1, !tbaa !10
-  %255 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %237, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %256 = bitcast <8 x i64> %255 to <16 x i32>
-  %257 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %237, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %258 = bitcast <8 x i64> %257 to <16 x i32>
-  %259 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %256, <16 x i32> %258, <16 x i32> %254, i32 150)
-  %260 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 704
-  %261 = load <16 x i32>, ptr %260, align 1, !tbaa !10
-  %262 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %236, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %263 = bitcast <8 x i64> %262 to <16 x i32>
-  %264 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %236, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %265 = bitcast <8 x i64> %264 to <16 x i32>
-  %266 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %263, <16 x i32> %265, <16 x i32> %261, i32 150)
-  %267 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 768
-  br label %268
+234:                                              ; preds = %._crit_edge393
+  %235 = bitcast <16 x i32> %232 to <8 x i64>
+  %236 = bitcast <16 x i32> %226 to <8 x i64>
+  %237 = load <16 x i32>, ptr %.7.lcssa, align 1, !tbaa !10
+  %238 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %213, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %239 = bitcast <8 x i64> %238 to <16 x i32>
+  %240 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %213, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %241 = bitcast <8 x i64> %240 to <16 x i32>
+  %242 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %239, <16 x i32> %241, <16 x i32> %237, i32 150)
+  %243 = bitcast <16 x i32> %242 to <8 x i64>
+  %244 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 576
+  %245 = load <16 x i32>, ptr %244, align 1, !tbaa !10
+  %246 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %220, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %247 = bitcast <8 x i64> %246 to <16 x i32>
+  %248 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %220, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %249 = bitcast <8 x i64> %248 to <16 x i32>
+  %250 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %247, <16 x i32> %249, <16 x i32> %245, i32 150)
+  %251 = bitcast <16 x i32> %250 to <8 x i64>
+  %252 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 640
+  %253 = load <16 x i32>, ptr %252, align 1, !tbaa !10
+  %254 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %236, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %255 = bitcast <8 x i64> %254 to <16 x i32>
+  %256 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %236, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %257 = bitcast <8 x i64> %256 to <16 x i32>
+  %258 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %255, <16 x i32> %257, <16 x i32> %253, i32 150)
+  %259 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 704
+  %260 = load <16 x i32>, ptr %259, align 1, !tbaa !10
+  %261 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %235, <8 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %262 = bitcast <8 x i64> %261 to <16 x i32>
+  %263 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %235, <8 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %264 = bitcast <8 x i64> %263 to <16 x i32>
+  %265 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %262, <16 x i32> %264, <16 x i32> %260, i32 150)
+  %266 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 768
+  br label %267
 
-268:                                              ; preds = %._crit_edge393, %235, %70
-  %.3210 = phi i64 [ %2, %70 ], [ %.5212.lcssa, %235 ], [ %.5212.lcssa, %._crit_edge393 ]
-  %.2204 = phi <8 x i64> [ %61, %70 ], [ %244, %235 ], [ %214, %._crit_edge393 ]
-  %.1200 = phi <8 x i64> [ %65, %70 ], [ %252, %235 ], [ %221, %._crit_edge393 ]
-  %269 = phi <16 x i32> [ %71, %70 ], [ %259, %235 ], [ %227, %._crit_edge393 ]
-  %270 = phi <16 x i32> [ %73, %70 ], [ %266, %235 ], [ %233, %._crit_edge393 ]
-  %.3 = phi ptr [ %74, %70 ], [ %267, %235 ], [ %.7.lcssa, %._crit_edge393 ]
-  %271 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2204, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %272 = bitcast <8 x i64> %271 to <16 x i32>
-  %273 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2204, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %274 = bitcast <8 x i64> %273 to <16 x i32>
-  %275 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %272, <16 x i32> %274, <16 x i32> %269, i32 150)
-  %276 = bitcast <16 x i32> %275 to <8 x i64>
-  %277 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1200, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %278 = bitcast <8 x i64> %277 to <16 x i32>
-  %279 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1200, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %280 = bitcast <8 x i64> %279 to <16 x i32>
-  %281 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %278, <16 x i32> %280, <16 x i32> %270, i32 150)
-  %282 = and i64 %.3210, 128
-  %.not219 = icmp eq i64 %282, 0
-  br i1 %.not219, label %300, label %283
+267:                                              ; preds = %._crit_edge393, %234, %70
+  %.3210 = phi i64 [ %2, %70 ], [ %.5212.lcssa, %234 ], [ %.5212.lcssa, %._crit_edge393 ]
+  %.2204 = phi <8 x i64> [ %61, %70 ], [ %243, %234 ], [ %213, %._crit_edge393 ]
+  %.1200 = phi <8 x i64> [ %65, %70 ], [ %251, %234 ], [ %220, %._crit_edge393 ]
+  %268 = phi <16 x i32> [ %71, %70 ], [ %258, %234 ], [ %226, %._crit_edge393 ]
+  %269 = phi <16 x i32> [ %73, %70 ], [ %265, %234 ], [ %232, %._crit_edge393 ]
+  %.3 = phi ptr [ %74, %70 ], [ %266, %234 ], [ %.7.lcssa, %._crit_edge393 ]
+  %270 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2204, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %271 = bitcast <8 x i64> %270 to <16 x i32>
+  %272 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.2204, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %273 = bitcast <8 x i64> %272 to <16 x i32>
+  %274 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %271, <16 x i32> %273, <16 x i32> %268, i32 150)
+  %275 = bitcast <16 x i32> %274 to <8 x i64>
+  %276 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1200, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %277 = bitcast <8 x i64> %276 to <16 x i32>
+  %278 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1200, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %279 = bitcast <8 x i64> %278 to <16 x i32>
+  %280 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %277, <16 x i32> %279, <16 x i32> %269, i32 150)
+  %281 = and i64 %.3210, 128
+  %.not219 = icmp eq i64 %281, 0
+  br i1 %.not219, label %299, label %282
 
-283:                                              ; preds = %268
-  %284 = bitcast <16 x i32> %281 to <8 x i64>
-  %285 = load <16 x i32>, ptr %.3, align 1, !tbaa !10
-  %286 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %276, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %287 = bitcast <8 x i64> %286 to <16 x i32>
-  %288 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %276, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %289 = bitcast <8 x i64> %288 to <16 x i32>
-  %290 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %287, <16 x i32> %289, <16 x i32> %285, i32 150)
-  %291 = bitcast <16 x i32> %290 to <8 x i64>
-  %292 = getelementptr inbounds nuw i8, ptr %.3, i64 64
-  %293 = load <16 x i32>, ptr %292, align 1, !tbaa !10
-  %294 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %284, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %295 = bitcast <8 x i64> %294 to <16 x i32>
-  %296 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %284, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %297 = bitcast <8 x i64> %296 to <16 x i32>
-  %298 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %295, <16 x i32> %297, <16 x i32> %293, i32 150)
-  %299 = getelementptr inbounds nuw i8, ptr %.3, i64 128
-  br label %300
+282:                                              ; preds = %267
+  %283 = bitcast <16 x i32> %280 to <8 x i64>
+  %284 = load <16 x i32>, ptr %.3, align 1, !tbaa !10
+  %285 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %275, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %286 = bitcast <8 x i64> %285 to <16 x i32>
+  %287 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %275, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %288 = bitcast <8 x i64> %287 to <16 x i32>
+  %289 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %286, <16 x i32> %288, <16 x i32> %284, i32 150)
+  %290 = bitcast <16 x i32> %289 to <8 x i64>
+  %291 = getelementptr inbounds nuw i8, ptr %.3, i64 64
+  %292 = load <16 x i32>, ptr %291, align 1, !tbaa !10
+  %293 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %283, <8 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %294 = bitcast <8 x i64> %293 to <16 x i32>
+  %295 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %283, <8 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %296 = bitcast <8 x i64> %295 to <16 x i32>
+  %297 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %294, <16 x i32> %296, <16 x i32> %292, i32 150)
+  %298 = getelementptr inbounds nuw i8, ptr %.3, i64 128
+  br label %299
 
-300:                                              ; preds = %268, %283, %68
-  %.2209 = phi i64 [ %2, %68 ], [ %.3210, %283 ], [ %.3210, %268 ]
-  %.1203 = phi <8 x i64> [ %61, %68 ], [ %291, %283 ], [ %276, %268 ]
-  %.0199 = phi <16 x i32> [ %69, %68 ], [ %298, %283 ], [ %281, %268 ]
-  %.2 = phi ptr [ %67, %68 ], [ %299, %283 ], [ %.3, %268 ]
-  %301 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1203, <8 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %302 = bitcast <8 x i64> %301 to <16 x i32>
-  %303 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1203, <8 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %304 = bitcast <8 x i64> %303 to <16 x i32>
-  %305 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %302, <16 x i32> %304, <16 x i32> %.0199, i32 150)
-  %306 = bitcast <16 x i32> %305 to <8 x i64>
-  %307 = and i64 %.2209, 64
-  %.not220 = icmp eq i64 %307, 0
-  br i1 %.not220, label %317, label %308
+299:                                              ; preds = %267, %282, %68
+  %.2209 = phi i64 [ %2, %68 ], [ %.3210, %282 ], [ %.3210, %267 ]
+  %.1203 = phi <8 x i64> [ %61, %68 ], [ %290, %282 ], [ %275, %267 ]
+  %.0199 = phi <16 x i32> [ %69, %68 ], [ %297, %282 ], [ %280, %267 ]
+  %.2 = phi ptr [ %67, %68 ], [ %298, %282 ], [ %.3, %267 ]
+  %300 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1203, <8 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %301 = bitcast <8 x i64> %300 to <16 x i32>
+  %302 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %.1203, <8 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %303 = bitcast <8 x i64> %302 to <16 x i32>
+  %304 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %301, <16 x i32> %303, <16 x i32> %.0199, i32 150)
+  %305 = bitcast <16 x i32> %304 to <8 x i64>
+  %306 = and i64 %.2209, 64
+  %.not220 = icmp eq i64 %306, 0
+  br i1 %.not220, label %316, label %307
 
-308:                                              ; preds = %300
-  %309 = load <16 x i32>, ptr %.2, align 1, !tbaa !10
-  %310 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %306, <8 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %311 = bitcast <8 x i64> %310 to <16 x i32>
-  %312 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %306, <8 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %313 = bitcast <8 x i64> %312 to <16 x i32>
-  %314 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %311, <16 x i32> %313, <16 x i32> %309, i32 150)
-  %315 = bitcast <16 x i32> %314 to <8 x i64>
-  %316 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  br label %317
+307:                                              ; preds = %299
+  %308 = load <16 x i32>, ptr %.2, align 1, !tbaa !10
+  %309 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %305, <8 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %310 = bitcast <8 x i64> %309 to <16 x i32>
+  %311 = tail call <8 x i64> @llvm.x86.pclmulqdq.512(<8 x i64> %305, <8 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %312 = bitcast <8 x i64> %311 to <16 x i32>
+  %313 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %310, <16 x i32> %312, <16 x i32> %308, i32 150)
+  %314 = bitcast <16 x i32> %313 to <8 x i64>
+  %315 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  br label %316
 
-317:                                              ; preds = %58, %300, %308
-  %.1208 = phi i64 [ %.2209, %308 ], [ %.2209, %300 ], [ %2, %58 ]
-  %.0202 = phi <8 x i64> [ %315, %308 ], [ %306, %300 ], [ %61, %58 ]
-  %.1185 = phi ptr [ %316, %308 ], [ %.2, %300 ], [ %63, %58 ]
-  %318 = shufflevector <8 x i64> %.0202, <8 x i64> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %319 = bitcast <8 x i64> %.0202 to <16 x i32>
-  %320 = shufflevector <16 x i32> %319, <16 x i32> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %321 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %318, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %322 = bitcast <4 x i64> %321 to <8 x i32>
-  %323 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %318, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %324 = bitcast <4 x i64> %323 to <8 x i32>
-  %325 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %322, <8 x i32> %324, <8 x i32> %320, i32 150)
-  %326 = bitcast <8 x i32> %325 to <4 x i64>
-  %327 = and i64 %.1208, 32
-  %.not221 = icmp eq i64 %327, 0
-  br i1 %.not221, label %337, label %328
+316:                                              ; preds = %58, %299, %307
+  %.1208 = phi i64 [ %.2209, %307 ], [ %.2209, %299 ], [ %2, %58 ]
+  %.0202 = phi <8 x i64> [ %314, %307 ], [ %305, %299 ], [ %61, %58 ]
+  %.1185 = phi ptr [ %315, %307 ], [ %.2, %299 ], [ %63, %58 ]
+  %317 = shufflevector <8 x i64> %.0202, <8 x i64> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %318 = bitcast <8 x i64> %.0202 to <16 x i32>
+  %319 = shufflevector <16 x i32> %318, <16 x i32> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %320 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %317, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %321 = bitcast <4 x i64> %320 to <8 x i32>
+  %322 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %317, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %323 = bitcast <4 x i64> %322 to <8 x i32>
+  %324 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %321, <8 x i32> %323, <8 x i32> %319, i32 150)
+  %325 = bitcast <8 x i32> %324 to <4 x i64>
+  %326 = and i64 %.1208, 32
+  %.not221 = icmp eq i64 %326, 0
+  br i1 %.not221, label %336, label %327
 
-328:                                              ; preds = %317
-  %329 = load <8 x i32>, ptr %.1185, align 1, !tbaa !10
-  %330 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %326, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %331 = bitcast <4 x i64> %330 to <8 x i32>
-  %332 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %326, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %333 = bitcast <4 x i64> %332 to <8 x i32>
-  %334 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %331, <8 x i32> %333, <8 x i32> %329, i32 150)
-  %335 = bitcast <8 x i32> %334 to <4 x i64>
-  %336 = getelementptr inbounds nuw i8, ptr %.1185, i64 32
-  br label %337
+327:                                              ; preds = %316
+  %328 = load <8 x i32>, ptr %.1185, align 1, !tbaa !10
+  %329 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %325, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %330 = bitcast <4 x i64> %329 to <8 x i32>
+  %331 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %325, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %332 = bitcast <4 x i64> %331 to <8 x i32>
+  %333 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %330, <8 x i32> %332, <8 x i32> %328, i32 150)
+  %334 = bitcast <8 x i32> %333 to <4 x i64>
+  %335 = getelementptr inbounds nuw i8, ptr %.1185, i64 32
+  br label %336
 
-337:                                              ; preds = %328, %317
-  %.8 = phi ptr [ %336, %328 ], [ %.1185, %317 ]
-  %.0 = phi <4 x i64> [ %335, %328 ], [ %326, %317 ]
-  %338 = shufflevector <4 x i64> %.0, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
-  %339 = shufflevector <4 x i64> %.0, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %340 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %338, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %341 = xor <2 x i64> %339, %340
-  %342 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %338, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %343 = xor <2 x i64> %341, %342
-  %344 = and i64 %.1208, 16
-  %.not222 = icmp eq i64 %344, 0
-  br i1 %.not222, label %352, label %345
+336:                                              ; preds = %327, %316
+  %.8 = phi ptr [ %335, %327 ], [ %.1185, %316 ]
+  %.0 = phi <4 x i64> [ %334, %327 ], [ %325, %316 ]
+  %337 = shufflevector <4 x i64> %.0, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
+  %338 = shufflevector <4 x i64> %.0, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
+  %339 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %337, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %340 = xor <2 x i64> %338, %339
+  %341 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %337, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %342 = xor <2 x i64> %340, %341
+  %343 = and i64 %.1208, 16
+  %.not222 = icmp eq i64 %343, 0
+  br i1 %.not222, label %351, label %344
 
-345:                                              ; preds = %337
-  %346 = load <2 x i64>, ptr %.8, align 1, !tbaa !10
-  %347 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %343, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %348 = xor <2 x i64> %347, %346
-  %349 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %343, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %350 = xor <2 x i64> %348, %349
-  %351 = getelementptr inbounds nuw i8, ptr %.8, i64 16
-  br label %352
+344:                                              ; preds = %336
+  %345 = load <2 x i64>, ptr %.8, align 1, !tbaa !10
+  %346 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %342, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %347 = xor <2 x i64> %346, %345
+  %348 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %342, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %349 = xor <2 x i64> %347, %348
+  %350 = getelementptr inbounds nuw i8, ptr %.8, i64 16
+  br label %351
 
-352:                                              ; preds = %337, %345, %55
-  %.0207 = phi i64 [ %2, %55 ], [ %.1208, %345 ], [ %.1208, %337 ]
-  %.2188 = phi <2 x i64> [ %.1187, %55 ], [ %350, %345 ], [ %343, %337 ]
-  %.0184 = phi ptr [ %57, %55 ], [ %351, %345 ], [ %.8, %337 ]
-  %353 = and i64 %.0207, 15
-  %.not223 = icmp eq i64 %353, 0
-  br i1 %.not223, label %373, label %354
+351:                                              ; preds = %336, %344, %55
+  %.0207 = phi i64 [ %2, %55 ], [ %.1208, %344 ], [ %.1208, %336 ]
+  %.2188 = phi <2 x i64> [ %.1187, %55 ], [ %349, %344 ], [ %342, %336 ]
+  %.0184 = phi ptr [ %57, %55 ], [ %350, %344 ], [ %.8, %336 ]
+  %352 = and i64 %.0207, 15
+  %.not223 = icmp eq i64 %352, 0
+  br i1 %.not223, label %371, label %353
 
-354:                                              ; preds = %352
-  %355 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %353
-  %356 = load <16 x i8>, ptr %355, align 1, !tbaa !10
-  %357 = or disjoint i64 %353, 16
-  %358 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %357
-  %359 = load <16 x i8>, ptr %358, align 1, !tbaa !10
-  %360 = bitcast <2 x i64> %.2188 to <16 x i8>
-  %361 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %360, <16 x i8> %356)
-  %362 = bitcast <16 x i8> %361 to <2 x i64>
-  %363 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %360, <16 x i8> %359)
-  %364 = getelementptr inbounds nuw i8, ptr %.0184, i64 %353
-  %365 = getelementptr inbounds i8, ptr %364, i64 -16
-  %366 = load <16 x i8>, ptr %365, align 1, !tbaa !10
-  %367 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %363, <16 x i8> %366, <16 x i8> %359)
-  %368 = bitcast <16 x i8> %367 to <2 x i64>
-  %369 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %362, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %370 = xor <2 x i64> %369, %368
-  %371 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %362, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %372 = xor <2 x i64> %370, %371
-  br label %373
+353:                                              ; preds = %351
+  %354 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %352
+  %355 = load <16 x i8>, ptr %354, align 1, !tbaa !10
+  %356 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  %357 = load <16 x i8>, ptr %356, align 1, !tbaa !10
+  %358 = bitcast <2 x i64> %.2188 to <16 x i8>
+  %359 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %358, <16 x i8> %355)
+  %360 = bitcast <16 x i8> %359 to <2 x i64>
+  %361 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %358, <16 x i8> %357)
+  %362 = getelementptr inbounds nuw i8, ptr %.0184, i64 %352
+  %363 = getelementptr inbounds i8, ptr %362, i64 -16
+  %364 = load <16 x i8>, ptr %363, align 1, !tbaa !10
+  %365 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %361, <16 x i8> %364, <16 x i8> %357)
+  %366 = bitcast <16 x i8> %365 to <2 x i64>
+  %367 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %360, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %368 = xor <2 x i64> %367, %366
+  %369 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %360, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %370 = xor <2 x i64> %368, %369
+  br label %371
 
-373:                                              ; preds = %352, %354, %24
-  %.0186 = phi <2 x i64> [ %35, %24 ], [ %372, %354 ], [ %.2188, %352 ]
-  %374 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0186, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
-  %375 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %374, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %376 = bitcast <2 x i64> %.0186 to <4 x i32>
-  %377 = bitcast <2 x i64> %375 to <4 x i32>
-  %378 = tail call <4 x i32> @llvm.x86.avx512.pternlog.d.128(<4 x i32> %376, <4 x i32> %377, <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, i32 120)
-  %379 = bitcast <4 x i32> %378 to <2 x i64>
-  %380 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %379, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
-  %381 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %380, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %382 = bitcast <2 x i64> %381 to <4 x i32>
-  %383 = extractelement <4 x i32> %382, i64 2
+371:                                              ; preds = %351, %353, %24
+  %.0186 = phi <2 x i64> [ %35, %24 ], [ %370, %353 ], [ %.2188, %351 ]
+  %372 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0186, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
+  %373 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %372, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %374 = bitcast <2 x i64> %.0186 to <4 x i32>
+  %375 = bitcast <2 x i64> %373 to <4 x i32>
+  %376 = tail call <4 x i32> @llvm.x86.avx512.pternlog.d.128(<4 x i32> %374, <4 x i32> %375, <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, i32 120)
+  %377 = bitcast <4 x i32> %376 to <2 x i64>
+  %378 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %377, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
+  %379 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %378, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %380 = bitcast <2 x i64> %379 to <4 x i32>
+  %381 = extractelement <4 x i32> %380, i64 2
   br label %crc32_slice1.exit
 
-crc32_slice1.exit:                                ; preds = %.lr.ph407, %.preheader, %373
-  %.0182 = phi i32 [ %383, %373 ], [ %0, %.preheader ], [ %22, %.lr.ph407 ]
+crc32_slice1.exit:                                ; preds = %.lr.ph407, %.preheader, %371
+  %.0182 = phi i32 [ %381, %371 ], [ %0, %.preheader ], [ %22, %.lr.ph407 ]
   ret i32 %.0182
 }
 
@@ -769,7 +767,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %17 = zext i8 %16 to i32
   %18 = xor i32 %14, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw [256 x i32], ptr @crc32_slice1_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr @crc32_slice1_table, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = xor i32 %21, %13
   %23 = add nuw nsw i64 %.0.i383, 1
@@ -783,19 +781,19 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
   %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)
-  %30 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %2
+  %30 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %2
   %31 = load <16 x i8>, ptr %30, align 1, !tbaa !10
   %32 = bitcast <4 x i32> %4 to <16 x i8>
   %33 = xor <16 x i8> %29, %32
   %34 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %33, <16 x i8> %31)
   %35 = bitcast <16 x i8> %34 to <2 x i64>
-  br label %331
+  br label %329
 
 36:                                               ; preds = %9
   %37 = load <2 x i64>, ptr %1, align 1, !tbaa !10
   %38 = xor <2 x i64> %37, %5
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %310
+  br label %309
 
 40:                                               ; preds = %7
   %41 = load <4 x i64>, ptr %1, align 1, !tbaa !10
@@ -803,7 +801,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %43 = xor <4 x i64> %41, %42
   %44 = icmp samesign ult i64 %2, 64
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %44, label %295, label %46
+  br i1 %44, label %294, label %46
 
 46:                                               ; preds = %40
   %47 = load <4 x i64>, ptr %45, align 1, !tbaa !10
@@ -813,24 +811,24 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
 
 50:                                               ; preds = %46
   %51 = bitcast <4 x i64> %47 to <8 x i32>
-  br label %278
+  br label %277
 
 52:                                               ; preds = %46
   %53 = load <8 x i32>, ptr %49, align 1, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %55 = load <8 x i32>, ptr %54, align 1, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  br label %246
+  br label %245
 
 57:                                               ; preds = %3
   %58 = icmp ugt i64 %2, 65536
-  br i1 %58, label %59, label %101
+  br i1 %58, label %59, label %100
 
 59:                                               ; preds = %57
   %60 = ptrtoint ptr %1 to i64
   %61 = and i64 %60, 31
   %.not = icmp eq i64 %61, 0
-  br i1 %.not, label %101, label %62
+  br i1 %.not, label %100, label %62
 
 62:                                               ; preds = %59
   %63 = sub i64 0, %60
@@ -841,379 +839,377 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = and i64 %63, 15
   %.not206 = icmp eq i64 %69, 0
-  br i1 %.not206, label %90, label %70
+  br i1 %.not206, label %89, label %70
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %69
   %72 = load <16 x i8>, ptr %71, align 1, !tbaa !10
-  %73 = or disjoint i64 %69, 16
-  %74 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %73
-  %75 = load <16 x i8>, ptr %74, align 1, !tbaa !10
-  %76 = bitcast <2 x i64> %67 to <16 x i8>
-  %77 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %76, <16 x i8> %72)
-  %78 = bitcast <16 x i8> %77 to <2 x i64>
-  %79 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %76, <16 x i8> %75)
-  %80 = getelementptr inbounds nuw i8, ptr %68, i64 %69
-  %81 = getelementptr inbounds i8, ptr %80, i64 -16
-  %82 = load <16 x i8>, ptr %81, align 1, !tbaa !10
-  %83 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %79, <16 x i8> %82, <16 x i8> %75)
-  %84 = bitcast <16 x i8> %83 to <2 x i64>
-  %85 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %78, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %86 = xor <2 x i64> %85, %84
-  %87 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %78, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %88 = xor <2 x i64> %86, %87
-  %89 = and i64 %63, 16
-  br label %90
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %74 = load <16 x i8>, ptr %73, align 1, !tbaa !10
+  %75 = bitcast <2 x i64> %67 to <16 x i8>
+  %76 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %75, <16 x i8> %72)
+  %77 = bitcast <16 x i8> %76 to <2 x i64>
+  %78 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %75, <16 x i8> %74)
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 %69
+  %80 = getelementptr inbounds i8, ptr %79, i64 -16
+  %81 = load <16 x i8>, ptr %80, align 1, !tbaa !10
+  %82 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %78, <16 x i8> %81, <16 x i8> %74)
+  %83 = bitcast <16 x i8> %82 to <2 x i64>
+  %84 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %77, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %85 = xor <2 x i64> %84, %83
+  %86 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %77, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %87 = xor <2 x i64> %85, %86
+  %88 = and i64 %63, 16
+  br label %89
 
-90:                                               ; preds = %70, %62
-  %.3179 = phi <2 x i64> [ %88, %70 ], [ %67, %62 ]
-  %.4 = phi ptr [ %80, %70 ], [ %68, %62 ]
-  %.0173 = phi i64 [ %89, %70 ], [ %64, %62 ]
+89:                                               ; preds = %70, %62
+  %.3179 = phi <2 x i64> [ %87, %70 ], [ %67, %62 ]
+  %.4 = phi ptr [ %79, %70 ], [ %68, %62 ]
+  %.0173 = phi i64 [ %88, %70 ], [ %64, %62 ]
   %.not207351 = icmp eq i64 %.0173, 0
   br i1 %.not207351, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %90, %.lr.ph
-  %.1354 = phi i64 [ %97, %.lr.ph ], [ %.0173, %90 ]
-  %.5353 = phi ptr [ %96, %.lr.ph ], [ %.4, %90 ]
-  %.4180352 = phi <2 x i64> [ %95, %.lr.ph ], [ %.3179, %90 ]
-  %91 = load <2 x i64>, ptr %.5353, align 16, !tbaa !10
-  %92 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4180352, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %93 = xor <2 x i64> %92, %91
-  %94 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4180352, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %95 = xor <2 x i64> %93, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.5353, i64 16
-  %97 = add i64 %.1354, -16
-  %.not207 = icmp eq i64 %97, 0
+.lr.ph:                                           ; preds = %89, %.lr.ph
+  %.1354 = phi i64 [ %96, %.lr.ph ], [ %.0173, %89 ]
+  %.5353 = phi ptr [ %95, %.lr.ph ], [ %.4, %89 ]
+  %.4180352 = phi <2 x i64> [ %94, %.lr.ph ], [ %.3179, %89 ]
+  %90 = load <2 x i64>, ptr %.5353, align 16, !tbaa !10
+  %91 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4180352, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %92 = xor <2 x i64> %91, %90
+  %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4180352, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %94 = xor <2 x i64> %92, %93
+  %95 = getelementptr inbounds nuw i8, ptr %.5353, i64 16
+  %96 = add i64 %.1354, -16
+  %.not207 = icmp eq i64 %96, 0
   br i1 %.not207, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %90
-  %.4180.lcssa = phi <2 x i64> [ %.3179, %90 ], [ %95, %.lr.ph ]
-  %.5.lcssa = phi ptr [ %.4, %90 ], [ %96, %.lr.ph ]
-  %98 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
-  %99 = shufflevector <2 x i64> %.4180.lcssa, <2 x i64> %98, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %100 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
-  br label %105
+._crit_edge:                                      ; preds = %.lr.ph, %89
+  %.4180.lcssa = phi <2 x i64> [ %.3179, %89 ], [ %94, %.lr.ph ]
+  %.5.lcssa = phi ptr [ %.4, %89 ], [ %95, %.lr.ph ]
+  %97 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
+  %98 = shufflevector <2 x i64> %.4180.lcssa, <2 x i64> %97, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %99 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
+  br label %104
 
-101:                                              ; preds = %59, %57
-  %102 = load <4 x i64>, ptr %1, align 1, !tbaa !10
-  %103 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %104 = xor <4 x i64> %102, %103
-  br label %105
+100:                                              ; preds = %59, %57
+  %101 = load <4 x i64>, ptr %1, align 1, !tbaa !10
+  %102 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %103 = xor <4 x i64> %101, %102
+  br label %104
 
-105:                                              ; preds = %101, %._crit_edge
-  %.4201 = phi i64 [ %65, %._crit_edge ], [ %2, %101 ]
-  %.3195 = phi <4 x i64> [ %99, %._crit_edge ], [ %104, %101 ]
-  %.6 = phi ptr [ %100, %._crit_edge ], [ %1, %101 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.6, i64 32
-  %107 = load <4 x i64>, ptr %106, align 1, !tbaa !10
-  %108 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %109 = load <4 x i64>, ptr %108, align 1, !tbaa !10
-  %110 = getelementptr inbounds nuw i8, ptr %.6, i64 96
-  %111 = load <4 x i64>, ptr %110, align 1, !tbaa !10
-  %112 = getelementptr inbounds nuw i8, ptr %.6, i64 128
-  %113 = load <4 x i64>, ptr %112, align 1, !tbaa !10
-  %114 = getelementptr inbounds nuw i8, ptr %.6, i64 160
-  %115 = load <4 x i64>, ptr %114, align 1, !tbaa !10
-  %116 = getelementptr inbounds nuw i8, ptr %.6, i64 192
-  %117 = load <4 x i64>, ptr %116, align 1, !tbaa !10
-  %118 = getelementptr inbounds nuw i8, ptr %.6, i64 224
-  %119 = load <4 x i64>, ptr %118, align 1, !tbaa !10
+104:                                              ; preds = %100, %._crit_edge
+  %.4201 = phi i64 [ %65, %._crit_edge ], [ %2, %100 ]
+  %.3195 = phi <4 x i64> [ %98, %._crit_edge ], [ %103, %100 ]
+  %.6 = phi ptr [ %99, %._crit_edge ], [ %1, %100 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.6, i64 32
+  %106 = load <4 x i64>, ptr %105, align 1, !tbaa !10
+  %107 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %108 = load <4 x i64>, ptr %107, align 1, !tbaa !10
+  %109 = getelementptr inbounds nuw i8, ptr %.6, i64 96
+  %110 = load <4 x i64>, ptr %109, align 1, !tbaa !10
+  %111 = getelementptr inbounds nuw i8, ptr %.6, i64 128
+  %112 = load <4 x i64>, ptr %111, align 1, !tbaa !10
+  %113 = getelementptr inbounds nuw i8, ptr %.6, i64 160
+  %114 = load <4 x i64>, ptr %113, align 1, !tbaa !10
+  %115 = getelementptr inbounds nuw i8, ptr %.6, i64 192
+  %116 = load <4 x i64>, ptr %115, align 1, !tbaa !10
+  %117 = getelementptr inbounds nuw i8, ptr %.6, i64 224
+  %118 = load <4 x i64>, ptr %117, align 1, !tbaa !10
   %.7356 = getelementptr inbounds nuw i8, ptr %.6, i64 256
-  %120 = icmp ugt i64 %.4201, 511
-  br i1 %120, label %.lr.ph369, label %._crit_edge370
+  %119 = icmp ugt i64 %.4201, 511
+  br i1 %119, label %.lr.ph369, label %._crit_edge370
 
-.lr.ph369:                                        ; preds = %105, %.lr.ph369
-  %.7367 = phi ptr [ %.7, %.lr.ph369 ], [ %.7356, %105 ]
-  %.6.pn366 = phi ptr [ %.7367, %.lr.ph369 ], [ %.6, %105 ]
-  %.0181365 = phi <4 x i64> [ %183, %.lr.ph369 ], [ %119, %105 ]
-  %.0182364 = phi <4 x i64> [ %175, %.lr.ph369 ], [ %117, %105 ]
-  %.0183363 = phi <4 x i64> [ %167, %.lr.ph369 ], [ %115, %105 ]
-  %.0184362 = phi <4 x i64> [ %159, %.lr.ph369 ], [ %113, %105 ]
-  %.1186361 = phi <4 x i64> [ %151, %.lr.ph369 ], [ %111, %105 ]
-  %.1188360 = phi <4 x i64> [ %143, %.lr.ph369 ], [ %109, %105 ]
-  %.2191359 = phi <4 x i64> [ %135, %.lr.ph369 ], [ %107, %105 ]
-  %.4196358 = phi <4 x i64> [ %127, %.lr.ph369 ], [ %.3195, %105 ]
-  %.5202357 = phi i64 [ %184, %.lr.ph369 ], [ %.4201, %105 ]
-  %121 = load <8 x i32>, ptr %.7367, align 1, !tbaa !10
-  %122 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196358, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %123 = bitcast <4 x i64> %122 to <8 x i32>
-  %124 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196358, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %125 = bitcast <4 x i64> %124 to <8 x i32>
-  %126 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %123, <8 x i32> %125, <8 x i32> %121, i32 150)
-  %127 = bitcast <8 x i32> %126 to <4 x i64>
-  %128 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 288
-  %129 = load <8 x i32>, ptr %128, align 1, !tbaa !10
-  %130 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191359, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %131 = bitcast <4 x i64> %130 to <8 x i32>
-  %132 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191359, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %133 = bitcast <4 x i64> %132 to <8 x i32>
-  %134 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %131, <8 x i32> %133, <8 x i32> %129, i32 150)
-  %135 = bitcast <8 x i32> %134 to <4 x i64>
-  %136 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 320
-  %137 = load <8 x i32>, ptr %136, align 1, !tbaa !10
-  %138 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188360, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %139 = bitcast <4 x i64> %138 to <8 x i32>
-  %140 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188360, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %141 = bitcast <4 x i64> %140 to <8 x i32>
-  %142 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %139, <8 x i32> %141, <8 x i32> %137, i32 150)
-  %143 = bitcast <8 x i32> %142 to <4 x i64>
-  %144 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 352
-  %145 = load <8 x i32>, ptr %144, align 1, !tbaa !10
-  %146 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186361, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %147 = bitcast <4 x i64> %146 to <8 x i32>
-  %148 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186361, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %149 = bitcast <4 x i64> %148 to <8 x i32>
-  %150 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %147, <8 x i32> %149, <8 x i32> %145, i32 150)
-  %151 = bitcast <8 x i32> %150 to <4 x i64>
-  %152 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 384
-  %153 = load <8 x i32>, ptr %152, align 1, !tbaa !10
-  %154 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0184362, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %155 = bitcast <4 x i64> %154 to <8 x i32>
-  %156 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0184362, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %157 = bitcast <4 x i64> %156 to <8 x i32>
-  %158 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %155, <8 x i32> %157, <8 x i32> %153, i32 150)
-  %159 = bitcast <8 x i32> %158 to <4 x i64>
-  %160 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 416
-  %161 = load <8 x i32>, ptr %160, align 1, !tbaa !10
-  %162 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0183363, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %163 = bitcast <4 x i64> %162 to <8 x i32>
-  %164 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0183363, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %165 = bitcast <4 x i64> %164 to <8 x i32>
-  %166 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %163, <8 x i32> %165, <8 x i32> %161, i32 150)
-  %167 = bitcast <8 x i32> %166 to <4 x i64>
-  %168 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 448
-  %169 = load <8 x i32>, ptr %168, align 1, !tbaa !10
-  %170 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0182364, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %171 = bitcast <4 x i64> %170 to <8 x i32>
-  %172 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0182364, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %173 = bitcast <4 x i64> %172 to <8 x i32>
-  %174 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %171, <8 x i32> %173, <8 x i32> %169, i32 150)
-  %175 = bitcast <8 x i32> %174 to <4 x i64>
-  %176 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 480
-  %177 = load <8 x i32>, ptr %176, align 1, !tbaa !10
-  %178 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0181365, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %179 = bitcast <4 x i64> %178 to <8 x i32>
-  %180 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0181365, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %181 = bitcast <4 x i64> %180 to <8 x i32>
-  %182 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %179, <8 x i32> %181, <8 x i32> %177, i32 150)
-  %183 = bitcast <8 x i32> %182 to <4 x i64>
-  %184 = add i64 %.5202357, -256
+.lr.ph369:                                        ; preds = %104, %.lr.ph369
+  %.7367 = phi ptr [ %.7, %.lr.ph369 ], [ %.7356, %104 ]
+  %.6.pn366 = phi ptr [ %.7367, %.lr.ph369 ], [ %.6, %104 ]
+  %.0181365 = phi <4 x i64> [ %182, %.lr.ph369 ], [ %118, %104 ]
+  %.0182364 = phi <4 x i64> [ %174, %.lr.ph369 ], [ %116, %104 ]
+  %.0183363 = phi <4 x i64> [ %166, %.lr.ph369 ], [ %114, %104 ]
+  %.0184362 = phi <4 x i64> [ %158, %.lr.ph369 ], [ %112, %104 ]
+  %.1186361 = phi <4 x i64> [ %150, %.lr.ph369 ], [ %110, %104 ]
+  %.1188360 = phi <4 x i64> [ %142, %.lr.ph369 ], [ %108, %104 ]
+  %.2191359 = phi <4 x i64> [ %134, %.lr.ph369 ], [ %106, %104 ]
+  %.4196358 = phi <4 x i64> [ %126, %.lr.ph369 ], [ %.3195, %104 ]
+  %.5202357 = phi i64 [ %183, %.lr.ph369 ], [ %.4201, %104 ]
+  %120 = load <8 x i32>, ptr %.7367, align 1, !tbaa !10
+  %121 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196358, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %122 = bitcast <4 x i64> %121 to <8 x i32>
+  %123 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196358, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %124 = bitcast <4 x i64> %123 to <8 x i32>
+  %125 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %122, <8 x i32> %124, <8 x i32> %120, i32 150)
+  %126 = bitcast <8 x i32> %125 to <4 x i64>
+  %127 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 288
+  %128 = load <8 x i32>, ptr %127, align 1, !tbaa !10
+  %129 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191359, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %130 = bitcast <4 x i64> %129 to <8 x i32>
+  %131 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191359, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %132 = bitcast <4 x i64> %131 to <8 x i32>
+  %133 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %130, <8 x i32> %132, <8 x i32> %128, i32 150)
+  %134 = bitcast <8 x i32> %133 to <4 x i64>
+  %135 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 320
+  %136 = load <8 x i32>, ptr %135, align 1, !tbaa !10
+  %137 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188360, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %138 = bitcast <4 x i64> %137 to <8 x i32>
+  %139 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188360, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %140 = bitcast <4 x i64> %139 to <8 x i32>
+  %141 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %138, <8 x i32> %140, <8 x i32> %136, i32 150)
+  %142 = bitcast <8 x i32> %141 to <4 x i64>
+  %143 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 352
+  %144 = load <8 x i32>, ptr %143, align 1, !tbaa !10
+  %145 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186361, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %146 = bitcast <4 x i64> %145 to <8 x i32>
+  %147 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186361, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %148 = bitcast <4 x i64> %147 to <8 x i32>
+  %149 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %146, <8 x i32> %148, <8 x i32> %144, i32 150)
+  %150 = bitcast <8 x i32> %149 to <4 x i64>
+  %151 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 384
+  %152 = load <8 x i32>, ptr %151, align 1, !tbaa !10
+  %153 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0184362, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %154 = bitcast <4 x i64> %153 to <8 x i32>
+  %155 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0184362, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %156 = bitcast <4 x i64> %155 to <8 x i32>
+  %157 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %154, <8 x i32> %156, <8 x i32> %152, i32 150)
+  %158 = bitcast <8 x i32> %157 to <4 x i64>
+  %159 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 416
+  %160 = load <8 x i32>, ptr %159, align 1, !tbaa !10
+  %161 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0183363, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %162 = bitcast <4 x i64> %161 to <8 x i32>
+  %163 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0183363, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %164 = bitcast <4 x i64> %163 to <8 x i32>
+  %165 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %162, <8 x i32> %164, <8 x i32> %160, i32 150)
+  %166 = bitcast <8 x i32> %165 to <4 x i64>
+  %167 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 448
+  %168 = load <8 x i32>, ptr %167, align 1, !tbaa !10
+  %169 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0182364, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %170 = bitcast <4 x i64> %169 to <8 x i32>
+  %171 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0182364, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %172 = bitcast <4 x i64> %171 to <8 x i32>
+  %173 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %170, <8 x i32> %172, <8 x i32> %168, i32 150)
+  %174 = bitcast <8 x i32> %173 to <4 x i64>
+  %175 = getelementptr inbounds nuw i8, ptr %.6.pn366, i64 480
+  %176 = load <8 x i32>, ptr %175, align 1, !tbaa !10
+  %177 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0181365, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %178 = bitcast <4 x i64> %177 to <8 x i32>
+  %179 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0181365, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %180 = bitcast <4 x i64> %179 to <8 x i32>
+  %181 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %178, <8 x i32> %180, <8 x i32> %176, i32 150)
+  %182 = bitcast <8 x i32> %181 to <4 x i64>
+  %183 = add i64 %.5202357, -256
   %.7 = getelementptr inbounds nuw i8, ptr %.7367, i64 256
-  %185 = icmp ugt i64 %184, 511
-  br i1 %185, label %.lr.ph369, label %._crit_edge370
+  %184 = icmp ugt i64 %183, 511
+  br i1 %184, label %.lr.ph369, label %._crit_edge370
 
-._crit_edge370:                                   ; preds = %.lr.ph369, %105
-  %.5202.lcssa = phi i64 [ %.4201, %105 ], [ %184, %.lr.ph369 ]
-  %.4196.lcssa = phi <4 x i64> [ %.3195, %105 ], [ %127, %.lr.ph369 ]
-  %.2191.lcssa = phi <4 x i64> [ %107, %105 ], [ %135, %.lr.ph369 ]
-  %.1188.lcssa = phi <4 x i64> [ %109, %105 ], [ %143, %.lr.ph369 ]
-  %.1186.lcssa = phi <4 x i64> [ %111, %105 ], [ %151, %.lr.ph369 ]
-  %.0184.lcssa = phi <4 x i64> [ %113, %105 ], [ %159, %.lr.ph369 ]
-  %.0183.lcssa = phi <4 x i64> [ %115, %105 ], [ %167, %.lr.ph369 ]
-  %.0182.lcssa = phi <4 x i64> [ %117, %105 ], [ %175, %.lr.ph369 ]
-  %.0181.lcssa = phi <4 x i64> [ %119, %105 ], [ %183, %.lr.ph369 ]
-  %.6.pn.lcssa = phi ptr [ %.6, %105 ], [ %.7367, %.lr.ph369 ]
-  %.7.lcssa = phi ptr [ %.7356, %105 ], [ %.7, %.lr.ph369 ]
-  %186 = bitcast <4 x i64> %.0184.lcssa to <8 x i32>
-  %187 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %188 = bitcast <4 x i64> %187 to <8 x i32>
-  %189 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %190 = bitcast <4 x i64> %189 to <8 x i32>
-  %191 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %188, <8 x i32> %190, <8 x i32> %186, i32 150)
-  %192 = bitcast <8 x i32> %191 to <4 x i64>
-  %193 = bitcast <4 x i64> %.0183.lcssa to <8 x i32>
-  %194 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %195 = bitcast <4 x i64> %194 to <8 x i32>
-  %196 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %197 = bitcast <4 x i64> %196 to <8 x i32>
-  %198 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %195, <8 x i32> %197, <8 x i32> %193, i32 150)
-  %199 = bitcast <8 x i32> %198 to <4 x i64>
-  %200 = bitcast <4 x i64> %.0182.lcssa to <8 x i32>
-  %201 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %202 = bitcast <4 x i64> %201 to <8 x i32>
-  %203 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %204 = bitcast <4 x i64> %203 to <8 x i32>
-  %205 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %202, <8 x i32> %204, <8 x i32> %200, i32 150)
-  %206 = bitcast <4 x i64> %.0181.lcssa to <8 x i32>
-  %207 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %208 = bitcast <4 x i64> %207 to <8 x i32>
-  %209 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %210 = bitcast <4 x i64> %209 to <8 x i32>
-  %211 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %208, <8 x i32> %210, <8 x i32> %206, i32 150)
-  %212 = and i64 %.5202.lcssa, 128
-  %.not208 = icmp eq i64 %212, 0
-  br i1 %.not208, label %246, label %213
+._crit_edge370:                                   ; preds = %.lr.ph369, %104
+  %.5202.lcssa = phi i64 [ %.4201, %104 ], [ %183, %.lr.ph369 ]
+  %.4196.lcssa = phi <4 x i64> [ %.3195, %104 ], [ %126, %.lr.ph369 ]
+  %.2191.lcssa = phi <4 x i64> [ %106, %104 ], [ %134, %.lr.ph369 ]
+  %.1188.lcssa = phi <4 x i64> [ %108, %104 ], [ %142, %.lr.ph369 ]
+  %.1186.lcssa = phi <4 x i64> [ %110, %104 ], [ %150, %.lr.ph369 ]
+  %.0184.lcssa = phi <4 x i64> [ %112, %104 ], [ %158, %.lr.ph369 ]
+  %.0183.lcssa = phi <4 x i64> [ %114, %104 ], [ %166, %.lr.ph369 ]
+  %.0182.lcssa = phi <4 x i64> [ %116, %104 ], [ %174, %.lr.ph369 ]
+  %.0181.lcssa = phi <4 x i64> [ %118, %104 ], [ %182, %.lr.ph369 ]
+  %.6.pn.lcssa = phi ptr [ %.6, %104 ], [ %.7367, %.lr.ph369 ]
+  %.7.lcssa = phi ptr [ %.7356, %104 ], [ %.7, %.lr.ph369 ]
+  %185 = bitcast <4 x i64> %.0184.lcssa to <8 x i32>
+  %186 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %187 = bitcast <4 x i64> %186 to <8 x i32>
+  %188 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4196.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %189 = bitcast <4 x i64> %188 to <8 x i32>
+  %190 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %187, <8 x i32> %189, <8 x i32> %185, i32 150)
+  %191 = bitcast <8 x i32> %190 to <4 x i64>
+  %192 = bitcast <4 x i64> %.0183.lcssa to <8 x i32>
+  %193 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %194 = bitcast <4 x i64> %193 to <8 x i32>
+  %195 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2191.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %196 = bitcast <4 x i64> %195 to <8 x i32>
+  %197 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %194, <8 x i32> %196, <8 x i32> %192, i32 150)
+  %198 = bitcast <8 x i32> %197 to <4 x i64>
+  %199 = bitcast <4 x i64> %.0182.lcssa to <8 x i32>
+  %200 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %201 = bitcast <4 x i64> %200 to <8 x i32>
+  %202 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1188.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %203 = bitcast <4 x i64> %202 to <8 x i32>
+  %204 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %201, <8 x i32> %203, <8 x i32> %199, i32 150)
+  %205 = bitcast <4 x i64> %.0181.lcssa to <8 x i32>
+  %206 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %207 = bitcast <4 x i64> %206 to <8 x i32>
+  %208 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1186.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %209 = bitcast <4 x i64> %208 to <8 x i32>
+  %210 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %207, <8 x i32> %209, <8 x i32> %205, i32 150)
+  %211 = and i64 %.5202.lcssa, 128
+  %.not208 = icmp eq i64 %211, 0
+  br i1 %.not208, label %245, label %212
 
-213:                                              ; preds = %._crit_edge370
-  %214 = bitcast <8 x i32> %211 to <4 x i64>
-  %215 = bitcast <8 x i32> %205 to <4 x i64>
-  %216 = load <8 x i32>, ptr %.7.lcssa, align 1, !tbaa !10
-  %217 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %192, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %218 = bitcast <4 x i64> %217 to <8 x i32>
-  %219 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %192, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %220 = bitcast <4 x i64> %219 to <8 x i32>
-  %221 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %218, <8 x i32> %220, <8 x i32> %216, i32 150)
-  %222 = bitcast <8 x i32> %221 to <4 x i64>
-  %223 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 288
-  %224 = load <8 x i32>, ptr %223, align 1, !tbaa !10
-  %225 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %199, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %226 = bitcast <4 x i64> %225 to <8 x i32>
-  %227 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %199, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %228 = bitcast <4 x i64> %227 to <8 x i32>
-  %229 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %226, <8 x i32> %228, <8 x i32> %224, i32 150)
-  %230 = bitcast <8 x i32> %229 to <4 x i64>
-  %231 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 320
-  %232 = load <8 x i32>, ptr %231, align 1, !tbaa !10
-  %233 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %215, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %234 = bitcast <4 x i64> %233 to <8 x i32>
-  %235 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %215, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %236 = bitcast <4 x i64> %235 to <8 x i32>
-  %237 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %234, <8 x i32> %236, <8 x i32> %232, i32 150)
-  %238 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 352
-  %239 = load <8 x i32>, ptr %238, align 1, !tbaa !10
-  %240 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %214, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %241 = bitcast <4 x i64> %240 to <8 x i32>
-  %242 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %214, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %243 = bitcast <4 x i64> %242 to <8 x i32>
-  %244 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %241, <8 x i32> %243, <8 x i32> %239, i32 150)
-  %245 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 384
-  br label %246
+212:                                              ; preds = %._crit_edge370
+  %213 = bitcast <8 x i32> %210 to <4 x i64>
+  %214 = bitcast <8 x i32> %204 to <4 x i64>
+  %215 = load <8 x i32>, ptr %.7.lcssa, align 1, !tbaa !10
+  %216 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %191, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %217 = bitcast <4 x i64> %216 to <8 x i32>
+  %218 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %191, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %219 = bitcast <4 x i64> %218 to <8 x i32>
+  %220 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %217, <8 x i32> %219, <8 x i32> %215, i32 150)
+  %221 = bitcast <8 x i32> %220 to <4 x i64>
+  %222 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 288
+  %223 = load <8 x i32>, ptr %222, align 1, !tbaa !10
+  %224 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %198, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %225 = bitcast <4 x i64> %224 to <8 x i32>
+  %226 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %198, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %227 = bitcast <4 x i64> %226 to <8 x i32>
+  %228 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %225, <8 x i32> %227, <8 x i32> %223, i32 150)
+  %229 = bitcast <8 x i32> %228 to <4 x i64>
+  %230 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 320
+  %231 = load <8 x i32>, ptr %230, align 1, !tbaa !10
+  %232 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %214, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %233 = bitcast <4 x i64> %232 to <8 x i32>
+  %234 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %214, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %235 = bitcast <4 x i64> %234 to <8 x i32>
+  %236 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %233, <8 x i32> %235, <8 x i32> %231, i32 150)
+  %237 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 352
+  %238 = load <8 x i32>, ptr %237, align 1, !tbaa !10
+  %239 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %213, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %240 = bitcast <4 x i64> %239 to <8 x i32>
+  %241 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %213, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %242 = bitcast <4 x i64> %241 to <8 x i32>
+  %243 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %240, <8 x i32> %242, <8 x i32> %238, i32 150)
+  %244 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 384
+  br label %245
 
-246:                                              ; preds = %._crit_edge370, %213, %52
-  %.3200 = phi i64 [ %2, %52 ], [ %.5202.lcssa, %213 ], [ %.5202.lcssa, %._crit_edge370 ]
-  %.2194 = phi <4 x i64> [ %43, %52 ], [ %222, %213 ], [ %192, %._crit_edge370 ]
-  %.1190 = phi <4 x i64> [ %47, %52 ], [ %230, %213 ], [ %199, %._crit_edge370 ]
-  %247 = phi <8 x i32> [ %53, %52 ], [ %237, %213 ], [ %205, %._crit_edge370 ]
-  %248 = phi <8 x i32> [ %55, %52 ], [ %244, %213 ], [ %211, %._crit_edge370 ]
-  %.3 = phi ptr [ %56, %52 ], [ %245, %213 ], [ %.7.lcssa, %._crit_edge370 ]
-  %249 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2194, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %250 = bitcast <4 x i64> %249 to <8 x i32>
-  %251 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2194, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %252 = bitcast <4 x i64> %251 to <8 x i32>
-  %253 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %250, <8 x i32> %252, <8 x i32> %247, i32 150)
-  %254 = bitcast <8 x i32> %253 to <4 x i64>
-  %255 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1190, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %256 = bitcast <4 x i64> %255 to <8 x i32>
-  %257 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1190, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %258 = bitcast <4 x i64> %257 to <8 x i32>
-  %259 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %256, <8 x i32> %258, <8 x i32> %248, i32 150)
-  %260 = and i64 %.3200, 64
-  %.not209 = icmp eq i64 %260, 0
-  br i1 %.not209, label %278, label %261
+245:                                              ; preds = %._crit_edge370, %212, %52
+  %.3200 = phi i64 [ %2, %52 ], [ %.5202.lcssa, %212 ], [ %.5202.lcssa, %._crit_edge370 ]
+  %.2194 = phi <4 x i64> [ %43, %52 ], [ %221, %212 ], [ %191, %._crit_edge370 ]
+  %.1190 = phi <4 x i64> [ %47, %52 ], [ %229, %212 ], [ %198, %._crit_edge370 ]
+  %246 = phi <8 x i32> [ %53, %52 ], [ %236, %212 ], [ %204, %._crit_edge370 ]
+  %247 = phi <8 x i32> [ %55, %52 ], [ %243, %212 ], [ %210, %._crit_edge370 ]
+  %.3 = phi ptr [ %56, %52 ], [ %244, %212 ], [ %.7.lcssa, %._crit_edge370 ]
+  %248 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2194, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %249 = bitcast <4 x i64> %248 to <8 x i32>
+  %250 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2194, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %251 = bitcast <4 x i64> %250 to <8 x i32>
+  %252 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %249, <8 x i32> %251, <8 x i32> %246, i32 150)
+  %253 = bitcast <8 x i32> %252 to <4 x i64>
+  %254 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1190, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %255 = bitcast <4 x i64> %254 to <8 x i32>
+  %256 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1190, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %257 = bitcast <4 x i64> %256 to <8 x i32>
+  %258 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %255, <8 x i32> %257, <8 x i32> %247, i32 150)
+  %259 = and i64 %.3200, 64
+  %.not209 = icmp eq i64 %259, 0
+  br i1 %.not209, label %277, label %260
 
-261:                                              ; preds = %246
-  %262 = bitcast <8 x i32> %259 to <4 x i64>
-  %263 = load <8 x i32>, ptr %.3, align 1, !tbaa !10
-  %264 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %254, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %265 = bitcast <4 x i64> %264 to <8 x i32>
-  %266 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %254, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %267 = bitcast <4 x i64> %266 to <8 x i32>
-  %268 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %265, <8 x i32> %267, <8 x i32> %263, i32 150)
-  %269 = bitcast <8 x i32> %268 to <4 x i64>
-  %270 = getelementptr inbounds nuw i8, ptr %.3, i64 32
-  %271 = load <8 x i32>, ptr %270, align 1, !tbaa !10
-  %272 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %262, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %273 = bitcast <4 x i64> %272 to <8 x i32>
-  %274 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %262, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %275 = bitcast <4 x i64> %274 to <8 x i32>
-  %276 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %273, <8 x i32> %275, <8 x i32> %271, i32 150)
-  %277 = getelementptr inbounds nuw i8, ptr %.3, i64 64
-  br label %278
+260:                                              ; preds = %245
+  %261 = bitcast <8 x i32> %258 to <4 x i64>
+  %262 = load <8 x i32>, ptr %.3, align 1, !tbaa !10
+  %263 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %253, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %264 = bitcast <4 x i64> %263 to <8 x i32>
+  %265 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %253, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %266 = bitcast <4 x i64> %265 to <8 x i32>
+  %267 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %264, <8 x i32> %266, <8 x i32> %262, i32 150)
+  %268 = bitcast <8 x i32> %267 to <4 x i64>
+  %269 = getelementptr inbounds nuw i8, ptr %.3, i64 32
+  %270 = load <8 x i32>, ptr %269, align 1, !tbaa !10
+  %271 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %261, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %272 = bitcast <4 x i64> %271 to <8 x i32>
+  %273 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %261, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %274 = bitcast <4 x i64> %273 to <8 x i32>
+  %275 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %272, <8 x i32> %274, <8 x i32> %270, i32 150)
+  %276 = getelementptr inbounds nuw i8, ptr %.3, i64 64
+  br label %277
 
-278:                                              ; preds = %246, %261, %50
-  %.2199 = phi i64 [ %2, %50 ], [ %.3200, %261 ], [ %.3200, %246 ]
-  %.1193 = phi <4 x i64> [ %43, %50 ], [ %269, %261 ], [ %254, %246 ]
-  %.0189 = phi <8 x i32> [ %51, %50 ], [ %276, %261 ], [ %259, %246 ]
-  %.2 = phi ptr [ %49, %50 ], [ %277, %261 ], [ %.3, %246 ]
-  %279 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1193, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %280 = bitcast <4 x i64> %279 to <8 x i32>
-  %281 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1193, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %282 = bitcast <4 x i64> %281 to <8 x i32>
-  %283 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %280, <8 x i32> %282, <8 x i32> %.0189, i32 150)
-  %284 = bitcast <8 x i32> %283 to <4 x i64>
-  %285 = and i64 %.2199, 32
-  %.not210 = icmp eq i64 %285, 0
-  br i1 %.not210, label %295, label %286
+277:                                              ; preds = %245, %260, %50
+  %.2199 = phi i64 [ %2, %50 ], [ %.3200, %260 ], [ %.3200, %245 ]
+  %.1193 = phi <4 x i64> [ %43, %50 ], [ %268, %260 ], [ %253, %245 ]
+  %.0189 = phi <8 x i32> [ %51, %50 ], [ %275, %260 ], [ %258, %245 ]
+  %.2 = phi ptr [ %49, %50 ], [ %276, %260 ], [ %.3, %245 ]
+  %278 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1193, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %279 = bitcast <4 x i64> %278 to <8 x i32>
+  %280 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1193, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %281 = bitcast <4 x i64> %280 to <8 x i32>
+  %282 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %279, <8 x i32> %281, <8 x i32> %.0189, i32 150)
+  %283 = bitcast <8 x i32> %282 to <4 x i64>
+  %284 = and i64 %.2199, 32
+  %.not210 = icmp eq i64 %284, 0
+  br i1 %.not210, label %294, label %285
 
-286:                                              ; preds = %278
-  %287 = load <8 x i32>, ptr %.2, align 1, !tbaa !10
-  %288 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %284, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %289 = bitcast <4 x i64> %288 to <8 x i32>
-  %290 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %284, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %291 = bitcast <4 x i64> %290 to <8 x i32>
-  %292 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %289, <8 x i32> %291, <8 x i32> %287, i32 150)
-  %293 = bitcast <8 x i32> %292 to <4 x i64>
-  %294 = getelementptr inbounds nuw i8, ptr %.2, i64 32
-  br label %295
+285:                                              ; preds = %277
+  %286 = load <8 x i32>, ptr %.2, align 1, !tbaa !10
+  %287 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %283, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %288 = bitcast <4 x i64> %287 to <8 x i32>
+  %289 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %283, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %290 = bitcast <4 x i64> %289 to <8 x i32>
+  %291 = tail call <8 x i32> @llvm.x86.avx512.pternlog.d.256(<8 x i32> %288, <8 x i32> %290, <8 x i32> %286, i32 150)
+  %292 = bitcast <8 x i32> %291 to <4 x i64>
+  %293 = getelementptr inbounds nuw i8, ptr %.2, i64 32
+  br label %294
 
-295:                                              ; preds = %40, %278, %286
-  %.1198 = phi i64 [ %.2199, %286 ], [ %.2199, %278 ], [ %2, %40 ]
-  %.0192 = phi <4 x i64> [ %293, %286 ], [ %284, %278 ], [ %43, %40 ]
-  %.1175 = phi ptr [ %294, %286 ], [ %.2, %278 ], [ %45, %40 ]
-  %296 = shufflevector <4 x i64> %.0192, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
-  %297 = shufflevector <4 x i64> %.0192, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %298 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %296, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %299 = xor <2 x i64> %298, %297
-  %300 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %296, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %301 = xor <2 x i64> %299, %300
-  %302 = and i64 %.1198, 16
-  %.not211 = icmp eq i64 %302, 0
-  br i1 %.not211, label %310, label %303
+294:                                              ; preds = %40, %277, %285
+  %.1198 = phi i64 [ %.2199, %285 ], [ %.2199, %277 ], [ %2, %40 ]
+  %.0192 = phi <4 x i64> [ %292, %285 ], [ %283, %277 ], [ %43, %40 ]
+  %.1175 = phi ptr [ %293, %285 ], [ %.2, %277 ], [ %45, %40 ]
+  %295 = shufflevector <4 x i64> %.0192, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
+  %296 = shufflevector <4 x i64> %.0192, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
+  %297 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %295, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %298 = xor <2 x i64> %297, %296
+  %299 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %295, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %300 = xor <2 x i64> %298, %299
+  %301 = and i64 %.1198, 16
+  %.not211 = icmp eq i64 %301, 0
+  br i1 %.not211, label %309, label %302
 
-303:                                              ; preds = %295
-  %304 = load <2 x i64>, ptr %.1175, align 1, !tbaa !10
-  %305 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %301, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %306 = xor <2 x i64> %305, %304
-  %307 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %301, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %308 = xor <2 x i64> %306, %307
-  %309 = getelementptr inbounds nuw i8, ptr %.1175, i64 16
-  br label %310
+302:                                              ; preds = %294
+  %303 = load <2 x i64>, ptr %.1175, align 1, !tbaa !10
+  %304 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %300, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %305 = xor <2 x i64> %304, %303
+  %306 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %300, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %307 = xor <2 x i64> %305, %306
+  %308 = getelementptr inbounds nuw i8, ptr %.1175, i64 16
+  br label %309
 
-310:                                              ; preds = %295, %303, %36
-  %.0197 = phi i64 [ %2, %36 ], [ %.1198, %303 ], [ %.1198, %295 ]
-  %.2178 = phi <2 x i64> [ %38, %36 ], [ %308, %303 ], [ %301, %295 ]
-  %.0174 = phi ptr [ %39, %36 ], [ %309, %303 ], [ %.1175, %295 ]
-  %311 = and i64 %.0197, 15
-  %.not212 = icmp eq i64 %311, 0
-  br i1 %.not212, label %331, label %312
+309:                                              ; preds = %294, %302, %36
+  %.0197 = phi i64 [ %2, %36 ], [ %.1198, %302 ], [ %.1198, %294 ]
+  %.2178 = phi <2 x i64> [ %38, %36 ], [ %307, %302 ], [ %300, %294 ]
+  %.0174 = phi ptr [ %39, %36 ], [ %308, %302 ], [ %.1175, %294 ]
+  %310 = and i64 %.0197, 15
+  %.not212 = icmp eq i64 %310, 0
+  br i1 %.not212, label %329, label %311
 
-312:                                              ; preds = %310
-  %313 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %311
-  %314 = load <16 x i8>, ptr %313, align 1, !tbaa !10
-  %315 = or disjoint i64 %311, 16
-  %316 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %315
-  %317 = load <16 x i8>, ptr %316, align 1, !tbaa !10
-  %318 = bitcast <2 x i64> %.2178 to <16 x i8>
-  %319 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %318, <16 x i8> %314)
-  %320 = bitcast <16 x i8> %319 to <2 x i64>
-  %321 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %318, <16 x i8> %317)
-  %322 = getelementptr inbounds nuw i8, ptr %.0174, i64 %311
-  %323 = getelementptr inbounds i8, ptr %322, i64 -16
-  %324 = load <16 x i8>, ptr %323, align 1, !tbaa !10
-  %325 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %321, <16 x i8> %324, <16 x i8> %317)
-  %326 = bitcast <16 x i8> %325 to <2 x i64>
-  %327 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %320, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %328 = xor <2 x i64> %327, %326
-  %329 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %320, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %330 = xor <2 x i64> %328, %329
-  br label %331
+311:                                              ; preds = %309
+  %312 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %310
+  %313 = load <16 x i8>, ptr %312, align 1, !tbaa !10
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 16
+  %315 = load <16 x i8>, ptr %314, align 1, !tbaa !10
+  %316 = bitcast <2 x i64> %.2178 to <16 x i8>
+  %317 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %316, <16 x i8> %313)
+  %318 = bitcast <16 x i8> %317 to <2 x i64>
+  %319 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %316, <16 x i8> %315)
+  %320 = getelementptr inbounds nuw i8, ptr %.0174, i64 %310
+  %321 = getelementptr inbounds i8, ptr %320, i64 -16
+  %322 = load <16 x i8>, ptr %321, align 1, !tbaa !10
+  %323 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %319, <16 x i8> %322, <16 x i8> %315)
+  %324 = bitcast <16 x i8> %323 to <2 x i64>
+  %325 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %318, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %326 = xor <2 x i64> %325, %324
+  %327 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %318, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %328 = xor <2 x i64> %326, %327
+  br label %329
 
-331:                                              ; preds = %310, %312, %24
-  %.0176 = phi <2 x i64> [ %35, %24 ], [ %330, %312 ], [ %.2178, %310 ]
-  %332 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
-  %333 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %332, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %334 = bitcast <2 x i64> %.0176 to <4 x i32>
-  %335 = bitcast <2 x i64> %333 to <4 x i32>
-  %336 = tail call <4 x i32> @llvm.x86.avx512.pternlog.d.128(<4 x i32> %334, <4 x i32> %335, <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, i32 120)
-  %337 = bitcast <4 x i32> %336 to <2 x i64>
-  %338 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %337, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
-  %339 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %338, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %340 = bitcast <2 x i64> %339 to <4 x i32>
-  %341 = extractelement <4 x i32> %340, i64 2
+329:                                              ; preds = %309, %311, %24
+  %.0176 = phi <2 x i64> [ %35, %24 ], [ %328, %311 ], [ %.2178, %309 ]
+  %330 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
+  %331 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %330, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %332 = bitcast <2 x i64> %.0176 to <4 x i32>
+  %333 = bitcast <2 x i64> %331 to <4 x i32>
+  %334 = tail call <4 x i32> @llvm.x86.avx512.pternlog.d.128(<4 x i32> %332, <4 x i32> %333, <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, i32 120)
+  %335 = bitcast <4 x i32> %334 to <2 x i64>
+  %336 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %335, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
+  %337 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %336, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %338 = bitcast <2 x i64> %337 to <4 x i32>
+  %339 = extractelement <4 x i32> %338, i64 2
   br label %crc32_slice1.exit
 
-crc32_slice1.exit:                                ; preds = %.lr.ph384, %.preheader, %331
-  %.0 = phi i32 [ %341, %331 ], [ %0, %.preheader ], [ %22, %.lr.ph384 ]
+crc32_slice1.exit:                                ; preds = %.lr.ph384, %.preheader, %329
+  %.0 = phi i32 [ %339, %329 ], [ %0, %.preheader ], [ %22, %.lr.ph384 ]
   ret i32 %.0
 }
 
@@ -1246,7 +1242,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %15 = zext i8 %14 to i32
   %16 = xor i32 %12, %15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [256 x i32], ptr @crc32_slice1_table, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr @crc32_slice1_table, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !8
   %20 = xor i32 %19, %11
   %21 = add nuw nsw i64 %.0.i553, 1
@@ -1257,7 +1253,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %23 = load <2 x i64>, ptr %1, align 1, !tbaa !10
   %24 = xor <2 x i64> %23, %5
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %247
+  br label %246
 
 26:                                               ; preds = %7
   %27 = load <4 x i64>, ptr %1, align 1, !tbaa !10
@@ -1265,30 +1261,30 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %29 = xor <4 x i64> %27, %28
   %30 = icmp samesign ult i64 %2, 64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %30, label %232, label %32
+  br i1 %30, label %231, label %32
 
 32:                                               ; preds = %26
   %33 = load <4 x i64>, ptr %31, align 1, !tbaa !10
   %34 = icmp samesign ult i64 %2, 128
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  br i1 %34, label %219, label %36
+  br i1 %34, label %218, label %36
 
 36:                                               ; preds = %32
   %37 = load <4 x i64>, ptr %35, align 1, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %39 = load <4 x i64>, ptr %38, align 1, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  br label %196
+  br label %195
 
 41:                                               ; preds = %3
   %42 = icmp ugt i64 %2, 65536
-  br i1 %42, label %43, label %85
+  br i1 %42, label %43, label %84
 
 43:                                               ; preds = %41
   %44 = ptrtoint ptr %1 to i64
   %45 = and i64 %44, 31
   %.not = icmp eq i64 %45, 0
-  br i1 %.not, label %85, label %46
+  br i1 %.not, label %84, label %46
 
 46:                                               ; preds = %43
   %47 = sub i64 0, %44
@@ -1299,332 +1295,330 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = and i64 %47, 15
   %.not200 = icmp eq i64 %53, 0
-  br i1 %.not200, label %74, label %54
+  br i1 %.not200, label %73, label %54
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %53
   %56 = load <16 x i8>, ptr %55, align 1, !tbaa !10
-  %57 = or disjoint i64 %53, 16
-  %58 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %57
-  %59 = load <16 x i8>, ptr %58, align 1, !tbaa !10
-  %60 = bitcast <2 x i64> %51 to <16 x i8>
-  %61 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %60, <16 x i8> %56)
-  %62 = bitcast <16 x i8> %61 to <2 x i64>
-  %63 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %60, <16 x i8> %59)
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %53
-  %65 = getelementptr inbounds i8, ptr %64, i64 -16
-  %66 = load <16 x i8>, ptr %65, align 1, !tbaa !10
-  %67 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %63, <16 x i8> %66, <16 x i8> %59)
-  %68 = bitcast <16 x i8> %67 to <2 x i64>
-  %69 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %62, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %70 = xor <2 x i64> %69, %68
-  %71 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %62, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %72 = xor <2 x i64> %70, %71
-  %73 = and i64 %47, 16
-  br label %74
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %58 = load <16 x i8>, ptr %57, align 1, !tbaa !10
+  %59 = bitcast <2 x i64> %51 to <16 x i8>
+  %60 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %59, <16 x i8> %56)
+  %61 = bitcast <16 x i8> %60 to <2 x i64>
+  %62 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %59, <16 x i8> %58)
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  %64 = getelementptr inbounds i8, ptr %63, i64 -16
+  %65 = load <16 x i8>, ptr %64, align 1, !tbaa !10
+  %66 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %62, <16 x i8> %65, <16 x i8> %58)
+  %67 = bitcast <16 x i8> %66 to <2 x i64>
+  %68 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %61, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %69 = xor <2 x i64> %68, %67
+  %70 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %61, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %71 = xor <2 x i64> %69, %70
+  %72 = and i64 %47, 16
+  br label %73
 
-74:                                               ; preds = %54, %46
-  %.2172 = phi <2 x i64> [ %72, %54 ], [ %51, %46 ]
-  %.4 = phi ptr [ %64, %54 ], [ %52, %46 ]
-  %.0167 = phi i64 [ %73, %54 ], [ %48, %46 ]
+73:                                               ; preds = %54, %46
+  %.2172 = phi <2 x i64> [ %71, %54 ], [ %51, %46 ]
+  %.4 = phi ptr [ %63, %54 ], [ %52, %46 ]
+  %.0167 = phi i64 [ %72, %54 ], [ %48, %46 ]
   %.not201521 = icmp eq i64 %.0167, 0
   br i1 %.not201521, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %74, %.lr.ph
-  %.1524 = phi i64 [ %81, %.lr.ph ], [ %.0167, %74 ]
-  %.5523 = phi ptr [ %80, %.lr.ph ], [ %.4, %74 ]
-  %.3173522 = phi <2 x i64> [ %79, %.lr.ph ], [ %.2172, %74 ]
-  %75 = load <2 x i64>, ptr %.5523, align 16, !tbaa !10
-  %76 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.3173522, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %77 = xor <2 x i64> %76, %75
-  %78 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.3173522, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %79 = xor <2 x i64> %77, %78
-  %80 = getelementptr inbounds nuw i8, ptr %.5523, i64 16
-  %81 = add i64 %.1524, -16
-  %.not201 = icmp eq i64 %81, 0
+.lr.ph:                                           ; preds = %73, %.lr.ph
+  %.1524 = phi i64 [ %80, %.lr.ph ], [ %.0167, %73 ]
+  %.5523 = phi ptr [ %79, %.lr.ph ], [ %.4, %73 ]
+  %.3173522 = phi <2 x i64> [ %78, %.lr.ph ], [ %.2172, %73 ]
+  %74 = load <2 x i64>, ptr %.5523, align 16, !tbaa !10
+  %75 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.3173522, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %76 = xor <2 x i64> %75, %74
+  %77 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.3173522, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %78 = xor <2 x i64> %76, %77
+  %79 = getelementptr inbounds nuw i8, ptr %.5523, i64 16
+  %80 = add i64 %.1524, -16
+  %.not201 = icmp eq i64 %80, 0
   br i1 %.not201, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %74
-  %.3173.lcssa = phi <2 x i64> [ %.2172, %74 ], [ %79, %.lr.ph ]
-  %.5.lcssa = phi ptr [ %.4, %74 ], [ %80, %.lr.ph ]
-  %82 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
-  %83 = shufflevector <2 x i64> %.3173.lcssa, <2 x i64> %82, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %84 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
-  br label %89
+._crit_edge:                                      ; preds = %.lr.ph, %73
+  %.3173.lcssa = phi <2 x i64> [ %.2172, %73 ], [ %78, %.lr.ph ]
+  %.5.lcssa = phi ptr [ %.4, %73 ], [ %79, %.lr.ph ]
+  %81 = load <2 x i64>, ptr %.5.lcssa, align 16, !tbaa !10
+  %82 = shufflevector <2 x i64> %.3173.lcssa, <2 x i64> %81, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %83 = getelementptr inbounds i8, ptr %.5.lcssa, i64 -16
+  br label %88
 
-85:                                               ; preds = %43, %41
-  %86 = load <4 x i64>, ptr %1, align 1, !tbaa !10
-  %87 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %88 = xor <4 x i64> %86, %87
-  br label %89
+84:                                               ; preds = %43, %41
+  %85 = load <4 x i64>, ptr %1, align 1, !tbaa !10
+  %86 = shufflevector <2 x i64> %5, <2 x i64> zeroinitializer, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %87 = xor <4 x i64> %85, %86
+  br label %88
 
-89:                                               ; preds = %85, %._crit_edge
-  %.4195 = phi i64 [ %49, %._crit_edge ], [ %2, %85 ]
-  %.3189 = phi <4 x i64> [ %83, %._crit_edge ], [ %88, %85 ]
-  %.6 = phi ptr [ %84, %._crit_edge ], [ %1, %85 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.6, i64 32
-  %91 = load <4 x i64>, ptr %90, align 1, !tbaa !10
-  %92 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %93 = load <4 x i64>, ptr %92, align 1, !tbaa !10
-  %94 = getelementptr inbounds nuw i8, ptr %.6, i64 96
-  %95 = load <4 x i64>, ptr %94, align 1, !tbaa !10
-  %96 = getelementptr inbounds nuw i8, ptr %.6, i64 128
-  %97 = load <4 x i64>, ptr %96, align 1, !tbaa !10
-  %98 = getelementptr inbounds nuw i8, ptr %.6, i64 160
-  %99 = load <4 x i64>, ptr %98, align 1, !tbaa !10
-  %100 = getelementptr inbounds nuw i8, ptr %.6, i64 192
-  %101 = load <4 x i64>, ptr %100, align 1, !tbaa !10
-  %102 = getelementptr inbounds nuw i8, ptr %.6, i64 224
-  %103 = load <4 x i64>, ptr %102, align 1, !tbaa !10
+88:                                               ; preds = %84, %._crit_edge
+  %.4195 = phi i64 [ %49, %._crit_edge ], [ %2, %84 ]
+  %.3189 = phi <4 x i64> [ %82, %._crit_edge ], [ %87, %84 ]
+  %.6 = phi ptr [ %83, %._crit_edge ], [ %1, %84 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.6, i64 32
+  %90 = load <4 x i64>, ptr %89, align 1, !tbaa !10
+  %91 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %92 = load <4 x i64>, ptr %91, align 1, !tbaa !10
+  %93 = getelementptr inbounds nuw i8, ptr %.6, i64 96
+  %94 = load <4 x i64>, ptr %93, align 1, !tbaa !10
+  %95 = getelementptr inbounds nuw i8, ptr %.6, i64 128
+  %96 = load <4 x i64>, ptr %95, align 1, !tbaa !10
+  %97 = getelementptr inbounds nuw i8, ptr %.6, i64 160
+  %98 = load <4 x i64>, ptr %97, align 1, !tbaa !10
+  %99 = getelementptr inbounds nuw i8, ptr %.6, i64 192
+  %100 = load <4 x i64>, ptr %99, align 1, !tbaa !10
+  %101 = getelementptr inbounds nuw i8, ptr %.6, i64 224
+  %102 = load <4 x i64>, ptr %101, align 1, !tbaa !10
   %.7526 = getelementptr inbounds nuw i8, ptr %.6, i64 256
-  %104 = icmp ugt i64 %.4195, 511
-  br i1 %104, label %.lr.ph539, label %._crit_edge540
+  %103 = icmp ugt i64 %.4195, 511
+  br i1 %103, label %.lr.ph539, label %._crit_edge540
 
-.lr.ph539:                                        ; preds = %89, %.lr.ph539
-  %.7537 = phi ptr [ %.7, %.lr.ph539 ], [ %.7526, %89 ]
-  %.6.pn536 = phi ptr [ %.7537, %.lr.ph539 ], [ %.6, %89 ]
-  %.0175535 = phi <4 x i64> [ %151, %.lr.ph539 ], [ %103, %89 ]
-  %.0176534 = phi <4 x i64> [ %145, %.lr.ph539 ], [ %101, %89 ]
-  %.0177533 = phi <4 x i64> [ %139, %.lr.ph539 ], [ %99, %89 ]
-  %.0178532 = phi <4 x i64> [ %133, %.lr.ph539 ], [ %97, %89 ]
-  %.1180531 = phi <4 x i64> [ %127, %.lr.ph539 ], [ %95, %89 ]
-  %.1182530 = phi <4 x i64> [ %121, %.lr.ph539 ], [ %93, %89 ]
-  %.2185529 = phi <4 x i64> [ %115, %.lr.ph539 ], [ %91, %89 ]
-  %.4190528 = phi <4 x i64> [ %109, %.lr.ph539 ], [ %.3189, %89 ]
-  %.5196527 = phi i64 [ %152, %.lr.ph539 ], [ %.4195, %89 ]
-  %105 = load <4 x i64>, ptr %.7537, align 1, !tbaa !10
-  %106 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190528, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %107 = xor <4 x i64> %106, %105
-  %108 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190528, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %109 = xor <4 x i64> %107, %108
-  %110 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 288
-  %111 = load <4 x i64>, ptr %110, align 1, !tbaa !10
-  %112 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185529, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %113 = xor <4 x i64> %112, %111
-  %114 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185529, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %115 = xor <4 x i64> %113, %114
-  %116 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 320
-  %117 = load <4 x i64>, ptr %116, align 1, !tbaa !10
-  %118 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182530, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %119 = xor <4 x i64> %118, %117
-  %120 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182530, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %121 = xor <4 x i64> %119, %120
-  %122 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 352
-  %123 = load <4 x i64>, ptr %122, align 1, !tbaa !10
-  %124 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180531, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %125 = xor <4 x i64> %124, %123
-  %126 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180531, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %127 = xor <4 x i64> %125, %126
-  %128 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 384
-  %129 = load <4 x i64>, ptr %128, align 1, !tbaa !10
-  %130 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0178532, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %131 = xor <4 x i64> %130, %129
-  %132 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0178532, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %133 = xor <4 x i64> %131, %132
-  %134 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 416
-  %135 = load <4 x i64>, ptr %134, align 1, !tbaa !10
-  %136 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0177533, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %137 = xor <4 x i64> %136, %135
-  %138 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0177533, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %139 = xor <4 x i64> %137, %138
-  %140 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 448
-  %141 = load <4 x i64>, ptr %140, align 1, !tbaa !10
-  %142 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0176534, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %143 = xor <4 x i64> %142, %141
-  %144 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0176534, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %145 = xor <4 x i64> %143, %144
-  %146 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 480
-  %147 = load <4 x i64>, ptr %146, align 1, !tbaa !10
-  %148 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0175535, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
-  %149 = xor <4 x i64> %148, %147
-  %150 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0175535, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
-  %151 = xor <4 x i64> %149, %150
-  %152 = add i64 %.5196527, -256
+.lr.ph539:                                        ; preds = %88, %.lr.ph539
+  %.7537 = phi ptr [ %.7, %.lr.ph539 ], [ %.7526, %88 ]
+  %.6.pn536 = phi ptr [ %.7537, %.lr.ph539 ], [ %.6, %88 ]
+  %.0175535 = phi <4 x i64> [ %150, %.lr.ph539 ], [ %102, %88 ]
+  %.0176534 = phi <4 x i64> [ %144, %.lr.ph539 ], [ %100, %88 ]
+  %.0177533 = phi <4 x i64> [ %138, %.lr.ph539 ], [ %98, %88 ]
+  %.0178532 = phi <4 x i64> [ %132, %.lr.ph539 ], [ %96, %88 ]
+  %.1180531 = phi <4 x i64> [ %126, %.lr.ph539 ], [ %94, %88 ]
+  %.1182530 = phi <4 x i64> [ %120, %.lr.ph539 ], [ %92, %88 ]
+  %.2185529 = phi <4 x i64> [ %114, %.lr.ph539 ], [ %90, %88 ]
+  %.4190528 = phi <4 x i64> [ %108, %.lr.ph539 ], [ %.3189, %88 ]
+  %.5196527 = phi i64 [ %151, %.lr.ph539 ], [ %.4195, %88 ]
+  %104 = load <4 x i64>, ptr %.7537, align 1, !tbaa !10
+  %105 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190528, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %106 = xor <4 x i64> %105, %104
+  %107 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190528, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %108 = xor <4 x i64> %106, %107
+  %109 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 288
+  %110 = load <4 x i64>, ptr %109, align 1, !tbaa !10
+  %111 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185529, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %112 = xor <4 x i64> %111, %110
+  %113 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185529, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %114 = xor <4 x i64> %112, %113
+  %115 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 320
+  %116 = load <4 x i64>, ptr %115, align 1, !tbaa !10
+  %117 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182530, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %118 = xor <4 x i64> %117, %116
+  %119 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182530, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %120 = xor <4 x i64> %118, %119
+  %121 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 352
+  %122 = load <4 x i64>, ptr %121, align 1, !tbaa !10
+  %123 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180531, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %124 = xor <4 x i64> %123, %122
+  %125 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180531, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %126 = xor <4 x i64> %124, %125
+  %127 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 384
+  %128 = load <4 x i64>, ptr %127, align 1, !tbaa !10
+  %129 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0178532, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %130 = xor <4 x i64> %129, %128
+  %131 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0178532, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %132 = xor <4 x i64> %130, %131
+  %133 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 416
+  %134 = load <4 x i64>, ptr %133, align 1, !tbaa !10
+  %135 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0177533, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %136 = xor <4 x i64> %135, %134
+  %137 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0177533, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %138 = xor <4 x i64> %136, %137
+  %139 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 448
+  %140 = load <4 x i64>, ptr %139, align 1, !tbaa !10
+  %141 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0176534, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %142 = xor <4 x i64> %141, %140
+  %143 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0176534, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %144 = xor <4 x i64> %142, %143
+  %145 = getelementptr inbounds nuw i8, ptr %.6.pn536, i64 480
+  %146 = load <4 x i64>, ptr %145, align 1, !tbaa !10
+  %147 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0175535, <4 x i64> <i64 3459477963, i64 poison, i64 3459477963, i64 poison>, i8 0)
+  %148 = xor <4 x i64> %147, %146
+  %149 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.0175535, <4 x i64> <i64 poison, i64 3915125361, i64 poison, i64 3915125361>, i8 17)
+  %150 = xor <4 x i64> %148, %149
+  %151 = add i64 %.5196527, -256
   %.7 = getelementptr inbounds nuw i8, ptr %.7537, i64 256
-  %153 = icmp ugt i64 %152, 511
-  br i1 %153, label %.lr.ph539, label %._crit_edge540
+  %152 = icmp ugt i64 %151, 511
+  br i1 %152, label %.lr.ph539, label %._crit_edge540
 
-._crit_edge540:                                   ; preds = %.lr.ph539, %89
-  %.5196.lcssa = phi i64 [ %.4195, %89 ], [ %152, %.lr.ph539 ]
-  %.4190.lcssa = phi <4 x i64> [ %.3189, %89 ], [ %109, %.lr.ph539 ]
-  %.2185.lcssa = phi <4 x i64> [ %91, %89 ], [ %115, %.lr.ph539 ]
-  %.1182.lcssa = phi <4 x i64> [ %93, %89 ], [ %121, %.lr.ph539 ]
-  %.1180.lcssa = phi <4 x i64> [ %95, %89 ], [ %127, %.lr.ph539 ]
-  %.0178.lcssa = phi <4 x i64> [ %97, %89 ], [ %133, %.lr.ph539 ]
-  %.0177.lcssa = phi <4 x i64> [ %99, %89 ], [ %139, %.lr.ph539 ]
-  %.0176.lcssa = phi <4 x i64> [ %101, %89 ], [ %145, %.lr.ph539 ]
-  %.0175.lcssa = phi <4 x i64> [ %103, %89 ], [ %151, %.lr.ph539 ]
-  %.6.pn.lcssa = phi ptr [ %.6, %89 ], [ %.7537, %.lr.ph539 ]
-  %.7.lcssa = phi ptr [ %.7526, %89 ], [ %.7, %.lr.ph539 ]
-  %154 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %155 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %156 = xor <4 x i64> %154, %.0178.lcssa
-  %157 = xor <4 x i64> %156, %155
-  %158 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %159 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %160 = xor <4 x i64> %158, %.0177.lcssa
-  %161 = xor <4 x i64> %160, %159
-  %162 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %163 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %164 = xor <4 x i64> %162, %.0176.lcssa
-  %165 = xor <4 x i64> %164, %163
-  %166 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %167 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %168 = xor <4 x i64> %166, %.0175.lcssa
-  %169 = xor <4 x i64> %168, %167
-  %170 = and i64 %.5196.lcssa, 128
-  %.not202 = icmp eq i64 %170, 0
-  br i1 %.not202, label %196, label %171
+._crit_edge540:                                   ; preds = %.lr.ph539, %88
+  %.5196.lcssa = phi i64 [ %.4195, %88 ], [ %151, %.lr.ph539 ]
+  %.4190.lcssa = phi <4 x i64> [ %.3189, %88 ], [ %108, %.lr.ph539 ]
+  %.2185.lcssa = phi <4 x i64> [ %90, %88 ], [ %114, %.lr.ph539 ]
+  %.1182.lcssa = phi <4 x i64> [ %92, %88 ], [ %120, %.lr.ph539 ]
+  %.1180.lcssa = phi <4 x i64> [ %94, %88 ], [ %126, %.lr.ph539 ]
+  %.0178.lcssa = phi <4 x i64> [ %96, %88 ], [ %132, %.lr.ph539 ]
+  %.0177.lcssa = phi <4 x i64> [ %98, %88 ], [ %138, %.lr.ph539 ]
+  %.0176.lcssa = phi <4 x i64> [ %100, %88 ], [ %144, %.lr.ph539 ]
+  %.0175.lcssa = phi <4 x i64> [ %102, %88 ], [ %150, %.lr.ph539 ]
+  %.6.pn.lcssa = phi ptr [ %.6, %88 ], [ %.7537, %.lr.ph539 ]
+  %.7.lcssa = phi ptr [ %.7526, %88 ], [ %.7, %.lr.ph539 ]
+  %153 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %154 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.4190.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %155 = xor <4 x i64> %153, %.0178.lcssa
+  %156 = xor <4 x i64> %155, %154
+  %157 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %158 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2185.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %159 = xor <4 x i64> %157, %.0177.lcssa
+  %160 = xor <4 x i64> %159, %158
+  %161 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %162 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1182.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %163 = xor <4 x i64> %161, %.0176.lcssa
+  %164 = xor <4 x i64> %163, %162
+  %165 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180.lcssa, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %166 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1180.lcssa, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %167 = xor <4 x i64> %165, %.0175.lcssa
+  %168 = xor <4 x i64> %167, %166
+  %169 = and i64 %.5196.lcssa, 128
+  %.not202 = icmp eq i64 %169, 0
+  br i1 %.not202, label %195, label %170
 
-171:                                              ; preds = %._crit_edge540
-  %172 = load <4 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
-  %173 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %157, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %174 = xor <4 x i64> %173, %172
-  %175 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %157, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %176 = xor <4 x i64> %174, %175
-  %177 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 288
-  %178 = load <4 x i64>, ptr %177, align 1, !tbaa !10
-  %179 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %161, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %180 = xor <4 x i64> %179, %178
-  %181 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %161, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %182 = xor <4 x i64> %180, %181
-  %183 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 320
-  %184 = load <4 x i64>, ptr %183, align 1, !tbaa !10
-  %185 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %165, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %186 = xor <4 x i64> %185, %184
-  %187 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %165, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %188 = xor <4 x i64> %186, %187
-  %189 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 352
-  %190 = load <4 x i64>, ptr %189, align 1, !tbaa !10
-  %191 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %169, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
-  %192 = xor <4 x i64> %191, %190
-  %193 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %169, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
-  %194 = xor <4 x i64> %192, %193
-  %195 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 384
-  br label %196
+170:                                              ; preds = %._crit_edge540
+  %171 = load <4 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
+  %172 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %156, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %173 = xor <4 x i64> %172, %171
+  %174 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %156, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %175 = xor <4 x i64> %173, %174
+  %176 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 288
+  %177 = load <4 x i64>, ptr %176, align 1, !tbaa !10
+  %178 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %160, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %179 = xor <4 x i64> %178, %177
+  %180 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %160, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %181 = xor <4 x i64> %179, %180
+  %182 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 320
+  %183 = load <4 x i64>, ptr %182, align 1, !tbaa !10
+  %184 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %164, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %185 = xor <4 x i64> %184, %183
+  %186 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %164, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %187 = xor <4 x i64> %185, %186
+  %188 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 352
+  %189 = load <4 x i64>, ptr %188, align 1, !tbaa !10
+  %190 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %168, <4 x i64> <i64 872412467, i64 poison, i64 872412467, i64 poison>, i8 0)
+  %191 = xor <4 x i64> %190, %189
+  %192 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %168, <4 x i64> <i64 poison, i64 2433674945, i64 poison, i64 2433674945>, i8 17)
+  %193 = xor <4 x i64> %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 384
+  br label %195
 
-196:                                              ; preds = %._crit_edge540, %171, %36
-  %.3194 = phi i64 [ %2, %36 ], [ %.5196.lcssa, %171 ], [ %.5196.lcssa, %._crit_edge540 ]
-  %.2188 = phi <4 x i64> [ %29, %36 ], [ %176, %171 ], [ %157, %._crit_edge540 ]
-  %.1184 = phi <4 x i64> [ %33, %36 ], [ %182, %171 ], [ %161, %._crit_edge540 ]
-  %.0181 = phi <4 x i64> [ %37, %36 ], [ %188, %171 ], [ %165, %._crit_edge540 ]
-  %.0179 = phi <4 x i64> [ %39, %36 ], [ %194, %171 ], [ %169, %._crit_edge540 ]
-  %.3 = phi ptr [ %40, %36 ], [ %195, %171 ], [ %.7.lcssa, %._crit_edge540 ]
-  %197 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2188, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %198 = xor <4 x i64> %197, %.0181
-  %199 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2188, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %200 = xor <4 x i64> %198, %199
-  %201 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1184, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %202 = xor <4 x i64> %201, %.0179
-  %203 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1184, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %204 = xor <4 x i64> %202, %203
-  %205 = and i64 %.3194, 64
-  %.not203 = icmp eq i64 %205, 0
-  br i1 %.not203, label %219, label %206
+195:                                              ; preds = %._crit_edge540, %170, %36
+  %.3194 = phi i64 [ %2, %36 ], [ %.5196.lcssa, %170 ], [ %.5196.lcssa, %._crit_edge540 ]
+  %.2188 = phi <4 x i64> [ %29, %36 ], [ %175, %170 ], [ %156, %._crit_edge540 ]
+  %.1184 = phi <4 x i64> [ %33, %36 ], [ %181, %170 ], [ %160, %._crit_edge540 ]
+  %.0181 = phi <4 x i64> [ %37, %36 ], [ %187, %170 ], [ %164, %._crit_edge540 ]
+  %.0179 = phi <4 x i64> [ %39, %36 ], [ %193, %170 ], [ %168, %._crit_edge540 ]
+  %.3 = phi ptr [ %40, %36 ], [ %194, %170 ], [ %.7.lcssa, %._crit_edge540 ]
+  %196 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2188, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %197 = xor <4 x i64> %196, %.0181
+  %198 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.2188, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %199 = xor <4 x i64> %197, %198
+  %200 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1184, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %201 = xor <4 x i64> %200, %.0179
+  %202 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1184, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %203 = xor <4 x i64> %201, %202
+  %204 = and i64 %.3194, 64
+  %.not203 = icmp eq i64 %204, 0
+  br i1 %.not203, label %218, label %205
 
-206:                                              ; preds = %196
-  %207 = load <4 x i64>, ptr %.3, align 1, !tbaa !10
-  %208 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %200, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %209 = xor <4 x i64> %208, %207
-  %210 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %200, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %211 = xor <4 x i64> %209, %210
-  %212 = getelementptr inbounds nuw i8, ptr %.3, i64 32
-  %213 = load <4 x i64>, ptr %212, align 1, !tbaa !10
-  %214 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %204, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
-  %215 = xor <4 x i64> %214, %213
-  %216 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %204, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
-  %217 = xor <4 x i64> %215, %216
-  %218 = getelementptr inbounds nuw i8, ptr %.3, i64 64
-  br label %219
+205:                                              ; preds = %195
+  %206 = load <4 x i64>, ptr %.3, align 1, !tbaa !10
+  %207 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %199, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %208 = xor <4 x i64> %207, %206
+  %209 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %199, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %210 = xor <4 x i64> %208, %209
+  %211 = getelementptr inbounds nuw i8, ptr %.3, i64 32
+  %212 = load <4 x i64>, ptr %211, align 1, !tbaa !10
+  %213 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %203, <4 x i64> <i64 2402626965, i64 poison, i64 2402626965, i64 poison>, i8 0)
+  %214 = xor <4 x i64> %213, %212
+  %215 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %203, <4 x i64> <i64 poison, i64 496309207, i64 poison, i64 496309207>, i8 17)
+  %216 = xor <4 x i64> %214, %215
+  %217 = getelementptr inbounds nuw i8, ptr %.3, i64 64
+  br label %218
 
-219:                                              ; preds = %32, %196, %206
-  %.2193 = phi i64 [ %.3194, %206 ], [ %.3194, %196 ], [ %2, %32 ]
-  %.1187 = phi <4 x i64> [ %211, %206 ], [ %200, %196 ], [ %29, %32 ]
-  %.0183 = phi <4 x i64> [ %217, %206 ], [ %204, %196 ], [ %33, %32 ]
-  %.2 = phi ptr [ %218, %206 ], [ %.3, %196 ], [ %35, %32 ]
-  %220 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1187, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %221 = xor <4 x i64> %220, %.0183
-  %222 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1187, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %223 = xor <4 x i64> %221, %222
-  %224 = and i64 %.2193, 32
-  %.not204 = icmp eq i64 %224, 0
-  br i1 %.not204, label %232, label %225
+218:                                              ; preds = %32, %195, %205
+  %.2193 = phi i64 [ %.3194, %205 ], [ %.3194, %195 ], [ %2, %32 ]
+  %.1187 = phi <4 x i64> [ %210, %205 ], [ %199, %195 ], [ %29, %32 ]
+  %.0183 = phi <4 x i64> [ %216, %205 ], [ %203, %195 ], [ %33, %32 ]
+  %.2 = phi ptr [ %217, %205 ], [ %.3, %195 ], [ %35, %32 ]
+  %219 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1187, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %220 = xor <4 x i64> %219, %.0183
+  %221 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %.1187, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %222 = xor <4 x i64> %220, %221
+  %223 = and i64 %.2193, 32
+  %.not204 = icmp eq i64 %223, 0
+  br i1 %.not204, label %231, label %224
 
-225:                                              ; preds = %219
-  %226 = load <4 x i64>, ptr %.2, align 1, !tbaa !10
-  %227 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %223, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
-  %228 = xor <4 x i64> %227, %226
-  %229 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %223, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
-  %230 = xor <4 x i64> %228, %229
-  %231 = getelementptr inbounds nuw i8, ptr %.2, i64 32
-  br label %232
+224:                                              ; preds = %218
+  %225 = load <4 x i64>, ptr %.2, align 1, !tbaa !10
+  %226 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %222, <4 x i64> <i64 4057597354, i64 poison, i64 4057597354, i64 poison>, i8 0)
+  %227 = xor <4 x i64> %226, %225
+  %228 = tail call <4 x i64> @llvm.x86.pclmulqdq.256(<4 x i64> %222, <4 x i64> <i64 poison, i64 2166711591, i64 poison, i64 2166711591>, i8 17)
+  %229 = xor <4 x i64> %227, %228
+  %230 = getelementptr inbounds nuw i8, ptr %.2, i64 32
+  br label %231
 
-232:                                              ; preds = %26, %219, %225
-  %.1192 = phi i64 [ %.2193, %225 ], [ %.2193, %219 ], [ %2, %26 ]
-  %.0186 = phi <4 x i64> [ %230, %225 ], [ %223, %219 ], [ %29, %26 ]
-  %.1169 = phi ptr [ %231, %225 ], [ %.2, %219 ], [ %31, %26 ]
-  %233 = shufflevector <4 x i64> %.0186, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
-  %234 = shufflevector <4 x i64> %.0186, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
-  %235 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %233, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %236 = xor <2 x i64> %235, %234
-  %237 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %233, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %238 = xor <2 x i64> %236, %237
-  %239 = and i64 %.1192, 16
-  %.not205 = icmp eq i64 %239, 0
-  br i1 %.not205, label %247, label %240
+231:                                              ; preds = %26, %218, %224
+  %.1192 = phi i64 [ %.2193, %224 ], [ %.2193, %218 ], [ %2, %26 ]
+  %.0186 = phi <4 x i64> [ %229, %224 ], [ %222, %218 ], [ %29, %26 ]
+  %.1169 = phi ptr [ %230, %224 ], [ %.2, %218 ], [ %31, %26 ]
+  %232 = shufflevector <4 x i64> %.0186, <4 x i64> poison, <2 x i32> <i32 0, i32 1>
+  %233 = shufflevector <4 x i64> %.0186, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
+  %234 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %232, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %235 = xor <2 x i64> %234, %233
+  %236 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %232, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %237 = xor <2 x i64> %235, %236
+  %238 = and i64 %.1192, 16
+  %.not205 = icmp eq i64 %238, 0
+  br i1 %.not205, label %246, label %239
 
-240:                                              ; preds = %232
-  %241 = load <2 x i64>, ptr %.1169, align 1, !tbaa !10
-  %242 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %238, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %243 = xor <2 x i64> %242, %241
-  %244 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %238, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %245 = xor <2 x i64> %243, %244
-  %246 = getelementptr inbounds nuw i8, ptr %.1169, i64 16
-  br label %247
+239:                                              ; preds = %231
+  %240 = load <2 x i64>, ptr %.1169, align 1, !tbaa !10
+  %241 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %237, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %242 = xor <2 x i64> %241, %240
+  %243 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %237, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %244 = xor <2 x i64> %242, %243
+  %245 = getelementptr inbounds nuw i8, ptr %.1169, i64 16
+  br label %246
 
-247:                                              ; preds = %232, %240, %22
-  %.0191 = phi i64 [ %2, %22 ], [ %.1192, %240 ], [ %.1192, %232 ]
-  %.1171 = phi <2 x i64> [ %24, %22 ], [ %245, %240 ], [ %238, %232 ]
-  %.0168 = phi ptr [ %25, %22 ], [ %246, %240 ], [ %.1169, %232 ]
-  %248 = and i64 %.0191, 15
-  %.not206 = icmp eq i64 %248, 0
-  br i1 %.not206, label %268, label %249
+246:                                              ; preds = %231, %239, %22
+  %.0191 = phi i64 [ %2, %22 ], [ %.1192, %239 ], [ %.1192, %231 ]
+  %.1171 = phi <2 x i64> [ %24, %22 ], [ %244, %239 ], [ %237, %231 ]
+  %.0168 = phi ptr [ %25, %22 ], [ %245, %239 ], [ %.1169, %231 ]
+  %247 = and i64 %.0191, 15
+  %.not206 = icmp eq i64 %247, 0
+  br i1 %.not206, label %266, label %248
 
-249:                                              ; preds = %247
-  %250 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %248
-  %251 = load <16 x i8>, ptr %250, align 1, !tbaa !10
-  %252 = or disjoint i64 %248, 16
-  %253 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %252
-  %254 = load <16 x i8>, ptr %253, align 1, !tbaa !10
-  %255 = bitcast <2 x i64> %.1171 to <16 x i8>
-  %256 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %255, <16 x i8> %251)
-  %257 = bitcast <16 x i8> %256 to <2 x i64>
-  %258 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %255, <16 x i8> %254)
-  %259 = getelementptr inbounds nuw i8, ptr %.0168, i64 %248
-  %260 = getelementptr inbounds i8, ptr %259, i64 -16
-  %261 = load <16 x i8>, ptr %260, align 1, !tbaa !10
-  %262 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %258, <16 x i8> %261, <16 x i8> %254)
-  %263 = bitcast <16 x i8> %262 to <2 x i64>
-  %264 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %257, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %265 = xor <2 x i64> %264, %263
-  %266 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %257, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %267 = xor <2 x i64> %265, %266
-  br label %268
+248:                                              ; preds = %246
+  %249 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %247
+  %250 = load <16 x i8>, ptr %249, align 1, !tbaa !10
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 16
+  %252 = load <16 x i8>, ptr %251, align 1, !tbaa !10
+  %253 = bitcast <2 x i64> %.1171 to <16 x i8>
+  %254 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %253, <16 x i8> %250)
+  %255 = bitcast <16 x i8> %254 to <2 x i64>
+  %256 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %253, <16 x i8> %252)
+  %257 = getelementptr inbounds nuw i8, ptr %.0168, i64 %247
+  %258 = getelementptr inbounds i8, ptr %257, i64 -16
+  %259 = load <16 x i8>, ptr %258, align 1, !tbaa !10
+  %260 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %256, <16 x i8> %259, <16 x i8> %252)
+  %261 = bitcast <16 x i8> %260 to <2 x i64>
+  %262 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %255, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %263 = xor <2 x i64> %262, %261
+  %264 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %255, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %265 = xor <2 x i64> %263, %264
+  br label %266
 
-268:                                              ; preds = %249, %247
-  %.4174 = phi <2 x i64> [ %267, %249 ], [ %.1171, %247 ]
-  %269 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4174, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
-  %270 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %269, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %271 = and <2 x i64> %270, <i64 poison, i64 4294967295>
-  %272 = xor <2 x i64> %271, %.4174
-  %273 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %272, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
-  %274 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %273, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %275 = bitcast <2 x i64> %274 to <4 x i32>
-  %276 = extractelement <4 x i32> %275, i64 2
+266:                                              ; preds = %248, %246
+  %.4174 = phi <2 x i64> [ %265, %248 ], [ %.1171, %246 ]
+  %267 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4174, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
+  %268 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %267, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %269 = and <2 x i64> %268, <i64 poison, i64 4294967295>
+  %270 = xor <2 x i64> %269, %.4174
+  %271 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %270, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
+  %272 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %271, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %273 = bitcast <2 x i64> %272 to <4 x i32>
+  %274 = extractelement <4 x i32> %273, i64 2
   br label %crc32_slice1.exit
 
-crc32_slice1.exit:                                ; preds = %.lr.ph554, %.preheader, %268
-  %.0 = phi i32 [ %276, %268 ], [ %0, %.preheader ], [ %20, %.lr.ph554 ]
+crc32_slice1.exit:                                ; preds = %.lr.ph554, %.preheader, %266
+  %.0 = phi i32 [ %274, %266 ], [ %0, %.preheader ], [ %20, %.lr.ph554 ]
   ret i32 %.0
 }
 
@@ -1653,7 +1647,7 @@ define internal i32 @crc32_x86_pclmulqdq_avx(i32 noundef %0, ptr noundef %1, i64
   %13 = zext i8 %12 to i32
   %14 = xor i32 %10, %13
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i32], ptr @crc32_slice1_table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @crc32_slice1_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %18 = xor i32 %17, %9
   %19 = add nuw nsw i64 %.0.i219, 1
@@ -1665,30 +1659,30 @@ define internal i32 @crc32_x86_pclmulqdq_avx(i32 noundef %0, ptr noundef %1, i64
   %22 = xor <2 x i64> %21, %5
   %23 = icmp samesign ult i64 %2, 32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %23, label %213, label %25
+  br i1 %23, label %212, label %25
 
 25:                                               ; preds = %20
   %26 = load <2 x i64>, ptr %24, align 1, !tbaa !10
   %27 = icmp samesign ult i64 %2, 64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %27, label %200, label %29
+  br i1 %27, label %199, label %29
 
 29:                                               ; preds = %25
   %30 = load <2 x i64>, ptr %28, align 1, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load <2 x i64>, ptr %31, align 1, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  br label %177
+  br label %176
 
 34:                                               ; preds = %3
   %35 = icmp ugt i64 %2, 65536
-  br i1 %35, label %36, label %67
+  br i1 %35, label %36, label %66
 
 36:                                               ; preds = %34
   %37 = ptrtoint ptr %1 to i64
   %38 = and i64 %37, 15
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %67, label %39
+  br i1 %.not, label %66, label %39
 
 39:                                               ; preds = %36
   %40 = sub i64 0, %37
@@ -1698,284 +1692,282 @@ define internal i32 @crc32_x86_pclmulqdq_avx(i32 noundef %0, ptr noundef %1, i64
   %44 = xor <2 x i64> %43, %5
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not191 = icmp eq i64 %41, 0
-  br i1 %.not191, label %65, label %46
+  br i1 %.not191, label %64, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %41
+  %47 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %41
   %48 = load <16 x i8>, ptr %47, align 1, !tbaa !10
-  %49 = or disjoint i64 %41, 16
-  %50 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %49
-  %51 = load <16 x i8>, ptr %50, align 1, !tbaa !10
-  %52 = bitcast <2 x i64> %44 to <16 x i8>
-  %53 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %52, <16 x i8> %48)
-  %54 = bitcast <16 x i8> %53 to <2 x i64>
-  %55 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %52, <16 x i8> %51)
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 %41
-  %57 = getelementptr inbounds i8, ptr %56, i64 -16
-  %58 = load <16 x i8>, ptr %57, align 1, !tbaa !10
-  %59 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %55, <16 x i8> %58, <16 x i8> %51)
-  %60 = bitcast <16 x i8> %59 to <2 x i64>
-  %61 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %54, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %62 = xor <2 x i64> %61, %60
-  %63 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %54, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %64 = xor <2 x i64> %62, %63
-  br label %65
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load <16 x i8>, ptr %49, align 1, !tbaa !10
+  %51 = bitcast <2 x i64> %44 to <16 x i8>
+  %52 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %51, <16 x i8> %48)
+  %53 = bitcast <16 x i8> %52 to <2 x i64>
+  %54 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %51, <16 x i8> %50)
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 %41
+  %56 = getelementptr inbounds i8, ptr %55, i64 -16
+  %57 = load <16 x i8>, ptr %56, align 1, !tbaa !10
+  %58 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %54, <16 x i8> %57, <16 x i8> %50)
+  %59 = bitcast <16 x i8> %58 to <2 x i64>
+  %60 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %53, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %61 = xor <2 x i64> %60, %59
+  %62 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %53, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %63 = xor <2 x i64> %61, %62
+  br label %64
 
-65:                                               ; preds = %46, %39
-  %.4180 = phi ptr [ %56, %46 ], [ %45, %39 ]
-  %.2 = phi <2 x i64> [ %64, %46 ], [ %44, %39 ]
-  %66 = getelementptr inbounds i8, ptr %.4180, i64 -16
-  br label %70
+64:                                               ; preds = %46, %39
+  %.4180 = phi ptr [ %55, %46 ], [ %45, %39 ]
+  %.2 = phi <2 x i64> [ %63, %46 ], [ %44, %39 ]
+  %65 = getelementptr inbounds i8, ptr %.4180, i64 -16
+  br label %69
 
-67:                                               ; preds = %36, %34
-  %68 = load <2 x i64>, ptr %1, align 1, !tbaa !10
-  %69 = xor <2 x i64> %68, %5
-  br label %70
+66:                                               ; preds = %36, %34
+  %67 = load <2 x i64>, ptr %1, align 1, !tbaa !10
+  %68 = xor <2 x i64> %67, %5
+  br label %69
 
-70:                                               ; preds = %67, %65
-  %.4185 = phi i64 [ %42, %65 ], [ %2, %67 ]
-  %.6 = phi ptr [ %66, %65 ], [ %1, %67 ]
-  %.3174 = phi <2 x i64> [ %.2, %65 ], [ %69, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.6, i64 16
-  %72 = load <2 x i64>, ptr %71, align 1, !tbaa !10
-  %73 = getelementptr inbounds nuw i8, ptr %.6, i64 32
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !10
-  %75 = getelementptr inbounds nuw i8, ptr %.6, i64 48
-  %76 = load <2 x i64>, ptr %75, align 1, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %78 = load <2 x i64>, ptr %77, align 1, !tbaa !10
-  %79 = getelementptr inbounds nuw i8, ptr %.6, i64 80
-  %80 = load <2 x i64>, ptr %79, align 1, !tbaa !10
-  %81 = getelementptr inbounds nuw i8, ptr %.6, i64 96
-  %82 = load <2 x i64>, ptr %81, align 1, !tbaa !10
-  %83 = getelementptr inbounds nuw i8, ptr %.6, i64 112
-  %84 = load <2 x i64>, ptr %83, align 1, !tbaa !10
+69:                                               ; preds = %66, %64
+  %.4185 = phi i64 [ %42, %64 ], [ %2, %66 ]
+  %.6 = phi ptr [ %65, %64 ], [ %1, %66 ]
+  %.3174 = phi <2 x i64> [ %.2, %64 ], [ %68, %66 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.6, i64 16
+  %71 = load <2 x i64>, ptr %70, align 1, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %.6, i64 32
+  %73 = load <2 x i64>, ptr %72, align 1, !tbaa !10
+  %74 = getelementptr inbounds nuw i8, ptr %.6, i64 48
+  %75 = load <2 x i64>, ptr %74, align 1, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %77 = load <2 x i64>, ptr %76, align 1, !tbaa !10
+  %78 = getelementptr inbounds nuw i8, ptr %.6, i64 80
+  %79 = load <2 x i64>, ptr %78, align 1, !tbaa !10
+  %80 = getelementptr inbounds nuw i8, ptr %.6, i64 96
+  %81 = load <2 x i64>, ptr %80, align 1, !tbaa !10
+  %82 = getelementptr inbounds nuw i8, ptr %.6, i64 112
+  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !10
   %.7196 = getelementptr inbounds nuw i8, ptr %.6, i64 128
-  %85 = icmp ugt i64 %.4185, 255
-  br i1 %85, label %.lr.ph, label %._crit_edge
+  %84 = icmp ugt i64 %.4185, 255
+  br i1 %84, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %70, %.lr.ph
-  %.7207 = phi ptr [ %.7, %.lr.ph ], [ %.7196, %70 ]
-  %.0160206 = phi <2 x i64> [ %132, %.lr.ph ], [ %84, %70 ]
-  %.0161205 = phi <2 x i64> [ %126, %.lr.ph ], [ %82, %70 ]
-  %.0162204 = phi <2 x i64> [ %120, %.lr.ph ], [ %80, %70 ]
-  %.0163203 = phi <2 x i64> [ %114, %.lr.ph ], [ %78, %70 ]
-  %.1165202 = phi <2 x i64> [ %108, %.lr.ph ], [ %76, %70 ]
-  %.1167201 = phi <2 x i64> [ %102, %.lr.ph ], [ %74, %70 ]
-  %.2170200 = phi <2 x i64> [ %96, %.lr.ph ], [ %72, %70 ]
-  %.4175199 = phi <2 x i64> [ %90, %.lr.ph ], [ %.3174, %70 ]
-  %.6.pn198 = phi ptr [ %.7207, %.lr.ph ], [ %.6, %70 ]
-  %.5186197 = phi i64 [ %133, %.lr.ph ], [ %.4185, %70 ]
-  %86 = load <2 x i64>, ptr %.7207, align 1, !tbaa !10
-  %87 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %88 = xor <2 x i64> %87, %86
-  %89 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %90 = xor <2 x i64> %88, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 144
-  %92 = load <2 x i64>, ptr %91, align 1, !tbaa !10
-  %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %94 = xor <2 x i64> %93, %92
-  %95 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %96 = xor <2 x i64> %94, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 160
-  %98 = load <2 x i64>, ptr %97, align 1, !tbaa !10
-  %99 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %100 = xor <2 x i64> %99, %98
-  %101 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %102 = xor <2 x i64> %100, %101
-  %103 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 176
-  %104 = load <2 x i64>, ptr %103, align 1, !tbaa !10
-  %105 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %106 = xor <2 x i64> %105, %104
-  %107 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %108 = xor <2 x i64> %106, %107
-  %109 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 192
-  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !10
-  %111 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %112 = xor <2 x i64> %111, %110
-  %113 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %114 = xor <2 x i64> %112, %113
-  %115 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 208
-  %116 = load <2 x i64>, ptr %115, align 1, !tbaa !10
-  %117 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %118 = xor <2 x i64> %117, %116
-  %119 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %120 = xor <2 x i64> %118, %119
-  %121 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 224
-  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !10
-  %123 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %124 = xor <2 x i64> %123, %122
-  %125 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %126 = xor <2 x i64> %124, %125
-  %127 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 240
-  %128 = load <2 x i64>, ptr %127, align 1, !tbaa !10
-  %129 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %130 = xor <2 x i64> %129, %128
-  %131 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %132 = xor <2 x i64> %130, %131
-  %133 = add i64 %.5186197, -128
+.lr.ph:                                           ; preds = %69, %.lr.ph
+  %.7207 = phi ptr [ %.7, %.lr.ph ], [ %.7196, %69 ]
+  %.0160206 = phi <2 x i64> [ %131, %.lr.ph ], [ %83, %69 ]
+  %.0161205 = phi <2 x i64> [ %125, %.lr.ph ], [ %81, %69 ]
+  %.0162204 = phi <2 x i64> [ %119, %.lr.ph ], [ %79, %69 ]
+  %.0163203 = phi <2 x i64> [ %113, %.lr.ph ], [ %77, %69 ]
+  %.1165202 = phi <2 x i64> [ %107, %.lr.ph ], [ %75, %69 ]
+  %.1167201 = phi <2 x i64> [ %101, %.lr.ph ], [ %73, %69 ]
+  %.2170200 = phi <2 x i64> [ %95, %.lr.ph ], [ %71, %69 ]
+  %.4175199 = phi <2 x i64> [ %89, %.lr.ph ], [ %.3174, %69 ]
+  %.6.pn198 = phi ptr [ %.7207, %.lr.ph ], [ %.6, %69 ]
+  %.5186197 = phi i64 [ %132, %.lr.ph ], [ %.4185, %69 ]
+  %85 = load <2 x i64>, ptr %.7207, align 1, !tbaa !10
+  %86 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %87 = xor <2 x i64> %86, %85
+  %88 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %89 = xor <2 x i64> %87, %88
+  %90 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 144
+  %91 = load <2 x i64>, ptr %90, align 1, !tbaa !10
+  %92 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %93 = xor <2 x i64> %92, %91
+  %94 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %95 = xor <2 x i64> %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 160
+  %97 = load <2 x i64>, ptr %96, align 1, !tbaa !10
+  %98 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %99 = xor <2 x i64> %98, %97
+  %100 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %101 = xor <2 x i64> %99, %100
+  %102 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 176
+  %103 = load <2 x i64>, ptr %102, align 1, !tbaa !10
+  %104 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %105 = xor <2 x i64> %104, %103
+  %106 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %107 = xor <2 x i64> %105, %106
+  %108 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 192
+  %109 = load <2 x i64>, ptr %108, align 1, !tbaa !10
+  %110 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %111 = xor <2 x i64> %110, %109
+  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %113 = xor <2 x i64> %111, %112
+  %114 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 208
+  %115 = load <2 x i64>, ptr %114, align 1, !tbaa !10
+  %116 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %117 = xor <2 x i64> %116, %115
+  %118 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %119 = xor <2 x i64> %117, %118
+  %120 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 224
+  %121 = load <2 x i64>, ptr %120, align 1, !tbaa !10
+  %122 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %123 = xor <2 x i64> %122, %121
+  %124 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %125 = xor <2 x i64> %123, %124
+  %126 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 240
+  %127 = load <2 x i64>, ptr %126, align 1, !tbaa !10
+  %128 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %129 = xor <2 x i64> %128, %127
+  %130 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %131 = xor <2 x i64> %129, %130
+  %132 = add i64 %.5186197, -128
   %.7 = getelementptr inbounds nuw i8, ptr %.7207, i64 128
-  %134 = icmp ugt i64 %133, 255
-  br i1 %134, label %.lr.ph, label %._crit_edge
+  %133 = icmp ugt i64 %132, 255
+  br i1 %133, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %70
-  %.5186.lcssa = phi i64 [ %.4185, %70 ], [ %133, %.lr.ph ]
-  %.6.pn.lcssa = phi ptr [ %.6, %70 ], [ %.7207, %.lr.ph ]
-  %.4175.lcssa = phi <2 x i64> [ %.3174, %70 ], [ %90, %.lr.ph ]
-  %.2170.lcssa = phi <2 x i64> [ %72, %70 ], [ %96, %.lr.ph ]
-  %.1167.lcssa = phi <2 x i64> [ %74, %70 ], [ %102, %.lr.ph ]
-  %.1165.lcssa = phi <2 x i64> [ %76, %70 ], [ %108, %.lr.ph ]
-  %.0163.lcssa = phi <2 x i64> [ %78, %70 ], [ %114, %.lr.ph ]
-  %.0162.lcssa = phi <2 x i64> [ %80, %70 ], [ %120, %.lr.ph ]
-  %.0161.lcssa = phi <2 x i64> [ %82, %70 ], [ %126, %.lr.ph ]
-  %.0160.lcssa = phi <2 x i64> [ %84, %70 ], [ %132, %.lr.ph ]
-  %.7.lcssa = phi ptr [ %.7196, %70 ], [ %.7, %.lr.ph ]
-  %135 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %136 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %137 = xor <2 x i64> %135, %.0163.lcssa
-  %138 = xor <2 x i64> %137, %136
-  %139 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %140 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %141 = xor <2 x i64> %139, %.0162.lcssa
-  %142 = xor <2 x i64> %141, %140
-  %143 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %144 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %145 = xor <2 x i64> %143, %.0161.lcssa
-  %146 = xor <2 x i64> %145, %144
-  %147 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %148 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %149 = xor <2 x i64> %147, %.0160.lcssa
-  %150 = xor <2 x i64> %149, %148
-  %151 = and i64 %.5186.lcssa, 64
-  %.not192 = icmp eq i64 %151, 0
-  br i1 %.not192, label %177, label %152
+._crit_edge:                                      ; preds = %.lr.ph, %69
+  %.5186.lcssa = phi i64 [ %.4185, %69 ], [ %132, %.lr.ph ]
+  %.6.pn.lcssa = phi ptr [ %.6, %69 ], [ %.7207, %.lr.ph ]
+  %.4175.lcssa = phi <2 x i64> [ %.3174, %69 ], [ %89, %.lr.ph ]
+  %.2170.lcssa = phi <2 x i64> [ %71, %69 ], [ %95, %.lr.ph ]
+  %.1167.lcssa = phi <2 x i64> [ %73, %69 ], [ %101, %.lr.ph ]
+  %.1165.lcssa = phi <2 x i64> [ %75, %69 ], [ %107, %.lr.ph ]
+  %.0163.lcssa = phi <2 x i64> [ %77, %69 ], [ %113, %.lr.ph ]
+  %.0162.lcssa = phi <2 x i64> [ %79, %69 ], [ %119, %.lr.ph ]
+  %.0161.lcssa = phi <2 x i64> [ %81, %69 ], [ %125, %.lr.ph ]
+  %.0160.lcssa = phi <2 x i64> [ %83, %69 ], [ %131, %.lr.ph ]
+  %.7.lcssa = phi ptr [ %.7196, %69 ], [ %.7, %.lr.ph ]
+  %134 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %135 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %136 = xor <2 x i64> %134, %.0163.lcssa
+  %137 = xor <2 x i64> %136, %135
+  %138 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %139 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %140 = xor <2 x i64> %138, %.0162.lcssa
+  %141 = xor <2 x i64> %140, %139
+  %142 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %143 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %144 = xor <2 x i64> %142, %.0161.lcssa
+  %145 = xor <2 x i64> %144, %143
+  %146 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %147 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %148 = xor <2 x i64> %146, %.0160.lcssa
+  %149 = xor <2 x i64> %148, %147
+  %150 = and i64 %.5186.lcssa, 64
+  %.not192 = icmp eq i64 %150, 0
+  br i1 %.not192, label %176, label %151
 
-152:                                              ; preds = %._crit_edge
-  %153 = load <2 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
-  %154 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %138, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %155 = xor <2 x i64> %154, %153
-  %156 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %138, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %157 = xor <2 x i64> %155, %156
-  %158 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 144
-  %159 = load <2 x i64>, ptr %158, align 1, !tbaa !10
-  %160 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %142, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %161 = xor <2 x i64> %160, %159
-  %162 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %142, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %163 = xor <2 x i64> %161, %162
-  %164 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 160
-  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !10
-  %166 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %146, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %167 = xor <2 x i64> %166, %165
-  %168 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %146, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %169 = xor <2 x i64> %167, %168
-  %170 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 176
-  %171 = load <2 x i64>, ptr %170, align 1, !tbaa !10
-  %172 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %150, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %173 = xor <2 x i64> %172, %171
-  %174 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %150, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %175 = xor <2 x i64> %173, %174
-  %176 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 192
-  br label %177
+151:                                              ; preds = %._crit_edge
+  %152 = load <2 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
+  %153 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %137, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %154 = xor <2 x i64> %153, %152
+  %155 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %137, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %156 = xor <2 x i64> %154, %155
+  %157 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 144
+  %158 = load <2 x i64>, ptr %157, align 1, !tbaa !10
+  %159 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %141, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %160 = xor <2 x i64> %159, %158
+  %161 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %141, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %162 = xor <2 x i64> %160, %161
+  %163 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 160
+  %164 = load <2 x i64>, ptr %163, align 1, !tbaa !10
+  %165 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %145, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %166 = xor <2 x i64> %165, %164
+  %167 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %145, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %168 = xor <2 x i64> %166, %167
+  %169 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 176
+  %170 = load <2 x i64>, ptr %169, align 1, !tbaa !10
+  %171 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %149, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %172 = xor <2 x i64> %171, %170
+  %173 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %149, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %174 = xor <2 x i64> %172, %173
+  %175 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 192
+  br label %176
 
-177:                                              ; preds = %._crit_edge, %152, %29
-  %.3184 = phi i64 [ %2, %29 ], [ %.5186.lcssa, %152 ], [ %.5186.lcssa, %._crit_edge ]
-  %.3179 = phi ptr [ %33, %29 ], [ %176, %152 ], [ %.7.lcssa, %._crit_edge ]
-  %.2173 = phi <2 x i64> [ %22, %29 ], [ %157, %152 ], [ %138, %._crit_edge ]
-  %.1169 = phi <2 x i64> [ %26, %29 ], [ %163, %152 ], [ %142, %._crit_edge ]
-  %.0166 = phi <2 x i64> [ %30, %29 ], [ %169, %152 ], [ %146, %._crit_edge ]
-  %.0164 = phi <2 x i64> [ %32, %29 ], [ %175, %152 ], [ %150, %._crit_edge ]
-  %178 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %179 = xor <2 x i64> %178, %.0166
-  %180 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %181 = xor <2 x i64> %179, %180
-  %182 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %183 = xor <2 x i64> %182, %.0164
-  %184 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %185 = xor <2 x i64> %183, %184
-  %186 = and i64 %.3184, 32
-  %.not193 = icmp eq i64 %186, 0
-  br i1 %.not193, label %200, label %187
+176:                                              ; preds = %._crit_edge, %151, %29
+  %.3184 = phi i64 [ %2, %29 ], [ %.5186.lcssa, %151 ], [ %.5186.lcssa, %._crit_edge ]
+  %.3179 = phi ptr [ %33, %29 ], [ %175, %151 ], [ %.7.lcssa, %._crit_edge ]
+  %.2173 = phi <2 x i64> [ %22, %29 ], [ %156, %151 ], [ %137, %._crit_edge ]
+  %.1169 = phi <2 x i64> [ %26, %29 ], [ %162, %151 ], [ %141, %._crit_edge ]
+  %.0166 = phi <2 x i64> [ %30, %29 ], [ %168, %151 ], [ %145, %._crit_edge ]
+  %.0164 = phi <2 x i64> [ %32, %29 ], [ %174, %151 ], [ %149, %._crit_edge ]
+  %177 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %178 = xor <2 x i64> %177, %.0166
+  %179 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %180 = xor <2 x i64> %178, %179
+  %181 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %182 = xor <2 x i64> %181, %.0164
+  %183 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %184 = xor <2 x i64> %182, %183
+  %185 = and i64 %.3184, 32
+  %.not193 = icmp eq i64 %185, 0
+  br i1 %.not193, label %199, label %186
 
-187:                                              ; preds = %177
-  %188 = load <2 x i64>, ptr %.3179, align 1, !tbaa !10
-  %189 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %190 = xor <2 x i64> %189, %188
-  %191 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %192 = xor <2 x i64> %190, %191
-  %193 = getelementptr inbounds nuw i8, ptr %.3179, i64 16
-  %194 = load <2 x i64>, ptr %193, align 1, !tbaa !10
-  %195 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %185, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %196 = xor <2 x i64> %195, %194
-  %197 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %185, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %198 = xor <2 x i64> %196, %197
-  %199 = getelementptr inbounds nuw i8, ptr %.3179, i64 32
-  br label %200
+186:                                              ; preds = %176
+  %187 = load <2 x i64>, ptr %.3179, align 1, !tbaa !10
+  %188 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %180, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %189 = xor <2 x i64> %188, %187
+  %190 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %180, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %191 = xor <2 x i64> %189, %190
+  %192 = getelementptr inbounds nuw i8, ptr %.3179, i64 16
+  %193 = load <2 x i64>, ptr %192, align 1, !tbaa !10
+  %194 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %184, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %195 = xor <2 x i64> %194, %193
+  %196 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %184, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %197 = xor <2 x i64> %195, %196
+  %198 = getelementptr inbounds nuw i8, ptr %.3179, i64 32
+  br label %199
 
-200:                                              ; preds = %25, %177, %187
-  %.2183 = phi i64 [ %.3184, %187 ], [ %.3184, %177 ], [ %2, %25 ]
-  %.2178 = phi ptr [ %199, %187 ], [ %.3179, %177 ], [ %28, %25 ]
-  %.1172 = phi <2 x i64> [ %192, %187 ], [ %181, %177 ], [ %22, %25 ]
-  %.0168 = phi <2 x i64> [ %198, %187 ], [ %185, %177 ], [ %26, %25 ]
-  %201 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %202 = xor <2 x i64> %201, %.0168
-  %203 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %204 = xor <2 x i64> %202, %203
-  %205 = and i64 %.2183, 16
-  %.not194 = icmp eq i64 %205, 0
-  br i1 %.not194, label %213, label %206
+199:                                              ; preds = %25, %176, %186
+  %.2183 = phi i64 [ %.3184, %186 ], [ %.3184, %176 ], [ %2, %25 ]
+  %.2178 = phi ptr [ %198, %186 ], [ %.3179, %176 ], [ %28, %25 ]
+  %.1172 = phi <2 x i64> [ %191, %186 ], [ %180, %176 ], [ %22, %25 ]
+  %.0168 = phi <2 x i64> [ %197, %186 ], [ %184, %176 ], [ %26, %25 ]
+  %200 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %201 = xor <2 x i64> %200, %.0168
+  %202 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %203 = xor <2 x i64> %201, %202
+  %204 = and i64 %.2183, 16
+  %.not194 = icmp eq i64 %204, 0
+  br i1 %.not194, label %212, label %205
 
-206:                                              ; preds = %200
-  %207 = load <2 x i64>, ptr %.2178, align 1, !tbaa !10
-  %208 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %204, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %209 = xor <2 x i64> %208, %207
-  %210 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %204, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %211 = xor <2 x i64> %209, %210
-  %212 = getelementptr inbounds nuw i8, ptr %.2178, i64 16
-  br label %213
+205:                                              ; preds = %199
+  %206 = load <2 x i64>, ptr %.2178, align 1, !tbaa !10
+  %207 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %203, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %208 = xor <2 x i64> %207, %206
+  %209 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %203, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %210 = xor <2 x i64> %208, %209
+  %211 = getelementptr inbounds nuw i8, ptr %.2178, i64 16
+  br label %212
 
-213:                                              ; preds = %20, %206, %200
-  %.1182 = phi i64 [ %.2183, %206 ], [ %.2183, %200 ], [ %2, %20 ]
-  %.1177 = phi ptr [ %212, %206 ], [ %.2178, %200 ], [ %24, %20 ]
-  %.0171 = phi <2 x i64> [ %211, %206 ], [ %204, %200 ], [ %22, %20 ]
-  %214 = and i64 %.1182, 15
-  %.not195 = icmp eq i64 %214, 0
-  br i1 %.not195, label %234, label %215
+212:                                              ; preds = %20, %205, %199
+  %.1182 = phi i64 [ %.2183, %205 ], [ %.2183, %199 ], [ %2, %20 ]
+  %.1177 = phi ptr [ %211, %205 ], [ %.2178, %199 ], [ %24, %20 ]
+  %.0171 = phi <2 x i64> [ %210, %205 ], [ %203, %199 ], [ %22, %20 ]
+  %213 = and i64 %.1182, 15
+  %.not195 = icmp eq i64 %213, 0
+  br i1 %.not195, label %232, label %214
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %214
-  %217 = load <16 x i8>, ptr %216, align 1, !tbaa !10
-  %218 = or disjoint i64 %214, 16
-  %219 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %218
-  %220 = load <16 x i8>, ptr %219, align 1, !tbaa !10
-  %221 = bitcast <2 x i64> %.0171 to <16 x i8>
-  %222 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %221, <16 x i8> %217)
-  %223 = bitcast <16 x i8> %222 to <2 x i64>
-  %224 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %221, <16 x i8> %220)
-  %225 = getelementptr inbounds nuw i8, ptr %.1177, i64 %214
-  %226 = getelementptr inbounds i8, ptr %225, i64 -16
-  %227 = load <16 x i8>, ptr %226, align 1, !tbaa !10
-  %228 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %224, <16 x i8> %227, <16 x i8> %220)
-  %229 = bitcast <16 x i8> %228 to <2 x i64>
-  %230 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %223, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %231 = xor <2 x i64> %230, %229
-  %232 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %223, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %233 = xor <2 x i64> %231, %232
-  br label %234
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %213
+  %216 = load <16 x i8>, ptr %215, align 1, !tbaa !10
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %218 = load <16 x i8>, ptr %217, align 1, !tbaa !10
+  %219 = bitcast <2 x i64> %.0171 to <16 x i8>
+  %220 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %216)
+  %221 = bitcast <16 x i8> %220 to <2 x i64>
+  %222 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %218)
+  %223 = getelementptr inbounds nuw i8, ptr %.1177, i64 %213
+  %224 = getelementptr inbounds i8, ptr %223, i64 -16
+  %225 = load <16 x i8>, ptr %224, align 1, !tbaa !10
+  %226 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %222, <16 x i8> %225, <16 x i8> %218)
+  %227 = bitcast <16 x i8> %226 to <2 x i64>
+  %228 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %221, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %229 = xor <2 x i64> %228, %227
+  %230 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %221, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %231 = xor <2 x i64> %229, %230
+  br label %232
 
-234:                                              ; preds = %215, %213
-  %.4 = phi <2 x i64> [ %233, %215 ], [ %.0171, %213 ]
-  %235 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
-  %236 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %235, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %237 = and <2 x i64> %236, <i64 poison, i64 4294967295>
-  %238 = xor <2 x i64> %237, %.4
-  %239 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %238, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
-  %240 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %239, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %241 = bitcast <2 x i64> %240 to <4 x i32>
-  %242 = extractelement <4 x i32> %241, i64 2
+232:                                              ; preds = %214, %212
+  %.4 = phi <2 x i64> [ %231, %214 ], [ %.0171, %212 ]
+  %233 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
+  %234 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %233, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %235 = and <2 x i64> %234, <i64 poison, i64 4294967295>
+  %236 = xor <2 x i64> %235, %.4
+  %237 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %236, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
+  %238 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %237, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %239 = bitcast <2 x i64> %238 to <4 x i32>
+  %240 = extractelement <4 x i32> %239, i64 2
   br label %crc32_slice1.exit
 
-crc32_slice1.exit:                                ; preds = %.lr.ph220, %.preheader, %234
-  %.0157 = phi i32 [ %242, %234 ], [ %0, %.preheader ], [ %18, %.lr.ph220 ]
+crc32_slice1.exit:                                ; preds = %.lr.ph220, %.preheader, %232
+  %.0157 = phi i32 [ %240, %232 ], [ %0, %.preheader ], [ %18, %.lr.ph220 ]
   ret i32 %.0157
 }
 
@@ -2004,7 +1996,7 @@ define internal i32 @crc32_x86_pclmulqdq(i32 noundef %0, ptr noundef %1, i64 nou
   %13 = zext i8 %12 to i32
   %14 = xor i32 %10, %13
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw [256 x i32], ptr @crc32_slice1_table, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr @crc32_slice1_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %18 = xor i32 %17, %9
   %19 = add nuw nsw i64 %.0.i219, 1
@@ -2016,30 +2008,30 @@ define internal i32 @crc32_x86_pclmulqdq(i32 noundef %0, ptr noundef %1, i64 nou
   %22 = xor <2 x i64> %21, %5
   %23 = icmp samesign ult i64 %2, 32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %23, label %213, label %25
+  br i1 %23, label %212, label %25
 
 25:                                               ; preds = %20
   %26 = load <2 x i64>, ptr %24, align 1, !tbaa !10
   %27 = icmp samesign ult i64 %2, 64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br i1 %27, label %200, label %29
+  br i1 %27, label %199, label %29
 
 29:                                               ; preds = %25
   %30 = load <2 x i64>, ptr %28, align 1, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load <2 x i64>, ptr %31, align 1, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  br label %177
+  br label %176
 
 34:                                               ; preds = %3
   %35 = icmp ugt i64 %2, 65536
-  br i1 %35, label %36, label %67
+  br i1 %35, label %36, label %66
 
 36:                                               ; preds = %34
   %37 = ptrtoint ptr %1 to i64
   %38 = and i64 %37, 15
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %67, label %39
+  br i1 %.not, label %66, label %39
 
 39:                                               ; preds = %36
   %40 = sub i64 0, %37
@@ -2049,284 +2041,282 @@ define internal i32 @crc32_x86_pclmulqdq(i32 noundef %0, ptr noundef %1, i64 nou
   %44 = xor <2 x i64> %43, %5
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not191 = icmp eq i64 %41, 0
-  br i1 %.not191, label %65, label %46
+  br i1 %.not191, label %64, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %41
+  %47 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %41
   %48 = load <16 x i8>, ptr %47, align 1, !tbaa !10
-  %49 = or disjoint i64 %41, 16
-  %50 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %49
-  %51 = load <16 x i8>, ptr %50, align 1, !tbaa !10
-  %52 = bitcast <2 x i64> %44 to <16 x i8>
-  %53 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %52, <16 x i8> %48)
-  %54 = bitcast <16 x i8> %53 to <2 x i64>
-  %55 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %52, <16 x i8> %51)
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 %41
-  %57 = getelementptr inbounds i8, ptr %56, i64 -16
-  %58 = load <16 x i8>, ptr %57, align 1, !tbaa !10
-  %59 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %55, <16 x i8> %58, <16 x i8> %51)
-  %60 = bitcast <16 x i8> %59 to <2 x i64>
-  %61 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %54, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %62 = xor <2 x i64> %61, %60
-  %63 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %54, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %64 = xor <2 x i64> %62, %63
-  br label %65
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load <16 x i8>, ptr %49, align 1, !tbaa !10
+  %51 = bitcast <2 x i64> %44 to <16 x i8>
+  %52 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %51, <16 x i8> %48)
+  %53 = bitcast <16 x i8> %52 to <2 x i64>
+  %54 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %51, <16 x i8> %50)
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 %41
+  %56 = getelementptr inbounds i8, ptr %55, i64 -16
+  %57 = load <16 x i8>, ptr %56, align 1, !tbaa !10
+  %58 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %54, <16 x i8> %57, <16 x i8> %50)
+  %59 = bitcast <16 x i8> %58 to <2 x i64>
+  %60 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %53, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %61 = xor <2 x i64> %60, %59
+  %62 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %53, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %63 = xor <2 x i64> %61, %62
+  br label %64
 
-65:                                               ; preds = %46, %39
-  %.4180 = phi ptr [ %56, %46 ], [ %45, %39 ]
-  %.2 = phi <2 x i64> [ %64, %46 ], [ %44, %39 ]
-  %66 = getelementptr inbounds i8, ptr %.4180, i64 -16
-  br label %70
+64:                                               ; preds = %46, %39
+  %.4180 = phi ptr [ %55, %46 ], [ %45, %39 ]
+  %.2 = phi <2 x i64> [ %63, %46 ], [ %44, %39 ]
+  %65 = getelementptr inbounds i8, ptr %.4180, i64 -16
+  br label %69
 
-67:                                               ; preds = %36, %34
-  %68 = load <2 x i64>, ptr %1, align 1, !tbaa !10
-  %69 = xor <2 x i64> %68, %5
-  br label %70
+66:                                               ; preds = %36, %34
+  %67 = load <2 x i64>, ptr %1, align 1, !tbaa !10
+  %68 = xor <2 x i64> %67, %5
+  br label %69
 
-70:                                               ; preds = %67, %65
-  %.4185 = phi i64 [ %42, %65 ], [ %2, %67 ]
-  %.6 = phi ptr [ %66, %65 ], [ %1, %67 ]
-  %.3174 = phi <2 x i64> [ %.2, %65 ], [ %69, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.6, i64 16
-  %72 = load <2 x i64>, ptr %71, align 1, !tbaa !10
-  %73 = getelementptr inbounds nuw i8, ptr %.6, i64 32
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !10
-  %75 = getelementptr inbounds nuw i8, ptr %.6, i64 48
-  %76 = load <2 x i64>, ptr %75, align 1, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %.6, i64 64
-  %78 = load <2 x i64>, ptr %77, align 1, !tbaa !10
-  %79 = getelementptr inbounds nuw i8, ptr %.6, i64 80
-  %80 = load <2 x i64>, ptr %79, align 1, !tbaa !10
-  %81 = getelementptr inbounds nuw i8, ptr %.6, i64 96
-  %82 = load <2 x i64>, ptr %81, align 1, !tbaa !10
-  %83 = getelementptr inbounds nuw i8, ptr %.6, i64 112
-  %84 = load <2 x i64>, ptr %83, align 1, !tbaa !10
+69:                                               ; preds = %66, %64
+  %.4185 = phi i64 [ %42, %64 ], [ %2, %66 ]
+  %.6 = phi ptr [ %65, %64 ], [ %1, %66 ]
+  %.3174 = phi <2 x i64> [ %.2, %64 ], [ %68, %66 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.6, i64 16
+  %71 = load <2 x i64>, ptr %70, align 1, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %.6, i64 32
+  %73 = load <2 x i64>, ptr %72, align 1, !tbaa !10
+  %74 = getelementptr inbounds nuw i8, ptr %.6, i64 48
+  %75 = load <2 x i64>, ptr %74, align 1, !tbaa !10
+  %76 = getelementptr inbounds nuw i8, ptr %.6, i64 64
+  %77 = load <2 x i64>, ptr %76, align 1, !tbaa !10
+  %78 = getelementptr inbounds nuw i8, ptr %.6, i64 80
+  %79 = load <2 x i64>, ptr %78, align 1, !tbaa !10
+  %80 = getelementptr inbounds nuw i8, ptr %.6, i64 96
+  %81 = load <2 x i64>, ptr %80, align 1, !tbaa !10
+  %82 = getelementptr inbounds nuw i8, ptr %.6, i64 112
+  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !10
   %.7196 = getelementptr inbounds nuw i8, ptr %.6, i64 128
-  %85 = icmp ugt i64 %.4185, 255
-  br i1 %85, label %.lr.ph, label %._crit_edge
+  %84 = icmp ugt i64 %.4185, 255
+  br i1 %84, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %70, %.lr.ph
-  %.7207 = phi ptr [ %.7, %.lr.ph ], [ %.7196, %70 ]
-  %.0160206 = phi <2 x i64> [ %132, %.lr.ph ], [ %84, %70 ]
-  %.0161205 = phi <2 x i64> [ %126, %.lr.ph ], [ %82, %70 ]
-  %.0162204 = phi <2 x i64> [ %120, %.lr.ph ], [ %80, %70 ]
-  %.0163203 = phi <2 x i64> [ %114, %.lr.ph ], [ %78, %70 ]
-  %.1165202 = phi <2 x i64> [ %108, %.lr.ph ], [ %76, %70 ]
-  %.1167201 = phi <2 x i64> [ %102, %.lr.ph ], [ %74, %70 ]
-  %.2170200 = phi <2 x i64> [ %96, %.lr.ph ], [ %72, %70 ]
-  %.4175199 = phi <2 x i64> [ %90, %.lr.ph ], [ %.3174, %70 ]
-  %.6.pn198 = phi ptr [ %.7207, %.lr.ph ], [ %.6, %70 ]
-  %.5186197 = phi i64 [ %133, %.lr.ph ], [ %.4185, %70 ]
-  %86 = load <2 x i64>, ptr %.7207, align 1, !tbaa !10
-  %87 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %88 = xor <2 x i64> %87, %86
-  %89 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %90 = xor <2 x i64> %88, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 144
-  %92 = load <2 x i64>, ptr %91, align 1, !tbaa !10
-  %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %94 = xor <2 x i64> %93, %92
-  %95 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %96 = xor <2 x i64> %94, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 160
-  %98 = load <2 x i64>, ptr %97, align 1, !tbaa !10
-  %99 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %100 = xor <2 x i64> %99, %98
-  %101 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %102 = xor <2 x i64> %100, %101
-  %103 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 176
-  %104 = load <2 x i64>, ptr %103, align 1, !tbaa !10
-  %105 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %106 = xor <2 x i64> %105, %104
-  %107 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %108 = xor <2 x i64> %106, %107
-  %109 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 192
-  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !10
-  %111 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %112 = xor <2 x i64> %111, %110
-  %113 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %114 = xor <2 x i64> %112, %113
-  %115 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 208
-  %116 = load <2 x i64>, ptr %115, align 1, !tbaa !10
-  %117 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %118 = xor <2 x i64> %117, %116
-  %119 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %120 = xor <2 x i64> %118, %119
-  %121 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 224
-  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !10
-  %123 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %124 = xor <2 x i64> %123, %122
-  %125 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %126 = xor <2 x i64> %124, %125
-  %127 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 240
-  %128 = load <2 x i64>, ptr %127, align 1, !tbaa !10
-  %129 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 872412467, i64 poison>, i8 0)
-  %130 = xor <2 x i64> %129, %128
-  %131 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
-  %132 = xor <2 x i64> %130, %131
-  %133 = add i64 %.5186197, -128
+.lr.ph:                                           ; preds = %69, %.lr.ph
+  %.7207 = phi ptr [ %.7, %.lr.ph ], [ %.7196, %69 ]
+  %.0160206 = phi <2 x i64> [ %131, %.lr.ph ], [ %83, %69 ]
+  %.0161205 = phi <2 x i64> [ %125, %.lr.ph ], [ %81, %69 ]
+  %.0162204 = phi <2 x i64> [ %119, %.lr.ph ], [ %79, %69 ]
+  %.0163203 = phi <2 x i64> [ %113, %.lr.ph ], [ %77, %69 ]
+  %.1165202 = phi <2 x i64> [ %107, %.lr.ph ], [ %75, %69 ]
+  %.1167201 = phi <2 x i64> [ %101, %.lr.ph ], [ %73, %69 ]
+  %.2170200 = phi <2 x i64> [ %95, %.lr.ph ], [ %71, %69 ]
+  %.4175199 = phi <2 x i64> [ %89, %.lr.ph ], [ %.3174, %69 ]
+  %.6.pn198 = phi ptr [ %.7207, %.lr.ph ], [ %.6, %69 ]
+  %.5186197 = phi i64 [ %132, %.lr.ph ], [ %.4185, %69 ]
+  %85 = load <2 x i64>, ptr %.7207, align 1, !tbaa !10
+  %86 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %87 = xor <2 x i64> %86, %85
+  %88 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175199, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %89 = xor <2 x i64> %87, %88
+  %90 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 144
+  %91 = load <2 x i64>, ptr %90, align 1, !tbaa !10
+  %92 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %93 = xor <2 x i64> %92, %91
+  %94 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170200, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %95 = xor <2 x i64> %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 160
+  %97 = load <2 x i64>, ptr %96, align 1, !tbaa !10
+  %98 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %99 = xor <2 x i64> %98, %97
+  %100 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167201, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %101 = xor <2 x i64> %99, %100
+  %102 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 176
+  %103 = load <2 x i64>, ptr %102, align 1, !tbaa !10
+  %104 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %105 = xor <2 x i64> %104, %103
+  %106 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165202, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %107 = xor <2 x i64> %105, %106
+  %108 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 192
+  %109 = load <2 x i64>, ptr %108, align 1, !tbaa !10
+  %110 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %111 = xor <2 x i64> %110, %109
+  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0163203, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %113 = xor <2 x i64> %111, %112
+  %114 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 208
+  %115 = load <2 x i64>, ptr %114, align 1, !tbaa !10
+  %116 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %117 = xor <2 x i64> %116, %115
+  %118 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0162204, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %119 = xor <2 x i64> %117, %118
+  %120 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 224
+  %121 = load <2 x i64>, ptr %120, align 1, !tbaa !10
+  %122 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %123 = xor <2 x i64> %122, %121
+  %124 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0161205, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %125 = xor <2 x i64> %123, %124
+  %126 = getelementptr inbounds nuw i8, ptr %.6.pn198, i64 240
+  %127 = load <2 x i64>, ptr %126, align 1, !tbaa !10
+  %128 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %129 = xor <2 x i64> %128, %127
+  %130 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0160206, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %131 = xor <2 x i64> %129, %130
+  %132 = add i64 %.5186197, -128
   %.7 = getelementptr inbounds nuw i8, ptr %.7207, i64 128
-  %134 = icmp ugt i64 %133, 255
-  br i1 %134, label %.lr.ph, label %._crit_edge
+  %133 = icmp ugt i64 %132, 255
+  br i1 %133, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %70
-  %.5186.lcssa = phi i64 [ %.4185, %70 ], [ %133, %.lr.ph ]
-  %.6.pn.lcssa = phi ptr [ %.6, %70 ], [ %.7207, %.lr.ph ]
-  %.4175.lcssa = phi <2 x i64> [ %.3174, %70 ], [ %90, %.lr.ph ]
-  %.2170.lcssa = phi <2 x i64> [ %72, %70 ], [ %96, %.lr.ph ]
-  %.1167.lcssa = phi <2 x i64> [ %74, %70 ], [ %102, %.lr.ph ]
-  %.1165.lcssa = phi <2 x i64> [ %76, %70 ], [ %108, %.lr.ph ]
-  %.0163.lcssa = phi <2 x i64> [ %78, %70 ], [ %114, %.lr.ph ]
-  %.0162.lcssa = phi <2 x i64> [ %80, %70 ], [ %120, %.lr.ph ]
-  %.0161.lcssa = phi <2 x i64> [ %82, %70 ], [ %126, %.lr.ph ]
-  %.0160.lcssa = phi <2 x i64> [ %84, %70 ], [ %132, %.lr.ph ]
-  %.7.lcssa = phi ptr [ %.7196, %70 ], [ %.7, %.lr.ph ]
-  %135 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %136 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %137 = xor <2 x i64> %135, %.0163.lcssa
-  %138 = xor <2 x i64> %137, %136
-  %139 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %140 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %141 = xor <2 x i64> %139, %.0162.lcssa
-  %142 = xor <2 x i64> %141, %140
-  %143 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %144 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %145 = xor <2 x i64> %143, %.0161.lcssa
-  %146 = xor <2 x i64> %145, %144
-  %147 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %148 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %149 = xor <2 x i64> %147, %.0160.lcssa
-  %150 = xor <2 x i64> %149, %148
-  %151 = and i64 %.5186.lcssa, 64
-  %.not192 = icmp eq i64 %151, 0
-  br i1 %.not192, label %177, label %152
+._crit_edge:                                      ; preds = %.lr.ph, %69
+  %.5186.lcssa = phi i64 [ %.4185, %69 ], [ %132, %.lr.ph ]
+  %.6.pn.lcssa = phi ptr [ %.6, %69 ], [ %.7207, %.lr.ph ]
+  %.4175.lcssa = phi <2 x i64> [ %.3174, %69 ], [ %89, %.lr.ph ]
+  %.2170.lcssa = phi <2 x i64> [ %71, %69 ], [ %95, %.lr.ph ]
+  %.1167.lcssa = phi <2 x i64> [ %73, %69 ], [ %101, %.lr.ph ]
+  %.1165.lcssa = phi <2 x i64> [ %75, %69 ], [ %107, %.lr.ph ]
+  %.0163.lcssa = phi <2 x i64> [ %77, %69 ], [ %113, %.lr.ph ]
+  %.0162.lcssa = phi <2 x i64> [ %79, %69 ], [ %119, %.lr.ph ]
+  %.0161.lcssa = phi <2 x i64> [ %81, %69 ], [ %125, %.lr.ph ]
+  %.0160.lcssa = phi <2 x i64> [ %83, %69 ], [ %131, %.lr.ph ]
+  %.7.lcssa = phi ptr [ %.7196, %69 ], [ %.7, %.lr.ph ]
+  %134 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %135 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4175.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %136 = xor <2 x i64> %134, %.0163.lcssa
+  %137 = xor <2 x i64> %136, %135
+  %138 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %139 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2170.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %140 = xor <2 x i64> %138, %.0162.lcssa
+  %141 = xor <2 x i64> %140, %139
+  %142 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %143 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1167.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %144 = xor <2 x i64> %142, %.0161.lcssa
+  %145 = xor <2 x i64> %144, %143
+  %146 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %147 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1165.lcssa, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %148 = xor <2 x i64> %146, %.0160.lcssa
+  %149 = xor <2 x i64> %148, %147
+  %150 = and i64 %.5186.lcssa, 64
+  %.not192 = icmp eq i64 %150, 0
+  br i1 %.not192, label %176, label %151
 
-152:                                              ; preds = %._crit_edge
-  %153 = load <2 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
-  %154 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %138, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %155 = xor <2 x i64> %154, %153
-  %156 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %138, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %157 = xor <2 x i64> %155, %156
-  %158 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 144
-  %159 = load <2 x i64>, ptr %158, align 1, !tbaa !10
-  %160 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %142, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %161 = xor <2 x i64> %160, %159
-  %162 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %142, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %163 = xor <2 x i64> %161, %162
-  %164 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 160
-  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !10
-  %166 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %146, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %167 = xor <2 x i64> %166, %165
-  %168 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %146, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %169 = xor <2 x i64> %167, %168
-  %170 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 176
-  %171 = load <2 x i64>, ptr %170, align 1, !tbaa !10
-  %172 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %150, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
-  %173 = xor <2 x i64> %172, %171
-  %174 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %150, <2 x i64> <i64 poison, i64 496309207>, i8 17)
-  %175 = xor <2 x i64> %173, %174
-  %176 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 192
-  br label %177
+151:                                              ; preds = %._crit_edge
+  %152 = load <2 x i64>, ptr %.7.lcssa, align 1, !tbaa !10
+  %153 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %137, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %154 = xor <2 x i64> %153, %152
+  %155 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %137, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %156 = xor <2 x i64> %154, %155
+  %157 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 144
+  %158 = load <2 x i64>, ptr %157, align 1, !tbaa !10
+  %159 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %141, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %160 = xor <2 x i64> %159, %158
+  %161 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %141, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %162 = xor <2 x i64> %160, %161
+  %163 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 160
+  %164 = load <2 x i64>, ptr %163, align 1, !tbaa !10
+  %165 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %145, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %166 = xor <2 x i64> %165, %164
+  %167 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %145, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %168 = xor <2 x i64> %166, %167
+  %169 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 176
+  %170 = load <2 x i64>, ptr %169, align 1, !tbaa !10
+  %171 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %149, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
+  %172 = xor <2 x i64> %171, %170
+  %173 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %149, <2 x i64> <i64 poison, i64 496309207>, i8 17)
+  %174 = xor <2 x i64> %172, %173
+  %175 = getelementptr inbounds nuw i8, ptr %.6.pn.lcssa, i64 192
+  br label %176
 
-177:                                              ; preds = %._crit_edge, %152, %29
-  %.3184 = phi i64 [ %2, %29 ], [ %.5186.lcssa, %152 ], [ %.5186.lcssa, %._crit_edge ]
-  %.3179 = phi ptr [ %33, %29 ], [ %176, %152 ], [ %.7.lcssa, %._crit_edge ]
-  %.2173 = phi <2 x i64> [ %22, %29 ], [ %157, %152 ], [ %138, %._crit_edge ]
-  %.1169 = phi <2 x i64> [ %26, %29 ], [ %163, %152 ], [ %142, %._crit_edge ]
-  %.0166 = phi <2 x i64> [ %30, %29 ], [ %169, %152 ], [ %146, %._crit_edge ]
-  %.0164 = phi <2 x i64> [ %32, %29 ], [ %175, %152 ], [ %150, %._crit_edge ]
-  %178 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %179 = xor <2 x i64> %178, %.0166
-  %180 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %181 = xor <2 x i64> %179, %180
-  %182 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %183 = xor <2 x i64> %182, %.0164
-  %184 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %185 = xor <2 x i64> %183, %184
-  %186 = and i64 %.3184, 32
-  %.not193 = icmp eq i64 %186, 0
-  br i1 %.not193, label %200, label %187
+176:                                              ; preds = %._crit_edge, %151, %29
+  %.3184 = phi i64 [ %2, %29 ], [ %.5186.lcssa, %151 ], [ %.5186.lcssa, %._crit_edge ]
+  %.3179 = phi ptr [ %33, %29 ], [ %175, %151 ], [ %.7.lcssa, %._crit_edge ]
+  %.2173 = phi <2 x i64> [ %22, %29 ], [ %156, %151 ], [ %137, %._crit_edge ]
+  %.1169 = phi <2 x i64> [ %26, %29 ], [ %162, %151 ], [ %141, %._crit_edge ]
+  %.0166 = phi <2 x i64> [ %30, %29 ], [ %168, %151 ], [ %145, %._crit_edge ]
+  %.0164 = phi <2 x i64> [ %32, %29 ], [ %174, %151 ], [ %149, %._crit_edge ]
+  %177 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %178 = xor <2 x i64> %177, %.0166
+  %179 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2173, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %180 = xor <2 x i64> %178, %179
+  %181 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %182 = xor <2 x i64> %181, %.0164
+  %183 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1169, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %184 = xor <2 x i64> %182, %183
+  %185 = and i64 %.3184, 32
+  %.not193 = icmp eq i64 %185, 0
+  br i1 %.not193, label %199, label %186
 
-187:                                              ; preds = %177
-  %188 = load <2 x i64>, ptr %.3179, align 1, !tbaa !10
-  %189 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %190 = xor <2 x i64> %189, %188
-  %191 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %192 = xor <2 x i64> %190, %191
-  %193 = getelementptr inbounds nuw i8, ptr %.3179, i64 16
-  %194 = load <2 x i64>, ptr %193, align 1, !tbaa !10
-  %195 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %185, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
-  %196 = xor <2 x i64> %195, %194
-  %197 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %185, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
-  %198 = xor <2 x i64> %196, %197
-  %199 = getelementptr inbounds nuw i8, ptr %.3179, i64 32
-  br label %200
+186:                                              ; preds = %176
+  %187 = load <2 x i64>, ptr %.3179, align 1, !tbaa !10
+  %188 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %180, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %189 = xor <2 x i64> %188, %187
+  %190 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %180, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %191 = xor <2 x i64> %189, %190
+  %192 = getelementptr inbounds nuw i8, ptr %.3179, i64 16
+  %193 = load <2 x i64>, ptr %192, align 1, !tbaa !10
+  %194 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %184, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %195 = xor <2 x i64> %194, %193
+  %196 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %184, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %197 = xor <2 x i64> %195, %196
+  %198 = getelementptr inbounds nuw i8, ptr %.3179, i64 32
+  br label %199
 
-200:                                              ; preds = %25, %177, %187
-  %.2183 = phi i64 [ %.3184, %187 ], [ %.3184, %177 ], [ %2, %25 ]
-  %.2178 = phi ptr [ %199, %187 ], [ %.3179, %177 ], [ %28, %25 ]
-  %.1172 = phi <2 x i64> [ %192, %187 ], [ %181, %177 ], [ %22, %25 ]
-  %.0168 = phi <2 x i64> [ %198, %187 ], [ %185, %177 ], [ %26, %25 ]
-  %201 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %202 = xor <2 x i64> %201, %.0168
-  %203 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %204 = xor <2 x i64> %202, %203
-  %205 = and i64 %.2183, 16
-  %.not194 = icmp eq i64 %205, 0
-  br i1 %.not194, label %213, label %206
+199:                                              ; preds = %25, %176, %186
+  %.2183 = phi i64 [ %.3184, %186 ], [ %.3184, %176 ], [ %2, %25 ]
+  %.2178 = phi ptr [ %198, %186 ], [ %.3179, %176 ], [ %28, %25 ]
+  %.1172 = phi <2 x i64> [ %191, %186 ], [ %180, %176 ], [ %22, %25 ]
+  %.0168 = phi <2 x i64> [ %197, %186 ], [ %184, %176 ], [ %26, %25 ]
+  %200 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %201 = xor <2 x i64> %200, %.0168
+  %202 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1172, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %203 = xor <2 x i64> %201, %202
+  %204 = and i64 %.2183, 16
+  %.not194 = icmp eq i64 %204, 0
+  br i1 %.not194, label %212, label %205
 
-206:                                              ; preds = %200
-  %207 = load <2 x i64>, ptr %.2178, align 1, !tbaa !10
-  %208 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %204, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %209 = xor <2 x i64> %208, %207
-  %210 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %204, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %211 = xor <2 x i64> %209, %210
-  %212 = getelementptr inbounds nuw i8, ptr %.2178, i64 16
-  br label %213
+205:                                              ; preds = %199
+  %206 = load <2 x i64>, ptr %.2178, align 1, !tbaa !10
+  %207 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %203, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %208 = xor <2 x i64> %207, %206
+  %209 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %203, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %210 = xor <2 x i64> %208, %209
+  %211 = getelementptr inbounds nuw i8, ptr %.2178, i64 16
+  br label %212
 
-213:                                              ; preds = %20, %206, %200
-  %.1182 = phi i64 [ %.2183, %206 ], [ %.2183, %200 ], [ %2, %20 ]
-  %.1177 = phi ptr [ %212, %206 ], [ %.2178, %200 ], [ %24, %20 ]
-  %.0171 = phi <2 x i64> [ %211, %206 ], [ %204, %200 ], [ %22, %20 ]
-  %214 = and i64 %.1182, 15
-  %.not195 = icmp eq i64 %214, 0
-  br i1 %.not195, label %234, label %215
+212:                                              ; preds = %20, %205, %199
+  %.1182 = phi i64 [ %.2183, %205 ], [ %.2183, %199 ], [ %2, %20 ]
+  %.1177 = phi ptr [ %211, %205 ], [ %.2178, %199 ], [ %24, %20 ]
+  %.0171 = phi <2 x i64> [ %210, %205 ], [ %203, %199 ], [ %22, %20 ]
+  %213 = and i64 %.1182, 15
+  %.not195 = icmp eq i64 %213, 0
+  br i1 %.not195, label %232, label %214
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %214
-  %217 = load <16 x i8>, ptr %216, align 1, !tbaa !10
-  %218 = or disjoint i64 %214, 16
-  %219 = getelementptr inbounds nuw [48 x i8], ptr @shift_tab, i64 0, i64 %218
-  %220 = load <16 x i8>, ptr %219, align 1, !tbaa !10
-  %221 = bitcast <2 x i64> %.0171 to <16 x i8>
-  %222 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %221, <16 x i8> %217)
-  %223 = bitcast <16 x i8> %222 to <2 x i64>
-  %224 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %221, <16 x i8> %220)
-  %225 = getelementptr inbounds nuw i8, ptr %.1177, i64 %214
-  %226 = getelementptr inbounds i8, ptr %225, i64 -16
-  %227 = load <16 x i8>, ptr %226, align 1, !tbaa !10
-  %228 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %224, <16 x i8> %227, <16 x i8> %220)
-  %229 = bitcast <16 x i8> %228 to <2 x i64>
-  %230 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %223, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
-  %231 = xor <2 x i64> %230, %229
-  %232 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %223, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
-  %233 = xor <2 x i64> %231, %232
-  br label %234
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds nuw i8, ptr @shift_tab, i64 %213
+  %216 = load <16 x i8>, ptr %215, align 1, !tbaa !10
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %218 = load <16 x i8>, ptr %217, align 1, !tbaa !10
+  %219 = bitcast <2 x i64> %.0171 to <16 x i8>
+  %220 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %216)
+  %221 = bitcast <16 x i8> %220 to <2 x i64>
+  %222 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %218)
+  %223 = getelementptr inbounds nuw i8, ptr %.1177, i64 %213
+  %224 = getelementptr inbounds i8, ptr %223, i64 -16
+  %225 = load <16 x i8>, ptr %224, align 1, !tbaa !10
+  %226 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %222, <16 x i8> %225, <16 x i8> %218)
+  %227 = bitcast <16 x i8> %226 to <2 x i64>
+  %228 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %221, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %229 = xor <2 x i64> %228, %227
+  %230 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %221, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %231 = xor <2 x i64> %229, %230
+  br label %232
 
-234:                                              ; preds = %215, %213
-  %.4 = phi <2 x i64> [ %233, %215 ], [ %.0171, %213 ]
-  %235 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
-  %236 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %235, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %237 = and <2 x i64> %236, <i64 poison, i64 4294967295>
-  %238 = xor <2 x i64> %237, %.4
-  %239 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %238, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
-  %240 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %239, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
-  %241 = bitcast <2 x i64> %240 to <4 x i32>
-  %242 = extractelement <4 x i32> %241, i64 2
+232:                                              ; preds = %214, %212
+  %.4 = phi <2 x i64> [ %231, %214 ], [ %.0171, %212 ]
+  %233 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.4, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 0)
+  %234 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %233, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %235 = and <2 x i64> %234, <i64 poison, i64 4294967295>
+  %236 = xor <2 x i64> %235, %.4
+  %237 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %236, <2 x i64> <i64 -5411725700111460799, i64 poison>, i8 1)
+  %238 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %237, <2 x i64> <i64 poison, i64 7976584769>, i8 16)
+  %239 = bitcast <2 x i64> %238 to <4 x i32>
+  %240 = extractelement <4 x i32> %239, i64 2
   br label %crc32_slice1.exit
 
-crc32_slice1.exit:                                ; preds = %.lr.ph220, %.preheader, %234
-  %.0157 = phi i32 [ %242, %234 ], [ %0, %.preheader ], [ %18, %.lr.ph220 ]
+crc32_slice1.exit:                                ; preds = %.lr.ph220, %.preheader, %232
+  %.0157 = phi i32 [ %240, %232 ], [ %0, %.preheader ], [ %18, %.lr.ph220 ]
   ret i32 %.0157
 }
 

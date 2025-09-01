@@ -6913,7 +6913,7 @@ _ZNK4decl13get_decl_kindEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
   %82 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !17
-  %84 = getelementptr inbounds nuw [0 x ptr], ptr %79, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !17
   %.not130 = icmp eq ptr %83, %85
   br i1 %.not130, label %80, label %86
@@ -7535,7 +7535,7 @@ _ZN14bv_decl_plugin11get_bv_sizeEP4exprRi.exit.thread: ; preds = %36, %_ZNK4decl
   %83 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv104
   %84 = load ptr, ptr %83, align 8, !tbaa !159
   %85 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %84)
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %62, i64 0, i64 %indvars.iv104
+  %86 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv104
   %87 = load ptr, ptr %86, align 8, !tbaa !17
   %.not78 = icmp eq ptr %85, %87
   br i1 %.not78, label %81, label %88

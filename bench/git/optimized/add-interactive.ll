@@ -618,7 +618,7 @@ define dso_local noundef i32 @run_add_i(ptr noundef %0, ptr noundef %1) local_un
 30:                                               ; preds = %2, %30
   %.02260 = phi i64 [ 0, %2 ], [ %39, %30 ]
   %31 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #18
-  %32 = getelementptr inbounds nuw [8 x %struct.anon], ptr @__const.run_add_i.command_list, i64 0, i64 %.02260
+  %32 = getelementptr inbounds nuw %struct.anon, ptr @__const.run_add_i.command_list, i64 %.02260
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -880,7 +880,7 @@ define internal void @print_command_item(i32 noundef %0, i32 %1, ptr noundef rea
 
 12:                                               ; preds = %10
   %13 = zext i8 %11 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !14
   %16 = and i8 %15, 2
   %.not13.i = icmp eq i8 %16, 0
@@ -2048,7 +2048,7 @@ strbuf_setlen.exit46:                             ; preds = %strbuf_setlen.exit4
 
 29:                                               ; preds = %27
   %30 = zext i8 %28 to i64
-  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = and i8 %32, 2
   %.not13.i = icmp eq i8 %33, 0
@@ -2614,7 +2614,7 @@ sub_0:                                            ; preds = %128
 
 146:                                              ; preds = %139
   %147 = zext i8 %.pre to i64
-  %148 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !14
   %150 = and i8 %149, 2
   %.not107 = icmp eq i8 %150, 0
@@ -2639,7 +2639,7 @@ sub_0:                                            ; preds = %128
   store ptr %161, ptr %5, align 8, !tbaa !12
   %162 = load i8, ptr %161, align 1, !tbaa !14
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !14
   %166 = and i8 %165, 2
   %.not108 = icmp eq i8 %166, 0

@@ -401,9 +401,9 @@ yy_match:                                         ; preds = %yy_match.backedge, 
   %yy_bp.0 = phi ptr [ %25, %while.body ], [ %yy_bp.0.be, %yy_match.backedge ]
   %yy_current_state.0 = phi i32 [ %27, %while.body ], [ %yy_current_state.0.be, %yy_match.backedge ]
   %idxprom183 = sext i32 %yy_current_state.0 to i64
-  %arrayidx51184 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom183
+  %arrayidx51184 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom183
   %idxprom52185 = zext i8 %28 to i64
-  %arrayidx53186 = getelementptr inbounds nuw [128 x i16], ptr %arrayidx51184, i64 0, i64 %idxprom52185
+  %arrayidx53186 = getelementptr inbounds nuw i16, ptr %arrayidx51184, i64 %idxprom52185
   %29 = load i16, ptr %arrayidx53186, align 2
   %conv187 = sext i16 %29 to i32
   %cmp188 = icmp sgt i16 %29, 0
@@ -424,10 +424,10 @@ if.then58:                                        ; preds = %while.body54
 if.end59:                                         ; preds = %if.then58, %while.body54
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %yy_cp.1189, i64 1
   %idxprom = sext i32 %conv190 to i64
-  %arrayidx51 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom
+  %arrayidx51 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom
   %32 = load i8, ptr %incdec.ptr, align 1
   %idxprom52 = zext i8 %32 to i64
-  %arrayidx53 = getelementptr inbounds nuw [128 x i16], ptr %arrayidx51, i64 0, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw i16, ptr %arrayidx51, i64 %idxprom52
   %33 = load i16, ptr %arrayidx53, align 2
   %conv = sext i16 %33 to i32
   %cmp = icmp sgt i16 %33, 0
@@ -450,7 +450,7 @@ yy_find_action:                                   ; preds = %yy_find_action.oute
   %yy_cp.2 = phi ptr [ %add.ptr68, %sw.bb ], [ %yy_cp.2.ph, %yy_find_action.outer ]
   %yy_current_state.2 = phi i32 [ %38, %sw.bb ], [ %yy_current_state.2.ph, %yy_find_action.outer ]
   %idxprom60 = sext i32 %yy_current_state.2 to i64
-  %arrayidx61 = getelementptr inbounds [61 x i16], ptr @_ZL9yy_accept, i64 0, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %idxprom60
   %34 = load i16, ptr %arrayidx61, align 2
   %conv62 = sext i16 %34 to i32
   store ptr %yy_bp.1.ph, ptr %yytext, align 8
@@ -744,15 +744,15 @@ for.body.i:                                       ; preds = %if.then156, %for.in
   br i1 %tobool.not.i75, label %if.else.i, label %if.then.i76
 
 if.then.i76:                                      ; preds = %for.body.i
-  %arrayidx.i77 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom4.i
+  %arrayidx.i77 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i
   %idxprom2.i = zext i8 %71 to i64
-  %arrayidx3.i = getelementptr inbounds nuw [128 x i16], ptr %arrayidx.i77, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw i16, ptr %arrayidx.i77, i64 %idxprom2.i
   %72 = load i16, ptr %arrayidx3.i, align 2
   %conv.i = sext i16 %72 to i32
   br label %if.end.i78
 
 if.else.i:                                        ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i
   %73 = load i32, ptr %arrayidx5.i, align 4
   br label %if.end.i78
 
@@ -776,7 +776,7 @@ for.inc.i:                                        ; preds = %if.then9.i, %if.end
 _ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit: ; preds = %for.inc.i, %if.then156
   %yy_current_state.0.lcssa.i = phi i32 [ %70, %if.then156 ], [ %yy_current_state.1.i, %for.inc.i ]
   %idxprom.i = sext i32 %yy_current_state.0.lcssa.i to i64
-  %arrayidx.i79 = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom.i
+  %arrayidx.i79 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom.i
   %74 = load i32, ptr %arrayidx.i79, align 4
   switch i32 %74, label %if.then5.i80 [
     i32 0, label %yy_find_action.outer.backedge
@@ -854,15 +854,15 @@ for.body.i92:                                     ; preds = %sw.bb192, %for.inc.
   br i1 %tobool.not.i95, label %if.else.i108, label %if.then.i97
 
 if.then.i97:                                      ; preds = %for.body.i92
-  %arrayidx.i98 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom4.i96
+  %arrayidx.i98 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i96
   %idxprom2.i99 = zext i8 %81 to i64
-  %arrayidx3.i100 = getelementptr inbounds nuw [128 x i16], ptr %arrayidx.i98, i64 0, i64 %idxprom2.i99
+  %arrayidx3.i100 = getelementptr inbounds nuw i16, ptr %arrayidx.i98, i64 %idxprom2.i99
   %82 = load i16, ptr %arrayidx3.i100, align 2
   %conv.i101 = sext i16 %82 to i32
   br label %if.end.i102
 
 if.else.i108:                                     ; preds = %for.body.i92
-  %arrayidx5.i109 = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom4.i96
+  %arrayidx5.i109 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i96
   %83 = load i32, ptr %arrayidx5.i109, align 4
   br label %if.end.i102
 
@@ -914,15 +914,15 @@ for.body.i119:                                    ; preds = %sw.bb201, %for.inc.
   br i1 %tobool.not.i122, label %if.else.i135, label %if.then.i124
 
 if.then.i124:                                     ; preds = %for.body.i119
-  %arrayidx.i125 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom4.i123
+  %arrayidx.i125 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i123
   %idxprom2.i126 = zext i8 %91 to i64
-  %arrayidx3.i127 = getelementptr inbounds nuw [128 x i16], ptr %arrayidx.i125, i64 0, i64 %idxprom2.i126
+  %arrayidx3.i127 = getelementptr inbounds nuw i16, ptr %arrayidx.i125, i64 %idxprom2.i126
   %92 = load i16, ptr %arrayidx3.i127, align 2
   %conv.i128 = sext i16 %92 to i32
   br label %if.end.i129
 
 if.else.i135:                                     ; preds = %for.body.i119
-  %arrayidx5.i136 = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom4.i123
+  %arrayidx5.i136 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i123
   %93 = load i32, ptr %arrayidx5.i136, align 4
   br label %if.end.i129
 
@@ -1203,15 +1203,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom4
+  %arrayidx = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4
   %idxprom2 = zext i8 %3 to i64
-  %arrayidx3 = getelementptr inbounds nuw [128 x i16], ptr %arrayidx, i64 0, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw i16, ptr %arrayidx, i64 %idxprom2
   %4 = load i16, ptr %arrayidx3, align 2
   %conv = sext i16 %4 to i32
   br label %if.end
 
 if.else:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4
   %5 = load i32, ptr %arrayidx5, align 4
   br label %if.end
 
@@ -1241,7 +1241,7 @@ for.end:                                          ; preds = %for.inc, %entry
 define noundef i32 @_ZN16veloxtpFlexLexer16yy_try_NUL_transEi(ptr noundef nonnull align 8 captures(none) dereferenceable(732) %this, i32 noundef %yy_current_state) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %yy_current_state to i64
-  %arrayidx = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   switch i32 %0, label %if.then5 [
     i32 0, label %if.end6

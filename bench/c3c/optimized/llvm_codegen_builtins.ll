@@ -552,7 +552,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
   %26 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %5) #8
   %27 = add nuw nsw i32 %.036, 1
   %28 = zext nneg i32 %.036 to i64
-  %29 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %28
   store ptr %26, ptr %29, align 8
   br label %30
 
@@ -565,7 +565,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
   %32 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %6) #8
   %33 = add nuw nsw i32 %.1, 1
   %34 = zext nneg i32 %.1 to i64
-  %35 = getelementptr inbounds nuw [3 x ptr], ptr %10, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %34
   store ptr %32, ptr %35, align 8
   br label %36
 
@@ -891,7 +891,7 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %123) #8
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %32) #8
   %124 = load ptr, ptr %120, align 8
-  %125 = getelementptr inbounds nuw [3 x ptr], ptr %31, i64 0, i64 %indvars.iv877
+  %125 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv877
   store ptr %124, ptr %125, align 8
   %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
   %exitcond880.not = icmp eq i64 %indvars.iv.next878, 3
@@ -2540,9 +2540,9 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   tail call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %15) #8
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #8
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %11, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3191,7 +3191,7 @@ define internal fastcc range(i32 0, 8) i32 @ordering_to_llvm(i32 noundef %0) unn
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.ordering_to_llvm, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ordering_to_llvm, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

@@ -1053,7 +1053,7 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %12 = getelementptr %struct._PyInstruction, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !21
   %14 = sext i32 %13 to i64
-  %15 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %14, i32 2
+  %15 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %14, i32 2
   %16 = load i16, ptr %15, align 2, !tbaa !25
   %.fr = freeze i16 %16
   %17 = and i16 %.fr, 8
@@ -1913,7 +1913,7 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
   %13 = getelementptr %struct._PyInstruction, ptr %10, i64 %indvars.iv.i.i
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = sext i32 %14 to i64
-  %16 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %15, i32 2
+  %16 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %15, i32 2
   %17 = load i16, ptr %16, align 2, !tbaa !25
   %.fr.i.i = freeze i16 %17
   %18 = and i16 %.fr.i.i, 8
@@ -1986,7 +1986,7 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
   %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !17
   %48 = load i32, ptr %46, align 4, !tbaa !21
   %49 = sext i32 %48 to i64
-  %50 = getelementptr [266 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %49, i32 2
+  %50 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %49, i32 2
   %51 = load i16, ptr %50, align 2, !tbaa !25
   %52 = and i16 %51, 1
   %.not.i = icmp eq i16 %52, 0

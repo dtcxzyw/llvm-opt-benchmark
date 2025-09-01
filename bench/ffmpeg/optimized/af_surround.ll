@@ -1245,7 +1245,7 @@ generate_window_func.exit:                        ; preds = %481, %460, %458, %4
 
 549:                                              ; preds = %549, %.preheader1.i
   %indvars.iv.i93 = phi i64 [ 0, %.preheader1.i ], [ %indvars.iv.next.i94, %549 ]
-  %550 = getelementptr inbounds nuw [9 x float], ptr %548, i64 0, i64 %indvars.iv.i93
+  %550 = getelementptr inbounds nuw float, ptr %548, i64 %indvars.iv.i93
   store float %543, ptr %550, align 4, !tbaa !37
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, 9
@@ -1264,7 +1264,7 @@ generate_window_func.exit:                        ; preds = %481, %460, %458, %4
 
 555:                                              ; preds = %555, %.preheader.i96
   %indvars.iv6.i = phi i64 [ 0, %.preheader.i96 ], [ %indvars.iv.next7.i, %555 ]
-  %556 = getelementptr inbounds nuw [9 x float], ptr %554, i64 0, i64 %indvars.iv6.i
+  %556 = getelementptr inbounds nuw float, ptr %554, i64 %indvars.iv6.i
   store float %552, ptr %556, align 4, !tbaa !37
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 9
@@ -1461,7 +1461,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 27:                                               ; preds = %27, %.preheader1.i
   %indvars.iv.i = phi i64 [ 0, %.preheader1.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw [9 x float], ptr %26, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
   store float %24, ptr %28, align 4, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -1480,7 +1480,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 33:                                               ; preds = %33, %.preheader.i
   %indvars.iv6.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next7.i, %33 ]
-  %34 = getelementptr inbounds nuw [9 x float], ptr %32, i64 0, i64 %indvars.iv6.i
+  %34 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv6.i
   store float %30, ptr %34, align 4, !tbaa !37
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond9.not.i = icmp eq i64 %indvars.iv.next7.i, 9
@@ -1522,14 +1522,14 @@ allchannels_spread.exit:                          ; preds = %33, %.loopexit2.i
 
 49:                                               ; preds = %60, %.critedge.i
   %indvars.iv5.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next6.i, %60 ]
-  %50 = getelementptr inbounds nuw [9 x i32], ptr @ch_map, i64 0, i64 %indvars.iv5.i
+  %50 = getelementptr inbounds nuw i32, ptr @ch_map, i64 %indvars.iv5.i
   %51 = load i32, ptr %50, align 4, !tbaa !86
   %52 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %43, i32 noundef %51) #14
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw [9 x float], ptr %44, i64 0, i64 %indvars.iv5.i
+  %55 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv5.i
   %56 = load float, ptr %55, align 4, !tbaa !37
   %57 = load ptr, ptr %45, align 8, !tbaa !84
   %58 = zext nneg i32 %52 to i64
@@ -1578,14 +1578,14 @@ set_input_levels.exit:                            ; preds = %60
 
 75:                                               ; preds = %86, %.critedge.i24
   %indvars.iv5.i25 = phi i64 [ 0, %.critedge.i24 ], [ %indvars.iv.next6.i26, %86 ]
-  %76 = getelementptr inbounds nuw [9 x i32], ptr @ch_map, i64 0, i64 %indvars.iv5.i25
+  %76 = getelementptr inbounds nuw i32, ptr @ch_map, i64 %indvars.iv5.i25
   %77 = load i32, ptr %76, align 4, !tbaa !86
   %78 = tail call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %69, i32 noundef %77) #14
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw [9 x float], ptr %70, i64 0, i64 %indvars.iv5.i25
+  %81 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv5.i25
   %82 = load float, ptr %81, align 4, !tbaa !37
   %83 = load ptr, ptr %71, align 8, !tbaa !89
   %84 = zext nneg i32 %78 to i64
@@ -1820,14 +1820,14 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
 
 45:                                               ; preds = %56, %.critedge.i
   %indvars.iv5.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next6.i, %56 ]
-  %46 = getelementptr inbounds nuw [9 x i32], ptr @ch_map, i64 0, i64 %indvars.iv5.i
+  %46 = getelementptr inbounds nuw i32, ptr @ch_map, i64 %indvars.iv5.i
   %47 = load i32, ptr %46, align 4, !tbaa !86
   %48 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %39, i32 noundef %47) #14
   %49 = icmp sgt i32 %48, -1
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw [9 x float], ptr %40, i64 0, i64 %indvars.iv5.i
+  %51 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv5.i
   %52 = load float, ptr %51, align 4, !tbaa !37
   %53 = load ptr, ptr %41, align 8, !tbaa !84
   %54 = zext nneg i32 %48 to i64
@@ -2006,14 +2006,14 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
 
 44:                                               ; preds = %55, %.critedge.i
   %indvars.iv5.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next6.i, %55 ]
-  %45 = getelementptr inbounds nuw [9 x i32], ptr @ch_map, i64 0, i64 %indvars.iv5.i
+  %45 = getelementptr inbounds nuw i32, ptr @ch_map, i64 %indvars.iv5.i
   %46 = load i32, ptr %45, align 4, !tbaa !86
   %47 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %38, i32 noundef %46) #14
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw [9 x float], ptr %39, i64 0, i64 %indvars.iv5.i
+  %50 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv5.i
   %51 = load float, ptr %50, align 4, !tbaa !37
   %52 = load ptr, ptr %40, align 8, !tbaa !89
   %53 = zext nneg i32 %47 to i64
@@ -4504,13 +4504,13 @@ define internal fastcc void @calculate_factors(ptr readonly captures(none) %.72.
   %10 = getelementptr inbounds nuw i8, ptr %.72.val, i64 176
   %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw [16 x i32], ptr @sc_map, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr @sc_map, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !86
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [9 x float], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds float, ptr %10, i64 %15
   %17 = load float, ptr %16, align 4, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %.72.val, i64 212
-  %19 = getelementptr inbounds [9 x float], ptr %18, i64 0, i64 %15
+  %19 = getelementptr inbounds float, ptr %18, i64 %15
   %20 = load float, ptr %19, align 4, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %.72.val, i64 448
   %22 = load i32, ptr %21, align 8, !tbaa !128

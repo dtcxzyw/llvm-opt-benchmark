@@ -179,11 +179,11 @@ define ptr @dtgtk_gradient_slider_multivalue_new(i32 noundef %0) local_unnamed_a
 
 35:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %36 = getelementptr inbounds nuw [10 x double], ptr %32, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %36, align 8, !tbaa !37
-  %37 = getelementptr inbounds nuw [10 x double], ptr %33, i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %37, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw [10 x i32], ptr %34, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i
   store i32 11, ptr %38, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -294,11 +294,11 @@ define ptr @dtgtk_gradient_slider_multivalue_new_with_color(ptr noundef readonly
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %38 = getelementptr inbounds nuw [10 x double], ptr %34, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %38, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw [10 x double], ptr %35, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %39, align 8, !tbaa !37
-  %40 = getelementptr inbounds nuw [10 x i32], ptr %36, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
   store i32 11, ptr %40, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -452,7 +452,7 @@ define double @dtgtk_gradient_slider_multivalue_get_value(ptr noundef %0, i32 no
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [10 x double], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds double, ptr %5, i64 %6
   %8 = load double, ptr %7, align 8, !tbaa !37
   %9 = fptrunc reassoc nsz arcp contract afn double %8 to float
   %10 = tail call reassoc nsz arcp contract afn float %4(ptr noundef %0, float noundef %9, i32 noundef 2) #14
@@ -483,7 +483,7 @@ define void @dtgtk_gradient_slider_multivalue_get_values(ptr noundef %0, ptr nou
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !34
-  %11 = getelementptr inbounds nuw [10 x double], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !37
   %13 = fptrunc reassoc nsz arcp contract afn double %12 to float
   %14 = tail call reassoc nsz arcp contract afn float %10(ptr noundef nonnull %0, float noundef %13, i32 noundef 2) #14
@@ -533,7 +533,7 @@ define void @dtgtk_gradient_slider_multivalue_set_value(ptr noundef %0, double n
   %20 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %5 ], [ %18, %15 ], [ 0.000000e+00, %11 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds [10 x double], ptr %21, i64 0, i64 %22
+  %23 = getelementptr inbounds double, ptr %21, i64 %22
   store double %20, ptr %23, align 8, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8, !tbaa !16
@@ -637,7 +637,7 @@ define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr nou
 
 36:                                               ; preds = %30, %24, %17
   %37 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %17 ], [ %35, %30 ], [ 0.000000e+00, %24 ]
-  %38 = getelementptr inbounds nuw [10 x double], ptr %9, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   store double %37, ptr %38, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %5, align 8, !tbaa !16
@@ -672,7 +672,7 @@ define void @dtgtk_gradient_slider_multivalue_set_marker(ptr noundef %0, i32 nou
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [10 x i32], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds i32, ptr %6, i64 %7
   store i32 %1, ptr %8, align 4, !tbaa !44
   %9 = tail call i64 @gtk_widget_get_type() #15
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %9) #14
@@ -713,7 +713,7 @@ define void @dtgtk_gradient_slider_multivalue_set_markers(ptr noundef %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !44
-  %13 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -740,7 +740,7 @@ define void @dtgtk_gradient_slider_multivalue_set_resetvalue(ptr noundef %0, dou
   %10 = fpext reassoc nsz arcp contract afn float %9 to double
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds [10 x double], ptr %11, i64 0, i64 %12
+  %13 = getelementptr inbounds double, ptr %11, i64 %12
   store double %10, ptr %13, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 1, ptr %14, align 8, !tbaa !35
@@ -756,7 +756,7 @@ define double @dtgtk_gradient_slider_multivalue_get_resetvalue(ptr noundef %0, i
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [10 x double], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds double, ptr %5, i64 %6
   %8 = load double, ptr %7, align 8, !tbaa !37
   %9 = fptrunc reassoc nsz arcp contract afn double %8 to float
   %10 = tail call reassoc nsz arcp contract afn float %4(ptr noundef %0, float noundef %9, i32 noundef 2) #14
@@ -797,7 +797,7 @@ define void @dtgtk_gradient_slider_multivalue_set_resetvalues(ptr noundef %0, pt
   %14 = fptrunc reassoc nsz arcp contract afn double %13 to float
   %15 = tail call reassoc nsz arcp contract afn float %11(ptr noundef nonnull %0, float noundef %14, i32 noundef 1) #14
   %16 = fpext reassoc nsz arcp contract afn float %15 to double
-  %17 = getelementptr inbounds nuw [10 x double], ptr %7, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   store double %16, ptr %17, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %3, align 8, !tbaa !16
@@ -940,14 +940,14 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw [10 x double], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !37
   %17 = fptrunc reassoc nsz arcp contract afn double %16 to float
   %18 = tail call reassoc nsz arcp contract afn float %4(ptr noundef nonnull %0, float noundef %17, i32 noundef 2) #14
   %19 = tail call reassoc nsz arcp contract afn float %6(ptr noundef nonnull %0, float noundef %18, i32 noundef 1) #14
   %20 = fpext reassoc nsz arcp contract afn float %19 to double
   store double %20, ptr %15, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw [10 x double], ptr %12, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !37
   %23 = fptrunc reassoc nsz arcp contract afn double %22 to float
   %24 = tail call reassoc nsz arcp contract afn float %4(ptr noundef nonnull %0, float noundef %23, i32 noundef 2) #14
@@ -968,7 +968,7 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv60 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next61, %32 ]
-  %33 = getelementptr inbounds nuw [3 x double], ptr %13, i64 0, i64 %indvars.iv60
+  %33 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv60
   %34 = load double, ptr %33, align 8, !tbaa !37
   %35 = fptrunc reassoc nsz arcp contract afn double %34 to float
   %36 = tail call reassoc nsz arcp contract afn float %4(ptr noundef nonnull %0, float noundef %35, i32 noundef 2) #14
@@ -1979,7 +1979,7 @@ _scale_to_screen.exit169:                         ; preds = %187, %190, %192
 
 234:                                              ; preds = %.lr.ph219, %309
   %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %309 ]
-  %235 = getelementptr inbounds nuw [10 x double], ptr %228, i64 0, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw double, ptr %228, i64 %indvars.iv
   %236 = load double, ptr %235, align 8, !tbaa !37
   %237 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
   %.not.i.i.i.i170 = icmp eq i64 %237, 0
@@ -2013,7 +2013,7 @@ _scale_to_screen.exit172:                         ; preds = %234, %238, %240
   %254 = fadd reassoc nsz arcp contract afn double %252, %253
   %255 = fptosi double %254 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %256 = getelementptr inbounds nuw [10 x i32], ptr %230, i64 0, i64 %indvars.iv
+  %256 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv
   %257 = load i32, ptr %256, align 4, !tbaa !44
   %258 = and i32 %257, 8
   %.not155 = icmp eq i32 %258, 0
@@ -2507,7 +2507,7 @@ _get_active_marker_from_screen.exit:              ; preds = %46, %60
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %72 = load i32, ptr %67, align 8, !tbaa !32
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [10 x double], ptr %71, i64 0, i64 %73
+  %74 = getelementptr inbounds double, ptr %71, i64 %73
   %75 = load double, ptr %74, align 8, !tbaa !37
   %76 = fcmp reassoc nsz arcp contract afn ole double %75, %70
   %77 = zext i1 %76 to i32
@@ -2651,7 +2651,7 @@ _get_active_marker.exit:                          ; preds = %DTGTK_GRADIENT_SLID
   %41 = tail call reassoc nsz arcp contract afn fastcc double @_get_position_from_screen(ptr noundef nonnull %0, double noundef %40)
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %43 = sext i32 %28 to i64
-  %44 = getelementptr inbounds [10 x double], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds double, ptr %42, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !37
   %46 = fcmp reassoc nsz arcp contract afn ole double %45, %41
   %47 = zext i1 %46 to i32
@@ -2762,7 +2762,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %38 = load i32, ptr %27, align 8, !tbaa !32
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [10 x double], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds double, ptr %37, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !37
   %42 = fcmp reassoc nsz arcp contract afn ole double %41, %36
   %43 = zext i1 %42 to i32
@@ -3201,7 +3201,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._slider_move, ptr noundef nonnull @.str.9) #14
-  br label %141
+  br label %142
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread124:          ; preds = %13, %DTGTK_IS_GRADIENT_SLIDER.exit
   %17 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -3234,9 +3234,9 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %30 = add nsw i32 %1, -1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [10 x double], ptr %29, i64 0, i64 %31
+  %30 = sext i32 %1 to i64
+  %31 = getelementptr double, ptr %29, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load double, ptr %32, align 8, !tbaa !37
   br label %34
 
@@ -3250,9 +3250,9 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %42 = add nsw i32 %1, 1
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [10 x double], ptr %41, i64 0, i64 %43
+  %42 = sext i32 %1 to i64
+  %43 = getelementptr double, ptr %41, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 8
   %45 = load double, ptr %44, align 8, !tbaa !37
   br label %46
 
@@ -3324,7 +3324,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %88 = sext i32 %84 to i64
-  %89 = getelementptr inbounds [10 x double], ptr %87, i64 0, i64 %88
+  %89 = getelementptr inbounds double, ptr %87, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !37
   br label %91
 
@@ -3350,71 +3350,72 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %105 = phi reassoc nsz arcp contract afn double [ %97, %91 ], [ %., %99 ]
   %106 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %107 = sext i32 %1 to i64
-  %108 = getelementptr inbounds [10 x double], ptr %106, i64 0, i64 %107
+  %108 = getelementptr inbounds double, ptr %106, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !37
-  %110 = sext i32 %84 to i64
-  %111 = getelementptr inbounds [10 x double], ptr %106, i64 0, i64 %110
-  %112 = load double, ptr %111, align 8, !tbaa !37
-  %113 = fsub reassoc nsz arcp contract afn double %112, %105
-  %114 = fsub reassoc nsz arcp contract afn double %112, %109
-  %115 = icmp sgt i32 %1, 1
-  br i1 %115, label %.lr.ph, label %.preheader
+  %110 = sext i32 %83 to i64
+  %111 = getelementptr double, ptr %106, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 -8
+  %113 = load double, ptr %112, align 8, !tbaa !37
+  %114 = fsub reassoc nsz arcp contract afn double %113, %105
+  %115 = fsub reassoc nsz arcp contract afn double %113, %109
+  %116 = icmp sgt i32 %1, 1
+  br i1 %116, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %104
-  %116 = load double, ptr %106, align 8, !tbaa !37
-  %117 = fsub reassoc nsz arcp contract afn double %109, %116
-  %118 = fsub reassoc nsz arcp contract afn double %105, %116
+  %117 = load double, ptr %106, align 8, !tbaa !37
+  %118 = fsub reassoc nsz arcp contract afn double %109, %117
+  %119 = fsub reassoc nsz arcp contract afn double %105, %117
   %wide.trip.count = zext nneg i32 %1 to i64
-  %119 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %117
-  br label %123
+  %120 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %118
+  br label %124
 
-.preheader:                                       ; preds = %123, %104
+.preheader:                                       ; preds = %124, %104
   %.0128 = add nsw i32 %1, 1
-  %120 = icmp slt i32 %.0128, %83
-  br i1 %120, label %.lr.ph130, label %.loopexit
+  %121 = icmp slt i32 %.0128, %83
+  br i1 %121, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %.preheader
-  %121 = sext i32 %.0128 to i64
-  %122 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %114
-  br label %130
+  %122 = sext i32 %.0128 to i64
+  %123 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %115
+  br label %131
 
-123:                                              ; preds = %.lr.ph, %123
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr inbounds nuw [10 x double], ptr %106, i64 0, i64 %indvars.iv
-  %125 = load double, ptr %124, align 8, !tbaa !37
-  %126 = fsub reassoc nsz arcp contract afn double %125, %116
-  %127 = fmul reassoc nsz arcp contract afn double %118, %126
-  %128 = fmul reassoc nsz arcp contract afn double %127, %119
-  %129 = fadd reassoc nsz arcp contract afn double %128, %116
-  store double %129, ptr %124, align 8, !tbaa !37
+124:                                              ; preds = %.lr.ph, %124
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %124 ]
+  %125 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv
+  %126 = load double, ptr %125, align 8, !tbaa !37
+  %127 = fsub reassoc nsz arcp contract afn double %126, %117
+  %128 = fmul reassoc nsz arcp contract afn double %119, %127
+  %129 = fmul reassoc nsz arcp contract afn double %128, %120
+  %130 = fadd reassoc nsz arcp contract afn double %129, %117
+  store double %130, ptr %125, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %123
+  br i1 %exitcond.not, label %.preheader, label %124
 
-130:                                              ; preds = %.lr.ph130, %130
-  %indvars.iv134 = phi i64 [ %121, %.lr.ph130 ], [ %indvars.iv.next135, %130 ]
-  %131 = load double, ptr %111, align 8, !tbaa !37
-  %132 = getelementptr inbounds [10 x double], ptr %106, i64 0, i64 %indvars.iv134
-  %133 = load double, ptr %132, align 8, !tbaa !37
-  %134 = fsub reassoc nsz arcp contract afn double %131, %133
-  %135 = fmul reassoc nsz arcp contract afn double %113, %134
-  %136 = fmul reassoc nsz arcp contract afn double %135, %122
-  %137 = fsub reassoc nsz arcp contract afn double %131, %136
-  store double %137, ptr %132, align 8, !tbaa !37
+131:                                              ; preds = %.lr.ph130, %131
+  %indvars.iv134 = phi i64 [ %122, %.lr.ph130 ], [ %indvars.iv.next135, %131 ]
+  %132 = load double, ptr %112, align 8, !tbaa !37
+  %133 = getelementptr inbounds double, ptr %106, i64 %indvars.iv134
+  %134 = load double, ptr %133, align 8, !tbaa !37
+  %135 = fsub reassoc nsz arcp contract afn double %132, %134
+  %136 = fmul reassoc nsz arcp contract afn double %114, %135
+  %137 = fmul reassoc nsz arcp contract afn double %136, %123
+  %138 = fsub reassoc nsz arcp contract afn double %132, %137
+  store double %138, ptr %133, align 8, !tbaa !37
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next135 to i32
   %exitcond137.not = icmp eq i32 %83, %lftr.wideiv
-  br i1 %exitcond137.not, label %.loopexit, label %130
+  br i1 %exitcond137.not, label %.loopexit, label %131
 
-.loopexit:                                        ; preds = %130, %.preheader, %65, %67, %54, %56, %50, %61, %DTGTK_GRADIENT_SLIDER.exit
-  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %50 ], [ %2, %61 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %130 ]
-  %138 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %139 = sext i32 %1 to i64
-  %140 = getelementptr inbounds [10 x double], ptr %138, i64 0, i64 %139
-  store double %.0105, ptr %140, align 8, !tbaa !37
-  br label %141
+.loopexit:                                        ; preds = %131, %.preheader, %65, %67, %54, %56, %50, %61, %DTGTK_GRADIENT_SLIDER.exit
+  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %50 ], [ %2, %61 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %131 ]
+  %139 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %140 = sext i32 %1 to i64
+  %141 = getelementptr inbounds double, ptr %139, i64 %140
+  store double %.0105, ptr %141, align 8, !tbaa !37
+  br label %142
 
-141:                                              ; preds = %.loopexit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+142:                                              ; preds = %.loopexit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   %.0103 = phi nsz double [ %.0105, %.loopexit ], [ %2, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ]
   ret double %.0103
 }
@@ -3601,7 +3602,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
 17:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.01819 = phi i32 [ -1, %.lr.ph ], [ %.2, %34 ]
-  %18 = getelementptr inbounds nuw [10 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !44
   %.0.in.in.in.i = add i32 %19, %.0.in.in.in.v.i
   %.0.in.in.i = and i32 %.0.in.in.in.i, -10
@@ -3612,12 +3613,12 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
   %21 = icmp slt i32 %.01819, 0
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %21, i32 %22, i32 %.01819
-  %23 = getelementptr inbounds nuw [10 x double], ptr %16, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !37
   %25 = fsub reassoc nsz arcp contract afn double %11, %24
   %26 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %25)
   %27 = zext nneg i32 %spec.select to i64
-  %28 = getelementptr inbounds nuw [10 x double], ptr %16, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr %16, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !37
   %30 = fsub reassoc nsz arcp contract afn double %11, %29
   %31 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %30)
@@ -3687,7 +3688,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_add_delta_internal, ptr noundef nonnull @.str.9) #14
-  br label %55
+  br label %51
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread25:           ; preds = %13, %DTGTK_IS_GRADIENT_SLIDER.exit
   %17 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -3712,47 +3713,43 @@ DTGTK_IS_GRADIENT_SLIDER.exit.thread25:           ; preds = %13, %DTGTK_IS_GRADI
   %27 = fmul reassoc nsz arcp contract afn double %1, %26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %29 = sext i32 %3 to i64
-  %30 = getelementptr inbounds [10 x double], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds double, ptr %28, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !37
   %32 = fadd reassoc nsz arcp contract afn double %27, %31
   %33 = icmp eq i32 %3, 0
-  br i1 %33, label %39, label %34
+  br i1 %33, label %37, label %34
 
 34:                                               ; preds = %22
-  %35 = add nsw i32 %3, -1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [10 x double], ptr %28, i64 0, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !37
-  br label %39
+  %35 = getelementptr i8, ptr %30, i64 -8
+  %36 = load double, ptr %35, align 8, !tbaa !37
+  br label %37
 
-39:                                               ; preds = %34, %22
-  %40 = phi reassoc nsz arcp contract afn double [ %38, %34 ], [ 0.000000e+00, %22 ]
-  %41 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %42 = load i32, ptr %41, align 8, !tbaa !16
-  %43 = add nsw i32 %42, -1
-  %44 = icmp eq i32 %3, %43
-  br i1 %44, label %_clamp_marker.exit, label %45
+37:                                               ; preds = %34, %22
+  %38 = phi reassoc nsz arcp contract afn double [ %36, %34 ], [ 0.000000e+00, %22 ]
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %40 = load i32, ptr %39, align 8, !tbaa !16
+  %41 = add nsw i32 %40, -1
+  %42 = icmp eq i32 %3, %41
+  br i1 %42, label %_clamp_marker.exit, label %43
 
-45:                                               ; preds = %39
-  %46 = add nuw nsw i32 %3, 1
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [10 x double], ptr %28, i64 0, i64 %47
-  %49 = load double, ptr %48, align 8, !tbaa !37
+43:                                               ; preds = %37
+  %44 = getelementptr i8, ptr %30, i64 8
+  %45 = load double, ptr %44, align 8, !tbaa !37
   br label %_clamp_marker.exit
 
-_clamp_marker.exit:                               ; preds = %39, %45
-  %50 = phi reassoc nsz arcp contract afn double [ %49, %45 ], [ 1.000000e+00, %39 ]
-  %51 = fcmp reassoc nsz arcp contract afn ogt double %32, %50
-  %52 = fcmp reassoc nsz arcp contract afn olt double %32, %40
-  %..i = select reassoc nsz arcp contract afn i1 %52, double %40, double %32
-  %53 = select reassoc nsz arcp contract afn i1 %51, double %50, double %..i
-  store double %53, ptr %30, align 8, !tbaa !37
+_clamp_marker.exit:                               ; preds = %43, %37
+  %46 = phi reassoc nsz arcp contract afn double [ %45, %43 ], [ 1.000000e+00, %37 ]
+  %47 = fcmp reassoc nsz arcp contract afn ogt double %32, %46
+  %48 = fcmp reassoc nsz arcp contract afn olt double %32, %38
+  %..i = select reassoc nsz arcp contract afn i1 %48, double %38, double %32
+  %49 = select reassoc nsz arcp contract afn i1 %47, double %46, double %..i
+  store double %49, ptr %30, align 8, !tbaa !37
   tail call void @gtk_widget_queue_draw(ptr noundef nonnull %0) #14
-  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #14
-  tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %54, ptr noundef nonnull @.str.2) #14
-  br label %55
+  %50 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #14
+  tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %50, ptr noundef nonnull @.str.2) #14
+  br label %51
 
-55:                                               ; preds = %_clamp_marker.exit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+51:                                               ; preds = %_clamp_marker.exit, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   ret void
 }
 
